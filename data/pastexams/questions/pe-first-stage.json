@@ -23704,15 +23704,22 @@
       "no": "Ⅰ-1-1",
       "source": {
         "question": "H26/H26_基礎科目.pdf",
-        "page": null,
+        "page": 1,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問文を原典の文に復元"
       }
     },
     {
@@ -23721,15 +23728,22 @@
       "no": "Ⅰ-1-2",
       "source": {
         "question": "H26/H26_基礎科目.pdf",
-        "page": null,
+        "page": 1,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問文の表記を原典に合わせ条件を表に"
       }
     },
     {
@@ -23738,15 +23752,22 @@
       "no": "Ⅰ-1-3",
       "source": {
         "question": "H26/H26_基礎科目.pdf",
-        "page": null,
+        "page": 2,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問文を原典の文に復元"
       }
     },
     {
@@ -23755,15 +23776,22 @@
       "no": "Ⅰ-1-4",
       "source": {
         "question": "H26/H26_基礎科目.pdf",
-        "page": null,
+        "page": 3,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問文を原典の文に復元"
       }
     },
     {
@@ -23772,15 +23800,22 @@
       "no": "Ⅰ-1-5",
       "source": {
         "question": "H26/H26_基礎科目.pdf",
-        "page": null,
+        "page": 3,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問文を原典の文に復元"
       }
     },
     {
@@ -23789,15 +23824,22 @@
       "no": "Ⅰ-1-6",
       "source": {
         "question": "H26/H26_基礎科目.pdf",
-        "page": null,
+        "page": 4,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "(2)の文末を原典どおりに"
       }
     },
     {
@@ -23806,15 +23848,22 @@
       "no": "Ⅰ-2-1",
       "source": {
         "question": "H26/H26_基礎科目.pdf",
-        "page": null,
+        "page": 5,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問文と条件を原典の文に復元"
       }
     },
     {
@@ -23823,15 +23872,22 @@
       "no": "Ⅰ-2-2",
       "source": {
         "question": "H26/H26_基礎科目.pdf",
-        "page": null,
+        "page": 6,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問文を原典の文に復元"
       }
     },
     {
@@ -23840,15 +23896,22 @@
       "no": "Ⅰ-2-3",
       "source": {
         "question": "H26/H26_基礎科目.pdf",
-        "page": null,
+        "page": 7,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問文を原典に合わせ，独自に足した補足を削除"
       }
     },
     {
@@ -23857,15 +23920,22 @@
       "no": "Ⅰ-2-4",
       "source": {
         "question": "H26/H26_基礎科目.pdf",
-        "page": null,
+        "page": 7,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問文と操作定義を原典の文に復元"
       }
     },
     {
@@ -23874,15 +23944,21 @@
       "no": "Ⅰ-2-5",
       "source": {
         "question": "H26/H26_基礎科目.pdf",
-        "page": null,
+        "page": 8,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -23891,15 +23967,22 @@
       "no": "Ⅰ-2-6",
       "source": {
         "question": "H26/H26_基礎科目.pdf",
-        "page": null,
+        "page": 8,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問文を原典の文に復元"
       }
     },
     {
@@ -23908,15 +23991,22 @@
       "no": "Ⅰ-3-1",
       "source": {
         "question": "H26/H26_基礎科目.pdf",
-        "page": null,
+        "page": 9,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "「次の」を補った"
       }
     },
     {
@@ -23925,15 +24015,21 @@
       "no": "Ⅰ-3-2",
       "source": {
         "question": "H26/H26_基礎科目.pdf",
-        "page": null,
+        "page": 9,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -23942,15 +24038,21 @@
       "no": "Ⅰ-3-3",
       "source": {
         "question": "H26/H26_基礎科目.pdf",
-        "page": null,
+        "page": 10,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -23959,15 +24061,21 @@
       "no": "Ⅰ-3-4",
       "source": {
         "question": "H26/H26_基礎科目.pdf",
-        "page": null,
+        "page": 10,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -23976,15 +24084,22 @@
       "no": "Ⅰ-3-5",
       "source": {
         "question": "H26/H26_基礎科目.pdf",
-        "page": null,
+        "page": 11,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問文を原典の文に復元"
       }
     },
     {
@@ -23993,15 +24108,21 @@
       "no": "Ⅰ-3-6",
       "source": {
         "question": "H26/H26_基礎科目.pdf",
-        "page": null,
+        "page": 12,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -24010,15 +24131,22 @@
       "no": "Ⅰ-4-1",
       "source": {
         "question": "H26/H26_基礎科目.pdf",
-        "page": null,
+        "page": 13,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問文と注を原典の文に復元"
       }
     },
     {
@@ -24027,15 +24155,21 @@
       "no": "Ⅰ-4-2",
       "source": {
         "question": "H26/H26_基礎科目.pdf",
-        "page": null,
+        "page": 13,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -24044,15 +24178,22 @@
       "no": "Ⅰ-4-3",
       "source": {
         "question": "H26/H26_基礎科目.pdf",
-        "page": null,
+        "page": 14,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問文と式を原典の文に復元"
       }
     },
     {
@@ -24061,15 +24202,21 @@
       "no": "Ⅰ-4-4",
       "source": {
         "question": "H26/H26_基礎科目.pdf",
-        "page": null,
+        "page": 14,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -24078,15 +24225,22 @@
       "no": "Ⅰ-4-5",
       "source": {
         "question": "H26/H26_基礎科目.pdf",
-        "page": null,
+        "page": 15,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問文を原典の文に復元"
       }
     },
     {
@@ -24095,15 +24249,21 @@
       "no": "Ⅰ-4-6",
       "source": {
         "question": "H26/H26_基礎科目.pdf",
-        "page": null,
+        "page": 15,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -24112,15 +24272,22 @@
       "no": "Ⅰ-5-1",
       "source": {
         "question": "H26/H26_基礎科目.pdf",
-        "page": null,
+        "page": 16,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢1のμmを原典の表記に"
       }
     },
     {
@@ -24129,15 +24296,21 @@
       "no": "Ⅰ-5-2",
       "source": {
         "question": "H26/H26_基礎科目.pdf",
-        "page": null,
+        "page": 16,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -24146,15 +24319,21 @@
       "no": "Ⅰ-5-3",
       "source": {
         "question": "H26/H26_基礎科目.pdf",
-        "page": null,
+        "page": 17,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -24163,15 +24342,21 @@
       "no": "Ⅰ-5-4",
       "source": {
         "question": "H26/H26_基礎科目.pdf",
-        "page": null,
+        "page": 17,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -24180,15 +24365,21 @@
       "no": "Ⅰ-5-5",
       "source": {
         "question": "H26/H26_基礎科目.pdf",
-        "page": null,
+        "page": 17,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -24197,15 +24388,21 @@
       "no": "Ⅰ-5-6",
       "source": {
         "question": "H26/H26_基礎科目.pdf",
-        "page": null,
+        "page": 18,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -24561,15 +24758,21 @@
       "no": "Ⅲ-1",
       "source": {
         "question": "H26/H26_専門_09建設部門.pdf",
-        "page": null,
+        "page": 1,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -24578,15 +24781,21 @@
       "no": "Ⅲ-2",
       "source": {
         "question": "H26/H26_専門_09建設部門.pdf",
-        "page": null,
+        "page": 1,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -24595,15 +24804,21 @@
       "no": "Ⅲ-3",
       "source": {
         "question": "H26/H26_専門_09建設部門.pdf",
-        "page": null,
+        "page": 2,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -24612,15 +24827,21 @@
       "no": "Ⅲ-4",
       "source": {
         "question": "H26/H26_専門_09建設部門.pdf",
-        "page": null,
+        "page": 2,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -24629,15 +24850,21 @@
       "no": "Ⅲ-5",
       "source": {
         "question": "H26/H26_専門_09建設部門.pdf",
-        "page": null,
+        "page": 3,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -24646,15 +24873,22 @@
       "no": "Ⅲ-6",
       "source": {
         "question": "H26/H26_専門_09建設部門.pdf",
-        "page": null,
+        "page": 3,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問文を原典の「下図に示すような長方形ABCDがある。」に修正"
       }
     },
     {
@@ -24663,15 +24897,22 @@
       "no": "Ⅲ-7",
       "source": {
         "question": "H26/H26_専門_09建設部門.pdf",
-        "page": null,
+        "page": 4,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問文を原典どおりに修正（無視するものとする／この片持ばりの先端の）"
       }
     },
     {
@@ -24680,15 +24921,21 @@
       "no": "Ⅲ-8",
       "source": {
         "question": "H26/H26_専門_09建設部門.pdf",
-        "page": null,
+        "page": 5,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -24697,15 +24944,21 @@
       "no": "Ⅲ-9",
       "source": {
         "question": "H26/H26_専門_09建設部門.pdf",
-        "page": null,
+        "page": 6,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -24714,15 +24967,21 @@
       "no": "Ⅲ-10",
       "source": {
         "question": "H26/H26_専門_09建設部門.pdf",
-        "page": null,
+        "page": 6,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -24731,15 +24990,21 @@
       "no": "Ⅲ-11",
       "source": {
         "question": "H26/H26_専門_09建設部門.pdf",
-        "page": null,
+        "page": 7,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -24748,15 +25013,21 @@
       "no": "Ⅲ-12",
       "source": {
         "question": "H26/H26_専門_09建設部門.pdf",
-        "page": null,
+        "page": 7,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -24765,15 +25036,21 @@
       "no": "Ⅲ-13",
       "source": {
         "question": "H26/H26_専門_09建設部門.pdf",
-        "page": null,
+        "page": 8,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -24782,15 +25059,21 @@
       "no": "Ⅲ-14",
       "source": {
         "question": "H26/H26_専門_09建設部門.pdf",
-        "page": null,
+        "page": 8,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -24799,15 +25082,21 @@
       "no": "Ⅲ-15",
       "source": {
         "question": "H26/H26_専門_09建設部門.pdf",
-        "page": null,
+        "page": 8,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -24816,15 +25105,21 @@
       "no": "Ⅲ-16",
       "source": {
         "question": "H26/H26_専門_09建設部門.pdf",
-        "page": null,
+        "page": 9,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -24833,15 +25128,21 @@
       "no": "Ⅲ-17",
       "source": {
         "question": "H26/H26_専門_09建設部門.pdf",
-        "page": null,
+        "page": 9,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -24850,15 +25151,21 @@
       "no": "Ⅲ-18",
       "source": {
         "question": "H26/H26_専門_09建設部門.pdf",
-        "page": null,
+        "page": 9,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -24867,15 +25174,21 @@
       "no": "Ⅲ-19",
       "source": {
         "question": "H26/H26_専門_09建設部門.pdf",
-        "page": null,
+        "page": 10,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -24884,15 +25197,21 @@
       "no": "Ⅲ-20",
       "source": {
         "question": "H26/H26_専門_09建設部門.pdf",
-        "page": null,
+        "page": 10,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -24901,15 +25220,21 @@
       "no": "Ⅲ-21",
       "source": {
         "question": "H26/H26_専門_09建設部門.pdf",
-        "page": null,
+        "page": 11,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -24918,15 +25243,21 @@
       "no": "Ⅲ-22",
       "source": {
         "question": "H26/H26_専門_09建設部門.pdf",
-        "page": null,
+        "page": 11,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -24935,15 +25266,21 @@
       "no": "Ⅲ-23",
       "source": {
         "question": "H26/H26_専門_09建設部門.pdf",
-        "page": null,
+        "page": 12,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -24952,15 +25289,21 @@
       "no": "Ⅲ-24",
       "source": {
         "question": "H26/H26_専門_09建設部門.pdf",
-        "page": null,
+        "page": 12,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -24969,15 +25312,21 @@
       "no": "Ⅲ-25",
       "source": {
         "question": "H26/H26_専門_09建設部門.pdf",
-        "page": null,
+        "page": 13,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -24986,15 +25335,21 @@
       "no": "Ⅲ-26",
       "source": {
         "question": "H26/H26_専門_09建設部門.pdf",
-        "page": null,
+        "page": 13,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -25003,15 +25358,21 @@
       "no": "Ⅲ-27",
       "source": {
         "question": "H26/H26_専門_09建設部門.pdf",
-        "page": null,
+        "page": 14,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -25020,15 +25381,21 @@
       "no": "Ⅲ-28",
       "source": {
         "question": "H26/H26_専門_09建設部門.pdf",
-        "page": null,
+        "page": 14,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -25037,15 +25404,22 @@
       "no": "Ⅲ-29",
       "source": {
         "question": "H26/H26_専門_09建設部門.pdf",
-        "page": null,
+        "page": 15,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢1を「目標年次」に修正"
       }
     },
     {
@@ -25054,15 +25428,21 @@
       "no": "Ⅲ-30",
       "source": {
         "question": "H26/H26_専門_09建設部門.pdf",
-        "page": null,
+        "page": 15,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -25071,15 +25451,21 @@
       "no": "Ⅲ-31",
       "source": {
         "question": "H26/H26_専門_09建設部門.pdf",
-        "page": null,
+        "page": 16,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -25088,15 +25474,21 @@
       "no": "Ⅲ-32",
       "source": {
         "question": "H26/H26_専門_09建設部門.pdf",
-        "page": null,
+        "page": 16,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -25105,15 +25497,21 @@
       "no": "Ⅲ-33",
       "source": {
         "question": "H26/H26_専門_09建設部門.pdf",
-        "page": null,
+        "page": 17,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -25122,15 +25520,21 @@
       "no": "Ⅲ-34",
       "source": {
         "question": "H26/H26_専門_09建設部門.pdf",
-        "page": null,
+        "page": 18,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -25139,15 +25543,21 @@
       "no": "Ⅲ-35",
       "source": {
         "question": "H26/H26_専門_09建設部門.pdf",
-        "page": null,
+        "page": 18,
         "answer": "H30/H30_正答_H23-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
