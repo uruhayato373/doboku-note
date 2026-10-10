@@ -6109,15 +6109,22 @@
       "no": "Ⅰ-1-1",
       "source": {
         "question": "R04/R04_基礎科目.pdf",
-        "page": null,
+        "page": 1,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "(A)(D)の文を原典に"
       }
     },
     {
@@ -6126,15 +6133,21 @@
       "no": "Ⅰ-1-2",
       "source": {
         "question": "R04/R04_基礎科目.pdf",
-        "page": null,
+        "page": 2,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -6143,15 +6156,22 @@
       "no": "Ⅰ-1-3",
       "source": {
         "question": "R04/R04_基礎科目.pdf",
-        "page": null,
+        "page": 2,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "Fa/Fb・z表記・合力の文を原典に"
       }
     },
     {
@@ -6160,15 +6180,21 @@
       "no": "Ⅰ-1-4",
       "source": {
         "question": "R04/R04_基礎科目.pdf",
-        "page": null,
+        "page": 3,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -6177,15 +6203,22 @@
       "no": "Ⅰ-1-5",
       "source": {
         "question": "R04/R04_基礎科目.pdf",
-        "page": null,
+        "page": 3,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "イ(比例/反比例)の空欄を原典どおりに"
       }
     },
     {
@@ -6194,15 +6227,21 @@
       "no": "Ⅰ-1-6",
       "source": {
         "question": "R04/R04_基礎科目.pdf",
-        "page": null,
+        "page": 4,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -6211,15 +6250,22 @@
       "no": "Ⅰ-2-1",
       "source": {
         "question": "R04/R04_基礎科目.pdf",
-        "page": null,
+        "page": 5,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢1,3を原典に"
       }
     },
     {
@@ -6228,15 +6274,21 @@
       "no": "Ⅰ-2-2",
       "source": {
         "question": "R04/R04_基礎科目.pdf",
-        "page": null,
+        "page": 5,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -6245,15 +6297,22 @@
       "no": "Ⅰ-2-3",
       "source": {
         "question": "R04/R04_基礎科目.pdf",
-        "page": null,
+        "page": 6,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "参照順を2,1,1,2,3,4,1,3,4に、解説表を作り直し"
       }
     },
     {
@@ -6262,15 +6321,22 @@
       "no": "Ⅰ-2-4",
       "source": {
         "question": "R04/R04_基礎科目.pdf",
-        "page": null,
+        "page": 7,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問(アのハミング距離・受信列0100110)を原典に、解説を作り直し"
       }
     },
     {
@@ -6279,15 +6345,22 @@
       "no": "Ⅰ-2-5",
       "source": {
         "question": "R04/R04_基礎科目.pdf",
-        "page": null,
+        "page": 8,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "(…)_2の添字"
       }
     },
     {
@@ -6296,15 +6369,21 @@
       "no": "Ⅰ-2-6",
       "source": {
         "question": "R04/R04_基礎科目.pdf",
-        "page": null,
+        "page": 9,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -6313,15 +6392,21 @@
       "no": "Ⅰ-3-1",
       "source": {
         "question": "R04/R04_基礎科目.pdf",
-        "page": null,
+        "page": 10,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -6330,15 +6415,21 @@
       "no": "Ⅰ-3-2",
       "source": {
         "question": "R04/R04_基礎科目.pdf",
-        "page": null,
+        "page": 10,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -6347,15 +6438,22 @@
       "no": "Ⅰ-3-3",
       "source": {
         "question": "R04/R04_基礎科目.pdf",
-        "page": null,
+        "page": 11,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢3,4の文"
       }
     },
     {
@@ -6364,15 +6462,22 @@
       "no": "Ⅰ-3-4",
       "source": {
         "question": "R04/R04_基礎科目.pdf",
-        "page": null,
+        "page": 11,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "受けている"
       }
     },
     {
@@ -6381,15 +6486,21 @@
       "no": "Ⅰ-3-5",
       "source": {
         "question": "R04/R04_基礎科目.pdf",
-        "page": null,
+        "page": 12,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -6398,15 +6509,22 @@
       "no": "Ⅰ-3-6",
       "source": {
         "question": "R04/R04_基礎科目.pdf",
-        "page": null,
+        "page": 13,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "無視できる旨の文を追加"
       }
     },
     {
@@ -6415,15 +6533,21 @@
       "no": "Ⅰ-4-1",
       "source": {
         "question": "R04/R04_基礎科目.pdf",
-        "page": null,
+        "page": 14,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -6432,15 +6556,22 @@
       "no": "Ⅰ-4-2",
       "source": {
         "question": "R04/R04_基礎科目.pdf",
-        "page": null,
+        "page": 14,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "下線位置(1のS,5のN)と解説"
       }
     },
     {
@@ -6449,15 +6580,21 @@
       "no": "Ⅰ-4-3",
       "source": {
         "question": "R04/R04_基礎科目.pdf",
-        "page": null,
+        "page": 14,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -6466,15 +6603,22 @@
       "no": "Ⅰ-4-4",
       "source": {
         "question": "R04/R04_基礎科目.pdf",
-        "page": null,
+        "page": 15,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "試験機から"
       }
     },
     {
@@ -6483,15 +6627,21 @@
       "no": "Ⅰ-4-5",
       "source": {
         "question": "R04/R04_基礎科目.pdf",
-        "page": null,
+        "page": 15,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -6500,15 +6650,21 @@
       "no": "Ⅰ-4-6",
       "source": {
         "question": "R04/R04_基礎科目.pdf",
-        "page": null,
+        "page": 16,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -6517,15 +6673,22 @@
       "no": "Ⅰ-5-1",
       "source": {
         "question": "R04/R04_基礎科目.pdf",
-        "page": null,
+        "page": 17,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢1,2,4の文"
       }
     },
     {
@@ -6534,15 +6697,22 @@
       "no": "Ⅰ-5-2",
       "source": {
         "question": "R04/R04_基礎科目.pdf",
-        "page": null,
+        "page": 17,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢5の文"
       }
     },
     {
@@ -6551,15 +6721,22 @@
       "no": "Ⅰ-5-3",
       "source": {
         "question": "R04/R04_基礎科目.pdf",
-        "page": null,
+        "page": 18,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢4のウをクウェートに"
       }
     },
     {
@@ -6568,15 +6745,22 @@
       "no": "Ⅰ-5-4",
       "source": {
         "question": "R04/R04_基礎科目.pdf",
-        "page": null,
+        "page": 19,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問文と選択肢4(体積)"
       }
     },
     {
@@ -6585,15 +6769,22 @@
       "no": "Ⅰ-5-5",
       "source": {
         "question": "R04/R04_基礎科目.pdf",
-        "page": null,
+        "page": 20,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢1をリスク評価に"
       }
     },
     {
@@ -6602,15 +6793,22 @@
       "no": "Ⅰ-5-6",
       "source": {
         "question": "R04/R04_基礎科目.pdf",
-        "page": null,
+        "page": 20,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・(エ)・選択肢4の並び"
       }
     },
     {
