@@ -1,0 +1,31 @@
+{
+  "kind": "review",
+  "qualification": "all",
+  "cadence": "weekly",
+  "period": {
+    "startDate": "2026-09-28",
+    "endDate": "2026-10-04"
+  },
+  "status": "provisional",
+  "snapshot": "data/business/records/snapshot-2026-10-10T02-04-02-502Z-cf34a170-77ed-4ded-a044-cb8698b4a82d.json",
+  "qualificationsReviewed": [
+    "civil-construction-1",
+    "pe-comprehensive-management",
+    "pe-construction",
+    "rccm"
+  ],
+  "findings": "9/28〜10/4（1級二次10/4の直前週）の自然検索人数は全体3300（前週1631・+102%）、正規URLの1級土木1392・総監168・建設部門59・RCCM70（資格間で合算しない）。Googleクリックは全体421、1級19・総監3・建設1・RCCM0。note CTAクリックは全体184（基線週平均89.5・+105.6%、1級47・総監7・建設5・RCCM2）、演習開始18・完了3。note台帳登録分は8件¥22,660（1級3件¥13,760・他資格0、台帳は10/2まで）。ココナラは0件（1級は10/4後に受付休止）。google流入は1級secondary/r06（5.5→57）・経験記述の字数ツール（9→39）・r04（9.3→33）・2級r07（1→16）が伸びた。EXP-019の初回の案別計測はA表示379・B424・C402でクリック0。note記事PV・KDP・ココナラ閲覧・購入前相談・実受取・費用・作業時間は欠測。",
+  "decision": "4資格の図解→演習→答案の方針を維持し、欠測があるため暫定レビューとして記録する。1級の倍増は試験直前の一時需要として扱い、施策の効果と判定しない。2級二次（10/25）までは2級の直前パック・想定工事バンクの導線を前へ出す（DN-0650）。判断待ち5件を処置し、YouTubeは送客（utm_source=youtube のサイト利用者）を主KPIとして足す（目標は3か月の実測後）。解答速報は2027年の1級一次から。",
+  "nextAction": "(1) DN-0643 でログイン系の取得を10/14までに復旧し、9月のnote売上を確定させてから9月の月次レビューを行う。(2) DN-0650 で2級secondary/r05・guide/overviewのCTAを10/18までに直す。(3) 10/15にEXP-019、10/20にEXP-008を見る。10/17の週次で試験後の1級の落ち方と2級の伸びを分けて読み、10月のnote売上の確定後（11/2以降）にこの記録を訂正する。",
+  "experimentIds": [
+    "EXP-008",
+    "EXP-009",
+    "EXP-011",
+    "EXP-014",
+    "EXP-019"
+  ],
+  "nextReviewDate": "2026-11-02",
+  "schemaVersion": 1,
+  "createdAt": "2026-10-10T02:17:29.237Z",
+  "strategyHash": "efe2531382f59018c338aca8cdeeb530e91a44a642f6c6c1dd6e5b980cc973be"
+}
