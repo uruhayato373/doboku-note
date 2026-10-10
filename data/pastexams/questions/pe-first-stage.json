@@ -1359,8 +1359,17 @@
         "answer": "R07/R07_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "self",
+        "note": "公式の正答訂正（2026-01-19）で本問を選択した受験者全員に得点。当初の正答②は法律名の誤りで成立しない"
       },
       "transcription": {
         "status": "fixed",
@@ -17204,8 +17213,17 @@
         "answer": "R01/R01再_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "self",
+        "note": "公式の正答表で※（選択肢の誤植で的確な選択肢が無く、全受験者に得点）"
       },
       "transcription": {
         "status": "verified",
