@@ -21,6 +21,20 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-0647] 過去問の問題台帳（data/pastexams）を SSOT にし、原典・公式正答・転記照合を問題 ID で結んで CI と iOS 書き出しで止める
+タグ: [コンテンツ品質] [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-10-10]
+
+**起点**: 2026-10-10、iOS 択一アプリ（DN-0453）の前に過去問の品質カードを片づけるにあたり、照合の体制を確かめた。公式の PDF は Drive vault（past-exam-source-pdf）に揃っているが、(1) 記事・問題から原典 PDF を辿れない（1級・2級土木の frontmatter は `sources: cecc-past-exams` だけ）、(2) 公式正答のデータは 1級一次だけが `.claude/state/quality/civil-1-primary-official-keys.json` にあり CI が読まない（2級・技術士一次・総監は無い）、(3) 問題ごとに「いつ・どの原典で照合したか」の記録が無い、(4) `build-ios-quiz-bundle` は未照合の問題を止めない、(5) 在庫台帳は `check-past-exam-inventory` が FAIL 2,112 件（DN-0487）で土木の SHA-256 は 0/104。これまでの転記ミス 81 件・捏造約 240 箇所・DN-0633 はすべて人手で見つかった。
+**やること**:
+1. 問題台帳 `data/pastexams/questions/{exam}.json`（台帳 id `pastexams.question-ledger`）を SSOT にする。キーは今の問題 ID（アプリの学習履歴が紐づく `h26-a-01`・`r07-basic-ⅰ-1-1`・`h21-01`・`r03k-01`）。1 問ごとに原典（在庫台帳のファイルキー・ページ）・公式正答・記事・転記照合の状態（verified / fixed / unverified / no-source と日付・方法）を持つ
+2. 同期スクリプトで演習データ（civil-1・civil-2・pe-first-stage・cem）から行を作り、既存の照合記録を保つ。1級一次の公式正答を state から移す
+3. 検査 `check-past-exam-ledger`: 台帳と演習データの ID の過不足、記事の正答と公式正答の不一致、原典キーの実在を FAIL（ci:true）。照合率は資格ごとに件数で出す（検査した数と対象数）
+4. `build-ios-quiz-bundle` は転記照合が verified/fixed でない問題を含むと止める
+5. 管理画面に資格ごとの照合率と不一致を出す
+6. 在庫台帳の FAIL 2,112 件の原因を直し（DN-0487 を吸収）、土木の原本に SHA-256 を記録する
+**完了条件**: `npm run check-past-exam-ledger` が 4 資格の全問を検査して FAIL 0、iOS 書き出しが未照合で止まることをテストで確かめ、管理画面に照合率が出ている。
+
+
 ### [DN-0643] Mac でログイン系の取得を復旧する（ココナラ・afb・もしもの再ログインと、9 月分の note 売上・アクセス・ココナラ分析の取得）
 タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-10] [期日:2026-10-14]
 
