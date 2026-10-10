@@ -713,6 +713,12 @@
       "reason": "種別・構造: 脱型後の壁面(右端の柱部にセパレータ穴跡が並ぶ)に透明寄りの養生シートが上端から掛かり、左側でホースのノズルが散水している。シートの下部は濃く湿り、壁面とシートの位置関係に矛盾が無い。本文: 『面に散水されシートが密着しているか』に対応し、右端がやや浮く点は点検の観点として許容できる。破綻: 文字・ロゴ・人物の崩れ・溶けた部品は無い。",
       "reviewedAt": "2026-10-10T15:23:03.168Z"
     },
+    "concrete-chief-engineer/textbook-durability/img/photo-crack-ucut-primer": {
+      "sha": "4c9eb5d2803ac6d4",
+      "promptSha": "fd2aa6f6b0021f05",
+      "tool": "Codex",
+      "generatedAt": "2026-10-10T15:34:50.703Z"
+    },
     "concrete-chief-engineer/textbook-mix-design/img/photo-slump-flow": {
       "sha": "1c6acb88729ce5a0",
       "promptSha": "5efbbbb4c241e82c",
@@ -877,6 +883,24 @@
       "verdict": "ok",
       "reason": "擁壁の側面に打重ね層に沿う水平な不連続線が1本通り、線の下に析出物と湿った流下汚れが出ている。セパレータ孔が規則的な格子に並び、文字や二重の部位などの崩れも無く、本文の水平線の特徴と矛盾しない",
       "reviewedAt": "2026-10-07T22:52:26.082Z"
+    },
+    "concrete-diagnostician/textbook-variation/img/photo-honeycomb-dense-rebar": {
+      "sha": "7d53504646d2b252",
+      "promptSha": "67771158eb3b801f",
+      "tool": "Codex",
+      "generatedAt": "2026-10-10T15:33:08.161Z",
+      "verdict": "ok",
+      "reason": "種別・構造: 柱と梁の接合部の隅に、粗骨材が露出して空隙を持ち、モルタルが無い豆板が1か所だけ局所的に出ている。周囲は型枠の跡と気泡孔のある平滑な灰色コンクリートで、柱と梁の取り合いも成り立つ。本文の「配筋が過密な箇所」「局所的」に矛盾しない。鉄筋が見えないのは脱型後なので自然。破綻: 文字・ロゴ・人物は無く、構造の崩れも無い。",
+      "reviewedAt": "2026-10-10T15:35:12.850Z"
+    },
+    "concrete-diagnostician/textbook-variation/img/photo-sand-streak": {
+      "sha": "478affdbd787c55e",
+      "promptSha": "61d6ed8cb767879e",
+      "tool": "Codex",
+      "generatedAt": "2026-10-10T15:32:07.010Z",
+      "verdict": "ok",
+      "reason": "種別・構造: 打放しの壁の鉛直面に、天端から下端まで縦に通る不規則な幅の筋が6本ほど並び、筋の中は細骨材が荒く露出している。パネル目地とセパレータ孔の跡も見え、型枠を外した壁として成り立つ。本文の「鉛直のせき板面の全体に縞が出る」に合う。破綻: 文字・ロゴ・人物は無く、部品の崩れも無い。筋はやや幅広で彫り込んだ溝にも見えるが、砂すじとして誤解は生じない。",
+      "reviewedAt": "2026-10-10T15:35:12.850Z"
     },
     "concrete-diagnostician/textbook-variation/img/photo-surface-bubbles": {
       "sha": "b22b0732bad8821e",

@@ -2067,6 +2067,11 @@
       "tool": "Codex",
       "prompt": "Construction site, a freshly stripped (formwork removed) reinforced concrete wall surface, grey concrete with faint form-tie hole marks, covered with a curing sheet (white-grey nonwoven or blue-green plastic sheet) hung from the top and held tight against the wall surface, the lower part of the sheet visibly dark and damp, a hose or sprinkler nozzle spraying a fine water mist onto the sheet, water droplets running down, no people or only hands, shallow depth of field, overcast daylight, no text, no logos, no faces"
     },
+    "concrete-chief-engineer/textbook-durability/img/photo-crack-ucut-primer": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Close-up of a concrete wall surface with a single crack that has been cut open along its length into a narrow U-shaped groove (about 10 mm wide, clean grey cut edges, dust removed). A gloved hand holds a small flat paintbrush and is brushing a thin layer of clear-to-amber epoxy primer onto the inside and edges of the groove. The primer is visible as a glossy wet sheen only along the groove, the rest of the concrete stays dry and matte grey. Shallow depth of field, soft daylight, construction repair site, no people's faces visible."
+    },
     "concrete-chief-engineer/textbook-mix-design/img/photo-slump-flow": {
       "kind": "ai-generated",
       "tool": "Codex",
@@ -2163,6 +2168,16 @@
       "kind": "ai-generated",
       "tool": "Codex",
       "prompt": "Close-up of the side face of a cast-in-place reinforced concrete retaining wall several years after construction, no machines. A clearly visible cold joint: a single roughly horizontal, slightly wavy discontinuity line running across the wall at mid-height where a lower concrete lift and an upper lift did not bond. Slight colour difference between the lift above and below the line, faint white efflorescence and a damp water stain seeping from the joint line. Form-tie holes in a regular grid. Grey weathered concrete, overcast daylight, no people, no text."
+    },
+    "concrete-diagnostician/textbook-variation/img/photo-honeycomb-dense-rebar": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Photo of a concrete column-beam joint area after formwork removal, where reinforcing bars were densely spaced: a localized honeycomb (rock pocket) defect, a patch roughly 30 cm wide where coarse aggregate stones are exposed with voids between them and no mortar filling, surrounded by otherwise smooth gray concrete with faint form panel marks. The honeycomb is localized to one area near the joint corner, not spread across the whole surface. Shallow depth of field, daylight, no text, no people"
+    },
+    "concrete-diagnostician/textbook-variation/img/photo-sand-streak": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Photo of a freshly stripped, exposed (as-cast) concrete wall surface after formwork removal, with several vertical sand streaks: narrow dark-to-light vertical stripes where fine aggregate (sand) is exposed and cement paste has been washed away, running down the vertical form face from top to bottom, parallel and irregular spacing. Surface otherwise smooth gray concrete with faint form panel texture. Shallow depth of field, side daylight, no text, no people"
     },
     "concrete-diagnostician/textbook-variation/img/photo-surface-bubbles": {
       "kind": "ai-generated",
