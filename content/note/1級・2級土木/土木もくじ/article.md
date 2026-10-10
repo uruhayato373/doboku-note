@@ -52,6 +52,12 @@ https://coconala.com/services/4418785
 
 2級土木の第二次検定と第一次検定（後期）は、どちらも10/25です。残りの期間に合わせて、使う教材を絞れます。
 
+無料で準備の順番を決めたい方は、残り2週間の仕上げ手順と、過去5年から考える出題予想を先に読めます。
+
+https://note.com/dobokunote/n/nc30a5646f239
+
+https://note.com/dobokunote/n/ncad207369238
+
 - **直前の仕上げ**（予想模試3回＋直前暗記ノート＋出題分析） → [二次 直前総仕上げパック](https://note.com/dobokunote/m/md3518107aa97)
 - **経験記述の型がまだ固まっていない**（安全・品質・工程の3テーマ） → [施工経験記述 完成答案集](https://note.com/dobokunote/m/m1881a9578027)
 - **第一次検定の後期を受ける** → [第1次検定 過去問PDF（R03-R07 前期後期 全630問）](https://note.com/dobokunote/n/n4963f45bd6f8)
