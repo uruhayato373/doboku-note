@@ -1,0 +1,21 @@
+{
+  "kind": "measurement",
+  "qualification": "civil-construction-1",
+  "period": {
+    "startDate": "2026-09-28",
+    "endDate": "2026-10-04"
+  },
+  "channel": "GA4",
+  "subject": "aggregate",
+  "coverage": "complete",
+  "source": "GA4 Data API properties/419382901・日本。自然検索人数は期間全体。資格別は正規URL配下、演習は1級土木ツールを含む。",
+  "values": {
+    "organicUsers": 1392,
+    "noteCtaClicks": 47,
+    "quizStarts": 3,
+    "quizCompletions": 1
+  },
+  "schemaVersion": 1,
+  "createdAt": "2026-10-10T02:04:01.422Z",
+  "strategyHash": "efe2531382f59018c338aca8cdeeb530e91a44a642f6c6c1dd6e5b980cc973be"
+}

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-10T01:49:25.286Z",
+  "updated_at": "2026-10-10T02:05:01.739Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -1256,6 +1256,28 @@
           "salesLedgerThrough": "2026-10-02",
           "deltaPct": null,
           "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-10-10T02:05:00.712Z",
+          "specHash": "5ad8dbe14f9d",
+          "metric": "sales.revenue",
+          "pre": {
+            "startDate": "2026-08-19",
+            "endDate": "2026-09-15",
+            "value": 0,
+            "volume": 0
+          },
+          "post": {
+            "startDate": "2026-09-16",
+            "endDate": "2026-10-06",
+            "value": 0,
+            "volume": 0
+          },
+          "complete": false,
+          "salesLedgerThrough": "2026-10-02",
+          "deltaPct": null,
+          "verdictHint": "in-progress"
         }
       ],
       "history": [
@@ -1444,6 +1466,28 @@
           "salesLedgerThrough": "2026-10-02",
           "deltaPct": null,
           "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-10-10T02:05:00.713Z",
+          "specHash": "d28a7d59daa2",
+          "metric": "sales.revenue",
+          "pre": {
+            "startDate": "2026-08-20",
+            "endDate": "2026-09-16",
+            "value": 0,
+            "volume": 0
+          },
+          "post": {
+            "startDate": "2026-09-17",
+            "endDate": "2026-10-06",
+            "value": 5940,
+            "volume": 3
+          },
+          "complete": false,
+          "salesLedgerThrough": "2026-10-02",
+          "deltaPct": null,
+          "verdictHint": "in-progress"
         }
       ],
       "history": [
@@ -1563,6 +1607,27 @@
             "endDate": "2026-10-03",
             "value": 0,
             "volume": 0
+          },
+          "complete": false,
+          "deltaPct": null,
+          "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-10-10T02:05:01.281Z",
+          "specHash": "d3e6f543e588",
+          "metric": "ga4.event:qualification_bridge_click",
+          "pre": {
+            "startDate": "2026-08-28",
+            "endDate": "2026-09-24",
+            "value": 0,
+            "volume": 0
+          },
+          "post": {
+            "startDate": "2026-10-02",
+            "endDate": "2026-10-06",
+            "value": 1,
+            "volume": 1
           },
           "complete": false,
           "deltaPct": null,
@@ -1710,6 +1775,27 @@
           "complete": false,
           "deltaPct": -9.7,
           "verdictHint": "in-progress"
+        },
+        {
+          "source": "auto",
+          "measuredAt": "2026-10-10T02:05:01.738Z",
+          "specHash": "a9136128862a",
+          "metric": "ga4.event:note_cta_click",
+          "pre": {
+            "startDate": "2026-09-05",
+            "endDate": "2026-10-02",
+            "value": 186,
+            "volume": 186
+          },
+          "post": {
+            "startDate": "2026-10-03",
+            "endDate": "2026-10-06",
+            "value": 17,
+            "volume": 17
+          },
+          "complete": false,
+          "deltaPct": -36,
+          "verdictHint": "in-progress"
         }
       ],
       "history": [
@@ -1769,7 +1855,30 @@
         "2026-10-06: 値上げは週次・月次レビューの外で運営者の指示により決めた（対象資格 civil-construction-2 は重点資格外のため businessContext は all）。reviewRecord は直近の月次レビューを指す。次の週次レビュー（/weekly-review）で追認する",
         "2026-10-06: note へ反映（エージェントが note-edit-magazine で4誌＝想定工事バンク ¥6,980・過去問模範答案集 ¥2,980・完成答案集 ¥2,980・二次まるごとの掲載文。保存後の note API で価格一致を確認）。DN-0546"
       ],
-      "measurements": [],
+      "measurements": [
+        {
+          "source": "auto",
+          "measuredAt": "2026-10-10T02:05:01.739Z",
+          "specHash": "16d703541ffa",
+          "metric": "sales.revenue",
+          "pre": {
+            "startDate": "2026-09-08",
+            "endDate": "2026-10-05",
+            "value": 6440,
+            "volume": 3
+          },
+          "post": {
+            "startDate": "2026-10-06",
+            "endDate": "2026-10-06",
+            "value": 0,
+            "volume": 0
+          },
+          "complete": false,
+          "salesLedgerThrough": "2026-10-02",
+          "deltaPct": -100,
+          "verdictHint": "in-progress"
+        }
+      ],
       "history": [
         {
           "at": "2026-10-06T01:59:43.321Z",
@@ -1849,7 +1958,30 @@
         "2026-10-06: 値上げは週次・月次レビューの外で運営者の指示により決めた（対象資格 concrete-chief-engineer は重点資格外のため businessContext は all）。reviewRecord は直近の月次レビューを指す。次の週次レビュー（/weekly-review）で追認する",
         "2026-10-06: note へ反映（エージェントが note-article-price-sweep で40記事を ¥980→¥1,480・API で 40/40 一致、note-reanchor-boundary で40記事の有料境界を「模範答案」へ再設定、note-edit-magazine で18誌の掲載文）。DN-0546"
       ],
-      "measurements": [],
+      "measurements": [
+        {
+          "source": "auto",
+          "measuredAt": "2026-10-10T02:05:01.739Z",
+          "specHash": "8bf703a65759",
+          "metric": "sales.revenue",
+          "pre": {
+            "startDate": "2026-09-08",
+            "endDate": "2026-10-05",
+            "value": 0,
+            "volume": 0
+          },
+          "post": {
+            "startDate": "2026-10-06",
+            "endDate": "2026-10-06",
+            "value": 0,
+            "volume": 0
+          },
+          "complete": false,
+          "salesLedgerThrough": "2026-10-02",
+          "deltaPct": null,
+          "verdictHint": "in-progress"
+        }
+      ],
       "history": [
         {
           "at": "2026-10-06T01:59:43.321Z",
@@ -2129,7 +2261,58 @@
         "weighted": 2.2,
         "basis": "表示9,147/13,880件は実測。クリック増分は未予測。計測配線と許可確認を含むため工数を軽く見積もらない。"
       },
-      "measurements": [],
+      "measurements": [
+        {
+          "source": "auto",
+          "measuredAt": "2026-10-10T02:05:00.710Z",
+          "sourceReport": "data/ga4/reports/2026-10-10.json#affiliate-experiment:2026-10-10T02-04-18",
+          "metric": "affiliate-design",
+          "window": {
+            "startDate": "2026-10-08",
+            "endDate": "2026-10-09"
+          },
+          "variants": [
+            {
+              "variant": "A",
+              "impressions": 379,
+              "clicks": 0,
+              "pageViews": 495,
+              "noteImpressions": 937,
+              "noteClicks": 3,
+              "ctr": 0,
+              "clicksPerPageView": 0,
+              "noteCtr": 0.0032017075773745998,
+              "evidence": "insufficient-data"
+            },
+            {
+              "variant": "B",
+              "impressions": 424,
+              "clicks": 0,
+              "pageViews": 520,
+              "noteImpressions": 919,
+              "noteClicks": 8,
+              "ctr": 0,
+              "clicksPerPageView": 0,
+              "noteCtr": 0.008705114254624592,
+              "evidence": "insufficient-data"
+            },
+            {
+              "variant": "C",
+              "impressions": 402,
+              "clicks": 0,
+              "pageViews": 486,
+              "noteImpressions": 905,
+              "noteClicks": 2,
+              "ctr": 0,
+              "clicksPerPageView": 0,
+              "noteCtr": 0.0022099447513812156,
+              "evidence": "insufficient-data"
+            }
+          ],
+          "verdictHint": "review-required",
+          "note": "取得窓内の案別イベント回数。週次の窓は重複するため足し合わせない。少数・案別の構成差・同一訪問者の複数表示を確認して人が裁定する。A8成果の案別帰属は未取得。"
+        }
+      ],
       "history": [
         {
           "at": "2026-10-08T01:01:51.918Z",
