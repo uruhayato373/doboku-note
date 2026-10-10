@@ -87,6 +87,7 @@
     "check-ig-insights-freshness": "node scripts/check-ig-insights-freshness.mjs",
     "check-cloudflare-metrics-freshness": "node scripts/check-cloudflare-metrics-freshness.mjs",
     "check-afb-outcomes-freshness": "node scripts/check-afb-outcomes-freshness.mjs",
+    "check-note-sync-freshness": "node scripts/check-note-sync-freshness.mjs",
     "fetch-cloudflare-analytics": "node scripts/fetch-cloudflare-analytics.mjs",
     "fetch-cloudflare-zone-config": "node scripts/fetch-cloudflare-zone-config.mjs",
     "check-coconala-blog": "node scripts/check-coconala-blog.mjs",

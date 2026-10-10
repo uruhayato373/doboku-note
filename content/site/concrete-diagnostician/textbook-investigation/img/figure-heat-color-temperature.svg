@@ -1,0 +1,59 @@
+<!-- authored 2026-10-10 doboku-note 自作。題材はコンクリート診断士教材の火災を受けたコンクリートの受熱温度の推定。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="受熱温度の推定。表面の色は約300から600度でピンクから赤、600から900度で灰白色、900度以上で淡黄色に変わる。水酸化カルシウムは約400から600度、炭酸カルシウムは約600から800度で分解する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-lb   { font-size: 11px; fill: #1a3a5c; }
+      .t-tick { font-size: 11px; fill: #555; }
+      .t-ev   { font-size: 11px; fill: #222; }
+      .t-sum  { font-size: 12px; fill: #222; }
+      .b-none { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .b-pink { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .b-grey { fill: #f5f5f5; stroke: #555; stroke-width: 1.5; }
+      .b-buff { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .axis   { stroke: #8a8a8a; stroke-width: 1; }
+      .brk    { stroke: #2e6da4; stroke-width: 2; fill: none; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">表面の色と水和物の分解温度で受熱温度を絞る</text>
+  <text class="t-sec" x="50" y="50">表面の色</text>
+  <text class="t-sec" x="175" y="50">水和物の分解</text>
+
+  <rect class="b-none" x="50" y="322" width="90" height="108"/>
+  <text class="t-lb" x="95" y="380" text-anchor="middle">ほぼ変化なし</text>
+  <rect class="b-pink" x="50" y="214" width="90" height="108"/>
+  <text class="t-lb" x="95" y="272" text-anchor="middle">ピンク〜赤</text>
+  <rect class="b-grey" x="50" y="106" width="90" height="108"/>
+  <text class="t-lb" x="95" y="164" text-anchor="middle">灰白色</text>
+  <rect class="b-buff" x="50" y="70" width="90" height="36"/>
+  <text class="t-lb" x="95" y="93" text-anchor="middle">淡黄色</text>
+
+  <line class="axis" x1="46" y1="430" x2="50" y2="430"/>
+  <text class="t-tick" x="42" y="434" text-anchor="end">0℃</text>
+  <line class="axis" x1="46" y1="322" x2="50" y2="322"/>
+  <text class="t-tick" x="42" y="326" text-anchor="end">300℃</text>
+  <line class="axis" x1="46" y1="214" x2="50" y2="214"/>
+  <text class="t-tick" x="42" y="218" text-anchor="end">600℃</text>
+  <line class="axis" x1="46" y1="106" x2="50" y2="106"/>
+  <text class="t-tick" x="42" y="110" text-anchor="end">900℃</text>
+  <line class="axis" x1="46" y1="70" x2="50" y2="70"/>
+  <text class="t-tick" x="42" y="74" text-anchor="end">1000℃</text>
+
+  <path class="brk" d="M160,286 L160,217"/>
+  <text class="t-ev" x="172" y="248">水酸化カルシウムが分解</text>
+  <text class="t-ev" x="172" y="263">約400〜600℃</text>
+  <path class="brk" d="M160,211 L160,142"/>
+  <text class="t-ev" x="172" y="174">炭酸カルシウムが分解</text>
+  <text class="t-ev" x="172" y="189">約600〜800℃</text>
+
+  <rect class="box-surface" x="20" y="446" width="360" height="48" rx="6"/>
+  <text class="t-sum" x="200" y="466" text-anchor="middle">水酸化カルシウムが見つからない部分は約500℃以上</text>
+  <text class="t-sum" x="200" y="484" text-anchor="middle">放水や降雨で再水和すると、この判定は使えない</text>
+</svg>

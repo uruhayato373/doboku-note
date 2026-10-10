@@ -226,6 +226,7 @@ npm run check-ig-insights-freshness # IG 週次取得の停止とトークン失
 npm run check-cloudflare-metrics-freshness # Cloudflare 日次/月次取得の停止を検知（quality-audit の ops 区分・zone snapshot 3 日超／config 10 日超で FAIL）
 npm run fetch-afb-outcomes         # afb 公式 conversion API で成果（pending/approved/rejected・報酬額）を取得→data/afb/outcomes/（日付別の最新）（`--commit` 必須で書き込み・CI 週次 fetch-metrics.yml。AFB_API_KEY 必須・提携状態スキャンとは別系統）
 npm run check-afb-outcomes-freshness # afb 成果取得の停止を検知（quality-audit の ops 区分・10 日超で FAIL）
+npm run check-note-sync-freshness # Mac の launchd note-sync の停止を検知（data/note/sync-log.json の最新 startedAt・台帳 note.sync-log の freshness 8 日超で FAIL・quality-audit の ops 区分）
 ```
 
 ## 計測・GSC・GA4・期日
