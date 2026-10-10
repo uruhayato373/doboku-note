@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-construction",
+      "headline": [
+        "施工計画・積算",
+        "テーマの読み方"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-construction/sentaku-construction-planning-yomikata/youtube.longform/cover.7295bbd3.png",
+        "sha256": "7295bbd3d73827ec93bb0b1fb5a36c5d66ad4571986dbcc4296ce3040a1cd379",
+        "specSha256": "bf813fb2b1b684255e5ac84e176ba9b541c9e30598b0eaf8a6e2b8e4afb18fc5"
+      }
+    }
+  }
+}

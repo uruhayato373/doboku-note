@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "thinking",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/gakka-kussaku-tsumikomi-kikai/youtube.longform/cover.55892596.png",
-        "sha256": "55892596a84ee2b86ba72f440d120ab4ac21b75edd42701665768174d7a4f94a",
-        "specSha256": "52bcdce5a4eb1230a34b3cb4446a7ffd7f6a0f272f284a67770457cf1bebe08e"
+        "path": ".tmp/media/civil-construction-1/gakka-kussaku-tsumikomi-kikai/youtube.longform/cover.7865a7e7.png",
+        "sha256": "7865a7e72cfa34d4fb33a1121e61ca18018ca15a923e5ca81ec887a81d62f187",
+        "specSha256": "956db42b69dc7ae6622da06f850472d94f13cda7078ec122e5d7d8ad3873c8a6"
       }
     },
     "point-bulldozer-1": {
@@ -31,13 +36,18 @@
       "accentLine": 2,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/gakka-kussaku-tsumikomi-kikai/youtube.short.point-bulldozer-1/cover.f285c68a.png",
-        "sha256": "f285c68a061f743c408de0cb4328ffbd98ac9de0227ddab65b62951270651c5d",
-        "specSha256": "9a87f616d767f9abbacb669aea273abe3cd3743c7ce10514028b8e514a9e1aed"
+        "path": ".tmp/media/civil-construction-1/gakka-kussaku-tsumikomi-kikai/youtube.short.point-bulldozer-1/cover.4366535c.png",
+        "sha256": "4366535cc97c2d1d01fa025c30dd7d5df270abe8aefb9495b358816b9769cb31",
+        "specSha256": "8422f106f5ae60fe2689fe1fe5234d695f7e2af9b7a5826ffee7a599e0d3d620"
       }
     },
     "point-shovel-2": {
@@ -51,13 +61,18 @@
       "accentLine": 2,
       "subtitle": "",
       "character": {
-        "pose": "thinking",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/gakka-kussaku-tsumikomi-kikai/youtube.short.point-shovel-2/cover.82e8918f.png",
-        "sha256": "82e8918f7a11f1cc339013fffdf235aeb63dbea0c7fe0879e32388b4b3c4c9f0",
-        "specSha256": "6cb77f7213419f0ff385f65dfe91b7d98b92624417553ec4ec637b7826ab1e10"
+        "path": ".tmp/media/civil-construction-1/gakka-kussaku-tsumikomi-kikai/youtube.short.point-shovel-2/cover.781a250c.png",
+        "sha256": "781a250c6365efedfca03a0a2eb437b9980b148270e3efaed1074a38834b9910",
+        "specSha256": "a416ef2cf01138db994de56adb3c8b1e82961b4339e253b8fa4b106bf506fe97"
       }
     }
   }

@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "thinking",
+        "pose": "pop-pointing",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "compare",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/gakka-kotei-kanri-kiso/youtube.longform/cover.1bac1096.png",
-        "sha256": "1bac1096ed588137a9b62c50983e9568b199435470a582c4966d836af42ffcf2",
-        "specSha256": "3a4db4e8f8bd9ca427492dc43ef9a0cb6a6b0117d8d58610a58a3f2716df4c7e"
+        "path": ".tmp/media/civil-construction-1/gakka-kotei-kanri-kiso/youtube.longform/cover.481fc173.png",
+        "sha256": "481fc173ab8440b8244bebcb699f165729702e54341af689002b97fc1bbdbe9d",
+        "specSha256": "0bbedf2205ffe989468195199fd28fed558870f5b316b8511ac446a33adb9593"
       }
     },
     "point-step1-1": {
@@ -30,13 +35,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/gakka-kotei-kanri-kiso/youtube.short.point-step1-1/cover.ecedb449.png",
-        "sha256": "ecedb449b7bd34f268af7c0525f8d04a178c44b71b2dc729c7995f461751d7d1",
-        "specSha256": "0874b65b66d36435fb7ea22db2a377b13f8b44ac47395b18ee83bcdaa50b9766"
+        "path": ".tmp/media/civil-construction-1/gakka-kotei-kanri-kiso/youtube.short.point-step1-1/cover.66faba34.png",
+        "sha256": "66faba340eb06d16629eb1d1c905fb8e025c72b7857baaadc3c6ef54a31905d4",
+        "specSha256": "4d1d15e433fba741bc43a0010975607211f5c4983094d33a019cd5969f6ee0ce"
       }
     },
     "point-step2-2": {
@@ -49,13 +59,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/gakka-kotei-kanri-kiso/youtube.short.point-step2-2/cover.2138ea24.png",
-        "sha256": "2138ea243ea9600870fd8df93443df7325641986beb94a057eaff972728d70f4",
-        "specSha256": "4272b69ce1c307872e65bca7b0e90c3923b4971badb74cdba56a2ecfcfbc8b52"
+        "path": ".tmp/media/civil-construction-1/gakka-kotei-kanri-kiso/youtube.short.point-step2-2/cover.92e3d8e3.png",
+        "sha256": "92e3d8e3e671e7340ced760cb4ddb8420bb979327608dd9c126b3261de685b47",
+        "specSha256": "1b49328dd513620ceb93ef133ed36ee893d7be744dc04b9c1ce0af92fdd1d65f"
       }
     }
   }

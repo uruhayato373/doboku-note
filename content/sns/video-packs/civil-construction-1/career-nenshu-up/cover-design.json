@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "good-sign",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/career-nenshu-up/youtube.longform/cover.25089836.png",
-        "sha256": "2508983618808849af629a1e3fefd1f2873353d3255344e55b2352c0ddf28a61",
-        "specSha256": "bd9eeeed31cc9824a85a695096d8cab6e76103fd9ff1cad84156814038c172e8"
+        "path": ".tmp/media/civil-construction-1/career-nenshu-up/youtube.longform/cover.0c07e2db.png",
+        "sha256": "0c07e2dbd58fd3457538bd24c3e137464beffe29da3a2c6ca78d54250a5fb6f0",
+        "specSha256": "8b41c898f2fb8c811a306719c197141ada399d457019fcd0833e7e42ad709764"
       }
     },
     "point-step1-1": {
@@ -30,13 +35,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "wave",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/career-nenshu-up/youtube.short.point-step1-1/cover.ade6ee0b.png",
-        "sha256": "ade6ee0b07dbfd963a903bf07116fa7aab7312790b00a3daa8ac53d525e3acc7",
-        "specSha256": "f48a3784477581bd051f7da6790635b55c90620302eacfc89188a32aa7451c22"
+        "path": ".tmp/media/civil-construction-1/career-nenshu-up/youtube.short.point-step1-1/cover.fa9f29ab.png",
+        "sha256": "fa9f29ab1841877827a80c89083cb50488e9817d36e8c4522e83fe8551cbacd3",
+        "specSha256": "de3f27aecd855d4538b96ef2097e2824f5718bae6eaf2bc6dfa2ee752480dfa8"
       }
     },
     "point-step2-2": {
@@ -49,13 +59,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "good-sign",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/career-nenshu-up/youtube.short.point-step2-2/cover.323b4e31.png",
-        "sha256": "323b4e318fb4cbe8803bb5f9f0e15f62fc50d08987b1c4ed11deceee699ec1c3",
-        "specSha256": "5dbba0c52d839cb707a46eb02c13becff3cacca3d3ee5e1fd13048e27a81b7de"
+        "path": ".tmp/media/civil-construction-1/career-nenshu-up/youtube.short.point-step2-2/cover.f8d5a6c0.png",
+        "sha256": "f8d5a6c0e49ca4b39711bb4d3fd5d3e53637b699a947d001fb6a3cd28fcb8e42",
+        "specSha256": "920709f4e4aae497b0fa2618d5a46137866de88cd60ec829441f10a54dbeb9d1"
       }
     }
   }

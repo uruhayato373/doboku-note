@@ -1,0 +1,570 @@
+{
+  "schemaVersion": 1,
+  "scope": "pe-construction",
+  "media": [
+    {
+      "id": "pe-construction/competency-r8-taiou/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "d88af5bc3a68bc97c536689b57756b9219b21c152cfabf3f9c64dc8a488e268e",
+      "bytes": 930639,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/competency-r8-taiou/youtube.longform/cover.d88af5bc.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/pe-construction/competency-r8-taiou/cover-design.json#covers/longform",
+        "specSha256": "319a3b82df0c98ce5d1467fe5e010f301c25d727db994d53b02a539adf014920"
+      },
+      "legacyPaths": []
+    },
+    {
+      "id": "pe-construction/gakushuu-schedule-gyakusan/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "0fb4d6a7ae0ba8db1808ad6c4bb2feb488aa066f070b71faddb1cd535470f145",
+      "bytes": 697902,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/gakushuu-schedule-gyakusan/youtube.longform/cover.0fb4d6a7.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/pe-construction/gakushuu-schedule-gyakusan/cover-design.json#covers/longform",
+        "specSha256": "039de77696a587bbe4f9841d73626e9f5e183be7702e14c1c9925c8a29dc22a9"
+      },
+      "legacyPaths": []
+    },
+    {
+      "id": "pe-construction/hissu1-bosai-kyoujinka/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "75085760e73f45fcc7e613b46d4628bbef49aca04d854b392df69da492c6029a",
+      "bytes": 927013,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/hissu1-bosai-kyoujinka/youtube.longform/cover.75085760.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/pe-construction/hissu1-bosai-kyoujinka/cover-design.json#covers/longform",
+        "specSha256": "99e6fb656f8c55364b6ee24c89a9fb81b8658711044989b10479361c24a5591b"
+      },
+      "legacyPaths": []
+    },
+    {
+      "id": "pe-construction/hissu1-carbon-neutral/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "6027c39fb774d93b23bc95ad4d4b3551d592ab8c5ed21bfa5fb12ac6d1d137d8",
+      "bytes": 926086,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/hissu1-carbon-neutral/youtube.longform/cover.6027c39f.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/pe-construction/hissu1-carbon-neutral/cover-design.json#covers/longform",
+        "specSha256": "b25ada1de464ccf38c00ed04b478c98362bc121091da3baca37850f24fad70ab"
+      },
+      "legacyPaths": []
+    },
+    {
+      "id": "pe-construction/hissu1-infra-roukyuuka/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "dbb62e846d6d89bbad6b2491635cedaafc6c4cad0ba6b82b5125abce25897bfc",
+      "bytes": 700053,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/hissu1-infra-roukyuuka/youtube.longform/cover.dbb62e84.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/pe-construction/hissu1-infra-roukyuuka/cover-design.json#covers/longform",
+        "specSha256": "2f7d2c4b1734baf3318c35d919455b4d2cc63a6d17e2515070598f7df52cf51a"
+      },
+      "legacyPaths": []
+    },
+    {
+      "id": "pe-construction/hissu1-kensetsu-dx/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "0f8de5126b348a3ddda5e0674b768c6840849d9dede4e8bb7a07886de6017cdf",
+      "bytes": 912099,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/hissu1-kensetsu-dx/youtube.longform/cover.0f8de512.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/pe-construction/hissu1-kensetsu-dx/cover-design.json#covers/longform",
+        "specSha256": "90a30259db4daaf0e50bf0bda0dceb02b97a55012208e416b6047e4227edbe21"
+      },
+      "legacyPaths": []
+    },
+    {
+      "id": "pe-construction/hissu1-kokudo-chiiki/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "5c7c6c521558760f7f6db16509d4dc02305769de3edf4d54d14f89877caab91b",
+      "bytes": 694622,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/hissu1-kokudo-chiiki/youtube.longform/cover.5c7c6c52.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/pe-construction/hissu1-kokudo-chiiki/cover-design.json#covers/longform",
+        "specSha256": "8b9e810b450dccb5ede4bd7c592d529e2dde78e7efaf0ecf09b79087a8fa1315"
+      },
+      "legacyPaths": []
+    },
+    {
+      "id": "pe-construction/hissu1-ninaite-seisansei/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "aa77c1ade077afabbc98176a7a6982c1f5039a3b94f7db32c5dcbd53d5dc257c",
+      "bytes": 688101,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/hissu1-ninaite-seisansei/youtube.longform/cover.aa77c1ad.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/pe-construction/hissu1-ninaite-seisansei/cover-design.json#covers/longform",
+        "specSha256": "ade85dc05c1fa193b806f72ec98d04ea9a0e860a34dcc465f1a2c6ca09458b51"
+      },
+      "legacyPaths": []
+    },
+    {
+      "id": "pe-construction/hissu1-theme-map/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "3f62b7cf7a3b4ced2f59aa878ee51c7734b19c637860c4c035ab226c00298803",
+      "bytes": 695564,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/hissu1-theme-map/youtube.longform/cover.3f62b7cf.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/pe-construction/hissu1-theme-map/cover-design.json#covers/longform",
+        "specSha256": "e742205cf298533c7b4d0f13a9360aa711460614e662bf131d1ec64c25d7ecf5"
+      },
+      "legacyPaths": [
+        ".tmp/media/pe-construction/hissu1-theme-map/youtube.longform/cover.aa3fda1a.png"
+      ]
+    },
+    {
+      "id": "pe-construction/kaitourei-tsukaikata/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "b87692fcfeebb3b5a5a3596b9d2a79831c53252af091fd056c0e10a7b7e28d1e",
+      "bytes": 841529,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/kaitourei-tsukaikata/youtube.longform/cover.b87692fc.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/pe-construction/kaitourei-tsukaikata/cover-design.json#covers/longform",
+        "specSha256": "3892610dbddd4bebbd2452feb965c1d5b57fd05d04e7d9b7990b4460d2c64230"
+      },
+      "legacyPaths": []
+    },
+    {
+      "id": "pe-construction/keirekihyo-kakikata/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "7238a9447a5564dbb63c9659c987523850c8ca556ec26d5920a45d6412b25d50",
+      "bytes": 917939,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/keirekihyo-kakikata/youtube.longform/cover.7238a944.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/pe-construction/keirekihyo-kakikata/cover-design.json#covers/longform",
+        "specSha256": "4d2d261ff1706fd80dda8fe13b2918f19d1515ab87fb8a13f4416f7db81948ab"
+      },
+      "legacyPaths": []
+    },
+    {
+      "id": "pe-construction/kensetsu-pe-career-kachi/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "4132c90a413ef31b32bef221b8583b235d819f961c63739900d1e88abd5d424d",
+      "bytes": 700551,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/kensetsu-pe-career-kachi/youtube.longform/cover.4132c90a.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/pe-construction/kensetsu-pe-career-kachi/cover-design.json#covers/longform",
+        "specSha256": "7912cf0ea7d6153c913d7b5023d37aa5c2bf7e36408cf2ad8e07e246889edf54"
+      },
+      "legacyPaths": []
+    },
+    {
+      "id": "pe-construction/nanido-goukakuritsu-shindan/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "6c517b09c5110f80f86fa18e01489c867ab541fe8c8b480a7069e5fd036f096d",
+      "bytes": 708565,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/nanido-goukakuritsu-shindan/youtube.longform/cover.6c517b09.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/pe-construction/nanido-goukakuritsu-shindan/cover-design.json#covers/longform",
+        "specSha256": "3e1d4916d113e5f0f3c234171db9faf18a2d4121c6aae1454f2e5c40ebf99dd7"
+      },
+      "legacyPaths": []
+    },
+    {
+      "id": "pe-construction/r8-yosou-dashikata/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "0356416542f9a95dce5a604dbdf89eaccc541383cb481606e83c6046b1e5b666",
+      "bytes": 702321,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/r8-yosou-dashikata/youtube.longform/cover.03564165.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/pe-construction/r8-yosou-dashikata/cover-design.json#covers/longform",
+        "specSha256": "54c2aa7f07d449df0ff6c3777dc8bb0b94ad027ae83dbf7a6eb74ae962210751"
+      },
+      "legacyPaths": []
+    },
+    {
+      "id": "pe-construction/secondary-study-houhou/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "61977b3187cfe54732f0421145f620147d6d4c12a9eef321744eaa434ec7daac",
+      "bytes": 853968,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/secondary-study-houhou/youtube.longform/cover.61977b31.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/pe-construction/secondary-study-houhou/cover-design.json#covers/longform",
+        "specSha256": "356852b7aeec1bc276c50ee01dd85d8d7701c680da5c0ffa81fe72501cbc22bc"
+      },
+      "legacyPaths": []
+    },
+    {
+      "id": "pe-construction/sentaku-construction-planning-yomikata/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "7295bbd3d73827ec93bb0b1fb5a36c5d66ad4571986dbcc4296ce3040a1cd379",
+      "bytes": 689482,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-construction-planning-yomikata/youtube.longform/cover.7295bbd3.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/pe-construction/sentaku-construction-planning-yomikata/cover-design.json#covers/longform",
+        "specSha256": "bf813fb2b1b684255e5ac84e176ba9b541c9e30598b0eaf8a6e2b8e4afb18fc5"
+      },
+      "legacyPaths": []
+    },
+    {
+      "id": "pe-construction/sentaku-environment-yomikata/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "bee42aedbf92cd97cc4a3fe9e547bbd0eff5d1970cc82bb0abfee8e35e7de628",
+      "bytes": 686733,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-environment-yomikata/youtube.longform/cover.bee42aed.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/pe-construction/sentaku-environment-yomikata/cover-design.json#covers/longform",
+        "specSha256": "f04bbe9af93db0831fa1344a7a673cb2de4acbc2dc65ffd0de3cded43e5295ab"
+      },
+      "legacyPaths": []
+    },
+    {
+      "id": "pe-construction/sentaku-geotechnical-yomikata/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "8908d7ced7700903f9a2db7031c719c492532dec7128f88f9c8af5268cc02480",
+      "bytes": 684742,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-geotechnical-yomikata/youtube.longform/cover.8908d7ce.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/pe-construction/sentaku-geotechnical-yomikata/cover-design.json#covers/longform",
+        "specSha256": "aad55e085e509eafb4e2d6c184e6be7dc36d3d5be27c4f066830ac0b75519d9d"
+      },
+      "legacyPaths": []
+    },
+    {
+      "id": "pe-construction/sentaku-kakiwake-3type/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "1075b97db5ecea103d35fff678507762d4d0709307cbbf5782baf8f7ba097ad0",
+      "bytes": 916852,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-kakiwake-3type/youtube.longform/cover.1075b97d.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/pe-construction/sentaku-kakiwake-3type/cover-design.json#covers/longform",
+        "specSha256": "6e49844ec8a5faf9823e1f1d9d023ef36f8b1ef9c12510ea5f4334243983dc6b"
+      },
+      "legacyPaths": [
+        ".tmp/media/pe-construction/sentaku-kakiwake-3type/youtube.longform/cover.9464715e.png"
+      ]
+    },
+    {
+      "id": "pe-construction/sentaku-port-airport-yomikata/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "db897571563a9483d9ffe5ccfcfaebe851c92a15b194847cdc6e01efec3dfd77",
+      "bytes": 687356,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-port-airport-yomikata/youtube.longform/cover.db897571.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/pe-construction/sentaku-port-airport-yomikata/cover-design.json#covers/longform",
+        "specSha256": "baec3560a95dd9ad8a0ee71a3e49781fd6826fbbd3fb1d0442f41199d1d1b727"
+      },
+      "legacyPaths": []
+    },
+    {
+      "id": "pe-construction/sentaku-power-civil-yomikata/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "d98d453b919187429f464455f9c08621ce891c951249bf0ddfe86da8973b53e2",
+      "bytes": 680232,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-power-civil-yomikata/youtube.longform/cover.d98d453b.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/pe-construction/sentaku-power-civil-yomikata/cover-design.json#covers/longform",
+        "specSha256": "340b79245bfc6ee3ec53c4a956e94fbae739131804ffe3d823665725fde9fa9e"
+      },
+      "legacyPaths": []
+    },
+    {
+      "id": "pe-construction/sentaku-railway-yomikata/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "2f9898378d7697858c5332fc9cdd5495717203246d42f2443e1100a680527e1d",
+      "bytes": 679857,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-railway-yomikata/youtube.longform/cover.2f989837.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/pe-construction/sentaku-railway-yomikata/cover-design.json#covers/longform",
+        "specSha256": "a2b0d12ab6e5ad84f4a5a7807f91bf389aa05cf7434ee123edd62c96587e37a6"
+      },
+      "legacyPaths": []
+    },
+    {
+      "id": "pe-construction/sentaku-river-coast-yomikata/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "4dd88454b119b1d98b08f1d7589f66b5cd6360991f25c69106d31f0398eda442",
+      "bytes": 695394,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-river-coast-yomikata/youtube.longform/cover.4dd88454.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/pe-construction/sentaku-river-coast-yomikata/cover-design.json#covers/longform",
+        "specSha256": "f04ef5dc101d7c0fe4fbef59bf653805cd05f32637d897f2173272e8885f67fc"
+      },
+      "legacyPaths": []
+    },
+    {
+      "id": "pe-construction/sentaku-road-yomikata/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "4b50f020433135550d86e400c8e271300fa93c4c411bc701ee09289bc40a198a",
+      "bytes": 678008,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-road-yomikata/youtube.longform/cover.4b50f020.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/pe-construction/sentaku-road-yomikata/cover-design.json#covers/longform",
+        "specSha256": "3a1dcbb93d2aa6130dc101a57cca2cc0745021ca1f21c8137e49a0979f1f6f5a"
+      },
+      "legacyPaths": []
+    },
+    {
+      "id": "pe-construction/sentaku-steel-concrete-yomikata/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "dd324ac1a547e45e24b219095c71407cf7bfa0cd1f7fa0651331a09ff0398964",
+      "bytes": 693827,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-steel-concrete-yomikata/youtube.longform/cover.dd324ac1.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/pe-construction/sentaku-steel-concrete-yomikata/cover-design.json#covers/longform",
+        "specSha256": "cccf3b8bd2526ff23415f720e32801f240773b7ff0e752833a34b8bf7fe52e02"
+      },
+      "legacyPaths": []
+    },
+    {
+      "id": "pe-construction/sentaku-tunnel-yomikata/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "232cab59134a9242c9c1dd31fd4d28c0d1de14116a661c6788ebd09c1f7a25b7",
+      "bytes": 681316,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-tunnel-yomikata/youtube.longform/cover.232cab59.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/pe-construction/sentaku-tunnel-yomikata/cover-design.json#covers/longform",
+        "specSha256": "57cf0eda76471bc4fd3e4381873cbc058f4ee75bb9009326c346d9255c702c0b"
+      },
+      "legacyPaths": []
+    },
+    {
+      "id": "pe-construction/sentaku-urban-planning-yomikata/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "43dc4644d9f485d1ef3505a0c706711b61443af6947a793677512a6d20fee246",
+      "bytes": 681211,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/sentaku-urban-planning-yomikata/youtube.longform/cover.43dc4644.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/pe-construction/sentaku-urban-planning-yomikata/cover-design.json#covers/longform",
+        "specSha256": "b39215f6d8dcdfd881dcf4e984d955e5963ae3c8a8ad0d7fe8c1d57c0e5eb0f7"
+      },
+      "legacyPaths": []
+    },
+    {
+      "id": "pe-construction/toan-kousei-template/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "82f30dc5208e80e21a9d9eaee68269a027bd83f5684226be8d3c373626e94227",
+      "bytes": 920214,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/toan-kousei-template/youtube.longform/cover.82f30dc5.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/pe-construction/toan-kousei-template/cover-design.json#covers/longform",
+        "specSha256": "adc211d3abc1d22dbf40cd9476aefd2b67597a4e4f1d24c06d4af063098b46ed"
+      },
+      "legacyPaths": []
+    }
+  ]
+}

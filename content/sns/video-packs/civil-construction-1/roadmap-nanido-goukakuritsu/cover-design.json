@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "reading",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "plan",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/roadmap-nanido-goukakuritsu/youtube.longform/cover.88b77056.png",
-        "sha256": "88b77056ac1eb9af2da71ac7770bc4d94eb0446962d0ea874fab54c9ee8aee52",
-        "specSha256": "0beceb480b0a41639caf649450d660555e75b0d2aaff1b61151eba54478c0bf2"
+        "path": ".tmp/media/civil-construction-1/roadmap-nanido-goukakuritsu/youtube.longform/cover.aefb6cfe.png",
+        "sha256": "aefb6cfe1a4bb4c90ebe3ef76cb0e7b7e8cd23eb67bb808b5ea8ac25e6e9e139",
+        "specSha256": "50b50198bfa648ac8ad8309ea2c6c42975902b5957c9967aa4f7fd811878af9c"
       }
     },
     "point-step1-1": {
@@ -30,13 +35,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "plan",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/roadmap-nanido-goukakuritsu/youtube.short.point-step1-1/cover.cb860712.png",
-        "sha256": "cb860712ddf70141c9ec8153d95e68f045f47b6edc210740b7f03674739393a1",
-        "specSha256": "7bbfc69feedb154a05e149a7d6fd001c2f7f36f06d4206581526f22e144bd62a"
+        "path": ".tmp/media/civil-construction-1/roadmap-nanido-goukakuritsu/youtube.short.point-step1-1/cover.2979568c.png",
+        "sha256": "2979568c45bcf68716b1335e6c97005a42fdcbca630d3f6d501dd3083d3dd7d7",
+        "specSha256": "b86ecd281936a3f69e7fbac9fc52bdeea9e8f4854a2cc717870bc07aa702412d"
       }
     },
     "point-step2-2": {
@@ -50,13 +60,18 @@
       "accentLine": 2,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "plan",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/roadmap-nanido-goukakuritsu/youtube.short.point-step2-2/cover.5a543b34.png",
-        "sha256": "5a543b34920edc64df5304c4f9804a448e20a062f6a7c410fa3e07a582f64732",
-        "specSha256": "d6d68954bf896aa5573f491d684e0946f13f43c820026342395fb1bbb3966ac1"
+        "path": ".tmp/media/civil-construction-1/roadmap-nanido-goukakuritsu/youtube.short.point-step2-2/cover.9ac32e13.png",
+        "sha256": "9ac32e134b59195219743056877a1137ffadecb4919efcc4f7a2e1d6fd86fe09",
+        "specSha256": "41370141d6369baad17ac0fccb9dc3ebae9ba36f726c390c9f42176065f36e4d"
       }
     }
   }

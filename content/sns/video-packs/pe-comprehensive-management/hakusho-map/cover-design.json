@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-comprehensive",
+      "headline": [
+        "白書はどれ？",
+        "5管理で選ぶ"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pop-pointing",
+        "frame": "waist"
+      },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "question",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-comprehensive-management/hakusho-map/youtube.longform/cover.30161054.png",
+        "sha256": "3016105400a0faa76c8b21c3b188a63cb1c22d783dc19072ea6543774d61d29b",
+        "specSha256": "0522b4e5851d248aedce9951fc1d4da8c58f48e63ea84559244253d360e4d309"
+      }
+    }
+  }
+}

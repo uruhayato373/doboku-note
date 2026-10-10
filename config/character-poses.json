@@ -120,29 +120,55 @@
         "reviewedAt": "2026-09-27",
         "variants": {
           "full": {
-            "box": [0, 0, 1, 1],
+            "box": [
+              0,
+              0,
+              1,
+              1
+            ],
             "note": "原画像全体。左右反転なし。"
           },
           "waist": {
-            "box": [0, 0, 1, 0.55],
+            "box": [
+              0,
+              0,
+              1,
+              0.55
+            ],
             "note": "赤ペンと腰の手を残す。"
           },
           "bust": {
-            "box": [0, 0, 1, 0.4],
+            "box": [
+              0,
+              0,
+              1,
+              0.4
+            ],
             "note": "赤ペンと表情を残す。"
           }
         }
       },
       "label": "赤ペンで添削",
       "category": "gesture",
-      "beats": ["point", "hook"],
+      "beats": [
+        "point",
+        "hook"
+      ],
       "verified": true,
       "composition": {
-        "uses": ["explanation", "caution"],
+        "uses": [
+          "explanation",
+          "caution"
+        ],
         "facing": "front",
         "gestureDirection": "left",
-        "placements": ["right"],
-        "crops": ["bust", "full"],
+        "placements": [
+          "right"
+        ],
+        "crops": [
+          "bust",
+          "full"
+        ],
         "note": "画面左へ赤ペンを向ける。添削サービス画像の右側に配置。",
         "reviewedAt": "2026-09-27"
       },
@@ -838,6 +864,204 @@
         "status": "ready",
         "note": "全身・表情・ヘルメット表記を目視し、紺背景で透過境界を確認。",
         "reviewedAt": "2026-09-08"
+      }
+    },
+    {
+      "slug": "pop-explaining",
+      "file": "_source/pop-explaining.png",
+      "label": "手のひらで解説",
+      "category": "gesture",
+      "beats": [
+        "hook",
+        "point"
+      ],
+      "verified": true,
+      "framing": {
+        "source": {
+          "width": 1374,
+          "height": 1145,
+          "sha256": "e88700289679362e7a5ab6867187b32287701b861e55fe0be2d5835b2de527a0"
+        },
+        "reviewedAt": "2026-10-10",
+        "variants": {
+          "full": {
+            "box": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "note": "生成原本全体（腰上素材）。反転・拡大なし。"
+          },
+          "waist": {
+            "box": [
+              0.08733624454148471,
+              0.0017467248908296944,
+              0.8668122270742358,
+              0.9982532751091703
+            ],
+            "note": "透過余白を除き、帽子と手と小物をすべて残す。"
+          },
+          "bust": {
+            "box": null,
+            "note": "手や答案を切らず腰上を使う。"
+          }
+        }
+      },
+      "composition": {
+        "uses": [
+          "question",
+          "explanation",
+          "study"
+        ],
+        "facing": "front",
+        "gestureDirection": "left",
+        "placements": [
+          "right",
+          "center"
+        ],
+        "crops": [
+          "bust"
+        ],
+        "note": "無地ヘルメットのPOP用。顔・手・答案へ文字を重ねない。",
+        "reviewedAt": "2026-10-10"
+      },
+      "quality": {
+        "status": "ready",
+        "note": "原寸で同一人物・透過・指・無地ヘルメットを確認。",
+        "reviewedAt": "2026-10-10"
+      }
+    },
+    {
+      "slug": "pop-pointing",
+      "file": "_source/pop-pointing.png",
+      "label": "指を立てて要点",
+      "category": "gesture",
+      "beats": [
+        "hook",
+        "point"
+      ],
+      "verified": true,
+      "framing": {
+        "source": {
+          "width": 1145,
+          "height": 1374,
+          "sha256": "f0bafda4a9743b3f2c8ca5182299d0e1ed8851165f33b5b60bddfc0598d9a1eb"
+        },
+        "reviewedAt": "2026-10-10",
+        "variants": {
+          "full": {
+            "box": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "note": "生成原本全体（腰上素材）。反転・拡大なし。"
+          },
+          "waist": {
+            "box": [
+              0.00611353711790393,
+              0.000727802037845706,
+              0.9921397379912664,
+              0.9992721979621543
+            ],
+            "note": "透過余白を除き、帽子と手と小物をすべて残す。"
+          },
+          "bust": {
+            "box": null,
+            "note": "手や答案を切らず腰上を使う。"
+          }
+        }
+      },
+      "composition": {
+        "uses": [
+          "question",
+          "explanation",
+          "study"
+        ],
+        "facing": "front",
+        "gestureDirection": "up",
+        "placements": [
+          "right",
+          "center"
+        ],
+        "crops": [
+          "bust"
+        ],
+        "note": "無地ヘルメットのPOP用。顔・手・答案へ文字を重ねない。",
+        "reviewedAt": "2026-10-10"
+      },
+      "quality": {
+        "status": "ready",
+        "note": "原寸で同一人物・透過・指・無地ヘルメットを確認。",
+        "reviewedAt": "2026-10-10"
+      }
+    },
+    {
+      "slug": "pop-red-pen",
+      "file": "_source/pop-red-pen.png",
+      "label": "赤ペンと答案",
+      "category": "item",
+      "beats": [
+        "hook",
+        "point"
+      ],
+      "verified": true,
+      "framing": {
+        "source": {
+          "width": 1024,
+          "height": 1536,
+          "sha256": "ed9d70558688350c8b8005b94fe14d1f6021efdc69d2288ff58f3e6394e23284"
+        },
+        "reviewedAt": "2026-10-10",
+        "variants": {
+          "full": {
+            "box": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "note": "生成原本全体（腰上素材）。反転・拡大なし。"
+          },
+          "waist": {
+            "box": [
+              0,
+              0.005859375,
+              1,
+              0.994140625
+            ],
+            "note": "透過余白を除き、帽子と手と小物をすべて残す。"
+          },
+          "bust": {
+            "box": null,
+            "note": "手や答案を切らず腰上を使う。"
+          }
+        }
+      },
+      "composition": {
+        "uses": [
+          "question",
+          "explanation",
+          "study"
+        ],
+        "facing": "front",
+        "gestureDirection": "none",
+        "placements": [
+          "right",
+          "center"
+        ],
+        "crops": [
+          "bust"
+        ],
+        "note": "無地ヘルメットのPOP用。顔・手・答案へ文字を重ねない。",
+        "reviewedAt": "2026-10-10"
+      },
+      "quality": {
+        "status": "ready",
+        "note": "原寸で同一人物・透過・指・無地ヘルメットを確認。",
+        "reviewedAt": "2026-10-10"
       }
     }
   ],

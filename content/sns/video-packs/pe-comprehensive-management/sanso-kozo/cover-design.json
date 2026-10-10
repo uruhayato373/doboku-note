@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-comprehensive",
+      "headline": [
+        "論文の3層構造",
+        "施策だけでOK？"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.4e81b72e.png",
+        "sha256": "4e81b72ec6e84c6a2bad4cb02009f5703e9a3992c0207f7a0fef8706af995a53",
+        "specSha256": "ba86ed45f04e80a50ddd467decc83640de6fc55f638d0645426f6a60c0007827"
+      }
+    }
+  }
+}

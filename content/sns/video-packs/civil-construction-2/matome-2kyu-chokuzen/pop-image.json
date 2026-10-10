@@ -8,7 +8,7 @@
     "width": 1672,
     "height": 941
   },
-  "purpose": "2級土木の直前総まとめ動画に向けたPOPサムネイル試作。公開・予約素材へは未採用。",
+  "purpose": "選択された手のひら版を通常動画の表紙・冒頭へローカル採用。YouTubeへは未反映。",
   "copy": {
     "examLabel": "2級土木",
     "headline": "耳で総復習",
@@ -138,5 +138,104 @@
         "note": "指先が「習」の下端に接する。文字への重なりを避ける点では手のひら版を推奨。"
       }
     }
-  ]
+  ],
+  "outputs": {
+    "longform": {
+      "publicationId": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform",
+      "copy": {
+        "exam": "civil-2",
+        "headline": [
+          "2級土木",
+          "耳で総復習"
+        ],
+        "benefit": "一次＋二次・26分",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen/cover-design.json#covers/longform",
+        "content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen/youtube.json#longform"
+      ],
+      "references": [
+        {
+          "role": "approved-style-and-character",
+          "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+          "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6",
+          "catalog": "data/coconala/thumb-approved.json"
+        },
+        {
+          "role": "existing-youtube-cover",
+          "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/cover.2a24500d.png",
+          "sha256": "2a24500dd9c74fb1886ff03eefd95a4f777bef4ab581e8399bda599a0f239ce2"
+        }
+      ],
+      "prompt": "Use case: ads-marketing.\n添付画像1は承認済みココナラの2級土木POPデザイン（意匠・キャラクターの参照）。添付画像2は今回差し替えを検討しているYouTube表紙（動画の対象の参照）。画像1の強い文字階層、緑・白・黄色、同じ40代男性の先生を用いて、まったく新しい16:9のYouTubeサムネイルを制作。ココナラの「添削」やサービス文言はコピーしない。\n出力は1920×1080、16:9の一枚の完成サムネイル。試験直前の2級土木受検者がスマホ一覧で一目で対象と利点を読める、キャッチーだが信頼できる教材デザイン。\n背景は深いエメラルドグリーンから明るいミントへの斜めの色面、さりげない斜線と光のアクセント。土木現場のシルエットは極めて薄く、文字を邪魔しない。\n左側の約65%を太い日本語見出しに使う。最上段に非常に大きく「2級土木」を白い極太文字、濃緑の輪郭と控えめな影で。中央に「耳で総復習」を黄色の極太文字、濃緑の輪郭で、1行で大きく表示。資格名と主題が同程度に大きい。長文は置かない。左下に白い帯で「一次＋二次・26分」を濃緑の太字、聞き流しが分かる小さなヘッドホンのアイコンを添える。帯の下に小さめの黄色の強調帯で「総監が制作」。\n文字列は指定の4つだけを正確に描く：「2級土木」「耳で総復習」「一次＋二次・26分」「総監が制作」。ブランド名、URL、値段、ロゴ、添削、合格保証、実績、数字の追加は禁止。\n右側約35%に、画像1と完全に同じ先生を大きく配置。白い無地ヘルメット、黒い短髪、黒縁メガネ、軽いひげ、40代の大人の顔、紺の作業服、白シャツ、紺ネクタイ、黄色の反射ベストを保つ。親しみのある自信ある笑顔。胸上〜腰上の構図で、左手のひらを上向きに開き、見出しへ視線を誘導する自然な解説ポーズ。赤ペンは不要。自然な手・指、顔の同一性を厳守。顔と帽子は画面内に完全に収める。\n周囲は左右上下5%の安全域。見出しと顔は切らない、人物は文字に重ねない。右下の時刻オーバーレイに備え、右下12%×12%には文字や顔を置かない。参照を引き伸ばさず16:9に構成し直す。スマホの幅360pxでも4つの文字列が判読できる。",
+      "promptScope": "選択された表紙全体の生成。保存済みPNGの画素を保持。",
+      "format": {
+        "width": 1920,
+        "height": 1080
+      },
+      "render": {
+        "template": "approved-white-blue-pop-v1",
+        "variant": "listen",
+        "pose": "pop-explaining"
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/cover.f0695dfa.png",
+        "sha256": "f0695dfa3a19f0501c1a352a9027cf3bbee2175548cb381716ae95f0d51d11bd"
+      },
+      "review": {
+        "status": "agent-reviewed",
+        "by": "Codex",
+        "checkedAt": "2026-10-10T15:17:18.121Z",
+        "viewportWidth": 360,
+        "checks": [
+          "見出しと資格名の可読性",
+          "文字化け",
+          "文字・人物の切れ",
+          "内容と見出しの整合"
+        ],
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "key": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/cover.f0695dfa.png"
+      },
+      "publication": "ローカル差し替え・外部未反映"
+    }
+  },
+  "adoption": {
+    "date": "2026-10-10T15:08:49.186Z",
+    "selected": "palm",
+    "format": {
+      "width": 1920,
+      "height": 1080
+    },
+    "cover": {
+      "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/cover.f0695dfa.png",
+      "sha256": "f0695dfa3a19f0501c1a352a9027cf3bbee2175548cb381716ae95f0d51d11bd"
+    },
+    "export": "sips寸法統一 → RGB保持PNG → oxipng -o4（復号RGB一致、2MiB以内）",
+    "video": {
+      "source": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/video.1355361e.mp4",
+      "sourceSha256": "1355361ef58a14a30e2200079a00f8a2d694437d903b0646cfef1e76d5759734",
+      "cover": ".tmp/video-render/matome-2kyu-chokuzen/img/00-cover.png",
+      "coverSha256": "f0695dfa3a19f0501c1a352a9027cf3bbee2175548cb381716ae95f0d51d11bd",
+      "output": ".tmp/video-render/matome-2kyu-chokuzen/video.mp4",
+      "sha256": "5835b2d030830396e78672d77621a1b110f75c7c649a54c336aac9f46fbc3bbd",
+      "width": 1920,
+      "height": 1080,
+      "durationSec": 1595.433333,
+      "frames": 47848,
+      "introFrames": 209,
+      "reencodedHeadFrames": 250,
+      "spliceAtSec": 8.333333333333334,
+      "audioPacketsUnchanged": true,
+      "audioPacketSha256": "69c4c79e817c2c3b7778585cecdc95baf1bb9621d124957fd5d0234b21e4c24b",
+      "bodyPicturesUnchanged": true,
+      "bodyVclNalCount": 47598,
+      "bodyVclSha256": "7153249fdc1e038ee22c74164ff602af6c3252fe12503c831bc3b378f9e2f150",
+      "verification": "AAC payload exact SHA; H264 coded-picture NAL exact SHA after splice; headers may differ"
+    },
+    "publication": "ローカル採用・外部未反映"
+  }
 }

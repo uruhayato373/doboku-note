@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "good-sign",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "plan",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/concrete-engineer/gishi-12week-plan/youtube.longform/cover.2c4c52f9.png",
-        "sha256": "2c4c52f9c575f67c3cc004854530b8e0b9ddedee11d0fd19823bfaf2063487ea",
-        "specSha256": "b08a0333c56acf639493bfa053c7059eacd8ab26768602f9bbc5b20210bb168c"
+        "path": ".tmp/media/concrete-engineer/gishi-12week-plan/youtube.longform/cover.308172eb.png",
+        "sha256": "308172ebd8eee7a7a05a0c0e1174632e866b09d2dd860d0c8ff31fefaa2a73c7",
+        "specSha256": "3051e1dc305501ed4d6866d787500f08ffd37cf45c86d7f89c608da6124e5a49"
       }
     },
     "point-step1-1": {
@@ -30,13 +35,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "smile",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "plan",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/concrete-engineer/gishi-12week-plan/youtube.short.point-step1-1/cover.46ca3543.png",
-        "sha256": "46ca3543c06009da9ce1b762e2f353a8a5f4b6fcb92ed18f967c8b7e89045713",
-        "specSha256": "b42daf9a45b03ff18d80fce4bcb3dac63b9ca8e6b4b6c626c4a4433c9c6e40a0"
+        "path": ".tmp/media/concrete-engineer/gishi-12week-plan/youtube.short.point-step1-1/cover.51f2835d.png",
+        "sha256": "51f2835db8a434d76150d7245ec5d8e948bdc4fd27c9d093b7fe80b85d7d6351",
+        "specSha256": "077f131d000a63a10f6a140bba08ac8ce4b940c2367475c30569b07ed22487de"
       }
     },
     "point-step2-2": {
@@ -49,13 +59,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "wave",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "plan",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/concrete-engineer/gishi-12week-plan/youtube.short.point-step2-2/cover.b926cda0.png",
-        "sha256": "b926cda088f36266d4d9a933f452fef09307d09565bfbf5b2d71e73464d3f794",
-        "specSha256": "be2eac7b5703cb1b44fc1253333eb710b88d808e56cf56cac0ba585ddab9d589"
+        "path": ".tmp/media/concrete-engineer/gishi-12week-plan/youtube.short.point-step2-2/cover.b246d570.png",
+        "sha256": "b246d570e77f097c1cd14eda10a5f2bd99a40c2001228e095335f835c7a7fac2",
+        "specSha256": "d4f3d385c17232ed1dc9f629180472970e183294cdb16ed06ba1c9f8fbddac1e"
       }
     }
   }

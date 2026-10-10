@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "pointing",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/gakka-sokuryo-3ten/youtube.longform/cover.e8064c21.png",
-        "sha256": "e8064c2110c6fb4daf32f7efeddedd2dbd661129cc2f9359bba1bcaffac1036b",
-        "specSha256": "9eef3c669b34af3638004e0e930a931c4adef04549e6e1a370827467f4704119"
+        "path": ".tmp/media/civil-construction-1/gakka-sokuryo-3ten/youtube.longform/cover.d5f10483.png",
+        "sha256": "d5f10483910874f01a01b117723b735e02ce1313dcf677c79fae0481c25f1b0a",
+        "specSha256": "e1af966fdc12eb85c2b881ef45508ee78a5d700fbcdf16e20acce90b5ca1b44f"
       }
     },
     "point-kijun-1": {
@@ -30,13 +35,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "wave",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/gakka-sokuryo-3ten/youtube.short.point-kijun-1/cover.5c56b409.png",
-        "sha256": "5c56b409db3260ce8bb20c39d204be32e3a48abc5f632d755586308824131e23",
-        "specSha256": "31b4eca04a972492e91873bf63330c62e5a8015958b155a3d2d01a0cbbd30565"
+        "path": ".tmp/media/civil-construction-1/gakka-sokuryo-3ten/youtube.short.point-kijun-1/cover.b681989b.png",
+        "sha256": "b681989ba837b614ef586739465926b31903ad639aa5beed4af23d0270815537",
+        "specSha256": "20a6cb964f737077506c37ab270b58f309bec0fbfb1360d320c0ebae79ba9984"
       }
     },
     "point-suijun-2": {
@@ -49,13 +59,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/gakka-sokuryo-3ten/youtube.short.point-suijun-2/cover.b9d9f217.png",
-        "sha256": "b9d9f2174fb0d1dc144b3a032f4c0bf196dca41ca82c54643917796d3ed6c70b",
-        "specSha256": "02082835f441dc32d6e264f7341b9ba656eaf9039a38071c530e01ac6c67317f"
+        "path": ".tmp/media/civil-construction-1/gakka-sokuryo-3ten/youtube.short.point-suijun-2/cover.e79a1de9.png",
+        "sha256": "e79a1de9e3227e3536aa5b326ea165820cad83b4b79b56837ecee762b7fc81ae",
+        "specSha256": "d2529a7c5472fe35dcc94440284f6aafc051fff7e9084ea8c021f68abd155722"
       }
     }
   }

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-comprehensive",
+      "headline": [
+        "総監の口頭試験",
+        "経歴を語れる？"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pop-pointing",
+        "frame": "waist"
+      },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "question",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/cover.870a0862.png",
+        "sha256": "870a0862584d5683ddde144c3b04712bbadbbd1aebaa3cfd6212665cbf707f0f",
+        "specSha256": "79b0caaf1f70d3da578e51055d8111e1cb71b954a89aace9920bc1b88fe6ee8e"
+      }
+    }
+  }
+}

@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "thinking",
+        "pose": "pop-pointing",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "question",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/gakka-hinshitsu-kensa/youtube.longform/cover.873f7394.png",
-        "sha256": "873f73944e673f9034b8493b455db88cd36932153117f620fe1d4e61ef378241",
-        "specSha256": "872de309836a7f38f0a2138c62a9054a800d27c83b5d0ff105d8897c11124d6d"
+        "path": ".tmp/media/civil-construction-1/gakka-hinshitsu-kensa/youtube.longform/cover.715d7897.png",
+        "sha256": "715d7897d86fe06692bd7e7f6401aa6358614b49ef03d169964f451dfbeeb096",
+        "specSha256": "322b786a9619e626182c4e99e2ca7e956d0d6b7c18dd363d0b62baea8c3ff6cb"
       }
     },
     "point-step1-1": {
@@ -30,13 +35,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/gakka-hinshitsu-kensa/youtube.short.point-step1-1/cover.ef105666.png",
-        "sha256": "ef10566677c4ccae30e3b0240cb2da43435df103a7826f883a767001107eea4a",
-        "specSha256": "f0ccfeb0b45f131c77cd85672cd547073a41b70a0a90a1d2ab562e8e0fd335b5"
+        "path": ".tmp/media/civil-construction-1/gakka-hinshitsu-kensa/youtube.short.point-step1-1/cover.c12e9cb0.png",
+        "sha256": "c12e9cb0ade27d9de5dec03f2256eb90f486f376a36955b1462037aa8389a08d",
+        "specSha256": "c98dfd6918acb56a9cea72277b2cc7dcb8b5672d4617df4dd7489be0c41db992"
       }
     },
     "point-step2-2": {
@@ -49,13 +59,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/gakka-hinshitsu-kensa/youtube.short.point-step2-2/cover.e49b97c7.png",
-        "sha256": "e49b97c7c8b18e17c052c883a0cc8a5b404c05c289c5fc03272a1bcf0faf4ebb",
-        "specSha256": "6dd8c5e411f2e0481df475638e08a55f0c869c1bb22346aac14769c0e8721776"
+        "path": ".tmp/media/civil-construction-1/gakka-hinshitsu-kensa/youtube.short.point-step2-2/cover.8ec52e7e.png",
+        "sha256": "8ec52e7e4ab46614245fb54975bff473f19b14df22c50e93c14a2e91e47d9600",
+        "specSha256": "85cd5b11d5a688265104ccc244e2c66f7ad46fda1a93bd564f465f522cc85383"
       }
     }
   }

@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "pointing",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/keiken-ochiru-toan-1kyu/youtube.longform/cover.642ab4ec.png",
-        "sha256": "642ab4ec0feb0a51b643758d601dd28428344f7f4254974edf286439db2be530",
-        "specSha256": "a4bfd1427470c9978afa8de569db46d49157ec7c652f9589d86280672e02b9d5"
+        "path": ".tmp/media/civil-construction-1/keiken-ochiru-toan-1kyu/youtube.longform/cover.3a6b7fd4.png",
+        "sha256": "3a6b7fd4cfaea5ba1ec0dba7a7bb2caa0b0a18037a17fe4a2087d1d506f9599f",
+        "specSha256": "7ec842a394d28c9f7bd12c49b946dfba22fddffad0f5cff4d1b9fd1e8a4c6bf6"
       }
     },
     "point-gap-1": {
@@ -30,13 +35,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "thinking",
+        "pose": "pop-pointing",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "question",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/keiken-ochiru-toan-1kyu/youtube.short.point-gap-1/cover.bfe21cc4.png",
-        "sha256": "bfe21cc42a7d6984cd052d2d4d3328320d095c5679888bd029bb685a3c81e57f",
-        "specSha256": "b58bc7b504dd780f119ced5647d4a9d7c7609fd087fbd91f823b0549f05af00a"
+        "path": ".tmp/media/civil-construction-1/keiken-ochiru-toan-1kyu/youtube.short.point-gap-1/cover.89243182.png",
+        "sha256": "89243182517e15f4dad1668af0bb0e3f335735c892b2e610f12f4b012c86afd7",
+        "specSha256": "4e7adef5939c43f245e00fc4b1388e111b9cc4d488b947005ac8622f705dae2d"
       }
     },
     "point-generic-2": {
@@ -50,13 +60,18 @@
       "accentLine": 2,
       "subtitle": "",
       "character": {
-        "pose": "thinking",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/keiken-ochiru-toan-1kyu/youtube.short.point-generic-2/cover.20ec12e2.png",
-        "sha256": "20ec12e296ed2cb969b9805a0f77d82639fde0fc285643d5b682da8abf0322d8",
-        "specSha256": "6cef74f2ccd597690d22b37346fea7fb1655ea33db6c4a9a61b35c39bcd68f52"
+        "path": ".tmp/media/civil-construction-1/keiken-ochiru-toan-1kyu/youtube.short.point-generic-2/cover.f2ff2427.png",
+        "sha256": "f2ff24278bf89113ae9a2cee9ef4a71a4a921cea0c47a6e6d2c42919ffdefaf9",
+        "specSha256": "46e1025dd18377a559ecbfbfc97bdf540b00df1cf74f254e472023ca9ac349aa"
       }
     }
   }

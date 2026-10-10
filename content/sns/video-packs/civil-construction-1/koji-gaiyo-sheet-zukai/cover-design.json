@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "工事概要7項目",
+        "順番で書こう"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/civil-construction-1/koji-gaiyo-sheet-zukai/youtube.longform/cover.82e37726.png",
+        "sha256": "82e37726f64f715b3b3014069727007fa2f5cededdd00f4f7c17a85c947f6696",
+        "specSha256": "240957f546042d5cda1dbcc16e6b5a47e759aa3f9f5172d2f920074a201af9db"
+      }
+    }
+  }
+}

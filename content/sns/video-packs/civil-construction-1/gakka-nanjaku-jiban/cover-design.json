@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/gakka-nanjaku-jiban/youtube.longform/cover.8e5d76e2.png",
-        "sha256": "8e5d76e23db88a5d820cc938dbd4e7c8ac31ab72c52c0b1abf9833ca3ac54ecf",
-        "specSha256": "2aecc29497d48a15f79e107ec6ade32f2a6f650cb4406572047e1c47f148ef6b"
+        "path": ".tmp/media/civil-construction-1/gakka-nanjaku-jiban/youtube.longform/cover.e966b181.png",
+        "sha256": "e966b181ce52604bec047796e565056e080885f8eeefa19ad33259cff76df419",
+        "specSha256": "7dffff63b079b3f6c0acfc989d859d25720e0985329558395dd9c9968433db38"
       }
     },
     "point-overview-1": {
@@ -30,13 +35,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "pointing",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/gakka-nanjaku-jiban/youtube.short.point-overview-1/cover.3d61d73d.png",
-        "sha256": "3d61d73dfe77c7552616b677ef6562d70c2b41523f224ddbf006d1b104a8439b",
-        "specSha256": "c6bc49a14cb52b0cc853fb5df8c782b4d72f7b1b4f2a97b385cfa4634dc9bd4d"
+        "path": ".tmp/media/civil-construction-1/gakka-nanjaku-jiban/youtube.short.point-overview-1/cover.93430c2d.png",
+        "sha256": "93430c2da7a0170354be3d98efe33d20bd49daccf8113ee7ac81656021bc6033",
+        "specSha256": "32d2733151b3ca8d43348e84bcadd4f55e8a2b3657c0ec763ecb5bcc2e25d3c7"
       }
     },
     "point-step1-2": {
@@ -49,13 +59,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/gakka-nanjaku-jiban/youtube.short.point-step1-2/cover.fc7d8ca9.png",
-        "sha256": "fc7d8ca90bbcb1cb328d1d89d67c13ae5760a81b0b0d39fe16bb377f6df219ab",
-        "specSha256": "ae0bf46d10e82a2d638c0fcb35a6be290d1de02afb446a7fe8bf7cbc1601e0a0"
+        "path": ".tmp/media/civil-construction-1/gakka-nanjaku-jiban/youtube.short.point-step1-2/cover.9363b070.png",
+        "sha256": "9363b070ecc296778acc3ef9e19ca7f8c9cf78d956d77656135baa12bafe82d7",
+        "specSha256": "b12141324af15a4522f2f010587037b34e8d6ccc04b59f7e36682d50f22e0e88"
       }
     }
   }

@@ -48,6 +48,8 @@ YouTubeへの公開・再投稿は別工程。サムネ更新前に新しい実�
 
 説明画面だけを更新する再生成は `--resume --refresh-png` を使う。音声は `tts-inputs.json` の読み替え後の入力・話者・WAVハッシュが一致するときだけ再利用し、読み修正や話者変更、旧キャッシュの来歴不明時は再合成する。
 
-2026-09-09採用のA案（橋＋ノートのロゴ）は、通常動画の表紙右上とShorts表紙の下部へ展開した。`config/video-brand.json` が共通ロゴ・背景・Shorts CTAを指定する。`node scripts/apply-video-brand.mjs --preview` で代表画像を確認し、`--commit` でローカルの全表紙と各パックのCTA入力を更新する。このコマンドはYouTubeへ書き込まない。原版を残してロゴを合成し、各動画の締め見出しと教材名はstoryboardから描画する。表紙はAPI上限の2MB以内に収める。
+旧A案の適用手順：2026-09-09採用の橋＋ノートのロゴは、通常動画の表紙右上とShorts表紙の下部へ展開した。`config/video-brand.json` が共通ロゴ・背景・Shorts CTAを指定する。`node scripts/apply-video-brand.mjs --preview` で代表画像を確認し、`--commit` でローカルの全表紙と各パックのCTA入力を更新する。このコマンドはYouTubeへ書き込まない。原版を残してロゴを合成し、各動画の締め見出しと教材名はstoryboardから描画する。表紙はAPI上限の2MB以内に収める。
+
+POP表紙の一括制作は `npm run youtube-covers -- --all`、ローカル採用は `--commit`。旧A案の一括処理はPOP表紙へ重ねて実行しない。画像一覧は `.tmp/youtube-covers/pop-all/index.html`。`brand-video-pack` も `pop-v2` の表紙は追加合成せず、採用PNGの画素を保持する。
 
 ブランド共通の素材（ロゴ・通常動画の背景・Shorts の締め画像）は `.tmp/media/_brand/bridge-notebook-a/`（`config/video-brand.json` が指す）、各動画用の締め画像は各パックの `youtube.longform/cta.{sha8}.png`。これらもDrive vault（group content-media）から復元する。各 `cta-design.json` が締め画像の入力とSHA-256を持つ。確認版の「工事概要7項目」は採用時のCTA画像を保持する。動画パックのShortsは同じブランド意匠で「関連動画へ」と案内し、専用の音声と字幕を使う。Shorts生成前に通常動画を `--speaker 13 --resume --refresh-png` で生成し、話者をrender-manifestへ記録する。画像の全展開と動画本体・YouTubeの移行完了は別で、適用状況は更新状態の `preparation.ctaDesign` と `migration` で確認する。

@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "pointing",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-2/keiken-genten-kyotsuten/youtube.longform/cover.7f3cc6c3.png",
-        "sha256": "7f3cc6c3e42fa25881ff4bc4b1db10f468315ac6d72b28ee837b9649cf5143f5",
-        "specSha256": "95119a3e8445425fa15898b8a8571dd83f363f86cc2d360ace190aa351a7f620"
+        "path": ".tmp/media/civil-construction-2/keiken-genten-kyotsuten/youtube.longform/cover.77a6ce99.png",
+        "sha256": "77a6ce994f45ec97da961d04d5f6b2b10e318dcb5737ae95f84803b8cf08e074",
+        "specSha256": "c478be8989f156e5f0f45719741b36f5f683e1312a863eb0dd8fbe19b6264f99"
       }
     },
     "point-taisai-1": {
@@ -30,13 +35,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "pointing",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-2/keiken-genten-kyotsuten/youtube.short.point-taisai-1/cover.006234d2.png",
-        "sha256": "006234d26b2da14f43859b2192cacb5de3d98910908d63b3564a8e66594ef29d",
-        "specSha256": "b2884ee45a7ef58496b015a8c8b6f065bb1049ebbe29eda54bb617dd253368ba"
+        "path": ".tmp/media/civil-construction-2/keiken-genten-kyotsuten/youtube.short.point-taisai-1/cover.a4493ca3.png",
+        "sha256": "a4493ca33a08c634db6c22d1d78fa06cb88770e67a3bb4ac8b9668371e1d7bb5",
+        "specSha256": "6ec4649ecb27629b53729fc80bee95abb35d8c25c02b59872ff4b5b6d8a2b33e"
       }
     },
     "point-kaigyo-2": {
@@ -49,13 +59,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "thinking",
+        "pose": "pop-pointing",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "question",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-2/keiken-genten-kyotsuten/youtube.short.point-kaigyo-2/cover.872973c7.png",
-        "sha256": "872973c727832030dbf28d292b19e44c76a3e07075051c6bf31fecc84eceb7df",
-        "specSha256": "fe034a3bcf8fe8eb31573a2223bf727ecbe5999ddecc0a9c1ba3e87fb4051484"
+        "path": ".tmp/media/civil-construction-2/keiken-genten-kyotsuten/youtube.short.point-kaigyo-2/cover.189db158.png",
+        "sha256": "189db158212769652f4e822dc536c626b5f59c6b11c547375b0f1277fbdc09c6",
+        "specSha256": "96c39d35c0217f03a56bde68b9a6025cac29269d7a2f21571d4ebddee82085b1"
       }
     }
   }

@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "good-sign",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/keiken-kaizen-example/youtube.longform/cover.dd0c4c55.png",
-        "sha256": "dd0c4c556aa9bc049970893b3789f1f1e8129fb07829f677b774d593225ef5b5",
-        "specSha256": "7c995f92d39e8ea860427d9bfc065117dccf1fee4555dff326c8e04a94c27184"
+        "path": ".tmp/media/civil-construction-1/keiken-kaizen-example/youtube.longform/cover.a2a1c12a.png",
+        "sha256": "a2a1c12a7c877f4978deea284a060be076febc9d10d678a2907c0c65664f2e1e",
+        "specSha256": "3f19e3b0ac385da453900f5852510c4df67a54b304c12d479be335782cd4c24c"
       }
     },
     "point-general-1": {
@@ -31,13 +36,18 @@
       "accentLine": 2,
       "subtitle": "",
       "character": {
-        "pose": "thinking",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/keiken-kaizen-example/youtube.short.point-general-1/cover.371beff0.png",
-        "sha256": "371beff014ae378c8aeb58885fcf812f2856836941bb662819e075417f3b2900",
-        "specSha256": "39a22de2ae8e4d2445bd4fa8f3aea23a1388b7465157506cb324e8f155acde03"
+        "path": ".tmp/media/civil-construction-1/keiken-kaizen-example/youtube.short.point-general-1/cover.3f8abe7e.png",
+        "sha256": "3f8abe7e91cae4fe7f0af33e7cf50b12c7363ad080cfe40eca5eaf4b22b4bca9",
+        "specSha256": "d42277cb5d439b395bd12ba523524d6b094a653521175549279cc6a6b3e38dbe"
       }
     },
     "point-reasoning-2": {
@@ -50,13 +60,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/keiken-kaizen-example/youtube.short.point-reasoning-2/cover.a5bac94c.png",
-        "sha256": "a5bac94ccbf058aa15de75559738698076cddff9daffb5f109b74119c87b7231",
-        "specSha256": "d7cb5ef70a40db25442a72c5057966e0651b4fd5039063a1dcb12c998d2e6426"
+        "path": ".tmp/media/civil-construction-1/keiken-kaizen-example/youtube.short.point-reasoning-2/cover.c7efa5b7.png",
+        "sha256": "c7efa5b74be198d9e77e97087ded547a9f3e086095216c1aace572cccd585975",
+        "specSha256": "5b7860734e1f1f4ec08964f7486cbb33f915c96394b4a22d0ad47be166ff61f3"
       }
     }
   }

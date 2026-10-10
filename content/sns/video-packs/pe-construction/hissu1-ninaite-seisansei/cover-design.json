@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-construction",
+      "headline": [
+        "担い手不足",
+        "生産性どう上げる"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-construction/hissu1-ninaite-seisansei/youtube.longform/cover.aa77c1ad.png",
+        "sha256": "aa77c1ade077afabbc98176a7a6982c1f5039a3b94f7db32c5dcbd53d5dc257c",
+        "specSha256": "ade85dc05c1fa193b806f72ec98d04ea9a0e860a34dcc465f1a2c6ca09458b51"
+      }
+    }
+  }
+}

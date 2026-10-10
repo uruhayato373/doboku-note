@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "reading",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/gakka-crane-sogo/youtube.longform/cover.7f8dd9d3.png",
-        "sha256": "7f8dd9d34259f2fa0040e96a0a2e4f8b5f02b709d0b8a207934605ece3fd0987",
-        "specSha256": "45bc494bd694eb86cdef6ea529b1cf0b09a93a7ca75b7240e5c2cf1620a665d2"
+        "path": ".tmp/media/civil-construction-1/gakka-crane-sogo/youtube.longform/cover.00b3357a.png",
+        "sha256": "00b3357a301617c04cebe5abb86fcfaa8ed626b93f72349da38523acf9be988f",
+        "specSha256": "2bded133bc281228c429a7641706c29e66843fd2b0514f6de5e50599a76a3700"
       }
     },
     "point-overview-1": {
@@ -30,13 +35,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/gakka-crane-sogo/youtube.short.point-overview-1/cover.c1528d91.png",
-        "sha256": "c1528d91b924e5354313ab6805bc4e492140686a7e62a2afd78eda321f6711df",
-        "specSha256": "9b6e568a1525e4169f9bbc65163fe8ae8ab0f87a863574b2412c7ec7c2cdb46d"
+        "path": ".tmp/media/civil-construction-1/gakka-crane-sogo/youtube.short.point-overview-1/cover.f7b04edb.png",
+        "sha256": "f7b04edbd61a1d98f3e34465f51df2e9d9a4b012239d5eec97b9a39625882040",
+        "specSha256": "117ca0d06450d5caa9934a34c1299bd445159087b25f803810bcf48f79ffff3e"
       }
     },
     "point-step1-2": {
@@ -49,13 +59,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "thinking",
+        "pose": "pop-pointing",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "compare",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/gakka-crane-sogo/youtube.short.point-step1-2/cover.10fdcb4d.png",
-        "sha256": "10fdcb4da8b9c5484130aae4973a539f85573131fea96fde3921cca818ba6762",
-        "specSha256": "13c526e2e6a73c88265bab97606e0e34d9792633dc0342ec982850d4037e69f7"
+        "path": ".tmp/media/civil-construction-1/gakka-crane-sogo/youtube.short.point-step1-2/cover.cfec1392.png",
+        "sha256": "cfec139207115c1ac6986d9ad55a3e12f3302b2170211d0a16f7423bfe950ef2",
+        "specSha256": "0eb2e9fda209c1c40c3b92edd50d3e6fa8bed15d89e03383cf1ac8c90f4ea23b"
       }
     }
   }

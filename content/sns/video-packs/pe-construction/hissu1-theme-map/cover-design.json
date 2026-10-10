@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-construction",
+      "headline": [
+        "必須Iのテーマ",
+        "7年分を地図に"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-construction/hissu1-theme-map/youtube.longform/cover.3f62b7cf.png",
+        "sha256": "3f62b7cf7a3b4ced2f59aa878ee51c7734b19c637860c4c035ab226c00298803",
+        "specSha256": "e742205cf298533c7b4d0f13a9360aa711460614e662bf131d1ec64c25d7ecf5"
+      }
+    }
+  }
+}

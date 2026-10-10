@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-comprehensive",
+      "headline": [
+        "耳で覚える",
+        "5管理の要点"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "listen",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-comprehensive-management/kikinagashi-sokan-keyword/youtube.longform/cover.8afd6e60.png",
+        "sha256": "8afd6e60e6c5c951c8804bd255f1a153e0ae0dba9113723072e711c5b953f73e",
+        "specSha256": "5ef850bff2cb6226e7ceab798db4058e6a7176ad4273d1148e4e7891e21b1694"
+      }
+    }
+  }
+}

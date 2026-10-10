@@ -12,13 +12,18 @@
       "accentLine": 2,
       "subtitle": "",
       "character": {
-        "pose": "pointing",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-2/anzen-ippanron-3riyu/youtube.longform/cover.70ccb2ba.png",
-        "sha256": "70ccb2ba2c59eaf3e0a2eadcbab22d90a3ace2b97588655d7654bb650ade68d7",
-        "specSha256": "93ef3960b1babd7c59b27de0b8573dde4b98a34e0392eee8a95908de6df82ffc"
+        "path": ".tmp/media/civil-construction-2/anzen-ippanron-3riyu/youtube.longform/cover.7938bde8.png",
+        "sha256": "7938bde8968d9b61f9fb3f763ba03d016e765f6eec7a42ff641935930a4faabe",
+        "specSha256": "d72b284c5fc019b9d29c9041f52ddfb7ad33dd895e0e8f4658f7b7ac24f34f32"
       }
     },
     "point-cause1-1": {
@@ -31,13 +36,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-2/anzen-ippanron-3riyu/youtube.short.point-cause1-1/cover.57ab0cf3.png",
-        "sha256": "57ab0cf329e8f09fc7152002738ef3bb49588683c544cd7b700961bb7e4e7a50",
-        "specSha256": "28d4950ed58703ec55c23707d6b1dcf1ae5e32a67d703014e915f9063d270384"
+        "path": ".tmp/media/civil-construction-2/anzen-ippanron-3riyu/youtube.short.point-cause1-1/cover.598a98ad.png",
+        "sha256": "598a98ad264a793b8e5716177d0c0b48ee6f8e5f013e27e0d705d02dbfe0709e",
+        "specSha256": "7566918b6d5a1f0a92fe41a1cc42e263375b1f88e6c1b3a72f2f266a442b0613"
       }
     },
     "point-cause2-2": {
@@ -50,13 +60,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-2/anzen-ippanron-3riyu/youtube.short.point-cause2-2/cover.3efe60f9.png",
-        "sha256": "3efe60f923a2914eb079f78d13678ea67e3ffd830648b809d434a608448260f3",
-        "specSha256": "2efe848690d4d5c8d01cfffe461c66ce651a26c236ebd02aa455893a471fe774"
+        "path": ".tmp/media/civil-construction-2/anzen-ippanron-3riyu/youtube.short.point-cause2-2/cover.1ee1b2a4.png",
+        "sha256": "1ee1b2a462b8ac4bd5424fe2e4260f4fbaf684ad68262b5dffd51821b1d5dc82",
+        "specSha256": "3d1a165c27fd809e8a9b87a014b72cb60a83707a324552d3245e962d3b8563df"
       }
     }
   }

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-comprehensive",
+      "headline": [
+        "択一と記述",
+        "学習の配分は？"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-comprehensive-management/sokan-goukaku-senryaku/youtube.longform/cover.9f0f7082.png",
+        "sha256": "9f0f708259e2ffc541e3217f7623b7f334a6fb56f5166b12f9e491b101577a02",
+        "specSha256": "ac69e6d9cbaa6860e9dadbb175b074ce27b37779e010b33da05f20fa110d4f5e"
+      }
+    }
+  }
+}

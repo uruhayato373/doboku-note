@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "reading",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "listen",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/concrete-chief-engineer/kikinagashi-shunin-suchi/youtube.longform/cover.94c3f227.png",
-        "sha256": "94c3f22781dc3d6b2e216d67e287e386d5f9962066318925f55b02baea67b905",
-        "specSha256": "0102e62ec59cdb2aa6a57e1557614f5a6b18c1ac3ae470e94df0ccd61cdb2a6b"
+        "path": ".tmp/media/concrete-chief-engineer/kikinagashi-shunin-suchi/youtube.longform/cover.54111634.png",
+        "sha256": "54111634b7aedabd685bb899f47141805d9542633642ca4459a5e37a3f3aa375",
+        "specSha256": "a65549398425aee36e01fa58a25749823f9fccefc28ac686c40beca3867150cf"
       }
     },
     "point-wc-ratio-1": {
@@ -30,13 +35,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/concrete-chief-engineer/kikinagashi-shunin-suchi/youtube.short.point-wc-ratio-1/cover.e28d5b8a.png",
-        "sha256": "e28d5b8a5f0999b4231f985b4da052f165422b9b79086ec677bfca9330d0db33",
-        "specSha256": "0c9585484d842c3e0bafeb7749ab7902ebd63c9811660facafac16dda3fb9678"
+        "path": ".tmp/media/concrete-chief-engineer/kikinagashi-shunin-suchi/youtube.short.point-wc-ratio-1/cover.33dae2c2.png",
+        "sha256": "33dae2c2686f71c3253dd14b20286c274a929111d9f97fb2eb53b0f11c5ef05b",
+        "specSha256": "12b703d1ff565c2c8bc33b244dccb6e63df68706c0df39143dc7f68bbb97e35a"
       }
     },
     "point-tanni-saikotsu-kuuki-2": {
@@ -50,13 +60,18 @@
       "accentLine": 2,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/concrete-chief-engineer/kikinagashi-shunin-suchi/youtube.short.point-tanni-saikotsu-kuuki-2/cover.8c7cd624.png",
-        "sha256": "8c7cd624f5db5f1147e5c1b4ae8920ad276a517a76b697e29dc09a1c47715a7f",
-        "specSha256": "801a1557c9e85a669b36fab4ecc9c59fb0ffefbe3adc60b4c4a4a4864f3f0a02"
+        "path": ".tmp/media/concrete-chief-engineer/kikinagashi-shunin-suchi/youtube.short.point-tanni-saikotsu-kuuki-2/cover.9a68fe95.png",
+        "sha256": "9a68fe95e4856737af8907661f549492e3855d06201d526bba0acd4977eeef18",
+        "specSha256": "68f13519ed455c24819060daebff968f1a730db09250190fdfc844a09e8fd9af"
       }
     }
   }

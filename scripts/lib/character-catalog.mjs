@@ -25,7 +25,7 @@ export function readCharacterCatalog(root) {
   const base = join(root, manifest.assetsDir);
   const poses = manifest.poses.map(pose => {
     if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(pose.slug) || seen.has(pose.slug) ||
-        !/^[a-z0-9-]+\.png$/.test(pose.file) || !pose.label || typeof pose.verified !== 'boolean') {
+        !/^(?:_source\/)?[a-z0-9-]+\.png$/.test(pose.file) || !pose.label || typeof pose.verified !== 'boolean') {
       throw new Error(`キャラクター台帳のID・画像名・品質状態が不正です: ${pose.slug}`);
     }
     seen.add(pose.slug);
@@ -55,7 +55,7 @@ export function readCharacterCatalog(root) {
       ...pose,
       available,
       path: `${manifest.assetsDir}/${pose.file}`,
-      url: available ? `/media/sns/_assets/character/${encodeURIComponent(pose.file)}` : null,
+      url: available ? `/media/sns/_assets/character/${pose.file.split('/').map(encodeURIComponent).join('/')}` : null,
     };
   });
   return { name: manifest.identity.name, vocabulary: vocab, poses,

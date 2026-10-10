@@ -64,8 +64,9 @@ if (existsSync(designPath)) {
   for (const [key, spec] of Object.entries(design.covers ?? {})) {
     const { approvedImage: _previous, ...fresh } = spec;
     const layout = COVER_FORMATS[spec.format];
-    const raw = (await renderYoutubeCover(ROOT, fresh)).buffer;
-    const png = await render(brandedCoverNode(raw, layout, brand.logo), layout);
+    const raw = (await renderYoutubeCover(ROOT, spec.design === 'pop-v2' ? spec : fresh)).buffer;
+    // POP art already contains its authority line; preserve the adopted pixels.
+    const png = spec.design === 'pop-v2' ? raw : await render(brandedCoverNode(raw, layout, brand.logo), layout);
     if (png.length > 2 * 1024 * 1024) throw new Error(`${key}: 表紙が YouTube の上限 2MB を超える`);
     const pubId = pubIdOf({ exam, work: packId, channel: 'youtube', format: key === 'longform' ? 'longform' : 'short', variant: key === 'longform' ? null : key });
     const rel = mediaPath({ pubId, role: 'cover', sha256: hash(png), ext: 'png' });

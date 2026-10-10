@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/keiken-hinshitsu-1kyu/youtube.longform/cover.97daa94f.png",
-        "sha256": "97daa94fe605525f4237f63a88a14f829508f6c0a69e0bbbe89cd2e342e56a5c",
-        "specSha256": "67bda1826986baf2472e28177944107b25ad4e646c2553b62492b9ba10890c6f"
+        "path": ".tmp/media/civil-construction-1/keiken-hinshitsu-1kyu/youtube.longform/cover.b60c6359.png",
+        "sha256": "b60c635998eafdf2c2de49c9eb8ada3f9909deafbb919e200c1576c01d85a739",
+        "specSha256": "0db7d3e81f61a7f138ae898d8cb26fb32d00f98eaa80e3375552ad0a46c58d60"
       }
     },
     "point-gap-to-issue-1": {
@@ -30,13 +35,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "reading",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/keiken-hinshitsu-1kyu/youtube.short.point-gap-to-issue-1/cover.e7c3112f.png",
-        "sha256": "e7c3112fd24d9b8351560b191f18c7a5b910cc5639b1dfc4a703142974b75ed2",
-        "specSha256": "90eda5ca6bcbf955ee873eeb04ddea30b95a7ba10bc77a8a494a7ba1214b5878"
+        "path": ".tmp/media/civil-construction-1/keiken-hinshitsu-1kyu/youtube.short.point-gap-to-issue-1/cover.db42f7af.png",
+        "sha256": "db42f7afb6e1d2844d2acdc0a8e0b9a23d6d80be27a1033b633f0967b4aee79a",
+        "specSha256": "4c7bb97fc49a02a8d96419fbb1dc934b68972acddb8211b62d462200d4d88fb1"
       }
     },
     "point-focus-item-2": {
@@ -49,13 +59,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "pointing",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/keiken-hinshitsu-1kyu/youtube.short.point-focus-item-2/cover.4f8bb443.png",
-        "sha256": "4f8bb443589ced0620c54b86bb2e4dbf48b25dd67887e834b24f6cf1a0459acf",
-        "specSha256": "38c10f10f8d74388a2c0283d55fe3e4ca2fc129694badd2d6db732d98b11de3b"
+        "path": ".tmp/media/civil-construction-1/keiken-hinshitsu-1kyu/youtube.short.point-focus-item-2/cover.32f9090f.png",
+        "sha256": "32f9090fb461bb6da7046aad6f3b46a69bc732ba19882f48d0553b5bbcd35e88",
+        "specSha256": "3cf63c89bc3623135efff488aef840de9eca22addec6fc7686436112c21f145e"
       }
     }
   }
