@@ -8,7 +8,9 @@
 import { strict as assert } from 'node:assert';
 import test from 'node:test';
 import { readDataset } from '../scripts/lib/dataset-io.mjs';
-import { DATASETS } from '../scripts/lib/datasets.mjs';
+import { readdirSync, readFileSync } from 'node:fs';
+import { join } from 'node:path';
+import { DATASETS, datasetDir } from '../scripts/lib/datasets.mjs';
 import { REF_TARGETS, checkRefs, refResolvers, valuesAt } from '../scripts/lib/dataset-refs.mjs';
 import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
 
@@ -57,7 +59,11 @@ test('台帳: refs の宣言は形が正しく、宣言したデータセット�
   const resolvers = refResolvers({ root: REPO_ROOT, registry: readDataset(REPO_ROOT, 'config.qualification-registry'), products: readDataset(REPO_ROOT, 'config.products') });
   for (const x of declared) {
     for (const ref of x.refs) assert.ok(REF_TARGETS.includes(ref.to) && ref.at, `${x.id}: ${JSON.stringify(ref)}`);
-    const r = checkRefs(x, [{ file: x.path, data: readDataset(REPO_ROOT, x.id) }], resolvers);
+    // パスに {name} などの可変部分があるデータセットは、置き場の全ファイルを読む（例: 過去問の問題台帳は資格ごとに 1 ファイル）
+    const files = x.path.includes('{')
+      ? readdirSync(join(REPO_ROOT, datasetDir(x.id))).filter((f) => f.endsWith('.json')).map((f) => ({ file: `${datasetDir(x.id)}/${f}`, data: JSON.parse(readFileSync(join(REPO_ROOT, datasetDir(x.id), f), 'utf8')) }))
+      : [{ file: x.path, data: readDataset(REPO_ROOT, x.id) }];
+    const r = checkRefs(x, files, resolvers);
     assert.ok(r.checked > 0, `${x.id}: 参照を 1 件も拾えない（場所の書き間違い）`);
     assert.deepEqual(r.broken, [], `${x.id}: 参照切れ`);
   }
