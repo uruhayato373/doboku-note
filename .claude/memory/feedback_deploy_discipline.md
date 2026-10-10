@@ -26,6 +26,9 @@ metadata:
 - **ローカルビルド検証は当てにしない**: `next dev -p 3020` 並行中は `.next` 競合で `npm run build` がハング（16分+/出力0B）。**CI build を権威ゲート**（失敗時は Cloudflare deploy step が走らず本番は前バージョン）。
 - **develop の Pre-merge が並行 push で取り消され続けるとき**（2026-10-09〜10・concurrency で新しい push が前の run を cancel し、緑の run がなかなか出ない）: 待ち続けず、`gh run list --branch develop --workflow "Pre-merge check (quality audit + build)" --json conclusion,headSha` で最後に success の sha を取り、出したい変更の祖先か `git merge-base --is-ancestor` で確かめ、`git worktree add --detach .claude/worktrees/deploy-tmp origin/main` → `git merge <sha>` → `git push origin HEAD:main` → worktree を即 remove。緑の確認が無い develop の先頭は出さない。
 - **CI deploy が Checkout でハング**する前例（18分）→ `gh run cancel` → `gh run rerun`。
+- **PR をマージする前に向き先（baseRefName）を見る**（2026-10-10）: dependabot の**セキュリティ更新**の PR は `dependabot.yml` の `target-branch: develop` に関係なく既定のブランチ（main）へ向く。#925（Next 16.3.8）を確かめずにマージし、develop を通らずに main へ入ってデプロイが起動した。`gh pr view <n> --json baseRefName` が develop でなければ、`gh pr edit <n> --base develop` で付け替えてから入れる
+- **ブランチの片づけは squash を見分ける**（2026-10-10）: `git rev-list origin/develop..<b>` が 0 でなくても、squash で取り込み済みなら中身は develop にある。`git merge-tree --write-tree origin/develop <b>` の tree が develop の tree と同じか、`gh pr list --head <b> --state merged` のマージのコミットが `git merge-base --is-ancestor` で develop にあるかで判定してから消す。どちらでもないものは別セッションの作業なので、運営者に扱いを聞く
+- **`.git/index.lock` で止まったら**: `ls -la .git/index.lock`（時刻）と `pgrep -fl "git "` で動いている git が無いことを確かめてから消す。動いていれば待つ
 - `gh run watch --exit-status` の exit code を信用せず、`gh run view <id> --json conclusion` と本番 `.pages.dev` の HTTP 実査で確認（watch が exit 0 でも failure のことがあった）。deploy 後は `npm run check-production-ssr`。
 
 ## MDX 新規カスタムコンポーネントは3点同時 commit（本番 build の不変条件）
