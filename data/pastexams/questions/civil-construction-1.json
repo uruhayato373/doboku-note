@@ -19543,15 +19543,21 @@
       "no": "B-1",
       "source": {
         "question": "R04/R04_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 2,
         "answer": "R04/R04_第一次検定_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -19560,15 +19566,22 @@
       "no": "B-2",
       "source": {
         "question": "R04/R04_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 2,
         "answer": "R04/R04_第一次検定_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "解説の引用を原文(発生直後直ちに)に合わせた"
       }
     },
     {
@@ -19577,15 +19590,21 @@
       "no": "B-3",
       "source": {
         "question": "R04/R04_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 3,
         "answer": "R04/R04_第一次検定_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -19594,15 +19613,21 @@
       "no": "B-4",
       "source": {
         "question": "R04/R04_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 4,
         "answer": "R04/R04_第一次検定_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -19611,15 +19636,21 @@
       "no": "B-5",
       "source": {
         "question": "R04/R04_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 4,
         "answer": "R04/R04_第一次検定_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -19628,15 +19659,22 @@
       "no": "B-6",
       "source": {
         "question": "R04/R04_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 5,
         "answer": "R04/R04_第一次検定_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "解説のクリティカルパス経路を訂正"
       }
     },
     {
@@ -19645,15 +19683,22 @@
       "no": "B-7",
       "source": {
         "question": "R04/R04_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 5,
         "answer": "R04/R04_第一次検定_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "解説の条文引用を訂正(指示・第29条の2)"
       }
     },
     {
@@ -19662,15 +19707,21 @@
       "no": "B-8",
       "source": {
         "question": "R04/R04_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 6,
         "answer": "R04/R04_第一次検定_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -19679,15 +19730,21 @@
       "no": "B-9",
       "source": {
         "question": "R04/R04_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 6,
         "answer": "R04/R04_第一次検定_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -19696,15 +19753,22 @@
       "no": "B-10",
       "source": {
         "question": "R04/R04_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 6,
         "answer": "R04/R04_第一次検定_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢3の文字化け(ドロす)を下ろすに訂正"
       }
     },
     {
@@ -19713,15 +19777,22 @@
       "no": "B-11",
       "source": {
         "question": "R04/R04_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 7,
         "answer": "R04/R04_第一次検定_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢3を原文(破れや切れ等)に訂正。公式正答2->1に変更し解説・ExamPoint書き換え"
       }
     },
     {
@@ -19730,15 +19801,22 @@
       "no": "B-12",
       "source": {
         "question": "R04/R04_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 7,
         "answer": "R04/R04_第一次検定_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢2の積送機械を積込機械に訂正。公式正答4->2に変更し解説書き換え"
       }
     },
     {
@@ -19747,15 +19825,21 @@
       "no": "B-13",
       "source": {
         "question": "R04/R04_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 8,
         "answer": "R04/R04_第一次検定_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -19764,15 +19848,22 @@
       "no": "B-14",
       "source": {
         "question": "R04/R04_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 8,
         "answer": "R04/R04_第一次検定_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "公式正答1->3に変更し解説書き換え"
       }
     },
     {
@@ -19781,15 +19872,21 @@
       "no": "B-15",
       "source": {
         "question": "R04/R04_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 8,
         "answer": "R04/R04_第一次検定_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -19798,15 +19895,21 @@
       "no": "B-16",
       "source": {
         "question": "R04/R04_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 9,
         "answer": "R04/R04_第一次検定_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -19815,15 +19918,21 @@
       "no": "B-17",
       "source": {
         "question": "R04/R04_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 9,
         "answer": "R04/R04_第一次検定_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -19832,15 +19941,22 @@
       "no": "B-18",
       "source": {
         "question": "R04/R04_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 9,
         "answer": "R04/R04_第一次検定_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢3の除染区域を除洗区域に訂正"
       }
     },
     {
@@ -19849,15 +19965,21 @@
       "no": "B-19",
       "source": {
         "question": "R04/R04_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 10,
         "answer": "R04/R04_第一次検定_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -19866,15 +19988,21 @@
       "no": "B-20",
       "source": {
         "question": "R04/R04_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 10,
         "answer": "R04/R04_第一次検定_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -19883,15 +20011,21 @@
       "no": "B-21",
       "source": {
         "question": "R04/R04_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 11,
         "answer": "R04/R04_第一次検定_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -19900,15 +20034,22 @@
       "no": "B-22",
       "source": {
         "question": "R04/R04_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 12,
         "answer": "R04/R04_第一次検定_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "修止を修正に訂正"
       }
     },
     {
@@ -19917,15 +20058,22 @@
       "no": "B-23",
       "source": {
         "question": "R04/R04_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 13,
         "answer": "R04/R04_第一次検定_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "水位差により・沸き上がりに訂正"
       }
     },
     {
@@ -19934,15 +20082,22 @@
       "no": "B-24",
       "source": {
         "question": "R04/R04_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 14,
         "answer": "R04/R04_第一次検定_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "第2項の空欄(ロ)の脱落を補った"
       }
     },
     {
@@ -19951,15 +20106,22 @@
       "no": "B-25",
       "source": {
         "question": "R04/R04_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 14,
         "answer": "R04/R04_第一次検定_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "比較をし・是正措置の誤字を訂正"
       }
     },
     {
@@ -19968,15 +20130,21 @@
       "no": "B-26",
       "source": {
         "question": "R04/R04_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 15,
         "answer": "R04/R04_第一次検定_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -19985,15 +20153,22 @@
       "no": "B-27",
       "source": {
         "question": "R04/R04_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 15,
         "answer": "R04/R04_第一次検定_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "施工を速めるに訂正(2箇所)"
       }
     },
     {
@@ -20002,15 +20177,21 @@
       "no": "B-28",
       "source": {
         "question": "R04/R04_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 16,
         "answer": "R04/R04_第一次検定_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -20019,15 +20200,22 @@
       "no": "B-29",
       "source": {
         "question": "R04/R04_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 17,
         "answer": "R04/R04_第一次検定_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "公式正答1->2に変更し解説書き換え"
       }
     },
     {
@@ -20036,15 +20224,22 @@
       "no": "B-30",
       "source": {
         "question": "R04/R04_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 18,
         "answer": "R04/R04_第一次検定_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問(床付け面)を訂正。公式正答2->4に変更し解説書き換え"
       }
     },
     {
@@ -20053,15 +20248,21 @@
       "no": "B-31",
       "source": {
         "question": "R04/R04_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 19,
         "answer": "R04/R04_第一次検定_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -20070,15 +20271,21 @@
       "no": "B-32",
       "source": {
         "question": "R04/R04_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 20,
         "answer": "R04/R04_第一次検定_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -20087,15 +20294,21 @@
       "no": "B-33",
       "source": {
         "question": "R04/R04_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 21,
         "answer": "R04/R04_第一次検定_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -20104,15 +20317,21 @@
       "no": "B-34",
       "source": {
         "question": "R04/R04_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 21,
         "answer": "R04/R04_第一次検定_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -20121,15 +20340,21 @@
       "no": "B-35",
       "source": {
         "question": "R04/R04_第一次検定_問題B.pdf",
-        "page": null,
+        "page": 22,
         "answer": "R04/R04_第一次検定_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
