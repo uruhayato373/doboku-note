@@ -27,7 +27,7 @@ import { dirname, join } from 'node:path';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { parseCliArgs } from './lib/cli-args.mjs';
 import { todayJst } from './lib/jst-date.mjs';
-import { isoWeekKey, weekPeriod } from './lib/business-direction.mjs';
+import { isoWeekKey, reviewWeekOfDay, reviewWindowOfWeek, weekPeriod } from './lib/review-week.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { qualificationShortLabel } from './lib/qualification-names.mjs';
 import { loadRegistry } from './lib/qualification-registry.mjs';
@@ -35,14 +35,14 @@ import { loadRegistry } from './lib/qualification-registry.mjs';
 const TAG = '[weekly-review-draft]';
 const args = parseCliArgs({ week: { type: 'string' }, print: { type: 'boolean' }, check: { type: 'boolean' } });
 
-const week = args.week ?? isoWeekKey(todayJst());
+const week = args.week ?? reviewWeekOfDay(todayJst());
 let period;
 try { period = weekPeriod(week); } catch { period = null; }
 if (!period) { console.error(`${TAG} 検査不成立: 週の指定が不正（${week}）`); process.exit(2); }
-const addDays = (d, n) => { const t = new Date(`${d}T00:00:00Z`); t.setUTCDate(t.getUTCDate() + n); return t.toISOString().slice(0, 10); };
-const windowPeriod = { startDate: addDays(period.startDate, -7), endDate: addDays(period.startDate, -1) };
-const prevWindow = { startDate: addDays(windowPeriod.startDate, -7), endDate: addDays(windowPeriod.startDate, -1) };
+// 回（レビューの週）が振り返る期間と、その前の週（前週比の基準）。換算は review-week.mjs
+const windowPeriod = reviewWindowOfWeek(week);
 const windowWeek = isoWeekKey(windowPeriod.startDate);
+const prevWindow = reviewWindowOfWeek(windowWeek);
 
 /** 1 本のコマンドを回す。失敗しても止めず、rc と出力を残す（欠けは下書きに「未取得」と書く） */
 function run(id, cmd, cmdArgs, { json = false, timeoutMs = 180_000 } = {}) {
