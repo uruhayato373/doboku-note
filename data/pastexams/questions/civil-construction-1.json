@@ -1456,7 +1456,7 @@
       "no": "B-1",
       "source": {
         "question": "H26/H26_学科試験_問題B.pdf",
-        "page": null,
+        "page": 2,
         "answer": "H26/H26_学科試験_正答.pdf"
       },
       "answer": {
@@ -1464,12 +1464,14 @@
         "official": [
           2
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢を原典の文に合わせ，解説を書き直し"
       }
     },
     {
@@ -1478,7 +1480,7 @@
       "no": "B-2",
       "source": {
         "question": "H26/H26_学科試験_問題B.pdf",
-        "page": null,
+        "page": 2,
         "answer": "H26/H26_学科試験_正答.pdf"
       },
       "answer": {
@@ -1486,12 +1488,14 @@
         "official": [
           3
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢を原典の文に合わせ，解説を書き直し"
       }
     },
     {
@@ -1500,7 +1504,7 @@
       "no": "B-3",
       "source": {
         "question": "H26/H26_学科試験_問題B.pdf",
-        "page": null,
+        "page": 3,
         "answer": "H26/H26_学科試験_正答.pdf"
       },
       "answer": {
@@ -1508,12 +1512,14 @@
         "official": [
           1
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢を原典の文に合わせ，解説を書き直し"
       }
     },
     {
@@ -1522,7 +1528,7 @@
       "no": "B-4",
       "source": {
         "question": "H26/H26_学科試験_問題B.pdf",
-        "page": null,
+        "page": 3,
         "answer": "H26/H26_学科試験_正答.pdf"
       },
       "answer": {
@@ -1530,12 +1536,13 @@
         "official": [
           4
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -1544,7 +1551,7 @@
       "no": "B-5",
       "source": {
         "question": "H26/H26_学科試験_問題B.pdf",
-        "page": null,
+        "page": 4,
         "answer": "H26/H26_学科試験_正答.pdf"
       },
       "answer": {
@@ -1552,12 +1559,14 @@
         "official": [
           2
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢を原典の文に合わせ，解説を書き直し"
       }
     },
     {
@@ -1566,7 +1575,7 @@
       "no": "B-6",
       "source": {
         "question": "H26/H26_学科試験_問題B.pdf",
-        "page": null,
+        "page": 4,
         "answer": "H26/H26_学科試験_正答.pdf"
       },
       "answer": {
@@ -1574,12 +1583,14 @@
         "official": [
           3
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢を原典の文に合わせ，解説を書き直し"
       }
     },
     {
@@ -1588,7 +1599,7 @@
       "no": "B-7",
       "source": {
         "question": "H26/H26_学科試験_問題B.pdf",
-        "page": null,
+        "page": 4,
         "answer": "H26/H26_学科試験_正答.pdf"
       },
       "answer": {
@@ -1596,12 +1607,14 @@
         "official": [
           4
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢を原典の文に合わせ，解説を書き直し"
       }
     },
     {
@@ -1610,7 +1623,7 @@
       "no": "B-8",
       "source": {
         "question": "H26/H26_学科試験_問題B.pdf",
-        "page": null,
+        "page": 5,
         "answer": "H26/H26_学科試験_正答.pdf"
       },
       "answer": {
@@ -1618,12 +1631,14 @@
         "official": [
           3
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢を原典の文に合わせ，解説を書き直し"
       }
     },
     {
@@ -1632,7 +1647,7 @@
       "no": "B-9",
       "source": {
         "question": "H26/H26_学科試験_問題B.pdf",
-        "page": null,
+        "page": 5,
         "answer": "H26/H26_学科試験_正答.pdf"
       },
       "answer": {
@@ -1640,12 +1655,14 @@
         "official": [
           2
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢を原典の文に合わせ，解説を書き直し"
       }
     },
     {
@@ -1654,7 +1671,7 @@
       "no": "B-10",
       "source": {
         "question": "H26/H26_学科試験_問題B.pdf",
-        "page": null,
+        "page": 5,
         "answer": "H26/H26_学科試験_正答.pdf"
       },
       "answer": {
@@ -1662,12 +1679,14 @@
         "official": [
           2
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢を原典の文に合わせ，解説を書き直し"
       }
     },
     {
@@ -1676,7 +1695,7 @@
       "no": "B-11",
       "source": {
         "question": "H26/H26_学科試験_問題B.pdf",
-        "page": null,
+        "page": 6,
         "answer": "H26/H26_学科試験_正答.pdf"
       },
       "answer": {
@@ -1684,12 +1703,14 @@
         "official": [
           4
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢を原典の文に合わせ，解説を書き直し"
       }
     },
     {
@@ -1698,7 +1719,7 @@
       "no": "B-12",
       "source": {
         "question": "H26/H26_学科試験_問題B.pdf",
-        "page": null,
+        "page": 6,
         "answer": "H26/H26_学科試験_正答.pdf"
       },
       "answer": {
@@ -1706,12 +1727,14 @@
         "official": [
           1
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢を原典の文に合わせ，解説を書き直し"
       }
     },
     {
@@ -1720,7 +1743,7 @@
       "no": "B-13",
       "source": {
         "question": "H26/H26_学科試験_問題B.pdf",
-        "page": null,
+        "page": 7,
         "answer": "H26/H26_学科試験_正答.pdf"
       },
       "answer": {
@@ -1728,12 +1751,14 @@
         "official": [
           3
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢を原典の文に合わせ，解説を書き直し"
       }
     },
     {
@@ -1742,7 +1767,7 @@
       "no": "B-14",
       "source": {
         "question": "H26/H26_学科試験_問題B.pdf",
-        "page": null,
+        "page": 7,
         "answer": "H26/H26_学科試験_正答.pdf"
       },
       "answer": {
@@ -1750,12 +1775,14 @@
         "official": [
           2
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢を原典の文に合わせ，解説を書き直し"
       }
     },
     {
@@ -1764,7 +1791,7 @@
       "no": "B-15",
       "source": {
         "question": "H26/H26_学科試験_問題B.pdf",
-        "page": null,
+        "page": 8,
         "answer": "H26/H26_学科試験_正答.pdf"
       },
       "answer": {
@@ -1772,12 +1799,14 @@
         "official": [
           4
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢を原典の文に合わせ，解説を書き直し"
       }
     },
     {
@@ -1786,7 +1815,7 @@
       "no": "B-16",
       "source": {
         "question": "H26/H26_学科試験_問題B.pdf",
-        "page": null,
+        "page": 8,
         "answer": "H26/H26_学科試験_正答.pdf"
       },
       "answer": {
@@ -1794,12 +1823,14 @@
         "official": [
           2
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢を原典の文に合わせ，解説を書き直し"
       }
     },
     {
@@ -1808,7 +1839,7 @@
       "no": "B-17",
       "source": {
         "question": "H26/H26_学科試験_問題B.pdf",
-        "page": null,
+        "page": 9,
         "answer": "H26/H26_学科試験_正答.pdf"
       },
       "answer": {
@@ -1816,12 +1847,14 @@
         "official": [
           1
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢を原典の文に合わせ，解説を書き直し"
       }
     },
     {
@@ -1830,7 +1863,7 @@
       "no": "B-18",
       "source": {
         "question": "H26/H26_学科試験_問題B.pdf",
-        "page": null,
+        "page": 9,
         "answer": "H26/H26_学科試験_正答.pdf"
       },
       "answer": {
@@ -1838,12 +1871,14 @@
         "official": [
           3
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢を原典の文に合わせ，解説を書き直し"
       }
     },
     {
@@ -1852,7 +1887,7 @@
       "no": "B-19",
       "source": {
         "question": "H26/H26_学科試験_問題B.pdf",
-        "page": null,
+        "page": 9,
         "answer": "H26/H26_学科試験_正答.pdf"
       },
       "answer": {
@@ -1860,12 +1895,13 @@
         "official": [
           2
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -1874,7 +1910,7 @@
       "no": "B-20",
       "source": {
         "question": "H26/H26_学科試験_問題B.pdf",
-        "page": null,
+        "page": 10,
         "answer": "H26/H26_学科試験_正答.pdf"
       },
       "answer": {
@@ -1882,12 +1918,13 @@
         "official": [
           1
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -1896,7 +1933,7 @@
       "no": "B-21",
       "source": {
         "question": "H26/H26_学科試験_問題B.pdf",
-        "page": null,
+        "page": 10,
         "answer": "H26/H26_学科試験_正答.pdf"
       },
       "answer": {
@@ -1904,12 +1941,14 @@
         "official": [
           3
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢を原典の文に合わせ，解説を書き直し"
       }
     },
     {
@@ -1918,7 +1957,7 @@
       "no": "B-22",
       "source": {
         "question": "H26/H26_学科試験_問題B.pdf",
-        "page": null,
+        "page": 10,
         "answer": "H26/H26_学科試験_正答.pdf"
       },
       "answer": {
@@ -1926,12 +1965,14 @@
         "official": [
           4
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢を原典の文に合わせ，解説を書き直し"
       }
     },
     {
@@ -1940,7 +1981,7 @@
       "no": "B-23",
       "source": {
         "question": "H26/H26_学科試験_問題B.pdf",
-        "page": null,
+        "page": 11,
         "answer": "H26/H26_学科試験_正答.pdf"
       },
       "answer": {
@@ -1948,12 +1989,14 @@
         "official": [
           3
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢を原典の文に合わせ，解説を書き直し"
       }
     },
     {
@@ -1962,7 +2005,7 @@
       "no": "B-24",
       "source": {
         "question": "H26/H26_学科試験_問題B.pdf",
-        "page": null,
+        "page": 11,
         "answer": "H26/H26_学科試験_正答.pdf"
       },
       "answer": {
@@ -1970,12 +2013,14 @@
         "official": [
           4
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢を原典の文に合わせ，解説を書き直し"
       }
     },
     {
@@ -1984,7 +2029,7 @@
       "no": "B-25",
       "source": {
         "question": "H26/H26_学科試験_問題B.pdf",
-        "page": null,
+        "page": 11,
         "answer": "H26/H26_学科試験_正答.pdf"
       },
       "answer": {
@@ -1992,12 +2037,14 @@
         "official": [
           4
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢を原典の文に合わせ，解説を書き直し"
       }
     },
     {
@@ -2006,7 +2053,7 @@
       "no": "B-26",
       "source": {
         "question": "H26/H26_学科試験_問題B.pdf",
-        "page": null,
+        "page": 12,
         "answer": "H26/H26_学科試験_正答.pdf"
       },
       "answer": {
@@ -2014,12 +2061,14 @@
         "official": [
           3
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢を原典の文に合わせ，解説を書き直し"
       }
     },
     {
@@ -2028,7 +2077,7 @@
       "no": "B-27",
       "source": {
         "question": "H26/H26_学科試験_問題B.pdf",
-        "page": null,
+        "page": 12,
         "answer": "H26/H26_学科試験_正答.pdf"
       },
       "answer": {
@@ -2036,12 +2085,14 @@
         "official": [
           4
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢を原典の文に合わせ，解説を書き直し"
       }
     },
     {
@@ -2050,7 +2101,7 @@
       "no": "B-28",
       "source": {
         "question": "H26/H26_学科試験_問題B.pdf",
-        "page": null,
+        "page": 13,
         "answer": "H26/H26_学科試験_正答.pdf"
       },
       "answer": {
@@ -2058,12 +2109,14 @@
         "official": [
           3
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢を原典の文に合わせ，解説を書き直し"
       }
     },
     {
@@ -2072,7 +2125,7 @@
       "no": "B-29",
       "source": {
         "question": "H26/H26_学科試験_問題B.pdf",
-        "page": null,
+        "page": 13,
         "answer": "H26/H26_学科試験_正答.pdf"
       },
       "answer": {
@@ -2080,12 +2133,14 @@
         "official": [
           2
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢を原典の文に合わせ，解説を書き直し"
       }
     },
     {
@@ -2094,7 +2149,7 @@
       "no": "B-30",
       "source": {
         "question": "H26/H26_学科試験_問題B.pdf",
-        "page": null,
+        "page": 13,
         "answer": "H26/H26_学科試験_正答.pdf"
       },
       "answer": {
@@ -2102,12 +2157,14 @@
         "official": [
           1
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢を原典の文に合わせ，解説を書き直し"
       }
     },
     {
@@ -2116,7 +2173,7 @@
       "no": "B-31",
       "source": {
         "question": "H26/H26_学科試験_問題B.pdf",
-        "page": null,
+        "page": 14,
         "answer": "H26/H26_学科試験_正答.pdf"
       },
       "answer": {
@@ -2124,12 +2181,13 @@
         "official": [
           1
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -2138,7 +2196,7 @@
       "no": "B-32",
       "source": {
         "question": "H26/H26_学科試験_問題B.pdf",
-        "page": null,
+        "page": 14,
         "answer": "H26/H26_学科試験_正答.pdf"
       },
       "answer": {
@@ -2146,12 +2204,14 @@
         "official": [
           3
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢を原典の文に合わせ，解説を書き直し"
       }
     },
     {
@@ -2160,7 +2220,7 @@
       "no": "B-33",
       "source": {
         "question": "H26/H26_学科試験_問題B.pdf",
-        "page": null,
+        "page": 14,
         "answer": "H26/H26_学科試験_正答.pdf"
       },
       "answer": {
@@ -2168,12 +2228,14 @@
         "official": [
           1
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢を原典の文に合わせ，解説を書き直し"
       }
     },
     {
@@ -2182,7 +2244,7 @@
       "no": "B-34",
       "source": {
         "question": "H26/H26_学科試験_問題B.pdf",
-        "page": null,
+        "page": 15,
         "answer": "H26/H26_学科試験_正答.pdf"
       },
       "answer": {
@@ -2190,12 +2252,14 @@
         "official": [
           4
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢を原典の文に合わせ，解説を書き直し"
       }
     },
     {
@@ -2204,7 +2268,7 @@
       "no": "B-35",
       "source": {
         "question": "H26/H26_学科試験_問題B.pdf",
-        "page": null,
+        "page": 15,
         "answer": "H26/H26_学科試験_正答.pdf"
       },
       "answer": {
@@ -2212,12 +2276,14 @@
         "official": [
           2
         ],
-        "checkedAt": "2026-07-10",
-        "by": "import",
-        "note": "2026-07-10 に JCTC 公式正答肢の再掲から抽出した旧データ（1級一次）から移した"
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢を原典の文に合わせ，解説を書き直し"
       }
     },
     {
