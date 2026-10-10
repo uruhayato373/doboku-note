@@ -29,9 +29,10 @@ import { qualificationOfQuizExam, readLedger, unreadyForApp } from './lib/past-e
 
 const NAME = 'build-ios-quiz-bundle';
 
-/** アプリ（系統）ごとに収める試験。土木施工管理技士アプリ（civil-1・civil-2）は DN-0628 で足す */
+/** アプリ（系統）ごとに収める試験 */
 export const APPS = {
   pe: { label: '技術士 過去問', exams: ['pe-first-stage', 'cem'] },
+  doboku: { label: '土木施工管理技士 過去問', exams: ['civil-1', 'civil-2'] },
 };
 
 const IMG_SRC = /(<img\b[^>]*?\ssrc=")(\/posts\/[^"]+)(")/g;
