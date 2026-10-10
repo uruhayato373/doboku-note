@@ -14,7 +14,6 @@
 
 import { readFileSync, existsSync, mkdirSync, readdirSync, writeFileSync } from "fs";
 import { join, dirname, sep } from "path";
-import { fileURLToPath } from "url";
 import sharp from "sharp";
 import { coverExamNames } from "./lib/note-character-cover.mjs";
 // 試験色の真実源は note-cover-tokens.json（exam-palette 経由）。ここで hex を直書きすると
@@ -22,9 +21,8 @@ import { coverExamNames } from "./lib/note-character-cover.mjs";
 import { examColor } from "../.claude/scripts/sns/lib/exam-palette.mjs";
 import { stripTweetMemos } from "./lib/x-tweets-md.mjs";
 import { renderXCharacterCard } from './lib/x-character-card.mjs';
+import { REPO_ROOT as PROJECT_ROOT } from './lib/repository-paths.mjs';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const PROJECT_ROOT = join(__dirname, "..");
 const DRAFTS_DIR = join(PROJECT_ROOT, "content/sns/x/draft");
 
 const FONT =

@@ -39,12 +39,12 @@
  * 依存: PDF→txt 化に Python の PyMuPDF(fitz) を第一候補、pdftotext を第二候補で使う。
  *       テキストは .tmp/whitepaper-cache/<safe-name>.txt にキャッシュ（PDF より新しければ再利用）。
  */
-import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync, statSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, mkdirSync, statSync } from 'node:fs';
 import { join, basename } from 'node:path';
 import { spawnSync } from 'node:child_process';
-import { TEXTBOOK_SOURCES_ROOT } from '../../scripts/lib/repository-paths.mjs';
+import { REPO_ROOT as ROOT, TEXTBOOK_SOURCES_ROOT } from '../../scripts/lib/repository-paths.mjs';
+import { listFiles } from '../../scripts/lib/fs-walk.mjs';
 
-const ROOT = process.cwd();
 const PDF_DIR = join(TEXTBOOK_SOURCES_ROOT, '白書等');
 const CACHE_DIR = join(ROOT, '.tmp', 'whitepaper-cache');
 
@@ -89,15 +89,7 @@ function pdfToText(pdfPath) {
 
 function selectPdfs() {
   if (!existsSync(PDF_DIR)) return [];
-  const all = [];
-  const walk = (dir) => {
-    for (const e of readdirSync(dir, { withFileTypes: true })) {
-      const p = join(dir, e.name);
-      if (e.isDirectory()) walk(p);
-      else if (e.name.toLowerCase().endsWith('.pdf')) all.push(p);
-    }
-  };
-  walk(PDF_DIR);
+  const all = listFiles(PDF_DIR, { match: (_p, name) => name.toLowerCase().endsWith('.pdf') });
   if (!PAPERS.length) return all;
   return all.filter((p) => PAPERS.some((kw) => basename(p).includes(kw)));
 }

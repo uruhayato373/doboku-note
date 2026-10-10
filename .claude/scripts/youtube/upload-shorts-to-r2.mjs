@@ -20,6 +20,7 @@
 import { S3Client, PutObjectCommand, HeadObjectCommand } from '@aws-sdk/client-s3';
 import { readFileSync, existsSync, readdirSync, statSync, rmSync } from 'node:fs';
 import { join } from 'node:path';
+import { SNS_CONTENT_ROOT } from '../../../scripts/lib/repository-paths.mjs';
 
 function loadEnv() {
   const env = { ...process.env };
@@ -68,7 +69,7 @@ async function uploadIfNew(key, filePath, contentType) {
   return 'up';
 }
 
-const root = 'content/sns/youtube';
+const root = join(SNS_CONTENT_ROOT, 'youtube');
 const dirs = readdirSync(root).filter((d) => /-q\d+$/.test(d) && statSync(join(root, d)).isDirectory()).sort();
 let up = 0, skip = 0, fail = 0, thumbUp = 0, thumbSkip = 0, cleaned = 0;
 for (const d of dirs) {

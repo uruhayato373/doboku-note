@@ -30,12 +30,10 @@
  */
 
 import { readdirSync, readFileSync, existsSync, statSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { chooseProblemLayout } from '../.claude/scripts/lib/sns-common/quiz-slides.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = join(__dirname, '..');
 const EXAM_KEYS = ['cem', 'pe-first-stage', 'civil-1', 'civil-2', 'pe-construction'];
 const BASE_MAP = Object.fromEntries(
   EXAM_KEYS.map((k) => [k, join(ROOT, 'content/sns/instagram', k, 'exam-packs')]),

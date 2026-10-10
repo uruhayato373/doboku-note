@@ -1,9 +1,8 @@
 import { createReadStream, existsSync, statSync } from 'node:fs';
 import { createServer } from 'node:http';
-import { dirname, extname, resolve, sep } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { extname, resolve, sep } from 'node:path';
+import { REPO_ROOT as repoRoot } from './lib/repository-paths.mjs';
 
-const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const postsRoot = resolve(repoRoot, 'content', 'site');
 const placeholder = resolve(repoRoot, 'public', 'images', 'local-media-missing.svg');
 const port = Number(process.env.LOCAL_MEDIA_PORT || 3022);

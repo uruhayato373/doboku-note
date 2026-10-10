@@ -17,8 +17,9 @@ import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
 import { join, basename } from 'node:path';
 import { slugFromKey } from './lib/url-normalization.mjs';
 import { latestReportRef, readJsonOrReport } from './lib/metric-reports.mjs';
+import { REPO_ROOT } from './lib/repository-paths.mjs';
 
-const OUT = join(process.cwd(), 'src', 'config', 'popular-pages.json');
+const OUT = join(REPO_ROOT, 'src', 'config', 'popular-pages.json');
 
 /** 最新の GA4 ページ別レポートの参照（data/ga4/reports/<日付>.json#page）。無ければ null。 */
 function latestPageSnapshot() {

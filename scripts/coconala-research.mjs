@@ -49,8 +49,8 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { RESEARCH_VERSION, addService, indexServices, queryServices, toStoredResearch } from './lib/coconala-market.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const OUT_PATH = join(ROOT, datasetPath('coconala.market-research'));
 const SUMMARY_PATH = join(ROOT, datasetPath('coconala.market-summary'));
 const OUT_DIR = dirname(OUT_PATH);

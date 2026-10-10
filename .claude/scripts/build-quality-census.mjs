@@ -23,8 +23,9 @@
 import { readdirSync, readFileSync, writeFileSync, appendFileSync, existsSync, mkdirSync } from 'node:fs';
 import { join, relative, extname, dirname } from 'node:path';
 import { todayJst } from '../../scripts/lib/jst-date.mjs';
+import { REPO_ROOT as ROOT } from '../../scripts/lib/repository-paths.mjs';
+import { listFiles } from '../../scripts/lib/fs-walk.mjs';
 
-const ROOT = process.cwd();
 const POSTS_ROOT = join(ROOT, 'content/site');
 const DOC_META = join(ROOT, 'src/config/doc-meta-index.json');
 const QUALITY_DIR = join(ROOT, '.claude/state/quality');
@@ -45,17 +46,6 @@ const LEGACY_SOURCES = [
 ];
 
 // ── MDX 列挙 + slug（build-doc-meta-index.mjs と同一規則）─────────────
-function walkMdx(dir) {
-  const out = [];
-  if (!existsSync(dir)) return out;
-  for (const entry of readdirSync(dir, { withFileTypes: true })) {
-    const p = join(dir, entry.name);
-    if (entry.isDirectory()) out.push(...walkMdx(p));
-    else if (entry.isFile() && extname(entry.name).toLowerCase() === '.mdx') out.push(p);
-  }
-  return out;
-}
-
 function toSlug(filePath) {
   const rel = relative(POSTS_ROOT, filePath);
   const withoutExt = rel.replace(/\.mdx$/i, '');
@@ -182,7 +172,7 @@ function main() {
   const docs = docMeta.docs; // published のみ（build-doc-meta が published:false を除外済み）
 
   // slug → body_chars（実ファイルを読む）
-  const files = walkMdx(POSTS_ROOT);
+  const files = listFiles(POSTS_ROOT, { allowMissing: true, match: (_p, name) => extname(name).toLowerCase() === '.mdx' });
   const bodyCharsBySlug = new Map();
   for (const filePath of files) {
     const slug = toSlug(filePath);

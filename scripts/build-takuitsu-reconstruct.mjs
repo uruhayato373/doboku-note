@@ -25,8 +25,9 @@ import { fileURLToPath } from 'node:url'
 import { writeEpub, xhtmlDoc, xesc, xinline } from './lib/epub-writer.mjs'
 import { NOTE_BASE, NOTE_CREATOR, SITE_ORIGIN } from './lib/site-identity.mjs'
 import { utmEbook } from './lib/utm-contract.mjs'
+import { REPO_ROOT as REPO } from './lib/repository-paths.mjs'
+import { parseCliArgs } from './lib/cli-args.mjs'
 
-const REPO = resolve(import.meta.dirname, '..')
 // 電子書籍（Kindle）→ サイトの UTM は契約（config/utm-templates.json の ebook.kindle）。campaign は本ごと
 const KINDLE_UTM = utmEbook('kindle')
 
@@ -319,13 +320,11 @@ export const THEMES = {
 }
 
 function parseArgs(argv) {
-  const a = { theme: 'anzen', outDir: null, format: 'both' }
-  for (let i = 0; i < argv.length; i++) {
-    if (argv[i] === '--theme') a.theme = argv[++i]
-    else if (argv[i] === '--outDir') a.outDir = argv[++i]
-    else if (argv[i] === '--format') a.format = argv[++i]
-  }
-  return a
+  const { theme, outDir, format } = parseCliArgs(
+    { theme: { type: 'string', default: 'anzen' }, outDir: { type: 'string' }, format: { type: 'string', default: 'both' } },
+    argv,
+  )
+  return { theme, outDir, format }
 }
 
 const YEAR_LABEL = (y) => (y.startsWith('h') ? `H${y.slice(1)}` : `R${y.slice(1)}`)

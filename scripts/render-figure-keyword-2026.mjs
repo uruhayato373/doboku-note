@@ -4,13 +4,11 @@
 // 使い方:
 //   node scripts/render-figure-keyword-2026.mjs
 
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { readFileSync } from 'node:fs';
 import sharp from 'sharp';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = join(__dirname, '..');
 const IMG_DIR = join(ROOT, 'content/note/技術士総監/キーワード集2026変更点/img');
 
 async function renderSvgToPng(svgName) {

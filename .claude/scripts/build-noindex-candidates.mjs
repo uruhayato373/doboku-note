@@ -18,15 +18,13 @@ import { readFileSync, writeFileSync } from "fs";
 import { readJsonOrReport } from "../../scripts/lib/metric-reports.mjs";
 import { glob } from "glob";
 import { SITE_ORIGIN } from "../../scripts/lib/site-identity.mjs";
+import { parseCliArgs } from "../../scripts/lib/cli-args.mjs";
 
 function parseArgs() {
-  const args = process.argv.slice(2);
-  const opts = { inspectionGlob: null, pageData: null };
-  for (let i = 0; i < args.length; i++) {
-    if (args[i] === "--inspection-glob") opts.inspectionGlob = args[++i];
-    else if (args[i] === "--page-data") opts.pageData = args[++i];
-  }
-  return opts;
+  return parseCliArgs({
+    "inspection-glob": { type: "string" },
+    "page-data": { type: "string" },
+  });
 }
 
 function classifyPattern(url) {

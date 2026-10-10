@@ -29,9 +29,10 @@ import {
   detectSeo, detectRevenue, detectMeasurement, detectExperiments, selectSurfaced,
   summarizeKpis, topMovers, reconcileBing, inputCoverage,
 } from './lib/growth-opportunities.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
 const TAG = '[growth-digest]';
-const ROOT = process.cwd();
 const GROWTH = datasetDir('analysis.growth-pack');
 const args = process.argv.slice(2);
 const argValue = (name) => {
@@ -46,7 +47,7 @@ const latestAt = (root, dir, re) => {
   const files = readdirSync(join(root, dir)).filter((f) => re.test(f)).sort();
   return files.length ? `${dir}/${files.at(-1)}` : null;
 };
-const readJson = (p, fallback) => readJsonAt(ROOT, p, fallback);
+const readJsonOr = (p, fallback) => readJsonAt(ROOT, p, fallback);
 const latestIn = (dir, re) => latestAt(ROOT, dir, re);
 
 /**
@@ -64,38 +65,32 @@ export function buildContentIndex(root = ROOT) {
     }
   }
   const index = new Map();
-  const walk = (dir, segs) => {
-    if (!existsSync(dir)) return;
-    for (const e of readdirSync(dir, { withFileTypes: true })) {
-      const full = join(dir, e.name);
-      if (e.isDirectory()) walk(full, [...segs, e.name]);
-      else if (e.isFile() && e.name.endsWith('.mdx')) {
-        const base = e.name.replace(/\.mdx$/, '');
-        const slug = (base === 'article' ? segs : [...segs, base]).join('-');
-        const path = redirects.get(slug);
-        if (path) index.set(path, relative(root, full).split(sep).join('/'));
-      }
-    }
-  };
-  walk(join(root, 'content/site'), []);
+  const siteRoot = join(root, 'content/site');
+  for (const full of listFiles(siteRoot, { ext: '.mdx', allowMissing: true })) {
+    const segs = relative(siteRoot, full).split(sep);
+    const base = segs.pop().replace(/\.mdx$/, '');
+    const slug = (base === 'article' ? segs : [...segs, base]).join('-');
+    const path = redirects.get(slug);
+    if (path) index.set(path, relative(root, full).split(sep).join('/'));
+  }
   const legacy = new Map([...redirects].map(([slug, to]) => [`/docs/${slug}`, to]));
   return { index, legacy };
 }
 
 export function buildDigest({ week, root = ROOT, today = jst() } = {}) {
-  const readJson = (p, fallback) => readJsonAt(root, p, fallback);
+  const readJsonOr = (p, fallback) => readJsonAt(root, p, fallback);
   const latestIn = (dir, re) => latestAt(root, dir, re);
-  const cfg = readJson(datasetPath('config.growth-cycle'));
+  const cfg = readJsonOr(datasetPath('config.growth-cycle'));
   const packs = existsSync(join(root, GROWTH)) ? readdirSync(join(root, GROWTH)).filter((f) => /^pack-\d{4}-W\d{2}\.json$/.test(f)).sort() : [];
   const packName = week ? `pack-${week}.json` : packs.at(-1);
   if (!packName || !packs.includes(packName)) return null;
   const packFile = `${GROWTH}/${packName}`;
-  const pack = readJson(packFile);
-  const history = packs.filter((f) => f < packName).map((f) => readJson(`${GROWTH}/${f}`)).filter(Boolean);
+  const pack = readJsonOr(packFile);
+  const history = packs.filter((f) => f < packName).map((f) => readJsonOr(`${GROWTH}/${f}`)).filter(Boolean);
   const coverageFile = latestFile(root, 'analysis.monetization-coverage');
-  const coverage = coverageFile ? readJson(coverageFile) : null;
+  const coverage = coverageFile ? readJsonOr(coverageFile) : null;
   const bingFile = latestFile(root, 'bing.snapshots');
-  const bing = bingFile ? readJson(bingFile) : null;
+  const bing = bingFile ? readJsonOr(bingFile) : null;
   const maxAge = cfg.digest.measurement.maxInputAgeDays;
   const coverageStamp = coverageFile?.match(/(\d{4}-\d{2}-\d{2})/)?.[1] ?? null;
   const inputs = [
@@ -107,18 +102,18 @@ export function buildDigest({ week, root = ROOT, today = jst() } = {}) {
     config: cfg.digest,
     qualifications: direction(root).qualifications.map((q) => q.id),
     ...(({ index, legacy }) => ({ contentIndex: index, legacy }))(buildContentIndex(root)),
-    watchwords: readJson(datasetPath('config.seo-watchwords'), { watchwords: [] }).watchwords,
+    watchwords: readJsonOr(datasetPath('config.seo-watchwords'), { watchwords: [] }).watchwords,
     packFile, history, coverage, inputs,
   };
   ctx.bingReconciliation = reconcileBing(pack, bing);
-  const experiments = readJson(datasetPath('business.experiments'), { experiments: [] }).experiments;
+  const experiments = readJsonOr(datasetPath('business.experiments'), { experiments: [] }).experiments;
   const items = [
     ...detectMeasurement(pack, ctx),
     ...detectExperiments(experiments, Date.parse(`${today}T00:00:00+09:00`)),
     ...detectSeo(pack, ctx),
     ...detectRevenue(pack, ctx),
   ];
-  const log = readJson(`${GROWTH}/triage-log.json`, { entries: [] });
+  const log = readJsonOr(`${GROWTH}/triage-log.json`, { entries: [] });
   const sel = selectSurfaced(items, { log, weekStart: pack.period.startDate, today, config: cfg.digest, week: pack.week });
   return {
     schemaVersion: 1,
@@ -188,7 +183,7 @@ function main() {
     const latestPack = latestIn(GROWTH, /^pack-\d{4}-W\d{2}\.json$/);
     // 最新パックと同じ週の digest があればそれを出す（CI が書いたものを正とする）
     if (latest && latestPack && latest.slice(-13) === latestPack.slice(-13)) {
-      console.log(renderMarkdown(readJson(latest)));
+      console.log(renderMarkdown(readJsonOr(latest)));
       return 0;
     }
   }

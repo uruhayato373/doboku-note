@@ -25,11 +25,13 @@
 //   SKIP_NOTE_UTM=1 で回避（既存違反のバーンダウン中など）
 // 違反 1 件でも exit 1。
 
-import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
-import { join } from 'node:path';
+import { readFileSync, existsSync } from 'node:fs';
+import { join, relative } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { classifySitePath, loadSiteRoutes, SITE_ORIGIN } from './lib/site-links.mjs';
 import { utmChannel } from './lib/utm-contract.mjs';
+import { REPO_ROOT, NOTE_CONTENT_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
 if (process.env.SKIP_NOTE_UTM === '1') {
   console.log('[check-note-site-utm] SKIP_NOTE_UTM=1 のためスキップ');
@@ -37,7 +39,6 @@ if (process.env.SKIP_NOTE_UTM === '1') {
 }
 
 const STAGED = process.argv.includes('--staged');
-const ROOT = 'content/note';
 // 期待する source / medium は契約（config/utm-templates.json の note.site）から受け取る。コードに書き写さない。
 const NOTE_UTM = utmChannel('note.site');
 
@@ -46,29 +47,20 @@ const NOTE_UTM = utmChannel('note.site');
 // check-note-price-consistency）と同じパターンに揃える。
 const ARTICLE_RE = /^article(-[^/\\]+)?\.md$/;
 
-function walk(dir, acc) {
-  if (!existsSync(dir)) return acc;
-  for (const name of readdirSync(dir)) {
-    const p = join(dir, name);
-    const st = statSync(p);
-    if (st.isDirectory()) walk(p, acc);
-    // ★ パス全体ではなくファイル名で判定する。join() は Windows で "\" 区切りを返すため、
-    //   従来の /\/article\.md$/ はローカルで**一件もマッチせず全量実行が常に0件＝偽PASS**だった
-    //   （--staged は git の "/" 区切り出力なので動いていた・2026-07-28 修正）。
-    else if (ARTICLE_RE.test(name)) acc.push(p);
-  }
-  return acc;
-}
-
 let files;
 if (STAGED) {
   // -c core.quotepath=false: 日本語パスを生UTF-8で出力（既定は引用符+8進エスケープで
   // startsWith('content/note/') と existsSync に不一致→日本語パス記事が素通りする）
   files = execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--cached', '--name-only', '--diff-filter=ACM'], { encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 })
     .split('\n')
-    .filter((f) => f.startsWith('content/note/') && ARTICLE_RE.test(f.split('/').pop() || '') && existsSync(f));
+    .filter((f) => f.startsWith('content/note/') && ARTICLE_RE.test(f.split('/').pop() || '') && existsSync(join(REPO_ROOT, f)));
 } else {
-  files = walk(ROOT, []);
+  // ★ パス全体ではなくファイル名で判定する。join() は Windows で "\" 区切りを返すため、
+  //   従来の /\/article\.md$/ はローカルで**一件もマッチせず全量実行が常に0件＝偽PASS**だった
+  //   （--staged は git の "/" 区切り出力なので動いていた・2026-07-28 修正）。
+  // 表示するパスは従来どおりリポジトリからの相対（git の出力と同じ形）。
+  files = listFiles(ROOT, { match: (_p, name) => ARTICLE_RE.test(name), allowMissing: true, followLinks: true })
+    .map((p) => relative(REPO_ROOT, p).split('\\').join('/'));
 }
 
 // `](url)` のインライン / それ以外（裸 or <url>）を 1 パスで分類する。
@@ -87,7 +79,7 @@ let linkCount = 0;   // 実検査したリンク数（「検査ゼロの緑」�
 // 裸URL（サイト送客）は視覚的回遊カードとして許可する（計測粒度は捨てる）。
 // 主要ファネルCTA（本文の地の文）はインライン+UTM必須。真実源: docs/marketing/02_チャネル動線設計.md
 for (const f of files) {
-  const lines = readFileSync(f, 'utf8').split('\n');
+  const lines = readFileSync(join(REPO_ROOT, f), 'utf8').split('\n');
   let inCardSection = false;   // 関連リソース系の見出し配下か
   let cardOkArmed = false;     // <!-- card-ok --> 直後か（空行は跨ぐ）
   lines.forEach((line, i) => {

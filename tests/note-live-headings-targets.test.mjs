@@ -11,11 +11,10 @@
  */
 import { strict as assert } from 'node:assert';
 import { readFileSync } from 'node:fs';
-import { dirname, join } from 'node:path';
+import { join } from 'node:path';
 import test from 'node:test';
-import { fileURLToPath } from 'node:url';
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SRC = readFileSync(join(ROOT, 'scripts/check-note-live-headings.mjs'), 'utf8');
 
 test('reserved（予約中）を live 検査の対象から外し、件数を出力している', () => {

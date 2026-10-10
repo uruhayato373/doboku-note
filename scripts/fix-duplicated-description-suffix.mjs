@@ -15,8 +15,9 @@ import { readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import matter from 'gray-matter';
 import { readMdxFile, transformMdxFile } from '../.claude/scripts/lib/mdx-io.mjs';
+import { SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 
-const BASE = 'content/site/pe-comprehensive-management';
+const BASE = join(SITE_CONTENT_ROOT, 'pe-comprehensive-management');
 const MARKER = '5管理トレードオフ・過去問演習リンク付き。';
 
 const APPLY = process.argv.includes('--apply');

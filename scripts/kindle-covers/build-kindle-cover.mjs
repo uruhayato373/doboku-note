@@ -22,8 +22,8 @@ import fs from 'node:fs'
 import path from 'node:path'
 import satori from 'satori'
 import sharp from 'sharp'
+import { REPO_ROOT as REPO } from '../lib/repository-paths.mjs'
 
-const REPO = path.resolve(import.meta.dirname, '../..')
 const FONT_DIR = path.join(REPO, '.claude/skills/conversion/ogp-create/assets/fonts')
 const W = 1600, H = 2560
 

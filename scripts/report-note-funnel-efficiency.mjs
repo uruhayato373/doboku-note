@@ -6,8 +6,8 @@ import { join, resolve } from 'node:path';
 import { buildNoteFunnelEfficiency, renderNoteFunnelEfficiencyMarkdown } from './lib/note-funnel-efficiency.mjs';
 import { latestReportRef, readJsonOrReport } from './lib/metric-reports.mjs';
 import { datasetDir, datasetPath } from './lib/datasets.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = resolve(import.meta.dirname, '..');
 const SALES_PATH = join(ROOT, datasetPath('note.sales'));
 
 function valueAfter(args, flag) {

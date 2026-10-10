@@ -14,8 +14,9 @@
 import { readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { readMdxFile, writeMdxFile } from './lib/mdx-io.mjs';
+import { SITE_CONTENT_ROOT } from '../../scripts/lib/repository-paths.mjs';
 
-const ROOT = 'content/site/pe-comprehensive-management';
+const ROOT = join(SITE_CONTENT_ROOT, 'pe-comprehensive-management');
 const APPLY = process.argv.includes('--apply');
 
 // 末尾改行 + blockquote 行 + 前後の余白を吸収して空行 1 行に正規化

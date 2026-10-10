@@ -11,13 +11,11 @@
  *   node scripts/audit-svg-colors.mjs --top=20       # 最もズレているファイル top N
  */
 
-import { existsSync, readdirSync, readFileSync, statSync } from 'fs';
+import { existsSync, readFileSync } from 'fs';
 import { join, relative } from 'path';
-import { fileURLToPath } from 'url';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
-// URL#pathname は Windows で '/C:/...' を返し、join() が 'C:\C:\...' を作る。
-// fileURLToPath でプラットフォーム固有の絶対パスへ変換する。
-const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const TARGET_DIR = join(ROOT, 'content/site');
 
 /** パレット（hex 小文字） + 受容色（white/none 等） */
@@ -54,17 +52,6 @@ const TOP = (() => {
   const t = args.find(a => a.startsWith('--top='));
   return t ? parseInt(t.split('=')[1], 10) : null;
 })();
-
-function walk(dir) {
-  const out = [];
-  for (const name of readdirSync(dir)) {
-    const p = join(dir, name);
-    const st = statSync(p);
-    if (st.isDirectory()) out.push(...walk(p));
-    else if (name.endsWith('.svg')) out.push(p);
-  }
-  return out;
-}
 
 /** SVG 内の色を全部抜く（fill=, stroke=, stop-color=, style 中のも） */
 function extractColors(svg) {
@@ -104,7 +91,7 @@ function main() {
     console.error(`audit-svg-colors: FAIL — 走査対象ディレクトリが存在しない: ${TARGET_DIR}`);
     process.exit(1);
   }
-  const files = walk(TARGET_DIR);
+  const files = listFiles(TARGET_DIR, { ext: '.svg', followLinks: true });
   if (files.length === 0) {
     console.error(`audit-svg-colors: FAIL — SVG を 1 枚も検査していない（走査対象: ${TARGET_DIR}）`);
     process.exit(1);

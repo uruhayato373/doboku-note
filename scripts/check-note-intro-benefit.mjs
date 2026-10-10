@@ -23,11 +23,11 @@
  *   node scripts/check-note-intro-benefit.mjs --staged   # pre-commit
  * ---------------------------------------------------------------------------
  */
-import { readdirSync, readFileSync, existsSync } from 'node:fs';
-import { join, dirname, relative } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { readFileSync, existsSync } from 'node:fs';
+import { join, relative } from 'node:path';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const BASE = join(ROOT, 'content/note');
 const ALLOW_PATH = join(ROOT, '.claude/config/note-intro-benefit-allow.json');
 const MARKER = '**この記事でわかること**';
@@ -39,14 +39,6 @@ const allow = existsSync(ALLOW_PATH) ? JSON.parse(readFileSync(ALLOW_PATH, 'utf8
 const allowSet = new Set((allow.entries || []).map((e) => e.noteId));
 
 const ARTICLE_RE = /^article(-[^/\\]+)?\.md$/;
-function walk(dir, acc = []) {
-  for (const e of readdirSync(dir, { withFileTypes: true })) {
-    const p = join(dir, e.name);
-    if (e.isDirectory()) walk(p, acc);
-    else if (ARTICLE_RE.test(e.name)) acc.push(p);
-  }
-  return acc;
-}
 const fmv = (fm, k) => (fm.match(new RegExp('^' + k + ':\\s*(?:"(.*?)"|\'(.*?)\'|(.+?))\\s*$', 'm')) || []).slice(1).find(Boolean) || '';
 
 let stagedSet = null;
@@ -58,7 +50,7 @@ if (STAGED) {
 
 let paid = 0; let free = 0; let membership = 0; let exempt = 0;
 const missing = []; const afterBoundary = [];
-for (const file of walk(BASE)) {
+for (const file of listFiles(BASE, { match: (_p, name) => ARTICLE_RE.test(name) })) {
   const rel = relative(ROOT, file).replace(/\\/g, '/');
   if (stagedSet && !stagedSet.has(rel)) continue;
   const t = readFileSync(file, 'utf8');

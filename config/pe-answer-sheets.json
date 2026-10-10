@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "_doc": "技術士 第二次試験 筆記の答案用紙（1 枚の字数）と、区分ごとの枚数。scripts/check-note-charlimits.mjs（建設部門 BK の模範解答の字数上限＝枚数×1 枚の字数）と scripts/essay-shisaku-charcount.mjs（総監 記述式の施策ブロック＝1 枚）が読む。スクリプトに 600・1800 を書かない。",
+  "charsPerSheet": 600,
+  "targetRatio": 0.93,
+  "_targetRatio": "上限内でも、上限×targetRatio を超えたら警告する（手書きで写しきる余裕）。",
+  "sheets": {
+    "pe-construction": {
+      "I": 3,
+      "II-1": 1,
+      "II-2": 2,
+      "III": 3
+    }
+  },
+  "_sheets": "資格 id → 区分（記事のファイル名から決まる exam_type）→ 答案用紙の枚数。必須科目 I と選択科目 III は各 3 枚、選択科目 II は II-1 が 1 枚・II-2 が 2 枚。",
+  "sources": [
+    "https://www.engineer.or.jp/c_categories/index02022.html",
+    "https://www.agaroot.jp/gijyutsu/column/secondary-test/"
+  ]
+}

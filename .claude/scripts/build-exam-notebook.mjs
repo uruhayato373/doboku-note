@@ -26,8 +26,8 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import matter from 'gray-matter';
+import { REPO_ROOT as ROOT } from '../../scripts/lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const POSTS_ROOT = join(ROOT, 'content/site/pe-comprehensive-management');
 const OUT_DIR = join(ROOT, '.tmp/exam-notebook');
 

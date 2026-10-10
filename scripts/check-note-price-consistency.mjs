@@ -36,13 +36,13 @@
  *   node scripts/check-note-price-consistency.mjs --json      # 機械可読
  * ---------------------------------------------------------------------------
  */
-import { readdirSync, readFileSync, statSync, existsSync, writeSync } from 'node:fs';
+import { readFileSync, statSync, existsSync, writeSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { datasetPath } from './lib/datasets.mjs';
+import { REPO_ROOT as ROOT, NOTE_CONTENT_ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
-const ROOT = process.cwd();
-const BASE = 'content/note';
 const CONFIG = datasetPath('config.note-price-consistency');
 
 const argv = process.argv.slice(2);
@@ -65,16 +65,7 @@ const cfg = existsSync(join(ROOT, CONFIG))
   ? JSON.parse(readFileSync(join(ROOT, CONFIG), 'utf-8'))
   : { allowMagazines: {}, allowSeries: {} };
 
-function walk(dir, acc = []) {
-  for (const e of readdirSync(dir, { withFileTypes: true })) {
-    const p = join(dir, e.name);
-    if (e.isDirectory()) walk(p, acc);
-    else if (/^article(-[^/]+)?\.md$/.test(e.name)) acc.push(p);
-  }
-  return acc;
-}
-
-const absBase = join(ROOT, BASE);
+const absBase = NOTE_CONTENT_ROOT;
 if (!existsSync(absBase)) {
   console.log('[check-note-price-consistency] content/note が無いためスキップ');
   process.exit(0);
@@ -87,7 +78,7 @@ const missingTitle = [];
 const missingPrice = [];
 const h1Mismatch = [];
 let publishedCount = 0;
-for (const file of walk(absBase)) {
+for (const file of listFiles(absBase, { match: (_p, name) => /^article(-[^/]+)?\.md$/.test(name) })) {
   const src = readFileSync(file, 'utf-8');
   const fmText = (src.match(/^---\r?\n([\s\S]*?)\r?\n---/) || [])[1] || '';
   const published = /^(noteUrl|noteId):[ \t]*["']?[^\s"']+/m.test(fmText);

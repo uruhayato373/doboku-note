@@ -15,19 +15,18 @@
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
 import { join } from "path";
+import { parseCliArgs } from "../../scripts/lib/cli-args.mjs";
 
 function parseArgs() {
-  const args = process.argv.slice(2);
-  const opts = { input: null, outputDir: null };
-  for (let i = 0; i < args.length; i++) {
-    if (args[i] === "--input") opts.input = args[++i];
-    else if (args[i] === "--output-dir") opts.outputDir = args[++i];
-  }
-  if (!opts.input || !opts.outputDir) {
+  const { input, outputDir } = parseCliArgs({
+    input: { type: "string" },
+    "output-dir": { type: "string" },
+  });
+  if (!input || !outputDir) {
     console.error("Usage: --input <file> --output-dir <dir>");
     process.exit(2);
   }
-  return opts;
+  return { input, outputDir };
 }
 
 function extractUrlsByCategory(text) {

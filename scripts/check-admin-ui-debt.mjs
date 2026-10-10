@@ -25,12 +25,13 @@
  *   node scripts/check-admin-ui-debt.mjs --json
  * ---------------------------------------------------------------------------
  */
-import { readFileSync, writeFileSync, readdirSync, statSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join, relative, sep } from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { pathToFileURL } from 'node:url';
 import { todayJst } from './lib/jst-date.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
-const ROOT = join(fileURLToPath(new URL('.', import.meta.url)), '..');
 const APP_DIR = join(ROOT, 'tools/admin-app/src/app');
 const BASELINE = join(ROOT, '.claude/config/admin-ui-debt-baseline.json');
 const TAG = '[check-admin-ui-debt]';
@@ -72,19 +73,9 @@ export function compare(current, baseline) {
   return { regressions, improvements };
 }
 
-function walk(dir) {
-  const out = [];
-  for (const name of readdirSync(dir)) {
-    const p = join(dir, name);
-    if (statSync(p).isDirectory()) out.push(...walk(p));
-    else if (name.endsWith('.tsx')) out.push(p);
-  }
-  return out;
-}
-
 function main() {
   const argv = process.argv.slice(2);
-  const files = existsSync(APP_DIR) ? walk(APP_DIR) : [];
+  const files = listFiles(APP_DIR, { ext: '.tsx', followLinks: true, allowMissing: true });
   if (!files.length) {
     console.error(`${TAG} 検査不成立: ${relative(ROOT, APP_DIR)} に .tsx が 1 件も無い`);
     return 2;

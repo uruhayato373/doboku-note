@@ -9,10 +9,11 @@
  */
 
 import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, relative } from 'node:path';
 import matter from 'gray-matter';
+import { REPO_ROOT, SITE_CONTENT_ROOT } from '../../../../scripts/lib/repository-paths.mjs';
 
-const POSTS_ROOT = 'content/site';
+const POSTS_ROOT = SITE_CONTENT_ROOT;
 
 /**
  * @param {object} args
@@ -21,8 +22,9 @@ const POSTS_ROOT = 'content/site';
  * @param {string} [args.path]     - 直接パス指定（category/slug より優先）
  * @param {string} [args.root]     - posts ルート（既定: content/site）
  */
-export function extractMdx({ category, slug, path, root = POSTS_ROOT }) {
-  const filePath = path ?? join(root, category, slug, 'article.mdx');
+export function extractMdx({ category, slug, path, root }) {
+  const usesDefaultRoot = root === undefined;
+  const filePath = path ?? join(usesDefaultRoot ? POSTS_ROOT : root, category, slug, 'article.mdx');
   // 改行は LF へ正規化してから解析する。以降の抽出は split('\n') や行頭・行末
   // アンカーの正規表現に依存しており、CRLF のままだと各行末に \r が残って
   // 見出し・リード文の抽出が静かに空振りする。Windows のチェックアウトだけ
@@ -31,7 +33,8 @@ export function extractMdx({ category, slug, path, root = POSTS_ROOT }) {
   const { data: frontmatter, content } = matter(raw);
 
   return {
-    path: filePath,
+    // 既定の root から組んだパスは従来どおりリポジトリ相対で返す（path / root を渡したときはそのまま）
+    path: path == null && usesDefaultRoot ? relative(REPO_ROOT, filePath).split('\\').join('/') : filePath,
     frontmatter,
     title: frontmatter.title ?? null,
     description: frontmatter.description ?? null,

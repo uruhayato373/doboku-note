@@ -23,10 +23,9 @@
  */
 import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync, writeSync } from 'node:fs';
-import { dirname, join, posix, resolve, sep } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join, posix, resolve, sep } from 'node:path';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const toPosix = (v) => v.split(sep).join('/');
 
 /** `.agents/` は `.claude/` の写しで別途 DN-0098 の判断待ち。二重に報告しない。 */

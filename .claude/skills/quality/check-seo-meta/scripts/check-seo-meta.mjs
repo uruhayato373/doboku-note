@@ -29,6 +29,7 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
 import { dirname, join, resolve } from "path";
 import { datasetPath } from "../../../../../scripts/lib/datasets.mjs";
+import { parseCliArgs } from "../../../../../scripts/lib/cli-args.mjs";
 import {
   extractSeo,
   runIndexablePageChecks,
@@ -48,17 +49,18 @@ function loadConfig() {
 }
 
 function parseArgs() {
-  const args = process.argv.slice(2);
-  const opts = { limit: null, baseUrl: null, json: false, out: "out" };
-  for (let i = 0; i < args.length; i++) {
-    switch (args[i]) {
-      case "--limit": opts.limit = parseInt(args[++i], 10); break;
-      case "--base-url": opts.baseUrl = args[++i]; break;
-      case "--out": opts.out = args[++i]; break;
-      case "--json": opts.json = true; break;
-    }
-  }
-  return opts;
+  const flags = parseCliArgs({
+    limit: { type: "string" },
+    "base-url": { type: "string" },
+    out: { type: "string", default: "out" },
+    json: { type: "boolean" },
+  });
+  return {
+    limit: flags.limit === null ? null : parseInt(flags.limit, 10),
+    baseUrl: flags.baseUrl,
+    json: flags.json,
+    out: flags.out,
+  };
 }
 
 // ── URL 収集（現行 doc-meta-index 形式に対応） ──

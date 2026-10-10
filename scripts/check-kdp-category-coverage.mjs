@@ -12,12 +12,11 @@
  * ---------------------------------------------------------------------------
  */
 import { readFileSync } from 'node:fs'
-import { join, dirname } from 'node:path'
-import { fileURLToPath } from 'node:url'
+import { join } from 'node:path'
 import { getDefaults, uncoveredCategoryBooks } from './lib/kdp-common.mjs'
 import { datasetPath } from './lib/datasets.mjs'
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs'
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
 const CATALOG = join(ROOT, 'scripts/kindle-published/catalog.json')
 
 const catalog = JSON.parse(readFileSync(CATALOG, 'utf8'))

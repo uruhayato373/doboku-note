@@ -14,8 +14,8 @@
  */
 import { readFileSync, writeFileSync, existsSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
+import { REPO_ROOT as ROOT } from "../../scripts/lib/repository-paths.mjs";
 
-const ROOT = process.cwd();
 const POSTS = join(ROOT, "content/site/pe-comprehensive-management");
 const INDEX = join(ROOT, "src/config/doc-meta-index.json");
 const OUT = join(ROOT, ".claude/state/essay-keyword-frequency.json");

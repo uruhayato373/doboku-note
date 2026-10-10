@@ -8,8 +8,8 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
+import { REPO_ROOT as ROOT } from "../scripts/lib/repository-paths.mjs";
 
-const ROOT = new URL("..", import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, "$1");
 const DIR = join(ROOT, ".claude/shared-policy");
 const ADMIN = join(ROOT, "tools/admin-app/src");
 

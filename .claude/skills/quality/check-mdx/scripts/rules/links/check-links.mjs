@@ -24,10 +24,9 @@ import fs from 'fs';
 import path from 'path';
 import { generateHeadingId, extractHeadings } from '#lib/heading-id.mjs';
 import { buildKeywordHref } from '#src/lib/keyword-href.mjs';
-import { SITE_CONTENT_ROOT } from '../../../../../../../scripts/lib/repository-paths.mjs';
+import { REPO_ROOT as ROOT, SITE_CONTENT_ROOT } from '../../../../../../../scripts/lib/repository-paths.mjs';
 import { slugFromKey } from '../../../../../../../scripts/lib/url-normalization.mjs';
 
-const ROOT = process.cwd();
 const SITE_DIR = SITE_CONTENT_ROOT;
 const NOTE_DIR = path.join(ROOT, 'content', 'note');
 const CATEGORIES_PATH = path.join(ROOT, 'src', 'config', 'categories.json');

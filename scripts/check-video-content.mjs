@@ -17,11 +17,9 @@
  *
  * 真実源: .claude/knowledge/reference/video-content-policy.md §8 ＋ config/video-content.json
  */
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { checkAll, loadConfig } from './lib/video-content-check.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const args = new Set(process.argv.slice(2));
 const strict = args.has('--strict');
 const asJson = args.has('--json');

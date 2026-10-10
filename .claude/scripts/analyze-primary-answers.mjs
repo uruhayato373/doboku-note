@@ -10,8 +10,8 @@
  */
 import { readFileSync, writeFileSync, existsSync, readdirSync } from "node:fs";
 import { join } from "node:path";
+import { REPO_ROOT as ROOT } from "../../scripts/lib/repository-paths.mjs";
 
-const ROOT = process.cwd();
 const POSTS = join(ROOT, "content/site/pe-comprehensive-management");
 const OUT = join(ROOT, ".claude/state/primary-answer-distribution.json");
 

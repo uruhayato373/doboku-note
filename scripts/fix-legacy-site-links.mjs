@@ -19,10 +19,9 @@
  * exit: 0 = 完了（対象 0 件を含む） / 1 = 張り替えできない旧リンクが残った / 2 = 対応表が読めない（検査不成立）
  * ---------------------------------------------------------------------------
  */
-import { existsSync, readdirSync, statSync } from "node:fs";
-import { join } from "node:path";
 import { readMdxFile, writeMdxFile } from "../.claude/scripts/lib/mdx-io.mjs";
 import { loadSiteRoutes, rewriteLegacySiteLinks } from "./lib/site-links.mjs";
+import { listFiles } from "./lib/fs-walk.mjs";
 
 const args = process.argv.slice(2);
 const WRITE = args.includes("--write");
@@ -30,23 +29,13 @@ const JSON_OUT = args.includes("--json");
 const roots = args.flatMap((a, i) => (a === "--root" && args[i + 1] ? [args[i + 1]] : []));
 if (roots.length === 0) roots.push("content/note");
 
-function walk(dir, acc = []) {
-  if (!existsSync(dir)) return acc;
-  for (const name of readdirSync(dir)) {
-    const p = join(dir, name);
-    if (statSync(p).isDirectory()) walk(p, acc);
-    else if (name.endsWith(".md")) acc.push(p.split("\\").join("/"));
-  }
-  return acc;
-}
-
 const routes = loadSiteRoutes();
 if (!routes.loaded) {
   console.error("[fix-legacy-site-links] ✗ 検査不成立: public/_redirects から旧 /docs の対応表を読めない");
   process.exit(2);
 }
 
-const files = roots.flatMap((r) => walk(r));
+const files = roots.flatMap((r) => listFiles(r, { ext: ".md", allowMissing: true, followLinks: true }).map((p) => p.split("\\").join("/")));
 const changed = [];
 const unmapped = [];
 let replacedTotal = 0;

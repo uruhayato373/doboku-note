@@ -7,17 +7,16 @@
  * どのルールにも当たらない商品は `unclassified` に残し、黙って落とさない（CLAUDE.md §9）。
  * ---------------------------------------------------------------------------
  */
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 
 import { loadExamStages } from './exam-stages.mjs';
 import { loadRegistry, orderedQualifications } from './qualification-registry.mjs';
 import { datasetPath } from './datasets.mjs';
 import { readDataset } from './dataset-io.mjs';
 import { classifyProduct } from '../../src/lib/product-classification.mjs';
+import { REPO_ROOT as ROOT } from './repository-paths.mjs';
 export { classifyProduct } from '../../src/lib/product-classification.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 export const LINEUP_CONFIG_PATH = join(ROOT, datasetPath('config.product-lineup'));
 
 /**

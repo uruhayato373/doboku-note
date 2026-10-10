@@ -31,6 +31,7 @@
 import { mkdirSync, writeFileSync, readFileSync, existsSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { datasetPath } from "./lib/datasets.mjs";
+import { parseCliArgs } from "./lib/cli-args.mjs";
 import { execSync } from "node:child_process";
 import {
   loadConfig,
@@ -47,14 +48,7 @@ const HISTORY = datasetPath("ga4.admin-history");
 const DESIRED_PATH = datasetPath("config.ga4-admin-desired-state");
 
 function parseArgs() {
-  const a = process.argv.slice(2);
-  const o = { commit: false, headed: false, only: null };
-  for (let i = 0; i < a.length; i++) {
-    if (a[i] === "--commit") o.commit = true;
-    else if (a[i] === "--headed") o.headed = true;
-    else if (a[i] === "--only") o.only = a[++i];
-  }
-  return o;
+  return parseCliArgs({ commit: { type: "boolean" }, headed: { type: "boolean" }, only: { type: "string" } });
 }
 
 function gitCommit() {

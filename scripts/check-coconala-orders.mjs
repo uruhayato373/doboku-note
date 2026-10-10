@@ -34,9 +34,9 @@ import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { assessSnapshot, reconcileOrders, classifyReplyDeadlines, classifyInquiries, inquiryClockMs } from './lib/coconala-guards.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 const TAG = '[check-coconala-orders]';
-const ROOT = process.cwd();
 const SNAPSHOT_PATH = join(ROOT, datasetPath('coconala.orders-snapshot'));
 const ORDERS_PATH = join(ROOT, datasetPath('coconala.orders'));
 // 人が「決着した」と判断した DM の allowlist（機械判定で落ちない分だけをここに書く）
@@ -63,13 +63,13 @@ if (staged) {
   if (!relevant) process.exit(0);
 }
 
-function readJson(path) {
+function readJsonOrParseError(path) {
   if (!existsSync(path)) return null;
   try { return JSON.parse(readFileSync(path, 'utf-8')); } catch (e) { return { __parseError: String(e) }; }
 }
 
-const snap = readJson(SNAPSHOT_PATH);
-const log = readJson(ORDERS_PATH);
+const snap = readJsonOrParseError(SNAPSHOT_PATH);
+const log = readJsonOrParseError(ORDERS_PATH);
 
 // --- 検査成立性の判定（緑の意味を守る）→ 判定は coconala-guards（テスト済み） ---
 // snapshot の鮮度の上限は assessSnapshot の既定（台帳 coconala.orders-snapshot の freshness.failDays）
@@ -138,7 +138,7 @@ for (const d of classifyReplyDeadlines(snapOrders, now, { warnHours: REPLY_WARN_
 //     DM は要対応から外す。2026-08-17 まで既読を無条件で積んでいたため 4/4 件が偽陽性で、
 //     本物の警告を埋もれさせていた（X の陳腐化下書きと同じ構図）。
 const inquiries = Array.isArray(snap.inquiries) ? snap.inquiries : [];
-const resolvedList = readJson(RESOLVED_PATH)?.resolved ?? [];
+const resolvedList = readJsonOrParseError(RESOLVED_PATH)?.resolved ?? [];
 const inq = classifyInquiries(inquiries, resolvedList, inquiryClockMs(snap.fetchedAt));
 for (const q of inq.actions) {
   const what = q.serviceId ?? (q.subject ? `「${q.subject}」` : '（対象商品不明）');

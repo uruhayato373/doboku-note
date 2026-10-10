@@ -1,13 +1,12 @@
 #!/usr/bin/env node
 import { parseArgs } from 'node:util';
 import { mkdirSync, mkdtempSync, writeFileSync, realpathSync } from 'node:fs';
-import { dirname, join, relative, isAbsolute } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join, relative, isAbsolute } from 'node:path';
 import { readCharacterCatalog } from './lib/character-catalog.mjs';
 import { renderCharacterFrame } from './lib/character-framing.mjs';
 import { FRAME_LABELS } from './lib/character-frame-geometry.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const { values } = parseArgs({ options: {
   pose: { type: 'string' }, all: { type: 'boolean' }, frame: { type: 'string', default: 'all' },
   width: { type: 'string', default: '0' }, commit: { type: 'boolean' }, help: { type: 'boolean' },

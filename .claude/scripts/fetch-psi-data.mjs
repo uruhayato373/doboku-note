@@ -34,6 +34,7 @@ import dotenv from "dotenv";
 import { runPool } from "../../scripts/lib/worker-pool.mjs";
 import { datasetDir, datasetPath } from "../../scripts/lib/datasets.mjs";
 import { GSC_PROPERTY } from "../../scripts/lib/site-identity.mjs";
+import { parseCliArgs } from "../../scripts/lib/cli-args.mjs";
 
 dotenv.config({ path: ".env.local" });
 
@@ -45,44 +46,26 @@ const DEFAULT_CATEGORIES = ["performance", "accessibility", "best-practices", "s
 // ── CLI args ──
 
 function parseArgs() {
-  const args = process.argv.slice(2);
-  const opts = {
-    url: null,
-    file: null,
-    top: null,
-    strategy: DEFAULT_STRATEGY,
-    categories: DEFAULT_CATEGORIES,
-    json: false,
+  const a = parseCliArgs({
+    url: { type: "string" },
+    concurrency: { type: "integer" },
+    file: { type: "string" },
+    top: { type: "integer" },
+    strategy: { type: "string", default: DEFAULT_STRATEGY },
+    categories: { type: "string" },
+    json: { type: "boolean" },
+  });
+  return {
+    url: a.url,
+    file: a.file,
+    top: a.top,
+    strategy: a.strategy,
+    categories: a.categories === null ? DEFAULT_CATEGORIES : a.categories.split(",").map((c) => c.trim()),
+    json: a.json,
     // 同時計測数。支配項は Lighthouse 実行（1 件 20〜30 秒）なので 4 で 44 件 ≈ 6〜8 分。
     // 8 以上は `500 Lighthouse returned error` を誘発しやすい（2026-08-18 に全件で観測）ため控えめに。
-    concurrency: Number(process.env.PSI_CONCURRENCY) || 4,
+    concurrency: a.concurrency === null ? Number(process.env.PSI_CONCURRENCY) || 4 : Math.max(1, a.concurrency || 1),
   };
-  for (let i = 0; i < args.length; i++) {
-    switch (args[i]) {
-      case "--url":
-        opts.url = args[++i];
-        break;
-      case "--concurrency":
-        opts.concurrency = Math.max(1, parseInt(args[++i], 10) || 1);
-        break;
-      case "--file":
-        opts.file = args[++i];
-        break;
-      case "--top":
-        opts.top = parseInt(args[++i], 10);
-        break;
-      case "--strategy":
-        opts.strategy = args[++i];
-        break;
-      case "--categories":
-        opts.categories = args[++i].split(",").map((c) => c.trim());
-        break;
-      case "--json":
-        opts.json = true;
-        break;
-    }
-  }
-  return opts;
 }
 
 // ── Auth ──

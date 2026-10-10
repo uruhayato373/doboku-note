@@ -46,8 +46,7 @@ import { attachCISession } from './lib/playwright-auth-state.mjs';
  */
 import { chromium } from 'playwright';
 import { readFileSync, existsSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { resolveKnownSaleEntry, resolveSaleEntry, reconcileTotal, canonicalizeProductId } from './lib/sales-normalize.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { describeReauthResult, isNoteReauthPage, noteReauthMarkPath, passNoteReauth } from './lib/note-reauth.mjs';
@@ -56,9 +55,8 @@ import { jst } from './lib/business-direction.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { jstMonth, todayJst } from './lib/jst-date.mjs';
 import { writeDataset } from './lib/dataset-write.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = join(__dirname, '..');
 const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
 const SALES_LOG = join(ROOT, datasetPath('note.sales'));
 const NAME = 'note-sales-fetch';

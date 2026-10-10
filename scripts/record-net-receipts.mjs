@@ -20,9 +20,9 @@ import { join } from 'node:path';
 import { buildNetReceiptsMeasurement, kdpCatalogRoyalty, noteSalesPendingMessage, parseNoteSalesDetail } from './lib/net-receipts.mjs';
 import { describeReauthResult, isNoteReauthPage, noteReauthMarkPath, passNoteReauth } from './lib/note-reauth.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 const TAG = '[record-net-receipts]';
-const ROOT = process.cwd();
 const argv = process.argv.slice(2);
 const arg = (name) => { const i = argv.indexOf(name); return i >= 0 ? argv[i + 1] : null; };
 const MONTH = arg('--month');

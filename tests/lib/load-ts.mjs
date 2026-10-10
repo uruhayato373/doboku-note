@@ -14,11 +14,10 @@
  *   const mod = await loadTsModule('src/config/career-pathways.ts');
  */
 import { existsSync, readFileSync } from 'node:fs';
-import { dirname, join, posix, resolve } from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { posix, resolve } from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { transformSync } from 'esbuild';
-
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
+import { REPO_ROOT as ROOT } from '../../scripts/lib/repository-paths.mjs';
 
 /** `@/x/y` → `src/x/y.ts`（拡張子は .ts / .tsx を順に試す）。 */
 function resolveAlias(spec) {

@@ -7,12 +7,10 @@ import assert from 'node:assert/strict';
 import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { readDataset, readDatasetIf, readLatest } from '../scripts/lib/dataset-io.mjs';
 import { formatJson, formatJsonlRow, parseJson, readJson, readJsonIf, writeJson } from '../scripts/lib/json-io.mjs';
 import { findDatasetIds } from '../scripts/lib/path-literals.mjs';
-
-const REPO = join(dirname(fileURLToPath(import.meta.url)), '..');
+import { REPO_ROOT as REPO } from '../scripts/lib/repository-paths.mjs';
 
 /** 一時のルートを作って fn に渡す（終わったら消す） */
 function withRoot(fn) {

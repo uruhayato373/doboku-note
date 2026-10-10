@@ -26,6 +26,7 @@ import { readFileSync, readdirSync, existsSync, mkdtempSync, rmSync } from 'node
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { execFileSync } from 'node:child_process';
+import { listFiles } from './lib/fs-walk.mjs';
 
 const BOM_ONLY = process.argv.includes('--bom-only');
 const BOM = Buffer.from([0xef, 0xbb, 0xbf]);
@@ -40,16 +41,7 @@ const LEAKS = [
 const errors = [];
 
 // --- 1. ソース MDX の BOM ---
-const walk = (d, out = []) => {
-  if (!existsSync(d)) return out;
-  for (const e of readdirSync(d, { withFileTypes: true })) {
-    const p = join(d, e.name);
-    if (e.isDirectory()) walk(p, out);
-    else if (e.name.endsWith('.mdx')) out.push(p);
-  }
-  return out;
-};
-const mdx = walk('content/site');
+const mdx = listFiles('content/site', { ext: '.mdx', allowMissing: true });
 if (mdx.length === 0) errors.push('MDX 走査が 0 件（検査不成立）');
 const bom = mdx.filter((f) => readFileSync(f).subarray(0, 3).equals(BOM));
 for (const f of bom) errors.push(`BOM 付き MDX（frontmatter が壊れる）: ${f}`);

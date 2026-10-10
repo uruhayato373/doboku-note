@@ -25,6 +25,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
 import { join } from "path";
 import { reportIdOf, writeReport } from "../../scripts/lib/metric-reports.mjs";
 import dotenv from "dotenv";
+import { parseCliArgs } from "../../scripts/lib/cli-args.mjs";
 
 dotenv.config({ path: ".env.local" });
 
@@ -45,16 +46,11 @@ const COUNTRY_FILTER_HANDLED = new Set([
 ]);
 
 function parseArgs() {
-  const args = process.argv.slice(2);
-  const opts = { days: DEFAULT_DAYS, minUsers: DEFAULT_MIN_USERS, limit: DEFAULT_LIMIT };
-  for (let i = 0; i < args.length; i++) {
-    switch (args[i]) {
-      case "--days": opts.days = parseInt(args[++i], 10); break;
-      case "--min-users": opts.minUsers = parseInt(args[++i], 10); break;
-      case "--limit": opts.limit = parseInt(args[++i], 10); break;
-    }
-  }
-  return opts;
+  return parseCliArgs({
+    days: { type: "integer", default: DEFAULT_DAYS },
+    "min-users": { type: "integer", default: DEFAULT_MIN_USERS },
+    limit: { type: "integer", default: DEFAULT_LIMIT },
+  });
 }
 
 function getClient() {

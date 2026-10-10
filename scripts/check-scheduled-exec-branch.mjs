@@ -25,10 +25,10 @@ import { join, dirname, resolve, relative } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import yaml from 'js-yaml';
 import { datasetPath } from './lib/datasets.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 const NAME = 'check-scheduled-exec-branch';
 const WF_DIR = '.github/workflows';
-const ROOT = process.cwd();
 const STAGED = process.argv.includes('--staged');
 const FILE_IDX = process.argv.indexOf('--file');
 const TARGET_FILE = FILE_IDX >= 0 ? process.argv[FILE_IDX + 1] : null;

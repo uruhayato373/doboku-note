@@ -4,11 +4,9 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { loadTsModule } from './lib/load-ts.mjs';
-
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
 test('price は priceYen（と priceNote）から作った文字列で、全出品が検査される', async () => {
   const { COCONALA_SERVICES } = await loadTsModule('src/lib/coconala-services.ts');

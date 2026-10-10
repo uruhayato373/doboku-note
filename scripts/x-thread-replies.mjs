@@ -25,14 +25,12 @@
 import { chromium } from "playwright";
 import * as fs from "node:fs";
 import * as path from "node:path";
-import { fileURLToPath } from "node:url";
 import { resolveProfileDir } from "./lib/playwright-auth-profile.mjs";
 import { leanContextOptions } from "./lib/playwright-launch.mjs";
 import { jstClock } from "./lib/jst-date.mjs";
 import { X_HANDLE as ACCOUNT } from "./lib/site-identity.mjs"; // 運用アカウント（x-post-policy §2）
+import { REPO_ROOT as ROOT } from "./lib/repository-paths.mjs";
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const ROOT = path.join(__dirname, "..");
 const DRAFTS = ["content/sns/x/draft", "content/sns/x/published"].map((d) => path.join(ROOT, d));
 const PROFILE = resolveProfileDir("x", { cwd: ROOT, repoRoot: ROOT });
 const DEBUG_DIR = path.join(ROOT, ".local/playwright-x-debug");

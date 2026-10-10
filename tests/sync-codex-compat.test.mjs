@@ -12,9 +12,9 @@ import { join, dirname } from 'node:path';
 import { tmpdir } from 'node:os';
 import { mkdtempSync } from 'node:fs';
 import { spawnSync, execFileSync } from 'node:child_process';
-import { fileURLToPath } from 'node:url';
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
-const REAL_SCRIPT = join(dirname(fileURLToPath(import.meta.url)), '..', 'scripts', 'sync-codex-compat.mjs');
+const REAL_SCRIPT = join(ROOT, 'scripts', 'sync-codex-compat.mjs');
 const REAL_SCRIPT_SRC = readFileSync(REAL_SCRIPT, 'utf8');
 
 const fixtures = [];
@@ -32,6 +32,8 @@ function makeFixture({ git = false } = {}) {
   const root = mkdtempSync(join(tmpdir(), 'sync-codex-compat-'));
   fixtures.push(root);
   writeFile(root, 'scripts/sync-codex-compat.mjs', REAL_SCRIPT_SRC);
+  // スクリプトはルートを scripts/lib/repository-paths.mjs の場所から決めるので、コピー先が root になる
+  writeFile(root, 'scripts/lib/repository-paths.mjs', readFileSync(join(ROOT, 'scripts/lib/repository-paths.mjs'), 'utf8'));
   if (git) execFileSync('git', ['init', '-q'], { cwd: root });
   return root;
 }

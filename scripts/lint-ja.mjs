@@ -16,12 +16,11 @@
 
 import { execFileSync, spawnSync } from 'node:child_process';
 import { readFileSync, readdirSync, statSync } from 'node:fs';
-import { join, resolve, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { createRequire } from 'node:module';
 import { OFFICIAL_QUESTION_PAGE, officialTextRanges } from './lib/official-question-text.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = resolve(join(dirname(fileURLToPath(import.meta.url)), '..'));
 // textlint は npx でなく node で直接起動する（Windows の spawnSync は npx.cmd を解決できない）。
 const TEXTLINT_BIN = createRequire(import.meta.url).resolve('textlint/bin/textlint.js');
 const SCAN_DIR = join(ROOT, 'content', 'site');

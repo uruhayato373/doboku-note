@@ -32,14 +32,13 @@
  */
 
 import { writeFileSync, readFileSync, existsSync, mkdirSync } from 'node:fs';
-import { fileURLToPath, pathToFileURL } from 'node:url';
-import { dirname, resolve } from 'node:path';
+import { pathToFileURL } from 'node:url';
+import { resolve } from 'node:path';
 import { execSync } from 'node:child_process';
 import { Resvg } from '@resvg/resvg-js';
 import { todayJst } from '../../../../../scripts/lib/jst-date.mjs';
+import { REPO_ROOT as ROOT } from '../../../../../scripts/lib/repository-paths.mjs';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = resolve(__dirname, '../../../../../');
 
 // ─── ヘルパー ────────────────────────────────────────────────
 

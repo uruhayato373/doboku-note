@@ -19,10 +19,14 @@
  */
 import { readFileSync, writeFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
+import { join, relative } from 'node:path';
 import { parseBacklog } from './lib/backlog-lib.mjs';
+import { REPO_ROOT, TODO_ROOT } from './lib/repository-paths.mjs';
 
 const NAME = 'backlog-edit';
-const BACKLOG = '.claude/todo/backlog.md';
+const BACKLOG = join(TODO_ROOT, 'backlog.md');
+/** git の pathspec（cwd からの相対）。cwd を渡さなければ REPO_ROOT で実行する */
+const BACKLOG_PATHSPEC = relative(REPO_ROOT, BACKLOG).split('\\').join('/');
 
 /** 改行コードを検出する（backlog.md は CRLF 前提だが、テストは LF でも通せるようにする）。 */
 export function detectEol(text) {
@@ -90,11 +94,11 @@ export function nextId(text, gitLogText) {
  * ローカルの全ブランチ・リモート追跡ブランチ・stash まで見る。他人の未 fetch の push は見えないので、
  * 採番の直前に `git fetch` しておく。
  */
-export function backlogGitLog({ timeout = 30_000, cwd } = {}) {
+export function backlogGitLog({ timeout = 30_000, cwd = REPO_ROOT } = {}) {
   try {
     return execFileSync(
       'git',
-      ['log', '--all', '-p', '--format=%H', '--', BACKLOG, 'docs/todo/backlog.md'],
+      ['log', '--all', '-p', '--format=%H', '--', BACKLOG_PATHSPEC, 'docs/todo/backlog.md'],
       { encoding: 'utf8', maxBuffer: 256 * 1024 * 1024, timeout, cwd, stdio: ['ignore', 'pipe', 'ignore'] },
     );
   } catch {
@@ -154,7 +158,7 @@ if (isMain) {
   console.log(`  → ${removed} 行削除して書き戻した`);
 
   try {
-    execFileSync('node', ['scripts/check-backlog-schema.mjs'], { stdio: 'inherit' });
+    execFileSync('node', ['scripts/check-backlog-schema.mjs'], { cwd: REPO_ROOT, stdio: 'inherit' });
   } catch {
     console.error(`\n[${NAME}] check-backlog-schema が失敗した。上の削除で構造を壊していないか確認すること。`);
     process.exit(1);

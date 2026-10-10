@@ -1,13 +1,11 @@
 #!/usr/bin/env node
 /** Single-video thumbnail update. Default: local dry-run, no network and no external writes. */
 import { readFileSync, existsSync, mkdirSync, mkdtempSync, writeFileSync } from 'node:fs';
-import { dirname, join, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join, resolve } from 'node:path';
 import { parseArgs } from 'node:util';
 import { google } from 'googleapis';
 import { thumbnailInput, updateThumbnail } from '../../../scripts/lib/youtube-thumbnail-update.mjs';
-
-const root = resolve(dirname(fileURLToPath(import.meta.url)), '../../..');
+import { REPO_ROOT as root } from '../../../scripts/lib/repository-paths.mjs';
 const { values: args } = parseArgs({ options: {
   'video-id': { type: 'string' }, image: { type: 'string' }, 'channel-file': { type: 'string' },
   'expect-sha256': { type: 'string' }, 'check-live': { type: 'boolean' },

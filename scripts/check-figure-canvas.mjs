@@ -14,12 +14,10 @@
  *   node scripts/check-figure-canvas.mjs --sync-allowlist 現状の不適合図で migrationAllowlist を再生成（移行完了図を自動除外）
  */
 import { readdirSync, readFileSync, existsSync, writeFileSync } from "node:fs";
-import { join, dirname } from "node:path";
-import { fileURLToPath } from "node:url";
+import { join } from "node:path";
 import { execFileSync } from "node:child_process";
-import { SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
+import { REPO_ROOT as ROOT, SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const POSTS = SITE_CONTENT_ROOT;
 const CONFIG = join(ROOT, "config", "figure-canvas.json"); // path-literal-ok: tests/check-figure-canvas.test.mjs が scripts/lib/datasets.mjs（と zod）を含まない隔離環境へ複写して動かす
 const staged = process.argv.includes("--staged");

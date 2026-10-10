@@ -2,8 +2,8 @@
 
 import { rmSync } from 'node:fs';
 import { resolve, sep } from 'node:path';
+import { REPO_ROOT as root } from './lib/repository-paths.mjs';
 
-const root = resolve(process.cwd());
 const output = resolve(root, 'out');
 if (output !== `${root}${sep}out`) {
   throw new Error(`削除対象がリポジトリ直下の out/ ではありません: ${output}`);

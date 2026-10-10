@@ -1,12 +1,12 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync, existsSync, readdirSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import { auditProjectDoc } from '../scripts/check-project-task-refs.mjs';
 import { parseBacklog } from '../scripts/lib/backlog-lib.mjs';
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
+import { listFiles } from '../scripts/lib/fs-walk.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const IDS = new Set(['DN-0001', 'DN-0026']);
 
 /**
@@ -88,16 +88,7 @@ test('実 docs/ は error 0（廃止参照・参照切れなし）', () => {
   const ids = new Set(parseBacklog(backlog).map((c) => c.id).filter(Boolean));
   assert.ok(ids.size > 0, 'backlog ID が 1 件もない');
 
-  const walk = (dir, out = []) => {
-    if (!existsSync(dir)) return out;
-    for (const e of readdirSync(dir, { withFileTypes: true })) {
-      const p = join(dir, e.name);
-      if (e.isDirectory()) walk(p, out);
-      else if (e.name.endsWith('.md')) out.push(p);
-    }
-    return out;
-  };
-  const files = walk(join(ROOT, 'docs'));
+  const files = listFiles(join(ROOT, 'docs'), { allowMissing: true, ext: '.md' });
   assert.ok(files.length > 30, `docs/ の .md が異常に少ない: ${files.length}`);
 
   const errors = files.flatMap((abs) => {

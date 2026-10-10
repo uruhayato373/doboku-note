@@ -12,10 +12,11 @@
  * 設計: docs/marketing/03_多資格SNS展開設計.md
  */
 import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, relative } from 'node:path';
+import { REPO_ROOT, SITE_CONTENT_ROOT } from '../../../scripts/lib/repository-paths.mjs';
 
-const POSTS = 'content/site/civil-construction-2';
-const OUT = 'src/config/civil-2-exam-questions.json';
+const POSTS = join(SITE_CONTENT_ROOT, 'civil-construction-2');
+const OUT = join(REPO_ROOT, 'src/config/civil-2-exam-questions.json');
 
 function stripFrontmatter(c) {
   const m = c.match(/^---\r?\n[\s\S]*?\r?\n---\r?\n/);
@@ -107,4 +108,4 @@ const tot = years.reduce((s, y) => s + y.questions.length, 0);
 const packOk = years.reduce((s, y) => s + y.questions.filter((q) => q.packEligible).length, 0);
 console.log(`回: ${years.map((y) => `${y.year}(${y.questions.length}/pack:${y.questions.filter((q) => q.packEligible).length})`).join(' ')}`);
 console.log(`総問題: ${tot} / packEligible: ${packOk}（≒ ${Math.floor(packOk / 4)} パック分）`);
-console.log(`出力: ${OUT}`);
+console.log(`出力: ${relative(REPO_ROOT, OUT).split('\\').join('/')}`);

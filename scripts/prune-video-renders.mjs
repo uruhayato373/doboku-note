@@ -14,7 +14,7 @@ import { sha256File as sha256 } from './lib/asset-storage.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { loadVideoState } from './lib/registry-video-state.mjs';
 
-const ROOT = process.cwd();
+const ROOT = process.cwd(); // root-ok: テストが一時ディレクトリを cwd にして実行する
 const BASE = join(ROOT, '.tmp/video-render');
 const DRIVE_MANIFEST = join(ROOT, '.claude/state/assets/drive-manifest.json');
 const DRIVE_CONFIG = join(ROOT, datasetPath('config.drive-vault'));

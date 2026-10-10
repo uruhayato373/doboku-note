@@ -10,10 +10,9 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { readDocMetaIndex } from './lib/doc-meta-index.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const curriculum = JSON.parse(fs.readFileSync(path.join(ROOT, 'src/config/category-curriculum.json'), 'utf8'));
 const index = readDocMetaIndex(ROOT);
 const docs = index.docs; // { fullSlug: { category, group, tags, textbook_order, ... } }

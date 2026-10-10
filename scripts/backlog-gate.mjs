@@ -9,17 +9,19 @@
  * 終了コード: 0＝読めた / 2＝backlog が読めない（検査不成立）
  */
 import { existsSync, readFileSync } from 'node:fs';
+import { join, relative } from 'node:path';
 import { buildGate } from './lib/backlog-gate.mjs';
 import { todayJst } from './lib/jst-date.mjs';
+import { REPO_ROOT, TODO_ROOT } from './lib/repository-paths.mjs';
 
 const TAG = '[backlog-gate]';
-const PATH = '.claude/todo/backlog.md';
+const PATH = join(TODO_ROOT, 'backlog.md');
 const TIER_JA = { high: '🔴', mid: '🟡', low: '🟢', hold: '🟣' };
 
 function main() {
   const args = process.argv.slice(2);
   if (!existsSync(PATH)) {
-    console.error(`${TAG} 検査不成立: ${PATH} が無い`);
+    console.error(`${TAG} 検査不成立: ${relative(REPO_ROOT, PATH).split('\\').join('/')} が無い`);
     return 2;
   }
   const i = args.indexOf('--today');

@@ -18,8 +18,8 @@ import { chromium } from "playwright";
 import { resolveProfileDir } from "./lib/playwright-auth-profile.mjs";
 import { leanContextOptions } from "./lib/playwright-launch.mjs";
 import { X_HANDLE as EXPECTED_ACCOUNT } from "./lib/site-identity.mjs";
+import { REPO_ROOT as ROOT } from "./lib/repository-paths.mjs";
 
-const ROOT = process.cwd();
 const DRAFT_DIR = path.join(ROOT, "content/sns/x/draft/094-career-longform-pilot");
 const REGISTRY_PATH = path.join(DRAFT_DIR, "article-drafts.json");
 const PROFILE_DIR = resolveProfileDir("x", { cwd: ROOT, repoRoot: ROOT });

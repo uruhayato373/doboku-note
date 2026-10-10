@@ -20,8 +20,8 @@
 //   node scripts/check-year-staleness.mjs            # content/site 全体
 //   node scripts/check-year-staleness.mjs --check    # 起動確認のみ（CI・ブラウザ/認証不要）
 
-import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
-import { join, basename, dirname } from 'node:path';
+import { readFileSync, existsSync } from 'node:fs';
+import { basename, dirname, relative } from 'node:path';
 import {
   currentFiscalYearFrom,
   buildStalePattern,
@@ -31,10 +31,11 @@ import {
   extractFrontmatterFields,
 } from './lib/year-staleness.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { REPO_ROOT, SITE_CONTENT_ROOT as SCAN_DIR } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
 const CHECK_MODE = process.argv.includes('--check');
 const CALENDAR_PATH = datasetPath('config.exam-calendar');
-const SCAN_DIR = 'content/site';
 const SCAN_EXT = /\.mdx?$/;
 
 if (CHECK_MODE) {
@@ -69,18 +70,7 @@ const calendar = JSON.parse(readFileSync(CALENDAR_PATH, 'utf8'));
 const currentFiscalYear = currentFiscalYearFrom(calendar);
 const { pattern } = buildStalePattern(currentFiscalYear);
 
-function walk(dir, out = []) {
-  if (!existsSync(dir)) return out;
-  for (const e of readdirSync(dir)) {
-    const p = join(dir, e);
-    const st = statSync(p);
-    if (st.isDirectory()) walk(p, out);
-    else if (SCAN_EXT.test(p)) out.push(p);
-  }
-  return out;
-}
-
-const files = walk(SCAN_DIR);
+const files = listFiles(SCAN_DIR, { match: (p) => SCAN_EXT.test(p), allowMissing: true, followLinks: true });
 let scanned = 0;
 const findings = [];
 
@@ -103,7 +93,7 @@ for (const file of files) {
     let m;
     while ((m = pattern.exec(value)) !== null) {
       if (isStaleMatch(m[0], currentFiscalYear)) {
-        findings.push({ file, field, text: m[0] });
+        findings.push({ file: relative(REPO_ROOT, file).split('\\').join('/'), field, text: m[0] });
       }
     }
   }

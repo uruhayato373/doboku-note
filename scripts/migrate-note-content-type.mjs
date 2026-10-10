@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
-import { dirname, join, relative } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join, relative } from 'node:path';
 import matter from 'gray-matter';
 import { readMdxFile, writeMdxFile } from '../.claude/scripts/lib/mdx-io.mjs';
 import {
@@ -11,8 +10,8 @@ import {
   normalizeRepoPath,
   NOTE_CONTENT_TYPES,
 } from './lib/note-content-type.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const NOTE_DIR = join(ROOT, 'content', 'note');
 const write = process.argv.includes('--write');
 const files = listNoteArticleFiles(NOTE_DIR);

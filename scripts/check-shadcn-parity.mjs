@@ -25,10 +25,11 @@
  */
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join, relative, sep } from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { pathToFileURL } from 'node:url';
 import { diffEntities, extractEntities } from './lib/shadcn-parity.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
-const ROOT = join(fileURLToPath(new URL('.', import.meta.url)), '..');
 const UI_DIR = join(ROOT, 'tools/admin-app/src/components/ui');
 const APP_SRC = join(ROOT, 'tools/admin-app/src');
 const REF_DIR = join(ROOT, '.claude/config/shadcn-reference');
@@ -71,17 +72,6 @@ export function judge(diffs, allow = {}) {
   return { violations, stale };
 }
 
-function walkTsx(dir, skip) {
-  const out = [];
-  for (const f of readdirSync(dir, { withFileTypes: true })) {
-    const p = join(dir, f.name);
-    if (f.isDirectory()) {
-      if (p !== skip) out.push(...walkTsx(p, skip));
-    } else if (f.name.endsWith('.tsx')) out.push(p);
-  }
-  return out;
-}
-
 function main() {
   const json = process.argv.includes('--json');
   if (!existsSync(UI_DIR) || !existsSync(REF_DIR)) {
@@ -108,7 +98,7 @@ function main() {
   for (const name of Object.keys(allowAll)) {
     if (!names.includes(name)) results.push({ name, entities: 0, violations: [], stale: [{ entity: '*', reason: '部品が無いのに例外が残っている' }] });
   }
-  const pages = walkTsx(APP_SRC, UI_DIR);
+  const pages = listFiles(APP_SRC, { ext: '.tsx', skipDir: (p) => p === UI_DIR });
   const overrides = pages.flatMap((p) => findSizeOverrides(readFileSync(p, 'utf8')).map((o) => ({ file: relative(ROOT, p).split(sep).join('/'), ...o })));
 
   const bad = results.filter((r) => r.noReference || r.violations.length || r.stale.length);

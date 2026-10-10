@@ -17,15 +17,17 @@
  */
 import { readFileSync, existsSync } from "node:fs";
 import { execFileSync } from "node:child_process";
+import { join, relative } from "node:path";
+import { REPO_ROOT, AGENT_CONFIG_ROOT } from "./lib/repository-paths.mjs";
 
-const REGISTRY = ".claude/config/policy-anchors.json";
+const REGISTRY = join(AGENT_CONFIG_ROOT, "policy-anchors.json");
 const staged = process.argv.includes("--staged");
 
 let reg;
 try {
   reg = JSON.parse(readFileSync(REGISTRY, "utf8"));
 } catch (e) {
-  console.error(`[check-policy-anchors] ✗ ${REGISTRY} を読めません: ${e.message}`);
+  console.error(`[check-policy-anchors] ✗ ${relative(REPO_ROOT, REGISTRY).split("\\").join("/")} を読めません: ${e.message}`);
   process.exit(1);
 }
 

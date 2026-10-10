@@ -8,10 +8,8 @@ import test from 'node:test';
 import { execFileSync } from 'node:child_process';
 import process from 'node:process';
 import { readFileSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
-
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+import { join } from 'node:path';
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
 function tsx(code) {
   const cli = join(ROOT, 'node_modules/tsx/dist/cli.mjs');

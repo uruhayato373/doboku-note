@@ -4,12 +4,11 @@ import { spawnSync } from 'node:child_process';
 import {
   existsSync, mkdirSync, mkdtempSync, rmSync, writeFileSync,
 } from 'node:fs';
-import { dirname, join, resolve } from 'node:path';
+import { dirname, join } from 'node:path';
 import { tmpdir } from 'node:os';
-import { fileURLToPath } from 'node:url';
 import test from 'node:test';
+import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
 
-const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const IG_PRUNE = join(REPO_ROOT, 'scripts/prune-instagram-video-pack-reels.mjs');
 const VIDEO_PRUNE = join(REPO_ROOT, 'scripts/prune-video-renders.mjs');
 

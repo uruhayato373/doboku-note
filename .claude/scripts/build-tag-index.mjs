@@ -18,33 +18,18 @@
  * Usage:
  *   node .claude/scripts/build-tag-index.mjs
  */
-import { readdirSync, readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { join, relative, dirname, extname } from 'node:path';
 import matter from 'gray-matter';
 import { writeJsonIfChanged } from '../../scripts/lib/write-generated.mjs';
+import { REPO_ROOT as ROOT } from '../../scripts/lib/repository-paths.mjs';
+import { listFiles } from '../../scripts/lib/fs-walk.mjs';
 
-const ROOT = process.cwd();
 const POSTS_ROOT = join(ROOT, 'content/site');
 const TAGS_ALLOWLIST_PATH = join(ROOT, 'src/config/tags.json');
 const OUT_PATH = join(ROOT, 'src/config/tag-dictionary.json');
 
 const TYPO_MAX_USED = 100; // Levenshtein チェックを走らせる上限
-
-// ── MDX 列挙 ────────────────────────────────────────────────────
-
-function walkMdx(dir) {
-  const out = [];
-  if (!existsSync(dir)) return out;
-  for (const entry of readdirSync(dir, { withFileTypes: true })) {
-    const p = join(dir, entry.name);
-    if (entry.isDirectory()) {
-      out.push(...walkMdx(p));
-    } else if (entry.isFile() && extname(entry.name).toLowerCase() === '.mdx') {
-      out.push(p);
-    }
-  }
-  return out;
-}
 
 // ── slug 生成 ──────────────────────────────────────────────────
 
@@ -123,7 +108,7 @@ function main() {
   }
 
   // 全 MDX を scan
-  const files = walkMdx(POSTS_ROOT);
+  const files = listFiles(POSTS_ROOT, { allowMissing: true, match: (_p, name) => extname(name).toLowerCase() === '.mdx' });
   console.log(`[tag-index] ${files.length} MDX を走査`);
 
   const tagMap = new Map(); // name → { count, usedIn: Set<slug> }

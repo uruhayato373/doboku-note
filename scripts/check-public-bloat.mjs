@@ -32,16 +32,18 @@
  * ---------------------------------------------------------------------------
  */
 import { readdirSync, existsSync, statSync, writeSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, relative } from 'node:path';
+import { REPO_ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = 'public';
+const ROOT = join(REPO_ROOT, 'public');
+const ROOT_REL = relative(REPO_ROOT, ROOT); // 表示用（リポジトリからの相対）
 // 正常値は 991（2026-07-30 実測・うち pagefind の正規出力が ~950）。事故時は 93,794 だった。
 // 正当な追加の余地を残しつつ、桁違いの膨張だけを捕まえる高さに置く。
 const MAX_FILES = 5000;
 const JSON_OUT = process.argv.includes('--json');
 
 if (!existsSync(ROOT)) {
-  console.error(`[check-public-bloat] ✗ ${ROOT}/ が無い。検査できていないので緑にしない。`);
+  console.error(`[check-public-bloat] ✗ ${ROOT_REL}/ が無い。検査できていないので緑にしない。`);
   process.exit(1);
 }
 
@@ -63,7 +65,7 @@ function walk(dir, topLabel, depth) {
     const p = join(dir, e.name);
     if (e.isDirectory()) {
       // 自分と同名の子＝生成物が自分を取り込んで再帰した痕跡。深さも記録して段数を示す。
-      if (e.name === dir.split(/[\\/]/).pop()) nested.push({ path: p, depth: depth + 1 });
+      if (e.name === dir.split(/[\\/]/).pop()) nested.push({ path: relative(REPO_ROOT, p), depth: depth + 1 });
       walk(p, topLabel ?? e.name, depth + 1);
     } else {
       files++;
@@ -75,7 +77,7 @@ function walk(dir, topLabel, depth) {
 
 walk(ROOT, null, 0);
 
-const result = { root: ROOT, files, dirs, maxFiles: MAX_FILES, nested, byTop: Object.fromEntries(perTop) };
+const result = { root: ROOT_REL, files, dirs, maxFiles: MAX_FILES, nested, byTop: Object.fromEntries(perTop) };
 
 if (JSON_OUT) {
   writeSync(1, JSON.stringify(result, null, 2) + '\n');
@@ -86,7 +88,7 @@ console.log(`[check-public-bloat] 実検査 ${files} ファイル / ${dirs} デ�
 
 // 0 件は「異常なし」ではなく「走査が壊れている」。緑を返さない。
 if (files === 0) {
-  console.error(`\n[check-public-bloat] ✗ ${ROOT}/ で1件も数えられなかった＝検査不成立（走査ロジックか権限を疑う）。`);
+  console.error(`\n[check-public-bloat] ✗ ${ROOT_REL}/ で1件も数えられなかった＝検査不成立（走査ロジックか権限を疑う）。`);
   process.exit(1);
 }
 
@@ -110,7 +112,7 @@ if (files > MAX_FILES) {
   bad = true;
   const top = [...perTop.entries()].sort((a, b) => b[1] - a[1]).slice(0, 5);
   console.error(`\n[check-public-bloat] ✗ public/ が ${files} ファイル（上限 ${MAX_FILES}）。内訳上位:`);
-  for (const [k, v] of top) console.error(`    ${String(v).padStart(7)}  ${ROOT}/${k}`);
+  for (const [k, v] of top) console.error(`    ${String(v).padStart(7)}  ${ROOT_REL}/${k}`);
   console.error('  public/ は毎ビルド out/ へ全コピーされる。生成物を置かない。');
   console.error('  pagefind のローカル検索用は fragment/ + index/ + ランタイム12点（計 ~950）だけが正しい姿。');
 }
@@ -126,14 +128,14 @@ if (files > MAX_FILES) {
 // **CI のクリーンチェックアウトでは 0 件になる**ので、件数を必ず出して
 // 「0 件検査」と「異常なし」を見分けられるようにする。
 const SCRATCH_RE = /\.(png|jpe?g|gif|webp|svg|zip|mp4|wav|pdf)$/i;
-const rootEntries = readdirSync(process.cwd(), { withFileTypes: true })
+const rootEntries = readdirSync(REPO_ROOT, { withFileTypes: true })
   .filter((e) => e.isFile() && SCRATCH_RE.test(e.name));
 console.log(`[check-public-bloat] リポジトリ直下のスクラッチ: ${rootEntries.length} 件`
   + (rootEntries.length === 0 ? '（クリーンチェックアウトでは 0 件が正常）' : ''));
 if (rootEntries.length) {
   bad = true;
   const total = rootEntries.reduce((sum, e) => {
-    try { return sum + statSync(e.name).size; } catch { return sum; }
+    try { return sum + statSync(join(REPO_ROOT, e.name)).size; } catch { return sum; }
   }, 0);
   console.error(`\n[check-public-bloat] ✗ リポジトリ直下に一時ファイルが ${rootEntries.length} 件（${(total / 1048576).toFixed(1)} MiB）:`);
   for (const e of rootEntries.slice(0, 12)) console.error(`    ${e.name}`);

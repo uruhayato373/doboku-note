@@ -11,11 +11,10 @@
  *   npm run sales-summary
  */
 import { readFileSync } from "fs";
-import { join, dirname } from "path";
-import { fileURLToPath } from "url";
+import { join } from "path";
 import { datasetPath } from "./lib/datasets.mjs";
+import { REPO_ROOT as ROOT } from "./lib/repository-paths.mjs";
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const LOG = join(ROOT, datasetPath("note.sales"));
 const MILESTONE = 15000; // Web 月収マイルストーン（iOS 着手判断トリガー）
 

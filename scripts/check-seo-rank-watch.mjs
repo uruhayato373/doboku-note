@@ -4,7 +4,7 @@ import { execFileSync } from 'node:child_process';
 import { readFileSync, existsSync } from 'node:fs';
 import { resolve, join } from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { resolveMovedPath } from './lib/repository-paths.mjs';
+import { REPO_ROOT, resolveMovedPath } from './lib/repository-paths.mjs';
 import { readReportRef } from './lib/metric-reports.mjs';
 import { CONFIG, LEDGER, HISTORY, KIND, validateConfig, validateSnapshot, readMeasurements, deploymentFor, statusOf, hash, scopeKey, readRuns, validateRun, hasRecord } from './lib/seo-rank-watch.mjs';
 import { datasetPath } from './lib/datasets.mjs';
@@ -37,7 +37,7 @@ export function observationViolations(before, after, changedPaths, getContent) {
   return errors;
 }
 function main() {
-  const root = process.cwd(), staged = process.argv.includes('--staged');
+  const root = REPO_ROOT, staged = process.argv.includes('--staged');
   const git = (args) => execFileSync('git', args, { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
   const get = (path) => staged ? git(['show', `:${path}`]) : readFileSync(join(root, path), 'utf8');
   const raw = JSON.parse(get(CONFIG));

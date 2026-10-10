@@ -5,12 +5,12 @@
  */
 import { Resvg } from '@resvg/resvg-js';
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
-import { fileURLToPath, pathToFileURL } from 'node:url';
-import { dirname, resolve, join, basename, relative } from 'node:path';
+import { pathToFileURL } from 'node:url';
+import { resolve, join, basename, relative } from 'node:path';
 import { svgDoc, text, rect, line, COLORS, MGMT_COLORS } from './lib/svg-base.mjs';
 import { SITE_HOST } from '../../../scripts/lib/site-identity.mjs';
+import { REPO_ROOT as ROOT } from '../../../scripts/lib/repository-paths.mjs';
 
-const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../../..');
 const FORMATS = ['ig-single', 'yt-thumb', 'vertical'];
 const categories = JSON.parse(readFileSync(join(ROOT, 'src/config/categories.json'), 'utf8'));
 

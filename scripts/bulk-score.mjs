@@ -12,11 +12,12 @@
  *   node scripts/bulk-score.mjs --summary    # 保存済みスコアの集計のみ
  */
 import { readFileSync, writeFileSync, readdirSync, statSync, existsSync } from 'node:fs';
-import { join, resolve, basename, dirname } from 'node:path';
+import { join, resolve, basename, dirname, relative } from 'node:path';
 import { execSync } from 'node:child_process';
+import { REPO_ROOT, SITE_CONTENT_ROOT, STATE_ROOT } from './lib/repository-paths.mjs';
 
-const POSTS_DIR = 'content/site/pe-comprehensive-management';
-const SCORES_PATH = '.claude/state/quality-scores.json';
+const POSTS_DIR = join(SITE_CONTENT_ROOT, 'pe-comprehensive-management');
+const SCORES_PATH = join(STATE_ROOT, 'quality-scores.json');
 
 const WEIGHTS = {
   structure: 0.30,
@@ -359,7 +360,7 @@ function main() {
 
   if (!dryRun) {
     saveScores(data);
-    console.log(`\n${SCORES_PATH} に保存しました (total: ${Object.keys(data.pages).length} ページ)`);
+    console.log(`\n${relative(REPO_ROOT, SCORES_PATH).split('\\').join('/')} に保存しました (total: ${Object.keys(data.pages).length} ページ)`);
   } else {
     console.log('\n--dry-run: 保存しませんでした');
   }

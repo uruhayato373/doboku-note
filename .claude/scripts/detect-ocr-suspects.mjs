@@ -20,10 +20,10 @@
 // 真因追跡は人手でやる想定。本スクリプトは候補をできるだけ拾って提示する側。
 
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, statSync, existsSync } from 'node:fs';
-import { join, relative, basename, dirname } from 'node:path';
+import { join, relative } from 'node:path';
 import { todayJst } from '../../scripts/lib/jst-date.mjs';
+import { REPO_ROOT as ROOT } from '../../scripts/lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const POSTS_ROOT = join(ROOT, 'content/site');
 const OUTPUT_DIR = join(ROOT, '.claude/state/ocr-audit');
 const TODAY = todayJst();

@@ -19,8 +19,8 @@
 
 import { readFileSync } from 'node:fs';
 import { writeAllSync } from './lib/write-all-sync.mjs';
+import { listFiles as listFilesUnder } from './lib/fs-walk.mjs'; // 下の listFiles()（対象ファイルの集合）と名前が衝突するため別名
 import { execFileSync } from "node:child_process";
-import { readdirSync } from "node:fs";
 import { unified } from "unified";
 import remarkParse from "remark-parse";
 import remarkGfm from "remark-gfm";
@@ -102,22 +102,7 @@ function listFiles() {
   }
   // fs.globSync は Node 22+ 専用。CI は Node 20 なので使えない
   // （使うと対象0件になり「検査不成立」で落ちる。2026-08-04 に CI で顕在化）。
-  const out = [];
-  const walk = (dir) => {
-    let entries;
-    try {
-      entries = readdirSync(dir, { withFileTypes: true });
-    } catch {
-      return;
-    }
-    for (const e of entries) {
-      const p = `${dir}/${e.name}`;
-      if (e.isDirectory()) walk(p);
-      else if (e.isFile() && isTargetPath(p)) out.push(p);
-    }
-  };
-  ROOTS.forEach(walk);
-  return out;
+  return ROOTS.flatMap((root) => listFilesUnder(root, { match: (p) => isTargetPath(p), allowMissing: true }));
 }
 
 const files = listFiles();

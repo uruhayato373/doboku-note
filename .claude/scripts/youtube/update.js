@@ -38,7 +38,8 @@ if (!CLIENT_ID || !CLIENT_SECRET || !REFRESH_TOKEN) {
 }
 
 // ── 引数パース ──
-function parseArgs() {
+async function parseArgs() {
+  const { parseCliArgs } = await import("../../../scripts/lib/cli-args.mjs"); // CJS から ESM の共通部品を読む
   const args = process.argv.slice(2);
   if (args.length === 0 || args[0].startsWith("--")) {
     console.error("Usage: node .claude/scripts/youtube/update.js <ディレクトリ> [--no-thumbnail] [--privacy public|unlisted|private]");
@@ -46,19 +47,16 @@ function parseArgs() {
   }
 
   const dir = args[0];
-  let noThumbnail = false;
-  let privacy = null;
-
-  for (let i = 1; i < args.length; i++) {
-    if (args[i] === "--no-thumbnail") noThumbnail = true;
-    else if (args[i] === "--privacy") privacy = args[++i];
-  }
+  const { noThumbnail, privacy } = parseCliArgs({
+    "no-thumbnail": { type: "boolean" },
+    privacy: { type: "string" },
+  }, args.slice(1));
 
   return { dir, noThumbnail, privacy };
 }
 
 async function main() {
-  const opts = parseArgs();
+  const opts = await parseArgs();
   const absDir = path.resolve(opts.dir);
 
   if (!fs.existsSync(absDir)) {

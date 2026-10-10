@@ -21,15 +21,13 @@
 
 import { writeFileSync, mkdirSync, renameSync } from 'node:fs';
 import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { createRequire } from 'node:module';
 
 import { renderNoteCharacterCover, resolveCoverExam } from './lib/note-character-cover.mjs';
 import { loadNoteCoverInventory } from './lib/note-cover-inventory.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 const require = createRequire(import.meta.url);
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = join(__dirname, '..');
 // note カバーの試験パレット（試験=色）の真実源
 const COVER_TOKENS = require(join(ROOT, '.claude/knowledge/design-system/note-cover-tokens.json'));
 

@@ -20,12 +20,11 @@
  * ---------------------------------------------------------------------------
  */
 import { existsSync, readdirSync, statSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { join } from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { loadConfig, loadEnvLocal, makeS3, mimeFor, toPosix } from './lib/asset-storage.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = join(__dirname, '..');
 export const IG_DIR = join(ROOT, 'content/sns/instagram');
 const R2_PREFIX = 'sns/ig';
 const IMAGE_RE = /\.(png|jpe?g)$/i;

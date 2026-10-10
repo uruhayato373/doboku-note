@@ -35,8 +35,8 @@ import { loadPreviousSnapshot, saveSnapshot } from './lib/competitor-history.mjs
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const CONFIG_PATH = join(ROOT, datasetPath('config.coconala-blog'));
 const PROFILE = resolveProfileDir('coconala', { cwd: ROOT, repoRoot: ROOT });
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';

@@ -17,8 +17,9 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { readMdxFile, writeMdxFile } from '#lib/mdx-io.mjs';
+import { REPO_ROOT as ROOT } from '../../../../../scripts/lib/repository-paths.mjs';
+import { parseCliArgs } from '../../../../../scripts/lib/cli-args.mjs';
 
-const ROOT = process.cwd();
 const CATEGORY_DIR = path.join(ROOT, 'content/site/civil-construction-1');
 const IN_RELATIONS = path.join(ROOT, 'src/config/civil-relations.json');
 
@@ -32,18 +33,20 @@ const INSERT_BEFORE_HEADING_PATTERNS = [
 ];
 
 function parseArgs(argv) {
-  const args = { slugs: [], dryRun: false, apply: false, skipExisting: true, all: false };
-  for (let i = 2; i < argv.length; i++) {
-    const a = argv[i];
-    if (a === '--dry-run') args.dryRun = true;
-    else if (a === '--apply') args.apply = true;
-    else if (a === '--no-skip-existing') args.skipExisting = false;
-    else if (a === '--all') args.all = true;
-    else if (a.startsWith('--slugs=')) {
-      args.slugs = a.slice('--slugs='.length).split(',').filter(Boolean);
-    }
-  }
-  return args;
+  const flags = parseCliArgs({
+    'dry-run': { type: 'boolean' },
+    apply: { type: 'boolean' },
+    'no-skip-existing': { type: 'boolean' },
+    all: { type: 'boolean' },
+    slugs: { type: 'string' },
+  }, argv.slice(2));
+  return {
+    slugs: (flags.slugs ?? '').split(',').filter(Boolean),
+    dryRun: flags.dryRun,
+    apply: flags.apply,
+    skipExisting: !flags.noSkipExisting,
+    all: flags.all,
+  };
 }
 
 function formatRelatedKeywordsBlock(relations) {

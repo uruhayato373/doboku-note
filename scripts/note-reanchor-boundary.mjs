@@ -21,16 +21,15 @@
  */
 import { chromium } from 'playwright';
 import { readFileSync, existsSync, mkdirSync } from 'node:fs';
-import { join, dirname, resolve, relative } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join, resolve, relative } from 'node:path';
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 import { publishLive } from './lib/note-live-publish.mjs';
 import { fetchNoteBody } from './lib/note-live-check.mjs';
 import { listAttachedFiles } from './lib/note-attach.mjs';
 import { evaluatePostSaveGate, evaluatePreSaveGate, expectationsByNoteId, recordAttachmentLoss } from './lib/note-attachments.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 const DEFAULT_BOUNDARY = '試験問題|予想問題';

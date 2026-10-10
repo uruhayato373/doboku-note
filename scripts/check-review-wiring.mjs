@@ -7,11 +7,10 @@
  * ---------------------------------------------------------------------------
  */
 import { existsSync, readFileSync } from 'node:fs';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { CONFIG, diffWiring, validateWiring } from './lib/review-wiring.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 let config;
 try {
   config = JSON.parse(readFileSync(join(ROOT, CONFIG), 'utf8'));

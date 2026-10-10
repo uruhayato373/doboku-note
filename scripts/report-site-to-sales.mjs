@@ -17,8 +17,8 @@
  * exit: 0 完走 / 2 検査不成立（カタログ解析 0 件・sales.json 読取不能など入力の破損）
  * 純関数とテスト: scripts/lib/site-to-sales.mjs・tests/site-to-sales.test.mjs
  */
-import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
-import { join, resolve } from 'node:path';
+import { mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
+import { join } from 'node:path';
 import { jst } from './lib/business-direction.mjs';
 import { datasetDir, datasetFiles, datasetPath } from './lib/datasets.mjs';
 import { listReports } from './lib/metric-reports.mjs';
@@ -33,8 +33,9 @@ import {
   previousMonth,
   renderSiteToSalesTable,
 } from './lib/site-to-sales.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { readJson, readJsonIf } from './lib/json-io.mjs';
 
-const ROOT = resolve(import.meta.dirname, '..');
 const OUT_DIR = datasetDir('business.site-to-sales');
 
 const args = process.argv.slice(2);
@@ -48,16 +49,12 @@ function fail(message) {
   process.exitCode = 2;
 }
 
-function readJson(rel) {
-  return JSON.parse(readFileSync(join(ROOT, rel), 'utf8'));
-}
-
 /** 台帳のデータセットの全ファイルを古い順に読む */
 function readDataset(id) {
   const out = [];
   for (const file of datasetFiles(ROOT, id).sort()) {
     try {
-      out.push({ file, data: readJson(file) });
+      out.push({ file, data: readJson(ROOT, file) });
     } catch (e) {
       console.error(`[report-site-to-sales] 読めない入力を除外: ${file}（${e.message}）`);
     }
@@ -75,13 +72,13 @@ function main() {
   const salesPath = datasetPath('note.sales');
   let salesLog;
   try {
-    salesLog = readJson(salesPath);
+    salesLog = readJson(ROOT, salesPath);
   } catch (e) {
     return fail(`${salesPath} を読めない（${e.message}）`);
   }
   if (!Array.isArray(salesLog.sales)) return fail(`${salesPath} に sales[] が無い`);
   const snapshotPath = datasetPath('note.magazines');
-  const magazineSnapshot = existsSync(join(ROOT, snapshotPath)) ? readJson(snapshotPath) : null;
+  const magazineSnapshot = readJsonIf(ROOT, snapshotPath);
 
   const resolver = buildResolver({ catalog, hubSeasonal, magazineSnapshot, salesLog });
   const labelSnapshots = listReports(ROOT, 'ga4.cta-clicks-by-label').reverse().map((r) => ({ file: r.ref, data: r.data }));

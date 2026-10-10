@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { fileURLToPath } from 'node:url';
-import { resolve, dirname } from 'node:path';
+import { resolve } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { mkdtempSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
@@ -10,6 +10,7 @@ import { readFileSync } from 'node:fs';
 import { coverCopy, headlineLayout, resolveCoverExam, renderNoteCharacterCover, coverPoseCandidates, assignCoverPoses, coverFitIssues, COVER_LAYOUTS, magazineDisplayCopy } from '../scripts/lib/note-character-cover.mjs';
 import { loadNoteCoverInventory } from '../scripts/lib/note-cover-inventory.mjs';
 import { MAGAZINES } from '../scripts/generate-magazine-covers.mjs';
+import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
 
 test('pose choices follow the topic and keep explicit editorial choices', () => {
   const input = title => ({ title });
@@ -78,7 +79,7 @@ test('magazine copy emphasizes the qualification and package contents', () => {
 });
 
 test('actual article and magazine renders keep every text node inside the measured safe area', async () => {
-  const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+  const root = REPO_ROOT;
   for (const input of [
     { cover: { headline: '工程管理', leadIn: '1級土木', hi: '予想', hiSuffix: 'テーマ' }, examKey: 'civil-1', palette: { band: '#1E73C8' } },
     { magazine: true, lines: ['総監 記述式', '完全攻略パック', '過去問と予想問題'], examKey: 'pe-comprehensive', palette: { band: '#16365C' } },
@@ -98,7 +99,7 @@ test('actual article and magazine renders keep every text node inside the measur
 });
 
 test('all nine usable waist poses keep hands and props clear of text and the benefit band', async () => {
-  const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+  const root = REPO_ROOT;
   for (const pose of ['pointing', 'good-sign', 'explaining', 'wave', 'thinking', 'congrats', 'smile', 'pc-work', 'reading']) {
     const result = await renderNoteCharacterCover(root, {
       cover: { headline: '工程管理', character: pose, benefit: '工程表を書く' },
@@ -115,7 +116,7 @@ test('all nine usable waist poses keep hands and props clear of text and the ben
 });
 
 test('fit gate uses the real font and rejects copy the renderer would refuse', () => {
-  const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+  const root = REPO_ROOT;
   assert.deepEqual(coverFitIssues(root, { cover: { headline: '工程管理', leadIn: '1級土木', hi: '予想', hiSuffix: 'テーマ', benefit: '工程表を書く' } }), []);
   const long = coverFitIssues(root, { cover: { headline: '長い主見出し'.repeat(20), benefit: '長い訴求'.repeat(30) } });
   assert.equal(long.length, 2);
@@ -125,7 +126,7 @@ test('fit gate uses the real font and rejects copy the renderer would refuse', (
 });
 
 test('article, magazine and batch generators share one inventory so a single rerender keeps its pose', async () => {
-  const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+  const root = REPO_ROOT;
   const inventory = await loadNoteCoverInventory(root, { magazines: MAGAZINES });
   const articles = inventory.targets.filter(t => t.kind === 'article');
   const magazines = inventory.targets.filter(t => t.kind === 'magazine');

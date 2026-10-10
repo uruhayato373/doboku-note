@@ -27,10 +27,9 @@
  * exit: 0 合格 / 1 違反あり / 2 検査不成立（走査が壊れている）
  */
 import { readdirSync, readFileSync } from 'node:fs';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const WORKFLOW_DIR = join(ROOT, '.github/workflows');
 
 /**

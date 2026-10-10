@@ -31,13 +31,11 @@
  *   node scripts/check-figure-embed-dims.mjs --fix      MDX の width/height を viewBox に合わせて書き換える
  */
 import { readdirSync, readFileSync, existsSync } from "node:fs";
-import { join, dirname, basename } from "node:path";
-import { fileURLToPath } from "node:url";
+import { join, basename } from "node:path";
 import { execFileSync } from "node:child_process";
 import { readMdxFile, writeMdxFile } from "../.claude/scripts/lib/mdx-io.mjs";
-import { SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
+import { REPO_ROOT as ROOT, SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const POSTS = SITE_CONTENT_ROOT;
 const staged = process.argv.includes("--staged");
 const listOnly = process.argv.includes("--list");

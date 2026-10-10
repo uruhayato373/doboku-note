@@ -10,12 +10,14 @@
  * 他サイトの書籍は母数に入れず、日次 ops-audit から「取得が止まった」ことを通知する。
  */
 import { existsSync, readFileSync, writeSync } from 'node:fs';
+import { join, relative } from 'node:path';
 import { kdpLiveBookIdsAsOf } from './lib/kindle-catalog.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { jstYmd } from './lib/jst-date.mjs';
+import { REPO_ROOT } from './lib/repository-paths.mjs';
 
 const STATE = datasetPath('kdp.royalties');
-const CATALOG = 'scripts/kindle-published/catalog.json';
+const CATALOG = join(REPO_ROOT, 'scripts/kindle-published/catalog.json');
 const FINAL_DUE_DAY = 16;
 const ESTIMATE_DUE_DAY = 28;
 const JSON_OUT = process.argv.includes('--json');
@@ -97,7 +99,7 @@ if (isMain) {
   let catalog;
   try { catalog = JSON.parse(readFileSync(CATALOG, 'utf8')); }
   catch (error) {
-    console.error(`${TAG} FAIL: ${CATALOG} を読めない — ${error.message}`);
+    console.error(`${TAG} FAIL: ${relative(REPO_ROOT, CATALOG).split('\\').join('/')} を読めない — ${error.message}`);
     process.exit(1);
   }
   const catalogBooks = catalog.books ?? [];

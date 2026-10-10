@@ -16,7 +16,7 @@
  *   npx tsx scripts/audit-sns-landing-cta.ts --ci   # 未配線があれば exit 1、検査ゼロも exit 1
  * ---------------------------------------------------------------------------
  */
-import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs';
+import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { getMagazine } from '../src/lib/note-magazines';
 import { resolvePlacement } from '../src/lib/magazine-placement';
@@ -24,8 +24,9 @@ import { getAllPublicDocRoutes } from '../src/lib/content-routes';
 import { resolveHubCta } from '../src/lib/hub-cta';
 import { sidebarProduct } from '../src/lib/sidebar-discovery';
 import { hasStaticToolNoteCta } from './lib/sns-landing-cta.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
-const ROOT = join(__dirname, '..');
 const CI = process.argv.includes('--ci');
 const SITE = join(ROOT, 'content/site');
 const SOURCES = [join(ROOT, 'content/sns'), join(ROOT, 'content/sns/x/campaigns')];
@@ -62,20 +63,10 @@ function collectDocs(): Map<string, Doc> {
   return out;
 }
 
-function walk(dir: string, acc: string[] = []): string[] {
-  if (!existsSync(dir)) return acc;
-  for (const e of readdirSync(dir)) {
-    const p = join(dir, e);
-    if (statSync(p).isDirectory()) walk(p, acc);
-    else if (/\.(md|json|txt|mdx)$/.test(e)) acc.push(p);
-  }
-  return acc;
-}
-
 // リンク先 URL（重複は 1 ページにまとめ、リンク件数も数える）
 const linkCount = new Map<string, number>();
 for (const src of SOURCES) {
-  for (const f of walk(src)) {
+  for (const f of listFiles(src, { ext: ['.md', '.json', '.txt', '.mdx'], followLinks: true, allowMissing: true })) {
     const text = readFileSync(f, 'utf8');
     for (const m of text.matchAll(/https:\/\/doboku-note\.com(\/[A-Za-z0-9_\/%.-]*)/g)) {
       const path = m[1]!.replace(/\/+$/, '') || '/';

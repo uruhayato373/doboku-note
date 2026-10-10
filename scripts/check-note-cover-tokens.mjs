@@ -37,16 +37,16 @@
  * ---------------------------------------------------------------------------
  */
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join, relative } from 'node:path';
 // 照合は生成器の実装をそのまま使う。ここで書き直すと 2 実装がドリフトし、
 // ゲートだけが正しく解決できない（civil-1 を civil-1-2 より先に見る特別扱いを取りこぼす）。
 import { resolveExam } from './generate-note-covers.mjs';
 import { isQualificationRef, loadRegistry } from './lib/qualification-registry.mjs';
+import { REPO_ROOT as ROOT, KNOWLEDGE_ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const NOTE_DIR = join(ROOT, 'content/note');
-const TOKENS = '.claude/knowledge/design-system/note-cover-tokens.json';
+const TOKENS_PATH = join(KNOWLEDGE_ROOT, 'design-system', 'note-cover-tokens.json');
+const TOKENS = relative(ROOT, TOKENS_PATH).split('\\').join('/'); // 表示用（リポジトリからの相対）
 const JSON_OUT = process.argv.includes('--json');
 
 /** 必須フィールド。欠けると fallback 時に undefined が描画へ流れる。 */
@@ -79,7 +79,7 @@ function main() {
   }
   let tokens;
   try {
-    tokens = JSON.parse(readFileSync(join(ROOT, TOKENS), 'utf8'));
+    tokens = JSON.parse(readFileSync(TOKENS_PATH, 'utf8'));
   } catch (e) {
     console.error(`✗ 検査不成立: ${TOKENS} を読めない（${e.message}）`);
     process.exit(2);

@@ -14,8 +14,8 @@
  */
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { REPO_ROOT as ROOT } from '../../../../../scripts/lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const CHAPTERS_PATH = join(ROOT, 'src/config/pe-chapters.json');
 
 const SUFFIXES = ['-osh', '-security', '-labor', '-process', '-comm'];

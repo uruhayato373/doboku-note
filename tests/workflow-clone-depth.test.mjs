@@ -7,12 +7,11 @@
  */
 import { strict as assert } from 'node:assert';
 import { readFileSync, readdirSync } from 'node:fs';
-import { dirname, join } from 'node:path';
+import { join } from 'node:path';
 import test from 'node:test';
-import { fileURLToPath } from 'node:url';
 import { ALLOWLIST, auditCloneDepth } from '../scripts/check-workflow-clone-depth.mjs';
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const WORKFLOW_DIR = join(ROOT, '.github/workflows');
 
 const FULL = `

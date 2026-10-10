@@ -31,11 +31,11 @@
 //   この検査では扱えない。表へ日付列を足せば同じ仕組みで見られる。
 
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
-import { join, dirname, resolve } from 'node:path';
+import { join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { todayJst } from './lib/jst-date.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 export const SSOT_REL = 'content/note/1級・2級土木/メンバーシップ/README.md';
 const MEMBERSHIP_REL = 'content/note/1級・2級土木/メンバーシップ';
 

@@ -3,15 +3,14 @@ import assert from 'node:assert/strict';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { builtinModules } from 'node:module';
 import { dirname, join, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import yaml from 'js-yaml';
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
 /**
  * npm ci をしないジョブが node で直接実行するスクリプトは、npm のパッケージを（間接にも）import してはいけない。
  * 2026-10-02 に indexnow-submit.mjs が台帳（scripts/lib/datasets.mjs → zod）を import し、依存ゼロのつもりの
  * indexnow-submit.yml がデプロイのたびに ERR_MODULE_NOT_FOUND で落ちた。
  */
-const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const WORKFLOWS = join(ROOT, '.github', 'workflows');
 const BUILTINS = new Set(builtinModules);
 const INSTALL = /\bnpm\s+(?:ci|install|i)\b|\bnpm\s+run\s+\S*install/;

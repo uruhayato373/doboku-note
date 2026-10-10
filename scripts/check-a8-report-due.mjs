@@ -31,14 +31,12 @@
  * ---------------------------------------------------------------------------
  */
 import { readFileSync } from "node:fs";
-import { fileURLToPath } from "node:url";
-import { dirname, join } from "node:path";
+import { join } from "node:path";
 
 import { classifyCrossCheck, collectPublishGap } from "./lib/report-honesty.mjs";
 import { datasetPath, freshnessDays } from "./lib/datasets.mjs";
+import { REPO_ROOT as ROOT } from "./lib/repository-paths.mjs";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = join(__dirname, "..");
 const MARKER = join(ROOT, datasetPath("a8.ui-last-run"));
 const LOG = join(ROOT, datasetPath("a8.report-log"));
 const REVIEW = "gh workflow run login-collectors.yml -f service=a8（CI）か /a8-report（ローカル・要 A8 ログイン）";
@@ -51,7 +49,7 @@ const parsedDays = di >= 0 && args[di + 1] != null ? Number.parseInt(args[di + 1
 // 既定は台帳 a8.ui-last-run の freshness.warnDays（--days で一時的に変えられる）
 const THRESHOLD = Number.isFinite(parsedDays) && parsedDays >= 0 ? parsedDays : freshnessDays("a8.ui-last-run", "warnDays");
 
-const readJson = (p) => {
+const readJsonOrNull = (p) => {
   try {
     return JSON.parse(readFileSync(p, "utf-8"));
   } catch {
@@ -59,8 +57,8 @@ const readJson = (p) => {
   }
 };
 
-const marker = readJson(MARKER);
-const log = readJson(LOG);
+const marker = readJsonOrNull(MARKER);
+const log = readJsonOrNull(LOG);
 
 const lastIso = marker?.collectedAt || marker?.lastRun || null;
 const lastMs = lastIso

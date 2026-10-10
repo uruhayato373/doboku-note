@@ -15,11 +15,10 @@
 // 設計原則: 追加のみ（既存 CTA・おすすめ記事は壊さない）。元の改行コードを保持する。
 
 import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { readDataset } from './lib/dataset-io.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CONFIG = readDataset(ROOT, 'config.note-funnel');
 // 1級土木の公開記事の冒頭は standardize-civil1-note-intro.mjs が持つ（収録元＋上位の2枚・順序つき）。ここでは触らない。
 const STANDARD_ROOTS = Object.values(readDataset(ROOT, 'config.note-intro-standard').variants)

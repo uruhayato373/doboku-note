@@ -1,13 +1,12 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { historicalSources } from '../scripts/fetch-pe-first-stage-historical.mjs';
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
 // 技術士第一次試験 H23〜H30 の固定した原典（URL・SHA-256・ページ数）は過去問の在庫台帳が持つ。
 // 別の設定ファイルへ写さない（URL を二重に持つと、公式の URL 変更で片方が取り残される）。
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const inventory = JSON.parse(readFileSync(join(ROOT, 'data/pastexams/inventory.json'), 'utf8'));
 
 test('在庫台帳から 平成23〜30年度 × 基礎・適性・専門（建設）の 24 本と、合冊の正答 1 本を取り出す', () => {

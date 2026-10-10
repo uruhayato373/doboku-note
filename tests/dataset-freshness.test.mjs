@@ -7,8 +7,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { DATASETS, freshnessDays, freshnessOf, freshnessProblems } from '../scripts/lib/datasets.mjs';
 import { assessSnapshot } from '../scripts/lib/coconala-guards.mjs';
 import { assessCloudflareMetrics } from '../scripts/lib/cloudflare-analytics.mjs';
@@ -19,8 +18,8 @@ import { assessSalesLog } from '../scripts/check-sales-freshness.mjs';
 import { snapshotFreshness } from '../scripts/check-magazine-membership.mjs';
 import { checkTriage } from '../scripts/check-growth-triage.mjs';
 import { SCAN_STALE_DAYS } from '../scripts/lib/qualification-market.mjs';
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const DAY = 86_400_000;
 const NOW = Date.UTC(2026, 9, 2, 12, 0, 0);
 const ago = (days) => new Date(NOW - days * DAY).toISOString();

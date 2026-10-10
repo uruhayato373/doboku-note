@@ -18,22 +18,14 @@
  *   node scripts/check-note-frontmatter-dup.mjs --staged   # staged のみ（pre-commit 用）
  * ---------------------------------------------------------------------------
  */
-import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
-import { join } from 'node:path';
+import { readFileSync, existsSync } from 'node:fs';
+import { join, relative } from 'node:path';
 import { execFileSync } from 'node:child_process';
+import { REPO_ROOT, NOTE_CONTENT_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
-const ROOT = 'content/note';
+const ROOT_REL = relative(REPO_ROOT, ROOT).split('\\').join('/');
 const STAGED = process.argv.includes('--staged');
-
-function walk(dir, out = []) {
-  if (!existsSync(dir)) return out;
-  for (const e of readdirSync(dir)) {
-    const p = join(dir, e);
-    if (statSync(p).isDirectory()) walk(p, out);
-    else if (/\.md$/.test(e)) out.push(p.split('\\').join('/'));
-  }
-  return out;
-}
 
 let files;
 if (STAGED) {
@@ -42,9 +34,9 @@ if (STAGED) {
     staged = execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--cached', '--name-only', '--diff-filter=ACM'], { encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 })
       .split('\n').map((s) => s.trim()).filter(Boolean);
   } catch { staged = []; }
-  files = staged.filter((f) => f.startsWith(`${ROOT}/`) && f.endsWith('.md') && existsSync(f));
+  files = staged.filter((f) => f.startsWith(`${ROOT_REL}/`) && f.endsWith('.md') && existsSync(join(REPO_ROOT, f))).map((f) => join(REPO_ROOT, f));
 } else {
-  files = walk(ROOT);
+  files = listFiles(ROOT, { ext: '.md', allowMissing: true, followLinks: true });
 }
 
 const violations = [];
@@ -63,7 +55,7 @@ for (const f of files) {
     seen.get(k[1]).push(i + 2);  // frontmatter 開始 `---` の次行が 2 行目
   });
   const dups = [...seen.entries()].filter(([, lines]) => lines.length > 1);
-  if (dups.length) violations.push({ f, dups });
+  if (dups.length) violations.push({ f: relative(REPO_ROOT, f).split('\\').join('/'), dups });
 }
 
 console.log(`[check-note-frontmatter-dup] frontmatter を持つ .md ${checked} 件を実検査${STAGED ? '（staged）' : ''}`);

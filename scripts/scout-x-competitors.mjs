@@ -26,13 +26,11 @@
 import { spawnSync } from 'node:child_process';
 import { readFileSync, existsSync } from 'node:fs';
 import { loadPreviousSnapshot, saveSnapshot } from './lib/competitor-history.mjs';
-import { fileURLToPath } from 'node:url';
-import { dirname, join } from 'node:path';
+import { join } from 'node:path';
 import { todayJst } from './lib/jst-date.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = join(__dirname, '..');
 const CONFIG_PATH = join(ROOT, datasetPath('config.competitors')); // 取得元ごとの枠 x
 
 // twitter CLI の解決（agent-reach バックエンド。~/.local/bin を優先）

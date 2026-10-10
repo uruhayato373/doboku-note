@@ -20,8 +20,8 @@ import { createHash } from 'node:crypto'
 import fs from 'node:fs'
 import path from 'node:path'
 import { resolveVaultRoot } from './lib/drive-vault.mjs'
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs'
 
-const ROOT = process.cwd()
 const CATALOG = path.join(ROOT, 'content/site/standards-library/catalog.json')
 const OUT_ROOT = path.join(ROOT, 'content/sources/standards')
 // 実体は Drive vault（原本 PDF の隣）。repo に残っていればそれも見る（移行中）。

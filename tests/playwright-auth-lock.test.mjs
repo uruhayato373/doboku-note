@@ -3,10 +3,8 @@ import assert from 'node:assert/strict';
 import { existsSync, mkdtempSync, readFileSync, rmSync, statSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
-import { fileURLToPath, URL } from 'node:url';
 import { acquireAuthLock, AuthLockError, withAuthLock } from '../scripts/lib/playwright-auth-lock.mjs';
-
-const REPO_ROOT = fileURLToPath(new URL('..', import.meta.url));
+import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
 
 function fixture() {
   const root = mkdtempSync(join(tmpdir(), 'doboku-auth-lock-'));

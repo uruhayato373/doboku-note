@@ -6,7 +6,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // Turbopack のワークスペースルートをここに固定することで、
 //   - 親（C:\Users\m004195\）の package-lock.json への誤 root 推論を防ぎ、
 //   - ルート node_modules（next/react）をルート境界内に含める。
-const repoRoot = path.resolve(__dirname, '..', '..');
+const repoRoot = path.resolve(__dirname, '..', '..'); // root-ok: Next の設定ファイル
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {

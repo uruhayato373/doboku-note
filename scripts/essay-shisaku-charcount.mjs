@@ -1,24 +1,28 @@
 #!/usr/bin/env node
 // 総監模範論文の「施策/答案ブロック」字数ゲート。
-// 設問2/設問3 の施策ブロック（### 方法N / 施策N / 戦略N / 予想…施策）は答案用紙1枚=600字制約。
-// 各ブロックの本文 CJK 文字数（≒答案マス数）を概算し、600字超過を検出する。
+// 設問2/設問3 の施策ブロック（### 方法N / 施策N / 戦略N / 予想…施策）は答案用紙1枚（600字）に収める。
+// 各ブロックの本文 CJK 文字数（≒答案マス数）を概算し、1 枚の字数（config/pe-answer-sheets.json の charsPerSheet）の超過を検出する。
 //
 // 使い方:
 //   node scripts/essay-shisaku-charcount.mjs                         # 全ペルソナ サマリ
 //   node scripts/essay-shisaku-charcount.mjs <persona-dir|article.md> [--detail]  # 個別・ブロック明細
 //   node scripts/essay-shisaku-charcount.mjs <path> --strict         # 超過1件でも exit 1（ゲート用）
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, relative, resolve, sep } from 'node:path';
+import { NOTE_CONTENT_ROOT, REPO_ROOT } from './lib/repository-paths.mjs';
+import { readDataset } from './lib/dataset-io.mjs';
 
-const ROOT = 'content/note/技術士総監/magazines';
-const LIMIT = 600;
+const ROOT = join(NOTE_CONTENT_ROOT, '技術士総監', 'magazines');
+// 表示は ROOT からの相対（ROOT の外を指定したときはそのまま）
+const shown = (a) => { const abs = resolve(a); return (abs.startsWith(ROOT + sep) ? relative(ROOT, abs) : a).replace(/\\/g, '/'); };
+const LIMIT = readDataset(REPO_ROOT, 'config.pe-answer-sheets').charsPerSheet;
 const args = process.argv.slice(2);
 const flags = args.filter((a) => a.startsWith('--'));
 const target = args.find((a) => !a.startsWith('--'));
 const DETAIL = flags.includes('--detail');
 const STRICT = flags.includes('--strict');
 
-// 施策ブロック見出し（1枚=600字制約が明確なもの）
+// 施策ブロック見出し（答案用紙1枚に収める制約が明確なもの）
 const SHISAKU_HEAD = /^###\s.*(方法\s*\d|施策\s*\d|施策[1１２２３3]|戦略\s*\d|戦略[1１２３3]|^###\s.*将来の新たな)/;
 const SHISAKU_HEAD2 = /^###\s.*(方法|施策|戦略|デジタルツイン|将来の)/;
 
@@ -72,7 +76,7 @@ if (!target) {
     rows.push([p.replace('総監模範論文-', ''), over, blk]); totOver += over; totBlk += blk;
   }
   rows.sort((a, b) => b[1] - a[1]);
-  console.log(`全${personas.length}ペルソナ / 施策ブロック ${totBlk} / 600字超過 ${totOver}\n`);
+  console.log(`全${personas.length}ペルソナ / 施策ブロック ${totBlk} / ${LIMIT}字超過 ${totOver}\n`);
   for (const [p, o, b] of rows) console.log(`  ${String(o).padStart(3)}/${String(b).padStart(3)}  ${p}`);
   process.exit(0);
 }
@@ -118,20 +122,20 @@ for (const a of arts) {
   const tone = introToneMixing(a);
   toneMixTotal += tone.length;
   if (tone.length) {
-    console.log(`\n${a.replace(ROOT + '/', '').replace(/\\/g, '/')}  【導入部 文体混在(である調) ${tone.length}件・警告】`);
+    console.log(`\n${shown(a)}  【導入部 文体混在(である調) ${tone.length}件・警告】`);
     for (const t of tone) console.log(`  ⚠ ${t}`);
   }
   blk += res.length; over += res.filter((r) => r.over).length; proseNg += res.filter((r) => r.bullets > 0).length;
   bodyBulletTotal += bb;
   if (DETAIL || ng.length || bb > 0) {
-    console.log(`\n${a.replace(ROOT + '/', '').replace(/\\/g, '/')}${bb > 0 ? `  【答案箇条書き ${bb}か所】` : ''}`);
+    console.log(`\n${shown(a)}${bb > 0 ? `  【答案箇条書き ${bb}か所】` : ''}`);
     for (const r of (DETAIL ? res : ng)) {
       const mark = r.over ? '✗字' : r.bullets > 0 ? '✗散' : '✓ ';
       console.log(`  ${mark} ${String(r.len).padStart(4)}字${r.bullets ? ` 箇条${r.bullets}` : ''}  ${r.head}`);
     }
   }
 }
-console.log(`\n施策ブロック ${blk} / 600字超過 ${over} / 箇条書き混入 ${proseNg} / 答案箇条書き(全体) ${bodyBulletTotal} / 導入部文体混在(警告) ${toneMixTotal}`);
+console.log(`\n施策ブロック ${blk} / ${LIMIT}字超過 ${over} / 箇条書き混入 ${proseNg} / 答案箇条書き(全体) ${bodyBulletTotal} / 導入部文体混在(警告) ${toneMixTotal}`);
 // 導入部の文体混在は「警告」（exit には含めない）。導入部はですます調で統一が規約だが、
 // 既存記事の許容判断は人間が行う。新規生成時は手順書 Step 3b に従い ですます で書く。
 if (STRICT && (over > 0 || proseNg > 0 || bodyBulletTotal > 0)) process.exit(1);

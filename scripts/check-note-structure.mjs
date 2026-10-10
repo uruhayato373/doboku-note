@@ -23,14 +23,17 @@
 //   node scripts/check-note-structure.mjs --ci       # 未許可 CRITICAL>0 で exit 1
 // ※ 取得失敗率が MAX_FETCH_FAIL_RATE を超えたときは --ci の有無にかかわらず exit 1（検査不成立）。
 
-import { readFileSync, writeFileSync, readdirSync, existsSync, writeSync } from 'node:fs';
-import { join } from 'node:path';
+import { readFileSync, writeFileSync, writeSync } from 'node:fs';
+import { relative } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
 import { MIN_FREE_PREVIEW_CHARS, expectedFreePreviewMin, textLen } from './lib/note-live-check.mjs';
 import { MAX_FETCH_FAIL_RATE, fetchFailDominant } from './lib/inconclusive-gate.mjs';
+import { REPO_ROOT, NOTE_CONTENT_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
-const ROOT = 'content/note';
+const repoRel = (p) => relative(REPO_ROOT, p).split('\\').join('/');
+const ROOT_REL = repoRel(ROOT);
 const JSON_OUT = process.argv.includes('--json');
 const CI = process.argv.includes('--ci'); // CRITICAL(allowlist除く)>0 で exit 1
 const LIMIT = (() => { const i = process.argv.indexOf('--limit'); return i >= 0 ? Number(process.argv[i + 1]) : Infinity; })();
@@ -44,15 +47,6 @@ const ALLOW = (() => {
   catch { return new Set(); }
 })();
 
-function walk(dir, acc = []) {
-  if (!existsSync(dir)) return acc;
-  for (const e of readdirSync(dir, { withFileTypes: true })) {
-    const p = join(dir, e.name).replaceAll('\\', '/');
-    if (e.isDirectory()) walk(p, acc);
-    else if (/^article(-[^/]+)?\.md$/.test(e.name)) acc.push(p);
-  }
-  return acc;
-}
 // 水平空白限定の frontmatter パーサ（\s だと空フィールドが次行を bleed する）
 const fm = (raw, k) => { const m = raw.match(new RegExp('^' + k + ':[ \\t]*(.*)$', 'm')); return m ? m[1].trim().replace(/^["']|["']$/g, '') : null; };
 const stripFm = (raw) => raw.replace(/^---[\s\S]*?---\r?\n/, '');
@@ -151,7 +145,10 @@ export function analyzeSource(raw) {
 // import 時は実行しない（テストが analyzeSource を読めるようにする）。
 const isMain = process.argv[1] && pathToFileURL(process.argv[1]).href === import.meta.url;
 if (isMain) {
-const files = walk(ROOT).slice(0, LIMIT === Infinity ? undefined : LIMIT * 3);
+// リポジトリからの相対パス（f の形は従来どおり。JSON 出力と allowlist のキーにもこの形が出る）
+const files = listFiles(ROOT, { match: (_p, name) => /^article(-[^/]+)?\.md$/.test(name), allowMissing: true })
+  .map(repoRel)
+  .slice(0, LIMIT === Infinity ? undefined : LIMIT * 3);
 const targets = [];
 for (const f of files) {
   const raw = readFileSync(f, 'utf8');
@@ -174,7 +171,7 @@ function runAll() {
     const liveImgs = (String(data.body || '').match(/<img\b/g) || []).length;
     const liveTags = (data.hashtag_notes || []).length;
     const livePrice = data.price ?? 0;
-    const rel = t.f.replace(`${ROOT}/`, '').replace(/\/article\.md$/, '');
+    const rel = t.f.replace(`${ROOT_REL}/`, '').replace(/\/article\.md$/, '');
     const push = (sev, code, msg) => findings.push({ sev, code, f: rel, note: t.noteId, msg });
 
     // 価格（price の無い有料記事は照合できない＝正本の欠落として出す）

@@ -26,15 +26,13 @@
 //   }
 
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { createRequire } from 'node:module';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 const require = createRequire(import.meta.url);
 const matter = require('gray-matter');
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = join(__dirname, '..');
 const TOKENS = require(join(ROOT, '.claude/knowledge/design-system/note-cover-tokens.json'));
 const ICON_CATALOG = new Set(TOKENS.icons.catalog);
 

@@ -35,8 +35,8 @@ import { dirname, join } from 'node:path';
 import { todayJst } from './lib/jst-date.mjs';
 import { latestMarketSnapshot, MARKET_DATASET, stringifyMarketSnapshot } from './lib/market-inputs.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const CONFIG_PATH = join(ROOT, datasetPath('config.market-scan'));
 const REGISTRY_PATH = join(ROOT, datasetPath('config.qualification-registry'));
 const YT_COMPETITORS_PATH = join(ROOT, datasetPath('config.competitors'));

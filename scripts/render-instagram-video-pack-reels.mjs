@@ -6,10 +6,10 @@
 import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
 import { createHash } from 'node:crypto';
-import { existsSync, mkdirSync, readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join, relative, resolve } from 'node:path';
 import { spawnSync } from 'node:child_process';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { pathToFileURL } from 'node:url';
 import { parseArgs } from 'node:util';
 
 import { EXAM_TO_PALETTE } from './lib/longform-render.mjs';
@@ -17,8 +17,9 @@ import { buildExplanationNode } from './lib/video-explanation.mjs';
 import { IG_DESIGN, IG_CTA_NARRATION, instagramLogo, instagramCtaNode, instagramReelCover, renderInstagramNode, instagramRendererDigest } from './lib/instagram-video-design.mjs';
 import { narrationInput } from './lib/video-narration-cache.mjs';
 import { subtitleChunks } from './lib/video-subtitles.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
-const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const IG_ROOT = join(ROOT, 'content/sns/instagram/video-packs');
 const W = 1080;
 const H = 1920;
@@ -99,15 +100,6 @@ function buildAss(segments) {
   }
   return `${header}\n${lines.join('\n')}\n`;
 }
-function walkMeta(dir, out = []) {
-  if (!existsSync(dir)) return out;
-  for (const name of readdirSync(dir)) {
-    const path = join(dir, name);
-    if (statSync(path).isDirectory()) walkMeta(path, out);
-    else if (name === 'meta.json' && dirname(path).endsWith(`${join('', 'reels')}`)) out.push(path);
-  }
-  return out;
-}
 function selectedMeta() {
   if (args.dir) {
     const dir = resolve(ROOT, args.dir);
@@ -115,7 +107,7 @@ function selectedMeta() {
     if (!existsSync(path)) throw new Error(`meta.json がありません: ${dir}`);
     return [path];
   }
-  return walkMeta(IG_ROOT)
+  return listFiles(IG_ROOT, { allowMissing: true, followLinks: true, match: (path, name) => name === 'meta.json' && dirname(path).endsWith(`${join('', 'reels')}`) })
     .sort((a, b) => JSON.parse(readFileSync(a, 'utf8')).publishAt.localeCompare(JSON.parse(readFileSync(b, 'utf8')).publishAt))
     .slice(0, Math.max(1, Number(args.max) || 999));
 }

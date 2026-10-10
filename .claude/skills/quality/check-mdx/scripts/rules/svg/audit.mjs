@@ -23,24 +23,23 @@
 import { writeFileSync, existsSync, mkdirSync } from "fs";
 import { globSync } from "glob";
 import { auditSvgFile } from "./detect.mjs";
+import { parseCliArgs } from "../../../../../../../scripts/lib/cli-args.mjs";
 
 const DEFAULT_PATH = "content/site/**/img/*.svg";
 
 function parseArgs(argv) {
-  const args = {
-    path: DEFAULT_PATH,
-    file: null,
-    severity: "ALL",
-    failOn: null,
+  const flags = parseCliArgs({
+    path: { type: "string", default: DEFAULT_PATH },
+    file: { type: "string" },
+    severity: { type: "string", default: "ALL" },
+    "fail-on": { type: "string" },
+  }, argv.slice(2));
+  return {
+    path: flags.path,
+    file: flags.file,
+    severity: flags.severity.toUpperCase(),
+    failOn: flags.failOn === null ? null : flags.failOn.toUpperCase(),
   };
-  for (const a of argv.slice(2)) {
-    const [k, v] = a.split("=");
-    if (k === "--path") args.path = v;
-    else if (k === "--file") args.file = v;
-    else if (k === "--severity") args.severity = v.toUpperCase();
-    else if (k === "--fail-on") args.failOn = v.toUpperCase();
-  }
-  return args;
 }
 
 // 過去問クロップ専用ディレクトリ — 意匠系（キャンバス幅・フォント・色）の対象外。

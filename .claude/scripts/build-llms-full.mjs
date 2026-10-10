@@ -15,8 +15,8 @@ import { join } from "node:path";
 import { loadRegistry, qualificationLabel } from "../../scripts/lib/qualification-registry.mjs";
 import { SITE_ORIGIN } from "../../scripts/lib/site-identity.mjs";
 import { todayJst } from '../../scripts/lib/jst-date.mjs';
+import { REPO_ROOT as ROOT } from '../../scripts/lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const INDEX = join(ROOT, "src/config/doc-meta-index.json");
 const OUT = join(ROOT, "public/llms-full.txt");
 

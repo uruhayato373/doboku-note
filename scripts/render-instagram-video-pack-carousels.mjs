@@ -1,14 +1,13 @@
 #!/usr/bin/env node
 import { existsSync, readFileSync, writeFileSync, readdirSync, mkdirSync, unlinkSync } from 'node:fs';
-import { dirname, join, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { createHash } from 'node:crypto';
 import { parseArgs } from 'node:util';
 import { EXAM_TO_PALETTE } from './lib/longform-render.mjs';
 import { resolveExam } from '../.claude/scripts/sns/lib/exam-palette.mjs';
 import { IG_DESIGN, instagramLogo, instagramCoverNode, instagramPointNode, instagramCtaNode, renderInstagramNode, instagramRendererDigest } from './lib/instagram-video-design.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const base = join(ROOT, 'content/sns/instagram/video-packs');
 const { values: args } = parseArgs({ options: { all: { type: 'boolean' }, pack: { type: 'string' }, force: { type: 'boolean' } } });
 if (!args.all && !args.pack) throw new Error('Specify --all or --pack <sourcePackId>');

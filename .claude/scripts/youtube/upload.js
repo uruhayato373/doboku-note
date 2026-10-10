@@ -48,39 +48,40 @@ if (!CLIENT_ID || !CLIENT_SECRET || !REFRESH_TOKEN) {
   process.exit(1);
 }
 
-function parseArgs() {
+async function parseArgs() {
   const args = process.argv.slice(2);
   if (args.length === 0 || args[0].startsWith("--")) {
     console.error("Usage: node .claude/scripts/youtube/upload.js <video-file> [options]");
     process.exit(1);
   }
 
-  const result = {
+  // CJS から ESM の共通部品を読むので動的 import
+  const { parseCliArgs } = await import("../../../scripts/lib/cli-args.mjs");
+  const flags = parseCliArgs(
+    {
+      title: { type: "string", default: "無題" },
+      description: { type: "string", default: "" },
+      tags: { type: "string" },
+      thumbnail: { type: "string" },
+      privacy: { type: "string", default: "unlisted" },
+      schedule: { type: "string" },
+    },
+    args.slice(1),
+  );
+
+  return {
     videoFile: args[0],
-    title: "無題",
-    description: "",
-    tags: [],
-    thumbnail: null,
-    privacy: "unlisted",
-    schedule: null,
+    title: flags.title,
+    description: flags.description,
+    tags: flags.tags === null ? [] : flags.tags.split(",").map((t) => t.trim()),
+    thumbnail: flags.thumbnail,
+    privacy: flags.privacy,
+    schedule: flags.schedule,
   };
-
-  for (let i = 1; i < args.length; i++) {
-    switch (args[i]) {
-      case "--title":       result.title = args[++i]; break;
-      case "--description": result.description = args[++i]; break;
-      case "--tags":        result.tags = args[++i].split(",").map((t) => t.trim()); break;
-      case "--thumbnail":   result.thumbnail = args[++i]; break;
-      case "--privacy":     result.privacy = args[++i]; break;
-      case "--schedule":    result.schedule = args[++i]; break;
-    }
-  }
-
-  return result;
 }
 
 async function main() {
-  const opts = parseArgs();
+  const opts = await parseArgs();
 
   if (!fs.existsSync(opts.videoFile)) {
     console.error(`Error: 動画ファイルが見つかりません: ${opts.videoFile}`);

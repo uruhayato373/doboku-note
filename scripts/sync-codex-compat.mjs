@@ -35,9 +35,7 @@
 import { readFileSync, writeFileSync, readdirSync, lstatSync, existsSync, mkdirSync, rmSync, rmdirSync } from 'node:fs';
 import { join, dirname, relative, sep, isAbsolute } from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { fileURLToPath } from 'node:url';
-
-const ROOT = fileURLToPath(new URL('..', import.meta.url)).replace(/[/\\]$/, '');
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 const CLAUDE_SKILLS_DIR = '.claude/skills';
 const AGENTS_SKILLS_DIR = '.agents/skills';

@@ -10,30 +10,15 @@
  * Usage:
  *   node .claude/scripts/build-cross-exam-keyword-index.mjs
  */
-import { readdirSync, readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
-import { basename, dirname, extname, join, relative, sep } from 'node:path';
+import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { dirname, extname, join, relative, sep } from 'node:path';
 import matter from 'gray-matter';
 import { writeJsonIfChanged } from '../../scripts/lib/write-generated.mjs';
+import { REPO_ROOT as ROOT } from '../../scripts/lib/repository-paths.mjs';
+import { listFiles } from '../../scripts/lib/fs-walk.mjs';
 
-const ROOT = process.cwd();
 const POSTS_ROOT = join(ROOT, 'content/site');
 const OUT_PATH = join(ROOT, 'src/config/cross-exam-keywords.json');
-
-// ── MDX 列挙 ────────────────────────────────────────────────────
-
-function walkMdx(dir) {
-  const out = [];
-  if (!existsSync(dir)) return out;
-  for (const entry of readdirSync(dir, { withFileTypes: true })) {
-    const p = join(dir, entry.name);
-    if (entry.isDirectory()) {
-      out.push(...walkMdx(p));
-    } else if (entry.isFile() && extname(entry.name).toLowerCase() === '.mdx') {
-      out.push(p);
-    }
-  }
-  return out;
-}
 
 // ── slug 生成 ──────────────────────────────────────────────────
 // `content/site/<category>/path/to/file.mdx` → `<category>-path-to-file`
@@ -49,7 +34,7 @@ function toSlug(filePath) {
 // ── メイン処理 ─────────────────────────────────────────────────
 
 function main() {
-  const files = walkMdx(POSTS_ROOT);
+  const files = listFiles(POSTS_ROOT, { allowMissing: true, match: (_p, name) => extname(name).toLowerCase() === '.mdx' });
   console.log(`[cross-exam] ${files.length} MDX を走査`);
 
   const byExam = {}; // { examId: [ entry, ... ] }

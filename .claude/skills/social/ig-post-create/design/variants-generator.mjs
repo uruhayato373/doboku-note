@@ -5,12 +5,10 @@
 //   PNG: .tmp/sns/design-variants/
 
 import { mkdir, writeFile } from 'node:fs/promises';
-import { resolve, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { resolve } from 'node:path';
 import sharp from 'sharp';
+import { REPO_ROOT as REPO } from '../../../../../scripts/lib/repository-paths.mjs';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const REPO = resolve(__dirname, '../../../../..');
 const SVG_DIR = resolve(REPO, '.claude/skills/social/ig-post-create/design/variants');
 const PNG_DIR = resolve(REPO, '.tmp/sns/design-variants');
 

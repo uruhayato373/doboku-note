@@ -12,9 +12,11 @@
  * exit: 0 成功 / 1 既にclaim済み・カード不在 / 2 引数不正
  */
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { join } from 'node:path';
 import { claimTask, CLAIMS_PATH } from './lib/todo-lifecycle.mjs';
+import { TODO_ROOT } from './lib/repository-paths.mjs';
 
-const BACKLOG = '.claude/todo/backlog.md';
+const BACKLOG = join(TODO_ROOT, 'backlog.md');
 const argv = process.argv.slice(2);
 const id = argv[0];
 const arg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : null; };

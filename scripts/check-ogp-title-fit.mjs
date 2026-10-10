@@ -17,17 +17,17 @@
  *   node scripts/check-ogp-title-fit.mjs --staged   # git staged のガイド MDX のみ（pre-commit 用）
  *   node scripts/check-ogp-title-fit.mjs --all      # 全件のフォント一覧（バーンダウン・exit 0）
  */
-import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
-import { join, dirname } from 'node:path';
+import { readFileSync, existsSync } from 'node:fs';
+import { join, dirname, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
 import matter from 'gray-matter';
 import { wrapTitle, pickFontSize } from '../.claude/skills/conversion/ogp-create/scripts/lib/ogp-text.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
-import { REPO_ROOT } from './lib/repository-paths.mjs';
+import { REPO_ROOT, SITE_CONTENT_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
 const FLOOR = 56; // これ未満のフォント（px）は「長すぎて小さく出る」＝NG
-const ROOT = 'content/site';
 const STAGED = process.argv.includes('--staged');
 const ALL = process.argv.includes('--all');
 
@@ -65,24 +65,20 @@ async function mainFontOf(data, cat) {
   return { font: pickFontSize(lines, { fontSizeTable: MAIN_FONT_TABLE, safetyWidth: SAFE_W }), lines };
 }
 
-function walk(dir, out = []) {
-  if (!existsSync(dir)) return out;
-  for (const e of readdirSync(dir)) { const p = join(dir, e); if (statSync(p).isDirectory()) walk(p, out); else if (e.endsWith('.mdx')) out.push(p.split('\\').join('/')); }
-  return out;
-}
 function stagedMdx() {
-  try { return execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--cached', '--name-only', '--diff-filter=ACM'], { encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 }).split('\n').map((s) => s.trim()).filter((s) => s.startsWith(ROOT) && s.endsWith('.mdx')); }
+  try { return execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--cached', '--name-only', '--diff-filter=ACM'], { encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 }).split('\n').map((s) => s.trim()).filter((s) => join(REPO_ROOT, s).startsWith(ROOT) && s.endsWith('.mdx')).map((s) => join(REPO_ROOT, s)); }
   catch { return []; }
 }
 
-const files = STAGED ? stagedMdx() : walk(ROOT);
+const files = STAGED ? stagedMdx() : listFiles(ROOT, { ext: '.mdx', allowMissing: true, followLinks: true });
 const rows = [];
 for (const fp of files) {
   if (!existsSync(fp)) continue;
   let data; try { data = matter(readFileSync(fp, 'utf8')).data; } catch { continue; }
   if (!data.published || data.group !== 'guide') continue;
-  const slug = fp.replace(`${ROOT}/`, '').replace(/\/article\.mdx$/, '').replace(/\.mdx$/, '');
-  const cat = fp.replace(`${ROOT}/`, '').split('/')[0];
+  const rel = relative(ROOT, fp).split('\\').join('/');
+  const slug = rel.replace(/\/article\.mdx$/, '').replace(/\.mdx$/, '');
+  const cat = rel.split('/')[0];
   const { font, lines } = await mainFontOf(data, cat);
   rows.push({ slug, font, manual: !!data.ogp?.title, preview: lines.join(' / ') });
 }

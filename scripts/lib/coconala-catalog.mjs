@@ -7,11 +7,10 @@
  * ---------------------------------------------------------------------------
  */
 import { readFileSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { datasetPath } from './datasets.mjs';
+import { REPO_ROOT as ROOT } from './repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 export const CATALOG_PATH = join(ROOT, 'src/lib/coconala-services.ts');
 export const LISTINGS_PATH = join(ROOT, datasetPath('config.coconala-listings'));
 

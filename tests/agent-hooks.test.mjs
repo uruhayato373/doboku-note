@@ -4,8 +4,7 @@ import { spawnSync } from 'node:child_process';
 import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import process from 'node:process';
-import { dirname, join, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 
 import {
   captureMarkers,
@@ -24,8 +23,8 @@ import {
   strayAtRoot,
   topLevelCdTargets,
 } from '../scripts/lib/agent-hooks.mjs';
+import { REPO_ROOT as REPO } from '../scripts/lib/repository-paths.mjs';
 
-const REPO = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const HOOK = join(REPO, 'scripts', 'hooks', 'agent-hook.mjs');
 
 function runHook(name, stdin = '', env = {}) {

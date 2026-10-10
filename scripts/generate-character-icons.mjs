@@ -15,15 +15,13 @@
  *   node scripts/generate-character-icons.mjs smile      # 1ポーズだけ
  */
 import { readFileSync, mkdirSync, existsSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { createRequire } from 'node:module';
 import sharp from 'sharp';
 import { datasetPath } from './lib/datasets.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 const require = createRequire(import.meta.url);
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = join(__dirname, '..');
 const CHAR_DIR = join(ROOT, 'content/sns/_assets/character');
 const OUT_DIR = join(CHAR_DIR, 'icons');
 const POSES = require(join(ROOT, datasetPath('config.character-poses'))).poses;

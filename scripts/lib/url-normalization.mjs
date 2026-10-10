@@ -20,12 +20,11 @@
  */
 
 import { existsSync, readFileSync } from "node:fs";
-import { dirname, join } from "node:path";
-import { fileURLToPath } from "node:url";
+import { join } from "node:path";
 import { SITE_ORIGIN } from "./site-identity.mjs";
+import { REPO_ROOT as ROOT } from "./repository-paths.mjs";
 
 const SITE_HOST_RE = /^https?:\/\/(www\.)?doboku-note\.com/i;
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), "../..");
 
 let publicPathToLegacySlug = null;
 

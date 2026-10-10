@@ -15,11 +15,9 @@
  */
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync, rmSync } from "fs";
-import { join, dirname } from "path";
-import { fileURLToPath } from "url";
+import { join } from "path";
+import { REPO_ROOT as ROOT } from "./lib/repository-paths.mjs";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = join(__dirname, "..");
 const INPUT_JSON = join(ROOT, "src/config/exam-questions.json");
 const OUTPUT_BASE = join(ROOT, "content/sns/instagram/cem/exam-packs");
 

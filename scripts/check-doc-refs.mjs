@@ -21,9 +21,10 @@
 //   {slug} / {magazine} / <year> / YYYY-Www / r0X / R0X / d-xx（Kindle 本 ID）/ ... / *（ワイルドカード）
 // 廃止台帳・移行履歴など「死んだパスを記録として残す」行は行末に <!-- doc-ref:ignore --> を付ける。
 
-import { readFileSync, readdirSync, lstatSync, existsSync } from 'node:fs';
-import { join, basename } from 'node:path';
+import { readFileSync, existsSync } from 'node:fs';
+import { basename } from 'node:path';
 import { execFileSync } from 'node:child_process';
+import { listFiles } from './lib/fs-walk.mjs';
 
 const STAGED = process.argv.includes('--staged');
 
@@ -57,18 +58,13 @@ function isPlaceholder(p) {
 // 内部の Chrome ランタイム等の壊れた symlink を statSync が辿って ENOENT で落ちる。
 const WALK_IGNORE = new Set(['node_modules', '.git', '.claude/worktrees']);
 
-function walk(dir, out = [], re = /\.md$/) {
-  if (!existsSync(dir)) return out;
-  for (const e of readdirSync(dir)) {
-    const p = join(dir, e);
-    if (WALK_IGNORE.has(p.split('\\').join('/'))) continue;
-    // lstat で symlink を辿らない（壊れた symlink でも落ちない）
-    const st = lstatSync(p);
-    if (st.isSymbolicLink()) continue;
-    if (st.isDirectory()) walk(p, out, re);
-    else if (re.test(e)) out.push(p.split('\\').join('/'));
-  }
-  return out;
+// listFiles は symlink を辿らない（壊れた symlink でも落ちない）
+function walk(dir, re = /\.md$/) {
+  return listFiles(dir, {
+    match: (_p, name) => re.test(name),
+    skipDir: (p) => WALK_IGNORE.has(p.split('\\').join('/')),
+    allowMissing: true,
+  }).map((p) => p.split('\\').join('/'));
 }
 
 // ソースファイル集合
@@ -111,7 +107,7 @@ files = files.filter((f) => !EXCLUDE_SRC.some((pre) => f.startsWith(pre)));
 const indexRoots = ['docs', '.claude', 'src', 'config', 'data'];
 const byBasename = new Map();
 for (const root of indexRoots) {
-  for (const f of walk(root, [], /.*/)) {
+  for (const f of walk(root, /.*/)) {
     const b = basename(f);
     if (!byBasename.has(b)) byBasename.set(b, []);
     byBasename.get(b).push(f);

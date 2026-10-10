@@ -22,10 +22,12 @@
  */
 
 import { readdirSync, statSync } from "node:fs";
-import { join, basename } from "node:path";
+import { join, basename, relative } from "node:path";
 import { transformMdxFile, readMdxFile } from "./lib/mdx-io.mjs";
+import { REPO_ROOT, SITE_CONTENT_ROOT } from "../../scripts/lib/repository-paths.mjs";
 
-const ROOT = "content/site/pe-comprehensive-management";
+const ROOT = join(SITE_CONTENT_ROOT, "pe-comprehensive-management");
+const repoRel = (p) => relative(REPO_ROOT, p).split("\\").join("/");
 const DRY_RUN = !process.argv.includes("--apply");
 
 const EXCLUDED_SLUGS = new Set([
@@ -138,14 +140,14 @@ for (const file of files) {
     if (changed) {
       totalChanged++;
       totalCards += count;
-      console.log(`[apply] ${file}  +${count} card(s)`);
+      console.log(`[apply] ${repoRel(file)}  +${count} card(s)`);
     }
   }
 }
 
 if (DRY_RUN) {
   for (const { file, matches } of fileSummaries) {
-    console.log(`\n--- ${file}  (${matches.length} match)`);
+    console.log(`\n--- ${repoRel(file)}  (${matches.length} match)`);
     for (const m of matches) {
       console.log(`  L${m.lineIndex + 1}: ${m.original.slice(0, 100)}`);
       console.log(`     → href="${m.href}"`);

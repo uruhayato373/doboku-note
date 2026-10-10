@@ -29,31 +29,20 @@
  *   node scripts/check-x-card-render.mjs --json
  * exit: 0 合格 / 1 違反・検査不成立
  */
-import { readFileSync, existsSync, readdirSync, statSync, writeSync } from 'node:fs';
-import { join, dirname, sep } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { readFileSync, existsSync, statSync, writeSync } from 'node:fs';
+import { join, dirname, relative, sep } from 'node:path';
 import { examColor } from '../.claude/scripts/sns/lib/exam-palette.mjs';
 import { cardSpecHash, validateCharacterCard } from './lib/x-character-spec.mjs';
 import { isXCardPng, listScopedXCardPngs } from './lib/x-card-render-scope.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const LEDGER = join(ROOT, '.claude/state/sns/x-card-render.json');
 const X_DIR = join(ROOT, 'content/sns/x');
 const JSON_OUT = process.argv.includes('--json');
 const NAME = 'check-x-card-render';
 
 const toPosix = (p) => p.split(sep).join('/');
-
-// ディスク上の PNG は「ignore 済みで対象外になった枚数」を出すためだけに数える。
-function walkPngs(dir, out = []) {
-  if (!existsSync(dir)) return out;
-  for (const e of readdirSync(dir, { withFileTypes: true })) {
-    const p = join(dir, e.name);
-    if (e.isDirectory()) walkPngs(p, out);
-    else if (e.isFile() && e.name.endsWith('.png')) out.push(toPosix(p.slice(ROOT.length + 1)));
-  }
-  return out;
-}
 
 const scoped = listScopedXCardPngs(ROOT);
 if (!scoped.ok) {
@@ -63,7 +52,8 @@ if (!scoped.ok) {
 // index にあっても作業ツリーで消したものは「無い」扱い（削除もれを台帳側で拾う）。
 const pngs = scoped.pngs.filter((rel) => existsSync(join(ROOT, rel)));
 const inScope = new Set(pngs);
-const ignoredOnDisk = walkPngs(X_DIR).filter((rel) => isXCardPng(rel) && !inScope.has(rel)).length;
+// ディスク上の PNG は「ignore 済みで対象外になった枚数」を出すためだけに数える。
+const ignoredOnDisk = listFiles(X_DIR, { ext: '.png', allowMissing: true }).map((p) => toPosix(relative(ROOT, p))).filter((rel) => isXCardPng(rel) && !inScope.has(rel)).length;
 const ledger = existsSync(LEDGER) ? JSON.parse(readFileSync(LEDGER, 'utf8')) : { entries: {} };
 const entries = ledger.entries || {};
 

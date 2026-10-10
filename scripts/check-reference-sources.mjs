@@ -12,7 +12,7 @@
 
 import { execFileSync } from 'node:child_process';
 import { basename, join, relative } from 'node:path';
-import { existsSync, readdirSync, readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import matter from 'gray-matter';
 import { loadDriveConfig, loadDriveManifest, resolveVaultRoot, vaultAbsFor } from './lib/drive-vault.mjs';
 import {
@@ -38,6 +38,7 @@ import {
 import { figureSourceFindings, figuresInExplanation, sourceIdsOf } from './lib/figure-source-wiring.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
 const ARGS = process.argv.slice(2);
 const STAGED = ARGS.includes('--staged');
@@ -51,16 +52,6 @@ const warn = (kind, path, detail) => warnings.push({ kind, path, detail });
 
 function toRepoRel(path) {
   return relative(REPO_ROOT, path).split('\\').join('/');
-}
-
-function walkFiles(dir, extension, out = []) {
-  if (!existsSync(dir)) return out;
-  for (const entry of readdirSync(dir, { withFileTypes: true })) {
-    const path = join(dir, entry.name);
-    if (entry.isDirectory()) walkFiles(path, extension, out);
-    else if (entry.isFile() && entry.name.endsWith(extension)) out.push(path);
-  }
-  return out;
 }
 
 function stagedMdxFiles() {
@@ -359,7 +350,7 @@ function main() {
 
   let paths;
   if (STAGED) paths = stagedMdxFiles();
-  else paths = walkFiles(join(REPO_ROOT, 'content/site'), '.mdx').map(toRepoRel).sort();
+  else paths = listFiles(join(REPO_ROOT, 'content/site'), { ext: '.mdx', allowMissing: true }).map(toRepoRel).sort();
 
   if (STAGED && paths.length === 0) {
     console.log(`[${NAME} --staged] 対象 MDX 0 件。staged に content/site/**/*.mdx が無いため (b)(d) は skip。`);

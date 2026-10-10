@@ -24,12 +24,10 @@
  * ---------------------------------------------------------------------------
  */
 import { readFileSync } from "node:fs";
-import { fileURLToPath } from "node:url";
-import { dirname, isAbsolute, join } from "node:path";
+import { isAbsolute, join } from "node:path";
 import { datasetPath } from "../../scripts/lib/datasets.mjs";
+import { REPO_ROOT as ROOT } from "../../scripts/lib/repository-paths.mjs";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = join(__dirname, "..", "..");
 
 const args = process.argv.slice(2);
 const hi = args.indexOf("--history");

@@ -2,9 +2,8 @@
 
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { join, relative } from "node:path";
-import { SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
+import { REPO_ROOT as ROOT, SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const POSTS_DIR = SITE_CONTENT_ROOT;
 const OWN_NOTE_ARTICLE = /https?:\/\/(?:www\.)?note\.com\/dobokunote\/n\/[A-Za-z0-9]+[^\s)"'>]*/g;
 const NOTE_LINK_BLOCK = /<NoteLink\b[\s\S]*?\/>/g;

@@ -8,13 +8,11 @@
  *
  * 書き込み先と照合の実装は scripts/lib/qualification-ssot.mjs の DERIVED_FILES / syncDerivedNames（check-qualification-ssot と同じ）。
  */
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
 
 import { DERIVED_FILES, syncDerivedNames } from './lib/qualification-ssot.mjs';
 import { loadRegistry } from './lib/qualification-registry.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const check = process.argv.includes('--check');
 const diffs = syncDerivedNames(ROOT, loadRegistry(ROOT), { write: !check });
 const P = '[sync-qualification-names]';

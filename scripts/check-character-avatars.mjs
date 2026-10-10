@@ -16,25 +16,24 @@
  *   node scripts/check-character-avatars.mjs        # 不整合があれば exit 1
  */
 import { existsSync, readFileSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join, relative } from 'node:path';
 import { createRequire } from 'node:module';
 import { datasetPath } from './lib/datasets.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 const require = createRequire(import.meta.url);
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = join(__dirname, '..');
 const MANIFEST = datasetPath('config.character-poses');
-const SOT = 'src/lib/note-magazines.ts';
+const SOT = join(ROOT, 'src/lib/note-magazines.ts');
+const SOT_REL = relative(ROOT, SOT).split('\\').join('/');
 
 const poses = require(join(ROOT, MANIFEST)).poses;
 const sitePoses = poses.filter((p) => p.siteCta).map((p) => p.slug).sort();
 
 // ③ note-magazines.ts の `readonly ctaPose?: 'a' | 'b';` から許可値を抜く
-const src = readFileSync(join(ROOT, SOT), 'utf8');
+const src = readFileSync(SOT, 'utf8');
 const m = src.match(/ctaPose\?:\s*([^;]+);/);
 if (!m) {
-  console.error(`[check-character-avatars] FAIL: ${SOT} に ctaPose の型定義が見つからない`);
+  console.error(`[check-character-avatars] FAIL: ${SOT_REL} に ctaPose の型定義が見つからない`);
   process.exit(1);
 }
 const unionPoses = [...m[1].matchAll(/'([^']+)'/g)].map((x) => x[1]).sort();
@@ -44,13 +43,13 @@ const errors = [];
 // ① vs ③: manifest の siteCta 集合と union が一致するか
 for (const p of sitePoses) {
   if (!unionPoses.includes(p)) {
-    errors.push(`manifest が siteCta:true としている '${p}' が ${SOT} の ctaPose union に無い`);
+    errors.push(`manifest が siteCta:true としている '${p}' が ${SOT_REL} の ctaPose union に無い`);
   }
 }
 for (const p of unionPoses) {
   if (!sitePoses.includes(p)) {
     errors.push(
-      `${SOT} の ctaPose union にある '${p}' が manifest で siteCta:true になっていない（${MANIFEST} に追記するか union から外す）`,
+      `${SOT_REL} の ctaPose union にある '${p}' が manifest で siteCta:true になっていない（${MANIFEST} に追記するか union から外す）`,
     );
   }
 }

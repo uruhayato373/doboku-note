@@ -11,11 +11,9 @@
 
 import fs from 'fs';
 import path from 'path';
-import { fileURLToPath } from 'url';
 import sharp from 'sharp';
+import { REPO_ROOT as PROJECT_ROOT } from './lib/repository-paths.mjs';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const PROJECT_ROOT = path.resolve(__dirname, '..');
 const POSTS_DIR = path.join(PROJECT_ROOT, 'content/site');
 
 // 右上隅のサンプル領域（新デザインはここが暗い）

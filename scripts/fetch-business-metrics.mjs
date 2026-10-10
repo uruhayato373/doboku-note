@@ -7,7 +7,8 @@ import { resolve } from 'node:path';
 import dotenv from 'dotenv';
 import { direction, duePeriods, records, currentRecords, samePeriod, saveRecord } from './lib/business-direction.mjs';
 import { GSC_PROPERTY, SITE_ORIGIN } from './lib/site-identity.mjs';
-const root = process.cwd(), args = process.argv.slice(2);
+import { REPO_ROOT as root } from './lib/repository-paths.mjs';
+const args = process.argv.slice(2);
 dotenv.config({ path: '.env.local', quiet: true });
 /** 正規表現のメタ文字をすべてエスケープする（GSC の includingRegex に渡す） */
 const escapeRegExp = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');

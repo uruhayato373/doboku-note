@@ -16,11 +16,11 @@
 //     build-pe1-kindle.mjs から複製（共通 lib 化は前回 mdToXhtml 統合で回帰したため意図的に避ける）
 
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs'
-import { resolve, basename, dirname, join } from 'node:path'
+import { resolve, basename, dirname } from 'node:path'
 import { chromium } from 'playwright'
-import { SITE_CONTENT_ROOT } from './lib/repository-paths.mjs'
+import { REPO_ROOT as REPO, SITE_CONTENT_ROOT } from './lib/repository-paths.mjs'
+import { parseCliArgs } from './lib/cli-args.mjs'
 
-const REPO = resolve(import.meta.dirname, '..')
 const AUTHOR = 'doboku-note'
 const DEFAULT_EXAM = '技術士第一次試験'
 const DEFAULT_ISSUER = '公益社団法人 日本技術士会'
@@ -30,15 +30,12 @@ const DISCLAIMER =
   '本書は正確を期して作成していますが、内容を保証するものではありません。法令・制度は改正されることがあるため、受験にあたっては必ず最新の一次情報をご確認ください。'
 
 function parseArgs(argv) {
-  const a = { spec: null, out: null, sample: false, split: false }
-  for (let i = 0; i < argv.length; i++) {
-    if (argv[i] === '--spec') a.spec = argv[++i]
-    else if (argv[i] === '--out') a.out = argv[++i]
-    else if (argv[i] === '--sample') a.sample = true
-    else if (argv[i] === '--split') a.split = true
-  }
-  if (!a.spec) throw new Error('--spec <scripts/kindle-specs/*.json> は必須')
-  return a
+  const { spec, out, sample, split } = parseCliArgs(
+    { spec: { type: 'string' }, out: { type: 'string' }, sample: { type: 'boolean' }, split: { type: 'boolean' } },
+    argv,
+  )
+  if (!spec) throw new Error('--spec <scripts/kindle-specs/*.json> は必須')
+  return { spec, out, sample, split }
 }
 
 // ---- xml/html エスケープ（epub-writer.xesc と同等）--------------------------

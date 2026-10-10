@@ -30,12 +30,11 @@
  */
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { assertSiteOrThrow } from '../../scripts/lib/asp-site-guard.mjs';
 import { datasetPath } from '../../scripts/lib/datasets.mjs';
 import { jstDayOf } from '../../scripts/lib/jst-date.mjs';
+import { REPO_ROOT as ROOT } from '../../scripts/lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const CONFIG_PATH = join(ROOT, datasetPath('config.affiliate-asp'));
 const TAG = '[fetch-afb-outcomes]';
 

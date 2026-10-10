@@ -39,12 +39,10 @@ import { spawnSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { listAttachedFiles } from './lib/note-attach.mjs';
 import { evaluatePostSaveGate, evaluatePreSaveGate, expectationsByNoteId, recordAttachmentLoss } from './lib/note-attachments.mjs';
-import { fileURLToPath } from 'node:url';
-import { dirname, join } from 'node:path';
+import { join } from 'node:path';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = join(__dirname, '..');
 const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 

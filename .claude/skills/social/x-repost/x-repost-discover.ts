@@ -24,8 +24,8 @@ import { resolveProfileDir, resolveStatePath } from "../../../../scripts/lib/pla
 import { leanContextOptions } from "../../../../scripts/lib/playwright-launch.mjs";
 import { attachCISession } from "../../../../scripts/lib/playwright-auth-state.mjs";
 import { X_HANDLE } from "../../../../scripts/lib/site-identity.mjs";
+import { REPO_ROOT as PROJECT_ROOT } from "../../../../scripts/lib/repository-paths.mjs";
 
-const PROJECT_ROOT = path.resolve(__dirname, "../../../..");
 const PROFILE_DIR = resolveProfileDir("x", { cwd: PROJECT_ROOT, repoRoot: PROJECT_ROOT });
 const DEBUG_DIR = path.join(PROJECT_ROOT, ".local/playwright-x-debug");
 const STATE_DIR = path.join(PROJECT_ROOT, ".claude/state/x-repost");

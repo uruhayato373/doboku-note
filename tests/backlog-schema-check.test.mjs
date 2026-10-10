@@ -1,13 +1,11 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { parseBacklog, findOrphanHeadings, KINDS, CANONICAL_CATEGORIES } from '../scripts/lib/backlog-lib.mjs';
 import { validateCards, validateStagedLines } from '../scripts/check-backlog-schema.mjs';
 import { signatureTokens, duplicateCandidates } from '../scripts/check-backlog-health.mjs';
-
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
 /**
  * 語彙定数（KINDS / CANONICAL_CATEGORIES）が load-bearing であることを**挙動で**固定する。

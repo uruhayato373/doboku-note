@@ -27,14 +27,16 @@
  *   node scripts/check-note-live-tags.mjs --list <file>  # 対象を絞る（1行1 article パス）
  * ---------------------------------------------------------------------------
  */
-import { readFileSync, readdirSync, existsSync, writeSync } from 'node:fs';
+import { readFileSync, existsSync, writeSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { isUnmeasurable } from './lib/note-live-check.mjs';
 import { MAX_FETCH_FAIL_RATE, fetchFailDominant } from './lib/inconclusive-gate.mjs';
+import { REPO_ROOT, NOTE_CONTENT_ROOT as ROOT, AGENT_CONFIG_ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
-const ROOT = 'content/note';
-const CONFIG = '.claude/config/note-live-tags-allow.json';
+const CONFIG_PATH = join(AGENT_CONFIG_ROOT, 'note-live-tags-allow.json');
+const CONFIG = relative(REPO_ROOT, CONFIG_PATH).split('\\').join('/'); // 表示用（リポジトリからの相対）
 const GOAL = 90;
 const THROTTLE_MS = 250;
 
@@ -43,21 +45,10 @@ const JSON_OUT = argv.includes('--json');
 const LIMIT = (() => { const i = argv.indexOf('--limit'); return i >= 0 ? Number(argv[i + 1]) : Infinity; })();
 const LIST = (() => { const i = argv.indexOf('--list'); return i >= 0 ? argv[i + 1] : null; })();
 
-const cfg = existsSync(CONFIG) ? JSON.parse(readFileSync(CONFIG, 'utf-8')) : { allow: {} };
+const cfg = existsSync(CONFIG_PATH) ? JSON.parse(readFileSync(CONFIG_PATH, 'utf-8')) : { allow: {} };
 const ALLOW = cfg.allow || {};
 
 const sleep = (ms) => spawnSync(process.execPath, ['-e', `setTimeout(()=>{},${ms})`]);
-
-function walk(dir, acc = []) {
-  if (!existsSync(dir)) return acc;
-  for (const e of readdirSync(dir, { withFileTypes: true })) {
-    const p = join(dir, e.name);
-    if (e.isDirectory()) walk(p, acc);
-    // ファイル名で判定する（join() は Windows で "\" を返すためパス全体の正規表現は不可）。
-    else if (/^article(-[^/\\]+)?\.md$/.test(e.name)) acc.push(p);
-  }
-  return acc;
-}
 
 function liveTagCount(noteId, retries = 3) {
   let lastErr = 'unknown';
@@ -88,7 +79,9 @@ let files;
 if (LIST) {
   files = readFileSync(LIST, 'utf-8').split(/\r?\n/).map((s) => s.trim()).filter(Boolean).filter((p) => existsSync(p));
 } else {
-  files = walk(ROOT);
+  // ファイル名で判定する（join() は Windows で "\" を返すためパス全体の正規表現は不可）。
+  files = listFiles(ROOT, { match: (_p, name) => /^article(-[^/\\]+)?\.md$/.test(name), allowMissing: true })
+    .map((p) => relative(REPO_ROOT, p)); // 従来どおりリポジトリからの相対（JSON 出力の f もこの形）
 }
 
 const targets = [];
@@ -102,7 +95,7 @@ for (const f of files) {
   // （0 タグの偽赤・2026-09-17 の W8〜W11 等 6 本で実発生）。go-live 後に verify-note-status --fix が
   // published へ是正してから検査に入る。件数は末尾サマリに出す（無言 skip にしない）。
   if (/^noteStatus:[ \t]*reserved\b/m.test(raw)) { reservedSkipped++; continue; }
-  const rel = relative(process.cwd(), f).replace(/\\/g, '/').replace(/^content\/note\//, '');
+  const rel = relative(REPO_ROOT, f).replace(/\\/g, '/').replace(/^content\/note\//, '');
   targets.push({ f, rel, noteId });
   if (targets.length >= LIMIT) break;
 }

@@ -30,8 +30,9 @@ import { readMdxFile, writeMdxFile } from "./lib/mdx-io.mjs";
 import { loadGitDates, lookupGitDates } from "./lib/git-dates.mjs";
 import { classifyStagedDiff, frontmatterEndLine } from "./lib/staged-diff-kind.mjs";
 import { todayJst } from "../../scripts/lib/jst-date.mjs";
+import { REPO_ROOT, SITE_CONTENT_ROOT } from "../../scripts/lib/repository-paths.mjs";
 
-const POSTS_DIR = "content/site";
+const POSTS_DIR = SITE_CONTENT_ROOT;
 
 // ── CLI ──
 
@@ -187,13 +188,14 @@ let noGit = 0;
 let noFrontmatter = 0;
 
 for (const file of files) {
-  const gd = lookupGitDates(gitDates, relative(process.cwd(), file));
+  const rel = relative(REPO_ROOT, file);
+  const gd = lookupGitDates(gitDates, rel);
   const created = gd?.created || null;
   const dateModified = gd?.dateModified || null;
 
   if (!created || !dateModified) {
     noGit++;
-    console.warn(`[no git history] ${file}`);
+    console.warn(`[no git history] ${rel}`);
     continue;
   }
 
@@ -205,7 +207,7 @@ for (const file of files) {
     const fmMatch = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/);
     if (!fmMatch) {
       noFrontmatter++;
-      console.warn(`[no frontmatter] ${file}`);
+      console.warn(`[no frontmatter] ${rel}`);
     } else {
       skipped++;
     }

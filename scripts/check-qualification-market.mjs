@@ -15,8 +15,9 @@
  */
 import { loadMarketInputs, COMPETITOR_CHANNELS } from './lib/market-inputs.mjs';
 import { validateMarketInputs } from './lib/qualification-market.mjs';
+import { REPO_ROOT } from './lib/repository-paths.mjs';
 
-const input = loadMarketInputs(process.cwd());
+const input = loadMarketInputs(REPO_ROOT);
 const counts = {
   資格: input.registry.qualifications.length,
   検索語の資格: Object.keys(input.scanConfig.queries ?? {}).length,

@@ -19,28 +19,20 @@
 // 使い方: node scripts/check-mdx-dates.mjs [--json]
 // exit 0 = 健全 / 1 = 欠落あり・検査不成立
 
-import { readdirSync, readFileSync } from 'node:fs';
-import { join, relative } from 'node:path';
+import { readFileSync } from 'node:fs';
+import { relative } from 'node:path';
 import { SITE_CONTENT_ROOT, REPO_ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
 const JSON_OUT = process.argv.includes('--json');
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
-
-function walk(dir, out = []) {
-  for (const e of readdirSync(dir, { withFileTypes: true })) {
-    const p = join(dir, e.name);
-    if (e.isDirectory()) walk(p, out);
-    else if (e.name.endsWith('.mdx')) out.push(p);
-  }
-  return out;
-}
 
 const field = (fm, key) => {
   const m = fm.match(new RegExp('^' + key + ':\\s*["\']?([^"\'\\r\\n]+)', 'm'));
   return m ? m[1].trim() : null;
 };
 
-const files = walk(SITE_CONTENT_ROOT);
+const files = listFiles(SITE_CONTENT_ROOT, { ext: '.mdx' });
 const missing = [];
 const badFormat = [];
 const inverted = [];

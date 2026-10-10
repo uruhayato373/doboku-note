@@ -32,6 +32,7 @@ import {
   realBytesAndHashes, loadDriveManifest, writeDriveManifestAtomic, sanitizeDriveEntry, toVaultRel, repoRelForVault, immutableConflict } from './lib/drive-vault.mjs';
 import { loadManifest as loadR2Manifest, loadConfig as loadR2Config, loadEnvLocal, makeS3, hasR2Credentials, imageSize } from './lib/asset-storage.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
 const argv = process.argv.slice(2);
 const flag = (n) => argv.includes(n);
@@ -203,8 +204,8 @@ async function push(cfg, group, mount, manifest) {
     for (const scanDir of cfg.dedupeScan || []) {
       const absDir = vaultAbsFor(mount.root, scanDir);
       if (!existsSync(absDir)) continue;
-      const files = [];
-      walk(absDir, files);
+      // 隠しファイル・隠しディレクトリ（. で始まる名前）は数えない
+      const files = listFiles(absDir, { skipDir: (_p, name) => name.startsWith('.'), match: (_p, name) => !name.startsWith('.') });
       const picked = files.filter((f) => exts.has((f.split('.').pop() || '').toLowerCase()));
       console.log('  dedupe 索引: ' + scanDir + ' の ' + files.length + ' ファイルのうち拡張子 {' + [...exts].join(',') + '} の ' + picked.length + ' 件を読んでハッシュ化 ...');
       files.length = 0; files.push(...picked);
@@ -464,15 +465,6 @@ async function pull(cfg, group, mount, manifest) {
   console.log('[' + NAME + ' --pull] 取り戻し ' + restored + ' / 既に手元 ' + present + ' / 失敗 ' + failures.length);
   for (const [p, why] of failures.slice(0, 15)) console.error('    ' + why + ' — ' + p);
   if (failures.length) process.exit(1);
-}
-
-function walk(dir, out) {
-  for (const e of readdirSync(dir, { withFileTypes: true })) {
-    const p = join(dir, e.name);
-    if (e.name.startsWith('.')) continue;
-    if (e.isDirectory()) walk(p, out);
-    else if (e.isFile()) out.push(p);
-  }
 }
 
 main().catch((e) => { console.error('[' + NAME + '] FAIL: ' + String(e.message || e).slice(0, 300)); process.exit(1); });

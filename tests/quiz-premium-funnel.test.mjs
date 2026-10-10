@@ -1,14 +1,14 @@
 import { test } from 'node:test';
+import { join } from 'node:path';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
 import { buildSync } from 'esbuild';
 import { summarizeQuizPremiumFunnel } from '../scripts/lib/quiz-premium-funnel.mjs';
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
-const ROOT = fileURLToPath(new URL('..', import.meta.url));
 
 async function loadClientContract() {
-  const source = readFileSync(ROOT + 'src/lib/quiz/funnel.ts', 'utf8');
+  const source = readFileSync(join(ROOT, 'src/lib/quiz/funnel.ts'), 'utf8');
   const js = buildSync({
     stdin: { contents: source, loader: 'ts' },
     bundle: true,
@@ -63,7 +63,7 @@ test('未取得は0件でなくnot_measuredとして扱う', () => {
 });
 
 test('Phase 0表示は共有エンジン全体でなくpremiumPilot設定へ限定する', () => {
-  const client = readFileSync(ROOT + 'src/app/tools/kakomon-quiz/KakomonQuizClient.tsx', 'utf8');
+  const client = readFileSync(join(ROOT, 'src/app/tools/kakomon-quiz/KakomonQuizClient.tsx'), 'utf8');
   assert.match(client, /premiumPilot\?: boolean/);
   assert.match(client, /premiumPilot: true/);
   assert.match(client, /config\.premiumPilot && shouldShowMenuPremium/);
@@ -71,7 +71,7 @@ test('Phase 0表示は共有エンジン全体でなくpremiumPilot設定へ限�
 });
 
 test('定期計測workflowが取得と判定を連続実行する', () => {
-  const workflow = readFileSync(ROOT + '.github/workflows/fetch-metrics.yml', 'utf8');
+  const workflow = readFileSync(join(ROOT, '.github/workflows/fetch-metrics.yml'), 'utf8');
   const fetchIndex = workflow.indexOf('node scripts/fetch-ga4-quiz-funnel.mjs');
   const reportIndex = workflow.indexOf('node scripts/report-quiz-premium-funnel.mjs');
   assert.ok(fetchIndex >= 0, 'GA4取得がworkflowにない');

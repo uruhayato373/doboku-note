@@ -7,7 +7,6 @@ import assert from 'node:assert/strict';
 import { mkdtempSync, readFileSync, writeFileSync, mkdirSync, existsSync, rmSync } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
-import { fileURLToPath } from 'node:url';
 import {
   resolveDefaultAuthRoot,
   resolveAuthRoot,
@@ -24,8 +23,7 @@ import {
   legacyWindowsAuthRoots,
   PROFILE_CACHE_SUBDIRS,
 } from '../scripts/lib/playwright-auth-profile.mjs';
-
-const REPO_ROOT = fileURLToPath(new URL('..', import.meta.url));
+import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
 
 function makeTmpDir(prefix) {
   return mkdtempSync(join(tmpdir(), prefix));

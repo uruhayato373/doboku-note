@@ -4,9 +4,8 @@ import assert from 'node:assert/strict';
 import { readFileSync, writeFileSync, mkdirSync, rmSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { fileURLToPath } from 'node:url';
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SRC = 'content/note/1級・2級土木/1級土木/magazines/1級土木-施工経験記述-完成答案集/品質管理/article.md';
 
 // keiken-charcount はリポジトリ相対パスしか受け付けないので、git 管理外の .tmp/ に置く

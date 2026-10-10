@@ -15,6 +15,7 @@
 import { loadMarketInputs } from './lib/market-inputs.mjs';
 import { buildMarketView } from './lib/qualification-market.mjs';
 import { todayJst } from './lib/jst-date.mjs';
+import { REPO_ROOT } from './lib/repository-paths.mjs';
 
 const args = new Set(process.argv.slice(2));
 for (const a of args) {
@@ -23,7 +24,7 @@ for (const a of args) {
     process.exit(2);
   }
 }
-const view = buildMarketView({ ...loadMarketInputs(process.cwd()), today: todayJst() });
+const view = buildMarketView({ ...loadMarketInputs(REPO_ROOT), today: todayJst() });
 if (view.rows.length === 0) {
   console.error('[qualification-market] 資格を 1 件も組めなかった（検査不成立）');
   process.exit(1);

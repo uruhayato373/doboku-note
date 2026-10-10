@@ -9,11 +9,10 @@
 import { strict as assert } from 'node:assert';
 import { spawnSync } from 'node:child_process';
 import { readdirSync, readFileSync } from 'node:fs';
-import { dirname, join } from 'node:path';
+import { join } from 'node:path';
 import test from 'node:test';
-import { fileURLToPath } from 'node:url';
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SCRIPT = join(ROOT, 'scripts/report-automation-failure.mjs');
 
 test('findExisting: 同 channel の open Issue をタイトル前方一致で探す（他 channel は拾わない）', async () => {

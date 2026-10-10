@@ -6,12 +6,11 @@
  * 設計: docs/marketing/03_多資格SNS展開設計.md ／ .claude/knowledge/reference/sns-image-policy.md §12
  */
 import { readFileSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 
 import { coverExamNames } from '../../../../scripts/lib/note-character-cover.mjs';
+import { REPO_ROOT as ROOT } from '../../../../scripts/lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../../../..');
 const TOKENS = JSON.parse(readFileSync(join(ROOT, '.claude/knowledge/design-system/note-cover-tokens.json'), 'utf8'));
 
 /** トークンに資格の名前を付ける。名前はトークンに書かず registry から引く（coverExamNames・label=正式名・short=ごく短い名前） */

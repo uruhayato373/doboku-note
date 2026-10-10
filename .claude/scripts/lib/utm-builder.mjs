@@ -12,6 +12,7 @@
 
 import { fileURLToPath } from 'node:url';
 import { loadUtmTemplates } from '../../../scripts/lib/utm-contract.mjs';
+import { parseCliArgs } from '../../../scripts/lib/cli-args.mjs';
 
 // 契約（config/utm-templates.json）の読み込みは scripts/lib/utm-contract.mjs。従来どおりここから import できるよう再公開する。
 export { loadUtmTemplates };
@@ -71,13 +72,14 @@ export function buildUtmUrl(baseUrl, opts = {}) {
 
 // ── CLI ──────────────────────────────────────────────────────────
 function parseArgs(argv) {
-  const out = {};
-  for (let i = 0; i < argv.length; i++) {
-    const a = argv[i];
-    if (a === '--force') out.force = true;
-    else if (a.startsWith('--')) out[a.slice(2)] = argv[++i];
-  }
-  return out;
+  return parseCliArgs({
+    url: { type: 'string' },
+    channel: { type: 'string' },
+    format: { type: 'string' },
+    campaign: { type: 'string' },
+    content: { type: 'string' },
+    force: { type: 'boolean' },
+  }, argv);
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {

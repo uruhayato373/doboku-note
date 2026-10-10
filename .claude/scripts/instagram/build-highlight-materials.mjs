@@ -30,14 +30,11 @@
  */
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync } from 'node:fs';
-import { join, resolve, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join, resolve } from 'node:path';
 
 import { renderSlide } from '#lib/sns-common/slide-render.mjs';
 import { SNS_CONTENT_ROOT } from '../../../scripts/lib/repository-paths.mjs';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = resolve(__dirname, '../../..');
 const IG_BASE = join(SNS_CONTENT_ROOT, 'instagram');
 const HIGHLIGHTS_BASE = join(IG_BASE, 'highlights');
 

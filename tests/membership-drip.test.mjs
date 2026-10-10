@@ -6,8 +6,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 
 import {
   parseSchedule,
@@ -18,8 +17,7 @@ import {
   SSOT_REL,
   GRACE_DAYS,
 } from '../scripts/check-membership-drip.mjs';
-
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
 const SAMPLE = [
   '## 並行配信',

@@ -22,13 +22,12 @@
  * ---------------------------------------------------------------------------
  */
 import { readFileSync, existsSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { todayJst } from './lib/jst-date.mjs';
 import { datasetPath, freshnessDays } from './lib/datasets.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 const TAG = '[check-coconala-analytics]';
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SNAP_PATH = join(ROOT, datasetPath('coconala.analytics'));
 const KPI_PATH = join(ROOT, datasetPath('coconala.kpi'));
 const CATALOG_PATH = join(ROOT, 'src/lib/coconala-services.ts');

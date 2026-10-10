@@ -24,18 +24,17 @@ import { ga4FromEnv, japanFilter, runReportAll, isLimited } from "./lib/ga4-clie
 import { summarize } from "../../scripts/lib/web-vitals-rum.mjs";
 import { datasetPath } from "../../scripts/lib/datasets.mjs";
 import { todayJst } from "../../scripts/lib/jst-date.mjs";
+import { parseCliArgs } from "../../scripts/lib/cli-args.mjs";
 
 dotenv.config({ path: ".env.local", quiet: true });
 
 const TAG = "[fetch-ga4-web-vitals]";
 
 function parseArgs(argv) {
-  const opts = { days: 28, check: false };
-  for (let i = 0; i < argv.length; i++) {
-    if (argv[i] === "--days") opts.days = Number(argv[++i]);
-    else if (argv[i] === "--check") opts.check = true;
-  }
-  return opts;
+  return parseCliArgs({
+    days: { type: "number", default: 28 },
+    check: { type: "boolean" },
+  }, argv);
 }
 
 const FIXTURE = [

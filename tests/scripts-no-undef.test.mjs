@@ -8,11 +8,9 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { dirname, join, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { findUndefined } from '../scripts/lib/no-undef-gate.mjs';
-
-const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
 test('scripts・.claude/scripts・.claude/skills の .mjs に未定義の参照が無い', async () => {
   const { files, problems } = await findUndefined(ROOT);

@@ -5,8 +5,6 @@
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
 
 import {
   buildMarketView,
@@ -18,8 +16,8 @@ import {
   youtubeMetrics,
 } from '../scripts/lib/qualification-market.mjs';
 import { loadMarketInputs } from '../scripts/lib/market-inputs.mjs';
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const bands = { low: 1, mid: 3, high: 6 };
 
 test('実データ: 検索語・追跡リスト・売上の分類が正本と整合している', () => {
