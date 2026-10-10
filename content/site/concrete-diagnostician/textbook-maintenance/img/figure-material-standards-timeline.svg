@@ -1,0 +1,62 @@
+<!-- authored 2026-10-10 doboku-note 自作。題材はコンクリート診断士テキスト「維持管理・基準」の論点。一次資料の年表を再構成したもので、特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="セメント・混和剤・骨材・鉄筋の導入時期と、竣工年から確かめる事項を並べた年表。1948年AE剤、1953年異形丸鋼JIS、1975年頃〜2000年頃の海砂、1986年低アルカリ形、1992年と2003年のセメント規格改正">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; fill: #555; font-size: 12px; }
+      .h { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .y { font-weight: bold; fill: #1a3a5c; }
+      .b { font-weight: bold; fill: #1a3a5c; }
+      .m { font-size: 11px; fill: #555; }
+      .row { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1; }
+      .key { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .band { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="h" x="22" y="22">年</text>
+  <text class="h" x="78" y="22">材料・規格の出来事</text>
+  <text class="h" x="236" y="22">診断で確かめること</text>
+  <line x1="16" y1="30" x2="366" y2="30" stroke="#d7d7d7" stroke-width="1"/>
+  <rect class="row" x="16" y="36" width="350" height="58" rx="4"/>
+  <text class="y" x="22" y="60">1948〜</text>
+  <text class="y" x="22" y="80">50年</text>
+  <text class="b" x="78" y="60">AE剤の使用開始</text>
+  <text x="78" y="80">セメントJIS制定(1950)</text>
+  <text x="236" y="60">空気連行の有無</text>
+  <text x="236" y="80">を確かめる</text>
+  <rect class="row" x="16" y="104" width="350" height="58" rx="4"/>
+  <text class="y" x="22" y="128">1953〜</text>
+  <text class="y" x="22" y="148">64年</text>
+  <text class="b" x="78" y="128">異形丸鋼のJIS(1953)</text>
+  <text x="78" y="148">JIS G 3112制定(1964)</text>
+  <text x="236" y="128">丸鋼か異形か</text>
+  <text x="236" y="148">旧記号かを見る</text>
+  <rect class="row" x="16" y="172" width="350" height="58" rx="4"/>
+  <text class="y" x="22" y="196">1975〜</text>
+  <text class="y" x="22" y="216">2000年</text>
+  <text class="b" x="78" y="196">海砂の大量使用</text>
+  <text x="78" y="216">規制後も上限つき</text>
+  <text x="236" y="196">1986年以前:内在塩</text>
+  <text x="236" y="216">以降:記録を確認</text>
+  <rect class="key" x="16" y="240" width="350" height="58" rx="4"/>
+  <text class="y" x="22" y="264">1986年</text>
+  <text class="b" x="78" y="264">低アルカリ形</text>
+  <text x="78" y="284">セメントを規定</text>
+  <text x="236" y="264">ASRの疑いは</text>
+  <text x="236" y="284">アルカリ量を見る</text>
+  <rect class="row" x="16" y="308" width="350" height="58" rx="4"/>
+  <text class="y" x="22" y="332">1992年</text>
+  <text class="b" x="78" y="332">全アルカリ0.75%以下</text>
+  <text x="78" y="352">塩化物イオン0.02%以下</text>
+  <text x="236" y="332">セメント由来の</text>
+  <text x="236" y="352">塩分・アルカリ</text>
+  <rect class="row" x="16" y="376" width="350" height="58" rx="4"/>
+  <text class="y" x="22" y="400">2003年</text>
+  <text class="b" x="78" y="400">塩化物イオンの</text>
+  <text x="78" y="420">規格値を0.035%以下へ</text>
+  <text x="236" y="400">2003年以降は</text>
+  <text x="236" y="420">規格値が異なる</text>
+</svg>
