@@ -1,0 +1,37 @@
+<!-- authored 2026-10-10 doboku-note 自作。コールドジョイントに沿う中性化の進み方の概念図。書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="壁の断面で、一般部の中性化は表面から浅く進むのに対し、水平のコールドジョイントに沿っては中性化が深く入り、継目位置の鉄筋に先に達する様子を示した概念図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .b { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .l { fill: #1a3a5c; }
+    </style>
+    <marker id="ah" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4" /></marker>
+  </defs>
+  <rect x="70" y="40" width="280" height="290" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <path d="M70,40 L110,40 L110,192 L215,192 L215,208 L110,208 L110,330 L70,330 Z" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5" />
+  <line x1="70" y1="200" x2="350" y2="200" stroke="#b22234" stroke-width="1.5" stroke-dasharray="5 3" />
+  <g fill="#fff" stroke="#555" stroke-width="1.5">
+    <circle cx="170" cy="110" r="8" />
+    <circle cx="170" cy="200" r="8" />
+    <circle cx="170" cy="290" r="8" />
+  </g>
+  <g stroke="#2e6da4" stroke-width="1.5" fill="none">
+    <line x1="20" y1="100" x2="64" y2="100" marker-end="url(#ah)" />
+    <line x1="20" y1="260" x2="64" y2="260" marker-end="url(#ah)" />
+  </g>
+  <text x="14" y="86">CO₂・水</text>
+  <text x="14" y="246">CO₂・水</text>
+  <text class="l" x="184" y="114">鉄筋</text>
+  <text class="l" x="184" y="294">鉄筋</text>
+  <text class="l" x="118" y="62">一般部：浅い</text>
+  <text class="l" x="224" y="182">継目沿いに深く進む</text>
+  <text class="l" x="224" y="226">継目（打継ぎ面）</text>
+  <text x="76" y="352">外気側の表面</text>
+  <rect x="20" y="366" width="360" height="114" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5" />
+  <text class="l" x="32" y="388">一般部は、中性化が表面から均等に浅く進む</text>
+  <text class="l" x="32" y="408">継目は一体化していない面なので、</text>
+  <text class="l" x="32" y="424">その線に沿って中性化が深く入る</text>
+  <text class="l" x="32" y="444">継目位置の鉄筋は、不動態被膜を先に失う</text>
+  <text class="l" x="32" y="464">水と塩化物イオンも同じ道から入る</text>
+</svg>
