@@ -144,6 +144,8 @@
 
 **完了条件**: 10/11 以降の週次で「PDF を Drive から取り寄せられない」が 0 件。
 
+**手がかり（2026-10-10）**: 同じ日に Google Drive の本体アプリが止まっていて、マウントの read が全部 ETIMEDOUT になっていた（File Provider の拡張だけ動いていた・`open -a "Google Drive"` で 20 秒後に復旧）。10/4 の取り寄せの失敗も同じ原因の可能性が高い。次の日曜の同期の前に `pgrep -fl "Google Drive.app/Contents/MacOS"` で本体が動いているかを見る（memory reference_drive_vault_ledger_drift）。
+
 ### [DN-0502] 技術士一次試験の主要10ページを GSC でインデックス登録リクエストする（Mac・運営者作業）
 タグ: [SNS・マーケ] [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-10-02] [期日:2026-10-17]
 
