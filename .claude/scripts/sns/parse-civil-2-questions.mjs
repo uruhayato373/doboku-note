@@ -1,5 +1,5 @@
 /**
- * parse-civil-2-questions.mjs — 2級土木 第一次検定 過去問 MDX → 試験別問題JSON（追加のみ）
+ * parse-civil-2-questions.mjs — 2級土木 第一次検定 過去問 MDX → 試験別問題JSON（全年度を記事から作り直す・中身が変わったときだけ書く・refresh-indexes の build-exam-question-data）
  *
  * 入力: content/site/civil-construction-2/primary-{年度}-{zenki|kouki}/article.mdx
  * 出力: src/config/civil-2-exam-questions.json
