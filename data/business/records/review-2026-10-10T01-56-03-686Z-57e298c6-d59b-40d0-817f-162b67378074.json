@@ -1,0 +1,30 @@
+{
+  "kind": "review",
+  "qualification": "all",
+  "cadence": "weekly",
+  "period": {
+    "startDate": "2026-09-21",
+    "endDate": "2026-09-27"
+  },
+  "status": "provisional",
+  "snapshot": "data/business/records/snapshot-2026-10-10T01-46-03-759Z-4aae4423-683d-4b27-a75c-af51a007d475.json",
+  "qualificationsReviewed": [
+    "civil-construction-1",
+    "pe-comprehensive-management",
+    "pe-construction",
+    "rccm"
+  ],
+  "findings": "9/21〜9/27の自然検索人数は全体1631（前週2130・-23.4%、9/21〜23は5連休の後半）、正規URLの1級土木646・総監135・建設部門41・RCCM31（資格間で合算しない）。Googleクリックは全体179、1級1・総監4・建設0・RCCM1。note CTAクリックは全体110（基線週平均76.5・+43.8%、1級27・総監8・建設2・RCCM2）、演習開始1・完了0。note台帳登録分は10件¥36,840（1級8件¥33,480・総監/建設/RCCMは0、台帳は10/2まで・9月確定前）。ココナラは1級1件¥15,000・RCCM0。流入元はbing-17.2%・google+83.2%（総監r08択一・2級経験記述例・1級r07二次）。note記事PV・KDP・ココナラ閲覧・購入前相談・実受取・費用・作業時間は欠測。週の後半（W40窓）のGA4/GSCは10/7・10/9のfetch-metrics書き戻し失敗で欠測（#958で原因修正）。",
+  "decision": "4資格の図解→演習→答案の方針を維持し、欠測があるため暫定レビューとして記録する。1級二次（10/4）後は2級二次（10/25）を主力にした切り替え（もくじ・X固定・links・ココナラ1級休止）を維持する。EXP-009（RCCM）は事後窓10/31の確定後の11/3、EXP-011（直前パック）は11/30の確定後の12/3に裁定し、途中計測では判断しない。RCCMは検索流入が3→31人に出始めたが実売0で、評価は実売で行う。",
+  "nextAction": "(1) DN-0643でココナラ・afb・もしもに再ログインし、9月のnote売上・アクセス・ココナラ分析を取得してから9月の月次レビューを行う。(2) DN-0642で不健全なworkflow 7本を直し、fetch-metricsの再実行でW40窓（9/28〜10/4）のGA4/GSCを揃えてW41レビューで読む。(3) 10/15にEXP-019の初回の案別計測、10/20にEXP-008の28日判定を見る。",
+  "experimentIds": [
+    "EXP-008",
+    "EXP-009",
+    "EXP-011",
+    "EXP-019"
+  ],
+  "nextReviewDate": "2026-10-17",
+  "schemaVersion": 1,
+  "createdAt": "2026-10-10T01:56:03.686Z",
+  "strategyHash": "efe2531382f59018c338aca8cdeeb530e91a44a642f6c6c1dd6e5b980cc973be"
+}
