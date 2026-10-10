@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-construction",
+      "headline": [
+        "インフラ老朽化",
+        "予防保全を論じる"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-construction/hissu1-infra-roukyuuka/youtube.longform/cover.dbb62e84.png",
+        "sha256": "dbb62e846d6d89bbad6b2491635cedaafc6c4cad0ba6b82b5125abce25897bfc",
+        "specSha256": "2f7d2c4b1734baf3318c35d919455b4d2cc63a6d17e2515070598f7df52cf51a"
+      }
+    }
+  }
+}

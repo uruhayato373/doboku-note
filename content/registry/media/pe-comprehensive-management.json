@@ -6,221 +6,511 @@
       "id": "pe-comprehensive-management/cem-kw-access-control/youtube.short/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "7c0acae1b04144ee2f348e33619be509975870961449f25f9c3a6e4f95d868cb",
-      "bytes": 162227,
+      "sha256": "406eae75637cef2b81a034bac3c8242225eb477d7fa09e00e9e942dff9420859",
+      "bytes": 719185,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.7c0acae1.png"
+        "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.406eae75.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/youtube/cover-design.json#access-control",
-        "specSha256": "071c0bdc87e3acb2dab20af110ba95eed314d6002892236dbb43252332ec42f6"
+        "by": "youtube-covers",
+        "spec": "content/sns/youtube/cover-design.json#covers/access-control",
+        "specSha256": "9357cda5f93fc1889e9153667be6a19e952aa3fc5d1aebc80178ec107443a957"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/345.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/345.png",
+        ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.7c0acae1.png"
       ]
     },
     {
       "id": "pe-comprehensive-management/cem-kw-multisource-evaluation/youtube.short/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "15028496cadce93958fd1bf963999cad470249ca28daeb03eb8b7602858e6d0c",
-      "bytes": 180037,
+      "sha256": "adb2d54007823e5cd92e6cb494f5a1f51f32f76b71f717f6e5194b00f999a1fe",
+      "bytes": 714612,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/pe-comprehensive-management/cem-kw-multisource-evaluation/youtube.short/cover.15028496.png"
+        "path": ".tmp/media/pe-comprehensive-management/cem-kw-multisource-evaluation/youtube.short/cover.adb2d540.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/youtube/cover-design.json#multisource-evaluation",
-        "specSha256": "a6daa612e92b4c05f4bca1fc96f61b9e0850c913899def81c8cfaf90676f77c8"
+        "by": "youtube-covers",
+        "spec": "content/sns/youtube/cover-design.json#covers/multisource-evaluation",
+        "specSha256": "732749a17a8ef1d1785f547c626ae9f13422ddd20208abe8320ceaae4c6b4f4c"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/344.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/344.png",
+        ".tmp/media/pe-comprehensive-management/cem-kw-multisource-evaluation/youtube.short/cover.15028496.png"
       ]
     },
     {
       "id": "pe-comprehensive-management/cem-r03-p01-q2/youtube.short/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "55b3e634e3e118d076397f5ac894dd04be9e22f322a88c380ccc2ded1f2d0f46",
-      "bytes": 191241,
+      "sha256": "51838bb98f66a6b2862fdab0cc241d9aac087f5282b4afc6f9c8b2d4306b4020",
+      "bytes": 694322,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/pe-comprehensive-management/cem-r03-p01-q2/youtube.short/cover.55b3e634.png"
+        "path": ".tmp/media/pe-comprehensive-management/cem-r03-p01-q2/youtube.short/cover.51838bb9.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/youtube/cover-design.json#r03-pfi",
-        "specSha256": "16dbd359b32ba24deaf38cc09ff48978960052a2b4679cc659090f1323792116"
+        "by": "youtube-covers",
+        "spec": "content/sns/youtube/cover-design.json#covers/r03-pfi",
+        "specSha256": "3601e5a707c3cead795c4e5de1bba58b8d1c8f5325578e28146a2410abfa0f28"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/336.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/336.png",
+        ".tmp/media/pe-comprehensive-management/cem-r03-p01-q2/youtube.short/cover.55b3e634.png"
       ]
     },
     {
       "id": "pe-comprehensive-management/cem-r03-p01-q3/youtube.short/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "47d3ef5be48d169702710772e46e08dacb4ee48274689dc0143ac21a3e788e1f",
-      "bytes": 179768,
+      "sha256": "fc8f38589f4663987e0c6b4672ec9fa2c6608f308a58d71a738d800944ce27ea",
+      "bytes": 718684,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/pe-comprehensive-management/cem-r03-p01-q3/youtube.short/cover.47d3ef5b.png"
+        "path": ".tmp/media/pe-comprehensive-management/cem-r03-p01-q3/youtube.short/cover.fc8f3858.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/youtube/cover-design.json#r03-quality",
-        "specSha256": "2b86fd4a3cbfe25970ef6f0c0e9c037de170908899dc0bd64cdea384d335c476"
+        "by": "youtube-covers",
+        "spec": "content/sns/youtube/cover-design.json#covers/r03-quality",
+        "specSha256": "b1ba446a9e6dd63125226840fbd72132cb75b02ed4fb7a510aedb168ee30596e"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/337.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/337.png",
+        ".tmp/media/pe-comprehensive-management/cem-r03-p01-q3/youtube.short/cover.47d3ef5b.png"
       ]
     },
     {
       "id": "pe-comprehensive-management/cem-r03-p01-q4/youtube.short/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "a6f54a4fb54abafd24cc0b5f8ac02f3e5575ce0ed5e11fc1d29858f02284d7d4",
-      "bytes": 160645,
+      "sha256": "2a9d5406d49fe4baf5098c65a5dad677e43877b69c39507ae73eabd7015bac41",
+      "bytes": 709037,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/pe-comprehensive-management/cem-r03-p01-q4/youtube.short/cover.a6f54a4f.png"
+        "path": ".tmp/media/pe-comprehensive-management/cem-r03-p01-q4/youtube.short/cover.2a9d5406.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/youtube/cover-design.json#r03-critical-path",
-        "specSha256": "703ce37a86f2162c4cf2d2f0e21489f2d86374cd119eb1e1b2c08abd4b26e92a"
+        "by": "youtube-covers",
+        "spec": "content/sns/youtube/cover-design.json#covers/r03-critical-path",
+        "specSha256": "ca68f2fc15d80dfb4a9f8327dcc1ff5d8d365e384804a0d9f9fe4ca7cf365476"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/338.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/338.png",
+        ".tmp/media/pe-comprehensive-management/cem-r03-p01-q4/youtube.short/cover.a6f54a4f.png"
       ]
     },
     {
       "id": "pe-comprehensive-management/cem-r03-p02-q1/youtube.short/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "774929da60548362a5ff21851c244b297877d09683d371794030c8a228914e6b",
-      "bytes": 183205,
+      "sha256": "798792c046c3790e79f29f854fd8912c95752bb437eeb21a05202d9badf7517b",
+      "bytes": 718393,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/pe-comprehensive-management/cem-r03-p02-q1/youtube.short/cover.774929da.png"
+        "path": ".tmp/media/pe-comprehensive-management/cem-r03-p02-q1/youtube.short/cover.798792c0.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/youtube/cover-design.json#r03-decoupling",
-        "specSha256": "a2a5b174994c38cecc426c7b5a88d836b370e656b21c413b81532fa5cc0827cd"
+        "by": "youtube-covers",
+        "spec": "content/sns/youtube/cover-design.json#covers/r03-decoupling",
+        "specSha256": "7c63a11a97ddad3ce252453e59076b70152397c92fd966cde21aacfe00ba554a"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/339.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/339.png",
+        ".tmp/media/pe-comprehensive-management/cem-r03-p02-q1/youtube.short/cover.774929da.png"
       ]
     },
     {
       "id": "pe-comprehensive-management/cem-r03-p02-q2/youtube.short/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "1fe3c2639aa57ef885600a68c7313623a81c009b7fcf196241183a797fdcdec4",
-      "bytes": 183839,
+      "sha256": "f275492f9c6dc905816635e85dfafdbc8f2423428c9a32a2961212f460c007c2",
+      "bytes": 719155,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/pe-comprehensive-management/cem-r03-p02-q2/youtube.short/cover.1fe3c263.png"
+        "path": ".tmp/media/pe-comprehensive-management/cem-r03-p02-q2/youtube.short/cover.f275492f.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/youtube/cover-design.json#r03-break-even",
-        "specSha256": "2e0017447b68452d3e9828c4a6386782faf183fd1f3761ee29481620ab35d833"
+        "by": "youtube-covers",
+        "spec": "content/sns/youtube/cover-design.json#covers/r03-break-even",
+        "specSha256": "6a0c84639481e1226e18499831fd9108f4ab63f00df71c152cebe0a4227c9d17"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/340.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/340.png",
+        ".tmp/media/pe-comprehensive-management/cem-r03-p02-q2/youtube.short/cover.1fe3c263.png"
       ]
     },
     {
       "id": "pe-comprehensive-management/cem-r03-p02-q3/youtube.short/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "f399646b205265c8e549f7301ca6341f41c1cea2bf30af38d4fef98ceba461a5",
-      "bytes": 157407,
+      "sha256": "97a8b686ebf26d6008d1c54b9dcb17c4465194205935cc7c0dcdbf0334b2a939",
+      "bytes": 702332,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/pe-comprehensive-management/cem-r03-p02-q3/youtube.short/cover.f399646b.png"
+        "path": ".tmp/media/pe-comprehensive-management/cem-r03-p02-q3/youtube.short/cover.97a8b686.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/youtube/cover-design.json#r03-cash-flow",
-        "specSha256": "4a4331a1cb87fbc0e9f3027b4feb38eb878bde23ec1d67e9256b062d4850894a"
+        "by": "youtube-covers",
+        "spec": "content/sns/youtube/cover-design.json#covers/r03-cash-flow",
+        "specSha256": "b56335f966b004245f1df72ba95edc86586515cfbce3876ab4a738c6259a152d"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/341.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/341.png",
+        ".tmp/media/pe-comprehensive-management/cem-r03-p02-q3/youtube.short/cover.f399646b.png"
       ]
     },
     {
       "id": "pe-comprehensive-management/cem-r03-p02-q4/youtube.short/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "c7e81011e861e695def837e1393816efcabe930816090ab0bdfb5aa7fb90609f",
-      "bytes": 184494,
+      "sha256": "659935465e083b5eb2f3f064527d9a713e8773e17eef1e4201af95949fb4c4d2",
+      "bytes": 714984,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/pe-comprehensive-management/cem-r03-p02-q4/youtube.short/cover.c7e81011.png"
+        "path": ".tmp/media/pe-comprehensive-management/cem-r03-p02-q4/youtube.short/cover.65993546.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/youtube/cover-design.json#r03-maintenance",
-        "specSha256": "e0216e405afa5e59c07a3250a626ed9fbfd511f67478adecd65d27d853d0a051"
+        "by": "youtube-covers",
+        "spec": "content/sns/youtube/cover-design.json#covers/r03-maintenance",
+        "specSha256": "6c57c037d5179716dc4035872d037fc535f6bdbaa2fae36bf2644f743932d692"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/342.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/342.png",
+        ".tmp/media/pe-comprehensive-management/cem-r03-p02-q4/youtube.short/cover.c7e81011.png"
       ]
     },
     {
       "id": "pe-comprehensive-management/cem-r07-p01-q1/youtube.short/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "b8bb681ac6f35bb350cdf3c6e373091ec5d545ee5077c653ab27e7e0241fa48f",
-      "bytes": 162204,
+      "sha256": "e44cd18571a8d449a0ab40eb2be1076fe58d1376d09f3ffc701496d86cd184b3",
+      "bytes": 699549,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/pe-comprehensive-management/cem-r07-p01-q1/youtube.short/cover.b8bb681a.png"
+        "path": ".tmp/media/pe-comprehensive-management/cem-r07-p01-q1/youtube.short/cover.e44cd185.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/youtube/cover-design.json#r07-quality",
-        "specSha256": "a7038a996c4ac98e950730ea19af89d4c3d144368500327ee5ab96d024bbe934"
+        "by": "youtube-covers",
+        "spec": "content/sns/youtube/cover-design.json#covers/r07-quality",
+        "specSha256": "ba2268133726f0acceeae33e76cae34ebb65c326339a8c3d55b3b82d96519920"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/343.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/343.png",
+        ".tmp/media/pe-comprehensive-management/cem-r07-p01-q1/youtube.short/cover.b8bb681a.png"
       ]
+    },
+    {
+      "id": "pe-comprehensive-management/gokanri-tradeoff/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "0d3a3ef78e4aaa67d4fa66efacd2c7a6802592812808e40b5d01ab4f89897292",
+      "bytes": 842121,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/youtube.longform/cover.0d3a3ef7.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/pe-comprehensive-management/gokanri-tradeoff/cover-design.json#covers/longform",
+        "specSha256": "7389c375a4462285d1263edebde1bab1ac1e23df960d65ad05ec57797fc0a365"
+      },
+      "legacyPaths": []
+    },
+    {
+      "id": "pe-comprehensive-management/gyoumu-keirekihyo/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "04b975299122ba74438009fc5efc18470b50b53df8a5bcc1238996a3e6e1421c",
+      "bytes": 919434,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/gyoumu-keirekihyo/youtube.longform/cover.04b97529.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/pe-comprehensive-management/gyoumu-keirekihyo/cover-design.json#covers/longform",
+        "specSha256": "094e393a36b903754f623676488e0ed1b60cbd4e60e911b14cdcea378499afb9"
+      },
+      "legacyPaths": []
+    },
+    {
+      "id": "pe-comprehensive-management/hakusho-map/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "3016105400a0faa76c8b21c3b188a63cb1c22d783dc19072ea6543774d61d29b",
+      "bytes": 838954,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/hakusho-map/youtube.longform/cover.30161054.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/pe-comprehensive-management/hakusho-map/cover-design.json#covers/longform",
+        "specSha256": "0522b4e5851d248aedce9951fc1d4da8c58f48e63ea84559244253d360e4d309"
+      },
+      "legacyPaths": []
+    },
+    {
+      "id": "pe-comprehensive-management/kata-oudan-ryuyo/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "f7bb4bb6b0a7cac4b7493b5c4590a61bc7edcfef927177552ccab599b999fe31",
+      "bytes": 918020,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/kata-oudan-ryuyo/youtube.longform/cover.f7bb4bb6.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/pe-comprehensive-management/kata-oudan-ryuyo/cover-design.json#covers/longform",
+        "specSha256": "6e547dd1416271e06c26e92c9b0ecdb59718def1e515beb8740f3ffc94eef8e3"
+      },
+      "legacyPaths": []
+    },
+    {
+      "id": "pe-comprehensive-management/kikinagashi-sokan-keyword/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "8afd6e60e6c5c951c8804bd255f1a153e0ae0dba9113723072e711c5b953f73e",
+      "bytes": 686105,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/kikinagashi-sokan-keyword/youtube.longform/cover.8afd6e60.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/pe-comprehensive-management/kikinagashi-sokan-keyword/cover-design.json#covers/longform",
+        "specSha256": "5ef850bff2cb6226e7ceab798db4058e6a7176ad4273d1148e4e7891e21b1694"
+      },
+      "legacyPaths": []
+    },
+    {
+      "id": "pe-comprehensive-management/monbun-yomikata/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "c1b45eb2355565077adf8b3d6d023b25a67e27bfdaaf8af0706bd96a239522c5",
+      "bytes": 841273,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/youtube.longform/cover.c1b45eb2.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/pe-comprehensive-management/monbun-yomikata/cover-design.json#covers/longform",
+        "specSha256": "75f0b31892db1cdc7f87cb501b859f0cbd640ebf408004890fb9909b4e4fb219"
+      },
+      "legacyPaths": []
+    },
+    {
+      "id": "pe-comprehensive-management/persona-settei/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "61ec583cc31ce1ca7c57ba79279fa762803fc2ffbb43144a283f180eba8faf1f",
+      "bytes": 912819,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/persona-settei/youtube.longform/cover.61ec583c.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/pe-comprehensive-management/persona-settei/cover-design.json#covers/longform",
+        "specSha256": "a5c6c1e9d5a9995cdda77817b3dde339e70b8855509c2701e5c1806cf19cc1b3"
+      },
+      "legacyPaths": []
+    },
+    {
+      "id": "pe-comprehensive-management/r8-yosou-theme/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "62d9a13dbbf6e8a4d4fc8a4af7c5683a04483767617da34b91eb6f9819eddd51",
+      "bytes": 695420,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/r8-yosou-theme/youtube.longform/cover.62d9a13d.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/pe-comprehensive-management/r8-yosou-theme/cover-design.json#covers/longform",
+        "specSha256": "251dc9a3489610c29a11427830bce053de2ec758056572214b2327c065c207c8"
+      },
+      "legacyPaths": []
+    },
+    {
+      "id": "pe-comprehensive-management/sanso-kozo/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "4e81b72ec6e84c6a2bad4cb02009f5703e9a3992c0207f7a0fef8706af995a53",
+      "bytes": 928546,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.4e81b72e.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/pe-comprehensive-management/sanso-kozo/cover-design.json#covers/longform",
+        "specSha256": "ba86ed45f04e80a50ddd467decc83640de6fc55f638d0645426f6a60c0007827"
+      },
+      "legacyPaths": []
+    },
+    {
+      "id": "pe-comprehensive-management/setsumon3-shisaku/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "766b4ca589e00c5c54ffc291aa74e153f2995af7e6a1d714087fa23a581e1a82",
+      "bytes": 915672,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/setsumon3-shisaku/youtube.longform/cover.766b4ca5.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/pe-comprehensive-management/setsumon3-shisaku/cover-design.json#covers/longform",
+        "specSha256": "76d5a408b5d2ab543bbdf128794b3a1968c09ec2a323b649bd73116ce0ca12c7"
+      },
+      "legacyPaths": []
+    },
+    {
+      "id": "pe-comprehensive-management/sokan-goukaku-senryaku/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "9f0f708259e2ffc541e3217f7623b7f334a6fb56f5166b12f9e491b101577a02",
+      "bytes": 914684,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/sokan-goukaku-senryaku/youtube.longform/cover.9f0f7082.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/pe-comprehensive-management/sokan-goukaku-senryaku/cover-design.json#covers/longform",
+        "specSha256": "ac69e6d9cbaa6860e9dadbb175b074ce27b37779e010b33da05f20fa110d4f5e"
+      },
+      "legacyPaths": []
+    },
+    {
+      "id": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "870a0862584d5683ddde144c3b04712bbadbbd1aebaa3cfd6212665cbf707f0f",
+      "bytes": 857933,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/cover.870a0862.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-kangaekata/cover-design.json#covers/longform",
+        "specSha256": "79b0caaf1f70d3da578e51055d8111e1cb71b954a89aace9920bc1b88fe6ee8e"
+      },
+      "legacyPaths": []
+    },
+    {
+      "id": "pe-comprehensive-management/takuitsu-keyword/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "719df6f10a4ce5ec23b7660f0eb330dab4093fc1853c33af9c8eb87ce6e9f528",
+      "bytes": 683331,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/takuitsu-keyword/youtube.longform/cover.719df6f1.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/pe-comprehensive-management/takuitsu-keyword/cover-design.json#covers/longform",
+        "specSha256": "c1580d52eac1aeb279a5b6abc253dd1869c4a6abe8e0fd81393736e7e6037bc9"
+      },
+      "legacyPaths": []
+    },
+    {
+      "id": "pe-comprehensive-management/takuitsu-r07-enshu/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "5102749a7e28be7bcdab11f44f1193b9732bb6dd3205df3e7b2c7b223c9cedb4",
+      "bytes": 693353,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-comprehensive-management/takuitsu-r07-enshu/youtube.longform/cover.5102749a.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/pe-comprehensive-management/takuitsu-r07-enshu/cover-design.json#covers/longform",
+        "specSha256": "551bb7fb8ee6c6f88cffdb8996f199423c4c73b5aa03c918ed0732cfae2edfa6"
+      },
+      "legacyPaths": []
     }
   ]
 }

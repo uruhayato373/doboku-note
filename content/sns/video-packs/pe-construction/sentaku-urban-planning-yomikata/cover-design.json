@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-construction",
+      "headline": [
+        "都市計画",
+        "テーマの読み方"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-construction/sentaku-urban-planning-yomikata/youtube.longform/cover.43dc4644.png",
+        "sha256": "43dc4644d9f485d1ef3505a0c706711b61443af6947a793677512a6d20fee246",
+        "specSha256": "b39215f6d8dcdfd881dcf4e984d955e5963ae3c8a8ad0d7fe8c1d57c0e5eb0f7"
+      }
+    }
+  }
+}

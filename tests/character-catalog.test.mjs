@@ -43,3 +43,13 @@ test('重複ID・範囲外パス・未知の分類を検出する', t => {
     m => { m.poses[0].composition.placements = ['unknown']; },
   ]) assert.throws(() => readCharacterCatalog(fixture(t, change)), /不正/);
 });
+
+test('Driveの原本ディレクトリを安全なURLで読み、そこからの脱出は拒否する', t => {
+  const root = fixture(t, m => { m.poses[0].file = '_source/pop-pointing.png'; });
+  mkdirSync(join(root, original.assetsDir, '_source'), { recursive: true });
+  writeFileSync(join(root, original.assetsDir, '_source/pop-pointing.png'), 'fixture');
+  const pose = readCharacterCatalog(root).poses[0];
+  assert.equal(pose.available, true);
+  assert.equal(pose.url, '/media/sns/_assets/character/_source/pop-pointing.png');
+  assert.throws(() => readCharacterCatalog(fixture(t, m => { m.poses[0].file = '_source/../../outside.png'; })), /不正/);
+});

@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "thinking",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/career-white-kigyo/youtube.longform/cover.c3376022.png",
-        "sha256": "c3376022a48c87cafb9d81a31061fc67753d06bb7e0d67e5d2145e024aae2b73",
-        "specSha256": "e505bbf46c83a437ea1273d6104640d068bfff4ea42ae2d0a41ec4efee860f5e"
+        "path": ".tmp/media/civil-construction-1/career-white-kigyo/youtube.longform/cover.b115447e.png",
+        "sha256": "b115447e3c3927feb90f532b059969f71366b688a5e9dfa0255bfd1e765da335",
+        "specSha256": "f690e7707bd0c3f2093fe74640aeb2c4d9a01985941a1a8fa1cc6096e303d2fc"
       }
     },
     "point-step1-1": {
@@ -30,13 +35,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "thinking",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/career-white-kigyo/youtube.short.point-step1-1/cover.959a2892.png",
-        "sha256": "959a2892999226a41a353060f79bfb1622a869a6831b113a6bc6499bd9ae8660",
-        "specSha256": "bf6732995591e07d0cdc737103ca62df3c404413bf7be71927575e1e68ebff01"
+        "path": ".tmp/media/civil-construction-1/career-white-kigyo/youtube.short.point-step1-1/cover.0e6eb922.png",
+        "sha256": "0e6eb9220e192f8abfaca91714ad812a370301a23b8893baa154b8db2d42ff37",
+        "specSha256": "03c98bf36fa992e438a902aadc7cf8f1e9adc1c6361ff54297b0488b30bea164"
       }
     },
     "point-step2-2": {
@@ -50,13 +60,18 @@
       "accentLine": 2,
       "subtitle": "",
       "character": {
-        "pose": "thinking",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/career-white-kigyo/youtube.short.point-step2-2/cover.76c7e8bf.png",
-        "sha256": "76c7e8bf57414218001470f4844d66039ebdf58d3d247ccf4316ef516aa3ef4c",
-        "specSha256": "9f36436efd7dab6dd3dd5de977852f4afd27193b49df0db1111ad66eac8c77c3"
+        "path": ".tmp/media/civil-construction-1/career-white-kigyo/youtube.short.point-step2-2/cover.d9c8b171.png",
+        "sha256": "d9c8b171c13cc04695228fbdd3b7fe3005af29a5889583b12461cadba9da2101",
+        "specSha256": "05faf25b6e97b87ddfe3e464eccf53d7652339dba1907040ebbe5ceccf4d4d30"
       }
     }
   }

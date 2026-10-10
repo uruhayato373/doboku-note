@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-construction",
+      "headline": [
+        "鉄道",
+        "テーマの読み方"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-construction/sentaku-railway-yomikata/youtube.longform/cover.2f989837.png",
+        "sha256": "2f9898378d7697858c5332fc9cdd5495717203246d42f2443e1100a680527e1d",
+        "specSha256": "a2b0d12ab6e5ad84f4a5a7807f91bf389aa05cf7434ee123edd62c96587e37a6"
+      }
+    }
+  }
+}

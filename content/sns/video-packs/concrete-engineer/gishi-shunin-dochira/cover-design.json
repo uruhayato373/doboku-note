@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "thinking",
+        "pose": "pop-pointing",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "compare",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/concrete-engineer/gishi-shunin-dochira/youtube.longform/cover.86707aa2.png",
-        "sha256": "86707aa24f8e6e15ee68523fe07ba3300ac800705ebd23018c7a7a7297a9071f",
-        "specSha256": "b674e2dd98415505489b187e98ad0d52c8dabf0e0cac2720faf2932a233a8d03"
+        "path": ".tmp/media/concrete-engineer/gishi-shunin-dochira/youtube.longform/cover.6228527d.png",
+        "sha256": "6228527d14331dee79dde3ed1a5ced54afb582b91cb95a02a44ddd00a421ce4d",
+        "specSha256": "2626636fc32f8316e90e245432369b0071781f4d25c8a3f7ea4fc6e68d9bc143"
       }
     },
     "point-step1-1": {
@@ -30,13 +35,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "thinking",
+        "pose": "pop-pointing",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "compare",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/concrete-engineer/gishi-shunin-dochira/youtube.short.point-step1-1/cover.d881639c.png",
-        "sha256": "d881639cf60c3c05db37debd823cfed1ebf5346d79df4b530cb5102ca220efd1",
-        "specSha256": "bda3f9ab72e6334b9a29a2405370926b83b466b0b990b1ac0d4c1fc003b05d10"
+        "path": ".tmp/media/concrete-engineer/gishi-shunin-dochira/youtube.short.point-step1-1/cover.c26cd146.png",
+        "sha256": "c26cd14686e4af7ddeeee372bcc81ecbdd108cbacf972544e57f9594d66d27ac",
+        "specSha256": "c662524df22795b76fac40fa60b15c4aea9b674100ebc6645afaa38c42b0000f"
       }
     },
     "point-step2-2": {
@@ -49,13 +59,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "pointing",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/concrete-engineer/gishi-shunin-dochira/youtube.short.point-step2-2/cover.4467f5ff.png",
-        "sha256": "4467f5ff377083fc48aa73f37483767a866008560e73a6b29dd941fb1779456d",
-        "specSha256": "f85e26a88489b7f76bd91410de4eee8ef7480df092c28a52daf57c49f865369f"
+        "path": ".tmp/media/concrete-engineer/gishi-shunin-dochira/youtube.short.point-step2-2/cover.db09ae11.png",
+        "sha256": "db09ae1168b24f2384ab7a4b22343e4f2f07658334fed4a65adc14fcb2b95a5a",
+        "specSha256": "99b3ea82089235059ea1bb7a89f7b0a77ef37819eac0d8725e07f54bdd5b053f"
       }
     }
   }

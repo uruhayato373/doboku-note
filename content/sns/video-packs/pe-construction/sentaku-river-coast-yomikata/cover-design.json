@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-construction",
+      "headline": [
+        "河川・砂防・海岸",
+        "テーマの読み方"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-construction/sentaku-river-coast-yomikata/youtube.longform/cover.4dd88454.png",
+        "sha256": "4dd88454b119b1d98b08f1d7589f66b5cd6360991f25c69106d31f0398eda442",
+        "specSha256": "f04ef5dc101d7c0fe4fbef59bf653805cd05f32637d897f2173272e8885f67fc"
+      }
+    }
+  }
+}

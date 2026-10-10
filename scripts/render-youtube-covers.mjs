@@ -5,7 +5,13 @@ import { parseArgs } from 'node:util';
 import { renderYoutubeCover, validateCoverDesign } from './lib/youtube-cover.mjs';
 import { REPO_ROOT as root } from './lib/repository-paths.mjs';
 
-const { values } = parseArgs({ options: { spec: { type: 'string' }, key: { type: 'string' } } });
+const { values } = parseArgs({ options: { spec: { type: 'string' }, key: { type: 'string' }, all: { type: 'boolean' },
+  commit: { type: 'boolean' }, exam: { type: 'string' }, pub: { type: 'string' } } });
+if (values.all) {
+  if (values.spec || values.key) throw new Error('--all と --spec/--key は併用できません');
+  const { runPopCovers } = await import('./lib/youtube-pop-covers.mjs');
+  await runPopCovers(root, values);
+} else {
 if (!values.spec) throw new Error('Usage: node scripts/render-youtube-covers.mjs --spec <cover-design.json> [--key longform]');
 const design = validateCoverDesign(JSON.parse(readFileSync(resolve(values.spec), 'utf8')));
 const entries = Object.entries(design.covers ?? {}).filter(([key]) => !values.key || key === values.key);
@@ -23,3 +29,4 @@ for (const [key, spec] of entries) {
 }
 writeFileSync(join(out, 'manifest.json'), JSON.stringify({ source: resolve(values.spec), results }, null, 2) + '\n');
 console.log(JSON.stringify({ generated: results.length, out }, null, 2));
+}

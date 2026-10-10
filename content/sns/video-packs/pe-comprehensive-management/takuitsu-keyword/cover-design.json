@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-comprehensive",
+      "headline": [
+        "キーワード集",
+        "択一に活かす"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-comprehensive-management/takuitsu-keyword/youtube.longform/cover.719df6f1.png",
+        "sha256": "719df6f10a4ce5ec23b7660f0eb330dab4093fc1853c33af9c8eb87ce6e9f528",
+        "specSha256": "c1580d52eac1aeb279a5b6abc253dd1869c4a6abe8e0fd81393736e7e6037bc9"
+      }
+    }
+  }
+}

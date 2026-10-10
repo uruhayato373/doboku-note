@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "good-sign",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/keiken-soteikoji-katsuyo/youtube.longform/cover.cd524b0d.png",
-        "sha256": "cd524b0d9ac558805fb0df194a4eaa78831ad454bb383b96c9cfceb4d6c9139b",
-        "specSha256": "b067a58e8fa2e4550dbb9f3c3389ed59330615e010e122f8b3aa86433c8f8d6b"
+        "path": ".tmp/media/civil-construction-1/keiken-soteikoji-katsuyo/youtube.longform/cover.00fa022a.png",
+        "sha256": "00fa022a87f0a8fe575fb0718117d931bb0435b898702b5a8cf6105340b537b9",
+        "specSha256": "fdc0574e38bece50cf19dd1cb6277bb10ab5102d50736b1f90134dcaf4d77af9"
       }
     },
     "point-overview-1": {
@@ -30,13 +35,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "pointing",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/keiken-soteikoji-katsuyo/youtube.short.point-overview-1/cover.1f35916a.png",
-        "sha256": "1f35916ae2c51150b313c42ad4a95e8e1d1b4cea007746e22d27df3907ad3b04",
-        "specSha256": "817a0c47a9ba9ba6ab3a0ba725c8d2b245c075160429da4382dc7a053de0f215"
+        "path": ".tmp/media/civil-construction-1/keiken-soteikoji-katsuyo/youtube.short.point-overview-1/cover.abc92c10.png",
+        "sha256": "abc92c10c620d6f18d075094921ba8a58033ce939f2e109edcc4f1c55327f2f4",
+        "specSha256": "ab3ad7817e6c20f6c1eb0634399da92e2d87fd1e5e967de2544c24b819ea08d4"
       }
     },
     "point-step1-2": {
@@ -50,13 +60,18 @@
       "accentLine": 2,
       "subtitle": "",
       "character": {
-        "pose": "good-sign",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/keiken-soteikoji-katsuyo/youtube.short.point-step1-2/cover.6074206f.png",
-        "sha256": "6074206fc014cf4eae3e9984267a2ece71579e5d12e50689e6b23691b31e8973",
-        "specSha256": "ce4344069e36e56a9e54f889c663f0c8efe89f18bdda6b162c6c8210bae00dc2"
+        "path": ".tmp/media/civil-construction-1/keiken-soteikoji-katsuyo/youtube.short.point-step1-2/cover.b7e8553b.png",
+        "sha256": "b7e8553b06af111fe07eadb1547467045d63f9ae058220707b9ff9255239c4b3",
+        "specSha256": "9c2d3df9c154389c0a64a74574541d5b6dd9de7fd38a918732c916ccc32c94c9"
       }
     }
   }

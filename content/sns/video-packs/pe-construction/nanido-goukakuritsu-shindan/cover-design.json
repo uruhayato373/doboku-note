@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-construction",
+      "headline": [
+        "二次試験の難度",
+        "合格率をどう読む"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-construction/nanido-goukakuritsu-shindan/youtube.longform/cover.6c517b09.png",
+        "sha256": "6c517b09c5110f80f86fa18e01489c867ab541fe8c8b480a7069e5fd036f096d",
+        "specSha256": "3e1d4916d113e5f0f3c234171db9faf18a2d4121c6aae1454f2e5c40ebf99dd7"
+      }
+    }
+  }
+}

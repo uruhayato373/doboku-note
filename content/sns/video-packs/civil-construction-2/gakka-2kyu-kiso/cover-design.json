@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "wave",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-2/gakka-2kyu-kiso/youtube.longform/cover.2249a606.png",
-        "sha256": "2249a6060a498f1f12c7c05bb950ed106389ae0568b0a7fc1335c8644c9beeed",
-        "specSha256": "f1e996eeb59870ed79d70aa2df3d8792dace7d25438671e6dd8e7f5e5047e909"
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-kiso/youtube.longform/cover.9c90a8bb.png",
+        "sha256": "9c90a8bbbb9cb959245844457666e8e6ede37b2de90ba6bd9045b3c38c5e0907",
+        "specSha256": "f57d9125d031226aa0526df2007fa6c2e2b287a71fb821d30e14c79f75a8a6ed"
       }
     },
     "point-overview-1": {
@@ -30,13 +35,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "wave",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-2/gakka-2kyu-kiso/youtube.short.point-overview-1/cover.3617b842.png",
-        "sha256": "3617b84224a9a68736e9f59ac92ec14afcd1351af59f2e29aba944df34bab421",
-        "specSha256": "764098afffe31bdd2e8051cb51a48723d0a9a25f3a136977611608032d5a3a81"
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-kiso/youtube.short.point-overview-1/cover.f22fd014.png",
+        "sha256": "f22fd01431734185fd3f082f8c725be23fd66b00edacccfa583126c98b77838d",
+        "specSha256": "c3061a8f4582b0ba723f9f5e2a10c3f34230b23b6e948c2af76cc3e713bcd699"
       }
     },
     "point-block1-2": {
@@ -49,13 +59,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "wave",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-2/gakka-2kyu-kiso/youtube.short.point-block1-2/cover.ae04ca34.png",
-        "sha256": "ae04ca341cedb47a829c860c5ee4603b5192124311a53275c1a575322d9c28a4",
-        "specSha256": "659c7e3132487ba53c822f7088156a20ac1734a0e62a88432c65cd9cedf834a8"
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-kiso/youtube.short.point-block1-2/cover.ea0d19dc.png",
+        "sha256": "ea0d19dc7f97a0c9e2139f62101f7a934ace256a282bc89228da43fdbf1ac2f6",
+        "specSha256": "c46a0a40f6029d3e207548ef85f023cdd41be03d89e7539143e7d9a60eb3e526"
       }
     }
   }

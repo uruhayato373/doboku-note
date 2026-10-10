@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "reading",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/youtube.longform/cover.518811c5.png",
-        "sha256": "518811c502245c639355f9b5d7a534955ccebf678862638249fc03acdc4f0ed7",
-        "specSha256": "d1236be7aa95b7e221f4080a33a772cac495a597454470525801ab366dc1bfee"
+        "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/youtube.longform/cover.eab57eb5.png",
+        "sha256": "eab57eb530159e15f0870153c407ecf5a60dd3e029d0b8356a145ff6a66f5cff",
+        "specSha256": "507c43aa17217beac8c6b1d318d645cb560926355f575a947edce08687caf020"
       }
     },
     "point-overview-1": {
@@ -30,13 +35,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/youtube.short.point-overview-1/cover.81dfb5b0.png",
-        "sha256": "81dfb5b0e2570c3173cebf744d2de0d29d1b9b26c31acf12d37d8fc1e08b1d8e",
-        "specSha256": "d044ac6a1c8c6151dbe7a2428add4eaf2ff5df1171644b0206c31c19fcef97ab"
+        "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/youtube.short.point-overview-1/cover.6848b762.png",
+        "sha256": "6848b76208ba8b1db373660afce7cbdc9e83a0a3767c7afaa4ce0538fc0d68f1",
+        "specSha256": "fb2a23bd8868aac9d8d426998c5f9d9874955e39a763e9f6f7777b148d84a2a8"
       }
     },
     "point-four-tiers-2": {
@@ -49,13 +59,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "pointing",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/youtube.short.point-four-tiers-2/cover.2e17f17a.png",
-        "sha256": "2e17f17a3d92b98627117010d4f6b9b3ff440724526ef4764223abcca5a13b05",
-        "specSha256": "3228afe2a6e2a0223b0976f05bb869fd7cbb9591f87c19eb7ebacfa3544f367b"
+        "path": ".tmp/media/concrete-chief-engineer/shunin-r8-juuten/youtube.short.point-four-tiers-2/cover.e228a747.png",
+        "sha256": "e228a747c0349c4c603118c69dd93bb5e44daba9258f975bec05c50384815b89",
+        "specSha256": "e0b5d98b23cfd00cbe6375af0b72dfa19962489a02a247a447894bcae69aefbc"
       }
     }
   }

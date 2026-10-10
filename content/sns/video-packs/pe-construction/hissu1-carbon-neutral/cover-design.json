@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-construction",
+      "headline": [
+        "脱炭素とGX",
+        "答案の切り口は？"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-construction/hissu1-carbon-neutral/youtube.longform/cover.6027c39f.png",
+        "sha256": "6027c39fb774d93b23bc95ad4d4b3551d592ab8c5ed21bfa5fb12ac6d1d137d8",
+        "specSha256": "b25ada1de464ccf38c00ed04b478c98362bc121091da3baca37850f24fad70ab"
+      }
+    }
+  }
+}

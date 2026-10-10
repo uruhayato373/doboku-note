@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-comprehensive",
+      "headline": [
+        "国家施策",
+        "答案に出てくる？"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-comprehensive-management/setsumon3-shisaku/youtube.longform/cover.766b4ca5.png",
+        "sha256": "766b4ca589e00c5c54ffc291aa74e153f2995af7e6a1d714087fa23a581e1a82",
+        "specSha256": "76d5a408b5d2ab543bbdf128794b3a1968c09ec2a323b649bd73116ce0ca12c7"
+      }
+    }
+  }
+}

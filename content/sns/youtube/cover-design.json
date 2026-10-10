@@ -24,13 +24,18 @@
       "accentLine": 2,
       "subtitle": "令和３年度 択一",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-pointing",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "compare",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/pe-comprehensive-management/cem-r03-p01-q2/youtube.short/cover.55b3e634.png",
-        "sha256": "55b3e634e3e118d076397f5ac894dd04be9e22f322a88c380ccc2ded1f2d0f46",
-        "specSha256": "16dbd359b32ba24deaf38cc09ff48978960052a2b4679cc659090f1323792116"
+        "path": ".tmp/media/pe-comprehensive-management/cem-r03-p01-q2/youtube.short/cover.51838bb9.png",
+        "sha256": "51838bb98f66a6b2862fdab0cc241d9aac087f5282b4afc6f9c8b2d4306b4020",
+        "specSha256": "3601e5a707c3cead795c4e5de1bba58b8d1c8f5325578e28146a2410abfa0f28"
       }
     },
     "r03-quality": {
@@ -43,13 +48,18 @@
       "accentLine": 1,
       "subtitle": "令和３年度 択一",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/pe-comprehensive-management/cem-r03-p01-q3/youtube.short/cover.47d3ef5b.png",
-        "sha256": "47d3ef5be48d169702710772e46e08dacb4ee48274689dc0143ac21a3e788e1f",
-        "specSha256": "2b86fd4a3cbfe25970ef6f0c0e9c037de170908899dc0bd64cdea384d335c476"
+        "path": ".tmp/media/pe-comprehensive-management/cem-r03-p01-q3/youtube.short/cover.fc8f3858.png",
+        "sha256": "fc8f38589f4663987e0c6b4672ec9fa2c6608f308a58d71a738d800944ce27ea",
+        "specSha256": "b1ba446a9e6dd63125226840fbd72132cb75b02ed4fb7a510aedb168ee30596e"
       }
     },
     "r03-critical-path": {
@@ -62,13 +72,18 @@
       "accentLine": 1,
       "subtitle": "令和３年度 択一｜CP短縮計算",
       "character": {
-        "pose": "thinking",
+        "pose": "pop-pointing",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "question",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/pe-comprehensive-management/cem-r03-p01-q4/youtube.short/cover.a6f54a4f.png",
-        "sha256": "a6f54a4fb54abafd24cc0b5f8ac02f3e5575ce0ed5e11fc1d29858f02284d7d4",
-        "specSha256": "703ce37a86f2162c4cf2d2f0e21489f2d86374cd119eb1e1b2c08abd4b26e92a"
+        "path": ".tmp/media/pe-comprehensive-management/cem-r03-p01-q4/youtube.short/cover.2a9d5406.png",
+        "sha256": "2a9d5406d49fe4baf5098c65a5dad677e43877b69c39507ae73eabd7015bac41",
+        "specSha256": "ca68f2fc15d80dfb4a9f8327dcc1ff5d8d365e384804a0d9f9fe4ca7cf365476"
       }
     },
     "r03-decoupling": {
@@ -81,13 +96,18 @@
       "accentLine": 1,
       "subtitle": "令和３年度 択一",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/pe-comprehensive-management/cem-r03-p02-q1/youtube.short/cover.774929da.png",
-        "sha256": "774929da60548362a5ff21851c244b297877d09683d371794030c8a228914e6b",
-        "specSha256": "a2a5b174994c38cecc426c7b5a88d836b370e656b21c413b81532fa5cc0827cd"
+        "path": ".tmp/media/pe-comprehensive-management/cem-r03-p02-q1/youtube.short/cover.798792c0.png",
+        "sha256": "798792c046c3790e79f29f854fd8912c95752bb437eeb21a05202d9badf7517b",
+        "specSha256": "7c63a11a97ddad3ce252453e59076b70152397c92fd966cde21aacfe00ba554a"
       }
     },
     "r03-break-even": {
@@ -100,13 +120,18 @@
       "accentLine": 1,
       "subtitle": "令和３年度 択一｜計算の要点",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/pe-comprehensive-management/cem-r03-p02-q2/youtube.short/cover.1fe3c263.png",
-        "sha256": "1fe3c2639aa57ef885600a68c7313623a81c009b7fcf196241183a797fdcdec4",
-        "specSha256": "2e0017447b68452d3e9828c4a6386782faf183fd1f3761ee29481620ab35d833"
+        "path": ".tmp/media/pe-comprehensive-management/cem-r03-p02-q2/youtube.short/cover.f275492f.png",
+        "sha256": "f275492f9c6dc905816635e85dfafdbc8f2423428c9a32a2961212f460c007c2",
+        "specSha256": "6a0c84639481e1226e18499831fd9108f4ab63f00df71c152cebe0a4227c9d17"
       }
     },
     "r03-cash-flow": {
@@ -119,13 +144,18 @@
       "accentLine": 1,
       "subtitle": "令和３年度 択一",
       "character": {
-        "pose": "thinking",
+        "pose": "pop-pointing",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "question",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/pe-comprehensive-management/cem-r03-p02-q3/youtube.short/cover.f399646b.png",
-        "sha256": "f399646b205265c8e549f7301ca6341f41c1cea2bf30af38d4fef98ceba461a5",
-        "specSha256": "4a4331a1cb87fbc0e9f3027b4feb38eb878bde23ec1d67e9256b062d4850894a"
+        "path": ".tmp/media/pe-comprehensive-management/cem-r03-p02-q3/youtube.short/cover.97a8b686.png",
+        "sha256": "97a8b686ebf26d6008d1c54b9dcb17c4465194205935cc7c0dcdbf0334b2a939",
+        "specSha256": "b56335f966b004245f1df72ba95edc86586515cfbce3876ab4a738c6259a152d"
       }
     },
     "r03-maintenance": {
@@ -138,13 +168,18 @@
       "accentLine": 1,
       "subtitle": "令和３年度 択一",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/pe-comprehensive-management/cem-r03-p02-q4/youtube.short/cover.c7e81011.png",
-        "sha256": "c7e81011e861e695def837e1393816efcabe930816090ab0bdfb5aa7fb90609f",
-        "specSha256": "e0216e405afa5e59c07a3250a626ed9fbfd511f67478adecd65d27d853d0a051"
+        "path": ".tmp/media/pe-comprehensive-management/cem-r03-p02-q4/youtube.short/cover.65993546.png",
+        "sha256": "659935465e083b5eb2f3f064527d9a713e8773e17eef1e4201af95949fb4c4d2",
+        "specSha256": "6c57c037d5179716dc4035872d037fc535f6bdbaa2fae36bf2644f743932d692"
       }
     },
     "r07-quality": {
@@ -157,13 +192,18 @@
       "accentLine": 1,
       "subtitle": "令和７年度 択一",
       "character": {
-        "pose": "thinking",
+        "pose": "pop-pointing",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "compare",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/pe-comprehensive-management/cem-r07-p01-q1/youtube.short/cover.b8bb681a.png",
-        "sha256": "b8bb681ac6f35bb350cdf3c6e373091ec5d545ee5077c653ab27e7e0241fa48f",
-        "specSha256": "a7038a996c4ac98e950730ea19af89d4c3d144368500327ee5ab96d024bbe934"
+        "path": ".tmp/media/pe-comprehensive-management/cem-r07-p01-q1/youtube.short/cover.e44cd185.png",
+        "sha256": "e44cd18571a8d449a0ab40eb2be1076fe58d1376d09f3ffc701496d86cd184b3",
+        "specSha256": "ba2268133726f0acceeae33e76cae34ebb65c326339a8c3d55b3b82d96519920"
       }
     },
     "multisource-evaluation": {
@@ -176,13 +216,18 @@
       "accentLine": 1,
       "subtitle": "総監キーワード",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/pe-comprehensive-management/cem-kw-multisource-evaluation/youtube.short/cover.15028496.png",
-        "sha256": "15028496cadce93958fd1bf963999cad470249ca28daeb03eb8b7602858e6d0c",
-        "specSha256": "a6daa612e92b4c05f4bca1fc96f61b9e0850c913899def81c8cfaf90676f77c8"
+        "path": ".tmp/media/pe-comprehensive-management/cem-kw-multisource-evaluation/youtube.short/cover.adb2d540.png",
+        "sha256": "adb2d54007823e5cd92e6cb494f5a1f51f32f76b71f717f6e5194b00f999a1fe",
+        "specSha256": "732749a17a8ef1d1785f547c626ae9f13422ddd20208abe8320ceaae4c6b4f4c"
       }
     },
     "access-control": {
@@ -195,13 +240,18 @@
       "accentLine": 1,
       "subtitle": "総監キーワード",
       "character": {
-        "pose": "pc-work",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.7c0acae1.png",
-        "sha256": "7c0acae1b04144ee2f348e33619be509975870961449f25f9c3a6e4f95d868cb",
-        "specSha256": "071c0bdc87e3acb2dab20af110ba95eed314d6002892236dbb43252332ec42f6"
+        "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.406eae75.png",
+        "sha256": "406eae75637cef2b81a034bac3c8242225eb477d7fa09e00e9e942dff9420859",
+        "specSha256": "9357cda5f93fc1889e9153667be6a19e952aa3fc5d1aebc80178ec107443a957"
       }
     }
   }

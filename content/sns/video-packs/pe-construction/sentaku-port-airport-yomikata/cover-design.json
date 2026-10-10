@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-construction",
+      "headline": [
+        "港湾・空港",
+        "テーマの読み方"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-construction/sentaku-port-airport-yomikata/youtube.longform/cover.db897571.png",
+        "sha256": "db897571563a9483d9ffe5ccfcfaebe851c92a15b194847cdc6e01efec3dfd77",
+        "specSha256": "baec3560a95dd9ad8a0ee71a3e49781fd6826fbbd3fb1d0442f41199d1d1b727"
+      }
+    }
+  }
+}

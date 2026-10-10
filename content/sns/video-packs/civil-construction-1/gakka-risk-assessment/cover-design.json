@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "pointing",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/gakka-risk-assessment/youtube.longform/cover.653de122.png",
-        "sha256": "653de1220bb827bf0fc2b1d581fd31712bd6b4505bc462ec845e405bf78487cf",
-        "specSha256": "082740cb07309a0db1ca979178b6a9977decb4cae9365df85a02a3525a9143d1"
+        "path": ".tmp/media/civil-construction-1/gakka-risk-assessment/youtube.longform/cover.1054378f.png",
+        "sha256": "1054378fbe953165e504be28805890868117e076c713cd374229dd406d41c747",
+        "specSha256": "1f406416a7c6d638d57e15ce88684f499cd2859fe85dbc8661119a364a60cb4b"
       }
     },
     "point-step1-1": {
@@ -30,13 +35,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "pointing",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/gakka-risk-assessment/youtube.short.point-step1-1/cover.4487d719.png",
-        "sha256": "4487d719a55785209868db089a91481ca253fda1b00cb09d84c030d4f38f9965",
-        "specSha256": "0004681cd18b03a015a7fbdda70cd199cf34b3f450db3c28185935581cda04be"
+        "path": ".tmp/media/civil-construction-1/gakka-risk-assessment/youtube.short.point-step1-1/cover.c950b445.png",
+        "sha256": "c950b4457cdcb49f5d4e37f08e60af622c4a2b65d21b606b10fbeba45989af18",
+        "specSha256": "fd3cae0e7fb7946cd59b296fa94e3b4135bfda1145173e7ff680b9dc2c241ab2"
       }
     },
     "point-step2-2": {
@@ -49,13 +59,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "pointing",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/gakka-risk-assessment/youtube.short.point-step2-2/cover.e860336f.png",
-        "sha256": "e860336ff697dc7061e336bb8413bdd5ae2daa167337b9336e38bd27bd348c95",
-        "specSha256": "a6cdfeb6db9e22dae02a0286eccdf9d11fc4a43a0cb0adf933761fe8e11d106d"
+        "path": ".tmp/media/civil-construction-1/gakka-risk-assessment/youtube.short.point-step2-2/cover.40801765.png",
+        "sha256": "40801765985d16ece7060666f7b7346e95bc27de0e3d4aaba26dbbfbdfd0dd6f",
+        "specSha256": "e1d2c7980e4a26464b2752be643c776fc43f6130ad61e2339c06a87745112562"
       }
     }
   }

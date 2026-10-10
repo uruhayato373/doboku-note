@@ -105,6 +105,8 @@ test('見出しを編集可能な2〜3行で保持し、長文縮小を拒否す
   assert.throws(() => validateCoverSpec({ ...spec, headline: ['この見出しは長すぎて収まりません', '短くする'] }));
   assert.throws(() => validateCoverSpec({ ...spec, format: '__proto__' }));
   assert.throws(() => validateCoverSpec({ ...spec, exam: '__proto__' }));
+  assert.throws(() => validateCoverSpec({ ...spec, headline: ['必須Ⅰのテーマ', '論点を整理'] }), /字形/);
+  assert.deepEqual(validateCoverSpec({ ...spec, headline: ['必須Iのテーマ', '論点を整理'] }), COVER_FORMATS.longform);
   assert.throws(() => validateCoverSpec({ ...spec, accentLine: 3 }));
   const design = { schemaVersion: 1, covers: { longform: spec } };
   assert.equal(validateCoverDesign(design, { exam: 'civil-1' }), design);

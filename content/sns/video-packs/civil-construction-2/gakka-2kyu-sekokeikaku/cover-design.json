@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "pointing",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-2/gakka-2kyu-sekokeikaku/youtube.longform/cover.0f8b7831.png",
-        "sha256": "0f8b78317f2bd622ca9227695dd8b0ee1e9bb27b00d799af6f6ced64b9c668d0",
-        "specSha256": "7f7a6054b6dff6406fc18179a49d659650b823f023077be5997b5a5016d98a83"
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-sekokeikaku/youtube.longform/cover.dcb31d25.png",
+        "sha256": "dcb31d25ee15e64d1be7f1972cb611ce7b4ff3ea132abd3b79112d554a44ae6b",
+        "specSha256": "abb224ead30005d1e04794387cc7198292f01b01178c268ba7cc4ca087f1ca5f"
       }
     },
     "point-overview-1": {
@@ -30,13 +35,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "pointing",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-2/gakka-2kyu-sekokeikaku/youtube.short.point-overview-1/cover.2276f92d.png",
-        "sha256": "2276f92d50e25e16787f9118a11f6d73e89198fec46bd6e25cc68d9dc272f153",
-        "specSha256": "c70a6304ed9ec50e469801baf9ddd5b9c0f879bd2fdf3e452e8d704e56213213"
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-sekokeikaku/youtube.short.point-overview-1/cover.322303f8.png",
+        "sha256": "322303f80f8a0d51db48f5eb533486fec95b62a88e3a82788dc626e8fca637de",
+        "specSha256": "e7f2b2c9f61cd26226803e9cceb498e073f321561595cd3e945c55cfb4baf9eb"
       }
     },
     "point-block1-2": {
@@ -49,13 +59,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-2/gakka-2kyu-sekokeikaku/youtube.short.point-block1-2/cover.30f60ef2.png",
-        "sha256": "30f60ef2b85bdb4b463bcbcb8957da7fd3e5eb973553844604bec1943e3acf41",
-        "specSha256": "3e53c2bd150bd16b4fb24ae6433ef3016c01eb1698c4d5fe49b6a9bd632ac327"
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-sekokeikaku/youtube.short.point-block1-2/cover.332fa55f.png",
+        "sha256": "332fa55fc90869ad91905f97d2bae9327f9d95402f89d0b31087052527d15ba1",
+        "specSha256": "4d069cb33cf99cd6734822ce701e6f9f05aa1d7f61a5c28cec23d28521912e41"
       }
     }
   }

@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "thinking",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/keiken-dokugaku-genkai/youtube.longform/cover.5623d9e1.png",
-        "sha256": "5623d9e13e28d42fddaa9b39df356bc99bbf52ab8d4bb795172ca24585e182dd",
-        "specSha256": "95df3f9225c59e92384d9d5fe344cbd704edfc24e9e81a8e6450d351d367ad68"
+        "path": ".tmp/media/civil-construction-1/keiken-dokugaku-genkai/youtube.longform/cover.57fd869a.png",
+        "sha256": "57fd869abc645f6e2030d7580a120d0dde7f1b5d85a9c4212502c3c77f9738cc",
+        "specSha256": "ba9b91d013739cab8d2791bbaeeb21c011992256649f01ba7f81155f4048d3d8"
       }
     },
     "point-layer-overview-1": {
@@ -30,13 +35,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/keiken-dokugaku-genkai/youtube.short.point-layer-overview-1/cover.f749d22a.png",
-        "sha256": "f749d22ade098b963c6b1cefad89eaa6abc69ce6314cfe62e4319bec7ca372eb",
-        "specSha256": "b88f1dc67b1d02c85cde22fbb8d997324067f794f6d40f8541f91a1196552fb5"
+        "path": ".tmp/media/civil-construction-1/keiken-dokugaku-genkai/youtube.short.point-layer-overview-1/cover.33cbdff5.png",
+        "sha256": "33cbdff571e3f24fdcbc1a9f13c35b36c3aa53b218636dd2945bb751f70fe910",
+        "specSha256": "a7457b4fa2bf6e7563f014319710bda69b2410d5654674d034d8f3b187e6b54b"
       }
     },
     "point-layer-format-2": {
@@ -49,13 +59,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/keiken-dokugaku-genkai/youtube.short.point-layer-format-2/cover.be7d73cf.png",
-        "sha256": "be7d73cfe5d23ac29801e0ca2aaa99d1ddd6b95b81211f5e4c050e6b4e4b9f0f",
-        "specSha256": "e321e745537e4f55deaf99d7ec3d343c177f68014b0e2271bfea97810ca14b0b"
+        "path": ".tmp/media/civil-construction-1/keiken-dokugaku-genkai/youtube.short.point-layer-format-2/cover.a8ad50a9.png",
+        "sha256": "a8ad50a9a443c20b4d9a8496976487b373d4299af12e65ab80747927d1ca43fb",
+        "specSha256": "0084646161c01632af80d9aef314f2dca48b1f47f1d4a0119e454b305e3f9b84"
       }
     }
   }

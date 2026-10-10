@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "thinking",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-2/keiken-koji-ga-nai/youtube.longform/cover.e684d02b.png",
-        "sha256": "e684d02b79c5cf019a16038d6f4ad39525f780ca8d9435c16cafad7b323a92ef",
-        "specSha256": "512a1a4892b2c863d311ee0288ec04e1bd1af536d2dca207e870f04c167748c6"
+        "path": ".tmp/media/civil-construction-2/keiken-koji-ga-nai/youtube.longform/cover.63028769.png",
+        "sha256": "630287699bee9bf9b7a8d17be1d6226584acd3ea3a7712811b2dda021c20bf93",
+        "specSha256": "018a2dfb0d1f02f784f26d3f255a85353d3e24c6b3076a76a8fb53208ea35b0f"
       }
     },
     "point-taisho-1": {
@@ -30,13 +35,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-2/keiken-koji-ga-nai/youtube.short.point-taisho-1/cover.bdae0b66.png",
-        "sha256": "bdae0b6624e8fc63ab0d7f149485b81d99cf6d524ef3783f6d999cdf6a218bbf",
-        "specSha256": "8bd24ba1c786d80ee8442db2aa0a231891dccff6d331293b39f5af6d50118bb6"
+        "path": ".tmp/media/civil-construction-2/keiken-koji-ga-nai/youtube.short.point-taisho-1/cover.05859337.png",
+        "sha256": "058593374bbe99a88301ba184886751d3c219265486445fbf874ed9922ea7d6c",
+        "specSha256": "de29e4e4aa50a95cd727e950d4dbb662704ffc8789e6e3b9ac22087b844e68d4"
       }
     },
     "point-taishogai-2": {
@@ -49,13 +59,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-2/keiken-koji-ga-nai/youtube.short.point-taishogai-2/cover.d05551ec.png",
-        "sha256": "d05551ecf3d5174a7a2b5afb540b48c767a8ae2839d01f31d7f06f408c4a837f",
-        "specSha256": "d4126350b9cb79909b7354563f4ce44d4a34888d81152b148194df5bf9a81e4f"
+        "path": ".tmp/media/civil-construction-2/keiken-koji-ga-nai/youtube.short.point-taishogai-2/cover.af28f6ee.png",
+        "sha256": "af28f6ee7c2b2ce71082bde9cac9290c99a0d0676628ee44ee2f74d4ade59d3c",
+        "specSha256": "1d3c45d0ad5f4eab16220e55dc47f96f1f0aa92cef89211c6bb59bb3c1e7c45d"
       }
     }
   }

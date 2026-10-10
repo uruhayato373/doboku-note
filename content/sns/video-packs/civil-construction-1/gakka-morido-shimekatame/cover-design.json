@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/gakka-morido-shimekatame/youtube.longform/cover.1f97dfb2.png",
-        "sha256": "1f97dfb220ec1f2df1d06b2b836c865baf5951efbfb3c7248439afe69e16835a",
-        "specSha256": "36e5ef1da24f40d2c496c25fe1257437af63b79ee330e94f245ab68bb807cf9d"
+        "path": ".tmp/media/civil-construction-1/gakka-morido-shimekatame/youtube.longform/cover.4cf8c065.png",
+        "sha256": "4cf8c06534d55dbbd00bf829d03329373b0abf87cf8b9cb1276ebca0a7494dda",
+        "specSha256": "42411b4f786774b0c1240d9a4c445f02baf9b94a8eb6f395be3eab807b6ef59f"
       }
     },
     "point-overview-1": {
@@ -30,13 +35,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "wave",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/gakka-morido-shimekatame/youtube.short.point-overview-1/cover.f31be357.png",
-        "sha256": "f31be357d87daf58e80efdc49eda2a9d6bb6cef2a3235a749aef42eb12f222f1",
-        "specSha256": "c0d3d7f4bc3031335e65996e0b95ad531248b71d63ed8717aced2fb4bff1535f"
+        "path": ".tmp/media/civil-construction-1/gakka-morido-shimekatame/youtube.short.point-overview-1/cover.72c57512.png",
+        "sha256": "72c5751212a2cceceeede8d5ce0016a9684d37c4b5fc1d50f8063fe75dbae8de",
+        "specSha256": "0d38cdc4e9ed5d9961348ca8c140009029cd30f4395305a233485542fd150abd"
       }
     },
     "point-step1-2": {
@@ -49,13 +59,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/gakka-morido-shimekatame/youtube.short.point-step1-2/cover.1908ebe6.png",
-        "sha256": "1908ebe663cec2943867195787059479af50f32f6fe4a196d6982ccf481ceccc",
-        "specSha256": "23a63679383b56bfb9bbf10836a1c1cb3d4245f60fb6ff12f8cb8bfc0625ec8d"
+        "path": ".tmp/media/civil-construction-1/gakka-morido-shimekatame/youtube.short.point-step1-2/cover.bac86ea0.png",
+        "sha256": "bac86ea04e37c46ddc2233774be07216e602d10e1a047e30900d56142f0d1bf1",
+        "specSha256": "009157a74daaf6e9130a43225bc3f43326f4ad7af8730f9cb28e57b81ee26881"
       }
     }
   }

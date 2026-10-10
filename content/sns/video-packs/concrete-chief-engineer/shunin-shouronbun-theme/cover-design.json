@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "thinking",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-theme/youtube.longform/cover.2a42fafb.png",
-        "sha256": "2a42fafb8ed401e5157010c879d487979d337f920392503724c3db925429fffc",
-        "specSha256": "7f793c19a6cf525580026aa5643db51bc8c4e692ff463e2f3290d251d1cf16f2"
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-theme/youtube.longform/cover.62f46452.png",
+        "sha256": "62f46452d1bc965a099c79f1d96793553c9b135453ab6639533eb8eab71421db",
+        "specSha256": "74702f58a78cf67ff0667752ea81640b7365313b83efac63f61073b45fdf3b93"
       }
     },
     "point-nendo-1": {
@@ -30,13 +35,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "reading",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-theme/youtube.short.point-nendo-1/cover.5cd6529f.png",
-        "sha256": "5cd6529f9a9f44686fae32122ecb9e9ed7711ea19e877b32bb0f890eeeaa2d7c",
-        "specSha256": "f8ed0caaab112365e9b578a21833d5bb1857ca3657314bd1fce9b6cde5222d1e"
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-theme/youtube.short.point-nendo-1/cover.af7f2b8b.png",
+        "sha256": "af7f2b8b5296413d2b77b5bbaeed10a966971c1cc098f065180859cb5dbaadba",
+        "specSha256": "6d5ca2cabc2b337042f6feefa65d9e551f7f59aa448594283485ab3962d391a8"
       }
     },
     "point-ryouiki-2": {
@@ -49,13 +59,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-theme/youtube.short.point-ryouiki-2/cover.520129f9.png",
-        "sha256": "520129f911049a6ab9714a7c328a94edb4b9a28225622547a6444235271eb79b",
-        "specSha256": "9725c15e344844c31caba22a97aad0a47b6fb46c058e48da011c7b48ac340eb9"
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shouronbun-theme/youtube.short.point-ryouiki-2/cover.55e56d96.png",
+        "sha256": "55e56d96775cfc67f6361e64b46aa7cb666a4292182675a5c8ed2dc3e4cca878",
+        "specSha256": "859896043603b13e6d750024e17a0446b11e7551ff44c387646469be88b1208e"
       }
     }
   }

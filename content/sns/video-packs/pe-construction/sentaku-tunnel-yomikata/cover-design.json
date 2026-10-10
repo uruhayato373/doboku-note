@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-construction",
+      "headline": [
+        "トンネル",
+        "テーマの読み方"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-construction/sentaku-tunnel-yomikata/youtube.longform/cover.232cab59.png",
+        "sha256": "232cab59134a9242c9c1dd31fd4d28c0d1de14116a661c6788ebd09c1f7a25b7",
+        "specSha256": "57cf0eda76471bc4fd3e4381873cbc058f4ee75bb9009326c346d9255c702c0b"
+      }
+    }
+  }
+}

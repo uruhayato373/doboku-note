@@ -287,6 +287,7 @@
     "render-longform": "node scripts/render-longform.mjs",
     "render-longform:approved": "node scripts/render-approved-longforms.mjs",
     "build-video-compilation": "node scripts/build-video-compilation.mjs",
+    "youtube-covers": "node scripts/render-youtube-covers.mjs",
     "brand-video-pack": "node scripts/brand-video-pack.mjs",
     "registry": "node scripts/registry.mjs",
     "registry-reconcile": "node scripts/registry-reconcile.mjs",

@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "reading",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/concrete-engineer/gishi-jukenshikaku-2026/youtube.longform/cover.a420469d.png",
-        "sha256": "a420469d83ecfcaa64a4cfc465a935837e82d67b1d5b246d86ac80b7e07bb143",
-        "specSha256": "eb840030cc8e01f07a6e9c0e1ad62c28c2e92773eaa73b080066e0a9784cf496"
+        "path": ".tmp/media/concrete-engineer/gishi-jukenshikaku-2026/youtube.longform/cover.e51748ff.png",
+        "sha256": "e51748ffb754526ee8de40c21ef66ced77f6e7fc851eb3e751336d09652b7559",
+        "specSha256": "941d8eea79e8457d3e79a7dcdd75c8cea0a11c7d10d59a07cc5be48448a3f407"
       }
     },
     "point-step1-1": {
@@ -30,13 +35,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "reading",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/concrete-engineer/gishi-jukenshikaku-2026/youtube.short.point-step1-1/cover.99fd45b2.png",
-        "sha256": "99fd45b257e0c173dc7096dc8902ba74e264f3a9d5504e31abb2db0195c53e4e",
-        "specSha256": "01e6545b9cf3b19053902bddab7733f1b9ee709eb68d07ac58383cfd73f86a3a"
+        "path": ".tmp/media/concrete-engineer/gishi-jukenshikaku-2026/youtube.short.point-step1-1/cover.e2653fd9.png",
+        "sha256": "e2653fd9d8fac6809b7509074ae8f1395da660689ab06bd25bc7852376084634",
+        "specSha256": "0ce3aebc3b23755682a6fd9e6a747b26e07ef174a865b0d9bb66ea8eb0d4149c"
       }
     },
     "point-step2-2": {
@@ -49,13 +59,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "reading",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/concrete-engineer/gishi-jukenshikaku-2026/youtube.short.point-step2-2/cover.27b753b5.png",
-        "sha256": "27b753b5f6fec7029f2fc4e099fe2a1bf7fe69a37dec3409741e15f7171cc6a3",
-        "specSha256": "557a6cbf0c36ac6ab12381187d3c18db6754418d9c0c825a8f5d2bb93feb1610"
+        "path": ".tmp/media/concrete-engineer/gishi-jukenshikaku-2026/youtube.short.point-step2-2/cover.b568d2d9.png",
+        "sha256": "b568d2d987666839ca00f09ddb92acf958e2470350b9096e7f185a6e8b75a92f",
+        "specSha256": "78318ec779caaa7139fa7cc933e3bf1ced9601947b742b6f941a5acf98766964"
       }
     }
   }

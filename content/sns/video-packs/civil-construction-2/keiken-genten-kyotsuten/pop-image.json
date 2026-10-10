@@ -1,0 +1,185 @@
+{
+  "policy": ".claude/knowledge/reference/pop-image-policy.md",
+  "designVersion": "pop-20260927",
+  "channel": "youtube",
+  "source": "content/sns/video-packs/civil-construction-2/keiken-genten-kyotsuten",
+  "outputs": {
+    "longform": {
+      "publicationId": "civil-construction-2/keiken-genten-kyotsuten/youtube.longform",
+      "copy": {
+        "exam": "civil-2",
+        "headline": [
+          "経験記述の減点",
+          "共通点を知る"
+        ],
+        "benefit": "",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/video-packs/civil-construction-2/keiken-genten-kyotsuten/cover-design.json#covers/longform",
+        "content/sns/video-packs/civil-construction-2/keiken-genten-kyotsuten/youtube.json#longform"
+      ],
+      "references": [
+        {
+          "path": ".tmp/video-render/pop-matome-2kyu-20261010/thumbnail-palm-v1.png",
+          "sha256": "8fd0987d6c7b7ad74645dbfa1971f42f3128e47ed4645c9d93048a579b6542cb"
+        },
+        {
+          "path": "content/sns/_assets/character/_source/pop-red-pen.png",
+          "sha256": "ed9d70558688350c8b8005b94fe14d1f6021efdc69d2288ff58f3e6394e23284"
+        }
+      ],
+      "prompt": "参照画像の右側の先生キャラクターを正確に継承した、動画表紙に組み込む人物だけの高解像度PNG素材を制作してください。白い無地のヘルメット、黒髪、黒縁眼鏡、40代男性の同じ顔とひげ、紺の作業服とネクタイ、黄色と白の反射帯。参照の顔の描線・アニメ塗り・表情を保持。腰から上、正面を向き、片手に赤い添削ペン、もう片手に無地の白い答案用紙を持ち、論文の書き方を紹介するポーズ。紙には文字や線を描かない。自然な5本指と手首。ヘルメットの頂点・両肘・手指・腰の端まで完全に収め、外側に5%以上の透過余白。人物は画面の大部分を占める。背景は完全透明、文字・ロゴ・記号・背景・床・影・看板は一切なし。元の表紙にある文字や緑背景は描かない。1人だけ。",
+      "promptScope": "共有する先生素材の生成。見出しは編集可能な原稿をレンダラーで組版。",
+      "format": {
+        "width": 1920,
+        "height": 1080
+      },
+      "render": {
+        "template": "character-pop-v2",
+        "variant": "write",
+        "pose": "pop-red-pen"
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-2/keiken-genten-kyotsuten/youtube.longform/cover.77a6ce99.png",
+        "sha256": "77a6ce994f45ec97da961d04d5f6b2b10e318dcb5737ae95f84803b8cf08e074"
+      },
+      "review": {
+        "status": "agent-reviewed",
+        "by": "Codex",
+        "checkedAt": "2026-10-10T15:17:18.121Z",
+        "viewportWidth": 360,
+        "checks": [
+          "見出しと資格名の可読性",
+          "文字化け",
+          "文字・人物の切れ",
+          "内容と見出しの整合"
+        ],
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "key": ".tmp/media/civil-construction-2/keiken-genten-kyotsuten/youtube.longform/cover.77a6ce99.png"
+      },
+      "publication": "ローカル差し替え・外部未反映"
+    },
+    "point-kaigyo-2": {
+      "publicationId": "civil-construction-2/keiken-genten-kyotsuten/youtube.short.point-kaigyo-2",
+      "copy": {
+        "exam": "civil-2",
+        "headline": [
+          "その改行",
+          "不自然じゃない？"
+        ],
+        "benefit": "",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/video-packs/civil-construction-2/keiken-genten-kyotsuten/cover-design.json#covers/point-kaigyo-2",
+        "content/sns/video-packs/civil-construction-2/keiken-genten-kyotsuten/youtube.json#shorts/point-kaigyo-2"
+      ],
+      "references": [
+        {
+          "path": ".tmp/video-render/pop-matome-2kyu-20261010/thumbnail-palm-v1.png",
+          "sha256": "8fd0987d6c7b7ad74645dbfa1971f42f3128e47ed4645c9d93048a579b6542cb"
+        },
+        {
+          "path": "content/sns/_assets/character/_source/pop-pointing.png",
+          "sha256": "f0bafda4a9743b3f2c8ca5182299d0e1ed8851165f33b5b60bddfc0598d9a1eb"
+        }
+      ],
+      "prompt": "参照画像の右側の先生キャラクターを正確に継承した、動画表紙に組み込む人物だけの高解像度PNG素材を制作してください。白い無地のヘルメット、黒髪、黒縁眼鏡、40代男性の同じ顔とひげ、紺の作業服とネクタイ、黄色と白の反射帯。参照の顔の描線・アニメ塗り・表情を保持。腰から上、正面を向き、画面左側の肩の横で人差し指を上へ1本立て、要点を説明するポーズ。残り4本の指と手首は自然な構造。ヘルメットの頂点・両肘・手指・腰の端まで完全に収め、外側に5%以上の透過余白。人物は画面の大部分を占める。背景は完全透明、文字・ロゴ・記号・背景・床・影・看板は一切なし。元の表紙にある文字や緑背景は描かない。1人だけ。",
+      "promptScope": "共有する先生素材の生成。見出しは編集可能な原稿をレンダラーで組版。",
+      "format": {
+        "width": 1080,
+        "height": 1920
+      },
+      "render": {
+        "template": "character-pop-v2",
+        "variant": "question",
+        "pose": "pop-pointing"
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-2/keiken-genten-kyotsuten/youtube.short.point-kaigyo-2/cover.189db158.png",
+        "sha256": "189db158212769652f4e822dc536c626b5f59c6b11c547375b0f1277fbdc09c6"
+      },
+      "review": {
+        "status": "agent-reviewed",
+        "by": "Codex",
+        "checkedAt": "2026-10-10T15:17:18.121Z",
+        "viewportWidth": 360,
+        "checks": [
+          "見出しと資格名の可読性",
+          "文字化け",
+          "文字・人物の切れ",
+          "内容と見出しの整合"
+        ],
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "key": ".tmp/media/civil-construction-2/keiken-genten-kyotsuten/youtube.short.point-kaigyo-2/cover.189db158.png"
+      },
+      "publication": "ローカル差し替え・外部未反映"
+    },
+    "point-taisai-1": {
+      "publicationId": "civil-construction-2/keiken-genten-kyotsuten/youtube.short.point-taisai-1",
+      "copy": {
+        "exam": "civil-2",
+        "headline": [
+          "経験記述の減点",
+          "まず体裁を確認"
+        ],
+        "benefit": "",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/video-packs/civil-construction-2/keiken-genten-kyotsuten/cover-design.json#covers/point-taisai-1",
+        "content/sns/video-packs/civil-construction-2/keiken-genten-kyotsuten/youtube.json#shorts/point-taisai-1"
+      ],
+      "references": [
+        {
+          "path": ".tmp/video-render/pop-matome-2kyu-20261010/thumbnail-palm-v1.png",
+          "sha256": "8fd0987d6c7b7ad74645dbfa1971f42f3128e47ed4645c9d93048a579b6542cb"
+        },
+        {
+          "path": "content/sns/_assets/character/_source/pop-red-pen.png",
+          "sha256": "ed9d70558688350c8b8005b94fe14d1f6021efdc69d2288ff58f3e6394e23284"
+        }
+      ],
+      "prompt": "参照画像の右側の先生キャラクターを正確に継承した、動画表紙に組み込む人物だけの高解像度PNG素材を制作してください。白い無地のヘルメット、黒髪、黒縁眼鏡、40代男性の同じ顔とひげ、紺の作業服とネクタイ、黄色と白の反射帯。参照の顔の描線・アニメ塗り・表情を保持。腰から上、正面を向き、片手に赤い添削ペン、もう片手に無地の白い答案用紙を持ち、論文の書き方を紹介するポーズ。紙には文字や線を描かない。自然な5本指と手首。ヘルメットの頂点・両肘・手指・腰の端まで完全に収め、外側に5%以上の透過余白。人物は画面の大部分を占める。背景は完全透明、文字・ロゴ・記号・背景・床・影・看板は一切なし。元の表紙にある文字や緑背景は描かない。1人だけ。",
+      "promptScope": "共有する先生素材の生成。見出しは編集可能な原稿をレンダラーで組版。",
+      "format": {
+        "width": 1080,
+        "height": 1920
+      },
+      "render": {
+        "template": "character-pop-v2",
+        "variant": "write",
+        "pose": "pop-red-pen"
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-2/keiken-genten-kyotsuten/youtube.short.point-taisai-1/cover.a4493ca3.png",
+        "sha256": "a4493ca33a08c634db6c22d1d78fa06cb88770e67a3bb4ac8b9668371e1d7bb5"
+      },
+      "review": {
+        "status": "agent-reviewed",
+        "by": "Codex",
+        "checkedAt": "2026-10-10T15:17:18.121Z",
+        "viewportWidth": 360,
+        "checks": [
+          "見出しと資格名の可読性",
+          "文字化け",
+          "文字・人物の切れ",
+          "内容と見出しの整合"
+        ],
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "key": ".tmp/media/civil-construction-2/keiken-genten-kyotsuten/youtube.short.point-taisai-1/cover.a4493ca3.png"
+      },
+      "publication": "ローカル差し替え・外部未反映"
+    }
+  }
+}

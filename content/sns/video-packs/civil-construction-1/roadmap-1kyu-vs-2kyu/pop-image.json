@@ -1,0 +1,186 @@
+{
+  "policy": ".claude/knowledge/reference/pop-image-policy.md",
+  "designVersion": "pop-20260927",
+  "channel": "youtube",
+  "source": "content/sns/video-packs/civil-construction-1/roadmap-1kyu-vs-2kyu",
+  "outputs": {
+    "longform": {
+      "publicationId": "civil-construction-1/roadmap-1kyu-vs-2kyu/youtube.longform",
+      "copy": {
+        "exam": "civil-1",
+        "headline": [
+          "１級か２級か",
+          "どちらから？"
+        ],
+        "benefit": "",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/video-packs/civil-construction-1/roadmap-1kyu-vs-2kyu/cover-design.json#covers/longform",
+        "content/sns/video-packs/civil-construction-1/roadmap-1kyu-vs-2kyu/youtube.json#longform"
+      ],
+      "references": [
+        {
+          "path": ".tmp/video-render/pop-matome-2kyu-20261010/thumbnail-palm-v1.png",
+          "sha256": "8fd0987d6c7b7ad74645dbfa1971f42f3128e47ed4645c9d93048a579b6542cb"
+        },
+        {
+          "path": "content/sns/_assets/character/_source/pop-pointing.png",
+          "sha256": "f0bafda4a9743b3f2c8ca5182299d0e1ed8851165f33b5b60bddfc0598d9a1eb"
+        }
+      ],
+      "prompt": "参照画像の右側の先生キャラクターを正確に継承した、動画表紙に組み込む人物だけの高解像度PNG素材を制作してください。白い無地のヘルメット、黒髪、黒縁眼鏡、40代男性の同じ顔とひげ、紺の作業服とネクタイ、黄色と白の反射帯。参照の顔の描線・アニメ塗り・表情を保持。腰から上、正面を向き、画面左側の肩の横で人差し指を上へ1本立て、要点を説明するポーズ。残り4本の指と手首は自然な構造。ヘルメットの頂点・両肘・手指・腰の端まで完全に収め、外側に5%以上の透過余白。人物は画面の大部分を占める。背景は完全透明、文字・ロゴ・記号・背景・床・影・看板は一切なし。元の表紙にある文字や緑背景は描かない。1人だけ。",
+      "promptScope": "共有する先生素材の生成。見出しは編集可能な原稿をレンダラーで組版。",
+      "format": {
+        "width": 1920,
+        "height": 1080
+      },
+      "render": {
+        "template": "character-pop-v2",
+        "variant": "compare",
+        "pose": "pop-pointing"
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-1/roadmap-1kyu-vs-2kyu/youtube.longform/cover.e6312fc7.png",
+        "sha256": "e6312fc7b2c5a36aa0a1f26be21738280ec656442b7055bee4acc476e9a8d0fe"
+      },
+      "review": {
+        "status": "agent-reviewed",
+        "by": "Codex",
+        "checkedAt": "2026-10-10T15:17:18.121Z",
+        "viewportWidth": 360,
+        "checks": [
+          "見出しと資格名の可読性",
+          "文字化け",
+          "文字・人物の切れ",
+          "内容と見出しの整合"
+        ],
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "key": ".tmp/media/civil-construction-1/roadmap-1kyu-vs-2kyu/youtube.longform/cover.e6312fc7.png"
+      },
+      "publication": "ローカル差し替え・外部未反映"
+    },
+    "point-step1-1": {
+      "publicationId": "civil-construction-1/roadmap-1kyu-vs-2kyu/youtube.short.point-step1-1",
+      "copy": {
+        "exam": "civil-1",
+        "headline": [
+          "１級と２級",
+          "できる業務の",
+          "違いを整理"
+        ],
+        "benefit": "",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/video-packs/civil-construction-1/roadmap-1kyu-vs-2kyu/cover-design.json#covers/point-step1-1",
+        "content/sns/video-packs/civil-construction-1/roadmap-1kyu-vs-2kyu/youtube.json#shorts/point-step1-1"
+      ],
+      "references": [
+        {
+          "path": ".tmp/video-render/pop-matome-2kyu-20261010/thumbnail-palm-v1.png",
+          "sha256": "8fd0987d6c7b7ad74645dbfa1971f42f3128e47ed4645c9d93048a579b6542cb"
+        },
+        {
+          "path": "content/sns/_assets/character/_source/pop-pointing.png",
+          "sha256": "f0bafda4a9743b3f2c8ca5182299d0e1ed8851165f33b5b60bddfc0598d9a1eb"
+        }
+      ],
+      "prompt": "参照画像の右側の先生キャラクターを正確に継承した、動画表紙に組み込む人物だけの高解像度PNG素材を制作してください。白い無地のヘルメット、黒髪、黒縁眼鏡、40代男性の同じ顔とひげ、紺の作業服とネクタイ、黄色と白の反射帯。参照の顔の描線・アニメ塗り・表情を保持。腰から上、正面を向き、画面左側の肩の横で人差し指を上へ1本立て、要点を説明するポーズ。残り4本の指と手首は自然な構造。ヘルメットの頂点・両肘・手指・腰の端まで完全に収め、外側に5%以上の透過余白。人物は画面の大部分を占める。背景は完全透明、文字・ロゴ・記号・背景・床・影・看板は一切なし。元の表紙にある文字や緑背景は描かない。1人だけ。",
+      "promptScope": "共有する先生素材の生成。見出しは編集可能な原稿をレンダラーで組版。",
+      "format": {
+        "width": 1080,
+        "height": 1920
+      },
+      "render": {
+        "template": "character-pop-v2",
+        "variant": "compare",
+        "pose": "pop-pointing"
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-1/roadmap-1kyu-vs-2kyu/youtube.short.point-step1-1/cover.4788bb10.png",
+        "sha256": "4788bb10cc35ca1ef81705fd5867c79bc547a7fd35fc7d68eb94982baf6180dc"
+      },
+      "review": {
+        "status": "agent-reviewed",
+        "by": "Codex",
+        "checkedAt": "2026-10-10T15:17:18.121Z",
+        "viewportWidth": 360,
+        "checks": [
+          "見出しと資格名の可読性",
+          "文字化け",
+          "文字・人物の切れ",
+          "内容と見出しの整合"
+        ],
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "key": ".tmp/media/civil-construction-1/roadmap-1kyu-vs-2kyu/youtube.short.point-step1-1/cover.4788bb10.png"
+      },
+      "publication": "ローカル差し替え・外部未反映"
+    },
+    "point-step2-2": {
+      "publicationId": "civil-construction-1/roadmap-1kyu-vs-2kyu/youtube.short.point-step2-2",
+      "copy": {
+        "exam": "civil-1",
+        "headline": [
+          "１級と２級",
+          "受検資格の違い"
+        ],
+        "benefit": "",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/video-packs/civil-construction-1/roadmap-1kyu-vs-2kyu/cover-design.json#covers/point-step2-2",
+        "content/sns/video-packs/civil-construction-1/roadmap-1kyu-vs-2kyu/youtube.json#shorts/point-step2-2"
+      ],
+      "references": [
+        {
+          "path": ".tmp/video-render/pop-matome-2kyu-20261010/thumbnail-palm-v1.png",
+          "sha256": "8fd0987d6c7b7ad74645dbfa1971f42f3128e47ed4645c9d93048a579b6542cb"
+        },
+        {
+          "path": "content/sns/_assets/character/_source/pop-pointing.png",
+          "sha256": "f0bafda4a9743b3f2c8ca5182299d0e1ed8851165f33b5b60bddfc0598d9a1eb"
+        }
+      ],
+      "prompt": "参照画像の右側の先生キャラクターを正確に継承した、動画表紙に組み込む人物だけの高解像度PNG素材を制作してください。白い無地のヘルメット、黒髪、黒縁眼鏡、40代男性の同じ顔とひげ、紺の作業服とネクタイ、黄色と白の反射帯。参照の顔の描線・アニメ塗り・表情を保持。腰から上、正面を向き、画面左側の肩の横で人差し指を上へ1本立て、要点を説明するポーズ。残り4本の指と手首は自然な構造。ヘルメットの頂点・両肘・手指・腰の端まで完全に収め、外側に5%以上の透過余白。人物は画面の大部分を占める。背景は完全透明、文字・ロゴ・記号・背景・床・影・看板は一切なし。元の表紙にある文字や緑背景は描かない。1人だけ。",
+      "promptScope": "共有する先生素材の生成。見出しは編集可能な原稿をレンダラーで組版。",
+      "format": {
+        "width": 1080,
+        "height": 1920
+      },
+      "render": {
+        "template": "character-pop-v2",
+        "variant": "compare",
+        "pose": "pop-pointing"
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-1/roadmap-1kyu-vs-2kyu/youtube.short.point-step2-2/cover.bd7afcc9.png",
+        "sha256": "bd7afcc9650f75470efaa0a4db9f67c649e4cc311bd03263622fc8d1e31b36b7"
+      },
+      "review": {
+        "status": "agent-reviewed",
+        "by": "Codex",
+        "checkedAt": "2026-10-10T15:17:18.121Z",
+        "viewportWidth": 360,
+        "checks": [
+          "見出しと資格名の可読性",
+          "文字化け",
+          "文字・人物の切れ",
+          "内容と見出しの整合"
+        ],
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "key": ".tmp/media/civil-construction-1/roadmap-1kyu-vs-2kyu/youtube.short.point-step2-2/cover.bd7afcc9.png"
+      },
+      "publication": "ローカル差し替え・外部未反映"
+    }
+  }
+}

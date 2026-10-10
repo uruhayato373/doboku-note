@@ -6,22 +6,23 @@
       "id": "civil-construction-2/anzen-ippanron-3riyu/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "70ccb2ba2c59eaf3e0a2eadcbab22d90a3ace2b97588655d7654bb650ade68d7",
-      "bytes": 254839,
+      "sha256": "7938bde8968d9b61f9fb3f763ba03d016e765f6eec7a42ff641935930a4faabe",
+      "bytes": 929972,
       "width": 1920,
       "height": 1080,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/anzen-ippanron-3riyu/youtube.longform/cover.70ccb2ba.png"
+        "path": ".tmp/media/civil-construction-2/anzen-ippanron-3riyu/youtube.longform/cover.7938bde8.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/anzen-ippanron-3riyu/cover-design.json#longform",
-        "specSha256": "93ef3960b1babd7c59b27de0b8573dde4b98a34e0392eee8a95908de6df82ffc"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/anzen-ippanron-3riyu/cover-design.json#covers/longform",
+        "specSha256": "d72b284c5fc019b9d29c9041f52ddfb7ad33dd895e0e8f4658f7b7ac24f34f32"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/198.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/198.png",
+        ".tmp/media/civil-construction-2/anzen-ippanron-3riyu/youtube.longform/cover.70ccb2ba.png"
       ]
     },
     {
@@ -49,66 +50,69 @@
       "id": "civil-construction-2/anzen-ippanron-3riyu/youtube.short.point-cause1-1/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "57ab0cf329e8f09fc7152002738ef3bb49588683c544cd7b700961bb7e4e7a50",
-      "bytes": 183807,
+      "sha256": "598a98ad264a793b8e5716177d0c0b48ee6f8e5f013e27e0d705d02dbfe0709e",
+      "bytes": 659574,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/anzen-ippanron-3riyu/youtube.short.point-cause1-1/cover.57ab0cf3.png"
+        "path": ".tmp/media/civil-construction-2/anzen-ippanron-3riyu/youtube.short.point-cause1-1/cover.598a98ad.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/anzen-ippanron-3riyu/cover-design.json#point-cause1-1",
-        "specSha256": "28d4950ed58703ec55c23707d6b1dcf1ae5e32a67d703014e915f9063d270384"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/anzen-ippanron-3riyu/cover-design.json#covers/point-cause1-1",
+        "specSha256": "7566918b6d5a1f0a92fe41a1cc42e263375b1f88e6c1b3a72f2f266a442b0613"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/199.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/199.png",
+        ".tmp/media/civil-construction-2/anzen-ippanron-3riyu/youtube.short.point-cause1-1/cover.57ab0cf3.png"
       ]
     },
     {
       "id": "civil-construction-2/anzen-ippanron-3riyu/youtube.short.point-cause2-2/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "3efe60f923a2914eb079f78d13678ea67e3ffd830648b809d434a608448260f3",
-      "bytes": 181540,
+      "sha256": "1ee1b2a462b8ac4bd5424fe2e4260f4fbaf684ad68262b5dffd51821b1d5dc82",
+      "bytes": 660597,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/anzen-ippanron-3riyu/youtube.short.point-cause2-2/cover.3efe60f9.png"
+        "path": ".tmp/media/civil-construction-2/anzen-ippanron-3riyu/youtube.short.point-cause2-2/cover.1ee1b2a4.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/anzen-ippanron-3riyu/cover-design.json#point-cause2-2",
-        "specSha256": "2efe848690d4d5c8d01cfffe461c66ce651a26c236ebd02aa455893a471fe774"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/anzen-ippanron-3riyu/cover-design.json#covers/point-cause2-2",
+        "specSha256": "3d1a165c27fd809e8a9b87a014b72cb60a83707a324552d3245e962d3b8563df"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/200.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/200.png",
+        ".tmp/media/civil-construction-2/anzen-ippanron-3riyu/youtube.short.point-cause2-2/cover.3efe60f9.png"
       ]
     },
     {
       "id": "civil-construction-2/gakka-2kyu-concrete/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "bf9a7032b8b31114c162ab571a08368c6bf325d74b3db864216044b6acb5277f",
-      "bytes": 232341,
+      "sha256": "30b3c732e9b6d20ba7a5cf89976d4b0ed60ce7160ca5ec129c1fe89c3071e484",
+      "bytes": 693208,
       "width": 1920,
       "height": 1080,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/gakka-2kyu-concrete/youtube.longform/cover.bf9a7032.png"
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-concrete/youtube.longform/cover.30b3c732.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/gakka-2kyu-concrete/cover-design.json#longform",
-        "specSha256": "97fb1379165165215ad0784bae3f327d29448a0e3a7ea0386031d55e01d645cd"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/gakka-2kyu-concrete/cover-design.json#covers/longform",
+        "specSha256": "f6f0d4d8dba5e645acb23e06c27c3622b1e46288e779691ff587945936ecd50e"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/201.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/201.png",
+        ".tmp/media/civil-construction-2/gakka-2kyu-concrete/youtube.longform/cover.bf9a7032.png"
       ]
     },
     {
@@ -136,66 +140,69 @@
       "id": "civil-construction-2/gakka-2kyu-concrete/youtube.short.point-block1-2/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "db27aed4d07f45593f6ae649bee3c9d573de81e81f0a2f48aeaaf9680ffa37a0",
-      "bytes": 160086,
+      "sha256": "6275262c61144bfdfb14d49d736e2cccabe4d0db4d3667db5d0e65dd41eca77a",
+      "bytes": 718880,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/gakka-2kyu-concrete/youtube.short.point-block1-2/cover.db27aed4.png"
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-concrete/youtube.short.point-block1-2/cover.6275262c.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/gakka-2kyu-concrete/cover-design.json#point-block1-2",
-        "specSha256": "a257df45a64b42cea57fa13049ee1d5302278db0dc2229cf4bacf0dea9ed3078"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/gakka-2kyu-concrete/cover-design.json#covers/point-block1-2",
+        "specSha256": "349ffe87c480783828be30f083850b63868ce9c8ab05b18fa09751efb0914305"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/203.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/203.png",
+        ".tmp/media/civil-construction-2/gakka-2kyu-concrete/youtube.short.point-block1-2/cover.db27aed4.png"
       ]
     },
     {
       "id": "civil-construction-2/gakka-2kyu-concrete/youtube.short.point-overview-1/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "71c84d9a590cca52ab3c76d93d54662d2a28103dcc59ddffab5c243c7011ddf7",
-      "bytes": 170775,
+      "sha256": "35484d87b59b6c6323863edf2cbfbdca39248845a6ac9fcb990a0ee4ac280bd8",
+      "bytes": 717173,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/gakka-2kyu-concrete/youtube.short.point-overview-1/cover.71c84d9a.png"
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-concrete/youtube.short.point-overview-1/cover.35484d87.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/gakka-2kyu-concrete/cover-design.json#point-overview-1",
-        "specSha256": "331f5e8e6969e7190fea03714b34fba90285ef527a0bd270b1810f02def1796f"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/gakka-2kyu-concrete/cover-design.json#covers/point-overview-1",
+        "specSha256": "8e7ef833a531330d0ff9e149ddaf0265bc2c3ecc6e92781b44f33e4d5f6e2923"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/202.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/202.png",
+        ".tmp/media/civil-construction-2/gakka-2kyu-concrete/youtube.short.point-overview-1/cover.71c84d9a.png"
       ]
     },
     {
       "id": "civil-construction-2/gakka-2kyu-doko/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "01aa08f1b8c3e3cde8706a8da82db4936733de71b50b12772bccf892313b090a",
-      "bytes": 237247,
+      "sha256": "ad68dd1fcde1ab4236171982235325ec84169a8464d2bb688f13695bbc83876b",
+      "bytes": 700368,
       "width": 1920,
       "height": 1080,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.longform/cover.01aa08f1.png"
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.longform/cover.ad68dd1f.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/cover-design.json#longform",
-        "specSha256": "965dd65dab3e3a535ff1f8f37e69f759fe24d24024e84c3f81a53de774a310bc"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/cover-design.json#covers/longform",
+        "specSha256": "45cf40680e2f6694209b10927f57c6b864af0c994756c71b3d80507769b85e93"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/204.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/204.png",
+        ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.longform/cover.01aa08f1.png"
       ]
     },
     {
@@ -223,66 +230,69 @@
       "id": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "630cf0b574a0430dd0501d4d43f4b833b5028a56f0eed6d842754b09c5baa9de",
-      "bytes": 179675,
+      "sha256": "390497e0333012171709779b80c689f4ef0f24797e26c8f88c2e0b6e2b39ab33",
+      "bytes": 726022,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cover.630cf0b5.png"
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cover.390497e0.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/cover-design.json#point-block1-2",
-        "specSha256": "4abab81a27cb3a205b7c568e4b44bf93caaeb1bbb7630bc8ba71f96681f980c1"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/cover-design.json#covers/point-block1-2",
+        "specSha256": "51b42d4fa3a93c3ee132b2dac031ea5b3106fc65b706dc3efb4ad8b12500cf44"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/206.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/206.png",
+        ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cover.630cf0b5.png"
       ]
     },
     {
       "id": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "911496efba6ce0f71242f59a1748513cde5ffc7eb12da47fe6ace363c80af3c2",
-      "bytes": 180220,
+      "sha256": "1053b2452861de3d8e1511fcff25029e48c70ee0e19b7dea662b8e66942e7e47",
+      "bytes": 721445,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover.911496ef.png"
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover.1053b245.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/cover-design.json#point-overview-1",
-        "specSha256": "429cdbdc6b40829cface47cc66ffe19162f3bccbad64c27cca0f8c9a5d69a6f0"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/cover-design.json#covers/point-overview-1",
+        "specSha256": "b7cfcf775258d80ead712e2e0bc818dfc2128ede5653d4c0f9413337ba144e44"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/205.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/205.png",
+        ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover.911496ef.png"
       ]
     },
     {
       "id": "civil-construction-2/gakka-2kyu-hoki/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "31c6e02bc5cfcdfb143557ab27f5c0eb991dae7efa6e599b08509a5b74d75288",
-      "bytes": 212424,
+      "sha256": "de747b070b82b581aeb8a14989db74ecfcbb6708182c326ded0bb86dcd93ef67",
+      "bytes": 708591,
       "width": 1920,
       "height": 1080,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/gakka-2kyu-hoki/youtube.longform/cover.31c6e02b.png"
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-hoki/youtube.longform/cover.de747b07.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/gakka-2kyu-hoki/cover-design.json#longform",
-        "specSha256": "19da242c7a4c65d5f712dcd30a0e695b5fb3558947e4d983ca261ef8a56c85e1"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/gakka-2kyu-hoki/cover-design.json#covers/longform",
+        "specSha256": "919548bc7d0cea9b4b1175768ce52cba39a7bbf96112375a68e013bc6bebe676"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/207.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/207.png",
+        ".tmp/media/civil-construction-2/gakka-2kyu-hoki/youtube.longform/cover.31c6e02b.png"
       ]
     },
     {
@@ -310,66 +320,69 @@
       "id": "civil-construction-2/gakka-2kyu-hoki/youtube.short.point-block1-2/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "e684cc4ac254eb7c2db739a1ac8c882efd206c243b6443437133c58022e935ef",
-      "bytes": 168262,
+      "sha256": "553f2c05711b8a7c16a30bc332388e3fdbbac1d3490c42e11dc04945315d0a8c",
+      "bytes": 728578,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/gakka-2kyu-hoki/youtube.short.point-block1-2/cover.e684cc4a.png"
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-hoki/youtube.short.point-block1-2/cover.553f2c05.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/gakka-2kyu-hoki/cover-design.json#point-block1-2",
-        "specSha256": "7c074735f16c70301d86fb3e52ae8a3b7b01601289e83b12649f97e05630cc06"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/gakka-2kyu-hoki/cover-design.json#covers/point-block1-2",
+        "specSha256": "1c7ec234f45c7645801d9357b93ce11bb21a0454a6fb0a2521f1aa2c70742f72"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/209.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/209.png",
+        ".tmp/media/civil-construction-2/gakka-2kyu-hoki/youtube.short.point-block1-2/cover.e684cc4a.png"
       ]
     },
     {
       "id": "civil-construction-2/gakka-2kyu-hoki/youtube.short.point-overview-1/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "b9dd06a9c9322f1366ff821afb60a54113bd98f2f17856aab86fc4ba569879b3",
-      "bytes": 165667,
+      "sha256": "d598128293233fbf014e150dcf1639305d930d362e6467f8b889336c341ae66f",
+      "bytes": 719356,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/gakka-2kyu-hoki/youtube.short.point-overview-1/cover.b9dd06a9.png"
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-hoki/youtube.short.point-overview-1/cover.d5981282.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/gakka-2kyu-hoki/cover-design.json#point-overview-1",
-        "specSha256": "16e54598a9086292467e725e7c5dc78bbcb7c64d4cd519c365cc94e31e96d7a0"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/gakka-2kyu-hoki/cover-design.json#covers/point-overview-1",
+        "specSha256": "ddb022cb768b559c7e390ba27dd88416170d3f655765fba8e2e8be925eff1def"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/208.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/208.png",
+        ".tmp/media/civil-construction-2/gakka-2kyu-hoki/youtube.short.point-overview-1/cover.b9dd06a9.png"
       ]
     },
     {
       "id": "civil-construction-2/gakka-2kyu-kiso/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "2249a6060a498f1f12c7c05bb950ed106389ae0568b0a7fc1335c8644c9beeed",
-      "bytes": 237545,
+      "sha256": "9c90a8bbbb9cb959245844457666e8e6ede37b2de90ba6bd9045b3c38c5e0907",
+      "bytes": 700808,
       "width": 1920,
       "height": 1080,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/gakka-2kyu-kiso/youtube.longform/cover.2249a606.png"
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-kiso/youtube.longform/cover.9c90a8bb.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/gakka-2kyu-kiso/cover-design.json#longform",
-        "specSha256": "f1e996eeb59870ed79d70aa2df3d8792dace7d25438671e6dd8e7f5e5047e909"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/gakka-2kyu-kiso/cover-design.json#covers/longform",
+        "specSha256": "f57d9125d031226aa0526df2007fa6c2e2b287a71fb821d30e14c79f75a8a6ed"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/210.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/210.png",
+        ".tmp/media/civil-construction-2/gakka-2kyu-kiso/youtube.longform/cover.2249a606.png"
       ]
     },
     {
@@ -397,66 +410,69 @@
       "id": "civil-construction-2/gakka-2kyu-kiso/youtube.short.point-block1-2/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "ae04ca341cedb47a829c860c5ee4603b5192124311a53275c1a575322d9c28a4",
-      "bytes": 191983,
+      "sha256": "ea0d19dc7f97a0c9e2139f62101f7a934ace256a282bc89228da43fdbf1ac2f6",
+      "bytes": 729918,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/gakka-2kyu-kiso/youtube.short.point-block1-2/cover.ae04ca34.png"
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-kiso/youtube.short.point-block1-2/cover.ea0d19dc.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/gakka-2kyu-kiso/cover-design.json#point-block1-2",
-        "specSha256": "659c7e3132487ba53c822f7088156a20ac1734a0e62a88432c65cd9cedf834a8"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/gakka-2kyu-kiso/cover-design.json#covers/point-block1-2",
+        "specSha256": "c46a0a40f6029d3e207548ef85f023cdd41be03d89e7539143e7d9a60eb3e526"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/212.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/212.png",
+        ".tmp/media/civil-construction-2/gakka-2kyu-kiso/youtube.short.point-block1-2/cover.ae04ca34.png"
       ]
     },
     {
       "id": "civil-construction-2/gakka-2kyu-kiso/youtube.short.point-overview-1/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "3617b84224a9a68736e9f59ac92ec14afcd1351af59f2e29aba944df34bab421",
-      "bytes": 183142,
+      "sha256": "f22fd01431734185fd3f082f8c725be23fd66b00edacccfa583126c98b77838d",
+      "bytes": 720592,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/gakka-2kyu-kiso/youtube.short.point-overview-1/cover.3617b842.png"
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-kiso/youtube.short.point-overview-1/cover.f22fd014.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/gakka-2kyu-kiso/cover-design.json#point-overview-1",
-        "specSha256": "764098afffe31bdd2e8051cb51a48723d0a9a25f3a136977611608032d5a3a81"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/gakka-2kyu-kiso/cover-design.json#covers/point-overview-1",
+        "specSha256": "c3061a8f4582b0ba723f9f5e2a10c3f34230b23b6e948c2af76cc3e713bcd699"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/211.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/211.png",
+        ".tmp/media/civil-construction-2/gakka-2kyu-kiso/youtube.short.point-overview-1/cover.3617b842.png"
       ]
     },
     {
       "id": "civil-construction-2/gakka-2kyu-sekokeikaku/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "0f8b78317f2bd622ca9227695dd8b0ee1e9bb27b00d799af6f6ced64b9c668d0",
-      "bytes": 237659,
+      "sha256": "dcb31d25ee15e64d1be7f1972cb611ce7b4ff3ea132abd3b79112d554a44ae6b",
+      "bytes": 697869,
       "width": 1920,
       "height": 1080,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/gakka-2kyu-sekokeikaku/youtube.longform/cover.0f8b7831.png"
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-sekokeikaku/youtube.longform/cover.dcb31d25.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/gakka-2kyu-sekokeikaku/cover-design.json#longform",
-        "specSha256": "7f7a6054b6dff6406fc18179a49d659650b823f023077be5997b5a5016d98a83"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/gakka-2kyu-sekokeikaku/cover-design.json#covers/longform",
+        "specSha256": "abb224ead30005d1e04794387cc7198292f01b01178c268ba7cc4ca087f1ca5f"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/213.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/213.png",
+        ".tmp/media/civil-construction-2/gakka-2kyu-sekokeikaku/youtube.longform/cover.0f8b7831.png"
       ]
     },
     {
@@ -484,66 +500,69 @@
       "id": "civil-construction-2/gakka-2kyu-sekokeikaku/youtube.short.point-block1-2/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "30f60ef2b85bdb4b463bcbcb8957da7fd3e5eb973553844604bec1943e3acf41",
-      "bytes": 183053,
+      "sha256": "332fa55fc90869ad91905f97d2bae9327f9d95402f89d0b31087052527d15ba1",
+      "bytes": 731487,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/gakka-2kyu-sekokeikaku/youtube.short.point-block1-2/cover.30f60ef2.png"
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-sekokeikaku/youtube.short.point-block1-2/cover.332fa55f.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/gakka-2kyu-sekokeikaku/cover-design.json#point-block1-2",
-        "specSha256": "3e53c2bd150bd16b4fb24ae6433ef3016c01eb1698c4d5fe49b6a9bd632ac327"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/gakka-2kyu-sekokeikaku/cover-design.json#covers/point-block1-2",
+        "specSha256": "4d069cb33cf99cd6734822ce701e6f9f05aa1d7f61a5c28cec23d28521912e41"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/215.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/215.png",
+        ".tmp/media/civil-construction-2/gakka-2kyu-sekokeikaku/youtube.short.point-block1-2/cover.30f60ef2.png"
       ]
     },
     {
       "id": "civil-construction-2/gakka-2kyu-sekokeikaku/youtube.short.point-overview-1/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "2276f92d50e25e16787f9118a11f6d73e89198fec46bd6e25cc68d9dc272f153",
-      "bytes": 176781,
+      "sha256": "322303f80f8a0d51db48f5eb533486fec95b62a88e3a82788dc626e8fca637de",
+      "bytes": 712381,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/gakka-2kyu-sekokeikaku/youtube.short.point-overview-1/cover.2276f92d.png"
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-sekokeikaku/youtube.short.point-overview-1/cover.322303f8.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/gakka-2kyu-sekokeikaku/cover-design.json#point-overview-1",
-        "specSha256": "c70a6304ed9ec50e469801baf9ddd5b9c0f879bd2fdf3e452e8d704e56213213"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/gakka-2kyu-sekokeikaku/cover-design.json#covers/point-overview-1",
+        "specSha256": "e7f2b2c9f61cd26226803e9cceb498e073f321561595cd3e945c55cfb4baf9eb"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/214.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/214.png",
+        ".tmp/media/civil-construction-2/gakka-2kyu-sekokeikaku/youtube.short.point-overview-1/cover.2276f92d.png"
       ]
     },
     {
       "id": "civil-construction-2/gakka-kijutsu-2kyu/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "7c2331e1421bdb2adfaf6bf62cd6208678752d584d27a9d25d6e2b017c9f46e5",
-      "bytes": 206011,
+      "sha256": "32d4d19f6a8c5a4efb09a2dd4098b62ec15d1767b46eaf9a6483056a8bc4c214",
+      "bytes": 933032,
       "width": 1920,
       "height": 1080,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/gakka-kijutsu-2kyu/youtube.longform/cover.7c2331e1.png"
+        "path": ".tmp/media/civil-construction-2/gakka-kijutsu-2kyu/youtube.longform/cover.32d4d19f.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/gakka-kijutsu-2kyu/cover-design.json#longform",
-        "specSha256": "390d4993d209cd09369fccbe9b4b1fd8ad261104d1a52f31649f29c8845f804f"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/gakka-kijutsu-2kyu/cover-design.json#covers/longform",
+        "specSha256": "d22a43b8b6f4c8a6277ed64f109e24625c5919714da6321a06b707f9b0175083"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/216.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/216.png",
+        ".tmp/media/civil-construction-2/gakka-kijutsu-2kyu/youtube.longform/cover.7c2331e1.png"
       ]
     },
     {
@@ -571,66 +590,69 @@
       "id": "civil-construction-2/gakka-kijutsu-2kyu/youtube.short.point-fields-1/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "9c8e2af2fde2df1cddc6aeb0deebc61f6331819eaf97a46d5d32fcba0ffdfdd3",
-      "bytes": 188549,
+      "sha256": "cc1eb54f43e4e3433a5bb24592964be498c56453cad4b73230acf1642c4fd565",
+      "bytes": 659536,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/gakka-kijutsu-2kyu/youtube.short.point-fields-1/cover.9c8e2af2.png"
+        "path": ".tmp/media/civil-construction-2/gakka-kijutsu-2kyu/youtube.short.point-fields-1/cover.cc1eb54f.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/gakka-kijutsu-2kyu/cover-design.json#point-fields-1",
-        "specSha256": "37aa7b8c6c3920e1caec0a1923383e3f67616a1308c601e90f56c28851a57165"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/gakka-kijutsu-2kyu/cover-design.json#covers/point-fields-1",
+        "specSha256": "c43f89e24b6373d457f007fe9d9516d6f7a433ff22d57dc1ec6388837ddd6522"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/217.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/217.png",
+        ".tmp/media/civil-construction-2/gakka-kijutsu-2kyu/youtube.short.point-fields-1/cover.9c8e2af2.png"
       ]
     },
     {
       "id": "civil-construction-2/gakka-kijutsu-2kyu/youtube.short.point-pattern1-2/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "a5c045f48aff3e9fc48f707c0f9a04223d0f8c7dc68e5a57cdc421284286de90",
-      "bytes": 183581,
+      "sha256": "7e2faf64a3b4843a6201a642983f590f896d423a889fe901f0faab9f9381111e",
+      "bytes": 658557,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/gakka-kijutsu-2kyu/youtube.short.point-pattern1-2/cover.a5c045f4.png"
+        "path": ".tmp/media/civil-construction-2/gakka-kijutsu-2kyu/youtube.short.point-pattern1-2/cover.7e2faf64.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/gakka-kijutsu-2kyu/cover-design.json#point-pattern1-2",
-        "specSha256": "0a34be6a68e0bc1460ecbfc3ee69f8a5ba9a92cb97e19de1185f62a10e29a8dc"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/gakka-kijutsu-2kyu/cover-design.json#covers/point-pattern1-2",
+        "specSha256": "3f5da59f28500e85413bb243cf423e5792da53f6997f9cde1f419400f6aaa815"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/218.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/218.png",
+        ".tmp/media/civil-construction-2/gakka-kijutsu-2kyu/youtube.short.point-pattern1-2/cover.a5c045f4.png"
       ]
     },
     {
       "id": "civil-construction-2/keiken-2kyu-level/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "703ead76fbb79fa10d3431f4c7b55c98e774616a74325e4a2686968fad422e47",
-      "bytes": 214448,
+      "sha256": "e840cd788b3a24099c71a17cc45b2a9f2b6b1df99243118ea72d9be928ad91f5",
+      "bytes": 949282,
       "width": 1920,
       "height": 1080,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/keiken-2kyu-level/youtube.longform/cover.703ead76.png"
+        "path": ".tmp/media/civil-construction-2/keiken-2kyu-level/youtube.longform/cover.e840cd78.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/keiken-2kyu-level/cover-design.json#longform",
-        "specSha256": "41044cb8e20bfd1876d13ac5ed2490c58604abec331ce3014446f338cafb19d3"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/keiken-2kyu-level/cover-design.json#covers/longform",
+        "specSha256": "027081d79ebce927399cf8237337dedc2f045d7c25f87385d0e6c3b1c535f76e"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/219.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/219.png",
+        ".tmp/media/civil-construction-2/keiken-2kyu-level/youtube.longform/cover.703ead76.png"
       ]
     },
     {
@@ -658,66 +680,69 @@
       "id": "civil-construction-2/keiken-2kyu-level/youtube.short.point-kata-2/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "56f59fb97772aacae56727a5b9b43d8eb7b938068281e83efefbc0ace411c1e1",
-      "bytes": 179926,
+      "sha256": "f7d8bee8b4fd8097864dc9978674b0f8821f1c23dda3d725ea6e19232b612561",
+      "bytes": 660242,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/keiken-2kyu-level/youtube.short.point-kata-2/cover.56f59fb9.png"
+        "path": ".tmp/media/civil-construction-2/keiken-2kyu-level/youtube.short.point-kata-2/cover.f7d8bee8.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/keiken-2kyu-level/cover-design.json#point-kata-2",
-        "specSha256": "5b5458f298a4ff238ac0d31f83a3e142f75e0df3f7da00ebe4ce9e40090eb045"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/keiken-2kyu-level/cover-design.json#covers/point-kata-2",
+        "specSha256": "b08bde95c8f48966c76fac4422badec2c3155428c5a1630583427d128b17d861"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/221.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/221.png",
+        ".tmp/media/civil-construction-2/keiken-2kyu-level/youtube.short.point-kata-2/cover.56f59fb9.png"
       ]
     },
     {
       "id": "civil-construction-2/keiken-2kyu-level/youtube.short.point-level-1/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "a8e0a44156d6b26335776c18050675979491f46964b7995dc0c180eca3b87d1c",
-      "bytes": 192926,
+      "sha256": "4f5d576f9804a3462c4343eceafb13322a80171b464620998aa298fd52f18848",
+      "bytes": 658185,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/keiken-2kyu-level/youtube.short.point-level-1/cover.a8e0a441.png"
+        "path": ".tmp/media/civil-construction-2/keiken-2kyu-level/youtube.short.point-level-1/cover.4f5d576f.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/keiken-2kyu-level/cover-design.json#point-level-1",
-        "specSha256": "3f04c4f90e9ecdeb97f61eb1936e348ac96c67566a8e43138c25a95ebb4c7cc0"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/keiken-2kyu-level/cover-design.json#covers/point-level-1",
+        "specSha256": "a0db7f317709e6d3f632723b0257a3c946f39e977885d87bba72877215157ef0"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/220.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/220.png",
+        ".tmp/media/civil-construction-2/keiken-2kyu-level/youtube.short.point-level-1/cover.a8e0a441.png"
       ]
     },
     {
       "id": "civil-construction-2/keiken-anzen-2kyu-kakikata/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "71fe8a4e940a3c43c35aab232654e6a76bac74e170991efb135b2d32c56199cb",
-      "bytes": 232641,
+      "sha256": "1555a60132ffdeca8d41e1c1e33fec028bc881c7eb20cf16bd619d282a7103b2",
+      "bytes": 934473,
       "width": 1920,
       "height": 1080,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/keiken-anzen-2kyu-kakikata/youtube.longform/cover.71fe8a4e.png"
+        "path": ".tmp/media/civil-construction-2/keiken-anzen-2kyu-kakikata/youtube.longform/cover.1555a601.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/keiken-anzen-2kyu-kakikata/cover-design.json#longform",
-        "specSha256": "0c63d04faf288d2bb97ae34d1468c28ebb76da7257d2221793a9b805d77cd96a"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/keiken-anzen-2kyu-kakikata/cover-design.json#covers/longform",
+        "specSha256": "ae6140c8fd1e1c02b664615c8f94a303eee5d5973cb983490df94fc29ba67943"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/222.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/222.png",
+        ".tmp/media/civil-construction-2/keiken-anzen-2kyu-kakikata/youtube.longform/cover.71fe8a4e.png"
       ]
     },
     {
@@ -745,66 +770,69 @@
       "id": "civil-construction-2/keiken-anzen-2kyu-kakikata/youtube.short.point-step1-1/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "2f1c46c7debdf81cde119c002de1bfe238f53d31ee117dff2b04cc5325d11eb5",
-      "bytes": 189607,
+      "sha256": "217124090de19aab881001a39e58582e4a3eb415454614999652dac5e285f374",
+      "bytes": 732192,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/keiken-anzen-2kyu-kakikata/youtube.short.point-step1-1/cover.2f1c46c7.png"
+        "path": ".tmp/media/civil-construction-2/keiken-anzen-2kyu-kakikata/youtube.short.point-step1-1/cover.21712409.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/keiken-anzen-2kyu-kakikata/cover-design.json#point-step1-1",
-        "specSha256": "d6ae9b0b0799c20b88dde8c9f6273325c8a3da53448499d420b108b06e42f3d4"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/keiken-anzen-2kyu-kakikata/cover-design.json#covers/point-step1-1",
+        "specSha256": "50a4254d504103697755dae2a62539dca35a09231621ed37221b8c967a3c076f"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/223.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/223.png",
+        ".tmp/media/civil-construction-2/keiken-anzen-2kyu-kakikata/youtube.short.point-step1-1/cover.2f1c46c7.png"
       ]
     },
     {
       "id": "civil-construction-2/keiken-anzen-2kyu-kakikata/youtube.short.point-step2-2/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "7c22e60c331c0832051e8ce2275599e92be573d8452b36880db4ae489e5e458f",
-      "bytes": 193342,
+      "sha256": "490ddaa86b3f6085ca3522276e9786e9ef4d0437cb0a4b3513cb3d15f0410e86",
+      "bytes": 729201,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/keiken-anzen-2kyu-kakikata/youtube.short.point-step2-2/cover.7c22e60c.png"
+        "path": ".tmp/media/civil-construction-2/keiken-anzen-2kyu-kakikata/youtube.short.point-step2-2/cover.490ddaa8.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/keiken-anzen-2kyu-kakikata/cover-design.json#point-step2-2",
-        "specSha256": "3b43071c98a4b65945da1bc46eae4b54a66b923c1bfc667e5865ad21f9bb6522"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/keiken-anzen-2kyu-kakikata/cover-design.json#covers/point-step2-2",
+        "specSha256": "86936861d9127a1782cdde77df8904d9f8e207afa4a43ee7a832ee735d326fef"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/224.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/224.png",
+        ".tmp/media/civil-construction-2/keiken-anzen-2kyu-kakikata/youtube.short.point-step2-2/cover.7c22e60c.png"
       ]
     },
     {
       "id": "civil-construction-2/keiken-gaiyo-2kyu/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "669433afc2cdd56c06b598b232d49aa52f6702ce5406bdb43828b9d40b616d70",
-      "bytes": 229699,
+      "sha256": "98064355d935f1c3f375c41be4a0b43f396f9b9ab910a37abe2194a1fd933939",
+      "bytes": 695791,
       "width": 1920,
       "height": 1080,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/keiken-gaiyo-2kyu/youtube.longform/cover.669433af.png"
+        "path": ".tmp/media/civil-construction-2/keiken-gaiyo-2kyu/youtube.longform/cover.98064355.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/keiken-gaiyo-2kyu/cover-design.json#longform",
-        "specSha256": "2777db25b4e7d8699bb19d9af7ff390f9a086870827c555975aa06d2e474d480"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/keiken-gaiyo-2kyu/cover-design.json#covers/longform",
+        "specSha256": "a0bd7a649b4d5d4e4519326464aa4bbc015d10bb05251ea5ed40b83843fc94e3"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/225.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/225.png",
+        ".tmp/media/civil-construction-2/keiken-gaiyo-2kyu/youtube.longform/cover.669433af.png"
       ]
     },
     {
@@ -832,66 +860,69 @@
       "id": "civil-construction-2/keiken-gaiyo-2kyu/youtube.short.point-step1-1/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "dfc6ecafe5953e5c43d44f174255bb9c1dbfb21cde4da815178c10b8110fa15b",
-      "bytes": 181469,
+      "sha256": "7303118033a3fdc446d280f58b6d1941efa7b45156a28f06829aed10d50a9264",
+      "bytes": 716717,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/keiken-gaiyo-2kyu/youtube.short.point-step1-1/cover.dfc6ecaf.png"
+        "path": ".tmp/media/civil-construction-2/keiken-gaiyo-2kyu/youtube.short.point-step1-1/cover.73031180.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/keiken-gaiyo-2kyu/cover-design.json#point-step1-1",
-        "specSha256": "a9838cd83850f6f49a031f3de7f873fcadd60849593b8afa11ad329511b0db86"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/keiken-gaiyo-2kyu/cover-design.json#covers/point-step1-1",
+        "specSha256": "88bf1b7359a9667148279415367f288045ae2a91274c861652d5dc9a2accb9fa"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/226.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/226.png",
+        ".tmp/media/civil-construction-2/keiken-gaiyo-2kyu/youtube.short.point-step1-1/cover.dfc6ecaf.png"
       ]
     },
     {
       "id": "civil-construction-2/keiken-gaiyo-2kyu/youtube.short.point-step2-2/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "9b719c25b7746c7c25a90f52456d43d72addc61f2c3467e563e150ed5178eee2",
-      "bytes": 176795,
+      "sha256": "443bad2d296866623eb8920fa2bd081acd990eac66ef9d5e3c768a4ee77b6372",
+      "bytes": 644613,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/keiken-gaiyo-2kyu/youtube.short.point-step2-2/cover.9b719c25.png"
+        "path": ".tmp/media/civil-construction-2/keiken-gaiyo-2kyu/youtube.short.point-step2-2/cover.443bad2d.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/keiken-gaiyo-2kyu/cover-design.json#point-step2-2",
-        "specSha256": "582f682a21858044bc0436cb29db04949fffcde08070a5e0c5457683b7453629"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/keiken-gaiyo-2kyu/cover-design.json#covers/point-step2-2",
+        "specSha256": "ebaca212360673cc5cacbe5f9659e56f0de97bacb47d5ecb76e643298027f6bb"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/227.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/227.png",
+        ".tmp/media/civil-construction-2/keiken-gaiyo-2kyu/youtube.short.point-step2-2/cover.9b719c25.png"
       ]
     },
     {
       "id": "civil-construction-2/keiken-genten-kyotsuten/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "7f3cc6c3e42fa25881ff4bc4b1db10f468315ac6d72b28ee837b9649cf5143f5",
-      "bytes": 241158,
+      "sha256": "77a6ce994f45ec97da961d04d5f6b2b10e318dcb5737ae95f84803b8cf08e074",
+      "bytes": 944247,
       "width": 1920,
       "height": 1080,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/keiken-genten-kyotsuten/youtube.longform/cover.7f3cc6c3.png"
+        "path": ".tmp/media/civil-construction-2/keiken-genten-kyotsuten/youtube.longform/cover.77a6ce99.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/keiken-genten-kyotsuten/cover-design.json#longform",
-        "specSha256": "95119a3e8445425fa15898b8a8571dd83f363f86cc2d360ace190aa351a7f620"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/keiken-genten-kyotsuten/cover-design.json#covers/longform",
+        "specSha256": "c478be8989f156e5f0f45719741b36f5f683e1312a863eb0dd8fbe19b6264f99"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/228.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/228.png",
+        ".tmp/media/civil-construction-2/keiken-genten-kyotsuten/youtube.longform/cover.7f3cc6c3.png"
       ]
     },
     {
@@ -919,66 +950,69 @@
       "id": "civil-construction-2/keiken-genten-kyotsuten/youtube.short.point-kaigyo-2/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "872973c727832030dbf28d292b19e44c76a3e07075051c6bf31fecc84eceb7df",
-      "bytes": 154938,
+      "sha256": "189db158212769652f4e822dc536c626b5f59c6b11c547375b0f1277fbdc09c6",
+      "bytes": 714779,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/keiken-genten-kyotsuten/youtube.short.point-kaigyo-2/cover.872973c7.png"
+        "path": ".tmp/media/civil-construction-2/keiken-genten-kyotsuten/youtube.short.point-kaigyo-2/cover.189db158.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/keiken-genten-kyotsuten/cover-design.json#point-kaigyo-2",
-        "specSha256": "fe034a3bcf8fe8eb31573a2223bf727ecbe5999ddecc0a9c1ba3e87fb4051484"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/keiken-genten-kyotsuten/cover-design.json#covers/point-kaigyo-2",
+        "specSha256": "96c39d35c0217f03a56bde68b9a6025cac29269d7a2f21571d4ebddee82085b1"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/230.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/230.png",
+        ".tmp/media/civil-construction-2/keiken-genten-kyotsuten/youtube.short.point-kaigyo-2/cover.872973c7.png"
       ]
     },
     {
       "id": "civil-construction-2/keiken-genten-kyotsuten/youtube.short.point-taisai-1/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "006234d26b2da14f43859b2192cacb5de3d98910908d63b3564a8e66594ef29d",
-      "bytes": 189697,
+      "sha256": "a4493ca33a08c634db6c22d1d78fa06cb88770e67a3bb4ac8b9668371e1d7bb5",
+      "bytes": 669470,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/keiken-genten-kyotsuten/youtube.short.point-taisai-1/cover.006234d2.png"
+        "path": ".tmp/media/civil-construction-2/keiken-genten-kyotsuten/youtube.short.point-taisai-1/cover.a4493ca3.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/keiken-genten-kyotsuten/cover-design.json#point-taisai-1",
-        "specSha256": "b2884ee45a7ef58496b015a8c8b6f065bb1049ebbe29eda54bb617dd253368ba"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/keiken-genten-kyotsuten/cover-design.json#covers/point-taisai-1",
+        "specSha256": "6ec4649ecb27629b53729fc80bee95abb35d8c25c02b59872ff4b5b6d8a2b33e"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/229.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/229.png",
+        ".tmp/media/civil-construction-2/keiken-genten-kyotsuten/youtube.short.point-taisai-1/cover.006234d2.png"
       ]
     },
     {
       "id": "civil-construction-2/keiken-hinshitsu-kakikata/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "ba31c74de39ee156bc46ba6262530b83d46eb31fa7425ecc776e927e815df11b",
-      "bytes": 203276,
+      "sha256": "673b49a53ba2782eebed78698fb29c8857397f2e6842bf70ab71dd540ed39e6b",
+      "bytes": 927952,
       "width": 1920,
       "height": 1080,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/keiken-hinshitsu-kakikata/youtube.longform/cover.ba31c74d.png"
+        "path": ".tmp/media/civil-construction-2/keiken-hinshitsu-kakikata/youtube.longform/cover.673b49a5.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/keiken-hinshitsu-kakikata/cover-design.json#longform",
-        "specSha256": "6e345ad2b5c2d6ae768f0e00cc3b75afddbfcdd499c253cdc6b40db5598a56d8"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/keiken-hinshitsu-kakikata/cover-design.json#covers/longform",
+        "specSha256": "e78e8e9d2f9248f829a2f1409031575b98b8ce4aadaff6cf3a2922d2d4f6deef"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/231.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/231.png",
+        ".tmp/media/civil-construction-2/keiken-hinshitsu-kakikata/youtube.longform/cover.ba31c74d.png"
       ]
     },
     {
@@ -1006,66 +1040,69 @@
       "id": "civil-construction-2/keiken-hinshitsu-kakikata/youtube.short.point-kadai-2/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "1dc6be2ab3e95ced75b11bcebe5cb4280ce1be59956da3579156346581036e3a",
-      "bytes": 164547,
+      "sha256": "434cf3421168de9ea0664298f32aaf7aa7ed1e853f6b001bd46bb6e38d6761e1",
+      "bytes": 726210,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/keiken-hinshitsu-kakikata/youtube.short.point-kadai-2/cover.1dc6be2a.png"
+        "path": ".tmp/media/civil-construction-2/keiken-hinshitsu-kakikata/youtube.short.point-kadai-2/cover.434cf342.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/keiken-hinshitsu-kakikata/cover-design.json#point-kadai-2",
-        "specSha256": "4c3c90a0b3e1979dd443788d60b13ab4ec29b704f8d5fa7ae8e568e64d21e260"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/keiken-hinshitsu-kakikata/cover-design.json#covers/point-kadai-2",
+        "specSha256": "0c39e845b8266a724e5a7c86fec8cd64c61f812edd36bf59641c3a37b565b6a2"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/233.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/233.png",
+        ".tmp/media/civil-construction-2/keiken-hinshitsu-kakikata/youtube.short.point-kadai-2/cover.1dc6be2a.png"
       ]
     },
     {
       "id": "civil-construction-2/keiken-hinshitsu-kakikata/youtube.short.point-nagare-1/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "5dac861f92db86562b839d45f4a32c5ab41dc4a3fed45d696f9ebb4dfae592a5",
-      "bytes": 180861,
+      "sha256": "2dbbdaa18a0b0a77154903644476927cfc87b267bc5e99811b5614210f393564",
+      "bytes": 656012,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/keiken-hinshitsu-kakikata/youtube.short.point-nagare-1/cover.5dac861f.png"
+        "path": ".tmp/media/civil-construction-2/keiken-hinshitsu-kakikata/youtube.short.point-nagare-1/cover.2dbbdaa1.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/keiken-hinshitsu-kakikata/cover-design.json#point-nagare-1",
-        "specSha256": "1e48b773b6feb6594e34302e17097342e81ce25e9b58bf05b60c6c5e636e0c08"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/keiken-hinshitsu-kakikata/cover-design.json#covers/point-nagare-1",
+        "specSha256": "489477edbbe0fc550153fa1b911df2eb1d309519ae7d73f925c251b8d404a0c9"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/232.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/232.png",
+        ".tmp/media/civil-construction-2/keiken-hinshitsu-kakikata/youtube.short.point-nagare-1/cover.5dac861f.png"
       ]
     },
     {
       "id": "civil-construction-2/keiken-koji-ga-nai/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "e684d02b79c5cf019a16038d6f4ad39525f780ca8d9435c16cafad7b323a92ef",
-      "bytes": 203188,
+      "sha256": "630287699bee9bf9b7a8d17be1d6226584acd3ea3a7712811b2dda021c20bf93",
+      "bytes": 706049,
       "width": 1920,
       "height": 1080,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/keiken-koji-ga-nai/youtube.longform/cover.e684d02b.png"
+        "path": ".tmp/media/civil-construction-2/keiken-koji-ga-nai/youtube.longform/cover.63028769.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/keiken-koji-ga-nai/cover-design.json#longform",
-        "specSha256": "512a1a4892b2c863d311ee0288ec04e1bd1af536d2dca207e870f04c167748c6"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/keiken-koji-ga-nai/cover-design.json#covers/longform",
+        "specSha256": "018a2dfb0d1f02f784f26d3f255a85353d3e24c6b3076a76a8fb53208ea35b0f"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/234.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/234.png",
+        ".tmp/media/civil-construction-2/keiken-koji-ga-nai/youtube.longform/cover.e684d02b.png"
       ]
     },
     {
@@ -1093,66 +1130,69 @@
       "id": "civil-construction-2/keiken-koji-ga-nai/youtube.short.point-taisho-1/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "bdae0b6624e8fc63ab0d7f149485b81d99cf6d524ef3783f6d999cdf6a218bbf",
-      "bytes": 180999,
+      "sha256": "058593374bbe99a88301ba184886751d3c219265486445fbf874ed9922ea7d6c",
+      "bytes": 657712,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/keiken-koji-ga-nai/youtube.short.point-taisho-1/cover.bdae0b66.png"
+        "path": ".tmp/media/civil-construction-2/keiken-koji-ga-nai/youtube.short.point-taisho-1/cover.05859337.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/keiken-koji-ga-nai/cover-design.json#point-taisho-1",
-        "specSha256": "8bd24ba1c786d80ee8442db2aa0a231891dccff6d331293b39f5af6d50118bb6"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/keiken-koji-ga-nai/cover-design.json#covers/point-taisho-1",
+        "specSha256": "de29e4e4aa50a95cd727e950d4dbb662704ffc8789e6e3b9ac22087b844e68d4"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/235.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/235.png",
+        ".tmp/media/civil-construction-2/keiken-koji-ga-nai/youtube.short.point-taisho-1/cover.bdae0b66.png"
       ]
     },
     {
       "id": "civil-construction-2/keiken-koji-ga-nai/youtube.short.point-taishogai-2/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "d05551ecf3d5174a7a2b5afb540b48c767a8ae2839d01f31d7f06f408c4a837f",
-      "bytes": 183271,
+      "sha256": "af28f6ee7c2b2ce71082bde9cac9290c99a0d0676628ee44ee2f74d4ade59d3c",
+      "bytes": 667149,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/keiken-koji-ga-nai/youtube.short.point-taishogai-2/cover.d05551ec.png"
+        "path": ".tmp/media/civil-construction-2/keiken-koji-ga-nai/youtube.short.point-taishogai-2/cover.af28f6ee.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/keiken-koji-ga-nai/cover-design.json#point-taishogai-2",
-        "specSha256": "d4126350b9cb79909b7354563f4ce44d4a34888d81152b148194df5bf9a81e4f"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/keiken-koji-ga-nai/cover-design.json#covers/point-taishogai-2",
+        "specSha256": "1d3c45d0ad5f4eab16220e55dc47f96f1f0aa92cef89211c6bb59bb3c1e7c45d"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/236.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/236.png",
+        ".tmp/media/civil-construction-2/keiken-koji-ga-nai/youtube.short.point-taishogai-2/cover.d05551ec.png"
       ]
     },
     {
       "id": "civil-construction-2/keiken-kotei-kakikata/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "090feab0c78db07d4211d8775842318ef0c965fca879acac5d8991cac252848d",
-      "bytes": 197700,
+      "sha256": "1b2b45f0cf258f4dc7cc7cd439d788be96e531d091e91fe0798ca97c8765dcf7",
+      "bytes": 925800,
       "width": 1920,
       "height": 1080,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/keiken-kotei-kakikata/youtube.longform/cover.090feab0.png"
+        "path": ".tmp/media/civil-construction-2/keiken-kotei-kakikata/youtube.longform/cover.1b2b45f0.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/keiken-kotei-kakikata/cover-design.json#longform",
-        "specSha256": "13bcd46757979a4e9019c7d650628808c82c6d321ea23d5f3656fabc86ac6925"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/keiken-kotei-kakikata/cover-design.json#covers/longform",
+        "specSha256": "1fd308785129dc508b562aa724b25d7cd691ebcc565d3ab01f3969491e65b994"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/237.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/237.png",
+        ".tmp/media/civil-construction-2/keiken-kotei-kakikata/youtube.longform/cover.090feab0.png"
       ]
     },
     {
@@ -1180,66 +1220,69 @@
       "id": "civil-construction-2/keiken-kotei-kakikata/youtube.short.point-nagare-1/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "0c1c1facecee71b31f7c96f5ed1c5358ef16da074bd81c9d5f6362b23a9af661",
-      "bytes": 179738,
+      "sha256": "3bee2e8c0a20ea6d7b374d307e4564901aa82f9dc4f22f84192071a80daec091",
+      "bytes": 654982,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/keiken-kotei-kakikata/youtube.short.point-nagare-1/cover.0c1c1fac.png"
+        "path": ".tmp/media/civil-construction-2/keiken-kotei-kakikata/youtube.short.point-nagare-1/cover.3bee2e8c.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/keiken-kotei-kakikata/cover-design.json#point-nagare-1",
-        "specSha256": "71aae7dc70685d6ed79f1767c5b98e00aab8b9e824313ef39ad9cb9d4cd3d203"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/keiken-kotei-kakikata/cover-design.json#covers/point-nagare-1",
+        "specSha256": "f5b0bd9ad4b62f7de689b3214e7956b5eb5759bf2c96973227ab82bf63641d52"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/238.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/238.png",
+        ".tmp/media/civil-construction-2/keiken-kotei-kakikata/youtube.short.point-nagare-1/cover.0c1c1fac.png"
       ]
     },
     {
       "id": "civil-construction-2/keiken-kotei-kakikata/youtube.short.point-tenko-2/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "50262d972860257d315bb898c795285fa06821cd3971422d2a7be182b9c3616a",
-      "bytes": 179723,
+      "sha256": "1da95d6fa00ab55556dd6b04ee699f6abb6c22802faab179f7a25f4ab629e4d2",
+      "bytes": 655792,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/keiken-kotei-kakikata/youtube.short.point-tenko-2/cover.50262d97.png"
+        "path": ".tmp/media/civil-construction-2/keiken-kotei-kakikata/youtube.short.point-tenko-2/cover.1da95d6f.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/keiken-kotei-kakikata/cover-design.json#point-tenko-2",
-        "specSha256": "5c02355191e4b5b051532d7332a1271ce27338efcdcccfb02756678cbc3653bf"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/keiken-kotei-kakikata/cover-design.json#covers/point-tenko-2",
+        "specSha256": "ffec8374a92c02d4a52c6ecfa76116785a1639a43162193f287ba90c452cb7ff"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/239.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/239.png",
+        ".tmp/media/civil-construction-2/keiken-kotei-kakikata/youtube.short.point-tenko-2/cover.50262d97.png"
       ]
     },
     {
       "id": "civil-construction-2/keiken-nendo-keiko-2kyu/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "9c0a8eabec2a9dc0dacdb220869ab2877f5d05ce51449833816bfa64e33238c3",
-      "bytes": 207962,
+      "sha256": "5f3f7582789d8b82d809e6058bdfb23978283c941042832966599b2ce2d2600b",
+      "bytes": 702499,
       "width": 1920,
       "height": 1080,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/keiken-nendo-keiko-2kyu/youtube.longform/cover.9c0a8eab.png"
+        "path": ".tmp/media/civil-construction-2/keiken-nendo-keiko-2kyu/youtube.longform/cover.5f3f7582.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/keiken-nendo-keiko-2kyu/cover-design.json#longform",
-        "specSha256": "42d2065c13852f931e2eea12b88064e587e10cf0b8d13c8e37f2593ffc40afa3"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/keiken-nendo-keiko-2kyu/cover-design.json#covers/longform",
+        "specSha256": "1b7573c3a7088d1737b5d43e82fb56019b2805504800d6c0bd0b1b397a6f7c78"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/240.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/240.png",
+        ".tmp/media/civil-construction-2/keiken-nendo-keiko-2kyu/youtube.longform/cover.9c0a8eab.png"
       ]
     },
     {
@@ -1267,66 +1310,69 @@
       "id": "civil-construction-2/keiken-nendo-keiko-2kyu/youtube.short.point-gakka-fields-2/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "0091c8a5da555e5b28d8fc3c98bc2377538b42a14e3134e91ab71d8e47e78b4d",
-      "bytes": 180393,
+      "sha256": "ee4642625e318f67664afeffd0d84c3b563120627fb4d9990d4c473435c64439",
+      "bytes": 649852,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/keiken-nendo-keiko-2kyu/youtube.short.point-gakka-fields-2/cover.0091c8a5.png"
+        "path": ".tmp/media/civil-construction-2/keiken-nendo-keiko-2kyu/youtube.short.point-gakka-fields-2/cover.ee464262.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/keiken-nendo-keiko-2kyu/cover-design.json#point-gakka-fields-2",
-        "specSha256": "47070b970b2ac4b72ceab21cc3fd18dc743fa848b469c40cb280e0df4731ab11"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/keiken-nendo-keiko-2kyu/cover-design.json#covers/point-gakka-fields-2",
+        "specSha256": "1560697bb63c32ddaea3d782878debc056c4918c520386496b8ff2917adeaeef"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/242.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/242.png",
+        ".tmp/media/civil-construction-2/keiken-nendo-keiko-2kyu/youtube.short.point-gakka-fields-2/cover.0091c8a5.png"
       ]
     },
     {
       "id": "civil-construction-2/keiken-nendo-keiko-2kyu/youtube.short.point-theme-shift-1/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "bbf18603a8ef2e007d2af85445d0260a7137f7eb8d1a62ff23c71da0de2a0457",
-      "bytes": 189423,
+      "sha256": "5861a9fb7d32904081fde4e7fbb5d0e3501e12a5005cf691bd45c8ff86e3b1aa",
+      "bytes": 654214,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/keiken-nendo-keiko-2kyu/youtube.short.point-theme-shift-1/cover.bbf18603.png"
+        "path": ".tmp/media/civil-construction-2/keiken-nendo-keiko-2kyu/youtube.short.point-theme-shift-1/cover.5861a9fb.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/keiken-nendo-keiko-2kyu/cover-design.json#point-theme-shift-1",
-        "specSha256": "64c7edfec84ce319a3ed3820aca5bf1ccd34aa6045f08b59f17f5bef8f82f119"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/keiken-nendo-keiko-2kyu/cover-design.json#covers/point-theme-shift-1",
+        "specSha256": "7ea5903d41170d3666bf16b7cbd7fdf7bae4181fa77334474350dbea53844a0d"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/241.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/241.png",
+        ".tmp/media/civil-construction-2/keiken-nendo-keiko-2kyu/youtube.short.point-theme-shift-1/cover.bbf18603.png"
       ]
     },
     {
       "id": "civil-construction-2/kikinagashi-2kyu-matome/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "2550756d9aaa91d81c2871d62b0036e4b502042cf45ad1360e8766a77e04c1e6",
-      "bytes": 222011,
+      "sha256": "e5545eca951a7ab8ff698bc92e05d3be2da5c52a98bd4f10cc55de8ceebc0bcf",
+      "bytes": 702116,
       "width": 1920,
       "height": 1080,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/kikinagashi-2kyu-matome/youtube.longform/cover.2550756d.png"
+        "path": ".tmp/media/civil-construction-2/kikinagashi-2kyu-matome/youtube.longform/cover.e5545eca.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/kikinagashi-2kyu-matome/cover-design.json#longform",
-        "specSha256": "9b407ca390e7bc05f6748c5c5845576ddea3dc3e2c58e45c8ee4ee0229331110"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/kikinagashi-2kyu-matome/cover-design.json#covers/longform",
+        "specSha256": "9be1ce788e674b9f5fb982014e75e8b3e5ba64c897560ad564b5dc7225b13d69"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/243.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/243.png",
+        ".tmp/media/civil-construction-2/kikinagashi-2kyu-matome/youtube.longform/cover.2550756d.png"
       ]
     },
     {
@@ -1354,66 +1400,71 @@
       "id": "civil-construction-2/kikinagashi-2kyu-matome/youtube.short.point-soil-tests-1/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "c0c3877798cb1530c2e75421c64e5c1c44d27cab4748342b980ee90a230eb74b",
-      "bytes": 184060,
+      "sha256": "ecce49a1ff0d7e2b596fb47f08a88f5152905528b25f7a3e07b2c1dd2c0d56b5",
+      "bytes": 728407,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/kikinagashi-2kyu-matome/youtube.short.point-soil-tests-1/cover.c0c38777.png"
+        "path": ".tmp/media/civil-construction-2/kikinagashi-2kyu-matome/youtube.short.point-soil-tests-1/cover.ecce49a1.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/kikinagashi-2kyu-matome/cover-design.json#point-soil-tests-1",
-        "specSha256": "4ef1c6660f6dcceb85780f42953fe4832b3e7a0f51d96ddb388fb91c4a06f85d"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/kikinagashi-2kyu-matome/cover-design.json#covers/point-soil-tests-1",
+        "specSha256": "9dc5596e03f912fa9db0e2a0f93ca9addc0e3404da05729b2ce43aff0f410668"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/244.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/244.png",
+        ".tmp/media/civil-construction-2/kikinagashi-2kyu-matome/youtube.short.point-soil-tests-1/cover.c0c38777.png"
       ]
     },
     {
       "id": "civil-construction-2/kikinagashi-2kyu-matome/youtube.short.point-soil-volume-2/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "6351d3056fc5a4d977dc7c654237e1fd268a6cc211d0b0cf4d28a5d19733759a",
-      "bytes": 180212,
+      "sha256": "1a430ce7dbb3be457e793b4f0bde8d3ad50008c18fc4e622bd9a9abd0d5023cb",
+      "bytes": 720670,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/kikinagashi-2kyu-matome/youtube.short.point-soil-volume-2/cover.6351d305.png"
+        "path": ".tmp/media/civil-construction-2/kikinagashi-2kyu-matome/youtube.short.point-soil-volume-2/cover.1a430ce7.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/kikinagashi-2kyu-matome/cover-design.json#point-soil-volume-2",
-        "specSha256": "8c95bf61d4d671270373a544278a883687e7d0e831af6d3bfbbe12713a5482b4"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/kikinagashi-2kyu-matome/cover-design.json#covers/point-soil-volume-2",
+        "specSha256": "f0965c6952d0a88b9cf20855abaac646d1f02638c5331701a05673809dddf66f"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/245.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/245.png",
+        ".tmp/media/civil-construction-2/kikinagashi-2kyu-matome/youtube.short.point-soil-volume-2/cover.6351d305.png"
       ]
     },
     {
       "id": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "2a24500dd9c74fb1886ff03eefd95a4f777bef4ab581e8399bda599a0f239ce2",
-      "bytes": 154343,
-      "store": {
-        "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/cover.2a24500d.png"
-      },
-      "provenance": {
-        "kind": "template",
-        "by": "brand-video-pack",
-        "spec": "content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen/cover-design.json#longform",
-        "specSha256": "556f1358a82ead9927b0b97ca83031e8a593ecd99e3b1382fe6d29a591468277"
-      },
+      "sha256": "f0695dfa3a19f0501c1a352a9027cf3bbee2175548cb381716ae95f0d51d11bd",
+      "bytes": 2063503,
       "width": 1920,
       "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/cover.f0695dfa.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Use case: ads-marketing.\n添付画像1は承認済みココナラの2級土木POPデザイン（意匠・キャラクターの参照）。添付画像2は今回差し替えを検討しているYouTube表紙（動画の対象の参照）。画像1の強い文字階層、緑・白・黄色、同じ40代男性の先生を用いて、まったく新しい16:9のYouTubeサムネイルを制作。ココナラの「添削」やサービス文言はコピーしない。\n出力は1920×1080、16:9の一枚の完成サムネイル。試験直前の2級土木受検者がスマホ一覧で一目で対象と利点を読める、キャッチーだが信頼できる教材デザイン。\n背景は深いエメラルドグリーンから明るいミントへの斜めの色面、さりげない斜線と光のアクセント。土木現場のシルエットは極めて薄く、文字を邪魔しない。\n左側の約65%を太い日本語見出しに使う。最上段に非常に大きく「2級土木」を白い極太文字、濃緑の輪郭と控えめな影で。中央に「耳で総復習」を黄色の極太文字、濃緑の輪郭で、1行で大きく表示。資格名と主題が同程度に大きい。長文は置かない。左下に白い帯で「一次＋二次・26分」を濃緑の太字、聞き流しが分かる小さなヘッドホンのアイコンを添える。帯の下に小さめの黄色の強調帯で「総監が制作」。\n文字列は指定の4つだけを正確に描く：「2級土木」「耳で総復習」「一次＋二次・26分」「総監が制作」。ブランド名、URL、値段、ロゴ、添削、合格保証、実績、数字の追加は禁止。\n右側約35%に、画像1と完全に同じ先生を大きく配置。白い無地ヘルメット、黒い短髪、黒縁メガネ、軽いひげ、40代の大人の顔、紺の作業服、白シャツ、紺ネクタイ、黄色の反射ベストを保つ。親しみのある自信ある笑顔。胸上〜腰上の構図で、左手のひらを上向きに開き、見出しへ視線を誘導する自然な解説ポーズ。赤ペンは不要。自然な手・指、顔の同一性を厳守。顔と帽子は画面内に完全に収める。\n周囲は左右上下5%の安全域。見出しと顔は切らない、人物は文字に重ねない。右下の時刻オーバーレイに備え、右下12%×12%には文字や顔を置かない。参照を引き伸ばさず16:9に構成し直す。スマホの幅360pxでも4つの文字列が判読できる。",
+        "promptSha256": "810e7c222e269d46db5c465fbc74a3cae5dbc41f09c620516b81492d51a44a51",
+        "generatedAt": "2026-10-10T14:49:29.691Z"
+      },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-civil-construction-2/matome-2kyu-chokuzen-longform.png"
+        ".tmp/video-render/youtube-covers-civil-construction-2/matome-2kyu-chokuzen-longform.png",
+        ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/cover.2a24500d.png",
+        ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/cover.82fc9d80.png"
       ]
     },
     {
@@ -1432,10 +1483,7 @@
         "spec": "content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen/storyboard.json#cta"
       },
       "width": 1920,
-      "height": 1080,
-      "legacyPaths": [
-        ".tmp/video-render/youtube-cta-civil-construction-2/matome-2kyu-chokuzen-longform.png"
-      ]
+      "height": 1080
     },
     {
       "id": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform/subtitles",
@@ -1457,11 +1505,11 @@
       "id": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform/video",
       "role": "video",
       "type": "video/mp4",
-      "sha256": "1355361ef58a14a30e2200079a00f8a2d694437d903b0646cfef1e76d5759734",
-      "bytes": 95534342,
+      "sha256": "5835b2d030830396e78672d77621a1b110f75c7c649a54c336aac9f46fbc3bbd",
+      "bytes": 96048317,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/video.1355361e.mp4"
+        "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/video.5835b2d0.mp4"
       },
       "provenance": {
         "kind": "render",
@@ -1479,22 +1527,23 @@
       "id": "civil-construction-2/nikyuu-gaiyo-roadmap/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "b776c7e24544a69da3c218ce882fe0c4aa54bfba4a4479f6f544caa1826840d9",
-      "bytes": 242170,
+      "sha256": "609a6920cc160ee1e9a46f41e455f5f6b8de486840c61f71bea9efd2a2eb3902",
+      "bytes": 714757,
       "width": 1920,
       "height": 1080,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/nikyuu-gaiyo-roadmap/youtube.longform/cover.b776c7e2.png"
+        "path": ".tmp/media/civil-construction-2/nikyuu-gaiyo-roadmap/youtube.longform/cover.609a6920.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/nikyuu-gaiyo-roadmap/cover-design.json#longform",
-        "specSha256": "0b0aa039d5b66b357d16b9ab6431e513f3af140e3579dd5d326884e7e3be47e0"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/nikyuu-gaiyo-roadmap/cover-design.json#covers/longform",
+        "specSha256": "1f5e0f91c9f600a2496cffbde52c283acd55a4be419f3f08678705d942909be7"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/246.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/246.png",
+        ".tmp/media/civil-construction-2/nikyuu-gaiyo-roadmap/youtube.longform/cover.b776c7e2.png"
       ]
     },
     {
@@ -1522,66 +1571,69 @@
       "id": "civil-construction-2/nikyuu-gaiyo-roadmap/youtube.short.point-qualification-2/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "109c858365b8aed9e92a68cfeb8eccffc86c1cf6993c8b2a699a0b99fcb8d71b",
-      "bytes": 162896,
+      "sha256": "a119be47015a68e990dd9c968b58e771c7a0ad15ded39e8fe2e8686379941b8a",
+      "bytes": 729692,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/nikyuu-gaiyo-roadmap/youtube.short.point-qualification-2/cover.109c8583.png"
+        "path": ".tmp/media/civil-construction-2/nikyuu-gaiyo-roadmap/youtube.short.point-qualification-2/cover.a119be47.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/nikyuu-gaiyo-roadmap/cover-design.json#point-qualification-2",
-        "specSha256": "034cbae6e5dc0fa38b89fa9c3a85fc68959fb85e3065e36fe9654ee75ce895ac"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/nikyuu-gaiyo-roadmap/cover-design.json#covers/point-qualification-2",
+        "specSha256": "e65e8fc9615ce49cba43d4a334f2b6ad92196abfb94eb256f5835109b12e2fa8"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/248.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/248.png",
+        ".tmp/media/civil-construction-2/nikyuu-gaiyo-roadmap/youtube.short.point-qualification-2/cover.109c8583.png"
       ]
     },
     {
       "id": "civil-construction-2/nikyuu-gaiyo-roadmap/youtube.short.point-stage-1/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "a681400c49e2da61bd63814d96590b96792196b0a3d841056a5b0166a2084e10",
-      "bytes": 177822,
+      "sha256": "784126e5b1f3a21ac876a746f4edcea941e188b547cb7ac5a05b2dbd032dd2a4",
+      "bytes": 722882,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/nikyuu-gaiyo-roadmap/youtube.short.point-stage-1/cover.a681400c.png"
+        "path": ".tmp/media/civil-construction-2/nikyuu-gaiyo-roadmap/youtube.short.point-stage-1/cover.784126e5.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/nikyuu-gaiyo-roadmap/cover-design.json#point-stage-1",
-        "specSha256": "5c8cb26939704d3edc48f540d73dc3012c851b58deb14461f1e09e6d13cad34a"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/nikyuu-gaiyo-roadmap/cover-design.json#covers/point-stage-1",
+        "specSha256": "6d66c63e1b2d336546d09e1802d7f84cd43f8537fdb7c7c507fd5937c445274f"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/247.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/247.png",
+        ".tmp/media/civil-construction-2/nikyuu-gaiyo-roadmap/youtube.short.point-stage-1/cover.a681400c.png"
       ]
     },
     {
       "id": "civil-construction-2/study-plan-2kyu/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "e56c32f773e559b7e93540c242a2daef8182cdc943f3d44703d74d95271dc460",
-      "bytes": 225347,
+      "sha256": "0784bfe4dc136b7327f7e711f7428fdced6cb3bc704554592416b9d9d7b4ee64",
+      "bytes": 699679,
       "width": 1920,
       "height": 1080,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/study-plan-2kyu/youtube.longform/cover.e56c32f7.png"
+        "path": ".tmp/media/civil-construction-2/study-plan-2kyu/youtube.longform/cover.0784bfe4.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/study-plan-2kyu/cover-design.json#longform",
-        "specSha256": "decaa24996fa4cbcf32702f2e4f2cfce1a70e67f6b3d834662ac35090cd51ab2"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/study-plan-2kyu/cover-design.json#covers/longform",
+        "specSha256": "ae2763297c5abce97360dadd53dc9aaad59348be390a6df340af2d647cb68be7"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/249.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/249.png",
+        ".tmp/media/civil-construction-2/study-plan-2kyu/youtube.longform/cover.e56c32f7.png"
       ]
     },
     {
@@ -1609,44 +1661,46 @@
       "id": "civil-construction-2/study-plan-2kyu/youtube.short.point-step1-1/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "5a534a4f410d1a3d3ba8d9146b08894a5fcbc4d1c1b8eaf4ad5b66dffea0f12a",
-      "bytes": 183202,
+      "sha256": "ee019148f8dcd2f139632c3c2b98bc34206449f6029f44cb2f42f653883f47b9",
+      "bytes": 729749,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/study-plan-2kyu/youtube.short.point-step1-1/cover.5a534a4f.png"
+        "path": ".tmp/media/civil-construction-2/study-plan-2kyu/youtube.short.point-step1-1/cover.ee019148.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/study-plan-2kyu/cover-design.json#point-step1-1",
-        "specSha256": "5386b05d693d51d3e637e909f9e3e9570d7c52ee259a5109c3201033f491d700"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/study-plan-2kyu/cover-design.json#covers/point-step1-1",
+        "specSha256": "26b6e19b6da7ac30ea4bd96a7f415f9bceb4673813bc3d5a88e0284669f72b40"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/250.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/250.png",
+        ".tmp/media/civil-construction-2/study-plan-2kyu/youtube.short.point-step1-1/cover.5a534a4f.png"
       ]
     },
     {
       "id": "civil-construction-2/study-plan-2kyu/youtube.short.point-step2-2/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "e7c3cf26ffc1198f9ff8f09e144e0f5dc95b1c7801e290a7d9c2f5929af7f3d6",
-      "bytes": 181019,
+      "sha256": "15964a7b2c0b6ac8601ed55459fa37b048d949d9d685dfe42bf7adf4edf82978",
+      "bytes": 728530,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/study-plan-2kyu/youtube.short.point-step2-2/cover.e7c3cf26.png"
+        "path": ".tmp/media/civil-construction-2/study-plan-2kyu/youtube.short.point-step2-2/cover.15964a7b.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/study-plan-2kyu/cover-design.json#point-step2-2",
-        "specSha256": "136516ba34fc6625687833e59d3528fd8001ee69d46af4f1a0605fc2d20a5bfd"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/civil-construction-2/study-plan-2kyu/cover-design.json#covers/point-step2-2",
+        "specSha256": "5386c2416232eb73ca236d474cc20b4f3f68c8c0832dccd7ef566e8a3c37f738"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/251.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/251.png",
+        ".tmp/media/civil-construction-2/study-plan-2kyu/youtube.short.point-step2-2/cover.e7c3cf26.png"
       ]
     }
   ]

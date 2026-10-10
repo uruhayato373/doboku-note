@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-construction",
+      "headline": [
+        "令和8年度予想",
+        "施策と傾向で導く"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-construction/r8-yosou-dashikata/youtube.longform/cover.03564165.png",
+        "sha256": "0356416542f9a95dce5a604dbdf89eaccc541383cb481606e83c6046b1e5b666",
+        "specSha256": "54c2aa7f07d449df0ff6c3777dc8bb0b94ad027ae83dbf7a6eb74ae962210751"
+      }
+    }
+  }
+}

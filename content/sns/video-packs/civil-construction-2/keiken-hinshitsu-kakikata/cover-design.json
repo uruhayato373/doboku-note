@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-2/keiken-hinshitsu-kakikata/youtube.longform/cover.ba31c74d.png",
-        "sha256": "ba31c74de39ee156bc46ba6262530b83d46eb31fa7425ecc776e927e815df11b",
-        "specSha256": "6e345ad2b5c2d6ae768f0e00cc3b75afddbfcdd499c253cdc6b40db5598a56d8"
+        "path": ".tmp/media/civil-construction-2/keiken-hinshitsu-kakikata/youtube.longform/cover.673b49a5.png",
+        "sha256": "673b49a53ba2782eebed78698fb29c8857397f2e6842bf70ab71dd540ed39e6b",
+        "specSha256": "e78e8e9d2f9248f829a2f1409031575b98b8ce4aadaff6cf3a2922d2d4f6deef"
       }
     },
     "point-nagare-1": {
@@ -30,13 +35,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-2/keiken-hinshitsu-kakikata/youtube.short.point-nagare-1/cover.5dac861f.png",
-        "sha256": "5dac861f92db86562b839d45f4a32c5ab41dc4a3fed45d696f9ebb4dfae592a5",
-        "specSha256": "1e48b773b6feb6594e34302e17097342e81ce25e9b58bf05b60c6c5e636e0c08"
+        "path": ".tmp/media/civil-construction-2/keiken-hinshitsu-kakikata/youtube.short.point-nagare-1/cover.2dbbdaa1.png",
+        "sha256": "2dbbdaa18a0b0a77154903644476927cfc87b267bc5e99811b5614210f393564",
+        "specSha256": "489477edbbe0fc550153fa1b911df2eb1d309519ae7d73f925c251b8d404a0c9"
       }
     },
     "point-kadai-2": {
@@ -49,13 +59,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "reading",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-2/keiken-hinshitsu-kakikata/youtube.short.point-kadai-2/cover.1dc6be2a.png",
-        "sha256": "1dc6be2ab3e95ced75b11bcebe5cb4280ce1be59956da3579156346581036e3a",
-        "specSha256": "4c3c90a0b3e1979dd443788d60b13ab4ec29b704f8d5fa7ae8e568e64d21e260"
+        "path": ".tmp/media/civil-construction-2/keiken-hinshitsu-kakikata/youtube.short.point-kadai-2/cover.434cf342.png",
+        "sha256": "434cf3421168de9ea0664298f32aaf7aa7ed1e853f6b001bd46bb6e38d6761e1",
+        "specSha256": "0c39e845b8266a724e5a7c86fec8cd64c61f812edd36bf59641c3a37b565b6a2"
       }
     }
   }

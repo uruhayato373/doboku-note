@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "good-sign",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-2/keiken-anzen-2kyu-kakikata/youtube.longform/cover.71fe8a4e.png",
-        "sha256": "71fe8a4e940a3c43c35aab232654e6a76bac74e170991efb135b2d32c56199cb",
-        "specSha256": "0c63d04faf288d2bb97ae34d1468c28ebb76da7257d2221793a9b805d77cd96a"
+        "path": ".tmp/media/civil-construction-2/keiken-anzen-2kyu-kakikata/youtube.longform/cover.1555a601.png",
+        "sha256": "1555a60132ffdeca8d41e1c1e33fec028bc881c7eb20cf16bd619d282a7103b2",
+        "specSha256": "ae6140c8fd1e1c02b664615c8f94a303eee5d5973cb983490df94fc29ba67943"
       }
     },
     "point-step1-1": {
@@ -31,13 +36,18 @@
       "accentLine": 2,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-2/keiken-anzen-2kyu-kakikata/youtube.short.point-step1-1/cover.2f1c46c7.png",
-        "sha256": "2f1c46c7debdf81cde119c002de1bfe238f53d31ee117dff2b04cc5325d11eb5",
-        "specSha256": "d6ae9b0b0799c20b88dde8c9f6273325c8a3da53448499d420b108b06e42f3d4"
+        "path": ".tmp/media/civil-construction-2/keiken-anzen-2kyu-kakikata/youtube.short.point-step1-1/cover.21712409.png",
+        "sha256": "217124090de19aab881001a39e58582e4a3eb415454614999652dac5e285f374",
+        "specSha256": "50a4254d504103697755dae2a62539dca35a09231621ed37221b8c967a3c076f"
       }
     },
     "point-step2-2": {
@@ -51,13 +61,18 @@
       "accentLine": 2,
       "subtitle": "",
       "character": {
-        "pose": "pointing",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-2/keiken-anzen-2kyu-kakikata/youtube.short.point-step2-2/cover.7c22e60c.png",
-        "sha256": "7c22e60c331c0832051e8ce2275599e92be573d8452b36880db4ae489e5e458f",
-        "specSha256": "3b43071c98a4b65945da1bc46eae4b54a66b923c1bfc667e5865ad21f9bb6522"
+        "path": ".tmp/media/civil-construction-2/keiken-anzen-2kyu-kakikata/youtube.short.point-step2-2/cover.490ddaa8.png",
+        "sha256": "490ddaa86b3f6085ca3522276e9786e9ef4d0437cb0a4b3513cb3d15f0410e86",
+        "specSha256": "86936861d9127a1782cdde77df8904d9f8e207afa4a43ee7a832ee735d326fef"
       }
     }
   }

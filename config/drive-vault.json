@@ -273,13 +273,15 @@
       "status": "active",
       "audience": "human",
       "match": {
-          "pathRegex": "^\\.tmp/video-render/youtube-covers-[a-z0-9-]+/.+\\.png$"
+        "pathRegex": "^\\.tmp/video-render/youtube-covers-[a-z0-9-]+/.+\\.png$"
       },
       "vaultDir": "制作物/動画レンダー/採用カバー",
       "keyFrom": "stripPrefix:.tmp/video-render/",
       "regenerable": false,
       "generator": null,
-      "requiredBy": ["scripts/lib/youtube-approved-cover.mjs"],
+      "requiredBy": [
+        "scripts/lib/youtube-approved-cover.mjs"
+      ],
       "reason": "人が確認したPNGを制作端末の書体に依存せず使う。Macから読み込むためDriveに保管し、フォントを持たない端末での再生成は前提にしない。"
     },
     {
@@ -359,7 +361,7 @@
       "regenerable": false,
       "generator": null,
       "requiredBy": [],
-      "reason": "監査証跡・表紙デザイン案・キャラ素材原本。読む人はいても読むコードは無い。"
+      "reason": "監査証跡・表紙デザイン案・キャラ素材原本。人の確認と手元の制作CLIが使い、サイト・CIからは配信しない。"
     },
     {
       "id": "legacy-r2-orphan",

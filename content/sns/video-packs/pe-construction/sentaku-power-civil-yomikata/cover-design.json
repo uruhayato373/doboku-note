@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-construction",
+      "headline": [
+        "電力土木",
+        "テーマの読み方"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-construction/sentaku-power-civil-yomikata/youtube.longform/cover.d98d453b.png",
+        "sha256": "d98d453b919187429f464455f9c08621ce891c951249bf0ddfe86da8973b53e2",
+        "specSha256": "340b79245bfc6ee3ec53c4a956e94fbae739131804ffe3d823665725fde9fa9e"
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-construction",
+      "headline": [
+        "模範解答",
+        "写すだけでOK？"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pop-pointing",
+        "frame": "waist"
+      },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "question",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-construction/kaitourei-tsukaikata/youtube.longform/cover.b87692fc.png",
+        "sha256": "b87692fcfeebb3b5a5a3596b9d2a79831c53252af091fd056c0e10a7b7e28d1e",
+        "specSha256": "3892610dbddd4bebbd2452feb965c1d5b57fd05d04e7d9b7990b4460d2c64230"
+      }
+    }
+  }
+}

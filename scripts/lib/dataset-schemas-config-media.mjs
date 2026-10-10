@@ -528,7 +528,7 @@ const reviewedAt = jstDate('確認日');
 const CharacterPose = z
   .object({
     slug: poseSlug.describe('ポーズの id（ポーズ内容の kebab-case）'),
-    file: z.string().regex(/^[a-z0-9-]+\.png$/, '小文字・数字・ハイフンの .png').describe('素材の画像ファイル名'),
+    file: z.string().regex(/^(?:_source\/)?[a-z0-9-]+\.png$/, '小文字・数字・ハイフンの .png（原本は _source/ 可）').describe('素材の画像ファイル名'),
     framing: z
       .object({
         source: z.object({ width: pixels('原画像の幅'), height: pixels('原画像の高さ'), sha256 }).strict().describe('切り取りの元にした原画像'),

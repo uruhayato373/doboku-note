@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "pointing",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/niji-kijutsu-doko/youtube.longform/cover.3f7b11d8.png",
-        "sha256": "3f7b11d8790e5f3aba0270481237fa2b7a7e4b728f826909b924f3c8dd4f4342",
-        "specSha256": "452f9fce0dac5944f5db7e4c483fe3940d419c22570a1f7426cd54e1aff9f897"
+        "path": ".tmp/media/civil-construction-1/niji-kijutsu-doko/youtube.longform/cover.a6c0c7e0.png",
+        "sha256": "a6c0c7e05ad7c00348eca6226df0f6753acadc29a02847eb4b758e265f0d148b",
+        "specSha256": "d0721ffa57d325bd16725cb0b46f4505b99f8862348afd8c478166d85d417ec1"
       }
     },
     "point-thickness-1": {
@@ -30,13 +35,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/niji-kijutsu-doko/youtube.short.point-thickness-1/cover.93f65bce.png",
-        "sha256": "93f65bce3766f3f5fb4d70ef6ecc74a97e881e7e19b68620b3c3543319eeb15e",
-        "specSha256": "603b4e7deeaaee05cc993447d3ab073c3e4611258ad0acb6a2e8bdb2105b77d6"
+        "path": ".tmp/media/civil-construction-1/niji-kijutsu-doko/youtube.short.point-thickness-1/cover.c682c5d4.png",
+        "sha256": "c682c5d4885af50208af3d6164dc00b9e12559752249d8bd6e1b173aa79ddd74",
+        "specSha256": "8fc46547e91f6fff163386ee7f850959d05f7b03fcc2b907baed6196e0f64523"
       }
     },
     "point-gradient-2": {
@@ -49,13 +59,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/niji-kijutsu-doko/youtube.short.point-gradient-2/cover.dd6f1242.png",
-        "sha256": "dd6f1242b13c81e0ae8473b749ed96f32e21dda7ea381a42001c8a7ead5b05c7",
-        "specSha256": "d22d5331061b055611b215ae95d88d9ab0961c9fb2a053c740b4e156ee70eeed"
+        "path": ".tmp/media/civil-construction-1/niji-kijutsu-doko/youtube.short.point-gradient-2/cover.4395f734.png",
+        "sha256": "4395f734569e88f8b8711e5d58cf4e72a6d58c3b89d3d7a40b3b38dccee1acba",
+        "specSha256": "8389edb608aedad4e2536b204a1a12e0bc61b8889718f628ab61260fc2a78310"
       }
     }
   }
