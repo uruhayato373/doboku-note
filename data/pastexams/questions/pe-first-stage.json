@@ -10529,15 +10529,21 @@
       "no": "Ⅱ-1",
       "source": {
         "question": "R02/R02_適性科目.pdf",
-        "page": null,
+        "page": 1,
         "answer": "R02/R02_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -10546,15 +10552,21 @@
       "no": "Ⅱ-2",
       "source": {
         "question": "R02/R02_適性科目.pdf",
-        "page": null,
+        "page": 2,
         "answer": "R02/R02_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -10563,15 +10575,22 @@
       "no": "Ⅱ-3",
       "source": {
         "question": "R02/R02_適性科目.pdf",
-        "page": null,
+        "page": 3,
         "answer": "R02/R02_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "導入文・(ア)(イ)(エ)の文を原典どおりに"
       }
     },
     {
@@ -10580,15 +10599,22 @@
       "no": "Ⅱ-4",
       "source": {
         "question": "R02/R02_適性科目.pdf",
-        "page": null,
+        "page": 4,
         "answer": "R02/R02_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "導入文・(ア)・選択肢5の行を原典どおりに。(ア)は原典の公式正答に合わせて○に直し、解説を書き直した"
       }
     },
     {
@@ -10597,15 +10623,21 @@
       "no": "Ⅱ-5",
       "source": {
         "question": "R02/R02_適性科目.pdf",
-        "page": null,
+        "page": 5,
         "answer": "R02/R02_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -10614,15 +10646,22 @@
       "no": "Ⅱ-6",
       "source": {
         "question": "R02/R02_適性科目.pdf",
-        "page": null,
+        "page": 6,
         "answer": "R02/R02_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢3の語(製造事業者等)"
       }
     },
     {
@@ -10631,15 +10670,21 @@
       "no": "Ⅱ-7",
       "source": {
         "question": "R02/R02_適性科目.pdf",
-        "page": null,
+        "page": 7,
         "answer": "R02/R02_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -10648,15 +10693,22 @@
       "no": "Ⅱ-8",
       "source": {
         "question": "R02/R02_適性科目.pdf",
-        "page": null,
+        "page": 8,
         "answer": "R02/R02_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "導入文"
       }
     },
     {
@@ -10665,15 +10717,22 @@
       "no": "Ⅱ-9",
       "source": {
         "question": "R02/R02_適性科目.pdf",
-        "page": null,
+        "page": 9,
         "answer": "R02/R02_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "導入文・(ア)(イ)(ウ)(エ)"
       }
     },
     {
@@ -10682,15 +10741,22 @@
       "no": "Ⅱ-10",
       "source": {
         "question": "R02/R02_適性科目.pdf",
-        "page": null,
+        "page": 10,
         "answer": "R02/R02_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "導入文"
       }
     },
     {
@@ -10699,15 +10765,22 @@
       "no": "Ⅱ-11",
       "source": {
         "question": "R02/R02_適性科目.pdf",
-        "page": null,
+        "page": 11,
         "answer": "R02/R02_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "導入文・設問末尾"
       }
     },
     {
@@ -10716,15 +10789,22 @@
       "no": "Ⅱ-12",
       "source": {
         "question": "R02/R02_適性科目.pdf",
-        "page": null,
+        "page": 12,
         "answer": "R02/R02_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "定義の箇条書き・(カ)の誤字"
       }
     },
     {
@@ -10733,15 +10813,22 @@
       "no": "Ⅱ-13",
       "source": {
         "question": "R02/R02_適性科目.pdf",
-        "page": null,
+        "page": 13,
         "answer": "R02/R02_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "導入文・(イ)(エ)"
       }
     },
     {
@@ -10750,15 +10837,22 @@
       "no": "Ⅱ-14",
       "source": {
         "question": "R02/R02_適性科目.pdf",
-        "page": null,
+        "page": 14,
         "answer": "R02/R02_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "(ア)(エ)"
       }
     },
     {
@@ -10767,15 +10861,21 @@
       "no": "Ⅱ-15",
       "source": {
         "question": "R02/R02_適性科目.pdf",
-        "page": null,
+        "page": 15,
         "answer": "R02/R02_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
