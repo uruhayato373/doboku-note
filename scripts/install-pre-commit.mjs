@@ -144,6 +144,17 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+# docs/ の DN-#### 参照が台帳に実在するか。docs/ か backlog（カードを消すと docs の参照が切れる）が staged のときだけ全量を回す（0.5 秒）。
+# 2026-10-10 に月次レポートが消したカードを書いて develop の Pre-merge を赤くした（CI でしか回っていなかった）
+if git -c core.quotepath=false diff --cached --name-only -- 'docs/' '.claude/todo/backlog.md' | grep -q .; then
+  node scripts/check-project-task-refs.mjs > /tmp/doboku-project-task-refs.log 2>&1
+  if [ $? -ne 0 ]; then
+    tail -15 /tmp/doboku-project-task-refs.log
+    echo "[check-project-task-refs] docs/ に台帳に無い DN-#### の参照がある（上の [dangling-id]）。参照を直すかカードを残してから commit する"
+    exit 1
+  fi
+fi
+
 # 統合済み（_redirects で 301 の転送元）の記事を published: true にして「再公開」してしまう事故を止める。
 # 統合の記録は frontmatter ではなく _redirects にしか無いことがあり、目視では気づけない（2026-08-22 実事故）
 node scripts/check-published-vs-redirects.mjs --staged
