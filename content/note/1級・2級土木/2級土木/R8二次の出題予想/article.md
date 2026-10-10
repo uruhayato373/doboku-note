@@ -3,11 +3,14 @@ notePricing: free
 noteSeries: 受験ガイド
 noteContentType: learning
 utmCampaign: 2c-r8-yosou
+notePublishedAt: "2026-10-10"
+noteId: "ncad207369238"
+noteUrl: "https://note.com/dobokunote/n/ncad207369238"
 title: "2級土木 令和8年度 二次検定｜出題予想 — 過去5年の傾向から準備する範囲を決める"
 coverTitle:
   - 2級土木 令和8年度 二次
   - 出題予想と準備範囲
-noteStatus: draft
+noteStatus: published
 cover:
   variant: crop-safe-v4
   leadIn: "2級土木｜令和8年度 二次"

@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-10-10T03:33:57.995Z",
+  "updatedAt": "2026-10-10T04:01:02.825Z",
   "items": [
     {
       "slug": "1級・2級土木/1級土木/1級経験記述R6新形式と設問書き分け",
@@ -5765,6 +5765,23 @@
       "title": "2級土木 二次学科記述｜直前暗記ノート（穴埋め頻出語句 一問一答）"
     },
     {
+      "slug": "1級・2級土木/2級土木/R8二次の出題予想",
+      "path": "content/note/1級・2級土木/2級土木/R8二次の出題予想/article.md",
+      "exam": "1級・2級土木",
+      "noteUrl": "https://note.com/dobokunote/n/ncad207369238",
+      "noteId": "ncad207369238",
+      "status": "published",
+      "publishedAt": "2026-10-10",
+      "pricing": "free",
+      "price": null,
+      "contentType": "learning",
+      "series": "受験ガイド",
+      "noteMagazine": null,
+      "magazines": [],
+      "utmCampaign": "2c-r8-yosou",
+      "title": "2級土木 令和8年度 二次検定｜出題予想 — 過去5年の傾向から準備する範囲を決める"
+    },
+    {
       "slug": "1級・2級土木/2級土木/一次択一-過去問PDF",
       "path": "content/note/1級・2級土木/2級土木/一次択一-過去問PDF/article.md",
       "exam": "1級・2級土木",
@@ -5814,6 +5831,23 @@
       "magazines": [],
       "utmCampaign": "2c-essay-theme",
       "title": "2級土木 施工経験記述｜「安全・品質・工程」どれで書くか — 題材選びで半分決まる"
+    },
+    {
+      "slug": "1級・2級土木/2級土木/経験記述を残り3週間で仕上げる",
+      "path": "content/note/1級・2級土木/2級土木/経験記述を残り3週間で仕上げる/article.md",
+      "exam": "1級・2級土木",
+      "noteUrl": "https://note.com/dobokunote/n/nc30a5646f239",
+      "noteId": "nc30a5646f239",
+      "status": "published",
+      "publishedAt": "2026-10-10",
+      "pricing": "free",
+      "price": null,
+      "contentType": "learning",
+      "series": "施工経験記述",
+      "noteMagazine": null,
+      "magazines": [],
+      "utmCampaign": "2c-essay-3weeks",
+      "title": "2級土木 施工経験記述｜残り2週間で仕上げる手順 — 1つの工事で3テーマを書き切る"
     },
     {
       "slug": "1級・2級土木/2級土木/経験記述を自分の現場に置換",
@@ -12858,6 +12892,24 @@
       "title": "技術士 建設部門｜口頭試験対策 — 令和8年度 改訂コンピテンシー対応の想定問答バンクと合格発表後の準備ロードマップ"
     },
     {
+      "slug": "技術士建設部門/magazines/口頭試験対策-全部門共通",
+      "path": "content/note/技術士建設部門/magazines/口頭試験対策-全部門共通/article.md",
+      "exam": "技術士建設部門",
+      "magazine": "口頭試験対策-全部門共通",
+      "noteUrl": "https://note.com/dobokunote/n/n1fcaf65dc75b",
+      "noteId": "n1fcaf65dc75b",
+      "status": "published",
+      "publishedAt": "2026-10-10",
+      "pricing": "paid",
+      "price": 1980,
+      "contentType": "product",
+      "series": "技術士-口頭試験対策-全部門共通",
+      "noteMagazine": null,
+      "magazines": [],
+      "utmCampaign": "pe-oral-general",
+      "title": "技術士 口頭試験対策（全部門共通）— 令和8年度 改訂コンピテンシー対応の想定問答と、部門別の当てはめ例"
+    },
+    {
       "slug": "技術士建設部門/インフラ維持管理・更新の論点キーワード",
       "path": "content/note/技術士建設部門/インフラ維持管理・更新の論点キーワード/article.md",
       "exam": "技術士建設部門",
@@ -18454,40 +18506,6 @@
   ],
   "unpublished": [
     {
-      "slug": "1級・2級土木/2級土木/R8二次の出題予想",
-      "path": "content/note/1級・2級土木/2級土木/R8二次の出題予想/article.md",
-      "exam": "1級・2級土木",
-      "noteUrl": null,
-      "noteId": null,
-      "status": "draft",
-      "publishedAt": null,
-      "pricing": "free",
-      "price": null,
-      "contentType": "learning",
-      "series": "受験ガイド",
-      "noteMagazine": null,
-      "magazines": [],
-      "utmCampaign": "2c-r8-yosou",
-      "title": "2級土木 令和8年度 二次検定｜出題予想 — 過去5年の傾向から準備する範囲を決める"
-    },
-    {
-      "slug": "1級・2級土木/2級土木/経験記述を残り3週間で仕上げる",
-      "path": "content/note/1級・2級土木/2級土木/経験記述を残り3週間で仕上げる/article.md",
-      "exam": "1級・2級土木",
-      "noteUrl": null,
-      "noteId": null,
-      "status": "draft",
-      "publishedAt": null,
-      "pricing": "free",
-      "price": null,
-      "contentType": "learning",
-      "series": "施工経験記述",
-      "noteMagazine": null,
-      "magazines": [],
-      "utmCampaign": "2c-essay-3weeks",
-      "title": "2級土木 施工経験記述｜残り2週間で仕上げる手順 — 1つの工事で3テーマを書き切る"
-    },
-    {
       "slug": "1級・2級土木/R8二次-自己採点と合格発表まで-2級-無料",
       "path": "content/note/1級・2級土木/R8二次-自己採点と合格発表まで-2級-無料/article.md",
       "exam": "1級・2級土木",
@@ -18520,24 +18538,6 @@
       "magazines": [],
       "utmCampaign": "pipe-work-2027",
       "title": "管工事施工管理技士 第二次検定「施工記述」機器別 模範解答バンク（1級・2級／令和6年度からの新形式）"
-    },
-    {
-      "slug": "技術士建設部門/magazines/口頭試験対策-全部門共通",
-      "path": "content/note/技術士建設部門/magazines/口頭試験対策-全部門共通/article.md",
-      "exam": "技術士建設部門",
-      "magazine": "口頭試験対策-全部門共通",
-      "noteUrl": null,
-      "noteId": null,
-      "status": "draft",
-      "publishedAt": null,
-      "pricing": "paid",
-      "price": 1980,
-      "contentType": "product",
-      "series": "技術士-口頭試験対策-全部門共通",
-      "noteMagazine": null,
-      "magazines": [],
-      "utmCampaign": "pe-oral-general",
-      "title": "技術士 口頭試験対策（全部門共通）— 令和8年度 改訂コンピテンシー対応の想定問答と、部門別の当てはめ例"
     },
     {
       "slug": "技術士建設部門/筆記合格発表後にやること-無料",
@@ -19787,7 +19787,7 @@
       "key": null,
       "title": "技術士 口頭試験対策（全部門共通）｜令和8年度 改訂コンピテンシー対応の想定問答と部門別の当てはめ例",
       "price": "¥1,980",
-      "published": false
+      "published": true
     },
     {
       "id": "pe1-anki-note",
