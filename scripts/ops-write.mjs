@@ -24,8 +24,7 @@
  */
 import { appendFileSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
-import { dirname, join } from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { pathToFileURL } from 'node:url';
 
 import {
   loadCatalog,
@@ -36,8 +35,9 @@ import {
   gateEnvFor,
 } from './lib/ci-write-gate.mjs';
 import { detectCI, loadAuthRegistry } from './lib/playwright-auth-profile.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-export const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+export { ROOT };
 const TAG = '[ops-write]';
 const GITHUB_OUTPUT_DELIM = 'OPS_WRITE_RESULT_EOF';
 

@@ -23,10 +23,11 @@
  * exit 0 = 整合 / 1 = 違反 / 2 = 検査不成立（設定が読めない・記事 0 件・baseline 欠落）
  */
 import { execFileSync } from 'node:child_process';
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import matter from 'gray-matter';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
+import { readJson } from './lib/json-io.mjs';
 import {
   buildAliasMap, normalizeTags, isStructuralTag, checkGroupAllowed, checkStructuralTags,
   evaluateSetRatchet, evaluateCountRatchet, countTopicDirections,
@@ -39,16 +40,15 @@ const CI = ARGS.includes('--ci');
 const JSON_OUT = ARGS.includes('--json');
 const BASELINE_PATH = join(REPO_ROOT, '.claude/config/content-taxonomy-baseline.json');
 
-const readJson = (rel) => JSON.parse(readFileSync(join(REPO_ROOT, rel), 'utf8'));
 const fail2 = (msg) => { console.error(`[${NAME}] 検査不成立: ${msg}`); process.exit(2); };
 
 let taxonomy; let categories; let tags; let topics; let catalog;
 try {
-  taxonomy = readJson('src/config/content-taxonomy.json');
-  categories = readJson('src/config/categories.json');
-  tags = readJson('src/config/tags.json');
-  topics = readJson('src/config/topics.json');
-  catalog = readJson('content/site/standards-library/catalog.json');
+  taxonomy = readJson(REPO_ROOT, 'src/config/content-taxonomy.json');
+  categories = readJson(REPO_ROOT, 'src/config/categories.json');
+  tags = readJson(REPO_ROOT, 'src/config/tags.json');
+  topics = readJson(REPO_ROOT, 'src/config/topics.json');
+  catalog = readJson(REPO_ROOT, 'content/site/standards-library/catalog.json');
 } catch (e) { fail2(`設定を読めない: ${e.message}`); }
 
 let aliasMap;
@@ -96,7 +96,7 @@ if (STAGED) {
     docs.push({ slug: slugOf(rel), at: rel, category: data.category, group: data.group, tags: data.tags ?? [], topics: data.topics, published: data.published !== false });
   }
 } else {
-  const index = readJson('src/config/doc-meta-index.json');
+  const index = readJson(REPO_ROOT, 'src/config/doc-meta-index.json');
   for (const [slug, m] of Object.entries(index.docs ?? {})) {
     docs.push({ slug, at: slug, category: m.category, group: m.group, tags: m.tagsRaw ?? m.tags ?? [], topics: m.topics, published: m.published !== false });
   }
@@ -154,7 +154,7 @@ const current = {
 let ratchet = null;
 if (CI) {
   if (!existsSync(BASELINE_PATH)) fail2(`baseline が無い: ${BASELINE_PATH}（--json の出力から作る）`);
-  const baseline = readJson('.claude/config/content-taxonomy-baseline.json');
+  const baseline = readJson(REPO_ROOT, '.claude/config/content-taxonomy-baseline.json');
   ratchet = {
     unknownTags: evaluateSetRatchet(current.unknownTags, baseline.unknownTags),
     aliasUsage: evaluateCountRatchet(current.aliasUsage, baseline.aliasUsage),

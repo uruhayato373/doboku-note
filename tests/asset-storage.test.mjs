@@ -11,16 +11,15 @@
  */
 import { strict as assert } from 'node:assert';
 import { mkdirSync, writeFileSync, rmSync } from 'node:fs';
-import { dirname, join } from 'node:path';
+import { join } from 'node:path';
 import test from 'node:test';
-import { fileURLToPath } from 'node:url';
 import {
   loadConfig, groupFor, r2KeyFor, mimeFor, bucketForFile, visibilityFor,
   findSecrets, sanitizeEntry, cachePathFor, emptyManifest, toPosix,
   migrateManifestToLeanFormat, expandManifestFromLeanFormat, AUDIENCE_RULES,
 } from '../scripts/lib/asset-storage.mjs';
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CFG = loadConfig();
 const groupById = (id) => CFG.groups.find((g) => g.id === id);
 

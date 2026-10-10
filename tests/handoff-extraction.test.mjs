@@ -5,7 +5,6 @@ import { mkdtempSync, mkdirSync, writeFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import process from 'node:process';
 import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import {
   findForwardMarkers,
   extractWeeklyHandoffItems,
@@ -18,8 +17,8 @@ import {
   completedIdsFromDispatchLog,
   experimentIdsFrom,
 } from '../scripts/lib/handoff-extraction.mjs';
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SCRIPT = join(ROOT, 'scripts/check-handoff-extraction.mjs');
 
 // DN-0230: W37 の申し送りは台帳に居場所が無いまま旧レビューごと削除された。その形を再現する。

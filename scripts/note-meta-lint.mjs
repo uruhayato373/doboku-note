@@ -9,11 +9,9 @@
  * 真実源: .claude/knowledge/reference/note-api-verification.md
  */
 import { readFileSync, readdirSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
-import { dirname, join, relative } from 'node:path';
+import { join } from 'node:path';
 import { parseNoteText, checkLimits } from './lib/note-meta.mjs';
-
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 // node:fs/promises の glob は Node 22+ の API で、CI/ローカルの Node 20 では
 // `does not provide an export named 'glob'` で **import 時点でクラッシュ**する。

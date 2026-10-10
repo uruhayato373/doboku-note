@@ -22,17 +22,17 @@ import { readFileSync, writeFileSync } from "node:fs";
 
 import { loadAspConfig, getAsp, openAsp, ensureTargetSite, visibleText, dumpFailure } from "./lib/asp-browser.mjs";
 import { datasetPath } from "./lib/datasets.mjs";
+import { parseCliArgs } from "./lib/cli-args.mjs";
 
 const CATALOG = datasetPath("affiliate.catalog");
 
 function parseArgs() {
-  const a = process.argv.slice(2);
-  const o = { asp: null, ids: [], commit: false };
-  for (let i = 0; i < a.length; i++) {
-    if (a[i] === "--asp") o.asp = a[++i];
-    else if (a[i] === "--id") o.ids.push(...a[++i].split(",").map((s) => s.trim()));
-    else if (a[i] === "--commit") o.commit = true;
-  }
+  const f = parseCliArgs({
+    asp: { type: "string" },
+    id: { type: "string", multiple: true },
+    commit: { type: "boolean" },
+  });
+  const o = { asp: f.asp, ids: f.id.flatMap((v) => v.split(",").map((s) => s.trim())), commit: f.commit };
   if (!o.asp || o.ids.length === 0) {
     console.error("usage: --asp <a8|moshimo|afb> --id <id[,id]> [--commit]");
     process.exit(2);

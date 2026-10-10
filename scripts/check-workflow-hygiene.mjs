@@ -23,12 +23,12 @@
  * exit: 0 健全 / 1 違反あり / 2 検査不成立（走査対象 0 件・actionlint 読み込み失敗）
  */
 import { readdirSync, readFileSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { join } from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { createLinter } from 'actionlint';
 import { load } from 'js-yaml';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const WORKFLOW_DIR = join(ROOT, '.github/workflows');
 const JSON_OUT = process.argv.includes('--json');
 const TAG = '[check-workflow-hygiene]';

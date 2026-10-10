@@ -31,8 +31,8 @@ import { todayJst } from './lib/jst-date.mjs';
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const CONFIG_PATH = join(ROOT, datasetPath('config.competitors')); // 取得元ごとの枠 coconala
 const IS_CI = process.env.CI === 'true' || process.env.GITHUB_ACTIONS === 'true';
 // CI は Playwright が管理する Chromium と runner の一時 profile を使う。

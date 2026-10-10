@@ -1,7 +1,7 @@
 import { test } from 'node:test';
+import { join } from 'node:path';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
 import {
   validatePartialSpec,
   normalizeAttachmentSnapshot,
@@ -10,8 +10,8 @@ import {
   buildTopCtaHtml,
 } from '../scripts/lib/note-partial-update.mjs';
 import { headingsFromHtml } from '../scripts/lib/note-live-check.mjs';
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
-const ROOT = fileURLToPath(new URL('..', import.meta.url));
 
 test('部分更新 spec は article と限定 operation を必須にする', () => {
   assert.throws(() => validatePartialSpec({ operations: [] }), /article/);
@@ -73,7 +73,7 @@ test('PDF 添付 snapshot は query/hash と順序を無視し、欠落は検出
 });
 
 test('部分更新 CLI は select-all と全文 paste を使わない', () => {
-  const source = readFileSync(ROOT + 'scripts/note-update-partial.mjs', 'utf8');
+  const source = readFileSync(join(ROOT, 'scripts/note-update-partial.mjs'), 'utf8');
   assert.doesNotMatch(source, /Meta\+a|Control\+a|keyboard\.press\([^)]*[Aa]/);
   assert.doesNotMatch(source, /ClipboardEvent|selectNodeContents\(ed\)/);
   assert.match(source, /keyboard\.insertText\(op\.new\)/);
@@ -129,7 +129,7 @@ test('冒頭 CTA の差し込み HTML: 文 1 段落＋URL を 1 本ずつ単独�
 });
 
 test('冒頭 CTA はキーボード入力の経路を持たない（HTML 差し込み＋cardify）', () => {
-  const source = readFileSync(ROOT + 'scripts/note-update-partial.mjs', 'utf8');
+  const source = readFileSync(join(ROOT, 'scripts/note-update-partial.mjs'), 'utf8');
   assert.doesNotMatch(source, /typeTopCta|caretInNewParagraphBefore/);
   const fn = source.slice(source.indexOf('async function insertTopCtaHtml'), source.indexOf('async function applyOperation'));
   assert.match(fn, /insertAdjacentHTML\('beforebegin'/);

@@ -7,6 +7,8 @@
  *   B. **class の取り違え** — 市販書籍を公的基準と同じ扱いにして逐語を公開する。
  *   C. **逐語の見落とし** — 文字起こしから写した文が、句読点や空白の違いで検出をすり抜ける。
  *   D. **必須化の緩み** — appliesTo に一致する記事の sources 欠落が、baseline に足されて増えていく。
+ *   E. **公式の文章の偽赤** — 書籍も載せる過去問の設問・指針の名称・公的な定義を書籍の写しとして拾う（DN-0617）。
+ *      差し引きが広すぎて、書籍の文の写しまで見逃すのも同じく事故。
  */
 import { strict as assert } from 'node:assert';
 import test from 'node:test';
@@ -15,6 +17,7 @@ import {
   classRuleOf, globToRegExp, sourcesRequiringArticle, normalizeForCompare, buildTranscriptIndex,
   findVerbatimRuns, parseTranscriptHeader, loadStandardsCatalog, evaluateMissingSourcesRatchet,
   checkCitationEvidence, transcriptDirsForSource, VERBATIM_RULES, CITATION_RULES, VERBATIM_MIN_RUN,
+  officialQuestionText, officialNamesOf, maskOfficialNames, excludeOfficialRuns, NAME_MASK,
 } from '../scripts/lib/reference-sources.mjs';
 
 const CFG = loadReferenceSources();
@@ -190,6 +193,91 @@ test('findVerbatimRuns: 同じ20文字が先に短く現れても後方の長い
   const hits = findVerbatimRuns('導入。' + copied + '。結び。', index, { minRun: 40 });
   assert.equal(hits.length, 1);
   assert.ok(hits[0].run >= normalizeForCompare(copied).length);
+});
+
+// ------------------------------------------------------------------ 公式の文章の差し引き（E）
+// 書籍の文は公開リポジトリに置けないので、書籍側は「公式の文章＋作った説明文」で模す。
+
+const OFFICIAL_QUESTION = '暑中コンクリートの施工に関する下記の(1)、(2)の項目について配慮すべき事項をそれぞれ解答欄に記述しなさい。(1) 暑中コンクリートの打込み (2) 暑中コンクリートの養生';
+const BOOK_OWN = '練り上がりから打ち込みまでの時間を短く保つ段取りを現場ごとに組み立て、運搬経路と待機場所を事前に決めておくのが要点になる。';
+
+function examPage(question, { trend = '', commentary = '' } = {}) {
+  return ['## 出題傾向', '', trend, '', '## 平成29年度 問題3（暑中コンクリート）', '', question, '',
+    '<details>', '<summary>解答・解説</summary>', '', commentary, '', '</details>', ''].join('\n');
+}
+
+test('officialQuestionText: 設問の見出しの節だけを取り、出題傾向と解答・解説は含めない（E）', () => {
+  const page = examPage(OFFICIAL_QUESTION, { trend: '出題傾向の説明文。', commentary: '解説の文。' });
+  const text = officialQuestionText(page);
+  assert.ok(text.includes('配慮すべき事項'), '設問が入っていない');
+  assert.ok(!text.includes('出題傾向の説明文'), '出題傾向の節は著者の文章');
+  assert.ok(!text.includes('解説の文'), '<details> の中は解答・解説');
+  for (const heading of ['## 問題 No.12', '## Ⅰ-1-3', '## III-2', '### 令和5年度 No.4', '### 〔設問1〕', '## 必須科目']) {
+    assert.ok(officialQuestionText(heading + '\n\n設問の文。\n').includes('設問の文'), heading);
+  }
+  for (const heading of ['## 出典', '## 模範解答について', '## 論点の出題傾向', '## 参考資料']) {
+    assert.equal(officialQuestionText(heading + '\n\n説明の文。\n').trim(), '', heading);
+  }
+});
+
+test('excludeOfficialRuns: 過去問の設問との一致は除き、同じ記事の書籍の文は残す（E）', () => {
+  const book = buildTranscriptIndex([{ key: 'book.md', source: 'book', text: OFFICIAL_QUESTION + BOOK_OWN }]);
+  const official = buildTranscriptIndex([{ key: 'page', source: 'official-question', text: officialQuestionText(examPage(OFFICIAL_QUESTION)) }]);
+
+  // 設問だけを引いた過去問ページ: 一致は全部が公式の文章
+  const questionOnly = examPage(OFFICIAL_QUESTION, { commentary: '打込み温度を35℃以下に抑える。' });
+  const hits = findVerbatimRuns(questionOnly, book);
+  assert.ok(hits.length >= 1, '前提: 書籍との一致として拾われる');
+  const r1 = excludeOfficialRuns(questionOnly, hits, official);
+  assert.deepEqual(r1.kept, []);
+  assert.equal(r1.excluded.length, hits.length);
+
+  // 解説に書籍の文を写した過去問ページ: 設問に続けて写しても、写した区間は残る
+  const copied = examPage(OFFICIAL_QUESTION + BOOK_OWN);
+  const r2 = excludeOfficialRuns(copied, findVerbatimRuns(copied, book), official);
+  assert.equal(r2.kept.length, 1, '書籍の文の写しを見逃した');
+  assert.ok(r2.kept[0].run >= VERBATIM_MIN_RUN && r2.kept[0].run <= normalizeForCompare(BOOK_OWN).length + 1);
+  assert.ok(normalizeForCompare(BOOK_OWN).startsWith(r2.kept[0].sample.slice(0, 20)), '見本は写した区間に差し替える');
+
+  // 出題傾向の節に写した書籍の文は、設問の索引に入らないので残る
+  const inTrend = examPage(OFFICIAL_QUESTION, { trend: BOOK_OWN });
+  const pageIndex = buildTranscriptIndex([{ key: 'self', text: officialQuestionText(inTrend) }]);
+  assert.equal(excludeOfficialRuns(inTrend, findVerbatimRuns(inTrend, book), pageIndex).kept.length, 1);
+
+  // 公式の索引が無いときは何もしない
+  assert.deepEqual(excludeOfficialRuns(copied, findVerbatimRuns(copied, book), null).excluded, []);
+});
+
+test('excludeOfficialRuns: 公的資料の officialTexts（エシカル消費の定義）との一致を除く（E）', () => {
+  const source = CFG.sources.find((s) => s.id === 'caa-ethical-consumption-study');
+  assert.ok(source?.officialTexts?.length, '台帳に公的資料の文が無い');
+  assert.notEqual(CFG.classes[source.class].verbatim, 'forbidden');
+  const definition = source.officialTexts[0].text;
+  const article = '取りまとめ（平成29年4月）は、突き詰めれば、' + definition + 'と整理した。';
+  const book = buildTranscriptIndex([{ key: 'book.md', text: 'エシカル消費は、' + definition + 'である。' }]);
+  const hits = findVerbatimRuns(article, book);
+  assert.ok(hits.length >= 1, '前提: 書籍との一致として拾われる');
+  const official = buildTranscriptIndex([{ key: source.id, text: definition }]);
+  assert.deepEqual(excludeOfficialRuns(article, hits, official).kept, []);
+});
+
+test('maskOfficialNames: 参考資料のリンクの題名と台帳の正式名称を比較から外す（E）', () => {
+  const name = '事業主が職場における優越的な関係を背景とした言動に起因する問題に関して雇用管理上講ずべき措置等についての指針';
+  const book = buildTranscriptIndex([{ key: 'book.md', text: '厚生労働省は' + name + 'を定めた。' }]);
+  const article = '## 参考資料\n\n- [' + name + '](https://www.mhlw.go.jp/content/11900000/000584512.pdf)（厚生労働省告示）\n';
+  assert.ok(findVerbatimRuns(article, book).length >= 1, '前提: 名称だけで 40 字を超える');
+  const { text, masked } = maskOfficialNames(article, []);
+  assert.equal(masked, 1);
+  assert.deepEqual(findVerbatimRuns(text, book), []);
+  // サイト内リンクの文字は本文なので外さない
+  assert.equal(maskOfficialNames('[' + name + '](/docs/x)').masked, 0);
+
+  const names = officialNamesOf(CFG);
+  assert.ok(names.includes('危険性又は有害性等の調査等に関する指針'), '末尾の（厚生労働省）を落とす');
+  assert.ok(names.every((n) => n.length >= 15), '短い名称は外さない（写しの検出を弱めるだけ）');
+  const named = maskOfficialNames('事業者は危険性又は有害性等の調査等に関する指針に従う。', names);
+  assert.equal(named.masked, 1);
+  assert.ok(named.text.includes(NAME_MASK));
 });
 
 test('parseTranscriptHeader: 新形式の frontmatter と旧形式の `> 出典:` 行の両方を読む', () => {

@@ -3,11 +3,11 @@ import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { direction, records, validateRecord, buildReport, hash, strategyForRecord, RECORDS } from './lib/business-direction.mjs';
-import { resolveMovedPath } from './lib/repository-paths.mjs';
+import { REPO_ROOT, resolveMovedPath } from './lib/repository-paths.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
 try {
-  const root = process.cwd(), config = direction(root), rows = records(root);
+  const root = REPO_ROOT, config = direction(root), rows = records(root);
   const errors = [];
   for (const r of rows) {
     if (r.kind === 'snapshot') {

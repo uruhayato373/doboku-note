@@ -15,12 +15,11 @@
 // exit: 0=OK, 1=FAIL, 2=検査不成立（ディレクトリ読み取り不能）
 
 import { readFileSync, existsSync, statSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { datasetDir, freshnessDays, latestFile } from './lib/datasets.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 const TAG = '[check-afb-outcomes-freshness]';
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const AFF_DIR = join(ROOT, datasetDir('afb.outcomes'));
 const LABEL = 'afb の成果の最新';
 const JSON_OUT = process.argv.includes('--json');

@@ -26,10 +26,9 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
+import { REPO_ROOT as root, SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 import { loadManifest } from './lib/asset-storage.mjs';
 
-const root = process.cwd();
 const POSTS_DIR = SITE_CONTENT_ROOT;
 const categories = JSON.parse(
   fs.readFileSync(path.join(root, 'src', 'config', 'categories.json'), 'utf8'),

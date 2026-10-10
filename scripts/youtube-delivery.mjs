@@ -54,10 +54,10 @@ async function main() {
     if (!value || value.length !== media.bytes || sha256(value) !== media.sha256) throw new Error('Delivery media integrity mismatch');
     return value;
   };
-  const readJson = async key => { const b = await storage.get(`${storage.prefix}${key}`); return b ? JSON.parse(b) : null; };
+  const readStoredJson = async key => { const b = await storage.get(`${storage.prefix}${key}`); return b ? JSON.parse(b) : null; };
   const actions = { upload: uploadReplacement, audit: auditReplacement, thumbnail: updateReplacementThumbnail, activate: activateReplacement, delete: deleteOldReplacement };
   const summary = await runDelivery({ config, entries: plan.entries, commit, load: storage.load, publicationFor,
-    loadState: () => readJson('delivery-state.json'),
+    loadState: () => readStoredJson('delivery-state.json'),
     saveState: state => storage.put(`${storage.prefix}delivery-state.json`, json(state)),
     onProgress: summary => { console.log(JSON.stringify({ actions: summary.actions })); },
     act: async (phase, item, publication) => {
@@ -70,7 +70,7 @@ async function main() {
       if (phase === 'audit' && !playlists) playlists = await inspectPlaylists(youtube);
       return actions[phase](youtube, item, { commit, playlists, load: storage.load, save: storage.save,
         getBytes, getMedia: async media => Readable.from(await getBytes(media)),
-        loadControl: async () => (await readJson('control.json')) ?? {},
+        loadControl: async () => (await readStoredJson('control.json')) ?? {},
         saveControl: value => storage.put(`${storage.prefix}control.json`, json(value)),
       });
     },

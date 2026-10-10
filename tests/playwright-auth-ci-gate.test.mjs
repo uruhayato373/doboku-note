@@ -8,8 +8,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { mkdtempSync, rmSync, existsSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join, dirname, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 
 import {
   detectCI,
@@ -26,8 +25,8 @@ import {
   CI_SESSION_MODE_ENV,
   CI_WRITE_PLAN_HASH_ENV,
 } from '../scripts/lib/playwright-auth-profile.mjs';
+import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
 
-const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const CI_ENV = { GITHUB_ACTIONS: 'true' };
 const HASH = 'a'.repeat(64);
 

@@ -71,7 +71,6 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 import { chromium } from 'playwright';
 import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync } from 'node:fs';
 import { join, dirname, resolve, relative } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import { recordPublishedHash, recordPublishedMetaHash, recordPublishedAssetHash, recordPublishedTagHash, recordPublishedTitleHash } from './lib/note-republish-hash.mjs';
 import { replaceCoverInEditor } from './lib/note-editor-cover.mjs';
@@ -88,8 +87,8 @@ import { publishLive } from './lib/note-live-publish.mjs';
 import { attachFileInEditor, listAttachedFiles, resolveLocalFiles } from './lib/note-attach.mjs';
 import { todayJst } from './lib/jst-date.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const sha256File = (p) => createHash('sha256').update(readFileSync(p)).digest('hex');
 const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
@@ -542,7 +541,7 @@ async function updateArticle(page, article, probe, parts = ['body'], sync = {}) 
       abortReason = 'pdf-missing';
       console.error(`[FAIL] --reattach-pdf: live の添付 ${attachedPdfs.length} 件のうち ${missing.length} 件がローカルに無い → 本文を触らず中断: ${noteId}`);
       for (const m of missing) console.error(`         見つからない: ${m}（探索: ${dir} と ${dir}/pdf・候補${poolSize}件）`);
-      console.error('  復旧: Drive vault から取り寄せる（node scripts/drive-vault-sync.mjs --pull --path <記事dir>/pdf/）か、spec から再生成する');
+      console.error('  復旧: Drive vault から取り寄せる（node scripts/drive-vault-sync.mjs --pull --path <記事dir>/pdf/ --commit）か、spec から再生成する');
       console.error(`         node scripts/magazine-to-pdf.mjs --spec scripts/pdf-specs/<magazine>.json`);
       return false;
     }

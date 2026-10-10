@@ -6,15 +6,14 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 
 import { channelFamily, channelOf } from '../scripts/lib/utm-channels.mjs';
 import { setUtmParams, utmChannel, utmChannelFamily, utmEbook } from '../scripts/lib/utm-contract.mjs';
 import { loadConfig } from '../scripts/lib/video-content-check.mjs';
 import { loadTsModule } from './lib/load-ts.mjs';
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const templates = JSON.parse(readFileSync(join(ROOT, 'config', 'utm-templates.json'), 'utf8'));
 
 test('契約の channels から期待値を引ける（x・note・youtube）', () => {

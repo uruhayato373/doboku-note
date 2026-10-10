@@ -13,8 +13,8 @@ import { readFileSync, copyFileSync, mkdirSync, existsSync } from 'node:fs'
 import { dirname, resolve } from 'node:path'
 import { homedir } from 'node:os'
 import { artifactRelPaths, selectSyncTargets } from './lib/kindle-catalog.mjs'
+import { REPO_ROOT as REPO } from './lib/repository-paths.mjs'
 
-const REPO = resolve(import.meta.dirname, '..')
 const DIST = resolve(REPO, 'scripts/kindle-dist')
 const DL = resolve(homedir(), 'Downloads')
 mkdirSync(DIST, { recursive: true })

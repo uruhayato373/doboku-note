@@ -36,14 +36,14 @@
  *
  * 真実源: .claude/knowledge/reference/information-architecture.md ／ todo-standards.md
  */
-import { readFileSync, existsSync, readdirSync, writeSync } from 'node:fs';
-import { join, dirname, relative, sep } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { readFileSync, existsSync, writeSync } from 'node:fs';
+import { join, relative, sep } from 'node:path';
 import { parseBacklog } from './lib/backlog-lib.mjs';
+import { REPO_ROOT as ROOT, TODO_ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PROJECT_DIR = join(ROOT, 'docs');
-const BACKLOG = '.claude/todo/backlog.md';
+const BACKLOG = join(TODO_ROOT, 'backlog.md');
 
 /** 廃止済みの進捗 SSOT。ファイルを再作成して参照を成立させてはならない（2026-06-11 廃止）。 */
 const RETIRED = [
@@ -64,16 +64,6 @@ const toPosix = (v) => v.split(sep).join('/');
  * ID は必ず消える。live 文書の参照切れ（読者を存在しないタスクへ案内する実害）とは別物。
  */
 export const isDatedSnapshot = (rel) => rel.startsWith('docs/reviews/weekly/');
-
-function walk(dir, out = []) {
-  if (!existsSync(dir)) return out;
-  for (const e of readdirSync(dir, { withFileTypes: true })) {
-    const p = join(dir, e.name);
-    if (e.isDirectory()) walk(p, out);
-    else if (e.name.endsWith('.md')) out.push(p);
-  }
-  return out;
-}
 
 /** 1 文書を検査して {errors, warnings} を返す（純関数・テストから使う）。 */
 export function auditProjectDoc(rel, content, knownIds) {
@@ -130,7 +120,7 @@ export function liveDocsReferencing(docs, id) {
 
 /** docs/ 配下の .md を {rel, content} で読む */
 export function readProjectDocs(root = ROOT) {
-  return walk(join(root, 'docs')).map((p) => ({ rel: toPosix(relative(root, p)), content: readFileSync(p, 'utf8') }));
+  return listFiles(join(root, 'docs'), { ext: '.md', allowMissing: true }).map((p) => ({ rel: toPosix(relative(root, p)), content: readFileSync(p, 'utf8') }));
 }
 
 function main() {
@@ -140,9 +130,9 @@ function main() {
   }
   const JSON_OUT = process.argv.includes('--json');
 
-  const backlogPath = join(ROOT, BACKLOG);
+  const backlogPath = BACKLOG;
   if (!existsSync(backlogPath)) {
-    console.error(`✗ 検査不成立: ${BACKLOG} が無い（ID の実在を確かめられない）`);
+    console.error(`✗ 検査不成立: ${toPosix(relative(ROOT, BACKLOG))} が無い（ID の実在を確かめられない）`);
     process.exit(2);
   }
   const knownIds = new Set(parseBacklog(readFileSync(backlogPath, 'utf8')).map((c) => c.id).filter(Boolean));
@@ -151,7 +141,7 @@ function main() {
     process.exit(2);
   }
 
-  const files = walk(PROJECT_DIR);
+  const files = listFiles(PROJECT_DIR, { ext: '.md', allowMissing: true });
   if (files.length === 0) {
     console.error('✗ 検査不成立: docs/ に恒久文書の .md が 1 件も無い');
     process.exit(2);

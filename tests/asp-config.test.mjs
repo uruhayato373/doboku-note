@@ -1,13 +1,12 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { withSharedConnection } from '../scripts/lib/asp-config.mjs';
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
 // A8 の URL・口座・ブラウザの共通部分は config/a8-report-automation.json が正本。
 // affiliate-asp.json の a8 には写さず、読み出し時に合成する（二重に持つと URL 移行で片方が取り残される）。
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const readJson = (rel) => JSON.parse(readFileSync(join(ROOT, rel), 'utf8'));
 
 const report = {

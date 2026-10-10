@@ -18,24 +18,17 @@
 //   node scripts/check-note-boundary.mjs --all      # 全件を一覧（集計のみ・exit 0）
 // 境界未解決が 1 件でもあれば exit 1（--all は集計のみで exit 0）。
 
-import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
-import { join } from 'node:path';
+import { readFileSync, existsSync } from 'node:fs';
+import { join, relative } from 'node:path';
 import { execFileSync } from 'node:child_process';
+import { REPO_ROOT, NOTE_CONTENT_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
-const ROOT = 'content/note';
+const ROOT_REL = relative(REPO_ROOT, ROOT).split('\\').join('/');
 const DEFAULT_BOUNDARY = '試験問題|予想問題';
 const STAGED = process.argv.includes('--staged');
 const ALL = process.argv.includes('--all');
 
-function walk(dir, out = []) {
-  if (!existsSync(dir)) return out;
-  for (const e of readdirSync(dir)) {
-    const p = join(dir, e);
-    if (statSync(p).isDirectory()) walk(p, out);
-    else if (/^article(-[^/]+)?\.md$/.test(e)) out.push(p.split('\\').join('/'));
-  }
-  return out;
-}
 const fm = (raw, k) => { const m = raw.match(new RegExp('^' + k + ':[ \\t]*(.*)$', 'm')); return m ? m[1].trim().replace(/^["']|["']$/g, '') : null; };
 const stripFm = (raw) => raw.replace(/^---[\s\S]*?---\r?\n/, '');
 
@@ -56,9 +49,9 @@ if (STAGED) {
     staged = execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--cached', '--name-only', '--diff-filter=ACM'], { encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 })
       .split('\n').map((s) => s.trim()).filter(Boolean);
   } catch { staged = []; }
-  files = staged.filter((f) => f.startsWith(`${ROOT}/`) && /(^|\/)article(-[^/]+)?\.md$/.test(f) && existsSync(f));
+  files = staged.filter((f) => f.startsWith(`${ROOT_REL}/`) && /(^|\/)article(-[^/]+)?\.md$/.test(f) && existsSync(join(REPO_ROOT, f))).map((f) => join(REPO_ROOT, f));
 } else {
-  files = walk(ROOT);
+  files = listFiles(ROOT, { match: (_p, name) => /^article(-[^/]+)?\.md$/.test(name), allowMissing: true, followLinks: true });
 }
 
 const violations = [];
@@ -70,7 +63,7 @@ for (const f of files) {
   checked++;
   const body = stripFm(raw);
   const pb = fm(raw, 'paidBoundary');
-  const rel = f.replace(`${ROOT}/`, '');
+  const rel = relative(ROOT, f).split('\\').join('/');
   if (pb) {
     if (!boundaryExists(body, pb)) violations.push({ f: rel, reason: `paidBoundary "${pb}" が本文H2に無い` });
   } else if (!boundaryExists(body, DEFAULT_BOUNDARY)) {

@@ -701,7 +701,7 @@ function checkChapterOgp(def, { manifest, agencyId, documentId, assetManifest })
 
   for (const chapter of manifest.chapters) {
     const relPath = `content/site/standards-articles/${agencyId}/${documentId}/chapters/${chapter.chapterId}/ogp.png`;
-    const onDisk = existsSync(join(process.cwd(), relPath));
+    const onDisk = existsSync(join(process.cwd(), relPath)); // root-ok: テストが一時ディレクトリを cwd にして実行する
     const inLedger = Boolean(assetManifest?.entries?.[relPath]);
     if (onDisk) local += 1;
     else if (inLedger) offloaded += 1;

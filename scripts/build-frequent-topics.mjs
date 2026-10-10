@@ -16,16 +16,11 @@
  */
 import { readFileSync, mkdirSync, existsSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
-import { fileURLToPath } from "node:url";
 import { readMdxFile, writeMdxFile } from "../.claude/scripts/lib/mdx-io.mjs";
 import { SITE_ORIGIN } from "./lib/site-identity.mjs";
 import { todayJst } from "./lib/jst-date.mjs";
+import { REPO_ROOT as ROOT } from "./lib/repository-paths.mjs";
 
-// fileURLToPath を使う: Windows では `new URL("..", import.meta.url).pathname` が
-// `/C:/Users/…` を返し、文字列連結すると `C:\C:\Users\…` になって ENOENT で落ちる。
-// このスクリプトは 2026-08-25 までこの状態で、Windows では一度も実行できていなかった
-// （frequent-topics が「17年度・680問」のまま止まっていた真因）。
-const ROOT = fileURLToPath(new URL("..", import.meta.url));
 const BACKLINKS = join(ROOT, "src/config/past-exam-backlinks.json");
 const KEYWORD_2026 = join(ROOT, "content/site/pe-comprehensive-management/keyword-2026/article.mdx");
 const OUT = join(ROOT, "content/site/pe-comprehensive-management/frequent-topics/article.mdx");

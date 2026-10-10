@@ -4,9 +4,8 @@ import { execFileSync } from 'node:child_process';
 import { mkdtempSync, readFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { REPO_ROOT as root } from '../scripts/lib/repository-paths.mjs';
 
-const root = fileURLToPath(new URL('..', import.meta.url));
 let dataset;
 before(() => {
   // 追跡中の public/quiz を書き換えないよう一時ディレクトリへ生成する（DN-0511）

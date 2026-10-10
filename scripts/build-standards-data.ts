@@ -21,8 +21,8 @@ import { inferStandardEdition } from '../src/lib/standards-comparison';
 import type { StandardChapter, StandardArticlesManifest } from '../src/lib/standards-articles';
 import type { StandardDocument, StandardsCatalog } from '../src/lib/standards';
 import { SITE_ORIGIN } from '../src/config/site-identity.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const PUBLIC_ROOT = resolve(ROOT, 'public');
 const OUTPUT_ROOT = resolve(PUBLIC_ROOT, 'standards-data');
 const ARTICLES_ROOT = join(ROOT, 'content', 'site', 'standards-articles');

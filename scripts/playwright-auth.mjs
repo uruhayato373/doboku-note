@@ -49,8 +49,9 @@ import {
   sha256Hex,
   validateExportedState,
 } from './lib/playwright-auth-state.mjs';
+import { REPO_ROOT } from './lib/repository-paths.mjs';
 
-export const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+export { REPO_ROOT };
 
 const HELP = `Playwright auth CLI
 

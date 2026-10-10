@@ -33,8 +33,9 @@
 import { writeSync } from 'node:fs';
 import fs from 'node:fs';
 import path from 'node:path';
+import { REPO_ROOT as root } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
-const root = process.cwd();
 const OUT_ROOT = path.join(root, 'out');
 const asJson = process.argv.includes('--json');
 
@@ -47,14 +48,7 @@ const LIMITS = {
 // next export（output: 'export'）は正規 URL を `out/<route>.html` へ出力する。
 // Pagefind の生成 HTML はサイトルートではないため除外する。
 function walkHtml(dir) {
-  const out = [];
-  if (!fs.existsSync(dir)) return out;
-  for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
-    const full = path.join(dir, e.name);
-    if (e.isDirectory() && e.name !== 'pagefind') out.push(...walkHtml(full));
-    else if (e.name.endsWith('.html')) out.push(full);
-  }
-  return out;
+  return listFiles(dir, { ext: '.html', skipDir: (_p, name) => name === 'pagefind', allowMissing: true });
 }
 
 /** data-cta 属性値の出現回数を数える（単純属性カウント・SSG 静的 HTML 前提）。 */

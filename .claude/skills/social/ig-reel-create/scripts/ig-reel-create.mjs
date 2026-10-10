@@ -15,13 +15,12 @@
  */
 
 import { mkdirSync, writeFileSync, readFileSync, existsSync } from 'node:fs';
-import { join, resolve, dirname } from 'node:path';
+import { join, resolve } from 'node:path';
 import { execFileSync, execSync } from 'node:child_process';
 import { parseArgs } from 'node:util';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { pathToFileURL } from 'node:url';
+import { REPO_ROOT as ROOT } from '../../../../../scripts/lib/repository-paths.mjs';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = resolve(__dirname, '../../../../../');
 
 // 共通モジュールを動的 import（Windows 絶対パスのため pathToFileURL）
 const { isRunning, synthesize } = await import(

@@ -18,6 +18,9 @@ import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { datasetPath } from './lib/datasets.mjs';
 
+/** スクリプト・ワークフロー・スキル・管理画面のコード（サイトの src/ は CI の全量に任せる） */
+const CODE_FILE = /^(scripts|tools|\.claude\/(scripts|workflows|skills|hooks))\/.+\.(mjs|cjs|js|ts|tsx)$/;
+
 export const GATES = [
   {
     id: 'katex-warnings',
@@ -75,6 +78,19 @@ export const GATES = [
     match: (f) => /^content\/(site\/civil-construction-[12]\/.+\.mdx|note\/.+\/article(-[^/]+)?\.md|kindle\/.+\.md)$/.test(f),
     // 全量（手元 3 秒）
     cmd: () => ['node', 'scripts/check-keiken-answer-split.mjs'],
+  },
+  {
+    id: 'unit-tests',
+    // CI の unit-tests のうち、コードの書き方の規約を走査する 2 本だけ（全テストは CI）。スクリプトの書き方の規約（git の同期呼び出しの maxBuffer・パスを列挙する git の core.quotepath=false・読む環境変数の .env.example）。
+    // 2026-10-10 に新しいスクリプトがこの 2 つのテストで CI で初めて落ちた（#951・#953）。全量の走査で手元 1 秒弱
+    match: (f) => CODE_FILE.test(f),
+    cmd: () => ['node', '--test', 'tests/git-exec-maxbuffer.test.mjs', 'tests/env-example.test.mjs'],
+  },
+  {
+    id: 'knip-ratchet',
+    // 使われていないファイル・export の増加。2026-10-10 に .claude/workflows/ の 2 本が CI で初めて落ちた（#953）。手元 4 秒
+    match: (f) => CODE_FILE.test(f),
+    cmd: () => ['node', 'scripts/check-knip-ratchet.mjs'],
   },
   {
     id: 'generated-indexes',

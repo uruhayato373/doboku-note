@@ -13,11 +13,11 @@
  *   node scripts/report-env-inventory.mjs          # JSON 出力
  *   node scripts/report-env-inventory.mjs --print   # 標準出力に表も出す
  */
-import { readFileSync, readdirSync, writeFileSync, mkdirSync, lstatSync, existsSync } from 'node:fs';
-import { join, resolve, dirname, relative } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { join, dirname, relative } from 'node:path';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
-const ROOT = resolve(join(dirname(fileURLToPath(import.meta.url)), '..'));
 const OUT = join(ROOT, '.claude', 'state', 'quality', 'env-inventory.json');
 const PRINT = process.argv.includes('--print');
 
@@ -26,24 +26,12 @@ const IGNORE_DIRS = new Set(['node_modules', '.git', 'out', '.next', '.claude/wo
 const EXT = /\.(mjs|cjs|js|ts|tsx|mts)$/;
 const ENV_RE = /process\.env\.([A-Z0-9_]+)/g;
 
-function walk(dir, out = []) {
-  if (!existsSync(dir)) return out;
-  for (const e of readdirSync(dir)) {
-    const p = join(dir, e);
-    const rel = relative(ROOT, p).split('\\').join('/');
-    if (IGNORE_DIRS.has(rel) || IGNORE_DIRS.has(e)) continue;
-    const st = lstatSync(p);
-    if (st.isSymbolicLink()) continue;
-    if (st.isDirectory()) walk(p, out);
-    else if (EXT.test(e)) out.push(p);
-  }
-  return out;
-}
+const skipIgnored = (p, name) => IGNORE_DIRS.has(relative(ROOT, p).split('\\').join('/')) || IGNORE_DIRS.has(name);
 
 function main() {
   const vars = new Map(); // name -> Set(relPath)
   for (const r of ROOTS) {
-    for (const file of walk(join(ROOT, r))) {
+    for (const file of listFiles(join(ROOT, r), { allowMissing: true, match: (_p, name) => EXT.test(name), skipDir: skipIgnored })) {
       let src;
       try { src = readFileSync(file, 'utf8'); } catch { continue; }
       const rel = relative(ROOT, file).split('\\').join('/');

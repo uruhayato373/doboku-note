@@ -15,8 +15,7 @@
 import fs from 'fs';
 import path from 'path';
 import { generateHeadingId } from '#lib/heading-id.mjs';
-
-const ROOT = process.cwd();
+import { REPO_ROOT as ROOT } from '../../../../../scripts/lib/repository-paths.mjs';
 
 const PE_POSTS = path.join(ROOT, 'content/site/pe-comprehensive-management');
 const CIVIL_POSTS = path.join(ROOT, 'content/site/civil-construction-1');

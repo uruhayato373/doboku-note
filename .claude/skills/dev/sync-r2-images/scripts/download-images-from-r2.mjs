@@ -12,8 +12,7 @@ import fs from 'fs';
 import path from 'path';
 import { execSync } from 'child_process';
 import { R2_PUBLIC_ORIGIN } from '../../../../../scripts/lib/site-identity.mjs';
-
-const root = process.cwd();
+import { REPO_ROOT as root } from '../../../../../scripts/lib/repository-paths.mjs';
 
 // Parse command line args
 const args = process.argv.slice(2);

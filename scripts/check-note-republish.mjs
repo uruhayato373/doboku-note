@@ -30,15 +30,16 @@
 //
 // これは surfacer であって pre-commit ゲートではない（ソース修正→後で公開の間のドリフトは正常）。
 
-import { readFileSync, readdirSync, existsSync, writeSync } from 'node:fs';
-import { join } from 'node:path';
+import { readFileSync, existsSync, writeSync } from 'node:fs';
+import { relative } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { bodyHash, canonBodyHash, canonEntry, classifyBodyDrift, tagsHashFile, tagsHashRaw, metaHash, assetHash, titleHash, fmTitle, loadState, saveState, STATE } from './lib/note-republish-hash.mjs';
 import { findRecordedVersions } from './lib/note-republish-history.mjs';
 import { loadSiteRoutes } from './lib/site-links.mjs';
 import { todayJst } from './lib/jst-date.mjs';
+import { REPO_ROOT, NOTE_CONTENT_ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
-const ROOT = 'content/note';
 const args = process.argv.slice(2);
 const JSON_OUT = args.includes('--json');
 const BASELINE = args.includes('--baseline');
@@ -50,18 +51,8 @@ const BASELINE_META_ASSET = args.includes('--baseline-meta-asset');
 const RECORD_CANON = args.includes('--record-canon');
 const SINCE = (() => { const i = args.indexOf('--since'); return i >= 0 ? args[i + 1] : null; })();
 
-function walk(dir, acc = []) {
-  if (!existsSync(dir)) return acc;
-  for (const name of readdirSync(dir, { withFileTypes: true })) {
-    const p = join(dir, name.name).replaceAll('\\', '/'); // Windows の \ を state キー(/)に正規化
-    if (name.isDirectory()) walk(p, acc);
-    // 型別ファイル（article-II1.md 等）も対象。BK-02〜11 は大半がこの形式で、
-    // article.md のみを見ていた頃はドリフト検出から丸ごと漏れていた（2026-07-28 修正）。
-    // 下の articleForTags() が hashtags-II1.txt → article-II1.md を解決しているのと整合させる。
-    else if (/^article(-[^/\\]+)?\.md$/.test(name.name)) acc.push(p);
-  }
-  return acc;
-}
+// state キーはリポジトリからの相対パス（/ 区切り）。Windows の \ を / に正規化する
+const stateKey = (p) => relative(REPO_ROOT, p).split('\\').join('/');
 function fm(raw, key) {
   const m = raw.match(new RegExp('^' + key + ':\\s*(.*)$', 'm'));
   return m ? m[1].trim().replace(/^["']|["']$/g, '') : null;
@@ -81,7 +72,10 @@ if (SINCE) {
 }
 
 const st = loadState();
-const files = walk(ROOT);
+// 型別ファイル（article-II1.md 等）も対象。BK-02〜11 は大半がこの形式で、
+// article.md のみを見ていた頃はドリフト検出から丸ごと漏れていた（2026-07-28 修正）。
+// 下の articleForTags() が hashtags-II1.txt → article-II1.md を解決しているのと整合させる。
+const files = listFiles(NOTE_CONTENT_ROOT, { match: (_p, name) => /^article(-[^/\\]+)?\.md$/.test(name), allowMissing: true }).map(stateKey);
 const routes = loadSiteRoutes();
 const canonState = (st.canonHashes ||= {});
 const setCanon = (f, e) => { if (e) canonState[f] = e; else delete canonState[f]; };
@@ -185,15 +179,6 @@ const unjudgedReason = !routes.loaded
     : '記録時の版が git 履歴に見つからない（移動・履歴の切り詰め）';
 
 // ---- タグ再公開ドリフト（hashtags*.txt 単位・本文とは独立トラック） ----
-function walkTags(dir, acc = []) {
-  if (!existsSync(dir)) return acc;
-  for (const name of readdirSync(dir, { withFileTypes: true })) {
-    const p = join(dir, name.name).replaceAll('\\', '/');
-    if (name.isDirectory()) walkTags(p, acc);
-    else if (/^hashtags(-[^/]+)?\.txt$/.test(name.name)) acc.push(p);
-  }
-  return acc;
-}
 // hashtags ファイル → 対応 article ファイル（hashtags-II1.txt → article-II1.md、hashtags.txt → article.md）
 function articleForTags(hp) {
   const dir = hp.replace(/\/[^/]+$/, '');
@@ -205,7 +190,8 @@ function articleForTags(hp) {
 const tagState = (st.tagHashes ||= {});
 const tagSynced = [], tagDrift = [], tagUnknown = [];
 let tagBaselined = 0;
-for (const hp of walkTags(ROOT)) {
+const hashtagFiles = listFiles(NOTE_CONTENT_ROOT, { match: (_p, name) => /^hashtags(-[^/]+)?\.txt$/.test(name), allowMissing: true }).map(stateKey);
+for (const hp of hashtagFiles) {
   const art = articleForTags(hp);
   if (!art) continue;
   { const u = fm(readFileSync(art, 'utf8'), 'noteUrl'); if (!u || u === 'TBD') continue; } // 未公開(noteUrl 無し/TBD)は対象外（次回公開時にタグ適用）

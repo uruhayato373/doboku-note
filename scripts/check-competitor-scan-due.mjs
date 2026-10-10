@@ -21,11 +21,8 @@
  */
 
 import { freshnessDays, latestFile } from './lib/datasets.mjs';
-import { fileURLToPath } from 'node:url';
-import { dirname, join } from 'node:path';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = join(__dirname, '..');
 
 // チャネル → 時系列の台帳の id
 const PLATFORMS = {

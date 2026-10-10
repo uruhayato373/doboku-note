@@ -1,13 +1,11 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
-import { dirname, join, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import process from 'node:process';
 
 import { MAX_CHARS, extractDescription, inspectAgent, ratchet } from '../scripts/check-agent-descriptions.mjs';
-
-const REPO = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+import { REPO_ROOT as REPO } from '../scripts/lib/repository-paths.mjs';
 
 test('extractDescription: 同一行と > 折り返しの両方を 1 行に畳む', () => {
   assert.equal(extractDescription('---\nname: a\ndescription: Plain one.\nmodel: sonnet\n---\n# body'), 'Plain one.');

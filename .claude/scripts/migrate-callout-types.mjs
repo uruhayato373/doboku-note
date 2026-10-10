@@ -19,11 +19,12 @@
  *   node .claude/scripts/migrate-callout-types.mjs --dry-run # 置換対象の確認のみ
  */
 
-import { readdirSync, statSync } from "node:fs";
-import { join } from "node:path";
+import { relative } from "node:path";
 import { transformMdxFile } from "./lib/mdx-io.mjs";
+import { listFiles } from "../../scripts/lib/fs-walk.mjs";
+import { REPO_ROOT, SITE_CONTENT_ROOT } from "../../scripts/lib/repository-paths.mjs";
 
-const ROOT = "content/site";
+const ROOT = SITE_CONTENT_ROOT;
 const DRY_RUN = process.argv.includes("--dry-run");
 
 const MAPPING = [
@@ -32,27 +33,13 @@ const MAPPING = [
   { from: "caution", to: "warn" },
 ];
 
-/** 再帰的に .mdx ファイルを列挙 */
-function walk(dir) {
-  const results = [];
-  for (const entry of readdirSync(dir)) {
-    const full = join(dir, entry);
-    const st = statSync(full);
-    if (st.isDirectory()) {
-      results.push(...walk(full));
-    } else if (entry.endsWith(".mdx")) {
-      results.push(full);
-    }
-  }
-  return results;
-}
-
-const files = walk(ROOT);
+const files = listFiles(ROOT, { ext: ".mdx", followLinks: true });
 let totalChanges = 0;
 let touchedFiles = 0;
 const perTypeCount = Object.fromEntries(MAPPING.map((m) => [m.from, 0]));
 
 for (const file of files) {
+  const rel = relative(REPO_ROOT, file).split("\\").join("/");
   let fileChanges = 0;
 
   const transform = (raw) => {
@@ -81,14 +68,14 @@ for (const file of files) {
     if (result !== null) {
       touchedFiles++;
       totalChanges += fileChanges;
-      console.log(`[dry-run] ${file}: ${fileChanges} change(s)`);
+      console.log(`[dry-run] ${rel}: ${fileChanges} change(s)`);
     }
   } else {
     const written = transformMdxFile(file, transform);
     if (written) {
       touchedFiles++;
       totalChanges += fileChanges;
-      console.log(`✓ ${file}: ${fileChanges} change(s)`);
+      console.log(`✓ ${rel}: ${fileChanges} change(s)`);
     }
   }
 }

@@ -11,14 +11,14 @@
 // 全ファイル LF 改行で書き込む（gitattributes 不要・git diff ノイズ最小）。
 
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
-import { dirname } from 'node:path';
+import { dirname, join, relative } from 'node:path';
+import { REPO_ROOT, STATE_ROOT } from '../../../../../../scripts/lib/repository-paths.mjs';
 
-const DATA_DIR = '.claude/state';
-const SCREEN_PATH = `${DATA_DIR}/mechanical-screen.json`;
-const SCORES_PATH = `${DATA_DIR}/quality-scores.json`;
-const STATE_PATH = `${DATA_DIR}/quality-cycle-state.json`;
-const FLAGSHIP_PATH = `${DATA_DIR}/flagship-100.json`;
-const REVIEW_QUEUE_PATH = `${DATA_DIR}/review-queue.md`;
+const SCREEN_PATH = join(STATE_ROOT, 'mechanical-screen.json');
+const SCORES_PATH = join(STATE_ROOT, 'quality-scores.json');
+const STATE_PATH = join(STATE_ROOT, 'quality-cycle-state.json');
+const FLAGSHIP_PATH = join(STATE_ROOT, 'flagship-100.json');
+const REVIEW_QUEUE_PATH = join(STATE_ROOT, 'review-queue.md');
 
 export const PATHS = {
   SCREEN: SCREEN_PATH,
@@ -28,17 +28,20 @@ export const PATHS = {
   REVIEW_QUEUE: REVIEW_QUEUE_PATH,
 };
 
+/** 画面に出すときのリポジトリルートからの相対パス（PATHS は絶対パス） */
+export const displayPath = (p) => relative(REPO_ROOT, p).split('\\').join('/');
+
 function ensureDir(filepath) {
   const d = dirname(filepath);
   if (!existsSync(d)) mkdirSync(d, { recursive: true });
 }
 
-function readJson(filepath, fallback) {
+function readJsonOr(filepath, fallback) {
   if (!existsSync(filepath)) return fallback;
   try {
     return JSON.parse(readFileSync(filepath, 'utf-8'));
   } catch (e) {
-    console.error(`[quality-state] Failed to parse ${filepath}: ${e.message}`);
+    console.error(`[quality-state] Failed to parse ${displayPath(filepath)}: ${e.message}`);
     return fallback;
   }
 }
@@ -51,7 +54,7 @@ function writeJson(filepath, data) {
 // ── mechanical-screen.json ──────────────────────────────────────
 
 export function readScreen() {
-  return readJson(SCREEN_PATH, { version: 1, screened_at: null, pages: {} });
+  return readJsonOr(SCREEN_PATH, { version: 1, screened_at: null, pages: {} });
 }
 
 export function writeScreen(data) {
@@ -62,7 +65,7 @@ export function writeScreen(data) {
 // ── quality-scores.json ─────────────────────────────────────────
 
 export function readScores() {
-  return readJson(SCORES_PATH, { version: 1, scored_at: null, pages: {} });
+  return readJsonOr(SCORES_PATH, { version: 1, scored_at: null, pages: {} });
 }
 
 export function writeScores(data) {
@@ -73,7 +76,7 @@ export function writeScores(data) {
 // ── quality-cycle-state.json ────────────────────────────────────
 
 export function readState() {
-  return readJson(STATE_PATH, {
+  return readJsonOr(STATE_PATH, {
     version: 1,
     cycle: 0,
     started_at: null,
@@ -108,7 +111,7 @@ export function updatePageState(state, slug, status, extra = {}) {
 // ── flagship-100.json ───────────────────────────────────────────
 
 export function readFlagship() {
-  return readJson(FLAGSHIP_PATH, { version: 1, generated_at: null, slugs: [] });
+  return readJsonOr(FLAGSHIP_PATH, { version: 1, generated_at: null, slugs: [] });
 }
 
 export function writeFlagship(slugs) {

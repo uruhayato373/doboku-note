@@ -28,13 +28,12 @@
  */
 
 import { readFileSync, writeFileSync, copyFileSync, mkdirSync, existsSync } from 'node:fs';
-import { join, basename, resolve, dirname } from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { join, basename, resolve } from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { renderSlide } from '#lib/sns-common/slide-render.mjs';
 import { IG_HANDLE } from '../../../scripts/lib/site-identity.mjs';
+import { REPO_ROOT as ROOT } from '../../../scripts/lib/repository-paths.mjs';
 
-// .claude/scripts/instagram/ → リポジトリルートへ 3 階層
-const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../../..');
 const { renderExamCoverIg } = await import(pathToFileURL(resolve(ROOT, '.claude/scripts/sns/templates/exam-cover-ig.mjs')).href);
 const { svgToPng } = await import(pathToFileURL(resolve(ROOT, '.claude/scripts/sns/lib/svg-to-png.mjs')).href);
 

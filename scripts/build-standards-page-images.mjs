@@ -31,10 +31,10 @@ import path from 'node:path'
 import {
   resolveVaultRoot, loadDriveManifest, writeDriveManifestAtomic, sanitizeDriveEntry, realBytesAndHashes, toVaultRel,
 } from './lib/drive-vault.mjs'
-import { REPO_ROOT } from './lib/repository-paths.mjs'
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs'
+import { listFiles } from './lib/fs-walk.mjs'
 import { imageSize } from './lib/asset-storage.mjs'
 
-const ROOT = REPO_ROOT
 const CATALOG = path.join(ROOT, 'content/site/standards-library/catalog.json')
 // provenance（manifest.json）だけを repo に置く。ページ画像・テキストの実体は Drive vault の
 // 原本 PDF の隣（同名フォルダ）。置き場ルール: 人しか読まない派生物は Drive（asset-storage-policy.md §1）
@@ -99,17 +99,10 @@ if (targets.length === 0) die(`対象 0 件（role=${ROLE} agency=${AGENCY ?? '-
 // --- Drive の PDF を sha256 で索引する（ファイル名では引かない）
 console.log(`[build-standards-page-images] Drive の PDF を索引中 ...`)
 const bySha = new Map()
-const walk = (dir) => {
-  for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
-    const p = path.join(dir, e.name)
-    if (e.isDirectory()) walk(p)
-    else if (e.name.toLowerCase().endsWith('.pdf')) {
-      const h = sha256(fs.readFileSync(p))
-      if (!bySha.has(h)) bySha.set(h, p)
-    }
-  }
+for (const p of listFiles(VAULT, { match: (_path, name) => name.toLowerCase().endsWith('.pdf') })) {
+  const h = sha256(fs.readFileSync(p))
+  if (!bySha.has(h)) bySha.set(h, p)
 }
-walk(VAULT)
 console.log(`[build-standards-page-images] PDF ${bySha.size} 本（ユニーク sha256）を索引`)
 
 // --- 同一 sha256 の文書は 1 度だけ描画し、残りは alias として記録する
@@ -295,7 +288,7 @@ for (const doc of targets.sort((a, b) => a.agencyId.localeCompare(b.agencyId))) 
         title: doc.title,
         edition: doc.edition ?? null,
         sourceFile: toVaultRel(path.relative(VAULT, pdf)),
-        pagesLocation: { tier: 'drive-vault', vaultDir: vaultDocRel, note: '実体は Drive vault の原本 PDF と同名フォルダ。repo には無い。取り戻しは npm run drive-vault-sync -- --pull --path content/sources/standards/' + doc.agencyId + '/' },
+        pagesLocation: { tier: 'drive-vault', vaultDir: vaultDocRel, note: '実体は Drive vault の原本 PDF と同名フォルダ。repo には無い。取り戻しは npm run drive-vault-sync -- --pull --path content/sources/standards/' + doc.agencyId + '/ --commit' },
         sourceSha256: doc.sourceSha256,
         pages: realPages,
         render: { tool: 'pdftoppm', dpi: DPI, format: 'jpeg', quality: QUALITY },

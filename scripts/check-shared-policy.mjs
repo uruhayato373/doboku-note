@@ -10,11 +10,11 @@
 // 使い方: node scripts/check-shared-policy.mjs   （exit は常に 0・SessionStart は非ブロック）
 
 import { existsSync } from 'node:fs';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { pathToFileURL } from 'node:url';
 import { resolve } from 'node:path';
 import { createOutput, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = fileURLToPath(new URL('..', import.meta.url)).replace(/[\\/]$/, '');
 const sync = resolve(ROOT, '.claude/shared-policy/sync.mjs');
 
 /**

@@ -11,16 +11,14 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { readJson as ioReadJson } from '../scripts/lib/json-io.mjs';
 import { readJson as directionReadJson } from '../scripts/lib/business-direction.mjs';
 import { readJson as watchReadJson } from '../scripts/lib/seo-rank-watch.mjs';
-
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
 /** 今の数（scripts・.claude・tools の本番コード。tests は数えない）。減らしたら下げる */
-const BASELINE = 28;
+const BASELINE = 10;
 
 /** `const readJson =`・`function readJson(` の定義（再公開 `export { readJson }` と import は数えない） */
 const DEFINES_READ_JSON = /^[ \t]*(?:export\s+)?(?:(?:const|let|var)\s+readJson\s*=|(?:async\s+)?function\s+readJson\s*\()/m;

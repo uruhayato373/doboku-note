@@ -17,8 +17,8 @@ import { join } from 'node:path';
 import { summarizeSsotStatus } from './lib/qualification-registry.mjs';
 import { todayJst } from './lib/jst-date.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const read = (id) => JSON.parse(readFileSync(join(ROOT, datasetPath(id)), 'utf8'));
 const args = new Set(process.argv.slice(2));
 

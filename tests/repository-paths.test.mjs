@@ -12,7 +12,7 @@ import {
 } from '../scripts/lib/repository-paths.mjs';
 import { inventory, findDualSsot } from '../scripts/audit-content-layout.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..'); // root-ok: REPO_ROOT とは別の経路で求め、一致を検査する
 // 動的 import はパス文字列でなく file:// URL を渡す。Windows の絶対パスは `C:\...` で、
 // ESM ローダーが `c:` をプロトコルと解釈して ERR_UNSUPPORTED_ESM_URL_SCHEME になる（OS 固有の偽赤）。
 const PATHS_MODULE_URL = pathToFileURL(join(ROOT, 'scripts/lib/repository-paths.mjs')).href;

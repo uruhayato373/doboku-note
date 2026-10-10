@@ -24,6 +24,9 @@
  *   node scripts/audit-reference-book-coverage.mjs --source-id X --rejudge     # 判定済みの書籍の候補表を作り直す（手元の verdict.json を消す。判定はやり直す）
  *   node scripts/audit-reference-book-coverage.mjs --check --source-id X       # Evaluator の verdict.json を候補表と照らす（判定もれ・語彙・記事の実在・件数）
  *   node scripts/audit-reference-book-coverage.mjs --status                    # 全書籍の進み具合（候補表・判定・展開）を棚ごとに出す
+ *   node scripts/audit-reference-book-coverage.mjs --briefs [--source-id X | --shelf S] [--alias <json>] [--out <dir>]
+ *                                                                               # 判定の計画を記事ごとの brief に束ね、展開の workflow に渡す items.json を書く（DN-0621）
+ *                                                                               # 対象を指定しなければ、判定済みで展開が終わっていない書籍すべて。既定の書き出し先 .tmp/book-coverage/briefs/
  * 候補表と一緒に判定資料 coverage/packet.md（サイトの記事と見出し・判定する節の一覧。Evaluator が読む・git 管理外・同期しない）も書く。
  * 判定済み（coverage/verdict.json がある）書籍の候補表は、中身が変わるなら --rejudge なしでは上書きしない（判定の元になった候補表が消え、
  * 要約が新しい候補表と古い判定を組み合わせてしまう。2026-10-08 に展開後の再実行で実際に上書きした）
@@ -48,6 +51,7 @@ import { readDatasetIf } from './lib/dataset-io.mjs';
 import { writeDataset } from './lib/dataset-write.mjs';
 import { todayJst } from './lib/jst-date.mjs';
 import { bookRepoRoot } from './lib/reference-book-bundle.mjs';
+import { buildBriefs } from './lib/book-coverage-briefs.mjs';
 import { loadReferenceSources } from './lib/reference-sources.mjs';
 import { REPO_ROOT, SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 
@@ -64,6 +68,7 @@ const SUMMARY_ONLY = args.includes('--summary');
 const REJUDGE = args.includes('--rejudge');
 const CHECK = args.includes('--check');
 const STATUS = args.includes('--status');
+const BRIEFS = args.includes('--briefs');
 const TOP_TERMS = 12;
 const MIN_UNIT_CHARS = 150;
 const COVERED = 0.55;
@@ -74,7 +79,7 @@ const die = (msg, code = 1) => { console.error(`[${NAME}] ✗ ${msg}`); process.
 const refs = loadReferenceSources();
 const books = refs.sources.filter((s) => s.bookBundle);
 let targets = books.filter((s) => SOURCE_IDS.includes(s.id) || (SHELF && s.shelf === SHELF));
-if (!SOURCE_IDS.length && !SHELF && !SUMMARY_ONLY && !STATUS) die('--source-id か --shelf が必要', 2);
+if (!SOURCE_IDS.length && !SHELF && !SUMMARY_ONLY && !STATUS && !BRIEFS) die('--source-id か --shelf が必要', 2);
 const unknown = SOURCE_IDS.filter((id) => !targets.some((s) => s.id === id));
 if (unknown.length) die(`bookBundle を持つ参考文献に無い: ${unknown.join(', ')}`, 2);
 
@@ -238,10 +243,52 @@ if (STATUS) {
   process.exit(0);
 }
 
+if (BRIEFS) {
+  // 対象: 指定が無ければ、判定済みで展開が終わっていない書籍（要約の expansions にコミットの無い記事がある）
+  const rows = readDatasetIf(REPO_ROOT, 'state.book-coverage')?.books ?? {};
+  const pending = (s) => rows[s.id]?.verdict && rows[s.id].expansions.some((e) => !e.commits.length);
+  const chosen = targets.length ? targets : books.filter(pending);
+  const loaded = chosen.flatMap((source) => {
+    const verdict = readDatasetIf(REPO_ROOT, 'vault.book-coverage-verdict', coverageValues(source));
+    const candidates = readDatasetIf(REPO_ROOT, 'vault.book-coverage-candidates', coverageValues(source));
+    if (!verdict || !candidates) {
+      console.error(`[${NAME} --briefs] ${source.id}: 手元に判定か候補表が無い（npm run drive-vault-sync -- --pull --group reference-book-coverage --commit で取り戻す）`);
+      return [];
+    }
+    return [{ id: source.id, shelf: source.shelf, directory: source.bookBundle.directory, verdict, candidates }];
+  });
+  if (!loaded.length) die(`brief を作れる書籍が 0（対象 ${chosen.length} 冊・判定と候補表が手元にあるもの 0）。検査不成立`);
+  const aliasPath = val('--alias');
+  const alias = aliasPath ? JSON.parse(fs.readFileSync(path.resolve(aliasPath), 'utf8')) : {};
+  const existing = new Map();
+  for (const dir of fs.readdirSync(SITE_CONTENT_ROOT, { withFileTypes: true }).filter((d) => d.isDirectory())) {
+    for (const slug of fs.readdirSync(path.join(SITE_CONTENT_ROOT, dir.name), { withFileTypes: true }).filter((d) => d.isDirectory())) {
+      const file = path.join(SITE_CONTENT_ROOT, dir.name, slug.name, 'article.mdx');
+      if (!fs.existsSync(file)) continue;
+      let title = '';
+      try { title = String(matter(fs.readFileSync(file, 'utf8')).data.title ?? ''); } catch { /* 題名が読めない記事は空で比べる */ }
+      existing.set(`${dir.name}/${slug.name}`, title);
+    }
+  }
+  const { briefs, items, warnings } = buildBriefs({ books: loaded, alias, existing });
+  const out = path.resolve(val('--out') ?? path.join(REPO_ROOT, '.tmp', 'book-coverage', 'briefs'));
+  fs.mkdirSync(out, { recursive: true });
+  for (const b of briefs) {
+    fs.writeFileSync(path.join(out, `${b.file}.md`), b.brief);
+    fs.writeFileSync(path.join(out, `${b.file}.qa.md`), b.qa);
+  }
+  fs.writeFileSync(path.join(out, 'items.json'), JSON.stringify(items, null, 2) + '\n');
+  console.log(`[${NAME} --briefs] 書籍 ${loaded.length} 冊 / 記事 ${items.length} 本（新規 ${items.filter((x) => x.new).length}）/ 追記 ${items.reduce((n, x) => n + x.adds, 0)} 件 / 写真の案 ${items.reduce((n, x) => n + x.photos, 0)} 件 → ${path.relative(REPO_ROOT, out) || out}`);
+  for (const w of warnings) console.log(`  [要確認] ${w}`);
+  const big = items.filter((x) => x.adds > 30);
+  for (const x of big) console.log(`  [要確認] ${x.article}: 追記 ${x.adds} 件。30 件を超えたら主題で別の記事へ分ける（book-coverage-expansion.md §0）`);
+  process.exit(0);
+}
+
 if (SUMMARY_ONLY) {
   const n = writeSummary(targets.length ? targets : books);
   console.log(`[${NAME}] 要約 ${datasetPath('state.book-coverage')} を書いた（手元に候補表がある書籍 ${n} 冊を更新）`);
-  if (n === 0) die('手元に候補表がある書籍が 0（drive-vault-sync --pull で取り戻すか、候補表を作る）。検査不成立');
+  if (n === 0) die('手元に候補表がある書籍が 0（drive-vault-sync --pull --group reference-book-coverage --commit で取り戻すか、候補表を作る）。検査不成立');
   process.exit(0);
 }
 
@@ -315,7 +362,7 @@ const isExamUnit = (heading, body) => /〔正解|【正解|正解\s*[（(]\d/.te
 
 function loadBookUnits(source) {
   const dir = path.join(REPO_ROOT, bookRepoRoot(source), 'ocr');
-  const pull = `npm run drive-vault-sync -- --pull --path '${path.relative(REPO_ROOT, dir)}/' で Drive から取得`;
+  const pull = `npm run drive-vault-sync -- --pull --path '${path.relative(REPO_ROOT, dir)}/' --commit で Drive から取得`;
   if (!fs.existsSync(dir)) return { error: `${dir} が無い（${pull}）` };
   const files = fs.readdirSync(dir).filter((f) => f.endsWith('.md') && f !== 'README.md').sort();
   if (!files.length) return { error: `${dir} に文字起こしが無い（${pull}）` };

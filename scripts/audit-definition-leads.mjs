@@ -30,12 +30,13 @@
 //   node scripts/audit-definition-leads.mjs
 
 import { readdirSync, statSync, writeFileSync, mkdirSync } from 'node:fs';
-import { join, dirname } from 'node:path';
+import { join, dirname, relative } from 'node:path';
 import matter from 'gray-matter';
 import { readMdxFile } from '../.claude/scripts/lib/mdx-io.mjs';
+import { REPO_ROOT, SITE_CONTENT_ROOT, STATE_ROOT } from './lib/repository-paths.mjs';
 
-const BASE = 'content/site/pe-comprehensive-management';
-const OUTPUT = '.claude/state/definition-audit.json';
+const BASE = join(SITE_CONTENT_ROOT, 'pe-comprehensive-management');
+const OUTPUT = join(STATE_ROOT, 'definition-audit.json');
 const MIN_LEN = 40;
 const MAX_LEN = 200;
 const DEVIATION_THRESHOLD = 0.20;
@@ -179,7 +180,7 @@ function main() {
       console.log(`  lead (${r.length}): ${r.firstParagraph.slice(0, 150)}`);
     }
   }
-  console.log(`\nOutput: ${OUTPUT}`);
+  console.log(`\nOutput: ${relative(REPO_ROOT, OUTPUT).split('\\').join('/')}`);
 }
 
 main();

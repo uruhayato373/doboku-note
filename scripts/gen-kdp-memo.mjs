@@ -10,8 +10,8 @@ import { resolve } from 'node:path'
 import { getDefaults } from './lib/kdp-common.mjs'
 import { datasetPath } from './lib/datasets.mjs'
 import { readDataset } from './lib/dataset-io.mjs';
+import { REPO_ROOT as REPO } from './lib/repository-paths.mjs';
 
-const REPO = resolve(import.meta.dirname, '..')
 // ── 共通ルール（真実源 = config/kdp-memo.json の defaults。lib/kdp-common 経由で読む）──
 const DEF = getDefaults()
 const { author: AUTHOR, authorKana: AUTHOR_KANA, authorRomaji: AUTHOR_ROMAJI } = DEF

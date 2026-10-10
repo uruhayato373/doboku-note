@@ -11,10 +11,11 @@
  * 設計: docs/marketing/03_多資格SNS展開設計.md
  */
 import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, relative } from 'node:path';
+import { REPO_ROOT, SITE_CONTENT_ROOT } from '../../../scripts/lib/repository-paths.mjs';
 
-const POSTS = 'content/site/civil-construction-1';
-const OUT = 'src/config/civil-1-exam-questions.json';
+const POSTS = join(SITE_CONTENT_ROOT, 'civil-construction-1');
+const OUT = join(REPO_ROOT, 'src/config/civil-1-exam-questions.json');
 
 function stripFrontmatter(c) {
   const m = c.match(/^---\r?\n[\s\S]*?\r?\n---\r?\n/);
@@ -112,4 +113,4 @@ console.log(`年度: ${years.map((y) => `${y.year}(${y.questions.length})`).join
 const packOk = years.reduce((s, y) => s + y.questions.filter((q) => q.packEligible).length, 0);
 console.log(`総問題: ${tot} / igEligible(テキストのみ): ${ige} / 正答抽出失敗: ${noCorrect} / IG対象で選択肢数≠4: ${badOpts} / IG対象で解説数≠4: ${badExpl}`);
 console.log(`packEligible(完全クリーン＝パック生成対象): ${packOk}（≒ ${Math.floor(packOk / 4)} パック分）`);
-console.log(`出力: ${OUT}`);
+console.log(`出力: ${relative(REPO_ROOT, OUT).split('\\').join('/')}`);

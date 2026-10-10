@@ -17,9 +17,10 @@
 // 使い方: node scripts/check-claude-md-size.mjs [--root <dir>] [--json]
 // exit 0 = 健全 / 1 = 違反あり・検査不成立（CLAUDE.md が読めない）
 
-import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
+import { existsSync, readFileSync, statSync } from 'node:fs';
 import { join, relative, sep } from 'node:path';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
 export const MAX_LINES = 150;
 export const MAX_BYTES = 20 * 1024;
@@ -27,16 +28,6 @@ export const PRINCIPLE_COUNT = 12;
 const RULES_DIR = '.claude/rules';
 const NEXT_BEGIN = '<!-- BEGIN:nextjs-agent-rules -->';
 const NEXT_END = '<!-- END:nextjs-agent-rules -->';
-
-function walkMd(dir, acc = []) {
-  if (!existsSync(dir)) return acc;
-  for (const e of readdirSync(dir, { withFileTypes: true })) {
-    const p = join(dir, e.name);
-    if (e.isDirectory()) walkMd(p, acc);
-    else if (e.isFile() && e.name.endsWith('.md')) acc.push(p);
-  }
-  return acc;
-}
 
 /** `paths:` frontmatter を持ち、パターンが 1 件以上あるか（line-based・フル YAML パーサは入れない） */
 export function ruleHasPaths(content) {
@@ -79,7 +70,7 @@ export function checkClaudeMd(root) {
     violations.push('nextjs-agent-rules ブロックの後に本文がある。ブロックは末尾に置く');
   }
 
-  const ruleFiles = walkMd(join(root, RULES_DIR)).sort();
+  const ruleFiles = listFiles(join(root, RULES_DIR), { ext: '.md', allowMissing: true }).sort();
   const rulesWithoutPaths = ruleFiles.filter((p) => !ruleHasPaths(readFileSync(p, 'utf8'))).map((p) => relative(root, p).split(sep).join('/'));
   for (const p of rulesWithoutPaths) violations.push(`${p}: paths: frontmatter が無い（常時読み込みになる。領域を限定できないなら CLAUDE.md に書く）`);
 

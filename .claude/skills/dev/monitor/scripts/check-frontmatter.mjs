@@ -7,10 +7,11 @@
  */
 
 import { readdirSync, readFileSync, statSync, existsSync } from "fs";
-import { join } from "path";
+import { join, relative } from "path";
 import matter from "gray-matter";
+import { REPO_ROOT, SITE_CONTENT_ROOT } from "../../../../../scripts/lib/repository-paths.mjs";
 
-const CONTENT_DIR = "content/site";
+const CONTENT_DIR = SITE_CONTENT_ROOT;
 const REQUIRED_FIELDS = ["title", "description", "category", "tags", "published"];
 const INTERVAL = (parseInt(process.argv[2]) || 60) * 1000;
 
@@ -48,7 +49,7 @@ function checkFrontmatter() {
   if (issues.length > 0) {
     console.log(`FRONTMATTER ISSUES: ${issues.length} file(s)`);
     for (const { file, missing } of issues.slice(0, 15)) {
-      console.log(`  ${file}: missing ${missing.join(", ")}`);
+      console.log(`  ${relative(REPO_ROOT, file).split("\\").join("/")}: missing ${missing.join(", ")}`);
     }
     if (issues.length > 15) {
       console.log(`  ... and ${issues.length - 15} more`);

@@ -1,7 +1,8 @@
-import { readFileSync, readdirSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 import { loadDriveManifest, realBytesAndHashes } from './lib/drive-vault.mjs';
 import { coverInputDigest } from './lib/youtube-approved-cover.mjs';
 
@@ -18,9 +19,8 @@ export function checkHandoffEntries(specs, entries) {
  return problems;
 }
 async function main(){
- const paths=[];
- function walk(dir){for(const e of readdirSync(dir,{withFileTypes:true})){const p=join(dir,e.name);if(e.isDirectory())walk(p);else if(e.name==='cover-design.json')paths.push(p);}}
- walk(join(REPO_ROOT,'content/sns/video-packs'));paths.push(join(REPO_ROOT,'content/sns/youtube/cover-design.json'));
+ const paths=listFiles(join(REPO_ROOT,'content/sns/video-packs'),{match:(_p,name)=>name==='cover-design.json'});
+ paths.push(join(REPO_ROOT,'content/sns/youtube/cover-design.json'));
  const specs=paths.flatMap(p=>Object.values(JSON.parse(readFileSync(p,'utf8')).covers??{})).filter(s=>s.approvedImage);
  const manifest=loadDriveManifest();const problems=checkHandoffEntries(specs,manifest.entries);
  if(process.argv.includes('--local')) for(const spec of specs){try{const h=await realBytesAndHashes(join(REPO_ROOT,spec.approvedImage.path));if(h.sha256!==spec.approvedImage.sha256)problems.push('ローカルSHA不一致: '+spec.approvedImage.path);}catch{problems.push('ローカル実体なし: '+spec.approvedImage.path);}}

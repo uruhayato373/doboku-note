@@ -5,8 +5,9 @@ import { extname, join, relative } from "node:path";
 import { FORBIDDEN, findForbidden } from "./lib/exam-calendar-guards.mjs";
 import { activeIds, validateQualificationRegistry } from "./lib/qualification-registry.mjs";
 import { datasetPath } from "./lib/datasets.mjs";
+import { REPO_ROOT as ROOT } from "./lib/repository-paths.mjs";
+import { listFiles } from "./lib/fs-walk.mjs";
 
-const ROOT = process.cwd();
 const SSOT_PATH = join(ROOT, datasetPath("config.exam-calendar"));
 const calendar = JSON.parse(readFileSync(SSOT_PATH, "utf8"));
 
@@ -211,14 +212,10 @@ const PATH_LITERAL_ROOTS = [
   { glob: "docs/marketing", startsWith: "09_YouTube戦略_コンクリート技士", why: "docs/marketing/09_YouTube戦略_コンクリート技士・主任技士.md" },
 ];
 function walk(dir) {
-  const files = [];
-  for (const entry of readdirSync(dir, { withFileTypes: true })) {
-    if (entry.name.startsWith("_archive")) continue;
-    const path = join(dir, entry.name);
-    if (entry.isDirectory()) files.push(...walk(path));
-    else if (textExtensions.has(extname(entry.name))) files.push(path);
-  }
-  return files;
+  return listFiles(dir, {
+    match: (_p, name) => !name.startsWith("_archive") && textExtensions.has(extname(name)),
+    skipDir: (_p, name) => name.startsWith("_archive"),
+  });
 }
 
 let scannedFiles = 0;

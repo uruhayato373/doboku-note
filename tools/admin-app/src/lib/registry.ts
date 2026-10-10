@@ -2,6 +2,7 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join, relative, sep } from 'node:path';
 import matter from 'gray-matter';
 import { repoPath } from './repo-root';
+import { listFiles } from '../../../../scripts/lib/fs-walk.mjs';
 
 /**
  * registry.ts — .claude/agents/*.md と .claude/skills/**\/SKILL.md の
@@ -65,16 +66,7 @@ export function loadAgents(): RegistryResult<AgentEntry> {
 
 /** skills/ 配下を再帰走査して SKILL.md を集める。 */
 function findSkillFiles(root: string): string[] {
-  const out: string[] = [];
-  const walk = (dir: string) => {
-    for (const e of readdirSync(dir, { withFileTypes: true })) {
-      const p = join(dir, e.name);
-      if (e.isDirectory()) walk(p);
-      else if (e.name === 'SKILL.md') out.push(p);
-    }
-  };
-  if (existsSync(root)) walk(root);
-  return out;
+  return listFiles(root, { allowMissing: true, match: (_p: string, name: string) => name === 'SKILL.md' });
 }
 
 export function loadSkills(): RegistryResult<SkillEntry> {

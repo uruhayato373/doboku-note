@@ -34,7 +34,7 @@
  */
 import { execFileSync, spawn } from 'node:child_process';
 import { createHash } from 'node:crypto';
-import { existsSync, readdirSync, readFileSync, statSync, writeFileSync, mkdirSync } from 'node:fs';
+import { existsSync, readFileSync, statSync, writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import matter from 'gray-matter';
@@ -49,8 +49,9 @@ import { artifactRelPaths, loadKindleCatalog } from './lib/kindle-catalog.mjs';
 import { fileSha256, isOnKdp } from './lib/kindle-uploaded.mjs';
 import { BLOCKERS, buildSyncPlan } from './lib/note-sync-plan.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 export const LEDGER_PATH = join(ROOT, '.claude', 'state', 'content-ledger.json');
 const NOTE_ROOT = join(ROOT, 'content', 'note');
 const TAG = '[content-ledger]';
@@ -104,21 +105,6 @@ function noteKeys(dir = 'content/note') {
 
 const fresh = (at) => Boolean(at) && Date.now() - Date.parse(at) < LIVE_TTL_MS;
 
-function walkNotes() {
-  const out = [];
-  const walk = (dir) => {
-    for (const e of readdirSync(dir, { withFileTypes: true })) {
-      if (e.isDirectory()) {
-        if (e.name !== 'img') walk(join(dir, e.name));
-      } else if (/^article(-[^/\\]+)?\.md$/.test(e.name)) {
-        out.push(join(dir, e.name));
-      }
-    }
-  };
-  if (existsSync(NOTE_ROOT)) walk(NOTE_ROOT);
-  return out;
-}
-
 async function build() {
   const started = Date.now();
   const themes = loadThemes(ROOT);
@@ -130,7 +116,8 @@ async function build() {
   let reread = 0;
 
   const notes = [];
-  for (const abs of walkNotes()) {
+  const articles = listFiles(NOTE_ROOT, { allowMissing: true, skipDir: (_path, name) => name === 'img', match: (_path, name) => /^article(-[^/\\]+)?\.md$/.test(name) });
+  for (const abs of articles) {
     const path = relative(ROOT, abs).replace(/\\/g, '/');
     const key = gitKeys.get(path) ?? (() => { const st = statSync(abs); return `mtime:${st.mtimeMs}:${st.size}`; })();
     const cached = prevByPath.get(path);

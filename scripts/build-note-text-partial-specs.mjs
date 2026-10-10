@@ -1,7 +1,9 @@
 #!/usr/bin/env node
-import { existsSync, mkdirSync, readdirSync, statSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, statSync, writeFileSync } from 'node:fs';
 import { relative, resolve, join } from 'node:path';
 import { parseNoteArticle } from './lib/note-frontmatter.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
 /**
  * 公開済み note の同一文言を部分更新する spec 群を、ローカル原稿から生成する。
@@ -11,7 +13,6 @@ import { parseNoteArticle } from './lib/note-frontmatter.mjs';
  *   --scope content/note/1級・2級土木 --from '旧文言' --to '新文言' --name civil-150
  */
 
-const ROOT = process.cwd();
 const argv = process.argv.slice(2);
 const getArg = (name) => { const index = argv.indexOf(name); return index >= 0 ? argv[index + 1] : null; };
 const SCOPE_ARG = getArg('--scope');
@@ -30,22 +31,12 @@ const scope = resolve(ROOT, SCOPE_ARG);
 if (!existsSync(scope) || !statSync(scope).isDirectory()) throw new Error(`scope がディレクトリではない: ${SCOPE_ARG}`);
 if (!scope.startsWith(resolve(ROOT, 'content/note') + '/')) throw new Error('--scope は content/note 配下に限定');
 
-function walk(dir) {
-  const files = [];
-  for (const entry of readdirSync(dir, { withFileTypes: true })) {
-    const path = join(dir, entry.name);
-    if (entry.isDirectory()) files.push(...walk(path));
-    else if (entry.isFile() && entry.name === 'article.md') files.push(path);
-  }
-  return files;
-}
-
 const outDir = join(ROOT, '.tmp', 'note-partial-text', NAME);
 mkdirSync(outDir, { recursive: true });
 const specs = [];
 let occurrences = 0;
 
-for (const path of walk(scope).sort()) {
+for (const path of listFiles(scope, { match: (_path, name) => name === 'article.md' }).sort()) {
   const article = parseNoteArticle(path);
   const count = article.body.split(FROM).length - 1;
   if (count === 0) continue;

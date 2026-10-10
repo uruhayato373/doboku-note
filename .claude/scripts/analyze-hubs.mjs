@@ -11,14 +11,10 @@
 import { readFileSync, writeFileSync } from "fs";
 import { readJsonOrReport } from "../../scripts/lib/metric-reports.mjs";
 import { SITE_ORIGIN } from "../../scripts/lib/site-identity.mjs";
+import { parseCliArgs } from "../../scripts/lib/cli-args.mjs";
 
 function parseArgs() {
-  const args = process.argv.slice(2);
-  const opts = { pageData: null };
-  for (let i = 0; i < args.length; i++) {
-    if (args[i] === "--page-data") opts.pageData = args[++i];
-  }
-  return opts;
+  return parseCliArgs({ "page-data": { type: "string" } });
 }
 
 const HUB_PATTERNS = [

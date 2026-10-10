@@ -28,10 +28,10 @@
  *
  * 終了コード: 常に 0（--dry は WARN 扱いで GO 判定に影響させない方針のため、長段落ありでも 0）。
  */
-import { readdirSync, statSync } from 'node:fs';
-import { join } from 'node:path';
+import { statSync } from 'node:fs';
 import { readMdxFile, writeMdxFile } from '../.claude/scripts/lib/mdx-io.mjs';
 import { findAnswerStartBlock, isAnswerPart } from './lib/note-answer-zone.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
 let argv = process.argv.slice(2);
 let target = 120, dry = false;
@@ -50,7 +50,7 @@ function walk(p) {
   let st;
   try { st = statSync(p); } catch { return []; }
   if (st.isFile()) return p.endsWith('.md') ? [p] : [];
-  return readdirSync(p).flatMap((c) => walk(join(p, c)));
+  return listFiles(p, { ext: '.md', followLinks: true });
 }
 
 const visLen = (s) => s.replace(/\s/g, '').length;

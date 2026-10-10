@@ -15,19 +15,16 @@
 
 import { existsSync, readFileSync, writeFileSync } from "fs";
 import { datasetPath } from "../../../../../scripts/lib/datasets.mjs";
+import { parseCliArgs } from "../../../../../scripts/lib/cli-args.mjs";
 
 function parseArgs() {
-  const args = process.argv.slice(2);
-  const opts = { file: null, output: null, severity: null, exitOnViolation: false };
-  for (let i = 0; i < args.length; i++) {
-    switch (args[i]) {
-      case "--file": opts.file = args[++i]; break;
-      case "--output": opts.output = args[++i]; break;
-      case "--severity": opts.severity = args[++i]; break;
-      case "--exit-on-violation": opts.exitOnViolation = true; break;
-    }
-  }
-  return opts;
+  const { file, output, severity, exitOnViolation } = parseCliArgs({
+    file: { type: "string" },
+    output: { type: "string" },
+    severity: { type: "string" },
+    "exit-on-violation": { type: "boolean" },
+  });
+  return { file, output, severity, exitOnViolation };
 }
 
 function findLatest() {

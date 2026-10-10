@@ -16,25 +16,20 @@
 //   node scripts/check-note-hashtags.mjs --all      # 全件を数の昇順で一覧（バーンダウン進捗・exit 0）
 // 90 未満が 1 件でもあれば exit 1（--all は集計のみで exit 0）。
 
-import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
-import { join } from 'node:path';
+import { readFileSync, existsSync } from 'node:fs';
+import { join, relative } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { isEnterableTag } from './lib/note-tag-plan.mjs';
+import { REPO_ROOT, NOTE_CONTENT_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
 const THRESHOLD = 90;
-const ROOT = 'content/note';
+const ROOT_REL = relative(REPO_ROOT, ROOT).split('\\').join('/');
 const STAGED = process.argv.includes('--staged');
 const ALL = process.argv.includes('--all');
 
-function walk(dir, out = []) {
-  if (!existsSync(dir)) return out;
-  for (const e of readdirSync(dir)) {
-    const p = join(dir, e);
-    if (statSync(p).isDirectory()) walk(p, out);
-    else if (/^hashtags(-[^/]+)?\.txt$/.test(e)) out.push(p.split('\\').join('/'));
-  }
-  return out;
-}
+// content/note 配下からの相対パス（表示用）
+const shown = (f) => relative(ROOT, f).split('\\').join('/');
 
 // note のタグ欄に入力できないタグ（- . / を含む）。原稿では "_" に置き換える。
 function unenterableTags(file) {
@@ -64,10 +59,10 @@ if (STAGED) {
     staged = [];
   }
   files = staged.filter(
-    (f) => f.startsWith(`${ROOT}/`) && /(^|\/)hashtags(-[^/]+)?\.txt$/.test(f) && existsSync(f),
-  );
+    (f) => f.startsWith(`${ROOT_REL}/`) && /(^|\/)hashtags(-[^/]+)?\.txt$/.test(f) && existsSync(join(REPO_ROOT, f)),
+  ).map((f) => join(REPO_ROOT, f));
 } else {
-  files = walk(ROOT);
+  files = listFiles(ROOT, { match: (_p, name) => /^hashtags(-[^/]+)?\.txt$/.test(name), allowMissing: true, followLinks: true });
 }
 
 const rows = files.map((f) => ({ f, n: countTags(f), bad: unenterableTags(f) }));
@@ -80,7 +75,7 @@ if (ALL) {
   console.log(`=== note hashtags タグ数一覧（${rows.length} 件・昇順）===`);
   for (const r of rows.sort((a, b) => a.n - b.n)) {
     const mark = r.n < THRESHOLD ? '✗' : '✓';
-    console.log(`  ${mark} ${String(r.n).padStart(3)}  ${r.f.replace(`${ROOT}/`, '')}`);
+    console.log(`  ${mark} ${String(r.n).padStart(3)}  ${shown(r.f)}`);
   }
   console.log(`\n90 未満: ${under.length} / ${rows.length}`);
   process.exit(0);
@@ -90,13 +85,13 @@ if (ALL) {
 // （2026-07-28、他4ゲートが「対象0件のまま緑」で事故を隠していた。--staged は 0 件が正常）。
 if (!STAGED && rows.length === 0) {
   console.error('[check-note-hashtags] ✗ 検査対象が 0 件。走査ロジックの故障を疑う（正常時は 700 件超）。');
-  console.error(`  確認: ${ROOT} が存在するか／walk() のファイル名判定（hashtags*.txt）が壊れていないか。`);
+  console.error(`  確認: ${ROOT_REL} が存在するか／walk() のファイル名判定（hashtags*.txt）が壊れていないか。`);
   process.exit(1);
 }
 
 if (withBad.length) {
   console.error(`[check-note-hashtags] ✗ note のタグ欄に入力できないタグ（- . / を含む）が ${withBad.length} 件（${scope}${rows.length} 件中）:`);
-  for (const r of withBad) console.error(`     ${r.bad.join(' ')}  ${r.f.replace(`${ROOT}/`, '')}`);
+  for (const r of withBad) console.error(`     ${r.bad.join(' ')}  ${shown(r.f)}`);
   console.error('  "_" に置き換える（例: i-Construction → i_Construction・BIM/CIM → BIM_CIM・地方創生2.0 → 地方創生2_0）。');
 }
 
@@ -108,7 +103,7 @@ if (!under.length) process.exit(1);
 
 console.error(`[check-note-hashtags] ✗ ${THRESHOLD} タグ未満が ${under.length} 件（${scope}${rows.length} 件中）:`);
 for (const r of under) {
-  console.error(`     ${String(r.n).padStart(3)} / ${THRESHOLD}  ${r.f.replace(`${ROOT}/`, '')}`);
+  console.error(`     ${String(r.n).padStart(3)} / ${THRESHOLD}  ${shown(r.f)}`);
 }
 console.error(`\n  各 hashtags.txt は 1 行 1 タグ（# 接頭辞）。${THRESHOLD} 個以上に補充してください。`);
 process.exit(1);

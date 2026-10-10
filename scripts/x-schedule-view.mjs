@@ -12,8 +12,8 @@
  */
 import fs from "fs";
 import path from "path";
+import { REPO_ROOT as ROOT } from "./lib/repository-paths.mjs";
 
-const ROOT = process.cwd();
 const ALL = process.argv.includes("--all");
 const NOW = new Date();
 const JST = t => new Date(t).toLocaleString("ja-JP", { timeZone: "Asia/Tokyo",

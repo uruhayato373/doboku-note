@@ -23,28 +23,28 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync, copyFileSync } from 'node:fs';
 import { join, dirname, basename } from 'node:path';
 import { todayJst } from '../../scripts/lib/jst-date.mjs';
+import { REPO_ROOT as ROOT } from '../../scripts/lib/repository-paths.mjs';
+import { parseCliArgs } from '../../scripts/lib/cli-args.mjs';
 
-const ROOT = process.cwd();
 const MAP_PATH = join(ROOT, '.claude/state/exam-keyword-map.json');
 
 function parseArgs(argv) {
-  const args = { auditPath: null, tier: 'auto_apply', includeNeedsReview: false, dryRun: false };
-  for (let i = 2; i < argv.length; i++) {
-    const a = argv[i];
-    if (a === '--audit') args.auditPath = argv[++i];
-    else if (a === '--tier') args.tier = argv[++i];
-    else if (a === '--include-needs-review') args.includeNeedsReview = true;
-    else if (a === '--dry-run') args.dryRun = true;
-    else if (a === '-h' || a === '--help') {
-      console.log('Usage: apply-audit-result.mjs --audit <path> [--tier auto_apply] [--include-needs-review] [--dry-run]');
-      process.exit(0);
-    }
+  const { help, auditPath, tier, includeNeedsReview, dryRun } = parseCliArgs({
+    audit: { type: 'string', key: 'auditPath' },
+    tier: { type: 'string', default: 'auto_apply' },
+    'include-needs-review': { type: 'boolean' },
+    'dry-run': { type: 'boolean' },
+    help: { type: 'boolean', alias: '-h' },
+  }, argv.slice(2));
+  if (help) {
+    console.log('Usage: apply-audit-result.mjs --audit <path> [--tier auto_apply] [--include-needs-review] [--dry-run]');
+    process.exit(0);
   }
-  if (!args.auditPath) {
+  if (!auditPath) {
     console.error('Error: --audit <path> is required');
     process.exit(1);
   }
-  return args;
+  return { auditPath, tier, includeNeedsReview, dryRun };
 }
 
 function todayISO() {

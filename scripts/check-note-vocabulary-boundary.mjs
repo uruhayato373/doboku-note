@@ -34,13 +34,13 @@
  * exit: 0 合格 / 1 境界違反あり / 2 検査不成立（SoT・config が読めない）
  * ---------------------------------------------------------------------------
  */
-import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { datasetPath } from './lib/datasets.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const NOTE_DIR = join(ROOT, 'content/note');
 const SOT_PATH = join(ROOT, 'src/lib/note-magazines.ts');
 const CONFIG_PATH = join(ROOT, datasetPath('config.note-magazine-membership'));
@@ -104,16 +104,6 @@ export function evaluateBoundary({ noteSeries, noteMagazine, magazineIds, labelK
   return violations;
 }
 
-function walk(dir, out = []) {
-  if (!existsSync(dir)) return out;
-  for (const e of readdirSync(dir)) {
-    const p = join(dir, e);
-    if (statSync(p).isDirectory()) walk(p, out);
-    else if (/\.md$/.test(e)) out.push(p.split('\\').join('/'));
-  }
-  return out;
-}
-
 function main() {
   if (!existsSync(SOT_PATH) || !existsSync(CONFIG_PATH)) {
     console.error('[check-note-vocabulary-boundary] SoT または config が見つからない（検査不成立）');
@@ -145,7 +135,7 @@ function main() {
     } catch { staged = []; }
     files = staged.filter((f) => f.startsWith('content/note/') && f.endsWith('.md') && existsSync(f));
   } else {
-    files = walk(NOTE_DIR);
+    files = listFiles(NOTE_DIR, { ext: '.md', allowMissing: true, followLinks: true });
   }
 
   let checked = 0;

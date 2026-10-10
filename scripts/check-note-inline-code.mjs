@@ -8,26 +8,14 @@
  * 使い方: node scripts/check-note-inline-code.mjs
  * 終了コード: 0 = 無し / 1 = あり、または検査対象 0 件（検査不成立）
  */
-import { readFileSync, readdirSync } from 'node:fs';
-import { join, dirname, relative } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { readFileSync } from 'node:fs';
+import { join, relative } from 'node:path';
 import { findInlineCode } from './lib/note-inline-code.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-
-function walk(dir, acc) {
-  let entries;
-  try { entries = readdirSync(dir, { withFileTypes: true }); } catch { return acc; }
-  for (const e of entries) {
-    const p = join(dir, e.name);
-    if (e.isDirectory()) walk(p, acc);
-    // 型別ファイル（article-<型>.md）も対象。判定はファイル名で行う（パス全体は OS で区切りが変わる）
-    else if (e.isFile() && /^article(-[^/\\]+)?\.md$/.test(e.name)) acc.push(p);
-  }
-  return acc;
-}
-
-const files = walk(join(ROOT, 'content/note'), []);
+// 型別ファイル（article-<型>.md）も対象。判定はファイル名で行う（パス全体は OS で区切りが変わる）
+const files = listFiles(join(ROOT, 'content/note'), { match: (_p, name) => /^article(-[^/\\]+)?\.md$/.test(name), allowMissing: true });
 const hits = [];
 for (const f of files) {
   for (const h of findInlineCode(readFileSync(f, 'utf8'))) hits.push({ file: relative(ROOT, f).replaceAll('\\', '/'), ...h });

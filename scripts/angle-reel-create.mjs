@@ -22,13 +22,13 @@
  * 前提: VOICEVOX 起動（localhost:50021）＋ ffmpeg。--png-only は VOICEVOX 不要。
  */
 import { readFileSync, writeFileSync, mkdirSync, existsSync, copyFileSync } from 'node:fs';
-import { join, resolve } from 'node:path';
+import { join } from 'node:path';
 import { parseArgs } from 'node:util';
 import { spawnSync } from 'node:child_process';
 import { Resvg } from '@resvg/resvg-js';
 import { IG_HANDLE } from './lib/site-identity.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = resolve(import.meta.dirname, '..');
 const IG = join(ROOT, 'content/sns/instagram');
 const FONT = join(ROOT, '.claude/skills/conversion/ogp-create/assets/fonts/NotoSansJP-Bold.ttf');
 const CHARDIR = join(ROOT, 'content/sns/_assets/character');

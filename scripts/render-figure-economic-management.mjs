@@ -10,13 +10,11 @@
 // 使い方:
 //   node scripts/render-figure-economic-management.mjs
 
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import sharp from 'sharp';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = join(__dirname, '..');
 const OUT_DIR = join(ROOT, 'content/note/技術士総監/magazines/総監テキスト精読ガイド/5管理-経済性管理/img');
 mkdirSync(OUT_DIR, { recursive: true });
 

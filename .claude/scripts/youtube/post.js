@@ -43,7 +43,8 @@ if (!CLIENT_ID || !CLIENT_SECRET || !REFRESH_TOKEN) {
 }
 
 // ── 引数パース ──
-function parseArgs() {
+async function parseArgs() {
+  const { parseCliArgs } = await import("../../../scripts/lib/cli-args.mjs"); // CJS から ESM の共通部品を読む
   const args = process.argv.slice(2);
   if (args.length === 0 || args[0].startsWith("--")) {
     console.error("Usage: node .claude/scripts/youtube/post.js <ディレクトリ> [--time HH:MM] [--privacy unlisted|private|public] [--schedule ISO8601]");
@@ -51,17 +52,11 @@ function parseArgs() {
   }
 
   const dir = args[0];
-  let time = "10:00";
-  let privacy = null;
-  let schedule = null;
-
-  for (let i = 1; i < args.length; i++) {
-    switch (args[i]) {
-      case "--time":     time = args[++i]; break;
-      case "--privacy":  privacy = args[++i]; break;
-      case "--schedule": schedule = args[++i]; break;
-    }
-  }
+  const { time, privacy, schedule } = parseCliArgs({
+    time: { type: "string", default: "10:00" },
+    privacy: { type: "string" },
+    schedule: { type: "string" },
+  }, args.slice(1));
 
   return { dir, time, privacy, schedule };
 }
@@ -80,7 +75,7 @@ function buildScheduleDateTime(date, time) {
 
 // ── メイン ──
 async function main() {
-  const opts = parseArgs();
+  const opts = await parseArgs();
   const absDir = path.resolve(opts.dir);
 
   if (!fs.existsSync(absDir)) {

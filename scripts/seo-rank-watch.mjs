@@ -8,10 +8,11 @@ import { getDateRange, addDays } from './lib/gsc-date-range.mjs';
 import { WatchError, readWatchConfig, CONFIG, LEDGER, readJson, validateConfig, report, hash, scopeKey, writeSnapshot, readMeasurements, latestMeasurement, aggregate, enough, validateSnapshot, reviewWindows, statusOf, experimentFor, deploymentFor, updateLedger, recordAction, markDeployed, applyReview, dateJst, decisionRecord, writeDecision } from './lib/seo-rank-watch.mjs';
 import { discoverCandidates } from './lib/seo-watch-strategy.mjs';
 import { SITE_ORIGIN } from './lib/site-identity.mjs';
+import { REPO_ROOT } from './lib/repository-paths.mjs';
 
 async function main() {
   const { values: opts, positionals } = parseArgs({ allowPositionals: true, options: {
-    repo: { type: 'string', default: process.cwd() }, id: { type: 'string' }, action: { type: 'string' },
+    repo: { type: 'string', default: REPO_ROOT }, id: { type: 'string' }, action: { type: 'string' },
     'run-id': { type: 'string' }, reason: { type: 'string' }, commit: { type: 'boolean' }, json: { type: 'boolean' },
     'no-fetch': { type: 'boolean' }, help: { type: 'boolean' }, 'policy-review': { type: 'boolean' }, failure: { type: 'boolean' },
   } });

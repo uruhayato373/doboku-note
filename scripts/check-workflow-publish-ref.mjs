@@ -30,10 +30,9 @@
  * 真実源: .claude/knowledge/reference/measurement-incidents.md（計測 CI の停止事故）
  */
 import { readdirSync, readFileSync } from 'node:fs';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const WORKFLOW_DIR = join(ROOT, '.github/workflows');
 
 /** publish 先ブランチ。ここ以外へ push する workflow は本検査の対象外。 */

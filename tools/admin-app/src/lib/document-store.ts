@@ -3,6 +3,7 @@ import { existsSync, readFileSync, readdirSync, realpathSync, statSync } from 'n
 import { extname, join, relative, resolve, sep } from 'node:path';
 import matter from 'gray-matter';
 import { renderDocument, type DocumentHeading } from './markdown';
+import { listFiles } from '../../../../scripts/lib/fs-walk.mjs';
 
 /**
  * document-store.ts — リポジトリ内 Markdown/JSON を安全に列挙・検索・読込する共通実装。
@@ -62,24 +63,6 @@ export type { DocumentHeading };
 
 const toPosix = (value: string) => value.split(sep).join('/');
 
-function walk(
-  dir: string,
-  allowed: ReadonlySet<string>,
-  out: string[] = [],
-  excludeTop?: ReadonlySet<string>,
-): string[] {
-  if (!existsSync(dir)) return out;
-  for (const entry of readdirSync(dir, { withFileTypes: true })) {
-    if (entry.isSymbolicLink()) continue; // symlink 経由で root 外へ出ない
-    const path = join(dir, entry.name);
-    if (entry.isDirectory()) {
-      if (excludeTop?.has(entry.name)) continue; // 除外は root 直下の名前でだけ判定する
-      walk(path, allowed, out);
-    } else if (allowed.has(extname(entry.name))) out.push(path);
-  }
-  return out;
-}
-
 export function plainText(markdown: string): string {
   return markdown
     .replace(/```[\s\S]*?```/g, ' ')
@@ -121,7 +104,12 @@ function lastCommitDates(root: string): Map<string, string> {
 /** 走査ルート配下の全文書。category は先頭ディレクトリ（無ければ 'other'）。 */
 export function listDocuments(source: DocumentSource): DocumentEntry[] {
   const committed = lastCommitDates(source.root);
-  return walk(source.root, source.allowedExtensions, [], source.exclude)
+  // symlink は辿らない（root 外へ出ない）。除外は root 直下の名前でだけ判定する
+  return listFiles(source.root, {
+    allowMissing: true,
+    skipDir: (path: string, name: string) => path === join(source.root, name) && !!source.exclude?.has(name),
+    match: (_path: string, name: string) => source.allowedExtensions.has(extname(name)),
+  })
     .map((absolute) => {
       const rel = toPosix(relative(source.root, absolute));
       const raw = readFileSync(absolute, 'utf8');
@@ -245,15 +233,7 @@ export interface ChannelSummary {
 function countTree(dir: string): { files: number; bytes: number } {
   let files = 0;
   let bytes = 0;
-  const walkCount = (d: string) => {
-    for (const e of readdirSync(d, { withFileTypes: true })) {
-      if (e.isSymbolicLink()) continue;
-      const p = join(d, e.name);
-      if (e.isDirectory()) walkCount(p);
-      else if (e.isFile()) { files += 1; bytes += statSync(p).size; }
-    }
-  };
-  if (existsSync(dir)) walkCount(dir);
+  for (const p of listFiles(dir, { allowMissing: true })) { files += 1; bytes += statSync(p).size; }
   return { files, bytes };
 }
 

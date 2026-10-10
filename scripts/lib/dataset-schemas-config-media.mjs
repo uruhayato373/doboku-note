@@ -825,6 +825,18 @@ const ReferenceSource = z
       .describe('公開元から取得して Drive vault に置いた写し（白書など）。図の切り出し直しの原典候補になる'),
     appliesTo: z.array(z.string().startsWith('content/')).optional().describe('この原本から作った記事の glob。一致する記事は sources が必須'),
     aliases: z.record(z.string().min(1), z.string().min(1)).optional().describe('移行前の書名 → 正しい参照（id か id#詳細）'),
+    officialTexts: z
+      .array(
+        z
+          .object({
+            text: z.string().min(30).describe('公的資料の文（定義など）を原文のまま。書籍も同じ文を載せ、言い換えられないもの'),
+            note: z.string().min(1).optional(),
+          })
+          .strict(),
+      )
+      .min(1)
+      .optional()
+      .describe('書籍との逐語一致から差し引く公式の文章（DN-0617）。この資料を sources に挙げた記事にだけ効く。市販書籍には書かない'),
     notes: z.string().min(1).optional(),
   })
   .strict();
@@ -841,6 +853,7 @@ export const ConfigReferenceSources = z
   .superRefine((v, ctx) => {
     v.sources.forEach((s, i) => {
       if (!(s.class in v.classes)) flag(ctx, ['sources', i, 'class'], `区分「${s.class}」が classes に無い`);
+      if (s.officialTexts && v.classes[s.class]?.verbatim === 'forbidden') flag(ctx, ['sources', i, 'officialTexts'], '逐語禁止の区分の原本に公式の文章は置けない');
     });
   })
   .meta({ title: '参考文献の区分と扱い' });

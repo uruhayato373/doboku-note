@@ -6,11 +6,10 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
 import { existsSync } from 'node:fs';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { ALLOW, KINDS, ROOTS, findHits, isAllowed } from '../scripts/check-jst-date.mjs';
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const kinds = (src) => findHits(src).map((h) => `${h.kind}@${h.line}`);
 
 test('utc-date: UTC の今日（new Date().toISOString().slice(0, 10)）', () => {

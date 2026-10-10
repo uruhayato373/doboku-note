@@ -1,11 +1,12 @@
 #!/usr/bin/env node
 /** Instagram video-pack Reels の構造・CTA・任意メディアを検査する。 */
-import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { IG_HANDLE } from './lib/site-identity.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
-const ROOT = process.cwd();
 const BASE = join(ROOT, 'content/sns/instagram/video-packs');
 const checkMedia = process.argv.includes('--media');
 const EXPECTED = {
@@ -17,14 +18,6 @@ const EXPECTED = {
 const errors = [];
 const rows = [];
 
-function walk(dir) {
-  if (!existsSync(dir)) return;
-  for (const name of readdirSync(dir)) {
-    const path = join(dir, name);
-    if (statSync(path).isDirectory()) walk(path);
-    else if (name === 'meta.json' && dirname(path).endsWith('/reels')) rows.push(path);
-  }
-}
 function fail(label, message) { errors.push(`${label}: ${message}`); }
 function probe(path) {
   const result = spawnSync('ffprobe', ['-v', 'error', '-show_entries', 'stream=codec_type,width,height', '-show_entries', 'format=duration', '-of', 'json', path], { encoding: 'utf8' });
@@ -32,7 +25,7 @@ function probe(path) {
   return JSON.parse(result.stdout);
 }
 
-walk(BASE);
+rows.push(...listFiles(BASE, { match: (path, name) => name === 'meta.json' && dirname(path).endsWith('/reels'), followLinks: true, allowMissing: true }));
 const counts = {};
 const seen = new Set();
 for (const metaPath of rows) {

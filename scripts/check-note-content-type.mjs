@@ -1,8 +1,7 @@
 #!/usr/bin/env node
 
 import { readFileSync } from 'node:fs';
-import { dirname, join, relative } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join, relative } from 'node:path';
 import matter from 'gray-matter';
 import {
   isKnownNoteContentType,
@@ -10,8 +9,8 @@ import {
   normalizeRepoPath,
   NOTE_CONTENT_TYPES,
 } from './lib/note-content-type.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const NOTE_DIR = join(ROOT, 'content', 'note');
 
 const files = listNoteArticleFiles(NOTE_DIR);

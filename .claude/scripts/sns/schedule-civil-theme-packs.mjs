@@ -25,11 +25,10 @@
  */
 import { execSync } from 'node:child_process';
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { jstDayOf } from '../../../scripts/lib/jst-date.mjs';
+import { REPO_ROOT as ROOT } from '../../../scripts/lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../../..');
 const SKILL = '.claude/skills/social/publish-ig-bs/publish-ig-bs.ts';
 const ANCHOR = '2026-07-18';           // プラン起点（並び順の基準。実日付は rebaseToFuture が決める）
 const SLOTS = ['12:00', '19:00'];      // 昼=2級 / 夜=1級

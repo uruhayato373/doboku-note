@@ -15,12 +15,11 @@
  */
 import { chromium } from "playwright";
 import { mkdirSync } from "node:fs";
-import { fileURLToPath } from "node:url";
-import { dirname, resolve } from "node:path";
+import { dirname } from "node:path";
 import { resolveProfileDir, resolveStatePath } from "../../../../../scripts/lib/playwright-auth-profile.mjs";
 import { leanContextOptions } from "../../../../../scripts/lib/playwright-launch.mjs";
+import { REPO_ROOT } from "../../../../../scripts/lib/repository-paths.mjs";
 
-const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "../../../../..");
 const AUTH_OPTIONS = { cwd: REPO_ROOT, repoRoot: REPO_ROOT };
 const PROFILE_DIR = resolveProfileDir("a8", AUTH_OPTIONS);
 // ★A8 の認証はセッション Cookie (揮発性) で、永続プロファイルには保存されない。

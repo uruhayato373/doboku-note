@@ -21,10 +21,9 @@
 import { readdirSync, readFileSync, writeFileSync, existsSync, mkdirSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { execFileSync } from "node:child_process";
-import { NOTE_CONTENT_ROOT } from "./lib/repository-paths.mjs";
+import { REPO_ROOT as ROOT, NOTE_CONTENT_ROOT } from "./lib/repository-paths.mjs";
 import { SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const POSTS = SITE_CONTENT_ROOT;
 const NOTE = NOTE_CONTENT_ROOT;
 const AUDIT_STATE = join(ROOT, ".claude", "state", "svg-audit.json");

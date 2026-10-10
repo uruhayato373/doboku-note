@@ -21,13 +21,13 @@
 //   SKIP_X_UTM=1 で回避（既存違反のバーンダウン中など）
 // 違反 1 件でも exit 1。
 
-import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
-import { join } from 'node:path';
+import { readFileSync, existsSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { blankTweetMemos } from './lib/x-tweets-md.mjs';
 import { classifySitePath, loadSiteRoutes, SITE_ORIGIN } from './lib/site-links.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { utmChannelFamily } from './lib/utm-contract.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
 if (process.env.SKIP_X_UTM === '1') {
   console.log('[check-x-utm] SKIP_X_UTM=1 のためスキップ');
@@ -42,25 +42,18 @@ const X_UTM = utmChannelFamily('x');
 // `_` 接頭辞ディレクトリ（_archive 等）を含むパスは除外
 const isExcluded = (p) => p.split('/').some((seg) => seg.startsWith('_'));
 
-function walk(dir, acc) {
-  if (!existsSync(dir)) return acc;
-  for (const name of readdirSync(dir)) {
-    const p = join(dir, name);
-    if (isExcluded(p)) continue;
-    const st = statSync(p);
-    if (st.isDirectory()) walk(p, acc);
-    else if (/tweets\.md$/.test(p)) acc.push(p);
-  }
-  return acc;
-}
-
 let files;
 if (STAGED) {
   files = execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--cached', '--name-only', '--diff-filter=ACM'], { encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 })
     .split('\n')
     .filter((f) => /^content\/sns\/x\/(draft|published)\//.test(f) && /tweets\.md$/.test(f) && !isExcluded(f) && existsSync(f));
 } else {
-  files = ROOTS.flatMap((r) => walk(r, []));
+  files = ROOTS.flatMap((r) => listFiles(r, {
+    allowMissing: true,
+    followLinks: true,
+    skipDir: (p) => isExcluded(p),
+    match: (p) => !isExcluded(p) && /tweets\.md$/.test(p),
+  }));
 }
 
 // group1 = 直前のバッククォート（あればインラインコード＝プロ―ズ例で対象外）

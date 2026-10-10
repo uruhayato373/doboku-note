@@ -4,6 +4,7 @@ import { mkdtempSync, mkdirSync, writeFileSync, rmSync, symlinkSync } from 'node
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { expansionReport, hashFile, artifactPath } from '../scripts/lib/content-expansion.mjs';
+import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
 
 function fixture(t) {
   const root = mkdtempSync(join(tmpdir(), 'dn-expansion-'));
@@ -75,9 +76,8 @@ test('sourceSummary: 本文・図解・SNS・商品原稿・展開予定・要�
 
 test('linkedProductsByUnit: 実データで論点の記事へリンクする note / Kindle を関連商品として導く', async () => {
   const { expansionReport, linkedProductsByUnit } = await import('../scripts/lib/content-expansion.mjs');
-  const root = new URL('..', import.meta.url).pathname;
-  const report = expansionReport(root);
-  const map = await linkedProductsByUnit(root, report);
+  const report = expansionReport(REPO_ROOT);
+  const map = await linkedProductsByUnit(REPO_ROOT, report);
   assert.equal(map.size, report.units.length);
   const withProducts = [...map.values()].filter((v) => v.length > 0);
   assert.ok(withProducts.length > 0, '関連商品が 1 件も導けない（URL→slug の写像が壊れている可能性）');

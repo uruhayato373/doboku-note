@@ -15,7 +15,6 @@
  */
 
 import { basename, dirname, join, relative } from 'node:path';
-import { readdirSync } from 'node:fs';
 import matter from 'gray-matter';
 import { readMdxFile, writeMdxFile } from '../.claude/scripts/lib/mdx-io.mjs';
 import { loadDriveManifest } from './lib/drive-vault.mjs';
@@ -30,6 +29,7 @@ import {
   transcriptDirsForSource,
 } from './lib/reference-sources.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
 const ARGS = new Set(process.argv.slice(2));
 const COMMIT = ARGS.has('--commit');
@@ -44,24 +44,6 @@ function usage(message = null) {
 
 function toRepoRel(path) {
   return relative(REPO_ROOT, path).split('\\').join('/');
-}
-
-function walkMarkdown(dir, out = []) {
-  for (const entry of readdirSync(dir, { withFileTypes: true })) {
-    const path = join(dir, entry.name);
-    if (entry.isDirectory()) walkMarkdown(path, out);
-    else if (entry.isFile() && entry.name.endsWith('.md') && entry.name !== 'README.md') out.push(path);
-  }
-  return out;
-}
-
-function walkMdx(dir, out = []) {
-  for (const entry of readdirSync(dir, { withFileTypes: true })) {
-    const path = join(dir, entry.name);
-    if (entry.isDirectory()) walkMdx(path, out);
-    else if (entry.isFile() && entry.name.endsWith('.mdx')) out.push(path);
-  }
-  return out;
 }
 
 function sourceForTranscript(relPath, cfg) {
@@ -101,7 +83,7 @@ function runTranscripts() {
     .filter(([, entry]) => entry.group === 'textbook-source-pdf')
     .map(([key]) => key);
   const root = join(REPO_ROOT, 'content/sources/textbook');
-  const files = walkMarkdown(root).sort((a, b) => toRepoRel(a).localeCompare(toRepoRel(b), 'ja'));
+  const files = listFiles(root, { ext: '.md', match: (_path, name) => name !== 'README.md' }).sort((a, b) => toRepoRel(a).localeCompare(toRepoRel(b), 'ja'));
 
   const stats = { frontmatter: 0, legacy: 0, none: 0, planned: 0, written: 0 };
   const unresolvedSources = [];
@@ -200,7 +182,7 @@ function replaceSourcesBlock(raw, sourceRefs, replacements) {
 function runArticles() {
   const cfg = loadReferenceSources();
   const index = buildSourceIndex(cfg, { catalog: loadStandardsCatalog() });
-  const files = walkMdx(join(REPO_ROOT, 'content/site')).sort((a, b) => toRepoRel(a).localeCompare(toRepoRel(b), 'ja'));
+  const files = listFiles(join(REPO_ROOT, 'content/site'), { ext: '.mdx' }).sort((a, b) => toRepoRel(a).localeCompare(toRepoRel(b), 'ja'));
 
   const changes = [];
   const missingSources = [];

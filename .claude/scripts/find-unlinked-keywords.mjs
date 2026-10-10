@@ -5,8 +5,9 @@
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import matter from 'gray-matter';
+import { SITE_CONTENT_ROOT } from '../../scripts/lib/repository-paths.mjs';
 
-const ROOT = join(process.cwd(), 'content/site/pe-comprehensive-management');
+const ROOT = join(SITE_CONTENT_ROOT, 'pe-comprehensive-management');
 const HUB = join(ROOT, 'keyword-2026/article.mdx');
 
 const hubRaw = readFileSync(HUB, 'utf8');

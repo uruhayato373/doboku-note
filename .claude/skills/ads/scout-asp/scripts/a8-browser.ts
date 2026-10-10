@@ -33,6 +33,7 @@ import { datasetPath } from "../../../../../scripts/lib/datasets.mjs";
 import { resolveProfileDir, resolveStatePath } from "../../../../../scripts/lib/playwright-auth-profile.mjs";
 import { leanContextOptions } from "../../../../../scripts/lib/playwright-launch.mjs";
 import { todayJst } from "../../../../../scripts/lib/jst-date.mjs";
+import { REPO_ROOT as PROJECT_ROOT } from "../../../../../scripts/lib/repository-paths.mjs";
 
 const require = createRequire(import.meta.url);
 const core = require("../../../../scripts/ads/lib/a8-scout-core.mjs");
@@ -40,7 +41,6 @@ const codeCore = require("../../../../scripts/ads/lib/a8-code-core.mjs");
 const applyBudget = require("../../../../scripts/ads/check-a8-apply-budget.cjs");
 
 // ─── 設定 ──────────────────────────────────────────
-const PROJECT_ROOT = path.resolve(__dirname, "../../../../..");
 const AUTH_OPTIONS = { cwd: PROJECT_ROOT, repoRoot: PROJECT_ROOT };
 const PROFILE_DIR = resolveProfileDir("a8", AUTH_OPTIONS);
 // ★A8 の認証はセッション Cookie で永続プロファイルに残らない。login.mjs が storageState に

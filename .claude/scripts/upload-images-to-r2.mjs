@@ -11,9 +11,7 @@
 import { S3Client, PutObjectCommand, HeadObjectCommand } from '@aws-sdk/client-s3';
 import fs from 'fs';
 import path from 'path';
-import { SITE_CONTENT_ROOT } from '../../scripts/lib/repository-paths.mjs';
-
-const root = process.cwd();
+import { REPO_ROOT as root, SITE_CONTENT_ROOT } from '../../scripts/lib/repository-paths.mjs';
 
 // Load .env.local
 const envPath = path.join(root, '.env.local');

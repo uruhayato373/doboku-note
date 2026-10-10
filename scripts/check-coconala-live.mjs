@@ -16,14 +16,12 @@
  * 取得は公開ページの GET だけ（書き込み・ログインなし）。1件ごとに 1 秒あける。
  * ---------------------------------------------------------------------------
  */
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
 import { readCatalog, readListings } from './lib/coconala-catalog.mjs';
 import { checkListedServices, diffLiveProfile, fetchLiveHtml } from './lib/coconala-live.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const asJson = process.argv.includes('--json');
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const fetchHtml = (url) => fetchLiveHtml(url, execFileSync);

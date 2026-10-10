@@ -29,13 +29,14 @@ import { createRequire } from 'node:module';
 import { renderTemplate, LAYOUT_CONSTANTS } from '../.claude/skills/conversion/ogp-create/scripts/lib/ogp-templates.mjs';
 import { wrapTitle, pickFontSize } from '../.claude/skills/conversion/ogp-create/scripts/lib/ogp-text.mjs';
 import { pathToFileURL } from 'node:url';
+import { REPO_ROOT } from './lib/repository-paths.mjs';
 
 const require = createRequire(import.meta.url);
-const coverTokens = require(path.join(process.cwd(), '.claude/knowledge/design-system/note-cover-tokens.json'));
+const coverTokens = require(path.join(REPO_ROOT, '.claude/knowledge/design-system/note-cover-tokens.json'));
 
-const ARTICLES_ROOT = path.join(process.cwd(), 'content', 'site', 'standards-articles');
+const ARTICLES_ROOT = path.join(REPO_ROOT, 'content', 'site', 'standards-articles');
 const FONTS_DIR = path.join(
-  process.cwd(),
+  REPO_ROOT,
   '.claude/skills/conversion/ogp-create/assets/fonts',
 );
 

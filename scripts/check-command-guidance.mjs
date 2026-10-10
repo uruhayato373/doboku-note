@@ -19,6 +19,8 @@
 // 検査するもの（.mjs のソース内の文字列・コメントを問わず）:
 //   1. `npm run <name>` の <name> が package.json の scripts に実在するか
 //   2. `node <path>.mjs` の <path> が実在するか
+//   3. drive-vault-sync の `--pull` の案内が `--commit`（書く）か `--dry-run`（見るだけ）を同じ行に持つか（DN-0631）
+//      --pull は既定で dry-run になったので、--commit の無い案内どおりに叩くと何も取り戻さない
 //
 // 引数の妥当性（フラグの組み合わせが実際に通るか）までは見ない。そこは各検査の責任。
 //
@@ -29,6 +31,7 @@ import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
+import { AREAS } from './lib/datasets.mjs';
 
 const JSON_OUT = process.argv.includes('--json');
 
@@ -84,14 +87,28 @@ for (const f of docFiles) {
   }
 }
 
+// 3. --pull の案内（スクリプト・正典・手順書・README・.gitignore の注記）。backlog・handoff・review は経緯の記録、tests は dry-run を確かめる側なので見ない
+const PULL_FLAG = '--' + 'pull';      // 例示をこのファイルに書くと自分自身を落とす（冒頭の注記）
+const pullLines = execFileSync('git', ['-c', 'core.quotepath=false', 'grep', '-n', '-I', '-e', PULL_FLAG, '--',
+  '.', ':!.claude/todo/**', ':!docs/handoffs/**', ':!docs/reviews/**', ':!tests/**', `:!${AREAS.state.dir}/**`, ':!scripts/check-command-guidance.mjs'], {
+  cwd: REPO_ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024,
+}).split('\n').map((line) => /^([^:]+):(\d+):(.*)$/.exec(line)).filter(Boolean)
+  .filter(([, , , text]) => /drive-vault-sync/.test(text) && new RegExp(PULL_FLAG + '\\b').test(text));
+let refPull = 0;
+for (const [, file, lineNo, text] of pullLines) {
+  refPull += 1;
+  if (/--commit|--dry-run/.test(text)) continue;
+  broken.push({ file: file + ':' + lineNo, kind: 'pull', ref: PULL_FLAG + ' に --commit が無い（既定は dry-run で何も取り戻さない）' });
+}
+
 if (JSON_OUT) {
-  console.log(JSON.stringify({ files: files.length, docFiles: docFiles.length, refNpm, refPath, refDoc, broken }, null, 2));
+  console.log(JSON.stringify({ files: files.length, docFiles: docFiles.length, refNpm, refPath, refDoc, refPull, broken }, null, 2));
 } else {
   console.log('[check-command-guidance] ' + files.length + ' スクリプト + ' + docFiles.length
     + ' 正典ドキュメントを実検査 / 案内 ' + (refNpm + refPath + refDoc)
-    + ' 件（npm run ' + refNpm + ' / node パス ' + refPath + ' / doc の npm run ' + refDoc + '）');
+    + ' 件（npm run ' + refNpm + ' / node パス ' + refPath + ' / doc の npm run ' + refDoc + '）/ drive-vault-sync の取り戻しの案内 ' + refPull + ' 件');
   // 検査ゼロを PASS と呼ばない（CLAUDE.md §9）
-  if (files.length < 100 || refNpm + refPath < 100 || docFiles.length === 0 || refDoc < 20) {
+  if (files.length < 100 || refNpm + refPath < 100 || docFiles.length === 0 || refDoc < 20 || refPull < 10) {
     console.error('✗ 走査結果が異常に少ない＝抽出が壊れている疑い（検査不成立）');
     process.exit(1);
   }

@@ -28,14 +28,12 @@ import { attachCISession } from './lib/playwright-auth-state.mjs';
 import { chromium } from 'playwright';
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { parseReferrerTimeSeries, parseReferrerPie, parsePeriod, parseSummary, parseArticleRows } from './lib/note-traffic-normalize.mjs';
 import { jstClock } from './lib/jst-date.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = join(__dirname, '..');
 const NAME = 'note-traffic-fetch';
 const argv = process.argv.slice(2);
 const getArg = (k) => { const i = argv.indexOf(k); return i >= 0 ? argv[i + 1] : null; };

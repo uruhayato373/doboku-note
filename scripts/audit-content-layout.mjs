@@ -16,14 +16,15 @@
  * exit: 0 観測成功（二重 SSOT が無い）/ 1 二重 SSOT を検出 / 2 検査不成立
  */
 import { createHash } from 'node:crypto';
-import { existsSync, readFileSync, readdirSync, statSync, writeSync } from 'node:fs';
-import { join, relative, extname, sep } from 'node:path';
+import { existsSync, readFileSync, statSync, writeSync } from 'node:fs';
+import { relative, extname, sep } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import {
   REPO_ROOT, MIGRATION_MAP,
   SITE_CONTENT_ROOT, NOTE_CONTENT_ROOT, SNS_CONTENT_ROOT,
   COCONALA_CONTENT_ROOT, KINDLE_CONTENT_ROOT, CONTENT_SOURCES_ROOT,
 } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
 const argv = process.argv.slice(2);
 const JSON_OUT = argv.includes('--json');
@@ -31,17 +32,6 @@ const WITH_REFS = argv.includes('--refs');
 const ONLY = argv.includes('--id') ? argv[argv.indexOf('--id') + 1] : null;
 
 const toPosix = (v) => v.split(sep).join('/');
-
-function walk(dir, out = []) {
-  if (!existsSync(dir)) return out;
-  for (const e of readdirSync(dir, { withFileTypes: true })) {
-    const p = join(dir, e.name);
-    if (e.isSymbolicLink()) continue; // 互換 symlink は作らない方針。あっても辿らない
-    if (e.isDirectory()) walk(p, out);
-    else if (e.isFile()) out.push(p);
-  }
-  return out;
-}
 
 /**
  * 1 ルートの決定的インベントリ。存在しないルートは exists:false で明示する（空と混同しない）。
@@ -53,7 +43,7 @@ function walk(dir, out = []) {
  */
 export function inventory(root, { hash = true } = {}) {
   if (!existsSync(root)) return { exists: false, files: 0, bytes: 0, byExt: {}, sha256: {} };
-  const files = walk(root).sort();
+  const files = listFiles(root).sort(); // 互換 symlink は作らない方針。あっても辿らない（listFiles の既定）
   const byExt = {};
   const sha256 = {};
   let bytes = 0;

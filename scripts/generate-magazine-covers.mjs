@@ -24,9 +24,8 @@ import { fileURLToPath } from 'node:url';
 
 import { renderNoteCharacterCover } from './lib/note-character-cover.mjs';
 import { loadNoteCoverInventory } from './lib/note-cover-inventory.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = join(__dirname, '..');
 
 /**
  * 各マガジンの cover 定義。

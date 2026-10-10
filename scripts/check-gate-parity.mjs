@@ -21,11 +21,11 @@
  * 既存分の返済は強制せず、増えることだけを止める。
  * ---------------------------------------------------------------------------
  */
-import { readFileSync, existsSync, readdirSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
-import { dirname, join, relative, sep } from 'node:path';
+import { readFileSync, existsSync } from 'node:fs';
+import { join, relative, sep } from 'node:path';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CI = process.argv.includes('--ci');
 const BASELINE_PATH = join(ROOT, '.claude/config/gate-parity-baseline.json');
 
@@ -56,14 +56,8 @@ function callersIn(files) {
   return found;
 }
 
-function walkFiles(dir, re, acc = []) {
-  if (!existsSync(dir)) return acc;
-  for (const e of readdirSync(dir, { withFileTypes: true })) {
-    const p = join(dir, e.name);
-    if (e.isDirectory()) walkFiles(p, re, acc);
-    else if (re.test(e.name)) acc.push(p);
-  }
-  return acc;
+function walkFiles(dir, re) {
+  return listFiles(dir, { match: (_p, name) => re.test(name), allowMissing: true });
 }
 
 const preCommitChecks = () => callersIn([join(ROOT, 'scripts/install-pre-commit.mjs')]);

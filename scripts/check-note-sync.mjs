@@ -17,14 +17,12 @@
  *      2 = 検査不成立（記事が下限未満・API 取得失敗が 20% 超・マガジン一覧が取れない＝CLAUDE.md §9）
  * ---------------------------------------------------------------------------
  */
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { loadNoteCoverInventory } from './lib/note-cover-inventory.mjs';
 import { designVersions, fetchLiveArticles, fetchLiveMagazines, planCoverWork, readLedger, summarize } from './lib/note-cover-live.mjs';
 import { BLOCKERS, buildSyncPlan, countPlan, withLiveCovers } from './lib/note-sync-plan.mjs';
 import { fetchFailDominant } from './lib/inconclusive-gate.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const TAG = '[check-note-sync]';
 const MIN_ARTICLES = 500;
 const json = process.argv.includes('--json');

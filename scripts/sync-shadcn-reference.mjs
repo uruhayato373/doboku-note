@@ -15,9 +15,8 @@
 import { execFileSync } from 'node:child_process';
 import { mkdirSync, readdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(fileURLToPath(new URL('.', import.meta.url)), '..');
 const UI_DIR = join(ROOT, 'tools/admin-app/src/components/ui');
 const OUT = join(ROOT, '.claude/config/shadcn-reference');
 const STYLE = 'new-york-v4';

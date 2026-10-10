@@ -12,11 +12,11 @@
  *   node .claude/scripts/sns/render-civil-theme-packs.mjs --exam both
  */
 import { readFileSync, writeFileSync, readdirSync, existsSync, mkdirSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { join } from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { execSync } from 'node:child_process';
+import { REPO_ROOT as ROOT } from '../../../scripts/lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../../..');
 const { renderSlide } = await import(pathToFileURL(join(ROOT, '.claude/scripts/lib/sns-common/slide-render.mjs')).href);
 const { renderExamQuizCoverIg } = await import(pathToFileURL(join(ROOT, '.claude/scripts/sns/templates/exam-quiz-cover-ig.mjs')).href);
 const { svgToPng } = await import(pathToFileURL(join(ROOT, '.claude/scripts/sns/lib/svg-to-png.mjs')).href);

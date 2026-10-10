@@ -31,12 +31,11 @@ import { attachCISession } from './lib/playwright-auth-state.mjs';
  */
 import { readFileSync, existsSync, writeSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CFG = join(ROOT, datasetPath('config.note-membership'));
 const LIVE = process.argv.includes('--live');
 if (!existsSync(CFG)) { console.error(`[check-note-membership] FAIL: config が無い: ${CFG}`); process.exit(1); }

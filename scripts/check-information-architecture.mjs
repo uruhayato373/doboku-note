@@ -27,11 +27,9 @@
  */
 import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync, statSync, writeSync } from 'node:fs';
-import { extname, basename, join, dirname, sep } from 'node:path';
-import { fileURLToPath } from 'node:url';
-import { MOVED_PATHS, RESTRUCTURED_PATHS } from './lib/repository-paths.mjs';
+import { extname, basename, join, sep } from 'node:path';
+import { REPO_ROOT as ROOT, MOVED_PATHS, RESTRUCTURED_PATHS } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CONFIG = join(ROOT, '.claude/config/information-architecture.json');
 const toPosix = (v) => v.split(sep).join('/');
 

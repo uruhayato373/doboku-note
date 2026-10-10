@@ -39,15 +39,15 @@ import matter from 'gray-matter';
 
 import { createRequire } from 'node:module';
 const require = createRequire(import.meta.url);
-const categories = require(path.join(process.cwd(), 'src/config/categories.json'));
-const ogpSettings = require(path.join(process.cwd(), datasetPath('config.ogp-settings')));
+const categories = require(path.join(PROJECT_ROOT, 'src/config/categories.json'));
+const ogpSettings = require(path.join(PROJECT_ROOT, datasetPath('config.ogp-settings')));
 const templatesConfig = ogpSettings.templates;
 const rulesConfig = ogpSettings.rules;
 const textConfig = ogpSettings.text;
 
 // 試験区分→テーマ色（外枠・チップ）。色の真実源は .claude/knowledge/design-system/note-cover-tokens.json (base)。
 // ここは category(フルslug) → exam キー(short) の対応のみを持つ（色は重複させない）。
-const coverTokens = require(path.join(process.cwd(), '.claude/knowledge/design-system/note-cover-tokens.json'));
+const coverTokens = require(path.join(PROJECT_ROOT, '.claude/knowledge/design-system/note-cover-tokens.json'));
 const CATEGORY_TO_EXAM_KEY = {
   'pe-comprehensive-management': 'pe-comprehensive',
   'civil-construction-1': 'civil-1',
@@ -115,11 +115,12 @@ function deriveTitleParts(rawTitle, examLabel, typeLabel) {
 
 import { renderTemplate, LAYOUT_CONSTANTS } from './lib/ogp-templates.mjs';
 import { wrapTitle, pickFontSize } from './lib/ogp-text.mjs';
-import { SITE_CONTENT_ROOT } from '../../../../../scripts/lib/repository-paths.mjs';
+import { REPO_ROOT as PROJECT_ROOT, SITE_CONTENT_ROOT } from '../../../../../scripts/lib/repository-paths.mjs';
 import { datasetDir, datasetPath } from '../../../../../scripts/lib/datasets.mjs';
+import { listFiles } from '../../../../../scripts/lib/fs-walk.mjs';
+import { parseCliArgs } from '../../../../../scripts/lib/cli-args.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const PROJECT_ROOT = process.cwd();
 const POSTS_DIR = SITE_CONTENT_ROOT;
 const FONTS_DIR = path.join(__dirname, '..', 'assets', 'fonts');
 // 資格ごとに共有する AI 生成背景の置き場。<exam-key>.png|webp|jpg を探す。
@@ -129,31 +130,31 @@ const BACKGROUNDS_DIR = path.join(PROJECT_ROOT, datasetDir('config.ogp-backgroun
 // ---- CLI 引数パース ----
 
 function parseArgs(argv) {
+  const flags = parseCliArgs({
+    all: { type: 'boolean' },
+    force: { type: 'boolean' },
+    'dry-run': { type: 'boolean' },
+    'debug-safety': { type: 'boolean' },
+    'debug-wrap': { type: 'boolean' },
+    template: { type: 'string' },
+    light: { type: 'boolean' }, // 既定でライト。互換のため受理
+    dark: { type: 'boolean' }, // 旧ダーク配色で描画したいとき用（2026-07-02 既定反転）
+    'include-unpublished': { type: 'boolean' }, // published:false も生成対象に含める（デザイン変更後の全件更新用）
+    'out-dir': { type: 'string' }, // 正規パスでなく指定ディレクトリへ <fullSlug>.png 出力（比較・検証用）
+  }, argv);
   const args = {
-    slug: null,
-    all: false,
-    force: false,
-    dryRun: false,
-    debugSafety: false,
-    debugWrap: false,
-    template: null,
-    light: true, // 既定=ライト写真前面（2026-07-02〜。資格別背景写真＋淡スクリム）。旧ダーク配色は --dark
-    outDir: null,
+    slug: flags._.find(Boolean) ?? null,
+    all: flags.all,
+    force: flags.force,
+    dryRun: flags.dryRun,
+    debugSafety: flags.debugSafety,
+    debugWrap: flags.debugWrap,
+    template: flags.template,
+    // 既定=ライト写真前面（2026-07-02〜。資格別背景写真＋淡スクリム）。旧ダーク配色は --dark。--light / --dark は後に書いたほうが勝つ
+    light: !(flags.dark && argv.lastIndexOf('--dark') > argv.lastIndexOf('--light')),
+    outDir: flags.outDir,
   };
-  for (let i = 0; i < argv.length; i++) {
-    const a = argv[i];
-    if (a === '--all') args.all = true;
-    else if (a === '--force') args.force = true;
-    else if (a === '--dry-run') args.dryRun = true;
-    else if (a === '--debug-safety') args.debugSafety = true;
-    else if (a === '--debug-wrap') args.debugWrap = true;
-    else if (a === '--template') args.template = argv[++i];
-    else if (a === '--light') args.light = true; // 既定でライト。互換のため受理
-    else if (a === '--dark') args.light = false; // 旧ダーク配色で描画したいとき用（2026-07-02 既定反転）
-    else if (a === '--include-unpublished') args.includeUnpublished = true; // published:false も生成対象に含める（デザイン変更後の全件更新用）
-    else if (a === '--out-dir') args.outDir = argv[++i]; // 正規パスでなく指定ディレクトリへ <fullSlug>.png 出力（比較・検証用）
-    else if (!a.startsWith('--') && !args.slug) args.slug = a;
-  }
+  if (flags.includeUnpublished) args.includeUnpublished = true;
   return args;
 }
 
@@ -177,20 +178,10 @@ function loadFonts() {
 // ---- MDX 探索とスラッグ解決 ----
 
 function findMdxFiles(dir) {
-  const results = [];
-  function walk(currentDir, relativeParts) {
-    for (const entry of fs.readdirSync(currentDir, { withFileTypes: true })) {
-      if (entry.name === 'img' || entry.name === '.DS_Store') continue;
-      const fullPath = path.join(currentDir, entry.name);
-      if (entry.isDirectory()) {
-        walk(fullPath, [...relativeParts, entry.name]);
-      } else if (entry.name.endsWith('.mdx')) {
-        results.push({ fullPath, relativeParts, fileName: entry.name });
-      }
-    }
-  }
-  walk(dir, []);
-  return results;
+  return listFiles(dir, { ext: '.mdx', skipDir: (_path, name) => name === 'img' || name === '.DS_Store' }).map((fullPath) => {
+    const parts = path.relative(dir, fullPath).split(path.sep);
+    return { fullPath, relativeParts: parts.slice(0, -1), fileName: parts[parts.length - 1] };
+  });
 }
 
 function buildFullSlug(relativeParts, fileName) {

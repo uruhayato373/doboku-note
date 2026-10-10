@@ -25,11 +25,10 @@
  * ---------------------------------------------------------------------------
  */
 import { readFileSync, existsSync, writeSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { parseBacklog, findOrphanHeadings, pickTasks } from './lib/backlog-lib.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const BACKLOG = join(ROOT, '.claude/todo/backlog.md');
 
 const argv = process.argv.slice(2);

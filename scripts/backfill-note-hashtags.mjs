@@ -11,22 +11,15 @@
 //   node scripts/backfill-note-hashtags.mjs            # dry-run（変更予定を表示・書き込まない）
 //   node scripts/backfill-note-hashtags.mjs --apply    # 実書き込み（1 行 1 タグ・# 接頭辞）
 
-import { readFileSync, writeFileSync, readdirSync, statSync, existsSync } from 'node:fs';
-import { join } from 'node:path';
+import { readFileSync, writeFileSync } from 'node:fs';
+import { relative } from 'node:path';
+import { REPO_ROOT, NOTE_CONTENT_ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
-const ROOT = 'content/note';
+// 以降のパスは従来どおりリポジトリルートからの相対パス（'content/note/...'・出力にも出る）
+const ROOT = relative(REPO_ROOT, NOTE_CONTENT_ROOT).split('\\').join('/');
 const TARGET = 93;
 const APPLY = process.argv.includes('--apply');
-
-function walk(dir, out = []) {
-  if (!existsSync(dir)) return out;
-  for (const e of readdirSync(dir)) {
-    const p = join(dir, e);
-    if (statSync(p).isDirectory()) walk(p, out);
-    else if (/^hashtags(-[^/]+)?\.txt$/.test(e)) out.push(p.split('\\').join('/'));
-  }
-  return out;
-}
 
 // ファイル → タグ配列（# 除去・空白分割で正規化・重複除去・順序保持）。
 function parseTags(file) {
@@ -55,7 +48,8 @@ function clusterOf(f) {
   return parts.slice(0, -1).join('/'); // 記事ディレクトリ
 }
 
-const files = walk(ROOT);
+const files = listFiles(NOTE_CONTENT_ROOT, { followLinks: true, allowMissing: true, match: (_path, name) => /^hashtags(-[^/]+)?\.txt$/.test(name) })
+  .map((p) => relative(REPO_ROOT, p).split('\\').join('/'));
 const all = files.map((f) => ({ f, cat: catOf(f), cluster: clusterOf(f), tags: parseTags(f) }));
 
 // カテゴリ別の頻度プール（90+ ファイルのタグを頻度集計）。

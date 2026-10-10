@@ -15,12 +15,11 @@
  * ---------------------------------------------------------------------------
  */
 import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { stripNoteFunnel, assertNoFunnel } from './lib/strip-note-funnel.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const NOTE_ROOT = join(ROOT, 'content/note');
 const NOTE_BASE = join(NOTE_ROOT, '1級・2級土木');
 // 生成物（模擬試験など note 記事を源としない商品）の markdown 置き場（＝PDF の SoT）。

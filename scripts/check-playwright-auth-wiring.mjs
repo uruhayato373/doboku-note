@@ -30,14 +30,14 @@
  *   node scripts/check-playwright-auth-wiring.mjs --ratchet    前回計測より増えたら exit 1
  *   node scripts/check-playwright-auth-wiring.mjs --json       機械可読出力
  */
-import { readFileSync, readdirSync, lstatSync, existsSync, mkdirSync, writeFileSync } from 'node:fs';
+import { readFileSync, existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { join, dirname, basename, relative, sep } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { loadAuthRegistry, CI_ALWAYS_ALLOWED_SCRIPTS } from './lib/playwright-auth-profile.mjs';
 import { loadCatalog } from './lib/ci-write-gate.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const NAME = 'check-playwright-auth-wiring';
 const argv = process.argv.slice(2);
 const STRICT = argv.includes('--strict');
@@ -48,27 +48,15 @@ const LAST_RUN_PATH = join(ROOT, '.claude/state/quality/playwright-auth-wiring-l
 const WALK_IGNORE = new Set(['node_modules', '.git', '.claude/worktrees', 'out', '.next', '.local']);
 const CODE_EXT_RE = /\.(mjs|ts|tsx|js)$/;
 
-function walk(dir, out = []) {
-  if (!existsSync(dir)) return out;
-  for (const e of readdirSync(dir)) {
-    const p = join(dir, e);
-    const rel = p.slice(ROOT.length + 1).split('\\').join('/');
-    if (WALK_IGNORE.has(e) || WALK_IGNORE.has(rel)) continue;
-    let st;
-    try {
-      st = lstatSync(p);
-    } catch {
-      continue;
-    }
-    if (st.isSymbolicLink()) continue;
-    if (st.isDirectory()) walk(p, out);
-    else if (CODE_EXT_RE.test(e)) out.push(p.split('\\').join('/'));
-  }
-  return out;
-}
+// シンボリックリンクは辿らない（listFiles の既定）。WALK_IGNORE は名前かリポジトリからの相対パスで入らないディレクトリを決める
+const CODE_WALK = {
+  allowMissing: true,
+  match: (_p, name) => CODE_EXT_RE.test(name),
+  skipDir: (p, name) => WALK_IGNORE.has(name) || WALK_IGNORE.has(relative(ROOT, p).split(sep).join('/')),
+};
 
 // 検査対象: scripts/ と .claude/skills/（実装コードのみ。docs/reference の説明文は誤検知源なので対象外）
-const targets = [...walk(join(ROOT, 'scripts')), ...walk(join(ROOT, '.claude/skills'))];
+const targets = [...listFiles(join(ROOT, 'scripts'), CODE_WALK), ...listFiles(join(ROOT, '.claude/skills'), CODE_WALK)];
 
 // (10) .github 配下で auth:ci-* を npm 経由（"npm" + " run"）で呼ぶと npm のバナーが stdout に混ざり JSON が読めない
 // （canary 実測）。node 直叩きに限る。正規表現は文字列連結で組む（check-command-guidance が案内文と誤認しないため）。
@@ -268,16 +256,7 @@ for (const file of targets) {
 // 10. .github 配下の npm 経由 auth:ci-* 呼び出し（stdout の JSON を壊す）
 {
   const ghDir = join(ROOT, '.github');
-  const walkYml = (dir, out = []) => {
-    if (!existsSync(dir)) return out;
-    for (const e of readdirSync(dir, { withFileTypes: true })) {
-      const p = join(dir, e.name);
-      if (e.isDirectory()) walkYml(p, out);
-      else if (/\.ya?ml$/.test(e.name)) out.push(p);
-    }
-    return out;
-  };
-  for (const f of walkYml(ghDir)) {
+  for (const f of listFiles(ghDir, { match: (_p, name) => /\.ya?ml$/.test(name), allowMissing: true })) {
     const lines = readFileSync(f, 'utf8').split('\n');
     lines.forEach((l, i) => { if (NPM_RUN_AUTH_CI_RE.test(l)) findings.npmRunAuthCi.push(`${relative(ROOT, f).split(sep).join('/')}:${i + 1}`); });
   }

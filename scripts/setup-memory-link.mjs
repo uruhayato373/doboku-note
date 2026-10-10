@@ -18,6 +18,7 @@ import { copyFileSync, existsSync, lstatSync, mkdirSync, readdirSync, readlinkSy
 import { homedir } from 'node:os';
 import { basename, dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { REPO_ROOT } from './lib/repository-paths.mjs';
 
 /** Claude Code のプロジェクトキー（~/.claude/projects/<key>） */
 export function claudeProjectKey(cwd) {
@@ -37,7 +38,7 @@ export function defaultMemoryTarget(cwd) {
 }
 
 function parseArgs(argv) {
-  const a = { dryRun: false, migrate: false, cwd: process.cwd(), home: homedir(), target: null, settings: null };
+  const a = { dryRun: false, migrate: false, cwd: REPO_ROOT, home: homedir(), target: null, settings: null };
   for (let i = 0; i < argv.length; i++) {
     const x = argv[i];
     if (x === '--dry-run') a.dryRun = true;

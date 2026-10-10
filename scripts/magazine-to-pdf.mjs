@@ -48,8 +48,8 @@ import matter from 'gray-matter'
 import { remark } from 'remark'
 import remarkGfm from 'remark-gfm'
 import remarkHtml from 'remark-html'
+import { REPO_ROOT as REPO } from './lib/repository-paths.mjs'
 
-const REPO = resolve(import.meta.dirname, '..')
 // 既定は会社 PC（Windows）の Chrome パス。Mac/CI 等では CHROME_PATH 環境変数で上書きする。
 const CHROME = process.env.CHROME_PATH || 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'
 

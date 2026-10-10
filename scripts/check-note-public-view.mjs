@@ -31,7 +31,6 @@
  */
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { walkArticles, expectedPdfs, frontmatterValue } from './lib/note-attachments.mjs';
 import { fetchNoteRaw } from './lib/note-live-check.mjs';
 import { evaluateApi, evaluateRendered, noteGroup, pickRepresentatives, extractImageUrls, classifyImageStatus } from './lib/note-public-view.mjs';
@@ -42,8 +41,8 @@ import { guardBrowserLaunch } from './lib/playwright-launch.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { NOTE_BASE } from './lib/site-identity.mjs';
 import { MAX_FETCH_FAIL_RATE } from './lib/inconclusive-gate.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const argv = process.argv.slice(2);
 const API_ONLY = argv.includes('--api-only');
 const argValue = (name) => { const i = argv.indexOf(name); return i >= 0 ? argv[i + 1] : null; };

@@ -35,7 +35,7 @@
  */
 import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { pathToFileURL } from 'node:url';
 import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { WRITE_PLAN_HASH_ENV, stableStringify } from './lib/ci-write-gate.mjs';
@@ -47,9 +47,8 @@ import {
   appendPostedLog,
 } from './lib/x-frequency-gate.mjs';
 import { X_HANDLE as ACCOUNT, X_PROFILE_URL as PROFILE_URL } from './lib/site-identity.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = join(__dirname, '..');
 const NAME = 'x-publish-scheduled';
 const PUBLISH_X_SCRIPT = '.claude/skills/social/publish-x/publish-x.ts';
 export const PAUSED_RELATIVE = '.claude/state/x-repost/PAUSED';

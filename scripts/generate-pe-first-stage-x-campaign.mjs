@@ -3,12 +3,11 @@
 // 他資格を含む全体3本/日計画とは分離し、同一URL・販売投稿の連打を避ける。
 
 import { writeFileSync, mkdirSync } from 'node:fs';
-import { resolve, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { resolve } from 'node:path';
 import { SITE_ORIGIN } from './lib/site-identity.mjs';
 import { setUtmParams } from './lib/utm-contract.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const month = process.argv[2] || '2026-10';
 if (!/^\d{4}-\d{2}$/.test(month)) {
   console.error('Usage: node scripts/generate-pe-first-stage-x-campaign.mjs [YYYY-MM]');

@@ -12,7 +12,7 @@
 
 import { execFileSync } from 'node:child_process';
 import { basename, join, relative } from 'node:path';
-import { existsSync, readdirSync, readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import matter from 'gray-matter';
 import { loadDriveConfig, loadDriveManifest, resolveVaultRoot, vaultAbsFor } from './lib/drive-vault.mjs';
 import {
@@ -21,10 +21,14 @@ import {
   checkCitationEvidence,
   classRuleOf,
   evaluateMissingSourcesRatchet,
+  excludeOfficialRuns,
   findVerbatimRuns,
   loadReferenceBaseline,
   loadReferenceSources,
   loadStandardsCatalog,
+  maskOfficialNames,
+  officialNamesOf,
+  officialQuestionText,
   parseTranscriptHeader,
   resolveSourceRef,
   sourcesRequiringArticle,
@@ -34,6 +38,7 @@ import {
 import { figureSourceFindings, figuresInExplanation, sourceIdsOf } from './lib/figure-source-wiring.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
 const ARGS = process.argv.slice(2);
 const STAGED = ARGS.includes('--staged');
@@ -47,16 +52,6 @@ const warn = (kind, path, detail) => warnings.push({ kind, path, detail });
 
 function toRepoRel(path) {
   return relative(REPO_ROOT, path).split('\\').join('/');
-}
-
-function walkFiles(dir, extension, out = []) {
-  if (!existsSync(dir)) return out;
-  for (const entry of readdirSync(dir, { withFileTypes: true })) {
-    const path = join(dir, entry.name);
-    if (entry.isDirectory()) walkFiles(path, extension, out);
-    else if (entry.isFile() && entry.name.endsWith(extension)) out.push(path);
-  }
-  return out;
 }
 
 function stagedMdxFiles() {
@@ -213,8 +208,14 @@ function checkDeepTranscripts({ cfg, index, manifest, articles }) {
     bySource.set(resolved.id, entries);
   }
 
+  // 書籍も載せる公式の文章（DN-0617）。過去問ページの設問と、記事が出典に挙げた公的資料の officialTexts を
+  // 書籍との一致から差し引き、法令・指針の正式名称と参考資料の題名は比較の前に外す。
+  const official = buildOfficialTexts({ cfg, index, articles });
+  const officialNames = officialNamesOf(cfg);
   let verbatimPairs = 0;
   let verbatimHits = 0;
+  let officialExcluded = 0;
+  let namesMasked = 0;
   for (const source of cfg.sources.filter((item) => cfg.classes[item.class]?.verbatim === 'forbidden')) {
     const transcripts = bySource.get(source.id) || [];
     if (transcripts.length === 0) continue;
@@ -223,7 +224,14 @@ function checkDeepTranscripts({ cfg, index, manifest, articles }) {
       || article.resolvedSources.some((item) => item.id === source.id));
     for (const article of derivedArticles) {
       verbatimPairs += 1;
-      const hits = findVerbatimRuns(article.body, transcriptIndex, { minRun: VERBATIM_MIN_RUN });
+      const { text, masked } = maskOfficialNames(article.body, officialNames);
+      namesMasked += masked;
+      let hits = findVerbatimRuns(text, transcriptIndex, { minRun: VERBATIM_MIN_RUN, maxHits: 200 });
+      for (const officialIndex of [official.questions, official.citedBy(article)]) {
+        const result = excludeOfficialRuns(text, hits, officialIndex, { minRun: VERBATIM_MIN_RUN });
+        officialExcluded += result.excluded.length;
+        hits = result.kept;
+      }
       for (const hit of hits) {
         verbatimHits += 1;
         fail('verbatim', article.relPath, `${source.id} / ${hit.key}: 一致 ${hit.run} 字「${hit.sample}」`);
@@ -232,7 +240,39 @@ function checkDeepTranscripts({ cfg, index, manifest, articles }) {
   }
 
   console.log(`  deep: 文字起こし対象 ${targets.length} 件 / 実体 ${files.length} 件 / frontmatter 実検査 ${transcriptHeaders} 件 / commercial-book 記事×原本 ${verbatimPairs} 組 / 逐語一致 ${verbatimHits} 件`);
-  return { transcriptTargets: targets.length, transcriptFiles: files.length, transcriptHeaders, verbatimPairs, verbatimHits };
+  console.log(`  deep: 公式の文章 過去問ページ ${official.questionPages} 本の設問 ${official.questionChars} 字・公的資料の文 ${official.textCount} 件 / 公式の文章として除いた一致 ${officialExcluded} 件 / 比較から外した名称 ${namesMasked} 件`);
+  if (official.questionPages === 0) fail('official-texts', datasetPath('config.reference-sources'), '過去問ページの設問が 0 件で、公式の文章を差し引けない（検査不成立）');
+  return { transcriptTargets: targets.length, transcriptFiles: files.length, transcriptHeaders, verbatimPairs, verbatimHits, officialExcluded };
+}
+
+/**
+ * 公式の文章の索引。過去問ページ（question-only の原本の appliesTo に当たる記事）の設問は全記事に効く。
+ * 公的資料の officialTexts は、その資料を sources に挙げた記事にだけ効かせる（出典を書かずに引いた文は除かない）。
+ */
+function buildOfficialTexts({ cfg, index, articles }) {
+  const questionArticles = articles.filter((article) => article.requiredBy
+    .some((source) => classRuleOf(source, index)?.verbatim === 'question-only'));
+  const entries = questionArticles
+    .map((article) => ({ key: article.relPath, source: 'official-question', text: officialQuestionText(article.body) }))
+    .filter((entry) => entry.text.trim());
+  const textSources = cfg.sources.filter((source) => source.officialTexts?.length);
+  const cache = new Map();
+  return {
+    questions: entries.length ? buildTranscriptIndex(entries) : null,
+    questionPages: entries.length,
+    questionChars: entries.reduce((sum, entry) => sum + entry.text.length, 0),
+    textCount: textSources.reduce((sum, source) => sum + source.officialTexts.length, 0),
+    citedBy(article) {
+      const cited = textSources.filter((source) => article.resolvedSources.some((item) => item.id === source.id));
+      if (cited.length === 0) return null;
+      const key = cited.map((source) => source.id).join(',');
+      if (!cache.has(key)) {
+        cache.set(key, buildTranscriptIndex(cited.flatMap((source) => source.officialTexts
+          .map((item, i) => ({ key: `${source.id}#${i + 1}`, source: source.id, text: item.text })))));
+      }
+      return cache.get(key);
+    },
+  };
 }
 
 /**
@@ -310,7 +350,7 @@ function main() {
 
   let paths;
   if (STAGED) paths = stagedMdxFiles();
-  else paths = walkFiles(join(REPO_ROOT, 'content/site'), '.mdx').map(toRepoRel).sort();
+  else paths = listFiles(join(REPO_ROOT, 'content/site'), { ext: '.mdx', allowMissing: true }).map(toRepoRel).sort();
 
   if (STAGED && paths.length === 0) {
     console.log(`[${NAME} --staged] 対象 MDX 0 件。staged に content/site/**/*.mdx が無いため (b)(d) は skip。`);

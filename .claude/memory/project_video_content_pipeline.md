@@ -21,12 +21,12 @@ YouTube 通常動画を核とするストックコンテンツ基盤（DN-0110�
 2. **ユーザー承認**（`approved` はユーザーだけが設定できる契約）→ 公開 → 派生（Shorts 2・IG・X）
 3. 公開後 6 週間で継続/停止判断
 
-**引き継ぎの注意**: mp4/wav は Git に置かない契約なので、別PCで作った動画は pull しても来ない（公開はレンダリングした側か R2 経由）。状態の正本はコンテンツ台帳 `content/registry/`（YouTube は 2026-10-09 に切り替え・写しの `video-content-status.json` は同日に消した。読み手は loadVideoState）。予約→公開は CI の registry-reconcile が develop へ書き戻す。
+**引き継ぎの注意**: mp4/wav は Git に置かない契約なので、別PCで作った動画は pull しても来ない（公開はレンダリングした側か R2 経由）。状態の正本はコンテンツ台帳 `content/registry/`（YouTube は 2026-10-09 に切り替え・写しの `video-content-status.json` は同日に消した。読み手は loadVideoState）。IG・X も同じ台帳が正本（P5・P6）で、設計の正典は `.claude/knowledge/reference/content-registry.md`。確認画面は管理画面 `/content/items`、承認は運営者の `npm run registry -- approve`（Claude からは実行不可）。予約→公開は CI の registry-reconcile が develop へ書き戻す。
 
 関連: [[feedback_metrics_cicd_supplied]] / [[feedback_gate_zero_coverage_false_pass]] / [[project_admin_app_consolidation]]
 
 ## 統合: 総監 YouTube 戦略 SSOT（旧 cem_youtube_strategy_ssot・2026-06-12）
-`docs/project/03_SNS/05_YouTube戦略_技術士総監.md` v1。二層構造＝Tier1 Shorts（稼働中・台帳 `.claude/state/youtube-schedule.json`）／Tier2 通常動画16:9（5ピラー P1択一演習/P2キーワード/P3聞き流し/P4記述式思考系＝note 送客主力/P5体験キャリア）。ポジショニング＝総監特化×合格者×発注者視点×顔出しなしTTS。登録者数は主KPIにしない（送客器評価）。Phase A 残: 16:9テンプレ実装（slide-render.mjs）・競合「技術士 総監 約3〜10分チャンネル」実態調査・台帳 meta.total ドリフト是正・試験日の内部/外部不一致の解消（engineer.or.jp で照合し§6補正）。
+`docs/project/03_SNS/05_YouTube戦略_技術士総監.md` v1。二層構造＝Tier1 Shorts（旧 Shorts は台帳 `content/registry/` の kind `legacy-short` に凍結・旧 youtube-schedule.json は 2026-10-09 に消した）／Tier2 通常動画16:9（5ピラー P1択一演習/P2キーワード/P3聞き流し/P4記述式思考系＝note 送客主力/P5体験キャリア）。ポジショニング＝総監特化×合格者×発注者視点×顔出しなしTTS。登録者数は主KPIにしない（送客器評価）。Phase A 残: 16:9テンプレ実装（slide-render.mjs）・競合「技術士 総監 約3〜10分チャンネル」実態調査・台帳 meta.total ドリフト是正・試験日の内部/外部不一致の解消（engineer.or.jp で照合し§6補正）。
 
 ## 統合: Shorts 台本品質キャンペーン（旧 yt_shorts_quality_campaign）
 総監キーワード Shorts 139本の storyboard 台本品質改善は完走（2026-05-21・真実源 `.claude/state/sns/quality-campaign-progress.json`）で再開不要。戦略 v7 以降 YT は IG Reels 派生（`ig-reel-create`→`yt-shorts-create --from-reels`）。mp4 化は ffmpeg+VOICEVOX 環境が前提。

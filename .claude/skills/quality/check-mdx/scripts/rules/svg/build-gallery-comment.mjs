@@ -29,14 +29,16 @@
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
 import { globSync } from "glob";
+import { join, relative } from "path";
 import { R2_PUBLIC_ORIGIN } from "../../../../../../../scripts/lib/site-identity.mjs";
+import { REPO_ROOT, STATE_ROOT } from "../../../../../../../scripts/lib/repository-paths.mjs";
 
-const AUDIT_STATE = ".claude/state/svg-audit.json";
+const AUDIT_STATE = join(STATE_ROOT, "svg-audit.json");
 const OUTPUT = ".tmp/svg-gallery-comment.md";
 const IMAGE_HOST = R2_PUBLIC_ORIGIN;
 
 if (!existsSync(AUDIT_STATE)) {
-  console.error(`audit state not found: ${AUDIT_STATE}`);
+  console.error(`audit state not found: ${relative(REPO_ROOT, AUDIT_STATE).split("\\").join("/")}`);
   console.error(`先に audit を実行: node .claude/skills/quality/check-mdx/scripts/rules/svg/audit.mjs`);
   process.exit(1);
 }

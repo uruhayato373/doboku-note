@@ -83,7 +83,7 @@
 
 - Shorts は外部 URL へ直接送らず、**YouTube の関連動画で該当通常動画へ**送る（06 §2.2）
 - 通常動画のクリック可能な概要欄から送客する。UTM は `utm_source=youtube&utm_medium=video&utm_campaign={packId}&utm_content=longform|shorts`（video-content-policy 準拠）
-- 総監の Shorts 台帳（`.claude/state/youtube-schedule.json`）は総監専用であり、土木の台帳を混ぜない。土木の公開状態はコンテンツ台帳（`content/registry/`）に一元化する（写しの video-content-status.json は 2026-10-09 に消した）
+- 総監の旧 Shorts（台帳の kind `legacy-short`）は凍結した別系統で、土木の動画と混ぜない。土木の公開状態はコンテンツ台帳（`content/registry/`）に一元化する（写しの video-content-status.json は 2026-10-09 に消した）
 
 ### 1動画1主CTA（06 §2.3 の対応表を土木で具体化）
 

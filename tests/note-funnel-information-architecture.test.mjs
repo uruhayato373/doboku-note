@@ -1,10 +1,10 @@
 import { test } from 'node:test';
+import { join } from 'node:path';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
-const ROOT = fileURLToPath(new URL('..', import.meta.url));
-const read = (rel) => readFileSync(ROOT + rel, 'utf8').replace(/\r\n/g, '\n');
+const read = (rel) => readFileSync(join(ROOT, rel), 'utf8').replace(/\r\n/g, '\n');
 
 test('L1は技術士第一次試験の公開済み入口を1件だけ持つ', () => {
   const body = read('content/note/共通/コンテンツ総合案内/article.md');

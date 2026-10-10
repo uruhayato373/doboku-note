@@ -27,6 +27,7 @@ import { readFileSync, readdirSync, existsSync } from "node:fs";
 import { basename, join } from "node:path";
 import { readDocMetaIndex } from "./lib/doc-meta-index.mjs";
 import { todayJst } from "./lib/jst-date.mjs";
+import { SNS_CONTENT_ROOT } from "./lib/repository-paths.mjs";
 
 const MIN_GAP_MIN = 60;      // 同一日の投稿間隔の下限（分）
 const SALES_FUNNELS = ["note", "coconala", "brain"];
@@ -34,7 +35,7 @@ const SLOTS = ["A", "B", "C"];
 
 // 引数省略時は x-campaigns/ の全 *.json を検査する（旧実装は 2026-08 固定＝
 // 9月以降のファイルを作っても無検査で素通りしていた。2026-08-12 是正）。
-const DIR = "content/sns/x/campaigns";
+const DIR = join(SNS_CONTENT_ROOT, "x", "campaigns");
 const files = process.argv[2]
   ? [process.argv[2]]
   : readdirSync(DIR).filter((f) => f.endsWith(".json")).map((f) => join(DIR, f)).sort();

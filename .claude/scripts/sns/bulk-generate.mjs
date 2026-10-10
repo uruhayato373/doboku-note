@@ -23,9 +23,9 @@ import { readdirSync, readFileSync, existsSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execSync } from 'node:child_process';
+import { REPO_ROOT as ROOT } from '../../../scripts/lib/repository-paths.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = resolve(__dirname, '../../../');
 
 const YT_SCRIPT  = resolve(__dirname, '../../skills/social/yt-shorts-create/scripts/yt-shorts-create.mjs');
 const IG_SCRIPT  = resolve(__dirname, '../../skills/social/ig-post-create/scripts/ig-post-create.mjs');

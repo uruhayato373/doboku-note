@@ -1,23 +1,14 @@
 #!/usr/bin/env node
 
-import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
-import { dirname, join, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { readFileSync, writeFileSync } from 'node:fs';
+import { join } from 'node:path';
 import { readDataset } from './lib/dataset-io.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
-const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const PACKS_ROOT = join(ROOT, 'content/sns/video-packs');
 const DISCLOSURE = readDataset(ROOT, 'config.youtube-production-disclosure');
 const COMMIT = process.argv.includes('--commit');
-
-function walk(dir, out = []) {
-  for (const entry of readdirSync(dir, { withFileTypes: true })) {
-    const path = join(dir, entry.name);
-    if (entry.isDirectory()) walk(path, out);
-    else if (entry.name === 'youtube.json') out.push(path);
-  }
-  return out;
-}
 
 function withAuthorityNotice(description) {
   const marker = '【この動画の制作について】';
@@ -33,7 +24,7 @@ function withAuthorityNotice(description) {
 
 let filesChanged = 0;
 let videosChanged = 0;
-for (const path of walk(PACKS_ROOT)) {
+for (const path of listFiles(PACKS_ROOT, { match: (_p, name) => name === 'youtube.json' })) {
   const data = JSON.parse(readFileSync(path, 'utf8'));
   let changed = false;
   for (const item of [data.longform, ...(Array.isArray(data.shorts) ? data.shorts : [])]) {

@@ -23,19 +23,17 @@ import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { completedWeekRanges, fetchWeeklyNsmMetrics, formatNsmSection } from '#lib/metrics-reader.mjs';
 import { datasetDir } from '../../scripts/lib/datasets.mjs';
+import { parseCliArgs } from '../../scripts/lib/cli-args.mjs';
 
 const OUT_DIR = datasetDir('business.weekly');
 
 // ── 引数パース ─────────────────────────────────────────────────
 
 function parseArgs() {
-  const args = { force: false, dryRun: false };
-  for (let i = 2; i < process.argv.length; i++) {
-    const a = process.argv[i];
-    if (a === '--force') args.force = true;
-    else if (a === '--dry-run') args.dryRun = true;
-  }
-  return args;
+  return parseCliArgs({
+    force: { type: 'boolean' },
+    'dry-run': { type: 'boolean' },
+  });
 }
 
 // ── メイン ──────────────────────────────────────────────────────

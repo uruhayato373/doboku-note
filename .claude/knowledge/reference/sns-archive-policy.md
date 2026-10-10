@@ -22,7 +22,7 @@
 > 1 パックの「消えたら困る本体」は約 20KB のテキスト（slide-data.json + script/caption + status.json）だけ。wav/mp4/png は全て再生成できる。退避で wav/mp4 を消しても、SoT が無傷なら復元できる。
 
 > [!warning] wav は JIT 動画の入力でもある
-> `reels/wav` は `publish-reel-jit.mjs` / `per-problem-shorts.mjs` の**入力素材**（解答/CTA ナレ）。ローカルから消した pack で動画を JIT 生成するには、先に `drive-vault-sync --pull` で取り戻すか script.txt から VOICEVOX で再合成する。
+> `reels/wav` は `publish-reel-jit.mjs` / `per-problem-shorts.mjs` の**入力素材**（解答/CTA ナレ）。ローカルから消した pack で動画を JIT 生成するには、先に `drive-vault-sync --pull --path <pack> --commit` で取り戻すか script.txt から VOICEVOX で再合成する。
 
 ## 3 層モデル
 
@@ -34,7 +34,7 @@
 
 動画パック由来の Instagram Reels は、全件をローカルへ常備しない。Drive 台帳と Drive API の
 MD5/bytes が一致する 224 本を母集団とし、予約済み・投稿済み、または Meta の 29 日予約窓より先の
-`video.mp4` を削除する。公開スクリプトは対象動画だけを `drive-vault-sync --pull --path` で自動復元するため、
+`video.mp4` を削除する。公開スクリプトは対象動画だけを `drive-vault-sync --pull --path … --commit` で自動復元するため、
 ローカル欠落を理由に全 224 本を再レンダーしない。
 
 ```bash
@@ -70,7 +70,7 @@ npm run drive-vault-sync -- --group sns-archived-media                          
 npm run drive-vault-sync -- --group sns-archived-media --path content/sns/instagram/cem/exam-packs/r07/ --commit   # pack を絞って退避
 npm run drive-vault-sync -- --group sns-archived-media --commit                         # 全対象を退避（読み直し sha256 一致で台帳へ）
 npm run drive-vault-sync -- --group sns-archived-media --verify --deep --cloud          # 台帳・vault・Drive API md5 の 3 者一致
-npm run drive-vault-sync -- --pull --path content/sns/instagram/cem/exam-packs/r07/reels/   # 取り戻し
+npm run drive-vault-sync -- --pull --path content/sns/instagram/cem/exam-packs/r07/reels/ --commit   # 取り戻し
 ```
 
 > [!important] ローカル削除は別操作

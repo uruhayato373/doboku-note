@@ -5,8 +5,8 @@ import path from 'node:path';
 import { readScheduledQueue } from './lib/x-scheduled-queue.mjs';
 import { assessQueueHealth } from './lib/x-queue-health.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
+import { REPO_ROOT as root } from './lib/repository-paths.mjs';
 
-const root = process.cwd();
 const out = path.join(root, '.tmp/x-queue-health/latest.json');
 let report;
 try {

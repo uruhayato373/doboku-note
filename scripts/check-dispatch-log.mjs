@@ -14,11 +14,11 @@
  * exit: 0 PASS / 1 違反 / 2 検査不成立
  */
 import { readFileSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { join, relative } from 'node:path';
+import { pathToFileURL } from 'node:url';
+import { REPO_ROOT as ROOT, STATE_ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const LOG_PATH = '.claude/state/dispatch/dispatch-log.json';
+const LOG_PATH = join(STATE_ROOT, 'dispatch/dispatch-log.json');
 export const LEGACY_CUTOFF = '2026-08-18';
 const OUTCOMES = new Set(['done', 'swept', 'blocked', 'fail']);
 const ID_RE = /^DN-\d{4}$/;
@@ -46,8 +46,8 @@ export function validateDispatchLog(json, { legacyCutoff = LEGACY_CUTOFF } = {})
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   let json;
-  try { json = JSON.parse(readFileSync(join(ROOT, LOG_PATH), 'utf8')); }
-  catch (e) { console.error(`[check-dispatch-log] 検査不成立: ${LOG_PATH} を読めない: ${e.message}`); process.exit(2); }
+  try { json = JSON.parse(readFileSync(LOG_PATH, 'utf8')); }
+  catch (e) { console.error(`[check-dispatch-log] 検査不成立: ${relative(ROOT, LOG_PATH).split('\\').join('/')} を読めない: ${e.message}`); process.exit(2); }
   const r = validateDispatchLog(json);
   if (!r) { console.error('[check-dispatch-log] 検査不成立: entries 配列が無い'); process.exit(2); }
   console.log(`[check-dispatch-log] ${r.checked} 件を実検査（legacy id無し ${r.legacy} 件を許容）`);

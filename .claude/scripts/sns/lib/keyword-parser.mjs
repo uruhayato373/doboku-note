@@ -14,6 +14,7 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { SITE_ORIGIN } from '../../../../scripts/lib/site-identity.mjs';
+import { REPO_ROOT } from '../../../../scripts/lib/repository-paths.mjs';
 
 export function parseKeywordPack(packDir) {
   const carouselMd = readFileSync(join(packDir, 'instagram-carousel.md'), 'utf8').replace(/\r\n/g, '\n');
@@ -120,7 +121,7 @@ function parseMeta(carouselMd, sourceMd, packDir) {
 function resolveProjectPath(p) {
   // content/site/... を repo root からの絶対パスに
   if (p.startsWith('.local/') || p.startsWith('docs/')) {
-    return resolve(process.cwd(), p);
+    return resolve(REPO_ROOT, p);
   }
   return p;
 }

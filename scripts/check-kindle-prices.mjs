@@ -15,11 +15,10 @@
  * ---------------------------------------------------------------------------
  */
 import { readFileSync } from 'node:fs'
-import { join, dirname } from 'node:path'
-import { fileURLToPath } from 'node:url'
+import { join } from 'node:path'
 import { kindlePriceIssues, loadSpecPrices } from './lib/kdp-common.mjs'
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs'
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
 const catalog = JSON.parse(readFileSync(join(ROOT, 'scripts/kindle-published/catalog.json'), 'utf8'))
 const targets = catalog.books.filter((b) => ['live', 'ready'].includes(b.status))
 

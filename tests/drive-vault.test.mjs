@@ -10,9 +10,10 @@ import { strict as assert } from 'node:assert';
 import test from 'node:test';
 import {
   loadDriveConfig, resolveVaultRoot, driveGroupFor, vaultRelFor, sanitizeDriveEntry, routingFor, toVaultRel, emptyDriveManifest,
-  hydrateDriveEntry, expandDriveManifest, toLeanDriveManifest, serializeDriveManifest,
+  hydrateDriveEntry, expandDriveManifest, toLeanDriveManifest, serializeDriveManifest, loadDriveManifest,
 } from '../scripts/lib/drive-vault.mjs';
 import { isDeepStrictEqual } from 'node:util';
+import process from 'node:process';
 import { loadConfig as loadR2Config, findSecrets, AUDIENCE_RULES } from '../scripts/lib/asset-storage.mjs';
 
 const DCFG = loadDriveConfig();
@@ -256,4 +257,38 @@ test('drive-reentry: coexistWithGit の group は staged 再追跡とみなさ�
   const r2 = routingFor('content/sns/instagram/video-packs/x/reels/cover.png', loadR2Config(), dcfg);
   const strict2 = r2.driveActive.filter((id) => !(dcfg.groups || []).find((g) => g.id === id)?.coexistWithGit);
   assert.ok(strict2.length >= 1, 'coexistWithGit でない Drive group は引き続き検知する');
+});
+
+// ------------------------------------------------------------------ --pull の既定（DN-0631）
+// 2026-10-10、--commit の無い --pull --path が書籍のページ画像まで 701 枚を取り寄せた。送る側と同じく既定は dry-run。
+test('drive-vault-sync --pull: --commit が無ければ手元へ書かず、件数と合計サイズだけを出す', async () => {
+  const { spawnSync } = await import('node:child_process');
+  const { existsSync, mkdtempSync, rmSync, writeFileSync } = await import('node:fs');
+  const { tmpdir } = await import('node:os');
+  const { join } = await import('node:path');
+  const { REPO_ROOT } = await import('../scripts/lib/repository-paths.mjs');
+  const entries = Object.entries(loadDriveManifest().entries || {});
+  const absent = entries.find(([rel]) => !existsSync(join(REPO_ROOT, rel)));
+  assert.ok(absent, '手元に無い台帳の行が 1 件も無く、検査できない');
+  const [rel] = absent;
+  const vault = mkdtempSync(join(tmpdir(), 'dn-0631-vault-'));
+  writeFileSync(join(vault, DCFG.vaultRoot?.marker || 'README.md'), 'test vault\n');
+  const env = { ...process.env, [DCFG.vaultRoot?.env || 'DOBOKU_DRIVE_VAULT']: vault };
+  const run = (...extra) => spawnSync(process.execPath, [join(REPO_ROOT, 'scripts/drive-vault-sync.mjs'), '--pull', '--path', rel, ...extra], { cwd: REPO_ROOT, encoding: 'utf8', env });
+  try {
+    const dry = run();
+    assert.equal(dry.status, 0, dry.stderr);
+    assert.match(dry.stdout, /mode=DRY-RUN/);
+    assert.match(dry.stdout, /取り戻す予定 1 件（[0-9.]+ MiB）/);
+    assert.match(dry.stdout, /実行は --commit/);
+    assert.equal(existsSync(join(REPO_ROOT, rel)), false, 'dry-run が手元へ書いた');
+    // --commit を付けると取り戻しに行く（偽の vault には実体が無いので失敗し、やはり何も書かない）
+    const commit = run('--commit');
+    assert.equal(commit.status, 1);
+    assert.match(commit.stdout, /mode=PULL/);
+    assert.match(commit.stderr, /vault に無い/);
+    assert.equal(existsSync(join(REPO_ROOT, rel)), false);
+  } finally {
+    rmSync(vault, { recursive: true, force: true });
+  }
 });

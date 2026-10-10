@@ -49,12 +49,12 @@
  * 真実源: config/note-magazine-membership.json
  */
 import { execFileSync } from 'node:child_process';
-import { existsSync, readFileSync, readdirSync, statSync, writeSync } from 'node:fs';
-import { basename, dirname, join, sep } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { existsSync, readFileSync, writeSync } from 'node:fs';
+import { basename, join, sep } from 'node:path';
 import { datasetPath, freshnessDays } from './lib/datasets.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const NOTE_DIR = join(ROOT, 'content/note');
 const SOT_PATH = join(ROOT, 'src/lib/note-magazines.ts');
 const CONFIG_PATH = join(ROOT, datasetPath('config.note-magazine-membership'));
@@ -68,16 +68,7 @@ const ARTICLE_FILE = /^article(-[^.]+)?\.md$/;
 
 /** content/note 配下の article ファイルを再帰収集する。 */
 export function listNoteArticles(dir = NOTE_DIR) {
-  const out = [];
-  const walk = (d) => {
-    for (const name of readdirSync(d)) {
-      const p = join(d, name);
-      if (statSync(p).isDirectory()) walk(p);
-      else if (ARTICLE_FILE.test(name)) out.push(p);
-    }
-  };
-  walk(dir);
-  return out;
+  return listFiles(dir, { match: (_p, name) => ARTICLE_FILE.test(name), followLinks: true });
 }
 
 /**

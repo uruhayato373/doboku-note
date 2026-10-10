@@ -4,6 +4,8 @@
 // 指していて Windows では一度も発火していなかった。check-mojibake.sh は存在しない env（$TOOL_INPUT_FILE_PATH）を
 // 読んで常に no-op だった。判定をここへ集め、両ツールから `node scripts/hooks/agent-hook.mjs <name>` で呼ぶ。
 
+import { resolve as pathResolve } from 'node:path';
+
 /** hook の stdin JSON（Claude Code / Codex 共通の形）と env フォールバックから必要な値を取り出す */
 export function parseHookInput(raw, env = {}) {
   let json = null;
@@ -17,7 +19,7 @@ export function parseHookInput(raw, env = {}) {
   const toolInput = json?.tool_input ?? {};
   const command = typeof toolInput.command === 'string' ? toolInput.command : typeof env.CLAUDE_TOOL_INPUT === 'string' ? env.CLAUDE_TOOL_INPUT : raw && !json ? raw : '';
   const filePath = typeof toolInput.file_path === 'string' ? toolInput.file_path : typeof env.TOOL_INPUT_FILE_PATH === 'string' ? env.TOOL_INPUT_FILE_PATH : '';
-  return { json, command, filePath, event: json?.hook_event_name ?? '', toolName: json?.tool_name ?? '' };
+  return { json, command, filePath, cwd: typeof json?.cwd === 'string' ? json.cwd : '', event: json?.hook_event_name ?? '', toolName: json?.tool_name ?? '' };
 }
 
 // ---- check-mojibake ----------------------------------------------------------------------------
@@ -196,5 +198,101 @@ export function captureReason(markers) {
     `最後の報告に「${markers.slice(0, 3).join('」「')}」とありますが、カード番号（DN-####）がありません。`,
     'その場で直さない不具合・改善・未確認は `npm run todo:add -- --title … --tier … --kind … --domain … --body-file … --commit` で起票し、報告にカード番号を書いてください（CLAUDE.md §12）。',
     '起票が要らないなら「起票不要: 理由」を 1 行書いて終えてください。このセッションで止めるのはこの 1 回だけです。',
+  ].join('\n');
+}
+
+// ---- check-cd-scope（PreToolUse Bash・DN-0622）-------------------------------------------------
+// Claude Code の Bash は、括弧の外の `cd` がセッションの作業ディレクトリをそのまま移す。worktree や
+// リポジトリの下の階層へ移ると、以後の相対パス・起動したサブエージェントの書き込み先がそこへずれる
+// （2026-10-08 に実害。memory に書いた後も 1 セッションで 6 回以上再発し、記録では止まらなかった）。
+// 括弧の中の cd（サブシェル）・`git -C`・`bash -c '…'` の中は作業ディレクトリを移さないので通す。
+
+const COMMAND_START = new Set(['&&', '||', ';', '|', '\n']);
+
+/** 括弧と引用符の外にある `cd <dir>` の行き先を、書かれたとおりに返す（`cd` だけ・`cd -` は除く）。 */
+export function topLevelCdTargets(command) {
+  const s = String(command ?? '');
+  const tokens = [];
+  let depth = 0;
+  let quote = '';
+  let word = '';
+  let wordDepth = 0;
+  const flush = () => {
+    if (word) tokens.push({ text: word, depth: wordDepth });
+    word = '';
+  };
+  for (let i = 0; i < s.length; i += 1) {
+    const c = s[i];
+    if (quote) {
+      if (c === quote) quote = '';
+      else if (c === '\\' && quote === '"' && i + 1 < s.length) word += s[++i];
+      else word += c;
+      continue;
+    }
+    if (c === "'" || c === '"') { if (!word) wordDepth = depth; quote = c; continue; }
+    if (c === '\\' && i + 1 < s.length) { if (!word) wordDepth = depth; word += s[++i]; continue; }
+    if (c === '(' || c === ')') { flush(); depth += c === '(' ? 1 : -1; tokens.push({ text: c, depth }); continue; }
+    if (c === ' ' || c === '\t') { flush(); continue; }
+    if (c === '\n' || c === ';') { flush(); tokens.push({ text: c === '\n' ? '\n' : ';', depth }); continue; }
+    if ((c === '&' || c === '|') && s[i + 1] === c) { flush(); tokens.push({ text: c + c, depth }); i += 1; continue; }
+    if (c === '|' || c === '&') { flush(); tokens.push({ text: c === '|' ? '|' : ';', depth }); continue; }
+    if (!word) wordDepth = depth;
+    word += c;
+  }
+  flush();
+  const targets = [];
+  for (let i = 0; i < tokens.length; i += 1) {
+    const t = tokens[i];
+    if (t.text !== 'cd' || t.depth !== 0) continue;
+    const prev = tokens[i - 1];
+    if (prev && !COMMAND_START.has(prev.text)) continue;
+    const next = tokens[i + 1];
+    if (!next || COMMAND_START.has(next.text) || next.text === '-' || next.text === '(' || next.text === ')') continue;
+    targets.push(next.text);
+  }
+  return targets;
+}
+
+const WORKTREE_DIR_RE = /[\\/]\.(?:claude|codex)[\\/]worktrees[\\/]/;
+const trimSlash = (p) => p.replace(/[\\/]+$/, '');
+
+/**
+ * cd の行き先がセッションの作業ディレクトリを移してはいけない場所なら理由を返す（通すなら null）。
+ *   - worktree（.claude/worktrees/・.codex/worktrees/）の中。セッション自身がその worktree なら直下は通す
+ *   - プロジェクト（CLAUDE_PROJECT_DIR）の下の階層
+ * プロジェクトの直下へ戻る cd と、リポジトリの外（一時置き場など）は対象外。
+ */
+export function cdScopeViolation(target, { cwd, projectDir, home = '', vars = {} }) {
+  if (!projectDir || !target) return null;
+  const substituted = target.replace(/\$\{?([A-Za-z_]\w*)\}?/g, (m, name) => (name in vars ? vars[name] : m));
+  if (/[$`*?]/.test(substituted)) return null;      // 解決できない変数・展開は判定しない
+  const expanded = substituted === '~' ? home : substituted.startsWith('~/') ? home + substituted.slice(1) : substituted;
+  if (!expanded) return null;
+  const abs = trimSlash(pathResolve(cwd || projectDir, expanded));
+  const project = trimSlash(pathResolve(projectDir));
+  if (abs === project) return null;
+  if (WORKTREE_DIR_RE.test(abs + '/') && !(abs + '/').startsWith(project + '/')) return `worktree の中（${abs}）`;
+  if ((abs + '/').startsWith(project + '/')) return `プロジェクトの下の階層（${abs}）`;
+  return null;
+}
+
+/** 同じコマンドの中で先に代入した変数（`W=/abs/dir; cd $W`）。値の引用符は外す。 */
+export function shellAssignments(command) {
+  const vars = {};
+  for (const m of String(command ?? '').matchAll(/(?:^|[;&|\n(]\s*)([A-Za-z_]\w*)=("[^"]*"|'[^']*'|[^\s;&|()]+)/g)) {
+    vars[m[1]] = m[2].replace(/^(["'])(.*)\1$/, '$2');
+  }
+  return vars;
+}
+
+/** モデルへ返す止めた理由と、代わりの書き方。 */
+export function cdScopeMessage(target, reason, projectDir) {
+  return [
+    `BLOCK: 括弧の外の cd ${target} は、セッションの作業ディレクトリを ${reason} へ移す（DN-0622）。`,
+    '以後の相対パスと、起動したサブエージェントの書き込み先がそこへずれる。代わりに次のどれかで書く:',
+    '  - 絶対パスで指す（cat /abs/path/file、node /abs/path/script.mjs）',
+    '  - git は git -C <dir> …',
+    '  - その場所で実行が要るならサブシェル: ( cd <dir> && … )',
+    `プロジェクトの直下（${projectDir}）へ戻る cd は通す。`,
   ].join('\n');
 }

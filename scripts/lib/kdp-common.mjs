@@ -5,11 +5,10 @@
 // 共通定数を両スクリプトで二重定義しないための単一ソース（真実源は config の defaults）。
 // ---------------------------------------------------------------------------
 import { readFileSync, existsSync, readdirSync } from 'node:fs'
-import { resolve, dirname } from 'node:path'
-import { fileURLToPath } from 'node:url'
+import { resolve } from 'node:path'
 import { datasetPath } from './datasets.mjs'
+import { REPO_ROOT as REPO } from './repository-paths.mjs'
 
-const REPO = resolve(dirname(fileURLToPath(import.meta.url)), '../..')
 const CONFIG_PATH = resolve(REPO, datasetPath('config.kdp-memo'))
 const SPEC_DIR = resolve(REPO, 'scripts/kindle-specs')
 

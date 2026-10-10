@@ -21,18 +21,32 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-0633] 1級土木 第二次の分野別過去問ページ 4 本の設問を、公式の問題 PDF と照合し直して作り直す（別の年度の問題・存在しない問題・違う選択肢が混ざっている）
+タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [起票:2026-10-10]
+
+**起点**: 2026-10-10、DN-0595（二次過去問の設問が教本と合わない）を公式の問題と照らしたところ、1級土木 第二次の分野別の過去問ページで、設問の文・選択肢が公式の問題と違うものが多数見つかった。公式の問題 PDF は CIC が年度別に掲載している（例 https://www.cic-ct.co.jp/pdf/kakomon/civil/h29/29_1cj.pdf ・h30/30_1cj.pdf ・r2/r2_1cj.pdf ・h28/28_1cj.pdf）。手元の `content/sources/past-exams/１級土木施工管理技士/` は H29 のフォルダが無く、H30 は学科の正答だけ。
+**見つかった食い違い（平成29・30年度を中心に一部だけ照合）**:
+- secondary-earthwork-past-problems: H29〔問題1〕（公式は問題2・構造物と盛土の接続部）が別の文、H29〔問題2〕（公式は問題7）の 5 工法のうち 3 つが公式に無い工法、H30〔問題1〕（公式は問題2）の設問と答え 4 つが違う、H30〔問題2〕は H30 に存在しない（H28 に近い問題がある）。R1〔問題1〕〔問題2〕・R2〔問題1〕も設問の文が違う
+- secondary-quality-management-past-problems: H30 No.6 は H30 に存在しない（答えの語句は H29 問題4 のもの・H29 問題4 自体が未収録）、H29 No.7（公式は問題9）は検査の名称と求める内容が違う、H29 No.8（非破壊検査）は H29 に存在しない（H28 の出題に近いが項目も違う）、R2 No.1（公式は問題8）が別の設問、H30 No.5 の「令和2年度〔問題5〕」の参照は問題9 の誤り
+- secondary-construction-plan-past-problems: H29（公式は問題6）が別の設問（令和2年度の文を元にした別問題）、H30（公式は問題11）は表の構造と表記が違う、R2 No.1（公式は問題6）の設問の文が違う
+- secondary-concrete-past-problems: H29 問題3 (3) で「1日の総打込み量」が抜けている（要旨は一致）
+- 照合していない: concrete の R1・R2・H28 以前、earthwork・construction-plan・quality の H28 以前
+**やること**: 4 ページの全問を、年度ごとに CIC の公式の問題 PDF と目で照らし（memory feedback_exam_pdf_cross_reference）、設問・選択肢を公式どおりに直す。その年度に存在しない問題は消すか正しい年度へ移す。答え・解説は公式の解答が非公表なので、設問文から整合する語句で書き直す。PDF は past-exam-source-pdf で Drive vault に入れる（/past-exam-archive）。数が多いので年度ごとにコミットする。
+**完了条件**: 4 ページの全問について公式の問題 PDF の出典（年度・問題番号）つきで照合済みになり、食い違いが 0。照合した問題数を記録する。
+
+
 
 
 ### [DN-0453] 過去問 iOS アプリを総監・技術士（建設部門）・1級土木でまず試作する
-タグ: [収益化] [領域:商品] [時期:2026-10..2026-11] [期日:2026-11-08] [種類:改善] [起票:2026-09-29] [進行中]
+タグ: [収益化] [領域:商品] [時期:2026-10..2026-11] [期日:2026-11-08] [種類:改善] [起票:2026-09-29]
 
 **起点**: 2026-09-29 に運営者が「iOS も総監・技術士・土木施工管理でまず試す」と判断した。DN-0400（2027-03 判断で保留）を前倒しする。着手条件だった「Web 月収 ¥15,000 以上」は、受取額が月 ¥100k 規模の現状で満たしている（数値は `/metrics/business` で確認）。方針（土台・最初の資格・作り方・競合）は docs/products/07_iOS択一アプリ試作方針.md。アプリは技術士（第一次試験＋総監）と土木施工管理技士（1級＋2級）の 2 本にまとめ、技術士を第一次試験だけで先に出す（試験 2026-11-22）。
 
-**やること**:
-1. 運営者: Apple Developer Program の登録（個人か法人か）と Xcode の導入（07 §5）。2026-10-09 時点でこの Mac は Command Line Tools だけで、空きが 14GB（使用 93%）。Xcode と iOS シミュレータには数十 GB 要るので、先に `npm run check-disk-hygiene` で空ける
-2. PR #949（`npm run build-ios-quiz-bundle -- --app pe`・総監を正規化に追加）を develop に入れる
-3. iOS リポジトリ（手元の `~/doboku-quiz-ios`。GitHub の非公開リポジトリは運営者の了承を得て作る）の共通エンジン `QuizEngine` に、SwiftUI の画面（試験の選択・年度別／科目別／ランダム／間違い／未実施・WKWebView の問題表示・進捗・試験日の通知。07 §4.3）と技術士アプリの target を足し、シミュレータで動かして TestFlight の内部テストで運営者が実機確認する
-4. 2026-11-08 までに審査へ提出できれば技術士アプリ（第一次試験のみ）を App Store へ無料公開する。過ぎたら TestFlight 止まりにする（07 §7）。公開前に出題元の転載条件を確かめる
+**やること**（2026-10-10 に中断。別セッションの整理が済んでから再開する）:
+1. 運営者: macOS を 15.6 以降（`softwareupdate` に Sequoia 15.8.1 が出ている）へ上げ、Xcode 26 に入れ替える。2026-04-28 以降、App Store Connect へは Xcode 26（iOS 26 SDK）で組み立てたものしか上げられない。いま入っている Xcode 16.4（iOS 18.6 シミュレータ）は開発には使えるが提出できない。入れ替えのときは iOS 以外のプラットフォームを入れず、16.4 は消す（空きは 2026-10-10 時点で約 21GB）。あわせて Apple Developer Program の登録（個人か法人か）、App Store Connect の有料アプリ契約・銀行口座・税務情報と小規模事業者プログラムの申請（07 §5）
+2. `~/doboku-quiz-ios` に Xcode プロジェクト（技術士アプリの target・`Packages/QuizEngine` のローカルパッケージ・`AppData/Gijutsushi/QuizData` のフォルダ参照）を作り、シミュレータで組み立てて動かす。画面・問題表示（WKWebView）・買い切り（StoreKit 2）・通知のコードは書き済みでビルド前。問題データは `npm run build-ios-quiz-bundle -- --app pe --out ~/doboku-quiz-ios/AppData/Gijutsushi/QuizData` で作る（git 管理外）。iOS リポジトリは手元だけにあるので、GitHub の非公開リポジトリを運営者の了承を得て作り、push する
+3. 買い切りの確かめは StoreKit のテスト構成（.storekit）と TestFlight の Sandbox で行う。App Store Connect に `com.doboku-note.gijutsushi.full.pe-first-stage`（非消耗型・¥1,480）を作る。サイトのメール登録ページ（DN-0632）ができたら `AppConfig.mailSignupURL` に入れる
+4. TestFlight の内部テストで運営者が実機確認し、2026-11-08 までに審査へ提出できれば技術士アプリ（第一次試験のみ）を App Store で公開する（無料ダウンロード＋全年度 ¥1,480）。有料アプリ契約が間に合わなければ無料版（最新年度）だけで先に出す。過ぎたら TestFlight 止まりにする（07 §7）。公開前に出題元の転載条件を確かめる
 5. 総監を技術士アプリへ試験設定とデータだけで足し、土木施工管理技士アプリ（1級＋2級）を同じエンジンで作る手順を記録する（2級土木の正規化は DN-0628）
 
 **完了条件**: 技術士アプリ（第一次試験）が TestFlight で動き、総監が試験設定とデータだけで載り、土木施工管理技士アプリを作る手順が記録されている。
@@ -93,25 +107,14 @@
 **完了条件**: 予約・公開済みの全通常動画と Shorts の概要欄に「VOICEVOX:青山龍星」があり、`youtube.json` と YouTube の実体が一致する。
 
 
-### [DN-0591] 書籍の網羅の残り: コンクリート 5 冊を判定し直して網羅を確かめる
+### [DN-0591] コンクリート 5 冊の判定のし直しで出た追記 123 件（gap 9・partial 154）をサイトへ展開する
 タグ: [領域:教材] [時期:2026-11] [種類:制作] [起票:2026-10-08]
 
-2026-10-08〜09 に、判定済みの 26 冊の展開を終えた（展開済み 24・展開不要 2）。進み具合は `npm run audit-reference-book-coverage -- --status`、手順は `.claude/knowledge/reference/book-coverage-judging.md`・`book-coverage-expansion.md`。
-総監の論文の本（pe-cem-essay-guide）は展開しない（2026-10-10 運営者判断）: 総監のテキスト・受験対策・キーワード集の判定で gap は 0、partial は展開済み。論文の本の中身は答案例（note 商品の領域）が中心で、書き方の一般論は論文の書き方の本の展開と記述式ガイドで覆えている。再スキャンからやり直す手間に見合わない。`--status` ではこの 1 冊だけ「未着手」のまま残る。
-残り: コンクリート 5 冊（concrete-*・construction-materials-basics）を `--rejudge` で候補表から作り直し、意味判定をやり直して、展開の前の判定のままになっている網羅を確かめる。新しい gap が出たら展開する。
-完了条件: 5 冊の判定日が新しくなり、gap が 0 か、出た gap を展開した。
-
-### [DN-0580] 1級土木 第二次の施工計画の基礎・経験記述の書き方に残る、市販書籍との長い一致（最大 552 字）を書き直す
-タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [検証:check-reference-sources:deep] [起票:2026-10-08]
-
-2026-10-09 の書籍の網羅の展開（DN-0591）で、コンクリート・土工・品質管理の基礎 3 本の一致は書き直して 0 になった。残りは、展開の前から本文にあった一致で、記事の `sources` に civil1-secondary-workbook-2021 が入ったことで検査の対象に入ったもの。
-
-- `content/site/civil-construction-1/secondary-construction-plan-basics/article.mdx` 20 件（最大 552 字。「施工計画の目的」「作成時の留意点」「作成の手順」などの段落）
-- `content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx` 15 件（最大 456 字。安全管理の対策の列挙、工期・工事場所の記入要領など）。受検の手引・設問の公式文と重なる部分は書き換えず、公式の出典に寄せる
-- 過去問の記事（secondary-quality-management-past-problems 10 件・secondary-concrete-past-problems 2 件）は公式の設問文の一致。書き換えず、検査の扱いを DN-0617 で直す
-
-**やること**: 書籍の文の一致を独自の表現に書き直す（commercial-book は逐語 1 文も不可・reference-sources-policy.md）。公式の文章（受検の手引・設問）だけの一致は残し、出典を公式に寄せる。
-**完了条件**: Drive をマウントして `npm run check-reference-sources:deep` で、上の 2 記事の書籍の文の一致が 0（公式の文章だけが残る）。
+2026-10-10 に、コンクリート 5 冊（concrete-chief-textbook-2022・2024・concrete-diagnostician-textbook・concrete-basics-5th・construction-materials-basics）の候補表を `--rejudge` で作り直し、展開後のサイトに対して意味判定をやり直した（936 節。`--check` 違反 0・判定は Drive vault に同期済み・要約 `.claude/state/book-coverage.json` の判定日は 2026-10-10）。新しい gap は 9 節（診断士 3・基本 4・建設材料 2）、partial は 154 節で、追記の計画は 123 件（診断士 71・基本 32・建設材料 11・主任技士 2022 7・2024 1）。
+診断士の判定で、サイトの guide-essay・guide-trends の記述式の説明（問題A・問題B・3.5時間）が本の 2020 年版（2019 年度から問題B のみ・3.0 時間）と食い違うと指摘された。最新の試験要項（JCI）で確かめてから直す。
+総監の論文の本（pe-cem-essay-guide）は展開しない（2026-10-10 運営者判断・`--status` では未着手のまま残る）。
+**やること**: リポジトリの道具（`npm run drive-vault-sync -- --pull --group reference-book-coverage --commit` → `audit-reference-book-coverage --briefs --shelf コンクリート` と `--source-id construction-materials-basics` → Workflow `book-coverage-expand`・`book-coverage-photos`・`scripts/book-coverage-commit.mjs`。手順は book-coverage-expansion.md §0）で展開する。`.tmp/book-coverage/` の旧い道具は使わない。回して詰まった点は道具を直す。
+**完了条件**: `--status` で 5 冊が「展開済み」になり、診断士の記述式の説明を一次資料で確かめて直した。
 
 ### [DN-0567] Mac の週次 note 同期で、配布 PDF を Drive から取り寄せられない原因を突き止めて直す
 タグ: [収益化] [領域:商品] [時期:2026-10] [種類:不具合] [起票:2026-10-07] [期日:2026-10-12]
@@ -339,6 +342,37 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0635] 並行する PR が dispatch-log.json の末尾に記録を足して毎回衝突するので、両方を残して合わせる merge driver を入れる
+タグ: [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-10]
+
+**起点**: 2026-10-10、並行する PR（#951・#952・#953・#955）と develop への直 push のたびに `.claude/state/dispatch/dispatch-log.json` が衝突し、手で 5 回解消した。todo:complete はどのブランチでも配列の末尾に記録を足すので、2 本目以降の PR は必ず衝突し、衝突中の PR には GitHub の pull_request の CI が起動しない（#953 は衝突に気づくまで audit・build が 1 度も走らなかった）。解消のたびに、両方の記録を残す同じ手作業（develop の並び＋ブランチだけの記録を末尾）をしている。
+**やること**: 両方の記録を残して合わせる merge driver（`scripts/merge-dispatch-log.mjs`。id・at・task で重複を落とし、develop 側の並びの後にブランチ側だけの記録を足し、JSON の書式を保つ）を作り、`.gitattributes` に `merge=dispatch-log` を書く。driver の登録（git config）はクローンごとに要るので、`scripts/install-pre-commit.mjs`（または同等のセットアップ）で登録する。backlog.md の同様の衝突も数える（今回は自動で合わさった）。
+**完了条件**: 末尾に別々の記録を足した 2 本のブランチを合わせても衝突しないことをテストで確かめ、driver を登録していない環境では従来どおり衝突として止まる（黙って片方を捨てない）。
+
+
+### [DN-0634] 1級土木 H29 問題B No.4・No.31 の設問と解説の食い違いを、原本を探して直す（公式 PDF が掲載終了・保存版にも無い）
+タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [起票:2026-10-10]
+
+**起点**: 2026-10-10、DN-0618（1級土木 H29 問題B No.4 の解説が選択肢と食い違う）を照合した。該当は No.31 の選択肢 4 で、設問の文「水や塩化物イオンの浸入が想定されない場合でも，防水処理を行っておくのが望ましい」と、解説「想定される箇所には防水処理を行わなければならない」が食い違う（primary-h29-b/article.mdx L840・L850）。正答（3）は公式の正答肢表（Wayback の JCTC 170703d_yitg65・CIC 29_1cga.pdf）と一致する。同じ記事の No.4 選択肢 1 も、設問の文のままだと労働安全衛生規則第338条のただし書どおりの正しい文になり、正答 1 と矛盾する（設問の転記が原文と違う疑い）。guide-concrete-key-points L418 が No.31 の設問の文を引用している。
+**原本が無い**: H29 学科試験 問題B の公式 PDF（qb.pdf）は Wayback に 301・404 しか残っておらず、CIC は正答の表だけ。`data/pastexams/inventory.json` にも H29 の行が無い。
+**やること**: 問題B の原本を探す（Wayback の CDX を別の URL・時期で引く、国会図書館・書店の過去問集は使わない＝市販書籍の写しになる）。見つかれば No.4・No.31 の設問を原文で直し、解説を合わせる。見つからなければ、設問の文と矛盾しない解説に直し（No.31 は「望ましい」に合わせる）、原本未確認と記事の出典に書く。
+**完了条件**: No.4・No.31 の設問と解説が矛盾しない。原本で確かめたか、未確認と明記したかを記録する。
+
+
+### [DN-0632] サイトにメールの登録ページを作り、配信サービスを選ぶ（iOS アプリと記事から案内して note・ココナラへつなぐ）
+タグ: [収益化] [領域:サイト] [時期:2026-10..2026-11] [種類:制作] [起票:2026-10-10]
+
+**起点**: 2026-10-10 に運営者が、iOS 択一アプリを有料（無料ダウンロード＋全年度の買い切り ¥1,480）にし、利用者をメールのリストにして note・ココナラへつなぐと決めた。アプリには登録欄を作らず、サイトのメール登録ページへ誘導する（docs/products/07_iOS択一アプリ試作方針.md §1・§5）。メールの方針は docs/products/06_PWA過去問アプリ設計方針.md §5（メールが主チャネル・販促の同意は別に取る・アドレスを Git・GA4・CI に置かない）。サイトにはまだ登録の仕組みが無い。
+
+**やること**:
+1. メール配信サービスの候補を、費用（登録数ごと）・同意の記録・配信停止・データの書き出しと削除・日本語の扱い・埋め込みフォームの有無で比べ、運営者が選ぶ（外部サービスの登録は運営者が行う）
+2. サイトに登録ページを作る。配信サービスの埋め込みフォーム、利用目的（試験直前の情報・新しい教材の案内）、送信者の表示、配信停止の方法、同意のチェックを置く（特定電子メール法）。`/privacy` に項目を足す
+3. 入口を配線する。iOS アプリ（設定・結果の画面）からのリンク先 URL を決め、記事末尾の CTA（config/cta-placements.json）にも置く。登録ボタンのクリックを GA4 で数える
+4. 最初の配信の型を決める（試験直前の要点・note／ココナラの新しい教材の案内）
+
+**完了条件**: 登録ページが本番にあり、テスト用アドレスで登録→確認メール→配信停止まで通り、iOS アプリから張るリンク先 URL が決まっている。
+
+
 ### [DN-0630] Chrome の自己複製（code_sign_clone）を check-disk-hygiene と日次掃除の対象に入れる
 タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-10]
 
@@ -347,7 +381,8 @@
 **やること**:
 1. `scripts/check-disk-hygiene.mjs` に項目を足す。複製ごとの作成時刻と、起動中の Chrome（`pgrep -f "MacOS/Google Chrome"` の `ps -o lstart=`）の起動時刻を照合し、どの Chrome も使っていない複製を整理候補として数と容量を出す。Chrome が 1 つも動いていなければ全部を候補にする
 2. launchd の日次掃除（`com.doboku-note.disk-hygiene`）で候補を消す。使用中かどうか判定できないときは消さずに WARN を出す（検査不成立を問題なしと言わない）
-3. `.claude/knowledge/reference/disk-hygiene.md` に置き場と判定の仕方を足す
+3. Xcode を入れた後（DN-0453）は、`~/Library/Developer/Xcode/DerivedData` と使っていない iOS シミュレータのランタイム（`xcrun simctl runtime list`）も同じ検査で数え、DerivedData は日次掃除の対象にする。空きは Xcode 導入後に 20GB を切る見込みで、30GB の WARN 線を下回ったままになる
+4. `.claude/knowledge/reference/disk-hygiene.md` に置き場と判定の仕方を足す
 
 **完了条件**: `npm run check-disk-hygiene` が Chrome の複製の数・容量・整理候補を出し、日次掃除の後に使われていない複製が残っていない（起動中の Chrome の複製は残っている）。
 
@@ -365,13 +400,13 @@
 ### [DN-0628] 土木施工管理技士 iOS アプリ（1級＋2級）を App Store に無料で出す
 タグ: [収益化] [領域:商品] [時期:2027-02..2027-05] [種類:改善] [起票:2026-10-09]
 
-**起点**: 2026-10-09 の方針（docs/products/07_iOS択一アプリ試作方針.md §3.1〜§3.4）で、施工管理は種目ごとに 1 本、1級と 2級は同じアプリにまとめる。2級前期は例年 6 月、1級第一次は 7 月なので、2027 年春に出す。競合は 1級が TK office（18 年分・全問 ¥1,600）、2級がドリルラボ（12 回・全問 ¥1,870）。こちらは全問無料・全選択肢の解説で、公式正答付きの収録を 1級 16 年度以上・2級 14 回にする（DN-0623）。
+**起点**: 2026-10-09 の方針（docs/products/07_iOS択一アプリ試作方針.md §3.1〜§3.4）で、施工管理は種目ごとに 1 本、1級と 2級は同じアプリにまとめる。2級前期は例年 6 月、1級第一次は 7 月なので、2027 年春に出す。競合は 1級が TK office（18 年分・全問 ¥1,600）、2級がドリルラボ（12 回・全問 ¥1,870）。こちらは最新年度を無料で試せて全年度は ¥1,480 の買い切り（07 §1）、全選択肢の解説付きで、公式正答付きの収録を 1級 16 年度以上・2級 14 回にする（DN-0623）。
 
 **やること**:
 1. DN-0624 の判断を受け、DN-0453 で記録した横展開の手順どおり、技術士アプリと同じエンジンで土木施工管理技士アプリを作る（1級・2級の切り替え、図の同梱）
 2. DN-0623 で足した年度を含めてデータを書き出し、問題 ID の重複・消失の検査を通す
 3. 名前・サブタイトル・キーワード欄に「1級」「2級」「土木施工管理技士」を振り分け、審査に出して公開する
-4. 公開後 4 週間で、級ごとの検索語の表示回数と製品ページからのダウンロード率（全問無料の効き目。07 §6）を記録する
+4. 公開後 4 週間で、級ごとの検索語の表示回数と製品ページからのダウンロード率・買い切りの割合（07 §6）を記録する
 
 **完了条件**: 土木施工管理技士アプリ（1級＋2級）が 2027-05 までに App Store で公開され、級ごとの表示回数とダウンロード率が記録されている。
 
@@ -395,9 +430,9 @@
 **起点**: 2026-10-09 に iOS 択一アプリの試作方針（docs/products/07_iOS択一アプリ試作方針.md）を決め、最初の 1 本を技術士アプリ（第一次試験のみ・無料）にした。方針は「初回は目標値を置かず基準値を取り、技術士第一次試験（2026-11-22）の後に次を決める」（07 §6）。前提は DN-0453 で技術士アプリが TestFlight か App Store に出ていること。
 
 **やること**:
-1. App Store Connect の分析（表示回数・製品ページ閲覧・初回ダウンロード・ダウンロード率・継続率 1 日／7 日）と、同じ期間の Web 演習の `quiz_start`（GA4）を並べて記録する。公開できず TestFlight 止まりなら、運営者の 1 週間の使い心地と作る手間だけで判断する
+1. App Store Connect の分析（表示回数・製品ページ閲覧・初回ダウンロード・ダウンロード率・継続率 1 日／7 日・買い切りの割合と売上）と、同じ期間の Web 演習の `quiz_start`（GA4）を並べて記録する。公開できず TestFlight 止まりなら、運営者の 1 週間の使い心地と作る手間だけで判断する
 2. 07 §6 の 5 項目（作る手間・使い心地・App Store の反応・Web との関係・まとめ方の当否）を `data/business/records/` に判断として残す
-3. 次の 3 つを決めて 07 と 06_多資格展開戦略.md の判断の記録に書く: 総監を技術士アプリに足して公開するか（DN-0627）、土木施工管理技士アプリを出すか（DN-0628）、有料化（07 §4.3 の候補）を試すか
+3. 次の 3 つを決めて 07 と 06_多資格展開戦略.md の判断の記録に書く: 総監を技術士アプリに足して公開するか（DN-0627）、土木施工管理技士アプリを出すか（DN-0628）、価格（¥1,480）と有料版に足す機能（07 §4.3 の候補）を見直すか
 4. 管工事・建築・電気工事のアプリを作るかは、土木アプリの「全問無料の効き目」が出てから決める、と次の判断日を置く
 
 **完了条件**: 3 つの判断と根拠（数値または「未計測」）が 07・06 と `data/business/records/` に記録され、続くカードの [時期:] が判断に合わせて直っている。
@@ -416,10 +451,6 @@
 **完了条件**: 1級土木の構造化データが 18 年度分以上になり、足した年度の全問が公式正答と一致し、在庫台帳と Drive に原本が揃っている。
 
 
-### [DN-0621] 書籍の網羅の展開の道具（brief の生成・workflow・記事ごとのコミット）を Mac の .tmp からリポジトリへ移す
-タグ: [領域:教材] [時期:2026-10] [種類:改善] [起票:2026-10-09]
-
-2026-10-08〜09 の書籍の網羅の展開（DN-0591）は、brief の生成（判定の計画を記事ごとに束ねる Python）、workflow（expand-wf-v3.js・photo-wf.js）、記事ごとのコミット（commit-article.sh）を、セッションの一時置き場と Mac の .tmp/book-coverage/ に置いて回した。git 管理外なので、ほかの PC では再現できず、セッションの一時置き場は消える（運営者の方針「すべて git か Drive で共有」に反する）。やること: (1) brief の生成を audit-reference-book-coverage に --briefs として足す（新規案の重複の検出も）。(2) workflow を .claude/workflows/ に保存し、記事の置き場の絶対パスを args で受ける。(3) commit-article.sh を scripts/ へ移す（排他・trailer・一時の作業ツリーでの索引の作り直し・図のサイズの検査）。(4) book-coverage-expansion.md から参照する。完了条件: 別の PC で DN-0591 の残り（総監の論文の本）を、この 3 つだけで判定から展開まで回せる
 
 
 ### [DN-0620] 品質監査でテスト standards-ogp-guards が一時的に置く孤児 OGP を、並走する check-orphan-ogp が拾って CI が偶発的に赤くなる
@@ -430,31 +461,6 @@
 **完了条件**: 同じ組み合わせを 10 回流して orphan-ogp が赤にならない。
 
 
-### [DN-0619] 1級土木 H26 第一次（問題A）問54 の正答キー（選択肢1を誤りとする）を公式の正答と照らす
-タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-09]
-
-2026-10-09、書籍の網羅の展開で textbook-construction-business を QA したとき、リンク先の content/site/civil-construction-1/primary-h26-a/article.mdx 問54 の正答キー（選択肢1が誤り）が、指定建設業の監理技術者の資格（建設業法第26条第2項）と整合しないように見える、と指摘された。未確認。全国建設研修センターの公式の正答と問題 PDF を視覚照合し（memory feedback_exam_pdf_cross_reference・project_civil1_primary_answer_key_errors）、誤りなら正答と解説を直す。完了条件: 公式の正答の出典つきで正誤を決め、誤りなら直してコミット
-
-
-### [DN-0618] 1級土木の既存記事の誤り・食い違いを直す（書籍の網羅の展開の QA で見つかった範囲外の 6 件）
-タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-09]
-
-2026-10-09 の書籍の網羅の展開（DN-0591・1級・2級土木の棚）で、QA が追記の範囲外にある既存の記述の誤り・食い違いを指摘した。追記の担当は範囲外を編集しないので残っている。一次資料で確かめてから直す。
-- civil-construction-1/guide-strategy: 法規の出題数（L145〜155・L208〜214。労安は毎年 2 問、建設業法は令和 5 年度まで 1 問・令和 6 年度以降 2 問など）と、問題 A の問題数（令和 6 年度から工学基礎 5 問が加わり 66 問）を、追記した guide-law-key-points・同記事の実測と揃える（FAQ の JSON-LD も）
-- civil-construction-1/primary-h29-b: 4 番の解説「想定される箇所には防水処理を行わなければならない」が設問の選択肢と食い違う
-- civil-construction-1/primary-r03-b: L530（No.19）の解説「再資源化が困難なら縮減」「第 16 条」（建設副産物適正処理推進要綱の条と順位で訂正）
-- civil-construction-1/guide-environment-management: L29（FAQ）・L145 の再生資源利用計画等の保存期間（省令では完成後 5 年）
-- civil-construction-1/secondary-experience-writing-guide: 既存の「対象とは認められない工事」表の行（工場製作の鋼構造物製作・解体・ビル建築の杭・基礎・区画線）を令和 8 年度の受検の手引と照らす
-- civil-construction-1/secondary-quality-management-past-problems: R1 No.3 の本文（TS・GNSS を品質規定方式の項目に入れている・(イ) を最適含水比としている）を公式の問題・解答と照らす
-完了条件: 6 件それぞれ一次資料の出典つきで正誤を決め、誤りは直してコミット
-
-
-### [DN-0617] 逐語一致の検査が、書籍と共通の公式の文章（過去問の設問・受検の手引・法令や指針の正式名称）を書籍の写しとして拾う
-タグ: [領域:教材] [時期:2026-10] [種類:改善] [起票:2026-10-09]
-
-2026-10-09、書籍の網羅の展開（DN-0591）で記事の sources に書籍の id を足したところ、check-reference-sources --deep が公式の文章の一致を書籍の写しとして拾った。例: 過去問の設問文（secondary-quality-management-past-problems 10 件・最大 272 字、secondary-concrete-past-problems 2 件）、パワハラ防止指針の正式名称（power-harassment 54 字）、エシカル消費の定義（environmental-communication 47 字）。書籍も同じ公式の文章を載せているための一致で、言い換えられない。scripts/lib/reference-sources.mjs の VERBATIM_MIN_RUN の注記にある方針（閾値を上げず、規格名・法令名を比較対象から外す）に沿って直す。
-**やること**: (1) 公式の過去問の文字起こし（exam-official の原本）や公式資料に同じ連続文字列があれば、書籍との一致から除く（共通部分の差し引き）。(2) 法令・指針・規格の正式名称を除く。(3) 除いた件数を出力し、検査ゼロを PASS と呼ばない。
-**完了条件**: 上の 4 記事の公式の文章の一致が出なくなり、書籍の文の一致（DN-0580 の施工計画の基礎など）はこれまでどおり出る（回帰テストつき）
 
 
 
@@ -467,17 +473,10 @@
 
 
 
-### [DN-0606] 技術士の既存記事の誤りを直す（書籍の網羅の展開の QA で見つかった範囲外の 6 件）
-タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-08]
 
-2026-10-08 の書籍の網羅の展開（DN-0591・技術士の棚）で、QA が追記の範囲外にある既存の記述の誤り・食い違いを指摘した。追記の担当は範囲外を編集しないので残っている。一次資料で確かめてから直す。
-- pe-construction/pe-secondary-essay-guide: 冒頭 FAQ の「1枚600字（25字×24行）」と、「試験の構成と時間配分を頭に入れる」の Ⅱ-1・Ⅱ-2・Ⅲ の科目名（令和8年度 受験案内の「Ⅲ．試験科目」と補足で確かめる）
-- pe-comprehensive-management/r02-primary/article.mdx:1522 の「自動車廃棄残さ」（原問の転記ミスか、日本技術士会の公式 PDF と視覚照合）
-- pe-comprehensive-management/r05-primary/article.mdx:1635 の風力発電の環境アセスの規模要件（第一種 1万kW・第二種 0.75万〜1万kW は 2021 年改正前の値。現行は第一種 5万kW以上・第二種 3.75万〜5万kW。解説か設問かを確かめる）
-- pe-comprehensive-management/green-infrastructure: 官民連携プラットフォームの設立年（2019 年 → 2020 年 3 月か）
-- pe-comprehensive-management/exam-passing-strategy: 既存 L83 の「24問正解（60%）が合格ライン」（択一単独の合格線ではない）と、時間配分の節へのアンカーリンク
-- pe-construction/shiken-toujitsu-tejun: 既存文「時計は必ずアナログのものを」と、追記の「通信・計算機能付きと大型のみ不可」の食い違い
-完了条件: 6 件それぞれ一次資料の出典つきで正誤を決め、誤りは直してコミット
+
+
+
 
 
 ### [DN-0597] YouTube Analytics（視聴維持率・インプレッションのクリック率・流入元・Shorts→関連動画）を CI で取得し data/youtube へ残す
@@ -505,14 +504,6 @@
 **完了条件**: 両方の workflow が2回続けて成功し、`data/youtube/own-videos/`・`data/youtube/competitors/` に日付つきの記録が増える。`npm run check-competitor-scan-due -- --platform youtube` が ci として OK。
 
 
-### [DN-0595] 1級土木のサイトの記述と市販の教本の食い違いを、一次資料で確かめて直す（測量の許容差・分野別出題数・実務経験の可否・二次過去問の設問）
-タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-08]
-
-2026-10-08 の書籍の網羅の判定（DN-0591）で、Evaluator がサイトの記述と教本の食い違いを指摘した。どちらが正しいかは未確認（教本は 2021 年版や OCR の誤りもありうる）。一次資料（公式の過去問 PDF・受検の手引・JIS・測量の作業規程）で確かめ、サイトが誤っていれば直す。
-- civil-construction-1 の測量（textbook-leveling ほか）: 鋼巻尺の許容差、セオドライトの目盛誤差を正反観測で消せるか（civil1-textbook-general の判定）
-- civil-construction-1/guide-strategy: 分野別の出題数（ダム・トンネルの欠落、土木一般 5/5/5、労働安全衛生法 3〜4 問）と、実務経験として認められる工事の表（解体・杭）（civil1-primary-workbook-2021 の判定）
-- civil-construction-1 の二次過去問: H29 問題2・H30 問題1 などで設問・選択肢が教本と合わない（civil1-secondary-workbook-2021 の判定）。公式 PDF と視覚照合する（memory feedback_exam_pdf_cross_reference）
-詳細は Drive vault の 原資料PDF/書籍/<dir>/coverage/verdict.json（手元は drive-vault-sync --pull）。完了条件: 3 項目それぞれ一次資料の出典つきで正誤を決め、誤りは直してコミット
 
 
 ### [DN-0593] 総監の動画パック monbun-yomikata の layers 場面が描画できない（要点が画面に収まらない）
@@ -536,10 +527,6 @@
 2026-10-08、docs/handoffs/2026-10-08-dataset-catalog-unification.md が DN-0581 を参照していたところ、別セッションが DN-0581 を修正コミット e5df3a4bc の中で閉じ（todo:complete を通らず、doc-refs の確認も通らない）、マージで両方が develop に揃った時点で ci.yml の audit（tests/project-task-refs.test.mjs の dangling-id）が赤になった（run は 08a551580）。引き継ぎを消すまで約 45 分、develop の全 PR の CI が赤のままだった。案: (1) docs/handoffs/・docs/reviews/ の dangling-id は CI では警告にし、引き継ぎの抽出漏れ検査（check-handoff-extraction）側で扱う。(2) backlog.md からカードを消すコミット（todo:complete 以外）でも、pre-commit で liveDocsReferencing を回して止める。完了条件: 両方の回帰テスト・引き継ぎがカードを指したまま閉じても ci.yml が緑・pre-commit が todo:complete 外の削除を止める
 
 
-### [DN-0585] 台帳の id でデータを一覧・取得・絞り込みする共通の入口を作る（npm run data -- list/get/query。管理画面からも）
-タグ: [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-08]
-
-段階2（data-storage-decision.md「台帳を 1 本にして DB のように扱う」）。DB を置かずに SELECT 相当を台帳 scripts/lib/datasets.mjs の id で引けるようにする。list <id>（ファイル一覧と件数）・get <id> [--values]（中身）・query <id> --where <欄=値>（JSON の配列・対応表の行を絞る）。Drive vault の写し（drive）が手元に無ければ drive-vault-sync --pull を案内する。管理画面 /ops/store の詳細から同じ関数を呼ぶ。完了条件: 3 つの操作のテスト・commands.md に 1 行・管理画面で 1 データセットを絞り込める。前提: 段階1（PR #927 に積んだ .claude/state の台帳化）がマージ済み
 
 
 
@@ -1751,10 +1738,65 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 **完了条件**: `npm run record-net-receipts -- --month 2026-09` がココナラの値を自動で取り、手で確かめた額と一致する。
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
-### [DN-0622] Bash で worktree へ cd するとセッションの作業ディレクトリが移る事故を、フックで止めるか警告する
-タグ: [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-09]
+### [DN-0636] スクリプト共通化のリファクタを develop と衝突した 48 ファイルにやり直す（ルート・走査・引数・JSON 読みを共通部品へ）
+タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-10]
 
-2026-10-08〜09 の 1 セッションで、Bash の cd で .claude/worktrees/ に入ったことでセッションの作業ディレクトリが 6 回以上入れ替わった。memory（feedback_multi_session_concurrent_git）に『cd せず git -C と絶対パス、要るならサブシェル』と書いた後も再発した。そのあいだに起動したサブエージェントは相対パスを worktree 側へ書く（2026-10-08 に実害）。記録だけでは止まらないので機械化する。案: .claude/settings.json の PreToolUse（Bash）フックで、コマンドが『cd <…/.claude/worktrees/…>』で始まり、サブシェルの括弧に入っていないときに警告して止める（subshell の ( cd … && … ) と git -C は通す）。完了条件: フックの回帰テストで、素の cd は止まり、サブシェルと git -C は通る
+**起点**: 2026-10-10、10/04 から止まっていたスクリプト共通化のリファクタ（refactor/script-shared-helpers・PR #957）を develop へ入れた。develop と衝突した 48 ファイルは develop の版（いま動いている挙動）を採ったので、そのファイルはまだ自前のルート計算・walk・parseArgs・readJson を持つ。ラチェットの基準値は root 68・walk 43・parseArgs 26・readJson 10（tests/script-helpers-ratchet.test.mjs・tests/read-json-ratchet.test.mjs）。
+**対象（衝突で develop の版を採ったファイル）**:
+- `.claude/scripts/fetch-ga4-cta-clicks.mjs`
+- `.claude/scripts/lint-mdx-mobile.mjs`
+- `.claude/scripts/report-career-funnel.mjs`
+- `.claude/scripts/youtube/publish-video-batch.cjs`
+- `.claude/scripts/youtube/publish-video-pack.cjs`
+- `.claude/skills/social/publish-x/publish-x.ts`
+- `scripts/audit-figure-text.mjs`
+- `scripts/build-figure-provenance.mjs`
+- `scripts/check-affiliate-mats.mjs`
+- `scripts/check-affiliate-wiring.mjs`
+- `scripts/check-coconala-wiring.mjs`
+- `scripts/check-datasets.mjs`
+- `scripts/check-external-write-orphans.mjs`
+- `scripts/check-figure-crop-integrity.mjs`
+- `scripts/check-note-live-headings.mjs`
+- `scripts/check-video-publication.mjs`
+- `scripts/check-youtube-public-view.mjs`
+- `scripts/check-youtube-video-pack-shorts.mjs`
+- `scripts/generate-guide-covers.mjs`
+- `scripts/generate-ogp-backgrounds.mjs`
+- `scripts/ig-status.mjs`
+- `scripts/kdp-batch.mjs`
+- `scripts/kdp-publish.mjs`
+- `scripts/lib/coconala-session.mjs`
+- `scripts/lib/product-registry.mjs`
+- `scripts/note-magazine-cover.mjs`
+- `scripts/note-price-sweep.mjs`
+- `scripts/note-reconcile-title-price.mjs`
+- `scripts/note-swap-author-banner.mjs`
+- `scripts/prepare-instagram-video-pack-reels.mjs`
+- `scripts/prepare-video-pack-shorts.mjs`
+- `scripts/prepare-youtube-longforms.mts`
+- `scripts/publish-instagram-video-pack-reels.mjs`
+- `scripts/render-approved-longforms.mjs`
+- `scripts/render-longform.mjs`
+- `scripts/render-x-figure-drafts.mjs`
+- `scripts/stage-youtube-covers.mjs`
+- `scripts/stage-youtube-renders-r2.mjs`
+- `scripts/stage-youtube-shorts-r2.mjs`
+- `scripts/static-server.mjs`
+- `scripts/todo-complete.mjs`
+- `scripts/verify-ig-status.mjs`
+- `scripts/verify-video-publication.mjs`
+- `scripts/youtube-thumbnail-rollout.mjs`
+- `tests/career-funnel-report.test.mjs`
+- `tests/video-content-check.test.mjs`
+- `tests/video-publication-check.test.mjs`
+- `tests/youtube-authority-metadata.test.mjs`
+**やること**: 各ファイルのリポジトリのルートを `scripts/lib/repository-paths.mjs` の REPO_ROOT、再帰の走査を `scripts/lib/fs-walk.mjs` の listFiles、引数を `scripts/lib/cli-args.mjs` の parseCliArgs、JSON の読み込みを `scripts/lib/json-io.mjs` の readJson に置き換え（code ルールの共通部品の項）、減った分だけラチェットの基準値を下げる。挙動を変えないこと（各スクリプトの既存のテスト・--help・dry-run で確かめる）。
+**完了条件**: 上のファイルの自前の定義が 0（root-ok の行を除く）になり、ラチェットの基準値を下げた。全テスト緑。
+
+
+
+
 
 
 ### [DN-0603] 公開前の10秒ごとの画面確認（無音プレビュー・コンタクトシート・同じ画面の割合）をスクリプトにして承認前の関門にする
@@ -1828,10 +1870,6 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 2026-10-08、path-literals.mjs で置き場のパスを正規表現へ入れるとき「.」だけを逃がし、CodeQL（Incomplete string escaping）に指摘された（PR #927）。scripts/ に同じ escapeRegExp の書き写しが 16 か所あり、逃がす記号が少しずつ違う（datasets.mjs・reference-sources.mjs・disk-hygiene.mjs・playwright-auth.mjs は * や {} を意図して外すグロブ用、ほかは全記号）。案: scripts/lib/regexp-escape.mjs に escapeRegExp（全記号）と globToRegExp を置いて置き換え、tests/read-json-ratchet.test.mjs と同じ形のラチェットで書き写しを増やさない。完了条件: 置き換え後に既存テスト全件が通る・ラチェットの基準線が 0 か理由つきの例外だけ
 
 
-### [DN-0586] 台帳に参照（資格 id・商品 id・記事 slug）を宣言し、汎用の参照整合検査にする（外部キー相当）
-タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-08]
-
-段階3（data-storage-decision.md「台帳を 1 本にして DB のように扱う」）。各データセットの行に refs（JSON の場所 → qualification・product・article）を宣言し、check-datasets が参照先（qualification-registry.json・products.json・content/site の記事）の実在を検査する。既存の個別検査（check-qualification-ssot など）のうち汎用の検査で置き換えられるものを洗い出す。最初の対象は state.book-coverage の expansions[].article。完了条件: 宣言のある全データセットで参照切れ 0・検査した参照の件数を出力・検査ゼロを PASS にしない。前提: 段階2
 
 
 ### [DN-0572] note からココナラへの冒頭導線（DN-0268）の反映後 30 日の閲覧・注文を読み、残すか決める

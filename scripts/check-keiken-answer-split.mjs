@@ -5,9 +5,9 @@
  */
 import process from 'node:process';
 import { analyzeDocuments, collectDocuments, loadLimits } from './lib/keiken-answer-split.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 const TAG = '[check-keiken-answer-split]';
-const ROOT = process.cwd();
 const AS_JSON = process.argv.includes('--json');
 const STRICT_ASSETS = process.argv.includes('--strict-assets');
 

@@ -6,11 +6,9 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { MAX_FETCH_FAIL_RATE, fetchFailDominant } from '../scripts/lib/inconclusive-gate.mjs';
-
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
 test('fetchFailDominant: 上限を「超えたら」不成立（ちょうど 20% は成立）', () => {
   assert.equal(MAX_FETCH_FAIL_RATE, 0.2);

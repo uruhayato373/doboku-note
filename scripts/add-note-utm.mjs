@@ -14,13 +14,12 @@
 // - フラグメント (#anchor) が末尾にあればその前に挿入
 
 import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import matter from 'gray-matter';
 import { utmChannel } from './lib/utm-contract.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { parseCliArgs } from './lib/cli-args.mjs';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = join(__dirname, '..');
 const NOTE_DIR = join(ROOT, 'content/note');
 
 const URL_RE = /\bhttps:\/\/doboku-note\.com\/[^\s)\]」]+/g;
@@ -28,14 +27,11 @@ const URL_RE = /\bhttps:\/\/doboku-note\.com\/[^\s)\]」]+/g;
 const NOTE_UTM = utmChannel('note.site');
 
 function parseArgs(argv) {
-  const args = { target: null, campaign: null, dryRun: false };
-  for (let i = 0; i < argv.length; i++) {
-    const a = argv[i];
-    if (a === '--dry-run') args.dryRun = true;
-    else if (a === '--campaign') args.campaign = argv[++i];
-    else if (!a.startsWith('--') && !args.target) args.target = a;
-  }
-  return args;
+  const flags = parseCliArgs({
+    'dry-run': { type: 'boolean' },
+    campaign: { type: 'string' },
+  }, argv);
+  return { target: flags._.find(Boolean) ?? null, campaign: flags.campaign, dryRun: flags.dryRun };
 }
 
 // 2026-05-29 再編: content/note は試験別ディレクトリ配下に記事を持つ。

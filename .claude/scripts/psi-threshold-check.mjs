@@ -21,19 +21,17 @@ import { datasetDir, datasetPath } from "../../scripts/lib/datasets.mjs";
 import { SITE_ORIGIN } from "../../scripts/lib/site-identity.mjs";
 import { MAX_FETCH_FAIL_RATE } from "../../scripts/lib/inconclusive-gate.mjs";
 import { todayJst } from "../../scripts/lib/jst-date.mjs";
+import { parseCliArgs } from "../../scripts/lib/cli-args.mjs";
 
 const CONFIG_PATH = datasetPath("config.psi-config");
 const DEFAULT_STATE_DIR = datasetDir("psi.batch");
 
 function parseArgs() {
-  const args = process.argv.slice(2);
-  const opts = { json: false, output: null, stateDir: DEFAULT_STATE_DIR };
-  for (let i = 0; i < args.length; i++) {
-    if (args[i] === "--json") opts.json = true;
-    else if (args[i] === "--output") opts.output = args[++i];
-    else if (args[i] === "--state-dir") opts.stateDir = args[++i];
-  }
-  return opts;
+  return parseCliArgs({
+    json: { type: "boolean" },
+    output: { type: "string" },
+    "state-dir": { type: "string", default: DEFAULT_STATE_DIR },
+  });
 }
 
 function loadConfig() {

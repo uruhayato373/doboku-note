@@ -19,17 +19,20 @@
 //   node scripts/check-affiliate-prose.mjs            # content/site 全体
 //   node scripts/check-affiliate-prose.mjs --staged   # git staged の該当ファイルのみ（pre-commit 用）
 
-import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
-import { join } from 'node:path';
+import { readFileSync, existsSync } from 'node:fs';
+import { join, relative } from 'node:path';
 import { execFileSync } from 'node:child_process';
+import { REPO_ROOT as ROOT, SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
 const STAGED = process.argv.includes('--staged');
-const CONFIG = 'src/config/affiliate-prose-denylist.json';
-const SCAN_DIR = 'content/site';
+const CONFIG = join(ROOT, 'src/config/affiliate-prose-denylist.json');
+const SCAN_DIR = SITE_CONTENT_ROOT;
 const SCAN_EXT = /\.mdx?$/;
+const rel = (p) => relative(ROOT, p).split('\\').join('/');
 
 if (!existsSync(CONFIG)) {
-  console.error(`[check-affiliate-prose] ${CONFIG} が無いため検証をスキップ`);
+  console.error(`[check-affiliate-prose] ${rel(CONFIG)} が無いため検証をスキップ`);
   process.exit(0);
 }
 
@@ -50,17 +53,6 @@ function isAllowed(file, term) {
   return allow.has(`${key}::${term}`) || allow.has(`${key}::*`);
 }
 
-function walk(dir, out = []) {
-  if (!existsSync(dir)) return out;
-  for (const e of readdirSync(dir)) {
-    const p = join(dir, e);
-    const st = statSync(p);
-    if (st.isDirectory()) walk(p, out);
-    else if (SCAN_EXT.test(p)) out.push(p);
-  }
-  return out;
-}
-
 function stagedFiles() {
   try {
     const out = execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--cached', '--name-only', '--diff-filter=ACM'], {
@@ -68,17 +60,19 @@ function stagedFiles() {
     return out
       .split('\n')
       .map((s) => s.trim())
-      .filter((s) => s.startsWith(SCAN_DIR + '/') && SCAN_EXT.test(s) && existsSync(s));
+      .filter((s) => s.startsWith(rel(SCAN_DIR) + '/') && SCAN_EXT.test(s) && existsSync(join(ROOT, s)));
   } catch {
     return [];
   }
 }
 
-const files = STAGED ? stagedFiles() : walk(SCAN_DIR);
+const files = STAGED
+  ? stagedFiles()
+  : listFiles(SCAN_DIR, { match: (p) => SCAN_EXT.test(p), followLinks: true, allowMissing: true }).map(rel);
 
 const violations = [];
 for (const file of files) {
-  const lines = readFileSync(file, 'utf8').split('\n');
+  const lines = readFileSync(join(ROOT, file), 'utf8').split('\n');
   lines.forEach((line, i) => {
     for (const term of denyTerms) {
       if (line.includes(term) && !isAllowed(file, term)) {
@@ -100,7 +94,7 @@ if (violations.length > 0) {
     '  → 講座/添削の推奨を除去し、穴は note 模範論文・完成答案＋勉強仲間/職場の有資格者の目で埋める表現へ。',
   );
   console.error(
-    `  → 正当な出典引用・試験コンテンツなら ${CONFIG} の allow に {file, term, reason} を追記。`,
+    `  → 正当な出典引用・試験コンテンツなら ${rel(CONFIG)} の allow に {file, term, reason} を追記。`,
   );
   process.exit(1);
 }

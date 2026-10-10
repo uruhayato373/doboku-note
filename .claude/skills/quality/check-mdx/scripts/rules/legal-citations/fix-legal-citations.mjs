@@ -18,10 +18,10 @@
  *   macOS only。パスはスクリプト位置からプロジェクトルートを解決する。
  */
 import { readdirSync, readFileSync, writeFileSync, statSync, existsSync, mkdirSync } from 'node:fs';
-import { join, resolve, dirname, relative } from 'node:path';
+import { join, dirname, relative } from 'node:path';
 import { readMdxFile, writeMdxFile } from '#lib/mdx-io.mjs';
+import { REPO_ROOT as ROOT } from '../../../../../../../scripts/lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const POSTS_ROOT = join(ROOT, 'content/site/pe-comprehensive-management');
 const BACKUP_ROOT = '/tmp/fix-legal-citations-backup';
 

@@ -47,14 +47,13 @@ import { resolvePlacement, resolveArticleMidNoteSlot, resolveEndNoteSlot, render
 import { extractReferencesSection } from '../src/lib/extract-references';
 import { resolveHubCta } from '../src/lib/hub-cta';
 import { sidebarProduct, DISCOVERY_CATEGORIES } from '../src/lib/sidebar-discovery';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 // このリポジトリは package.json に "type" が無く、tsx は .ts を CJS として扱う。
 // src/lib/*.ts も CJS になるため、ESM(.mts) から named import すると
 // cjs-module-lexer が名前付きエクスポートを拾えず
 // 「does not provide an export named 'NOTE_MAGAZINES'」で落ちていた（2026-08-04）。
 // 拡張子を .ts に揃えて同じモジュール系にすることで解消している。
-// そのため import.meta.url は使えず __dirname を使う。
-const ROOT = join(__dirname, '..');
 const CI = process.argv.includes('--ci');
 const POSTS = join(ROOT, 'content/site');
 const EXEMPT_PATH = join(ROOT, '.claude/config/magazine-cta-baseline.json');

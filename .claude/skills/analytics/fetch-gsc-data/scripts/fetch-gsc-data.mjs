@@ -24,6 +24,7 @@ import { getDateRange, validateRange } from "../../../../../scripts/lib/gsc-date
 import dotenv from "dotenv";
 import { fetchGscPages } from "../../../../../scripts/lib/gsc-pagination.mjs";
 import { GSC_PROPERTY } from "../../../../../scripts/lib/site-identity.mjs";
+import { parseCliArgs } from "../../../../../scripts/lib/cli-args.mjs";
 
 
 
@@ -37,59 +38,47 @@ const API_PAGE_SIZE = 25000;
 
 // ── CLI args ──
 
+const FLAGS = {
+  "start-date": { type: "string" },
+  "end-date": { type: "string" },
+  exact: { type: "boolean" },
+  country: { type: "string" },
+  device: { type: "string" },
+  days: { type: "string", default: String(DEFAULT_DAYS) },
+  dimension: { type: "string", default: DEFAULT_DIMENSION }, // 後方互換の単一ディメンション
+  dimensions: { type: "string" }, // 複数ディメンション（--dimensions 指定時）
+  limit: { type: "string", default: String(DEFAULT_LIMIT) },
+  all: { type: "boolean" },
+  query: { type: "string" },
+  page: { type: "string" },
+};
+
 function parseArgs() {
   const args = process.argv.slice(2);
-  const opts = {
-    days: DEFAULT_DAYS,
-    dimensions: null, // 複数ディメンション（--dimensions 指定時）
-    dimension: DEFAULT_DIMENSION, // 後方互換の単一ディメンション
-    limit: DEFAULT_LIMIT,
-    all: false,
-    query: null,
-    page: null,
-  };
-
+  // 知らない引数は拒否する（parseCliArgs は無視するので先に確かめる。値として読まれる引数は飛ばす）
   for (let i = 0; i < args.length; i++) {
-    switch (args[i]) {
-      case "--start-date":
-        opts.startDate = args[++i]; break;
-      case "--end-date":
-        opts.endDate = args[++i]; break;
-      case "--exact":
-        opts.exact = true; break;
-      case "--country":
-        opts.country = args[++i]; break;
-      case "--device":
-        opts.device = args[++i]; break;
-      case "--days":
-        opts.days = parseInt(args[++i], 10);
-        break;
-      case "--dimension":
-        opts.dimension = args[++i];
-        break;
-      case "--dimensions":
-        // カンマ区切り（例: page,query）。前後空白を除去。
-        opts.dimensions = args[++i]
-          .split(",")
-          .map((s) => s.trim())
-          .filter(Boolean);
-        break;
-      case "--limit":
-        opts.limit = parseInt(args[++i], 10);
-        break;
-      case "--all":
-        opts.all = true;
-        break;
-      case "--query":
-        opts.query = args[++i];
-        break;
-      case "--page":
-        opts.page = args[++i];
-        break;
-      default:
-        throw new Error(`Unknown argument: ${args[i]}`);
-    }
+    const flag = args[i].startsWith("--") && Object.hasOwn(FLAGS, args[i].slice(2)) ? FLAGS[args[i].slice(2)] : null;
+    if (!flag) throw new Error(`Unknown argument: ${args[i]}`);
+    if (flag.type !== "boolean") i++;
   }
+  const parsed = parseCliArgs(FLAGS, args);
+  const opts = {
+    days: parseInt(parsed.days, 10),
+    // カンマ区切り（例: page,query）。前後空白を除去。
+    dimensions: parsed.dimensions === null
+      ? null
+      : parsed.dimensions
+        .split(",")
+        .map((s) => s.trim())
+        .filter(Boolean),
+    dimension: parsed.dimension,
+    limit: parseInt(parsed.limit, 10),
+    all: parsed.all,
+    query: parsed.query,
+    page: parsed.page,
+  };
+  for (const key of ["startDate", "endDate", "country", "device"]) if (parsed[key] != null) opts[key] = parsed[key];
+  if (parsed.exact) opts.exact = true;
 
   // 実効ディメンション配列を確定（--dimensions 優先・無ければ単一 --dimension）。
   opts.effectiveDimensions =

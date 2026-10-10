@@ -24,13 +24,10 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
  * ---------------------------------------------------------------------------
  */
 import { chromium } from 'playwright';
-import { fileURLToPath } from 'node:url';
-import { dirname, join } from 'node:path';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { NOTE_BASE } from './lib/site-identity.mjs';
+import { REPO_ROOT as PROJECT_ROOT } from './lib/repository-paths.mjs';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const PROJECT_ROOT = join(__dirname, '..');
 const proxy = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 // publish-x と同じ「システム Chrome + 永続プロファイル」方式。
 // 組み込み Chromium だと Google/note に bot 判定されるため channel:'chrome' 必須。

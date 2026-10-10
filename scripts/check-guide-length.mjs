@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 // ガイド記事（group: guide）の本文ボリューム下限ゲート。
 //
-// ルール（真実源: .claude/knowledge/reference/content-principles.md §25）:
+// ルール（真実源: .claude/knowledge/reference/content-principles.md §25・値は config/content-rules.json の lengths.guideMinChars）:
 //   published かつ group: guide の記事は、本文（frontmatter を除き空白除去後）
-//   3,000 字以上を必須とする。下回るものは「薄い記事（thin content）」として赤落ち。
+//   下限（3,000 字）以上を必須とする。下回るものは「薄い記事（thin content）」として赤落ち。
 //
 // 背景: ガイド記事は検索流入の入口かつ note 有料コンテンツへのコンバージョン地点
 //   （content-principles §20）。各 H2 セクションが §17（散文 200〜400 字/セクション）を
@@ -18,28 +18,27 @@
 //   node scripts/check-guide-length.mjs --all      # published 問わず全 guide を一覧（バーンダウン進捗確認）
 // 下限未満が 1 件でもあれば exit 1（--all は集計のみで exit 0）。
 
-import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
-import { join } from 'node:path';
+import { readFileSync, existsSync } from 'node:fs';
+import { join, relative } from 'node:path';
 import { execFileSync } from 'node:child_process';
+import { REPO_ROOT, SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
+import { readDataset } from './lib/dataset-io.mjs';
 
-const THRESHOLD = 3000;
-const ROOT = 'content/site';
+const THRESHOLD = readDataset(REPO_ROOT, 'config.content-rules').lengths.guideMinChars;
+const ROOT = SITE_CONTENT_ROOT;
+// 表示・staged（git の出力）との照合は、リポジトリルートからの相対パスで行う
+const rel = (p) => relative(REPO_ROOT, p).split('\\').join('/');
 const STAGED = process.argv.includes('--staged');
 const ALL = process.argv.includes('--all');
 
-function walk(dir, out = []) {
-  if (!existsSync(dir)) return out;
-  for (const e of readdirSync(dir)) {
-    const p = join(dir, e);
-    if (statSync(p).isDirectory()) walk(p, out);
-    else if (e.endsWith('.mdx')) out.push(p.split('\\').join('/'));
-  }
-  return out;
+function walk(dir) {
+  return listFiles(dir, { ext: '.mdx', followLinks: true, allowMissing: true }).map(rel);
 }
 
 // frontmatter を分離し、{ fm, body } を返す。frontmatter が無ければ null。
 function parse(file) {
-  const t = readFileSync(file, 'utf8');
+  const t = readFileSync(join(REPO_ROOT, file), 'utf8');
   const m = t.match(/^---\r?\n([\s\S]*?)\r?\n---/);
   if (!m) return null;
   return { fm: m[1], body: t.slice(m[0].length) };
@@ -67,7 +66,7 @@ if (STAGED) {
   } catch {
     staged = [];
   }
-  files = staged.filter((f) => f.startsWith(`${ROOT}/`) && f.endsWith('.mdx') && existsSync(f));
+  files = staged.filter((f) => f.startsWith(`${rel(ROOT)}/`) && f.endsWith('.mdx') && existsSync(join(REPO_ROOT, f)));
 } else {
   files = walk(ROOT);
 }

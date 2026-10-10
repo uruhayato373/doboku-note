@@ -1,15 +1,15 @@
 import { test } from 'node:test';
+import { join } from 'node:path';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { fileURLToPath, URL } from 'node:url';
 import { execFileSync } from 'node:child_process';
 import process from 'node:process';
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
-const ROOT = fileURLToPath(new URL('..', import.meta.url));
-const read = (rel) => readFileSync(ROOT + rel, 'utf8');
+const read = (rel) => readFileSync(join(ROOT, rel), 'utf8');
 
 test('単品の精読ガイド5枚も分類画像を使い、個別のURL・商品名・計測を保ち、改定の多い価格を表示しない', () => {
-  const rows = JSON.parse(execFileSync(process.execPath, [ROOT + 'node_modules/tsx/dist/cli.mjs', '-e', `
+  const rows = JSON.parse(execFileSync(process.execPath, [join(ROOT, 'node_modules/tsx/dist/cli.mjs'), '-e', `
     import React from 'react';
     import {renderToStaticMarkup} from 'react-dom/server';
     import {readFileSync} from 'node:fs';
@@ -37,7 +37,7 @@ test('単品の精読ガイド5枚も分類画像を使い、個別のURL・商�
 });
 
 test('完成画像のバナーに価格・説明を添えず、商品一覧は識別名だけを表示する', () => {
-  const rows = JSON.parse(execFileSync(process.execPath, [ROOT + 'node_modules/tsx/dist/cli.mjs', '-e', `
+  const rows = JSON.parse(execFileSync(process.execPath, [join(ROOT, 'node_modules/tsx/dist/cli.mjs'), '-e', `
     import React from 'react';
     import {renderToStaticMarkup} from 'react-dom/server';
     import Cta from './src/components/ui/NoteImageCta/NoteImageCta.tsx';
@@ -70,7 +70,7 @@ test('note CTA は表示インプレッションと配置を計測する', () =>
   assert.match(provider, /coconala_cta_impression/);
   assert.match(provider, /\[data-cta="affiliate"\], \[data-cta="coconala"\]/);
 
-  const html = JSON.parse(execFileSync(process.execPath, [ROOT + 'node_modules/tsx/dist/cli.mjs', '-e', `
+  const html = JSON.parse(execFileSync(process.execPath, [join(ROOT, 'node_modules/tsx/dist/cli.mjs'), '-e', `
     import React from 'react';
     import { renderToStaticMarkup } from 'react-dom/server';
     import Hero from './src/components/ui/MagazineHeroCta/MagazineHeroCta.tsx';
@@ -96,7 +96,7 @@ test('note CTA は表示インプレッションと配置を計測する', () =>
 });
 
 test('一次PDFは本文2:1・サイドバー6:5の生成画像をR2から表示する', () => {
-  const result = JSON.parse(execFileSync(process.execPath, [ROOT + 'node_modules/tsx/dist/cli.mjs', '-e', `
+  const result = JSON.parse(execFileSync(process.execPath, [join(ROOT, 'node_modules/tsx/dist/cli.mjs'), '-e', `
     import React from 'react';
     import { renderToStaticMarkup } from 'react-dom/server';
     import { getMagazine } from './src/lib/note-magazines.ts';

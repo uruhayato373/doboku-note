@@ -24,7 +24,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const PROJECT_ROOT = path.resolve(__dirname, "../../..");
+const PROJECT_ROOT = path.resolve(__dirname, "../../.."); // root-ok: CJS（ファイルの場所から決めている）
 const MAG_ROOT = path.join(PROJECT_ROOT, "content/note/技術士総監/magazines");
 
 // 長い/括弧付きを先に置換する（順序が重要）

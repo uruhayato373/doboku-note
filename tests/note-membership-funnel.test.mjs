@@ -7,30 +7,18 @@
 // esbuild でトランスパイルして呼ぶ（magazine-placement.ts は import type のみ＝ランタイム依存ゼロ）。
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync, readdirSync, statSync } from 'node:fs';
-import { join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { readFileSync } from 'node:fs';
+import { join, relative } from 'node:path';
 import { buildSync } from 'esbuild';
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
+import { listFiles } from '../scripts/lib/fs-walk.mjs';
 
-// URL.pathname は Windows で "/C:/..." を返し、readFileSync が "C:\C:\..." と
-// 解決して ENOENT になる（CI は Linux なので緑、ローカルだけ赤という割れ方をする）。
-// fileURLToPath でプラットフォーム固有のパスへ変換する。
-const ROOT = fileURLToPath(new URL('..', import.meta.url));
-const read = (rel) => readFileSync(ROOT + rel, 'utf8');
+const read = (rel) => readFileSync(join(ROOT, rel), 'utf8');
 
 const JOIN_URL = 'https://note.com/dobokunote/membership/join';
 const MEMBERSHIP_ID = 'civil-membership-lab';
 const CTA_MARKER = '<!-- cta:civil-membership-lab -->';
 const INTRO_SELF_URL = 'https://note.com/dobokunote/n/n6b66793ca20c';
-
-function walkArticles(dir, out = []) {
-  for (const e of readdirSync(dir)) {
-    const p = join(dir, e);
-    if (statSync(p).isDirectory()) { if (e !== 'メンバーシップ') walkArticles(p, out); }
-    else if (/^article(-[^/\\]+)?\.md$/.test(e)) out.push(p);
-  }
-  return out;
-}
 
 // ── SoT: 撤退した会員は published:false（getMagazine が null を返し全 CTA が消える）──
 test('note-magazines.ts: civil-membership-lab は撤退済み（published:false）', () => {
@@ -42,20 +30,20 @@ test('note-magazines.ts: civil-membership-lab は撤退済み（published:false�
 
 // ── note 記事: 会員向け記事以外に会員への導線が残っていない ───────────────
 test('note 記事: 会員向け記事以外に合格ラボへの導線が無い', () => {
-  const files = walkArticles(ROOT + 'content/note');
+  const files = listFiles(join(ROOT, 'content/note'), { followLinks: true, skipDir: (_p, name) => name === 'メンバーシップ', match: (_p, name) => /^article(-[^/\\]+)?\.md$/.test(name) });
   assert.ok(files.length > 100, `走査した note 記事が少なすぎる: ${files.length}`);
   const hits = files.filter((f) => {
     const c = readFileSync(f, 'utf8');
     return [CTA_MARKER, JOIN_URL, INTRO_SELF_URL].some((needle) => c.split(needle).length > 1);
   });
-  assert.deepEqual(hits.map((f) => f.slice(ROOT.length)), [], '撤退した会員への導線が残っている');
+  assert.deepEqual(hits.map((f) => relative(ROOT, f).split('\\').join('/')), [], '撤退した会員への導線が残っている');
 });
 
 // ── サイト配置: 土木の代表面に会員 CTA が出ない ─────────────────────────────
 test('resolvePlacement: 土木の配置にメンバーシップが出ない', async () => {
   const ts = read('src/lib/magazine-placement.ts');
   const js = buildSync({
-    stdin: { contents: ts, loader: 'ts', resolveDir: ROOT + 'src/lib' },
+    stdin: { contents: ts, loader: 'ts', resolveDir: join(ROOT, 'src/lib') },
     bundle: true,
     write: false,
     format: 'esm',
@@ -97,7 +85,7 @@ test('resolvePlacement: 土木の配置にメンバーシップが出ない', as
 test('resolveCivil1PrimaryLead: 二次試験当日まで二次、翌日から一次へ戻す', async () => {
   const ts = read('src/lib/magazine-placement.ts');
   const js = buildSync({
-    stdin: { contents: ts, loader: 'ts', resolveDir: ROOT + 'src/lib' },
+    stdin: { contents: ts, loader: 'ts', resolveDir: join(ROOT, 'src/lib') },
     bundle: true,
     write: false,
     format: 'esm',

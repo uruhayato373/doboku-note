@@ -16,26 +16,21 @@
 //   node scripts/check-rccm-essay.mjs --staged              # git staged の article.md のみ（pre-commit 用）
 //   node scripts/check-rccm-essay.mjs <path...> [--strict]   # 指定ファイル（writer/qa の返却前ゲート）
 // exit: 0 合格 / 1 違反あり / 2 検査不成立（対象 0 件をパスと呼ばない）
-import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
-import { join } from 'node:path';
+import { readFileSync, existsSync } from 'node:fs';
+import { join, relative } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import matter from 'gray-matter';
 import { evaluateRccmEssay } from './lib/rccm-essay.mjs';
+import { REPO_ROOT, NOTE_CONTENT_ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
-const ROOT = 'content/note/RCCM';
+const ROOT = join(NOTE_CONTENT_ROOT, 'RCCM');
+// 表示と git の出力に合わせた、リポジトリからの相対パス（/ 区切り）
+const toRel = (p) => relative(REPO_ROOT, p).split('\\').join('/');
+const ROOT_REL = toRel(ROOT);
 const STRICT = process.argv.includes('--strict');
 const STAGED = process.argv.includes('--staged');
 const explicit = process.argv.slice(2).filter((a) => !a.startsWith('--'));
-
-function walk(dir, out = []) {
-  if (!existsSync(dir)) return out;
-  for (const e of readdirSync(dir)) {
-    const p = join(dir, e);
-    if (statSync(p).isDirectory()) walk(p, out);
-    else if (/^article(-[^/]+)?\.md$/.test(e)) out.push(p.split('\\').join('/'));
-  }
-  return out;
-}
 
 let files;
 if (explicit.length) {
@@ -46,9 +41,9 @@ if (explicit.length) {
     staged = execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--cached', '--name-only', '--diff-filter=ACM'], { encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 })
       .split('\n').map((s) => s.trim()).filter(Boolean);
   } catch { staged = []; }
-  files = staged.filter((f) => f.startsWith(`${ROOT}/`) && /(^|\/)article(-[^/]+)?\.md$/.test(f) && existsSync(f));
+  files = staged.filter((f) => f.startsWith(`${ROOT_REL}/`) && /(^|\/)article(-[^/]+)?\.md$/.test(f) && existsSync(f));
 } else {
-  files = walk(ROOT);
+  files = listFiles(ROOT, { match: (_p, name) => /^article(-[^/]+)?\.md$/.test(name), allowMissing: true, followLinks: true }).map(toRel);
 }
 
 const missing = files.filter((f) => !existsSync(f));

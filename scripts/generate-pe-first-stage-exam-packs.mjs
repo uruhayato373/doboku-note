@@ -3,11 +3,10 @@
 // 図・数式・表・公式正答番号なしの問題は、クイズ本体には残したままSNSだけ除外する。
 
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
-import { resolve, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { resolve } from 'node:path';
 import { chooseProblemLayout } from '../.claude/scripts/lib/sns-common/quiz-slides.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const DATA_PATH = resolve(ROOT, 'public/quiz/pe-first-stage.json');
 const OUT_ROOT = resolve(ROOT, 'content/sns/instagram/pe-first-stage/exam-packs');
 const arg = (name) => {

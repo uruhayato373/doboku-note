@@ -15,13 +15,13 @@
  *   node scripts/check-monthly-review-due.mjs --json
  */
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { join } from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { createOutput, runAsCli } from './lib/cli-run.mjs';
 import { datasetDir } from './lib/datasets.mjs';
 import { jstClock } from './lib/jst-date.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const REVIEW_DIR = join(ROOT, datasetDir('business.review'));
 export const DUE_DAY = 3;
 

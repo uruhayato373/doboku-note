@@ -2,9 +2,10 @@
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { buildReport, reviewPeriod, saveRecord, snapshot } from './lib/business-direction.mjs';
+import { REPO_ROOT } from './lib/repository-paths.mjs';
 const args = process.argv.slice(2), get = key => args[args.indexOf(key) + 1];
 try {
-  const root = resolve(args.includes('--repo') ? get('--repo') : process.cwd());
+  const root = resolve(args.includes('--repo') ? get('--repo') : REPO_ROOT);
   const cadence = args.includes('--monthly') ? 'monthly' : 'weekly';
   const period = args.includes('--start') ? { startDate: get('--start'), endDate: get('--end') } : reviewPeriod(cadence);
   const command = args[0] ?? 'report';

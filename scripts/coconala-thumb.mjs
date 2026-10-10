@@ -17,14 +17,13 @@
 import fs from 'node:fs';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import satori from 'satori';
 import sharp from 'sharp';
 import { readCatalog, readListings } from './lib/coconala-session.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
+import { REPO_ROOT as ROOT, COCONALA_CONTENT_ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const FONTS_DIR = path.join(ROOT, '.claude/skills/conversion/ogp-create/assets/fonts');
 const argv = process.argv.slice(2);
 const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : null; };
@@ -52,7 +51,7 @@ const THEMES = {
   rccm: { bar: '#9c3d1e', eyebrow: '#742d15' }, // --exam-rccm（赤褐色）系。note-cover-tokens.json exams.rccm と同色
 };
 // RCCM は写真マスター未整備のため書類系の既定背景（bg-docs）を使う
-const BG_RCCM = 'content/coconala/assets/bg-docs.png';
+const BG_RCCM = path.join(COCONALA_CONTENT_ROOT, 'assets/bg-docs.png');
 // wide 1600×667 から 4:3（889×667）をどの x から切るか（右端 = 1600-889 = 711）
 const CROP_X = { moshi: 711, kanseitoan: 380, full: 560, premium: 200, tensaku: 100, sakusei: 420 };
 
@@ -389,7 +388,7 @@ async function resolveVisual(id, svc, bgOverride) {
 const approved = readDataset(ROOT, 'coconala.thumb-approved').images;
 const catalog = readCatalog();
 const listings = readListings();
-const DEFAULT_BG = 'content/coconala/assets/bg-civil.png';
+const DEFAULT_BG = path.join(COCONALA_CONTENT_ROOT, 'assets/bg-civil.png');
 const bgOverride = getArg('--bg');
 const only = getArg('--service');
 const targets = only ? [only] : Object.keys(THUMB_COPY);

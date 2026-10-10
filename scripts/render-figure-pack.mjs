@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 // 手書きSVGの図解カルーセルを再生成する。元図・元記事の変更は再確認を促して停止。
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
-import { resolve, relative, isAbsolute, dirname, join } from 'node:path';
+import { resolve, relative, isAbsolute, join } from 'node:path';
 import { createHash } from 'node:crypto';
 import { parseArgs } from 'node:util';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { pathToFileURL } from 'node:url';
 import { Resvg } from '@resvg/resvg-js';
 import { figurePackLabels, FIGURE_PACK_CATEGORIES } from '../.claude/scripts/sns/lib/figure-pack-labels.mjs';
-const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 export const FIGURE_SLIDES = ['00-cover', '01-figure', '02-text', '03-cta'];
 function inside(root, path) {
   const full = resolve(root, path), rel = relative(root, full);

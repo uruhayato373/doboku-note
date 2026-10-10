@@ -17,12 +17,12 @@
  *   node scripts/check-weekly-review-due.mjs --json
  */
 import { existsSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { join } from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { createOutput, runAsCli } from './lib/cli-run.mjs';
 import { jstClock } from './lib/jst-date.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const DUE_DOW = 6;      // 土曜
 const DUE_HOUR = 9;     // 09:00 JST
 

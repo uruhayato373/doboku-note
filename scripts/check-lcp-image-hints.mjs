@@ -21,24 +21,22 @@
 //   node scripts/check-lcp-image-hints.mjs --fix      # 違反を自動修正（loading/fetchpriority を付与）
 // 違反が 1 件でもあれば exit 1（--fix は修正後 exit 0）。
 
-import { readFileSync, writeFileSync, readdirSync, statSync, existsSync } from 'node:fs';
-import { join } from 'node:path';
+import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { join, relative } from 'node:path';
 import { execFileSync } from 'node:child_process';
+import { REPO_ROOT, SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
 // フォールド内とみなす本文先頭からの文字数。モバイル 844px 相当の経験値。
 const MAX_OFFSET = 2000;
-const ROOT = 'content/site';
+const ROOT = SITE_CONTENT_ROOT;
+// 表示・staged（git の出力）との照合は、リポジトリルートからの相対パスで行う
+const rel = (p) => relative(REPO_ROOT, p).split('\\').join('/');
 const STAGED = process.argv.includes('--staged');
 const FIX = process.argv.includes('--fix');
 
-function walk(dir, out = []) {
-  if (!existsSync(dir)) return out;
-  for (const e of readdirSync(dir)) {
-    const p = join(dir, e);
-    if (statSync(p).isDirectory()) walk(p, out);
-    else if (e.endsWith('.mdx')) out.push(p.split('\\').join('/'));
-  }
-  return out;
+function walk(dir) {
+  return listFiles(dir, { ext: '.mdx', followLinks: true, allowMissing: true }).map(rel);
 }
 
 // frontmatter を除いた本文と、その開始オフセットを返す。
@@ -90,7 +88,7 @@ if (STAGED) {
   } catch {
     staged = [];
   }
-  files = staged.filter((f) => f.startsWith(`${ROOT}/`) && f.endsWith('.mdx') && existsSync(f));
+  files = staged.filter((f) => f.startsWith(`${rel(ROOT)}/`) && f.endsWith('.mdx') && existsSync(join(REPO_ROOT, f)));
 } else {
   files = walk(ROOT);
 }
@@ -100,7 +98,7 @@ let checked = 0;
 let fixed = 0;
 
 for (const f of files) {
-  const raw = readFileSync(f, 'utf8');
+  const raw = readFileSync(join(REPO_ROOT, f), 'utf8');
   const { body, start } = splitBody(raw);
   const img = findFoldImage(body);
   if (!img) continue;
@@ -112,7 +110,7 @@ for (const f of files) {
   if (FIX) {
     const abs = start + img.offset;
     const next = fixTag(img.tag);
-    writeFileSync(f, raw.slice(0, abs) + next + raw.slice(abs + img.tag.length), 'utf8');
+    writeFileSync(join(REPO_ROOT, f), raw.slice(0, abs) + next + raw.slice(abs + img.tag.length), 'utf8');
     fixed++;
     continue;
   }

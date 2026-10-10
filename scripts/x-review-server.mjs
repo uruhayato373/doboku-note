@@ -2,10 +2,9 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import http from 'node:http';
-import { fileURLToPath } from 'node:url';
 import { readXReview } from './lib/x-review.mjs';
+import { REPO_ROOT as root } from './lib/repository-paths.mjs';
 
-const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const at=process.argv.indexOf('--port');
 const port=at<0?3026:Number(process.argv[at+1]);
 if(!Number.isInteger(port)||port<1024||port>65535)throw Error('port が不正です');

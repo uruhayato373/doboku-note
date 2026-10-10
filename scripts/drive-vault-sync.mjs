@@ -2,7 +2,7 @@
 // drive-vault-sync.mjs — 人か手元のスクリプトだけが使うアセットを Google Drive vault へ置く／取り戻す。
 //
 // R2 系の asset-offload / asset-hydrate と同じ契約を Drive 宛に移したもの:
-//   - 既定は dry-run。書き込みは --commit。**ローカル削除も git 追跡解除もしない**（別操作・別承認）
+//   - 既定は dry-run。書き込みは --commit（取り戻しの --pull も同じ。DN-0631）。**ローカル削除も git 追跡解除もしない**（別操作・別承認）
 //   - コピー後に vault 側から読み直し、sha256 が一致したものだけ台帳へ載せる
 //   - 台帳（.claude/state/assets/drive-manifest.json）には vault 相対パスだけを書く
 //
@@ -14,7 +14,8 @@
 //   node scripts/drive-vault-sync.mjs --group X --verify [--deep] [--cloud] --out .tmp/x-ok.txt
 //   node scripts/drive-vault-sync.mjs --group X --verify --deep --cloud --commit   # 3 者が一致した行に Drive のファイル ID（driveFileId）と verifiedAt を書く
 //                                                                                   # local ↔ 台帳 ↔ vault（--cloud で Drive API の md5 も）
-//   node scripts/drive-vault-sync.mjs --pull --path 'content/note/技術士総監/x/pdf/'  # vault → repo
+//   node scripts/drive-vault-sync.mjs --pull --path 'content/note/技術士総監/x/pdf/' --dry-run # 取り戻す件数と合計サイズ（--commit なしの既定）
+//   node scripts/drive-vault-sync.mjs --pull --path 'content/note/技術士総監/x/pdf/' --commit  # vault → repo
 //   node scripts/drive-vault-sync.mjs --group white-paper-source-pdf --from-vault --commit
 //                                                                                   # vault にだけある原本をその場で読み、台帳へ登録する（vault へは書かない）
 //
@@ -31,6 +32,7 @@ import {
   realBytesAndHashes, loadDriveManifest, writeDriveManifestAtomic, sanitizeDriveEntry, toVaultRel, repoRelForVault, immutableConflict } from './lib/drive-vault.mjs';
 import { loadManifest as loadR2Manifest, loadConfig as loadR2Config, loadEnvLocal, makeS3, hasR2Credentials, imageSize } from './lib/asset-storage.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
 const argv = process.argv.slice(2);
 const flag = (n) => argv.includes(n);
@@ -202,8 +204,8 @@ async function push(cfg, group, mount, manifest) {
     for (const scanDir of cfg.dedupeScan || []) {
       const absDir = vaultAbsFor(mount.root, scanDir);
       if (!existsSync(absDir)) continue;
-      const files = [];
-      walk(absDir, files);
+      // 隠しファイル・隠しディレクトリ（. で始まる名前）は数えない
+      const files = listFiles(absDir, { skipDir: (_p, name) => name.startsWith('.'), match: (_p, name) => !name.startsWith('.') });
       const picked = files.filter((f) => exts.has((f.split('.').pop() || '').toLowerCase()));
       console.log('  dedupe 索引: ' + scanDir + ' の ' + files.length + ' ファイルのうち拡張子 {' + [...exts].join(',') + '} の ' + picked.length + ' 件を読んでハッシュ化 ...');
       files.length = 0; files.push(...picked);
@@ -428,8 +430,11 @@ async function pull(cfg, group, mount, manifest) {
   if (PATH_PREFIX) entries = entries.filter(([k]) => k.startsWith(toVaultRel(PATH_PREFIX)));
   if (entries.length === 0) die('台帳に該当エントリが 0 件。検査不成立。');
   if (!mount.root) die('vault のマウントが無いので取り戻せない。' + mount.reason);
-  console.log('[' + NAME + ' --pull] 対象 ' + entries.length + ' 件 / mode=' + (COMMIT || !flag('--dry-run') ? 'PULL' : 'DRY-RUN'));
+  // 取り戻しも既定は dry-run（DN-0631）。2026-10-10、網羅の詳細 52 件のつもりの --pull --path が
+  // 書籍のページ画像まで 701 枚を取り寄せた。先に件数と合計サイズを見てから --commit で書く。
+  console.log('[' + NAME + ' --pull] 対象 ' + entries.length + ' 件 / mode=' + (COMMIT ? 'PULL（手元へ書く）' : 'DRY-RUN'));
   let restored = 0, present = 0;
+  const wouldPull = [];
   const failures = [];
   for (const [rel, e] of entries) {
     const dst = join(REPO_ROOT, rel);
@@ -437,7 +442,7 @@ async function pull(cfg, group, mount, manifest) {
       const l = await realBytesAndHashes(dst);
       if (l.sha256 === e.sha256) { present++; continue; }
     }
-    if (flag('--dry-run')) { console.log('  would-pull ' + rel + ' ← ' + e.vaultPath); continue; }
+    if (!COMMIT) { wouldPull.push([rel, e]); continue; }
     const src = vaultAbsFor(mount.root, e.vaultPath);
     if (!existsSync(src)) { failures.push([rel, 'vault に無い: ' + e.vaultPath]); continue; }
     mkdirSync(dirname(dst), { recursive: true });
@@ -449,18 +454,17 @@ async function pull(cfg, group, mount, manifest) {
     renameSync(tmp, dst);
     restored++;
   }
+  if (!COMMIT) {
+    const bytes = wouldPull.reduce((sum, [, e]) => sum + (e.bytes || 0), 0);
+    for (const [rel, e] of wouldPull.slice(0, 20)) console.log('  would-pull ' + rel + ' ← ' + e.vaultPath);
+    if (wouldPull.length > 20) console.log('  … ほか ' + (wouldPull.length - 20) + ' 件');
+    console.log('[' + NAME + ' --pull] 取り戻す予定 ' + wouldPull.length + ' 件（' + (bytes / 1024 / 1024).toFixed(1) + ' MiB）/ 既に手元 ' + present);
+    console.log('[' + NAME + ' --pull] DRY-RUN のため手元へは 1 バイトも書いていない。実行は --commit。');
+    return;
+  }
   console.log('[' + NAME + ' --pull] 取り戻し ' + restored + ' / 既に手元 ' + present + ' / 失敗 ' + failures.length);
   for (const [p, why] of failures.slice(0, 15)) console.error('    ' + why + ' — ' + p);
   if (failures.length) process.exit(1);
-}
-
-function walk(dir, out) {
-  for (const e of readdirSync(dir, { withFileTypes: true })) {
-    const p = join(dir, e.name);
-    if (e.name.startsWith('.')) continue;
-    if (e.isDirectory()) walk(p, out);
-    else if (e.isFile()) out.push(p);
-  }
 }
 
 main().catch((e) => { console.error('[' + NAME + '] FAIL: ' + String(e.message || e).slice(0, 300)); process.exit(1); });

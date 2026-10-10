@@ -30,12 +30,12 @@
 import { spawn, spawnSync } from 'node:child_process';
 import { availableParallelism } from 'node:os';
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
-import { join, resolve, dirname } from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { join } from 'node:path';
+import { pathToFileURL } from 'node:url';
 import net from 'node:net';
 import { datasetPath } from './lib/datasets.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = resolve(join(dirname(fileURLToPath(import.meta.url)), '..'));
 const OUT_DIR = join(ROOT, '.claude', 'state', 'quality');
 const JSON_OUT = join(OUT_DIR, 'audit-latest.json');
 const MD_OUT = join(OUT_DIR, 'audit-latest.md');
@@ -68,11 +68,12 @@ if (OPS && (CI || REPORT_ONLY)) {
 }
 const EMIT_JSON = argv.includes('--json');
 
-function readJson(p, fallback) {
+// 壊れていても落とさず fallback を返す（best-effort。壊れたら落とすなら json-io の readJson）
+function readJsonOr(p, fallback) {
   try { return JSON.parse(readFileSync(p, 'utf8')); } catch { return fallback; }
 }
 
-const PKG = readJson(join(ROOT, 'package.json'), { scripts: {} });
+const PKG = readJsonOr(join(ROOT, 'package.json'), { scripts: {} });
 
 // localhost:port が LISTEN しているか（dev server 検出）。500ms で諦める。
 function portOpen(port) {
@@ -555,7 +556,7 @@ async function runCheck(check) {
 }
 
 function censusSummary() {
-  const c = readJson(CENSUS, null);
+  const c = readJsonOr(CENSUS, null);
   if (!c) return null;
   // build-quality-census.mjs の出力から薄層件数を拾う（スキーマ差異に頑健に）
   const flat = JSON.stringify(c);

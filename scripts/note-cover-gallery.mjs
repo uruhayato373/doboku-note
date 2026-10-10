@@ -22,10 +22,9 @@ import { execFileSync } from "node:child_process";
 import { createRequire } from "node:module";
 import matter from "gray-matter";
 import { coverExamNames } from "./lib/note-character-cover.mjs";
-import { NOTE_CONTENT_ROOT } from "./lib/repository-paths.mjs";
+import { REPO_ROOT as ROOT, NOTE_CONTENT_ROOT } from "./lib/repository-paths.mjs";
 
 const require = createRequire(import.meta.url);
-const ROOT = process.cwd();
 const NOTE = NOTE_CONTENT_ROOT;
 const OUT = join(ROOT, ".tmp", "note-cover-gallery.html");
 

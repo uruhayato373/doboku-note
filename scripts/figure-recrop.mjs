@@ -22,8 +22,8 @@ import { writeSync } from 'node:fs';
 import { execSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const argv = process.argv.slice(2);
 const arg = (k) => { const i = argv.indexOf(k); return i >= 0 ? argv[i + 1] : null; };
 const has = (k) => argv.includes(k);

@@ -7,12 +7,13 @@ import { spawnSync } from 'node:child_process';
 import { MIGRATION, sha256, assertPlan } from './lib/youtube-migration.mjs';
 import { migrationStorage } from './lib/youtube-migration-storage.mjs';
 import { loadCoverSources } from './lib/youtube-cover-rollout.mjs';
+import { REPO_ROOT as root } from './lib/repository-paths.mjs';
 const { values: args } = parseArgs({ options: {
   inventory: { type: 'string' }, progress: { type: 'string' }, verification: { type: 'string' },
   out: { type: 'string', default: '.tmp/youtube-migration-20260909' }, commit: { type: 'boolean', default: false },
 } });
 const read = p => JSON.parse(readFileSync(resolve(p)));
-const root = process.cwd(), out = resolve(args.out);
+const out = resolve(args.out);
 async function main() {
   if (!args.inventory || !args.progress || !args.verification || !out.startsWith(join(root, '.tmp') + '/')) throw new Error('Private input paths and .tmp output required');
   const inventory = read(args.inventory), progress = read(args.progress), verification = read(args.verification), sources = loadCoverSources(root);

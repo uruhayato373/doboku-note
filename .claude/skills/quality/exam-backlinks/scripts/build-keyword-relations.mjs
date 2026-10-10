@@ -17,8 +17,8 @@
 import fs from 'fs';
 import path from 'path';
 import { writeJsonIfChanged } from '../../../../../scripts/lib/write-generated.mjs';
+import { REPO_ROOT as ROOT } from '../../../../../scripts/lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const CATEGORY_PREFIX = 'pe-comprehensive-management-';
 
 const IN_CHAPTERS = path.join(ROOT, 'src/config/pe-chapters.json');

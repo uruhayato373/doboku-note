@@ -21,9 +21,10 @@ import { execSync } from "node:child_process";
 import { readdirSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { REPO_ROOT as ROOT } from "./lib/repository-paths.mjs";
+import { parseCliArgs } from "./lib/cli-args.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = join(__dirname, "..");
 // cem（総監）の年度パック専用。civil-1/civil-2 は年度括りを廃し「論点パック」へ移行済み
 // （生成: .claude/scripts/sns/generate-civil-theme-packs.mjs ＋ render-civil-theme-packs.mjs）。
 const EXAM_DIRS = {
@@ -38,28 +39,18 @@ const IG_POST_CREATE = join(
 );
 const CAPTION_GEN = join(ROOT, ".claude/scripts/instagram/generate-caption.cjs");
 
-function parseArgs(argv) {
-  const out = {};
-  for (let i = 0; i < argv.length; i++) {
-    if (argv[i].startsWith("--")) {
-      const key = argv[i].slice(2);
-      const next = argv[i + 1];
-      if (next !== undefined && !next.startsWith("--")) {
-        out[key] = next;
-        i++;
-      } else {
-        out[key] = true;
-      }
-    }
-  }
-  return out;
-}
-
-const args = parseArgs(process.argv.slice(2));
+const args = parseCliArgs({
+  year: { type: "string" },
+  all: { type: "boolean" },
+  size: { type: "string" },
+  "skip-caption": { type: "boolean" },
+  only: { type: "string" },
+  "skip-lint": { type: "boolean" },
+});
 const yearArg = args.year;
-const allFlag = Boolean(args.all);
+const allFlag = args.all;
 const size = args.size || "carousel";
-const skipCaption = Boolean(args["skip-caption"]);
+const skipCaption = args.skipCaption;
 const onlyList = args.only ? String(args.only).split(",").map((s) => s.trim()) : null;
 
 if (!yearArg && !allFlag && !onlyList) {
@@ -73,7 +64,7 @@ if (!existsSync(BASE)) {
 }
 
 // ─── pre-check: 構造 lint ─────────────────────────────────────
-const skipLint = Boolean(args["skip-lint"]);
+const skipLint = args.skipLint;
 if (!skipLint) {
   const lintScript = join(__dirname, "lint-exam-pack-structure.mjs");
   if (existsSync(lintScript)) {

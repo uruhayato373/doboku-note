@@ -1,22 +1,18 @@
 #!/usr/bin/env node
 
-import { existsSync, readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { datasetPath } from './lib/datasets.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { parseJson, readJsonIf } from './lib/json-io.mjs';
 
-const ROOT = process.cwd();
 const ARTICLES_ROOT = join(ROOT, 'content', 'site', 'standards-articles');
 const CATALOG_PATH = join(ROOT, 'content', 'site', 'standards-library', 'catalog.json');
 const CONFIG_PATH = join(ROOT, datasetPath('config.standards-structure'));
 const OUTPUT_PATH = join(ARTICLES_ROOT, 'comparison.json');
 
-function readJson(path) {
-  return JSON.parse(readFileSync(path, 'utf8'));
-}
-
 function readManifest(agencyId, documentId) {
-  const path = join(ARTICLES_ROOT, agencyId, documentId, 'manifest.json');
-  return existsSync(path) ? readJson(path) : null;
+  return readJsonIf(ARTICLES_ROOT, join(agencyId, documentId, 'manifest.json'));
 }
 
 function normalizeMarkdownLines(source) {
@@ -151,8 +147,8 @@ function compareChapter(baselinePath, targetPath) {
 }
 
 function main() {
-  const catalog = readJson(CATALOG_PATH);
-  const config = readJson(CONFIG_PATH);
+  const catalog = parseJson(readFileSync(CATALOG_PATH, 'utf8'), CATALOG_PATH);
+  const config = parseJson(readFileSync(CONFIG_PATH, 'utf8'), CONFIG_PATH);
   const baselineAgencyId = config.canonical.commonAgencyId;
   const baselineDocumentId = 'common';
   const baselineManifest = readManifest(baselineAgencyId, baselineDocumentId);

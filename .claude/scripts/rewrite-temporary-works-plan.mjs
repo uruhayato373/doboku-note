@@ -3,10 +3,8 @@
 
 import { readMdxFile, writeMdxFile } from './lib/mdx-io.mjs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { REPO_ROOT as repoRoot } from '../../scripts/lib/repository-paths.mjs';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const repoRoot = path.resolve(__dirname, '../../');
 const filePath = path.join(repoRoot, 'content/site/pe-comprehensive-management/temporary-works-plan/article.mdx');
 
 const { raw, eol } = readMdxFile(filePath);

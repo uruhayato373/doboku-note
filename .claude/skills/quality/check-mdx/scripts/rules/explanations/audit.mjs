@@ -14,6 +14,7 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync } from "fs";
 import { globSync } from "glob";
 import matter from "gray-matter";
 import { detectBrokenExplanations, PATTERNS } from "./detect.mjs";
+import { parseCliArgs } from "../../../../../../../scripts/lib/cli-args.mjs";
 
 const CATEGORY_GLOBS = {
   "civil-construction-1":
@@ -23,13 +24,11 @@ const CATEGORY_GLOBS = {
 };
 
 function parseArgs(argv) {
-  const args = { category: "civil-construction-1", topic: null };
-  for (const a of argv.slice(2)) {
-    const [k, v] = a.split("=");
-    if (k === "--category") args.category = v;
-    else if (k === "--topic") args.topic = v;
-  }
-  return args;
+  const { category, topic } = parseCliArgs({
+    category: { type: "string", default: "civil-construction-1" },
+    topic: { type: "string" },
+  }, argv.slice(2));
+  return { category, topic };
 }
 
 function main() {

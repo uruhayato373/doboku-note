@@ -10,11 +10,10 @@ import assert from 'node:assert/strict';
 import { mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
-import { fileURLToPath, URL } from 'node:url';
 
 import { auditQualificationSsot, countCodeCopies, findCodeCopies, findConfigCopies, syncDerivedNames } from '../scripts/lib/qualification-ssot.mjs';
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
-const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const ids = new Set(['civil-construction-1', 'rccm', 'civil-construction']);
 
 test('設定: 資格 id に付いた名前を拾い、id だけの参照は拾わない', () => {

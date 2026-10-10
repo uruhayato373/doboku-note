@@ -22,6 +22,7 @@ import { execSync } from 'node:child_process';
 import { readdirSync, statSync, mkdirSync, rmSync, existsSync } from 'node:fs';
 import { join, resolve, extname } from 'node:path';
 import { datasetPath } from './lib/datasets.mjs';
+import { CLAUDE_ROOT } from './lib/repository-paths.mjs';
 
 function arg(name, def = undefined) {
   const i = process.argv.indexOf(`--${name}`);
@@ -36,7 +37,7 @@ const fuzz = Number(arg('fuzz', 12));
 const outDir = resolve(arg('out', 'content/sns/_assets/character'));
 const names = arg('names') ? String(arg('names')).split(',').map((s) => s.trim()).filter(Boolean) : null;
 const montageOnly = arg('montage') === true;
-const FONT = '.claude/skills/conversion/ogp-create/assets/fonts/NotoSansJP-Bold.ttf';
+const FONT = join(CLAUDE_ROOT, 'skills/conversion/ogp-create/assets/fonts/NotoSansJP-Bold.ttf');
 
 const IMG = /\.(png|jpe?g|webp)$/i;
 const inputs = readdirSync(inDir)

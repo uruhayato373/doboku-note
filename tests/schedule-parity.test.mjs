@@ -1,12 +1,11 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { collectScheduleEvents } from '../scripts/lib/schedule-events.mjs';
 import { todayJst } from '../scripts/lib/jst-date.mjs';
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 // .bin/tsx は Windows では拡張子なしの sh スクリプトで execFileSync できない（ENOENT）。
 // JS エントリを node で直接叩く（shell 不要・OS 非依存。tests/backlog-parity.test.mjs と同じ手法）。
 const TSX_CLI = join(ROOT, 'node_modules/tsx/dist/cli.mjs');

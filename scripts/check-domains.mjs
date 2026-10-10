@@ -11,13 +11,13 @@
  *   5. 年間ロードマップの設定（annual-roadmap.json）が期間と買い場の週数だけを持つ（重点はバックログの [時期:]）
  * バックログの [領域:] は check-backlog-schema が見る。検査した件数を出し、0 件は検査不成立（exit 2）。
  */
-import { readdirSync, readFileSync, statSync, existsSync } from 'node:fs';
-import { join, dirname, relative } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { readdirSync, readFileSync, existsSync } from 'node:fs';
+import { join, relative } from 'node:path';
 import { loadDomains, documentDomain, frontmatterDomain } from './lib/domains.mjs';
 import { loadRoadmap, validateRoadmap } from './lib/annual-roadmap.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const cfg = loadDomains(ROOT);
 const ids = new Set(cfg.domains.map((d) => d.id));
 const errors = [];
@@ -26,15 +26,7 @@ const labels = cfg.domains.map((d) => d.label);
 if (ids.size !== cfg.domains.length || new Set(labels).size !== labels.length) errors.push('domains.json: id か label が重複している');
 for (const [key, id] of Object.entries(cfg.documents ?? {})) if (!ids.has(id)) errors.push(`documents["${key}"] = ${id} は領域 id にない`);
 
-const walk = (dir, test, out = []) => {
-  if (!existsSync(dir)) return out;
-  for (const n of readdirSync(dir)) {
-    const p = join(dir, n);
-    if (statSync(p).isDirectory()) walk(p, test, out);
-    else if (test(p)) out.push(p);
-  }
-  return out;
-};
+const walk = (dir, test) => listFiles(dir, { match: (p) => test(p), followLinks: true, allowMissing: true });
 const rel = (p) => relative(ROOT, p).split('\\').join('/');
 
 const defs = [

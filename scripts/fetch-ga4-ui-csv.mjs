@@ -26,6 +26,7 @@ import { mkdirSync, writeFileSync, existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { markerPath, rawDir } from "./lib/google-console-ssot.mjs";
 import { execSync } from "node:child_process";
+import { parseCliArgs } from "./lib/cli-args.mjs";
 import {
   loadConfig,
   launchContext,
@@ -42,13 +43,12 @@ import { jstClock } from "./lib/jst-date.mjs";
 const STATE_DIR = rawDir("ga4-ui");
 
 function parseArgs() {
-  const a = process.argv.slice(2);
-  const opts = { dryRun: false, headed: false, reports: "all" };
-  for (let i = 0; i < a.length; i++) {
-    if (a[i] === "--dry-run") opts.dryRun = true;
-    else if (a[i] === "--headed") opts.headed = true;
-    else if (a[i] === "--reports") opts.reports = a[++i];
-  }
+  const opts = parseCliArgs({
+    "dry-run": { type: "boolean" },
+    headed: { type: "boolean" },
+    reports: { type: "string", default: "all" },
+  });
+  delete opts._;
   return opts;
 }
 

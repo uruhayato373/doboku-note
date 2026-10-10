@@ -27,6 +27,8 @@
 - [スクリプト編集安全](feedback_mdx_script_frontmatter_safety.md) — frontmatter分離・Python CR
 - [計測はCI供給](feedback_metrics_cicd_supplied.md) — PSIはfield・GAはSSR
 - [並行セッションgit](feedback_multi_session_concurrent_git.md) — pathspec commit・復元禁止
+- [worktreeの管理外データ](feedback_worktree_ignored_data.md) — 中身をコピー・tracked未コミットは脇へ
+- [成否は実体で確認](feedback_commit_result_check.md) — commit後HEAD・grepで隠さない・args実物
 - [新ツール配線](feedback_new_tool_doc_wiring.md) — doc-sync・handoff抽出
 - [確認省略と例外](feedback_no_confirmation.md) — 課金・公開取消不可は確認
 - [総監スコープ規律](feedback_no_pe_construction_application.md) — 教材外H2禁止・新規作らない
@@ -72,7 +74,7 @@
 - [動画パック](project_video_content_pipeline.md) — YouTube基盤DN-0110
 - [SNS v7・IG](project_sns_v7_pivot.md) — BS投稿のみ・論点パック
 - [X運用](project_x_account_reboot_2026_06.md) — 凍結対策・偽成功確認
-- [iOSアプリ](project_ios_app_spec_v1_1.md) — 技術士・土木の2本・無料試作
+- [iOSアプリ](project_ios_app_spec_v1_1.md) — 技術士・土木の2本・全年度¥1,480
 - [note書込自動化](project_note_write_automation.md) — Playwright・CTAインフラ
 - [note記事同期](project_note_article_sync.md) — 記事単位同期・ライブ照合
 - [1級一次キー誤り](project_civil1_primary_answer_key_errors.md) — 転記バグ・H29原典

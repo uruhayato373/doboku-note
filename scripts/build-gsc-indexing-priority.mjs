@@ -24,7 +24,7 @@ import { REPO_ROOT } from "./lib/repository-paths.mjs";
 
 const PRIORITY_JSON = datasetPath("gsc.indexing-priority");
 const PRIORITY_TXT = datasetPath("gsc.indexing-priority-list");
-const REDIRECTS = "public/_redirects";
+const REDIRECTS = join(REPO_ROOT, "public/_redirects");
 
 const batchFile = latestFile(REPO_ROOT, "gsc.url-inspection");
 const gscPageFile = latestReportRef(".", "gsc.page");

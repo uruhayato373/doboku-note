@@ -27,8 +27,8 @@
 import { readdirSync, readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { join, relative, dirname } from 'node:path';
 import matter from 'gray-matter';
+import { REPO_ROOT as ROOT } from '../../scripts/lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const PE_ROOT = join(ROOT, 'content/site/pe-comprehensive-management');
 const OUT_PATH = join(ROOT, '.claude/state/keyword-summaries.json');
 

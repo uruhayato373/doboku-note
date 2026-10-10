@@ -30,12 +30,12 @@
  *         .claude/knowledge/reference/note-funnel-architecture.md（原則）
  * ---------------------------------------------------------------------------
  */
-import { readFileSync, writeFileSync, readdirSync, existsSync, statSync } from 'node:fs';
-import { join } from 'node:path';
+import { readFileSync, writeFileSync } from 'node:fs';
+import { relative } from 'node:path';
 import { readDataset } from './lib/dataset-io.mjs';
-import { REPO_ROOT } from './lib/repository-paths.mjs';
+import { NOTE_CONTENT_ROOT, REPO_ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
-const ROOT = 'content/note';
 const DEFAULT_BOUNDARY = '試験問題|予想問題';
 const CFG = readDataset(REPO_ROOT, 'config.note-funnel');
 
@@ -51,15 +51,6 @@ const EXAMS = Object.entries(CFG.exams).map(([key, v]) => ({
   l2Id: v.L2.noteId,
 }));
 
-function walk(dir, out = []) {
-  if (!existsSync(dir)) return out;
-  for (const e of readdirSync(dir)) {
-    const p = join(dir, e);
-    if (statSync(p).isDirectory()) walk(p, out);
-    else if (/^article(-[^/\\]+)?\.md$/.test(e)) out.push(p.split('\\').join('/'));
-  }
-  return out;
-}
 const fmv = (raw, k) => { const m = raw.match(new RegExp('^' + k + ':[ \\t]*(.*)$', 'm')); return m ? m[1].trim().replace(/^["']|["']$/g, '') : null; };
 
 // 有料境界となる H2 の行番号（check-note-boundary.mjs と同じ prefix 一致ロジック）
@@ -76,9 +67,10 @@ const lastNonBlank = (lines, from) => { let i = from; while (i >= 0 && lines[i].
 const stats = { scanned: 0, paid: 0, dedupedImg: 0, movedMokuji: 0, insertedMokuji: 0, alreadyOk: 0, noBoundary: [], noExam: [], noExamNoCta: [] };
 const changed = [];
 
-for (const file of walk(ROOT)) {
+for (const abs of listFiles(NOTE_CONTENT_ROOT, { allowMissing: true, followLinks: true, match: (_p, name) => /^article(-[^/\\]+)?\.md$/.test(name) })) {
+  const file = relative(REPO_ROOT, abs).split('\\').join('/');
   stats.scanned++;
-  const raw = readFileSync(file, 'utf8');
+  const raw = readFileSync(abs, 'utf8');
   if (fmv(raw, 'notePricing') !== 'paid') continue;
   // 公開判定は noteId / noteUrl の有無で行う（check-note-boundary.mjs と同一）。
   // 2026-07-31: 当初 noteStatus:'published' を必須にしていたが、この行を持たない
@@ -162,7 +154,7 @@ for (const file of walk(ROOT)) {
   const after = lines.join('\n');
   if (after === before) continue;
   changed.push(file);
-  if (APPLY) writeFileSync(file, lines.join(eol) + (endsWithNewline ? eol : ''), 'utf8');
+  if (APPLY) writeFileSync(abs, lines.join(eol) + (endsWithNewline ? eol : ''), 'utf8');
 }
 
 console.log(`[wire-note-paid-cta] 走査 ${stats.scanned} 件 / paid+published(noteId有) ${stats.paid} 件を実検査`);

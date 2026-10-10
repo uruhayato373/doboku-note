@@ -29,11 +29,11 @@
 // 必要ツール: pdftoppm, tesseract (with jpn data)
 
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, existsSync, statSync } from 'node:fs';
-import { join, relative, basename, dirname } from 'node:path';
+import { join, relative } from 'node:path';
 import { spawnSync, spawn } from 'node:child_process';
 import { todayJst } from '../../scripts/lib/jst-date.mjs';
+import { REPO_ROOT as ROOT } from '../../scripts/lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const PDF_ROOT = join(ROOT, 'content/sources/past-exams/技術士（総監）');
 const MDX_ROOT = join(ROOT, 'content/site/pe-comprehensive-management');
 const TMP_DIR = join(ROOT, '.tmp/ocr-cache');

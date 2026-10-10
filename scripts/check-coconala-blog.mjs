@@ -31,13 +31,12 @@
  * ---------------------------------------------------------------------------
  */
 import { readFileSync, existsSync, readdirSync, statSync, writeSync } from 'node:fs';
-import { join, dirname, relative } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join, relative } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { readCatalog } from './lib/coconala-session.mjs';
 import { assertBlogPost, BlogGuardError, TITLE_MAX } from './lib/coconala-blog-guards.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const BLOG_DIR = join(ROOT, 'content/coconala/blog');
 const TAG = '[check-coconala-blog]';
 const argv = process.argv.slice(2);

@@ -5,11 +5,9 @@
  * 実行のたびに CSS の media query を数え直し、設定に無い主要な切り替わり幅が出たら知らせる
  * （サービス側の変更で撮る幅が古くならないように）。
  */
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { readDataset } from './dataset-io.mjs';
-
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../..');
+import { REPO_ROOT as ROOT } from './repository-paths.mjs';
 
 export function loadBreakpointConfig() {
   return readDataset(ROOT, 'config.public-view-breakpoints');

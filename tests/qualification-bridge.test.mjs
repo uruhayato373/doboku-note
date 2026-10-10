@@ -1,12 +1,12 @@
 import { test } from 'node:test';
+import { join } from 'node:path';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
 // 実務記事・共通仕様書の章末「業務経験 → 資格」カード（EXP-012）の計測配線を固定する。
 // どれか 1 つでも欠けると、表示されているのにクリック／表示回数が週次の取得に乗らない。
-const ROOT = fileURLToPath(new URL('..', import.meta.url));
-const read = (rel) => readFileSync(ROOT + rel, 'utf8');
+const read = (rel) => readFileSync(join(ROOT, rel), 'utf8');
 
 test('AnalyticsProvider がクリックと表示回数を送る', () => {
   const provider = read('src/components/providers/AnalyticsProvider.tsx');

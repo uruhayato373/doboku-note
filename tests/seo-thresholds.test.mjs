@@ -7,15 +7,14 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 
 import { DESCRIPTION_LINT_MAX, DESCRIPTION_MAX, DESCRIPTION_MIN, TITLE_MAX } from '../scripts/lib/seo-thresholds.mjs';
 import { checkDescription } from '../scripts/lib/seo-checks.mjs';
 import { lintFrontmatter } from '../.claude/scripts/lint-frontmatter.mjs';
 import { loadTsModule } from './lib/load-ts.mjs';
+import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const { thresholds } = JSON.parse(readFileSync(join(ROOT, 'config', 'seo-meta-config.json'), 'utf8'));
 
 test('読み手が受け取る値は config の thresholds そのもので、短すぎ < 推奨上限 < lint の上限の順', () => {

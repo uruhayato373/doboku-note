@@ -19,8 +19,8 @@ import { loadGitDates, lookupGitDates } from './lib/git-dates.mjs';
 import { buildAliasMap, normalizeTags } from '../../scripts/lib/content-taxonomy.mjs';
 import { collectPublishedDocs } from '../../scripts/lib/published-docs.mjs';
 import { writeJsonIfChanged } from '../../scripts/lib/write-generated.mjs';
+import { REPO_ROOT as ROOT } from '../../scripts/lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const TAG_ALIASES = buildAliasMap(JSON.parse(readFileSync(join(ROOT, 'src/config/tags.json'), 'utf8')));
 const OUT_PATH = join(ROOT, 'src/config/doc-meta-index.json');
 const CI_MODE = process.argv.includes('--ci');

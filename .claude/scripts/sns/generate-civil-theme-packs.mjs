@@ -18,14 +18,13 @@
  *   node .claude/scripts/sns/generate-civil-theme-packs.mjs --exam both
  */
 import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { wrapByCharCount } from './lib/text-wrap.mjs';
 import {
   THEMES, normalizeQuestion, matchesTheme, assignSubtopic, FIGURE_RE, norm,
 } from '../../../scripts/build-takuitsu-reconstruct.mjs';
+import { REPO_ROOT as ROOT } from '../../../scripts/lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '../../..');
 // テーマ処理順 = Kindle GOUBON.order（テーマ間の重複は先勝ちで解消・precedence を一致させる）
 const ORDER = ['sekokeikaku', 'koutei', 'anzen', 'hinshitsu', 'kankyo', 'hoki'];
 

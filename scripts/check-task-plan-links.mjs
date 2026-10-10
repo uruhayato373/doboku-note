@@ -37,12 +37,11 @@
  *   node scripts/check-task-plan-links.mjs --json  機械可読
  */
 import { readFileSync, existsSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { parseBacklog } from './lib/backlog-lib.mjs';
 import { listPlanUnits } from './lib/plan-units.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PLANS_DIR = join(ROOT, '.claude/plans');
 const BACKLOG_PATH = join(ROOT, '.claude/todo/backlog.md');
 const JSON_OUT = process.argv.includes('--json');

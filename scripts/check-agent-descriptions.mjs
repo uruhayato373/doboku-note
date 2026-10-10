@@ -17,12 +17,15 @@
 
 import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
-import { join } from 'node:path';
-import { REPO_ROOT } from './lib/repository-paths.mjs';
+import { join, relative } from 'node:path';
+import { REPO_ROOT, CLAUDE_ROOT, STATE_ROOT } from './lib/repository-paths.mjs';
 
 export const MAX_CHARS = 300;
-const AGENTS_DIR = '.claude/agents';
-const BASELINE = '.claude/state/quality/agent-descriptions-baseline.json';
+const AGENTS_DIR = join(CLAUDE_ROOT, 'agents');
+const BASELINE = join(STATE_ROOT, 'quality/agent-descriptions-baseline.json');
+// git の pathspec・出力（リポジトリルートからの相対パス）との照合と表示に使う形
+const rel = (p) => relative(REPO_ROOT, p).split('\\').join('/');
+const AGENTS_REL = rel(AGENTS_DIR);
 const USE_WHEN = /Use when/;
 
 /** frontmatter の description（同一行 / `>` `|` 折り返し）。次のトップレベル key か frontmatter 終端まで */
@@ -72,20 +75,19 @@ export function ratchet(inspected, baseline) {
 }
 
 function listWorkingTree() {
-  const dir = join(REPO_ROOT, AGENTS_DIR);
-  if (!existsSync(dir)) return [];
-  return readdirSync(dir)
+  if (!existsSync(AGENTS_DIR)) return [];
+  return readdirSync(AGENTS_DIR)
     .filter((f) => f.endsWith('.md'))
     .sort()
-    .map((f) => ({ name: f.slice(0, -3), content: readFileSync(join(dir, f), 'utf8') }));
+    .map((f) => ({ name: f.slice(0, -3), content: readFileSync(join(AGENTS_DIR, f), 'utf8') }));
 }
 
 function listStaged() {
-  const out = execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--cached', '--name-only', '--diff-filter=AM', '--', AGENTS_DIR], { cwd: REPO_ROOT, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 });
+  const out = execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--cached', '--name-only', '--diff-filter=AM', '--', AGENTS_REL], { cwd: REPO_ROOT, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 });
   return out
     .split(/\r?\n/)
-    .filter((p) => p.endsWith('.md') && !p.slice(AGENTS_DIR.length + 1).includes('/'))
-    .map((p) => ({ name: p.slice(AGENTS_DIR.length + 1, -3), content: execFileSync('git', ['show', `:${p}`], { cwd: REPO_ROOT, encoding: 'utf8' }) }));
+    .filter((p) => p.endsWith('.md') && !p.slice(AGENTS_REL.length + 1).includes('/'))
+    .map((p) => ({ name: p.slice(AGENTS_REL.length + 1, -3), content: execFileSync('git', ['show', `:${p}`], { cwd: REPO_ROOT, encoding: 'utf8' }) }));
 }
 
 function main() {
@@ -97,23 +99,22 @@ function main() {
 
   const files = staged ? listStaged() : listWorkingTree();
   if (!staged && files.length === 0) {
-    console.error(`${tag} ✗ 検査不成立: ${AGENTS_DIR} に agent が 0 件`);
+    console.error(`${tag} ✗ 検査不成立: ${AGENTS_REL} に agent が 0 件`);
     return 2;
   }
   const inspected = files.map((f) => inspectAgent(f.name, f.content));
 
-  const baselinePath = join(REPO_ROOT, BASELINE);
   if (update) {
     const next = Object.fromEntries(inspected.filter((a) => a.over).map((a) => [a.name, a.chars]));
-    writeFileSync(baselinePath, JSON.stringify({ _doc: `description が ${MAX_CHARS} code points を超えている agent とその長さ。新規の超過と悪化を止めるラチェット（scripts/check-agent-descriptions.mjs）。返済したら --update-baseline で縮める`, updatedAt: new Date().toISOString(), maxChars: MAX_CHARS, over: next }, null, 2) + '\n');
+    writeFileSync(BASELINE, JSON.stringify({ _doc: `description が ${MAX_CHARS} code points を超えている agent とその長さ。新規の超過と悪化を止めるラチェット（scripts/check-agent-descriptions.mjs）。返済したら --update-baseline で縮める`, updatedAt: new Date().toISOString(), maxChars: MAX_CHARS, over: next }, null, 2) + '\n');
     console.log(`${tag} baseline を更新: 超過 ${Object.keys(next).length} 件 / ${inspected.length} agent`);
     return 0;
   }
-  if (!existsSync(baselinePath)) {
-    console.error(`${tag} ✗ 検査不成立: baseline が無い（${BASELINE}。--update-baseline で作る）`);
+  if (!existsSync(BASELINE)) {
+    console.error(`${tag} ✗ 検査不成立: baseline が無い（${rel(BASELINE)}。--update-baseline で作る）`);
     return 2;
   }
-  const baseline = JSON.parse(readFileSync(baselinePath, 'utf8')).over || {};
+  const baseline = JSON.parse(readFileSync(BASELINE, 'utf8')).over || {};
   const r = ratchet(inspected, baseline);
   const total = inspected.reduce((n, a) => n + a.chars, 0);
 

@@ -9,12 +9,9 @@
 //   node scripts/distribute-author-authority-banner.mjs --migrate --dry             # civil の既存バナーを変更せず移行確認
 //   node scripts/distribute-author-authority-banner.mjs --exam concrete --migrate   # concrete の既存バナーを移行
 import { readFileSync, writeFileSync, copyFileSync, mkdirSync, existsSync, readdirSync, statSync } from 'node:fs';
-import { basename, dirname, join, sep } from 'node:path';
-import { fileURLToPath } from 'node:url';
-import { NOTE_CONTENT_ROOT } from './lib/repository-paths.mjs';
+import { basename, dirname, join } from 'node:path';
+import { REPO_ROOT as ROOT, NOTE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = join(__dirname, '..');
 const EXAM_CONFIG = {
   civil: {
     baseDirs: [join(NOTE_CONTENT_ROOT, '1級・2級土木')],

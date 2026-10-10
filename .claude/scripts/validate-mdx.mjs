@@ -10,15 +10,16 @@
  */
 
 import { readdirSync, readFileSync, statSync, existsSync } from "fs";
-import { join } from "path";
+import { join, relative } from "path";
 import matter from "gray-matter";
 import { compileMDX } from "next-mdx-remote/rsc";
 import remarkMath from "remark-math";
 import remarkGfm from "remark-gfm";
 import rehypeKatex from "rehype-katex";
 import { checkLineEndings as detectLineEndingIssue } from "../../scripts/lib/line-endings.mjs";
+import { REPO_ROOT, SITE_CONTENT_ROOT } from "../../scripts/lib/repository-paths.mjs";
 
-const CONTENT_DIR = "content/site";
+const CONTENT_DIR = SITE_CONTENT_ROOT;
 
 // ── File scanner (from generate-search-index.mjs) ──
 
@@ -62,6 +63,7 @@ async function compileMdx(content) {
 
 async function main() {
   const args = process.argv.slice(2);
+  const scanAll = args.length === 0;
   let files;
 
   if (args.length > 0) {
@@ -119,7 +121,8 @@ async function main() {
   } else {
     console.error(`✗ ${errors.length} error(s) found:\n`);
     for (const { file, error } of errors) {
-      console.error(`  ${file}`);
+      // 全件走査のときは従来どおりリポジトリ相対で出す（引数で渡したファイルはそのまま）
+      console.error(`  ${scanAll ? relative(REPO_ROOT, file).split("\\").join("/") : file}`);
       console.error(`    → ${error}\n`);
     }
     process.exit(1);

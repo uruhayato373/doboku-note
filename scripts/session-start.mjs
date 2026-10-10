@@ -16,8 +16,7 @@
 
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { resolve } from 'node:path';
-
-const ROOT = fileURLToPath(new URL('..', import.meta.url)).replace(/[\\/]$/, '');
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 /** 順番は「早く終わる・並行セッションの安全に効く」順。timeout は旧 settings.json の値を踏襲 */
 export const CHECKS = [

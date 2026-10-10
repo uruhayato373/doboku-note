@@ -17,9 +17,8 @@ import { readdirSync, writeFileSync, existsSync, mkdirSync, readFileSync } from 
 import { join, dirname } from "node:path";
 import { execFileSync } from "node:child_process";
 import matter from "gray-matter";
-import { SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
+import { REPO_ROOT as ROOT, SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const POSTS = SITE_CONTENT_ROOT;
 const OUT = join(ROOT, ".tmp", "ogp-gallery.html");
 

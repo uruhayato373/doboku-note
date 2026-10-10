@@ -29,11 +29,13 @@
 // どちらにも非マッチで自動スキップされる。`--staged` が staged の content/note/*.md も検査するよう拡張、
 // 全件は `--note`。
 
-import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
-import { join } from 'node:path';
+import { readFileSync, existsSync } from 'node:fs';
+import { join, relative } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { readDocMetaIndex } from './lib/doc-meta-index.mjs';
 import { classifySitePath, loadSiteRoutes, siteLinkRegex } from './lib/site-links.mjs';
+import { REPO_ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
 const STAGED = process.argv.includes('--staged');
 const MDX = process.argv.includes('--mdx');
@@ -41,28 +43,24 @@ const NOTE = process.argv.includes('--note');
 // 索引が無ければ生成してから検証する（以前は無いと黙って検証をスキップしていた＝検査ゼロの緑）
 const valid = new Set(Object.keys(readDocMetaIndex().docs));
 
-function walk(dir, out = [], re = /\.(md|txt|json)$/) {
-  if (!existsSync(dir)) return out;
-  for (const e of readdirSync(dir)) {
-    const p = join(dir, e);
-    if (statSync(p).isDirectory()) walk(p, out, re);
-    else if (re.test(e)) out.push(p.split('\\').join('/'));
-  }
-  return out;
+// dir はリポジトリからの相対。結果もリポジトリからの相対パス（/ 区切り）で返す
+function walk(dir, re = /\.(md|txt|json)$/) {
+  return listFiles(join(REPO_ROOT, dir), { match: (_p, name) => re.test(name), allowMissing: true, followLinks: true })
+    .map((p) => relative(REPO_ROOT, p).split('\\').join('/'));
 }
 
 let files;
 if (MDX) {
   // MDX本文の内部リンク（content/site/**/*.mdx）
-  files = walk('content/site', [], /\.mdx$/);
+  files = walk('content/site', /\.mdx$/);
 } else if (NOTE) {
   // noteマガジン本文（content/note/**/*.md）
-  files = walk('content/note', [], /\.md$/);
+  files = walk('content/note', /\.md$/);
 } else if (STAGED) {
   const staged = execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--cached', '--name-only', '--diff-filter=ACM'], { encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 })
     .split('\n').map((s) => s.trim()).filter(Boolean);
   // SNS（content/sns の md/txt/json）＋ MDX本文（content/site の mdx）＋ noteマガジン本文（content/note の md）を staged から検査
-  files = staged.filter((f) => existsSync(f) && (
+  files = staged.filter((f) => existsSync(join(REPO_ROOT, f)) && (
     (f.startsWith('content/sns/') && /\.(md|txt|json)$/.test(f)) ||
     (f.startsWith('content/site/') && /\.mdx$/.test(f)) ||
     (f.startsWith('content/note/') && /\.md$/.test(f))
@@ -89,7 +87,7 @@ const modern = { checked: 0, unverified: 0 };
 const checksModern = (f) => !(MDX || f.startsWith('content/site/'));
 
 for (const f of files) {
-  const raw = readFileSync(f, 'utf8');
+  const raw = readFileSync(join(REPO_ROOT, f), 'utf8');
   const lines = raw.split(/\r?\n/);
   const slugRes = reListFor(f);
   lines.forEach((line, i) => {
