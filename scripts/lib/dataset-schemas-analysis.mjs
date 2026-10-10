@@ -800,6 +800,7 @@ export const StateBookCoverage = z
             candidates: CoverageCandidates,
             verdict: CoverageVerdict.nullable().describe('意味判定の件数（まだ判定していなければ null）'),
             judgedAt: jstDate('意味判定の日').nullable(),
+            judgedHead: z.string().regex(/^[0-9a-f]{7,40}$/, 'コミットの SHA').optional().describe('判定日を付けたときの HEAD。これより後の Book-Coverage コミットだけを展開として数える（DN-0659。無い行は従来どおり）'),
             expansions: z
               .array(z.object({ article: articleSlug, commits: z.array(z.string().regex(/^[0-9a-f]{7,40}$/, 'コミットの SHA')).describe('展開したコミット（まだなら空）') }).strict())
               .superRefine(uniqueBy('article', '記事'))

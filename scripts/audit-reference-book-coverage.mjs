@@ -45,13 +45,13 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { createRequire } from 'node:module';
 import matter from 'gray-matter';
-import { execFileSync } from 'node:child_process';
 import { datasetPath } from './lib/datasets.mjs';
 import { readDatasetIf } from './lib/dataset-io.mjs';
 import { writeDataset } from './lib/dataset-write.mjs';
 import { todayJst } from './lib/jst-date.mjs';
 import { bookRepoRoot } from './lib/reference-book-bundle.mjs';
 import { buildBriefs } from './lib/book-coverage-briefs.mjs';
+import { expansionCommits, headSha } from './lib/book-coverage-commits.mjs';
 import { loadReferenceSources } from './lib/reference-sources.mjs';
 import { REPO_ROOT, SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 
@@ -84,19 +84,8 @@ const unknown = SOURCE_IDS.filter((id) => !targets.some((s) => s.id === id));
 if (unknown.length) die(`bookBundle を持つ参考文献に無い: ${unknown.join(', ')}`, 2);
 
 const coverageValues = (source) => ({ values: { name: source.bookBundle.directory } });
-/**
- * その書籍からの展開としてその記事を変えたコミット（新しい順）。コミットの本文に `Book-Coverage: <書籍 id>`（複数は「,」区切り）の
- * trailer を書いたものだけを数える（判定日以降に記事を変えたコミットを全部数えると、別の作業の変更まで「展開済み」になる。2026-10-08）
- */
-const commitsOf = (article, sourceId) => {
-  const dir = `${path.relative(REPO_ROOT, SITE_CONTENT_ROOT)}/${article}/`;
-  const out = execFileSync('git', ['-C', REPO_ROOT, 'log', '--grep=^Book-Coverage:', '--format=%h%x00%B%x01', '--', dir], { encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 });
-  return out.split('\x01').map((x) => x.trim()).filter(Boolean).flatMap((x) => {
-    const [hash, body = ''] = x.split('\0');
-    const ids = [...body.matchAll(/^Book-Coverage:\s*(.+)$/gm)].flatMap((m) => m[1].split(',').map((t) => t.trim()));
-    return ids.includes(sourceId) ? [hash] : [];
-  });
-};
+/** その書籍からの展開としてその記事を変えたコミット（since＝判定したときの HEAD より後だけ。lib/book-coverage-commits.mjs） */
+const commitsOf = (article, sourceId, since) => expansionCommits({ root: REPO_ROOT, dir: `${path.relative(REPO_ROOT, SITE_CONTENT_ROOT)}/${article}/`, sourceId, since });
 
 /**
  * 要約（state.book-coverage）を書き直す。手元に候補表がある書籍だけを更新し、ほかの書籍の行と、記録済みの判定日・コミットは残す。
@@ -112,6 +101,9 @@ function writeSummary(sources) {
     const verdict = readDatasetIf(REPO_ROOT, 'vault.book-coverage-verdict', coverageValues(source));
     const old = rows[source.id];
     const judgedAt = verdict ? (old?.judgedAt ?? todayJst()) : null;
+    // 判定日を新しく付けるとき、そのときの HEAD を基準に残す。基準のある行は、それより後の展開だけを数える（DN-0659）。
+    // 基準の無い行（2026-10-10 より前に判定した書籍）は、従来どおり記録済みのコミットを残す
+    const judgedHead = !verdict ? null : old?.judgedAt ? (old.judgedHead ?? null) : headSha(REPO_ROOT);
     // 追記の無い計画の行（ほかの記事へ振り分けた残り）は展開の対象に数えない
     const plan = (verdict?.plan ?? []).filter((p) => p.additions?.length);
     const v = verdict?.counts ?? {};
@@ -121,9 +113,11 @@ function writeSummary(sources) {
         ? { judged: verdict.judged, covered: v.covered ?? 0, partial: v.partial ?? 0, gap: v.gap ?? 0, outOfScope: v['out-of-scope'] ?? 0, additions: plan.reduce((n, p) => n + (p.additions?.length ?? 0), 0) }
         : null,
       judgedAt,
+      ...(judgedHead ? { judgedHead } : {}),
       expansions: [...new Set(plan.map((p) => p.article))].map((article) => {
         const kept = old?.expansions.find((e) => e.article === article);
-        return kept?.commits.length ? kept : { article, commits: commitsOf(article, source.id) };
+        if (!judgedHead && kept?.commits.length) return kept;
+        return { article, commits: commitsOf(article, source.id, judgedHead) };
       }),
     };
     updated++;

@@ -101,7 +101,7 @@ frontmatter `group` の語彙は 7 値。定義は**問題形式**で与え、�
 2. H2 は原本の章順・項目数・ラベル名をなぞらず、読者の時間軸や失敗パターンで組む。
 3. 例題・出題例は公式過去問（exam-official・サイトの過去問記事）から。原本の例題は使わない。
 4. 図は自作 SVG（[figure-canvas-policy.md](./figure-canvas-policy.md)）。原本の図は題材リストとしてだけ使う。
-5. `guide-qa` → `guide-fact-checker`（制度・数値を一次資料へ）→ Drive をマウントして `npm run check-reference-sources:deep` で 40 字一致 0 → 1 記事 1 コミット。コミットの本文に trailer `Book-Coverage: <書籍 id>`（複数の本からなら「,」区切り）を書く。`audit-reference-book-coverage -- --summary` はこの trailer のあるコミットだけを展開として数える（判定日以降の別の作業の変更を数えない）。
+5. `guide-qa` → `guide-fact-checker`（制度・数値を一次資料へ）→ Drive をマウントして `npm run check-reference-sources:deep` で 40 字一致 0 → 1 記事 1 コミット。コミットの本文に trailer `Book-Coverage: <書籍 id>`（複数の本からなら「,」区切り）を書く。`audit-reference-book-coverage -- --summary` はこの trailer のあるコミットだけを展開として数える（判定日以降の別の作業の変更を数えない）。判定日を付けたときの HEAD を要約の `judgedHead` に残し、それより後のコミットだけを数える（`--rejudge` で判定し直した本は、前の判定からの展開を数えない。DN-0659）。
 
 ## 8. site ↔ note の対応
 
