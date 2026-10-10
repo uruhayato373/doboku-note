@@ -36,6 +36,7 @@
  */
 
 import { readFileSync, writeFileSync, readdirSync, existsSync } from "fs";
+import { writeGeneratedJson } from './lib/generated-json.mjs';
 import { join } from "path";
 import { REPO_ROOT as ROOT } from "./lib/repository-paths.mjs";
 
@@ -190,7 +191,7 @@ function main() {
     return;
   }
 
-  writeFileSync(OUTPUT_JSON, JSON.stringify(result, null, 2) + "\n", "utf8");
+  if (!writeGeneratedJson(OUTPUT_JSON, result)) console.log("変更なし（書かない）");
   console.log(`\n✅ Wrote ${OUTPUT_JSON}`);
 }
 
