@@ -20,7 +20,7 @@
 
 import { spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
-import { createReadStream, existsSync, mkdirSync, readdirSync, readFileSync, renameSync, unlinkSync, writeFileSync } from 'node:fs';
+import { createReadStream, existsSync, mkdirSync, readdirSync, readFileSync, renameSync, rmSync, unlinkSync, writeFileSync } from 'node:fs';
 import { homedir } from 'node:os';
 import { dirname, join, sep } from 'node:path';
 import { isDeepStrictEqual } from 'node:util';
@@ -328,13 +328,44 @@ export function serializeDriveManifest(manifest) {
 }
 
 /** 台帳を読む。ディスク上は lean format なので、省かれた vaultPath / regenerable を group 定義から補って返す。 */
-export function loadDriveManifest({ hydrate = true } = {}) {
-  if (!existsSync(DRIVE_MANIFEST_PATH)) return emptyDriveManifest();
+export function loadDriveManifest({ hydrate = true, path = DRIVE_MANIFEST_PATH } = {}) {
+  if (!existsSync(path)) return withBase(emptyDriveManifest());
   let m;
-  try { m = JSON.parse(readFileSync(DRIVE_MANIFEST_PATH, 'utf-8')); }
-  catch (e) { throw new Error('drive-vault: 台帳が壊れている（' + DRIVE_MANIFEST_PATH + '）: ' + e.message); }
+  try { m = JSON.parse(readFileSync(path, 'utf-8')); }
+  catch (e) { throw new Error('drive-vault: 台帳が壊れている（' + path + '）: ' + e.message); }
   if (!m.entries) m.entries = {};
-  return hydrate ? expandDriveManifest(m) : m;
+  return withBase(hydrate ? expandDriveManifest(m) : m);
+}
+
+/**
+ * 読んだ時点の entries の写し。writeDriveManifestAtomic はこれと比べて「この書き手が変えた行」だけを、書く直前に
+ * 読み直した台帳へ重ねる。なぜ: 台帳を読んでから長く処理して丸ごと書き戻す作りなので、drive-vault-sync を 2 本
+ * 同時に回すと後から書いた側が先の側の登録を消していた（2026-10-10・DN-0656）。列挙されない Symbol に置くので
+ * JSON にも `{ ...manifest }` にも乗らない。
+ */
+const BASE = Symbol('driveManifestBase');
+function withBase(m) {
+  Object.defineProperty(m, BASE, { value: structuredClone(m.entries || {}), writable: true, enumerable: false });
+  return m;
+}
+
+/** 台帳の書き込みを排他する（mkdir は原子的）。取れなければ待ち、10 分より古い lock は落ちた書き手の残骸として外す */
+function withManifestLock(path, fn) {
+  const lock = path + '.lock';
+  const deadline = Date.now() + 120_000;
+  for (;;) {
+    try { mkdirSync(lock); break; } catch (e) {
+      if (e.code !== 'EEXIST') throw e;
+      try {
+        const age = Date.now() - Number(readFileSync(join(lock, 'at'), 'utf-8'));
+        if (age > 600_000) { rmSync(lock, { recursive: true, force: true }); continue; }
+      } catch { /* at を書く前の一瞬。待つ */ }
+      if (Date.now() > deadline) throw new Error('drive-vault: 台帳の lock が 2 分取れない（' + lock + '）。別の drive-vault-sync が動いていないか確かめる');
+      Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 200);
+    }
+  }
+  try { writeFileSync(join(lock, 'at'), String(Date.now())); return fn(); }
+  finally { rmSync(lock, { recursive: true, force: true }); }
 }
 
 /** 台帳に載せてよいキーだけを通す。絶対パスやローカル固有の値の混入経路を塞ぐ。 */
@@ -351,12 +382,26 @@ export function sanitizeDriveEntry(e) {
  * 全件 deep-equal で確かめてから置換する（戻らないなら 1 件も書かない・fail-closed）。
  * 途中で落ちても既存台帳を壊さない。
  */
-export function writeDriveManifestAtomic(manifest, cfg = loadDriveConfig()) {
+export function writeDriveManifestAtomic(manifest, cfg = loadDriveConfig(), { path = DRIVE_MANIFEST_PATH } = {}) {
+  mkdirSync(dirname(path), { recursive: true });
+  return withManifestLock(path, () => writeMerged(manifest, cfg, path));
+}
+
+function writeMerged(manifest, cfg, path) {
+  // 読み直した台帳に、この書き手が読んだ後に足した・変えた・消した行だけを重ねる（他の書き手の行は残す）
+  const base = manifest[BASE];
+  let entries = manifest.entries || {};
+  if (base) {
+    const disk = existsSync(path) ? loadDriveManifest({ path }).entries : {};
+    const merged = { ...disk };
+    for (const [rel, e] of Object.entries(entries)) if (!isDeepStrictEqual(e, base[rel])) merged[rel] = e;
+    for (const rel of Object.keys(base)) if (!(rel in entries)) delete merged[rel];
+    entries = merged;
+  }
   const full = { ...manifest, entries: {} };
-  for (const [rel, e] of Object.entries(manifest.entries || {})) full.entries[rel] = hydrateDriveEntry(rel, sanitizeDriveEntry(e), cfg);
+  for (const [rel, e] of Object.entries(entries)) full.entries[rel] = hydrateDriveEntry(rel, sanitizeDriveEntry(e), cfg);
   const lean = toLeanDriveManifest(full, cfg);
-  mkdirSync(dirname(DRIVE_MANIFEST_PATH), { recursive: true });
-  const tmp = DRIVE_MANIFEST_PATH + '.tmp';
+  const tmp = path + '.tmp';
   writeFileSync(tmp, serializeDriveManifest(lean));
   let back;
   try { back = JSON.parse(readFileSync(tmp, 'utf-8')); } catch (e) { unlinkSync(tmp); throw new Error('drive-vault: 台帳の書き出しが JSON として読めないので置換しない: ' + e.message); }
@@ -366,7 +411,12 @@ export function writeDriveManifestAtomic(manifest, cfg = loadDriveConfig()) {
     unlinkSync(tmp);
     throw new Error('drive-vault: lean 化した台帳を補完しても元に戻らないので置換しない（group 定義と台帳の導出がずれている）');
   }
-  renameSync(tmp, DRIVE_MANIFEST_PATH);
+  renameSync(tmp, path);
+  // 次の書き込みの基準を今の台帳にそろえ、他の書き手の行も手元の entries に入れる（入れないと次回「消した」と読む）
+  if (base) {
+    for (const [rel, e] of Object.entries(entries)) if (!(rel in (manifest.entries || {}))) manifest.entries[rel] = e;
+    manifest[BASE] = structuredClone(full.entries);
+  }
   return Object.keys(back.entries).length;
 }
 

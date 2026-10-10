@@ -292,3 +292,30 @@ test('drive-vault-sync --pull: --commit が無ければ手元へ書かず、件�
     rmSync(vault, { recursive: true, force: true });
   }
 });
+
+test('台帳の同時書き込み: 2 つの書き手が別々に足した行は両方残り、消した行だけが消える（DN-0656）', async () => {
+  const { mkdtempSync, writeFileSync, existsSync } = await import('node:fs');
+  const { tmpdir } = await import('node:os');
+  const { join } = await import('node:path');
+  const { loadDriveManifest, writeDriveManifestAtomic, serializeDriveManifest } = await import('../scripts/lib/drive-vault.mjs');
+  const path = join(mkdtempSync(join(tmpdir(), 'dm-')), 'drive-manifest.json');
+  const row = (n) => ({ group: 'kindle-dist', vaultPath: `制作物/Kindle/${n}`, sha256: n.padEnd(64, '0').slice(0, 64), bytes: 1 });
+  const seed = emptyDriveManifest();
+  seed.entries['scripts/kindle-dist/keep.jpg'] = row('keep.jpg');
+  seed.entries['scripts/kindle-dist/old.jpg'] = row('old.jpg');
+  writeFileSync(path, serializeDriveManifest(seed));
+  const a = loadDriveManifest({ path });
+  const b = loadDriveManifest({ path });
+  a.entries['scripts/kindle-dist/a.jpg'] = row('a.jpg');
+  b.entries['scripts/kindle-dist/b.jpg'] = row('b.jpg');
+  delete b.entries['scripts/kindle-dist/old.jpg'];
+  writeDriveManifestAtomic(a, undefined, { path });
+  writeDriveManifestAtomic(b, undefined, { path });
+  assert.deepEqual(Object.keys(loadDriveManifest({ path }).entries).sort(), ['scripts/kindle-dist/a.jpg', 'scripts/kindle-dist/b.jpg', 'scripts/kindle-dist/keep.jpg']);
+  // 書いた後は他の書き手の行も手元に入る（次の書き込みで「消した」と読まない）
+  assert.ok(b.entries['scripts/kindle-dist/a.jpg']);
+  b.entries['scripts/kindle-dist/c.jpg'] = row('c.jpg');
+  writeDriveManifestAtomic(b, undefined, { path });
+  assert.equal(Object.keys(loadDriveManifest({ path }).entries).length, 4);
+  assert.equal(existsSync(path + '.lock'), false, 'lock を残さない');
+});
