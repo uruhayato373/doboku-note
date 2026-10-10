@@ -11850,15 +11850,22 @@
       "no": "1",
       "source": {
         "question": "R04/R04_試験問題_択一式.pdf",
-        "page": null,
+        "page": 1,
         "answer": "R04/R04_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "問題文の「に於ける」"
       }
     },
     {
@@ -11867,15 +11874,22 @@
       "no": "2",
       "source": {
         "question": "R04/R04_試験問題_択一式.pdf",
-        "page": null,
+        "page": 1,
         "answer": "R04/R04_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢2の表記"
       }
     },
     {
@@ -11884,15 +11898,21 @@
       "no": "3",
       "source": {
         "question": "R04/R04_試験問題_択一式.pdf",
-        "page": null,
+        "page": 2,
         "answer": "R04/R04_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -11901,15 +11921,21 @@
       "no": "4",
       "source": {
         "question": "R04/R04_試験問題_択一式.pdf",
-        "page": null,
+        "page": 3,
         "answer": "R04/R04_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -11918,15 +11944,21 @@
       "no": "5",
       "source": {
         "question": "R04/R04_試験問題_択一式.pdf",
-        "page": null,
+        "page": 3,
         "answer": "R04/R04_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -11935,15 +11967,21 @@
       "no": "6",
       "source": {
         "question": "R04/R04_試験問題_択一式.pdf",
-        "page": null,
+        "page": 4,
         "answer": "R04/R04_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -11952,15 +11990,21 @@
       "no": "7",
       "source": {
         "question": "R04/R04_試験問題_択一式.pdf",
-        "page": null,
+        "page": 4,
         "answer": "R04/R04_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -11969,15 +12013,21 @@
       "no": "8",
       "source": {
         "question": "R04/R04_試験問題_択一式.pdf",
-        "page": null,
+        "page": 5,
         "answer": "R04/R04_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -11986,15 +12036,21 @@
       "no": "9",
       "source": {
         "question": "R04/R04_試験問題_択一式.pdf",
-        "page": null,
+        "page": 5,
         "answer": "R04/R04_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -12003,15 +12059,22 @@
       "no": "10",
       "source": {
         "question": "R04/R04_試験問題_択一式.pdf",
-        "page": null,
+        "page": 6,
         "answer": "R04/R04_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢5を労働局長・認めるときはに"
       }
     },
     {
@@ -12020,15 +12083,22 @@
       "no": "11",
       "source": {
         "question": "R04/R04_試験問題_択一式.pdf",
-        "page": null,
+        "page": 6,
         "answer": "R04/R04_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "解説の✅/❌の向きを不適切問題に合わせて修正（設問は原典どおり）"
       }
     },
     {
@@ -12037,15 +12107,22 @@
       "no": "12",
       "source": {
         "question": "R04/R04_試験問題_択一式.pdf",
-        "page": null,
+        "page": 7,
         "answer": "R04/R04_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢4の検査結果報告書を検査結果に"
       }
     },
     {
@@ -12054,15 +12131,21 @@
       "no": "13",
       "source": {
         "question": "R04/R04_試験問題_択一式.pdf",
-        "page": null,
+        "page": 8,
         "answer": "R04/R04_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -12071,15 +12154,21 @@
       "no": "14",
       "source": {
         "question": "R04/R04_試験問題_択一式.pdf",
-        "page": null,
+        "page": 9,
         "answer": "R04/R04_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -12088,15 +12177,22 @@
       "no": "15",
       "source": {
         "question": "R04/R04_試験問題_択一式.pdf",
-        "page": null,
+        "page": 9,
         "answer": "R04/R04_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢3にグローバル化の推進を補う"
       }
     },
     {
@@ -12105,15 +12201,22 @@
       "no": "16",
       "source": {
         "question": "R04/R04_試験問題_択一式.pdf",
-        "page": null,
+        "page": 10,
         "answer": "R04/R04_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢1,2の文言"
       }
     },
     {
@@ -12122,15 +12225,21 @@
       "no": "17",
       "source": {
         "question": "R04/R04_試験問題_択一式.pdf",
-        "page": null,
+        "page": 10,
         "answer": "R04/R04_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -12139,15 +12248,21 @@
       "no": "18",
       "source": {
         "question": "R04/R04_試験問題_択一式.pdf",
-        "page": null,
+        "page": 11,
         "answer": "R04/R04_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -12156,15 +12271,22 @@
       "no": "19",
       "source": {
         "question": "R04/R04_試験問題_択一式.pdf",
-        "page": null,
+        "page": 11,
         "answer": "R04/R04_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "総時間・実際稼働時間の用語、解説・ExamPoint"
       }
     },
     {
@@ -12173,15 +12295,22 @@
       "no": "20",
       "source": {
         "question": "R04/R04_試験問題_択一式.pdf",
-        "page": null,
+        "page": 12,
         "answer": "R04/R04_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "問題文を原典どおり"
       }
     },
     {
@@ -12190,15 +12319,22 @@
       "no": "21",
       "source": {
         "question": "R04/R04_試験問題_択一式.pdf",
-        "page": null,
+        "page": 12,
         "answer": "R04/R04_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "問題文・解説の誤字(最的→量的)"
       }
     },
     {
@@ -12207,15 +12343,22 @@
       "no": "22",
       "source": {
         "question": "R04/R04_試験問題_択一式.pdf",
-        "page": null,
+        "page": 13,
         "answer": "R04/R04_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢1に4領域の文を補う"
       }
     },
     {
@@ -12224,15 +12367,22 @@
       "no": "23",
       "source": {
         "question": "R04/R04_試験問題_択一式.pdf",
-        "page": null,
+        "page": 14,
         "answer": "R04/R04_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "(ウ)の文言"
       }
     },
     {
@@ -12241,15 +12391,22 @@
       "no": "24",
       "source": {
         "question": "R04/R04_試験問題_択一式.pdf",
-        "page": null,
+        "page": 15,
         "answer": "R04/R04_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢1,4,5の文言"
       }
     },
     {
@@ -12258,15 +12415,21 @@
       "no": "25",
       "source": {
         "question": "R04/R04_試験問題_択一式.pdf",
-        "page": null,
+        "page": 15,
         "answer": "R04/R04_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -12275,15 +12438,22 @@
       "no": "26",
       "source": {
         "question": "R04/R04_試験問題_択一式.pdf",
-        "page": null,
+        "page": 16,
         "answer": "R04/R04_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢1,5の文言"
       }
     },
     {
@@ -12292,15 +12462,22 @@
       "no": "27",
       "source": {
         "question": "R04/R04_試験問題_択一式.pdf",
-        "page": null,
+        "page": 16,
         "answer": "R04/R04_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "問題文・選択肢1,5の文言"
       }
     },
     {
@@ -12309,15 +12486,22 @@
       "no": "28",
       "source": {
         "question": "R04/R04_試験問題_択一式.pdf",
-        "page": null,
+        "page": 17,
         "answer": "R04/R04_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢4の文言"
       }
     },
     {
@@ -12326,15 +12510,22 @@
       "no": "29",
       "source": {
         "question": "R04/R04_試験問題_択一式.pdf",
-        "page": null,
+        "page": 18,
         "answer": "R04/R04_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢1,2,3の文言"
       }
     },
     {
@@ -12343,15 +12534,22 @@
       "no": "30",
       "source": {
         "question": "R04/R04_試験問題_択一式.pdf",
-        "page": null,
+        "page": 19,
         "answer": "R04/R04_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "問題文の主語"
       }
     },
     {
@@ -12360,15 +12558,21 @@
       "no": "31",
       "source": {
         "question": "R04/R04_試験問題_択一式.pdf",
-        "page": null,
+        "page": 20,
         "answer": "R04/R04_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -12377,15 +12581,22 @@
       "no": "32",
       "source": {
         "question": "R04/R04_試験問題_択一式.pdf",
-        "page": null,
+        "page": 21,
         "answer": "R04/R04_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "問題文の文言・空欄にア～エを付記"
       }
     },
     {
@@ -12394,15 +12605,22 @@
       "no": "33",
       "source": {
         "question": "R04/R04_試験問題_択一式.pdf",
-        "page": null,
+        "page": 22,
         "answer": "R04/R04_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢2,4の文言"
       }
     },
     {
@@ -12411,15 +12629,21 @@
       "no": "34",
       "source": {
         "question": "R04/R04_試験問題_択一式.pdf",
-        "page": null,
+        "page": 22,
         "answer": "R04/R04_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -12428,15 +12652,22 @@
       "no": "35",
       "source": {
         "question": "R04/R04_試験問題_択一式.pdf",
-        "page": null,
+        "page": 23,
         "answer": "R04/R04_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "問い方を最も適切に直し、選択肢1-4の文言、解説を全面修正"
       }
     },
     {
@@ -12445,15 +12676,22 @@
       "no": "36",
       "source": {
         "question": "R04/R04_試験問題_択一式.pdf",
-        "page": null,
+        "page": 23,
         "answer": "R04/R04_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢2,3,4,5と解説4"
       }
     },
     {
@@ -12462,15 +12700,21 @@
       "no": "37",
       "source": {
         "question": "R04/R04_試験問題_択一式.pdf",
-        "page": null,
+        "page": 24,
         "answer": "R04/R04_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -12479,15 +12723,22 @@
       "no": "38",
       "source": {
         "question": "R04/R04_試験問題_択一式.pdf",
-        "page": null,
+        "page": 24,
         "answer": "R04/R04_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢3,5の文言"
       }
     },
     {
@@ -12496,15 +12747,22 @@
       "no": "39",
       "source": {
         "question": "R04/R04_試験問題_択一式.pdf",
-        "page": null,
+        "page": 25,
         "answer": "R04/R04_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "問題文・選択肢2,4"
       }
     },
     {
@@ -12513,15 +12771,22 @@
       "no": "40",
       "source": {
         "question": "R04/R04_試験問題_択一式.pdf",
-        "page": null,
+        "page": 25,
         "answer": "R04/R04_試験問題_択一式_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢1,5の文言"
       }
     },
     {
