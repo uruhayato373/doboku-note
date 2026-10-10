@@ -781,6 +781,50 @@
         "/exam/pe-construction/past-exams/r04-power-civil",
         "/exam/pe-construction/past-exams/r04-required"
       ]
+    },
+    {
+      "runId": "2026-10-10T01-30-10Z",
+      "collectedAt": "2026-10-10T01:30:10.135Z",
+      "mode": "commit",
+      "status": "ok",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 16,
+      "accepted": 10,
+      "alreadyIndexed": 6,
+      "unreadable": 0,
+      "slugs": [
+        "/practice/trench-excavation-safety",
+        "/exam/civil-construction-2/guide/foundation-key-points",
+        "/exam/pe-construction/keywords/shakai-shihon-ronbun-keyword",
+        "/exam/pe-construction/past-exams/r05-power-civil",
+        "/exam/pe-construction/past-exams/r06-geotechnical",
+        "/exam/pe-construction/past-exams/r06-power-civil",
+        "/exam/pe-construction/past-exams/r06-river-coast",
+        "/exam/pe-construction/past-exams/r08-environment",
+        "/exam/pe-construction/past-exams/r08-geotechnical",
+        "/exam/pe-construction/past-exams/r08-power-civil",
+        "/exam/pe-construction/past-exams/r08-railway",
+        "/exam/pe-construction/past-exams/r08-required",
+        "/exam/pe-construction/past-exams/r08-river-coast",
+        "/exam/pe-construction/past-exams/r08-road",
+        "/exam/pe-construction/past-exams/r08-steel-concrete",
+        "/exam/pe-first-stage/guide/r08-answers"
+      ],
+      "acceptedSlugs": [
+        "/exam/pe-construction/past-exams/r05-power-civil",
+        "/exam/pe-construction/past-exams/r06-geotechnical",
+        "/exam/pe-construction/past-exams/r06-power-civil",
+        "/exam/pe-construction/past-exams/r06-river-coast",
+        "/exam/pe-construction/past-exams/r08-environment",
+        "/exam/pe-construction/past-exams/r08-railway",
+        "/exam/pe-construction/past-exams/r08-required",
+        "/exam/pe-construction/past-exams/r08-river-coast",
+        "/exam/pe-construction/past-exams/r08-road",
+        "/exam/pe-first-stage/guide/r08-answers"
+      ]
     }
   ]
 }

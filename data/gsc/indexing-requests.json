@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
-  "runId": "2026-10-09T01-30-12Z",
-  "collectedAt": "2026-10-09T01:30:12.249Z",
+  "runId": "2026-10-10T01-30-10Z",
+  "collectedAt": "2026-10-10T01:30:10.135Z",
   "property": "sc-domain:doboku-note.com",
   "mode": "commit",
-  "scriptVersion": "93d773a32",
+  "scriptVersion": "c495e1b1b",
   "filter": {
     "category": null,
     "group": null
   },
   "limit": 10,
-  "targetCount": 213,
+  "targetCount": 203,
   "items": [
     {
       "slug": "/practice/trench-excavation-safety",
@@ -47,91 +47,6 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/exam/pe-construction/keywords/urban-planning-exam-themes",
-      "url": "https://doboku-note.com/exam/pe-construction/keywords/urban-planning-exam-themes",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/exam/civil-construction-2/guide/road-pavement-key-points",
-      "url": "https://doboku-note.com/exam/civil-construction-2/guide/road-pavement-key-points",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/exam/pe-comprehensive-management/past-exams/h24-secondary",
-      "url": "https://doboku-note.com/exam/pe-comprehensive-management/past-exams/h24-secondary",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "重複しています。Google により、ユーザーがマークしたページとは異なるページが正規ページとして選択されました",
-        "lastCrawl": "2026/09/01 9:49:20",
-        "discoveredVia": "sitemap",
-        "crawlAllowed": true,
-        "indexingAllowed": true
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/exam/pe-construction/keywords/kokudo-keisei-chiiki",
-      "url": "https://doboku-note.com/exam/pe-construction/keywords/kokudo-keisei-chiiki",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "URL が Google に認識されていません",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/exam/pe-construction/keywords/ninaite-dx-ronbun-keyword",
-      "url": "https://doboku-note.com/exam/pe-construction/keywords/ninaite-dx-ronbun-keyword",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
       "slug": "/exam/pe-construction/keywords/shakai-shihon-ronbun-keyword",
       "url": "https://doboku-note.com/exam/pe-construction/keywords/shakai-shihon-ronbun-keyword",
       "inspected": {
@@ -149,8 +64,25 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/exam/pe-construction/past-exams/r01-power-civil",
-      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r01-power-civil",
+      "slug": "/exam/pe-construction/past-exams/r05-power-civil",
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r05-power-civil",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/pe-construction/past-exams/r06-geotechnical",
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r06-geotechnical",
       "inspected": {
         "state": "not-indexed",
         "reason": "URL が Google に認識されていません",
@@ -166,8 +98,8 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/exam/pe-construction/past-exams/r02-steel-concrete",
-      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r02-steel-concrete",
+      "slug": "/exam/pe-construction/past-exams/r06-power-civil",
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r06-power-civil",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
@@ -183,8 +115,8 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/exam/pe-construction/past-exams/r03-road",
-      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r03-road",
+      "slug": "/exam/pe-construction/past-exams/r06-river-coast",
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r06-river-coast",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
@@ -200,8 +132,8 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/exam/pe-construction/past-exams/r04-power-civil",
-      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r04-power-civil",
+      "slug": "/exam/pe-construction/past-exams/r08-environment",
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r08-environment",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
@@ -217,11 +149,130 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/exam/pe-construction/past-exams/r04-required",
-      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r04-required",
+      "slug": "/exam/pe-construction/past-exams/r08-geotechnical",
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r08-geotechnical",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/pe-construction/past-exams/r08-power-civil",
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r08-power-civil",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/pe-construction/past-exams/r08-railway",
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r08-railway",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/pe-construction/past-exams/r08-required",
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r08-required",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/pe-construction/past-exams/r08-river-coast",
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r08-river-coast",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/pe-construction/past-exams/r08-road",
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r08-road",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/pe-construction/past-exams/r08-steel-concrete",
+      "url": "https://doboku-note.com/exam/pe-construction/past-exams/r08-steel-concrete",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/pe-first-stage/guide/r08-answers",
+      "url": "https://doboku-note.com/exam/pe-first-stage/guide/r08-answers",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "URL が Google に認識されていません",
         "lastCrawl": null,
         "discoveredVia": "sitemap",
         "crawlAllowed": null,
@@ -236,9 +287,9 @@
   ],
   "status": "ok",
   "summary": {
-    "inspected": 13,
+    "inspected": 16,
     "accepted": 10,
-    "alreadyIndexed": 3,
+    "alreadyIndexed": 6,
     "unreadable": 0
   }
 }
