@@ -1067,15 +1067,22 @@
       "no": "Ⅲ-1",
       "source": {
         "question": "R07/R07_専門_09建設部門.pdf",
-        "page": null,
+        "page": 1,
         "answer": "R07/R07_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "直した箇所: 設問文の言い回し"
       }
     },
     {
@@ -1084,15 +1091,22 @@
       "no": "Ⅲ-2",
       "source": {
         "question": "R07/R07_専門_09建設部門.pdf",
-        "page": null,
+        "page": 2,
         "answer": "R07/R07_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "直した箇所: 設問文（中心部）"
       }
     },
     {
@@ -1101,15 +1115,22 @@
       "no": "Ⅲ-3",
       "source": {
         "question": "R07/R07_専門_09建設部門.pdf",
-        "page": null,
+        "page": 2,
         "answer": "R07/R07_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "直した箇所: 選択肢2・3"
       }
     },
     {
@@ -1118,15 +1139,22 @@
       "no": "Ⅲ-4",
       "source": {
         "question": "R07/R07_専門_09建設部門.pdf",
-        "page": null,
+        "page": 3,
         "answer": "R07/R07_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "直した箇所: 選択肢1〜5"
       }
     },
     {
@@ -1135,15 +1163,22 @@
       "no": "Ⅲ-5",
       "source": {
         "question": "R07/R07_専門_09建設部門.pdf",
-        "page": null,
+        "page": 3,
         "answer": "R07/R07_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "直した箇所: 設問文"
       }
     },
     {
@@ -1152,15 +1187,22 @@
       "no": "Ⅲ-6",
       "source": {
         "question": "R07/R07_専門_09建設部門.pdf",
-        "page": null,
+        "page": 4,
         "answer": "R07/R07_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "直した箇所: 選択肢3の符号・設問文"
       }
     },
     {
@@ -1169,15 +1211,22 @@
       "no": "Ⅲ-7",
       "source": {
         "question": "R07/R07_専門_09建設部門.pdf",
-        "page": null,
+        "page": 4,
         "answer": "R07/R07_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "直した箇所: 選択肢2"
       }
     },
     {
@@ -1186,15 +1235,22 @@
       "no": "Ⅲ-8",
       "source": {
         "question": "R07/R07_専門_09建設部門.pdf",
-        "page": null,
+        "page": 5,
         "answer": "R07/R07_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "直した箇所: 選択肢3"
       }
     },
     {
@@ -1203,15 +1259,22 @@
       "no": "Ⅲ-9",
       "source": {
         "question": "R07/R07_専門_09建設部門.pdf",
-        "page": null,
+        "page": 6,
         "answer": "R07/R07_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "直した箇所: 選択肢2・4"
       }
     },
     {
@@ -1220,15 +1283,22 @@
       "no": "Ⅲ-10",
       "source": {
         "question": "R07/R07_専門_09建設部門.pdf",
-        "page": null,
+        "page": 6,
         "answer": "R07/R07_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "直した箇所: 選択肢2・4"
       }
     },
     {
@@ -1237,15 +1307,22 @@
       "no": "Ⅲ-11",
       "source": {
         "question": "R07/R07_専門_09建設部門.pdf",
-        "page": null,
+        "page": 7,
         "answer": "R07/R07_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "直した箇所: 選択肢2・4・5"
       }
     },
     {
@@ -1254,15 +1331,22 @@
       "no": "Ⅲ-12",
       "source": {
         "question": "R07/R07_専門_09建設部門.pdf",
-        "page": null,
+        "page": 7,
         "answer": "R07/R07_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "直した箇所: 設問文・区切り"
       }
     },
     {
@@ -1271,7 +1355,7 @@
       "no": "Ⅲ-13",
       "source": {
         "question": "R07/R07_専門_09建設部門.pdf",
-        "page": null,
+        "page": 8,
         "answer": "R07/R07_正答.pdf"
       },
       "answer": {
@@ -1279,7 +1363,10 @@
         "official": null
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "全員正解扱い。直した箇所: 選択肢の文言"
       }
     },
     {
@@ -1288,15 +1375,22 @@
       "no": "Ⅲ-14",
       "source": {
         "question": "R07/R07_専門_09建設部門.pdf",
-        "page": null,
+        "page": 8,
         "answer": "R07/R07_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "直した箇所: 選択肢2・4"
       }
     },
     {
@@ -1305,15 +1399,22 @@
       "no": "Ⅲ-15",
       "source": {
         "question": "R07/R07_専門_09建設部門.pdf",
-        "page": null,
+        "page": 9,
         "answer": "R07/R07_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "直した箇所: 選択肢1・5"
       }
     },
     {
@@ -1322,15 +1423,22 @@
       "no": "Ⅲ-16",
       "source": {
         "question": "R07/R07_専門_09建設部門.pdf",
-        "page": null,
+        "page": 9,
         "answer": "R07/R07_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "直した箇所: 選択肢1・4"
       }
     },
     {
@@ -1339,15 +1447,22 @@
       "no": "Ⅲ-17",
       "source": {
         "question": "R07/R07_専門_09建設部門.pdf",
-        "page": null,
+        "page": 10,
         "answer": "R07/R07_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "直した箇所: 句読点のみ"
       }
     },
     {
@@ -1356,15 +1471,22 @@
       "no": "Ⅲ-18",
       "source": {
         "question": "R07/R07_専門_09建設部門.pdf",
-        "page": null,
+        "page": 11,
         "answer": "R07/R07_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "直した箇所: 選択肢3・5"
       }
     },
     {
@@ -1373,15 +1495,22 @@
       "no": "Ⅲ-19",
       "source": {
         "question": "R07/R07_専門_09建設部門.pdf",
-        "page": null,
+        "page": 11,
         "answer": "R07/R07_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "直した箇所: 句読点のみ"
       }
     },
     {
@@ -1390,15 +1519,22 @@
       "no": "Ⅲ-20",
       "source": {
         "question": "R07/R07_専門_09建設部門.pdf",
-        "page": null,
+        "page": 11,
         "answer": "R07/R07_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "直した箇所: 選択肢1・2・3・4"
       }
     },
     {
@@ -1407,15 +1543,22 @@
       "no": "Ⅲ-21",
       "source": {
         "question": "R07/R07_専門_09建設部門.pdf",
-        "page": null,
+        "page": 12,
         "answer": "R07/R07_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "直した箇所: 選択肢2"
       }
     },
     {
@@ -1424,15 +1567,22 @@
       "no": "Ⅲ-22",
       "source": {
         "question": "R07/R07_専門_09建設部門.pdf",
-        "page": null,
+        "page": 12,
         "answer": "R07/R07_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "直した箇所: 選択肢1・3・4・5"
       }
     },
     {
@@ -1441,15 +1591,22 @@
       "no": "Ⅲ-23",
       "source": {
         "question": "R07/R07_専門_09建設部門.pdf",
-        "page": null,
+        "page": 12,
         "answer": "R07/R07_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "直した箇所: 選択肢3"
       }
     },
     {
@@ -1458,15 +1615,22 @@
       "no": "Ⅲ-24",
       "source": {
         "question": "R07/R07_専門_09建設部門.pdf",
-        "page": null,
+        "page": 13,
         "answer": "R07/R07_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "直した箇所: 選択肢2〜5"
       }
     },
     {
@@ -1475,15 +1639,22 @@
       "no": "Ⅲ-25",
       "source": {
         "question": "R07/R07_専門_09建設部門.pdf",
-        "page": null,
+        "page": 13,
         "answer": "R07/R07_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "直した箇所: 選択肢1・3・4"
       }
     },
     {
@@ -1492,15 +1663,22 @@
       "no": "Ⅲ-26",
       "source": {
         "question": "R07/R07_専門_09建設部門.pdf",
-        "page": null,
+        "page": 14,
         "answer": "R07/R07_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "直した箇所: 句読点のみ"
       }
     },
     {
@@ -1509,15 +1687,22 @@
       "no": "Ⅲ-27",
       "source": {
         "question": "R07/R07_専門_09建設部門.pdf",
-        "page": null,
+        "page": 15,
         "answer": "R07/R07_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "直した箇所: 選択肢2（D水力・E原子力）"
       }
     },
     {
@@ -1526,15 +1711,22 @@
       "no": "Ⅲ-28",
       "source": {
         "question": "R07/R07_専門_09建設部門.pdf",
-        "page": null,
+        "page": 16,
         "answer": "R07/R07_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "直した箇所: 選択肢2〜5"
       }
     },
     {
@@ -1543,15 +1735,22 @@
       "no": "Ⅲ-29",
       "source": {
         "question": "R07/R07_専門_09建設部門.pdf",
-        "page": null,
+        "page": 16,
         "answer": "R07/R07_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "直した箇所: 選択肢3・4"
       }
     },
     {
@@ -1560,15 +1759,22 @@
       "no": "Ⅲ-30",
       "source": {
         "question": "R07/R07_専門_09建設部門.pdf",
-        "page": null,
+        "page": 17,
         "answer": "R07/R07_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "直した箇所: 選択肢全般"
       }
     },
     {
@@ -1577,15 +1783,22 @@
       "no": "Ⅲ-31",
       "source": {
         "question": "R07/R07_専門_09建設部門.pdf",
-        "page": null,
+        "page": 17,
         "answer": "R07/R07_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "直した箇所: 選択肢2"
       }
     },
     {
@@ -1594,15 +1807,22 @@
       "no": "Ⅲ-32",
       "source": {
         "question": "R07/R07_専門_09建設部門.pdf",
-        "page": null,
+        "page": 18,
         "answer": "R07/R07_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "直した箇所: 選択肢2・3・4・5"
       }
     },
     {
@@ -1611,15 +1831,22 @@
       "no": "Ⅲ-33",
       "source": {
         "question": "R07/R07_専門_09建設部門.pdf",
-        "page": null,
+        "page": 18,
         "answer": "R07/R07_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "直した箇所: 選択肢2〜4"
       }
     },
     {
@@ -1628,15 +1855,22 @@
       "no": "Ⅲ-34",
       "source": {
         "question": "R07/R07_専門_09建設部門.pdf",
-        "page": null,
+        "page": 19,
         "answer": "R07/R07_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "直した箇所: 選択肢2・3"
       }
     },
     {
@@ -1645,15 +1879,22 @@
       "no": "Ⅲ-35",
       "source": {
         "question": "R07/R07_専門_09建設部門.pdf",
-        "page": null,
+        "page": 20,
         "answer": "R07/R07_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "直した箇所: 選択肢3・5"
       }
     },
     {
