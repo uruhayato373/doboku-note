@@ -186,6 +186,15 @@ jobs:
             exit 1
           fi
 
+      # OGP の資格別の背景は private R2 に退避してある（2026-10-10・素材の group ogp-background・git では追跡しない）。
+      # 生成の前に取り戻す。取り戻せなければ ogp-create の requireLocalAsset が止める（黙ってオフホワイトに落とさない）。
+      - name: Hydrate OGP backgrounds (private R2)
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_R2_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
+          CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
+        run: node scripts/asset-hydrate.mjs --group ogp-background
+
       # 失敗した slug は隔離して継続する（1 件の生成失敗で全体を止めない）。
       # 全滅（成功 0 件）のときだけ異常として止める。
       # 公的基準の章記事は MDX ではないので上の detect（published な MDX を数える）に載らない。

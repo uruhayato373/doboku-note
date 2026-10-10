@@ -186,13 +186,6 @@
       ]
     },
     {
-      "path": "config/ogp/backgrounds/",
-      "reason": "資格別ブランド写真プール。note カバーとサイト OGP の再生成入力そのもので、これを外すと REGENERATE 分類が再生成不能になる",
-      "appliesTo": [
-        "size"
-      ]
-    },
-    {
       "path": "public/",
       "reason": "サイトが直接配信する静的アセットの原本。R2 ではなく Next.js のビルド入力",
       "appliesTo": [

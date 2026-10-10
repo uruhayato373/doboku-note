@@ -1,0 +1,59 @@
+<!-- authored 2026-10-10 doboku-note 自作。題材はコンクリート診断士テキスト「維持管理・基準」の論点。一次資料の年表を再構成したもので、特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="塩化物規制の推移。1970年代は海砂の塩分を規制し、1986年に総量規制へ移り、土木は部材別で0.60と0.30、建築は0.30を原則とした。セメントの塩化物は1992年に0.02%以下、土木のRC部材は2005年度に0.30以下となった">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; fill: #555; font-size: 12px; }
+      .h { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .y { font-weight: bold; fill: #1a3a5c; }
+      .b { font-weight: bold; fill: #1a3a5c; }
+      .m { font-size: 11px; fill: #555; }
+      .row { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1; }
+      .key { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .band { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="h" x="22" y="22">年</text>
+  <text class="h" x="90" y="22">土木 (Cl⁻ kg/m³)</text>
+  <text class="h" x="234" y="22">建築 (Cl⁻ kg/m³)</text>
+  <line x1="16" y1="30" x2="366" y2="30" stroke="#d7d7d7" stroke-width="1"/>
+  <rect class="row" x="16" y="36" width="350" height="78" rx="4"/>
+  <text class="y" x="22" y="60">1970</text>
+  <text class="y" x="22" y="80">年代</text>
+  <text class="b" x="90" y="60">1974年 学会示方書</text>
+  <text x="90" y="80">海砂の塩分を</text>
+  <text x="90" y="100">0.1%以下の目安に</text>
+  <text class="b" x="234" y="60">1977年 建設省通達</text>
+  <text x="234" y="80">細骨材の塩分は</text>
+  <text x="234" y="100">0.04%以下(NaCl)</text>
+  <rect class="key" x="16" y="122" width="350" height="78" rx="4"/>
+  <text class="y" x="22" y="146">1986年</text>
+  <text class="y" x="22" y="166">6月</text>
+  <text class="b" x="90" y="146">技調発285号</text>
+  <text x="90" y="166">RC部材 0.60</text>
+  <text x="90" y="186">プレテン等 0.30</text>
+  <text class="b" x="234" y="146">住指発142号</text>
+  <text x="234" y="166">原則 0.30</text>
+  <text x="234" y="186">やむを得ず 0.60</text>
+  <rect class="key" x="16" y="208" width="350" height="58" rx="4"/>
+  <text class="y" x="22" y="232">1986年</text>
+  <text class="y" x="22" y="252">10月</text>
+  <text class="b" x="90" y="232">JIS A 5308 レディーミクスト</text>
+  <text x="90" y="252">荷卸し時 0.30以下(承認で0.60)</text>
+  <rect class="row" x="16" y="274" width="350" height="58" rx="4"/>
+  <text class="y" x="22" y="298">1990〜</text>
+  <text class="y" x="22" y="318">92年</text>
+  <text class="b" x="90" y="298">セメントの塩化物イオン</text>
+  <text x="90" y="318">1990通達・1992 JISで0.02%以下</text>
+  <rect class="row" x="16" y="340" width="350" height="78" rx="4"/>
+  <text class="y" x="22" y="364">2005</text>
+  <text class="y" x="22" y="384">年度</text>
+  <text class="b" x="90" y="364">共通仕様書</text>
+  <text x="90" y="384">RC部材も</text>
+  <text x="90" y="404">0.30以下に</text>
+  <text class="m" x="20" y="438">土木の通達の対象は国の直轄工事。</text>
+  <text class="m" x="20" y="453">セメントの塩化物は2003年に0.035%以下へ改正。</text>
+</svg>

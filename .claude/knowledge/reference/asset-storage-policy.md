@@ -58,6 +58,7 @@ Google Drive 側が `config/drive-vault.json`（台帳 `.claude/state/assets/dri
 | `site-ogp-thumbnails` | site | public R2 `posts/` | 原本OGPから248/336/640pxのWebPを生成。`ogp-supply.yml`の`build-ogp-thumbnails --supply`で原本sha256/recipeを照合し、アップロード後に全バイトを読み戻す。派生物は原本台帳から再生成し、個別の台帳コピーは作らない |
 | `note-cover-png` | human（例外で R2） | private R2 `note/covers/` | note へ登録した版の控え。書くのは Mac の週次 `note-sync-routine`（`asset-offload --skip-existing`）で、CI は読み書きしない（2026-09-29 に CI 供給 `note-cover-supply.yml` を廃止）。約 1,000 件を毎週 sha256 で差分保存するので Drive マウントより R2 が確実（`audienceException`） |
 | `git-history-bundle` | human（例外） | private R2 | 2.65GB 書き込み一回・復元時だけ。ストリーミングマウント越しの単一巨大 blob は脆い |
+| `ogp-background` | ci | private R2 `ogp/backgrounds/` | 資格別の OGP 背景（AI で作った一点物・7 枚）。2026-10-10 に `config/ogp/backgrounds/` から移した。使う直前に `npm run asset-hydrate -- --group ogp-background`（CI は `ogp-supply.yml` が生成の前に取り戻す）。手元に無いと `requireLocalAsset`（`scripts/lib/asset-storage.mjs`）が止め、黙ってオフホワイトに落とさない |
 | `sns-archived-media` | human | Drive `制作物/SNS音声動画/` | reels の wav/mp4・YouTube Shorts mp4。投稿は人の JIT。`post-youtube-scheduled.yml` の Shorts 台帳は手動投入へ切替済み（pending 0・参照キー `sns/youtube-shorts/` は R2 に 0 件）なので CI は読んでいない。2026-09-05 DN-0170 で旧 `upload-sns-r2` 系統を廃止（[sns-archive-policy.md](sns-archive-policy.md)） |
 | `standards-page-image` | human | Drive `原資料PDF/共通仕様書/{整備局}/{PDF名}/{pages,text}/` | 原本 PDF の隣（§1-2） |
 | `past-exam-source-pdf` | human | Drive `原資料PDF/過去問/{資格}/{年度}/` | 試験実施機関が公開する公式過去問の原本。在庫は `data/pastexams/inventory.json`、取得〜退避は `/past-exam-archive`（会社PCは `drive-browser-transfer`）。第三者の解答解説は教材側 |

@@ -1,0 +1,32 @@
+<!-- authored 2026-10-10 doboku-note 自作。スラブの曲げによるひび割れ位置の概念図。書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="四辺固定スラブの平面で、下面のひび割れは中央から隅へ、上面のひび割れは周辺の支持部に沿って入ること、および片持ちスラブでは付け根の上面にひび割れが入り先端が最もたわむことを示した概念図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .b { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .l { fill: #1a3a5c; }
+    </style>
+  </defs>
+  <text class="b" x="20" y="24">(a) 四辺固定スラブ（平面）</text>
+  <rect x="60" y="36" width="280" height="140" fill="#e8f0fe" stroke="#2e6da4" stroke-width="3" />
+  <g fill="none" stroke-width="1.5">
+    <path stroke="#d4a017" stroke-dasharray="5 3" d="M72,48 L328,48 M72,164 L328,164 M72,48 L72,164 M328,48 L328,164" />
+    <path stroke="#b22234" d="M130,106 L270,106 M130,106 L76,52 M130,106 L76,160 M270,106 L324,52 M270,106 L324,160" />
+  </g>
+  <line x1="40" y1="194" x2="76" y2="194" stroke="#b22234" stroke-width="1.5" />
+  <text class="l" x="84" y="198">下面のひび割れ（中央から隅へ）</text>
+  <line x1="40" y1="214" x2="76" y2="214" stroke="#d4a017" stroke-width="1.5" stroke-dasharray="5 3" />
+  <text class="l" x="84" y="218">上面のひび割れ（支持部に沿う）</text>
+  <text class="b" x="20" y="256">(b) 片持ちスラブ（側面）</text>
+  <rect x="50" y="270" width="30" height="90" fill="#f5f5f5" stroke="#555" stroke-width="1.5" />
+  <rect x="80" y="290" width="260" height="16" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <path d="M80,306 Q240,308 340,344" fill="none" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="4 3" />
+  <path d="M90,290 L93,302" stroke="#b22234" stroke-width="2" fill="none" />
+  <text class="l" x="100" y="282">付け根の上面にひび割れ</text>
+  <text class="l" x="190" y="358">先端が最もたわむ</text>
+  <text x="50" y="378">壁・梁</text>
+  <rect x="20" y="394" width="360" height="86" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5" />
+  <text class="l" x="32" y="416">ひび割れは、曲げで引張になる面に入る</text>
+  <text class="l" x="32" y="438">四辺固定：中央は下面、周辺の支持部は上面</text>
+  <text class="l" x="32" y="460">片持ち：付け根の上面。先端のたわみが最大</text>
+</svg>
