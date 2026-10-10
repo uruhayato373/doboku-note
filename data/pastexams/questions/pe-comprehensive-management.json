@@ -8072,15 +8072,21 @@
       "no": "1",
       "source": {
         "question": "H30/H30_試験問題_択一式.pdf",
-        "page": null,
+        "page": 1,
         "answer": "H30/H30_択一式_正答_H25-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -8089,15 +8095,21 @@
       "no": "2",
       "source": {
         "question": "H30/H30_試験問題_択一式.pdf",
-        "page": null,
+        "page": 1,
         "answer": "H30/H30_択一式_正答_H25-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -8106,15 +8118,21 @@
       "no": "3",
       "source": {
         "question": "H30/H30_試験問題_択一式.pdf",
-        "page": null,
+        "page": 2,
         "answer": "H30/H30_択一式_正答_H25-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -8123,15 +8141,21 @@
       "no": "4",
       "source": {
         "question": "H30/H30_試験問題_択一式.pdf",
-        "page": null,
+        "page": 2,
         "answer": "H30/H30_択一式_正答_H25-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -8140,15 +8164,21 @@
       "no": "5",
       "source": {
         "question": "H30/H30_試験問題_択一式.pdf",
-        "page": null,
+        "page": 3,
         "answer": "H30/H30_択一式_正答_H25-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -8157,15 +8187,21 @@
       "no": "6",
       "source": {
         "question": "H30/H30_試験問題_択一式.pdf",
-        "page": null,
+        "page": 4,
         "answer": "H30/H30_択一式_正答_H25-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -8174,15 +8210,21 @@
       "no": "7",
       "source": {
         "question": "H30/H30_試験問題_択一式.pdf",
-        "page": null,
+        "page": 5,
         "answer": "H30/H30_択一式_正答_H25-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -8191,15 +8233,21 @@
       "no": "8",
       "source": {
         "question": "H30/H30_試験問題_択一式.pdf",
-        "page": null,
+        "page": 5,
         "answer": "H30/H30_択一式_正答_H25-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -8208,15 +8256,22 @@
       "no": "9",
       "source": {
         "question": "H30/H30_試験問題_択一式.pdf",
-        "page": null,
+        "page": 6,
         "answer": "H30/H30_択一式_正答_H25-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問は原典どおり。解説(ア)の矛盾表現を整理"
       }
     },
     {
@@ -8225,15 +8280,21 @@
       "no": "10",
       "source": {
         "question": "H30/H30_試験問題_択一式.pdf",
-        "page": null,
+        "page": 7,
         "answer": "H30/H30_択一式_正答_H25-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -8242,15 +8303,21 @@
       "no": "11",
       "source": {
         "question": "H30/H30_試験問題_択一式.pdf",
-        "page": null,
+        "page": 7,
         "answer": "H30/H30_択一式_正答_H25-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -8259,15 +8326,21 @@
       "no": "12",
       "source": {
         "question": "H30/H30_試験問題_択一式.pdf",
-        "page": null,
+        "page": 8,
         "answer": "H30/H30_択一式_正答_H25-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -8276,15 +8349,21 @@
       "no": "13",
       "source": {
         "question": "H30/H30_試験問題_択一式.pdf",
-        "page": null,
+        "page": 8,
         "answer": "H30/H30_択一式_正答_H25-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -8293,15 +8372,21 @@
       "no": "14",
       "source": {
         "question": "H30/H30_試験問題_択一式.pdf",
-        "page": null,
+        "page": 9,
         "answer": "H30/H30_択一式_正答_H25-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -8310,15 +8395,21 @@
       "no": "15",
       "source": {
         "question": "H30/H30_試験問題_択一式.pdf",
-        "page": null,
+        "page": 9,
         "answer": "H30/H30_択一式_正答_H25-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -8327,15 +8418,21 @@
       "no": "16",
       "source": {
         "question": "H30/H30_試験問題_択一式.pdf",
-        "page": null,
+        "page": 10,
         "answer": "H30/H30_択一式_正答_H25-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -8344,15 +8441,21 @@
       "no": "17",
       "source": {
         "question": "H30/H30_試験問題_択一式.pdf",
-        "page": null,
+        "page": 11,
         "answer": "H30/H30_択一式_正答_H25-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -8361,15 +8464,21 @@
       "no": "18",
       "source": {
         "question": "H30/H30_試験問題_択一式.pdf",
-        "page": null,
+        "page": 11,
         "answer": "H30/H30_択一式_正答_H25-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -8378,15 +8487,21 @@
       "no": "19",
       "source": {
         "question": "H30/H30_試験問題_択一式.pdf",
-        "page": null,
+        "page": 12,
         "answer": "H30/H30_択一式_正答_H25-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -8395,15 +8510,21 @@
       "no": "20",
       "source": {
         "question": "H30/H30_試験問題_択一式.pdf",
-        "page": null,
+        "page": 12,
         "answer": "H30/H30_択一式_正答_H25-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -8412,15 +8533,21 @@
       "no": "21",
       "source": {
         "question": "H30/H30_試験問題_択一式.pdf",
-        "page": null,
+        "page": 13,
         "answer": "H30/H30_択一式_正答_H25-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -8429,15 +8556,21 @@
       "no": "22",
       "source": {
         "question": "H30/H30_試験問題_択一式.pdf",
-        "page": null,
+        "page": 13,
         "answer": "H30/H30_択一式_正答_H25-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -8446,15 +8579,21 @@
       "no": "23",
       "source": {
         "question": "H30/H30_試験問題_択一式.pdf",
-        "page": null,
+        "page": 14,
         "answer": "H30/H30_択一式_正答_H25-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -8463,15 +8602,22 @@
       "no": "24",
       "source": {
         "question": "H30/H30_試験問題_択一式.pdf",
-        "page": null,
+        "page": 15,
         "answer": "H30/H30_択一式_正答_H25-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問・選択肢は原典どおり。解説の混乱した記述を図の4象限に沿って書き直し"
       }
     },
     {
@@ -8480,15 +8626,21 @@
       "no": "25",
       "source": {
         "question": "H30/H30_試験問題_択一式.pdf",
-        "page": null,
+        "page": 16,
         "answer": "H30/H30_択一式_正答_H25-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -8497,15 +8649,21 @@
       "no": "26",
       "source": {
         "question": "H30/H30_試験問題_択一式.pdf",
-        "page": null,
+        "page": 16,
         "answer": "H30/H30_択一式_正答_H25-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -8514,15 +8672,21 @@
       "no": "27",
       "source": {
         "question": "H30/H30_試験問題_択一式.pdf",
-        "page": null,
+        "page": 17,
         "answer": "H30/H30_択一式_正答_H25-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -8531,15 +8695,21 @@
       "no": "28",
       "source": {
         "question": "H30/H30_試験問題_択一式.pdf",
-        "page": null,
+        "page": 17,
         "answer": "H30/H30_択一式_正答_H25-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -8548,15 +8718,21 @@
       "no": "29",
       "source": {
         "question": "H30/H30_試験問題_択一式.pdf",
-        "page": null,
+        "page": 18,
         "answer": "H30/H30_択一式_正答_H25-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -8565,15 +8741,21 @@
       "no": "30",
       "source": {
         "question": "H30/H30_試験問題_択一式.pdf",
-        "page": null,
+        "page": 18,
         "answer": "H30/H30_択一式_正答_H25-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -8582,15 +8764,21 @@
       "no": "31",
       "source": {
         "question": "H30/H30_試験問題_択一式.pdf",
-        "page": null,
+        "page": 19,
         "answer": "H30/H30_択一式_正答_H25-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -8599,15 +8787,21 @@
       "no": "32",
       "source": {
         "question": "H30/H30_試験問題_択一式.pdf",
-        "page": null,
+        "page": 19,
         "answer": "H30/H30_択一式_正答_H25-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -8616,15 +8810,21 @@
       "no": "33",
       "source": {
         "question": "H30/H30_試験問題_択一式.pdf",
-        "page": null,
+        "page": 20,
         "answer": "H30/H30_択一式_正答_H25-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -8633,15 +8833,22 @@
       "no": "34",
       "source": {
         "question": "H30/H30_試験問題_択一式.pdf",
-        "page": null,
+        "page": 20,
         "answer": "H30/H30_択一式_正答_H25-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "設問は原典どおり。選択肢5の解説を土壌環境基準の適用除外に合わせて修正"
       }
     },
     {
@@ -8650,15 +8857,21 @@
       "no": "35",
       "source": {
         "question": "H30/H30_試験問題_択一式.pdf",
-        "page": null,
+        "page": 21,
         "answer": "H30/H30_択一式_正答_H25-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -8667,15 +8880,22 @@
       "no": "36",
       "source": {
         "question": "H30/H30_試験問題_択一式.pdf",
-        "page": null,
+        "page": 21,
         "answer": "H30/H30_択一式_正答_H25-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢2の「用いられる」を原典の「用いる」に修正"
       }
     },
     {
@@ -8684,15 +8904,21 @@
       "no": "37",
       "source": {
         "question": "H30/H30_試験問題_択一式.pdf",
-        "page": null,
+        "page": 22,
         "answer": "H30/H30_択一式_正答_H25-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -8701,15 +8927,21 @@
       "no": "38",
       "source": {
         "question": "H30/H30_試験問題_択一式.pdf",
-        "page": null,
+        "page": 23,
         "answer": "H30/H30_択一式_正答_H25-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -8718,15 +8950,21 @@
       "no": "39",
       "source": {
         "question": "H30/H30_試験問題_択一式.pdf",
-        "page": null,
+        "page": 24,
         "answer": "H30/H30_択一式_正答_H25-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -8735,15 +8973,21 @@
       "no": "40",
       "source": {
         "question": "H30/H30_試験問題_択一式.pdf",
-        "page": null,
+        "page": 24,
         "answer": "H30/H30_択一式_正答_H25-H30.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
