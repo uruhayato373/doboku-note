@@ -21,6 +21,16 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-0642] 重要 workflow 7 本の不健全（note-live-audit 4 連続失敗・ops-audit 18 連続・note-public-view 12 日）を原因ごとに直す
+タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-10] [期日:2026-10-17]
+
+**起点**: 週次レビュー（2026-09-28〜2026-10-04）の点検。npm run check-workflow-health が 7 本を不健全と判定（2026-10-10）: fetch-metrics（2 連続失敗・#958 で原因修正）、note-live-audit（最終 success 21 日前・4 連続失敗）、ops-audit（18 連続失敗＝#571 の ops 区分 FAIL）、cloudflare-metrics・cloudflare-config-audit（DN-0485）、weekly-review-guard（W40 レビュー未作成で赤・本レビューで解消見込み）、note-public-view（最終 success 12 日前）。Issue #478（2026-08-31〜）・#940 が開いたまま。
+
+**やること**: note-live-audit と note-public-view の最新 run ログで失敗箇所を特定して直す。ops-audit は #571 の各 FAIL（ログイン系の取得待ち）を別カードで解消したあと緑になるかを見る。fetch-metrics は #958 マージ後の再実行で緑を確認する。
+
+**完了条件**: npm run check-workflow-health が exit 0（または残りが DN-0485 の Cloudflare 2 本だけ）で、#478・#940 が自動クローズしている。
+
+
 ### [DN-0633] 1級土木 第二次の分野別過去問ページ 4 本の設問を、公式の問題 PDF と照合し直して作り直す（別の年度の問題・存在しない問題・違う選択肢が混ざっている）
 タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [起票:2026-10-10]
 
