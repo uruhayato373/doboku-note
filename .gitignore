@@ -439,3 +439,7 @@ content/sns/x/draft/*-diagrams/img/tweet-*.png
 # Drive 台帳の書き込み中の一時ファイルと排他の lock（scripts/lib/drive-vault.mjs・DN-0656）
 .claude/state/assets/drive-manifest.json.tmp
 .claude/state/assets/drive-manifest.json.lock/
+
+# OGP の資格別の背景画像（AI で作った一点物）。2026-10-10 に private R2 へ退避（config/asset-storage.json の ogp-background group）。
+# 使う直前に npm run asset-hydrate -- --group ogp-background で取り戻す（CI は ogp-supply.yml が取り戻す）
+config/ogp/backgrounds/*.png

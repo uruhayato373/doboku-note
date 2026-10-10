@@ -321,6 +321,23 @@ export function loadManifest() {
 }
 
 /**
+ * R2 へ退避した素材を使う直前の確認。手元にあればその絶対パス、台帳（manifest）にあるのに手元に無ければ
+ * 取り戻し方を書いて投げる、どちらにも無ければ null（読み手が「無い」扱いをしてよい）。
+ * なぜ: 退避した素材が手元に無いとき、読み手が黙って既定へ落ちると壊れた成果物ができても気づけない
+ * （OGP の背景は無ければオフホワイトに落ちる作りだった・2026-10-10 に config/ogp/backgrounds/ を R2 へ移した）。
+ * @param {string} repoRelPath リポジトリ相対
+ * @returns {string | null}
+ */
+export function requireLocalAsset(repoRelPath) {
+  const rel = toPosix(repoRelPath);
+  const abs = join(REPO_ROOT, rel);
+  if (existsSync(abs)) return abs;
+  const entry = loadManifest().entries[rel];
+  if (!entry) return null;
+  throw new Error(`${rel} は R2 に退避済みで手元に無い。npm run asset-hydrate -- --group ${entry.group} で取り戻してから実行する`);
+}
+
+/**
  * 読み時互換層。エントリに logicalPath / mime / generator / requiredBy が**無いときだけ**
  * キーと group 定義から補って書き戻す。既に値を持つ旧形式のエントリは触らない
  * （config が後から変わっていても、書かれた当時の値をそのまま尊重する）。
