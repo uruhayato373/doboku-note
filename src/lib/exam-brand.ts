@@ -16,6 +16,7 @@ import { qualificationShortLabel } from '@/lib/qualification-names';
 export type ExamKey =
   | 'tankan'
   | 'pe-construction'
+  | 'pe-general'
   | 'pe-first-stage'
   | 'civil-1'
   | 'civil-2'
@@ -31,6 +32,7 @@ export type ExamKey =
  *  現状 published:false のため live 挙動は不変）。
  */
 function examKeyOf(id: string): ExamKey {
+  if (id.startsWith('pe-oral-')) return 'pe-general';
   if (id.startsWith('pe-construction')) return 'pe-construction';
   // 技術士「第一次」試験（pe1-*）。総監（tankan）へ落ちる fallback より先に判定する。
   // これが無いと pe1-takuitsu-pdf が総監として扱われ、資格別に束ねる面（/links のカード等）で
@@ -61,6 +63,10 @@ export interface ExamBrand {
 }
 
 export const EXAM_BRAND: Record<ExamKey, ExamBrand> = {
+  'pe-general': {
+    label: qualificationShortLabel('professional-engineer'),
+    themeVar: '--exam-pe',
+  },
   tankan: {
     label: qualificationShortLabel('pe-comprehensive-management'),
     themeVar: '--exam-pe',

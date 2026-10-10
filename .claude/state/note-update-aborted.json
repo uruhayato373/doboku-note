@@ -1,21 +1,6 @@
 {
   "aborted": [
     {
-      "noteId": "n64ae7892e25c",
-      "reason": "keyboard.press: Target page, context or browser has been closed",
-      "at": "2026-10-03T04:36:31"
-    },
-    {
-      "noteId": "n31042910b6fa",
-      "reason": "page.goto: Target page, context or browser has been closed",
-      "at": "2026-10-03T04:36:33"
-    },
-    {
-      "noteId": "n6c286f187e36",
-      "reason": "page.goto: Target page, context or browser has been closed",
-      "at": "2026-10-03T04:36:35"
-    },
-    {
       "noteId": "nb50d168c443a",
       "reason": "pdf-missing",
       "at": "2026-10-03T18:39:28"

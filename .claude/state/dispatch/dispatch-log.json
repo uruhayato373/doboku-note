@@ -2535,6 +2535,49 @@
       "commit": "390af99df428",
       "verification": "node --test tests/drive-vault.test.mjs（22 pass）",
       "note": "PR #963（a0adfff6c）: writeDriveManifestAtomic を lock で排他し、読み直した台帳に自分の変更だけを重ねる。2 書き手の回帰テストを追加"
+    },
+    {
+      "id": "DN-0344",
+      "at": "2026-10-10",
+      "task": "技術士 口頭試験対策を全部門共通で使える形にする（筆記合格発表 11/4 の前日まで）",
+      "tier": "high",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "2784cb2901fc",
+      "verification": "note n1fcaf65dc75b公開・価格1980円・有料境界直前・ライブPDF1件確認、check-x-campaign-plan実検査261件exit0",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0655",
+      "at": "2026-10-10",
+      "task": "総監の口頭試験記事の冒頭案内を筆記合格者の準備段階に合わせる",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "2784cb2901fc",
+      "verification": "冒頭CTAを部分更新しPDF1件完全保持、audit-note-funnel --live --ci実検査117件ドリフト0・exit0",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0519",
+      "at": "2026-10-10",
+      "task": "note 配布PDFの貼り直しの残り（建設部門・総監の模範解答 20 本・予想模試 2 記事）を公開記事へ反映する",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-note-attachments:live"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "dbdc087e7cd3",
+      "verification": "check-note-attachments --live --only 対象78件・実検査78件・充足78件・不足0・exit0",
+      "note": "修正版PDF32冊を模範解答20記事・予想模試2記事へ反映。先行75記事を含む78記事のライブ添付を確認し、取得失敗0・確定不足0。"
     }
   ]
 }

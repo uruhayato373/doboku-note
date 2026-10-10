@@ -1,0 +1,16 @@
+{
+  "srcDir": "content/note/技術士建設部門/magazines/口頭試験対策-全部門共通",
+  "outDir": ".tmp/persona-expansion-pdfs/技術士口頭試験対策-全部門共通",
+  "deliverTo": "in-place",
+  "articles": [
+    {
+      "src": "article.md",
+      "out": "技術士口頭試験対策-全部門共通-想定24問",
+      "include": [
+        {
+          "from": "^## 1\\. 口頭試験の試問事項と配点"
+        }
+      ]
+    }
+  ]
+}
