@@ -18,7 +18,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
 import { collectPublicVideos, watchUrl, classifyOembed, pickYoutubeRepresentatives } from './lib/youtube-public-view.mjs';
-import { loadBreakpointConfig, contextOptions, launchPublicBrowser, openAndSettle, shootTopAndEnd, countMediaQueriesInPage, significantBreakpoints, breakpointDrift } from './lib/public-view-browser.mjs';
+import { loadBreakpointConfig, contextOptions, launchPublicBrowser, openAndSettle, shootTopAndEnd, withPageBudget, countMediaQueriesInPage, significantBreakpoints, breakpointDrift } from './lib/public-view-browser.mjs';
 import { guardBrowserLaunch } from './lib/playwright-launch.mjs';
 import { youtubePublications } from './lib/registry-youtube-view.mjs';
 import { loadVideoState } from './lib/registry-video-state.mjs';
@@ -67,17 +67,19 @@ if (REVIEW) {
     for (const entry of index) {
       const page = await c.newPage();
       try {
-        await openAndSettle(page, entry.url);
-        await page.waitForTimeout(1500);
-        // 通常動画は説明欄の直前まで、Shorts は最初の画面だけ（説明は別パネル）
-        for (const file of await shootTopAndEnd(page, REVIEW_DIR, `${entry.videoId}-${vp.name}`, entry.kind === 'long' ? ['#description', 'ytm-expandable-video-description-body-renderer'] : [])) {
-          entry.shots.push({ viewport: vp.name, width: vp.width, file });
-        }
-        if (!bpReport && vp === pcVp) {
-          const { counts, unreadable } = await page.evaluate(countMediaQueriesInPage);
-          const measured = significantBreakpoints(counts, { minRules: BP.significantRuleCount, minWidth: BP.minDeviceWidth });
-          bpReport = { measuredOn: entry.url, measured, unreadable, drift: breakpointDrift(BP.youtube.breakpoints, measured) };
-        }
+        await withPageBudget(page, `${entry.videoId}@${vp.width}px`, async () => {
+          await openAndSettle(page, entry.url);
+          await page.waitForTimeout(1500);
+          // 通常動画は説明欄の直前まで、Shorts は最初の画面だけ（説明は別パネル）
+          for (const file of await shootTopAndEnd(page, REVIEW_DIR, `${entry.videoId}-${vp.name}`, entry.kind === 'long' ? ['#description', 'ytm-expandable-video-description-body-renderer'] : [])) {
+            entry.shots.push({ viewport: vp.name, width: vp.width, file });
+          }
+          if (!bpReport && vp === pcVp) {
+            const { counts, unreadable } = await page.evaluate(countMediaQueriesInPage);
+            const measured = significantBreakpoints(counts, { minRules: BP.significantRuleCount, minWidth: BP.minDeviceWidth });
+            bpReport = { measuredOn: entry.url, measured, unreadable, drift: breakpointDrift(BP.youtube.breakpoints, measured) };
+          }
+        });
       } catch (e) {
         results.get(entry.videoId).warn.push(`[${vp.width}px] 撮れない: ${String(e.message || e).split('\n')[0].slice(0, 60)}`);
       } finally {

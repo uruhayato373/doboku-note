@@ -16,6 +16,8 @@
 //   node scripts/asset-offload.mjs --group textbook-page-image --limit 20 # 件数を絞る
 //   node scripts/asset-offload.mjs --group note-cover-png --commit        # 実アップロード
 //   node scripts/asset-offload.mjs --group note-cover-png --skip-existing # R2 に同 sha256 があれば省く
+//   node scripts/asset-offload.mjs --group note-cover-png --only-new --include-untracked --commit
+//       # 台帳（manifest）にまだ無いものだけを退避する。既存の控え（中身が変わったものを含む）は上書きしない
 //   node scripts/asset-offload.mjs --forget-group textbook-page-image [--commit]
 //       # Drive vault へ移し R2 側を purge した後、その group の manifest エントリを外す。
 //       # **各キーが drive-manifest.json に同じ sha256 で載っているときだけ**外す（fail-closed）。
@@ -48,6 +50,9 @@ const COMMIT = flag('--commit');
 const VERIFY = flag('--verify');
 const OUT_LIST = val('--out');
 const SKIP_EXISTING = flag('--skip-existing');
+// --only-new: manifest に行が無いファイルだけを対象にする（check-asset-storage の not-offloaded だけを直し、
+// 中身が変わった既存の控えは上書きしない。2026-10-10 に note カバー 14 本の退避で、控え 140 本の上書きを避けるため足した）
+const ONLY_NEW = flag('--only-new');
 // --include-untracked: gitignore 済みのファイルも対象にする。
 // 既定が「追跡ファイルだけ」なのは、追跡外を R2 へ上げても Git は軽くならないから。
 // だが reels の wav/mp4 のように **最初から gitignore されている group** があり、
@@ -201,6 +206,10 @@ async function main() {
     candidates = [...new Set([...tracked, ...others])];
   }
   let targets = candidates.filter((p) => groupFor(p, cfg)?.id === group.id);
+  if (ONLY_NEW) {
+    const known = loadManifest().entries || {};
+    targets = targets.filter((p) => !known[toPosix(p)]);
+  }
   const totalCount = targets.length;
   if (LIMIT > 0) targets = targets.slice(0, LIMIT);
 

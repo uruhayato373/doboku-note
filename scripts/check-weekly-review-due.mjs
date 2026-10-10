@@ -16,7 +16,7 @@
  *   node scripts/check-weekly-review-due.mjs          # exit 0 = 催促なし / 1 = DUE
  *   node scripts/check-weekly-review-due.mjs --json
  */
-import { existsSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { createOutput, runAsCli } from './lib/cli-run.mjs';
@@ -54,6 +54,14 @@ export function dueWeek(nowMs, exists) {
   return null; // 土曜 09:00 前
 }
 
+export const PENDING_MARK = '<!-- weekly-review:pending-questions -->';
+/** 最新の週次レビューに諮問待ちの印があればそのファイル名、無ければ null */
+export function pendingQuestionsReview(dir) {
+  if (!existsSync(dir)) return null;
+  const latest = readdirSync(dir).filter((f) => /^\d{4}-W\d{2}-review\.md$/.test(f)).sort().at(-1);
+  return latest && readFileSync(join(dir, latest), 'utf8').includes(PENDING_MARK) ? latest : null;
+}
+
 /** session-start.mjs は import して run({ quiet: true }) を呼ぶ（DN-0236・子の node を立てない） */
 export async function run({ argv = [], quiet = false } = {}) {
   const out = createOutput({ quiet });
@@ -62,6 +70,9 @@ export async function run({ argv = [], quiet = false } = {}) {
   const due = dueWeek(Date.now(), exists);
   if (json) { out.log(JSON.stringify({ due, checkedAt: new Date().toISOString() })); }
   else if (due) { out.log(`[weekly-review-due] ${due} の週次レビューが未作成（土曜 09:00 JST 以降）。対話セッションで /weekly-review を実行する（完了後 /plan-weekly で weekly.md を更新）`); }
+  // 土曜の Mac launchd（ヘッドレス）は判断待ちを聞けないので、レビューに印を残す。印が残っている間は対話セッションで諮る
+  const pending = pendingQuestionsReview(join(ROOT, 'docs', 'reviews', 'weekly'));
+  if (!json && pending) out.log(`[weekly-review-due] ${pending} に諮問待ちがある（自動の週次レビューが残した判断待ち）。「## バックログの関門」の候補を運営者に諮り、台帳を直して印（${PENDING_MARK}）を消す`);
   return out.result(due ? 1 : 0);
 }
 

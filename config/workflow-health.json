@@ -38,7 +38,7 @@
       "workflow": "note-live-audit.yml",
       "maxAgeDays": 10,
       "maxConsecutiveFailures": 2,
-      "_note": "週次（日 22:30 UTC）。check-magazine-membership の軸 C（ライブ snapshot）の供給元。ここが止まると snapshot が腐り、鮮度ゲートが検査不成立になる"
+      "_note": "週次（日 22:30 UTC）。check-magazine-membership の軸 C（ライブ snapshot）の供給元。ここが止まると snapshot が腐り、鮮度ゲートが検査不成立になる。2026-10-10 から各検査の異常は Issue（channel: note-live-audit）で扱い job は緑、赤は note API に届かないか snapshot の書き戻しの失敗だけ"
     },
     {
       "workflow": "psi-audit.yml",
@@ -54,9 +54,9 @@
     },
     {
       "workflow": "ops-audit.yml",
-      "maxAgeDays": 30,
-      "maxConsecutiveFailures": 14,
-      "_note": "日次 07:45 JST。ops 区分（配信・転記の遅れ）は遅れが続く限り赤が正常なので、連続失敗では判定せず**沈黙**（最後の run から 30 日）だけを見る。遅れ自体は Issue（channel: ops）が主経路。rc=2（検査不成立）が続く場合は 14 日で拾う"
+      "maxAgeDays": 3,
+      "maxConsecutiveFailures": 2,
+      "_note": "日次 07:45 JST。2026-10-10 から遅れ（rc=1）は Issue（channel: ops）だけで扱い job は緑、赤は検査不成立（rc=2）だけ。なので他の日次と同じく 3 日・2 連続で拾う（以前は遅れでも赤で、30 日・14 連続に緩めた結果 19 連続の赤が読まれなかった・DN-0642）"
     },
     {
       "workflow": "index-coverage.yml",
@@ -107,6 +107,12 @@
       "maxAgeDays": 9,
       "maxConsecutiveFailures": 2,
       "_note": "週次（月 11:17 JST）。この watchdog を動かしている guard 自身なので、月曜の実行では自分の沈黙を拾えない。日次の ops-audit.yml が --only で本行だけを見る（相互監視）"
+    },
+    {
+      "workflow": "weekly-review-draft.yml",
+      "maxAgeDays": 9,
+      "maxConsecutiveFailures": 2,
+      "_note": "週次（金 04:00 UTC）。週次レビューの下書き（機械の節）を作る。材料の欠けは Issue（channel: weekly-review-draft）で job は緑、赤は検査不成立か push の失敗。止まると土曜のレビューが材料集めからになる"
     },
     {
       "workflow": "note-public-view.yml",
