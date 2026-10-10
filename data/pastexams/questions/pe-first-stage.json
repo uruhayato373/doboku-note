@@ -2474,15 +2474,21 @@
       "no": "Ⅱ-1",
       "source": {
         "question": "R06/R06_適性科目.pdf",
-        "page": null,
+        "page": 1,
         "answer": "R06/R06_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -2491,15 +2497,22 @@
       "no": "Ⅱ-2",
       "source": {
         "question": "R06/R06_適性科目.pdf",
-        "page": null,
+        "page": 2,
         "answer": "R06/R06_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "人類の半数に「上る」"
       }
     },
     {
@@ -2508,15 +2521,22 @@
       "no": "Ⅱ-3",
       "source": {
         "question": "R06/R06_適性科目.pdf",
-        "page": null,
+        "page": 3,
         "answer": "R06/R06_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "導入段落、承諾、官公資料の文、著作者等の権利制限"
       }
     },
     {
@@ -2525,15 +2545,22 @@
       "no": "Ⅱ-4",
       "source": {
         "question": "R06/R06_適性科目.pdf",
-        "page": null,
+        "page": 4,
         "answer": "R06/R06_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "最大限に、「法」の脱落"
       }
     },
     {
@@ -2542,15 +2569,22 @@
       "no": "Ⅱ-5",
       "source": {
         "question": "R06/R06_適性科目.pdf",
-        "page": null,
+        "page": 5,
         "answer": "R06/R06_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "(イ)の文、(ウ)各々の機器において、(エ)重要なすべて。(ア)(エ)の解説を整理"
       }
     },
     {
@@ -2559,15 +2593,22 @@
       "no": "Ⅱ-6",
       "source": {
         "question": "R06/R06_適性科目.pdf",
-        "page": null,
+        "page": 6,
         "answer": "R06/R06_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "空欄イの位置、よりよい未来を築くことを目標、取組むべき。解説のア・イ整理"
       }
     },
     {
@@ -2576,15 +2617,22 @@
       "no": "Ⅱ-7",
       "source": {
         "question": "R06/R06_適性科目.pdf",
-        "page": null,
+        "page": 7,
         "answer": "R06/R06_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "(ア)(イ)(オ)の文言"
       }
     },
     {
@@ -2593,15 +2641,22 @@
       "no": "Ⅱ-8",
       "source": {
         "question": "R06/R06_適性科目.pdf",
-        "page": null,
+        "page": 8,
         "answer": "R06/R06_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "(ア)真の著者に対する、(イ)満たす"
       }
     },
     {
@@ -2610,15 +2665,22 @@
       "no": "Ⅱ-9",
       "source": {
         "question": "R06/R06_適性科目.pdf",
-        "page": null,
+        "page": 9,
         "answer": "R06/R06_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢2の「並びに」"
       }
     },
     {
@@ -2627,15 +2689,21 @@
       "no": "Ⅱ-10",
       "source": {
         "question": "R06/R06_適性科目.pdf",
-        "page": null,
+        "page": 10,
         "answer": "R06/R06_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -2644,15 +2712,22 @@
       "no": "Ⅱ-11",
       "source": {
         "question": "R06/R06_適性科目.pdf",
-        "page": null,
+        "page": 11,
         "answer": "R06/R06_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "福祉→福利（(ア)と解説・ExamPoint）"
       }
     },
     {
@@ -2661,15 +2736,22 @@
       "no": "Ⅱ-12",
       "source": {
         "question": "R06/R06_適性科目.pdf",
-        "page": null,
+        "page": 12,
         "answer": "R06/R06_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "(ア)(イ)(エ)(オ)(カ)の文言。解説の適切数を3から4へ（選択肢番号3は元から正）"
       }
     },
     {
@@ -2678,15 +2760,22 @@
       "no": "Ⅱ-13",
       "source": {
         "question": "R06/R06_適性科目.pdf",
-        "page": null,
+        "page": 13,
         "answer": "R06/R06_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "(イ)(ウ)(エ)の文、(ア)うえで"
       }
     },
     {
@@ -2695,15 +2784,21 @@
       "no": "Ⅱ-14",
       "source": {
         "question": "R06/R06_適性科目.pdf",
-        "page": null,
+        "page": 14,
         "answer": "R06/R06_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       }
     },
     {
@@ -2712,15 +2807,22 @@
       "no": "Ⅱ-15",
       "source": {
         "question": "R06/R06_適性科目.pdf",
-        "page": null,
+        "page": 15,
         "answer": "R06/R06_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "(ウ)名簿の公表"
       }
     },
     {
