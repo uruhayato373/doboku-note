@@ -117,6 +117,7 @@
 - [GSC診断](reference_gsc_diagnosis_toolkit.md) — 診断スクリプト・UI罠
 - [KDP罠](reference_kdp_price_change_gotchas.md) — 価格改定・svg-JPEG・自動化
 - [Drive vault](reference_book_sources_drive_vault.md) — 移設構造・マウントの罠
+- [Drive台帳のずれ](reference_drive_vault_ledger_drift.md) — 本体停止ETIMEDOUT・同時書込で消える・CIはWARNに沈む
 - [スキャンOCR](reference_scanned_pdf_pipeline.md) — pdf-to-mdx --scanned・OCR罠
 - [保存版の過去問](reference_wayback_past_exam_gotchas.md) — CDX・brotli・数字字形・正答HTML
 - [土木PDF所在](reference_civil_pdfs.md) — docs/textbook配下
