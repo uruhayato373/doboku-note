@@ -7173,15 +7173,22 @@
       "no": "Ⅲ-1",
       "source": {
         "question": "R04/R04_専門_09建設部門.pdf",
-        "page": null,
+        "page": 1,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "句読点（，）のみ"
       }
     },
     {
@@ -7190,15 +7197,22 @@
       "no": "Ⅲ-2",
       "source": {
         "question": "R04/R04_専門_09建設部門.pdf",
-        "page": null,
+        "page": 1,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢の並びを原典どおりに（a-b,a-c,a-d,b-c,b-d）。解説の排水条件を図どおりに書き直し（正答は b-c の4）"
       }
     },
     {
@@ -7207,15 +7221,22 @@
       "no": "Ⅲ-3",
       "source": {
         "question": "R04/R04_専門_09建設部門.pdf",
-        "page": null,
+        "page": 2,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢4の語尾"
       }
     },
     {
@@ -7224,15 +7245,22 @@
       "no": "Ⅲ-4",
       "source": {
         "question": "R04/R04_専門_09建設部門.pdf",
-        "page": null,
+        "page": 3,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "句読点（，）のみ"
       }
     },
     {
@@ -7241,15 +7269,22 @@
       "no": "Ⅲ-5",
       "source": {
         "question": "R04/R04_専門_09建設部門.pdf",
-        "page": null,
+        "page": 4,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢文を原典の図どおりに書き直し（⑤は等分布荷重に三角形図で誤り）"
       }
     },
     {
@@ -7258,15 +7293,22 @@
       "no": "Ⅲ-6",
       "source": {
         "question": "R04/R04_専門_09建設部門.pdf",
-        "page": null,
+        "page": 4,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢4・5を「軸に関する」に"
       }
     },
     {
@@ -7275,15 +7317,22 @@
       "no": "Ⅲ-7",
       "source": {
         "question": "R04/R04_専門_09建設部門.pdf",
-        "page": null,
+        "page": 5,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢1を L 荷重/車軸に、2・3の語句。解説をT荷重に書き直し"
       }
     },
     {
@@ -7292,15 +7341,22 @@
       "no": "Ⅲ-8",
       "source": {
         "question": "R04/R04_専門_09建設部門.pdf",
-        "page": null,
+        "page": 5,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢2を「さびやすい」ほか"
       }
     },
     {
@@ -7309,15 +7365,22 @@
       "no": "Ⅲ-9",
       "source": {
         "question": "R04/R04_専門_09建設部門.pdf",
-        "page": null,
+        "page": 6,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢1〜4を原典どおり。解説を書き直し"
       }
     },
     {
@@ -7326,15 +7389,22 @@
       "no": "Ⅲ-10",
       "source": {
         "question": "R04/R04_専門_09建設部門.pdf",
-        "page": null,
+        "page": 6,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢2・3の語句"
       }
     },
     {
@@ -7343,15 +7413,22 @@
       "no": "Ⅲ-11",
       "source": {
         "question": "R04/R04_専門_09建設部門.pdf",
-        "page": null,
+        "page": 7,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢2の語句"
       }
     },
     {
@@ -7360,15 +7437,22 @@
       "no": "Ⅲ-12",
       "source": {
         "question": "R04/R04_専門_09建設部門.pdf",
-        "page": null,
+        "page": 7,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢3（酸性水溶液）・4の語句、解説"
       }
     },
     {
@@ -7377,15 +7461,22 @@
       "no": "Ⅲ-13",
       "source": {
         "question": "R04/R04_専門_09建設部門.pdf",
-        "page": null,
+        "page": 8,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢1・2・4・5を原典どおり。解説書き直し"
       }
     },
     {
@@ -7394,15 +7485,22 @@
       "no": "Ⅲ-14",
       "source": {
         "question": "R04/R04_専門_09建設部門.pdf",
-        "page": null,
+        "page": 8,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢2・4・5を原典どおり"
       }
     },
     {
@@ -7411,15 +7509,22 @@
       "no": "Ⅲ-15",
       "source": {
         "question": "R04/R04_専門_09建設部門.pdf",
-        "page": null,
+        "page": 9,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢3（施行令・基準はない）ほか。解説書き直し"
       }
     },
     {
@@ -7428,15 +7533,22 @@
       "no": "Ⅲ-16",
       "source": {
         "question": "R04/R04_専門_09建設部門.pdf",
-        "page": null,
+        "page": 9,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢3〜5の語句、解説"
       }
     },
     {
@@ -7445,15 +7557,22 @@
       "no": "Ⅲ-17",
       "source": {
         "question": "R04/R04_専門_09建設部門.pdf",
-        "page": null,
+        "page": 10,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "verified",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "句読点（，）のみ"
       }
     },
     {
@@ -7462,15 +7581,22 @@
       "no": "Ⅲ-18",
       "source": {
         "question": "R04/R04_専門_09建設部門.pdf",
-        "page": null,
+        "page": 10,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢1,2,4の語句"
       }
     },
     {
@@ -7479,15 +7605,22 @@
       "no": "Ⅲ-19",
       "source": {
         "question": "R04/R04_専門_09建設部門.pdf",
-        "page": null,
+        "page": 11,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢2（表面渦）"
       }
     },
     {
@@ -7496,15 +7629,22 @@
       "no": "Ⅲ-20",
       "source": {
         "question": "R04/R04_専門_09建設部門.pdf",
-        "page": null,
+        "page": 11,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢1〜5の語句"
       }
     },
     {
@@ -7513,15 +7653,22 @@
       "no": "Ⅲ-21",
       "source": {
         "question": "R04/R04_専門_09建設部門.pdf",
-        "page": null,
+        "page": 12,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢2（越流水による洗掘破壊）・4"
       }
     },
     {
@@ -7530,15 +7677,22 @@
       "no": "Ⅲ-22",
       "source": {
         "question": "R04/R04_専門_09建設部門.pdf",
-        "page": null,
+        "page": 12,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢2〜5の語句"
       }
     },
     {
@@ -7547,15 +7701,22 @@
       "no": "Ⅲ-23",
       "source": {
         "question": "R04/R04_専門_09建設部門.pdf",
-        "page": null,
+        "page": 13,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          5
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢2〜5を原典どおり。解説書き直し"
       }
     },
     {
@@ -7564,15 +7725,22 @@
       "no": "Ⅲ-24",
       "source": {
         "question": "R04/R04_専門_09建設部門.pdf",
-        "page": null,
+        "page": 13,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢2〜4の語句"
       }
     },
     {
@@ -7581,15 +7749,22 @@
       "no": "Ⅲ-25",
       "source": {
         "question": "R04/R04_専門_09建設部門.pdf",
-        "page": null,
+        "page": 14,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢1〜4を原典どおり"
       }
     },
     {
@@ -7598,15 +7773,22 @@
       "no": "Ⅲ-26",
       "source": {
         "question": "R04/R04_専門_09建設部門.pdf",
-        "page": null,
+        "page": 14,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢2を原典どおり"
       }
     },
     {
@@ -7615,15 +7797,22 @@
       "no": "Ⅲ-27",
       "source": {
         "question": "R04/R04_専門_09建設部門.pdf",
-        "page": null,
+        "page": 14,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "問いを火力発電所に、選択肢1〜5を原典どおり"
       }
     },
     {
@@ -7632,15 +7821,22 @@
       "no": "Ⅲ-28",
       "source": {
         "question": "R04/R04_専門_09建設部門.pdf",
-        "page": null,
+        "page": 15,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢1〜5の語句（粗度係数ほか）"
       }
     },
     {
@@ -7649,15 +7845,22 @@
       "no": "Ⅲ-29",
       "source": {
         "question": "R04/R04_専門_09建設部門.pdf",
-        "page": null,
+        "page": 15,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢2〜5の語句"
       }
     },
     {
@@ -7666,15 +7869,22 @@
       "no": "Ⅲ-30",
       "source": {
         "question": "R04/R04_専門_09建設部門.pdf",
-        "page": null,
+        "page": 16,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "問いを鉄軌道に、選択肢3・5の語句"
       }
     },
     {
@@ -7683,15 +7893,22 @@
       "no": "Ⅲ-31",
       "source": {
         "question": "R04/R04_専門_09建設部門.pdf",
-        "page": null,
+        "page": 16,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢5の語句"
       }
     },
     {
@@ -7700,15 +7917,22 @@
       "no": "Ⅲ-32",
       "source": {
         "question": "R04/R04_専門_09建設部門.pdf",
-        "page": null,
+        "page": 17,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢3〜5を原典どおり"
       }
     },
     {
@@ -7717,15 +7941,22 @@
       "no": "Ⅲ-33",
       "source": {
         "question": "R04/R04_専門_09建設部門.pdf",
-        "page": null,
+        "page": 17,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢2〜4の語句"
       }
     },
     {
@@ -7734,15 +7965,22 @@
       "no": "Ⅲ-34",
       "source": {
         "question": "R04/R04_専門_09建設部門.pdf",
-        "page": null,
+        "page": 18,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢1,3,4,5の語句"
       }
     },
     {
@@ -7751,15 +7989,22 @@
       "no": "Ⅲ-35",
       "source": {
         "question": "R04/R04_専門_09建設部門.pdf",
-        "page": null,
+        "page": 18,
         "answer": "R04/R04_正答.pdf"
       },
       "answer": {
-        "status": "unchecked",
-        "official": null
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-10",
+        "by": "agent"
       },
       "transcription": {
-        "status": "unverified"
+        "status": "fixed",
+        "checkedAt": "2026-10-10",
+        "by": "agent",
+        "note": "選択肢1,3,4の語句、解説2書き直し"
       }
     },
     {
