@@ -342,6 +342,14 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0637] dependabot のセキュリティ更新の PR が main 向きに開き、develop を通らずに本番へ出る経路を塞ぐ
+タグ: [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-10]
+
+**起点**: 2026-10-10、dependabot の Next 16.3.8（#925）を向き先を確かめずにマージし、develop を通らずに main へ入ってデプロイが起動した。`.github/dependabot.yml` は npm・github-actions とも `target-branch: develop` だが、**セキュリティ更新の PR はこの設定に従わず既定のブランチ（main）へ向く**。今回は CI 緑のパッチ更新で害は無かったが、develop の CI・品質監査を経ずに本番へ出る経路が残っている。
+**やること**: main 向きに開いた dependabot の PR を develop へ付け替える workflow（`pull_request_target` の opened で、作者が dependabot[bot] かつ base が main なら `gh pr edit --base develop` してコメントを残す）を足すか、main への PR を develop 以外から受けたら CI を赤にする検査を足す。どちらにするかは、main を守る既存の仕組み（Auto-merge on green など）と合わせて決める。
+**完了条件**: main 向きの dependabot の PR が develop 向きになる（または main へ直接マージできない）ことを、テストか実際の PR で確かめる。
+
+
 ### [DN-0635] 並行する PR が dispatch-log.json の末尾に記録を足して毎回衝突するので、両方を残して合わせる merge driver を入れる
 タグ: [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-10]
 
