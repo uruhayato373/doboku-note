@@ -66,7 +66,6 @@ export default async function ItemsPage({ searchParams }: { searchParams: Promis
       title: r.title,
       exam: examLabel(r.exam),
       kind: r.format ? `${r.kind}・${r.format}` : r.kind,
-      status: r.statusOrder,
       flags: r.flags.length,
     },
     cells: {
@@ -76,15 +75,6 @@ export default async function ItemsPage({ searchParams }: { searchParams: Promis
         <span className="text-xs text-muted-foreground">表紙なし</span>
       ),
       title: <Link href={r.href}>{r.title}</Link>,
-      status: (
-        <div className="flex flex-col gap-0.5 text-xs">
-          {Object.entries(r.byChannel).map(([ch, m]) => (
-            <span key={ch}>
-              {ch}: {Object.entries(m).map(([st, n]) => `${st} ${n}`).join(' / ')}
-            </span>
-          ))}
-        </div>
-      ),
       flags: r.flags.length ? (
         <span className="flex flex-wrap gap-1">
           {r.flags.map((x) => <StatusBadge key={x} tone={flagTone(x)}>{x}</StatusBadge>)}
@@ -111,7 +101,6 @@ export default async function ItemsPage({ searchParams }: { searchParams: Promis
         { key: 'title', label: '題名', wrap: true },
         { key: 'exam', label: '資格' },
         { key: 'kind', label: '種類' },
-        { key: 'status', label: 'チャネルごとの状態', wrap: true },
         { key: 'flags', label: '印' },
       ]}
       rows={dataRows}
