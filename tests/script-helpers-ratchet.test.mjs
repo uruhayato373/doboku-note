@@ -19,9 +19,9 @@ import { join } from 'node:path';
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
 /** 今の数（scripts・.claude・tools・lib・tests のコード）。減らしたら下げる */
-const BASELINE = { root: 68, walk: 43, parseArgs: 26 };
+const BASELINE = { root: 68, walk: 43, parseArgs: 26, curlJson: 0, mdxWalk: 40 };
 
-const OWN = new Set(['scripts/lib/repository-paths.mjs', 'scripts/lib/fs-walk.mjs', 'scripts/lib/cli-args.mjs', 'tests/script-helpers-ratchet.test.mjs']);
+const OWN = new Set(['scripts/lib/repository-paths.mjs', 'scripts/lib/fs-walk.mjs', 'scripts/lib/cli-args.mjs', 'scripts/lib/note-api.mjs', 'scripts/lib/mdx-files.mjs', 'tests/script-helpers-ratchet.test.mjs']);
 
 /** ルートを自分で計算する定義（行単位。root-ok の行は数えない） */
 export const DEFINES_ROOT = /^[ \t]*(?:export\s+)?(?:const|let|var)\s+(?:ROOT|REPO_ROOT|REPO|PROJECT_ROOT|repoRoot|root|ownRoot)\s*=[^\n]*(?:import\.meta\.(?:url|dirname)|__dirname|process\.cwd\(\))/;
@@ -29,6 +29,10 @@ export const DEFINES_ROOT = /^[ \t]*(?:export\s+)?(?:const|let|var)\s+(?:ROOT|RE
 export const DEFINES_WALK = /^[ \t]*(?:export\s+)?(?:async\s+)?(?:function\s*\*?\s*walk\w*\s*\(|const\s+walk\w*\s*=\s*(?:async\s*)?(?:\(|function|[\w$]+\s*=>))/;
 /** parseArgs の定義 */
 export const DEFINES_PARSE_ARGS = /^[ \t]*(?:export\s+)?(?:async\s+)?(?:function\s+parseArgs\s*\(|const\s+parseArgs\s*=)/;
+/** note API を curl で取る curlJson の定義（本文で curl を起動するものだけ数える。lib/note-api.mjs の curlJson を包むだけの const は数えない） */
+export const DEFINES_CURL_JSON = /^[ \t]*(?:export\s+)?(?:async\s+)?(?:function\s+curlJson\s*\(|const\s+curlJson\s*=)/;
+/** MDX を列挙する関数の定義（collectMdx・findMdx・listArticles …。本文でディレクトリを読むものだけ数える） */
+export const DEFINES_MDX_WALK = /^[ \t]*(?:export\s+)?(?:async\s+)?(?:function\s*\*?\s*(?:collectMdx\w*|findMdx\w*|listMdx\w*|walkMdx\w*|scanMdx\w*|allMdx\w*|gatherMdx\w*|readAllMdx\w*|collectArticles?|listArticles?|findArticles?)\s*\(|const\s+(?:collectMdx\w*|findMdx\w*|listMdx\w*|walkMdx\w*|scanMdx\w*|allMdx\w*|collectArticles?|listArticles?|findArticles?)\s*=)/;
 
 /** 定義の行から本文の終わり（同じ字下げの `}` か `};`）までを返す */
 function bodyFrom(lines, i) {
@@ -39,12 +43,14 @@ function bodyFrom(lines, i) {
 
 export function findDefinitions(text) {
   const lines = text.split('\n');
-  const hits = { root: [], walk: [], parseArgs: [] };
+  const hits = { root: [], walk: [], parseArgs: [], curlJson: [], mdxWalk: [] };
   lines.forEach((l, i) => {
     if (DEFINES_ROOT.test(l) && !/\/\/\s*root-ok:/.test(l)) hits.root.push(i + 1);
     // walk という名前でもディレクトリを読まないもの（構文木をたどる visitor など）は数えない
     if (DEFINES_WALK.test(l) && /\b(?:readdirSync|readdir|opendirSync|opendir)\(/.test(bodyFrom(lines, i)) && !/\blistFiles\(/.test(bodyFrom(lines, i))) hits.walk.push(i + 1);
     if (DEFINES_PARSE_ARGS.test(l) && !/\bparseCliArgs\(/.test(bodyFrom(lines, i))) hits.parseArgs.push(i + 1);
+    if (DEFINES_CURL_JSON.test(l) && /\b(?:spawnSync|execFileSync|execSync|spawn)\(/.test(bodyFrom(lines, i))) hits.curlJson.push(i + 1);
+    if (DEFINES_MDX_WALK.test(l) && /\b(?:readdirSync|readdir|opendirSync|opendir)\(/.test(bodyFrom(lines, i)) && !/\b(?:listFiles|listSiteMdx)\(/.test(bodyFrom(lines, i))) hits.mdxWalk.push(i + 1);
   });
   return hits;
 }
@@ -54,7 +60,7 @@ function scan() {
     .split('\0')
     .filter((f) => /\.(mjs|cjs|js|mts|ts|tsx)$/.test(f) && !f.includes('node_modules') && !OWN.has(f));
   assert.ok(files.length > 500, `走査したコード ${files.length} ファイル（検査不成立）`);
-  const found = { root: [], walk: [], parseArgs: [] };
+  const found = { root: [], walk: [], parseArgs: [], curlJson: [], mdxWalk: [] };
   for (const f of files) {
     const hits = findDefinitions(readFileSync(join(ROOT, f), 'utf8'));
     for (const k of Object.keys(found)) for (const line of hits[k]) found[k].push(`${f}:${line}`);
@@ -66,6 +72,8 @@ const HINT = {
   root: "scripts/lib/repository-paths.mjs の REPO_ROOT を import する（cwd が設計どおりの行は // root-ok: 理由）",
   walk: 'scripts/lib/fs-walk.mjs の listFiles を使う',
   parseArgs: 'scripts/lib/cli-args.mjs の parseCliArgs を使う',
+  curlJson: 'scripts/lib/note-api.mjs の curlJson（{ json, error }）を import し、戻りの形だけ薄く包む',
+  mdxWalk: 'scripts/lib/mdx-files.mjs の listSiteMdx（img/ と隠しディレクトリを飛ばす・articleOnly）を使う',
 };
 
 test('各自の定義は基準値より増えない', () => {

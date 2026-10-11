@@ -45,12 +45,12 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
  * ---------------------------------------------------------------------------
  */
 import { chromium } from 'playwright';
-import { spawnSync } from 'node:child_process';
 import { mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { NOTE_CREATOR as CREATOR } from './lib/site-identity.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { curlJson as apiCurlJson } from './lib/note-api.mjs';
 
 const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
 const TMP = join(ROOT, '.tmp');
@@ -74,16 +74,8 @@ if (!TARGET || (FROM.length === 0 && NOTES.length === 0)) {
 }
 
 // ---- API helper（プロキシ + 失効チェック無効化。HTML が返ったら null） ----
-function curlJson(url) {
-  for (let attempt = 0; attempt < 2; attempt++) {
-    const r = spawnSync('curl',
-      ['-sS', '-m', '30', '--ssl-no-revoke', '-H', 'User-Agent: Mozilla/5.0', '-H', 'Accept: application/json', url],
-      { encoding: 'utf-8', maxBuffer: 32 * 1024 * 1024 });
-    const b = (r.stdout || '').trim();
-    if (b.startsWith('{') || b.startsWith('[')) { try { return JSON.parse(b); } catch { /* retry */ } }
-  }
-  return null;
-}
+// note API の取得は lib/note-api.mjs の curlJson に集約（DN-0694）。ここは「JSON か null」の従来の形に合わせる薄い包み
+const curlJson = (url) => apiCurlJson(url).json;
 function fetchMagazineNotes(key) {
   const out = [];
   for (let page = 1; page <= 20; page++) {
