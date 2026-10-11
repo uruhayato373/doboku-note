@@ -33,6 +33,7 @@ import {
   classifyUiFetchExit,
   decideIndexingRun,
 } from "./lib/gsc-local-routine.mjs";
+import { commitAndPush, onBranch } from "./lib/routine-commit.mjs";
 
 const DRY = process.argv.includes("--dry-run");
 const NO_PUSH = process.argv.includes("--no-push");
@@ -54,7 +55,6 @@ function readJson(path) {
   }
 }
 const run = (cmd, args) => spawnSync(cmd, args, { stdio: "inherit", env: process.env }).status ?? 1;
-const git = (args) => spawnSync("git", args, { encoding: "utf8" });
 
 function notify(message) {
   if (process.platform !== "darwin") return;
@@ -62,7 +62,7 @@ function notify(message) {
 }
 
 // 専用 worktree（detached HEAD）以外で送信・commit しない。人の作業ブランチに台帳 commit を混ぜない。
-if (!DRY && git(["symbolic-ref", "-q", "HEAD"]).status === 0) {
+if (!DRY && onBranch()) {
   console.error(`${TAG} ✗ ブランチに乗った checkout では動かさない（今いるブランチに commit してしまう）。launchd（npm run gsc-local:install -- --run-now）から動かすか --dry-run で試す。`);
   process.exit(2);
 }
@@ -119,31 +119,10 @@ if (gscUiDue === false) {
 if (DRY) {
   console.log(`${TAG} --dry-run のため commit しない`);
 } else {
-  git(["add", "--", ...LEDGER_PATHS.filter((p) => existsSync(p))]);
-  if (git(["diff", "--cached", "--quiet"]).status === 0) {
-    console.log(`${TAG} 台帳に差分なし。commit しない`);
-  } else {
-    const stamp = new Date().toISOString().replace(/\.\d+Z$/, "Z");
-    const c = git(["commit", "-m", `chore(gsc-local): ${done.join("・") || "GSC 定期処理"} ${stamp} [skip ci]`]);
-    if (c.status !== 0) {
-      problems.push(`commit に失敗: ${(c.stderr || c.stdout).trim().slice(0, 300)}`);
-    } else if (NO_PUSH) {
-      console.log(`${TAG} --no-push のため push しない`);
-    } else {
-      // commit → fetch → rebase → push（CI の書き込み workflow と同じ順序）。他の書き込みと競合したら 1 回だけやり直す。
-      let pushed = false;
-      for (let attempt = 1; attempt <= 2 && !pushed; attempt += 1) {
-        git(["fetch", "-q", "origin", "develop"]);
-        if (git(["rebase", "-q", "origin/develop"]).status !== 0) {
-          git(["rebase", "--abort"]);
-          break;
-        }
-        pushed = git(["push", "-q", "origin", "HEAD:develop"]).status === 0;
-      }
-      if (pushed) console.log(`${TAG} develop へ push した`);
-      else problems.push("develop への push に失敗（次回の実行は worktree を origin/develop に戻すので、この回の台帳は失われる）");
-    }
-  }
+  const stamp = new Date().toISOString().replace(/\.\d+Z$/, "Z");
+  const r = commitAndPush(LEDGER_PATHS, `chore(gsc-local): ${done.join("・") || "GSC 定期処理"} ${stamp} [skip ci]`, { push: !NO_PUSH });
+  if (r.problem) problems.push(r.problem);
+  else console.log(`${TAG} ${r.status === "pushed" ? "develop へ push した" : r.status === "committed" ? "--no-push のため push しない" : "台帳に差分なし。commit しない"}`);
 }
 
 if (problems.length) {
