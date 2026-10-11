@@ -374,6 +374,14 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0693] quality-audit の duration が壁時計のみで、スリープ中の TIMEOUT 7 件が偽（単独実行の 11.7 倍）
+タグ: [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-11]
+
+**起点**: 2026-10-11 のコード監査。.claude/state/quality/audit-latest.json（2026-10-10T03:39Z）の TIMEOUT 7 件（unit-tests 181 秒・validate-mdx 180 秒・reference-book-pages 120 秒ほか）を単独で再実行すると 37 秒・17 秒・6 秒。27 検査の合計は 1,804 秒→154.6 秒（asset-reentry は 34.8 秒→0.1 秒の 348 倍）。並列 4 の競合では説明できず、スリープ復帰か Drive の I/O 停止が壁時計に混ざった可能性が高い（原因の特定は未了）。timeout の延長や検査の分割は効かない。
+**やること**: scripts/quality-audit.mjs:521-627 の runCheck で process.hrtime との差と os.loadavg() を記録し、壁時計だけが伸びた run は timeout/fail でなく inconclusive（exit 2）にする。
+**完了条件**: 模擬スリープで inconclusive かつ exit 2 になる単体テストが node --test tests/quality-audit-*.test.mjs で通る。
+
+
 ### [DN-0688] pre-commit 13.9 秒（67 プロセス）と SessionStart の x-sync 9.6 秒を短縮する
 タグ: [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-11]
 
