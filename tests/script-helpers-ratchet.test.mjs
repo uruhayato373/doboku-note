@@ -90,16 +90,24 @@ test('基準値は今の数のまま（減らしたら BASELINE を下げる＝�
 
 test('検出の型: 計算は数え、import・root-ok・共通部品を呼ぶだけの関数は数えない', () => {
   const count = (text) => Object.fromEntries(Object.entries(findDefinitions(text)).map(([k, v]) => [k, v.length]));
-  assert.deepEqual(count("const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');"), { root: 1, walk: 0, parseArgs: 0 });
-  assert.deepEqual(count('const root = process.cwd();'), { root: 1, walk: 0, parseArgs: 0 });
-  assert.deepEqual(count('const PROJECT_ROOT = path.resolve(__dirname, "../..");'), { root: 1, walk: 0, parseArgs: 0 });
-  assert.deepEqual(count('const ROOT = process.cwd(); // root-ok: テストが一時 cwd で走らせる'), { root: 0, walk: 0, parseArgs: 0 });
-  assert.deepEqual(count("import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';"), { root: 0, walk: 0, parseArgs: 0 });
-  assert.deepEqual(count('function walk(dir) {\n  for (const e of readdirSync(dir)) out.push(e);\n}'), { root: 0, walk: 1, parseArgs: 0 });
-  assert.deepEqual(count('const walkMdx = (dir) => {\n  return readdirSync(dir);\n};'), { root: 0, walk: 1, parseArgs: 0 });
-  assert.deepEqual(count('function walk(node) {\n  for (const c of node.children) walk(c);\n}'), { root: 0, walk: 0, parseArgs: 0 });
-  assert.deepEqual(count("function walkMdx(dir) {\n  return listFiles(dir, { ext: '.mdx' });\n}"), { root: 0, walk: 0, parseArgs: 0 });
-  assert.deepEqual(count('function parseArgs() {\n  const args = process.argv.slice(2);\n}'), { root: 0, walk: 0, parseArgs: 1 });
-  assert.deepEqual(count("export function parseArgs(argv) {\n  return parseCliArgs({ json: { type: 'boolean' } }, argv);\n}"), { root: 0, walk: 0, parseArgs: 0 });
-  assert.deepEqual(count("const { values } = parseArgs({ options: {} });"), { root: 0, walk: 0, parseArgs: 0 });
+  const z = { root: 0, walk: 0, parseArgs: 0, curlJson: 0, mdxWalk: 0 };
+  assert.deepEqual(count("const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');"), { ...z, root: 1 });
+  assert.deepEqual(count('const root = process.cwd();'), { ...z, root: 1 });
+  assert.deepEqual(count('const PROJECT_ROOT = path.resolve(__dirname, "../..");'), { ...z, root: 1 });
+  assert.deepEqual(count('const ROOT = process.cwd(); // root-ok: テストが一時 cwd で走らせる'), z);
+  assert.deepEqual(count("import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';"), z);
+  assert.deepEqual(count('function walk(dir) {\n  for (const e of readdirSync(dir)) out.push(e);\n}'), { ...z, walk: 1 });
+  // walkMdx はディレクトリを読む walk でもあり MDX の列挙でもある（2 つのラチェットが別々に数える）
+  assert.deepEqual(count('const walkMdx = (dir) => {\n  return readdirSync(dir);\n};'), { ...z, walk: 1, mdxWalk: 1 });
+  assert.deepEqual(count('function walk(node) {\n  for (const c of node.children) walk(c);\n}'), z);
+  assert.deepEqual(count("function walkMdx(dir) {\n  return listFiles(dir, { ext: '.mdx' });\n}"), z);
+  assert.deepEqual(count('function parseArgs() {\n  const args = process.argv.slice(2);\n}'), { ...z, parseArgs: 1 });
+  assert.deepEqual(count("export function parseArgs(argv) {\n  return parseCliArgs({ json: { type: 'boolean' } }, argv);\n}"), z);
+  assert.deepEqual(count("const { values } = parseArgs({ options: {} });"), z);
+  // curlJson: 本文で curl を起動する定義だけ数え、lib/note-api.mjs の curlJson を包む const は数えない
+  assert.deepEqual(count("function curlJson(url) {\n  const r = spawnSync('curl', ['-sS', url], { encoding: 'utf-8' });\n  return JSON.parse(r.stdout);\n}"), { ...z, curlJson: 1 });
+  assert.deepEqual(count("const curlJson = (url) => apiCurlJson(url).json;"), z);
+  // MDX の列挙: ディレクトリを読む collectMdx は数え、listSiteMdx を呼ぶだけなら数えない
+  assert.deepEqual(count("function collectMdx(dir) {\n  for (const e of readdirSync(dir, { withFileTypes: true })) out.push(e.name);\n}"), { ...z, mdxWalk: 1 });
+  assert.deepEqual(count("function collectMdx() {\n  return listSiteMdx({ articleOnly: true });\n}"), z);
 });
