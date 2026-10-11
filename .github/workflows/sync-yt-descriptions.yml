@@ -58,7 +58,7 @@ jobs:
           ref: ${{ github.sha }}
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
-          node-version: "20"
+          node-version: "22"
           cache: npm
       - run: npm ci --legacy-peer-deps --ignore-scripts
       - name: Inventory only (no YouTube writes)
@@ -91,7 +91,7 @@ jobs:
           ref: ${{ github.sha }}
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
-          node-version: "20"
+          node-version: "22"
           cache: npm
       - run: npm ci --legacy-peer-deps --ignore-scripts
       - name: Restore approved covers from private transfer storage
@@ -141,7 +141,7 @@ jobs:
           ref: ${{ github.sha }}
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
-          node-version: '20'
+          node-version: '22'
           cache: npm
       - run: npm ci --legacy-peer-deps --ignore-scripts
       - name: Run selected migration phase with verified private receipts
