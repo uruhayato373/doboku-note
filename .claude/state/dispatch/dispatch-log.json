@@ -2702,6 +2702,23 @@
       "commit": "e9796bd71a5e",
       "verification": "シミュレータ（iPhone 18 Pro・iOS 27.0）: 読み込み 0.16〜0.28 秒・2 問目以降 0.095 秒／技術士 R07 基礎の空欄が枠で出る（quiz-blank・技術士 59 問・総監 6 問）／令和7年度は年度一覧・購入画面とも 115 問／「サイトで詳しい解説を読む」で Safari が doboku-note.com を開く。あわせて 2級 R05後期 No.12 の複数正答・解説の正答印・2級の年度順と無料年度を直した（PR #975・iOS 9aba2a7）",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0661",
+      "at": "2026-10-11",
+      "task": "コンクリート診断士の note 記述式マガジン 8 本が、2019 年度に廃止された問題A を前提に売られている",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "memory",
+        "ref": "project_concrete_diagnostician"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "311ba5db0301",
+      "verification": "note API で記事 16 本・マガジン 9 本の題名を実体確認・note-update-body ok=16 fail=0・grep 問題A は経緯の説明のみ",
+      "note": "記述式マガジン（記事 16・マガジン 9）を 2019 年度からの形式に作り直して note へ反映。問題A の 2 本は建築・土木の構造物の診断の答案に、問題A集中パックは入門パックに（PR #976）"
     }
   ]
 }
