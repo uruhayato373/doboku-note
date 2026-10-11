@@ -1885,6 +1885,14 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 **完了条件**: 2 ページの CTA の変更が 10/18 までに公開され、反映 28 日後の CTA クリック率を変更前と比べた記録が本カードの完了記録にある（試験後で少数なら判定保留と書く）。
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-0694] 重複実装の共通化（MDX 列挙 45 ファイル・curlJson 8 定義・classifyDoc の写し 4・loadEnv 7）とラチェットの挙動ベース化
+タグ: [領域:管理] [種類:改善] [起票:2026-10-11]
+
+**起点**: 2026-10-11 のコード監査（走査 1,624 ファイル）。tests/script-helpers-ratchet.test.mjs は walk*・parseArgs・ルート計算の名前だけを数えるので、collectMdx/findMdx/listArticles など MDX を列挙する関数 45 ファイル 49 定義（content/site を列挙するコードは 112 ファイル）、note API を curl で取る curlJson 8 定義（正規版 lib/note-api.mjs:58。再試行 0〜4 回・戻り値 null/throw/{json,error} と挙動がばらばら）、classifyDoc の写し 4 か所（正本 src/lib/doc-classifier.ts:31-39・check-magazine-cta-reachability.ts:63・check-category-curriculum.mjs:26・check-career-separation.mjs:19・lib/content-taxonomy.mjs:224）、loadEnv 7 版、toPosix 19 か所、frontmatter の読み方が gray-matter 58／手書き正規表現 55 と割れている点を素通りしている。
+**やること**: scripts/lib/mdx-files.mjs・scripts/lib/curl-json.mjs を新設し、まず note-edit-magazine など 7 本が note-api.mjs を import する。ラチェットに基準値（45／8）を足す。移行は 1 本ずつ。
+**完了条件**: 基準値を現状に置いて node --test が通り、+1 で落ちる。
+
+
 ### [DN-0689] CI 基盤: PR の build 3 回を 1 回に・Node 20/22 混在を 22 へ・setup を composite action にまとめる
 タグ: [領域:管理] [種類:改善] [検証:check-workflow-hygiene] [起票:2026-10-11]
 
