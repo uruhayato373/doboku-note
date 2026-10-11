@@ -374,6 +374,14 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0684] /search のクライアント JS に doc-meta-index（1.66MB チャンク）が同梱されている
+タグ: [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-10-11]
+
+**起点**: 2026-10-11 のコード監査。out/search.html だけが読む 1,659,388 B（gzip 325KB）のチャンクの中身は doc-meta-index.json（約 930KB）。経路は src/components/search/SearchZeroState.tsx:6 が @/lib/content-routes の getPublicDocPath を import し（content-routes.ts:1 が doc-meta-index を import）、もう 1 本は同 :2 のバレル @/components/home 経由。クライアント JS 合計 2.74MB の 60%。
+**やること**: getPublicDocPath を src/app/search/page.tsx（server）で計算して props で渡し、ExamCard は @/components/home/ExamCards から直接 import する。
+**完了条件**: build 後に find out/_next/static/chunks -name '*.js' -size +600k | wc -l が 0（現状 1）。CI の build ジョブに同じ検査を足す。
+
+
 ### [DN-0682] 2級土木の水セメント比図の無条件な施工性低下の説明を修正する
 タグ: [領域:商品] [時期:2026-10] [種類:不具合] [起票:2026-10-11]
 
