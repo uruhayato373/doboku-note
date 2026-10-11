@@ -115,7 +115,7 @@
       "label": "ハイクラス DX・コンサル転職（技術士/総監 シニア層向け）",
       "vertical": "pe-career",
       "placement": "active",
-      "decision": "A8 で運用。pe-comprehensive-management カテゴリ hub 専用（GKS は 20 代未経験向けで総監読者にミスマッチ）。",
+      "decision": "A8 で運用。pe-comprehensive-management カテゴリの hub（category-sidebar/mobile）と記事の本文中間（article-mid）に出す。GKS は 20 代未経験向けで総監読者にミスマッチ。記事面の条件（2026-10-11・DN-0695）: 総監カテゴリのみ、本文中間のみ（記事末は 28 日 487 表示 0 クリックで撤去）、根拠は 28 日 822 表示 4 クリック（CTR 0.49%）。見直しは EXP-008 の判定（10/20）と同時。",
       "ctaLabels": [
         "DXConsulting-sidebar",
         "DXConsulting-endbanner",

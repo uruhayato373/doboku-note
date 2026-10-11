@@ -116,6 +116,22 @@ export function findUnguardedExitCaptures(runScript) {
   return hits;
 }
 
+/**
+ * 9. develop へ rebase 無しで push。develop は bot と人の push が 1 日 100 回を超えるので、
+ *    checkout 時点の HEAD にそのまま commit して `git push origin develop` すると non-fast-forward で
+ *    落ちる。scheduled-publish.yml（X の公開済み status）がこれで記録を失うと次回に二重投稿しうる。
+ *    `git push` の対象が develop の run: には、同じ run: の中に `git rebase origin/develop`
+ *    （または `git pull --rebase`）があることを要求する（competitor-scan.yml が見本）。
+ */
+export function findPushWithoutRebase(runScript) {
+  const src = String(runScript ?? '').split('\n').map((l) => l.replace(/(^|\s)#.*$/, '')).join('\n');
+  const pushes = [...src.matchAll(/^\s*git push\b[^\n]*\bdevelop\b[^\n]*$/gm)];
+  if (pushes.length === 0) return [];
+  const rebased = /\bgit rebase\b[^\n]*\borigin\/develop\b/.test(src) || /\bgit pull\b[^\n]*--rebase\b/.test(src);
+  if (rebased) return [];
+  return pushes.map((m) => ({ text: m[0].trim().slice(0, 80) }));
+}
+
 async function main() {
   const files = listWorkflowFiles();
   let hookCommitScanned = 0;
@@ -239,6 +255,17 @@ async function main() {
           file, kind: 'errexit-exit-code', line: 0,
           message: `bash -e のまま $? を読んでいる（非 0 で step が先に終わり届かない）: ${h.text}`
             + ' → 直前に `set +e` を置くか `cmd || rc=$?` にする（fetch-metrics.yml の Check data integrity が見本）',
+        });
+      }
+    }
+
+    // 9. develop へ rebase 無しで push（findPushWithoutRebase 参照）
+    for (const script of runScripts) {
+      for (const h of findPushWithoutRebase(script)) {
+        violations.push({
+          file, kind: 'push-without-rebase', line: 0,
+          message: `develop へ rebase 無しで push している（他の push と競合すると記録が落ちる）: ${h.text}`
+            + ' → 直前に `git fetch origin develop` と `git rebase origin/develop` を置き `git push origin HEAD:develop` にする（competitor-scan.yml が見本）',
         });
       }
     }

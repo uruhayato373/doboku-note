@@ -185,7 +185,9 @@ jobs:
             exit 0
           fi
           git commit -m "chore(note): live snapshot weekly fetch $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
-          git push origin develop
+          git fetch origin develop
+          git rebase origin/develop
+          git push origin HEAD:develop
 
       # 題名・価格は原稿が正（2026-10-01）。note と食い違う記事を「note へ未反映」に戻して develop へ commit する。
       # 題名は次の Mac note-sync-routine（月曜以降の週次）が原稿の title で note を上げ直す。価格は同期計画で「止まっている」になり、
@@ -205,7 +207,9 @@ jobs:
             exit 0
           fi
           git commit -m "chore(note): 題名・価格の note とのずれを未反映に戻す $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
-          git push origin develop
+          git fetch origin develop
+          git rebase origin/develop
+          git push origin HEAD:develop
 
       # 2026-10-10: 各検査の異常は Issue へ書き、job は緑のまま（DN-0642）。赤にすると、ログインの要る修復が終わるまで
       # 何週も赤が続き、workflow-health が「壊れた」と「異常を見つけた」を区別できなかった（21 日・4 連続の赤）。
