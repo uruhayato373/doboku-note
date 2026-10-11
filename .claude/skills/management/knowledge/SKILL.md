@@ -53,14 +53,6 @@ domain: ops
 
 ---
 
-## seed のローカルディレクトリ統一（解決済み）
-
-**経緯**: ローカル `.local/r2/seed/` と R2 の `seeds/` で名称が不一致だった。`npm run r2:upload` でアップロードすると R2 に `seed/` キーで保存されてしまい混在した。
-
-**解決**: ローカルディレクトリを `.local/r2/seeds/` に統一。`sync-download.ts` の DEFAULT_PREFIXES も `"seeds"` に変更。現在は `r2:upload` でも `seed:push` でもどちらも R2 の `seeds/` に正しくアップロードされる。
-
----
-
 ## 企業プロキシと R2 S3 API
 
 **問題**: `@aws-sdk/client-s3` 経由の R2 アクセスが HTTP 407/503 で失敗する。

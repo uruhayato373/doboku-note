@@ -59,4 +59,6 @@ jobs:
           BROKEN=$(node -e "const fs=require('fs');const f=fs.readdirSync('.claude/state/link-audit').filter(x=>x.startsWith('audit-')).sort().pop();console.log(JSON.parse(fs.readFileSync('.claude/state/link-audit/'+f,'utf8')).summary.HIGH);")
           X_GONE=$(node -e "const fs=require('fs');const p='.claude/state/x-posted-live/latest.json';console.log(fs.existsSync(p)?JSON.parse(fs.readFileSync(p,'utf8')).gone:'n/a');")
           git commit -m "chore(metrics): link audit $(date -u +%Y-%m-%dT%H:%MZ) — ${BROKEN} broken / X gone ${X_GONE} [skip ci]"
-          git push origin develop
+          git fetch origin develop
+          git rebase origin/develop
+          git push origin HEAD:develop

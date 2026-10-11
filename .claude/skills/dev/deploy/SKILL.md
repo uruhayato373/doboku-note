@@ -64,10 +64,13 @@ git push origin develop
 ```bash
 git checkout main
 git pull --ff-only origin main
-git merge --no-edit develop
+git merge --no-ff -m "Merge develop into main" develop
 ```
 
 - コンフリクトが発生した場合 → ユーザーに報告し、解消を支援
+- **`--no-ff` を付ける（2026-10-11・DN-0690）**: main が develop の祖先だと fast-forward になり、develop の先頭が
+  bot の `[skip ci]` commit（ogp-supply 等・構造的に高頻度）のとき main の先頭もそれになってデプロイが起動しない。
+  merge commit を必ず作れば先頭のメッセージは自分のものになる
 - **`--ff-only` は使わない**: main は PR の squash/merge コミットを持つため develop の子孫にならず、
   fast-forward は構造的に失敗する（`fatal: Not possible to fast-forward`）。マージコミットが正。
 - **`npm run build` は生成インデックス（`src/config/*.json` の `generated_at` / `dateModified`）を
@@ -80,7 +83,11 @@ git merge --no-edit develop
 git push origin main
 ```
 
-GitHub Actions の `cloudflare-deploy.yml` ワークフローが自動でトリガーされる。
+GitHub Actions の `cloudflare-deploy.yml` ワークフローが自動でトリガーされる。**起動したことを機械で確かめる**（push の 60 秒以内に run の headSha が origin/main と一致すれば起動している。一致しなければ下の手動起動）:
+
+```bash
+sleep 30; test "$(gh run list --workflow=cloudflare-deploy.yml --limit 1 --json headSha -q '.[0].headSha')" = "$(git rev-parse origin/main)" && echo deploy-started || echo deploy-NOT-started
+```
 
 > [!warning] 先頭が `[skip ci]` だとデプロイが起動しない（2026-09-23）
 > GitHub は push の**先頭 commit** のメッセージに `[skip ci]` があると、push 起点の

@@ -7,7 +7,7 @@
 `content/sns/instagram/video-packs/{exam}/{sourcePackId}/slide-data.json` がカルーセル原稿、派生ディレクトリの `reels/script.json` がInstagram専用の台本。YouTubeの台本を直接読み上げない。校正で変えた論点は `coverHeadline` で表紙にも反映する。A案ロゴ・白/紺/青/黄・大きな見出し・既存の先生素材を共通レンダラーで使う。
 
 ```bash
-npm run instagram-carousels:render -- --all
+node scripts/render-instagram-video-pack-carousels.mjs --all
 VOICEVOX_BASE_URL=http://127.0.0.1:50021 npm run instagram-reels:render -- --all --concurrency 1
 npm run check-instagram-reels -- --media
 npm run instagram-campaign -- --check --media

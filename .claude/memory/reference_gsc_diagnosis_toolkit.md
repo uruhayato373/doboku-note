@@ -71,3 +71,5 @@ node .claude/scripts/analyze-hubs.mjs --page-data ...  # hub 強化対象特定
 - **scopeもdrillもURL**: 送信済み＝`&pages=ALL_SUBMITTED_URLS&sitemap`、理由ドリル＝`/index/drilldown?...&item_key=...`。ドロップダウン操作より URL 直指定が決定的。理由ラベルは drilldown ページにも残るので「ラベル消失」で判定不可＝URL の `/drilldown` で判定。
 - 実ZIP内 表CSV の列名は `URL,前回のクロール`。allSubmittedPages に redirect/notFound/forbidden が無いのは正常（row-not-found）。
 - 計測APIのローカル遮断（会社PCプロキシ）とは別枠＝**ブラウザは本人セッションで通る**。[[reference_playwright_auth_profiles]] の profile 方式に google を追加。
+
+**2026-10-11 インデックス登録リクエストの記録の罠**: `data/gsc/indexing-requests.json` は「最後の実行」を毎回上書きするファイル、`data/gsc/indexing-history.json` は run を追記する履歴（14 日のクールダウン判定はこちら）。共有の作業ツリーが origin より古い状態で `gsc-indexing:request` を回すと、古い履歴に追記されるので、そのままコミットすると他で足された run を消す。origin の版に自分の run だけを足してからコミットする。順位表（`indexing-priority.txt`）は 2026-10-11 から型ごとの期待値順（PR #991・`types[]` に根拠）。

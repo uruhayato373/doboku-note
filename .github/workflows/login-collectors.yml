@@ -586,7 +586,9 @@ jobs:
             exit 0
           fi
           git commit -m "chore(auth-state): login collectors $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
-          git push origin develop
+          git fetch origin develop
+          git rebase origin/develop
+          git push origin HEAD:develop
 
       # 書き戻しの失敗（型・push の競合など）は collector の Issue とは別の channel に載せる。collect が緑でも記録に入っていない状態を沈黙させない（DN-0566）。
       - name: Report publish failure (automation-failure Issue)

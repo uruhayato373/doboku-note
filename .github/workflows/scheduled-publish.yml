@@ -168,7 +168,11 @@ jobs:
             echo "No changes to publish"
           else
             git commit -m "chore(x): scheduled publish $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
-            git push origin develop
+            # develop は 1 日 100 回超 push される。rebase せずに push すると non-fast-forward で落ち、
+            # 公開済みの status が記録されず次回に二重投稿する恐れがある（competitor-scan.yml と同じ型）
+            git fetch origin develop
+            git rebase origin/develop
+            git push origin HEAD:develop
           fi
 
       - name: Report failure (automation-failure Issue)
