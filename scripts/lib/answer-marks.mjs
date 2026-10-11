@@ -51,8 +51,9 @@ export function parseAnswerLine(text) {
 
 /** 問いの文（最後の「どれか」「選べ」の文） */
 function questionSentence(stem) {
-  const plain = String(stem ?? '').replace(/\*\*|__|<[^>]+>/g, '');
-  const sentences = plain.split(/(?<=[。？?])|\n/u).map((s) => s.trim()).filter(Boolean);
+  // 太字の記号だけ落とす（タグの行は問いの文を含まないので、行ごとに分けて「どれか」の文を探せば足りる）
+  const plain = String(stem ?? '').replace(/\*\*|__/g, '');
+  const sentences = plain.split(/(?<=[。？?])|\n/u).map((s) => s.trim()).filter((s) => s && !s.startsWith('<'));
   return [...sentences].reverse().find((s) => /(どれか|いくつか|選べ)/u.test(s)) ?? null;
 }
 
