@@ -2350,6 +2350,107 @@
         "productionBrowserCases": 9,
         "localBrowserCases": 36
       }
+    },
+    {
+      "id": "EXP-020",
+      "title": "2級土木 二次の 4 本（r06・r07・経験記述の例文・書き方）の題名と説明を検索語の語順に合わせ、冒頭に答えと試験概要への導線を足して、Google の CTR とクリックを上げる",
+      "hypothesis": "4 本は Google で 6〜10 位なのに、題名が「令和N年度 第2次検定 解答例｜…【2級土木施工管理技士 過去問】」と級名が末尾で、説明は 77 字と短かった。r06・r07 は本文が「## 問題 1」から始まり答えの要約が無い。検索語の語順（2級土木施工管理技士 2次試験 解答例 令和N年）に揃え、設問のテーマを冒頭で示せば、同じ順位でもクリックが増える。試験概要 2 本（Google 未登録・Bing の最大級の入口）への内部リンクは登録の後押しを狙う",
+      "target_metric": "4 ページの GSC クリック（28 日）。補助に CTR と平均順位、Bing の同ページのクリック",
+      "target_delta": "事後 28 日のクリックが事前比 +10% 以上かつ平均順位が 2 位以上悪化していなければ改善。10/25 の試験で需要が大きく動くので、CTR（同順位帯）でも読む",
+      "baseline": {
+        "measured_at": "2026-10-10",
+        "note": "GSC 2026-09-09〜10-06: 4 ページ合計 クリック 93・表示 1603",
+        "source": "data/gsc/reports/2026-10-10.json"
+      },
+      "businessContext": {
+        "qualification": "all",
+        "readerNeed": "2級の第2次検定の解答例や経験記述の書き方を検索した受験者が、検索結果で自分の年度・知りたいことのページだと分かる",
+        "verifiedGap": "題名の語順が検索語と逆で、説明が短く、r06・r07 は冒頭に答えが無かった（2026-10-11 現物確認）",
+        "metricId": "gscClicks",
+        "reviewRecord": "data/business/records/review-2026-10-10T13-09-40-370Z-c96bf612-4e32-4025-b7c5-1450d1c30a83.json"
+      },
+      "measure": {
+        "specVersion": 1,
+        "metric": "gsc.clicks",
+        "scope": {
+          "pages": [
+            "/exam/civil-construction-2/secondary/r06",
+            "/exam/civil-construction-2/secondary/r07",
+            "/exam/civil-construction-2/secondary/experience-writing-examples",
+            "/exam/civil-construction-2/secondary/experience-writing-guide"
+          ]
+        },
+        "anchor": "2026-10-12",
+        "preDays": 28,
+        "postDays": 28,
+        "lagDays": 3,
+        "direction": "increase",
+        "minEffect": 0.1,
+        "minVolume": 20,
+        "note": "anchor は本番反映の翌日。反映が遅れたら直す。EXP-014（同じページ群の冒頭 CTA）とは指標が別（こちらは GSC クリック）"
+      },
+      "status": "running",
+      "created_at": "2026-10-11T04:02:33.621Z",
+      "started_at": "2026-10-11T04:02:33.621Z",
+      "paused_at": null,
+      "paused_reason": null,
+      "result": null,
+      "learnings": null,
+      "closed_at": null,
+      "actions": [
+        "2026-10-11: develop へ 2a8c72436（4 本の seoTitle・description・冒頭・試験概要へのリンク）。本番反映は次のデプロイ"
+      ]
+    },
+    {
+      "id": "EXP-021",
+      "title": "総監の定型題名（｜ 技術士 総合技術監理部門 キーワード集）を、表示の多い 5 本で「語とは｜区別点【技術士総監】」に変えて CTR を上げる",
+      "hypothesis": "総監キーワード 704 本の題名は末尾が定型の「キーワード集」で、表示のある 473 本の CTR は 1.6%。「〜とは」で 4〜9 位にいるページが 0〜1 クリック。題名を検索語の「とは」に合わせ、説明を定義の一文から始めれば、同じ順位でもクリックが増える。試験ガイド exam-index は題名が「キーワード集」になっていた",
+      "target_metric": "5 ページの GSC クリック（28 日）。補助に CTR と平均順位",
+      "target_delta": "事後 28 日で 5 ページのクリックが事前比 +10% 以上かつ平均順位が悪化していなければ、表示の多い順に 20 本ずつ横展開する。変化なしなら題名の型を見直す",
+      "baseline": {
+        "measured_at": "2026-10-10",
+        "note": "GSC 2026-09-09〜10-06: 5 ページ合計 クリック 7・表示 540",
+        "source": "data/gsc/reports/2026-10-10.json"
+      },
+      "businessContext": {
+        "qualification": "pe-comprehensive-management",
+        "readerNeed": "総監の用語を「〜とは」で調べた受験者が、検索結果で定義と区別点が載っているページだと分かる",
+        "verifiedGap": "題名が用語名＋定型の「キーワード集」で、検索語の「とは」も区別点も無かった（2026-10-11 現物確認）",
+        "metricId": "gscClicks",
+        "reviewRecord": "data/business/records/review-2026-10-10T13-09-40-370Z-c96bf612-4e32-4025-b7c5-1450d1c30a83.json"
+      },
+      "measure": {
+        "specVersion": 1,
+        "metric": "gsc.clicks",
+        "scope": {
+          "pages": [
+            "/exam/pe-comprehensive-management/keywords/personal-communication",
+            "/exam/pe-comprehensive-management/keywords/blind-drill",
+            "/exam/pe-comprehensive-management/keywords/vta-method",
+            "/exam/pe-comprehensive-management/keywords/appraisal-three-principles",
+            "/exam/pe-comprehensive-management/guide/exam-index"
+          ]
+        },
+        "anchor": "2026-10-12",
+        "preDays": 28,
+        "postDays": 28,
+        "lagDays": 3,
+        "direction": "increase",
+        "minEffect": 0.1,
+        "minVolume": 20,
+        "note": "anchor は本番反映の翌日。5 本は母数が小さい（minVolume 20）ので、insufficient-data なら表示の多い 10 本へ広げて再判定"
+      },
+      "status": "running",
+      "created_at": "2026-10-11T04:02:33.621Z",
+      "started_at": "2026-10-11T04:02:33.621Z",
+      "paused_at": null,
+      "paused_reason": null,
+      "result": null,
+      "learnings": null,
+      "closed_at": null,
+      "actions": [
+        "2026-10-11: develop へ（5 本の seoTitle・description）。本番反映は次のデプロイ"
+      ]
     }
   ]
 }
