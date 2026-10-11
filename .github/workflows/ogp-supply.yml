@@ -198,7 +198,9 @@ jobs:
       # 失敗した slug は隔離して継続する（1 件の生成失敗で全体を止めない）。
       # 全滅（成功 0 件）のときだけ異常として止める。
       # 公的基準の章記事は MDX ではないので上の detect（published な MDX を数える）に載らない。
-      # 別建てで不足分だけを生成する（既存はスキップされるので毎回の再生成にはならない）。
+      # 別建てで不足分だけを生成する。CI の checkout には ogp.png が無いので「実体があればスキップ」は
+      # 効かず、2026-10-11 まで毎 run 全 344 章を再生成・再 upload していた（develop の bot commit の 64%・
+      # DN-0683）。今は退避台帳（manifest.json）の srcHash が現在の入力と一致する章を飛ばす。
       - name: Generate standards chapter OGP
         id: chapters
         run: |
@@ -251,11 +253,20 @@ jobs:
           CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
         run: node scripts/asset-offload.mjs --group site-ogp-png --include-untracked --commit
 
+      # 章 OGP の srcHash を台帳へ書く（記事 OGP の update-ogp-srchash と同じ役割）。これが無いと
+      # 次の run も「台帳に srcHash が無い」で全章を再生成する。
+      - name: Record chapter srcHash
+        if: steps.chapters.outputs.chapters_generated != '0'
+        run: node scripts/build-standards-ogp.mjs --write-srchash
+
       - name: Update srcHash for generated slugs
         if: steps.detect.outputs.count != '0'
         run: node scripts/update-ogp-srchash.mjs --write --slugs-file /tmp/ogp-generated-slugs.txt
 
+      # 何も生成していない push でも全 OGP の派生 3 枚を HEAD で確かめるので 1 run で数千リクエストになる。
+      # 生成があったときと、週次 schedule・手動のときだけ回す（自己修復はそちらで担う）。
       - name: Supply responsive OGP thumbnails and verify readback
+        if: steps.detect.outputs.count != '0' || steps.chapters.outputs.chapters_generated != '0' || github.event_name != 'push'
         env:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_R2_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
