@@ -1821,6 +1821,14 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 **完了条件**: 2 ページの CTA の変更が 10/18 までに公開され、反映 28 日後の CTA クリック率を変更前と比べた記録が本カードの完了記録にある（試験後で少数なら判定保留と書く）。
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-0676] check-seo-build の warn（1,390 件）が CI ログにしか残らず、誰も読んでいない
+タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-11]
+
+**起点**: 2026-10-11 の technical-seo-auditor。check-seo-build:ci の結果は .github/workflows/ci.yml のログにしか残らず、warn（jsonld_recommended_missing 1,389・ssr_thin_body 1）は誰も見ていなかった（今回の監査では古い out/ を見るしかなかった）。CLAUDE.md §9「赤いのに誰も見ていない検査は無いのと同じ」。
+**やること**: CI でサマリ JSON（検査対象数・error・warn の型別件数）を data/analysis/ に書き、scripts/lib/datasets.mjs に宣言する。週次レビュー（/weekly-review）がそれを読んで前週比を出すようにする。
+**完了条件**: CI のあとに data/analysis/ のサマリが更新され、週次レビューの報告に check-seo-build の件数と前週比が出る。
+
+
 ### [DN-0673] 「該当しないもの」「許可を必要としないもの」を選ぶ過去問の正答の ✅/❌ の向きを 1 つにそろえる
 タグ: [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-10-11]
 
