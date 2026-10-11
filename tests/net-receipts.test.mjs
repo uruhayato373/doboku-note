@@ -4,7 +4,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  parseNoteSalesDetail, kdpCatalogRoyalty, buildNetReceiptsMeasurement, monthEnd,
+  parseNoteSalesDetail, kdpCatalogRoyalty, buildNetReceiptsMeasurement, monthEnd, netReceiptsMissing,
   isNoteSalesAggregating, noteSalesFinalizeDate, noteSalesPendingMessage,
 } from '../scripts/lib/net-receipts.mjs';
 
@@ -38,4 +38,12 @@ test('欠けたもの・KDP の推計は 0 にせず partial で値を空にす�
   assert.equal(r.values.netReceipts, null);
   assert.match(r.source, /欠測: ココナラ・KDP（推計のみ・確定前）/);
   assert.equal(monthEnd('2026-02'), '2026-02-28');
+});
+
+test('partial の記録から欠けた内訳を読み戻す（括弧の中の・で区切らない。管理画面のトップが使う）', () => {
+  const partial = buildNetReceiptsMeasurement({ month: '2026-09', note: { gross: 106800, fee: -17398, net: 89402 }, coconala: null, kdp: { royalty: 3000, estimated: true } });
+  assert.deepEqual(netReceiptsMissing(partial.source), ['ココナラ', 'KDP（推計のみ・確定前）']);
+  const complete = buildNetReceiptsMeasurement({ month: '2026-08', note: { gross: 71640, fee: -11011, net: 60629 }, coconala: 7800, kdp: { royalty: 5789, estimated: false } });
+  assert.deepEqual(netReceiptsMissing(complete.source), []);
+  assert.deepEqual(netReceiptsMissing(null), []);
 });
