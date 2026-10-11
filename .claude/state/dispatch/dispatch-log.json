@@ -2719,6 +2719,23 @@
       "commit": "311ba5db0301",
       "verification": "note API で記事 16 本・マガジン 9 本の題名を実体確認・note-update-body ok=16 fail=0・grep 問題A は経緯の説明のみ",
       "note": "記述式マガジン（記事 16・マガジン 9）を 2019 年度からの形式に作り直して note へ反映。問題A の 2 本は建築・土木の構造物の診断の答案に、問題A集中パックは入門パックに（PR #976）"
+    },
+    {
+      "id": "DN-0665",
+      "at": "2026-10-11",
+      "task": "過去問の正答と ✅/❌ の整合検査（check-answer-consistency）が 1級・2級土木の記事を 1 問も検査せずに OK を返す",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-answer-marks"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "c23a7f144ed1",
+      "verification": "npm run check-answer-marks（PR #986 の CI で PASS）",
+      "note": "check-answer-marks（quality:audit の answer-marks・ci:true）で全資格の過去問 154 記事・4,982 問の印を照合し 0 件。見つかった 591 件は 1120fa352 で修正。残件は DN-0671（演習データに記述ごとの解説）・DN-0672（技術士一次 H27/H28 の定型句の解説）・DN-0673（該当しない型の向き）・DN-0680（develop の CI の別原因）へ抽出"
     }
   ]
 }
