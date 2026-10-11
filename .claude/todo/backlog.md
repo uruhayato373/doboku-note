@@ -1841,6 +1841,14 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 **完了条件**: 2 ページの CTA の変更が 10/18 までに公開され、反映 28 日後の CTA クリック率を変更前と比べた記録が本カードの完了記録にある（試験後で少数なら判定保留と書く）。
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-0681] lint-mdx-mobile が、サイトが目次に使う toc_min/max_heading_level を「未使用の旧 frontmatter・一括削除可」として HIGH を出している
+タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [起票:2026-10-11]
+
+**起点**: 2026-10-11、DN-0665 で過去問記事に `.claude/scripts/lint-mdx-mobile.mjs` を回したとき、規則 0-2 が `toc_min_heading_level`・`toc_max_heading_level` を「Docusaurus 旧 frontmatter。doboku-note では未使用、migrate-civil-frontmatter.mjs で一括削除可」として HIGH を出した（develop で 162 記事：建設部門 100・技術士一次 39・2級土木 18・測量 5）。しかしサイトは `src/components/docs/DocPage.tsx:292-293` でこの 2 つを読み、目次に出す見出しの深さを決めている。言われたとおり一括削除すると、過去問ページなどの目次が変わる。
+**やること**: 規則 0-2 と `migrate-civil-frontmatter.mjs` の対象から `toc_min_heading_level`・`toc_max_heading_level` を外す（`id`・`sidebar_label` は使われていないか確かめて残す）。content-authoring.md に、目次の深さはこの 2 つで決めると書く。
+**完了条件**: lint-mdx-mobile が toc_* で HIGH を出さず、`git grep` で toc_* を使う記事の数が変わっていない（目次は変えない）。
+
+
 ### [DN-0679] 技術士 建設部門の過去問ページ（r01〜r08 の約 17 本）へ、テーマ記事以外からの内部リンクを足す
 タグ: [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-10-11]
 
