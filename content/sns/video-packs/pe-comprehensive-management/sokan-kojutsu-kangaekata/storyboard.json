@@ -25,10 +25,14 @@
         "kind": "points",
         "heading": "準備は「経歴」と「知識」の両方",
         "items": [
-          "経歴及び応用能力：60%以上",
-          "体系的専門知識：60%以上",
-          "令和8年度・総監 必須科目の口頭試験"
-        ]
+          "60%以上\n経歴及び応用能力",
+          "60%以上\n体系的専門知識"
+        ],
+        "art": {
+          "type": "numbers",
+          "section": "口頭試験対策／総監",
+          "note": "令和8年度・総監 必須科目の口頭試験／それぞれの基準を満たす"
+        }
       }
     },
     {
@@ -39,11 +43,17 @@
       "caption": "知識を経験に結ぶ",
       "visual": {
         "kind": "points",
-        "heading": "「知っている」から「使える」へ",
+        "heading": "知識を、自分の業務へつなぐ",
         "items": [
-          "知識を自分の業務に当てはめる",
-          "経歴だけ・暗記だけに偏らない"
-        ]
+          "管理の意味を知る → 業務のどこで使ったか",
+          "経歴の事実を振り返る → どの知識で判断したか"
+        ],
+        "art": {
+          "type": "mapping",
+          "section": "口頭試験対策／総監",
+          "source": "content/site/pe-comprehensive-management/keyword-2026/img/figure-five-management-learning.svg",
+          "note": "経歴だけ・用語の暗記だけに偏らない"
+        }
       }
     },
     {
@@ -54,12 +64,15 @@
       "caption": "管理の意味を業務での判断に結ぶ",
       "visual": {
         "kind": "points",
-        "heading": "5管理の意味を確認",
-        "items": [
-          "経済性管理・人的資源管理",
-          "情報管理・安全管理",
-          "社会環境管理"
-        ]
+        "heading": "5管理で、同じ業務を点検する",
+        "items": [],
+        "art": {
+          "type": "diagram",
+          "section": "口頭試験対策／総監",
+          "diagram": "five-management",
+          "source": "content/site/pe-comprehensive-management/keyword-2026/img/figure-five-management-learning.svg",
+          "note": "管理ごとに分けて学び、他の管理への影響も確認する"
+        }
       }
     },
     {
@@ -69,17 +82,21 @@
       "narration": "そのうえで、経歴票の業務では、どの管理が重要だったか、何と何が両立しにくかったか、なぜその対策を選んだかを整理します。単に5管理の名前を並べるだけでは、判断の根拠は伝わりません。",
       "caption": "判断の根拠を整理",
       "visual": {
-        "kind": "figure",
-        "heading": "知識を判断の根拠につなぐ",
-        "flow": [
-          "業務の制約",
-          "対立する目標",
-          "選択の根拠"
-        ],
+        "kind": "points",
+        "heading": "対策を比べ、選んだ理由を語る",
         "items": [
-          "自分が判断した部分を説明",
-          "管理名の列挙で終えない"
-        ]
+          "業務の制約・両立しにくい目標",
+          "選択肢 A\n利点と不利益",
+          "選択肢 B\n利点と不利益",
+          "自分の判断・選択の根拠"
+        ],
+        "art": {
+          "type": "diagram",
+          "section": "口頭試験対策／総監",
+          "diagram": "decision",
+          "source": "content/site/pe-construction/gyoumu-keireki-hyou/img/figure-career-decision-evidence.svg",
+          "note": "管理名の列挙で終えず、判断した部分を説明する"
+        }
       }
     },
     {
@@ -90,11 +107,16 @@
       "caption": "事例は制約・選択肢・結果で整理",
       "visual": {
         "kind": "points",
-        "heading": "説明しやすい事例を選ぶ",
+        "heading": "まず、説明しやすい業務事例を選ぶ",
         "items": [
-          "3〜5件は学習上の提案",
-          "試験で指定された件数ではない"
-        ]
+          "3〜5件から整理してみる",
+          "件数は学習上の提案"
+        ],
+        "art": {
+          "type": "focus",
+          "section": "口頭試験対策／総監",
+          "note": "試験で指定された件数ではありません"
+        }
       },
       "sourceRef": "content/site/pe-comprehensive-management/exam-passing-strategy/article.mdx"
     },
@@ -105,27 +127,21 @@
       "narration": "それぞれについて、制約、対立する目標、検討した選択肢、採用した対策、結果と残った課題を並べます。工期を守るための増員なら、費用だけでなく、安全教育や情報共有への影響も検討したか振り返ってみましょう。",
       "caption": "制約と選択肢を整理",
       "visual": {
-        "kind": "sheet",
-        "heading": "業務事例の準備シート",
-        "sheetTitle": "自分の事実だけを記入する",
-        "rows": [
-          {
-            "label": "制約・目標",
-            "value": "何を守る必要があったか"
-          },
-          {
-            "label": "選択肢",
-            "value": "対策ごとの利点と不利益"
-          },
-          {
-            "label": "判断・対策",
-            "value": "何を優先し、なぜ選んだか"
-          },
-          {
-            "label": "結果・課題",
-            "value": "効果と残ったリスク"
-          }
-        ]
+        "kind": "points",
+        "heading": "増員は、工期だけの問題か",
+        "items": [
+          "例：工期を守るために増員",
+          "経済性管理\n追加費用は？",
+          "安全管理\n教育・訓練は？",
+          "情報管理\n共有方法は？"
+        ],
+        "art": {
+          "type": "diagram",
+          "section": "口頭試験対策／総監",
+          "diagram": "influence",
+          "source": "content/site/pe-comprehensive-management/exam-application-guide/img/figure-measure-management-matrix.svg",
+          "note": "制約・選択肢・採用理由・結果・残った課題を、自分の事実で整理"
+        }
       },
       "sourceRef": "content/site/pe-comprehensive-management/exam-passing-strategy/article.mdx"
     },
@@ -136,17 +152,19 @@
       "narration": "次に、経歴を短く説明する練習をします。担当した役割、直面した問題、自分の判断、結果と学びを一続きで話します。",
       "caption": "役割から判断・結果へ短く説明",
       "visual": {
-        "kind": "figure",
-        "heading": "自分の役割と判断を明確に",
-        "flow": [
-          "担当した役割",
-          "自分の判断",
-          "結果と学び"
-        ],
+        "kind": "points",
+        "heading": "役割から、判断・結果へつなぐ",
         "items": [
-          "2〜3分は練習の目安",
-          "本番は質問と指示に合わせる"
-        ]
+          "担当した\n役割",
+          "直面した\n問題",
+          "自分の\n判断",
+          "結果と\n学び"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "口頭試験対策／総監",
+          "source": "content/site/pe-construction/gyoumu-keireki-hyou/img/figure-career-decision-evidence.svg"
+        }
       },
       "sourceRef": "content/site/pe-comprehensive-management/exam-application-guide/article.mdx"
     },
@@ -158,12 +176,16 @@
       "caption": "練習と本番を区別",
       "visual": {
         "kind": "points",
-        "heading": "短く説明する練習の注意",
+        "heading": "練習の目安と、本番の指示を分ける",
         "items": [
-          "2〜3分は学習上の目安",
-          "本番は質問と指示に合わせる",
-          "チームと自分の判断を分ける"
-        ]
+          "練習\n2〜3分でまとめる\n学習上の目安",
+          "本番\n質問の内容に答える\n試験官の指示に合わせる"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "口頭試験対策／総監",
+          "note": "チームの成果と自分の判断を分け、経験していないことは足さない"
+        }
       },
       "sourceRef": "content/site/pe-comprehensive-management/exam-application-guide/article.mdx"
     },
@@ -175,13 +197,17 @@
       "caption": "判断・残留リスク・用語を声に出す",
       "visual": {
         "kind": "points",
-        "heading": "声に出して確かめる4つの問い",
+        "heading": "声に出して答える、4つの問い",
         "items": [
-          "別の対策を選ばなかった理由は？",
-          "安全と工期の対立をどう調整？",
-          "残ったリスクをどう管理？",
-          "やり直すなら何を変える？"
-        ]
+          "別の対策を\n選ばなかった理由は？",
+          "安全と工期の対立を\nどう調整した？",
+          "残ったリスクを\n誰が、どう管理した？",
+          "やり直すなら\n何を変える？"
+        ],
+        "art": {
+          "type": "grid",
+          "section": "口頭試験対策／総監"
+        }
       },
       "sourceRef": "content/site/pe-comprehensive-management/exam-passing-strategy/article.mdx"
     },
@@ -193,11 +219,21 @@
       "caption": "事実と知識を確認",
       "visual": {
         "kind": "points",
-        "heading": "説明の穴を、事実と知識で埋める",
+        "heading": "事実と知識を、往復して確かめる",
         "items": [
-          "抽象的なら業務の事実へ戻る",
-          "説明に使った用語の意味も復習"
-        ]
+          "質問に答える",
+          "説明の穴を見つける",
+          "業務の事実へ戻る",
+          "使った用語を復習"
+        ],
+        "art": {
+          "type": "diagram",
+          "section": "口頭試験対策／総監",
+          "diagram": "learning-loop",
+          "source": "content/site/pe-comprehensive-management/pdca-cycle/img/figure-pdca-cycle.svg",
+          "center": "もう一度、声に出す",
+          "note": "学習手順として再構成。抽象的な答えを、事実と知識で具体化する"
+        }
       },
       "sourceRef": "content/site/pe-comprehensive-management/exam-passing-strategy/article.mdx"
     },
@@ -209,12 +245,16 @@
       "caption": "知識と経験を結び、声に出して確認",
       "visual": {
         "kind": "points",
-        "heading": "口頭対策の準備チェック",
+        "heading": "総監の口頭対策｜準備チェック",
         "items": [
-          "評価項目の両方を押さえる",
-          "事実・判断・結果をつなぐ",
-          "用語を確認し、声に出す"
-        ]
+          "経歴と知識の\n両方を準備",
+          "5管理を使った\n判断を説明",
+          "事実・結果を確認し\n声に出して練習"
+        ],
+        "art": {
+          "type": "recap",
+          "section": "口頭試験対策／総監"
+        }
       }
     },
     {
@@ -224,11 +264,17 @@
       "narration": "さらに経歴の整理と想定問答を練習したい方は、概要欄の教材案内をご覧ください。ご視聴ありがとうございました。",
       "caption": "教材案内は概要欄から",
       "visual": {
-        "kind": "cover",
+        "kind": "points",
         "heading": "知識と経験を、総監の言葉で",
         "items": [
+          "経歴を整理する",
+          "想定問答で、声に出す",
           "教材案内は概要欄へ"
-        ]
+        ],
+        "art": {
+          "type": "closing",
+          "section": "口頭試験対策／総監"
+        }
       }
     }
   ]

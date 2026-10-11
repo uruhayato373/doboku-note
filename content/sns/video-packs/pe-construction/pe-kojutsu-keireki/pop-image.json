@@ -40,9 +40,83 @@
       "contentImageReview": {
         "date": "2026-10-11",
         "status": "ai-ok",
-        "by": "near_video_content_qa",
+        "by": "Codex screenshot review",
         "sceneCount": 12,
-        "scope": "全12場面。コンピテンシー表記・改行・文字切れ。音声・完成MP4再生確認とユーザー承認は含まない。"
+        "scope": "全場面のブラウザスクリーンショットで文字・項目数・矢印・図の重なりを確認。サイト図解を動画向けに再構成。",
+        "userImageReview": "pending",
+        "audioReplaced": false,
+        "videoRecomposed": false,
+        "layouts": {
+          "approved-cover": 1,
+          "compare": 1,
+          "grid": 1,
+          "sheet": 1,
+          "diagram": 3,
+          "steps": 2,
+          "mapping": 1,
+          "recap": 1,
+          "closing": 1
+        },
+        "scenes": [
+          {
+            "sceneId": "cover",
+            "sha256": "ab1d6df2a54d0583eaa0f0cda95e60a3663f0d44a99dcf0952b25443a8d45709"
+          },
+          {
+            "sceneId": "premise",
+            "sha256": "40346f3b349d6668b0c567467a66328289a62315fc0fedd78b232cf6bba8fa6d"
+          },
+          {
+            "sceneId": "criteria",
+            "sha256": "ae4d3f785f2f8df664f67f0136d4d7b1323fedbabe3db9649854e041379e6592"
+          },
+          {
+            "sceneId": "fact-sheet",
+            "sha256": "a4fc821de634c9f52dac8446c5f6be064f897ffa2f8c10f041dc5ddc02e8b941"
+          },
+          {
+            "sceneId": "management",
+            "sha256": "abbfd9ea58b0c4e8ff02e264d2b40191f08be2a9bedaabaa248555b9ac8f7d27"
+          },
+          {
+            "sceneId": "evaluation",
+            "sha256": "30368f77497229c183345fd4fc981fbf60602b8ec90ecabc5faaba0e2deb58e1"
+          },
+          {
+            "sceneId": "communication",
+            "sha256": "da5f4ab8bb58fa6917350d92071237193a6e0c7cd725eac4d8fe28ef23daeef6"
+          },
+          {
+            "sceneId": "ethics",
+            "sha256": "950c69f32c6d779e2b6eaf153b9580f84732dc0bde19f392189f427f8d1c5de9"
+          },
+          {
+            "sceneId": "cpd",
+            "sha256": "c560132200023f61980dc66a884a7873574b25cad73e254595a47fcdcf80e772"
+          },
+          {
+            "sceneId": "answer-example",
+            "sha256": "4c1d0cd7f3277de96150f937a072466a8157a124dc470175b576c614a82ec133"
+          },
+          {
+            "sceneId": "summary",
+            "sha256": "001928c61bf2128c165cc0b8d503866c60431c87688065ecfe7122b5fcffe1db"
+          },
+          {
+            "sceneId": "cta",
+            "sha256": "e725aa4d277d85070c86dbba328942821ed51aea011be1a8d5e0636e3cefda1d"
+          }
+        ],
+        "sources": [
+          {
+            "path": "content/site/pe-comprehensive-management/pdca-cycle/img/figure-pdca-cycle.svg",
+            "sha256": "9dc8c19ae48125553c3c9f1c234f5df5881fb566c49eeea3abf29d90123f2fe9"
+          },
+          {
+            "path": "content/site/pe-construction/gyoumu-keireki-hyou/img/figure-career-decision-evidence.svg",
+            "sha256": "865f0aad8d32b7f38e6d28623ab1c58e99b9774578f966e4b785bcbc4e13023f"
+          }
+        ]
       }
     }
   }

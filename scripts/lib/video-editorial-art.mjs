@@ -34,7 +34,7 @@ function block(x,y,w,h,value,max=66,min=48,color=C.ink,align='start'){
  throw new Error(`文字が枠に収まらない: ${value} (${w}×${h})`);
 }
 function footer(value){return value?block(96,855,1728,72,value,40,34,C.muted):'';}
-const diagramNames=new Set(['volume','curve','coldjoint','foundation','piles','excavation','organization','days','network','scaffold']);
+const diagramNames=new Set(['volume','curve','coldjoint','foundation','piles','excavation','organization','days','network','scaffold','five-management','decision','learning-loop','influence']);
 export const EDITORIAL_LAYOUTS=['chapter','focus','grid','recap','cards','mapping','compare','numbers','steps','sheet','timeline','checklist','diagram','closing'];
 export function validateEditorialArt(visual){
  const a=visual.art;
@@ -42,11 +42,34 @@ export function validateEditorialArt(visual){
  if(a.type==='chapter'&&(!Number.isInteger(a.number)||!a.title))throw new Error('章扉には number と title が必要');
  if(a.type==='diagram'&&!diagramNames.has(a.diagram))throw new Error(`図が未対応: ${a.diagram}`);
  if(a.type==='diagram'&&!a.source)throw new Error('サイト図解の source が必要');
+ if(a.type==='diagram'&&['decision','learning-loop','influence'].includes(a.diagram)&&(visual.items??[]).length!==4)throw new Error('この図には4項目が必要');
  if(a.type==='mapping'&&(visual.items??[]).some(v=>!v.includes('→')))throw new Error('対応図には → で区切った対が必要');
 }
 function diagram(v){
  const a=v.art;let s='';
- if(a.diagram==='volume'){
+ if(a.diagram==='five-management'){
+  s+=rect(430,280,1060,118,C.green,22)+block(460,295,1000,90,'同じ業務の、目的・制約・選択肢',62,52,'white','middle');
+  s+=line(960,398,960,450)+line(256,450,1664,450);
+  const names=['経済性\n管理','人的資源\n管理','情報管理','安全管理','社会環境\n管理'];
+  const notes=['品質・費用\n工程','人員・能力\n働き方','共有\n信頼性','危険の把握\n低減','環境負荷\n周辺影響'];
+  names.forEach((t,i)=>{const x=96+i*352;s+=arrow(x+160,450,x+160,494)+rect(x,510,320,310,i%2?C.pale:'#E9F1F5',20)+block(x+24,526,272,146,t,57,48,C.ink,'middle')+block(x+24,693,272,104,notes[i],43,38,C.muted,'middle');});
+  s+=footer(a.note);
+ }else if(a.diagram==='decision'){
+  s+=rect(470,278,980,110,C.pale,18)+block(500,290,920,84,v.items[0],58,48,C.ink,'middle');
+  s+=line(960,388,960,423)+line(525,423,1395,423)+arrow(525,423,525,449)+arrow(1395,423,1395,449);
+  [1,2].forEach((n,i)=>{const x=180+i*870;s+=rect(x,460,690,155,i?C.green:C.blue,18)+block(x+30,474,630,130,v.items[n],56,44,'white','middle');});
+  s+=line(525,615,525,650)+line(1395,615,1395,650)+line(525,650,1395,650)+arrow(960,650,960,683);
+  s+=rect(470,695,980,123,C.pale,18)+block(500,710,920,95,v.items[3],59,48,C.ink,'middle')+footer(a.note);
+ }else if(a.diagram==='learning-loop'){
+  const pos=[[180,295],[1120,295],[1120,665],[180,665]];
+  pos.forEach(([x,y],i)=>s+=rect(x,y,620,162,i%2?C.green:C.pale,22)+block(x+35,y+20,550,120,v.items[i],57,46,i%2?'white':C.ink,'middle'));
+  s+=arrow(827,376,1085,376)+arrow(1430,485,1430,637)+arrow(1090,746,830,746)+arrow(490,637,490,485);
+  s+=block(580,525,760,92,a.center??'学びを、次の業務へ',65,50,C.green,'middle')+footer(a.note);
+ }else if(a.diagram==='influence'){
+  s+=rect(490,282,940,120,C.green,20)+block(520,295,880,90,v.items[0],62,50,'white','middle');
+  s+=line(960,402,960,465)+line(374,465,1546,465);
+  v.items.slice(1).forEach((t,i)=>{const x=96+i*586;s+=arrow(x+278,465,x+278,503)+rect(x,518,556,278,i%2?'#E9F1F5':C.pale,22)+block(x+34,550,488,210,t,62,46);});s+=footer(a.note);
+ }else if(a.diagram==='volume'){
   s+=rect(96,267,700,76,C.pale,12)+label(122,320,'例：L = 1.20 ／ C = 0.90',44);
   s+=label(235,480,'地山',62)+rect(220,550,420,158,C.blue,8)+label(255,657,'100 m³',76,'white');
   s+=line(680,630,815,630)+line(815,436,815,775)+arrow(815,436,1080,436)+arrow(815,775,1080,775);
@@ -116,11 +139,11 @@ function diagram(v){
  return s;
 }
 /** Render a scene as deterministic SVG; caller supplies the font to resvg. */
-export function buildEditorialArtwork(scene){
+export function buildEditorialArtwork(scene, { theme } = {}){
  const v=scene.visual;validateEditorialArt(v);const a=v.art,items=v.items??[];
  let bg=C.paper,s='',dark=a.type==='chapter'||a.type==='recap'||a.type==='closing';
  if(dark)bg=C.green;
- s+=label(96,85,a.section??'2級土木施工管理技士',34,dark?'#D7E9DF':C.green);
+ s+=label(96,85,a.section??theme?.label??'2級土木施工管理技士',34,dark?'#D7E9DF':C.green);
  if(a.type==='chapter'){
   s+=rect(96,241,250,80,C.gold,13)+label(124,299,`第${a.number}章`,48);
   s+=block(96,370,a.motif==='soil'?1050:1728,340,a.title,units(a.title)<=7?250:152,98,'white');
@@ -157,6 +180,11 @@ export function buildEditorialArtwork(scene){
   }
  }
  // This small label is identification, not teaching content.
- s+=label(1824,1021,'2級土木施工管理技士',25,dark?'#C4DBCE':'#84968B','end');
- return `<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080"><style>text{font-family:'Noto Sans JP';font-weight:700}</style>${rect(0,0,1920,1080,bg)}${s}</svg>`;
+ s+=label(1824,1021,theme?.label??'2級土木施工管理技士',25,dark?'#C4DBCE':'#84968B','end');
+ let svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080"><style>text{font-family:'Noto Sans JP';font-weight:700}</style>${rect(0,0,1920,1080,bg)}${s}</svg>`;
+ if(theme){
+  const colors={ [C.green]:theme.deep, [C.blue]:theme.base, [C.pale]:theme.soft??'#EEF3F8', '#245C46':theme.base, '#2B654C':theme.base };
+  svg=svg.replace(/#[0-9a-f]{6}/gi,c=>colors[c]??c);
+ }
+ return svg;
 }

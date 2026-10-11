@@ -105,9 +105,96 @@
       "contentImageReview": {
         "date": "2026-10-11",
         "status": "ai-ok",
-        "by": "near_video_content_qa",
+        "by": "Codex screenshot review",
         "sceneCount": 13,
-        "scope": "全13場面。口頭試験基準・文字切れ・設問表示。音声・完成MP4再生確認とユーザー承認は含まない。"
+        "scope": "全場面のブラウザスクリーンショットで文字・項目数・矢印・図の重なりを確認。サイト図解を動画向けに再構成。",
+        "userImageReview": "pending",
+        "audioReplaced": false,
+        "videoRecomposed": false,
+        "layouts": {
+          "approved-cover": 1,
+          "numbers": 1,
+          "mapping": 1,
+          "diagram": 4,
+          "focus": 1,
+          "steps": 1,
+          "compare": 1,
+          "grid": 1,
+          "recap": 1,
+          "closing": 1
+        },
+        "scenes": [
+          {
+            "sceneId": "cover",
+            "sha256": "51e3f120f8a8d8c5ed68d4170020872ae7b44fd5a7215ac859cc9c5570fb6697"
+          },
+          {
+            "sceneId": "premise",
+            "sha256": "bd18016530efcba203e36a08ab31d220978552879b1417ff7835ab1316d95c8d"
+          },
+          {
+            "sceneId": "premise-detail",
+            "sha256": "dccc8f1106fe68a58f757b8cce4389146092abf638b4fc54c0968f879f5b9cf7"
+          },
+          {
+            "sceneId": "whatasked",
+            "sha256": "d72669d6e19b1c8869ab15fa6b1aedb86456c594781b3edc2ec9ca2c08d24d34"
+          },
+          {
+            "sceneId": "whatasked-detail",
+            "sha256": "94a2afb1a6aa2766bb70dbe123b790bec3544bb8cfa9d08dd1578d6c09e33232"
+          },
+          {
+            "sceneId": "cases",
+            "sha256": "553583d7866c1f00ff474de8509b834ff7f7485d98968217a796a0fb735dd945"
+          },
+          {
+            "sceneId": "cases-detail",
+            "sha256": "0e4563703defb8c55a8f335ae2f0ce4e5adc8c102680eb4a18d4fff03f639f25"
+          },
+          {
+            "sceneId": "story",
+            "sha256": "d0341f62d57f23c4fd8fc606f60a6257786f3b3c783af69afa3a540da54b96c0"
+          },
+          {
+            "sceneId": "story-detail",
+            "sha256": "530bc914cea44d8bf7dda81735a8dec038ef588d68392c19bbe04f27a9639b3e"
+          },
+          {
+            "sceneId": "qa",
+            "sha256": "c4bbedbd1b78e57b104c360238d563a2adbe9542d13615a2c44adcfea32e57dd"
+          },
+          {
+            "sceneId": "qa-detail",
+            "sha256": "dfd434b5721cfd713a0068c5100469ed2e57cbbb310749d9a167fb328c63fa8f"
+          },
+          {
+            "sceneId": "summary",
+            "sha256": "7794630070f3e36bc2172c0198e1f6831a935ed228182aa6d5d96c075f84de1a"
+          },
+          {
+            "sceneId": "cta",
+            "sha256": "c8bea64a96eec881af59e2f124ecf6f7151dc8c0e55790a6f01470895b84aa55"
+          }
+        ],
+        "sources": [
+          {
+            "path": "content/site/pe-comprehensive-management/exam-application-guide/img/figure-measure-management-matrix.svg",
+            "sha256": "9883e6cbfb837e0ae1933771614196385fa77a890d1afc7abbe40bd9a6908ca7"
+          },
+          {
+            "path": "content/site/pe-comprehensive-management/keyword-2026/img/figure-five-management-learning.svg",
+            "sha256": "651172286fb2a07c76efade7991cf6095a191f9273f505fade08e43f1ff1c9e4"
+          },
+          {
+            "path": "content/site/pe-comprehensive-management/pdca-cycle/img/figure-pdca-cycle.svg",
+            "sha256": "9dc8c19ae48125553c3c9f1c234f5df5881fb566c49eeea3abf29d90123f2fe9"
+          },
+          {
+            "path": "content/site/pe-construction/gyoumu-keireki-hyou/img/figure-career-decision-evidence.svg",
+            "sha256": "865f0aad8d32b7f38e6d28623ab1c58e99b9774578f966e4b785bcbc4e13023f"
+          }
+        ]
       }
     }
   }

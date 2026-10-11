@@ -160,7 +160,7 @@ async function main() {
           throw new Error(`画像設計のサイト図解が参照できません: ${source}`);
         }
       }
-      const svg = buildEditorialArtwork(scene);
+      const svg = buildEditorialArtwork(scene, { theme: manifest.exam.startsWith('pe-') ? theme : undefined });
       writeFileSync(join(imgDir, `${pad}-${scene.sceneId}.svg`), svg);
       writeFileSync(pngPath, new Resvg(svg, { font: {
         fontFiles: [resolve(FONT_DIR, 'NotoSansJP-Bold.ttf')],

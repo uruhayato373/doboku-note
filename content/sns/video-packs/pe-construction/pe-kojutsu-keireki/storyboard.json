@@ -23,20 +23,17 @@
       "narration": "業務の名称や工事概要を説明して、話が終わっていませんか。口頭対策では、その業務で自分が何を判断し、誰と調整し、結果をどう確かめたかまで整理します。今日は経歴とコンピテンシーを結ぶ準備の手順です。",
       "caption": "業務概要から、自分の判断へ",
       "visual": {
-        "kind": "compare",
+        "kind": "points",
         "heading": "説明の中心を、自分の判断へ",
-        "ngLabel": "概要だけ",
-        "okLabel": "判断まで",
-        "rows": [
-          {
-            "ng": "どんな業務だったか",
-            "ok": "自分は何を判断したか"
-          },
-          {
-            "ng": "どんな成果が出たか",
-            "ok": "何で結果を確かめたか"
-          }
-        ]
+        "items": [
+          "概要だけ\nどんな業務だったか\nどんな成果が出たか",
+          "判断まで\n自分は何を選んだか\n何で結果を確かめたか"
+        ],
+        "art": {
+          "type": "compare",
+          "section": "口頭試験対策／建設部門",
+          "source": "content/site/pe-construction/gyoumu-keireki-hyou/img/figure-career-decision-evidence.svg"
+        }
       },
       "sourceRef": "content/site/pe-construction/gyoumu-keireki-hyou/article.mdx"
     },
@@ -48,13 +45,18 @@
       "caption": "R8の評価区分ごとに事実を探す",
       "visual": {
         "kind": "points",
-        "heading": "口頭の評価は、この4区分",
+        "heading": "令和8年度｜口頭試験の4区分",
         "items": [
-          "マネジメント・評価",
+          "マネジメント\n評価",
           "コミュニケーション\nリーダーシップ",
           "技術者倫理",
           "継続研さん"
-        ]
+        ],
+        "art": {
+          "type": "grid",
+          "section": "口頭試験対策／建設部門",
+          "note": "区分ごとに、説明できる業務の事実を探す"
+        }
       },
       "sourceRef": "content/site/pe-construction/competency-revision-r8/article.mdx"
     },
@@ -65,35 +67,20 @@
       "narration": "まず、提出した業務経歴票を手元に置き、一つの業務を選びます。目的と自分の役割、判断した場面、その根拠、確認できた結果をメモしてください。ここで使う四つの欄は、この動画の整理用です。新しい経歴や数値を作る欄ではありません。",
       "caption": "提出した経歴から、事実を4欄へ",
       "visual": {
-        "kind": "sheet",
-        "heading": "1業務を、4つの欄で整理",
-        "sheetTitle": "口頭練習用メモ／公式の提出様式ではありません",
-        "rows": [
-          {
-            "label": "目的・役割",
-            "value": "何のために／自分の責任は",
-            "state": "focus",
-            "order": 1
-          },
-          {
-            "label": "判断",
-            "value": "何を選び、何を変えたか",
-            "state": "todo",
-            "order": 2
-          },
-          {
-            "label": "根拠",
-            "value": "比較条件・記録・協議内容",
-            "state": "todo",
-            "order": 3
-          },
-          {
-            "label": "結果",
-            "value": "確かめた事実・残った課題",
-            "state": "todo",
-            "order": 4
-          }
-        ]
+        "kind": "points",
+        "heading": "提出した経歴から、4欄に整理",
+        "items": [
+          "目的・役割：自分の責任は何か",
+          "判断：何を選び、何を変えたか",
+          "根拠：比較条件・記録・協議内容",
+          "結果：確かめた事実・残った課題"
+        ],
+        "art": {
+          "type": "sheet",
+          "section": "口頭試験対策／建設部門",
+          "source": "content/site/pe-construction/gyoumu-keireki-hyou/img/figure-career-decision-evidence.svg",
+          "note": "口頭練習用の整理メモ。公式様式ではない／新しい経歴や数値を作らない"
+        }
       },
       "sourceRef": "content/site/pe-construction/gyoumu-keireki-hyou/article.mdx"
     },
@@ -105,16 +92,19 @@
       "caption": "制約の中で、資源をどう配分したか",
       "visual": {
         "kind": "points",
-        "heading": "マネジメントは「配分の判断」",
+        "heading": "限られた時間を、どう配分したか",
         "items": [
-          "制約：期限・費用・品質",
-          "配分：人員・情報・確認時間",
-          "理由：なぜ、そこを優先したか"
+          "例：照査の時間が限られている",
+          "優先する確認\n何を、誰が担当？",
+          "残る確認\nどう割り振る？",
+          "なぜ、その配分を選んだか"
         ],
-        "character": {
-          "pose": "pop-pointing",
-          "frame": "waist",
-          "say": "自分の判断を\n取り出そう"
+        "art": {
+          "type": "diagram",
+          "section": "口頭試験対策／建設部門",
+          "diagram": "decision",
+          "source": "content/site/pe-construction/gyoumu-keireki-hyou/img/figure-career-decision-evidence.svg",
+          "note": "期限・費用・品質などの制約と、実際の判断を振り返る"
         }
       },
       "sourceRef": "content/site/pe-construction/competency-revision-r8/article.mdx"
@@ -127,12 +117,18 @@
       "caption": "結果の確認から、次の改善まで",
       "visual": {
         "kind": "points",
-        "heading": "評価は、結果と改善をつなぐ",
+        "heading": "「無事に終了」から、一歩先へ",
         "items": [
-          "確認：効果を判断した根拠",
-          "課題：分かったこと・残ったこと",
-          "改善：次の業務にどう活かしたか"
-        ]
+          "効果を\n記録で確認",
+          "残った\n課題を把握",
+          "次の業務で\n改善する"
+        ],
+        "art": {
+          "type": "steps",
+          "section": "口頭試験対策／建設部門",
+          "source": "content/site/pe-comprehensive-management/pdca-cycle/img/figure-pdca-cycle.svg",
+          "note": "チーム全体の結果と、自分の担当範囲を分けて説明する"
+        }
       },
       "sourceRef": "content/site/pe-construction/competency-revision-r8/article.mdx"
     },
@@ -143,20 +139,18 @@
       "narration": "コミュニケーションとリーダーシップでは、丁寧に説明しました、だけでは場面が見えません。誰の意見が食い違い、何を確認し、どんな方法で調整したかを具体化します。改訂版の趣旨も踏まえ、発言しにくい関係者の意見をどう拾ったかまで振り返ってください。",
       "caption": "意見の違いと、調整の行動を語る",
       "visual": {
-        "kind": "compare",
-        "heading": "「説明した」を、行動へ具体化",
-        "ngLabel": "抽象的",
-        "okLabel": "確かめること",
-        "rows": [
-          {
-            "ng": "丁寧に説明した",
-            "ok": "誰の、どんな懸念を確認したか"
-          },
-          {
-            "ng": "関係者をまとめた",
-            "ok": "意見の違いを、どう調整したか"
-          }
-        ]
+        "kind": "points",
+        "heading": "「説明した」を、具体的な行動へ",
+        "items": [
+          "誰の意見が違ったか → 懸念を聞き取る",
+          "何が食い違っていたか → 条件を確認する",
+          "どう調整したか → 方法と経過を示す"
+        ],
+        "art": {
+          "type": "mapping",
+          "section": "口頭試験対策／建設部門",
+          "note": "発言しにくい関係者の意見を、どう拾ったかも振り返る"
+        }
       },
       "sourceRef": "content/site/pe-construction/competency-revision-r8/article.mdx"
     },
@@ -168,16 +162,17 @@
       "caption": "倫理は、優先順位と実際の行動で",
       "visual": {
         "kind": "points",
-        "heading": "倫理は「どう行動したか」",
+        "heading": "倫理を、優先順位と行動で語る",
         "items": [
-          "何が衝突したか",
-          "何を優先し、誰に相談したか",
-          "経験したことと、考え方を分ける"
+          "衝突した\n条件",
+          "優先した\nこと",
+          "相談した\n相手",
+          "実際の\n行動"
         ],
-        "character": {
-          "pose": "thinking",
-          "frame": "waist",
-          "say": "経験は\n作らない"
+        "art": {
+          "type": "steps",
+          "section": "口頭試験対策／建設部門",
+          "note": "安全と納期がぶつかった場面など。実体験と、考え方の説明を区別する"
         }
       },
       "sourceRef": "content/site/pe-construction/competency-revision-r8/article.mdx"
@@ -190,12 +185,21 @@
       "caption": "不足→学習→活用→次の課題",
       "visual": {
         "kind": "points",
-        "heading": "継続研さんは、業務につなぐ",
+        "heading": "継続研さんを、次の業務へつなぐ",
         "items": [
-          "不足：何を学ぶ必要があったか",
-          "学習：どの知識・技術を学んだか",
-          "活用：業務で使い、何が残ったか"
-        ]
+          "不足を見つける",
+          "知識・技術を学ぶ",
+          "業務で活用する",
+          "次の課題を見つける"
+        ],
+        "art": {
+          "type": "diagram",
+          "section": "口頭試験対策／建設部門",
+          "diagram": "learning-loop",
+          "source": "content/site/pe-comprehensive-management/pdca-cycle/img/figure-pdca-cycle.svg",
+          "center": "受講歴だけで終えない",
+          "note": "学習内容をどう使い、何が残ったかを説明する"
+        }
       },
       "sourceRef": "content/site/pe-construction/competency-revision-r8/article.mdx"
     },
@@ -206,20 +210,21 @@
       "narration": "答え方も比べてみます。工夫して工程を守りました、では、その人の判断が分かりません。制約があり、比較したうえで選び、結果を記録で確認した、という順に組み立てます。この型に入れる内容は、必ず自分が説明できる事実に置き換えます。",
       "caption": "抽象語を、判断・根拠・結果へ",
       "visual": {
-        "kind": "compare",
-        "heading": "回答の型を、具体的にする",
-        "ngLabel": "抽象的な回答",
-        "okLabel": "自分の事実で埋める型",
-        "rows": [
-          {
-            "ng": "工夫して工程を守った",
-            "ok": "制約 → 比較 → 自分の判断"
-          },
-          {
-            "ng": "関係者と協力した",
-            "ok": "意見の違い → 調整 → 確認"
-          }
-        ]
+        "kind": "points",
+        "heading": "抽象語を、判断の筋道へ変える",
+        "items": [
+          "「工夫して工程を守った」なら",
+          "比較した案 A\n利点と制約",
+          "比較した案 B\n利点と制約",
+          "自分の判断・採用した理由"
+        ],
+        "art": {
+          "type": "diagram",
+          "section": "口頭試験対策／建設部門",
+          "diagram": "decision",
+          "source": "content/site/pe-construction/gyoumu-keireki-hyou/img/figure-career-decision-evidence.svg",
+          "note": "続けて、結果を何の記録で確認したか。必ず自分が説明できる事実で埋める"
+        }
       },
       "sourceRef": "content/site/pe-construction/gyoumu-keireki-hyou/article.mdx"
     },
@@ -233,14 +238,13 @@
         "kind": "points",
         "heading": "今日やることは、この3つ",
         "items": [
-          "1業務の事実を4欄に整理",
-          "判断・根拠・結果を声に出す",
-          "評価区分ごとに説明の穴を埋める"
+          "1業務の事実を\n4欄に整理",
+          "判断・根拠・結果を\n録音して聞く",
+          "4つの評価区分で\n説明の穴を埋める"
         ],
-        "character": {
-          "pose": "pop-red-pen",
-          "frame": "waist",
-          "say": "まず1業務を\n声に出そう"
+        "art": {
+          "type": "recap",
+          "section": "口頭試験対策／建設部門"
         }
       },
       "sourceRef": "content/site/pe-construction/gyoumu-keireki-hyou/article.mdx"
@@ -257,7 +261,11 @@
         "items": [
           "建設部門の口頭試験対策教材",
           "収録内容は概要欄から"
-        ]
+        ],
+        "art": {
+          "type": "closing",
+          "section": "口頭試験対策／建設部門"
+        }
       },
       "sourceRef": "content/site/pe-construction/gyoumu-keireki-hyou/article.mdx"
     }
