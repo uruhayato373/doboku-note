@@ -143,7 +143,10 @@ try {
   }
   const gotStart = await startIn.inputValue().catch(() => '');
   const gotEnd = await endIn.inputValue().catch(() => '');
-  if (gotStart !== jpDate(1) || gotEnd !== jpDate(LAST_DAY)) {
+  // 当月は画面の既定が「1 日〜今日」（2026-10-11 実測）。月末前に取るのは週次の途中経過なので、終了日は今日まで認める
+  const endDay = Number((/(\d{2})日$/.exec(gotEnd) ?? [])[1]);
+  const endOk = IS_CURRENT ? gotEnd.startsWith(`${Y}年${String(M).padStart(2, '0')}月`) && endDay >= 1 && endDay <= LAST_DAY : gotEnd === jpDate(LAST_DAY);
+  if (gotStart !== jpDate(1) || !endOk) {
     await abort(page, `期間が ${MONTH} にならない（開始=${gotStart} 終了=${gotEnd}）。UI 変更の可能性 → --dump で較正`, '02-range');
   }
   console.log(`[2] 期間 OK: ${gotStart} 〜 ${gotEnd}`);
@@ -242,7 +245,7 @@ try {
   // ── 4. 保存 ────────────────────────────────────────────────────────────
   const entry = {
     fetchedAt: new Date().toISOString(),
-    range: { start: `${MONTH}-01`, end: `${MONTH}-${String(LAST_DAY).padStart(2, '0')}` },
+    range: { start: `${MONTH}-01`, end: `${MONTH}-${String(IS_CURRENT ? endDay : LAST_DAY).padStart(2, '0')}` },
     // 前月も翌月 16 日より前に取った値は KENP の確定前なので推計（net-receipts.mjs の kdpRoyaltyFinalizeDate）
     estimated: isKdpEstimated(MONTH, todayJst()),
     total: { bookCount: total.bookCount, ebook: total.ebook, print: total.print, kenp: total.kenp, royalty: total.royalty },
