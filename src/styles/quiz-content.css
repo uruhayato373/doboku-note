@@ -1,0 +1,49 @@
+/*
+ * 過去問演習の問題文・選択肢・解説の HTML（scripts/lib/quiz-markdown.mjs が書き出す）の見た目。
+ * サイトの演習（/tools/kakomon-quiz。globals.css が @import）と iOS アプリ（build-ios-quiz-bundle が
+ * QuizData/quiz-content.css として同梱）の両方がこの 1 枚を読む。中身の見た目はここだけで直す。
+ * 色はサイトのトークン（globals.css の --ink 等）。アプリには同じ値を quiz-tokens.css として書き出す
+ * （scripts/lib/quiz-style.mjs の QUIZ_TOKENS。ここで新しいトークンを使ったらそこにも足す）。
+ */
+.quiz-rich-text p {
+  margin: 0;
+}
+.quiz-rich-text p + p {
+  margin-top: 0.5rem;
+}
+.quiz-rich-text strong {
+  color: var(--ink);
+}
+.quiz-rich-text table {
+  min-width: 100%;
+  border-collapse: collapse;
+}
+.quiz-rich-text th,
+.quiz-rich-text td {
+  border: 1px solid var(--rule-soft);
+  padding: 0.25rem 0.5rem;
+  vertical-align: top;
+}
+.quiz-rich-text img {
+  display: block;
+  margin: 0.75rem auto;
+  max-width: 100%;
+  max-height: 420px;
+  height: auto;
+}
+/* 問題文の空欄（ア〜コ・全角空白の空欄）を枠で囲む */
+.quiz-rich-text .quiz-blank {
+  display: inline-block;
+  min-width: 2.4em;
+  margin: 0 0.125rem;
+  padding: 0 0.25rem;
+  border: 1px solid var(--ink-body);
+  text-align: center;
+  line-height: 1.5;
+}
+/* 横に長い数式は数式だけを横スクロールさせ、画面ははみ出させない */
+.quiz-rich-text .katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 2px 0;
+}
