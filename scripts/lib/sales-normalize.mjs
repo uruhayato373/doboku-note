@@ -9,9 +9,11 @@
  * 複製すると必ず陳腐化する（新マガジン追加時に片方だけ更新される）。そのため:
  *
  * 1. **マガジン（type: magazine）**: `src/lib/note-magazines.ts` を実行時に読み、
- *    `title` / `shortTitle` との一致でマガジン `id` を直接解決する。SoT が 1 つなので陳腐化しない。
+ *    `noteTitle`（販売履歴に出る note 上のマガジン名）/ `title` / `shortTitle` との一致でマガジン `id` を直接解決する。
+ *    SoT が 1 つなので陳腐化しない。
  * 2. **単品記事（type: article）**: 既存ログで同じ表示名に確定済み id が1つだけあれば再利用する。
- *    初出の商品名は推定せず、`article:unknown-{YYYYMMDD}-{index}` で人手確認へ回す。
+ *    カタログに無い単品は `SINGLE_ARTICLE_TITLE_RULES`（題名 → id の手当表）で解決する。
+ *    どちらにも無い初出の商品名は推定せず、`article:unknown-{YYYYMMDD}-{index}` で人手確認へ回す。
  * 3. **既知の表記ゆれ**: アルゴリズムで一般化できない drift（サフィックス付与・命名規則の変更等）は
  *    `PRODUCT_ID_ALIASES` に個別登録する。新しい drift を見つけたら 1 行足す。
  */
@@ -28,23 +30,43 @@
  */
 export const PRODUCT_ID_ALIASES = new Map([['bk-i-r08-yosou-4', 'bk-i-r8-yosou-04-cn-gx']]);
 
+/**
+ * カタログ（config/products.json）の建設部門の id を、売上台帳の bk-* 系統へ寄せる規則（sales-recorder.md「命名系統の注意」）。
+ * noteTitle で照合するとカタログ id（pe-construction-*）に解決されるが、台帳の既存行は bk-* で、
+ * そのままだと商品別の集計が二つの id に割れる（2026-10-11・DN-0680）。
+ * - pe-construction-required-magazine → bk-i-required-essay-magazine
+ * - pe-construction-{科目}-magazine → bk-{科目}-secondary-magazine
+ * - pe-construction-{科目}-pack → bk-{科目}-pack
+ */
+export function toLedgerProductId(bare) {
+  if (bare === 'pe-construction-required-magazine') return 'bk-i-required-essay-magazine';
+  const m = /^pe-construction-([a-z-]+)-(magazine|pack)$/.exec(bare);
+  if (!m) return bare;
+  return m[2] === 'magazine' ? `bk-${m[1]}-secondary-magazine` : `bk-${m[1]}-pack`;
+}
+
 /** `article:` 接頭辞の有無を保ったまま bare id 部分だけを正規化する。 */
 export function canonicalizeProductId(rawId) {
   if (!rawId) return rawId;
   const id = String(rawId).trim();
   const hasPrefix = id.startsWith('article:');
   const bare = hasPrefix ? id.slice('article:'.length) : id;
-  const canonicalBare = PRODUCT_ID_ALIASES.get(bare) ?? bare;
+  const canonicalBare = toLedgerProductId(PRODUCT_ID_ALIASES.get(bare) ?? bare);
   return hasPrefix ? `article:${canonicalBare}` : canonicalBare;
 }
 
+/** 売上の商品名と照合する、カタログ 1 件の名前（noteTitle は note 上のマガジン名そのもの。無い単品・旧エントリは省く） */
+const namesOf = (m) => [m.noteTitle, m.title, m.shortTitle].filter(Boolean);
+
 /**
  * note-magazines.ts の配列から、タイトル文字列に一致するマガジン id を解決する。
- * 完全一致 → shortTitle 完全一致 → title 部分一致（双方向）の順で試す。
+ * 完全一致（noteTitle・title・shortTitle）→ 部分一致（商品名が名前を含む）→ 逆向きの部分一致の順で試す。
+ * 販売履歴の商品名は noteTitle で出るので、title・shortTitle だけを見ると取り直しのたびに unknown へ戻る
+ * （2026-10-11: 「建設部門2次｜土質基礎まるごと合格パック」。shortTitle は「土質基礎 合格パック」で一致しない）。
  * 一致しなければ null（呼び出し側は article:unknown-* へフォールバックする）。
  *
  * @param {string} rawTitle note ダッシュボードに表示された商品名
- * @param {Array<{id: string, title: string, shortTitle?: string}>} magazines note-magazines.ts の NOTE_MAGAZINES
+ * @param {Array<{id: string, title: string, shortTitle?: string, noteTitle?: string}>} magazines note-magazines.ts の NOTE_MAGAZINES
  * @returns {string|null} マガジン id（canonicalize 済み）
  */
 export function resolveMagazineId(rawTitle, magazines) {
@@ -52,18 +74,40 @@ export function resolveMagazineId(rawTitle, magazines) {
   if (!title || !Array.isArray(magazines)) return null;
 
   for (const m of magazines) {
-    if (m.title === title || m.shortTitle === title) return canonicalizeProductId(m.id);
+    if (namesOf(m).includes(title)) return canonicalizeProductId(m.id);
   }
   for (const m of magazines) {
-    if (title.includes(m.title) || (m.shortTitle && title.includes(m.shortTitle))) {
-      return canonicalizeProductId(m.id);
-    }
+    if (namesOf(m).some((name) => title.includes(name))) return canonicalizeProductId(m.id);
   }
   // note 側は長いタイトルを末尾で省略表示することがあるため、逆方向（商品名がタイトルを含む）も試す
   for (const m of magazines) {
-    if (m.title.includes(title) && title.length >= 8) return canonicalizeProductId(m.id);
+    if ([m.noteTitle, m.title].some((name) => name?.includes(title)) && title.length >= 8) return canonicalizeProductId(m.id);
   }
   return null;
+}
+
+/**
+ * カタログ（note-magazines.ts）に無い単品記事の題名 → productId の手当表。id は sales-recorder.md の命名規則
+ * （`.claude/agents/sales-recorder.md`・`npm run check-sales-mapping` が sales.json の id をその表と照合する）。
+ * 題名は note 側で変わる（2026-06 に「（予想問題＋フル模範解答）」が付き、既存ログの題名と一致せず 6 件が unknown に戻った）ので、
+ * 題名の全文でなく見分けに足りる部分（all の語がすべて入る）で当てる。比較は NFKC（全角・丸数字の揺れを吸収）。
+ * 新しい単品で初出の題名が unknown になったら、確定した id をここに 1 行足す。
+ */
+export const SINGLE_ARTICLE_TITLE_RULES = [
+  { all: ['R8予想問題', '災害復旧 × 複合災害対応'], productId: 'article:r8-disaster-recovery-compound' },
+  { all: ['道路 R8予想', '選択科目II-2-1 '], productId: 'article:bk-01-road-r8-yosou-ii2-1' },
+  { all: ['道路 R8予想', '選択科目II-2 予想② '], productId: 'article:bk-01-road-r8-yosou-ii2-2' },
+  { all: ['道路 R8予想', '選択科目II-2 予想③ '], productId: 'article:bk-01-road-r8-yosou-ii2-3' },
+  { all: ['道路 R8予想', '選択科目III 予想① '], productId: 'article:bk-01-road-r8-yosou-iii-1' },
+  { all: ['道路 R8予想', '選択科目III 予想③ '], productId: 'article:bk-01-road-r8-yosou-iii-3' },
+];
+
+/** カタログに無い単品記事の題名から productId（`article:` 付き）を解決する。当たる規則が無ければ null。 */
+export function resolveSingleArticleId(rawTitle) {
+  const title = String(rawTitle || '').normalize('NFKC');
+  if (!title) return null;
+  const hit = SINGLE_ARTICLE_TITLE_RULES.find((rule) => rule.all.every((word) => title.includes(word.normalize('NFKC'))));
+  return hit ? hit.productId : null;
 }
 
 const MEMBERSHIP_PLANS = [
@@ -94,10 +138,11 @@ export function resolveKnownSaleEntry(rawTitle, sales = []) {
 
 /**
  * 1 件の販売履歴レコードから type/productId を解決する。
- * マガジンは resolveMagazineId、それ以外は unknown へフォールバックする（確信のない推定をしない）。
+ * 手当表の単品は resolveSingleArticleId、マガジンは resolveMagazineId、それ以外は unknown へフォールバックする
+ * （確信のない推定をしない）。
  *
  * @param {{title: string, date: string}} raw
- * @param {Array} magazines note-magazines.ts の NOTE_MAGAZINES
+ * @param {Array} magazines catalogMagazines（scripts/lib/sales-mapping.mjs）が返すカタログの配列
  * @param {number} unknownIndex 同日内の unknown 連番（0 始まり）
  * @returns {{type: 'magazine'|'article', productId: string, resolved: boolean}}
  */
@@ -106,6 +151,9 @@ export function resolveSaleEntry(raw, magazines, unknownIndex = 0) {
   // productId は sales-tracking.md の `membership:<プラン>`。既知プランだけ解決し、未知は unknown へ。
   const membership = resolveMembershipId(raw?.title);
   if (membership) return { type: 'membership', productId: membership, resolved: true };
+  // カタログに無い単品（手当表）。曖昧な部分一致のマガジン照合より先に、確認済みの規則で当てる
+  const single = resolveSingleArticleId(raw?.title);
+  if (single) return { type: 'article', productId: canonicalizeProductId(single), resolved: true };
   const magazineId = resolveMagazineId(raw?.title, magazines);
   if (magazineId) {
     // カタログの単品記事（noteUrl が /n/・loadMagazines が single:true を付ける）は article:<id>
