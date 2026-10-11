@@ -252,7 +252,7 @@ const CHECKS = [
   // 分類語彙（領域×資格×記事型×テーマ×タグ）の整合。未登録タグ・別名綴り・構造タグ不整合は baseline ラチェット
   // （content-taxonomy-baseline.json）。WARN（topic 三方向の 0 件・未使用タグ）の読み手＝/weekly-review Phase 2。
   { id: 'content-taxonomy', npm: 'check-content-taxonomy:ci', timeout: 60_000, ci: true, note: '領域×資格×記事型×テーマ×タグの整合（規則 content-taxonomy.md）。未登録タグ／別名綴り／構造タグ不整合は baseline ラチェット。WARN の読み手＝/weekly-review Phase 2' },
-  { id: 'command-guidance', npm: 'check-command-guidance', timeout: 60_000, ci: true, note: '検査やスクリプトが案内するコマンド（npm run / node パス）が実在するか。移設後に旧パスを案内し続ける置き去りを止める（2026-08-22 に 26 箇所見つかった）' },
+  { id: 'command-guidance', npm: 'check-command-guidance', timeout: 60_000, ci: true, note: '検査やスクリプトが案内するコマンド（npm run / node パス）が実在するか。移設後に旧パスを案内し続ける置き去りを止める（2026-08-22 に 26 箇所見つかった）。2026-10-11 から skills・knowledge・agents・docs・workflows も走査（DN-0686）' },
   { id: 'doc-refs', npm: 'check-doc-refs', timeout: 90_000, ci: true },
   { id: 'agent-descriptions', npm: 'check-agent-descriptions', timeout: 30_000, ci: true, note: '.claude/agents/*.md の description（81 件すべてが毎セッションの system prompt に載る）が 300 code points を超えて増えないか。既存 32 件は baseline（返済は DN-0232）' },
   { id: 'claude-md-size', npm: 'check-claude-md-size', timeout: 30_000, ci: true, note: 'CLAUDE.md（常時読み込みの核）が 150 行以下か・12 原則の見出しが揃っているか・.claude/rules が全件 paths: 条件付きか。2026-09-08 に 311 行 / 69KB から分離した後、1 行ずつ戻るのを止める' },
