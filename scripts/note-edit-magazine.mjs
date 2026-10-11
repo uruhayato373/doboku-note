@@ -28,13 +28,13 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
  * ---------------------------------------------------------------------------
  */
 import { chromium } from 'playwright';
-import { spawnSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { parseNoteText, checkLimits } from './lib/note-meta.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { NOTE_CREATOR as CREATOR } from './lib/site-identity.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { curlJson as apiCurlJson } from './lib/note-api.mjs';
 
 const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
@@ -67,12 +67,8 @@ const lim = checkLimits(meta);
 if (lim.length) { console.error('ABORT: note文字数制限超過 →', lim.join(' / '), '（npm run note-meta-lint で是正してください）'); process.exit(3); }
 
 // ---- API helper（保存後検証） ----
-function curlJson(url) {
-  const r = spawnSync('curl', ['-sS', '-m', '30', '--ssl-no-revoke', '-H', 'User-Agent: Mozilla/5.0', url], { encoding: 'utf-8', maxBuffer: 32 * 1024 * 1024 });
-  const b = (r.stdout || '').trim();
-  if (b.startsWith('{') || b.startsWith('[')) { try { return JSON.parse(b); } catch { return null; } }
-  return null;
-}
+// note API の取得は lib/note-api.mjs の curlJson に集約（DN-0694）。ここは「JSON か null」の従来の形に合わせる薄い包み
+const curlJson = (url) => apiCurlJson(url).json;
 function magazinePrice(key) {
   for (let p = 1; p <= 4; p++) {
     const d = curlJson(`https://note.com/api/v2/creators/${CREATOR}/contents?kind=magazine&page=${p}`);

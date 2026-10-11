@@ -15,21 +15,20 @@
  *   node scripts/backfill-note-article-meta.mjs            # dry-run
  *   node scripts/backfill-note-article-meta.mjs --apply    # 書き込み
  */
-import { execFileSync } from "node:child_process";
 import { readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { NOTE_CREATOR as CREATOR } from "./lib/site-identity.mjs";
 import { setArticlePrices } from "./lib/product-registry.mjs";
+import { curlJson as apiCurlJson } from "./lib/note-api.mjs";
 
 const APPLY = process.argv.includes("--apply");
 
-function curlJson(url) {
-  const raw = execFileSync("curl", ["-s", "--ssl-no-revoke", url], {
-    encoding: "utf8",
-    maxBuffer: 1e8,
-  });
-  return JSON.parse(raw);
-}
+// note API の取得は lib/note-api.mjs の curlJson に集約（DN-0694）。この script は取れなければ投げる従来の形
+const curlJson = (url) => {
+  const { json, error } = apiCurlJson(url);
+  if (error) throw new Error(`note API: ${error} (${url})`);
+  return json;
+};
 
 function fetchMagazines() {
   const out = [];
