@@ -10,6 +10,31 @@ const doc = (what = '説明（読み手は使わない）') => z.string().descri
 const sha256 = z.string().regex(/^[0-9a-f]{64}$/, 'sha256（小文字 16 進 64 桁）');
 const repoPath = (what) => z.string().min(1).describe(`${what}（リポジトリ相対のパス）`);
 const STATUS = ['draft', 'qa_blocked', 'qa_passed', 'approved', 'rendered', 'uploaded_private', 'scheduled', 'published', 'failed', 'refresh_due', 'stopped'];
+
+/** 編集上の目標。公開・予約の事実は RegistryPublications から解決する。 */
+export const ConfigYoutubeLongformPlan = z.object({
+  schemaVersion: z.literal(1),
+  _doc: z.string().min(1),
+  updatedAt: jstDate('計画の更新日'),
+  cadence: z.string().min(1),
+  productionRule: z.string().min(1),
+  reviewRule: z.string().min(1),
+  entries: z.array(z.object({
+    id: z.string().min(1), exam: z.string().min(1), publicationId: z.string().optional(),
+    title: z.string().min(1).optional(), action: z.enum(['finish', 'revise', 'new', 'reuse']),
+    start: jstDate('制作・改訂の着手日'), ready: jstDate('画像・動画確認完了の目標日'),
+    target: jstDate('公開または再案内の目標日（予約の事実ではない）'),
+    priority: z.enum(['P1', 'P2', 'P3']),
+    note: z.string().min(1),
+  }).strict()).min(1).superRefine(uniqueBy('id')),
+}).strict().superRefine((v, ctx) => {
+  v.entries.forEach((e, i) => {
+    if (e.start > e.ready || e.ready >= e.target)
+      ctx.addIssue({ code: 'custom', path: ['entries', i], message: '着手 ≤ 確認完了 < 公開目標' });
+    if (!e.publicationId && (e.action !== 'new' || !e.title))
+      ctx.addIssue({ code: 'custom', path: ['entries', i], message: '既存動画は公開IDが必要。新規企画はタイトルが必要' });
+  });
+});
 const STOP_REASONS = ['user-decision', 'superseded', 'gone', 'unverified-legacy'];
 const idException = z.literal('imported-before-cutover').describe('規則に合わない既存の ID を残す印（件数は config の idExceptionMax でラチェット）');
 

@@ -112,6 +112,7 @@ export default async function ItemsPage({ searchParams }: { searchParams: Promis
   return (
     <>
       <PageHead title="作品と公開" sub={`作品 ${counts.works} 件 · 公開 ${counts.publications} 件（表示中の作品 ${rows.length}）`} />
+      <nav className="project-crumbs"><Link href="/plan/roadmap?view=video">年間の通常動画計画</Link></nav>
       <FacetShell main={main} rail={rail} />
     </>
   );

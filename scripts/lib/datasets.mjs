@@ -91,6 +91,7 @@ export const DATASETS = [
   d('config.market-scan', 'config/market-scan.json', 'config', 'strategy', '資格ごとの市場（競合の混み具合）を取る検索語と閾値', { schema: 'ConfigMarketScan' }),
   d('config.competitors', 'config/competitors.json', 'config', 'strategy', '競合の追跡リスト（note・ココナラ・Instagram・X・YouTube の枠ごと）', { schema: 'ConfigCompetitors' }),
   // 計画
+  d('config.youtube-longform-plan', 'config/youtube-longform-plan.json', 'config', 'plan', '通常動画の年間編集計画（制作期限・公開目標。実予約は公開台帳）', { schema: 'ConfigYoutubeLongformPlan', refs: [{ at: 'entries[].exam', to: 'qualification' }] }),
   d('config.annual-roadmap', 'config/annual-roadmap.json', 'config', 'plan', '年間ロードマップの期間と買い場の週数', { schema: 'ConfigAnnualRoadmap' }),
   // 商品
   d('config.products', 'config/products.json', 'config', 'product', '商品の正本（全チャネル・1ファイル。書き換えは npm run product）', { schema: 'ConfigProducts', refs: [{ at: 'products[].qualification', to: 'qualification' }] }),
