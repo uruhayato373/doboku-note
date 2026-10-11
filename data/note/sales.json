@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-02",
+  "updatedAt": "2026-10-11",
   "currency": "JPY",
   "source": "note クリエイターダッシュボード「販売履歴」（2026-07 以降は Playwright で read-only 取得し、月次総額をダッシュボード表示と突合）",
   "privacyNote": "購入者名・ハンドルはプライバシー保護のため記録しない（売上分析には date / product / price で十分）。",
@@ -2282,6 +2282,55 @@
       "price": 1480
     },
     {
+      "date": "2026-10-10",
+      "productId": "civil-2-niji-marugoto-pack",
+      "title": "2級土木 二次検定まるごとパック",
+      "type": "magazine",
+      "price": 8800
+    },
+    {
+      "date": "2026-10-08",
+      "productId": "article:unknown-20261008-0",
+      "title": "建設部門2次｜土質基礎まるごと合格パック",
+      "type": "article",
+      "price": 4980
+    },
+    {
+      "date": "2026-10-07",
+      "productId": "civil-2-experience-essay",
+      "title": "2級土木 施工経験記述｜工種×テーマ別 完成答案集",
+      "type": "magazine",
+      "price": 2980
+    },
+    {
+      "date": "2026-10-07",
+      "productId": "article:civil-2-anki-note",
+      "title": "2級土木 二次学科記述｜直前暗記ノート（穴埋め頻出語句 一問一答）",
+      "type": "article",
+      "price": 580
+    },
+    {
+      "date": "2026-10-04",
+      "productId": "bk-port-airport-secondary-magazine",
+      "title": "建設部門2次｜港湾空港 選択科目 模範解答集",
+      "type": "magazine",
+      "price": 2980
+    },
+    {
+      "date": "2026-10-04",
+      "productId": "civil-1-chokuzen-pack",
+      "title": "1級土木 二次｜直前総仕上げパック",
+      "type": "magazine",
+      "price": 2980
+    },
+    {
+      "date": "2026-10-03",
+      "productId": "civil-2-keiken-park-private-pack",
+      "title": "2級土木 施工経験記述｜公園・公共施設・民間外構 6工事",
+      "type": "magazine",
+      "price": 2480
+    },
+    {
       "date": "2026-10-02",
       "productId": "civil-2-experience-essay",
       "title": "2級土木 施工経験記述｜工種×テーマ別 完成答案集",
@@ -2320,13 +2369,13 @@
       "fee": 11011
     },
     "2026-10": {
-      "fetchedAt": "2026-10-02T13:57:42.280Z",
-      "count": 4,
-      "total": 8420,
+      "fetchedAt": "2026-10-11T01:35:43.278Z",
+      "count": 11,
+      "total": 34200,
       "finalized": false
     },
     "2026-09": {
-      "fetchedAt": "2026-10-02T13:57:22.522Z",
+      "fetchedAt": "2026-10-11T01:35:19.079Z",
       "count": 35,
       "total": 106800,
       "finalized": true,

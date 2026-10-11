@@ -104,3 +104,16 @@ test('月の受取額は台帳の取得分を合計し、チャネルごとに�
   assert.ok(none.channels.every((c) => c.status === 'missing'));
 });
 
+test('KDP は最初の本の出版月より前を 0 円で確定にする（未取得と区別する）', () => {
+  const jun = monthReceipts({ month: '2026-06', noteSales: null, coconalaRevenue: null, kdpRoyalties: { months: {} }, kdpFirstMonth: '2026-07' });
+  assert.deepEqual([jun.channels[2].value, jun.channels[2].status], [0, 'final']);
+  const jul = monthReceipts({ month: '2026-07', noteSales: null, coconalaRevenue: null, kdpRoyalties: { months: {} }, kdpFirstMonth: '2026-07' });
+  assert.equal(jul.channels[2].status, 'missing');
+});
+
+test('過去月の note は直前に確定月が無ければ直後の確定月の割合で推計する', () => {
+  const log = { sales: [{ date: '2026-06-10', price: 10000 }], months: { '2026-08': { fetchedAt: '2026-10-01T00:00:00.000Z', count: 1, total: 20000, finalized: true, net: 17000 } } };
+  const r = monthReceipts({ month: '2026-06', noteSales: log, coconalaRevenue: null, kdpRoyalties: null });
+  assert.deepEqual([r.channels[0].value, r.channels[0].status], [8500, 'estimate']);
+  assert.match(r.channels[0].note, /2026-08 の実績/);
+});

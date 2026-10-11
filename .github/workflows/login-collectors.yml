@@ -44,7 +44,7 @@ on:
           - collect
           - probe-only
       month:
-        description: "a8・kdp の対象月 YYYY-MM（空＝a8 は前月と当月、kdp は当月と確定前の前月・JST）"
+        description: "a8・kdp・note 売上の対象月 YYYY-MM（空＝a8 は前月と当月、kdp は当月と確定前の前月、note は前月（14 日まで）と当月・JST）"
         type: string
         required: false
         default: ""
@@ -295,9 +295,16 @@ jobs:
         env:
           DOBOKU_AUTH_NOTE_USER: ${{ secrets.DOBOKU_AUTH_NOTE_USER }}
           DOBOKU_AUTH_NOTE_PASSWORD: ${{ secrets.DOBOKU_AUTH_NOTE_PASSWORD }}
+          INPUT_MONTH: ${{ inputs.month }}
         run: |
           set +e
           rc=0
+          # 手動実行で month を渡したら、その月の売上（明細と確定後の手数料控除後売上）だけを取り直す（過去月の取り込み・2026-10-11）
+          if [ -n "$INPUT_MONTH" ]; then
+            npm run note-sales-fetch -- --month "$INPUT_MONTH" --commit
+            echo "rc=$?" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
           npm run note-traffic-fetch -- --commit
           c=$?; [ "$c" -ne 0 ] && rc=$c
           day=$(date -u +%d)
