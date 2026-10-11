@@ -290,6 +290,26 @@
       ]
     },
     {
+      "id": "civil-construction-2/gakka-2kyu-doko/youtube.longform/scene-008",
+      "role": "scene-008",
+      "type": "image/png",
+      "sha256": "50815c8d2f349d5080d2c6a132031be2c162fdad28689f90ce48b356c2b799fa",
+      "bytes": 2613000,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.longform/scene-008.50815c8d.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "参照の同一人物（黒髪・眼鏡・ひげ・青い作業服）で、2級土木の土工学習動画の結論画像を新規制作。横長16:9。表紙ではなく分かりやすいまとめ図。白背景、緑見出し、黄色少量、大きな日本語、読みやすい四つの独立カード2×2を左75%に、右25%には指を四本示して説明する先生、人物で文字を隠さない。外周8%安全域。タイトル『土工は「対応関係」で覚える』、資格ラベル『2級土木』。四カードの正確な文言は『① 土質試験』『試験名 ↔ 分かること』、『② 土量変化率』『運搬はL ／ 盛土はC』、『③ 締固め』『含水比・密度で管理』、『④ 軟弱地盤』『工法 ↔ 改善する目的』。各カードに小さな分かりやすい概念イラスト（試験ハンマー、運搬トラック、ローラ、排水する地盤）。文字が主役で図は補助。文字と図を別領域に。下端帯『試験・計算・管理・工法をセットで整理』。指定外の文言、ブランド、URL、肩書きなし。地盤排水図は垂直排水材が上の水平砂層につながり水が上方向へ排水。参照から構図を変え、4項目を3項目にまとめない。",
+        "promptSha256": "cdb1a94428ed4615ed364bfce3a3b05af818e9728ba7ea6a6a0e8799dccc1a36",
+        "generatedAt": "2026-10-11T15:26:35.759Z"
+      }
+    },
+    {
       "id": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cover",
       "role": "cover",
       "type": "image/png",

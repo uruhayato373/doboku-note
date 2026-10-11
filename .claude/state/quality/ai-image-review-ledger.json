@@ -1010,6 +1010,12 @@
       "reason": "最終PNGを原寸と360pxで独立監査。画像内余白と外付け4％で6％以上の安全域、4項目と排水方向の整合を確認。",
       "reviewedAt": "2026-10-11T13:02:08.898Z"
     },
+    "media:civil-construction-2/gakka-2kyu-doko/youtube.longform/scene-008": {
+      "sha": "50815c8d2f349d50",
+      "verdict": "ok",
+      "reason": "原寸・360px幅で4項目と対応関係を判読。人物と文字図の重なりなし。鉛直排水材と砂層接続が適切。字幕余白あり。",
+      "reviewedAt": "2026-10-11T15:26:38.971Z"
+    },
     "media:civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover": {
       "sha": "4fe5395ef89372ff",
       "verdict": "ok",

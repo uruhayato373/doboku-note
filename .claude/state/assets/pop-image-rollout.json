@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "_doc": ".claude/knowledge/reference/pop-image-policy.md",
   "taskId": "DN-0184",
-  "updatedAt": "2026-10-11T13:05:09.940Z",
+  "updatedAt": "2026-10-12T04:00:00.000Z",
   "scope": {
     "channels": [
       "youtube",
@@ -2327,5 +2327,21 @@
     "sha256Checked": 21,
     "cloudMd5Checked": 21,
     "mismatches": 0
+  },
+  "bodyBatch02": {
+    "work": "civil-construction-2/gakka-2kyu-doko",
+    "adoptedSceneIds": [
+      "summary"
+    ],
+    "reviewedImages": 1,
+    "pendingGeneratedSceneIds": [
+      "block1",
+      "block2",
+      "block3",
+      "block4"
+    ],
+    "status": "technical-corrections-in-progress",
+    "audioChanged": false,
+    "videoRecomposed": false
   }
 }
