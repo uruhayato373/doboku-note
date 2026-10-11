@@ -48,12 +48,16 @@ test('ops:true の検査は ci:false（マージゲートに混ざらない）',
   assert.ok(ops.length >= 1, 'ops:true が 1 件も無い（区分が消えた＝検査不成立）');
   assert.deepEqual(ops.filter((c) => c.ci).map((c) => c.id), [], 'ops:true なのに ci:true の検査がある');
   assert.ok(ops.some((c) => c.id === 'membership-drip'), 'membership-drip が ops に居ない（ci に戻すと全 PR が赤になる）');
+  // 2026-10-11: 広告リンクの期限（affiliate-placements）と照合記録の古さ（video-publication）は壁時計依存なので ops 側へ分けた
+  for (const id of ['affiliate-placements-upcoming', 'video-publication-freshness']) {
+    assert.ok(ops.some((c) => c.id === id), `${id} が ops に居ない（壁時計依存の検査が消えたか ci に戻った）`);
+  }
 });
 
 test('壁時計・鮮度に依存する検査が ci:true に居ない（再混入の検知）', () => {
   // id / npm / note に「予定日を過ぎた」「転記が止まった」を示す語があれば、PR の diff では直せない
   // 検査とみなす。誤検知なら note の書き方を変えるのではなく、本当に diff で決まるかを見直す。
-  const WALLCLOCK = /overdue|drip|freshness|予定日|配信予定|転記が止|日超過|GRACE_DAYS/;
+  const WALLCLOCK = /overdue|drip|freshness|予定日|配信予定|転記が止|日超過|GRACE_DAYS|期限内|期限切れ|鮮度切れ/;
   const bad = parseChecks(SRC)
     .filter((c) => c.ci && WALLCLOCK.test(`${c.id} ${c.npm} ${c.note}`))
     .map((c) => c.id);

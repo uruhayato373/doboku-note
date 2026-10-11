@@ -21,7 +21,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
  * scripts/ と .claude/config を持つ最小環境を作り、state と record を差し替えて CLI を走らせる。
  * （CLI は自分の場所からリポジトリルートを決めるので、scripts をコピーした先が root になる）
  */
-function runCheck({ state, record }) {
+function runCheck({ state, record, args = [] }) {
   const root = mkdtempSync(join(tmpdir(), 'vp-'));
   try {
     mkdirSync(join(root, 'scripts', 'lib'), { recursive: true });
@@ -47,7 +47,7 @@ function runCheck({ state, record }) {
     let status = 0;
     let stdout = '';
     try {
-      stdout = execFileSync(process.execPath, [join(root, 'scripts', 'check-video-publication.mjs'), '--json'], {
+      stdout = execFileSync(process.execPath, [join(root, 'scripts', 'check-video-publication.mjs'), '--json', ...args], {
         encoding: 'utf8',
       });
     } catch (e) {
@@ -103,9 +103,29 @@ test('記録が対象を網羅していない → V02', () => {
   assert.ok(result.issues.some((i) => i.code === 'V02' && i.message.includes('shorts')));
 });
 
-test('記録が古い → V03（実査が止まっているのを surface する）', () => {
+test('記録が古くても --freshness なしなら V03 を出さない（壁時計依存は ops の --freshness だけ・2026-10-11）', () => {
   const old = new Date(Date.now() - 30 * 86_400_000).toISOString();
   const { status, result } = runCheck({
+    state: publishedState,
+    record: {
+      schemaVersion: 1,
+      verifiedAt: old,
+      checked: 2,
+      findings: [],
+      entries: {
+        'demo-pack/longform': { ok: true, problems: [] },
+        'demo-pack/shorts[0]': { ok: true, problems: [] },
+      },
+    },
+  });
+  assert.equal(status, 0);
+  assert.ok(!result.issues.some((i) => i.code === 'V03'));
+});
+
+test('記録が古い → V03（実査が止まっているのを surface する・--freshness のとき）', () => {
+  const old = new Date(Date.now() - 30 * 86_400_000).toISOString();
+  const { status, result } = runCheck({
+    args: ['--freshness'],
     state: publishedState,
     record: {
       schemaVersion: 1,
