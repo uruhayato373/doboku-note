@@ -21,6 +21,14 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-0683] ogp-supply が章 OGP 344 件を毎回再生成・再供給し、bot commit が develop の 64% を占める
+タグ: [領域:管理] [時期:2026-10] [種類:改善] [検証:check-workflow-hygiene] [起票:2026-10-11]
+
+**起点**: 2026-10-11 のコード監査。30 日で github-actions[bot] の commit 478 件のうち ogp-supply が 308 件。CI の checkout には ogp.png が無いので scripts/build-standards-ogp.mjs:165 の existsSync が常に偽になり、344 章を毎回再生成して asset-offload（PUT/HEAD/GET 各 344 件・平均 283 秒）し、manifest の verifiedAt だけが変わる 3,400 行規模の差分を往復している。MDX を push した直後に develop の先頭が [skip ci] の bot commit になるのは構造。
+**やること**: 生成側で manifest（asset-storage）に同じ章の記録があれば飛ばす（または asset-offload の --skip-existing を使う）。PNG が同じ入力から同じバイトになるかは未確認なので、ならない場合は manifest の有無で判定する。ogp-supply.yml:246-252,265 の条件も合わせる。
+**完了条件**: 無関係な MDX を push しても ogp-supply の run が chapters_generated=0 で終わり、develop に bot commit が増えない（gh run view --log で確認）。
+
+
 
 
 ### [DN-0678] 2級土木 第2次検定（10/25）の令和8年度 解答例ページを試験前に枠だけ出しておく
