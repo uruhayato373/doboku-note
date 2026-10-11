@@ -4,13 +4,15 @@
  * カテゴリ・実験・MDX の手書きカードと突き合わせる（決定論。pre-commit と quality-audit の ci）。
  *
  *   (a) 開いているルール（until が無いか未来）の案件は catalog で placement=active かつ Red Line でない。閉じたルールも catalog にある
- *   (b) 開いているルールの案件は、期限内の広告リンク（config.affiliate-mats）を持つ
+ *   (b) 開いているルールの案件は、広告リンク（config.affiliate-mats・surfaces あり）を持つ。期限（expiresAt）は見ない＝壁時計で
+ *       結果が変わる検査は PR の diff では直せないので ci に置かない（code ルール）。期限切れは --upcoming（ops）が日次で見る
  *   (c) 面は config.cta-placements にあり、ページの種類が合う。撤去済みの面のルールは閉じている（撤去日が分かればその日まで）
  *   (d) カテゴリは src/config/categories.json に、実験は data/business/experiments.json にある
  *   (e) 同じ面・重なる期間・交わる対象の 2 ルールが無い（1 ページ 1 面 1 案件。GA4 の配置別の数字をルールへ結ぶ前提）
  *   (f) MDX 本文に <CareerAffiliate program=…> を書いた記事のカテゴリは、開いている article-inline のルールが覆う（覆わなければ描画されない）
  *
- * --upcoming（ops）: 7 日以内に始まる・終わるルールがあれば exit 1。SSG は境界を過ぎても再ビルドまで切り替わらないので、本番の再ビルドを予定する合図。
+ * --upcoming（ops・日次）: 7 日以内に始まる・終わるルールがあるか、開いているルールの広告リンクが全て期限切れなら exit 1。
+ *   SSG は境界を過ぎても再ビルドまで切り替わらないので、本番の再ビルドを予定する合図。
  *
  * usage: node scripts/check-affiliate-placements.mjs [--upcoming]
  * exit: 0 整合 / 1 違反（--upcoming は境界が近い）/ 2 入力を読めず検査不成立
@@ -59,9 +61,16 @@ if (process.argv.includes('--upcoming')) {
       if (t > now && t - now <= 7 * DAY) soon.push(`${r.id}（${r.program} × ${r.slot}）の${what} ${iso}`);
     }
   }
-  console.log(`[check-affiliate-placements --upcoming] ルール ${rules.length} 件の境界を検査 / 7 日以内 ${soon.length} 件`);
+  const expired = [];
+  for (const r of rules) {
+    if (!isOpen(r)) continue;
+    const live = mats.filter((m) => m.program === r.program && m.surfaces.length > 0 && (m.expiresAt == null || Date.parse(`${m.expiresAt}T23:59:59+09:00`) >= now));
+    if (live.length === 0) expired.push(`${r.id}（${r.program} × ${r.slot}）: 期限内の広告リンク（config.affiliate-mats）が無い`);
+  }
+  console.log(`[check-affiliate-placements --upcoming] ルール ${rules.length} 件（開いている ${rules.filter(isOpen).length}）の境界と広告リンクの期限を検査 / 7 日以内 ${soon.length} 件・期限切れ ${expired.length} 件`);
   for (const s of soon) console.log(`  - ${s} → 境界の後に本番を再ビルドする（gh workflow run cloudflare-deploy.yml --ref main）`);
-  process.exit(soon.length ? 1 : 0);
+  for (const s of expired) console.log(`  - ${s} → 広告リンクを更新するかルールを閉じる`);
+  process.exit(soon.length || expired.length ? 1 : 0);
 }
 
 for (const r of rules) {
@@ -71,8 +80,9 @@ for (const r of rules) {
   else if (isOpen(r) && (p.placement !== 'active' || p.redLine)) errors.push(`${r.id}: 案件 ${r.program} は catalog で placement=${p.placement}${p.redLine ? '・Red Line' : ''}（配置できない）`);
   // (b)
   if (isOpen(r)) {
-    const live = mats.filter((m) => m.program === r.program && m.surfaces.length > 0 && (m.expiresAt == null || Date.parse(`${m.expiresAt}T23:59:59+09:00`) >= now));
-    if (live.length === 0) errors.push(`${r.id}: 案件 ${r.program} に期限内の広告リンク（config.affiliate-mats）が無い`);
+    // 期限（expiresAt）は見ない: 壁時計で結果が変わると差分の無い PR が赤になる。期限切れは --upcoming（ops）が日次で見る
+    const live = mats.filter((m) => m.program === r.program && m.surfaces.length > 0);
+    if (live.length === 0) errors.push(`${r.id}: 案件 ${r.program} に広告リンク（config.affiliate-mats・surfaces あり）が無い`);
   }
   // (c)
   const slot = vocab[r.slot];

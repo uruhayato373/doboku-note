@@ -147,7 +147,7 @@ A8 だけは**管理画面にサイト切替が存在しない**ため、assert 
 | afb の未提携案件を探す | `npm run afb:scan -- --query 建設,現場` | 検索モード既定。crawl モードは 38 ページで実用的でない |
 | A8 の案件開拓 | `/scout-asp` | A8 専用。こちらとは別系統 |
 | A8 の成果 CSV 取込 | `/a8-report` | [a8-affiliate-pipeline.md](a8-affiliate-pipeline.md) |
-| 配線の整合検査 | `npm run check-affiliate-placements` | 配置ルールが案件（catalog の active・Red Line でない）・期限内の mat・面の語彙・カテゴリ・実験と整合し、同じ面に重なるルールが無いか。MDX の手書き `<CareerAffiliate program=…>` のカテゴリがルールに覆われているか。`--upcoming` は 7 日以内の境界 | pre-commit（pre-commit-ci-gates）・quality-audit ci／`--upcoming` は ops |
+| 配線の整合検査 | `npm run check-affiliate-placements` | 配置ルールが案件（catalog の active・Red Line でない）・mat の有無・面の語彙・カテゴリ・実験と整合し、同じ面に重なるルールが無いか。MDX の手書き `<CareerAffiliate program=…>` のカテゴリがルールに覆われているか。`--upcoming` は 7 日以内の境界と mat の期限切れ（壁時計依存は ops へ・2026-10-11） | pre-commit（pre-commit-ci-gates）・quality-audit ci／`--upcoming` は ops |
 
 ### 安全弁
 
@@ -190,6 +190,7 @@ A8 だけは**管理画面にサイト切替が存在しない**ため、assert 
 5. `alt` を埋める
 6. **A8 の JavaScript 型バナーは使わない** — Next.js で動かない。「旧版を表示する」でシンプルな `<a><img/></a>` を取得
 7. **広告リンクは `rel={AFFILIATE_LINK_REL}` と `referrerPolicy={AFFILIATE_LINK_REFERRER_POLICY}`（`no-referrer-when-downgrade`）を対で付ける**（`src/components/ui/AffiliateParts.tsx`）。サイト既定の Referrer-Policy（`strict-origin-when-cross-origin`）のままだと A8 にはドメインしか届かず、成果別レポートの「リファラ」でページが分からない。対の欠けと rel の直書きは `tests/affiliate-link-referrer.test.mjs` が止める（2026-10-07〜）
+8. **手書き `<CareerAffiliate program=…>` は 1 記事 1 枚**。2 つ以上あっても `DocPage` が最初の 1 枚だけ描く（2026-10-11。2級の過去問 50 本で同じ案件のカードが 2 枚出ていた。MDX は書き換えない）
 
 ### 現在の配置（真実源は配置ルール）
 
