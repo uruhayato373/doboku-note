@@ -172,7 +172,7 @@ jobs:
               --date "$(date -u +%Y-%m-%d)" \
               --sitemap-count "${SITEMAP_COUNT:-0}" \
               --notes "weekly cron (index-coverage.yml)"
-            # 登録リクエストの順位表（表示実績のある未登録を先頭に）。人間は先頭から 10 件/日送るだけ。
+            # 登録リクエストの順位表（表示実績のある未登録を先頭に、表示 0 は型ごとの期待値の降順）。人間は先頭から 10 件/日送るだけ。
             node scripts/build-gsc-indexing-priority.mjs
             SUBJECT="chore(metrics): index-coverage audit $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
           fi
