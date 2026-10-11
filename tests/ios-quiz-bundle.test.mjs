@@ -6,6 +6,7 @@ import {
   rewriteImageSrcs,
   unsupportedImageSrcs,
   toBundleQuestion,
+  bundledImageRels,
 } from '../scripts/build-ios-quiz-bundle.mjs';
 import { SOURCES, buildDataset, optionsFromTable, toYearLabel } from '../scripts/build-quiz-data.mjs';
 import { APPS, APP_YEAR_CODE } from '../scripts/build-ios-quiz-bundle.mjs';
@@ -121,4 +122,15 @@ test('アプリが並べられる年度コードだけを書き出す（読め�
     const ds = buildDataset(SOURCES.find((s) => s.exam === exam));
     for (const y of ds.years) assert.ok(APP_YEAR_CODE.test(y.year), `${exam}/${y.year}`);
   }
+});
+
+test('Markdown しか無い問題（1級・2級土木）の図も同梱する画像に数える', () => {
+  const q = toBundleQuestion({
+    id: 'h26-05',
+    body: '下図のように区分される。\n\n<ArticleImage src="/posts/civil-construction-2/primary-h26/img/q05-fig.webp" alt="骨材の含水状態" width={1775} height={622} />',
+    options: [{ num: 1, text: 'a' }, { num: 2, text: 'b' }],
+    explanations: [],
+  });
+  assert.match(q.bodyHtml, /src="images\/civil-construction-2\/primary-h26\/img\/q05-fig\.webp"/);
+  assert.deepEqual(bundledImageRels(q), ['civil-construction-2/primary-h26/img/q05-fig.webp']);
 });
