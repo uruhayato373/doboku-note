@@ -208,7 +208,7 @@ CLAUDE.md 本体にも要点を置いているが、詳細はここで扱う。
 - **マスター**: `content/site/**/img/` は **git 追跡対象**（PNG・SVG 含む）。複数 PC 間で git pull により同期される
 - **R2 へのアップロード（本番反映）**: 通常は `main` push 時に `r2-sync.yml`（CI）が自動同期する（対象 path = `content/site/**/img/**` のみ）。手動同期は `npm run upload-images-r2`（= `node .claude/scripts/upload-images-to-r2.mjs`）。**OGP 画像 `ogp.png` は `img/` の外＝記事ディレクトリ直下**にあり別経路——develop push 時に `ogp-supply.yml`（CI）が生成・R2 供給まで行う（ローカル生成は `npm run ogp`、未供給は CI ゲート `check-ogp-coverage` が検知）
 - **R2 からのダウンロード（新規 PC 初期化時のフォールバック）**: `/sync-r2-images` または `npm run download-images`
-- `static/img/` はサイト共通素材（favicon, logo 等）専用
+- サイト共通のアイコンは `src/app/` 直下の `favicon.ico` / `icon.png` / `apple-icon.png`（Next.js のファイル規約）、logo は `public/logo.png`
 
 これは「サイトが配信する」tier（public R2）。人しか使わない画像・PDF は R2 でなく Google Drive vault（asset-storage-policy.md §1・/asset-route）へ置く。
 
