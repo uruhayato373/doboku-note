@@ -22,7 +22,7 @@
 ## 🔴 高 — 重要度が高い
 
 ### [DN-0680] develop の CI が売上の商品名の照合漏れ（noteTitle を見ない）とココナラの実データ依存のテストで落ちている
-タグ: [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-11]
+タグ: [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-11] [進行中]
 
 **起点**: 2026-10-11、PR #986・#987 の CI（quality:audit）が、PR と関係のない 3 つで落ちた。develop の同じデータでも落ちる。
 1. `qualification-market`・unit-tests「実データ: 検索語・追跡リスト・売上の分類」: `data/note/sales.json` の `article:unknown-20261008-0`（建設部門2次｜土質基礎まるごと合格パック ¥4,980）と `article:unknown-20260530-0`（令和8年度 総監記述式 R8予想問題｜災害復旧 × 複合災害対応 ¥500）。前者は 10/11 に 1d5f0d773 で `pe-construction-geotechnical-pack` に確定したが、login collectors（245c9e44c）の取り直しで unknown に戻った。原因は `scripts/note-sales-fetch.mjs` の `loadMagazines` と `scripts/lib/sales-normalize.mjs` の `resolveMagazineId` が `title`・`shortTitle` しか照合せず、note の販売履歴に出る `noteTitle`（'建設部門2次｜土質基礎まるごと合格パック'）を見ないこと（shortTitle は「土質基礎 合格パック」で一致しない）。後者はカタログ（config/products.json）にも sales-recorder の mapping にも無い単品。
@@ -32,7 +32,7 @@
 
 
 ### [DN-0678] 2級土木 第2次検定（10/25）の令和8年度 解答例ページを試験前に枠だけ出しておく
-タグ: [領域:サイト] [時期:2026-10] [種類:制作] [起票:2026-10-11]
+タグ: [領域:サイト] [時期:2026-10] [種類:制作] [起票:2026-10-11] [進行中]
 
 **起点**: 2026-10-11 の metrics-analyzer。1級二次の直前直後（10/4 前後）は年度別の解答例ページ（r04・r06）がクリック 56・80 を取った。令和8年度の解答例ページは 1級・2級とも無い（content/site/civil-construction-{1,2} に secondary-r08 が無い）。2級二次は 10/25。総監の DN-0500（枠だけ先に公開）と同じ方式で、試験前に「令和8年度 2級土木 2次試験 解答例」の枠ページを出し、問題の公開後に本体を埋める。
 **やること**: 2級 secondary-r08 の枠（試験の概要・問題公開の見込み・過去年度の解答例への導線）を 10/22 までに公開する。問題の公開時期は主催者の案内で確かめる。試験後に問題と解答例を入れる。1級 r08 も同じ要領で。
@@ -398,7 +398,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 
 ### [DN-0674] インデックス登録リクエストの順位表を「型ごとの期待値」順にし、検索改善レポートの分類器の誤分類を直す
-タグ: [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-11]
+タグ: [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-11] [進行中]
 
 **起点**: 2026-10-11 のサイト全体の SEO 診断（DN-0666）。gsc-index-auditor によると、data/gsc/indexing-priority.txt（scripts/build-gsc-indexing-priority.mjs・launchd gsc-local が毎日これを送る）は表示 0 の URL をパス昇順に並べるため、重点資格の RCCM guide（8 本中 1 本しか登録されていない）が 62 番目、practice が 74 番目以降、tools が 93 番目以降に沈む。期待値（同じ型の登録済みページ 1 本あたりの 28 日表示 × 未登録率）で並べれば、RCCM 7 本・practice 8 本・tools 5 本が先頭に来る。あわせて seo-fix-planner によると、scripts/lib/search-growth-classifier.mjs と scripts/report-search-growth.mjs が「登録済み・需要なし」346 件・/search?q= 68 件・非 HTML 16 件・本文の断片の 404 などを UNKNOWN_REVIEW（864 件）に落とし、優先修正 Top20 の 18 件が「登録済み・4 表示」のノイズになっている。internalInbound は keyword-relations 由来で、keyword 以外のページはリンクがあっても 0 になる。
 **やること**: (1) 順位表を期待値順にする（型＝/exam/<資格>/<guide|textbook|keywords|primary|…>・/practice・/tools・/standards）(2) 分類器に 4 つの規則を足す: 登録済み・需要なし→KEEP、/search?q=・非 HTML・断片の 404→EXPECTED、Google が別の canonical を選んだ URL に専用ラベル、internalInbound を実リンクから数えるか使わない。それぞれ回帰テストを付ける。
