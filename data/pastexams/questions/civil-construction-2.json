@@ -20429,9 +20429,9 @@
       },
       "transcription": {
         "status": "fixed",
-        "checkedAt": "2026-10-10",
+        "checkedAt": "2026-10-11",
         "by": "agent",
-        "note": "文言を原典どおりに修正"
+        "note": "記述の見出しが 1.〜4. と転記されていたのを原典どおり ①〜④ に直した（DN-0665）"
       }
     },
     {
@@ -20476,9 +20476,10 @@
         "by": "agent"
       },
       "transcription": {
-        "status": "verified",
-        "checkedAt": "2026-10-10",
-        "by": "agent"
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "記述の見出しが 1.〜4. と転記されていたのを原典どおり ①〜④ に直した（DN-0665）"
       }
     },
     {
@@ -20570,9 +20571,10 @@
         "by": "agent"
       },
       "transcription": {
-        "status": "verified",
-        "checkedAt": "2026-10-10",
-        "by": "agent"
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "記述の見出しが 1.〜4. と転記されていたのを原典どおり ①〜④ に直した（DN-0665）"
       }
     },
     {
@@ -20594,9 +20596,9 @@
       },
       "transcription": {
         "status": "fixed",
-        "checkedAt": "2026-10-10",
+        "checkedAt": "2026-10-11",
         "by": "agent",
-        "note": "文言を原典どおりに修正"
+        "note": "記述の見出しを ①〜④ に直し、選択肢 (1) の「②③」を原典どおり「①②」に直した（DN-0665）"
       }
     },
     {
