@@ -99,7 +99,7 @@ Shortsのプラットフォーム上限と、doboku-noteが採用する推奨尺
 
 16:9通常動画のレンダラーは `npm run render-longform`（`scripts/render-longform.mjs`・純粋ロジックは `scripts/lib/longform-render.mjs`）。scene の視覚要素は additive フィールド `visual: { kind: 'cover'|'points'|'figure'|'compare'|'sheet', heading, items[], src?, flow? }` で持ち（compare・sheet と任意フィールドは下の表）、試験色は exam-palette（note-cover-tokens.json）を解決する。`figure` はリポジトリ内の既存SVG/PNG/WebP/JPEGだけを`src`で参照し、本文の図解を1920×1080へ再利用する。出力は `.tmp/video-render/{packId}/`（PNG・WAV・ASS・render-manifest.json・mp4）で、パックディレクトリと Git にはバイナリを書かない。VOICEVOX/ffmpeg の無い環境は `--skip-tts` で PNG/ASS まで生成し、mp4 は VOICEVOX と ffmpeg/ffprobe を用意した Windows / Mac 等で同コマンドを完走させる。現在、動画生成用の GitHub Actions ワークフローは無い。
 
-通常動画・パック派生Shortsの説明画面は `scripts/lib/video-explanation.mjs` を共用する。白背景に試験色の見出し・STEPラベル・淡い要点カードを配置し、文字量に応じて文字サイズと行高を配分する。4項目以上の横長画面は複数列にし、字幕領域を空ける。`figure` は元図に基づく短い `flow[]` を指定すると編集可能な縦フローで表示できる。
+通常動画・パック派生Shortsの標準説明画面は `scripts/lib/video-explanation.mjs` を共用する。通常動画の `visual.art` 指定場面は `scripts/lib/video-editorial-art.mjs` で1920×1080のSVGからPNGへ描画する。構図は `art.type` で指定し、承認済み表紙があれば表紙を優先する。`art.source` は実在するサイト図解を動画向けに再構成する根拠であり、元SVGの直接埋め込みではない。`--resume` でも `visual.art` のPNGは再生成する。白背景に試験色の見出し・STEPラベル・淡い要点カードを配置し、文字量に応じて文字サイズと行高を配分する。4項目以上の横長画面は複数列にし、字幕領域を空ける。`figure` は元図に基づく短い `flow[]` を指定すると編集可能な縦フローで表示できる。
 
 16:9 の scene は次の任意フィールドを持てる（2026-10-08 追加。指定しない既存パックの画面は、下の改行規則を除いて変わらない）。
 
@@ -143,7 +143,7 @@ YouTube の stage スクリプトはローカル実体が無くても、`video-r
 
 ### 総まとめ（聞き流し）パック
 
-承認済みパックを束ねた20〜60分の通常動画（型は `config/youtube-formats.json` の `compilation`）。正本はパックの `compilation.json`（章立て `parts[].chapters[]`、冒頭 `opening`・後半の前置き `parts[].intro`・締め `closing` の語り）で、元パックの場面は写さない。`npm run build-video-compilation -- --pack-dir <パック>` が、同じ試験の元パックから表紙と締め（`dropSceneIds`）を外した場面を読み、章の区切り画面（第N章）を挟んだ `storyboard.json` を生成する（`--check` は一致の確認だけ）。
+承認済みパックを束ねた20〜60分の通常動画（型は `config/youtube-formats.json` の `compilation`）。正本はパックの `compilation.json`（章立て `parts[].chapters[]`、冒頭 `opening`・後半の前置き `parts[].intro`・締め `closing` の語り）で、元パックの場面は写さない。`npm run build-video-compilation -- --pack-dir <パック>` が、同じ試験の元パックから表紙と締め（`dropSceneIds`）を外した場面を読み、章の区切り画面（第N章）を挟んだ `storyboard.json` を生成する（`--check` は一致の確認だけ）。場面別の画面指定は `compilation.json.visuals[組み立て後のsceneId]` に保存する。指定値を `scene.visual` にコピーし、語り・字幕・時間は変更しない。不明なsceneIdはエラーになる。
 
 - 元パックは通常動画をユーザーが承認したもの（state の `longform.approvedBy: 'user'`）だけ
 - 場面は `c{NN}-{元の sceneId}` と `from: {packId, sceneId}` を持ち、ラベル（押さえるポイント・まとめ）は元の sceneId で決まる

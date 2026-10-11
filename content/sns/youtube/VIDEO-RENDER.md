@@ -29,6 +29,12 @@ node scripts/render-video-pack-shorts.mjs --pack-dir content/sns/video-packs/civ
 
 出力先は `.tmp/video-render/{packId}/`。最初の1パックで表紙・読み上げ・字幕・切り替わりを確認してから一括生成する。採用画像は表紙・冒頭に使い、説明画面は白と資格別のブランド色を軸にしたプレゼン形式へ統一する。大きな結論見出し、STEPラベル、淡い要点カードを使い、文字数・項目数に応じて文字サイズと配置を調整する。legacy総監カバーは動画パックの一括生成には混ぜない。
 
+## 図解を使った場面画像の確認
+
+通常動画の `visual.art` は、章扉・対応図・比較・手順・記入例・サイト図解を再構成した画像を指定する。総まとめは生成済みstoryboardを直接直さず、`compilation.json.visuals[sceneId]` を更新して `build-video-compilation` を実行する。語り・字幕・尺は変わらない。図解の `art.source` には参照元SVGの実在パスを記録する。
+
+音声を後工程にする場合は `render-longform --skip-tts --resume --refresh-png` で画像を生成し、全場面のスクリーンショットを確認する。`media promote --pub <公開ID> --commit` は画像のみのrender-manifestから表紙と場面画像を取り込み、既存動画・字幕を保持する。その後 `media sync --work <資格>/<作品> --commit` と `media verify --work <資格>/<作品>` を通し、管理画面の作品詳細で採用画像を確認する。画像確認済みと完成動画の確認済みは分けて記録する。
+
 ## 旧A案の検証記録（2026-09-09）
 
 Mac実機で採用PNG346枚を復元し、全件のSHA-256一致を確認した。VOICEVOX 0.25.2・話者13で代表パックの通常動画とShortsを生成し、映像・字幕・音声ストリーム・音量、音声認識による台本の冒頭から末尾までの収録を確認した。人による試聴済みとは扱わない。通常動画の場面を音声実尺へ揃える修正を適用し、実ffmpegの時刻同期テストを通した。ユーザーの試聴指摘を受け「概要の要は」を「概要のかなめは」に読み替え、VOICEVOXの音素を確認した。字幕は漢字のまま保持する。全体の生成・保存とYouTube更新の進捗は [更新状態](../../../.claude/state/youtube-thumbnail-rollout.json) を参照する。

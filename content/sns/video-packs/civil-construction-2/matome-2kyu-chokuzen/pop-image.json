@@ -278,10 +278,618 @@
       "publication": "画像確認用。音声差し替え・動画再合成はユーザー指示により後工程。外部未反映。",
       "contentImageReview": {
         "date": "2026-10-11",
-        "status": "ai-ok",
-        "by": "near_video_content_qa",
+        "status": "agent-reviewed",
+        "by": "Codex",
         "sceneCount": 131,
-        "scope": "全体一覧と修正8場面。技術表現・文字切れ。音声・完成MP4再生確認とユーザー承認は含まない。"
+        "reviewedSceneCount": 131,
+        "scope": "全131場面をブラウザでスクリーンショット確認。土量・締固め曲線・基礎・工程・足場は拡大確認。文字サイズ、改行、項目数、線とラベルの重なりを修正。音声・MP4再生とユーザー承認は含まない。",
+        "userImageReview": "pending",
+        "audioChanged": false,
+        "videoRecomposed": false,
+        "layoutCounts": {
+          "approved-cover": 1,
+          "chapter": 15,
+          "focus": 10,
+          "grid": 9,
+          "mapping": 17,
+          "diagram": 19,
+          "recap": 15,
+          "compare": 17,
+          "numbers": 7,
+          "steps": 9,
+          "sheet": 8,
+          "timeline": 1,
+          "checklist": 2,
+          "closing": 1
+        },
+        "sourceDiagrams": [
+          {
+            "path": "content/site/civil-construction-2/guide-concrete-key-points/img/figure-cold-joint.svg",
+            "sha256": "05a5908da495b56e171acfabb336bd82acc68dfa90be718b9ba0217976f949ef"
+          },
+          {
+            "path": "content/site/civil-construction-2/guide-construction-plan-key-points/img/figure-preliminary-survey.svg",
+            "sha256": "615fc5ea1c054e4eba3f2f162a42185323982292e95ad7ec8324a099ffaa9bf5"
+          },
+          {
+            "path": "content/site/civil-construction-2/guide-construction-plan-key-points/img/figure-workable-days.svg",
+            "sha256": "54f9ebcbbbbaeef685fd5ab4817a0fffb00c9ae720a25aca92060feda1343336"
+          },
+          {
+            "path": "content/site/civil-construction-2/guide-earthwork-key-points/img/figure-compaction-curve.svg",
+            "sha256": "0234462257533a24b84f3b2922aba1fbcaaaaa1452c704475c5cc6719ad869fb"
+          },
+          {
+            "path": "content/site/civil-construction-2/guide-earthwork-key-points/img/figure-soft-ground-methods.svg",
+            "sha256": "c6dafb71eb6b1f87d36e840d3e0c530bafe6725ba3ea0452ca853e641ba09536"
+          },
+          {
+            "path": "content/site/civil-construction-2/guide-earthwork-key-points/img/figure-soil-volume-change.svg",
+            "sha256": "ee4540bf4e5c1b03d27ed99a0d29ab4e902541dad3bbd5671e9cfffa6d614b57"
+          },
+          {
+            "path": "content/site/civil-construction-2/guide-foundation-key-points/img/figure-bored-pile-wall-protection.svg",
+            "sha256": "812b673ee668518a92c4eb8937564b0b625386a488ba129e7be40593305aff5f"
+          },
+          {
+            "path": "content/site/civil-construction-2/guide-foundation-key-points/img/figure-excavation-bottom-failure.svg",
+            "sha256": "16639ae4001064784613e0d72690ef5ede649afc1ab6823403fb795040ec3fb4"
+          },
+          {
+            "path": "content/site/civil-construction-2/guide-foundation-key-points/img/figure-foundation-type-by-depth.svg",
+            "sha256": "4986a9a822bc5465ac8c7bcc57a6f186e077116d77568510e0a08b6ec633b2f0"
+          },
+          {
+            "path": "content/site/civil-construction-2/guide-law-key-points/img/figure-construction-system.svg",
+            "sha256": "aeafc0d5798e99af9049745987bb5ddc4eac8ef684927567d3617cc863b7647e"
+          },
+          {
+            "path": "content/site/civil-construction-2/guide-law-key-points/img/figure-permit-vs-notification.svg",
+            "sha256": "d59539ca2c73bcb10391495d567b99babb0e2efc2cd374b89657ccaf6317407c"
+          },
+          {
+            "path": "content/site/civil-construction-2/guide-safety-management/img/figure-scaffold-standards.svg",
+            "sha256": "7e75d9a7bffd34fc3e17b09f7291417dcee30076bd982d01dd6d019631ab6058"
+          },
+          {
+            "path": "content/site/civil-construction-2/guide-schedule-management/img/figure-critical-path.svg",
+            "sha256": "f63f042a2d55c4892903852e4b71673b3e88b3624376ada980ec4ae4b2478665"
+          }
+        ],
+        "sceneImages": [
+          {
+            "sceneId": "cover",
+            "sha256": "b24e58035b4ad2955f2b9309e181d714558d49da1609503c2cd59eab1b621055"
+          },
+          {
+            "sceneId": "c01-title",
+            "sha256": "e86ffde66d875dbfa0813b04578b23b53ce8f005316f5084a39707b63fa0bd94"
+          },
+          {
+            "sceneId": "c01-premise",
+            "sha256": "429cda69a34a0153017014e2c6a30d22dd4df7377d357a455bdb6d9ae978d4eb"
+          },
+          {
+            "sceneId": "c01-overview",
+            "sha256": "03c509a8768f97b90611d2166d7f2d871498a6708c3746a83d3aa8dd67f5a0f5"
+          },
+          {
+            "sceneId": "c01-block1",
+            "sha256": "8dfdb08795d17496ef51c1591fe81d16a7d7f57059c73fb26ac0b6776ea4ee06"
+          },
+          {
+            "sceneId": "c01-block2",
+            "sha256": "10989f556467c25a7d11e700e17977b84823025fda859e7e741fc4ee49b93299"
+          },
+          {
+            "sceneId": "c01-block3",
+            "sha256": "e93bd903ef7e7e76fafe38015b66d07e12439917c0a4971bd8eaf10065c65f86"
+          },
+          {
+            "sceneId": "c01-block4",
+            "sha256": "db6f966a1d2c3e175edb6bc5cdaa54d71785c39587c7733ed0094e57195667f0"
+          },
+          {
+            "sceneId": "c01-summary",
+            "sha256": "8b080033866f4d88828ed8d02248c120e6a073adb772796852464649a4be8b65"
+          },
+          {
+            "sceneId": "c02-title",
+            "sha256": "7ec117448181b46806631a2c97a0d73c0c40aa54e1b841f6eda12f459a8da6d3"
+          },
+          {
+            "sceneId": "c02-premise",
+            "sha256": "7ecccf65f1de6ddb8d8e01b4f3d9c122747d28604fe9ea625366540d8a503600"
+          },
+          {
+            "sceneId": "c02-overview",
+            "sha256": "fc63aa7a736c9728444805ae08961ee3652c3c999769e4658b8017743e1e0a6c"
+          },
+          {
+            "sceneId": "c02-block1",
+            "sha256": "a421cb501422d03a9011142913add705f64804f7ecb29d3c6b28fd4ae9f9f369"
+          },
+          {
+            "sceneId": "c02-block2",
+            "sha256": "ddc1c3f90dd284976f65639dda5b8f78f84a9c3ff831c4f07bd8b3c0e22d48e2"
+          },
+          {
+            "sceneId": "c02-block3",
+            "sha256": "88118a6b05989108c8a16a346bbc0dcb5cc5fb7809b104c9873e931e854e1192"
+          },
+          {
+            "sceneId": "c02-block4",
+            "sha256": "2baab8271e91ed098d90386e06ffbb8c3047cb4aa7edbd5d907d3ca141906578"
+          },
+          {
+            "sceneId": "c02-summary",
+            "sha256": "1e55d215f7f5d00211f1351a2c000157102ae3263c5ed87bb7ee7b4f0a7ac32b"
+          },
+          {
+            "sceneId": "c03-title",
+            "sha256": "02cbb5d982deed2fe0f66acbf70db323a5a30075f197a70d1c80d2782dcfc37c"
+          },
+          {
+            "sceneId": "c03-premise",
+            "sha256": "43fbb07a7df609e7fffb196a25f1bcd7e91dfb6b2515ad97df128da68ed70b6f"
+          },
+          {
+            "sceneId": "c03-overview",
+            "sha256": "6a7055c4fc6b4352342a3b2cb6906c679bf270c07a29d924b17e429a8fc7271b"
+          },
+          {
+            "sceneId": "c03-block1",
+            "sha256": "c7d9fbc94410b2e8dadf4f5fdd89a5662697edf9c58a197151c4dcbc2f990534"
+          },
+          {
+            "sceneId": "c03-block2",
+            "sha256": "325539f19f5c75f2bf650bb7315f81841824c071dbd1d02ebd9d5fcc36f1c9a3"
+          },
+          {
+            "sceneId": "c03-block3",
+            "sha256": "f655461ef5d232a71e0d98c49d4c22bd0cf9c04d9725d0517c5f5b5de7adcdd5"
+          },
+          {
+            "sceneId": "c03-block4",
+            "sha256": "2ed65073a985c249156f1808b66dbda65017e3fe28f3be593f8b2c406b5c12f1"
+          },
+          {
+            "sceneId": "c03-block5",
+            "sha256": "f752f3232b4fc69d0c9b2d224d9aaaf21a1489b13a24daacb78b93802c9a08fb"
+          },
+          {
+            "sceneId": "c03-summary",
+            "sha256": "9f7114213c6f9c95e1493046ee45ef5a0d068e6eaca1437ec5b7e52924c7c3d8"
+          },
+          {
+            "sceneId": "c04-title",
+            "sha256": "84201ba0984ed305abeab7c593cf7b5fb8ac2e761918fc714fc6d67903eaadb3"
+          },
+          {
+            "sceneId": "c04-premise",
+            "sha256": "84ec143d4ed4e710843901566b5120cb50e6a1aa780b8567338b945f804e2d39"
+          },
+          {
+            "sceneId": "c04-overview",
+            "sha256": "06493a45ab10d9a2d257220f5915ce4d1103d7070d501592621966267d513a28"
+          },
+          {
+            "sceneId": "c04-block1",
+            "sha256": "33681c88d2bb40bab4fdbec1c88463190bc4fdcefa88cbb19c734068de18bd28"
+          },
+          {
+            "sceneId": "c04-block2",
+            "sha256": "50dfec56ba032ac36620b21483c118005a2a51d30e00151ac31f5c72ca45f8e3"
+          },
+          {
+            "sceneId": "c04-block3",
+            "sha256": "b55565f0ef90b329b2a4441cdd3dd56652fbdeaaee46e4a5832c88b46b181a09"
+          },
+          {
+            "sceneId": "c04-block4",
+            "sha256": "e54f637e36e3b3aed3549269bec37f6706c0de50a533ca68bdaaaea7df5fc2bd"
+          },
+          {
+            "sceneId": "c04-summary",
+            "sha256": "d566c82d116ac330e625f08394287b5bf26a16383ad600f9d5279fbd2e2a689d"
+          },
+          {
+            "sceneId": "c05-title",
+            "sha256": "e68eaa67d6d10d6d8cd5c44458b2ce06d6e123915b40f87ad46b7745b645bb76"
+          },
+          {
+            "sceneId": "c05-premise",
+            "sha256": "feb5d753583aec13db808ee278f5ab21faf81f5338d442b8bf1a0a471b644723"
+          },
+          {
+            "sceneId": "c05-overview",
+            "sha256": "5a45de3c1660d400aace535e6109f27384845d1decd7b4c461d48ab7e69a2ddb"
+          },
+          {
+            "sceneId": "c05-block1",
+            "sha256": "5b05e930322a027a2605948d429d0f37c94ecbc836df9539ecd0f065343d6223"
+          },
+          {
+            "sceneId": "c05-block2",
+            "sha256": "e8554c35c6852af9cbf37d97d0f4c5cc6ab10baf179038ac39597fac9d570893"
+          },
+          {
+            "sceneId": "c05-block3",
+            "sha256": "3deaa75e1db7a537e75e8560f544f9be7330a1df80649271bc46f215be059207"
+          },
+          {
+            "sceneId": "c05-block4",
+            "sha256": "32740a39b21637d5cbfa847aa79e2f4e230e9a8d63d9375ef25ff5a7464a38ad"
+          },
+          {
+            "sceneId": "c05-summary",
+            "sha256": "5d65b026a8a44ce8931891dae8d543d452fdbcdc9799b9738f3a462efb3f2283"
+          },
+          {
+            "sceneId": "c06-title",
+            "sha256": "96aeff6d16f7fe7415030ecc02b1f508efbe1c948af21a51e22b4f35974cd95d"
+          },
+          {
+            "sceneId": "c06-soil-tests",
+            "sha256": "7abf4c9b273739004421596af12de0532e3c446db75a936ac4637a48d091a232"
+          },
+          {
+            "sceneId": "c06-soil-volume",
+            "sha256": "a46baab0ce9d8eb7f065ce7a5052064e32a5638ec1199e60f4020bd84280a215"
+          },
+          {
+            "sceneId": "c06-compaction",
+            "sha256": "9b8b325d6c0217dcdc4d67bc8c3d534cf5a4069591c95172392c16dc6248413c"
+          },
+          {
+            "sceneId": "c06-soft-ground",
+            "sha256": "5fe7badc9f1f03f1a64fd35fa46a5e101049f8867e2f1b3047bbf940a250f455"
+          },
+          {
+            "sceneId": "c06-concrete-materials",
+            "sha256": "a3b07f0d53c2df535afac93f4c7f7fbbf4a55fcf35cdcf1b909705afe38a3411"
+          },
+          {
+            "sceneId": "c06-mix-design",
+            "sha256": "bfeaabe87137c8785677df26ccc16524398011ff24e93f5bbfbc317553965626"
+          },
+          {
+            "sceneId": "c06-placing",
+            "sha256": "2c7992050961fcb5f59513c835bfd5aa6af373e92730b1362869bc25d9195678"
+          },
+          {
+            "sceneId": "c06-curing-crack",
+            "sha256": "f270ac4c311a704e89c7ac98776b82190ce4ed96d8f50d12b1656c363df5db28"
+          },
+          {
+            "sceneId": "c06-foundation-types",
+            "sha256": "d65191f40aa49ba11625871e4be6ab50fe38a0b39512c256e2bb653339255908"
+          },
+          {
+            "sceneId": "c06-bearing-layer",
+            "sha256": "4a5aeb7552236d7fabaef3e602d7011dc3560f320de5e12b4d888a10b2ee51e7"
+          },
+          {
+            "sceneId": "c06-bored-pile",
+            "sha256": "11f871b55253aa14f18594a8c1ff7c208aece405cd2b7d9eac32848b9b001fde"
+          },
+          {
+            "sceneId": "c06-retaining-wall",
+            "sha256": "8d23f59dce3a4f2078e9ac869413834ef5fcabc254ac3b450bdb6bd9447b7461"
+          },
+          {
+            "sceneId": "c06-labor-standards",
+            "sha256": "b10f0551e24139180ca2ba2b3c64ea15da6418d1cc22c1f4cb811f35ca19d750"
+          },
+          {
+            "sceneId": "c06-safety-law",
+            "sha256": "b1f2adafec5d88cba222b554c62fd1d46ee639822770ab744ed35627bc04d42b"
+          },
+          {
+            "sceneId": "c06-construction-business-law",
+            "sha256": "4a21576d77d51096438f5474ac2ba9d8662c4592e85e4cb2a00eebc9135a837a"
+          },
+          {
+            "sceneId": "c06-road-river-law",
+            "sha256": "7a8e4554fd2d614a5722477f751cfbc18fc3cf50161d531eb271e330b07da6d6"
+          },
+          {
+            "sceneId": "c06-planning-steps",
+            "sha256": "1a09b9cef65e62b55ed5ed21d644a61fcab7925cf62aa59eb361a04eb708a6e5"
+          },
+          {
+            "sceneId": "c06-preliminary-survey",
+            "sha256": "92962f5c5de34b4dd77eec82fb2aada5618ee5b527a84fada0318a52aa03d475"
+          },
+          {
+            "sceneId": "c06-construction-plan-doc",
+            "sha256": "4c228b560eb1f9f1622bcb042066286928ce8cbe22f93509c5c1c7cad08365bc"
+          },
+          {
+            "sceneId": "c06-schedule-temporary",
+            "sha256": "57a8aef7b2ceac160c08c2283281d003041fa33aece40ab37ca0179139c58c52"
+          },
+          {
+            "sceneId": "c06-summary",
+            "sha256": "a01a0f34a8889cd69eb8fca0cc0291c22227ebe910b75b52ef2a63720ae9984f"
+          },
+          {
+            "sceneId": "c07-title",
+            "sha256": "1e4348b7847070c1e0539960b493dc837e414dd8f316622409ef09e8c1517fb8"
+          },
+          {
+            "sceneId": "c07-premise",
+            "sha256": "47ab4b3b3fee4951375950da4e2fefcfbb92561f99577bd2a2ebbbbc7ddaef11"
+          },
+          {
+            "sceneId": "c07-theme-shift",
+            "sha256": "a461a68bcb97c1e16077d19812c6be5c111e509559ab71aef2abbe1ac6940941"
+          },
+          {
+            "sceneId": "c07-gakka-fields",
+            "sha256": "ef8b4a6444a2c3fea009d8f47489d7a78227fe2bf0a703dd8d741cdde5879f2a"
+          },
+          {
+            "sceneId": "c07-select-format",
+            "sha256": "9d01a6bb10bd35b46b396f1862a88f88c410de81d40ccfaa064aa196f854fb94"
+          },
+          {
+            "sceneId": "c07-priority",
+            "sha256": "e785fd2063175ec4e7d07b2a3c40ee97e2f327091e8834013c2747bd0c7cb8e2"
+          },
+          {
+            "sceneId": "c07-summary",
+            "sha256": "3a7e0f643ee7b5e913ba519079ad6a936f27ddaedaa658c2b17fc7c5d912ae18"
+          },
+          {
+            "sceneId": "c08-title",
+            "sha256": "b45d5418371a188cd8209696a040ea009eeecfee406f564fca91c9b7a8795799"
+          },
+          {
+            "sceneId": "c08-premise",
+            "sha256": "9abf8783d8cc010ec5e6437bf81c1faa0e1ec3899aa07903b1b8ad921e8a8249"
+          },
+          {
+            "sceneId": "c08-step1",
+            "sha256": "4726b433c5285a69a64e41f38de1b042db6c8e008a81bdb88640af2095060ba1"
+          },
+          {
+            "sceneId": "c08-step2",
+            "sha256": "6a30607fbfab910f3ed2a66c2c733cb9a9e913ccaf6fb9d8387f804719d8e270"
+          },
+          {
+            "sceneId": "c08-step3",
+            "sha256": "d351eb753b58f943ac62cdefd8b10d19ddfa92aef97f86a97575a6f2c590564d"
+          },
+          {
+            "sceneId": "c08-step4",
+            "sha256": "1598a8a1eb54b912c38b426bdbce1a45b742abed2818df8ffdc86db9591f16cc"
+          },
+          {
+            "sceneId": "c08-step5",
+            "sha256": "7ba164eb2f1583460d79244fd06b63acdd6234ec66fa2d51bf821cee54deef97"
+          },
+          {
+            "sceneId": "c08-summary",
+            "sha256": "47c6b606ecd17f917f3467f962ae8401c268fa87616f69508a277d30c4c5b78b"
+          },
+          {
+            "sceneId": "c09-title",
+            "sha256": "4f4827370fcd6108eb2f2995ffe1479edb247f01f85ea2f68b16b24a2d89b541"
+          },
+          {
+            "sceneId": "c09-premise",
+            "sha256": "c58dde8e53a5f22f7983c50f2a9ac71ef231e7d1f432f303eea1e058e655ee32"
+          },
+          {
+            "sceneId": "c09-nagare",
+            "sha256": "d5a170e00910ffe302ac56aae102f2128fd1a732f3f795576016ff0cba08221e"
+          },
+          {
+            "sceneId": "c09-kadai",
+            "sha256": "31827bec86a664de12e4d2c81390482163a18f046c2149f0a20cfc02497143ed"
+          },
+          {
+            "sceneId": "c09-doko",
+            "sha256": "d4d5561cca5ff8f13ace46fd773897d86d7e79e9802945c6f2b3c5249091320e"
+          },
+          {
+            "sceneId": "c09-concrete",
+            "sha256": "d7f5bbad554617dcc37f5ff6ce540857457ddf3928e00a48712175366b1fe8b3"
+          },
+          {
+            "sceneId": "c09-taio",
+            "sha256": "ceab5ca5a11e56b9a8ec737cce3b736f5bd79587529985e1d26557ab80f6a2bf"
+          },
+          {
+            "sceneId": "c09-summary",
+            "sha256": "2cbd1327720e584ab61663d6fc42122d7cec368d142fac2c4a5f56093e3112a1"
+          },
+          {
+            "sceneId": "c10-title",
+            "sha256": "5e5a9a4ea6dccd16dee51aa0f879e9b10b863fe34b16763ad6584b8683ad43bf"
+          },
+          {
+            "sceneId": "c10-premise",
+            "sha256": "281a46ecdd6f1cfd9705c4470d475004c88a85a8dd308e0cc7033dad47afd86d"
+          },
+          {
+            "sceneId": "c10-nagare",
+            "sha256": "f8474c49f646c343f481c98ef1293737a5be4f5eefcb0bba03561cafaddbadf7"
+          },
+          {
+            "sceneId": "c10-tenko",
+            "sha256": "aa2bea3a25198b147ac3c595c52d355b1e321eb160132838e0ea6b4b39acd284"
+          },
+          {
+            "sceneId": "c10-tetsuzuki",
+            "sha256": "ee275a287c2db4e7a8e906e467d74f4aeeee50fe67e184c1b74793285ae97cb7"
+          },
+          {
+            "sceneId": "c10-kisei",
+            "sha256": "bfd70d11e1bae2e9c9cf7819f8c7688af95321d8936afdc318abbf90cf55b1df"
+          },
+          {
+            "sceneId": "c10-suuchi",
+            "sha256": "75c44d69eff938dd9ddbf2a1fe4b012fd87102ba37ee81590ca962e3b9fd604a"
+          },
+          {
+            "sceneId": "c10-summary",
+            "sha256": "d9c413ef00038e5a8a957f5f9998c3a3dab1e03a578780ea8154650bc3bc32ae"
+          },
+          {
+            "sceneId": "c11-title",
+            "sha256": "e57c93e1b71b6ae0a2bb69ce2b4b8d78a32b764fff1bae4d39c6cf152486e6b4"
+          },
+          {
+            "sceneId": "c11-premise",
+            "sha256": "fa36c0de9117edbe3a8278d66c570555981863802263183cbbe8b27a32cc3fe1"
+          },
+          {
+            "sceneId": "c11-step1",
+            "sha256": "02d6b6de2173a345bb9a745c0c90c8dc4787a4bd0dcf831c0b485b4412f84c6a"
+          },
+          {
+            "sceneId": "c11-step2",
+            "sha256": "8d3ef7b10540222a73d7a9ab9e8bf8d52896844b5d0bf1a2dbe73c15abe8f838"
+          },
+          {
+            "sceneId": "c11-step3",
+            "sha256": "fa6719f56675cb4ed91720ddc116bfb82a06facfb6504bec01a682578d9bf2c9"
+          },
+          {
+            "sceneId": "c11-step4",
+            "sha256": "5b78fe2e2d5c2527355df6aa60f8f1815c57bd9b324817cbeaa5a1d0e682df42"
+          },
+          {
+            "sceneId": "c11-summary",
+            "sha256": "d33cd340bb84b5b29a9f146d8c556678f841e561d9501088e62ea546d5175020"
+          },
+          {
+            "sceneId": "c12-title",
+            "sha256": "812080ed112cff39693b0a3770763b189d936126aa0069faea083f74811bf438"
+          },
+          {
+            "sceneId": "c12-premise",
+            "sha256": "9b542c6e9a4ec5078aeed2c1a03fe3f2333278cc705f590a2a55b0aee4aaf59d"
+          },
+          {
+            "sceneId": "c12-cause1",
+            "sha256": "779d79096709d5b237f5cbb21fa1808c4186593e4a2181c4a95ae0d1fa408eb2"
+          },
+          {
+            "sceneId": "c12-cause2",
+            "sha256": "a11e53d7074b955a653053f8fdb54e70c05fcc6376cf491b5c3a629c8028f4b8"
+          },
+          {
+            "sceneId": "c12-cause3",
+            "sha256": "4b6df909e82c22544b4bc7b0f45d2aacddca544c190c7398395a7480bfb85530"
+          },
+          {
+            "sceneId": "c12-summary",
+            "sha256": "49062582b094fefbec91cf6cc6478179d75c98a984fe5242053325824f7ee437"
+          },
+          {
+            "sceneId": "c13-title",
+            "sha256": "4c421b98333376510e9ed917e0b113d17c875288aa9a0a7192ddc5187d6d66e6"
+          },
+          {
+            "sceneId": "c13-premise",
+            "sha256": "74b04f42247d0d5ddcca032f2cc0f247a8691765df413bd8c867480e1fdee3c4"
+          },
+          {
+            "sceneId": "c13-taisai",
+            "sha256": "2ca265e8c885a19e7ebab4f7243e1b6f3b059b47167d81eefcd15fa7dec5f54e"
+          },
+          {
+            "sceneId": "c13-kaigyo",
+            "sha256": "51f3830b0021e9f20133187ab437cce382153f17a86edb919e6ddb7e6f3f02c8"
+          },
+          {
+            "sceneId": "c13-zure",
+            "sha256": "0a5a8593f4901d78b4f48a1e53490bb661307b72ba7fd1cce16d5b9c436234c2"
+          },
+          {
+            "sceneId": "c13-tsutawaranai",
+            "sha256": "525e480dc1c53e9c60e5bac6a41b427009ea586f169d3d34fa95fd0bff8affb5"
+          },
+          {
+            "sceneId": "c13-summary",
+            "sha256": "ae5bedc7bad8f8bb0f2ca24eea84065df282ad8b89090b2bd41d55215114f940"
+          },
+          {
+            "sceneId": "c14-title",
+            "sha256": "8ed946a3d1758d2b66e3fde90a5ad40bff01982fa88039c5d237477233f2fc5d"
+          },
+          {
+            "sceneId": "c14-premise",
+            "sha256": "1e4626a4cbe2b309999e365dd543f66ca0bd59198d7a79196b73c97f92b516eb"
+          },
+          {
+            "sceneId": "c14-level",
+            "sha256": "e5b9698a08d55360e8ef1a0593b7eab9a845e1da3e85f10a5bfbae8a70f5202f"
+          },
+          {
+            "sceneId": "c14-kata",
+            "sha256": "7a131cdefe2b10ab1ed694f0bd85216dea5ec2d37f95c43e6ef3ba397ba8ba44"
+          },
+          {
+            "sceneId": "c14-kanten",
+            "sha256": "0dce13f66534f80184322a88cb652224a2d1bdd320273e4cbe57fe5ab2288839"
+          },
+          {
+            "sceneId": "c14-taisho",
+            "sha256": "ece6f41eed9a75d9cdddd59a46bd33ea281b65d88fc757c7208a992a8c91a645"
+          },
+          {
+            "sceneId": "c14-check",
+            "sha256": "414c583ee80cc956cf0373303ac0b8910c91585f0a8da308ea41d0c3949b6947"
+          },
+          {
+            "sceneId": "c14-summary",
+            "sha256": "904925f040c55d636efb3a8ffdc49f7496509e7f30ace6994d1fb5aca1e6f8d6"
+          },
+          {
+            "sceneId": "c15-title",
+            "sha256": "f25a889e517badafc7f09d99d6cab92eecbeadcb53b7f988f1b0b9041ba79e0c"
+          },
+          {
+            "sceneId": "c15-premise",
+            "sha256": "c46dabf390d187f0ce3b742e18d7e28e2a3089d191d3e85918c2c4ec45016cfc"
+          },
+          {
+            "sceneId": "c15-fields",
+            "sha256": "3661054dc4e7ae388aa5024303adc4140fd966b5bb385c9e3f5966614ba6b1af"
+          },
+          {
+            "sceneId": "c15-pattern1",
+            "sha256": "2f45573bfd2925f712d988b40b3b5fc2b643b8e7f624f6a09c50742ca3234189"
+          },
+          {
+            "sceneId": "c15-pattern2",
+            "sha256": "48475ecf164683c2bfc0f439c48972c0804a145646d4b1d6d768ee36df3c1b8c"
+          },
+          {
+            "sceneId": "c15-pattern3",
+            "sha256": "c8344fff94055f1bcdcae90af07d672a4e2c0d92a094114978dfa025bfad0796"
+          },
+          {
+            "sceneId": "c15-summary",
+            "sha256": "f7e4da8841ee8996683ab4393baa60785a626bcdf419eb35c6dd25a391ad38c5"
+          },
+          {
+            "sceneId": "cta",
+            "sha256": "fe3f5ad6541f3de5d8f2b49511cc6fa0ba809e7606cfb49157949c3c662a0940"
+          }
+        ],
+        "screenshots": ".tmp/video-redesign/browser-01.jpg〜browser-33.jpg（作業確認用）",
+        "storageVerification": {
+          "status": "vault-and-cloud-verified",
+          "checkedFiles": 403,
+          "mismatches": 0,
+          "method": "vault SHA-256 / cloud MD5",
+          "audioAndVideoRegistryUnchanged": true
+        }
       }
     }
   }

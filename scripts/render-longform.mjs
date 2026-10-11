@@ -31,6 +31,7 @@ import { narrationInput, reusableNarration, sha256 } from './lib/video-narration
 import { renderYoutubeCover, validateCoverDesign } from './lib/youtube-cover.mjs';
 import { readVideoCta } from './lib/video-cta.mjs';
 import { renderCharacterFrame } from './lib/character-framing.mjs';
+import { buildEditorialArtwork } from './lib/video-editorial-art.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -151,6 +152,20 @@ async function main() {
       const cover = await renderYoutubeCover(ROOT, coverSpec);
       writeFileSync(pngPath, cover.buffer);
       writeFileSync(join(outDir, 'cover-provenance.json'), JSON.stringify(cover.provenance, null, 2) + '\n');
+    } else if (scene.visual?.art) {
+      const source = scene.visual.art.source;
+      if (source) {
+        const sourcePath = resolve(ROOT, source);
+        if (relative(ROOT, sourcePath).startsWith('..') || !existsSync(sourcePath)) {
+          throw new Error(`画像設計のサイト図解が参照できません: ${source}`);
+        }
+      }
+      const svg = buildEditorialArtwork(scene);
+      writeFileSync(join(imgDir, `${pad}-${scene.sceneId}.svg`), svg);
+      writeFileSync(pngPath, new Resvg(svg, { font: {
+        fontFiles: [resolve(FONT_DIR, 'NotoSansJP-Bold.ttf')],
+        loadSystemFonts: false, defaultFontFamily: 'Noto Sans JP',
+      } }).render().asPng());
     } else if (scene.sceneId === 'cta' && cta) {
       writeFileSync(pngPath, cta.buffer);
       writeFileSync(join(outDir, 'cta-provenance.json'), JSON.stringify(cta.provenance, null, 2) + '\n');

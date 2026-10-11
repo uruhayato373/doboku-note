@@ -53,3 +53,15 @@ test('設計尺は字数÷実測の読み上げ速度（最短2秒・0.1秒単�
   assert.equal(estimateSceneSec('あ'.repeat(60)), Math.ceil((60 / CHARS_PER_SEC) * 10) / 10);
   assert.equal(estimateSceneSec('短い'), 2);
 });
+
+test('総まとめの画像差し替えは音声・字幕・尺を変えず、元パックにも影響しない', () => {
+  const before = assembleCompilation(spec, (id) => packs[id]).storyboard;
+  const override = { heading: '図で確認', items: ['土工'], art: { type: 'focus' } };
+  const after = assembleCompilation({ ...spec, visuals: { 'c01-premise': override } }, (id) => packs[id]).storyboard;
+  assert.deepEqual(after.scenes.map(s => ({ ...s, visual: undefined })), before.scenes.map(s => ({ ...s, visual: undefined })));
+  assert.deepEqual(after.scenes[2].visual, override);
+  after.scenes[2].visual.items.push('changed');
+  assert.equal(override.items.length, 1);
+  assert.equal(packs.a.storyboard.scenes[1].visual.heading, '前提');
+  assert.throws(() => assembleCompilation({ ...spec, visuals: { missing: override } }, (id) => packs[id]), /missing/);
+});

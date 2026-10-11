@@ -1,43 +1,1885 @@
 {
   "schemaVersion": 1,
-  "_doc": "総まとめ（聞き流し）の正本。元パックの場面は写さず、npm run build-video-compilation が storyboard.json を生成する（scripts/lib/video-compilation.mjs）。型の状態は config/youtube-formats.json の compilation、1本目の進行は backlog DN-0599。",
-  "dropSceneIds": ["cover", "cta"],
+  "_doc": "総まとめの正本。元パックから語りを読み、visuals[sceneId]でこの作品専用の画像設計だけを置き換える。音声・字幕の原稿は置換しない。",
+  "dropSceneIds": [
+    "cover",
+    "cta"
+  ],
   "opening": {
     "narration": "2級土木の直前総まとめです。第一次の5分野と第二次の記述を、聞き流しで確かめます。",
     "caption": "2級土木 直前総まとめ（聞き流し）",
-    "visual": { "kind": "cover", "heading": "2級土木 直前総まとめ", "items": ["第一次の頻出点・第二次の記述を聞き流しで"] }
+    "visual": {
+      "kind": "cover",
+      "heading": "2級土木 直前総まとめ",
+      "items": [
+        "第一次の頻出点・第二次の記述を聞き流しで"
+      ]
+    }
   },
   "parts": [
     {
       "label": "第一次検定",
       "chapters": [
-        { "packId": "gakka-2kyu-doko", "title": "土工" },
-        { "packId": "gakka-2kyu-concrete", "title": "コンクリート" },
-        { "packId": "gakka-2kyu-kiso", "title": "基礎工" },
-        { "packId": "gakka-2kyu-hoki", "title": "法規" },
-        { "packId": "gakka-2kyu-sekokeikaku", "title": "施工計画" },
-        { "packId": "kikinagashi-2kyu-matome", "title": "5分野の総ざらい", "intro": "ここまでの5分野を、もう一度つないで聞き直します。" }
+        {
+          "packId": "gakka-2kyu-doko",
+          "title": "土工"
+        },
+        {
+          "packId": "gakka-2kyu-concrete",
+          "title": "コンクリート"
+        },
+        {
+          "packId": "gakka-2kyu-kiso",
+          "title": "基礎工"
+        },
+        {
+          "packId": "gakka-2kyu-hoki",
+          "title": "法規"
+        },
+        {
+          "packId": "gakka-2kyu-sekokeikaku",
+          "title": "施工計画"
+        },
+        {
+          "packId": "kikinagashi-2kyu-matome",
+          "title": "5分野の総ざらい",
+          "intro": "ここまでの5分野を、もう一度つないで聞き直します。"
+        }
       ]
     },
     {
       "label": "第二次検定",
       "intro": "ここから後半、第二次検定の記述です。評価まで書くかどうかは、その年の設問の指示に合わせてください。",
       "chapters": [
-        { "packId": "keiken-nendo-keiko-2kyu", "title": "出題傾向" },
-        { "packId": "keiken-gaiyo-2kyu", "title": "工事概要の書き方" },
-        { "packId": "keiken-hinshitsu-kakikata", "title": "品質管理の組み立て方" },
-        { "packId": "keiken-kotei-kakikata", "title": "工程管理の組み立て方" },
-        { "packId": "keiken-anzen-2kyu-kakikata", "title": "安全管理の書き方" },
-        { "packId": "anzen-ippanron-3riyu", "title": "安全管理が一般論になる原因" },
-        { "packId": "keiken-genten-kyotsuten", "title": "減点される答案の共通点" },
-        { "packId": "keiken-2kyu-level", "title": "2級で求められる記述レベル" },
-        { "packId": "gakka-kijutsu-2kyu", "title": "学科記述の型" }
+        {
+          "packId": "keiken-nendo-keiko-2kyu",
+          "title": "出題傾向"
+        },
+        {
+          "packId": "keiken-gaiyo-2kyu",
+          "title": "工事概要の書き方"
+        },
+        {
+          "packId": "keiken-hinshitsu-kakikata",
+          "title": "品質管理の組み立て方"
+        },
+        {
+          "packId": "keiken-kotei-kakikata",
+          "title": "工程管理の組み立て方"
+        },
+        {
+          "packId": "keiken-anzen-2kyu-kakikata",
+          "title": "安全管理の書き方"
+        },
+        {
+          "packId": "anzen-ippanron-3riyu",
+          "title": "安全管理が一般論になる原因"
+        },
+        {
+          "packId": "keiken-genten-kyotsuten",
+          "title": "減点される答案の共通点"
+        },
+        {
+          "packId": "keiken-2kyu-level",
+          "title": "2級で求められる記述レベル"
+        },
+        {
+          "packId": "gakka-kijutsu-2kyu",
+          "title": "学科記述の型"
+        }
       ]
     }
   ],
   "closing": {
     "narration": "総まとめは以上です。過去問と経験記述の教材は、概要欄のリンクからまとめて開けます。本番では、落ち着いて一問ずつ確かめてください。",
     "caption": "教材は概要欄のリンクから",
-    "visual": { "kind": "cover", "heading": "過去問と答案で仕上げ", "items": ["一次の過去問・二次の経験記述の教材一覧"] }
+    "visual": {
+      "kind": "cover",
+      "heading": "過去問と答案で仕上げ",
+      "items": [
+        "一次の過去問・二次の経験記述の教材一覧"
+      ]
+    }
+  },
+  "visuals": {
+    "c01-title": {
+      "kind": "points",
+      "heading": "第1章 土工",
+      "items": [
+        "土を調べ、動かし、締める。"
+      ],
+      "art": {
+        "type": "chapter",
+        "section": "第一次検定 / 土工",
+        "number": 1,
+        "title": "土工",
+        "motif": "soil"
+      }
+    },
+    "c01-premise": {
+      "kind": "points",
+      "heading": "用語と目的を、対で覚える",
+      "items": [
+        "土質試験 → 何が分かるか",
+        "土量計算 → LとCの使い分け"
+      ],
+      "art": {
+        "type": "focus",
+        "section": "第一次検定 / 土工"
+      }
+    },
+    "c01-overview": {
+      "kind": "points",
+      "heading": "押さえるテーマは、この4つ",
+      "items": [
+        "土質試験\n何が分かる？",
+        "土量変化率\nどの状態の土量？",
+        "盛土と締固め\n品質をどう確かめる？",
+        "のり面・軟弱地盤\n目的に合う対策は？"
+      ],
+      "art": {
+        "type": "grid",
+        "section": "第一次検定 / 土工"
+      }
+    },
+    "c01-block1": {
+      "kind": "points",
+      "heading": "試験名と「分かること」をつなぐ",
+      "items": [
+        "標準貫入試験→N値・地盤の硬さ",
+        "平板載荷試験→地盤の支持力",
+        "現場CBR試験→路床・路盤の支持力"
+      ],
+      "art": {
+        "type": "mapping",
+        "section": "第一次検定 / 土工"
+      }
+    },
+    "c01-block2": {
+      "kind": "points",
+      "heading": "LもCも、地山を基準にする",
+      "items": [
+        "L（ほぐし率）→運搬土量の計算",
+        "C（締固め率）→盛土の出来上がり計算",
+        "地山100→ほぐし120→締固め90の関係"
+      ],
+      "art": {
+        "type": "diagram",
+        "section": "第一次検定 / 土工",
+        "diagram": "volume",
+        "source": "content/site/civil-construction-2/guide-earthwork-key-points/img/figure-soil-volume-change.svg"
+      }
+    },
+    "c01-block3": {
+      "kind": "points",
+      "heading": "頂点から、2つの値を読む",
+      "items": [
+        "最適含水比付近で施工",
+        "締固め度で品質を確認",
+        "薄い層ごとに締め固める"
+      ],
+      "art": {
+        "type": "diagram",
+        "section": "第一次検定 / 土工",
+        "diagram": "curve",
+        "source": "content/site/civil-construction-2/guide-earthwork-key-points/img/figure-compaction-curve.svg"
+      }
+    },
+    "c01-block4": {
+      "kind": "points",
+      "heading": "目的から、工法を選ぶ",
+      "items": [
+        "沈下を促進する→圧密排水工法",
+        "緩い砂を密にする→締固め工法",
+        "軟弱層を取り除く→置換工法"
+      ],
+      "art": {
+        "type": "mapping",
+        "section": "第一次検定 / 土工",
+        "source": "content/site/civil-construction-2/guide-earthwork-key-points/img/figure-soft-ground-methods.svg"
+      }
+    },
+    "c01-summary": {
+      "kind": "points",
+      "heading": "土工｜押さえたこと",
+      "items": [
+        "試験は目的で対応づける",
+        "LとCの使い分けを外さない",
+        "締固めは指標で管理",
+        "対策工法は目的から逆引き"
+      ],
+      "art": {
+        "type": "recap",
+        "section": "第一次検定 / 土工"
+      }
+    },
+    "c02-title": {
+      "kind": "points",
+      "heading": "第2章 コンクリート",
+      "items": [
+        "第一次検定"
+      ],
+      "art": {
+        "type": "chapter",
+        "section": "第一次検定 / コンクリート",
+        "number": 2,
+        "title": "コンクリート"
+      }
+    },
+    "c02-premise": {
+      "kind": "points",
+      "heading": "品質と施工性は、指標を分ける",
+      "items": [
+        "水セメント比\n強度・耐久性の指標",
+        "スランプ\n施工性の指標"
+      ],
+      "art": {
+        "type": "compare",
+        "section": "第一次検定 / コンクリート",
+        "note": "単位水量・混和剤なども調整して、両立させる"
+      }
+    },
+    "c02-overview": {
+      "kind": "points",
+      "heading": "コンクリートを4つに分ける",
+      "items": [
+        "材料",
+        "配合とスランプ",
+        "打込み・締固め・養生",
+        "ひび割れ"
+      ],
+      "art": {
+        "type": "grid",
+        "section": "第一次検定 / コンクリート"
+      }
+    },
+    "c02-block1": {
+      "kind": "points",
+      "heading": "混和「剤」と混和「材」を区別",
+      "items": [
+        "混和剤\n容積に算入しない\nAE剤・減水剤など",
+        "混和材\n容積に算入する\nフライアッシュなど"
+      ],
+      "art": {
+        "type": "compare",
+        "section": "第一次検定 / コンクリート",
+        "note": "骨材の配合は、表面乾燥飽水状態を基準にする"
+      }
+    },
+    "c02-block2": {
+      "kind": "points",
+      "heading": "必要な性能と、その指標",
+      "items": [
+        "強度・耐久性→水セメント比",
+        "施工性→スランプ"
+      ],
+      "art": {
+        "type": "mapping",
+        "section": "第一次検定 / コンクリート",
+        "note": "単位水量・混和剤などを調整して、必要な流動性を確保"
+      }
+    },
+    "c02-block3": {
+      "kind": "points",
+      "heading": "打重ね時間内に、次の層を打つ",
+      "items": [
+        "バイブレータは鉛直挿入",
+        "横移動の手段にしない",
+        "湿潤状態を保って養生"
+      ],
+      "art": {
+        "type": "diagram",
+        "section": "第一次検定 / コンクリート",
+        "diagram": "coldjoint",
+        "source": "content/site/civil-construction-2/guide-concrete-key-points/img/figure-cold-joint.svg"
+      }
+    },
+    "c02-block4": {
+      "kind": "points",
+      "heading": "ひび割れは、原因ごとに対策",
+      "items": [
+        "乾燥収縮\n単位水量を抑える\n適切な養生",
+        "温度ひび割れ\nセメントの種類・量\n打込み温度を管理"
+      ],
+      "art": {
+        "type": "compare",
+        "section": "第一次検定 / コンクリート"
+      }
+    },
+    "c02-summary": {
+      "kind": "points",
+      "heading": "コンクリート｜押さえたこと",
+      "items": [
+        "混和剤・混和材を区別",
+        "配合は品質と施工性を両立",
+        "打込み・養生は手順",
+        "ひび割れは原因と対策"
+      ],
+      "art": {
+        "type": "recap",
+        "section": "第一次検定 / コンクリート"
+      }
+    },
+    "c03-title": {
+      "kind": "points",
+      "heading": "第3章 基礎工",
+      "items": [
+        "第一次検定"
+      ],
+      "art": {
+        "type": "chapter",
+        "section": "第一次検定 / 基礎工",
+        "number": 3,
+        "title": "基礎工"
+      }
+    },
+    "c03-premise": {
+      "kind": "points",
+      "heading": "工法名より、地盤条件との対応",
+      "items": [
+        "どこに支持層がある？",
+        "何で孔壁を保護する？"
+      ],
+      "art": {
+        "type": "focus",
+        "section": "第一次検定 / 基礎工"
+      }
+    },
+    "c03-overview": {
+      "kind": "points",
+      "heading": "基礎工の5つの柱",
+      "items": [
+        "分類",
+        "直接基礎",
+        "杭基礎",
+        "ケーソン基礎",
+        "土留めと破壊現象"
+      ],
+      "art": {
+        "type": "grid",
+        "section": "第一次検定 / 基礎工"
+      }
+    },
+    "c03-block1": {
+      "kind": "points",
+      "heading": "支持層の深さで、基礎を選ぶ",
+      "items": [
+        "浅い→直接基礎",
+        "深い→杭基礎・ケーソン基礎"
+      ],
+      "art": {
+        "type": "diagram",
+        "section": "第一次検定 / 基礎工",
+        "diagram": "foundation",
+        "source": "content/site/civil-construction-2/guide-foundation-key-points/img/figure-foundation-type-by-depth.svg"
+      }
+    },
+    "c03-block2": {
+      "kind": "points",
+      "heading": "直接基礎の支持層を確認",
+      "items": [
+        "30程度以上\n砂・砂礫のN値",
+        "20程度以上\n粘性土のN値"
+      ],
+      "art": {
+        "type": "numbers",
+        "section": "第一次検定 / 基礎工",
+        "note": "支持地盤を乱さず、均しコンクリートで保護"
+      }
+    },
+    "c03-block3": {
+      "kind": "points",
+      "heading": "場所打ち杭は、孔壁の保護で区別",
+      "items": [
+        "支持杭：先端で支える",
+        "摩擦杭：周面摩擦で支える"
+      ],
+      "art": {
+        "type": "diagram",
+        "section": "第一次検定 / 基礎工",
+        "diagram": "piles",
+        "source": "content/site/civil-construction-2/guide-foundation-key-points/img/figure-bored-pile-wall-protection.svg"
+      }
+    },
+    "c03-block4": {
+      "kind": "points",
+      "heading": "ケーソンは、作業方法で区別",
+      "items": [
+        "オープン\n水中で掘削\n底面の確認が難しい",
+        "ニューマチック\n圧気下で作業\n底面を直接確認"
+      ],
+      "art": {
+        "type": "compare",
+        "section": "第一次検定 / 基礎工",
+        "note": "ニューマチックケーソンは施工深さに制限"
+      }
+    },
+    "c03-block5": {
+      "kind": "points",
+      "heading": "底面が壊れる仕組みを区別",
+      "items": [
+        "ヒービング→軟弱粘性土で底面が盛り上がる",
+        "ボイリング→砂質地盤＋地下水で砂が湧く",
+        "対策：根入れ確保・地下水位低下"
+      ],
+      "art": {
+        "type": "diagram",
+        "section": "第一次検定 / 基礎工",
+        "diagram": "excavation",
+        "source": "content/site/civil-construction-2/guide-foundation-key-points/img/figure-excavation-bottom-failure.svg"
+      }
+    },
+    "c03-summary": {
+      "kind": "points",
+      "heading": "基礎工｜押さえたこと",
+      "items": [
+        "分類：\n支持層の深さ",
+        "直接基礎：N値",
+        "杭：孔壁の保護",
+        "ケーソン：\n作業方法",
+        "破壊：地盤条件"
+      ],
+      "art": {
+        "type": "recap",
+        "section": "第一次検定 / 基礎工"
+      }
+    },
+    "c04-title": {
+      "kind": "points",
+      "heading": "第4章 法規",
+      "items": [
+        "第一次検定"
+      ],
+      "art": {
+        "type": "chapter",
+        "section": "第一次検定 / 法規",
+        "number": 4,
+        "title": "法規"
+      }
+    },
+    "c04-premise": {
+      "kind": "points",
+      "heading": "法規は「数値・配置・手続き」",
+      "items": [
+        "労働基準法・労働安全衛生法",
+        "建設業法を優先して確認"
+      ],
+      "art": {
+        "type": "focus",
+        "section": "第一次検定 / 法規"
+      }
+    },
+    "c04-overview": {
+      "kind": "points",
+      "heading": "法規の4つの柱",
+      "items": [
+        "労働基準法",
+        "労働安全衛生法",
+        "建設業法",
+        "道路・河川・騒音振動"
+      ],
+      "art": {
+        "type": "grid",
+        "section": "第一次検定 / 法規"
+      }
+    },
+    "c04-block1": {
+      "kind": "points",
+      "heading": "労働時間の原則を押さえる",
+      "items": [
+        "8時間\n1日",
+        "40時間\n1週"
+      ],
+      "art": {
+        "type": "numbers",
+        "section": "第一次検定 / 法規",
+        "note": "18歳未満は就業制限。賃金は毎月1回以上・全額を通貨で"
+      }
+    },
+    "c04-block2": {
+      "kind": "points",
+      "heading": "作業と現場体制で、選任を確認",
+      "items": [
+        "対象となる危険作業→作業主任者",
+        "混在する現場の統括→統括安全衛生責任者"
+      ],
+      "art": {
+        "type": "mapping",
+        "section": "第一次検定 / 法規",
+        "note": "対象作業・規模などの選任要件を確認する"
+      }
+    },
+    "c04-block3": {
+      "kind": "points",
+      "heading": "配置と施工体制を整理する",
+      "items": [
+        "主任技術者→現場に必ず配置",
+        "一定規模以上→監理技術者が必要",
+        "施工体制台帳は下請の体制を書面化"
+      ],
+      "art": {
+        "type": "diagram",
+        "section": "第一次検定 / 法規",
+        "diagram": "organization",
+        "source": "content/site/civil-construction-2/guide-law-key-points/img/figure-construction-system.svg"
+      }
+    },
+    "c04-block4": {
+      "kind": "points",
+      "heading": "許可と届出を、分けて覚える",
+      "items": [
+        "道路の占用→許可",
+        "河川区域内の工事→許可",
+        "特定建設作業→事前届出"
+      ],
+      "art": {
+        "type": "mapping",
+        "section": "第一次検定 / 法規",
+        "source": "content/site/civil-construction-2/guide-law-key-points/img/figure-permit-vs-notification.svg"
+      }
+    },
+    "c04-summary": {
+      "kind": "points",
+      "heading": "法規｜押さえたこと",
+      "items": [
+        "労基法は数字で覚える",
+        "労安法は選任の要否",
+        "建設業法は技術者配置",
+        "許可と届出の区別"
+      ],
+      "art": {
+        "type": "recap",
+        "section": "第一次検定 / 法規"
+      }
+    },
+    "c05-title": {
+      "kind": "points",
+      "heading": "第5章 施工計画",
+      "items": [
+        "第一次検定"
+      ],
+      "art": {
+        "type": "chapter",
+        "section": "第一次検定 / 施工計画",
+        "number": 5,
+        "title": "施工計画"
+      }
+    },
+    "c05-premise": {
+      "kind": "points",
+      "heading": "施工計画が、各分野をつなぐ",
+      "items": [
+        "現場条件を調べる",
+        "施工方法と管理方法を決める"
+      ],
+      "art": {
+        "type": "focus",
+        "section": "第一次検定 / 施工計画"
+      }
+    },
+    "c05-overview": {
+      "kind": "points",
+      "heading": "施工計画の4つの柱",
+      "items": [
+        "作成手順",
+        "事前調査",
+        "施工計画書の内容",
+        "工程・仮設備計画"
+      ],
+      "art": {
+        "type": "grid",
+        "section": "第一次検定 / 施工計画"
+      }
+    },
+    "c05-block1": {
+      "kind": "points",
+      "heading": "施工計画は、この順序で具体化",
+      "items": [
+        "事前調査",
+        "基本計画",
+        "詳細計画",
+        "管理計画"
+      ],
+      "art": {
+        "type": "steps",
+        "section": "第一次検定 / 施工計画"
+      }
+    },
+    "c05-block2": {
+      "kind": "points",
+      "heading": "現場条件は、2つの視点で確認",
+      "items": [
+        "自然条件\n地形・地質・気象",
+        "立地条件\n搬入路・近接構造物\n環境上の制約"
+      ],
+      "art": {
+        "type": "compare",
+        "section": "第一次検定 / 施工計画",
+        "source": "content/site/civil-construction-2/guide-construction-plan-key-points/img/figure-preliminary-survey.svg",
+        "note": "現地踏査でしか分からない条件もある"
+      }
+    },
+    "c05-block3": {
+      "kind": "points",
+      "heading": "施工計画書は、管理の設計図",
+      "items": [
+        "工事概要・計画工程表",
+        "現場組織表・使用機械",
+        "品質・安全・環境・交通の管理計画"
+      ],
+      "art": {
+        "type": "sheet",
+        "section": "第一次検定 / 施工計画"
+      }
+    },
+    "c05-block4": {
+      "kind": "points",
+      "heading": "作業可能日数から、工程を組む",
+      "items": [
+        "仮設備は撤去まで計画",
+        "指定仮設：発注者が指定",
+        "任意仮設：施工者が計画"
+      ],
+      "art": {
+        "type": "diagram",
+        "section": "第一次検定 / 施工計画",
+        "diagram": "days",
+        "source": "content/site/civil-construction-2/guide-construction-plan-key-points/img/figure-workable-days.svg"
+      }
+    },
+    "c05-summary": {
+      "kind": "points",
+      "heading": "施工計画｜押さえたこと",
+      "items": [
+        "作成手順は4段階",
+        "事前調査は自然条件と立地条件",
+        "計画書は記載項目",
+        "工程・仮設備は区別が肝心"
+      ],
+      "art": {
+        "type": "recap",
+        "section": "第一次検定 / 施工計画"
+      }
+    },
+    "c06-title": {
+      "kind": "points",
+      "heading": "第6章 5分野の総ざらい",
+      "items": [
+        "第一次検定"
+      ],
+      "art": {
+        "type": "chapter",
+        "section": "第一次検定 / 5分野の総ざらい",
+        "number": 6,
+        "title": "5分野の総ざらい"
+      }
+    },
+    "c06-soil-tests": {
+      "kind": "points",
+      "heading": "試験名と「分かること」をつなぐ",
+      "items": [
+        "標準貫入試験→N値・地盤の硬さ",
+        "平板載荷試験→地盤の支持力",
+        "現場CBR試験→路床・路盤の支持力"
+      ],
+      "art": {
+        "type": "mapping",
+        "section": "第一次検定 / 5分野の復習",
+        "recap": true
+      }
+    },
+    "c06-soil-volume": {
+      "kind": "points",
+      "heading": "LもCも、地山を基準にする",
+      "items": [
+        "L（ほぐし率）→運搬土量の計算",
+        "C（締固め率）→盛土の出来上がり計算",
+        "地山100→ほぐし120→締固め90の関係"
+      ],
+      "art": {
+        "type": "diagram",
+        "section": "第一次検定 / 5分野の復習",
+        "diagram": "volume",
+        "source": "content/site/civil-construction-2/guide-earthwork-key-points/img/figure-soil-volume-change.svg",
+        "recap": true
+      }
+    },
+    "c06-compaction": {
+      "kind": "points",
+      "heading": "頂点から、2つの値を読む",
+      "items": [
+        "最適含水比付近で施工",
+        "締固め度で品質を確認",
+        "薄い層ごとに締め固める"
+      ],
+      "art": {
+        "type": "diagram",
+        "section": "第一次検定 / 5分野の復習",
+        "diagram": "curve",
+        "source": "content/site/civil-construction-2/guide-earthwork-key-points/img/figure-compaction-curve.svg",
+        "recap": true
+      }
+    },
+    "c06-soft-ground": {
+      "kind": "points",
+      "heading": "目的から、工法を選ぶ",
+      "items": [
+        "沈下を促進する→圧密排水工法",
+        "緩い砂を密にする→締固め工法",
+        "軟弱層を取り除く→置換工法"
+      ],
+      "art": {
+        "type": "mapping",
+        "section": "第一次検定 / 5分野の復習",
+        "source": "content/site/civil-construction-2/guide-earthwork-key-points/img/figure-soft-ground-methods.svg",
+        "recap": true
+      }
+    },
+    "c06-concrete-materials": {
+      "kind": "points",
+      "heading": "混和「剤」と混和「材」を区別",
+      "items": [
+        "混和剤\n容積に算入しない\nAE剤・減水剤など",
+        "混和材\n容積に算入する\nフライアッシュなど"
+      ],
+      "art": {
+        "type": "compare",
+        "section": "第一次検定 / 5分野の復習",
+        "note": "骨材の配合は、表面乾燥飽水状態を基準にする",
+        "recap": true
+      }
+    },
+    "c06-mix-design": {
+      "kind": "points",
+      "heading": "必要な性能と、その指標",
+      "items": [
+        "強度・耐久性→水セメント比",
+        "施工性→スランプ"
+      ],
+      "art": {
+        "type": "mapping",
+        "section": "第一次検定 / 5分野の復習",
+        "note": "単位水量・混和剤などを調整して、必要な流動性を確保",
+        "recap": true
+      }
+    },
+    "c06-placing": {
+      "kind": "points",
+      "heading": "打重ね時間内に、次の層を打つ",
+      "items": [
+        "バイブレータは鉛直挿入",
+        "横移動の手段にしない",
+        "湿潤状態を保って養生"
+      ],
+      "art": {
+        "type": "diagram",
+        "section": "第一次検定 / 5分野の復習",
+        "diagram": "coldjoint",
+        "source": "content/site/civil-construction-2/guide-concrete-key-points/img/figure-cold-joint.svg",
+        "recap": true
+      }
+    },
+    "c06-curing-crack": {
+      "kind": "points",
+      "heading": "ひび割れは、原因ごとに対策",
+      "items": [
+        "乾燥収縮\n単位水量を抑える\n適切な養生",
+        "温度ひび割れ\nセメントの種類・量\n打込み温度を管理"
+      ],
+      "art": {
+        "type": "compare",
+        "section": "第一次検定 / 5分野の復習",
+        "recap": true
+      }
+    },
+    "c06-foundation-types": {
+      "kind": "points",
+      "heading": "支持層の深さで、基礎を選ぶ",
+      "items": [
+        "浅い→直接基礎",
+        "深い→杭基礎・ケーソン基礎"
+      ],
+      "art": {
+        "type": "diagram",
+        "section": "第一次検定 / 5分野の復習",
+        "diagram": "foundation",
+        "source": "content/site/civil-construction-2/guide-foundation-key-points/img/figure-foundation-type-by-depth.svg",
+        "recap": true
+      }
+    },
+    "c06-bearing-layer": {
+      "kind": "points",
+      "heading": "直接基礎の支持層を確認",
+      "items": [
+        "30程度以上\n砂・砂礫のN値",
+        "20程度以上\n粘性土のN値"
+      ],
+      "art": {
+        "type": "numbers",
+        "section": "第一次検定 / 5分野の復習",
+        "note": "支持地盤を乱さず、均しコンクリートで保護",
+        "recap": true
+      }
+    },
+    "c06-bored-pile": {
+      "kind": "points",
+      "heading": "場所打ち杭は、孔壁の保護で区別",
+      "items": [
+        "支持杭：先端で支える",
+        "摩擦杭：周面摩擦で支える"
+      ],
+      "art": {
+        "type": "diagram",
+        "section": "第一次検定 / 5分野の復習",
+        "diagram": "piles",
+        "source": "content/site/civil-construction-2/guide-foundation-key-points/img/figure-bored-pile-wall-protection.svg",
+        "recap": true
+      }
+    },
+    "c06-retaining-wall": {
+      "kind": "points",
+      "heading": "底面が壊れる仕組みを区別",
+      "items": [
+        "ヒービング→軟弱粘性土で底面が盛り上がる",
+        "ボイリング→砂質地盤＋地下水で砂が湧く",
+        "対策：根入れ確保・地下水位低下"
+      ],
+      "art": {
+        "type": "diagram",
+        "section": "第一次検定 / 5分野の復習",
+        "diagram": "excavation",
+        "source": "content/site/civil-construction-2/guide-foundation-key-points/img/figure-excavation-bottom-failure.svg",
+        "recap": true
+      }
+    },
+    "c06-labor-standards": {
+      "kind": "points",
+      "heading": "労働時間の原則を押さえる",
+      "items": [
+        "8時間\n1日",
+        "40時間\n1週"
+      ],
+      "art": {
+        "type": "numbers",
+        "section": "第一次検定 / 5分野の復習",
+        "note": "18歳未満は就業制限。賃金は毎月1回以上・全額を通貨で",
+        "recap": true
+      }
+    },
+    "c06-safety-law": {
+      "kind": "points",
+      "heading": "作業と現場体制で、選任を確認",
+      "items": [
+        "対象となる危険作業→作業主任者",
+        "混在する現場の統括→統括安全衛生責任者"
+      ],
+      "art": {
+        "type": "mapping",
+        "section": "第一次検定 / 5分野の復習",
+        "note": "対象作業・規模などの選任要件を確認する",
+        "recap": true
+      }
+    },
+    "c06-construction-business-law": {
+      "kind": "points",
+      "heading": "配置と施工体制を整理する",
+      "items": [
+        "主任技術者→現場に必ず配置",
+        "一定規模以上→監理技術者が必要",
+        "施工体制台帳は下請の体制を書面化"
+      ],
+      "art": {
+        "type": "diagram",
+        "section": "第一次検定 / 5分野の復習",
+        "diagram": "organization",
+        "source": "content/site/civil-construction-2/guide-law-key-points/img/figure-construction-system.svg",
+        "recap": true
+      }
+    },
+    "c06-road-river-law": {
+      "kind": "points",
+      "heading": "許可と届出を、分けて覚える",
+      "items": [
+        "道路の占用→許可",
+        "河川区域内の工事→許可",
+        "特定建設作業→事前届出"
+      ],
+      "art": {
+        "type": "mapping",
+        "section": "第一次検定 / 5分野の復習",
+        "source": "content/site/civil-construction-2/guide-law-key-points/img/figure-permit-vs-notification.svg",
+        "recap": true
+      }
+    },
+    "c06-planning-steps": {
+      "kind": "points",
+      "heading": "施工計画は、この順序で具体化",
+      "items": [
+        "事前調査",
+        "基本計画",
+        "詳細計画",
+        "管理計画"
+      ],
+      "art": {
+        "type": "steps",
+        "section": "第一次検定 / 5分野の復習",
+        "recap": true
+      }
+    },
+    "c06-preliminary-survey": {
+      "kind": "points",
+      "heading": "事前調査で確かめる条件",
+      "items": [
+        "契約条件\n工期・請負代金など",
+        "自然条件\n地形・地質・気象",
+        "立地条件\n搬入路・近接構造物"
+      ],
+      "art": {
+        "type": "grid",
+        "section": "第一次検定 / 5分野の復習",
+        "source": "content/site/civil-construction-2/guide-construction-plan-key-points/img/figure-preliminary-survey.svg",
+        "note": "現地踏査でしか分からない条件もある",
+        "recap": true
+      }
+    },
+    "c06-construction-plan-doc": {
+      "kind": "points",
+      "heading": "施工計画書は、管理の設計図",
+      "items": [
+        "工事概要・計画工程表",
+        "現場組織表・使用機械",
+        "品質・安全・環境・交通の管理計画"
+      ],
+      "art": {
+        "type": "sheet",
+        "section": "第一次検定 / 5分野の復習",
+        "recap": true
+      }
+    },
+    "c06-schedule-temporary": {
+      "kind": "points",
+      "heading": "作業可能日数から、工程を組む",
+      "items": [
+        "仮設備は撤去まで計画",
+        "指定仮設：発注者が指定",
+        "任意仮設：施工者が計画"
+      ],
+      "art": {
+        "type": "diagram",
+        "section": "第一次検定 / 5分野の復習",
+        "diagram": "days",
+        "source": "content/site/civil-construction-2/guide-construction-plan-key-points/img/figure-workable-days.svg",
+        "recap": true
+      }
+    },
+    "c06-summary": {
+      "kind": "points",
+      "heading": "技術は対応関係、法規は数字",
+      "items": [
+        "土工：試験と目的",
+        "コンクリート：指標と手順",
+        "基礎工：地盤条件と工法",
+        "法規：数値と要件",
+        "施工計画：作成の順序"
+      ],
+      "art": {
+        "type": "recap",
+        "section": "第一次検定 / 5分野の総ざらい"
+      }
+    },
+    "c07-title": {
+      "kind": "points",
+      "heading": "第7章 出題傾向",
+      "items": [
+        "第二次検定"
+      ],
+      "art": {
+        "type": "chapter",
+        "section": "第二次検定 / 出題傾向",
+        "number": 7,
+        "title": "出題傾向"
+      }
+    },
+    "c07-premise": {
+      "kind": "points",
+      "heading": "まず、形式が変わった年を知る",
+      "items": [
+        "令和6年度が形式変更の節目",
+        "安全・品質・工程を準備する"
+      ],
+      "art": {
+        "type": "focus",
+        "section": "第二次検定 / 出題傾向"
+      }
+    },
+    "c07-theme-shift": {
+      "kind": "points",
+      "heading": "令和6年度が、形式の節目",
+      "items": [
+        "R03〜R05\n1テーマ選択\n3項目",
+        "R06〜R07\n2テーマ必答\n各2項目"
+      ],
+      "art": {
+        "type": "timeline",
+        "section": "第二次検定 / 出題傾向"
+      }
+    },
+    "c07-gakka-fields": {
+      "kind": "points",
+      "heading": "学科記述で確認する分野",
+      "items": [
+        "土工",
+        "コンクリート工",
+        "品質管理",
+        "安全管理",
+        "工程管理"
+      ],
+      "art": {
+        "type": "grid",
+        "section": "第二次検定 / 出題傾向"
+      }
+    },
+    "c07-select-format": {
+      "kind": "points",
+      "heading": "選択問題の有無は、年度ごとに確認",
+      "items": [
+        "選択枠あり\n指定された問数を選ぶ",
+        "選択枠なし\n指定された問題に解答"
+      ],
+      "art": {
+        "type": "compare",
+        "section": "第二次検定 / 出題傾向",
+        "note": "その年度の問題文で、解答する範囲を確認"
+      }
+    },
+    "c07-priority": {
+      "kind": "points",
+      "heading": "経験記述と学科記述で、準備を分ける",
+      "items": [
+        "経験記述\n安全・品質・工程\n3管理すべてを準備",
+        "学科記述\n頻出分野から着手\n過去問で範囲を広げる"
+      ],
+      "art": {
+        "type": "compare",
+        "section": "第二次検定 / 出題傾向"
+      }
+    },
+    "c07-summary": {
+      "kind": "points",
+      "heading": "出題傾向｜押さえたこと",
+      "items": [
+        "経験記述は3管理すべてを準備",
+        "学科記述は頻出分野を優先"
+      ],
+      "art": {
+        "type": "recap",
+        "section": "第二次検定 / 出題傾向"
+      }
+    },
+    "c08-title": {
+      "kind": "points",
+      "heading": "第8章 工事概要の書き方",
+      "items": [
+        "第二次検定"
+      ],
+      "art": {
+        "type": "chapter",
+        "section": "第二次検定 / 工事概要の書き方",
+        "number": 8,
+        "title": "工事概要の書き方"
+      }
+    },
+    "c08-premise": {
+      "kind": "points",
+      "heading": "概要と本文を、3本の線でつなぐ",
+      "items": [
+        "工種→管理項目",
+        "施工量→課題の規模",
+        "自分の立場→自分の対応"
+      ],
+      "art": {
+        "type": "mapping",
+        "section": "第二次検定 / 工事概要の書き方"
+      }
+    },
+    "c08-step1": {
+      "kind": "points",
+      "heading": "管理項目に合う工種を選ぶ",
+      "items": [
+        "品質→コンクリート工など",
+        "安全→高所作業・掘削など",
+        "工程→天候・協議の影響を受ける工種"
+      ],
+      "art": {
+        "type": "mapping",
+        "section": "第二次検定 / 工事概要の書き方"
+      }
+    },
+    "c08-step2": {
+      "kind": "points",
+      "heading": "「一式」を、数量で具体化する",
+      "items": [
+        "説明が不足\n護岸工　一式",
+        "具体化した例\n延長120m\n掘削土量1,500m³"
+      ],
+      "art": {
+        "type": "compare",
+        "section": "第二次検定 / 工事概要の書き方",
+        "note": "数値は例。自分が経験した工事の事実に置き換える"
+      }
+    },
+    "c08-step3": {
+      "kind": "points",
+      "heading": "施工量・工期・季節を照合する",
+      "items": [
+        "工期：年月日まで正確に記載",
+        "施工量：工期とのつり合いを確認",
+        "本文：季節と現場条件の整合を確認"
+      ],
+      "art": {
+        "type": "sheet",
+        "section": "第二次検定 / 工事概要の書き方",
+        "note": "工事の選定は、その年の設問の指示に従う"
+      }
+    },
+    "c08-step4": {
+      "kind": "points",
+      "heading": "場所・発注者・立場を明確に",
+      "items": [
+        "場所：町名・地先まで",
+        "発注者：注文者を明記",
+        "立場：実際に担当した役割"
+      ],
+      "art": {
+        "type": "sheet",
+        "section": "第二次検定 / 工事概要の書き方"
+      }
+    },
+    "c08-step5": {
+      "kind": "points",
+      "heading": "本文の課題は、概要からつながるか",
+      "items": [
+        "概要の工種・施工量→本文の技術的課題",
+        "本文に登場する工種→概要にも記載する"
+      ],
+      "art": {
+        "type": "mapping",
+        "section": "第二次検定 / 工事概要の書き方"
+      }
+    },
+    "c08-summary": {
+      "kind": "points",
+      "heading": "工事概要の書き方｜押さえたこと",
+      "items": [
+        "管理項目に工種を合わせる",
+        "施工量を数量で書く",
+        "工期を数量・季節に合わせる",
+        "場所・発注者・立場を詳しく",
+        "本文との一貫チェック"
+      ],
+      "art": {
+        "type": "recap",
+        "section": "第二次検定 / 工事概要の書き方"
+      }
+    },
+    "c09-title": {
+      "kind": "points",
+      "heading": "第9章 品質管理の組み立て方",
+      "items": [
+        "第二次検定"
+      ],
+      "art": {
+        "type": "chapter",
+        "section": "第二次検定 / 品質管理の組み立て方",
+        "number": 9,
+        "title": "品質管理の組み立て方"
+      }
+    },
+    "c09-premise": {
+      "kind": "points",
+      "heading": "規格値だけでは、課題にならない",
+      "items": [
+        "基準の列挙\n規格値を守った",
+        "課題の出発点\n現場条件により\n達成が難しかったこと"
+      ],
+      "art": {
+        "type": "compare",
+        "section": "第二次検定 / 品質管理の組み立て方"
+      }
+    },
+    "c09-nagare": {
+      "kind": "points",
+      "heading": "現場の状況から、対応までつなぐ",
+      "items": [
+        "現場状況",
+        "課題",
+        "検討",
+        "対応処置",
+        "評価"
+      ],
+      "art": {
+        "type": "steps",
+        "section": "第二次検定 / 品質管理の組み立て方",
+        "note": "評価を書くかどうかは、当年の設問要求に合わせる"
+      }
+    },
+    "c09-kadai": {
+      "kind": "points",
+      "heading": "現場条件と規格値の間が、課題",
+      "items": [
+        "現場条件\n軟弱地盤・梅雨\n暑さ・寒さ",
+        "求められる品質\n規格値を満たす\n施工・養生・検査"
+      ],
+      "art": {
+        "type": "compare",
+        "section": "第二次検定 / 品質管理の組み立て方",
+        "note": "達成を妨げる条件を、技術的課題として具体化"
+      }
+    },
+    "c09-doko": {
+      "kind": "points",
+      "heading": "土工の課題から、管理方法へ",
+      "items": [
+        "締固め不足→まき出し厚・密度の確認",
+        "雨水による支持力低下→排水勾配・仮排水路"
+      ],
+      "art": {
+        "type": "mapping",
+        "section": "第二次検定 / 品質管理の組み立て方",
+        "note": "密度の確認：RI計器・砂置換法など"
+      }
+    },
+    "c09-concrete": {
+      "kind": "points",
+      "heading": "温度条件から、対策を考える",
+      "items": [
+        "暑中コンクリート→練混ぜ水冷却・打重ね時間の管理",
+        "寒中コンクリート→保温養生で初期凍害を防止",
+        "アスファルト舗装→運搬から転圧まで温度管理"
+      ],
+      "art": {
+        "type": "mapping",
+        "section": "第二次検定 / 品質管理の組み立て方"
+      }
+    },
+    "c09-taio": {
+      "kind": "points",
+      "heading": "対応処置は「方法＋基準値」で",
+      "items": [
+        "何を測るか：測定方法",
+        "何を満たすか：管理基準の数値",
+        "どうなったか：結果を簡潔に"
+      ],
+      "art": {
+        "type": "sheet",
+        "section": "第二次検定 / 品質管理の組み立て方",
+        "note": "例の転記ではなく、自分の現場の事実で書く"
+      }
+    },
+    "c09-summary": {
+      "kind": "points",
+      "heading": "品質管理の組み立て方｜押さえたこと",
+      "items": [
+        "5要素の流れに品質管理の観点を当てはめる",
+        "課題は現場条件と規格値のギャップから",
+        "対応は数値で\n評価は簡潔に"
+      ],
+      "art": {
+        "type": "recap",
+        "section": "第二次検定 / 品質管理の組み立て方"
+      }
+    },
+    "c10-title": {
+      "kind": "points",
+      "heading": "第10章 工程管理の組み立て方",
+      "items": [
+        "第二次検定"
+      ],
+      "art": {
+        "type": "chapter",
+        "section": "第二次検定 / 工程管理の組み立て方",
+        "number": 10,
+        "title": "工程管理の組み立て方"
+      }
+    },
+    "c10-premise": {
+      "kind": "points",
+      "heading": "遅延の結果だけで終わらせない",
+      "items": [
+        "結果だけ\n工程が遅れた",
+        "検討過程を書く\n何が制約だったか\nどう対応したか"
+      ],
+      "art": {
+        "type": "compare",
+        "section": "第二次検定 / 工程管理の組み立て方",
+        "note": "工事着手前の留意事項が問われる場合もある"
+      }
+    },
+    "c10-nagare": {
+      "kind": "points",
+      "heading": "工程管理も、因果を一本につなぐ",
+      "items": [
+        "現場状況",
+        "課題",
+        "検討",
+        "対応処置",
+        "評価"
+      ],
+      "art": {
+        "type": "steps",
+        "section": "第二次検定 / 工程管理の組み立て方",
+        "note": "評価の要否は、その年度の設問要求に合わせる"
+      }
+    },
+    "c10-tenko": {
+      "kind": "points",
+      "heading": "悪天候を見込み、進捗を追う",
+      "items": [
+        "休工日を工程に見込む",
+        "進捗を継続して確認",
+        "遅延工程をフォローアップ"
+      ],
+      "art": {
+        "type": "diagram",
+        "section": "第二次検定 / 工程管理の組み立て方",
+        "diagram": "days",
+        "source": "content/site/civil-construction-2/guide-construction-plan-key-points/img/figure-workable-days.svg"
+      }
+    },
+    "c10-tetsuzuki": {
+      "kind": "points",
+      "heading": "手続き・支障物は、先回りする",
+      "items": [
+        "支障を把握",
+        "先行手続き",
+        "代替案を比較",
+        "施工順序を調整"
+      ],
+      "art": {
+        "type": "steps",
+        "section": "第二次検定 / 工程管理の組み立て方",
+        "note": "埋設物・迂回・夜間施工など、現場条件で比較する"
+      }
+    },
+    "c10-kisei": {
+      "kind": "points",
+      "heading": "全体工期を決める経路に着目",
+      "items": [
+        "規制時間内に完了する手順",
+        "増班・機械増強・並行作業",
+        "最長経路への効果を確認"
+      ],
+      "art": {
+        "type": "diagram",
+        "section": "第二次検定 / 工程管理の組み立て方",
+        "diagram": "network",
+        "source": "content/site/civil-construction-2/guide-schedule-management/img/figure-critical-path.svg"
+      }
+    },
+    "c10-suuchi": {
+      "kind": "points",
+      "heading": "対応を、日数・台数・班数で示す",
+      "items": [
+        "日数\nいつまでに",
+        "台数\nどの機械を",
+        "班数\nどの体制で"
+      ],
+      "art": {
+        "type": "numbers",
+        "section": "第二次検定 / 工程管理の組み立て方",
+        "note": "結果は「工期内完了」など簡潔に。数値は実際の事実"
+      }
+    },
+    "c10-summary": {
+      "kind": "points",
+      "heading": "工程管理の組み立て方｜押さえたこと",
+      "items": [
+        "5要素の流れに工程管理の観点を当てはめる",
+        "遅延原因の型：天候／手続き・支障物／規制・短縮",
+        "対応は数値で\n評価は簡潔に"
+      ],
+      "art": {
+        "type": "recap",
+        "section": "第二次検定 / 工程管理の組み立て方"
+      }
+    },
+    "c11-title": {
+      "kind": "points",
+      "heading": "第11章 安全管理の書き方",
+      "items": [
+        "第二次検定"
+      ],
+      "art": {
+        "type": "chapter",
+        "section": "第二次検定 / 安全管理の書き方",
+        "number": 11,
+        "title": "安全管理の書き方"
+      }
+    },
+    "c11-premise": {
+      "kind": "points",
+      "heading": "数値を、どう守ったかを書く",
+      "items": [
+        "基準の暗記だけで終わらない",
+        "確認方法と管理方法まで示す"
+      ],
+      "art": {
+        "type": "focus",
+        "section": "第二次検定 / 安全管理の書き方"
+      }
+    },
+    "c11-step1": {
+      "kind": "points",
+      "heading": "現場条件から、課題をひとつに",
+      "items": [
+        "現場条件を整理",
+        "危険を特定",
+        "課題を絞る"
+      ],
+      "art": {
+        "type": "steps",
+        "section": "第二次検定 / 安全管理の書き方",
+        "note": "軟弱地盤・道路近接・狭いヤードなど"
+      }
+    },
+    "c11-step2": {
+      "kind": "points",
+      "heading": "基準値を、測る場所と結び付ける",
+      "items": [
+        "作業床：幅40cm以上",
+        "床材間：すき間3cm以下",
+        "地山の掘削2m以上：作業主任者"
+      ],
+      "art": {
+        "type": "diagram",
+        "section": "第二次検定 / 安全管理の書き方",
+        "diagram": "scaffold",
+        "source": "content/site/civil-construction-2/guide-safety-management/img/figure-scaffold-standards.svg",
+        "note": "手すり等の構成は足場の種類・適用要件を確認"
+      }
+    },
+    "c11-step3": {
+      "kind": "points",
+      "heading": "工法・数値・管理方法をセットに",
+      "items": [
+        "何を行うか\n工法",
+        "どこまで守るか\n数値",
+        "どう確かめるか\n管理方法"
+      ],
+      "art": {
+        "type": "steps",
+        "section": "第二次検定 / 安全管理の書き方",
+        "note": "誘導員の配置だけでよいか、設問の除外指示も確認"
+      }
+    },
+    "c11-step4": {
+      "kind": "points",
+      "heading": "検討と対応が、同じ課題を向くか",
+      "items": [
+        "検討項目→対応処置",
+        "当年の設問要求→評価の要否・記述範囲"
+      ],
+      "art": {
+        "type": "mapping",
+        "section": "第二次検定 / 安全管理の書き方"
+      }
+    },
+    "c11-summary": {
+      "kind": "points",
+      "heading": "安全管理の書き方｜押さえたこと",
+      "items": [
+        "現場条件から課題を一つに絞る",
+        "検討項目に数値基準を当てる",
+        "対応処置は数値で書く",
+        "検討項目との対応を確認する"
+      ],
+      "art": {
+        "type": "recap",
+        "section": "第二次検定 / 安全管理の書き方"
+      }
+    },
+    "c12-title": {
+      "kind": "points",
+      "heading": "第12章 安全管理が一般論になる原因",
+      "items": [
+        "第二次検定"
+      ],
+      "art": {
+        "type": "chapter",
+        "section": "第二次検定 / 安全管理が一般論になる原因",
+        "number": 12,
+        "title": "安全管理が\n一般論になる原因"
+      }
+    },
+    "c12-premise": {
+      "kind": "points",
+      "heading": "「なぜ、この現場で必要か」を書く",
+      "items": [
+        "一般的に正しい対策だけでは足りない",
+        "自分の現場条件と結び付ける"
+      ],
+      "art": {
+        "type": "focus",
+        "section": "第二次検定 / 安全管理が一般論になる原因"
+      }
+    },
+    "c12-cause1": {
+      "kind": "points",
+      "heading": "現場条件を足すと、理由が見える",
+      "items": [
+        "条件がない\n手すりを設置した",
+        "条件から書く\n現場条件 → 危険\n危険 → 必要な対策"
+      ],
+      "art": {
+        "type": "compare",
+        "section": "第二次検定 / 安全管理が一般論になる原因",
+        "note": "道路近接・狭いヤード・梅雨時期など、実際の条件を選ぶ"
+      }
+    },
+    "c12-cause2": {
+      "kind": "points",
+      "heading": "対策の列挙から、因果の流れへ",
+      "items": [
+        "現場状況",
+        "課題",
+        "検討",
+        "対応",
+        "評価"
+      ],
+      "art": {
+        "type": "steps",
+        "section": "第二次検定 / 安全管理が一般論になる原因",
+        "note": "除外指示・評価の要否は、当年の設問で確認"
+      }
+    },
+    "c12-cause3": {
+      "kind": "points",
+      "heading": "現場が見える数値を入れる",
+      "items": [
+        "高さ・深さ\n寸法",
+        "頻度\n確認する間隔",
+        "員数\n実際の体制"
+      ],
+      "art": {
+        "type": "numbers",
+        "section": "第二次検定 / 安全管理が一般論になる原因",
+        "note": "工法＋管理方法＋数値。結果を書く場合も事実を簡潔に"
+      }
+    },
+    "c12-summary": {
+      "kind": "points",
+      "heading": "安全管理が一般論になる原因｜押さえたこと",
+      "items": [
+        "自分の現場条件から書き始める",
+        "対策の列挙でなく因果の流れで書く",
+        "数値を入れて現場を見せる"
+      ],
+      "art": {
+        "type": "recap",
+        "section": "第二次検定 / 安全管理が一般論になる原因"
+      }
+    },
+    "c13-title": {
+      "kind": "points",
+      "heading": "第13章 減点される答案の共通点",
+      "items": [
+        "第二次検定"
+      ],
+      "art": {
+        "type": "chapter",
+        "section": "第二次検定 / 減点される答案の共通点",
+        "number": 13,
+        "title": "減点される答案の共通点"
+      }
+    },
+    "c13-premise": {
+      "kind": "points",
+      "heading": "内容が伝わる、読みやすい答案に",
+      "items": [
+        "体裁・整合・具体性を確認",
+        "読み手が迷わない書き方にする"
+      ],
+      "art": {
+        "type": "focus",
+        "section": "第二次検定 / 減点される答案の共通点"
+      }
+    },
+    "c13-taisai": {
+      "kind": "points",
+      "heading": "読みやすく、必要な内容を埋める",
+      "items": [
+        "字の大きさ・丁寧さをそろえる",
+        "空欄は具体的な事実で補う",
+        "空行・余分なスペースで稼がない"
+      ],
+      "art": {
+        "type": "sheet",
+        "section": "第二次検定 / 減点される答案の共通点",
+        "note": "記述量の目安と、公式の採点基準は区別する"
+      }
+    },
+    "c13-kaigyo": {
+      "kind": "points",
+      "heading": "空白を増やさず、内容を具体化",
+      "items": [
+        "不自然な改行\n行末を大きく空ける\n空行で分量を稼ぐ",
+        "内容を具体化\n数値・工法・材料\n必要な事実を補う"
+      ],
+      "art": {
+        "type": "compare",
+        "section": "第二次検定 / 減点される答案の共通点"
+      }
+    },
+    "c13-zure": {
+      "kind": "points",
+      "heading": "3つのズレを確認する",
+      "items": [
+        "指定された管理テーマに答えているか",
+        "設問が求める工事・工種に合っているか",
+        "工事概要と本文に矛盾がないか"
+      ],
+      "art": {
+        "type": "checklist",
+        "section": "第二次検定 / 減点される答案の共通点"
+      }
+    },
+    "c13-tsutawaranai": {
+      "kind": "points",
+      "heading": "「何を・どのように」を残す",
+      "items": [
+        "対象\n何を",
+        "方法\nどのように",
+        "結果\nどうなった"
+      ],
+      "art": {
+        "type": "steps",
+        "section": "第二次検定 / 減点される答案の共通点",
+        "note": "数値・工法・材料を具体化。文末の調子もそろえる"
+      }
+    },
+    "c13-summary": {
+      "kind": "points",
+      "heading": "減点される答案の共通点｜押さえたこと",
+      "items": [
+        "体裁：字・空欄・行数稼ぎ",
+        "整合：テーマ外・工種違い・矛盾",
+        "具体性：何を・どのように＋である調"
+      ],
+      "art": {
+        "type": "recap",
+        "section": "第二次検定 / 減点される答案の共通点"
+      }
+    },
+    "c14-title": {
+      "kind": "points",
+      "heading": "第14章 2級で求められる記述レベル",
+      "items": [
+        "第二次検定"
+      ],
+      "art": {
+        "type": "chapter",
+        "section": "第二次検定 / 2級で求められる記述レベル",
+        "number": 14,
+        "title": "2級で求められる記述レベル"
+      }
+    },
+    "c14-premise": {
+      "kind": "points",
+      "heading": "高度さより、管理の説明を",
+      "items": [
+        "特殊さを追う\n難しい工法名を並べる",
+        "基本を説明\n何を検討したか\nどう管理したか"
+      ],
+      "art": {
+        "type": "compare",
+        "section": "第二次検定 / 2級で求められる記述レベル"
+      }
+    },
+    "c14-level": {
+      "kind": "points",
+      "heading": "自分の立場で行った管理を書く",
+      "items": [
+        "現場代理人・主任技術者・現場監督など",
+        "担当した役割と、自分の判断を明確に"
+      ],
+      "art": {
+        "type": "focus",
+        "section": "第二次検定 / 2級で求められる記述レベル"
+      }
+    },
+    "c14-kata": {
+      "kind": "points",
+      "heading": "説明の型に、経験した事実を入れる",
+      "items": [
+        "私は「観点」から「検討内容」を検討した",
+        "「対応処置」を講じた",
+        "その結果「結果」が得られた"
+      ],
+      "art": {
+        "type": "sheet",
+        "section": "第二次検定 / 2級で求められる記述レベル",
+        "note": "結果の記述は設問要求に合わせる。実際の事実だけを使う"
+      }
+    },
+    "c14-kanten": {
+      "kind": "points",
+      "heading": "管理項目から、検討の観点へ",
+      "items": [
+        "品質→計画・材料・施工・養生・検査",
+        "工程→工程表・効率化・気温対策",
+        "安全→点検確認・安全措置・教育"
+      ],
+      "art": {
+        "type": "mapping",
+        "section": "第二次検定 / 2級で求められる記述レベル"
+      }
+    },
+    "c14-taisho": {
+      "kind": "points",
+      "heading": "自分が経験した土木工事から選ぶ",
+      "items": [
+        "河川",
+        "道路",
+        "上下水道",
+        "土工事"
+      ],
+      "art": {
+        "type": "grid",
+        "section": "第二次検定 / 2級で求められる記述レベル",
+        "note": "大規模さにこだわらず、その年の工事選定条件を確認"
+      }
+    },
+    "c14-check": {
+      "kind": "points",
+      "heading": "第三者にも、伝わるか確認",
+      "items": [
+        "誤字や不自然な表現がないか",
+        "説明の途中に論理の飛びがないか",
+        "具体的な行動が読み取れるか"
+      ],
+      "art": {
+        "type": "checklist",
+        "section": "第二次検定 / 2級で求められる記述レベル"
+      }
+    },
+    "c14-summary": {
+      "kind": "points",
+      "heading": "2級で求められる記述レベル｜押さえたこと",
+      "items": [
+        "求められるのは基本管理を書く力",
+        "型は「観点→検討→対応→結果」",
+        "水準の確認は第三者の目で"
+      ],
+      "art": {
+        "type": "recap",
+        "section": "第二次検定 / 2級で求められる記述レベル"
+      }
+    },
+    "c15-title": {
+      "kind": "points",
+      "heading": "第15章 学科記述の型",
+      "items": [
+        "第二次検定"
+      ],
+      "art": {
+        "type": "chapter",
+        "section": "第二次検定 / 学科記述の型",
+        "number": 15,
+        "title": "学科記述の型"
+      }
+    },
+    "c15-premise": {
+      "kind": "points",
+      "heading": "分野と解答形式を、分けて準備",
+      "items": [
+        "何について聞かれるか",
+        "どの形で答えるか"
+      ],
+      "art": {
+        "type": "focus",
+        "section": "第二次検定 / 学科記述の型"
+      }
+    },
+    "c15-fields": {
+      "kind": "points",
+      "heading": "学科記述で確認する6分野",
+      "items": [
+        "土工",
+        "コンクリート工",
+        "品質管理",
+        "安全管理",
+        "工程管理",
+        "施工計画・環境"
+      ],
+      "art": {
+        "type": "grid",
+        "section": "第二次検定 / 学科記述の型"
+      }
+    },
+    "c15-pattern1": {
+      "kind": "points",
+      "heading": "穴埋めは、意味と場面で選ぶ",
+      "items": [
+        "問題文：どの作業・現象の説明か",
+        "空欄：語句か、数値か",
+        "選択肢：文全体に入れて確認"
+      ],
+      "art": {
+        "type": "sheet",
+        "section": "第二次検定 / 学科記述の型"
+      }
+    },
+    "c15-pattern2": {
+      "kind": "points",
+      "heading": "指定された数だけ、観点を分ける",
+      "items": [
+        "2つ\n独立した2項目",
+        "1つずつ\n各対象に1項目"
+      ],
+      "art": {
+        "type": "numbers",
+        "section": "第二次検定 / 学科記述の型",
+        "note": "同じ内容の言い換えで、項目数を増やさない"
+      }
+    },
+    "c15-pattern3": {
+      "kind": "points",
+      "heading": "選択問題は、指示を先に読む",
+      "items": [
+        "指定を確認\n何問から何問を選ぶか",
+        "解答を選ぶ\n説明できる分野か"
+      ],
+      "art": {
+        "type": "compare",
+        "section": "第二次検定 / 学科記述の型",
+        "note": "選択問題の有無と方式は年度によって異なる"
+      }
+    },
+    "c15-summary": {
+      "kind": "points",
+      "heading": "分野と3つの解答形式を確認",
+      "items": [
+        "穴埋め：意味と場面で選ぶ",
+        "複数記述：観点を分ける",
+        "選択問題：指定を確認する"
+      ],
+      "art": {
+        "type": "recap",
+        "section": "第二次検定 / 学科記述の型"
+      }
+    },
+    "cta": {
+      "kind": "points",
+      "heading": "過去問と答案で、仕上げよう",
+      "items": [
+        "第一次：過去問で確認",
+        "第二次：自分の経験を記述",
+        "教材は概要欄のリンクから"
+      ],
+      "art": {
+        "type": "closing",
+        "section": "仕上げ"
+      }
+    }
   }
 }
