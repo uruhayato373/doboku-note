@@ -825,6 +825,28 @@
         "/exam/pe-construction/past-exams/r08-road",
         "/exam/pe-first-stage/guide/r08-answers"
       ]
+    },
+    {
+      "runId": "2026-10-11T06-51-11Z",
+      "collectedAt": "2026-10-11T06:51:11.121Z",
+      "mode": "commit",
+      "status": "ok",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 2,
+      "accepted": 2,
+      "alreadyIndexed": 0,
+      "unreadable": 0,
+      "slugs": [
+        "/exam/civil-construction-1/secondary/r08",
+        "/practice/steel-material-properties"
+      ],
+      "acceptedSlugs": [
+        "/exam/civil-construction-1/secondary/r08",
+        "/practice/steel-material-properties"
+      ]
     }
   ]
 }
