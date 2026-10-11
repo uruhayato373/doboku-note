@@ -379,6 +379,10 @@ export async function renderDocPage(slugStr: string) {
   // 右端の列が読めない（2026-07-14 実機確認）。SVG/画像化は「9 列を 375px に収める」制約が
   // 同じで解決にならず、テキスト選択・SEO 索引・読み上げを失うため却下。横スクロールできる
   // ラッパーで包むだけにする（データ・アクセシビリティを保ったまま全列へ到達できる）。
+  // 手書き <CareerAffiliate program=…> が 1 記事に 2 つある記事（2級の過去問 50 本・2026-10-11 実測）で同じ案件のカードが
+  // 2 枚出ていた。1 記事 1 枚＝最初の 1 つだけ描き、2 つ目以降は出さない（本文中間・記事末の「同じ広告を 2 度出さない」と同じ）。
+  // MDX は書き換えない（202 か所の手書きをそのまま残す）。
+  let inlineCareerCardsRendered = 0;
   const baseComponents = {
     ...components,
     table: (p: React.ComponentProps<'table'>) => (
@@ -388,9 +392,10 @@ export async function renderDocPage(slugStr: string) {
     ),
     // MDX 本文に手書きした <CareerAffiliate> へ、現在の slug を自動で渡す。
     // slug が無いと悩み別 CTA が解決できず既定文言に倒れる（既存 168 箇所を書き換えずに配線する）。
-    CareerAffiliate: (p: React.ComponentProps<typeof CareerAffiliate>) => (
-      <CareerAffiliate slug={slugStr} inlineCard={inlineCareerAd} {...p} />
-    ),
+    CareerAffiliate: (p: React.ComponentProps<typeof CareerAffiliate>) => {
+      if (p.program && inlineCareerCardsRendered++ > 0) return null;
+      return <CareerAffiliate slug={slugStr} inlineCard={inlineCareerAd} {...p} />;
+    },
   };
   const componentsWithMid =
     midSlots.length > 0

@@ -106,8 +106,8 @@ function unzipMissing() {
 const CHECKS = [
   { id: 'content-expansion', npm: 'check-content-expansion', timeout: 30_000, ci: true, note: '全教材の母数・記事/図/SNS対応表の整合。未確認・原典待ち・成果物変更を別表示し、構造PASSで制作完了とはしない' },
   { id: 'domains', npm: 'check-domains', timeout: 30_000, ci: true, note: '領域の正本（domains.json）と、スキル/エージェントの frontmatter domain・文書の割り当ての整合' },
-  { id: 'affiliate-placements', npm: 'check-affiliate-placements', timeout: 60_000, ci: true, note: '転職アフィリエイトの配置ルール（台帳 config.affiliate-placements）が案件（catalog の active・Red Line でない）・期限内の広告リンク・面の語彙・カテゴリ・実験と整合し、同じ面に 2 ルールが重ならないか。MDX の手書き <CareerAffiliate> のカテゴリがルールに覆われているか（2026-10-07）' },
-  { id: 'affiliate-placements-upcoming', cmd: ['node', 'scripts/check-affiliate-placements.mjs', '--upcoming'], timeout: 30_000, ci: false, ops: true, note: '7 日以内に始まる・終わる配置ルールがあるか（SSG は境界を過ぎても再ビルドまで切り替わらない）。読み手＝ops-audit.yml（日次 --ops → automation-failure Issue channel ops・境界を過ぎれば自動クローズ）' },
+  { id: 'affiliate-placements', npm: 'check-affiliate-placements', timeout: 60_000, ci: true, note: '転職アフィリエイトの配置ルール（台帳 config.affiliate-placements）が案件（catalog の active・Red Line でない）・広告リンクの有無・面の語彙・カテゴリ・実験と整合し、同じ面に 2 ルールが重ならないか。MDX の手書き <CareerAffiliate> のカテゴリがルールに覆われているか（2026-10-07）。広告リンクの期限は壁時計依存なので affiliate-placements-upcoming（ops）が見る（2026-10-11）' },
+  { id: 'affiliate-placements-upcoming', cmd: ['node', 'scripts/check-affiliate-placements.mjs', '--upcoming'], timeout: 30_000, ci: false, ops: true, note: '7 日以内に始まる・終わる配置ルールがあるか（SSG は境界を過ぎても再ビルドまで切り替わらない）と、開いているルールの広告リンクが全て期限切れか。読み手＝ops-audit.yml（日次 --ops → automation-failure Issue channel ops・境界を過ぎれば自動クローズ）' },
   { id: 'datasets', npm: 'check-datasets', timeout: 60_000, ci: true, note: '設定（config/）・記録（data/）の全ファイルが台帳 scripts/lib/datasets.mjs のちょうど 1 つのデータセットに当たり、型（zod）のあるものは型に合うか、コードが config/・data/ のパスを直書きせず台帳から引いているか（2026-10-02: パスと決まりが 6 か所に散らばり、管理画面と UTM 生成が旧パスを黙って読んでいた）' },
   { id: 'admin-ui-debt', npm: 'check-admin-ui-debt', timeout: 30_000, ci: true, note: '管理画面のページごとの生 card クラスとインライン style をラチェット（増えたら落ちる・新規ページは 0）。shadcn 部品へ移したら --update で下げる（DN-0432）' },
   { id: 'shadcn-parity', npm: 'check-shadcn-parity', timeout: 30_000, ci: true, note: '管理画面の UI 部品（components/ui）が shadcn/ui 公式（.claude/config/shadcn-reference・コミット済みの保存物）と同じクラスか。差は shadcn-parity-allow.json に理由付きで登録したものだけ。ページでの Badge/Button/TabsTrigger の大きさの上書きも止める（DN-0432）' },
@@ -149,7 +149,8 @@ const CHECKS = [
   // 公開実体の照合が「実際に回っているか」を見るゲート（DN-0110 Phase 3・2026-08-28 追加）。
   // 実査そのもの（verify-video-publication）は creds が要るので CI/Mac 専用。ここはオフラインで
   // 「published なのに一度も照合していない / 記録が古い / 記録が実査のドリフトを報告している」を赤にする。
-  { id: 'video-publication', npm: 'check-video-publication', timeout: 30_000, ci: true, note: '公開済み派生物の実体照合が回っているか（未照合・鮮度切れ・記録の孤児・実査ドリフト）。対象0件は明示して PASS' },
+  { id: 'video-publication', npm: 'check-video-publication', timeout: 30_000, ci: true, note: '公開済み派生物の実体照合が回っているか（未照合・記録の孤児・実査ドリフト）。記録の古さ（V03）は壁時計依存なので ops 側の鮮度の検査が日次で見る。対象0件は明示して PASS' },
+  { id: 'video-publication-freshness', cmd: ['node', 'scripts/check-video-publication.mjs', '--freshness'], timeout: 30_000, ci: false, ops: true, note: '公開済み派生物の照合記録が台帳の failDays より古いか（V03・壁時計依存）。読み手＝ops-audit.yml（日次 --ops → automation-failure Issue channel ops・実査が回れば自動クローズ）' },
   { id: 'codex-compat', npm: 'check-codex-compat', timeout: 60_000, ci: true, note: 'AGENTS.md / .agents/skills が CLAUDE.md / .claude/skills（正典）から生成された状態と一致するか（第2SSOTドリフトの再発防止・DN-0098）' },
   { id: 'external-write-orphans', npm: 'check-external-write-orphans', timeout: 300_000, ci: false, note: '「外部へは成功・台帳の書き戻しは失敗」の検出（2026-06-17 の YouTube 事故＝6本アップ済みなのに台帳 pending が実例）。gh 経由で run ログを読むためネットワークが要る＝ci:false。run ログの取得失敗が 1 本でもあれば exit 2（検査不成立・DN-0225）。読み手＝weekly-review-guard の report digest（--report-only・FAIL は automation-failure Issue）。2026-09-30 に週次レビューの直接実行から外した（DN-0394）' },
   { id: 'ogp-line-count', npm: 'check-ogp-line-count', timeout: 180_000, ci: false, note: 'OGP タイトルの折返し行数を実測する surfacer（判定はしない）。読み手＝DN-0057 の着手時。check-ogp-title-fit はフォントサイズしか見ていないので、行数はここでしか分からない' },

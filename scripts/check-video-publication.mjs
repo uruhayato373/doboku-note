@@ -13,12 +13,12 @@
  * 検査:
  *   V01 published 相当の派生物があるのに記録が無い（＝一度も照合していない）
  *   V02 記録はあるが対象を網羅していない（新しく公開したのに未照合）
- *   V03 記録が古い（既定 14 日）
+ *   V03 記録が古い（既定 14 日）。--freshness のときだけ＝壁時計で結果が変わるので ci でなく ops（日次）が見る
  *   V04 記録に孤児（state から消えた派生物が記録に残る）
  *   V05 実査がドリフトを報告している（gone / not_public / cta_utm_missing / related_missing 等）
  *
  * Usage:
- *   node scripts/check-video-publication.mjs [--max-age-days N] [--json]
+ *   node scripts/check-video-publication.mjs [--freshness] [--max-age-days N] [--json]
  *
  * exit: 0 合格（対象0件も明示して 0）/ 1 違反あり
  *   「対象0件」と「異常0件」を必ず区別して出力する（CLAUDE.md §9）。
@@ -34,6 +34,7 @@ import { datasetPath, freshnessDays } from './lib/datasets.mjs';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const argv = process.argv.slice(2);
 const JSON_OUT = argv.includes('--json');
+const FRESHNESS = argv.includes('--freshness');
 const maxAgeIdx = argv.indexOf('--max-age-days');
 // 既定は台帳 state.video-publication-verify の freshness.failDays（--max-age-days で一時的に変えられる）
 const MAX_AGE_DAYS = maxAgeIdx >= 0 ? Number(argv[maxAgeIdx + 1]) : freshnessDays('state.video-publication-verify', 'failDays');
@@ -99,7 +100,7 @@ if (targets.length === 0) {
     for (const id of covered) {
       if (!targets.includes(id)) add('V04', `${id}: 照合記録の孤児（state から消えたのに記録に残る）`);
     }
-    if (ageDays !== null && ageDays > MAX_AGE_DAYS) {
+    if (FRESHNESS && ageDays !== null && ageDays > MAX_AGE_DAYS) {
       add('V03', `照合が ${ageDays} 日前（上限 ${MAX_AGE_DAYS} 日）。実査が止まっている可能性`);
     }
     for (const f of record.findings ?? []) {
