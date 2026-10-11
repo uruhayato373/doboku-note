@@ -107,11 +107,11 @@ node .claude/skills/conversion/pdf-to-mdx/scripts/verify-pdf-mdx.mjs \
 ```bash
 # ① 重複選択肢検出: ○×組合せ・語句組合せで2選択肢が完全一致＝転記ミス確定
 node .claude/skills/conversion/exam-questions-import/scripts/check-option-dup.mjs <article.mdx ...>
-# ② 正答整合: **正答：N** と ✅/❌ バッジ位置の不一致・正答欠落・ExamPoint内バッジ混入
-node .claude/skills/conversion/exam-questions-import/scripts/check-answer-consistency.mjs <article.mdx ...>
+# ② 正答整合: 正答と ✅/❌ の集合・問い方の向き・解説の文と印の食い違い・記述（①〜）の解説の番号・ExamPoint内バッジ混入
+npm run check-answer-marks -- <article.mdx ...>
 ```
 
-①が 1 行でも出たら原典 PDF で該当選択肢を視覚確認し訂正（実試験に同一選択肢は存在しない）。②の「正答 行なし」は救済等の意図的欠落なら無視可。**この①は視覚突合（Step 5.7）を通過したページでも誤転記を検出する**（2026-06-04 の技術士第一次 R5〜R7 で実証）ため、視覚突合の代替ではなく追加ガードとして必ず回す。あわせて本文の不等号は全角 ＜＞（半角 `<` は MDX の details を破壊）とし、`@mdx-js/mdx` 単体コンパイルで `COMPILE OK` を確認する。
+①が 1 行でも出たら原典 PDF で該当選択肢を視覚確認し訂正（実試験に同一選択肢は存在しない）。②は CI でも全記事に回る（quality:audit の `answer-marks`）。✅/❌ は「その記述が正しい・適当か」で、否定の問い（適当でない等）は正答だけ ❌。①〜④の記述を数える／組み合わせる問題は、記述ごとの解説を ①〜 で書き（記述どうしは空行で区切る）、選択肢の解説を 1.〜 で全選択肢ぶん書く（演習データは `N.` の行を選択肢 N の解説として読む）。記述式・全員得点は番号が無いので照合されない。**この①は視覚突合（Step 5.7）を通過したページでも誤転記を検出する**（2026-06-04 の技術士第一次 R5〜R7 で実証）ため、視覚突合の代替ではなく追加ガードとして必ず回す。あわせて本文の不等号は全角 ＜＞（半角 `<` は MDX の details を破壊）とし、`@mdx-js/mdx` 単体コンパイルで `COMPILE OK` を確認する。
 
 ### Step 5.7: 原典視覚突合（必須品質ゲート、2026-05-28 追加）
 
