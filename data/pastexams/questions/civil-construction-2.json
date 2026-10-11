@@ -4,6 +4,5862 @@
   "quizExam": "civil-2",
   "questions": [
     {
+      "id": "h18-01",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-1",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 2,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（問題文の「土質試験の種類」「目的」の鉤括弧を補った／見出しを問題文の最後の段落に ── でつないで置いた）"
+      }
+    },
+    {
+      "id": "h18-02",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-2",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 2,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（m3 を m³ に直した／問題番号は画像の No.2 と一致）"
+      }
+    },
+    {
+      "id": "h18-03",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-3",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 2,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h18-04",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-4",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 3,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（問題文の「工種」「目的・特徴」の鉤括弧を補った／見出しを問題文の最後の段落に ── でつないで置いた）"
+      }
+    },
+    {
+      "id": "h18-05",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-5",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 3,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢4の消えた数字 5 を補った（5 mm ふるい））"
+      }
+    },
+    {
+      "id": "h18-06",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-6",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 3,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h18-07",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-7",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 3,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h18-08",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-8",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 4,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢4の消えた数字を補った（1 m²あたり4個程度）／m2 を m² に直した）"
+      }
+    },
+    {
+      "id": "h18-09",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-9",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 4,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h18-10",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-10",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 4,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（問題文の「工法」「孔壁の保護方法」の鉤括弧を補った／見出しを問題文の最後の段落に ── でつないで置いた）"
+      }
+    },
+    {
+      "id": "h18-11",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-11",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 4,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h18-12",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-12",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 5,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（stemExtra に分かれていた本文を問題文に戻した／空欄の記号（イ）（ロ）（ハ）（ニ）を補った／見出し（イ）〜（ニ）を問題文の最後の段落に ── でつないで置いた）"
+      }
+    },
+    {
+      "id": "h18-13",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-13",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 5,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h18-14",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-14",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 6,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢3の消えた数字を補った（対策の1つ））"
+      }
+    },
+    {
+      "id": "h18-15",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-15",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 6,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h18-16",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-16",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 6,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h18-17",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-17",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 7,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（消えていた記号（イ）〜（ニ）を補い、stemExtra の記述を問題文に戻して項目ごとに段落に分けた／選択肢の消えた数字を補った（1つ〜4つ））"
+      }
+    },
+    {
+      "id": "h18-18",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-18",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 7,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h18-19",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-19",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 8,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢2の消えた数字を補った（下約1 m））"
+      }
+    },
+    {
+      "id": "h18-20",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-20",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 8,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢4の消えた数字を補った（1層））"
+      }
+    },
+    {
+      "id": "h18-21",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-21",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 8,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h18-22",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-22",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 9,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h18-23",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-23",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 9,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢1の消えた数字を補った（1回あたり，1リフト））"
+      }
+    },
+    {
+      "id": "h18-24",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-24",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 9,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h18-25",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-25",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 10,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h18-26",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-26",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 10,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h18-27",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-27",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 10,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢3の消えた数字を補った（1層）／選択肢4の消えた数字を補った（7％））"
+      }
+    },
+    {
+      "id": "h18-28",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-28",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 11,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h18-29",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-29",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 11,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h18-30",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-30",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 11,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h18-31",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-31",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 12,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h18-32",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-32",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 13,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢1の消えた数字「6」を補った／選択肢3の消えた数字「5」を補った／選択肢4の「時間を，休憩時間」の読点を補った）"
+      }
+    },
+    {
+      "id": "h18-33",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-33",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 13,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢2の消えた数字「5」を補った）"
+      }
+    },
+    {
+      "id": "h18-34",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-34",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 13,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（stemExtra「ちどれか。」を問題文に戻した）"
+      }
+    },
+    {
+      "id": "h18-35",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-35",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 14,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h18-36",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-36",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 14,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h18-37",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-37",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 14,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢1〜3の消えた数字「1」「2」「3」を補った）"
+      }
+    },
+    {
+      "id": "h18-38",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-38",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 14,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h18-39",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-39",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 15,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h18-40",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-40",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 15,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h18-41",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-41",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 15,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢1の消えた数字「7」「7」と読点を補った／選択肢3の消えた数字「5」を補った）"
+      }
+    },
+    {
+      "id": "h18-42",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-42",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 16,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h18-43",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-43",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 17,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（問題文の消えた数字「1」を補った）"
+      }
+    },
+    {
+      "id": "h18-44",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-44",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 17,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h18-45",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-45",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 17,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（問題文の「単位区分」「SI単位」のかぎ括弧を補い，空白を詰めた／見出し［単位区分］［SI単位］を問題文の最後の段落に戻した）"
+      }
+    },
+    {
+      "id": "h18-46",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-46",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 18,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（問題文の「機械名」「性能の表示」のかぎ括弧を補い，空白を詰めた／見出し［機械名］［性能の表示］を問題文の最後の段落に戻した／選択肢4の m3 を m³ にした）"
+      }
+    },
+    {
+      "id": "h18-47",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-47",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 18,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h18-48",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-48",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 18,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h18-49",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-49",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 18,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h18-50",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-50",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 19,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h18-51",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-51",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 19,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h18-52",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-52",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 20,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（問題文の空欄の囲み（図中の［　］）と（イ）〜（ハ）を画像どおりに補った／stemExtra の図の題名を問題文から外し図に含めた／組合せの見出し（イ）（ロ）（ハ）を問題文の最後の段落に置いた）"
+      }
+    },
+    {
+      "id": "h18-53",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-53",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 20,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢2の消えた数字「2」を補った）"
+      }
+    },
+    {
+      "id": "h18-54",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-54",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 21,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h18-55",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-55",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 21,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢が図（⑴〜⑷）なので「図の⑴」〜「図の⑷」にした／空になっていた選択肢と文字層の混在を図に統合した）"
+      }
+    },
+    {
+      "id": "h18-56",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-56",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 22,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（問題文の「品質特性」「試験方法等」のかぎ括弧を補い，空白を詰めた／見出し［品質特性］［試験方法等］を問題文の最後の段落に戻した）"
+      }
+    },
+    {
+      "id": "h18-57",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-57",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 22,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h18-58",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-58",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 22,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢1の消えた数字「8」を補い，「葵」を「±」にした／選択肢2の消えた数字「3」を補った／選択肢3の消えた数字「1」を補った／選択肢4の「葵」を「±」にした）"
+      }
+    },
+    {
+      "id": "h18-59",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-59",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 22,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h18-60",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-60",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 23,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（問題文の「公害」「法律」のかぎ括弧を補い，空白を詰めた／見出し［公害］［法律］を問題文の最後の段落に戻した）"
+      }
+    },
+    {
+      "id": "h18-61",
+      "article": "civil-construction-2/primary-h18",
+      "no": "学科-61",
+      "source": {
+        "question": "H18/H18_学科試験.pdf",
+        "page": 23,
+        "answer": "H18/H18_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（stemExtra「特定建設資材に〜」を問題文に戻した）"
+      }
+    },
+    {
+      "id": "h20-01",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-1",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 2,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（文字層の制御文字を「」に直した／見出し［目的］［土質試験名］を問題文の最後の段落に移した）"
+      }
+    },
+    {
+      "id": "h20-02",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-2",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 2,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢4の消えた数字「5」を補った）"
+      }
+    },
+    {
+      "id": "h20-03",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-3",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 2,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（問題文の空欄の枠を□で補った／本文の空欄（イ）（ロ）（ハ）を補い，stemExtra の文を本文に戻した／見出し（イ）（ロ）（ハ）を最後の段落に移した）"
+      }
+    },
+    {
+      "id": "h20-04",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-4",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 3,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（制御文字を「」に直した／見出しを問題文の最後の段落に移した）"
+      }
+    },
+    {
+      "id": "h20-05",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-5",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 3,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h20-06",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-6",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 3,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢1の分数 3/4 が崩れていたのを KaTeX の分数に直し，末尾の「4」を除いた／stemExtra の「3」を除いた／選択肢3の「55％」の空白を画像どおりに直した）"
+      }
+    },
+    {
+      "id": "h20-07",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-7",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 4,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h20-08",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-8",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 4,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h20-09",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-9",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 4,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢2の消えた「１」を補った／選択肢4の消えた「１」と「2」を補った）"
+      }
+    },
+    {
+      "id": "h20-10",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-10",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 4,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（制御文字を「」に直した／行末で分かれていた「組合」「せとして」をつなげた／見出しを問題文の最後の段落に移した）"
+      }
+    },
+    {
+      "id": "h20-11",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-11",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 5,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h20-12",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-12",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 6,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h20-13",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-13",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 6,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（制御文字を「」に直した／見出しを問題文の最後の段落に移した）"
+      }
+    },
+    {
+      "id": "h20-14",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-14",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 6,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢1・2の消えた「１」を補った／選択肢3の消えた「3」を補った）"
+      }
+    },
+    {
+      "id": "h20-15",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-15",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 7,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢2の消えた「3」「5」を補った／選択肢3の消えた「１」を補った）"
+      }
+    },
+    {
+      "id": "h20-16",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-16",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 7,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h20-17",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-17",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 7,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢4の消えた「1」を補った）"
+      }
+    },
+    {
+      "id": "h20-18",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-18",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 8,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h20-19",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-19",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 8,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢4の消えた「１」を補った）"
+      }
+    },
+    {
+      "id": "h20-20",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-20",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 8,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢2・3の消えた「１」を補った）"
+      }
+    },
+    {
+      "id": "h20-21",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-21",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 8,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢3の消えた「8」を補った／選択肢2の「℃」前の空白を画像どおりにした）"
+      }
+    },
+    {
+      "id": "h20-22",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-22",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 9,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢1の消えた「3」を補った）"
+      }
+    },
+    {
+      "id": "h20-23",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-23",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 9,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h20-24",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-24",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 9,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢は図そのものなので「図の⑴〜⑷」とし，文字層の数字の断片を捨てた／図の範囲を指定し，選択肢も図に含めた）"
+      }
+    },
+    {
+      "id": "h20-25",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-25",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 10,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（問題文の消えた記号（イ）〜（ハ）を補った／図の中の「堤体」は stem に入れず，図の範囲を指定した／見出し（イ）（ロ）（ハ）を最後の段落に移した）"
+      }
+    },
+    {
+      "id": "h20-26",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-26",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 10,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（行末で分かれていた「もの」「はどれか。」をつなげた／選択肢3の消えた「２」を補った）"
+      }
+    },
+    {
+      "id": "h20-27",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-27",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 10,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h20-28",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-28",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 11,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h20-29",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-29",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 11,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（問題文の空欄の枠を□で補った／本文の空欄（イ）（ロ）（ハ）を補い，stemExtra の文を本文に戻した／見出し（イ）（ロ）（ハ）を最後の段落に移した）"
+      }
+    },
+    {
+      "id": "h20-30",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-30",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 11,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（行末で分かれていた「どれ」「か。」をつなげた）"
+      }
+    },
+    {
+      "id": "h20-31",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-31",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 12,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h20-32",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-32",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 13,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢1の消えた数字「1」を補った）"
+      }
+    },
+    {
+      "id": "h20-33",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-33",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 13,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（空欄の枠を□で補った／stemExtraの本文を stem に戻し，消えた数字（1週間・1日・6時間・8時間）と空欄記号（イ）〜（ニ）を補った／選択肢3・4の制御文字を除き，消えた数字「9」を補った（40 ── 8 ── …）／選択肢1・2）"
+      }
+    },
+    {
+      "id": "h20-34",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-34",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 13,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h20-35",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-35",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 14,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢4の消えた数字「1」「2」を補った）"
+      }
+    },
+    {
+      "id": "h20-36",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-36",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 14,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢1「労働基準監督署長」を画像どおりに確認（候補どおり））"
+      }
+    },
+    {
+      "id": "h20-37",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-37",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 14,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢2の「1級」「2級」の数字を補った／選択肢3の「2つ」の数字を補った）"
+      }
+    },
+    {
+      "id": "h20-38",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-38",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 14,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢2の消えた数字「1」を補った）"
+      }
+    },
+    {
+      "id": "h20-39",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-39",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 15,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢2末尾の混入記号「 ──」を除いた）"
+      }
+    },
+    {
+      "id": "h20-40",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-40",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 15,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（「ただし，…」を別段落に分けた）"
+      }
+    },
+    {
+      "id": "h20-41",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-41",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 15,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h20-42",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-42",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 15,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h20-43",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-43",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 16,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（測点番号「1」「5」の消えた数字を補った／文字化けした表の断片（stemExtra）は表の図に回し，stemには入れなかった）"
+      }
+    },
+    {
+      "id": "h20-44",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-44",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 16,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢2末尾の混入記号「 ──」を除いた／stemExtraの傍点の断片「・ ・」を除いた）"
+      }
+    },
+    {
+      "id": "h20-45",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-45",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 17,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（消えた空欄記号（イ）（ロ）を補った／組合せの見出し「（イ） ── （ロ）」を最後の段落に置いた）"
+      }
+    },
+    {
+      "id": "h20-46",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-46",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 17,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h20-47",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-47",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 18,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢1の「運搬距離」の抜けを補った）"
+      }
+    },
+    {
+      "id": "h20-48",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-48",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 18,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h20-49",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-49",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 18,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（m3 を m³ に直した（stem・選択肢）／分数式を KaTeX にまとめ，stemExtra に分かれていた式・定義を stem に戻した／「土量変化率」の記号 L・C の消えを補い，「ただし，」を別段落にした）"
+      }
+    },
+    {
+      "id": "h20-50",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-50",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 19,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（stemExtra の説明文を stem に戻し，消えた「」を補った）"
+      }
+    },
+    {
+      "id": "h20-51",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-51",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 19,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（図の文字（stemExtra）は stem に入れず図にした／「A〜H」の記号を整えた）"
+      }
+    },
+    {
+      "id": "h20-52",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-52",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 20,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（消えた記号（イ）〜（ハ）と鉤括弧「」を補った／図の中の数値（stemExtra）は stem に入れず図にした／組合せの見出し「（イ） ── （ロ） ── （ハ）」を最後の段落に置いた）"
+      }
+    },
+    {
+      "id": "h20-53",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-53",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 20,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢1の「5」，選択肢2の「2方向」，選択肢4の「3点」の消えた数字を補った）"
+      }
+    },
+    {
+      "id": "h20-54",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-54",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 21,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢1の消えた数字「1」を補った）"
+      }
+    },
+    {
+      "id": "h20-55",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-55",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 21,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h20-56",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-56",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 21,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h20-57",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-57",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 21,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h20-58",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-58",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 22,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（N/mm2 を N/mm² に直した／表（5列）は文字層が崩れているため図にした）"
+      }
+    },
+    {
+      "id": "h20-59",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-59",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 22,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（stemExtra の傍点の断片「・ ・」を除いた）"
+      }
+    },
+    {
+      "id": "h20-60",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-60",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 22,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h20-61",
+      "article": "civil-construction-2/primary-h20",
+      "no": "学科-61",
+      "source": {
+        "question": "H20/H20_学科試験.pdf",
+        "page": 23,
+        "answer": "H20/H20_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（m2 を m² に直した）"
+      }
+    },
+    {
+      "id": "h26-01",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-1",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 2,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（見出し［試験名］［試験結果の活用］を stemExtra から問題文末尾へ ── でつないで戻した）"
+      }
+    },
+    {
+      "id": "h26-02",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-2",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 2,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（見出し［建設機械名］［作業内容］を問題文末尾へ ── でつないで戻した）"
+      }
+    },
+    {
+      "id": "h26-03",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-3",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 2,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h26-04",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-4",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 3,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h26-05",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-5",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 3,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（stemExtra の「骨材の含水状態」は図の題名なので問題文から外し figure.caption にした）"
+      }
+    },
+    {
+      "id": "h26-06",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-6",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 3,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h26-07",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-7",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 4,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h26-08",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-8",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 4,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢1の制御文字（消えた数字）を画像どおり「１つ」に補った）"
+      }
+    },
+    {
+      "id": "h26-09",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-9",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 4,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h26-10",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-10",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 5,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（見出し［工法名］［主な機材］を問題文末尾へ ── でつないで戻した）"
+      }
+    },
+    {
+      "id": "h26-11",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-11",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 5,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h26-12",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-12",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 6,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h26-13",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-13",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 6,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h26-14",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-14",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 6,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢1の制御文字（消えた数字）を画像どおり「6」に補った）"
+      }
+    },
+    {
+      "id": "h26-15",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-15",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 6,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h26-16",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-16",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 7,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h26-17",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-17",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 7,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢4の制御文字（消えた数字）を画像どおり「1:2」に補った）"
+      }
+    },
+    {
+      "id": "h26-18",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-18",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 7,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h26-19",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-19",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 8,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢4の制御文字（消えた数字）を画像どおり「1」に補った）"
+      }
+    },
+    {
+      "id": "h26-20",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-20",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 8,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢2・4の文字化け「PK 挨3」「PK挨4」を画像どおり「PK－3」「PK－4」に直した／選択肢2・4の m2 を m² に直した）"
+      }
+    },
+    {
+      "id": "h26-21",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-21",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 8,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（問題文の改行で分かれていた「はどれか。」を stem に戻した／見出し［補修工法］［施工機械］を問題文末尾へ ── でつないで戻した）"
+      }
+    },
+    {
+      "id": "h26-22",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-22",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 9,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢2の制御文字（消えた数字）を画像どおり「1」に補った）"
+      }
+    },
+    {
+      "id": "h26-23",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-23",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 9,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h26-24",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-24",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 9,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h26-25",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-25",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 10,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢3・4の制御文字（消えた数字）を画像どおり「1：1」に補った）"
+      }
+    },
+    {
+      "id": "h26-26",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-26",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 10,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h26-27",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-27",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 10,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h26-28",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-28",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 11,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢1の制御文字（消えた数字）を画像どおり「１名」に補った）"
+      }
+    },
+    {
+      "id": "h26-29",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-29",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 11,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h26-30",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-30",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 11,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h26-31",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-31",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 11,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h26-32",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-32",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 12,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（(1)の消えた数字 1 を補った／(2)の消えた数字 1 を補った／(3)の消えた数字 6 を補った／(4)の消えた数字 1（週間・日）と 8 を補った）"
+      }
+    },
+    {
+      "id": "h26-33",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-33",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 12,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（(2)の消えた数字 5 を補った）"
+      }
+    },
+    {
+      "id": "h26-34",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-34",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 12,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h26-35",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-35",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 13,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h26-36",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-36",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 13,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（ただし書きを問題文の別段落に分けた）"
+      }
+    },
+    {
+      "id": "h26-37",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-37",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 13,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（(1)の消えた数字 2 を補った）"
+      }
+    },
+    {
+      "id": "h26-38",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-38",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 14,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（m2 を m² に直した／(4)の消えた数字 2 を補った）"
+      }
+    },
+    {
+      "id": "h26-39",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-39",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 14,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（(4)の消えた数字 2 を補った）"
+      }
+    },
+    {
+      "id": "h26-40",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-40",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 14,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h26-41",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-41",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 15,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（組合せの見出しを問題文の最後の段落に ── でつないで戻した）"
+      }
+    },
+    {
+      "id": "h26-42",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-42",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 15,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h26-43",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-43",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 16,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（消えた数字 1（測点1）・4（測点4）を補った／stemExtra の図中ラベルは stem に入れず図に含めた）"
+      }
+    },
+    {
+      "id": "h26-44",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-44",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 16,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h26-45",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-45",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 17,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（stemExtra の図中の寸法・ラベルは stem に入れず図に含めた）"
+      }
+    },
+    {
+      "id": "h26-46",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-46",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 17,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（組合せの見出しを問題文の最後の段落に ── でつないで戻した／(4)の m3 を m³ に直した）"
+      }
+    },
+    {
+      "id": "h26-47",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-47",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 18,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（(4)の消えた数字 1 を補った）"
+      }
+    },
+    {
+      "id": "h26-48",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-48",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 18,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（組合せの見出しを問題文の最後の段落に ── でつないで戻した）"
+      }
+    },
+    {
+      "id": "h26-49",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-49",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 18,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h26-50",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-50",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 19,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（stemExtra の説明文を stem に戻し，消えていた鉤括弧「」と（%）を補った）"
+      }
+    },
+    {
+      "id": "h26-51",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-51",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 19,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（ただし書きを別段落にした／stemExtra の図中ラベルは stem に入れず図に含めた）"
+      }
+    },
+    {
+      "id": "h26-52",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-52",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 20,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h26-53",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-53",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 20,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（(1)の消えた数字 1 を補った）"
+      }
+    },
+    {
+      "id": "h26-54",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-54",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 20,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（消えた数字 5 を補った）"
+      }
+    },
+    {
+      "id": "h26-55",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-55",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 21,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h26-56",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-56",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 21,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（文字化けしていた記号（イ）（ロ）（ハ）（ニ）を画像どおりに戻し，stemExtra の項目を stem に入れた／「作業標準」「品質特性」「品質標準」の鉤括弧を補った）"
+      }
+    },
+    {
+      "id": "h26-57",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-57",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 21,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h26-58",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-58",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 21,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h26-59",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-59",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 22,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（5列の表のため stemExtra の表の文字を stem に入れず図にした／表の見出しの記号回数（1回目・2回目・3回目）は図に含めた）"
+      }
+    },
+    {
+      "id": "h26-60",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-60",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 22,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（ただし書きを別段落にした）"
+      }
+    },
+    {
+      "id": "h26-61",
+      "article": "civil-construction-2/primary-h26",
+      "no": "学科-61",
+      "source": {
+        "question": "H26/H26_学科試験.pdf",
+        "page": 22,
+        "answer": "H26/H26_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h27-01",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-1",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 2,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h27-02",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-2",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 2,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h27-03",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-3",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 2,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h27-04",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-4",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 2,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h27-05",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-5",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 3,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h27-06",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-6",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 3,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h27-07",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-7",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 3,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h27-08",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-8",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 3,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h27-09",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-9",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 4,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢(2)の消えた数字を補った（「\u0002本」→「1本」））"
+      }
+    },
+    {
+      "id": "h27-10",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-10",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 4,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（組合せの見出しを stem 末尾に ［工法］ ── ［掘削方法］ として戻し、字間の空白を詰めた）"
+      }
+    },
+    {
+      "id": "h27-11",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-11",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 5,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（消えていた記号（イ）（ロ）を補い，制御文字を除いた／組合せの見出し（イ）（ロ）を stem 末尾に置いた）"
+      }
+    },
+    {
+      "id": "h27-12",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-12",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 6,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h27-13",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-13",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 6,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h27-14",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-14",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 6,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h27-15",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-15",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 7,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h27-16",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-16",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 7,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h27-17",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-17",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 7,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h27-18",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-18",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 7,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h27-19",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-19",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 8,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢(1)(3)の消えた「1」を補った／選択肢(4)の消えた「8」を補った）"
+      }
+    },
+    {
+      "id": "h27-20",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-20",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 8,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢(2)(4)の消えた「8」を補った／選択肢(4)の消えた「2」「1」を補った）"
+      }
+    },
+    {
+      "id": "h27-21",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-21",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 8,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h27-22",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-22",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 9,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h27-23",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-23",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 9,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h27-24",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-24",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 9,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h27-25",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-25",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 10,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢の列が詰まっていたので ── でつないだ／消えた記号（イ）〜（ニ）を補い，制御文字を除いた／組合せの見出し（イ）（ロ）（ハ）（ニ）を stem 末尾に置いた）"
+      }
+    },
+    {
+      "id": "h27-26",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-26",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 10,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h27-27",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-27",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 11,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h27-28",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-28",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 11,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（stemExtra の「ものはどれか。」を stem に戻して問題文を1文にした）"
+      }
+    },
+    {
+      "id": "h27-29",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-29",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 11,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h27-30",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-30",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 12,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h27-31",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-31",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 12,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h27-32",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-32",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 13,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢(1)の消えた数字「3」を補った（以前3箇月間））"
+      }
+    },
+    {
+      "id": "h27-33",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-33",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 13,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h27-34",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-34",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 13,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢(3)の消えた数字「8」を補った（掘削の深さが8 m））"
+      }
+    },
+    {
+      "id": "h27-35",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-35",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 14,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h27-36",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-36",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 14,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（stemExtra の「該当しないものは，次のうちのどれか。」を問題文に戻して一続きにした）"
+      }
+    },
+    {
+      "id": "h27-37",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-37",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 14,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h27-38",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-38",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 14,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h27-39",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-39",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 15,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h27-40",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-40",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 15,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（stemExtra の「次のうちどれか。」「ただし，…除く。」を問題文に戻し，ただし書きを別段落にした）"
+      }
+    },
+    {
+      "id": "h27-41",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-41",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 15,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢(1)(3)の文字化けした制御文字を「1」に直した／ただし書きを別段落にした）"
+      }
+    },
+    {
+      "id": "h27-42",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-42",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 15,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h27-43",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-43",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 16,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢(2)の文字化けした制御文字を「2本1組」に直した）"
+      }
+    },
+    {
+      "id": "h27-44",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-44",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 16,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h27-45",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-45",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 17,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（stemExtra に分かれていた図中の寸法・ラベルは stem に入れず図として扱った／「逆 T 型」を画像どおり「逆T型」に詰めた）"
+      }
+    },
+    {
+      "id": "h27-46",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-46",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 17,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h27-47",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-47",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 18,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h27-48",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-48",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 18,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h27-49",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-49",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 18,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h27-50",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-50",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 19,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢(3)の「S 字型」を画像どおり「S字型」に詰めた）"
+      }
+    },
+    {
+      "id": "h27-51",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-51",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 19,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（stemExtra に分かれていた図中の文字は stem に入れず図として扱った／「A〜G」を画像どおり「A～G」に直し，前後の空白を詰めた）"
+      }
+    },
+    {
+      "id": "h27-52",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-52",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 19,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢(1)の文字化けした制御文字を数字「5」に直した）"
+      }
+    },
+    {
+      "id": "h27-53",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-53",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 20,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h27-54",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-54",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 20,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h27-55",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-55",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 20,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          3
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h27-56",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-56",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 21,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（stemExtra の見出し［　品質特性　］［　試験方法　］の内側の余分な空白を詰め，問題文の最後の段落に「［品質特性］ ── ［試験方法］」として戻した）"
+      }
+    },
+    {
+      "id": "h27-57",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-57",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 21,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（stemExtra の (A)(B)(C)(D) は図の中のラベルなので stem に入れず図として扱った／「(A)〜(D)」を画像どおり「(A)～(D)」に直した）"
+      }
+    },
+    {
+      "id": "h27-58",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-58",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 22,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h27-59",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-59",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 22,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          4
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "fixed",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "文字層の崩れを原典の画像で直した（選択肢(1)の文字化けした制御文字を「4」に直した／選択肢(2)の消えた数字「3」を補った（3回の試験結果）／選択肢(4)の文字化けした制御文字を「1」に直し，「75％」を画像どおり「75 %」にした）"
+      }
+    },
+    {
+      "id": "h27-60",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-60",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 22,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          1
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
+      "id": "h27-61",
+      "article": "civil-construction-2/primary-h27",
+      "no": "学科-61",
+      "source": {
+        "question": "H27/H27_学科試験.pdf",
+        "page": 22,
+        "answer": "H27/H27_学科試験_正答.pdf"
+      },
+      "answer": {
+        "status": "official",
+        "official": [
+          2
+        ],
+        "checkedAt": "2026-10-11",
+        "by": "agent"
+      },
+      "transcription": {
+        "status": "verified",
+        "checkedAt": "2026-10-11",
+        "by": "agent",
+        "note": "原典の画像と照合（2 回）"
+      }
+    },
+    {
       "id": "r03k-01",
       "article": "civil-construction-2/primary-r03-kouki",
       "no": "後期-1",
