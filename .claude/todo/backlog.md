@@ -2619,6 +2619,14 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 
 ## 🟣 判断待ち — ユーザーの意思決定が必要
 
+### [DN-0685] ci:true なのに壁時計で結果が変わる検査 2 件（affiliate-placements・video-publication）を ops へ移すか決める
+タグ: [領域:アフィリエイト] [種類:意思決定] [起票:2026-10-11]
+
+**起点**: 2026-10-11 のコード監査。code ルール「ci:true は結果が PR の diff だけで決まる検査に限る」に対し、scripts/check-affiliate-placements.mjs:48,73-78 は広告リンクの expiresAt が過ぎると差分が無くても全 PR が赤になる（7 日前に知らせる ops 検査 --upcoming は別にある）。scripts/check-video-publication.mjs:82,102 の V03（照合が 14 日古い）も同じで、現在は対象 0 件で休眠中だが 1 本公開した瞬間に全 PR が赤になりうる。tests/quality-audit-ops-tier.test.mjs は再混入を止める位置にあるが、この 2 件は通している。
+**決めること**: (a) 2 件を ops: true, ci: false に移し、期限切れの広告を出さない防御は ops の日次アラート（automation-failure Issue）に寄せる／(b) PR を止める今の挙動を残す（その場合はルールの例外として note: に理由を書く）。
+**完了条件**: どちらに決めても tests/quality-audit-ops-tier.test.mjs がその決定を固定し、node --test で通る。
+
+
 ### [DN-0662] コンクリート技士・主任技士・診断士を iOS アプリにするかを決める（問題文は非公開・主任技士は書籍由来・診断士の権利の確認範囲が未記録）
 タグ: [収益化] [領域:商品] [種類:意思決定] [起票:2026-10-11]
 
