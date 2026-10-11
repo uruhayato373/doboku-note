@@ -542,7 +542,6 @@
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.1141.0",
-    "@fontsource/manrope": "^5.3.0",
     "@fontsource/noto-sans-jp": "^5.3.0",
     "@google-analytics/data": "^7.2.0",
     "@mdx-js/react": "^3.1.0",
