@@ -9,6 +9,9 @@
  * - sitemap.xml（index-coverage・IndexNow・check-seo-build の母集合）には混ぜない。robots.txt の Sitemap 行だけで知らせる。
  * - 期限（LEGACY_SITEMAP_UNTIL）を過ぎたビルドでは出さない＝外し忘れを構造的に防ぐ。
  * - 転送先が今の sitemap に載っている（＝index させたい）ものだけを出す。
+ * - 移転日（LEGACY_REDIRECTED_AT）より後に作った記事の /docs/<slug> は出さない。_redirects は現行の全記事ぶん
+ *   /docs/<slug> の 301 を作るので、移転後の記事まで載せると「実在したことの無い旧 URL」を Google に送ることになり、
+ *   GSC の「検出 - インデックス未登録」を 173 件水増ししていた（2026-10-11・DN-0666）。作成日の分からない slug は残す。
  */
 import { jstDayOf } from "./jst-date.mjs";
 
@@ -24,14 +27,17 @@ export function legacySitemapActive(now = new Date(), until = LEGACY_SITEMAP_UNT
 }
 
 /**
- * @param {{ docRoutes: Map<string,string>, sitemapLocs: Set<string>, siteUrl: string, now?: Date, until?: string }} p
- *   docRoutes = 旧 slug → 新パス（generate-sitemap.mjs の parseRedirects）、sitemapLocs = sitemap.xml の loc 集合
+ * @param {{ docRoutes: Map<string,string>, sitemapLocs: Set<string>, siteUrl: string, createdBySlug?: Map<string,string>, now?: Date, until?: string }} p
+ *   docRoutes = 旧 slug → 新パス（generate-sitemap.mjs の parseRedirects）、sitemapLocs = sitemap.xml の loc 集合、
+ *   createdBySlug = slug → 作成日（YYYY-MM-DD・記事の frontmatter created）
  * @returns {{ active: boolean, urls: string[] }} urls は旧 URL（絶対・ソート済み）。期限切れなら空
  */
-export function buildLegacySitemapUrls({ docRoutes, sitemapLocs, siteUrl, now = new Date(), until = LEGACY_SITEMAP_UNTIL }) {
+export function buildLegacySitemapUrls({ docRoutes, sitemapLocs, siteUrl, createdBySlug = new Map(), now = new Date(), until = LEGACY_SITEMAP_UNTIL }) {
   if (!legacySitemapActive(now, until)) return { active: false, urls: [] };
   const urls = [];
   for (const [slug, to] of docRoutes) {
+    const created = createdBySlug.get(slug);
+    if (created && created > LEGACY_REDIRECTED_AT) continue;
     if (sitemapLocs.has(`${siteUrl}${to}`)) urls.push(`${siteUrl}/docs/${slug}`);
   }
   urls.sort();
