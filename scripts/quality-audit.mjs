@@ -3,7 +3,10 @@
  * quality-audit.mjs — コード・記事・画像/SVG の機械チェックを横断実行する統合 orchestrator。
  *
  * 既存の check-* / lint / test / build 系スクリプトを宣言的な CHECKS 配列で束ね、
- * 各チェックの pass/fail/skip/timeout・所要時間・stdout 要約を1回で収集する。
+ * 各チェックの pass/fail/skip/timeout/inconclusive・所要時間・stdout 要約を1回で収集する。
+ * inconclusive（検査不成立・exit 2）: 壁時計（Date.now）が単調時計（process.hrtime・スリープ中は進まない）より
+ * 5 秒超進んだ run の timeout/fail。2026-10-10 のフル実行で TIMEOUT 7 件・合計 1,804 秒だった検査群が単独では
+ * 154.6 秒（11.7 倍）で、Mac のスリープが壁時計に混ざっていた（DN-0693）。timeout を延ばしても直らないので区分を分ける。
  * pre-commit（staged ゲート）や個別 npm script を置き換えるものではなく、
  * 「いま全部通るか」を1コマンドで俯瞰し、レポート化するための上位ランナー。
  *
@@ -28,7 +31,7 @@
  *   - 存在しない npm script は skip 扱い（新チェックの段階導入に耐える）。
  */
 import { spawn, spawnSync } from 'node:child_process';
-import { availableParallelism } from 'node:os';
+import { availableParallelism, loadavg } from 'node:os';
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
@@ -252,7 +255,7 @@ const CHECKS = [
   // 分類語彙（領域×資格×記事型×テーマ×タグ）の整合。未登録タグ・別名綴り・構造タグ不整合は baseline ラチェット
   // （content-taxonomy-baseline.json）。WARN（topic 三方向の 0 件・未使用タグ）の読み手＝/weekly-review Phase 2。
   { id: 'content-taxonomy', npm: 'check-content-taxonomy:ci', timeout: 60_000, ci: true, note: '領域×資格×記事型×テーマ×タグの整合（規則 content-taxonomy.md）。未登録タグ／別名綴り／構造タグ不整合は baseline ラチェット。WARN の読み手＝/weekly-review Phase 2' },
-  { id: 'command-guidance', npm: 'check-command-guidance', timeout: 60_000, ci: true, note: '検査やスクリプトが案内するコマンド（npm run / node パス）が実在するか。移設後に旧パスを案内し続ける置き去りを止める（2026-08-22 に 26 箇所見つかった）' },
+  { id: 'command-guidance', npm: 'check-command-guidance', timeout: 60_000, ci: true, note: '検査やスクリプトが案内するコマンド（npm run / node パス）が実在するか。移設後に旧パスを案内し続ける置き去りを止める（2026-08-22 に 26 箇所見つかった）。2026-10-11 から skills・knowledge・agents・docs・workflows も走査（DN-0686）' },
   { id: 'doc-refs', npm: 'check-doc-refs', timeout: 90_000, ci: true },
   { id: 'agent-descriptions', npm: 'check-agent-descriptions', timeout: 30_000, ci: true, note: '.claude/agents/*.md の description（81 件すべてが毎セッションの system prompt に載る）が 300 code points を超えて増えないか。既存 32 件は baseline（返済は DN-0232）' },
   { id: 'claude-md-size', npm: 'check-claude-md-size', timeout: 30_000, ci: true, note: 'CLAUDE.md（常時読み込みの核）が 150 行以下か・12 原則の見出しが揃っているか・.claude/rules が全件 paths: 条件付きか。2026-09-08 に 311 行 / 69KB から分離した後、1 行ずつ戻るのを止める' },
@@ -518,11 +521,23 @@ function spawnAsync(cmd, args, { timeout, maxBuffer, ...opts }) {
   });
 }
 
+/**
+ * 壁時計と単調時計の差で「寝ていた時間」を測り、その分だけ超過した timeout / fail を inconclusive にする。
+ * pass は寝ていても pass（緑を疑わない）。許容 5 秒は、並列 4 本での timer の遅れとクロック差の見積り。
+ */
+export function classifyRun({ timedOut, exitStatus, wallMs, monoMs, sleepToleranceMs = 5_000 }) {
+  const sleptMs = Math.max(0, Math.round(wallMs - monoMs));
+  if (!timedOut && exitStatus === 0) return { status: 'pass', sleptMs };
+  if (sleptMs > sleepToleranceMs) return { status: 'inconclusive', sleptMs };
+  return { status: timedOut ? 'timeout' : 'fail', sleptMs };
+}
+
 // 同時に走らせる検査の数。QUALITY_AUDIT_CONCURRENCY=1 で従来どおり直列（切り分け用）。
 const CONCURRENCY = Math.max(1, Number(process.env.QUALITY_AUDIT_CONCURRENCY) || Math.min(4, availableParallelism()));
 
 async function runCheck(check) {
   const started = Date.now();
+  const startedMono = process.hrtime.bigint();
   // --ci は ci:true だけ / --ops は ops:true だけ / --report-only は report 区分だけ。
   // digest:false は「常に非ゼロで判定に使えない情報出力」なので週次 Issue の対象からも外す
   // （毎週飛ぶ通知は読まれなくなる）。ops は日次の別チャネル（ops-audit.yml）が読むので
@@ -546,12 +561,14 @@ async function runCheck(check) {
     env: { ...process.env, NO_COLOR: '1', FORCE_COLOR: '0' },
   });
   const durationMs = Date.now() - started;
-  let status;
-  if (r.error && r.error.code === 'ETIMEDOUT') status = 'timeout';
-  else if (r.status === 0) status = 'pass';
-  else status = 'fail';
+  const monoMs = Number(process.hrtime.bigint() - startedMono) / 1e6;
+  const timedOut = Boolean(r.error && r.error.code === 'ETIMEDOUT');
+  const { status, sleptMs } = classifyRun({ timedOut, exitStatus: r.status, wallMs: durationMs, monoMs });
   return {
     id: check.id, ci: check.ci, ops: Boolean(check.ops), status, exitCode: r.status ?? null, durationMs,
+    // 診断用: 単調時計の経過・寝ていた時間・開始時の負荷（壁時計の水増しを後から切り分ける）
+    monoMs: Math.round(monoMs), sleptMs, loadavg1: Math.round(loadavg()[0] * 100) / 100,
+    ...(status === 'inconclusive' ? { inconclusiveReason: `${timedOut ? 'timeout' : 'fail'} だが壁時計が単調時計より ${Math.round(sleptMs / 1000)} 秒進んでいる（スリープ・停止の疑い）` } : {}),
     stdoutTail: tail(r.stdout), stderrTail: tail(r.stderr), note: check.note,
     expectedFail: check.expectedFail ?? null,
     // 全文はここでしか手に入らない（tail 済みの文字列からは信号行を拾えない）
@@ -575,15 +592,15 @@ function buildMarkdown(results, meta) {
   L.push(`- 生成: ${meta.stamp}`);
   L.push(`- モード: ${CI ? 'CI（厳格サブセット）' : OPS ? 'ops（運用アラート）' : 'フル（report / ops 含む）'}`);
   const counts = results.reduce((a, r) => { a[r.status] = (a[r.status] || 0) + 1; return a; }, {});
-  L.push(`- 結果: pass ${counts.pass || 0} / fail ${counts.fail || 0} / timeout ${counts.timeout || 0} / skip ${counts.skip || 0}`);
+  L.push(`- 結果: pass ${counts.pass || 0} / fail ${counts.fail || 0} / timeout ${counts.timeout || 0} / inconclusive ${counts.inconclusive || 0} / skip ${counts.skip || 0}`);
   L.push('');
   L.push('| チェック | 区分 | 状態 | 時間 | 備考 |');
   L.push('|---|---|---|---|---|');
   for (const r of results) {
-    let badge = { pass: 'PASS', fail: '**FAIL**', timeout: '**TIMEOUT**', skip: 'skip' }[r.status];
+    let badge = { pass: 'PASS', fail: '**FAIL**', timeout: '**TIMEOUT**', skip: 'skip', inconclusive: '*INCONCLUSIVE*' }[r.status];
     if (r.expectedFail && (r.status === 'fail' || r.status === 'timeout')) badge = 'EXPECTED';
     const sec = r.durationMs ? `${(r.durationMs / 1000).toFixed(1)}s` : '—';
-    const memo = r.status === 'skip' ? (r.skipReason || '') : (r.note || '');
+    const memo = r.status === 'skip' ? (r.skipReason || '') : r.status === 'inconclusive' ? (r.inconclusiveReason || '') : (r.note || '');
     L.push(`| ${r.id} | ${r.ci ? 'ci' : r.ops ? 'ops' : 'report'} | ${badge} | ${sec} | ${memo} |`);
   }
   const failed = results.filter((r) => r.status === 'fail' || r.status === 'timeout');
@@ -632,7 +649,7 @@ async function main() {
       if (CI && process.env.GITHUB_ACTIONS === 'true' && ['fail', 'timeout'].includes(res.status)) {
         process.stderr.write(githubFailureAnnotation(res) + '\n');
       }
-      const badge = { pass: 'PASS', fail: 'FAIL', timeout: 'TIMEOUT', skip: 'SKIP' }[res.status];
+      const badge = { pass: 'PASS', fail: 'FAIL', timeout: 'TIMEOUT', skip: 'SKIP', inconclusive: 'INCONCLUSIVE' }[res.status];
       const sec = res.durationMs ? ` ${(res.durationMs / 1000).toFixed(1)}s` : '';
       process.stderr.write(`[${badge}] ${res.id}${sec}${res.skipReason ? ' — ' + res.skipReason : ''}\n`);
     }
@@ -649,7 +666,7 @@ async function main() {
   if (EMIT_JSON) process.stdout.write(JSON.stringify({ results, failed: failed.map((f) => f.id) }, null, 2) + '\n');
 
   const summary = results.reduce((a, r) => { a[r.status] = (a[r.status] || 0) + 1; return a; }, {});
-  process.stderr.write(`[quality-audit] pass ${summary.pass || 0} / fail ${summary.fail || 0} / timeout ${summary.timeout || 0} / skip ${summary.skip || 0}\n`);
+  process.stderr.write(`[quality-audit] pass ${summary.pass || 0} / fail ${summary.fail || 0} / timeout ${summary.timeout || 0} / inconclusive ${summary.inconclusive || 0} / skip ${summary.skip || 0}\n`);
 
   // 検査ゼロを PASS と呼ばない: --report-only で 1 件も実行できていないのは
   // 「FAIL なし」ではなく、CHECKS の ci フラグ構成が壊れたということ。
@@ -700,6 +717,14 @@ async function main() {
     process.stderr.write(`[quality-audit] CI 失敗: ${failed.map((f) => f.id).join(', ')}\n`);
     // process.exit(1) だと stderr がパイプのとき直前の書き込みが捨てられる。
     process.exitCode = 1;
+  }
+
+  // 検査不成立（inconclusive）は fail/timeout とは別に数え、1 件でもあれば exit 2。緑にも赤にもしない（CLAUDE.md §9）。
+  const inconclusive = results.filter((r) => r.status === 'inconclusive');
+  if (inconclusive.length) {
+    for (const r of inconclusive) process.stderr.write(`[INCONCLUSIVE] ${r.id}: ${r.inconclusiveReason}\n`);
+    process.stderr.write(`[quality-audit] 検査不成立 ${inconclusive.length} 件（スリープ・停止で壁時計だけが伸びた。timeout の延長では直らない。起きている状態で再実行する）\n`);
+    if (!process.exitCode) process.exitCode = 2;
   }
 }
 

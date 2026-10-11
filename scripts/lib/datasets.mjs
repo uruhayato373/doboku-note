@@ -366,6 +366,7 @@ export const DATASETS = [
   d('state.video-editorial-findings', '.claude/state/video-editorial-findings.json', 'state', 'sns', '動画パックの編集の指摘'),
   d('state.yt-verify', '.claude/state/yt-verify/latest.json', 'state', 'sns', 'YouTube の公開の照合の最新'),
   d('state.x-posted-live', '.claude/state/x-posted-live/latest.json', 'state', 'sns', 'X の投稿の照合の最新'),
+  d('state.x-sync-last-run', '.claude/state/x-publish/last-sync.json', 'state', 'sns', 'X の予約キュー照合（x-sync-status）を最後に完走した時刻と結果。SessionStart が TTL 内なら Playwright を起動しない（DN-0688）', { local: true, regen: 'node scripts/x-sync-status.mjs --dry（次の照合で作り直す。git には入れない＝セッションごとに変わり、CI の scheduled-publish が拾うと bot commit になる）' }),
   d('state.x-repost-queue', '.claude/state/x-repost/{name}', 'raw', 'sns', 'X の引用リポストの候補・承認・停止の印', { local: true, regen: '/x-repost が作り直す' }),
   d('state.instagram', '.claude/state/instagram-{name}.json', 'state', 'sns', 'Instagram のキャンペーンと編集の品質確認'),
   d('state.ig-reconcile', '.claude/state/ig-reconcile/{name}.json', 'state', 'sns', 'Instagram の照合結果（verify-ig-status）'),

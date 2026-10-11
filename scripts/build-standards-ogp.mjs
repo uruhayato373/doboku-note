@@ -19,6 +19,11 @@
  *   node scripts/build-standards-ogp.mjs --force         # 全件上書き
  *   node scripts/build-standards-ogp.mjs --only chubu/common
  *   node scripts/build-standards-ogp.mjs --list          # 生成せず対象を数える
+ *   node scripts/build-standards-ogp.mjs --write-srchash # 章の srcHash を退避台帳（asset-storage の manifest）へ書く
+ *
+ * スキップの判定（2026-10-11）: ローカルに ogp.png があるか、退避台帳の entry に現在の入力から計算した
+ * srcHash が載っていれば生成しない。CI の checkout には ogp.png が無いので前者だけでは毎 run 全 344 章を
+ * 再生成・再 upload していた（develop の bot commit の 64%・DN-0683）。
  */
 
 import fs from 'node:fs';
@@ -29,7 +34,9 @@ import { createRequire } from 'node:module';
 import { renderTemplate, LAYOUT_CONSTANTS } from '../.claude/skills/conversion/ogp-create/scripts/lib/ogp-templates.mjs';
 import { wrapTitle, pickFontSize } from '../.claude/skills/conversion/ogp-create/scripts/lib/ogp-text.mjs';
 import { pathToFileURL } from 'node:url';
+import { createHash } from 'node:crypto';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
+import { MANIFEST_PATH, loadManifest, writeManifestAtomic, toPosix } from './lib/asset-storage.mjs';
 
 const require = createRequire(import.meta.url);
 const coverTokens = require(path.join(REPO_ROOT, '.claude/knowledge/design-system/note-cover-tokens.json'));
@@ -106,6 +113,33 @@ function composeText(entry) {
   };
 }
 
+/**
+ * 章 OGP の見た目を左右する入力だけから作る短いハッシュ（記事 OGP の srcHash と同じ役割・同じ 16 桁。
+ * 桁を切る理由は scripts/update-ogp-srchash.mjs の冒頭）。テンプレ・外枠色・3 要素の文言のどれかが変われば変わる。
+ */
+export function chapterSrcHash(entry) {
+  const { kicker, main, sub } = composeText(entry);
+  const input = JSON.stringify({ v: 1, template: TEMPLATE_ID, accent: ACCENT, kicker, main, sub });
+  return createHash('sha256').update(input).digest('hex').slice(0, 16);
+}
+
+/** 退避台帳（manifest.entries）のキー＝リポジトリ相対の posix パス。 */
+export function chapterManifestKey(entry) {
+  return toPosix(path.relative(REPO_ROOT, entry.outputPath));
+}
+
+/**
+ * 生成を飛ばす理由を返す。'local'＝ローカルに実体がある / 'manifest'＝台帳の srcHash が現在の入力と一致
+ * （R2 の実体は現在の入力から作ったもの）/ null＝生成する。--force は常に生成。
+ */
+export function skipReason(entry, manifestEntries, { force = false, exists = fs.existsSync } = {}) {
+  if (force) return null;
+  if (exists(entry.outputPath)) return 'local';
+  const recorded = manifestEntries?.[chapterManifestKey(entry)];
+  if (recorded && recorded.group === 'site-ogp-png' && recorded.srcHash === chapterSrcHash(entry)) return 'manifest';
+  return null;
+}
+
 async function renderChapter(entry, fonts) {
   const { kicker, main, sub } = composeText(entry);
   const mainLines = await wrapTitle(main, EXPLICIT_WRAP);
@@ -138,6 +172,7 @@ async function main() {
   const argv = process.argv.slice(2);
   const force = argv.includes('--force');
   const list = argv.includes('--list');
+  const writeSrcHash = argv.includes('--write-srchash');
   const onlyIndex = argv.indexOf('--only');
   const only = onlyIndex >= 0 ? argv[onlyIndex + 1] : null;
 
@@ -156,13 +191,41 @@ async function main() {
     return;
   }
 
+  if (writeSrcHash) {
+    // 台帳に行がある章（＝R2 へ供給済み）だけに書く。行が無い章は供給前なので、ここでは作らない
+    // （行を作るのは asset-offload の検証通過だけ）。
+    // loadManifest は lean な行を読み時に展開する（logicalPath・mime・generator・requiredBy を補う）ので、
+    // それをそのまま書き戻すと 344 行の srcHash 追加が 3,400 行の差分になる（2026-10-11 実測）。
+    // ここは生の JSON を読んで srcHash だけ足す。
+    const manifest = JSON.parse(fs.readFileSync(MANIFEST_PATH, 'utf8'));
+    let updated = 0;
+    let unchanged = 0;
+    let missing = 0;
+    for (const entry of entries) {
+      const recorded = manifest.entries?.[chapterManifestKey(entry)];
+      if (!recorded || recorded.group !== 'site-ogp-png') { missing += 1; continue; }
+      const h = chapterSrcHash(entry);
+      if (recorded.srcHash === h) { unchanged += 1; continue; }
+      recorded.srcHash = h;
+      updated += 1;
+    }
+    if (updated > 0) writeManifestAtomic(manifest);
+    console.log(`srcHash: 対象 ${entries.length} 章 / 更新 ${updated} / 一致 ${unchanged} / 台帳未登録 ${missing}`);
+    if (updated + unchanged === 0) process.exitCode = 1; // 1 件も書けない＝供給前か台帳が読めていない
+    return;
+  }
+
   const fonts = loadFonts();
+  const manifestEntries = loadManifest().entries ?? {};
   let generated = 0;
   let skipped = 0;
+  let skippedByManifest = 0;
   const failed = [];
 
   for (const entry of entries) {
-    if (!force && fs.existsSync(entry.outputPath)) { skipped += 1; continue; }
+    const reason = skipReason(entry, manifestEntries, { force });
+    if (reason === 'local') { skipped += 1; continue; }
+    if (reason === 'manifest') { skippedByManifest += 1; continue; }
     try {
       const png = await renderChapter(entry, fonts);
       fs.mkdirSync(path.dirname(entry.outputPath), { recursive: true });
@@ -174,7 +237,7 @@ async function main() {
     }
   }
 
-  console.log(`対象 ${entries.length} 章 / 生成 ${generated} / 既存スキップ ${skipped} / 失敗 ${failed.length}`);
+  console.log(`対象 ${entries.length} 章 / 生成 ${generated} / 既存スキップ ${skipped} / 台帳一致スキップ ${skippedByManifest} / 失敗 ${failed.length}`);
   for (const line of failed.slice(0, 10)) console.log(`  ✗ ${line}`);
   if (failed.length > 0) process.exitCode = 1;
 }

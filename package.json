@@ -316,6 +316,7 @@
     "check-script-imports": "node scripts/check-script-imports.mjs",
     "check-seo-build": "node scripts/check-seo-build.mjs",
     "check-seo-build:ci": "node scripts/check-seo-build.mjs --ci",
+    "check-client-chunk-size": "node scripts/check-client-chunk-size.mjs",
     "check-seo-meta": "node .claude/skills/quality/check-seo-meta/scripts/check-seo-meta.mjs",
     "check-seo-meta:check": "node .claude/skills/quality/check-seo-meta/scripts/seo-meta-threshold-check.mjs",
     "check-ssot-consumers": "node scripts/check-ssot-consumers.mjs",
@@ -640,6 +641,6 @@
     }
   },
   "engines": {
-    "node": ">=18.0"
+    "node": ">=20.9"
   }
 }

@@ -22,6 +22,14 @@ title: 計測・検証事故の記録
 - 対策: 画像のconcat入力をWAV累積実尺へ配置し、音声を別に連結。`RUN_FFMPEG_INTEGRATION=1 node --test tests/longform-timing.integration.test.mjs` は0.341秒×40場面で出力誤差0.15秒未満を要求する。
 - 教訓: 時間同期のテストにはフレーム周期で割り切れない尺を含める。
 
+## 2026-10-11 — quality-audit の TIMEOUT 7 件はスリープ中に壁時計だけが進んだ水増しだった
+
+- 現象: 2026-10-10 03:39Z のフル実行で unit-tests 181 秒・validate-mdx 180 秒・reference-book-pages 120 秒など 7 件が TIMEOUT、FAIL 11 件。同じ 27 検査を単独で再実行すると 37 秒・17 秒・6 秒で、合計 1,804 秒 → 154.6 秒（11.7 倍）。asset-reentry は 34.8 秒 → 0.1 秒（348 倍）。
+- 根本原因: 所要時間を Date.now（壁時計）だけで測っていた。Mac がスリープ・停止すると壁時計は進むが子プロセスは止まったままで、復帰後に timeout 判定だけが成立する。並列 4 本の競合では 348 倍は説明できない。
+- 検出経緯: コード監査（DN-0693 起票）で audit-latest.json の durationMs と単独再実行を比べて気づいた。timeout を延ばす・検査を分ける案は原因に効かない。
+- 対策: 壁時計と単調時計（process.hrtime・スリープ中は進まない）の差で「寝ていた時間」を測り、5 秒超の差がある timeout/fail は inconclusive（検査不成立・exit 2）に分けた（`classifyRun`・`tests/quality-audit-inconclusive.test.mjs`）。pass は寝ていても pass。
+- 教訓: 時間で判定する検査は壁時計だけを信じない。「遅かった」と「止められていた」を区別できる計器（単調時計との差・開始時の負荷）を結果に残す。
+
 ## 2026-10-08 — UI撮影の合格条件に番号ジャンプの成立が含まれていなかった
 
 - 現象: 一時撮影スクリプトが8条件成功を表示したが、一部の問1クリックはhashが空で、見出しも初期位置のままだった。

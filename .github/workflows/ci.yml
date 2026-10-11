@@ -35,7 +35,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
-          node-version: "20"
+          node-version: "22"
           cache: "npm"
 
       - name: Install Dependencies
@@ -90,7 +90,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
-          node-version: "20"
+          node-version: "22"
           cache: "npm"
 
       - name: Install Dependencies
@@ -123,6 +123,11 @@ jobs:
 
       - name: Check build-time SEO (out/)
         run: npm run check-seo-build:ci
+
+      # client に同梱される JS 1 本の上限（DN-0684・2026-10-11）。/search のチャンクに doc-meta-index.json が入って
+      # 1.66MB になっていた。client component の import 1 行で再発するので build の直後に止める。
+      - name: Check client chunk size (out/)
+        run: npm run check-client-chunk-size
 
       # --built は「学習系ナビに career 記事が混ざっていないか」を out/ の HTML で見る。
       # 2026-09 の URL 分割で走査先が out/docs のまま取り残され、誰も起動していなかったため

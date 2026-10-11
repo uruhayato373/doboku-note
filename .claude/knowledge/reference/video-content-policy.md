@@ -307,7 +307,7 @@ APIへ非公開アップロード済みで関連動画設定待ちのShortsは `
 
 旧形式の10素材（YouTube実体は重複1本を含む11本）は `content/sns/youtube/legacy-refresh.json` と `scripts/refresh-legacy-youtube.mjs` で再生成する（`--only <key>` で部分再生成）。過去問8素材はハッシュ照合した原本の設問・解答・音声を保ち、表紙とCTAを差し替える。キーワード2素材は既存サイト記事に基づく編集可能なスライド原稿から再描画する。出力は `.tmp/video-render/legacy-brand-a/`、画像確認前の状態は `rendered` であり公開可能とは扱わない。確認後の移行計画は `legacy-metadata.json` の既存タイトル・現内容に即した概要欄・正規URL/UTMを取り込む。
 
-撤去完了の検査は `npm run check-youtube-delivery -- --require-deleted`。private R2の固定planと最新delivery-stateを照合し、全対象の削除済み記録がそろえばexit 0、残件はexit 1、ゼロ件・plan不一致・dry-run・削除数欠測・36時間超の古い記録・認証不可はexit 2とする。オフラインでは `--state <private-state.json> --plan <private-plan.json>` を渡せる。Gitの集計スナップショットだけから全件撤去とは判定しない。
+撤去完了の検査は `node scripts/check-youtube-delivery.mjs --require-deleted`。private R2の固定planと最新delivery-stateを照合し、全対象の削除済み記録がそろえばexit 0、残件はexit 1、ゼロ件・plan不一致・dry-run・削除数欠測・36時間超の古い記録・認証不可はexit 2とする。オフラインでは `--state <private-state.json> --plan <private-plan.json>` を渡せる。Gitの集計スナップショットだけから全件撤去とは判定しない。
 
 **公開実体の照合**は 2 本立てで、台帳の予約→公開は別の照合 `registry-reconcile`（毎日・証拠つきで published へ進める・[content-registry.md](content-registry.md)「照合」）が書く。実査 `verify-video-publication`（CI 週次＝`verify-yt-status.yml` に同居・creds 必須）が videos.list で削除/非公開・概要欄の `utm_campaign={packId}`/`utm_source=youtube` 欠落・公開済み Short の `relatedVideoId` 未設定を検出し `.claude/state/video-publication-verify.json` へ記録する。**creds 不足・API 失敗は 記録を書かずに exit 2（検査不成立）**——「creds が無い」を「異常なし」と記録すると以後ずっと緑が出て事故が埋もれるため。ゲート `check-video-publication`（オフライン・quality:audit ci:true）はその記録の有無・網羅・孤児・報告済みドリフトを見る。記録の古さ（台帳の failDays・既定 14 日）は壁時計依存なので `--freshness` に分け、quality-audit の ops（日次）が見る（2026-10-11）。**published なのに一度も照合していない**状態が最も危険なので V01 で赤にする。対象 0 件（公開前）は件数を明示して PASS（異常 0 件と混同しない）。是正は人が判断し、`verify-video-publication` は台帳を書き戻さない。
 

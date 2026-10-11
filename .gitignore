@@ -444,3 +444,5 @@ content/sns/x/draft/*-diagrams/img/tweet-*.png
 # OGP の資格別の背景画像（AI で作った一点物）。2026-10-10 に private R2 へ退避（config/asset-storage.json の ogp-background group）。
 # 使う直前に npm run asset-hydrate -- --group ogp-background で取り戻す（CI は ogp-supply.yml が取り戻す）
 config/ogp/backgrounds/*.png
+# x-sync-status の完走記録（state.x-sync-last-run）。セッションごとに変わる手元の TTL 用で、CI の scheduled-publish に拾わせない（DN-0688）
+.claude/state/x-publish/last-sync.json

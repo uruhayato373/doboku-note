@@ -43,7 +43,7 @@ title: 推奨ワークフロー
 >
 > 調査の実務:
 > - **trigger_id は `RemoteTrigger {action:"get"}` で直接引く**。`list` はページ送りが効かず（`next_cursor` を body に渡しても無視される）、先頭 20 件が別プロジェクトの使い捨て `send_later` トリガーで埋まって正典まで辿り着けない。ID は memory `cloud-routines-minimized` に記録がある
-> - **発火の成否は「PR が存在するか」で見る**（`gh pr list` の `headRefName` が `claude/weekly-pdca-YYYY-Www`）。機械判定は `npm run check-weekly-routine-fired`（2026-09-19 撤去）
+> - **発火の成否は「PR が存在するか」で見る**（`gh pr list` の `headRefName` が `claude/weekly-pdca-YYYY-Www`）。機械判定は `check-weekly-routine-fired`（npm script・2026-09-19 撤去）
 > - **`git ls-remote` でブランチの有無を見てはいけない**（2026-08-16 に私が踏んだ罠）。PR の close/merge 後にブランチは自動削除されるため、**成功した週でも空になる**。「ブランチが無い＝push 前に落ちた＝起動失敗」と推論したが、これは**不在を証拠と取り違えた誤り**だった。失敗がどの段階で起きているかは、この方法では分からない
 >
 > 対処として、ルーティン本文に **Phase 8.5「沈黙の禁止」**（PR 作成に到達しなければ `scripts/report-automation-failure.mjs` で automation-failure を起票してから終了）を追加し、モデル指定を `claude-sonnet-4-6` から `claude-sonnet-5` へ更新した。**ただし後者は実行ログを見られないまま立てた仮説であり、根本原因は未特定**（環境失効・認証切れ等の可能性が残る）。
