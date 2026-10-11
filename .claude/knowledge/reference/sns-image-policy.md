@@ -56,6 +56,8 @@ YouTube の後付けサムネ処理は `npm run youtube-thumbnail:update`（.cla
 
 POP組版は `design: "pop-v2"` と `pop: {variant, authority}` で指定する。variantは `listen`・`write`・`compare`・`question`・`plan`・`explain`。`npm run youtube-covers -- --all` は停止済みを除くYouTube台帳の表紙を生成し、`.tmp/youtube-covers/pop-all/index.html` に確認一覧を作る。`--exam`・`--pub` で対象を絞り、`--commit` で原稿と正規の素材台帳へ採用する。音声・字幕・動画本体・公開状態・運営者の承認は変更しない。人物原本は `_source/`（Driveの `repo-archive`）、完成PNGは `content-media` に保存・クラウド照合する。選択済みの完成画像は入力とSHAが一致する場合に画素を保持する。
 
+画像生成ツールで作った構図比較案は制作元の `pop-image.json` の `revisions` にコピー・ポーズ・生成履歴・SHAを保存し、採用中の `outputs` と区別する。legacy Shortsの同ファイルもGitで保持する。比較案の保存だけでは `cover-design.json`・素材台帳・動画冒頭は更新されない。`pop-v2`の自動組版は人物3素材を使うため、内容別の追加ポーズや原本に近い構図を自動生成済みとは扱わない。
+
 動画の冒頭デザインを刷新する未投稿パックは、カバー画像と動画を同時再生成する。公開済み YouTube のサムネだけを変える場合は動画本体を変更したと記録しない。既存投稿の削除・再投稿は同じ ID の編集と異なり、URL・反応履歴への影響を示してユーザーの依頼範囲内で行う。
 
 保存後は対象 ID・公開状態・日時・実表示を読み直して確認する。予約重複や意図しない即時公開がないことを確認し、「素材生成済み／外部更新済み／実表示確認済み」を区別して報告する。

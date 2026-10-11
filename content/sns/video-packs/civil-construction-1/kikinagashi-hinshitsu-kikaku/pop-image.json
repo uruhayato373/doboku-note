@@ -181,5 +181,74 @@
       },
       "publication": "ローカル差し替え・外部未反映"
     }
+  },
+  "revisions": {
+    "longform": {
+      "version": "pop-poster-v3",
+      "publicationId": "civil-construction-1/kikinagashi-hinshitsu-kikaku/youtube.longform",
+      "copy": {
+        "exam": "1級土木",
+        "headline": [
+          "耳で覚える",
+          "品質管理"
+        ],
+        "authority": "総監が解説"
+      },
+      "evidence": [
+        "content/sns/video-packs/civil-construction-1/kikinagashi-hinshitsu-kikaku/storyboard.json"
+      ],
+      "pose": "headphones-listen",
+      "generation": [
+        {
+          "step": "original",
+          "prompt": "画像1は自社で承認したココナラ表紙です。この人物、描線、極太の縁取り文字と躍動感のあるPOP意匠を継承し、YouTube通常動画の横長16:9の表紙を構成し直してください。縦横比を伸ばしてはいけません。大きな資格名「1級土木」を左上、主題の「耳で覚える」を中央左の白い極太文字、「品質管理」を巨大な黄色の極太文字でその下へ配置。補足や数字は足さない。短い黄色帯に「総監が解説」を5文字すべて読める状態で左下へ配置。人物は画面の右35〜40%を占める大きさ、同じ40代男性、黒髪と黒縁眼鏡、ひげ、紺の作業服と白シャツ、紺ネクタイ、黄白の反射帯。今回のポーズは聞き流し学習を伝えるため、ヘルメットを脱いで大きな紺色のヘッドホンを付け、片手をイヤーカップにそっと当て、少し微笑んで聴いている。黒髪の髪型と顔の同一性を守る。赤ペンや指差しにはしない。頭、手、目、口と文字が切れない。背景はココナラ同様の鮮やかな青、斜線と控えめな現場シルエット、少量の赤で音声感の抽象的な波形を背景へ。白い長方形の文章欄に小さい文字を並べる教材スライドにしない。重要な文字と顔は上左右5%・下8%より内側へ配置。ブランド、ロゴ、URL、値段、数値、指定外の文字を一切追加しない。出力16:9の完成画像1枚。",
+          "references": [
+            {
+              "path": "content/coconala/assets/pop-20260927/thumb-tensaku-set.png",
+              "sha256": "ad9f644b36ac32b383624b1fbcc21f966f7e79516036d00bbe702b200d21c6e6"
+            }
+          ],
+          "format": {
+            "width": 1672,
+            "height": 941
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-1/kikinagashi-hinshitsu-kikaku/youtube.longform/cover.179870b6.png",
+            "sha256": "179870b62a66a38ab7ad5ce740f44bcb425b40649bfe532d8e21d2c86aa216ae"
+          },
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/civil-construction-1/kikinagashi-hinshitsu-kikaku/youtube.longform/cover.179870b6.png"
+          }
+        }
+      ],
+      "output": {
+        "path": ".tmp/media/civil-construction-1/kikinagashi-hinshitsu-kikaku/youtube.longform/cover.179870b6.png",
+        "sha256": "179870b62a66a38ab7ad5ce740f44bcb425b40649bfe532d8e21d2c86aa216ae"
+      },
+      "format": {
+        "width": 1672,
+        "height": 941
+      },
+      "storage": {
+        "group": "content-media",
+        "key": ".tmp/media/civil-construction-1/kikinagashi-hinshitsu-kikaku/youtube.longform/cover.179870b6.png"
+      },
+      "review": {
+        "status": "composition-preview",
+        "checkedAt": "2026-10-11T00:27:48.302Z",
+        "by": "Codex",
+        "viewportWidth": 360,
+        "checks": {
+          "copyMatches": true,
+          "readable": true,
+          "poseMatchesContent": true,
+          "authorityNotOccluded": true
+        },
+        "userImageReview": "pending",
+        "shortsUiReview": "not-applicable"
+      },
+      "publication": "構図確認用・未採用・外部未反映"
+    }
   }
 }
