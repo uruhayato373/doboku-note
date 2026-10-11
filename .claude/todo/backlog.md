@@ -1877,6 +1877,14 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 **完了条件**: 2 ページの CTA の変更が 10/18 までに公開され、反映 28 日後の CTA クリック率を変更前と比べた記録が本カードの完了記録にある（試験後で少数なら判定保留と書く）。
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-0689] CI 基盤: PR の build 3 回を 1 回に・Node 20/22 混在を 22 へ・setup を composite action にまとめる
+タグ: [領域:管理] [種類:改善] [検証:check-workflow-hygiene] [起票:2026-10-11]
+
+**起点**: 2026-10-11 のコード監査。PR ごとに ci.yml・e2e.yml・lighthouse.yml が別々に npm run build（cloudflare-deploy.yml を含めると 4 回）。node-version は "20" が 32 か所・"22" が 13 か所で混在（Node 20 は 2026-04 に EOL、ローカルは v22.23.3、package.json:641 の engines は >=18）。npm ci が 36 ファイル・build-doc-meta-index が 21 ファイルに重複。
+**やること**: ci の out/ を artifact で e2e / lighthouse に渡す（または同じ workflow の job にまとめる）。.github/actions/setup-repo（新規）に checkout 後の共通前処理を寄せ、Node を 22 に揃え engines を >=20.9 にする（wrangler@3 を 22 で確認）。
+**完了条件**: PR 1 回で gh run view --log | grep -c 'next build' が 1。grep -c 'node-version: "20"' .github/workflows/*.yml の合計が 0 で、check-workflow-hygiene にその検査を足す。
+
+
 ### [DN-0687] knip の未使用 25 ファイル（UI バレル 18・src/lib 5・ig design 2）を消して baseline を下げる
 タグ: [領域:管理] [種類:改善] [検証:check-knip-ratchet] [起票:2026-10-11]
 
