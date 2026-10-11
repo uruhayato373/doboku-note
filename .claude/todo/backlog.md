@@ -354,6 +354,14 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0675] _redirects の静的ルールが 1431/2000 件まで来ていて、移転後の記事の /docs 転送を作り続けると十数週で上限に当たる
+タグ: [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-10-11]
+
+**起点**: 2026-10-11 の technical-seo-auditor。public/_redirects の静的ルールは 1,431 件で、Cloudflare Pages の上限 2,000 件に対し scripts/build-public-route-redirects.ts は 2,000 超で throw する。現行の全記事ぶん /docs/<slug> の 301 を作っていて、移転日 2026-08-22 より後に作った記事 266 件の /docs は実在したことが無い（sitemap-legacy.xml 側は PR #988 で外した）。約 7 週で 266 件増えたので、十数週で上限に達する見込み。
+**やること**: build-public-route-redirects.ts が、移転前から存在した slug（frontmatter の created が 2026-08-22 以前）だけ /docs の 301 を作るようにする。先に、移転後の記事の /docs URL を note・SNS・Kindle が案内していないかを grep で確かめ、案内していればその分は残す。回帰テストを付ける。
+**完了条件**: _redirects の静的ルールが 1,200 件程度まで下がり、移転後の記事の /docs への案内が 0 件であることを確かめた記録がある。
+
+
 ### [DN-0674] インデックス登録リクエストの順位表を「型ごとの期待値」順にし、検索改善レポートの分類器の誤分類を直す
 タグ: [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-11]
 
