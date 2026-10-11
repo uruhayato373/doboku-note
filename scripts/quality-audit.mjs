@@ -120,7 +120,9 @@ const CHECKS = [
   { id: 'seo-rank-watch', npm: 'check-seo-rank-watch', timeout: 30_000, ci: true, note: '順位監視・観察状態・履歴の整合' },
   // ── ci:true 厳格ゲート ──
   { id: 'type-check', npm: 'type-check', timeout: 240_000, ci: true },
-  { id: 'unit-tests', npm: 'test', timeout: 180_000, ci: true },
+  // GitHub の runner では 3,000 件超のテストが 171〜182 秒掛かる（2026-10-11 の PR 3 本で実測。182 秒で timeout に当たり
+  // 0 fail なのに CI が赤になった）。上限は実測の 1.6 倍に置く。手元のスリープ由来の水増しは inconclusive が分ける
+  { id: 'unit-tests', npm: 'test', timeout: 300_000, ci: true },
   // `npm test` は tests/*.test.mjs しか見ない。.claude/scripts/ads/__tests__/ の 3 本（38 テスト）は
   // 別 script になっていて、2026-08-17 まで**どの CI にも登録されておらず誰も走らせていなかった**。
   { id: 'ads-tests', npm: 'test:ads', timeout: 120_000, ci: true, note: 'A8/もしも/afb のサイト帰属ガードと CSV 正規化の単体テスト' },
