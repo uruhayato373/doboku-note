@@ -31,6 +31,8 @@ import { isoWeekKey, reviewWeekOfDay, reviewWindowOfWeek, weekPeriod } from './l
 import { datasetPath } from './lib/datasets.mjs';
 import { qualificationShortLabel } from './lib/qualification-names.mjs';
 import { loadRegistry } from './lib/qualification-registry.mjs';
+import { loadMonthReceipts } from './lib/net-receipts-ledger.mjs';
+import { shiftMonth } from './lib/net-receipts.mjs';
 
 const TAG = '[weekly-review-draft]';
 const args = parseCliArgs({ week: { type: 'string' }, print: { type: 'boolean' }, check: { type: 'boolean' } });
@@ -102,6 +104,17 @@ md.push(`作成日: ${todayJst()}（build-weekly-review-draft・機械で決ま�
 md.push(`対象期間: ${period.startDate} 〜 ${period.endDate}（事業レビューと計測ダイジェストは前の完了週 ${windowPeriod.startDate}〜${windowPeriod.endDate}＝${windowWeek} 窓）`, '');
 md.push('> [!note] この下書きの使い方', '> `/weekly-review` はここから機械の節を写し、判断の節（計画 vs 実績・トリアージ・課題・学び・バックログの関門・申し送り）を書いて `docs/reviews/weekly/<週>-review.md` に保存する。数字は転記し直さない。', '');
 if (missing.length) md.push('## 材料の欠け（先に直す）', '', ...missing.map((m) => `- ${m}`), '');
+
+// 月の受取額（NSM）。管理画面トップと同じ組み立て（週次の CI が更新した 3 つの台帳）で、今月の途中経過と前月を出す
+const RECEIPT_STATUS = { final: '確定', 'to-date': '途中', estimate: '推計', missing: '未取得' };
+const thisMonth = todayJst().slice(0, 7);
+md.push('## 月の受取額（手数料控除後・管理画面トップと同じ集計）', '', '| 月 | 合計 | note | ココナラ | KDP |', '|---|---|---|---|---|');
+for (const m of [thisMonth, shiftMonth(thisMonth, -1)]) {
+  const r = loadMonthReceipts(REPO_ROOT, m);
+  const cell = (c) => `${c.value == null ? '—' : `¥${c.value.toLocaleString('ja-JP')}`}（${RECEIPT_STATUS[c.status]}${c.asOf ? `・${c.asOf.slice(5)} 取得` : ''}）`;
+  md.push(`| ${m}${m === thisMonth ? '（途中）' : ''} | ${r.total == null ? '—' : `¥${r.total.toLocaleString('ja-JP')}`}${r.complete ? '（確定）' : ''} | ${r.channels.map(cell).join(' | ')} |`);
+}
+md.push('');
 
 md.push(`## 資格別 KPI（${windowWeek} 窓・前週比）`, '');
 md.push(`| 指標 | 全体 | 前週比 | ${QUALS.map((q) => qualificationShortLabel(REGISTRY, q) ?? q).join(' | ')} |`, `|---|--:|--:|${QUALS.map(() => '--:').join('|')}|`);

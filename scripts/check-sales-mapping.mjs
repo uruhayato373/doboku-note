@@ -14,8 +14,10 @@
 //   2. src/lib/note-magazines.ts の公開済み単品（/n/）を article:<id> として収集
 //   3. .claude/agents/sales-recorder.md の backtick コードスパンから productId パターンを抽出し
 //      （`{subject}`→任意 slug, `{N}`→数字, `{a|b}`→選択肢, `*`→任意）正規表現に変換
-//   4. どのパターンにも一致しない productId、公開単品の明示 mapping 漏れ、
-//      article:unknown-* を違反として列挙
+//   4. どのパターンにも一致せずカタログ（note-magazines.ts の公開済み）にも無い productId と、公開単品の明示 mapping 漏れを
+//      違反として列挙。article:unknown-* は note-sales-fetch が「保留」として書く正規の状態なので WARN（題名つき）に留める
+//      （2026-10-08: unknown 1 件と新マガジンの初売上で CI の書き戻しが止まり、10 月の売上が台帳に入らなかった。
+//      未解決は business-direction が売上の網羅性を partial にして示す）
 //
 // --staged 時は data/note/sales.json / sales-recorder.md / note-magazines.ts のいずれかが
 // staged の場合のみ起動（それ以外は no-op）。
@@ -31,7 +33,7 @@
 import { readFileSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { publishedArticleProductIds } from './lib/sales-mapping.mjs';
+import { catalogProductIds, publishedArticleProductIds } from './lib/sales-mapping.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { REPO_ROOT, CLAUDE_ROOT } from './lib/repository-paths.mjs';
 
@@ -123,19 +125,27 @@ function patternToRegExp(p) {
 }
 
 const patterns = patternTokens.map((t) => ({ src: t, re: patternToRegExp(t) }));
-const catalogArticleIds = publishedArticleProductIds(readFileSync(NOTE_CATALOG, 'utf8'));
+const catalogSource = readFileSync(NOTE_CATALOG, 'utf8');
+const catalogArticleIds = publishedArticleProductIds(catalogSource);
+const catalogIds = new Set(catalogProductIds(catalogSource));
 
 // --- 3. 公開済み単品カタログを収集し、売上実績と合わせて照合 ---
 const violations = [];
+const unresolved = [];
 for (const id of productIds) {
   if (/(^|:)unknown-/.test(id)) {
-    violations.push({ id, reason: 'article:unknown-* は要解決（正しい productId に確定して mapping へ）' });
+    unresolved.push(id);
     continue;
   }
-  const hit = patterns.some((p) => p.re.test(id));
+  const hit = catalogIds.has(id) || patterns.some((p) => p.re.test(id));
   if (!hit) {
-    violations.push({ id, reason: 'sales-recorder.md の mapping に未文書化' });
+    violations.push({ id, reason: 'note-magazines.ts の公開済みにも sales-recorder.md の mapping にも無い' });
   }
+}
+if (unresolved.length) {
+  const titleOf = (id) => (log.sales || []).find((s) => s.productId === id)?.title ?? '';
+  console.log(`[check-sales-mapping] WARN: productId 未解決 ${unresolved.length} 件（article:unknown-*・正しい id に直すまで売上の網羅性は partial）`);
+  for (const id of unresolved) console.log(`  - ${id}  ${titleOf(id)}`);
 }
 
 for (const id of catalogArticleIds) {
@@ -149,7 +159,7 @@ for (const id of catalogArticleIds) {
 
 if (violations.length === 0) {
   console.log(
-    `[check-sales-mapping] ✓ 売上 productId ${productIds.length} 種＋公開単品 ${catalogArticleIds.length} 件は全て sales-recorder.md の mapping に存在`
+    `[check-sales-mapping] ✓ 売上 productId ${productIds.length} 種（未解決 ${unresolved.length}）＋公開単品 ${catalogArticleIds.length} 件は全てカタログか sales-recorder.md の mapping に存在`
   );
   process.exit(0);
 }

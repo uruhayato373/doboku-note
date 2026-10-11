@@ -5,14 +5,25 @@ import { Grid, Section, Stack } from '@/components/layout';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
-import { loadKpiView } from '@/lib/kpi-tree';
+import { StatusBadge, type Tone } from '@/components/admin';
+import { loadKpiView, type ReceiptChannel } from '@/lib/kpi-tree';
+import { jstMonth } from '../../../../scripts/lib/jst-date.mjs';
 
 export const dynamic = 'force-dynamic';
 
 /**
  * トップ = KPI。一目で分かる最小限だけを上に出す: 受取額と目標 → どこから売れたか（チャネル別・資格別の販売額）
- * → 入口（サイト・検索クラスター）。KPI ツリーの全行と集客の推移は別ページ（下部のカードから開く）（docs/strategy/15_KPIツリー.md）。
+ * → 入口（サイト・検索クラスター）。受取額は週次で更新する 3 つの台帳から直接合計し（net-receipts.mjs の monthReceipts）、
+ * 月の途中や確定前でも取得分を出す。既定は今月（途中経過）。KPI ツリーの全行と集客の推移は別ページ（下部のカードから開く）（docs/strategy/15_KPIツリー.md）。
  */
+const RECEIPT_STATUS: Record<ReceiptChannel['status'], { label: string; tone: Tone }> = {
+  final: { label: '確定', tone: 'good' },
+  'to-date': { label: '途中', tone: 'info' },
+  estimate: { label: '推計', tone: 'warn' },
+  missing: { label: '未取得', tone: 'bad' },
+};
+const shortDay = (d: string | null) => (d ? `${Number(d.slice(5, 7))}/${Number(d.slice(8, 10))}` : '');
+
 const yen = (v: number | null) => (v == null ? '—' : `¥${v.toLocaleString('ja-JP')}`);
 const fmt = (v: number | null, unit: string) =>
   v == null ? '—' : unit === '円' ? yen(v) : `${v.toLocaleString('ja-JP')}${unit === '%' ? '%' : ''}`;
@@ -70,9 +81,10 @@ function LinkCard({ href, title, desc }: { href: string; title: string; desc: st
 
 export default async function Home({ searchParams }: { searchParams: Promise<{ month?: string }> }) {
   const { month } = await searchParams;
-  const v = loadKpiView(month);
-  const rate = v.receipts != null && v.goal ? v.receipts / v.goal.value : null;
-  const thisMonth = new Date().toISOString().slice(0, 7);
+  const thisMonth = jstMonth();
+  const v = loadKpiView(month ?? thisMonth);
+  const r = v.receiptsLive;
+  const rate = r.total != null && v.goal ? r.total / v.goal.value : null;
   const next = shiftMonth(v.month, 1);
 
   return (
@@ -84,7 +96,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ m
             <Link href={`/?month=${shiftMonth(v.month, -1)}`}>← 前の月</Link>
           </Button>
           <Button variant="secondary" size="sm" disabled>{v.month}</Button>
-          {next < thisMonth && (
+          {next <= thisMonth && (
             <Button asChild variant="outline" size="sm">
               <Link href={`/?month=${next}`}>次の月 →</Link>
             </Button>
@@ -93,31 +105,43 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ m
 
         <Card>
           <CardHeader>
-            <CardDescription>月の受取額（手数料控除後）</CardDescription>
+            <CardDescription>
+              月の受取額（手数料控除後）
+              {r.total != null && (r.complete ? ' ・ 確定' : v.month === thisMonth ? ' ・ 今月の途中経過' : ' ・ 確定前（推計・未取得を含む）')}
+            </CardDescription>
           </CardHeader>
-          <CardContent className="flex flex-col gap-2">
+          <CardContent className="flex flex-col gap-3">
             <div className="text-4xl leading-tight font-extrabold tabular-nums">
-              {yen(v.receipts)}
+              {yen(r.total)}
               {v.goal && <span className="text-xs font-normal text-muted-foreground"> / 目標 {yen(v.goal.value)}</span>}
             </div>
             {rate != null ? (
               <>
                 <Progress
-                  value={rate * 100}
+                  value={Math.min(100, rate * 100)}
                   className="h-3 max-w-[560px]"
                   indicatorClassName={rate >= 1 ? 'bg-(--good)' : 'bg-(--warn)'}
                 />
                 <span className="text-xs">
-                  達成率 {Math.round(rate * 100)}% ・ あと {yen(Math.max(0, (v.goal?.value ?? 0) - (v.receipts ?? 0)))}
+                  達成率 {Math.round(rate * 100)}% ・ あと {yen(Math.max(0, (v.goal?.value ?? 0) - (r.total ?? 0)))}
                 </span>
               </>
-            ) : v.receiptsMissing ? (
-              <span className="text-xs text-muted-foreground">
-                一部だけ記録{v.receiptsMissing.length > 0 && `（欠測: ${v.receiptsMissing.join('・')}）`}。そろうまで合計は出さない
-              </span>
             ) : (
-              <span className="text-xs text-muted-foreground">この月の受取額は未記録</span>
+              <span className="text-xs text-muted-foreground">この月の受取額はまだ 1 つも取得していない</span>
             )}
+            <Stack gap="sm">
+              {r.channels.map((c) => (
+                <div key={c.id} className="grid grid-cols-[5em_4.5em_7em_1fr] items-center gap-2 text-xs">
+                  <span>{c.label}</span>
+                  <StatusBadge tone={RECEIPT_STATUS[c.status].tone}>{RECEIPT_STATUS[c.status].label}</StatusBadge>
+                  <span className="text-right tabular-nums">{yen(c.value)}</span>
+                  <span className="text-muted-foreground">
+                    {c.asOf && `${shortDay(c.asOf)} 取得 ・ `}
+                    {c.note}
+                  </span>
+                </div>
+              ))}
+            </Stack>
           </CardContent>
         </Card>
 
