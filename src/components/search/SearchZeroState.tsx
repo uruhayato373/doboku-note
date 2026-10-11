@@ -1,14 +1,24 @@
 import Link from "next/link";
-import { ExamCard, type ExamData } from "@/components/home";
+// バレル @/components/home を通すと LatestArticles 等まで client バンドルへ入る。実体を直接 import する。
+import { ExamCard, type ExamData } from "@/components/home/ExamCards";
 import { type CategoryDef } from "@/lib/categories";
-import { type PopularDoc } from "@/lib/popular";
 import { getCategoryHubPath } from '@/lib/categories';
-import { getPublicDocPath } from '@/lib/content-routes';
+
+/**
+ * よく読まれている記事の 1 行。href は server（src/app/search/page.tsx）で解決して渡す。
+ * ここで @/lib/content-routes の getPublicDocPath を呼ぶと doc-meta-index.json（約 930KB）が
+ * /search の client チャンクに同梱される（2026-10-11 実測 1.66MB・DN-0684）。
+ */
+export interface PopularLink {
+  rank: number;
+  href: string;
+  title: string;
+}
 
 interface SearchZeroStateProps {
   examCards: ExamData[];
   otherCategories: CategoryDef[];
-  popular: PopularDoc[];
+  popular: PopularLink[];
 }
 
 /**
@@ -59,16 +69,16 @@ export function SearchZeroState({ examCards, otherCategories, popular }: SearchZ
           <p className="text-sm text-(--ink-muted) mb-4">アクセスの多い記事から</p>
           <ol className="card-surface-content overflow-hidden shadow-none">
             {popular.map((item) => (
-              <li key={item.doc.slug}>
+              <li key={item.href}>
                 <Link
-                  href={getPublicDocPath(item.doc.slug)}
+                  href={item.href}
                   className="focus-ring group flex gap-3 border-b border-(--rule-soft) px-4 py-3 transition-colors last:border-b-0 hover:bg-(--accent-fill)"
                 >
                   <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-card-inline bg-(--accent-fill) font-mono text-xs font-bold text-(--accent)">
                     {item.rank}
                   </span>
                   <span className="font-serif text-[14px] font-bold leading-tight text-(--ink) group-hover:text-(--accent) transition-colors line-clamp-2">
-                    {item.doc.shortTitle || item.doc.title}
+                    {item.title}
                   </span>
                 </Link>
               </li>
