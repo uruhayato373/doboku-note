@@ -2689,6 +2689,19 @@
       "commit": "6d4eff652a30",
       "verification": "audit-reference-book-coverage --status で 5 冊とも展開済み（範囲内 26 冊が展開済み 24・展開不要 2）・check-reference-sources --deep 逐語一致 0・develop の Pre-merge check success（afa1c8bb6）",
       "note": "コンクリート 5 冊の追記 122 件を 23 記事へ展開（新規 0・写真 13 枚）。診断士の記述式の形式（問題A 廃止・3 時間）を 10 記事で直した（a05dabaa3）。note の有料記事は DN-0661"
+    },
+    {
+      "id": "DN-0663",
+      "at": "2026-10-11",
+      "task": "技術士 iOS アプリの表示の残り（速さの測り直し・空欄の枠・令和7年度 114/115 の問題数・解説リンク）を直して確かめる",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "e9796bd71a5e",
+      "verification": "シミュレータ（iPhone 18 Pro・iOS 27.0）: 読み込み 0.16〜0.28 秒・2 問目以降 0.095 秒／技術士 R07 基礎の空欄が枠で出る（quiz-blank・技術士 59 問・総監 6 問）／令和7年度は年度一覧・購入画面とも 115 問／「サイトで詳しい解説を読む」で Safari が doboku-note.com を開く。あわせて 2級 R05後期 No.12 の複数正答・解説の正答印・2級の年度順と無料年度を直した（PR #975・iOS 9aba2a7）",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }
