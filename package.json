@@ -375,6 +375,7 @@
     "check-gsc-sitemaps": "node scripts/check-gsc-sitemaps.mjs",
     "gsc-sitemaps": "node scripts/gsc-sitemaps.mjs",
     "gsc-local:install": "node scripts/install-gsc-local-launchd.mjs",
+    "coconala-local:install": "node scripts/install-coconala-local-launchd.mjs",
     "check-gsc-indexing-due": "node scripts/check-gsc-indexing-due.mjs",
     "indexnow:submit": "node scripts/indexnow-submit.mjs",
     "gsc-ui:fetch": "node scripts/fetch-gsc-ui-csv.mjs",
