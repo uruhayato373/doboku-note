@@ -186,7 +186,9 @@ jobs:
             exit 0
           fi
           git commit -m "$SUBJECT"
-          git push origin develop
+          git fetch origin develop
+          git rebase origin/develop
+          git push origin HEAD:develop
 
       # 完全性ゲート: publish の**後**（部分結果は develop に残す）。inspect が完走しなかった週は
       # history が更新されず、閾値ゲートは前月のエントリを見て緑になってしまうので、ここで赤にする。
