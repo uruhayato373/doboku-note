@@ -660,7 +660,8 @@ function QuizRichText({
   className?: string;
   strong?: boolean;
 }) {
-  const styles = `quiz-rich-text min-w-0 text-[13px] leading-6 text-(--ink-body) [&_p]:m-0 [&_p+_p]:mt-2 [&_strong]:text-(--ink) [&_table]:min-w-full [&_table]:border-collapse [&_td]:border [&_td]:border-(--rule-soft) [&_td]:px-2 [&_td]:py-1 [&_th]:border [&_th]:border-(--rule-soft) [&_th]:px-2 [&_th]:py-1 [&_img]:mx-auto [&_img]:my-3 [&_img]:h-auto [&_img]:max-h-[420px] [&_img]:max-w-full [&_.quiz-blank]:mx-0.5 [&_.quiz-blank]:inline-block [&_.quiz-blank]:min-w-[2.4em] [&_.quiz-blank]:border [&_.quiz-blank]:border-(--ink-body) [&_.quiz-blank]:px-1 [&_.quiz-blank]:text-center [&_.quiz-blank]:leading-[1.5] ${strong ? "text-[15px] sm:text-[16px] leading-[1.9] font-bold text-(--ink)" : ""} ${className}`;
+  // 中身（段落・表・画像・空欄の枠・数式）の見た目は src/styles/quiz-content.css（iOS アプリと共有）。ここは文字の大きさと色だけ
+  const styles = `quiz-rich-text min-w-0 text-[13px] leading-6 text-(--ink-body) ${strong ? "text-[15px] sm:text-[16px] leading-[1.9] font-bold text-(--ink)" : ""} ${className}`;
   if (!html) return <span className={styles}>{text}</span>;
   // HTML は scripts/build-quiz-data.mjs が追跡下のMDXだけからビルドした信頼済みデータ。
   return <div className={styles} dangerouslySetInnerHTML={{ __html: html }} />;

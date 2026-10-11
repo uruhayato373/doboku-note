@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-11T01:51:42.337Z",
+  "generated_at": "2026-10-11T04:20:26.866Z",
   "summary": {
-    "total_mdx_files": 1398,
+    "total_mdx_files": 1399,
     "total_unique_tags": 132,
     "allowlist_size": 330,
     "known_count": 132,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 223,
+      "count": 224,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1165,6 +1165,7 @@
         "civil-construction-2-guide-overview",
         "civil-construction-2-guide-quality-management",
         "civil-construction-2-guide-quit-or-stay",
+        "civil-construction-2-guide-r08-secondary-answers",
         "civil-construction-2-guide-resume",
         "civil-construction-2-guide-river-sabo-key-points",
         "civil-construction-2-guide-road-pavement-key-points",
@@ -2848,7 +2849,7 @@
     },
     {
       "name": "試験対策",
-      "count": 81,
+      "count": 82,
       "inAllowlist": true,
       "usedIn": [
         "building-construction-guide-1kyu-keiken-kijutsu",
@@ -2886,6 +2887,7 @@
         "civil-construction-2-guide-law-key-points",
         "civil-construction-2-guide-overview",
         "civil-construction-2-guide-quality-management",
+        "civil-construction-2-guide-r08-secondary-answers",
         "civil-construction-2-guide-river-sabo-key-points",
         "civil-construction-2-guide-road-pavement-key-points",
         "civil-construction-2-guide-safety-management",
@@ -4392,6 +4394,24 @@
       ]
     },
     {
+      "name": "経験記述",
+      "count": 11,
+      "inAllowlist": true,
+      "usedIn": [
+        "building-construction-guide-1kyu-keiken-kijutsu",
+        "building-construction-guide-2kyu-keiken-kijutsu",
+        "civil-construction-1-secondary-experience-writing-examples",
+        "civil-construction-1-secondary-experience-writing-guide",
+        "civil-construction-1-secondary-getting-started",
+        "civil-construction-2-guide-r08-secondary-answers",
+        "civil-construction-2-secondary-experience-writing-by-theme",
+        "civil-construction-2-secondary-experience-writing-examples",
+        "civil-construction-2-secondary-experience-writing-guide",
+        "civil-construction-2-secondary-getting-started",
+        "civil-construction-2-secondary-grading-and-partial-credit"
+      ]
+    },
+    {
       "name": "鉄道",
       "count": 11,
       "inAllowlist": true,
@@ -4476,23 +4496,6 @@
         "pe-construction-r06-port-airport",
         "pe-construction-r07-port-airport",
         "pe-construction-r08-port-airport"
-      ]
-    },
-    {
-      "name": "経験記述",
-      "count": 10,
-      "inAllowlist": true,
-      "usedIn": [
-        "building-construction-guide-1kyu-keiken-kijutsu",
-        "building-construction-guide-2kyu-keiken-kijutsu",
-        "civil-construction-1-secondary-experience-writing-examples",
-        "civil-construction-1-secondary-experience-writing-guide",
-        "civil-construction-1-secondary-getting-started",
-        "civil-construction-2-secondary-experience-writing-by-theme",
-        "civil-construction-2-secondary-experience-writing-examples",
-        "civil-construction-2-secondary-experience-writing-guide",
-        "civil-construction-2-secondary-getting-started",
-        "civil-construction-2-secondary-grading-and-partial-credit"
       ]
     },
     {

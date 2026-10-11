@@ -21,6 +21,24 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-0680] develop の CI が売上の商品名の照合漏れ（noteTitle を見ない）とココナラの実データ依存のテストで落ちている
+タグ: [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-11]
+
+**起点**: 2026-10-11、PR #986・#987 の CI（quality:audit）が、PR と関係のない 3 つで落ちた。develop の同じデータでも落ちる。
+1. `qualification-market`・unit-tests「実データ: 検索語・追跡リスト・売上の分類」: `data/note/sales.json` の `article:unknown-20261008-0`（建設部門2次｜土質基礎まるごと合格パック ¥4,980）と `article:unknown-20260530-0`（令和8年度 総監記述式 R8予想問題｜災害復旧 × 複合災害対応 ¥500）。前者は 10/11 に 1d5f0d773 で `pe-construction-geotechnical-pack` に確定したが、login collectors（245c9e44c）の取り直しで unknown に戻った。原因は `scripts/note-sales-fetch.mjs` の `loadMagazines` と `scripts/lib/sales-normalize.mjs` の `resolveMagazineId` が `title`・`shortTitle` しか照合せず、note の販売履歴に出る `noteTitle`（'建設部門2次｜土質基礎まるごと合格パック'）を見ないこと（shortTitle は「土質基礎 合格パック」で一致しない）。後者はカタログ（config/products.json）にも sales-recorder の mapping にも無い単品。
+2. unit-tests（`tests/dataset-schemas.test.mjs`）「ココナラの返信期限は JST の時差付き」「coconala.orders-snapshot: タブの数…」: 実データから取る行が無く（`Cannot set properties of undefined (setting 'replyDueAt')`・`/^status/ が出ない: []`）、テストが成り立っていない。ココナラの取得が 403 で空になっている件（DN-0667）と関係する可能性。
+**やること**: 1 は `noteTitle` も照合に足して取り直しで戻らないようにし（テスト付き）、R8予想の単品の productId を決めて登録する。2 はテストが実データの空に依存しないようにするか、データを取り直す。
+**完了条件**: develop の quality:audit で qualification-market と unit-tests が通る。取り直し（note-sales-fetch の dry-run）で 10/8 の行が pe-construction-geotechnical-pack に解決される。
+
+
+### [DN-0678] 2級土木 第2次検定（10/25）の令和8年度 解答例ページを試験前に枠だけ出しておく
+タグ: [領域:サイト] [時期:2026-10] [種類:制作] [起票:2026-10-11] [進行中]
+
+**起点**: 2026-10-11 の metrics-analyzer。1級二次の直前直後（10/4 前後）は年度別の解答例ページ（r04・r06）がクリック 56・80 を取った。令和8年度の解答例ページは 1級・2級とも無い（content/site/civil-construction-{1,2} に secondary-r08 が無い）。2級二次は 10/25。総監の DN-0500（枠だけ先に公開）と同じ方式で、試験前に「令和8年度 2級土木 2次試験 解答例」の枠ページを出し、問題の公開後に本体を埋める。
+**やること**: 2級 secondary-r08 の枠（試験の概要・問題公開の見込み・過去年度の解答例への導線）を 10/22 までに公開する。問題の公開時期は主催者の案内で確かめる。試験後に問題と解答例を入れる。1級 r08 も同じ要領で。
+**完了条件**: 10/25 より前に 2級 r08 の枠が本番にあり、試験後 1 週間以内に問題と解答例が入っている。
+
+
 ### [DN-0670] 2級土木の既存動画4本に技術表現の訂正を反映する
 タグ: [領域:商品] [時期:2026-10] [種類:不具合] [検証:check-video-content] [起票:2026-10-11]
 
@@ -354,6 +372,46 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0677] 検索で表示のある削除済みページ（/standards/guides の 5 本）・数字付き 404・共通仕様書の機関別重複の扱いを決める
+タグ: [領域:サイト] [時期:2026-10] [種類:意思決定] [起票:2026-10-11]
+
+**起点**: 2026-10-11 のサイト全体の SEO 診断（DN-0666）で、判断が要る 3 件が残った。(1) 2026-08-30 に公開し 09-08 のコミット 4fdb687d6 が記事 5 本（content/site/reference-materials-*）と 301 ごと消した /standards/guides/{inverted-siphon,floodgate,hyogo-port-materials,river-abandonment,tunnel-02}。inverted-siphon は表示 44・順位 7.2、floodgate は表示 41。案 A＝/standards へ 301（soft 404 扱いの可能性）、案 B＝404 のまま、案 C＝記事を復元。削除が意図的だったかは履歴が 08-22 に圧縮されていて確かめられない。(2) 末尾が -N の 404 24 件（例 /exam/civil-construction-1/guide/four-management-5）。表示 0・内部参照 0・親記事は実在。9/4 の方針（対応先が一意なものだけ 301）に合う。(3) /standards/<機関>/common の 10 面は本文の 98.7% が同じで、Google は shikoku/common の正規に hokuriku/common を選んでいる。章ページと同じ indexable 判定を入れて非 canonical 機関を noindex にするか、地域名の検索意図のために残すか。
+**やること**: 運営者が 3 件の方針を決め、決まった分を public/_redirects（手動部分）・src/app/standards/[agency]/[document]/page.tsx に入れる。
+**完了条件**: 3 件の方針が記録され、決まった変更が本番に出ている。
+
+
+### [DN-0675] _redirects の静的ルールが 1431/2000 件まで来ていて、移転後の記事の /docs 転送を作り続けると十数週で上限に当たる
+タグ: [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-10-11]
+
+**起点**: 2026-10-11 の technical-seo-auditor。public/_redirects の静的ルールは 1,431 件で、Cloudflare Pages の上限 2,000 件に対し scripts/build-public-route-redirects.ts は 2,000 超で throw する。現行の全記事ぶん /docs/<slug> の 301 を作っていて、移転日 2026-08-22 より後に作った記事 266 件の /docs は実在したことが無い（sitemap-legacy.xml 側は PR #988 で外した）。約 7 週で 266 件増えたので、十数週で上限に達する見込み。
+**やること**: build-public-route-redirects.ts が、移転前から存在した slug（frontmatter の created が 2026-08-22 以前）だけ /docs の 301 を作るようにする。先に、移転後の記事の /docs URL を note・SNS・Kindle が案内していないかを grep で確かめ、案内していればその分は残す。回帰テストを付ける。
+**完了条件**: _redirects の静的ルールが 1,200 件程度まで下がり、移転後の記事の /docs への案内が 0 件であることを確かめた記録がある。
+
+
+### [DN-0674] インデックス登録リクエストの順位表を「型ごとの期待値」順にし、検索改善レポートの分類器の誤分類を直す
+タグ: [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-11]
+
+**起点**: 2026-10-11 のサイト全体の SEO 診断（DN-0666）。gsc-index-auditor によると、data/gsc/indexing-priority.txt（scripts/build-gsc-indexing-priority.mjs・launchd gsc-local が毎日これを送る）は表示 0 の URL をパス昇順に並べるため、重点資格の RCCM guide（8 本中 1 本しか登録されていない）が 62 番目、practice が 74 番目以降、tools が 93 番目以降に沈む。期待値（同じ型の登録済みページ 1 本あたりの 28 日表示 × 未登録率）で並べれば、RCCM 7 本・practice 8 本・tools 5 本が先頭に来る。あわせて seo-fix-planner によると、scripts/lib/search-growth-classifier.mjs と scripts/report-search-growth.mjs が「登録済み・需要なし」346 件・/search?q= 68 件・非 HTML 16 件・本文の断片の 404 などを UNKNOWN_REVIEW（864 件）に落とし、優先修正 Top20 の 18 件が「登録済み・4 表示」のノイズになっている。internalInbound は keyword-relations 由来で、keyword 以外のページはリンクがあっても 0 になる。
+**やること**: (1) 順位表を期待値順にする（型＝/exam/<資格>/<guide|textbook|keywords|primary|…>・/practice・/tools・/standards）(2) 分類器に 4 つの規則を足す: 登録済み・需要なし→KEEP、/search?q=・非 HTML・断片の 404→EXPECTED、Google が別の canonical を選んだ URL に専用ラベル、internalInbound を実リンクから数えるか使わない。それぞれ回帰テストを付ける。
+**完了条件**: 順位表の先頭 20 件に RCCM・practice・tools の未登録が入る。search-growth:report の UNKNOWN_REVIEW が、同じ入力で 864 件から 50 件未満になる。
+
+
+### [DN-0672] 技術士一次 平成27・28年度の正しい選択肢の解説が定型句だけの行（約 217 行）を、理由を述べる解説に書き直す
+タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-11]
+
+**起点**: 2026-10-11、DN-0665 の照合で、技術士第一次試験 平成27・28年度の 6 記事（`content/site/pe-first-stage/h27-{basic,aptitude,construction}`・`h28-{basic,aptitude,construction}`）の正しい選択肢の解説が、選択肢の文を繰り返した後に「制度の対象・要件を正しく述べている」「主体・条件・効果の取り違えがない」「設問で扱う基準に整合する」「数値・用語・適用対象の誤りはない」の定型句を付けただけの行（約 217 行）だと分かった。土圧や確率分布の問題にも「制度の対象・要件」と書いてあり、理由になっていない。
+**やること**: 6 記事の定型句の行を、その記述が正しい理由（定義・条文・計算）を 1〜2 文で述べる解説に書き直す。✅/❌ と正答は変えない。原典は `data/pastexams/questions/pe-first-stage.json` の source（Drive の 原資料PDF/過去問/技術士（第一次）/）。
+**完了条件**: 4 つの定型句が 6 記事で 0 件（`git grep`）、`npm run check-answer-marks` と textlint が通る。
+
+
+### [DN-0671] 過去問の演習データ（サイトの演習・iOS アプリ）に ①〜④ の記述ごとの解説を入れる
+タグ: [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-10-11]
+
+**起点**: 2026-10-11、DN-0665 で過去問の ✅/❌ を照合したとき、①〜④・ア〜の記述を数える／組み合わせる問題 329 問の「記述ごとの解説」（`① …✅` の行）が演習データに入っていないと分かった。演習データ（`.claude/scripts/sns/parse-civil-{1,2}-questions.mjs`・`scripts/build-quiz-data.mjs` の技術士の抽出）は `N.` の行だけを選択肢 N の解説として読むので、サイトの記事では読める記述ごとの理由が、サイトの演習（/tools/kakomon-quiz）と iOS アプリでは出ない。選択肢の行も無い 76 問（総監 50・2級 18・1級 7・コンクリート主任技士 1）は、アプリで解説が「準備中」か ExamPoint だけになる。
+**やること**: 演習データに記述ごとの解説（見出しの記号・本文の HTML・正誤）を持たせ、サイトの演習と iOS の QuestionWebView の両方で選択肢の解説の前に出す（3 つの抽出を同じ lib にそろえる）。表示の見た目は `src/styles/quiz-content.css` に足す（アプリと共用）。選択肢の行が無い 76 問は、記述の解説が出るようになれば足りるか、選択肢の行を足すかを決める。
+**完了条件**: 記述問題 329 問の演習データに記述の解説が入り、サイトの演習とアプリ（シミュレータ）で 1 問ずつ表示を確かめた。`npm run check-answer-marks` は 0 件のまま。
+
+
 ### [DN-0669] check-google-ui-ssot が台帳に無い ga4.ui-history を参照して落ち、GSC UI の整合を検査できない
 タグ: [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-11]
 
@@ -386,12 +444,6 @@ exam-passing-strategy/article.mdx の239・264行付近に、総監口頭は知�
 **完了条件**: 4 本のインデックス登録リクエストの記録が data/gsc/indexing-requests.json にある。候補 3 本の修正がコミット済み。check-seo-meta で触った記事の違反 0。
 
 
-### [DN-0665] 過去問の正答と ✅/❌ の整合検査（check-answer-consistency）が 1級・2級土木の記事を 1 問も検査せずに OK を返す
-タグ: [領域:サイト] [時期:2026-10..2026-11] [種類:不具合] [起票:2026-10-11]
-
-**起点**: 2026-10-11、DN-0623 で 2級土木 平成18〜27年度の記事を作ったとき、`.claude/skills/conversion/exam-questions-import/scripts/check-answer-consistency.mjs` が 4 記事とも「OK (0問) — 整合」を返した。見出しが `## Ⅰ…`（技術士第一次試験）の問題だけを数える作りで、1級・2級土木（`## 問題 No.N`・`**正解: (N)**`）では 1 問も検査しないまま緑になる（検査ゼロを PASS と呼ばない・CLAUDE.md §9）。SKILL.md の Step 5.6 は civil の取り込みでも回すよう書いている。
-**やること**: 見出し `## 問題 No.N` と正答行 `**正解: (N)**`・`**正答：N**` も読めるようにし、検査した問題数を出し、対象の問題が 0 なら exit 1（検査不成立）にする。1級・2級の既存記事全件に回して違反の数を確かめ、テストを足す。
-**完了条件**: civil の記事で検査した問題数が出て、0 件の記事は不成立で止まり、tests に civil・技術士の両方の例がある。
 
 
 ### [DN-0664] 5〜9 月の受取額を台帳から記録し、9 月は KDP の確定後に complete にする
@@ -1788,6 +1840,38 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 
 **完了条件**: 2 ページの CTA の変更が 10/18 までに公開され、反映 28 日後の CTA クリック率を変更前と比べた記録が本カードの完了記録にある（試験後で少数なら判定保留と書く）。
 ## 🟢 低 — 重要度が低い（時期未定を含む）
+
+### [DN-0681] lint-mdx-mobile が、サイトが目次に使う toc_min/max_heading_level を「未使用の旧 frontmatter・一括削除可」として HIGH を出している
+タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [起票:2026-10-11]
+
+**起点**: 2026-10-11、DN-0665 で過去問記事に `.claude/scripts/lint-mdx-mobile.mjs` を回したとき、規則 0-2 が `toc_min_heading_level`・`toc_max_heading_level` を「Docusaurus 旧 frontmatter。doboku-note では未使用、migrate-civil-frontmatter.mjs で一括削除可」として HIGH を出した（develop で 162 記事：建設部門 100・技術士一次 39・2級土木 18・測量 5）。しかしサイトは `src/components/docs/DocPage.tsx:292-293` でこの 2 つを読み、目次に出す見出しの深さを決めている。言われたとおり一括削除すると、過去問ページなどの目次が変わる。
+**やること**: 規則 0-2 と `migrate-civil-frontmatter.mjs` の対象から `toc_min_heading_level`・`toc_max_heading_level` を外す（`id`・`sidebar_label` は使われていないか確かめて残す）。content-authoring.md に、目次の深さはこの 2 つで決めると書く。
+**完了条件**: lint-mdx-mobile が toc_* で HIGH を出さず、`git grep` で toc_* を使う記事の数が変わっていない（目次は変えない）。
+
+
+### [DN-0679] 技術士 建設部門の過去問ページ（r01〜r08 の約 17 本）へ、テーマ記事以外からの内部リンクを足す
+タグ: [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-10-11]
+
+**起点**: 2026-10-11 の seo-fix-planner。技術士 建設部門の「検出 - インデックス未登録」46 件のうち 32 件が公開から 60 日超で、/exam/pe-construction/past-exams/r01〜r08-* はテーマ記事からの参照が各 1 本しか無い（一覧コンポーネントからのリンクは数えていない）。DN-0390（建設部門と RCCM の登録率）とも関係する。
+**やること**: 各専門分野のガイド・必須科目の書き方ガイドから、該当年度の過去問ページへ文脈に合う内部リンクを張る（1 記事 1〜2 本）。
+**完了条件**: 対象の過去問ページそれぞれに、本文からの内部リンクが 3 本以上あり、次の URL 検査で登録状況を比べた記録がある。
+
+
+### [DN-0676] check-seo-build の warn（1,390 件）が CI ログにしか残らず、誰も読んでいない
+タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-11]
+
+**起点**: 2026-10-11 の technical-seo-auditor。check-seo-build:ci の結果は .github/workflows/ci.yml のログにしか残らず、warn（jsonld_recommended_missing 1,389・ssr_thin_body 1）は誰も見ていなかった（今回の監査では古い out/ を見るしかなかった）。CLAUDE.md §9「赤いのに誰も見ていない検査は無いのと同じ」。
+**やること**: CI でサマリ JSON（検査対象数・error・warn の型別件数）を data/analysis/ に書き、scripts/lib/datasets.mjs に宣言する。週次レビュー（/weekly-review）がそれを読んで前週比を出すようにする。
+**完了条件**: CI のあとに data/analysis/ のサマリが更新され、週次レビューの報告に check-seo-build の件数と前週比が出る。
+
+
+### [DN-0673] 「該当しないもの」「許可を必要としないもの」を選ぶ過去問の正答の ✅/❌ の向きを 1 つにそろえる
+タグ: [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-10-11]
+
+**起点**: 2026-10-11、DN-0665 の集計で、「該当しないもの」「許可を必要としないもの」「適用されないもの」を選ぶ問題の正答の印が、記事によって ✅（問いに当てはまる）と ❌（記述が正しくない）に分かれていると分かった（1級 ❌14・✅4、2級 ❌19・✅20、技術士一次 ✅13・❌7）。「適当でない」「誤っている」の問題（正答は ❌ が 2,893:49）や「適当な」の問題（✅ が 1,581:4）と違い、文から向きが決まらないので `check-answer-marks` は向きを照合していない。サイトの演習は ✅ を「○ 適当」、❌ を「× 適当でない」と出すので、同じ形の問題で正答の ○× が揃わない。
+**やること**: この形の問題の約束（正答を ❌ にそろえる案が「否定の問いは正答だけ ❌」と同じ形）を決め、解説の文（「該当しないため正解 ✅」等）ごと直す。決めた約束を `scripts/lib/answer-marks.mjs` の向きの判定に足す。
+**完了条件**: 約束を SKILL.md（exam-questions-import Step 5.6）に書き、該当する問題の向きが 1 つにそろい、`npm run check-answer-marks` がこの形の向きも照合して 0 件。
+
 
 ### [DN-0653] 東北地方整備局の共通仕様書ページの title・description・冒頭を「東北地方整備局 共通仕様書」に合わせる
 タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-10-10]

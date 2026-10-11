@@ -6,6 +6,7 @@ import { AUTHOR } from "@/config/author";
 import { SITE_ORIGIN } from "@/config/site-identity.mjs";
 import { getCategoryHubPath } from '@/lib/categories';
 import { getPublicDocPath } from '@/lib/content-routes';
+import { getOgpImageUrl } from '@/lib/r2-image-loader';
 
 interface StructuredDataProps {
   type: "article" | "website" | "organization";
@@ -219,6 +220,8 @@ export default function StructuredData({ type, post, docMeta }: StructuredDataPr
             },
             articleSection: docMeta.category,
             keywords: docMeta.tags?.join(", "),
+            // og:image と同じ記事の ogp.png（公開記事は CI が実在を保証）。check-seo-build の jsonld_recommended_missing（1389 件）を解消する
+            image: getOgpImageUrl(docMeta.slug),
             inLanguage: "ja-JP",
           };
         }

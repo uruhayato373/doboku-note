@@ -71,6 +71,7 @@ EnterWorktree（`.claude/worktrees/<name>`）で作業中、Bash ツールは「
 worktree で検証を回すときの3つの罠:
 
 1. **node_modules 欠落による大量偽失敗（2026-08-28 実測）**: 新規 worktree には node_modules が無く、tsx 経由のテスト（admin系・renderSlide系など）が約53件まとめて落ちる。純 node:test は通るので「一部だけ大量に赤い」形になる。対処は `cmd /c mklink /J <worktree>\node_modules %USERPROFILE%\doboku-note\node_modules` で本体を共有。**検証後は必ず `rmdir` でリンクだけ外す**（junction を残すと worktree の再帰削除が本体 node_modules の実体を巻き込むリスク。[[reference_shared_worktree_autostash_hazard]] と同系）。
+   - 2026-10-11（Mac）: node_modules の無い worktree で package.json を含む commit をすると、pre-commit の knip-ratchet が「Unused dependencies 1→2（@fontsource/noto-sans-jp）」で FAIL した。パッケージを解決できず未使用に数えるだけの偽 FAIL。`ln -s <本体>/node_modules node_modules` 後に commit すれば通る（node_modules は gitignore 済み。worktree を消す前にリンクを外す）。
 
 2. **autocrlf の CRLF が `\n` 固定 regex テストを壊す（2026-08-28 実測）**: リポジトリ blob は LF でも Windows 作業ツリーは CRLF になるため、ソースを readFileSync して `\n` アンカーの regex で照合するテストは Windows でだけ落ちる（Linux CI は緑）。同様に `join()` は `\` 区切りを返すので `replace(REPO_ROOT + '/', '')` 型のパス相対化も Windows で無効。テストは EOL 正規化、パス表示は `/` 区切りへの明示正規化で書く（PR #476 で2件修正済み）。
 

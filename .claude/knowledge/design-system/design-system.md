@@ -377,7 +377,7 @@ CLAUDE.md §7 と一致:
 
 デザインを改善するときは、**コードとドキュメントを同一 PR で更新する**。
 
-1. **トークンを変える**（`src/styles/globals.css` の CSS 変数）→ §2 の該当表を同一 PR で更新。
+1. **トークンを変える**（`src/styles/globals.css` の CSS 変数）→ §2 の該当表を同一 PR で更新。iOS 択一アプリへ演習の色として写す 10 トークン（`scripts/lib/quiz-style.mjs` の `QUIZ_TOKENS`）は改名・削除しない（消えると `build-ios-quiz-bundle` と `tests/quiz-style.test.mjs` が止まる）。過去問演習の問題文・解説の中身の見た目は `src/styles/quiz-content.css` だけで直す（サイトとアプリが同じファイルを読む）。
 2. **レイアウトを変える**（`PageShell`/`PageHeader`/`SectionCard`/`ArticleHeader` 等）→ §3 を更新。
 3. **記事タイポを変える**（`.prose-blog`）→ §4 を更新。
 4. **禁止/原則を追加/緩和** → §5/§8 を更新。
