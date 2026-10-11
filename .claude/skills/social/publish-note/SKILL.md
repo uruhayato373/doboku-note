@@ -241,7 +241,7 @@ browser-use --headed --profile "$NOTE_PROFILE" state 2>&1 > /tmp/note-acct.txt
 
 - **`--keep-boundary` は本文のブロック数が変わる更新では使わない**。CTA 追加・段落追加を伴う更新は必ず `--boundary-h2 "<境界H2>"` で境界を再設定する
 - `assertLiveBody` が `paid: true` のとき無料プレビュー長を検査するようになった（既定 600 字未満で FAIL）。`note-publish` / `note-update-body` は緑で終わらない
-- 全件の実査は `npm run check-note-free-preview`（`:ci` で exit 1）。公開・本文更新の直後と週次で回す
+- 全件を一括で実査するスクリプトは無い。`assertLiveBody`（`scripts/lib/note-live-check.mjs`）が公開・本文更新の都度 1 記事ずつ検査する
 
 **② 商品導線ゼロ**: 単品有料記事を 8 本公開したのに、**無料プレビューにマガジンへの導線が 1 本も無かった**。単品 ¥500 を読んだ読者がセットに気づけない。`check-note-paid-cta` は「L2 もくじ未定義の資格 14 件（対象外）」として素通りさせていた＝検査ゼロを PASS と呼んでいた。
 

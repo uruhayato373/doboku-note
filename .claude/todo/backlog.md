@@ -21,6 +21,14 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-0683] ogp-supply が章 OGP 344 件を毎回再生成・再供給し、bot commit が develop の 64% を占める
+タグ: [領域:管理] [時期:2026-10] [種類:改善] [検証:check-workflow-hygiene] [起票:2026-10-11]
+
+**起点**: 2026-10-11 のコード監査。30 日で github-actions[bot] の commit 478 件のうち ogp-supply が 308 件。CI の checkout には ogp.png が無いので scripts/build-standards-ogp.mjs:165 の existsSync が常に偽になり、344 章を毎回再生成して asset-offload（PUT/HEAD/GET 各 344 件・平均 283 秒）し、manifest の verifiedAt だけが変わる 3,400 行規模の差分を往復している。MDX を push した直後に develop の先頭が [skip ci] の bot commit になるのは構造。
+**やること**: 生成側で manifest（asset-storage）に同じ章の記録があれば飛ばす（または asset-offload の --skip-existing を使う）。PNG が同じ入力から同じバイトになるかは未確認なので、ならない場合は manifest の有無で判定する。ogp-supply.yml:246-252,265 の条件も合わせる。
+**完了条件**: 無関係な MDX を push しても ogp-supply の run が chapters_generated=0 で終わり、develop に bot commit が増えない（gh run view --log で確認）。
+
+
 
 
 ### [DN-0678] 2級土木 第2次検定（10/25）の令和8年度 解答例ページを試験前に枠だけ出しておく
@@ -365,6 +373,38 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 **完了条件**: 次の CI 照合 snapshot で published_UNrecorded と anomaly が 0、または残りの各件に理由（削除済み・対象外など）が台帳に記録されている。
 
 ## 🟡 中 — 重要度が中くらい
+
+### [DN-0693] quality-audit の duration が壁時計のみで、スリープ中の TIMEOUT 7 件が偽（単独実行の 11.7 倍）
+タグ: [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-11]
+
+**起点**: 2026-10-11 のコード監査。.claude/state/quality/audit-latest.json（2026-10-10T03:39Z）の TIMEOUT 7 件（unit-tests 181 秒・validate-mdx 180 秒・reference-book-pages 120 秒ほか）を単独で再実行すると 37 秒・17 秒・6 秒。27 検査の合計は 1,804 秒→154.6 秒（asset-reentry は 34.8 秒→0.1 秒の 348 倍）。並列 4 の競合では説明できず、スリープ復帰か Drive の I/O 停止が壁時計に混ざった可能性が高い（原因の特定は未了）。timeout の延長や検査の分割は効かない。
+**やること**: scripts/quality-audit.mjs:521-627 の runCheck で process.hrtime との差と os.loadavg() を記録し、壁時計だけが伸びた run は timeout/fail でなく inconclusive（exit 2）にする。
+**完了条件**: 模擬スリープで inconclusive かつ exit 2 になる単体テストが node --test tests/quality-audit-*.test.mjs で通る。
+
+
+### [DN-0688] pre-commit 13.9 秒（67 プロセス）と SessionStart の x-sync 9.6 秒を短縮する
+タグ: [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-11]
+
+**起点**: 2026-10-11 のコード監査。scripts/install-pre-commit.mjs のフックは node を常時 13＋条件付き 60 起動し、MDX 1 本を staged した計測で 67 起動 13.9 秒（起動費だけで約 6 秒・中央値 0.12 秒・重い順に check-datasets 1.83 秒、pre-commit-mdx 1.80 秒、lint-ja 0.77 秒）。SessionStart（scripts/session-start.mjs:33）の x-sync は毎回 Playwright で x.com を開いて 9.6 秒。
+**やること**: (1) x-sync に TTL を付ける（lib/x-scheduled-queue.mjs:25-37。凍結ガードレールの観点でも毎セッションのログイン済み起動は減らす）(2) pre-commit を 1 プロセスのディスパッチャにし、staged のパスごとに必要な検査だけ in-process で呼ぶ（session-start.mjs の run() 契約を流用）。
+**完了条件**: 2 回目の node scripts/session-start.mjs --json が 5,000 ms 未満。一時 index に MDX 1 本で sh .git/hooks/pre-commit が 6 秒未満（短縮幅は見込みで未測定）。
+
+
+### [DN-0686] check-command-guidance の走査範囲を skills・knowledge・agents・workflows・docs へ広げる
+タグ: [領域:管理] [時期:2026-10] [種類:改善] [検証:check-command-guidance] [起票:2026-10-11]
+
+**起点**: 2026-10-11 のコード監査。scripts/check-command-guidance.mjs:37-52 が走査するのは scripts/**・.claude/scripts/*.mjs・CLAUDE.md・AGENTS.md・commands.md・rules だけで、skills・knowledge・agents・workflows・docs の約 2,400 参照は見ていない。その範囲に実在しない npm run が 7 件あった（character-frames・instagram-carousels:render・youtube-thumbnail:update・youtube-covers・docs:check・r2:upload・check-note-free-preview）。7 件は 2026-10-11 に手で直した。
+**やること**: 走査範囲を広げ、プレースホルダ（<name>・X・…）を除外する。誤検知の出方を見てから ci に載せる。
+**完了条件**: npm run check-command-guidance が広げた範囲で exit 0 になり、実在しない npm run を 1 件入れると exit 1 になる回帰テストがある。
+
+
+### [DN-0684] /search のクライアント JS に doc-meta-index（1.66MB チャンク）が同梱されている
+タグ: [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-10-11]
+
+**起点**: 2026-10-11 のコード監査。out/search.html だけが読む 1,659,388 B（gzip 325KB）のチャンクの中身は doc-meta-index.json（約 930KB）。経路は src/components/search/SearchZeroState.tsx:6 が @/lib/content-routes の getPublicDocPath を import し（content-routes.ts:1 が doc-meta-index を import）、もう 1 本は同 :2 のバレル @/components/home 経由。クライアント JS 合計 2.74MB の 60%。
+**やること**: getPublicDocPath を src/app/search/page.tsx（server）で計算して props で渡し、ExamCard は @/components/home/ExamCards から直接 import する。
+**完了条件**: build 後に find out/_next/static/chunks -name '*.js' -size +600k | wc -l が 0（現状 1）。CI の build ジョブに同じ検査を足す。
+
 
 ### [DN-0682] 2級土木の水セメント比図の無条件な施工性低下の説明を修正する
 タグ: [領域:商品] [時期:2026-10] [種類:不具合] [起票:2026-10-11]
@@ -1845,6 +1885,37 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 **完了条件**: 2 ページの CTA の変更が 10/18 までに公開され、反映 28 日後の CTA クリック率を変更前と比べた記録が本カードの完了記録にある（試験後で少数なら判定保留と書く）。
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-0696] public/llms.txt の本文が旧状態（対象資格 2 つ）のままで、手書き静的ファイルに生成元が無い
+タグ: [領域:サイト] [種類:不具合] [検証:check-qualification-ssot] [起票:2026-10-11]
+
+**起点**: 2026-10-11 の SEO 監査。public/llms.txt（38 URL）と llms-full.txt（811 行）の 97% が旧 /docs/ URL（301）だった点は 2026-10-11 に正規 URL へ書き換えた。しかし本文は「1級土木施工管理技士と技術士（総合技術監理部門）」の 2 資格だけの説明で、2級・コンクリート主任技士・診断士・建設部門・RCCM・/practice・/standards が無い。生成スクリプトも無く（grep で scripts/・package.json・workflows に参照なし）、記事の増減に追従しない。
+**やること**: doc-meta-index と qualification-registry から llms.txt / llms-full.txt を生成するスクリプトを作り、refresh-indexes か prebuild に載せる。本文の資格一覧は qualification-registry.json から引く（check-qualification-ssot）。
+**完了条件**: npm run refresh-indexes 後に public/llms*.txt の URL が全て正規 URL で、資格一覧が registry と一致する検査が CI にある。
+
+
+### [DN-0694] 重複実装の共通化（MDX 列挙 45 ファイル・curlJson 8 定義・classifyDoc の写し 4・loadEnv 7）とラチェットの挙動ベース化
+タグ: [領域:管理] [種類:改善] [起票:2026-10-11]
+
+**起点**: 2026-10-11 のコード監査（走査 1,624 ファイル）。tests/script-helpers-ratchet.test.mjs は walk*・parseArgs・ルート計算の名前だけを数えるので、collectMdx/findMdx/listArticles など MDX を列挙する関数 45 ファイル 49 定義（content/site を列挙するコードは 112 ファイル）、note API を curl で取る curlJson 8 定義（正規版 lib/note-api.mjs:58。再試行 0〜4 回・戻り値 null/throw/{json,error} と挙動がばらばら）、classifyDoc の写し 4 か所（正本 src/lib/doc-classifier.ts:31-39・check-magazine-cta-reachability.ts:63・check-category-curriculum.mjs:26・check-career-separation.mjs:19・lib/content-taxonomy.mjs:224）、loadEnv 7 版、toPosix 19 か所、frontmatter の読み方が gray-matter 58／手書き正規表現 55 と割れている点を素通りしている。
+**やること**: scripts/lib/mdx-files.mjs・scripts/lib/curl-json.mjs を新設し、まず note-edit-magazine など 7 本が note-api.mjs を import する。ラチェットに基準値（45／8）を足す。移行は 1 本ずつ。
+**完了条件**: 基準値を現状に置いて node --test が通り、+1 で落ちる。
+
+
+### [DN-0689] CI 基盤: PR の build 3 回を 1 回に・Node 20/22 混在を 22 へ・setup を composite action にまとめる
+タグ: [領域:管理] [種類:改善] [検証:check-workflow-hygiene] [起票:2026-10-11]
+
+**起点**: 2026-10-11 のコード監査。PR ごとに ci.yml・e2e.yml・lighthouse.yml が別々に npm run build（cloudflare-deploy.yml を含めると 4 回）。node-version は "20" が 32 か所・"22" が 13 か所で混在（Node 20 は 2026-04 に EOL、ローカルは v22.23.3、package.json:641 の engines は >=18）。npm ci が 36 ファイル・build-doc-meta-index が 21 ファイルに重複。
+**やること**: ci の out/ を artifact で e2e / lighthouse に渡す（または同じ workflow の job にまとめる）。.github/actions/setup-repo（新規）に checkout 後の共通前処理を寄せ、Node を 22 に揃え engines を >=20.9 にする（wrangler@3 を 22 で確認）。
+**完了条件**: PR 1 回で gh run view --log | grep -c 'next build' が 1。grep -c 'node-version: "20"' .github/workflows/*.yml の合計が 0 で、check-workflow-hygiene にその検査を足す。
+
+
+### [DN-0687] knip の未使用 25 ファイル（UI バレル 18・src/lib 5・ig design 2）を消して baseline を下げる
+タグ: [領域:管理] [種類:改善] [検証:check-knip-ratchet] [起票:2026-10-11]
+
+**起点**: 2026-10-11 のコード監査（npx knip、Unused files 37）。残す 11 件（quality-cycle の scripts-cem/scripts-civil-textbook）は knip.json の entry が scripts/** だけで scripts-* に一致しない誤検知で、2026-10-11 に entry を足した（26 件に減少）。消せるのは src/components/ui/*/index.ts 17 本と ui/index.ts（@/components/ui/<名前> での import は 0 件・実体は <名前>/<名前> 直接 import 103 件・バレルを求める規約なし）、src/lib/image-optimization.ts・latest-posts.ts・frontmatter-schema.ts（.claude/scripts/lib/frontmatter-schema.mjs:6 のコメントと data-storage-decision.md:43 を同時に直す）・src/types/category.ts・src/utils/scrollUtils.ts、.claude/skills/social/ig-post-create/design/{design-generator,variants-generator}.mjs（144KB）。他に @fontsource/manrope が未使用依存（package.json:544）、hast が未列挙依存。
+**完了条件**: npm run check-knip-ratchet が通り、npx knip の Unused files が 1 以下。--update-baseline で baseline を下げる。
+
+
 ### [DN-0681] lint-mdx-mobile が、サイトが目次に使う toc_min/max_heading_level を「未使用の旧 frontmatter・一括削除可」として HIGH を出している
 タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [起票:2026-10-11]
 
@@ -2602,6 +2673,47 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 **完了条件**: CTA と seoTitle の変更が公開され、反映 28 日後の CTA クリック率と対象語の順位を変更前と比べた記録が本カードの完了記録にある。
 
 ## 🟣 判断待ち — ユーザーの意思決定が必要
+
+### [DN-0695] アフィリエイト配置の 3 論点（同一案件の二重カード 49 ページ・非転職記事末バナー 0/4,161 クリック・DX コンサルの承認条件）を決める
+タグ: [領域:アフィリエイト] [種類:意思決定] [検証:check-affiliate-placements] [起票:2026-10-11]
+
+**起点**: 2026-10-11 のアフィリエイト監査。(1) 同じ案件（mat）のインラインカードが 1 ページに 2 枚出るページが 49。(2) 転職以外の記事末バナーは 28 日で 4,161 表示・0 クリック。(3) DX・コンサル系の案件を配置してよい条件が config にも docs にも記録されていない。
+**決めること**: (1) 2 枚目を抑止する（check-affiliate-placements に 1 ページ 1 案件のルールを足す）か、別案件に差し替えるか。(2) 非転職の記事末バナーを外す／面を変える／EXP として期限を切って測るか。(3) DX・コンサルの承認条件を config.affiliate-placements の note か docs/marketing に書くか、配置しないと決めるか。
+**完了条件**: 決定が config/docs に記録され、該当ページの実表示を 1 件以上 curl で確認。
+
+
+### [DN-0692] seo-rank-watch の capacity が全 NSM 実験を数える方針と、方針レビュー期日（2026-10-11）を扱う
+タグ: [領域:戦略] [種類:意思決定] [起票:2026-10-11]
+
+**起点**: 2026-10-11 の SEO SSOT 監査。scripts/lib/seo-rank-watch.mjs:175 の capacity は running/measuring の NSM 実験を種類を問わず数える（config.policy.maxConcurrent=2）。これは nsm-experiment SKILL.md:242 とテスト「other NSM experiments count toward the existing concurrency limit」で意図された方針で、2026-10-11 に一度直そうとして戻した。結果として note・アフィリの実験が走る間は順位の実験が選ばれない。あわせて config/seo-watchwords.json:265 の strategy.reviewedAt=2026-09-13＋28 日で policyReviewDue が 2026-10-11 に立ち、期日を過ぎると selected が null になる。
+**決めること**: (a) capacity を SEO 実験だけで数えるよう方針を変える（テストと SKILL を同じ commit で直す）／(b) 方針は据え置き、maxConcurrent を見直す／(c) 据え置き。いずれにしても policy-review の run を記録して期日を更新する。
+**完了条件**: node --test tests/seo-rank-watch.test.mjs が通り、管理画面の rank-watch で policyReviewDue=false。
+
+
+### [DN-0691] civil-exam-textbook-index（2026-05-16 で停止・refresh-indexes 未配線）を再生成して配線する時期を決める
+タグ: [領域:サイト] [種類:意思決定] [検証:check-generated-indexes] [起票:2026-10-11]
+
+**起点**: 2026-10-11 の回遊監査。src/config/civil-exam-textbook-index.json（1級）は 5/16、-2.json（2級）は 5/29 から更新されておらず、生成スクリプト .claude/scripts/build-civil-exam-textbook-index.mjs は package.json にも refresh-indexes にも入っていない。読み手は src/components/ui/PastExamBacklinks と RelatedTextbooks。2級の過去問 24 ページで textbook への自動リンクが 0 本。
+**決めること**: いま再生成すると数十ページの内部リンクが一度に変わり、進行中の SEO 実験（EXP-014・EXP-020）の条件が動く。実験の判定日まで待つか、先に配線するか。
+**やること（決まったら）**: スクリプトを package.json に載せ refresh-indexes に足す。生成物の差分を確認して commit。
+**完了条件**: npm run refresh-indexes で 2 ファイルが更新され、2級の過去問ページに textbook リンクが出る。
+
+
+### [DN-0690] /deploy の git merge を --no-ff にして、[skip ci] の bot commit が main の先頭に来てデプロイが起動しない事故を防ぐか決める
+タグ: [領域:管理] [種類:意思決定] [起票:2026-10-11]
+
+**起点**: 2026-10-11 のコード監査。.claude/skills/dev/deploy/SKILL.md:62-69 は git merge --no-edit develop。main が develop の祖先なら fast-forward になり、develop の先頭が ogp-supply の [skip ci] commit（構造的に高頻度・ogp-supply のカード参照）だと cloudflare-deploy.yml（on: push branches: [main]）が起動しない。今は SKILL.md:85-99 の「push 後に run を確認する」手作業だけで防いでいる。
+**決めること**: git merge --no-ff -m 'Merge develop into main' に変える（main の履歴に merge commit が増える）か、現状の手作業確認を続けるか。
+**完了条件**: 変える場合、push の 60 秒以内に gh run list --workflow=cloudflare-deploy.yml --limit 1 --json headSha -q '.[0].headSha' が git rev-parse origin/main と一致することを SKILL の手順に機械確認として書く。
+
+
+### [DN-0685] ci:true なのに壁時計で結果が変わる検査 2 件（affiliate-placements・video-publication）を ops へ移すか決める
+タグ: [領域:アフィリエイト] [種類:意思決定] [起票:2026-10-11]
+
+**起点**: 2026-10-11 のコード監査。code ルール「ci:true は結果が PR の diff だけで決まる検査に限る」に対し、scripts/check-affiliate-placements.mjs:48,73-78 は広告リンクの expiresAt が過ぎると差分が無くても全 PR が赤になる（7 日前に知らせる ops 検査 --upcoming は別にある）。scripts/check-video-publication.mjs:82,102 の V03（照合が 14 日古い）も同じで、現在は対象 0 件で休眠中だが 1 本公開した瞬間に全 PR が赤になりうる。tests/quality-audit-ops-tier.test.mjs は再混入を止める位置にあるが、この 2 件は通している。
+**決めること**: (a) 2 件を ops: true, ci: false に移し、期限切れの広告を出さない防御は ops の日次アラート（automation-failure Issue）に寄せる／(b) PR を止める今の挙動を残す（その場合はルールの例外として note: に理由を書く）。
+**完了条件**: どちらに決めても tests/quality-audit-ops-tier.test.mjs がその決定を固定し、node --test で通る。
+
 
 ### [DN-0662] コンクリート技士・主任技士・診断士を iOS アプリにするかを決める（問題文は非公開・主任技士は書籍由来・診断士の権利の確認範囲が未記録）
 タグ: [収益化] [領域:商品] [種類:意思決定] [起票:2026-10-11]
