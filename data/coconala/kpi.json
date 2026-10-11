@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-10",
+  "updatedAt": "2026-10-11",
   "source": "ココナラ「サービス・ブログ分析」を npm run coconala-analytics（Playwright・read-only）で収集し、--append-kpi で upsert する。数値は対象期間の累計（既定30日ローリング）であって週次増分ではない。手動貼付も引き続き可。",
   "howToUpdate": "npm run coconala-analytics -- --append-kpi → weekly / blogsWeekly を weekOf 単位で upsert → npm run check-coconala-analytics で鮮度・欠測・整合を確認 → /coconala-status で撤退ライン判定。",
   "weekly": [
@@ -819,12 +819,12 @@
     {
       "weekOf": "2026-10-05",
       "serviceId": "coconala-2kyu-sakusei-3theme",
-      "views": 95,
+      "views": 102,
       "favorites": 0,
       "orders": 0,
       "period": {
-        "from": "2026-09-10",
-        "to": "2026-10-09"
+        "from": "2026-09-11",
+        "to": "2026-10-10"
       },
       "windowDays": 30,
       "cumulative": true,
@@ -833,12 +833,12 @@
     {
       "weekOf": "2026-10-05",
       "serviceId": "coconala-2kyu-tensaku-3theme",
-      "views": 103,
+      "views": 111,
       "favorites": 0,
       "orders": 0,
       "period": {
-        "from": "2026-09-10",
-        "to": "2026-10-09"
+        "from": "2026-09-11",
+        "to": "2026-10-10"
       },
       "windowDays": 30,
       "cumulative": true,
@@ -847,12 +847,12 @@
     {
       "weekOf": "2026-10-05",
       "serviceId": "coconala-cce-essay-tensaku",
-      "views": 76,
+      "views": 83,
       "favorites": 0,
       "orders": 0,
       "period": {
-        "from": "2026-09-10",
-        "to": "2026-10-09"
+        "from": "2026-09-11",
+        "to": "2026-10-10"
       },
       "windowDays": 30,
       "cumulative": true,
@@ -1250,8 +1250,8 @@
       "views": 19,
       "postedOn": "2026-09-24",
       "period": {
-        "from": "2026-09-11",
-        "to": "2026-10-10"
+        "from": "2026-09-12",
+        "to": "2026-10-11"
       },
       "windowDays": 30,
       "cumulative": true,
@@ -1265,8 +1265,8 @@
       "views": 13,
       "postedOn": "2026-09-23",
       "period": {
-        "from": "2026-09-11",
-        "to": "2026-10-10"
+        "from": "2026-09-12",
+        "to": "2026-10-11"
       },
       "windowDays": 30,
       "cumulative": true,
@@ -1280,8 +1280,8 @@
       "views": 15,
       "postedOn": "2026-09-25",
       "period": {
-        "from": "2026-09-11",
-        "to": "2026-10-10"
+        "from": "2026-09-12",
+        "to": "2026-10-11"
       },
       "windowDays": 30,
       "cumulative": true,
@@ -1295,8 +1295,8 @@
       "views": 19,
       "postedOn": "2026-09-25",
       "period": {
-        "from": "2026-09-11",
-        "to": "2026-10-10"
+        "from": "2026-09-12",
+        "to": "2026-10-11"
       },
       "windowDays": 30,
       "cumulative": true,
@@ -1310,8 +1310,8 @@
       "views": 17,
       "postedOn": "2026-09-25",
       "period": {
-        "from": "2026-09-11",
-        "to": "2026-10-10"
+        "from": "2026-09-12",
+        "to": "2026-10-11"
       },
       "windowDays": 30,
       "cumulative": true,
@@ -1325,8 +1325,8 @@
       "views": 15,
       "postedOn": "2026-08-13",
       "period": {
-        "from": "2026-09-11",
-        "to": "2026-10-10"
+        "from": "2026-09-12",
+        "to": "2026-10-11"
       },
       "windowDays": 30,
       "cumulative": true,
@@ -1340,8 +1340,8 @@
       "views": 13,
       "postedOn": "2026-09-25",
       "period": {
-        "from": "2026-09-11",
-        "to": "2026-10-10"
+        "from": "2026-09-12",
+        "to": "2026-10-11"
       },
       "windowDays": 30,
       "cumulative": true,
@@ -1355,8 +1355,8 @@
       "views": 20,
       "postedOn": "2026-09-25",
       "period": {
-        "from": "2026-09-11",
-        "to": "2026-10-10"
+        "from": "2026-09-12",
+        "to": "2026-10-11"
       },
       "windowDays": 30,
       "cumulative": true,
@@ -1370,8 +1370,8 @@
       "views": 15,
       "postedOn": "2026-09-25",
       "period": {
-        "from": "2026-09-11",
-        "to": "2026-10-10"
+        "from": "2026-09-12",
+        "to": "2026-10-11"
       },
       "windowDays": 30,
       "cumulative": true,
@@ -1385,8 +1385,8 @@
       "views": 14,
       "postedOn": "2026-09-25",
       "period": {
-        "from": "2026-09-11",
-        "to": "2026-10-10"
+        "from": "2026-09-12",
+        "to": "2026-10-11"
       },
       "windowDays": 30,
       "cumulative": true,
@@ -1400,8 +1400,8 @@
       "views": 24,
       "postedOn": "2026-09-25",
       "period": {
-        "from": "2026-09-11",
-        "to": "2026-10-10"
+        "from": "2026-09-12",
+        "to": "2026-10-11"
       },
       "windowDays": 30,
       "cumulative": true,
@@ -1415,8 +1415,8 @@
       "views": 17,
       "postedOn": "2026-08-12",
       "period": {
-        "from": "2026-09-11",
-        "to": "2026-10-10"
+        "from": "2026-09-12",
+        "to": "2026-10-11"
       },
       "windowDays": 30,
       "cumulative": true,
@@ -1427,11 +1427,11 @@
       "slug": "suuchi-no-irekata",
       "blogId": "815124",
       "title": "経験記述の数値、どこに何を入れるか｜5箇所と整合チェック",
-      "views": 16,
+      "views": 19,
       "postedOn": "2026-09-25",
       "period": {
-        "from": "2026-09-11",
-        "to": "2026-10-10"
+        "from": "2026-09-12",
+        "to": "2026-10-11"
       },
       "windowDays": 30,
       "cumulative": true,
@@ -1445,8 +1445,8 @@
       "views": 21,
       "postedOn": "2026-09-25",
       "period": {
-        "from": "2026-09-11",
-        "to": "2026-10-10"
+        "from": "2026-09-12",
+        "to": "2026-10-11"
       },
       "windowDays": 30,
       "cumulative": true,
@@ -1457,11 +1457,11 @@
       "slug": "yosou-mondai-kaku-renshu",
       "blogId": "794012",
       "title": "【第3回】経験記述は予想テーマで書く練習｜週1回5ステップ",
-      "views": 10,
+      "views": 12,
       "postedOn": "2026-08-17",
       "period": {
-        "from": "2026-09-11",
-        "to": "2026-10-10"
+        "from": "2026-09-12",
+        "to": "2026-10-11"
       },
       "windowDays": 30,
       "cumulative": true,

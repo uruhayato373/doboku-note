@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "fetchedAt": "2026-10-10T11:49:58.354Z",
-  "fetchedOnJst": "2026-10-10",
+  "fetchedAt": "2026-10-11T03:45:35.474Z",
+  "fetchedOnJst": "2026-10-11",
   "status": "ok",
   "source": "coconala.com /mypage/analytics（Playwright・read-only・書き込みなし）",
   "caveats": [
@@ -11,23 +11,23 @@
   ],
   "period": {
     "services": {
-      "from": "2026-09-10",
-      "to": "2026-10-09",
+      "from": "2026-09-11",
+      "to": "2026-10-10",
       "label": "過去30日間",
       "windowDays": 30
     },
     "blogs": {
-      "from": "2026-09-11",
-      "to": "2026-10-10",
+      "from": "2026-09-12",
+      "to": "2026-10-11",
       "label": "過去30日間",
       "windowDays": 30
     }
   },
   "totals": {
     "impressions": null,
-    "views": 1521,
+    "views": 1532,
     "orders": 1,
-    "salesYen": 17500,
+    "salesYen": 15000,
     "favorites": 1,
     "masked": [
       "impressions"
@@ -41,7 +41,7 @@
       "title": "2級経験記述 全3テーマを24時間で添削します",
       "ok": true,
       "impressions": null,
-      "views": 103,
+      "views": 111,
       "orders": 0,
       "favorites": 0,
       "masked": [
@@ -55,7 +55,7 @@
       "title": "2級経験記述の全3テーマ骨子を24時間で設計します",
       "ok": true,
       "impressions": null,
-      "views": 95,
+      "views": 102,
       "orders": 0,
       "favorites": 0,
       "masked": [
@@ -69,7 +69,7 @@
       "title": "コンクリート主任技士の小論文を添削します",
       "ok": true,
       "impressions": null,
-      "views": 76,
+      "views": 83,
       "orders": 0,
       "favorites": 0,
       "masked": [
@@ -278,7 +278,7 @@
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-09-25",
-      "views": 16
+      "views": 19
     },
     {
       "title": "経験記述は工事概要で落ちる｜対象工事・数量・立場の書き方",
@@ -355,7 +355,7 @@
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-08-17",
-      "views": 10
+      "views": 12
     },
     {
       "title": "【第2回】経験記述が独学で伸びない理由｜自己採点が成立しない構造",
