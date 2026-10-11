@@ -184,6 +184,23 @@ test('GscIndexingPriority: 実データが通り、件数の不整合・分類�
   assertFails(S, broken(p, (x) => { x.itemsTruncated = !x.itemsTruncated; }), /itemsTruncated/);
   assertFails(S, broken(p, (x) => { x.generatedAt = '2026-09-30'; }), /generatedAt/);
   assertFails(S, broken(p, (x) => { x.items[0].impressions = 1.5; }), /impressions/);
+  // 型ごとの期待値（並びの根拠）
+  assertFails(S, broken(p, (x) => { delete x.types; }), /types/);
+  assertFails(S, broken(p, (x) => { x.items[0].type = 'no-such-type'; }), /types に無い/);
+  assertFails(S, broken(p, (x) => { x.items[0].expectedValue += 1; }), /types の/);
+  assertFails(S, broken(p, (x) => { x.types[0].unindexed += 1; }), /未登録/);
+  assertFails(S, broken(p, (x) => { x.types[0].basis = x.types[0].basis === 'own' ? 'substitute' : 'own'; }), /basis/);
+  assertFails(S, broken(p, (x) => { x.types[1] = { ...x.types[0] }; }), /重複/);
+  // 並びの契約: 表示ありが先 → 表示 0 は期待値（小数 1 桁）の降順
+  assertFails(S, broken(p, (x) => { x.items[0].impressions = 0; x.items[1].impressions = 5; }), /表示ありが表示 0/);
+  assertFails(S, broken(p, (x) => { x.items[0].impressions = 5; x.items[1].impressions = 9; }), /より多いのに後ろ/);
+  assertFails(S, broken(p, (x) => {
+    for (const it of x.items.slice(0, 2)) it.impressions = 0;
+    x.items[0].expectedValue = 0;
+    x.items[1].expectedValue = 5;
+    x.types.find((t) => t.type === x.items[0].type).expectedValue = 0;
+    x.types.find((t) => t.type === x.items[1].type).expectedValue = 5;
+  }), /期待値 5 が前の/);
 });
 
 test('GscIndexingRequests: 実データが通り、語彙・集計の不整合・dry-run の申請・summary 欠けが落ちる', () => {
