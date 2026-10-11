@@ -2682,16 +2682,12 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 **完了条件**: 決定が config/docs に記録され、該当ページの実表示を 1 件以上 curl で確認。
 
 
-### [DN-0692] seo-rank-watch の capacity が全 NSM 実験を数える方針と、方針レビュー期日（2026-10-11）を扱う
-タグ: [領域:戦略] [種類:意思決定] [起票:2026-10-11]
-
-**起点**: 2026-10-11 の SEO SSOT 監査。scripts/lib/seo-rank-watch.mjs:175 の capacity は running/measuring の NSM 実験を種類を問わず数える（config.policy.maxConcurrent=2）。これは nsm-experiment SKILL.md:242 とテスト「other NSM experiments count toward the existing concurrency limit」で意図された方針で、2026-10-11 に一度直そうとして戻した。結果として note・アフィリの実験が走る間は順位の実験が選ばれない。あわせて config/seo-watchwords.json:265 の strategy.reviewedAt=2026-09-13＋28 日で policyReviewDue が 2026-10-11 に立ち、期日を過ぎると selected が null になる。
-**決めること**: (a) capacity を SEO 実験だけで数えるよう方針を変える（テストと SKILL を同じ commit で直す）／(b) 方針は据え置き、maxConcurrent を見直す／(c) 据え置き。いずれにしても policy-review の run を記録して期日を更新する。
-**完了条件**: node --test tests/seo-rank-watch.test.mjs が通り、管理画面の rank-watch で policyReviewDue=false。
 
 
-### [DN-0691] civil-exam-textbook-index（2026-05-16 で停止・refresh-indexes 未配線）を再生成して配線する時期を決める
-タグ: [領域:サイト] [種類:意思決定] [検証:check-generated-indexes] [起票:2026-10-11]
+### [DN-0691] civil-exam-textbook-index（2026-05-16 で停止・refresh-indexes 未配線）を再生成して配線する
+タグ: [領域:サイト] [時期:2026-11] [種類:改善] [検証:check-generated-indexes] [起票:2026-10-11]
+
+**決定（2026-10-11・運営者）**: EXP-014（判定 2026-10-26）と EXP-020（10/11 開始・判定日は measure に従う）の判定が出るまで待ち、11 月に配線する。判定前に数十ページの内部リンクを動かさない。
 
 **起点**: 2026-10-11 の回遊監査。src/config/civil-exam-textbook-index.json（1級）は 5/16、-2.json（2級）は 5/29 から更新されておらず、生成スクリプト .claude/scripts/build-civil-exam-textbook-index.mjs は package.json にも refresh-indexes にも入っていない。読み手は src/components/ui/PastExamBacklinks と RelatedTextbooks。2級の過去問 24 ページで textbook への自動リンクが 0 本。
 **決めること**: いま再生成すると数十ページの内部リンクが一度に変わり、進行中の SEO 実験（EXP-014・EXP-020）の条件が動く。実験の判定日まで待つか、先に配線するか。
