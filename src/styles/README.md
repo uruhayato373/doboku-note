@@ -19,4 +19,6 @@
 import '../styles/globals.css';
 ```
 
+過去問演習の問題文・選択肢・解説の HTML（`.quiz-rich-text` の中身）の見た目だけは `quiz-content.css` に分け、`globals.css` から `@import` する。iOS 択一アプリも `build-ios-quiz-bundle` が同じファイルと色のトークン（`scripts/lib/quiz-style.mjs` が `globals.css` から抜き出す `quiz-tokens.css`）を同梱して読むので、演習の中身の見た目はここだけで直す。
+
 コンポーネントやページから個別にグローバルCSSをimportしないでください。新しい共通値はトークンとして `:root` と必要に応じて `.dark` に定義します。

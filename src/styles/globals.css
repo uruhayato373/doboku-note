@@ -1,4 +1,6 @@
 @import 'tailwindcss';
+/* 過去問演習の問題文・解説の見た目（iOS アプリも同じファイルを同梱する） */
+@import './quiz-content.css';
 
 @config '../../tailwind.config.js';
 
