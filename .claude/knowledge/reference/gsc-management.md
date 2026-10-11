@@ -652,3 +652,16 @@ EXP-006 の本判定は予定どおり next_check 2026-08-27 に、カバレッ�
   3. 未認識 59 件（うち前回 sitemap 既在 37 件）の偏在（pe-construction・kyushu）は次回 batch で解消するか観測。1 点では取りこぼしか未検出か判別不能
 - 異常フラグ: なし（ratio 79.5%≥60% / 前回比 −0.4pt / discovered 15.4%<20% / hygiene 0 / inspected=sitemap / results 1,579 件・前回比 +10.1%）
 - 注記: 自動生成・最終決定は人間。batch の実体パスは `data/gsc/url-inspection/2026-09-30T07-42-14.json`
+
+### 2026-10-11（手動・サイト全体の検索改善・/google-search-growth 相当・DN-0666）
+
+- 観測（GSC UI CSV 2026-10-11 取得・16 ユニット中 取得 11・対象なし 5・失敗 0／URL 検査 batch 10-07／GSC page 09-09〜10-06）: indexed_ratio **81.6%**（09-30 の 79.5% から +2.1pt）・技術要因 0。28 日のクリック 922（前 28 日 180）・平均順位 12.3（同 19.2）。1級・2級の二次系が約半分
+- 「検出 - 未登録」478（09-24 の 281 から +278）の約 9 割は見かけ: sitemap-legacy.xml に載せていた**移転後に作った記事の実在しない /docs URL** 173 件と part-N の計上タイミング 80 件。実質の増加は +24 件
+- 判断と実施:
+  1. sitemap-legacy.xml から created が 2026-08-22 より後の slug を外した（PR #988・本番 1,399 → 1,145 件）
+  2. favicon が無かった（/favicon.ico 404・rel=icon 無し）→ src/app に favicon.ico・icon.png・apple-icon.png（PR #988・本番で 200 と link を確認）
+  3. TechArticle に image（ogp.png）・/exam の本文を 200 字超に（PR #988）
+  4. CTR 実験を 2 本に限って開始: EXP-020（2級二次 4 本の題名の語順・説明・冒頭）・EXP-021（総監の定型題名 5 本を「語とは｜区別点」に）。一括変更はしない
+  5. 本文からのリンクが 0 本の 8 ページへ 23 記事から内部リンク。2級 R8 二次の解答例ページの枠を 10/25 前に公開（DN-0678）
+- 見送り・判断待ち: 削除済み /standards/guides の 404（表示 85）・数字付き 404 24 件・/standards/<機関>/common の重複 → DN-0677。順位表の期待値順と分類器 → DN-0674。_redirects の上限 → DN-0675。check-seo-build の warn の置き場 → DN-0676。check-google-ui-ssot の不具合 → DN-0669
+- 次に見るもの: 10-14 の batch で legacy 除外後の discovered と canonical 不一致 13 件、10-18 以降に concrete-engineer textbook 3 本の再リクエスト、EXP-020/021 は本番反映（10-11）の 28 日後
