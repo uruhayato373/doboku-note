@@ -97,7 +97,7 @@ export const KdpRoyalties = z
         z
           .object({
             fetchedAt: utcTime('取得時刻'),
-            range: z.object({ start: jstDate('集計の開始日'), end: jstDate('集計の終了日') }).strict().describe('集計の期間（その月の 1 日〜月末）'),
+            range: z.object({ start: jstDate('集計の開始日'), end: jstDate('集計の終了日') }).strict().describe('集計の期間（その月の 1 日〜月末。推計の当月は取得日まで）'),
             estimated: z.boolean().describe('推計値なら true（KENP の確定前）'),
             total: z.object({ bookCount: count('本の数'), ...kdpAmounts, royalty: signedYen('ロイヤリティの合計') }).strict().describe('アカウント全体の合計。royalty は 3 項目の合計（各項目の丸めで 1 円ずれうる）'),
             kenpPagesRead: orNull(count('KENP の既読ページ数（マーケットプレイスの合計）'), 'マーケットプレイス別を読めなかった月は null'),
@@ -150,8 +150,11 @@ export const KdpRoyalties = z
   .superRefine((log, ctx) => {
     for (const [m, e] of Object.entries(log.months)) {
       const at = (...path) => ['months', m, ...path];
-      if (e.range.start !== `${m}-01` || e.range.end !== `${m}-${String(lastDayOfMonth(m)).padStart(2, '0')}`) {
-        flag(ctx, at('range'), `集計の期間 ${e.range.start}〜${e.range.end} が ${m} の 1 日〜月末ではない`);
+      // 推計の月は月の途中まで（週次で当月を取る・2026-10-11）。確定の月は 1 日〜月末
+      const monthEnd = `${m}-${String(lastDayOfMonth(m)).padStart(2, '0')}`;
+      const endOk = e.estimated ? e.range.end.startsWith(`${m}-`) && e.range.end <= monthEnd : e.range.end === monthEnd;
+      if (e.range.start !== `${m}-01` || !endOk) {
+        flag(ctx, at('range'), `集計の期間 ${e.range.start}〜${e.range.end} が ${m} の 1 日〜${e.estimated ? '月内' : '月末'}ではない`);
       }
       // 3 項目はそれぞれ丸めて表示されるので、合計が 1 円ずれることがある
       if (!sumEquals([e.total.ebook, e.total.print, e.total.kenp], e.total.royalty, 1)) flag(ctx, at('total', 'royalty'), `royalty ${e.total.royalty} が ebook＋print＋kenp と合わない`);

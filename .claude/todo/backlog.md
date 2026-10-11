@@ -21,6 +21,12 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-0670] 2級土木の既存動画4本に技術表現の訂正を反映する
+タグ: [領域:商品] [時期:2026-10] [種類:不具合] [検証:check-video-content] [起票:2026-10-11]
+
+gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2kyu の画像/台本を、締固め度の現場乾燥密度、配合とスランプ、原因別ひび割れ対策、工事選定条件の断定回避へ修正した。総まとめ動画への反映と別に、元4本の外部公開状態を照合し、必要な動画再生成・画像確認・訂正説明または差替えを行う。
+
+
 ### [DN-0658] 2級YouTubeの通常動画3本・Shorts6本の休止中診断リンクを現行添削へ直す
 タグ: [領域:SNS] [時期:2026-10] [種類:不具合] [起票:2026-10-10] [期日:2026-10-13]
 
@@ -348,6 +354,38 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0669] check-google-ui-ssot が台帳に無い ga4.ui-history を参照して落ち、GSC UI の整合を検査できない
+タグ: [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-11]
+
+**起点**: 2026-10-11、/google-search-growth の手順 4（normalize の後）で `npm run check-google-ui-ssot` を回すと、`scripts/lib/datasets.mjs:475` の「台帳に無いデータセット: ga4.ui-history」で落ちる（GSC UI の正規化と search-growth:report は通る）。GA4 UI の取得は 2026-07-30 から失敗のまま（check-gsc-ui-due: trafficAcquisition=csv-menu-ambiguous・landingPage/events=report-not-found）で、ga4.ui-history の台帳宣言が無いか id が変わった可能性。検査が落ちるので marker ↔ history ↔ urls の整合を誰も確かめられていない。
+**やること**: check-google-ui-ssot が参照する GA4 の台帳 id を `scripts/lib/datasets.mjs` の宣言に合わせる（または `planned: true` で宣言）。GA4 UI が未取得のときは GA4 側を「未取得」と出して GSC 側の検査は続ける。回帰テストを足す。
+**完了条件**: `npm run check-google-ui-ssot` が exit 0（GA4 未取得なら未取得と表示）で、GSC の marker ↔ history ↔ urls の整合を実検査した件数を出す。
+
+
+### [DN-0668] 総監の合格戦略記事に残る口頭試験評価の誤記を修正する
+タグ: [領域:商品] [時期:2026-10] [種類:不具合] [検証:check-mdx-facts] [起票:2026-10-11]
+
+exam-passing-strategy/article.mdx の239・264行付近に、総監口頭は知識を問わないとの誤記がある。R8公式の経歴及び応用能力・体系的専門知識に合わせて修正。今回の動画は修正済み。
+
+
+### [DN-0667] CI の coconala 取得（403 で毎週失敗）を止めるか CI 不可として扱う
+タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-11] [期日:2026-10-31]
+
+**起点**: 2026-10-11 に CI（hosted runner）からのココナラが、保存したログイン状態を渡しても /mypage が 403 Forbidden になると分かった（run 38106927733）。9/30 から login-collectors の coconala が毎週失敗している（#746）。取得は Mac の launchd `coconala-local`（PR #984）へ移した。
+
+**やること**: coconala-local が 2 週続けて台帳を develop へ push できたら、`.claude/config/playwright-auth-profiles.json` の coconala の読み取り（login-collectors の coconala の cron と collect）を止めるか、403 の実行を失敗ではなく「CI 不可」として Issue を立てない形にする。ops-write（書き込み）で coconala を CI から使っているかを先に確かめ、使っているなら書き込みは残す。
+
+**完了条件**: login-collectors の coconala が毎週 automation-failure Issue を立てない状態になり、#746 が閉じている。
+
+
+### [DN-0666] 書籍の展開で触った 24 記事の SEO を GSC に沿って整える（未登録 4 本の登録依頼・検索意図・相互リンク・メタ）
+タグ: [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-10-11] [進行中]
+
+**起点**: 2026-10-11、書籍の網羅の展開（DN-0591）とコンクリート系の照合で触った 24 記事を GSC（2026-10-10 取得・直近 28 日）で見た。合計は表示 540・クリック 24。concrete-engineer の textbook 3 本（construction・materials・production-qc）が「検出 - インデックス未登録」、新設の civil-practice/steel-material-properties は URL 検査も未実施（被リンク 1 本）。伸ばせる候補: concrete-diagnostician/textbook-deterioration（「コンクリート 中性化」表示 87・順位約 28）、concrete-chief-engineer/guide-essay（「コンクリート主任技士 小論文」表示 113・順位約 8）、pe-first-stage/guide-basic-subject（表示 72・順位約 10）。seo-meta（題名・説明の長さ）の結果は、data/analysis/seo-meta.json と URL の形が合わず、照合できていない（未確認）。
+**やること**: (1) 未登録 4 本を `npm run gsc-indexing:request` でインデックス登録をリクエストする (2) 候補 3 本を search-intent-auditor で検索意図と照らし、題名・説明・見出しを直す (3) 展開した記事どうしの相互リンクを補い、被リンクの少ないページを解消する (4) 触った記事の title・description の長さを check-seo-meta で検査する。
+**完了条件**: 4 本のインデックス登録リクエストの記録が data/gsc/indexing-requests.json にある。候補 3 本の修正がコミット済み。check-seo-meta で触った記事の違反 0。
+
+
 ### [DN-0665] 過去問の正答と ✅/❌ の整合検査（check-answer-consistency）が 1級・2級土木の記事を 1 問も検査せずに OK を返す
 タグ: [領域:サイト] [時期:2026-10..2026-11] [種類:不具合] [起票:2026-10-11]
 
@@ -356,19 +394,16 @@
 **完了条件**: civil の記事で検査した問題数が出て、0 件の記事は不成立で止まり、tests に civil・技術士の両方の例がある。
 
 
-### [DN-0664] 9 月の受取額を KDP の確定後に complete にし、月次レビュー記録を確定版にする
+### [DN-0664] 5〜9 月の受取額を台帳から記録し、9 月は KDP の確定後に complete にする
 タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-11] [期日:2026-10-17]
 
-**起点**: 2026-10-11 に 9 月の受取額を partial で記録した（note ¥89,402・ココナラ ¥13,650。KDP は未取得）。KDP の前月分は KENP が 15 日ごろ確定するので、login-collectors が 10/16 06:40 の定期実行で確定値を取る。
+**起点**: 2026-10-11 に受取額を 3 つの台帳（note.sales・coconala.revenue・kdp.royalties）から組み立てる形にした（#977・#982・#983）。プロジェクトは 5 月開始だが、記録（data/business/records の netReceipts）は 8 月（complete）と 9 月（partial）だけ。note の 5 月は確定値（控除後 ¥27,997）を取り込み済み、6・7 月は login-collectors の手動実行（run 38109465998・38109600073）で取り込み中。KDP の 9 月は推計 ¥9,806、確定は 10/16 以降の金曜の定期取得で入る。
 
-**やること**: 10/16 の取得が develop に入ったら（data/kdp/royalties.json の 2026-09 が estimated:false）、npm run record-net-receipts -- --month 2026-09 --note-net 89402 --coconala 13650 --commit を回してコミットする（ブラウザ不要。前の partial を訂正先にするのは #974 の後）。complete になったら 9 月の月次レビュー記録を supersedes で確定版にする。KDP が入っていなければ login-collectors の kdp の run ログを見る。
+**やること**:
+1. 6・7 月の run が develop に入ったら（data/note/sales.json の months に 2026-06・2026-07 の net がある）、npm run record-net-receipts -- --month 2026-05 --commit（06・07 も）で記録してコミットする。5・6 月は 3 つとも確定で complete、7 月は KDP が 7/30 取得の推計なので partial。入っていなければ run ログの note-sales-fetch を見て month を指定し直す。
+2. 10/16 以降の取得で data/kdp/royalties.json の 2026-09 が estimated:false になったら、npm run record-net-receipts -- --month 2026-09 --commit（前の partial を訂正先にする）でコミットし、9 月の月次レビュー記録を supersedes で確定版にする。
 
-**完了条件**: 管理画面トップ（?month=2026-09）に受取額の合計と達成率が出て、9 月の月次レビュー記録が complete になる。
-
-
-
-
-
+**完了条件**: 管理画面トップ（?month=2026-05〜09）の受取額がすべて note 確定値で出て、2026-05・06・09 の netReceipts が complete で記録されている。
 
 ### [DN-0660] 管理画面の型チェック（tools/admin-app の tsc）が content-items.ts で 2 件落ちたまま、どの CI でも検査されていない
 タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-10]

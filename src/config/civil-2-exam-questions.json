@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-11T02:02:18Z",
+  "generatedAt": "2026-10-11T03:51:04Z",
   "exam": "civil-2",
   "years": [
     {
@@ -3190,22 +3190,22 @@
           "optionExplanations": [
             {
               "num": 1,
-              "text": "締固め度の規定は含水比やCBRでなく密度で行い、基準も最適含水比ではない。組合せは誤り。",
+              "text": "CBR ── 含水比 ── 最適含水比 — （イ）（ロ）（ハ）のすべてが誤りのため誤り",
               "correct": false
             },
             {
               "num": 2,
-              "text": "目標は密度で規定し、基準値は最大乾燥密度であり、含水比での規定ではない。組合せは誤り。",
+              "text": "CBR ── 含水比 ── 最大乾燥密度 — （イ）（ロ）が誤りのため誤り",
               "correct": false
             },
             {
               "num": 3,
-              "text": "砂質土・礫質土では密度で規定し、現場乾燥密度が室内突固め試験の最大乾燥密度の90 % 以上となるようにする。組合せは適当。",
+              "text": "密度 ── 現場乾燥密度 ── 最大乾燥密度 — （イ）（ロ）（ハ）のすべてが正しく、組合せとして正しい",
               "correct": true
             },
             {
               "num": 4,
-              "text": "現場の値は湿潤密度でなく乾燥密度で比較し、基準も最大乾燥密度である。最適含水比とは比較しない。組合せは誤り。 <ExamPoint>締固め度は現場乾燥密度÷最大乾燥密度で表す</ExamPoint>",
+              "text": "密度 ── 現場湿潤密度 ── 最適含水比 — （ロ）（ハ）が誤りのため誤り <ExamPoint>締固め度は現場乾燥密度÷最大乾燥密度で表す</ExamPoint>",
               "correct": false
             }
           ],
@@ -4490,22 +4490,22 @@
           "optionExplanations": [
             {
               "num": 1,
-              "text": "土圧式シールドは、掘削土の土圧で切羽の安定を図り、スクリューコンベヤで排土する。粘性土地盤に適している。組合せは適当。",
+              "text": "土圧 ── 排土 ── 粘性土 — （イ）（ロ）（ハ）のすべてが正しく、組合せとして正しい",
               "correct": true
             },
             {
               "num": 2,
-              "text": "土圧式は一般に粘性土に適しており、砂質・砂礫地盤は泥水式の適用が一般的。誤り。",
+              "text": "土圧 ── 排土 ── 砂質・砂礫 — （ハ）が誤りのため誤り",
               "correct": false
             },
             {
               "num": 3,
-              "text": "土圧式は泥水圧でなく土圧で切羽を安定させ、かくはんではなく排土する。誤り。",
+              "text": "泥水圧 ── かくはん ── 砂質・砂礫 — （イ）（ロ）（ハ）のすべてが誤りのため誤り",
               "correct": false
             },
             {
               "num": 4,
-              "text": "泥水圧・かくはんは泥水式の特徴で、土圧式とは異なる。誤り。 <ExamPoint>土圧式は土圧で切羽安定・スクリューで排土・粘性土向き</ExamPoint>",
+              "text": "泥水圧 ── かくはん ── 粘性土 — （イ）（ロ）が誤りのため誤り <ExamPoint>土圧式は土圧で切羽安定・スクリューで排土・粘性土向き</ExamPoint>",
               "correct": false
             }
           ],
@@ -4690,22 +4690,22 @@
           "optionExplanations": [
             {
               "num": 1,
-              "text": "休憩時間が30分・45分では誤り。6時間超で45分、8時間超で1時間が必要。",
+              "text": "40 ── 8 ── 30 ── 45 — （ハ）（ニ）が誤りのため誤り",
               "correct": false
             },
             {
               "num": 2,
-              "text": "週40時間、1日8時間が原則。6時間超は少なくとも45分、8時間超は少なくとも1時間の休憩。",
+              "text": "40 ── 8 ── 45 ── 60 — （イ）（ロ）（ハ）（ニ）のすべてが正しく、組合せとして正しい",
               "correct": true
             },
             {
               "num": 3,
-              "text": "週45時間・1日9時間は誤り。原則は週40時間・1日8時間。",
+              "text": "45 ── 9 ── 30 ── 45 — （イ）（ロ）（ハ）（ニ）のすべてが誤りのため誤り",
               "correct": false
             },
             {
               "num": 4,
-              "text": "週45時間・1日9時間が誤り。原則は週40時間・1日8時間。 <ExamPoint>法定労働時間（週40・日8）と休憩（45分・60分）の数値</ExamPoint>",
+              "text": "45 ── 9 ── 45 ── 60 — （イ）（ロ）が誤りのため誤り <ExamPoint>法定労働時間（週40・日8）と休憩（45分・60分）の数値</ExamPoint>",
               "correct": false
             }
           ],
@@ -17962,22 +17962,22 @@
             {
               "num": 1,
               "text": "砂置換法は現場の締固め密度を測る試験で，地盤改良工法の設計には直接用いず誤り",
-              "correct": true
+              "correct": false
             },
             {
               "num": 2,
               "text": "ポータブルコーン貫入試験はトラフィカビリティ（走行性）の判定に用い正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 3,
               "text": "一軸圧縮試験は粘性土の強度から支持力推定に用い正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 4,
               "text": "コンシステンシー試験は液性・塑性限界から盛土材料の適否の判断に用い正しい <ExamPoint>砂置換法は現場密度の確認に用い，地盤改良の設計とは結び付かない</ExamPoint>",
-              "correct": false
+              "correct": true
             }
           ],
           "igEligible": true,
@@ -18012,22 +18012,22 @@
             {
               "num": 1,
               "text": "基礎地盤の不同沈下等を事前検討するのは正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 2,
               "text": "敷均し厚さは材料・施工法・要求締固め度に左右されるのは正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 3,
               "text": "同一土・同一方法でも含水比で密度が変わるのは正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 4,
               "text": "構造物縁部は大型機械が入りにくく，小型機械やランマで締め固めるため誤り <ExamPoint>構造物縁部は小型締固め機械で入念に締め固める</ExamPoint>",
-              "correct": true
+              "correct": false
             }
           ],
           "igEligible": true,
@@ -18112,22 +18112,22 @@
             {
               "num": 1,
               "text": "セメントは水と反応して強いアルカリ性を示し，酸性を持つとする記述は適当でない",
-              "correct": true
+              "correct": false
             },
             {
               "num": 2,
               "text": "風化したセメントは密度が小さくなるため，記述は適当",
-              "correct": false
+              "correct": true
             },
             {
               "num": 3,
               "text": "早強ポルトランドセメントは早期に高い強度が得られ，プレストレストコンクリート工事に適しており，記述は適当",
-              "correct": false
+              "correct": true
             },
             {
               "num": 4,
               "text": "中庸熱ポルトランドセメントは水和熱が低く，ダム工事等のマスコンクリートに適しており，記述は適当 <ExamPoint>セメントは酸性ではなくアルカリ性を示す</ExamPoint>",
-              "correct": false
+              "correct": true
             }
           ],
           "igEligible": true,
@@ -18162,22 +18162,22 @@
             {
               "num": 1,
               "text": "挿入時間の目安は5〜15秒程度で，記述は適当",
-              "correct": false
+              "correct": true
             },
             {
               "num": 2,
               "text": "挿入間隔は一般に50cm以下にするもので，記述は適当",
-              "correct": false
+              "correct": true
             },
             {
               "num": 3,
               "text": "コンクリートに穴が残らないよう，棒状バイブレータはゆっくり引き抜くため，すばやく引き抜くとする記述は適当でない",
-              "correct": true
+              "correct": false
             },
             {
               "num": 4,
               "text": "棒状バイブレータはコンクリートを横移動させる目的では用いず，記述は適当 <ExamPoint>棒状バイブレータは穴が残らないようゆっくり引き抜く</ExamPoint>",
-              "correct": false
+              "correct": true
             }
           ],
           "igEligible": true,
@@ -18212,22 +18212,22 @@
             {
               "num": 1,
               "text": "ブリーディングの説明は正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 2,
               "text": "ワーカビリティーの説明は正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 3,
               "text": "レイタンスはブリーディングに伴い表面に浮く微粒子の層であり，柔らかさの指標ではないため誤り",
-              "correct": true
+              "correct": false
             },
             {
               "num": 4,
               "text": "コンシステンシーの説明は正しい <ExamPoint>レイタンスは表面に浮く脆弱な薄層。打継ぎ前に除去する</ExamPoint>",
-              "correct": false
+              "correct": true
             }
           ],
           "igEligible": true,
@@ -18262,22 +18262,22 @@
             {
               "num": 1,
               "text": "密実な表面を得るには，作業可能な範囲でできるだけ遅い時期に金ごてで仕上げるため，記述は適当",
-              "correct": false
+              "correct": true
             },
             {
               "num": 2,
               "text": "固まり始める前に発生したひび割れはタンピング等で修復するため，記述は適当",
-              "correct": false
+              "correct": true
             },
             {
               "num": 3,
               "text": "養生ではコンクリートを湿潤状態に保つことが重要で，記述は適当",
-              "correct": false
+              "correct": true
             },
             {
               "num": 4,
               "text": "混合セメントは強度の発現が遅いため，湿潤養生期間は早強ポルトランドセメントよりも長くする必要があり，短くするとする記述は適当でない <ExamPoint>混合セメントの湿潤養生期間は早強ポルトランドセメントより長くとる</ExamPoint>",
-              "correct": true
+              "correct": false
             }
           ],
           "igEligible": true,
@@ -18312,22 +18312,22 @@
             {
               "num": 1,
               "text": "ドロップハンマは杭の重量以上のハンマを落下させて打ち込むもので，杭の重量以下とする記述は適当でない",
-              "correct": true
+              "correct": false
             },
             {
               "num": 2,
               "text": "ディーゼルハンマは打撃力が大きい一方，騒音・振動と油の飛散をともない，記述は適当",
-              "correct": false
+              "correct": true
             },
             {
               "num": 3,
               "text": "バイブロハンマは振動と振動機・杭の重量によって杭を地盤に押し込むもので，記述は適当",
-              "correct": false
+              "correct": true
             },
             {
               "num": 4,
               "text": "油圧ハンマはラムの落下高さを任意に調整でき，杭打ち時の騒音を小さくできるため，記述は適当 <ExamPoint>ドロップハンマは杭の重量以上のハンマを用いる</ExamPoint>",
-              "correct": false
+              "correct": true
             }
           ],
           "igEligible": true,
@@ -18362,22 +18362,22 @@
             {
               "num": 1,
               "text": "場所打ち杭工法は掘削方式のため打撃工法より騒音・振動は小さいので誤り",
-              "correct": true
+              "correct": false
             },
             {
               "num": 2,
               "text": "大口径杭により大きな支持力が得られるのは正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 3,
               "text": "鉄筋・コンクリートを現場で扱い運搬の取扱いが容易なのは正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 4,
               "text": "掘削土により基礎地盤を確認できるのは正しい <ExamPoint>場所打ち杭は打撃工法より低騒音・低振動</ExamPoint>",
-              "correct": false
+              "correct": true
             }
           ],
           "igEligible": true,
@@ -18412,22 +18412,22 @@
             {
               "num": 1,
               "text": "アンカー式は引張材で土留め壁を支える工法で正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 2,
               "text": "切梁式は中間杭や火打ち梁を用いるものがあり正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 3,
               "text": "ボイリングは地下水圧で砂が吹き上がる現象で正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 4,
               "text": "パイピングは砂中の弱い部分を水みちが貫通する現象で，ヒービングがパイプ状に生じるという説明は誤り <ExamPoint>パイピングは水みちが砂中を貫通する現象。ヒービングとは別</ExamPoint>",
-              "correct": true
+              "correct": false
             }
           ],
           "igEligible": true,
@@ -18462,22 +18462,22 @@
             {
               "num": 1,
               "text": "低炭素鋼は延性，展性に富み，橋梁等に広く用いられており，記述は適当",
-              "correct": false
+              "correct": true
             },
             {
               "num": 2,
               "text": "耐候性鋼材等の防食性の高い鋼材は腐食対策として用いるもので，疲労が心配される場合の対策として用いるとする記述は適当でない",
-              "correct": true
+              "correct": false
             },
             {
               "num": 3,
               "text": "鋼材は弾性限度に達するまでは弾性を示し，それを超えると塑性を示すため，記述は適当",
-              "correct": false
+              "correct": true
             },
             {
               "num": 4,
               "text": "継続的な荷重の作用による摩耗は鋼材の耐久性を劣化させる原因になり，記述は適当 <ExamPoint>耐候性鋼材は防食用。疲労対策とは別</ExamPoint>",
-              "correct": false
+              "correct": true
             }
           ],
           "igEligible": true,
@@ -18562,22 +18562,22 @@
             {
               "num": 1,
               "text": "中性化はコンクリートのアルカリ性が空気中の炭酸ガスの浸入等で失われていく現象で，記述は適当",
-              "correct": false
+              "correct": true
             },
             {
               "num": 2,
               "text": "塩害は塩化物イオンの作用で鋼材が腐食する現象で，硫酸や硫酸塩等の接触による硬化体の分解・溶解は化学的侵食の説明であり，塩害の説明として適当でない",
-              "correct": true
+              "correct": false
             },
             {
               "num": 3,
               "text": "疲労は荷重の繰返し作用でひび割れが発生し，やがて大きな損傷となる現象で，記述は適当",
-              "correct": false
+              "correct": true
             },
             {
               "num": 4,
               "text": "凍害は水分の凍結による膨張圧でコンクリートが破壊される現象で，記述は適当 <ExamPoint>塩害は塩化物イオンによる鋼材腐食。硬化体の分解・溶解は化学的侵食</ExamPoint>",
-              "correct": false
+              "correct": true
             }
           ],
           "igEligible": true,
@@ -18662,22 +18662,22 @@
             {
               "num": 1,
               "text": "基礎工が洗掘に対する保護や裏込め土砂の流出防止に施工するのは正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 2,
               "text": "法勾配が緩く流速が小さい場所はコンクリートブロック張り等が用いられ，間知ブロックは急勾配・流速大の場所に用いるため誤り",
-              "correct": true
+              "correct": false
             },
             {
               "num": 3,
               "text": "根固工が河床の洗掘を防ぎ基礎工等を保護するのは正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 4,
               "text": "天端保護工の説明は正しい <ExamPoint>間知ブロックは急勾配・流速大の場所に用いる</ExamPoint>",
-              "correct": false
+              "correct": true
             }
           ],
           "igEligible": true,
@@ -18712,22 +18712,22 @@
             {
               "num": 1,
               "text": "前庭保護工は堤体を越流した落下水による下流側の洗掘等を防ぐ構造物であり，土石流の直撃を防ぐための構造物とする記述は適当でない",
-              "correct": true
+              "correct": false
             },
             {
               "num": 2,
               "text": "袖は水通し側から両岸に向かって上り勾配とするもので，記述は適当",
-              "correct": false
+              "correct": true
             },
             {
               "num": 3,
               "text": "側壁護岸は越流部からの落下水が左右の法面を侵食することを防ぐ構造物で，記述は適当",
-              "correct": false
+              "correct": true
             },
             {
               "num": 4,
               "text": "水通しは越流する流量に対して十分な大きさとし，断面は一般に逆台形で，記述は適当 <ExamPoint>前庭保護工は落下水による堤体下流の洗掘を防ぐ</ExamPoint>",
-              "correct": false
+              "correct": true
             }
           ],
           "igEligible": true,
@@ -18812,22 +18812,22 @@
             {
               "num": 1,
               "text": "盛土路床の1層仕上り厚は20cm以下が目安で，40cm以下は誤り",
-              "correct": true
+              "correct": false
             },
             {
               "num": 2,
               "text": "安定処理工法の説明は正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 3,
               "text": "切土路床で表層付近の木根・転石を除去するのは正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 4,
               "text": "置き換え工法の説明は正しい <ExamPoint>盛土路床の1層仕上り厚は20cm以下が目安</ExamPoint>",
-              "correct": false
+              "correct": true
             }
           ],
           "igEligible": true,
@@ -18862,22 +18862,22 @@
             {
               "num": 1,
               "text": "転圧温度が高過ぎるとヘアクラックや変形を起こすことがあり正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 2,
               "text": "二次転圧は一般にタイヤローラで行い，振動ローラを用いることもあるため，ロードローラで行うとする記述は適当でない",
-              "correct": true
+              "correct": false
             },
             {
               "num": 3,
               "text": "仕上げ転圧の説明は正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 4,
               "text": "締固め作業は継目転圧，初転圧，二次転圧及び仕上げ転圧の順序で行うため正しい <ExamPoint>二次転圧は一般にタイヤローラで行う</ExamPoint>",
-              "correct": false
+              "correct": true
             }
           ],
           "igEligible": true,
@@ -19012,22 +19012,22 @@
             {
               "num": 1,
               "text": "転流工の説明は正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 2,
               "text": "RCD工法は超硬練りコンクリートを振動ローラで締め固める工法であり，タイヤローラとした記述は誤り",
-              "correct": true
+              "correct": false
             },
             {
               "num": 3,
               "text": "グラウチングの説明は正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 4,
               "text": "ベンチカット工法はせん孔・爆破で上方から下方へ切り下げる工法で正しい <ExamPoint>RCD工法は振動ローラで締め固める</ExamPoint>",
-              "correct": false
+              "correct": true
             }
           ],
           "igEligible": true,
@@ -19062,22 +19062,22 @@
             {
               "num": 1,
               "text": "吹付けノズルを吹付け面に直角に向けるのは正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 2,
               "text": "ロックボルトは原則としてトンネル横断方向に掘削面に対して直角に設けるため，斜めに設けるとした記述は適当でない",
-              "correct": true
+              "correct": false
             },
             {
               "num": 3,
               "text": "発破掘削は硬岩等に用いるのは正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 4,
               "text": "機械掘削は全断面・自由断面方式に大別でき正しい <ExamPoint>ロックボルトは原則として掘削面に直角に設ける</ExamPoint>",
-              "correct": false
+              "correct": true
             }
           ],
           "igEligible": true,
@@ -19162,22 +19162,22 @@
             {
               "num": 1,
               "text": "えい航直後の据付けが困難な場合は，波浪のない安定した時期まで沈設して仮置きするため，記述は適当",
-              "correct": false
+              "correct": true
             },
             {
               "num": 2,
               "text": "海面がつねにおだやかで大型起重機船が使用できるなら，進水したケーソンをえい航して据え付けることができ，記述は適当",
-              "correct": false
+              "correct": true
             },
             {
               "num": 3,
               "text": "据付けでは着底前にいったん注水を止めて位置を確かめる手順をとるため，着底まで中断せず注水を連続して行うとする記述は適当でない",
-              "correct": true
+              "correct": false
             },
             {
               "num": 4,
               "text": "中詰め後は中詰め材が波で洗い流されないよう，ふたとなるコンクリートを打設するため，記述は適当 <ExamPoint>ケーソンの据付けは，着底前に位置を確かめてから行う</ExamPoint>",
-              "correct": false
+              "correct": true
             }
           ],
           "igEligible": true,
@@ -19212,22 +19212,22 @@
             {
               "num": 1,
               "text": "線路閉鎖工事の説明は正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 2,
               "text": "軌間の説明は正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 3,
               "text": "緩和曲線の説明は正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 4,
               "text": "自然地盤や盛土で構築され，路盤を支持する部分は路床であり，路盤の説明として適当でない <ExamPoint>路盤は道床を支える層で，路床の上に位置する</ExamPoint>",
-              "correct": true
+              "correct": false
             }
           ],
           "igEligible": true,
@@ -19262,22 +19262,22 @@
             {
               "num": 1,
               "text": "保安管理者が工事指揮者と相談し，事故防止責任者を指導して列車の安全運行を確保するため，記述は適当",
-              "correct": false
+              "correct": true
             },
             {
               "num": 2,
               "text": "重機械の運転者は重機械安全運転の講習会修了証の写しを添えて，監督員等の承認を得るため，記述は適当",
-              "correct": false
+              "correct": true
             },
             {
               "num": 3,
               "text": "複線以上の路線での積みおろしでは列車見張員を配置し，建築限界をおかさないように材料を置く必要があり，車両限界とする記述は適当でない",
-              "correct": true
+              "correct": false
             },
             {
               "num": 4,
               "text": "列車見張員は信号炎管・合図灯・呼笛・時計・時刻表・緊急連絡表を携帯するため，記述は適当 <ExamPoint>営業線近接工事の材料は建築限界をおかさないように置く</ExamPoint>",
-              "correct": false
+              "correct": true
             }
           ],
           "igEligible": true,
@@ -19312,22 +19312,22 @@
             {
               "num": 1,
               "text": "シールド工法の適用範囲の説明は正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 2,
               "text": "シールド機械がフード部・ガーダー部・テール部からなるのは正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 3,
               "text": "泥水式は掘削土を泥水とともに流体輸送するため，ベルトコンベア輸送で作業環境が悪化するとした説明は誤り",
-              "correct": true
+              "correct": false
             },
             {
               "num": 4,
               "text": "土圧式は粘性土地盤に適するのは正しい <ExamPoint>泥水式シールドはずりを泥水で流体輸送する</ExamPoint>",
-              "correct": false
+              "correct": true
             }
           ],
           "igEligible": true,
@@ -19362,22 +19362,22 @@
             {
               "num": 1,
               "text": "管の布設は低所から高所へ向けて行うのは正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 2,
               "text": "ダクタイル鋳鉄管は記号を上に向けて据え付けるのは正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 3,
               "text": "作業完了後に管端を木蓋等でふさぐのは正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 4,
               "text": "異形管は切断機での切断に適さず原則切断しないため，直管・異形管ともに切断機で行うとした記述は誤り <ExamPoint>異形管は原則として切断しない（直管のみ切断機で切断）</ExamPoint>",
-              "correct": true
+              "correct": false
             }
           ],
           "igEligible": true,
@@ -19412,22 +19412,22 @@
             {
               "num": 1,
               "text": "水面接合は管渠内の水面を接合部で一致させる方式であり，「管渠の中心を一致させる」のは管中心接合の説明で誤り",
-              "correct": true
+              "correct": false
             },
             {
               "num": 2,
               "text": "管頂接合は流水が円滑だが下流ほど掘削が深くなり正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 3,
               "text": "管底接合の説明は正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 4,
               "text": "段差接合の説明は正しい <ExamPoint>水面接合は水面を一致させる方式（中心一致は管中心接合）</ExamPoint>",
-              "correct": false
+              "correct": true
             }
           ],
           "igEligible": true,
@@ -19462,22 +19462,22 @@
             {
               "num": 1,
               "text": "労働時間が8時間を超える場合は少なくとも1時間の休憩を労働時間の途中に与えるため，記述は正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 2,
               "text": "使用者は原則として毎週少なくとも1回の休日を与えるため，記述は正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 3,
               "text": "協定により労働時間を延長する場合でも，延長して労働させた時間は1箇月100時間未満（休日労働を含む）としなければならず，150時間未満とする記述は誤り",
-              "correct": true
+              "correct": false
             },
             {
               "num": 4,
               "text": "雇入れの日から6箇月間継続勤務し全労働日の8割以上出勤した労働者には10日の有給休暇を与えるため，記述は正しい <ExamPoint>時間外労働は協定があっても1箇月100時間未満（休日労働を含む）</ExamPoint>",
-              "correct": false
+              "correct": true
             }
           ],
           "igEligible": true,
@@ -19512,22 +19512,22 @@
             {
               "num": 1,
               "text": "業務上負傷し，又は疾病にかかった場合に，使用者がその費用で必要な療養を行い，又は療養の費用を負担するため，記述は正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 2,
               "text": "労働者の重大な過失について使用者が補償を免れるのは，その過失について行政官庁の認定を受けた場合であり，届出た場合とする記述は誤り",
-              "correct": true
+              "correct": false
             },
             {
               "num": 3,
               "text": "補償を受ける権利は労働者の退職によって変更されないため，記述は正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 4,
               "text": "業務上の負傷，疾病又は死亡の認定等に異議のある者は行政官庁に審査又は事件の仲裁を申し立てることができ，記述は正しい <ExamPoint>重大な過失による補償の免除には，行政官庁の認定が必要</ExamPoint>",
-              "correct": false
+              "correct": true
             }
           ],
           "igEligible": true,
@@ -19612,22 +19612,22 @@
             {
               "num": 1,
               "text": "建設業の定義の説明は正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 2,
               "text": "主任技術者の設置義務の説明は正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 3,
               "text": "施工従事者が主任技術者の指導に従う義務は正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 4,
               "text": "専任の主任技術者を置く必要があるのは請負代金の額が一定以上の工事であり，「請負代金の額にかかわらず」とした記述は誤り <ExamPoint>専任の主任技術者は，公共性のある重要な工事のうち請負代金の額が一定以上のものに必要</ExamPoint>",
-              "correct": true
+              "correct": false
             }
           ],
           "igEligible": true,
@@ -19662,22 +19662,22 @@
             {
               "num": 1,
               "text": "最小回転半径の最高限度は12mで正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 2,
               "text": "車両の長さの最高限度は12mであり，15mとした記述は誤り",
-              "correct": true
+              "correct": false
             },
             {
               "num": 3,
               "text": "軸重の最高限度は10tで正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 4,
               "text": "車両の幅の最高限度は2.5mで正しい <ExamPoint>車両の長さの最高限度は12m（幅2.5m・高さ3.8m・軸重10t）</ExamPoint>",
-              "correct": false
+              "correct": true
             }
           ],
           "igEligible": true,
@@ -19712,22 +19712,22 @@
             {
               "num": 1,
               "text": "1級及び2級河川以外の準用河川の管理は，市町村長が行うため，記述は正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 2,
               "text": "ダム，堰，水門等は河川管理施設として河川法上の河川に含まれるため，含まれない施設とする記述は誤り",
-              "correct": true
+              "correct": false
             },
             {
               "num": 3,
               "text": "河川区域内の民有地での工事材料置場の設置は河川管理者の許可が必要で，記述は正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 4,
               "text": "河川管理施設保全のため指定した，河川区域に接する一定区域を河川保全区域というため，記述は正しい <ExamPoint>ダム・堰・水門等は河川法上の河川に含まれる河川管理施設</ExamPoint>",
-              "correct": false
+              "correct": true
             }
           ],
           "igEligible": true,
@@ -19762,22 +19762,22 @@
             {
               "num": 1,
               "text": "道路は原則として幅員4m以上で正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 2,
               "text": "容積率の定義は正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 3,
               "text": "建築物の敷地は原則として道路に2m以上接する必要があり，1m以上とした記述は誤り",
-              "correct": true
+              "correct": false
             },
             {
               "num": 4,
               "text": "建ぺい率の定義は正しい <ExamPoint>敷地は原則として道路に2m以上接しなければならない（接道義務）</ExamPoint>",
-              "correct": false
+              "correct": true
             }
           ],
           "igEligible": true,
@@ -19812,22 +19812,22 @@
             {
               "num": 1,
               "text": "火工所以外で薬包に雷管を取り付けないのは正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 2,
               "text": "固化したダイナマイト等は使用前に適切にもみほぐす必要があり，「もみほぐしてはならない」とした記述は誤り",
-              "correct": true
+              "correct": false
             },
             {
               "num": 3,
               "text": "火工所に火薬類を存置する場合の見張人配置は正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 4,
               "text": "盗難予防への留意は正しい <ExamPoint>固化したダイナマイトは使用前にもみほぐす</ExamPoint>",
-              "correct": false
+              "correct": true
             }
           ],
           "igEligible": true,
@@ -19962,22 +19962,22 @@
             {
               "num": 1,
               "text": "航路内では他の船舶を追い越してはならないため，記述は正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 2,
               "text": "汽艇等以外の船舶が特定港を通過するときに通る航路は法令で定める航路であり，港長の定める航路とする記述は誤り",
-              "correct": true
+              "correct": false
             },
             {
               "num": 3,
               "text": "航路内では原則としてえい航している船舶を放してはならないため，記述は正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 4,
               "text": "航路内では並列して航行してはならないため，記述は正しい <ExamPoint>港則法の航路内では追越し・並列航行を禁止し，えい航船舶は原則放さない</ExamPoint>",
-              "correct": false
+              "correct": true
             }
           ],
           "igEligible": true,
@@ -20162,22 +20162,22 @@
             {
               "num": 1,
               "text": "ランマの説明は正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 2,
               "text": "タイヤローラの説明は正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 3,
               "text": "ドラグラインは機械の位置より低い場所の掘削に適し，「高い場所」とした記述は誤り",
-              "correct": true
+              "correct": false
             },
             {
               "num": 4,
               "text": "クラムシェルの説明は正しい <ExamPoint>ドラグラインは機械より低い場所・広く浅い掘削に用いる</ExamPoint>",
-              "correct": false
+              "correct": true
             }
           ],
           "igEligible": true,
@@ -20212,22 +20212,22 @@
             {
               "num": 1,
               "text": "現場事務所や労務宿舎等は間接仮設工事であり，直接仮設工事とした記述は誤り",
-              "correct": true
+              "correct": false
             },
             {
               "num": 2,
               "text": "仮設備の構造計算と基準合致の説明は正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 3,
               "text": "任意仮設で合理的計画を立てる説明は正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 4,
               "text": "材料の規格統一・転用の説明は正しい <ExamPoint>現場事務所・労務宿舎等は間接仮設工事</ExamPoint>",
-              "correct": false
+              "correct": true
             }
           ],
           "igEligible": true,
@@ -20262,22 +20262,22 @@
             {
               "num": 1,
               "text": "掘削面の高さが規定の高さ以上の場合は，技能講習を修了した者から地山の掘削作業主任者を選任するため，記述は正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 2,
               "text": "地山の崩壊等により危険を及ぼすおそれのあるときは，土止め支保工を設け，防護網を張り，立入りを禁止する等の措置を講じるため，記述は正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 3,
               "text": "運搬機械等が作業箇所に後進して接近するときは，誘導者を配置して誘導させる必要があり，点検者を配置するとした記述は誤り",
-              "correct": true
+              "correct": false
             },
             {
               "num": 4,
               "text": "明り掘削の作業を行う場所は必要な照度を保持しなければならず，記述は正しい <ExamPoint>運搬機械等が後進して接近するときは，誘導者を配置して誘導させる</ExamPoint>",
-              "correct": false
+              "correct": true
             }
           ],
           "igEligible": true,
@@ -20312,22 +20312,22 @@
             {
               "num": 1,
               "text": "引倒し等の合図を定め関係労働者に周知するのは正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 2,
               "text": "飛来等の危険箇所では関係労働者以外の立入禁止であり，「作業主任者以外」とした記述は誤り",
-              "correct": true
+              "correct": false
             },
             {
               "num": 3,
               "text": "悪天候時の作業中止は正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 4,
               "text": "作業計画の記載事項の説明は正しい <ExamPoint>解体用機械の危険箇所は関係労働者以外の立入禁止</ExamPoint>",
-              "correct": false
+              "correct": true
             }
           ],
           "igEligible": true,
@@ -20362,22 +20362,22 @@
             {
               "num": 1,
               "text": "ロットは同一条件下で生産された品物の集まりであり，「様々な条件下で」とした記述は誤り",
-              "correct": true
+              "correct": false
             },
             {
               "num": 2,
               "text": "データ値（測定値）の説明は正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 3,
               "text": "安定状態の測定値分布が正規分布となるのは正しい",
-              "correct": false
+              "correct": true
             },
             {
               "num": 4,
               "text": "サンプル（試料）の説明は正しい <ExamPoint>ロットは均一な条件で生産された品物の集まり</ExamPoint>",
-              "correct": false
+              "correct": true
             }
           ],
           "igEligible": true,
@@ -22566,23 +22566,23 @@
           "optionExplanations": [
             {
               "num": 1,
-              "text": "コンクリート造工作物の解体は「高さ5m以上」で作業主任者が必要。**3m以上は誤りで該当しない （該当しない）**",
-              "correct": true
+              "text": "コンクリート造工作物の解体は「高さ5m以上」で作業主任者が必要。**3m以上は誤りで該当しない **",
+              "correct": false
             },
             {
               "num": 2,
-              "text": "掘削面の高さ2m以上の地山掘削作業は作業主任者選任が必要",
-              "correct": false
+              "text": "掘削面の高さ2m以上の地山掘削作業は作業主任者選任が必要で、該当する",
+              "correct": true
             },
             {
               "num": 3,
-              "text": "土留め支保工の切りばり等の取り付け・取り外し作業は作業主任者選任が必要",
-              "correct": false
+              "text": "土留め支保工の切りばり等の取り付け・取り外し作業は作業主任者選任が必要で、該当する",
+              "correct": true
             },
             {
               "num": 4,
-              "text": "型枠支保工組立解体作業は作業主任者選任が必要 <ExamPoint>コンクリート造工作物の解体は高さ5m以上で作業主任者が必要で3mは誤り</ExamPoint>",
-              "correct": false
+              "text": "型枠支保工組立解体作業は作業主任者選任が必要で、該当する <ExamPoint>コンクリート造工作物の解体は高さ5m以上で作業主任者が必要で3mは誤り</ExamPoint>",
+              "correct": true
             }
           ],
           "igEligible": true,
@@ -25306,22 +25306,22 @@
           "optionExplanations": [
             {
               "num": 1,
-              "text": "硬質土に対しコンクリート基礎は過剰で土質と基礎強度の組合せが不適",
+              "text": "(イ)砂基礎・(ロ)コンクリート基礎・(ハ)鉄筋コンクリート基礎 — (イ)は砂基礎では不足，(ロ)の硬質土にコンクリート基礎は過剰で，土質と基礎強度の組合せが不適",
               "correct": false
             },
             {
               "num": 2,
-              "text": "軟弱土はコンクリート基礎，硬質土は砂基礎，極軟弱土は鉄筋コンクリート基礎の標準組合せに一致",
+              "text": "(イ)コンクリート基礎・(ロ)砂基礎・(ハ)鉄筋コンクリート基礎 — 軟弱土はコンクリート基礎，硬質土は砂基礎，極軟弱土は鉄筋コンクリート基礎の標準組合せに一致",
               "correct": true
             },
             {
               "num": 3,
-              "text": "軟弱土に鉄筋コンクリート基礎は過剰で組合せが不適",
+              "text": "(イ)鉄筋コンクリート基礎・(ロ)砂基礎・(ハ)コンクリート基礎 — (イ)の軟弱土に鉄筋コンクリート基礎は過剰，(ハ)の極軟弱土にコンクリート基礎は不足で，組合せが不適",
               "correct": false
             },
             {
               "num": 4,
-              "text": "硬質土に鉄筋コンクリート基礎は過剰で組合せが不適 <ExamPoint>剛性管渠基礎は地盤強度に応じ砂→コンクリ→鉄筋コンクリの順</ExamPoint>",
+              "text": "(イ)砂基礎・(ロ)鉄筋コンクリート基礎・(ハ)コンクリート基礎 — (ロ)の硬質土に鉄筋コンクリート基礎は過剰で，(イ)(ハ)も強度が不足し組合せが不適 <ExamPoint>剛性管渠基礎は地盤強度に応じ砂→コンクリ→鉄筋コンクリの順</ExamPoint>",
               "correct": false
             }
           ],
@@ -29258,22 +29258,22 @@
           "optionExplanations": [
             {
               "num": 1,
-              "text": "施工体制台帳の写しの提出先は**発注者**であり（入札契約適正化法第15条第2項）、下請負人に提出とするのは誤り",
-              "correct": false
+              "text": "1つ（③のみ）",
+              "correct": true
             },
             {
               "num": 2,
-              "text": "施工体系図は工事目的物の引渡しから**10年間**保存しなければならず（建設業法施行規則第26条第5項第3号・第28条第2項）、20年は誤り",
+              "text": "2つ",
               "correct": false
             },
             {
               "num": 3,
-              "text": "施工体系図は工事関係者及び公衆が見やすい場所に掲げなければならない（建設業法第24条の8第4項、入札契約適正化法第15条第1項）、正しい",
-              "correct": true
+              "text": "3つ",
+              "correct": false
             },
             {
               "num": 4,
-              "text": "再下請に出した下請負人が通知する先は**元請の建設業者**であり（建設業法第24条の8第2項）、発注者とするのは誤り 正しいものは③の1つ。 <ExamPoint summary=\"施工体系図は引渡しから10年保存し見やすい場所に掲示する\" items={[ \"施工体制台帳の写し＝発注者に提出\", \"再下請の通知先＝元請の建設業者\", ]} />",
+              "text": "4つ <ExamPoint summary=\"施工体系図は引渡しから10年保存し見やすい場所に掲示する\" items={[ \"施工体制台帳の写し＝発注者に提出\", \"再下請の通知先＝元請の建設業者\", ]} />",
               "correct": false
             }
           ],
@@ -29341,23 +29341,23 @@
           "optionExplanations": [
             {
               "num": 1,
-              "text": "曲線式工程表に含まれるのは出来高累計曲線等であり、**バーチャート**は曲線式ではないので誤り",
+              "text": "①② — ①②とも誤りのため誤り",
               "correct": false
             },
             {
               "num": 2,
-              "text": "図1のように縦軸に日数・横軸に距離をとる表し方は**斜線式工程表**であり、バーチャート（縦軸に作業・横軸に日数）の説明ではないので誤り",
+              "text": "②③ — ②が誤りのため誤り",
               "correct": false
             },
             {
               "num": 3,
-              "text": "グラフ式工程表の説明、正しい",
+              "text": "③④ — ③④ともに正しく、組合せとして正しい",
               "correct": true
             },
             {
               "num": 4,
-              "text": "出来高累計曲線の説明、正しい 適当なものは③④、組合せは(3)。 <ExamPoint>グラフ式工程表は斜線で出来高累計曲線は曲線で表す</ExamPoint>",
-              "correct": true
+              "text": "①④ — ①が誤りのため誤り <ExamPoint>グラフ式工程表は斜線で出来高累計曲線は曲線で表す</ExamPoint>",
+              "correct": false
             }
           ],
           "igEligible": true,
@@ -29424,23 +29424,23 @@
           "optionExplanations": [
             {
               "num": 1,
-              "text": "組立図の作成義務、正しい",
-              "correct": true
+              "text": "1つ",
+              "correct": false
             },
             {
               "num": 2,
-              "text": "著しい損傷・変形・腐食がある材料は**使用してはならない**（安衛則第237条）、補修して使用とするのは誤り",
+              "text": "2つ",
               "correct": false
             },
             {
               "num": 3,
-              "text": "堅固な構造、正しい",
+              "text": "3つ（①③④）",
               "correct": true
             },
             {
               "num": 4,
-              "text": "組立等作業主任者による直接指揮、正しい 適当なものは①③④の3つ。 <ExamPoint>著しく損傷した型枠支保工の材料は補修しても使用不可</ExamPoint>",
-              "correct": true
+              "text": "4つ <ExamPoint>著しく損傷した型枠支保工の材料は補修しても使用不可</ExamPoint>",
+              "correct": false
             }
           ],
           "igEligible": true,
@@ -29474,22 +29474,22 @@
           "optionExplanations": [
             {
               "num": 1,
-              "text": "ヘッドガード装備機械の使用、正しい",
-              "correct": true
+              "text": "1つ",
+              "correct": false
             },
             {
               "num": 2,
-              "text": "転倒時保護構造・シートベルト装備機械の使用努力義務、正しい",
-              "correct": true
+              "text": "2つ",
+              "correct": false
             },
             {
               "num": 3,
-              "text": "作業指揮者の選任と作業手順の決定・指揮、正しい",
+              "text": "3つ（①②③）",
               "correct": true
             },
             {
               "num": 4,
-              "text": "安全支柱・安全ブロック等を使用させる対象は**作業に従事する労働者**であり（安衛則第166条）、作業指揮者に使用させるとするのは誤り 正しいものは①②③の3つ。 <ExamPoint>安全支柱等を使用させる対象は作業に従事する労働者</ExamPoint>",
+              "text": "4つ <ExamPoint>安全支柱等を使用させる対象は作業に従事する労働者</ExamPoint>",
               "correct": false
             }
           ],
@@ -29524,22 +29524,22 @@
           "optionExplanations": [
             {
               "num": 1,
-              "text": "x̄-R管理図の定義、正しい",
-              "correct": true
+              "text": "1つ",
+              "correct": false
             },
             {
               "num": 2,
-              "text": "管理限界線外のデータは工程異常を疑う、正しい",
+              "text": "2つ（①②）",
               "correct": true
             },
             {
               "num": 3,
-              "text": "x̄-R管理図は通常**折れ線グラフ**で示される、棒グラフは誤り",
+              "text": "3つ",
               "correct": false
             },
             {
               "num": 4,
-              "text": "x̄-R管理図で扱うのは連続量として測定される**計量値**、計数値は誤り 適当なものは①②の2つ。 <ExamPoint>x̄-R管理図は折れ線で示し扱う値は計量値</ExamPoint>",
+              "text": "4つ <ExamPoint>x̄-R管理図は折れ線で示し扱う値は計量値</ExamPoint>",
               "correct": false
             }
           ],
@@ -29574,23 +29574,23 @@
           "optionExplanations": [
             {
               "num": 1,
-              "text": "品質規定方式の説明、正しい",
+              "text": "①④ — ①④ともに正しく、組合せとして正しい",
               "correct": true
             },
             {
               "num": 2,
-              "text": "締固めの効果や特性は土の種類・含水比・施工方法によって**変化する**、変化しないとするのは誤り",
+              "text": "②③ — ②③とも誤りのため誤り",
               "correct": false
             },
             {
               "num": 3,
-              "text": "盛土が最もよく締まる含水比は最大乾燥密度が得られる**最適含水比**であり、最大含水比は誤り",
+              "text": "①②④ — ②が誤りのため誤り",
               "correct": false
             },
             {
               "num": 4,
-              "text": "乾燥密度の測定方法には砂置換法やRI計器による方法がある、正しい 適当なものは①④、組合せは(1)。 <ExamPoint>品質規定は締固め度で最もよく締まる含水比は最適含水比</ExamPoint>",
-              "correct": true
+              "text": "②③④ — ②③が誤りのため誤り <ExamPoint>品質規定は締固め度で最もよく締まる含水比は最適含水比</ExamPoint>",
+              "correct": false
             }
           ],
           "igEligible": true,
@@ -41664,24 +41664,8 @@
           "id": "r07z-59",
           "no": 59,
           "term": "zenki",
-          "body": "建設機械の作業に関する①〜④の4つの記述のうち，**適当なもの**の数は次のうちどれか。",
+          "body": "建設機械の作業に関する①〜④の4つの記述のうち，**適当なもの**の数は次のうちどれか。\n\n① ワーカビリティーとは，建設機械の走行性をいい，一般にはコーン指数で判断される。\n\n② リッパビリティーとは，大型ブルドーザに装着されたリッパによって作業できる程度をいう。\n\n③ 土工機械の作業能力は，単独又は組み合わされた機械の時間当たりの平均作業量で表す。\n\n④ ダンプトラックの作業効率は，運搬路の沿道条件，路面状態，昼夜の別等で変わる。",
           "options": [
-            {
-              "num": 1,
-              "text": "ワーカビリティーとは，建設機械の走行性をいい，一般にはコーン指数で判断される。"
-            },
-            {
-              "num": 2,
-              "text": "リッパビリティーとは，大型ブルドーザに装着されたリッパによって作業できる程度をいう。"
-            },
-            {
-              "num": 3,
-              "text": "土工機械の作業能力は，単独又は組み合わされた機械の時間当たりの平均作業量で表す。"
-            },
-            {
-              "num": 4,
-              "text": "ダンプトラックの作業効率は，運搬路の沿道条件，路面状態，昼夜の別等で変わる。"
-            },
             {
               "num": 1,
               "text": "1つ"
@@ -41700,31 +41684,31 @@
             }
           ],
           "correct": 3,
-          "correctText": "土工機械の作業能力は，単独又は組み合わされた機械の時間当たりの平均作業量で表す。",
+          "correctText": "3つ",
           "optionExplanations": [
             {
               "num": 1,
-              "text": "**走行性はトラフィカビリティーの定義、ワーカビリティーはコンクリートの施工性 **",
+              "text": "1つ",
               "correct": false
             },
             {
               "num": 2,
-              "text": "リッパビリティーの説明として正しい",
-              "correct": true
+              "text": "2つ",
+              "correct": false
             },
             {
               "num": 3,
-              "text": "作業能力の表現として正しい",
+              "text": "3つ（②③④）",
               "correct": true
             },
             {
               "num": 4,
-              "text": "ダンプトラックの作業効率要因として正しい 適当なものは②③④の3つ。 <ExamPoint>ワーカビリティーはコンクリートの施工性であり走行性はトラフィカビリティー</ExamPoint>",
-              "correct": true
+              "text": "4つ <ExamPoint>ワーカビリティーはコンクリートの施工性であり走行性はトラフィカビリティー</ExamPoint>",
+              "correct": false
             }
           ],
           "igEligible": true,
-          "packEligible": false
+          "packEligible": true
         },
         {
           "id": "r07z-60",
@@ -41763,24 +41747,8 @@
           "id": "r07z-61",
           "no": 61,
           "term": "zenki",
-          "body": "工程表の名称と特徴に関する下記の①〜④の4つの記述のうち，**適当なもののみを全てあげている組合せ**は次のうちどれか。",
+          "body": "工程表の名称と特徴に関する下記の①〜④の4つの記述のうち，**適当なもののみを全てあげている組合せ**は次のうちどれか。\n\n① ネットワーク式工程表は，工事内容を系統立てて作業相互の関連，順序，日数等を表した図表である。\n\n② 出来高累計曲線は，工事全体の出来高比率の累計を曲線で表した図表である。\n\n③ バーチャートは，出来高を縦軸にとり，工種ごとの工程を斜線で表した図表である。\n\n④ グラフ式工程表は，縦軸に部分工事をとり，横軸に工事に必要な日数を棒線で表した図表である。",
           "options": [
-            {
-              "num": 1,
-              "text": "ネットワーク式工程表は，工事内容を系統立てて作業相互の関連，順序，日数等を表した図表である。"
-            },
-            {
-              "num": 2,
-              "text": "出来高累計曲線は，工事全体の出来高比率の累計を曲線で表した図表である。"
-            },
-            {
-              "num": 3,
-              "text": "バーチャートは，出来高を縦軸にとり，工種ごとの工程を斜線で表した図表である。"
-            },
-            {
-              "num": 4,
-              "text": "グラフ式工程表は，縦軸に部分工事をとり，横軸に工事に必要な日数を棒線で表した図表である。"
-            },
             {
               "num": 1,
               "text": "①②"
@@ -41799,31 +41767,31 @@
             }
           ],
           "correct": 1,
-          "correctText": "ネットワーク式工程表は，工事内容を系統立てて作業相互の関連，順序，日数等を表した図表である。",
+          "correctText": "①②",
           "optionExplanations": [
             {
               "num": 1,
-              "text": "ネットワーク式工程表の説明として正しい",
+              "text": "①② — ①②が適当で③④は誤りのため、適当なもののみの組合せ",
               "correct": true
             },
             {
               "num": 2,
-              "text": "出来高累計曲線の説明として正しい",
-              "correct": true
+              "text": "①④ — ④は誤りのため",
+              "correct": false
             },
             {
               "num": 3,
-              "text": "**バーチャートは横軸に時間、縦軸に工種をとり棒線で表す、斜線で表すは誤り **",
+              "text": "①②③ — ③は誤りのため",
               "correct": false
             },
             {
               "num": 4,
-              "text": "**グラフ式工程表の縦軸・横軸の説明が誤り ** 適当なものは①②、組合せは(1)。 <ExamPoint>バーチャートは横軸に日数・縦軸に工種をとり棒線で表す</ExamPoint>",
+              "text": "②③④ — ③④は誤りのため <ExamPoint>バーチャートは横軸に日数・縦軸に工種をとり棒線で表す</ExamPoint>",
               "correct": false
             }
           ],
           "igEligible": true,
-          "packEligible": false
+          "packEligible": true
         },
         {
           "id": "r07z-62",
@@ -41928,24 +41896,8 @@
           "id": "r07z-65",
           "no": 65,
           "term": "zenki",
-          "body": "品質管理に用いられるx̄-R管理図に関する下記の①〜④の4つの記述のうち，**適当なもののみを全てあげている組合せ**は次のうちどれか。",
+          "body": "品質管理に用いられるx̄-R管理図に関する下記の①〜④の4つの記述のうち，**適当なもののみを全てあげている組合せ**は次のうちどれか。\n\n① x̄管理図は，組ごとの分布の幅によって工程のばらつきの変化を管理する管理図である。\n\n② R管理図は，組ごとの平均値によって平均値の変動を管理する管理図である。\n\n③ x̄-R管理図は，x̄管理図とR管理図を併用した折れ線グラフの管理図である。\n\n④ x̄-R管理図は，各組の平均値の変動とばらつきの変化を同時に管理する管理図である。",
           "options": [
-            {
-              "num": 1,
-              "text": "x̄管理図は，組ごとの分布の幅によって工程のばらつきの変化を管理する管理図である。"
-            },
-            {
-              "num": 2,
-              "text": "R管理図は，組ごとの平均値によって平均値の変動を管理する管理図である。"
-            },
-            {
-              "num": 3,
-              "text": "x̄-R管理図は，x̄管理図とR管理図を併用した折れ線グラフの管理図である。"
-            },
-            {
-              "num": 4,
-              "text": "x̄-R管理図は，各組の平均値の変動とばらつきの変化を同時に管理する管理図である。"
-            },
             {
               "num": 1,
               "text": "①②"
@@ -41964,57 +41916,41 @@
             }
           ],
           "correct": 2,
-          "correctText": "R管理図は，組ごとの平均値によって平均値の変動を管理する管理図である。",
+          "correctText": "③④",
           "optionExplanations": [
             {
               "num": 1,
-              "text": "**x̄管理図は組ごとの平均値で管理、分布の幅は誤り **",
+              "text": "①② — ①②はいずれも誤りのため",
               "correct": false
             },
             {
               "num": 2,
-              "text": "**R管理図は組ごとの分布の幅（範囲）で管理、平均値は誤り **",
-              "correct": false
+              "text": "③④ — ③④が適当で①②は誤りのため、適当なもののみの組合せ",
+              "correct": true
             },
             {
               "num": 3,
-              "text": "x̄-R管理図はx̄とRの併用、正しい",
-              "correct": true
+              "text": "①②③ — ①②は誤りのため",
+              "correct": false
             },
             {
               "num": 4,
-              "text": "x̄-R管理図で平均値変動とばらつき変化を同時管理、正しい 適当なものは③④、組合せは(2)。 <ExamPoint>x̄管理図は平均値、R管理図は分布の幅（範囲）で工程を管理する</ExamPoint>",
-              "correct": true
+              "text": "②③④ — ②は誤りのため <ExamPoint>x̄管理図は平均値、R管理図は分布の幅（範囲）で工程を管理する</ExamPoint>",
+              "correct": false
             }
           ],
           "igEligible": true,
-          "packEligible": false
+          "packEligible": true
         },
         {
           "id": "r07z-66",
           "no": 66,
           "term": "zenki",
-          "body": "盛土の締固めにおける品質管理に関する下記の①〜④の4つの記述のうち，**適当なもののみを全てあげている組合せ**は次のうちどれか。",
+          "body": "盛土の締固めにおける品質管理に関する下記の①〜④の4つの記述のうち，**適当なもののみを全てあげている組合せ**は次のうちどれか。\n\n① 工法規定方式は，締固め機械の機種や締固めの回数，盛土材料の敷均し厚さ等を規定する方法である。\n\n② 品質規定方式は，盛土の品質を仕様書に明示し，締固めの工法を施工者に任せる方法である。\n\n③ ICT建設機械での施工は，生産性の向上や働き方改革への対応及び品質の向上等が期待されている。\n\n④ 盛土の締固めは，法面の安定や土の含水比の増加等を目的とし，必要な強度特性が得られるように行う。",
           "options": [
             {
               "num": 1,
-              "text": "工法規定方式は，締固め機械の機種や締固めの回数，盛土材料の敷均し厚さ等を規定する方法である。"
-            },
-            {
-              "num": 2,
-              "text": "品質規定方式は，盛土の品質を仕様書に明示し，締固めの工法を施工者に任せる方法である。"
-            },
-            {
-              "num": 3,
-              "text": "ICT建設機械での施工は，生産性の向上や働き方改革への対応及び品質の向上等が期待されている。"
-            },
-            {
-              "num": 4,
-              "text": "盛土の締固めは，法面の安定や土の含水比の増加等を目的とし，必要な強度特性が得られるように行う。"
-            },
-            {
-              "num": 1,
-              "text": "②③"
+              "text": "①②"
             },
             {
               "num": 2,
@@ -42030,31 +41966,31 @@
             }
           ],
           "correct": 3,
-          "correctText": "ICT建設機械での施工は，生産性の向上や働き方改革への対応及び品質の向上等が期待されている。",
+          "correctText": "①②③",
           "optionExplanations": [
             {
               "num": 1,
-              "text": "工法規定方式の説明として正しい",
-              "correct": true
+              "text": "①② — ③も適当なため、適当なもののみを全てあげた組合せではない",
+              "correct": false
             },
             {
               "num": 2,
-              "text": "品質規定方式の説明として正しい",
-              "correct": true
+              "text": "③④ — ④は誤りのため",
+              "correct": false
             },
             {
               "num": 3,
-              "text": "ICT建設機械の効果として正しい",
+              "text": "①②③ — ①②③が適当で④は誤りのため、適当なもののみの組合せ",
               "correct": true
             },
             {
               "num": 4,
-              "text": "**盛土の締固めは含水比の増加ではなく低減・適正化、誤り ** 適当なものは①②③、組合せは(3)。 <ExamPoint>盛土締固めの目的は含水比の低減・適正化であり増加ではない</ExamPoint>",
+              "text": "②③④ — ④は誤りのため <ExamPoint>盛土締固めの目的は含水比の低減・適正化であり増加ではない</ExamPoint>",
               "correct": false
             }
           ],
           "igEligible": true,
-          "packEligible": false
+          "packEligible": true
         }
       ]
     },
