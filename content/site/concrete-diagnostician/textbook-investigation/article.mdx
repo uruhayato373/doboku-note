@@ -27,7 +27,7 @@ ogp:
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/concrete-diagnostician/textbook-investigation/img/figure-diagnosis-survey-flow.svg"
-  alt="劣化診断のフロー。計画・設計・施工の履歴から維持管理計画を立て、点検、調査、診断（対策の要否）へ進む。必要なら対策、不要なら記録・保管とし、記録は次回の点検へ引き継がれる"
+  alt="劣化診断のフロー。履歴から維持管理計画を立て、点検・調査・診断（対策の要否）へ進み、対策または記録・保管を経て次回の点検へ引き継ぐ"
   width={400}
   height={500}
 />
@@ -359,7 +359,7 @@ $$
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/concrete-diagnostician/textbook-investigation/img/figure-radar-survey.svg"
-  alt="電磁波レーダ法の構成。走査台車の送信アンテナからコンクリート内へ電磁波を放射し、空洞で反射した波を受信して往復時間から深さを推定する。周波数と探査深度・分解能の関係を併記"
+  alt="電磁波レーダ法の構成。送信アンテナから放射した電磁波の反射を受信し、往復時間から深さを推定する。周波数と探査深度・分解能の関係を併記"
   width={400}
   height={500}
 />
@@ -505,7 +505,7 @@ $$
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/concrete-diagnostician/textbook-investigation/img/figure-cement-association-flow.svg"
-  alt="セメント協会法の試験手順フロー。乾燥・微粉砕・塩酸処理・不溶残分と酸化カルシウムの定量から骨材量とセメント量を計算し単位量を算出。強熱減量から結合水量を推定する枝を併記"
+  alt="セメント協会法の手順。乾燥・微粉砕・塩酸処理を経て不溶残分と酸化カルシウムから骨材量とセメント量を求め、強熱減量から結合水量を推定する"
   width={400}
   height={500}
 />
@@ -539,7 +539,7 @@ ICP法は、試料を酸で溶かし、誘導結合プラズマ発光分光分�
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/concrete-diagnostician/textbook-investigation/img/figure-mercury-intrusion.svg"
-  alt="水銀圧入法の原理図。細孔を持つコンクリートの上に水銀があり、圧入圧力Pで押し込む。水銀の表面張力σと接触角θから細孔半径r=2σcosθ/Pが決まり、圧力と圧入量から細孔径分布を求める"
+  alt="水銀圧入法の原理図。圧力Pで水銀を細孔へ押し込み、表面張力σと接触角θから細孔半径r=2σcosθ/Pを求め、圧入量から細孔径分布を得る"
   width={400}
   height={500}
 />
@@ -563,7 +563,7 @@ h/d が1.00以上1.90未満になったときだけ、次の補正係数 $k$ を
 | 1.25 | 0.93 |
 | 1.00 | 0.87 |
 
-表の中間の h/d は補間で求める。補正後の強度は $f_{CR} = f_C \times k$（$f_C$：補正前の強度）で、h/d は平均高さを平均直径で割り、有効数字3桁に丸めて求める。この表は JIS A 1107:2012 の表1の値である。2012年版は、補正を補正後の強度が100 N/mm²以下の場合に行うとする（箇条8 c）。2022年改正版は有償規格で本文の表を確認できておらず、照合は未了である（要確認）。
+表の中間の h/d は補間で求める。補正後の強度は $f_{CR} = f_C \times k$（$f_C$：補正前の強度）で、h/d は平均高さを平均直径で割り、有効数字3桁に丸めて求める。この表は JIS A 1107:2012 の表1の値である。2012年版は、補正を補正後の強度が100 N/mm²以下の場合に行うとする（箇条8 c）。JIS A 1107 は2022年に ISO 1920-6 を基として改正されているので、補正係数を使うときは、適用する版の表で値を確かめる。
 
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
@@ -679,7 +679,7 @@ $$
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/concrete-diagnostician/textbook-investigation/img/figure-reference-electrode-conversion.svg"
-  alt="標準電極を0 mVとしてAg/AgCl電極196 mV、CSE電極316 mVを数直線に並べ、差の−120 mVでAg/AgCl電極の−280 mVをCSE基準の−400 mVへ換算し、−350 mVより卑なので腐食の可能性大と判定する例"
+  alt="照合電極の電位の換算例。Ag/AgCl電極の−280 mVをCSE基準の−400 mVへ換算し、−350 mVより卑なので腐食の可能性大と判定する"
   width={400}
   height={500}
 />
