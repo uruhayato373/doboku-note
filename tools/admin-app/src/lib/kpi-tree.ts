@@ -2,6 +2,7 @@ import { buildReport, records, reviewPeriod } from '../../../../scripts/lib/busi
 import { salesByQualification } from '../../../../scripts/lib/sales-by-qualification.mjs';
 import { latestIndexAsOf } from '../../../../scripts/lib/index-coverage.mjs';
 import { buildSearchOpportunities } from '../../../../scripts/lib/search-opportunities.mjs';
+import { netReceiptsMissing } from '../../../../scripts/lib/net-receipts.mjs';
 import { findRepoRoot } from './repo-root';
 
 /**
@@ -20,6 +21,8 @@ export type KpiView = {
   month: string;
   scopes: Scope[];
   receipts: number | null;
+  /** 受取額が一部だけ記録された月の欠けた内訳（例: ['KDP']）。記録が無い・そろった月は null。 */
+  receiptsMissing: string[] | null;
   goal: Goal;
   groups: KpiGroup[];
   /** 概要: チャネル別と資格別の販売額（受取ではなく販売額。受取はチャネル別に記録していない）。 */
@@ -55,7 +58,7 @@ export function loadKpiView(month?: string): KpiView {
   const period = kpiPeriod(month);
   const report = buildReport(root, period) as {
     strategy: { qualifications: Scope[]; metrics: { id: string; label: string; unit: string }[] };
-    cells: { qualification: string; metric: string; value: number | null; coverage: string; applicable: boolean }[];
+    cells: { qualification: string; metric: string; value: number | null; coverage: string; applicable: boolean; note?: string | null }[];
   };
   const scopes: Scope[] = [{ id: 'all', label: '全体' }, ...report.strategy.qualifications.map((q) => ({ id: q.id, label: q.label }))];
   const latest = latestIndexAsOf(root, period.endDate, scopes.filter((s) => s.id !== 'all').map((s) => s.id));
@@ -87,6 +90,7 @@ export function loadKpiView(month?: string): KpiView {
     .sort((a, b) => String(a.createdAt ?? '').localeCompare(String(b.createdAt ?? '')))
     .at(-1);
 
+  const receiptsCell = report.cells.find((x) => x.qualification === 'all' && x.metric === 'netReceipts');
   const cell = (metric: string, scope: string) => groups.flatMap((g) => g.rows).find((r) => r.id === metric)?.cells[scope]?.value ?? null;
   let search: KpiView['search'] = { period: null, clusters: [] };
   try {
@@ -108,6 +112,7 @@ export function loadKpiView(month?: string): KpiView {
     month: period.startDate.slice(0, 7),
     scopes,
     receipts: groups[0]!.rows[0]!.cells.all!.value,
+    receiptsMissing: receiptsCell?.coverage === 'partial' ? netReceiptsMissing(receiptsCell.note) : null,
     goal: target ? { value: target.value, direction: target.direction, effectiveDate: target.effectiveDate, reviewDate: target.reviewDate } : null,
     groups,
   };

@@ -12,12 +12,14 @@
  *   npm run record-net-receipts -- --month 2026-09 --coconala 15600          # dry-run（記録しない）
  *   npm run record-net-receipts -- --month 2026-09 --coconala 15600 --commit # 記録する
  *   npm run record-net-receipts -- --month 2026-09 --note-net 78560 ...       # note をブラウザで取らずに値を渡す
- * 終了コード: 0＝組み立てた（partial を含む）/ 2＝note を取得できなかった（検査不成立）
+ * 同じ月を記録済みなら、その記録を訂正先（supersedes）にして取り直す。complete の月を partial で上書きはしない（exit 1）。
+ * 終了コード: 0＝組み立てた（partial を含む）/ 1＝complete の月を partial で上書きしようとした / 2＝note を取得できなかった（検査不成立）
  */
 import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
-import { buildNetReceiptsMeasurement, kdpCatalogRoyalty, noteSalesPendingMessage, parseNoteSalesDetail } from './lib/net-receipts.mjs';
+import { buildNetReceiptsMeasurement, kdpCatalogRoyalty, netReceiptsSupersedes, noteSalesPendingMessage, parseNoteSalesDetail } from './lib/net-receipts.mjs';
+import { currentRecords, records } from './lib/business-direction.mjs';
 import { describeReauthResult, isNoteReauthPage, noteReauthMarkPath, passNoteReauth } from './lib/note-reauth.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
@@ -79,8 +81,15 @@ async function main() {
   const kdp = existsSync(kdpPath) ? kdpCatalogRoyalty(JSON.parse(readFileSync(kdpPath, 'utf8')).months?.[MONTH]) : null;
   const coconala = arg('--coconala') != null ? Number(arg('--coconala')) : null;
   const record = buildNetReceiptsMeasurement({ month: MONTH, note, coconala, kdp });
+  // 同じ月を記録済みなら訂正先にする（partial → complete の取り直し。履歴は残る）
+  const prior = netReceiptsSupersedes(currentRecords(records(ROOT), 'measurement'), record);
+  if (prior.error) {
+    console.error(`${TAG} 記録しない: ${prior.error}`);
+    return 1;
+  }
+  if (prior.supersedes) record.supersedes = prior.supersedes;
 
-  console.log(`${TAG} ${MONTH}: note ${note?.net ?? '—'} / ココナラ ${coconala ?? '—'} / KDP ${kdp ? `${kdp.royalty}${kdp.estimated ? '（推計）' : ''}` : '—'} → 受取額 ${record.values.netReceipts ?? '—'}（${record.coverage}）`);
+  console.log(`${TAG} ${MONTH}: note ${note?.net ?? '—'} / ココナラ ${coconala ?? '—'} / KDP ${kdp ? `${kdp.royalty}${kdp.estimated ? '（推計）' : ''}` : '—'} → 受取額 ${record.values.netReceipts ?? '—'}（${record.coverage}）${record.supersedes ? ` 訂正先 ${record.supersedes}` : ''}`);
   mkdirSync(join(ROOT, '.tmp'), { recursive: true });
   const input = join(ROOT, '.tmp', `net-receipts-${MONTH}.json`);
   writeFileSync(input, JSON.stringify(record, null, 2) + '\n');

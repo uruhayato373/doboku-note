@@ -111,6 +111,10 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ m
                   達成率 {Math.round(rate * 100)}% ・ あと {yen(Math.max(0, (v.goal?.value ?? 0) - (v.receipts ?? 0)))}
                 </span>
               </>
+            ) : v.receiptsMissing ? (
+              <span className="text-xs text-muted-foreground">
+                一部だけ記録{v.receiptsMissing.length > 0 && `（欠測: ${v.receiptsMissing.join('・')}）`}。そろうまで合計は出さない
+              </span>
             ) : (
               <span className="text-xs text-muted-foreground">この月の受取額は未記録</span>
             )}
