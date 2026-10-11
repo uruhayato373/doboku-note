@@ -2545,8 +2545,24 @@
       "format": "longform",
       "status": "qa_passed",
       "media": {
-        "cover": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/cover"
-      }
+        "cover": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/cover",
+        "scene-001": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/scene-001",
+        "scene-002": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/scene-002",
+        "scene-003": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/scene-003",
+        "scene-004": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/scene-004",
+        "scene-005": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/scene-005",
+        "scene-006": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/scene-006",
+        "scene-007": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/scene-007",
+        "scene-008": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/scene-008",
+        "video": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/video",
+        "subtitles": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/subtitles",
+        "scene-009": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/scene-009",
+        "scene-010": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/scene-010",
+        "scene-011": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/scene-011",
+        "scene-012": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/scene-012",
+        "scene-013": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/scene-013"
+      },
+      "copy": "content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.json#longform"
     },
     {
       "id": "pe-comprehensive-management/takuitsu-keyword/youtube.longform",

@@ -987,10 +987,22 @@
       "reviewedAt": "2026-10-10T14:51:49.957Z"
     },
     "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/cover": {
-      "sha": "f0695dfa3a19f050",
+      "sha": "b24e58035b4ad295",
       "verdict": "ok",
-      "reason": "指定4文字列が原寸と幅360pxで正しく読め、参照と同じ顔・服装、自然な5本指と手首を確認し、文字・顔・帽子に切れや生成の破綻がない。納品PNGは監査済み画素とRGBが完全一致する可逆圧縮版。",
-      "reviewedAt": "2026-10-10T14:51:49.957Z"
+      "reason": "独立AI画像監査：最終採用PNGを原寸と360pxで実見。指定4文言・ポーズ・顔と手指・安全域に問題なし。ユーザー承認は含まない。",
+      "reviewedAt": "2026-10-11T03:36:30.152Z"
+    },
+    "media:pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/cover": {
+      "sha": "51e3f120f8a8d8c5",
+      "verdict": "ok",
+      "reason": "独立AI画像監査：最終採用PNGを原寸と360pxで実見。指定4文言・ポーズ・顔と手指・安全域に問題なし。ユーザー承認は含まない。",
+      "reviewedAt": "2026-10-11T03:36:30.184Z"
+    },
+    "media:pe-construction/pe-kojutsu-keireki/youtube.longform/cover": {
+      "sha": "ab1d6df2a54d0583",
+      "verdict": "ok",
+      "reason": "独立AI画像監査：最終採用PNGを原寸と360pxで実見。指定4文言・ポーズ・顔と手指・安全域に問題なし。ユーザー承認は含まない。",
+      "reviewedAt": "2026-10-11T03:36:30.184Z"
     },
     "pe-comprehensive-management/liquefaction/img/photo-liquefaction-manhole-uplift": {
       "sha": "f9ac6c9e44a99f05",

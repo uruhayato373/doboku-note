@@ -5,7 +5,8 @@
       "format": "longform",
       "exam": "pe-comprehensive",
       "headline": [
-        "総監の口頭試験",
+        "技術士 総監",
+        "口頭試験",
         "経歴を語れる？"
       ],
       "accentLine": 1,
@@ -14,15 +15,15 @@
         "pose": "pop-pointing",
         "frame": "waist"
       },
-      "design": "pop-v2",
+      "design": "pop-poster-v3",
       "pop": {
         "variant": "question",
-        "authority": "総監が制作"
+        "authority": "総監が解説"
       },
       "approvedImage": {
-        "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/cover.870a0862.png",
-        "sha256": "870a0862584d5683ddde144c3b04712bbadbbd1aebaa3cfd6212665cbf707f0f",
-        "specSha256": "79b0caaf1f70d3da578e51055d8111e1cb71b954a89aace9920bc1b88fe6ee8e"
+        "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/cover.51e3f120.png",
+        "sha256": "51e3f120f8a8d8c5ed68d4170020872ae7b44fd5a7215ac859cc9c5570fb6697",
+        "specSha256": "0c942f0c0017ea3f4d518b6f0b95c7903b74ded4222b4ff94c1ea20fc877c278"
       }
     }
   }

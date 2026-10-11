@@ -18,7 +18,7 @@ export const dynamic = 'force-dynamic';
  */
 
 const ROLE_LABEL: Record<string, string> = {
-  cover: '表紙', cta: '締め', 'preview-metrics': '無音プレビューの数値', preview: '無音プレビュー', video: '完成動画', subtitles: '字幕',
+  cover: '表紙', cta: '締め', 'preview-metrics': '無音プレビューの数値', preview: '無音プレビュー', video: '動画', subtitles: '字幕',
 };
 const roleLabel = (role: string) => ROLE_LABEL[role] ?? (/^scene-\d+$/.test(role) ? `場面 ${Number(role.split('-').pop())}` : /^contact-sheet(-\d+)?$/.test(role) ? `コンタクトシート${role.replace('contact-sheet', '') ? ` ${role.split('-').pop()}` : ''}` : role);
 
@@ -161,13 +161,14 @@ function Publication({ p, detail, examId, workId }: { p: ItemPublication; detail
         <nav aria-label="素材への移動" className="flex flex-wrap gap-4 text-sm">
           {p.media.find((m) => m.role === 'cover') ? <a href={`#${p.media.find((m) => m.role === 'cover')!.id}`}>表紙</a> : null}
           {p.media.some((m) => /^scene-\d+$/.test(m.role)) ? <a href={`#${p.id}-scenes`}>コンテンツ画像</a> : null}
-          {p.media.find((m) => m.role === 'video') ? <a href={`#${p.media.find((m) => m.role === 'video')!.id}`}>完成動画</a> : null}
+          {p.media.find((m) => m.role === 'video') ? <a href={`#${p.media.find((m) => m.role === 'video')!.id}`}>動画</a> : null}
         </nav>
         {p.media.length === 0 ? <p className="text-sm text-muted-foreground">素材の行がない。</p> : null}
         {p.media.filter((m) => m.role === 'cover').map((m) => <MediaBlock key={m.role} m={m} detail={detail} examId={examId} workId={workId} />)}
         {p.media.some((m) => /^scene-\d+$/.test(m.role)) ? (
           <div>
             <h4 id={`${p.id}-scenes`} className="mb-2 scroll-mt-4 text-sm font-semibold">コンテンツ画像（再生順・クリックで原寸）</h4>
+            <p className="mb-3 text-sm text-muted-foreground">制作画像は動画と別に更新されます。画像の変更が動画にも反映されているかは、動画で確認してください。</p>
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
               {p.media.filter((m) => /^scene-\d+$/.test(m.role)).map((m) => <MediaBlock key={m.role} m={m} detail={detail} examId={examId} workId={workId} />)}
             </div>

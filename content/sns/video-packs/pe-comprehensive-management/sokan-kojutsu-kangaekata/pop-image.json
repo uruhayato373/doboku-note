@@ -63,5 +63,52 @@
       },
       "publication": "ローカル差し替え・外部未反映"
     }
+  },
+  "revisions": {
+    "longform-20261011": {
+      "designVersion": "pop-poster-v3",
+      "publicationId": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform",
+      "prompt": "参照画像の同一キャラクターと派手で読みやすいPOP意匠を使い、新しい通常YouTube動画の横長16:9サムネイル、希望1920×1080を作る。テーマは総監の口頭試験。指定文字4箇所のみ：最上段「技術士 総監」、中央大きく「口頭試験」、その下「経歴を語れる？」、下の小さい黄色帯「総監が解説」。白と黄色の極太文字、深紺の太い縁取り。背景は明るいコバルトブルーと水色の斜め帯、薄い土木現場。人物は同じ40代の男性、黒髪黒眼鏡軽い髭、無地の白ヘルメット、紺の作業服・ネクタイ・反射帯。右側に胸上で大きく配置。ポーズは口頭説明の練習：左腕に無地の経歴ノートを抱え、右手を胸の前で自然に開いて相手へ説明する。指差し・顎に手を置くポーズにはしない。文字は左60%、人物は右40%。文字と顔は外周6%以上内側、右下は時間表示の余白。文字の重なり・追加文字・URL・ロゴ・価格・合格保証は不可。日本語を指定どおり読みやすく。",
+      "references": [
+        {
+          "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png",
+          "sha256": "226ec38a86790720f220ec2ca340d5f984d9297d6275ede0872c9ee42f64b092"
+        }
+      ],
+      "copy": {
+        "headline": [
+          "技術士 総監",
+          "口頭試験",
+          "経歴を語れる？"
+        ],
+        "authority": "総監が解説"
+      },
+      "generation": {
+        "tool": "built-in image_gen",
+        "normalization": "1920×1080、縦横比保持、周囲4%の配信用余白"
+      },
+      "output": {
+        "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/cover.51e3f120.png",
+        "sha256": "51e3f120f8a8d8c5ed68d4170020872ae7b44fd5a7215ac859cc9c5570fb6697",
+        "width": 1920,
+        "height": 1080
+      },
+      "review": {
+        "status": "ai-ok",
+        "by": "ai-image-fidelity-auditor",
+        "scope": "最終採用PNGの原寸・360px。文字、顔・手指、ポーズ、安全域。ユーザー承認とは別。"
+      },
+      "storage": {
+        "group": "content-media"
+      },
+      "publication": "画像確認用。音声差し替え・動画再合成はユーザー指示により後工程。外部未反映。",
+      "contentImageReview": {
+        "date": "2026-10-11",
+        "status": "ai-ok",
+        "by": "near_video_content_qa",
+        "sceneCount": 13,
+        "scope": "全13場面。口頭試験基準・文字切れ・設問表示。音声・完成MP4再生確認とユーザー承認は含まない。"
+      }
+    }
   }
 }

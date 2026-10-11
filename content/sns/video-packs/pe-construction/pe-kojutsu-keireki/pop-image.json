@@ -1,0 +1,49 @@
+{
+  "revisions": {
+    "longform-20261011": {
+      "designVersion": "pop-poster-v3",
+      "publicationId": "pe-construction/pe-kojutsu-keireki/youtube.longform",
+      "prompt": "この承認POP画像の人物と意匠を参照して別の通常YouTube動画サムネイルを作成。横長16:9、希望1920×1080。主色は建設部門の深いインディゴ(#33356B)と明るい青紫、アクセントに黄と赤。極太白/黄色文字と太い輪郭、躍動する斜め帯と薄い橋梁現場。指定文字だけ：上段「技術士 建設部門」、中央「口頭対策」、下段「判断を語れる？」、小さな黄色帯「総監が解説」。左60%に大きな文字、右40%に先生。同じ40代男性の黒髪、黒眼鏡、軽い髭、紺作業服、白無地ヘルメットと反射帯。ポーズは経歴を振り返る姿：片手に開いた無地ノート、もう片手の赤ペンでノートを示しながら読者に顔を向ける。総監の口頭サムネイルの手のひら説明ポーズと区別。表情は落ち着いた親しみ。日本語を正確に。文字・顔・帽子は画面外周6%以上内側。右下の時間表示を避ける。追加文字/数字/ロゴ/URL/価格/合格保証は不可。",
+      "references": [
+        {
+          "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/cover.1431f3f2.png",
+          "sha256": "1431f3f217dd475d80b4000edcdb7572eac203f1e8ff250530f6f76547871386"
+        }
+      ],
+      "copy": {
+        "headline": [
+          "技術士 建設部門",
+          "口頭対策",
+          "判断を語れる？"
+        ],
+        "authority": "総監が解説"
+      },
+      "generation": {
+        "tool": "built-in image_gen",
+        "normalization": "1920×1080、縦横比保持、周囲4%の配信用余白"
+      },
+      "output": {
+        "path": ".tmp/media/pe-construction/pe-kojutsu-keireki/youtube.longform/cover.ab1d6df2.png",
+        "sha256": "ab1d6df2a54d0583eaa0f0cda95e60a3663f0d44a99dcf0952b25443a8d45709",
+        "width": 1920,
+        "height": 1080
+      },
+      "review": {
+        "status": "ai-ok",
+        "by": "ai-image-fidelity-auditor",
+        "scope": "最終採用PNGの原寸・360px。文字、顔・手指、ポーズ、安全域。ユーザー承認とは別。"
+      },
+      "storage": {
+        "group": "content-media"
+      },
+      "publication": "画像確認用。音声差し替え・動画再合成はユーザー指示により後工程。外部未反映。",
+      "contentImageReview": {
+        "date": "2026-10-11",
+        "status": "ai-ok",
+        "by": "near_video_content_qa",
+        "sceneCount": 12,
+        "scope": "全12場面。コンピテンシー表記・改行・文字切れ。音声・完成MP4再生確認とユーザー承認は含まない。"
+      }
+    }
+  }
+}

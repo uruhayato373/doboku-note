@@ -237,5 +237,52 @@
       "verification": "AAC payload exact SHA; H264 coded-picture NAL exact SHA after splice; headers may differ"
     },
     "publication": "ローカル採用・外部未反映"
+  },
+  "revisions": {
+    "longform-20261011": {
+      "designVersion": "pop-poster-v3",
+      "publicationId": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform",
+      "prompt": "添付の承認済みPOPサムネイルのスタイルと同一の先生を保ち、2級土木の直前総まとめ動画用に編集してください。16:9 横長、希望1920x1080。青は鮮やかなエメラルドグリーン主体へ変更。左大文字は上から「2級土木」「耳で総復習」「一次＋二次」の正確な3行。下の小さい黄色帯は「総監が解説」。文字は白と黄色の極太で太い濃緑の縁・影。先生は同じ黒髪、黒眼鏡、短い髭、紺作業服と反射帯。今回は左手でヘッドホンを軽く押さえ、右手は胸の前でリズムをとる自然なポーズ。人物の顔は右側に大きく。背景は緑と黄の斜め帯と薄い土木現場。追加文字や数字・ロゴ・URL・合格保証は禁止。全文字と顔を画面端から6%以上離し、右下の動画時間表示領域に重要文字を置かない。元画像の迫力と可読性を維持。",
+      "references": [
+        {
+          "path": ".tmp/media/civil-construction-1/kikinagashi-hinshitsu-kikaku/youtube.longform/cover.179870b6.png",
+          "sha256": "179870b62a66a38ab7ad5ce740f44bcb425b40649bfe532d8e21d2c86aa216ae"
+        }
+      ],
+      "copy": {
+        "headline": [
+          "2級土木",
+          "耳で総復習",
+          "一次＋二次"
+        ],
+        "authority": "総監が解説"
+      },
+      "generation": {
+        "tool": "built-in image_gen",
+        "normalization": "1920×1080、縦横比保持、周囲4%の配信用余白"
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/cover.b24e5803.png",
+        "sha256": "b24e58035b4ad2955f2b9309e181d714558d49da1609503c2cd59eab1b621055",
+        "width": 1920,
+        "height": 1080
+      },
+      "review": {
+        "status": "ai-ok",
+        "by": "ai-image-fidelity-auditor",
+        "scope": "最終採用PNGの原寸・360px。文字、顔・手指、ポーズ、安全域。ユーザー承認とは別。"
+      },
+      "storage": {
+        "group": "content-media"
+      },
+      "publication": "画像確認用。音声差し替え・動画再合成はユーザー指示により後工程。外部未反映。",
+      "contentImageReview": {
+        "date": "2026-10-11",
+        "status": "ai-ok",
+        "by": "near_video_content_qa",
+        "sceneCount": 131,
+        "scope": "全体一覧と修正8場面。技術表現・文字切れ。音声・完成MP4再生確認とユーザー承認は含まない。"
+      }
+    }
   }
 }
