@@ -1,17 +1,137 @@
 {
   "version": 1,
-  "generated_at": "2026-10-11T01:36:46.241Z",
+  "generated_at": "2026-10-11T01:51:42.027Z",
   "summary": {
-    "total_mdx_files": 1390,
-    "with_exams_field": 60,
+    "total_mdx_files": 1398,
+    "with_exams_field": 68,
     "cross_exam_count": 0,
     "by_exam": {
-      "civil-construction-1": 29,
+      "civil-construction-1": 37,
       "civil-construction-2": 31
     }
   },
   "by_exam": {
     "civil-construction-1": [
+      {
+        "slug": "civil-construction-1-primary-h18-a",
+        "title": "平成18年度 第1次検定 問題A",
+        "category": "civil-construction-1",
+        "group": "primary",
+        "tags": [
+          "primary",
+          "past-questions"
+        ],
+        "sections": null,
+        "exams": [
+          "civil-construction-1"
+        ],
+        "source_path": "content/site/civil-construction-1/primary-h18-a/article.mdx"
+      },
+      {
+        "slug": "civil-construction-1-primary-h18-b",
+        "title": "平成18年度 第1次検定 問題B",
+        "category": "civil-construction-1",
+        "group": "primary",
+        "tags": [
+          "primary",
+          "past-questions"
+        ],
+        "sections": null,
+        "exams": [
+          "civil-construction-1"
+        ],
+        "source_path": "content/site/civil-construction-1/primary-h18-b/article.mdx"
+      },
+      {
+        "slug": "civil-construction-1-primary-h21-a",
+        "title": "平成21年度 第1次検定 問題A",
+        "category": "civil-construction-1",
+        "group": "primary",
+        "tags": [
+          "primary",
+          "past-questions"
+        ],
+        "sections": null,
+        "exams": [
+          "civil-construction-1"
+        ],
+        "source_path": "content/site/civil-construction-1/primary-h21-a/article.mdx"
+      },
+      {
+        "slug": "civil-construction-1-primary-h21-b",
+        "title": "平成21年度 第1次検定 問題B",
+        "category": "civil-construction-1",
+        "group": "primary",
+        "tags": [
+          "primary",
+          "past-questions"
+        ],
+        "sections": null,
+        "exams": [
+          "civil-construction-1"
+        ],
+        "source_path": "content/site/civil-construction-1/primary-h21-b/article.mdx"
+      },
+      {
+        "slug": "civil-construction-1-primary-h22-a",
+        "title": "平成22年度 第1次検定 問題A",
+        "category": "civil-construction-1",
+        "group": "primary",
+        "tags": [
+          "primary",
+          "past-questions"
+        ],
+        "sections": null,
+        "exams": [
+          "civil-construction-1"
+        ],
+        "source_path": "content/site/civil-construction-1/primary-h22-a/article.mdx"
+      },
+      {
+        "slug": "civil-construction-1-primary-h22-b",
+        "title": "平成22年度 第1次検定 問題B",
+        "category": "civil-construction-1",
+        "group": "primary",
+        "tags": [
+          "primary",
+          "past-questions"
+        ],
+        "sections": null,
+        "exams": [
+          "civil-construction-1"
+        ],
+        "source_path": "content/site/civil-construction-1/primary-h22-b/article.mdx"
+      },
+      {
+        "slug": "civil-construction-1-primary-h24-a",
+        "title": "平成24年度 第1次検定 問題A",
+        "category": "civil-construction-1",
+        "group": "primary",
+        "tags": [
+          "primary",
+          "past-questions"
+        ],
+        "sections": null,
+        "exams": [
+          "civil-construction-1"
+        ],
+        "source_path": "content/site/civil-construction-1/primary-h24-a/article.mdx"
+      },
+      {
+        "slug": "civil-construction-1-primary-h24-b",
+        "title": "平成24年度 第1次検定 問題B",
+        "category": "civil-construction-1",
+        "group": "primary",
+        "tags": [
+          "primary",
+          "past-questions"
+        ],
+        "sections": null,
+        "exams": [
+          "civil-construction-1"
+        ],
+        "source_path": "content/site/civil-construction-1/primary-h24-b/article.mdx"
+      },
       {
         "slug": "civil-construction-1-primary-h26-a",
         "title": "平成26年度 第1次検定 問題A",
