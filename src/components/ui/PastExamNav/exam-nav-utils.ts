@@ -121,13 +121,13 @@ function buildCivil2Data(articles: DocMeta[]): PastExamNavData | null {
   const primaryDocs = articles.filter((m) => classifyDoc(m) === 'primary');
   const secondaryDocs = articles.filter((m) => classifyDoc(m) === 'secondary');
 
-  // primary: slug末尾 (r|h)(\d+)-(zenki|kouki)
+  // primary: slug末尾 (r|h)(\d+)-(zenki|kouki)。平成27年度までの年1回（10月）の学科試験は期が無い（primary-h26）ので後期の列に置く
   const yearMap = new Map<string, { zenki?: string; kouki?: string; secondary?: string }>();
   for (const doc of primaryDocs) {
-    const match = doc.slug?.match(/(r|h)(\d+)-(zenki|kouki)$/);
+    const match = doc.slug?.match(/primary-(r|h)(\d+)(?:-(zenki|kouki))?$/);
     if (!match) continue;
     const yearCode = `${match[1]}${match[2]}`;
-    const part = match[3] as 'zenki' | 'kouki';
+    const part = (match[3] ?? 'kouki') as 'zenki' | 'kouki';
     if (!yearMap.has(yearCode)) yearMap.set(yearCode, {});
     yearMap.get(yearCode)![part] = doc.slug;
   }
