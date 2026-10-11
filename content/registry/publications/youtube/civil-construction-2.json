@@ -107,7 +107,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-2/gakka-2kyu-concrete/youtube.json#longform",
-      "status": "scheduled",
+      "status": "published",
       "publishAt": "2026-10-10T11:00:00Z",
       "approval": {
         "by": "user",
@@ -118,7 +118,12 @@
       "platform": {
         "id": "xX9zcjzLrAA",
         "url": "https://www.youtube.com/watch?v=xX9zcjzLrAA",
-        "privacy": "private"
+        "privacy": "public",
+        "publishedAt": "2026-10-10T11:00:00.000Z",
+        "evidence": {
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-10-10T19:30:17.248Z"
+        }
       },
       "times": {
         "rendered": "2026-09-05T05:31:27.208Z",
