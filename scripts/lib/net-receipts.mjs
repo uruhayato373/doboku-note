@@ -130,8 +130,8 @@ const jstDay = (iso) => (iso ? todayJst(new Date(iso)) : null);
  * note の確定前（翌月 2 日まで）の月は、販売額 ×（1 − 直近の確定月の手数料率）で推計する
  * （手数料率は決済方法で月ごとに揺れる。2026-08 15.4%・2026-09 16.3%）。
  */
-export function monthReceipts({ month, noteSales, coconalaRevenue, kdpRoyalties }) {
-  const channels = [noteReceipts(month, noteSales), coconalaReceipts(month, coconalaRevenue), kdpReceipts(month, kdpRoyalties)];
+export function monthReceipts({ month, noteSales, coconalaRevenue, kdpRoyalties, kdpFirstMonth = null }) {
+  const channels = [noteReceipts(month, noteSales), coconalaReceipts(month, coconalaRevenue), kdpReceipts(month, kdpRoyalties, kdpFirstMonth)];
   const valued = channels.filter((c) => c.value != null);
   return {
     month,
@@ -149,9 +149,10 @@ function noteReceipts(month, log) {
   const gross = rec?.total ?? rows.reduce((sum, s) => sum + (Number(s.price) || 0), 0);
   const asOf = rec ? jstDay(rec.fetchedAt) : log?.updatedAt ?? null;
   if (rec?.net != null) return { ...base, value: rec.net, status: 'final', asOf, gross, fee: rec.fee ?? null, note: `売上管理の手数料控除後売上（販売額 ¥${gross.toLocaleString('ja-JP')}）` };
-  const ref = Object.entries(log?.months ?? {})
-    .filter(([m, r]) => m < month && r.net != null && r.total > 0)
-    .sort(([a], [b]) => b.localeCompare(a))[0];
+  // 基準は直前の確定月。それより前に無ければ（過去月を取り込む前）直後の確定月
+  const settled = Object.entries(log?.months ?? {}).filter(([m, r]) => m !== month && r.net != null && r.total > 0);
+  const ref = settled.filter(([m]) => m < month).sort(([a], [b]) => b.localeCompare(a))[0]
+    ?? settled.filter(([m]) => m > month).sort(([a], [b]) => a.localeCompare(b))[0];
   if (!ref) return { ...base, value: null, status: 'missing', asOf, gross, note: `販売額 ¥${gross.toLocaleString('ja-JP')}。手数料率の基準になる確定月が無い` };
   const keep = ref[1].net / ref[1].total;
   return {
@@ -174,9 +175,11 @@ function coconalaReceipts(month, ledger) {
   return { ...base, value, status: final ? 'final' : 'to-date', asOf, note: `売上履歴の手数料控除後 ${rows.length} 件（クローズ日で計上）` };
 }
 
-function kdpReceipts(month, royalties) {
+function kdpReceipts(month, royalties, firstMonth) {
   const base = { id: 'kdp', label: 'KDP' };
   const entry = royalties?.months?.[month];
+  // 最初の本の出版月（catalog の publishedDate）より前は売上が無いので 0 円で確定（2026-07-08 に最初の本）
+  if (!entry && firstMonth && month < firstMonth) return { ...base, value: 0, status: 'final', asOf: null, note: `出版前（最初の本は ${firstMonth}）` };
   if (!entry) return { ...base, value: null, status: 'missing', asOf: null, note: 'ロイヤリティが未取得' };
   const { royalty, estimated } = kdpCatalogRoyalty(entry);
   return { ...base, value: royalty, status: estimated ? 'estimate' : 'final', asOf: jstDay(entry.fetchedAt), note: estimated ? 'KDP の推計ロイヤリティ（KENP 確定前）' : 'ロイヤリティ確定値（catalog 対象書籍のみ）' };
