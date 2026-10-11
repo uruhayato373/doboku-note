@@ -341,6 +341,7 @@ export const DATASETS = [
   d('state.content-ledger', '.claude/state/content-ledger.json', 'raw', 'site', '記事の台帳（生成索引）', { local: true, regen: 'npm run refresh-indexes' }),
   // 教材・アセット
   d('state.drive-manifest', '.claude/state/assets/drive-manifest.json', 'ledger', 'ops', 'Google Drive vault に置いたアセットの台帳（drive-vault-sync）'),
+  d('state.pop-image-rollout', '.claude/state/assets/pop-image-rollout.json', 'state', 'sns', '全チャネルの POP 画像差し替えの対象・確認済み画像・残作業'),
   d('state.r2-manifest', '.claude/state/assets/manifest.json', 'ledger', 'ops', 'R2 に置いたアセットの台帳（asset-offload）'),
   d('state.instagram-campaign-backup', '.claude/state/assets/instagram-campaign-backup.json', 'evidence', 'sns', 'Instagram のキャンペーンの素材を退避したときの記録'),
   d('state.reference-book-occlusion-scan', '.claude/state/assets/reference-book-occlusion-scan.json', 'evidence', 'material', '書籍のページ画像の遮蔽の走査結果'),

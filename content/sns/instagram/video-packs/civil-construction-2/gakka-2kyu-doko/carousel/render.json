@@ -9,8 +9,8 @@
   "images": [
     {
       "path": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-doko/carousel/img/00-cover.png",
-      "sha256": "bdaef17c2279a5ebe63bda314aeffa6ea54057d91b681f87feca4403667d422c",
-      "bytes": 339818,
+      "sha256": "f80fadffcae2832a31639979583851bfecab2bd25b80503d859a8b44b99e64be",
+      "bytes": 438668,
       "width": 1080,
       "height": 1350
     },
@@ -63,5 +63,13 @@
       "width": 1080,
       "height": 1350
     }
-  ]
+  ],
+  "imageOverrides": {
+    "cover": {
+      "publicationId": "civil-construction-2/gakka-2kyu-doko/instagram.carousel",
+      "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/instagram.carousel/cover.f80fadff.png",
+      "sha256": "f80fadffcae2832a31639979583851bfecab2bd25b80503d859a8b44b99e64be",
+      "reason": "POP画像改修・画像のみ"
+    }
+  }
 }

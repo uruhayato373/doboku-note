@@ -986,6 +986,36 @@
       "reason": "参照と同じ人物が赤ペンと無地の白紙を自然な指・手首で保持し、紙に文字や線がなく、背景の透過と帽子・顔・手指・小物の切れがないことを確認した。",
       "reviewedAt": "2026-10-10T14:51:49.957Z"
     },
+    "media:civil-construction-2/character-10-a/x.post.t07/cover": {
+      "sha": "7d9cdf3f06f2681d",
+      "verdict": "ok",
+      "reason": "原寸・360pxで課題と対応と結論を確認。指定文言、人物の同一性、外周6％安全域を独立監査して問題なし。",
+      "reviewedAt": "2026-10-11T12:56:10.957Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/instagram.carousel/cover": {
+      "sha": "f80fadffcae2832a",
+      "verdict": "ok",
+      "reason": "原寸・360pxで資格と4テーマを確認。人物専用列で排水材を遮らず、主要文字と図の外周7％以上を独立監査。",
+      "reviewedAt": "2026-10-11T12:56:10.957Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/instagram.reel.point-overview-1/cover": {
+      "sha": "4fe5395ef89372ff",
+      "verdict": "ok",
+      "reason": "原寸・360pxで資格と4項目を確認。右約12％と下約18％に操作UI用余白、ドレーン図は技術的に整合。",
+      "reviewedAt": "2026-10-11T12:56:10.957Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/youtube.longform/cover": {
+      "sha": "659cd5716340bd99",
+      "verdict": "ok",
+      "reason": "最終PNGを原寸と360pxで独立監査。画像内余白と外付け4％で6％以上の安全域、4項目と排水方向の整合を確認。",
+      "reviewedAt": "2026-10-11T13:02:08.898Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover": {
+      "sha": "4fe5395ef89372ff",
+      "verdict": "ok",
+      "reason": "原寸・360pxで資格と4項目を確認。右約12％と下約18％に操作UI用余白、ドレーン図は技術的に整合。",
+      "reviewedAt": "2026-10-11T12:56:10.957Z"
+    },
     "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/cover": {
       "sha": "b24e58035b4ad295",
       "verdict": "ok",

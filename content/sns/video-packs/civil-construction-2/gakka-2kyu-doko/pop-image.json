@@ -7,61 +7,71 @@
     "longform": {
       "publicationId": "civil-construction-2/gakka-2kyu-doko/youtube.longform",
       "copy": {
-        "exam": "civil-2",
+        "exam": "2級土木",
         "headline": [
           "土工の頻出点",
-          "要点を押さえる"
+          "4テーマで整理"
         ],
-        "benefit": "",
+        "themes": [
+          "土質試験",
+          "土量変化",
+          "締固め",
+          "軟弱地盤"
+        ],
         "authority": "総監が制作"
       },
       "evidence": [
-        "content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/cover-design.json#covers/longform",
-        "content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/youtube.json#longform"
+        "content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/storyboard.json#overview"
       ],
+      "prompt": "添付の承認済み2級土木POP章扉をデザイン参照に、別の通常動画の表紙を新規制作。横長1920×1080。漫画調の精密な建設機械、緑の放射背景、白と黄色の極太日本語、同じ黒髪・黒縁眼鏡・短いひげ・紺作業服の男性先生の同一性を保持。章扉をコピーせず資格と動画内容に合わせて作る。上に「2級土木」、中央左に最大級の「土工の頻出点」、次に「4テーマで整理」。下に4つの独立した大きいラベル「土質試験」「土量変化」「締固め」「軟弱地盤」。4つ全てを同じ可読性で。イラストは小さな土質採取器、切土とダンプ、ローラー、ドレーン断面をそれぞれラベルに対応させる。先生は右側で4テーマの地図を指示棒で案内する、元画像の掌ポーズとは違う姿勢。顔と文字・機械を重ねない。下の黄色帯に「総監が制作」。資格名と著者資格を分離。第1章や掘る運ぶ締めるの文字は引き継がない。指定文字以外の文字、価格、URL、合格保証、根拠のない順位・数字なし。四辺6％安全域、全要素大きく、360px幅でも主題と4項目が読める。参照画像の画風と色密度を保持しつつ白い余白はなくす。\n\n修正指示:\nこの画像を編集。文字・先生・4項目を保持。右下の軟弱地盤の図だけ正確な鉛直ドレーン断面に変更：地表に薄い砂の水平排水層、その下に灰褐色の均質な軟弱粘土地盤。そこに幅の細い4本の鉛直排水材を上の砂層から下向きに埋め込む。地下の青い水槽、下部砕石層、太い穴開きパイプは全て削除。軟弱粘土内の水が細い排水材へ横から入り上の砂層に上がる水色の小矢印を2本だけ描く。他の3図は変えない。全周8%は背景だけの余白にし文字・人物・図の4パネルは内側に収める。横16:9。指定以外の追加文字なし。\n最終PNGは配信寸法へ縦横比を保って正規化し、外周の安全域を追加。",
       "references": [
         {
-          "path": ".tmp/video-render/pop-matome-2kyu-20261010/thumbnail-palm-v1.png",
-          "sha256": "8fd0987d6c7b7ad74645dbfa1971f42f3128e47ed4645c9d93048a579b6542cb"
-        },
-        {
-          "path": "content/sns/_assets/character/_source/pop-explaining.png",
-          "sha256": "e88700289679362e7a5ab6867187b32287701b861e55fe0be2d5835b2de527a0"
+          "path": ".tmp/soil-chapter/soil-chapter.png",
+          "sha256": "0acb21610960faaab52faf307483a78e9f8e4dad6fa66195092d3f9d6ab6e032"
         }
       ],
-      "prompt": "参照画像の右側の先生キャラクターを正確に継承した、動画表紙に組み込む人物だけの高解像度PNG素材を制作してください。白い無地のヘルメット、黒髪、黒縁眼鏡、40代男性の同じ顔とひげ、紺の作業服とネクタイ、黄色と白の反射帯。参照の顔の描線・アニメ塗り・表情を保持。腰から上、正面を向き、画面左へ片手を開いて内容を紹介するポーズ。指は自然な5本指。ヘルメットの頂点・両肘・手指・腰の端まで完全に収め、外側に5%以上の透過余白。人物は画面の大部分を占める。手が左へ大きく突き出しすぎない。背景は完全透明、文字・ロゴ・記号・背景・床・影・看板は一切なし。横長の表紙で文字は左に置くため、人物の顔は素材の中央から少し右。元の表紙にある文字や緑背景は描かない。1人だけ。",
-      "promptScope": "共有する先生素材の生成。見出しは編集可能な原稿をレンダラーで組版。",
-      "format": {
+      "generations": [
+        {
+          "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.longform/generation-cover-v1.fc4c8ddb.png",
+          "sha256": "fc4c8ddbe298bc1edc5577cba6ff7c711c6bf3f6658ec8de138e89e931b293f1"
+        },
+        {
+          "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.longform/generation-cover-v2.8724ac24.png",
+          "sha256": "8724ac24643d8de0d2852aa8ced3b37da0f8c8d8cd172761eb1e41c550c38c82"
+        }
+      ],
+      "output": {
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.longform/cover.659cd571.png",
+        "sha256": "659cd5716340bd9914ea2eadf2fde97ff3b049ac8d5b989bb2f5e6e641320fc7",
         "width": 1920,
         "height": 1080
       },
-      "render": {
-        "template": "character-pop-v2",
-        "variant": "explain",
-        "pose": "pop-explaining"
-      },
-      "output": {
-        "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.longform/cover.ad68dd1f.png",
-        "sha256": "ad68dd1fcde1ab4236171982235325ec84169a8464d2bb688f13695bbc83876b"
-      },
       "review": {
-        "status": "agent-reviewed",
-        "by": "Codex",
-        "checkedAt": "2026-10-10T15:17:18.121Z",
+        "status": "ai-ok",
+        "by": "ai-image-fidelity-auditor",
         "viewportWidth": 360,
-        "checks": [
-          "見出しと資格名の可読性",
-          "文字化け",
-          "文字・人物の切れ",
-          "内容と見出しの整合"
-        ],
-        "userImageReview": "pending"
+        "screenshot": ".tmp/media/civil-construction-2/gakka-2kyu-doko/work/review-batch01-360.0de618a9.jpg",
+        "userImageReview": "pending",
+        "screenshotSha256": "0de618a950ba7802d6555f6da276e9c24420bb1d797b117a7765869dfa69546a",
+        "adminVerified": true
       },
+      "publication": "ローカル画像のみ採用・外部未反映・音声と動画は保持",
       "storage": {
         "group": "content-media",
-        "key": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.longform/cover.ad68dd1f.png"
+        "cloudVerified": true
       },
-      "publication": "ローカル差し替え・外部未反映"
+      "normalization": {
+        "outerPaddingPercent": 4,
+        "contentDimensions": [
+          1766,
+          994
+        ],
+        "targetDimensions": [
+          1920,
+          1080
+        ],
+        "textSafeInsetPercent": 6
+      }
     },
     "point-block1-2": {
       "publicationId": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2",
@@ -125,61 +135,304 @@
     "point-overview-1": {
       "publicationId": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1",
       "copy": {
-        "exam": "civil-2",
+        "exam": "2級土木",
         "headline": [
           "土工の頻出点",
-          "４テーマで整理"
+          "4テーマで整理"
         ],
-        "benefit": "",
+        "themes": [
+          "土質試験",
+          "土量変化",
+          "締固め",
+          "軟弱地盤"
+        ],
         "authority": "総監が制作"
       },
       "evidence": [
-        "content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/cover-design.json#covers/point-overview-1",
-        "content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/youtube.json#shorts/point-overview-1"
+        "content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/storyboard.json#overview"
       ],
+      "prompt": "承認画像の同一先生と緑黄色POPの漫画画風で、YouTube ShortsとInstagram Reelsに共用する縦1080×1920の冒頭表紙を新規制作。縦9:16専用構図。上端10％、右端18％、下端20％は背景のみの安全域。全ての重要な文字は幅の左8％から右80％まで、高さ12％から74％までに入れる。文字は上から「2級土木」「土工の頻出点」「4テーマで整理」。中央に大きい2×2のカード、正確に4つ「土質試験」「土量変化」「締固め」「軟弱地盤」。人物は四カードの下、胸上の小さい先生、左手で4テーマのチェックリストを掲げ、右手でペンを握り解説、参照と同じ黒髪・黒眼鏡・ひげ・紺作業服。カードと人物は重ならない。各カードの漫画図は、土試料と採取器、土を積むダンプ、ローラー、細い砂ドレーン断面。軟弱地盤図は上に薄い水平砂排水層、均質な粘土地盤に埋めた細い鉛直排水材、太い穴開きパイプや地下の水槽なし。黄色の著者帯「総監が制作」は高さ72％、下の20％余白には文字を置かない。人物は80％以下に伸ばさない。太く正確な日本語、短い明瞭な見出し。価格・URL・合格保証・指定以外の文字なし。縦専用で、横長画像を切り取っただけにしない。\n",
       "references": [
         {
-          "path": ".tmp/video-render/pop-matome-2kyu-20261010/thumbnail-palm-v1.png",
-          "sha256": "8fd0987d6c7b7ad74645dbfa1971f42f3128e47ed4645c9d93048a579b6542cb"
-        },
-        {
-          "path": "content/sns/_assets/character/_source/pop-explaining.png",
-          "sha256": "e88700289679362e7a5ab6867187b32287701b861e55fe0be2d5835b2de527a0"
+          "path": ".tmp/soil-chapter/soil-chapter.png",
+          "sha256": "0acb21610960faaab52faf307483a78e9f8e4dad6fa66195092d3f9d6ab6e032"
         }
       ],
-      "prompt": "参照画像の右側の先生キャラクターを正確に継承した、動画表紙に組み込む人物だけの高解像度PNG素材を制作してください。白い無地のヘルメット、黒髪、黒縁眼鏡、40代男性の同じ顔とひげ、紺の作業服とネクタイ、黄色と白の反射帯。参照の顔の描線・アニメ塗り・表情を保持。腰から上、正面を向き、画面左へ片手を開いて内容を紹介するポーズ。指は自然な5本指。ヘルメットの頂点・両肘・手指・腰の端まで完全に収め、外側に5%以上の透過余白。人物は画面の大部分を占める。手が左へ大きく突き出しすぎない。背景は完全透明、文字・ロゴ・記号・背景・床・影・看板は一切なし。横長の表紙で文字は左に置くため、人物の顔は素材の中央から少し右。元の表紙にある文字や緑背景は描かない。1人だけ。",
-      "promptScope": "共有する先生素材の生成。見出しは編集可能な原稿をレンダラーで組版。",
-      "format": {
+      "generations": [
+        {
+          "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/generation-cover-v1.5e4db439.png",
+          "sha256": "5e4db4395ad17d47d1072aa836f0e2009eade00105cd86c9097e1b0312b74c02"
+        }
+      ],
+      "output": {
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover.4fe5395e.png",
+        "sha256": "4fe5395ef89372ff29df1a95e7b03da8fa952dac0245ab51d3930aea045ad165",
         "width": 1080,
         "height": 1920
       },
-      "render": {
-        "template": "character-pop-v2",
-        "variant": "explain",
-        "pose": "pop-explaining"
-      },
-      "output": {
-        "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover.1053b245.png",
-        "sha256": "1053b2452861de3d8e1511fcff25029e48c70ee0e19b7dea662b8e66942e7e47"
-      },
       "review": {
-        "status": "agent-reviewed",
-        "by": "Codex",
-        "checkedAt": "2026-10-10T15:17:18.121Z",
+        "status": "ai-ok",
+        "by": "ai-image-fidelity-auditor",
         "viewportWidth": 360,
-        "checks": [
-          "見出しと資格名の可読性",
-          "文字化け",
-          "文字・人物の切れ",
-          "内容と見出しの整合"
-        ],
-        "userImageReview": "pending"
+        "screenshot": ".tmp/media/civil-construction-2/gakka-2kyu-doko/work/review-batch01-360.0de618a9.jpg",
+        "userImageReview": "pending",
+        "screenshotSha256": "0de618a950ba7802d6555f6da276e9c24420bb1d797b117a7765869dfa69546a",
+        "adminVerified": true
       },
+      "publication": "ローカル画像のみ採用・外部未反映・音声と動画は保持",
       "storage": {
         "group": "content-media",
-        "key": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover.1053b245.png"
-      },
-      "publication": "ローカル差し替え・外部未反映"
+        "cloudVerified": true
+      }
+    }
+  },
+  "revisions": {
+    "all-channels-20261011-batch01": {
+      "design": "pop-poster-v3",
+      "entries": [
+        {
+          "publicationId": "civil-construction-2/gakka-2kyu-doko/youtube.longform",
+          "copy": {
+            "exam": "2級土木",
+            "headline": [
+              "土工の頻出点",
+              "4テーマで整理"
+            ],
+            "themes": [
+              "土質試験",
+              "土量変化",
+              "締固め",
+              "軟弱地盤"
+            ],
+            "authority": "総監が制作"
+          },
+          "evidence": [
+            "content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/storyboard.json#overview"
+          ],
+          "prompt": "添付の承認済み2級土木POP章扉をデザイン参照に、別の通常動画の表紙を新規制作。横長1920×1080。漫画調の精密な建設機械、緑の放射背景、白と黄色の極太日本語、同じ黒髪・黒縁眼鏡・短いひげ・紺作業服の男性先生の同一性を保持。章扉をコピーせず資格と動画内容に合わせて作る。上に「2級土木」、中央左に最大級の「土工の頻出点」、次に「4テーマで整理」。下に4つの独立した大きいラベル「土質試験」「土量変化」「締固め」「軟弱地盤」。4つ全てを同じ可読性で。イラストは小さな土質採取器、切土とダンプ、ローラー、ドレーン断面をそれぞれラベルに対応させる。先生は右側で4テーマの地図を指示棒で案内する、元画像の掌ポーズとは違う姿勢。顔と文字・機械を重ねない。下の黄色帯に「総監が制作」。資格名と著者資格を分離。第1章や掘る運ぶ締めるの文字は引き継がない。指定文字以外の文字、価格、URL、合格保証、根拠のない順位・数字なし。四辺6％安全域、全要素大きく、360px幅でも主題と4項目が読める。参照画像の画風と色密度を保持しつつ白い余白はなくす。\n\n修正指示:\nこの画像を編集。文字・先生・4項目を保持。右下の軟弱地盤の図だけ正確な鉛直ドレーン断面に変更：地表に薄い砂の水平排水層、その下に灰褐色の均質な軟弱粘土地盤。そこに幅の細い4本の鉛直排水材を上の砂層から下向きに埋め込む。地下の青い水槽、下部砕石層、太い穴開きパイプは全て削除。軟弱粘土内の水が細い排水材へ横から入り上の砂層に上がる水色の小矢印を2本だけ描く。他の3図は変えない。全周8%は背景だけの余白にし文字・人物・図の4パネルは内側に収める。横16:9。指定以外の追加文字なし。\n最終PNGは配信寸法へ縦横比を保って正規化し、外周の安全域を追加。",
+          "references": [
+            {
+              "path": ".tmp/soil-chapter/soil-chapter.png",
+              "sha256": "0acb21610960faaab52faf307483a78e9f8e4dad6fa66195092d3f9d6ab6e032"
+            }
+          ],
+          "generations": [
+            {
+              "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.longform/generation-cover-v1.fc4c8ddb.png",
+              "sha256": "fc4c8ddbe298bc1edc5577cba6ff7c711c6bf3f6658ec8de138e89e931b293f1"
+            },
+            {
+              "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.longform/generation-cover-v2.8724ac24.png",
+              "sha256": "8724ac24643d8de0d2852aa8ced3b37da0f8c8d8cd172761eb1e41c550c38c82"
+            }
+          ],
+          "output": {
+            "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.longform/cover.659cd571.png",
+            "sha256": "659cd5716340bd9914ea2eadf2fde97ff3b049ac8d5b989bb2f5e6e641320fc7",
+            "width": 1920,
+            "height": 1080
+          },
+          "review": {
+            "status": "ai-ok",
+            "by": "ai-image-fidelity-auditor",
+            "viewportWidth": 360,
+            "screenshot": ".tmp/media/civil-construction-2/gakka-2kyu-doko/work/review-batch01-360.0de618a9.jpg",
+            "userImageReview": "pending",
+            "screenshotSha256": "0de618a950ba7802d6555f6da276e9c24420bb1d797b117a7765869dfa69546a",
+            "adminVerified": true
+          },
+          "publication": "ローカル画像のみ採用・外部未反映・音声と動画は保持",
+          "storage": {
+            "group": "content-media",
+            "cloudVerified": true
+          },
+          "normalization": {
+            "outerPaddingPercent": 4,
+            "contentDimensions": [
+              1766,
+              994
+            ],
+            "targetDimensions": [
+              1920,
+              1080
+            ],
+            "textSafeInsetPercent": 6
+          }
+        },
+        {
+          "publicationId": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1",
+          "copy": {
+            "exam": "2級土木",
+            "headline": [
+              "土工の頻出点",
+              "4テーマで整理"
+            ],
+            "themes": [
+              "土質試験",
+              "土量変化",
+              "締固め",
+              "軟弱地盤"
+            ],
+            "authority": "総監が制作"
+          },
+          "evidence": [
+            "content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/storyboard.json#overview"
+          ],
+          "prompt": "承認画像の同一先生と緑黄色POPの漫画画風で、YouTube ShortsとInstagram Reelsに共用する縦1080×1920の冒頭表紙を新規制作。縦9:16専用構図。上端10％、右端18％、下端20％は背景のみの安全域。全ての重要な文字は幅の左8％から右80％まで、高さ12％から74％までに入れる。文字は上から「2級土木」「土工の頻出点」「4テーマで整理」。中央に大きい2×2のカード、正確に4つ「土質試験」「土量変化」「締固め」「軟弱地盤」。人物は四カードの下、胸上の小さい先生、左手で4テーマのチェックリストを掲げ、右手でペンを握り解説、参照と同じ黒髪・黒眼鏡・ひげ・紺作業服。カードと人物は重ならない。各カードの漫画図は、土試料と採取器、土を積むダンプ、ローラー、細い砂ドレーン断面。軟弱地盤図は上に薄い水平砂排水層、均質な粘土地盤に埋めた細い鉛直排水材、太い穴開きパイプや地下の水槽なし。黄色の著者帯「総監が制作」は高さ72％、下の20％余白には文字を置かない。人物は80％以下に伸ばさない。太く正確な日本語、短い明瞭な見出し。価格・URL・合格保証・指定以外の文字なし。縦専用で、横長画像を切り取っただけにしない。\n",
+          "references": [
+            {
+              "path": ".tmp/soil-chapter/soil-chapter.png",
+              "sha256": "0acb21610960faaab52faf307483a78e9f8e4dad6fa66195092d3f9d6ab6e032"
+            }
+          ],
+          "generations": [
+            {
+              "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/generation-cover-v1.5e4db439.png",
+              "sha256": "5e4db4395ad17d47d1072aa836f0e2009eade00105cd86c9097e1b0312b74c02"
+            }
+          ],
+          "output": {
+            "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover.4fe5395e.png",
+            "sha256": "4fe5395ef89372ff29df1a95e7b03da8fa952dac0245ab51d3930aea045ad165",
+            "width": 1080,
+            "height": 1920
+          },
+          "review": {
+            "status": "ai-ok",
+            "by": "ai-image-fidelity-auditor",
+            "viewportWidth": 360,
+            "screenshot": ".tmp/media/civil-construction-2/gakka-2kyu-doko/work/review-batch01-360.0de618a9.jpg",
+            "userImageReview": "pending",
+            "screenshotSha256": "0de618a950ba7802d6555f6da276e9c24420bb1d797b117a7765869dfa69546a",
+            "adminVerified": true
+          },
+          "publication": "ローカル画像のみ採用・外部未反映・音声と動画は保持",
+          "storage": {
+            "group": "content-media",
+            "cloudVerified": true
+          }
+        }
+      ],
+      "previousOutputs": {
+        "longform": {
+          "publicationId": "civil-construction-2/gakka-2kyu-doko/youtube.longform",
+          "copy": {
+            "exam": "civil-2",
+            "headline": [
+              "土工の頻出点",
+              "要点を押さえる"
+            ],
+            "benefit": "",
+            "authority": "総監が制作"
+          },
+          "evidence": [
+            "content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/cover-design.json#covers/longform",
+            "content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/youtube.json#longform"
+          ],
+          "references": [
+            {
+              "path": ".tmp/video-render/pop-matome-2kyu-20261010/thumbnail-palm-v1.png",
+              "sha256": "8fd0987d6c7b7ad74645dbfa1971f42f3128e47ed4645c9d93048a579b6542cb"
+            },
+            {
+              "path": "content/sns/_assets/character/_source/pop-explaining.png",
+              "sha256": "e88700289679362e7a5ab6867187b32287701b861e55fe0be2d5835b2de527a0"
+            }
+          ],
+          "prompt": "参照画像の右側の先生キャラクターを正確に継承した、動画表紙に組み込む人物だけの高解像度PNG素材を制作してください。白い無地のヘルメット、黒髪、黒縁眼鏡、40代男性の同じ顔とひげ、紺の作業服とネクタイ、黄色と白の反射帯。参照の顔の描線・アニメ塗り・表情を保持。腰から上、正面を向き、画面左へ片手を開いて内容を紹介するポーズ。指は自然な5本指。ヘルメットの頂点・両肘・手指・腰の端まで完全に収め、外側に5%以上の透過余白。人物は画面の大部分を占める。手が左へ大きく突き出しすぎない。背景は完全透明、文字・ロゴ・記号・背景・床・影・看板は一切なし。横長の表紙で文字は左に置くため、人物の顔は素材の中央から少し右。元の表紙にある文字や緑背景は描かない。1人だけ。",
+          "promptScope": "共有する先生素材の生成。見出しは編集可能な原稿をレンダラーで組版。",
+          "format": {
+            "width": 1920,
+            "height": 1080
+          },
+          "render": {
+            "template": "character-pop-v2",
+            "variant": "explain",
+            "pose": "pop-explaining"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.longform/cover.ad68dd1f.png",
+            "sha256": "ad68dd1fcde1ab4236171982235325ec84169a8464d2bb688f13695bbc83876b"
+          },
+          "review": {
+            "status": "agent-reviewed",
+            "by": "Codex",
+            "checkedAt": "2026-10-10T15:17:18.121Z",
+            "viewportWidth": 360,
+            "checks": [
+              "見出しと資格名の可読性",
+              "文字化け",
+              "文字・人物の切れ",
+              "内容と見出しの整合"
+            ],
+            "userImageReview": "pending"
+          },
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.longform/cover.ad68dd1f.png"
+          },
+          "publication": "ローカル差し替え・外部未反映"
+        },
+        "point-overview-1": {
+          "publicationId": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1",
+          "copy": {
+            "exam": "civil-2",
+            "headline": [
+              "土工の頻出点",
+              "４テーマで整理"
+            ],
+            "benefit": "",
+            "authority": "総監が制作"
+          },
+          "evidence": [
+            "content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/cover-design.json#covers/point-overview-1",
+            "content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/youtube.json#shorts/point-overview-1"
+          ],
+          "references": [
+            {
+              "path": ".tmp/video-render/pop-matome-2kyu-20261010/thumbnail-palm-v1.png",
+              "sha256": "8fd0987d6c7b7ad74645dbfa1971f42f3128e47ed4645c9d93048a579b6542cb"
+            },
+            {
+              "path": "content/sns/_assets/character/_source/pop-explaining.png",
+              "sha256": "e88700289679362e7a5ab6867187b32287701b861e55fe0be2d5835b2de527a0"
+            }
+          ],
+          "prompt": "参照画像の右側の先生キャラクターを正確に継承した、動画表紙に組み込む人物だけの高解像度PNG素材を制作してください。白い無地のヘルメット、黒髪、黒縁眼鏡、40代男性の同じ顔とひげ、紺の作業服とネクタイ、黄色と白の反射帯。参照の顔の描線・アニメ塗り・表情を保持。腰から上、正面を向き、画面左へ片手を開いて内容を紹介するポーズ。指は自然な5本指。ヘルメットの頂点・両肘・手指・腰の端まで完全に収め、外側に5%以上の透過余白。人物は画面の大部分を占める。手が左へ大きく突き出しすぎない。背景は完全透明、文字・ロゴ・記号・背景・床・影・看板は一切なし。横長の表紙で文字は左に置くため、人物の顔は素材の中央から少し右。元の表紙にある文字や緑背景は描かない。1人だけ。",
+          "promptScope": "共有する先生素材の生成。見出しは編集可能な原稿をレンダラーで組版。",
+          "format": {
+            "width": 1080,
+            "height": 1920
+          },
+          "render": {
+            "template": "character-pop-v2",
+            "variant": "explain",
+            "pose": "pop-explaining"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover.1053b245.png",
+            "sha256": "1053b2452861de3d8e1511fcff25029e48c70ee0e19b7dea662b8e66942e7e47"
+          },
+          "review": {
+            "status": "agent-reviewed",
+            "by": "Codex",
+            "checkedAt": "2026-10-10T15:17:18.121Z",
+            "viewportWidth": 360,
+            "checks": [
+              "見出しと資格名の可読性",
+              "文字化け",
+              "文字・人物の切れ",
+              "内容と見出しの整合"
+            ],
+            "userImageReview": "pending"
+          },
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover.1053b245.png"
+          },
+          "publication": "ローカル差し替え・外部未反映"
+        }
+      }
     }
   }
 }
