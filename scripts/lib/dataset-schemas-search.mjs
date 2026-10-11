@@ -542,6 +542,22 @@ export const GscUrlInspection = inspectionDoc(Infinity, { requireCounts: true })
 /** URL 検査の単発（data/gsc/url-inspection-single/{ts}.json）。古い記録は partial・completed・total が無い */
 export const GscUrlInspectionSingle = inspectionDoc(1, { requireCounts: false }).meta({ title: 'URL 検査（単発）' });
 
+/** 型ごとの期待値の算定（indexing-priority.json の types の 1 行）。期待値 = 平均表示（最大の 1 本を除く）× 未登録率 */
+const indexingPriorityType = z.strictObject({
+  type: z.string().min(1).describe('型（exam/<資格>/<節>・exam/hub・practice・tools・topics・standards/<org-hub|std-hub|part|chapters>・site/top など）'),
+  qualification: orNull(z.string().min(1).describe('/exam/<資格> の資格 id'), '/exam/<資格>/<節> 以外の型'),
+  priorityQualification: z.boolean().describe('重点資格（事業方針 business-direction の qualifications）の型か。期待値が同じときの弱い加点'),
+  inspected: count('この型で検査した URL 数（cooldown 中も数える）'),
+  indexed: count('そのうち登録済み'),
+  unindexed: count('そのうち未登録'),
+  unindexedRate: rate('未登録率（未登録 ÷ 検査）'),
+  basis: z.enum(['own', 'substitute', 'insufficient']).describe('own=自分の型の平均・substitute=登録済みが少ないので上位のまとまりで代用・insufficient=上位でも少ない（最も多い層の平均）'),
+  meanSource: z.string().min(1).describe('平均を取った型かまとまり（own なら type と同じ・代用なら exam/*/<節> や exam）'),
+  meanSourceIndexed: count('平均の元にした登録済み URL 数'),
+  meanImpressions: nonNegative('登録済み 1 本あたりの 28 日表示（最大の 1 本を除く平均）'),
+  expectedValue: nonNegative('期待値（meanImpressions × unindexedRate）。表示 0 の候補はこの降順'),
+});
+
 /** 登録を申請する URL の優先順（data/gsc/indexing-priority.json・書き手 scripts/build-gsc-indexing-priority.mjs） */
 export const GscIndexingPriority = z
   .strictObject({
@@ -557,6 +573,9 @@ export const GscIndexingPriority = z
       withDemand: count('候補のうち表示実績のあるもの'),
       cooledDown: count('直近に申請済みで除いたもの'),
     }),
+    priorityQualifications: z.array(z.string().min(1)).describe('重点資格の id（事業方針 business-direction の qualifications）'),
+    minIndexedForOwnMean: count('自分の型の平均を使うのに要る登録済みの本数（これ未満は上位のまとまりで代用）'),
+    types: z.array(indexingPriorityType).superRefine(uniqueBy('type', '型')).describe('候補のある型ごとの期待値と算定の根拠（期待値の降順）'),
     items: z
       .array(
         z.strictObject({
@@ -565,6 +584,8 @@ export const GscIndexingPriority = z
           reason: orNull(z.string().describe('カバレッジの状態'), '検査結果に無いとき'),
           impressions: count('表示回数（GSC page レポート）'),
           clicks: count('クリック数'),
+          type: z.string().min(1).describe('型（types の type）'),
+          expectedValue: nonNegative('型の期待値（types の同じ型と同じ値）'),
         }),
       )
       .superRefine(uniqueBy('path', 'path'))
@@ -577,6 +598,23 @@ export const GscIndexingPriority = z
     if (c.withDemand > c.candidates) flag(ctx, ['counts', 'withDemand'], `表示実績ありの候補 ${c.withDemand} が候補 ${c.candidates} を超える`);
     if (p.items.length !== Math.min(c.candidates, 200)) flag(ctx, ['items'], `items ${p.items.length} 件が 候補 ${c.candidates} 件（上限 200）と合わない`);
     if (p.itemsTruncated !== c.candidates > 200) flag(ctx, ['itemsTruncated'], `itemsTruncated=${p.itemsTruncated} が候補 ${c.candidates} 件と合わない`);
+    const byType = new Map(p.types.map((t) => [t.type, t]));
+    p.types.forEach((t, i) => {
+      if (t.indexed > t.inspected || t.unindexed !== t.inspected - t.indexed) flag(ctx, ['types', i, 'unindexed'], `${t.type}: 未登録 ${t.unindexed} が 検査 ${t.inspected} − 登録済み ${t.indexed} と合わない`);
+      if ((t.basis === 'own') !== (t.meanSource === t.type)) flag(ctx, ['types', i, 'basis'], `${t.type}: basis=${t.basis} が meanSource=${t.meanSource} と合わない（own のときだけ自分の型）`);
+      if ((t.basis === 'insufficient') !== (t.meanSourceIndexed < p.minIndexedForOwnMean)) flag(ctx, ['types', i, 'basis'], `${t.type}: basis=${t.basis} が 平均の元 ${t.meanSourceIndexed} 本（要 ${p.minIndexedForOwnMean} 本）と合わない`);
+    });
+    p.items.forEach((it, i) => {
+      const t = byType.get(it.type);
+      if (!t) flag(ctx, ['items', i, 'type'], `型 ${it.type} が types に無い`);
+      else if (t.expectedValue !== it.expectedValue) flag(ctx, ['items', i, 'expectedValue'], `${it.path}: 期待値 ${it.expectedValue} が types の ${t.type}（${t.expectedValue}）と合わない`);
+      const prev = p.items[i - 1];
+      if (!prev) return;
+      // 並びの契約: 表示ありが先（表示の多い順）→ 表示 0 は期待値（小数 1 桁）の降順
+      if (prev.impressions === 0 && it.impressions > 0) flag(ctx, ['items', i], `${it.path}: 表示ありが表示 0 の ${prev.path} より後ろにある`);
+      else if (prev.impressions > 0 && it.impressions > 0 && prev.impressions < it.impressions) flag(ctx, ['items', i], `${it.path}: 表示 ${it.impressions} が前の ${prev.path}（${prev.impressions}）より多いのに後ろにある`);
+      else if (prev.impressions === 0 && it.impressions === 0 && Math.round(prev.expectedValue * 10) < Math.round(it.expectedValue * 10)) flag(ctx, ['items', i], `${it.path}: 期待値 ${it.expectedValue} が前の ${prev.path}（${prev.expectedValue}）より大きいのに後ろにある`);
+    });
   })
   .meta({ title: '登録申請の優先順' });
 
