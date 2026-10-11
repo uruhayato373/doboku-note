@@ -348,6 +348,16 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0667] CI の coconala 取得（403 で毎週失敗）を止めるか CI 不可として扱う
+タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-11] [期日:2026-10-31]
+
+**起点**: 2026-10-11 に CI（hosted runner）からのココナラが、保存したログイン状態を渡しても /mypage が 403 Forbidden になると分かった（run 38106927733）。9/30 から login-collectors の coconala が毎週失敗している（#746）。取得は Mac の launchd `coconala-local`（PR #984）へ移した。
+
+**やること**: coconala-local が 2 週続けて台帳を develop へ push できたら、`.claude/config/playwright-auth-profiles.json` の coconala の読み取り（login-collectors の coconala の cron と collect）を止めるか、403 の実行を失敗ではなく「CI 不可」として Issue を立てない形にする。ops-write（書き込み）で coconala を CI から使っているかを先に確かめ、使っているなら書き込みは残す。
+
+**完了条件**: login-collectors の coconala が毎週 automation-failure Issue を立てない状態になり、#746 が閉じている。
+
+
 ### [DN-0666] 書籍の展開で触った 24 記事の SEO を GSC に沿って整える（未登録 4 本の登録依頼・検索意図・相互リンク・メタ）
 タグ: [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-10-11] [進行中]
 
