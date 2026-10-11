@@ -374,6 +374,14 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0686] check-command-guidance の走査範囲を skills・knowledge・agents・workflows・docs へ広げる
+タグ: [領域:管理] [時期:2026-10] [種類:改善] [検証:check-command-guidance] [起票:2026-10-11]
+
+**起点**: 2026-10-11 のコード監査。scripts/check-command-guidance.mjs:37-52 が走査するのは scripts/**・.claude/scripts/*.mjs・CLAUDE.md・AGENTS.md・commands.md・rules だけで、skills・knowledge・agents・workflows・docs の約 2,400 参照は見ていない。その範囲に実在しない npm run が 7 件あった（character-frames・instagram-carousels:render・youtube-thumbnail:update・youtube-covers・docs:check・r2:upload・check-note-free-preview）。7 件は 2026-10-11 に手で直した。
+**やること**: 走査範囲を広げ、プレースホルダ（<name>・X・…）を除外する。誤検知の出方を見てから ci に載せる。
+**完了条件**: npm run check-command-guidance が広げた範囲で exit 0 になり、実在しない npm run を 1 件入れると exit 1 になる回帰テストがある。
+
+
 ### [DN-0684] /search のクライアント JS に doc-meta-index（1.66MB チャンク）が同梱されている
 タグ: [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-10-11]
 
