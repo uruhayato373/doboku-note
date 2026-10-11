@@ -24,8 +24,9 @@ import { attachCISession } from './lib/playwright-auth-state.mjs';
  * 前月の売上が note 側でまだ集計中（翌月 2 日に確定）なら exit 8（PENDING・書き込みなし）で止める。
  *
  * productId 解決は scripts/lib/sales-normalize.mjs（純関数・テスト済み）に委譲する。
- * マガジンは src/lib/note-magazines.ts の title/shortTitle と一致すれば解決、
- * 単品記事は誤推定を避けて article:unknown-{date}-{index} に保留し、人手確認へ回す。
+ * マガジンは src/lib/note-magazines.ts の noteTitle（販売履歴に出る note 上のマガジン名）・title・shortTitle と一致すれば解決、
+ * カタログに無い単品記事は手当表（SINGLE_ARTICLE_TITLE_RULES）か既存ログの同名で解決し、
+ * どちらにも無い初出の題名は誤推定を避けて article:unknown-{date}-{index} に保留し、人手確認へ回す。
  *
  * 使い方:
  *   node scripts/note-sales-fetch.mjs                      # 当月・dry-run（既定・安全）
@@ -48,6 +49,7 @@ import { chromium } from 'playwright';
 import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { resolveKnownSaleEntry, resolveSaleEntry, reconcileTotal, canonicalizeProductId } from './lib/sales-normalize.mjs';
+import { catalogMagazines } from './lib/sales-mapping.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { describeReauthResult, isNoteReauthPage, noteReauthMarkPath, passNoteReauth } from './lib/note-reauth.mjs';
 import { isNoteMonthFinalized, isNoteSalesAggregating, noteSalesPendingMessage, parseNoteSalesDetail } from './lib/net-receipts.mjs';
@@ -95,24 +97,9 @@ async function evaluateStable(page, fn, arg) {
   }
 }
 
-/** note-magazines.ts を静的パースして {id, title, shortTitle} の配列を返す（既存スクリプトと同じ手法）。 */
+/** note-magazines.ts を静的パースして {id, title, shortTitle, noteTitle, single} の配列を返す（パースは sales-mapping.mjs・テスト済み）。 */
 function loadMagazines() {
-  const src = readFileSync(join(ROOT, 'src/lib/note-magazines.ts'), 'utf8');
-  // エントリは `'<id>': {` で始まり、その直後に id / published / noteUrl / title / shortTitle が並ぶ。
-  // 旧正規表現（`{ … id … title … }` を非貪欲に跨ぐ）は description 内の入れ子や省略キーで
-  // id と title の組を取り違え、2026-09-13 に実在する単品記事 10 件を全部 unknown にしていた。
-  const out = [];
-  const chunks = src.split(/\n  '([^']+)':\s*\{/);
-  for (let i = 1; i < chunks.length; i += 2) {
-    const id = chunks[i];
-    const body = chunks[i + 1] || '';
-    const title = body.match(/\n\s*title:\s*'((?:[^'\\]|\\.)*)'/)?.[1];
-    const shortTitle = body.match(/\n\s*shortTitle:\s*'((?:[^'\\]|\\.)*)'/)?.[1];
-    // noteUrl が /n/ なら単品記事（sales-tracking.md: productId は `article:<catalog-id>`・type=article）
-    const single = /noteUrl:\s*'https:\/\/note\.com\/dobokunote\/n\//.test(body);
-    if (title) out.push({ id, title: title.replace(/\\'/g, "'"), shortTitle: shortTitle ? shortTitle.replace(/\\'/g, "'") : undefined, single });
-  }
-  return out;
+  return catalogMagazines(readFileSync(join(ROOT, 'src/lib/note-magazines.ts'), 'utf8'));
 }
 
 console.log(`=== ${NAME}: ${MONTH_ARG} / mode=${COMMIT ? 'COMMIT(sales.json差し替え)' : 'DRY-RUN(書き込みなし)'} ===`);
