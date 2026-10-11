@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-10T05:13:12Z",
+  "generatedAt": "2026-10-11T00:15:49Z",
   "exam": "civil-2",
   "years": [
     {
@@ -12140,8 +12140,12 @@
               "text": "硬鋼線材は，鉄線として鉄筋の組立や蛇かご等に用いられる。"
             }
           ],
-          "correct": null,
-          "correctText": null,
+          "correct": 3,
+          "correctAll": [
+            3,
+            4
+          ],
+          "correctText": "鋳鉄や鍛鋼は，橋梁の支承や伸縮継手等に用いられる。",
           "optionExplanations": [
             {
               "num": 1,
@@ -12165,7 +12169,7 @@
             }
           ],
           "igEligible": true,
-          "packEligible": false
+          "packEligible": true
         },
         {
           "id": "r05k-13",
