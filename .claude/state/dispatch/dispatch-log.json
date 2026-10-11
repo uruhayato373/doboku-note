@@ -2848,6 +2848,45 @@
       "commit": "c68718bfca2d",
       "verification": null,
       "note": "PR #998（1a9f8062d）: 走査を正典・手順書 380 本（npm run）とワークフロー 39 本（npm run・node パス）へ広げ、見つかった実在しない案内 7 件を直した。プレースホルダ由来の不完全な名前は数えない"
+    },
+    {
+      "id": "DN-0693",
+      "at": "2026-10-11",
+      "task": "quality-audit の duration が壁時計のみで、スリープ中の TIMEOUT 7 件が偽（単独実行の 11.7 倍）",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "ac616010373d",
+      "verification": null,
+      "note": "PR #1000（b607df545）: 壁時計と単調時計（process.hrtime）の差で寝ていた時間を測り、5 秒超の timeout/fail を inconclusive（exit 2）に分けた。結果に monoMs・sleptMs・loadavg1 を残す。--ops --json の実行で 19 検査すべてに新しい欄が入ることを確認。measurement-incidents.md に事故として記録"
+    },
+    {
+      "id": "DN-0694",
+      "at": "2026-10-11",
+      "task": "重複実装の共通化（MDX 列挙 45 ファイル・curlJson 8 定義・classifyDoc の写し 4・loadEnv 7）とラチェットの挙動ベース化",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "ac616010373d",
+      "verification": null,
+      "note": "PR #1003（第 1 回）: curlJson 7 本の写しを lib/note-api.mjs の正規版（{ json, error }・再試行つき）に集約し、lib/mdx-files.mjs（listSiteMdx）を新設。tests/script-helpers-ratchet.test.mjs に curlJson（基準 0）と mdxWalk（基準 40）を足し、+1 で落ちることを検出の型のテストで固定。残る MDX 列挙 40・classifyDoc の写し 4・loadEnv 7・toPosix 19 はラチェットの基準を下げながら 1 本ずつ寄せる（増やさない保証はこの PR で入った）"
+    },
+    {
+      "id": "DN-0689",
+      "at": "2026-10-11",
+      "task": "CI 基盤: PR の build 3 回を 1 回に・Node 20/22 混在を 22 へ・setup を composite action にまとめる",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "ac616010373d",
+      "verification": null,
+      "note": "PR #1002（545214b0e）: node-version を 22 に統一（34 箇所・26 ファイル）、engines >=20.9、hygiene ルール 10 で混在を止める。採らなかった 2 件: (a) PR の build 3 回→1 回は、out/ 654MB の artifact 受け渡しが e2e の自前 build（約 1/3）と相殺し構成変更に見合わない。(c) setup の composite action 化は 36 本の書き換えで実行時間が変わらず保守性だけの改善なので採らない（必要になれば起票し直す）"
     }
   ]
 }
