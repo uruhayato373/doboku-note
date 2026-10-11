@@ -2650,6 +2650,15 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 
 ## 🟣 判断待ち — ユーザーの意思決定が必要
 
+### [DN-0691] civil-exam-textbook-index（2026-05-16 で停止・refresh-indexes 未配線）を再生成して配線する時期を決める
+タグ: [領域:サイト] [種類:意思決定] [検証:check-generated-indexes] [起票:2026-10-11]
+
+**起点**: 2026-10-11 の回遊監査。src/config/civil-exam-textbook-index.json（1級）は 5/16、-2.json（2級）は 5/29 から更新されておらず、生成スクリプト .claude/scripts/build-civil-exam-textbook-index.mjs は package.json にも refresh-indexes にも入っていない。読み手は src/components/ui/PastExamBacklinks と RelatedTextbooks。2級の過去問 24 ページで textbook への自動リンクが 0 本。
+**決めること**: いま再生成すると数十ページの内部リンクが一度に変わり、進行中の SEO 実験（EXP-014・EXP-020）の条件が動く。実験の判定日まで待つか、先に配線するか。
+**やること（決まったら）**: スクリプトを package.json に載せ refresh-indexes に足す。生成物の差分を確認して commit。
+**完了条件**: npm run refresh-indexes で 2 ファイルが更新され、2級の過去問ページに textbook リンクが出る。
+
+
 ### [DN-0690] /deploy の git merge を --no-ff にして、[skip ci] の bot commit が main の先頭に来てデプロイが起動しない事故を防ぐか決める
 タグ: [領域:管理] [種類:意思決定] [起票:2026-10-11]
 
