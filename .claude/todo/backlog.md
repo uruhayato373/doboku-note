@@ -2650,6 +2650,14 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 
 ## 🟣 判断待ち — ユーザーの意思決定が必要
 
+### [DN-0690] /deploy の git merge を --no-ff にして、[skip ci] の bot commit が main の先頭に来てデプロイが起動しない事故を防ぐか決める
+タグ: [領域:管理] [種類:意思決定] [起票:2026-10-11]
+
+**起点**: 2026-10-11 のコード監査。.claude/skills/dev/deploy/SKILL.md:62-69 は git merge --no-edit develop。main が develop の祖先なら fast-forward になり、develop の先頭が ogp-supply の [skip ci] commit（構造的に高頻度・ogp-supply のカード参照）だと cloudflare-deploy.yml（on: push branches: [main]）が起動しない。今は SKILL.md:85-99 の「push 後に run を確認する」手作業だけで防いでいる。
+**決めること**: git merge --no-ff -m 'Merge develop into main' に変える（main の履歴に merge commit が増える）か、現状の手作業確認を続けるか。
+**完了条件**: 変える場合、push の 60 秒以内に gh run list --workflow=cloudflare-deploy.yml --limit 1 --json headSha -q '.[0].headSha' が git rev-parse origin/main と一致することを SKILL の手順に機械確認として書く。
+
+
 ### [DN-0685] ci:true なのに壁時計で結果が変わる検査 2 件（affiliate-placements・video-publication）を ops へ移すか決める
 タグ: [領域:アフィリエイト] [種類:意思決定] [起票:2026-10-11]
 
