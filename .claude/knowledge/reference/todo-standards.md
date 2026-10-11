@@ -150,8 +150,8 @@ backlog が持つのは**単発で完了がある未着手タスク**だけ = �
 | `monthly.md` | `/monthly-plan` skill (Write 上書き) |
 | `weekly.md` | `/weekly-plan` skill (Write 上書き) |
 
-閲覧は管理画面 `npm run admin` → http://127.0.0.1:4747/todo (読み取り専用・層タブ + 優先度/種類の
-ファセット)。検査は `npm run docs:check` (`check-docs-governance.cjs` が backlog-lib で card を検査)。
+閲覧は管理画面 `npm run admin` → http://127.0.0.1:3021/todo (読み取り専用・層タブ + 優先度/種類の
+ファセット)。検査は `npm run check-backlog-schema`（機械読取契約）と `npm run check-backlog-health`（台帳の健全性）。
 
 ## 7. 書き込み先の判断 (stats47)
 
