@@ -1,13 +1,13 @@
 /**
  * parse-civil-2-questions.mjs — 2級土木 第一次検定 過去問 MDX → 試験別問題JSON（全年度を記事から作り直す・中身が変わったときだけ書く・refresh-indexes の build-exam-question-data）
  *
- * 入力: content/site/civil-construction-2/primary-{年度}-{zenki|kouki}/article.mdx
+ * 入力: content/site/civil-construction-2/primary-{年度}-{zenki|kouki}/article.mdx（平成27年度までの年1回の学科試験は primary-{年度}/article.mdx）
  * 出力: src/config/civil-2-exam-questions.json
  *   { generatedAt, exam:'civil-2', years:[{ year, term, questions:[
  *       { id, no, body, options:[{num,text}], correct, optionExplanations, igEligible, packEligible } ]}] }
  *
  * 2級は年2回（前期 zenki / 後期 kouki）＝別試験。年度コードに期を付与（例 r05z / r05k）
- * して前期後期を分離（案1）。z=前期, k=後期。
+ * して前期後期を分離（案1）。z=前期, k=後期。前期が始まる前（平成27年度まで）の年1回の学科試験は期を付けない（例 h26）。
  * 1級(parse-civil-1)と MDX 構造は同一。POSTS と dir 正規表現・年度コードのみ差分。
  * 設計: docs/marketing/03_多資格SNS展開設計.md
  */
@@ -25,12 +25,12 @@ function stripFrontmatter(c) {
 }
 
 function parseArticle(dir) {
-  // dir 例: primary-r05-zenki / primary-r07-kouki
-  const m = dir.match(/^primary-([hr]\d{2})-(zenki|kouki)$/);
+  // dir 例: primary-r05-zenki / primary-r07-kouki / primary-h26（年1回の学科試験）
+  const m = dir.match(/^primary-([hr]\d{2})(?:-(zenki|kouki))?$/);
   if (!m) return null;
   const baseYear = m[1];
-  const term = m[2];                       // zenki | kouki
-  const year = `${baseYear}${term === 'zenki' ? 'z' : 'k'}`; // r05z / r05k
+  const term = m[2] ?? null;               // zenki | kouki | null（年1回）
+  const year = term ? `${baseYear}${term === 'zenki' ? 'z' : 'k'}` : baseYear; // r05z / r05k / h26
   const raw = readFileSync(join(POSTS, dir, 'article.mdx'), 'utf8').replace(/\r\n/g, '\n');
   const body = stripFrontmatter(raw);
   const blocks = body.split(/^## 問題 No\./m).slice(1);
@@ -95,7 +95,7 @@ function parseArticle(dir) {
   return { year, term, questions: out };
 }
 
-const dirs = readdirSync(POSTS).filter((d) => /^primary-[hr]\d{2}-(zenki|kouki)$/.test(d)).sort();
+const dirs = readdirSync(POSTS).filter((d) => /^primary-[hr]\d{2}(-(zenki|kouki))?$/.test(d)).sort();
 const byYear = {};
 const termOf = {};
 for (const d of dirs) {
