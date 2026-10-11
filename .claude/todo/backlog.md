@@ -21,8 +21,18 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-0680] develop の CI が売上の商品名の照合漏れ（noteTitle を見ない）とココナラの実データ依存のテストで落ちている
+タグ: [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-11]
+
+**起点**: 2026-10-11、PR #986・#987 の CI（quality:audit）が、PR と関係のない 3 つで落ちた。develop の同じデータでも落ちる。
+1. `qualification-market`・unit-tests「実データ: 検索語・追跡リスト・売上の分類」: `data/note/sales.json` の `article:unknown-20261008-0`（建設部門2次｜土質基礎まるごと合格パック ¥4,980）と `article:unknown-20260530-0`（令和8年度 総監記述式 R8予想問題｜災害復旧 × 複合災害対応 ¥500）。前者は 10/11 に 1d5f0d773 で `pe-construction-geotechnical-pack` に確定したが、login collectors（245c9e44c）の取り直しで unknown に戻った。原因は `scripts/note-sales-fetch.mjs` の `loadMagazines` と `scripts/lib/sales-normalize.mjs` の `resolveMagazineId` が `title`・`shortTitle` しか照合せず、note の販売履歴に出る `noteTitle`（'建設部門2次｜土質基礎まるごと合格パック'）を見ないこと（shortTitle は「土質基礎 合格パック」で一致しない）。後者はカタログ（config/products.json）にも sales-recorder の mapping にも無い単品。
+2. unit-tests（`tests/dataset-schemas.test.mjs`）「ココナラの返信期限は JST の時差付き」「coconala.orders-snapshot: タブの数…」: 実データから取る行が無く（`Cannot set properties of undefined (setting 'replyDueAt')`・`/^status/ が出ない: []`）、テストが成り立っていない。ココナラの取得が 403 で空になっている件（DN-0667）と関係する可能性。
+**やること**: 1 は `noteTitle` も照合に足して取り直しで戻らないようにし（テスト付き）、R8予想の単品の productId を決めて登録する。2 はテストが実データの空に依存しないようにするか、データを取り直す。
+**完了条件**: develop の quality:audit で qualification-market と unit-tests が通る。取り直し（note-sales-fetch の dry-run）で 10/8 の行が pe-construction-geotechnical-pack に解決される。
+
+
 ### [DN-0678] 2級土木 第2次検定（10/25）の令和8年度 解答例ページを試験前に枠だけ出しておく
-タグ: [領域:サイト] [時期:2026-10] [種類:制作] [起票:2026-10-11]
+タグ: [領域:サイト] [時期:2026-10] [種類:制作] [起票:2026-10-11] [進行中]
 
 **起点**: 2026-10-11 の metrics-analyzer。1級二次の直前直後（10/4 前後）は年度別の解答例ページ（r04・r06）がクリック 56・80 を取った。令和8年度の解答例ページは 1級・2級とも無い（content/site/civil-construction-{1,2} に secondary-r08 が無い）。2級二次は 10/25。総監の DN-0500（枠だけ先に公開）と同じ方式で、試験前に「令和8年度 2級土木 2次試験 解答例」の枠ページを出し、問題の公開後に本体を埋める。
 **やること**: 2級 secondary-r08 の枠（試験の概要・問題公開の見込み・過去年度の解答例への導線）を 10/22 までに公開する。問題の公開時期は主催者の案内で確かめる。試験後に問題と解答例を入れる。1級 r08 も同じ要領で。
@@ -434,12 +444,6 @@ exam-passing-strategy/article.mdx の239・264行付近に、総監口頭は知�
 **完了条件**: 4 本のインデックス登録リクエストの記録が data/gsc/indexing-requests.json にある。候補 3 本の修正がコミット済み。check-seo-meta で触った記事の違反 0。
 
 
-### [DN-0665] 過去問の正答と ✅/❌ の整合検査（check-answer-consistency）が 1級・2級土木の記事を 1 問も検査せずに OK を返す
-タグ: [領域:サイト] [時期:2026-10..2026-11] [種類:不具合] [起票:2026-10-11]
-
-**起点**: 2026-10-11、DN-0623 で 2級土木 平成18〜27年度の記事を作ったとき、`.claude/skills/conversion/exam-questions-import/scripts/check-answer-consistency.mjs` が 4 記事とも「OK (0問) — 整合」を返した。見出しが `## Ⅰ…`（技術士第一次試験）の問題だけを数える作りで、1級・2級土木（`## 問題 No.N`・`**正解: (N)**`）では 1 問も検査しないまま緑になる（検査ゼロを PASS と呼ばない・CLAUDE.md §9）。SKILL.md の Step 5.6 は civil の取り込みでも回すよう書いている。
-**やること**: 見出し `## 問題 No.N` と正答行 `**正解: (N)**`・`**正答：N**` も読めるようにし、検査した問題数を出し、対象の問題が 0 なら exit 1（検査不成立）にする。1級・2級の既存記事全件に回して違反の数を確かめ、テストを足す。
-**完了条件**: civil の記事で検査した問題数が出て、0 件の記事は不成立で止まり、tests に civil・技術士の両方の例がある。
 
 
 ### [DN-0664] 5〜9 月の受取額を台帳から記録し、9 月は KDP の確定後に complete にする

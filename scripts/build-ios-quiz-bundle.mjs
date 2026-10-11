@@ -7,14 +7,16 @@
  * 1. scripts/build-quiz-data.mjs と同じ正規化で、アプリに入れる試験のデータセットを作る（Web の public/quiz は書かない）
  * 2. 本文・選択肢・解説の HTML（Markdown しか無い問題は変換した HTML）が参照する記事画像（/posts/...）を、リポジトリの記事の img/ から
  *    （無ければ R2 の公開ホストから）取り、images/ に置いて参照を書き換える。書き出した HTML の参照先がすべて images/ にあるかを確かめる
- * 3. KaTeX の CSS と woff2 フォントを katex/ に置く（描画済みの数式 HTML を JavaScript なしで表示するため）
+ * 3. KaTeX の CSS と woff2 フォントを katex/ に置く（描画済みの数式 HTML を JavaScript なしで表示するため）。
+ *    問題文・解説の見た目（src/styles/quiz-content.css）と、その色（globals.css のトークンの写し quiz-tokens.css）も置く
+ *    （サイトの演習と同じ CSS をアプリが読む。scripts/lib/quiz-style.mjs）
  * 4. 問題 ID を検査する。試験の中で重複していれば止める。前回の manifest.json から消えた ID があれば止める
  *    （アプリの学習履歴は「試験 + 問題 ID」に紐づくので、ID が消えると履歴が消える。意図して消すときだけ --allow-removed に並べる）
  * 5. 問題台帳（data/pastexams/questions・DN-0647）で、転記を原典と照合していない問題・正答が公式と違う問題があれば止める。
  *    開発中の試し書き出しだけ --allow-unverified で通す（正答の不一致は通さない）
  *
  * 出力（既定 .tmp/ios-bundle/<app>/。iOS リポジトリの Resources を --out に渡す）:
- *   manifest.json・<試験>.json・images/・katex/
+ *   manifest.json・<試験>.json・images/・katex/・quiz-content.css・quiz-tokens.css
  * exit 0 = 書き出し成功 / exit 1 = ID 検査・画像取得の失敗、または対象 0 件
  */
 import { spawnSync } from 'node:child_process';
@@ -25,6 +27,7 @@ import { fileURLToPath } from 'node:url';
 import { REPO_ROOT, SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 import { R2_PUBLIC_ORIGIN } from './lib/site-identity.mjs';
 import { renderQuizMarkdown } from './lib/quiz-markdown.mjs';
+import { QUIZ_CONTENT_CSS, quizTokensCss } from './lib/quiz-style.mjs';
 import { SOURCES, buildDataset } from './build-quiz-data.mjs';
 import { qualificationOfQuizExam, readLedger, unreadyForApp } from './lib/past-exam-ledger.mjs';
 
@@ -224,6 +227,8 @@ function main() {
   copyFileSync(join(katexDist, 'katex.min.css'), join(out, 'katex', 'katex.min.css'));
   const fonts = readdirSync(join(katexDist, 'fonts')).filter((f) => f.endsWith('.woff2'));
   for (const f of fonts) copyFileSync(join(katexDist, 'fonts', f), join(out, 'katex', 'fonts', f));
+  copyFileSync(QUIZ_CONTENT_CSS, join(out, 'quiz-content.css'));
+  writeFileSync(join(out, 'quiz-tokens.css'), quizTokensCss(), 'utf8');
 
   const exams = [];
   for (const { ds, questions } of bundles) {
