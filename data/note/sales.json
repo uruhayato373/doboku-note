@@ -2315,7 +2315,9 @@
       "fetchedAt": "2026-10-01T06:32:05.835Z",
       "count": 26,
       "total": 71640,
-      "finalized": true
+      "finalized": true,
+      "net": 60629,
+      "fee": 11011
     },
     "2026-10": {
       "fetchedAt": "2026-10-02T13:57:42.280Z",
@@ -2327,7 +2329,9 @@
       "fetchedAt": "2026-10-02T13:57:22.522Z",
       "count": 35,
       "total": 106800,
-      "finalized": true
+      "finalized": true,
+      "net": 89402,
+      "fee": 17398
     }
   }
 }

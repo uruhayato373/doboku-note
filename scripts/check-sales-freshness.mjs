@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 // data/note/sales.json の「転記が止まっていないか」を検査する（今回の事故の失敗モードそのもの）。
+// 月の受取額のココナラ分の台帳（売上履歴 coconala.revenue）も、週次の login-collectors で更新されているかを
+// 台帳の freshness で見る（2026-10-11 追加。KDP は check-kdp-report-freshness が見る）。
 //
 // 背景（2026-08-17）: sales.json は 2026-07-14 で止まっており、2026-07 は note 実績
 // 145 件 ¥275,140 に対して 23 件 ¥49,660＝**18% しか入っていなかった**。2026-08 は 0 件。
@@ -31,7 +33,9 @@
 
 import { readFileSync, existsSync, writeSync } from 'node:fs';
 import { datasetPath, freshnessDays } from './lib/datasets.mjs';
+import { readDatasetIf } from './lib/dataset-io.mjs';
 import { jstYmd, todayJst } from './lib/jst-date.mjs';
+import { REPO_ROOT } from './lib/repository-paths.mjs';
 
 const SALES_LOG = datasetPath('note.sales');
 // 閾値の数字は台帳 scripts/lib/datasets.mjs の note.sales（freshness）が正本
@@ -106,6 +110,26 @@ export function assessSalesBenchmark(log, traffic) {
   };
 }
 
+/**
+ * 受取額の台帳 1 本の鮮度（純関数）。day は最後に取得した日（JST の YYYY-MM-DD）。無ければ FAIL。
+ * 閾値は台帳の freshness（scripts/lib/datasets.mjs）。
+ */
+export function assessLedgerAge({ label, day, warnDays, failDays }, nowUtc = todayUtc) {
+  const age = ageInDays(day, nowUtc);
+  if (age === null) return { label, day: day ?? null, age: null, status: 'FAIL', reason: `${label} が未取得` };
+  if (age > failDays) return { label, day, age, status: 'FAIL', reason: `${label} が ${age} 日前から更新されていない（上限 ${failDays} 日）` };
+  if (age > warnDays) return { label, day, age, status: 'WARN', reason: `${label} が ${age} 日前（警告 ${warnDays} 日）` };
+  return { label, day, age, status: 'OK', reason: null };
+}
+
+/** ココナラの売上履歴の台帳を読み、鮮度を返す（KDP は check-kdp-report-freshness）。 */
+function otherLedgers() {
+  const coconala = readDatasetIf(REPO_ROOT, 'coconala.revenue');
+  return [
+    assessLedgerAge({ label: 'ココナラの売上履歴（coconala-revenue）', day: coconala?.fetchedAt ? todayJst(new Date(coconala.fetchedAt)) : null, warnDays: freshnessDays('coconala.revenue', 'warnDays'), failDays: freshnessDays('coconala.revenue', 'failDays') }),
+  ];
+}
+
 export function dueSalesMonth(now = new Date()) {
   const { year, month, day } = jstYmd(now);
   const delta = day >= MONTHLY_DUE_DAY ? -1 : -2;
@@ -137,16 +161,25 @@ if (isMain) {
   let benchmark = existsSync(dueFile)
     ? assessSalesBenchmark(log, JSON.parse(readFileSync(dueFile, 'utf8')))
     : { status: 'FAIL', reason: `${dueMonth} のnoteアクセス・月次売上表示が未取得`, month: dueMonth, expected: null, actual: null, count: 0 };
-  const r = benchmark?.status === 'FAIL' ? { ...freshness, status: 'FAIL', reason: benchmark.reason } : freshness;
+  const ledgers = otherLedgers();
+  const worst = (a, b) => (a === 'FAIL' || b === 'FAIL' ? 'FAIL' : a === 'WARN' || b === 'WARN' ? 'WARN' : 'OK');
+  const noteResult = benchmark?.status === 'FAIL' ? { ...freshness, status: 'FAIL', reason: benchmark.reason } : freshness;
+  const ledgerBad = ledgers.filter((l) => l.status !== 'OK');
+  const r = {
+    ...noteResult,
+    status: ledgers.reduce((s, l) => worst(s, l.status), noteResult.status),
+    reason: [noteResult.reason, ...ledgerBad.map((l) => l.reason)].filter(Boolean).join(' / ') || null,
+  };
 
   if (JSON_OUT) {
-    writeSync(1, JSON.stringify({ check: 'sales-freshness', staleWarnDays: STALE_WARN, staleFailDays: STALE_FAIL, monthlyDueDay: MONTHLY_DUE_DAY, ...r, benchmark }, null, 2) + '\n');
+    writeSync(1, JSON.stringify({ check: 'sales-freshness', staleWarnDays: STALE_WARN, staleFailDays: STALE_FAIL, monthlyDueDay: MONTHLY_DUE_DAY, ...r, benchmark, ledgers }, null, 2) + '\n');
     process.exit(r.status === 'FAIL' ? 1 : 0);
   }
 
   // 実検査数を必ず出す（緑を見たら「何件検査したか」を確認できるように）
   console.log(`${TAG} 実検査 ${r.count} 件（日付あり ${r.datedCount ?? 0} 件）／転記 ${r.updatedAt ?? '-'}（${r.updatedAge ?? '-'} 日前）／最終売上 ${r.latest ?? '-'}（${r.latestAge ?? '-'} 日前）`);
   if (benchmark) console.log(`${TAG} 月次照合 ${benchmark.month}: 販売明細 ${benchmark.count} 件 ¥${benchmark.actual?.toLocaleString() ?? '-'} / note表示 ¥${benchmark.expected?.toLocaleString() ?? '-'}`);
+  for (const l of ledgers) console.log(`${TAG} ${l.label}: ${l.day ?? '未取得'}（${l.age ?? '-'} 日前）${l.status === 'OK' ? '' : ` ${l.status}`}`);
 
   if (r.status === 'FAIL') {
     console.error(`${TAG} ✗ FAIL: ${r.reason}`);
@@ -155,6 +188,7 @@ if (isMain) {
     console.error('  npm run note-sales-fetch -- --month YYYY-MM --commit で当月を取り直す（検算OKまで書き込まない）');
     console.error('  取得が使えない場合は note ダッシュボードから手作業で取り直し、/record-sales で転記する');
     console.error('  手順と検算の規約 → .claude/knowledge/reference/sales-tracking.md「取得と検算」');
+    console.error('  ココナラは login-collectors（coconala）の run ログを見る。手元なら npm run coconala-revenue');
     process.exit(1);
   }
   if (r.status === 'WARN') {

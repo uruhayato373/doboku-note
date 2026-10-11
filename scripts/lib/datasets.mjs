@@ -176,9 +176,10 @@ export const DATASETS = [
   d('note.referrers', 'data/note/referrers/{month}.json', 'series', 'product', 'note の月間の流入元', { schema: 'NoteReferrers' }),
   d('note.competitors', 'data/note/competitors/{date}.json', 'series', 'strategy', 'note の競合クリエイターの商品と価格（四半期・全社の通常実行だけ）', { retain: { family: 'competitors', keepAll: true }, freshness: { warnDays: 90 }, schema: 'NoteCompetitors' }),
   // KDP
-  d('kdp.royalties', 'data/kdp/royalties.json', 'ledger', 'product', 'KDP の月ごとのロイヤリティ（当月は推計）', { schema: 'KdpRoyalties' }),
+  d('kdp.royalties', 'data/kdp/royalties.json', 'ledger', 'product', 'KDP の月ごとのロイヤリティ（当月と確定前の前月は推計。週次で取り直す）', { schema: 'KdpRoyalties' }),
   // ココナラ
   d('coconala.orders', 'data/coconala/orders.json', 'ledger', 'product', 'ココナラの受注の記録', { schema: 'CoconalaOrders' }),
+  d('coconala.revenue', 'data/coconala/revenue.json', 'ledger', 'product', 'ココナラの売上履歴（手数料控除後・クローズ日で計上。週次で取り直す）', { schema: 'CoconalaRevenue', freshness: { warnDays: 10, failDays: 21 } }),
   d('coconala.orders-snapshot', 'data/coconala/orders-snapshot.json', 'state', 'product', 'ココナラの取引一覧の最新（受注の照合元）', { schema: 'CoconalaOrdersSnapshot', freshness: { failDays: 7 } }),
   d('coconala.kpi', 'data/coconala/kpi.json', 'ledger', 'product', 'ココナラの出品ごとの閲覧・お気に入りの推移', { schema: 'CoconalaKpi' }),
   d('coconala.analytics', 'data/coconala/analytics.json', 'state', 'product', 'ココナラの出品分析の最新', { schema: 'CoconalaAnalytics', freshness: { failDays: 8 } }),

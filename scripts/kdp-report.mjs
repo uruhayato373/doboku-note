@@ -14,7 +14,7 @@
  *   - /pmr       … 月別ロイヤリティ（マーケットプレイス別・KENP 既読ページ数）
  *
  * ★限界（正直に明記）★
- *   - 当月の数字は Amazon 側の「推計」。KENP は翌月 15 日頃に確定する（estimated:true で記録）。
+ *   - 当月の数字は Amazon 側の「推計」。KENP は翌月 15 日頃に確定する（翌月 16 日より前に取った値は estimated:true で記録）。
  *   - KDP は bot 検知が強く、ログイン時に CAPTCHA / 2FA を出す。これらは人が処理する。
  *   - DOM は table を持たない SPA のため、body innerText の行パターンで抽出している。
  *     UI 変更時は --dump で生テキストを出して較正する。
@@ -24,6 +24,7 @@
  *   node scripts/kdp-report.mjs --month 2026-06      # 対象月を指定して取得
  *   node scripts/kdp-report.mjs --dry-run            # 保存せず表示だけ
  *   node scripts/kdp-report.mjs --dump               # 生 innerText を .tmp へ保存（UI 較正用）
+ *   node scripts/kdp-report.mjs --list-due           # 週次で取る月（当月＋確定前の前月）を出すだけ（CI 用）
  *
  * 終了コード: 0=取得成功 / 2=取得不成立（未ログイン・0 件・通貨不一致）。
  * 「1 件も取れていない」を成功と呼ばないため、書籍行 0 件・合計行なしは必ず失敗にする。
@@ -37,6 +38,7 @@ import { resolveProfileDir, resolveStatePath } from './lib/playwright-auth-profi
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { attachCISession } from './lib/playwright-auth-state.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { isKdpEstimated, kdpMonthsDue } from './lib/net-receipts.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 const PROFILE = resolveProfileDir('kdp', { cwd: ROOT, repoRoot: ROOT });
@@ -62,6 +64,12 @@ const IS_CURRENT = MONTH === CUR_MONTH;
 const [CUR_Y, CUR_M] = CUR_MONTH.split('-').map(Number);
 const prev = new Date(Date.UTC(CUR_Y, CUR_M - 2, 1));
 const IS_PREV = MONTH === `${prev.getUTCFullYear()}-${String(prev.getUTCMonth() + 1).padStart(2, '0')}`;
+
+// 週次の CI が取る月（当月と、確定値が入るまでの前月）を出して終わる。ブラウザは開かない
+if (argv.includes('--list-due')) {
+  console.log(kdpMonthsDue(existsSync(STATE) ? JSON.parse(readFileSync(STATE, 'utf8')) : null, todayJst()).join(' '));
+  process.exit(0);
+}
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const jpDate = (d) => `${Y}年${String(M).padStart(2, '0')}月${String(d).padStart(2, '0')}日`;
@@ -235,7 +243,8 @@ try {
   const entry = {
     fetchedAt: new Date().toISOString(),
     range: { start: `${MONTH}-01`, end: `${MONTH}-${String(LAST_DAY).padStart(2, '0')}` },
-    estimated: IS_CURRENT,
+    // 前月も翌月 16 日より前に取った値は KENP の確定前なので推計（net-receipts.mjs の kdpRoyaltyFinalizeDate）
+    estimated: isKdpEstimated(MONTH, todayJst()),
     total: { bookCount: total.bookCount, ebook: total.ebook, print: total.print, kenp: total.kenp, royalty: total.royalty },
     kenpPagesRead: marketplaces ? marketplaces.reduce((a, m) => a + m.kenpPages, 0) : null,
     marketplaces,
