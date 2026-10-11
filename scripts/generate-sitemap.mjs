@@ -6,6 +6,7 @@ import { SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 import { renderSitemapEntry, resolveStaticLastmod } from './lib/sitemap-lastmod.mjs';
 import { buildLegacySitemapUrls, renderLegacySitemap, LEGACY_SITEMAP_FILE, LEGACY_SITEMAP_UNTIL } from './lib/legacy-sitemap.mjs';
 import { SITE_ORIGIN } from './lib/site-identity.mjs';
+import { buildRobotsTxt } from './lib/robots-txt.mjs';
 
 const OUT_DIR = 'out';
 const POSTS_DIR = SITE_CONTENT_ROOT;
@@ -275,80 +276,11 @@ if (legacySitemap.active) {
   writeFileSync(join(OUT_DIR, LEGACY_SITEMAP_FILE), renderLegacySitemap(legacySitemap.urls));
 }
 
-// AI 学習データ収集クローラー（LLM 用）を全面 disallow。
-// 公益的な GoogleBot / Bingbot 等は許可（検索インデックスの正常稼働を維持）。
-// 背景: 2026-05 の GA4 で Bing 経由 1,293 users (40%) が engage 21%/bounce 79% の
-// 異常パターン示しており、AI クローラー混入が疑われる。
-const robots = `# 検索エンジンクローラー（Allow）
-User-agent: *
-Allow: /
-
-# AI 学習データ収集クローラーは全面 disallow
-User-agent: GPTBot
-Disallow: /
-
-User-agent: ChatGPT-User
-Disallow: /
-
-User-agent: OAI-SearchBot
-Disallow: /
-
-User-agent: ClaudeBot
-Disallow: /
-
-User-agent: Claude-Web
-Disallow: /
-
-User-agent: anthropic-ai
-Disallow: /
-
-User-agent: PerplexityBot
-Disallow: /
-
-User-agent: Perplexity-User
-Disallow: /
-
-User-agent: Google-Extended
-Disallow: /
-
-User-agent: Applebot-Extended
-Disallow: /
-
-User-agent: FacebookBot
-Disallow: /
-
-User-agent: Meta-ExternalAgent
-Disallow: /
-
-User-agent: Meta-ExternalFetcher
-Disallow: /
-
-User-agent: Bytespider
-Disallow: /
-
-User-agent: Amazonbot
-Disallow: /
-
-User-agent: cohere-ai
-Disallow: /
-
-User-agent: omgili
-Disallow: /
-
-User-agent: DataForSeoBot
-Disallow: /
-
-User-agent: SemrushBot
-Disallow: /
-
-User-agent: AhrefsBot
-Disallow: /
-
-User-agent: MJ12bot
-Disallow: /
-
-Sitemap: ${SITE_ORIGIN}/sitemap.xml
-${legacySitemap.active ? `Sitemap: ${SITE_ORIGIN}/${LEGACY_SITEMAP_FILE}\n` : ''}`;
+// robots.txt（方針と一覧は scripts/lib/robots-txt.mjs・docs/operations/robots-ai-crawler-decision.md）。
+// 検索エンジンと AI 検索は許可、AI の学習用クローラーと SEO ツールは拒否。旧 /docs の一時 sitemap は期限内だけ載せる。
+const robots = buildRobotsTxt({
+  sitemaps: [`${SITE_ORIGIN}/sitemap.xml`, ...(legacySitemap.active ? [`${SITE_ORIGIN}/${LEGACY_SITEMAP_FILE}`] : [])],
+});
 writeFileSync(join(OUT_DIR, 'robots.txt'), robots);
 
 // サマリ出力

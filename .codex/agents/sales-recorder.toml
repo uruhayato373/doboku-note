@@ -52,7 +52,7 @@ kuro
 
 ## productId 推定ルール
 
-> **命名系統の注意（重要）**: data/note/sales.json の productId は本エージェント独自の `bk-*` / `essay-*` 系統で記録する。`src/lib/note-magazines.ts` の id（`pe-construction-*` 等）とは**別系統**で、突合させない。既存ログと同じ slug を再利用して `sales-summary` の商品別集計が分断されないようにすること（特に建設部門 必須科目I マガジンは `bk-i-required-essay-magazine` を必ず再利用）。
+> **命名系統の注意（重要）**: data/note/sales.json の productId は本エージェント独自の `bk-*` / `essay-*` 系統で記録する。`src/lib/note-magazines.ts` の id（`pe-construction-*` 等）とは**別系統**で、突合させない。既存ログと同じ slug を再利用して `sales-summary` の商品別集計が分断されないようにすること（特に建設部門 必須科目I マガジンは `bk-i-required-essay-magazine` を必ず再利用）。自動取得（`note-sales-fetch`）が noteTitle でカタログの `pe-construction-*` に解決した場合も、`scripts/lib/sales-normalize.mjs` の `toLedgerProductId` が `bk-*` 系統へ寄せる（`-magazine`→`bk-{科目}-secondary-magazine`・`-pack`→`bk-{科目}-pack`・必須科目I→`bk-i-required-essay-magazine`）。
 
 ### マガジン（type: magazine）
 
