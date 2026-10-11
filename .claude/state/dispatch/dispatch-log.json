@@ -2770,6 +2770,45 @@
       "commit": "249b0bba325c",
       "verification": null,
       "note": "方針は維持（全 NSM 実験で数える・maxConcurrent 2）。policy-review の run を data/gsc/rank-watch/2026-10.jsonl に記録し policyNextReviewDate=2026-11-08・policyReviewDue=false を report で確認（commit 15d2d87bc）。順位改善は EXP-020/021 の側で進める"
+    },
+    {
+      "id": "DN-0685",
+      "at": "2026-10-11",
+      "task": "ci:true なのに壁時計で結果が変わる検査 2 件（affiliate-placements・video-publication）を ops へ移すか決める",
+      "tier": "hold",
+      "kind": "意思決定",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "c6b4740dc28f",
+      "verification": null,
+      "note": "広告リンクの期限（check-affiliate-placements の (b)）と照合記録の古さ（check-video-publication の V03）を ci から外し、--upcoming / --freshness として ops（quality-audit の affiliate-placements-upcoming・video-publication-freshness）へ分けた。構造の検査は ci に残す。PR #995（c6b4740dc）で develop CI 緑"
+    },
+    {
+      "id": "DN-0690",
+      "at": "2026-10-11",
+      "task": "/deploy の git merge を --no-ff にして、[skip ci] の bot commit が main の先頭に来てデプロイが起動しない事故を防ぐか決める",
+      "tier": "hold",
+      "kind": "意思決定",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "c6b4740dc28f",
+      "verification": null,
+      "note": "/deploy の Step 5 を git merge --no-ff -m 'Merge develop into main' に変え、Step 6 に headSha 一致の機械確認を書いた（016a120ff）。2026-10-11 の本番デプロイ（main 612abaa9c）で初適用し、push 後 45 秒で cloudflare-deploy の run が同じ SHA で起動したことを確認"
+    },
+    {
+      "id": "DN-0695",
+      "at": "2026-10-11",
+      "task": "アフィリエイト配置の 3 論点（同一案件の二重カード 49 ページ・非転職記事末バナー 0/4,161 クリック・DX コンサルの承認条件）を決める",
+      "tier": "hold",
+      "kind": "意思決定",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "c6b4740dc28f",
+      "verification": null,
+      "note": "運営者決定（2026-10-11）: (1) 二重カードは DocPage が手書き <CareerAffiliate program=…> を 1 記事 1 枚に抑える（PR #995）。本番 /exam/civil-construction-2/primary/r06-kouki で article-inline のカードが 1 枚になったことを curl で確認。(2) 非キャリア記事の記事末バナー PL-0015・PL-0005 を閉じた（28 日 4,161 表示 0 クリック・249b0bba3）。本番 /exam/civil-construction-1/secondary/r06 で article-end が 0 件を確認。EXP-017/018 の記事末は各判定日まで残す。(3) DX・コンサルは条件（総監カテゴリのみ・本文中間のみ・根拠 822 表示 4 クリック CTR 0.49%）を catalog の decision・PL-0002 の note・affiliate-operations.md §6 に書いて本文中間と hub を続ける。デプロイ main 612abaa9c・check-production-ssr exit 0"
     }
   ]
 }
