@@ -31,7 +31,7 @@ import { datasetPath, freshnessDays, latestFile } from "../../scripts/lib/datase
 import { latestReportRef, readJsonOrReport } from "../../scripts/lib/metric-reports.mjs";
 import { REFERRER_FULL_SINCE, resultsFromReportLog } from "../../scripts/lib/a8-report-csv.mjs";
 import { readLabelProgramMap } from "../../scripts/lib/affiliate-labels.mjs";
-import { slugFromKey } from "../../scripts/lib/url-normalization.mjs";
+import { publicPathFromSlug, slugFromKey } from "../../scripts/lib/url-normalization.mjs";
 import { matchesPage } from "../../src/lib/affiliate-placement-core.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
@@ -418,6 +418,9 @@ function scanSiteSources(careerSlugs) {
   const inboundLinks = new Map(careerSlugs.map((s) => [s, 0]));
   const affiliateBySlug = new Map(careerSlugs.map((s) => [s, { careerAffiliate: 0, placements: [] }]));
   const slugOfFile = new Map();
+  // 内部リンクは旧 /docs/<slug> と正規の公開パス（/exam/…）の両方で張られる。2026-08-22 の URL 移行後は後者が主で、
+  // /docs/ だけ数えると被リンク 0 に見える（2026-10-11 に 22/45 本が「被リンク 0」と誤報告された）
+  const linkPatterns = careerLinkPatterns(careerSlugs);
 
   for (const f of files) {
     const parts = relative(f).split("/"); // content/site/{category}/{...}
@@ -434,7 +437,7 @@ function scanSiteSources(careerSlugs) {
     const self = slugOfFile.get(f);
     for (const slug of careerSlugs) {
       if (slug === self) continue;
-      const hits = src.split(`/docs/${slug}`).length - 1;
+      const hits = countLinkHits(src, linkPatterns.get(slug));
       if (hits > 0) inboundLinks.set(slug, inboundLinks.get(slug) + hits);
     }
     if (self && affiliateBySlug.has(self)) {
@@ -451,12 +454,32 @@ function scanSiteSources(careerSlugs) {
     extraScanned += 1;
     const src = readFileSync(abs, "utf8");
     for (const slug of careerSlugs) {
-      const hits = src.split(`/docs/${slug}`).length - 1;
+      const hits = countLinkHits(src, linkPatterns.get(slug));
       if (hits > 0) inboundLinks.set(slug, inboundLinks.get(slug) + hits);
     }
   }
 
   return { inboundLinks, affiliateBySlug, siteFiles: files.length, extraScanned };
+}
+
+/**
+ * career slug ごとの「本文に書かれうるリンク文字列」。旧 /docs/<slug> と正規公開パス（publicPathFromSlug）。
+ * 公開パスは末尾に区切り（` ` ` ) ` ` " ` ` ' ` ` # ` ` ? ` 行末）が続くときだけ数え、
+ * `/exam/x/guide/salary` が `/exam/x/guide/salary-up` に誤って当たらないようにする。
+ * @param {string[]} careerSlugs
+ * @returns {Map<string, { legacy: string, canonical: string|null }>}
+ */
+export function careerLinkPatterns(careerSlugs) {
+  return new Map(careerSlugs.map((slug) => [slug, { legacy: `/docs/${slug}`, canonical: publicPathFromSlug(slug) }]));
+}
+
+/** 本文中のリンク出現数（旧 URL＋正規 URL）。境界を見るので前方一致の別記事は数えない。 */
+export function countLinkHits(src, pattern) {
+  if (!pattern) return 0;
+  const bounded = (p) => new RegExp(p.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "(?=[\\s)\"'#?]|$)", "g");
+  let n = (src.match(bounded(pattern.legacy)) ?? []).length;
+  if (pattern.canonical) n += (src.match(bounded(pattern.canonical)) ?? []).length;
+  return n;
 }
 
 function collectNoteCareer(cfg) {
@@ -558,10 +581,17 @@ function main() {
   const careerSlugs = docs.map((d) => d.slug);
   const { inboundLinks, affiliateBySlug, siteFiles, extraScanned } = scanSiteSources(careerSlugs);
 
+  // GA4 の pagePath は 2026-08-22 の移行後は正規 URL（/exam/…）。旧 /docs/ だけ見ると career 記事が 1 本も当たらず
+  // 「観測範囲外」と誤報告する（2026-10-11 実例）。slugFromKey が旧・正規の両方を slug に寄せる。同じ slug へ複数行
+  //（旧 URL と正規 URL・クエリ付き）が来たら合算する
   const ga4PageBySlug = new Map();
   for (const r of ga4Page.rows ?? []) {
-    const m = /^\/docs\/([^/?#]+)/.exec(r.page ?? "");
-    if (m) ga4PageBySlug.set(m[1], { users: r.activeUsers ?? 0, sessions: r.sessions ?? 0 });
+    const slug = slugFromKey(r.page ?? "");
+    if (!slug) continue;
+    const cur = ga4PageBySlug.get(slug) ?? { users: 0, sessions: 0 };
+    cur.users += r.activeUsers ?? 0;
+    cur.sessions += r.sessions ?? 0;
+    ga4PageBySlug.set(slug, cur);
   }
 
   const gscBySlug = new Map();
@@ -569,10 +599,8 @@ function main() {
   for (const r of gscPageQuery.rows ?? []) {
     const [url, query] = r.keys ?? [];
     if (!url) continue;
-    const m = /\/docs\/([^/?#]+)/.exec(url);
-    if (!m) continue;
-    const slug = m[1];
-    if (!inboundLinks.has(slug)) continue;
+    const slug = slugFromKey(url);
+    if (!slug || !inboundLinks.has(slug)) continue;
     gscCareerRows += 1;
     const cur = gscBySlug.get(slug) ?? { impressions: 0, clicks: 0, positions: [], queries: [] };
     cur.impressions += r.impressions ?? 0;
@@ -605,9 +633,16 @@ function main() {
   });
 
   const inGa4Top = ledger.filter((r) => r.ga4Users != null).length;
+  // 照合の崩れ（URL 体系の変更など）を「career 記事は観測範囲外」の緑に見せない: GA4 に公開記事の行が十分あるのに
+  // career 記事が 1 本も当たらないなら、照合側の不具合として検査不成立にする（CLAUDE.md §9）
+  const ga4DocRows = (ga4Page.rows ?? []).filter((r) => slugFromKey(r.page ?? "")).length;
+  if (inGa4Top === 0 && ga4DocRows >= 100) {
+    console.error(`✗ 検査不成立: GA4 page に公開記事の行が ${ga4DocRows} 件あるのに career 記事が 1 本も照合できない（URL の照合を疑う）`);
+    process.exit(2);
+  }
   if (inGa4Top === 0) {
     warnings.push(
-      `GA4 page スナップショットは上位 ${ga4Page.meta?.limit ?? "?"} ページのみで、career 記事は 1 本も入っていない。` +
+      `GA4 page スナップショットは ${(ga4Page.rows ?? []).length} 行（limit ${ga4Page.meta?.limit ?? "?"}）で、career 記事は 1 本も入っていない。` +
         "users/sessions は「0」ではなく「観測範囲外」なので断定に使わない",
     );
   }

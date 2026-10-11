@@ -286,3 +286,32 @@ test("attributeByPage: ページ・面・案件・日付でルールを 1 つに
   assert.equal(got.clickLog.find((c) => c.date === "2026-09-10").ruleId, "PL-0001");
   assert.deepEqual(got.byRule.find((r) => r.ruleId === "PL-0001").a8.months, ["2026-09"]);
 });
+
+// --- URL の照合（2026-10-11 の誤報告の再発防止）---------------------------------------------------
+// 2026-08-22 の移行後、GA4 の pagePath と本文の内部リンクは正規 URL（/exam/…）が主になった。旧 /docs/<slug> だけで
+// 照合すると career 記事が「GA4 に 1 本も無い・被リンク 0・GSC 0 行」に見え、EXP-008 の判定材料が狂う。
+import { careerLinkPatterns, countLinkHits } from "../.claude/scripts/report-career-funnel.mjs";
+
+test("内部リンク: 旧 /docs/<slug> と正規公開パス（/exam/…）の両方を数え、前方一致の別記事は数えない", () => {
+  const slug = "civil-construction-1-guide-career-agent-comparison";
+  const patterns = careerLinkPatterns([slug]);
+  const p = patterns.get(slug);
+  assert.equal(p.legacy, `/docs/${slug}`);
+  assert.equal(p.canonical, "/exam/civil-construction-1/guide/career-agent-comparison", "publicPathFromSlug が正規パスを引く");
+  const src = [
+    `[a](/docs/${slug})`,
+    `[b](${p.canonical})`,
+    `[c](${p.canonical}#section)`,
+    `<SeeAlso href="${p.canonical}" />`,
+    `[d](${p.canonical}-extra)`, // 別記事（前方一致）は数えない
+  ].join("\n");
+  assert.equal(countLinkHits(src, p), 4);
+  assert.equal(countLinkHits(src, undefined), 0, "対応表に無い slug は 0（例外を投げない）");
+});
+
+test("内部リンク: 正規パスを持たない slug は旧 /docs/ だけで数える", () => {
+  const slug = "no-such-career-slug-xyz";
+  const p = careerLinkPatterns([slug]).get(slug);
+  assert.equal(p.canonical, null);
+  assert.equal(countLinkHits(`[x](/docs/${slug}) [y](/docs/${slug})`, p), 2);
+});

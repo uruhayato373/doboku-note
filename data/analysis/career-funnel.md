@@ -1,6 +1,6 @@
 # キャリアファネル基線レポート
 
-生成: 2026-10-10T02:04:50.929Z
+生成: 2026-10-11T09:38:30.005Z
 
 > [!warning]
 > GA4 と GSC は取得遅延が違うため**窓が一致しない**。出所を跨いで CTR や EPC を割らないこと。
@@ -12,22 +12,21 @@ _「異常 0 件」と「1 件も検査していない」を区別するため�
 
 | 対象 | 件数 |
 |---|---|
-| docMetaIndexTotal | 1346 |
+| docMetaIndexTotal | 1360 |
 | careerArticles | 45 |
-| siteMdxScanned | 1386 |
+| siteMdxScanned | 1400 |
 | extraLinkSourcesScanned | 1 |
 | gscRowsTotal | 1489 |
-| gscRowsMatchedCareer | 0 |
+| gscRowsMatchedCareer | 69 |
 | ga4LabelRowsMatched | 13 |
 | ga4PlacementRowsMatched | 14 |
-| careerArticlesInGa4Top | 0 |
+| careerArticlesInGa4Top | 24 |
 | noteCareerArticles | 24 |
 
 ## WARN
 
 - 入力欠落 1 件: afb（CI の fetch-metrics 供給を確認する）
 - 窓が不一致（GA4 2026-09-12〜2026-10-09 / GSC 2026-09-09〜2026-10-06）。取得元の遅延差なので異常ではないが、出所を跨いで CTR/EPC を割らないこと
-- GA4 page スナップショットは上位 10000 ページのみで、career 記事は 1 本も入っていない。users/sessions は「0」ではなく「観測範囲外」なので断定に使わない
 
 ## 漏斗
 
@@ -57,7 +56,7 @@ _「異常 0 件」と「1 件も検査していない」を区別するため�
 
 ### 2. キャリアページの流入（GA4 窓）
 
-GA4 上位ページに入った career 記事: 0 / 45 本
+GA4 上位ページに入った career 記事: 24 / 45 本
 
 ### 3. 柱ごとの検索と内部リンク
 
@@ -65,11 +64,11 @@ _被リンクは literal リンクの本数であり、実際の遷移ではな�
 
 | 柱 | 記事 | GSC 表示 | GSC クリック | 被リンク |
 |---|---|---|---|---|
-| career-path | 21 | 0 | 0 | 44 |
-| market-value | 9 | 0 | 0 | 29 |
-| service-choice | 5 | 0 | 0 | 2 |
-| quit | 5 | 0 | 0 | 4 |
-| application | 5 | 0 | 0 | 9 |
+| career-path | 21 | 113 | 1 | 61 |
+| market-value | 9 | 40 | 0 | 40 |
+| service-choice | 5 | 19 | 0 | 9 |
+| quit | 5 | 5 | 0 | 14 |
+| application | 5 | 14 | 0 | 13 |
 
 ### 4. affiliate CTA（GA4 窓）
 
@@ -193,51 +192,51 @@ afb: 未取得（fetch-afb-outcomes.mjs --commit が未実行、または fetch-
 
 | slug | 柱 | 公開 | GSC 表示 | クリック | 順位 | 被リンク | CTA |
 |---|---|---|---|---|---|---|---|
+| civil-construction-1-guide-company-types | career-path | ○ | 32 | 0 | 38.1 | 1 | 1 |
+| civil-construction-2-guide-salary | market-value | ○ | 24 | 0 | 6.8 | 4 | 1 |
+| civil-construction-1-guide-hatchu-shien | career-path | ○ | 18 | 0 | 19.3 | 9 | 1 |
+| civil-construction-1-guide-future | career-path | ○ | 14 | 0 | 10.6 | 1 | 1 |
+| civil-construction-1-guide-resume | application | ○ | 14 | 0 | 78.4 | 6 | 1 |
+| civil-construction-2-guide-young-career | career-path | ○ | 14 | 0 | 31.6 | 2 | 1 |
+| pe-construction-guide-career | career-path | ○ | 14 | 0 | 61 | 2 | 1 |
+| civil-construction-2-guide-career-agent-comparison | service-choice | ○ | 13 | 0 | 17.6 | 1 | 1 |
+| civil-construction-1-guide-grade-comparison | market-value | ○ | 6 | 0 | 47.6 | 2 | 0 |
+| civil-construction-2-guide-career | career-path | ○ | 6 | 0 | 61.7 | 10 | 1 |
+| civil-construction-1-guide-allowance | market-value | ○ | 5 | 0 | 65 | 0 | 1 |
+| civil-construction-1-guide-career-salary | market-value | ○ | 5 | 0 | 76 | 3 | 0 |
+| civil-construction-1-guide-consultant | career-path | ○ | 5 | 0 | 15.8 | 2 | 1 |
+| civil-construction-1-guide-quit-honne | quit | ○ | 5 | 0 | 64.8 | 0 | 1 |
+| civil-construction-1-guide-career-agents | service-choice | ○ | 4 | 0 | 44 | 2 | 0 |
+| civil-construction-1-guide-public-servant | career-path | ○ | 3 | 0 | 10.7 | 4 | 1 |
+| civil-construction-2-guide-career-change | career-path | ○ | 3 | 0 | 59.5 | 2 | 1 |
+| civil-construction-1-guide-buildjob-review | service-choice | ○ | 1 | 0 | 68 | 1 | 1 |
+| civil-construction-1-guide-career-agent-comparison | service-choice | ○ | 1 | 0 | 18 | 4 | 1 |
+| civil-construction-1-guide-career-path | career-path | ○ | 1 | 0 | 9 | 11 | 1 |
+| civil-construction-1-guide-public-engineer-exam-study | career-path | ○ | 1 | 0 | 1 | 3 | 1 |
+| pe-construction-fukugyou-dokuritsu | career-path | ○ | 1 | 0 | 18 | 0 | 0 |
+| rccm-guide-career-value | career-path | ○ | 1 | 1 | 2 | 2 | 1 |
 | civil-construction-1-guide-age-career | career-path | ○ | 0 | 0 | — | 0 | 1 |
-| civil-construction-1-guide-allowance | market-value | ○ | 0 | 0 | — | 0 | 1 |
-| civil-construction-1-guide-buildjob-review | service-choice | ○ | 0 | 0 | — | 0 | 1 |
-| civil-construction-1-guide-career | career-path | ○ | 0 | 0 | — | 13 | 1 |
-| civil-construction-1-guide-career-agent-comparison | service-choice | ○ | 0 | 0 | — | 1 | 1 |
-| civil-construction-1-guide-career-agents | service-choice | ○ | 0 | 0 | — | 1 | 0 |
-| civil-construction-1-guide-career-cases | market-value | ○ | 0 | 0 | — | 0 | 2 |
-| civil-construction-1-guide-career-consultation-before-quit | quit | ○ | 0 | 0 | — | 0 | 1 |
-| civil-construction-1-guide-career-path | career-path | ○ | 0 | 0 | — | 10 | 1 |
-| civil-construction-1-guide-career-salary | market-value | ○ | 0 | 0 | — | 3 | 0 |
-| civil-construction-1-guide-company-types | career-path | ○ | 0 | 0 | — | 0 | 1 |
-| civil-construction-1-guide-consultant | career-path | ○ | 0 | 0 | — | 0 | 1 |
+| civil-construction-1-guide-career | career-path | ○ | 0 | 0 | — | 0 | 1 |
+| civil-construction-1-guide-career-cases | market-value | ○ | 0 | 0 | — | 1 | 2 |
+| civil-construction-1-guide-career-consultation-before-quit | quit | ○ | 0 | 0 | — | 2 | 1 |
 | civil-construction-1-guide-dx-jobs | career-path | ○ | 0 | 0 | — | 0 | 1 |
-| civil-construction-1-guide-future | career-path | ○ | 0 | 0 | — | 1 | 1 |
-| civil-construction-1-guide-grade-comparison | market-value | ○ | 0 | 0 | — | 2 | 0 |
-| civil-construction-1-guide-hatchu-shien | career-path | ○ | 0 | 0 | — | 6 | 1 |
 | civil-construction-1-guide-interview | application | ○ | 0 | 0 | — | 3 | 1 |
-| civil-construction-1-guide-market-value | market-value | ○ | 0 | 0 | — | 8 | 1 |
-| civil-construction-1-guide-public-engineer-exam-study | career-path | ○ | 0 | 0 | — | 0 | 1 |
-| civil-construction-1-guide-public-engineer-salary-table | market-value | ○ | 0 | 0 | — | 0 | 1 |
-| civil-construction-1-guide-public-servant | career-path | ○ | 0 | 0 | — | 0 | 1 |
+| civil-construction-1-guide-market-value | market-value | ○ | 0 | 0 | — | 14 | 1 |
+| civil-construction-1-guide-public-engineer-salary-table | market-value | ○ | 0 | 0 | — | 3 | 1 |
 | civil-construction-1-guide-public-servant-or-private | career-path | ○ | 0 | 0 | — | 0 | 1 |
-| civil-construction-1-guide-quit-honne | quit | ○ | 0 | 0 | — | 0 | 1 |
-| civil-construction-1-guide-quit-or-stay | quit | ○ | 0 | 0 | — | 3 | 1 |
-| civil-construction-1-guide-quit-public-engineer | quit | ○ | 0 | 0 | — | 0 | 1 |
-| civil-construction-1-guide-resume | application | ○ | 0 | 0 | — | 4 | 1 |
+| civil-construction-1-guide-quit-or-stay | quit | ○ | 0 | 0 | — | 7 | 1 |
+| civil-construction-1-guide-quit-public-engineer | quit | ○ | 0 | 0 | — | 3 | 1 |
 | civil-construction-1-guide-salary-by-role | market-value | ○ | 0 | 0 | — | 2 | 1 |
-| civil-construction-1-guide-salary-up | market-value | ○ | 0 | 0 | — | 10 | 1 |
-| civil-construction-1-guide-timing | application | ○ | 0 | 0 | — | 0 | 1 |
+| civil-construction-1-guide-salary-up | market-value | ○ | 0 | 0 | — | 11 | 1 |
+| civil-construction-1-guide-timing | application | ○ | 0 | 0 | — | 1 | 1 |
 | civil-construction-1-guide-white-company | application | ○ | 0 | 0 | — | 1 | 1 |
-| civil-construction-1-guide-women | career-path | ○ | 0 | 0 | — | 0 | 1 |
-| civil-construction-1-public-servant-merit | career-path | ○ | 0 | 0 | — | 3 | 0 |
-| civil-construction-2-guide-buildjob-review | service-choice | ○ | 0 | 0 | — | 0 | 1 |
-| civil-construction-2-guide-career | career-path | ○ | 0 | 0 | — | 8 | 1 |
-| civil-construction-2-guide-career-agent-comparison | service-choice | ○ | 0 | 0 | — | 0 | 1 |
-| civil-construction-2-guide-career-change | career-path | ○ | 0 | 0 | — | 0 | 1 |
+| civil-construction-1-guide-women | career-path | ○ | 0 | 0 | — | 3 | 1 |
+| civil-construction-1-public-servant-merit | career-path | ○ | 0 | 0 | — | 7 | 0 |
+| civil-construction-2-guide-buildjob-review | service-choice | ○ | 0 | 0 | — | 1 | 1 |
 | civil-construction-2-guide-haken-seishain | career-path | ○ | 0 | 0 | — | 1 | 1 |
 | civil-construction-2-guide-job-reality | career-path | ○ | 0 | 0 | — | 1 | 1 |
-| civil-construction-2-guide-quit-or-stay | quit | ○ | 0 | 0 | — | 1 | 1 |
-| civil-construction-2-guide-resume | application | ○ | 0 | 0 | — | 1 | 1 |
-| civil-construction-2-guide-salary | market-value | ○ | 0 | 0 | — | 4 | 1 |
-| civil-construction-2-guide-young-career | career-path | ○ | 0 | 0 | — | 1 | 1 |
-| pe-construction-fukugyou-dokuritsu | career-path | ○ | 0 | 0 | — | 0 | 0 |
-| pe-construction-guide-career | career-path | ○ | 0 | 0 | — | 0 | 1 |
-| rccm-guide-career-value | career-path | ○ | 0 | 0 | — | 0 | 1 |
+| civil-construction-2-guide-quit-or-stay | quit | ○ | 0 | 0 | — | 2 | 1 |
+| civil-construction-2-guide-resume | application | ○ | 0 | 0 | — | 2 | 1 |
 
 ## note 側キャリア記事
 
