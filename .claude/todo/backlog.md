@@ -348,6 +348,14 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0669] check-google-ui-ssot が台帳に無い ga4.ui-history を参照して落ち、GSC UI の整合を検査できない
+タグ: [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-11]
+
+**起点**: 2026-10-11、/google-search-growth の手順 4（normalize の後）で `npm run check-google-ui-ssot` を回すと、`scripts/lib/datasets.mjs:475` の「台帳に無いデータセット: ga4.ui-history」で落ちる（GSC UI の正規化と search-growth:report は通る）。GA4 UI の取得は 2026-07-30 から失敗のまま（check-gsc-ui-due: trafficAcquisition=csv-menu-ambiguous・landingPage/events=report-not-found）で、ga4.ui-history の台帳宣言が無いか id が変わった可能性。検査が落ちるので marker ↔ history ↔ urls の整合を誰も確かめられていない。
+**やること**: check-google-ui-ssot が参照する GA4 の台帳 id を `scripts/lib/datasets.mjs` の宣言に合わせる（または `planned: true` で宣言）。GA4 UI が未取得のときは GA4 側を「未取得」と出して GSC 側の検査は続ける。回帰テストを足す。
+**完了条件**: `npm run check-google-ui-ssot` が exit 0（GA4 未取得なら未取得と表示）で、GSC の marker ↔ history ↔ urls の整合を実検査した件数を出す。
+
+
 ### [DN-0668] 総監の合格戦略記事に残る口頭試験評価の誤記を修正する
 タグ: [領域:商品] [時期:2026-10] [種類:不具合] [検証:check-mdx-facts] [起票:2026-10-11]
 
