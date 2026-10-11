@@ -30,13 +30,28 @@
  */
 export const PRODUCT_ID_ALIASES = new Map([['bk-i-r08-yosou-4', 'bk-i-r8-yosou-04-cn-gx']]);
 
+/**
+ * カタログ（config/products.json）の建設部門の id を、売上台帳の bk-* 系統へ寄せる規則（sales-recorder.md「命名系統の注意」）。
+ * noteTitle で照合するとカタログ id（pe-construction-*）に解決されるが、台帳の既存行は bk-* で、
+ * そのままだと商品別の集計が二つの id に割れる（2026-10-11・DN-0680）。
+ * - pe-construction-required-magazine → bk-i-required-essay-magazine
+ * - pe-construction-{科目}-magazine → bk-{科目}-secondary-magazine
+ * - pe-construction-{科目}-pack → bk-{科目}-pack
+ */
+export function toLedgerProductId(bare) {
+  if (bare === 'pe-construction-required-magazine') return 'bk-i-required-essay-magazine';
+  const m = /^pe-construction-([a-z-]+)-(magazine|pack)$/.exec(bare);
+  if (!m) return bare;
+  return m[2] === 'magazine' ? `bk-${m[1]}-secondary-magazine` : `bk-${m[1]}-pack`;
+}
+
 /** `article:` 接頭辞の有無を保ったまま bare id 部分だけを正規化する。 */
 export function canonicalizeProductId(rawId) {
   if (!rawId) return rawId;
   const id = String(rawId).trim();
   const hasPrefix = id.startsWith('article:');
   const bare = hasPrefix ? id.slice('article:'.length) : id;
-  const canonicalBare = PRODUCT_ID_ALIASES.get(bare) ?? bare;
+  const canonicalBare = toLedgerProductId(PRODUCT_ID_ALIASES.get(bare) ?? bare);
   return hasPrefix ? `article:${canonicalBare}` : canonicalBare;
 }
 

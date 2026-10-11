@@ -25,6 +25,14 @@ test('canonicalizeProductId は article: 接頭辞の有無を保つ', () => {
   assert.equal(canonicalizeProductId('article:tankan-calc-6patterns'), 'article:tankan-calc-6patterns');
 });
 
+test('建設部門のカタログ id（pe-construction-*）は売上台帳の bk-* 系統へ寄せる（集計が二つの id に割れない・DN-0680）', () => {
+  assert.equal(canonicalizeProductId('pe-construction-required-magazine'), 'bk-i-required-essay-magazine');
+  assert.equal(canonicalizeProductId('pe-construction-road-magazine'), 'bk-road-secondary-magazine');
+  assert.equal(canonicalizeProductId('pe-construction-geotechnical-pack'), 'bk-geotechnical-pack');
+  assert.equal(canonicalizeProductId('pe-construction-construction-planning-pack'), 'bk-construction-planning-pack');
+  assert.equal(canonicalizeProductId('article:pe-construction-oral-guide'), 'article:pe-construction-oral-guide', 'magazine・pack 以外は寄せない');
+});
+
 test('canonicalizeProductId は未知の id をそのまま返す', () => {
   assert.equal(canonicalizeProductId('brand-new-magazine-id'), 'brand-new-magazine-id');
 });
@@ -65,7 +73,7 @@ test('resolveMagazineId は noteTitle（販売履歴に出る note 上のマガ�
     },
     ...MAGAZINES,
   ];
-  assert.equal(resolveMagazineId('建設部門2次｜土質基礎まるごと合格パック', packs), 'pe-construction-geotechnical-pack');
+  assert.equal(resolveMagazineId('建設部門2次｜土質基礎まるごと合格パック', packs), 'bk-geotechnical-pack', 'カタログ id は台帳の bk-* 系統へ寄せる');
   assert.equal(resolveMagazineId('建設部門2次｜土質基礎まるごと合格パック', MAGAZINES), null, 'noteTitle を渡さなければ解決できない（前提の確認）');
   // 完全一致は部分一致より先: noteTitle が別マガジンの shortTitle を含んでも、完全一致した側に解決する
   const nested = [
@@ -78,7 +86,7 @@ test('resolveMagazineId は noteTitle（販売履歴に出る note 上のマガ�
 test('resolveSaleEntry は noteTitle 一致のマガジンを magazine 型で返す（取り直しで unknown に戻らない）', () => {
   const packs = [{ id: 'pe-construction-geotechnical-pack', noteTitle: '建設部門2次｜土質基礎まるごと合格パック', title: '技術士 建設部門 2次｜土質基礎 まるごと合格パック', shortTitle: '土質基礎 合格パック' }];
   assert.deepEqual(resolveSaleEntry({ title: '建設部門2次｜土質基礎まるごと合格パック', date: '2026-10-08' }, packs, 0), {
-    type: 'magazine', productId: 'pe-construction-geotechnical-pack', resolved: true,
+    type: 'magazine', productId: 'bk-geotechnical-pack', resolved: true,
   });
 });
 
@@ -91,7 +99,7 @@ test('実データ: カタログの noteTitle はすべて自分の id に解決
   }
   // 10/8 の売上（土質基礎まるごと合格パック）が、検算つきの取り直しと同じ経路（resolveSaleEntry）で確定する
   assert.deepEqual(resolveSaleEntry({ title: '建設部門2次｜土質基礎まるごと合格パック', date: '2026-10-08' }, catalog, 0), {
-    type: 'magazine', productId: 'pe-construction-geotechnical-pack', resolved: true,
+    type: 'magazine', productId: 'bk-geotechnical-pack', resolved: true,
   });
 });
 
