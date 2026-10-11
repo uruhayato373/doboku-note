@@ -80,12 +80,15 @@ export function checkIds(datasets, previous, allowRemoved = []) {
   return { duplicates, removed };
 }
 
+/** アプリ（QuizEngine の yearRank）が読める年度コード: h26・r07・r01-retry・2級土木の r07z（前期）・r07k（後期） */
+export const APP_YEAR_CODE = /^[hr]\d{2}(?:-retry|z|k)?$/;
+
 /** 1 問の表示用 HTML をそろえる（無ければ Markdown から作る）。画像の参照はアプリ内へ書き換える */
 export function toBundleQuestion(q) {
-  const html = (h, text) => rewriteImageSrcs(h ?? (text ? renderQuizMarkdown(text) : ''));
+  const html = (h, text, options) => rewriteImageSrcs(h ?? (text ? renderQuizMarkdown(text, options) : ''));
   return {
     ...q,
-    bodyHtml: html(q.bodyHtml, q.body),
+    bodyHtml: html(q.bodyHtml, q.body, { blanks: true }),
     options: q.options.map((o) => ({ ...o, html: html(o.html, o.text) })),
     explanations: q.explanations.map((e) => ({ ...e, html: html(e.html, e.text) })),
   };
@@ -147,6 +150,13 @@ function main() {
     for (const d of removed.slice(0, 10)) console.error(`  前回から消えた ${d.exam}/${d.id}`);
     for (const u of unsupported.slice(0, 10)) console.error(`  同梱できない画像 ${u}`);
     console.error(`[${NAME}] 重複 ${duplicates.length} / 消えた ID ${removed.length} / 同梱できない画像 ${unsupported.length}。書き出さない`);
+    process.exit(1);
+  }
+
+  // 年度コード: アプリは年度コードから新しい順に並べ、最新年度を無料で開放する（QuizEngine の yearRank）。読めない年度があると無料版が古い年度を開く
+  const unreadableYears = datasets.flatMap((ds) => ds.years.map((y) => y.year).filter((y) => !APP_YEAR_CODE.test(y)).map((y) => `${ds.exam}/${y}`));
+  if (unreadableYears.length) {
+    console.error(`[${NAME}] アプリが並べられない年度コード: ${unreadableYears.join(', ')}（読める形は ${APP_YEAR_CODE}。QuizEngine の yearRank と合わせて足す）`);
     process.exit(1);
   }
 

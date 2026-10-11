@@ -2,6 +2,7 @@ import { buildReport, records, reviewPeriod } from '../../../../scripts/lib/busi
 import { salesByQualification } from '../../../../scripts/lib/sales-by-qualification.mjs';
 import { latestIndexAsOf } from '../../../../scripts/lib/index-coverage.mjs';
 import { buildSearchOpportunities } from '../../../../scripts/lib/search-opportunities.mjs';
+import { loadMonthReceipts } from '../../../../scripts/lib/net-receipts-ledger.mjs';
 import { findRepoRoot } from './repo-root';
 
 /**
@@ -14,12 +15,16 @@ export type Scope = { id: string; label: string };
 export type KpiCell = { value: number | null; coverage: string; applicable: boolean };
 export type KpiRow = { id: string; label: string; unit: string; depth: 0 | 1 | 2; cells: Record<string, KpiCell> };
 export type KpiGroup = { label: string; rows: KpiRow[] };
+export type ReceiptChannel = { id: string; label: string; value: number | null; status: 'final' | 'to-date' | 'estimate' | 'missing'; asOf: string | null; note: string };
+export type MonthReceipts = { month: string; channels: ReceiptChannel[]; total: number | null; complete: boolean };
 export type Goal = { value: number; direction: string; effectiveDate: string; reviewDate: string } | null;
 export type KpiView = {
   period: { startDate: string; endDate: string };
   month: string;
   scopes: Scope[];
   receipts: number | null;
+  /** 月の受取額を台帳（note・ココナラ・KDP）から直接組み立てたもの。月の途中・確定前でも取得分を合計し、チャネルごとに確定か途中か推計かを持つ。 */
+  receiptsLive: MonthReceipts;
   goal: Goal;
   groups: KpiGroup[];
   /** 概要: チャネル別と資格別の販売額（受取ではなく販売額。受取はチャネル別に記録していない）。 */
@@ -108,6 +113,7 @@ export function loadKpiView(month?: string): KpiView {
     month: period.startDate.slice(0, 7),
     scopes,
     receipts: groups[0]!.rows[0]!.cells.all!.value,
+    receiptsLive: loadMonthReceipts(root, period.startDate.slice(0, 7)) as MonthReceipts,
     goal: target ? { value: target.value, direction: target.direction, effectiveDate: target.effectiveDate, reviewDate: target.reviewDate } : null,
     groups,
   };

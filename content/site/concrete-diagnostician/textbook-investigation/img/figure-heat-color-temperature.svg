@@ -2,7 +2,7 @@
 <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
   style="max-width:400px;width:100%"
   role="img"
-  aria-label="受熱温度の推定。表面の色は約300から600度でピンクから赤、600から900度で灰白色、900度以上で淡黄色に変わる。水酸化カルシウムは約400から600度、炭酸カルシウムは約600から800度で分解する">
+  aria-label="受熱温度の推定。表面の色は約300から600度でピンクから赤、600から950度で灰白色、950度以上で淡黄色に変わる。水酸化カルシウムは約400から600度、炭酸カルシウムは約600から800度で分解する">
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
@@ -30,10 +30,10 @@
   <text class="t-lb" x="95" y="380" text-anchor="middle">ほぼ変化なし</text>
   <rect class="b-pink" x="50" y="214" width="90" height="108"/>
   <text class="t-lb" x="95" y="272" text-anchor="middle">ピンク〜赤</text>
-  <rect class="b-grey" x="50" y="106" width="90" height="108"/>
-  <text class="t-lb" x="95" y="164" text-anchor="middle">灰白色</text>
-  <rect class="b-buff" x="50" y="70" width="90" height="36"/>
-  <text class="t-lb" x="95" y="93" text-anchor="middle">淡黄色</text>
+  <rect class="b-grey" x="50" y="88" width="90" height="126"/>
+  <text class="t-lb" x="95" y="155" text-anchor="middle">灰白色</text>
+  <rect class="b-buff" x="50" y="70" width="90" height="18"/>
+  <text class="t-lb" x="95" y="84" text-anchor="middle">淡黄色</text>
 
   <line class="axis" x1="46" y1="430" x2="50" y2="430"/>
   <text class="t-tick" x="42" y="434" text-anchor="end">0℃</text>
@@ -41,8 +41,8 @@
   <text class="t-tick" x="42" y="326" text-anchor="end">300℃</text>
   <line class="axis" x1="46" y1="214" x2="50" y2="214"/>
   <text class="t-tick" x="42" y="218" text-anchor="end">600℃</text>
-  <line class="axis" x1="46" y1="106" x2="50" y2="106"/>
-  <text class="t-tick" x="42" y="110" text-anchor="end">900℃</text>
+  <line class="axis" x1="46" y1="88" x2="50" y2="88"/>
+  <text class="t-tick" x="42" y="92" text-anchor="end">950℃</text>
   <line class="axis" x1="46" y1="70" x2="50" y2="70"/>
   <text class="t-tick" x="42" y="74" text-anchor="end">1000℃</text>
 

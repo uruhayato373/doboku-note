@@ -52,6 +52,21 @@ test('再試験は再試験の PDF・正答に、通常回は通常回に当て�
   assert.deepEqual(locateSources(inv, cfg.locate('r01-basic-ⅰ-1-1', {})), { question: 'R01/R01_基礎科目.pdf', answer: 'R01/R01_正答.pdf' });
 });
 
+test('2級の年1回の学科試験（平成27年度まで・期なしの ID）は学科試験の PDF・正答に当てる', () => {
+  const inv = { years: [
+    { year: 2014, files: [
+      { kind: 'question', section: '学科試験（土木）', file: 'H26/H26_学科試験.pdf', acquiredAt: '2026-10-09' },
+      { kind: 'question', section: '実地試験（土木）', file: 'H26/H26_実地試験.pdf', acquiredAt: '2026-10-09' },
+      { kind: 'answer', section: '学科試験 正答肢', file: 'H26/H26_学科試験_正答.pdf', acquiredAt: '2026-10-09' },
+    ] },
+  ] };
+  const loc = LEDGER_EXAMS['civil-construction-2'].locate('h26-05');
+  assert.equal(loc.article, 'civil-construction-2/primary-h26');
+  assert.equal(loc.no, '学科-5');
+  assert.deepEqual(locateSources(inv, loc), { question: 'H26/H26_学科試験.pdf', answer: 'H26/H26_学科試験_正答.pdf' });
+  assert.equal(LEDGER_EXAMS['civil-construction-2'].locate('r05k-12').article, 'civil-construction-2/primary-r05-kouki');
+});
+
 test('同期は照合・正答の記録を残し、原典が変わったときだけページを消す', () => {
   const prev = {
     ...rowsFor([{ id: 'h28-a-05', correct: 1 }])[0],

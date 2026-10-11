@@ -443,7 +443,7 @@ export const MAGAZINES = [
     id: 'cd-essay',
     fileBaseName: 'cd-essay-cover',
     magazineDir: 'content/note/コンクリート診断士/magazines/コンクリート診断士-記述式-模範答案集',
-    lines: ['コンクリート診断士 記述式', '問題A・問題B 模範答案集', '劣化機構別 全8本セット'],
+    lines: ['コンクリート診断士 記述式', '構造物の診断 模範答案集', '建築・土木＋劣化機構別 8本'],
     category: 'コンクリート診断士',
     fontSize: 42,
     fillBg: '#522A69',
@@ -451,7 +451,7 @@ export const MAGAZINES = [
   {
     id: 'cd-structure-case-bank',
     magazineDir: 'content/note/コンクリート診断士/magazines/コンクリート診断士-想定構造物8ケース',
-    lines: ['コンクリート診断士 記述式', '構造物別 想定8ケース', '問題B フル模範答案集'],
+    lines: ['コンクリート診断士 記述式', '構造物別 想定8ケース', 'フル模範答案集'],
     category: 'コンクリート診断士',
     fontSize: 42,
     fillBg: '#522A69',
@@ -483,7 +483,7 @@ export const MAGAZINES = [
   {
     id: 'cd-problem-a-pack',
     magazineDir: 'content/note/コンクリート診断士/magazines/コンクリート診断士-問題A集中パック',
-    lines: ['コンクリート診断士 記述式', '問題A 集中パック', '役割・倫理・維持管理'],
+    lines: ['コンクリート診断士 記述式', '入門パック', '解法ガイド＋建築・土木'],
     category: 'コンクリート診断士',
     fontSize: 42,
     fillBg: '#522A69',
@@ -491,7 +491,7 @@ export const MAGAZINES = [
   {
     id: 'cd-problem-b-pack',
     magazineDir: 'content/note/コンクリート診断士/magazines/コンクリート診断士-問題B13ケース',
-    lines: ['コンクリート診断士 記述式', '問題B 13ケース', '劣化機構別＋構造物別'],
+    lines: ['コンクリート診断士 記述式', '13ケース', '劣化機構別＋構造物別'],
     category: 'コンクリート診断士',
     fontSize: 42,
     fillBg: '#522A69',
@@ -499,7 +499,7 @@ export const MAGAZINES = [
   {
     id: 'cd-essay-complete-pack',
     magazineDir: 'content/note/コンクリート診断士/magazines/コンクリート診断士-記述式完全パック',
-    lines: ['コンクリート診断士 記述式', '問題A・B 完全パック', '全16記事'],
+    lines: ['コンクリート診断士 記述式', '完全パック', '全16記事'],
     category: 'コンクリート診断士',
     fontSize: 42,
     fillBg: '#522A69',

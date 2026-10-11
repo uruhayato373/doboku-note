@@ -8,7 +8,8 @@ import {
   toBundleQuestion,
 } from '../scripts/build-ios-quiz-bundle.mjs';
 import { SOURCES, buildDataset, optionsFromTable, toYearLabel } from '../scripts/build-quiz-data.mjs';
-import { APPS } from '../scripts/build-ios-quiz-bundle.mjs';
+import { APPS, APP_YEAR_CODE } from '../scripts/build-ios-quiz-bundle.mjs';
+import { renderQuizMarkdown } from '../scripts/lib/quiz-markdown.mjs';
 
 const ds = (exam, ids) => ({ exam, questions: ids.map((id) => ({ id })) });
 
@@ -88,5 +89,36 @@ test('土木施工管理技士アプリは 1級・2級の全問を出題でき�
     const ds = buildDataset(source);
     assert.ok(ds.questions.length > 500, `${exam}: ${ds.questions.length} 問`);
     assert.ok(ds.questions.every((q) => q.options.length >= 2), `${exam}: 選択肢の無い問題がある`);
+  }
+});
+
+test('公式正答が複数の問題（2級 令和5年度（後期）No.12・正答 3 と 4）は落とさず、正答をすべて持つ', () => {
+  const ds = buildDataset(SOURCES.find((s) => s.exam === 'civil-2'));
+  const q = ds.questions.find((x) => x.id === 'r05k-12');
+  assert.ok(q, 'r05k-12 が演習データに無い');
+  assert.equal(q.correct, 3);
+  assert.deepEqual(q.correctAll, [3, 4]);
+  assert.ok(ds.questions.filter((x) => x.correctAll).every((x) => x.correctAll.includes(x.correct)));
+});
+
+test('問題文の空欄に枠の印を付ける（括弧の中・矢印の並び・表の見出しには付けない）', () => {
+  const blanks = (md) => [...renderQuizMarkdown(md, { blanks: true }).matchAll(/<span class="quiz-blank">(.)<\/span>/gu)].map((m) => m[1]);
+  assert.deepEqual(blanks('より ア な構造体の築造。その　イ　を満たす'), ['ア', 'イ']);
+  assert.deepEqual(blanks('信頼性工学とともに ア の概念が出現した。\n\nイ　は、一定期間'), ['ア', 'イ']);
+  assert.deepEqual(blanks('次の（ ア ）～（ エ ）の記述について'), []);
+  assert.deepEqual(blanks('並べたもの ア → イ → ウ'), []);
+  assert.deepEqual(blanks('| | ア | イ |\n|---|---|---|\n| 1. | x | y |'), []);
+  assert.deepEqual(blanks('次の記述の、\u3000\u3000\u3000\u3000に入る語句'), ['\u3000']);
+  assert.deepEqual(blanks('次の記述の、（\u3000\u3000\u3000）に入る語句'), []);
+  // 選択肢・解説（blanks なし）には付けない
+  assert.equal(renderQuizMarkdown('より ア な構造体').includes('quiz-blank'), false);
+});
+
+test('アプリが並べられる年度コードだけを書き出す（読めない年度があると無料版が古い年度を開く）', () => {
+  for (const y of ['h26', 'r07', 'r01-retry', 'r07z', 'r07k']) assert.ok(APP_YEAR_CODE.test(y), y);
+  for (const y of ['r07x', '2025', 'r7']) assert.ok(!APP_YEAR_CODE.test(y), y);
+  for (const exam of [...APPS.pe.exams, ...APPS.doboku.exams]) {
+    const ds = buildDataset(SOURCES.find((s) => s.exam === exam));
+    for (const y of ds.years) assert.ok(APP_YEAR_CODE.test(y.year), `${exam}/${y.year}`);
   }
 });

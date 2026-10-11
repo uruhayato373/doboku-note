@@ -50,8 +50,18 @@ export const LEDGER_EXAMS = {
     quizExam: 'civil-2',
     source: { kind: 'json', path: 'src/config/civil-2-exam-questions.json' },
     locate(id) {
-      const m = /^(r\d{2})([kz])-(\d{2})$/.exec(id);
+      const m = /^([hr]\d{2})([kz])?-(\d{2})$/.exec(id);
       if (!m) return null;
+      // 平成27年度までは年1回の学科試験（期なし。在庫台帳の section は「学科試験（土木）」「学科試験 正答肢」）
+      if (!m[2]) {
+        return {
+          year: yearOfCode(m[1]),
+          article: `civil-construction-2/primary-${m[1]}`,
+          no: `学科-${Number(m[3])}`,
+          question: /学科試験/,
+          answer: /学科試験/,
+        };
+      }
       const term = m[2] === 'k' ? '後期' : '前期';
       return {
         year: yearOfCode(m[1]),

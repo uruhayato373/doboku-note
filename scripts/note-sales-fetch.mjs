@@ -50,7 +50,7 @@ import { join } from 'node:path';
 import { resolveKnownSaleEntry, resolveSaleEntry, reconcileTotal, canonicalizeProductId } from './lib/sales-normalize.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { describeReauthResult, isNoteReauthPage, noteReauthMarkPath, passNoteReauth } from './lib/note-reauth.mjs';
-import { isNoteMonthFinalized, isNoteSalesAggregating, noteSalesPendingMessage } from './lib/net-receipts.mjs';
+import { isNoteMonthFinalized, isNoteSalesAggregating, noteSalesPendingMessage, parseNoteSalesDetail } from './lib/net-receipts.mjs';
 import { jst } from './lib/business-direction.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { jstMonth, todayJst } from './lib/jst-date.mjs';
@@ -291,6 +291,26 @@ try {
     console.log(`[6] 未解決 productId ${unresolvedCount} 件（article:unknown-* で保留・後で /record-sales か手動修正で確定させる）`);
   }
 
+  // 確定した月（翌月 2 日以降）は売上管理の月別詳細から手数料控除後売上も読む（月の受取額の note 分・net-receipts.mjs）。
+  // 読めなくても販売履歴の記録は止めない。同じ総額で前に読めた値があれば引き継ぐ
+  const fetchedDay = jst(now);
+  const finalized = isNoteMonthFinalized(MONTH_ARG, fetchedDay);
+  const prevRec = log.months?.[MONTH_ARG];
+  let receipts = prevRec?.net != null && prevRec.total === dashboardTotal ? { net: prevRec.net, fee: prevRec.fee } : null;
+  if (finalized) {
+    const [yy, mm] = MONTH_ARG.split('-').map(Number);
+    await page.goto(`https://note.com/dashboard/salesmanage?datespan=${MONTH_ARG.replace('-', '')}`, { waitUntil: 'domcontentloaded', timeout: 60000 });
+    await page.waitForTimeout(4000);
+    const detailText = await page.evaluate(() => document.body.innerText || '');
+    const detail = detailText.includes(`${yy}年${mm}月の売上詳細`) ? parseNoteSalesDetail(detailText) : null;
+    if (detail?.net != null && detail.gross === dashboardTotal) {
+      receipts = { net: detail.net, fee: Math.abs(detail.fee ?? 0) };
+      console.log(`[6] 手数料控除後売上 ¥${detail.net.toLocaleString()}（売上 ¥${detail.gross.toLocaleString()}・手数料 ¥${receipts.fee.toLocaleString()}）`);
+    } else {
+      console.log(`[6] WARN: 月別詳細の手数料控除後売上を読めない（${detail ? `売上 ${detail.gross} / 総額 ${dashboardTotal}` : '月別詳細の見出しが無い'}）。${receipts ? '前回の値を引き継ぐ' : '受取額の note 分は推計になる'}`);
+    }
+  }
+
   if (!COMMIT) {
     console.log(`\n[dry-run] ${entries.length} 件を書き込み対象として検出（未反映・実書き込みは --commit）`);
     await ctx.close();
@@ -304,8 +324,7 @@ try {
   log.updatedAt = todayJst(now);
   // 月ごとの取得記録。finalized=true は note の確定日（翌月 2 日）以降に月次表示と検算一致したもの。
   // 事業レビュー・実験計測はこれが true の月だけを確定値として扱う（確定前の値を完了と呼ばない）
-  const fetchedDay = jst(now);
-  log.months = { ...(log.months ?? {}), [MONTH_ARG]: { fetchedAt: now.toISOString(), count: entries.length, total: dashboardTotal, finalized: isNoteMonthFinalized(MONTH_ARG, fetchedDay) } };
+  log.months = { ...(log.months ?? {}), [MONTH_ARG]: { fetchedAt: now.toISOString(), count: entries.length, total: dashboardTotal, finalized, ...(receipts ?? {}) } };
   writeDataset(ROOT, 'note.sales', log); // 型（NoteSalesLog）を検査してから書く。合わなければ 1 バイトも書かない
   console.log(`[6] ${datasetPath('note.sales')} を更新: ${MONTH_ARG} を ${removed} 件 → ${entries.length} 件へ差し替え`);
 

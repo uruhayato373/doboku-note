@@ -6,24 +6,24 @@ utmCampaign: cd-case-pc-grout-corrosion
 noteMagazine: コンクリート診断士-想定構造物8ケース
 notePublishedAt: "2026-09-20"
 noteId: "n09cc18f5823e"
-title: "コンクリート診断士 記述式 問題B｜PC橋のグラウト不良とPC鋼材腐食"
+title: "コンクリート診断士 記述式 模範答案｜PC橋のグラウト不良とPC鋼材腐食"
 noteUrl: "https://note.com/dobokunote/n/n09cc18f5823e"
 noteStatus: published
 published: false
 technicalReview: approved
 paidBoundary: "答案の方針"
 price: 1480
-coverTitle: "問題B｜PC橋の鋼材腐食"
+coverTitle: "模範答案｜PC橋の鋼材腐食"
 cover:
   variant: crop-safe-v4
   leadIn: "コンクリート診断士｜構造物別"
   headline: "PC橋"
-  hi: "問題B"
+  hi: "土木"
   hiSuffix: "鋼材腐食"
   benefit: "診断から対策まで答案化"
 ---
 
-# コンクリート診断士 記述式 問題B｜PC橋のグラウト不良とPC鋼材腐食
+# コンクリート診断士 記述式 模範答案｜PC橋のグラウト不良とPC鋼材腐食
 
 **こんな人のための記事です**
 
@@ -37,7 +37,7 @@ cover:
 - X線・広帯域超音波・削孔確認等の段階的な調査
 - 残存プレストレスを踏まえた補修・補強方針
 
-本記事は、コンクリート診断士試験の問題Bを想定したオリジナル教材です。実在する過去問の再録ではありません。観察事実から劣化機構を推定し、調査、評価、対策までを一つの論理でつなぐ練習に使います。
+本記事は、コンクリート診断士試験の記述式（構造物の診断の問題）を想定したオリジナル教材です。実在する過去問の再録ではありません。観察事実から劣化機構を推定し、調査、評価、対策までを一つの論理でつなぐ練習に使います。
 
 > 模範答案は型を示すものです。構造形式、環境、調査結果、数値は自分が解く設問の条件に合わせて置き換えてください。
 

@@ -12,7 +12,7 @@
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { assessSalesBenchmark, assessSalesLog, ageInDays, dueSalesMonth } from '../scripts/check-sales-freshness.mjs';
+import { assessSalesBenchmark, assessSalesLog, ageInDays, dueSalesMonth, assessLedgerAge } from '../scripts/check-sales-freshness.mjs';
 
 const at = (y, m, d) => Date.UTC(y, m - 1, d);
 const NOW = at(2026, 8, 17);
@@ -103,3 +103,13 @@ test('5日以降は前月、月初は前々月を月次照合対象にする', (
   assert.equal(dueSalesMonth(new Date('2026-09-05T03:00:00Z')), '2026-08'); // JST 9/5 12:00
   assert.equal(dueSalesMonth(new Date('2027-01-10T03:00:00Z')), '2026-12');
 });
+
+test('受取額のココナラの台帳も週次で更新されているかを台帳の閾値で見る（2026-10-11）', () => {
+  const now = Date.UTC(2026, 9, 11);
+  const base = { label: 'ココナラ', warnDays: 10, failDays: 21 };
+  assert.equal(assessLedgerAge({ ...base, day: '2026-10-09' }, now).status, 'OK');
+  assert.equal(assessLedgerAge({ ...base, day: '2026-09-27' }, now).status, 'WARN');
+  assert.equal(assessLedgerAge({ ...base, day: '2026-09-15' }, now).status, 'FAIL');
+  assert.equal(assessLedgerAge({ ...base, day: null }, now).status, 'FAIL');
+});
+

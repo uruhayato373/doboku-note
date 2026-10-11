@@ -326,6 +326,7 @@
     "check-outbound-links": "node scripts/check-outbound-links.mjs",
     "check-x-utm": "node scripts/check-x-utm.mjs",
     "coconala-analytics": "node scripts/coconala-analytics.mjs",
+    "coconala-revenue": "node scripts/coconala-revenue.mjs",
     "coconala-blog-delete-draft": "node scripts/coconala-blog-delete-draft.mjs",
     "coconala-content-pdf": "node scripts/build-coconala-content-pdf.mjs",
     "coconala-cover": "node scripts/coconala-cover.mjs",
