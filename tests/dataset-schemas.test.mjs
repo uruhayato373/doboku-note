@@ -211,12 +211,11 @@ test('日時: 人が手で書く台帳は分までを許すが、時差は必須
 });
 
 test('日時: ココナラの返信期限は JST の時差付き（時差なしは UTC で動く CI が 9 時間ずれて読むので止める）', () => {
-  const S = SCHEMAS.CoconalaOrdersSnapshot;
-  const withDue = (replyDueAt) => mutateLatest('coconala.orders-snapshot', (r) => { r.orders[0].replyDueAt = replyDueAt; });
-  assertFails(S, withDue('2026-08-27T21:00'), /^orders\.0\.replyDueAt/);
-  assertOk(S, withDue('2026-08-27T21:00+09:00'));
-  assertFails(S, withDue('2026-08-27T21:00:00+9:00'), /^orders\.0\.replyDueAt/);
-  assertFails(S, withDue('2026-99-99T99:99'), /^orders\.0\.replyDueAt/);
+  const withDue = (replyDueAt) => (r) => { r.orders[0].replyDueAt = replyDueAt; };
+  checkSnapshot(withDue('2026-08-27T21:00'), /^orders\.0\.replyDueAt/);
+  checkSnapshot(withDue('2026-08-27T21:00+09:00'), null);
+  checkSnapshot(withDue('2026-08-27T21:00:00+9:00'), /^orders\.0\.replyDueAt/);
+  checkSnapshot(withDue('2026-99-99T99:99'), /^orders\.0\.replyDueAt/);
 });
 
 test('月: 2026-13 のような存在しない月を止める', () => {
@@ -651,6 +650,61 @@ const mutateLatest = (id, fn) => {
   return value;
 };
 
+/**
+ * ココナラの取引一覧の最小の記録（全タブが取れていて取引が 1 件）。実データはココナラの取得が止まる間（403 など）に
+ * 部分取得・取引 0 件になる（DN-0667）ので、書き換えて違反を確かめる検査の土台は実データだけにしない。
+ */
+const snapshotFixture = () => ({
+  version: 1,
+  fetchedAt: '2026-10-01T00:00:00.000Z',
+  status: 'ok',
+  source: 'test',
+  privacyNote: 'test',
+  scan: {
+    tabs: [
+      { key: 'required', label: '要対応', url: 'https://coconala.com/mypage/received_orders/required', ok: true, rows: 1 },
+      { key: 'closed', label: '完了', url: 'https://coconala.com/mypage/received_orders/closed', ok: true, rows: 0 },
+    ],
+    tabsOk: 2,
+    tabsTotal: 2,
+    deadlineFailed: 0,
+  },
+  orders: [
+    {
+      talkroomId: '18351970',
+      talkroomUrl: 'https://coconala.com/talkrooms/18351970',
+      tab: 'required',
+      tabLabel: '要対応',
+      serviceId: null,
+      listingText: 'test',
+      priceYen: 15000,
+      soldOn: '2026-09-25',
+      deliveryDueSet: false,
+      statusLabel: '要対応',
+      lastMessageAt: '09/25 20:45',
+      unreplied: true,
+      replyDueAt: null,
+    },
+  ],
+  inquiries: [],
+});
+/** 取引一覧の検査の土台。最小の記録は常に使い、実データも「全タブが取れていて取引がある」ときは使う（検査は消さない・skip にしない） */
+const snapshotBases = () => {
+  const real = latest('coconala.orders-snapshot')?.value;
+  const realUsable = real?.status === 'ok' && real.orders.length > 0;
+  return [snapshotFixture(), ...(realUsable ? [structuredClone(real)] : [])];
+};
+/** 土台ごとに記録を書き換えて検査する。expected が null なら型を通ること、正規表現ならその違反が出ること */
+const checkSnapshot = (mutate, expected) => {
+  const S = SCHEMAS.CoconalaOrdersSnapshot;
+  for (const base of snapshotBases()) {
+    const value = structuredClone(base);
+    mutate(value);
+    if (expected === null) assertOk(S, value);
+    else assertFails(S, value, expected);
+  }
+};
+
 test('note.referrers: 月の合計が流入元の合計と合わない・ページビューが読めない・売上が整数でない記録を止める', () => {
   const R = SCHEMAS.NoteReferrers;
   assertOk(R, latest('note.referrers').value);
@@ -686,16 +740,17 @@ test('note.magazines: --contents 無しの取得（notes なし）・件数の�
 
 test('coconala.orders-snapshot: タブの数・状態の食い違い、取引の重複、販売日の誤りを止める（見積りなど販売前の行は null で通る）', () => {
   const S = SCHEMAS.CoconalaOrdersSnapshot;
-  assertOk(S, latest('coconala.orders-snapshot').value);
-  assertFails(S, mutateLatest('coconala.orders-snapshot', (r) => { r.scan.tabsOk -= 1; }), /^scan\.tabsOk/);
-  assertFails(S, mutateLatest('coconala.orders-snapshot', (r) => { r.scan.tabsTotal += 1; }), /^scan\.tabsTotal/);
-  assertFails(S, mutateLatest('coconala.orders-snapshot', (r) => { r.status = 'partial'; }), /^status/);
-  assertOk(S, mutateLatest('coconala.orders-snapshot', (r) => { r.status = 'partial'; r.scan.tabs[0].ok = false; r.scan.tabsOk = r.scan.tabsTotal - 1; }));
-  assertFails(S, mutateLatest('coconala.orders-snapshot', (r) => { r.orders.push(structuredClone(r.orders[0])); }), /^orders\.\d+: talkroomId/);
-  assertFails(S, mutateLatest('coconala.orders-snapshot', (r) => { r.orders[0].soldOn = '2026/08/04'; }), /^orders\.0\.soldOn/);
-  assertOk(S, mutateLatest('coconala.orders-snapshot', (r) => { r.orders[0].soldOn = null; r.orders[0].priceYen = null; r.orders[0].replyDueAt = '2026-08-27T21:00+09:00'; }));
-  assertFails(S, mutateLatest('coconala.orders-snapshot', (r) => { r.orders[0].replyDueAt = '2026-99-99T99:99'; }), /^orders\.0\.replyDueAt/);
-  assertFails(S, mutateLatest('coconala.orders-snapshot', (r) => { delete r.orders[0].talkroomId; }), /^orders\.0\.talkroomId/);
+  if (latest('coconala.orders-snapshot')) assertOk(S, latest('coconala.orders-snapshot').value); // 実データは部分取得・空でも型は通る
+  for (const base of snapshotBases()) assertOk(S, base);
+  checkSnapshot((r) => { r.scan.tabsOk -= 1; }, /^scan\.tabsOk/);
+  checkSnapshot((r) => { r.scan.tabsTotal += 1; }, /^scan\.tabsTotal/);
+  checkSnapshot((r) => { r.status = 'partial'; }, /^status/);
+  checkSnapshot((r) => { r.status = 'partial'; r.scan.tabs[0].ok = false; r.scan.tabsOk = r.scan.tabsTotal - 1; }, null);
+  checkSnapshot((r) => { r.orders.push(structuredClone(r.orders[0])); }, /^orders\.\d+: talkroomId/);
+  checkSnapshot((r) => { r.orders[0].soldOn = '2026/08/04'; }, /^orders\.0\.soldOn/);
+  checkSnapshot((r) => { r.orders[0].soldOn = null; r.orders[0].priceYen = null; r.orders[0].replyDueAt = '2026-08-27T21:00+09:00'; }, null);
+  checkSnapshot((r) => { r.orders[0].replyDueAt = '2026-99-99T99:99'; }, /^orders\.0\.replyDueAt/);
+  checkSnapshot((r) => { delete r.orders[0].talkroomId; }, /^orders\.0\.talkroomId/);
 });
 
 test('coconala.analytics: 取得の段・状態・取得日の食い違い、期間を読めない記録を止める（マスクされた指標は null で通る）', () => {

@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-11T04:20:26.866Z",
+  "generated_at": "2026-10-11T06:22:30.583Z",
   "summary": {
-    "total_mdx_files": 1399,
+    "total_mdx_files": 1400,
     "total_unique_tags": 132,
     "allowlist_size": 330,
     "known_count": 132,
@@ -1319,7 +1319,7 @@
     },
     {
       "name": "past-questions",
-      "count": 190,
+      "count": 191,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-primary-h18-a",
@@ -1359,6 +1359,7 @@
         "civil-construction-1-secondary-r05",
         "civil-construction-1-secondary-r06",
         "civil-construction-1-secondary-r07",
+        "civil-construction-1-secondary-r08",
         "civil-construction-2-primary-h18",
         "civil-construction-2-primary-h20",
         "civil-construction-2-primary-h26",
@@ -3672,7 +3673,7 @@
     },
     {
       "name": "secondary",
-      "count": 25,
+      "count": 26,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-secondary-concrete-basics",
@@ -3691,6 +3692,7 @@
         "civil-construction-1-secondary-r05",
         "civil-construction-1-secondary-r06",
         "civil-construction-1-secondary-r07",
+        "civil-construction-1-secondary-r08",
         "civil-construction-2-secondary-experience-writing-by-theme",
         "civil-construction-2-secondary-experience-writing-examples",
         "civil-construction-2-secondary-experience-writing-guide",

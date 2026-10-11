@@ -2736,6 +2736,23 @@
       "commit": "c23a7f144ed1",
       "verification": "npm run check-answer-marks（PR #986 の CI で PASS）",
       "note": "check-answer-marks（quality:audit の answer-marks・ci:true）で全資格の過去問 154 記事・4,982 問の印を照合し 0 件。見つかった 591 件は 1120fa352 で修正。残件は DN-0671（演習データに記述ごとの解説）・DN-0672（技術士一次 H27/H28 の定型句の解説）・DN-0673（該当しない型の向き）・DN-0680（develop の CI の別原因）へ抽出"
+    },
+    {
+      "id": "DN-0680",
+      "at": "2026-10-11",
+      "task": "develop の CI が売上の商品名の照合漏れ（noteTitle を見ない）とココナラの実データ依存のテストで落ちている",
+      "tier": "high",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/sales-normalize.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "2b92ba853c8a",
+      "verification": "develop の Pre-merge check（ef9ad872c）で audit・build とも success・check-qualification-market OK・npm test 失敗 0",
+      "note": "売上を noteTitle でも照合し、建設部門のカタログ id は台帳の bk-* へ寄せる（toLedgerProductId）。ココナラのテストはフィクスチャを土台に（PR #992）。10/8 の行は bk-geotechnical-pack に解決（台帳の bk 系統に合わせたため、カードの pe-construction-geotechnical-pack から変更）"
     }
   ]
 }

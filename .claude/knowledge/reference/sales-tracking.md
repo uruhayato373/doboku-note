@@ -87,9 +87,9 @@ note 有料記事・マガジンの販売履歴を一元管理する運用手順
 - 総額が一致したら、その月は**追記ではなく差し替える**。部分的に手入力された月へ追記すると
   重複と誤転記（実際に 2026-07-13 の1件が日付か金額違いで残っていた）が混ざる
 
-`productId` の解決順: 手当表 → 既存ログの同一タイトルに紐づく確定済みproductIdが1種類だけなら再利用 → `src/lib/note-magazines.ts` の `title`/`shortTitle` →
+`productId` の解決順: 既存ログの同一タイトルに紐づく確定済みproductIdが1種類だけなら再利用 → カタログに無い単品の手当表（`scripts/lib/sales-normalize.mjs` の `SINGLE_ARTICLE_TITLE_RULES`・題名の見分けに足りる語で当てる） → `src/lib/note-magazines.ts` の `noteTitle`（販売履歴に出る note 上のマガジン名）/`title`/`shortTitle` →
 `content/note/**/article*.md` の H1 → ディレクトリ名。note の表示名はカタログ名と揺れるので
-（例「技術士 総監｜記述式 完全パック」＝ `essay-complete-pack`）、揺れは手当表で吸収する。
+（例「技術士 総監｜記述式 完全パック」＝ `essay-complete-pack`）、揺れはマガジンなら `noteTitle` 照合、カタログに無い単品なら手当表で吸収する。建設部門のカタログ id（`pe-construction-*`）は `toLedgerProductId` で台帳の `bk-*` 系統へ寄せる。
 
 ## 運用フロー
 
@@ -211,6 +211,7 @@ npm run report-site-to-sales -- --month 2026-08
 1. `src/lib/note-magazines.ts` にエントリ追加（マガジンの場合）／ココナラは `src/lib/coconala-services.ts`
 2. `.claude/agents/sales-recorder.md` の productId 推定ルールに追加
 3. 本ドキュメントの命名規則テーブルに追記
+4. カタログに無い単品で、note の題名が変わる・初出で `article:unknown-*` になる場合は、`scripts/lib/sales-normalize.mjs` の `SINGLE_ARTICLE_TITLE_RULES` に 1 行足す（`tests/sales-normalize.test.mjs` が規則同士の重なりを止める）
 
 > **機械ガード**: 手順②の取りこぼし（mapping 陳腐化）は `npm run check-sales-mapping` が検知する。
 > data/note/sales.json に出現する productId が sales-recorder.md の mapping パターンに一致しない、
@@ -301,6 +302,7 @@ KENP既読ページは共有口座全体値でサイト帰属できないため�
 | `scripts/sales-summary.mjs` | 集計スクリプト（月フィルタは位置引数。`-- 2026-06`） |
 | `scripts/note-sales-fetch.mjs` | note ダッシュボードからの read-only 自動取得＋検算＋差し替え（`npm run note-sales-fetch`） |
 | `scripts/lib/sales-normalize.mjs` | productId 解決・表記ゆれ正規化・検算の純関数（`tests/sales-normalize.test.mjs`） |
+| `scripts/lib/sales-mapping.mjs` | カタログ（note-magazines.ts）の解析 `catalogMagazines`（`tests/sales-mapping-catalog.test.mjs`） |
 | `scripts/report-site-to-sales.mjs` | 月次のサイト送客→note 売上の突合（純関数 `scripts/lib/site-to-sales.mjs`・`tests/site-to-sales.test.mjs`） |
 | `scripts/check-sales-mapping.mjs` | productId が mapping に文書化されているか検証する pre-commit ガード |
 | `scripts/kdp-report.mjs` | KDP 月次ロイヤリティ取得（`npm run kdp-report`・読み取り専用） |
