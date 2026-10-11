@@ -87,7 +87,7 @@ note 有料記事・マガジンの販売履歴を一元管理する運用手順
 - 総額が一致したら、その月は**追記ではなく差し替える**。部分的に手入力された月へ追記すると
   重複と誤転記（実際に 2026-07-13 の1件が日付か金額違いで残っていた）が混ざる
 
-`productId` の解決順: 手当表 → 既存ログの同一タイトルに紐づく確定済みproductIdが1種類だけなら再利用 → `src/lib/note-magazines.ts` の `title`/`shortTitle` →
+`productId` の解決順: 既存ログの同一タイトルに紐づく確定済みproductIdが1種類だけなら再利用 → カタログに無い単品の手当表（`scripts/lib/sales-normalize.mjs` の `SINGLE_ARTICLE_TITLE_RULES`・題名の見分けに足りる語で当てる） → `src/lib/note-magazines.ts` の `noteTitle`（販売履歴に出る note 上のマガジン名）/`title`/`shortTitle` →
 `content/note/**/article*.md` の H1 → ディレクトリ名。note の表示名はカタログ名と揺れるので
 （例「技術士 総監｜記述式 完全パック」＝ `essay-complete-pack`）、揺れは手当表で吸収する。
 
