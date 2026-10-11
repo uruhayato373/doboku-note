@@ -894,7 +894,7 @@
       "videoImageReplacement": {
         "source": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/video.e7011ab0.mp4",
         "sourceSha256": "e7011ab096d65b160592ec690cbb73dcf590ec93aecf6389123f3ed7ef643aa3",
-        "outputSha256": "1b618bb786dc2edd1f45cb895f41d5c37b6188681a0f9999543169432ae28a32",
+        "outputSha256": "ffadce640a505812eb4917166de4c4f531cbb5371c3df1bdd7b66ead30b72056",
         "audioPacketsUnchanged": true,
         "audioPacketSha256": "69c4c79e817c2c3b7778585cecdc95baf1bb9621d124957fd5d0234b21e4c24b",
         "ttsRegenerated": false,
@@ -961,7 +961,7 @@
             "sceneId": "c02-title",
             "startSec": 88.55,
             "endSec": 90.86,
-            "imageSha256": "7ec117448181b46806631a2c97a0d73c0c40aa54e1b841f6eda12f459a8da6d3"
+            "imageSha256": "502ee58c652a248a1c6d39968b6efbaaf3056d314037fbd55d00cfccc9dd496c"
           },
           {
             "sceneId": "c02-premise",
@@ -1009,7 +1009,7 @@
             "sceneId": "c03-title",
             "startSec": 169.15,
             "endSec": 171.42000000000002,
-            "imageSha256": "02cbb5d982deed2fe0f66acbf70db323a5a30075f197a70d1c80d2782dcfc37c"
+            "imageSha256": "fbfe0f73bcb57402edb4adaf51077b2bf87e6164af9014dd3c1392a7bdda9a54"
           },
           {
             "sceneId": "c03-premise",
@@ -1063,7 +1063,7 @@
             "sceneId": "c04-title",
             "startSec": 266.91,
             "endSec": 269.07,
-            "imageSha256": "84201ba0984ed305abeab7c593cf7b5fb8ac2e761918fc714fc6d67903eaadb3"
+            "imageSha256": "44c94167ff4ed110143c9422db757b487df5aec1553ee3410771429fef844751"
           },
           {
             "sceneId": "c04-premise",
@@ -1111,7 +1111,7 @@
             "sceneId": "c05-title",
             "startSec": 350.51,
             "endSec": 352.99,
-            "imageSha256": "e68eaa67d6d10d6d8cd5c44458b2ce06d6e123915b40f87ad46b7745b645bb76"
+            "imageSha256": "c280d0601cd419fb19537a8e7e92cebb6f261dc3bfda301efc71194c0c7ffb31"
           },
           {
             "sceneId": "c05-premise",
@@ -1159,7 +1159,7 @@
             "sceneId": "c06-title",
             "startSec": 435.38,
             "endSec": 442.37,
-            "imageSha256": "96aeff6d16f7fe7415030ecc02b1f508efbe1c948af21a51e22b4f35974cd95d"
+            "imageSha256": "c578bbaff3e1ced5a1f71c087d91246c34bad0cf44ab233d18a935651c0ffd61"
           },
           {
             "sceneId": "c06-soil-tests",
@@ -1291,7 +1291,7 @@
             "sceneId": "c07-title",
             "startSec": 700.74,
             "endSec": 711.77,
-            "imageSha256": "1e4348b7847070c1e0539960b493dc837e414dd8f316622409ef09e8c1517fb8"
+            "imageSha256": "37b3fd6a81ccda7acb361280ae10613fdf73ae44e8482390c10749e0360c91a6"
           },
           {
             "sceneId": "c07-premise",
@@ -1333,7 +1333,7 @@
             "sceneId": "c08-title",
             "startSec": 812.59,
             "endSec": 815.63,
-            "imageSha256": "b45d5418371a188cd8209696a040ea009eeecfee406f564fca91c9b7a8795799"
+            "imageSha256": "e934701308fb99898dbc27c39550d3bf345dd9f905508652a27e877437064df6"
           },
           {
             "sceneId": "c08-premise",
@@ -1381,7 +1381,7 @@
             "sceneId": "c09-title",
             "startSec": 924.32,
             "endSec": 927.62,
-            "imageSha256": "4f4827370fcd6108eb2f2995ffe1479edb247f01f85ea2f68b16b24a2d89b541"
+            "imageSha256": "31811743f3060d9cf9995bf514afa5fc6db24362a0a9196dda788cdead3480a3"
           },
           {
             "sceneId": "c09-premise",
@@ -1429,7 +1429,7 @@
             "sceneId": "c10-title",
             "startSec": 1020.35,
             "endSec": 1023.67,
-            "imageSha256": "5e5a9a4ea6dccd16dee51aa0f879e9b10b863fe34b16763ad6584b8683ad43bf"
+            "imageSha256": "dae17f976c6cf2666a95910e0b444178d52b76a5674b14156e2dda838a0dfa8e"
           },
           {
             "sceneId": "c10-premise",
@@ -1477,7 +1477,7 @@
             "sceneId": "c11-title",
             "startSec": 1120.74,
             "endSec": 1124,
-            "imageSha256": "e57c93e1b71b6ae0a2bb69ce2b4b8d78a32b764fff1bae4d39c6cf152486e6b4"
+            "imageSha256": "6523d4686e9f605abad25a7ab6e2f4dc47d307f97d53fcac139c69b4211a55f5"
           },
           {
             "sceneId": "c11-premise",
@@ -1519,7 +1519,7 @@
             "sceneId": "c12-title",
             "startSec": 1225.91,
             "endSec": 1230.02,
-            "imageSha256": "812080ed112cff39693b0a3770763b189d936126aa0069faea083f74811bf438"
+            "imageSha256": "b5394ba70e425701da76f118185f6d43a0944ce6023f4342914c576cd6c366cc"
           },
           {
             "sceneId": "c12-premise",
@@ -1555,7 +1555,7 @@
             "sceneId": "c13-title",
             "startSec": 1333.11,
             "endSec": 1337.06,
-            "imageSha256": "4c421b98333376510e9ed917e0b113d17c875288aa9a0a7192ddc5187d6d66e6"
+            "imageSha256": "41a435a5569e75adc132eec6a8c26046be4d6d69d45a6bbe1eb9050d5752f759"
           },
           {
             "sceneId": "c13-premise",
@@ -1597,7 +1597,7 @@
             "sceneId": "c14-title",
             "startSec": 1419,
             "endSec": 1422.65,
-            "imageSha256": "8ed946a3d1758d2b66e3fde90a5ad40bff01982fa88039c5d237477233f2fc5d"
+            "imageSha256": "096290b9d48d078afff1a12b970f311e9b6f81ac5f1b07ba0c89bb310cd7030a"
           },
           {
             "sceneId": "c14-premise",
@@ -1645,7 +1645,7 @@
             "sceneId": "c15-title",
             "startSec": 1507.71,
             "endSec": 1510.77,
-            "imageSha256": "f25a889e517badafc7f09d99d6cab92eecbeadcb53b7f988f1b0b9041ba79e0c"
+            "imageSha256": "db305f9970a283d8fe912ee294d2f6433c543d804127be202f35ed3813e5da66"
           },
           {
             "sceneId": "c15-premise",
@@ -1689,7 +1689,11 @@
             "endSec": 1595.433333,
             "imageSha256": "fe3f5ad6541f3de5d8f2b49511cc6fa0ba809e7606cfb49157949c3c662a0940"
           }
-        ]
+        ],
+        "review": {
+          "browserPlayback": "Played and sought 170,1021.2,1508.5 seconds, readyState 4, no error; screenshots verified",
+          "userFinalReview": "pending"
+        }
       }
     },
     "soil-chapter-20261011": {
@@ -2527,6 +2531,654 @@
             "imageSha256": "fe3f5ad6541f3de5d8f2b49511cc6fa0ba809e7606cfb49157949c3c662a0940"
           }
         ]
+      }
+    },
+    "chapter-cards-20261011": {
+      "designVersion": "pop-poster-v3-chapter",
+      "sceneCount": 14,
+      "reviewedSceneCount": 14,
+      "chapters": [
+        {
+          "sceneId": "c02-title",
+          "title": "コンクリート",
+          "copy": [
+            "材料",
+            "配合",
+            "打込み・養生",
+            "ひび割れ"
+          ],
+          "prompt": "Create one Japanese educational video CHAPTER OPENER, landscape 16:9 1920x1080. Match reference green/cream/yellow clean manga POP style and same teacher identity: black hair, rectangular glasses, short beard, navy workwear with reflective trim. Big readable title, generous separation, character must not cover any label or diagram. Small upper corner qualification 「2級土木」 and chapter badge. Bright but orderly, chapter-specific composition, believable engineering illustrations. Bottommost 100px plain cream subtitle-safe band, no text or character there. No URL, brand, claims, extra Japanese text, fake technical numbers, tiny unreadable text. Machinery/diagrams larger and more meaningful than decorative background. Preserve requested exact Japanese spelling. Exact chapter badge 「第2章」. Exact main title 「コンクリート」. Exact preview labels separated into individually readable cards: 「材料」, 「配合」, 「打込み・養生」, 「ひび割れ」. Panoramic construction scene: mixer truck delivering concrete at left, worker uses vertical vibrator in freshly placed concrete center, protected moist curing area at right. FOUR large separate preview tabs with given copy. Teacher on LEFT kneeling inspecting a slump cone, pointing at concrete. Equipment plausible. Never imply vibrator moves concrete horizontally.",
+          "references": [
+            {
+              "path": ".tmp/soil-chapter/soil-chapter.png",
+              "sha256": "0acb21610960faaab52faf307483a78e9f8e4dad6fa66195092d3f9d6ab6e032"
+            }
+          ],
+          "correction": null,
+          "generation": {
+            "originalPath": "/Users/minamidaisuke/.codex/generated_images/01a123a7-6e1c-7b82-8207-694a68146a2e/exec-ad011386-aeb1-43cf-bdcd-a6fa99521326.png",
+            "originalSha256": "19e6afc958f2dca10d19685c24670b8ab6f9ce2e5bb12c90f15e121c7f96ce68",
+            "actualFormat": [
+              1672,
+              941
+            ]
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-010.502ee58c.png",
+            "sha256": "502ee58c652a248a1c6d39968b6efbaaf3056d314037fbd55d00cfccc9dd496c",
+            "width": 1920,
+            "height": 1080
+          },
+          "review": {
+            "status": "visually-reviewed",
+            "screenshot": ".tmp/chapter-cards/screenshot-2.jpg",
+            "checks": [
+              "指定文字・章番号",
+              "項目数",
+              "重なり・切れ",
+              "人物・機器・内容の整合",
+              "字幕領域"
+            ],
+            "result": "ok"
+          }
+        },
+        {
+          "sceneId": "c03-title",
+          "title": "基礎工",
+          "copy": [
+            "直接基礎",
+            "杭基礎",
+            "ケーソン",
+            "土留め"
+          ],
+          "prompt": "Create one Japanese educational video CHAPTER OPENER, landscape 16:9 1920x1080. Match reference green/cream/yellow clean manga POP style and same teacher identity: black hair, rectangular glasses, short beard, navy workwear with reflective trim. Big readable title, generous separation, character must not cover any label or diagram. Small upper corner qualification 「2級土木」 and chapter badge. Bright but orderly, chapter-specific composition, believable engineering illustrations. Bottommost 100px plain cream subtitle-safe band, no text or character there. No URL, brand, claims, extra Japanese text, fake technical numbers, tiny unreadable text. Machinery/diagrams larger and more meaningful than decorative background. Preserve requested exact Japanese spelling. Exact chapter badge 「第3章」. Exact main title 「基礎工」. Exact preview labels separated into individually readable cards: 「直接基礎」, 「杭基礎」, 「ケーソン」, 「土留め」. Central big split soil cross-section comparison, shallow spread footing on shallow supporting layer LEFT versus deep pile reaching deeper supporting layer RIGHT. Clearly distinct structure and supporting strata. Teacher upper-right thoughtfully hand at chin holding ground survey paper. Four preview tabs. No unsupported technical numbers.",
+          "references": [
+            {
+              "path": ".tmp/soil-chapter/soil-chapter.png",
+              "sha256": "0acb21610960faaab52faf307483a78e9f8e4dad6fa66195092d3f9d6ab6e032"
+            }
+          ],
+          "correction": null,
+          "generation": {
+            "originalPath": "/Users/minamidaisuke/.codex/generated_images/01a123a7-6e1c-7b82-8207-694a68146a2e/exec-172e06e7-4bb1-4ad1-8503-18eec75e4e80.png",
+            "originalSha256": "997d6fc090d26282f3697c92000414221fbbe6382f5a3e9e1138d3e40c7bdfa6",
+            "actualFormat": [
+              1672,
+              941
+            ]
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-018.fbfe0f73.png",
+            "sha256": "fbfe0f73bcb57402edb4adaf51077b2bf87e6164af9014dd3c1392a7bdda9a54",
+            "width": 1920,
+            "height": 1080
+          },
+          "review": {
+            "status": "visually-reviewed",
+            "screenshot": ".tmp/chapter-cards/screenshot-3.jpg",
+            "checks": [
+              "指定文字・章番号",
+              "項目数",
+              "重なり・切れ",
+              "人物・機器・内容の整合",
+              "字幕領域"
+            ],
+            "result": "ok"
+          }
+        },
+        {
+          "sceneId": "c04-title",
+          "title": "法規",
+          "copy": [
+            "労働時間",
+            "安全衛生",
+            "技術者配置",
+            "許可・届出"
+          ],
+          "prompt": "Create one Japanese educational video CHAPTER OPENER, landscape 16:9 1920x1080. Match reference green/cream/yellow clean manga POP style and same teacher identity: black hair, rectangular glasses, short beard, navy workwear with reflective trim. Big readable title, generous separation, character must not cover any label or diagram. Small upper corner qualification 「2級土木」 and chapter badge. Bright but orderly, chapter-specific composition, believable engineering illustrations. Bottommost 100px plain cream subtitle-safe band, no text or character there. No URL, brand, claims, extra Japanese text, fake technical numbers, tiny unreadable text. Machinery/diagrams larger and more meaningful than decorative background. Preserve requested exact Japanese spelling. Exact chapter badge 「第4章」. Exact main title 「法規」. Exact preview labels separated into individually readable cards: 「労働時間」, 「安全衛生」, 「技術者配置」, 「許可・届出」. Large desk-top open legal reference book with FOUR oversized icon cards arranged in a 2x2 grid: clock, helmet, organized site personnel, permit documents. Teacher on RIGHT adjusting glasses while holding open lawbook. No judicial gavel or court judge, this is construction laws. No tiny legal text or invented numbers.",
+          "references": [
+            {
+              "path": ".tmp/soil-chapter/soil-chapter.png",
+              "sha256": "0acb21610960faaab52faf307483a78e9f8e4dad6fa66195092d3f9d6ab6e032"
+            }
+          ],
+          "correction": null,
+          "generation": {
+            "originalPath": "/Users/minamidaisuke/.codex/generated_images/01a123a7-6e1c-7b82-8207-694a68146a2e/exec-4417c26d-31f3-4460-8bc8-8848574bd56e.png",
+            "originalSha256": "502415dac652e9ec8f7b8bbe38b2349f4e2171c2f0278d008ba880120bdf6441",
+            "actualFormat": [
+              1672,
+              941
+            ]
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-027.44c94167.png",
+            "sha256": "44c94167ff4ed110143c9422db757b487df5aec1553ee3410771429fef844751",
+            "width": 1920,
+            "height": 1080
+          },
+          "review": {
+            "status": "visually-reviewed",
+            "screenshot": ".tmp/chapter-cards/screenshot-4.jpg",
+            "checks": [
+              "指定文字・章番号",
+              "項目数",
+              "重なり・切れ",
+              "人物・機器・内容の整合",
+              "字幕領域"
+            ],
+            "result": "ok"
+          }
+        },
+        {
+          "sceneId": "c05-title",
+          "title": "施工計画",
+          "copy": [
+            "事前調査",
+            "基本計画",
+            "詳細計画",
+            "管理計画"
+          ],
+          "prompt": "Create one Japanese educational video CHAPTER OPENER, landscape 16:9 1920x1080. Match reference green/cream/yellow clean manga POP style and same teacher identity: black hair, rectangular glasses, short beard, navy workwear with reflective trim. Big readable title, generous separation, character must not cover any label or diagram. Small upper corner qualification 「2級土木」 and chapter badge. Bright but orderly, chapter-specific composition, believable engineering illustrations. Bottommost 100px plain cream subtitle-safe band, no text or character there. No URL, brand, claims, extra Japanese text, fake technical numbers, tiny unreadable text. Machinery/diagrams larger and more meaningful than decorative background. Preserve requested exact Japanese spelling. Exact chapter badge 「第5章」. Exact main title 「施工計画」. Exact preview labels separated into individually readable cards: 「事前調査」, 「基本計画」, 「詳細計画」, 「管理計画」. Overhead perspective of large engineering planning desk with site plan, map, calendar and construction machine icons. FOUR large connected paper cards diagonally from upper-left to lower-right with exact labels. Teacher LEFT in three-quarter side view marking a site plan with pen. Avoid repeating machinery triptych.",
+          "references": [
+            {
+              "path": ".tmp/soil-chapter/soil-chapter.png",
+              "sha256": "0acb21610960faaab52faf307483a78e9f8e4dad6fa66195092d3f9d6ab6e032"
+            }
+          ],
+          "correction": null,
+          "generation": {
+            "originalPath": "/Users/minamidaisuke/.codex/generated_images/01a123a7-6e1c-7b82-8207-694a68146a2e/exec-4b318356-6e83-4958-958b-1e8f3a8cc19f.png",
+            "originalSha256": "49b9190cc760e7f98dccc983d496ad37b1ec1f48055cd47b5ff29fbfd42ee41f",
+            "actualFormat": [
+              1672,
+              941
+            ]
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-035.c280d060.png",
+            "sha256": "c280d0601cd419fb19537a8e7e92cebb6f261dc3bfda301efc71194c0c7ffb31",
+            "width": 1920,
+            "height": 1080
+          },
+          "review": {
+            "status": "visually-reviewed",
+            "screenshot": ".tmp/chapter-cards/screenshot-5.jpg",
+            "checks": [
+              "指定文字・章番号",
+              "項目数",
+              "重なり・切れ",
+              "人物・機器・内容の整合",
+              "字幕領域"
+            ],
+            "result": "ok"
+          }
+        },
+        {
+          "sceneId": "c06-title",
+          "title": "5分野の総ざらい",
+          "copy": [
+            "土工",
+            "コンクリート",
+            "基礎工",
+            "法規",
+            "施工計画"
+          ],
+          "prompt": "Create one Japanese educational video CHAPTER OPENER, landscape 16:9 1920x1080. Match reference green/cream/yellow clean manga POP style and same teacher identity: black hair, rectangular glasses, short beard, navy workwear with reflective trim. Big readable title, generous separation, character must not cover any label or diagram. Small upper corner qualification 「2級土木」 and chapter badge. Bright but orderly, chapter-specific composition, believable engineering illustrations. Bottommost 100px plain cream subtitle-safe band, no text or character there. No URL, brand, claims, extra Japanese text, fake technical numbers, tiny unreadable text. Machinery/diagrams larger and more meaningful than decorative background. Preserve requested exact Japanese spelling. Exact chapter badge 「第6章」. Exact main title 「5分野の総ざらい」. Exact preview labels separated into individually readable cards: 「土工」, 「コンクリート」, 「基礎工」, 「法規」, 「施工計画」. EXACTLY FIVE large distinct connected topic islands forming a semicircle around a central recap notebook. Each has one label and illustrative icon. Teacher bottom-right holding checklist and raising thumb, reviewing all five. Clearly count five, do not omit any.",
+          "references": [
+            {
+              "path": ".tmp/soil-chapter/soil-chapter.png",
+              "sha256": "0acb21610960faaab52faf307483a78e9f8e4dad6fa66195092d3f9d6ab6e032"
+            }
+          ],
+          "correction": null,
+          "generation": {
+            "originalPath": "/Users/minamidaisuke/.codex/generated_images/01a123a7-6e1c-7b82-8207-694a68146a2e/exec-d6df50a6-e70b-4a4c-be0b-b7f5e1fe96f2.png",
+            "originalSha256": "b143c80a72d7d83e114982e789cc1e1a08be90cf93e2113029fca21428bd1691",
+            "actualFormat": [
+              1672,
+              941
+            ]
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-043.c578bbaf.png",
+            "sha256": "c578bbaff3e1ced5a1f71c087d91246c34bad0cf44ab233d18a935651c0ffd61",
+            "width": 1920,
+            "height": 1080
+          },
+          "review": {
+            "status": "visually-reviewed",
+            "screenshot": ".tmp/chapter-cards/screenshot-6.jpg",
+            "checks": [
+              "指定文字・章番号",
+              "項目数",
+              "重なり・切れ",
+              "人物・機器・内容の整合",
+              "字幕領域"
+            ],
+            "result": "ok"
+          }
+        },
+        {
+          "sceneId": "c07-title",
+          "title": "出題傾向",
+          "copy": [
+            "形式の変化",
+            "経験記述",
+            "学科記述"
+          ],
+          "prompt": "Create one Japanese educational video CHAPTER OPENER, landscape 16:9 1920x1080. Match reference green/cream/yellow clean manga POP style and same teacher identity: black hair, rectangular glasses, short beard, navy workwear with reflective trim. Big readable title, generous separation, character must not cover any label or diagram. Small upper corner qualification 「2級土木」 and chapter badge. Bright but orderly, chapter-specific composition, believable engineering illustrations. Bottommost 100px plain cream subtitle-safe band, no text or character there. No URL, brand, claims, extra Japanese text, fake technical numbers, tiny unreadable text. Machinery/diagrams larger and more meaningful than decorative background. Preserve requested exact Japanese spelling. Exact chapter badge 「第7章」. Exact main title 「出題傾向」. Exact preview labels separated into individually readable cards: 「形式の変化」, 「経験記述」, 「学科記述」. Editorial planning board with a simple large timeline transforming older exam paper into newer exam paper, and two separate preparation folders experience-writing and subject-writing. Teacher LEFT using a pointer to the timeline, turned toward board. NO predicted probability or fake frequency graph. Labels only given copy.",
+          "references": [
+            {
+              "path": ".tmp/soil-chapter/soil-chapter.png",
+              "sha256": "0acb21610960faaab52faf307483a78e9f8e4dad6fa66195092d3f9d6ab6e032"
+            }
+          ],
+          "correction": {
+            "prompt": "Edit ONLY the contents of the two exam-paper icons in this image. Remove the visible numerals 1, 2, 3 from the right paper and remove all other tiny numerical/text labels from both paper icons, replacing with simple neutral gray blank answer lines. This is a generic chapter opener; must not imply a specific count of new exam questions. Preserve exact title 出題傾向 and badges, captions 形式の変化 / 経験記述 / 学科記述, teacher, pose, style and all layout.",
+            "reference": "/Users/minamidaisuke/.codex/generated_images/01a123a7-6e1c-7b82-8207-694a68146a2e/exec-e8bce42c-8bbf-4f44-b9ff-9efb1a41a1b8.png"
+          },
+          "generation": {
+            "originalPath": "/Users/minamidaisuke/.codex/generated_images/01a123a7-6e1c-7b82-8207-694a68146a2e/exec-192c9c7d-c49a-4289-8901-e0028cb535ea.png",
+            "originalSha256": "1af56387ab236bbfacc7bc6a82a72358446fb4847c32f54374ccc087040fca51",
+            "actualFormat": [
+              1672,
+              941
+            ]
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-065.37b3fd6a.png",
+            "sha256": "37b3fd6a81ccda7acb361280ae10613fdf73ae44e8482390c10749e0360c91a6",
+            "width": 1920,
+            "height": 1080
+          },
+          "review": {
+            "status": "visually-reviewed",
+            "screenshot": ".tmp/chapter-cards/screenshot-7.jpg",
+            "checks": [
+              "指定文字・章番号",
+              "項目数",
+              "重なり・切れ",
+              "人物・機器・内容の整合",
+              "字幕領域"
+            ],
+            "result": "ok"
+          }
+        },
+        {
+          "sceneId": "c08-title",
+          "title": "工事概要の書き方",
+          "copy": [
+            "工種",
+            "施工量",
+            "自分の立場"
+          ],
+          "prompt": "Create one Japanese educational video CHAPTER OPENER, landscape 16:9 1920x1080. Match reference green/cream/yellow clean manga POP style and same teacher identity: black hair, rectangular glasses, short beard, navy workwear with reflective trim. Big readable title, generous separation, character must not cover any label or diagram. Small upper corner qualification 「2級土木」 and chapter badge. Bright but orderly, chapter-specific composition, believable engineering illustrations. Bottommost 100px plain cream subtitle-safe band, no text or character there. No URL, brand, claims, extra Japanese text, fake technical numbers, tiny unreadable text. Machinery/diagrams larger and more meaningful than decorative background. Preserve requested exact Japanese spelling. Exact chapter badge 「第8章」. Exact main title 「工事概要の書き方」. Exact preview labels separated into individually readable cards: 「工種」, 「施工量」, 「自分の立場」. Giant project-summary sheet tilted slightly, with THREE prominent labeled sections containing distinct construction icon, measurement icon, site supervisor icon. A broad linking arrow leads toward a separate body-text sheet with symbolic blank lines. Teacher RIGHT red pen in hand checking summary. No invented sample construction facts or tiny gibberish.",
+          "references": [
+            {
+              "path": ".tmp/soil-chapter/soil-chapter.png",
+              "sha256": "0acb21610960faaab52faf307483a78e9f8e4dad6fa66195092d3f9d6ab6e032"
+            }
+          ],
+          "correction": {
+            "prompt": "Edit ONLY the heading at the top of the separate white sheet on the RIGHT, next to the teacher's red pen. Change its existing text 工事概要 to exact Japanese 本文. This means the project overview at LEFT connects to the essay body at RIGHT. Preserve the main title 工事概要の書き方, left sheet heading 工事概要, preview labels 工種 / 施工量 / 自分の立場, teacher pose, style and layout.",
+            "reference": "/Users/minamidaisuke/.codex/generated_images/01a123a7-6e1c-7b82-8207-694a68146a2e/exec-51759ec8-879c-4392-9648-7181d4f60801.png"
+          },
+          "generation": {
+            "originalPath": "/Users/minamidaisuke/.codex/generated_images/01a123a7-6e1c-7b82-8207-694a68146a2e/exec-96c35ac8-9bf9-480a-b5ee-e8790d539ca9.png",
+            "originalSha256": "6e4d838ab73befe70ee412e666faa9900702e9a71a72332ed5cf9807c1b8cff7",
+            "actualFormat": [
+              1672,
+              941
+            ]
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-072.e9347013.png",
+            "sha256": "e934701308fb99898dbc27c39550d3bf345dd9f905508652a27e877437064df6",
+            "width": 1920,
+            "height": 1080
+          },
+          "review": {
+            "status": "visually-reviewed",
+            "screenshot": ".tmp/chapter-cards/screenshot-8.jpg",
+            "checks": [
+              "指定文字・章番号",
+              "項目数",
+              "重なり・切れ",
+              "人物・機器・内容の整合",
+              "字幕領域"
+            ],
+            "result": "ok"
+          }
+        },
+        {
+          "sceneId": "c09-title",
+          "title": "品質管理の組み立て方",
+          "copy": [
+            "現場条件",
+            "規格値",
+            "対応処置"
+          ],
+          "prompt": "Create one Japanese educational video CHAPTER OPENER, landscape 16:9 1920x1080. Match reference green/cream/yellow clean manga POP style and same teacher identity: black hair, rectangular glasses, short beard, navy workwear with reflective trim. Big readable title, generous separation, character must not cover any label or diagram. Small upper corner qualification 「2級土木」 and chapter badge. Bright but orderly, chapter-specific composition, believable engineering illustrations. Bottommost 100px plain cream subtitle-safe band, no text or character there. No URL, brand, claims, extra Japanese text, fake technical numbers, tiny unreadable text. Machinery/diagrams larger and more meaningful than decorative background. Preserve requested exact Japanese spelling. Exact chapter badge 「第9章」. Exact main title 「品質管理の組み立て方」. Exact preview labels separated into individually readable cards: 「現場条件」, 「規格値」, 「対応処置」. Visual bridge metaphor connecting site constraints LEFT (rain and soil) to required quality RIGHT (inspection equipment and clean checkmark) with CENTRAL large management notebook joining them. Teacher LEFT holding a measuring instrument, carefully inspecting, no writing pose. Three clear label cards. Do not suggest checks alone solve a quality problem.",
+          "references": [
+            {
+              "path": ".tmp/soil-chapter/soil-chapter.png",
+              "sha256": "0acb21610960faaab52faf307483a78e9f8e4dad6fa66195092d3f9d6ab6e032"
+            }
+          ],
+          "correction": null,
+          "generation": {
+            "originalPath": "/Users/minamidaisuke/.codex/generated_images/01a123a7-6e1c-7b82-8207-694a68146a2e/exec-77bee344-b14c-4ea6-b92a-2bf790451c7e.png",
+            "originalSha256": "6d683b010558aa6cb6bb9369f92f0f30433b754584f449138138404da76b6339",
+            "actualFormat": [
+              1672,
+              941
+            ]
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-080.31811743.png",
+            "sha256": "31811743f3060d9cf9995bf514afa5fc6db24362a0a9196dda788cdead3480a3",
+            "width": 1920,
+            "height": 1080
+          },
+          "review": {
+            "status": "visually-reviewed",
+            "screenshot": ".tmp/chapter-cards/screenshot-9.jpg",
+            "checks": [
+              "指定文字・章番号",
+              "項目数",
+              "重なり・切れ",
+              "人物・機器・内容の整合",
+              "字幕領域"
+            ],
+            "result": "ok"
+          }
+        },
+        {
+          "sceneId": "c10-title",
+          "title": "工程管理の組み立て方",
+          "copy": [
+            "制約",
+            "施工順序",
+            "日数・台数・班数"
+          ],
+          "prompt": "Create one Japanese educational video CHAPTER OPENER, landscape 16:9 1920x1080. Match reference green/cream/yellow clean manga POP style and same teacher identity: black hair, rectangular glasses, short beard, navy workwear with reflective trim. Big readable title, generous separation, character must not cover any label or diagram. Small upper corner qualification 「2級土木」 and chapter badge. Bright but orderly, chapter-specific composition, believable engineering illustrations. Bottommost 100px plain cream subtitle-safe band, no text or character there. No URL, brand, claims, extra Japanese text, fake technical numbers, tiny unreadable text. Machinery/diagrams larger and more meaningful than decorative background. Preserve requested exact Japanese spelling. Exact chapter badge 「第10章」. Exact main title 「工程管理の組み立て方」. Exact preview labels separated into individually readable cards: 「制約」, 「施工順序」, 「日数・台数・班数」. Large legible simplified Gantt schedule with three colored work bars and clear dependency arrows, rain/calendar and machine/team icons surrounding it. Teacher RIGHT rearranging magnetic task cards on planning board, side-facing dynamic pose. No invented number labels; only specified copy.",
+          "references": [
+            {
+              "path": ".tmp/soil-chapter/soil-chapter.png",
+              "sha256": "0acb21610960faaab52faf307483a78e9f8e4dad6fa66195092d3f9d6ab6e032"
+            }
+          ],
+          "correction": null,
+          "generation": {
+            "originalPath": "/Users/minamidaisuke/.codex/generated_images/01a123a7-6e1c-7b82-8207-694a68146a2e/exec-c738897b-971c-4ec1-a05f-6736c0eeaf27.png",
+            "originalSha256": "4c2990f61d0dca4d65d2093155bdbf12e8d6457a842025cfb2c45d941569dd8f",
+            "actualFormat": [
+              1672,
+              941
+            ]
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-088.dae17f97.png",
+            "sha256": "dae17f976c6cf2666a95910e0b444178d52b76a5674b14156e2dda838a0dfa8e",
+            "width": 1920,
+            "height": 1080
+          },
+          "review": {
+            "status": "visually-reviewed",
+            "screenshot": ".tmp/chapter-cards/screenshot-10.jpg",
+            "checks": [
+              "指定文字・章番号",
+              "項目数",
+              "重なり・切れ",
+              "人物・機器・内容の整合",
+              "字幕領域"
+            ],
+            "result": "ok"
+          }
+        },
+        {
+          "sceneId": "c11-title",
+          "title": "安全管理の書き方",
+          "copy": [
+            "現場条件",
+            "危険",
+            "対策・確認"
+          ],
+          "prompt": "Create one Japanese educational video CHAPTER OPENER, landscape 16:9 1920x1080. Match reference green/cream/yellow clean manga POP style and same teacher identity: black hair, rectangular glasses, short beard, navy workwear with reflective trim. Big readable title, generous separation, character must not cover any label or diagram. Small upper corner qualification 「2級土木」 and chapter badge. Bright but orderly, chapter-specific composition, believable engineering illustrations. Bottommost 100px plain cream subtitle-safe band, no text or character there. No URL, brand, claims, extra Japanese text, fake technical numbers, tiny unreadable text. Machinery/diagrams larger and more meaningful than decorative background. Preserve requested exact Japanese spelling. Exact chapter badge 「第11章」. Exact main title 「安全管理の書き方」. Exact preview labels separated into individually readable cards: 「現場条件」, 「危険」, 「対策・確認」. Large construction-site safety illustration with trench protected by barricade and worker separated from excavator working zone. Overlaid THREE distinct large conceptual labels connected by arrows: site conditions to hazard to countermeasure/check. Teacher LEFT safety helmet without text, one hand pointing to protected area and other holding checklist. Show safe completed scene, no unsafe worker placement.",
+          "references": [
+            {
+              "path": ".tmp/soil-chapter/soil-chapter.png",
+              "sha256": "0acb21610960faaab52faf307483a78e9f8e4dad6fa66195092d3f9d6ab6e032"
+            }
+          ],
+          "correction": null,
+          "generation": {
+            "originalPath": "/Users/minamidaisuke/.codex/generated_images/01a123a7-6e1c-7b82-8207-694a68146a2e/exec-2959982e-b34a-401d-9ec1-a8bcaec53e92.png",
+            "originalSha256": "50399dc3df74f5e2e5a75f99040c8611a64c88a60deeb5bd9eab99c92aed6e90",
+            "actualFormat": [
+              1672,
+              941
+            ]
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-096.6523d468.png",
+            "sha256": "6523d4686e9f605abad25a7ab6e2f4dc47d307f97d53fcac139c69b4211a55f5",
+            "width": 1920,
+            "height": 1080
+          },
+          "review": {
+            "status": "visually-reviewed",
+            "screenshot": ".tmp/chapter-cards/screenshot-11.jpg",
+            "checks": [
+              "指定文字・章番号",
+              "項目数",
+              "重なり・切れ",
+              "人物・機器・内容の整合",
+              "字幕領域"
+            ],
+            "result": "ok"
+          }
+        },
+        {
+          "sceneId": "c12-title",
+          "title": "安全管理が一般論になる原因",
+          "copy": [
+            "現場条件",
+            "因果の流れ",
+            "具体的な数値"
+          ],
+          "prompt": "Create one Japanese educational video CHAPTER OPENER, landscape 16:9 1920x1080. Match reference green/cream/yellow clean manga POP style and same teacher identity: black hair, rectangular glasses, short beard, navy workwear with reflective trim. Big readable title, generous separation, character must not cover any label or diagram. Small upper corner qualification 「2級土木」 and chapter badge. Bright but orderly, chapter-specific composition, believable engineering illustrations. Bottommost 100px plain cream subtitle-safe band, no text or character there. No URL, brand, claims, extra Japanese text, fake technical numbers, tiny unreadable text. Machinery/diagrams larger and more meaningful than decorative background. Preserve requested exact Japanese spelling. Exact chapter badge 「第12章」. Exact main title 「安全管理が一般論になる原因」. Exact preview labels separated into individually readable cards: 「現場条件」, 「因果の流れ」, 「具体的な数値」. Strong split comparison layout: LEFT generic document with pale speech cloud, RIGHT specific site illustration connected to rich document using bold arrows. Teacher CENTER weighing both sides with open palms, thoughtful expression. Only three exact preview labels, no invented NG assertions or technical numbers. Title two readable lines.",
+          "references": [
+            {
+              "path": ".tmp/soil-chapter/soil-chapter.png",
+              "sha256": "0acb21610960faaab52faf307483a78e9f8e4dad6fa66195092d3f9d6ab6e032"
+            }
+          ],
+          "correction": null,
+          "generation": {
+            "originalPath": "/Users/minamidaisuke/.codex/generated_images/01a123a7-6e1c-7b82-8207-694a68146a2e/exec-278b1943-975f-47f3-bdd4-36e5d7b08382.png",
+            "originalSha256": "3ea368af6ed72b00fc9d4599b7762fcd9674dac54b7cd211531a11da16da2fb2",
+            "actualFormat": [
+              1672,
+              941
+            ]
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-103.b5394ba7.png",
+            "sha256": "b5394ba70e425701da76f118185f6d43a0944ce6023f4342914c576cd6c366cc",
+            "width": 1920,
+            "height": 1080
+          },
+          "review": {
+            "status": "visually-reviewed",
+            "screenshot": ".tmp/chapter-cards/screenshot-12.jpg",
+            "checks": [
+              "指定文字・章番号",
+              "項目数",
+              "重なり・切れ",
+              "人物・機器・内容の整合",
+              "字幕領域"
+            ],
+            "result": "ok"
+          }
+        },
+        {
+          "sceneId": "c13-title",
+          "title": "減点される答案の共通点",
+          "copy": [
+            "体裁",
+            "整合",
+            "具体性"
+          ],
+          "prompt": "Create one Japanese educational video CHAPTER OPENER, landscape 16:9 1920x1080. Match reference green/cream/yellow clean manga POP style and same teacher identity: black hair, rectangular glasses, short beard, navy workwear with reflective trim. Big readable title, generous separation, character must not cover any label or diagram. Small upper corner qualification 「2級土木」 and chapter badge. Bright but orderly, chapter-specific composition, believable engineering illustrations. Bottommost 100px plain cream subtitle-safe band, no text or character there. No URL, brand, claims, extra Japanese text, fake technical numbers, tiny unreadable text. Machinery/diagrams larger and more meaningful than decorative background. Preserve requested exact Japanese spelling. Exact chapter badge 「第13章」. Exact main title 「減点される答案の共通点」. Exact preview labels separated into individually readable cards: 「体裁」, 「整合」, 「具体性」. Large diagonal answer sheet with THREE brightly colored magnifying lenses, each examining a different aspect using symbolic neat lines, alignment icon, target/detail icon. Teacher LEFT with magnifying glass and red pencil in pocket, investigative posture. No actual exam scores, fake grading percentages, or illegible mini text.",
+          "references": [
+            {
+              "path": ".tmp/soil-chapter/soil-chapter.png",
+              "sha256": "0acb21610960faaab52faf307483a78e9f8e4dad6fa66195092d3f9d6ab6e032"
+            }
+          ],
+          "correction": null,
+          "generation": {
+            "originalPath": "/Users/minamidaisuke/.codex/generated_images/01a123a7-6e1c-7b82-8207-694a68146a2e/exec-0a4db61d-042d-4dcb-a66a-b6c0ce7b71f0.png",
+            "originalSha256": "863b75af923102269cca622527ef9713740f2be678ea51a98236bede33d4a8e4",
+            "actualFormat": [
+              1672,
+              941
+            ]
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-109.41a435a5.png",
+            "sha256": "41a435a5569e75adc132eec6a8c26046be4d6d69d45a6bbe1eb9050d5752f759",
+            "width": 1920,
+            "height": 1080
+          },
+          "review": {
+            "status": "visually-reviewed",
+            "screenshot": ".tmp/chapter-cards/screenshot-13.jpg",
+            "checks": [
+              "指定文字・章番号",
+              "項目数",
+              "重なり・切れ",
+              "人物・機器・内容の整合",
+              "字幕領域"
+            ],
+            "result": "ok"
+          }
+        },
+        {
+          "sceneId": "c14-title",
+          "title": "2級で求められる記述レベル",
+          "copy": [
+            "自分の立場",
+            "検討",
+            "対応・結果"
+          ],
+          "prompt": "Create one Japanese educational video CHAPTER OPENER, landscape 16:9 1920x1080. Match reference green/cream/yellow clean manga POP style and same teacher identity: black hair, rectangular glasses, short beard, navy workwear with reflective trim. Big readable title, generous separation, character must not cover any label or diagram. Small upper corner qualification 「2級土木」 and chapter badge. Bright but orderly, chapter-specific composition, believable engineering illustrations. Bottommost 100px plain cream subtitle-safe band, no text or character there. No URL, brand, claims, extra Japanese text, fake technical numbers, tiny unreadable text. Machinery/diagrams larger and more meaningful than decorative background. Preserve requested exact Japanese spelling. Exact chapter badge 「第14章」. Exact main title 「2級で求められる記述レベル」. Exact preview labels separated into individually readable cards: 「自分の立場」, 「検討」, 「対応・結果」. Teacher RIGHT standing confidently with hand on chest and other showing his own site notebook; CENTRAL clear ladder of THREE large flat cards showing role, consideration, response/result, all grounded in everyday road construction illustration. No trophy, ranking, height competition, or suggestion advanced technologies required.",
+          "references": [
+            {
+              "path": ".tmp/soil-chapter/soil-chapter.png",
+              "sha256": "0acb21610960faaab52faf307483a78e9f8e4dad6fa66195092d3f9d6ab6e032"
+            }
+          ],
+          "correction": null,
+          "generation": {
+            "originalPath": "/Users/minamidaisuke/.codex/generated_images/01a123a7-6e1c-7b82-8207-694a68146a2e/exec-42c3ad70-08ae-4e10-99f4-020addb7565d.png",
+            "originalSha256": "35d41518e00016950e617684c7ea35b22ecc649b6dd589b0adfce91e29842b25",
+            "actualFormat": [
+              1672,
+              941
+            ]
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-116.096290b9.png",
+            "sha256": "096290b9d48d078afff1a12b970f311e9b6f81ac5f1b07ba0c89bb310cd7030a",
+            "width": 1920,
+            "height": 1080
+          },
+          "review": {
+            "status": "visually-reviewed",
+            "screenshot": ".tmp/chapter-cards/screenshot-14.jpg",
+            "checks": [
+              "指定文字・章番号",
+              "項目数",
+              "重なり・切れ",
+              "人物・機器・内容の整合",
+              "字幕領域"
+            ],
+            "result": "ok"
+          }
+        },
+        {
+          "sceneId": "c15-title",
+          "title": "学科記述の型",
+          "copy": [
+            "穴埋め",
+            "複数記述",
+            "選択問題"
+          ],
+          "prompt": "Create one Japanese educational video CHAPTER OPENER, landscape 16:9 1920x1080. Match reference green/cream/yellow clean manga POP style and same teacher identity: black hair, rectangular glasses, short beard, navy workwear with reflective trim. Big readable title, generous separation, character must not cover any label or diagram. Small upper corner qualification 「2級土木」 and chapter badge. Bright but orderly, chapter-specific composition, believable engineering illustrations. Bottommost 100px plain cream subtitle-safe band, no text or character there. No URL, brand, claims, extra Japanese text, fake technical numbers, tiny unreadable text. Machinery/diagrams larger and more meaningful than decorative background. Preserve requested exact Japanese spelling. Exact chapter badge 「第15章」. Exact main title 「学科記述の型」. Exact preview labels separated into individually readable cards: 「穴埋め」, 「複数記述」, 「選択問題」. EXACTLY THREE big exam-answer format panels: first a sentence line with a clear empty rectangular blank, second two numbered answer lines, third selection boxes. Teacher LEFT seated at desk demonstrating with pen and looking toward viewer. Icons show answer formats only, no real exam question text. Preview captions same three labels.",
+          "references": [
+            {
+              "path": ".tmp/soil-chapter/soil-chapter.png",
+              "sha256": "0acb21610960faaab52faf307483a78e9f8e4dad6fa66195092d3f9d6ab6e032"
+            }
+          ],
+          "correction": null,
+          "generation": {
+            "originalPath": "/Users/minamidaisuke/.codex/generated_images/01a123a7-6e1c-7b82-8207-694a68146a2e/exec-54a2b312-48b8-431a-bd80-f7e63bf7756f.png",
+            "originalSha256": "b75862759bc4bf8c5387a9d7b8cd0249ef2ff2cd3229600398ac87c0a6c1dddb",
+            "actualFormat": [
+              1672,
+              941
+            ]
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-124.db305f99.png",
+            "sha256": "db305f9970a283d8fe912ee294d2f6433c543d804127be202f35ed3813e5da66",
+            "width": 1920,
+            "height": 1080
+          },
+          "review": {
+            "status": "visually-reviewed",
+            "screenshot": ".tmp/chapter-cards/screenshot-15.jpg",
+            "checks": [
+              "指定文字・章番号",
+              "項目数",
+              "重なり・切れ",
+              "人物・機器・内容の整合",
+              "字幕領域"
+            ],
+            "result": "ok"
+          }
+        }
+      ],
+      "audioChanged": false,
+      "publication": "Updated local admin scene gallery and completed video; external YouTube unchanged",
+      "reproduction": "Restore immutable output PNG by SHA from content-media Drive vault, match sceneId with render-manifest.scenes; retain existing subtitle/scene timing and stream-copy original audio. Saved PNG is the exact reproduction source.",
+      "videoImageReplacement": {
+        "outputSha256": "ffadce640a505812eb4917166de4c4f531cbb5371c3df1bdd7b66ead30b72056",
+        "audioPacketSha256": "69c4c79e817c2c3b7778585cecdc95baf1bb9621d124957fd5d0234b21e4c24b",
+        "audioPacketsUnchanged": true,
+        "ttsRegenerated": false,
+        "durationSec": 1595.44
+      },
+      "smallReview": {
+        "widthPx": 360,
+        "reviewedCount": 14,
+        "result": "Labels readable, no clipping or overlap"
+      },
+      "review": {
+        "screenshots": 14,
+        "smallScreenshots": 2,
+        "browserPlayback": "Played and sought all 14 updated chapter starts; readyState=4 and error=null for all 14",
+        "cloudVerification": {
+          "files": 421,
+          "sha256Checked": 421,
+          "cloudMd5Checked": 421,
+          "mismatchCount": 0
+        },
+        "userFinalReview": "pending"
       }
     }
   }
