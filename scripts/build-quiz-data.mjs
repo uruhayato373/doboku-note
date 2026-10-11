@@ -124,9 +124,11 @@ function normalizeQuestion(raw, year) {
     part: raw.part || '',
     body: String(raw.body || raw.question || '').trim(),
     // 選択肢を表から取った組合せ問題は、本文の表を表として見せる（Web はプレーンテキストだと | がそのまま出る）
-    ...(fromTable ? { bodyHtml: renderQuizMarkdown(String(raw.body || raw.question || '').trim()) } : {}),
+    ...(fromTable ? { bodyHtml: renderQuizMarkdown(String(raw.body || raw.question || '').trim(), { blanks: true }) } : {}),
     options,
     correct,
+    // 公式正答が複数の問題は、どれを選んでも正解にする（正答 correct は最初の番号）
+    ...(Array.isArray(raw.correctAll) && raw.correctAll.length > 1 ? { correctAll: raw.correctAll } : {}),
     explanations,
   };
 }
@@ -221,7 +223,7 @@ function buildCemDataset({ exam, examLabel, srcPath }) {
         yearLabel: toYearLabel(y.year),
         part: raw.label || '',
         body: stripMarkdown(markdown),
-        bodyHtml: renderQuizMarkdown(markdown),
+        bodyHtml: renderQuizMarkdown(markdown, { blanks: true }),
         options: options.map((o) => ({ ...o, html: renderQuizMarkdown(o.text) })),
         correct: raw.correct,
         explanations: options.map((o) => {
@@ -412,7 +414,7 @@ function buildPeFirstStageDataset({ exam, examLabel, srcPath }) {
           statementCorrect: null,
         },
       );
-      const bodyHtml = renderQuizMarkdown(extracted.body);
+      const bodyHtml = renderQuizMarkdown(extracted.body, { blanks: true });
       const richHtml = [bodyHtml, ...options.map((option) => option.html)].join('');
       const socialExclusionReasons = [
         /<img\b/.test(richHtml) ? 'image' : null,

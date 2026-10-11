@@ -27,6 +27,7 @@ export type QuizQuestion = {
   bodyHtml?: string; // 数式・表・図を含むビルド時生成済みHTML（信頼済みローカルMDX由来）
   options: QuizOption[];
   correct: number | null; // 正答の選択肢番号。公式正答が未掲載の問題は null
+  correctAll?: number[]; // 公式正答が複数ある問題の全部（どれを選んでも正解）。correct は最初の番号
   explanations: QuizExplanation[]; // 全選択肢の正誤解説
   examPoint?: { summary: string; items: string[] } | null;
   socialEligible?: boolean;
