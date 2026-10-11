@@ -5,7 +5,7 @@
  * （.tmp/media/{exam}/{work}/{channel}.{format}[.{variant}]/{role}.{sha8}.{ext}）へ sha 入りの名前で取り込み、
  * 素材の行を台帳（content/registry/media/{exam}.json）に書き、Drive（group content-media）と同期する。
  *
- *   npm run media -- promote --pub <公開 ID> [--commit]   # 今は YouTube の通常動画（cover・cta・video・subtitles）
+ *   npm run media -- promote --pub <公開 ID> [--commit]   # 今は YouTube の通常動画（cover・cta・場面画像・video・subtitles）
  *   npm run media -- sync    --work <exam>/<work> [--commit]
  *   npm run media -- verify  --work <exam>/<work>          # 台帳・vault・クラウドの 3 者を照合（rclone）
  *   npm run media -- pull    --work <exam>/<work> [--commit]
@@ -47,6 +47,12 @@ function longformSources(work) {
     provenance: { kind: 'template', by: 'brand-video-pack', spec: `${packDir}/cover-design.json#longform`, specSha256: cover.specSha256 } });
   if (cta) sources.push({ role: 'cta', from: cta.path, expectSha: cta.sha256, legacy: true,
     provenance: { kind: 'template', by: 'brand-video-pack', spec: `${packDir}/storyboard.json#cta` } });
+  for (const [i, scene] of (manifest?.scenes ?? []).entries()) {
+    if (!scene.png || !/^[a-zA-Z0-9_-]+\.png$/.test(scene.png)) throw new Error(`場面画像のファイル名が不正: ${scene.png}`);
+    sources.push({ role: `scene-${String(i + 1).padStart(3, '0')}`, from: `${render}/img/${scene.png}`,
+      provenance: { kind: 'render', by: manifest.sceneImagesFromVideo ? 'video-frame-extraction' : 'render-longform',
+        spec: `${packDir}/storyboard.json#${scene.sceneId}` } });
+  }
   if (manifest?.mp4) {
     sources.push({ role: 'video', from: `${render}/${manifest.mp4}`, durationSec: manifest.totalSec,
       provenance: { kind: 'render', by: 'render-longform', spec: `${packDir}/storyboard.json`,
@@ -62,7 +68,7 @@ async function promote() {
   if (!parsed) throw new Error(`公開 ID の形が違う: ${args.pub}`);
   const reg = loadRegistry(ROOT);
   const pub = reg.publications.find((p) => p.id === args.pub);
-  const work = reg.works.find((w) => w.id === parsed.work);
+  const work = reg.works.find((w) => w.id === parsed.work && w.exam === parsed.exam);
   if (!pub || !work) throw new Error(`台帳に無い: ${args.pub}（先に npm run registry -- import-video-pack）`);
   if (!(parsed.channel === 'youtube' && parsed.format === 'longform' && work.kind === 'video-pack')) throw new Error('今の promote は動画パックの YouTube 通常動画だけ');
 
@@ -75,7 +81,7 @@ async function promote() {
     if (s.expectSha && s.expectSha !== sha256) throw new Error(`${s.role}: 採用時の sha256 と違う（${s.from}）`);
     const ext = extname(s.from).slice(1).toLowerCase();
     const path = mediaPath({ pubId: pub.id, role: s.role, sha256, ext });
-    const row = { id: mediaIdOf(pub.id, s.role), role: s.role, type: mimeOf(ext), sha256, bytes: readFileSync(abs).length, store: { tier: 'drive', path }, provenance: s.provenance };
+    const row = { id: mediaIdOf(pub.id, s.role), role: s.role, type: mimeOf(ext), sha256, bytes: readFileSync(abs).length, store: { tier: 'drive', path }, provenance: reg.media.find(m => m.id === mediaIdOf(pub.id, s.role) && m.sha256 === sha256)?.provenance ?? s.provenance };
     if (ext === 'png') { const meta = await sharp(abs).metadata(); row.width = meta.width; row.height = meta.height; }
     if (s.durationSec) row.durationSec = Math.round(s.durationSec * 1000) / 1000;
     if (s.legacy && s.from !== path) row.legacyPaths = [s.from];

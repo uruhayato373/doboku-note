@@ -32,7 +32,8 @@ export function validateCoverSpec(spec) {
   if (/[\u2160-\u217f]/.test(spec.headline.join('') + spec.subtitle)) throw new Error('表紙の科目番号は ASCII の I / II / III で記載してください（使用フォントにローマ数字記号の字形がありません）');
   if (!spec.character?.pose || !spec.character?.frame) throw new Error('character の pose / frame が必要');
   if (!EXAM_KEYS.includes(spec.exam)) throw new Error('cover exam は試験パレットの正規キーを指定してください');
-  if (spec.design !== undefined && spec.design !== 'pop-v2') throw new Error('未知の表紙デザインです');
+  if (spec.design !== undefined && !['pop-v2', 'pop-poster-v3'].includes(spec.design)) throw new Error('未知の表紙デザインです');
+  if (spec.design === 'pop-poster-v3' && !spec.approvedImage) throw new Error('pop-poster-v3 は採用PNGが必要です');
   if (spec.pop && (!['explain', 'question', 'compare', 'write', 'listen', 'plan'].includes(spec.pop.variant) ||
       typeof spec.pop.authority !== 'string' || [...spec.pop.authority].length > 10)) throw new Error('POP の切り口・著者表記が不正です');
   return layout;

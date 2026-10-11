@@ -80,6 +80,6 @@ export async function runPlate(root, o, deps = {}) {
   writeJson(root, AI_LEDGER_FILE, ledger);
 
   log(`置いた: ${path}（${meta.width}×${meta.height}）。素材の行と公開の行 media.${o.role} を書き、AI 台帳へ記録した（判定は未）`);
-  log(`次: ai-image-fidelity-auditor で判定し node scripts/check-image-origin.mjs record-ai media:${mediaId} ok|fail <理由>`);
+  log(`次: ai-image-fidelity-auditor で判定し node scripts/check-image-origin.mjs record-ai <verdicts.json>（figKey: media:${mediaId}）`);
   return { committed: true, mediaId, path, row, code: 0 };
 }

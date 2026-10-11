@@ -66,7 +66,7 @@ export async function runPopCovers(root, { commit = false, exam, pub } = {}) {
     const variant = popVariant(s.spec, s.manifest);
     const pose = variant === 'write' ? 'pop-red-pen' : ['question','compare'].includes(variant) ? 'pop-pointing' : 'pop-explaining';
     const { approvedImage, ...input } = s.spec;
-    const spec = { ...input, design: 'pop-v2', pop: { variant, authority: '総監が制作' }, character: { pose, frame: 'waist' } };
+    const spec = s.spec.design === 'pop-poster-v3' ? { ...s.spec } : { ...input, design: 'pop-v2', pop: { variant, authority: '総監が制作' }, character: { pose, frame: 'waist' } };
     // A previously selected full-frame artwork is used only with the exact same authored inputs.
     if (s.spec.design === 'pop-v2' && approvedImage?.specSha256 === coverInputDigest(spec)) spec.approvedImage = approvedImage;
     const rendered = await renderYoutubeCover(root, spec);

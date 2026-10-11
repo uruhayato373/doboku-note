@@ -15,10 +15,10 @@ import { MEDIA_ROOT } from './media-paths.mjs';
 
 /** 画面確認（音声なし）で見る素材の役割。visualDigest はこの役割の sha を並べる（長尺のコンタクトシートは contact-sheet-2 以降に続く） */
 export const VISUAL_ROLES = ['cover', 'cta', 'contact-sheet', 'preview', 'preview-metrics'];
-export const isVisualRole = (role) => VISUAL_ROLES.includes(role) || /^contact-sheet-\d+$/.test(role);
+export const isVisualRole = (role) => VISUAL_ROLES.includes(role) || /^(contact-sheet-\d+|scene-\d+)$/.test(role);
 /** 画面に出す順（画面が先、音声は後） */
-const ROLE_ORDER = ['cover', 'cta', 'preview-metrics', 'contact-sheet', 'preview', 'video', 'subtitles'];
-const roleRank = (role) => (ROLE_ORDER.includes(role) ? ROLE_ORDER.indexOf(role) : /^contact-sheet-\d+$/.test(role) ? ROLE_ORDER.indexOf('contact-sheet') + Number(role.split('-').pop()) / 1000 : ROLE_ORDER.length);
+const ROLE_ORDER = ['cover', 'scene', 'cta', 'preview-metrics', 'contact-sheet', 'preview', 'video', 'subtitles'];
+const roleRank = (role) => (/^scene-\d+$/.test(role) ? ROLE_ORDER.indexOf('scene') + Number(role.split('-').pop()) / 10000 : ROLE_ORDER.includes(role) ? ROLE_ORDER.indexOf(role) : /^contact-sheet-\d+$/.test(role) ? ROLE_ORDER.indexOf('contact-sheet') + Number(role.split('-').pop()) / 1000 : ROLE_ORDER.length);
 
 /**
  * 素材 1 件の出し先。
@@ -85,7 +85,7 @@ export function approvalState(root, pub, mediaById) {
     digest: v?.digest ?? null,
     current: visualNow,
     valid: Boolean(v?.status === 'approved' && v.digest && v.digest === visualNow),
-    reason: !v ? '画面確認をしていない' : v.status !== 'approved' ? '画面確認が承認されていない' : v.digest !== visualNow ? '承認した後に画面の素材（表紙・締め・コンタクトシート・プレビュー）が変わった' : null,
+    reason: !v ? '画面確認をしていない' : v.status !== 'approved' ? '画面確認が承認されていない' : v.digest !== visualNow ? '承認した後に画面の素材（表紙・場面画像・締め・コンタクトシート・プレビュー）が変わった' : null,
   };
   const final = {
     by: a?.by ?? null,

@@ -113,3 +113,9 @@ test('areaOf は 2 階層の置き場（content/registry）も引ける', async 
   assert.equal(areaOf(datasetById('config.content-registry')), 'config');
   assert.ok(datasetFiles(ROOT, 'registry.works').length >= 1);
 });
+
+test('場面画像と複数シートだけは役割の通し番号を使える', () => {
+  for (const role of ['scene-001', 'scene-131', 'contact-sheet-2', 'contact-sheet-10']) assert.deepEqual(idShapeIssues('role', role, cfg.idRules), []);
+  for (const role of ['cover-2', 'scene-000', 'scene-20261011', 'contact-sheet-1']) assert.ok(idShapeIssues('role', role, cfg.idRules).length);
+  assert.ok(idShapeIssues('work', 'scene-001', cfg.idRules).length);
+});
