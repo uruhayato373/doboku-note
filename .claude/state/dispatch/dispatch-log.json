@@ -2887,6 +2887,23 @@
       "commit": "ac616010373d",
       "verification": null,
       "note": "PR #1002（545214b0e）: node-version を 22 に統一（34 箇所・26 ファイル）、engines >=20.9、hygiene ルール 10 で混在を止める。採らなかった 2 件: (a) PR の build 3 回→1 回は、out/ 654MB の artifact 受け渡しが e2e の自前 build（約 1/3）と相殺し構成変更に見合わない。(c) setup の composite action 化は 36 本の書き換えで実行時間が変わらず保守性だけの改善なので採らない（必要になれば起票し直す）"
+    },
+    {
+      "id": "DN-0696",
+      "at": "2026-10-12",
+      "task": "public/llms.txt の本文が旧状態（対象資格 2 つ）のままで、手書き静的ファイルに生成元が無い",
+      "tier": "low",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/build-llms-txt.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "92ab013f9005",
+      "verification": null,
+      "note": "PR #1004 マージ。scripts/build-llms-txt.mjs が doc-meta-index・qualification-registry・categories から public/llms.txt（資格 10・1,360 ページ）と llms-full.txt を生成し、refresh-indexes の末尾に組み込み。生成物とコミットの不一致は check-generated-indexes が止める"
     }
   ]
 }
