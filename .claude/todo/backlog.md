@@ -21,6 +21,16 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-0680] develop の CI が売上の商品名の照合漏れ（noteTitle を見ない）とココナラの実データ依存のテストで落ちている
+タグ: [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-11]
+
+**起点**: 2026-10-11、PR #986・#987 の CI（quality:audit）が、PR と関係のない 3 つで落ちた。develop の同じデータでも落ちる。
+1. `qualification-market`・unit-tests「実データ: 検索語・追跡リスト・売上の分類」: `data/note/sales.json` の `article:unknown-20261008-0`（建設部門2次｜土質基礎まるごと合格パック ¥4,980）と `article:unknown-20260530-0`（令和8年度 総監記述式 R8予想問題｜災害復旧 × 複合災害対応 ¥500）。前者は 10/11 に 1d5f0d773 で `pe-construction-geotechnical-pack` に確定したが、login collectors（245c9e44c）の取り直しで unknown に戻った。原因は `scripts/note-sales-fetch.mjs` の `loadMagazines` と `scripts/lib/sales-normalize.mjs` の `resolveMagazineId` が `title`・`shortTitle` しか照合せず、note の販売履歴に出る `noteTitle`（'建設部門2次｜土質基礎まるごと合格パック'）を見ないこと（shortTitle は「土質基礎 合格パック」で一致しない）。後者はカタログ（config/products.json）にも sales-recorder の mapping にも無い単品。
+2. unit-tests（`tests/dataset-schemas.test.mjs`）「ココナラの返信期限は JST の時差付き」「coconala.orders-snapshot: タブの数…」: 実データから取る行が無く（`Cannot set properties of undefined (setting 'replyDueAt')`・`/^status/ が出ない: []`）、テストが成り立っていない。ココナラの取得が 403 で空になっている件（DN-0667）と関係する可能性。
+**やること**: 1 は `noteTitle` も照合に足して取り直しで戻らないようにし（テスト付き）、R8予想の単品の productId を決めて登録する。2 はテストが実データの空に依存しないようにするか、データを取り直す。
+**完了条件**: develop の quality:audit で qualification-market と unit-tests が通る。取り直し（note-sales-fetch の dry-run）で 10/8 の行が pe-construction-geotechnical-pack に解決される。
+
+
 ### [DN-0678] 2級土木 第2次検定（10/25）の令和8年度 解答例ページを試験前に枠だけ出しておく
 タグ: [領域:サイト] [時期:2026-10] [種類:制作] [起票:2026-10-11] [進行中]
 
