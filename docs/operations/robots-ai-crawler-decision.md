@@ -4,15 +4,19 @@ title: robots.txt と AI クローラーの運用方針 — ADR
 
 # robots.txt と AI クローラーの運用方針 — ADR
 
-2026-09-04 時点では Cloudflare Managed Content の現行設定を維持し、AI bot の個別許可は行わない。変更を伴わないため、外部設定の操作は発生しない。
+2026-10-11 に運営者の判断で**案B（AI 検索と、利用者の指示で読みに来るエージェントだけを許可し、学習用は拒否のまま）**へ変えた。robots.txt はこのリポジトリの `scripts/lib/robots-txt.mjs` が作り、`scripts/generate-sitemap.mjs` が `out/robots.txt` に書く（`tests/robots-txt.test.mjs` が方針を固定する）。
 
 ## 決定
 
-**案A（現状維持）を採用する。** `OAI-SearchBot`・`Perplexity-User` を含む AI bot は全面ブロックのままとする。AI検索からの送客効果を測る基線がなく、現時点で無料コンテンツの zero-click リスクを増やす根拠がないためである。
+**案B を採用する（2026-10-11・運営者判断）。** 許可: `OAI-SearchBot`・`ChatGPT-User`・`PerplexityBot`・`Perplexity-User`・`Claude-SearchBot`・`Claude-User`。拒否のまま: 学習用（`GPTBot`・`ClaudeBot`・`anthropic-ai`・`Google-Extended`・`Applebot-Extended`・Meta・`Bytespider`・`Amazonbot`・`cohere-ai` ほか）と SEO ツール。`User-agent: *` に `Content-Signal: search=yes, ai-input=yes, ai-train=no` を付ける。
 
-再検討条件は、AI検索由来の参照・流入を識別できる計測手段が整うか、主要検索流入に明確な構造変化が出ること。条件を満たすまでは Cloudflare 側の設定を変更しない。
+案A の再検討条件のうち 2 つが満たされた。(1) 計測: GA4 の bot-audit で AI 由来の参照元を数えられる（2026-09-26〜10-09 の 14 日で copilot.com 28 人・chatgpt.com 6 人。Copilot は Bing の索引を使うので既に流入がある）。(2) 構造変化: 2026-10 の検索流入は Bing のクリックが Google の約 10 倍で、ChatGPT 検索などが使う Bing 系の経路の比重が大きい。
 
-## 現状（2026-08-28 実測）
+効果と zero-click の実害は、GA4 の AI 参照元（chatgpt.com・perplexity.ai・claude.ai・copilot.com）の人数と、同じ期間の GSC・Bing のクリック、note への送客で読む。AI 経由が増えず検索クリックだけが落ちる形が 2 か月続いたら、案A へ戻すかを判断する。
+
+Cloudflare のエッジでは、学習用の GPTBot だけが 403 で、AI 検索のエージェントは 200 で通る（2026-10-11 に User-Agent を変えて実測）。Cloudflare 側の設定は変えていない。
+
+## 当初の状況（2026-08-28 実測・2026-10-11 時点では robots.txt はリポジトリ側で生成）
 
 `curl --ssl-no-revoke https://doboku-note.com/robots.txt` で確認したところ、**このリポジトリに robots.txt の実体は無い**（`public/robots.txt` 不在・`src/app/robots.ts` 等の動的生成も不在）。配信されている robots.txt は **Cloudflare Managed Content**（`# BEGIN Cloudflare Managed content` マーカーつき）で、Cloudflare ダッシュボード側の設定がそのまま出力されている。
 
@@ -47,7 +51,7 @@ ChatGPT Search・Perplexity 等の AI 検索エンジンからの参照・引用
 
 ## 適用方法（承認後）
 
-robots.txt はこのリポジトリのコードでは生成していないため、**Cloudflare ダッシュボード（Security → Bots または対応する robots.txt 管理画面）側での設定変更が必要**。この環境（会社PC・Cloudflare API トークンは observability/graphql の read 系のみ）からは変更できない。
+robots.txt は `scripts/lib/robots-txt.mjs` の一覧（AI_SEARCH_AGENTS・AI_TRAINING_AGENTS・SEO_TOOL_AGENTS）を変えて、ビルド・デプロイで反映する。一覧を変えたら `tests/robots-txt.test.mjs` も合わせる。Cloudflare のエッジで AI のロボットを止める設定（Bots の AI 関連）を変える場合は、運営者がダッシュボードで行う。
 
 ## 未決事項（v2監査 §8.3 の残り4項目・スコープ外）
 
@@ -58,5 +62,6 @@ robots.txt はこのリポジトリのコードでは生成していないため
 
 ## 改訂履歴
 
+- 2026-10-11: 運営者の判断で案B へ変更。AI 検索と利用者の指示で読みに来るエージェントを許可し、学習用・SEO ツールは拒否のまま。robots.txt の生成を scripts/lib/robots-txt.mjs に切り出し、テストで方針を固定
 - 2026-09-04: 案A（現状維持）を採用。AI検索由来の効果を測れるまで個別許可を行わない方針を確定
 - 2026-08-28: 初版。Cloudflare Managed robots.txt・全 AI bot ブロックの実測を反映
