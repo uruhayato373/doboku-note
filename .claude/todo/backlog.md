@@ -2650,6 +2650,14 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 
 ## 🟣 判断待ち — ユーザーの意思決定が必要
 
+### [DN-0692] seo-rank-watch の capacity が全 NSM 実験を数える方針と、方針レビュー期日（2026-10-11）を扱う
+タグ: [領域:戦略] [種類:意思決定] [起票:2026-10-11]
+
+**起点**: 2026-10-11 の SEO SSOT 監査。scripts/lib/seo-rank-watch.mjs:175 の capacity は running/measuring の NSM 実験を種類を問わず数える（config.policy.maxConcurrent=2）。これは nsm-experiment SKILL.md:242 とテスト「other NSM experiments count toward the existing concurrency limit」で意図された方針で、2026-10-11 に一度直そうとして戻した。結果として note・アフィリの実験が走る間は順位の実験が選ばれない。あわせて config/seo-watchwords.json:265 の strategy.reviewedAt=2026-09-13＋28 日で policyReviewDue が 2026-10-11 に立ち、期日を過ぎると selected が null になる。
+**決めること**: (a) capacity を SEO 実験だけで数えるよう方針を変える（テストと SKILL を同じ commit で直す）／(b) 方針は据え置き、maxConcurrent を見直す／(c) 据え置き。いずれにしても policy-review の run を記録して期日を更新する。
+**完了条件**: node --test tests/seo-rank-watch.test.mjs が通り、管理画面の rank-watch で policyReviewDue=false。
+
+
 ### [DN-0691] civil-exam-textbook-index（2026-05-16 で停止・refresh-indexes 未配線）を再生成して配線する時期を決める
 タグ: [領域:サイト] [種類:意思決定] [検証:check-generated-indexes] [起票:2026-10-11]
 
