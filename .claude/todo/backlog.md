@@ -348,6 +348,14 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0666] 書籍の展開で触った 24 記事の SEO を GSC に沿って整える（未登録 4 本の登録依頼・検索意図・相互リンク・メタ）
+タグ: [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-10-11]
+
+**起点**: 2026-10-11、書籍の網羅の展開（DN-0591）とコンクリート系の照合で触った 24 記事を GSC（2026-10-10 取得・直近 28 日）で見た。合計は表示 540・クリック 24。concrete-engineer の textbook 3 本（construction・materials・production-qc）が「検出 - インデックス未登録」、新設の civil-practice/steel-material-properties は URL 検査も未実施（被リンク 1 本）。伸ばせる候補: concrete-diagnostician/textbook-deterioration（「コンクリート 中性化」表示 87・順位約 28）、concrete-chief-engineer/guide-essay（「コンクリート主任技士 小論文」表示 113・順位約 8）、pe-first-stage/guide-basic-subject（表示 72・順位約 10）。seo-meta（題名・説明の長さ）の結果は、data/analysis/seo-meta.json と URL の形が合わず、照合できていない（未確認）。
+**やること**: (1) 未登録 4 本を `npm run gsc-indexing:request` でインデックス登録をリクエストする (2) 候補 3 本を search-intent-auditor で検索意図と照らし、題名・説明・見出しを直す (3) 展開した記事どうしの相互リンクを補い、被リンクの少ないページを解消する (4) 触った記事の title・description の長さを check-seo-meta で検査する。
+**完了条件**: 4 本のインデックス登録リクエストの記録が data/gsc/indexing-requests.json にある。候補 3 本の修正がコミット済み。check-seo-meta で触った記事の違反 0。
+
+
 ### [DN-0665] 過去問の正答と ✅/❌ の整合検査（check-answer-consistency）が 1級・2級土木の記事を 1 問も検査せずに OK を返す
 タグ: [領域:サイト] [時期:2026-10..2026-11] [種類:不具合] [起票:2026-10-11]
 
