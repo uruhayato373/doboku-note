@@ -87,6 +87,19 @@ export function buildNetReceiptsMeasurement({ month, note, coconala, kdp }) {
 }
 
 /**
+ * 同じ月の現行の受取額記録（business-direction の currentRecords の measurement）から、新しい記録の訂正先を決める。
+ * 前の記録が無ければ supersedes:null。complete の月を partial で上書きしない（そろった月を欠測へ戻さない）。
+ * 2026-10-11: 9 月を partial で記録した後に同じコマンドを回すと、訂正先が無く「同じ計測があります」で拒まれた。
+ */
+export function netReceiptsSupersedes(current, record) {
+  const prev = current.find((r) => r.kind === 'measurement' && r.subject === 'netReceipts' && r.qualification === record.qualification
+    && r.channel === record.channel && r.period?.startDate === record.period.startDate && r.period?.endDate === record.period.endDate);
+  if (!prev) return { supersedes: null };
+  if (prev.coverage === 'complete' && record.coverage !== 'complete') return { error: `${prev.file} は complete（受取額 ${prev.values?.netReceipts}）。partial で上書きしない` };
+  return { supersedes: prev.file };
+}
+
+/**
  * partial の記録の source から欠けた内訳を読む（buildNetReceiptsMeasurement が書く「欠測: A・B。」の形だけ）。
  * 括弧の中の「・」では区切らない。欠測の記載が無ければ []。読み手: 管理画面のトップ（kpi-tree.ts）。
  */

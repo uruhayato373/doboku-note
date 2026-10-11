@@ -4,7 +4,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  parseNoteSalesDetail, kdpCatalogRoyalty, buildNetReceiptsMeasurement, monthEnd, netReceiptsMissing,
+  parseNoteSalesDetail, kdpCatalogRoyalty, buildNetReceiptsMeasurement, monthEnd, netReceiptsMissing, netReceiptsSupersedes,
   isNoteSalesAggregating, noteSalesFinalizeDate, noteSalesPendingMessage,
 } from '../scripts/lib/net-receipts.mjs';
 
@@ -46,4 +46,15 @@ test('partial の記録から欠けた内訳を読み戻す（括弧の中の・
   const complete = buildNetReceiptsMeasurement({ month: '2026-08', note: { gross: 71640, fee: -11011, net: 60629 }, coconala: 7800, kdp: { royalty: 5789, estimated: false } });
   assert.deepEqual(netReceiptsMissing(complete.source), []);
   assert.deepEqual(netReceiptsMissing(null), []);
+});
+
+test('同じ月の記録があれば訂正先にし、complete を partial で上書きしない（2026-10-11 の取り直し）', () => {
+  const partial = buildNetReceiptsMeasurement({ month: '2026-09', note: { net: 89402 }, coconala: 13650, kdp: null });
+  const complete = buildNetReceiptsMeasurement({ month: '2026-09', note: { net: 89402 }, coconala: 13650, kdp: { royalty: 4000, estimated: false } });
+  const file = (r, name) => ({ ...r, file: `data/business/records/${name}.json` });
+  const other = file(buildNetReceiptsMeasurement({ month: '2026-08', note: { net: 60629 }, coconala: 7800, kdp: { royalty: 5789, estimated: false } }), 'm-08');
+  assert.deepEqual(netReceiptsSupersedes([other], partial), { supersedes: null });
+  assert.deepEqual(netReceiptsSupersedes([other, file(partial, 'm-09p')], complete), { supersedes: 'data/business/records/m-09p.json' });
+  assert.deepEqual(netReceiptsSupersedes([file(partial, 'm-09p')], partial), { supersedes: 'data/business/records/m-09p.json' });
+  assert.match(netReceiptsSupersedes([file(complete, 'm-09c')], partial).error, /complete/);
 });
