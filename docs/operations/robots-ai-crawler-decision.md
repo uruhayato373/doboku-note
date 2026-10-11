@@ -65,3 +65,6 @@ robots.txt は `scripts/lib/robots-txt.mjs` の一覧（AI_SEARCH_AGENTS・AI_TR
 - 2026-10-11: 運営者の判断で案B へ変更。AI 検索と利用者の指示で読みに来るエージェントを許可し、学習用・SEO ツールは拒否のまま。robots.txt の生成を scripts/lib/robots-txt.mjs に切り出し、テストで方針を固定
 - 2026-09-04: 案A（現状維持）を採用。AI検索由来の効果を測れるまで個別許可を行わない方針を確定
 - 2026-08-28: 初版。Cloudflare Managed robots.txt・全 AI bot ブロックの実測を反映
+
+> [!note] Lighthouse との関係（2026-10-11）
+> Lighthouse の `robots-txt` 監査は `Content-Signal` を「Unknown directive」と判定して 0 点になり、SEO カテゴリが 0.92 に落ちて CI の `lighthouse.yml` が全 URL で赤になった（実測）。Google など検索エンジンは未知の指令を無視するので実害は無い。`lighthouserc.json` の `settings.skipAudits` で `robots-txt` だけ外し、robots.txt の中身は `tests/robots-txt.test.mjs` が見る。

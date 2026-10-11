@@ -3,7 +3,8 @@
   "entry": [
     "scripts/**/*.{mjs,cjs,js,ts}",
     ".claude/scripts/**/*.{mjs,cjs,js}",
-    ".claude/skills/**/scripts/**/*.{mjs,cjs,js}"
+    ".claude/skills/**/scripts/**/*.{mjs,cjs,js}",
+    ".claude/skills/**/scripts-*/**/*.{mjs,cjs,js}"
   ],
   "project": [
     "src/**/*.{ts,tsx}",

@@ -28,7 +28,7 @@ rankRelated(currentMeta, categoryArticles, limit = 6)
 - `meta.tags` から**構造タグ**（`src/config/tags.json` で `class: structural|flag` のもの。判定は `isStructuralTag()`〔`src/lib/content-taxonomy.ts`〕。タグは index ビルド時に正規表記へ正規化済み）を除いた**トピックタグ**だけで比較する
 - 同カテゴリ内の各記事について、現在記事とのトピックタグ共通数を score とする
 - 自分自身・非公開（`published === false`）・共通タグ 0 件（score 0）は除外
-- 同スコアは `date` 降順（新しい記事優先）でソート
+- 同スコアは `dateModified`（無ければ `created`）降順（新しい記事優先）でソート。doc-meta-index に `date` は無く、2026-10-11 まで全件同率でファイル名順の記事が枠を占めていた
 - 上位 `limit` 件（既定 6）を返す
 - 現在記事にトピックタグが 1 つもない場合は空配列を返す（Tier 段階のフォールバックはない）
 
