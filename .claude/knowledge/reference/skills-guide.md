@@ -34,6 +34,8 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 
 ### 変換（conversion）
 
+動画表紙の `/create-pop-image` は通常動画・Shortsの承認見本と内容別ポーズを参照し、Drive原本＋SHAで復元する。画像QAは既存の `ai-image-fidelity-auditor` / `yt-shorts-publisher-qa` を使う。
+
 | スキル | 一言説明 | 呼ぶとき |
 |---|---|---|
 | `/pdf-to-mdx` | PDF/画像 → MDX 変換（試験別テンプレート）。`--scanned` でテキスト層なしスキャン書籍を視覚 OCR（`scanned-textbook-transcriber`）→ 内部リファレンス .md ＋図クロップ | `PDF変換`, `MDX化`, `スキャン教材の文字起こし`, `書籍OCR`, `/pdf-to-mdx --exam {cem\|civil-construction-1\|general}`, `/pdf-to-mdx --scanned` |
@@ -103,7 +105,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 | `/publish-ig-bs` | Playwright × Meta Business Suite で IG **カルーセル/リール**を**予約投稿**（`--reel` で reels/video.mp4・IG 単独化・spinbutton 時刻・dry-run 必須）。即時は `--now`（Graph API 経路は 2026-06-17 全廃＝IG 投稿は本スキルに一本化） | `IG予約投稿`, `インスタ予約`, `リール予約`, `Business Suite 投稿`, `/publish-ig-bs` |
 | `/ig-reconcile` | IG 公開状態を CI 週次 snapshot（`login-collectors.yml` の `verify-ig-status`・encrypted-state）と照合し、posted.json/status.json のドリフトを是正・未公開を安全に予約まで運ぶ運用スキル。`ig-publish-auditor` で公開可否ゲート→`publish-ig-bs` で衝突しない時間帯へ予約→プランナー実体確認。投稿/予約は operator 確認後・削除は対象外。真実源 `.claude/knowledge/reference/ig-publish-reconcile.md` | `IG公開状態を確認`, `未公開を予約投稿`, `IGのSoTドリフト是正`, `IG status reconcile`, `/ig-reconcile` |
 | `/x-repost` | 高エンゲージな技術士総監/1級・2級土木ツイートを検索 → `x-repost-curator` で選別＋引用コメント生成 → Playwright で引用RP（ローカル `/loop` 運用・dry-run 必須） | `Xリポスト`, `引用リポスト`, `/x-repost` |
-| `/yt-shorts-create` | **v7: IG Reels mp4 から YouTube Shorts を派生**（**≤60秒**トリム〔60秒超は通常動画扱い〕+ 概要欄差替、`--from-reels`。投稿は3本/日・JST07:30/12:30/20:00、真実源 policy §5-7。MDX 直結 `--slug` は廃止） | `YouTube Shorts`, `YT 派生`, `/yt-shorts-create --from-reels r03-pack-01` |
+| `/yt-shorts-create` | **v7: IG Reels mp4 から YouTube Shorts を派生**（30〜60秒を推奨〔成立条件の検査は縦/正方形・180秒以内〕+ 概要欄差替、`--from-reels`。投稿は3本/日・JST07:30/12:30/20:00、真実源 policy §5-7。MDX 直結 `--slug` は廃止） | `YouTube Shorts`, `YT 派生`, `/yt-shorts-create --from-reels r03-pack-01` |
 
 ### 開発（dev）
 

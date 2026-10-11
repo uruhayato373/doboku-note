@@ -25,7 +25,7 @@ YouTube サムネ・Shorts/Reels 冒頭・Instagram 表紙・X カードでは�
 - 見出しは原則 2〜3 行。長い題名を縮小して押し込まず、意味を保って短くする。問いの例「最短工期、どこで決まる？」は当該論点にだけ使い、全投稿へ固定しない。合格保証・根拠のない実績・内容にない煽りを足さない。
 - 新テンプレートの採用時は同じテーマ・見出しで複数ポーズを比較する。指差し・考え中・手のひらで解説など既存 manifest の候補から選び、問い／解説／締めに合わせて使い分ける。全投稿を同じポーズに固定せず、変化のためだけに内容と無関係な表情を使わない。
 - 縁取り・影は背景との分離に必要な範囲。人物・大見出し・補足の階層を作り、文字や図への人物の重なりを避ける。媒体別の既存寸法と余白規約は引き続き適用する。
-- 制作時は文字を編集可能なデータとレイアウトとして保持し、既存人物素材を合成する。生成画像に焼き付いた日本語や生成フォントを量産の真実源にしない。
+- テンプレート組版は文字を編集可能なデータとレイアウトとして保持し、既存人物素材を合成する。全面POP画像生成は [POP画像方針](./pop-image-policy.md) の承認見本を参照し、文字原稿・生成指示・参照SHAを `pop-image.json` に保持する。焼き付いた日本語や生成フォントを唯一の文字原稿にしない。
 - 人物の全身・腰上・胸上は [キャラクター素材ポリシー「全身・腰上・胸上の派生」](./character-asset-policy.md) の確認済み切り取りを使う。投稿時に `pose` / `frame` / `width` を選び、原寸不足なら配置を小さくするか高解像度原本を別途用意する。人物素材の生成だけで媒体別テンプレートや外部投稿の更新を完了としない。
 - QA は表紙をスマホ相当の幅 360px で実画像確認し、見出しの判読・人物同一性・文字切れ・重なり・強調の節度を指摘する。動画は冒頭フレームも確認する。実画像未確認は「未検査」とする。
 - これは新規制作・改修時の目標。既存レンダラーが自動的に対応済みとは扱わない。共通テンプレートを実装し、代表 1 件を確認してから量産へ展開する。
@@ -54,7 +54,7 @@ YouTube の後付けサムネ処理は `npm run youtube-thumbnail:update`（.cla
 
 動画パックに `cover-design.json` を置くと、`npm run youtube-covers -- --spec PATH` で人物＋編集可能な見出しの見本（PNG/SVG/来歴manifest）を `.tmp/youtube-covers/run-*/` へ生成する。共通実装は `scripts/lib/youtube-cover.mjs`。`covers.longform` は1920×1080、`covers[Shortのkey]` は1080×1920。各specは `format`・試験パレットの `exam`・2〜3行の `headline`（1行8文字以内）・`accentLine`・`subtitle`（24文字以内）・`character: {pose, frame}` を持つ。原画像は上書き・引き伸ばしせず、要修正素材と長すぎる見出しは停止する。科目番号は字形のあるASCIIの `I / II / III` を使い、ローマ数字記号 `Ⅰ / Ⅱ / Ⅲ` は拒否する。未指定パックとlegacyレンダラーは従来意匠のまま。
 
-POP組版は `design: "pop-v2"` と `pop: {variant, authority}` で指定する。variantは `listen`・`write`・`compare`・`question`・`plan`・`explain`。`npm run youtube-covers -- --all` は停止済みを除くYouTube台帳の表紙を生成し、`.tmp/youtube-covers/pop-all/index.html` に確認一覧を作る。`--exam`・`--pub` で対象を絞り、`--commit` で原稿と正規の素材台帳へ採用する。音声・字幕・動画本体・公開状態・運営者の承認は変更しない。人物原本は `_source/`（Driveの `repo-archive`）、完成PNGは `content-media` に保存・クラウド照合する。選択済みの完成画像は入力とSHAが一致する場合に画素を保持する。
+従来のPOP組版は `design: "pop-v2"` と `pop: {variant, authority}` で指定する。variantは `listen`・`write`・`compare`・`question`・`plan`・`explain`。`npm run youtube-covers -- --all` は停止済みを除くYouTube台帳の表紙を生成し、`.tmp/youtube-covers/pop-all/index.html` に確認一覧を作る。`--exam`・`--pub` で対象を絞り、`--commit` で原稿と正規の素材台帳へ採用する。音声・字幕・動画本体・公開状態・運営者の承認は変更しない。人物原本は `_source/`（Driveの `repo-archive`）、完成PNGは `content-media` に保存・クラウド照合する。選択済みの完成画像は入力とSHAが一致する場合に画素を保持する。
 
 画像生成ツールで作った構図比較案は制作元の `pop-image.json` の `revisions` にコピー・ポーズ・生成履歴・SHAを保存し、採用中の `outputs` と区別する。legacy Shortsの同ファイルもGitで保持する。比較案の保存だけでは `cover-design.json`・素材台帳・動画冒頭は更新されない。`pop-v2`の自動組版は人物3素材を使うため、内容別の追加ポーズや原本に近い構図を自動生成済みとは扱わない。
 

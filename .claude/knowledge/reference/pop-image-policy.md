@@ -38,6 +38,19 @@ title: キャラクターPOP画像の共通制作方針
 - noteは [noteカバー](../design-system/note-cover-character-v5.md)、SNSは [SNS画像](./sns-image-policy.md)、ココナラは [運用](./coconala-operations.md) を参照する。寸法・公開コマンドをここへ重複管理しない。
 - 方針の適用と既存レンダラーの実装状況は別。既存CLIを実行するだけでPOP版になるとは扱わない。対応していなければ画像生成ツールで媒体別原稿を作るか、依頼された範囲でテンプレートを改修する。
 
+## 通常動画・Shortsの承認見本
+
+2026-10-11にユーザーが「この感じでショートも通常動画も」と承認した意匠。内容に合わせて次の見本を選ぶ。各JSONの `revisions` が参照PNG・全生成指示・出力SHAの正本。意匠の承認は、媒体寸法・Shorts操作UIの確認や動画への採用完了を意味しない。
+
+| 内容とポーズ | 原稿・生成履歴（revisionsのキー） |
+|---|---|
+| 答案確認・赤ペン | [2級土木・安全管理](../../../content/sns/video-packs/civil-construction-2/anzen-ippanron-3riyu/pop-image.json)（`point-cause1-1`） |
+| 比較・両手 | [2級土木・混和材料](../../../content/sns/video-packs/civil-construction-2/gakka-2kyu-concrete/pop-image.json)（`point-block1-2`） |
+| 判断・考える | [総監・アクセス権](../../../content/sns/youtube/pop-image.json)（`access-control`） |
+| 聞き流し・ヘッドホン | [1級土木・品質管理](../../../content/sns/video-packs/civil-construction-1/kikinagashi-hinshitsu-kikaku/pop-image.json)（`longform`） |
+
+ヘッドホン等の用途に合う装備へ変えてよい。顔・服装の同一性を保ち、ポーズを単なる順番で割り当てない。今回の全面画像生成版は `pop-poster-v3`。従来の `pop-v2` 一括レンダラーは3ポーズの別組版であり、この見本の再生成器ではない。
+
 ## 保存と引き継ぎ
 
 新規制作は対象記事／商品／投稿の制作ディレクトリに `pop-image.json` を置き、下記を記録する。本文コピーは既存frontmatter等が正典ならその参照も残す。PNGを唯一の文字原稿にしない。
@@ -52,3 +65,5 @@ title: キャラクターPOP画像の共通制作方針
 編集可能な文字・参照・プロンプトをGit、原画像と完成PNGを用途に応じDrive/R2へ保存する。共用する人物素材はキャラクター台帳へ登録し、商品固有の背景付き完成画像を人物ポーズとして登録しない。保存方法は `/asset-route` に従い、新しい独自保管先を増やさない。承認後の差し替えは原本を残し、新版のパスとSHAへ更新する。
 
 新規に日本語込みで画像生成した場合は原寸と幅360pxの表示で文言を読み、誤字・文字切れ・顔の変形を修正する。生成モデルへの同じプロンプトは同じ画素を保証しない。完全再現は保存済みPNG、内容変更は新しい派生版として扱う。既存予約・公開物の差し替えは各媒体の公開手順で実体確認する。
+
+動画表紙の完成PNG・生成途中の原本は `content-media` としてDrive vaultの「制作物/コンテンツ」へ保存する（[設定](../../../config/drive-vault.json)）。Gitには `pop-image.json` のコピー・参照SHA・生成指示・実寸・承認範囲を残す。R2はCIへ渡す採用画像の一時転送用で、Drive原本の代替ではない。復元・SHA照合・R2転送は [動画生成手順](../../../content/sns/youtube/VIDEO-RENDER.md) を使う。`revisions` の画像は、保存しただけでは `approvedImage` や動画へ採用されない。

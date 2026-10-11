@@ -681,10 +681,15 @@
           "poseMatchesContent": true,
           "authorityNotOccluded": true
         },
-        "userImageReview": "pending",
-        "shortsUiReview": "pending"
+        "userImageReview": "style-approved",
+        "shortsUiReview": "pending",
+        "styleApproval": {
+          "date": "2026-10-11",
+          "evidence": "ok この感じでショートも通常動画も",
+          "scope": "通常動画・Shortsの意匠と内容別ポーズ。媒体寸法・操作UI・動画への採用は別途確認"
+        }
       },
-      "publication": "構図確認用・未採用・外部未反映"
+      "publication": "意匠承認済み・動画未採用・外部未反映"
     }
   }
 }
