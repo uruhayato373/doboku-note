@@ -21,12 +21,6 @@
 
 ## 🔴 高 — 重要度が高い
 
-### [DN-0683] ogp-supply が章 OGP 344 件を毎回再生成・再供給し、bot commit が develop の 64% を占める
-タグ: [領域:管理] [時期:2026-10] [種類:改善] [検証:check-workflow-hygiene] [起票:2026-10-11]
-
-**起点**: 2026-10-11 のコード監査。30 日で github-actions[bot] の commit 478 件のうち ogp-supply が 308 件。CI の checkout には ogp.png が無いので scripts/build-standards-ogp.mjs:165 の existsSync が常に偽になり、344 章を毎回再生成して asset-offload（PUT/HEAD/GET 各 344 件・平均 283 秒）し、manifest の verifiedAt だけが変わる 3,400 行規模の差分を往復している。MDX を push した直後に develop の先頭が [skip ci] の bot commit になるのは構造。
-**やること**: 生成側で manifest（asset-storage）に同じ章の記録があれば飛ばす（または asset-offload の --skip-existing を使う）。PNG が同じ入力から同じバイトになるかは未確認なので、ならない場合は manifest の有無で判定する。ogp-supply.yml:246-252,265 の条件も合わせる。
-**完了条件**: 無関係な MDX を push しても ogp-supply の run が chapters_generated=0 で終わり、develop に bot commit が増えない（gh run view --log で確認）。
 
 
 
@@ -375,7 +369,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 ## 🟡 中 — 重要度が中くらい
 
 ### [DN-0693] quality-audit の duration が壁時計のみで、スリープ中の TIMEOUT 7 件が偽（単独実行の 11.7 倍）
-タグ: [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-11]
+タグ: [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-11] [進行中]
 
 **起点**: 2026-10-11 のコード監査。.claude/state/quality/audit-latest.json（2026-10-10T03:39Z）の TIMEOUT 7 件（unit-tests 181 秒・validate-mdx 180 秒・reference-book-pages 120 秒ほか）を単独で再実行すると 37 秒・17 秒・6 秒。27 検査の合計は 1,804 秒→154.6 秒（asset-reentry は 34.8 秒→0.1 秒の 348 倍）。並列 4 の競合では説明できず、スリープ復帰か Drive の I/O 停止が壁時計に混ざった可能性が高い（原因の特定は未了）。timeout の延長や検査の分割は効かない。
 **やること**: scripts/quality-audit.mjs:521-627 の runCheck で process.hrtime との差と os.loadavg() を記録し、壁時計だけが伸びた run は timeout/fail でなく inconclusive（exit 2）にする。
@@ -383,27 +377,17 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 
 ### [DN-0688] pre-commit 13.9 秒（67 プロセス）と SessionStart の x-sync 9.6 秒を短縮する
-タグ: [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-11]
+タグ: [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-11] [進行中]
+
+**進捗（2026-10-11）**: 前半（x-sync の TTL）は PR #999 で実装。前回の完走を state.x-sync-last-run（手元だけ）に書き、4 時間以内で queued の不在が無ければ Playwright を起動しない（実測 12.8 秒 → 0.2 秒）。後半（pre-commit のディスパッチャ化）は未着手: フック内の node 起動 78 行・各スクリプトに run() を足す大改修なので別の回で。
 
 **起点**: 2026-10-11 のコード監査。scripts/install-pre-commit.mjs のフックは node を常時 13＋条件付き 60 起動し、MDX 1 本を staged した計測で 67 起動 13.9 秒（起動費だけで約 6 秒・中央値 0.12 秒・重い順に check-datasets 1.83 秒、pre-commit-mdx 1.80 秒、lint-ja 0.77 秒）。SessionStart（scripts/session-start.mjs:33）の x-sync は毎回 Playwright で x.com を開いて 9.6 秒。
 **やること**: (1) x-sync に TTL を付ける（lib/x-scheduled-queue.mjs:25-37。凍結ガードレールの観点でも毎セッションのログイン済み起動は減らす）(2) pre-commit を 1 プロセスのディスパッチャにし、staged のパスごとに必要な検査だけ in-process で呼ぶ（session-start.mjs の run() 契約を流用）。
 **完了条件**: 2 回目の node scripts/session-start.mjs --json が 5,000 ms 未満。一時 index に MDX 1 本で sh .git/hooks/pre-commit が 6 秒未満（短縮幅は見込みで未測定）。
 
 
-### [DN-0686] check-command-guidance の走査範囲を skills・knowledge・agents・workflows・docs へ広げる
-タグ: [領域:管理] [時期:2026-10] [種類:改善] [検証:check-command-guidance] [起票:2026-10-11]
-
-**起点**: 2026-10-11 のコード監査。scripts/check-command-guidance.mjs:37-52 が走査するのは scripts/**・.claude/scripts/*.mjs・CLAUDE.md・AGENTS.md・commands.md・rules だけで、skills・knowledge・agents・workflows・docs の約 2,400 参照は見ていない。その範囲に実在しない npm run が 7 件あった（character-frames・instagram-carousels:render・youtube-thumbnail:update・youtube-covers・docs:check・r2:upload・check-note-free-preview）。7 件は 2026-10-11 に手で直した。
-**やること**: 走査範囲を広げ、プレースホルダ（<name>・X・…）を除外する。誤検知の出方を見てから ci に載せる。
-**完了条件**: npm run check-command-guidance が広げた範囲で exit 0 になり、実在しない npm run を 1 件入れると exit 1 になる回帰テストがある。
 
 
-### [DN-0684] /search のクライアント JS に doc-meta-index（1.66MB チャンク）が同梱されている
-タグ: [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-10-11]
-
-**起点**: 2026-10-11 のコード監査。out/search.html だけが読む 1,659,388 B（gzip 325KB）のチャンクの中身は doc-meta-index.json（約 930KB）。経路は src/components/search/SearchZeroState.tsx:6 が @/lib/content-routes の getPublicDocPath を import し（content-routes.ts:1 が doc-meta-index を import）、もう 1 本は同 :2 のバレル @/components/home 経由。クライアント JS 合計 2.74MB の 60%。
-**やること**: getPublicDocPath を src/app/search/page.tsx（server）で計算して props で渡し、ExamCard は @/components/home/ExamCards から直接 import する。
-**完了条件**: build 後に find out/_next/static/chunks -name '*.js' -size +600k | wc -l が 0（現状 1）。CI の build ジョブに同じ検査を足す。
 
 
 ### [DN-0682] 2級土木の水セメント比図の無条件な施工性低下の説明を修正する
