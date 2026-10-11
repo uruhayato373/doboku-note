@@ -501,6 +501,44 @@
       "height": 1080
     },
     {
+      "id": "pe-construction/pe-kojutsu-keireki/youtube.longform/subtitles",
+      "role": "subtitles",
+      "type": "text/x-ssa",
+      "sha256": "43d4130d87355b970807aae4e3b061485714a1ecbd1fddd4a78ce3a25daf0c55",
+      "bytes": 6902,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-kojutsu-keireki/youtube.longform/subtitles.43d4130d.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-construction/pe-kojutsu-keireki/storyboard.json"
+      }
+    },
+    {
+      "id": "pe-construction/pe-kojutsu-keireki/youtube.longform/video",
+      "role": "video",
+      "type": "video/mp4",
+      "sha256": "849103fe2cc94b25c5de144e180c9281f56439c0cce2df19707eba567e4429d1",
+      "bytes": 15950277,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-construction/pe-kojutsu-keireki/youtube.longform/video.849103fe.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/pe-construction/pe-kojutsu-keireki/storyboard.json",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 196.565
+    },
+    {
       "id": "pe-construction/r8-yosou-dashikata/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",

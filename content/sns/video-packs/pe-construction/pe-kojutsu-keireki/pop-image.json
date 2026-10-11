@@ -36,7 +36,7 @@
       "storage": {
         "group": "content-media"
       },
-      "publication": "画像確認用。音声差し替え・動画再合成はユーザー指示により後工程。外部未反映。",
+      "publication": "画像差し替え完成動画を管理画面へ登録。音声は既存動画のコピー。YouTubeへの公開は別工程。",
       "contentImageReview": {
         "date": "2026-10-11",
         "status": "ai-ok",
@@ -117,6 +117,110 @@
             "sha256": "865f0aad8d32b7f38e6d28623ab1c58e99b9774578f966e4b785bcbc4e13023f"
           }
         ]
+      },
+      "videoImageReplacement": {
+        "source": ".tmp/media/pe-construction/pe-kojutsu-keireki/youtube.longform/video.39f579af.mp4",
+        "sourceSha256": "39f579aff4c3a22f7021ddef5c01f3d0420d56847b7d479240a1fbbcea746778",
+        "outputSha256": "849103fe2cc94b25c5de144e180c9281f56439c0cce2df19707eba567e4429d1",
+        "audioPacketsUnchanged": true,
+        "audioPacketSha256": "d87c88dc17a2a92596b7bb30b2d62e1315000520172fcf80e436b12a67cc0ebc",
+        "ttsRegenerated": false,
+        "subtitlesSha256": "43d4130d87355b970807aae4e3b061485714a1ecbd1fddd4a78ce3a25daf0c55",
+        "timingMethod": "original unchanged cached WAV durations",
+        "durationSec": 196.565333,
+        "frames": 5896,
+        "scenes": [
+          {
+            "sceneId": "cover",
+            "startSec": 0,
+            "endSec": 3.018667,
+            "imageSha256": "ab1d6df2a54d0583eaa0f0cda95e60a3663f0d44a99dcf0952b25443a8d45709"
+          },
+          {
+            "sceneId": "premise",
+            "startSec": 3.018667,
+            "endSec": 19.872,
+            "imageSha256": "40346f3b349d6668b0c567467a66328289a62315fc0fedd78b232cf6bba8fa6d"
+          },
+          {
+            "sceneId": "criteria",
+            "startSec": 19.872,
+            "endSec": 36.725333,
+            "imageSha256": "ae4d3f785f2f8df664f67f0136d4d7b1323fedbabe3db9649854e041379e6592"
+          },
+          {
+            "sceneId": "fact-sheet",
+            "startSec": 36.725333,
+            "endSec": 56.416,
+            "imageSha256": "a4fc821de634c9f52dac8446c5f6be064f897ffa2f8c10f041dc5ddc02e8b941"
+          },
+          {
+            "sceneId": "management",
+            "startSec": 56.416,
+            "endSec": 75.050667,
+            "imageSha256": "abbfd9ea58b0c4e8ff02e264d2b40191f08be2a9bedaabaa248555b9ac8f7d27"
+          },
+          {
+            "sceneId": "evaluation",
+            "startSec": 75.050667,
+            "endSec": 91.733334,
+            "imageSha256": "30368f77497229c183345fd4fc981fbf60602b8ec90ecabc5faaba0e2deb58e1"
+          },
+          {
+            "sceneId": "communication",
+            "startSec": 91.733334,
+            "endSec": 110.944001,
+            "imageSha256": "da5f4ab8bb58fa6917350d92071237193a6e0c7cd725eac4d8fe28ef23daeef6"
+          },
+          {
+            "sceneId": "ethics",
+            "startSec": 110.944001,
+            "endSec": 130.133334,
+            "imageSha256": "950c69f32c6d779e2b6eaf153b9580f84732dc0bde19f392189f427f8d1c5de9"
+          },
+          {
+            "sceneId": "cpd",
+            "startSec": 130.133334,
+            "endSec": 148.14933399999998,
+            "imageSha256": "c560132200023f61980dc66a884a7873574b25cad73e254595a47fcdcf80e772"
+          },
+          {
+            "sceneId": "answer-example",
+            "startSec": 148.14933399999998,
+            "endSec": 166.95466699999997,
+            "imageSha256": "4c1d0cd7f3277de96150f937a072466a8157a124dc470175b576c614a82ec133"
+          },
+          {
+            "sceneId": "summary",
+            "startSec": 166.95466699999997,
+            "endSec": 185.56799999999998,
+            "imageSha256": "001928c61bf2128c165cc0b8d503866c60431c87688065ecfe7122b5fcffe1db"
+          },
+          {
+            "sceneId": "cta",
+            "startSec": 185.56799999999998,
+            "endSec": 196.53333333333333,
+            "imageSha256": "e725aa4d277d85070c86dbba328942821ed51aea011be1a8d5e0636e3cefda1d"
+          }
+        ],
+        "encoding": {
+          "videoEncoder": "libx264",
+          "preset": "ultrafast",
+          "crf": 21,
+          "fps": 30,
+          "pixelFormat": "yuv420p",
+          "audio": "stream copy from existing video",
+          "pngInput": "RGB normalization in scratch; approved PNG unchanged"
+        },
+        "review": {
+          "status": "machine-verified",
+          "audio": "encoded audio packet SHA256 exact match",
+          "browserPlayback": "Played and sought successfully in admin; screenshot visually verified, readyState=4, no media error.",
+          "userFinalReview": "pending",
+          "seekVerifiedSec": [
+            65
+          ]
+        }
       }
     }
   }
