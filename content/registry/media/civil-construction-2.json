@@ -1628,19 +1628,21 @@
       "id": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-009",
       "role": "scene-009",
       "type": "image/png",
-      "sha256": "8b080033866f4d88828ed8d02248c120e6a073adb772796852464649a4be8b65",
-      "bytes": 94097,
+      "sha256": "aab35acafff98d1ac816fc7b6a1b2eb006ff4be604b8e9a6024ea9046f36f288",
+      "bytes": 2782183,
+      "width": 1920,
+      "height": 1080,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-009.8b080033.png"
+        "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-009.aab35aca.png"
       },
       "provenance": {
-        "kind": "render",
-        "by": "render-longform",
-        "spec": "content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen/storyboard.json#c01-summary"
-      },
-      "width": 1920,
-      "height": 1080
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a precise Japanese EDUCATIONAL RECAP infographic for a 2級土木 video, 1920x1080 landscape. Match reference manga teacher identity and green/cream/yellow palette, but use clean light cream background, deep green text, restrained accents. This is a conclusion/learning memory image, NOT a promotional chapter opener: relational diagrams and exact learning takeaways are the main content. Main title takes max top 18%; content uses central 65%; teacher max 12% width near an edge. Text generously spaced, high contrast, labels no overlap with arrows/figures/character. Small badge 「2級土木」. Bottommost 100px clean blank cream band reserved for existing subtitles. No URL, brand, sales pitch, unsupported facts, tiny gibberish, extra text. Japanese text exactly as requested. Use simplified technically plausible schematic illustrations instead of decorative construction-site backgrounds. Exact title 「土工｜4つの対応」. Four substantial quadrants with schematic learning diagrams, not machinery poster. 1 probe in ground → result icon, exact caption 「試験 → 目的」. 2 two arrows branching FROM same undisturbed soil block: 「L → ほぐした土」「C → 締固めた土」, label origin 「地山」. 3 compaction curve with only labels 「最適含水比」「締固め度」 (no invented numbers; first near curve peak's x-axis, second separate density-check icon not y-axis). 4 improving ground icons connected to label 「工法 → 対策の目的」. Teacher tiny bottom-left points at map, not main visual.",
+        "promptSha256": "400cd9c7eae5f82064e8b404a978ac2542f56afdf0ef18e7226b41ae73472e8f",
+        "generatedAt": "2026-10-11T11:17:04.341Z"
+      }
     },
     {
       "id": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-010",
@@ -1772,19 +1774,21 @@
       "id": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-017",
       "role": "scene-017",
       "type": "image/png",
-      "sha256": "1e55d215f7f5d00211f1351a2c000157102ae3263c5ed87bb7ee7b4f0a7ac32b",
-      "bytes": 93739,
+      "sha256": "9dc5ddac3021735ab9e6a6b38b1cd7ec5e860c1f0f39b435c964ab28df361a47",
+      "bytes": 2921617,
+      "width": 1920,
+      "height": 1080,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-017.1e55d215.png"
+        "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-017.9dc5ddac.png"
       },
       "provenance": {
-        "kind": "render",
-        "by": "render-longform",
-        "spec": "content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen/storyboard.json#c02-summary"
-      },
-      "width": 1920,
-      "height": 1080
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a precise Japanese EDUCATIONAL RECAP infographic for a 2級土木 video, 1920x1080 landscape. Match reference manga teacher identity and green/cream/yellow palette, but use clean light cream background, deep green text, restrained accents. This is a conclusion/learning memory image, NOT a promotional chapter opener: relational diagrams and exact learning takeaways are the main content. Main title takes max top 18%; content uses central 65%; teacher max 12% width near an edge. Text generously spaced, high contrast, labels no overlap with arrows/figures/character. Small badge 「2級土木」. Bottommost 100px clean blank cream band reserved for existing subtitles. No URL, brand, sales pitch, unsupported facts, tiny gibberish, extra text. Japanese text exactly as requested. Use simplified technically plausible schematic illustrations instead of decorative construction-site backgrounds. Exact title 「コンクリート｜4つの要点」. Four large learning zones in a 2x2 layout. Zone1 two materials containers contrasted with exact text 「混和剤 ≠ 混和材」. Zone2 two clear parallel relations 「水セメント比 → 強度・耐久性」「スランプ → 施工性」 with simple specimen/slump icons. Zone3 compact chronological work sequence showing vertical vibrator and moist cover with exact label 「打込み → 締固め → 養生」. Zone4 crack in concrete branching by cause with exact label 「ひび割れ → 原因別に対策」. Teacher small right edge checking concrete, never covering content.\n\n修正指示:\n添付の結論画像を修正する。画像全体の16:9、緑・黄・白のPOP意匠、同じ先生の顔・メガネ・服装、主題を維持。下端の字幕用余白を確保。変更内容: ４区画を維持。混和剤と混和材の小さな定義段落は完全に除去。大見出し『混和剤≠混和材』と２つの材料アイコンだけ残す。スランプの測定矢印を消してコーンのアイコンだけにする。性能のラベルは維持。右下の荷重外力・鉄筋配置等を含む３組の説明をすべて削除し、ひび割れたコンクリートから２つの枝に『乾燥収縮』『温度ひび割れ』だけを大きく示す。右下見出しは『ひび割れ→原因別に対策』。その他の主題、施工の締固め・養生の図とキャラクターは維持。 小さな説明を再追加しない。日本語は正確に、字と図は重ねない。",
+        "promptSha256": "90ff3b15c908851dcb9e29b34d59988d390fc6a64a11eb4ef280680998dd56d2",
+        "generatedAt": "2026-10-11T11:17:04.726Z"
+      }
     },
     {
       "id": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-018",
@@ -1934,19 +1938,21 @@
       "id": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-026",
       "role": "scene-026",
       "type": "image/png",
-      "sha256": "9f7114213c6f9c95e1493046ee45ef5a0d068e6eaca1437ec5b7e52924c7c3d8",
-      "bytes": 93309,
+      "sha256": "64c9baa674829b745bbae7cef38d986c2070392d9fa57c7a7decf46e7d4232ff",
+      "bytes": 2927846,
+      "width": 1920,
+      "height": 1080,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-026.9f711421.png"
+        "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-026.64c9baa6.png"
       },
       "provenance": {
-        "kind": "render",
-        "by": "render-longform",
-        "spec": "content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen/storyboard.json#c03-summary"
-      },
-      "width": 1920,
-      "height": 1080
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a precise Japanese EDUCATIONAL RECAP infographic for a 2級土木 video, 1920x1080 landscape. Match reference manga teacher identity and green/cream/yellow palette, but use clean light cream background, deep green text, restrained accents. This is a conclusion/learning memory image, NOT a promotional chapter opener: relational diagrams and exact learning takeaways are the main content. Main title takes max top 18%; content uses central 65%; teacher max 12% width near an edge. Text generously spaced, high contrast, labels no overlap with arrows/figures/character. Small badge 「2級土木」. Bottommost 100px clean blank cream band reserved for existing subtitles. No URL, brand, sales pitch, unsupported facts, tiny gibberish, extra text. Japanese text exactly as requested. Use simplified technically plausible schematic illustrations instead of decorative construction-site backgrounds. Exact title 「基礎工｜選ぶ基準」. EXACTLY FIVE compact substantial topic panels, 3 top and 2 bottom with small soil sectional sketches. Exact relations: 「基礎の分類 → 支持層の深さ」「直接基礎 → N値」「杭 → 孔壁の保護」「ケーソン → 作業方法」「破壊現象 → 地盤条件」. Illustration of shallow vs deep supporting layer, generic footing, drilling casing, hollow caisson, excavation-bottom phenomenon respectively. Avoid invented numbers or exaggerated unsafe engineering shapes. Teacher small comparing hands at lower corner.\n\n修正指示:\n添付の結論画像を修正する。画像全体の16:9、緑・黄・白のPOP意匠、同じ先生の顔・メガネ・服装、主題を維持。下端の字幕用余白を確保。変更内容: ５区画と５つの大見出しを維持。直接基礎の断面はフーチング底面が支持層上端に直接接するように修正。フーチングと支持層の間に軟弱地盤を挟まない。N値の大小を支持力と直結させる小さな説明は削除。ケーソン区画の『製作→沈設→内部掘削』の順番図とその文字をすべて消す。代わりにケーソン断面を一つだけ描き、内部で掘削している様子を示す。見出し『ケーソン→作業方法』だけ残し新しい文字を足さない。他の区画も小さな補足段落を削除して大見出しとイラストだけ残す。 小さな説明を再追加しない。日本語は正確に、字と図は重ねない。\n\n修正指示:\n添付の図解の接地だけを修正。上段左①の左側の直接基礎と、上段中央②の直接基礎の、２つの断面だけが対象。各フーチングの直下まで、現在最下部にある濃い茶色の支持層を上に延ばし、コンクリート底面と濃い茶色の支持層上面をぴったり接触させる。フーチング底面と濃い支持層の間の薄い茶色の土はゼロにする。薄茶の表土はコンクリートの左右にのみ残る。上段左①の右の杭の断面は深い支持層のまま維持。ほかの図、文字、人物、構図、配色、下端字幕余白は一切変更しない。新しい文字や説明は追加しない。",
+        "promptSha256": "ad95a59e579390218166ff763d84db9da585e0f440731cdd681e5071afce601c",
+        "generatedAt": "2026-10-11T11:17:04.947Z"
+      }
     },
     {
       "id": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-027",
@@ -2078,19 +2084,21 @@
       "id": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-034",
       "role": "scene-034",
       "type": "image/png",
-      "sha256": "d566c82d116ac330e625f08394287b5bf26a16383ad600f9d5279fbd2e2a689d",
-      "bytes": 92029,
+      "sha256": "08d1e0ea50a3ce3bad5da3744fbeff2731c1acdf1a96911f45776a7ee7b10f74",
+      "bytes": 2615860,
+      "width": 1920,
+      "height": 1080,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-034.d566c82d.png"
+        "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-034.08d1e0ea.png"
       },
       "provenance": {
-        "kind": "render",
-        "by": "render-longform",
-        "spec": "content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen/storyboard.json#c04-summary"
-      },
-      "width": 1920,
-      "height": 1080
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a precise Japanese EDUCATIONAL RECAP infographic for a 2級土木 video, 1920x1080 landscape. Match reference manga teacher identity and green/cream/yellow palette, but use clean light cream background, deep green text, restrained accents. This is a conclusion/learning memory image, NOT a promotional chapter opener: relational diagrams and exact learning takeaways are the main content. Main title takes max top 18%; content uses central 65%; teacher max 12% width near an edge. Text generously spaced, high contrast, labels no overlap with arrows/figures/character. Small badge 「2級土木」. Bottommost 100px clean blank cream band reserved for existing subtitles. No URL, brand, sales pitch, unsupported facts, tiny gibberish, extra text. Japanese text exactly as requested. Use simplified technically plausible schematic illustrations instead of decorative construction-site backgrounds. Exact title 「法規｜4つの確認」. Four large cards in 2x2 grid resembling a memory reference card. Icons clock, worker appointment, organization, application papers. Exact pairings 「労基法 → 数字」「労安法 → 選任の要否」「建設業法 → 技術者配置」「許可 ≠ 届出」. No added statutory numbers, articles, deadlines or claims. Teacher small at left glasses-adjustment book pose.",
+        "promptSha256": "a19614d76486738a3e9dc2aa0a37c70e69687b855afc5f4015b2aa12ffd3f370",
+        "generatedAt": "2026-10-11T11:17:05.191Z"
+      }
     },
     {
       "id": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-035",
@@ -2222,19 +2230,21 @@
       "id": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-042",
       "role": "scene-042",
       "type": "image/png",
-      "sha256": "5d65b026a8a44ce8931891dae8d543d452fdbcdc9799b9738f3a462efb3f2283",
-      "bytes": 96786,
+      "sha256": "64963160e667107bb5a5838e357d521bd9b82f941b2413f2501bda30fd3f4b23",
+      "bytes": 2739617,
+      "width": 1920,
+      "height": 1080,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-042.5d65b026.png"
+        "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-042.64963160.png"
       },
       "provenance": {
-        "kind": "render",
-        "by": "render-longform",
-        "spec": "content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen/storyboard.json#c05-summary"
-      },
-      "width": 1920,
-      "height": 1080
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a precise Japanese EDUCATIONAL RECAP infographic for a 2級土木 video, 1920x1080 landscape. Match reference manga teacher identity and green/cream/yellow palette, but use clean light cream background, deep green text, restrained accents. This is a conclusion/learning memory image, NOT a promotional chapter opener: relational diagrams and exact learning takeaways are the main content. Main title takes max top 18%; content uses central 65%; teacher max 12% width near an edge. Text generously spaced, high contrast, labels no overlap with arrows/figures/character. Small badge 「2級土木」. Bottommost 100px clean blank cream band reserved for existing subtitles. No URL, brand, sales pitch, unsupported facts, tiny gibberish, extra text. Japanese text exactly as requested. Use simplified technically plausible schematic illustrations instead of decorative construction-site backgrounds. Exact title 「施工計画｜順序と区別」. Main top half FOUR-stage clear sequence exact 「事前調査 → 基本計画 → 詳細計画 → 管理計画」. Bottom half THREE distinct supporting learning panels exact labels 「自然条件 ／ 立地条件」「計画書の記載項目」「工程 ／ 仮設備」. Map/weather versus access road icons, plan sheet, schedule versus temporary facility icons. Teacher bottom-right marking plan. Four steps all present, no fifth step.\n\n修正指示:\n添付の結論画像を修正する。画像全体の16:9、緑・黄・白のPOP意匠、同じ先生の顔・メガネ・服装、主題を維持。下端の字幕用余白を確保。変更内容: 大きな４段階『工事内容の理解』『事前調査』『施工計画立案』『現場運営』とそれぞれの図、下段３つの結論見出しを保持。各段階の下にある小さな箇条書きと段落、下段の小さなリストをすべて削除。工程表の月や日付数字も削除し無記名の工程バーだけにする。余白を生かして主題と絵を大きく。指定外の文字を追加しない。 小さな説明を再追加しない。日本語は正確に、字と図は重ねない。\n\n修正指示:\n添付の施工計画の結論画像の上段４ステップを、教材本文の作成手順に正確に合わせて修正。上段の４つの見出しは左から厳密に『事前調査』『基本計画』『詳細計画』『管理計画』。現在の『工事内容の理解』『施工計画立案』『現場運営』は完全に消す。上段１は地形・地図・調査の図、２は白紙に無記名の大きな配置図、３は無記名の工程バーと図面、４はチェックマーク付き管理計画書のアイコン。図面・書類には細かい日本語、英数字、疑似文字を一切入れず、線と矩形だけで表す。上段４つを黄色矢印で一方向に結ぶ。下段の『自然条件／立地条件』『計画書の記載項目』『工程／仮設備』とそれらの絵は維持。題名『施工計画｜順序と区別』、資格2級土木、同じ先生キャラクター、緑黄色クリームの配色、下端字幕余白は維持。新たな文章を足さない。",
+        "promptSha256": "53754dba47104562f03cd9699585a994e41f5f545414b89b1b556c9425e3e3b8",
+        "generatedAt": "2026-10-11T11:17:05.440Z"
+      }
     },
     {
       "id": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-043",
@@ -2618,19 +2628,21 @@
       "id": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-064",
       "role": "scene-064",
       "type": "image/png",
-      "sha256": "a01a0f34a8889cd69eb8fca0cc0291c22227ebe910b75b52ef2a63720ae9984f",
-      "bytes": 109623,
+      "sha256": "93b9ae60462d2cc2ff44e16a920b6b6c7e4b62413d73d7b622522711e1d50356",
+      "bytes": 2927728,
+      "width": 1920,
+      "height": 1080,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-064.a01a0f34.png"
+        "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-064.93b9ae60.png"
       },
       "provenance": {
-        "kind": "render",
-        "by": "render-longform",
-        "spec": "content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen/storyboard.json#c06-summary"
-      },
-      "width": 1920,
-      "height": 1080
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a precise Japanese EDUCATIONAL RECAP infographic for a 2級土木 video, 1920x1080 landscape. Match reference manga teacher identity and green/cream/yellow palette, but use clean light cream background, deep green text, restrained accents. This is a conclusion/learning memory image, NOT a promotional chapter opener: relational diagrams and exact learning takeaways are the main content. Main title takes max top 18%; content uses central 65%; teacher max 12% width near an edge. Text generously spaced, high contrast, labels no overlap with arrows/figures/character. Small badge 「2級土木」. Bottommost 100px clean blank cream band reserved for existing subtitles. No URL, brand, sales pitch, unsupported facts, tiny gibberish, extra text. Japanese text exactly as requested. Use simplified technically plausible schematic illustrations instead of decorative construction-site backgrounds. Exact title 「5分野｜覚え方を整理」. Five LARGE horizontal rows in left two-thirds each has an icon and a precise mapping, exact text 「土工 → 試験と目的」「コンクリート → 指標と手順」「基礎工 → 地盤条件と工法」「法規 → 数値と要件」「施工計画 → 作成の順序」. Right third teacher connecting five rows with pointer and small recap notebook. Each relation clearly readable, avoid tiny tiny text; exactly five rows.",
+        "promptSha256": "30caedb3b955145707e570be69c8c2316b0995feb85841abd2ad74361c69298b",
+        "generatedAt": "2026-10-11T11:17:05.847Z"
+      }
     },
     {
       "id": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-065",
@@ -2744,19 +2756,21 @@
       "id": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-071",
       "role": "scene-071",
       "type": "image/png",
-      "sha256": "3a7e0f643ee7b5e913ba519079ad6a936f27ddaedaa658c2b17fc7c5d912ae18",
-      "bytes": 81576,
+      "sha256": "9ddbde0473042a8669c8549605ded17af7efa563f5820faf816401e5a43cb909",
+      "bytes": 2760944,
+      "width": 1920,
+      "height": 1080,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-071.3a7e0f64.png"
+        "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-071.9ddbde04.png"
       },
       "provenance": {
-        "kind": "render",
-        "by": "render-longform",
-        "spec": "content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen/storyboard.json#c07-summary"
-      },
-      "width": 1920,
-      "height": 1080
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a precise Japanese EDUCATIONAL RECAP infographic for a 2級土木 video, 1920x1080 landscape. Match reference manga teacher identity and green/cream/yellow palette, but use clean light cream background, deep green text, restrained accents. This is a conclusion/learning memory image, NOT a promotional chapter opener: relational diagrams and exact learning takeaways are the main content. Main title takes max top 18%; content uses central 65%; teacher max 12% width near an edge. Text generously spaced, high contrast, labels no overlap with arrows/figures/character. Small badge 「2級土木」. Bottommost 100px clean blank cream band reserved for existing subtitles. No URL, brand, sales pitch, unsupported facts, tiny gibberish, extra text. Japanese text exactly as requested. Use simplified technically plausible schematic illustrations instead of decorative construction-site backgrounds. Exact title 「出題傾向｜準備を分ける」. Two different LARGE preparation zones left/right. Left: exact heading 「経験記述」, EXACTLY THREE equally sized labeled folders 「安全」「品質」「工程」, bottom conclusion 「3管理すべてを準備」. Right heading 「学科記述」, spread of generic past-exam pages and checklist, bottom conclusion 「頻出分野を優先」. Teacher small CENTER holding both different folders, no predicted frequencies, fabricated charts, exam dates.",
+        "promptSha256": "001b8cfa7b99abf60b4e72897d84562567ad68cd24a31a207d7bb606b64ac830",
+        "generatedAt": "2026-10-11T11:17:06.549Z"
+      }
     },
     {
       "id": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-072",
@@ -2888,19 +2902,21 @@
       "id": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-079",
       "role": "scene-079",
       "type": "image/png",
-      "sha256": "47c6b606ecd17f917f3467f962ae8401c268fa87616f69508a277d30c4c5b78b",
-      "bytes": 107030,
+      "sha256": "c9966cb3265476dc5b42d24bdb22187e2d7c92b5f4a212b60fff9ba053ed02dc",
+      "bytes": 2671574,
+      "width": 1920,
+      "height": 1080,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-079.47c6b606.png"
+        "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-079.c9966cb3.png"
       },
       "provenance": {
-        "kind": "render",
-        "by": "render-longform",
-        "spec": "content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen/storyboard.json#c08-summary"
-      },
-      "width": 1920,
-      "height": 1080
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a precise Japanese EDUCATIONAL RECAP infographic for a 2級土木 video, 1920x1080 landscape. Match reference manga teacher identity and green/cream/yellow palette, but use clean light cream background, deep green text, restrained accents. This is a conclusion/learning memory image, NOT a promotional chapter opener: relational diagrams and exact learning takeaways are the main content. Main title takes max top 18%; content uses central 65%; teacher max 12% width near an edge. Text generously spaced, high contrast, labels no overlap with arrows/figures/character. Small badge 「2級土木」. Bottommost 100px clean blank cream band reserved for existing subtitles. No URL, brand, sales pitch, unsupported facts, tiny gibberish, extra text. Japanese text exactly as requested. Use simplified technically plausible schematic illustrations instead of decorative construction-site backgrounds. Exact title 「工事概要｜5つの照合」. A wide large project-summary document connected by arrow to essay-body document. EXACTLY FIVE large checklist bands or numbered icons with text 「管理項目 ↔ 工種」「施工量 → 数量」「工期 ↔ 数量・季節」「場所・発注者・立場」「概要 ↔ 本文」. No real construction example numbers or fabricated site details. Teacher small right red pen checking consistency. Five bands visible, not a poster announcing topic.",
+        "promptSha256": "1c05d5f86d0b59e6455962f8805b680579d8a82ee6c9c4c0f63017af2308ce51",
+        "generatedAt": "2026-10-11T11:17:06.906Z"
+      }
     },
     {
       "id": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-080",
@@ -3032,19 +3048,21 @@
       "id": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-087",
       "role": "scene-087",
       "type": "image/png",
-      "sha256": "2cbd1327720e584ab61663d6fc42122d7cec368d142fac2c4a5f56093e3112a1",
-      "bytes": 113879,
+      "sha256": "0252db58f38f4f1084bd615f52d487b0e142f0caace8711c526fbc48f6b4fa47",
+      "bytes": 2458531,
+      "width": 1920,
+      "height": 1080,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-087.2cbd1327.png"
+        "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-087.0252db58.png"
       },
       "provenance": {
-        "kind": "render",
-        "by": "render-longform",
-        "spec": "content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen/storyboard.json#c09-summary"
-      },
-      "width": 1920,
-      "height": 1080
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a precise Japanese EDUCATIONAL RECAP infographic for a 2級土木 video, 1920x1080 landscape. Match reference manga teacher identity and green/cream/yellow palette, but use clean light cream background, deep green text, restrained accents. This is a conclusion/learning memory image, NOT a promotional chapter opener: relational diagrams and exact learning takeaways are the main content. Main title takes max top 18%; content uses central 65%; teacher max 12% width near an edge. Text generously spaced, high contrast, labels no overlap with arrows/figures/character. Small badge 「2級土木」. Bottommost 100px clean blank cream band reserved for existing subtitles. No URL, brand, sales pitch, unsupported facts, tiny gibberish, extra text. Japanese text exactly as requested. Use simplified technically plausible schematic illustrations instead of decorative construction-site backgrounds. Exact title 「品質管理｜因果でつなぐ」. Top big schematic: 「現場条件」 versus 「規格値」 with gap labeled 「課題」. Center EXACTLY FIVE chronological nodes 「現場状況 → 課題 → 検討 → 対応処置 → 評価」. Bottom separate two prominent learning conclusions 「対応は数値で」「評価は簡潔に」, and small note 「設問の指示に合わせる」. Tiny teacher measuring at edge. Meaningful diagram is primary, no generic construction panorama, no false five management domains.\n\n修正指示:\n添付の結論画像を修正する。画像全体の16:9、緑・黄・白のPOP意匠、同じ先生の顔・メガネ・服装、主題を維持。下端の字幕用余白を確保。変更内容: ５ステップの大見出しとアイコン、下段の３つの結論を保持。上部右側の『規格値』図にある締固め度(D値)や測定装置、H・t表示を完全に削除。チェックマークの付いた仕様書のシンプルなイラストと『規格値』だけに置換。５ステップの各下部の小さな箇条書きをすべて削除。残った主見出しを大きくして読みやすく。新しい説明や数値を追加しない。 小さな説明を再追加しない。日本語は正確に、字と図は重ねない。",
+        "promptSha256": "9a6fa1cc4260b37383fe9ecacd9c509d1c86d3a94eca181b85fd6b4257563f2b",
+        "generatedAt": "2026-10-11T11:17:07.260Z"
+      }
     },
     {
       "id": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-088",
@@ -3176,19 +3194,21 @@
       "id": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-095",
       "role": "scene-095",
       "type": "image/png",
-      "sha256": "d9c413ef00038e5a8a957f5f9998c3a3dab1e03a578780ea8154650bc3bc32ae",
-      "bytes": 113508,
+      "sha256": "2d39a98d2354b11ca2e04a295eeeeecf36cb37694b204cccfaf8beb4df53164b",
+      "bytes": 2776920,
+      "width": 1920,
+      "height": 1080,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-095.d9c413ef.png"
+        "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-095.2d39a98d.png"
       },
       "provenance": {
-        "kind": "render",
-        "by": "render-longform",
-        "spec": "content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen/storyboard.json#c10-summary"
-      },
-      "width": 1920,
-      "height": 1080
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a precise Japanese EDUCATIONAL RECAP infographic for a 2級土木 video, 1920x1080 landscape. Match reference manga teacher identity and green/cream/yellow palette, but use clean light cream background, deep green text, restrained accents. This is a conclusion/learning memory image, NOT a promotional chapter opener: relational diagrams and exact learning takeaways are the main content. Main title takes max top 18%; content uses central 65%; teacher max 12% width near an edge. Text generously spaced, high contrast, labels no overlap with arrows/figures/character. Small badge 「2級土木」. Bottommost 100px clean blank cream band reserved for existing subtitles. No URL, brand, sales pitch, unsupported facts, tiny gibberish, extra text. Japanese text exactly as requested. Use simplified technically plausible schematic illustrations instead of decorative construction-site backgrounds. Exact title 「工程管理｜制約から対応へ」. Top THREE distinct constraint icons rain, permits/obstacle, work-time restriction exact captions 「天候」「手続き・支障物」「規制・短縮」. Center EXACTLY FIVE nodes 「現場状況 → 課題 → 検討 → 対応処置 → 評価」 leading to simple schedule with corrected bars. Bottom conclusions 「対応は数値で」「評価は簡潔に」 and small note 「設問の指示に合わせる」. Teacher small turning magnetic task card on edge.\n\n修正指示:\n添付の結論画像を修正する。画像全体の16:9、緑・黄・白のPOP意匠、同じ先生の顔・メガネ・服装、主題を維持。下端の字幕用余白を確保。変更内容: ３つの制約と５段階の大見出し・イラスト、下段３つの結論を保持。各制約の下の小さな２行説明と５段階下の小さな箇条書きをすべて削除。下段『日数・数量・コストなどで示す』は『日数・台数・班数』へ置換。新しい文字を足さず、主要な図と見出しを大きく。 小さな説明を再追加しない。日本語は正確に、字と図は重ねない。",
+        "promptSha256": "a5ae7c9266989d7fcbe14d2903d6b6d8f4b84f37ec447ccf677625c87ef7cd4e",
+        "generatedAt": "2026-10-11T11:17:07.678Z"
+      }
     },
     {
       "id": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-096",
@@ -3302,19 +3322,21 @@
       "id": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-102",
       "role": "scene-102",
       "type": "image/png",
-      "sha256": "d33cd340bb84b5b29a9f146d8c556678f841e561d9501088e62ea546d5175020",
-      "bytes": 111678,
+      "sha256": "8766980d008bb1f925fe34ec3e0548ab560ff4dbedc2f9c884d6a9386525e18c",
+      "bytes": 3174883,
+      "width": 1920,
+      "height": 1080,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-102.d33cd340.png"
+        "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-102.8766980d.png"
       },
       "provenance": {
-        "kind": "render",
-        "by": "render-longform",
-        "spec": "content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen/storyboard.json#c11-summary"
-      },
-      "width": 1920,
-      "height": 1080
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a precise Japanese EDUCATIONAL RECAP infographic for a 2級土木 video, 1920x1080 landscape. Match reference manga teacher identity and green/cream/yellow palette, but use clean light cream background, deep green text, restrained accents. This is a conclusion/learning memory image, NOT a promotional chapter opener: relational diagrams and exact learning takeaways are the main content. Main title takes max top 18%; content uses central 65%; teacher max 12% width near an edge. Text generously spaced, high contrast, labels no overlap with arrows/figures/character. Small badge 「2級土木」. Bottommost 100px clean blank cream band reserved for existing subtitles. No URL, brand, sales pitch, unsupported facts, tiny gibberish, extra text. Japanese text exactly as requested. Use simplified technically plausible schematic illustrations instead of decorative construction-site backgrounds. Exact title 「安全管理｜課題と対応をそろえる」. Clear FOUR-step large linked path plus miniature protected site illustration. Exact nodes 「現場条件 → 課題を1つに」「検討項目 → 数値基準」「対応処置 → 数値で具体化」「検討 ↔ 対応」. Make first three mappings separate panels and fourth bottom linking verification; teacher helmet small points to verified checklist, no numeric legal safety threshold invention.\n\n修正指示:\n添付の結論画像を修正する。画像全体の16:9、緑・黄・白のPOP意匠、同じ先生の顔・メガネ・服装、主題を維持。下端の字幕用余白を確保。変更内容: ３つの主パネルの見出し、イラスト、下段４つの検討と対応の組を保持。各パネル下の小さな箇条書きリストをすべて削除。検討項目の数値基準に関する小さな説明も消す。主見出し・図・対応関係だけで理解できる広々とした構成に。新しい文字や説明を追加しない。 小さな説明を再追加しない。日本語は正確に、字と図は重ねない。",
+        "promptSha256": "6402ff854e53742acfeaf8e3e31f8c54acb8652ff2e63ba110eec84853af3bf9",
+        "generatedAt": "2026-10-11T11:17:07.951Z"
+      }
     },
     {
       "id": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-103",
@@ -3410,19 +3432,21 @@
       "id": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-108",
       "role": "scene-108",
       "type": "image/png",
-      "sha256": "49062582b094fefbec91cf6cc6478179d75c98a984fe5242053325824f7ee437",
-      "bytes": 109890,
+      "sha256": "ad14b51c68e037c011c47375eb279e048185ea586e05906afc1334fd055b46df",
+      "bytes": 2838586,
+      "width": 1920,
+      "height": 1080,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-108.49062582.png"
+        "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-108.ad14b51c.png"
       },
       "provenance": {
-        "kind": "render",
-        "by": "render-longform",
-        "spec": "content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen/storyboard.json#c12-summary"
-      },
-      "width": 1920,
-      "height": 1080
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a precise Japanese EDUCATIONAL RECAP infographic for a 2級土木 video, 1920x1080 landscape. Match reference manga teacher identity and green/cream/yellow palette, but use clean light cream background, deep green text, restrained accents. This is a conclusion/learning memory image, NOT a promotional chapter opener: relational diagrams and exact learning takeaways are the main content. Main title takes max top 18%; content uses central 65%; teacher max 12% width near an edge. Text generously spaced, high contrast, labels no overlap with arrows/figures/character. Small badge 「2級土木」. Bottommost 100px clean blank cream band reserved for existing subtitles. No URL, brand, sales pitch, unsupported facts, tiny gibberish, extra text. Japanese text exactly as requested. Use simplified technically plausible schematic illustrations instead of decorative construction-site backgrounds. Exact title 「一般論から｜自分の現場へ」. Clear transformation LEFT generic pale answer sheet → RIGHT site-specific bold answer sheet, plus EXACT THREE visual lenses beneath: 「自分の現場条件」「因果の流れ」「具体的な数値」. Add one main learning phrase 「対策の列挙で終わらせない」. Teacher small compares two papers with open hands. No extra invented real-site measurements; numbers represented by measurement icon only.\n\n修正指示:\n添付の結論画像を修正する。画像全体の16:9、緑・黄・白のPOP意匠、同じ先生の顔・メガネ・服装、主題を維持。下端の字幕用余白を確保。変更内容: 下段中央の因果図を修正。『原因→影響→対策』の左から右への一方向の矢印２本だけを残す。対策から原因に戻るループ矢印は完全に削除。上部比較など他の内容とキャラクター、配色、構成を維持。新しい文字を追加しない。 小さな説明を再追加しない。日本語は正確に、字と図は重ねない。",
+        "promptSha256": "8c973d618526eb7406e8b75531ef1fe2b4d24a6b0a34008876ddb7574f4a1a25",
+        "generatedAt": "2026-10-11T11:17:08.260Z"
+      }
     },
     {
       "id": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-109",
@@ -3536,19 +3560,21 @@
       "id": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-115",
       "role": "scene-115",
       "type": "image/png",
-      "sha256": "ae5bedc7bad8f8bb0f2ca24eea84065df282ad8b89090b2bd41d55215114f940",
-      "bytes": 102350,
+      "sha256": "ec960b93dfca244f3023fc1ed489a2c0283b5d5ef4275feef59e0729dbc18fb3",
+      "bytes": 2979802,
+      "width": 1920,
+      "height": 1080,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-115.ae5bedc7.png"
+        "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-115.ec960b93.png"
       },
       "provenance": {
-        "kind": "render",
-        "by": "render-longform",
-        "spec": "content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen/storyboard.json#c13-summary"
-      },
-      "width": 1920,
-      "height": 1080
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a precise Japanese EDUCATIONAL RECAP infographic for a 2級土木 video, 1920x1080 landscape. Match reference manga teacher identity and green/cream/yellow palette, but use clean light cream background, deep green text, restrained accents. This is a conclusion/learning memory image, NOT a promotional chapter opener: relational diagrams and exact learning takeaways are the main content. Main title takes max top 18%; content uses central 65%; teacher max 12% width near an edge. Text generously spaced, high contrast, labels no overlap with arrows/figures/character. Small badge 「2級土木」. Bottommost 100px clean blank cream band reserved for existing subtitles. No URL, brand, sales pitch, unsupported facts, tiny gibberish, extra text. Japanese text exactly as requested. Use simplified technically plausible schematic illustrations instead of decorative construction-site backgrounds. Exact title 「答案｜3つの点検」. Three LARGE lenses over answer sheet, each distinct and legible. Exact labels and exact concise detail text: 「体裁」「字・空欄・行数稼ぎ」; 「整合」「テーマ外・工種違い・矛盾」; 「具体性」「何を・どのように」「である調」. Teacher small magnifying glass pose corner. No actual grades, false failure rates or real exam answers. Clear educational checklist not topic teaser.\n\n修正指示:\n添付の結論画像を修正する。画像全体の16:9、緑・黄・白のPOP意匠、同じ先生の顔・メガネ・服装、主題を維持。下端の字幕用余白を確保。変更内容: 下部緑チェックの横の２つの文言だけ修正。『字・空欄・行数稼ぎ』を『字を丁寧に・空欄を確認』に変更。『テーマ外・工種違い・矛盾』を『テーマ・工種・本文を照合』へ変更。不適切な行為を推奨する意味をなくす。その他の見出し・主題・イラスト・キャラクターは維持。 小さな説明を再追加しない。日本語は正確に、字と図は重ねない。",
+        "promptSha256": "31429948053c15667b5820f0b3e3d28525eb3e4f17343c8ccc0d370c41b61f51",
+        "generatedAt": "2026-10-11T11:17:08.576Z"
+      }
     },
     {
       "id": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-116",
@@ -3680,19 +3706,21 @@
       "id": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-123",
       "role": "scene-123",
       "type": "image/png",
-      "sha256": "904925f040c55d636efb3a8ffdc49f7496509e7f30ace6994d1fb5aca1e6f8d6",
-      "bytes": 105941,
+      "sha256": "9f61ae48354ed507229214ae53b5cf4ca671bf66462511eae3a7b0be637d7b22",
+      "bytes": 3037806,
+      "width": 1920,
+      "height": 1080,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-123.904925f0.png"
+        "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-123.9f61ae48.png"
       },
       "provenance": {
-        "kind": "render",
-        "by": "render-longform",
-        "spec": "content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen/storyboard.json#c14-summary"
-      },
-      "width": 1920,
-      "height": 1080
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a precise Japanese EDUCATIONAL RECAP infographic for a 2級土木 video, 1920x1080 landscape. Match reference manga teacher identity and green/cream/yellow palette, but use clean light cream background, deep green text, restrained accents. This is a conclusion/learning memory image, NOT a promotional chapter opener: relational diagrams and exact learning takeaways are the main content. Main title takes max top 18%; content uses central 65%; teacher max 12% width near an edge. Text generously spaced, high contrast, labels no overlap with arrows/figures/character. Small badge 「2級土木」. Bottommost 100px clean blank cream band reserved for existing subtitles. No URL, brand, sales pitch, unsupported facts, tiny gibberish, extra text. Japanese text exactly as requested. Use simplified technically plausible schematic illustrations instead of decorative construction-site backgrounds. Exact title 「2級の記述｜基本管理を説明」. Main EXACT FOUR linked nodes 「観点 → 検討 → 対応 → 結果」 filling central canvas. Above one strong takeaway 「基本管理を書く力」. Below a separate proofreading handoff drawing with label 「第三者の目で確認」. Teacher small hand on chest pointing to own work notebook, no trophy, credentials or advanced-tech imagery. Steps exact; do not invent fifth node.\n\n修正指示:\n添付の結論画像を修正する。画像全体の16:9、緑・黄・白のPOP意匠、同じ先生の顔・メガネ・服装、主題を維持。下端の字幕用余白を確保。変更内容: 結果パネルの『期待する効果が得られる』という文言を『実際の結果を書く』へ置換。将来の期待ではなく実際の経験結果を記述する意味にする。それ以外の全見出し、図、キャラクターと構図を維持。文字を追加しない。 小さな説明を再追加しない。日本語は正確に、字と図は重ねない。",
+        "promptSha256": "c5f8ce0496d1e1e5eb6d51f5ef597576b8c49b26ccf5c416fb03770238f51ed4",
+        "generatedAt": "2026-10-11T11:17:08.820Z"
+      }
     },
     {
       "id": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-124",
@@ -3806,19 +3834,21 @@
       "id": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-130",
       "role": "scene-130",
       "type": "image/png",
-      "sha256": "f7e4da8841ee8996683ab4393baa60785a626bcdf419eb35c6dd25a391ad38c5",
-      "bytes": 98282,
+      "sha256": "f89f4872db82e379e844dd8209992d5f6ccd1501576640766bcd5da7b2720b01",
+      "bytes": 2473578,
+      "width": 1920,
+      "height": 1080,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-130.f7e4da88.png"
+        "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-130.f89f4872.png"
       },
       "provenance": {
-        "kind": "render",
-        "by": "render-longform",
-        "spec": "content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen/storyboard.json#c15-summary"
-      },
-      "width": 1920,
-      "height": 1080
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create a precise Japanese EDUCATIONAL RECAP infographic for a 2級土木 video, 1920x1080 landscape. Match reference manga teacher identity and green/cream/yellow palette, but use clean light cream background, deep green text, restrained accents. This is a conclusion/learning memory image, NOT a promotional chapter opener: relational diagrams and exact learning takeaways are the main content. Main title takes max top 18%; content uses central 65%; teacher max 12% width near an edge. Text generously spaced, high contrast, labels no overlap with arrows/figures/character. Small badge 「2級土木」. Bottommost 100px clean blank cream band reserved for existing subtitles. No URL, brand, sales pitch, unsupported facts, tiny gibberish, extra text. Japanese text exactly as requested. Use simplified technically plausible schematic illustrations instead of decorative construction-site backgrounds. Exact title 「学科記述｜3つの答え方」. Three LARGE answer-format panels with precise correspondence. Left blank in sentence label 「穴埋め」 and conclusion 「意味と場面で選ぶ」. Center TWO independent answer lines label 「複数記述」 and conclusion 「観点を分ける」. Right question selection checkboxes label 「選択問題」 and conclusion 「指定を確認する」. Teacher small seated pen pose near edge, no real exam question text or invented instructions.",
+        "promptSha256": "f06f49bd9db366c466b79d493bc7b7fa8c07344ec8b95d987a785e1158bca4d5",
+        "generatedAt": "2026-10-11T11:17:09.054Z"
+      }
     },
     {
       "id": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-131",
@@ -3858,11 +3888,11 @@
       "id": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform/video",
       "role": "video",
       "type": "video/mp4",
-      "sha256": "ffadce640a505812eb4917166de4c4f531cbb5371c3df1bdd7b66ead30b72056",
-      "bytes": 59856350,
+      "sha256": "df2d8b7bafc2af8e01cbd995865fb1965e448f2804f68eca871cde2e2a11537c",
+      "bytes": 65872983,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/video.ffadce64.mp4"
+        "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/video.df2d8b7b.mp4"
       },
       "provenance": {
         "kind": "render",

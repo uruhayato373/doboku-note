@@ -992,6 +992,96 @@
       "reason": "独立AI画像監査：最終採用PNGを原寸と360pxで実見。指定4文言・ポーズ・顔と手指・安全域に問題なし。ユーザー承認は含まない。",
       "reviewedAt": "2026-10-11T03:36:30.152Z"
     },
+    "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-009": {
+      "sha": "aab35acafff98d1a",
+      "verdict": "ok",
+      "reason": "試験と目的、地山からL・Cへの分岐、最適含水比と締固め度の区別が本文と一致。日本語と下端安全域に問題なし。",
+      "reviewedAt": "2026-10-11T11:18:14.351Z"
+    },
+    "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-017": {
+      "sha": "9dc5ddac3021735a",
+      "verdict": "ok",
+      "reason": "混和剤・混和材、性能指標、施工順序、ひび割れ原因を正しく整理。スランプの誤矢印はなく、文字の重なりもなし。",
+      "reviewedAt": "2026-10-11T11:18:14.353Z"
+    },
+    "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-026": {
+      "sha": "64c9baa674829b74",
+      "verdict": "ok",
+      "reason": "直接基礎底面と支持層の接触、深い支持層への杭、孔壁保護の断面を確認。5項目が本文と一致し、下端安全域も確保。",
+      "reviewedAt": "2026-10-11T11:18:14.353Z"
+    },
+    "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-034": {
+      "sha": "08d1e0ea50a3ce3b",
+      "verdict": "ok",
+      "reason": "3法の確認点と許可・届出の区別が本文と一致。日本語は明瞭で、文字の重なり・切れなし。",
+      "reviewedAt": "2026-10-11T11:18:14.353Z"
+    },
+    "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-042": {
+      "sha": "64963160e667107b",
+      "verdict": "ok",
+      "reason": "4段階が事前調査→基本計画→詳細計画→管理計画となり本文と一致。図面の擬似文字は除去され、日本語の誤字・重なり・切れはなく、下端字幕安全域も確保されている。",
+      "reviewedAt": "2026-10-11T11:18:14.353Z"
+    },
+    "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-064": {
+      "sha": "93b9ae60462d2cc2",
+      "verdict": "ok",
+      "reason": "5分野と覚え方の対応が本文と一致。機械・基礎のアイコンに教材上の重大な破綻はなく、日本語と安全域も良好。",
+      "reviewedAt": "2026-10-11T11:18:14.353Z"
+    },
+    "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-071": {
+      "sha": "9ddbde0473042a86",
+      "verdict": "ok",
+      "reason": "経験記述の安全・品質・工程の3管理と、学科記述の頻出分野優先が本文と一致。文字の欠け・重なりなし。",
+      "reviewedAt": "2026-10-11T11:18:14.353Z"
+    },
+    "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-079": {
+      "sha": "c9966cb3265476dc",
+      "verdict": "ok",
+      "reason": "工事概要の5つの照合点が本文と一致。人物は文字を遮らず、下端字幕用余白も確保。",
+      "reviewedAt": "2026-10-11T11:18:14.353Z"
+    },
+    "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-087": {
+      "sha": "0252db58f38f4f10",
+      "verdict": "ok",
+      "reason": "現場条件と規格値の差、5要素の一方向の流れ、数値による対応と簡潔な評価が本文と一致。測定装置の誤表示なし。",
+      "reviewedAt": "2026-10-11T11:18:14.353Z"
+    },
+    "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-095": {
+      "sha": "2d39a98d2354b11c",
+      "verdict": "ok",
+      "reason": "3種類の制約と5要素の流れが本文と一致。「日数・台数・班数」も明瞭で、文字の重なり・切れなし。",
+      "reviewedAt": "2026-10-11T11:18:14.353Z"
+    },
+    "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-102": {
+      "sha": "8766980d008bb1f9",
+      "verdict": "ok",
+      "reason": "課題の絞込み、数値基準、対応の具体化、検討と対応の照合が本文と一致。安全設備の概略図と下端安全域に問題なし。",
+      "reviewedAt": "2026-10-11T11:18:14.353Z"
+    },
+    "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-108": {
+      "sha": "ad14b51c68e037c0",
+      "verdict": "ok",
+      "reason": "現場条件・因果・数値による具体化が本文と一致。「原因→影響→対策」は一方向で、逆戻り矢印なし。",
+      "reviewedAt": "2026-10-11T11:18:14.353Z"
+    },
+    "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-115": {
+      "sha": "ec960b93dfca244f",
+      "verdict": "ok",
+      "reason": "体裁・整合・具体性の3点を確認。悪い答案例は赤い×、下段は適切な点検行動への緑チェックとなり、意味の逆転なし。",
+      "reviewedAt": "2026-10-11T11:18:14.353Z"
+    },
+    "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-123": {
+      "sha": "9f61ae48354ed507",
+      "verdict": "ok",
+      "reason": "「観点→検討→対応→結果」と第三者確認が本文と一致。「実際の結果を書く」への修正を確認し、日本語と下端安全域も良好。",
+      "reviewedAt": "2026-10-11T11:18:14.353Z"
+    },
+    "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-130": {
+      "sha": "f89f4872db82e379",
+      "verdict": "ok",
+      "reason": "穴埋め・複数記述・選択問題の3形式と答え方が本文と一致。各パネルの文字は明瞭で、人物による遮蔽と下端侵入なし。",
+      "reviewedAt": "2026-10-11T11:18:14.353Z"
+    },
     "media:pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/cover": {
       "sha": "51e3f120f8a8d8c5",
       "verdict": "ok",

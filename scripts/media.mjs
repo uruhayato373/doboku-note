@@ -11,15 +11,14 @@
  *   npm run media -- pull    --work <exam>/<work> [--commit]
  *   npm run media -- preview --pub <公開 ID> [--commit]    # 音声の前の画面確認: 無音プレビュー・10 秒ごとのコンタクトシート・数値（DN-0603）
  *   npm run media -- adopt-video-brand [--commit]          # 2026-09-09 の日付フォルダ・連番名の採用表紙・締め画像を ID の置き場へ（DN-0607）
- *   npm run media -- plate --pub <公開 ID> --role <役割> --prompt-file <指示文> [--model <m>] [--commit]  # Codex で作った画像を素材に結ぶ（来歴＋判定 ok が必須・既定 dry-run）
+ *   npm run media -- plate --pub <公開 ID> --role <役割> --prompt-file <指示文> [--model <m>] [--input <生成済み画像>] [--commit]  # Codex で作った画像を素材に結ぶ（来歴＋判定 ok が必須・既定 dry-run）
  *
  * promote・sync・pull は既定で dry-run。置いた素材は書き換えない（描き直したものは別名で置く）。
  */
 import { spawnSync } from 'node:child_process';
 import { copyFileSync, existsSync, mkdirSync, readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
-import { dirname, extname, join, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { dirname, extname, join } from 'node:path';
 import { parseArgs } from 'node:util';
 import sharp from 'sharp';
 import { loadRegistry, mediaIdOf, parsePubId } from './lib/content-registry.mjs';
@@ -27,11 +26,11 @@ import { upsertMedia, upsertPublications } from './lib/content-registry-write.mj
 import { MEDIA_ROOT, mediaPath, mimeOf } from './lib/media-paths.mjs';
 import { readJson, readJsonIf } from './lib/json-io.mjs';
 import { voicevoxCredit } from './lib/voicevox-credit.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const { values: args, positionals } = parseArgs({
   allowPositionals: true,
-  options: { pub: { type: 'string' }, work: { type: 'string' }, commit: { type: 'boolean' }, role: { type: 'string' }, 'prompt-file': { type: 'string' }, model: { type: 'string' } },
+  options: { pub: { type: 'string' }, work: { type: 'string' }, commit: { type: 'boolean' }, role: { type: 'string' }, 'prompt-file': { type: 'string' }, model: { type: 'string' }, input: { type: 'string' } },
 });
 const sha256Of = (abs) => createHash('sha256').update(readFileSync(abs)).digest('hex');
 
@@ -132,7 +131,7 @@ async function preview() {
 /** Codex で作った画像を公開の役割の素材として台帳に結ぶ（実装は scripts/lib/media-plate.mjs） */
 async function plate() {
   const { runPlate } = await import('./lib/media-plate.mjs');
-  const r = await runPlate(ROOT, { pub: args.pub, role: args.role, promptFile: args['prompt-file'], model: args.model, commit: Boolean(args.commit) });
+  const r = await runPlate(ROOT, { pub: args.pub, role: args.role, promptFile: args['prompt-file'], model: args.model, input: args.input, commit: Boolean(args.commit) });
   if (r.code) process.exitCode = r.code;
 }
 

@@ -894,7 +894,7 @@
       "videoImageReplacement": {
         "source": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/video.e7011ab0.mp4",
         "sourceSha256": "e7011ab096d65b160592ec690cbb73dcf590ec93aecf6389123f3ed7ef643aa3",
-        "outputSha256": "ffadce640a505812eb4917166de4c4f531cbb5371c3df1bdd7b66ead30b72056",
+        "outputSha256": "df2d8b7bafc2af8e01cbd995865fb1965e448f2804f68eca871cde2e2a11537c",
         "audioPacketsUnchanged": true,
         "audioPacketSha256": "69c4c79e817c2c3b7778585cecdc95baf1bb9621d124957fd5d0234b21e4c24b",
         "ttsRegenerated": false,
@@ -955,7 +955,7 @@
             "sceneId": "c01-summary",
             "startSec": 76.23,
             "endSec": 88.55,
-            "imageSha256": "8b080033866f4d88828ed8d02248c120e6a073adb772796852464649a4be8b65"
+            "imageSha256": "aab35acafff98d1ac816fc7b6a1b2eb006ff4be604b8e9a6024ea9046f36f288"
           },
           {
             "sceneId": "c02-title",
@@ -1003,7 +1003,7 @@
             "sceneId": "c02-summary",
             "startSec": 158.31,
             "endSec": 169.15,
-            "imageSha256": "1e55d215f7f5d00211f1351a2c000157102ae3263c5ed87bb7ee7b4f0a7ac32b"
+            "imageSha256": "9dc5ddac3021735ab9e6a6b38b1cd7ec5e860c1f0f39b435c964ab28df361a47"
           },
           {
             "sceneId": "c03-title",
@@ -1057,7 +1057,7 @@
             "sceneId": "c03-summary",
             "startSec": 252.93,
             "endSec": 266.91,
-            "imageSha256": "9f7114213c6f9c95e1493046ee45ef5a0d068e6eaca1437ec5b7e52924c7c3d8"
+            "imageSha256": "64c9baa674829b745bbae7cef38d986c2070392d9fa57c7a7decf46e7d4232ff"
           },
           {
             "sceneId": "c04-title",
@@ -1105,7 +1105,7 @@
             "sceneId": "c04-summary",
             "startSec": 339.17,
             "endSec": 350.51,
-            "imageSha256": "d566c82d116ac330e625f08394287b5bf26a16383ad600f9d5279fbd2e2a689d"
+            "imageSha256": "08d1e0ea50a3ce3bad5da3744fbeff2731c1acdf1a96911f45776a7ee7b10f74"
           },
           {
             "sceneId": "c05-title",
@@ -1153,7 +1153,7 @@
             "sceneId": "c05-summary",
             "startSec": 423.65,
             "endSec": 435.38,
-            "imageSha256": "5d65b026a8a44ce8931891dae8d543d452fdbcdc9799b9738f3a462efb3f2283"
+            "imageSha256": "64963160e667107bb5a5838e357d521bd9b82f941b2413f2501bda30fd3f4b23"
           },
           {
             "sceneId": "c06-title",
@@ -1285,7 +1285,7 @@
             "sceneId": "c06-summary",
             "startSec": 686.08,
             "endSec": 700.74,
-            "imageSha256": "a01a0f34a8889cd69eb8fca0cc0291c22227ebe910b75b52ef2a63720ae9984f"
+            "imageSha256": "93b9ae60462d2cc2ff44e16a920b6b6c7e4b62413d73d7b622522711e1d50356"
           },
           {
             "sceneId": "c07-title",
@@ -1327,7 +1327,7 @@
             "sceneId": "c07-summary",
             "startSec": 798.94,
             "endSec": 812.59,
-            "imageSha256": "3a7e0f643ee7b5e913ba519079ad6a936f27ddaedaa658c2b17fc7c5d912ae18"
+            "imageSha256": "9ddbde0473042a8669c8549605ded17af7efa563f5820faf816401e5a43cb909"
           },
           {
             "sceneId": "c08-title",
@@ -1375,7 +1375,7 @@
             "sceneId": "c08-summary",
             "startSec": 908.29,
             "endSec": 924.32,
-            "imageSha256": "47c6b606ecd17f917f3467f962ae8401c268fa87616f69508a277d30c4c5b78b"
+            "imageSha256": "c9966cb3265476dc5b42d24bdb22187e2d7c92b5f4a212b60fff9ba053ed02dc"
           },
           {
             "sceneId": "c09-title",
@@ -1423,7 +1423,7 @@
             "sceneId": "c09-summary",
             "startSec": 1006.59,
             "endSec": 1020.35,
-            "imageSha256": "2cbd1327720e584ab61663d6fc42122d7cec368d142fac2c4a5f56093e3112a1"
+            "imageSha256": "0252db58f38f4f1084bd615f52d487b0e142f0caace8711c526fbc48f6b4fa47"
           },
           {
             "sceneId": "c10-title",
@@ -1471,7 +1471,7 @@
             "sceneId": "c10-summary",
             "startSec": 1106.56,
             "endSec": 1120.74,
-            "imageSha256": "d9c413ef00038e5a8a957f5f9998c3a3dab1e03a578780ea8154650bc3bc32ae"
+            "imageSha256": "2d39a98d2354b11ca2e04a295eeeeecf36cb37694b204cccfaf8beb4df53164b"
           },
           {
             "sceneId": "c11-title",
@@ -1513,7 +1513,7 @@
             "sceneId": "c11-summary",
             "startSec": 1210.5,
             "endSec": 1225.91,
-            "imageSha256": "d33cd340bb84b5b29a9f146d8c556678f841e561d9501088e62ea546d5175020"
+            "imageSha256": "8766980d008bb1f925fe34ec3e0548ab560ff4dbedc2f9c884d6a9386525e18c"
           },
           {
             "sceneId": "c12-title",
@@ -1549,7 +1549,7 @@
             "sceneId": "c12-summary",
             "startSec": 1320.02,
             "endSec": 1333.11,
-            "imageSha256": "49062582b094fefbec91cf6cc6478179d75c98a984fe5242053325824f7ee437"
+            "imageSha256": "ad14b51c68e037c011c47375eb279e048185ea586e05906afc1334fd055b46df"
           },
           {
             "sceneId": "c13-title",
@@ -1591,7 +1591,7 @@
             "sceneId": "c13-summary",
             "startSec": 1404.66,
             "endSec": 1419,
-            "imageSha256": "ae5bedc7bad8f8bb0f2ca24eea84065df282ad8b89090b2bd41d55215114f940"
+            "imageSha256": "ec960b93dfca244f3023fc1ed489a2c0283b5d5ef4275feef59e0729dbc18fb3"
           },
           {
             "sceneId": "c14-title",
@@ -1639,7 +1639,7 @@
             "sceneId": "c14-summary",
             "startSec": 1495.97,
             "endSec": 1507.71,
-            "imageSha256": "904925f040c55d636efb3a8ffdc49f7496509e7f30ace6994d1fb5aca1e6f8d6"
+            "imageSha256": "9f61ae48354ed507229214ae53b5cf4ca671bf66462511eae3a7b0be637d7b22"
           },
           {
             "sceneId": "c15-title",
@@ -1681,7 +1681,7 @@
             "sceneId": "c15-summary",
             "startSec": 1574.29,
             "endSec": 1584.26,
-            "imageSha256": "f7e4da8841ee8996683ab4393baa60785a626bcdf419eb35c6dd25a391ad38c5"
+            "imageSha256": "f89f4872db82e379e844dd8209992d5f6ccd1501576640766bcd5da7b2720b01"
           },
           {
             "sceneId": "cta",
@@ -1689,11 +1689,7 @@
             "endSec": 1595.433333,
             "imageSha256": "fe3f5ad6541f3de5d8f2b49511cc6fa0ba809e7606cfb49157949c3c662a0940"
           }
-        ],
-        "review": {
-          "browserPlayback": "Played and sought 170,1021.2,1508.5 seconds, readyState 4, no error; screenshots verified",
-          "userFinalReview": "pending"
-        }
+        ]
       }
     },
     "soil-chapter-20261011": {
@@ -3179,6 +3175,1912 @@
           "mismatchCount": 0
         },
         "userFinalReview": "pending"
+      }
+    },
+    "recap-cards-20261011": {
+      "designVersion": "pop-poster-v3-recap",
+      "publicationId": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform",
+      "sceneCount": 15,
+      "reviewedSceneCount": 15,
+      "chapters": [
+        {
+          "sceneId": "c01-summary",
+          "sceneNumber": 9,
+          "title": "土工｜4つの対応",
+          "source": "content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen/storyboard.json#c01-summary",
+          "sourceCopy": [
+            "試験は目的で対応づける",
+            "LとCの使い分けを外さない",
+            "締固めは指標で管理",
+            "対策工法は目的から逆引き"
+          ],
+          "narration": "まとめます。土質試験は目的で、土量変化率はLとCの使い分けで、締固めは指標で、軟弱地盤対策は目的で覚える。すべて対応関係の暗記です。",
+          "prompt": "Create a precise Japanese EDUCATIONAL RECAP infographic for a 2級土木 video, 1920x1080 landscape. Match reference manga teacher identity and green/cream/yellow palette, but use clean light cream background, deep green text, restrained accents. This is a conclusion/learning memory image, NOT a promotional chapter opener: relational diagrams and exact learning takeaways are the main content. Main title takes max top 18%; content uses central 65%; teacher max 12% width near an edge. Text generously spaced, high contrast, labels no overlap with arrows/figures/character. Small badge 「2級土木」. Bottommost 100px clean blank cream band reserved for existing subtitles. No URL, brand, sales pitch, unsupported facts, tiny gibberish, extra text. Japanese text exactly as requested. Use simplified technically plausible schematic illustrations instead of decorative construction-site backgrounds. Exact title 「土工｜4つの対応」. Four substantial quadrants with schematic learning diagrams, not machinery poster. 1 probe in ground → result icon, exact caption 「試験 → 目的」. 2 two arrows branching FROM same undisturbed soil block: 「L → ほぐした土」「C → 締固めた土」, label origin 「地山」. 3 compaction curve with only labels 「最適含水比」「締固め度」 (no invented numbers; first near curve peak's x-axis, second separate density-check icon not y-axis). 4 improving ground icons connected to label 「工法 → 対策の目的」. Teacher tiny bottom-left points at map, not main visual.",
+          "references": [
+            {
+              "path": ".tmp/soil-chapter/soil-chapter.png",
+              "sha256": "0acb21610960faaab52faf307483a78e9f8e4dad6fa66195092d3f9d6ab6e032"
+            }
+          ],
+          "generation": {
+            "tool": "image_gen",
+            "history": [
+              {
+                "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/generation-recap-1-v1.ab488558.png",
+                "sha256": "ab488558ae032c9429ab07e0f1a0674114363028f6675273c51caa1fe94d5d1a",
+                "actualFormat": [
+                  1672,
+                  941
+                ],
+                "prompt": "Create a precise Japanese EDUCATIONAL RECAP infographic for a 2級土木 video, 1920x1080 landscape. Match reference manga teacher identity and green/cream/yellow palette, but use clean light cream background, deep green text, restrained accents. This is a conclusion/learning memory image, NOT a promotional chapter opener: relational diagrams and exact learning takeaways are the main content. Main title takes max top 18%; content uses central 65%; teacher max 12% width near an edge. Text generously spaced, high contrast, labels no overlap with arrows/figures/character. Small badge 「2級土木」. Bottommost 100px clean blank cream band reserved for existing subtitles. No URL, brand, sales pitch, unsupported facts, tiny gibberish, extra text. Japanese text exactly as requested. Use simplified technically plausible schematic illustrations instead of decorative construction-site backgrounds. Exact title 「土工｜4つの対応」. Four substantial quadrants with schematic learning diagrams, not machinery poster. 1 probe in ground → result icon, exact caption 「試験 → 目的」. 2 two arrows branching FROM same undisturbed soil block: 「L → ほぐした土」「C → 締固めた土」, label origin 「地山」. 3 compaction curve with only labels 「最適含水比」「締固め度」 (no invented numbers; first near curve peak's x-axis, second separate density-check icon not y-axis). 4 improving ground icons connected to label 「工法 → 対策の目的」. Teacher tiny bottom-left points at map, not main visual.",
+                "reference": ".tmp/soil-chapter/soil-chapter.png"
+              }
+            ]
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-009.aab35aca.png",
+            "sha256": "aab35acafff98d1ac816fc7b6a1b2eb006ff4be604b8e9a6024ea9046f36f288",
+            "width": 1920,
+            "height": 1080
+          },
+          "review": {
+            "status": "visually-reviewed",
+            "screenshot": ".tmp/recap-cards/screenshot-1.jpg",
+            "smallScreenshot": ".tmp/recap-cards/small-1.jpg",
+            "checks": [
+              "主題と要点",
+              "項目数・対応関係",
+              "原寸と幅360pxで資格名・主題判読",
+              "図と文字の重なり・切れ",
+              "技術的整合",
+              "字幕安全域"
+            ],
+            "result": "ok",
+            "evaluator": {
+              "agent": "ai-image-fidelity-auditor",
+              "figKey": "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-009",
+              "verdict": "ok",
+              "reason": "試験と目的、地山からL・Cへの分岐、最適含水比と締固め度の区別が本文と一致。日本語と下端安全域に問題なし。"
+            }
+          }
+        },
+        {
+          "sceneId": "c02-summary",
+          "sceneNumber": 17,
+          "title": "コンクリート｜4つの要点",
+          "source": "content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen/storyboard.json#c02-summary",
+          "sourceCopy": [
+            "混和剤・混和材を区別",
+            "配合は品質と施工性を両立",
+            "打込み・養生は手順",
+            "ひび割れは原因と対策"
+          ],
+          "narration": "まとめます。混和剤と混和材の区別、配合のトレードオフ、打込みと養生の手順、ひび割れの原因と対策。理由まで押さえれば迷いません。",
+          "prompt": "Create a precise Japanese EDUCATIONAL RECAP infographic for a 2級土木 video, 1920x1080 landscape. Match reference manga teacher identity and green/cream/yellow palette, but use clean light cream background, deep green text, restrained accents. This is a conclusion/learning memory image, NOT a promotional chapter opener: relational diagrams and exact learning takeaways are the main content. Main title takes max top 18%; content uses central 65%; teacher max 12% width near an edge. Text generously spaced, high contrast, labels no overlap with arrows/figures/character. Small badge 「2級土木」. Bottommost 100px clean blank cream band reserved for existing subtitles. No URL, brand, sales pitch, unsupported facts, tiny gibberish, extra text. Japanese text exactly as requested. Use simplified technically plausible schematic illustrations instead of decorative construction-site backgrounds. Exact title 「コンクリート｜4つの要点」. Four large learning zones in a 2x2 layout. Zone1 two materials containers contrasted with exact text 「混和剤 ≠ 混和材」. Zone2 two clear parallel relations 「水セメント比 → 強度・耐久性」「スランプ → 施工性」 with simple specimen/slump icons. Zone3 compact chronological work sequence showing vertical vibrator and moist cover with exact label 「打込み → 締固め → 養生」. Zone4 crack in concrete branching by cause with exact label 「ひび割れ → 原因別に対策」. Teacher small right edge checking concrete, never covering content.",
+          "references": [
+            {
+              "path": ".tmp/soil-chapter/soil-chapter.png",
+              "sha256": "0acb21610960faaab52faf307483a78e9f8e4dad6fa66195092d3f9d6ab6e032"
+            }
+          ],
+          "generation": {
+            "tool": "image_gen",
+            "history": [
+              {
+                "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/generation-recap-2-v1.f17cbf5a.png",
+                "sha256": "f17cbf5a26f850fc803ae210ba7818dbe19471c53ba290af4aa2848cc797c11e",
+                "actualFormat": [
+                  1672,
+                  941
+                ],
+                "prompt": "Create a precise Japanese EDUCATIONAL RECAP infographic for a 2級土木 video, 1920x1080 landscape. Match reference manga teacher identity and green/cream/yellow palette, but use clean light cream background, deep green text, restrained accents. This is a conclusion/learning memory image, NOT a promotional chapter opener: relational diagrams and exact learning takeaways are the main content. Main title takes max top 18%; content uses central 65%; teacher max 12% width near an edge. Text generously spaced, high contrast, labels no overlap with arrows/figures/character. Small badge 「2級土木」. Bottommost 100px clean blank cream band reserved for existing subtitles. No URL, brand, sales pitch, unsupported facts, tiny gibberish, extra text. Japanese text exactly as requested. Use simplified technically plausible schematic illustrations instead of decorative construction-site backgrounds. Exact title 「コンクリート｜4つの要点」. Four large learning zones in a 2x2 layout. Zone1 two materials containers contrasted with exact text 「混和剤 ≠ 混和材」. Zone2 two clear parallel relations 「水セメント比 → 強度・耐久性」「スランプ → 施工性」 with simple specimen/slump icons. Zone3 compact chronological work sequence showing vertical vibrator and moist cover with exact label 「打込み → 締固め → 養生」. Zone4 crack in concrete branching by cause with exact label 「ひび割れ → 原因別に対策」. Teacher small right edge checking concrete, never covering content.",
+                "reference": ".tmp/soil-chapter/soil-chapter.png"
+              },
+              {
+                "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/generation-recap-2-v2.4c6f4742.png",
+                "sha256": "4c6f474220cd9269cf1a2302da034d06723037fcac5d6d4af5ee29e955585381",
+                "actualFormat": [
+                  1672,
+                  941
+                ],
+                "prompt": "添付の結論画像を修正する。画像全体の16:9、緑・黄・白のPOP意匠、同じ先生の顔・メガネ・服装、主題を維持。下端の字幕用余白を確保。変更内容: ４区画を維持。混和剤と混和材の小さな定義段落は完全に除去。大見出し『混和剤≠混和材』と２つの材料アイコンだけ残す。スランプの測定矢印を消してコーンのアイコンだけにする。性能のラベルは維持。右下の荷重外力・鉄筋配置等を含む３組の説明をすべて削除し、ひび割れたコンクリートから２つの枝に『乾燥収縮』『温度ひび割れ』だけを大きく示す。右下見出しは『ひび割れ→原因別に対策』。その他の主題、施工の締固め・養生の図とキャラクターは維持。 小さな説明を再追加しない。日本語は正確に、字と図は重ねない。",
+                "reference": "/Users/minamidaisuke/.codex/generated_images/01a123a7-6e1c-7b82-8207-694a68146a2e/exec-99e02647-bcd4-4db6-a441-a21dd37b9e98.png"
+              }
+            ]
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-017.9dc5ddac.png",
+            "sha256": "9dc5ddac3021735ab9e6a6b38b1cd7ec5e860c1f0f39b435c964ab28df361a47",
+            "width": 1920,
+            "height": 1080
+          },
+          "review": {
+            "status": "visually-reviewed",
+            "screenshot": ".tmp/recap-cards/screenshot-2.jpg",
+            "smallScreenshot": ".tmp/recap-cards/small-1.jpg",
+            "checks": [
+              "主題と要点",
+              "項目数・対応関係",
+              "原寸と幅360pxで資格名・主題判読",
+              "図と文字の重なり・切れ",
+              "技術的整合",
+              "字幕安全域"
+            ],
+            "result": "ok",
+            "evaluator": {
+              "agent": "ai-image-fidelity-auditor",
+              "figKey": "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-017",
+              "verdict": "ok",
+              "reason": "混和剤・混和材、性能指標、施工順序、ひび割れ原因を正しく整理。スランプの誤矢印はなく、文字の重なりもなし。"
+            }
+          }
+        },
+        {
+          "sceneId": "c03-summary",
+          "sceneNumber": 26,
+          "title": "基礎工｜選ぶ基準",
+          "source": "content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen/storyboard.json#c03-summary",
+          "sourceCopy": [
+            "分類：\n支持層の深さ",
+            "直接基礎：N値",
+            "杭：孔壁の保護",
+            "ケーソン：\n作業方法",
+            "破壊：地盤条件"
+          ],
+          "narration": "まとめます。支持層の深さで分類し、直接基礎はN値の数字、杭は孔壁保護方法、ケーソンは作業方法、破壊現象は地盤条件で区別する。すべて対応関係の整理です。",
+          "prompt": "Create a precise Japanese EDUCATIONAL RECAP infographic for a 2級土木 video, 1920x1080 landscape. Match reference manga teacher identity and green/cream/yellow palette, but use clean light cream background, deep green text, restrained accents. This is a conclusion/learning memory image, NOT a promotional chapter opener: relational diagrams and exact learning takeaways are the main content. Main title takes max top 18%; content uses central 65%; teacher max 12% width near an edge. Text generously spaced, high contrast, labels no overlap with arrows/figures/character. Small badge 「2級土木」. Bottommost 100px clean blank cream band reserved for existing subtitles. No URL, brand, sales pitch, unsupported facts, tiny gibberish, extra text. Japanese text exactly as requested. Use simplified technically plausible schematic illustrations instead of decorative construction-site backgrounds. Exact title 「基礎工｜選ぶ基準」. EXACTLY FIVE compact substantial topic panels, 3 top and 2 bottom with small soil sectional sketches. Exact relations: 「基礎の分類 → 支持層の深さ」「直接基礎 → N値」「杭 → 孔壁の保護」「ケーソン → 作業方法」「破壊現象 → 地盤条件」. Illustration of shallow vs deep supporting layer, generic footing, drilling casing, hollow caisson, excavation-bottom phenomenon respectively. Avoid invented numbers or exaggerated unsafe engineering shapes. Teacher small comparing hands at lower corner.",
+          "references": [
+            {
+              "path": ".tmp/soil-chapter/soil-chapter.png",
+              "sha256": "0acb21610960faaab52faf307483a78e9f8e4dad6fa66195092d3f9d6ab6e032"
+            }
+          ],
+          "generation": {
+            "tool": "image_gen",
+            "history": [
+              {
+                "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/generation-recap-3-v1.cb5d8da7.png",
+                "sha256": "cb5d8da71505867ea32c5947f5ff7173dc2d71e4eb04de06519fb8a0e564c0cc",
+                "actualFormat": [
+                  1672,
+                  941
+                ],
+                "prompt": "Create a precise Japanese EDUCATIONAL RECAP infographic for a 2級土木 video, 1920x1080 landscape. Match reference manga teacher identity and green/cream/yellow palette, but use clean light cream background, deep green text, restrained accents. This is a conclusion/learning memory image, NOT a promotional chapter opener: relational diagrams and exact learning takeaways are the main content. Main title takes max top 18%; content uses central 65%; teacher max 12% width near an edge. Text generously spaced, high contrast, labels no overlap with arrows/figures/character. Small badge 「2級土木」. Bottommost 100px clean blank cream band reserved for existing subtitles. No URL, brand, sales pitch, unsupported facts, tiny gibberish, extra text. Japanese text exactly as requested. Use simplified technically plausible schematic illustrations instead of decorative construction-site backgrounds. Exact title 「基礎工｜選ぶ基準」. EXACTLY FIVE compact substantial topic panels, 3 top and 2 bottom with small soil sectional sketches. Exact relations: 「基礎の分類 → 支持層の深さ」「直接基礎 → N値」「杭 → 孔壁の保護」「ケーソン → 作業方法」「破壊現象 → 地盤条件」. Illustration of shallow vs deep supporting layer, generic footing, drilling casing, hollow caisson, excavation-bottom phenomenon respectively. Avoid invented numbers or exaggerated unsafe engineering shapes. Teacher small comparing hands at lower corner.",
+                "reference": ".tmp/soil-chapter/soil-chapter.png"
+              },
+              {
+                "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/generation-recap-3-v2.c7c89f6e.png",
+                "sha256": "c7c89f6e9e09e413574f923fb8275c9a4aa4618381996deb79c0a3eb31de07d6",
+                "actualFormat": [
+                  1672,
+                  941
+                ],
+                "prompt": "添付の結論画像を修正する。画像全体の16:9、緑・黄・白のPOP意匠、同じ先生の顔・メガネ・服装、主題を維持。下端の字幕用余白を確保。変更内容: ５区画と５つの大見出しを維持。直接基礎の断面はフーチング底面が支持層上端に直接接するように修正。フーチングと支持層の間に軟弱地盤を挟まない。N値の大小を支持力と直結させる小さな説明は削除。ケーソン区画の『製作→沈設→内部掘削』の順番図とその文字をすべて消す。代わりにケーソン断面を一つだけ描き、内部で掘削している様子を示す。見出し『ケーソン→作業方法』だけ残し新しい文字を足さない。他の区画も小さな補足段落を削除して大見出しとイラストだけ残す。 小さな説明を再追加しない。日本語は正確に、字と図は重ねない。",
+                "reference": "/Users/minamidaisuke/.codex/generated_images/01a123a7-6e1c-7b82-8207-694a68146a2e/exec-68d659dc-8857-4fea-b858-7f90d13ff93a.png"
+              },
+              {
+                "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/generation-recap-3-v3.f58bdcbe.png",
+                "sha256": "f58bdcbe41f370932decae878c5c174cfdb6c407549c8afa28977992d9dd080b",
+                "actualFormat": [
+                  1672,
+                  941
+                ],
+                "prompt": "添付の図解の接地だけを修正。上段左①の左側の直接基礎と、上段中央②の直接基礎の、２つの断面だけが対象。各フーチングの直下まで、現在最下部にある濃い茶色の支持層を上に延ばし、コンクリート底面と濃い茶色の支持層上面をぴったり接触させる。フーチング底面と濃い支持層の間の薄い茶色の土はゼロにする。薄茶の表土はコンクリートの左右にのみ残る。上段左①の右の杭の断面は深い支持層のまま維持。ほかの図、文字、人物、構図、配色、下端字幕余白は一切変更しない。新しい文字や説明は追加しない。",
+                "reference": "/Users/minamidaisuke/.codex/worktrees/youtube-pop-thumbnails/doboku-note/.tmp/recap-cards/recap-3.png"
+              }
+            ]
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-026.64c9baa6.png",
+            "sha256": "64c9baa674829b745bbae7cef38d986c2070392d9fa57c7a7decf46e7d4232ff",
+            "width": 1920,
+            "height": 1080
+          },
+          "review": {
+            "status": "visually-reviewed",
+            "screenshot": ".tmp/recap-cards/screenshot-3.jpg",
+            "smallScreenshot": ".tmp/recap-cards/small-1.jpg",
+            "checks": [
+              "主題と要点",
+              "項目数・対応関係",
+              "原寸と幅360pxで資格名・主題判読",
+              "図と文字の重なり・切れ",
+              "技術的整合",
+              "字幕安全域"
+            ],
+            "result": "ok",
+            "evaluator": {
+              "agent": "ai-image-fidelity-auditor",
+              "figKey": "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-026",
+              "verdict": "ok",
+              "reason": "直接基礎底面と支持層の接触、深い支持層への杭、孔壁保護の断面を確認。5項目が本文と一致し、下端安全域も確保。"
+            }
+          }
+        },
+        {
+          "sceneId": "c04-summary",
+          "sceneNumber": 34,
+          "title": "法規｜4つの確認",
+          "source": "content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen/storyboard.json#c04-summary",
+          "sourceCopy": [
+            "労基法は数字で覚える",
+            "労安法は選任の要否",
+            "建設業法は技術者配置",
+            "許可と届出の区別"
+          ],
+          "narration": "まとめます。労基法は数字、労安法は選任の要否、建設業法は技術者配置、残りは許可と届出の区別。この順で3法を固めます。",
+          "prompt": "Create a precise Japanese EDUCATIONAL RECAP infographic for a 2級土木 video, 1920x1080 landscape. Match reference manga teacher identity and green/cream/yellow palette, but use clean light cream background, deep green text, restrained accents. This is a conclusion/learning memory image, NOT a promotional chapter opener: relational diagrams and exact learning takeaways are the main content. Main title takes max top 18%; content uses central 65%; teacher max 12% width near an edge. Text generously spaced, high contrast, labels no overlap with arrows/figures/character. Small badge 「2級土木」. Bottommost 100px clean blank cream band reserved for existing subtitles. No URL, brand, sales pitch, unsupported facts, tiny gibberish, extra text. Japanese text exactly as requested. Use simplified technically plausible schematic illustrations instead of decorative construction-site backgrounds. Exact title 「法規｜4つの確認」. Four large cards in 2x2 grid resembling a memory reference card. Icons clock, worker appointment, organization, application papers. Exact pairings 「労基法 → 数字」「労安法 → 選任の要否」「建設業法 → 技術者配置」「許可 ≠ 届出」. No added statutory numbers, articles, deadlines or claims. Teacher small at left glasses-adjustment book pose.",
+          "references": [
+            {
+              "path": ".tmp/soil-chapter/soil-chapter.png",
+              "sha256": "0acb21610960faaab52faf307483a78e9f8e4dad6fa66195092d3f9d6ab6e032"
+            }
+          ],
+          "generation": {
+            "tool": "image_gen",
+            "history": [
+              {
+                "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/generation-recap-4-v1.7c47ddfe.png",
+                "sha256": "7c47ddfea42d957860fb8204e8134459cbd40c79b68cd194eb2c10b816bb9abe",
+                "actualFormat": [
+                  1672,
+                  941
+                ],
+                "prompt": "Create a precise Japanese EDUCATIONAL RECAP infographic for a 2級土木 video, 1920x1080 landscape. Match reference manga teacher identity and green/cream/yellow palette, but use clean light cream background, deep green text, restrained accents. This is a conclusion/learning memory image, NOT a promotional chapter opener: relational diagrams and exact learning takeaways are the main content. Main title takes max top 18%; content uses central 65%; teacher max 12% width near an edge. Text generously spaced, high contrast, labels no overlap with arrows/figures/character. Small badge 「2級土木」. Bottommost 100px clean blank cream band reserved for existing subtitles. No URL, brand, sales pitch, unsupported facts, tiny gibberish, extra text. Japanese text exactly as requested. Use simplified technically plausible schematic illustrations instead of decorative construction-site backgrounds. Exact title 「法規｜4つの確認」. Four large cards in 2x2 grid resembling a memory reference card. Icons clock, worker appointment, organization, application papers. Exact pairings 「労基法 → 数字」「労安法 → 選任の要否」「建設業法 → 技術者配置」「許可 ≠ 届出」. No added statutory numbers, articles, deadlines or claims. Teacher small at left glasses-adjustment book pose.",
+                "reference": ".tmp/soil-chapter/soil-chapter.png"
+              }
+            ]
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-034.08d1e0ea.png",
+            "sha256": "08d1e0ea50a3ce3bad5da3744fbeff2731c1acdf1a96911f45776a7ee7b10f74",
+            "width": 1920,
+            "height": 1080
+          },
+          "review": {
+            "status": "visually-reviewed",
+            "screenshot": ".tmp/recap-cards/screenshot-4.jpg",
+            "smallScreenshot": ".tmp/recap-cards/small-1.jpg",
+            "checks": [
+              "主題と要点",
+              "項目数・対応関係",
+              "原寸と幅360pxで資格名・主題判読",
+              "図と文字の重なり・切れ",
+              "技術的整合",
+              "字幕安全域"
+            ],
+            "result": "ok",
+            "evaluator": {
+              "agent": "ai-image-fidelity-auditor",
+              "figKey": "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-034",
+              "verdict": "ok",
+              "reason": "3法の確認点と許可・届出の区別が本文と一致。日本語は明瞭で、文字の重なり・切れなし。"
+            }
+          }
+        },
+        {
+          "sceneId": "c05-summary",
+          "sceneNumber": 42,
+          "title": "施工計画｜順序と区別",
+          "source": "content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen/storyboard.json#c05-summary",
+          "sourceCopy": [
+            "作成手順は4段階",
+            "事前調査は自然条件と立地条件",
+            "計画書は記載項目",
+            "工程・仮設備は区別が肝心"
+          ],
+          "narration": "まとめます。施工計画は事前調査から管理計画への1本の流れ。事前調査の2条件、計画書の記載項目、工程と仮設備の区別を肉付けします。",
+          "prompt": "Create a precise Japanese EDUCATIONAL RECAP infographic for a 2級土木 video, 1920x1080 landscape. Match reference manga teacher identity and green/cream/yellow palette, but use clean light cream background, deep green text, restrained accents. This is a conclusion/learning memory image, NOT a promotional chapter opener: relational diagrams and exact learning takeaways are the main content. Main title takes max top 18%; content uses central 65%; teacher max 12% width near an edge. Text generously spaced, high contrast, labels no overlap with arrows/figures/character. Small badge 「2級土木」. Bottommost 100px clean blank cream band reserved for existing subtitles. No URL, brand, sales pitch, unsupported facts, tiny gibberish, extra text. Japanese text exactly as requested. Use simplified technically plausible schematic illustrations instead of decorative construction-site backgrounds. Exact title 「施工計画｜順序と区別」. Main top half FOUR-stage clear sequence exact 「事前調査 → 基本計画 → 詳細計画 → 管理計画」. Bottom half THREE distinct supporting learning panels exact labels 「自然条件 ／ 立地条件」「計画書の記載項目」「工程 ／ 仮設備」. Map/weather versus access road icons, plan sheet, schedule versus temporary facility icons. Teacher bottom-right marking plan. Four steps all present, no fifth step.",
+          "references": [
+            {
+              "path": ".tmp/soil-chapter/soil-chapter.png",
+              "sha256": "0acb21610960faaab52faf307483a78e9f8e4dad6fa66195092d3f9d6ab6e032"
+            }
+          ],
+          "generation": {
+            "tool": "image_gen",
+            "history": [
+              {
+                "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/generation-recap-5-v1.8c4da877.png",
+                "sha256": "8c4da877e9f0bbfba03d2d723ad775511b7c41fc5416e733d9a5fdd84ffbaa21",
+                "actualFormat": [
+                  1672,
+                  941
+                ],
+                "prompt": "Create a precise Japanese EDUCATIONAL RECAP infographic for a 2級土木 video, 1920x1080 landscape. Match reference manga teacher identity and green/cream/yellow palette, but use clean light cream background, deep green text, restrained accents. This is a conclusion/learning memory image, NOT a promotional chapter opener: relational diagrams and exact learning takeaways are the main content. Main title takes max top 18%; content uses central 65%; teacher max 12% width near an edge. Text generously spaced, high contrast, labels no overlap with arrows/figures/character. Small badge 「2級土木」. Bottommost 100px clean blank cream band reserved for existing subtitles. No URL, brand, sales pitch, unsupported facts, tiny gibberish, extra text. Japanese text exactly as requested. Use simplified technically plausible schematic illustrations instead of decorative construction-site backgrounds. Exact title 「施工計画｜順序と区別」. Main top half FOUR-stage clear sequence exact 「事前調査 → 基本計画 → 詳細計画 → 管理計画」. Bottom half THREE distinct supporting learning panels exact labels 「自然条件 ／ 立地条件」「計画書の記載項目」「工程 ／ 仮設備」. Map/weather versus access road icons, plan sheet, schedule versus temporary facility icons. Teacher bottom-right marking plan. Four steps all present, no fifth step.",
+                "reference": ".tmp/soil-chapter/soil-chapter.png"
+              },
+              {
+                "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/generation-recap-5-v2.fbb05336.png",
+                "sha256": "fbb0533690cb9d8e66bba0f8e6056bd417f7cc5842996550358d5bba00d6e6ee",
+                "actualFormat": [
+                  1672,
+                  941
+                ],
+                "prompt": "添付の結論画像を修正する。画像全体の16:9、緑・黄・白のPOP意匠、同じ先生の顔・メガネ・服装、主題を維持。下端の字幕用余白を確保。変更内容: 大きな４段階『工事内容の理解』『事前調査』『施工計画立案』『現場運営』とそれぞれの図、下段３つの結論見出しを保持。各段階の下にある小さな箇条書きと段落、下段の小さなリストをすべて削除。工程表の月や日付数字も削除し無記名の工程バーだけにする。余白を生かして主題と絵を大きく。指定外の文字を追加しない。 小さな説明を再追加しない。日本語は正確に、字と図は重ねない。",
+                "reference": "/Users/minamidaisuke/.codex/generated_images/01a123a7-6e1c-7b82-8207-694a68146a2e/exec-f620fdd5-9e7d-4618-97d5-bbd1ad23213d.png"
+              },
+              {
+                "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/generation-recap-5-v3.770d8f8a.png",
+                "sha256": "770d8f8a17c1e2368f72ebc4d24fa0d4bc249051d35d55971ce66c699709a6a8",
+                "actualFormat": [
+                  1672,
+                  941
+                ],
+                "prompt": "添付の施工計画の結論画像の上段４ステップを、教材本文の作成手順に正確に合わせて修正。上段の４つの見出しは左から厳密に『事前調査』『基本計画』『詳細計画』『管理計画』。現在の『工事内容の理解』『施工計画立案』『現場運営』は完全に消す。上段１は地形・地図・調査の図、２は白紙に無記名の大きな配置図、３は無記名の工程バーと図面、４はチェックマーク付き管理計画書のアイコン。図面・書類には細かい日本語、英数字、疑似文字を一切入れず、線と矩形だけで表す。上段４つを黄色矢印で一方向に結ぶ。下段の『自然条件／立地条件』『計画書の記載項目』『工程／仮設備』とそれらの絵は維持。題名『施工計画｜順序と区別』、資格2級土木、同じ先生キャラクター、緑黄色クリームの配色、下端字幕余白は維持。新たな文章を足さない。",
+                "reference": "/Users/minamidaisuke/.codex/worktrees/youtube-pop-thumbnails/doboku-note/.tmp/recap-cards/recap-5.png"
+              }
+            ]
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-042.64963160.png",
+            "sha256": "64963160e667107bb5a5838e357d521bd9b82f941b2413f2501bda30fd3f4b23",
+            "width": 1920,
+            "height": 1080
+          },
+          "review": {
+            "status": "visually-reviewed",
+            "screenshot": ".tmp/recap-cards/screenshot-5.jpg",
+            "smallScreenshot": ".tmp/recap-cards/small-1.jpg",
+            "checks": [
+              "主題と要点",
+              "項目数・対応関係",
+              "原寸と幅360pxで資格名・主題判読",
+              "図と文字の重なり・切れ",
+              "技術的整合",
+              "字幕安全域"
+            ],
+            "result": "ok",
+            "evaluator": {
+              "agent": "ai-image-fidelity-auditor",
+              "figKey": "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-042",
+              "verdict": "ok",
+              "reason": "4段階が事前調査→基本計画→詳細計画→管理計画となり本文と一致。図面の擬似文字は除去され、日本語の誤字・重なり・切れはなく、下端字幕安全域も確保されている。"
+            }
+          }
+        },
+        {
+          "sceneId": "c06-summary",
+          "sceneNumber": 64,
+          "title": "5分野｜覚え方を整理",
+          "source": "content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen/storyboard.json#c06-summary",
+          "sourceCopy": [
+            "土工：試験と目的",
+            "コンクリート：指標と手順",
+            "基礎工：地盤条件と工法",
+            "法規：数値と要件",
+            "施工計画：作成の順序"
+          ],
+          "narration": "まとめます。5分野に共通するのは対応関係です。土質試験は目的と、工法は適用条件と、法規は数値と、施工計画は手順の順序と、いつも対で思い出す練習を積んでおきましょう。",
+          "prompt": "Create a precise Japanese EDUCATIONAL RECAP infographic for a 2級土木 video, 1920x1080 landscape. Match reference manga teacher identity and green/cream/yellow palette, but use clean light cream background, deep green text, restrained accents. This is a conclusion/learning memory image, NOT a promotional chapter opener: relational diagrams and exact learning takeaways are the main content. Main title takes max top 18%; content uses central 65%; teacher max 12% width near an edge. Text generously spaced, high contrast, labels no overlap with arrows/figures/character. Small badge 「2級土木」. Bottommost 100px clean blank cream band reserved for existing subtitles. No URL, brand, sales pitch, unsupported facts, tiny gibberish, extra text. Japanese text exactly as requested. Use simplified technically plausible schematic illustrations instead of decorative construction-site backgrounds. Exact title 「5分野｜覚え方を整理」. Five LARGE horizontal rows in left two-thirds each has an icon and a precise mapping, exact text 「土工 → 試験と目的」「コンクリート → 指標と手順」「基礎工 → 地盤条件と工法」「法規 → 数値と要件」「施工計画 → 作成の順序」. Right third teacher connecting five rows with pointer and small recap notebook. Each relation clearly readable, avoid tiny tiny text; exactly five rows.",
+          "references": [
+            {
+              "path": ".tmp/soil-chapter/soil-chapter.png",
+              "sha256": "0acb21610960faaab52faf307483a78e9f8e4dad6fa66195092d3f9d6ab6e032"
+            }
+          ],
+          "generation": {
+            "tool": "image_gen",
+            "history": [
+              {
+                "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/generation-recap-6-v1.5ea9265c.png",
+                "sha256": "5ea9265cf367d57c4dc09a30f789f44efcab274591c62d65663479011c0abaa2",
+                "actualFormat": [
+                  1672,
+                  941
+                ],
+                "prompt": "Create a precise Japanese EDUCATIONAL RECAP infographic for a 2級土木 video, 1920x1080 landscape. Match reference manga teacher identity and green/cream/yellow palette, but use clean light cream background, deep green text, restrained accents. This is a conclusion/learning memory image, NOT a promotional chapter opener: relational diagrams and exact learning takeaways are the main content. Main title takes max top 18%; content uses central 65%; teacher max 12% width near an edge. Text generously spaced, high contrast, labels no overlap with arrows/figures/character. Small badge 「2級土木」. Bottommost 100px clean blank cream band reserved for existing subtitles. No URL, brand, sales pitch, unsupported facts, tiny gibberish, extra text. Japanese text exactly as requested. Use simplified technically plausible schematic illustrations instead of decorative construction-site backgrounds. Exact title 「5分野｜覚え方を整理」. Five LARGE horizontal rows in left two-thirds each has an icon and a precise mapping, exact text 「土工 → 試験と目的」「コンクリート → 指標と手順」「基礎工 → 地盤条件と工法」「法規 → 数値と要件」「施工計画 → 作成の順序」. Right third teacher connecting five rows with pointer and small recap notebook. Each relation clearly readable, avoid tiny tiny text; exactly five rows.",
+                "reference": ".tmp/soil-chapter/soil-chapter.png"
+              }
+            ]
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-064.93b9ae60.png",
+            "sha256": "93b9ae60462d2cc2ff44e16a920b6b6c7e4b62413d73d7b622522711e1d50356",
+            "width": 1920,
+            "height": 1080
+          },
+          "review": {
+            "status": "visually-reviewed",
+            "screenshot": ".tmp/recap-cards/screenshot-6.jpg",
+            "smallScreenshot": ".tmp/recap-cards/small-1.jpg",
+            "checks": [
+              "主題と要点",
+              "項目数・対応関係",
+              "原寸と幅360pxで資格名・主題判読",
+              "図と文字の重なり・切れ",
+              "技術的整合",
+              "字幕安全域"
+            ],
+            "result": "ok",
+            "evaluator": {
+              "agent": "ai-image-fidelity-auditor",
+              "figKey": "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-064",
+              "verdict": "ok",
+              "reason": "5分野と覚え方の対応が本文と一致。機械・基礎のアイコンに教材上の重大な破綻はなく、日本語と安全域も良好。"
+            }
+          }
+        },
+        {
+          "sceneId": "c07-summary",
+          "sceneNumber": 71,
+          "title": "出題傾向｜準備を分ける",
+          "source": "content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen/storyboard.json#c07-summary",
+          "sourceCopy": [
+            "経験記述は3管理すべてを準備",
+            "学科記述は頻出分野を優先"
+          ],
+          "narration": "まとめます。経験記述は令和6年度からの2テーマ必答を踏まえて3管理を準備、学科記述は毎年出る頻出分野を優先する。これが5年分の傾向から見える対策の骨格です。",
+          "prompt": "Create a precise Japanese EDUCATIONAL RECAP infographic for a 2級土木 video, 1920x1080 landscape. Match reference manga teacher identity and green/cream/yellow palette, but use clean light cream background, deep green text, restrained accents. This is a conclusion/learning memory image, NOT a promotional chapter opener: relational diagrams and exact learning takeaways are the main content. Main title takes max top 18%; content uses central 65%; teacher max 12% width near an edge. Text generously spaced, high contrast, labels no overlap with arrows/figures/character. Small badge 「2級土木」. Bottommost 100px clean blank cream band reserved for existing subtitles. No URL, brand, sales pitch, unsupported facts, tiny gibberish, extra text. Japanese text exactly as requested. Use simplified technically plausible schematic illustrations instead of decorative construction-site backgrounds. Exact title 「出題傾向｜準備を分ける」. Two different LARGE preparation zones left/right. Left: exact heading 「経験記述」, EXACTLY THREE equally sized labeled folders 「安全」「品質」「工程」, bottom conclusion 「3管理すべてを準備」. Right heading 「学科記述」, spread of generic past-exam pages and checklist, bottom conclusion 「頻出分野を優先」. Teacher small CENTER holding both different folders, no predicted frequencies, fabricated charts, exam dates.",
+          "references": [
+            {
+              "path": ".tmp/soil-chapter/soil-chapter.png",
+              "sha256": "0acb21610960faaab52faf307483a78e9f8e4dad6fa66195092d3f9d6ab6e032"
+            }
+          ],
+          "generation": {
+            "tool": "image_gen",
+            "history": [
+              {
+                "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/generation-recap-7-v1.1f2ac793.png",
+                "sha256": "1f2ac793235ebec56bf821ad8dbef1a0a21488862f907be3224e37858d9b0875",
+                "actualFormat": [
+                  1672,
+                  941
+                ],
+                "prompt": "Create a precise Japanese EDUCATIONAL RECAP infographic for a 2級土木 video, 1920x1080 landscape. Match reference manga teacher identity and green/cream/yellow palette, but use clean light cream background, deep green text, restrained accents. This is a conclusion/learning memory image, NOT a promotional chapter opener: relational diagrams and exact learning takeaways are the main content. Main title takes max top 18%; content uses central 65%; teacher max 12% width near an edge. Text generously spaced, high contrast, labels no overlap with arrows/figures/character. Small badge 「2級土木」. Bottommost 100px clean blank cream band reserved for existing subtitles. No URL, brand, sales pitch, unsupported facts, tiny gibberish, extra text. Japanese text exactly as requested. Use simplified technically plausible schematic illustrations instead of decorative construction-site backgrounds. Exact title 「出題傾向｜準備を分ける」. Two different LARGE preparation zones left/right. Left: exact heading 「経験記述」, EXACTLY THREE equally sized labeled folders 「安全」「品質」「工程」, bottom conclusion 「3管理すべてを準備」. Right heading 「学科記述」, spread of generic past-exam pages and checklist, bottom conclusion 「頻出分野を優先」. Teacher small CENTER holding both different folders, no predicted frequencies, fabricated charts, exam dates.",
+                "reference": ".tmp/soil-chapter/soil-chapter.png"
+              }
+            ]
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-071.9ddbde04.png",
+            "sha256": "9ddbde0473042a8669c8549605ded17af7efa563f5820faf816401e5a43cb909",
+            "width": 1920,
+            "height": 1080
+          },
+          "review": {
+            "status": "visually-reviewed",
+            "screenshot": ".tmp/recap-cards/screenshot-7.jpg",
+            "smallScreenshot": ".tmp/recap-cards/small-2.jpg",
+            "checks": [
+              "主題と要点",
+              "項目数・対応関係",
+              "原寸と幅360pxで資格名・主題判読",
+              "図と文字の重なり・切れ",
+              "技術的整合",
+              "字幕安全域"
+            ],
+            "result": "ok",
+            "evaluator": {
+              "agent": "ai-image-fidelity-auditor",
+              "figKey": "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-071",
+              "verdict": "ok",
+              "reason": "経験記述の安全・品質・工程の3管理と、学科記述の頻出分野優先が本文と一致。文字の欠け・重なりなし。"
+            }
+          }
+        },
+        {
+          "sceneId": "c08-summary",
+          "sceneNumber": 79,
+          "title": "工事概要｜5つの照合",
+          "source": "content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen/storyboard.json#c08-summary",
+          "sourceCopy": [
+            "管理項目に工種を合わせる",
+            "施工量を数量で書く",
+            "工期を数量・季節に合わせる",
+            "場所・発注者・立場を詳しく",
+            "本文との一貫チェック"
+          ],
+          "narration": "まとめます。管理項目に工種を合わせる、施工量を数量で書く、工期を数量・季節に合わせる、場所・発注者・立場を詳しく、本文との一貫チェック。この順序で工事概要はぶれなくなります。",
+          "prompt": "Create a precise Japanese EDUCATIONAL RECAP infographic for a 2級土木 video, 1920x1080 landscape. Match reference manga teacher identity and green/cream/yellow palette, but use clean light cream background, deep green text, restrained accents. This is a conclusion/learning memory image, NOT a promotional chapter opener: relational diagrams and exact learning takeaways are the main content. Main title takes max top 18%; content uses central 65%; teacher max 12% width near an edge. Text generously spaced, high contrast, labels no overlap with arrows/figures/character. Small badge 「2級土木」. Bottommost 100px clean blank cream band reserved for existing subtitles. No URL, brand, sales pitch, unsupported facts, tiny gibberish, extra text. Japanese text exactly as requested. Use simplified technically plausible schematic illustrations instead of decorative construction-site backgrounds. Exact title 「工事概要｜5つの照合」. A wide large project-summary document connected by arrow to essay-body document. EXACTLY FIVE large checklist bands or numbered icons with text 「管理項目 ↔ 工種」「施工量 → 数量」「工期 ↔ 数量・季節」「場所・発注者・立場」「概要 ↔ 本文」. No real construction example numbers or fabricated site details. Teacher small right red pen checking consistency. Five bands visible, not a poster announcing topic.",
+          "references": [
+            {
+              "path": ".tmp/soil-chapter/soil-chapter.png",
+              "sha256": "0acb21610960faaab52faf307483a78e9f8e4dad6fa66195092d3f9d6ab6e032"
+            }
+          ],
+          "generation": {
+            "tool": "image_gen",
+            "history": [
+              {
+                "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/generation-recap-8-v1.1b935444.png",
+                "sha256": "1b935444d79716a3deb61b1e3ad3729c0dbeb6e03a670a00395d528753c19f8a",
+                "actualFormat": [
+                  1672,
+                  941
+                ],
+                "prompt": "Create a precise Japanese EDUCATIONAL RECAP infographic for a 2級土木 video, 1920x1080 landscape. Match reference manga teacher identity and green/cream/yellow palette, but use clean light cream background, deep green text, restrained accents. This is a conclusion/learning memory image, NOT a promotional chapter opener: relational diagrams and exact learning takeaways are the main content. Main title takes max top 18%; content uses central 65%; teacher max 12% width near an edge. Text generously spaced, high contrast, labels no overlap with arrows/figures/character. Small badge 「2級土木」. Bottommost 100px clean blank cream band reserved for existing subtitles. No URL, brand, sales pitch, unsupported facts, tiny gibberish, extra text. Japanese text exactly as requested. Use simplified technically plausible schematic illustrations instead of decorative construction-site backgrounds. Exact title 「工事概要｜5つの照合」. A wide large project-summary document connected by arrow to essay-body document. EXACTLY FIVE large checklist bands or numbered icons with text 「管理項目 ↔ 工種」「施工量 → 数量」「工期 ↔ 数量・季節」「場所・発注者・立場」「概要 ↔ 本文」. No real construction example numbers or fabricated site details. Teacher small right red pen checking consistency. Five bands visible, not a poster announcing topic.",
+                "reference": ".tmp/soil-chapter/soil-chapter.png"
+              }
+            ]
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-079.c9966cb3.png",
+            "sha256": "c9966cb3265476dc5b42d24bdb22187e2d7c92b5f4a212b60fff9ba053ed02dc",
+            "width": 1920,
+            "height": 1080
+          },
+          "review": {
+            "status": "visually-reviewed",
+            "screenshot": ".tmp/recap-cards/screenshot-8.jpg",
+            "smallScreenshot": ".tmp/recap-cards/small-2.jpg",
+            "checks": [
+              "主題と要点",
+              "項目数・対応関係",
+              "原寸と幅360pxで資格名・主題判読",
+              "図と文字の重なり・切れ",
+              "技術的整合",
+              "字幕安全域"
+            ],
+            "result": "ok",
+            "evaluator": {
+              "agent": "ai-image-fidelity-auditor",
+              "figKey": "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-079",
+              "verdict": "ok",
+              "reason": "工事概要の5つの照合点が本文と一致。人物は文字を遮らず、下端字幕用余白も確保。"
+            }
+          }
+        },
+        {
+          "sceneId": "c09-summary",
+          "sceneNumber": 87,
+          "title": "品質管理｜因果でつなぐ",
+          "source": "content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen/storyboard.json#c09-summary",
+          "sourceCopy": [
+            "5要素の流れに品質管理の観点を当てはめる",
+            "課題は現場条件と規格値のギャップから",
+            "対応は数値で\n評価は簡潔に"
+          ],
+          "narration": "まとめます。品質管理は5要素の流れに、計画・材料・施工・養生・検査・周知の観点を当てはめ、現場条件と規格値のギャップから課題を立てるのが基本です。",
+          "prompt": "Create a precise Japanese EDUCATIONAL RECAP infographic for a 2級土木 video, 1920x1080 landscape. Match reference manga teacher identity and green/cream/yellow palette, but use clean light cream background, deep green text, restrained accents. This is a conclusion/learning memory image, NOT a promotional chapter opener: relational diagrams and exact learning takeaways are the main content. Main title takes max top 18%; content uses central 65%; teacher max 12% width near an edge. Text generously spaced, high contrast, labels no overlap with arrows/figures/character. Small badge 「2級土木」. Bottommost 100px clean blank cream band reserved for existing subtitles. No URL, brand, sales pitch, unsupported facts, tiny gibberish, extra text. Japanese text exactly as requested. Use simplified technically plausible schematic illustrations instead of decorative construction-site backgrounds. Exact title 「品質管理｜因果でつなぐ」. Top big schematic: 「現場条件」 versus 「規格値」 with gap labeled 「課題」. Center EXACTLY FIVE chronological nodes 「現場状況 → 課題 → 検討 → 対応処置 → 評価」. Bottom separate two prominent learning conclusions 「対応は数値で」「評価は簡潔に」, and small note 「設問の指示に合わせる」. Tiny teacher measuring at edge. Meaningful diagram is primary, no generic construction panorama, no false five management domains.",
+          "references": [
+            {
+              "path": ".tmp/soil-chapter/soil-chapter.png",
+              "sha256": "0acb21610960faaab52faf307483a78e9f8e4dad6fa66195092d3f9d6ab6e032"
+            }
+          ],
+          "generation": {
+            "tool": "image_gen",
+            "history": [
+              {
+                "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/generation-recap-9-v1.8efdea43.png",
+                "sha256": "8efdea4376e25be041aab8ec30082d0c950449bfef5c1a468fe0d9470cc9fa06",
+                "actualFormat": [
+                  1672,
+                  941
+                ],
+                "prompt": "Create a precise Japanese EDUCATIONAL RECAP infographic for a 2級土木 video, 1920x1080 landscape. Match reference manga teacher identity and green/cream/yellow palette, but use clean light cream background, deep green text, restrained accents. This is a conclusion/learning memory image, NOT a promotional chapter opener: relational diagrams and exact learning takeaways are the main content. Main title takes max top 18%; content uses central 65%; teacher max 12% width near an edge. Text generously spaced, high contrast, labels no overlap with arrows/figures/character. Small badge 「2級土木」. Bottommost 100px clean blank cream band reserved for existing subtitles. No URL, brand, sales pitch, unsupported facts, tiny gibberish, extra text. Japanese text exactly as requested. Use simplified technically plausible schematic illustrations instead of decorative construction-site backgrounds. Exact title 「品質管理｜因果でつなぐ」. Top big schematic: 「現場条件」 versus 「規格値」 with gap labeled 「課題」. Center EXACTLY FIVE chronological nodes 「現場状況 → 課題 → 検討 → 対応処置 → 評価」. Bottom separate two prominent learning conclusions 「対応は数値で」「評価は簡潔に」, and small note 「設問の指示に合わせる」. Tiny teacher measuring at edge. Meaningful diagram is primary, no generic construction panorama, no false five management domains.",
+                "reference": ".tmp/soil-chapter/soil-chapter.png"
+              },
+              {
+                "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/generation-recap-9-v2.e060c8c7.png",
+                "sha256": "e060c8c7a0a4e11715bfaae43af80fd4f0c65e575a1eb59a69dab3a4735c4128",
+                "actualFormat": [
+                  1672,
+                  941
+                ],
+                "prompt": "添付の結論画像を修正する。画像全体の16:9、緑・黄・白のPOP意匠、同じ先生の顔・メガネ・服装、主題を維持。下端の字幕用余白を確保。変更内容: ５ステップの大見出しとアイコン、下段の３つの結論を保持。上部右側の『規格値』図にある締固め度(D値)や測定装置、H・t表示を完全に削除。チェックマークの付いた仕様書のシンプルなイラストと『規格値』だけに置換。５ステップの各下部の小さな箇条書きをすべて削除。残った主見出しを大きくして読みやすく。新しい説明や数値を追加しない。 小さな説明を再追加しない。日本語は正確に、字と図は重ねない。",
+                "reference": "/Users/minamidaisuke/.codex/generated_images/01a123a7-6e1c-7b82-8207-694a68146a2e/exec-d5533894-1c19-47ff-b4c9-d65736a739cb.png"
+              }
+            ]
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-087.0252db58.png",
+            "sha256": "0252db58f38f4f1084bd615f52d487b0e142f0caace8711c526fbc48f6b4fa47",
+            "width": 1920,
+            "height": 1080
+          },
+          "review": {
+            "status": "visually-reviewed",
+            "screenshot": ".tmp/recap-cards/screenshot-9.jpg",
+            "smallScreenshot": ".tmp/recap-cards/small-2.jpg",
+            "checks": [
+              "主題と要点",
+              "項目数・対応関係",
+              "原寸と幅360pxで資格名・主題判読",
+              "図と文字の重なり・切れ",
+              "技術的整合",
+              "字幕安全域"
+            ],
+            "result": "ok",
+            "evaluator": {
+              "agent": "ai-image-fidelity-auditor",
+              "figKey": "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-087",
+              "verdict": "ok",
+              "reason": "現場条件と規格値の差、5要素の一方向の流れ、数値による対応と簡潔な評価が本文と一致。測定装置の誤表示なし。"
+            }
+          }
+        },
+        {
+          "sceneId": "c10-summary",
+          "sceneNumber": 95,
+          "title": "工程管理｜制約から対応へ",
+          "source": "content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen/storyboard.json#c10-summary",
+          "sourceCopy": [
+            "5要素の流れに工程管理の観点を当てはめる",
+            "遅延原因の型：天候／手続き・支障物／規制・短縮",
+            "対応は数値で\n評価は簡潔に"
+          ],
+          "narration": "まとめます。工程管理は5要素の流れに、材料・機械、工程表、効率化、気温対策、創意工夫の観点を当てはめ、遅延原因の型に応じて組み立てるのが基本です。",
+          "prompt": "Create a precise Japanese EDUCATIONAL RECAP infographic for a 2級土木 video, 1920x1080 landscape. Match reference manga teacher identity and green/cream/yellow palette, but use clean light cream background, deep green text, restrained accents. This is a conclusion/learning memory image, NOT a promotional chapter opener: relational diagrams and exact learning takeaways are the main content. Main title takes max top 18%; content uses central 65%; teacher max 12% width near an edge. Text generously spaced, high contrast, labels no overlap with arrows/figures/character. Small badge 「2級土木」. Bottommost 100px clean blank cream band reserved for existing subtitles. No URL, brand, sales pitch, unsupported facts, tiny gibberish, extra text. Japanese text exactly as requested. Use simplified technically plausible schematic illustrations instead of decorative construction-site backgrounds. Exact title 「工程管理｜制約から対応へ」. Top THREE distinct constraint icons rain, permits/obstacle, work-time restriction exact captions 「天候」「手続き・支障物」「規制・短縮」. Center EXACTLY FIVE nodes 「現場状況 → 課題 → 検討 → 対応処置 → 評価」 leading to simple schedule with corrected bars. Bottom conclusions 「対応は数値で」「評価は簡潔に」 and small note 「設問の指示に合わせる」. Teacher small turning magnetic task card on edge.",
+          "references": [
+            {
+              "path": ".tmp/soil-chapter/soil-chapter.png",
+              "sha256": "0acb21610960faaab52faf307483a78e9f8e4dad6fa66195092d3f9d6ab6e032"
+            }
+          ],
+          "generation": {
+            "tool": "image_gen",
+            "history": [
+              {
+                "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/generation-recap-10-v1.64ecdea9.png",
+                "sha256": "64ecdea91ab6a43fc027c7677ddcea1ce2feea4081fe0a354775a5f80e19bb0d",
+                "actualFormat": [
+                  1672,
+                  941
+                ],
+                "prompt": "Create a precise Japanese EDUCATIONAL RECAP infographic for a 2級土木 video, 1920x1080 landscape. Match reference manga teacher identity and green/cream/yellow palette, but use clean light cream background, deep green text, restrained accents. This is a conclusion/learning memory image, NOT a promotional chapter opener: relational diagrams and exact learning takeaways are the main content. Main title takes max top 18%; content uses central 65%; teacher max 12% width near an edge. Text generously spaced, high contrast, labels no overlap with arrows/figures/character. Small badge 「2級土木」. Bottommost 100px clean blank cream band reserved for existing subtitles. No URL, brand, sales pitch, unsupported facts, tiny gibberish, extra text. Japanese text exactly as requested. Use simplified technically plausible schematic illustrations instead of decorative construction-site backgrounds. Exact title 「工程管理｜制約から対応へ」. Top THREE distinct constraint icons rain, permits/obstacle, work-time restriction exact captions 「天候」「手続き・支障物」「規制・短縮」. Center EXACTLY FIVE nodes 「現場状況 → 課題 → 検討 → 対応処置 → 評価」 leading to simple schedule with corrected bars. Bottom conclusions 「対応は数値で」「評価は簡潔に」 and small note 「設問の指示に合わせる」. Teacher small turning magnetic task card on edge.",
+                "reference": ".tmp/soil-chapter/soil-chapter.png"
+              },
+              {
+                "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/generation-recap-10-v2.33a15ecd.png",
+                "sha256": "33a15ecd8b5607ca391fb2cea07ebf533871827637095abe2e5fafaa516ca8e0",
+                "actualFormat": [
+                  1672,
+                  941
+                ],
+                "prompt": "添付の結論画像を修正する。画像全体の16:9、緑・黄・白のPOP意匠、同じ先生の顔・メガネ・服装、主題を維持。下端の字幕用余白を確保。変更内容: ３つの制約と５段階の大見出し・イラスト、下段３つの結論を保持。各制約の下の小さな２行説明と５段階下の小さな箇条書きをすべて削除。下段『日数・数量・コストなどで示す』は『日数・台数・班数』へ置換。新しい文字を足さず、主要な図と見出しを大きく。 小さな説明を再追加しない。日本語は正確に、字と図は重ねない。",
+                "reference": "/Users/minamidaisuke/.codex/generated_images/01a123a7-6e1c-7b82-8207-694a68146a2e/exec-88fb9f25-9600-43c2-b835-fec09f1583f4.png"
+              }
+            ]
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-095.2d39a98d.png",
+            "sha256": "2d39a98d2354b11ca2e04a295eeeeecf36cb37694b204cccfaf8beb4df53164b",
+            "width": 1920,
+            "height": 1080
+          },
+          "review": {
+            "status": "visually-reviewed",
+            "screenshot": ".tmp/recap-cards/screenshot-10.jpg",
+            "smallScreenshot": ".tmp/recap-cards/small-2.jpg",
+            "checks": [
+              "主題と要点",
+              "項目数・対応関係",
+              "原寸と幅360pxで資格名・主題判読",
+              "図と文字の重なり・切れ",
+              "技術的整合",
+              "字幕安全域"
+            ],
+            "result": "ok",
+            "evaluator": {
+              "agent": "ai-image-fidelity-auditor",
+              "figKey": "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-095",
+              "verdict": "ok",
+              "reason": "3種類の制約と5要素の流れが本文と一致。「日数・台数・班数」も明瞭で、文字の重なり・切れなし。"
+            }
+          }
+        },
+        {
+          "sceneId": "c11-summary",
+          "sceneNumber": 102,
+          "title": "安全管理｜課題と対応をそろえる",
+          "source": "content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen/storyboard.json#c11-summary",
+          "sourceCopy": [
+            "現場条件から課題を一つに絞る",
+            "検討項目に数値基準を当てる",
+            "対応処置は数値で書く",
+            "検討項目との対応を確認する"
+          ],
+          "narration": "まとめます。順序は、現場条件から課題を絞る、検討項目に数値基準を当てる、対応処置を数値で書く、両者の対応を確認する。安全管理は、覚えた数値を自分の現場に当てはめる作業です。",
+          "prompt": "Create a precise Japanese EDUCATIONAL RECAP infographic for a 2級土木 video, 1920x1080 landscape. Match reference manga teacher identity and green/cream/yellow palette, but use clean light cream background, deep green text, restrained accents. This is a conclusion/learning memory image, NOT a promotional chapter opener: relational diagrams and exact learning takeaways are the main content. Main title takes max top 18%; content uses central 65%; teacher max 12% width near an edge. Text generously spaced, high contrast, labels no overlap with arrows/figures/character. Small badge 「2級土木」. Bottommost 100px clean blank cream band reserved for existing subtitles. No URL, brand, sales pitch, unsupported facts, tiny gibberish, extra text. Japanese text exactly as requested. Use simplified technically plausible schematic illustrations instead of decorative construction-site backgrounds. Exact title 「安全管理｜課題と対応をそろえる」. Clear FOUR-step large linked path plus miniature protected site illustration. Exact nodes 「現場条件 → 課題を1つに」「検討項目 → 数値基準」「対応処置 → 数値で具体化」「検討 ↔ 対応」. Make first three mappings separate panels and fourth bottom linking verification; teacher helmet small points to verified checklist, no numeric legal safety threshold invention.",
+          "references": [
+            {
+              "path": ".tmp/soil-chapter/soil-chapter.png",
+              "sha256": "0acb21610960faaab52faf307483a78e9f8e4dad6fa66195092d3f9d6ab6e032"
+            }
+          ],
+          "generation": {
+            "tool": "image_gen",
+            "history": [
+              {
+                "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/generation-recap-11-v1.a89a31ea.png",
+                "sha256": "a89a31ead71a5a9f3278fec94a402303c53fa30bc88813e3b5f9e3b18bb6836f",
+                "actualFormat": [
+                  1672,
+                  941
+                ],
+                "prompt": "Create a precise Japanese EDUCATIONAL RECAP infographic for a 2級土木 video, 1920x1080 landscape. Match reference manga teacher identity and green/cream/yellow palette, but use clean light cream background, deep green text, restrained accents. This is a conclusion/learning memory image, NOT a promotional chapter opener: relational diagrams and exact learning takeaways are the main content. Main title takes max top 18%; content uses central 65%; teacher max 12% width near an edge. Text generously spaced, high contrast, labels no overlap with arrows/figures/character. Small badge 「2級土木」. Bottommost 100px clean blank cream band reserved for existing subtitles. No URL, brand, sales pitch, unsupported facts, tiny gibberish, extra text. Japanese text exactly as requested. Use simplified technically plausible schematic illustrations instead of decorative construction-site backgrounds. Exact title 「安全管理｜課題と対応をそろえる」. Clear FOUR-step large linked path plus miniature protected site illustration. Exact nodes 「現場条件 → 課題を1つに」「検討項目 → 数値基準」「対応処置 → 数値で具体化」「検討 ↔ 対応」. Make first three mappings separate panels and fourth bottom linking verification; teacher helmet small points to verified checklist, no numeric legal safety threshold invention.",
+                "reference": ".tmp/soil-chapter/soil-chapter.png"
+              },
+              {
+                "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/generation-recap-11-v2.bc0dbe6a.png",
+                "sha256": "bc0dbe6a3274c35f467db4b2fe2ffc018e3c615b3f7a4c41498b6b94af51518f",
+                "actualFormat": [
+                  1672,
+                  941
+                ],
+                "prompt": "添付の結論画像を修正する。画像全体の16:9、緑・黄・白のPOP意匠、同じ先生の顔・メガネ・服装、主題を維持。下端の字幕用余白を確保。変更内容: ３つの主パネルの見出し、イラスト、下段４つの検討と対応の組を保持。各パネル下の小さな箇条書きリストをすべて削除。検討項目の数値基準に関する小さな説明も消す。主見出し・図・対応関係だけで理解できる広々とした構成に。新しい文字や説明を追加しない。 小さな説明を再追加しない。日本語は正確に、字と図は重ねない。",
+                "reference": "/Users/minamidaisuke/.codex/generated_images/01a123a7-6e1c-7b82-8207-694a68146a2e/exec-86bb3f77-167b-4228-9075-696b243b4b49.png"
+              }
+            ]
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-102.8766980d.png",
+            "sha256": "8766980d008bb1f925fe34ec3e0548ab560ff4dbedc2f9c884d6a9386525e18c",
+            "width": 1920,
+            "height": 1080
+          },
+          "review": {
+            "status": "visually-reviewed",
+            "screenshot": ".tmp/recap-cards/screenshot-11.jpg",
+            "smallScreenshot": ".tmp/recap-cards/small-2.jpg",
+            "checks": [
+              "主題と要点",
+              "項目数・対応関係",
+              "原寸と幅360pxで資格名・主題判読",
+              "図と文字の重なり・切れ",
+              "技術的整合",
+              "字幕安全域"
+            ],
+            "result": "ok",
+            "evaluator": {
+              "agent": "ai-image-fidelity-auditor",
+              "figKey": "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-102",
+              "verdict": "ok",
+              "reason": "課題の絞込み、数値基準、対応の具体化、検討と対応の照合が本文と一致。安全設備の概略図と下端安全域に問題なし。"
+            }
+          }
+        },
+        {
+          "sceneId": "c12-summary",
+          "sceneNumber": 108,
+          "title": "一般論から｜自分の現場へ",
+          "source": "content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen/storyboard.json#c12-summary",
+          "sourceCopy": [
+            "自分の現場条件から書き始める",
+            "対策の列挙でなく因果の流れで書く",
+            "数値を入れて現場を見せる"
+          ],
+          "narration": "まとめます。直し方は3つ。自分の現場条件から書き始める。対策ではなく流れで書く。数値を入れる。この3つを直すだけで、一般論の答案はあなたの答案になります。",
+          "prompt": "Create a precise Japanese EDUCATIONAL RECAP infographic for a 2級土木 video, 1920x1080 landscape. Match reference manga teacher identity and green/cream/yellow palette, but use clean light cream background, deep green text, restrained accents. This is a conclusion/learning memory image, NOT a promotional chapter opener: relational diagrams and exact learning takeaways are the main content. Main title takes max top 18%; content uses central 65%; teacher max 12% width near an edge. Text generously spaced, high contrast, labels no overlap with arrows/figures/character. Small badge 「2級土木」. Bottommost 100px clean blank cream band reserved for existing subtitles. No URL, brand, sales pitch, unsupported facts, tiny gibberish, extra text. Japanese text exactly as requested. Use simplified technically plausible schematic illustrations instead of decorative construction-site backgrounds. Exact title 「一般論から｜自分の現場へ」. Clear transformation LEFT generic pale answer sheet → RIGHT site-specific bold answer sheet, plus EXACT THREE visual lenses beneath: 「自分の現場条件」「因果の流れ」「具体的な数値」. Add one main learning phrase 「対策の列挙で終わらせない」. Teacher small compares two papers with open hands. No extra invented real-site measurements; numbers represented by measurement icon only.",
+          "references": [
+            {
+              "path": ".tmp/soil-chapter/soil-chapter.png",
+              "sha256": "0acb21610960faaab52faf307483a78e9f8e4dad6fa66195092d3f9d6ab6e032"
+            }
+          ],
+          "generation": {
+            "tool": "image_gen",
+            "history": [
+              {
+                "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/generation-recap-12-v1.feaf68e5.png",
+                "sha256": "feaf68e527e7ebdc8af0f4daa76745003164f8cad770a45c5d2ebf06a7e2f1eb",
+                "actualFormat": [
+                  1672,
+                  941
+                ],
+                "prompt": "Create a precise Japanese EDUCATIONAL RECAP infographic for a 2級土木 video, 1920x1080 landscape. Match reference manga teacher identity and green/cream/yellow palette, but use clean light cream background, deep green text, restrained accents. This is a conclusion/learning memory image, NOT a promotional chapter opener: relational diagrams and exact learning takeaways are the main content. Main title takes max top 18%; content uses central 65%; teacher max 12% width near an edge. Text generously spaced, high contrast, labels no overlap with arrows/figures/character. Small badge 「2級土木」. Bottommost 100px clean blank cream band reserved for existing subtitles. No URL, brand, sales pitch, unsupported facts, tiny gibberish, extra text. Japanese text exactly as requested. Use simplified technically plausible schematic illustrations instead of decorative construction-site backgrounds. Exact title 「一般論から｜自分の現場へ」. Clear transformation LEFT generic pale answer sheet → RIGHT site-specific bold answer sheet, plus EXACT THREE visual lenses beneath: 「自分の現場条件」「因果の流れ」「具体的な数値」. Add one main learning phrase 「対策の列挙で終わらせない」. Teacher small compares two papers with open hands. No extra invented real-site measurements; numbers represented by measurement icon only.",
+                "reference": ".tmp/soil-chapter/soil-chapter.png"
+              },
+              {
+                "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/generation-recap-12-v2.07332f07.png",
+                "sha256": "07332f0729e51e18ec1fb7ea366cf0af75f6c73e9415ce371d023b2a1edd0715",
+                "actualFormat": [
+                  1672,
+                  941
+                ],
+                "prompt": "添付の結論画像を修正する。画像全体の16:9、緑・黄・白のPOP意匠、同じ先生の顔・メガネ・服装、主題を維持。下端の字幕用余白を確保。変更内容: 下段中央の因果図を修正。『原因→影響→対策』の左から右への一方向の矢印２本だけを残す。対策から原因に戻るループ矢印は完全に削除。上部比較など他の内容とキャラクター、配色、構成を維持。新しい文字を追加しない。 小さな説明を再追加しない。日本語は正確に、字と図は重ねない。",
+                "reference": "/Users/minamidaisuke/.codex/generated_images/01a123a7-6e1c-7b82-8207-694a68146a2e/exec-d8bd5f19-d36e-4379-bff7-eb71c0a82a29.png"
+              }
+            ]
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-108.ad14b51c.png",
+            "sha256": "ad14b51c68e037c011c47375eb279e048185ea586e05906afc1334fd055b46df",
+            "width": 1920,
+            "height": 1080
+          },
+          "review": {
+            "status": "visually-reviewed",
+            "screenshot": ".tmp/recap-cards/screenshot-12.jpg",
+            "smallScreenshot": ".tmp/recap-cards/small-2.jpg",
+            "checks": [
+              "主題と要点",
+              "項目数・対応関係",
+              "原寸と幅360pxで資格名・主題判読",
+              "図と文字の重なり・切れ",
+              "技術的整合",
+              "字幕安全域"
+            ],
+            "result": "ok",
+            "evaluator": {
+              "agent": "ai-image-fidelity-auditor",
+              "figKey": "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-108",
+              "verdict": "ok",
+              "reason": "現場条件・因果・数値による具体化が本文と一致。「原因→影響→対策」は一方向で、逆戻り矢印なし。"
+            }
+          }
+        },
+        {
+          "sceneId": "c13-summary",
+          "sceneNumber": 115,
+          "title": "答案｜3つの点検",
+          "source": "content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen/storyboard.json#c13-summary",
+          "sourceCopy": [
+            "体裁：字・空欄・行数稼ぎ",
+            "整合：テーマ外・工種違い・矛盾",
+            "具体性：何を・どのように＋である調"
+          ],
+          "narration": "まとめます。減点は体裁・整合・具体性で起きます。字、空欄、行数稼ぎ、テーマ外、矛盾、伝わらなさ。この6つを提出前に自分でチェックしましょう。",
+          "prompt": "Create a precise Japanese EDUCATIONAL RECAP infographic for a 2級土木 video, 1920x1080 landscape. Match reference manga teacher identity and green/cream/yellow palette, but use clean light cream background, deep green text, restrained accents. This is a conclusion/learning memory image, NOT a promotional chapter opener: relational diagrams and exact learning takeaways are the main content. Main title takes max top 18%; content uses central 65%; teacher max 12% width near an edge. Text generously spaced, high contrast, labels no overlap with arrows/figures/character. Small badge 「2級土木」. Bottommost 100px clean blank cream band reserved for existing subtitles. No URL, brand, sales pitch, unsupported facts, tiny gibberish, extra text. Japanese text exactly as requested. Use simplified technically plausible schematic illustrations instead of decorative construction-site backgrounds. Exact title 「答案｜3つの点検」. Three LARGE lenses over answer sheet, each distinct and legible. Exact labels and exact concise detail text: 「体裁」「字・空欄・行数稼ぎ」; 「整合」「テーマ外・工種違い・矛盾」; 「具体性」「何を・どのように」「である調」. Teacher small magnifying glass pose corner. No actual grades, false failure rates or real exam answers. Clear educational checklist not topic teaser.",
+          "references": [
+            {
+              "path": ".tmp/soil-chapter/soil-chapter.png",
+              "sha256": "0acb21610960faaab52faf307483a78e9f8e4dad6fa66195092d3f9d6ab6e032"
+            }
+          ],
+          "generation": {
+            "tool": "image_gen",
+            "history": [
+              {
+                "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/generation-recap-13-v1.7627cefb.png",
+                "sha256": "7627cefbaddbcf605f330801e253cad2566805083ab123e9c434c76113cd8171",
+                "actualFormat": [
+                  1672,
+                  941
+                ],
+                "prompt": "Create a precise Japanese EDUCATIONAL RECAP infographic for a 2級土木 video, 1920x1080 landscape. Match reference manga teacher identity and green/cream/yellow palette, but use clean light cream background, deep green text, restrained accents. This is a conclusion/learning memory image, NOT a promotional chapter opener: relational diagrams and exact learning takeaways are the main content. Main title takes max top 18%; content uses central 65%; teacher max 12% width near an edge. Text generously spaced, high contrast, labels no overlap with arrows/figures/character. Small badge 「2級土木」. Bottommost 100px clean blank cream band reserved for existing subtitles. No URL, brand, sales pitch, unsupported facts, tiny gibberish, extra text. Japanese text exactly as requested. Use simplified technically plausible schematic illustrations instead of decorative construction-site backgrounds. Exact title 「答案｜3つの点検」. Three LARGE lenses over answer sheet, each distinct and legible. Exact labels and exact concise detail text: 「体裁」「字・空欄・行数稼ぎ」; 「整合」「テーマ外・工種違い・矛盾」; 「具体性」「何を・どのように」「である調」. Teacher small magnifying glass pose corner. No actual grades, false failure rates or real exam answers. Clear educational checklist not topic teaser.",
+                "reference": ".tmp/soil-chapter/soil-chapter.png"
+              },
+              {
+                "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/generation-recap-13-v2.943bbf95.png",
+                "sha256": "943bbf95e57a7090c6345133e690d99c9230359612864611f143a3d8bcd21eca",
+                "actualFormat": [
+                  1672,
+                  941
+                ],
+                "prompt": "添付の結論画像を修正する。画像全体の16:9、緑・黄・白のPOP意匠、同じ先生の顔・メガネ・服装、主題を維持。下端の字幕用余白を確保。変更内容: 下部緑チェックの横の２つの文言だけ修正。『字・空欄・行数稼ぎ』を『字を丁寧に・空欄を確認』に変更。『テーマ外・工種違い・矛盾』を『テーマ・工種・本文を照合』へ変更。不適切な行為を推奨する意味をなくす。その他の見出し・主題・イラスト・キャラクターは維持。 小さな説明を再追加しない。日本語は正確に、字と図は重ねない。",
+                "reference": "/Users/minamidaisuke/.codex/generated_images/01a123a7-6e1c-7b82-8207-694a68146a2e/exec-4b94ee46-4aaa-415c-ae74-122a22db7baa.png"
+              }
+            ]
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-115.ec960b93.png",
+            "sha256": "ec960b93dfca244f3023fc1ed489a2c0283b5d5ef4275feef59e0729dbc18fb3",
+            "width": 1920,
+            "height": 1080
+          },
+          "review": {
+            "status": "visually-reviewed",
+            "screenshot": ".tmp/recap-cards/screenshot-13.jpg",
+            "smallScreenshot": ".tmp/recap-cards/small-3.jpg",
+            "checks": [
+              "主題と要点",
+              "項目数・対応関係",
+              "原寸と幅360pxで資格名・主題判読",
+              "図と文字の重なり・切れ",
+              "技術的整合",
+              "字幕安全域"
+            ],
+            "result": "ok",
+            "evaluator": {
+              "agent": "ai-image-fidelity-auditor",
+              "figKey": "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-115",
+              "verdict": "ok",
+              "reason": "体裁・整合・具体性の3点を確認。悪い答案例は赤い×、下段は適切な点検行動への緑チェックとなり、意味の逆転なし。"
+            }
+          }
+        },
+        {
+          "sceneId": "c14-summary",
+          "sceneNumber": 123,
+          "title": "2級の記述｜基本管理を説明",
+          "source": "content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen/storyboard.json#c14-summary",
+          "sourceCopy": [
+            "求められるのは基本管理を書く力",
+            "型は「観点→検討→対応→結果」",
+            "水準の確認は第三者の目で"
+          ],
+          "narration": "まとめます。2級で求められるのは特殊な工法ではなく、主任技術者レベルの基本管理を1人称でシンプルに書く力です。届いているかは第三者の目で確認しましょう。",
+          "prompt": "Create a precise Japanese EDUCATIONAL RECAP infographic for a 2級土木 video, 1920x1080 landscape. Match reference manga teacher identity and green/cream/yellow palette, but use clean light cream background, deep green text, restrained accents. This is a conclusion/learning memory image, NOT a promotional chapter opener: relational diagrams and exact learning takeaways are the main content. Main title takes max top 18%; content uses central 65%; teacher max 12% width near an edge. Text generously spaced, high contrast, labels no overlap with arrows/figures/character. Small badge 「2級土木」. Bottommost 100px clean blank cream band reserved for existing subtitles. No URL, brand, sales pitch, unsupported facts, tiny gibberish, extra text. Japanese text exactly as requested. Use simplified technically plausible schematic illustrations instead of decorative construction-site backgrounds. Exact title 「2級の記述｜基本管理を説明」. Main EXACT FOUR linked nodes 「観点 → 検討 → 対応 → 結果」 filling central canvas. Above one strong takeaway 「基本管理を書く力」. Below a separate proofreading handoff drawing with label 「第三者の目で確認」. Teacher small hand on chest pointing to own work notebook, no trophy, credentials or advanced-tech imagery. Steps exact; do not invent fifth node.",
+          "references": [
+            {
+              "path": ".tmp/soil-chapter/soil-chapter.png",
+              "sha256": "0acb21610960faaab52faf307483a78e9f8e4dad6fa66195092d3f9d6ab6e032"
+            }
+          ],
+          "generation": {
+            "tool": "image_gen",
+            "history": [
+              {
+                "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/generation-recap-14-v1.4bcf2ee0.png",
+                "sha256": "4bcf2ee01897b574550ba928cbb3078ad2bdae752ca47aa73ac7fd2082c95960",
+                "actualFormat": [
+                  1672,
+                  941
+                ],
+                "prompt": "Create a precise Japanese EDUCATIONAL RECAP infographic for a 2級土木 video, 1920x1080 landscape. Match reference manga teacher identity and green/cream/yellow palette, but use clean light cream background, deep green text, restrained accents. This is a conclusion/learning memory image, NOT a promotional chapter opener: relational diagrams and exact learning takeaways are the main content. Main title takes max top 18%; content uses central 65%; teacher max 12% width near an edge. Text generously spaced, high contrast, labels no overlap with arrows/figures/character. Small badge 「2級土木」. Bottommost 100px clean blank cream band reserved for existing subtitles. No URL, brand, sales pitch, unsupported facts, tiny gibberish, extra text. Japanese text exactly as requested. Use simplified technically plausible schematic illustrations instead of decorative construction-site backgrounds. Exact title 「2級の記述｜基本管理を説明」. Main EXACT FOUR linked nodes 「観点 → 検討 → 対応 → 結果」 filling central canvas. Above one strong takeaway 「基本管理を書く力」. Below a separate proofreading handoff drawing with label 「第三者の目で確認」. Teacher small hand on chest pointing to own work notebook, no trophy, credentials or advanced-tech imagery. Steps exact; do not invent fifth node.",
+                "reference": ".tmp/soil-chapter/soil-chapter.png"
+              },
+              {
+                "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/generation-recap-14-v2.25446705.png",
+                "sha256": "25446705a43fe0a5b4550b9edeb2478884db6ab12bd42a1021a97ab1f789472e",
+                "actualFormat": [
+                  1672,
+                  941
+                ],
+                "prompt": "添付の結論画像を修正する。画像全体の16:9、緑・黄・白のPOP意匠、同じ先生の顔・メガネ・服装、主題を維持。下端の字幕用余白を確保。変更内容: 結果パネルの『期待する効果が得られる』という文言を『実際の結果を書く』へ置換。将来の期待ではなく実際の経験結果を記述する意味にする。それ以外の全見出し、図、キャラクターと構図を維持。文字を追加しない。 小さな説明を再追加しない。日本語は正確に、字と図は重ねない。",
+                "reference": "/Users/minamidaisuke/.codex/generated_images/01a123a7-6e1c-7b82-8207-694a68146a2e/exec-d2db3e19-aea9-49d4-a68e-e5c195fd19ad.png"
+              }
+            ]
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-123.9f61ae48.png",
+            "sha256": "9f61ae48354ed507229214ae53b5cf4ca671bf66462511eae3a7b0be637d7b22",
+            "width": 1920,
+            "height": 1080
+          },
+          "review": {
+            "status": "visually-reviewed",
+            "screenshot": ".tmp/recap-cards/screenshot-14.jpg",
+            "smallScreenshot": ".tmp/recap-cards/small-3.jpg",
+            "checks": [
+              "主題と要点",
+              "項目数・対応関係",
+              "原寸と幅360pxで資格名・主題判読",
+              "図と文字の重なり・切れ",
+              "技術的整合",
+              "字幕安全域"
+            ],
+            "result": "ok",
+            "evaluator": {
+              "agent": "ai-image-fidelity-auditor",
+              "figKey": "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-123",
+              "verdict": "ok",
+              "reason": "「観点→検討→対応→結果」と第三者確認が本文と一致。「実際の結果を書く」への修正を確認し、日本語と下端安全域も良好。"
+            }
+          }
+        },
+        {
+          "sceneId": "c15-summary",
+          "sceneNumber": 130,
+          "title": "学科記述｜3つの答え方",
+          "source": "content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen/storyboard.json#c15-summary",
+          "sourceCopy": [
+            "穴埋め：意味と場面で選ぶ",
+            "複数記述：観点を分ける",
+            "選択問題：指定を確認する"
+          ],
+          "narration": "まとめます。学科記述は、頻出分野を、穴埋め・複数記述・選択という3つの型で押さえるのが対策の骨格です。",
+          "prompt": "Create a precise Japanese EDUCATIONAL RECAP infographic for a 2級土木 video, 1920x1080 landscape. Match reference manga teacher identity and green/cream/yellow palette, but use clean light cream background, deep green text, restrained accents. This is a conclusion/learning memory image, NOT a promotional chapter opener: relational diagrams and exact learning takeaways are the main content. Main title takes max top 18%; content uses central 65%; teacher max 12% width near an edge. Text generously spaced, high contrast, labels no overlap with arrows/figures/character. Small badge 「2級土木」. Bottommost 100px clean blank cream band reserved for existing subtitles. No URL, brand, sales pitch, unsupported facts, tiny gibberish, extra text. Japanese text exactly as requested. Use simplified technically plausible schematic illustrations instead of decorative construction-site backgrounds. Exact title 「学科記述｜3つの答え方」. Three LARGE answer-format panels with precise correspondence. Left blank in sentence label 「穴埋め」 and conclusion 「意味と場面で選ぶ」. Center TWO independent answer lines label 「複数記述」 and conclusion 「観点を分ける」. Right question selection checkboxes label 「選択問題」 and conclusion 「指定を確認する」. Teacher small seated pen pose near edge, no real exam question text or invented instructions.",
+          "references": [
+            {
+              "path": ".tmp/soil-chapter/soil-chapter.png",
+              "sha256": "0acb21610960faaab52faf307483a78e9f8e4dad6fa66195092d3f9d6ab6e032"
+            }
+          ],
+          "generation": {
+            "tool": "image_gen",
+            "history": [
+              {
+                "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/generation-recap-15-v1.ae979d7d.png",
+                "sha256": "ae979d7dc0bd9631ed99639bd911f8a03affad1cf0f49f740ef30ad59e46d66b",
+                "actualFormat": [
+                  1672,
+                  941
+                ],
+                "prompt": "Create a precise Japanese EDUCATIONAL RECAP infographic for a 2級土木 video, 1920x1080 landscape. Match reference manga teacher identity and green/cream/yellow palette, but use clean light cream background, deep green text, restrained accents. This is a conclusion/learning memory image, NOT a promotional chapter opener: relational diagrams and exact learning takeaways are the main content. Main title takes max top 18%; content uses central 65%; teacher max 12% width near an edge. Text generously spaced, high contrast, labels no overlap with arrows/figures/character. Small badge 「2級土木」. Bottommost 100px clean blank cream band reserved for existing subtitles. No URL, brand, sales pitch, unsupported facts, tiny gibberish, extra text. Japanese text exactly as requested. Use simplified technically plausible schematic illustrations instead of decorative construction-site backgrounds. Exact title 「学科記述｜3つの答え方」. Three LARGE answer-format panels with precise correspondence. Left blank in sentence label 「穴埋め」 and conclusion 「意味と場面で選ぶ」. Center TWO independent answer lines label 「複数記述」 and conclusion 「観点を分ける」. Right question selection checkboxes label 「選択問題」 and conclusion 「指定を確認する」. Teacher small seated pen pose near edge, no real exam question text or invented instructions.",
+                "reference": ".tmp/soil-chapter/soil-chapter.png"
+              }
+            ]
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-130.f89f4872.png",
+            "sha256": "f89f4872db82e379e844dd8209992d5f6ccd1501576640766bcd5da7b2720b01",
+            "width": 1920,
+            "height": 1080
+          },
+          "review": {
+            "status": "visually-reviewed",
+            "screenshot": ".tmp/recap-cards/screenshot-15.jpg",
+            "smallScreenshot": ".tmp/recap-cards/small-3.jpg",
+            "checks": [
+              "主題と要点",
+              "項目数・対応関係",
+              "原寸と幅360pxで資格名・主題判読",
+              "図と文字の重なり・切れ",
+              "技術的整合",
+              "字幕安全域"
+            ],
+            "result": "ok",
+            "evaluator": {
+              "agent": "ai-image-fidelity-auditor",
+              "figKey": "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-130",
+              "verdict": "ok",
+              "reason": "穴埋め・複数記述・選択問題の3形式と答え方が本文と一致。各パネルの文字は明瞭で、人物による遮蔽と下端侵入なし。"
+            }
+          }
+        }
+      ],
+      "audioChanged": false,
+      "ttsRegenerated": false,
+      "publication": {
+        "status": "local-adopted",
+        "url": "http://127.0.0.1:3021/content/items/civil-construction-2/matome-2kyu-chokuzen",
+        "externalPublished": false
+      },
+      "reproduction": {
+        "method": "保存済み採用PNGをDriveから復元し、output.sha256を照合。元音声と元字幕、既存場面時刻で映像のみ差し替える。生成モデル再実行による画素一致は保証しない。render-longformの自動図解生成では採用POP画像を再現しないため、chaptersの採用PNGを場面へ戻してからレンダーする。",
+        "originalAudioSha256": "69c4c79e817c2c3b7778585cecdc95baf1bb9621d124957fd5d0234b21e4c24b",
+        "subtitlesSha256": "f6868670a9af7a1f1e25ca47a2f356bfa5cb2372617a8336b54e166229591f45"
+      },
+      "videoImageReplacement": {
+        "source": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/video.e7011ab0.mp4",
+        "sourceSha256": "e7011ab096d65b160592ec690cbb73dcf590ec93aecf6389123f3ed7ef643aa3",
+        "outputSha256": "df2d8b7bafc2af8e01cbd995865fb1965e448f2804f68eca871cde2e2a11537c",
+        "audioPacketsUnchanged": true,
+        "audioPacketSha256": "69c4c79e817c2c3b7778585cecdc95baf1bb9621d124957fd5d0234b21e4c24b",
+        "ttsRegenerated": false,
+        "subtitlesSha256": "f6868670a9af7a1f1e25ca47a2f356bfa5cb2372617a8336b54e166229591f45",
+        "timingMethod": "Existing scene and subtitle event timestamps; variable-frame-rate holds each still image until the next scene/subtitle event",
+        "durationSec": 1595.44,
+        "frames": 449,
+        "scenes": [
+          {
+            "sceneId": "cover",
+            "startSec": 0,
+            "endSec": 6.95,
+            "imageSha256": "b24e58035b4ad2955f2b9309e181d714558d49da1609503c2cd59eab1b621055"
+          },
+          {
+            "sceneId": "c01-title",
+            "startSec": 6.95,
+            "endSec": 9.09,
+            "imageSha256": "0acb21610960faaab52faf307483a78e9f8e4dad6fa66195092d3f9d6ab6e032"
+          },
+          {
+            "sceneId": "c01-premise",
+            "startSec": 9.09,
+            "endSec": 18.39,
+            "imageSha256": "429cda69a34a0153017014e2c6a30d22dd4df7377d357a455bdb6d9ae978d4eb"
+          },
+          {
+            "sceneId": "c01-overview",
+            "startSec": 18.39,
+            "endSec": 28.21,
+            "imageSha256": "03c509a8768f97b90611d2166d7f2d871498a6708c3746a83d3aa8dd67f5a0f5"
+          },
+          {
+            "sceneId": "c01-block1",
+            "startSec": 28.21,
+            "endSec": 39.77,
+            "imageSha256": "8dfdb08795d17496ef51c1591fe81d16a7d7f57059c73fb26ac0b6776ea4ee06"
+          },
+          {
+            "sceneId": "c01-block2",
+            "startSec": 39.77,
+            "endSec": 51.63,
+            "imageSha256": "10989f556467c25a7d11e700e17977b84823025fda859e7e741fc4ee49b93299"
+          },
+          {
+            "sceneId": "c01-block3",
+            "startSec": 51.63,
+            "endSec": 62.9,
+            "imageSha256": "e93bd903ef7e7e76fafe38015b66d07e12439917c0a4971bd8eaf10065c65f86"
+          },
+          {
+            "sceneId": "c01-block4",
+            "startSec": 62.9,
+            "endSec": 76.23,
+            "imageSha256": "db6f966a1d2c3e175edb6bc5cdaa54d71785c39587c7733ed0094e57195667f0"
+          },
+          {
+            "sceneId": "c01-summary",
+            "startSec": 76.23,
+            "endSec": 88.55,
+            "imageSha256": "aab35acafff98d1ac816fc7b6a1b2eb006ff4be604b8e9a6024ea9046f36f288"
+          },
+          {
+            "sceneId": "c02-title",
+            "startSec": 88.55,
+            "endSec": 90.86,
+            "imageSha256": "502ee58c652a248a1c6d39968b6efbaaf3056d314037fbd55d00cfccc9dd496c"
+          },
+          {
+            "sceneId": "c02-premise",
+            "startSec": 90.86,
+            "endSec": 101.28,
+            "imageSha256": "7ecccf65f1de6ddb8d8e01b4f3d9c122747d28604fe9ea625366540d8a503600"
+          },
+          {
+            "sceneId": "c02-overview",
+            "startSec": 101.28,
+            "endSec": 112.19,
+            "imageSha256": "fc63aa7a736c9728444805ae08961ee3652c3c999769e4658b8017743e1e0a6c"
+          },
+          {
+            "sceneId": "c02-block1",
+            "startSec": 112.19,
+            "endSec": 125.15,
+            "imageSha256": "a421cb501422d03a9011142913add705f64804f7ecb29d3c6b28fd4ae9f9f369"
+          },
+          {
+            "sceneId": "c02-block2",
+            "startSec": 125.15,
+            "endSec": 135.89,
+            "imageSha256": "ddc1c3f90dd284976f65639dda5b8f78f84a9c3ff831c4f07bd8b3c0e22d48e2"
+          },
+          {
+            "sceneId": "c02-block3",
+            "startSec": 135.89,
+            "endSec": 146.94,
+            "imageSha256": "88118a6b05989108c8a16a346bbc0dcb5cc5fb7809b104c9873e931e854e1192"
+          },
+          {
+            "sceneId": "c02-block4",
+            "startSec": 146.94,
+            "endSec": 158.31,
+            "imageSha256": "2baab8271e91ed098d90386e06ffbb8c3047cb4aa7edbd5d907d3ca141906578"
+          },
+          {
+            "sceneId": "c02-summary",
+            "startSec": 158.31,
+            "endSec": 169.15,
+            "imageSha256": "9dc5ddac3021735ab9e6a6b38b1cd7ec5e860c1f0f39b435c964ab28df361a47"
+          },
+          {
+            "sceneId": "c03-title",
+            "startSec": 169.15,
+            "endSec": 171.42000000000002,
+            "imageSha256": "fbfe0f73bcb57402edb4adaf51077b2bf87e6164af9014dd3c1392a7bdda9a54"
+          },
+          {
+            "sceneId": "c03-premise",
+            "startSec": 171.42000000000002,
+            "endSec": 182.35,
+            "imageSha256": "43fbb07a7df609e7fffb196a25f1bcd7e91dfb6b2515ad97df128da68ed70b6f"
+          },
+          {
+            "sceneId": "c03-overview",
+            "startSec": 182.35,
+            "endSec": 193.58,
+            "imageSha256": "6a7055c4fc6b4352342a3b2cb6906c679bf270c07a29d924b17e429a8fc7271b"
+          },
+          {
+            "sceneId": "c03-block1",
+            "startSec": 193.58,
+            "endSec": 203.61,
+            "imageSha256": "c7d9fbc94410b2e8dadf4f5fdd89a5662697edf9c58a197151c4dcbc2f990534"
+          },
+          {
+            "sceneId": "c03-block2",
+            "startSec": 203.61,
+            "endSec": 217,
+            "imageSha256": "325539f19f5c75f2bf650bb7315f81841824c071dbd1d02ebd9d5fcc36f1c9a3"
+          },
+          {
+            "sceneId": "c03-block3",
+            "startSec": 217,
+            "endSec": 229.22,
+            "imageSha256": "f655461ef5d232a71e0d98c49d4c22bd0cf9c04d9725d0517c5f5b5de7adcdd5"
+          },
+          {
+            "sceneId": "c03-block4",
+            "startSec": 229.22,
+            "endSec": 240.78,
+            "imageSha256": "2ed65073a985c249156f1808b66dbda65017e3fe28f3be593f8b2c406b5c12f1"
+          },
+          {
+            "sceneId": "c03-block5",
+            "startSec": 240.78,
+            "endSec": 252.93,
+            "imageSha256": "f752f3232b4fc69d0c9b2d224d9aaaf21a1489b13a24daacb78b93802c9a08fb"
+          },
+          {
+            "sceneId": "c03-summary",
+            "startSec": 252.93,
+            "endSec": 266.91,
+            "imageSha256": "64c9baa674829b745bbae7cef38d986c2070392d9fa57c7a7decf46e7d4232ff"
+          },
+          {
+            "sceneId": "c04-title",
+            "startSec": 266.91,
+            "endSec": 269.07,
+            "imageSha256": "44c94167ff4ed110143c9422db757b487df5aec1553ee3410771429fef844751"
+          },
+          {
+            "sceneId": "c04-premise",
+            "startSec": 269.07,
+            "endSec": 278.27,
+            "imageSha256": "84ec143d4ed4e710843901566b5120cb50e6a1aa780b8567338b945f804e2d39"
+          },
+          {
+            "sceneId": "c04-overview",
+            "startSec": 278.27,
+            "endSec": 291.21,
+            "imageSha256": "06493a45ab10d9a2d257220f5915ce4d1103d7070d501592621966267d513a28"
+          },
+          {
+            "sceneId": "c04-block1",
+            "startSec": 291.21,
+            "endSec": 305.03,
+            "imageSha256": "33681c88d2bb40bab4fdbec1c88463190bc4fdcefa88cbb19c734068de18bd28"
+          },
+          {
+            "sceneId": "c04-block2",
+            "startSec": 305.03,
+            "endSec": 317.18,
+            "imageSha256": "50dfec56ba032ac36620b21483c118005a2a51d30e00151ac31f5c72ca45f8e3"
+          },
+          {
+            "sceneId": "c04-block3",
+            "startSec": 317.18,
+            "endSec": 328.97,
+            "imageSha256": "b55565f0ef90b329b2a4441cdd3dd56652fbdeaaee46e4a5832c88b46b181a09"
+          },
+          {
+            "sceneId": "c04-block4",
+            "startSec": 328.97,
+            "endSec": 339.17,
+            "imageSha256": "e54f637e36e3b3aed3549269bec37f6706c0de50a533ca68bdaaaea7df5fc2bd"
+          },
+          {
+            "sceneId": "c04-summary",
+            "startSec": 339.17,
+            "endSec": 350.51,
+            "imageSha256": "08d1e0ea50a3ce3bad5da3744fbeff2731c1acdf1a96911f45776a7ee7b10f74"
+          },
+          {
+            "sceneId": "c05-title",
+            "startSec": 350.51,
+            "endSec": 352.99,
+            "imageSha256": "c280d0601cd419fb19537a8e7e92cebb6f261dc3bfda301efc71194c0c7ffb31"
+          },
+          {
+            "sceneId": "c05-premise",
+            "startSec": 352.99,
+            "endSec": 362.85,
+            "imageSha256": "feb5d753583aec13db808ee278f5ab21faf81f5338d442b8bf1a0a471b644723"
+          },
+          {
+            "sceneId": "c05-overview",
+            "startSec": 362.85,
+            "endSec": 373.96,
+            "imageSha256": "5a45de3c1660d400aace535e6109f27384845d1decd7b4c461d48ab7e69a2ddb"
+          },
+          {
+            "sceneId": "c05-block1",
+            "startSec": 373.96,
+            "endSec": 386.75,
+            "imageSha256": "5b05e930322a027a2605948d429d0f37c94ecbc836df9539ecd0f065343d6223"
+          },
+          {
+            "sceneId": "c05-block2",
+            "startSec": 386.75,
+            "endSec": 399.90999999999997,
+            "imageSha256": "e8554c35c6852af9cbf37d97d0f4c5cc6ab10baf179038ac39597fac9d570893"
+          },
+          {
+            "sceneId": "c05-block3",
+            "startSec": 399.90999999999997,
+            "endSec": 413.07,
+            "imageSha256": "3deaa75e1db7a537e75e8560f544f9be7330a1df80649271bc46f215be059207"
+          },
+          {
+            "sceneId": "c05-block4",
+            "startSec": 413.07,
+            "endSec": 423.65,
+            "imageSha256": "32740a39b21637d5cbfa847aa79e2f4e230e9a8d63d9375ef25ff5a7464a38ad"
+          },
+          {
+            "sceneId": "c05-summary",
+            "startSec": 423.65,
+            "endSec": 435.38,
+            "imageSha256": "64963160e667107bb5a5838e357d521bd9b82f941b2413f2501bda30fd3f4b23"
+          },
+          {
+            "sceneId": "c06-title",
+            "startSec": 435.38,
+            "endSec": 442.37,
+            "imageSha256": "c578bbaff3e1ced5a1f71c087d91246c34bad0cf44ab233d18a935651c0ffd61"
+          },
+          {
+            "sceneId": "c06-soil-tests",
+            "startSec": 442.37,
+            "endSec": 455.68,
+            "imageSha256": "7abf4c9b273739004421596af12de0532e3c446db75a936ac4637a48d091a232"
+          },
+          {
+            "sceneId": "c06-soil-volume",
+            "startSec": 455.68,
+            "endSec": 465.17,
+            "imageSha256": "a46baab0ce9d8eb7f065ce7a5052064e32a5638ec1199e60f4020bd84280a215"
+          },
+          {
+            "sceneId": "c06-compaction",
+            "startSec": 465.17,
+            "endSec": 475.42,
+            "imageSha256": "9b8b325d6c0217dcdc4d67bc8c3d534cf5a4069591c95172392c16dc6248413c"
+          },
+          {
+            "sceneId": "c06-soft-ground",
+            "startSec": 475.42,
+            "endSec": 490.85,
+            "imageSha256": "5fe7badc9f1f03f1a64fd35fa46a5e101049f8867e2f1b3047bbf940a250f455"
+          },
+          {
+            "sceneId": "c06-concrete-materials",
+            "startSec": 490.85,
+            "endSec": 504.32,
+            "imageSha256": "a3b07f0d53c2df535afac93f4c7f7fbbf4a55fcf35cdcf1b909705afe38a3411"
+          },
+          {
+            "sceneId": "c06-mix-design",
+            "startSec": 504.32,
+            "endSec": 512.66,
+            "imageSha256": "bfeaabe87137c8785677df26ccc16524398011ff24e93f5bbfbc317553965626"
+          },
+          {
+            "sceneId": "c06-placing",
+            "startSec": 512.66,
+            "endSec": 522.92,
+            "imageSha256": "2c7992050961fcb5f59513c835bfd5aa6af373e92730b1362869bc25d9195678"
+          },
+          {
+            "sceneId": "c06-curing-crack",
+            "startSec": 522.92,
+            "endSec": 536.64,
+            "imageSha256": "f270ac4c311a704e89c7ac98776b82190ce4ed96d8f50d12b1656c363df5db28"
+          },
+          {
+            "sceneId": "c06-foundation-types",
+            "startSec": 536.64,
+            "endSec": 547.61,
+            "imageSha256": "d65191f40aa49ba11625871e4be6ab50fe38a0b39512c256e2bb653339255908"
+          },
+          {
+            "sceneId": "c06-bearing-layer",
+            "startSec": 547.61,
+            "endSec": 555.05,
+            "imageSha256": "4a5aeb7552236d7fabaef3e602d7011dc3560f320de5e12b4d888a10b2ee51e7"
+          },
+          {
+            "sceneId": "c06-bored-pile",
+            "startSec": 555.05,
+            "endSec": 570.78,
+            "imageSha256": "11f871b55253aa14f18594a8c1ff7c208aece405cd2b7d9eac32848b9b001fde"
+          },
+          {
+            "sceneId": "c06-retaining-wall",
+            "startSec": 570.78,
+            "endSec": 582.93,
+            "imageSha256": "8d23f59dce3a4f2078e9ac869413834ef5fcabc254ac3b450bdb6bd9447b7461"
+          },
+          {
+            "sceneId": "c06-labor-standards",
+            "startSec": 582.93,
+            "endSec": 601.21,
+            "imageSha256": "b10f0551e24139180ca2ba2b3c64ea15da6418d1cc22c1f4cb811f35ca19d750"
+          },
+          {
+            "sceneId": "c06-safety-law",
+            "startSec": 601.21,
+            "endSec": 614.79,
+            "imageSha256": "b1f2adafec5d88cba222b554c62fd1d46ee639822770ab744ed35627bc04d42b"
+          },
+          {
+            "sceneId": "c06-construction-business-law",
+            "startSec": 614.79,
+            "endSec": 627.36,
+            "imageSha256": "4a21576d77d51096438f5474ac2ba9d8662c4592e85e4cb2a00eebc9135a837a"
+          },
+          {
+            "sceneId": "c06-road-river-law",
+            "startSec": 627.36,
+            "endSec": 638.77,
+            "imageSha256": "7a8e4554fd2d614a5722477f751cfbc18fc3cf50161d531eb271e330b07da6d6"
+          },
+          {
+            "sceneId": "c06-planning-steps",
+            "startSec": 638.77,
+            "endSec": 649.39,
+            "imageSha256": "1a09b9cef65e62b55ed5ed21d644a61fcab7925cf62aa59eb361a04eb708a6e5"
+          },
+          {
+            "sceneId": "c06-preliminary-survey",
+            "startSec": 649.39,
+            "endSec": 661.67,
+            "imageSha256": "92962f5c5de34b4dd77eec82fb2aada5618ee5b527a84fada0318a52aa03d475"
+          },
+          {
+            "sceneId": "c06-construction-plan-doc",
+            "startSec": 661.67,
+            "endSec": 674.46,
+            "imageSha256": "4c228b560eb1f9f1622bcb042066286928ce8cbe22f93509c5c1c7cad08365bc"
+          },
+          {
+            "sceneId": "c06-schedule-temporary",
+            "startSec": 674.46,
+            "endSec": 686.08,
+            "imageSha256": "57a8aef7b2ceac160c08c2283281d003041fa33aece40ab37ca0179139c58c52"
+          },
+          {
+            "sceneId": "c06-summary",
+            "startSec": 686.08,
+            "endSec": 700.74,
+            "imageSha256": "93b9ae60462d2cc2ff44e16a920b6b6c7e4b62413d73d7b622522711e1d50356"
+          },
+          {
+            "sceneId": "c07-title",
+            "startSec": 700.74,
+            "endSec": 711.77,
+            "imageSha256": "37b3fd6a81ccda7acb361280ae10613fdf73ae44e8482390c10749e0360c91a6"
+          },
+          {
+            "sceneId": "c07-premise",
+            "startSec": 711.77,
+            "endSec": 727.06,
+            "imageSha256": "47ab4b3b3fee4951375950da4e2fefcfbb92561f99577bd2a2ebbbbc7ddaef11"
+          },
+          {
+            "sceneId": "c07-theme-shift",
+            "startSec": 727.06,
+            "endSec": 751.8,
+            "imageSha256": "a461a68bcb97c1e16077d19812c6be5c111e509559ab71aef2abbe1ac6940941"
+          },
+          {
+            "sceneId": "c07-gakka-fields",
+            "startSec": 751.8,
+            "endSec": 767.85,
+            "imageSha256": "ef8b4a6444a2c3fea009d8f47489d7a78227fe2bf0a703dd8d741cdde5879f2a"
+          },
+          {
+            "sceneId": "c07-select-format",
+            "startSec": 767.85,
+            "endSec": 783.46,
+            "imageSha256": "9d01a6bb10bd35b46b396f1862a88f88c410de81d40ccfaa064aa196f854fb94"
+          },
+          {
+            "sceneId": "c07-priority",
+            "startSec": 783.46,
+            "endSec": 798.94,
+            "imageSha256": "e785fd2063175ec4e7d07b2a3c40ee97e2f327091e8834013c2747bd0c7cb8e2"
+          },
+          {
+            "sceneId": "c07-summary",
+            "startSec": 798.94,
+            "endSec": 812.59,
+            "imageSha256": "9ddbde0473042a8669c8549605ded17af7efa563f5820faf816401e5a43cb909"
+          },
+          {
+            "sceneId": "c08-title",
+            "startSec": 812.59,
+            "endSec": 815.63,
+            "imageSha256": "e934701308fb99898dbc27c39550d3bf345dd9f905508652a27e877437064df6"
+          },
+          {
+            "sceneId": "c08-premise",
+            "startSec": 815.63,
+            "endSec": 832.7,
+            "imageSha256": "9abf8783d8cc010ec5e6437bf81c1faa0e1ec3899aa07903b1b8ad921e8a8249"
+          },
+          {
+            "sceneId": "c08-step1",
+            "startSec": 832.7,
+            "endSec": 846.06,
+            "imageSha256": "4726b433c5285a69a64e41f38de1b042db6c8e008a81bdb88640af2095060ba1"
+          },
+          {
+            "sceneId": "c08-step2",
+            "startSec": 846.06,
+            "endSec": 862.53,
+            "imageSha256": "6a30607fbfab910f3ed2a66c2c733cb9a9e913ccaf6fb9d8387f804719d8e270"
+          },
+          {
+            "sceneId": "c08-step3",
+            "startSec": 862.53,
+            "endSec": 878.1,
+            "imageSha256": "d351eb753b58f943ac62cdefd8b10d19ddfa92aef97f86a97575a6f2c590564d"
+          },
+          {
+            "sceneId": "c08-step4",
+            "startSec": 878.1,
+            "endSec": 893.97,
+            "imageSha256": "1598a8a1eb54b912c38b426bdbce1a45b742abed2818df8ffdc86db9591f16cc"
+          },
+          {
+            "sceneId": "c08-step5",
+            "startSec": 893.97,
+            "endSec": 908.29,
+            "imageSha256": "7ba164eb2f1583460d79244fd06b63acdd6234ec66fa2d51bf821cee54deef97"
+          },
+          {
+            "sceneId": "c08-summary",
+            "startSec": 908.29,
+            "endSec": 924.32,
+            "imageSha256": "c9966cb3265476dc5b42d24bdb22187e2d7c92b5f4a212b60fff9ba053ed02dc"
+          },
+          {
+            "sceneId": "c09-title",
+            "startSec": 924.32,
+            "endSec": 927.62,
+            "imageSha256": "31811743f3060d9cf9995bf514afa5fc6db24362a0a9196dda788cdead3480a3"
+          },
+          {
+            "sceneId": "c09-premise",
+            "startSec": 927.62,
+            "endSec": 939.48,
+            "imageSha256": "c58dde8e53a5f22f7983c50f2a9ac71ef231e7d1f432f303eea1e058e655ee32"
+          },
+          {
+            "sceneId": "c09-nagare",
+            "startSec": 939.48,
+            "endSec": 952.09,
+            "imageSha256": "d5a170e00910ffe302ac56aae102f2128fd1a732f3f795576016ff0cba08221e"
+          },
+          {
+            "sceneId": "c09-kadai",
+            "startSec": 952.09,
+            "endSec": 966.47,
+            "imageSha256": "31827bec86a664de12e4d2c81390482163a18f046c2149f0a20cfc02497143ed"
+          },
+          {
+            "sceneId": "c09-doko",
+            "startSec": 966.47,
+            "endSec": 980.48,
+            "imageSha256": "d4d5561cca5ff8f13ace46fd773897d86d7e79e9802945c6f2b3c5249091320e"
+          },
+          {
+            "sceneId": "c09-concrete",
+            "startSec": 980.48,
+            "endSec": 993.6,
+            "imageSha256": "d7f5bbad554617dcc37f5ff6ce540857457ddf3928e00a48712175366b1fe8b3"
+          },
+          {
+            "sceneId": "c09-taio",
+            "startSec": 993.6,
+            "endSec": 1006.59,
+            "imageSha256": "ceab5ca5a11e56b9a8ec737cce3b736f5bd79587529985e1d26557ab80f6a2bf"
+          },
+          {
+            "sceneId": "c09-summary",
+            "startSec": 1006.59,
+            "endSec": 1020.35,
+            "imageSha256": "0252db58f38f4f1084bd615f52d487b0e142f0caace8711c526fbc48f6b4fa47"
+          },
+          {
+            "sceneId": "c10-title",
+            "startSec": 1020.35,
+            "endSec": 1023.67,
+            "imageSha256": "dae17f976c6cf2666a95910e0b444178d52b76a5674b14156e2dda838a0dfa8e"
+          },
+          {
+            "sceneId": "c10-premise",
+            "startSec": 1023.67,
+            "endSec": 1035.66,
+            "imageSha256": "281a46ecdd6f1cfd9705c4470d475004c88a85a8dd308e0cc7033dad47afd86d"
+          },
+          {
+            "sceneId": "c10-nagare",
+            "startSec": 1035.66,
+            "endSec": 1051.05,
+            "imageSha256": "f8474c49f646c343f481c98ef1293737a5be4f5eefcb0bba03561cafaddbadf7"
+          },
+          {
+            "sceneId": "c10-tenko",
+            "startSec": 1051.05,
+            "endSec": 1062.6,
+            "imageSha256": "aa2bea3a25198b147ac3c595c52d355b1e321eb160132838e0ea6b4b39acd284"
+          },
+          {
+            "sceneId": "c10-tetsuzuki",
+            "startSec": 1062.6,
+            "endSec": 1077.46,
+            "imageSha256": "ee275a287c2db4e7a8e906e467d74f4aeeee50fe67e184c1b74793285ae97cb7"
+          },
+          {
+            "sceneId": "c10-kisei",
+            "startSec": 1077.46,
+            "endSec": 1091.84,
+            "imageSha256": "bfd70d11e1bae2e9c9cf7819f8c7688af95321d8936afdc318abbf90cf55b1df"
+          },
+          {
+            "sceneId": "c10-suuchi",
+            "startSec": 1091.84,
+            "endSec": 1106.56,
+            "imageSha256": "75c44d69eff938dd9ddbf2a1fe4b012fd87102ba37ee81590ca962e3b9fd604a"
+          },
+          {
+            "sceneId": "c10-summary",
+            "startSec": 1106.56,
+            "endSec": 1120.74,
+            "imageSha256": "2d39a98d2354b11ca2e04a295eeeeecf36cb37694b204cccfaf8beb4df53164b"
+          },
+          {
+            "sceneId": "c11-title",
+            "startSec": 1120.74,
+            "endSec": 1124,
+            "imageSha256": "6523d4686e9f605abad25a7ab6e2f4dc47d307f97d53fcac139c69b4211a55f5"
+          },
+          {
+            "sceneId": "c11-premise",
+            "startSec": 1124,
+            "endSec": 1138.7,
+            "imageSha256": "fa36c0de9117edbe3a8278d66c570555981863802263183cbbe8b27a32cc3fe1"
+          },
+          {
+            "sceneId": "c11-step1",
+            "startSec": 1138.7,
+            "endSec": 1151.47,
+            "imageSha256": "02d6b6de2173a345bb9a745c0c90c8dc4787a4bd0dcf831c0b485b4412f84c6a"
+          },
+          {
+            "sceneId": "c11-step2",
+            "startSec": 1151.47,
+            "endSec": 1175.22,
+            "imageSha256": "8d3ef7b10540222a73d7a9ab9e8bf8d52896844b5d0bf1a2dbe73c15abe8f838"
+          },
+          {
+            "sceneId": "c11-step3",
+            "startSec": 1175.22,
+            "endSec": 1194.18,
+            "imageSha256": "fa6719f56675cb4ed91720ddc116bfb82a06facfb6504bec01a682578d9bf2c9"
+          },
+          {
+            "sceneId": "c11-step4",
+            "startSec": 1194.18,
+            "endSec": 1210.5,
+            "imageSha256": "5b78fe2e2d5c2527355df6aa60f8f1815c57bd9b324817cbeaa5a1d0e682df42"
+          },
+          {
+            "sceneId": "c11-summary",
+            "startSec": 1210.5,
+            "endSec": 1225.91,
+            "imageSha256": "8766980d008bb1f925fe34ec3e0548ab560ff4dbedc2f9c884d6a9386525e18c"
+          },
+          {
+            "sceneId": "c12-title",
+            "startSec": 1225.91,
+            "endSec": 1230.02,
+            "imageSha256": "b5394ba70e425701da76f118185f6d43a0944ce6023f4342914c576cd6c366cc"
+          },
+          {
+            "sceneId": "c12-premise",
+            "startSec": 1230.02,
+            "endSec": 1248.69,
+            "imageSha256": "9b542c6e9a4ec5078aeed2c1a03fe3f2333278cc705f590a2a55b0aee4aaf59d"
+          },
+          {
+            "sceneId": "c12-cause1",
+            "startSec": 1248.69,
+            "endSec": 1270.56,
+            "imageSha256": "779d79096709d5b237f5cbb21fa1808c4186593e4a2181c4a95ae0d1fa408eb2"
+          },
+          {
+            "sceneId": "c12-cause2",
+            "startSec": 1270.56,
+            "endSec": 1298.75,
+            "imageSha256": "a11e53d7074b955a653053f8fdb54e70c05fcc6376cf491b5c3a629c8028f4b8"
+          },
+          {
+            "sceneId": "c12-cause3",
+            "startSec": 1298.75,
+            "endSec": 1320.02,
+            "imageSha256": "4b6df909e82c22544b4bc7b0f45d2aacddca544c190c7398395a7480bfb85530"
+          },
+          {
+            "sceneId": "c12-summary",
+            "startSec": 1320.02,
+            "endSec": 1333.11,
+            "imageSha256": "ad14b51c68e037c011c47375eb279e048185ea586e05906afc1334fd055b46df"
+          },
+          {
+            "sceneId": "c13-title",
+            "startSec": 1333.11,
+            "endSec": 1337.06,
+            "imageSha256": "41a435a5569e75adc132eec6a8c26046be4d6d69d45a6bbe1eb9050d5752f759"
+          },
+          {
+            "sceneId": "c13-premise",
+            "startSec": 1337.06,
+            "endSec": 1348.94,
+            "imageSha256": "74b04f42247d0d5ddcca032f2cc0f247a8691765df413bd8c867480e1fdee3c4"
+          },
+          {
+            "sceneId": "c13-taisai",
+            "startSec": 1348.94,
+            "endSec": 1366.09,
+            "imageSha256": "2ca265e8c885a19e7ebab4f7243e1b6f3b059b47167d81eefcd15fa7dec5f54e"
+          },
+          {
+            "sceneId": "c13-kaigyo",
+            "startSec": 1366.09,
+            "endSec": 1377.77,
+            "imageSha256": "51f3830b0021e9f20133187ab437cce382153f17a86edb919e6ddb7e6f3f02c8"
+          },
+          {
+            "sceneId": "c13-zure",
+            "startSec": 1377.77,
+            "endSec": 1390.34,
+            "imageSha256": "0a5a8593f4901d78b4f48a1e53490bb661307b72ba7fd1cce16d5b9c436234c2"
+          },
+          {
+            "sceneId": "c13-tsutawaranai",
+            "startSec": 1390.34,
+            "endSec": 1404.66,
+            "imageSha256": "525e480dc1c53e9c60e5bac6a41b427009ea586f169d3d34fa95fd0bff8affb5"
+          },
+          {
+            "sceneId": "c13-summary",
+            "startSec": 1404.66,
+            "endSec": 1419,
+            "imageSha256": "ec960b93dfca244f3023fc1ed489a2c0283b5d5ef4275feef59e0729dbc18fb3"
+          },
+          {
+            "sceneId": "c14-title",
+            "startSec": 1419,
+            "endSec": 1422.65,
+            "imageSha256": "096290b9d48d078afff1a12b970f311e9b6f81ac5f1b07ba0c89bb310cd7030a"
+          },
+          {
+            "sceneId": "c14-premise",
+            "startSec": 1422.65,
+            "endSec": 1434.54,
+            "imageSha256": "1e4626a4cbe2b309999e365dd543f66ca0bd59198d7a79196b73c97f92b516eb"
+          },
+          {
+            "sceneId": "c14-level",
+            "startSec": 1434.54,
+            "endSec": 1445.39,
+            "imageSha256": "e5b9698a08d55360e8ef1a0593b7eab9a845e1da3e85f10a5bfbae8a70f5202f"
+          },
+          {
+            "sceneId": "c14-kata",
+            "startSec": 1445.39,
+            "endSec": 1458.17,
+            "imageSha256": "7a131cdefe2b10ab1ed694f0bd85216dea5ec2d37f95c43e6ef3ba397ba8ba44"
+          },
+          {
+            "sceneId": "c14-kanten",
+            "startSec": 1458.17,
+            "endSec": 1473.81,
+            "imageSha256": "0dce13f66534f80184322a88cb652224a2d1bdd320273e4cbe57fe5ab2288839"
+          },
+          {
+            "sceneId": "c14-taisho",
+            "startSec": 1473.81,
+            "endSec": 1484.66,
+            "imageSha256": "ece6f41eed9a75d9cdddd59a46bd33ea281b65d88fc757c7208a992a8c91a645"
+          },
+          {
+            "sceneId": "c14-check",
+            "startSec": 1484.66,
+            "endSec": 1495.97,
+            "imageSha256": "414c583ee80cc956cf0373303ac0b8910c91585f0a8da308ea41d0c3949b6947"
+          },
+          {
+            "sceneId": "c14-summary",
+            "startSec": 1495.97,
+            "endSec": 1507.71,
+            "imageSha256": "9f61ae48354ed507229214ae53b5cf4ca671bf66462511eae3a7b0be637d7b22"
+          },
+          {
+            "sceneId": "c15-title",
+            "startSec": 1507.71,
+            "endSec": 1510.77,
+            "imageSha256": "db305f9970a283d8fe912ee294d2f6433c543d804127be202f35ed3813e5da66"
+          },
+          {
+            "sceneId": "c15-premise",
+            "startSec": 1510.77,
+            "endSec": 1523.34,
+            "imageSha256": "c46dabf390d187f0ce3b742e18d7e28e2a3089d191d3e85918c2c4ec45016cfc"
+          },
+          {
+            "sceneId": "c15-fields",
+            "startSec": 1523.34,
+            "endSec": 1536.64,
+            "imageSha256": "3661054dc4e7ae388aa5024303adc4140fd966b5bb385c9e3f5966614ba6b1af"
+          },
+          {
+            "sceneId": "c15-pattern1",
+            "startSec": 1536.64,
+            "endSec": 1548.46,
+            "imageSha256": "2f45573bfd2925f712d988b40b3b5fc2b643b8e7f624f6a09c50742ca3234189"
+          },
+          {
+            "sceneId": "c15-pattern2",
+            "startSec": 1548.46,
+            "endSec": 1562.66,
+            "imageSha256": "48475ecf164683c2bfc0f439c48972c0804a145646d4b1d6d768ee36df3c1b8c"
+          },
+          {
+            "sceneId": "c15-pattern3",
+            "startSec": 1562.66,
+            "endSec": 1574.29,
+            "imageSha256": "c8344fff94055f1bcdcae90af07d672a4e2c0d92a094114978dfa025bfad0796"
+          },
+          {
+            "sceneId": "c15-summary",
+            "startSec": 1574.29,
+            "endSec": 1584.26,
+            "imageSha256": "f89f4872db82e379e844dd8209992d5f6ccd1501576640766bcd5da7b2720b01"
+          },
+          {
+            "sceneId": "cta",
+            "startSec": 1584.26,
+            "endSec": 1595.433333,
+            "imageSha256": "fe3f5ad6541f3de5d8f2b49511cc6fa0ba809e7606cfb49157949c3c662a0940"
+          }
+        ]
+      },
+      "review": {
+        "status": "screenshots-reviewed",
+        "checked": 15,
+        "total": 15,
+        "smallWidth": 360,
+        "smallScreenshots": [
+          ".tmp/recap-cards/small-1.jpg",
+          ".tmp/recap-cards/small-2.jpg",
+          ".tmp/recap-cards/small-3.jpg"
+        ],
+        "evaluator": {
+          "agent": "ai-image-fidelity-auditor",
+          "checked": 15,
+          "ok": 15,
+          "fail": 0
+        },
+        "adminPlayback": {
+          "durationSec": 1595.44,
+          "resolution": [
+            1920,
+            1080
+          ],
+          "seekedScenes": [
+            9,
+            17,
+            26,
+            34,
+            42,
+            64,
+            71,
+            79,
+            87,
+            95,
+            102,
+            108,
+            115,
+            123,
+            130
+          ],
+          "checked": 15,
+          "total": 15,
+          "playbackConfirmed": true,
+          "screenshots": [
+            ".tmp/recap-cards/admin-player-final.jpg",
+            ".tmp/recap-cards/admin-scene17.jpg"
+          ]
+        },
+        "correctionsApplied": [
+          "説明過多の削減",
+          "直接基礎と支持層の接地",
+          "スランプ測定の誤矢印削除",
+          "原因から対策への一方向矢印",
+          "悪い答案例へのチェックの意味修正",
+          "結果を実際の経験へ修正",
+          "施工計画4段階を本文へ照合"
+        ]
+      },
+      "storage": {
+        "tier": "drive",
+        "group": "content-media",
+        "cloudVerified": true,
+        "checkedFiles": 465,
+        "sha256Matches": 465,
+        "cloudMd5Matches": 465,
+        "mismatches": 0
       }
     }
   }

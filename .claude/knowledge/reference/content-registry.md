@@ -94,6 +94,7 @@ config/content-registry.json          チャネル×形式・アカウント・I
 
 ## 素材の置き場
 
+- 画像生成ツールで完成済みの画像は `npm run media -- plate --pub <公開ID> --role <役割> --prompt-file <生成指示> --input <画像パス> --commit` で画素を保持して採用する。再生成せずAI来歴と未判定の監査行を登録し、`ai-image-fidelity-auditor` の判定を `check-image-origin record-ai` で記録する。入力が欠けた場合は生成へ戻らず停止する。
 - 手元 `.tmp/media/{exam}/{work}/{channel}.{format}[.{variant}]/{role}.{sha8}.{ext}` → Drive `制作物/コンテンツ/` の同じ相対パス（drive-vault の group `content-media`・`immutable`）。ブランド共通は `.tmp/media/_brand/{design}/{role}.{sha8}.{ext}`。
 - `{sha8}` は中身の sha256 の先頭 8 桁。同じ名前で中身が違うことは起こらない（描き直すと別名になる）。immutable の group では上書きと `--force` を拒否する。
 - 描画の作業場 `.tmp/video-render/{packId}/` は使い捨て。成果物だけを `npm run media -- promote` で取り込む。作品内の表示順を表す `scene-NNN` と複数枚の `contact-sheet-N` は役割の連番を許す。render-manifest の全場面PNGは `scene-NNN` として登録し、詳細画面の本文画像ギャラリーと visual digest の対象になる。
