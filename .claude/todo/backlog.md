@@ -354,6 +354,14 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0677] 検索で表示のある削除済みページ（/standards/guides の 5 本）・数字付き 404・共通仕様書の機関別重複の扱いを決める
+タグ: [領域:サイト] [時期:2026-10] [種類:意思決定] [起票:2026-10-11]
+
+**起点**: 2026-10-11 のサイト全体の SEO 診断（DN-0666）で、判断が要る 3 件が残った。(1) 2026-08-30 に公開し 09-08 のコミット 4fdb687d6 が記事 5 本（content/site/reference-materials-*）と 301 ごと消した /standards/guides/{inverted-siphon,floodgate,hyogo-port-materials,river-abandonment,tunnel-02}。inverted-siphon は表示 44・順位 7.2、floodgate は表示 41。案 A＝/standards へ 301（soft 404 扱いの可能性）、案 B＝404 のまま、案 C＝記事を復元。削除が意図的だったかは履歴が 08-22 に圧縮されていて確かめられない。(2) 末尾が -N の 404 24 件（例 /exam/civil-construction-1/guide/four-management-5）。表示 0・内部参照 0・親記事は実在。9/4 の方針（対応先が一意なものだけ 301）に合う。(3) /standards/<機関>/common の 10 面は本文の 98.7% が同じで、Google は shikoku/common の正規に hokuriku/common を選んでいる。章ページと同じ indexable 判定を入れて非 canonical 機関を noindex にするか、地域名の検索意図のために残すか。
+**やること**: 運営者が 3 件の方針を決め、決まった分を public/_redirects（手動部分）・src/app/standards/[agency]/[document]/page.tsx に入れる。
+**完了条件**: 3 件の方針が記録され、決まった変更が本番に出ている。
+
+
 ### [DN-0675] _redirects の静的ルールが 1431/2000 件まで来ていて、移転後の記事の /docs 転送を作り続けると十数週で上限に当たる
 タグ: [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-10-11]
 
