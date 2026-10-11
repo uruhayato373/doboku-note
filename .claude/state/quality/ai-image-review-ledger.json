@@ -1010,11 +1010,59 @@
       "reason": "最終PNGを原寸と360pxで独立監査。画像内余白と外付け4％で6％以上の安全域、4項目と排水方向の整合を確認。",
       "reviewedAt": "2026-10-11T13:02:08.898Z"
     },
+    "media:civil-construction-2/gakka-2kyu-doko/youtube.longform/cta": {
+      "sha": "61740ed545b0cfb8",
+      "verdict": "ok",
+      "reason": "原寸360px判読、コピーと人物一致、主要文字と図の重なりなし",
+      "reviewedAt": "2026-10-11T15:36:46.407Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/youtube.longform/scene-002": {
+      "sha": "55c107a6f520707c",
+      "verdict": "ok",
+      "reason": "原寸360px判読、コピーと人物一致、主要文字と図の重なりなし",
+      "reviewedAt": "2026-10-11T15:36:46.406Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/youtube.longform/scene-003": {
+      "sha": "438c5f6d2e619f69",
+      "verdict": "ok",
+      "reason": "原寸360px判読、文字崩れ・排水方向修正済み、人物と文字図重なりなし、字幕余白あり",
+      "reviewedAt": "2026-10-11T15:39:29.080Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/youtube.longform/scene-004": {
+      "sha": "d747367ff70b83bb",
+      "verdict": "ok",
+      "reason": "3試験と目的の対応を原寸360pxで判読、図は機器概念に簡略化",
+      "reviewedAt": "2026-10-11T15:35:46.674Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/youtube.longform/scene-005": {
+      "sha": "bbfeb12da9f27fea",
+      "verdict": "ok",
+      "reason": "土量10012090は例と明記、未掘削地山と状態差が適切",
+      "reviewedAt": "2026-10-11T15:35:46.674Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/youtube.longform/scene-006": {
+      "sha": "d4df1083a1183812",
+      "verdict": "ok",
+      "reason": "原寸360px判読、文字崩れ・排水方向修正済み、人物と文字図重なりなし、字幕余白あり",
+      "reviewedAt": "2026-10-11T15:39:29.080Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/youtube.longform/scene-007": {
+      "sha": "28f4cd3a3d392a65",
+      "verdict": "ok",
+      "reason": "排水材への流入・上向き排水、砂質地盤の深部締固めと置換が適切",
+      "reviewedAt": "2026-10-11T15:35:46.674Z"
+    },
     "media:civil-construction-2/gakka-2kyu-doko/youtube.longform/scene-008": {
       "sha": "50815c8d2f349d50",
       "verdict": "ok",
       "reason": "原寸・360px幅で4項目と対応関係を判読。人物と文字図の重なりなし。鉛直排水材と砂層接続が適切。字幕余白あり。",
       "reviewedAt": "2026-10-11T15:26:38.971Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/youtube.longform/scene-009": {
+      "sha": "61740ed545b0cfb8",
+      "verdict": "ok",
+      "reason": "原寸360px判読、コピーと人物一致、主要文字と図の重なりなし",
+      "reviewedAt": "2026-10-11T15:36:46.407Z"
     },
     "media:civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover": {
       "sha": "4fe5395ef89372ff",

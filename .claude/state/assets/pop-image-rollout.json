@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "_doc": ".claude/knowledge/reference/pop-image-policy.md",
   "taskId": "DN-0184",
-  "updatedAt": "2026-10-12T04:00:00.000Z",
+  "updatedAt": "2026-10-11T15:42:48.998Z",
   "scope": {
     "channels": [
       "youtube",
@@ -39,16 +39,15 @@
     {
       "publicationId": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform",
       "evidence": "content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-kangaekata/pop-image.json#revisions/longform-20261011/contentImageReview"
+    },
+    {
+      "publicationId": "civil-construction-2/gakka-2kyu-doko/youtube.longform",
+      "evidence": "content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/pop-image.json#revisions/body-images-20261012",
+      "sceneCount": 9,
+      "videoRecomposed": false
     }
   ],
   "partialPublicationImages": [
-    {
-      "publicationId": "civil-construction-2/gakka-2kyu-doko/youtube.longform",
-      "readyRoles": [
-        "cover"
-      ],
-      "remaining": "本文・問題・解答・結論画像の現物確認と修正"
-    },
     {
       "publicationId": "civil-construction-2/gakka-2kyu-doko/instagram.carousel",
       "readyRoles": [
@@ -2331,17 +2330,23 @@
   "bodyBatch02": {
     "work": "civil-construction-2/gakka-2kyu-doko",
     "adoptedSceneIds": [
-      "summary"
-    ],
-    "reviewedImages": 1,
-    "pendingGeneratedSceneIds": [
+      "premise",
+      "overview",
       "block1",
       "block2",
       "block3",
-      "block4"
+      "block4",
+      "summary",
+      "cta"
     ],
-    "status": "technical-corrections-in-progress",
+    "reviewedImages": 8,
+    "status": "images-reviewed-admin-verified",
     "audioChanged": false,
-    "videoRecomposed": false
+    "videoRecomposed": false,
+    "adminVerifiedImages": 8,
+    "screenshot": {
+      "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/work/review-body-20261012.889ea075.jpg",
+      "sha256": "889ea075a10538690beb99b319896ee58ef9c2d9c36497c5313eed974c7b9681"
+    }
   }
 }

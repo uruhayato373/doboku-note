@@ -272,22 +272,145 @@
       "id": "civil-construction-2/gakka-2kyu-doko/youtube.longform/cta",
       "role": "cta",
       "type": "image/png",
-      "sha256": "f91f9bb97e6b007c148e51df3a69fe334a3a03da2075d3dc3b4a9fa1d433a1b5",
-      "bytes": 596241,
+      "sha256": "61740ed545b0cfb8b979e43dc1a692346ae8a04537c571af0d5eb866b97c9edf",
+      "bytes": 2980003,
       "width": 1920,
       "height": 1080,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.longform/cta.f91f9bb9.png"
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.longform/cta.61740ed5.png"
       },
       "provenance": {
-        "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/cta-design.json#longform"
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "2級土木学習動画のcta画像。参照先生と同一人物、白緑黄、大きな正確な日本語、横16:9、外周8%下端16%安全域。タイトル『頻出論点をまとめて確認』、文言『一次 過去問PDF／概要欄のリンクへ』。先生はPDFを渡すポーズ。紙の束に一次過去問PDFという太字だけ。右に大きな下向き矢印、青文字無し緑黄。価格や問題数合格保証は追加しない。指定外コピーを増やさない。顔は黒髪眼鏡短いひげ青作業服、文字と顔が重ならない。360pxで主題と内容を読める。",
+        "promptSha256": "16c1fdd26b0c31cb8c7ad49c4f64dc66b4864f0089f8ee926a0e941cd42a157d",
+        "generatedAt": "2026-10-11T15:36:45.372Z"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-cta-a-rollout-20260909/gakka-2kyu-doko.png"
+        ".tmp/video-render/youtube-cta-a-rollout-20260909/gakka-2kyu-doko.png",
+        ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.longform/cta.f91f9bb9.png"
       ]
+    },
+    {
+      "id": "civil-construction-2/gakka-2kyu-doko/youtube.longform/scene-002",
+      "role": "scene-002",
+      "type": "image/png",
+      "sha256": "55c107a6f520707c43d8de8a815ee26ec6b4c05618eaf340be215ea1aa0fa157",
+      "bytes": 3046093,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.longform/scene-002.55c107a6.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "2級土木学習動画のpremise画像。参照先生と同一人物、白緑黄、大きな正確な日本語、横16:9、外周8%下端16%安全域。タイトル『土工は「優先順位」で学ぶ』、文言『① 用語と概念を対応づける／② L・Cの計算を練習』。先生は地図を持って学習ルートを案内。大きな2段階の道筋図。細かい新事実不要。指定外コピーを増やさない。顔は黒髪眼鏡短いひげ青作業服、文字と顔が重ならない。360pxで主題と内容を読める。",
+        "promptSha256": "b3371c99a5edf977a7fd6f2fc03ec645cd5a356991acfd17a549ff4a51f0d80d",
+        "generatedAt": "2026-10-11T15:36:44.810Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/gakka-2kyu-doko/youtube.longform/scene-003",
+      "role": "scene-003",
+      "type": "image/png",
+      "sha256": "438c5f6d2e619f692ad173dd66d1e50374c721a4e6888d2b210fe45d06e74021",
+      "bytes": 3154722,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.longform/scene-003.438c5f6d.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の2級土木・土工の4テーマ紹介画像を修正。四つのカードと文言、先生、構図、緑黄のPOP意匠は維持。右下『④ のり面・軟弱地盤』の排水図で、青い矢印が下向きになっているので必ず上向きに直す。地盤から上の砂層へ排水する方向。図の余分な上下線やあいまいな矢印を足さない。外周8%下端16%安全域。文字は正確に同じ。",
+        "promptSha256": "b103a4b009399294b68d1c3c2a8f4861c32ca2e2e674afe94c98d2e1fa2b567c",
+        "generatedAt": "2026-10-11T15:39:27.843Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/gakka-2kyu-doko/youtube.longform/scene-004",
+      "role": "scene-004",
+      "type": "image/png",
+      "sha256": "d747367ff70b83bb93d4ef754a322b73882bb829dce5727ae25633146329ef2b",
+      "bytes": 2214418,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.longform/scene-004.d747367f.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の学習画像を修正。横16:9、2級土木、同一人物・白緑黄の意匠を保持。文字と図を別領域、外周8%下端16%安全域。技術的に不正確で小さい試験機器の詳細図を全て除去。3対応だけを大きく明快に表示。標準貫入試験→N値、平板載荷試験→支持力、現場CBR試験→支持力。補助図はそれぞれ独立した大きなアイコン（地盤の硬さ、地盤へ荷重、道路の路床）だけとし、架空の配管や計器や測定原理を描かない。指定外の63.5kg76cm30cm2.5mm5mmなど細字は全て削除。同一先生の指示棒ポーズ維持。",
+        "promptSha256": "003389f505738c90d72d68bb944a935d062450b0127841e295271c92e82b73b5",
+        "generatedAt": "2026-10-11T15:35:44.789Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/gakka-2kyu-doko/youtube.longform/scene-005",
+      "role": "scene-005",
+      "type": "image/png",
+      "sha256": "bbfeb12da9f27feab8ed1cc0a672c864bbfc061b1d1db09ed96b9772641f10b5",
+      "bytes": 2306972,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.longform/scene-005.bbfeb12d.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の学習画像を修正。横16:9、2級土木、同一人物・白緑黄の意匠を保持。文字と図を別領域、外周8%下端16%安全域。数値100→120→90が例であることを明確に『例：L＝1.2、C＝0.9』と目立つ帯で追加。地山100の図は未掘削の水平な地表と連続した土層の断面に変更し、地中に破線で対象体積を示す。ほぐした土120は土山、締固めた土90は密な盛土断面。数値は体積の相対例。先生は比較する両手維持。他のコピー大きく維持。",
+        "promptSha256": "1edabeaa5582fd32c0483905d91a0deceaae7350e244f2f183eef078b0734816",
+        "generatedAt": "2026-10-11T15:35:45.076Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/gakka-2kyu-doko/youtube.longform/scene-006",
+      "role": "scene-006",
+      "type": "image/png",
+      "sha256": "d4df1083a1183812001c56f62ffbd75284d41e3e193bf98e8aa9e36f6a7ebd3f",
+      "bytes": 2668919,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.longform/scene-006.d4df1083.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の2級土木締固めスライドで、先生が持つチェック表の見出しに文字の崩れがある。手持ちチェック表内のすべての文字と細かい数値・単位を除去して、緑のチェックマーク3つと空欄だけの書類にする。表の見出し文字も完全に削除。それ以外の大きな重要コピー・式・水分を確認・密度を確認・ローラと上下層はそのまま維持。人物顔・手・赤ペンの形は維持。横16:9、白緑黄、外周8%下端16%安全域。指定外文字を追加しない。",
+        "promptSha256": "b666b7b4072a6943449ebd738d10bfb297fb260996d5d8f7f0c218d93ed881ab",
+        "generatedAt": "2026-10-11T15:39:28.159Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/gakka-2kyu-doko/youtube.longform/scene-007",
+      "role": "scene-007",
+      "type": "image/png",
+      "sha256": "28f4cd3a3d392a650cfc30c27ac0be86a5ece4c464123be1a855bf4fd20d6d6f",
+      "bytes": 2470311,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.longform/scene-007.28f4cd3a.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の2級土木・軟弱地盤対策の学習図を技術的に修正。3工法と文言・同一先生・白緑黄・横16:9の構成を維持。左の圧密排水では鉛直排水材を上の砂層に接続し、青の横向き矢印は必ず周囲の粘土から鉛直排水材へ向ける。現画像は外向きで逆なので反転。排水材内部と上の砂層では上向き排水を示す。中の『締固め→支持力を高める』は軟弱粘土地盤を表面ローラで改良できると誤認させないよう、砂質地盤の深部へ振動棒を挿入して周囲を締め固める概念断面図に変更。下の地盤ラベルは『砂質地盤』とする。右の置換図は掘削した軟弱層を良質材料に置換、保持。指定外の細かな説明は追加しない。文字・顔は外周8%と下端16%安全域。人物で図を隠さない。",
+        "promptSha256": "dce9eab209264554fde0fa7eec4ccd318966a3472c117b3451944e472db7cffb",
+        "generatedAt": "2026-10-11T15:35:45.315Z"
+      }
     },
     {
       "id": "civil-construction-2/gakka-2kyu-doko/youtube.longform/scene-008",
@@ -307,6 +430,26 @@
         "prompt": "参照の同一人物（黒髪・眼鏡・ひげ・青い作業服）で、2級土木の土工学習動画の結論画像を新規制作。横長16:9。表紙ではなく分かりやすいまとめ図。白背景、緑見出し、黄色少量、大きな日本語、読みやすい四つの独立カード2×2を左75%に、右25%には指を四本示して説明する先生、人物で文字を隠さない。外周8%安全域。タイトル『土工は「対応関係」で覚える』、資格ラベル『2級土木』。四カードの正確な文言は『① 土質試験』『試験名 ↔ 分かること』、『② 土量変化率』『運搬はL ／ 盛土はC』、『③ 締固め』『含水比・密度で管理』、『④ 軟弱地盤』『工法 ↔ 改善する目的』。各カードに小さな分かりやすい概念イラスト（試験ハンマー、運搬トラック、ローラ、排水する地盤）。文字が主役で図は補助。文字と図を別領域に。下端帯『試験・計算・管理・工法をセットで整理』。指定外の文言、ブランド、URL、肩書きなし。地盤排水図は垂直排水材が上の水平砂層につながり水が上方向へ排水。参照から構図を変え、4項目を3項目にまとめない。",
         "promptSha256": "cdb1a94428ed4615ed364bfce3a3b05af818e9728ba7ea6a6a0e8799dccc1a36",
         "generatedAt": "2026-10-11T15:26:35.759Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/gakka-2kyu-doko/youtube.longform/scene-009",
+      "role": "scene-009",
+      "type": "image/png",
+      "sha256": "61740ed545b0cfb8b979e43dc1a692346ae8a04537c571af0d5eb866b97c9edf",
+      "bytes": 2980003,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.longform/scene-009.61740ed5.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "2級土木学習動画のcta画像。参照先生と同一人物、白緑黄、大きな正確な日本語、横16:9、外周8%下端16%安全域。タイトル『頻出論点をまとめて確認』、文言『一次 過去問PDF／概要欄のリンクへ』。先生はPDFを渡すポーズ。紙の束に一次過去問PDFという太字だけ。右に大きな下向き矢印、青文字無し緑黄。価格や問題数合格保証は追加しない。指定外コピーを増やさない。顔は黒髪眼鏡短いひげ青作業服、文字と顔が重ならない。360pxで主題と内容を読める。",
+        "promptSha256": "16c1fdd26b0c31cb8c7ad49c4f64dc66b4864f0089f8ee926a0e941cd42a157d",
+        "generatedAt": "2026-10-11T15:36:45.087Z"
       }
     },
     {
