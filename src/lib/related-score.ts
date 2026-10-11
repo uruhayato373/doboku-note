@@ -3,7 +3,7 @@
  *
  * RelatedArticles（記事末カード）と MidArticleCta（本文中間の関連記事モード）で共有する。
  * 構造タグ（記事種別）は関連度判定から除外し、共通トピックタグ数でスコアリング、
- * 同スコアは新しい記事を優先する。
+ * 同スコアは更新日（dateModified、無ければ created）の新しい記事を優先する。
  */
 import type { DocMeta } from '@/lib/docs';
 import { isStructuralTag } from '@/lib/content-taxonomy';
@@ -18,7 +18,8 @@ function topicalTags(meta: DocMeta): string[] {
  * - 自分自身・非公開は除外
  * - 共通タグ 0 件は除外
  * - 同じカテゴリには小さな加点を与え、資格内の連続学習を保つ
- * - 同スコアは date 降順（新しい記事優先）
+ * - 同スコアは dateModified（無ければ created）降順。doc-meta-index に `date` は無く、
+ *   以前は全件が空文字で同率になり、配列順＝ファイル名順の記事が関連枠を占めていた
  *
  * @param limit 返す最大件数（既定 6）
  */
@@ -41,8 +42,8 @@ export function rankRelated(
     .filter((s) => s.score > 0)
     .sort((a, b) => {
       if (b.score !== a.score) return b.score - a.score;
-      const da = String(a.doc.date ?? '');
-      const db = String(b.doc.date ?? '');
+      const da = String(a.doc.dateModified ?? a.doc.created ?? '');
+      const db = String(b.doc.dateModified ?? b.doc.created ?? '');
       return db.localeCompare(da);
     })
     .slice(0, limit)
