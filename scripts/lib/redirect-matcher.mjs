@@ -1,6 +1,4 @@
-function escapeRegex(value) {
-  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-}
+import { escapeRegExp } from './regexp-escape.mjs';
 
 /** Cloudflare Pages `_redirects` の単純な `*` ルールをpathへ適用する。 */
 export function matchWildcardRedirect(pathWithQuery, wildcards = []) {
@@ -8,7 +6,7 @@ export function matchWildcardRedirect(pathWithQuery, wildcards = []) {
   for (const rule of wildcards) {
     if (!rule?.from?.includes("*")) continue;
     const parts = rule.from.split("*");
-    const pattern = `^${parts.map(escapeRegex).join("(.*)")}$`;
+    const pattern = `^${parts.map(escapeRegExp).join("(.*)")}$`;
     const match = path.match(new RegExp(pattern));
     if (!match) continue;
     let capture = 1;

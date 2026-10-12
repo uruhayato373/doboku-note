@@ -8,10 +8,10 @@ import dotenv from 'dotenv';
 import { direction, duePeriods, records, currentRecords, samePeriod, saveRecord } from './lib/business-direction.mjs';
 import { GSC_PROPERTY, SITE_ORIGIN } from './lib/site-identity.mjs';
 import { REPO_ROOT as root } from './lib/repository-paths.mjs';
+import { escapeRegExp } from './lib/regexp-escape.mjs';
 const args = process.argv.slice(2);
 dotenv.config({ path: '.env.local', quiet: true });
 /** 正規表現のメタ文字をすべてエスケープする（GSC の includingRegex に渡す） */
-const escapeRegExp = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const field = (fieldName, value, matchType = 'EXACT') => ({ filter: { fieldName, stringFilter: { matchType, value } } });
 async function run() {
   const c = direction(root), key = process.env.GOOGLE_SERVICE_ACCOUNT_KEY_PATH, id = process.env.GA4_PROPERTY_ID;

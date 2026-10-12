@@ -16,6 +16,7 @@
 import { execFileSync } from 'node:child_process';
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
+import { escapeRegExp } from './regexp-escape.mjs';
 
 /**
  * 置き場。strict の置き場（config/・data/）は JSON に型が必須で、コードのパスの直書きを止める。
@@ -381,14 +382,13 @@ export const DATASETS = [
 
 // ---- パスの照合 -----------------------------------------------------------------
 
-const escape = (s) => s.replace(/[.+?^$()[\]\\|]/g, '\\$&');
 const compiled = new Map();
 
 /** 台帳のパスの型を正規表現にする（全体一致） */
 export function patternOf(path) {
   if (!compiled.has(path)) {
     let re = '';
-    for (const part of path.split(/(\{[^}]+\})/)) re += part.startsWith('{') ? (SLOTS[part] ?? escape(part)) : escape(part);
+    for (const part of path.split(/(\{[^}]+\})/)) re += part.startsWith('{') ? (SLOTS[part] ?? escapeRegExp(part)) : escapeRegExp(part);
     compiled.set(path, new RegExp(`^${re}$`));
   }
   return compiled.get(path);

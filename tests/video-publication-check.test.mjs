@@ -29,7 +29,7 @@ function runCheck({ state, record, args = [] }) {
     mkdirSync(join(root, '.claude', 'state'), { recursive: true });
     cpSync(join(ROOT, 'scripts', 'check-video-publication.mjs'), join(root, 'scripts', 'check-video-publication.mjs'));
     // datasets.mjs＝記録の置き場と鮮度の台帳（依存ゼロ・2026-10-10 から台帳で引く）
-    for (const lib of ['video-content-check.mjs', 'content-lifecycle.mjs', 'utm-channels.mjs', 'video-compilation.mjs', 'datasets.mjs']) {
+    for (const lib of ['video-content-check.mjs', 'content-lifecycle.mjs', 'utm-channels.mjs', 'video-compilation.mjs', 'datasets.mjs', 'regexp-escape.mjs']) {
       cpSync(join(ROOT, 'scripts', 'lib', lib), join(root, 'scripts', 'lib', lib));
     }
     cpSync(join(ROOT, 'config', 'video-content.json'), join(root, 'config', 'video-content.json'));

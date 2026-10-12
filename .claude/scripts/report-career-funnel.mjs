@@ -33,6 +33,7 @@ import { REFERRER_FULL_SINCE, resultsFromReportLog } from "../../scripts/lib/a8-
 import { readLabelProgramMap } from "../../scripts/lib/affiliate-labels.mjs";
 import { publicPathFromSlug, slugFromKey } from "../../scripts/lib/url-normalization.mjs";
 import { matchesPage } from "../../src/lib/affiliate-placement-core.mjs";
+import { escapeRegExp } from '../../scripts/lib/regexp-escape.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 const CONFIG = join(ROOT, datasetPath("config.career-funnel"));
@@ -476,7 +477,7 @@ export function careerLinkPatterns(careerSlugs) {
 /** 本文中のリンク出現数（旧 URL＋正規 URL）。境界を見るので前方一致の別記事は数えない。 */
 export function countLinkHits(src, pattern) {
   if (!pattern) return 0;
-  const bounded = (p) => new RegExp(p.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "(?=[\\s)\"'#?]|$)", "g");
+  const bounded = (p) => new RegExp(escapeRegExp(p) + "(?=[\\s)\"'#?]|$)", "g");
   let n = (src.match(bounded(pattern.legacy)) ?? []).length;
   if (pattern.canonical) n += (src.match(bounded(pattern.canonical)) ?? []).length;
   return n;
