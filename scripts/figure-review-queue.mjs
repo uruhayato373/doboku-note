@@ -13,11 +13,12 @@
  * Usage:
  *   node scripts/figure-review-queue.mjs                                  # 集計（判定待ち・切り出し直し待ち・判定済み）
  *   node scripts/figure-review-queue.mjs --next 12 [--stage reextract] --json   # 次に回す図（既定は判定待ち）
+ *   node scripts/figure-review-queue.mjs record --from-results <results.json> --pass <figKey...>   # figure-crop-batch の結果から判定を作って記録（--pass＝親の QA に合格した書き換え済み・suspect の図。DN-0556）
  *   node scripts/figure-review-queue.mjs record <verdicts.json>           # 判定を台帳へ、出典を config/figure-sources.json の provenance へ記録し、直した図は MDX の寸法を合わせる
  *
  * 終了コード: 0 = 完走（判定待ちが残っていても 0）/ 1 = record の入力が不正 / 2 = 検査不成立（走査 0 枚・画素検査の失敗が支配的）
  */
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { join, resolve, sep } from 'node:path';
 import sharp from 'sharp';
 import { SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
@@ -33,7 +34,7 @@ import { analyzeImage } from './check-figure-crop-integrity.mjs';
 import { readMdxFile, writeMdxFile } from '../.claude/scripts/lib/mdx-io.mjs';
 import {
   LEDGER_FILE, emptyLedger, fileSha, buildQueue, listFigureKeys, describeFigure,
-  syncImageDims, validateVerdict,
+  syncImageDims, validateVerdict, verdictsFromResults,
 } from './lib/figure-review.mjs';
 
 const ROOT = resolve(import.meta.dirname, '..');
@@ -230,22 +231,62 @@ function portablePath(p) {
   return `vault:${vaultRelFor(rel, group)}`;
 }
 
-async function runRecord(file) {
-  if (!file) { console.error('usage: figure-review-queue.mjs record <verdicts.json>'); return 1; }
-  const input = parseJson(readFileSync(resolve(file), 'utf8'), file);
-  const list = Array.isArray(input) ? input : [input];
-  const errs = list.flatMap(validateVerdict);
+/** 同じ図の png・webp・jpg のうち実在するもの（配信中でない兄弟も含む）。切れ端の検査は全部に掛ける */
+function siblingsOf(root, figKey) {
+  return ['webp', 'png', 'jpg', 'jpeg'].map((e) => join(root, 'content', 'site', `${figKey}.${e}`)).filter((p) => existsSync(p));
+}
+
+/**
+ * 判定 verdict=ok の図の png・webp の両方に STRAY_SLIVER（隣の図の切れ端）が無いこと（DN-0556）。
+ * 配信中の webp だけ見て記録すると、png に切れ端が残っていても通り、CI で初めて出る（図5.4・2026-10-07）。
+ */
+async function sliverErrors(root, list) {
+  const errs = [];
+  for (const v of list) {
+    if (v.verdict !== 'ok') continue;
+    for (const abs of siblingsOf(root, v.figKey)) {
+      const a = await analyzeImage(abs);
+      const hit = a.violations.filter((x) => x.rule === 'STRAY_SLIVER');
+      if (hit.length) errs.push(`${v.figKey}: ${abs.slice(abs.lastIndexOf('.'))} に STRAY_SLIVER（隣の図の切れ端: ${hit.map((h) => `${h.side} ${h.detail ?? ''}`.trim()).join(' / ')}）が残っている。切り直してから記録する`);
+    }
+  }
+  return errs;
+}
+
+/**
+ * record <verdicts.json> か record --from-results <results.json> --pass <figKey...>。
+ * root はテスト用（既定はこのリポジトリ）。
+ */
+export async function runRecord(file, { fromResults = null, pass = [], root = ROOT } = {}) {
+  if (!file && !fromResults) { console.error('usage: figure-review-queue.mjs record <verdicts.json> | record --from-results <results.json> --pass <figKey...>'); return 1; }
+  const siteRoot = join(root, 'content', 'site');
+  const describe = (figKey, cache) => describeFigure({ siteRoot, repoRoot: root, figKey, cache });
+  let list;
+  const errs = [];
+  if (fromResults) {
+    const results = parseJson(readFileSync(resolve(fromResults), 'utf8'), fromResults);
+    const made = verdictsFromResults(Array.isArray(results) ? results : [results], { pass });
+    list = made.verdicts;
+    errs.push(...made.errors);
+    for (const sk of made.skipped) console.error(`  - 記録しない ${sk.figKey}: ${sk.why}`);
+    if (list.length === 0 && errs.length === 0) { console.error('✗ 結果ファイルから記録できる判定が 0 件（台帳は書いていない）'); return 1; }
+  } else {
+    const input = parseJson(readFileSync(resolve(file), 'utf8'), file);
+    list = Array.isArray(input) ? input : [input];
+  }
+  errs.push(...list.flatMap(validateVerdict));
   const cache = new Map();
   const described = list.map((v) => ({ v, f: describe(v.figKey, cache) }));
   for (const { v, f } of described) if (!f.abs) errs.push(`${v.figKey}: 画像が見つからない`);
+  if (!errs.length) errs.push(...await sliverErrors(root, list));
   if (errs.length) {
     console.error(`✗ 判定 ${list.length} 件のうち不正 ${errs.length} 件（台帳は書いていない）:`);
     for (const e of errs) console.error(`  - ${e}`);
     return 1;
   }
-  const ledger = readJsonIf(ROOT, LEDGER_FILE) ?? emptyLedger();
+  const ledger = readJsonIf(root, LEDGER_FILE) ?? emptyLedger();
   // 出典の正本は config/figure-sources.json の provenance。判定台帳は合否と理由だけを持つ（2026-10-07・DN-0555 前半）
-  const sourcesDoc = readJsonIf(ROOT, datasetPath('config.figure-sources'));
+  const sourcesDoc = readJsonIf(root, datasetPath('config.figure-sources'));
   if (!sourcesDoc) { console.error(`✗ ${datasetPath('config.figure-sources')} を読めない（台帳は書いていない）`); return 1; }
   sourcesDoc.provenance ??= {};
   let provenanceUpdated = 0;
@@ -254,7 +295,7 @@ async function runRecord(file) {
     const action = v.action ?? 'none';
     const { width, height } = await sharp(f.abs).metadata();
     if (action !== 'none' && f.mdx) {
-      const abs = join(ROOT, f.mdx);
+      const abs = join(root, f.mdx);
       const { raw, eol } = readMdxFile(abs);
       const r = syncImageDims(raw, f.name, width, height);
       if (r.changed) { writeMdxFile(abs, r.raw, eol); mdxUpdated += r.changed; }
@@ -274,16 +315,26 @@ async function runRecord(file) {
   ledger.figures = Object.fromEntries(Object.entries(ledger.figures).sort(([a], [b]) => a.localeCompare(b)));
   if (provenanceUpdated) {
     sourcesDoc.provenance = Object.fromEntries(Object.entries(sourcesDoc.provenance).sort(([a], [b]) => a.localeCompare(b)));
-    writeDataset(ROOT, 'config.figure-sources', sourcesDoc); // 型（vault: か https・ページは 1 以上）を検査してから書く
+    writeDataset(root, 'config.figure-sources', sourcesDoc); // 型（vault: か https・ページは 1 以上）を検査してから書く
   }
-  writeJson(ROOT, LEDGER_FILE, ledger);
+  writeJson(root, LEDGER_FILE, ledger);
   const by = list.reduce((m, v) => ({ ...m, [v.verdict]: (m[v.verdict] || 0) + 1 }), {});
   console.log(`[figure-review] 台帳に ${list.length} 件を記録（${Object.entries(by).map(([k, n]) => `${k}:${n}`).join(' ')}）・出典 ${provenanceUpdated} 件・MDX の寸法を ${mdxUpdated} か所更新 → ${LEDGER_FILE}${provenanceUpdated ? ` / ${datasetPath('config.figure-sources')}` : ''}`);
   return 0;
 }
 
 export async function run(argv = process.argv.slice(2)) {
-  if (argv[0] === 'record') return runRecord(argv[1]);
+  if (argv[0] === 'record') {
+    const rest = argv.slice(1);
+    const fi = rest.indexOf('--from-results');
+    if (fi >= 0) {
+      const pi = rest.indexOf('--pass');
+      const tail = pi < 0 ? [] : rest.slice(pi + 1);
+      const pass = tail.slice(0, tail.findIndex((x) => x.startsWith('--')) < 0 ? tail.length : tail.findIndex((x) => x.startsWith('--'))); // --pass の後ろ、次の --フラグまで
+      return runRecord(null, { fromResults: rest[fi + 1], pass });
+    }
+    return runRecord(rest[0]);
+  }
   return runSummary(argv);
 }
 
