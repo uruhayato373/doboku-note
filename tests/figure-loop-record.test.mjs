@@ -79,7 +79,9 @@ const quiet = async (fn) => {
 test('1 周: 判定 4 枚と切り出し直し 2 枚を、手で JSON を書かず record --from-results だけで記録できる', async () => {
   const { root } = await makeRepo();
   const resultsFile = join(root, '.tmp/figure-loop/results-test.json');
-  put(root, '.tmp/figure-loop/results-test.json', JSON.stringify(sixResults()));
+  const rs = sixResults();
+  rs[4] = { ...rs[4], rotate: 180, postColors: 16, postDespeckle: 6 }; // 逆さページを 180° 回し、減色と点の除去をした切り出し直し
+  put(root, '.tmp/figure-loop/results-test.json', JSON.stringify(rs));
   const { code } = await quiet(() => runRecord(null, { fromResults: resultsFile, pass: [key('rx1'), key('rx2')], root }));
   assert.equal(code, 0);
   const ledger = JSON.parse(readFileSync(join(root, LEDGER), 'utf8')).figures;
@@ -95,6 +97,12 @@ test('1 周: 判定 4 枚と切り出し直し 2 枚を、手で JSON を書か�
   assert.deepEqual(Object.keys(prov).sort(), [key('rx1'), key('rx2')]);
   assert.equal(prov[key('rx1')].pdf, 'vault:原資料PDF/書籍/x/source/001.pdf');
   assert.equal(prov[key('rx1')].page, 122);
+  // 切り出し枠・回転・後処理（DN-0570）が結果から provenance に入る。回転 0・後処理なしは省く
+  assert.deepEqual(prov[key('rx1')].cropBox, [100, 200, 400, 600]);
+  assert.equal(prov[key('rx1')].rotate, 180);
+  assert.deepEqual(prov[key('rx1')].post, { despeckle: 6, colors: 16 });
+  assert.deepEqual(prov[key('rx2')].cropBox, [100, 200, 400, 600]);
+  assert.equal('rotate' in prov[key('rx2')] || 'post' in prov[key('rx2')], false);
   assert.equal(prov[key('ok1')], undefined);
 });
 
