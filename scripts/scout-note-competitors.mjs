@@ -36,13 +36,13 @@
  * ---------------------------------------------------------------------------
  */
 
-import { spawnSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { todayJst } from './lib/jst-date.mjs';
 import { loadPreviousSnapshot, saveSnapshot } from './lib/competitor-history.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { curlJson as apiCurlJson } from './lib/note-api.mjs';
 
 const CONFIG_PATH = join(ROOT, datasetPath('config.competitors')); // 取得元ごとの枠 note
 
@@ -57,24 +57,8 @@ const HANDLE_OVERRIDE = argVal('--handle', null);
 const EXAM_FILTER = argVal('--exam', null); // 資格 id（qualification-registry.json）で config を絞る
 
 /** curl で JSON を取得（プロキシ + 失効チェック無効化）。HTML/空はリトライ。 */
-function curlJson(url) {
-  for (let attempt = 0; attempt < 2; attempt++) {
-    const r = spawnSync(
-      'curl',
-      ['-sS', '-m', '30', '--ssl-no-revoke', '-H', 'User-Agent: Mozilla/5.0', '-H', 'Accept: application/json', url],
-      { encoding: 'utf-8', maxBuffer: 48 * 1024 * 1024 }
-    );
-    const body = (r.stdout || '').trim();
-    if (body.startsWith('{') || body.startsWith('[')) {
-      try {
-        return JSON.parse(body);
-      } catch {
-        /* retry */
-      }
-    }
-  }
-  return null;
-}
+// note API の取得は lib/note-api.mjs の curlJson に集約（DN-0694）。ここは「JSON か null」の従来の形に合わせる薄い包み
+const curlJson = (url) => apiCurlJson(url).json;
 
 function fetchProfile(handle) {
   const d = curlJson(`https://note.com/api/v2/creators/${handle}`)?.data;

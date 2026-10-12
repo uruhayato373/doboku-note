@@ -26,13 +26,13 @@
  * ---------------------------------------------------------------------------
  */
 
-import { spawnSync } from 'node:child_process';
 import { readFileSync, mkdirSync, writeFileSync, readdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { parseNoteText, checkLimits } from './lib/note-meta.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { NOTE_CREATOR as CREATOR } from './lib/site-identity.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { curlJson as apiCurlJson } from './lib/note-api.mjs';
 
 const SOT_PATH = join(ROOT, 'src/lib/note-magazines.ts');
 const SNAPSHOT_PATH = join(ROOT, datasetPath('note.magazines'));
@@ -43,29 +43,10 @@ const WANT_JSON = args.includes('--json');
 const WANT_VS_TXT = args.includes('--vs-txt');
 
 /** curl で JSON を取得（プロキシ + 失効チェック無効化）。HTML が返ったら null。 */
-// 同期の待ち（curl を spawnSync で回す実装なので await を使わない）
-const sleepSync = (ms) => Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
+// 同期の待ち（lib/note-api.mjs の curlJson は spawnSync で curl を回す同期実装なので await を使わない）
 
-function curlJson(url) {
-  for (let attempt = 0; attempt < 3; attempt++) {
-    if (attempt > 0) sleepSync(1000 * attempt * 2); // 連続取得で弾かれたときに間を空けて取り直す
-    const r = spawnSync(
-      'curl',
-      ['-sS', '-m', '30', '--ssl-no-revoke', '-H', 'User-Agent: Mozilla/5.0', '-H', 'Accept: application/json', url],
-      { encoding: 'utf-8', maxBuffer: 32 * 1024 * 1024 }
-    );
-    const body = (r.stdout || '').trim();
-    if (body.startsWith('{') || body.startsWith('[')) {
-      try {
-        return JSON.parse(body);
-      } catch {
-        /* fallthrough to retry */
-      }
-    }
-    // HTML（404）や空応答はリトライ
-  }
-  return null;
-}
+// note API の取得は lib/note-api.mjs の curlJson に集約（DN-0694）。ここは「JSON か null」の従来の形（連続取得で弾かれたときの再試行 2 回）
+const curlJson = (url) => apiCurlJson(url, { retries: 2, delayMs: 2000 }).json;
 
 /** creator の全マガジンを取得（ページ送り）。 */
 function fetchAllMagazines() {

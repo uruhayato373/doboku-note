@@ -7,16 +7,15 @@ import { SearchBox } from "@/components/search/SearchBox";
 import { SearchResults } from "@/components/search/SearchResults";
 import { SearchFilters } from "@/components/search/SearchFilters";
 import { SearchPagination } from "@/components/search/SearchPagination";
-import { SearchZeroState } from "@/components/search/SearchZeroState";
+import { SearchZeroState, type PopularLink } from "@/components/search/SearchZeroState";
 import { getAllCategories, type CategoryDef } from "@/lib/categories";
-import { type PopularDoc } from "@/lib/popular";
-import { type ExamData } from "@/components/home";
+import { type ExamData } from "@/components/home/ExamCards";
 
 interface SearchPageClientProps {
   images: Record<string, string>;
   examCards: ExamData[];
   otherCategories: CategoryDef[];
-  popular: PopularDoc[];
+  popular: PopularLink[];
 }
 
 export default function SearchPageClient({ images, examCards, otherCategories, popular }: SearchPageClientProps) {

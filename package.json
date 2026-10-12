@@ -57,6 +57,7 @@
     "build-frequent-topics": "node scripts/build-frequent-topics.mjs",
     "build-note-catalog": "node .claude/scripts/build-note-published-index.mjs",
     "build-indexes": "node .claude/scripts/build-doc-meta-index.mjs && node .claude/scripts/build-cross-exam-keyword-index.mjs && node .claude/scripts/build-tag-index.mjs",
+    "build-llms-txt": "node scripts/build-llms-txt.mjs",
     "build-keyword-relations": "node .claude/skills/quality/exam-backlinks/scripts/build-keyword-relations.mjs",
     "build-pillar-exam-questions": "node .claude/scripts/build-pillar-exam-questions.mjs",
     "build-popular-pages": "node scripts/build-popular-pages.mjs",
@@ -315,6 +316,7 @@
     "check-script-imports": "node scripts/check-script-imports.mjs",
     "check-seo-build": "node scripts/check-seo-build.mjs",
     "check-seo-build:ci": "node scripts/check-seo-build.mjs --ci",
+    "check-client-chunk-size": "node scripts/check-client-chunk-size.mjs",
     "check-seo-meta": "node .claude/skills/quality/check-seo-meta/scripts/check-seo-meta.mjs",
     "check-seo-meta:check": "node .claude/skills/quality/check-seo-meta/scripts/seo-meta-threshold-check.mjs",
     "check-ssot-consumers": "node scripts/check-ssot-consumers.mjs",
@@ -456,7 +458,7 @@
     "quality:audit:ops": "node scripts/quality-audit.mjs --ops",
     "check-external-write-orphans": "node scripts/check-external-write-orphans.mjs",
     "build-exam-question-data": "node .claude/scripts/sns/parse-civil-1-questions.mjs && node .claude/scripts/sns/parse-civil-2-questions.mjs && node scripts/parse-exam-questions.mjs",
-    "refresh-indexes": "npm run build-backlinks && npm run build-indexes && npm run build-public-redirects && npm run build-keyword-relations && npm run build-pillar-exam-questions && npm run build-popular-pages && npm run build-frequent-topics && npm run build-standards-data && npm run build-note-catalog && npm run build-exam-question-data && npm run build-quiz-data",
+    "refresh-indexes": "npm run build-backlinks && npm run build-indexes && npm run build-public-redirects && npm run build-keyword-relations && npm run build-pillar-exam-questions && npm run build-popular-pages && npm run build-frequent-topics && npm run build-standards-data && npm run build-note-catalog && npm run build-exam-question-data && npm run build-quiz-data && npm run build-llms-txt",
     "render-figure-sns": "node .claude/scripts/sns/render-figure-sns.mjs",
     "report-buildjob-affiliate": "node .claude/scripts/report-buildjob-affiliate.mjs",
     "report-career-funnel": "node .claude/scripts/report-career-funnel.mjs",
@@ -639,6 +641,6 @@
     }
   },
   "engines": {
-    "node": ">=18.0"
+    "node": ">=20.9"
   }
 }

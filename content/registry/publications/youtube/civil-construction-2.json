@@ -768,7 +768,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-2/keiken-anzen-2kyu-kakikata/youtube.json#longform",
-      "status": "scheduled",
+      "status": "published",
       "publishAt": "2026-10-11T11:00:00Z",
       "approval": {
         "by": "user",
@@ -779,7 +779,12 @@
       "platform": {
         "id": "FjhdM9A5vkw",
         "url": "https://www.youtube.com/watch?v=FjhdM9A5vkw",
-        "privacy": "private"
+        "privacy": "public",
+        "publishedAt": "2026-10-11T11:00:35.000Z",
+        "evidence": {
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-10-11T19:42:04.501Z"
+        }
       },
       "times": {
         "rendered": "2026-09-05T05:21:41.253Z",

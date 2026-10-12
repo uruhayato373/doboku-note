@@ -1,5 +1,6 @@
 export { default as Hero } from "./Hero";
-export { default as ExamCards, ExamCard } from "./ExamCards";
+// ExamCard の実体は "./ExamCards" から直接 import する（client component がバレル経由で LatestArticles 等を引き込まないため・DN-0684）
+export { default as ExamCards } from "./ExamCards";
 export type { ExamData } from "./ExamCards";
 export { default as LatestArticles } from "./LatestArticles";
 export { default as AboutSection } from "./AboutSection";

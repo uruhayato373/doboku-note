@@ -6,7 +6,7 @@ import PageShell from "@/components/layout/PageShell";
 import PageHeader from "@/components/layout/PageHeader";
 import { getAllCategories } from "@/lib/categories";
 import { getAllDocsMeta } from "@/lib/docs";
-import { getPopularDocs } from "@/lib/popular";
+import { getPopularDocs, type PopularDoc } from "@/lib/popular";
 import { buildPageMetadata } from "@/lib/metadata";
 import { buildExamCards } from "@/lib/home-exam-cards";
 import SearchPageClient, { SearchPageFallback } from "./SearchPageClient";
@@ -33,7 +33,13 @@ export default function SearchPage() {
     (c) => c.visible !== false && !examSlugs.has(c.slug),
   );
   const images = Object.fromEntries(getAllDocsMeta().filter(d => d.published !== false && (d.group === "guide" || d.category === "civil-practice")).map(d => [getPublicDocPath(d.slug), getOgpDisplayUrl(d.slug)]));
-  const popular = getPopularDocs(getAllDocsMeta(), 6);
+  // よく読まれている記事は href まで server で解決して軽い行にする（client 側で content-routes を
+  // 読むと doc-meta-index が /search のチャンクへ入る・DN-0684）。
+  const popular = getPopularDocs(getAllDocsMeta(), 6).map((p: PopularDoc) => ({
+    rank: p.rank,
+    href: getPublicDocPath(p.doc.slug),
+    title: p.doc.shortTitle || p.doc.title,
+  }));
 
   return (
     <PageShell variant="content" rail="860">

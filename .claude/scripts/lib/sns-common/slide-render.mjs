@@ -42,6 +42,8 @@ function notebookContainer(width, height) {
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const FONT_DIR = resolve(__dirname, '../../../skills/conversion/ogp-create/assets/fonts');
+// @fontsource/manrope は import でなくこのパスで読む。knip には使っていないように見えるので knip.json の ignoreDependencies に
+// 登録してある（2026-10-11 に未使用と誤判定して消し、renderSlide のテストが CI で落ちた・DN-0687）。
 const FONTSOURCE_DIR = resolve(__dirname, '../../../../node_modules/@fontsource');
 
 let cachedFonts = null;
