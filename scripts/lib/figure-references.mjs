@@ -164,6 +164,25 @@ export function parseOcrFigureNames(ocrText) {
 }
 
 /**
+ * OCR の「（図: 図X.Y 図名。説明）」を、直前のページ印 `<!-- p0122 印字:114 -->` と行番号つきで全部返す（find-book-figure が使う）。
+ * page = PDF のページ（p0122 → 122）、printed = 本に印字されたページ（無ければ null）。
+ */
+export function parseOcrFigureEntries(ocrText) {
+  const out = [];
+  let page = null;
+  let printed = null;
+  ocrText.split(/\r?\n/).forEach((line, i) => {
+    const pm = line.match(/<!--\s*p(\d+)(?:\s+印字:([^\s>]+))?\s*-->/);
+    if (pm) { page = Number(pm[1]); printed = pm[2] ?? null; return; }
+    const m = line.match(/（図:\s*図\s*(\d+)\s*[.．]\s*(\d+)[\s　]*(.*)$/);
+    if (!m) return;
+    const description = m[3].replace(/）\s*$/, '').trim();
+    out.push({ key: figKey(m[1], m[2]), name: description.split(/[。＝]| — |\s—\s/)[0].trim(), description, page, printed, line: i + 1 });
+  });
+  return out;
+}
+
+/**
  * 図（番号付き）を、記事が挙げた書籍の OCR 図名と突合する。
  * @param {Array} figures parseArticleFigures().figures
  * @param {Map<string, Map<string,string[]>>} ocrByBook 書籍 id → 図名の索引
