@@ -3482,6 +3482,23 @@
       "commit": "aca9a377ee3c",
       "verification": null,
       "note": "PR #1041（Sidebar #687・#688、Data Table #906 に続く仕上げ）。インライン style 18 件を Tailwind へ置き換え check-admin-ui-debt の基準値を 0（76 ページで生 card・style・table・badge すべて 0）、DocRootView の生 card を shadcn Card に。globals.css から .card・.card + .card ほか参照の無いルールを 508 行削除（2021→1513）。KPI 画面（/）は shadcn 部品とレイアウト部品だけ。admin-ui-debt・shadcn-parity は quality-audit の ci:true。あわせて #977 以降の管理画面トップ 500（今月末日まで集計して buildReport が投げる）を kpi-tree.ts で昨日までに切って修正、E2E のスマホ幅 2 件を Sheet 表示に追従"
+    },
+    {
+      "id": "DN-0688",
+      "at": "2026-10-12",
+      "task": "pre-commit 13.9 秒（67 プロセス）と SessionStart の x-sync 9.6 秒を短縮する",
+      "tier": "mid",
+      "kind": "改善",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/pre-commit-dispatch.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "4eab9f7e8bc0",
+      "verification": null,
+      "note": "前半 PR #999（x-sync の TTL）、後半 PR #1042。pre-commit をディスパッチャ（scripts/pre-commit-dispatch.mjs・表は scripts/lib/pre-commit-steps.mjs）にし、検査 72 本に run() を足して同じプロセスで呼ぶ。一時 index に MDX 1 本で旧 12.76/12.56/12.19 秒・node 72 起動 → 新 3.89/3.88/3.95 秒・4 起動。旧フックを写した 73 行の表と 20 通りで呼ばれる検査と引数が一致、旧版と新版で 73 検査の exit code・出力が 8 種の変更すべてで一致。check-datasets・check-seo-rank-watch・check-qualification-ssot は入力に当たらない staged では飛ばす（追加・削除・改名は必ず回す）。2026-10-12 に共有フックを再インストール、session-start 2 回目 4.95 秒"
     }
   ]
 }

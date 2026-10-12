@@ -398,14 +398,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 
 
-### [DN-0688] pre-commit 13.9 秒（67 プロセス）と SessionStart の x-sync 9.6 秒を短縮する
-タグ: [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-11] [進行中]
-
-**進捗（2026-10-11）**: 前半（x-sync の TTL）は PR #999 で実装。前回の完走を state.x-sync-last-run（手元だけ）に書き、4 時間以内で queued の不在が無ければ Playwright を起動しない（実測 12.8 秒 → 0.2 秒）。後半（pre-commit のディスパッチャ化）は未着手: フック内の node 起動 78 行・各スクリプトに run() を足す大改修なので別の回で。
-
-**起点**: 2026-10-11 のコード監査。scripts/install-pre-commit.mjs のフックは node を常時 13＋条件付き 60 起動し、MDX 1 本を staged した計測で 67 起動 13.9 秒（起動費だけで約 6 秒・中央値 0.12 秒・重い順に check-datasets 1.83 秒、pre-commit-mdx 1.80 秒、lint-ja 0.77 秒）。SessionStart（scripts/session-start.mjs:33）の x-sync は毎回 Playwright で x.com を開いて 9.6 秒。
-**やること**: (1) x-sync に TTL を付ける（lib/x-scheduled-queue.mjs:25-37。凍結ガードレールの観点でも毎セッションのログイン済み起動は減らす）(2) pre-commit を 1 プロセスのディスパッチャにし、staged のパスごとに必要な検査だけ in-process で呼ぶ（session-start.mjs の run() 契約を流用）。
-**完了条件**: 2 回目の node scripts/session-start.mjs --json が 5,000 ms 未満。一時 index に MDX 1 本で sh .git/hooks/pre-commit が 6 秒未満（短縮幅は見込みで未測定）。
 
 
 
