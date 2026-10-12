@@ -3448,6 +3448,23 @@
       "commit": "6a2ad7fd5995",
       "verification": null,
       "note": "PR #1039。(1) figure-crop-batch の workflow が .tmp/figure-loop/results-<runId>.json に保存（Workflow の実走は未確認・保存失敗時は警告）(2) figure-review-queue.mjs record --from-results <file> --pass で判定（source・cropBox・rotate・post 込み）を作る (3) scripts/figure-qa-sheet.mjs が png・webp のクロップ検査・新旧の並べ画像・キャプション欠けを出す (4) STRAY_SLIVER のある png・webp で record が拒む (5) scripts/find-book-figure.mjs が書籍 OCR から PDF ページ・印字ページ・図名を引く（found/multiple/not-found・vault 無しは exit 2）(6) SKILL.md・worker 定義・figure-provenance.md を新手順に。判定 4 枚と切り出し直し 2 枚の 1 周を --from-results だけで記録できることをテスト 7 件で固定"
+    },
+    {
+      "id": "DN-0493",
+      "at": "2026-10-12",
+      "task": "商品の正本の段階2: 導線設定・カバー設定を正本から生成し、商品設計の画面を正本から読む",
+      "tier": "mid",
+      "kind": "改善",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/product-note-derive.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "1e3ae815a869",
+      "verification": null,
+      "note": "PR #1040。2級のペルソナ別パック 10 本について、冒頭導線の記事別ルール 72 件・マガジン定義 10 件・カバー設定 10 行・note掲載文.txt 10 本を正本（persona・members・catalog・cover・listing.appeal・intro.notHome）から npm run product -- gen で生成し、check-products がずれを止める。手書きとの差は規則の結果 652 記事で 0 件・定義・カバー・掲載文も 0 件。正本に 1 パック足すと生成物だけが増えることをテスト 6 件で固定。npm run product -- plan で正本と収録の差（現在 0 件・作成予定 2 件）を出し、管理画面の商品設計に「意図との差」と「作成予定」を表示。共通部と個別文章のマガジン 7 本・1級は手書きのまま（定型から作れない）。note への反映（公開物の更新）はしていない"
     }
   ]
 }

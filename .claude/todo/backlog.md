@@ -859,18 +859,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **完了条件**: `npm run check-products` の「原稿と結び付かない収録」が 0 本。
 
-### [DN-0493] 商品の正本の段階2: 導線設定・カバー設定を正本から生成し、商品設計の画面を正本から読む
-タグ: [収益化] [領域:商品] [時期:2026-12] [種類:改善] [起票:2026-10-01] [進行中]
-
-**起点**: DN-0492（PR #807）で 2級土木の note 商品23件を `content/products/note/` へ移し、`note-magazines.ts` の該当部分を生成にした（2026-10-04 に残りの資格も移し、note の全 143 件が正本から生成）。冒頭導線の記事別ルール（`config/note-intro-standard.json` の variants.civil2）・カバー設定（`config/note-covers.json` の characterCovers）・マガジンの `note掲載文.txt` は、まだ正本と別に手で持っている。
-
-**やること**:
-1. 冒頭導線の記事別ルールを、正本の persona・members から生成する（`npm run product -- gen` に含める）。
-2. カバー設定（proof・benefit・magazineName）と `note掲載文.txt` を正本の catalog から生成する。
-3. 管理画面の商品設計（`/product/design`）を、収録の実測だけでなく正本（作成予定の商品・収録の意図との差）からも出す。
-4. 正本の変更から note への反映計画（作成・改称・収録の追加）を出す `npm run product -- plan` を作る（実行は従来の承認つきスクリプト）。
-
-**完了条件**: 2級土木で、パック1本の追加が「正本に1ファイル足す → gen → note への反映」で済み、手で直すファイルが正本以外に無い。
 
 ### [DN-0490] 技術士・1級土木の副業と独立のガイドを 1 本書き、検索需要を 8 週で確かめる
 タグ: [SNS・マーケ] [領域:サイト] [時期:2026-12] [種類:制作] [起票:2026-10-01]
