@@ -156,13 +156,13 @@ function Detail({ source, products, onlyAttention, sitePages }: { source: Source
   return (
     <>
       <PageHead title={`教材：${source.title}`} />
-      <div className="small" style={{ marginBottom: 8, display: 'flex', justifyContent: 'space-between' }}>
+      <div className="small mb-2 flex justify-between">
         <Link href="/materials">← 教材一覧へ</Link>
         <span className="muted">
           論点 {m.units} · 本文 {pct(m.content, m.units)} · 図解 {m.visual} · SNS {m.sns} · 商品 {pct(source.units.filter((u) => products(u).length > 0).length, m.units)}
         </span>
       </div>
-      <nav className="filterbar small" style={{ marginBottom: 8 }}>
+      <nav className="filterbar small mb-2!">
         {onlyAttention ? <Link href={base}>すべての論点（{source.units.length}）</Link> : <strong>すべての論点（{source.units.length}）</strong>}
         {onlyAttention ? <strong>要確認のみ（{units.length}）</strong> : <Link href={`${base}&only=attention`}>要確認のみ（{source.units.filter(needsAttention).length}）</Link>}
         <Link href={`${base}&view=site`}>サイトの配線先（{sitePages}）</Link>
@@ -187,7 +187,7 @@ function Detail({ source, products, onlyAttention, sitePages }: { source: Source
               <TableCell className="whitespace-normal max-w-[420px]">
                 <details>
                   <summary>{u.need}</summary>
-                  <div className="text-xs" style={{ marginTop: 4 }}>
+                  <div className="text-xs mt-1">
                     <p>{u.reason}</p>
                     <p>図解：{u.visual.reason}</p>
                     <p>SNS：{u.derivative.reason}</p>
@@ -220,7 +220,7 @@ function Detail({ source, products, onlyAttention, sitePages }: { source: Source
               </TableCell>
               <TableCell>
                 {(u.backlogIds ?? []).map((b) => (
-                  <Link key={b} href={`/todo?f=backlog&id=${encodeURIComponent(b)}`} style={{ marginRight: 6 }}>
+                  <Link key={b} href={`/todo?f=backlog&id=${encodeURIComponent(b)}`} className="mr-1.5">
                     {b}
                   </Link>
                 ))}
@@ -251,14 +251,14 @@ function SiteView({ source, wiring, sources }: { source: Source; wiring: Wiring;
   return (
     <>
       <PageHead title={`教材：${source.title}`} />
-      <div className="small" style={{ marginBottom: 8, display: 'flex', justifyContent: 'space-between' }}>
+      <div className="small mb-2 flex justify-between">
         <Link href="/materials">← 教材一覧へ</Link>
         <span className="muted">
           配線先 {pages.length} ページ · 検索で表示あり {shown} · 表示 {fmt(pages.reduce((a, p) => a + p.impressions, 0))} · クリック {fmt(pages.reduce((a, p) => a + p.clicks, 0))}
           {wiring.gsc.period && `（${wiring.gsc.period}）`}
         </span>
       </div>
-      <nav className="filterbar small" style={{ marginBottom: 8 }}>
+      <nav className="filterbar small mb-2!">
         <Link href={base}>すべての論点（{source.units.length}）</Link>
         <Link href={`${base}&only=attention`}>要確認のみ（{source.units.filter(needsAttention).length}）</Link>
         <strong>サイトの配線先（{pages.length}）</strong>

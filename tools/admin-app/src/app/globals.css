@@ -275,7 +275,6 @@ a:hover {
   background: hsl(var(--primary) / 0.2);
 }
 
-
 .container {
   flex: 1;
   min-width: 0;
@@ -334,53 +333,12 @@ a:hover {
   }
 }
 
-/* ── カード ── */
-.card {
-  background: var(--panel);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 18px;
-  box-shadow:
-    0 1px 2px rgb(15 23 42 / 0.03),
-    0 12px 30px rgb(15 23 42 / 0.035);
-}
-/* 表だけを包むカードは枠を出さない（表の周りの二重の枠をなくす）。見出しと余白は残す。 */
-.card:has(> .table-wrap),
-.card:has(> table) {
-  background: none;
-  border: none;
-  box-shadow: none;
-  padding: 0;
-}
-.card + .card {
-  margin-top: 16px;
-}
-.card.warn-border {
-  border-color: var(--warn);
-}
-.card h2 {
-  font-size: 14px;
-  color: var(--ink);
-  margin: 0 0 14px;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-}
-.card h2 .sub {
-  color: var(--ink-muted);
-  font-weight: 400;
-  font-size: 12px;
-  margin-left: 8px;
-}
-
 .grid {
   display: grid;
   gap: 14px;
 }
 .grid.cols-2 {
   grid-template-columns: repeat(2, 1fr);
-}
-.grid.cols-3 {
-  grid-template-columns: repeat(3, 1fr);
 }
 .grid.cols-4 {
   grid-template-columns: repeat(4, 1fr);
@@ -604,21 +562,6 @@ table.data tbody tr:hover td {
   gap: 4px;
   flex-wrap: wrap;
 }
-
-/* ── TODO ── */
-/* 本文（カード）＋ 右ペイン（絞り込み）の 2 カラム。
-   絞り込みを横並びチップで置くと折り返して本文を押し下げ、そのぶんカードが細くなる。
-   縦に並べても場所を食わない右ペインへ逃がし、本文はカード幅の確保に使う。
-   層（バックログ/週間/月間/年間）は「行き先」なのでサイドバーの入れ子（Nav.tsx の SectionTree）が持つ。 */
-.todo-shell {
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
-}
-.todo-main {
-  flex: 1;
-  min-width: 0;
-}
 .todo-rail {
   position: sticky;
   top: 20px;
@@ -626,9 +569,6 @@ table.data tbody tr:hover td {
   width: 176px;
 }
 @media (max-width: 900px) {
-  .todo-shell {
-    flex-direction: column;
-  }
   /* 縦積みでは絞り込みが本文の下に落ちると見つからないので、先頭へ引き上げて横並びに畳む */
   .todo-rail {
     position: static;
@@ -650,26 +590,6 @@ table.data tbody tr:hover td {
     border-radius: 999px;
     border: 1px solid var(--border-soft);
   }
-}
-
-/* 右ペイン: ファセット検索の縦リスト。1 行 = ラベル + 右寄せ件数。 */
-.todo-rail .rail-head {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 8px;
-  margin-bottom: 10px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid var(--border);
-  color: var(--ink-muted);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-}
-.todo-rail .rail-head a {
-  font-size: 11px;
-  font-weight: 400;
-  letter-spacing: 0;
 }
 .todo-rail .facet + .facet {
   margin-top: 16px;
@@ -717,12 +637,6 @@ table.data tbody tr:hover td {
   font-size: 11px;
   font-variant-numeric: tabular-nums;
 }
-.todo-group .n {
-  padding: 1px 7px;
-  border-radius: 999px;
-  background: var(--panel-2);
-  font-weight: 600;
-}
 .todo-rail .facet a.active .n {
   color: var(--accent);
 }
@@ -747,208 +661,6 @@ table.data tbody tr:hover td {
 .tier-dot.hold {
   background: var(--hold);
 }
-
-.todo-group + .todo-group {
-  margin-top: 22px;
-}
-.todo-group h3 {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin: 0 0 10px;
-  color: var(--ink);
-  font-size: 13px;
-}
-/* 最大 2 列。右ペインを引いた本文幅（1280 窓で ≈824px）で 320px 下限なら 2 列 ≈400px。
-   420px 下限にすると 1 列に落ちるので、レール併用時はここを上げない。 */
-.todo-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 10px;
-  align-items: start;
-}
-
-.todo-card {
-  padding: 10px 12px;
-  border: 1px solid var(--border);
-  border-left-width: 3px;
-  border-radius: 8px;
-  background: var(--panel);
-}
-.todo-card.tier-high {
-  border-left-color: var(--bad);
-}
-.todo-card.tier-mid {
-  border-left-color: var(--warn);
-}
-.todo-card.tier-low {
-  border-left-color: var(--good);
-}
-.todo-card.tier-hold {
-  border-left-color: var(--hold);
-}
-.todo-card.tier-none {
-  border-left-color: var(--border);
-}
-/* タイトル自体が VS Code リンク。行番号リンクを別に置かない分、1 枚が縦に短くなる。 */
-.todo-card a.title {
-  display: block;
-  color: var(--ink);
-  font-size: 13px;
-  font-weight: 600;
-  line-height: 1.5;
-}
-.todo-card a.title:hover {
-  color: var(--accent);
-  text-decoration: none;
-}
-.todo-card .row {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 5px;
-  margin-top: 7px;
-}
-.todo-card .row .line {
-  margin-left: auto;
-  color: var(--ink-muted);
-  font-family: var(--mono);
-  font-size: 10.5px;
-}
-.todo-card details.body {
-  margin-top: 7px;
-}
-.todo-card details.body > summary {
-  color: var(--ink-muted);
-  font-size: 11px;
-  list-style: none;
-  cursor: pointer;
-}
-.todo-card details.body > summary::-webkit-details-marker {
-  display: none;
-}
-.todo-card details.body > summary::before {
-  content: '▸ ';
-}
-.todo-card details.body[open] > summary::before {
-  content: '▾ ';
-}
-.todo-card details.body > summary:hover {
-  color: var(--ink);
-}
-
-/* ── カード内 Markdown 本文（.md-prose）──
-   ナレッジ詳細（.knowledge-document）と同じレンダラの出力を、カード幅 ≈400px に収まる
-   コンパクトな装丁で出す。以前は素のテキストを white-space:pre-wrap で出していたため
-   `**太字**` や ```bash が生のまま並んで読めなかった。 */
-.todo-card .md-prose {
-  max-height: 260px;
-  margin-top: 6px;
-  padding: 9px 11px;
-  border-radius: 6px;
-  background: var(--panel-2);
-  color: var(--ink-body);
-  font-size: 11.5px;
-  line-height: 1.7;
-  overflow-y: auto;
-  overflow-wrap: anywhere;
-}
-.todo-card .md-prose > :first-child {
-  margin-top: 0;
-}
-.todo-card .md-prose > :last-child {
-  margin-bottom: 0;
-}
-.todo-card .md-prose p {
-  margin: 0.6em 0;
-}
-.todo-card .md-prose strong {
-  color: var(--ink);
-}
-.todo-card .md-prose a {
-  color: var(--accent);
-}
-.todo-card .md-prose h1,
-.todo-card .md-prose h2,
-.todo-card .md-prose h3,
-.todo-card .md-prose h4 {
-  margin: 1em 0 0.4em;
-  color: var(--ink);
-  font-size: 12px;
-  line-height: 1.4;
-}
-.todo-card .md-prose ul,
-.todo-card .md-prose ol {
-  margin: 0.5em 0;
-  padding-left: 1.3em;
-}
-.todo-card .md-prose li {
-  margin: 0.2em 0;
-}
-/* ライトでは --panel-2(#eef2f8) と --code-bg(#f1f4f9) がほぼ同色で、背景だけだと
-   コードが prose に溶ける（2026-08-18 実測）。境界線で両テーマとも区別を保証する。 */
-.todo-card .md-prose code {
-  padding: 1px 4px;
-  border: 1px solid var(--border-soft);
-  border-radius: 4px;
-  background: var(--code-bg);
-  font-family: var(--mono);
-  font-size: 10.5px;
-}
-.todo-card .md-prose pre {
-  margin: 0.6em 0;
-  padding: 9px 11px;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  background: var(--code-bg);
-  overflow-x: auto;
-}
-/* pre の中の code は枠を二重にしない（インライン code とは別装丁） */
-.todo-card .md-prose pre code {
-  padding: 0;
-  border: 0;
-  background: transparent;
-  white-space: pre;
-}
-.todo-card .md-prose blockquote {
-  margin: 0.6em 0 0.6em 0;
-  padding-left: 10px;
-  border-left: 3px solid var(--border);
-  color: var(--ink-muted);
-}
-.todo-card .md-prose table {
-  display: block;
-  width: 100%;
-  margin: 0.6em 0;
-  border-collapse: collapse;
-  overflow-x: auto;
-}
-.todo-card .md-prose th,
-.todo-card .md-prose td {
-  padding: 4px 7px;
-  border: 1px solid var(--border);
-  font-size: 10.5px;
-  text-align: left;
-  white-space: nowrap;
-}
-.todo-card .md-prose th {
-  background: var(--panel);
-  color: var(--ink);
-}
-.todo-card .md-prose hr {
-  margin: 0.8em 0;
-  border: 0;
-  border-top: 1px solid var(--border-soft);
-}
-.todo-card .md-prose img {
-  max-width: 100%;
-}
-
-/* TODO v2: タスクカードではなく、層の意味に合わせた密度の高い一覧を正面に置く。
-   旧カード規則は過去の差分を読みやすくするため上に残すが、現行 page は以下だけを使う。 */
-.todo-shell.plan-only {
-  display: block;
-}
 .todo-plan-focus {
   display: flex;
   gap: 10px;
@@ -965,43 +677,6 @@ table.data tbody tr:hover td {
   flex: none;
   color: var(--accent);
 }
-.todo-table-wrap {
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background: var(--panel);
-}
-table.data.todo-table {
-  min-width: 680px;
-  table-layout: fixed;
-}
-table.data.todo-table th,
-table.data.todo-table td {
-  padding: 8px 10px;
-  vertical-align: top;
-}
-table.data.todo-table th {
-  color: var(--ink-muted);
-  font-size: 10.5px;
-  letter-spacing: 0.04em;
-}
-table.data.todo-table .todo-priority-col {
-  width: 74px;
-}
-table.data.todo-table .todo-kind-col {
-  width: 86px;
-}
-table.data.todo-table .todo-owner-col {
-  width: 92px;
-}
-table.data.todo-table .todo-due-col {
-  width: 112px;
-}
-table.data.todo-table .todo-section-col {
-  width: 190px;
-}
-table.data.todo-table .todo-status-col {
-  width: 116px;
-}
 .todo-priority {
   display: inline-flex;
   align-items: center;
@@ -1009,11 +684,6 @@ table.data.todo-table .todo-status-col {
   color: var(--ink-body);
   font-size: 11.5px;
   white-space: nowrap;
-}
-table.data.todo-table td.todo-task-cell {
-  min-width: 0;
-  white-space: normal;
-  overflow-wrap: anywhere;
 }
 .todo-title {
   display: block;
@@ -1042,24 +712,6 @@ table.data.todo-table td.todo-task-cell {
   color: var(--ink-muted);
   font-family: var(--mono);
   font-size: 10px;
-}
-table.data.todo-table td.todo-section-cell {
-  color: var(--ink-muted);
-  font-size: 11px;
-  line-height: 1.55;
-  white-space: normal;
-  overflow-wrap: anywhere;
-}
-.todo-table tr.is-wip td {
-  background: var(--accent-fill);
-}
-.todo-table tr.is-complete td {
-  background: var(--panel-2);
-  color: var(--ink-muted);
-}
-.todo-table tr.is-complete .todo-title {
-  color: var(--ink-muted);
-  text-decoration: line-through;
 }
 .todo-task-detail {
   margin-top: 4px;
@@ -1135,13 +787,6 @@ table.data.todo-table td.todo-section-cell {
   font-size: 10.5px;
 }
 @media (max-width: 900px) {
-  .todo-main {
-    width: 100%;
-  }
-  .todo-table-wrap {
-    width: 100%;
-    max-width: 100%;
-  }
   .todo-plan-focus {
     display: block;
   }
@@ -1149,30 +794,12 @@ table.data.todo-table td.todo-section-cell {
     display: block;
     margin-bottom: 3px;
   }
-  table.data.todo-table {
-    min-width: 480px;
-  }
-  table.data.todo-table .todo-section-col {
-    width: 150px;
-  }
-  table.data.todo-table .todo-kind-col,
-  table.data.todo-table .todo-kind-cell,
-  table.data.todo-table .todo-due-col,
-  table.data.todo-table .todo-due-cell,
-  table.data.todo-table .todo-status-col,
-  table.data.todo-table .todo-status-cell {
-    display: none;
-  }
   /* 狭い管理画面でも一覧をファーストビューへ残す。チップを横一列に増殖させず、
      3軸を短い縦リストとして並べる。 */
   .todo-rail {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 8px 12px;
-  }
-  .todo-rail .rail-head {
-    grid-column: 1 / -1;
-    margin-bottom: 0;
   }
   .todo-rail .facet {
     display: block;
@@ -1205,9 +832,6 @@ table.data.todo-table td.todo-section-cell {
   padding: 24px;
   text-align: center;
   font-size: 13px;
-}
-.stack-sm > * + * {
-  margin-top: 8px;
 }
 .desc-clamp {
   display: -webkit-box;
@@ -1450,18 +1074,6 @@ code {
     flex-direction: column;
   }
 }
-
-/* ===== 文書（docs/ の read-only ビュー）=====
-   一覧は .knowledge-* を再利用し、ここは Project 固有の差分だけを持つ。
-   Project だけ別テーマ・別レイアウトにしない（指示書 §9.1）。 */
-.toolbar-check {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 13px;
-  color: var(--ink-muted);
-  white-space: nowrap;
-}
 .project-warning {
   border-color: var(--bad);
   color: var(--bad);
@@ -1555,12 +1167,6 @@ code {
 .project-warning-text {
   color: var(--bad);
 }
-.project-ids {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-  margin-top: 6px;
-}
 
 /* 961px 以上＝本文＋右レール / 761〜960px＝レール幅を縮める / 760px 以下＝レールを本文上へ */
 @media (max-width: 960px) {
@@ -1591,29 +1197,6 @@ code {
 .todo-id {
   font-variant-numeric: tabular-nums;
   letter-spacing: 0.02em;
-}
-
-/* monthly/weekly の ID 参照（backlog と join した行） */
-.todo-refs {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  margin: 6px 0;
-}
-.todo-ref {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  flex-wrap: wrap;
-  text-decoration: none;
-  color: inherit;
-}
-.todo-ref:hover .todo-ref-title {
-  text-decoration: underline;
-}
-.todo-ref-title {
-  font-size: 12.5px;
-  color: var(--ink-body);
 }
 
 /* Project 詳細の関連タスク（backlog と join した行） */
@@ -1685,15 +1268,6 @@ code {
   font-size: 22px;
   line-height: 1.35;
 }
-.card {
-  padding: 12px;
-}
-.card + .card {
-  margin-top: 12px;
-}
-.card h2 {
-  margin-bottom: 8px;
-}
 .grid {
   gap: 12px;
 }
@@ -1717,43 +1291,6 @@ table.data td.path-cell {
 table.data td.wrap {
   max-width: 460px;
 }
-table.data td.title-cell {
-  width: 100%;
-  min-width: 280px;
-  color: var(--ink);
-  font-weight: 500;
-}
-table.data td.path-cell {
-  max-width: 320px;
-}
-table.data.content-table {
-  table-layout: fixed;
-}
-table.data.content-table td {
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-table.data.content-table .title-cell {
-  min-width: 0;
-}
-table.data.content-table .category-col { width: 92px; }
-table.data.content-table .id-col { width: 320px; }
-table.data.content-table .status-col,
-table.data.content-table .price-col,
-table.data.content-table .publish-col { width: 72px; }
-table.data.content-table .date-col { width: 112px; }
-table.data.content-table .badge-col { width: 96px; }
-table.data.content-table .quality-col { width: 176px; }
-.quality-badges {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  overflow: hidden;
-  white-space: nowrap;
-}
-.quality-badges .badge {
-  flex: 0 0 auto;
-}
 .badge {
   padding: 1px 6px;
 }
@@ -1762,17 +1299,6 @@ table.data.content-table .quality-col { width: 176px; }
 }
 .filterbar a.chip {
   padding: 3px 9px;
-}
-@media (max-width: 1100px) {
-  table.data .optional-col { display: none; }
-}
-@media (max-width: 760px) {
-  table.data.content-table .date-col { display: none; }
-  table.data.content-table .quality-col { width: 148px; }
-}
-@media (max-width: 520px) {
-  table.data.content-table .category-col { display: none; }
-  table.data.content-table .quality-col { width: 136px; }
 }
 
 /* タスク行から、それを参照している恒久文書（/docs）へ戻るリンク。
@@ -1883,20 +1409,6 @@ table.data.content-table .quality-col { width: 176px; }
   font-weight: 650;
   color: var(--ink);
 }
-
-table.data.schedule-grid {
-  table-layout: fixed;
-}
-table.data.schedule-grid th {
-  text-align: center;
-  white-space: nowrap;
-}
-table.data.schedule-grid td {
-  padding: 0;
-  white-space: normal;
-  vertical-align: top;
-  border: 1px solid var(--border-soft);
-}
 .schedule-cell {
   display: flex;
   flex-direction: column;
@@ -1996,26 +1508,6 @@ table.data.schedule-grid td {
   .schedule-badge {
     font-size: 9.5px;
   }
-  table.data.schedule-grid {
-    min-width: 560px;
-  }
 }
 
-/* Business direction and measurement records */
-.business-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-.business-direction { background: var(--accent-fill); }
-.business-journey { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; font-weight: 600; padding: 16px 0; }
-.business-form { display: grid; gap: 14px; max-width: 760px; margin-top: 20px; }
-.business-form label { display: grid; gap: 6px; }
-.business-form input, .business-form select, .business-form textarea { width: 100%; min-width: 0; padding: 10px; border: 1px solid var(--border); border-radius: 6px; color: var(--ink); background: var(--panel); }
-.business-form input[type=checkbox] { width: auto; }
-.business-form fieldset label { display: flex; align-items: center; }
-.business-form textarea { min-height: 92px; }
-.business-form button { padding: 12px; background: var(--accent); color: var(--on-accent); border-radius: 6px; }
-.business-form [role=status] { overflow-wrap: anywhere; }
-@media (max-width: 900px) { .business-grid { grid-template-columns: 1fr; } }
-
-.business-grid { margin: 16px 0; }
-.business-grid > .card { margin: 0; }
-.business-direction h2 { font-size: 22px; line-height: 1.5; }
 } /* @layer utilities */

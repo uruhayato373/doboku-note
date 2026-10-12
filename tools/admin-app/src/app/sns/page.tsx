@@ -23,15 +23,15 @@ export default async function SnsBoardPage() {
     <>
       <PageHead title="投稿状況" />
       {/* SNS はサイドバーの枝にせずこのページの節にする（domains.json navRules）。素材の作業場はここから開く */}
-      <nav className="filterbar" style={{ marginBottom: 12 }}>
+      <nav className="filterbar mb-3!">
         <a className="chip" href="#figures">図解素材</a>
         <a className="chip" href="#instagram">Instagram</a>
         <a className="chip" href="#x">X</a>
         <a className="chip" href="#video">YouTube・動画</a>
-        <span className="small muted" style={{ marginLeft: 'auto' }}>
+        <span className="small muted ml-auto">
           <Link href="/gallery/sns?ch=instagram">Instagram 画像・動画</Link>
-          <Link href="/gallery/sns?ch=x" style={{ marginLeft: 12 }}>X 画像</Link>
-          <Link href="/content/video" style={{ marginLeft: 12 }}>動画パック</Link>
+          <Link href="/gallery/sns?ch=x" className="ml-3">X 画像</Link>
+          <Link href="/content/video" className="ml-3">動画パック</Link>
         </span>
       </nav>
       <UpcomingEvents domain="sns" />
