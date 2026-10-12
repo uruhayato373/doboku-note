@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-12T11:17:43Z",
+  "generatedAt": "2026-10-12T11:18:04Z",
   "exam": "civil-2",
   "years": [
     {
@@ -38147,6 +38147,18 @@
               "correct": true
             }
           ],
+          "statements": [
+            {
+              "label": "イ",
+              "text": "硬質土は、硬質粘土、礫混じり土及び礫混じり砂などで、剛性管の基礎には砂基礎などが用いられる。",
+              "correct": true
+            },
+            {
+              "label": "ロ",
+              "text": "極軟弱土は、非常に緩いシルトや有機質土などで、剛性管の基礎には鉄筋コンクリート基礎などが用いられる。",
+              "correct": true
+            }
+          ],
           "igEligible": false,
           "packEligible": false
         },
@@ -39293,6 +39305,28 @@
             {
               "num": 4,
               "text": "事前調査→施工技術計画→仮設備計画→管理計画の標準分類で正しい <ExamPoint>施工計画は事前調査技術仮設備管理の4区分</ExamPoint>",
+              "correct": true
+            }
+          ],
+          "statements": [
+            {
+              "label": "イ",
+              "text": "事前調査である。契約条件と設計図書の検討、現地調査が主な内容となる。",
+              "correct": true
+            },
+            {
+              "label": "ロ",
+              "text": "施工技術計画である。作業計画と工程計画を中心に、施工方法を具体化する。",
+              "correct": true
+            },
+            {
+              "label": "ハ",
+              "text": "仮設備計画である。直接仮設と間接仮設の計画を扱う。",
+              "correct": true
+            },
+            {
+              "label": "ニ",
+              "text": "管理計画である。安全衛生計画と実行予算など、工事の管理に関する事項を扱う。",
               "correct": true
             }
           ],
