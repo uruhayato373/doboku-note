@@ -1377,7 +1377,13 @@
     "civil-construction-1/primary-r05-b/img/r05-b-fig-01": {
       "pdf": "vault:原資料PDF/過去問/１級土木施工管理技士/R05/R05_第一次検定_問題B.pdf",
       "page": 3,
-      "dpi": 300
+      "dpi": 300,
+      "cropBox": [
+        76,
+        781,
+        2962,
+        3208
+      ]
     },
     "civil-construction-1/primary-r05-b/img/r05-b-fig-02": {
       "pdf": "vault:原資料PDF/過去問/１級土木施工管理技士/R05/R05_第一次検定_問題B.pdf",
@@ -1712,7 +1718,13 @@
     "civil-construction-2/primary-r07-zenki/img/q02-fig": {
       "pdf": "vault:原資料PDF/過去問/２級土木施工管理技士/R07/R07_第一次検定_前期.pdf",
       "page": 3,
-      "dpi": 300
+      "dpi": 300,
+      "cropBox": [
+        547,
+        848,
+        2490,
+        1824
+      ]
     },
     "civil-construction-2/primary-r07-zenki/img/q04-fig": {
       "pdf": "vault:原資料PDF/過去問/２級土木施工管理技士/R07/R07_第一次検定_前期.pdf",
@@ -2607,7 +2619,13 @@
     "pe-first-stage/r07-construction/img/q01-fig": {
       "pdf": "vault:原資料PDF/過去問/技術士（第一次）/R07/R07_専門_09建設部門.pdf",
       "page": 1,
-      "dpi": 200
+      "dpi": 200,
+      "cropBox": [
+        775,
+        1013,
+        1392,
+        1578
+      ]
     },
     "pe-first-stage/r07-construction/img/q05-fig": {
       "pdf": "vault:原資料PDF/過去問/技術士（第一次）/R07/R07_専門_09建設部門.pdf",
@@ -2632,7 +2650,13 @@
     "surveyor/primary-r07/img/q07-fig": {
       "pdf": "vault:原資料PDF/過去問/測量士補/R07/R07_問題1.pdf",
       "page": 8,
-      "dpi": 300
+      "dpi": 300,
+      "cropBox": [
+        392,
+        975,
+        2091,
+        1839
+      ]
     },
     "surveyor/primary-r07/img/q13-fig": {
       "pdf": "vault:原資料PDF/過去問/測量士補/R07/R07_問題1.pdf",
