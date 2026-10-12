@@ -494,6 +494,36 @@ export const CareerFunnelBaseline = careerFunnelShape(true).meta({ title: '転�
 
 const SeoViolation = z.object({ type: z.string().min(1).describe('違反コード（seo-checks.mjs の code か fetch_error・html_missing・html_parse_error）'), severity: z.enum(['HIGH', 'MEDIUM', 'LOW']), message: z.string() }).strict();
 const SeoTextField = z.object({ value: z.string(), length: count('文字数') }).strict().nullable().describe('取れなければ null');
+const SeoBuildEntry = z
+  .object({
+    date: jstDate('記録した日'),
+    generatedAt: utcTime('その日の最後の記録の時刻'),
+    sitemapUrls: count('sitemap 掲載 URL 数'),
+    checked: count('検査した URL 数'),
+    errors: count('error（ゲート違反）の件数'),
+    warnings: count('warn（参考・非ゲート）の件数'),
+    errorsByCode: z.record(z.string(), count('件数')).describe('error の型別件数'),
+    warningsByCode: z.record(z.string(), count('件数')).describe('warn の型別件数'),
+  })
+  .strict();
+/** build 後 SEO スキャン（check-seo-build）の日ごとの結果（data/analysis/seo-build-summary.json）。CI が develop の push ごとに足し、週次レビューが前週比を出す */
+export const SeoBuildSummary = z
+  .object({
+    schemaVersion: z.literal(1).describe('このファイルの形の版'),
+    history: z.array(SeoBuildEntry).superRefine(uniqueBy('date', '日付')).describe('日付の昇順・1 日 1 行'),
+  })
+  .strict()
+  .superRefine((m, ctx) => {
+    m.history.forEach((h, i) => {
+      if (i > 0 && h.date <= m.history[i - 1].date) flag(ctx, ['history', i, 'date'], `${h.date} が前の行 ${m.history[i - 1].date} より新しくない（昇順でない）`);
+      const errors = Object.values(h.errorsByCode).reduce((a, b) => a + b, 0);
+      const warnings = Object.values(h.warningsByCode).reduce((a, b) => a + b, 0);
+      if (errors !== h.errors) flag(ctx, ['history', i, 'errorsByCode'], `型別の合計 ${errors} が errors ${h.errors} と合わない`);
+      if (warnings !== h.warnings) flag(ctx, ['history', i, 'warningsByCode'], `型別の合計 ${warnings} が warnings ${h.warnings} と合わない`);
+    });
+  })
+  .meta({ title: 'build 後 SEO スキャンの日ごとの結果' });
+
 /** SEO meta の監査結果（data/analysis/seo-meta.json）。summary と違反のある URL の行だけ。欄の名前は書き手の snake_case のまま */
 export const SeoMeta = z
   .object({

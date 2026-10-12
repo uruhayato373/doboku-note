@@ -142,6 +142,8 @@ npm run check-standards-page-images # 上の provenance 整合（catalog↔manif
 
 `npm run weekly-review:install` — Mac の launchd に土曜 9:30 の自動の週次レビューを入れる（`scripts/scheduled/weekly-review.sh`）。専用 worktree（`.claude/worktrees/weekly-review`・lock 済み）でヘッドレスの Claude Code が `/weekly-review` と `/plan-weekly` を回して develop へ push する。今週分が develop にあれば何もしない。成否は終了コードでなく develop の実体で判定し、入らなければ Issue（channel: weekly-review-local）。`-- --status` / `-- --run-now` / `-- --uninstall`。前提は Claude Code と gh にログイン済み。判断待ちは聞けないのでレビューに `<!-- weekly-review:pending-questions -->` を残し、SessionStart が知らせる。
 
+`npm run record-seo-build-summary -- <run.json>` — `check-seo-build --summary-out <run.json>` の 1 回分の結果を `data/analysis/seo-build-summary.json`（台帳 `analysis.seo-build-summary`）の日ごとの履歴へ足す。CI の `Publish SEO build summary`（ci.yml・develop の push のみ）が呼び、週次レビューの下書きが件数と前週比を出す。入力が壊れている・検査 0 件は exit 2（履歴に積まない）。罠: ローカルで回すと自分の out/ の結果が履歴に入るので、コミットしない。
+
 `npm run weekly-review:draft` — 週次レビューの機械で決まる節（資格別 KPI・ダイジェスト・未処分・実験の期限・点検と Issue・関門・検索候補・PSI・note 同期・X キュー・ココナラ・売上）を集めて `.claude/state/weekly-review/draft.json` に書く。`-- --print` は書かずに Markdown、`-- --check` は材料の有無だけ、`-- --week YYYY-Www` で週を指定。前週のダイジェストか自然検索が欠けたら exit 1（下書きは欠けを明記して書く）。CI は金曜 13:00 JST の `weekly-review-draft.yml`。罠: 窓（前週）が終わる前に回すと必ず欠けになる。
 
 ```bash

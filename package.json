@@ -316,6 +316,7 @@
     "check-script-imports": "node scripts/check-script-imports.mjs",
     "check-seo-build": "node scripts/check-seo-build.mjs",
     "check-seo-build:ci": "node scripts/check-seo-build.mjs --ci",
+    "record-seo-build-summary": "node scripts/record-seo-build-summary.mjs",
     "check-client-chunk-size": "node scripts/check-client-chunk-size.mjs",
     "check-seo-meta": "node .claude/skills/quality/check-seo-meta/scripts/check-seo-meta.mjs",
     "check-seo-meta:check": "node .claude/skills/quality/check-seo-meta/scripts/seo-meta-threshold-check.mjs",

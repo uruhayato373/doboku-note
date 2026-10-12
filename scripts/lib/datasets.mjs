@@ -270,6 +270,7 @@ export const DATASETS = [
   d('analysis.career-funnel-baseline', 'data/analysis/career-funnel-baseline/{date}.json', 'evidence', 'affiliate', '転職アフィリエイトのファネルの基準線', { retain: { family: 'affiliate', keepAll: true }, schema: 'CareerFunnelBaseline' }),
   d('analysis.buildjob-report', 'data/analysis/buildjob-report.md', 'report', 'affiliate', 'ビルドジョブの成果の報告'),
   d('analysis.psi-report', 'data/analysis/psi-report.md', 'report', 'site', 'PSI の最新の報告'),
+  d('analysis.seo-build-summary', 'data/analysis/seo-build-summary.json', 'ledger', 'site', 'build 後 SEO スキャン（check-seo-build）の日ごとの検査数・error・warn の型別件数（CI が develop の push ごとに足す。週次レビューが前週比を出す）', { planned: true, schema: 'SeoBuildSummary' }),
   d('analysis.seo-meta', 'data/analysis/seo-meta.json', 'state', 'site', 'サイトの SEO meta の監査結果', { schema: 'SeoMeta' }),
   d('analysis.affiliate-opportunities', 'data/analysis/affiliate-opportunities/{date}.json', 'evidence', 'affiliate', '未活用のアフィリエイト案件の調査（文書が引用）', { retain: { family: 'affiliate', keepAll: true }, schema: 'AffiliateOpportunities' }),
   d('analysis.affiliate-research', 'data/analysis/affiliate-research/{date}.json', 'evidence', 'affiliate', '転職アフィリエイトの競合・読者の調査（文書が引用）', { retain: { family: 'affiliate', keepAll: true }, schema: 'AffiliateResearch' }),
