@@ -5,7 +5,8 @@
  * ここでは `[text](/path)` と `href="/path"` を本文から直接拾い、リンク元の記事ファイル数（同じ記事内の重複は 1）を返す。
  * `/docs/<slug>` で書かれたリンクは描画時に正規 URL へ書き換わるので、legacyRoutes（/docs/<slug> → 正規パス）で両方に数える。
  */
-import { readdirSync, readFileSync, existsSync } from "node:fs";
+import { readFileSync } from "node:fs";
+import { listSiteMdx } from "./mdx-files.mjs";
 import { join } from "node:path";
 import { toJoinKey } from "./url-normalization.mjs";
 
@@ -40,19 +41,9 @@ export function countInternalInbound(files, legacyRoutes = new Map()) {
   return counts;
 }
 
-function walkMdx(dir, out = []) {
-  if (!existsSync(dir)) return out;
-  for (const e of readdirSync(dir, { withFileTypes: true })) {
-    const p = join(dir, e.name);
-    if (e.isDirectory()) walkMdx(p, out);
-    else if (e.isFile() && e.name.endsWith(".mdx")) out.push(p);
-  }
-  return out;
-}
-
 /** content/site の全 MDX を読んで数える。MDX が 1 本も読めなければ null（0 件と区別する）。 */
 export function loadInternalInbound(root, legacyRoutes) {
-  const paths = walkMdx(join(root, "content/site"));
+  const paths = listSiteMdx({ dir: join(root, "content/site"), allowMissing: true });
   if (paths.length === 0) return null;
   return countInternalInbound(paths.map((path) => ({ path, text: readFileSync(path, "utf8") })), legacyRoutes);
 }
