@@ -899,7 +899,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 **完了条件**: `npm run check-products` の「原稿と結び付かない収録」が 0 本。
 
 ### [DN-0493] 商品の正本の段階2: 導線設定・カバー設定を正本から生成し、商品設計の画面を正本から読む
-タグ: [収益化] [領域:商品] [時期:2026-12] [種類:改善] [起票:2026-10-01]
+タグ: [収益化] [領域:商品] [時期:2026-12] [種類:改善] [起票:2026-10-01] [進行中]
 
 **起点**: DN-0492（PR #807）で 2級土木の note 商品23件を `content/products/note/` へ移し、`note-magazines.ts` の該当部分を生成にした（2026-10-04 に残りの資格も移し、note の全 143 件が正本から生成）。冒頭導線の記事別ルール（`config/note-intro-standard.json` の variants.civil2）・カバー設定（`config/note-covers.json` の characterCovers）・マガジンの `note掲載文.txt` は、まだ正本と別に手で持っている。
 
