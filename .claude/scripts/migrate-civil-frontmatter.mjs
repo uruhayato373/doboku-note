@@ -6,8 +6,7 @@
 // 削除対象フィールド:
 //   - id
 //   - sidebar_label
-//   - toc_min_heading_level
-//   - toc_max_heading_level
+// (toc_min_heading_level・toc_max_heading_level はサイトが目次の深さに使うので削除しない: DN-0681)
 //
 // AdSense 不合格対策プラン P2-1。詳細: /Users/minamidaisuke/.claude/plans/gentle-questing-sketch.md
 //
@@ -21,7 +20,7 @@ import { join, resolve } from 'node:path';
 
 const baseArg = process.argv.find((a) => a.startsWith('--base='));
 const BASE = resolve(baseArg ? baseArg.slice('--base='.length) : 'content/site/civil-construction-1');
-const LEGACY_FIELDS = ['id', 'sidebar_label', 'toc_min_heading_level', 'toc_max_heading_level'];
+const LEGACY_FIELDS = ['id', 'sidebar_label'];
 const DRY_RUN = process.argv.includes('--dry-run');
 
 function collectMdx(dir, out = []) {

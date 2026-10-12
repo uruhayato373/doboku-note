@@ -58,7 +58,7 @@
  *   9-11 HIGH  <ExamPoint items> の各文字列に句読点（、。，．）を含む（機械分割バグ検出）
  *   9-12 HIGH  civil secondary-r0X で `## 問題` 数 > `<details>` 数（解答欠落検出）
  *   9-13 MEDIUM civil 過去問 MDX に textbook/guide への内部リンクが無い（内部リンク密度の指標）
- *   0-2 HIGH   Docusaurus 旧 frontmatter（id/sidebar_label/toc_min_heading_level/toc_max_heading_level）残存
+ *   0-2 HIGH   Docusaurus 旧 frontmatter（id/sidebar_label）残存。toc_min/max_heading_level はサイトが目次の深さに使う（DocPage.tsx）ので対象外
  *  10-1 HIGH   <ArticleImage caption> が 60 字超（説明型 caption、§8 違反）
  *  10-2 MEDIUM 生 <img> タグ検出（<ArticleImage> への移行を推奨）
  *  10-3 MEDIUM 画像 alt 属性が 80 字超過
@@ -1690,7 +1690,7 @@ function lintR8SpokeFixedPersonas(lines, raw, filePath, findings) {
 
 // ── 0-2: Docusaurus 旧 frontmatter 検出 ────────────────────────────────────
 /**
- * 0-2 HIGH: frontmatter に id/sidebar_label/toc_min_heading_level/toc_max_heading_level が残存。
+ * 0-2 HIGH: frontmatter に id/sidebar_label が残存（toc_* は目次の深さに使うので対象外）。
  *
  * Docusaurus 由来の旧フィールドで doboku-note では未使用。migrate-civil-frontmatter.mjs で一括削除可。
  */
@@ -1764,7 +1764,7 @@ function lintLegacyFrontmatter(raw, findings) {
   const fmMatch = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/);
   if (!fmMatch) return;
   const fmLines = fmMatch[1].split(/\r?\n/);
-  const legacyFields = ['id', 'sidebar_label', 'toc_min_heading_level', 'toc_max_heading_level'];
+  const legacyFields = ['id', 'sidebar_label'];
   fmLines.forEach((line, idx) => {
     for (const field of legacyFields) {
       if (new RegExp(`^${field}\\s*:`).test(line)) {
