@@ -71,7 +71,20 @@ test('sourceSummary: 本文・図解・SNS・商品原稿・展開予定・要�
     { content: 'covered', visual: { decision: 'existing' }, derivative: { decision: 'prepared' }, productArtifacts: [{ path: 'content/note/a' }], backlogIds: ['DN-0001'], pending: false, sourceWaiting: false, stale: false },
     { content: 'partial', visual: { decision: 'needed' }, derivative: { decision: 'needed' }, productArtifacts: [], pending: true, sourceWaiting: false, stale: true },
   ] });
-  assert.deepEqual(m, { units: 2, content: 1, visual: 1, visualNeeded: 1, sns: 1, snsNeeded: 1, product: 1, pending: 1, blocked: 0, stale: 1, planned: 1 });
+  assert.deepEqual(m, { units: 2, content: 1, contentTarget: 2, contentExcluded: 0, contentBlocked: 0, contentPartial: 1, contentUnreviewed: 0, visual: 1, visualNeeded: 1, sns: 1, snsNeeded: 1, product: 1, pending: 1, blocked: 0, stale: 1, planned: 1 });
+});
+
+test('sourceSummary: 本文の分母から対象外を外し、原典待ち・一部対応・未確認を数える', async () => {
+  const { sourceSummary } = await import('../scripts/lib/content-expansion.mjs');
+  const u = (content) => ({ content, productArtifacts: [] });
+  const m = sourceSummary({ units: [u('covered'), u('covered'), u('excluded'), u('blocked'), u('partial'), u('unreviewed')] });
+  assert.equal(m.units, 6);
+  assert.equal(m.contentTarget, 5);
+  assert.equal(m.contentExcluded, 1);
+  assert.equal(m.contentBlocked, 1);
+  assert.equal(m.contentPartial, 1);
+  assert.equal(m.contentUnreviewed, 1);
+  assert.equal(m.content, 2);
 });
 
 test('linkedProductsByUnit: 実データで論点の記事へリンクする note / Kindle を関連商品として導く', async () => {
