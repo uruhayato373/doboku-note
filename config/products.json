@@ -7444,6 +7444,16 @@
       "series": "keiken",
       "tier": "magazine",
       "persona": "E",
+      "cover": {
+        "magazineDir": "content/note/1級・2級土木/2級土木/magazines/2級土木-農業土木林道8工事",
+        "qualifier": "2級土木｜施工経験記述",
+        "magazineName": "農業土木・林道",
+        "proof": "農業土木・林道の8工事",
+        "benefit": "作付け・通水期限を書き分ける"
+      },
+      "listing": {
+        "appeal": "農地や水路の工事で、作付けや通水の期限をどう答案にするか迷う方へ。圃場・水路・ため池・林道の8工事から、自分の現場に近い答案を選べます。想定工事バンク購入者は追加購入不要です。"
+      },
       "catalog": {
         "id": "civil-2-keiken-agri-forest-pack",
         "published": true,
@@ -7477,6 +7487,16 @@
       "series": "keiken",
       "tier": "magazine",
       "persona": "F",
+      "cover": {
+        "magazineDir": "content/note/1級・2級土木/2級土木/magazines/2級土木-橋梁構造物補修7工事",
+        "qualifier": "2級土木｜施工経験記述",
+        "magazineName": "橋梁・構造物の補修",
+        "proof": "橋梁補修の7工事",
+        "benefit": "規制下の補修を書き分ける"
+      },
+      "listing": {
+        "appeal": "橋の補修は通行規制と狭い作業空間が課題になる方へ。床版・支承・伸縮装置・防水・高欄など7工事で、補修工事の管理を書き分けられます。想定工事バンク購入者は追加購入不要です。"
+      },
       "catalog": {
         "id": "civil-2-keiken-bridge-repair-pack",
         "published": true,
@@ -7509,6 +7529,16 @@
       "series": "keiken",
       "tier": "magazine",
       "persona": "H",
+      "cover": {
+        "magazineDir": "content/note/1級・2級土木/2級土木/magazines/2級土木-コンクリート構造物基礎10工事",
+        "qualifier": "2級土木｜施工経験記述",
+        "magazineName": "コンクリート構造物・基礎",
+        "proof": "構造物・基礎の10工事",
+        "benefit": "打設と基礎を書き分ける"
+      },
+      "listing": {
+        "appeal": "打設・養生や杭の管理を答案にしたい方へ。コンクリート構造物と基礎の10工事で、温度・品質・工程の書き分けが見えます。想定工事バンク購入者は追加購入不要です。"
+      },
       "catalog": {
         "id": "civil-2-keiken-concrete-foundation-pack",
         "published": true,
@@ -7544,6 +7574,16 @@
       "series": "keiken",
       "tier": "magazine",
       "persona": "G",
+      "cover": {
+        "magazineDir": "content/note/1級・2級土木/2級土木/magazines/2級土木-土工造成法面10工事",
+        "qualifier": "2級土木｜施工経験記述",
+        "magazineName": "土工・造成・法面",
+        "proof": "土工・法面の10工事",
+        "benefit": "締固めと法面を書き分ける"
+      },
+      "listing": {
+        "appeal": "締固めや法面の安定をどう答案にするか迷う方へ。軟弱地盤から法面対策までの10工事で、土工の品質・安全・工程を書き分けられます。想定工事バンク購入者は追加購入不要です。"
+      },
       "catalog": {
         "id": "civil-2-keiken-earthwork-slope-pack",
         "published": true,
@@ -7579,6 +7619,24 @@
       "series": "keiken",
       "tier": "magazine",
       "persona": "A",
+      "cover": {
+        "magazineDir": "content/note/1級・2級土木/2級土木/magazines/2級土木-地域道路付帯施設10工事",
+        "qualifier": "2級土木｜施工経験記述",
+        "magazineName": "市町村道路の維持修繕",
+        "proof": "市町村道の12工事",
+        "benefit": "担当した維持修繕から選ぶ"
+      },
+      "listing": {
+        "appeal": "市町村道の小さな工事を毎年いくつも担当していて、どれで書くか迷う方へ。生活道路・付帯施設・法面の12工事から、自分の現場に近い答案を選べます。想定工事バンク購入者は追加購入不要です。"
+      },
+      "intro": {
+        "notHome": [
+          "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事103-市道部分舗装修繕区画線復旧/article.md",
+          "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事105-路肩カラー舗装歩行空間整備/article.md",
+          "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事106-公共施設駐車場舗装/article.md",
+          "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事123-林道路面・横断排水補修/article.md"
+        ]
+      },
       "catalog": {
         "id": "civil-2-keiken-local-road-pack",
         "published": true,
@@ -7616,6 +7674,16 @@
       "series": "keiken",
       "tier": "magazine",
       "persona": "J",
+      "cover": {
+        "magazineDir": "content/note/1級・2級土木/2級土木/magazines/2級土木-公園施設民間外構6工事",
+        "qualifier": "2級土木｜施工経験記述",
+        "magazineName": "公園・公共施設・民間外構",
+        "proof": "施設・外構の6工事",
+        "benefit": "利用者のいる現場を書き分ける"
+      },
+      "listing": {
+        "appeal": "利用者のいる施設や民間の現場で、第三者対策をどう書くか迷う方へ。公園・施設・宅地・商業施設の6工事から、自分の現場に近い答案を選べます。想定工事バンク購入者は追加購入不要です。"
+      },
       "catalog": {
         "id": "civil-2-keiken-park-private-pack",
         "published": true,
@@ -7647,6 +7715,16 @@
       "series": "keiken",
       "tier": "magazine",
       "persona": "B",
+      "cover": {
+        "magazineDir": "content/note/1級・2級土木/2級土木/magazines/2級土木-舗装会社の新設修繕9工事",
+        "qualifier": "2級土木｜施工経験記述",
+        "magazineName": "舗装会社の新設・修繕",
+        "proof": "舗装の9工事",
+        "benefit": "新設も修繕も書き分ける"
+      },
+      "listing": {
+        "appeal": "舗装の現場しか経験がなく、題材の幅に不安がある方へ。新設・打換え・修繕・特殊舗装の9工事で、同じ舗装でも管理の書き分け方が見えます。想定工事バンク購入者は追加購入不要です。"
+      },
       "catalog": {
         "id": "civil-2-keiken-paving-pack",
         "published": true,
@@ -7681,6 +7759,16 @@
       "series": "keiken",
       "tier": "magazine",
       "persona": "I",
+      "cover": {
+        "magazineDir": "content/note/1級・2級土木/2級土木/magazines/2級土木-港湾漁港海岸5工事",
+        "qualifier": "2級土木｜施工経験記述",
+        "magazineName": "港湾・漁港・海岸",
+        "proof": "漁港・海岸の5工事",
+        "benefit": "潮位と漁業調整を書き分ける"
+      },
+      "listing": {
+        "appeal": "潮位・波浪や漁業者との調整を答案にしたい方へ。漁港・海岸の5工事で、海の工事ならではの管理を書き分けられます。想定工事バンク購入者は追加購入不要です。"
+      },
       "catalog": {
         "id": "civil-2-keiken-port-coast-pack",
         "published": true,
@@ -7711,6 +7799,16 @@
       "series": "keiken",
       "tier": "magazine",
       "persona": "D",
+      "cover": {
+        "magazineDir": "content/note/1級・2級土木/2級土木/magazines/2級土木-河川砂防災害復旧10工事",
+        "qualifier": "2級土木｜施工経験記述",
+        "magazineName": "河川・砂防・災害復旧",
+        "proof": "河川・砂防の10工事",
+        "benefit": "水際の管理を書き分ける"
+      },
+      "listing": {
+        "appeal": "出水期の制約や水替えを答案にしたい方へ。新設から災害復旧までの10工事で、河川・砂防ならではの管理を書き分けられます。想定工事バンク購入者は追加購入不要です。"
+      },
       "catalog": {
         "id": "civil-2-keiken-river-disaster-pack",
         "published": true,
@@ -7773,6 +7871,16 @@
       "series": "keiken",
       "tier": "magazine",
       "persona": "C",
+      "cover": {
+        "magazineDir": "content/note/1級・2級土木/2級土木/magazines/2級土木-上下水道排水5工事",
+        "qualifier": "2級土木｜施工経験記述",
+        "magazineName": "上下水道・管工事",
+        "proof": "管路・排水の8工事",
+        "benefit": "担当した管工事から選ぶ"
+      },
+      "listing": {
+        "appeal": "管路の現場で、品質・安全・工程をどう書き分けるか迷う方へ。開削・推進・更生・排水の8工事から、自分の現場に近い答案を選べます。想定工事バンク購入者は追加購入不要です。"
+      },
       "catalog": {
         "id": "civil-2-keiken-water-drainage-pack",
         "published": true,
