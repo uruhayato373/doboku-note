@@ -104,6 +104,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 | `/ig-reconcile` | IG 公開状態を CI 週次 snapshot（`login-collectors.yml` の `verify-ig-status`・encrypted-state）と照合し、posted.json/status.json のドリフトを是正・未公開を安全に予約まで運ぶ運用スキル。`ig-publish-auditor` で公開可否ゲート→`publish-ig-bs` で衝突しない時間帯へ予約→プランナー実体確認。投稿/予約は operator 確認後・削除は対象外。真実源 `.claude/knowledge/reference/ig-publish-reconcile.md` | `IG公開状態を確認`, `未公開を予約投稿`, `IGのSoTドリフト是正`, `IG status reconcile`, `/ig-reconcile` |
 | `/x-repost` | 高エンゲージな技術士総監/1級・2級土木ツイートを検索 → `x-repost-curator` で選別＋引用コメント生成 → Playwright で引用RP（ローカル `/loop` 運用・dry-run 必須） | `Xリポスト`, `引用リポスト`, `/x-repost` |
 | `/yt-shorts-create` | **v7: IG Reels mp4 から YouTube Shorts を派生**（**≤60秒**トリム〔60秒超は通常動画扱い〕+ 概要欄差替、`--from-reels`。投稿は3本/日・JST07:30/12:30/20:00、真実源 policy §5-7。MDX 直結 `--slug` は廃止） | `YouTube Shorts`, `YT 派生`, `/yt-shorts-create --from-reels r03-pack-01` |
+| `/video-content` | 動画パック（悩み・出典付き台本・storyboard・CTA）の薄い入口。既存パック重複確認→`video-script-writer` 生成→`check-video-content`→`video-content-qa` 独立採点→承認待ちで停止（BLOCK は指摘だけ Generator へ返す・最大2回）。レンダリング・投稿・承認は担当外（既存 CLI／`registry -- approve`）。契約 `video-content-policy.md` §7 | `動画パックを作る`, `動画台本を作る`, `パックの台本をQA`, `/video-content <exam> <packId>` |
 
 ### 開発（dev）
 

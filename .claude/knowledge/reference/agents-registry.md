@@ -8,7 +8,7 @@ title: サブエージェント詳細レジストリ
 
 SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を共通参照する。ig-carousel-writer／ig-reels-writer／x-post-writer は短い見出しと台帳のポーズ候補を制作担当へ渡し、対応QAおよびyt-shorts-publisher-qaは画像の判読・同一性・重なりを確認する。ポーズ分類の真実源は [キャラクター素材ポリシー](./character-asset-policy.md) が案内する台帳で、一覧確認は管理画面 `/gallery/characters`。画像QAから外部投稿の更新完了を推定しない。
 
-> **件数の SSOT**: エージェント数の真実源は `.claude/agents/*.md` の実数（`find .claude/agents -maxdepth 1 -name '*.md' | wc -l`＝現在 **86**）と下記「エージェント一覧」表。CLAUDE.md など他 doc は件数を重複記載せずここを指す。追加/削除は同一 commit でこの表を更新する。
+> **件数の SSOT**: エージェント数の真実源は `.claude/agents/*.md` の実数（`find .claude/agents -maxdepth 1 -name '*.md' | wc -l`＝現在 **88**）と下記「エージェント一覧」表。CLAUDE.md など他 doc は件数を重複記載せずここを指す。追加/削除は同一 commit でこの表を更新する。
 
 **description の運用**: 呼出時の概要は 300 code points 以下とし、詳細な手順・制約は各 agent 本文を読む。Codex 用 TOML は原本から自動生成する。`node scripts/check-agent-descriptions.mjs` が全件を検査し、新規超過・悪化を拒否する。
 
@@ -64,6 +64,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | X 投稿生成（親が起動 / `social-post` 連携）     | `x-post-writer`, `x-post-qa`                                     | X 投稿 `tweets.md` 執筆 → 5軸採点（多資格 exam 横断） |
 | `/x-repost`（親が起動）                          | `x-repost-curator`                                              | 引用RP 候補の選別＋引用コメント生成（discover/exec は純 Playwright） |
 | `/yt-shorts-create`（親が起動）                  | `yt-shorts-title-writer`, `yt-shorts-publisher-qa`              | YT Shorts の論点タイトル生成（既定上書き）→ 4軸採点 |
+| `/video-content`（動画パックの入口）            | `video-script-writer`, `video-content-qa`                       | 動画パック（台本・storyboard・CTA）の生成 → `check-video-content` → 6軸（0〜3）＋BLOCK 採点 → 承認待ちで停止 |
 | UI/ページデザイン（親が起動）                    | `page-design-builder` → `/design-review`                        | design-system.md 準拠でページ/レイアウト/UI コンポーネント実装 → 視覚回帰採点（Generator/Evaluator 分離） |
 | `/doc-sync`（コード変更面の完了時に親が起動）          | `doc-sync-auditor`                                              | 変更 diff × 候補 doc を突合し prose・表・コマンド・件数・閾値の意味的陳腐化を検出（適用は親） |
 | `check-image-origin --ai-queue`（AI 画像の判定待ち・親が起動） | `ai-image-fidelity-auditor` | 写真（AI 生成画像）が実物どおりかを本文と生成の指示に照らして ok / fail。親が `record-ai` で台帳へ記録し、CI が ok の無い AI 画像を止める |
@@ -149,6 +150,8 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `ig-stories-qa`                | Instagram Stories の **3 軸**ルーブリック品質評価（コピー力・リンク導線整合・ステッカー双方向性）。テンプレ未差替（「令和7年度」のまま等）と 02/03 ステッカー誤配置を減点 | Evaluator    | sonnet  | `.claude/knowledge/reference/ig-stories-policy.md` 参照（戦略 v7 で新設） | 🚧 Phase 1（2026-05-28 起動、戦略 v7 Phase C）       |
 | `yt-shorts-title-writer`       | YouTube Shorts（過去問派生）の**論点ベースのタイトル**を執筆し meta.json の既定タイトルを上書き（`技術士総監 令和X年度 択一｜論点 #Shorts`・40字以内・使い回し/ネタバレ禁止）。親が featured 設問文を抽出して渡す | Generator    | sonnet  | `.claude/knowledge/reference/yt-shorts-publisher-policy.md` §2 参照、`yt-shorts-publisher-qa` と対 | ✅ 運用中（2026-06-05 起動）            |
 | `yt-shorts-publisher-qa`       | YouTube Shorts（IG Reels 派生 mp4 + meta.json）の **4 軸**ルーブリック品質評価（尺=**≤60秒ゲート**〔60秒超は通常動画扱いで不合格〕・UTM 整合・タイトル長/検索性・字幕整合）。IG 用 UTM 混入を重大減点、予約後は `videos.list` で偽成功検証（policy §7） | Evaluator    | sonnet  | `.claude/knowledge/reference/yt-shorts-publisher-policy.md` 参照（戦略 v7 で新設、2026-06-05 v2 確定） | 🚧 Phase 1（2026-05-28 起動、戦略 v7 Phase D）       |
+| `video-script-writer`          | 動画パック（`content/sns/video-packs/{exam}/{slug}/` の video-pack.json・script.md・storyboard.json・派生ブリーフ）を 1 パック書く。出典を読んでから書き、逐語転用・主 CTA 複数・推測の URL/数値を避ける。全資格共通（資格別エージェントは作らない）。判定・レンダリング・投稿は担当外 | Generator    | sonnet  | `.claude/knowledge/reference/video-content-policy.md` §2-4・§6、`video-content-qa` と対 | 🚧 新設（DN-0406・2026-10-12） |
+| `video-content-qa`             | 動画パックの台本・企画を **6軸（0〜3）**で採点（悩み適合・事実/出典・視聴維持・図版音声字幕・差別化/Red Line・CTA/計測）。平均2.0以上かつ BLOCK なしで公開候補。`check-video-content` の FAIL と出典なし断定は BLOCK。修正・status 変更・投稿はしない（audit-only・`tools:` allowlist） | Evaluator    | sonnet  | `.claude/knowledge/reference/video-content-policy.md` §6-9、`video-script-writer` と対 | 🚧 新設（DN-0406・2026-10-12） |
 | `ig-highlight-designer`        | Instagram ハイライト（`highlights/NN_*/slide-data.json`）の Stories 用構造化データを 1 ハイライトずつ執筆。モダンシック意匠 + データ駆動レイアウト | Generator    | sonnet  | `.claude/knowledge/reference/ig-highlight-design-policy.md` 参照（戦略 v7.1 で新設） | 🚧 Phase 1（2026-05-28 起動、戦略 v7.1）              |
 | `ig-highlight-qa`              | Instagram ハイライト の **4 軸**ルーブリック品質評価（サムネ識別性・リードコピー力・ジャンル一貫性・余白配分／セーフエリア）。IG UI セーフエリア侵入（overline が y<200）・本文の y>=1280 侵入・06_materials の note 有料直リンクを重大減点 | Evaluator    | sonnet  | `.claude/knowledge/reference/ig-highlight-design-policy.md` 参照（戦略 v7.1 で新設） | 🚧 Phase 1（2026-05-28 起動、戦略 v7.1）              |
 | `magazine-pdf-builder`         | note マガジンの article.md を「問題文＋解答」紙用 PDF に変換する spec(JSON) を作成し `scripts/magazine-to-pdf.mjs` を実行。新規/構造不明マガジンの include/exclude 設計が主戦場。複数解答（A/B案）両収録を社則化 | Generator    | sonnet  | `/magazine-to-pdf` 連携、`scripts/magazine-to-pdf.mjs` DSL 準拠 | ✅ 運用中（2026-05-29 起動） |
@@ -229,6 +232,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | **ig-reels-qa** | `reels/script.json` + `reels/caption.txt` + `reels/video.mp4` + 対応 `reels/img/*.png` | 尺・読み上げ完結性・キャプション/タグ品質・音声画面整合・保存導線（5軸）。「スワイプで」等カルーセル流用 CTA を重大減点 | IG Reels script.json 執筆後 / mp4 生成後 |
 | **ig-stories-qa** | `stories/caption.txt` + `stories/note.md` + 対応 `stories/img/01-04.png` | コピー力・リンク導線整合・ステッカー双方向性（3軸）。テンプレ未差替・ステッカー誤配置を減点 | IG Stories caption.txt 執筆後 |
 | **yt-shorts-publisher-qa** | `content/sns/youtube/<date>-<pack-id>/shorts.mp4` + `meta.json` + `thumbnail.png` | 尺=**≤60秒ゲート**・UTM 整合・タイトル長/検索性・字幕整合（4軸）。IG 用 UTM 混入を重大減点、予約後 `videos.list` 実査 | YT Shorts 派生 mp4 生成後（`yt-shorts-create --from-reels` 完了後） |
+| **video-content-qa** | `content/sns/video-packs/{exam}/{slug}/`（video-pack.json・script.md・storyboard.json）＋ `sourceRefs` の実体 | 悩み適合・事実/出典・視聴維持・図版音声字幕整合・差別化/Red Line・CTA/計測（6軸 0〜3・平均 ≥2.0 かつ BLOCK なし）。`check-video-content` FAIL・出典なし断定・逐語転用・主 CTA 複数は BLOCK | `/video-content` で台本生成後（レンダリング前） |
 | **ig-highlight-qa** | `highlights/NN_*/slide-data.json` + `img/*.png` | サムネ識別性・リードコピー力・ジャンル一貫性・余白配分／セーフエリア（4軸）。IG UI セーフエリア侵入・本文 y>=1280 侵入・06_materials の note 有料直リンクを重大減点。`ig-stories-qa`（過去問 4 枚連投）とは別文脈 | IG ハイライト slide-data.json 執筆後 / PNG 生成後 |
 | **pe-secondary-exam-qa** | `content/note/技術士建設部門/magazines/{magazine}/{year}/article.md`（論述式 模範解答） | 設問適合・論述構成/論点絞り込み・分かりやすさ/あいまい表現排除・発注者視点/専門性・note完成度（5軸）＋字数上限〔枚数×600字〕・note-lint・設問1対1・論述式文体ゲート。論述原則は `技術士論文の書き方`（非公開・原則抽出）由来 | 技術士二次 模範解答 article.md 生成後 |
 | **cem-essay-qa** | `content/note/技術士総監/magazines/{magazine}/{slug}/article.md`（総監記述式 模範論文／模範解答） | 字数〔各施策600字〕・散文性・監理可能性〔越権排除〕・専門度〔設問3 NG用語/5管理正式名〕・白書根拠/真正性〔ペルソナ経験座〕（5軸）＋字数 strict・見出し構造・note-lint・blockquote濫用ゲート。評価軸の真実源は `note-essay-review-checklist.md`。pe-secondary-exam-qa（建設部門）/cem-qa（キーワードページ）と守備範囲が直交 | 総監 note 記述式 模範論文 article.md 生成後 |
