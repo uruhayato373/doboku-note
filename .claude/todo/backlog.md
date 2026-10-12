@@ -1889,11 +1889,6 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 
 
 
-### [DN-0687] knip の未使用 25 ファイル（UI バレル 18・src/lib 5・ig design 2）を消して baseline を下げる
-タグ: [領域:管理] [種類:改善] [検証:check-knip-ratchet] [起票:2026-10-11] [進行中]
-
-**起点**: 2026-10-11 のコード監査（npx knip、Unused files 37）。残す 11 件（quality-cycle の scripts-cem/scripts-civil-textbook）は knip.json の entry が scripts/** だけで scripts-* に一致しない誤検知で、2026-10-11 に entry を足した（26 件に減少）。消せるのは src/components/ui/*/index.ts 17 本と ui/index.ts（@/components/ui/<名前> での import は 0 件・実体は <名前>/<名前> 直接 import 103 件・バレルを求める規約なし）、src/lib/image-optimization.ts・latest-posts.ts・frontmatter-schema.ts（.claude/scripts/lib/frontmatter-schema.mjs:6 のコメントと data-storage-decision.md:43 を同時に直す）・src/types/category.ts・src/utils/scrollUtils.ts、.claude/skills/social/ig-post-create/design/{design-generator,variants-generator}.mjs（144KB）。他に @fontsource/manrope が未使用依存（package.json:544）、hast が未列挙依存。
-**完了条件**: npm run check-knip-ratchet が通り、npx knip の Unused files が 1 以下。--update-baseline で baseline を下げる。
 
 
 ### [DN-0681] lint-mdx-mobile が、サイトが目次に使う toc_min/max_heading_level を「未使用の旧 frontmatter・一括削除可」として HIGH を出している

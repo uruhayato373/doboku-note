@@ -2904,6 +2904,23 @@
       "commit": "92ab013f9005",
       "verification": null,
       "note": "PR #1004 マージ。scripts/build-llms-txt.mjs が doc-meta-index・qualification-registry・categories から public/llms.txt（資格 10・1,360 ページ）と llms-full.txt を生成し、refresh-indexes の末尾に組み込み。生成物とコミットの不一致は check-generated-indexes が止める"
+    },
+    {
+      "id": "DN-0687",
+      "at": "2026-10-12",
+      "task": "knip の未使用 25 ファイル（UI バレル 18・src/lib 5・ig design 2）を消して baseline を下げる",
+      "tier": "low",
+      "kind": "改善",
+      "prevention": {
+        "type": "gate",
+        "ref": "scripts/check-knip-ratchet.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "7c588897ee43",
+      "verification": null,
+      "note": "PR #1001 マージ。使い手の無い 26 ファイルと未使用依存を削除し、knip baseline を締めた。@fontsource/manrope はパス参照で使うため ignoreDependencies に登録"
     }
   ]
 }
