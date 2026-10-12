@@ -33,10 +33,10 @@ export default async function CompetitorsPage({ searchParams }: { searchParams: 
     <>
       <PageHead title="競合" sub={view.fetchedDate ? `取得 ${md(view.fetchedDate)}` : undefined} />
       <SectionTabs set="market" current="/strategy/competitors" />
-      <nav className="filterbar" style={{ marginBottom: 8 }}>
+      <nav className="filterbar mb-2!">
         <span className="chip active">ココナラ</span>
       </nav>
-      <nav className="filterbar" style={{ marginBottom: 12 }}>
+      <nav className="filterbar mb-3!">
         <Link className={'chip' + (!exam ? ' active' : '')} href="/strategy/competitors">
           すべて {view.rows.length}
         </Link>

@@ -2,11 +2,15 @@ import Link from 'next/link';
 import { TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow, numCol } from '@/components/admin';
 import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
+import { cn } from '@/lib/cn';
 import { loadKpiView, type KpiCell } from '@/lib/kpi-tree';
 
 export const dynamic = 'force-dynamic';
 
 /** トップから開く詳細: KPI ツリーの全指標を資格別に並べる（docs/strategy/15_KPIツリー.md）。 */
+/** 階層ごとの字下げ（頂点 / チャネル / 入口）。 */
+const INDENT = ['pl-2', 'pl-6', 'pl-10'] as const;
+
 const fmt = (v: number | null, unit: string) =>
   v == null ? '—' : unit === '円' ? `¥${v.toLocaleString('ja-JP')}` : `${v.toLocaleString('ja-JP')}${unit === '%' ? '%' : ''}`;
 
@@ -44,7 +48,7 @@ export default async function KpiTreePage({ searchParams }: { searchParams: Prom
               </TableRow>
               {g.rows.map((r) => (
                 <TableRow key={r.id}>
-                  <TableCell style={{ paddingLeft: r.depth * 16 + 8, fontWeight: r.depth === 0 ? 700 : undefined }}>{r.label}</TableCell>
+                  <TableCell className={cn(INDENT[r.depth], r.depth === 0 && 'font-bold')}>{r.label}</TableCell>
                   {v.scopes.map((s) => (
                     <Cell key={s.id} cell={r.cells[s.id]} unit={r.unit} />
                   ))}

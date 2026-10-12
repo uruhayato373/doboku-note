@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import Link from 'next/link';
 import { PageHead } from '@/components/ui';
+import { Card, CardContent } from '@/components/ui/card';
 import { listDocuments } from '@/lib/document-store';
 import { type RootDescriptor } from '@/lib/document-roots';
 import { loadProjectEntries } from '@/lib/project';
@@ -177,7 +178,9 @@ export function DocRootView({
         ))}
       </div>
       {cards.length === 0 && (
-        <div className="card empty">{totalCount === 0 ? descriptor.emptyState : '一致する文書はありません。'}</div>
+        <Card>
+          <CardContent className="py-6 text-center text-sm text-muted-foreground">{totalCount === 0 ? descriptor.emptyState : '一致する文書はありません。'}</CardContent>
+        </Card>
       )}
     </>
   );
