@@ -259,6 +259,10 @@ CLAUDE.md §1・§2・§5・§10 の根拠と経緯（ルール本文は CLAUDE.
 - 別の worktree での作業は `git -C <絶対パス>` と絶対パスで行う。Claude Code の Bash は括弧の外の `cd` でセッションの作業ディレクトリが移り、以後の相対パスとサブエージェントの書き込み先がずれる。その場所での実行が要るときはサブシェル `( cd <dir> && … )` に閉じる。PreToolUse のフック `check-cd-scope` が、worktree やプロジェクトの下の階層への素の `cd` を止める（DN-0622）
 - 単一セッションで短時間の作業に worktree は作らない（§5「worktree は複数セッション並行時だけ」）
 
+### feature ブランチを最新 develop へ載せ直す
+
+`node scripts/replay-onto-develop.mjs <sha...> [--push]`（`npm run replay-onto-develop -- <sha...> --push`）。commit の実在・fetch・`reset --keep origin/develop`・cherry-pick・`git patch-id` での元とのパッチ照合を 1 段ずつ確かめ、失敗したら残った状態と戻し方を出して非 0 で終える。`--push` は同じパッチのときだけ（develop 以外は `--force-with-lease`）。手で `;` 繋ぎにしない（失敗の後も push まで進んだ事故が 3 回。memory `reference_partial_clone_repack_hazard`）。
+
 ### 同一ワークツリーで並行せざるを得ないとき
 
 - reflog・`develop` 先頭・未コミットが自分の操作と無関係に動くのは正常（共有 `.git/logs/HEAD` に全プロセスの記録が混在する）
