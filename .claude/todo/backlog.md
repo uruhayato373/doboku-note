@@ -101,12 +101,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **完了条件**: 技術士アプリ（第一次試験）が TestFlight で動き、総監が試験設定とデータだけで載り、土木施工管理技士アプリを作る手順が記録されている。
 
-### [DN-0615] check-keiken-answer-split が正しい説明文を [D] と誤検知して develop の CI が赤い（経験記述の書き方 563 行）
-タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-09] [進行中]
-
-**起点**: 2026-10-09、develop の CI（quality-audit の keiken-answer-split・ci:true）が赤い。`content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx:563`（6325dbc60「書籍の網羅から追記する」で追加）の「令和6年度以降の形式では、検討した項目が（1）の区画の後半に入り、対応処置は（2）に入るので、検討の理由は項目ごとに短く絞る。」を、`scripts/lib/keiken-answer-split.mjs` の checkClaim が [D]「1級の(2)に検討項目そのものを割り当てている」と判定する。本文は検討項目を（1）、対応処置を（2）に置いており正しい。（2）の後ろの同じ文の続き（「検討の理由は…」）を（2）の中身として読んでいる誤検知。
-**やること**: 主張の切り出し（（2）の後ろをどこまで（2）の中身とみなすか）を、「…に入るので、」のような接続で切るように直し、上の文を回帰の見本にする（テストつき）。記事の本文は 2026-10-09 に言い換えて CI を通したので（b202397f3）、見本はテストの中に置く。
-**完了条件**: 上の文をテストに入れて違反に出ず、既存の真の違反の見本はこれまでどおり出る。
 
 ### [DN-0614] コンテンツ台帳 P1: content/registry の土台（設計書・型・台帳・CLI・検査・素材の ID 置き場）を作る
 タグ: [領域:SNS] [時期:2026-10] [種類:改善] [起票:2026-10-09] [進行中]
@@ -410,12 +404,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 
 
-### [DN-0682] 2級土木の水セメント比図の無条件な施工性低下の説明を修正する
-タグ: [領域:商品] [時期:2026-10] [種類:不具合] [起票:2026-10-11] [進行中]
-
-起点: 2級土木の動画用図解選定時、content/site/civil-construction-2/guide-concrete-key-points/img/figure-wc-ratio-tradeoff.svg のaria-labelが「水セメント比を小さくするほど…流動性が下がって施工性は低下する」と無条件に説明していることを確認した。
-やること: 一次資料と配合条件を照合し、水セメント比と強度・耐久性、単位水量や混和剤等と流動性の関係を区別して図と本文を修正する。図の実パスと掲載先も確認する。
-完了条件: 無条件の逆相関を示す図・説明を解消し、SVGと本文の整合・画面表示を確認する。今回の総まとめ動画には当該図を採用していない。
 
 
 ### [DN-0677] 検索で表示のある削除済みページ（/standards/guides の 5 本）・数字付き 404・共通仕様書の機関別重複の扱いを決める
@@ -459,18 +447,8 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 **完了条件**: 記述問題 329 問の演習データに記述の解説が入り、サイトの演習とアプリ（シミュレータ）で 1 問ずつ表示を確かめた。`npm run check-answer-marks` は 0 件のまま。
 
 
-### [DN-0669] check-google-ui-ssot が台帳に無い ga4.ui-history を参照して落ち、GSC UI の整合を検査できない
-タグ: [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-11] [進行中]
-
-**起点**: 2026-10-11、/google-search-growth の手順 4（normalize の後）で `npm run check-google-ui-ssot` を回すと、`scripts/lib/datasets.mjs:475` の「台帳に無いデータセット: ga4.ui-history」で落ちる（GSC UI の正規化と search-growth:report は通る）。GA4 UI の取得は 2026-07-30 から失敗のまま（check-gsc-ui-due: trafficAcquisition=csv-menu-ambiguous・landingPage/events=report-not-found）で、ga4.ui-history の台帳宣言が無いか id が変わった可能性。検査が落ちるので marker ↔ history ↔ urls の整合を誰も確かめられていない。
-**やること**: check-google-ui-ssot が参照する GA4 の台帳 id を `scripts/lib/datasets.mjs` の宣言に合わせる（または `planned: true` で宣言）。GA4 UI が未取得のときは GA4 側を「未取得」と出して GSC 側の検査は続ける。回帰テストを足す。
-**完了条件**: `npm run check-google-ui-ssot` が exit 0（GA4 未取得なら未取得と表示）で、GSC の marker ↔ history ↔ urls の整合を実検査した件数を出す。
 
 
-### [DN-0668] 総監の合格戦略記事に残る口頭試験評価の誤記を修正する
-タグ: [領域:商品] [時期:2026-10] [種類:不具合] [検証:check-mdx-facts] [起票:2026-10-11] [進行中]
-
-exam-passing-strategy/article.mdx の239・264行付近に、総監口頭は知識を問わないとの誤記がある。R8公式の経歴及び応用能力・体系的専門知識に合わせて修正。今回の動画は修正済み。
 
 
 ### [DN-0667] CI の coconala 取得（403 で毎週失敗）を止めるか CI 不可として扱う
@@ -505,14 +483,6 @@ exam-passing-strategy/article.mdx の239・264行付近に、総監口頭は知�
 
 **完了条件**: 管理画面トップ（?month=2026-05〜09）の受取額がすべて note 確定値で出て、2026-05・06・09 の netReceipts が complete で記録されている。
 
-### [DN-0660] 管理画面の型チェック（tools/admin-app の tsc）が content-items.ts で 2 件落ちたまま、どの CI でも検査されていない
-タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-10] [進行中]
-
-**起点**: 月次レビュー（2026-09-01〜2026-09-30）の作業中、管理画面のレビュー画面を直したときに `cd tools/admin-app && npx tsc --noEmit -p tsconfig.json` を回すと、触っていない `src/lib/content-items.ts`（94・98 行目: object[] を ItemRow[]・ItemWork へ代入）で 2 件落ちていた（develop の 589fa61d4 時点）。ルートの `npm run type-check` は管理画面を含まず、CI でも管理画面の tsc は回っていないので誰も気づかない。
-
-**やること**: content-items.ts の 2 件を、呼び出し元の JS（.mjs）に JSDoc の型を付けるか戻り値を型で絞って直す。続けて管理画面の tsc を quality-audit（ci:true）か pre-commit の staged 版に足し、壊れたら止まるようにする。
-
-**完了条件**: 管理画面の tsc が 0 件で通り、同じ型エラーを入れると CI（または pre-commit）が止まる。
 
 
 ### [DN-0599] 総まとめ・聞き流し（承認済み動画パックの連結・チャプター付き）の1本目「2級 直前総まとめ」を音声付きにして承認・公開する
@@ -605,19 +575,7 @@ exam-passing-strategy/article.mdx の239・264行付近に、総監口頭は知�
 **やること**: 開いている CodeQL の警告（`gh api repos/uruhayato373/doboku-note/code-scanning/alerts?state=open`）を 1 件ずつ、実害（管理画面は手元専用・引数は運営者が渡すなど）と直し方で振り分け、直すものは直し、誤検知・受容するものは理由をつけて dismiss する。
 **完了条件**: 開いている CodeQL の警告が 0 件（直したか、理由つきで dismiss した）。
 
-### [DN-0637] dependabot のセキュリティ更新の PR が main 向きに開き、develop を通らずに本番へ出る経路を塞ぐ
-タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-10] [進行中]
 
-**起点**: 2026-10-10、dependabot の Next 16.3.8（#925）を向き先を確かめずにマージし、develop を通らずに main へ入ってデプロイが起動した。`.github/dependabot.yml` は npm・github-actions とも `target-branch: develop` だが、**セキュリティ更新の PR はこの設定に従わず既定のブランチ（main）へ向く**。今回は CI 緑のパッチ更新で害は無かったが、develop の CI・品質監査を経ずに本番へ出る経路が残っている。
-**やること**: main 向きに開いた dependabot の PR を develop へ付け替える workflow（`pull_request_target` の opened で、作者が dependabot[bot] かつ base が main なら `gh pr edit --base develop` してコメントを残す）を足すか、main への PR を develop 以外から受けたら CI を赤にする検査を足す。どちらにするかは、main を守る既存の仕組み（Auto-merge on green など）と合わせて決める。
-**完了条件**: main 向きの dependabot の PR が develop 向きになる（または main へ直接マージできない）ことを、テストか実際の PR で確かめる。
-
-### [DN-0635] 並行する PR が dispatch-log.json の末尾に記録を足して毎回衝突するので、両方を残して合わせる merge driver を入れる
-タグ: [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-10-10] [進行中]
-
-**起点**: 2026-10-10、並行する PR（#951・#952・#953・#955）と develop への直 push のたびに `.claude/state/dispatch/dispatch-log.json` が衝突し、手で 5 回解消した。todo:complete はどのブランチでも配列の末尾に記録を足すので、2 本目以降の PR は必ず衝突し、衝突中の PR には GitHub の pull_request の CI が起動しない（#953 は衝突に気づくまで audit・build が 1 度も走らなかった）。解消のたびに、両方の記録を残す同じ手作業（develop の並び＋ブランチだけの記録を末尾）をしている。
-**やること**: 両方の記録を残して合わせる merge driver（`scripts/merge-dispatch-log.mjs`。id・at・task で重複を落とし、develop 側の並びの後にブランチ側だけの記録を足し、JSON の書式を保つ）を作り、`.gitattributes` に `merge=dispatch-log` を書く。driver の登録（git config）はクローンごとに要るので、`scripts/install-pre-commit.mjs`（または同等のセットアップ）で登録する。backlog.md の同様の衝突も数える（今回は自動で合わさった）。
-**完了条件**: 末尾に別々の記録を足した 2 本のブランチを合わせても衝突しないことをテストで確かめ、driver を登録していない環境では従来どおり衝突として止まる（黙って片方を捨てない）。
 
 ### [DN-0632] サイトにメールの登録ページを作り、配信サービスを選ぶ（iOS アプリと記事から案内して note・ココナラへつなぐ）
 タグ: [収益化] [領域:サイト] [時期:2026-10..2026-11] [種類:制作] [起票:2026-10-10]
