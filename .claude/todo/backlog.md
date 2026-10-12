@@ -547,14 +547,6 @@ exam-passing-strategy/article.mdx の239・264行付近に、総監口頭は知�
 
 **完了条件**: 対象記事の原稿と公開本文で、口頭準備者向けの冒頭案内が一致する。導線の再注入で旧案内に戻らず、対象記事を含む `audit-note-funnel --live` でドリフト0。公開反映前に対象記事と案内文を運営者が確認できる状態にする。
 
-### [DN-0654] pre-commit の check-relative-links が、削除したファイルを指す他の文書のリンクを見ていない
-タグ: [エージェント・SSOT] [領域:管理] [時期:2026-10] [種類:不具合] [検証:check-relative-links] [起票:2026-10-10] [進行中]
-
-**起点**: 週次レビュー（2026-10-05〜2026-10-11）。W40 レビューの確定で docs/reviews/weekly/2026-W39-review.md を削除したコミット（395f5fbb3）が pre-commit を通り、develop の Pre-merge が relative-links で赤になった（#960・docs/marketing/07c の 10 行目が W39 を指していた）。pre-commit の --staged は staged ファイルから出るリンクだけを検査し、削除した宛先を指す未変更ファイルのリンクを見ない。週次レビューは毎週旧週を消すので再発しやすい。
-
-**やること**: check-relative-links の staged モードで、staged の削除・改名（git diff --cached --diff-filter=DR）があれば、リポジトリ全体からその宛先への相対リンクを探して壊れとして出す。回帰テストを tests/ に足す（削除したファイルを指すリンクがあると exit 1）。
-
-**完了条件**: 他の文書からリンクされたファイルを削除して git commit すると pre-commit が止まり、テストが npm test で通る。
 
 ### [DN-0598] 経営の指標（business-direction）に YouTube 経由のサイト利用者を主 KPI として足す
 タグ: [インフラ・計測] [領域:戦略] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-08]
