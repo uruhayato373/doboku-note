@@ -10,7 +10,7 @@ const crypto = require('node:crypto');
 const { google } = require('googleapis');
 const { S3Client, GetObjectCommand } = require('@aws-sdk/client-s3');
 
-const ROOT = path.resolve(__dirname, '../../..');
+const ROOT = path.resolve(__dirname, '../../..'); // root-ok: CommonJS から ESM の REPO_ROOT を同期で読めない（__dirname から固定の深さで組み立てる）
 const PRIVATE_BUCKET = 'doboku-note-archive';
 const PRODUCTION_DISCLOSURE = JSON.parse(
   fs.readFileSync(path.join(ROOT, 'config/youtube-production-disclosure.json'), 'utf8'), // path-literal-ok: CommonJS のモジュール先頭（同期・async 文脈なし）で読み ESM の台帳を引けない（台帳 id: config.youtube-production-disclosure）
@@ -39,18 +39,11 @@ const DRY = process.argv.includes('--dry-run');
 const RELATED_CONFIRMED = process.argv.includes('--related-confirmed');
 const SKIP_THUMBNAIL = process.argv.includes('--skip-thumbnail');
 
-function walk(dir, out = []) {
-  for (const ent of fs.readdirSync(dir, { withFileTypes: true })) {
-    const p = path.join(dir, ent.name);
-    if (ent.isDirectory()) walk(p, out);
-    else if (ent.name === 'video-pack.json') out.push(p);
-  }
-  return out;
-}
-
-function findPack(packId) {
+// 走査は scripts/lib/fs-walk.mjs の listFiles（ESM なので動的 import）
+async function findPack(packId) {
   const root = path.join(ROOT, 'content/sns/video-packs');
-  for (const manifestPath of walk(root)) {
+  const { listFiles } = await import(require('node:url').pathToFileURL(path.join(ROOT, 'scripts/lib/fs-walk.mjs')).href);
+  for (const manifestPath of listFiles(root, { match: (_path, name) => name === 'video-pack.json' })) {
     const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
     if (manifest.packId === packId) return { dir: path.dirname(manifestPath), manifest };
   }
@@ -352,7 +345,7 @@ async function main() {
     throw new Error('Usage: --pack-id ID --phase longform|metadata|thumbnail|shorts-upload|shorts-publish [--dry-run] [--skip-thumbnail] [--related-confirmed]');
   }
   if (!/^[a-z0-9][a-z0-9-]{2,80}$/.test(PACK_ID)) throw new Error('pack-id 形式が不正です');
-  const pack = findPack(PACK_ID);
+  const pack = await findPack(PACK_ID);
   const publishPath = path.join(pack.dir, 'youtube.json');
   if (!fs.existsSync(publishPath)) throw new Error(`youtube.json がありません: ${publishPath}`);
   publish = JSON.parse(fs.readFileSync(publishPath, 'utf8'));

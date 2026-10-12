@@ -3,15 +3,16 @@
  * video-pack 派生 Instagram Reels を、Meta の29日予約窓内だけ Business Suite へ投入する。
  * 既定 dry-run（先頭1件で最終確定直前まで）。--commit で予約する。
  */
-import { existsSync, mkdirSync, readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { dirname, join, relative } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { assertInstagramPublicationReady } from './lib/instagram-campaign.mjs';
 import { readIgPublication, recordIg } from './lib/registry-ig-store.mjs';
 import { isSchedulableLedgerRow } from './ig-status.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
-const ROOT = process.cwd();
 const campaign = assertInstagramPublicationReady(ROOT);
 const campaignSchedule = campaign && new Map(campaign.schedule.filter(row => row.format === 'reel').map(row => [row.path, row.publishAt]));
 const BASE = join(ROOT, 'content/sns/instagram/video-packs');
@@ -44,15 +45,7 @@ async function recordScheduled(row) {
   await recordIg(ROOT, rel, 'reel', 'scheduled', { publishAt: row.meta.publishAt });
   console.log(`[ig-video-pack-reels] 台帳更新: ${rel} → scheduled`);
 }
-function walk(dir) {
-  if (!existsSync(dir)) return;
-  for (const name of readdirSync(dir)) {
-    const path = join(dir, name);
-    if (statSync(path).isDirectory()) walk(path);
-    else if (name === 'meta.json' && dirname(path).endsWith('/reels')) metaPaths.push(path);
-  }
-}
-walk(BASE);
+metaPaths.push(...listFiles(BASE, { match: (path, name) => name === 'meta.json' && dirname(path).endsWith('/reels'), allowMissing: true, followLinks: true }));
 
 const candidates = (await Promise.all(metaPaths.map(async (metaPath) => {
   const reelsDir = dirname(metaPath);

@@ -26,9 +26,10 @@ import { createRequire } from 'node:module';
 import { coverExamNames } from './lib/note-character-cover.mjs';
 import { datasetDir } from './lib/datasets.mjs';
 import { generateWithCodex } from './lib/codex-image.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { parseCliArgs } from './lib/cli-args.mjs';
 
 const require = createRequire(import.meta.url);
-const ROOT = process.cwd();
 const BACKGROUNDS_DIR = path.join(ROOT, datasetDir('config.ogp-backgrounds'));
 const coverTokens = require(path.join(ROOT, '.claude/knowledge/design-system/note-cover-tokens.json'));
 
@@ -45,15 +46,7 @@ const EXAMS = [
 ];
 
 function parseArgs(argv) {
-  const a = { all: false, exam: null, force: false, dryRun: false, model: null };
-  for (let i = 0; i < argv.length; i++) {
-    const t = argv[i];
-    if (t === '--all') a.all = true;
-    else if (t === '--force') a.force = true;
-    else if (t === '--dry-run') a.dryRun = true;
-    else if (t === '--exam') a.exam = argv[++i];
-    else if (t === '--model') a.model = argv[++i];
-  }
+  const a = parseCliArgs({ all: { type: 'boolean' }, force: { type: 'boolean' }, 'dry-run': { type: 'boolean' }, exam: { type: 'string' }, model: { type: 'string' } }, argv);
   if (!a.all && !a.exam) a.all = true;
   return a;
 }
