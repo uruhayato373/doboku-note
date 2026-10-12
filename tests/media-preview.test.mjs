@@ -1,11 +1,11 @@
 import assert from 'node:assert/strict';
-import { mkdirSync, mkdtempSync, writeFileSync } from 'node:fs';
+import { copyFileSync, existsSync, mkdirSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { test } from 'node:test';
 import { fileURLToPath } from 'node:url';
 import { approvalHash, approvalParts } from '../scripts/lib/content-registry.mjs';
-import { finalApprovalGate, partitionByFinalApproval, previewMetrics, runPreview } from '../scripts/lib/media-preview.mjs';
+import { finalApprovalGate, partitionByFinalApproval, previewMetrics, runPackPreview, runPreview } from '../scripts/lib/media-preview.mjs';
 
 const ROOT = resolve(fileURLToPath(new URL('..', import.meta.url)));
 const VC = { maxOpeningCoverSec: 3, maxRepeatFrameRatio: 0.3, longStaticSec: 20 };
@@ -132,4 +132,61 @@ test('partitionByFinalApproval: 古い承認の 1 本だけを理由つきで外
   const thrown = await partitionByFinalApproval(tmpdir(), 'e', ['a'], { reg: { publications: null, media } });
   assert.equal(thrown.passed.length, 0);
   assert.match(thrown.blocked[0].reason, /判定できない/);
+});
+
+test('previewMetrics: contactSheetEverySec ごとのコマで直前と同じ画面だった回数を数える（旧形式は多く、場面を分けると減る）', () => {
+  const vc = { ...VC, contactSheetEverySec: 10 };
+  // 40 秒の 1 場面: 0・10・20・30 秒のコマがすべて同じ画面 → 3/3
+  const long = previewMetrics([sc('a', 40)], { a: 'A' }, vc);
+  assert.deepEqual(long.sampledRepeat, { everySec: 10, samples: 4, same: 3, ratio: 1 });
+  assert.ok(long.warnings.some((w) => /10 秒ごとのコマで直前と同じ画面が 3\/3 回/.test(w)));
+  // 10 秒ごとに別の場面 → 0/3
+  const split = previewMetrics([sc('a', 10), sc('b', 10), sc('c', 10), sc('d', 10)], { a: '1', b: '2', c: '3', d: '4' }, vc);
+  assert.equal(split.sampledRepeat.same, 0);
+  // 刻みを渡さなければ数えない
+  assert.deepEqual(previewMetrics([sc('a', 40)], { a: 'A' }, VC).sampledRepeat.samples, 0);
+});
+
+function packRoot(scenes, { withPng = true } = {}) {
+  const root = mkdtempSync(join(tmpdir(), 'pack-preview-'));
+  mkdirSync(join(root, 'config'), { recursive: true });
+  copyFileSync(join(ROOT, 'config/video-content.json'), join(root, 'config/video-content.json'));
+  mkdirSync(join(root, '.tmp/video-render/p/img'), { recursive: true });
+  writeFileSync(join(root, '.tmp/video-render/p/render-manifest.json'), JSON.stringify({ scenes }));
+  if (withPng) for (const s of scenes) writeFileSync(join(root, '.tmp/video-render/p/img', s.png), s.png.startsWith('same') ? 'same' : s.png);
+  return root;
+}
+
+test('runPackPreview: ffmpeg が無ければ数値だけ出して検査不成立（exit 2）、--metrics-only は ffmpeg なしで 0', () => {
+  const root = packRoot([
+    { sceneId: 'cover', png: 'same-0.png', designSec: 15 },
+    { sceneId: 'a', png: 'same-1.png', designSec: 30 },
+  ]);
+  const log = console.log;
+  const err = console.error;
+  console.log = () => {};
+  console.error = () => {};
+  try {
+    const r = runPackPreview(root, { packId: 'p', ffmpeg: null });
+    assert.equal(r.code, 2);
+    assert.equal(r.metrics.openingCoverSec, 15);
+    assert.equal(r.metrics.longStatic.length, 1); // 同じ画素の PNG が 45 秒続く
+    const doc = JSON.parse(readFileSync(join(root, '.tmp/video-render/p/preview/preview-metrics.json'), 'utf8'));
+    assert.equal(doc.sceneCount, 2);
+    assert.equal(existsSync(join(root, '.tmp/video-render/p/preview/preview.mp4')), false);
+    assert.equal(runPackPreview(root, { packId: 'p', metricsOnly: true, ffmpeg: null }).code, 0);
+  } finally { console.log = log; console.error = err; }
+});
+
+test('runPackPreview: 描画していない・PNG が欠けていれば exit 1（数値を 0 にしない）', () => {
+  const err = console.error;
+  console.error = () => {};
+  try {
+    const none = mkdtempSync(join(tmpdir(), 'pack-preview-'));
+    assert.equal(runPackPreview(none, { packId: 'p', ffmpeg: null }).code, 1);
+    const lost = packRoot([{ sceneId: 'a', png: 'a.png', designSec: 5 }], { withPng: false });
+    const r = runPackPreview(lost, { packId: 'p', ffmpeg: null });
+    assert.equal(r.code, 1);
+    assert.match(r.message, /場面の PNG が無い/);
+  } finally { console.error = err; }
 });

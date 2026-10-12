@@ -95,10 +95,10 @@ if (ID && (MODE_SET_PRICE || MODE_UPDATE_COVER) && !hasSpec(ID)) {
   console.log(`[prep] id=${ID} title="${(book.title || '').slice(0, 34)}" price=¥${book.price} mode=${COMMIT_PUBLISH ? 'PUBLISH(出版する)' : 'DRAFT(下書きのみ)'}`);
 }
 if (MODE_UPDATE_COVER) {
-  // 表紙の真実源は git 管理の scripts/kindle-dist/<id>.jpg（A 系はファイル名が小文字）。
+  // 表紙の真実源は private R2 の kindle/dist/<id>.jpg（手元は scripts/kindle-dist/・asset-hydrate -- --group kindle-dist で取り戻す）（A 系はファイル名が小文字）。
   const candidates = getArg('--cover') ? [getArg('--cover')] : [ID, ID.toLowerCase()].map((n) => join(ROOT, 'scripts/kindle-dist', `${n}.jpg`));
   book.cover = candidates.find((f) => existsSync(f));
-  if (!book.cover) { console.error(`ABORT: 表紙が無い: ${candidates.join(' / ')}`); process.exit(1); }
+  if (!book.cover) { console.error(`ABORT: 表紙が無い: ${candidates.join(' / ')}\n（R2 に退避済み。npm run asset-hydrate -- --group kindle-dist で取り戻す）`); process.exit(1); }
   if (!/\.jpe?g$/i.test(book.cover)) { console.error(`ABORT: 表紙は JPEG のみ: ${book.cover}`); process.exit(1); }
 }
 

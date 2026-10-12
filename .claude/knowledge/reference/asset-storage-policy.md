@@ -72,7 +72,7 @@ Google Drive 側が `config/drive-vault.json`（台帳 `.claude/state/assets/dri
 | `youtube-approved-cover` | human | Drive `制作物/動画レンダー/採用カバー/` | 2026-09-09 の日付フォルダの採用表紙。2026-10-09 に `content-media`（ID ごとの置き場）へ移した（DN-0607）。新しく置かない |
 | `content-media` | human | Drive `制作物/コンテンツ/{exam}/{work}/{channel}.{format}[.{variant}]/{role}.{sha8}.{ext}` | コンテンツ台帳（[content-registry.md](content-registry.md)）の素材の正本。中身の sha を名前に入れ、一度置いたら書き換えない（`immutable`・上書きと `--force` を拒否）。`npm run media -- promote・sync・verify・pull` |
 | `white-paper-source-pdf` | human | Drive `原資料PDF/白書/` | 省庁の白書・年次報告の原本。vault にだけ置き、`drive-vault-sync --from-vault` で台帳へ登録する（2026-10-07・44 件）。参考文献台帳の `vaultCopies` が指す |
-| `kindle-dist` | human | Drive `制作物/Kindle/`（Git が正本） | CI の check-kindle-format が blob を読むので Git 追跡は維持。Drive は控え |
+| `kindle-dist` | ci | private R2 `kindle/dist/` | 配布 EPUB 65・表紙 jpg 72（90.2MB）。2026-10-12（DN-0562）に Git から外した。CI の `check-kindle-epub-leak` が読むので `ci.yml` が `quality:audit:ci` の前に `asset-hydrate --group kindle-dist` で取り戻す。手元は同じコマンドで戻す。作り直した版は `asset-offload --group kindle-dist --include-untracked --commit` で上げる。Drive `制作物/Kindle/` は人用の控えで、group は pending（両 tier の active に重ねない・照合は DN-0451） |
 | `coconala-asset` | human | Drive `制作物/ココナラ/` | |
 | `note-magazine-cover-png` | human | Drive `制作物/マガジンカバー/` | |
 | `note-cover-pop-preview` | human | Drive `制作物/noteカバー/POP版/` | 新テンプレートの全件確認用。記事・マガジン画像、生成manifest、QA結果を個別復元できる形で保存 |
@@ -457,9 +457,9 @@ cache は `.local/cache/assets/`（Git 非追跡）。復元先のbytes/sha256�
 813 件へ増加している。
 
 `kindle-dist` は2026-09-04に76件を再同期し、ローカル・manifest・private R2のbytes/sha256三者一致を
-確認した。ただし `e-01` を `.tmp` へ直接再生成して展開比較すると、UUID・日付以外にも本文からの
+確認した（当時は Git 追跡を維持。2026-10-12 に DN-0562 で Git から外し、R2 を正本にした）。ただし `e-01` を `.tmp` へ直接再生成して展開比較すると、UUID・日付以外にも本文からの
 `CareerAffiliate` 除去と画像寸法変更があり、公開版と実内容が一致しなかった。この反例で全冊の内容一致
-条件は不成立と確定したため、Git追跡は維持する。Drive vault（`制作物/Kindle/`・2026-09-05 に R2 から移設）は完全バックアップであり、現行generatorを公開済み
+条件は不成立と確定したため、**再ビルドで置き換えられない**（R2 の実体が唯一の配布版）。Drive vault（`制作物/Kindle/`・2026-09-05 に R2 から移設）は完全バックアップであり、現行generatorを公開済み
 配布版のbyte/内容再現手段とは扱わない。
 
 `content/site/**/ogp.webp`（1,166 件 39.9MB）は **R2 に入っていない**。og:image が参照しない
