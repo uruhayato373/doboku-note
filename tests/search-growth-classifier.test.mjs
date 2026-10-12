@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { classifyUrl, THRESHOLDS } from "../scripts/lib/search-growth-classifier.mjs";
+import { classifyUrl, THRESHOLDS, isSearchResultPath, isNonHtmlPath, isFragmentPath } from "../scripts/lib/search-growth-classifier.mjs";
 
 // signal のベース。テストごとに必要フィールドだけ上書きする。
 function sig(overrides = {}) {
@@ -188,4 +188,82 @@ test("全アクションに reasons と confidence が付く", () => {
 test("しきい値定数が公開されている", () => {
   assert.ok(THRESHOLDS.lowImpressions >= 1);
   assert.ok(THRESHOLDS.redirectChainWarn >= 2);
+});
+
+// ── DN-0674: 誤分類の 4 規則 ──
+
+test("登録済み・需要なし（200・self canonical）→ KEEP_MONITOR（UNKNOWN にしない）", () => {
+  const r = classifyUrl(sig({ inLiveSitemap: true, isIndexed: true }));
+  assert.equal(r.action, "KEEP_MONITOR");
+  // 未登録なら KEEP にしない
+  const u = classifyUrl(sig({ inLiveSitemap: true, isIndexed: false }));
+  assert.equal(u.action, "UNKNOWN_REVIEW");
+  // noindex は登録済みでも KEEP にしない
+  assert.notEqual(classifyUrl(sig({ isIndexed: true, robots: "noindex" })).action, "KEEP_MONITOR");
+});
+
+test("sitemap 掲載・200・検出済み未登録 → KEEP_MONITOR。sitemap 外なら KEEP にしない", () => {
+  assert.equal(
+    classifyUrl(sig({ inLiveSitemap: true, gscUiIssue: "discoveredNotIndexed" })).action,
+    "KEEP_MONITOR",
+  );
+  assert.equal(classifyUrl(sig({ gscUiIssue: "discoveredNotIndexed" })).action, "UNKNOWN_REVIEW");
+});
+
+test("/search?q= は EXPECTED_EXCLUSION。sitemap 掲載なら対象外", () => {
+  assert.equal(classifyUrl(sig({ comparisonKey: "/search?q=%E5%9C%9F%E5%AF%86", httpStatus: null })).action, "EXPECTED_EXCLUSION");
+  assert.equal(classifyUrl(sig({ comparisonKey: "/search", httpStatus: null })).action, "EXPECTED_EXCLUSION");
+  assert.notEqual(
+    classifyUrl(sig({ comparisonKey: "/search?q=x", inLiveSitemap: true, httpStatus: 200 })).action,
+    "EXPECTED_EXCLUSION",
+  );
+  assert.equal(isSearchResultPath("/searching-guide"), false);
+});
+
+test("非 HTML（アセット・データ・フィード）は EXPECTED_EXCLUSION", () => {
+  for (const key of ["/atom.xml", "/_next/static/media/a.woff2", "/standards-data/kinki/common/chapters/1-1.jsonld", "/downloads/x.txt", "/img/favicon.ico"]) {
+    assert.equal(isNonHtmlPath(key), true, key);
+    assert.equal(classifyUrl(sig({ comparisonKey: key, httpStatus: null, gscUiIssue: "crawledNotIndexed" })).action, "EXPECTED_EXCLUSION", key);
+  }
+  assert.equal(isNonHtmlPath("/exam/rccm/guide/overview"), false);
+  assert.equal(isNonHtmlPath("/exam/rccm/guide/overview.html"), false);
+});
+
+test("本文の断片の 404 は EXPECTED_EXCLUSION。slug の形の 1 階層は断片にしない", () => {
+  for (const key of ["/8", "/h）", "/2.50", "/m", "/℃）とほぼ等しく、これが鉄筋コンクリート構造物の温度安定性の物理的根拠となる。"]) {
+    assert.equal(isFragmentPath(key), true, key);
+    assert.equal(classifyUrl(sig({ comparisonKey: key, httpStatus: null, gscUiIssue: "notFound" })).action, "EXPECTED_EXCLUSION", key);
+  }
+  for (const key of ["/contact", "/privacy", "/exam/x/guide/y"]) assert.equal(isFragmentPath(key), false, key);
+});
+
+test("需要・利用・後継・内部リンクの無い 404 は EXPECTED。需要か内部リンクがあれば EXPECTED にしない", () => {
+  const base = { comparisonKey: "/standards/guides/floodgate", httpStatus: null, gscUiIssue: "notFound" };
+  assert.equal(classifyUrl(sig({ ...base, internalInbound: 0 })).action, "EXPECTED_EXCLUSION");
+  assert.equal(classifyUrl(sig({ ...base, internalInbound: null })).action, "EXPECTED_EXCLUSION");
+  assert.equal(classifyUrl(sig({ ...base, impressions: 41 })).action, "UNKNOWN_REVIEW");
+  assert.equal(classifyUrl(sig({ ...base, activeUsers: 3 })).action, "UNKNOWN_REVIEW");
+  assert.equal(classifyUrl(sig({ ...base, internalInbound: 2 })).action, "UNKNOWN_REVIEW");
+});
+
+test("Google が別の canonical を選んだ URL は専用ラベル CANONICAL_ELSEWHERE（KEEP/UNKNOWN と混ぜない）", () => {
+  const r = classifyUrl(
+    sig({
+      inLiveSitemap: true,
+      isIndexed: true,
+      selfCanonical: true,
+      canonicalOk: true,
+      googleChoseOtherCanonical: true,
+      googleCanonical: "https://doboku-note.com/docs/x",
+    }),
+  );
+  assert.equal(r.action, "CANONICAL_ELSEWHERE");
+  assert.equal(r.requiresApproval, true);
+  // sitemap 外・代替 canonical の issue・需要あり
+  assert.equal(
+    classifyUrl(sig({ gscUiIssue: "alternateCanonical", impressions: 20, httpStatus: null })).action,
+    "CANONICAL_ELSEWHERE",
+  );
+  // 需要なしの alternateCanonical は従来どおり EXPECTED
+  assert.equal(classifyUrl(sig({ gscUiIssue: "alternateCanonical" })).action, "EXPECTED_EXCLUSION");
 });
