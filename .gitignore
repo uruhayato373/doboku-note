@@ -445,3 +445,8 @@ content/sns/x/draft/*-diagrams/img/tweet-*.png
 config/ogp/backgrounds/*.png
 # x-sync-status の完走記録（state.x-sync-last-run）。セッションごとに変わる手元の TTL 用で、CI の scheduled-publish に拾わせない（DN-0688）
 .claude/state/x-publish/last-sync.json
+
+# Kindle の配布 EPUB・表紙は private R2 へ退避（config/asset-storage.json の kindle-dist group・DN-0562・2026-10-12）。
+# 使う直前に npm run asset-hydrate -- --group kindle-dist で取り戻す（CI は ci.yml が取り戻す）
+scripts/kindle-dist/*.epub
+scripts/kindle-dist/*.jpg

@@ -75,6 +75,16 @@ jobs:
             git fetch --no-tags --depth=1 origin "$BEFORE" && echo "REGISTRY_BASE=$BEFORE" >> "$GITHUB_ENV" || true
           fi
 
+      # Kindle の配布 EPUB・表紙（scripts/kindle-dist）は private R2 に退避してあり git には無い（DN-0562・2026-10-12）。
+      # check-kindle-epub-leak（quality:audit:ci）が展開して読むので、検査の前に取り戻す。
+      # 取り戻せなければここで赤になる（読めないまま 0 冊で検査しない）。
+      - name: Hydrate Kindle dist (private R2)
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_R2_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
+          CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
+        run: node scripts/asset-hydrate.mjs --group kindle-dist
+
       - name: Quality audit (ci gate)
         run: npm run quality:audit:ci
 

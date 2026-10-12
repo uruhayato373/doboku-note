@@ -240,7 +240,7 @@ const RULES = [
     id: 'kindle-artifact',
     test: (p) => /^scripts\/kindle-(dist|published|covers)\//.test(p) || /\.epub$/i.test(p),
     bucket: 'KEEP_GIT',
-    reason: 'KDP 入稿成果物。scripts/kindle-dist/ 配下は R2 バックアップ済み（kindle-dist group・2026-08-29 決着）。kindle-published/・kindle-covers/ は cover-designs（P6 で repo-archive group へ退避済み）を除き未バックアップだが、いずれも git が正典で CI（check-kindle-format.mjs 等）が git 実体に依存するため untrack はしない',
+    reason: 'KDP 入稿成果物。scripts/kindle-dist/ 配下は private R2 が正本で git 追跡を外した（kindle-dist group・DN-0562・2026-10-12）。kindle-published/・kindle-covers/ は cover-designs（P6 で repo-archive group へ退避済み）を除き未バックアップだが、いずれも git が正典で CI（check-kindle-format.mjs 等）が git 実体に依存するため untrack はしない',
     regenFrom: 'content/kindle/books/**（要検証）',
     usedBy: ['scripts/kdp-publish.mjs'],
     generator: 'kindle-build',
