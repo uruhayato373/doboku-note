@@ -892,13 +892,18 @@
         ]
       },
       "publication": {
-        "status": "replacement-uploaded-private",
-        "externalPublished": false,
-        "oldPublicVideoRetained": true,
+        "status": "replacement-published-old-deleted",
+        "externalPublished": true,
+        "oldPublicVideoRetained": false,
         "processingVerifiedAt": "2026-10-12T01:41:27.242Z",
         "thumbnailVerifiedAt": "2026-10-12T01:42:50.421Z",
         "receiptScope": "pop-soil-20261012-24a4dc08",
-        "pending": "YouTube管理アカウントで新版を再生確認後、公開・台帳ID更新・関連動画照合・旧版整理"
+        "publishedAt": "2026-10-12T02:31:00Z",
+        "playbackVerifiedAt": "2026-10-12T02:30:01.787Z",
+        "linksVerifiedAt": "2026-10-12T02:40:01.476Z",
+        "oldDeletedAt": "2026-10-12T02:46:20.445Z",
+        "publicationId": "civil-construction-2/gakka-2kyu-doko/youtube.longform",
+        "relatedShortsUpdated": 2
       }
     }
   }

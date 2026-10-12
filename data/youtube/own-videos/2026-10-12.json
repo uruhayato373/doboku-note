@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "fetchedAt": "2026-10-12T00:07:58.498Z",
-  "source": "yt-dlp のチャンネル一覧（/videos・/shorts。日本語表示の題名と英語表示の再生数を動画 ID で結合）",
-  "caveat": "再生数は累計で、公開日の新しい動画ほど小さい。視聴維持率・インプレッションのクリック率・流入元は一覧に無い（YouTube Analytics が要る）。Shorts の尺は一覧に出ないことがある",
+  "fetchedAt": "2026-10-12T02:33:48.353Z",
+  "source": "yt-dlpのチャンネル一覧（2026-10-12T00:07:58.498Z、86本）に、同日YouTube Studioダッシュボードで実見した2級土木5本の累計視聴数を補完",
+  "caveat": "Studio確認対象: sqkP7vheZ_Q=84、FjhdM9A5vkw=10、xX9zcjzLrAA=4、KYikQB6NJn4=14、OcLmhVP5fho=5。その他の通常動画69本は視聴数欠測のまま。Shorts12本は元の取得時点の値。合計・中央値は視聴数を取得できた動画だけ。旧土工の視聴数は新版へ引き継がれない。",
   "channel": {
     "id": "UCHRnXPqoc0Hls8nXiK_ZYqA",
     "handle": "@doboku-note",
@@ -11,9 +11,9 @@
   "summary": {
     "longform": {
       "sampled": 74,
-      "withViews": 0,
-      "totalViews": 0,
-      "medianViews": null,
+      "withViews": 5,
+      "totalViews": 117,
+      "medianViews": 10,
       "medianDurationSec": 147
     },
     "shorts": {
@@ -27,8 +27,8 @@
   "lengthBuckets": [
     {
       "key": "under5",
-      "videos": 0,
-      "medianViews": null
+      "videos": 5,
+      "medianViews": 10
     },
     {
       "key": "5to15",
@@ -109,9 +109,9 @@
       "kind": "longform",
       "stats": {
         "sampled": 73,
-        "withViews": 0,
-        "totalViews": 0,
-        "medianViews": null,
+        "withViews": 5,
+        "totalViews": 117,
+        "medianViews": 10,
         "medianDurationSec": 147
       }
     },
@@ -153,7 +153,7 @@
     {
       "id": "FjhdM9A5vkw",
       "title": "【2級土木】2級 安全管理テーマの書き方 — 現場の数字で具体化する",
-      "views": null,
+      "views": 10,
       "durationSec": 165,
       "kind": "longform",
       "packId": "keiken-anzen-2kyu-kakikata",
@@ -162,7 +162,7 @@
     {
       "id": "xX9zcjzLrAA",
       "title": "【2級土木】2級土木 コンクリートの頻出点 — 打込み・養生・継目",
-      "views": null,
+      "views": 4,
       "durationSec": 122,
       "kind": "longform",
       "packId": "gakka-2kyu-concrete",
@@ -171,7 +171,7 @@
     {
       "id": "KYikQB6NJn4",
       "title": "【2級土木】2級 工事概要の書き方 — 最初の失点を防ぐ",
-      "views": null,
+      "views": 14,
       "durationSec": 167,
       "kind": "longform",
       "packId": "keiken-gaiyo-2kyu",
@@ -180,7 +180,7 @@
     {
       "id": "sqkP7vheZ_Q",
       "title": "【2級土木】2級土木 土工の頻出点 — 最短で押さえる",
-      "views": null,
+      "views": 84,
       "durationSec": 125,
       "kind": "longform",
       "packId": "gakka-2kyu-doko",
@@ -189,7 +189,7 @@
     {
       "id": "OcLmhVP5fho",
       "title": "【2級土木】安全管理の答案が一般論になる3つの原因",
-      "views": null,
+      "views": 5,
       "durationSec": 162,
       "kind": "longform",
       "packId": "anzen-ippanron-3riyu",

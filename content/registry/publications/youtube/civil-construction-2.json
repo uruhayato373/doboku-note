@@ -206,7 +206,7 @@
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/youtube.json#longform",
       "status": "published",
-      "publishAt": "2026-10-08T11:00:00Z",
+      "publishAt": "2026-10-12T02:31:00Z",
       "approval": {
         "by": "user",
         "at": "2026-09-05T01:43:32.352Z",
@@ -214,13 +214,13 @@
         "grandfathered": true
       },
       "platform": {
-        "id": "sqkP7vheZ_Q",
-        "url": "https://www.youtube.com/watch?v=sqkP7vheZ_Q",
+        "id": "lNI2f_SjCTk",
+        "url": "https://www.youtube.com/watch?v=lNI2f_SjCTk",
         "privacy": "public",
-        "publishedAt": "2026-10-08T11:00:10.000Z",
+        "publishedAt": "2026-10-12T02:31:00Z",
         "evidence": {
           "kind": "youtube-api",
-          "ref": "videos.list@2026-10-09T06:40:12.276Z"
+          "ref": "https://github.com/uruhayato373/doboku-note/actions/runs/38196499989"
         }
       },
       "times": {
@@ -266,8 +266,12 @@
         "id": "lb5HDoptayQ",
         "url": "https://www.youtube.com/watch?v=lb5HDoptayQ",
         "privacy": "private",
-        "relatedVideoId": null,
-        "desiredRelatedVideoId": "sqkP7vheZ_Q"
+        "relatedVideoId": "lNI2f_SjCTk",
+        "desiredRelatedVideoId": "lNI2f_SjCTk",
+        "evidence": {
+          "kind": "youtube-owner-ui",
+          "ref": "https://www.youtube.com/shorts/lb5HDoptayQ@2026-10-12T02:40:01.476Z"
+        }
       },
       "times": {
         "uploaded": "2026-09-07T14:17:41.866Z"
@@ -296,8 +300,12 @@
         "id": "g86O04mXoVM",
         "url": "https://www.youtube.com/watch?v=g86O04mXoVM",
         "privacy": "private",
-        "relatedVideoId": null,
-        "desiredRelatedVideoId": "sqkP7vheZ_Q"
+        "relatedVideoId": "lNI2f_SjCTk",
+        "desiredRelatedVideoId": "lNI2f_SjCTk",
+        "evidence": {
+          "kind": "youtube-owner-ui",
+          "ref": "https://www.youtube.com/shorts/g86O04mXoVM@2026-10-12T02:40:01.476Z"
+        }
       },
       "times": {
         "uploaded": "2026-09-07T14:17:41.866Z"

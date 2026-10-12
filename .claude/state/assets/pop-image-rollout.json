@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "_doc": ".claude/knowledge/reference/pop-image-policy.md",
   "taskId": "DN-0184",
-  "updatedAt": "2026-10-12T01:44:41.573Z",
+  "updatedAt": "2026-10-12T02:47:32.181Z",
   "scope": {
     "channels": [
       "youtube",
@@ -2352,7 +2352,7 @@
   "youtubeReplacement": {
     "priorityExam": "civil-construction-2",
     "firstPack": "gakka-2kyu-doko",
-    "phase": "private-upload-verified-awaiting-owner-playback",
+    "phase": "first-pack-published-old-deleted",
     "channelInventory": {
       "checked": 691,
       "complete": true,
@@ -2368,8 +2368,8 @@
       "reason": "旧A版と新版POP版の重複投入を防ぐ",
       "resumeCondition": "新画像の置換と旧新ID・関連動画・台帳を照合し、日次キューが旧版を再投入しない状態へ更新後"
     },
-    "oldPublicDeleted": false,
-    "newPublicPublished": false,
+    "oldPublicDeleted": true,
+    "newPublicPublished": true,
     "receiptScope": "pop-soil-20261012-24a4dc08",
     "planSha256": "ba52fd29b4fa3d76e960ad27a2106fc5ad86e0dce8a76ab6f4f8b98bbd9e9345",
     "uploadRun": "https://github.com/uruhayato373/doboku-note/actions/runs/38192686779",
@@ -2383,10 +2383,24 @@
       "playlistMemberships": 0
     },
     "remaining": [
-      "owner-authenticated YouTube playback: cover, body scenes, ending CTA",
-      "activate new public video",
-      "update canonical ID and two dependent Shorts links",
-      "live deletion audit, then retire old video"
-    ]
+      "2級土木の他6本と全チャネルの未完了画像を順次精査・差し替え",
+      "旧A版の非公開重複と日次キューを新版の台帳に照合してから自動投稿を再開"
+    ],
+    "activationRun": "https://github.com/uruhayato373/doboku-note/actions/runs/38196499989",
+    "deletionRun": "https://github.com/uruhayato373/doboku-note/actions/runs/38197044999",
+    "publishedAt": "2026-10-12T02:31:00Z",
+    "deletedAt": "2026-10-12T02:46:20.445Z",
+    "playbackVerifiedAt": "2026-10-12T02:30:01.787Z",
+    "linksVerifiedAt": "2026-10-12T02:40:01.476Z",
+    "relatedShortsUpdated": 2,
+    "registryUpdated": true,
+    "adminVerification": {
+      "checkedAt": "2026-10-12T02:47:32.181Z",
+      "newPlatformIdInHtml": true,
+      "newVideoFileInHtml": true,
+      "videoRangeStatus": 206,
+      "videoBytes": 67321198,
+      "browserReopen": "blocked-by-browser-security-policy"
+    }
   }
 }
