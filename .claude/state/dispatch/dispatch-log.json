@@ -3278,6 +3278,23 @@
       "commit": "aa231fb8585d",
       "verification": null,
       "note": "PR #1026。check-seo-build --summary-out の検査数・error・warn 型別件数を、ci.yml の publish-seo-summary（develop push のみ・ci-data add）が data/analysis/seo-build-summary.json に足す。2026-10-12 の初回（aa231fb85）で書き戻しを確認。build-weekly-review-draft が件数と前週比を出す（テスト固定）。planned 外しは PR #1031"
+    },
+    {
+      "id": "DN-0672",
+      "at": "2026-10-12",
+      "task": "技術士一次 平成27・28年度の正しい選択肢の解説が定型句だけの行（約 217 行）を、理由を述べる解説に書き直す",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "none",
+        "ref": "記事の解説の質の問題。定型句の再発は check-answer-marks では拾えず、決定的な条件が無い"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "d9c47a9fbd22",
+      "verification": null,
+      "note": "PR #1030。6 記事の定型句 217 行と同型の 55 行（計 272 行）を、正しい理由を述べる解説に書き直した。別のエージェントが約 85 項目を洗い出し約 60 項目を e-Gov・文部科学省ガイドライン・JST で照合し、誤り 3 件（土地区画整理 50ha の要件・一級河川の大臣同意の根拠・公益通報の外部通報要件）を直し、確かめられない断定 3 件を弱めた。4 句は 0 件、check-answer-marks・textlint 通過"
     }
   ]
 }
