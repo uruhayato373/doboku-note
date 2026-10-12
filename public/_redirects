@@ -87,9 +87,6 @@
 
 # BEGIN GENERATED PUBLIC ROUTES
 # /docs flat URLs → intent-based canonical URLs (one-to-one, permanent)
-/docs/building-construction-guide-1kyu-keiken-kijutsu /exam/building-construction/guide/1kyu-keiken-kijutsu 301
-/docs/building-construction-guide-2kyu-keiken-kijutsu /exam/building-construction/guide/2kyu-keiken-kijutsu 301
-/docs/building-construction-guide-niji-kakomon-keikou /exam/building-construction/guide/niji-kakomon-keikou 301
 /docs/civil-construction-1-guide-1-vs-2 /exam/civil-construction-1/guide/1-vs-2 301
 /docs/civil-construction-1-guide-age-career /exam/civil-construction-1/guide/age-career 301
 /docs/civil-construction-1-guide-allowance /exam/civil-construction-1/guide/allowance 301
@@ -110,7 +107,6 @@
 /docs/civil-construction-1-guide-difficulty /exam/civil-construction-1/guide/difficulty 301
 /docs/civil-construction-1-guide-dx-jobs /exam/civil-construction-1/guide/dx-jobs 301
 /docs/civil-construction-1-guide-earthwork-key-points /exam/civil-construction-1/guide/earthwork-key-points 301
-/docs/civil-construction-1-guide-engineer-assignment /exam/civil-construction-1/guide/engineer-assignment 301
 /docs/civil-construction-1-guide-environment-management /exam/civil-construction-1/guide/environment-management 301
 /docs/civil-construction-1-guide-exam-overview /exam/civil-construction-1/guide/exam-overview 301
 /docs/civil-construction-1-guide-foundation /exam/civil-construction-1/guide/foundation 301
@@ -118,29 +114,23 @@
 /docs/civil-construction-1-guide-future /exam/civil-construction-1/guide/future 301
 /docs/civil-construction-1-guide-grade-comparison /exam/civil-construction-1/guide/grade-comparison 301
 /docs/civil-construction-1-guide-hatchu-shien /exam/civil-construction-1/guide/hatchu-shien 301
-/docs/civil-construction-1-guide-hydraulics-basics /exam/civil-construction-1/guide/hydraulics-basics 301
 /docs/civil-construction-1-guide-interview /exam/civil-construction-1/guide/interview 301
 /docs/civil-construction-1-keyword-2026 /exam/civil-construction-1/guide/keyword-2026 301
 /docs/civil-construction-1-guide-last-minute-2026 /exam/civil-construction-1/guide/last-minute-2026 301
 /docs/civil-construction-1-guide-law-key-points /exam/civil-construction-1/guide/law-key-points 301
 /docs/civil-construction-1-guide-machinery /exam/civil-construction-1/guide/machinery 301
 /docs/civil-construction-1-guide-market-value /exam/civil-construction-1/guide/market-value 301
-/docs/civil-construction-1-guide-public-engineer-exam-study /exam/civil-construction-1/guide/public-engineer-exam-study 301
-/docs/civil-construction-1-guide-public-engineer-salary-table /exam/civil-construction-1/guide/public-engineer-salary-table 301
 /docs/civil-construction-1-guide-public-servant /exam/civil-construction-1/guide/public-servant 301
 /docs/civil-construction-1-public-servant-merit /exam/civil-construction-1/guide/public-servant-merit 301
-/docs/civil-construction-1-guide-public-servant-or-private /exam/civil-construction-1/guide/public-servant-or-private 301
 /docs/civil-construction-1-guide-quality-management /exam/civil-construction-1/guide/quality-management 301
 /docs/civil-construction-1-guide-quit-honne /exam/civil-construction-1/guide/quit-honne 301
 /docs/civil-construction-1-guide-quit-or-stay /exam/civil-construction-1/guide/quit-or-stay 301
-/docs/civil-construction-1-guide-quit-public-engineer /exam/civil-construction-1/guide/quit-public-engineer 301
 /docs/civil-construction-1-guide-resume /exam/civil-construction-1/guide/resume 301
 /docs/civil-construction-1-guide-safety-management /exam/civil-construction-1/guide/safety-management 301
 /docs/civil-construction-1-guide-salary-by-role /exam/civil-construction-1/guide/salary-by-role 301
 /docs/civil-construction-1-guide-salary-up /exam/civil-construction-1/guide/salary-up 301
 /docs/civil-construction-1-guide-schedule-management /exam/civil-construction-1/guide/schedule-management 301
 /docs/civil-construction-1-guide-strategy /exam/civil-construction-1/guide/strategy 301
-/docs/civil-construction-1-guide-structural-mechanics-basics /exam/civil-construction-1/guide/structural-mechanics-basics 301
 /docs/civil-construction-1-guide-study-method /exam/civil-construction-1/guide/study-method 301
 /docs/civil-construction-1-guide-study-plan /exam/civil-construction-1/guide/study-plan 301
 /docs/civil-construction-1-guide-surveying /exam/civil-construction-1/guide/surveying 301
@@ -148,14 +138,6 @@
 /docs/civil-construction-1-guide-vs-pe /exam/civil-construction-1/guide/vs-pe 301
 /docs/civil-construction-1-guide-white-company /exam/civil-construction-1/guide/white-company 301
 /docs/civil-construction-1-guide-women /exam/civil-construction-1/guide/women 301
-/docs/civil-construction-1-primary-h18-a /exam/civil-construction-1/primary/h18-a 301
-/docs/civil-construction-1-primary-h18-b /exam/civil-construction-1/primary/h18-b 301
-/docs/civil-construction-1-primary-h21-a /exam/civil-construction-1/primary/h21-a 301
-/docs/civil-construction-1-primary-h21-b /exam/civil-construction-1/primary/h21-b 301
-/docs/civil-construction-1-primary-h22-a /exam/civil-construction-1/primary/h22-a 301
-/docs/civil-construction-1-primary-h22-b /exam/civil-construction-1/primary/h22-b 301
-/docs/civil-construction-1-primary-h24-a /exam/civil-construction-1/primary/h24-a 301
-/docs/civil-construction-1-primary-h24-b /exam/civil-construction-1/primary/h24-b 301
 /docs/civil-construction-1-primary-h26-a /exam/civil-construction-1/primary/h26-a 301
 /docs/civil-construction-1-primary-h26-b /exam/civil-construction-1/primary/h26-b 301
 /docs/civil-construction-1-primary-h27-a /exam/civil-construction-1/primary/h27-a 301
@@ -196,31 +178,16 @@
 /docs/civil-construction-1-secondary-r05 /exam/civil-construction-1/secondary/r05 301
 /docs/civil-construction-1-secondary-r06 /exam/civil-construction-1/secondary/r06 301
 /docs/civil-construction-1-secondary-r07 /exam/civil-construction-1/secondary/r07 301
-/docs/civil-construction-1-secondary-r08 /exam/civil-construction-1/secondary/r08 301
-/docs/civil-construction-1-textbook-asphalt-concrete-pavement /exam/civil-construction-1/textbook/asphalt-concrete-pavement 301
 /docs/civil-construction-1-textbook-building-standards /exam/civil-construction-1/textbook/building-standards 301
-/docs/civil-construction-1-textbook-byproduct-guideline /exam/civil-construction-1/textbook/byproduct-guideline 301
-/docs/civil-construction-1-textbook-cast-in-place-pile /exam/civil-construction-1/textbook/cast-in-place-pile 301
-/docs/civil-construction-1-textbook-coast-port /exam/civil-construction-1/textbook/coast-port 301
-/docs/civil-construction-1-textbook-concrete-materials /exam/civil-construction-1/textbook/concrete-materials 301
-/docs/civil-construction-1-textbook-concrete-mix-design /exam/civil-construction-1/textbook/concrete-mix-design 301
-/docs/civil-construction-1-textbook-concrete-placement /exam/civil-construction-1/textbook/concrete-placement 301
-/docs/civil-construction-1-textbook-concrete-properties /exam/civil-construction-1/textbook/concrete-properties 301
 /docs/civil-construction-1-textbook-construction-business /exam/civil-construction-1/textbook/construction-business 301
 /docs/civil-construction-1-textbook-construction-byproduct-recycle /exam/civil-construction-1/textbook/construction-byproduct-recycle 301
 /docs/civil-construction-1-textbook-construction-mgmt-overview /exam/civil-construction-1/textbook/construction-mgmt-overview 301
 /docs/civil-construction-1-textbook-construction-plan-overview /exam/civil-construction-1/textbook/construction-plan-overview 301
 /docs/civil-construction-1-textbook-control-chart /exam/civil-construction-1/textbook/control-chart 301
 /docs/civil-construction-1-textbook-crane /exam/civil-construction-1/textbook/crane 301
-/docs/civil-construction-1-textbook-cut-slope-protection /exam/civil-construction-1/textbook/cut-slope-protection 301
-/docs/civil-construction-1-textbook-dam-construction /exam/civil-construction-1/textbook/dam-construction 301
 /docs/civil-construction-1-textbook-demolition /exam/civil-construction-1/textbook/demolition 301
 /docs/civil-construction-1-textbook-distance-angle /exam/civil-construction-1/textbook/distance-angle 301
-/docs/civil-construction-1-textbook-earth-retaining-cofferdam /exam/civil-construction-1/textbook/earth-retaining-cofferdam 301
-/docs/civil-construction-1-textbook-earthwork-planning /exam/civil-construction-1/textbook/earthwork-planning 301
-/docs/civil-construction-1-textbook-embankment /exam/civil-construction-1/textbook/embankment 301
 /docs/civil-construction-1-textbook-explosives-act /exam/civil-construction-1/textbook/explosives-act 301
-/docs/civil-construction-1-textbook-foundation-overview-survey /exam/civil-construction-1/textbook/foundation-overview-survey 301
 /docs/civil-construction-1-textbook-grader-compaction /exam/civil-construction-1/textbook/grader-compaction 301
 /docs/civil-construction-1-textbook-histogram /exam/civil-construction-1/textbook/histogram 301
 /docs/civil-construction-1-textbook-labor-standards /exam/civil-construction-1/textbook/labor-standards 301
@@ -232,20 +199,12 @@
 /docs/civil-construction-1-textbook-management-subplans /exam/civil-construction-1/textbook/management-subplans 301
 /docs/civil-construction-1-textbook-network-schedule /exam/civil-construction-1/textbook/network-schedule 301
 /docs/civil-construction-1-textbook-noise-vibration-regulation /exam/civil-construction-1/textbook/noise-vibration-regulation 301
-/docs/civil-construction-1-textbook-pavement-repair-quality /exam/civil-construction-1/textbook/pavement-repair-quality 301
-/docs/civil-construction-1-textbook-pile-foundation-precast /exam/civil-construction-1/textbook/pile-foundation-precast 301
 /docs/civil-construction-1-textbook-port-regulations /exam/civil-construction-1/textbook/port-regulations 301
 /docs/civil-construction-1-textbook-quality-inspection /exam/civil-construction-1/textbook/quality-inspection 301
 /docs/civil-construction-1-textbook-quality-overview /exam/civil-construction-1/textbook/quality-overview 301
-/docs/civil-construction-1-textbook-railway-underground /exam/civil-construction-1/textbook/railway-underground 301
-/docs/civil-construction-1-textbook-rebar-formwork /exam/civil-construction-1/textbook/rebar-formwork 301
 /docs/civil-construction-1-textbook-river-act /exam/civil-construction-1/textbook/river-act 301
-/docs/civil-construction-1-textbook-river-works /exam/civil-construction-1/textbook/river-works 301
 /docs/civil-construction-1-textbook-road-act /exam/civil-construction-1/textbook/road-act 301
-/docs/civil-construction-1-textbook-road-earthwork-subbase /exam/civil-construction-1/textbook/road-earthwork-subbase 301
-/docs/civil-construction-1-textbook-sabo-landslide /exam/civil-construction-1/textbook/sabo-landslide 301
 /docs/civil-construction-1-textbook-safety-excavation-shoring /exam/civil-construction-1/textbook/safety-excavation-shoring 301
-/docs/civil-construction-1-textbook-safety-foundation-bridge /exam/civil-construction-1/textbook/safety-foundation-bridge 301
 /docs/civil-construction-1-textbook-safety-industrial-safety-law /exam/civil-construction-1/textbook/safety-industrial-safety-law 301
 /docs/civil-construction-1-textbook-safety-machinery-crane /exam/civil-construction-1/textbook/safety-machinery-crane 301
 /docs/civil-construction-1-textbook-safety-management-system /exam/civil-construction-1/textbook/safety-management-system 301
@@ -257,18 +216,12 @@
 /docs/civil-construction-1-textbook-scraper /exam/civil-construction-1/textbook/scraper 301
 /docs/civil-construction-1-textbook-shovel-excavator /exam/civil-construction-1/textbook/shovel-excavator 301
 /docs/civil-construction-1-textbook-site-investigation /exam/civil-construction-1/textbook/site-investigation 301
-/docs/civil-construction-1-textbook-soft-ground-drainage /exam/civil-construction-1/textbook/soft-ground-drainage 301
-/docs/civil-construction-1-textbook-soil-investigation-methods /exam/civil-construction-1/textbook/soil-investigation-methods 301
-/docs/civil-construction-1-textbook-special-concrete-inspection /exam/civil-construction-1/textbook/special-concrete-inspection 301
 /docs/civil-construction-1-textbook-standard-contract /exam/civil-construction-1/textbook/standard-contract 301
-/docs/civil-construction-1-textbook-steel-structures /exam/civil-construction-1/textbook/steel-structures 301
 /docs/civil-construction-1-textbook-surveying-basics /exam/civil-construction-1/textbook/surveying-basics 301
 /docs/civil-construction-1-textbook-tractor-bulldozer /exam/civil-construction-1/textbook/tractor-bulldozer 301
 /docs/civil-construction-1-textbook-transport-machinery /exam/civil-construction-1/textbook/transport-machinery 301
-/docs/civil-construction-1-textbook-tunnel-natm /exam/civil-construction-1/textbook/tunnel-natm 301
 /docs/civil-construction-1-textbook-waste-disposal-manifest /exam/civil-construction-1/textbook/waste-disposal-manifest 301
 /docs/civil-construction-1-textbook-water-air-soil-pollution /exam/civil-construction-1/textbook/water-air-soil-pollution 301
-/docs/civil-construction-1-textbook-water-sewer /exam/civil-construction-1/textbook/water-sewer 301
 /docs/civil-construction-1-textbook-work-scheduling /exam/civil-construction-1/textbook/work-scheduling 301
 /docs/civil-construction-2-guide-buildjob-review /exam/civil-construction-2/guide/buildjob-review 301
 /docs/civil-construction-2-guide-career /exam/civil-construction-2/guide/career 301
@@ -276,7 +229,6 @@
 /docs/civil-construction-2-guide-career-change /exam/civil-construction-2/guide/career-change 301
 /docs/civil-construction-2-guide-concrete-key-points /exam/civil-construction-2/guide/concrete-key-points 301
 /docs/civil-construction-2-guide-construction-plan-key-points /exam/civil-construction-2/guide/construction-plan-key-points 301
-/docs/civil-construction-2-guide-dam-tunnel-key-points /exam/civil-construction-2/guide/dam-tunnel-key-points 301
 /docs/civil-construction-2-guide-earthwork-key-points /exam/civil-construction-2/guide/earthwork-key-points 301
 /docs/civil-construction-2-guide-exam-overview /exam/civil-construction-2/guide/exam-overview 301
 /docs/civil-construction-2-guide-foundation-key-points /exam/civil-construction-2/guide/foundation-key-points 301
@@ -286,26 +238,14 @@
 /docs/civil-construction-2-guide-overview /exam/civil-construction-2/guide/overview 301
 /docs/civil-construction-2-guide-quality-management /exam/civil-construction-2/guide/quality-management 301
 /docs/civil-construction-2-guide-quit-or-stay /exam/civil-construction-2/guide/quit-or-stay 301
-/docs/civil-construction-2-guide-r08-secondary-answers /exam/civil-construction-2/guide/r08-secondary-answers 301
 /docs/civil-construction-2-guide-resume /exam/civil-construction-2/guide/resume 301
-/docs/civil-construction-2-guide-river-sabo-key-points /exam/civil-construction-2/guide/river-sabo-key-points 301
-/docs/civil-construction-2-guide-road-pavement-key-points /exam/civil-construction-2/guide/road-pavement-key-points 301
 /docs/civil-construction-2-guide-safety-management /exam/civil-construction-2/guide/safety-management 301
 /docs/civil-construction-2-guide-salary /exam/civil-construction-2/guide/salary 301
 /docs/civil-construction-2-guide-schedule-management /exam/civil-construction-2/guide/schedule-management 301
-/docs/civil-construction-2-secondary-grading-and-partial-credit /exam/civil-construction-2/guide/secondary-grading-and-partial-credit 301
-/docs/civil-construction-2-secondary-last-two-weeks-plan /exam/civil-construction-2/guide/secondary-last-two-weeks-plan 301
-/docs/civil-construction-2-secondary-written-questions-guide /exam/civil-construction-2/guide/secondary-written-questions-guide 301
-/docs/civil-construction-2-guide-structures-key-points /exam/civil-construction-2/guide/structures-key-points 301
 /docs/civil-construction-2-guide-study-method /exam/civil-construction-2/guide/study-method 301
 /docs/civil-construction-2-guide-study-plan /exam/civil-construction-2/guide/study-plan 301
 /docs/civil-construction-2-guide-textbooks /exam/civil-construction-2/guide/textbooks 301
-/docs/civil-construction-2-guide-water-sewer-key-points /exam/civil-construction-2/guide/water-sewer-key-points 301
 /docs/civil-construction-2-guide-young-career /exam/civil-construction-2/guide/young-career 301
-/docs/civil-construction-2-primary-h18 /exam/civil-construction-2/primary/h18 301
-/docs/civil-construction-2-primary-h20 /exam/civil-construction-2/primary/h20 301
-/docs/civil-construction-2-primary-h26 /exam/civil-construction-2/primary/h26 301
-/docs/civil-construction-2-primary-h27 /exam/civil-construction-2/primary/h27 301
 /docs/civil-construction-2-primary-r03-kouki /exam/civil-construction-2/primary/r03-kouki 301
 /docs/civil-construction-2-primary-r03-zenki /exam/civil-construction-2/primary/r03-zenki 301
 /docs/civil-construction-2-primary-r04-kouki /exam/civil-construction-2/primary/r04-kouki 301
@@ -316,8 +256,6 @@
 /docs/civil-construction-2-primary-r06-zenki /exam/civil-construction-2/primary/r06-zenki 301
 /docs/civil-construction-2-primary-r07-kouki /exam/civil-construction-2/primary/r07-kouki 301
 /docs/civil-construction-2-primary-r07-zenki /exam/civil-construction-2/primary/r07-zenki 301
-/docs/civil-construction-2-primary-r08-zenki /exam/civil-construction-2/primary/r08-zenki 301
-/docs/civil-construction-2-secondary-experience-writing-by-theme /exam/civil-construction-2/secondary/experience-writing-by-theme 301
 /docs/civil-construction-2-secondary-experience-writing-examples /exam/civil-construction-2/secondary/experience-writing-examples 301
 /docs/civil-construction-2-secondary-experience-writing-guide /exam/civil-construction-2/secondary/experience-writing-guide 301
 /docs/civil-construction-2-secondary-getting-started /exam/civil-construction-2/secondary/getting-started 301
@@ -363,27 +301,6 @@
 /docs/concrete-diagnostician-textbook-maintenance /exam/concrete-diagnostician/textbook/maintenance 301
 /docs/concrete-diagnostician-textbook-repair /exam/concrete-diagnostician/textbook/repair 301
 /docs/concrete-diagnostician-textbook-variation /exam/concrete-diagnostician/textbook/variation 301
-/docs/concrete-engineer-guide-books /exam/concrete-engineer/guide/books 301
-/docs/concrete-engineer-guide-difference-chief /exam/concrete-engineer/guide/difference-chief 301
-/docs/concrete-engineer-guide-eligibility-2026 /exam/concrete-engineer/guide/eligibility-2026 301
-/docs/concrete-engineer-guide-overview /exam/concrete-engineer/guide/overview 301
-/docs/concrete-engineer-guide-study-plan /exam/concrete-engineer/guide/study-plan 301
-/docs/concrete-engineer-primary-construction /exam/concrete-engineer/primary/construction 301
-/docs/concrete-engineer-primary-environment /exam/concrete-engineer/primary/environment 301
-/docs/concrete-engineer-primary-materials /exam/concrete-engineer/primary/materials 301
-/docs/concrete-engineer-primary-mix-design /exam/concrete-engineer/primary/mix-design 301
-/docs/concrete-engineer-primary-production-qc /exam/concrete-engineer/primary/production-qc 301
-/docs/concrete-engineer-primary-properties-testing /exam/concrete-engineer/primary/properties-testing 301
-/docs/concrete-engineer-textbook-construction /exam/concrete-engineer/textbook/construction 301
-/docs/concrete-engineer-textbook-environment /exam/concrete-engineer/textbook/environment 301
-/docs/concrete-engineer-textbook-materials /exam/concrete-engineer/textbook/materials 301
-/docs/concrete-engineer-textbook-mix-design /exam/concrete-engineer/textbook/mix-design 301
-/docs/concrete-engineer-textbook-production-qc /exam/concrete-engineer/textbook/production-qc 301
-/docs/concrete-engineer-textbook-properties-testing /exam/concrete-engineer/textbook/properties-testing 301
-/docs/pavement-guide-keiken-kijutsu /exam/pavement/guide/keiken-kijutsu 301
-/docs/pavement-guide-overview /exam/pavement/guide/overview 301
-/docs/pavement-guide-sentaku-hinshutsu /exam/pavement/guide/sentaku-hinshutsu 301
-/docs/pavement-guide-study-plan /exam/pavement/guide/study-plan 301
 /docs/pe-comprehensive-management-course-selection-guide /exam/pe-comprehensive-management/guide/course-selection-guide 301
 /docs/pe-comprehensive-management-essay-exam-strategy /exam/pe-comprehensive-management/guide/essay-exam-strategy 301
 /docs/pe-comprehensive-management-essay-pattern-cross-year-application /exam/pe-comprehensive-management/guide/essay-pattern-cross-year-application 301
@@ -391,7 +308,6 @@
 /docs/pe-comprehensive-management-exam-application-guide /exam/pe-comprehensive-management/guide/exam-application-guide 301
 /docs/pe-comprehensive-management-exam-index /exam/pe-comprehensive-management/guide/exam-index 301
 /docs/pe-comprehensive-management-exam-passing-strategy /exam/pe-comprehensive-management/guide/exam-passing-strategy 301
-/docs/pe-comprehensive-management-frequent-topics /exam/pe-comprehensive-management/guide/frequent-topics 301
 /docs/pe-comprehensive-management-general-vs-comprehensive /exam/pe-comprehensive-management/guide/general-vs-comprehensive 301
 /docs/pe-comprehensive-management-keyword-2026 /exam/pe-comprehensive-management/guide/keyword-2026 301
 /docs/pe-comprehensive-management-last-minute-2026 /exam/pe-comprehensive-management/guide/last-minute-2026 301
@@ -417,7 +333,6 @@
 /docs/pe-comprehensive-management-accident-response-drill /exam/pe-comprehensive-management/keywords/accident-response-drill 301
 /docs/pe-comprehensive-management-accident-statistics /exam/pe-comprehensive-management/keywords/accident-statistics 301
 /docs/pe-comprehensive-management-accountability-traceability /exam/pe-comprehensive-management/keywords/accountability-traceability 301
-/docs/pe-comprehensive-management-accounting-principles /exam/pe-comprehensive-management/keywords/accounting-principles 301
 /docs/pe-comprehensive-management-accounting-systems /exam/pe-comprehensive-management/keywords/accounting-systems 301
 /docs/pe-comprehensive-management-achievement-organization /exam/pe-comprehensive-management/keywords/achievement-organization 301
 /docs/pe-comprehensive-management-acid-rain /exam/pe-comprehensive-management/keywords/acid-rain 301
@@ -565,7 +480,6 @@
 /docs/pe-comprehensive-management-disclosure-standards /exam/pe-comprehensive-management/keywords/disclosure-standards 301
 /docs/pe-comprehensive-management-discount-rate /exam/pe-comprehensive-management/keywords/discount-rate 301
 /docs/pe-comprehensive-management-discretionary-work-system /exam/pe-comprehensive-management/keywords/discretionary-work-system 301
-/docs/pe-comprehensive-management-diversity-management /exam/pe-comprehensive-management/keywords/diversity-management 301
 /docs/pe-comprehensive-management-divisional-organization /exam/pe-comprehensive-management/keywords/divisional-organization 301
 /docs/pe-comprehensive-management-dmz /exam/pe-comprehensive-management/keywords/dmz 301
 /docs/pe-comprehensive-management-dos-ddos /exam/pe-comprehensive-management/keywords/dos-ddos 301
@@ -1114,26 +1028,16 @@
 /docs/pe-comprehensive-management-information-management-pillar /exam/pe-comprehensive-management/pillar/information-management-pillar 301
 /docs/pe-comprehensive-management-safety-management-pillar /exam/pe-comprehensive-management/pillar/safety-management-pillar 301
 /docs/pe-comprehensive-management-social-environment-management-pillar /exam/pe-comprehensive-management/pillar/social-environment-management-pillar 301
-/docs/pe-construction-aimai-hyougen-sahou /exam/pe-construction/guide/aimai-hyougen-sahou 301
 /docs/pe-construction-guide-career /exam/pe-construction/guide/career 301
 /docs/pe-construction-competency-revision-r8 /exam/pe-construction/guide/competency-revision-r8 301
-/docs/pe-construction-fukugyou-dokuritsu /exam/pe-construction/guide/fukugyou-dokuritsu 301
 /docs/pe-construction-gakushuu-jikan-schedule /exam/pe-construction/guide/gakushuu-jikan-schedule 301
 /docs/pe-construction-gyoumu-keireki-hyou /exam/pe-construction/guide/gyoumu-keireki-hyou 301
 /docs/pe-construction-hissu-kamoku-kaitourei /exam/pe-construction/guide/hissu-kamoku-kaitourei 301
-/docs/pe-construction-infra-system-overseas /exam/pe-construction/guide/infra-system-overseas 301
-/docs/pe-construction-keyword-note-tsukurikata /exam/pe-construction/guide/keyword-note-tsukurikata 301
 /docs/pe-construction-nanido-goukakuritsu /exam/pe-construction/guide/nanido-goukakuritsu 301
 /docs/pe-construction-pe-secondary-essay-guide /exam/pe-construction/guide/pe-secondary-essay-guide 301
-/docs/pe-construction-public-servant-merit /exam/pe-construction/guide/public-servant-merit 301
 /docs/pe-construction-guide-required-essay /exam/pe-construction/guide/required-essay 301
 /docs/pe-construction-secondary-study-method /exam/pe-construction/guide/secondary-study-method 301
-/docs/pe-construction-seismic-damage-lessons /exam/pe-construction/guide/seismic-damage-lessons 301
-/docs/pe-construction-seismic-isolation-damping /exam/pe-construction/guide/seismic-isolation-damping 301
 /docs/pe-construction-sentaku-kamoku-kakiwake /exam/pe-construction/guide/sentaku-kamoku-kakiwake 301
-/docs/pe-construction-setsumon-bunkai /exam/pe-construction/guide/setsumon-bunkai 301
-/docs/pe-construction-shiken-toujitsu-tejun /exam/pe-construction/guide/shiken-toujitsu-tejun 301
-/docs/pe-construction-suikou-checklist /exam/pe-construction/guide/suikou-checklist 301
 /docs/pe-construction-toan-kousei-template /exam/pe-construction/guide/toan-kousei-template 301
 /docs/pe-construction-bosai-kokudo-kyoujinka /exam/pe-construction/keywords/bosai-kokudo-kyoujinka 301
 /docs/pe-construction-bousai-genseigai-ronbun-keyword /exam/pe-construction/keywords/bousai-genseigai-ronbun-keyword 301
@@ -1254,199 +1158,297 @@
 /docs/pe-construction-r07-steel-concrete /exam/pe-construction/past-exams/r07-steel-concrete 301
 /docs/pe-construction-r07-tunnel /exam/pe-construction/past-exams/r07-tunnel 301
 /docs/pe-construction-r07-urban-planning /exam/pe-construction/past-exams/r07-urban-planning 301
-/docs/pe-construction-r08-construction-planning /exam/pe-construction/past-exams/r08-construction-planning 301
-/docs/pe-construction-r08-environment /exam/pe-construction/past-exams/r08-environment 301
-/docs/pe-construction-r08-geotechnical /exam/pe-construction/past-exams/r08-geotechnical 301
-/docs/pe-construction-r08-port-airport /exam/pe-construction/past-exams/r08-port-airport 301
-/docs/pe-construction-r08-power-civil /exam/pe-construction/past-exams/r08-power-civil 301
-/docs/pe-construction-r08-railway /exam/pe-construction/past-exams/r08-railway 301
-/docs/pe-construction-r08-required /exam/pe-construction/past-exams/r08-required 301
-/docs/pe-construction-r08-river-coast /exam/pe-construction/past-exams/r08-river-coast 301
-/docs/pe-construction-r08-road /exam/pe-construction/past-exams/r08-road 301
-/docs/pe-construction-r08-steel-concrete /exam/pe-construction/past-exams/r08-steel-concrete 301
-/docs/pe-construction-r08-tunnel /exam/pe-construction/past-exams/r08-tunnel 301
-/docs/pe-construction-r08-urban-planning /exam/pe-construction/past-exams/r08-urban-planning 301
-/docs/pe-first-stage-guide-after-pass /exam/pe-first-stage/guide/after-pass 301
-/docs/pe-first-stage-guide-aptitude-subject /exam/pe-first-stage/guide/aptitude-subject 301
-/docs/pe-first-stage-guide-basic-subject /exam/pe-first-stage/guide/basic-subject 301
-/docs/pe-first-stage-guide-calculus-numerical-calculation /exam/pe-first-stage/guide/calculus-numerical-calculation 301
-/docs/pe-first-stage-guide-construction-subject /exam/pe-first-stage/guide/construction-subject 301
-/docs/pe-first-stage-guide-matrix-vector-calculation /exam/pe-first-stage/guide/matrix-vector-calculation 301
-/docs/pe-first-stage-guide-overview /exam/pe-first-stage/guide/overview 301
-/docs/pe-first-stage-guide-r08-answers /exam/pe-first-stage/guide/r08-answers 301
-/docs/pe-first-stage-guide-resistance-circuit-calculation /exam/pe-first-stage/guide/resistance-circuit-calculation 301
-/docs/pe-first-stage-guide-study-plan /exam/pe-first-stage/guide/study-plan 301
-/docs/pe-first-stage-guide-water-supply-subject /exam/pe-first-stage/guide/water-supply-subject 301
-/docs/pe-first-stage-h23-aptitude /exam/pe-first-stage/primary/h23-aptitude 301
-/docs/pe-first-stage-h23-basic /exam/pe-first-stage/primary/h23-basic 301
-/docs/pe-first-stage-h23-construction /exam/pe-first-stage/primary/h23-construction 301
-/docs/pe-first-stage-h23-water-supply /exam/pe-first-stage/primary/h23-water-supply 301
-/docs/pe-first-stage-h24-aptitude /exam/pe-first-stage/primary/h24-aptitude 301
-/docs/pe-first-stage-h24-basic /exam/pe-first-stage/primary/h24-basic 301
-/docs/pe-first-stage-h24-construction /exam/pe-first-stage/primary/h24-construction 301
-/docs/pe-first-stage-h24-water-supply /exam/pe-first-stage/primary/h24-water-supply 301
-/docs/pe-first-stage-h25-aptitude /exam/pe-first-stage/primary/h25-aptitude 301
-/docs/pe-first-stage-h25-basic /exam/pe-first-stage/primary/h25-basic 301
-/docs/pe-first-stage-h25-construction /exam/pe-first-stage/primary/h25-construction 301
-/docs/pe-first-stage-h25-water-supply /exam/pe-first-stage/primary/h25-water-supply 301
-/docs/pe-first-stage-h26-aptitude /exam/pe-first-stage/primary/h26-aptitude 301
-/docs/pe-first-stage-h26-basic /exam/pe-first-stage/primary/h26-basic 301
-/docs/pe-first-stage-h26-construction /exam/pe-first-stage/primary/h26-construction 301
-/docs/pe-first-stage-h26-water-supply /exam/pe-first-stage/primary/h26-water-supply 301
-/docs/pe-first-stage-h27-aptitude /exam/pe-first-stage/primary/h27-aptitude 301
-/docs/pe-first-stage-h27-basic /exam/pe-first-stage/primary/h27-basic 301
-/docs/pe-first-stage-h27-construction /exam/pe-first-stage/primary/h27-construction 301
-/docs/pe-first-stage-h27-water-supply /exam/pe-first-stage/primary/h27-water-supply 301
-/docs/pe-first-stage-h28-aptitude /exam/pe-first-stage/primary/h28-aptitude 301
-/docs/pe-first-stage-h28-basic /exam/pe-first-stage/primary/h28-basic 301
-/docs/pe-first-stage-h28-construction /exam/pe-first-stage/primary/h28-construction 301
-/docs/pe-first-stage-h28-water-supply /exam/pe-first-stage/primary/h28-water-supply 301
-/docs/pe-first-stage-h29-aptitude /exam/pe-first-stage/primary/h29-aptitude 301
-/docs/pe-first-stage-h29-basic /exam/pe-first-stage/primary/h29-basic 301
-/docs/pe-first-stage-h29-construction /exam/pe-first-stage/primary/h29-construction 301
-/docs/pe-first-stage-h29-water-supply /exam/pe-first-stage/primary/h29-water-supply 301
-/docs/pe-first-stage-h30-aptitude /exam/pe-first-stage/primary/h30-aptitude 301
-/docs/pe-first-stage-h30-basic /exam/pe-first-stage/primary/h30-basic 301
-/docs/pe-first-stage-h30-construction /exam/pe-first-stage/primary/h30-construction 301
-/docs/pe-first-stage-h30-water-supply /exam/pe-first-stage/primary/h30-water-supply 301
 /docs/pe-first-stage-r01-aptitude /exam/pe-first-stage/primary/r01-aptitude 301
 /docs/pe-first-stage-r01-basic /exam/pe-first-stage/primary/r01-basic 301
 /docs/pe-first-stage-r01-construction /exam/pe-first-stage/primary/r01-construction 301
-/docs/pe-first-stage-r01-retry-aptitude /exam/pe-first-stage/primary/r01-retry-aptitude 301
-/docs/pe-first-stage-r01-retry-basic /exam/pe-first-stage/primary/r01-retry-basic 301
-/docs/pe-first-stage-r01-retry-construction /exam/pe-first-stage/primary/r01-retry-construction 301
-/docs/pe-first-stage-r01-retry-water-supply /exam/pe-first-stage/primary/r01-retry-water-supply 301
-/docs/pe-first-stage-r01-water-supply /exam/pe-first-stage/primary/r01-water-supply 301
 /docs/pe-first-stage-r02-aptitude /exam/pe-first-stage/primary/r02-aptitude 301
 /docs/pe-first-stage-r02-basic /exam/pe-first-stage/primary/r02-basic 301
 /docs/pe-first-stage-r02-construction /exam/pe-first-stage/primary/r02-construction 301
-/docs/pe-first-stage-r02-water-supply /exam/pe-first-stage/primary/r02-water-supply 301
 /docs/pe-first-stage-r03-aptitude /exam/pe-first-stage/primary/r03-aptitude 301
 /docs/pe-first-stage-r03-basic /exam/pe-first-stage/primary/r03-basic 301
 /docs/pe-first-stage-r03-construction /exam/pe-first-stage/primary/r03-construction 301
-/docs/pe-first-stage-r03-water-supply /exam/pe-first-stage/primary/r03-water-supply 301
 /docs/pe-first-stage-r04-aptitude /exam/pe-first-stage/primary/r04-aptitude 301
 /docs/pe-first-stage-r04-basic /exam/pe-first-stage/primary/r04-basic 301
 /docs/pe-first-stage-r04-construction /exam/pe-first-stage/primary/r04-construction 301
-/docs/pe-first-stage-r04-water-supply /exam/pe-first-stage/primary/r04-water-supply 301
 /docs/pe-first-stage-r05-aptitude /exam/pe-first-stage/primary/r05-aptitude 301
 /docs/pe-first-stage-r05-basic /exam/pe-first-stage/primary/r05-basic 301
 /docs/pe-first-stage-r05-construction /exam/pe-first-stage/primary/r05-construction 301
-/docs/pe-first-stage-r05-water-supply /exam/pe-first-stage/primary/r05-water-supply 301
 /docs/pe-first-stage-r06-aptitude /exam/pe-first-stage/primary/r06-aptitude 301
 /docs/pe-first-stage-r06-basic /exam/pe-first-stage/primary/r06-basic 301
 /docs/pe-first-stage-r06-construction /exam/pe-first-stage/primary/r06-construction 301
-/docs/pe-first-stage-r06-water-supply /exam/pe-first-stage/primary/r06-water-supply 301
 /docs/pe-first-stage-r07-aptitude /exam/pe-first-stage/primary/r07-aptitude 301
 /docs/pe-first-stage-r07-basic /exam/pe-first-stage/primary/r07-basic 301
 /docs/pe-first-stage-r07-construction /exam/pe-first-stage/primary/r07-construction 301
-/docs/pe-first-stage-r07-water-supply /exam/pe-first-stage/primary/r07-water-supply 301
-/docs/rccm-guide-career-value /exam/rccm/guide/career-value 301
-/docs/rccm-guide-difference-pe /exam/rccm/guide/difference-pe 301
-/docs/rccm-guide-eligibility-application /exam/rccm/guide/eligibility-application 301
-/docs/rccm-guide-mondai1-keiken-ronbun /exam/rccm/guide/mondai1-keiken-ronbun 301
-/docs/rccm-guide-mondai2-4-takuitsu /exam/rccm/guide/mondai2-4-takuitsu 301
-/docs/rccm-guide-mondai3-themes-2026 /exam/rccm/guide/mondai3-themes-2026 301
-/docs/rccm-guide-overview /exam/rccm/guide/overview 301
-/docs/rccm-guide-study-plan /exam/rccm/guide/study-plan 301
-/docs/surveyor-guide-assistant-takuitsu /exam/surveyor/guide/assistant-takuitsu 301
-/docs/surveyor-guide-gogo-bunya /exam/surveyor/guide/gogo-bunya 301
-/docs/surveyor-guide-overview /exam/surveyor/guide/overview 301
-/docs/surveyor-guide-study-plan /exam/surveyor/guide/study-plan 301
-/docs/surveyor-primary-r04 /exam/surveyor/primary/r04 301
-/docs/surveyor-primary-r05 /exam/surveyor/primary/r05 301
-/docs/surveyor-primary-r06 /exam/surveyor/primary/r06 301
-/docs/surveyor-primary-r07 /exam/surveyor/primary/r07 301
-/docs/surveyor-primary-r08 /exam/surveyor/primary/r08 301
-/docs/civil-practice-accident-first-response /practice/accident-first-response 301
-/docs/civil-practice-ai-document-verification /practice/ai-document-verification 301
-/docs/civil-practice-asphalt-materials-types /practice/asphalt-materials-types 301
-/docs/civil-practice-asphalt-pavement-control /practice/asphalt-pavement-control 301
-/docs/civil-practice-backfill-river-excavation /practice/backfill-river-excavation 301
-/docs/civil-practice-bim-cim-site-practice /practice/bim-cim-site-practice 301
-/docs/civil-practice-board-of-audit-inspection /practice/board-of-audit-inspection 301
-/docs/civil-practice-cast-in-place-pile-methods /practice/cast-in-place-pile-methods 301
-/docs/civil-practice-ccus-kentaikyo-site /practice/ccus-kentaikyo-site 301
-/docs/civil-practice-checklist-shoring-buoyancy /practice/checklist-shoring-buoyancy 301
-/docs/civil-practice-concrete-compaction-numbers /practice/concrete-compaction-numbers 301
-/docs/civil-practice-concrete-crack-causes /practice/concrete-crack-causes 301
-/docs/civil-practice-concrete-finishing-curing /practice/concrete-finishing-curing 301
-/docs/civil-practice-concrete-mix-acceptance /practice/concrete-mix-acceptance 301
-/docs/civil-practice-concrete-placement-order /practice/concrete-placement-order 301
-/docs/civil-practice-concrete-placement-timing /practice/concrete-placement-timing 301
-/docs/civil-practice-concrete-pump-capacity /practice/concrete-pump-capacity 301
-/docs/civil-practice-concrete-repair-leakage /practice/concrete-repair-leakage 301
-/docs/civil-practice-construction-industry-structure /practice/construction-industry-structure 301
-/docs/civil-practice-construction-inspection-types /practice/construction-inspection-types 301
-/docs/civil-practice-construction-plan-document /practice/construction-plan-document 301
-/docs/civil-practice-cost-and-design-change /practice/cost-and-design-change 301
-/docs/civil-practice-earth-retaining-displacement /practice/earth-retaining-displacement 301
-/docs/civil-practice-earthquake-tsunami-site-response /practice/earthquake-tsunami-site-response 301
-/docs/civil-practice-embankment-quality-control /practice/embankment-quality-control 301
-/docs/civil-practice-environment-neighborhood /practice/environment-neighborhood 301
-/docs/civil-practice-environmental-impact-assessment-flow /practice/environmental-impact-assessment-flow 301
-/docs/civil-practice-excavation-bottom-failure /practice/excavation-bottom-failure 301
-/docs/civil-practice-excavation-pre-survey /practice/excavation-pre-survey 301
-/docs/civil-practice-flood-control-facilities /practice/flood-control-facilities 301
-/docs/civil-practice-flood-season-river-work /practice/flood-season-river-work 301
-/docs/civil-practice-foreign-workers-site-check /practice/foreign-workers-site-check 301
-/docs/civil-practice-formwork-material-inspection /practice/formwork-material-inspection 301
-/docs/civil-practice-formwork-removal-timing /practice/formwork-removal-timing 301
-/docs/civil-practice-formwork-waterstop-details /practice/formwork-waterstop-details 301
-/docs/civil-practice-gis-layer-validation /practice/gis-layer-validation 301
-/docs/civil-practice-gnss-positioning-basics /practice/gnss-positioning-basics 301
-/docs/civil-practice-ict-construction-workflow /practice/ict-construction-workflow 301
-/docs/civil-practice-keishin-bidder-qualification /practice/keishin-bidder-qualification 301
-/docs/civil-practice-large-fill-landslide /practice/large-fill-landslide 301
-/docs/civil-practice-ledger-data-design /practice/ledger-data-design 301
-/docs/civil-practice-levee-failure-reinforcement /practice/levee-failure-reinforcement 301
-/docs/civil-practice-license-scope-judgment /practice/license-scope-judgment 301
-/docs/civil-practice-lifting-equipment-selection /practice/lifting-equipment-selection 301
-/docs/civil-practice-material-selection-receiving /practice/material-selection-receiving 301
-/docs/civil-practice-monitoring-sensor-selection /practice/monitoring-sensor-selection 301
-/docs/civil-practice-nature-conservation-mitigation /practice/nature-conservation-mitigation 301
-/docs/civil-practice-netis-new-technology-use /practice/netis-new-technology-use 301
-/docs/civil-practice-numerical-model-review /practice/numerical-model-review 301
-/docs/civil-practice-oshms-pdca-site-operation /practice/oshms-pdca-site-operation 301
-/docs/civil-practice-pile-bearing-verification /practice/pile-bearing-verification 301
-/docs/civil-practice-pile-concrete-head-treatment /practice/pile-concrete-head-treatment 301
-/docs/civil-practice-pipe-jacking-methods /practice/pipe-jacking-methods 301
-/docs/civil-practice-pre-construction-process /practice/pre-construction-process 301
-/docs/civil-practice-precast-pile-methods /practice/precast-pile-methods 301
-/docs/civil-practice-preventive-maintenance-diagnosis /practice/preventive-maintenance-diagnosis 301
-/docs/civil-practice-public-works-bidding-methods /practice/public-works-bidding-methods 301
-/docs/civil-practice-public-works-delivery-methods /practice/public-works-delivery-methods 301
-/docs/civil-practice-quality-record-site-bcp /practice/quality-record-site-bcp 301
-/docs/civil-practice-rainfall-work-suspension /practice/rainfall-work-suspension 301
-/docs/civil-practice-reading-civil-drawings /practice/reading-civil-drawings 301
-/docs/civil-practice-rebar-corrosion-handling /practice/rebar-corrosion-handling 301
-/docs/civil-practice-rebar-cover-placement /practice/rebar-cover-placement 301
-/docs/civil-practice-rebar-splice-selection /practice/rebar-splice-selection 301
-/docs/civil-practice-reference-values /practice/reference-values 301
-/docs/civil-practice-risk-assessment-construction-workflow /practice/risk-assessment-construction-workflow 301
-/docs/civil-practice-river-park-erosion-control /practice/river-park-erosion-control 301
-/docs/civil-practice-road-fixtures-precast /practice/road-fixtures-precast 301
-/docs/civil-practice-safety-culture-discipline /practice/safety-culture-discipline 301
-/docs/civil-practice-safety-document-cross-check /practice/safety-document-cross-check 301
-/docs/civil-practice-safety-health-education-plan /practice/safety-health-education-plan 301
-/docs/civil-practice-safety-patrol-corrective-action /practice/safety-patrol-corrective-action 301
-/docs/civil-practice-schedule-and-road-permit /practice/schedule-and-road-permit 301
-/docs/civil-practice-seismic-design-levels /practice/seismic-design-levels 301
-/docs/civil-practice-service-commencement /practice/service-commencement 301
-/docs/civil-practice-sheet-pile-snow-coating /practice/sheet-pile-snow-coating 301
-/docs/civil-practice-site-wireless-communication /practice/site-wireless-communication 301
-/docs/civil-practice-sling-work-wire-rope /practice/sling-work-wire-rope 301
-/docs/civil-practice-slope-drainage-monitoring /practice/slope-drainage-monitoring 301
-/docs/civil-practice-slope-protection-selection /practice/slope-protection-selection 301
-/docs/civil-practice-soil-improvement-sandbag /practice/soil-improvement-sandbag 301
-/docs/civil-practice-stacking-heat-machine-safety /practice/stacking-heat-machine-safety 301
-/docs/civil-practice-steel-material-properties /practice/steel-material-properties 301
-/docs/civil-practice-subbase-subgrade-control /practice/subbase-subgrade-control 301
-/docs/civil-practice-subcontract-fair-dealing /practice/subcontract-fair-dealing 301
-/docs/civil-practice-subcontract-instruction-boundary /practice/subcontract-instruction-boundary 301
-/docs/civil-practice-trench-excavation-safety /practice/trench-excavation-safety 301
-/docs/civil-practice-typhoon-forecast-work-planning /practice/typhoon-forecast-work-planning 301
-/docs/civil-practice-volcanic-hazard-site-planning /practice/volcanic-hazard-site-planning 301
+
+# Post-migration articles: no /docs 301 (never existed). Comments only, not Cloudflare rules; read by sitemap/RSS/URL checks
+# route /docs/building-construction-guide-1kyu-keiken-kijutsu /exam/building-construction/guide/1kyu-keiken-kijutsu
+# route /docs/building-construction-guide-2kyu-keiken-kijutsu /exam/building-construction/guide/2kyu-keiken-kijutsu
+# route /docs/building-construction-guide-niji-kakomon-keikou /exam/building-construction/guide/niji-kakomon-keikou
+# route /docs/civil-construction-1-guide-engineer-assignment /exam/civil-construction-1/guide/engineer-assignment
+# route /docs/civil-construction-1-guide-hydraulics-basics /exam/civil-construction-1/guide/hydraulics-basics
+# route /docs/civil-construction-1-guide-public-engineer-exam-study /exam/civil-construction-1/guide/public-engineer-exam-study
+# route /docs/civil-construction-1-guide-public-engineer-salary-table /exam/civil-construction-1/guide/public-engineer-salary-table
+# route /docs/civil-construction-1-guide-public-servant-or-private /exam/civil-construction-1/guide/public-servant-or-private
+# route /docs/civil-construction-1-guide-quit-public-engineer /exam/civil-construction-1/guide/quit-public-engineer
+# route /docs/civil-construction-1-guide-structural-mechanics-basics /exam/civil-construction-1/guide/structural-mechanics-basics
+# route /docs/civil-construction-1-primary-h18-a /exam/civil-construction-1/primary/h18-a
+# route /docs/civil-construction-1-primary-h18-b /exam/civil-construction-1/primary/h18-b
+# route /docs/civil-construction-1-primary-h21-a /exam/civil-construction-1/primary/h21-a
+# route /docs/civil-construction-1-primary-h21-b /exam/civil-construction-1/primary/h21-b
+# route /docs/civil-construction-1-primary-h22-a /exam/civil-construction-1/primary/h22-a
+# route /docs/civil-construction-1-primary-h22-b /exam/civil-construction-1/primary/h22-b
+# route /docs/civil-construction-1-primary-h24-a /exam/civil-construction-1/primary/h24-a
+# route /docs/civil-construction-1-primary-h24-b /exam/civil-construction-1/primary/h24-b
+# route /docs/civil-construction-1-secondary-r08 /exam/civil-construction-1/secondary/r08
+# route /docs/civil-construction-1-textbook-asphalt-concrete-pavement /exam/civil-construction-1/textbook/asphalt-concrete-pavement
+# route /docs/civil-construction-1-textbook-byproduct-guideline /exam/civil-construction-1/textbook/byproduct-guideline
+# route /docs/civil-construction-1-textbook-cast-in-place-pile /exam/civil-construction-1/textbook/cast-in-place-pile
+# route /docs/civil-construction-1-textbook-coast-port /exam/civil-construction-1/textbook/coast-port
+# route /docs/civil-construction-1-textbook-concrete-materials /exam/civil-construction-1/textbook/concrete-materials
+# route /docs/civil-construction-1-textbook-concrete-mix-design /exam/civil-construction-1/textbook/concrete-mix-design
+# route /docs/civil-construction-1-textbook-concrete-placement /exam/civil-construction-1/textbook/concrete-placement
+# route /docs/civil-construction-1-textbook-concrete-properties /exam/civil-construction-1/textbook/concrete-properties
+# route /docs/civil-construction-1-textbook-cut-slope-protection /exam/civil-construction-1/textbook/cut-slope-protection
+# route /docs/civil-construction-1-textbook-dam-construction /exam/civil-construction-1/textbook/dam-construction
+# route /docs/civil-construction-1-textbook-earth-retaining-cofferdam /exam/civil-construction-1/textbook/earth-retaining-cofferdam
+# route /docs/civil-construction-1-textbook-earthwork-planning /exam/civil-construction-1/textbook/earthwork-planning
+# route /docs/civil-construction-1-textbook-embankment /exam/civil-construction-1/textbook/embankment
+# route /docs/civil-construction-1-textbook-foundation-overview-survey /exam/civil-construction-1/textbook/foundation-overview-survey
+# route /docs/civil-construction-1-textbook-pavement-repair-quality /exam/civil-construction-1/textbook/pavement-repair-quality
+# route /docs/civil-construction-1-textbook-pile-foundation-precast /exam/civil-construction-1/textbook/pile-foundation-precast
+# route /docs/civil-construction-1-textbook-railway-underground /exam/civil-construction-1/textbook/railway-underground
+# route /docs/civil-construction-1-textbook-rebar-formwork /exam/civil-construction-1/textbook/rebar-formwork
+# route /docs/civil-construction-1-textbook-river-works /exam/civil-construction-1/textbook/river-works
+# route /docs/civil-construction-1-textbook-road-earthwork-subbase /exam/civil-construction-1/textbook/road-earthwork-subbase
+# route /docs/civil-construction-1-textbook-sabo-landslide /exam/civil-construction-1/textbook/sabo-landslide
+# route /docs/civil-construction-1-textbook-safety-foundation-bridge /exam/civil-construction-1/textbook/safety-foundation-bridge
+# route /docs/civil-construction-1-textbook-soft-ground-drainage /exam/civil-construction-1/textbook/soft-ground-drainage
+# route /docs/civil-construction-1-textbook-soil-investigation-methods /exam/civil-construction-1/textbook/soil-investigation-methods
+# route /docs/civil-construction-1-textbook-special-concrete-inspection /exam/civil-construction-1/textbook/special-concrete-inspection
+# route /docs/civil-construction-1-textbook-steel-structures /exam/civil-construction-1/textbook/steel-structures
+# route /docs/civil-construction-1-textbook-tunnel-natm /exam/civil-construction-1/textbook/tunnel-natm
+# route /docs/civil-construction-1-textbook-water-sewer /exam/civil-construction-1/textbook/water-sewer
+# route /docs/civil-construction-2-guide-dam-tunnel-key-points /exam/civil-construction-2/guide/dam-tunnel-key-points
+# route /docs/civil-construction-2-guide-r08-secondary-answers /exam/civil-construction-2/guide/r08-secondary-answers
+# route /docs/civil-construction-2-guide-river-sabo-key-points /exam/civil-construction-2/guide/river-sabo-key-points
+# route /docs/civil-construction-2-guide-road-pavement-key-points /exam/civil-construction-2/guide/road-pavement-key-points
+# route /docs/civil-construction-2-secondary-grading-and-partial-credit /exam/civil-construction-2/guide/secondary-grading-and-partial-credit
+# route /docs/civil-construction-2-secondary-last-two-weeks-plan /exam/civil-construction-2/guide/secondary-last-two-weeks-plan
+# route /docs/civil-construction-2-secondary-written-questions-guide /exam/civil-construction-2/guide/secondary-written-questions-guide
+# route /docs/civil-construction-2-guide-structures-key-points /exam/civil-construction-2/guide/structures-key-points
+# route /docs/civil-construction-2-guide-water-sewer-key-points /exam/civil-construction-2/guide/water-sewer-key-points
+# route /docs/civil-construction-2-primary-h18 /exam/civil-construction-2/primary/h18
+# route /docs/civil-construction-2-primary-h20 /exam/civil-construction-2/primary/h20
+# route /docs/civil-construction-2-primary-h26 /exam/civil-construction-2/primary/h26
+# route /docs/civil-construction-2-primary-h27 /exam/civil-construction-2/primary/h27
+# route /docs/civil-construction-2-primary-r08-zenki /exam/civil-construction-2/primary/r08-zenki
+# route /docs/civil-construction-2-secondary-experience-writing-by-theme /exam/civil-construction-2/secondary/experience-writing-by-theme
+# route /docs/concrete-engineer-guide-books /exam/concrete-engineer/guide/books
+# route /docs/concrete-engineer-guide-difference-chief /exam/concrete-engineer/guide/difference-chief
+# route /docs/concrete-engineer-guide-eligibility-2026 /exam/concrete-engineer/guide/eligibility-2026
+# route /docs/concrete-engineer-guide-overview /exam/concrete-engineer/guide/overview
+# route /docs/concrete-engineer-guide-study-plan /exam/concrete-engineer/guide/study-plan
+# route /docs/concrete-engineer-primary-construction /exam/concrete-engineer/primary/construction
+# route /docs/concrete-engineer-primary-environment /exam/concrete-engineer/primary/environment
+# route /docs/concrete-engineer-primary-materials /exam/concrete-engineer/primary/materials
+# route /docs/concrete-engineer-primary-mix-design /exam/concrete-engineer/primary/mix-design
+# route /docs/concrete-engineer-primary-production-qc /exam/concrete-engineer/primary/production-qc
+# route /docs/concrete-engineer-primary-properties-testing /exam/concrete-engineer/primary/properties-testing
+# route /docs/concrete-engineer-textbook-construction /exam/concrete-engineer/textbook/construction
+# route /docs/concrete-engineer-textbook-environment /exam/concrete-engineer/textbook/environment
+# route /docs/concrete-engineer-textbook-materials /exam/concrete-engineer/textbook/materials
+# route /docs/concrete-engineer-textbook-mix-design /exam/concrete-engineer/textbook/mix-design
+# route /docs/concrete-engineer-textbook-production-qc /exam/concrete-engineer/textbook/production-qc
+# route /docs/concrete-engineer-textbook-properties-testing /exam/concrete-engineer/textbook/properties-testing
+# route /docs/pavement-guide-keiken-kijutsu /exam/pavement/guide/keiken-kijutsu
+# route /docs/pavement-guide-overview /exam/pavement/guide/overview
+# route /docs/pavement-guide-sentaku-hinshutsu /exam/pavement/guide/sentaku-hinshutsu
+# route /docs/pavement-guide-study-plan /exam/pavement/guide/study-plan
+# route /docs/pe-comprehensive-management-frequent-topics /exam/pe-comprehensive-management/guide/frequent-topics
+# route /docs/pe-comprehensive-management-accounting-principles /exam/pe-comprehensive-management/keywords/accounting-principles
+# route /docs/pe-comprehensive-management-diversity-management /exam/pe-comprehensive-management/keywords/diversity-management
+# route /docs/pe-construction-aimai-hyougen-sahou /exam/pe-construction/guide/aimai-hyougen-sahou
+# route /docs/pe-construction-fukugyou-dokuritsu /exam/pe-construction/guide/fukugyou-dokuritsu
+# route /docs/pe-construction-infra-system-overseas /exam/pe-construction/guide/infra-system-overseas
+# route /docs/pe-construction-keyword-note-tsukurikata /exam/pe-construction/guide/keyword-note-tsukurikata
+# route /docs/pe-construction-public-servant-merit /exam/pe-construction/guide/public-servant-merit
+# route /docs/pe-construction-seismic-damage-lessons /exam/pe-construction/guide/seismic-damage-lessons
+# route /docs/pe-construction-seismic-isolation-damping /exam/pe-construction/guide/seismic-isolation-damping
+# route /docs/pe-construction-setsumon-bunkai /exam/pe-construction/guide/setsumon-bunkai
+# route /docs/pe-construction-shiken-toujitsu-tejun /exam/pe-construction/guide/shiken-toujitsu-tejun
+# route /docs/pe-construction-suikou-checklist /exam/pe-construction/guide/suikou-checklist
+# route /docs/pe-construction-r08-construction-planning /exam/pe-construction/past-exams/r08-construction-planning
+# route /docs/pe-construction-r08-environment /exam/pe-construction/past-exams/r08-environment
+# route /docs/pe-construction-r08-geotechnical /exam/pe-construction/past-exams/r08-geotechnical
+# route /docs/pe-construction-r08-port-airport /exam/pe-construction/past-exams/r08-port-airport
+# route /docs/pe-construction-r08-power-civil /exam/pe-construction/past-exams/r08-power-civil
+# route /docs/pe-construction-r08-railway /exam/pe-construction/past-exams/r08-railway
+# route /docs/pe-construction-r08-required /exam/pe-construction/past-exams/r08-required
+# route /docs/pe-construction-r08-river-coast /exam/pe-construction/past-exams/r08-river-coast
+# route /docs/pe-construction-r08-road /exam/pe-construction/past-exams/r08-road
+# route /docs/pe-construction-r08-steel-concrete /exam/pe-construction/past-exams/r08-steel-concrete
+# route /docs/pe-construction-r08-tunnel /exam/pe-construction/past-exams/r08-tunnel
+# route /docs/pe-construction-r08-urban-planning /exam/pe-construction/past-exams/r08-urban-planning
+# route /docs/pe-first-stage-guide-after-pass /exam/pe-first-stage/guide/after-pass
+# route /docs/pe-first-stage-guide-aptitude-subject /exam/pe-first-stage/guide/aptitude-subject
+# route /docs/pe-first-stage-guide-basic-subject /exam/pe-first-stage/guide/basic-subject
+# route /docs/pe-first-stage-guide-calculus-numerical-calculation /exam/pe-first-stage/guide/calculus-numerical-calculation
+# route /docs/pe-first-stage-guide-construction-subject /exam/pe-first-stage/guide/construction-subject
+# route /docs/pe-first-stage-guide-matrix-vector-calculation /exam/pe-first-stage/guide/matrix-vector-calculation
+# route /docs/pe-first-stage-guide-overview /exam/pe-first-stage/guide/overview
+# route /docs/pe-first-stage-guide-r08-answers /exam/pe-first-stage/guide/r08-answers
+# route /docs/pe-first-stage-guide-resistance-circuit-calculation /exam/pe-first-stage/guide/resistance-circuit-calculation
+# route /docs/pe-first-stage-guide-study-plan /exam/pe-first-stage/guide/study-plan
+# route /docs/pe-first-stage-guide-water-supply-subject /exam/pe-first-stage/guide/water-supply-subject
+# route /docs/pe-first-stage-h23-aptitude /exam/pe-first-stage/primary/h23-aptitude
+# route /docs/pe-first-stage-h23-basic /exam/pe-first-stage/primary/h23-basic
+# route /docs/pe-first-stage-h23-construction /exam/pe-first-stage/primary/h23-construction
+# route /docs/pe-first-stage-h23-water-supply /exam/pe-first-stage/primary/h23-water-supply
+# route /docs/pe-first-stage-h24-aptitude /exam/pe-first-stage/primary/h24-aptitude
+# route /docs/pe-first-stage-h24-basic /exam/pe-first-stage/primary/h24-basic
+# route /docs/pe-first-stage-h24-construction /exam/pe-first-stage/primary/h24-construction
+# route /docs/pe-first-stage-h24-water-supply /exam/pe-first-stage/primary/h24-water-supply
+# route /docs/pe-first-stage-h25-aptitude /exam/pe-first-stage/primary/h25-aptitude
+# route /docs/pe-first-stage-h25-basic /exam/pe-first-stage/primary/h25-basic
+# route /docs/pe-first-stage-h25-construction /exam/pe-first-stage/primary/h25-construction
+# route /docs/pe-first-stage-h25-water-supply /exam/pe-first-stage/primary/h25-water-supply
+# route /docs/pe-first-stage-h26-aptitude /exam/pe-first-stage/primary/h26-aptitude
+# route /docs/pe-first-stage-h26-basic /exam/pe-first-stage/primary/h26-basic
+# route /docs/pe-first-stage-h26-construction /exam/pe-first-stage/primary/h26-construction
+# route /docs/pe-first-stage-h26-water-supply /exam/pe-first-stage/primary/h26-water-supply
+# route /docs/pe-first-stage-h27-aptitude /exam/pe-first-stage/primary/h27-aptitude
+# route /docs/pe-first-stage-h27-basic /exam/pe-first-stage/primary/h27-basic
+# route /docs/pe-first-stage-h27-construction /exam/pe-first-stage/primary/h27-construction
+# route /docs/pe-first-stage-h27-water-supply /exam/pe-first-stage/primary/h27-water-supply
+# route /docs/pe-first-stage-h28-aptitude /exam/pe-first-stage/primary/h28-aptitude
+# route /docs/pe-first-stage-h28-basic /exam/pe-first-stage/primary/h28-basic
+# route /docs/pe-first-stage-h28-construction /exam/pe-first-stage/primary/h28-construction
+# route /docs/pe-first-stage-h28-water-supply /exam/pe-first-stage/primary/h28-water-supply
+# route /docs/pe-first-stage-h29-aptitude /exam/pe-first-stage/primary/h29-aptitude
+# route /docs/pe-first-stage-h29-basic /exam/pe-first-stage/primary/h29-basic
+# route /docs/pe-first-stage-h29-construction /exam/pe-first-stage/primary/h29-construction
+# route /docs/pe-first-stage-h29-water-supply /exam/pe-first-stage/primary/h29-water-supply
+# route /docs/pe-first-stage-h30-aptitude /exam/pe-first-stage/primary/h30-aptitude
+# route /docs/pe-first-stage-h30-basic /exam/pe-first-stage/primary/h30-basic
+# route /docs/pe-first-stage-h30-construction /exam/pe-first-stage/primary/h30-construction
+# route /docs/pe-first-stage-h30-water-supply /exam/pe-first-stage/primary/h30-water-supply
+# route /docs/pe-first-stage-r01-retry-aptitude /exam/pe-first-stage/primary/r01-retry-aptitude
+# route /docs/pe-first-stage-r01-retry-basic /exam/pe-first-stage/primary/r01-retry-basic
+# route /docs/pe-first-stage-r01-retry-construction /exam/pe-first-stage/primary/r01-retry-construction
+# route /docs/pe-first-stage-r01-retry-water-supply /exam/pe-first-stage/primary/r01-retry-water-supply
+# route /docs/pe-first-stage-r01-water-supply /exam/pe-first-stage/primary/r01-water-supply
+# route /docs/pe-first-stage-r02-water-supply /exam/pe-first-stage/primary/r02-water-supply
+# route /docs/pe-first-stage-r03-water-supply /exam/pe-first-stage/primary/r03-water-supply
+# route /docs/pe-first-stage-r04-water-supply /exam/pe-first-stage/primary/r04-water-supply
+# route /docs/pe-first-stage-r05-water-supply /exam/pe-first-stage/primary/r05-water-supply
+# route /docs/pe-first-stage-r06-water-supply /exam/pe-first-stage/primary/r06-water-supply
+# route /docs/pe-first-stage-r07-water-supply /exam/pe-first-stage/primary/r07-water-supply
+# route /docs/rccm-guide-career-value /exam/rccm/guide/career-value
+# route /docs/rccm-guide-difference-pe /exam/rccm/guide/difference-pe
+# route /docs/rccm-guide-eligibility-application /exam/rccm/guide/eligibility-application
+# route /docs/rccm-guide-mondai1-keiken-ronbun /exam/rccm/guide/mondai1-keiken-ronbun
+# route /docs/rccm-guide-mondai2-4-takuitsu /exam/rccm/guide/mondai2-4-takuitsu
+# route /docs/rccm-guide-mondai3-themes-2026 /exam/rccm/guide/mondai3-themes-2026
+# route /docs/rccm-guide-overview /exam/rccm/guide/overview
+# route /docs/rccm-guide-study-plan /exam/rccm/guide/study-plan
+# route /docs/surveyor-guide-assistant-takuitsu /exam/surveyor/guide/assistant-takuitsu
+# route /docs/surveyor-guide-gogo-bunya /exam/surveyor/guide/gogo-bunya
+# route /docs/surveyor-guide-overview /exam/surveyor/guide/overview
+# route /docs/surveyor-guide-study-plan /exam/surveyor/guide/study-plan
+# route /docs/surveyor-primary-r04 /exam/surveyor/primary/r04
+# route /docs/surveyor-primary-r05 /exam/surveyor/primary/r05
+# route /docs/surveyor-primary-r06 /exam/surveyor/primary/r06
+# route /docs/surveyor-primary-r07 /exam/surveyor/primary/r07
+# route /docs/surveyor-primary-r08 /exam/surveyor/primary/r08
+# route /docs/civil-practice-accident-first-response /practice/accident-first-response
+# route /docs/civil-practice-ai-document-verification /practice/ai-document-verification
+# route /docs/civil-practice-asphalt-materials-types /practice/asphalt-materials-types
+# route /docs/civil-practice-asphalt-pavement-control /practice/asphalt-pavement-control
+# route /docs/civil-practice-backfill-river-excavation /practice/backfill-river-excavation
+# route /docs/civil-practice-bim-cim-site-practice /practice/bim-cim-site-practice
+# route /docs/civil-practice-board-of-audit-inspection /practice/board-of-audit-inspection
+# route /docs/civil-practice-cast-in-place-pile-methods /practice/cast-in-place-pile-methods
+# route /docs/civil-practice-ccus-kentaikyo-site /practice/ccus-kentaikyo-site
+# route /docs/civil-practice-checklist-shoring-buoyancy /practice/checklist-shoring-buoyancy
+# route /docs/civil-practice-concrete-compaction-numbers /practice/concrete-compaction-numbers
+# route /docs/civil-practice-concrete-crack-causes /practice/concrete-crack-causes
+# route /docs/civil-practice-concrete-finishing-curing /practice/concrete-finishing-curing
+# route /docs/civil-practice-concrete-mix-acceptance /practice/concrete-mix-acceptance
+# route /docs/civil-practice-concrete-placement-order /practice/concrete-placement-order
+# route /docs/civil-practice-concrete-placement-timing /practice/concrete-placement-timing
+# route /docs/civil-practice-concrete-pump-capacity /practice/concrete-pump-capacity
+# route /docs/civil-practice-concrete-repair-leakage /practice/concrete-repair-leakage
+# route /docs/civil-practice-construction-industry-structure /practice/construction-industry-structure
+# route /docs/civil-practice-construction-inspection-types /practice/construction-inspection-types
+# route /docs/civil-practice-construction-plan-document /practice/construction-plan-document
+# route /docs/civil-practice-cost-and-design-change /practice/cost-and-design-change
+# route /docs/civil-practice-earth-retaining-displacement /practice/earth-retaining-displacement
+# route /docs/civil-practice-earthquake-tsunami-site-response /practice/earthquake-tsunami-site-response
+# route /docs/civil-practice-embankment-quality-control /practice/embankment-quality-control
+# route /docs/civil-practice-environment-neighborhood /practice/environment-neighborhood
+# route /docs/civil-practice-environmental-impact-assessment-flow /practice/environmental-impact-assessment-flow
+# route /docs/civil-practice-excavation-bottom-failure /practice/excavation-bottom-failure
+# route /docs/civil-practice-excavation-pre-survey /practice/excavation-pre-survey
+# route /docs/civil-practice-flood-control-facilities /practice/flood-control-facilities
+# route /docs/civil-practice-flood-season-river-work /practice/flood-season-river-work
+# route /docs/civil-practice-foreign-workers-site-check /practice/foreign-workers-site-check
+# route /docs/civil-practice-formwork-material-inspection /practice/formwork-material-inspection
+# route /docs/civil-practice-formwork-removal-timing /practice/formwork-removal-timing
+# route /docs/civil-practice-formwork-waterstop-details /practice/formwork-waterstop-details
+# route /docs/civil-practice-gis-layer-validation /practice/gis-layer-validation
+# route /docs/civil-practice-gnss-positioning-basics /practice/gnss-positioning-basics
+# route /docs/civil-practice-ict-construction-workflow /practice/ict-construction-workflow
+# route /docs/civil-practice-keishin-bidder-qualification /practice/keishin-bidder-qualification
+# route /docs/civil-practice-large-fill-landslide /practice/large-fill-landslide
+# route /docs/civil-practice-ledger-data-design /practice/ledger-data-design
+# route /docs/civil-practice-levee-failure-reinforcement /practice/levee-failure-reinforcement
+# route /docs/civil-practice-license-scope-judgment /practice/license-scope-judgment
+# route /docs/civil-practice-lifting-equipment-selection /practice/lifting-equipment-selection
+# route /docs/civil-practice-material-selection-receiving /practice/material-selection-receiving
+# route /docs/civil-practice-monitoring-sensor-selection /practice/monitoring-sensor-selection
+# route /docs/civil-practice-nature-conservation-mitigation /practice/nature-conservation-mitigation
+# route /docs/civil-practice-netis-new-technology-use /practice/netis-new-technology-use
+# route /docs/civil-practice-numerical-model-review /practice/numerical-model-review
+# route /docs/civil-practice-oshms-pdca-site-operation /practice/oshms-pdca-site-operation
+# route /docs/civil-practice-pile-bearing-verification /practice/pile-bearing-verification
+# route /docs/civil-practice-pile-concrete-head-treatment /practice/pile-concrete-head-treatment
+# route /docs/civil-practice-pipe-jacking-methods /practice/pipe-jacking-methods
+# route /docs/civil-practice-pre-construction-process /practice/pre-construction-process
+# route /docs/civil-practice-precast-pile-methods /practice/precast-pile-methods
+# route /docs/civil-practice-preventive-maintenance-diagnosis /practice/preventive-maintenance-diagnosis
+# route /docs/civil-practice-public-works-bidding-methods /practice/public-works-bidding-methods
+# route /docs/civil-practice-public-works-delivery-methods /practice/public-works-delivery-methods
+# route /docs/civil-practice-quality-record-site-bcp /practice/quality-record-site-bcp
+# route /docs/civil-practice-rainfall-work-suspension /practice/rainfall-work-suspension
+# route /docs/civil-practice-reading-civil-drawings /practice/reading-civil-drawings
+# route /docs/civil-practice-rebar-corrosion-handling /practice/rebar-corrosion-handling
+# route /docs/civil-practice-rebar-cover-placement /practice/rebar-cover-placement
+# route /docs/civil-practice-rebar-splice-selection /practice/rebar-splice-selection
+# route /docs/civil-practice-reference-values /practice/reference-values
+# route /docs/civil-practice-risk-assessment-construction-workflow /practice/risk-assessment-construction-workflow
+# route /docs/civil-practice-river-park-erosion-control /practice/river-park-erosion-control
+# route /docs/civil-practice-road-fixtures-precast /practice/road-fixtures-precast
+# route /docs/civil-practice-safety-culture-discipline /practice/safety-culture-discipline
+# route /docs/civil-practice-safety-document-cross-check /practice/safety-document-cross-check
+# route /docs/civil-practice-safety-health-education-plan /practice/safety-health-education-plan
+# route /docs/civil-practice-safety-patrol-corrective-action /practice/safety-patrol-corrective-action
+# route /docs/civil-practice-schedule-and-road-permit /practice/schedule-and-road-permit
+# route /docs/civil-practice-seismic-design-levels /practice/seismic-design-levels
+# route /docs/civil-practice-service-commencement /practice/service-commencement
+# route /docs/civil-practice-sheet-pile-snow-coating /practice/sheet-pile-snow-coating
+# route /docs/civil-practice-site-wireless-communication /practice/site-wireless-communication
+# route /docs/civil-practice-sling-work-wire-rope /practice/sling-work-wire-rope
+# route /docs/civil-practice-slope-drainage-monitoring /practice/slope-drainage-monitoring
+# route /docs/civil-practice-slope-protection-selection /practice/slope-protection-selection
+# route /docs/civil-practice-soil-improvement-sandbag /practice/soil-improvement-sandbag
+# route /docs/civil-practice-stacking-heat-machine-safety /practice/stacking-heat-machine-safety
+# route /docs/civil-practice-steel-material-properties /practice/steel-material-properties
+# route /docs/civil-practice-subbase-subgrade-control /practice/subbase-subgrade-control
+# route /docs/civil-practice-subcontract-fair-dealing /practice/subcontract-fair-dealing
+# route /docs/civil-practice-subcontract-instruction-boundary /practice/subcontract-instruction-boundary
+# route /docs/civil-practice-trench-excavation-safety /practice/trench-excavation-safety
+# route /docs/civil-practice-typhoon-forecast-work-planning /practice/typhoon-forecast-work-planning
+# route /docs/civil-practice-volcanic-hazard-site-planning /practice/volcanic-hazard-site-planning
 
 # Legacy category hubs → canonical public hubs
 /category/civil-construction-1 /exam/civil-construction-1 301

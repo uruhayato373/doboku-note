@@ -21,6 +21,17 @@ export const LEGACY_SITEMAP_UNTIL = "2026-11-30";
 /** 旧 /docs が 301 になった日（lastmod に使う＝旧 URL が最後に変わった日）。 */
 export const LEGACY_REDIRECTED_AT = "2026-08-22";
 
+/**
+ * 移転前から存在した記事か（旧 /docs/<slug> が実在したか）。created が無い記事は旧 URL を残す側に倒す。
+ * 移転後の記事の /docs は一度も存在しないので、301（_redirects）も sitemap-legacy も作らない（DN-0675）。
+ * @param {string|Date|undefined|null} created frontmatter の created
+ */
+export function existedBeforeRedirect(created) {
+  if (!created) return true;
+  const day = created instanceof Date ? created.toISOString().slice(0, 10) : String(created).slice(0, 10);
+  return day <= LEGACY_REDIRECTED_AT;
+}
+
 /** 期限内か（JST の日付で比較）。 */
 export function legacySitemapActive(now = new Date(), until = LEGACY_SITEMAP_UNTIL) {
   return jstDayOf(now) <= until;
@@ -37,7 +48,7 @@ export function buildLegacySitemapUrls({ docRoutes, sitemapLocs, siteUrl, create
   const urls = [];
   for (const [slug, to] of docRoutes) {
     const created = createdBySlug.get(slug);
-    if (created && created > LEGACY_REDIRECTED_AT) continue;
+    if (!existedBeforeRedirect(created)) continue;
     if (sitemapLocs.has(`${siteUrl}${to}`)) urls.push(`${siteUrl}/docs/${slug}`);
   }
   urls.sort();

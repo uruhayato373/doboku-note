@@ -3,9 +3,27 @@
  * 真実源は `public/_redirects` の静的 301 行（`/docs/x  /exam/y  301`）。
  */
 
-/** `_redirects` のテキストから 旧 /docs パス → 正規パス の Map を作る。 */
+/**
+ * 移転後の記事（旧 /docs が実在しない）は 301 を作らず、管理ブロックにこの形のコメントで slug → 正規パスだけ残す（DN-0675）。
+ * `_redirects` のルール数（上限 2,000）に数えず、sitemap・RSS・URL 実在検査が slug から正規パスを引けるようにする。
+ */
+export const NO_REDIRECT_ROUTE_PREFIX = "# route ";
+
+/** `_redirects` のテキストから、301 を作らない記事の slug → 正規パス を取り出す。 */
+export function parseNoRedirectRoutes(text) {
+  const map = new Map();
+  for (const line of String(text).split(/\r?\n/)) {
+    if (!line.startsWith(NO_REDIRECT_ROUTE_PREFIX)) continue;
+    const m = line.slice(NO_REDIRECT_ROUTE_PREFIX.length).match(/^\/docs\/([a-z0-9-]+)\s+(\/\S+)\s*$/);
+    if (m) map.set(m[1], m[2]);
+  }
+  return map;
+}
+
+/** `_redirects` のテキストから 旧 /docs パス → 正規パス の Map を作る（301 を作らない移転後の記事も含む）。 */
 export function parseLegacyRedirects(text) {
   const map = new Map();
+  for (const [slug, to] of parseNoRedirectRoutes(text)) map.set(`/docs/${slug}`, to);
   for (const line of String(text).split(/\r?\n/)) {
     const m = line.match(/^(\/docs\/[a-z0-9-]+)\s+(\/\S+)\s+301\b/);
     if (m) map.set(m[1], m[2]);

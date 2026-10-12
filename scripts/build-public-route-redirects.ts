@@ -5,6 +5,9 @@ import { join } from 'node:path';
 import { getAllPublicDocRoutes, getPublicDocPath } from '../src/lib/content-routes';
 import { getAllCategories, getCategoryHubPath } from '../src/lib/categories';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
+import { existedBeforeRedirect } from './lib/legacy-sitemap.mjs';
+import { NO_REDIRECT_ROUTE_PREFIX } from './lib/legacy-routes.mjs';
+import docMetaIndex from '../src/config/doc-meta-index.json';
 
 const path = join(REPO_ROOT, 'public/_redirects');
 const startMarker = '# BEGIN GENERATED PUBLIC ROUTES';
@@ -53,11 +56,20 @@ const base = canonicalizeExistingTargets(stripManagedBlock(source))
   .filter((line) => !isDynamicRedirect(line))
   .join('\n')
   .trimEnd();
-const routes = getAllPublicDocRoutes();
+// 移転後（created > 2026-08-22）の記事は旧 /docs URL が実在しないので 301 を作らない（DN-0675）。
+// 移転後の記事の /docs を note・SNS・Kindle・config が案内していないことは PR 本文の grep で確認済み。
+const createdBySlug = (docMetaIndex as { docs: Record<string, { created?: string }> }).docs;
+const allRoutes = getAllPublicDocRoutes();
+const isLegacy = (route: { legacySlug: string }) => existedBeforeRedirect(createdBySlug[route.legacySlug]?.created);
+const routes = allRoutes.filter(isLegacy);
+const noRedirectRoutes = allRoutes.filter((route) => !isLegacy(route));
 const generated = [
   startMarker,
   '# /docs flat URLs → intent-based canonical URLs (one-to-one, permanent)',
   ...routes.map((route) => `/docs/${route.legacySlug} ${route.path} 301`),
+  '',
+  '# Post-migration articles: no /docs 301 (never existed). Comments only, not Cloudflare rules; read by sitemap/RSS/URL checks',
+  ...noRedirectRoutes.map((route) => `${NO_REDIRECT_ROUTE_PREFIX}/docs/${route.legacySlug} ${route.path}`),
   '',
   '# Legacy category hubs → canonical public hubs',
   ...getAllCategories().map((category) => `/category/${category.slug} ${getCategoryHubPath(category.slug)} 301`),
@@ -86,5 +98,5 @@ if (staticRules.length > 2000 || dynamicRules > 100) {
 }
 
 writeFileSync(path, output);
-console.log(`[public-routes] ✓ docs=${routes.length}, categories=${getAllCategories().length}`);
+console.log(`[public-routes] ✓ docs=${routes.length}/${allRoutes.length}, categories=${getAllCategories().length}`);
 console.log(`[public-routes] Cloudflare rules: static=${staticRules.length}/2000, dynamic=${dynamicRules}/100`);
