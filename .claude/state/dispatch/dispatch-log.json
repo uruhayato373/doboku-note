@@ -3295,6 +3295,40 @@
       "commit": "d9c47a9fbd22",
       "verification": null,
       "note": "PR #1030。6 記事の定型句 217 行と同型の 55 行（計 272 行）を、正しい理由を述べる解説に書き直した。別のエージェントが約 85 項目を洗い出し約 60 項目を e-Gov・文部科学省ガイドライン・JST で照合し、誤り 3 件（土地区画整理 50ha の要件・一級河川の大臣同意の根拠・公益通報の外部通報要件）を直し、確かめられない断定 3 件を弱めた。4 句は 0 件、check-answer-marks・textlint 通過"
+    },
+    {
+      "id": "DN-0559",
+      "at": "2026-10-12",
+      "task": "develop への載せ直し（fetch → reset --keep → cherry-pick → パッチ照合 → push）をスクリプト 1 本にする",
+      "tier": "low",
+      "kind": "改善",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/replay-onto-develop.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "ebef6708414c",
+      "verification": null,
+      "note": "PR #1029。scripts/replay-onto-develop.mjs <sha...> [--push]（fetch → reset --keep origin/develop → cherry-pick → git patch-id 照合、同じパッチのときだけ push、main へは push しない、止まったら --quit で抜けて戻し方を出す）。一時リポジトリ（bare の origin）のテスト 3 通り（同じパッチ・衝突・存在しない sha）が通過。workflows.md・commands.md・package.json に配線"
+    },
+    {
+      "id": "DN-0603",
+      "at": "2026-10-12",
+      "task": "公開前の10秒ごとの画面確認（無音プレビュー・コンタクトシート・同じ画面の割合）をスクリプトにして承認前の関門にする",
+      "tier": "low",
+      "kind": "改善",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/media-preview.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "ebef6708414c",
+      "verification": null,
+      "note": "PR #1032。scripts/video-preview-sheet.mjs（npm run video-preview-sheet）が render-manifest と場面の PNG から、冒頭の表紙の秒数・10 秒ごとのコマで直前と同じ画面の割合・20 秒以上の静止箇所を出し、ffmpeg があれば無音プレビューとコンタクトシートも作る。閾値は config/video-content.json の visualCheck。旧形式 koji-gaiyo-7items＝表紙 15 秒・32/40・静止 8、図解版 koji-gaiyo-sheet-zukai＝5 秒・2/19・0（07c の比較値と一致）。判定は純関数でテスト 12 件"
     }
   ]
 }
