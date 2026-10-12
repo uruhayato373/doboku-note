@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "_doc": ".claude/knowledge/reference/pop-image-policy.md",
   "taskId": "DN-0184",
-  "updatedAt": "2026-10-11T15:42:48.998Z",
+  "updatedAt": "2026-10-12T01:23:33.577Z",
   "scope": {
     "channels": [
       "youtube",
@@ -2348,5 +2348,27 @@
       "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/work/review-body-20261012.889ea075.jpg",
       "sha256": "889ea075a10538690beb99b319896ee58ef9c2d9c36497c5313eed974c7b9681"
     }
+  },
+  "youtubeReplacement": {
+    "priorityExam": "civil-construction-2",
+    "firstPack": "gakka-2kyu-doko",
+    "phase": "staged-upload-pending",
+    "channelInventory": {
+      "checked": 691,
+      "complete": true,
+      "public": 86,
+      "private": 605,
+      "civil2Public": 7,
+      "ownedSearchSupplement": 1
+    },
+    "dailyWorkflow": {
+      "name": "post-youtube-scheduled.yml",
+      "paused": true,
+      "pausedAt": "2026-10-12T01:23:33.443Z",
+      "reason": "旧A版と新版POP版の重複投入を防ぐ",
+      "resumeCondition": "新画像の置換と旧新ID・関連動画・台帳を照合し、日次キューが旧版を再投入しない状態へ更新後"
+    },
+    "oldPublicDeleted": false,
+    "newPublicPublished": false
   }
 }

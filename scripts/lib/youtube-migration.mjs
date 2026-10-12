@@ -12,6 +12,7 @@ export function durationSeconds(value) {
   return Number(m[1] ?? 0) * 3600 + Number(m[2] ?? 0) * 60 + Number(m[3] ?? 0);
 }
 export function assertPlan(plan) {
+  if (plan.receiptScope !== undefined && !/^[a-z0-9][a-z0-9-]{2,79}$/.test(plan.receiptScope)) throw new Error('Invalid migration receipt scope');
   if (plan.schemaVersion !== 1 || plan.migration !== MIGRATION || plan.channel.id !== 'UCHRnXPqoc0Hls8nXiK_ZYqA' || plan.channel.title !== 'doboku-note') throw new Error('Unexpected migration/channel');
   if (!plan.entries?.length || new Set(plan.entries.map(e => e.oldVideo.id)).size !== plan.entries.length) throw new Error('Empty/duplicate plan');
   for (const item of plan.entries) {
