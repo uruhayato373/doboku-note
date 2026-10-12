@@ -812,7 +812,7 @@
       "videoRecomposed": true,
       "remainingSceneIds": [],
       "reproduction": {
-        "method": "Driveのoutput.pathを復元しoutput.sha256を照合。音声と動画本体は変更していない。画像を動画へ合成するときは本revisionのsceneIdに対応する採用PNGを使う。通常の自動スライド描画だけでは本画像を再現しない。"
+        "method": "Driveのoutput.pathを復元しoutput.sha256を照合。本revisionのsceneIdごとの採用PNGとvideoImageReplacementの時刻で合成し、保存済み原動画の音声パケット・字幕を保持。通常の自動スライド描画だけでは本画像を再現しない。"
       },
       "review": {
         "status": "screenshots-reviewed",
@@ -892,9 +892,13 @@
         ]
       },
       "publication": {
-        "status": "replacement-prepared",
+        "status": "replacement-uploaded-private",
         "externalPublished": false,
-        "oldPublicVideoRetained": true
+        "oldPublicVideoRetained": true,
+        "processingVerifiedAt": "2026-10-12T01:41:27.242Z",
+        "thumbnailVerifiedAt": "2026-10-12T01:42:50.421Z",
+        "receiptScope": "pop-soil-20261012-24a4dc08",
+        "pending": "YouTube管理アカウントで新版を再生確認後、公開・台帳ID更新・関連動画照合・旧版整理"
       }
     }
   }

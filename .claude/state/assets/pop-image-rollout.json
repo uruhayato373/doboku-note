@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "_doc": ".claude/knowledge/reference/pop-image-policy.md",
   "taskId": "DN-0184",
-  "updatedAt": "2026-10-12T01:23:33.577Z",
+  "updatedAt": "2026-10-12T01:44:41.573Z",
   "scope": {
     "channels": [
       "youtube",
@@ -44,7 +44,7 @@
       "publicationId": "civil-construction-2/gakka-2kyu-doko/youtube.longform",
       "evidence": "content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/pop-image.json#revisions/body-images-20261012",
       "sceneCount": 9,
-      "videoRecomposed": false
+      "videoRecomposed": true
     }
   ],
   "partialPublicationImages": [
@@ -2340,9 +2340,9 @@
       "cta"
     ],
     "reviewedImages": 8,
-    "status": "images-reviewed-admin-verified",
+    "status": "video-recomposed-admin-playback-verified",
     "audioChanged": false,
-    "videoRecomposed": false,
+    "videoRecomposed": true,
     "adminVerifiedImages": 8,
     "screenshot": {
       "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/work/review-body-20261012.889ea075.jpg",
@@ -2352,7 +2352,7 @@
   "youtubeReplacement": {
     "priorityExam": "civil-construction-2",
     "firstPack": "gakka-2kyu-doko",
-    "phase": "staged-upload-pending",
+    "phase": "private-upload-verified-awaiting-owner-playback",
     "channelInventory": {
       "checked": 691,
       "complete": true,
@@ -2369,6 +2369,24 @@
       "resumeCondition": "新画像の置換と旧新ID・関連動画・台帳を照合し、日次キューが旧版を再投入しない状態へ更新後"
     },
     "oldPublicDeleted": false,
-    "newPublicPublished": false
+    "newPublicPublished": false,
+    "receiptScope": "pop-soil-20261012-24a4dc08",
+    "planSha256": "ba52fd29b4fa3d76e960ad27a2106fc5ad86e0dce8a76ab6f4f8b98bbd9e9345",
+    "uploadRun": "https://github.com/uruhayato373/doboku-note/actions/runs/38192686779",
+    "auditRun": "https://github.com/uruhayato373/doboku-note/actions/runs/38192822516",
+    "thumbnailRun": "https://github.com/uruhayato373/doboku-note/actions/runs/38192899865",
+    "processingVerifiedAt": "2026-10-12T01:41:27.242Z",
+    "thumbnailVerifiedAt": "2026-10-12T01:42:50.421Z",
+    "preservation": {
+      "playlistInventoryComplete": true,
+      "authoredCaptions": 0,
+      "playlistMemberships": 0
+    },
+    "remaining": [
+      "owner-authenticated YouTube playback: cover, body scenes, ending CTA",
+      "activate new public video",
+      "update canonical ID and two dependent Shorts links",
+      "live deletion audit, then retire old video"
+    ]
   }
 }
