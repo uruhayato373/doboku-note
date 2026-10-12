@@ -13,8 +13,8 @@ import { loadRegistry, qualificationShortLabel } from './lib/qualification-regis
 import { setUtmParams } from './lib/utm-contract.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
 import { loadVideoState } from './lib/registry-video-state.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const PACKS_ROOT = join(ROOT, 'content/sns/video-packs');
 const DISCLOSURE = readDataset(ROOT, 'config.youtube-production-disclosure');
 const STATE = loadVideoState(ROOT);

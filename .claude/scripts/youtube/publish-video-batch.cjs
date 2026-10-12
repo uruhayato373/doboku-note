@@ -7,7 +7,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { spawnSync } = require('node:child_process');
 
-const ROOT = path.resolve(__dirname, '../../..');
+const ROOT = path.resolve(__dirname, '../../..'); // root-ok: CommonJS から ESM の REPO_ROOT を同期で読めない（__dirname から固定の深さで組み立てる）
 
 // 状態の正本はコンテンツ台帳（content/registry）。registry-video-state.mjs の loadVideoState だけを通して読む（ESM なので動的 import）。
 const loadState = async () => (await import(require('node:url').pathToFileURL(path.join(ROOT, 'scripts/lib/registry-video-state.mjs')).href)).loadVideoState(ROOT);
@@ -27,18 +27,17 @@ if (!['longform', 'metadata', 'thumbnail', 'shorts-upload'].includes(phase)) {
   throw new Error(`--phase は longform|metadata|thumbnail|shorts-upload: ${phase}`);
 }
 
-function walk(dir, out = []) {
-  for (const ent of fs.readdirSync(dir, { withFileTypes: true })) {
-    const p = path.join(dir, ent.name);
-    if (ent.isDirectory()) walk(p, out);
-    else if (ent.name === 'video-pack.json') out.push(p);
-  }
-  return out;
-}
+// 走査は scripts/lib/fs-walk.mjs の listFiles（ESM なので動的 import）。candidates() が毎回読み直し、同期の findPackYoutube はその結果を使う
+let packManifests = [];
+const listPackManifests = async () => {
+  const { listFiles } = await import(require('node:url').pathToFileURL(path.join(ROOT, 'scripts/lib/fs-walk.mjs')).href);
+  packManifests = listFiles(PACKS_ROOT, { match: (_path, name) => name === 'video-pack.json' });
+  return packManifests;
+};
 
 async function candidates() {
   const state = await loadState();
-  return walk(PACKS_ROOT)
+  return (await listPackManifests())
     .map((manifestPath) => {
       const dir = path.dirname(manifestPath);
       const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
@@ -142,7 +141,7 @@ async function main() {
 }
 
 function findPackYoutube(packId) {
-  for (const manifestPath of walk(PACKS_ROOT)) {
+  for (const manifestPath of packManifests) {
     const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
     if (manifest.packId !== packId) continue;
     return JSON.parse(fs.readFileSync(path.join(path.dirname(manifestPath), 'youtube.json'), 'utf8'));

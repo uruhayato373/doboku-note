@@ -35,9 +35,10 @@ import { attachCISession } from "../../../../scripts/lib/playwright-auth-state.m
 import { datasetPath } from "../../../../scripts/lib/datasets.mjs";
 import { jstClock } from "../../../../scripts/lib/jst-date.mjs";
 import { isQueueable, readXPublication, recordX } from "../../../../scripts/lib/registry-x-store.mjs";
+import { REPO_ROOT as PROJECT_ROOT } from '../../../../scripts/lib/repository-paths.mjs';
+import { parseCliArgs } from "../../../../scripts/lib/cli-args.mjs";
 
 // ─── 設定 ─────────────────────────────────────────────
-const PROJECT_ROOT = path.resolve(__dirname, "../../../..");
 const DRAFTS_DIR = path.join(PROJECT_ROOT, "content/sns/x/draft");
 const ACCOUNT_CONFIG = JSON.parse(
   fs.readFileSync(path.join(PROJECT_ROOT, datasetPath("config.x-account")), "utf-8")
@@ -325,32 +326,33 @@ function parseArgs(): PostJob[] {
     process.exit(1);
   }
 
-  const draftArg = args[0];
-  let tweetFilter: number | null = null;
+  const parsed = parseCliArgs(
+    {
+      "dry-run": { type: "boolean" },
+      immediate: { type: "boolean" },
+      "allow-unverified": { type: "boolean" },
+      "head-only": { type: "boolean" },
+      tweet: { type: "integer" },
+      tweets: { type: "string" },
+    },
+    args,
+  );
+  const draftArg = parsed._[0];
+  const immediate: boolean = parsed.immediate;
+  const tweetFilter: number | null = parsed.tweet;
   let tweetRange: { from: number; to: number } | null = null;
-  let immediate = false;
-  const dates: string[] = [];
+  const dates: string[] = parsed._.slice(1).filter((a: string) => /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(a));
 
-  for (let i = 1; i < args.length; i++) {
-    if (args[i] === "--dry-run") {
-      IS_DRY_RUN = true;
-      console.log("🧪 DRY RUN モード: 実投稿はせず、セレクタ検出まで確認");
-    } else if (args[i] === "--immediate") {
-      immediate = true;
-    } else if (args[i] === "--allow-unverified") {
-      ALLOW_UNVERIFIED = true;
-    } else if (args[i] === "--head-only") {
-      HEAD_ONLY = true;
-    } else if (args[i] === "--tweet") {
-      tweetFilter = parseInt(args[++i], 10);
-    } else if (args[i] === "--tweets") {
-      const spec = args[++i];
-      const m = spec.match(/^(\d+)-(\d+)$/);
-      if (!m) throw new Error(`--tweets は N-M 形式で指定: ${spec}`);
-      tweetRange = { from: parseInt(m[1], 10), to: parseInt(m[2], 10) };
-    } else if (/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(args[i])) {
-      dates.push(args[i]);
-    }
+  if (parsed.dryRun) {
+    IS_DRY_RUN = true;
+    console.log("🧪 DRY RUN モード: 実投稿はせず、セレクタ検出まで確認");
+  }
+  if (parsed.allowUnverified) ALLOW_UNVERIFIED = true;
+  if (parsed.headOnly) HEAD_ONLY = true;
+  if (parsed.tweets !== null) {
+    const m = parsed.tweets.match(/^(\d+)-(\d+)$/);
+    if (!m) throw new Error(`--tweets は N-M 形式で指定: ${parsed.tweets}`);
+    tweetRange = { from: parseInt(m[1], 10), to: parseInt(m[2], 10) };
   }
 
   const draftDir = resolveDraftDir(draftArg);

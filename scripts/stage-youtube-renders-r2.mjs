@@ -15,8 +15,8 @@ import {
 } from '@aws-sdk/client-s3';
 import { loadVideoState } from './lib/registry-video-state.mjs';
 import { partitionByFinalApproval } from './lib/media-preview.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const DRIVE_MANIFEST_PATH = join(ROOT, '.claude/state/assets/drive-manifest.json');
 const PACKS_ROOT = join(ROOT, 'content/sns/video-packs');
 const BUCKET = 'doboku-note-archive';

@@ -8,14 +8,15 @@
  * note-magazines.ts の生成ブロック（読み手は変えないため、正本から TS の該当エントリを書き出す）。
  * 判定はこの lib に集約し、CLI（scripts/product.mjs）・検査（scripts/check-products.mjs）・DB 生成から呼ぶ。
  */
-import { existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
-import { dirname, join, relative } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
+import { join, relative } from 'node:path';
 import { datasetPath } from './datasets.mjs';
+import { REPO_ROOT } from './repository-paths.mjs';
 import { Product } from './dataset-schemas-config-business.mjs';
+import { listFiles } from './fs-walk.mjs';
 
 export { Product };
-export const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
+export const ROOT = REPO_ROOT;
 export const PRODUCTS_REL = datasetPath('config.products');
 export const PRODUCTS_FILE = join(ROOT, PRODUCTS_REL);
 export const NOTE_MAGAZINES_TS = join(ROOT, 'src', 'lib', 'note-magazines.ts');
@@ -234,16 +235,9 @@ const FM_PRICE = /^price:[ \t]*(\d+)[ \t]*$/m;
 
 /** content/note の記事（リポジトリ相対・/ 区切り・並びは名前順） */
 export function articleFiles() {
-  const out = [];
-  const walk = (dir) => {
-    for (const e of readdirSync(dir, { withFileTypes: true })) {
-      const p = join(dir, e.name);
-      if (e.isDirectory()) walk(p);
-      else if (ARTICLE_FILE.test(e.name)) out.push(relative(ROOT, p).split('\\').join('/'));
-    }
-  };
-  walk(join(ROOT, 'content', 'note'));
-  return out.sort();
+  return listFiles(join(ROOT, 'content', 'note'), { match: (_path, name) => ARTICLE_FILE.test(name) })
+    .map((p) => relative(ROOT, p).split('\\').join('/'))
+    .sort();
 }
 
 /** 記事の frontmatter（先頭の --- から次の --- まで）の範囲 */
@@ -346,16 +340,9 @@ const yenOf = (s) => {
 
 /** content/note の note掲載文.txt（リポジトリ相対） */
 export function magazineTextFiles() {
-  const out = [];
-  const walk = (dir) => {
-    for (const e of readdirSync(dir, { withFileTypes: true })) {
-      const p = join(dir, e.name);
-      if (e.isDirectory()) walk(p);
-      else if (e.name === 'note掲載文.txt') out.push(relative(ROOT, p).split('\\').join('/'));
-    }
-  };
-  walk(join(ROOT, 'content', 'note'));
-  return out.sort();
+  return listFiles(join(ROOT, 'content', 'note'), { match: (_path, name) => name === 'note掲載文.txt' })
+    .map((p) => relative(ROOT, p).split('\\').join('/'))
+    .sort();
 }
 
 /**
