@@ -288,6 +288,8 @@ sources: ["registry-id#detail"]      # 参考文献台帳の ID。#detail は条
 ---
 ```
 
+公式の設問（試験の問題文の逐語）を含む過去問ページには `officialQuestions: true` を `group:` の下に付ける。lint-ja の表記統一と lint-mdx-mobile の文体・表の検査が、設問の範囲だけを対象外にする（印が無いと設問の転記が commit を止める）。
+
 `sources` は自由記述の書名ではなく `config/reference-sources.json` の ID を使う。逐語・図・公開可否と
 出典粒度は [reference-sources-policy.md](./reference-sources-policy.md) に従う。
 

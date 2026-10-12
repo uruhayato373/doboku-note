@@ -19,7 +19,7 @@ import { execFileSync, spawnSync } from 'node:child_process';
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, relative, resolve, sep } from 'node:path';
 import { createRequire } from 'node:module';
-import { OFFICIAL_QUESTION_PAGE, officialTextRanges } from './lib/official-question-text.mjs';
+import { hasOfficialQuestionMark, officialTextRanges } from './lib/official-question-text.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 // textlint は npx でなく node で直接起動する（Windows の spawnSync は npx.cmd を解決できない）。
@@ -112,8 +112,9 @@ for (const batch of batches) {
 
   scannedFiles += batch.length;
   for (const fileReport of report) {
-    if (OFFICIAL_QUESTION_PAGE.test(fileReport.filePath)) {
-      const official = officialTextRanges(readFileSync(fileReport.filePath, 'utf8'));
+    const pageText = readFileSync(fileReport.filePath, 'utf8');
+    if (hasOfficialQuestionMark(pageText)) {
+      const official = officialTextRanges(pageText);
       const kept = fileReport.messages.filter((msg) => !(official.has(msg.line) && msg.column <= official.get(msg.line)));
       officialSkipped += fileReport.messages.length - kept.length;
       fileReport.messages = kept;
