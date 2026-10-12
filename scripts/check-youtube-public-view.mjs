@@ -15,7 +15,6 @@
  */
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
 import { collectPublicVideos, watchUrl, classifyOembed, pickYoutubeRepresentatives } from './lib/youtube-public-view.mjs';
 import { loadBreakpointConfig, contextOptions, launchPublicBrowser, openAndSettle, shootTopAndEnd, withPageBudget, countMediaQueriesInPage, significantBreakpoints, breakpointDrift } from './lib/public-view-browser.mjs';
@@ -24,8 +23,8 @@ import { youtubePublications } from './lib/registry-youtube-view.mjs';
 import { loadVideoState } from './lib/registry-video-state.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { fetchFailDominant } from './lib/inconclusive-gate.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const argv = process.argv.slice(2);
 const REVIEW = argv.includes('--review');
 const OUT = (() => { const i = argv.indexOf('--out'); return i >= 0 ? argv[i + 1] : null; })();

@@ -37,6 +37,7 @@ import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import net from 'node:net';
 import { datasetPath } from './lib/datasets.mjs';
+import { resolveVaultRoot } from './lib/drive-vault.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 const OUT_DIR = join(ROOT, '.claude', 'state', 'quality');
@@ -328,6 +329,8 @@ const CHECKS = [
   // 溜まったブランチ・止まった worktree の surfacer（DN-0638）。ローカルの git の状態なので CI には意味が無い。
   { id: 'branch-hygiene', npm: 'check-branch-hygiene', timeout: 120_000, ci: false,
     note: '入り済み（squash 含む）のブランチ・止まった未マージのブランチ・未コミットのまま止まった worktree を出す。報告のみ（削除しない・見つかっても exit 0）。読み手＝運営者が週次レビューの前に回す（quality:audit のローカル実行）' },
+  { id: 'figure-references', npm: 'check-figure-references', timeout: 60_000, ci: true, note: '書籍由来の記事（civil-construction-1/2・sources に市販書籍）の図番号の重複・図名の分割の印・alt と caption の番号の食い違い・本文の「図X.Y」が同じ節の図を指すか（記事だけで決まる。DN-0557）。0 本なら exit 2' },
+  { id: 'figure-references-ocr', npm: 'check-figure-references:ocr', timeout: 120_000, ci: false, skip: () => (resolveVaultRoot().root ? null : 'Drive vault が無い（市販書籍の図名は git に置かないので OCR を読めない。CI は skip）'), note: 'caption の「図X.Y 図名」を書籍 OCR（Drive vault）の図名と突合（DN-0557）。市販書籍の見出しを含む OCR は git に置けず CI で読めないので report 区分。読み手＝Drive をマウントした Mac のフル quality:audit（運営者）と、書籍由来の civil-construction-1/2 記事を直す担当（commit 前）。OCR を読めなければ exit 2' },
   { id: 'reference-sources', npm: 'check-reference-sources', timeout: 120_000, ci: true, note: '参考文献 class・記事 sources ID・出典粒度・非公開文字起こしの漏洩・未付与 baseline ラチェットを検査（逐語照合はローカル deep）' },
   // R2 へ退避済みのファイルが git add -f・--no-verify・マージ等で再追跡されていないか（DN-0156・
   // 2026-08-29 追加）。pre-commit（--staged）はローカルでの事故を止めるが、それをバイパスされた

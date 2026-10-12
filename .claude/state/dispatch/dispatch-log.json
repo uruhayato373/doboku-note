@@ -3346,6 +3346,74 @@
       "commit": "c364f5f7778f",
       "verification": null,
       "note": "PR #1033。スキル /video-content とエージェント video-script-writer（Generator）・video-content-qa（Evaluator・書き込み権限なし）を作り、skills-guide・skills-registry・agents-registry と codex 生成物を更新。check-doc-coupling・check-agent-descriptions・check-codex-compat 通過。入口の手順で既存パック koji-gaiyo-sheet-zukai を QA にかけ、存在しない日付「令和元年3月10日」と根拠の無い言い切りを直して check-video-content PASS（157 件）"
+    },
+    {
+      "id": "DN-0562",
+      "at": "2026-10-12",
+      "task": "Kindle の EPUB・表紙（scripts/kindle-dist）を Git から出し、置き場の方針どおりにする",
+      "tier": "mid",
+      "kind": "改善",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/kindle-dist-r2.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "5c92515a98e5",
+      "verification": null,
+      "note": "PR #1035。scripts/kindle-dist の EPUB 65・表紙 72（137 件・90.2MiB）を private R2（doboku-note-archive の kindle/dist/）へ上げ、読み戻しの sha256 137/137 一致・--verify 一致。git rm --cached で git ls-files は README だけ。空にして asset-hydrate --group kindle-dist で 137 件復元し全件 sha256 一致。ci.yml の audit が hydrate してから検査し、PR の CI（audit）で通過。実際に kindle-dist を読む検査は check-kindle-epub-leak（65/65 冊）で、check-kindle-format は scripts/kindle-published を見るため対象を広げていない。Drive の控えの突き合わせは DN-0451"
+    },
+    {
+      "id": "DN-0557",
+      "at": "2026-10-12",
+      "task": "書籍から作った解説記事で、図の番号・alt・本文の参照が原典とずれていないかを機械で照合し、残りの記事を直す",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/figure-references.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "5c92515a98e5",
+      "verification": null,
+      "note": "PR #1036。scripts/check-figure-references.mjs（対象 7 本・図 135 枚・本文の図参照 88 件）で図番号の重複・分割の印・alt と caption の番号・本文の図参照の節を見る（quality-audit ci:true）、--ocr で Drive vault の書籍 OCR と図名を突合（ci:false の report・読み手は Drive をマウントした Mac で full audit を回す運営者と書籍由来の記事を直す担当）。市販書籍の図名は git に置かない規約を優先し、索引は作らず OCR を直接読む。secondary-earthwork・concrete・quality-management の 3 本でずれ 9 件を直し、不一致 0 件"
+    },
+    {
+      "id": "DN-0636",
+      "at": "2026-10-12",
+      "task": "スクリプト共通化のリファクタを develop と衝突した 48 ファイルにやり直す（ルート・走査・引数・JSON 読みを共通部品へ）",
+      "tier": "low",
+      "kind": "改善",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/script-helpers-ratchet.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "f96632a552ad",
+      "verification": null,
+      "note": "PR #1034。48 ファイルの自前定義を共通部品へ（ルート 44→REPO_ROOT・走査 16→listFiles・引数 7→parseCliArgs）。ラチェット root 68→24・walk 43→27・parseArgs 26→19・readJson 10→4。readJson 6 件は意味の違う版（握りつぶす・報告に積む）なので readJsonLenient 等へ改名。CommonJS の publish-video-batch.cjs・publish-video-pack.cjs の 2 本は ESM の REPO_ROOT を同期で読めないため理由付きの root-ok。npm test 0 fail、主要スクリプトの出力が develop と一致"
+    },
+    {
+      "id": "DN-0671",
+      "at": "2026-10-12",
+      "task": "過去問の演習データ（サイトの演習・iOS アプリ）に ①〜④ の記述ごとの解説を入れる",
+      "tier": "mid",
+      "kind": "改善",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/statement-explanations.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "c8dc3dfc66bf",
+      "verification": null,
+      "note": "PR #1037。scripts/lib/statement-explanations.mjs に抽出と HTML 生成を集約（parse-civil-1/2・parse-exam-questions・build-quiz-data の 4 経路が同じ関数を使う）。演習データに statements・statementsHtml を足し、サイトの演習は選択肢の解説の前に出す。記述の解説は 283 問（1級 32・2級 33・総監 115・技術士一次 103）。329 問のうち記事に記述ごとの解説が無い 125 問は DN-0699 へ抽出。選択肢の行が無い問題は記述の解説で足りると判断。iOS（別リポジトリ doboku-quiz-ios・リモート無し）はローカルブランチ feat/statement-explanations（951d001）に表示の変更、swift test 13 件・xcodebuild 成功、問題画面の目視は未確認。check-answer-marks 0 件"
     }
   ]
 }

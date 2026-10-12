@@ -85,19 +85,19 @@
  */
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join, resolve, dirname, relative, sep } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { execSync } from 'node:child_process';
 import { datasetPath } from '../../scripts/lib/datasets.mjs';
 import { lintMdxHygiene } from '#lib/mdx-hygiene-rules.mjs';
 import { NOTE_BASE } from '../../scripts/lib/site-identity.mjs';
 import { blankOfficialQuestionLines, hasOfficialQuestionMark, officialQuestionLines } from '../../scripts/lib/official-question-text.mjs';
+import { REPO_ROOT } from '../../scripts/lib/repository-paths.mjs';
+import { parseCliArgs } from '../../scripts/lib/cli-args.mjs';
 
 const CELL_MAX = 15;
 
 // ── ルール設定（config/content-rules.json）────────────────────────────
 // 重大度・資格×種別の有効/無効を外部化した SSOT。不在/破損時はスクリプト内
 // ハードコード値（各ルール function が push する severity）へフォールバックする。
-const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 
 function loadContentRules() {
   const p = resolve(REPO_ROOT, datasetPath('config.content-rules'));
@@ -166,19 +166,20 @@ const POSTS_ROOT = resolve(REPO_ROOT, 'content/site');
  *   --ci                新規違反があれば exit 1（--baseline と併用）
  */
 function parseArgs(argv) {
-  const flags = { all: false, baseline: null, updateBaseline: false, report: null, ci: false };
-  const positional = [];
-  for (const a of argv) {
-    if (a === '--all') flags.all = true;
-    else if (a === '--update-baseline') flags.updateBaseline = true;
-    else if (a === '--ci') flags.ci = true;
-    else if (a === '--baseline') flags.baseline = DEFAULT_BASELINE;
-    else if (a.startsWith('--baseline=')) flags.baseline = resolve(a.slice('--baseline='.length));
-    else if (a === '--report') flags.report = DEFAULT_REPORT;
-    else if (a.startsWith('--report=')) flags.report = resolve(a.slice('--report='.length));
-    else positional.push(a);
-  }
-  return { flags, positional };
+  // --baseline・--report は値を省略できる（省略時は既定のパス）。parseCliArgs は値を取るフラグを `--name=値` で受けるので、省略形だけここで既定値へ寄せる
+  const withDefaults = argv.map((a) => (a === '--baseline' ? `--baseline=${DEFAULT_BASELINE}` : a === '--report' ? `--report=${DEFAULT_REPORT}` : a));
+  const v = parseCliArgs(
+    { all: { type: 'boolean' }, 'update-baseline': { type: 'boolean' }, ci: { type: 'boolean' }, baseline: { type: 'string' }, report: { type: 'string' } },
+    withDefaults,
+  );
+  const flags = {
+    all: v.all,
+    baseline: v.baseline === null ? null : resolve(v.baseline),
+    updateBaseline: v.updateBaseline,
+    report: v.report === null ? null : resolve(v.report),
+    ci: v.ci,
+  };
+  return { flags, positional: v._ };
 }
 
 function isPublished(filePath) {

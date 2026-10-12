@@ -37,8 +37,8 @@ import { loadDriveManifest } from './lib/drive-vault.mjs';
 import { parseNotePrices, checkPriceParity, isCoconalaPriceStep } from './lib/coconala-price-parity.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { loadProducts } from './lib/product-registry.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const CATALOG_PATH = join(ROOT, 'src/lib/coconala-services.ts');
 const ACCOUNT_PATH = join(ROOT, datasetPath('config.coconala-account'));
 const ORDERS_PATH = join(ROOT, datasetPath('coconala.orders'));
@@ -106,7 +106,7 @@ function parseCatalog() {
     }));
 }
 
-function readJson(path) {
+function readJsonLenient(path) {
   if (!existsSync(path)) return null;
   try {
     return JSON.parse(readFileSync(path, 'utf-8'));
@@ -158,7 +158,7 @@ for (const o of findOverdueResume(catalog, today)) {
 }
 
 // 5. listed があるなら account SSOT が埋まっていること
-const account = readJson(ACCOUNT_PATH);
+const account = readJsonLenient(ACCOUNT_PATH);
 if (listed.length > 0) {
   if (!account || account.__parseError) {
     violations.push(`listed サービスがあるのに ${datasetPath('config.coconala-account')} が読めません`);
@@ -171,7 +171,7 @@ if (listed.length > 0) {
 
 // 7. カバレッジ: 全カタログ product に listings エントリ＋商品画像があること
 //    （商品追加時の配線漏れ＝publish 失敗/画像なしを pre-commit で機械検知）。
-const listingsData = readJson(LISTINGS_PATH);
+const listingsData = readJsonLenient(LISTINGS_PATH);
 if (listingsData?.__parseError) violations.push(`coconala-listings.json が JSON として壊れています: ${listingsData.__parseError}`);
 const listings = listingsData?.listings || {};
 // 退避台帳。ローカルに実体が無いときの第二の根拠（asset-storage が唯一の真実源）。
@@ -183,7 +183,7 @@ let thumbApproved = 0;
 let thumbRenderable = 0;
 // 承認済みの POP 画像（正本）と、coconala-thumb.mjs の描画定義（THUMB_COPY のキー）。
 // coconala-thumb.mjs は実行すると画像を書くので import せず、定義ブロックのキーだけ読む。
-const approvedThumbs = readJson(join(ROOT, datasetPath('coconala.thumb-approved')))?.images ?? {};
+const approvedThumbs = readJsonLenient(join(ROOT, datasetPath('coconala.thumb-approved')))?.images ?? {};
 const thumbScript = existsSync(join(ROOT, 'scripts/coconala-thumb.mjs')) ? readFileSync(join(ROOT, 'scripts/coconala-thumb.mjs'), 'utf-8') : '';
 const thumbCopyBlock = thumbScript.match(/const THUMB_COPY = \{([\s\S]*?)\r?\n\};/)?.[1] ?? '';
 const renderableThumbs = new Set([...thumbCopyBlock.matchAll(/^ {2}'(coconala-[a-z0-9-]+)': \{/gm)].map((m) => m[1]));
@@ -240,7 +240,7 @@ const priceAt = (svc, date) => {
   const hist = [...(svc.priceHistory ?? [])].sort((a, b) => a.until.localeCompare(b.until));
   return hist.find((h) => typeof date === 'string' && date <= h.until)?.priceYen ?? svc.priceYen;
 };
-const orders = readJson(ORDERS_PATH);
+const orders = readJsonLenient(ORDERS_PATH);
 if (orders?.__parseError) violations.push(`${datasetPath('coconala.orders')} が JSON として壊れています: ${orders.__parseError}`);
 else if (orders) {
   for (const [i, o] of (orders.orders ?? []).entries()) {
@@ -277,7 +277,7 @@ else if (orders) {
 }
 
 // 2. kpi.json の serviceId 実在
-const kpi = readJson(KPI_PATH);
+const kpi = readJsonLenient(KPI_PATH);
 if (kpi?.__parseError) violations.push(`${datasetPath('coconala.kpi')} が JSON として壊れています: ${kpi.__parseError}`);
 else if (kpi) {
   for (const [i, w] of (kpi.weekly ?? []).entries()) {
@@ -288,7 +288,7 @@ else if (kpi) {
 }
 
 // 4. sales.json の coconala:<id> がカタログに実在
-const sales = readJson(SALES_PATH);
+const sales = readJsonLenient(SALES_PATH);
 if (sales && !sales.__parseError) {
   for (const [i, s] of (sales.sales ?? []).entries()) {
     const id = String(s.productId ?? '');

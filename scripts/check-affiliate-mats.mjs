@@ -22,11 +22,12 @@
 //   node scripts/check-affiliate-mats.mjs            # src/ + content/site + content/note 全体
 //   node scripts/check-affiliate-mats.mjs --staged   # git staged の該当ファイルのみ（pre-commit 用）
 
-import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { todayJst } from './lib/jst-date.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
 const STAGED = process.argv.includes('--staged');
 const REGISTRY = datasetPath('config.affiliate-mats');
@@ -47,16 +48,7 @@ const SCAN_DIRS = ['src', 'content/site', 'content/note'];
 const NOTE_SURFACE = 'note-article';
 const SCAN_EXT = /\.(ts|tsx|mjs|mts|js|jsx|md|mdx|json)$/;
 
-function walk(dir, out = []) {
-  if (!existsSync(dir)) return out;
-  for (const e of readdirSync(dir)) {
-    const p = join(dir, e);
-    const st = statSync(p);
-    if (st.isDirectory()) walk(p, out);
-    else if (SCAN_EXT.test(e)) out.push(p.split('\\').join('/'));
-  }
-  return out;
-}
+const walk = (dir) => listFiles(dir, { match: (_path, name) => SCAN_EXT.test(name), allowMissing: true, followLinks: true }).map((p) => p.split('\\').join('/'));
 
 let files;
 if (STAGED) {

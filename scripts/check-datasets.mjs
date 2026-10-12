@@ -27,8 +27,7 @@
  */
 import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { AREAS, DATASETS, KINDS, areaOf, datasetFiles, datasetsFor, freshnessProblems, listAreaFiles, matchFiles, pathMatchesId, patternOf, resolveDataset } from './lib/datasets.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
 import { REF_TARGETS, checkRefs, refResolvers } from './lib/dataset-refs.mjs';
@@ -37,8 +36,8 @@ import { loadDomains } from './lib/domains.mjs';
 import { findDuplicateKeys } from './lib/json-duplicate-keys.mjs';
 import { REPORT_KINDS } from './lib/metric-reports.mjs';
 import { PATH_LITERAL_ALLOW, basenameIndex, findConfigPaths, findDatasetIds, findPathLiterals, findStatePathLiterals } from './lib/path-literals.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const errors = [];
 const warnings = [];
 

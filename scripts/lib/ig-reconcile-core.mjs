@@ -18,7 +18,7 @@
 
 import { readFileSync, existsSync } from "node:fs";
 import { join, relative } from "node:path";
-import { walkPacks, readPostedRaw, IG_DIR as DEFAULT_IG_DIR } from "../ig-status.mjs";
+import { readPostedRaw, IG_DIR as DEFAULT_IG_DIR, findPackDirs } from "../ig-status.mjs";
 import { markAmbiguousClaims, dropResolvedFalseMatches } from "./ig-ambiguity.mjs";
 
 export const IG_DIR = DEFAULT_IG_DIR;
@@ -50,7 +50,7 @@ export function shortcodeOf(url) {
  */
 export function localPacks(options = {}) {
   const { exam = null, igDir = IG_DIR } = options;
-  return walkPacks(igDir)
+  return findPackDirs(igDir)
     .map((dir) => {
       // rel/exam は ig-status.mjs の packInfo() 相当だが、packInfo は自身のモジュール定数
       // IG_DIR（content/sns/instagram 固定）を基準に relative() を取るためテストの一時

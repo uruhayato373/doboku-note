@@ -38,7 +38,7 @@ const VERDICT_RIGHT = /(正しい|適当|適切|妥当)/gu;
 
 const toAscii = (s) => s.replace(/[０-９]/g, (d) => String('０１２３４５６７８９'.indexOf(d)));
 // 記述の見出しを数値文字参照（&#x2460; = ①）で書いた記事もあるので、判定の前に戻す
-const decodeEntities = (s) => s.replace(/&#x([0-9a-f]+);/giu, (_, h) => String.fromCodePoint(parseInt(h, 16))).replace(/&#(\d+);/gu, (_, d) => String.fromCodePoint(Number(d)));
+export const decodeEntities = (s) => s.replace(/&#x([0-9a-f]+);/giu, (_, h) => String.fromCodePoint(parseInt(h, 16))).replace(/&#(\d+);/gu, (_, d) => String.fromCodePoint(Number(d)));
 
 /** 正答行の中身を分類する。番号があれば numbers、記述式・参照は essay、全員得点は void */
 export function parseAnswerLine(text) {

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-11T03:51:04.828Z",
+  "generatedAt": "2026-10-12T10:12:13.661Z",
   "years": [
     {
       "year": "h21",
@@ -33,6 +33,33 @@
           ],
           "correct": 2,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "ISO9000ファミリーは品質管理及び品質保証に関する規格であり適切",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "製品の品質そのものではなく、品質マネジメントシステムの要求事項を規定しているため誤り",
+              "correct": false
+            },
+            {
+              "label": "ウ",
+              "text": "2000年改訂でPDCAサイクルが適用されたのは適切",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "2000年改訂で顧客志向・顧客満足の考え方が取り入れられたのは適切",
+              "correct": true
+            },
+            {
+              "label": "オ",
+              "text": "品質マネジメントにより信用・販路拡大・品質安定のメリットが期待できるのは適切",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "economic"
         },
@@ -178,6 +205,33 @@
           ],
           "correct": 3,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "MPSは製品ファミリー単位ではなく製品アイテム単位へ分解するのが機能であり誤り",
+              "correct": false
+            },
+            {
+              "label": "イ",
+              "text": "第1ステップでは製品アイテム単位ではなく製品ファミリー単位に分解するため誤り",
+              "correct": false
+            },
+            {
+              "label": "ウ",
+              "text": "MRPは部品・原材料の生産・調達を決定する機能であり適切",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "MRPのインプット情報として製品構成やリードタイム等を含むのは適切",
+              "correct": true
+            },
+            {
+              "label": "オ",
+              "text": "MRPの目的は必要量だけを生産することであり適切",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "economic"
         },
@@ -323,6 +377,33 @@
           ],
           "correct": 4,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "負荷計画は工数計画または余力計画とも呼ばれ適切",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "負荷不足時の人員・設備削減は正しいが、オーダの投入時間は「前倒し」が正しく「後倒し」は誤り",
+              "correct": false
+            },
+            {
+              "label": "ウ",
+              "text": "負荷工数＝標準時間×生産数＋段取り時間であり、「就業時間」ではなく「標準時間」が正しいため誤り",
+              "correct": false
+            },
+            {
+              "label": "エ",
+              "text": "負荷の平準化調整に主に利用されるのは山積み・山崩し法であり、CPMではないため誤り",
+              "correct": false
+            },
+            {
+              "label": "オ",
+              "text": "リードタイムの安定化は生産計画実現に重要であり適切",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "human"
         },
@@ -473,6 +554,33 @@
           ],
           "correct": 3,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "分業関係の明確化は組織形態の基本であり適切",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "部門分化の明確化は組織設計の基本であり適切",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "組織風土は自然発生的に形成されるもので、意図的に定めるものではないため不適切",
+              "correct": false
+            },
+            {
+              "label": "エ",
+              "text": "伝達・協議関係の明確化は分業と調整の基本であり適切",
+              "correct": true
+            },
+            {
+              "label": "オ",
+              "text": "公式ルール化は組織の調整手段であり適切\n(カ) 組織文化も自然発生的に醸成されるもので、分業と調整のために定めるものではないため不適切",
+              "correct": false
+            }
+          ],
           "examPoint": null,
           "management": "economic"
         },
@@ -571,6 +679,33 @@
           ],
           "correct": 2,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "パートは直接雇用（直用）",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "**派遣社員は派遣元との雇用関係であり非直用 **",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "アルバイトは直接雇用（直用）",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "有期契約社員は直接雇用（直用）",
+              "correct": true
+            },
+            {
+              "label": "オ",
+              "text": "**請負作業員は請負会社との雇用関係であり非直用 **\n(カ) 嘱託は直接雇用（直用）",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "economic"
         },
@@ -581,6 +716,28 @@
           "options": [],
           "correct": 2,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "技術的組織と人的組織の二面性を持つという記述は適切",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "非公式組織は行動規範の決定にも影響を与えるため、「影響を与えない」は誤り",
+              "correct": false
+            },
+            {
+              "label": "ウ",
+              "text": "職場の人間関係の円滑化を重視するのが人間関係管理であり適切",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "人間関係だけでは作業効率は向上せず動機付けが重要であり適切",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "social"
         },
@@ -669,6 +826,28 @@
           ],
           "correct": 2,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "知識教育は講義・見学により専門的知識を理解させることが目的であり適切",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "技能教育は実習形式で仕事に生かす技能を伸ばすことが目的であり適切",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "態度教育は討議やロールプレイングで実施されるのが一般的で、ブレインストーミングやイメージトレーニングは態度教育の主な手法ではないため誤り",
+              "correct": false
+            },
+            {
+              "label": "エ",
+              "text": "問題解決能力開発はケーススタディや課題研究法で実施され適切",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "info"
         },
@@ -700,6 +879,33 @@
           ],
           "correct": 3,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "セキュリティポリシーの策定には組織の長の関与が不可欠であり適切",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "セキュリティポリシーは紙媒体の情報も含め組織のすべての情報を対象とするため、「コンピュータで管理されない情報は対象としない」は誤り",
+              "correct": false
+            },
+            {
+              "label": "ウ",
+              "text": "実現困難なポリシーでは意味がないという記述は適切",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "策定ではまず基本方針（ポリシー）を定め、次に対策基準、最後に実施手順の順で検討すべきであり、「事故対処方法から」は誤り",
+              "correct": false
+            },
+            {
+              "label": "オ",
+              "text": "自組織に合ったポリシーを自ら策定する必要があり適切",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "info"
         },
@@ -959,6 +1165,33 @@
           ],
           "correct": 1,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "半導体集積回路の回路配置は「半導体集積回路の回路配置に関する法律」で保護される",
+              "correct": false
+            },
+            {
+              "label": "イ",
+              "text": "**新品種は「種苗法」により育成者権として保護される **",
+              "correct": false
+            },
+            {
+              "label": "ウ",
+              "text": "**未登録商標でも不正競争防止法により保護される場合がある **",
+              "correct": false
+            },
+            {
+              "label": "エ",
+              "text": "**営業秘密は不正競争防止法で保護される **",
+              "correct": false
+            },
+            {
+              "label": "オ",
+              "text": "**実演家は著作権法の著作隣接権により保護される **",
+              "correct": false
+            }
+          ],
           "examPoint": null,
           "management": "info"
         },
@@ -1457,6 +1690,33 @@
           ],
           "correct": 3,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "A1とA2の両方が発生すればTが起こる（ANDゲート）ため適切",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "A1にはANDゲートでX1とX2が接続しているため、X1とX2の「両方」が発生しないとA1は起こらない。「いずれか」は誤り",
+              "correct": false
+            },
+            {
+              "label": "ウ",
+              "text": "A2にはORゲートでX1とX3が接続しているため、いずれかの発生でA2が起こり適切",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "X1とX2が発生するとA1が起こり、X1の発生でA2も起こる（ORゲート）ため、ANDゲートを通ってTが起こり適切",
+              "correct": true
+            },
+            {
+              "label": "オ",
+              "text": "X1とX3が発生するとA2は起こるが、A1にはX1とX2の両方が必要でX2は発生していないためA1は起こらず、Tは起こらない。誤り",
+              "correct": false
+            }
+          ],
           "examPoint": null,
           "management": "safety"
         },
@@ -1602,6 +1862,33 @@
           ],
           "correct": 3,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "アオコは藍藻類（シアノバクテリア）が大量増殖して水面が青緑色になる現象であり、酸欠水塊の浮上ではないため誤り",
+              "correct": false
+            },
+            {
+              "label": "イ",
+              "text": "酸性雨の主原因は硫黄酸化物（SOx）や窒素酸化物（NOx）であり、二酸化炭素ではないため誤り",
+              "correct": false
+            },
+            {
+              "label": "ウ",
+              "text": "赤潮の説明（プランクトン大量増殖、富栄養化等が原因）は適切",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "逆転層の説明（高度が下がるほど温度が低くなる気層）は適切",
+              "correct": true
+            },
+            {
+              "label": "オ",
+              "text": "オゾンホールの主原因はフロン等の塩素化合物であり、二酸化炭素ではないため誤り",
+              "correct": false
+            }
+          ],
           "examPoint": null,
           "management": "social"
         },
@@ -1747,6 +2034,33 @@
           ],
           "correct": 2,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "一般廃棄物と産業廃棄物の区分は廃棄物処理法で定義されており適切",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "特別管理廃棄物の厳重管理は適切",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "産業廃棄物の総排出量は一般廃棄物のごみよりもはるかに多いため誤り",
+              "correct": false
+            },
+            {
+              "label": "エ",
+              "text": "一般廃棄物は市町村、産業廃棄物は排出事業者の責務であり適切",
+              "correct": true
+            },
+            {
+              "label": "オ",
+              "text": "マニフェストは排出事業者が発行するものであり、処理を受託した者が発行するのは誤り",
+              "correct": false
+            }
+          ],
           "examPoint": null,
           "management": "social"
         },
@@ -1835,6 +2149,33 @@
           ],
           "correct": 2,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "第一種事業はスクリーニング不要で必ず環境影響評価を実施する。スクリーニングが必要なのは第二種事業であり誤り",
+              "correct": false
+            },
+            {
+              "label": "イ",
+              "text": "環境基準として定量的な基準が定められていることは適切",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "スコーピング手順で作成するのは環境影響評価方法書であり、準備書ではないため誤り",
+              "correct": false
+            },
+            {
+              "label": "エ",
+              "text": "環境基準の項目に公定測定方法が示されていることは適切",
+              "correct": true
+            },
+            {
+              "label": "オ",
+              "text": "動物への影響予測で定性的な予測が主に実施されることは適切",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "social"
         },
@@ -1986,6 +2327,28 @@
           ],
           "correct": 3,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "品質計画は環境変化に応じて見直し・変更すべきであり、「変更してはならない」は誤り",
+              "correct": false
+            },
+            {
+              "label": "イ",
+              "text": "経営層の品質方針を部門毎に展開し品質計画を策定するのは適切",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "問題点やリスクを明確にすることは適切",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "品質計画は顧客要求の有無にかかわらず、組織の品質方針に基づいて策定すべきであり、「要求がなければ策定しない」は誤り",
+              "correct": false
+            }
+          ],
           "examPoint": null,
           "management": "economic"
         },
@@ -2225,6 +2588,28 @@
           ],
           "correct": 2,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "進行管理は日程計画に基づく生産活動の統制であり適切",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "作業手配の内容（資機材手配・作業割当・作業指示）は適切",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "余力管理とは現有能力と負荷の差（余力）を把握・調整することであり、「余力を残すように管理する」ことではないため誤り",
+              "correct": false
+            },
+            {
+              "label": "エ",
+              "text": "現品管理は仕掛品の所在と数量の管理であり適切",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "economic"
         },
@@ -2370,6 +2755,28 @@
           ],
           "correct": 3,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "職能別組織は中小企業だけでなく単一事業型の大企業でも広く採用されているため、「少ない」は誤り",
+              "correct": false
+            },
+            {
+              "label": "イ",
+              "text": "購買・製造・販売等の専門部門ごとに構成するのは職能別組織の説明であり、事業部制組織は事業単位で構成するため誤り",
+              "correct": false
+            },
+            {
+              "label": "ウ",
+              "text": "事業部制組織は複数事業を営む企業に多く採用されており適切",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "マトリックス組織の二元的組織編成の説明は適切",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "human"
         },
@@ -2525,6 +2932,33 @@
           ],
           "correct": 2,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "教育訓練で求められる能力（課題設定・職務遂行・対人・問題解決）は適切",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "教育訓練の成果を人事管理に反映させる体制構築は適切",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "態度教育の目的と手法（討議・ロールプレイング）は適切",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "ブレインストーミングのルールは「批判厳禁」であり、「他のアイデアへの批判を歓迎する」は誤り",
+              "correct": false
+            },
+            {
+              "label": "オ",
+              "text": "OJTの定義は適切",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "human"
         },
@@ -2535,6 +2969,28 @@
           "options": [],
           "correct": 3,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "直属上司の一次査定→上位上司の二次査定は一般的であり適切",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "ルールや評価基準も公開することで透明性と納得性を高めるのが望ましく、「基準は公開しない」は誤り",
+              "correct": false
+            },
+            {
+              "label": "ウ",
+              "text": "姿勢・業績評価は短期で、能力評価は長期で行うのが一般的であり、逆の記述は誤り",
+              "correct": false
+            },
+            {
+              "label": "エ",
+              "text": "業績評価の特徴（組織貢献の評価可能、偶然要因の影響、短期志向のリスク）は適切",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "human"
         },
@@ -2623,6 +3079,33 @@
           ],
           "correct": 1,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "情報の体系的整理と適切な量の意思決定者への提供は適切",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "情報の戦略的公開・組織外での活用は適切",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "公開情報の例（財務諸表・環境報告・PR情報・緊急広報）は適切",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "非公開情報（技術情報・顧客情報）のセキュリティ配慮は適切",
+              "correct": true
+            },
+            {
+              "label": "オ",
+              "text": "開示基準の事前検討の重要性は適切",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "info"
         },
@@ -2825,6 +3308,28 @@
           ],
           "correct": 3,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "データマイニングの定義（膨大なデータから有用な情報パターンを発見）は適切",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "TCOにはハード・ソフトの導入費用だけでなく、運用・保守・教育・廃棄等の総コストが含まれるため、「導入費用の総額」は誤り",
+              "correct": false
+            },
+            {
+              "label": "ウ",
+              "text": "思考スキルや行動スキルは暗黙知（形式知ではなく暗黙知）であり、ナレッジマネジメントでは暗黙知を形式知に変換して活用することが鍵であるため誤り",
+              "correct": false
+            },
+            {
+              "label": "エ",
+              "text": "情報の職能別分類の説明は適切",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "economic"
         },
@@ -2856,6 +3361,33 @@
           ],
           "correct": 3,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "ウェブアクセシビリティの定義は適切",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "B to Bの定義は適切",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "ICTはInformation and Communication Technologyの略であり、Internet and Computer Technologyではないため誤り",
+              "correct": false
+            },
+            {
+              "label": "エ",
+              "text": "VoIPは音声データをデジタルパケットに変換して伝送する技術であり、「アナログ信号のまま」ではないため誤り",
+              "correct": false
+            },
+            {
+              "label": "オ",
+              "text": "デジタルデバイドの定義は適切",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "info"
         },
@@ -2887,6 +3419,33 @@
           ],
           "correct": 1,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "セキュリティポリシーが活動基準であることは適切",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "セキュリティ対策が組織全体の問題であることは適切",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "セキュリティレベルとコストのバランス判断は適切",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "組織ごとに固有のポリシーが必要であることは適切",
+              "correct": true
+            },
+            {
+              "label": "オ",
+              "text": "ポリシーに基づく具体的対策の実施は適切",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "economic"
         },
@@ -2918,6 +3477,28 @@
           ],
           "correct": 1,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "知り合いからのメールでもウイルスに感染している可能性があり、チェックは必要",
+              "correct": false
+            },
+            {
+              "label": "イ",
+              "text": "メールのプレビューやインターネット接続だけでもウイルス感染する場合がある",
+              "correct": false
+            },
+            {
+              "label": "ウ",
+              "text": "最新のウイルス定義ファイルでも未知のウイルスには対応できず、感染の可能性はある",
+              "correct": false
+            },
+            {
+              "label": "エ",
+              "text": "自動実行機能等によりUSBメモリの挿入だけでウイルスに感染する場合がある",
+              "correct": false
+            }
+          ],
           "examPoint": null,
           "management": "economic"
         },
@@ -2980,6 +3561,33 @@
           ],
           "correct": 2,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "台風の進行方向の右側の方が風速は大きくなる（台風の回転方向と進行方向が合致するため）。「左側」は誤り",
+              "correct": false
+            },
+            {
+              "label": "イ",
+              "text": "縦波（P波）の方が横波（S波）より伝播速度は大きい。逆の記述は誤り",
+              "correct": false
+            },
+            {
+              "label": "ウ",
+              "text": "長周期地震動が遠方まで伝わりやすい性質は正しい",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "気象庁の震度階級は10階級（0〜7、5弱・5強、6弱・6強）であり、最大は「震度7」。「震度8強」は存在しないため誤り",
+              "correct": false
+            },
+            {
+              "label": "オ",
+              "text": "津波は後続波の方が高い場合があることは正しい",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "safety"
         },
@@ -2990,6 +3598,18 @@
           "options": [],
           "correct": 5,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "安全衛生方針表明の次であり、安全衛生目標設定の前に行う「危険性又は有害性等の調査の実施」（リスクアセスメント）が入る",
+              "correct": null
+            },
+            {
+              "label": "イ",
+              "text": "日常的な点検・改善等の次であり、改善・見直しの前に行う「システム監査の実施」が入る",
+              "correct": null
+            }
+          ],
           "examPoint": null,
           "management": "human"
         },
@@ -3192,6 +3812,33 @@
           ],
           "correct": 5,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "隔離安全（扉閉確認で運転）と停止安全（扉開で停止）の説明は適切",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "安全立証の概念の必要性は適切",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "インターロックによる安全確認の内容は適切",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "安全確認型インターロックの動作（安全確認時のみ運転、センサ故障時は停止）は適切",
+              "correct": true
+            },
+            {
+              "label": "オ",
+              "text": "危険検出型インターロックはセンサ故障で危険を検出できないと機械を停止させず運転を継続してしまうため、「安全な状態でも機械を停止させる」は誤り",
+              "correct": false
+            }
+          ],
           "examPoint": {
             "summary": "安全確認型と危険検出型の違いは頻出テーマ",
             "items": [
@@ -3229,6 +3876,33 @@
           ],
           "correct": 3,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "定期点検のマンネリ化防止とレベル維持は適切",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "小集団活動の目的と効果は適切",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "ヒヤリハット活動では個人の責任を追及してはならず、報告しやすい環境を作ることが重要であるため誤り",
+              "correct": false
+            },
+            {
+              "label": "エ",
+              "text": "安全制御の考え方では、故障の発見と停止操作は人間ではなく機械（安全装置）が行うべきとされているため誤り",
+              "correct": false
+            },
+            {
+              "label": "オ",
+              "text": "安全確認型アプローチの重要性は適切",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "info"
         },
@@ -3239,6 +3913,33 @@
           "options": [],
           "correct": 2,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "最大排出量で減少傾向→産業部門",
+              "correct": null
+            },
+            {
+              "label": "イ",
+              "text": "2番目に大きく微増→運輸部門",
+              "correct": null
+            },
+            {
+              "label": "ウ",
+              "text": "大幅増加（+43%）→業務その他部門",
+              "correct": null
+            },
+            {
+              "label": "エ",
+              "text": "増加（+34%）→家庭部門",
+              "correct": null
+            },
+            {
+              "label": "オ",
+              "text": "最小で微増→エネルギー転換部門",
+              "correct": null
+            }
+          ],
           "examPoint": null,
           "management": "social"
         },
@@ -3487,6 +4188,28 @@
           "options": [],
           "correct": 5,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "代理市場（地価等）の価格変動で評価→ヘドニック価格法",
+              "correct": null
+            },
+            {
+              "label": "イ",
+              "text": "擬制市場での支払意志額・受入意志額の測定→仮想評価法（CVM）",
+              "correct": null
+            },
+            {
+              "label": "ウ",
+              "text": "環境の属性を詳細に把握→コンジョイント分析",
+              "correct": null
+            },
+            {
+              "label": "エ",
+              "text": "アクセス費用で代替して測定→トラベルコスト法",
+              "correct": null
+            }
+          ],
           "examPoint": null,
           "management": "economic"
         },
@@ -3518,6 +4241,33 @@
           ],
           "correct": 2,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "ライフサイクルの7段階の区分は適切",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "ISO/JISによるLCAの4要素の分類は適切",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "目的設定での記述事項（背景・理由・報告対象者・用途）は適切",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "CO2以外の環境負荷物質やエネルギーも対象とできることは適切",
+              "correct": true
+            },
+            {
+              "label": "オ",
+              "text": "インベントリ分析では環境負荷を定量的に把握・整理するものであり、「定性的」は誤り",
+              "correct": false
+            }
+          ],
           "examPoint": null,
           "management": "social"
         }
@@ -3555,6 +4305,33 @@
           ],
           "correct": 3,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "総合生産計画は生産計画の最初の段階（大日程計画）であり、最終段階ではない",
+              "correct": false
+            },
+            {
+              "label": "イ",
+              "text": "需要予測量と生産能力の均衡が基本目的であり適切",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "需要変動への対応が重要な課題であることは適切",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "納期遅延は生産能力調整ではなく需要平滑化の手段である",
+              "correct": false
+            },
+            {
+              "label": "オ",
+              "text": "外注対応は需要平滑化ではなく生産能力調整の手段である",
+              "correct": false
+            }
+          ],
           "examPoint": {
             "summary": "外注は生産能力調整／納期遅延（バックログ）は需要平滑化―手段の分類を混同しない",
             "items": [
@@ -4112,6 +4889,28 @@
           "options": [],
           "correct": 1,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "一般職と総合職の区分の説明として適切",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "勤務地限定社員制度の説明として適切",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "専門職は高度な専門知識・スキルを活かす職であり、特定業務（技能等）に限定するのは専任職の説明。不適切",
+              "correct": false
+            },
+            {
+              "label": "エ",
+              "text": "早い段階での選別は望ましくなく、十分な経験を積んだ上で適性に応じて選択するのが一般的。不適切",
+              "correct": false
+            }
+          ],
           "examPoint": null,
           "management": "economic"
         },
@@ -4371,6 +5170,33 @@
           ],
           "correct": 1,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "組織トップの関与と重要性認識は適切",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "知の移転のための形式化は適切",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "暗黙知の所有者を明らかにするナレッジマップの考え方は適切",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "情報システムの運用手順とユーザビリティ向上は適切",
+              "correct": true
+            },
+            {
+              "label": "オ",
+              "text": "人事考課との連動による積極的参加促進は適切",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "human"
         },
@@ -4402,6 +5228,28 @@
           ],
           "correct": 4,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "著作権は文化庁が所管しており、特許庁ではない。不適切",
+              "correct": false
+            },
+            {
+              "label": "イ",
+              "text": "新規性喪失の例外は指定学術団体に限定されず、広く適用される。不適切",
+              "correct": false
+            },
+            {
+              "label": "ウ",
+              "text": "早期審査は中小企業に限定されず、実施関連出願等にも適用される。不適切",
+              "correct": false
+            },
+            {
+              "label": "エ",
+              "text": "登録商標は商標法、周知商標は不正競争防止法で保護されるのは正しい",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "info"
         },
@@ -4723,6 +5571,33 @@
           ],
           "correct": 3,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "リスク管理の基本方針の周知・共有は適切",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "ハザード特定とリスク見積りはリスクアセスメントの一部であり、リスク特定はハザードの特定のみを指す。不適切",
+              "correct": false
+            },
+            {
+              "label": "ウ",
+              "text": "発生確率と被害規模の性質が異なればリスク対応も異なるため、同等のリスクとは認定できない。不適切",
+              "correct": false
+            },
+            {
+              "label": "エ",
+              "text": "保険はリスク移転の例であり、リスク回避ではない。不適切",
+              "correct": false
+            },
+            {
+              "label": "オ",
+              "text": "リスク認知におけるバイアスの検討は適切",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "safety"
         },
@@ -4754,6 +5629,33 @@
           ],
           "correct": 3,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "直接対話もリスクコミュニケーションの重要な媒体であり、限定すべきではない。不適切",
+              "correct": false
+            },
+            {
+              "label": "イ",
+              "text": "中立的な第三者の仲介による信頼性向上は適切",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "反対意見を述べにくい状況を作るのはリスクコミュニケーションの原則に反する。不適切",
+              "correct": false
+            },
+            {
+              "label": "エ",
+              "text": "被害規模を説明せずに安全と広報するのは不誠実。不適切",
+              "correct": false
+            },
+            {
+              "label": "オ",
+              "text": "正負両面を公正に伝える姿勢は適切",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "safety"
         },
@@ -4785,6 +5687,33 @@
           ],
           "correct": 2,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "柔軟な対応のためにも、基本的な対応手順を詳細に定めたマニュアルは必要。不適切",
+              "correct": false
+            },
+            {
+              "label": "イ",
+              "text": "復旧対策の記載は適切",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "更新の仕組みは適切",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "判断基準の記載は適切",
+              "correct": true
+            },
+            {
+              "label": "オ",
+              "text": "テロも危機管理の対象であり、組織として可能な範囲で対応を定めるべき。不適切",
+              "correct": false
+            }
+          ],
           "examPoint": null,
           "management": "safety"
         },
@@ -4816,6 +5745,33 @@
           ],
           "correct": 1,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "事故の可能性を前提としたリスク対応は適切",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "リスク評価の思想の定着は適切",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "絶対安全の議論の問題点の指摘は適切",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "安全議論の回避の危険性の指摘は適切",
+              "correct": true
+            },
+            {
+              "label": "オ",
+              "text": "リスクの共有と合意形成の重要性は適切",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "safety"
         },
@@ -5209,6 +6165,33 @@
           ],
           "correct": 4,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "環境経営の定義として適切",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "環境管理システム（EMS）の構成要素の説明として適切",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "環境負荷と環境パフォーマンスの把握・評価の重要性は適切",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "エコアクション21は主に中小企業向けの環境経営システムであり、大企業向けではない。不適切",
+              "correct": false
+            },
+            {
+              "label": "オ",
+              "text": "エコファンドは環境に配慮した企業への投資ファンドであり適切",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "social"
         },
@@ -5240,6 +6223,33 @@
           ],
           "correct": 1,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "LCAは物量値（物質・エネルギーの投入・排出量）で評価するものであり適切",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "リサイクルループのオープン・クローズドの分類は適切",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "LCAで最も多く用いられる環境負荷はCO2排出量であり、熱排出量ではない。不適切",
+              "correct": false
+            },
+            {
+              "label": "エ",
+              "text": "産業連関法と積み上げ法の2手法は適切",
+              "correct": true
+            },
+            {
+              "label": "オ",
+              "text": "影響評価の3要素の記述は適切",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "economic"
         },
@@ -5370,6 +6380,23 @@
           "options": [],
           "correct": 4,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "工程管理は費用的側面ではなく、時間的側面（進捗・納期）から管理するもの。不適切",
+              "correct": false
+            },
+            {
+              "label": "イ",
+              "text": "作業順序の決定と予定時刻の設定は「日程計画（スケジューリング）」の機能であり、手順計画は加工方法や工程順序を定めるもの。不適切",
+              "correct": false
+            },
+            {
+              "label": "ウ",
+              "text": "製造命令を作業部署に割り当て、能力と負荷をバランスさせるのは負荷計画の機能であり適切",
+              "correct": true
+            }
+          ],
           "examPoint": {
             "summary": "手順計画は「何を・どの順で」／日程計画は「いつ」／負荷計画は「能力と負荷のバランス」",
             "items": [
@@ -5407,6 +6434,28 @@
           ],
           "correct": 3,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "消費量・単価・稼働時間の積み上げは従来の原価計算の方法であり、ABCはアクティビティとコストドライバーに基づく。不適切",
+              "correct": false
+            },
+            {
+              "label": "イ",
+              "text": "アクティビティの捉え方の柔軟性の説明として適切",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "コストドライバーは「資源ドライバー」と「活動ドライバー」に分類される。マンパワードライバーは正しい分類ではない。不適切",
+              "correct": false
+            },
+            {
+              "label": "エ",
+              "text": "アクティビティ分析による付加価値活動・非付加価値活動の識別は適切",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "economic"
         },
@@ -5526,6 +6575,33 @@
           ],
           "correct": 3,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "設備投資計画の位置づけとして適切",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "設備投資の目的別分類として適切",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "「産出」は収益ではなく、コスト削減効果や生産性向上等を含む経済的便益全般。不適切",
+              "correct": false
+            },
+            {
+              "label": "エ",
+              "text": "設備投資の経済性分析は現在価値法・回収期間法・内部収益率法等が主であり、価値分析（VE）は設備投資の経済性分析手法ではない。不適切",
+              "correct": false
+            },
+            {
+              "label": "オ",
+              "text": "異なる時点の資金を等価換算する必要性は適切",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "economic"
         },
@@ -5645,6 +6721,28 @@
           ],
           "correct": 1,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "品質保証の目的の説明として適切",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "ビフォアサービス（購入前の情報提供等）とアフターサービスの実施は適切",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "品質保証が全段階に関係するという記述は適切",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "顧客重視と全組織的活動、3つの品質保証方法の記述は適切",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "economic"
         },
@@ -5676,6 +6774,33 @@
           ],
           "correct": 4,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "命令を好み責任を回避 → X理論",
+              "correct": null
+            },
+            {
+              "label": "イ",
+              "text": "仕事は人間の本性 → Y理論",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "仕事が生まれながら嫌い → X理論",
+              "correct": null
+            },
+            {
+              "label": "エ",
+              "text": "条件次第で進んで責任をとる → Y理論",
+              "correct": true
+            },
+            {
+              "label": "オ",
+              "text": "自ら身を委ねた目標のため自律的に働く → Y理論\n（カ）創意工夫の能力がたいていの人に備わる → Y理論",
+              "correct": true
+            }
+          ],
           "examPoint": {
             "summary": "X理論は性悪説的、Y理論は性善説的な人間観",
             "items": [
@@ -5749,6 +6874,28 @@
           "options": [],
           "correct": 2,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "変形労働時間制度の説明として適切",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "有給休暇は雇入れから6ヶ月間継続勤務で10日付与が最初であり、3ヶ月で5日の規定はない。不適切",
+              "correct": false
+            },
+            {
+              "label": "ウ",
+              "text": "休憩時間の規定として適切",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "育児休業の規定として適切",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "human"
         },
@@ -5816,6 +6963,28 @@
           "options": [],
           "correct": 5,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "基本職能毎に部門を設けるのは「職能別組織」の説明であり、事業部制組織ではない。不適切",
+              "correct": false
+            },
+            {
+              "label": "イ",
+              "text": "マトリックス組織は2つの命令系統を持つ組織であるが、構成員を1つの部門にまとめるという記述は事業部制の説明。不適切",
+              "correct": false
+            },
+            {
+              "label": "ウ",
+              "text": "思考様式の均質化と自己保存本能は組織文化のデメリット（弊害）であり、メリットではない。不適切",
+              "correct": false
+            },
+            {
+              "label": "エ",
+              "text": "トップ主導タイプは変化への対応が迅速であることが特徴であり、硬直的とする記述は官僚的組織文化の特徴。不適切",
+              "correct": false
+            }
+          ],
           "examPoint": null,
           "management": "human"
         },
@@ -5883,6 +7052,33 @@
           ],
           "correct": 2,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "あっせんは労使の一方からの申請でも開始できるため、双方の申請が要件とするのは不適切",
+              "correct": false
+            },
+            {
+              "label": "イ",
+              "text": "調停案の受諾は任意であり適切",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "仲裁裁定は両当事者を拘束する。拘束しないとする記述は不適切",
+              "correct": false
+            },
+            {
+              "label": "エ",
+              "text": "労働審判制度は個別労働紛争が対象であり、集団紛争ではない。不適切",
+              "correct": false
+            },
+            {
+              "label": "オ",
+              "text": "個別労働紛争解決制度は行政機関（都道府県労働局等）による制度であり、司法機関ではない。不適切",
+              "correct": false
+            }
+          ],
           "examPoint": null,
           "management": "human"
         },
@@ -5893,6 +7089,28 @@
           "options": [],
           "correct": 4,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "採用抑制が顕著だったのは1990年代（バブル崩壊後）であり、1980年代ではない。不適切",
+              "correct": false
+            },
+            {
+              "label": "イ",
+              "text": "雇用管理と企業活動・経済成長・社会の持続的発展の関係は適切",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "業績・成果主義は見直し傾向にあり、「ますます拍車がかかっている」は不適切",
+              "correct": false
+            },
+            {
+              "label": "エ",
+              "text": "2000年代前半の労働分配率低下に平均賃金低下が大きく影響したのは適切",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "human"
         },
@@ -6152,6 +7370,28 @@
           ],
           "correct": 3,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "組織の長が関与したセキュリティポリシー策定は適切",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "ソーシャル・エンジニアリングへの注意喚起は適切",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "不審メールへの返信はメールアドレスの有効性を確認させてしまい危険。不適切",
+              "correct": false
+            },
+            {
+              "label": "エ",
+              "text": "不審なUSBメモリをPCに接続するとマルウェア感染のリスクがある。不適切",
+              "correct": false
+            }
+          ],
           "examPoint": null,
           "management": "info"
         },
@@ -6183,6 +7423,33 @@
           ],
           "correct": 1,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "個人メールアドレスでも組織の情報にアクセスできる場合は脅威となる。不適切",
+              "correct": false
+            },
+            {
+              "label": "イ",
+              "text": "標的型攻撃メールは巧妙に正規の送信元を装うため、詐称を見抜きにくい。不適切",
+              "correct": false
+            },
+            {
+              "label": "ウ",
+              "text": "ファイル添付だけでなくURLリンクによる攻撃もある。必ず添付とは限らない。不適切",
+              "correct": false
+            },
+            {
+              "label": "エ",
+              "text": "疑似体験による訓練は意識向上に有効であり適切",
+              "correct": true
+            },
+            {
+              "label": "オ",
+              "text": "標的型攻撃メールはスパム（不特定多数への大量送信）とは異なる。不適切",
+              "correct": false
+            }
+          ],
           "examPoint": null,
           "management": "info"
         },
@@ -6328,6 +7595,33 @@
           ],
           "correct": 3,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "「設計の意図が伝わらなかった」はコミュニケーションの要因であり、ハードウエアではない。不適切",
+              "correct": false
+            },
+            {
+              "label": "イ",
+              "text": "手順書の内容が不明確であることは手順書の要因として適切",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "「日常業務で問題を長期間放置」はハウスキーピング（維持管理）の要因であり、エラー誘発条件ではない。不適切",
+              "correct": false
+            },
+            {
+              "label": "エ",
+              "text": "安全と納期の矛盾は相容れない矛盾する目標の要因として適切",
+              "correct": true
+            },
+            {
+              "label": "オ",
+              "text": "「経験者と初心者を区別しなかった」は訓練の要因であり、組織ではない。不適切",
+              "correct": false
+            }
+          ],
           "examPoint": null,
           "management": "safety"
         },
@@ -6359,6 +7653,33 @@
           ],
           "correct": 1,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "危険な作業自体をやめて機械を廃棄 → リスク回避",
+              "correct": null
+            },
+            {
+              "label": "イ",
+              "text": "リスクを認識した上で現状の対応を継続 → リスク保有",
+              "correct": null
+            },
+            {
+              "label": "ウ",
+              "text": "保険による付保 → リスク移転",
+              "correct": null
+            },
+            {
+              "label": "エ",
+              "text": "耐震補強工事による被害軽減 → リスク低減",
+              "correct": null
+            },
+            {
+              "label": "オ",
+              "text": "対策を断念してリスクをそのまま受容 → リスク保有",
+              "correct": null
+            }
+          ],
           "examPoint": {
             "summary": "「断念してそのまま受け入れる」もリスク保有―4分類の具体例を混同しない",
             "items": [
@@ -6567,6 +7888,28 @@
           ],
           "correct": 5,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "統計指標の作成方法・定義は各国で異なり、統一運用されていない。不適切",
+              "correct": false
+            },
+            {
+              "label": "イ",
+              "text": "度数率＝死傷者数÷延実労働時間×1,000,000＝2÷500,000×1,000,000＝4であり、2ではない。不適切",
+              "correct": false
+            },
+            {
+              "label": "ウ",
+              "text": "強度率は労働損失日数÷延実労働時間×1,000であり、頻度と重さの積ではない。不適切",
+              "correct": false
+            },
+            {
+              "label": "エ",
+              "text": "過去10年間で必ずしも連続して減少し続けたわけではなく、また1,000人以下の時期も記述と合致しない。不適切",
+              "correct": false
+            }
+          ],
           "examPoint": null,
           "management": "human"
         },
@@ -6598,6 +7941,28 @@
           ],
           "correct": 3,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "ハインリッヒの法則（1:29:300）に基づくヒヤリハット活動は適切",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "ヒヤリハット活動は責任追及ではなく、原因究明と再発防止に焦点を当てるもの。不適切",
+              "correct": false
+            },
+            {
+              "label": "ウ",
+              "text": "人が実施する以上、実施レベルにムラが生じるのは避けられない。不適切",
+              "correct": false
+            },
+            {
+              "label": "エ",
+              "text": "小集団活動導入時のポイントとして適切",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "safety"
         },
@@ -6800,6 +8165,33 @@
           ],
           "correct": 2,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "LCAは資源採取から廃棄・リサイクルまでの全ライフサイクルを対象とする。資源採取を除外するのは不適切",
+              "correct": false
+            },
+            {
+              "label": "イ",
+              "text": "LCAの4要素の構成は適切",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "CO2が最も多いが他の物質も対象可能という記述は適切",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "産業連関法は既存産業の平均的データに基づくため、新技術やリサイクルの分析には積み上げ法の方が適している。不適切",
+              "correct": false
+            },
+            {
+              "label": "オ",
+              "text": "環境適合設計（DfE）への展開は適切",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "social"
         },
@@ -7064,6 +8456,28 @@
           ],
           "correct": 1,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "省エネ法のエネルギー対象と非化石エネルギーの除外は適切",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "特定事業者の義務（管理者選任・中長期計画作成・提出）は適切",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "特定荷主の計画作成・提出義務は適切",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "トップランナー方式の説明は適切",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "social"
         }
@@ -7080,6 +8494,33 @@
           "options": [],
           "correct": 4,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "需要予測量と生産能力の均衡 → 総合生産計画",
+              "correct": null
+            },
+            {
+              "label": "イ",
+              "text": "市場調査と需要予測 → フィージビリティ・スタディ",
+              "correct": null
+            },
+            {
+              "label": "ウ",
+              "text": "資金調達・予算規模の算定 → フィージビリティ・スタディ",
+              "correct": null
+            },
+            {
+              "label": "エ",
+              "text": "生産能力調整と需要平滑化 → 総合生産計画",
+              "correct": null
+            },
+            {
+              "label": "オ",
+              "text": "労働力・在庫・残業・外注の各量を決定 → 総合生産計画\n- (カ) コストと需要予測の比較・収支検討 → フィージビリティ・スタディ\n- (キ) コスト最小化・雇用水準安定化 → 総合生産計画",
+              "correct": null
+            }
+          ],
           "examPoint": null,
           "management": "economic"
         },
@@ -7476,6 +8917,33 @@
           ],
           "correct": 2,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "物質的インセンティブの説明として適切",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "評価的インセンティブの説明として適切",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "人的インセンティブの説明として適切",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "理念的インセンティブは「思想や価値観の追求」を源泉とするもの。「組織利益や効率性の追求」は理念的インセンティブの説明として不適切",
+              "correct": false
+            },
+            {
+              "label": "オ",
+              "text": "自己実現インセンティブの説明として適切",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "economic"
         },
@@ -8025,6 +9493,33 @@
           "options": [],
           "correct": 3,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "1ビット = 0または1の2個の値 → 適切",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "8ビット = 1バイト = 2⁸ = 256個の値 → 適切",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "大文字26 + 小文字26 = 52種類は1バイト（256値）で表現可能 → 適切",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "3489種類は2バイト（65,536値）で十分表現可能であり、4バイトは不要 → 不適切",
+              "correct": false
+            },
+            {
+              "label": "オ",
+              "text": "40×30 = 1,200文字 × 2バイト = 2,400バイトで足りるため、4,800バイトは過大 → 不適切",
+              "correct": false
+            }
+          ],
           "examPoint": null,
           "management": "info"
         },
@@ -8113,6 +9608,33 @@
           ],
           "correct": 5,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "クリアデスクポリシーは基本的な情報漏洩対策 → 適切",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "窓口の一本化は混乱防止の基本対応 → 適切",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "誤送信時は速やかに相手に連絡し削除依頼するのが適切 → 適切",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "不当な書き込みに対する削除申し入れは適切な対応 → 適切",
+              "correct": true
+            },
+            {
+              "label": "オ",
+              "text": "個人情報漏洩時の本人通知・注意喚起は適切な対応 → 適切",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "info"
         },
@@ -8258,6 +9780,28 @@
           ],
           "correct": 4,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "感情的納得や信頼性獲得には直接対話が最も有効であり、避けるべきではない → 不適切",
+              "correct": false
+            },
+            {
+              "label": "イ",
+              "text": "第三者の仲介は信頼性向上に有効な手段 → 適切",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "製品欠陥の注意喚起にマスコミを活用するのは適切な対応 → 適切",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "リスクコミュニケーションでは正負両面を正確に伝えることが重要 → 適切",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "safety"
         },
@@ -8497,6 +10041,33 @@
           ],
           "correct": 2,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "定期点検は定常業務の一部として行う → 適切",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "業務の想定通りの実施を確認するのは点検の目的 → 適切",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "グループ編成で実施レベルのムラを防止する → 適切",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "非定常の行為や事象の発見・改善も定期点検の内容 → 適切",
+              "correct": true
+            },
+            {
+              "label": "オ",
+              "text": "チェックリストは現場の変化や改善点を反映して適宜更新すべきであり、変更を加えないとする記述は不適切",
+              "correct": false
+            }
+          ],
           "examPoint": null,
           "management": "economic"
         },
@@ -8528,6 +10099,33 @@
           ],
           "correct": 3,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "ガス供給停止 → 安全側に停止 → **フェールセーフ**",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "スライド下降停止 → 安全側に停止 → **フェールセーフ**",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "エンジン故障でも飛行継続 → 機能継続 → フォールトトレランス",
+              "correct": null
+            },
+            {
+              "label": "エ",
+              "text": "安全側に移行 → **フェールセーフ**",
+              "correct": true
+            },
+            {
+              "label": "オ",
+              "text": "補助電源に切替えて機能継続 → フォールトトレランス",
+              "correct": null
+            }
+          ],
           "examPoint": {
             "summary": "フェールセーフとフォールトトレランスの違い",
             "items": [
@@ -8793,6 +10391,33 @@
           ],
           "correct": 3,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "大気の汚染 → 設定されている",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "水質の汚濁 → 設定されている",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "騒音 → 設定されている",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "振動 → 設定されていない（振動規制法で規制値を設定）",
+              "correct": null
+            },
+            {
+              "label": "オ",
+              "text": "土壌の汚染 → 設定されている\n(カ) 悪臭 → 設定されていない（悪臭防止法で規制値を設定）",
+              "correct": true
+            }
+          ],
           "examPoint": {
             "summary": "環境基準は4項目（大気・水質・騒音・土壌）―振動と悪臭は個別法で規制値のみ",
             "items": [
@@ -8887,6 +10512,33 @@
           ],
           "correct": 4,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "太陽光 → 対象",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "風力 → 対象",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "水力 → 対象",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "波力 → 対象外（制度開始時点では買取対象に含まれない）",
+              "correct": null
+            },
+            {
+              "label": "オ",
+              "text": "地熱 → 対象\n(カ) バイオマス → 対象",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "economic"
         },
@@ -9215,6 +10867,33 @@
               "result": "❌"
             }
           ],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "生産率の調整は、生産能力調整に該当する",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "補完製品開発による調整は、需要側に働きかける需要平滑化であり、生産能力調整には該当しない",
+              "correct": false
+            },
+            {
+              "label": "ウ",
+              "text": "在庫水準の調整は、生産能力調整に該当する",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "外注対応による調整は、生産能力調整に該当する",
+              "correct": true
+            },
+            {
+              "label": "オ",
+              "text": "労働力水準の調整は、生産能力調整に該当する",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "human"
         },
@@ -9225,6 +10904,33 @@
           "options": [],
           "correct": 2,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "使用環境の検討不足 → 開発・設計段階で環境条件を検討すべき",
+              "correct": null
+            },
+            {
+              "label": "イ",
+              "text": "部品が設計規格から外れた → 生産段階での品質管理の問題",
+              "correct": null
+            },
+            {
+              "label": "ウ",
+              "text": "倉庫の部品管理不備 → 生産段階での在庫管理の問題",
+              "correct": null
+            },
+            {
+              "label": "エ",
+              "text": "取扱説明書の記載不備 → 販売・サービス段階の問題",
+              "correct": null
+            },
+            {
+              "label": "オ",
+              "text": "部品劣化による事故 → 開発・設計段階で耐久性・安全設計を検討すべき\n- (カ) 危険部位の注意表示・マニュアル不備 → 販売・サービス段階の問題",
+              "correct": null
+            }
+          ],
           "examPoint": null,
           "management": "safety"
         },
@@ -9256,6 +10962,28 @@
           ],
           "correct": 4,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "作業手配の定義として適切",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "進度管理の定義として適切",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "余力管理の定義として適切",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "現品管理の目的は完成品数量ではなく、仕掛品の所在と数量を把握し管理すること",
+              "correct": false
+            }
+          ],
           "examPoint": null,
           "management": "economic"
         },
@@ -9266,6 +10994,28 @@
           "options": [],
           "correct": 1,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "日常保全：毎日の点検・給油 → (A)",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "定期保全：一定期間ごとの計画的な部品交換 → (C)",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "予知保全：診断技術による劣化傾向の管理 → (B)",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "保全予防：設計段階から故障対策やメンテナンス性を考慮 → (D)",
+              "correct": true
+            }
+          ],
           "examPoint": {
             "summary": "設備保全4方式のキーワードで正確に区別する",
             "items": [
@@ -9303,6 +11053,38 @@
           ],
           "correct": 5,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "〜(オ)すべてが[**労働組合法第7条**](https://laws.e-gov.go.jp/law/324AC0000000174#Mp-At_7)に定める不当労働行為に該当する。",
+              "correct": null
+            },
+            {
+              "label": "ア",
+              "text": "組合結成を理由とした解雇 → 不利益取扱いの禁止（第7条第1号）",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "組合不加入を雇用条件とすること → 黄犬契約の禁止（第7条第1号）",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "正当な理由のない団体交渉拒否 → 団交拒否の禁止（第7条第2号）",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "組合運営への経費援助 → 支配介入の禁止（第7条第3号）",
+              "correct": true
+            },
+            {
+              "label": "オ",
+              "text": "労働委員会への申立てを理由とした解雇 → 報復的不利益取扱いの禁止（第7条第4号）",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "human"
         },
@@ -9376,6 +11158,23 @@
           "options": [],
           "correct": 1,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "対人能力の向上 → (A) ロールプレイング（役割演技により対人スキルを訓練）",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "問題解決能力の養成 → (B) ケース・スタディ（事例分析を通じた問題解決力の育成）",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "創造性の開発 → (C) ブレイン・ストーミング（自由な発想でアイデアを引き出す）",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "economic"
         },
@@ -10050,6 +11849,38 @@
           ],
           "correct": 5,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "〜(オ)すべての拡張子が悪意のあるソフトウェアに使用される可能性がある。",
+              "correct": null
+            },
+            {
+              "label": "ア",
+              "text": "doc：マクロウィルスを埋め込むことが可能",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "exe：直接的な実行ファイルであり最も危険性が高い",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "pdf：PDFの脆弱性を突くエクスプロイトが存在",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "xls：マクロウィルスを埋め込むことが可能",
+              "correct": true
+            },
+            {
+              "label": "オ",
+              "text": "zip：悪意のあるファイルを圧縮して隠蔽することが可能",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "economic"
         },
@@ -10211,6 +12042,28 @@
           "options": [],
           "correct": 4,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "故障時もシステム機能を維持 → (A) フォールトトレランス",
+              "correct": null
+            },
+            {
+              "label": "イ",
+              "text": "故障が発生しないようにする → (C) フォールトアボイダンス",
+              "correct": null
+            },
+            {
+              "label": "ウ",
+              "text": "機能を縮退させながら稼働継続 → (B) フェールソフト",
+              "correct": null
+            },
+            {
+              "label": "エ",
+              "text": "冗長性による正常機能の維持 → (A) フォールトトレランス",
+              "correct": null
+            }
+          ],
           "examPoint": {
             "summary": "高信頼化3概念を「回避・許容・縮退」で区別する",
             "items": [
@@ -10450,6 +12303,33 @@
           ],
           "correct": 4,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "5段階の優先順位（発生抑制→再使用→再生利用→熱回収→適正処分）は適切",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "政府に循環型社会形成推進基本計画の策定を義務づけており適切",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "国民の責務も規定されている（第12条）ため不適切",
+              "correct": false
+            },
+            {
+              "label": "エ",
+              "text": "廃棄物を一般廃棄物と産業廃棄物に区別しており適切",
+              "correct": true
+            },
+            {
+              "label": "オ",
+              "text": "事業系ごみのうち法で定める20種類が産業廃棄物であり、それ以外は事業系一般廃棄物。「すべて」は誤り",
+              "correct": false
+            }
+          ],
           "examPoint": null,
           "management": "social"
         },
@@ -10756,6 +12636,23 @@
           "options": [],
           "correct": 2,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "が最も多い産業部門、",
+              "correct": null
+            },
+            {
+              "label": "イ",
+              "text": "が中程度の運輸部門、",
+              "correct": null
+            },
+            {
+              "label": "ウ",
+              "text": "が比較的少ない家庭部門と判断できる。",
+              "correct": null
+            }
+          ],
           "examPoint": null,
           "management": "economic"
         }
@@ -10938,6 +12835,33 @@
           ],
           "correct": 2,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "経営者の責任（Plan：方針・目標の設定）",
+              "correct": null
+            },
+            {
+              "label": "イ",
+              "text": "資源の運用管理（Do の基盤）",
+              "correct": null
+            },
+            {
+              "label": "ウ",
+              "text": "製品実現（Do：実行プロセス）",
+              "correct": null
+            },
+            {
+              "label": "エ",
+              "text": "測定，分析及び改善（Check/Act）",
+              "correct": null
+            },
+            {
+              "label": "オ",
+              "text": "製品（アウトプット）",
+              "correct": null
+            }
+          ],
           "examPoint": {
             "summary": "QMSモデルの上部は「経営者の責任」",
             "items": [
@@ -10975,6 +12899,33 @@
           ],
           "correct": 3,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "PL法は過失ではなく欠陥の有無で責任が判断される（無過失責任） → 不適切",
+              "correct": false
+            },
+            {
+              "label": "イ",
+              "text": "製造物は「製造又は加工された動産」であり、単体ソフトウェアは動産ではないため該当しない → 適切",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "安全性に関わらない品質上の不具合はPL法の「欠陥」に該当しない → 適切",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "製造物自体の損害のみの場合はPL法の対象外（他人の生命・身体・財産への侵害が必要） → 不適切",
+              "correct": false
+            },
+            {
+              "label": "オ",
+              "text": "消費者は欠陥の存在と因果関係を証明すればよく、製造者の過失の証明は不要 → 適切",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "safety"
         },
@@ -11120,6 +13071,33 @@
           ],
           "correct": 3,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "資材所要量計画（MRP）は基準生産計画を先に立て、そこから部品・原材料の所要量を展開する。順序が逆で不適切",
+              "correct": false
+            },
+            {
+              "label": "イ",
+              "text": "MRPの入力情報として製品構成・リードタイム・手持在庫量・受入確定量は正しい → 適切",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "MRPはコンピュータ化されたシステムで管理されるのが通常 → 適切",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "ERPは会計・財務も含む経営資源全体を統合管理するシステムであり、別システムとする記述は不適切",
+              "correct": false
+            },
+            {
+              "label": "オ",
+              "text": "CALSは製品のライフサイクル全体にわたる情報を電子的に共有・活用する取組として適切 → 適切",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "info"
         },
@@ -11301,6 +13279,18 @@
           "options": [],
           "correct": 1,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "賃金総額 ÷ 付加価値額 = **労働分配率**（付加価値に占める人件費の割合）",
+              "correct": null
+            },
+            {
+              "label": "イ",
+              "text": "付加価値額 ÷ 従業員数 = **労働生産性**（従業員1人当たりの付加価値）",
+              "correct": null
+            }
+          ],
           "examPoint": null,
           "management": "human"
         },
@@ -11368,6 +13358,28 @@
           "options": [],
           "correct": 2,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "組織の技術的側面と人的側面の二面性の説明として適切",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "非公式組織への管理側からのアプローチは、ホーソン実験以来重要視されており、望ましくないとする記述は不適切",
+              "correct": false
+            },
+            {
+              "label": "ウ",
+              "text": "人間関係管理は職場の人間関係の円滑化を重視する考え方であり適切",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "非公式組織が行動規範・力関係・居心地・育成環境に影響を与えるという記述は適切",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "social"
         },
@@ -11456,6 +13468,33 @@
           ],
           "correct": 2,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "団体交渉権の説明として適切",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "団体行動権（争議権）の説明として適切",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "団体交渉の対象事項として適切",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "労働協約の成立要件として適切",
+              "correct": true
+            },
+            {
+              "label": "オ",
+              "text": "記述は「あっせん」の説明であり、「調停」ではない。調停は調停委員会が調停案を作成し提示するもの",
+              "correct": false
+            }
+          ],
           "examPoint": null,
           "management": "human"
         },
@@ -11772,6 +13811,28 @@
           ],
           "correct": 3,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "添付ファイルをウイルスチェックなしで開くのは危険 → **不適切な行動**",
+              "correct": false
+            },
+            {
+              "label": "イ",
+              "text": "電話での利用者ID・パスワード教示を拒否するのはソーシャルエンジニアリング対策として適切 → 適切な行動",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "情報漏洩の即時報告は適切な対応 → 適切な行動",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "不審なUSBメモリをネットワーク接続PCに挿入するのはマルウェア感染リスクがある → **不適切な行動**",
+              "correct": false
+            }
+          ],
           "examPoint": null,
           "management": "info"
         },
@@ -11803,6 +13864,33 @@
           ],
           "correct": 2,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "緊急時の異常行動の可能性を考慮する必要性として適切",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "多様な緊急事態を想定する必要性として適切",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "早期発見の仕組みの重要性として適切",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "緊急時は時間が限られるため、必要な情報を優先度に基づいて収集すべきであり、種類・内容にかかわらず多く収集するという記述は不適切",
+              "correct": false
+            },
+            {
+              "label": "オ",
+              "text": "迅速な情報収集手段の事前検討の必要性として適切",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "info"
         },
@@ -11948,6 +14036,33 @@
           ],
           "correct": 3,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "BCMの平常時メリット（取引先評価・投資家信頼）として適切",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "BCMは特定部門だけでなく、全社的に取り組むべきものであり不適切",
+              "correct": false
+            },
+            {
+              "label": "ウ",
+              "text": "代替拠点やOEMなどの代替戦略はBCMの検討対象として適切",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "BCMはテロ・犯罪等も含むあらゆるインシデントを対象とするため、対象外とする記述は不適切",
+              "correct": false
+            },
+            {
+              "label": "オ",
+              "text": "サプライチェーン全体を対策範囲に含む記述として適切",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "economic"
         },
@@ -12223,6 +14338,33 @@
           ],
           "correct": 3,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "リスクの発見・特定のための情報収集はリスクコミュニケーションの目的に含まれる → 適切",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "受け手のバイアスを考慮し、対象に応じたコミュニケーションが必要であり、一律の広報は不適切 → 不適切",
+              "correct": false
+            },
+            {
+              "label": "ウ",
+              "text": "正負両面の公正な情報提供はリスクコミュニケーションの基本原則 → 適切",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "対人的な媒体は合意形成型、マスコミは注意喚起型に適しており、記述は逆 → 不適切",
+              "correct": false
+            },
+            {
+              "label": "オ",
+              "text": "プロセス・内容・結果の記録と保存は適切 → 適切",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "info"
         },
@@ -12254,6 +14396,28 @@
           ],
           "correct": 4,
           "judgments": [],
+          "statements": [
+            {
+              "label": "イ",
+              "text": "環境基本法：1993年（平成5年）",
+              "correct": null
+            },
+            {
+              "label": "ア",
+              "text": "環境影響評価法：1997年（平成9年）",
+              "correct": null
+            },
+            {
+              "label": "エ",
+              "text": "地球温暖化対策の推進に関する法律：1998年（平成10年）",
+              "correct": null
+            },
+            {
+              "label": "ウ",
+              "text": "循環型社会形成推進基本法：2000年（平成12年）",
+              "correct": null
+            }
+          ],
           "examPoint": null,
           "management": "social"
         },
@@ -12456,6 +14620,33 @@
           ],
           "correct": 5,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "容器包装リサイクル法 → 制定されている",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "家電リサイクル法 → 制定されている",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "食品リサイクル法 → 制定されている",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "小型家電リサイクル法 → 制定されている",
+              "correct": true
+            },
+            {
+              "label": "オ",
+              "text": "自動車リサイクル法 → 制定されている",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "economic"
         },
@@ -12727,6 +14918,33 @@
           ],
           "correct": 4,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "プッシュ型は需要変動に弱く過剰在庫のリスクがある。不適切",
+              "correct": false
+            },
+            {
+              "label": "イ",
+              "text": "「引き取りかんばん」ではなく「仕掛けかんばん」（生産指示かんばん）の数だけ生産する。不適切",
+              "correct": false
+            },
+            {
+              "label": "ウ",
+              "text": "SCMは販売・消費者までを含む全体管理。不適切",
+              "correct": false
+            },
+            {
+              "label": "エ",
+              "text": "TOCではボトルネック前はプル型、後はプッシュ型（DBR方式）。逆の記述で不適切",
+              "correct": false
+            },
+            {
+              "label": "オ",
+              "text": "サプライヤーへの普及がJIT成功の要因であり適切",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "economic"
         },
@@ -13060,6 +15278,28 @@
           ],
           "correct": 4,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "5段階という点は正しいが、各欲求の呼称が一般的な表現（生理的欲求・安全欲求・社会的欲求・承認欲求・自己実現欲求）と異なり、判定が分かれる記述",
+              "correct": false
+            },
+            {
+              "label": "イ",
+              "text": "X理論は人間は仕事嫌いで怠けたがるという前提に基づく管理であり適切",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "動機付けにインセンティブを与えることの重要性は適切",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "成果主義では短期的・明確なフィードバックがなされ、評価・処遇格差が開く傾向があり適切",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "human"
         },
@@ -13148,6 +15388,33 @@
           ],
           "correct": 1,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "= 8（第32条：1日の法定労働時間）",
+              "correct": null
+            },
+            {
+              "label": "イ",
+              "text": "= 40（第32条：1週間の法定労働時間）",
+              "correct": null
+            },
+            {
+              "label": "ウ",
+              "text": "= 1（第35条：毎週の休日）",
+              "correct": null
+            },
+            {
+              "label": "エ",
+              "text": "= 4（第35条：4週間の休日）",
+              "correct": null
+            },
+            {
+              "label": "オ",
+              "text": "= 10（第39条：年次有給休暇の初年度日数）",
+              "correct": null
+            }
+          ],
           "examPoint": null,
           "management": "human"
         },
@@ -13236,6 +15503,33 @@
           ],
           "correct": 3,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "防犯上の合理的理由がある場合は適用除外（芸術・防犯等）。禁止行為に非該当 （合法）",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "ポジティブアクション（格差是正措置）として認められる。禁止行為に非該当 （合法）",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "性別を理由とする配置差別に該当。禁止行為",
+              "correct": false
+            },
+            {
+              "label": "エ",
+              "text": "女性のみ対象の研修は性別による差別的取扱い。禁止行為",
+              "correct": false
+            },
+            {
+              "label": "オ",
+              "text": "妊娠・出産を理由とする不利益取扱いに該当。禁止行為",
+              "correct": false
+            }
+          ],
           "examPoint": null,
           "management": "human"
         },
@@ -13505,6 +15799,33 @@
           ],
           "correct": 2,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "特許権の存続期間は出願から20年、延長で最長25年であり適切",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "商標権は10年ごとに何度でも更新可能であり適切",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "実用新案権の存続期間は出願から10年であり、20年は誤り。不適切",
+              "correct": false
+            },
+            {
+              "label": "エ",
+              "text": "出題当時（平成28年）、著作権の存続期間は死後50年であり、団体名義の著作物も公表後50年である。公表後70年は誤り。不適切",
+              "correct": false
+            },
+            {
+              "label": "オ",
+              "text": "平成27年施行の改正で5つの新タイプが追加されており適切",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "info"
         },
@@ -13650,6 +15971,33 @@
           ],
           "correct": 1,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "情報の体系的整理と意思決定問題の把握は情報管理の基本",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "開示情報の種類として適切",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "技術情報・顧客情報の非開示は一般的",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "財務諸表・環境情報の開示は適切",
+              "correct": true
+            },
+            {
+              "label": "オ",
+              "text": "緊急時の情報開示基準の事前検討は必要",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "info"
         },
@@ -13748,6 +16096,33 @@
           ],
           "correct": 4,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "ヒヤリハットは速やかに報告すべきであり、時間をかけるのは不適切",
+              "correct": false
+            },
+            {
+              "label": "イ",
+              "text": "小集団活動の報告会と表彰は未然防止の動機付けとして適切",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "改善提案への迅速な対応は適切",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "チェックリストは設備変更や新たなリスクに応じて更新すべきであり、毎年同じでは不適切",
+              "correct": false
+            },
+            {
+              "label": "オ",
+              "text": "システム更新による安全性向上は適切",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "safety"
         },
@@ -13893,6 +16268,33 @@
           ],
           "correct": 4,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "労働争議・スキャンダルも危機管理の対象に含まれる。不適切",
+              "correct": false
+            },
+            {
+              "label": "イ",
+              "text": "組織トップの強い意志と直接関与は危機管理の基本。適切",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "想定外の事態ではマニュアルを超えた臨機応変な対応も必要。「いかなる場合でも」は不適切",
+              "correct": false
+            },
+            {
+              "label": "エ",
+              "text": "復旧対策のマニュアル化による迅速な復旧は適切",
+              "correct": true
+            },
+            {
+              "label": "オ",
+              "text": "セーフティとセキュリティの両面からの考慮は適切",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "human"
         },
@@ -14141,6 +16543,33 @@
           "options": [],
           "correct": 2,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "EPR（拡大生産者責任）：製品の廃棄後のリサイクル・処分の責任",
+              "correct": null
+            },
+            {
+              "label": "イ",
+              "text": "ESCO（エネルギーサービスカンパニー）：省エネ化の包括的サービス",
+              "correct": null
+            },
+            {
+              "label": "ウ",
+              "text": "PPP（汚染者負担原則）：排出事業者の自己責任による処理",
+              "correct": null
+            },
+            {
+              "label": "エ",
+              "text": "PRTR（化学物質排出移動量届出制度）：排出量・移動量の登録・公表",
+              "correct": null
+            },
+            {
+              "label": "オ",
+              "text": "SDS（安全データシート）：化学物質情報の提供",
+              "correct": null
+            }
+          ],
           "examPoint": null,
           "management": "info"
         },
@@ -14229,6 +16658,28 @@
           ],
           "correct": 3,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "2013年末の累積導入量で世界第2位とする記述は誤り。不適切",
+              "correct": false
+            },
+            {
+              "label": "イ",
+              "text": "化石燃料依存度が約9割に上昇した記述は適切",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "水素ステーションの整備開始と燃料電池自動車の市販は適切",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "固定価格買取制度は2012年7月から太陽光を含む全再エネが対象で開始。太陽光のみから拡充したのではない。不適切",
+              "correct": false
+            }
+          ],
           "examPoint": null,
           "management": "economic"
         },
@@ -14260,6 +16711,28 @@
           ],
           "correct": 2,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "スクリーニングは第二種事業に適用され正しい",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "条例で独自の手続きを定めることは可能であり、「できない」は不適切",
+              "correct": false
+            },
+            {
+              "label": "ウ",
+              "text": "評価書の段階では説明会の義務はない（方法書・準備書の段階で実施）。不適切",
+              "correct": false
+            },
+            {
+              "label": "エ",
+              "text": "配慮書の義務があるのは第一種事業のみ。第二種事業は任意。不適切",
+              "correct": false
+            }
+          ],
           "examPoint": null,
           "management": "social"
         },
@@ -14348,6 +16821,33 @@
           ],
           "correct": 3,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "環境アカウンタビリティの説明として適切",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "環境報告書の作成義務は特定事業者（独立行政法人等）に限定され、一定規模以上の企業すべてではない。不適切",
+              "correct": false
+            },
+            {
+              "label": "ウ",
+              "text": "環境管理システムの定義として適切",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "エコアクション21は中小事業者向けの簡易な環境マネジメントシステムであり、「大手事業者」は不適切",
+              "correct": false
+            },
+            {
+              "label": "オ",
+              "text": "環境会計の2つの側面として適切",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "info"
         },
@@ -14398,6 +16898,23 @@
               "num": 5,
               "text": "特性要因図と親和図が不一致",
               "result": "❌"
+            }
+          ],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "2つの特性の相関関係を打点で表す → 散布図",
+              "correct": null
+            },
+            {
+              "label": "イ",
+              "text": "管理限界線を持ち時間順に打点する → 管理図",
+              "correct": null
+            },
+            {
+              "label": "ウ",
+              "text": "行と列の交点に関連を表示する → マトリックス図",
+              "correct": null
             }
           ],
           "examPoint": null,
@@ -14530,6 +17047,28 @@
           "options": [],
           "correct": 2,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "清掃・給油・増締め・点検 → 日常保全",
+              "correct": null
+            },
+            {
+              "label": "イ",
+              "text": "劣化を測定するための検査 → 設備診断",
+              "correct": null
+            },
+            {
+              "label": "ウ",
+              "text": "オーバーホール型保全を含む → 定期保全（時間基準保全）",
+              "correct": null
+            },
+            {
+              "label": "エ",
+              "text": "残りの予防保全方式 → 予知保全（状態基準保全）",
+              "correct": null
+            }
+          ],
           "examPoint": {
             "summary": "予防保全3方式の実施基準（時間・状態・日常）で区別する",
             "items": [
@@ -14598,6 +17137,28 @@
           ],
           "correct": 2,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "あらかじめ定めたスケジュール（計画）に従う → プッシュ型",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "かんばん方式 → プル型であり、プッシュ型ではない",
+              "correct": null
+            },
+            {
+              "label": "ウ",
+              "text": "集中管理不要 → プル型の特徴であり、プッシュ型ではない",
+              "correct": null
+            },
+            {
+              "label": "エ",
+              "text": "過剰在庫の危険が少ない → プル型の特徴であり、プッシュ型ではない",
+              "correct": null
+            }
+          ],
           "examPoint": null,
           "management": "info"
         },
@@ -14810,6 +17371,28 @@
           "options": [],
           "correct": 3,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "専門性で部門化・水平的分業・部門間の壁 → 職能別組織",
+              "correct": null
+            },
+            {
+              "label": "イ",
+              "text": "自律した組織単位の自由な連結・不安定性 → ネットワーク組織",
+              "correct": null
+            },
+            {
+              "label": "ウ",
+              "text": "職能と事業の二元的編成・権力の複雑化 → マトリックス組織",
+              "correct": null
+            },
+            {
+              "label": "エ",
+              "text": "分権化・自律的活動・資源の重複 → 事業部制組織",
+              "correct": null
+            }
+          ],
           "examPoint": null,
           "management": "info"
         },
@@ -15343,6 +17926,23 @@
           "options": [],
           "correct": 1,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "認められた者だけがアクセスできる → 機密性（Confidentiality）",
+              "correct": null
+            },
+            {
+              "label": "イ",
+              "text": "必要なときにいつでもアクセスできる → 可用性（Availability）",
+              "correct": null
+            },
+            {
+              "label": "ウ",
+              "text": "内容が正しく矛盾なく保持 → 完全性（Integrity）",
+              "correct": null
+            }
+          ],
           "examPoint": null,
           "management": "info"
         },
@@ -15410,6 +18010,23 @@
           "options": [],
           "correct": 4,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "年間約30万～40万件で最多 → 特許（日本の特許出願件数は年30万件台）",
+              "correct": null
+            },
+            {
+              "label": "イ",
+              "text": "年間約10万～15万件で中間 → 商標（商標出願件数は年10万件台）",
+              "correct": null
+            },
+            {
+              "label": "ウ",
+              "text": "1万件以下で最少 → 実用新案（実用新案出願は年数千件程度）",
+              "correct": null
+            }
+          ],
           "examPoint": null,
           "management": "economic"
         },
@@ -15700,6 +18317,33 @@
           ],
           "correct": 3,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "津波浸水想定の設定・公表は都道府県知事が行う（市町村ではない）。不適切",
+              "correct": false
+            },
+            {
+              "label": "イ",
+              "text": "最大クラスの津波を想定して設定する（平均的なクラスではない）。不適切",
+              "correct": false
+            },
+            {
+              "label": "ウ",
+              "text": "津波災害警戒区域の指定として適切",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "津波災害特別警戒区域の指定として適切",
+              "correct": true
+            },
+            {
+              "label": "オ",
+              "text": "容積率規制の緩和措置として適切",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "safety"
         },
@@ -15767,6 +18411,28 @@
           "options": [],
           "correct": 5,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "3万人前後と最多で、1998年頃に急増している → 自殺",
+              "correct": null
+            },
+            {
+              "label": "イ",
+              "text": "1970年頃に約1.6万人のピークがあり、その後減少して近年は約4千人 → 交通事故",
+              "correct": null
+            },
+            {
+              "label": "ウ",
+              "text": "緩やかに減少を続け、近年は約1千人 → 労働災害",
+              "correct": null
+            },
+            {
+              "label": "エ",
+              "text": "阪神・淡路大震災や東日本大震災の年だけ突出する → 自然災害",
+              "correct": null
+            }
+          ],
           "examPoint": null,
           "management": "human"
         },
@@ -15777,6 +18443,28 @@
           "options": [],
           "correct": 4,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "環境マネジメントシステム → EMS",
+              "correct": null
+            },
+            {
+              "label": "イ",
+              "text": "PRTRの対象 → 化学物質",
+              "correct": null
+            },
+            {
+              "label": "ウ",
+              "text": "PPP（汚染者負担原則）→ 汚染",
+              "correct": null
+            },
+            {
+              "label": "エ",
+              "text": "製品廃棄後の生産者責任 → EPR（拡大生産者責任）",
+              "correct": null
+            }
+          ],
           "examPoint": null,
           "management": "info"
         },
@@ -16129,6 +18817,33 @@
           "options": [],
           "correct": 3,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "ISO 14040/14044がJIS Q 14040/14044として整合化されており適切",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "ISO規格は特定の手法を基礎としておらず、産業連関法を基礎とはしていない。不適切",
+              "correct": false
+            },
+            {
+              "label": "ウ",
+              "text": "調査結果の用途は「目的と調査範囲の設定」段階で最初に決める。結果の解釈で設定するのは不適切",
+              "correct": false
+            },
+            {
+              "label": "エ",
+              "text": "DfEの背景はエンドオブパイプの限界であり、その重要性や高い効果ではない。不適切",
+              "correct": false
+            },
+            {
+              "label": "オ",
+              "text": "UNEPのDfEマニュアルで7つのステップが示されており適切",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "social"
         }
@@ -16384,6 +19099,28 @@
           "options": [],
           "correct": 5,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "顧客情報の事前分析 → （B）ホテルの顧客データベース活用",
+              "correct": null
+            },
+            {
+              "label": "イ",
+              "text": "標準品に簡単な施し → （D）シャツへのネーム入れ",
+              "correct": null
+            },
+            {
+              "label": "ウ",
+              "text": "個別の相互対話 → （C）カスタムメイドの靴",
+              "correct": null
+            },
+            {
+              "label": "エ",
+              "text": "顧客自身でカスタム化 → （A）プログラム可能な照明",
+              "correct": null
+            }
+          ],
           "examPoint": null,
           "management": "info"
         },
@@ -16503,6 +19240,33 @@
           ],
           "correct": 4,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "育児休業は原則1歳までで、保育所に入れない等の場合に限り最長2歳まで延長できる。2歳の子では原則として新たに取得できず、ここでは数えない",
+              "correct": null
+            },
+            {
+              "label": "イ",
+              "text": "子の看護休暇は小学校就学前の子が対象 → 利用可能",
+              "correct": true
+            },
+            {
+              "label": "ウ",
+              "text": "短時間勤務制度は3歳未満の子が対象 → 利用可能",
+              "correct": true
+            },
+            {
+              "label": "エ",
+              "text": "深夜業の制限は小学校就学前の子が対象 → 利用可能",
+              "correct": true
+            },
+            {
+              "label": "オ",
+              "text": "所定外労働の制限は3歳未満の子が対象 → 利用可能",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "human"
         },
@@ -17264,6 +20028,28 @@
           "options": [],
           "correct": 1,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "右上（広域・低消費電力・低速・低コスト）= LPWA",
+              "correct": null
+            },
+            {
+              "label": "イ",
+              "text": "左上（広域・高消費電力・高速・高コスト）= 4G(LTE)",
+              "correct": null
+            },
+            {
+              "label": "ウ",
+              "text": "左下（近距離・高消費電力・高速・高コスト）= Wi-Fi",
+              "correct": null
+            },
+            {
+              "label": "エ",
+              "text": "右下（近距離・低消費電力・低速・低コスト）= Bluetooth",
+              "correct": null
+            }
+          ],
           "examPoint": null,
           "management": "economic"
         },
@@ -17968,6 +20754,33 @@
           "options": [],
           "correct": 5,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "第二種事業でも任意で配慮書を作成・公表することは適切",
+              "correct": true
+            },
+            {
+              "label": "イ",
+              "text": "スクリーニングは第二種事業の手続であり、第一種事業には不要。第一種事業者がスクリーニングを行うのは不適切",
+              "correct": false
+            },
+            {
+              "label": "ウ",
+              "text": "電子縦覧のみで関係地域内の縦覧を省略することはできない（併用は可能だが省略は不可）",
+              "correct": false
+            },
+            {
+              "label": "エ",
+              "text": "評価書段階で説明会を行わないのは法律上許容されている（説明会義務は方法書・準備書段階）",
+              "correct": true
+            },
+            {
+              "label": "オ",
+              "text": "事後調査報告書の作成・公表は適切",
+              "correct": true
+            }
+          ],
           "examPoint": null,
           "management": "social"
         },
@@ -34168,6 +36981,33 @@
           "options": [],
           "correct": 4,
           "judgments": [],
+          "statements": [
+            {
+              "label": "ア",
+              "text": "協調安全による人・共有・機械領域のリスク最小化 → **Safety2.0**（協調安全はSafety2.0の中核概念）",
+              "correct": null
+            },
+            {
+              "label": "イ",
+              "text": "人・技術・組織が情報共有して安全確保 → **Safety2.0**（IoT・情報共有による安全はSafety2.0）",
+              "correct": null
+            },
+            {
+              "label": "ウ",
+              "text": "鉄道の保安制御など固有の安全性技術 → **Safety1.0**（機能安全・自動安全装置はSafety1.0）",
+              "correct": null
+            },
+            {
+              "label": "エ",
+              "text": "IoT時代の安全の在り方の概念 → **Safety2.0**（IoT時代 = Safety2.0の定義そのもの）",
+              "correct": null
+            },
+            {
+              "label": "オ",
+              "text": "機械の安全対策＋人と機械の共存領域をなくす → **Safety1.0**（隔離・分離による安全はSafety1.0）",
+              "correct": null
+            }
+          ],
           "examPoint": {
             "summary": "Safety1.0 は隔離・分離による安全、Safety2.0 は IoT・協調による安全",
             "items": [
