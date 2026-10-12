@@ -102,7 +102,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 **完了条件**: 技術士アプリ（第一次試験）が TestFlight で動き、総監が試験設定とデータだけで載り、土木施工管理技士アプリを作る手順が記録されている。
 
 ### [DN-0615] check-keiken-answer-split が正しい説明文を [D] と誤検知して develop の CI が赤い（経験記述の書き方 563 行）
-タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-09]
+タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-09] [進行中]
 
 **起点**: 2026-10-09、develop の CI（quality-audit の keiken-answer-split・ci:true）が赤い。`content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx:563`（6325dbc60「書籍の網羅から追記する」で追加）の「令和6年度以降の形式では、検討した項目が（1）の区画の後半に入り、対応処置は（2）に入るので、検討の理由は項目ごとに短く絞る。」を、`scripts/lib/keiken-answer-split.mjs` の checkClaim が [D]「1級の(2)に検討項目そのものを割り当てている」と判定する。本文は検討項目を（1）、対応処置を（2）に置いており正しい。（2）の後ろの同じ文の続き（「検討の理由は…」）を（2）の中身として読んでいる誤検知。
 **やること**: 主張の切り出し（（2）の後ろをどこまで（2）の中身とみなすか）を、「…に入るので、」のような接続で切るように直し、上の文を回帰の見本にする（テストつき）。記事の本文は 2026-10-09 に言い換えて CI を通したので（b202397f3）、見本はテストの中に置く。
@@ -411,7 +411,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 
 ### [DN-0682] 2級土木の水セメント比図の無条件な施工性低下の説明を修正する
-タグ: [領域:商品] [時期:2026-10] [種類:不具合] [起票:2026-10-11]
+タグ: [領域:商品] [時期:2026-10] [種類:不具合] [起票:2026-10-11] [進行中]
 
 起点: 2級土木の動画用図解選定時、content/site/civil-construction-2/guide-concrete-key-points/img/figure-wc-ratio-tradeoff.svg のaria-labelが「水セメント比を小さくするほど…流動性が下がって施工性は低下する」と無条件に説明していることを確認した。
 やること: 一次資料と配合条件を照合し、水セメント比と強度・耐久性、単位水量や混和剤等と流動性の関係を区別して図と本文を修正する。図の実パスと掲載先も確認する。
@@ -427,7 +427,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 
 ### [DN-0675] _redirects の静的ルールが 1431/2000 件まで来ていて、移転後の記事の /docs 転送を作り続けると十数週で上限に当たる
-タグ: [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-10-11]
+タグ: [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-10-11] [進行中]
 
 **起点**: 2026-10-11 の technical-seo-auditor。public/_redirects の静的ルールは 1,431 件で、Cloudflare Pages の上限 2,000 件に対し scripts/build-public-route-redirects.ts は 2,000 超で throw する。現行の全記事ぶん /docs/<slug> の 301 を作っていて、移転日 2026-08-22 より後に作った記事 266 件の /docs は実在したことが無い（sitemap-legacy.xml 側は PR #988 で外した）。約 7 週で 266 件増えたので、十数週で上限に達する見込み。
 **やること**: build-public-route-redirects.ts が、移転前から存在した slug（frontmatter の created が 2026-08-22 以前）だけ /docs の 301 を作るようにする。先に、移転後の記事の /docs URL を note・SNS・Kindle が案内していないかを grep で確かめ、案内していればその分は残す。回帰テストを付ける。
@@ -435,7 +435,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 
 ### [DN-0674] インデックス登録リクエストの順位表を「型ごとの期待値」順にし、検索改善レポートの分類器の誤分類を直す
-タグ: [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-11]
+タグ: [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-11] [進行中]
 
 **起点**: 2026-10-11 のサイト全体の SEO 診断（DN-0666）。gsc-index-auditor によると、data/gsc/indexing-priority.txt（scripts/build-gsc-indexing-priority.mjs・launchd gsc-local が毎日これを送る）は表示 0 の URL をパス昇順に並べるため、重点資格の RCCM guide（8 本中 1 本しか登録されていない）が 62 番目、practice が 74 番目以降、tools が 93 番目以降に沈む。期待値（同じ型の登録済みページ 1 本あたりの 28 日表示 × 未登録率）で並べれば、RCCM 7 本・practice 8 本・tools 5 本が先頭に来る。あわせて seo-fix-planner によると、scripts/lib/search-growth-classifier.mjs と scripts/report-search-growth.mjs が「登録済み・需要なし」346 件・/search?q= 68 件・非 HTML 16 件・本文の断片の 404 などを UNKNOWN_REVIEW（864 件）に落とし、優先修正 Top20 の 18 件が「登録済み・4 表示」のノイズになっている。internalInbound は keyword-relations 由来で、keyword 以外のページはリンクがあっても 0 になる。
 **やること**: (1) 順位表を期待値順にする（型＝/exam/<資格>/<guide|textbook|keywords|primary|…>・/practice・/tools・/standards）(2) 分類器に 4 つの規則を足す: 登録済み・需要なし→KEEP、/search?q=・非 HTML・断片の 404→EXPECTED、Google が別の canonical を選んだ URL に専用ラベル、internalInbound を実リンクから数えるか使わない。それぞれ回帰テストを付ける。
@@ -460,7 +460,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 
 ### [DN-0669] check-google-ui-ssot が台帳に無い ga4.ui-history を参照して落ち、GSC UI の整合を検査できない
-タグ: [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-11]
+タグ: [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-11] [進行中]
 
 **起点**: 2026-10-11、/google-search-growth の手順 4（normalize の後）で `npm run check-google-ui-ssot` を回すと、`scripts/lib/datasets.mjs:475` の「台帳に無いデータセット: ga4.ui-history」で落ちる（GSC UI の正規化と search-growth:report は通る）。GA4 UI の取得は 2026-07-30 から失敗のまま（check-gsc-ui-due: trafficAcquisition=csv-menu-ambiguous・landingPage/events=report-not-found）で、ga4.ui-history の台帳宣言が無いか id が変わった可能性。検査が落ちるので marker ↔ history ↔ urls の整合を誰も確かめられていない。
 **やること**: check-google-ui-ssot が参照する GA4 の台帳 id を `scripts/lib/datasets.mjs` の宣言に合わせる（または `planned: true` で宣言）。GA4 UI が未取得のときは GA4 側を「未取得」と出して GSC 側の検査は続ける。回帰テストを足す。
@@ -468,7 +468,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 
 ### [DN-0668] 総監の合格戦略記事に残る口頭試験評価の誤記を修正する
-タグ: [領域:商品] [時期:2026-10] [種類:不具合] [検証:check-mdx-facts] [起票:2026-10-11]
+タグ: [領域:商品] [時期:2026-10] [種類:不具合] [検証:check-mdx-facts] [起票:2026-10-11] [進行中]
 
 exam-passing-strategy/article.mdx の239・264行付近に、総監口頭は知識を問わないとの誤記がある。R8公式の経歴及び応用能力・体系的専門知識に合わせて修正。今回の動画は修正済み。
 
@@ -506,7 +506,7 @@ exam-passing-strategy/article.mdx の239・264行付近に、総監口頭は知�
 **完了条件**: 管理画面トップ（?month=2026-05〜09）の受取額がすべて note 確定値で出て、2026-05・06・09 の netReceipts が complete で記録されている。
 
 ### [DN-0660] 管理画面の型チェック（tools/admin-app の tsc）が content-items.ts で 2 件落ちたまま、どの CI でも検査されていない
-タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-10]
+タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-10] [進行中]
 
 **起点**: 月次レビュー（2026-09-01〜2026-09-30）の作業中、管理画面のレビュー画面を直したときに `cd tools/admin-app && npx tsc --noEmit -p tsconfig.json` を回すと、触っていない `src/lib/content-items.ts`（94・98 行目: object[] を ItemRow[]・ItemWork へ代入）で 2 件落ちていた（develop の 589fa61d4 時点）。ルートの `npm run type-check` は管理画面を含まず、CI でも管理画面の tsc は回っていないので誰も気づかない。
 
@@ -590,7 +590,7 @@ exam-passing-strategy/article.mdx の239・264行付近に、総監口頭は知�
 **判断（週次レビュー 2026-10-10・運営者）**: 今月から着手する。10 月中に (1) 出題テーマの整理を先に進め、(2)〜(4) は 11 月に続ける。
 
 ### [DN-0644] 送客先の切れたリンク 2 件（check-outbound-links）を直す
-タグ: [収益化] [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-10]
+タグ: [収益化] [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-10] [進行中]
 
 **起点**: 週次レビュー（2026-09-28〜2026-10-04）の点検。#867（quality-audit report 区分）で check-outbound-links が送客先 496 件中 2 件を切れと判定（2026-10-05）。
 
@@ -606,14 +606,14 @@ exam-passing-strategy/article.mdx の239・264行付近に、総監口頭は知�
 **完了条件**: 開いている CodeQL の警告が 0 件（直したか、理由つきで dismiss した）。
 
 ### [DN-0637] dependabot のセキュリティ更新の PR が main 向きに開き、develop を通らずに本番へ出る経路を塞ぐ
-タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-10]
+タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-10] [進行中]
 
 **起点**: 2026-10-10、dependabot の Next 16.3.8（#925）を向き先を確かめずにマージし、develop を通らずに main へ入ってデプロイが起動した。`.github/dependabot.yml` は npm・github-actions とも `target-branch: develop` だが、**セキュリティ更新の PR はこの設定に従わず既定のブランチ（main）へ向く**。今回は CI 緑のパッチ更新で害は無かったが、develop の CI・品質監査を経ずに本番へ出る経路が残っている。
 **やること**: main 向きに開いた dependabot の PR を develop へ付け替える workflow（`pull_request_target` の opened で、作者が dependabot[bot] かつ base が main なら `gh pr edit --base develop` してコメントを残す）を足すか、main への PR を develop 以外から受けたら CI を赤にする検査を足す。どちらにするかは、main を守る既存の仕組み（Auto-merge on green など）と合わせて決める。
 **完了条件**: main 向きの dependabot の PR が develop 向きになる（または main へ直接マージできない）ことを、テストか実際の PR で確かめる。
 
 ### [DN-0635] 並行する PR が dispatch-log.json の末尾に記録を足して毎回衝突するので、両方を残して合わせる merge driver を入れる
-タグ: [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-10-10]
+タグ: [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-10-10] [進行中]
 
 **起点**: 2026-10-10、並行する PR（#951・#952・#953・#955）と develop への直 push のたびに `.claude/state/dispatch/dispatch-log.json` が衝突し、手で 5 回解消した。todo:complete はどのブランチでも配列の末尾に記録を足すので、2 本目以降の PR は必ず衝突し、衝突中の PR には GitHub の pull_request の CI が起動しない（#953 は衝突に気づくまで audit・build が 1 度も走らなかった）。解消のたびに、両方の記録を残す同じ手作業（develop の並び＋ブランチだけの記録を末尾）をしている。
 **やること**: 両方の記録を残して合わせる merge driver（`scripts/merge-dispatch-log.mjs`。id・at・task で重複を落とし、develop 側の並びの後にブランチ側だけの記録を足し、JSON の書式を保つ）を作り、`.gitattributes` に `merge=dispatch-log` を書く。driver の登録（git config）はクローンごとに要るので、`scripts/install-pre-commit.mjs`（または同等のセットアップ）で登録する。backlog.md の同様の衝突も数える（今回は自動で合わさった）。
@@ -709,7 +709,7 @@ exam-passing-strategy/article.mdx の239・264行付近に、総監口頭は知�
 **完了条件**: 1級土木の構造化データが 18 年度分以上になり、足した年度の全問が公式正答と一致し、在庫台帳と Drive に原本が揃っている。
 
 ### [DN-0620] 品質監査でテスト standards-ogp-guards が一時的に置く孤児 OGP を、並走する check-orphan-ogp が拾って CI が偶発的に赤くなる
-タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [検証:check-orphan-ogp] [起票:2026-10-09]
+タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [検証:check-orphan-ogp] [起票:2026-10-09] [進行中]
 
 **起点**: 2026-10-09、PR #947 の audit が orphan-ogp で落ちた（content/site/standards-articles/chubu/common/chapters/__test-orphan__/ogp.png）。tests/standards-ogp-guards.test.mjs:112-145 が実リポジトリに一時ファイルを置いて check-orphan-ogp を流し、finally で消す。quality-audit はテストと検査を並行で回すので、その間に走った orphan-ogp が一時ファイルを孤児として数える。PR の変更とは無関係で、再実行で通る。
 **やること**: テストを一時ディレクトリ（ROOT を差し替えられる形）で回すか、quality-audit で orphan-ogp とテストを直列にする。
@@ -752,7 +752,7 @@ exam-passing-strategy/article.mdx の239・264行付近に、総監口頭は知�
 2026-10-08 に PR #927 の確認で、本番の作業ツリー（develop）でも node scripts/check-drive-vault.mjs が FAIL 86 件（WARN 126 件）だった。主な中身は scripts/kindle-dist/*.jpg の unsynced（ローカルにしか無く、この Mac を失うと復元できない）と .tmp/video-render/**/thumbnail.png の vault-mismatch。Mac 専用で CI には無く、誰も読んでいない赤になっている。やること: (1) 内訳を group ごとに出し、作り直せるものと正本を分ける。(2) 正本は drive-vault-sync --group <g> --commit、作り直したものは --force で反映。(3) Mac で定期的に読む人を決める（週次レビューの点検に入れるか、SessionStart の警告に件数を出す）。完了条件: check-drive-vault の FAIL 0・読む人が commands.md か週次の手順に書いてある
 
 ### [DN-0587] 引き継ぎ・レビューの point-in-time 文書が指すカードを別セッションが閉じても、develop の CI を赤くしない
-タグ: [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-08]
+タグ: [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-08] [進行中]
 
 2026-10-08、docs/handoffs/2026-10-08-dataset-catalog-unification.md が DN-0581 を参照していたところ、別セッションが DN-0581 を修正コミット e5df3a4bc の中で閉じ（todo:complete を通らず、doc-refs の確認も通らない）、マージで両方が develop に揃った時点で ci.yml の audit（tests/project-task-refs.test.mjs の dangling-id）が赤になった（run は 08a551580）。引き継ぎを消すまで約 45 分、develop の全 PR の CI が赤のままだった。案: (1) docs/handoffs/・docs/reviews/ の dangling-id は CI では警告にし、引き継ぎの抽出漏れ検査（check-handoff-extraction）側で扱う。(2) backlog.md からカードを消すコミット（todo:complete 以外）でも、pre-commit で liveDocsReferencing を回して止める。完了条件: 両方の回帰テスト・引き継ぎがカードを指したまま閉じても ci.yml が緑・pre-commit が todo:complete 外の削除を止める
 
@@ -1895,7 +1895,7 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 
 
 ### [DN-0681] lint-mdx-mobile が、サイトが目次に使う toc_min/max_heading_level を「未使用の旧 frontmatter・一括削除可」として HIGH を出している
-タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [起票:2026-10-11]
+タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [起票:2026-10-11] [進行中]
 
 **起点**: 2026-10-11、DN-0665 で過去問記事に `.claude/scripts/lint-mdx-mobile.mjs` を回したとき、規則 0-2 が `toc_min_heading_level`・`toc_max_heading_level` を「Docusaurus 旧 frontmatter。doboku-note では未使用、migrate-civil-frontmatter.mjs で一括削除可」として HIGH を出した（develop で 162 記事：建設部門 100・技術士一次 39・2級土木 18・測量 5）。しかしサイトは `src/components/docs/DocPage.tsx:292-293` でこの 2 つを読み、目次に出す見出しの深さを決めている。言われたとおり一括削除すると、過去問ページなどの目次が変わる。
 **やること**: 規則 0-2 と `migrate-civil-frontmatter.mjs` の対象から `toc_min_heading_level`・`toc_max_heading_level` を外す（`id`・`sidebar_label` は使われていないか確かめて残す）。content-authoring.md に、目次の深さはこの 2 つで決めると書く。
