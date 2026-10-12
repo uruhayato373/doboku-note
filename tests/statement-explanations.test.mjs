@@ -114,3 +114,20 @@ test('iOS 書き出し: 記述ごとの解説の画像をアプリ内の images/
   // 記述ごとの解説が無い問題には項目を足さない
   assert.equal('statements' in toBundleQuestion({ id: 'y', body: 'b', options: [], explanations: [] }), false);
 });
+
+test('（カ）（キ）まである 7 つの記述も取り出す（DN-0699）', () => {
+  const got = extractStatementExplanations(details('（ア）あ ✅\n\n（オ）い ❌\n\n（カ）う ✅\n\n（キ）え ❌'));
+  assert.deepEqual(got.map((s) => s.label), ['ア', 'オ', 'カ', 'キ']);
+  assert.equal(hasStatementStem('次の記述のうち。\n\n（カ）ファクシミリ機による送受信機能が使える。\n\n（キ）デスクトップパソコンによるメール機能が使える。'), true);
+});
+
+test('用語（A）〜（E）を説明する記述の解説も取り出す（DN-0699）', () => {
+  const got = extractStatementExplanations(details('（A）信頼性設計は（イ）の説明にあたる ✅\n\n（B）保全性設計は（ア）の説明にあたる ✅'));
+  assert.deepEqual(got.map((s) => s.label), ['A', 'B']);
+});
+
+test('（ア）から（エ）・（ア）〜（エ）の範囲を言う行は、記述（ア）の解説にしない（DN-0699）', () => {
+  const got = extractStatementExplanations(details('（ア）から（エ）はいずれも正しい。\n\n（ア） あ ✅\n\n（イ） い ❌'));
+  assert.deepEqual(got.map((s) => s.label), ['ア', 'イ']);
+  assert.equal(extractStatementExplanations(details('（ア）〜（エ）はすべて正しい。\n\n（ア） あ ✅\n\n（イ） い ❌')).length, 2);
+});
