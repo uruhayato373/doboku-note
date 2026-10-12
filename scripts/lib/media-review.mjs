@@ -159,7 +159,7 @@ function flagsOf(pub, media, state) {
  * @param {string} exam
  * @param {string} workId
  * @param {{ reg?: object, driveManifest?: object|null }} [opts]
- * @returns {object|null} 台帳に無ければ null
+ * @returns {import('../../tools/admin-app/src/lib/content-items').ItemWork|null} 台帳に無ければ null
  */
 export function workView(root, exam, workId, opts = {}) {
   const reg = opts.reg ?? loadRegistry(root);
@@ -184,7 +184,7 @@ export function workView(root, exam, workId, opts = {}) {
 
 /**
  * 一覧（/content/items）の行。1 作品 1 行。
- * @returns {{ rows: object[], counts: { works: number, publications: number } }}
+ * @returns {{ rows: import('../../tools/admin-app/src/lib/content-items').ItemRow[], counts: { works: number, publications: number } }}
  */
 export function listView(root, opts = {}) {
   const reg = opts.reg ?? loadRegistry(root);

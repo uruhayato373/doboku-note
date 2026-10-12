@@ -120,6 +120,8 @@ const CHECKS = [
   { id: 'seo-rank-watch', npm: 'check-seo-rank-watch', timeout: 30_000, ci: true, note: '順位監視・観察状態・履歴の整合' },
   // ── ci:true 厳格ゲート ──
   { id: 'type-check', npm: 'type-check', timeout: 240_000, ci: true },
+  // 管理画面（tools/admin-app）は別 tsconfig で、ルートの type-check が見ない。content-items.ts の 2 件が誰にも検査されないまま落ちていた（DN-0660）。結果は PR の diff だけで決まる
+  { id: 'type-check-admin', npm: 'type-check:admin', timeout: 240_000, ci: true, note: '管理画面（tools/admin-app）の tsc。ルートの type-check の対象外で、呼び出し元 .mjs の JSDoc 型の崩れを止める（DN-0660）' },
   // GitHub の runner では 3,000 件超のテストが 171〜182 秒掛かる（2026-10-11 の PR 3 本で実測。182 秒で timeout に当たり
   // 0 fail なのに CI が赤になった）。上限は実測の 1.6 倍に置く。手元のスリープ由来の水増しは inconclusive が分ける
   { id: 'unit-tests', npm: 'test', timeout: 300_000, ci: true },
