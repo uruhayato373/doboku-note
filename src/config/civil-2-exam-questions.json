@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-12T11:16:19Z",
+  "generatedAt": "2026-10-12T11:16:40Z",
   "exam": "civil-2",
   "years": [
     {
@@ -17516,6 +17516,28 @@
               "correct": true
             }
           ],
+          "statements": [
+            {
+              "label": "イ",
+              "text": "最後で、解析で見つかった異常の原因を追究して除去する。PDCAのアクションにあたる。",
+              "correct": true
+            },
+            {
+              "label": "ロ",
+              "text": "二番目で、作業標準に基づき作業を実施する。PDCAのドゥにあたる。",
+              "correct": true
+            },
+            {
+              "label": "ハ",
+              "text": "三番目で、統計的手法により結果を解析・検討する。PDCAのチェックにあたる。",
+              "correct": true
+            },
+            {
+              "label": "ニ",
+              "text": "最初で、品質特性を選び品質規格を決める。PDCAのプランにあたる。",
+              "correct": true
+            }
+          ],
           "igEligible": true,
           "packEligible": true
         },
@@ -17699,6 +17721,28 @@
               "correct": false
             }
           ],
+          "statements": [
+            {
+              "label": "イ",
+              "text": "自然条件である。地域特性、地質、地下水、気象などの調査により施工条件を把握する。",
+              "correct": true
+            },
+            {
+              "label": "ロ",
+              "text": "近隣環境である。現場周辺の状況、近隣構造物、地下埋設物などを調べ、施工中の影響に備える。",
+              "correct": true
+            },
+            {
+              "label": "ハ",
+              "text": "資機材である。調達の可能性、適合性、調達先を調べ、必要な資機材を確保できるか把握する。",
+              "correct": true
+            },
+            {
+              "label": "ニ",
+              "text": "輸送である。道路の状況、運賃及び手数料、現場搬入路を調べ、資機材の搬入方法を計画する。",
+              "correct": true
+            }
+          ],
           "igEligible": false,
           "packEligible": false
         },
@@ -17765,6 +17809,28 @@
               "correct": false
             }
           ],
+          "statements": [
+            {
+              "label": "イ",
+              "text": "バーチャートである。縦軸に作業名、横軸に必要日数を棒線で示し、作成が容易で全体を見渡せる。",
+              "correct": true
+            },
+            {
+              "label": "ロ",
+              "text": "ガントチャートである。縦軸に作業名、横軸に各作業の出来高比率を棒線で示し、進捗が分かる。",
+              "correct": true
+            },
+            {
+              "label": "ハ",
+              "text": "グラフ式工程表である。各作業の工程を斜線で表し、出来高の進み具合を把握できる。",
+              "correct": true
+            },
+            {
+              "label": "ニ",
+              "text": "出来高累計曲線である。作業全体の出来高比率の累計をグラフ化し、工程の進みを確認できる。",
+              "correct": true
+            }
+          ],
           "igEligible": false,
           "packEligible": false
         },
@@ -17828,6 +17894,28 @@
             {
               "num": 4,
               "text": "元方事業者・特定元方事業者・協議組織・毎作業日で正しい <ExamPoint>元方事業者のうち建設業は特定元方事業者で協議組織を運営</ExamPoint>",
+              "correct": true
+            }
+          ],
+          "statements": [
+            {
+              "label": "イ",
+              "text": "元方事業者である。一の場所で行う事業の一部を請負人に請け負わせている事業者をいう。",
+              "correct": true
+            },
+            {
+              "label": "ロ",
+              "text": "特定元方事業者である。元方事業者のうち建設業など政令で定める事業を行う者をいう。",
+              "correct": true
+            },
+            {
+              "label": "ハ",
+              "text": "協議組織である。特定元方事業者は、労働災害防止のため協議組織を設置し運営する。",
+              "correct": true
+            },
+            {
+              "label": "ニ",
+              "text": "毎作業日である。特定元方事業者は作業場所の巡視を毎作業日に少なくとも1回行う。",
               "correct": true
             }
           ],
