@@ -276,7 +276,7 @@ npm run check-agent-descriptions # .claude/agents/*.md の description が 300 c
 npm run session-start        # SessionStart の 9 検査（git-sync / shared-policy / plan-staleness / backlog-due / weekly-review-due / gsc-login / resources / disk-hygiene / x-sync）を 1 プロセス内で順次実行し、出力が非空の検査だけ表示（.claude/settings.json の SessionStart はこれ 1 本。各 script が export する run() を import して呼ぶので子の node は立たない・DN-0236。検査を足すときは run({ argv, quiet }) を export し scripts/lib/cli-run.mjs の sink へ書く） x-sync は前回の完走（state.x-sync-last-run）が 4 時間以内なら Playwright を起動しない（2026-10-11・DN-0688）
 npm run check-project-task-refs # docs/ の恒久文書の廃止参照(task-queue.json)と backlog ID 参照切れ（quality:audit に同梱）
 npm run check-information-architecture # 4 領域（docs/content/.claude/実装）への逆戻り検知（廃止した置き場への新規ファイル・docs への制作物混入・content への台帳混入・二重 SSOT。pre-commit --staged ＋ quality:audit）
-npm run check-relative-links   # Markdown の相対リンク `](../x)` の実在（check-doc-refs はリンク**テキスト**しか見ないので、置き場を変えると href だけ黙って壊れる。pre-commit --staged ＋ quality:audit）
+npm run check-relative-links   # Markdown の相対リンク `](../x)` の実在（check-doc-refs はリンク**テキスト**しか見ないので、置き場を変えると href だけ黙って壊れる。pre-commit --staged（staged の削除・改名があれば、その宛先を指す他の文書のリンクも全体から探す）＋ quality:audit）
 npm run business-review       # 資格別KPI・週次/月次レビュー期日の確認（-- report --monthly で前月）
 npm run fetch-business-metrics # GSC/GA4の資格別・完了週/月の集計取得（--commitで追記）。GSC確定前（終了日から4日未満）の期間だけskipし確定済みは取得、明示 --monthly が未確定なら exit 2
 npm run fetch-growth-pack      # 成長パック: 前の完了週（月〜日・JST）＋直前28日基線で GA4（landing×流入元・page×イベント）と GSC（page・page×query）を全件取得 → metrics/growth/pack-YYYY-Www.json。--week で過去週。罠: GSC確定前の週は exit 2（取得しない）

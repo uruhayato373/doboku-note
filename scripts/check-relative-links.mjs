@@ -13,7 +13,8 @@
  *
  * Usage:
  *   node scripts/check-relative-links.mjs           全量
- *   node scripts/check-relative-links.mjs --staged  staged の .md のみ（pre-commit 用）
+ *   node scripts/check-relative-links.mjs --staged  staged の .md のみ（pre-commit 用）。staged に削除・改名が
+ *                                                    あれば、消えた宛先を指すリンクをリポジトリ全体から探す
  *   node scripts/check-relative-links.mjs --json    機械可読
  *
  * exit: 0 合格 / 1 壊れリンクあり / 2 検査不成立（対象 0 件）
@@ -107,6 +108,48 @@ export function listTargets({ staged = false } = {}) {
     .filter((f) => f.endsWith('.md') && !EXCLUDE_PREFIXES.some((p) => f.startsWith(p)));
 }
 
+/**
+ * `git diff --cached --name-status -z --diff-filter=DR` の出力から、消えた宛先（削除・改名の旧パス）を返す（純関数）。
+ * -z の形式: D\0path\0 / R100\0old\0new\0。
+ */
+export function parseRemoved(nameStatusZ) {
+  const parts = nameStatusZ.split('\0').filter((x) => x !== '');
+  const removed = [];
+  for (let i = 0; i < parts.length; i++) {
+    const status = parts[i];
+    if (status.startsWith('D')) { removed.push(toPosix(parts[i + 1])); i += 1; }
+    else if (status.startsWith('R') || status.startsWith('C')) {
+      if (status.startsWith('R')) removed.push(toPosix(parts[i + 1]));
+      i += 2;
+    }
+  }
+  return removed.filter(Boolean);
+}
+
+/**
+ * 消えた宛先を指すリンクを探す（純関数）。staged モードは staged ファイルから出るリンクしか見ないので、
+ * 変更していない文書が消えたファイルを指していても通っていた（2026-10-10 に週次レビューで旧週の review を
+ * 削除したコミットが pre-commit を通り、develop の Pre-merge が赤になった・DN-0654）。
+ * docs: [{ file, source }]。removed: 消えたパスの Set。返すのは auditLinks と同じ形で、宛先が removed のものだけ。
+ */
+export function findLinksToRemoved(docs, removed, exists, tracked) {
+  if (removed.size === 0) return [];
+  const names = [...removed].map((r) => r.slice(r.lastIndexOf('/') + 1));
+  const out = [];
+  for (const { file, source } of docs) {
+    if (!names.some((n) => source.includes(n) || source.includes(encodeURI(n)))) continue;
+    for (const b of auditLinks(file, source, exists, tracked)) if (removed.has(b.resolved)) out.push(b);
+  }
+  return out;
+}
+
+export function listRemovedStaged() {
+  const out = execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--cached', '--name-status', '-z', '--diff-filter=DR'], {
+    cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024,
+  });
+  return parseRemoved(out);
+}
+
 function main() {
   if (process.env.SKIP_RELATIVE_LINKS === '1') {
     console.log('[check-relative-links] SKIP_RELATIVE_LINKS=1 のためスキップ');
@@ -133,13 +176,29 @@ function main() {
     links += [...masked.matchAll(LINK)].length;
     broken.push(...auditLinks(f, source, undefined, tracked));
   }
+  // staged の削除・改名があれば、消えた宛先を指す未変更の文書も見る（DN-0654）
+  let removedCount = 0;
+  if (staged) {
+    const removed = new Set(listRemovedStaged());
+    removedCount = removed.size;
+    if (removed.size > 0) {
+      const stagedSet = new Set(files);
+      const docs = [];
+      for (const f of listTargets({ staged: false })) {
+        if (stagedSet.has(f)) continue;
+        try { docs.push({ file: f, source: readFileSync(join(ROOT, f), 'utf8') }); } catch { /* 読めないものは飛ばす */ }
+      }
+      broken.push(...findLinksToRemoved(docs, removed, undefined, tracked));
+    }
+  }
   const untracked = broken.filter((b) => b.kind === 'untracked');
 
   // 検査ゼロを PASS と呼ばない（§9）: 対象数と実検査数を必ず出す
   // --json のときは stdout を JSON だけにする（人間向けサマリは stderr へ）
   (jsonOut ? console.error : console.log)(
     `[check-relative-links] ${staged ? 'staged ' : ''}${files.length} ファイル / 相対リンク ${links} 件を実検査 / ` +
-      `壊れ ${broken.length}（うち未追跡 ${untracked.length}）`,
+      `壊れ ${broken.length}（うち未追跡 ${untracked.length}）` +
+      (staged ? ` / staged の削除・改名 ${removedCount} 件の宛先を全体から照合` : ''),
   );
 
   if (jsonOut) {
