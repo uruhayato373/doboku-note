@@ -112,6 +112,12 @@
       "workflow": "weekly-review-draft.yml",
       "maxAgeDays": 9,
       "maxConsecutiveFailures": 2,
+      "schedule": {
+        "activeSince": "2026-10-16T04:00:00Z",
+        "maxAgeDays": 8,
+        "graceHours": 12,
+        "_why": "2026-10-10 に main へ入った（#961）。最初の cron 枠は金 10/16 04:00 UTC で、それまでは run が 0 件でも異常ではない。以後は schedule の発火だけで鮮度を見る（手動 run で cron の停止を隠さない）"
+      },
       "_note": "週次（金 04:00 UTC）。週次レビューの下書き（機械の節）を作る。材料の欠けは Issue（channel: weekly-review-draft）で job は緑、赤は検査不成立か push の失敗。止まると土曜のレビューが材料集めからになる"
     },
     {

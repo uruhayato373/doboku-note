@@ -90,3 +90,24 @@ test('auditRuns: schedule cfg 無しの既存 workflow は従来どおり（後�
   assert.equal(r.ok, true);
   assert.equal(r.schedule, null);
 });
+
+// 2026-10-12（DN-0642）: 足したばかりの週次 workflow は、最初の cron 枠まで run が 0 件。それを no-runs で赤にしない。
+test('auditRuns: run 0 件でも最初の cron 枠＋猶予の前なら pending-first-run（健全）', () => {
+  const sched = { activeSince: '2026-10-16T04:00:00Z', maxAgeDays: 8, graceHours: 12 };
+  const r = auditRuns('weekly-review-draft.yml', [], { maxAgeDays: 9, maxConsecutiveFailures: 2, schedule: sched }, Date.parse('2026-10-12T07:00:00Z'));
+  assert.equal(r.ok, true);
+  assert.equal(r.kind, 'pending-first-run');
+});
+
+test('auditRuns: 猶予を過ぎても run 0 件なら no-runs（初回の発火漏れを隠さない）', () => {
+  const sched = { activeSince: '2026-10-16T04:00:00Z', maxAgeDays: 8, graceHours: 12 };
+  const r = auditRuns('weekly-review-draft.yml', [], { maxAgeDays: 9, maxConsecutiveFailures: 2, schedule: sched }, Date.parse('2026-10-17T00:00:00Z'));
+  assert.equal(r.ok, false);
+  assert.equal(r.kind, 'no-runs');
+});
+
+test('auditRuns: schedule cfg の無い workflow は run 0 件で従来どおり no-runs', () => {
+  const r = auditRuns('x.yml', [], { maxAgeDays: 9, maxConsecutiveFailures: 2 }, NOW);
+  assert.equal(r.ok, false);
+  assert.equal(r.kind, 'no-runs');
+});
