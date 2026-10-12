@@ -26,14 +26,21 @@ import { join, relative } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { REPO_ROOT, SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
 
 // フォールド内とみなす本文先頭からの文字数。モバイル 844px 相当の経験値。
 const MAX_OFFSET = 2000;
 const ROOT = SITE_CONTENT_ROOT;
 // 表示・staged（git の出力）との照合は、リポジトリルートからの相対パスで行う
 const rel = (p) => relative(REPO_ROOT, p).split('\\').join('/');
-const STAGED = process.argv.includes('--staged');
-const FIX = process.argv.includes('--fix');
+const STAGED = __argv.includes('--staged');
+const FIX = __argv.includes('--fix');
 
 function walk(dir) {
   return listFiles(dir, { ext: '.mdx', followLinks: true, allowMissing: true }).map(rel);
@@ -119,13 +126,13 @@ for (const f of files) {
 
 if (FIX) {
   console.log(`[check-lcp-image-hints] ✓ ${fixed} 件を修正（検査 ${checked} 件）`);
-  process.exit(0);
+  __exit(0);
 }
 
 if (fails.length === 0) {
   const scope = STAGED ? 'staged ' : '';
   console.log(`[check-lcp-image-hints] ✓ ${scope}フォールド内1枚目の図版 ${checked} 件は全て eager+fetchpriority=high`);
-  process.exit(0);
+  __exit(0);
 }
 
 console.error(`[check-lcp-image-hints] ✗ ${fails.length} 件のフォールド内1枚目の図版が LCP を遅延させます`);
@@ -135,4 +142,8 @@ for (const r of fails) {
   console.error(`    ${r.src}（本文 ${r.offset} 文字目）: ${r.reason}`);
 }
 console.error(`  → loading="eager" fetchpriority="high" を付けてください（自動修正: npm run check-lcp-image-hints -- --fix）`);
-process.exit(1);
+__exit(1);
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

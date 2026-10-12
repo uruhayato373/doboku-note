@@ -22,8 +22,8 @@ import { escapeRegExp } from './regexp-escape.mjs';
 
 export const ALLOW_PATH = '.claude/config/qualification-ssot-allow.json';
 const NAME_KEYS = ['label', 'shortLabel', 'badgeLabel', 'name', 'title', 'short'];
-const CODE_DIRS = ['scripts', '.claude/scripts', 'tools/admin-app/src', 'src'];
-const CONFIG_DIRS = ['config', '.claude/config', '.claude/knowledge', 'src/config'];
+export const CODE_DIRS = ['scripts', '.claude/scripts', 'tools/admin-app/src', 'src'];
+export const CONFIG_DIRS = ['config', '.claude/config', '.claude/knowledge', 'src/config'];
 const ALIAS_SOURCES = [
   ['.claude/knowledge/design-system/note-cover-tokens.json', (j) => j.exams],
   [datasetPath('config.note-funnel'), (j) => j.exams],

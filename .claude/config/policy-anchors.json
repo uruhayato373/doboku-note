@@ -26,7 +26,7 @@
       "files": [
         ".claude/knowledge/reference/content-principles.md",
         "scripts/check-guide-length.mjs",
-        "scripts/install-pre-commit.mjs",
+        "scripts/lib/pre-commit-steps.mjs",
         ".github/workflows/r2-audit.yml",
         ".claude/todo/backlog.md"
       ]

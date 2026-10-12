@@ -32,13 +32,20 @@ import { classifySitePath, loadSiteRoutes, SITE_ORIGIN } from './lib/site-links.
 import { utmChannel } from './lib/utm-contract.mjs';
 import { REPO_ROOT, NOTE_CONTENT_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
 
 if (process.env.SKIP_NOTE_UTM === '1') {
   console.log('[check-note-site-utm] SKIP_NOTE_UTM=1 のためスキップ');
-  process.exit(0);
+  __exit(0);
 }
 
-const STAGED = process.argv.includes('--staged');
+const STAGED = __argv.includes('--staged');
 // 期待する source / medium は契約（config/utm-templates.json の note.site）から受け取る。コードに書き写さない。
 const NOTE_UTM = utmChannel('note.site');
 
@@ -128,7 +135,7 @@ if (problems.length) {
   console.error('旧 /docs/ URL は npm run fix-legacy-site-links -- --write で新 URL へ張り替える（UTM は保持される）。');
   console.error('生 URL 単独行は /note-publish がカード化し UTM が落ちる。真実源: docs/marketing/02_チャネル動線設計.md');
   console.error('（既存違反のバーンダウン中は SKIP_NOTE_UTM=1 で一時回避可）');
-  process.exit(1);
+  __exit(1);
 }
 
 console.log(
@@ -138,3 +145,7 @@ console.log(
 // 裸 URL カード（2026-08-20 実測 9 件）は対象外なので、緑を「全送客リンクが規約適合」と
 // 読んではいけない（CLAUDE.md §9）。
 console.log('[check-note-site-utm]   対象は記事系（/exam・/practice・/standards・/topics・旧 /docs）への送客リンクのみ（root・/category/・/tools/ 宛は射程外）');
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

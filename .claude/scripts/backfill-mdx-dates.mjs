@@ -31,6 +31,7 @@ import { loadGitDates, lookupGitDates } from "./lib/git-dates.mjs";
 import { classifyStagedDiff, frontmatterEndLine } from "./lib/staged-diff-kind.mjs";
 import { todayJst } from "../../scripts/lib/jst-date.mjs";
 import { REPO_ROOT, SITE_CONTENT_ROOT } from "../../scripts/lib/repository-paths.mjs";
+import { isCliEntry, runAsCli } from "../../scripts/lib/cli-run.mjs";
 
 const POSTS_DIR = SITE_CONTENT_ROOT;
 
@@ -39,7 +40,6 @@ const POSTS_DIR = SITE_CONTENT_ROOT;
 const args = process.argv.slice(2);
 const DRY_RUN = args.includes("--dry-run");
 const REFRESH = args.includes("--refresh");
-const STAGED = args.includes("--staged");
 const limitIdx = args.indexOf("--limit");
 const LIMIT = limitIdx >= 0 ? parseInt(args[limitIdx + 1], 10) : Infinity;
 
@@ -169,12 +169,7 @@ function runStaged() {
   return 0;
 }
 
-if (STAGED) {
-  process.exit(runStaged());
-}
-
-// ── Main ──
-
+function backfillAll() {
 console.log(`=== backfill-mdx-dates ${REFRESH ? "--refresh " : ""}${DRY_RUN ? "(DRY RUN)" : ""} ===`);
 const files = findMdxFiles(POSTS_DIR).slice(0, LIMIT);
 console.log(`対象ファイル: ${files.length}`);
@@ -235,3 +230,13 @@ console.log(`total:          ${files.length}`);
 if (DRY_RUN) {
   console.log("\n[DRY RUN] 実際には変更されていません。--dry-run を外して再実行してください。");
 }
+}
+
+/** pre-commit-dispatch が in-process で呼ぶ入口（process.exit を呼ばず { code } を返す・DN-0688）。--staged 以外は従来の全件 backfill */
+export function run({ argv = process.argv.slice(2) } = {}) {
+  if (argv.includes("--staged")) return { code: runStaged() };
+  backfillAll();
+  return { code: 0 };
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

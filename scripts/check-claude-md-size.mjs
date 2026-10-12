@@ -17,10 +17,11 @@
 // 使い方: node scripts/check-claude-md-size.mjs [--root <dir>] [--json]
 // exit 0 = 健全 / 1 = 違反あり・検査不成立（CLAUDE.md が読めない）
 
-import { existsSync, readFileSync, statSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { join, relative, sep } from 'node:path';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
+import { isCliEntry, runAsCli } from './lib/cli-run.mjs';
 
 export const MAX_LINES = 150;
 export const MAX_BYTES = 20 * 1024;
@@ -80,8 +81,7 @@ export function checkClaudeMd(root) {
   };
 }
 
-function main() {
-  const argv = process.argv.slice(2);
+function main(argv = process.argv.slice(2)) {
   const rootIdx = argv.indexOf('--root');
   const root = rootIdx !== -1 ? argv[rootIdx + 1] : REPO_ROOT;
   const jsonOut = argv.includes('--json');
@@ -104,6 +104,9 @@ function main() {
   return 0;
 }
 
-if (process.argv[1] && statSync(process.argv[1]).isFile() && process.argv[1].endsWith('check-claude-md-size.mjs')) {
-  process.exit(main());
+/** pre-commit-dispatch が in-process で呼ぶ入口（process.exit を呼ばず { code } を返す・DN-0688） */
+export function run({ argv = process.argv.slice(2) } = {}) {
+  return { code: main(argv) };
 }
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

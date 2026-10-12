@@ -26,6 +26,7 @@ import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync, writeSync } from 'node:fs';
 import { join, posix, resolve, sep } from 'node:path';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { exitWith, runMain, isCliEntry, runAsCli } from './lib/cli-run.mjs';
 
 const toPosix = (v) => v.split(sep).join('/');
 
@@ -150,18 +151,18 @@ export function listRemovedStaged() {
   return parseRemoved(out);
 }
 
-function main() {
+function main(argv = process.argv.slice(2)) {
   if (process.env.SKIP_RELATIVE_LINKS === '1') {
     console.log('[check-relative-links] SKIP_RELATIVE_LINKS=1 のためスキップ');
-    process.exit(0);
+    exitWith(0);
   }
-  const staged = process.argv.includes('--staged');
-  const jsonOut = process.argv.includes('--json');
+  const staged = argv.includes('--staged');
+  const jsonOut = argv.includes('--json');
   const files = listTargets({ staged });
 
   if (!staged && files.length === 0) {
     console.error('✗ 検査不成立: .md が 1 件も取れない（走査の破損を疑う）');
-    process.exit(2);
+    exitWith(2);
   }
 
   // 追跡集合を先に作る。「ローカルには在るが git 未追跡」を CI より前に捕まえるため。
@@ -203,11 +204,11 @@ function main() {
 
   if (jsonOut) {
     writeSync(1, JSON.stringify({ files: files.length, links, broken }, null, 2) + '\n');
-    process.exit(broken.length ? 1 : 0);
+    exitWith(broken.length ? 1 : 0);
   }
   if (broken.length === 0) {
     console.log('[check-relative-links] ✓ 相対リンクは全て実在');
-    process.exit(0);
+    exitWith(0);
   }
   for (const b of broken.slice(0, 40)) {
     const why = b.kind === 'untracked' ? 'はローカルに在るが git 未追跡（CI では存在しない）' : 'が無い';
@@ -223,7 +224,12 @@ function main() {
   }
   console.error('\n移動先へ書き換えるか、宛先が消えているならリンクを外して記録の所在を書く。');
   console.error('記法の例示はコードスパン（`](../x)`）にすれば検査対象外になる。');
-  process.exit(1);
+  exitWith(1);
 }
 
-if (process.argv[1] && toPosix(process.argv[1]).endsWith('check-relative-links.mjs')) main();
+/** pre-commit-dispatch が in-process で呼ぶ入口（process.exit を呼ばず { code } を返す・DN-0688） */
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runMain(main, argv);
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

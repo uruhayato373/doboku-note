@@ -21,6 +21,13 @@ import { readdirSync, readFileSync, statSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
 
 const BASES = [
   'content/note/1級・2級土木/1級土木/magazines',
@@ -34,7 +41,7 @@ const COVERED = (p) => p.includes('経験記述') || p.includes('想定工事バ
 // keiken 答案マーカー（いずれかを持てば keiken 記事とみなす・内容判定で名前に依存しない）
 const KEIKEN_MARKER = /(^|\n)\s*\*\*\(\d\)\s|(^|\n)###\s+記述例|(^|\n)###\s[^\n]*（\d）/;
 
-const staged = process.argv.includes('--staged');
+const staged = __argv.includes('--staged');
 if (staged) {
   let changed = '';
   try {
@@ -44,7 +51,7 @@ if (staged) {
     /content\/note\/1級・2級土木\/[12]級土木\/magazines\//.test(p)
     || p.includes('src/lib/note-magazines.ts')
     || p.includes('scripts/keiken-charcount.mjs'));
-  if (!relevant) process.exit(0); // keiken マガジン/字数ツールに無関係な commit → スキップ
+  if (!relevant) __exit(0); // keiken マガジン/字数ツールに無関係な commit → スキップ
 }
 
 function articleMdsOf(dir, acc) {
@@ -81,6 +88,10 @@ if (violations.length) {
   console.error('\n対処: scripts/keiken-charcount.mjs の defaultTargets フィルタ（と isKeikenArticle）に');
   console.error('  このマガジン名の判別語を追加し、本ガード（check-magazine-wiring.mjs）の COVERED も同期する。');
   console.error('  漏れると答案の解答欄字数超過が pre-commit で検知されず素通りします（2026-07-01 再発防止）。');
-  process.exit(1);
+  __exit(1);
 }
 console.log(`[check-magazine-wiring] ✓ keiken マガジン ${keikenMagCount} 件はすべて keiken-charcount の探索対象に含まれる`);
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

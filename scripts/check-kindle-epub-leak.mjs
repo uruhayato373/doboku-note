@@ -27,8 +27,15 @@ import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { execFileSync } from 'node:child_process';
 import { listFiles } from './lib/fs-walk.mjs';
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
 
-const BOM_ONLY = process.argv.includes('--bom-only');
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
+
+const BOM_ONLY = __argv.includes('--bom-only');
 const BOM = Buffer.from([0xef, 0xbb, 0xbf]);
 const LEAKS = [
   { re: /article\.mdx/, why: '章タイトルがソースのファイル名のまま（frontmatter の title を拾えていない）' },
@@ -80,6 +87,10 @@ if (errors.length) {
   for (const e of errors.slice(0, 40)) console.error(`- ${e}`);
   if (errors.length > 40) console.error(`- ほか ${errors.length - 40} 件`);
   console.error('  修正: BOM を除去 → 該当 spec を再ビルド → node scripts/sync-kindle-dist.mjs <id>');
-  process.exit(1);
+  __exit(1);
 }
 console.log('[check-kindle-epub-leak] ✓ 原稿の素の漏れ・BOM ともに無し');
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

@@ -38,6 +38,13 @@ import { parseNotePrices, checkPriceParity, isCoconalaPriceStep } from './lib/co
 import { datasetPath } from './lib/datasets.mjs';
 import { loadProducts } from './lib/product-registry.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
 
 const CATALOG_PATH = join(ROOT, 'src/lib/coconala-services.ts');
 const ACCOUNT_PATH = join(ROOT, datasetPath('config.coconala-account'));
@@ -48,7 +55,7 @@ const LISTINGS_PATH = join(ROOT, datasetPath('config.coconala-listings'));
 const NOTE_MAGAZINES_PATH = join(ROOT, 'src/lib/note-magazines.ts');
 const ASSETS_DIR = join(ROOT, 'content/coconala/assets');
 
-const staged = process.argv.includes('--staged');
+const staged = __argv.includes('--staged');
 if (staged) {
   let changed = '';
   try {
@@ -70,12 +77,12 @@ if (staged) {
       p.includes(datasetPath('note.sales')) ||
       p.includes('scripts/check-coconala-wiring.mjs')
   );
-  if (!relevant) process.exit(0); // ココナラに無関係な commit → スキップ
+  if (!relevant) __exit(0); // ココナラに無関係な commit → スキップ
 }
 
 if (!existsSync(CATALOG_PATH)) {
   console.error('[check-coconala-wiring] ✗ カタログ SoT が見つかりません: src/lib/coconala-services.ts');
-  process.exit(1);
+  __exit(1);
 }
 
 /**
@@ -87,7 +94,7 @@ function parseCatalog() {
   const { products, errors } = loadProducts();
   if (errors.length) {
     console.error(`[check-coconala-wiring] ✗ 商品の正本を読めない（npm run check-products）:\n  ${errors.join('\n  ')}`);
-    process.exit(1);
+    __exit(1);
   }
   return products
     .filter((p) => p.channel === 'coconala')
@@ -342,7 +349,7 @@ if (violations.length) {
   console.error(`対処: src/lib/coconala-services.ts（カタログ SoT）と ${dirname(datasetPath('coconala.orders'))}/*.json、`);
   console.error(`      ${datasetPath('note.sales')} の整合を取ってください。`);
   console.error('      運用・スキーマの真実源: .claude/knowledge/reference/coconala-operations.md');
-  process.exit(1);
+  __exit(1);
 }
 
 // 商品画像の判定根拠を必ず出す。台帳側の引き方が壊れても、ローカル実体があるうちは
@@ -359,3 +366,7 @@ console.log(
     orders?.orders?.length ?? 0
   } 件・KPI ${kpi?.weekly?.length ?? 0} 週は整合`
 );
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

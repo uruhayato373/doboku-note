@@ -2,7 +2,7 @@
 /**
  * check-gate-parity.mjs
  * ---------------------------------------------------------------------------
- * pre-commit（scripts/install-pre-commit.mjs の HOOK_CONTENT_BODY）と
+ * pre-commit（scripts/lib/pre-commit-steps.mjs の STEPS。フックは scripts/install-pre-commit.mjs が書く）と
  * quality-audit（scripts/quality-audit.mjs の CHECKS）は**独立した配列**で、
  * 片方にしか無い check が生まれても誰も気づかない。
  *
@@ -25,6 +25,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { join, relative, sep } from 'node:path';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
+import { STEPS } from './lib/pre-commit-steps.mjs';
 
 const CI = process.argv.includes('--ci');
 const BASELINE_PATH = join(ROOT, '.claude/config/gate-parity-baseline.json');
@@ -60,7 +61,8 @@ function walkFiles(dir, re) {
   return listFiles(dir, { match: (_p, name) => re.test(name), allowMissing: true });
 }
 
-const preCommitChecks = () => callersIn([join(ROOT, 'scripts/install-pre-commit.mjs')]);
+// フックの検査の一覧は pre-commit-steps.mjs（DN-0688。install-pre-commit.mjs はディスパッチャを呼ぶだけ）
+const preCommitChecks = () => new Set(STEPS.map((x) => x.script.split('/').pop().replace(/\.(mjs|ts)$/, '')));
 const auditChecks = () => {
   const src = readFileSync(join(ROOT, 'scripts/quality-audit.mjs'), 'utf8');
   const found = new Set();

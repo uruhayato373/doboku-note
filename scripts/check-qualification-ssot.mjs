@@ -12,15 +12,22 @@
 
 import { auditQualificationSsot, ALLOW_PATH, ALLOW_MARKER } from './lib/qualification-ssot.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
 
 const r = auditQualificationSsot(ROOT);
 const failed = r.config.violations.length + r.derived.diffs.length + r.code.hits.length;
 const empty = r.config.files === 0 || r.code.files === 0;
 
-if (process.argv.includes('--json')) {
+if (__argv.includes('--json')) {
   const { registry, ...rest } = r;
   process.stdout.write(`${JSON.stringify({ ...rest, qualifications: registry.qualifications.length }, null, 2)}\n`);
-  process.exitCode = failed || empty ? 1 : 0;
+  __status.code = failed || empty ? 1 : 0;
 } else {
   const P = '[check-qualification-ssot]';
   console.log(`${P} 資格 ${r.registry.qualifications.length} 件・照合する id ${r.ids.length} 種（別名 ${r.aliases.length}）/ 設定 ${r.config.files}・書き込み先 ${r.derived.files}・コード ${r.code.files} ファイルを実検査`);
@@ -30,10 +37,14 @@ if (process.argv.includes('--json')) {
   for (const h of r.code.hits) console.error(`${P} ✗ ${h.file}:${h.line} ${h.text} — 名前は qualification-names.mjs（サイトは src/lib/qualification-names.ts）で引く。資格名でない日本語なら行末か直前の行に「${ALLOW_MARKER} <理由>」`);
   if (empty) {
     console.error(`${P} 検査不成立: 対象ファイルが 0 件`);
-    process.exitCode = 1;
+    __status.code = 1;
   } else if (failed) {
-    process.exitCode = 1;
+    __status.code = 1;
   } else {
     console.log(`${P} ✓ 資格の名前は registry だけにある（写し・食い違い・直書き 0 件）`);
   }
 }
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

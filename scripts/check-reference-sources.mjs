@@ -39,8 +39,15 @@ import { figureSourceFindings, figuresInExplanation, sourceIdsOf } from './lib/f
 import { datasetPath } from './lib/datasets.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
+import { runBody, isCliEntry, runAsCli, ExitSignal } from './lib/cli-run.mjs';
 
-const ARGS = process.argv.slice(2);
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
+
+const ARGS = __argv.slice(2);
 const STAGED = ARGS.includes('--staged');
 const DEEP = ARGS.includes('--deep');
 const NAME = 'check-reference-sources';
@@ -330,7 +337,7 @@ function printProblems() {
 function main() {
   if (STAGED && DEEP) {
     console.error(`[${NAME}] 検査不成立: --staged と --deep は同時に指定できない`);
-    process.exit(2);
+    __exit(2);
   }
 
   let cfg, index, manifest;
@@ -340,12 +347,12 @@ function main() {
     manifest = loadDriveManifest();
   } catch (error) {
     console.error(`[${NAME}] 検査不成立: ${error.message}`);
-    process.exit(2);
+    __exit(2);
   }
   const registryEntries = index.byId.size;
   if (registryEntries === 0) {
     console.error(`[${NAME}] 検査不成立: 台帳 0 件`);
-    process.exit(2);
+    __exit(2);
   }
 
   let paths;
@@ -358,7 +365,7 @@ function main() {
   }
   if (!STAGED && paths.length === 0) {
     console.error(`[${NAME}] 検査不成立: 対象記事 0 件`);
-    process.exit(2);
+    __exit(2);
   }
 
   const inputs = paths.map((relPath) => ({
@@ -387,13 +394,18 @@ function main() {
   printProblems();
   if (failures.length > 0) {
     console.error(`[${NAME}] FAIL ${failures.length} 件（WARN ${warnings.length} 件）`);
-    process.exit(1);
+    __exit(1);
   }
   console.log(`[${NAME}] ✓ 参考文献の台帳・記事結線・出典粒度は整合${warnings.length ? `（WARN ${warnings.length} 件）` : ''}`);
 }
 
 try { main(); }
 catch (error) {
+  if (error instanceof ExitSignal) throw error; // main() 内の __exit(1) を「検査不成立」に変えない
   console.error(`[${NAME}] 検査不成立: ${error.message}`);
-  process.exit(2);
+  __exit(2);
 }
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

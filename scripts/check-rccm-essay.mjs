@@ -23,14 +23,21 @@ import matter from 'gray-matter';
 import { evaluateRccmEssay } from './lib/rccm-essay.mjs';
 import { REPO_ROOT, NOTE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
 
 const ROOT = join(NOTE_CONTENT_ROOT, 'RCCM');
 // 表示と git の出力に合わせた、リポジトリからの相対パス（/ 区切り）
 const toRel = (p) => relative(REPO_ROOT, p).split('\\').join('/');
 const ROOT_REL = toRel(ROOT);
-const STRICT = process.argv.includes('--strict');
-const STAGED = process.argv.includes('--staged');
-const explicit = process.argv.slice(2).filter((a) => !a.startsWith('--'));
+const STRICT = __argv.includes('--strict');
+const STAGED = __argv.includes('--staged');
+const explicit = __argv.slice(2).filter((a) => !a.startsWith('--'));
 
 let files;
 if (explicit.length) {
@@ -49,7 +56,7 @@ if (explicit.length) {
 const missing = files.filter((f) => !existsSync(f));
 if (missing.length) {
   for (const f of missing) console.error(`[check-rccm-essay] ファイルが無い: ${f}`);
-  process.exit(2);
+  __exit(2);
 }
 
 let targets = 0;
@@ -69,7 +76,11 @@ for (const file of files) {
 const mode = explicit.length ? '指定' : STAGED ? 'staged' : '全件';
 if (targets === 0) {
   console.log(`[check-rccm-essay] 対象 0 件（${mode}・rccmKeywords を持つ article.md が無い）— 検査していない`);
-  process.exit(STAGED ? 0 : 2);
+  __exit(STAGED ? 0 : 2);
 }
 console.log(`[check-rccm-essay] ${violations ? '✗' : '✓'} ${mode} ${targets} 件を実検査 / 違反 ${violations} 件${STRICT ? '（--strict: 推奨帯外も違反）' : ''}`);
-process.exit(violations ? 1 : 0);
+__exit(violations ? 1 : 0);
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

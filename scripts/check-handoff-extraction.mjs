@@ -63,6 +63,13 @@ import {
   removedCardIds,
   danglingIdsIn,
 } from './lib/handoff-extraction.mjs';
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
 
 const ARCHIVE_PREFIX = 'docs/handoffs/_archive/';
 const BACKLOG = '.claude/todo/backlog.md';
@@ -72,7 +79,7 @@ const MAX_BUFFER = 256 * 1024 * 1024;
 
 if (process.env.SKIP_HANDOFF_EXTRACT === '1') {
   console.log('[check-handoff-extraction] スキップ（SKIP_HANDOFF_EXTRACT=1）');
-  process.exit(0);
+  __exit(0);
 }
 
 const git = (args) => execFileSync('git', ['-c', 'core.quotepath=false', ...args], { encoding: 'utf8', maxBuffer: MAX_BUFFER });
@@ -256,8 +263,12 @@ if (problems.length > 0) {
   console.error('[check-handoff-extraction] handoff・週次レビュー処分の規律違反:');
   for (const p of problems) console.error('\n' + p);
   console.error(`\n合計 ${problems.length} 件。抽出→削除の順序を守るか、SKIP_HANDOFF_EXTRACT=1 で回避してください。`);
-  process.exit(1);
+  __exit(1);
 }
 
 console.log('[check-handoff-extraction] ✓ handoff・週次レビューの削除/確定に抽出もれなし');
-process.exit(0);
+__exit(0);
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

@@ -29,7 +29,7 @@ node scripts/keiken-charcount.mjs --json
 # ゲート用途（OVER が1件でもあれば exit 1）
 node scripts/keiken-charcount.mjs --strict
 
-# pre-commit ゲート（staged の keiken 記事だけ検査・OVER で exit 1）。install-pre-commit.mjs で自動実行
+# pre-commit ゲート（staged の keiken 記事だけ検査・OVER で exit 1）。pre-commit-steps.mjs（pre-commit-dispatch.mjs が実行）で自動実行
 node scripts/keiken-charcount.mjs --staged --strict
 ```
 
