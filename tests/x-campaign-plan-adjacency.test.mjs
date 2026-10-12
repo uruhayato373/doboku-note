@@ -13,6 +13,8 @@ const base = JSON.parse(readFileSync(join(REPO_ROOT, 'content/sns/x/campaigns/20
 
 function run(mutate) {
   const plan = structuredClone(base);
+  // 実データの計画に既に書かれた理由に左右されないよう、免除を全部外してから変える
+  for (const post of plan.posts) delete post.salesAdjacencyReason;
   mutate(plan);
   const dir = mkdtempSync(join(tmpdir(), 'xplan-'));
   const file = join(dir, 'plan.json');
