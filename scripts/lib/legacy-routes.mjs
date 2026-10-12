@@ -4,26 +4,28 @@
  */
 
 /**
- * 移転後の記事（旧 /docs が実在しない）は 301 を作らず、管理ブロックにこの形のコメントで slug → 正規パスだけ残す（DN-0675）。
- * `_redirects` のルール数（上限 2,000）に数えず、sitemap・RSS・URL 実在検査が slug から正規パスを引けるようにする。
+ * 旧 /docs/<slug> の大半は、管理ブロックの動的ルール（`/docs/<接頭辞>* → <正規パス接頭辞>:splat`）でまとめて 301 にする（DN-0675）。
+ * 動的ルールからは slug 一覧を引けないので、同じ内容を「# route /docs/<slug> <正規パス>」のコメントで並べる。
+ * コメントは Cloudflare のルールに数えない。sitemap・RSS・URL 実在検査はこの表から slug → 正規パスを引く。
+ * 表と動的ルールの一致は tests/public-route-redirects.test.mjs が検査する。
  */
-export const NO_REDIRECT_ROUTE_PREFIX = "# route ";
+export const ROUTE_TABLE_PREFIX = "# route ";
 
-/** `_redirects` のテキストから、301 を作らない記事の slug → 正規パス を取り出す。 */
-export function parseNoRedirectRoutes(text) {
+/** `_redirects` のテキストから、動的ルールがまとめて 301 にする slug → 正規パス の表（# route 行）を取り出す。 */
+export function parseRouteTable(text) {
   const map = new Map();
   for (const line of String(text).split(/\r?\n/)) {
-    if (!line.startsWith(NO_REDIRECT_ROUTE_PREFIX)) continue;
-    const m = line.slice(NO_REDIRECT_ROUTE_PREFIX.length).match(/^\/docs\/([a-z0-9-]+)\s+(\/\S+)\s*$/);
+    if (!line.startsWith(ROUTE_TABLE_PREFIX)) continue;
+    const m = line.slice(ROUTE_TABLE_PREFIX.length).match(/^\/docs\/([a-z0-9-]+)\s+(\/\S+)\s*$/);
     if (m) map.set(m[1], m[2]);
   }
   return map;
 }
 
-/** `_redirects` のテキストから 旧 /docs パス → 正規パス の Map を作る（301 を作らない移転後の記事も含む）。 */
+/** `_redirects` のテキストから 旧 /docs パス → 正規パス の Map を作る（# route の表も含む）。 */
 export function parseLegacyRedirects(text) {
   const map = new Map();
-  for (const [slug, to] of parseNoRedirectRoutes(text)) map.set(`/docs/${slug}`, to);
+  for (const [slug, to] of parseRouteTable(text)) map.set(`/docs/${slug}`, to);
   for (const line of String(text).split(/\r?\n/)) {
     const m = line.match(/^(\/docs\/[a-z0-9-]+)\s+(\/\S+)\s+301\b/);
     if (m) map.set(m[1], m[2]);

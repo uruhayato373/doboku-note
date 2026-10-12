@@ -23,7 +23,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { SITE_ORIGIN } from "./site-identity.mjs";
 import { REPO_ROOT as ROOT } from "./repository-paths.mjs";
-import { NO_REDIRECT_ROUTE_PREFIX } from "./legacy-routes.mjs";
+import { ROUTE_TABLE_PREFIX } from "./legacy-routes.mjs";
 
 const SITE_HOST_RE = /^https?:\/\/(www\.)?doboku-note\.com/i;
 
@@ -43,8 +43,8 @@ function loadPublicPathMap() {
     const line = raw.trim();
     if (line === "# BEGIN GENERATED PUBLIC ROUTES") { managed = true; continue; }
     if (line === "# END GENERATED PUBLIC ROUTES") break;
-    if (managed && line.startsWith(NO_REDIRECT_ROUTE_PREFIX)) {
-      const noRedirect = /^\/docs\/([a-z0-9-]+)\s+(\/\S+)$/.exec(line.slice(NO_REDIRECT_ROUTE_PREFIX.length));
+    if (managed && line.startsWith(ROUTE_TABLE_PREFIX)) {
+      const noRedirect = /^\/docs\/([a-z0-9-]+)\s+(\/\S+)$/.exec(line.slice(ROUTE_TABLE_PREFIX.length));
       if (noRedirect) publicPathToLegacySlug.set(toJoinKey(noRedirect[2]), noRedirect[1]);
       continue;
     }
