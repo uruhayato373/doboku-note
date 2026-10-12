@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-12T11:17:22Z",
+  "generatedAt": "2026-10-12T11:17:43Z",
   "exam": "civil-2",
   "years": [
     {
@@ -34928,6 +34928,18 @@
               "num": 4,
               "text": "(イ)・(ロ)とも入替で誤り <ExamPoint>形成工法は樹脂材料を引込み密着させさや管工法は管を挿入</ExamPoint>",
               "correct": false
+            }
+          ],
+          "statements": [
+            {
+              "label": "イ",
+              "text": "形成工法である。樹脂含浸材などを管内に引き込み、加圧して拡張・圧着させ、硬化や冷却固化で更生管を構築する。",
+              "correct": true
+            },
+            {
+              "label": "ロ",
+              "text": "さや管工法である。既設管より小径の二次製品管をけん引挿入し、間隙に充塡材を注入して更生管を構築する。",
+              "correct": true
             }
           ],
           "igEligible": false,
