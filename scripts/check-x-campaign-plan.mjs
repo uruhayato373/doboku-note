@@ -182,6 +182,13 @@ for (const file of files) {
     `${a.date} ${a.time ?? ""}`.localeCompare(`${b.date} ${b.time ?? ""}`));
   for (let i = 1; i < chrono.length; i++) {
     if (SALES_FUNNELS.includes(chrono[i].funnel) && SALES_FUNNELS.includes(chrono[i - 1].funnel)) {
+      // この検査は計画ファイル 1 本の中だけで隣接を見る。実際の予約で他の計画の非販売投稿が前後に入っていると
+      // 確かめたときだけ、その投稿に salesAdjacencyReason（確かめた日と間に入る投稿）を書いて WARN に下げる（前後両方の隣接に効く）。
+      const reason = [chrono[i].salesAdjacencyReason, chrono[i - 1].salesAdjacencyReason].find((r) => typeof r === "string" && r.trim().length >= 10);
+      if (typeof reason === "string" && reason.trim().length >= 10) {
+        retainedWarnings.push(`販売投稿が計画内で連続（理由付き）: ${chrono[i - 1].date} ${chrono[i - 1].time ?? ""} → ${chrono[i].date} ${chrono[i].time ?? ""}: ${reason}`);
+        continue;
+      }
       errors.push(`販売投稿が連続: ${chrono[i - 1].date} ${chrono[i - 1].time ?? ""} → ${chrono[i].date} ${chrono[i].time ?? ""}`);
     }
   }
