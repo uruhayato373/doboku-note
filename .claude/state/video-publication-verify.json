@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "verifiedAt": "2026-10-10T19:30:18.397Z",
+  "verifiedAt": "2026-10-11T19:42:05.434Z",
   "ok": true,
   "reason": null,
-  "checked": 74,
+  "checked": 75,
   "findings": [],
   "entries": {
     "career-agent-katsuyo/longform": {
@@ -642,6 +642,15 @@
       "status": "published",
       "videoId": "sqkP7vheZ_Q",
       "url": "https://www.youtube.com/watch?v=sqkP7vheZ_Q",
+      "ok": true,
+      "problems": []
+    },
+    "keiken-anzen-2kyu-kakikata/longform": {
+      "packId": "keiken-anzen-2kyu-kakikata",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "FjhdM9A5vkw",
+      "url": "https://www.youtube.com/watch?v=FjhdM9A5vkw",
       "ok": true,
       "problems": []
     },

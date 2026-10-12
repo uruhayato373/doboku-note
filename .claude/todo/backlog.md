@@ -368,6 +368,14 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0697] YouTube通常動画の再生数欠測を解消し、全欠測を合計0回と表示しない
+タグ: [領域:SNS] [時期:2026-10] [種類:不具合] [起票:2026-10-12]
+
+**起点**: 2026-10-12 の youtube-own-metrics で通常動画74本を取得したが再生数あり0本。2026-10-10も73本中0本、10-08は70本中70本だった。Shortsは12本中12本取得できる。欠測を再生0回として削除判断に使えない。
+**やること**: scripts/lib/youtube-listing.mjs の通常動画の再生数取得を切り分け、取得不能の集計は0ではなく欠測として出す。対象動画が存在するのに全再生数欠測なら検査不成立を明示する。生のnullを保持し、前回値を今回値へ補完しない。
+**完了条件**: 通常動画とShortsを分けて対象数・再生数取得数を確認できる。通常動画全欠測のfixtureが緑の成功や合計0回にならず、有効な0回とは区別できる。
+
+
 
 
 ### [DN-0688] pre-commit 13.9 秒（67 プロセス）と SessionStart の x-sync 9.6 秒を短縮する
@@ -1863,12 +1871,6 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 **完了条件**: 2 ページの CTA の変更が 10/18 までに公開され、反映 28 日後の CTA クリック率を変更前と比べた記録が本カードの完了記録にある（試験後で少数なら判定保留と書く）。
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
-### [DN-0696] public/llms.txt の本文が旧状態（対象資格 2 つ）のままで、手書き静的ファイルに生成元が無い
-タグ: [領域:サイト] [種類:不具合] [検証:check-qualification-ssot] [起票:2026-10-11] [進行中]
-
-**起点**: 2026-10-11 の SEO 監査。public/llms.txt（38 URL）と llms-full.txt（811 行）の 97% が旧 /docs/ URL（301）だった点は 2026-10-11 に正規 URL へ書き換えた。しかし本文は「1級土木施工管理技士と技術士（総合技術監理部門）」の 2 資格だけの説明で、2級・コンクリート主任技士・診断士・建設部門・RCCM・/practice・/standards が無い。生成スクリプトも無く（grep で scripts/・package.json・workflows に参照なし）、記事の増減に追従しない。
-**やること**: doc-meta-index と qualification-registry から llms.txt / llms-full.txt を生成するスクリプトを作り、refresh-indexes か prebuild に載せる。本文の資格一覧は qualification-registry.json から引く（check-qualification-ssot）。
-**完了条件**: npm run refresh-indexes 後に public/llms*.txt の URL が全て正規 URL で、資格一覧が registry と一致する検査が CI にある。
 
 
 
