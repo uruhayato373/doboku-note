@@ -1081,7 +1081,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 **完了条件**: 本文 3,000 字以上で公開・`refresh-indexes` 済み。既存 2 本から本記事へリンクがあり、`npm run check-career-separation` が通る。
 
 ### [DN-0470] 建設部門の guide/career に技術士の定年後の働き方の節を足す
-タグ: [SNS・マーケ] [領域:サイト] [時期:2026-12..2027-02] [種類:改善] [起票:2026-09-30]
+タグ: [SNS・マーケ] [領域:サイト] [時期:2026-12..2027-02] [種類:改善] [起票:2026-09-30] [進行中]
 
 **起点**: 計画書（docs/strategy/17）の順 3。GSC で「技術士 年収」系が約 11 表示（73 位前後）、「技術士転職」7。冒頭の年収の答えは 2026-09-30 に足し済み（DN-0391）。
 
@@ -1090,7 +1090,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 **完了条件**: 節を追加して公開済み、冒頭の年収の答えを損なっていない、`refresh-indexes` 済み、`npm run check-career-separation` が通る。
 
 ### [DN-0471] 1級土木の age-career に 60 代の再雇用・嘱託・技術者の年齢の節を足す
-タグ: [SNS・マーケ] [領域:サイト] [時期:2026-12..2027-02] [種類:改善] [起票:2026-09-30]
+タグ: [SNS・マーケ] [領域:サイト] [時期:2026-12..2027-02] [種類:改善] [起票:2026-09-30] [進行中]
 
 **起点**: 計画書（docs/strategy/17）の順 4。`civil-construction-1/guide-age-career` は 11 表示・13.5 位。現状は 40〜50 代中心。
 
@@ -1921,7 +1921,7 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 **完了条件**: 3 種類それぞれをテストの見本で検出し、squash でマージ済みのブランチを「未マージ」と誤って挙げない。
 
 ### [DN-0636] スクリプト共通化のリファクタを develop と衝突した 48 ファイルにやり直す（ルート・走査・引数・JSON 読みを共通部品へ）
-タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-10]
+タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-10] [進行中]
 
 **起点**: 2026-10-10、10/04 から止まっていたスクリプト共通化のリファクタ（refactor/script-shared-helpers・PR #957）を develop へ入れた。develop と衝突した 48 ファイルは develop の版（いま動いている挙動）を採ったので、そのファイルはまだ自前のルート計算・walk・parseArgs・readJson を持つ。ラチェットの基準値は root 68・walk 43・parseArgs 26・readJson 10（tests/script-helpers-ratchet.test.mjs・tests/read-json-ratchet.test.mjs）。
 **対象（衝突で develop の版を採ったファイル）**:
@@ -2039,7 +2039,7 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 **完了条件**: `OFFICIAL_QUESTION_PAGE` の正規表現が無くなる。判定対象のページ集合が置き換え前と一致する（テスト）。
 
 ### [DN-0559] develop への載せ直し（fetch → reset --keep → cherry-pick → パッチ照合 → push）をスクリプト 1 本にする
-タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-07]
+タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-07] [進行中]
 
 **起点**: 並行セッションと CI の自動コミットで develop が数分おきに進む。2026-10-06〜07 の図ループでは、commit のたびに手書きのゲートで載せ直した（約 15 回）。手順を `;` で繋いで、失敗の後も先へ進んだ事故が 3 回ある（memory `reference_partial_clone_repack_hazard`「push を失敗しうる手順に ; で繋がない」）。
 
