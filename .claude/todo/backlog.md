@@ -726,7 +726,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 **完了条件**: `node scripts/drive-vault-sync.mjs --group note-magazine-cover-png` の差分が 0 件で、2026-10-07 に登録した誌の控えが vault にある。
 
 ### [DN-0562] Kindle の EPUB・表紙（scripts/kindle-dist）を Git から出し、置き場の方針どおりにする
-タグ: [インフラ・計測] [領域:商品] [時期:2026-12] [種類:改善] [起票:2026-10-07]
+タグ: [インフラ・計測] [領域:商品] [時期:2026-12] [種類:改善] [起票:2026-10-07] [進行中]
 
 **起点**: 置き場の方針（asset-storage-policy.md §1）は「誰が使うかで決める」で、人が使うものは Drive、CI が読むものは R2 に置く。`scripts/kindle-dist` だけは例外として Git に入っている（138 件・90MB、EPUB 65・表紙 jpg 72）。
 - `config/drive-vault.json` の理由は `coexistWithGit: true`「Git が正本（CI の check-kindle-format が blob を読む）で、Drive は控え」。
