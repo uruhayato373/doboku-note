@@ -727,22 +727,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **完了条件**: `node scripts/drive-vault-sync.mjs --group note-magazine-cover-png` の差分が 0 件で、2026-10-07 に登録した誌の控えが vault にある。
 
-### [DN-0562] Kindle の EPUB・表紙（scripts/kindle-dist）を Git から出し、置き場の方針どおりにする
-タグ: [インフラ・計測] [領域:商品] [時期:2026-12] [種類:改善] [起票:2026-10-07] [進行中]
-
-**起点**: 置き場の方針（asset-storage-policy.md §1）は「誰が使うかで決める」で、人が使うものは Drive、CI が読むものは R2 に置く。`scripts/kindle-dist` だけは例外として Git に入っている（138 件・90MB、EPUB 65・表紙 jpg 72）。
-- `config/drive-vault.json` の理由は `coexistWithGit: true`「Git が正本（CI の check-kindle-format が blob を読む）で、Drive は控え」。
-- 「CI が読む」は、方針では `ci`＝R2 の行に当たり、Git に置く理由にならない。
-- 作り直すたびに履歴に積まれる。履歴の切り詰め（2026-08-22）以降で 286 版・159MB あり、記事画像 1,569 版・99MB より重い。
-- Drive の控えは台帳 76 件と sha256 が 1 件も合わず、控えになっていない（DN-0451）。
-
-**やること**:
-1. 正本の置き場を決める。第一案は private R2 で、`kindle-format` の検査（quality-audit の `ci: true`）が R2 から読む。人が入稿に使う控えは Drive。
-2. asset-storage-policy.md §4 の手順で `git rm --cached` し、`.gitignore` に拡張子で足す。台帳（R2 の manifest か drive-manifest）に登録し、空の復元先から復元して sha256 を照合する。
-3. `check-kindle-format`・`kdp-publish.mjs`・`kindle-build` の読み書き先を新しい置き場に合わせる。CI は R2 から取り寄せて検査し、取り寄せに失敗したら検査不成立にする。
-4. `config/drive-vault.json` の `coexistWithGit` を外し、asset-storage-policy.md の表を直す。DN-0451 の同期と順番を合わせる。
-
-**完了条件**: `git ls-files scripts/kindle-dist` が README だけになり、CI の `kindle-format` が新しい置き場から全 EPUB を読んで通る。復元経路で全件の sha256 が一致する。
 
 ### [DN-0554] フックの鮮度チェックが post-commit の欠落を見ず、Mac に post-commit が入っていなかった
 タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-10-07]
@@ -788,31 +772,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **完了条件**: 判定 4 枚と切り出し直し 2 枚の 1 周を、手で JSON を書かずに `record --from-results` と `figure-qa-sheet` だけで記録できる。record が切れ端のある png を拒むことをテストで固定する。
 
-### [DN-0557] 書籍から作った解説記事で、図の番号・alt・本文の参照が原典とずれていないかを機械で照合し、残りの記事を直す
-タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11] [種類:不具合] [起票:2026-10-07] [進行中]
-
-**起点**: 2026-10-07、`civil-construction-1/secondary-earthwork-basics` の軟弱地盤対策を二次問題解説集2021 と照合して直した（ec373c03d）。見つかった不具合は次のとおり。
-- 図2.36〜2.52 が 1 節ずつずれて載っていた。
-- alt が画像と合っていなかった（図2.41 が「サーチャージ工法の原理」）。
-- 本文の図番号が違う図を指していた（サーチャージで「図2.41」、深層混合で「図2.44」）。
-- 1 枚の図が左右 2 枚に割られていた（図2.42）。
-- 同じ図が 2 回載っていた（図2.52）。
-- 別の教材の図番号（図1.93）が画像に写り込んでいた。
-- 薬液注入工法の本文が、石灰パイル工法の説明の繰り返しだった。
-
-同じ日、1級一次 H29 でも同じ図の切れ端が「（詳細）」の図名で重複していた。同じ書籍から作った他の `secondary-*-basics` と textbook 由来のガイドはまだ見ていないが、同じ生成の誤りが残っている見込みが高い。
-
-**やること**:
-1. 検査を作り、次の 4 点を見る。
-   - `ArticleImage` の alt・caption の「図X.Y 図名」が、書籍の OCR（Drive vault の `原資料PDF/書籍/<book>/ocr/*.md` の `（図: 図X.Y 図名。…）`）と一致するか
-   - 本文の「**図 X.Y**」が、同じ節（H4）にある図を指しているか
-   - 同じ図番号が 2 回出ていないか
-   - 図名に分割の印（「（上部）」「（下部）」「（詳細）」）が付いていないか
-2. CI でも回せるよう、書籍の図番号・図名・ページだけの索引を repo の `config/` へ書き出し、datasets 台帳に宣言する。持つのは図名までで、本文は持たない。
-3. 1級・2級土木の書籍由来の記事に掛け、ずれを原典と照合して直す。市販書籍（流用不可）の図は切り出し直さない（DN-0571 で自作の図に置き換える）。図番号・alt・本文の参照のずれだけを直す。
-4. 検査を quality-audit に登録する（決定的なら `ci: true`）。
-
-**完了条件**: 検査が対象記事数と実検査数を出し、不一致 0 件。quality-audit に載っている。
 
 ### [DN-0558] figure-crop-worker がネットからファイルを取得するのを hook で止める
 タグ: [インフラ・計測] [領域:管理] [時期:2026-12] [種類:不具合] [起票:2026-10-07]
