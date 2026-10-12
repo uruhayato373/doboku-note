@@ -81,6 +81,7 @@ npm run audit-reference-book-coverage -- --source-id <id>|--shelf <棚> # 書籍
 npm run audit-reference-book-coverage -- --briefs [--source-id <id>|--shelf <棚>] [--alias <json>] # 判定の計画を記事ごとの brief と workflow 用の items.json に束ねて .tmp/book-coverage/briefs/ へ（新規案の重複を「要確認」で出す）。続けて Workflow book-coverage-expand → book-coverage-photos（args に root）。手順は book-coverage-expansion.md §0
 node scripts/book-coverage-commit.mjs <資格>/<slug> --ids <書籍 id,…> [--adds N] # 展開した記事 1 本をコミットして develop へ push（排他・Book-Coverage trailer・図のサイズの検査・一時の作業ツリーで refresh-indexes）。写真の段は --subject "…" --with-ai-ledgers
 npm run check-disk-hygiene    # ローカル容量の surfacer（macOS / Windows 両対応・他 OS 専用項目は n/a。exit 2 は「検査できるはずの項目に材料が無い」）
+npm run check-branch-hygiene  # 溜まったブランチ・止まった worktree の surfacer（報告のみ・削除しない）: 中身が origin/develop に入り済み（squash は tree 一致かマージ済み PR の記録で判定）／未マージで N 日（-- --days・既定 14）動いていない／未コミットのまま N 日動いていない worktree。罠: 作ったばかりで未コミットのブランチも「入り済み」に出る（使用中の worktree 名を見る）。gh が引けなければ tree 比較だけ（-- --no-gh で最初から引かない）。base が無ければ exit 2
 npm run disk-hygiene:fix      # 再生成可能な滞留物をガード付きで削除（日次実行の実体。dry-run は node scripts/disk-hygiene.mjs --dry-run）
 npm run disk-hygiene:install  # macOS: launchd 日次掃除＋Git maintenance登録（-- --status / --run-now / --uninstall）
 npm run disk-hygiene:install:win # Windows: タスクスケジューラ日次掃除＋Git maintenance登録（12:30・逃した回は次回起動時。ログと stamp は ~/.local/state/doboku-note/logs/。AppData 配下にしないのは MSIX アプリからの読み書きが仮想化されるため）
