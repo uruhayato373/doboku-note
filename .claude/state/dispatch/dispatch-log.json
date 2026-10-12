@@ -3397,6 +3397,23 @@
       "commit": "f96632a552ad",
       "verification": null,
       "note": "PR #1034。48 ファイルの自前定義を共通部品へ（ルート 44→REPO_ROOT・走査 16→listFiles・引数 7→parseCliArgs）。ラチェット root 68→24・walk 43→27・parseArgs 26→19・readJson 10→4。readJson 6 件は意味の違う版（握りつぶす・報告に積む）なので readJsonLenient 等へ改名。CommonJS の publish-video-batch.cjs・publish-video-pack.cjs の 2 本は ESM の REPO_ROOT を同期で読めないため理由付きの root-ok。npm test 0 fail、主要スクリプトの出力が develop と一致"
+    },
+    {
+      "id": "DN-0671",
+      "at": "2026-10-12",
+      "task": "過去問の演習データ（サイトの演習・iOS アプリ）に ①〜④ の記述ごとの解説を入れる",
+      "tier": "mid",
+      "kind": "改善",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/statement-explanations.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "c8dc3dfc66bf",
+      "verification": null,
+      "note": "PR #1037。scripts/lib/statement-explanations.mjs に抽出と HTML 生成を集約（parse-civil-1/2・parse-exam-questions・build-quiz-data の 4 経路が同じ関数を使う）。演習データに statements・statementsHtml を足し、サイトの演習は選択肢の解説の前に出す。記述の解説は 283 問（1級 32・2級 33・総監 115・技術士一次 103）。329 問のうち記事に記述ごとの解説が無い 125 問は DN-0699 へ抽出。選択肢の行が無い問題は記述の解説で足りると判断。iOS（別リポジトリ doboku-quiz-ios・リモート無し）はローカルブランチ feat/statement-explanations（951d001）に表示の変更、swift test 13 件・xcodebuild 成功、問題画面の目視は未確認。check-answer-marks 0 件"
     }
   ]
 }
