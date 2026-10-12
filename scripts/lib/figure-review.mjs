@@ -19,6 +19,7 @@ import { createHash } from 'node:crypto';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join, relative, sep } from 'node:path';
 import matter from 'gray-matter';
+import { escapeRegExp } from './regexp-escape.mjs';
 
 export const LEDGER_FILE = '.claude/state/quality/figure-review-ledger.json';
 export const VERDICTS = ['ok', 'needs-source', 'source-unavailable'];
@@ -157,11 +158,10 @@ export function articleInfo(postsRoot, slug, cache = new Map()) {
   return info;
 }
 
-const escRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
 /** 本文が参照している拡張子（webp / png / svg / jpg / jpeg）。参照していなければ null */
 export function referencedExt(content, name) {
-  const m = content.match(new RegExp(`/${escRe(name)}\\.(webp|png|svg|jpg|jpeg)\\b`, 'i'));
+  const m = content.match(new RegExp(`/${escapeRegExp(name)}\\.(webp|png|svg|jpg|jpeg)\\b`, 'i'));
   return m ? m[1].toLowerCase() : null;
 }
 
@@ -211,7 +211,7 @@ export function describeFigure({ siteRoot, repoRoot, figKey, cache = new Map() }
 /** MDX 本文で name の <img>/<ArticleImage> の width/height を w×h に合わせる。変えた数と新しい本文を返す */
 export function syncImageDims(raw, name, w, h) {
   let changed = 0;
-  const tagRe = new RegExp(`<(?:img|ArticleImage)\\b[^>]*?/${escRe(name)}\\.(?:webp|png|jpg|jpeg)\\b[^>]*>`, 'g');
+  const tagRe = new RegExp(`<(?:img|ArticleImage)\\b[^>]*?/${escapeRegExp(name)}\\.(?:webp|png|jpg|jpeg)\\b[^>]*>`, 'g');
   const out = raw.replace(tagRe, (tag) => {
     const next = tag
       .replace(/(\bwidth=[{"])\d+([}"])/, `$1${w}$2`)

@@ -27,6 +27,7 @@ import { readdirSync, readFileSync, existsSync } from "node:fs";
 import { join, dirname, basename } from "node:path";
 import { execFileSync } from "node:child_process";
 import { REPO_ROOT as ROOT, SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
+import { escapeRegExp } from './lib/regexp-escape.mjs';
 
 const POSTS = SITE_CONTENT_ROOT;
 const staged = process.argv.includes("--staged");
@@ -108,7 +109,7 @@ function isReferenced(figureFull, articleText) {
   // stem 一致（別拡張子参照を許容）: figure-1 の直後が「.」かつ拡張子が続く形だけを参照とみなす
   const stem = base.replace(/\.svg$/, ""); // figure-1
   // figure-1.（png|webp|jpg|svg...）の形で本文に出ていれば参照
-  const re = new RegExp(stem.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "\\.[a-z0-9]+", "i");
+  const re = new RegExp(escapeRegExp(stem) + "\\.[a-z0-9]+", "i");
   return re.test(articleText);
 }
 

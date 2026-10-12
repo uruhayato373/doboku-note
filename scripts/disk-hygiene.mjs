@@ -42,6 +42,7 @@ import {
   selectStaleDirs,
   worktreePlacement,
 } from './lib/disk-hygiene.mjs';
+import { escapeRegExp } from './lib/regexp-escape.mjs';
 
 const HOME = homedir();
 const CONFIG_PATH = join(REPO_ROOT, datasetPath('config.disk-hygiene'));
@@ -78,7 +79,7 @@ function expandStarSegments(path) {
   const parts = path.split(/[\\/]/);
   const starIdx = parts.findIndex((p) => p.includes('*'));
   const parent = parts.slice(0, starIdx).join(sep);
-  const escaped = parts[starIdx].split('*').map((x) => x.replace(/[.+?^${}()|[\]\\]/g, '\\$&'));
+  const escaped = parts[starIdx].split('*').map((x) => escapeRegExp(x));
   const re = new RegExp(`^${escaped.join('.*')}$`, 'i');
   const rest = parts.slice(starIdx + 1).join(sep);
   return listDirs(parent)

@@ -50,6 +50,7 @@ import {
   validateExportedState,
 } from './lib/playwright-auth-state.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
+import { escapeRegExp } from './lib/regexp-escape.mjs';
 
 export { REPO_ROOT };
 
@@ -174,7 +175,7 @@ function expandStar(path) {
   const parts = path.split(/[\\/]/);
   const i = parts.findIndex((p) => p.includes('*'));
   const parent = parts.slice(0, i).join(sep);
-  const escaped = parts[i].split('*').map((x) => x.replace(/[.+?^${}()|[\]\\]/g, '\\$&'));
+  const escaped = parts[i].split('*').map((x) => escapeRegExp(x));
   const re = new RegExp('^' + escaped.join('.*') + '$', 'i');
   let names = [];
   try {

@@ -6,6 +6,7 @@
  * UTM 生成で実際に起きた）。コードは台帳（scripts/lib/datasets.mjs）から datasetPath・datasetDir・latestFile で引く。
  */
 import { AREAS, DATASETS, areaOf } from './datasets.mjs';
+import { escapeRegExp } from './regexp-escape.mjs';
 
 /**
  * config/・data/ のパスを直書きしてよいファイル。台帳そのものと、追記だけの台帳に残る旧パスを読み替える対応表と、この検出。
@@ -172,7 +173,6 @@ export function findConfigPaths(source) {
 }
 
 /** .claude/state/ のパスの直書き（`'.claude/state/…'`・`join(ROOT, '.claude', 'state', …)`）。コメント行と行末の `// ` 以降・path-literal-ok の行は数えない */
-const escapeRegExp = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const STATE_LITERAL = new RegExp(`${escapeRegExp(AREAS.state.dir)}/|['"\`]\\.claude['"\`]\\s*,\\s*['"\`]state['"\`]`);
 /**
  * .claude/state/ のパスを直書きしている行。check-datasets が基準線（.claude/config/state-path-literal-baseline.json）と比べ、

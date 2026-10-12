@@ -20,6 +20,7 @@ import { readFileSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
+import { escapeRegExp } from './lib/regexp-escape.mjs';
 
 const WANT_JSON = process.argv.includes('--json');
 
@@ -58,7 +59,7 @@ for (const abs of pages) {
   const src = readFileSync(abs, 'utf8');
   for (const { module, preferred } of WATCHED) {
     // import 文の中にモジュール指定があるか（コメント内の言及は拾わない）
-    const re = new RegExp(`^import[^;]*from\\s+['"]${module.replace(/[.*+?^${}()|[\]\\/@]/g, '\\$&')}['"]`, 'm');
+    const re = new RegExp(`^import[^;]*from\\s+['"]${escapeRegExp(module)}['"]`, 'm');
     if (!re.test(src)) continue;
     const allowed = ALLOWLIST.find((a) => a.file === rel && a.module === module);
     findings.push({ file: rel, module, preferred, allowed: Boolean(allowed), reason: allowed?.reason ?? null });
