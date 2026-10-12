@@ -114,3 +114,9 @@ test('iOS 書き出し: 記述ごとの解説の画像をアプリ内の images/
   // 記述ごとの解説が無い問題には項目を足さない
   assert.equal('statements' in toBundleQuestion({ id: 'y', body: 'b', options: [], explanations: [] }), false);
 });
+
+test('（カ）（キ）まである 7 つの記述も取り出す（DN-0699）', () => {
+  const got = extractStatementExplanations(details('（ア）あ ✅\n\n（オ）い ❌\n\n（カ）う ✅\n\n（キ）え ❌'));
+  assert.deepEqual(got.map((s) => s.label), ['ア', 'オ', 'カ', 'キ']);
+  assert.equal(hasStatementStem('次の記述のうち。\n\n（カ）ファクシミリ機による送受信機能が使える。\n\n（キ）デスクトップパソコンによるメール機能が使える。'), true);
+});
