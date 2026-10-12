@@ -3091,6 +3091,23 @@
       "commit": "b5f1884d2f80",
       "verification": null,
       "note": "要点 3 枚を短くし render-longform --pack-dir …/monbun-yomikata --skip-tts が exit 0（8 場面）、layers の画面を目視確認。check-video-content PASS（157 件）"
+    },
+    {
+      "id": "DN-0587",
+      "at": "2026-10-12",
+      "task": "引き継ぎ・レビューの point-in-time 文書が指すカードを別セッションが閉じても、develop の CI を赤くしない",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/handoff-extraction.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "876cf83cf3f2",
+      "verification": null,
+      "note": "PR #1020。check-project-task-refs で docs/handoffs・docs/reviews の dangling-id を warning にし件数を出す。check-handoff-extraction に closed-card-referenced（カードを消すコミットで live 文書の参照が残れば止める）と handoff-dangling-id を足した。一時 git リポジトリの CLI テストで確認"
     }
   ]
 }
