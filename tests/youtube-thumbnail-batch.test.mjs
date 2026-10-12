@@ -68,6 +68,15 @@ test('サムネイル取得は既知YouTubeホストと動画IDのみ',async()=>
  for(const url of ['https://evil.example/a','https://i.ytimg.com/vi/wrong/maxresdefault.jpg'])await assert.rejects(fetchThumbnail({...video,snippet:{thumbnails:{maxres:{url,width:1280,height:720}}}},async()=>{fetched++;}));
  assert.equal(fetched,0);
 });
+test('細密な横長表紙の公開JPEG圧縮差を許容しても文字の欠落は拒否する',async()=>{
+ const rects=Array.from({length:1000},(_,i)=>`<rect x="${(i*137)%1920}" y="${(i*97)%1080}" width="${8+i%43}" height="${6+i%37}" fill="${['#16a36c','#d6f841','#006845','#fbf2d0'][i%4]}"/>`).join('');
+ const png=await sharp(Buffer.from(`<svg width="1920" height="1080"><rect width="1920" height="1080" fill="#16a36c"/>${rects}<rect x="170" y="230" width="700" height="150" fill="white"/><rect x="250" y="240" width="25" height="120" fill="black"/></svg>`)).png().toBuffer();
+ const jpeg=await sharp(png).resize(1280,720).jpeg({quality:70,chromaSubsampling:'4:2:0'}).toBuffer();
+ const result=await compareThumbnail(png,jpeg);
+ assert.ok(result.rawMean>3);assert.equal(result.matched,true);assert.equal(result.normalization,'symmetric-blur-0.7');
+ const missingStroke=await sharp(png).composite([{input:Buffer.from('<svg width="25" height="120"><rect width="25" height="120" fill="white"/></svg>'),left:250,top:240}]).resize(1280,720).jpeg({quality:70,chromaSubsampling:'4:2:0'}).toBuffer();
+ assert.equal((await compareThumbnail(png,missingStroke)).matched,false);
+});
 test('ShortsのYouTube生成の左右背景を除き縦の元画像全体を照合する',async()=>{
  const portrait=await sharp(Buffer.from('<svg width="1080" height="1920"><rect width="1080" height="1920" fill="#0f2742"/><rect x="80" y="400" width="800" height="300" fill="white"/></svg>')).png().toBuffer();
  const middle=await sharp(portrait).resize(405,720).png().toBuffer();
