@@ -396,7 +396,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-2/gakka-2kyu-kiso/youtube.json#longform",
-      "status": "scheduled",
+      "status": "published",
       "publishAt": "2026-10-12T11:00:00Z",
       "approval": {
         "by": "user",
@@ -407,7 +407,12 @@
       "platform": {
         "id": "EaGr39dA7c8",
         "url": "https://www.youtube.com/watch?v=EaGr39dA7c8",
-        "privacy": "private"
+        "privacy": "public",
+        "publishedAt": "2026-10-12T11:00:32.000Z",
+        "evidence": {
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-10-12T22:35:49.647Z"
+        }
       },
       "times": {
         "rendered": "2026-09-05T05:31:28.856Z",
