@@ -121,8 +121,21 @@ jobs:
       - name: Check E2E targets (out/)
         run: npm run check-e2e-targets
 
+      # --summary-out は warn（jsonld_recommended_missing など）が CI ログにしか残らず誰も読んでいなかった問題（DN-0676）への対応。
+      # 結果は publish-seo-summary ジョブが data/analysis/seo-build-summary.json へ足し、週次レビューの下書きが前週比を出す。
       - name: Check build-time SEO (out/)
-        run: npm run check-seo-build:ci
+        id: seo_build
+        run: npm run check-seo-build:ci -- --summary-out "$RUNNER_TEMP/seo-build-run.json"
+
+      # error で落ちた run の件数も履歴に要る。check の成否にかかわらず上げる（無ければ publish 側が何もしない）。
+      - name: Upload SEO build summary
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: seo-build-run
+          path: ${{ runner.temp }}/seo-build-run.json
+          if-no-files-found: ignore
+          retention-days: 3
 
       # client に同梱される JS 1 本の上限（DN-0684・2026-10-11）。/search のチャンクに doc-meta-index.json が入って
       # 1.66MB になっていた。client component の import 1 行で再発するので build の直後に止める。
@@ -148,6 +161,61 @@ jobs:
       # （2026-09-18 まで「クローズは人間」だったが、復旧しても誰も閉じず通知チャネルが死んでいた）。
       # 起票は develop への push だけ。PR の赤は PR 画面に出て作者が見る（30 日で 58 敗のうち 37 敗が PR で、
       # 全部を同じ Issue にコメント追記していたため本物の develop の赤が埋もれていた）。
+
+  # check-seo-build の結果（検査数・error・warn の型別件数）を data/analysis/ の履歴へ足して develop へ書き戻す（DN-0676）。
+  # develop への push だけ。書き込み権限をこのジョブに閉じ、PR の build ジョブには渡さない。
+  publish-seo-summary:
+    needs: [build]
+    if: always() && github.event_name == 'push' && github.ref_name == 'develop' && needs.build.result != 'skipped' && needs.build.result != 'cancelled'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    concurrency:
+      group: develop-git-write
+      cancel-in-progress: false
+
+    steps:
+      - name: Checkout develop
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: develop
+
+      - name: Download SEO build summary
+        id: download
+        continue-on-error: true
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7
+        with:
+          name: seo-build-run
+          path: ${{ runner.temp }}/seo-build
+
+      - name: Setup Node.js
+        if: steps.download.outcome == 'success'
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install Dependencies
+        if: steps.download.outcome == 'success'
+        run: npm ci --legacy-peer-deps
+
+      - name: Publish SEO build summary
+        if: steps.download.outcome == 'success'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          node scripts/record-seo-build-summary.mjs "$RUNNER_TEMP/seo-build/seo-build-run.json"
+          node scripts/ci-data.mjs add --datasets analysis.seo-build-summary
+          if git diff --cached --quiet; then
+            echo "No SEO build summary changes to publish"
+            exit 0
+          fi
+          git commit -m "chore(seo): build 後 SEO スキャンの件数を記録 $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
+          git fetch origin develop
+          git rebase origin/develop
+          git push origin HEAD:develop
 
   # 失敗 Issue の起票と解消は、両ジョブの結果を見て 1 か所で行う。
   report:

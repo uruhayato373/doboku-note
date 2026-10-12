@@ -9,6 +9,7 @@ import { WatchError, readWatchConfig, CONFIG, LEDGER, readJson, validateConfig, 
 import { discoverCandidates } from './lib/seo-watch-strategy.mjs';
 import { SITE_ORIGIN } from './lib/site-identity.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
+import { parseLegacyRedirects } from './lib/legacy-routes.mjs';
 
 async function main() {
   const { values: opts, positionals } = parseArgs({ allowPositionals: true, options: {
@@ -59,7 +60,7 @@ async function main() {
     const latest = latestReport(root, 'gsc.page-query');
     if (!latest) { console.log('No page-query snapshot'); return; }
     const data = latest.data;
-    const redirects = new Map(readFileSync(join(root, 'public/_redirects'), 'utf8').split('\n').map((line) => line.trim().split(/\s+/)).filter(([from, to, status]) => from?.startsWith('/docs/') && to?.startsWith('/exam/') && status === '301').map(([from, to]) => [from, to]));
+    const redirects = new Map([...parseLegacyRedirects(readFileSync(join(root, 'public/_redirects'), 'utf8'))].filter(([, to]) => to.startsWith('/exam/')));
     const candidates = discoverCandidates(data, config, redirects);
     console.log(JSON.stringify({ source: latest.ref, period: data.meta, note: '重点資格ごと最大3件。少数表示は需要の手掛かりで、効果判定には不足し得る。旧URLの数値を正規URLの実測と混同しない。', candidates }, null, 2));
     return;

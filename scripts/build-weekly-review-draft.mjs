@@ -9,6 +9,7 @@
  *
  * 集めるもの（すべてオフライン。GitHub の Issue だけ gh を使う）: 計測ダイジェスト（W−1）・資格別 KPI（W−1 窓と前週）・
  * ダイジェストの未処分・実験の期限・点検と Issue・バックログの関門と健全性・検索の改善候補・PSI と実ユーザー計測・
+ * build 後 SEO スキャン（check-seo-build の件数と前週比）・
  * note 同期・X 予約キュー・ココナラ取引・売上台帳の当月行。
  *
  * Usage:
@@ -29,6 +30,8 @@ import { parseCliArgs } from './lib/cli-args.mjs';
 import { todayJst } from './lib/jst-date.mjs';
 import { isoWeekKey, reviewWeekOfDay, reviewWindowOfWeek, weekPeriod } from './lib/review-week.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { readDatasetIf } from './lib/dataset-io.mjs';
+import { renderSeoBuildSection } from './lib/seo-build-summary.mjs';
 import { qualificationShortLabel } from './lib/qualification-names.mjs';
 import { loadRegistry } from './lib/qualification-registry.mjs';
 import { loadMonthReceipts } from './lib/net-receipts-ledger.mjs';
@@ -147,6 +150,10 @@ md.push(cand.length ? cand.slice(0, 5).map((x) => `- [${x.cluster}] ${x.page}「
 
 const pick = (r, re, n = 8) => r.out.split('\n').filter((l) => re.test(l)).slice(0, n).join('\n');
 md.push('## PSI と実ユーザー計測', '', '```', pick(R.psi, /coverage|CI ゲート違反|\*\*(TBT|CLS|LCP|SEO)/), pick(R.webVitals, /^実ユーザー|不良|要改善/), '```' + note(R.psi), '');
+// build 後 SEO スキャン（check-seo-build）の件数と前週比。CI が develop の push ごとに data/analysis/ へ記録する（DN-0676）
+let seoBuildHistory = null;
+try { seoBuildHistory = readDatasetIf(REPO_ROOT, 'analysis.seo-build-summary')?.history ?? null; } catch { seoBuildHistory = null; }
+md.push(...renderSeoBuildSection(seoBuildHistory, todayJst()));
 md.push('## note 同期', '', block(R.noteSync, 10) + note(R.noteSync), '');
 md.push('## X 予約キュー', '', block(R.xQueue, 15) + note(R.xQueue), '');
 const co = R.coconala.data;

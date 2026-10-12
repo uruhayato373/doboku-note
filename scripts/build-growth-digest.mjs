@@ -31,6 +31,7 @@ import {
 } from './lib/growth-opportunities.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
+import { parseLegacyRedirects } from './lib/legacy-routes.mjs';
 
 const TAG = '[growth-digest]';
 const GROWTH = datasetDir('analysis.growth-pack');
@@ -58,10 +59,9 @@ export function buildContentIndex(root = ROOT) {
   const redirects = new Map();
   const file = join(root, 'public/_redirects');
   if (existsSync(file)) {
-    for (const line of readFileSync(file, 'utf8').split('\n')) {
-      const [from, to] = line.trim().split(/\s+/);
-      const m = /^\/docs\/([^/*]+)$/.exec(from ?? '');
-      if (m && to?.startsWith('/')) redirects.set(m[1], to.replace(/\/+$/, ''));
+    // 静的 301 と、動的ルールがまとめる slug の表（# route）の両方から引く。
+    for (const [from, to] of parseLegacyRedirects(readFileSync(file, 'utf8'))) {
+      redirects.set(from.slice('/docs/'.length), to.replace(/\/+$/, ''));
     }
   }
   const index = new Map();

@@ -8,19 +8,29 @@
 // 解説の「N. ＜選択肢の原文＞ 理由」の行頭も同じ原文の引用。原文の表記（「受け入れ」「2か所」「土止め支保工」
 // 全角の「Ｈ形鋼」等）は表記統一の対象にしない＝その範囲（行 → 末尾の桁）に出た指摘だけ除く。
 
-const PE_CONSTRUCTION_SUBJECTS =
-  'required|geotechnical|steel-concrete|urban-planning|river-coast|port-airport|power-civil|road|railway|tunnel|construction-planning|environment';
+import { readFileSync } from 'node:fs';
 
-export const OFFICIAL_QUESTION_PAGE = new RegExp(
-  String.raw`[\\/](?:` +
-    String.raw`pe-first-stage[\\/][hr]\d{2}(?:-retry)?-(?:basic|aptitude|construction|water-supply)` +
-    String.raw`|pe-construction[\\/]r\d{2}-(?:${PE_CONSTRUCTION_SUBJECTS})` +
-    String.raw`|civil-construction-[12][\\/](?:primary-[a-z0-9-]+|secondary-[rh]\d{2}|secondary-[a-z-]+-past-problems)` +
-    // 2026-10-06（DN-0549）: 総監の択一（## Ⅰ-1-1）と測量士の択一（## No.N）も同じ逐語の範囲を持つ
-    String.raw`|pe-comprehensive-management[\\/][hr]\d{2}-primary` +
-    String.raw`|surveyor[\\/]primary-r\d{2}` +
-    String.raw`)[\\/]article\.mdx$`,
-);
+// 「公式の設問を含むページ」は、記事の frontmatter の `officialQuestions: true` が印（DN-0565）。
+// 以前はパスの正規表現（OFFICIAL_QUESTION_PAGE）で決めていたため、正規表現に無い種類のページは黙って対象外になり、
+// secondary-*-past-problems は DN-0553 まで設問の転記が commit を止めていた。印は分類データなので、新しい種類のページは
+// 印を付ければ対象になる（正規表現を足さない）。置き換え前の 245 ページの集合は tests/official-question-text.test.mjs が固定している。
+const OFFICIAL_QUESTION_MARK = /^officialQuestions:[ \t]*true[ \t]*$/m;
+const FRONTMATTER = /^---\r?\n([\s\S]*?)\r?\n---/;
+
+/** MDX 本文（frontmatter を含む全文）が「公式の設問を含むページ」の印を持つか。 */
+export function hasOfficialQuestionMark(text) {
+  const fm = FRONTMATTER.exec(text);
+  return fm !== null && OFFICIAL_QUESTION_MARK.test(fm[1]);
+}
+
+/** ファイルを読んで印を見る。読めない・無いファイルは対象外。 */
+export function isOfficialQuestionFile(filePath) {
+  try {
+    return hasOfficialQuestionMark(readFileSync(filePath, 'utf8'));
+  } catch {
+    return false;
+  }
+}
 
 const QUESTION_HEADING = /^##\s+(?:[ⅠⅡⅢⅣIVX]+[-－]\d|問題\s*(?:No\.\s*)?\d|No\.\s*\d)/;
 // 分野別過去問の設問見出し（h2 と h3 がある）。2026-10-07（DN-0553）: 設問文の転記が prh に止められ、図の寸法も直せなかった
@@ -64,16 +74,20 @@ export function officialTextRanges(text) {
   return ranges;
 }
 
-/** 公式問題の逐語が行全体を占める行番号（1 始まり）の集合。対象ページでなければ空。 */
-export function officialQuestionLines(lines, filePath) {
-  if (!OFFICIAL_QUESTION_PAGE.test(filePath)) return new Set();
+/**
+ * 公式問題の逐語が行全体を占める行番号（1 始まり）の集合。対象ページでなければ空。
+ * @param {string[]} lines 本文の行（frontmatter を除いていてもよい）
+ * @param {boolean} marked そのページが印（hasOfficialQuestionMark）を持つか。呼び出し側が全文から判定して渡す
+ */
+export function officialQuestionLines(lines, marked) {
+  if (!marked) return new Set();
   const ranges = officialTextRanges(lines.join('\n'));
   return new Set([...ranges].filter(([, end]) => end === Infinity).map(([line]) => line));
 }
 
 /** 公式問題の逐語の行（行全体）を空行に置き換えた行配列を返す。文体検査（15-x）用。 */
-export function blankOfficialQuestionLines(lines, filePath) {
-  const official = officialQuestionLines(lines, filePath);
+export function blankOfficialQuestionLines(lines, marked) {
+  const official = officialQuestionLines(lines, marked);
   // 見出し行は残す（文体検査が節の区切りに使う）
   return official.size === 0 ? lines : lines.map((line, i) => (official.has(i + 1) && !/^#{1,6}\s/.test(line) ? '' : line));
 }

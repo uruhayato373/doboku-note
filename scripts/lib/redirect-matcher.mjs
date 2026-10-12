@@ -15,3 +15,24 @@ export function matchWildcardRedirect(pathWithQuery, wildcards = []) {
   }
   return null;
 }
+
+/**
+ * `_redirects` のテキストに対し、パスがどのルールで何に転送されるかを Cloudflare Pages と同じ規則で解く。
+ * ファイルの上にあるルールが勝つ。完全一致（静的）と `*`（splat）に対応する。:placeholder は使っていないので扱わない。
+ * 何にも当たらなければ null。
+ */
+export function resolveRedirect(text, path) {
+  for (const raw of String(text).split(/\r?\n/)) {
+    const line = raw.trim();
+    if (!line || line.startsWith("#")) continue;
+    const [from, to, code] = line.split(/\s+/);
+    if (!from || !to) continue;
+    if (!from.includes("*")) {
+      if (from === path) return { to, code: Number(code) || 302, rule: from };
+      continue;
+    }
+    const hit = matchWildcardRedirect(path, [{ from, to, code: Number(code) || 302 }]);
+    if (hit) return { to: hit.to, code: hit.code, rule: from };
+  }
+  return null;
+}

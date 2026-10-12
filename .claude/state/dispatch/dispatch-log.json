@@ -3176,6 +3176,125 @@
       "commit": "0c5f90dadfc4",
       "verification": null,
       "note": "PR #991（順位表を期待値順）と #1023（分類器）。登録済み・需要なし→KEEP、/search?q=・非 HTML・断片の 404→EXPECTED、別 canonical→CANONICAL_ELSEWHERE、internalInbound は MDX 本文の実リンクから数える。加えて、需要・利用・後継・内部リンクの無い sitemap 外の 404→EXPECTED、sitemap 掲載の検出済み未登録→KEEP_MONITOR。同じ入力で UNKNOWN_REVIEW 864 → 9 件"
+    },
+    {
+      "id": "DN-0470",
+      "at": "2026-10-12",
+      "task": "建設部門の guide/career に技術士の定年後の働き方の節を足す",
+      "tier": "mid",
+      "kind": "改善",
+      "prevention": {
+        "type": "none",
+        "ref": "記事の追加。決定的な検査は check-career-separation と check-guide-length が担う"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "b07e0e54ed62",
+      "verification": null,
+      "note": "9d164dc74。pe-construction/guide-career に「定年後の働き方：継続雇用・再就職・顧問」の節（約 4,970 字・FAQ 1 件）。高年齢者雇用安定法・技術士法は e-Gov、賃金は厚労省 令和7年賃金構造基本統計調査（全産業の値と明記）で照合。冒頭の年収の答えと転職導線は不変、独立の記事へのリンクは張らない。check-career-separation・check-guide-length 通過"
+    },
+    {
+      "id": "DN-0471",
+      "at": "2026-10-12",
+      "task": "1級土木の age-career に 60 代の再雇用・嘱託・技術者の年齢の節を足す",
+      "tier": "mid",
+      "kind": "改善",
+      "prevention": {
+        "type": "none",
+        "ref": "記事の追加。決定的な検査は check-career-separation と check-guide-length が担う"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "b07e0e54ed62",
+      "verification": null,
+      "note": "b07e0e54e。civil-construction-1/guide-age-career に「60代の再雇用・嘱託と、監理技術者・主任技術者の年齢の扱い」の節（約 6,140 字・FAQ 1 件）。建設業法・施行令・高年齢者雇用安定法は e-Gov、監理技術者制度運用マニュアル（令和7年1月改正）、厚労省の高年齢者雇用状況等報告・賃金構造基本統計調査で照合。体験談・想定年収なし。3,000 字以上・check-career-separation 通過"
+    },
+    {
+      "id": "DN-0675",
+      "at": "2026-10-12",
+      "task": "_redirects の静的ルールが 1431/2000 件まで来ていて、移転後の記事の /docs 転送を作り続けると十数週で上限に当たる",
+      "tier": "mid",
+      "kind": "改善",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/fixtures/redirects-before-dn0675.txt"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "80059715d661",
+      "verification": null,
+      "note": "PR #1019。規則どおりの /docs/<slug> を接頭辞ごとの splat 動的ルール 24 本にまとめ、統合・改名だけ静的に残した。静的 1,433 → 207（上限 2,000）・動的 8 → 32（上限 100）。変更前の全転送元 1,441 件を新旧に当てて行き先・ステータスの差 0（テスト固定）。301 は 1 本も減らしていない（移転後の記事 268 本のうち 199 本は Google が旧 /docs URL を既に知っていたため）。既に 404 の存在しない slug 204 件は 301→404 になる"
+    },
+    {
+      "id": "DN-0565",
+      "at": "2026-10-12",
+      "task": "「公式の設問を含むページ」の判定を、パスの正規表現から分類データへ移す",
+      "tier": "low",
+      "kind": "改善",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/official-question-text.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "80059715d661",
+      "verification": null,
+      "note": "PR #1027。公式の設問を含むページを frontmatter の officialQuestions: true（245 ページ）で持ち、OFFICIAL_QUESTION_PAGE の正規表現を消した。置き換え前の定義の写しと突き合わせて 245 対 245・差 0、印の欠けはテストで落ちる"
+    },
+    {
+      "id": "DN-0638",
+      "at": "2026-10-12",
+      "task": "マージ済み（squash 含む）のブランチ・止まった未マージのブランチ・未コミットのまま放置の worktree を検査で挙げる",
+      "tier": "low",
+      "kind": "改善",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/branch-hygiene.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "80059715d661",
+      "verification": null,
+      "note": "PR #1028。npm run check-branch-hygiene（scripts/lib/branch-hygiene.mjs）で、develop に入り済みのブランチ（squash は merge-tree の tree 一致か PR 記録）・N 日止まった未マージのブランチ・未コミットのまま N 日止まった worktree を報告する（削除しない）。一時 git リポジトリのテスト 7 件で 3 種類と squash 済みの誤検出なしを確認。quality-audit に ci:false で登録"
+    },
+    {
+      "id": "DN-0676",
+      "at": "2026-10-12",
+      "task": "check-seo-build の warn（1,390 件）が CI ログにしか残らず、誰も読んでいない",
+      "tier": "low",
+      "kind": "改善",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/seo-build-summary.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "aa231fb8585d",
+      "verification": null,
+      "note": "PR #1026。check-seo-build --summary-out の検査数・error・warn 型別件数を、ci.yml の publish-seo-summary（develop push のみ・ci-data add）が data/analysis/seo-build-summary.json に足す。2026-10-12 の初回（aa231fb85）で書き戻しを確認。build-weekly-review-draft が件数と前週比を出す（テスト固定）。planned 外しは PR #1031"
+    },
+    {
+      "id": "DN-0672",
+      "at": "2026-10-12",
+      "task": "技術士一次 平成27・28年度の正しい選択肢の解説が定型句だけの行（約 217 行）を、理由を述べる解説に書き直す",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "none",
+        "ref": "記事の解説の質の問題。定型句の再発は check-answer-marks では拾えず、決定的な条件が無い"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "d9c47a9fbd22",
+      "verification": null,
+      "note": "PR #1030。6 記事の定型句 217 行と同型の 55 行（計 272 行）を、正しい理由を述べる解説に書き直した。別のエージェントが約 85 項目を洗い出し約 60 項目を e-Gov・文部科学省ガイドライン・JST で照合し、誤り 3 件（土地区画整理 50ha の要件・一級河川の大臣同意の根拠・公益通報の外部通報要件）を直し、確かめられない断定 3 件を弱めた。4 句は 0 件、check-answer-marks・textlint 通過"
     }
   ]
 }

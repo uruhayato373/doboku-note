@@ -89,7 +89,7 @@ import { execSync } from 'node:child_process';
 import { datasetPath } from '../../scripts/lib/datasets.mjs';
 import { lintMdxHygiene } from '#lib/mdx-hygiene-rules.mjs';
 import { NOTE_BASE } from '../../scripts/lib/site-identity.mjs';
-import { blankOfficialQuestionLines, officialQuestionLines } from '../../scripts/lib/official-question-text.mjs';
+import { blankOfficialQuestionLines, hasOfficialQuestionMark, officialQuestionLines } from '../../scripts/lib/official-question-text.mjs';
 import { REPO_ROOT } from '../../scripts/lib/repository-paths.mjs';
 import { parseCliArgs } from '../../scripts/lib/cli-args.mjs';
 
@@ -2050,14 +2050,14 @@ function lintFile(filePath) {
 
   // カテゴリ15: 文体（1文の長さ・文末の単調回避）（content-principles.md §24）
   // 公式問題の逐語（設問文）は原文を保持するので 15-x の対象外。範囲の判定は lib に一本化（lint-ja と共有）
-  lintProseStyle(blankOfficialQuestionLines(lines, filePath), findings);
+  lintProseStyle(blankOfficialQuestionLines(lines, hasOfficialQuestionMark(raw)), findings);
 
   // 追加衛生ルール: 0-3 文字化け / 0-4 TODO残存 / 2-4 アンカー重複 / 7-1 装飾絵文字 / 10-6 alt品質
   lintMdxHygiene(lines, findings);
 
   // 公式問題の逐語の中の表（選択肢の組合せ・作業日数・試験データの表）は原文の構造を変えられないので
   // 1-1/1-3/1-4 の対象外（DN-0549）。範囲は lint-ja・15-x と同じ lib の判定。解説（<details> 内）の表は従来どおり。
-  const officialLines = officialQuestionLines(lines, filePath);
+  const officialLines = officialQuestionLines(lines, hasOfficialQuestionMark(raw));
   const OFFICIAL_TABLE_RULES = new Set(['1-1', '1-3', '1-4']);
   const outsideOfficial = findings.filter((f) => !(OFFICIAL_TABLE_RULES.has(f.rule) && officialLines.has(f.line)));
 
