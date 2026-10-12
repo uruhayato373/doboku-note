@@ -21,6 +21,13 @@ import { execSync } from "node:child_process";
 import { datasetPath } from "./lib/datasets.mjs";
 import { withSharedConnection } from "./lib/asp-config.mjs";
 import { labelProgramMap } from "./lib/affiliate-labels.mjs";
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
 
 const MATS = datasetPath("config.affiliate-mats");
 const CATALOG = datasetPath("affiliate.catalog");
@@ -32,7 +39,7 @@ const KNOWLEDGE = ".claude/knowledge/reference/affiliate-operations.md";
 
 const STATUS_VOCAB = new Set(["approved", "applying", "none", "unavailable", "unknown"]);
 
-if (process.argv.includes("--staged")) {
+if (__argv.includes("--staged")) {
   let files = [];
   try {
     files = execSync("git -c core.quotepath=false diff --cached --name-only", { encoding: "utf-8" }).split("\n").filter(Boolean);
@@ -42,7 +49,7 @@ if (process.argv.includes("--staged")) {
   const touched = files.some((f) => WATCHED.includes(f.replace(/\\/g, "/")));
   if (!touched) {
     console.log("[check-affiliate-wiring] skip（関係ファイルが staged に無し）");
-    process.exit(0);
+    __exit(0);
   }
 }
 
@@ -205,9 +212,13 @@ if (errors.length > 0) {
       `  ${CATALOG} の ctaLabels（GA4 のラベル → 案件）\n` +
       `ルール: ${KNOWLEDGE}`,
   );
-  process.exit(1);
+  __exit(1);
 }
 console.log(
   `[check-affiliate-wiring] ✓ mats ${matPrograms.size} 種 / catalog ${catPrograms.size} 件 / コードのラベル ${labelsChecked} 件 が整合（WARN ${warns.length}）`,
 );
-process.exit(0);
+__exit(0);
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

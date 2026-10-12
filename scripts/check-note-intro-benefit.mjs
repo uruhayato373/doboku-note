@@ -27,12 +27,19 @@ import { readFileSync, existsSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
 
 const BASE = join(ROOT, 'content/note');
 const ALLOW_PATH = join(ROOT, '.claude/config/note-intro-benefit-allow.json');
 const MARKER = '**この記事でわかること**';
 
-const argv = process.argv.slice(2);
+const argv = __argv.slice(2);
 const STAGED = argv.includes('--staged');
 
 const allow = existsSync(ALLOW_PATH) ? JSON.parse(readFileSync(ALLOW_PATH, 'utf8')) : { entries: [] };
@@ -93,6 +100,10 @@ if (bad.length) {
 }
 
 // 検査ゼロで PASS を返さない（--staged は note 記事を触っていないのが正常）
-if (!STAGED && paid === 0) { console.error('✗ 有料記事の検査対象が0件＝走査が壊れている疑い（検査不成立）'); process.exit(1); }
+if (!STAGED && paid === 0) { console.error('✗ 有料記事の検査対象が0件＝走査が壊れている疑い（検査不成立）'); __exit(1); }
 if (!bad.length) console.log(`\n✓ 公開 ${paid + free - exempt} 件すべてが benefit 節を持つ（有料は無料プレビュー内）`);
-process.exit(bad.length ? 1 : 0);
+__exit(bad.length ? 1 : 0);
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

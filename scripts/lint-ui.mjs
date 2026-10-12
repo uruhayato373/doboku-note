@@ -20,6 +20,13 @@
 import { execSync } from "child_process";
 import { readFileSync, existsSync, readdirSync } from "fs";
 import { join, resolve } from "path";
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
 
 // --- Check 1: Dark mode border ---
 const BORDER_PATTERN = /border-gray-[123]00/;
@@ -83,7 +90,7 @@ function collectUiFiles(directory, results = []) {
 }
 
 function getTargetFiles() {
-  const allMode = process.argv.includes("--all");
+  const allMode = __argv.includes("--all");
 
   if (allMode) {
     return collectUiFiles("src").sort();
@@ -207,14 +214,14 @@ function main() {
     // 検査ゼロを無言の PASS にしない（CLAUDE.md §9）。既定モードは staged 限定なので、
     // 何も staged していないと以前は 1 行も出さずに exit 0 し、「緑＝検査済み」と読めてしまった。
     console.log(
-      process.argv.includes("--all")
+      __argv.includes("--all")
         ? "lint-ui: No UI files found."
         : "lint-ui: staged な UI ファイルが 0 件のため検査していません（全量は --all）。"
     );
-    process.exit(0);
+    __exit(0);
   }
 
-  const allMode = process.argv.includes("--all");
+  const allMode = __argv.includes("--all");
   console.log(
     `lint-ui: Checking ${files.length} UI file(s)${allMode ? " (--all)" : ""}...`
   );
@@ -233,12 +240,16 @@ function main() {
 
   if (totalViolations === 0) {
     console.log(`lint-ui: ✓ All ${files.length} file(s) OK.`);
-    process.exit(0);
+    __exit(0);
   } else {
     console.error(`\nlint-ui: ✗ ${totalViolations} violation(s) found.\n`);
     console.error("See .claude/rules/code.md (UI コンポーネント) and .claude/knowledge/design-system/design-system.md for token reference.\n");
-    process.exit(1);
+    __exit(1);
   }
 }
 
 main();
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

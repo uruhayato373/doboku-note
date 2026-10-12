@@ -26,12 +26,19 @@ import { execFileSync } from 'node:child_process';
 import yaml from 'js-yaml';
 import { datasetPath } from './lib/datasets.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
 
 const NAME = 'check-scheduled-exec-branch';
 const WF_DIR = '.github/workflows';
-const STAGED = process.argv.includes('--staged');
-const FILE_IDX = process.argv.indexOf('--file');
-const TARGET_FILE = FILE_IDX >= 0 ? process.argv[FILE_IDX + 1] : null;
+const STAGED = __argv.includes('--staged');
+const FILE_IDX = __argv.indexOf('--file');
+const TARGET_FILE = FILE_IDX >= 0 ? __argv[FILE_IDX + 1] : null;
 
 // 依存を辿る深さ。実測で計測系の依存は 1〜2 段に収まる。
 const IMPORT_DEPTH = 2;
@@ -206,7 +213,7 @@ function expandDeps(entries) {
 
 if (!existsSync(WF_DIR)) {
   console.error(`[${NAME}] ERROR ${WF_DIR} が見つかりません（検査が機能していません）`);
-  process.exit(1);
+  __exit(1);
 }
 
 const DEFAULT_BRANCH = defaultBranch();
@@ -247,7 +254,7 @@ for (const entry of readdirSync(WF_DIR)) {
 if (scheduledCount === 0) {
   console.error(`[${NAME}] ERROR scheduled workflow を 1 本も解析できませんでした（検査の故障）`);
   console.error(`  ${WF_DIR} の構造か js-yaml の解決を確認してください`);
-  process.exit(1);
+  __exit(1);
 }
 
 // 棚卸しモード（引数なし）
@@ -266,7 +273,7 @@ if (!STAGED && !TARGET_FILE) {
     console.log(`\n  ${wf}  [${branch}]  cron: ${cron}`);
     for (const f of files.sort()) console.log(`    ${f}`);
   }
-  process.exit(0);
+  __exit(0);
 }
 
 const targets = TARGET_FILE ? [TARGET_FILE.replace(/^\.\//, '')] : stagedFiles();
@@ -282,7 +289,7 @@ for (const f of targets) {
 if (warnings.length === 0) {
   const scope = TARGET_FILE ? TARGET_FILE : `staged ${targets.length} 件`;
   console.log(`[${NAME}] ✓ ${scope} に、現ブランチ(${CURRENT})で実行されない定期ジョブのファイルはありません`);
-  process.exit(0);
+  __exit(0);
 }
 
 console.log(`[${NAME}] WARN 定期ジョブが実行するファイルを、実行対象外のブランチで変更しています`);
@@ -295,4 +302,8 @@ for (const w of warnings) {
 console.log(`  ${DEFAULT_BRANCH} へ deploy するまで、これらのジョブの挙動は変わりません`);
 console.log(`  ヒント: 「いつから新しいデータが入るか」は実行ブランチと deploy 日を基準に答えること`);
 console.log(`  真実源: .claude/knowledge/reference/measurement-incidents.md`);
-process.exit(0);
+__exit(0);
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

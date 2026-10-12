@@ -41,6 +41,13 @@ import { findDuplicateImages } from './lib/note-duplicate-images.mjs';
 import { findInlineCode } from './lib/note-inline-code.mjs';
 import { findDuplicateCoconala } from './lib/note-duplicate-coconala.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
 
 const BOLD_CHECKER = join(ROOT, '.claude', 'scripts', 'check-note-bold-paren.mjs');
 const MAG_CTA_CHECKER = join(ROOT, '.claude', 'scripts', 'check-note-magazine-cta.mjs');
@@ -311,7 +318,7 @@ function checkToolArtifact(content) {
 }
 
 // --- main ---
-const args = process.argv.slice(2);
+const args = __argv.slice(2);
 let files;
 if (args.length === 0) {
   files = stagedNoteArticles();
@@ -322,7 +329,7 @@ if (args.length === 0) {
   });
 }
 
-if (files.length === 0) { process.exit(0); }
+if (files.length === 0) { __exit(0); }
 
 const partialState = buildPartialInjectionState(files);
 
@@ -344,6 +351,10 @@ if (violations > 0) {
   console.error('   マガジンURL/{{MAGAZINE_URL}} は括弧で囲まず URL 単独行にしてください（リンクカード化）。');
   console.error('   マガジン導線は markdown リンクでなく bare URL 単独行に・CTA に価格(¥)を書かない（content-principles.md §14-c）。');
   console.error('   公開状態の記事は hashtags.txt 必須。生成: /note-hashtags（§14-d）。');
-  process.exit(1);
+  __exit(1);
 }
 console.log(`✅ note-lint: ${files.length} 記事 OK`);
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

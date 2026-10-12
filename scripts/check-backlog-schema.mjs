@@ -50,6 +50,7 @@ import {
 } from './lib/backlog-lib.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { REPO_ROOT as ROOT, TODO_ROOT, AGENT_CONFIG_ROOT } from './lib/repository-paths.mjs';
+import { exitWith, runMain, isCliEntry, runAsCli } from './lib/cli-run.mjs';
 
 const BACKLOG = join(TODO_ROOT, 'backlog.md');
 const BASELINE = join(AGENT_CONFIG_ROOT, 'backlog-vocab-baseline.json');
@@ -220,25 +221,25 @@ function gitStaged(args) {
   }
 }
 
-function main() {
+function main(argv = process.argv.slice(2)) {
   if (process.env.SKIP_BACKLOG_SCHEMA === '1') {
     console.log('[check-backlog-schema] SKIP_BACKLOG_SCHEMA=1 のためスキップ');
-    process.exit(0);
+    exitWith(0);
   }
-  const STAGED = process.argv.includes('--staged');
-  const JSON_OUT = process.argv.includes('--json');
+  const STAGED = argv.includes('--staged');
+  const JSON_OUT = argv.includes('--json');
 
   const backlogPath = BACKLOG;
   if (!existsSync(backlogPath)) {
     console.error(`✗ 検査不成立: ${BACKLOG_REL} が無い`);
-    process.exit(2);
+    exitWith(2);
   }
   let pkg;
   try {
     pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8'));
   } catch {
     console.error('✗ 検査不成立: package.json を読めない（[検証:] の実在を確かめられない）');
-    process.exit(2);
+    exitWith(2);
   }
 
   const text = readFileSync(backlogPath, 'utf8');
@@ -246,7 +247,7 @@ function main() {
   const orphans = findOrphanHeadings(text);
   if (!cards.length) {
     console.error('✗ 検査不成立: カードを 1 件も抽出できなかった（パース契約の破損を疑う）');
-    process.exit(2);
+    exitWith(2);
   }
 
   const baseline = existsSync(BASELINE)
@@ -305,13 +306,13 @@ function main() {
 
   if (JSON_OUT) {
     writeSync(1, JSON.stringify({ cards: cards.length, stagedChecked, violations }, null, 2) + '\n');
-    process.exit(violations.length ? 1 : 0);
+    exitWith(violations.length ? 1 : 0);
   }
 
   console.log(summary);
   if (!violations.length) {
     console.log('[check-backlog-schema] ✓ タグ行の語彙・検証コマンド・パーサ契約はすべて健全');
-    process.exit(0);
+    exitWith(0);
   }
   for (const v of violations) console.error(`  [${v.rule}] ${v.at}  ${v.msg}`);
   console.error(
@@ -319,9 +320,13 @@ function main() {
       `${BASELINE_REL} に理由付きで登録して漸減させる（新規の語彙外は増やさない）。\n` +
       '緊急回避: SKIP_BACKLOG_SCHEMA=1\n',
   );
-  process.exit(1);
+  exitWith(1);
 }
 
 // import 時に CLI を走らせない（テストから validateCards だけ使うため）
-const isMain = process.argv[1] && process.argv[1].endsWith('check-backlog-schema.mjs');
-if (isMain) main();
+/** pre-commit-dispatch が in-process で呼ぶ入口（process.exit を呼ばず { code } を返す・DN-0688） */
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runMain(main, argv);
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

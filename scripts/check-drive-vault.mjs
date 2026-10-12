@@ -34,8 +34,15 @@ import {
 } from './lib/drive-vault.mjs';
 import { loadConfig as loadR2Config, findSecrets, AUDIENCES, AUDIENCE_RULES } from './lib/asset-storage.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
+import { runBody, isCliEntry, runAsCli, ExitSignal } from './lib/cli-run.mjs';
 
-const argv = process.argv.slice(2);
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
+
+const argv = __argv.slice(2);
 const DEEP = argv.includes('--deep');
 const STAGED_ONLY = argv.includes('--staged-only');
 const JSON_OUT = argv.includes('--json');
@@ -54,7 +61,7 @@ const warn = (kind, detail, path = null) => problems.push({ severity: 'WARN', ki
 async function main() {
   // (a) 設定
   let dcfg, r2cfg;
-  try { dcfg = loadDriveConfig(); } catch (e) { console.error('[' + NAME + '] 検査不成立: ' + e.message); process.exit(2); }
+  try { dcfg = loadDriveConfig(); } catch (e) { console.error('[' + NAME + '] 検査不成立: ' + e.message); __exit(2); }
   try { r2cfg = loadR2Config(); } catch (e) {
     // asset-storage.json 側の audience 欠落は loadConfig が例外にする。ここでは FAIL として拾い、検査は続ける。
     fail('audience', e.message);
@@ -156,7 +163,7 @@ async function main() {
     }
     if (hashed > 0 && unreadable === hashed) {
       console.error('[' + NAME + '] 検査不成立: サンプル ' + hashed + ' 件すべてを読めなかった（マウントが同期中か切断）。実体検査 0 件。');
-      process.exit(2);
+      __exit(2);
     }
     for (const p of paths) {
       const r = routingFor(p, r2cfg, dcfg);
@@ -192,8 +199,12 @@ async function main() {
     for (const p of problems.slice(0, 40)) console[p.severity === 'FAIL' ? 'error' : 'warn']('  [' + p.severity + '] ' + p.kind + ' ' + (p.path ? p.path + ' — ' : '') + p.detail);
     if (problems.length > 40) console.log('  ... ほか ' + (problems.length - 40) + ' 件');
   }
-  if (fails.length) { console.error('[' + NAME + '] FAIL ' + fails.length + ' 件（WARN ' + warns.length + ' 件）'); process.exit(1); }
+  if (fails.length) { console.error('[' + NAME + '] FAIL ' + fails.length + ' 件（WARN ' + warns.length + ' 件）'); __exit(1); }
   console.log('[' + NAME + '] ✓ 置き場ルールと Drive 台帳は整合' + (warns.length ? '（WARN ' + warns.length + ' 件）' : '') + (mount.root ? '' : '。実体は未検査'));
 }
 
-main().catch((e) => { console.error('[' + NAME + '] 検査不成立: ' + String(e.message || e).slice(0, 300)); process.exit(2); });
+await main().catch((e) => { if (e instanceof ExitSignal) throw e; console.error('[' + NAME + '] 検査不成立: ' + String(e.message || e).slice(0, 300)); __exit(2); });
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

@@ -22,11 +22,18 @@ import { execFileSync } from 'node:child_process';
 import { isEnterableTag } from './lib/note-tag-plan.mjs';
 import { REPO_ROOT, NOTE_CONTENT_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
 
 const THRESHOLD = 90;
 const ROOT_REL = relative(REPO_ROOT, ROOT).split('\\').join('/');
-const STAGED = process.argv.includes('--staged');
-const ALL = process.argv.includes('--all');
+const STAGED = __argv.includes('--staged');
+const ALL = __argv.includes('--all');
 
 // content/note 配下からの相対パス（表示用）
 const shown = (f) => relative(ROOT, f).split('\\').join('/');
@@ -78,7 +85,7 @@ if (ALL) {
     console.log(`  ${mark} ${String(r.n).padStart(3)}  ${shown(r.f)}`);
   }
   console.log(`\n90 未満: ${under.length} / ${rows.length}`);
-  process.exit(0);
+  __exit(0);
 }
 
 // 検査ゼロを PASS と呼ばない: 全量実行のはずが 0 件なら走査ロジックの故障を疑う
@@ -86,7 +93,7 @@ if (ALL) {
 if (!STAGED && rows.length === 0) {
   console.error('[check-note-hashtags] ✗ 検査対象が 0 件。走査ロジックの故障を疑う（正常時は 700 件超）。');
   console.error(`  確認: ${ROOT_REL} が存在するか／walk() のファイル名判定（hashtags*.txt）が壊れていないか。`);
-  process.exit(1);
+  __exit(1);
 }
 
 if (withBad.length) {
@@ -97,13 +104,17 @@ if (withBad.length) {
 
 if (!under.length && !withBad.length) {
   console.log(`[check-note-hashtags] ✓ ${scope}${rows.length} 件の hashtags は全て ${THRESHOLD} タグ以上・入力できない文字なし`);
-  process.exit(0);
+  __exit(0);
 }
-if (!under.length) process.exit(1);
+if (!under.length) __exit(1);
 
 console.error(`[check-note-hashtags] ✗ ${THRESHOLD} タグ未満が ${under.length} 件（${scope}${rows.length} 件中）:`);
 for (const r of under) {
   console.error(`     ${String(r.n).padStart(3)} / ${THRESHOLD}  ${shown(r.f)}`);
 }
 console.error(`\n  各 hashtags.txt は 1 行 1 タグ（# 接頭辞）。${THRESHOLD} 個以上に補充してください。`);
-process.exit(1);
+__exit(1);
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

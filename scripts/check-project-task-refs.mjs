@@ -42,6 +42,7 @@ import { join, relative, sep } from 'node:path';
 import { parseBacklog } from './lib/backlog-lib.mjs';
 import { REPO_ROOT as ROOT, TODO_ROOT } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
+import { exitWith, runMain, isCliEntry, runAsCli } from './lib/cli-run.mjs';
 
 const PROJECT_DIR = join(ROOT, 'docs');
 const BACKLOG = join(TODO_ROOT, 'backlog.md');
@@ -135,28 +136,28 @@ export function readProjectDocs(root = ROOT) {
   return listFiles(join(root, 'docs'), { ext: '.md', allowMissing: true }).map((p) => ({ rel: toPosix(relative(root, p)), content: readFileSync(p, 'utf8') }));
 }
 
-function main() {
+function main(argv = process.argv.slice(2)) {
   if (process.env.SKIP_PROJECT_TASK_REFS === '1') {
     console.log('[check-project-task-refs] SKIP_PROJECT_TASK_REFS=1 のためスキップ');
-    process.exit(0);
+    exitWith(0);
   }
-  const JSON_OUT = process.argv.includes('--json');
+  const JSON_OUT = argv.includes('--json');
 
   const backlogPath = BACKLOG;
   if (!existsSync(backlogPath)) {
     console.error(`✗ 検査不成立: ${toPosix(relative(ROOT, BACKLOG))} が無い（ID の実在を確かめられない）`);
-    process.exit(2);
+    exitWith(2);
   }
   const knownIds = new Set(parseBacklog(readFileSync(backlogPath, 'utf8')).map((c) => c.id).filter(Boolean));
   if (knownIds.size === 0) {
     console.error('✗ 検査不成立: backlog から ID を 1 件も抽出できなかった');
-    process.exit(2);
+    exitWith(2);
   }
 
   const files = listFiles(PROJECT_DIR, { ext: '.md', allowMissing: true });
   if (files.length === 0) {
     console.error('✗ 検査不成立: docs/ に恒久文書の .md が 1 件も無い');
-    process.exit(2);
+    exitWith(2);
   }
 
   const errors = [];
@@ -183,7 +184,7 @@ function main() {
 
   if (JSON_OUT) {
     writeSync(1, JSON.stringify({ files: files.length, ids: knownIds.size, errors, warnings, uncheckedTotal }, null, 2) + '\n');
-    process.exit(errors.length ? 1 : 0);
+    exitWith(errors.length ? 1 : 0);
   }
 
   for (const w of warnings.slice(0, 20)) console.log(`  [warn] ${w.at}  ${w.msg}`);
@@ -192,15 +193,19 @@ function main() {
   if (errors.length === 0) {
     console.log('[check-project-task-refs] ✓ live 文書の廃止参照 0・ID 参照切れ 0'
       + (snapshotDangling ? `（週次スナップショットの ${snapshotDangling} 件は上記のとおり warning）` : ''));
-    process.exit(0);
+    exitWith(0);
   }
   for (const e of errors) console.error(`  [${e.rule}] ${e.at}  ${e.msg}`);
   console.error(
     '\n廃止済み経路はファイルを作り直して参照を成立させない。現行経路（.claude/todo/backlog.md）へ' +
       '書き換えるか、記述ごと削除する。参照切れ ID は backlog を確認してから直す。\n',
   );
-  process.exit(1);
+  exitWith(1);
 }
 
-const isMain = process.argv[1] && process.argv[1].endsWith('check-project-task-refs.mjs');
-if (isMain) main();
+/** pre-commit-dispatch が in-process で呼ぶ入口（process.exit を呼ばず { code } を返す・DN-0688） */
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runMain(main, argv);
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

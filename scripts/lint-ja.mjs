@@ -21,14 +21,21 @@ import { join, relative, resolve, sep } from 'node:path';
 import { createRequire } from 'node:module';
 import { hasOfficialQuestionMark, officialTextRanges } from './lib/official-question-text.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
 
 // textlint は npx でなく node で直接起動する（Windows の spawnSync は npx.cmd を解決できない）。
 const TEXTLINT_BIN = createRequire(import.meta.url).resolve('textlint/bin/textlint.js');
 const SCAN_DIR = join(ROOT, 'content', 'site');
 const SCAN_EXT = /\.mdx$/;
 
-const mode = process.argv.includes('--all') ? 'all' : process.argv.includes('--files') ? 'files' : 'staged';
-const listedFiles = () => process.argv.slice(process.argv.indexOf('--files') + 1).filter((a) => !a.startsWith('--')).map((f) => relative(ROOT, resolve(f)).split(sep).join('/'));
+const mode = __argv.includes('--all') ? 'all' : __argv.includes('--files') ? 'files' : 'staged';
+const listedFiles = () => __argv.slice(__argv.indexOf('--files') + 1).filter((a) => !a.startsWith('--')).map((f) => relative(ROOT, resolve(f)).split(sep).join('/'));
 
 function stagedMdxFiles() {
   const out = execFileSync(
@@ -63,7 +70,7 @@ const files = mode === 'staged' ? stagedMdxFiles() : mode === 'files' ? listedFi
 
 if (files.length === 0) {
   console.log(`[lint-ja --${mode}] 対象 0 件（該当する MDX の変更なし）`);
-  process.exit(0);
+  __exit(0);
 }
 
 // 全件（1,280+ファイル）を1プロセスへ一括投入すると textlint 子プロセスが
@@ -140,14 +147,18 @@ for (const fileReport of violations) {
 
 if (failedBatches > 0) {
   // 実行不成立は「0件検知」と区別する（検査ゼロを PASS と呼ばない）。
-  process.exit(2);
+  __exit(2);
 }
 
 if ((mode === 'staged' || mode === 'files') && totalErrors > 0) {
   console.error(
     `\n[lint-ja --${mode}] ${totalErrors} 件の表記ゆれ/校正指摘があります。'npx textlint --fix <file>' で機械修正可能な項目は自動修正されます。`,
   );
-  process.exit(1);
+  __exit(1);
 }
 
-process.exit(0);
+__exit(0);
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

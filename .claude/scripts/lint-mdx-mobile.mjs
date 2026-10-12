@@ -92,6 +92,13 @@ import { NOTE_BASE } from '../../scripts/lib/site-identity.mjs';
 import { blankOfficialQuestionLines, hasOfficialQuestionMark, officialQuestionLines } from '../../scripts/lib/official-question-text.mjs';
 import { REPO_ROOT } from '../../scripts/lib/repository-paths.mjs';
 import { parseCliArgs } from '../../scripts/lib/cli-args.mjs';
+import { runBody, isCliEntry, runAsCli } from '../../scripts/lib/cli-run.mjs';
+
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
 
 const CELL_MAX = 15;
 
@@ -212,7 +219,7 @@ function resolveTargets(positional, flags) {
   for (const a of positional) {
     if (!existsSync(a)) {
       console.error(`Not found: ${a}`);
-      process.exit(2);
+      __exit(2);
     }
     const st = statSync(a);
     if (st.isDirectory()) {
@@ -2184,11 +2191,11 @@ function buildReport({ perFile, totals, regressions, pop }) {
 }
 
 function main() {
-  const { flags, positional } = parseArgs(process.argv.slice(2));
+  const { flags, positional } = parseArgs(__argv.slice(2));
   const targets = resolveTargets(positional, flags);
   if (targets.length === 0) {
     console.log('No MDX files to lint.');
-    process.exit(0);
+    __exit(0);
   }
 
   const ratchetMode = flags.all || flags.baseline || flags.updateBaseline || flags.report;
@@ -2238,12 +2245,12 @@ function main() {
     console.log(`\n${'='.repeat(60)}`);
     if (!anyFindings) {
       console.log(`✓ ${targets.length} file(s) passed.`);
-      process.exit(0);
+      __exit(0);
     }
     console.log(
       `Summary: HIGH ${totals.HIGH} / MEDIUM ${totals.MEDIUM} / LOW ${totals.LOW}`,
     );
-    process.exit(totalHigh > 0 ? 1 : 0);
+    __exit(totalHigh > 0 ? 1 : 0);
   }
 
   // ── ラチェット/レポートモード ──
@@ -2284,7 +2291,7 @@ function main() {
       counts,
     });
     console.log(`baseline 更新: ${relPath(outPath)}（${Object.keys(counts).length} 記事）`);
-    process.exit(0);
+    __exit(0);
   }
 
   // ラチェット判定
@@ -2294,11 +2301,15 @@ function main() {
       console.log(`  ${g.file}  (${g.rule}) ${g.was} → ${g.now}`);
     }
     if (regressions.length > 30) console.log(`  … 他 ${regressions.length - 30} 件`);
-    if (flags.ci) process.exit(1);
+    if (flags.ci) __exit(1);
   } else {
     console.log('✓ baseline 比の新規違反なし');
   }
-  process.exit(0);
+  __exit(0);
 }
 
 main();
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

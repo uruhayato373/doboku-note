@@ -2,6 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { GATES, planGates } from '../scripts/pre-commit-ci-gates.mjs';
+import { STEPS } from '../scripts/lib/pre-commit-steps.mjs';
 
 test('planGates: staged のパスに応じて回す検査と対象を決める', () => {
   const plan = planGates([
@@ -51,8 +52,11 @@ test('pre-commit の検査は quality-audit の ci:true と同じ id（CI の全
 });
 
 test('pre-commit が毎回呼ぶ pre-commit-mdx の先頭（MDX 無しの早期終了より前）でゲートを回す', () => {
-  const hook = readFileSync(new URL('../scripts/install-pre-commit.mjs', import.meta.url), 'utf8');
-  assert.match(hook, /node scripts\/pre-commit-mdx\.mjs/);
+  // フックは毎回 pre-commit-mdx を呼ぶ（検査の一覧は scripts/lib/pre-commit-steps.mjs・条件なしの項目）
+  const step = STEPS.find((x) => x.script === 'scripts/pre-commit-mdx.mjs');
+  assert.ok(step, 'pre-commit-mdx が検査の一覧に無い');
+  assert.equal(step.when, undefined, 'pre-commit-mdx は毎回呼ぶ（MDX 無しの commit でも CI の速い検査を回す）');
+  assert.equal(step.skipEnv, undefined);
   const src = readFileSync(new URL('../scripts/pre-commit-mdx.mjs', import.meta.url), 'utf8').replace(/\r\n/g, '\n');
   const main = src.slice(src.indexOf('async function main()'));
   const gate = main.indexOf('runGates()');

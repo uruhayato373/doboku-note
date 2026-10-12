@@ -21,8 +21,15 @@ import path from "path";
 import { REPO_ROOT, NOTE_CONTENT_ROOT } from "./lib/repository-paths.mjs";
 import { listFiles } from "./lib/fs-walk.mjs";
 import { readDataset } from "./lib/dataset-io.mjs";
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
 
-const STAGED = process.argv.includes("--staged");
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
+
+const STAGED = __argv.includes("--staged");
 const MAG_ROOT = path.join(NOTE_CONTENT_ROOT, "技術士建設部門", "magazines");
 
 // exam_type -> [hard, target]（答案用紙の枚数 × 1 枚の字数・目標は上限 × targetRatio）
@@ -109,7 +116,7 @@ const tag = "[check-note-charlimits]";
 
 if (process.env.SKIP_NOTE_CHARLIMITS === "1") {
   console.log(`${tag} SKIP_NOTE_CHARLIMITS=1 によりスキップ`);
-  process.exit(0);
+  __exit(0);
 }
 
 const files = targetFiles();
@@ -133,7 +140,7 @@ for (const file of files) {
   }
 }
 
-if (STAGED && scanned === 0) process.exit(0);
+if (STAGED && scanned === 0) __exit(0);
 
 if (hardViol.length) {
   console.error(`${tag} ✗ HARD 上限超過 ${hardViol.length} 件（手書き不可・要修正）:`);
@@ -153,8 +160,12 @@ if (!STAGED) {
 
 if (hardViol.length) {
   console.error(`${tag} 区分別ハード上限: ${Object.entries(LIMITS).map(([et, [hard]]) => `${et}=${hard}`).join(" / ")} 字。冗長表現を削って上限内に（SKIP_NOTE_CHARLIMITS=1 で緊急回避可）。`);
-  process.exit(1);
+  __exit(1);
 }
 
 if (!STAGED) console.log(`${tag} ✓ HARD 上限超過なし`);
-process.exit(0);
+__exit(0);
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

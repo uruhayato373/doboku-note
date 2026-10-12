@@ -26,12 +26,19 @@ import { evaluateCceEssay, extractAnswerParts, extractHistoryBlocks, findSharedP
 import { writeMdxFile } from '../.claude/scripts/lib/mdx-io.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
 
 const ROOTS = ['content/note/コンクリート主任技士', 'content/site/concrete-chief-engineer'];
 const SSOT = datasetPath('config.cce-essay-history');
-const STAGED = process.argv.includes('--staged');
-const FIX = process.argv.includes('--fix');
-const explicit = process.argv.slice(2).filter((a) => !a.startsWith('--'));
+const STAGED = __argv.includes('--staged');
+const FIX = __argv.includes('--fix');
+const explicit = __argv.slice(2).filter((a) => !a.startsWith('--'));
 const isTarget = (f) => /(^|\/)(article(-[^/]+)?\.md|[^/]+\.mdx)$/.test(f);
 
 function walk(dir) {
@@ -54,7 +61,7 @@ else if (STAGED) {
 const missing = files.filter((f) => !existsSync(f));
 if (missing.length) {
   for (const f of missing) console.error(`[check-cce-essay] ファイルが無い: ${f}`);
-  process.exit(2);
+  __exit(2);
 }
 
 // 立場別記事（cceEssayPersona）の (1)・(4) を同じテーマの他の立場と突き合わせるため、検査対象に関わらず全件を読む
@@ -101,7 +108,11 @@ for (const file of files) {
 const mode = explicit.length ? '指定' : STAGED ? 'staged' : '全件';
 if (essays + blocks === 0) {
   console.log(`[check-cce-essay] 対象 0 件（${mode}・cceEssayTheme 記事も出題履歴ブロックも無い）— 検査していない`);
-  process.exit(mode === '全件' ? 2 : 0);
+  __exit(mode === '全件' ? 2 : 0);
 }
 console.log(`[check-cce-essay] ${violations ? '✗' : '✓'} ${mode}: 小論文教材 ${essays} 件・出題履歴ブロック ${blocks} 件を実検査 / 違反 ${violations} 件`);
-process.exitCode = violations ? 1 : 0;
+__status.code = violations ? 1 : 0;
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

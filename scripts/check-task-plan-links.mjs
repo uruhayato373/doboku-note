@@ -41,10 +41,17 @@ import { join } from 'node:path';
 import { parseBacklog } from './lib/backlog-lib.mjs';
 import { listPlanUnits } from './lib/plan-units.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
 
 const PLANS_DIR = join(ROOT, '.claude/plans');
 const BACKLOG_PATH = join(ROOT, '.claude/todo/backlog.md');
-const JSON_OUT = process.argv.includes('--json');
+const JSON_OUT = __argv.includes('--json');
 
 const DN_ID_RE = /^DN-\d{4}$/;
 
@@ -158,7 +165,11 @@ function main() {
       console.log(`\n[check-task-plan-links] ✗ 違反 ${violations.length} 件`);
     }
   }
-  process.exit(violations.length > 0 ? 1 : 0);
+  __exit(violations.length > 0 ? 1 : 0);
 }
 
 main();
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

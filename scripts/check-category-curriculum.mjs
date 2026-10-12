@@ -12,6 +12,13 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { readDocMetaIndex } from './lib/doc-meta-index.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
 
 const curriculum = JSON.parse(fs.readFileSync(path.join(ROOT, 'src/config/category-curriculum.json'), 'utf8'));
 const index = readDocMetaIndex(ROOT);
@@ -181,10 +188,14 @@ for (const w of warnings) console.log(`[check-category-curriculum] WARN ${w}`);
 if (errors.length > 0) {
   for (const e of errors) console.error(`[check-category-curriculum] ERROR ${e}`);
   console.error(`\n[check-category-curriculum] ✗ ${errors.length} 件のエラー`);
-  process.exit(1);
+  __exit(1);
 }
 if (checkedSlugs === 0) {
   console.error('[check-category-curriculum] ✗ 検査対象 0 件（config 読み込み or カテゴリ判定の故障）');
-  process.exit(1);
+  __exit(1);
 }
 console.log(`[check-category-curriculum] ✓ slug 参照 ${checkedSlugs} 件を検査・全て実在（WARN ${warnings.length} 件）`);
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

@@ -287,7 +287,7 @@ content/
 **参照ガード**（`check-doc-refs.mjs`）: スキル・エージェント・docs 内の `.md` / `.mdx` 参照がリポジトリ内に実在するかを検証する。
 
 - 全体検証: `npm run check-doc-refs`
-- pre-commit: staged の `.claude/skills/` `.claude/agents/` `.claude/rules/` `docs/` `CLAUDE.md` を自動検査（`scripts/install-pre-commit.mjs` に登録済み）
+- pre-commit: staged の `.claude/skills/` `.claude/agents/` `.claude/rules/` `docs/` `CLAUDE.md` を自動検査（`scripts/lib/pre-commit-steps.mjs` に登録済み）
 - 対象外（実在しなくても正当）: `.claude/state/**`（生成物）・`.claude/plans/**`（一時）・`.claude/memory/**`（Claude Code の auto-memory。2026-09-14 から repo 管理し `node scripts/setup-memory-link.mjs` が両 PC の `~/.claude/projects/<key>/memory` を junction/symlink でここへ向ける。個人知見なので当時のパスを残す。**正本はここ 1 本**で、別リポジトリへの同期フックは置かない（2026-10-02 に Mac だけ実ディレクトリ＋別リポジトリ同期のまま 188 件 vs 143 件に分裂していた）。`npm run check-memory` が frontmatter・索引の網羅と読み込み上限（200 行 / 25KB）を pre-commit と quality:audit で、`--session` が SessionStart でリンクと別同期フックを検査し、worktree のキーにリンクが無ければ自動で張る）・`docs/handoffs/**`・`docs/reviews/**`・`content/sns/**`（point-in-time 記録）。コード参照（`src/*.tsx` 等）は build/type-check/lint が担う別系統
 
 **台帳ガード**（`check-doc-coupling.mjs`・2026-06-12 新設）: skills SKILL.md の追加/削除/description 変更には `skills-guide.md`＋`skills-registry.md`、agents `.md` の同種変更には `agents-registry.md` が同一コミットに staged されているかを検証。違反でコミット停止。正当に不要なら `SKIP_DOC_COUPLING=1`。CLAUDE.md §8 の文章ルールに強制力を与える。

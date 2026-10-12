@@ -37,6 +37,13 @@ import { findDuplicateKeys } from './lib/json-duplicate-keys.mjs';
 import { REPORT_KINDS } from './lib/metric-reports.mjs';
 import { PATH_LITERAL_ALLOW, basenameIndex, findConfigPaths, findDatasetIds, findPathLiterals, findStatePathLiterals } from './lib/path-literals.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
 
 const errors = [];
 const warnings = [];
@@ -51,7 +58,7 @@ const sampleOf = (path) => path.replace(/\{[^}]+\}/g, (m) => SAMPLE[m] ?? 'x');
 
 function inconclusive(message) {
   console.error(`✗ 検査不成立: ${message}`);
-  process.exit(2);
+  __exit(2);
 }
 
 let files;
@@ -217,6 +224,10 @@ if (refDatasets.length && refsChecked === 0) inconclusive('refs を宣言した�
 for (const w of warnings) console.log(`  ! ${w}`);
 if (errors.length) {
   for (const e of errors) console.error(`  ✗ ${e}`);
-  process.exit(1);
+  __exit(1);
 }
 console.log('[check-datasets] ✓ 台帳と実物は整合（全ファイルがちょうど 1 つのデータセットに当たり、型のあるものは型に合い、コードに config/・data/ の直書きが無く、引く id が台帳にあり、宣言した参照が実在する）');
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

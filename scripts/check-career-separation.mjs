@@ -24,8 +24,15 @@ import path from 'node:path';
 import { readDocMetaIndex } from './lib/doc-meta-index.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
 
-const BUILT = process.argv.includes('--built');
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
+
+const BUILT = __argv.includes('--built');
 
 const errors = [];
 const warnings = [];
@@ -40,7 +47,7 @@ for (const [slug, m] of Object.entries(docs)) {
 }
 if (careerSlugs.size === 0) {
   console.error('[check-career-separation] career タグの記事が 0 件。index が壊れている可能性があります。');
-  process.exit(1);
+  __exit(1);
 }
 
 if (!BUILT) {
@@ -93,7 +100,7 @@ if (!BUILT) {
     console.error(
       `[check-career-separation] out/{${AREA_DIRS.join(',')}} がどれもありません。先に \`npm run build\` を実行してください。`,
     );
-    process.exit(1);
+    __exit(1);
   }
   const htmlFiles = outDirs.flatMap((d) => listFiles(d, { ext: '.html' }));
 
@@ -122,7 +129,7 @@ if (!BUILT) {
       `[check-career-separation] ✗ 検査不成立: exam-guide ナビ一覧が 1 件も見つかりません` +
         `（HTML ${htmlFiles.length} 件を走査）。data-nav-list マーカーが外れたか、走査先の URL 体系が変わった可能性。`,
     );
-    process.exit(1);
+    __exit(1);
   } else {
     console.log(`[check-career-separation] 検査した学習系ナビ一覧: ${listsFound} 箇所（${htmlFiles.length} HTML）`);
   }
@@ -133,8 +140,12 @@ for (const w of warnings) console.log(`[check-career-separation] WARN ${w}`);
 if (errors.length > 0) {
   for (const e of errors) console.error(`[check-career-separation] ERROR ${e}`);
   console.error(`[check-career-separation] ✗ ${errors.length} 件のエラー`);
-  process.exit(1);
+  __exit(1);
 }
 console.log(
   `[check-career-separation] ✓ career ${careerSlugs.size} 件の分離は健全（${BUILT ? 'built' : 'source'}・WARN ${warnings.length}）`,
 );
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

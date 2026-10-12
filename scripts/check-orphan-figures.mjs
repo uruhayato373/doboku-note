@@ -28,10 +28,17 @@ import { join, dirname, basename } from "node:path";
 import { execFileSync } from "node:child_process";
 import { REPO_ROOT as ROOT, SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 import { escapeRegExp } from './lib/regexp-escape.mjs';
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
 
 const POSTS = SITE_CONTENT_ROOT;
-const staged = process.argv.includes("--staged");
-const listOnly = process.argv.includes("--list");
+const staged = __argv.includes("--staged");
+const listOnly = __argv.includes("--list");
 
 // 過去問クロップ専用ディレクトリは figure 命名規約の対象外（check-figure-canvas と同じ免除）
 const EXAM_DIR_RE = /\/(h\d+-primary|primary-h\d+[^/]*)\//;
@@ -121,7 +128,7 @@ if (staged) {
   if (dirs === null) {
     // git 失敗時は何もしない（pre-commit を壊さない）
     console.log("[check-orphan-figures] staged 取得不可のためスキップ");
-    process.exit(0);
+    __exit(0);
   }
   figures = allFigures.filter((f) => dirs.has(articleDirOf(f).replace(/\\/g, "/")));
 }
@@ -140,7 +147,7 @@ orphans.sort();
 if (listOnly) {
   for (const o of orphans) console.log(o);
   console.log(`\n[check-orphan-figures] 孤立 ${orphans.length} 枚 / 検査 ${figures.length} 枚`);
-  process.exit(0);
+  __exit(0);
 }
 
 if (orphans.length) {
@@ -152,7 +159,11 @@ if (orphans.length) {
   console.error(`  別拡張子（figure-N.png 等）で参照していれば許容されます。`);
   console.error(`  記事内容と合致しない古い図なら、図を削除するか記事を作成して結線してください。`);
   console.error(`  真実源: .claude/knowledge/reference/figure-canvas-policy.md / content-authoring.md\n`);
-  process.exit(1);
+  __exit(1);
 }
 
 console.log(`[check-orphan-figures] OK（孤立なし・${figures.length} 枚検査${staged ? "（staged）" : ""}）`);
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);
