@@ -3108,6 +3108,57 @@
       "commit": "876cf83cf3f2",
       "verification": null,
       "note": "PR #1020。check-project-task-refs で docs/handoffs・docs/reviews の dangling-id を warning にし件数を出す。check-handoff-extraction に closed-card-referenced（カードを消すコミットで live 文書の参照が残れば止める）と handoff-dangling-id を足した。一時 git リポジトリの CLI テストで確認"
+    },
+    {
+      "id": "DN-0590",
+      "at": "2026-10-12",
+      "task": "git 呼び出しの maxBuffer 検査が、引数にテンプレート文字列（${…}）を含む呼び出しで maxBuffer を見落として誤って止める",
+      "tier": "low",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/git-exec-maxbuffer.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "f9d5fc2a24a5",
+      "verification": null,
+      "note": "PR #1021。git 呼び出しの切り出しを、文字列・テンプレート（${…} の入れ子）・コメントを読み飛ばし括弧の深さで終端を決める走査にした。既存 1387 ファイルで新旧の検出集合の差 0、回帰フィクスチャで旧実装の見落としを確認"
+    },
+    {
+      "id": "DN-0588",
+      "at": "2026-10-12",
+      "task": "正規表現のエスケープを共通の部品 1 つにまとめ、各スクリプトでの書き写しを増やさない",
+      "tier": "low",
+      "kind": "改善",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/script-helpers-ratchet.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "f9d5fc2a24a5",
+      "verification": null,
+      "note": "PR #1024。scripts/lib/regexp-escape.mjs の escapeRegExp（全メタ文字）に 25 か所・24 ファイルを置き換え、script-helpers ラチェットに escapeRegExp の自前定義（基準 0）を足した。npm test 0 fail"
+    },
+    {
+      "id": "DN-0681",
+      "at": "2026-10-12",
+      "task": "lint-mdx-mobile が、サイトが目次に使う toc_min/max_heading_level を「未使用の旧 frontmatter・一括削除可」として HIGH を出している",
+      "tier": "low",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/legacy-frontmatter-toc.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "f9d5fc2a24a5",
+      "verification": null,
+      "note": "PR #1022。lint-mdx-mobile 規則 0-2 と migrate-civil-frontmatter の対象から toc_min/max_heading_level を外した（DocPage.tsx が目次の深さに使う）。toc_* を使う記事は 162 本のまま、content-authoring.md に 1 行"
     }
   ]
 }

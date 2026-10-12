@@ -1835,12 +1835,6 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 
 
 
-### [DN-0681] lint-mdx-mobile が、サイトが目次に使う toc_min/max_heading_level を「未使用の旧 frontmatter・一括削除可」として HIGH を出している
-タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [起票:2026-10-11] [進行中]
-
-**起点**: 2026-10-11、DN-0665 で過去問記事に `.claude/scripts/lint-mdx-mobile.mjs` を回したとき、規則 0-2 が `toc_min_heading_level`・`toc_max_heading_level` を「Docusaurus 旧 frontmatter。doboku-note では未使用、migrate-civil-frontmatter.mjs で一括削除可」として HIGH を出した（develop で 162 記事：建設部門 100・技術士一次 39・2級土木 18・測量 5）。しかしサイトは `src/components/docs/DocPage.tsx:292-293` でこの 2 つを読み、目次に出す見出しの深さを決めている。言われたとおり一括削除すると、過去問ページなどの目次が変わる。
-**やること**: 規則 0-2 と `migrate-civil-frontmatter.mjs` の対象から `toc_min_heading_level`・`toc_max_heading_level` を外す（`id`・`sidebar_label` は使われていないか確かめて残す）。content-authoring.md に、目次の深さはこの 2 つで決めると書く。
-**完了条件**: lint-mdx-mobile が toc_* で HIGH を出さず、`git grep` で toc_* を使う記事の数が変わっていない（目次は変えない）。
 
 
 ### [DN-0679] 技術士 建設部門の過去問ページ（r01〜r08 の約 17 本）へ、テーマ記事以外からの内部リンクを足す
@@ -2028,15 +2022,7 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 3. 20〜90分に束ね、分野ごとのチャプターを付ける。送り先は一次の頻出論点の note・過去問 PDF・模試（DN-0279 と同じ線）
 **完了条件**: 1級一次の1分野で20問の試作を作り、10秒プレビューで目視して承認待ちで止める。`quiz-tts` を trial にする。
 
-### [DN-0590] git 呼び出しの maxBuffer 検査が、引数にテンプレート文字列（${…}）を含む呼び出しで maxBuffer を見落として誤って止める
-タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-10-08] [進行中]
 
-2026-10-08、scripts/audit-reference-book-coverage.mjs の execFileSync('git', [..., `--since=${since}…`, ...], { encoding, maxBuffer }) が tests/git-exec-maxbuffer.test.mjs で「maxBuffer 未指定」になった（maxBuffer は書いてあった）。呼び出しの切り出しがテンプレートの { } で途切れているとみられる。引数を変数へ出して回避した。やること: findGitCalls をテンプレート文字列と入れ子の括弧に対応させ、回帰テスト（${} を含む引数で maxBuffer ありは通る・無しは止める）を足す
-
-### [DN-0588] 正規表現のエスケープを共通の部品 1 つにまとめ、各スクリプトでの書き写しを増やさない
-タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-08] [進行中]
-
-2026-10-08、path-literals.mjs で置き場のパスを正規表現へ入れるとき「.」だけを逃がし、CodeQL（Incomplete string escaping）に指摘された（PR #927）。scripts/ に同じ escapeRegExp の書き写しが 16 か所あり、逃がす記号が少しずつ違う（datasets.mjs・reference-sources.mjs・disk-hygiene.mjs・playwright-auth.mjs は * や {} を意図して外すグロブ用、ほかは全記号）。案: scripts/lib/regexp-escape.mjs に escapeRegExp（全記号）と globToRegExp を置いて置き換え、tests/read-json-ratchet.test.mjs と同じ形のラチェットで書き写しを増やさない。完了条件: 置き換え後に既存テスト全件が通る・ラチェットの基準線が 0 か理由つきの例外だけ
 
 ### [DN-0572] note からココナラへの冒頭導線（DN-0268）の反映後 30 日の閲覧・注文を読み、残すか決める
 タグ: [収益化] [領域:商品] [時期:2026-11] [種類:意思決定] [起票:2026-10-07]
