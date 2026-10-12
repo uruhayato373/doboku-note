@@ -85,6 +85,15 @@ test('欄説明の後ろにある級名は比較対象として扱い、ファ�
   assert.deepEqual(comparison, []);
 });
 
+test('D: 「（2）に入るので、検討の理由は…」の続きを（2）の中身と読まない（DN-0615）', () => {
+  const sentence = '令和6年度以降の形式では、検討した項目が（1）の区画の後半に入り、対応処置は（2）に入るので、検討の理由は項目ごとに短く絞る。';
+  const text = `# 施工経験記述\n## 令和6年度以降の現行形式\n${sentence}`;
+  assert.deepEqual(audit(text, 'civil-construction-1/fixture.md'), []);
+  // 接続で切るだけで、真の違反（（2）自体に検討項目を割り当てる文）は従来どおり出る
+  const bad = audit('# 施工経験記述\n## 令和6年度以降の現行形式\n（2）には検討した項目を書くので、短く絞る。', 'civil-construction-1/fixture.md');
+  assert.ok(bad.some((row) => row.slot === 2 && row.type === 'D'));
+});
+
 test('E: 旧3項目を現行として提示する文を捕捉する', () => {
   const rows = audit('# 施工経験記述\n## 令和6年度以降の現行形式\n課題→検討→処置の3段構成です。', 'civil-construction-2/fixture.md');
   assert.ok(types(rows).includes('E'));
