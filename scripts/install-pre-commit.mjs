@@ -675,3 +675,15 @@ try {
   // Ignore chmod errors on Windows
 }
 console.log(`✓ post-commit hook installed at ${POST_COMMIT_PATH}`);
+
+// dispatch-log.json の merge driver（DN-0635）。.gitattributes の merge=dispatch-log が指す。
+// git config はクローンごと（worktree は共有）。テスト用の DOBOKU_HOOKS_DIR のときは触れない。
+if (!process.env.DOBOKU_HOOKS_DIR) {
+  try {
+    execFileSync("git", ["config", "--local", "merge.dispatch-log.name", "dispatch-log.json の末尾追記を両方残して合わせる"], { maxBuffer: 1024 * 1024 });
+    execFileSync("git", ["config", "--local", "merge.dispatch-log.driver", "node scripts/merge-dispatch-log.mjs %O %A %B"], { maxBuffer: 1024 * 1024 });
+    console.log("✓ merge driver 'dispatch-log' registered (scripts/merge-dispatch-log.mjs)");
+  } catch (e) {
+    console.warn(`! merge driver の登録に失敗（dispatch-log.json の衝突は手で解消）: ${e.message}`);
+  }
+}
