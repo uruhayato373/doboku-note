@@ -3380,6 +3380,23 @@
       "commit": "5c92515a98e5",
       "verification": null,
       "note": "PR #1036。scripts/check-figure-references.mjs（対象 7 本・図 135 枚・本文の図参照 88 件）で図番号の重複・分割の印・alt と caption の番号・本文の図参照の節を見る（quality-audit ci:true）、--ocr で Drive vault の書籍 OCR と図名を突合（ci:false の report・読み手は Drive をマウントした Mac で full audit を回す運営者と書籍由来の記事を直す担当）。市販書籍の図名は git に置かない規約を優先し、索引は作らず OCR を直接読む。secondary-earthwork・concrete・quality-management の 3 本でずれ 9 件を直し、不一致 0 件"
+    },
+    {
+      "id": "DN-0636",
+      "at": "2026-10-12",
+      "task": "スクリプト共通化のリファクタを develop と衝突した 48 ファイルにやり直す（ルート・走査・引数・JSON 読みを共通部品へ）",
+      "tier": "low",
+      "kind": "改善",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/script-helpers-ratchet.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "f96632a552ad",
+      "verification": null,
+      "note": "PR #1034。48 ファイルの自前定義を共通部品へ（ルート 44→REPO_ROOT・走査 16→listFiles・引数 7→parseCliArgs）。ラチェット root 68→24・walk 43→27・parseArgs 26→19・readJson 10→4。readJson 6 件は意味の違う版（握りつぶす・報告に積む）なので readJsonLenient 等へ改名。CommonJS の publish-video-batch.cjs・publish-video-pack.cjs の 2 本は ESM の REPO_ROOT を同期で読めないため理由付きの root-ok。npm test 0 fail、主要スクリプトの出力が develop と一致"
     }
   ]
 }
