@@ -8,6 +8,9 @@
  * Usage:
  *   node scripts/x-sync-status.mjs          # sync + 表示
  *   node scripts/x-sync-status.mjs --dry    # 変更せず確認のみ
+ *   node scripts/x-sync-status.mjs --dry --max-age-minutes 240
+ *       # 前回の完走（state.x-sync-last-run）が 240 分以内で、queued の不在が無かったなら Playwright を起動せず終わる。
+ *       # SessionStart はこれで呼ぶ（毎セッション x.com をログイン済みプロファイルで開いて 9.6 秒掛かっていた・DN-0688）
  *   npm run x-sync-status
  */
 import fs from "fs";
@@ -15,6 +18,23 @@ import path from "path";
 import { readScheduledQueue, isTweetInQueue } from "./lib/x-scheduled-queue.mjs";
 import { createOutput, isCliEntry, runAsCli } from "./lib/cli-run.mjs";
 import { REPO_ROOT } from "./lib/repository-paths.mjs";
+import { parseCliArgs } from "./lib/cli-args.mjs";
+import { datasetPath } from "./lib/datasets.mjs";
+import { readJsonIf, writeJson } from "./lib/json-io.mjs";
+
+const LAST_RUN = datasetPath("state.x-sync-last-run");
+
+/**
+ * 前回の完走記録が TTL 内なら true。queued の不在（予約が消えている）を見つけた回は鮮度とみなさず、
+ * 次のセッションでも Playwright を起動して警告を出し直す。
+ */
+export function isSyncFresh(marker, nowMs, maxAgeMinutes) {
+  if (!marker || !Number.isFinite(maxAgeMinutes) || maxAgeMinutes <= 0) return false;
+  const t = Date.parse(marker.syncedAt);
+  if (!Number.isFinite(t) || t > nowMs) return false;
+  if (marker.missingFromQueue > 0) return false;
+  return nowMs - t <= maxAgeMinutes * 60_000;
+}
 
 // ── 2. status.json 収集 ─────────────────────────────────────────────────────
 function loadAllStatuses(ROOT) {
@@ -45,8 +65,16 @@ function loadAllStatuses(ROOT) {
 export async function run({ argv = [], quiet = false, root = REPO_ROOT } = {}) {
   const out = createOutput({ quiet });
   const ROOT = root;
-  const DRY = argv.includes("--dry");
+  const flags = parseCliArgs({ dry: { type: "boolean" }, "max-age-minutes": { type: "integer" } }, argv);
+  const DRY = flags.dry;
   const NOW = new Date();
+
+  const marker = readJsonIf(ROOT, LAST_RUN);
+  if (isSyncFresh(marker, NOW.getTime(), flags.maxAgeMinutes)) {
+    const ago = Math.round((NOW.getTime() - Date.parse(marker.syncedAt)) / 60_000);
+    out.log(`⏭ X status sync: 前回 ${ago} 分前に完走（TTL ${flags.maxAgeMinutes} 分内・キュー ${marker.queueRows ?? "?"} 行・不在 0）。Playwright は起動しない`);
+    return out.result(0);
+  }
 
   out.log(`\n🔄 X status sync ${DRY ? "[DRY RUN]" : ""} — ${NOW.toLocaleString("ja-JP", { timeZone: "Asia/Tokyo" })}`);
   out.log("📡 X 予約キューをダンプ中（Playwright、ヘッドレス）...");
@@ -153,6 +181,9 @@ export async function run({ argv = [], quiet = false, root = REPO_ROOT } = {}) {
     unconfirmedList.forEach(p => out.log(`  ⚠ ${p.at?.slice(0, 16)}  ${p.title}`));
   }
   out.log();
+
+  // 完走の記録（status.json とは別の state。--dry でも書く＝次のセッションの TTL 判定に使う）
+  writeJson(ROOT, LAST_RUN, { schemaVersion: 1, syncedAt: NOW.toISOString(), dry: DRY, queueRows: queueRows.length, missingFromQueue, unconfirmed, queued });
 
   return out.result(missingFromQueue > 0 ? 1 : 0);
 }

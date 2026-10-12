@@ -55,7 +55,8 @@ export async function fetchNoteDetails(key, { page, ...opts } = {}) {
 }
 
 /** curl で JSON を取る。JSON でない応答（HTML の 404 等）は取得失敗として区別する。 */
-function curlJson(url, { retries = 1, delayMs = 2000, timeoutSec = 25 } = {}) {
+/** note API を curl で取る唯一の実装（DN-0694 で 7 本の写しをここへ集約）。戻りは { json, error }。 */
+export function curlJson(url, { retries = 1, delayMs = 2000, timeoutSec = 25 } = {}) {
   let lastErr = 'unknown';
   for (let i = 0; i <= retries; i += 1) {
     const r = spawnSync('curl', [

@@ -368,12 +368,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
-### [DN-0693] quality-audit の duration が壁時計のみで、スリープ中の TIMEOUT 7 件が偽（単独実行の 11.7 倍）
-タグ: [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-11] [進行中]
-
-**起点**: 2026-10-11 のコード監査。.claude/state/quality/audit-latest.json（2026-10-10T03:39Z）の TIMEOUT 7 件（unit-tests 181 秒・validate-mdx 180 秒・reference-book-pages 120 秒ほか）を単独で再実行すると 37 秒・17 秒・6 秒。27 検査の合計は 1,804 秒→154.6 秒（asset-reentry は 34.8 秒→0.1 秒の 348 倍）。並列 4 の競合では説明できず、スリープ復帰か Drive の I/O 停止が壁時計に混ざった可能性が高い（原因の特定は未了）。timeout の延長や検査の分割は効かない。
-**やること**: scripts/quality-audit.mjs:521-627 の runCheck で process.hrtime との差と os.loadavg() を記録し、壁時計だけが伸びた run は timeout/fail でなく inconclusive（exit 2）にする。
-**完了条件**: 模擬スリープで inconclusive かつ exit 2 になる単体テストが node --test tests/quality-audit-*.test.mjs で通る。
 
 
 ### [DN-0688] pre-commit 13.9 秒（67 プロセス）と SessionStart の x-sync 9.6 秒を短縮する
@@ -1869,32 +1863,14 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 **完了条件**: 2 ページの CTA の変更が 10/18 までに公開され、反映 28 日後の CTA クリック率を変更前と比べた記録が本カードの完了記録にある（試験後で少数なら判定保留と書く）。
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
-### [DN-0696] public/llms.txt の本文が旧状態（対象資格 2 つ）のままで、手書き静的ファイルに生成元が無い
-タグ: [領域:サイト] [種類:不具合] [検証:check-qualification-ssot] [起票:2026-10-11]
-
-**起点**: 2026-10-11 の SEO 監査。public/llms.txt（38 URL）と llms-full.txt（811 行）の 97% が旧 /docs/ URL（301）だった点は 2026-10-11 に正規 URL へ書き換えた。しかし本文は「1級土木施工管理技士と技術士（総合技術監理部門）」の 2 資格だけの説明で、2級・コンクリート主任技士・診断士・建設部門・RCCM・/practice・/standards が無い。生成スクリプトも無く（grep で scripts/・package.json・workflows に参照なし）、記事の増減に追従しない。
-**やること**: doc-meta-index と qualification-registry から llms.txt / llms-full.txt を生成するスクリプトを作り、refresh-indexes か prebuild に載せる。本文の資格一覧は qualification-registry.json から引く（check-qualification-ssot）。
-**完了条件**: npm run refresh-indexes 後に public/llms*.txt の URL が全て正規 URL で、資格一覧が registry と一致する検査が CI にある。
 
 
-### [DN-0694] 重複実装の共通化（MDX 列挙 45 ファイル・curlJson 8 定義・classifyDoc の写し 4・loadEnv 7）とラチェットの挙動ベース化
-タグ: [領域:管理] [種類:改善] [起票:2026-10-11]
-
-**起点**: 2026-10-11 のコード監査（走査 1,624 ファイル）。tests/script-helpers-ratchet.test.mjs は walk*・parseArgs・ルート計算の名前だけを数えるので、collectMdx/findMdx/listArticles など MDX を列挙する関数 45 ファイル 49 定義（content/site を列挙するコードは 112 ファイル）、note API を curl で取る curlJson 8 定義（正規版 lib/note-api.mjs:58。再試行 0〜4 回・戻り値 null/throw/{json,error} と挙動がばらばら）、classifyDoc の写し 4 か所（正本 src/lib/doc-classifier.ts:31-39・check-magazine-cta-reachability.ts:63・check-category-curriculum.mjs:26・check-career-separation.mjs:19・lib/content-taxonomy.mjs:224）、loadEnv 7 版、toPosix 19 か所、frontmatter の読み方が gray-matter 58／手書き正規表現 55 と割れている点を素通りしている。
-**やること**: scripts/lib/mdx-files.mjs・scripts/lib/curl-json.mjs を新設し、まず note-edit-magazine など 7 本が note-api.mjs を import する。ラチェットに基準値（45／8）を足す。移行は 1 本ずつ。
-**完了条件**: 基準値を現状に置いて node --test が通り、+1 で落ちる。
 
 
-### [DN-0689] CI 基盤: PR の build 3 回を 1 回に・Node 20/22 混在を 22 へ・setup を composite action にまとめる
-タグ: [領域:管理] [種類:改善] [検証:check-workflow-hygiene] [起票:2026-10-11]
-
-**起点**: 2026-10-11 のコード監査。PR ごとに ci.yml・e2e.yml・lighthouse.yml が別々に npm run build（cloudflare-deploy.yml を含めると 4 回）。node-version は "20" が 32 か所・"22" が 13 か所で混在（Node 20 は 2026-04 に EOL、ローカルは v22.23.3、package.json:641 の engines は >=18）。npm ci が 36 ファイル・build-doc-meta-index が 21 ファイルに重複。
-**やること**: ci の out/ を artifact で e2e / lighthouse に渡す（または同じ workflow の job にまとめる）。.github/actions/setup-repo（新規）に checkout 後の共通前処理を寄せ、Node を 22 に揃え engines を >=20.9 にする（wrangler@3 を 22 で確認）。
-**完了条件**: PR 1 回で gh run view --log | grep -c 'next build' が 1。grep -c 'node-version: "20"' .github/workflows/*.yml の合計が 0 で、check-workflow-hygiene にその検査を足す。
 
 
 ### [DN-0687] knip の未使用 25 ファイル（UI バレル 18・src/lib 5・ig design 2）を消して baseline を下げる
-タグ: [領域:管理] [種類:改善] [検証:check-knip-ratchet] [起票:2026-10-11]
+タグ: [領域:管理] [種類:改善] [検証:check-knip-ratchet] [起票:2026-10-11] [進行中]
 
 **起点**: 2026-10-11 のコード監査（npx knip、Unused files 37）。残す 11 件（quality-cycle の scripts-cem/scripts-civil-textbook）は knip.json の entry が scripts/** だけで scripts-* に一致しない誤検知で、2026-10-11 に entry を足した（26 件に減少）。消せるのは src/components/ui/*/index.ts 17 本と ui/index.ts（@/components/ui/<名前> での import は 0 件・実体は <名前>/<名前> 直接 import 103 件・バレルを求める規約なし）、src/lib/image-optimization.ts・latest-posts.ts・frontmatter-schema.ts（.claude/scripts/lib/frontmatter-schema.mjs:6 のコメントと data-storage-decision.md:43 を同時に直す）・src/types/category.ts・src/utils/scrollUtils.ts、.claude/skills/social/ig-post-create/design/{design-generator,variants-generator}.mjs（144KB）。他に @fontsource/manrope が未使用依存（package.json:544）、hast が未列挙依存。
 **完了条件**: npm run check-knip-ratchet が通り、npx knip の Unused files が 1 以下。--update-baseline で baseline を下げる。

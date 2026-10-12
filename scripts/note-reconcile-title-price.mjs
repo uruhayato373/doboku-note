@@ -34,6 +34,7 @@ import { loadSiteRoutes } from './lib/site-links.mjs';
 import { todayJst } from './lib/jst-date.mjs';
 import { NOTE_CREATOR as CREATOR } from './lib/site-identity.mjs';
 import { MAX_FETCH_FAIL_RATE, fetchFailDominant } from './lib/inconclusive-gate.mjs';
+import { curlJson as apiCurlJson } from './lib/note-api.mjs';
 
 const args = process.argv.slice(2);
 const COMMIT = args.includes('--commit');
@@ -52,18 +53,12 @@ function walk(dir, acc = []) {
   return acc;
 }
 const sleep = (ms) => spawnSync(process.execPath, ['-e', `setTimeout(()=>{},${ms})`]);
-function curlJson(url) {
-  let last = 'unknown';
-  for (let a = 0; a < 4; a++) {
-    const r = spawnSync('curl', ['-sS', '-m', '30', '--ssl-no-revoke', '-H', 'User-Agent: Mozilla/5.0', '-H', 'Accept: application/json', url], { encoding: 'utf-8', maxBuffer: 64 * 1024 * 1024 });
-    const b = (r.stdout || '').trim();
-    if (b.startsWith('{')) {
-      try { const d = JSON.parse(b).data; if (d) return { data: d }; last = 'data なし'; } catch (e) { last = `parse: ${e.message}`; }
-    } else last = (r.stderr || '').trim().split('\n')[0] || `non-json (${b.slice(0, 40)})`;
-    sleep(1200 * (a + 1));
-  }
-  return { error: last };
-}
+// note API の取得は lib/note-api.mjs の curlJson に集約（DN-0694）。この script は { data } か { error } の従来の形（再試行 4 回・間隔は増やす）
+const curlJson = (url) => {
+  const { json, error } = apiCurlJson(url, { retries: 3, delayMs: 1200 });
+  if (json?.data) return { data: json.data };
+  return { error: error ?? 'data なし' };
+};
 
 const toLf = (s) => s.replace(/\r\n?/g, '\n');
 const fmBlock = (src) => src.match(/^---\n([\s\S]*?)\n---/)?.[1] ?? null;
