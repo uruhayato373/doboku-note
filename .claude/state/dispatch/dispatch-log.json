@@ -3261,6 +3261,23 @@
       "commit": "80059715d661",
       "verification": null,
       "note": "PR #1028。npm run check-branch-hygiene（scripts/lib/branch-hygiene.mjs）で、develop に入り済みのブランチ（squash は merge-tree の tree 一致か PR 記録）・N 日止まった未マージのブランチ・未コミットのまま N 日止まった worktree を報告する（削除しない）。一時 git リポジトリのテスト 7 件で 3 種類と squash 済みの誤検出なしを確認。quality-audit に ci:false で登録"
+    },
+    {
+      "id": "DN-0676",
+      "at": "2026-10-12",
+      "task": "check-seo-build の warn（1,390 件）が CI ログにしか残らず、誰も読んでいない",
+      "tier": "low",
+      "kind": "改善",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/seo-build-summary.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "aa231fb8585d",
+      "verification": null,
+      "note": "PR #1026。check-seo-build --summary-out の検査数・error・warn 型別件数を、ci.yml の publish-seo-summary（develop push のみ・ci-data add）が data/analysis/seo-build-summary.json に足す。2026-10-12 の初回（aa231fb85）で書き戻しを確認。build-weekly-review-draft が件数と前週比を出す（テスト固定）。planned 外しは PR #1031"
     }
   ]
 }
