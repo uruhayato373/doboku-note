@@ -38,6 +38,22 @@ const evidenceLabels: Record<string, string> = { 'body-reviewed': '本文照合'
 const needsAttention = (u: Unit) => u.pending || u.sourceWaiting || u.stale;
 const pct = (n: number, d: number) => (d ? `${Math.round((n / d) * 100)}%` : '—');
 
+/** 本文の割合（対象外を除いた論点に対する内容対応ありの割合）と、100% に届かない理由の内訳。 */
+function ContentCell({ m }: { m: Summary }) {
+  const notes = [
+    m.contentBlocked > 0 && <span key="b" className="project-warning-text">原典待ち {m.contentBlocked}</span>,
+    m.contentPartial > 0 && <span key="p" className="project-warning-text">一部対応 {m.contentPartial}</span>,
+    m.contentUnreviewed > 0 && <span key="u" className="project-warning-text">未確認 {m.contentUnreviewed}</span>,
+    m.contentExcluded > 0 && <span key="e" className="text-muted-foreground">対象外 {m.contentExcluded}</span>,
+  ].filter(Boolean);
+  return (
+    <>
+      {pct(m.content, m.contentTarget)}
+      {notes.length > 0 && <div className="flex flex-col items-end text-[11px] leading-tight">{notes}</div>}
+    </>
+  );
+}
+
 /**
  * /materials — 教材（人が見る画面）。一覧は教材ごとの展開状況（本文・図解・SNS・商品）、
  * `?id=<教材id>` はその教材の論点ごとの展開先と、展開予定（バックログのカード）を出す。論点の行を開くと
@@ -111,7 +127,7 @@ function List({ sources, issues, products, wiring }: { sources: Source[]; issues
                   <Link href={`/materials?id=${encodeURIComponent(s.sourceId)}`}>{s.title}</Link>
                 </TableCell>
                 <TableCell className={numCol}>{m.units}</TableCell>
-                <TableCell className={numCol}>{pct(m.content, m.units)}</TableCell>
+                <TableCell className={numCol}><ContentCell m={m} /></TableCell>
                 <TableCell className={numCol}>
                   {m.visual}
                   {m.visualNeeded > 0 && <span className="project-warning-text"> +要{m.visualNeeded}</span>}
@@ -143,6 +159,10 @@ function List({ sources, issues, products, wiring }: { sources: Source[]; issues
           })}
         </TableBody>
       </TableFrame>
+      <p className="small muted mt-2">
+        本文＝内容対応ありの論点 ÷（論点 − 対象外）。対象外は意図して展開しない論点（旧年度の手続き・見出しだけの構造・対象外の部門など）。
+        原典待ちは原本のページが無く展開できない論点、一部対応は原本の一部しか照合できていない論点。行を開くと論点ごとの理由が見られる。
+      </p>
     </>
   );
 }
@@ -159,7 +179,10 @@ function Detail({ source, products, onlyAttention, sitePages }: { source: Source
       <div className="small mb-2 flex justify-between">
         <Link href="/materials">← 教材一覧へ</Link>
         <span className="muted">
-          論点 {m.units} · 本文 {pct(m.content, m.units)} · 図解 {m.visual} · SNS {m.sns} · 商品 {pct(source.units.filter((u) => products(u).length > 0).length, m.units)}
+          論点 {m.units} · 本文 {pct(m.content, m.contentTarget)}
+          {m.contentExcluded > 0 && `（対象外 ${m.contentExcluded} を除く）`}
+          {m.contentBlocked > 0 && ` · 原典待ち ${m.contentBlocked}`}
+          {m.contentPartial > 0 && ` · 一部対応 ${m.contentPartial}`} · 図解 {m.visual} · SNS {m.sns} · 商品 {pct(source.units.filter((u) => products(u).length > 0).length, m.units)}
         </span>
       </div>
       <nav className="filterbar small mb-2!">
