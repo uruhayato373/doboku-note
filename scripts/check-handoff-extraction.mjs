@@ -44,6 +44,7 @@
 
 import { execFileSync } from 'node:child_process';
 import { parseBacklog } from './lib/backlog-lib.mjs';
+import { liveDocsReferencing } from './check-project-task-refs.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import {
   HANDOFF_DIRECT_RE,
@@ -58,6 +59,9 @@ import {
   idsFromCards,
   completedIdsFromDispatchLog,
   experimentIdsFrom,
+  cardIdsInBacklog,
+  removedCardIds,
+  danglingIdsIn,
 } from './lib/handoff-extraction.mjs';
 
 const ARCHIVE_PREFIX = 'docs/handoffs/_archive/';
@@ -204,6 +208,46 @@ if (deletedWeekly.length > 0 || changedReviews.length > 0) {
           `  書式: 「→ 振り分け: DN-0301」（backlog 起票・既存カード）／「→ 振り分け: 定常」（weekly.md 定常運用）／\n` +
           `  「→ 振り分け: #485」（Issue）／「→ 振り分け: EXP-007」（実験）。`
       );
+    }
+  }
+}
+
+// --- ルール5・6: カードの閉じ方と引き継ぎの参照（DN-0587） ---
+// CI の dangling-id は docs/handoffs/・docs/reviews/ では warning なので、赤にしない代わりにここで止める。
+const backlogNow = showIndex(BACKLOG);
+if (backlogNow != null) {
+  // 5. backlog からカードを消すコミットは、その ID を指す live 文書（引き継ぎ含む）が index に残っていれば止める。
+  //    todo:complete 経由でも手動削除でも同じ（todo-complete の liveDocsReferencing を流用）。参照を直す変更は同じコミットに入れる。
+  const removed = removedCardIds(showHead(BACKLOG) ?? '', backlogNow);
+  for (const id of removed) {
+    let paths = [];
+    try {
+      paths = lines(git(['grep', '--cached', '-l', '-w', '-e', id, '--', 'docs/*.md']));
+    } catch {
+      paths = []; // 該当なしは git grep が exit 1
+    }
+    const refs = liveDocsReferencing(paths.map((rel) => ({ rel, content: showIndex(rel) ?? '' })), id);
+    if (refs.length > 0) {
+      problems.push(
+        `[closed-card-referenced] ${id}\n` +
+          `  このコミットは ${BACKLOG} から ${id} を消すが、${refs.length} 件の文書がまだ指している: ${refs.join(', ')}\n` +
+          `  参照を完了扱いの文面（または削除）へ書き換えて同じコミットに入れてください。そのまま閉じると別ブランチの CI が dangling-id で赤くなります。`
+      );
+    }
+  }
+  // 6. 引き継ぎを足す・変えるコミットは、指す DN-ID が backlog か完了記録に在ること
+  const handoffs = staged.filter((s) => s.status !== 'D' && HANDOFF_DIRECT_RE.test(s.path)).map((s) => s.path);
+  if (handoffs.length > 0) {
+    const known = { backlogIds: cardIdsInBacklog(backlogNow), completedIds: completedIdsFromDispatchLog(readIndexJson(DISPATCH_LOG)) };
+    for (const path of handoffs) {
+      const dangling = danglingIdsIn(showIndex(path) ?? '', known);
+      if (dangling.length > 0) {
+        problems.push(
+          `[handoff-dangling-id] ${path}\n` +
+            `  backlog にも dispatch-log の完了記録にも無い ID を指している: ${dangling.join(', ')}\n` +
+            `  実在の ID に直すか、台帳外の作業ならカードを起票してから書いてください。`
+        );
+      }
     }
   }
 }
