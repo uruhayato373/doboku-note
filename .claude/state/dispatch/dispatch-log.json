@@ -3499,6 +3499,23 @@
       "commit": "4eab9f7e8bc0",
       "verification": null,
       "note": "前半 PR #999（x-sync の TTL）、後半 PR #1042。pre-commit をディスパッチャ（scripts/pre-commit-dispatch.mjs・表は scripts/lib/pre-commit-steps.mjs）にし、検査 72 本に run() を足して同じプロセスで呼ぶ。一時 index に MDX 1 本で旧 12.76/12.56/12.19 秒・node 72 起動 → 新 3.89/3.88/3.95 秒・4 起動。旧フックを写した 73 行の表と 20 通りで呼ばれる検査と引数が一致、旧版と新版で 73 検査の exit code・出力が 8 種の変更すべてで一致。check-datasets・check-seo-rank-watch・check-qualification-ssot は入力に当たらない staged では飛ばす（追加・削除・改名は必ず回す）。2026-10-12 に共有フックを再インストール、session-start 2 回目 4.95 秒"
+    },
+    {
+      "id": "DN-0699",
+      "at": "2026-10-12",
+      "task": "記述を組み合わせる形の過去問 125 問の解説に、記述ごとの正誤と理由を足す（DN-0671 の残り）",
+      "tier": "mid",
+      "kind": "制作",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/statement-explanations.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "111462f74038",
+      "verification": null,
+      "note": "PR #1043。記事の MDX から洗い出した 114 問（総監 39・技術士一次 56・2級 12・1級 7）のうち 113 問に記述ごとの正誤と理由を足した（記述の正誤は公式の正答から決定）。抽出（statement-explanations.mjs）を（カ）（キ）・用語（A）〜（E）・総括行の誤抽出に対応させ既存の誤抽出 2 件も解消。e-Gov（労安法・クレーン則・技術士法・製造物責任法・知的財産基本法）と公的資料で照合し、取れないものは断定を避けた。残る 1 問（h28-aptitude Ⅱ-15）は選択肢自体が長文の記述で、記述の解説にすると選択肢の解説と同じになるため対象外。check-answer-marks FAIL 0。作業中に見つかった r07-aptitude Ⅱ-8 の選択肢 ④ の転記ミスは公式 PDF で確かめて 111462f74 で修正"
     }
   ]
 }
