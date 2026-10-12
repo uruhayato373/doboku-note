@@ -3,11 +3,14 @@ notePricing: free
 noteSeries: 施工経験記述
 noteContentType: learning
 utmCampaign: 2c-essay-3weeks
+notePublishedAt: "2026-10-12"
+noteId: "n1edc95f39203"
+noteUrl: "https://note.com/dobokunote/n/n1edc95f39203"
 title: "2級土木 施工経験記述｜二次まで残り3週間で仕上げる手順 — 1つの工事で3テーマを書き切る"
 coverTitle:
   - 二次まで残り3週間
   - 施工経験記述の仕上げ方
-noteStatus: draft
+noteStatus: published
 cover:
   variant: crop-safe-v4
   leadIn: "2級土木｜施工経験記述"
