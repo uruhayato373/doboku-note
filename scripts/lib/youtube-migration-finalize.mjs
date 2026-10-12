@@ -1,5 +1,5 @@
 import { Readable } from 'node:stream';
-import { MIGRATION, sha256, writableSnippet, writableStatus, getVideo, assertOldUnchanged, assertProcessed } from './youtube-migration.mjs';
+import { MIGRATION, sha256, writableSnippet, sameSnippet, writableStatus, getVideo, assertOldUnchanged, assertProcessed } from './youtube-migration.mjs';
 import { fetchThumbnail, compareThumbnail } from './youtube-thumbnail-image.mjs';
 
 export const THUMBNAIL_RETRY_NOT_BEFORE = '2026-09-10T10:40:47Z';
@@ -97,12 +97,12 @@ export async function activateReplacement(youtube, item, { load, save, commit })
   const snippet = receipt.desiredSnippet ?? item.desiredSnippet ?? writableSnippet(old), status = desiredStatus(old);
   if (!commit) return { phase: 'activation-dry-run' };
   receipt.activationIntent = { checkedAt: now(), snippet, status }; await save(receipt.oldId, receipt);
-  if (!same(writableSnippet(video), snippet) || !same({ ...writableStatus(video), privacyStatus: video.status.privacyStatus, ...(video.status.publishAt ? { publishAt: video.status.publishAt } : {}) }, status)) {
+  if (!sameSnippet(video.snippet, snippet) || !same({ ...writableStatus(video), privacyStatus: video.status.privacyStatus, ...(video.status.publishAt ? { publishAt: video.status.publishAt } : {}) }, status)) {
     await youtube.videos.update({ part: 'snippet,status', requestBody: { id: receipt.newId, snippet, status } }, { retry: false });
     video = await getVideo(youtube, receipt.newId, true);
   }
   const scheduleMatches = !status.publishAt ? !video.status.publishAt : Date.parse(video.status.publishAt) === Date.parse(status.publishAt);
-  if (!same(writableSnippet(video), snippet) || !same(writableStatus(video), writableStatus({ status })) || video.status.privacyStatus !== status.privacyStatus || !scheduleMatches) throw new Error('Activation readback differs');
+  if (!sameSnippet(video.snippet, snippet) || !same(writableStatus(video), writableStatus({ status })) || video.status.privacyStatus !== status.privacyStatus || !scheduleMatches) throw new Error('Activation readback differs');
   receipt.phase = 'activated'; receipt.activation = { checkedAt: now(), snippet, status }; receipt.newVideo = video;
   await save(receipt.oldId, receipt);
   return { phase: 'activated' };
@@ -111,7 +111,7 @@ function assertActivatedVideo(video, receipt, item) {
   if (!assertProcessed(video, item)) throw new Error('Replacement unavailable');
   const expected = desiredStatus({ ...item.oldVideo, status: receipt.activation.status });
   const scheduleMatches = expected.publishAt ? Date.parse(video.status.publishAt) === Date.parse(expected.publishAt) : !video.status.publishAt;
-  if (video.status.privacyStatus !== expected.privacyStatus || !scheduleMatches || !same(writableStatus(video), writableStatus({ status: expected })) || !same(writableSnippet(video), receipt.activation.snippet)) throw new Error('Replacement changed after activation');
+  if (video.status.privacyStatus !== expected.privacyStatus || !scheduleMatches || !same(writableStatus(video), writableStatus({ status: expected })) || !sameSnippet(video.snippet, receipt.activation.snippet)) throw new Error('Replacement changed after activation');
 }
 const authoredCaptions = tracks => (tracks ?? []).filter(c => c.snippet?.trackKind !== 'ASR');
 const captionIdentity = c => ({ id: c.id, language: c.snippet?.language, name: c.snippet?.name, lastUpdated: c.snippet?.lastUpdated, status: c.snippet?.status, isDraft: c.snippet?.isDraft, trackKind: c.snippet?.trackKind });

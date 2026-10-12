@@ -21,6 +21,35 @@ test('activation removes staging marker, preserves schedule, never deletes', asy
   assert.deepEqual(f.receipt().activation.snippet.tags, ['試験']); assert.equal(f.receipt().activation.status.publishAt, old.status.publishAt); assert.equal(f.mutations(), 1);
   await activateReplacement(f.youtube, item, f.options); assert.equal(f.mutations(), 1);
 });
+test('API tag reordering passes activation readback and resumes without rewriting', async () => {
+  const f = fixture();
+  const target = { ...item, desiredSnippet: { ...old.snippet, tags: ['z', 'a'] } };
+  const list = f.youtube.videos.list;
+  f.youtube.videos.list = async args => {
+    const result = await list(args);
+    if (args.id !== old.id) result.data.items[0].snippet.tags.sort();
+    return result;
+  };
+  assert.equal((await activateReplacement(f.youtube, target, f.options)).phase, 'activated');
+  await activateReplacement(f.youtube, target, f.options);
+  assert.equal(f.mutations(), 1);
+  assert.deepEqual(target.desiredSnippet.tags, ['z', 'a']);
+  assert.equal((await deleteOldReplacement(f.youtube, target, f.options)).phase, 'deleted');
+});
+test('missing or changed tags still block activation readback', async () => {
+  for (const tags of [['a'], ['a', 'different']]) {
+    const f = fixture();
+    const target = { ...item, desiredSnippet: { ...old.snippet, tags: ['z', 'a'] } };
+    const list = f.youtube.videos.list;
+    f.youtube.videos.list = async args => {
+      const result = await list(args);
+      if (args.id !== old.id) result.data.items[0].snippet.tags = tags;
+      return result;
+    };
+    await assert.rejects(activateReplacement(f.youtube, target, f.options), /readback differs/);
+    assert.equal(f.receipt().activation, undefined);
+  }
+});
 test('missing display, playback, or playlist proof blocks activation without mutations', async () => {
   for (const key of ['thumbnail', 'playbackVerification', 'preservationAudit']) {
     const f = fixture(); f.mutateReceipt(r => { delete r[key]; });

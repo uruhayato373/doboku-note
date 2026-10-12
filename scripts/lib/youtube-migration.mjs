@@ -4,6 +4,14 @@ export const sha256 = value => createHash('sha256').update(value).digest('hex');
 export const MIGRATION = 'bridge-notebook-a-20260909';
 const pick = (o, keys) => Object.fromEntries(keys.filter(k => o[k] !== undefined && o[k] !== null).map(k => [k, o[k]]));
 export const writableSnippet = video => pick(video.snippet, ['title', 'description', 'tags', 'categoryId', 'defaultLanguage', 'defaultAudioLanguage']);
+export function sameSnippet(left, right) {
+  const canonical = snippet => {
+    const value = writableSnippet({ snippet });
+    if (value.tags) value.tags = [...value.tags].sort();
+    return JSON.stringify(value);
+  };
+  return canonical(left) === canonical(right);
+}
 export const writableStatus = video => pick(video.status, ['embeddable', 'license', 'publicStatsViewable', 'selfDeclaredMadeForKids', 'containsSyntheticMedia']);
 export const migrationMarker = item => `dn-a-${sha256(item.oldVideo.id + item.media.sha256).slice(0, 24)}`;
 export function durationSeconds(value) {
@@ -37,7 +45,7 @@ export async function getVideo(youtube, id, details = false) {
 }
 export function assertOldUnchanged(actual, frozen) {
   if (!actual || actual.id !== frozen.id || actual.snippet.channelId !== frozen.snippet.channelId ||
-      JSON.stringify(writableSnippet(actual)) !== JSON.stringify(writableSnippet(frozen)) ||
+      !sameSnippet(actual.snippet, frozen.snippet) ||
       JSON.stringify(writableStatus(actual)) !== JSON.stringify(writableStatus(frozen))) throw new Error('Old video metadata drift');
   const scheduledTransition = frozen.status.privacyStatus === 'private' && frozen.status.publishAt && Date.parse(frozen.status.publishAt) <= Date.now() && actual.status.privacyStatus === 'public';
   if (!scheduledTransition && (actual.status.privacyStatus !== frozen.status.privacyStatus || actual.status.publishAt !== frozen.status.publishAt)) throw new Error('Old video visibility/schedule drift');
