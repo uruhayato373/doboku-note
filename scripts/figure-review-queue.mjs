@@ -33,7 +33,7 @@ import { analyzeImage } from './check-figure-crop-integrity.mjs';
 import { readMdxFile, writeMdxFile } from '../.claude/scripts/lib/mdx-io.mjs';
 import {
   LEDGER_FILE, emptyLedger, fileSha, buildQueue, listFigureKeys, describeFigure,
-  syncImageDims, validateVerdict,
+  syncImageDims, validateVerdict, provenanceEntryFor,
 } from './lib/figure-review.mjs';
 
 const ROOT = resolve(import.meta.dirname, '..');
@@ -265,9 +265,7 @@ async function runRecord(file) {
       reviewedAt: new Date().toISOString(),
     };
     if (v.source) {
-      const { pdf, page, dpi } = v.source;
-      const keepKind = sourcesDoc.provenance[v.figKey]?.kind === 'exam-official' ? { kind: 'exam-official' } : {}; // PDF から切り出した図は pdf-crop（kind 省略）か試験の図
-      sourcesDoc.provenance[v.figKey] = { ...keepKind, pdf: portablePath(pdf), ...(page >= 1 ? { page } : {}), ...(Number.isInteger(dpi) ? { dpi } : {}) };
+      sourcesDoc.provenance[v.figKey] = provenanceEntryFor(sourcesDoc.provenance[v.figKey], { ...v.source, pdf: portablePath(v.source.pdf) });
       provenanceUpdated++;
     }
   }

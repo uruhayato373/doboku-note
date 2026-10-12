@@ -37,6 +37,10 @@ const RESULT_SCHEMA = {
     sourcePdf: { type: 'string', description: 'reextract の出典 PDF パス。それ以外は空文字' },
     sourcePage: { type: 'number', description: 'reextract の出典ページ（1 始まり）。それ以外は0' },
     sourceDpi: { type: 'number', description: 'reextract のレンダリング dpi。それ以外は0' },
+    rotate: { type: 'number', description: 'reextract の回転（時計回り 0/90/180/270）。cropBox は回した後のページ画像の座標。それ以外は0' },
+    postDespeckle: { type: 'number', description: 'reextract で孤立した黒い点を消した面積の上限（画素）。しなければ0' },
+    postWidth: { type: 'number', description: 'reextract で縮めた後の幅。縮めなければ0' },
+    postColors: { type: 'number', description: 'reextract で png を減色した色数。しなければ0' },
     selfVerify: { type: 'string', enum: ['clean', 'suspect'] },
   },
 }
@@ -76,6 +80,7 @@ const fallback = (it) => ({
   figKey: it.figKey, action: 'error',
   reason: 'agent returned null（未処理）', selfVerify: 'suspect',
   newWidth: 0, newHeight: 0, cropBox: '', removed: '', sourcePdf: '', sourcePage: 0, sourceDpi: 0,
+  rotate: 0, postDespeckle: 0, postWidth: 0, postColors: 0,
 })
 
 phase('Crop')

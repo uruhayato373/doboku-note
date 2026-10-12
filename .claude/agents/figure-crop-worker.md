@@ -125,15 +125,14 @@ PDF が見つからない・ページが特定できない・図がベクター�
 書籍の撮影写真から切り出すとき、傾き・湾曲を変形で補正するとグラフの点の位置（読める値）が変わる。補正したら、旧画像と記事本文の数値と比べて値が原典どおりに読めるかを確かめ、ずれたら `reason` に書く。
 
 ### Step 3: 切り出す
-ページ画像のインクプロファイルで図本体（欠けていた部分を含む）の外接矩形を決め、外側に約 12px の白余白を残して切る。図番号キャプション・設問文・正答・解説（答えになる記述）は入れない。
+ページ画像（Step 2 の `pdftoppm` の出力・**回転が要るページは回した後の画像**）のインクプロファイルで図本体（欠けていた部分を含む）の外接矩形 `L,T,R,B` を決め、外側に約 12px の白余白を残して切る。図番号キャプション・設問文・正答・解説（答えになる記述）は入れない。**回転（書籍スキャンの逆さページは 180）の角度と `L,T,R,B` は結果に返す**（後で同じ画像を作り直すための記録になる・DN-0570）。
+
+実際の切り出しは次のコマンドで行う（描画・回転・切り出し・後処理・書き出しを記録と同じ手順で行う。自前の PIL/sharp で切ると記録から作り直せない）。`--out` の拡張子で形式が決まる。出力の JSON の `source` が記録される内容:
 ```bash
-cd "$(git rev-parse --show-toplevel)" && python3 -c "from PIL import Image; im=Image.open('$W/page-P.png').convert('RGB'); c=im.crop((L,T,R,B)); c.save('$W/new.png'); print(c.width,c.height)"
+cd "$(git rev-parse --show-toplevel)" && node scripts/figure-reextract.mjs cut --pdf '<recordedSource.pdf か原典の vault: パス>' --page P --dpi D --rotate 0 --box L,T,R,B --out REL.webp
+# png がある図は --out REL.png で書いてから、同じ --box・後処理で REL.webp も書く
 ```
-配信形式に合わせて書き出す（png があれば png を置き換えて webp を再生成、webp だけなら webp に書き出す）。300dpi の切り出しは大きくなりやすい（網点のスキャンは圧縮が効かない）ので、書き出した画像が上限（`config/image-limits.json`・webp 150KB／png 100KB）を超えたら、webp は幅を縮めて、png は 16 色パレットにして（`sharp(p).png({palette:true,colors:16,compressionLevel:9})`）書き直す:
-```bash
-cd "$(git rev-parse --show-toplevel)" && cp $W/new.png REL.png   # png がある図のみ
-cd "$(git rev-parse --show-toplevel)" && node -e "const s=require('sharp');s('$W/new.png').webp({quality:80}).toFile('REL.webp').then(i=>console.log(i.width+'x'+i.height))"
-```
+300dpi の切り出しは大きくなりやすい（網点のスキャンは圧縮が効かない）ので、書き出した画像が上限（`config/image-limits.json`・webp 150KB／png 100KB）を超えたら、`--width W` で縮めるか png は `--colors 16` で減色し、孤立した黒い点（スキャンのごみ）は `--despeckle N`（面積 N 画素未満の黒い成分を白にする）で消して書き直す。使った `--width`・`--colors`・`--despeckle` も結果に返す。
 
 ### Step 4: 自己検証
 新しい画像を Read し、**欠けていた部分が復元され、写り込み・答えが無い**ことを確認。`node scripts/check-figure-crop-integrity.mjs --file <REL>` で `STRAY_SLIVER`・新しい `EDGE_CUT` が無いことを確かめる。旧画像と比べて図の内容（ラベル・数値・記号）が一致しているか（別の図を掴んでいないか）を確認する。
@@ -144,7 +143,8 @@ cd "$(git rev-parse --show-toplevel)" && node -e "const s=require('sharp');s('$W
 - `figKey`（入力の figKey をそのまま）
 - `action`（review: `crop`/`ok`/`needs-source`・reextract: `reextract`/`source-unavailable`）
 - `newWidth`/`newHeight`（ファイルを書き換えたときの実寸。それ以外は 0）
-- `cropBox`（`(left,top,right,bottom)`。書き換えていなければ空文字）
+- `cropBox`（`(left,top,right,bottom)`。書き換えていなければ空文字。reextract は回転後のページ画像の座標）
+- `rotate`（reextract の回転。時計回り 0/90/180/270。それ以外は 0）・`postDespeckle`・`postWidth`・`postColors`（reextract で使った後処理。しなければ 0）
 - `removed`（除去した写り込み／復元した欠け の内訳）
 - `reason`（判定根拠。needs-source は**どの縁の何が切れているか**を具体的に）
 - `sourcePdf` / `sourcePage` / `sourceDpi`（reextract で切り出したときの出典。それ以外は空文字・0）

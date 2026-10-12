@@ -70,6 +70,14 @@ export function needsFromVerdict(verdict) {
   return { ok: 'ok', 'needs-source': 'reextract', 'source-unavailable': 'rescan-need-source' }[verdict] ?? null;
 }
 
+/** `(l,t,r,b)`・`l,t,r,b`・配列 → [l,t,r,b]（整数 4 つで r>l・b>t・負でない）。不正なら null */
+export function parseCropBox(v) {
+  const nums = Array.isArray(v) ? v : String(v ?? '').match(/-?\d+(?:\.\d+)?/g)?.map(Number);
+  if (!nums || nums.length !== 4 || !nums.every((n) => Number.isInteger(n) && n >= 0)) return null;
+  const [l, t, r, b] = nums;
+  return r > l && b > t ? [l, t, r, b] : null;
+}
+
 /**
  * 1 枚の兆候。needs は provenance（OCR）、violations は画素検査（analyzeImage）の結果。写真（entropy ≥ PHOTO_ENTROPY）は画素の兆候を使わない。
  * imgSize と minLongSide を渡すと、長辺が minLongSide 未満の図に LOW_RES を付ける（2026-10-07: 260×280 の図が「sharp」判定で素通りしていた）。
@@ -233,8 +241,34 @@ export function validateVerdict(v) {
   if (v.action === 'reextract' && !(v.source && v.source.pdf && Number.isInteger(v.source.page))) {
     errs.push(`${v.figKey}: 切り出し直し（reextract）は source.pdf と source.page が必要（次に辿り直さないため）`);
   }
+  if (v.source && v.source.cropBox !== undefined && !parseCropBox(v.source.cropBox)) {
+    errs.push(`${v.figKey}: source.cropBox は [left, top, right, bottom]（整数・right > left・bottom > top）`);
+  }
+  if (v.source && v.source.rotate !== undefined && ![0, 90, 180, 270].includes(v.source.rotate)) {
+    errs.push(`${v.figKey}: source.rotate は 0 / 90 / 180 / 270`);
+  }
+  if (v.action === 'reextract' && v.source && !parseCropBox(v.source.cropBox)) {
+    errs.push(`${v.figKey}: 切り出し直し（reextract）は source.cropBox が必要（枠と回転を残さないと同じ画像を作り直せない・DN-0570）`);
+  }
   if (v.verdict === 'needs-source' && v.action && v.action !== 'none') {
     errs.push(`${v.figKey}: needs-source は直していない判定なので action は none`);
   }
   return errs;
+}
+
+/**
+ * 判定の source（pdf は portable な形にしてから渡す）から provenance の 1 件を作る。
+ * PDF から切り出した図は pdf-crop（kind 省略）か試験の図（prior が exam-official ならそのまま）。
+ * 切り出し枠・回転・後処理（DN-0570）は値のあるものだけ書く（回転 0 と空の後処理は省く）。前の記録の枠は引き継がない（画像が変わったため）。
+ */
+export function provenanceEntryFor(prior, { pdf, page, dpi, cropBox, rotate, post }) {
+  const keepKind = prior?.kind === 'exam-official' ? { kind: 'exam-official' } : {};
+  const box = parseCropBox(cropBox);
+  const p = Object.fromEntries(['despeckle', 'width', 'colors'].filter((k) => Number.isInteger(post?.[k]) && post[k] > 0).map((k) => [k, post[k]]));
+  return {
+    ...keepKind, pdf,
+    ...(page >= 1 ? { page } : {}),
+    ...(Number.isInteger(dpi) ? { dpi } : {}),
+    ...(box ? { cropBox: box, ...(rotate ? { rotate } : {}), ...(Object.keys(p).length ? { post: p } : {}) } : {}),
+  };
 }

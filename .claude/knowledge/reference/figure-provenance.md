@@ -73,6 +73,6 @@ OCR/シャープネスでは検出できない欠陥がある。最重要は **�
 
 ## 拡張余地（未実装）
 
-- **クロップパイプラインが provenance を書き込む**: `/figure-quality-loop` の切り出し直しは出典（PDF・ページ・dpi）を `config/figure-sources.json` の `provenance` に残す（2026-10-06 に判定台帳へ記録を始め、10-07 に manual_needs の出典 69 件と合わせて移した）。切り出し枠・回転は未記録で、同じ画像は作り直せない（DN-0555）。`civil-figure-rework` の inject / `pdf-to-mdx` の crop は未対応。
+- **クロップパイプラインが provenance を書き込む**: `/figure-quality-loop` の切り出し直しは出典（PDF・ページ・dpi）を `config/figure-sources.json` の `provenance` に残す（2026-10-06 に判定台帳へ記録を始め、10-07 に manual_needs の出典 69 件と合わせて移した）。切り出し枠・回転・後処理（`cropBox`・`rotate`・`post`）も record が worker の結果から残し、`npm run figure-reextract -- <figKey>` が記録から画像を作り直して配信中の画像と照合する（DN-0570。2026-10-12 に枠の分かる 4 枚を画像照合で逆算して記録）。それ以前の記録は枠が無く作り直せない。`civil-figure-rework` の inject / `pdf-to-mdx` の crop は未対応。
 - **原典との結線（2026-10-07・DN-0563/0564）**: 切り出し直しの依頼には、記事の `sources:` → `config/reference-sources.json`（書籍の PDF・向き・OCR、白書の `vaultCopies`）から引いた原典候補が付く（`scripts/lib/figure-source-wiring.mjs`）。`check-reference-sources` は `provenance` と記事の `sources:` を突き合わせ、宣言もれを止め、流用不可（`commercial-book`）の書籍から試験ページ以外の記事か試験ページの解説欄へ切り出した図を baseline（`.claude/config/reference-sources-baseline.json` の `figureReuseDebt`）で管理する。queue はその図を切り出し直しに回さない。
 - 真実源: 台帳と図ごとの出典＝`figure-sources.json`、品質＝`figure-text-audit.json`（audit-figure-text.mjs 生成）、目視判定＝`figure-review-ledger.json`、実装＝`scripts/build-figure-provenance.mjs`・`scripts/figure-review-queue.mjs`・`scripts/lib/figure-source-wiring.mjs`。

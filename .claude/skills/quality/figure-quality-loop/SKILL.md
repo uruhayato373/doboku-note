@@ -68,7 +68,7 @@ Workflow({ scriptPath: ".claude/skills/quality/figure-recrop/scripts/figure-crop
 | `ok` | — | `ok` | `none` |
 | `crop` | 合格 | `ok` | `recrop` |
 | `needs-source` | — | `needs-source` | `none` |
-| `reextract` | 合格 | `ok` | `reextract`（`source: {pdf, page, dpi}` 必須） |
+| `reextract` | 合格 | `ok` | `reextract`（`source: {pdf, page, dpi, cropBox, rotate?, post?}` 必須。cropBox は worker の結果の座標・回転後のページ画像。post は `{despeckle?, width?, colors?}`。後で `npm run figure-reextract -- <figKey>` が記録から作り直して照合する） |
 | `source-unavailable` | — | `source-unavailable` | `none` |
 | `error`・QA 不合格 | — | 記録しない | — |
 

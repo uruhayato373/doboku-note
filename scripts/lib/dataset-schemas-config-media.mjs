@@ -131,6 +131,20 @@ const FigureProvenance = z
     pdf: z.string().regex(/^(?:vault:原資料PDF\/.+|https:\/\/.+)$/, 'vault:原資料PDF/… か https の URL').optional().describe('図を切り出した原典'),
     page: z.number().int().min(1).optional().describe('PDF のページ（特定していなければ書かない）'),
     dpi: z.number().int().min(0).optional().describe('切り出しの解像度（0 は PDF でなく画像から切り出した）'),
+    cropBox: z
+      .tuple([z.number().int().min(0), z.number().int().min(0), z.number().int().min(1), z.number().int().min(1)])
+      .optional()
+      .describe('切り出し枠 [left, top, right, bottom]。pdftoppm で dpi 描画し rotate を当てた後のページ画像の画素（DN-0570・scripts/lib/figure-recipe.mjs の手順）'),
+    rotate: z.union([z.literal(0), z.literal(90), z.literal(180), z.literal(270)]).optional().describe('描画したページを時計回りに回す角度（書籍スキャンの逆さページ）。省略は 0'),
+    post: z
+      .object({
+        despeckle: z.number().int().min(1).optional().describe('面積がこの画素数未満の孤立した黒い点を白にする'),
+        width: z.number().int().min(1).optional().describe('切り出し後にこの幅へ縮小する（画像の上限を超えたとき）'),
+        colors: z.number().int().min(2).max(256).optional().describe('png をこの色数のパレットにする（減色）'),
+      })
+      .strict()
+      .optional()
+      .describe('切り出し後の処理（点の除去 → 縮小 → 減色の順）'),
     url: z.string().regex(/^https:\/\/.+/).optional().describe('公的資料の元のページ'),
     license: z.string().min(1).optional().describe('利用条件（公共データ利用規約 1.0・政府標準利用規約 など）'),
     credit: z.string().min(1).optional().describe('提供者（caption に出典として出す名前）'),
@@ -144,6 +158,12 @@ const FigureProvenance = z
     const kind = v.kind ?? 'pdf-crop';
     for (const k of ORIGIN_REQUIRED[kind]) if (v[k] === undefined) flag(ctx, [k], `${kind} には ${k} が要る`);
     if (kind !== 'pdf-crop' && kind !== 'exam-official' && (v.page !== undefined || v.dpi !== undefined)) flag(ctx, ['page'], 'page・dpi は PDF から切り出した図（pdf-crop・exam-official）だけに書く');
+    if (v.cropBox !== undefined) {
+      const [l, t, r, b] = v.cropBox;
+      if (r <= l || b <= t) flag(ctx, ['cropBox'], 'cropBox は [left, top, right, bottom] で right > left・bottom > top');
+      if (v.pdf === undefined || v.page === undefined || !(v.dpi > 0)) flag(ctx, ['cropBox'], 'cropBox は PDF を描画して切った図（pdf・page・dpi が要る）だけに書く');
+    }
+    if ((v.rotate !== undefined || v.post !== undefined) && v.cropBox === undefined) flag(ctx, ['cropBox'], 'rotate・post は cropBox と一緒に書く（枠なしでは作り直せない）');
   });
 
 export const ConfigFigureSources = z
