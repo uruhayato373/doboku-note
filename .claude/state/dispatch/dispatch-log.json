@@ -3176,6 +3176,40 @@
       "commit": "0c5f90dadfc4",
       "verification": null,
       "note": "PR #991（順位表を期待値順）と #1023（分類器）。登録済み・需要なし→KEEP、/search?q=・非 HTML・断片の 404→EXPECTED、別 canonical→CANONICAL_ELSEWHERE、internalInbound は MDX 本文の実リンクから数える。加えて、需要・利用・後継・内部リンクの無い sitemap 外の 404→EXPECTED、sitemap 掲載の検出済み未登録→KEEP_MONITOR。同じ入力で UNKNOWN_REVIEW 864 → 9 件"
+    },
+    {
+      "id": "DN-0470",
+      "at": "2026-10-12",
+      "task": "建設部門の guide/career に技術士の定年後の働き方の節を足す",
+      "tier": "mid",
+      "kind": "改善",
+      "prevention": {
+        "type": "none",
+        "ref": "記事の追加。決定的な検査は check-career-separation と check-guide-length が担う"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "b07e0e54ed62",
+      "verification": null,
+      "note": "9d164dc74。pe-construction/guide-career に「定年後の働き方：継続雇用・再就職・顧問」の節（約 4,970 字・FAQ 1 件）。高年齢者雇用安定法・技術士法は e-Gov、賃金は厚労省 令和7年賃金構造基本統計調査（全産業の値と明記）で照合。冒頭の年収の答えと転職導線は不変、独立の記事へのリンクは張らない。check-career-separation・check-guide-length 通過"
+    },
+    {
+      "id": "DN-0471",
+      "at": "2026-10-12",
+      "task": "1級土木の age-career に 60 代の再雇用・嘱託・技術者の年齢の節を足す",
+      "tier": "mid",
+      "kind": "改善",
+      "prevention": {
+        "type": "none",
+        "ref": "記事の追加。決定的な検査は check-career-separation と check-guide-length が担う"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "b07e0e54ed62",
+      "verification": null,
+      "note": "b07e0e54e。civil-construction-1/guide-age-career に「60代の再雇用・嘱託と、監理技術者・主任技術者の年齢の扱い」の節（約 6,140 字・FAQ 1 件）。建設業法・施行令・高年齢者雇用安定法は e-Gov、監理技術者制度運用マニュアル（令和7年1月改正）、厚労省の高年齢者雇用状況等報告・賃金構造基本統計調査で照合。体験談・想定年収なし。3,000 字以上・check-career-separation 通過"
     }
   ]
 }
