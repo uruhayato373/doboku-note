@@ -44,8 +44,8 @@
         "authority": "総監が制作"
       },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover.4fe5395e.png",
-        "sha256": "4fe5395ef89372ff29df1a95e7b03da8fa952dac0245ab51d3930aea045ad165",
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover.8d71afb3.png",
+        "sha256": "8d71afb36c0247cd9059a85c7c8e75aa3a5b69e4771516ad2372028eff1cec48",
         "specSha256": "7180284a8c1841c49bb559c168d8198a7b3c72bf2c59a47c05624c6fe9d920ba"
       }
     },
@@ -62,15 +62,15 @@
         "pose": "pop-explaining",
         "frame": "waist"
       },
-      "design": "pop-v2",
+      "design": "pop-poster-v3",
       "pop": {
         "variant": "explain",
         "authority": "総監が制作"
       },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cover.390497e0.png",
-        "sha256": "390497e0333012171709779b80c689f4ef0f24797e26c8f88c2e0b6e2b39ab33",
-        "specSha256": "51b42d4fa3a93c3ee132b2dac031ea5b3106fc65b706dc3efb4ad8b12500cf44"
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cover.4eccd275.png",
+        "sha256": "4eccd275c87f501962bf94f6502dc00af0d7c90ffee8b6f6aff8ce336b4e9401",
+        "specSha256": "07f5e13819c520623146b01eb54d1dc76977dbc4b43dc2827350b6742cbbf496"
       }
     }
   }

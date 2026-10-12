@@ -905,6 +905,1857 @@
         "publicationId": "civil-construction-2/gakka-2kyu-doko/youtube.longform",
         "relatedShortsUpdated": 2
       }
+    },
+    "shorts-pop-20261012": {
+      "designVersion": "pop-poster-v3-content",
+      "createdAt": "2026-10-12T03:39:42.890Z",
+      "preserveAudio": true,
+      "preserveSubtitles": true,
+      "sceneCount": 6,
+      "publications": [
+        {
+          "publicationId": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2",
+          "key": "point-block1-2",
+          "images": [
+            {
+              "role": "cover",
+              "figKey": "media:civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cover",
+              "output": {
+                "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cover.5b7e9c8c.png",
+                "sha256": "5b7e9c8cc71449f78d153c2127ffed6353dd8ce96327e4305c05bf5245b8c069",
+                "width": 1080,
+                "height": 1920
+              },
+              "generation": {
+                "tool": "image_gen",
+                "history": [
+                  {
+                    "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/generation-cover-v1.c138b71f.png",
+                    "prompt": "参照と同じ先生（黒髪、黒縁眼鏡、短いひげ、青い作業服）と、緑・黄色・白の極太漫画POPで2級土木YouTube Shortsの表紙を新規制作。縦9:16、1080×1920想定。横長を切り取らず縦専用構図。重要文字・顔は左8〜78%、上12〜65%に収め、右20%と下30%は無地に近い緑背景のみ。下30%は字幕と操作UIのため文字・手・顔なし。上部「2級土木」、最も大きく「土質試験は」、次に「目的で覚える」。さらに大きい対応ラベル「試験名 ↔ 分かること」。先生は中央左で、片手に土試料の小瓶を持ち、もう片手で対応ラベルを指差す。背景は漫画的な地盤断面と虫眼鏡の小図、実際の試験装置を創作しない。資格と主題を最大に、人物は上半身で大きく。黄色帯「総監が制作」は高さ62%以内。価格、URL、ブランド名、合格保証、指定外の文字なし。手足自然、顔と文字・図を重ねない。表紙は参照の動きと画風を引継ぎ、ポーズと配置は変える。",
+                    "reference": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover.4fe5395e.png",
+                    "sha256": "c138b71fb777a140a86d1ffdd1f514c993306ae4f91ac91f08a639b1949d2c22",
+                    "actualFormat": [
+                      941,
+                      1672
+                    ]
+                  }
+                ]
+              },
+              "review": {
+                "aiVerdict": "ok",
+                "originalAnd360px": true
+              }
+            },
+            {
+              "role": "scene-002",
+              "figKey": "media:civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/scene-002",
+              "output": {
+                "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/scene-002.dcd8d207.png",
+                "sha256": "dcd8d207f15133c9fd11c0d54122d110432ce6d46f7c71aff80c0b37189568ff",
+                "width": 1080,
+                "height": 1920
+              },
+              "generation": {
+                "tool": "image_gen",
+                "history": [
+                  {
+                    "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/generation-scene-002-v1.f78103bb.png",
+                    "prompt": "参照と同じ緑黄色の漫画POP、同じ黒髪眼鏡ひげ青作業服の先生で、2級土木Shortsの内容説明画像を縦9:16で制作。1080×1920想定。重要文字は左8〜78%、上12〜65%に全て配置。右20%と下30%には文字・顔・図を置かず緑色の背景のみ。上「2級土木」、大見出し「試験名と目的をセットで」。中心に白い大きな横カードを縦に3枚。カード1「標準貫入試験」次行「→ N値」、補足「地盤の硬さの指標」。カード2「平板載荷試験」次行「→ 支持力」。カード3「現場CBR試験」次行「→ 路床・路盤の支持力」。3つ全部を十分大きい字で。各カードは試験名と結果を上下2段にし単語の途中で改行しない。背景図は小さな地盤・荷重矢印程度の概念アイコンに留め、誤った試験装置は描かない。先生は上部見出し横に小さく、試験名と結果を両手で対応づけるポーズ。本文を最優先。指定以外の文字なし。自然な指、文字と人物の重なりなし。",
+                    "reference": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover.4fe5395e.png",
+                    "sha256": "f78103bbca3fe2b5b57df84a0736761fc090d6aec96c8c8ef063407d0fb58e6e",
+                    "actualFormat": [
+                      941,
+                      1672
+                    ]
+                  },
+                  {
+                    "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/generation-scene-002-v2.2fbef349.png",
+                    "prompt": "この画像を修正。3つの試験名と結果、先生の同一性、緑黄色POPは保持。カード内の試験装置イラストを3つとも完全に削除（特に現場CBRのタイヤは誤りなので必ず削除）。文字中心の対応表にする。上部資格バナーと見出しは現在の高さの半分程度に小さくし、全カードを上へ寄せる。キャンバス上端の10%は緑の背景のみ。左端6%、右端20%、下端34%は緑の背景のみ。全ての文字を上から12〜64%の矩形内に収める。文字は『2級土木』『試験名と目的をセットで』『標準貫入試験 → N値』『地盤の硬さの指標』『平板載荷試験 → 支持力』『現場CBR試験 → 路床・路盤の支持力』のまま。人物は上部右に胸上の小さい先生。3カードの文字は太く大きく、各試験名と結果は2行。カード背景白、余分な矢印図も追加しない。下1/3は無地の緑で空ける。縦9:16。",
+                    "reference": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/generation-scene-002-v1.f78103bb.png",
+                    "sha256": "2fbef349163919382336a0ac078acb322e7567e008542ffa236704fa51d67921",
+                    "actualFormat": [
+                      941,
+                      1672
+                    ]
+                  }
+                ]
+              },
+              "review": {
+                "aiVerdict": "ok",
+                "originalAnd360px": true
+              }
+            },
+            {
+              "role": "cta",
+              "figKey": "media:civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cta",
+              "output": {
+                "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cta.4fcc4b1b.png",
+                "sha256": "4fcc4b1b73f66605947c9bc632e4fa9985997da869c36f37042b7f4e07e840d5",
+                "width": 1080,
+                "height": 1920
+              },
+              "generation": {
+                "tool": "image_gen",
+                "history": [
+                  {
+                    "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/generation-cta-v1.ce89d6e9.png",
+                    "prompt": "参照と同じ先生（黒髪・眼鏡・ひげ・青作業服）と緑黄白の極太漫画POPで、2級土木YouTube Shortsの締め画像を新規制作。縦9:16、1080×1920想定。重要文字と顔は左8〜78%、上12〜65%に収め、右20%と下30%は背景だけの安全域。上「2級土木」、巨大文字を2行「詳しい解説は」「関連動画へ」。補足「土工の4テーマを確認」。先生は中央左、大きなスマホを持ってもう片手で下向きに案内するポーズ。スマホ内には再生三角マークだけ、URLや文字・YouTubeロゴは描かない。黄色の太い下向き矢印は画面高さ58%で止め、字幕と重ねない。背景は明るい緑の放射線、白と黄の縁取り文字、ココナラのポップな勢い。題名と人物は重ねず、余分な文章・価格・合格保証・ブランド名なし。四テーマを3つにしない。案内文は『関連動画へ』を厳守、『概要欄へ』にしない。",
+                    "reference": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover.4fe5395e.png",
+                    "sha256": "ce89d6e922cd7764d0f8de00a8c168842a8e99dd03d88c20650e99655edf4653",
+                    "actualFormat": [
+                      941,
+                      1672
+                    ]
+                  },
+                  {
+                    "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/generation-cta-v2.b255af3b.png",
+                    "prompt": "この画像を編集。現在の文字とキャラクターの表情・ポーズ・スマホは保持し、レイアウトだけ変更。縦9:16のキャンバスに、横幅72%・高さ52%の小さなポスターとして、全要素を左端6%・上端13%の位置にまとめて配置する。下端35%と右端20%と上端10%は単色の緑で完全に空ける。下向きの指と黄色い矢印の先端は必ず高さ65%より上で終わる。先生は胸より上の上半身だけを短くし、同じ顔と自然な手を保持。文字は『2級土木』『詳しい解説は』『関連動画へ』『土工の4テーマを確認』一字も変えず、上部左寄せのポスター内に大きく配置。下の1/3には背景の放射線も土工現場も服も絶対に描かない。全キャンバスを絵で埋めない。添付と同じ緑・黄・白・赤の極太漫画POP、黒縁眼鏡・黒髪・短いひげ・青作業服。字幕用の空白を確保する修正です。",
+                    "reference": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cta.ede8fcfc.png",
+                    "sha256": "b255af3b436662069fa3cc33c494ce0ae0f760553fbea4b409c9aad111ccff3f",
+                    "actualFormat": [
+                      941,
+                      1672
+                    ]
+                  }
+                ]
+              },
+              "review": {
+                "aiVerdict": "ok",
+                "originalAnd360px": true
+              }
+            }
+          ],
+          "videoImageReplacement": {
+            "key": "point-block1-2",
+            "source": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/source-original.de9fe38c.mp4",
+            "sourceSha256": "de9fe38ca03520dc1ff2d08c802389cd683cc3b087c703bee965315e3e48fe08",
+            "output": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/video.8427e7d5.mp4",
+            "outputSha256": "8427e7d5016e76bae3f59ce1a0408810d6ffe40ce59be1852e340c7cbe31563b",
+            "audioPacketsUnchanged": true,
+            "audioPacketSha256": "1af91727dd7d55460e1f735bb57b70807c935c51826b780832b6f02bd0fe0cc0",
+            "subtitles": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/subtitles.4bd60b6e.ass",
+            "subtitlesSha256": "4bd60b6e03090cfffe88cf377d90291a3ffaf7c264ca817f11dd29dcc134d726",
+            "frames": 906,
+            "durationSec": 30.2,
+            "ttsRegenerated": false,
+            "timingMethod": "cover 0–4s; body until existing subtitle CTA start; original subtitle bytes and audio packets retained",
+            "scenes": [
+              {
+                "role": "cover",
+                "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cover.5b7e9c8c.png",
+                "sha256": "5b7e9c8cc71449f78d153c2127ffed6353dd8ce96327e4305c05bf5245b8c069",
+                "startSec": 0,
+                "endSec": 4
+              },
+              {
+                "role": "scene-002",
+                "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/scene-002.dcd8d207.png",
+                "sha256": "dcd8d207f15133c9fd11c0d54122d110432ce6d46f7c71aff80c0b37189568ff",
+                "startSec": 4,
+                "endSec": 11.55
+              },
+              {
+                "role": "cta",
+                "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cta.4fcc4b1b.png",
+                "sha256": "4fcc4b1b73f66605947c9bc632e4fa9985997da869c36f37042b7f4e07e840d5",
+                "startSec": 11.55,
+                "endSec": 30.2
+              }
+            ]
+          },
+          "reproduction": {
+            "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/image-replacement-recipe.c048f94d.json",
+            "sha256": "c048f94da9447e6200148feddd69f5038f4fb08bdc003563d44d415c1d02a620"
+          },
+          "review": {
+            "status": "local-video-qa-passed",
+            "checkedSceneCount": 3,
+            "liveShortsUiVerified": false,
+            "videoQaScore": 4.25,
+            "videoQaAxes": {
+              "duration": 4,
+              "relatedAndUtm": 4,
+              "title": 5,
+              "subtitles": 4
+            },
+            "limitations": [
+              "Live YouTube Shorts UI not yet checked",
+              "Existing silent CTA tail retained with original audio"
+            ]
+          },
+          "publication": {
+            "status": "superseded-private-preview",
+            "externalUpdated": false,
+            "existingVideoId": "lb5HDoptayQ",
+            "privateR2Staged": true,
+            "uploadedPrivatePreviewId": "BefqxvhjEZ0",
+            "activated": false
+          },
+          "thumbnailTransfer": {
+            "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/upload-thumbnail.29fc64bd.png",
+            "sha256": "29fc64bdda1a0eb10ccb39b3f685f1b35c34e9a28449e078abbb6f1b584b2cfc",
+            "width": 720,
+            "height": 1280,
+            "bytes": 1413763,
+            "sourceSha256": "5b7e9c8cc71449f78d153c2127ffed6353dd8ce96327e4305c05bf5245b8c069",
+            "processing": "resize only for YouTube thumbnail API 2 MiB limit; master retained at 1080x1920"
+          }
+        },
+        {
+          "publicationId": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1",
+          "key": "point-overview-1",
+          "images": [
+            {
+              "role": "cover",
+              "figKey": "media:civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover",
+              "output": {
+                "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover.ffe46dcf.png",
+                "sha256": "ffe46dcf5c2656e81de38b427ee4937c2337099e71a4e5b4a1ade3df9b3e887e",
+                "width": 1080,
+                "height": 1920
+              },
+              "generation": {
+                "tool": "image_gen",
+                "history": [
+                  {
+                    "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/generation-cover-v1.d58be1bc.png",
+                    "prompt": "この縦表紙の文字・先生・4図・配色・漫画POPを保持し、安全域だけ改善。全ての内容を上端から12%〜64%の範囲に収めた小さめのポスターとして配置し直す。左右は左6%右20%空ける。下34%は完全に緑背景のみ。特に先生の顔と黄色の『総監が制作』が高さ64%を超えないこと。上端10%も背景のみ。元の『2級土木』『土工の頻出点』『4テーマで整理』と4ラベルは一字も変えない。細かい軟弱地盤の注記『砂の水平排水層』『鉛直排水材（サンドドレーン）』『軟弱な粘土地盤』は小さくなるので削除し、地盤断面図自体と『軟弱地盤』ラベルは残す。先生は4項目チェックリストを持つポーズのまま。縦9:16。",
+                    "reference": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover.4fe5395e.png",
+                    "sha256": "d58be1bce5aacc5a6b8e54dcc7c4b8e4e2ac68790215de369a89f3c8b8116302",
+                    "actualFormat": [
+                      941,
+                      1672
+                    ]
+                  }
+                ]
+              },
+              "review": {
+                "aiVerdict": "ok",
+                "originalAnd360px": true
+              }
+            },
+            {
+              "role": "scene-002",
+              "figKey": "media:civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/scene-002",
+              "output": {
+                "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/scene-002.9adfc871.png",
+                "sha256": "9adfc871906492ce5a8f18f7c45ec24c128bf28ef2641fe780f039a930065cee",
+                "width": 1080,
+                "height": 1920
+              },
+              "generation": {
+                "tool": "image_gen",
+                "history": [
+                  {
+                    "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/generation-scene-002-v1.3b99a7ec.png",
+                    "prompt": "参照の先生の同一性と緑・白・黄の漫画POPを引継ぎ、2級土木Shortsの本文説明画像を縦9:16で制作。1080×1920想定。表紙と違う、縦に並んだ4つの学習ステップという構図。重要文字・顔・図は左8〜78%、上10〜65%に全て収める。右20%と下30%は背景のみ、字幕や操作UI用。上「2級土木」、大見出し「土工は4テーマ」。白地の横長カードを縦に4枚、それぞれ正確な文言「① 土質試験」「② 土量変化率 L・C」「③ 盛土と締固め」「④ のり面・軟弱地盤」。各項目を同じ大きさ、同じ優先度で読みやすく。カード横に土試料、ダンプ、ローラ、のり面断面の小さく明瞭な絵。図より文字を大きく。細かな数式や追加解説は不要。先生は見出し横に胸上で小さく、指示棒で4段の学習順を案内。黒髪黒縁眼鏡短いひげ青作業服。放射背景と黄色のアクセントは外周中心で、本文は白地で明快。指定外コピー、価格、URL、ブランドなし。",
+                    "reference": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover.4fe5395e.png",
+                    "sha256": "3b99a7ec8afad836dabf2fe4c48d36c3754a978942f541f38b7f1f5e86b6dc24",
+                    "actualFormat": [
+                      941,
+                      1672
+                    ]
+                  },
+                  {
+                    "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/generation-scene-002-v2.a42239f5.png",
+                    "prompt": "この縦9:16画像を修正。4番カードの図だけ、緑の草に覆われた普通の土の斜面の断面へ置換する。地下の青い水槽・縦棒・排水管は全て削除する。4番の文字『④ のり面・軟弱地盤』は保持。全4カード・タイトル・先生を現状の85%にまとめて縮小し、左6%・右20%・上10%・下34%の安全域を空けた中央上部に配置し直す。全重要文字・顔が高さ12〜64%までに収まるように。下1/3はほぼ単色の緑背景、図や文字なし。文言、太い漫画の画風、四つの項目の数は保持。『2級土木』『土工は4テーマ』『① 土質試験』『② 土量変化率 L・C』『③ 盛土と締固め』『④ のり面・軟弱地盤』。4番以外の試料・ダンプ・ローラの図は保持。",
+                    "reference": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/generation-scene-002-v1.3b99a7ec.png",
+                    "sha256": "a42239f52c15f6fc97dd9d516fd14a3e446a99d922c2ec4ebbcaab88661cafc1",
+                    "actualFormat": [
+                      941,
+                      1672
+                    ]
+                  }
+                ]
+              },
+              "review": {
+                "aiVerdict": "ok",
+                "originalAnd360px": true
+              }
+            },
+            {
+              "role": "cta",
+              "figKey": "media:civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cta",
+              "output": {
+                "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cta.4fcc4b1b.png",
+                "sha256": "4fcc4b1b73f66605947c9bc632e4fa9985997da869c36f37042b7f4e07e840d5",
+                "width": 1080,
+                "height": 1920
+              },
+              "generation": {
+                "tool": "image_gen",
+                "history": [
+                  {
+                    "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/generation-cta-v1.ce89d6e9.png",
+                    "prompt": "参照と同じ先生（黒髪・眼鏡・ひげ・青作業服）と緑黄白の極太漫画POPで、2級土木YouTube Shortsの締め画像を新規制作。縦9:16、1080×1920想定。重要文字と顔は左8〜78%、上12〜65%に収め、右20%と下30%は背景だけの安全域。上「2級土木」、巨大文字を2行「詳しい解説は」「関連動画へ」。補足「土工の4テーマを確認」。先生は中央左、大きなスマホを持ってもう片手で下向きに案内するポーズ。スマホ内には再生三角マークだけ、URLや文字・YouTubeロゴは描かない。黄色の太い下向き矢印は画面高さ58%で止め、字幕と重ねない。背景は明るい緑の放射線、白と黄の縁取り文字、ココナラのポップな勢い。題名と人物は重ねず、余分な文章・価格・合格保証・ブランド名なし。四テーマを3つにしない。案内文は『関連動画へ』を厳守、『概要欄へ』にしない。",
+                    "reference": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover.4fe5395e.png",
+                    "sha256": "ce89d6e922cd7764d0f8de00a8c168842a8e99dd03d88c20650e99655edf4653",
+                    "actualFormat": [
+                      941,
+                      1672
+                    ]
+                  },
+                  {
+                    "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/generation-cta-v2.b255af3b.png",
+                    "prompt": "この画像を編集。現在の文字とキャラクターの表情・ポーズ・スマホは保持し、レイアウトだけ変更。縦9:16のキャンバスに、横幅72%・高さ52%の小さなポスターとして、全要素を左端6%・上端13%の位置にまとめて配置する。下端35%と右端20%と上端10%は単色の緑で完全に空ける。下向きの指と黄色い矢印の先端は必ず高さ65%より上で終わる。先生は胸より上の上半身だけを短くし、同じ顔と自然な手を保持。文字は『2級土木』『詳しい解説は』『関連動画へ』『土工の4テーマを確認』一字も変えず、上部左寄せのポスター内に大きく配置。下の1/3には背景の放射線も土工現場も服も絶対に描かない。全キャンバスを絵で埋めない。添付と同じ緑・黄・白・赤の極太漫画POP、黒縁眼鏡・黒髪・短いひげ・青作業服。字幕用の空白を確保する修正です。",
+                    "reference": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cta.ede8fcfc.png",
+                    "sha256": "b255af3b436662069fa3cc33c494ce0ae0f760553fbea4b409c9aad111ccff3f",
+                    "actualFormat": [
+                      941,
+                      1672
+                    ]
+                  }
+                ]
+              },
+              "review": {
+                "aiVerdict": "ok",
+                "originalAnd360px": true
+              }
+            }
+          ],
+          "videoImageReplacement": {
+            "key": "point-overview-1",
+            "source": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/source-original.1cdfa72f.mp4",
+            "sourceSha256": "1cdfa72fea8712a12dbfdf3ba414bca90a4d008293ebe7f95fe4edffd5a12015",
+            "output": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/video.0a8f39fb.mp4",
+            "outputSha256": "0a8f39fbedd73c109f7e05ff63707a96106eccaa30ce04e119e7f4e4ced8db64",
+            "audioPacketsUnchanged": true,
+            "audioPacketSha256": "bcdcad0d8cc5a8d93aeb79bb935e97f5144e28ae8b93b74998308080defdeb91",
+            "subtitles": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/subtitles.51f69d2f.ass",
+            "subtitlesSha256": "51f69d2fa3410f2450994a45bd39b6f985f8ed4e3c9f80bb796f6adb2eb036ed",
+            "frames": 906,
+            "durationSec": 30.2,
+            "ttsRegenerated": false,
+            "timingMethod": "cover 0–4s; body until existing subtitle CTA start; original subtitle bytes and audio packets retained",
+            "scenes": [
+              {
+                "role": "cover",
+                "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover.ffe46dcf.png",
+                "sha256": "ffe46dcf5c2656e81de38b427ee4937c2337099e71a4e5b4a1ade3df9b3e887e",
+                "startSec": 0,
+                "endSec": 4
+              },
+              {
+                "role": "scene-002",
+                "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/scene-002.9adfc871.png",
+                "sha256": "9adfc871906492ce5a8f18f7c45ec24c128bf28ef2641fe780f039a930065cee",
+                "startSec": 4,
+                "endSec": 9.82
+              },
+              {
+                "role": "cta",
+                "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cta.4fcc4b1b.png",
+                "sha256": "4fcc4b1b73f66605947c9bc632e4fa9985997da869c36f37042b7f4e07e840d5",
+                "startSec": 9.82,
+                "endSec": 30.2
+              }
+            ]
+          },
+          "reproduction": {
+            "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/image-replacement-recipe.ef081639.json",
+            "sha256": "ef0816393c6c6b1f0cdb876aa1092ce9ef127060862eaa05157298e68bf85362"
+          },
+          "review": {
+            "status": "local-video-qa-passed",
+            "checkedSceneCount": 3,
+            "liveShortsUiVerified": false,
+            "videoQaScore": 4.25,
+            "videoQaAxes": {
+              "duration": 4,
+              "relatedAndUtm": 4,
+              "title": 5,
+              "subtitles": 4
+            },
+            "limitations": [
+              "Live YouTube Shorts UI not yet checked",
+              "Existing silent CTA tail retained with original audio"
+            ]
+          },
+          "publication": {
+            "status": "superseded-private-preview",
+            "externalUpdated": false,
+            "existingVideoId": "g86O04mXoVM",
+            "privateR2Staged": true,
+            "uploadedPrivatePreviewId": "tMxQesShhL8",
+            "activated": false
+          },
+          "thumbnailTransfer": {
+            "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/upload-thumbnail.a97dee49.png",
+            "sha256": "a97dee49b75da01b0ff1c3d5b40953fe6432b33a630b8ebdb554f23e6cb7bb80",
+            "width": 720,
+            "height": 1280,
+            "bytes": 1329638,
+            "sourceSha256": "ffe46dcf5c2656e81de38b427ee4937c2337099e71a4e5b4a1ade3df9b3e887e",
+            "processing": "resize only for YouTube thumbnail API 2 MiB limit; master retained at 1080x1920"
+          }
+        }
+      ],
+      "videoQa": {
+        "schemaVersion": 1,
+        "evaluator": "yt-shorts-publisher-qa",
+        "createdAt": "2026-10-12T03:43:25.508Z",
+        "worktree": "/Users/minamidaisuke/.codex/worktrees/youtube-pop-thumbnails/doboku-note",
+        "pack": "civil-construction-2/gakka-2kyu-doko",
+        "policy": ".claude/knowledge/reference/yt-shorts-publisher-policy.md",
+        "imagePolicy": ".claude/knowledge/reference/sns-image-policy.md#0",
+        "popImageSkill": ".claude/skills/social/create-pop-image/SKILL.md",
+        "scope": "採用画像とローカル完成動画の4軸QA。公開状態を更新せず、外部反映を完了扱いにしない。",
+        "coverage": {
+          "videosRequested": 2,
+          "videosInspected": 2,
+          "adoptedImageSlots": 6,
+          "adoptedImageSlotsViewedAtOriginalSize": 6,
+          "uniqueAdoptedImageSha256s": 5,
+          "completedFramesViewedAtOriginalSize": 6,
+          "completedFramesViewedAt360Width": 6,
+          "referenceImagesViewed": 1,
+          "titleEntriesScanned": 224,
+          "liveUiInspected": 0
+        },
+        "referenceImage": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover.4fe5395e.png",
+        "commonVisualAssessment": "全6採用スロットの指定コピーを判読。先生の黒髪・眼鏡・短いひげ・青い作業服は参照と一貫。対象資格「2級土木」と肩書き「総監が制作」は別領域。幅360pxの全6標本で重要文字・顔と字幕の物理的な重複なし。技術図のAI忠実性は別担当の評価範囲。",
+        "passRule": "平均4.0以上かつ全軸3以上。ローカルQAの合格は外部UI・投稿・公開の合格を意味しない。",
+        "result": "pass",
+        "items": [
+          {
+            "key": "point-block1-2",
+            "publicationId": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2",
+            "result": "pass",
+            "resultScope": "local-video-and-image-qa",
+            "average": 4.25,
+            "axes": [
+              {
+                "axis": 1,
+                "name": "尺・画角適正",
+                "score": 4,
+                "evidence": "ffprobe実測30.200秒、1080×1920、906フレーム。推奨尺に適合。他社透かしなし。重要文字・顔の切れや字幕との重複は標本フレームにない。生成指示の安全域を完全には満たさない部分があり、実YouTube操作UIとの重なりは未検査。"
+              },
+              {
+                "axis": 2,
+                "name": "導線・UTM整合",
+                "score": 4,
+                "evidence": "youtube / video / gakka-2kyu-doko / shorts のUTMが一致し、正規authorityNoticeは1回。CTAは関連動画へ誘導。ローカル台帳のrelatedVideoIdとdesiredRelatedVideoIdは通常動画lNI2f_SjCTkに一致。今回の新動画の外部設定・実表示は未検査。"
+              },
+              {
+                "axis": 3,
+                "name": "タイトル長・検索性",
+                "score": 5,
+                "evidence": "24字。「2級土木」と固有論点を含む。動画パック224本を走査し完全同一タイトルは当該1本のみ。テーマ型のため年度・パック番号は不要。",
+                "title": "2級土木｜土質試験は目的で覚える #Shorts"
+              },
+              {
+                "axis": 4,
+                "name": "字幕焼き込み",
+                "score": 4,
+                "evidence": "原寸と幅360pxの冒頭・本文・CTAで字幕を確認。文字・顔・指・矢印との重複なし。既存ASS SHAと音声packetハッシュは一致。最終字幕は19.46秒、動画末尾は30.20秒で完全一致ではない。差分は既存音声の無音CTAで、未字幕の発話は検出されなかった。"
+              }
+            ],
+            "media": {
+              "video": ".tmp/shorts-pop/point-block1-2/video.mp4",
+              "sha256": "8427e7d5016e76bae3f59ce1a0408810d6ffe40ce59be1852e340c7cbe31563b",
+              "width": 1080,
+              "height": 1920,
+              "durationSeconds": 30.2,
+              "audioDurationSeconds": 30.165333,
+              "frames": 906,
+              "source": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/source-original.de9fe38c.mp4",
+              "sourceSha256": "de9fe38ca03520dc1ff2d08c802389cd683cc3b087c703bee965315e3e48fe08",
+              "sourceAndOutputShaVerified": true,
+              "audioPacketHashesIndependentlyCompared": true,
+              "audioPacketsUnchanged": true,
+              "subtitles": ".tmp/video-render/gakka-2kyu-doko/shorts/point-block1-2/subtitles.ass",
+              "subtitlesSha256": "4bd60b6e03090cfffe88cf377d90291a3ffaf7c264ca817f11dd29dcc134d726",
+              "subtitlesShaVerified": true,
+              "lastSubtitleEndSec": 19.46,
+              "subtitleEndToVideoEndSec": 10.74,
+              "tailSilenceStartSec": 19.332708,
+              "tailSilenceDetection": "ffmpeg silencedetect=n=-45dB:d=0.7",
+              "ttsRegenerated": false
+            },
+            "imageReviews": [
+              {
+                "role": "cover",
+                "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cover.5b7e9c8c.png",
+                "sha256": "5b7e9c8cc71449f78d153c2127ffed6353dd8ce96327e4305c05bf5245b8c069",
+                "originalViewed": true,
+                "completedFrameViewed": true,
+                "framePath": ".tmp/shorts-pop/point-block1-2/frame-0.png",
+                "width360Viewed": true,
+                "width360Path": ".tmp/shorts-pop/point-block1-2/qa-frame-0-360.png",
+                "sampleTimeSeconds": 1,
+                "copyLegible": true,
+                "headlineOrFaceClipping": false,
+                "faceIdentityConsistent": true,
+                "subtitleOverlap": false
+              },
+              {
+                "role": "scene-002",
+                "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/scene-002.dcd8d207.png",
+                "sha256": "dcd8d207f15133c9fd11c0d54122d110432ce6d46f7c71aff80c0b37189568ff",
+                "originalViewed": true,
+                "completedFrameViewed": true,
+                "framePath": ".tmp/shorts-pop/point-block1-2/frame-1.png",
+                "width360Viewed": true,
+                "width360Path": ".tmp/shorts-pop/point-block1-2/qa-frame-1-360.png",
+                "sampleTimeSeconds": 6,
+                "copyLegible": true,
+                "headlineOrFaceClipping": false,
+                "faceIdentityConsistent": true,
+                "subtitleOverlap": false
+              },
+              {
+                "role": "cta",
+                "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cta.4fcc4b1b.png",
+                "sha256": "4fcc4b1b73f66605947c9bc632e4fa9985997da869c36f37042b7f4e07e840d5",
+                "originalViewed": true,
+                "completedFrameViewed": true,
+                "framePath": ".tmp/shorts-pop/point-block1-2/frame-2.png",
+                "width360Viewed": true,
+                "width360Path": ".tmp/shorts-pop/point-block1-2/qa-frame-2-360.png",
+                "sampleTimeSeconds": 13.55,
+                "copyLegible": true,
+                "headlineOrFaceClipping": false,
+                "faceIdentityConsistent": true,
+                "subtitleOverlap": false
+              }
+            ],
+            "findings": [
+              {
+                "severity": "minor",
+                "category": "safe-area",
+                "scope": "cover and body",
+                "finding": "表紙の資格名が生成指示の上端12%より上にある。本文のカード枠は右端20%領域へ少量進入するが、重要文字はその左側で判読可能。",
+                "action": "実YouTube操作UIでの検査時に、上部UI・右側ボタンとの重なりを確認する。",
+                "blockingLocalQa": false
+              },
+              {
+                "severity": "minor",
+                "category": "safe-area",
+                "scope": "cta",
+                "finding": "共通CTAは右側と下側の空白を確保し、指先・黄色矢印と字幕は離れている。一方、上端10%を完全に空ける生成指示は満たしていない。",
+                "action": "実YouTube上部UIとの重なりは未検査として引き継ぐ。",
+                "blockingLocalQa": false
+              },
+              {
+                "severity": "minor",
+                "category": "timing",
+                "scope": "existing-audio-and-subtitles",
+                "finding": "末尾10.74秒は字幕なしの静止CTA。音声側も無音で、今回の画像差し替えによる字幕欠落ではない。",
+                "action": "音声・字幕を固定する今回の作業では保持。次回の尺調整候補として引き継ぐ。",
+                "blockingLocalQa": false
+              },
+              {
+                "severity": "info",
+                "category": "readability",
+                "scope": "subtitles",
+                "finding": "幅360pxでは既存字幕が小さく、文節の途中で次字幕へ切り替わる。主画像の見出しと要点は十分判読できる。",
+                "action": "既存字幕仕様として引き継ぐ。",
+                "blockingLocalQa": false
+              }
+            ],
+            "external": {
+              "newVideoApplied": false,
+              "liveUiInspected": false,
+              "oldPublicationStatusFromLocalRegistry": "uploaded_private",
+              "relatedVideoIdFromLocalRegistry": "lNI2f_SjCTk",
+              "relatedVideoActualPublicStatus": "parent-reported-and-local-registry-evidence; not independently rechecked by this evaluator",
+              "publicationCompletionClaimed": false
+            }
+          },
+          {
+            "key": "point-overview-1",
+            "publicationId": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1",
+            "result": "pass",
+            "resultScope": "local-video-and-image-qa",
+            "average": 4.25,
+            "axes": [
+              {
+                "axis": 1,
+                "name": "尺・画角適正",
+                "score": 4,
+                "evidence": "ffprobe実測30.200秒、1080×1920、906フレーム。推奨尺に適合。他社透かしなし。重要文字・顔の切れや字幕との重複は標本フレームにない。生成指示の安全域を完全には満たさない部分があり、実YouTube操作UIとの重なりは未検査。"
+              },
+              {
+                "axis": 2,
+                "name": "導線・UTM整合",
+                "score": 4,
+                "evidence": "youtube / video / gakka-2kyu-doko / shorts のUTMが一致し、正規authorityNoticeは1回。CTAは関連動画へ誘導。ローカル台帳のrelatedVideoIdとdesiredRelatedVideoIdは通常動画lNI2f_SjCTkに一致。今回の新動画の外部設定・実表示は未検査。"
+              },
+              {
+                "axis": 3,
+                "name": "タイトル長・検索性",
+                "score": 5,
+                "evidence": "20字。「2級土木」と固有論点を含む。動画パック224本を走査し完全同一タイトルは当該1本のみ。テーマ型のため年度・パック番号は不要。",
+                "title": "2級土木｜土工の4テーマ #Shorts"
+              },
+              {
+                "axis": 4,
+                "name": "字幕焼き込み",
+                "score": 4,
+                "evidence": "原寸と幅360pxの冒頭・本文・CTAで字幕を確認。文字・顔・指・矢印との重複なし。既存ASS SHAと音声packetハッシュは一致。最終字幕は17.73秒、動画末尾は30.20秒で完全一致ではない。差分は既存音声の無音CTAで、未字幕の発話は検出されなかった。"
+              }
+            ],
+            "media": {
+              "video": ".tmp/shorts-pop/point-overview-1/video.mp4",
+              "sha256": "0a8f39fbedd73c109f7e05ff63707a96106eccaa30ce04e119e7f4e4ced8db64",
+              "width": 1080,
+              "height": 1920,
+              "durationSeconds": 30.2,
+              "audioDurationSeconds": 30.165333,
+              "frames": 906,
+              "source": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/source-original.1cdfa72f.mp4",
+              "sourceSha256": "1cdfa72fea8712a12dbfdf3ba414bca90a4d008293ebe7f95fe4edffd5a12015",
+              "sourceAndOutputShaVerified": true,
+              "audioPacketHashesIndependentlyCompared": true,
+              "audioPacketsUnchanged": true,
+              "subtitles": ".tmp/video-render/gakka-2kyu-doko/shorts/point-overview-1/subtitles.ass",
+              "subtitlesSha256": "51f69d2fa3410f2450994a45bd39b6f985f8ed4e3c9f80bb796f6adb2eb036ed",
+              "subtitlesShaVerified": true,
+              "lastSubtitleEndSec": 17.73,
+              "subtitleEndToVideoEndSec": 12.47,
+              "tailSilenceStartSec": 17.600583,
+              "tailSilenceDetection": "ffmpeg silencedetect=n=-45dB:d=0.7",
+              "ttsRegenerated": false
+            },
+            "imageReviews": [
+              {
+                "role": "cover",
+                "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover.ffe46dcf.png",
+                "sha256": "ffe46dcf5c2656e81de38b427ee4937c2337099e71a4e5b4a1ade3df9b3e887e",
+                "originalViewed": true,
+                "completedFrameViewed": true,
+                "framePath": ".tmp/shorts-pop/point-overview-1/frame-0.png",
+                "width360Viewed": true,
+                "width360Path": ".tmp/shorts-pop/point-overview-1/qa-frame-0-360.png",
+                "sampleTimeSeconds": 1,
+                "copyLegible": true,
+                "headlineOrFaceClipping": false,
+                "faceIdentityConsistent": true,
+                "subtitleOverlap": false
+              },
+              {
+                "role": "scene-002",
+                "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/scene-002.9adfc871.png",
+                "sha256": "9adfc871906492ce5a8f18f7c45ec24c128bf28ef2641fe780f039a930065cee",
+                "originalViewed": true,
+                "completedFrameViewed": true,
+                "framePath": ".tmp/shorts-pop/point-overview-1/frame-1.png",
+                "width360Viewed": true,
+                "width360Path": ".tmp/shorts-pop/point-overview-1/qa-frame-1-360.png",
+                "sampleTimeSeconds": 6,
+                "copyLegible": true,
+                "headlineOrFaceClipping": false,
+                "faceIdentityConsistent": true,
+                "subtitleOverlap": false
+              },
+              {
+                "role": "cta",
+                "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cta.4fcc4b1b.png",
+                "sha256": "4fcc4b1b73f66605947c9bc632e4fa9985997da869c36f37042b7f4e07e840d5",
+                "originalViewed": true,
+                "completedFrameViewed": true,
+                "framePath": ".tmp/shorts-pop/point-overview-1/frame-2.png",
+                "width360Viewed": true,
+                "width360Path": ".tmp/shorts-pop/point-overview-1/qa-frame-2-360.png",
+                "sampleTimeSeconds": 11.82,
+                "copyLegible": true,
+                "headlineOrFaceClipping": false,
+                "faceIdentityConsistent": true,
+                "subtitleOverlap": false
+              }
+            ],
+            "findings": [
+              {
+                "severity": "minor",
+                "category": "safe-area",
+                "scope": "body",
+                "finding": "本文カードと右側の図が、指定された右端20%の背景領域へ一部進入する。見出し・顔・項目の文字は判読可能。",
+                "action": "実YouTube操作UIでの検査時に、上部UI・右側ボタンとの重なりを確認する。",
+                "blockingLocalQa": false
+              },
+              {
+                "severity": "minor",
+                "category": "safe-area",
+                "scope": "cta",
+                "finding": "共通CTAは右側と下側の空白を確保し、指先・黄色矢印と字幕は離れている。一方、上端10%を完全に空ける生成指示は満たしていない。",
+                "action": "実YouTube上部UIとの重なりは未検査として引き継ぐ。",
+                "blockingLocalQa": false
+              },
+              {
+                "severity": "minor",
+                "category": "timing",
+                "scope": "existing-audio-and-subtitles",
+                "finding": "末尾12.47秒は字幕なしの静止CTA。音声側も無音で、今回の画像差し替えによる字幕欠落ではない。",
+                "action": "音声・字幕を固定する今回の作業では保持。次回の尺調整候補として引き継ぐ。",
+                "blockingLocalQa": false
+              },
+              {
+                "severity": "info",
+                "category": "readability",
+                "scope": "subtitles",
+                "finding": "幅360pxでは既存字幕が小さく、文節の途中で次字幕へ切り替わる。主画像の見出しと要点は十分判読できる。",
+                "action": "既存字幕仕様として引き継ぐ。",
+                "blockingLocalQa": false
+              }
+            ],
+            "external": {
+              "newVideoApplied": false,
+              "liveUiInspected": false,
+              "oldPublicationStatusFromLocalRegistry": "uploaded_private",
+              "relatedVideoIdFromLocalRegistry": "lNI2f_SjCTk",
+              "relatedVideoActualPublicStatus": "parent-reported-and-local-registry-evidence; not independently rechecked by this evaluator",
+              "publicationCompletionClaimed": false
+            }
+          }
+        ],
+        "limitations": [
+          "YouTubeライブ操作UI・公開表示・新動画の外部反映は未検査。",
+          "動画は冒頭1秒・本文6秒・CTA開始2秒後の標本フレームを目視し、連続再生の全フレーム目視はしていない。",
+          "音声を聴取した内容QAはしていない。音声packet一致・無音区間の機械確認で元音声の維持を検査。",
+          "指定された生成指示の安全域は部分的に未達だが、標本内での文字・顔・字幕重複はない。"
+        ],
+        "mutations": [
+          ".tmp/shorts-pop/video-qa.json",
+          ".tmp/shorts-pop/{key}/qa-frame-{0,1,2}-360.png (review-only previews)"
+        ]
+      },
+      "review": {
+        "status": "superseded-user-layout-feedback",
+        "supersededBy": "shorts-pop-fullbleed-20261012"
+      }
+    },
+    "shorts-pop-fullbleed-20261012": {
+      "designVersion": "pop-poster-v3-content",
+      "createdAt": "2026-10-12T04:13:05.764Z",
+      "preserveAudio": true,
+      "preserveSubtitles": true,
+      "sceneCount": 6,
+      "publications": [
+        {
+          "publicationId": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2",
+          "key": "point-block1-2",
+          "images": [
+            {
+              "role": "cover",
+              "figKey": "media:civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cover",
+              "output": {
+                "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cover.4eccd275.png",
+                "sha256": "4eccd275c87f501962bf94f6502dc00af0d7c90ffee8b6f6aff8ce336b4e9401",
+                "width": 1080,
+                "height": 1920
+              },
+              "generation": {
+                "tool": "image_gen",
+                "history": [
+                  {
+                    "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/generation-cover-v1.c138b71f.png",
+                    "prompt": "参照と同じ先生（黒髪、黒縁眼鏡、短いひげ、青い作業服）と、緑・黄色・白の極太漫画POPで2級土木YouTube Shortsの表紙を新規制作。縦9:16、1080×1920想定。横長を切り取らず縦専用構図。重要文字・顔は左8〜78%、上12〜65%に収め、右20%と下30%は無地に近い緑背景のみ。下30%は字幕と操作UIのため文字・手・顔なし。上部「2級土木」、最も大きく「土質試験は」、次に「目的で覚える」。さらに大きい対応ラベル「試験名 ↔ 分かること」。先生は中央左で、片手に土試料の小瓶を持ち、もう片手で対応ラベルを指差す。背景は漫画的な地盤断面と虫眼鏡の小図、実際の試験装置を創作しない。資格と主題を最大に、人物は上半身で大きく。黄色帯「総監が制作」は高さ62%以内。価格、URL、ブランド名、合格保証、指定外の文字なし。手足自然、顔と文字・図を重ねない。表紙は参照の動きと画風を引継ぎ、ポーズと配置は変える。",
+                    "reference": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover.4fe5395e.png",
+                    "sha256": "c138b71fb777a140a86d1ffdd1f514c993306ae4f91ac91f08a639b1949d2c22",
+                    "actualFormat": [
+                      941,
+                      1672
+                    ]
+                  },
+                  {
+                    "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/generation-cover-fullbleed.d2625e9e.png",
+                    "prompt": "添付の2級土木Shorts表紙を編集。元の全コピー・人物・土試料の内容は保持し、左寄りの小さなポスター＋右と下の巨大な緑余白という構成を解消する。縦9:16の完成ポスターとして、緑と黄の放射背景と土の現場背景を上下左右の四辺まで連続して広げる。絵の矩形の境界、無地の余白帯、額縁は禁止。主見出しと先生を中央に、左右の重量を釣り合わせる。文字は『2級土木』『土質試験は』『目的で覚える』『試験名』『分かること』『総監が制作』。見出しは上10〜34%、試験名と分かることの対応帯は35〜43%。先生は土の瓶を持ち、もう片手で土試料の拡大を指すポーズ。顔は中央左46〜60%、土拡大は中央右50〜65%。総監が制作の帯は65〜70%。胴体と土の地面背景は下端まで自然に続ける。字幕が入る74〜80%は細かい文字や顔を置かず、服や穏やかな背景にする。重要文字を左右8〜86%内へ。背景自体は全面。黒髪・眼鏡・短いひげ・青作業服の同一人物。元画像の極太漫画POP・緑黄白赤・太い白黒縁を保持。生成物はUIなし、追加コピーなし、文字切れなし。サイズ1080×1920想定。",
+                    "reference": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cover.5b7e9c8c.png",
+                    "sha256": "d2625e9e98003bb063a585fc5912bfd4fae4ae5b6e985ce9e8ef4d425ea0415a",
+                    "actualFormat": [
+                      941,
+                      1672
+                    ]
+                  },
+                  {
+                    "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/generation-cover-fullbleed.c2bdcc77.png",
+                    "prompt": "添付の全面縦POP表紙の部分修正。先生の髪が赤い『試験名』ラベルの左下へ重なっているので、赤と青の対応ラベルの組『試験名 ↔ 分かること』を現在の位置より少し上・右に置き、先生の髪との間に明確な隙間を作る。赤ラベルの『試』を含む全文字を完全に見せる。見出しの『目的で覚える』にもラベルを重ねない。ラベルの幅や文字サイズは少しだけ小さく調整してよい。他は全面背景、文字内容、顔、手、瓶、地盤拡大、ポーズ、先生のサイズ、胴体、総監が制作の黄色帯を現状どおり保持。構図全体を縮小しない。無地余白・別パネルを足さない。縦9:16。",
+                    "reference": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/generation-cover-fullbleed.d2625e9e.png",
+                    "sha256": "c2bdcc775b15f8eccfb5bd7dc7a41f3ef62bdf9be3347bfa3f143a646e589822",
+                    "actualFormat": [
+                      941,
+                      1672
+                    ]
+                  }
+                ]
+              },
+              "review": {
+                "aiVerdict": "ok",
+                "originalAnd360px": true
+              }
+            },
+            {
+              "role": "scene-002",
+              "figKey": "media:civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/scene-002",
+              "output": {
+                "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/scene-002.d64b1708.png",
+                "sha256": "d64b1708916912a1c4633983446fa36f57a88227598ef467d926c7747c58754f",
+                "width": 1080,
+                "height": 1920
+              },
+              "generation": {
+                "tool": "image_gen",
+                "history": [
+                  {
+                    "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/generation-scene-002-v1.f78103bb.png",
+                    "prompt": "参照と同じ緑黄色の漫画POP、同じ黒髪眼鏡ひげ青作業服の先生で、2級土木Shortsの内容説明画像を縦9:16で制作。1080×1920想定。重要文字は左8〜78%、上12〜65%に全て配置。右20%と下30%には文字・顔・図を置かず緑色の背景のみ。上「2級土木」、大見出し「試験名と目的をセットで」。中心に白い大きな横カードを縦に3枚。カード1「標準貫入試験」次行「→ N値」、補足「地盤の硬さの指標」。カード2「平板載荷試験」次行「→ 支持力」。カード3「現場CBR試験」次行「→ 路床・路盤の支持力」。3つ全部を十分大きい字で。各カードは試験名と結果を上下2段にし単語の途中で改行しない。背景図は小さな地盤・荷重矢印程度の概念アイコンに留め、誤った試験装置は描かない。先生は上部見出し横に小さく、試験名と結果を両手で対応づけるポーズ。本文を最優先。指定以外の文字なし。自然な指、文字と人物の重なりなし。",
+                    "reference": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover.4fe5395e.png",
+                    "sha256": "f78103bbca3fe2b5b57df84a0736761fc090d6aec96c8c8ef063407d0fb58e6e",
+                    "actualFormat": [
+                      941,
+                      1672
+                    ]
+                  },
+                  {
+                    "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/generation-scene-002-v2.2fbef349.png",
+                    "prompt": "この画像を修正。3つの試験名と結果、先生の同一性、緑黄色POPは保持。カード内の試験装置イラストを3つとも完全に削除（特に現場CBRのタイヤは誤りなので必ず削除）。文字中心の対応表にする。上部資格バナーと見出しは現在の高さの半分程度に小さくし、全カードを上へ寄せる。キャンバス上端の10%は緑の背景のみ。左端6%、右端20%、下端34%は緑の背景のみ。全ての文字を上から12〜64%の矩形内に収める。文字は『2級土木』『試験名と目的をセットで』『標準貫入試験 → N値』『地盤の硬さの指標』『平板載荷試験 → 支持力』『現場CBR試験 → 路床・路盤の支持力』のまま。人物は上部右に胸上の小さい先生。3カードの文字は太く大きく、各試験名と結果は2行。カード背景白、余分な矢印図も追加しない。下1/3は無地の緑で空ける。縦9:16。",
+                    "reference": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/generation-scene-002-v1.f78103bb.png",
+                    "sha256": "2fbef349163919382336a0ac078acb322e7567e008542ffa236704fa51d67921",
+                    "actualFormat": [
+                      941,
+                      1672
+                    ]
+                  },
+                  {
+                    "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/generation-scene-002-fullbleed.84749bac.png",
+                    "prompt": "添付の2級土木Shorts本文画像を編集。左に寄った小さな四角い画像と、右・下の無地の余白を解消し、縦9:16画面全体の学習POPにする。緑と黄色の放射線・ドットをキャンバス四辺まで続け、中央に見出しと白い3カードを配置。情報は変えない。上10〜20%に『2級土木』『試験名と目的をセットで』と小さな同じ先生。カード1を24〜39%『標準貫入試験』『→ N値』『地盤の硬さの指標』、カード2を42〜53%『平板載荷試験』『→ 支持力』、カード3を56〜70%『現場CBR試験』『→ 路床・路盤の支持力』。最後の答えは2行でよい。重要な文字は左右8〜86%に収め、カード自体は左右5〜91%程度。3枚のカードの中心を揃え、下へ並ぶ流れが伝わる。余白を埋めるための追加コピーや新しい図は一切足さない。下30%も放射線が自然に弱く続き、下端で再び緑黄の斜め漫画線が縁に走る。無地の巨大な帯や縮小ポスターの境界は作らない。字幕が重なる74〜80%は穏やかな背景に。文字の正確さと大きさを優先。黒髪眼鏡短いひげ青作業服の先生の同一性保持。誤った試験器具は描かない。1080×1920想定。",
+                    "reference": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/scene-002.dcd8d207.png",
+                    "sha256": "84749bac4254352fbb32bbbfa21ef9a935eff4a5bd03e0c871c22359138638b7",
+                    "actualFormat": [
+                      941,
+                      1672
+                    ]
+                  },
+                  {
+                    "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/generation-scene-002-fullbleed.e9378f6e.png",
+                    "prompt": "この画像の3カードだけコンパクトに再配置してください。縦9:16と全面の緑黄放射背景は保持。最後のカードが低すぎて動画字幕と重なるため、3カード全体を画面上20%から70%以内で終了させる。各カードは高さ約15%で、試験名と結果を横に並べた2列の対応表に変更：1枚目『標準貫入試験 → N値』の1行＋小さな2行目『地盤の硬さの指標』、2枚目『平板載荷試験 → 支持力』、3枚目『現場CBR試験 → 路床・路盤の支持力』（結果は2行可）。いまの『N値』『支持力』の巨大な赤字は高さを半分にし、試験名と同程度の文字サイズにする。白いカード3枚は水平中央、文字の上下に過大な余白なし。上部の2級土木、試験名と目的をセットで、先生は保持。下30%は文字・カード・人物を置かず、緑黄の放射線とドットの背景を端まで続ける。下が単色余白や別パネルにならないよう背景を連続。新しいコピーや図を足さない。顔・手・コピーに誤字なし。",
+                    "reference": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/generation-scene-002-fullbleed.84749bac.png",
+                    "sha256": "e9378f6e0d47f17108d2cbeb55e988603eaa81e2e33c75d962e4634f38f9b240",
+                    "actualFormat": [
+                      941,
+                      1672
+                    ]
+                  }
+                ]
+              },
+              "review": {
+                "aiVerdict": "ok",
+                "originalAnd360px": true
+              }
+            },
+            {
+              "role": "cta",
+              "figKey": "media:civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cta",
+              "output": {
+                "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cta.d2e66def.png",
+                "sha256": "d2e66def4766a40b81319f31aee493fd8452fef886938bafe1b4ea2645905d42",
+                "width": 1080,
+                "height": 1920
+              },
+              "generation": {
+                "tool": "image_gen",
+                "history": [
+                  {
+                    "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/generation-cta-v1.ce89d6e9.png",
+                    "prompt": "参照と同じ先生（黒髪・眼鏡・ひげ・青作業服）と緑黄白の極太漫画POPで、2級土木YouTube Shortsの締め画像を新規制作。縦9:16、1080×1920想定。重要文字と顔は左8〜78%、上12〜65%に収め、右20%と下30%は背景だけの安全域。上「2級土木」、巨大文字を2行「詳しい解説は」「関連動画へ」。補足「土工の4テーマを確認」。先生は中央左、大きなスマホを持ってもう片手で下向きに案内するポーズ。スマホ内には再生三角マークだけ、URLや文字・YouTubeロゴは描かない。黄色の太い下向き矢印は画面高さ58%で止め、字幕と重ねない。背景は明るい緑の放射線、白と黄の縁取り文字、ココナラのポップな勢い。題名と人物は重ねず、余分な文章・価格・合格保証・ブランド名なし。四テーマを3つにしない。案内文は『関連動画へ』を厳守、『概要欄へ』にしない。",
+                    "reference": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover.4fe5395e.png",
+                    "sha256": "ce89d6e922cd7764d0f8de00a8c168842a8e99dd03d88c20650e99655edf4653",
+                    "actualFormat": [
+                      941,
+                      1672
+                    ]
+                  },
+                  {
+                    "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/generation-cta-v2.b255af3b.png",
+                    "prompt": "この画像を編集。現在の文字とキャラクターの表情・ポーズ・スマホは保持し、レイアウトだけ変更。縦9:16のキャンバスに、横幅72%・高さ52%の小さなポスターとして、全要素を左端6%・上端13%の位置にまとめて配置する。下端35%と右端20%と上端10%は単色の緑で完全に空ける。下向きの指と黄色い矢印の先端は必ず高さ65%より上で終わる。先生は胸より上の上半身だけを短くし、同じ顔と自然な手を保持。文字は『2級土木』『詳しい解説は』『関連動画へ』『土工の4テーマを確認』一字も変えず、上部左寄せのポスター内に大きく配置。下の1/3には背景の放射線も土工現場も服も絶対に描かない。全キャンバスを絵で埋めない。添付と同じ緑・黄・白・赤の極太漫画POP、黒縁眼鏡・黒髪・短いひげ・青作業服。字幕用の空白を確保する修正です。",
+                    "reference": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cta.ede8fcfc.png",
+                    "sha256": "b255af3b436662069fa3cc33c494ce0ae0f760553fbea4b409c9aad111ccff3f",
+                    "actualFormat": [
+                      941,
+                      1672
+                    ]
+                  },
+                  {
+                    "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/generation-cta-fullbleed.779f313b.png",
+                    "prompt": "Use case: compositing. 添付は修正対象です。2級土木のYouTube Shorts用POP締め画像を縦9:16、1080×1920想定で再設計してください。現在はポスターが左上だけに縮小され、右と下が無地の緑で余っているのが問題。画面全体が一枚の完成ポスターになるよう、緑と黄色の放射線・ハーフトーンドットの背景を四辺まで連続させ、矩形の境界をなくす。主役を中央に移し、左右の重心を均等に。上10〜17%に『2級土木』、18〜38%に大きく『詳しい解説は』『関連動画へ』、39〜45%に『土工の4テーマを確認』。文字は左右8〜85%に自然に収め、文字の右端を切らない。黒髪、黒縁眼鏡、短いひげ、青作業服の同じ先生を中央下45〜82%に大きく。顔とスマートフォンは45〜65%に置き、片手で下を指すポーズを保持。黄色い下向き矢印を中央66〜72%に。下側も服・背景の放射線・柔らかい地面表現を自然に続ける。字幕が重なる高さ74〜80%は背景のコントラストを低めにするが、無地の空白帯やパネルで分割しない。右端も背景を全面に描く。文字と顔だけ操作UIから離す。全文字とキャラクターの同一性は保持。手指を自然に。スマホは再生三角のみ。追加コピー、URL、ロゴ、ユーザーUI、余白、額縁は描かない。極太の黒白縁文字、緑黄白と少量赤のキャッチーな漫画POP。",
+                    "reference": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cta.4fcc4b1b.png",
+                    "sha256": "779f313b1fbf701bfa6f952931fe7436169797cc7407a719d8780cd3cc2ecc42",
+                    "actualFormat": [
+                      941,
+                      1672
+                    ]
+                  }
+                ]
+              },
+              "review": {
+                "aiVerdict": "ok",
+                "originalAnd360px": true
+              }
+            }
+          ],
+          "videoImageReplacement": {
+            "key": "point-block1-2",
+            "source": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/source-original.de9fe38c.mp4",
+            "sourceSha256": "de9fe38ca03520dc1ff2d08c802389cd683cc3b087c703bee965315e3e48fe08",
+            "output": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/video.3a25370e.mp4",
+            "outputSha256": "3a25370e4aa5b27bc782e404f15ec05a19c25d65aea24bc11b838d16646c67b0",
+            "audioPacketsUnchanged": true,
+            "audioPacketSha256": "1af91727dd7d55460e1f735bb57b70807c935c51826b780832b6f02bd0fe0cc0",
+            "subtitles": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/subtitles.4bd60b6e.ass",
+            "subtitlesSha256": "4bd60b6e03090cfffe88cf377d90291a3ffaf7c264ca817f11dd29dcc134d726",
+            "frames": 906,
+            "durationSec": 30.2,
+            "ttsRegenerated": false,
+            "timingMethod": "cover 0–4s; body until existing subtitle CTA start; original subtitle bytes and audio packets retained",
+            "scenes": [
+              {
+                "role": "cover",
+                "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cover.4eccd275.png",
+                "sha256": "4eccd275c87f501962bf94f6502dc00af0d7c90ffee8b6f6aff8ce336b4e9401",
+                "startSec": 0,
+                "endSec": 4
+              },
+              {
+                "role": "scene-002",
+                "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/scene-002.d64b1708.png",
+                "sha256": "d64b1708916912a1c4633983446fa36f57a88227598ef467d926c7747c58754f",
+                "startSec": 4,
+                "endSec": 11.55
+              },
+              {
+                "role": "cta",
+                "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cta.d2e66def.png",
+                "sha256": "d2e66def4766a40b81319f31aee493fd8452fef886938bafe1b4ea2645905d42",
+                "startSec": 11.55,
+                "endSec": 30.2
+              }
+            ]
+          },
+          "reproduction": {
+            "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/image-replacement-recipe.b0ee2d4f.json",
+            "sha256": "b0ee2d4f7dc88756fe10336a2f4e9a9f1f7bd4895453e33677c78cf574ad10f6"
+          },
+          "review": {
+            "status": "local-video-qa-passed",
+            "checkedSceneCount": 3,
+            "liveShortsUiVerified": true,
+            "score": 4.5,
+            "axes": [
+              {
+                "axis": 1,
+                "name": "尺・画角適正／画像構図",
+                "score": 5,
+                "evidence": "新動画は30.200秒・1080×1920・906フレーム。全文背景が四辺まで連続し、左右の重心と主題・顔の大きさは適切。修正した表紙2枚の原寸・幅360px完成フレームで文字・顔の切れなし。block1の「試験名」ラベルは髪から離れ、overviewのボード上の重複コピーは削除された。"
+              },
+              {
+                "axis": 2,
+                "name": "導線・UTM整合",
+                "score": 4,
+                "evidence": "CTAは「関連動画へ」。utm_source=youtube、utm_medium=video、utm_campaign=gakka-2kyu-doko、utm_content=shorts。正規authorityNoticeは各1回。新動画の実YouTube UIと導線設定はこの評価では未検査。"
+              },
+              {
+                "axis": 3,
+                "name": "タイトル長・検索性",
+                "score": 5,
+                "title": "2級土木｜土質試験は目的で覚える #Shorts",
+                "titleLength": 24,
+                "evidence": "資格名と固有論点を含み40字以内。動画パック224本を再走査し同一タイトルは当該1本のみ。テーマ型なので年度／pack番号は不要。"
+              },
+              {
+                "axis": 4,
+                "name": "字幕焼き込み・画像との整合",
+                "score": 4,
+                "evidence": "新表紙と字幕の重なりを原寸・幅360pxで追検査。block1の主題・顔・対応ラベルは字幕に隠れない。overviewのボード上「4テーマ」は削除され、文字の部分隠れは解消。既存ASSと音声packetの一致を新動画で再確認。ASS終了と動画末尾の差は既存の無音CTA。"
+              }
+            ],
+            "admin": {
+              "checkedAt": "2026-10-12T04:14:48.991Z",
+              "ssrMain": true,
+              "qualification": true,
+              "mediaChecked": 8,
+              "method": "HTTP SSR plus nonempty image/video range responses",
+              "browserScreenshotVerified": false,
+              "checks": [
+                {
+                  "id": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cover",
+                  "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cover.4eccd275.png",
+                  "inHtml": true,
+                  "status": 206,
+                  "bytes": 1024
+                },
+                {
+                  "id": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cta",
+                  "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cta.d2e66def.png",
+                  "inHtml": true,
+                  "status": 206,
+                  "bytes": 1024
+                },
+                {
+                  "id": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/scene-002",
+                  "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/scene-002.d64b1708.png",
+                  "inHtml": true,
+                  "status": 206,
+                  "bytes": 1024
+                },
+                {
+                  "id": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/video",
+                  "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/video.3a25370e.mp4",
+                  "inHtml": true,
+                  "status": 206,
+                  "bytes": 1024
+                },
+                {
+                  "id": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover",
+                  "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover.8d71afb3.png",
+                  "inHtml": true,
+                  "status": 206,
+                  "bytes": 1024
+                },
+                {
+                  "id": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cta",
+                  "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cta.d2e66def.png",
+                  "inHtml": true,
+                  "status": 206,
+                  "bytes": 1024
+                },
+                {
+                  "id": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/scene-002",
+                  "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/scene-002.64362ed2.png",
+                  "inHtml": true,
+                  "status": 206,
+                  "bytes": 1024
+                },
+                {
+                  "id": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/video",
+                  "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/video.b563ce95.mp4",
+                  "inHtml": true,
+                  "status": 206,
+                  "bytes": 1024
+                }
+              ]
+            },
+            "liveVerification": {
+              "checkedAt": "2026-10-12T04:31:52.802Z",
+              "newId": "uNCBD0A9zpw",
+              "method": "native-chrome-cua-screenshot-and-accessibility",
+              "url": "https://www.youtube.com/shorts/uNCBD0A9zpw",
+              "channelMatched": true,
+              "channelHandle": "@doboku-note",
+              "coverLogoMatched": true,
+              "coverMeaning": "adopted POP cover matched; legacy field name",
+              "ctaMatched": true,
+              "scenesReviewed": [
+                "cover",
+                "body",
+                "cta"
+              ],
+              "observedSliderPercent": [
+                0,
+                16,
+                49
+              ],
+              "fullBleedBackground": true,
+              "largeFlatMarginsResolved": true,
+              "subtitleImageOverlapResolved": true,
+              "limitations": [
+                "Desktop Chrome YouTube Shorts player inspected; mobile app not inspected",
+                "Representative scene positions, not every frame"
+              ]
+            },
+            "relatedVerification": {
+              "matched": true,
+              "newId": "uNCBD0A9zpw",
+              "relatedVideoId": "lNI2f_SjCTk",
+              "checkedAt": "2026-10-12T04:31:52.802Z",
+              "method": "YouTube Studio related-video selection saved; Shorts related href read back",
+              "observedHref": "https://www.youtube.com/watch?v=lNI2f_SjCTk"
+            }
+          },
+          "publication": {
+            "status": "private-preview-live-checked-finalization-pending",
+            "externalUpdated": false,
+            "existingVideoId": "lb5HDoptayQ",
+            "supersededPrivatePreviewId": "BefqxvhjEZ0",
+            "privateR2Staged": true,
+            "newPrivatePreviewId": "uNCBD0A9zpw"
+          },
+          "thumbnailTransfer": {
+            "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/upload-thumbnail.80048aff.png",
+            "sha256": "80048affe8aec7da22b3f6d524083f443ec8f8715a5aeb0774ba5e67152191ec",
+            "bytes": 1338608,
+            "width": 576,
+            "height": 1024,
+            "reason": "YouTube thumbnail upload derivative; adopted image and video remain 1080×1920",
+            "sourceSha256": "4eccd275c87f501962bf94f6502dc00af0d7c90ffee8b6f6aff8ce336b4e9401"
+          },
+          "metadataAdoptionVerification": {
+            "checkedAt": "2026-10-12T04:43:25.757Z",
+            "matchesReviewedVideo": true
+          }
+        },
+        {
+          "publicationId": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1",
+          "key": "point-overview-1",
+          "images": [
+            {
+              "role": "cover",
+              "figKey": "media:civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover",
+              "output": {
+                "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover.8d71afb3.png",
+                "sha256": "8d71afb36c0247cd9059a85c7c8e75aa3a5b69e4771516ad2372028eff1cec48",
+                "width": 1080,
+                "height": 1920
+              },
+              "generation": {
+                "tool": "image_gen",
+                "history": [
+                  {
+                    "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/generation-cover-v1.d58be1bc.png",
+                    "prompt": "この縦表紙の文字・先生・4図・配色・漫画POPを保持し、安全域だけ改善。全ての内容を上端から12%〜64%の範囲に収めた小さめのポスターとして配置し直す。左右は左6%右20%空ける。下34%は完全に緑背景のみ。特に先生の顔と黄色の『総監が制作』が高さ64%を超えないこと。上端10%も背景のみ。元の『2級土木』『土工の頻出点』『4テーマで整理』と4ラベルは一字も変えない。細かい軟弱地盤の注記『砂の水平排水層』『鉛直排水材（サンドドレーン）』『軟弱な粘土地盤』は小さくなるので削除し、地盤断面図自体と『軟弱地盤』ラベルは残す。先生は4項目チェックリストを持つポーズのまま。縦9:16。",
+                    "reference": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover.4fe5395e.png",
+                    "sha256": "d58be1bce5aacc5a6b8e54dcc7c4b8e4e2ac68790215de369a89f3c8b8116302",
+                    "actualFormat": [
+                      941,
+                      1672
+                    ]
+                  },
+                  {
+                    "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/generation-cover-fullbleed.c2a04632.png",
+                    "prompt": "添付の2級土木Shorts表紙を編集。縦9:16、1080×1920想定。左上だけにポスターを置いて右と下を緑の巨大な余白にする構成をなくす。緑黄色の漫画放射線、青空、土工現場の背景を四辺まで連続して広げて、画面全体を一枚の完成イラストに。上部の『2級土木』『土工の頻出点』『4テーマで整理』、中段の2×2の4枚カード『土質試験』『土量変化』『締固め』『軟弱地盤』を保持。文字は左右8〜86%に。見出しは8〜28%、4カードは30〜57%の領域に収める。カードの図は同じ試料、ダンプ、ローラ、軟弱地盤の断面。4枚を3枚にしない。同じ黒髪・眼鏡・ひげの先生を画面中央の下側に大きく、顔は58〜67%。ペンと4チェックのクリップボードを持つ。『総監が制作』の小帯は中央65〜70%。下30%には先生の作業服の胴体と土工現場の地面を自然に続ける。大切な文字と顔は74〜80%の字幕位置に置かない。背景の境界や額縁、無地余白を作らない。先生のポーズと同一性、極太POPの配色と画風、正確な文字は保持。UI、別のコピー、ロゴ、URLは不要。",
+                    "reference": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover.ffe46dcf.png",
+                    "sha256": "c2a04632c26d0a863d6d0b4f04220826c2f2d4e7f3ca806d02a69e5fa549eb7f",
+                    "actualFormat": [
+                      941,
+                      1672
+                    ]
+                  },
+                  {
+                    "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/generation-cover-fullbleed.ddef33a5.png",
+                    "prompt": "添付の全面縦POP表紙の小さな部分修正。先生が持っているクリップボードの上部にある『4テーマ』の文字だけを削除して白地にする。4個の緑色チェックと横線は保持。これは動画字幕と文字が重なるのを避ける修正。他の『2級土木』『土工の頻出点』『4テーマで整理』、4つのカード、総監が制作、人物の顔とポーズと手、背景と余白、全ての構図と大きさは一切変えない。上の主見出しの『4テーマで整理』は消さない。縦9:16。",
+                    "reference": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/generation-cover-fullbleed.c2a04632.png",
+                    "sha256": "ddef33a529bdabd83b603a66d9378a2fe75d4b9e5339cbbbe56058309eccd262",
+                    "actualFormat": [
+                      941,
+                      1672
+                    ]
+                  }
+                ]
+              },
+              "review": {
+                "aiVerdict": "ok",
+                "originalAnd360px": true
+              }
+            },
+            {
+              "role": "scene-002",
+              "figKey": "media:civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/scene-002",
+              "output": {
+                "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/scene-002.64362ed2.png",
+                "sha256": "64362ed29f4e60a04932a02b1a377a4d294216daa69f1f9c7c6f4707d3cdd242",
+                "width": 1080,
+                "height": 1920
+              },
+              "generation": {
+                "tool": "image_gen",
+                "history": [
+                  {
+                    "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/generation-scene-002-v1.3b99a7ec.png",
+                    "prompt": "参照の先生の同一性と緑・白・黄の漫画POPを引継ぎ、2級土木Shortsの本文説明画像を縦9:16で制作。1080×1920想定。表紙と違う、縦に並んだ4つの学習ステップという構図。重要文字・顔・図は左8〜78%、上10〜65%に全て収める。右20%と下30%は背景のみ、字幕や操作UI用。上「2級土木」、大見出し「土工は4テーマ」。白地の横長カードを縦に4枚、それぞれ正確な文言「① 土質試験」「② 土量変化率 L・C」「③ 盛土と締固め」「④ のり面・軟弱地盤」。各項目を同じ大きさ、同じ優先度で読みやすく。カード横に土試料、ダンプ、ローラ、のり面断面の小さく明瞭な絵。図より文字を大きく。細かな数式や追加解説は不要。先生は見出し横に胸上で小さく、指示棒で4段の学習順を案内。黒髪黒縁眼鏡短いひげ青作業服。放射背景と黄色のアクセントは外周中心で、本文は白地で明快。指定外コピー、価格、URL、ブランドなし。",
+                    "reference": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover.4fe5395e.png",
+                    "sha256": "3b99a7ec8afad836dabf2fe4c48d36c3754a978942f541f38b7f1f5e86b6dc24",
+                    "actualFormat": [
+                      941,
+                      1672
+                    ]
+                  },
+                  {
+                    "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/generation-scene-002-v2.a42239f5.png",
+                    "prompt": "この縦9:16画像を修正。4番カードの図だけ、緑の草に覆われた普通の土の斜面の断面へ置換する。地下の青い水槽・縦棒・排水管は全て削除する。4番の文字『④ のり面・軟弱地盤』は保持。全4カード・タイトル・先生を現状の85%にまとめて縮小し、左6%・右20%・上10%・下34%の安全域を空けた中央上部に配置し直す。全重要文字・顔が高さ12〜64%までに収まるように。下1/3はほぼ単色の緑背景、図や文字なし。文言、太い漫画の画風、四つの項目の数は保持。『2級土木』『土工は4テーマ』『① 土質試験』『② 土量変化率 L・C』『③ 盛土と締固め』『④ のり面・軟弱地盤』。4番以外の試料・ダンプ・ローラの図は保持。",
+                    "reference": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/generation-scene-002-v1.3b99a7ec.png",
+                    "sha256": "a42239f52c15f6fc97dd9d516fd14a3e446a99d922c2ec4ebbcaab88661cafc1",
+                    "actualFormat": [
+                      941,
+                      1672
+                    ]
+                  },
+                  {
+                    "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/generation-scene-002-fullbleed.c6632037.png",
+                    "prompt": "添付の2級土木Shorts本文画像を編集。縦9:16、1080×1920想定。内容と4枚カードの数・文字・人物は保持。上〜中央の内容を左右中央に配置し、背景の緑黄の放射線とハーフトーンを下端まで連続して広げる。下側に巨大な単色の緑余白を作らず、全面が一枚のPOP画像に見えるように。文字と顔は左右8〜86%内。『2級土木』『土工は4テーマ』と指示棒を持つ同じ黒髪眼鏡ひげ青作業服の先生を上10〜23%に配置。4枚の横長の白いカードは24〜68%に均等に、1枚あたり高さ約10%、カード同士少し間隔を置く。文字は『① 土質試験』『② 土量変化率 L・C』『③ 盛土と締固め』『④ のり面・軟弱地盤』。小図は順に土試料、ダンプ、ローラ、草のある普通の土の斜面。地下排水管など追加しない。4番は2行にして文字の切れなし。字幕用の74〜80%は穏やかな放射背景のまま、カードを置かない。下側に背景の放射線やドットが自然に続いて全体の完成感を出す。余白を埋めるための新しい文字や人物や器具は足さない。額縁、キャンバス内の小さなポスター、画像の四角い境界は禁止。",
+                    "reference": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/scene-002.9adfc871.png",
+                    "sha256": "c66320370a6f714b33bc1141d92777cbfbd33c534211cdda277b92b8a40992bd",
+                    "actualFormat": [
+                      941,
+                      1672
+                    ]
+                  }
+                ]
+              },
+              "review": {
+                "aiVerdict": "ok",
+                "originalAnd360px": true
+              }
+            },
+            {
+              "role": "cta",
+              "figKey": "media:civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cta",
+              "output": {
+                "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cta.d2e66def.png",
+                "sha256": "d2e66def4766a40b81319f31aee493fd8452fef886938bafe1b4ea2645905d42",
+                "width": 1080,
+                "height": 1920
+              },
+              "generation": {
+                "tool": "image_gen",
+                "history": [
+                  {
+                    "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/generation-cta-v1.ce89d6e9.png",
+                    "prompt": "参照と同じ先生（黒髪・眼鏡・ひげ・青作業服）と緑黄白の極太漫画POPで、2級土木YouTube Shortsの締め画像を新規制作。縦9:16、1080×1920想定。重要文字と顔は左8〜78%、上12〜65%に収め、右20%と下30%は背景だけの安全域。上「2級土木」、巨大文字を2行「詳しい解説は」「関連動画へ」。補足「土工の4テーマを確認」。先生は中央左、大きなスマホを持ってもう片手で下向きに案内するポーズ。スマホ内には再生三角マークだけ、URLや文字・YouTubeロゴは描かない。黄色の太い下向き矢印は画面高さ58%で止め、字幕と重ねない。背景は明るい緑の放射線、白と黄の縁取り文字、ココナラのポップな勢い。題名と人物は重ねず、余分な文章・価格・合格保証・ブランド名なし。四テーマを3つにしない。案内文は『関連動画へ』を厳守、『概要欄へ』にしない。",
+                    "reference": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover.4fe5395e.png",
+                    "sha256": "ce89d6e922cd7764d0f8de00a8c168842a8e99dd03d88c20650e99655edf4653",
+                    "actualFormat": [
+                      941,
+                      1672
+                    ]
+                  },
+                  {
+                    "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/generation-cta-v2.b255af3b.png",
+                    "prompt": "この画像を編集。現在の文字とキャラクターの表情・ポーズ・スマホは保持し、レイアウトだけ変更。縦9:16のキャンバスに、横幅72%・高さ52%の小さなポスターとして、全要素を左端6%・上端13%の位置にまとめて配置する。下端35%と右端20%と上端10%は単色の緑で完全に空ける。下向きの指と黄色い矢印の先端は必ず高さ65%より上で終わる。先生は胸より上の上半身だけを短くし、同じ顔と自然な手を保持。文字は『2級土木』『詳しい解説は』『関連動画へ』『土工の4テーマを確認』一字も変えず、上部左寄せのポスター内に大きく配置。下の1/3には背景の放射線も土工現場も服も絶対に描かない。全キャンバスを絵で埋めない。添付と同じ緑・黄・白・赤の極太漫画POP、黒縁眼鏡・黒髪・短いひげ・青作業服。字幕用の空白を確保する修正です。",
+                    "reference": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cta.ede8fcfc.png",
+                    "sha256": "b255af3b436662069fa3cc33c494ce0ae0f760553fbea4b409c9aad111ccff3f",
+                    "actualFormat": [
+                      941,
+                      1672
+                    ]
+                  },
+                  {
+                    "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/generation-cta-fullbleed.779f313b.png",
+                    "prompt": "Use case: compositing. 添付は修正対象です。2級土木のYouTube Shorts用POP締め画像を縦9:16、1080×1920想定で再設計してください。現在はポスターが左上だけに縮小され、右と下が無地の緑で余っているのが問題。画面全体が一枚の完成ポスターになるよう、緑と黄色の放射線・ハーフトーンドットの背景を四辺まで連続させ、矩形の境界をなくす。主役を中央に移し、左右の重心を均等に。上10〜17%に『2級土木』、18〜38%に大きく『詳しい解説は』『関連動画へ』、39〜45%に『土工の4テーマを確認』。文字は左右8〜85%に自然に収め、文字の右端を切らない。黒髪、黒縁眼鏡、短いひげ、青作業服の同じ先生を中央下45〜82%に大きく。顔とスマートフォンは45〜65%に置き、片手で下を指すポーズを保持。黄色い下向き矢印を中央66〜72%に。下側も服・背景の放射線・柔らかい地面表現を自然に続ける。字幕が重なる高さ74〜80%は背景のコントラストを低めにするが、無地の空白帯やパネルで分割しない。右端も背景を全面に描く。文字と顔だけ操作UIから離す。全文字とキャラクターの同一性は保持。手指を自然に。スマホは再生三角のみ。追加コピー、URL、ロゴ、ユーザーUI、余白、額縁は描かない。極太の黒白縁文字、緑黄白と少量赤のキャッチーな漫画POP。",
+                    "reference": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cta.4fcc4b1b.png",
+                    "sha256": "779f313b1fbf701bfa6f952931fe7436169797cc7407a719d8780cd3cc2ecc42",
+                    "actualFormat": [
+                      941,
+                      1672
+                    ]
+                  }
+                ]
+              },
+              "review": {
+                "aiVerdict": "ok",
+                "originalAnd360px": true
+              }
+            }
+          ],
+          "videoImageReplacement": {
+            "key": "point-overview-1",
+            "source": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/source-original.1cdfa72f.mp4",
+            "sourceSha256": "1cdfa72fea8712a12dbfdf3ba414bca90a4d008293ebe7f95fe4edffd5a12015",
+            "output": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/video.b563ce95.mp4",
+            "outputSha256": "b563ce956e14085f213189d7586a40c66baf9c1ba2bf098a1f1a17c1992eb1d3",
+            "audioPacketsUnchanged": true,
+            "audioPacketSha256": "bcdcad0d8cc5a8d93aeb79bb935e97f5144e28ae8b93b74998308080defdeb91",
+            "subtitles": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/subtitles.51f69d2f.ass",
+            "subtitlesSha256": "51f69d2fa3410f2450994a45bd39b6f985f8ed4e3c9f80bb796f6adb2eb036ed",
+            "frames": 906,
+            "durationSec": 30.2,
+            "ttsRegenerated": false,
+            "timingMethod": "cover 0–4s; body until existing subtitle CTA start; original subtitle bytes and audio packets retained",
+            "scenes": [
+              {
+                "role": "cover",
+                "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover.8d71afb3.png",
+                "sha256": "8d71afb36c0247cd9059a85c7c8e75aa3a5b69e4771516ad2372028eff1cec48",
+                "startSec": 0,
+                "endSec": 4
+              },
+              {
+                "role": "scene-002",
+                "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/scene-002.64362ed2.png",
+                "sha256": "64362ed29f4e60a04932a02b1a377a4d294216daa69f1f9c7c6f4707d3cdd242",
+                "startSec": 4,
+                "endSec": 9.82
+              },
+              {
+                "role": "cta",
+                "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cta.d2e66def.png",
+                "sha256": "d2e66def4766a40b81319f31aee493fd8452fef886938bafe1b4ea2645905d42",
+                "startSec": 9.82,
+                "endSec": 30.2
+              }
+            ]
+          },
+          "reproduction": {
+            "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/image-replacement-recipe.49ac2293.json",
+            "sha256": "49ac2293b6abc167bc2849f5d18f88e7b6fb3ec185fc66a15a687ebb16748d4f"
+          },
+          "review": {
+            "status": "local-video-qa-passed",
+            "checkedSceneCount": 3,
+            "liveShortsUiVerified": true,
+            "score": 4.5,
+            "axes": [
+              {
+                "axis": 1,
+                "name": "尺・画角適正／画像構図",
+                "score": 5,
+                "evidence": "新動画は30.200秒・1080×1920・906フレーム。全文背景が四辺まで連続し、左右の重心と主題・顔の大きさは適切。修正した表紙2枚の原寸・幅360px完成フレームで文字・顔の切れなし。block1の「試験名」ラベルは髪から離れ、overviewのボード上の重複コピーは削除された。"
+              },
+              {
+                "axis": 2,
+                "name": "導線・UTM整合",
+                "score": 4,
+                "evidence": "CTAは「関連動画へ」。utm_source=youtube、utm_medium=video、utm_campaign=gakka-2kyu-doko、utm_content=shorts。正規authorityNoticeは各1回。新動画の実YouTube UIと導線設定はこの評価では未検査。"
+              },
+              {
+                "axis": 3,
+                "name": "タイトル長・検索性",
+                "score": 5,
+                "title": "2級土木｜土工の4テーマ #Shorts",
+                "titleLength": 20,
+                "evidence": "資格名と固有論点を含み40字以内。動画パック224本を再走査し同一タイトルは当該1本のみ。テーマ型なので年度／pack番号は不要。"
+              },
+              {
+                "axis": 4,
+                "name": "字幕焼き込み・画像との整合",
+                "score": 4,
+                "evidence": "新表紙と字幕の重なりを原寸・幅360pxで追検査。block1の主題・顔・対応ラベルは字幕に隠れない。overviewのボード上「4テーマ」は削除され、文字の部分隠れは解消。既存ASSと音声packetの一致を新動画で再確認。ASS終了と動画末尾の差は既存の無音CTA。"
+              }
+            ],
+            "admin": {
+              "checkedAt": "2026-10-12T04:14:48.991Z",
+              "ssrMain": true,
+              "qualification": true,
+              "mediaChecked": 8,
+              "method": "HTTP SSR plus nonempty image/video range responses",
+              "browserScreenshotVerified": false,
+              "checks": [
+                {
+                  "id": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cover",
+                  "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cover.4eccd275.png",
+                  "inHtml": true,
+                  "status": 206,
+                  "bytes": 1024
+                },
+                {
+                  "id": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cta",
+                  "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cta.d2e66def.png",
+                  "inHtml": true,
+                  "status": 206,
+                  "bytes": 1024
+                },
+                {
+                  "id": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/scene-002",
+                  "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/scene-002.d64b1708.png",
+                  "inHtml": true,
+                  "status": 206,
+                  "bytes": 1024
+                },
+                {
+                  "id": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/video",
+                  "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/video.3a25370e.mp4",
+                  "inHtml": true,
+                  "status": 206,
+                  "bytes": 1024
+                },
+                {
+                  "id": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover",
+                  "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover.8d71afb3.png",
+                  "inHtml": true,
+                  "status": 206,
+                  "bytes": 1024
+                },
+                {
+                  "id": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cta",
+                  "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cta.d2e66def.png",
+                  "inHtml": true,
+                  "status": 206,
+                  "bytes": 1024
+                },
+                {
+                  "id": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/scene-002",
+                  "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/scene-002.64362ed2.png",
+                  "inHtml": true,
+                  "status": 206,
+                  "bytes": 1024
+                },
+                {
+                  "id": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/video",
+                  "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/video.b563ce95.mp4",
+                  "inHtml": true,
+                  "status": 206,
+                  "bytes": 1024
+                }
+              ]
+            },
+            "liveVerification": {
+              "checkedAt": "2026-10-12T04:31:52.802Z",
+              "newId": "vYPjT713Hyg",
+              "method": "native-chrome-cua-screenshot-and-accessibility",
+              "url": "https://www.youtube.com/shorts/vYPjT713Hyg",
+              "channelMatched": true,
+              "channelHandle": "@doboku-note",
+              "coverLogoMatched": true,
+              "coverMeaning": "adopted POP cover matched; legacy field name",
+              "ctaMatched": true,
+              "scenesReviewed": [
+                "cover",
+                "body",
+                "cta"
+              ],
+              "observedSliderPercent": [
+                0,
+                16,
+                36
+              ],
+              "fullBleedBackground": true,
+              "largeFlatMarginsResolved": true,
+              "subtitleImageOverlapResolved": true,
+              "limitations": [
+                "Desktop Chrome YouTube Shorts player inspected; mobile app not inspected",
+                "Representative scene positions, not every frame"
+              ]
+            },
+            "relatedVerification": {
+              "matched": true,
+              "newId": "vYPjT713Hyg",
+              "relatedVideoId": "lNI2f_SjCTk",
+              "checkedAt": "2026-10-12T04:31:52.802Z",
+              "method": "YouTube Studio related-video selection saved; Shorts related href read back",
+              "observedHref": "https://www.youtube.com/watch?v=lNI2f_SjCTk"
+            }
+          },
+          "publication": {
+            "status": "private-preview-live-checked-finalization-pending",
+            "externalUpdated": false,
+            "existingVideoId": "g86O04mXoVM",
+            "supersededPrivatePreviewId": "tMxQesShhL8",
+            "privateR2Staged": true,
+            "newPrivatePreviewId": "vYPjT713Hyg"
+          },
+          "thumbnailTransfer": {
+            "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/upload-thumbnail.9660df13.png",
+            "sha256": "9660df1399cc8197163359a77c57db0f62db52087b316a6df5f092765d6fbf1f",
+            "bytes": 1411270,
+            "width": 576,
+            "height": 1024,
+            "reason": "YouTube thumbnail upload derivative; adopted image and video remain 1080×1920",
+            "sourceSha256": "8d71afb36c0247cd9059a85c7c8e75aa3a5b69e4771516ad2372028eff1cec48"
+          },
+          "metadataAdoptionVerification": {
+            "checkedAt": "2026-10-12T04:43:25.765Z",
+            "matchesReviewedVideo": true
+          }
+        }
+      ],
+      "videoQa": {
+        "schemaVersion": 2,
+        "evaluator": "yt-shorts-publisher-qa",
+        "createdAt": "2026-10-12T04:12:05.477Z",
+        "worktree": "/Users/minamidaisuke/.codex/worktrees/youtube-pop-thumbnails/doboku-note",
+        "pack": "civil-construction-2/gakka-2kyu-doko",
+        "sourceManifest": ".tmp/shorts-layout/adopted.json",
+        "previousQaReused": false,
+        "overallResult": "pass-local",
+        "fourAxisResult": "both-pass",
+        "imageReviewResult": "pass",
+        "basis": "新しい表紙2枚と字幕入り完成フレームを原寸・幅360pxで追検査し、SPL-01/02の重なり解消を確認。新MP4/表紙/ASSのSHAと元音声packetを独立照合。本文・CTAは直前の視覚QAから画像SHAが不変であることを確認した。",
+        "policy": [
+          ".claude/knowledge/reference/yt-shorts-publisher-policy.md",
+          ".claude/knowledge/reference/pop-image-policy.md",
+          ".claude/knowledge/reference/sns-image-policy.md"
+        ],
+        "coverage": {
+          "videosRequested": 2,
+          "videosProbed": 2,
+          "adoptedImageSlots": 6,
+          "originalImageSlotsViewed": 6,
+          "uniqueImageHashes": 5,
+          "completedFramesViewedAt360px": 6,
+          "completedCoversViewedAtOriginalSize": 2,
+          "titleEntriesScanned": 224,
+          "liveUiInspected": 0
+        },
+        "compositionVerdict": "全面背景、中央の重心、主見出しと顔の大きさは今回の修正で改善。全6スロットに巨大な単色余白・内側の小ポスター境界はない。本文カードは文字中心の構成で、先生を表紙より小さくする判断は適切。",
+        "passRule": "4軸は平均4.0以上かつ全軸3以上。画像レビューの未解消指摘は0。ライブUI・外部反映は別工程。",
+        "items": [
+          {
+            "key": "point-block1-2",
+            "publicationId": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2",
+            "fourAxisResult": "pass",
+            "average": 4.5,
+            "imageReviewResult": "pass",
+            "overallResult": "pass-local",
+            "axes": [
+              {
+                "axis": 1,
+                "name": "尺・画角適正／画像構図",
+                "score": 5,
+                "evidence": "新動画は30.200秒・1080×1920・906フレーム。全文背景が四辺まで連続し、左右の重心と主題・顔の大きさは適切。修正した表紙2枚の原寸・幅360px完成フレームで文字・顔の切れなし。block1の「試験名」ラベルは髪から離れ、overviewのボード上の重複コピーは削除された。"
+              },
+              {
+                "axis": 2,
+                "name": "導線・UTM整合",
+                "score": 4,
+                "evidence": "CTAは「関連動画へ」。utm_source=youtube、utm_medium=video、utm_campaign=gakka-2kyu-doko、utm_content=shorts。正規authorityNoticeは各1回。新動画の実YouTube UIと導線設定はこの評価では未検査。"
+              },
+              {
+                "axis": 3,
+                "name": "タイトル長・検索性",
+                "score": 5,
+                "title": "2級土木｜土質試験は目的で覚える #Shorts",
+                "titleLength": 24,
+                "evidence": "資格名と固有論点を含み40字以内。動画パック224本を再走査し同一タイトルは当該1本のみ。テーマ型なので年度／pack番号は不要。"
+              },
+              {
+                "axis": 4,
+                "name": "字幕焼き込み・画像との整合",
+                "score": 4,
+                "evidence": "新表紙と字幕の重なりを原寸・幅360pxで追検査。block1の主題・顔・対応ラベルは字幕に隠れない。overviewのボード上「4テーマ」は削除され、文字の部分隠れは解消。既存ASSと音声packetの一致を新動画で再確認。ASS終了と動画末尾の差は既存の無音CTA。"
+              }
+            ],
+            "video": {
+              "path": ".tmp/shorts-layout/point-block1-2/video.mp4",
+              "sha256": "3a25370e4aa5b27bc782e404f15ec05a19c25d65aea24bc11b838d16646c67b0",
+              "shaVerified": true,
+              "durationSeconds": 30.2,
+              "width": 1080,
+              "height": 1920,
+              "frames": 906,
+              "audioPacketsComparedToSource": true,
+              "audioPacketsUnchanged": true,
+              "subtitles": ".tmp/video-render/gakka-2kyu-doko/shorts/point-block1-2/subtitles.ass",
+              "subtitlesSha256": "4bd60b6e03090cfffe88cf377d90291a3ffaf7c264ca817f11dd29dcc134d726",
+              "subtitlesShaVerified": true,
+              "ttsRegenerated": false,
+              "previousSha256": "d290e8c40f968e025ade4b4cf4085d51137345f52f8cc30c795d33489bd1b17b"
+            },
+            "imageSlots": [
+              {
+                "role": "cover",
+                "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cover.4eccd275.png",
+                "sha256": "4eccd275c87f501962bf94f6502dc00af0d7c90ffee8b6f6aff8ce336b4e9401",
+                "shaVerified": true,
+                "originalViewed": true,
+                "completed360FrameViewed": true,
+                "completed360Frame": ".tmp/shorts-layout/point-block1-2/frame-0-360.png",
+                "timeSec": 1,
+                "headlineReadable": true,
+                "faceReadable": true,
+                "headlineOrFaceClipped": false,
+                "fullBleedBackground": true,
+                "hugeFlatBlankRegion": false,
+                "shrunkPosterBoundary": false,
+                "composition": "人物を左・土の拡大図を右に置き、上部主題を横幅いっぱいに大きく見せる。左右の視覚的重量は釣り合う。",
+                "findingIds": [],
+                "previousSha256": "c57a83feaf25b25cd89915bbc714447cdc3bfb2c0fba4e70a18e2b6dd8c74537",
+                "reinspection": "new cover and completed subtitle frame viewed at original and 360px"
+              },
+              {
+                "role": "scene-002",
+                "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/scene-002.d64b1708.png",
+                "sha256": "d64b1708916912a1c4633983446fa36f57a88227598ef467d926c7747c58754f",
+                "shaVerified": true,
+                "originalViewed": true,
+                "completed360FrameViewed": true,
+                "completed360Frame": ".tmp/shorts-layout/point-block1-2/frame-1-360.png",
+                "timeSec": 6,
+                "headlineReadable": true,
+                "faceReadable": true,
+                "headlineOrFaceClipped": false,
+                "fullBleedBackground": true,
+                "hugeFlatBlankRegion": false,
+                "shrunkPosterBoundary": false,
+                "composition": "3枚の対応カードは横幅約90%で中央揃え。下側に広い装飾背景が残るが、無地帯や小ポスターの境界はない。",
+                "findingIds": [],
+                "previousSha256": "d64b1708916912a1c4633983446fa36f57a88227598ef467d926c7747c58754f",
+                "reinspection": "previous visual inspection retained; unchanged image SHA verified"
+              },
+              {
+                "role": "cta",
+                "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cta.d2e66def.png",
+                "sha256": "d2e66def4766a40b81319f31aee493fd8452fef886938bafe1b4ea2645905d42",
+                "shaVerified": true,
+                "originalViewed": true,
+                "completed360FrameViewed": true,
+                "completed360Frame": ".tmp/shorts-layout/point-block1-2/frame-2-360.png",
+                "timeSec": 13.55,
+                "headlineReadable": true,
+                "faceReadable": true,
+                "headlineOrFaceClipped": false,
+                "fullBleedBackground": true,
+                "hugeFlatBlankRegion": false,
+                "shrunkPosterBoundary": false,
+                "composition": "主文が上半分、顔・スマホ・下向き指示が下半分に大きく配置され、背景は全体へ連続。",
+                "findingIds": [],
+                "previousSha256": "d2e66def4766a40b81319f31aee493fd8452fef886938bafe1b4ea2645905d42",
+                "reinspection": "previous visual inspection retained; unchanged image SHA verified"
+              }
+            ],
+            "metadataVideoShaAtInspection": "8427e7d5016e76bae3f59ce1a0408810d6ffe40ce59be1852e340c7cbe31563b",
+            "metadataVideoShaMatchesReviewedVideo": false,
+            "liveUiInspected": false,
+            "publicationCompletionClaimed": false
+          },
+          {
+            "key": "point-overview-1",
+            "publicationId": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1",
+            "fourAxisResult": "pass",
+            "average": 4.5,
+            "imageReviewResult": "pass",
+            "overallResult": "pass-local",
+            "axes": [
+              {
+                "axis": 1,
+                "name": "尺・画角適正／画像構図",
+                "score": 5,
+                "evidence": "新動画は30.200秒・1080×1920・906フレーム。全文背景が四辺まで連続し、左右の重心と主題・顔の大きさは適切。修正した表紙2枚の原寸・幅360px完成フレームで文字・顔の切れなし。block1の「試験名」ラベルは髪から離れ、overviewのボード上の重複コピーは削除された。"
+              },
+              {
+                "axis": 2,
+                "name": "導線・UTM整合",
+                "score": 4,
+                "evidence": "CTAは「関連動画へ」。utm_source=youtube、utm_medium=video、utm_campaign=gakka-2kyu-doko、utm_content=shorts。正規authorityNoticeは各1回。新動画の実YouTube UIと導線設定はこの評価では未検査。"
+              },
+              {
+                "axis": 3,
+                "name": "タイトル長・検索性",
+                "score": 5,
+                "title": "2級土木｜土工の4テーマ #Shorts",
+                "titleLength": 20,
+                "evidence": "資格名と固有論点を含み40字以内。動画パック224本を再走査し同一タイトルは当該1本のみ。テーマ型なので年度／pack番号は不要。"
+              },
+              {
+                "axis": 4,
+                "name": "字幕焼き込み・画像との整合",
+                "score": 4,
+                "evidence": "新表紙と字幕の重なりを原寸・幅360pxで追検査。block1の主題・顔・対応ラベルは字幕に隠れない。overviewのボード上「4テーマ」は削除され、文字の部分隠れは解消。既存ASSと音声packetの一致を新動画で再確認。ASS終了と動画末尾の差は既存の無音CTA。"
+              }
+            ],
+            "video": {
+              "path": ".tmp/shorts-layout/point-overview-1/video.mp4",
+              "sha256": "b563ce956e14085f213189d7586a40c66baf9c1ba2bf098a1f1a17c1992eb1d3",
+              "shaVerified": true,
+              "durationSeconds": 30.2,
+              "width": 1080,
+              "height": 1920,
+              "frames": 906,
+              "audioPacketsComparedToSource": true,
+              "audioPacketsUnchanged": true,
+              "subtitles": ".tmp/video-render/gakka-2kyu-doko/shorts/point-overview-1/subtitles.ass",
+              "subtitlesSha256": "51f69d2fa3410f2450994a45bd39b6f985f8ed4e3c9f80bb796f6adb2eb036ed",
+              "subtitlesShaVerified": true,
+              "ttsRegenerated": false,
+              "previousSha256": "0b762d39d7c4ad4240881d2bc64b6fc9fcccd008e6e27da5abcad5d5a33a8828"
+            },
+            "imageSlots": [
+              {
+                "role": "cover",
+                "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover.8d71afb3.png",
+                "sha256": "8d71afb36c0247cd9059a85c7c8e75aa3a5b69e4771516ad2372028eff1cec48",
+                "shaVerified": true,
+                "originalViewed": true,
+                "completed360FrameViewed": true,
+                "completed360Frame": ".tmp/shorts-layout/point-overview-1/frame-0-360.png",
+                "timeSec": 1,
+                "headlineReadable": true,
+                "faceReadable": true,
+                "headlineOrFaceClipped": false,
+                "fullBleedBackground": true,
+                "hugeFlatBlankRegion": false,
+                "shrunkPosterBoundary": false,
+                "composition": "主題、4カード、中央下の大きい人物の順。手持ちボードが人物の右側を支え、全体は中央に収まる。",
+                "findingIds": [],
+                "previousSha256": "53470a67fad28e5247c78268f0d6f67dba29dbde61fce1eb4a11fc5fbd7caa22",
+                "reinspection": "new cover and completed subtitle frame viewed at original and 360px"
+              },
+              {
+                "role": "scene-002",
+                "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/scene-002.64362ed2.png",
+                "sha256": "64362ed29f4e60a04932a02b1a377a4d294216daa69f1f9c7c6f4707d3cdd242",
+                "shaVerified": true,
+                "originalViewed": true,
+                "completed360FrameViewed": true,
+                "completed360Frame": ".tmp/shorts-layout/point-overview-1/frame-1-360.png",
+                "timeSec": 6,
+                "headlineReadable": true,
+                "faceReadable": true,
+                "headlineOrFaceClipped": false,
+                "fullBleedBackground": true,
+                "hugeFlatBlankRegion": false,
+                "shrunkPosterBoundary": false,
+                "composition": "4カードは中央揃えで下方へ連続。下部も放射線が続き、単色の巨大な余白はない。",
+                "findingIds": [],
+                "previousSha256": "64362ed29f4e60a04932a02b1a377a4d294216daa69f1f9c7c6f4707d3cdd242",
+                "reinspection": "previous visual inspection retained; unchanged image SHA verified"
+              },
+              {
+                "role": "cta",
+                "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cta.d2e66def.png",
+                "sha256": "d2e66def4766a40b81319f31aee493fd8452fef886938bafe1b4ea2645905d42",
+                "shaVerified": true,
+                "originalViewed": true,
+                "completed360FrameViewed": true,
+                "completed360Frame": ".tmp/shorts-layout/point-overview-1/frame-2-360.png",
+                "timeSec": 11.82,
+                "headlineReadable": true,
+                "faceReadable": true,
+                "headlineOrFaceClipped": false,
+                "fullBleedBackground": true,
+                "hugeFlatBlankRegion": false,
+                "shrunkPosterBoundary": false,
+                "composition": "主文が上半分、顔・スマホ・下向き指示が下半分に大きく配置され、背景は全体へ連続。",
+                "findingIds": [],
+                "previousSha256": "d2e66def4766a40b81319f31aee493fd8452fef886938bafe1b4ea2645905d42",
+                "reinspection": "previous visual inspection retained; unchanged image SHA verified"
+              }
+            ],
+            "metadataVideoShaAtInspection": "0a8f39fbedd73c109f7e05ff63707a96106eccaa30ce04e119e7f4e4ced8db64",
+            "metadataVideoShaMatchesReviewedVideo": false,
+            "liveUiInspected": false,
+            "publicationCompletionClaimed": false
+          }
+        ],
+        "findings": [
+          {
+            "id": "SPL-01",
+            "key": "point-block1-2",
+            "role": "cover",
+            "severity": "minor",
+            "category": "text-character-overlap",
+            "image": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cover.c57a83fe.png",
+            "evidenceFrame": ".tmp/shorts-layout/point-block1-2/frame-0-360.png",
+            "finding": "先生の髪が赤い「試験名」ラベルの左下に重なり、「試」の左下の一部を隠している。主見出しと顔は欠けていない。",
+            "recommendation": "ラベルと髪の間を少し空け、対応ラベル全体を読めるようにする。",
+            "affects": [
+              "image-review",
+              "axis-1"
+            ],
+            "resolved": true,
+            "resolvedAt": "2026-10-12T04:14:55.006Z",
+            "resolution": "対応ラベルを右へ移動。髪と「試験名」の間に隙間があり全文判読できる。"
+          },
+          {
+            "id": "SPL-02",
+            "key": "point-overview-1",
+            "role": "cover",
+            "severity": "minor",
+            "category": "text-subtitle-overlap",
+            "image": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover.53470a67.png",
+            "evidenceFrame": ".tmp/shorts-layout/point-overview-1/frame-0-360.png",
+            "finding": "冒頭の字幕帯がクリップボード上の「4テーマ」を覆い、末尾の「マ」だけが右側に残る。上部の主見出し「4テーマで整理」と先生の顔は読める。",
+            "recommendation": "ボードの重複コピーを省くか字幕帯より上へ移す。音声・ASSは保持したまま画像側で解消できる。",
+            "affects": [
+              "image-review",
+              "axis-4"
+            ],
+            "resolved": true,
+            "resolvedAt": "2026-10-12T04:14:55.006Z",
+            "resolution": "クリップボードの「4テーマ」を削除。4個のチェックは維持され、字幕の下から文字の一部だけが残る状態を解消。"
+          },
+          {
+            "id": "SPL-03",
+            "key": "both",
+            "severity": "info",
+            "category": "existing-timing",
+            "finding": "既存ASSの終了はblock1=19.46秒、overview=17.73秒。30.20秒の動画に対し末尾10.74秒/12.47秒の字幕なしCTAが残る。元動画と音声packetが一致しており、音声・字幕を固定する今回の画像改修で新たに発生した差分ではない。",
+            "affects": [
+              "axis-4"
+            ],
+            "resolved": false
+          },
+          {
+            "id": "SPL-04",
+            "key": "both",
+            "severity": "info",
+            "category": "adoption",
+            "finding": "検査時点のyoutube.json動画SHAは今回の新動画SHAと未一致。素材採用・外部反映は親の工程。",
+            "affects": [
+              "publication"
+            ],
+            "resolved": false
+          }
+        ],
+        "limitations": [
+          "ライブYouTube操作UIは親が別確認。本評価から実表示完了・外部反映完了は推定しない。",
+          "動画の目視は3シーンの標本フレーム。連続再生の全フレーム・音声内容の聴取は未検査。",
+          "AI生成の技術的忠実性の専門判定は別担当。本評価は構図、文字、顔、字幕の見え方を担当。"
+        ],
+        "writtenFiles": [
+          ".tmp/shorts-layout/video-qa.json"
+        ],
+        "updatedAt": "2026-10-12T04:14:55.006Z",
+        "openVisualFindings": 0,
+        "reinspection": {
+          "at": "2026-10-12T04:14:55.006Z",
+          "scope": "2 changed covers and completed subtitle frames",
+          "changedCoverImagesViewed": 2,
+          "completedCoverFramesViewedAtOriginalSize": 2,
+          "completedCoverFramesViewedAt360px": 2,
+          "unchangedBodyAndCtaSlotsVerified": 4,
+          "checks": [
+            {
+              "key": "point-block1-2",
+              "videoSha256": "3a25370e4aa5b27bc782e404f15ec05a19c25d65aea24bc11b838d16646c67b0",
+              "coverSha256": "4eccd275c87f501962bf94f6502dc00af0d7c90ffee8b6f6aff8ce336b4e9401",
+              "probe": {
+                "programs": [],
+                "stream_groups": [],
+                "streams": [
+                  {
+                    "codec_type": "video",
+                    "width": 1080,
+                    "height": 1920,
+                    "nb_frames": "906"
+                  },
+                  {
+                    "codec_type": "audio",
+                    "nb_frames": "708"
+                  }
+                ],
+                "format": {
+                  "duration": "30.200000"
+                }
+              },
+              "audioPacketsUnchanged": true,
+              "subtitlesShaVerified": true,
+              "bodyAndCtaShaUnchanged": true,
+              "metadataVideoShaMatchesReviewedVideo": false
+            },
+            {
+              "key": "point-overview-1",
+              "videoSha256": "b563ce956e14085f213189d7586a40c66baf9c1ba2bf098a1f1a17c1992eb1d3",
+              "coverSha256": "8d71afb36c0247cd9059a85c7c8e75aa3a5b69e4771516ad2372028eff1cec48",
+              "probe": {
+                "programs": [],
+                "stream_groups": [],
+                "streams": [
+                  {
+                    "codec_type": "video",
+                    "width": 1080,
+                    "height": 1920,
+                    "nb_frames": "906"
+                  },
+                  {
+                    "codec_type": "audio",
+                    "nb_frames": "708"
+                  }
+                ],
+                "format": {
+                  "duration": "30.200000"
+                }
+              },
+              "audioPacketsUnchanged": true,
+              "subtitlesShaVerified": true,
+              "bodyAndCtaShaUnchanged": true,
+              "metadataVideoShaMatchesReviewedVideo": false
+            }
+          ]
+        }
+      },
+      "userFeedback": {
+        "issue": "右と下の大きな無地余白により内容が左上へ偏って見える",
+        "resolution": "全面背景と中央の重心へ再設計。寸法検査と完成映像の構図検査を分離。",
+        "preserveAudio": true
+      }
     }
   }
 }

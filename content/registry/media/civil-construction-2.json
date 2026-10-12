@@ -491,48 +491,237 @@
       "id": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "390497e0333012171709779b80c689f4ef0f24797e26c8f88c2e0b6e2b39ab33",
-      "bytes": 726022,
+      "sha256": "4eccd275c87f501962bf94f6502dc00af0d7c90ffee8b6f6aff8ce336b4e9401",
+      "bytes": 4354190,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cover.390497e0.png"
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cover.4eccd275.png"
       },
       "provenance": {
-        "kind": "template",
-        "by": "youtube-covers",
-        "spec": "content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/cover-design.json#covers/point-block1-2",
-        "specSha256": "51b42d4fa3a93c3ee132b2dac031ea5b3106fc65b706dc3efb4ad8b12500cf44"
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の全面縦POP表紙の部分修正。先生の髪が赤い『試験名』ラベルの左下へ重なっているので、赤と青の対応ラベルの組『試験名 ↔ 分かること』を現在の位置より少し上・右に置き、先生の髪との間に明確な隙間を作る。赤ラベルの『試』を含む全文字を完全に見せる。見出しの『目的で覚える』にもラベルを重ねない。ラベルの幅や文字サイズは少しだけ小さく調整してよい。他は全面背景、文字内容、顔、手、瓶、地盤拡大、ポーズ、先生のサイズ、胴体、総監が制作の黄色帯を現状どおり保持。構図全体を縮小しない。無地余白・別パネルを足さない。縦9:16。",
+        "promptSha256": "d4f0e1371a07d2ce0a994ab08d3c978d0eca370edf31a0fb54e12b40c0c1b4c9",
+        "generatedAt": "2026-10-12T04:12:32.334Z"
       },
       "legacyPaths": [
         ".tmp/video-render/youtube-covers-a-rollout-20260909/206.png",
-        ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cover.630cf0b5.png"
+        ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cover.630cf0b5.png",
+        ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cover.390497e0.png",
+        ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cover.5b7e9c8c.png",
+        ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cover.c57a83fe.png"
+      ]
+    },
+    {
+      "id": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cta",
+      "role": "cta",
+      "type": "image/png",
+      "sha256": "d2e66def4766a40b81319f31aee493fd8452fef886938bafe1b4ea2645905d42",
+      "bytes": 3695979,
+      "width": 1080,
+      "height": 1920,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cta.d2e66def.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Use case: compositing. 添付は修正対象です。2級土木のYouTube Shorts用POP締め画像を縦9:16、1080×1920想定で再設計してください。現在はポスターが左上だけに縮小され、右と下が無地の緑で余っているのが問題。画面全体が一枚の完成ポスターになるよう、緑と黄色の放射線・ハーフトーンドットの背景を四辺まで連続させ、矩形の境界をなくす。主役を中央に移し、左右の重心を均等に。上10〜17%に『2級土木』、18〜38%に大きく『詳しい解説は』『関連動画へ』、39〜45%に『土工の4テーマを確認』。文字は左右8〜85%に自然に収め、文字の右端を切らない。黒髪、黒縁眼鏡、短いひげ、青作業服の同じ先生を中央下45〜82%に大きく。顔とスマートフォンは45〜65%に置き、片手で下を指すポーズを保持。黄色い下向き矢印を中央66〜72%に。下側も服・背景の放射線・柔らかい地面表現を自然に続ける。字幕が重なる高さ74〜80%は背景のコントラストを低めにするが、無地の空白帯やパネルで分割しない。右端も背景を全面に描く。文字と顔だけ操作UIから離す。全文字とキャラクターの同一性は保持。手指を自然に。スマホは再生三角のみ。追加コピー、URL、ロゴ、ユーザーUI、余白、額縁は描かない。極太の黒白縁文字、緑黄白と少量赤のキャッチーな漫画POP。",
+        "promptSha256": "9bbf1635ae3d40eeac8ce0a8c7d1d8400b10ee3fcbdd5a8185eca56e78f33d14",
+        "generatedAt": "2026-10-12T04:12:32.638Z"
+      },
+      "legacyPaths": [
+        ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cta.ede8fcfc.png",
+        ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cta.4fcc4b1b.png",
+        ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cta.d2e66def.png"
+      ]
+    },
+    {
+      "id": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/scene-002",
+      "role": "scene-002",
+      "type": "image/png",
+      "sha256": "d64b1708916912a1c4633983446fa36f57a88227598ef467d926c7747c58754f",
+      "bytes": 3378385,
+      "width": 1080,
+      "height": 1920,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/scene-002.d64b1708.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "この画像の3カードだけコンパクトに再配置してください。縦9:16と全面の緑黄放射背景は保持。最後のカードが低すぎて動画字幕と重なるため、3カード全体を画面上20%から70%以内で終了させる。各カードは高さ約15%で、試験名と結果を横に並べた2列の対応表に変更：1枚目『標準貫入試験 → N値』の1行＋小さな2行目『地盤の硬さの指標』、2枚目『平板載荷試験 → 支持力』、3枚目『現場CBR試験 → 路床・路盤の支持力』（結果は2行可）。いまの『N値』『支持力』の巨大な赤字は高さを半分にし、試験名と同程度の文字サイズにする。白いカード3枚は水平中央、文字の上下に過大な余白なし。上部の2級土木、試験名と目的をセットで、先生は保持。下30%は文字・カード・人物を置かず、緑黄の放射線とドットの背景を端まで続ける。下が単色余白や別パネルにならないよう背景を連続。新しいコピーや図を足さない。顔・手・コピーに誤字なし。",
+        "promptSha256": "e3a9f47b7e98fb74a3123eff3bfc4953b80798620fb69ee1bc8241383c4179ab",
+        "generatedAt": "2026-10-12T04:12:32.527Z"
+      },
+      "legacyPaths": [
+        ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/scene-002.dcd8d207.png",
+        ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/scene-002.d64b1708.png"
+      ]
+    },
+    {
+      "id": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/subtitles",
+      "role": "subtitles",
+      "type": "text/plain",
+      "sha256": "4bd60b6e03090cfffe88cf377d90291a3ffaf7c264ca817f11dd29dcc134d726",
+      "bytes": 1240,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/subtitles.4bd60b6e.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "reviewed-image-replacement",
+        "spec": "content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/pop-image.json#revisions/shorts-pop-fullbleed-20261012"
+      },
+      "legacyPaths": [
+        ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/subtitles.4bd60b6e.ass"
+      ]
+    },
+    {
+      "id": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/video",
+      "role": "video",
+      "type": "video/mp4",
+      "sha256": "3a25370e4aa5b27bc782e404f15ec05a19c25d65aea24bc11b838d16646c67b0",
+      "bytes": 23113750,
+      "width": 1080,
+      "height": 1920,
+      "durationSec": 30.2,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/video.3a25370e.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "reviewed-image-replacement",
+        "spec": "content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/pop-image.json#revisions/shorts-pop-fullbleed-20261012"
+      },
+      "legacyPaths": [
+        ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/video.8427e7d5.mp4",
+        ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/video.d290e8c4.mp4"
       ]
     },
     {
       "id": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "4fe5395ef89372ff29df1a95e7b03da8fa952dac0245ab51d3930aea045ad165",
-      "bytes": 488035,
+      "sha256": "8d71afb36c0247cd9059a85c7c8e75aa3a5b69e4771516ad2372028eff1cec48",
+      "bytes": 4590955,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover.4fe5395e.png"
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover.8d71afb3.png"
       },
       "provenance": {
         "kind": "ai-generated",
         "tool": "codex",
-        "prompt": "承認画像の同一先生と緑黄色POPの漫画画風で、YouTube ShortsとInstagram Reelsに共用する縦1080×1920の冒頭表紙を新規制作。縦9:16専用構図。上端10％、右端18％、下端20％は背景のみの安全域。全ての重要な文字は幅の左8％から右80％まで、高さ12％から74％までに入れる。文字は上から「2級土木」「土工の頻出点」「4テーマで整理」。中央に大きい2×2のカード、正確に4つ「土質試験」「土量変化」「締固め」「軟弱地盤」。人物は四カードの下、胸上の小さい先生、左手で4テーマのチェックリストを掲げ、右手でペンを握り解説、参照と同じ黒髪・黒眼鏡・ひげ・紺作業服。カードと人物は重ならない。各カードの漫画図は、土試料と採取器、土を積むダンプ、ローラー、細い砂ドレーン断面。軟弱地盤図は上に薄い水平砂排水層、均質な粘土地盤に埋めた細い鉛直排水材、太い穴開きパイプや地下の水槽なし。黄色の著者帯「総監が制作」は高さ72％、下の20％余白には文字を置かない。人物は80％以下に伸ばさない。太く正確な日本語、短い明瞭な見出し。価格・URL・合格保証・指定以外の文字なし。縦専用で、横長画像を切り取っただけにしない。",
-        "promptSha256": "c0f45b970b92885822e8498bde42dec4e22349c443d45ec3047b04ce66155f19",
-        "generatedAt": "2026-10-11T12:56:09.249Z"
+        "prompt": "添付の全面縦POP表紙の小さな部分修正。先生が持っているクリップボードの上部にある『4テーマ』の文字だけを削除して白地にする。4個の緑色チェックと横線は保持。これは動画字幕と文字が重なるのを避ける修正。他の『2級土木』『土工の頻出点』『4テーマで整理』、4つのカード、総監が制作、人物の顔とポーズと手、背景と余白、全ての構図と大きさは一切変えない。上の主見出しの『4テーマで整理』は消さない。縦9:16。",
+        "promptSha256": "cbf6a047ef17772a9b0d54748e0f0752734b85b98e6c0252d9f62606bf355646",
+        "generatedAt": "2026-10-12T04:12:32.768Z"
       },
       "legacyPaths": [
         ".tmp/video-render/youtube-covers-a-rollout-20260909/205.png",
         ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover.911496ef.png",
-        ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover.1053b245.png"
+        ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover.1053b245.png",
+        ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover.4fe5395e.png",
+        ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover.ffe46dcf.png",
+        ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover.53470a67.png"
+      ]
+    },
+    {
+      "id": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cta",
+      "role": "cta",
+      "type": "image/png",
+      "sha256": "d2e66def4766a40b81319f31aee493fd8452fef886938bafe1b4ea2645905d42",
+      "bytes": 3695979,
+      "width": 1080,
+      "height": 1920,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cta.d2e66def.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Use case: compositing. 添付は修正対象です。2級土木のYouTube Shorts用POP締め画像を縦9:16、1080×1920想定で再設計してください。現在はポスターが左上だけに縮小され、右と下が無地の緑で余っているのが問題。画面全体が一枚の完成ポスターになるよう、緑と黄色の放射線・ハーフトーンドットの背景を四辺まで連続させ、矩形の境界をなくす。主役を中央に移し、左右の重心を均等に。上10〜17%に『2級土木』、18〜38%に大きく『詳しい解説は』『関連動画へ』、39〜45%に『土工の4テーマを確認』。文字は左右8〜85%に自然に収め、文字の右端を切らない。黒髪、黒縁眼鏡、短いひげ、青作業服の同じ先生を中央下45〜82%に大きく。顔とスマートフォンは45〜65%に置き、片手で下を指すポーズを保持。黄色い下向き矢印を中央66〜72%に。下側も服・背景の放射線・柔らかい地面表現を自然に続ける。字幕が重なる高さ74〜80%は背景のコントラストを低めにするが、無地の空白帯やパネルで分割しない。右端も背景を全面に描く。文字と顔だけ操作UIから離す。全文字とキャラクターの同一性は保持。手指を自然に。スマホは再生三角のみ。追加コピー、URL、ロゴ、ユーザーUI、余白、額縁は描かない。極太の黒白縁文字、緑黄白と少量赤のキャッチーな漫画POP。",
+        "promptSha256": "9bbf1635ae3d40eeac8ce0a8c7d1d8400b10ee3fcbdd5a8185eca56e78f33d14",
+        "generatedAt": "2026-10-12T04:12:33.044Z"
+      },
+      "legacyPaths": [
+        ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cta.ede8fcfc.png",
+        ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cta.4fcc4b1b.png",
+        ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cta.d2e66def.png"
+      ]
+    },
+    {
+      "id": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/scene-002",
+      "role": "scene-002",
+      "type": "image/png",
+      "sha256": "64362ed29f4e60a04932a02b1a377a4d294216daa69f1f9c7c6f4707d3cdd242",
+      "bytes": 3366452,
+      "width": 1080,
+      "height": 1920,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/scene-002.64362ed2.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "添付の2級土木Shorts本文画像を編集。縦9:16、1080×1920想定。内容と4枚カードの数・文字・人物は保持。上〜中央の内容を左右中央に配置し、背景の緑黄の放射線とハーフトーンを下端まで連続して広げる。下側に巨大な単色の緑余白を作らず、全面が一枚のPOP画像に見えるように。文字と顔は左右8〜86%内。『2級土木』『土工は4テーマ』と指示棒を持つ同じ黒髪眼鏡ひげ青作業服の先生を上10〜23%に配置。4枚の横長の白いカードは24〜68%に均等に、1枚あたり高さ約10%、カード同士少し間隔を置く。文字は『① 土質試験』『② 土量変化率 L・C』『③ 盛土と締固め』『④ のり面・軟弱地盤』。小図は順に土試料、ダンプ、ローラ、草のある普通の土の斜面。地下排水管など追加しない。4番は2行にして文字の切れなし。字幕用の74〜80%は穏やかな放射背景のまま、カードを置かない。下側に背景の放射線やドットが自然に続いて全体の完成感を出す。余白を埋めるための新しい文字や人物や器具は足さない。額縁、キャンバス内の小さなポスター、画像の四角い境界は禁止。",
+        "promptSha256": "89a0117208042a8485edf14ab64ae3d92c566e334b083af23b8945fa55127997",
+        "generatedAt": "2026-10-12T04:12:32.919Z"
+      },
+      "legacyPaths": [
+        ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/scene-002.9adfc871.png",
+        ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/scene-002.64362ed2.png"
+      ]
+    },
+    {
+      "id": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/subtitles",
+      "role": "subtitles",
+      "type": "text/plain",
+      "sha256": "51f69d2fa3410f2450994a45bd39b6f985f8ed4e3c9f80bb796f6adb2eb036ed",
+      "bytes": 1127,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/subtitles.51f69d2f.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "reviewed-image-replacement",
+        "spec": "content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/pop-image.json#revisions/shorts-pop-fullbleed-20261012"
+      },
+      "legacyPaths": [
+        ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/subtitles.51f69d2f.ass"
+      ]
+    },
+    {
+      "id": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/video",
+      "role": "video",
+      "type": "video/mp4",
+      "sha256": "b563ce956e14085f213189d7586a40c66baf9c1ba2bf098a1f1a17c1992eb1d3",
+      "bytes": 23270164,
+      "width": 1080,
+      "height": 1920,
+      "durationSec": 30.2,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/video.b563ce95.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "reviewed-image-replacement",
+        "spec": "content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/pop-image.json#revisions/shorts-pop-fullbleed-20261012"
+      },
+      "legacyPaths": [
+        ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/video.0a8f39fb.mp4",
+        ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/video.0b762d39.mp4"
       ]
     },
     {

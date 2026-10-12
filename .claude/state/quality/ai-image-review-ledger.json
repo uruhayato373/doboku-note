@@ -1064,11 +1064,41 @@
       "reason": "原寸360px判読、コピーと人物一致、主要文字と図の重なりなし",
       "reviewedAt": "2026-10-11T15:36:46.407Z"
     },
-    "media:civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover": {
-      "sha": "4fe5395ef89372ff",
+    "media:civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cover": {
+      "sha": "4eccd275c87f5019",
       "verdict": "ok",
-      "reason": "原寸・360pxで資格と4項目を確認。右約12％と下約18％に操作UI用余白、ドレーン図は技術的に整合。",
-      "reviewedAt": "2026-10-11T12:56:10.957Z"
+      "reason": "修正版で「試験名」の全文字が髪から分離し、「目的で覚える」とも重ならず、土入り瓶・拡大図・先生の手と顔・残る指定文字に破綻がない。",
+      "reviewedAt": "2026-10-12T04:15:54.826Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cta": {
+      "sha": "d2e66def4766a40b",
+      "verdict": "ok",
+      "reason": "今回の全面版を確認し、4つの指定文字列と再生記号が正確で、先生の顔・眼鏡・短いひげ・作業服、スマホを握る手と下向きの指に生成破綻がない。",
+      "reviewedAt": "2026-10-12T04:15:54.827Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/scene-002": {
+      "sha": "d64b1708916912a1",
+      "verdict": "ok",
+      "reason": "今回の横並び対応表を確認し、3試験とN値・支持力・路床と路盤の支持力の対応、地盤の硬さの指標という補足が正確で、先生の指と文字に崩れがない。",
+      "reviewedAt": "2026-10-12T04:15:54.827Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover": {
+      "sha": "8d71afb36c0247cd",
+      "verdict": "ok",
+      "reason": "修正版でクリップボード上の「4テーマ」だけが消え、4個のチェックと主見出し「4テーマで整理」が保持され、4つの技術図・人物の手・指定文字に破綻がない。",
+      "reviewedAt": "2026-10-12T04:15:54.827Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cta": {
+      "sha": "d2e66def4766a40b",
+      "verdict": "ok",
+      "reason": "今回の全面版を確認し、4つの指定文字列と再生記号が正確で、先生の顔・眼鏡・短いひげ・作業服、スマホを握る手と下向きの指に生成破綻がない。",
+      "reviewedAt": "2026-10-12T04:15:54.827Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/scene-002": {
+      "sha": "64362ed29f4e60a0",
+      "verdict": "ok",
+      "reason": "今回の全面版を確認し、4テーマとL・Cの表記が指示どおりで、土試料・ダンプ・前鉄輪と後タイヤのローラ・草のある土の斜面、先生の指示棒と手が自然である。",
+      "reviewedAt": "2026-10-12T04:15:54.827Z"
     },
     "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/cover": {
       "sha": "b24e58035b4ad295",

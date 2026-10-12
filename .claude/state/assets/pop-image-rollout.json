@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "_doc": ".claude/knowledge/reference/pop-image-policy.md",
   "taskId": "DN-0184",
-  "updatedAt": "2026-10-12T02:47:32.181Z",
+  "updatedAt": "2026-10-12T04:17:22.609Z",
   "scope": {
     "channels": [
       "youtube",
@@ -45,18 +45,25 @@
       "evidence": "content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/pop-image.json#revisions/body-images-20261012",
       "sceneCount": 9,
       "videoRecomposed": true
+    },
+    {
+      "publicationId": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2",
+      "evidence": "content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/pop-image.json#revisions/shorts-pop-fullbleed-20261012",
+      "sceneCount": 3,
+      "videoRecomposed": true,
+      "externalUpdated": false
+    },
+    {
+      "publicationId": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1",
+      "evidence": "content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/pop-image.json#revisions/shorts-pop-fullbleed-20261012",
+      "sceneCount": 3,
+      "videoRecomposed": true,
+      "externalUpdated": false
     }
   ],
   "partialPublicationImages": [
     {
       "publicationId": "civil-construction-2/gakka-2kyu-doko/instagram.carousel",
-      "readyRoles": [
-        "cover"
-      ],
-      "remaining": "本文・問題・解答・結論画像の現物確認と修正"
-    },
-    {
-      "publicationId": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1",
       "readyRoles": [
         "cover"
       ],
@@ -276,7 +283,6 @@
     "civil-construction-2/gakka-2kyu-concrete/youtube.longform",
     "civil-construction-2/gakka-2kyu-concrete/youtube.short.point-block1-2",
     "civil-construction-2/gakka-2kyu-concrete/youtube.short.point-overview-1",
-    "civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2",
     "civil-construction-2/gakka-2kyu-hoki/youtube.longform",
     "civil-construction-2/gakka-2kyu-hoki/youtube.short.point-block1-2",
     "civil-construction-2/gakka-2kyu-hoki/youtube.short.point-overview-1",
@@ -2402,5 +2408,19 @@
       "videoBytes": 67321198,
       "browserReopen": "blocked-by-browser-security-policy"
     }
+  },
+  "shortsSoilLayout": {
+    "publicationIds": [
+      "civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2",
+      "civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1"
+    ],
+    "localImageAndVideoQa": "passed",
+    "audioPacketsUnchanged": true,
+    "externalUpdated": false,
+    "oldPrivatePreviewIds": [
+      "BefqxvhjEZ0",
+      "tMxQesShhL8"
+    ],
+    "next": "新版のYouTube実表示確認、旧非公開版・作業用プレビューの整理"
   }
 }
