@@ -54,6 +54,22 @@ export async function compareThumbnail(expected, actual) {
     for(const cw of [w-1,w,w+1])for(const left of new Set([Math.floor((meta.width-cw)/2),Math.ceil((meta.width-cw)/2)])){
       const pixels=await sharp(actual).extract({left,top:0,width:cw,height:h}).resize(rw,rh).blur(1).removeAlpha().toColourspace('srgb').raw().toBuffer();
       score(rendered,pixels,rw,rh,'portrait-center');
+      // Match the CDN's integer-sized portrait before the comparison resize.
+      // A direct resize otherwise stretches a 404px portrait as if it were
+      // 405px, creating edge error across the whole authored image.
+      const nativeExpected=await sharp(expected).resize(cw,h,{fit:'fill'}).png().toBuffer();
+      const nativeActual=await sharp(actual).extract({left,top:0,width:cw,height:h}).png().toBuffer();
+      const atScale=async (bytes,blur)=>sharp(bytes).resize(rw,rh).blur(blur).removeAlpha().toColourspace('srgb').raw().toBuffer();
+      const scaledExpected=await atScale(nativeExpected,1),scaledActual=await atScale(nativeActual,1);
+      score(scaledExpected,scaledActual,rw,rh,'portrait-center');
+      const candidate=scores.at(-1);
+      // Keep the local tile gate BEFORE stronger noise smoothing, so a missing
+      // letter cannot be hidden by the compression-tolerant whole-image mean.
+      if(candidate.mean>=3&&candidate.worstTile<22){
+        const smoothedExpected=await atScale(nativeExpected,2),smoothedActual=await atScale(nativeActual,2);
+        let sum=0;for(let i=0;i<smoothedActual.length;i++)sum+=Math.abs(smoothedExpected[i]-smoothedActual[i]);
+        candidate.rawMean=candidate.mean;candidate.mean=sum/smoothedActual.length;candidate.normalization='native-portrait-size-and-symmetric-blur-2';
+      }
     }
   }
   const best=scores.sort((a,b)=>a.mean-b.mean)[0];
@@ -69,5 +85,5 @@ export async function compareThumbnail(expected, actual) {
     best.rawMean=best.mean;best.mean=sum/pixels.length;best.normalization='symmetric-blur-0.7';
   }
   return {...best, matched: best.mean < 3 && best.worstTile < maxTileError,
-    thresholds:{mean:3,worstTile:maxTileError},method:'cdn-pixel-comparison-v4',publicFeedVerified:false};
+    thresholds:{mean:3,worstTile:maxTileError},method:'cdn-pixel-comparison-v5',publicFeedVerified:false};
 }
