@@ -3414,6 +3414,23 @@
       "commit": "c8dc3dfc66bf",
       "verification": null,
       "note": "PR #1037。scripts/lib/statement-explanations.mjs に抽出と HTML 生成を集約（parse-civil-1/2・parse-exam-questions・build-quiz-data の 4 経路が同じ関数を使う）。演習データに statements・statementsHtml を足し、サイトの演習は選択肢の解説の前に出す。記述の解説は 283 問（1級 32・2級 33・総監 115・技術士一次 103）。329 問のうち記事に記述ごとの解説が無い 125 問は DN-0699 へ抽出。選択肢の行が無い問題は記述の解説で足りると判断。iOS（別リポジトリ doboku-quiz-ios・リモート無し）はローカルブランチ feat/statement-explanations（951d001）に表示の変更、swift test 13 件・xcodebuild 成功、問題画面の目視は未確認。check-answer-marks 0 件"
+    },
+    {
+      "id": "DN-0570",
+      "at": "2026-10-12",
+      "task": "図の切り出し直しを、記録（切り出し枠・回転）から同じ画像に作り直せるようにする",
+      "tier": "mid",
+      "kind": "改善",
+      "prevention": {
+        "type": "gate",
+        "ref": "scripts/figure-reextract.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "6b3a5ef84dd3",
+      "verification": null,
+      "note": "PR #1038。provenance に cropBox・rotate・post（点の除去・縮小・減色）を足し、record が記録する（reextract は cropBox 必須）。scripts/lib/figure-recipe.mjs に作り直しの手順、scripts/figure-reextract.mjs <figKey> が配信中の画像と照合（寸法一致・平均差 1.0 以下・大差画素 0.2% 以下。実測で一致 0〜0.42、1px ずれで 1.41〜7.3 の間に置いた）。vault 無しは exit 2。既存 4 枚（civil-2 r07-zenki q02・civil-1 r05-b fig-01・surveyor r07 q07・pe-first-stage r07-construction q01）の枠を原典ページから逆算して記録し、4 枚とも一致、cut で作った q07 はバイト一致。回転 180 と減色はテストの合成画像で確認"
     }
   ]
 }
