@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-12T11:14:35Z",
+  "generatedAt": "2026-10-12T11:14:56Z",
   "exam": "civil-1",
   "years": [
     {
@@ -41963,6 +41963,28 @@
               "correct": false
             }
           ],
+          "statements": [
+            {
+              "label": "イ",
+              "text": "三番目で、進捗に伴い計画と実施を比較して資料を整理・チェックする。PDCAのチェックにあたる。",
+              "correct": true
+            },
+            {
+              "label": "ロ",
+              "text": "最後で、ずれがあれば是正措置をとり必要に応じ再計画する。PDCAのアクションにあたる。",
+              "correct": true
+            },
+            {
+              "label": "ハ",
+              "text": "二番目で、計画に基づき工事の指示と監督を行う。PDCAのドゥにあたる。",
+              "correct": true
+            },
+            {
+              "label": "ニ",
+              "text": "最初で、施工順序や施工法の方針から工程の手順と日程を作成する。PDCAのプランにあたる。",
+              "correct": true
+            }
+          ],
           "igEligible": true,
           "packEligible": true
         },
@@ -41994,6 +42016,23 @@
               "num": 4,
               "text": "**（イ）〜（ハ）の対応が誤り **",
               "correct": false
+            }
+          ],
+          "statements": [
+            {
+              "label": "イ",
+              "text": "ネットワーク式工程表である。作業の前後関係を矢線で結ぶため、手戻りの影響が全体工程に及ぶ範囲を確認できる。",
+              "correct": true
+            },
+            {
+              "label": "ロ",
+              "text": "斜線式工程表である。縦軸に距離、横軸に日程をとり、掘進延長方向の各工種の進捗を線で把握できる。",
+              "correct": true
+            },
+            {
+              "label": "ハ",
+              "text": "バーチャート工程表である。各工種の開始から終了までの所要日数と、工種間の前後関係が横棒で読み取れる。",
+              "correct": true
             }
           ],
           "igEligible": false,
