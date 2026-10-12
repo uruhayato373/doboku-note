@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
-import { fileURLToPath } from 'node:url';
+import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
 import {
   checkAgainstOcr, checkArticleFigures, figureNamesMatch, parseArticleFigures, parseOcrFigureNames,
 } from '../scripts/lib/figure-references.mjs';
@@ -67,8 +67,7 @@ test('OCR 突合: 番号が無い・図名が違うを区別し、検査した�
 });
 
 test('記事の現物: 図番号・参照・分割の印の不一致が 0 件で、1 本以上を検査する', () => {
-  const root = fileURLToPath(new URL('..', import.meta.url));
-  const r = spawnSync(process.execPath, ['scripts/check-figure-references.mjs'], { cwd: root, encoding: 'utf8' });
+  const r = spawnSync(process.execPath, ['scripts/check-figure-references.mjs'], { cwd: REPO_ROOT, encoding: 'utf8' });
   assert.equal(r.status, 0, r.stdout + r.stderr);
   assert.match(r.stdout, /対象記事 [1-9]\d* 本/);
   assert.match(r.stdout, /不一致 0 件/);
