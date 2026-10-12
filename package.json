@@ -193,6 +193,7 @@
     "check-asset-reentry:all": "node scripts/check-asset-reentry.mjs --all",
     "drive-vault-sync": "node scripts/drive-vault-sync.mjs",
     "check-drive-vault": "node scripts/check-drive-vault.mjs",
+    "replay-onto-develop": "node scripts/replay-onto-develop.mjs",
     "check-disk-hygiene": "node scripts/check-disk-hygiene.mjs",
     "check-branch-hygiene": "node scripts/check-branch-hygiene.mjs",
     "check-youtube-cover-handoff": "node scripts/check-youtube-cover-handoff.mjs",
