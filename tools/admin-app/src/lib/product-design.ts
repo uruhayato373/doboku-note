@@ -4,6 +4,7 @@ import { loadLineupView, type LineupItem } from './lineup';
 import { magazines } from './content';
 import { findRepoRoot, repoPath } from './repo-root';
 import { datasetPath } from '../../../../scripts/lib/datasets.mjs';
+import { loadProducts, expectedMembers } from '../../../../scripts/lib/product-registry.mjs';
 import { loadThemes, themeShortLabel } from '../../../../scripts/lib/content-theme.mjs';
 import { NOTE_BASE } from '../../../../scripts/lib/site-identity.mjs';
 
@@ -16,6 +17,9 @@ import { NOTE_BASE } from '../../../../scripts/lib/site-identity.mjs';
  *   - マガジン … それ以外の有料マガジン
  *   - 単品    … マガジンに収録された有料記事と、単品の商品（note-magazines.ts の noteUrl が /n/）
  * 資格・区分の割り当ては商品ラインナップと同じ product-lineup.json。価格・題名は note-magazines.ts を読むだけで書き換えない。
+ * 実測の収録に、商品の正本（config/products.json・DN-0493）の「収録の意図」を重ねる:
+ *   - マガジンごとの意図との差 … 正本の members＋includes を展開した記事（expected）に対し、note 上で足りない・意図に無い本数
+ *   - 作成予定 … 正本にあって未公開（退役を除く）の商品。意図の収録本数と、公開待ちの原稿を出す
  * 収録を読めなかったときは 0 件ではなく sourceErrors に出す（CLAUDE.md §9）。
  */
 
@@ -35,6 +39,32 @@ export interface DesignMagazine {
   /** パック: 丸ごと含むマガジン／マガジン: 自分を丸ごと含むパック */
   contains: Ref[];
   inPacks: Ref[];
+  /** 正本の収録の意図との差。正本に無い商品は null */
+  intent: Intent | null;
+}
+
+/** 収録の意図（正本の members＋includes を展開した記事）と note の実測の差 */
+export interface Intent {
+  /** 意図の記事数（公開済みの原稿＋note 上だけの記事） */
+  expected: number;
+  /** note に未収録の本数。マガジンがまだ note に無い／収録を読めないときは null */
+  notIn: number | null;
+  /** 意図に無いのに note に入っている本数（同上） */
+  extra: number | null;
+  /** 原稿が未公開で、公開後に収録する本数 */
+  pending: number;
+}
+
+/** 正本にあって未公開の商品（作成予定） */
+export interface DesignPlanned {
+  id: string;
+  title: string;
+  price: string | null;
+  persona: string | null;
+  /** 意図の収録本数（公開済みの原稿＋note 上だけの記事） */
+  expected: number;
+  /** 原稿が未公開の本数 */
+  pending: number;
 }
 
 /** 他の商品への参照（表示名は資格名を外した短い名前） */
@@ -58,6 +88,7 @@ export interface DesignStage {
   packs: DesignMagazine[];
   magazines: DesignMagazine[];
   singles: DesignSingle[];
+  planned: DesignPlanned[];
   /** 単品のうち、どのマガジン（パックを除く）にも入っていないもの */
   noMagazine: number;
 }
@@ -123,6 +154,23 @@ export function loadDesignView(q: string | null): DesignView {
   const notesByMag = new Map<string, { key: string; name: string; price: number }[]>();
   for (const m of snapshot?.magazines ?? []) notesByMag.set(m.key, (m.notes ?? []).filter((n) => n.price > 0));
   const catalog = new Map(magazines().map((m) => [m.id, m]));
+  // 正本（収録の意図）。読めない・問題があるときは意図の列を空にして理由を出す（0 件の緑にしない）
+  const registry = loadProducts();
+  for (const e of registry.errors.slice(0, 3)) sourceErrors.push(`商品の正本: ${e}`);
+  const productById = new Map<string, any>(registry.products.map((p: any) => [p.id, p]));
+  const rawNotes = new Map<string, Set<string>>((snapshot?.magazines ?? []).map((m) => [m.key, new Set((m.notes ?? []).map((n) => n.key))]));
+  const intentOf = (id: string, key: string | null): Intent | null => {
+    const p = productById.get(id);
+    if (!p) return null;
+    const { ids, pending } = expectedMembers(p, productById);
+    const got = key ? rawNotes.get(key) : undefined;
+    return {
+      expected: ids.size,
+      notIn: got ? [...ids].filter((k) => !got.has(k)).length : null,
+      extra: got ? [...got].filter((k) => !ids.has(k)).length : null,
+      pending: pending.length,
+    };
+  };
 
   const stages: DesignStage[] = [];
   const [baseId, onlyStage] = qualificationId.split(':');
@@ -131,7 +179,14 @@ export function loadDesignView(q: string | null): DesignView {
     if (items.length === 0) continue;
     const mags: (DesignMagazine & { set: Set<string> })[] = [];
     const singleSkus: DesignSingle[] = [];
+    const planned: DesignPlanned[] = [];
     for (const it of items) {
+      const prod = productById.get(it.id);
+      if (prod && prod.channel === 'note' && !prod.catalog.published && !prod.catalog.retiredAt) {
+        const { ids, pending } = expectedMembers(prod, productById);
+        planned.push({ id: it.id, title: prod.catalog.noteTitle ?? prod.catalog.title ?? it.title, price: prod.catalog.price ?? null, persona: prod.persona ?? null, expected: ids.size, pending: pending.length });
+        continue;
+      }
       const c = catalog.get(it.id);
       const url = c?.noteUrl || null;
       const singleKey = url?.match(/\/n\/(n[0-9a-f]+)/)?.[1];
@@ -154,6 +209,7 @@ export function loadDesignView(q: string | null): DesignView {
         count: notes ? notes.length : null,
         contains: [],
         inPacks: [],
+        intent: intentOf(it.id, c.key),
         set: new Set((notes ?? []).map((n) => n.key)),
       });
     }
@@ -190,6 +246,7 @@ export function loadDesignView(q: string | null): DesignView {
       packs: mags.filter((m) => m.tier === 'pack').sort((a, b) => (b.count ?? 0) - (a.count ?? 0)).map(strip),
       magazines: mags.filter((m) => m.tier === 'magazine').map(strip),
       singles: list,
+      planned,
       noMagazine: list.filter((s) => s.inMagazines.length === 0).length,
     });
   }

@@ -6,7 +6,7 @@
  * ネットワークは使わない（note の実物との照合は verify-note-magazines の担当）。
  *   1. 型・id の重複・正規化（canonicalFile）
  *   2. id の重複・includes の参照先・members の原稿の実在
- *   3. note-magazines.ts の生成ブロックが正本と一致（npm run product -- gen --check と同じ判定）
+ *   3. note-magazines.ts の生成ブロックと、ペルソナ別パックの導線・カバー設定・掲載文が正本と一致（npm run product -- gen --check と同じ判定）
  *   4. 収録の意図（members＋includes を展開）と、コミット済みの収録記録の突き合わせ（公開中のマガジンだけ）
  *      未公開の原稿（noteId 無し）は数えず「公開待ち」として件数だけ出す
  * exit: 0 合格 / 1 違反あり・正本 0 件（検査不成立）
@@ -17,6 +17,8 @@ import {
   ROOT, NOTE_MAGAZINES_TS, SNAPSHOT, NOTE_ONLY_MEMBER, productGroups, blockGroupsIn, loadProducts, expectedMembers, renderBlock, replaceBlock, BLOCK_BEGIN, noteKeyOf,
   writeKindleCatalog, writeCoconalaBlock, syncArticlePrices, syncMagazineTexts,
 } from './lib/product-registry.mjs';
+import { datasetPath } from './lib/datasets.mjs';
+import { syncIntroStandard, syncCovers, syncListings, personaPacks } from './lib/product-note-derive.mjs';
 
 const { products, errors } = loadProducts();
 const violations = [...errors];
@@ -85,6 +87,22 @@ try {
   violations.push(`記事の価格・掲載文を照合できない（${e.message}）`);
 }
 
+// 3e. ペルソナ別パックの導線・カバー・掲載文（DN-0493）: 正本からの生成物が今のファイルと一致
+const personaCount = personaPacks(products).length;
+let introCheck = { magazines: 0, rules: 0 };
+let listingCheck = { files: 0, mismatch: [] };
+try {
+  introCheck = syncIntroStandard({ check: true });
+  for (const e of introCheck.errors) violations.push(`冒頭導線を作れない: ${e}`);
+  if (introCheck.changed) violations.push(`${datasetPath('config.note-intro-standard')} のペルソナ別パックの magazines・rules が正本と違う → npm run product -- gen`);
+  if (syncCovers({ check: true }).changed) violations.push(`${datasetPath('config.note-covers')} の additionalMagazines が正本と違う → npm run product -- gen`);
+  listingCheck = syncListings({ check: true });
+  for (const e of listingCheck.errors) violations.push(`掲載文を作れない: ${e}`);
+  for (const x of listingCheck.mismatch) violations.push(`${x.rel} が正本（${x.id}）と違う → npm run product -- gen`);
+} catch (e) {
+  violations.push(`ペルソナ別パックの導線・カバー・掲載文を照合できない（${e.message}）`);
+}
+
 // 4. 収録の意図 × コミット済みの収録記録
 let snap = null;
 try {
@@ -114,7 +132,7 @@ for (const p of products) {
   if (extra.length) violations.push(`${p.id}: 意図に無い収録 ${extra.length} 本（${extra.slice(0, 5).join(', ')}${extra.length > 5 ? ' …' : ''}）`);
 }
 
-console.log(`[check-products] 正本 ${products.length} 件（Kindle ${kindleCount} 冊・ココナラ ${coconalaCount} 件）/ 記事の単品価格 ${articleCheck.registered} 本 / 掲載文 ${magazineCheck.matched}/${magazineCheck.files} 本を照合 / 生成ブロック ${blocks} / 収録を照合 ${compared} 件（公開待ちの原稿 ${pendingTotal} 本は数えない）/ 原稿と結び付かない収録 ${noteOnly.length} 本 / 違反 ${violations.length} 件`);
+console.log(`[check-products] 正本 ${products.length} 件（Kindle ${kindleCount} 冊・ココナラ ${coconalaCount} 件）/ 記事の単品価格 ${articleCheck.registered} 本 / 掲載文 ${magazineCheck.matched}/${magazineCheck.files} 本を照合 / 生成ブロック ${blocks} / ペルソナ別パック ${personaCount} 本（導線の規則 ${introCheck.rules}・掲載文 ${listingCheck.files}）/ 収録を照合 ${compared} 件（公開待ちの原稿 ${pendingTotal} 本は数えない）/ 原稿と結び付かない収録 ${noteOnly.length} 本 / 違反 ${violations.length} 件`);
 if (noteOnly.length) console.log(`[check-products] 原稿の noteId と結び付かない収録（note 上で同じ題名の別 ID が入っているなど）:\n  ${noteOnly.join("\n  ")}`);
 if (violations.length) {
   for (const v of violations) console.error(`  ✗ ${v}`);

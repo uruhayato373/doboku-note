@@ -22,7 +22,7 @@ export const NOTE_MAGAZINES_TS = join(ROOT, 'src', 'lib', 'note-magazines.ts');
 export const SNAPSHOT = join(ROOT, datasetPath('note.magazines'));
 export const PRODUCTS_DOC = '商品の正本（全チャネルの全商品・DN-0492）。手で書かず npm run product で読み書きする（並びは channel → id）。note-magazines.ts の生成ブロックは npm run product -- gen。説明は .claude/knowledge/reference/data-storage-decision.md「商品の正本」';
 
-const KEY_ORDER = ['id', 'channel', 'qualification', 'stage', 'series', 'tier', 'persona', 'order', 'catalog', 'members', 'includes', 'memo'];
+const KEY_ORDER = ['id', 'channel', 'qualification', 'stage', 'series', 'tier', 'persona', 'order', 'cover', 'listing', 'intro', 'catalog', 'members', 'includes', 'memo'];
 
 function ordered(product) {
   const out = {};
