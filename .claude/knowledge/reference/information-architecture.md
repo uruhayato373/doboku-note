@@ -279,7 +279,7 @@ content/
 |---|---|---|---|
 | 参照 | `scripts/check-doc-refs.mjs` | 壊れた `.md`/`.mdx` パス参照 | pre-commit（機械） |
 | 台帳 | `scripts/check-doc-coupling.mjs` | スキル/エージェントの追加・削除・description 変更に対する skills-guide/registry・agents-registry の更新もれ（capability ドリフト） | pre-commit（機械） |
-| handoff | `scripts/check-handoff-extraction.mjs` | handoff 直下 `*.md` を削除するコミットで前送りマーカー（🔴🟡/残タスク/次アクション/別PC 等）があるのに backlog 未同梱＝残タスク抽出もれ／`_archive/` への追加＝廃止機構の復活（2026-07-14 退避事故の再発防止）／週次レビューの削除で申し送り項目に台帳上の居場所が無い・W39 以降のレビューで振り分け先が無い（DN-0230） | pre-commit（機械） |
+| handoff | `scripts/check-handoff-extraction.mjs` | handoff 直下 `*.md` を削除するコミットで前送りマーカー（🔴🟡/残タスク/次アクション/別PC 等）があるのに backlog 未同梱＝残タスク抽出もれ／`_archive/` への追加＝廃止機構の復活（2026-07-14 退避事故の再発防止）／週次レビューの削除で申し送り項目に台帳上の居場所が無い・W39 以降のレビューで振り分け先が無い（DN-0230）／backlog のカードを消すコミットでそのカードを指す live 文書（引き継ぎ含む）が index に残る・引き継ぎが backlog にも完了記録にも無い ID を指す（DN-0587。CI の dangling-id は `docs/handoffs/`・`docs/reviews/` では warning） | pre-commit（機械） |
 | 配線 | `scripts/check-magazine-wiring.mjs` | 新 keiken マガジンが字数ツール（`keiken-charcount`）の探索対象に配線されず字数ゲートを素通りする漏れ（content-line 配線ドリフト） | pre-commit（機械） |
 | クラスタ | `scripts/check-policy-anchors.mjs` ＋ `agent-hook.mjs decision-doc-checkpoint` | 1つの決定が複数文書（ADR/skill/checklist/戦略SoT）に散在し片方だけ更新する横展開もれ（policy ドリフト） | commit フック（機械・advisory）＋ PreCompact/SessionEnd（締め切り） |
 | 意味 | `/doc-sync` ＋ `doc-sync-auditor` | コード変更で prose・表・コマンド・件数・閾値が旧仕様化（semantic staleness） | 節目に手動（LLM・sonnet） |

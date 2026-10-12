@@ -17,6 +17,7 @@
  * （履歴のために死んだパスを持てる層を残すと、そこが検査の穴になる）。
  * `content/` へ出ていくチャネル素材（note/sns/textbook/coconala-blog）は恒久文書ではないので除外する。
  *
+ * 2026-10-12（DN-0587）: 引き継ぎ（`docs/handoffs/`）と `docs/reviews/` 全体も warning（isPointInTimeDoc）。
  * **日付つき週次・月次レビュー（`docs/reviews/weekly/**`・`docs/reviews/monthly/**`）だけは dangling-id を warning にする**（2026-08-25・月次は 2026-10-10）。
  *   この台帳は「完了＝カードごと削除」で完了を表すので、レビューが「DN-XXXX 完了」と実績を ID で
  *   書くたび、その ID は翌週には必ず消える。つまり**仕事を片付けるほどゲートが赤くなる**構造で、
@@ -66,6 +67,16 @@ const toPosix = (v) => v.split(sep).join('/');
 // 月次レビュー（docs/reviews/monthly/）も同じ時点の記録（2026-10-10。月次が完了して消したカードを書いた回で CI が赤くなった）
 export const isDatedSnapshot = (rel) => rel.startsWith('docs/reviews/weekly/') || rel.startsWith('docs/reviews/monthly/');
 
+/**
+ * 書いた時点の記録で、指すカードを別セッションが閉じても CI を赤くしない文書（DN-0587）。
+ * 週次・月次スナップショットに加え、引き継ぎ（docs/handoffs/）とレビュー（docs/reviews/）。
+ * 2026-10-08 に別セッションが DN-0581 を閉じて、それを指す引き継ぎが残り、develop の全 PR の CI が約 45 分赤かった。
+ * 参照切れは CI では warning にし、引き継ぎ側の検査（check-handoff-extraction）が新しく書く参照の実在とカードを閉じる側の参照を止める。
+ * liveDocsReferencing（カードを閉じる側の検査）はこれを使わない＝閉じる人には引き継ぎの参照も見せる。
+ */
+export const isPointInTimeDoc = (rel) =>
+  isDatedSnapshot(rel) || rel.startsWith('docs/handoffs/') || rel.startsWith('docs/reviews/');
+
 /** 1 文書を検査して {errors, warnings} を返す（純関数・テストから使う）。 */
 export function auditProjectDoc(rel, content, knownIds) {
   const errors = [];
@@ -78,12 +89,12 @@ export function auditProjectDoc(rel, content, knownIds) {
       errors.push({ rule: 'retired-ref', at: `${rel}:${line}`, msg: `廃止済み参照: ${name}` });
     }
   }
-  const snapshot = isDatedSnapshot(rel);
+  const snapshot = isPointInTimeDoc(rel);
   for (const id of new Set(content.match(ID_RE) ?? [])) {
     if (knownIds.has(id)) continue;
     const f = { rule: 'dangling-id', at: rel, msg: `${id} は backlog に存在しない` };
     // 日付つきスナップショットでは「完了してカードが消えた」が正常な経路なので warning。
-    if (snapshot) warnings.push({ ...f, msg: f.msg + '（完了して削除された可能性・週次スナップショットなので warning）' });
+    if (snapshot) warnings.push({ ...f, msg: f.msg + '（カードが閉じた可能性・書いた時点の記録なので warning）' });
     else errors.push(f);
   }
 
