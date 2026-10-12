@@ -16,10 +16,91 @@ import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
  * 「緑」と「そもそも走っていない」を区別できない状態を作らない（CLAUDE.md §9）。
  */
 
+/**
+ * `execSync(` / `execFileSync(` の呼び出し全体（閉じ括弧まで）を切り出す。
+ *
+ * 文字列（'…' "…" `…`）・テンプレートの ${…}（入れ子可）・コメントの中の括弧は数えず、
+ * 括弧の深さで終端を決める。以前の「最初の ) まで」の正規表現は、引数に
+ * `--since=${since.toISOString()}` のような呼び出しを含むと、そこで途切れて
+ * 後ろの { maxBuffer } を見落とし、maxBuffer を書いているのに未指定と誤判定した（DN-0590）。
+ * firstArg には第 1 引数の先頭が一致する正規表現を渡す（先頭固定）。
+ */
+function sliceSyncCalls(source, firstArg) {
+  const START = /exec(?:File)?Sync\(/g;
+  const calls = [];
+  let m;
+  while ((m = START.exec(source)) !== null) {
+    const bodyStart = m.index + m[0].length;
+    if (!firstArg.test(source.slice(bodyStart, bodyStart + 16).trimStart())) continue;
+    const end = findCloseParen(source, bodyStart);
+    if (end === -1) continue;
+    calls.push(source.slice(m.index, end + 1));
+    START.lastIndex = end + 1;
+  }
+  return calls;
+}
+
+/** i は開き括弧の直後。対応する ) の位置を返す（無ければ -1）。 */
+function findCloseParen(src, i) {
+  let depth = 1;
+  while (i < src.length) {
+    const ch = src[i];
+    if (ch === "'" || ch === '"') {
+      i = skipQuoted(src, i);
+    } else if (ch === '`') {
+      i = skipTemplate(src, i);
+    } else if (ch === '/' && src[i + 1] === '/') {
+      const nl = src.indexOf('\n', i);
+      i = nl === -1 ? src.length : nl;
+    } else if (ch === '/' && src[i + 1] === '*') {
+      const e = src.indexOf('*/', i + 2);
+      i = e === -1 ? src.length : e + 2;
+    } else {
+      if (ch === '(') depth += 1;
+      else if (ch === ')' && --depth === 0) return i;
+      i += 1;
+    }
+    if (i === -1) return -1;
+  }
+  return -1;
+}
+
+function skipQuoted(src, i) {
+  const q = src[i];
+  for (i += 1; i < src.length; i += 1) {
+    if (src[i] === '\\') i += 1;
+    else if (src[i] === q || src[i] === '\n') return i + 1;
+  }
+  return src.length;
+}
+
+/** テンプレートリテラル。${ … } の中は式なので括弧・文字列・入れ子テンプレートを再帰で読む。 */
+function skipTemplate(src, i) {
+  for (i += 1; i < src.length; i += 1) {
+    if (src[i] === '\\') i += 1;
+    else if (src[i] === '`') return i + 1;
+    else if (src[i] === '$' && src[i + 1] === '{') {
+      let depth = 1;
+      i += 2;
+      while (i < src.length && depth > 0) {
+        const ch = src[i];
+        if (ch === "'" || ch === '"') i = skipQuoted(src, i);
+        else if (ch === '`') i = skipTemplate(src, i);
+        else {
+          if (ch === '{') depth += 1;
+          else if (ch === '}') depth -= 1;
+          i += 1;
+        }
+      }
+      i -= 1; // for の i += 1 と合わせる
+    }
+  }
+  return src.length;
+}
+
 /** git を同期実行し、かつ一覧/差分/履歴を読んでいる呼び出しを抽出する。 */
 function findGitCalls(source) {
-  const CALL = /exec(?:File)?Sync\(\s*(?:"git"|'git')[\s\S]{0,400}?\)/g;
-  return [...(source.match(CALL) ?? [])].filter((c) =>
+  return sliceSyncCalls(source, /^(?:"git"|'git')/).filter((c) =>
     /--cached|ls-files|name-only|name-status|\bdiff\b|\blog\b|ls-tree|rev-list/.test(c),
   );
 }
@@ -61,6 +142,30 @@ test('抽出は「maxBuffer が無い呼び出し」を実際に検出できる�
   // git 以外や、一覧/差分を読まない git 呼び出しは対象外
   assert.deepEqual(findGitCalls(`exec${'File'}Sync('node', ['-e', 'diff'], { encoding: 'utf8' })`), []);
   assert.deepEqual(findGitCalls(`exec${'File'}Sync(${"'git'"}, ['rev-parse', 'HEAD'], { encoding: 'utf8' })`), []);
+});
+
+test('引数にテンプレート文字列（${…}・入れ子の括弧）を含む呼び出しでも maxBuffer の有無を正しく判定する（DN-0590）', () => {
+  // フィクスチャは連結して組み立てる（ベタ書きするとこのファイル自身が上のテストに掛かる）。
+  const CALL = (opts) =>
+    'exec' + 'File' + "Sync('git', ['log', `--since=${since.toISOString()}`, `--until=${fmt({ d: (1 + 2) })}`, '--name-only'], { " + opts + ' })';
+  const good = CALL("encoding: 'utf8', maxBuffer: 1");
+  const bad = CALL("encoding: 'utf8'");
+  assert.equal(findGitCalls(good).length, 1);
+  assert.equal(/maxBuffer/.test(findGitCalls(good)[0]), true, '括弧を含む ${} で途切れて maxBuffer を見落とした');
+  assert.equal(findGitCalls(bad).length, 1);
+  assert.equal(/maxBuffer/.test(findGitCalls(bad)[0]), false);
+  // 文字列中の ) ・コメント中の ) では終端しない
+  const tricky = 'exec' + 'File' + "Sync('git', ['diff', 'a)b', \"c)d\"], /* ) */ { maxBuffer: 1 })";
+  assert.equal(/maxBuffer/.test(findGitCalls(tricky)[0]), true);
+  // 呼び出しが 2 つ並んでも、後ろの呼び出しの maxBuffer を前の呼び出しに混ぜない
+  const two = bad + ';\n' + good;
+  const found = findGitCalls(two);
+  assert.equal(found.length, 2);
+  assert.equal(/maxBuffer/.test(found[0]), false);
+  assert.equal(/maxBuffer/.test(found[1]), true);
+  // パス列挙側も同じ切り出しを使う（quotepath が ${} の後ろにあっても拾う）
+  const path = 'exec' + 'File' + "Sync('git', ['ls-files', `${a(b)}`, '-c', 'core.quotepath=false'], {})";
+  assert.equal(/quotepath/.test(findPathListingGitCalls(path)[0]), true);
 });
 
 /**
@@ -150,8 +255,7 @@ test("危険な git 呼び出しの検出が実際に効く（負検証）", () 
 
 /** git 呼び出しのうち、出力を**ファイルパスとして使う**ものを抽出する。 */
 function findPathListingGitCalls(source) {
-  const CALL = /exec(?:File)?Sync\(\s*(?:"git |'git |"git"|'git')[\s\S]{0,400}?\)/g;
-  return [...(source.match(CALL) ?? [])].filter((c) =>
+  return sliceSyncCalls(source, /^(?:"git |'git |"git"|'git')/).filter((c) =>
     /ls-files|--name-only|--name-status|ls-tree/.test(c),
   );
 }
