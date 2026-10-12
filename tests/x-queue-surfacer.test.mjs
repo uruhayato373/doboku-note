@@ -88,9 +88,9 @@ test('summarizeStatus: posted は未来の予約充足に算入しない', () =>
 });
 
 test('summarizeStatus: 壊れた入力でも落ちず 0 を返す', () => {
-  assert.deepEqual(summarizeStatus(null), { queued: 0, posted: 0, lastScheduled: null });
-  assert.deepEqual(summarizeStatus({}), { queued: 0, posted: 0, lastScheduled: null });
-  assert.deepEqual(summarizeStatus({ tweets: { 1: null, 2: 'x' } }), { queued: 0, posted: 0, lastScheduled: null });
+  assert.deepEqual(summarizeStatus(null), { queued: 0, posted: 0, retired: 0, lastScheduled: null });
+  assert.deepEqual(summarizeStatus({}), { queued: 0, posted: 0, retired: 0, lastScheduled: null });
+  assert.deepEqual(summarizeStatus({ tweets: { 1: null, 2: 'x' } }), { queued: 0, posted: 0, retired: 0, lastScheduled: null });
 });
 
 test('summarizeStatus: 不正な scheduled_at は lastScheduled を汚さない', () => {
@@ -104,5 +104,17 @@ test('summarizeStatus: 不正な scheduled_at は lastScheduled を汚さない'
 test('予定日時だけでは予約投入済みと数えない（手動公開枠・差替済みを含む）', () => {
   const tweets = Object.fromEntries(['scheduled', 'draft', 'replaced', 'paused'].map((status, i) => [i, {status, scheduled_at:'2026-10-24T12:00:00+09:00'}]));
   tweets.manual = {status:'queued', manual_only:true, scheduled_at:'2026-10-24T12:00:00+09:00'};
-  assert.deepEqual(summarizeStatus({tweets}), {queued:0, posted:0, lastScheduled:null});
+  assert.deepEqual(summarizeStatus({tweets}), {queued:0, posted:0, retired:1, lastScheduled:null});
+});
+
+// 2026-10-12: 予約の本文を別の原稿へ差し替えた元の原稿（cancelled）を「未投入」に数えない
+test('summarizeStatus: replaced・cancelled は retired に数え、未投入にしない', () => {
+  const r = summarizeStatus({ tweets: {
+    1: { status: 'queued', scheduled_at: '2026-10-14T20:51:00.000+09:00' },
+    2: { status: 'replaced', scheduled_at: '2026-10-17T20:24:00.000+09:00', replaced_by: '107#2' },
+    3: { status: 'cancelled', scheduled_at: '2026-10-18T20:24:00.000+09:00' },
+  } });
+  assert.equal(r.queued, 1);
+  assert.equal(r.retired, 2);
+  assert.equal(r.posted, 0);
 });

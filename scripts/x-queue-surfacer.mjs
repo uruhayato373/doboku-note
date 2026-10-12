@@ -45,13 +45,13 @@ function parseDatesFromMd(mdPath) {
 
 // status.json から投入状況を読む（I/O だけ・集計は summarizeStatus）
 function countQueued(statusPath) {
-  if (!fs.existsSync(statusPath)) return { exists: false, queued: 0, posted: 0, lastScheduled: null };
+  if (!fs.existsSync(statusPath)) return { exists: false, queued: 0, posted: 0, retired: 0, lastScheduled: null };
   let data;
   try {
     data = JSON.parse(fs.readFileSync(statusPath, "utf-8"));
   } catch {
     // 壊れた status.json を「予約ゼロ」と静かに扱うと未投入が過大に出る。broken を立てて区別する。
-    return { exists: true, queued: 0, posted: 0, lastScheduled: null, broken: true };
+    return { exists: true, queued: 0, posted: 0, retired: 0, lastScheduled: null, broken: true };
   }
   return { exists: true, ...summarizeStatus(data) };
 }
@@ -73,9 +73,9 @@ if (fs.existsSync(DRAFT_DIR)) {
     if (count === 0) continue;
     const start = dates.length ? new Date(Math.min(...dates.map((d) => d.getTime()))) : null;
     const end = dates.length ? new Date(Math.max(...dates.map((d) => d.getTime()))) : null;
-    const { exists, queued, posted, lastScheduled } = countQueued(path.join(dir, "status.json"));
+    const { exists, queued, posted, retired, lastScheduled } = countQueued(path.join(dir, "status.json"));
 
-    const unqueued = Math.max(0, count - queued - posted);
+    const unqueued = Math.max(0, count - queued - posted - retired);
     const state = unqueued <= 0 ? "fully-queued" : queued + posted > 0 ? "partial" : "未投入";
 
     // queued の最終日時だけを表示する。途中の空白は due と日別ビューで確認。

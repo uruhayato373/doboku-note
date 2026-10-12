@@ -62,16 +62,20 @@ export function parseDatesFromRaw(raw, now) {
 export function summarizeStatus(data) {
   let queued = 0;
   let posted = 0;
+  // retired＝replaced（予約を別の原稿へ差し替えた）・cancelled（取り下げた）。投稿しないことが決まっているので「未投入」に数えない
+  // （2026-10-12: 2級の締切告知で既存の予約 2 本の本文を差し替えたら、surfacer が 1 本未投入の OVERDUE を出した）。
+  let retired = 0;
   let lastScheduled = null;
   const tweets = data && typeof data === "object" ? data.tweets : null;
   for (const t of Object.values(tweets || {})) {
     if (!t || typeof t !== "object") continue;
     if (t.status === "posted") posted++;
+    else if (t.status === "replaced" || t.status === "cancelled") retired++;
     else if (t.status === "queued" && !t.manual_only && Number.isFinite(Date.parse(t.scheduled_at))) queued++;
     if (t.status === "queued" && !t.manual_only && t.scheduled_at) {
       const d = new Date(t.scheduled_at);
       if (!Number.isNaN(d.getTime()) && (!lastScheduled || d > lastScheduled)) lastScheduled = d;
     }
   }
-  return { queued, posted, lastScheduled };
+  return { queued, posted, retired, lastScheduled };
 }
