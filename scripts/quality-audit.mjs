@@ -120,7 +120,9 @@ const CHECKS = [
   { id: 'seo-rank-watch', npm: 'check-seo-rank-watch', timeout: 30_000, ci: true, note: '順位監視・観察状態・履歴の整合' },
   // ── ci:true 厳格ゲート ──
   { id: 'type-check', npm: 'type-check', timeout: 240_000, ci: true },
-  { id: 'unit-tests', npm: 'test', timeout: 180_000, ci: true },
+  // GitHub の runner では 3,000 件超のテストが 171〜182 秒掛かる（2026-10-11 の PR 3 本で実測。182 秒で timeout に当たり
+  // 0 fail なのに CI が赤になった）。上限は実測の 1.6 倍に置く。手元のスリープ由来の水増しは inconclusive が分ける
+  { id: 'unit-tests', npm: 'test', timeout: 300_000, ci: true },
   // `npm test` は tests/*.test.mjs しか見ない。.claude/scripts/ads/__tests__/ の 3 本（38 テスト）は
   // 別 script になっていて、2026-08-17 まで**どの CI にも登録されておらず誰も走らせていなかった**。
   { id: 'ads-tests', npm: 'test:ads', timeout: 120_000, ci: true, note: 'A8/もしも/afb のサイト帰属ガードと CSV 正規化の単体テスト' },
@@ -183,7 +185,9 @@ const CHECKS = [
   { id: 'note-inline-code', npm: 'check-note-inline-code', timeout: 60_000, ci: true, note: 'note 記事の本文にインラインのバッククォートがあると、note は描画せず記号のまま出す（2026-09-23 に公開 906 本中 248 本で確認・DN-0277）。pre-commit の note-lint 規則 11 と同じ判定を全件に当てる' },
   { id: 'note-content-type', npm: 'check-note-content-type', timeout: 60_000, ci: true, note: 'note記事の役割を product/index/learning/career/editorial の5分類で固定。未分類・未知語彙・総合案内/career UTMとの不整合を止める' },
   { id: 'table-rendering', npm: 'check-table-rendering', timeout: 120_000, ci: true, note: 'GFM テーブルが table にならず生のパイプ区切りテキストで表示される事故（2026-08-28: 改行の \\r\\r\\n 破損で過去問18本／ヘッダとデリミタのセル数不一致で r02-primary）。原因ごとにルールを足さず、remark 実パースで「デリミタ行が text ノードに残る」症状そのものを見るので未知の原因も同じ網で拾う' },
-  { id: 'orphan-ogp', npm: 'check-orphan-ogp', timeout: 90_000, ci: true },
+  // serial: unit-tests（tests/standards-ogp-guards.test.mjs）が検査中だけ content/site 配下に __test-orphan__/ogp.png を
+  // 置くので、並列に回すとその瞬間を孤児として拾う（2026-10-11 PR #1005 で実測）。並列分（unit-tests を含む）の後に回す。
+  { id: 'orphan-ogp', npm: 'check-orphan-ogp', timeout: 90_000, ci: true, serial: true },
   // 2026-08-18: 実質オーファンだった（package.json にはあるがどの経路にも配線なし）。EPUB の書式インバリアントは epubcheck が見ない領域で、ビルダー 2 本に CSS/構造がコピー実装されている。
   { id: 'kindle-format', npm: 'check-kindle-format', timeout: 300_000, ci: true, skip: unzipMissing, note: '配布 EPUB の書式インバリアント（本文可読性・章の改ページ・解答のネタバレ改ページ）。ローカルは EDR のファイル走査律速で数分かかるが CI では速い。0 冊なら exit 2（検査不成立）' },
   { id: 'kindle-epub-leak', npm: 'check-kindle-epub-leak', timeout: 180_000, ci: true, skip: unzipMissing, note: '配布 EPUB に章タイトル article.mdx / YAML frontmatter が印字される事故（2026-08-12・e-02 は審査中だった）。真因はソース MDX の BOM で frontmatter の ^--- が外れること。EPUB 実展開＋ソース BOM の二段で検査する' },
