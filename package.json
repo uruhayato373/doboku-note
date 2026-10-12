@@ -492,6 +492,7 @@
     "test:e2e:ui": "playwright test --ui",
     "test:watch": "node --test --watch tests/*.test.mjs",
     "type-check": "tsc --noEmit",
+    "type-check:admin": "tsc --noEmit -p tools/admin-app/tsconfig.json",
     "update-content-quality-baseline": "node .claude/scripts/lint-mdx-mobile.mjs --all --update-baseline",
     "update-image-baseline": "node scripts/check-image-assets.mjs --update-baseline",
     "update-image-refs": "node .claude/scripts/update-mdx-image-refs.mjs",
