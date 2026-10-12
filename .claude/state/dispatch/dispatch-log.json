@@ -2921,6 +2921,23 @@
       "commit": "7c588897ee43",
       "verification": null,
       "note": "PR #1001 マージ。使い手の無い 26 ファイルと未使用依存を削除し、knip baseline を締めた。@fontsource/manrope はパス参照で使うため ignoreDependencies に登録"
+    },
+    {
+      "id": "DN-0654",
+      "at": "2026-10-12",
+      "task": "pre-commit の check-relative-links が、削除したファイルを指す他の文書のリンクを見ていない",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/relative-links.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "417dbae801af",
+      "verification": null,
+      "note": "PR #1009 マージ。check-relative-links --staged が staged の削除・改名（diff-filter=DR）の旧パスを集め、リポジトリの .md からそこを指すリンクを壊れとして出す。実機で、リンクされた commands.md を git rm すると exit 1・4 件"
     }
   ]
 }

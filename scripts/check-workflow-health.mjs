@@ -120,6 +120,12 @@ export function auditRuns(name, runs, { maxAgeDays, maxConsecutiveFailures, sche
   const scheduleAudit = auditSchedule(name, runs, schedule, now);
   const done = (runs ?? []).filter((r) => r.status === 'completed');
   if (done.length === 0) {
+    // 足したばかりで最初の cron 枠（activeSince＋猶予）がまだ来ていない＝発火を待っている段階で、異常ではない。
+    // これが無いと週次の workflow は追加から初回発火まで最大 7 日赤のまま（2026-10-12 weekly-review-draft・DN-0642）。
+    if (scheduleAudit?.kind === 'schedule-pending') {
+      return { name, ok: true, kind: 'pending-first-run', total: runs?.length ?? 0, consecutiveFailures: 0,
+        schedule: scheduleAudit, detail: scheduleAudit.detail };
+    }
     return { name, ok: false, kind: 'no-runs', total: runs?.length ?? 0,
       schedule: scheduleAudit,
       detail: '完了した run が 1 件も無い（未発火・cron 停止・履歴外）' };
