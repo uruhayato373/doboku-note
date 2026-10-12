@@ -708,12 +708,6 @@ exam-passing-strategy/article.mdx の239・264行付近に、総監口頭は知�
 
 **完了条件**: 1級土木の構造化データが 18 年度分以上になり、足した年度の全問が公式正答と一致し、在庫台帳と Drive に原本が揃っている。
 
-### [DN-0620] 品質監査でテスト standards-ogp-guards が一時的に置く孤児 OGP を、並走する check-orphan-ogp が拾って CI が偶発的に赤くなる
-タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [検証:check-orphan-ogp] [起票:2026-10-09] [進行中]
-
-**起点**: 2026-10-09、PR #947 の audit が orphan-ogp で落ちた（content/site/standards-articles/chubu/common/chapters/__test-orphan__/ogp.png）。tests/standards-ogp-guards.test.mjs:112-145 が実リポジトリに一時ファイルを置いて check-orphan-ogp を流し、finally で消す。quality-audit はテストと検査を並行で回すので、その間に走った orphan-ogp が一時ファイルを孤児として数える。PR の変更とは無関係で、再実行で通る。
-**やること**: テストを一時ディレクトリ（ROOT を差し替えられる形）で回すか、quality-audit で orphan-ogp とテストを直列にする。
-**完了条件**: 同じ組み合わせを 10 回流して orphan-ogp が赤にならない。
 
 ### [DN-0597] YouTube Analytics（視聴維持率・インプレッションのクリック率・流入元・Shorts→関連動画）を CI で取得し data/youtube へ残す
 タグ: [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-10-08]
@@ -1911,7 +1905,7 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 
 
 ### [DN-0676] check-seo-build の warn（1,390 件）が CI ログにしか残らず、誰も読んでいない
-タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-11]
+タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-11] [進行中]
 
 **起点**: 2026-10-11 の technical-seo-auditor。check-seo-build:ci の結果は .github/workflows/ci.yml のログにしか残らず、warn（jsonld_recommended_missing 1,389・ssr_thin_body 1）は誰も見ていなかった（今回の監査では古い out/ を見るしかなかった）。CLAUDE.md §9「赤いのに誰も見ていない検査は無いのと同じ」。
 **やること**: CI でサマリ JSON（検査対象数・error・warn の型別件数）を data/analysis/ に書き、scripts/lib/datasets.mjs に宣言する。週次レビュー（/weekly-review）がそれを読んで前週比を出すようにする。
@@ -1986,7 +1980,7 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 **完了条件**: 反映後 28 日の集計で対象語の表示が増えるか 1 桁順位に入ったかを本カードの完了記録に書く。
 
 ### [DN-0638] マージ済み（squash 含む）のブランチ・止まった未マージのブランチ・未コミットのまま放置の worktree を検査で挙げる
-タグ: [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-10]
+タグ: [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-10] [進行中]
 
 **起点**: 2026-10-10、ブランチがローカル 41 本・リモート 26 本、worktree が 10 個まで溜まっていた。大半は中身が develop に入り済み（squash でマージ済みなので `git branch --merged` では出ない）で、1 本（refactor/script-shared-helpers）は 10/04 から止まった作業が worktree に未コミットのまま残っていた。片づけには、tree の比較と PR のマージのコミットで 1 本ずつ判定する手作業が要った。`check-disk-hygiene` はマージ済みの worktree は挙げるが、ブランチと、未コミットのまま止まった worktree は挙げない。リポジトリの設定「マージ後にブランチを自動で消す」（delete_branch_on_merge）は 2026-10-10 にオンにした（PR のリモートのブランチはマージで消える。ローカルのブランチ・PR を経ないブランチ・worktree は残る）。
 **やること**: `check-disk-hygiene`（または新しい `check-branch-hygiene`）に、(1) 中身が develop に入り済みのブランチ（ローカル・リモート。tree が同じか、PR のマージのコミットが develop にある）、(2) N 日以上動いていない未マージのブランチ、(3) 未コミットの変更を持ったまま N 日以上動いていない worktree、を出す。週次レビューで読む（または SessionStart で件数だけ出す）。
@@ -2088,12 +2082,12 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 **完了条件**: 1級一次の1分野で20問の試作を作り、10秒プレビューで目視して承認待ちで止める。`quiz-tts` を trial にする。
 
 ### [DN-0590] git 呼び出しの maxBuffer 検査が、引数にテンプレート文字列（${…}）を含む呼び出しで maxBuffer を見落として誤って止める
-タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-10-08]
+タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-10-08] [進行中]
 
 2026-10-08、scripts/audit-reference-book-coverage.mjs の execFileSync('git', [..., `--since=${since}…`, ...], { encoding, maxBuffer }) が tests/git-exec-maxbuffer.test.mjs で「maxBuffer 未指定」になった（maxBuffer は書いてあった）。呼び出しの切り出しがテンプレートの { } で途切れているとみられる。引数を変数へ出して回避した。やること: findGitCalls をテンプレート文字列と入れ子の括弧に対応させ、回帰テスト（${} を含む引数で maxBuffer ありは通る・無しは止める）を足す
 
 ### [DN-0588] 正規表現のエスケープを共通の部品 1 つにまとめ、各スクリプトでの書き写しを増やさない
-タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-08]
+タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-08] [進行中]
 
 2026-10-08、path-literals.mjs で置き場のパスを正規表現へ入れるとき「.」だけを逃がし、CodeQL（Incomplete string escaping）に指摘された（PR #927）。scripts/ に同じ escapeRegExp の書き写しが 16 か所あり、逃がす記号が少しずつ違う（datasets.mjs・reference-sources.mjs・disk-hygiene.mjs・playwright-auth.mjs は * や {} を意図して外すグロブ用、ほかは全記号）。案: scripts/lib/regexp-escape.mjs に escapeRegExp（全記号）と globToRegExp を置いて置き換え、tests/read-json-ratchet.test.mjs と同じ形のラチェットで書き写しを増やさない。完了条件: 置き換え後に既存テスト全件が通る・ラチェットの基準線が 0 か理由つきの例外だけ
 
@@ -2107,7 +2101,7 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 **完了条件**: 2026-11-06 以降に前後 30 日の閲覧・注文を比べ、導線を残す・文面を変える・外すのどれかを決めて、ココナラ運用文書（coconala-operations.md）の決定ログに 1 行残す。
 
 ### [DN-0565] 「公式の設問を含むページ」の判定を、パスの正規表現から分類データへ移す
-タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-10-07]
+タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-10-07] [進行中]
 
 **起点**: lint-ja・lint-mdx-mobile は、公式問題の逐語を表記統一から外すページを、`scripts/lib/official-question-text.mjs` の `OFFICIAL_QUESTION_PAGE`（パスの正規表現）で決めている。分類の正本 `src/config/content-taxonomy.json` の group `secondary` は記述式の解説（`*-basics`）と過去問（`*-past-problems`）の両方を含むので、分類からは引けない。正規表現に無い種類のページは黙って対象外になり、`secondary-*-past-problems` は 2026-10-07（DN-0553・#889）まで設問の転記が commit を止めていた。
 
