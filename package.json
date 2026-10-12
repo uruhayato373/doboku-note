@@ -22,6 +22,7 @@
     "audit-figures": "npm run audit-figure-text && npm run build-figure-provenance",
     "figure-review-queue": "node scripts/figure-review-queue.mjs",
     "figure-qa-sheet": "node scripts/figure-qa-sheet.mjs",
+    "find-book-figure": "node scripts/find-book-figure.mjs",
     "audit-ga4-bot-ratio": "node .claude/scripts/audit-ga4-bot-ratio.mjs",
     "audit-repo-assets": "node scripts/audit-repository-assets.mjs",
     "disk-hygiene:fix": "node scripts/disk-hygiene.mjs --fix",

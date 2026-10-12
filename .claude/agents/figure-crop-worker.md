@@ -30,6 +30,7 @@ domain: site
 | `whyCut`（reextract のみ） | review で切れていると判定した理由 |
 | `recordedSource`（reextract のみ） | 記録済みの出典 `{pdf, page, dpi}`（正本は `config/figure-sources.json` の `provenance`。あれば最優先） |
 | `sourceCandidates`（reextract のみ） | 記事の `sources:` から引いた原典候補。各候補に PDF の実パス（`files`）・ページの向き（`rotation`・度）・文字起こしの場所（`ocrDir`）・公開元（`url`） |
+| `bookHit`（reextract のみ・あれば） | 書籍の図番号を書籍 OCR から引いた結果 `{book, pdf, page, printedPage, name, ...}`（`scripts/find-book-figure.mjs`）。`page` が PDF のページ。最優先で試すが、描画して今の画像と同じ図か目で確かめる |
 | `sourceRoots`（reextract のみ） | 候補で見つからないときだけ探す場所（Drive 台帳の原資料系 group＝`原資料PDF/` の過去問・教材・書籍・共通仕様書・白書 と、リポジトリの `content/sources/past-exams`） |
 
 全コマンドはリポジトリルートで実行する（`cd "$(git rev-parse --show-toplevel)"`）。パスは相対で渡す（sharp は相対パスで扱う）。
@@ -162,6 +163,6 @@ cd "$(git rev-parse --show-toplevel)" && node -e "const s=require('sharp');s('$W
 ## 連携・差別化
 
 - **呼出元**: `/figure-quality-loop`（判定待ちの一覧 `scripts/figure-review-queue.mjs` から 1 周分）と `/figure-recrop` の大量処理モード。どちらも `.claude/skills/quality/figure-recrop/scripts/figure-crop-batch.workflow.mjs` が figKey 単位で spawn する。
-- **親の後工程**: 機械ゲート（`check-figure-crop-integrity.mjs --file`）→ 書き換えた図と `suspect` の図を親が目視 QA（切り過ぎは `git checkout` で原画を復元して再依頼、見切れ見落としは `crop`→`needs-source` に是正）→ `figure-review-queue.mjs record` で判定台帳へ記録（MDX の寸法も合わせる）→ commit。
+- **親の後工程**: 機械ゲート（`check-figure-crop-integrity.mjs --file`）→ 書き換えた図と `suspect` の図を `figure-qa-sheet.mjs` で検査・新旧比較し親が目視 QA（切り過ぎは `git checkout` で原画を復元して再依頼、見切れ見落としは `crop`→`needs-source` に是正）→ `figure-review-queue.mjs record --from-results <結果ファイル> --pass <QA 合格の figKey>` で判定台帳へ記録（MDX の寸法も合わせる）→ commit。
 - **別物**: `civil-exam-figure-extractor`（PDF ページ画像から bbox spec を返すのみ・crop しない）／`scanned-figure-crop-auditor`（スキャン教材の bbox 監査 Evaluator）／`civil-exam-figure-auditor`（1級土木 過去問図クロップの 4 軸採点 Evaluator）。本エージェントは**記事に埋め込み済みの画像を実際に切る**唯一の Generator。
 - **真実源**: `.claude/knowledge/reference/figure-provenance.md`。逐次型は `scripts/figure-recrop.mjs`。

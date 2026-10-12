@@ -44,6 +44,7 @@ mkdir -p .tmp/figure-loop
 node scripts/figure-review-queue.mjs --next 8 --json > .tmp/figure-loop/batch.json
 # 切り出し直し待ちが 8 件以上、または判定待ちが 0 のとき: --stage reextract --next 4
 ```
+切り出し直しの図が書籍の図（記事の caption・alt が「図X.Y」）なら、worker に原典のページを渡す。`node scripts/find-book-figure.mjs "図2.41" --book <書籍名の一部>` が Drive vault の書籍 OCR から書籍・PDF・ページ・印字ページ・図名を JSON で返すので、`status: found` の `matches[0]` をその要素の `bookHit` に入れる（`multiple` は `--book` で絞る・`not-found` は入れない・exit 2 は vault が無い PC なので切り出し直しを回さない）。
 
 ### 2. ワーカーを並列で回す
 ```

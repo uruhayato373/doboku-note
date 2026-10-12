@@ -67,6 +67,7 @@ const promptOf = (it) => {
     lines.push(`切れていると判定した理由: ${it.whyCut || '（記録なし）'}`)
     lines.push(`記録済みの出典: ${it.recordedSource ? JSON.stringify(it.recordedSource) : 'なし'}`)
     lines.push(`原典候補（記事の sources から。まずここを見る）: ${it.sourceCandidates?.length ? JSON.stringify(it.sourceCandidates) : 'なし'}`)
+    if (it.bookHit) lines.push(`書籍 OCR から引いた図の場所（find-book-figure。PDF のページは p 番号、印字は本のページ。まずこのページを描画して確かめる）: ${JSON.stringify(it.bookHit)}`)
     lines.push(`候補で見つからないときだけ探す場所: ${(it.sourceRoots || []).join(' | ')}`)
     if (it.vaultNote) lines.push(`注意: ${it.vaultNote}`)
   }
