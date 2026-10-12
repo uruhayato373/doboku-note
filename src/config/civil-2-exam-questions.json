@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-12T11:15:58Z",
+  "generatedAt": "2026-10-12T11:16:19Z",
   "exam": "civil-2",
   "years": [
     {
@@ -8935,6 +8935,28 @@
               "num": 4,
               "text": "ロの後にハ（解析）より先にイ（処置）が来ており、順序が誤り。 <ExamPoint>計画（標準設定）→実施→解析→処置の順序</ExamPoint>",
               "correct": false
+            }
+          ],
+          "statements": [
+            {
+              "label": "イ",
+              "text": "最後で、データ解析の結果に基づき異常の原因を除去する処置をとる。PDCAのアクションにあたる。",
+              "correct": true
+            },
+            {
+              "label": "ロ",
+              "text": "二番目で、定めた作業標準に従って作業を実施する。PDCAのドゥにあたる。",
+              "correct": true
+            },
+            {
+              "label": "ハ",
+              "text": "三番目で、得られたデータを解析・検討して異常の有無を確かめる。PDCAのチェックにあたる。",
+              "correct": true
+            },
+            {
+              "label": "ニ",
+              "text": "最初で、品質特性と品質標準を決める。PDCAのプランにあたる。",
+              "correct": true
             }
           ],
           "igEligible": true,
