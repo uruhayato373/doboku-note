@@ -368,6 +368,18 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0698] YouTube移行の読み戻し不整合と旧プレビューの残存を解消
+タグ: [SNS・マーケ] [領域:SNS] [時期:2026-10] [種類:不具合] [検証:test] [起票:2026-10-12]
+
+起点: 土工Shortsの画像差し替えで、YouTube APIの直後の応答と後続実査が一致せず、動画処理・登録情報・削除の確認が繰り返し停止した。新版 uNCBD0A9zpw / vYPjT713Hyg は非公開で採用・実表示確認済み。旧3本は削除確認済み。残る不採用プレビュー tMxQesShhL8 はタグ欠落/復帰を含む読み戻し不一致が再発し、削除前の照合で停止中。
+
+やること: scripts/lib/youtube-migration-finalize.mjs の確認未成立を保存済み意図から安全に再照合できるようにし、不完全応答・反映遅延・実際の他者変更を区別する。新規アップロードを重複させず、凍結計画や削除ゲートを緩めない。旧プレビューは最新の実体を再確認してから整理する。
+
+根拠: actions/runs/38206187919 では旧情報の一致を確認し activated、その次の actions/runs/38206257559 で Old video metadata drift。前者直前にも同じ不一致が再発。作業ブランチ codex/youtube-pop-thumbnails。凍結計画SHA c68ac386ee38c75bf564cf9dc55045041f6d8707f887d213c8bf64aeacadb149、private receipt scope pop-soil-shorts-fullbleed-20261012-930320f6-final。制作物・旧新対応は土工パックの pop-image.json と素材台帳を参照。
+
+完了条件: 読み戻しの遅延/欠落と本当のメタデータ変更の回帰テストを通し、後者では削除しない。新版2本・音声・字幕・非公開設定を保持し、旧プレビューの不存在をAPIで確認して台帳を更新する。
+
+
 ### [DN-0697] YouTube通常動画の再生数欠測を解消し、全欠測を合計0回と表示しない
 タグ: [領域:SNS] [時期:2026-10] [種類:不具合] [起票:2026-10-12]
 
