@@ -16,6 +16,7 @@ import { fileURLToPath } from 'node:url';
 import matter from 'gray-matter';
 import { renderQuizMarkdown, stripMarkdown } from './lib/quiz-markdown.mjs';
 import { jstDayOf } from './lib/jst-date.mjs';
+import { extractStatementExplanations, renderStatementsHtml, withStatementHtml } from './lib/statement-explanations.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 // 出力先。既定は配信用の public/quiz。テストは --out-dir で一時ディレクトリへ出し、追跡中の生成物を書き換えない。
@@ -87,6 +88,16 @@ function peYearRank(year) {
   return Number(m[2]) + (m[1] === 'h' ? 1988 : 2018) + (m[3] ? 0.1 : 0);
 }
 
+/**
+ * 記述ごとの解説（①〜・ア〜）を共通スキーマの項目にする。無ければ空オブジェクト。
+ * statements は見出しの記号・本文の HTML・正誤、statementsHtml は選択肢の解説の前に出すかたまり（サイトと iOS が同じ文字列を差し込む）
+ */
+export function statementFields(statements) {
+  if (!statements?.length) return {};
+  const withHtml = withStatementHtml(statements);
+  return { statements: withHtml, statementsHtml: renderStatementsHtml(withHtml) };
+}
+
 /** 生の 1 問を共通スキーマへ正規化する（civil-1 系スキーマ） */
 function normalizeQuestion(raw, year) {
   // 組合せ問題は選択肢が本文の表の行にしかない（| (1) | … | や | (1) 掘削 | … |）。そのときは表の行を選択肢にする
@@ -130,6 +141,7 @@ function normalizeQuestion(raw, year) {
     // 公式正答が複数の問題は、どれを選んでも正解にする（正答 correct は最初の番号）
     ...(Array.isArray(raw.correctAll) && raw.correctAll.length > 1 ? { correctAll: raw.correctAll } : {}),
     explanations,
+    ...statementFields(raw.statements),
   };
 }
 
@@ -236,6 +248,7 @@ function buildCemDataset({ exam, examLabel, srcPath }) {
           };
         }),
         examPoint: raw.examPoint || null,
+        ...statementFields(raw.statements),
       });
       count += 1;
     }
@@ -440,6 +453,7 @@ function buildPeFirstStageDataset({ exam, examLabel, srcPath }) {
         correct,
         explanations: normalizedExplanations,
         examPoint,
+        ...statementFields(extractStatementExplanations(details[2], details[1])),
         socialEligible: socialExclusionReasons.length === 0,
         socialExclusionReasons,
         articlePath: `/exam/pe-first-stage/primary/${articleDir}`,

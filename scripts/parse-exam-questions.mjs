@@ -39,6 +39,7 @@ import { readFileSync, writeFileSync, readdirSync, existsSync } from "fs";
 import { writeGeneratedJson } from './lib/generated-json.mjs';
 import { join } from "path";
 import { REPO_ROOT as ROOT } from "./lib/repository-paths.mjs";
+import { extractStatementExplanations } from "./lib/statement-explanations.mjs";
 
 const POSTS_DIR = join(ROOT, "content/site/pe-comprehensive-management");
 const OUTPUT_JSON = join(ROOT, "src/config/exam-questions.json");
@@ -125,7 +126,10 @@ function parseQuestion(label, block) {
 
   const management = inferManagement(body);
 
-  return { label, body, options, correct, judgments, examPoint, management };
+  // (ア)〜・①〜の記述ごとの解説（無ければ省く。選択肢の判定 judgments とは別に持つ）
+  const statements = extractStatementExplanations(detailsContent, beforeDetails);
+
+  return { label, body, options, correct, judgments, ...(statements.length ? { statements } : {}), examPoint, management };
 }
 
 function parseYear(year) {

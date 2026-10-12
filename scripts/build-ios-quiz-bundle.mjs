@@ -96,18 +96,20 @@ export function toBundleQuestion(q) {
     bodyHtml: html(q.bodyHtml, q.body, { blanks: true }),
     options: q.options.map((o) => ({ ...o, html: html(o.html, o.text) })),
     explanations: q.explanations.map((e) => ({ ...e, html: html(e.html, e.text) })),
+    // 記述ごとの解説（①〜・ア〜）。本文の HTML の画像もアプリ内へ書き換える
+    ...(q.statements?.length ? { statements: q.statements.map((s) => ({ ...s, html: html(s.html, s.text) })), statementsHtml: rewriteImageSrcs(q.statementsHtml) } : {}),
   };
 }
 
 /** 1 問の表示用 HTML（アプリ内への書き換え前。Markdown しか無い項目は変換する） */
 function rawHtmlOf(q) {
   const h = (html, text, options) => html ?? (text ? renderQuizMarkdown(text, options) : '');
-  return [h(q.bodyHtml, q.body, { blanks: true }), ...q.options.map((o) => h(o.html, o.text)), ...q.explanations.map((e) => h(e.html, e.text))].join('\n');
+  return [h(q.bodyHtml, q.body, { blanks: true }), ...q.options.map((o) => h(o.html, o.text)), ...q.explanations.map((e) => h(e.html, e.text)), q.statementsHtml ?? ''].join('\n');
 }
 
 /** 書き出した問題の HTML が参照するアプリ内の画像（images/ からの相対パス）。Markdown から作った HTML の画像も含む */
 export function bundledImageRels(q) {
-  const html = [q.bodyHtml, ...q.options.map((o) => o.html), ...q.explanations.map((e) => e.html)].join('\n');
+  const html = [q.bodyHtml, ...q.options.map((o) => o.html), ...q.explanations.map((e) => e.html), q.statementsHtml ?? ''].join('\n');
   return [...html.matchAll(BUNDLED_SRC)].map((m) => m[1]);
 }
 
