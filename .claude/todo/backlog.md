@@ -528,14 +528,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **判断（週次レビュー 2026-10-10・運営者）**: 今月から着手する。10 月中に (1) 出題テーマの整理を先に進め、(2)〜(4) は 11 月に続ける。
 
-### [DN-0644] 送客先の切れたリンク 2 件（check-outbound-links）を直す
-タグ: [収益化] [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-10] [進行中]
-
-**起点**: 週次レビュー（2026-09-28〜2026-10-04）の点検。#867（quality-audit report 区分）で check-outbound-links が送客先 496 件中 2 件を切れと判定（2026-10-05）。
-
-**やること**: node scripts/check-outbound-links.mjs で切れた 2 件の URL と掲載ページを特定し、商品の移転・削除なら正しい URL へ差し替えるか掲載を外す。
-
-**完了条件**: check-outbound-links の切れが 0 件で、#867 が次の weekly-review-guard で自動クローズしている。
 
 ### [DN-0639] main に開いたままの CodeQL の警告（high 18 件ほか）を振り分けて、直すか理由つきで dismiss する
 タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-10-10]

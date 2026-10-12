@@ -3516,6 +3516,23 @@
       "commit": "111462f74038",
       "verification": null,
       "note": "PR #1043。記事の MDX から洗い出した 114 問（総監 39・技術士一次 56・2級 12・1級 7）のうち 113 問に記述ごとの正誤と理由を足した（記述の正誤は公式の正答から決定）。抽出（statement-explanations.mjs）を（カ）（キ）・用語（A）〜（E）・総括行の誤抽出に対応させ既存の誤抽出 2 件も解消。e-Gov（労安法・クレーン則・技術士法・製造物責任法・知的財産基本法）と公的資料で照合し、取れないものは断定を避けた。残る 1 問（h28-aptitude Ⅱ-15）は選択肢自体が長文の記述で、記述の解説にすると選択肢の解説と同じになるため対象外。check-answer-marks FAIL 0。作業中に見つかった r07-aptitude Ⅱ-8 の選択肢 ④ の転記ミスは公式 PDF で確かめて 111462f74 で修正"
+    },
+    {
+      "id": "DN-0644",
+      "at": "2026-10-13",
+      "task": "送客先の切れたリンク 2 件（check-outbound-links）を直す",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/outbound-sources.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "c310c8ba43b2",
+      "verification": null,
+      "note": "切れた送客先 2 件を解消。外部の note 記事（onicon・404）は isolation-stop-safety の参考資料から外した（96f826b9b）。削除済みの旧マガジン m758aba129301 は、主任技士の小論文動画 3 本の youtube.json（7af7b4d18）と、10/15 に予約中の X 投稿（運営者の承認のうえ 2026-10-13 に予約の本文を後継の cce-essay-reiwa-pack へ差し替え・c310c8ba4）を直した。検査は X の投稿済みの記録を見ず予約中の原稿を見る形に（PR #1025）。check-outbound-links 494 件すべて生存・切れ 0"
     }
   ]
 }
