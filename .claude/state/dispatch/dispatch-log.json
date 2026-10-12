@@ -3465,6 +3465,23 @@
       "commit": "1e3ae815a869",
       "verification": null,
       "note": "PR #1040。2級のペルソナ別パック 10 本について、冒頭導線の記事別ルール 72 件・マガジン定義 10 件・カバー設定 10 行・note掲載文.txt 10 本を正本（persona・members・catalog・cover・listing.appeal・intro.notHome）から npm run product -- gen で生成し、check-products がずれを止める。手書きとの差は規則の結果 652 記事で 0 件・定義・カバー・掲載文も 0 件。正本に 1 パック足すと生成物だけが増えることをテスト 6 件で固定。npm run product -- plan で正本と収録の差（現在 0 件・作成予定 2 件）を出し、管理画面の商品設計に「意図との差」と「作成予定」を表示。共通部と個別文章のマガジン 7 本・1級は手書きのまま（定型から作れない）。note への反映（公開物の更新）はしていない"
+    },
+    {
+      "id": "DN-0432",
+      "at": "2026-10-12",
+      "task": "管理画面を shadcn/ui の標準部品・雛形・テーマで作り直し、余白やカードの書き方を共通化する",
+      "tier": "mid",
+      "kind": "改善",
+      "prevention": {
+        "type": "gate",
+        "ref": "scripts/check-admin-ui-debt.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "aca9a377ee3c",
+      "verification": null,
+      "note": "PR #1041（Sidebar #687・#688、Data Table #906 に続く仕上げ）。インライン style 18 件を Tailwind へ置き換え check-admin-ui-debt の基準値を 0（76 ページで生 card・style・table・badge すべて 0）、DocRootView の生 card を shadcn Card に。globals.css から .card・.card + .card ほか参照の無いルールを 508 行削除（2021→1513）。KPI 画面（/）は shadcn 部品とレイアウト部品だけ。admin-ui-debt・shadcn-parity は quality-audit の ci:true。あわせて #977 以降の管理画面トップ 500（今月末日まで集計して buildReport が投げる）を kpi-tree.ts で昨日までに切って修正、E2E のスマホ幅 2 件を Sheet 表示に追従"
     }
   ]
 }

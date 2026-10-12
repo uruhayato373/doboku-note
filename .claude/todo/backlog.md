@@ -1096,19 +1096,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **完了条件**: 対象未満のユーザー比率（%）と取得期間を記録し、main 昇格の可否を決めている。
 
-### [DN-0432] 管理画面を shadcn/ui の標準部品・雛形・テーマで作り直し、余白やカードの書き方を共通化する
-タグ: [UI・UX] [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-09-28] [進行中]
-
-**起点**: 2026-09-28、KPI 画面のカード同士がくっつく不具合（PR #684 で修正）から、見た目の共通化・再利用・単一責務を相談した。原因は余白を `.card + .card`（直後がカードのときだけ）で決めていたことで、ページ側は生の `className="card"` 102 箇所・インライン `style` 161 箇所・`globals.css` 2,300 行超に依存し、`src/components/primitives.tsx` の Card/Badge は 7 ファイルでしか使われていない。前提の Tailwind v4 移行は PR #683 で完了済み。
-
-**やること**:
-1. 土台：`components.json` を置き、shadcn の Card / Badge / Button / Table / Tabs / Chart を CLI で追加して `primitives.tsx`・`ui.tsx` の重複を置き換える。テーマは shadcn の CSS 変数（基本色は slate 等から選ぶ）に寄せる
-2. レイアウト部品：`Stack` / `Grid` / `Section` を足し、並べ方の余白は親の `gap` で持つ。`.card + .card` を廃止する
-3. 枠：`sidebar` と `dashboard-01` の雛形で左ナビ＋本文を作り直し、KPI 画面から移す。残りの画面は数回に分けて移し、移した分の `globals.css` を削る
-4. ゲート：ページ（`tools/admin-app/src/app/**`）の生 `className="card"` とインライン `style` の件数を lint で数え、基準値より増えたら落とす
-5. 表：`TableFrame` を直に置いている 37 ページを `components/admin` の `DataTable`（shadcn の Data Table）へ移す。行ごとに形が違う表は除く
-
-**完了条件**: KPI 画面が shadcn 部品とレイアウト部品だけで書かれ、`.card + .card` が無い。全画面の移行後、ページの生 `className="card"` とインライン `style` が 0（または lint の基準値以下）で、ゲートが CI にある。
 
 ### [DN-0423] テーマ（/topics）15 ページを検索の入口として働くように作り直す
 タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11..2026-12] [種類:改善] [起票:2026-09-27]
