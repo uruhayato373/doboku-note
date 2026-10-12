@@ -120,3 +120,8 @@ test('（カ）（キ）まである 7 つの記述も取り出す（DN-0699）'
   assert.deepEqual(got.map((s) => s.label), ['ア', 'オ', 'カ', 'キ']);
   assert.equal(hasStatementStem('次の記述のうち。\n\n（カ）ファクシミリ機による送受信機能が使える。\n\n（キ）デスクトップパソコンによるメール機能が使える。'), true);
 });
+
+test('用語（A）〜（E）を説明する記述の解説も取り出す（DN-0699）', () => {
+  const got = extractStatementExplanations(details('（A）信頼性設計は（イ）の説明にあたる ✅\n\n（B）保全性設計は（ア）の説明にあたる ✅'));
+  assert.deepEqual(got.map((s) => s.label), ['A', 'B']);
+});
