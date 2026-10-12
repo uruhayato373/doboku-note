@@ -37,6 +37,17 @@ test('公開CI向けレポートは手元の秘密鍵でだけ復号でき、改
   assert.throws(() => openReport(encrypted, createEnvelopeKeys().privateKey));
   assert.throws(() => openReport({ ...encrypted, tag: Buffer.alloc(16).toString('base64') }, keys.privateKey));
 });
+test('uploadsで欠けた1本は所有動画検索と詳細の口座照合で補完する', async () => {
+  const yt = mock();
+  yt.playlistItems.list = async () => ({ data: { pageInfo: { totalResults: 2 }, items: [{ contentDetails: { videoId: 'hJYV_U0qKvA' } }] } });
+  yt.search = { list: async args => { assert.equal(args.forMine, true); return { data: { items: [{ id: { videoId: '8qhSsq9-x6k' } }] } }; } };
+  const result = await channelInventory(yt, expected);
+  assert.equal(result.checked, 2);
+  assert.deepEqual(result.evidence.supplementedFromOwnedSearch, ['8qhSsq9-x6k']);
+  assert.deepEqual(result.evidence.supplementedFromLedger, []);
+  yt.videos.list = async ({ id }) => ({ data: { items: id.split(',').map(id => ({ id, snippet: { channelId: id === '8qhSsq9-x6k' ? 'other-channel' : expected.id } })) } });
+  await assert.rejects(channelInventory(yt, expected), /channel mismatch/);
+});
 test('棚卸しモードは既定の operation で、artifactは暗号文だけ', () => {
   const wf = yaml.load(readFileSync(new URL('../.github/workflows/sync-yt-descriptions.yml', import.meta.url), 'utf8'));
   assert.equal(wf.on.workflow_dispatch.inputs.operation.default, 'thumbnail-inventory');

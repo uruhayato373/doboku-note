@@ -66,6 +66,8 @@ YouTube の後付けサムネ処理は `node .claude/scripts/youtube/set-thumbna
 
 uploadsのページ境界で同じ公開IDが重複する場合は、投稿台帳のIDを `videos.list` で実査して不足を補完する。重複を除くだけで完了とはしない。口座が一致する実体の総数＝uploadsの総数、かつuploads由来の未取得IDが0であることを要求する。重複・補完ID・削除済み台帳IDは暗号化記録へ残し、削除済み動画を再投稿しない。
 
+uploadsと台帳で総数が一致しない場合だけ、`search.list`（`forMine=true`・`type=video`・`order=date`、最大20ページ）でも補完し、`videos.list`でIDと所有口座を照合する。台帳由来と所有動画検索由来の補完は証拠で区別する。補完後も総数が一致しなければ停止する。
+
 ### 全動画のサムネイル更新
 
 単一IDは前述の `youtube-thumbnail:update`、全件・範囲指定は `scripts/youtube-thumbnail-rollout.mjs` を使う。

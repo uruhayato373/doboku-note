@@ -809,7 +809,7 @@
         }
       ],
       "audioChanged": false,
-      "videoRecomposed": false,
+      "videoRecomposed": true,
       "remainingSceneIds": [],
       "reproduction": {
         "method": "Driveのoutput.pathを復元しoutput.sha256を照合。音声と動画本体は変更していない。画像を動画へ合成するときは本revisionのsceneIdに対応する採用PNGを使う。通常の自動スライド描画だけでは本画像を再現しない。"
@@ -822,6 +822,79 @@
           "sha256": "889ea075a10538690beb99b319896ee58ef9c2d9c36497c5313eed974c7b9681"
         },
         "checkedAt": "2026-10-11T15:42:10.496Z"
+      },
+      "videoImageReplacement": {
+        "source": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.longform/source-original.ea52bc09.mp4",
+        "sourceSha256": "ea52bc0945323e9d760c446b338a69a1782d7eca07773352876f4a91d6f7123e",
+        "outputSha256": "24a4dc08c783ce3c99341ad865476ce961871ebc7fc55cd4223ee75edbd7c21e",
+        "audioPacketsUnchanged": true,
+        "audioPacketSha256": "2422243a5dcc7646f4302f0429592058f70e605cb6053d11127c1dbfaa72c8eb",
+        "ttsRegenerated": false,
+        "subtitlesSha256": "b53704fd4ae8cfccdff06b6a1f34221069e303c3c816497881d7bcb5be70263a",
+        "timingMethod": "original render manifest scene durations, source video SHA verified; cached WAV hashes differ and are not used",
+        "durationSec": 96.3,
+        "frames": 2889,
+        "scenes": [
+          {
+            "sceneId": "cover",
+            "startSec": 0,
+            "endSec": 7.818667,
+            "imageSha256": "659cd5716340bd9914ea2eadf2fde97ff3b049ac8d5b989bb2f5e6e641320fc7"
+          },
+          {
+            "sceneId": "premise",
+            "startSec": 7.818667,
+            "endSec": 17.119999999999997,
+            "imageSha256": "55c107a6f520707c43d8de8a815ee26ec6b4c05618eaf340be215ea1aa0fa157"
+          },
+          {
+            "sceneId": "overview",
+            "startSec": 17.119999999999997,
+            "endSec": 26.943999999999996,
+            "imageSha256": "438c5f6d2e619f692ad173dd66d1e50374c721a4e6888d2b210fe45d06e74021"
+          },
+          {
+            "sceneId": "block1",
+            "startSec": 26.943999999999996,
+            "endSec": 38.495999999999995,
+            "imageSha256": "d747367ff70b83bb93d4ef754a322b73882bb829dce5727ae25633146329ef2b"
+          },
+          {
+            "sceneId": "block2",
+            "startSec": 38.495999999999995,
+            "endSec": 50.357333,
+            "imageSha256": "bbfeb12da9f27feab8ed1cc0a672c864bbfc061b1d1db09ed96b9772641f10b5"
+          },
+          {
+            "sceneId": "block3",
+            "startSec": 50.357333,
+            "endSec": 61.632,
+            "imageSha256": "d4df1083a1183812001c56f62ffbd75284d41e3e193bf98e8aa9e36f6a7ebd3f"
+          },
+          {
+            "sceneId": "block4",
+            "startSec": 61.632,
+            "endSec": 74.965333,
+            "imageSha256": "28f4cd3a3d392a650cfc30c27ac0be86a5ece4c464123be1a855bf4fd20d6d6f"
+          },
+          {
+            "sceneId": "summary",
+            "startSec": 74.965333,
+            "endSec": 87.28533300000001,
+            "imageSha256": "50815c8d2f349d5080d2c6a132031be2c162fdad28689f90ce48b356c2b799fa"
+          },
+          {
+            "sceneId": "cta",
+            "startSec": 87.28533300000001,
+            "endSec": 96.3,
+            "imageSha256": "61740ed545b0cfb8b979e43dc1a692346ae8a04537c571af0d5eb866b97c9edf"
+          }
+        ]
+      },
+      "publication": {
+        "status": "replacement-prepared",
+        "externalPublished": false,
+        "oldPublicVideoRetained": true
       }
     }
   }

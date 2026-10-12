@@ -35,9 +35,35 @@ export async function channelInventory(youtube, expected, { record = () => {}, k
     videos.push(...found);
   }
   const foundIds = new Set(videos.map(v => v.id));
+  const ownedSearchIds = [];
+  // Uploads pagination can omit an owned ID even after ledger supplementation.
+  // Corroborate through the authenticated owned-video search; retain the total gate.
+  if (videos.length !== reportedTotal && youtube.search?.list) {
+    const searchTokens = new Set();
+    let searchToken;
+    for (let page = 0; page < 20; page++) {
+      const data = (await youtube.search.list({ part: 'id', forMine: true, type: 'video', order: 'date', maxResults: 50,
+        ...(searchToken ? { pageToken: searchToken } : {}) })).data;
+      const additional = [...new Set((data.items ?? []).map(v => v.id?.videoId))].filter(id => !foundIds.has(id));
+      if (additional.some(id => !/^[\w-]{11}$/.test(id ?? ''))) throw new Error('Invalid owned search video id');
+      if (additional.length) {
+        const found = (await youtube.videos.list({ part: 'snippet,status,contentDetails', id: additional.join(',') })).data.items ?? [];
+        if (new Set(found.map(v => v.id)).size !== found.length || found.some(v => !additional.includes(v.id) || v.snippet?.channelId !== expected.id)) {
+          throw new Error('Owned search detail coverage/channel mismatch');
+        }
+        for (const video of found) { videos.push(video); foundIds.add(video.id); ownedSearchIds.push(video.id); }
+        await record({ kind: 'owned-search-supplement', page, videos: found });
+      }
+      if (videos.length >= reportedTotal || !data.nextPageToken) break;
+      searchToken = data.nextPageToken;
+      if (searchTokens.has(searchToken)) throw new Error('Owned search token repeated');
+      searchTokens.add(searchToken);
+    }
+  }
   const missingPlaylistIds = ids.filter(id => !foundIds.has(id));
   const evidence = { playlistUnique: ids.length, duplicateIds, missingPlaylistIds,
-    supplementedFromLedger: videos.filter(v => !ids.includes(v.id)).map(v => v.id),
+    supplementedFromLedger: videos.filter(v => !ids.includes(v.id) && !ownedSearchIds.includes(v.id)).map(v => v.id),
+    supplementedFromOwnedSearch: ownedSearchIds,
     missingLedgerIds: knownVideoIds.filter(id => !foundIds.has(id)) };
   await record({ kind: 'coverage', reportedTotal, checked: videos.length, evidence });
   // Uploads can repeat public items across private/public page boundaries. Deduplication

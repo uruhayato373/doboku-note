@@ -453,6 +453,41 @@
       }
     },
     {
+      "id": "civil-construction-2/gakka-2kyu-doko/youtube.longform/subtitles",
+      "role": "subtitles",
+      "type": "text/plain",
+      "sha256": "b53704fd4ae8cfccdff06b6a1f34221069e303c3c816497881d7bcb5be70263a",
+      "bytes": 3338,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.longform/subtitles.b53704fd.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "reviewed-image-replacement",
+        "spec": "content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/pop-image.json#revisions/body-images-20261012"
+      }
+    },
+    {
+      "id": "civil-construction-2/gakka-2kyu-doko/youtube.longform/video",
+      "role": "video",
+      "type": "video/mp4",
+      "sha256": "24a4dc08c783ce3c99341ad865476ce961871ebc7fc55cd4223ee75edbd7c21e",
+      "bytes": 67321198,
+      "width": 1920,
+      "height": 1080,
+      "durationSec": 96.3,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.longform/video.24a4dc08.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "reviewed-image-replacement",
+        "spec": "content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/pop-image.json#revisions/body-images-20261012"
+      }
+    },
+    {
       "id": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cover",
       "role": "cover",
       "type": "image/png",
