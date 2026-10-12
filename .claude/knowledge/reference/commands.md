@@ -204,6 +204,7 @@ npm run coconala-pause    # ココナラ出品の受付休止/再開/アーカ�
 ```bash
 npm run check-video-content    # 動画パック（DN-0110）の整合ゲート（manifest/sourceRef 漏洩/CTA・UTM/storyboard/逐語転用/status。契約 SSOT は config/video-content.json と video-content-policy.md。exit 2=検査不成立・quality:audit に同梱）
 npm run render-longform        # 動画パックの 16:9 通常動画レンダラー（storyboard→1920×1080 PNG＋ASS 字幕＋VOICEVOX/ffmpeg mp4。出力は .tmp/video-render/・音声環境無しは --skip-tts で PNG/ASS まで。VOICEVOXとffmpegがあればWindows/Macでmp4生成可・生成用Actionsは未設置）
+npm run youtube-shorts:restore -- --pack-dir <動画パック> # 全場面差し替え版の現在の動画SHAに対応するレシピ・全PNG・元動画・ASS・完成MP4を照合（--key で限定）。欠落素材は --restore でDriveから復元。既存SHA不一致・対象0件は停止。制作担当が再利用前に読むローカル検査、Drive依存のためquality-auditには登録しない。旧テンプレート再生成は差し替え版を停止する
 npm run build-video-compilation # 総まとめ（聞き流し）パックの storyboard.json を compilation.json と承認済みパックから生成（--pack-dir 必須・--check は一致確認だけで不一致は exit 1）。描画は render-longform
 npm run youtube-covers -- --all # 停止済みを除くYouTube表紙を処理（pop-v2は従来組版で生成、pop-poster-v3は採用PNGを保持。v3の新規制作は /create-pop-image）。--exam / --pub で絞り、--commit で原稿・素材台帳へ採用。確認一覧 .tmp/youtube-covers/pop-all/index.html。単体見本は --spec PATH（音声・字幕・公開状態は変更しない）
 npm run brand-video-pack        # 動画パック1本の表紙（cover-design.json）と締め画像を描く。pop-v2 / pop-poster-v3 の表紙は採用画素を保持し、追加のロゴ合成・減色をせず、ID ごとの置き場（.tmp/media/{exam}/{packId}/youtube.{longform|short.{key}}/{cover|cta}.{sha8}.png）へ書く（--pack-dir 必須・既定 dry-run・--commit で design json も更新）。画像は git に入れず npm run media -- sync で Drive へ

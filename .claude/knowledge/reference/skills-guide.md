@@ -34,7 +34,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 
 ### 変換（conversion）
 
-動画表紙の `/create-pop-image` は通常動画・Shortsの承認見本と内容別ポーズを参照し、Drive原本＋SHAで復元する。画像QAは既存の `ai-image-fidelity-auditor` / `yt-shorts-publisher-qa` を使う。
+動画表紙の `/create-pop-image` は通常動画・Shortsの承認見本と内容別ポーズを参照し、Drive原本＋SHAで復元する。Shortsは全面背景と文字・顔のUI安全域を分け、全場面の字幕入りフレームを確認する。画像QAは既存の `ai-image-fidelity-auditor` / `yt-shorts-publisher-qa`、全場面差し替え版の復元は `youtube-shorts:restore` を使う。
 
 | スキル | 一言説明 | 呼ぶとき |
 |---|---|---|

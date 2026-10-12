@@ -46,6 +46,7 @@ Shortsの操作UI用安全域は、重要な文字と顔を避ける範囲とし
 
 | 内容とポーズ | 原稿・生成履歴（revisionsのキー） |
 |---|---|
+| Shorts全面構図・土試料の指差し／4テーマ案内（表紙・本文・締め） | [2級土木・土工](../../../content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/pop-image.json)（`shorts-pop-fullbleed-20261012`。`publications[].images` の最終 `output` を参照し、途中の余白が大きい生成案は使わない） |
 | 答案確認・赤ペン | [2級土木・安全管理](../../../content/sns/video-packs/civil-construction-2/anzen-ippanron-3riyu/pop-image.json)（`point-cause1-1`） |
 | 比較・両手 | [2級土木・混和材料](../../../content/sns/video-packs/civil-construction-2/gakka-2kyu-concrete/pop-image.json)（`point-block1-2`） |
 | 判断・考える | [総監・アクセス権](../../../content/sns/youtube/pop-image.json)（`access-control`） |

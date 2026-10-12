@@ -19,6 +19,8 @@ npm run check-youtube-cover-handoff -- --local
 
 ## 音声付き動画を生成する
 
+全場面の差し替えレシピがあるShortsは、下記テンプレート生成を使わず「全場面差し替え版の完全復元」へ進む。`--force` / `--preview-only` でも旧本文・締め画像への逆戻りは許可しない。
+
 Windows/MacのどちらでもVOICEVOXエンジンとffmpeg/ffprobeが必要。メモリの少ない端末ではエンジンを `--cpu_num_threads 1` で起動し、パックを順に生成する。VOICEVOXを起動して以下を実行する。動画生成用のGitHub Actionsは現在ない。
 
 ```bash
@@ -75,3 +77,18 @@ node scripts/drive-vault-sync.mjs --path PATH --pull --commit
 完全再現は復元PNGと `output.sha256` の一致で判断する。フォントや画像生成モデルの再実行には依存しない。内容変更は別の派生版として記録する。生成時の実寸が媒体寸法と異なる場合は、採用前に最終サイズと安全域を整え、最終PNGのSHAを記録する。
 
 `revisions` への保存や意匠承認だけでは採用されない。媒体確認後の最終PNGを `cover-design.json` の採用入力へ接続（pop-poster-v3 は採用PNG必須。欠落時は停止し、テンプレートへ戻さない）し、素材・公開台帳は既存 `media` / `registry` 経由で更新してから `check-youtube-cover-handoff --local` を実行する。private R2の `stage-youtube-covers` が転送するのも、この採用入力に接続済みの画像だけ。制作途中の比較画像を転送・公開済みとは扱わない。
+
+## 全場面差し替え版の完全復元
+
+`pop-image.json` の `revisions.*.publications[].reproduction` は全場面の採用PNG、表示時刻、元動画、元ASS、確認済み完成MP4のSHAを持つレシピを指す。現在の `youtube.json` の動画SHAに一致するレシピだけを選び、次のコマンドで検査・復元する。例は2級土木の土工Shorts2本。
+
+```bash
+npm run youtube-shorts:restore -- --pack-dir content/sns/video-packs/civil-construction-2/gakka-2kyu-doko
+npm run youtube-shorts:restore -- --pack-dir content/sns/video-packs/civil-construction-2/gakka-2kyu-doko --restore
+```
+
+`--key point-block1-2` 等で1本に限定できる。既定は読み取り検査、`--restore` は欠落ファイルだけをDriveから取り戻す。既存ファイルのSHA不一致は上書きせず停止する。合格条件は対象数が正で、全素材・レシピ・完成MP4のSHA、PNG 1080×1920、全場面の連続した尺が一致すること。動画・画像の採用先や外部投稿は変更しない。
+
+この完全復元はTTS・画像生成・エンコードを実行せず、確認済みの動画・音声・字幕をバイト単位で戻す。新しい画像や尺で再編集するときは新レシピと新しいQAが必要。汎用のレシピ再エンコード機能は未実装であり、一時制作スクリプトを復元手順として使わない。同じ生成プロンプトや別端末のエンコーダーから同じ画素・MP4バイト列が出るとは保証しない。
+
+構図の合否はSHA検査の対象外。全場面の原画像と字幕入り完成フレームを原寸・360pxで見て、背景が四辺まで続くこと、左上への縮小配置・巨大な無地余白・文字と字幕の重なりがないことを画像／動画SHAに結び付けて記録する。実際のShorts操作UIは別に確認し、未確認ならその状態を残す。
