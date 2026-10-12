@@ -1,6 +1,6 @@
-// Kindle 配布物(EPUB＋表紙)を catalog に基づいて再生成し、git 追跡下の scripts/kindle-dist/ へ同期する。
+// Kindle 配布物(EPUB＋表紙)を catalog に基づいて再生成し、scripts/kindle-dist/ へ同期する（git 追跡はしない。正本は private R2。作り直したら asset-offload --group kindle-dist --include-untracked --commit で上げる）。
 // EPUB は各 buildSpec または A 系の buildTheme から決定的に再ビルドし、表紙は cover spec から再合成する。
-// これにより「EPUB/表紙を git 管理しつつ、いつでも spec から再現できる」状態を担保する。
+// ただし公開済みの版は再ビルドで同じ内容にならないことがある（asset-storage-policy §9）ので、R2 の実体を残す。
 //
 // 使い方:
 //   node scripts/sync-kindle-dist.mjs             # ready 状態の全新刊(B-F)のみ再ビルド→kindle-dist へ

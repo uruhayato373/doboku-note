@@ -4,7 +4,7 @@ description: >
   Kindle(KDP)入稿用 EPUB を書籍IDから生成し、epubcheck＋check-kindle-format 機械検証と kindle-book-qa の5軸監査まで実行する。
   択一系（A=1級土木論点別 build-takuitsu-reconstruct / B=総監択一・D=技術士一次・E=2級土木択一 build-pe1-kindle）は spec で、
   記述式 essay 系（C=建設二次模範解答・F=総監記述式）は build-essay-kindle.mjs で決定論的にビルドする。構成定義/前付けが
-  未整備の書籍は kindle-book-composer に委譲。全書籍の状態は catalog.json（マスター登録簿）、成果物は kindle-dist/ を git 追跡。
+  未整備の書籍は kindle-book-composer に委譲。全書籍の状態は catalog.json（マスター登録簿）、成果物は kindle-dist/（実体は private R2・git 追跡しない。取り戻しは `npm run asset-hydrate -- --group kindle-dist`）。
   表紙画像は対象外。KDP への実入稿・出版は後工程の /kdp-publish（kdp-operator）が担当。
   Use when user asks to [Kindle本を作って, EPUBを生成, KDP入稿ファイル, A-01をビルド, essay模範解答本, Kindle出版の原稿, /kindle-build].
 user-invocable: true

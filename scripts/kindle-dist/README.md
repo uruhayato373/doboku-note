@@ -1,6 +1,6 @@
 # scripts/kindle-dist/
 
-KDP 提出用に**制作完了した Kindle 配布物（EPUB＋表紙）を git 追跡**する置き場（B〜J シリーズ。冊数と状態は `scripts/kindle-published/catalog.json` が真実源）。
+KDP 提出用に**制作完了した Kindle 配布物（EPUB＋表紙）**の置き場。実体は **private R2（`kindle/dist/`）が正本で git には載せない**（DN-0562・2026-10-12・`.gitignore` 済み）。手元に無いときは `npm run asset-hydrate -- --group kindle-dist` で取り戻す。作り直した版は `node scripts/asset-offload.mjs --group kindle-dist --include-untracked --commit` で R2 へ上げる（CI の check-kindle-epub-leak は R2 から取り戻して読む）（B〜J シリーズ。冊数と状態は `scripts/kindle-published/catalog.json` が真実源）。
 KDP のアカウント作成数制限で提出は数日〜に分けて進めるため、いつでも取り出せるよう成果物を保全する。
 
 - `<id>.epub` … 入稿用 EPUB（build-pe1-kindle / build-essay-kindle の出力）
