@@ -3159,6 +3159,23 @@
       "commit": "f9d5fc2a24a5",
       "verification": null,
       "note": "PR #1022。lint-mdx-mobile 規則 0-2 と migrate-civil-frontmatter の対象から toc_min/max_heading_level を外した（DocPage.tsx が目次の深さに使う）。toc_* を使う記事は 162 本のまま、content-authoring.md に 1 行"
+    },
+    {
+      "id": "DN-0674",
+      "at": "2026-10-12",
+      "task": "インデックス登録リクエストの順位表を「型ごとの期待値」順にし、検索改善レポートの分類器の誤分類を直す",
+      "tier": "mid",
+      "kind": "改善",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/search-growth-classifier.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "0c5f90dadfc4",
+      "verification": null,
+      "note": "PR #991（順位表を期待値順）と #1023（分類器）。登録済み・需要なし→KEEP、/search?q=・非 HTML・断片の 404→EXPECTED、別 canonical→CANONICAL_ELSEWHERE、internalInbound は MDX 本文の実リンクから数える。加えて、需要・利用・後継・内部リンクの無い sitemap 外の 404→EXPECTED、sitemap 掲載の検出済み未登録→KEEP_MONITOR。同じ入力で UNKNOWN_REVIEW 864 → 9 件"
     }
   ]
 }

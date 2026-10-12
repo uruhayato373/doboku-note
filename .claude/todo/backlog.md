@@ -422,13 +422,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 **完了条件**: _redirects の静的ルールが 1,200 件程度まで下がり、移転後の記事の /docs への案内が 0 件であることを確かめた記録がある。
 
 
-### [DN-0674] インデックス登録リクエストの順位表を「型ごとの期待値」順にし、検索改善レポートの分類器の誤分類を直す
-タグ: [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-11] [進行中]
-
-**起点**: 2026-10-11 のサイト全体の SEO 診断（DN-0666）。gsc-index-auditor によると、data/gsc/indexing-priority.txt（scripts/build-gsc-indexing-priority.mjs・launchd gsc-local が毎日これを送る）は表示 0 の URL をパス昇順に並べるため、重点資格の RCCM guide（8 本中 1 本しか登録されていない）が 62 番目、practice が 74 番目以降、tools が 93 番目以降に沈む。期待値（同じ型の登録済みページ 1 本あたりの 28 日表示 × 未登録率）で並べれば、RCCM 7 本・practice 8 本・tools 5 本が先頭に来る。あわせて seo-fix-planner によると、scripts/lib/search-growth-classifier.mjs と scripts/report-search-growth.mjs が「登録済み・需要なし」346 件・/search?q= 68 件・非 HTML 16 件・本文の断片の 404 などを UNKNOWN_REVIEW（864 件）に落とし、優先修正 Top20 の 18 件が「登録済み・4 表示」のノイズになっている。internalInbound は keyword-relations 由来で、keyword 以外のページはリンクがあっても 0 になる。
-**やること**: (1) 順位表を期待値順にする（型＝/exam/<資格>/<guide|textbook|keywords|primary|…>・/practice・/tools・/standards）(2) 分類器に 4 つの規則を足す: 登録済み・需要なし→KEEP、/search?q=・非 HTML・断片の 404→EXPECTED、Google が別の canonical を選んだ URL に専用ラベル、internalInbound を実リンクから数えるか使わない。それぞれ回帰テストを付ける。
-**完了条件**: 順位表の先頭 20 件に RCCM・practice・tools の未登録が入る。search-growth:report の UNKNOWN_REVIEW が、同じ入力で 864 件から 50 件未満になる。
-**進捗（2026-10-11）**: (1) 順位表の期待値順は PR #991 で済み（実データで RCCM guide 7 本が 12〜18 番目・practice 21 番目以降・tools 38〜42 番目。tools が先頭 20 に入らないのは期待値の順のため）。**残り**: (2) search-growth の分類器の 4 規則（UNKNOWN_REVIEW 864 件→50 件未満）。
 
 
 ### [DN-0672] 技術士一次 平成27・28年度の正しい選択肢の解説が定型句だけの行（約 217 行）を、理由を述べる解説に書き直す
