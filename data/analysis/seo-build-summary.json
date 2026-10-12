@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "history": [
+    {
+      "date": "2026-10-12",
+      "generatedAt": "2026-10-12T09:53:59.715Z",
+      "sitemapUrls": 1672,
+      "checked": 1672,
+      "errors": 0,
+      "warnings": 43,
+      "errorsByCode": {},
+      "warningsByCode": {
+        "jsonld_recommended_missing": 43
+      }
+    }
+  ]
+}
