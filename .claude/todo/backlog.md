@@ -414,12 +414,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 **完了条件**: 3 件の方針が記録され、決まった変更が本番に出ている。
 
 
-### [DN-0675] _redirects の静的ルールが 1431/2000 件まで来ていて、移転後の記事の /docs 転送を作り続けると十数週で上限に当たる
-タグ: [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-10-11] [進行中]
-
-**起点**: 2026-10-11 の technical-seo-auditor。public/_redirects の静的ルールは 1,431 件で、Cloudflare Pages の上限 2,000 件に対し scripts/build-public-route-redirects.ts は 2,000 超で throw する。現行の全記事ぶん /docs/<slug> の 301 を作っていて、移転日 2026-08-22 より後に作った記事 266 件の /docs は実在したことが無い（sitemap-legacy.xml 側は PR #988 で外した）。約 7 週で 266 件増えたので、十数週で上限に達する見込み。
-**やること**: build-public-route-redirects.ts が、移転前から存在した slug（frontmatter の created が 2026-08-22 以前）だけ /docs の 301 を作るようにする。先に、移転後の記事の /docs URL を note・SNS・Kindle が案内していないかを grep で確かめ、案内していればその分は残す。回帰テストを付ける。
-**完了条件**: _redirects の静的ルールが 1,200 件程度まで下がり、移転後の記事の /docs への案内が 0 件であることを確かめた記録がある。
 
 
 
@@ -1897,12 +1891,6 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 
 **完了条件**: 反映後 28 日の集計で対象語の表示が増えるか 1 桁順位に入ったかを本カードの完了記録に書く。
 
-### [DN-0638] マージ済み（squash 含む）のブランチ・止まった未マージのブランチ・未コミットのまま放置の worktree を検査で挙げる
-タグ: [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-10] [進行中]
-
-**起点**: 2026-10-10、ブランチがローカル 41 本・リモート 26 本、worktree が 10 個まで溜まっていた。大半は中身が develop に入り済み（squash でマージ済みなので `git branch --merged` では出ない）で、1 本（refactor/script-shared-helpers）は 10/04 から止まった作業が worktree に未コミットのまま残っていた。片づけには、tree の比較と PR のマージのコミットで 1 本ずつ判定する手作業が要った。`check-disk-hygiene` はマージ済みの worktree は挙げるが、ブランチと、未コミットのまま止まった worktree は挙げない。リポジトリの設定「マージ後にブランチを自動で消す」（delete_branch_on_merge）は 2026-10-10 にオンにした（PR のリモートのブランチはマージで消える。ローカルのブランチ・PR を経ないブランチ・worktree は残る）。
-**やること**: `check-disk-hygiene`（または新しい `check-branch-hygiene`）に、(1) 中身が develop に入り済みのブランチ（ローカル・リモート。tree が同じか、PR のマージのコミットが develop にある）、(2) N 日以上動いていない未マージのブランチ、(3) 未コミットの変更を持ったまま N 日以上動いていない worktree、を出す。週次レビューで読む（または SessionStart で件数だけ出す）。
-**完了条件**: 3 種類それぞれをテストの見本で検出し、squash でマージ済みのブランチを「未マージ」と誤って挙げない。
 
 ### [DN-0636] スクリプト共通化のリファクタを develop と衝突した 48 ファイルにやり直す（ルート・走査・引数・JSON 読みを共通部品へ）
 タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-10] [進行中]
@@ -2010,17 +1998,6 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 
 **完了条件**: 2026-11-06 以降に前後 30 日の閲覧・注文を比べ、導線を残す・文面を変える・外すのどれかを決めて、ココナラ運用文書（coconala-operations.md）の決定ログに 1 行残す。
 
-### [DN-0565] 「公式の設問を含むページ」の判定を、パスの正規表現から分類データへ移す
-タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-10-07] [進行中]
-
-**起点**: lint-ja・lint-mdx-mobile は、公式問題の逐語を表記統一から外すページを、`scripts/lib/official-question-text.mjs` の `OFFICIAL_QUESTION_PAGE`（パスの正規表現）で決めている。分類の正本 `src/config/content-taxonomy.json` の group `secondary` は記述式の解説（`*-basics`）と過去問（`*-past-problems`）の両方を含むので、分類からは引けない。正規表現に無い種類のページは黙って対象外になり、`secondary-*-past-problems` は 2026-10-07（DN-0553・#889）まで設問の転記が commit を止めていた。
-
-**やること**:
-1. 分類（`content-taxonomy.json` の flags か、frontmatter の印）に「公式の設問を含む」を持たせる。
-2. `official-question-text.mjs` がその印を読むようにする。
-3. 置き換え前の正規表現と対象ページの集合が一致することをテストで確かめてから、正規表現を消す。
-
-**完了条件**: `OFFICIAL_QUESTION_PAGE` の正規表現が無くなる。判定対象のページ集合が置き換え前と一致する（テスト）。
 
 ### [DN-0559] develop への載せ直し（fetch → reset --keep → cherry-pick → パッチ照合 → push）をスクリプト 1 本にする
 タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-07] [進行中]
