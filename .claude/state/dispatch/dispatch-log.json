@@ -3431,6 +3431,23 @@
       "commit": "6b3a5ef84dd3",
       "verification": null,
       "note": "PR #1038。provenance に cropBox・rotate・post（点の除去・縮小・減色）を足し、record が記録する（reextract は cropBox 必須）。scripts/lib/figure-recipe.mjs に作り直しの手順、scripts/figure-reextract.mjs <figKey> が配信中の画像と照合（寸法一致・平均差 1.0 以下・大差画素 0.2% 以下。実測で一致 0〜0.42、1px ずれで 1.41〜7.3 の間に置いた）。vault 無しは exit 2。既存 4 枚（civil-2 r07-zenki q02・civil-1 r05-b fig-01・surveyor r07 q07・pe-first-stage r07-construction q01）の枠を原典ページから逆算して記録し、4 枚とも一致、cut で作った q07 はバイト一致。回転 180 と減色はテストの合成画像で確認"
+    },
+    {
+      "id": "DN-0556",
+      "at": "2026-10-12",
+      "task": "図クロップ品質ループの親の手作業（判定の記録・QA・結果の保存）を機械にする",
+      "tier": "mid",
+      "kind": "改善",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/figure-loop-record.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "6a2ad7fd5995",
+      "verification": null,
+      "note": "PR #1039。(1) figure-crop-batch の workflow が .tmp/figure-loop/results-<runId>.json に保存（Workflow の実走は未確認・保存失敗時は警告）(2) figure-review-queue.mjs record --from-results <file> --pass で判定（source・cropBox・rotate・post 込み）を作る (3) scripts/figure-qa-sheet.mjs が png・webp のクロップ検査・新旧の並べ画像・キャプション欠けを出す (4) STRAY_SLIVER のある png・webp で record が拒む (5) scripts/find-book-figure.mjs が書籍 OCR から PDF ページ・印字ページ・図名を引く（found/multiple/not-found・vault 無しは exit 2）(6) SKILL.md・worker 定義・figure-provenance.md を新手順に。判定 4 枚と切り出し直し 2 枚の 1 周を --from-results だけで記録できることをテスト 7 件で固定"
     }
   ]
 }

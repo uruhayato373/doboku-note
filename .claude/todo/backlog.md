@@ -732,29 +732,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 **完了条件**: post-commit を消した状態で commit すると pre-commit が理由つきで止まり、`npm run pre-commit:install` の後は通る（テストで固定）。
 
 
-### [DN-0556] 図クロップ品質ループの親の手作業（判定の記録・QA・結果の保存）を機械にする
-タグ: [コンテンツ品質] [領域:サイト] [時期:2026-12] [種類:改善] [起票:2026-10-07] [進行中]
-
-**起点**: 2026-10-06〜07 に `/figure-quality-loop` を 51 周回した。親は毎周、次を手でやっていた。
-- worker の結果から判定 JSON（`.tmp/figure-loop/verdicts-*.json`）を書いた。
-- 新旧の比較画像を作った。
-- 画像から図番号のキャプションを外した図について、MDX に caption か `<p>` があるかを見た。
-- `check-figure-crop-integrity --file` を webp だけに掛けていた。png の切れ端判定は CI で初めて出た（図5.4。判定は誤りで、#890 で検査を直した）。
-- Workflow の結果がファイルに残らないので、会話の要約後は transcript から判定を拾い直した。
-- worker は毎回、書籍の図のページを pdftotext と目で探した。二次問題解説集の OCR には `<!-- p0122 印字:114 -->` のページ印と `（図: 図2.41 押え盛土工法。…）` があり、引けば一発で分かる。
-
-**やること**:
-1. `figure-crop-batch.workflow.mjs` が結果を `.tmp/figure-loop/results-<runId>.json` に書く。
-2. `figure-review-queue.mjs record --from-results <file> --pass <figKey...>` で、worker の結果から判定（source・cropBox 込み）を作る。
-3. `scripts/figure-qa-sheet.mjs <figKey...>` が次の 3 つを一括で出し、親は合否だけを決める。
-   - png・webp 両方のクロップ検査
-   - 新旧を並べた画像
-   - 画像から図番号のキャプションが消えたのに MDX に caption が無い図の一覧
-4. record は、png か webp のどちらかに STRAY_SLIVER があれば記録を拒む。
-5. `scripts/find-book-figure.mjs "図2.41"` で、書籍・PDF のページ・印字ページ・図名を OCR から引いて worker に渡す。
-6. SKILL.md（`.claude/skills/quality/figure-quality-loop/`）の手順を置き換え、`/doc-sync` を回す。
-
-**完了条件**: 判定 4 枚と切り出し直し 2 枚の 1 周を、手で JSON を書かずに `record --from-results` と `figure-qa-sheet` だけで記録できる。record が切れ端のある png を拒むことをテストで固定する。
 
 
 ### [DN-0558] figure-crop-worker がネットからファイルを取得するのを hook で止める
