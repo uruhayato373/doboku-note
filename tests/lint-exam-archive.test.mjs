@@ -23,7 +23,7 @@ test('公式問題の長文を保持し、自著の解説とガイドの長文�
   for(const category of ['pe-first-stage','pe-construction']){
    const slug=category==='pe-first-stage'?'r01-retry-basic':'r08-required';
    const dir=join(root,category,slug);mkdirSync(dir,{recursive:true});
-   const file=join(dir,'article.mdx');const header='---\ntitle: 試験\ncategory: '+category+'\ngroup: primary\n---\n';
+   const file=join(dir,'article.mdx');const header='---\ntitle: 試験\ncategory: '+category+'\ngroup: primary\nofficialQuestions: true\n---\n';
    writeFileSync(file,header+'## I-1\n\n'+long+'\n\n<details>\n<summary>解説</summary>\n短い説明。\n</details>\n');
    let r=spawnSync(process.execPath,['.claude/scripts/lint-mdx-mobile.mjs',file],{encoding:'utf8'});assert.equal(/\(15-2\)/.test(r.stdout),false,r.stdout);
    writeFileSync(file,header+'## I-1\n\n原文。\n\n<details>\n<summary>解説</summary>\n'+long+'\n</details>\n');
@@ -58,7 +58,7 @@ test('1級・2級土木の二次過去問は「問題 N」の設問文を 15-x �
  try{
   const long='判断に必要な施工条件を確認するための文章'.repeat(10)+'。';
   for(const category of ['civil-construction-1','civil-construction-2']){
-   const header='---\ntitle: 試験\ncategory: '+category+'\ngroup: secondary\n---\n';
+   const header='---\ntitle: 試験\ncategory: '+category+'\ngroup: secondary\nofficialQuestions: true\n---\n';
    const dir=join(root,category,'secondary-r03');mkdirSync(dir,{recursive:true});const file=join(dir,'article.mdx');
    writeFileSync(file,header+'## 問題 6\n\n'+long+'\n\n<details>\n<summary>解説</summary>\n短い説明。\n</details>\n');
    let r=spawnSync(process.execPath,['.claude/scripts/lint-mdx-mobile.mjs',file],{encoding:'utf8'});assert.equal(/\(15-2\)/.test(r.stdout),false,r.stdout);
@@ -67,7 +67,7 @@ test('1級・2級土木の二次過去問は「問題 N」の設問文を 15-x �
     r=spawnSync(process.execPath,['.claude/scripts/lint-mdx-mobile.mjs',file],{encoding:'utf8'});assert.equal(/\(15-2\)/.test(r.stdout),true,r.stdout);
    }
    const guideDir=join(root,category,'guide-secondary');mkdirSync(guideDir,{recursive:true});const guide=join(guideDir,'article.mdx');
-   writeFileSync(guide,header+'## 問題 6\n\n'+long+'\n');
+   writeFileSync(guide,header.replace('officialQuestions: true\n','')+'## 問題 6\n\n'+long+'\n');
    r=spawnSync(process.execPath,['.claude/scripts/lint-mdx-mobile.mjs',guide],{encoding:'utf8'});assert.equal(/\(15-2\)/.test(r.stdout),true,r.stdout);
   }
  }finally{rmSync(root,{recursive:true,force:true});}
@@ -82,7 +82,7 @@ test('DN-0549: 公式問題の中の表は 1-3 の対象外、解説の表とガ
       const dir = join(root, category, slug);
       mkdirSync(dir, { recursive: true });
       const file = join(dir, 'article.mdx');
-      writeFileSync(file, '---\ntitle: 試験\ncategory: ' + category + '\ngroup: primary\n---\n\n導入文です。\n\n' + body);
+      writeFileSync(file, '---\ntitle: 試験\ncategory: ' + category + '\ngroup: primary\n' + (slug.startsWith('guide') ? '' : 'officialQuestions: true\n') + '---\n\n導入文です。\n\n' + body);
       return file;
     };
     // 総監の択一: 問題の中の表は対象外、<details> の解説の表は検査する
