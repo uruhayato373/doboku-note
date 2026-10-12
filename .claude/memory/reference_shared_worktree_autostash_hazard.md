@@ -27,7 +27,7 @@ pre-commit の先頭にある「フック鮮度チェック」（`HOOK_HASH_INST
 **罠**: 別セッションがフックに新ゲートを追加して install 済みだと、こちらの
 （古い）ブランチでは「導入済みフックが古い」と出て commit が止まる。実際は
 **installed 側の方が新しい**。ここで指示どおり `npm run pre-commit:install` を
-実行すると、相手の未コミットの進行中ゲートを共有フックから剥がしてしまう。
+実行すると、相手の未コミットの進行中ゲートを共有フックから剥がしてしまう。止まったときに手で全通しするなら `node scripts/pre-commit-dispatch.mjs`（2026-10-12 の DN-0688 でフック本体はこの 1 行・検査の表は scripts/lib/pre-commit-steps.mjs）。
 
 **確認方法**: `grep -c "<新ゲート名>" $(git rev-parse --git-common-dir)/hooks/pre-commit`
 と、両 worktree の `scripts/install-pre-commit.mjs` を diff する。相手の版が
