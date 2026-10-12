@@ -204,6 +204,8 @@
     "test:resources": "node --test tests/local-resources.test.mjs tests/verified-download.test.mjs",
     "check-drive-vault:deep": "node scripts/check-drive-vault.mjs --deep",
     "backfill-reference-sources": "node scripts/backfill-reference-sources.mjs",
+    "check-figure-references": "node scripts/check-figure-references.mjs",
+    "check-figure-references:ocr": "node scripts/check-figure-references.mjs --ocr",
     "check-reference-sources": "node scripts/check-reference-sources.mjs",
     "check-reference-sources:deep": "node scripts/check-reference-sources.mjs --deep",
     "update-ogp-srchash": "node scripts/update-ogp-srchash.mjs",
