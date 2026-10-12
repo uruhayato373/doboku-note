@@ -3329,6 +3329,23 @@
       "commit": "ebef6708414c",
       "verification": null,
       "note": "PR #1032。scripts/video-preview-sheet.mjs（npm run video-preview-sheet）が render-manifest と場面の PNG から、冒頭の表紙の秒数・10 秒ごとのコマで直前と同じ画面の割合・20 秒以上の静止箇所を出し、ffmpeg があれば無音プレビューとコンタクトシートも作る。閾値は config/video-content.json の visualCheck。旧形式 koji-gaiyo-7items＝表紙 15 秒・32/40・静止 8、図解版 koji-gaiyo-sheet-zukai＝5 秒・2/19・0（07c の比較値と一致）。判定は純関数でテスト 12 件"
+    },
+    {
+      "id": "DN-0406",
+      "at": "2026-10-12",
+      "task": "動画パックの入口 /video-content と、台本の Generator・Evaluator エージェント（video-script-writer・video-content-qa）を作る",
+      "tier": "low",
+      "kind": "改善",
+      "prevention": {
+        "type": "gate",
+        "ref": "scripts/check-doc-coupling.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "c364f5f7778f",
+      "verification": null,
+      "note": "PR #1033。スキル /video-content とエージェント video-script-writer（Generator）・video-content-qa（Evaluator・書き込み権限なし）を作り、skills-guide・skills-registry・agents-registry と codex 生成物を更新。check-doc-coupling・check-agent-descriptions・check-codex-compat 通過。入口の手順で既存パック koji-gaiyo-sheet-zukai を QA にかけ、存在しない日付「令和元年3月10日」と根拠の無い言い切りを直して check-video-content PASS（157 件）"
     }
   ]
 }
