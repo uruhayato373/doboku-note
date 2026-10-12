@@ -18,6 +18,7 @@
  * ---------------------------------------------------------------------------
  */
 import { assertNoExternalLinks, assertNoContactInfo, BlogGuardError } from './coconala-blog-guards.mjs';
+import { escapeRegExp } from './regexp-escape.mjs';
 
 export const REPLY_MAX_CHARS = 3000;
 
@@ -31,7 +32,7 @@ const FACT_UNITS = [
   '日間', 'ヶ月', 'か月', 'カ月', '週間',
 ];
 const FACT_RE = new RegExp(
-  `(\\d[\\d,]*(?:\\.\\d+)?)\\s*(${FACT_UNITS.map((u) => u.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})(?![a-zA-Z²³0-9])`,
+  `(\\d[\\d,]*(?:\\.\\d+)?)\\s*(${FACT_UNITS.map((u) => escapeRegExp(u)).join('|')})(?![a-zA-Z²³0-9])`,
   'g',
 );
 const YEAR_RE = /(\d{4})年(?!度)/g;

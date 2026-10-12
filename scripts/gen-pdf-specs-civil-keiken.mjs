@@ -23,6 +23,7 @@
 import { readFileSync, writeFileSync, readdirSync, existsSync, statSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
+import { escapeRegExp } from './lib/regexp-escape.mjs';
 
 const APPLY = process.argv.includes('--apply');
 const OUT_DIR = join(REPO_ROOT, 'scripts/pdf-specs');
@@ -37,7 +38,6 @@ const MAGAZINES = [
 ];
 
 const fmv = (r, k) => { const m = r.match(new RegExp('^' + k + ':[ \\t]*(.*)$', 'm')); return m ? m[1].trim().replace(/^["']|["']$/g, '') : null; };
-const esc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
 let totalArticles = 0;
 const summary = [];
@@ -60,7 +60,7 @@ for (const mag of MAGAZINES) {
 
     const gaiyou = lines.find((l) => /^## 〔.*概要/.test(l));
     const pb = fmv(raw, 'paidBoundary');
-    const boundary = pb ? lines.find((l) => new RegExp('^## ' + esc(pb)).test(l)) : null;
+    const boundary = pb ? lines.find((l) => new RegExp('^## ' + escapeRegExp(pb)).test(l)) : null;
     const start = gaiyou || boundary;
     if (!start) { skipped.push(sub + '（開始H2を特定できず）'); continue; }
 
@@ -71,7 +71,7 @@ for (const mag of MAGAZINES) {
     const a = {
       src: `${sub}/article.md`,
       out: `${mag.prefix}-${sub}`,
-      include: [{ from: '^' + esc(start), ...(end ? { to: end } : {}) }],
+      include: [{ from: '^' + escapeRegExp(start), ...(end ? { to: end } : {}) }],
     };
     // 無料域の回遊 CTA は紙面に不要
     if (lines.some((l) => l.trim() === '<!-- cta:civil-mokuji -->')) {

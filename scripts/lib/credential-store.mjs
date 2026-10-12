@@ -16,6 +16,7 @@
  */
 import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
+import { escapeRegExp } from './regexp-escape.mjs';
 
 /**
  * `security find-generic-password` の属性出力からアカウント名を取り出す。
@@ -179,7 +180,7 @@ export function readServiceCredential(service, { env = process.env, platform = p
 
 /** Windows の `cmdkey /list` の出力に項目名があるか（表示言語に依らず `target=<名前>` で照合する）。 */
 export function cmdkeyListHas(output, name) {
-  const escaped = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const escaped = escapeRegExp(name);
   return new RegExp(`target=${escaped}\\s*$`, 'mi').test(String(output ?? ''));
 }
 

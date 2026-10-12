@@ -19,7 +19,7 @@ metadata:
 - `civil-1-anki` / `civil-2-anki` の `_cover.png` は単発記事の名残で note マガジンは存在しない（保留扱い）
 - マガジン dir → live key は `note掲載文.txt` の説明文先頭一致（verify-note-magazines と同じ）。一致しない河川コンサル / ゼネコンは `note-magazines.ts` の noteUrl で同定
 - 8GB Mac では `playwright-launch.mjs` の空きメモリガード（既定 2048MB）に必ず当たる。`DOBOKU_PW_MIN_FREE_MB=1024` で下げる（`SKIP_GUARD` で並行ブラウザ検知まで外さない）
-- 共有 `.git/hooks` が別 worktree の新しい版だと pre-commit が「古い」で止まる。古い側から install すると相手のゲートを剥がすので、`install-pre-commit.mjs` の `HOOK_CONTENT_BODY` を抜き出して手で全通しし `--no-verify`（[[reference_shared_worktree_autostash_hazard]]）
+- 共有 `.git/hooks` が別 worktree の新しい版だと pre-commit が「古い」で止まる。古い側から install すると相手のゲートを剥がすので、`node scripts/pre-commit-dispatch.mjs` で手で全通しし（2026-10-12 の DN-0688 でフック本体はこの 1 行になった）`--no-verify`（[[reference_shared_worktree_autostash_hazard]]）
 - `note-update-cover` は 1 件 ≈ 35 秒・`note-magazine-cover` は 1 誌 ≈ 50 秒。858 記事で 8 時間超。25 件 chunk で逐次（共有プロファイル・並列不可）。手順は `npm run note-cover-rollout -- reconcile/snapshot/plan/run/verify/record` に集約（作業場 `.tmp/note-cover-rollout/`）
 - **note editor はカバー削除を「更新する」より前に live へ書く**。CLI の「新カバー未確認→中断」は coverless を防げない（DRY も同様）。verify で eyecatch を必ず突合し、coverless は単発再実行（measurement-incidents 2026-09-18）
 - 長時間 run はバッテリー切れ・スリープ・テザリング断で止まる。AC 給電＋`caffeinate -i -s -w <pid>`＋nohup。`/private/tmp` の scratch は再起動で消えるので手順は repo のスクリプトに置く

@@ -101,12 +101,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **完了条件**: 技術士アプリ（第一次試験）が TestFlight で動き、総監が試験設定とデータだけで載り、土木施工管理技士アプリを作る手順が記録されている。
 
-### [DN-0615] check-keiken-answer-split が正しい説明文を [D] と誤検知して develop の CI が赤い（経験記述の書き方 563 行）
-タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-09]
-
-**起点**: 2026-10-09、develop の CI（quality-audit の keiken-answer-split・ci:true）が赤い。`content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx:563`（6325dbc60「書籍の網羅から追記する」で追加）の「令和6年度以降の形式では、検討した項目が（1）の区画の後半に入り、対応処置は（2）に入るので、検討の理由は項目ごとに短く絞る。」を、`scripts/lib/keiken-answer-split.mjs` の checkClaim が [D]「1級の(2)に検討項目そのものを割り当てている」と判定する。本文は検討項目を（1）、対応処置を（2）に置いており正しい。（2）の後ろの同じ文の続き（「検討の理由は…」）を（2）の中身として読んでいる誤検知。
-**やること**: 主張の切り出し（（2）の後ろをどこまで（2）の中身とみなすか）を、「…に入るので、」のような接続で切るように直し、上の文を回帰の見本にする（テストつき）。記事の本文は 2026-10-09 に言い換えて CI を通したので（b202397f3）、見本はテストの中に置く。
-**完了条件**: 上の文をテストに入れて違反に出ず、既存の真の違反の見本はこれまでどおり出る。
 
 ### [DN-0614] コンテンツ台帳 P1: content/registry の土台（設計書・型・台帳・CLI・検査・素材の ID 置き場）を作る
 タグ: [領域:SNS] [時期:2026-10] [種類:改善] [起票:2026-10-09] [進行中]
@@ -252,6 +246,8 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **進捗（2026-10-12）**: 手順 2 は済み（2級記事のココナラ URL は全3テーマ版へ付け替え済み・旧 URL 0 件・check-note-republish の 2級 drift 0）。手順 3 の (a) は、無料 2 本の img/ に著者バナー（figure-author-authority-pop.png）を置いた（画像は git 管理外の手元準備）。2 本とも note-lint OK・noteStatus: draft。残りは運営者の判断とログインが要るもの: (1) 無料 2 本の公開（「残り3週間」は試験 13 日前の今は題名と合わない。本文には「残りが3週間より短いときに削る順番」の節がある）、(2) ココナラ添削の受付締切日（標準は 10/18）を決めて `2026-10-civil-final.json` の販促文面へ入れる、(3) ココナラの全3テーマ版のライブ反映と 2テーマ版・PDF のライブ休止（ココナラのログインが切れている＝DN-0643）。
 
+**進捗（2026-10-12 午後・運営者判断）**: ココナラ添削の受付締切は **10/18（日）** に決定。無料 2 本を公開した（R8 二次の出題予想 naa0821a3d631・経験記述を残り3週間で仕上げる n1edc95f39203。後者は導入に「残りが 2 週間を切ったら削る順番の節から」を 1 文足した）。note API で published・価格 0、check-note-structure は CRITICAL 0。X は承認を得て、10/14 20:51 と 10/17 20:24 の学習点検の予約の本文を締切告知（107-civil2-coconala-2026-10）に差し替え、差し替え元に残っていた画像を外した（予約一覧で日時・本文・画像なしを確認）。検査の整合は PR #1011。**残り**: ココナラの出品ページへの締切の記載・全3テーマ版のライブ反映・2テーマ版と PDF の休止（DN-0643 のログイン後）、10/26 に受注件数と PV の記録、3 本目（添削の実例）は運営者の素材待ち。
+
 ### [DN-0537] Instagram の予約補充が 9/20 で止まっているので、2級（10/25）直前のテーマから予約を再開する
 タグ: [収益化] [領域:SNS] [時期:2026-10] [種類:不具合] [起票:2026-10-05] [期日:2026-10-24]
 
@@ -372,6 +368,8 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+
+
 ### [DN-0698] YouTube移行の読み戻し不整合と旧プレビューの残存を解消
 タグ: [SNS・マーケ] [領域:SNS] [時期:2026-10] [種類:不具合] [検証:test] [起票:2026-10-12]
 
@@ -394,26 +392,12 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 
 
-### [DN-0688] pre-commit 13.9 秒（67 プロセス）と SessionStart の x-sync 9.6 秒を短縮する
-タグ: [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-11] [進行中]
-
-**進捗（2026-10-11）**: 前半（x-sync の TTL）は PR #999 で実装。前回の完走を state.x-sync-last-run（手元だけ）に書き、4 時間以内で queued の不在が無ければ Playwright を起動しない（実測 12.8 秒 → 0.2 秒）。後半（pre-commit のディスパッチャ化）は未着手: フック内の node 起動 78 行・各スクリプトに run() を足す大改修なので別の回で。
-
-**起点**: 2026-10-11 のコード監査。scripts/install-pre-commit.mjs のフックは node を常時 13＋条件付き 60 起動し、MDX 1 本を staged した計測で 67 起動 13.9 秒（起動費だけで約 6 秒・中央値 0.12 秒・重い順に check-datasets 1.83 秒、pre-commit-mdx 1.80 秒、lint-ja 0.77 秒）。SessionStart（scripts/session-start.mjs:33）の x-sync は毎回 Playwright で x.com を開いて 9.6 秒。
-**やること**: (1) x-sync に TTL を付ける（lib/x-scheduled-queue.mjs:25-37。凍結ガードレールの観点でも毎セッションのログイン済み起動は減らす）(2) pre-commit を 1 プロセスのディスパッチャにし、staged のパスごとに必要な検査だけ in-process で呼ぶ（session-start.mjs の run() 契約を流用）。
-**完了条件**: 2 回目の node scripts/session-start.mjs --json が 5,000 ms 未満。一時 index に MDX 1 本で sh .git/hooks/pre-commit が 6 秒未満（短縮幅は見込みで未測定）。
 
 
 
 
 
 
-### [DN-0682] 2級土木の水セメント比図の無条件な施工性低下の説明を修正する
-タグ: [領域:商品] [時期:2026-10] [種類:不具合] [起票:2026-10-11]
-
-起点: 2級土木の動画用図解選定時、content/site/civil-construction-2/guide-concrete-key-points/img/figure-wc-ratio-tradeoff.svg のaria-labelが「水セメント比を小さくするほど…流動性が下がって施工性は低下する」と無条件に説明していることを確認した。
-やること: 一次資料と配合条件を照合し、水セメント比と強度・耐久性、単位水量や混和剤等と流動性の関係を区別して図と本文を修正する。図の実パスと掲載先も確認する。
-完了条件: 無条件の逆相関を示す図・説明を解消し、SVGと本文の整合・画面表示を確認する。今回の総まとめ動画には当該図を採用していない。
 
 
 ### [DN-0677] 検索で表示のある削除済みページ（/standards/guides の 5 本）・数字付き 404・共通仕様書の機関別重複の扱いを決める
@@ -424,51 +408,16 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 **完了条件**: 3 件の方針が記録され、決まった変更が本番に出ている。
 
 
-### [DN-0675] _redirects の静的ルールが 1431/2000 件まで来ていて、移転後の記事の /docs 転送を作り続けると十数週で上限に当たる
-タグ: [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-10-11]
-
-**起点**: 2026-10-11 の technical-seo-auditor。public/_redirects の静的ルールは 1,431 件で、Cloudflare Pages の上限 2,000 件に対し scripts/build-public-route-redirects.ts は 2,000 超で throw する。現行の全記事ぶん /docs/<slug> の 301 を作っていて、移転日 2026-08-22 より後に作った記事 266 件の /docs は実在したことが無い（sitemap-legacy.xml 側は PR #988 で外した）。約 7 週で 266 件増えたので、十数週で上限に達する見込み。
-**やること**: build-public-route-redirects.ts が、移転前から存在した slug（frontmatter の created が 2026-08-22 以前）だけ /docs の 301 を作るようにする。先に、移転後の記事の /docs URL を note・SNS・Kindle が案内していないかを grep で確かめ、案内していればその分は残す。回帰テストを付ける。
-**完了条件**: _redirects の静的ルールが 1,200 件程度まで下がり、移転後の記事の /docs への案内が 0 件であることを確かめた記録がある。
 
 
-### [DN-0674] インデックス登録リクエストの順位表を「型ごとの期待値」順にし、検索改善レポートの分類器の誤分類を直す
-タグ: [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-11]
-
-**起点**: 2026-10-11 のサイト全体の SEO 診断（DN-0666）。gsc-index-auditor によると、data/gsc/indexing-priority.txt（scripts/build-gsc-indexing-priority.mjs・launchd gsc-local が毎日これを送る）は表示 0 の URL をパス昇順に並べるため、重点資格の RCCM guide（8 本中 1 本しか登録されていない）が 62 番目、practice が 74 番目以降、tools が 93 番目以降に沈む。期待値（同じ型の登録済みページ 1 本あたりの 28 日表示 × 未登録率）で並べれば、RCCM 7 本・practice 8 本・tools 5 本が先頭に来る。あわせて seo-fix-planner によると、scripts/lib/search-growth-classifier.mjs と scripts/report-search-growth.mjs が「登録済み・需要なし」346 件・/search?q= 68 件・非 HTML 16 件・本文の断片の 404 などを UNKNOWN_REVIEW（864 件）に落とし、優先修正 Top20 の 18 件が「登録済み・4 表示」のノイズになっている。internalInbound は keyword-relations 由来で、keyword 以外のページはリンクがあっても 0 になる。
-**やること**: (1) 順位表を期待値順にする（型＝/exam/<資格>/<guide|textbook|keywords|primary|…>・/practice・/tools・/standards）(2) 分類器に 4 つの規則を足す: 登録済み・需要なし→KEEP、/search?q=・非 HTML・断片の 404→EXPECTED、Google が別の canonical を選んだ URL に専用ラベル、internalInbound を実リンクから数えるか使わない。それぞれ回帰テストを付ける。
-**完了条件**: 順位表の先頭 20 件に RCCM・practice・tools の未登録が入る。search-growth:report の UNKNOWN_REVIEW が、同じ入力で 864 件から 50 件未満になる。
-**進捗（2026-10-11）**: (1) 順位表の期待値順は PR #991 で済み（実データで RCCM guide 7 本が 12〜18 番目・practice 21 番目以降・tools 38〜42 番目。tools が先頭 20 に入らないのは期待値の順のため）。**残り**: (2) search-growth の分類器の 4 規則（UNKNOWN_REVIEW 864 件→50 件未満）。
 
 
-### [DN-0672] 技術士一次 平成27・28年度の正しい選択肢の解説が定型句だけの行（約 217 行）を、理由を述べる解説に書き直す
-タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-11]
-
-**起点**: 2026-10-11、DN-0665 の照合で、技術士第一次試験 平成27・28年度の 6 記事（`content/site/pe-first-stage/h27-{basic,aptitude,construction}`・`h28-{basic,aptitude,construction}`）の正しい選択肢の解説が、選択肢の文を繰り返した後に「制度の対象・要件を正しく述べている」「主体・条件・効果の取り違えがない」「設問で扱う基準に整合する」「数値・用語・適用対象の誤りはない」の定型句を付けただけの行（約 217 行）だと分かった。土圧や確率分布の問題にも「制度の対象・要件」と書いてあり、理由になっていない。
-**やること**: 6 記事の定型句の行を、その記述が正しい理由（定義・条文・計算）を 1〜2 文で述べる解説に書き直す。✅/❌ と正答は変えない。原典は `data/pastexams/questions/pe-first-stage.json` の source（Drive の 原資料PDF/過去問/技術士（第一次）/）。
-**完了条件**: 4 つの定型句が 6 記事で 0 件（`git grep`）、`npm run check-answer-marks` と textlint が通る。
 
 
-### [DN-0671] 過去問の演習データ（サイトの演習・iOS アプリ）に ①〜④ の記述ごとの解説を入れる
-タグ: [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-10-11]
-
-**起点**: 2026-10-11、DN-0665 で過去問の ✅/❌ を照合したとき、①〜④・ア〜の記述を数える／組み合わせる問題 329 問の「記述ごとの解説」（`① …✅` の行）が演習データに入っていないと分かった。演習データ（`.claude/scripts/sns/parse-civil-{1,2}-questions.mjs`・`scripts/build-quiz-data.mjs` の技術士の抽出）は `N.` の行だけを選択肢 N の解説として読むので、サイトの記事では読める記述ごとの理由が、サイトの演習（/tools/kakomon-quiz）と iOS アプリでは出ない。選択肢の行も無い 76 問（総監 50・2級 18・1級 7・コンクリート主任技士 1）は、アプリで解説が「準備中」か ExamPoint だけになる。
-**やること**: 演習データに記述ごとの解説（見出しの記号・本文の HTML・正誤）を持たせ、サイトの演習と iOS の QuestionWebView の両方で選択肢の解説の前に出す（3 つの抽出を同じ lib にそろえる）。表示の見た目は `src/styles/quiz-content.css` に足す（アプリと共用）。選択肢の行が無い 76 問は、記述の解説が出るようになれば足りるか、選択肢の行を足すかを決める。
-**完了条件**: 記述問題 329 問の演習データに記述の解説が入り、サイトの演習とアプリ（シミュレータ）で 1 問ずつ表示を確かめた。`npm run check-answer-marks` は 0 件のまま。
 
 
-### [DN-0669] check-google-ui-ssot が台帳に無い ga4.ui-history を参照して落ち、GSC UI の整合を検査できない
-タグ: [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-11]
-
-**起点**: 2026-10-11、/google-search-growth の手順 4（normalize の後）で `npm run check-google-ui-ssot` を回すと、`scripts/lib/datasets.mjs:475` の「台帳に無いデータセット: ga4.ui-history」で落ちる（GSC UI の正規化と search-growth:report は通る）。GA4 UI の取得は 2026-07-30 から失敗のまま（check-gsc-ui-due: trafficAcquisition=csv-menu-ambiguous・landingPage/events=report-not-found）で、ga4.ui-history の台帳宣言が無いか id が変わった可能性。検査が落ちるので marker ↔ history ↔ urls の整合を誰も確かめられていない。
-**やること**: check-google-ui-ssot が参照する GA4 の台帳 id を `scripts/lib/datasets.mjs` の宣言に合わせる（または `planned: true` で宣言）。GA4 UI が未取得のときは GA4 側を「未取得」と出して GSC 側の検査は続ける。回帰テストを足す。
-**完了条件**: `npm run check-google-ui-ssot` が exit 0（GA4 未取得なら未取得と表示）で、GSC の marker ↔ history ↔ urls の整合を実検査した件数を出す。
 
 
-### [DN-0668] 総監の合格戦略記事に残る口頭試験評価の誤記を修正する
-タグ: [領域:商品] [時期:2026-10] [種類:不具合] [検証:check-mdx-facts] [起票:2026-10-11]
-
-exam-passing-strategy/article.mdx の239・264行付近に、総監口頭は知識を問わないとの誤記がある。R8公式の経歴及び応用能力・体系的専門知識に合わせて修正。今回の動画は修正済み。
 
 
 ### [DN-0667] CI の coconala 取得（403 で毎週失敗）を止めるか CI 不可として扱う
@@ -503,14 +452,6 @@ exam-passing-strategy/article.mdx の239・264行付近に、総監口頭は知�
 
 **完了条件**: 管理画面トップ（?month=2026-05〜09）の受取額がすべて note 確定値で出て、2026-05・06・09 の netReceipts が complete で記録されている。
 
-### [DN-0660] 管理画面の型チェック（tools/admin-app の tsc）が content-items.ts で 2 件落ちたまま、どの CI でも検査されていない
-タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-10]
-
-**起点**: 月次レビュー（2026-09-01〜2026-09-30）の作業中、管理画面のレビュー画面を直したときに `cd tools/admin-app && npx tsc --noEmit -p tsconfig.json` を回すと、触っていない `src/lib/content-items.ts`（94・98 行目: object[] を ItemRow[]・ItemWork へ代入）で 2 件落ちていた（develop の 589fa61d4 時点）。ルートの `npm run type-check` は管理画面を含まず、CI でも管理画面の tsc は回っていないので誰も気づかない。
-
-**やること**: content-items.ts の 2 件を、呼び出し元の JS（.mjs）に JSDoc の型を付けるか戻り値を型で絞って直す。続けて管理画面の tsc を quality-audit（ci:true）か pre-commit の staged 版に足し、壊れたら止まるようにする。
-
-**完了条件**: 管理画面の tsc が 0 件で通り、同じ型エラーを入れると CI（または pre-commit）が止まる。
 
 
 ### [DN-0599] 総まとめ・聞き流し（承認済み動画パックの連結・チャプター付き）の1本目「2級 直前総まとめ」を音声付きにして承認・公開する
@@ -587,14 +528,6 @@ exam-passing-strategy/article.mdx の239・264行付近に、総監口頭は知�
 
 **判断（週次レビュー 2026-10-10・運営者）**: 今月から着手する。10 月中に (1) 出題テーマの整理を先に進め、(2)〜(4) は 11 月に続ける。
 
-### [DN-0644] 送客先の切れたリンク 2 件（check-outbound-links）を直す
-タグ: [収益化] [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-10]
-
-**起点**: 週次レビュー（2026-09-28〜2026-10-04）の点検。#867（quality-audit report 区分）で check-outbound-links が送客先 496 件中 2 件を切れと判定（2026-10-05）。
-
-**やること**: node scripts/check-outbound-links.mjs で切れた 2 件の URL と掲載ページを特定し、商品の移転・削除なら正しい URL へ差し替えるか掲載を外す。
-
-**完了条件**: check-outbound-links の切れが 0 件で、#867 が次の weekly-review-guard で自動クローズしている。
 
 ### [DN-0639] main に開いたままの CodeQL の警告（high 18 件ほか）を振り分けて、直すか理由つきで dismiss する
 タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-10-10]
@@ -603,19 +536,7 @@ exam-passing-strategy/article.mdx の239・264行付近に、総監口頭は知�
 **やること**: 開いている CodeQL の警告（`gh api repos/uruhayato373/doboku-note/code-scanning/alerts?state=open`）を 1 件ずつ、実害（管理画面は手元専用・引数は運営者が渡すなど）と直し方で振り分け、直すものは直し、誤検知・受容するものは理由をつけて dismiss する。
 **完了条件**: 開いている CodeQL の警告が 0 件（直したか、理由つきで dismiss した）。
 
-### [DN-0637] dependabot のセキュリティ更新の PR が main 向きに開き、develop を通らずに本番へ出る経路を塞ぐ
-タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-10]
 
-**起点**: 2026-10-10、dependabot の Next 16.3.8（#925）を向き先を確かめずにマージし、develop を通らずに main へ入ってデプロイが起動した。`.github/dependabot.yml` は npm・github-actions とも `target-branch: develop` だが、**セキュリティ更新の PR はこの設定に従わず既定のブランチ（main）へ向く**。今回は CI 緑のパッチ更新で害は無かったが、develop の CI・品質監査を経ずに本番へ出る経路が残っている。
-**やること**: main 向きに開いた dependabot の PR を develop へ付け替える workflow（`pull_request_target` の opened で、作者が dependabot[bot] かつ base が main なら `gh pr edit --base develop` してコメントを残す）を足すか、main への PR を develop 以外から受けたら CI を赤にする検査を足す。どちらにするかは、main を守る既存の仕組み（Auto-merge on green など）と合わせて決める。
-**完了条件**: main 向きの dependabot の PR が develop 向きになる（または main へ直接マージできない）ことを、テストか実際の PR で確かめる。
-
-### [DN-0635] 並行する PR が dispatch-log.json の末尾に記録を足して毎回衝突するので、両方を残して合わせる merge driver を入れる
-タグ: [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-10-10]
-
-**起点**: 2026-10-10、並行する PR（#951・#952・#953・#955）と develop への直 push のたびに `.claude/state/dispatch/dispatch-log.json` が衝突し、手で 5 回解消した。todo:complete はどのブランチでも配列の末尾に記録を足すので、2 本目以降の PR は必ず衝突し、衝突中の PR には GitHub の pull_request の CI が起動しない（#953 は衝突に気づくまで audit・build が 1 度も走らなかった）。解消のたびに、両方の記録を残す同じ手作業（develop の並び＋ブランチだけの記録を末尾）をしている。
-**やること**: 両方の記録を残して合わせる merge driver（`scripts/merge-dispatch-log.mjs`。id・at・task で重複を落とし、develop 側の並びの後にブランチ側だけの記録を足し、JSON の書式を保つ）を作り、`.gitattributes` に `merge=dispatch-log` を書く。driver の登録（git config）はクローンごとに要るので、`scripts/install-pre-commit.mjs`（または同等のセットアップ）で登録する。backlog.md の同様の衝突も数える（今回は自動で合わさった）。
-**完了条件**: 末尾に別々の記録を足した 2 本のブランチを合わせても衝突しないことをテストで確かめ、driver を登録していない環境では従来どおり衝突として止まる（黙って片方を捨てない）。
 
 ### [DN-0632] サイトにメールの登録ページを作り、配信サービスを選ぶ（iOS アプリと記事から案内して note・ココナラへつなぐ）
 タグ: [収益化] [領域:サイト] [時期:2026-10..2026-11] [種類:制作] [起票:2026-10-10]
@@ -706,12 +627,6 @@ exam-passing-strategy/article.mdx の239・264行付近に、総監口頭は知�
 
 **完了条件**: 1級土木の構造化データが 18 年度分以上になり、足した年度の全問が公式正答と一致し、在庫台帳と Drive に原本が揃っている。
 
-### [DN-0620] 品質監査でテスト standards-ogp-guards が一時的に置く孤児 OGP を、並走する check-orphan-ogp が拾って CI が偶発的に赤くなる
-タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [検証:check-orphan-ogp] [起票:2026-10-09]
-
-**起点**: 2026-10-09、PR #947 の audit が orphan-ogp で落ちた（content/site/standards-articles/chubu/common/chapters/__test-orphan__/ogp.png）。tests/standards-ogp-guards.test.mjs:112-145 が実リポジトリに一時ファイルを置いて check-orphan-ogp を流し、finally で消す。quality-audit はテストと検査を並行で回すので、その間に走った orphan-ogp が一時ファイルを孤児として数える。PR の変更とは無関係で、再実行で通る。
-**やること**: テストを一時ディレクトリ（ROOT を差し替えられる形）で回すか、quality-audit で orphan-ogp とテストを直列にする。
-**完了条件**: 同じ組み合わせを 10 回流して orphan-ogp が赤にならない。
 
 ### [DN-0597] YouTube Analytics（視聴維持率・インプレッションのクリック率・流入元・Shorts→関連動画）を CI で取得し data/youtube へ残す
 タグ: [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-10-08]
@@ -736,23 +651,12 @@ exam-passing-strategy/article.mdx の239・264行付近に、総監口頭は知�
 **罠**: 日本語表示の一覧は「1.2万回」を null にするので英語表示と動画 ID で結合している（`scripts/lib/youtube-listing.mjs`）。ランナーの IP で一覧まで止まるなら手動に戻し、理由を measurement-incidents.md に書く。
 **完了条件**: 両方の workflow が2回続けて成功し、`data/youtube/own-videos/`・`data/youtube/competitors/` に日付つきの記録が増える。`npm run check-competitor-scan-due -- --platform youtube` が ci として OK。
 
-### [DN-0593] 総監の動画パック monbun-yomikata の layers 場面が描画できない（要点が画面に収まらない）
-タグ: [領域:SNS] [時期:2026-12] [種類:不具合] [起票:2026-10-08]
-
-**現象**: 総監の動画パック `content/sns/video-packs/pe-comprehensive-management/monbun-yomikata` の scene `layers` が「説明画面の要点を分割してください: layers」で描画できない（2026-10-08、全パック 2,482 場面の描画比較で 1 件。変更前のコードでも同じ）。状態は qa_passed。
-**影響**: このパックの mp4 を作り直すとき `render-longform` が止まる（backlog の原本照合カードで「monbun-yomikata は原稿を直したので mp4 を再生成」とある）。
-**やること**: `layers` の items を2場面に分けるか短くし、`node scripts/render-longform.mjs --pack-dir content/sns/video-packs/pe-comprehensive-management/monbun-yomikata --skip-tts` が完走することを確かめる。台本の意味は変えない。
-**完了条件**: 上のコマンドが exit 0、`npm run check-video-content` PASS。
 
 ### [DN-0589] Drive vault の検査（check-drive-vault）が develop で FAIL 86 件のまま：kindle-dist の未同期と動画レンダーの不一致を片付ける
 タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-10-08]
 
 2026-10-08 に PR #927 の確認で、本番の作業ツリー（develop）でも node scripts/check-drive-vault.mjs が FAIL 86 件（WARN 126 件）だった。主な中身は scripts/kindle-dist/*.jpg の unsynced（ローカルにしか無く、この Mac を失うと復元できない）と .tmp/video-render/**/thumbnail.png の vault-mismatch。Mac 専用で CI には無く、誰も読んでいない赤になっている。やること: (1) 内訳を group ごとに出し、作り直せるものと正本を分ける。(2) 正本は drive-vault-sync --group <g> --commit、作り直したものは --force で反映。(3) Mac で定期的に読む人を決める（週次レビューの点検に入れるか、SessionStart の警告に件数を出す）。完了条件: check-drive-vault の FAIL 0・読む人が commands.md か週次の手順に書いてある
 
-### [DN-0587] 引き継ぎ・レビューの point-in-time 文書が指すカードを別セッションが閉じても、develop の CI を赤くしない
-タグ: [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-08]
-
-2026-10-08、docs/handoffs/2026-10-08-dataset-catalog-unification.md が DN-0581 を参照していたところ、別セッションが DN-0581 を修正コミット e5df3a4bc の中で閉じ（todo:complete を通らず、doc-refs の確認も通らない）、マージで両方が develop に揃った時点で ci.yml の audit（tests/project-task-refs.test.mjs の dangling-id）が赤になった（run は 08a551580）。引き継ぎを消すまで約 45 分、develop の全 PR の CI が赤のままだった。案: (1) docs/handoffs/・docs/reviews/ の dangling-id は CI では警告にし、引き継ぎの抽出漏れ検査（check-handoff-extraction）側で扱う。(2) backlog.md からカードを消すコミット（todo:complete 以外）でも、pre-commit で liveDocsReferencing を回して止める。完了条件: 両方の回帰テスト・引き継ぎがカードを指したまま閉じても ci.yml が緑・pre-commit が todo:complete 外の削除を止める
 
 ### [DN-0582] Windowsで全体テスト11件が失敗するパス・改行・既存前提を直す
 タグ: [領域:管理] [時期:2026-12] [種類:不具合] [検証:test] [起票:2026-10-08]
@@ -795,22 +699,6 @@ exam-passing-strategy/article.mdx の239・264行付近に、総監口頭は知�
 
 **完了条件**: `node scripts/drive-vault-sync.mjs --group note-magazine-cover-png` の差分が 0 件で、2026-10-07 に登録した誌の控えが vault にある。
 
-### [DN-0562] Kindle の EPUB・表紙（scripts/kindle-dist）を Git から出し、置き場の方針どおりにする
-タグ: [インフラ・計測] [領域:商品] [時期:2026-12] [種類:改善] [起票:2026-10-07]
-
-**起点**: 置き場の方針（asset-storage-policy.md §1）は「誰が使うかで決める」で、人が使うものは Drive、CI が読むものは R2 に置く。`scripts/kindle-dist` だけは例外として Git に入っている（138 件・90MB、EPUB 65・表紙 jpg 72）。
-- `config/drive-vault.json` の理由は `coexistWithGit: true`「Git が正本（CI の check-kindle-format が blob を読む）で、Drive は控え」。
-- 「CI が読む」は、方針では `ci`＝R2 の行に当たり、Git に置く理由にならない。
-- 作り直すたびに履歴に積まれる。履歴の切り詰め（2026-08-22）以降で 286 版・159MB あり、記事画像 1,569 版・99MB より重い。
-- Drive の控えは台帳 76 件と sha256 が 1 件も合わず、控えになっていない（DN-0451）。
-
-**やること**:
-1. 正本の置き場を決める。第一案は private R2 で、`kindle-format` の検査（quality-audit の `ci: true`）が R2 から読む。人が入稿に使う控えは Drive。
-2. asset-storage-policy.md §4 の手順で `git rm --cached` し、`.gitignore` に拡張子で足す。台帳（R2 の manifest か drive-manifest）に登録し、空の復元先から復元して sha256 を照合する。
-3. `check-kindle-format`・`kdp-publish.mjs`・`kindle-build` の読み書き先を新しい置き場に合わせる。CI は R2 から取り寄せて検査し、取り寄せに失敗したら検査不成立にする。
-4. `config/drive-vault.json` の `coexistWithGit` を外し、asset-storage-policy.md の表を直す。DN-0451 の同期と順番を合わせる。
-
-**完了条件**: `git ls-files scripts/kindle-dist` が README だけになり、CI の `kindle-format` が新しい置き場から全 EPUB を読んで通る。復元経路で全件の sha256 が一致する。
 
 ### [DN-0554] フックの鮮度チェックが post-commit の欠落を見ず、Mac に post-commit が入っていなかった
 タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-10-07]
@@ -821,66 +709,8 @@ exam-passing-strategy/article.mdx の239・264行付近に、総監口頭は知�
 
 **完了条件**: post-commit を消した状態で commit すると pre-commit が理由つきで止まり、`npm run pre-commit:install` の後は通る（テストで固定）。
 
-### [DN-0570] 図の切り出し直しを、記録（切り出し枠・回転）から同じ画像に作り直せるようにする
-タグ: [コンテンツ品質] [領域:サイト] [時期:2026-12] [種類:改善] [起票:2026-10-07]
 
-**起点**: 図ごとの出典は 2026-10-07（PR #914）に `config/figure-sources.json` の `provenance`（186 件）へ一本化した。ただし残るのは原典の PDF・ページ・dpi だけで、切り出し枠（cropBox）・回転（書籍スキャンは 180° 逆さのページがある）・余白・減色は残らない。そのため、同じ画像を作り直せない。
 
-**やること**:
-1. record が worker の結果から `cropBox`・`rotate`・後処理（減色・点の除去）を `provenance` に残すようにする（型を足す）。
-2. `scripts/figure-reextract.mjs <figKey>` で記録から画像を作り直し、配信中の画像と同じ寸法・画素の差が閾値以下になることを確かめる。閾値はこのカードで決める。Drive vault の在る PC でだけ動き、無ければ検査不成立で exit 2 にする。
-
-**完了条件**: 新しく切り出し直した図は `provenance` に枠と回転があり、`figure-reextract.mjs` で任意の 3 枚を作り直すと配信中の画像と一致する。
-
-### [DN-0556] 図クロップ品質ループの親の手作業（判定の記録・QA・結果の保存）を機械にする
-タグ: [コンテンツ品質] [領域:サイト] [時期:2026-12] [種類:改善] [起票:2026-10-07]
-
-**起点**: 2026-10-06〜07 に `/figure-quality-loop` を 51 周回した。親は毎周、次を手でやっていた。
-- worker の結果から判定 JSON（`.tmp/figure-loop/verdicts-*.json`）を書いた。
-- 新旧の比較画像を作った。
-- 画像から図番号のキャプションを外した図について、MDX に caption か `<p>` があるかを見た。
-- `check-figure-crop-integrity --file` を webp だけに掛けていた。png の切れ端判定は CI で初めて出た（図5.4。判定は誤りで、#890 で検査を直した）。
-- Workflow の結果がファイルに残らないので、会話の要約後は transcript から判定を拾い直した。
-- worker は毎回、書籍の図のページを pdftotext と目で探した。二次問題解説集の OCR には `<!-- p0122 印字:114 -->` のページ印と `（図: 図2.41 押え盛土工法。…）` があり、引けば一発で分かる。
-
-**やること**:
-1. `figure-crop-batch.workflow.mjs` が結果を `.tmp/figure-loop/results-<runId>.json` に書く。
-2. `figure-review-queue.mjs record --from-results <file> --pass <figKey...>` で、worker の結果から判定（source・cropBox 込み）を作る。
-3. `scripts/figure-qa-sheet.mjs <figKey...>` が次の 3 つを一括で出し、親は合否だけを決める。
-   - png・webp 両方のクロップ検査
-   - 新旧を並べた画像
-   - 画像から図番号のキャプションが消えたのに MDX に caption が無い図の一覧
-4. record は、png か webp のどちらかに STRAY_SLIVER があれば記録を拒む。
-5. `scripts/find-book-figure.mjs "図2.41"` で、書籍・PDF のページ・印字ページ・図名を OCR から引いて worker に渡す。
-6. SKILL.md（`.claude/skills/quality/figure-quality-loop/`）の手順を置き換え、`/doc-sync` を回す。
-
-**完了条件**: 判定 4 枚と切り出し直し 2 枚の 1 周を、手で JSON を書かずに `record --from-results` と `figure-qa-sheet` だけで記録できる。record が切れ端のある png を拒むことをテストで固定する。
-
-### [DN-0557] 書籍から作った解説記事で、図の番号・alt・本文の参照が原典とずれていないかを機械で照合し、残りの記事を直す
-タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11] [種類:不具合] [起票:2026-10-07]
-
-**起点**: 2026-10-07、`civil-construction-1/secondary-earthwork-basics` の軟弱地盤対策を二次問題解説集2021 と照合して直した（ec373c03d）。見つかった不具合は次のとおり。
-- 図2.36〜2.52 が 1 節ずつずれて載っていた。
-- alt が画像と合っていなかった（図2.41 が「サーチャージ工法の原理」）。
-- 本文の図番号が違う図を指していた（サーチャージで「図2.41」、深層混合で「図2.44」）。
-- 1 枚の図が左右 2 枚に割られていた（図2.42）。
-- 同じ図が 2 回載っていた（図2.52）。
-- 別の教材の図番号（図1.93）が画像に写り込んでいた。
-- 薬液注入工法の本文が、石灰パイル工法の説明の繰り返しだった。
-
-同じ日、1級一次 H29 でも同じ図の切れ端が「（詳細）」の図名で重複していた。同じ書籍から作った他の `secondary-*-basics` と textbook 由来のガイドはまだ見ていないが、同じ生成の誤りが残っている見込みが高い。
-
-**やること**:
-1. 検査を作り、次の 4 点を見る。
-   - `ArticleImage` の alt・caption の「図X.Y 図名」が、書籍の OCR（Drive vault の `原資料PDF/書籍/<book>/ocr/*.md` の `（図: 図X.Y 図名。…）`）と一致するか
-   - 本文の「**図 X.Y**」が、同じ節（H4）にある図を指しているか
-   - 同じ図番号が 2 回出ていないか
-   - 図名に分割の印（「（上部）」「（下部）」「（詳細）」）が付いていないか
-2. CI でも回せるよう、書籍の図番号・図名・ページだけの索引を repo の `config/` へ書き出し、datasets 台帳に宣言する。持つのは図名までで、本文は持たない。
-3. 1級・2級土木の書籍由来の記事に掛け、ずれを原典と照合して直す。市販書籍（流用不可）の図は切り出し直さない（DN-0571 で自作の図に置き換える）。図番号・alt・本文の参照のずれだけを直す。
-4. 検査を quality-audit に登録する（決定的なら `ci: true`）。
-
-**完了条件**: 検査が対象記事数と実検査数を出し、不一致 0 件。quality-audit に載っている。
 
 ### [DN-0558] figure-crop-worker がネットからファイルを取得するのを hook で止める
 タグ: [インフラ・計測] [領域:管理] [時期:2026-12] [種類:不具合] [起票:2026-10-07]
@@ -1007,18 +837,6 @@ exam-passing-strategy/article.mdx の239・264行付近に、総監口頭は知�
 
 **完了条件**: `npm run check-products` の「原稿と結び付かない収録」が 0 本。
 
-### [DN-0493] 商品の正本の段階2: 導線設定・カバー設定を正本から生成し、商品設計の画面を正本から読む
-タグ: [収益化] [領域:商品] [時期:2026-12] [種類:改善] [起票:2026-10-01]
-
-**起点**: DN-0492（PR #807）で 2級土木の note 商品23件を `content/products/note/` へ移し、`note-magazines.ts` の該当部分を生成にした（2026-10-04 に残りの資格も移し、note の全 143 件が正本から生成）。冒頭導線の記事別ルール（`config/note-intro-standard.json` の variants.civil2）・カバー設定（`config/note-covers.json` の characterCovers）・マガジンの `note掲載文.txt` は、まだ正本と別に手で持っている。
-
-**やること**:
-1. 冒頭導線の記事別ルールを、正本の persona・members から生成する（`npm run product -- gen` に含める）。
-2. カバー設定（proof・benefit・magazineName）と `note掲載文.txt` を正本の catalog から生成する。
-3. 管理画面の商品設計（`/product/design`）を、収録の実測だけでなく正本（作成予定の商品・収録の意図との差）からも出す。
-4. 正本の変更から note への反映計画（作成・改称・収録の追加）を出す `npm run product -- plan` を作る（実行は従来の承認つきスクリプト）。
-
-**完了条件**: 2級土木で、パック1本の追加が「正本に1ファイル足す → gen → note への反映」で済み、手で直すファイルが正本以外に無い。
 
 ### [DN-0490] 技術士・1級土木の副業と独立のガイドを 1 本書き、検索需要を 8 週で確かめる
 タグ: [SNS・マーケ] [領域:サイト] [時期:2026-12] [種類:制作] [起票:2026-10-01]
@@ -1144,23 +962,7 @@ exam-passing-strategy/article.mdx の239・264行付近に、総監口頭は知�
 
 **完了条件**: 本文 3,000 字以上で公開・`refresh-indexes` 済み。既存 2 本から本記事へリンクがあり、`npm run check-career-separation` が通る。
 
-### [DN-0470] 建設部門の guide/career に技術士の定年後の働き方の節を足す
-タグ: [SNS・マーケ] [領域:サイト] [時期:2026-12..2027-02] [種類:改善] [起票:2026-09-30]
 
-**起点**: 計画書（docs/strategy/17）の順 3。GSC で「技術士 年収」系が約 11 表示（73 位前後）、「技術士転職」7。冒頭の年収の答えは 2026-09-30 に足し済み（DN-0391）。
-
-**やること**: `content/site/pe-construction/guide-career` に再就職・顧問・嘱託など定年後の働き方の節を足す。独立の詳細は DN-0472 の記事へ送る（先行リンクは張らない）。年収の数値は公表統計で照合する。転職導線は既存の配置を保つ。
-
-**完了条件**: 節を追加して公開済み、冒頭の年収の答えを損なっていない、`refresh-indexes` 済み、`npm run check-career-separation` が通る。
-
-### [DN-0471] 1級土木の age-career に 60 代の再雇用・嘱託・技術者の年齢の節を足す
-タグ: [SNS・マーケ] [領域:サイト] [時期:2026-12..2027-02] [種類:改善] [起票:2026-09-30]
-
-**起点**: 計画書（docs/strategy/17）の順 4。`civil-construction-1/guide-age-career` は 11 表示・13.5 位。現状は 40〜50 代中心。
-
-**やること**: 60 代の再雇用・嘱託と、監理技術者・主任技術者の年齢面の扱いを一次資料（国交省など）で確かめて節にする。転職導線は既存の配置を保つ。他者の体験談や想定年収は載せない。
-
-**完了条件**: 節を追加して公開済み、本文 3,000 字以上を維持、`refresh-indexes` 済み、`npm run check-career-separation` が通る。
 
 ### [DN-0467] coconala-edit の公開中サービス dry-run を実機で 1 回走らせ、exit 0 と公開画像が変わらないことを確かめる（運営者の再ログイン後）
 タグ: [インフラ・計測] [領域:商品] [時期:2026-11] [種類:不具合] [起票:2026-09-30]
@@ -1272,19 +1074,6 @@ exam-passing-strategy/article.mdx の239・264行付近に、総監口頭は知�
 
 **完了条件**: 対象未満のユーザー比率（%）と取得期間を記録し、main 昇格の可否を決めている。
 
-### [DN-0432] 管理画面を shadcn/ui の標準部品・雛形・テーマで作り直し、余白やカードの書き方を共通化する
-タグ: [UI・UX] [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-09-28] [進行中]
-
-**起点**: 2026-09-28、KPI 画面のカード同士がくっつく不具合（PR #684 で修正）から、見た目の共通化・再利用・単一責務を相談した。原因は余白を `.card + .card`（直後がカードのときだけ）で決めていたことで、ページ側は生の `className="card"` 102 箇所・インライン `style` 161 箇所・`globals.css` 2,300 行超に依存し、`src/components/primitives.tsx` の Card/Badge は 7 ファイルでしか使われていない。前提の Tailwind v4 移行は PR #683 で完了済み。
-
-**やること**:
-1. 土台：`components.json` を置き、shadcn の Card / Badge / Button / Table / Tabs / Chart を CLI で追加して `primitives.tsx`・`ui.tsx` の重複を置き換える。テーマは shadcn の CSS 変数（基本色は slate 等から選ぶ）に寄せる
-2. レイアウト部品：`Stack` / `Grid` / `Section` を足し、並べ方の余白は親の `gap` で持つ。`.card + .card` を廃止する
-3. 枠：`sidebar` と `dashboard-01` の雛形で左ナビ＋本文を作り直し、KPI 画面から移す。残りの画面は数回に分けて移し、移した分の `globals.css` を削る
-4. ゲート：ページ（`tools/admin-app/src/app/**`）の生 `className="card"` とインライン `style` の件数を lint で数え、基準値より増えたら落とす
-5. 表：`TableFrame` を直に置いている 37 ページを `components/admin` の `DataTable`（shadcn の Data Table）へ移す。行ごとに形が違う表は除く
-
-**完了条件**: KPI 画面が shadcn 部品とレイアウト部品だけで書かれ、`.card + .card` が無い。全画面の移行後、ページの生 `className="card"` とインライン `style` が 0（または lint の基準値以下）で、ゲートが CI にある。
 
 ### [DN-0423] テーマ（/topics）15 ページを検索の入口として働くように作り直す
 タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11..2026-12] [種類:改善] [起票:2026-09-27]
@@ -1892,12 +1681,6 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 
 
 
-### [DN-0681] lint-mdx-mobile が、サイトが目次に使う toc_min/max_heading_level を「未使用の旧 frontmatter・一括削除可」として HIGH を出している
-タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [起票:2026-10-11]
-
-**起点**: 2026-10-11、DN-0665 で過去問記事に `.claude/scripts/lint-mdx-mobile.mjs` を回したとき、規則 0-2 が `toc_min_heading_level`・`toc_max_heading_level` を「Docusaurus 旧 frontmatter。doboku-note では未使用、migrate-civil-frontmatter.mjs で一括削除可」として HIGH を出した（develop で 162 記事：建設部門 100・技術士一次 39・2級土木 18・測量 5）。しかしサイトは `src/components/docs/DocPage.tsx:292-293` でこの 2 つを読み、目次に出す見出しの深さを決めている。言われたとおり一括削除すると、過去問ページなどの目次が変わる。
-**やること**: 規則 0-2 と `migrate-civil-frontmatter.mjs` の対象から `toc_min_heading_level`・`toc_max_heading_level` を外す（`id`・`sidebar_label` は使われていないか確かめて残す）。content-authoring.md に、目次の深さはこの 2 つで決めると書く。
-**完了条件**: lint-mdx-mobile が toc_* で HIGH を出さず、`git grep` で toc_* を使う記事の数が変わっていない（目次は変えない）。
 
 
 ### [DN-0679] 技術士 建設部門の過去問ページ（r01〜r08 の約 17 本）へ、テーマ記事以外からの内部リンクを足す
@@ -1908,12 +1691,6 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 **完了条件**: 対象の過去問ページそれぞれに、本文からの内部リンクが 3 本以上あり、次の URL 検査で登録状況を比べた記録がある。
 
 
-### [DN-0676] check-seo-build の warn（1,390 件）が CI ログにしか残らず、誰も読んでいない
-タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-11]
-
-**起点**: 2026-10-11 の technical-seo-auditor。check-seo-build:ci の結果は .github/workflows/ci.yml のログにしか残らず、warn（jsonld_recommended_missing 1,389・ssr_thin_body 1）は誰も見ていなかった（今回の監査では古い out/ を見るしかなかった）。CLAUDE.md §9「赤いのに誰も見ていない検査は無いのと同じ」。
-**やること**: CI でサマリ JSON（検査対象数・error・warn の型別件数）を data/analysis/ に書き、scripts/lib/datasets.mjs に宣言する。週次レビュー（/weekly-review）がそれを読んで前週比を出すようにする。
-**完了条件**: CI のあとに data/analysis/ のサマリが更新され、週次レビューの報告に check-seo-build の件数と前週比が出る。
 
 
 ### [DN-0673] 「該当しないもの」「許可を必要としないもの」を選ぶ過去問の正答の ✅/❌ の向きを 1 つにそろえる
@@ -1983,78 +1760,8 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 
 **完了条件**: 反映後 28 日の集計で対象語の表示が増えるか 1 桁順位に入ったかを本カードの完了記録に書く。
 
-### [DN-0638] マージ済み（squash 含む）のブランチ・止まった未マージのブランチ・未コミットのまま放置の worktree を検査で挙げる
-タグ: [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-10]
 
-**起点**: 2026-10-10、ブランチがローカル 41 本・リモート 26 本、worktree が 10 個まで溜まっていた。大半は中身が develop に入り済み（squash でマージ済みなので `git branch --merged` では出ない）で、1 本（refactor/script-shared-helpers）は 10/04 から止まった作業が worktree に未コミットのまま残っていた。片づけには、tree の比較と PR のマージのコミットで 1 本ずつ判定する手作業が要った。`check-disk-hygiene` はマージ済みの worktree は挙げるが、ブランチと、未コミットのまま止まった worktree は挙げない。リポジトリの設定「マージ後にブランチを自動で消す」（delete_branch_on_merge）は 2026-10-10 にオンにした（PR のリモートのブランチはマージで消える。ローカルのブランチ・PR を経ないブランチ・worktree は残る）。
-**やること**: `check-disk-hygiene`（または新しい `check-branch-hygiene`）に、(1) 中身が develop に入り済みのブランチ（ローカル・リモート。tree が同じか、PR のマージのコミットが develop にある）、(2) N 日以上動いていない未マージのブランチ、(3) 未コミットの変更を持ったまま N 日以上動いていない worktree、を出す。週次レビューで読む（または SessionStart で件数だけ出す）。
-**完了条件**: 3 種類それぞれをテストの見本で検出し、squash でマージ済みのブランチを「未マージ」と誤って挙げない。
 
-### [DN-0636] スクリプト共通化のリファクタを develop と衝突した 48 ファイルにやり直す（ルート・走査・引数・JSON 読みを共通部品へ）
-タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-10]
-
-**起点**: 2026-10-10、10/04 から止まっていたスクリプト共通化のリファクタ（refactor/script-shared-helpers・PR #957）を develop へ入れた。develop と衝突した 48 ファイルは develop の版（いま動いている挙動）を採ったので、そのファイルはまだ自前のルート計算・walk・parseArgs・readJson を持つ。ラチェットの基準値は root 68・walk 43・parseArgs 26・readJson 10（tests/script-helpers-ratchet.test.mjs・tests/read-json-ratchet.test.mjs）。
-**対象（衝突で develop の版を採ったファイル）**:
-- `.claude/scripts/fetch-ga4-cta-clicks.mjs`
-- `.claude/scripts/lint-mdx-mobile.mjs`
-- `.claude/scripts/report-career-funnel.mjs`
-- `.claude/scripts/youtube/publish-video-batch.cjs`
-- `.claude/scripts/youtube/publish-video-pack.cjs`
-- `.claude/skills/social/publish-x/publish-x.ts`
-- `scripts/audit-figure-text.mjs`
-- `scripts/build-figure-provenance.mjs`
-- `scripts/check-affiliate-mats.mjs`
-- `scripts/check-affiliate-wiring.mjs`
-- `scripts/check-coconala-wiring.mjs`
-- `scripts/check-datasets.mjs`
-- `scripts/check-external-write-orphans.mjs`
-- `scripts/check-figure-crop-integrity.mjs`
-- `scripts/check-note-live-headings.mjs`
-- `scripts/check-video-publication.mjs`
-- `scripts/check-youtube-public-view.mjs`
-- `scripts/check-youtube-video-pack-shorts.mjs`
-- `scripts/generate-guide-covers.mjs`
-- `scripts/generate-ogp-backgrounds.mjs`
-- `scripts/ig-status.mjs`
-- `scripts/kdp-batch.mjs`
-- `scripts/kdp-publish.mjs`
-- `scripts/lib/coconala-session.mjs`
-- `scripts/lib/product-registry.mjs`
-- `scripts/note-magazine-cover.mjs`
-- `scripts/note-price-sweep.mjs`
-- `scripts/note-reconcile-title-price.mjs`
-- `scripts/note-swap-author-banner.mjs`
-- `scripts/prepare-instagram-video-pack-reels.mjs`
-- `scripts/prepare-video-pack-shorts.mjs`
-- `scripts/prepare-youtube-longforms.mts`
-- `scripts/publish-instagram-video-pack-reels.mjs`
-- `scripts/render-approved-longforms.mjs`
-- `scripts/render-longform.mjs`
-- `scripts/render-x-figure-drafts.mjs`
-- `scripts/stage-youtube-covers.mjs`
-- `scripts/stage-youtube-renders-r2.mjs`
-- `scripts/stage-youtube-shorts-r2.mjs`
-- `scripts/static-server.mjs`
-- `scripts/todo-complete.mjs`
-- `scripts/verify-ig-status.mjs`
-- `scripts/verify-video-publication.mjs`
-- `scripts/youtube-thumbnail-rollout.mjs`
-- `tests/career-funnel-report.test.mjs`
-- `tests/video-content-check.test.mjs`
-- `tests/video-publication-check.test.mjs`
-- `tests/youtube-authority-metadata.test.mjs`
-**やること**: 各ファイルのリポジトリのルートを `scripts/lib/repository-paths.mjs` の REPO_ROOT、再帰の走査を `scripts/lib/fs-walk.mjs` の listFiles、引数を `scripts/lib/cli-args.mjs` の parseCliArgs、JSON の読み込みを `scripts/lib/json-io.mjs` の readJson に置き換え（code ルールの共通部品の項）、減った分だけラチェットの基準値を下げる。挙動を変えないこと（各スクリプトの既存のテスト・--help・dry-run で確かめる）。
-**完了条件**: 上のファイルの自前の定義が 0（root-ok の行を除く）になり、ラチェットの基準値を下げた。全テスト緑。
-
-### [DN-0603] 公開前の10秒ごとの画面確認（無音プレビュー・コンタクトシート・同じ画面の割合）をスクリプトにして承認前の関門にする
-タグ: [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-10-08]
-
-**起点**: 公開前の画面確認（設計尺の無音プレビュー→10秒ごとに1枚）は video-content-policy §4 の3つのコマンドを手で回す形で、数値（直前と同じ画面の割合など）は 2026-10-08 にその場の Python で出しただけ。人によって見落としが出る。
-**やること**:
-1. `render-longform` に `--preview`（または `scripts/video-preview-sheet.mjs`）を足し、無音プレビュー・10秒ごとのコンタクトシート・数値（直前と同じ画面の割合・冒頭の表紙の秒数・20秒以上同じ画面が続く箇所）を `.tmp/video-render/{packId}/` に出す（Git に入れない）
-2. 判定の閾値（例: 冒頭の表紙は5秒以内、同じ画面は20秒まで）は `config/video-content.json` に置き、checker とプレビューが同じ値を読む
-3. approved に上げる前に、この数値と画像を確認したことを状態の記録に残す
-**完了条件**: 既存パック1本と図解版で数値が出て、判定ロジックを tests で固定する。
 
 ### [DN-0602] 競合動画を Mac で10秒ごとに切り出して画面の切り替え間隔を測り、07c §3 を埋める
 タグ: [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-10-08]
@@ -2085,15 +1792,7 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 3. 20〜90分に束ね、分野ごとのチャプターを付ける。送り先は一次の頻出論点の note・過去問 PDF・模試（DN-0279 と同じ線）
 **完了条件**: 1級一次の1分野で20問の試作を作り、10秒プレビューで目視して承認待ちで止める。`quiz-tts` を trial にする。
 
-### [DN-0590] git 呼び出しの maxBuffer 検査が、引数にテンプレート文字列（${…}）を含む呼び出しで maxBuffer を見落として誤って止める
-タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-10-08]
 
-2026-10-08、scripts/audit-reference-book-coverage.mjs の execFileSync('git', [..., `--since=${since}…`, ...], { encoding, maxBuffer }) が tests/git-exec-maxbuffer.test.mjs で「maxBuffer 未指定」になった（maxBuffer は書いてあった）。呼び出しの切り出しがテンプレートの { } で途切れているとみられる。引数を変数へ出して回避した。やること: findGitCalls をテンプレート文字列と入れ子の括弧に対応させ、回帰テスト（${} を含む引数で maxBuffer ありは通る・無しは止める）を足す
-
-### [DN-0588] 正規表現のエスケープを共通の部品 1 つにまとめ、各スクリプトでの書き写しを増やさない
-タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-08]
-
-2026-10-08、path-literals.mjs で置き場のパスを正規表現へ入れるとき「.」だけを逃がし、CodeQL（Incomplete string escaping）に指摘された（PR #927）。scripts/ に同じ escapeRegExp の書き写しが 16 か所あり、逃がす記号が少しずつ違う（datasets.mjs・reference-sources.mjs・disk-hygiene.mjs・playwright-auth.mjs は * や {} を意図して外すグロブ用、ほかは全記号）。案: scripts/lib/regexp-escape.mjs に escapeRegExp（全記号）と globToRegExp を置いて置き換え、tests/read-json-ratchet.test.mjs と同じ形のラチェットで書き写しを増やさない。完了条件: 置き換え後に既存テスト全件が通る・ラチェットの基準線が 0 か理由つきの例外だけ
 
 ### [DN-0572] note からココナラへの冒頭導線（DN-0268）の反映後 30 日の閲覧・注文を読み、残すか決める
 タグ: [収益化] [領域:商品] [時期:2026-11] [種類:意思決定] [起票:2026-10-07]
@@ -2104,30 +1803,7 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 
 **完了条件**: 2026-11-06 以降に前後 30 日の閲覧・注文を比べ、導線を残す・文面を変える・外すのどれかを決めて、ココナラ運用文書（coconala-operations.md）の決定ログに 1 行残す。
 
-### [DN-0565] 「公式の設問を含むページ」の判定を、パスの正規表現から分類データへ移す
-タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-10-07]
 
-**起点**: lint-ja・lint-mdx-mobile は、公式問題の逐語を表記統一から外すページを、`scripts/lib/official-question-text.mjs` の `OFFICIAL_QUESTION_PAGE`（パスの正規表現）で決めている。分類の正本 `src/config/content-taxonomy.json` の group `secondary` は記述式の解説（`*-basics`）と過去問（`*-past-problems`）の両方を含むので、分類からは引けない。正規表現に無い種類のページは黙って対象外になり、`secondary-*-past-problems` は 2026-10-07（DN-0553・#889）まで設問の転記が commit を止めていた。
-
-**やること**:
-1. 分類（`content-taxonomy.json` の flags か、frontmatter の印）に「公式の設問を含む」を持たせる。
-2. `official-question-text.mjs` がその印を読むようにする。
-3. 置き換え前の正規表現と対象ページの集合が一致することをテストで確かめてから、正規表現を消す。
-
-**完了条件**: `OFFICIAL_QUESTION_PAGE` の正規表現が無くなる。判定対象のページ集合が置き換え前と一致する（テスト）。
-
-### [DN-0559] develop への載せ直し（fetch → reset --keep → cherry-pick → パッチ照合 → push）をスクリプト 1 本にする
-タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-07]
-
-**起点**: 並行セッションと CI の自動コミットで develop が数分おきに進む。2026-10-06〜07 の図ループでは、commit のたびに手書きのゲートで載せ直した（約 15 回）。手順を `;` で繋いで、失敗の後も先へ進んだ事故が 3 回ある（memory `reference_partial_clone_repack_hazard`「push を失敗しうる手順に ; で繋がない」）。
-
-**やること**: `scripts/replay-onto-develop.mjs <sha...> [--push]` を作る。
-- 処理: commit が在ることを確かめ、`git fetch`・`git reset --keep origin/develop`・`git cherry-pick` を行い、元の範囲と同じパッチかを比べる。`--push` は、同じパッチのときだけ push する。
-- 途中で止まった場合: 何が残ったかを出して非 0 で終える。cherry-pick が止まったら `--quit` で抜け、作業ツリーには触れない。
-- テスト: 一時リポジトリで「同じパッチ」「衝突」「commit 失敗の後に呼ばれた」の 3 通りを固定する。
-- 文書: workflows.md「ブランチ・並行セッション運用」と memory の該当節を、このスクリプトの案内に置き換える。
-
-**完了条件**: テスト 3 通りが通り、workflows.md の手順がスクリプト 1 行になっている。
 
 ### [DN-0560] macOS でだけ落ちるコマンド（BSD と GNU の差）を CI の前に止める
 タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-07]
@@ -2612,14 +2288,6 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 
 **完了条件**: 候補の一覧と参加するかの判断材料がこのカードに書かれている。
 
-### [DN-0406] 動画パックの入口 /video-content と、台本の Generator・Evaluator エージェント（video-script-writer・video-content-qa）を作る
-タグ: [エージェント・SSOT] [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-09-27]
-
-**起点**: 2026-09-27 に docs/ に埋もれた未完の作業を洗い出した。docs/marketing/06_動画コンテンツ運用設計.md §4 で新設を決めていたが、スキルもエージェントも無く backlog にも無かった。機械検査 `check-video-content` は実装済み。
-
-**やること**: 06 §4 の責務分担どおり、`/create-skill` で `/video-content`（薄いオーケストレーター）と 2 つのエージェントを作り、skills-guide・agents-registry を更新する。
-
-**完了条件**: `npm run check-doc-coupling` が通り、動画パック 1 本をこの入口で作って `npm run check-video-content` が通る。
 
 ### [DN-0640] 総監キーワード「コストドライバー」の題名修正（10/6）の効果を「コストドライバーとは」の28日 CTR で確かめる
 タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-10-10]

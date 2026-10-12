@@ -197,3 +197,19 @@ export function experimentIdsFrom(json) {
   const list = Array.isArray(json?.experiments) ? json.experiments : [];
   return new Set(list.map((e) => e?.id).filter(Boolean));
 }
+
+/** backlog 本文のカード見出し（### [DN-####]）の ID を返す。 */
+export function cardIdsInBacklog(text) {
+  return new Set([...String(text ?? '').matchAll(/^### \[(DN-\d{4})\]/gm)].map((m) => m[1]));
+}
+
+/** HEAD の backlog にあって index の backlog に無い ID（このコミットでカードを消す）。 */
+export function removedCardIds(headText, indexText) {
+  const now = cardIdsInBacklog(indexText);
+  return [...cardIdsInBacklog(headText)].filter((id) => !now.has(id));
+}
+
+/** 文書が指す DN-ID のうち、backlog にも完了記録にも無いもの（引き継ぎの参照切れ）。 */
+export function danglingIdsIn(content, { backlogIds, completedIds }) {
+  return uniq(String(content ?? '').match(DN_RE) ?? []).filter((id) => !backlogIds.has(id) && !completedIds.has(id));
+}

@@ -24,8 +24,15 @@ import { join, relative } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { REPO_ROOT as ROOT, SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
 
-const STAGED = process.argv.includes('--staged');
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
+
+const STAGED = __argv.includes('--staged');
 const CONFIG = join(ROOT, 'src/config/affiliate-prose-denylist.json');
 const SCAN_DIR = SITE_CONTENT_ROOT;
 const SCAN_EXT = /\.mdx?$/;
@@ -33,7 +40,7 @@ const rel = (p) => relative(ROOT, p).split('\\').join('/');
 
 if (!existsSync(CONFIG)) {
   console.error(`[check-affiliate-prose] ${rel(CONFIG)} が無いため検証をスキップ`);
-  process.exit(0);
+  __exit(0);
 }
 
 const config = JSON.parse(readFileSync(CONFIG, 'utf8'));
@@ -96,9 +103,13 @@ if (violations.length > 0) {
   console.error(
     `  → 正当な出典引用・試験コンテンツなら ${rel(CONFIG)} の allow に {file, term, reason} を追記。`,
   );
-  process.exit(1);
+  __exit(1);
 }
 
 console.log(
   `[check-affiliate-prose] ✓ ${files.length} ファイルに廃止アフィリ推奨 prose は無し（deny ${denyTerms.length} 語）`,
 );
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

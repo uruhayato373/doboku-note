@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-11T03:51:04Z",
+  "generatedAt": "2026-10-12T11:18:27Z",
   "exam": "civil-2",
   "years": [
     {
@@ -850,6 +850,28 @@
             {
               "num": 4,
               "text": "不適当な記述は2つで、4つではない。（イ）（ロ）は適当。 <ExamPoint>砂防えん堤の施工順序と前庭保護工の構成（副えん堤・水叩き）</ExamPoint>",
+              "correct": false
+            }
+          ],
+          "statements": [
+            {
+              "label": "イ",
+              "text": "水抜きは、施工中の流水の切替えや堆砂後の浸透水を抜いて水圧を軽減するため、必要に応じて設けるもので、適当である。",
+              "correct": true
+            },
+            {
+              "label": "ロ",
+              "text": "水通しの断面は一般に逆台形とし、設計流量を越流させるのに十分な大きさとするため、適当である。",
+              "correct": true
+            },
+            {
+              "label": "ハ",
+              "text": "施工順序は一般的な砂防えん堤の施工順序と異なり、適当でない。",
+              "correct": false
+            },
+            {
+              "label": "ニ",
+              "text": "前庭保護工は本えん堤の越流水による洗掘を防ぐ施設で、副えん堤、水叩き、垂直壁、側壁護岸などから成る。副えん堤は前庭保護工の構成要素であり、副えん堤下流部に設ける構造物とする点が適当でない。",
               "correct": false
             }
           ],
@@ -8915,6 +8937,28 @@
               "correct": false
             }
           ],
+          "statements": [
+            {
+              "label": "イ",
+              "text": "最後で、データ解析の結果に基づき異常の原因を除去する処置をとる。PDCAのアクションにあたる。",
+              "correct": true
+            },
+            {
+              "label": "ロ",
+              "text": "二番目で、定めた作業標準に従って作業を実施する。PDCAのドゥにあたる。",
+              "correct": true
+            },
+            {
+              "label": "ハ",
+              "text": "三番目で、得られたデータを解析・検討して異常の有無を確かめる。PDCAのチェックにあたる。",
+              "correct": true
+            },
+            {
+              "label": "ニ",
+              "text": "最初で、品質特性と品質標準を決める。PDCAのプランにあたる。",
+              "correct": true
+            }
+          ],
           "igEligible": true,
           "packEligible": true
         },
@@ -16510,6 +16554,18 @@
               "correct": true
             }
           ],
+          "statements": [
+            {
+              "label": "イ",
+              "text": "表面部材をかん合して製管する「製管工法」、",
+              "correct": null
+            },
+            {
+              "label": "ロ",
+              "text": "工場製作の二次製品管を挿入する「さや管工法」である。",
+              "correct": null
+            }
+          ],
           "igEligible": false,
           "packEligible": false
         },
@@ -17460,6 +17516,28 @@
               "correct": true
             }
           ],
+          "statements": [
+            {
+              "label": "イ",
+              "text": "最後で、解析で見つかった異常の原因を追究して除去する。PDCAのアクションにあたる。",
+              "correct": true
+            },
+            {
+              "label": "ロ",
+              "text": "二番目で、作業標準に基づき作業を実施する。PDCAのドゥにあたる。",
+              "correct": true
+            },
+            {
+              "label": "ハ",
+              "text": "三番目で、統計的手法により結果を解析・検討する。PDCAのチェックにあたる。",
+              "correct": true
+            },
+            {
+              "label": "ニ",
+              "text": "最初で、品質特性を選び品質規格を決める。PDCAのプランにあたる。",
+              "correct": true
+            }
+          ],
           "igEligible": true,
           "packEligible": true
         },
@@ -17643,6 +17721,28 @@
               "correct": false
             }
           ],
+          "statements": [
+            {
+              "label": "イ",
+              "text": "自然条件である。地域特性、地質、地下水、気象などの調査により施工条件を把握する。",
+              "correct": true
+            },
+            {
+              "label": "ロ",
+              "text": "近隣環境である。現場周辺の状況、近隣構造物、地下埋設物などを調べ、施工中の影響に備える。",
+              "correct": true
+            },
+            {
+              "label": "ハ",
+              "text": "資機材である。調達の可能性、適合性、調達先を調べ、必要な資機材を確保できるか把握する。",
+              "correct": true
+            },
+            {
+              "label": "ニ",
+              "text": "輸送である。道路の状況、運賃及び手数料、現場搬入路を調べ、資機材の搬入方法を計画する。",
+              "correct": true
+            }
+          ],
           "igEligible": false,
           "packEligible": false
         },
@@ -17709,6 +17809,28 @@
               "correct": false
             }
           ],
+          "statements": [
+            {
+              "label": "イ",
+              "text": "バーチャートである。縦軸に作業名、横軸に必要日数を棒線で示し、作成が容易で全体を見渡せる。",
+              "correct": true
+            },
+            {
+              "label": "ロ",
+              "text": "ガントチャートである。縦軸に作業名、横軸に各作業の出来高比率を棒線で示し、進捗が分かる。",
+              "correct": true
+            },
+            {
+              "label": "ハ",
+              "text": "グラフ式工程表である。各作業の工程を斜線で表し、出来高の進み具合を把握できる。",
+              "correct": true
+            },
+            {
+              "label": "ニ",
+              "text": "出来高累計曲線である。作業全体の出来高比率の累計をグラフ化し、工程の進みを確認できる。",
+              "correct": true
+            }
+          ],
           "igEligible": false,
           "packEligible": false
         },
@@ -17772,6 +17894,28 @@
             {
               "num": 4,
               "text": "元方事業者・特定元方事業者・協議組織・毎作業日で正しい <ExamPoint>元方事業者のうち建設業は特定元方事業者で協議組織を運営</ExamPoint>",
+              "correct": true
+            }
+          ],
+          "statements": [
+            {
+              "label": "イ",
+              "text": "元方事業者である。一の場所で行う事業の一部を請負人に請け負わせている事業者をいう。",
+              "correct": true
+            },
+            {
+              "label": "ロ",
+              "text": "特定元方事業者である。元方事業者のうち建設業など政令で定める事業を行う者をいう。",
+              "correct": true
+            },
+            {
+              "label": "ハ",
+              "text": "協議組織である。特定元方事業者は、労働災害防止のため協議組織を設置し運営する。",
+              "correct": true
+            },
+            {
+              "label": "ニ",
+              "text": "毎作業日である。特定元方事業者は作業場所の巡視を毎作業日に少なくとも1回行う。",
               "correct": true
             }
           ],
@@ -23551,6 +23695,28 @@
               "correct": false
             }
           ],
+          "statements": [
+            {
+              "label": "イ",
+              "text": "支保工足場である。工事目的物の施工に直接必要な設備であり、直接仮設工事に分類される。",
+              "correct": true
+            },
+            {
+              "label": "ロ",
+              "text": "間接仮設工事である。労務宿舎は施工を支える現場運営のための設備にあたる。",
+              "correct": true
+            },
+            {
+              "label": "ハ",
+              "text": "現場事務所である。工事の管理運営のための施設で、間接仮設工事に分類される。",
+              "correct": true
+            },
+            {
+              "label": "ニ",
+              "text": "直接仮設工事である。安全施設は施工に直接伴う仮設であり、直接仮設に分類される。",
+              "correct": true
+            }
+          ],
           "igEligible": false,
           "packEligible": false
         },
@@ -25325,6 +25491,23 @@
               "correct": false
             }
           ],
+          "statements": [
+            {
+              "label": "イ",
+              "text": "軟弱土（シルト及び有機質土）の基礎は，コンクリート基礎が適当",
+              "correct": true
+            },
+            {
+              "label": "ロ",
+              "text": "硬質土（硬質粘土，礫混じり土及び礫混じり砂）の基礎は，砂基礎が適当",
+              "correct": true
+            },
+            {
+              "label": "ハ",
+              "text": "極軟弱土（非常に緩いシルト及び有機質土）の基礎は，鉄筋コンクリート基礎が適当",
+              "correct": true
+            }
+          ],
           "igEligible": false,
           "packEligible": false
         },
@@ -26470,6 +26653,28 @@
           "correct": 1,
           "correctText": "1つ",
           "optionExplanations": [],
+          "statements": [
+            {
+              "label": "①",
+              "text": "リッパビリティはブルドーザに装着するリッパによる作業性で「バックホウ」は誤り",
+              "correct": false
+            },
+            {
+              "label": "②",
+              "text": "トラフィカビリティはコーン指数で判断され N 値ではなく誤り",
+              "correct": false
+            },
+            {
+              "label": "③",
+              "text": "ブルドーザの作業効率は砂の方が岩塊・玉石より大きく記述は逆で誤り",
+              "correct": false
+            },
+            {
+              "label": "④",
+              "text": "ダンプトラックの作業効率は沿道条件・路面状態・昼夜の別で変わる正しい記述",
+              "correct": true
+            }
+          ],
           "igEligible": true,
           "packEligible": false
         },
@@ -26499,6 +26704,28 @@
           "correct": 4,
           "correctText": "①③④",
           "optionExplanations": [],
+          "statements": [
+            {
+              "label": "①",
+              "text": "計画と実施の差の原因究明と改善は工程管理の基本で正しい",
+              "correct": true
+            },
+            {
+              "label": "②",
+              "text": "進行管理は実施工程が計画工程をやや上回る程度に運営すべきで記述は逆で誤り",
+              "correct": false
+            },
+            {
+              "label": "③",
+              "text": "進捗の全員周知と作業能率向上は正しい",
+              "correct": true
+            },
+            {
+              "label": "④",
+              "text": "工程表は施工順序と日数の図表化で正しい",
+              "correct": true
+            }
+          ],
           "igEligible": true,
           "packEligible": false
         },
@@ -26594,6 +26821,28 @@
           "correct": 3,
           "correctText": "3つ",
           "optionExplanations": [],
+          "statements": [
+            {
+              "label": "①",
+              "text": "定格荷重超過使用禁止は規則通り",
+              "correct": true
+            },
+            {
+              "label": "②",
+              "text": "軟弱地盤等での作業禁止原則は規則通り",
+              "correct": true
+            },
+            {
+              "label": "③",
+              "text": "アウトリガーは原則最大張出しを規定通り",
+              "correct": true
+            },
+            {
+              "label": "④",
+              "text": "運転者は荷をつったまま運転位置を離れてはならず「旋回範囲」ではなく「運転位置」の規定で記述が不適",
+              "correct": false
+            }
+          ],
           "igEligible": true,
           "packEligible": false
         },
@@ -26656,6 +26905,28 @@
           "correct": 3,
           "correctText": "3つ",
           "optionExplanations": [],
+          "statements": [
+            {
+              "label": "①",
+              "text": "工法規定方式は使用機械や施工回数を規定する方法で「締固め度を規定」は品質規定方式の説明で誤り",
+              "correct": false
+            },
+            {
+              "label": "②",
+              "text": "締固めの効果は土質・含水比・施工方法で変化する正しい記述",
+              "correct": true
+            },
+            {
+              "label": "③",
+              "text": "最大乾燥密度が得られる含水比を最適含水比とする正しい定義",
+              "correct": true
+            },
+            {
+              "label": "④",
+              "text": "砂置換法・RI 計器は現場乾燥密度の測定方法として正しい",
+              "correct": true
+            }
+          ],
           "igEligible": true,
           "packEligible": false
         }
@@ -29277,6 +29548,28 @@
               "correct": false
             }
           ],
+          "statements": [
+            {
+              "label": "①",
+              "text": "施工体制台帳の写しの提出先は**発注者**であり（入札契約適正化法第15条第2項）、下請負人に提出とするのは誤り",
+              "correct": false
+            },
+            {
+              "label": "②",
+              "text": "施工体系図は工事目的物の引渡しから**10年間**保存しなければならず（建設業法施行規則第26条第5項第3号・第28条第2項）、20年は誤り",
+              "correct": false
+            },
+            {
+              "label": "③",
+              "text": "施工体系図は工事関係者及び公衆が見やすい場所に掲げなければならない（建設業法第24条の8第4項、入札契約適正化法第15条第1項）。正しい",
+              "correct": true
+            },
+            {
+              "label": "④",
+              "text": "再下請に出した下請負人が通知する先は**元請の建設業者**であり（建設業法第24条の8第2項）、発注者とするのは誤り",
+              "correct": false
+            }
+          ],
           "igEligible": true,
           "packEligible": true
         },
@@ -29358,6 +29651,28 @@
               "num": 4,
               "text": "①④ — ①が誤りのため誤り <ExamPoint>グラフ式工程表は斜線で出来高累計曲線は曲線で表す</ExamPoint>",
               "correct": false
+            }
+          ],
+          "statements": [
+            {
+              "label": "①",
+              "text": "曲線式工程表に含まれるのは出来高累計曲線等であり、**バーチャート**は曲線式ではないので誤り",
+              "correct": false
+            },
+            {
+              "label": "②",
+              "text": "図1のように縦軸に日数・横軸に距離をとる表し方は**斜線式工程表**であり、バーチャート（縦軸に作業・横軸に日数）の説明ではないので誤り",
+              "correct": false
+            },
+            {
+              "label": "③",
+              "text": "グラフ式工程表は、出来高又は工事作業量比率を縦軸、日数を横軸にとり、工種ごとの工程を斜線で表す。正しい",
+              "correct": true
+            },
+            {
+              "label": "④",
+              "text": "出来高累計曲線は、縦軸に出来高比率、横軸に工期をとり、工事全体の出来高比率の累計を曲線で表す。正しい",
+              "correct": true
             }
           ],
           "igEligible": true,
@@ -29443,6 +29758,28 @@
               "correct": false
             }
           ],
+          "statements": [
+            {
+              "label": "①",
+              "text": "型枠支保工を組み立てるときは、組立図を作成し、その組立図により組み立てなければならない。正しい",
+              "correct": true
+            },
+            {
+              "label": "②",
+              "text": "著しい損傷・変形・腐食がある材料は**使用してはならない**（安衛則第237条）、補修して使用とするのは誤り",
+              "correct": false
+            },
+            {
+              "label": "③",
+              "text": "型枠支保工は、型枠の形状、コンクリートの打設の方法等に応じた堅固な構造でなければならない。正しい",
+              "correct": true
+            },
+            {
+              "label": "④",
+              "text": "型枠支保工の組立等作業主任者が、作業を直接指揮しなければならない。正しい",
+              "correct": true
+            }
+          ],
           "igEligible": true,
           "packEligible": true
         },
@@ -29490,6 +29827,28 @@
             {
               "num": 4,
               "text": "4つ <ExamPoint>安全支柱等を使用させる対象は作業に従事する労働者</ExamPoint>",
+              "correct": false
+            }
+          ],
+          "statements": [
+            {
+              "label": "①",
+              "text": "岩石の落下等により労働者に危険が生ずるおそれのある場所では、堅固なヘッドガードを装備した機械を使用させなければならない。正しい",
+              "correct": true
+            },
+            {
+              "label": "②",
+              "text": "転倒や転落により運転者に危険が生ずるおそれのある場所では、転倒時保護構造を有しシートベルトを備えたもの以外を使用しないよう努めなければならない（努力義務）。正しい",
+              "correct": true
+            },
+            {
+              "label": "③",
+              "text": "機械の修理やアタッチメントの装着・取り外しを行う場合は、作業指揮者を定め、作業手順の決定と作業の指揮等を行わせなければならない。正しい",
+              "correct": true
+            },
+            {
+              "label": "④",
+              "text": "安全支柱・安全ブロック等を使用させる対象は**作業に従事する労働者**であり（安衛則第166条）、作業指揮者に使用させるとするのは誤り",
               "correct": false
             }
           ],
@@ -29543,6 +29902,28 @@
               "correct": false
             }
           ],
+          "statements": [
+            {
+              "label": "①",
+              "text": "x̄-R管理図は、統計的事実に基づき、ばらつきの範囲の目安となる限界の線を決めてつくった図表である。正しい",
+              "correct": true
+            },
+            {
+              "label": "②",
+              "text": "管理限界線の外にデータが出た場合は、その工程に異常があることが疑われる。正しい",
+              "correct": true
+            },
+            {
+              "label": "③",
+              "text": "x̄-R管理図は通常**折れ線グラフ**で示される、棒グラフは誤り",
+              "correct": false
+            },
+            {
+              "label": "④",
+              "text": "x̄-R管理図で扱うのは連続量として測定される**計量値**、計数値は誤り",
+              "correct": false
+            }
+          ],
           "igEligible": true,
           "packEligible": true
         },
@@ -29591,6 +29972,28 @@
               "num": 4,
               "text": "②③④ — ②③が誤りのため誤り <ExamPoint>品質規定は締固め度で最もよく締まる含水比は最適含水比</ExamPoint>",
               "correct": false
+            }
+          ],
+          "statements": [
+            {
+              "label": "①",
+              "text": "品質規定方式は、盛土の締固め度等を規定する方法である。正しい",
+              "correct": true
+            },
+            {
+              "label": "②",
+              "text": "締固めの効果や特性は土の種類・含水比・施工方法によって**変化する**、変化しないとするのは誤り",
+              "correct": false
+            },
+            {
+              "label": "③",
+              "text": "盛土が最もよく締まる含水比は最大乾燥密度が得られる**最適含水比**であり、最大含水比は誤り",
+              "correct": false
+            },
+            {
+              "label": "④",
+              "text": "乾燥密度の測定方法には砂置換法やRI計器による方法がある。正しい",
+              "correct": true
             }
           ],
           "igEligible": true,
@@ -32509,6 +32912,28 @@
           "correct": 3,
           "correctText": "②③",
           "optionExplanations": [],
+          "statements": [
+            {
+              "label": "①",
+              "text": "ガントチャートは縦軸に作業名・横軸に達成度（％）で表す図表で，「日数を棒線で記入」は誤り",
+              "correct": false
+            },
+            {
+              "label": "②",
+              "text": "出来高累計曲線（バナナ曲線/Sカーブ）の説明は正しい",
+              "correct": true
+            },
+            {
+              "label": "③",
+              "text": "グラフ式工程表は工事ごとの工程を斜線（座標線）で表す正しい記述",
+              "correct": true
+            },
+            {
+              "label": "④",
+              "text": "系統だてた相互関連表現はネットワーク工程表でバーチャートではない",
+              "correct": false
+            }
+          ],
           "igEligible": true,
           "packEligible": false
         },
@@ -32575,6 +33000,28 @@
               "correct": false
             }
           ],
+          "statements": [
+            {
+              "label": "イ",
+              "text": "囲いである。高さ2m以上の作業床の端や開口部には、囲い、手すり、覆い等を設ける。",
+              "correct": true
+            },
+            {
+              "label": "ロ",
+              "text": "手すりである。囲いと並び、墜落防止のため設置する設備として規定されている。",
+              "correct": true
+            },
+            {
+              "label": "ハ",
+              "text": "防網を張りである。囲い等の設置が著しく困難なときは、防網を張るなどの措置をとる。",
+              "correct": true
+            },
+            {
+              "label": "ニ",
+              "text": "要求性能墜落制止用器具である。防網等とあわせ労働者に使用させ、その異常の有無を随時点検する。",
+              "correct": true
+            }
+          ],
           "igEligible": false,
           "packEligible": false
         },
@@ -32604,6 +33051,28 @@
           "correct": 4,
           "correctText": "4つ",
           "optionExplanations": [],
+          "statements": [
+            {
+              "label": "①",
+              "text": "バケット下ろし・原動機停止・ブレーキ施錠は法令通りで正しい",
+              "correct": true
+            },
+            {
+              "label": "②",
+              "text": "合図・誘導の規定は正しい",
+              "correct": true
+            },
+            {
+              "label": "③",
+              "text": "作業開始前点検（ブレーキ・クラッチ）は法令通りで正しい",
+              "correct": true
+            },
+            {
+              "label": "④",
+              "text": "乗車席以外への乗車禁止は法令通りで正しい",
+              "correct": true
+            }
+          ],
           "igEligible": true,
           "packEligible": false
         },
@@ -32633,6 +33102,28 @@
           "correct": 4,
           "correctText": "③④",
           "optionExplanations": [],
+          "statements": [
+            {
+              "label": "①",
+              "text": "「最大測定値と平均値の差 R」は誤りで，R は各組の最大値と最小値の差",
+              "correct": false
+            },
+            {
+              "label": "②",
+              "text": "中心線の値は中央値ではなく平均値で求める",
+              "correct": false
+            },
+            {
+              "label": "③",
+              "text": "管理限界の計算式（係数 $A_2, D_3, D_4$）使用は正しい",
+              "correct": true
+            },
+            {
+              "label": "④",
+              "text": "中心線・管理限界線・データのプロットは正しい",
+              "correct": true
+            }
+          ],
           "igEligible": false,
           "packEligible": false
         },
@@ -32662,6 +33153,28 @@
           "correct": 3,
           "correctText": "①②③",
           "optionExplanations": [],
+          "statements": [
+            {
+              "label": "①",
+              "text": "ICT 施工の効果記述は正しい",
+              "correct": true
+            },
+            {
+              "label": "②",
+              "text": "締固めの目的（法面安定・支持力増加）は正しい",
+              "correct": true
+            },
+            {
+              "label": "③",
+              "text": "工法規定方式の規定項目（機械・回数・敷均し厚さ）は正しい",
+              "correct": true
+            },
+            {
+              "label": "④",
+              "text": "品質規定方式は乾燥密度や飽和度等の品質指標を規定する方式で，工法を発注者が指示するのは工法規定方式の誤った記述",
+              "correct": false
+            }
+          ],
           "igEligible": true,
           "packEligible": false
         }
@@ -34417,6 +34930,18 @@
               "correct": false
             }
           ],
+          "statements": [
+            {
+              "label": "イ",
+              "text": "形成工法である。樹脂含浸材などを管内に引き込み、加圧して拡張・圧着させ、硬化や冷却固化で更生管を構築する。",
+              "correct": true
+            },
+            {
+              "label": "ロ",
+              "text": "さや管工法である。既設管より小径の二次製品管をけん引挿入し、間隙に充塡材を注入して更生管を構築する。",
+              "correct": true
+            }
+          ],
           "igEligible": false,
           "packEligible": false
         },
@@ -35531,6 +36056,28 @@
           "correct": 3,
           "correctText": "3 つ",
           "optionExplanations": [],
+          "statements": [
+            {
+              "label": "①",
+              "text": "事務所や宿舎設備等は「間接仮設工事」に分類されるため誤り",
+              "correct": false
+            },
+            {
+              "label": "②",
+              "text": "構造計算と安全衛生規則準拠は標準で正しい",
+              "correct": true
+            },
+            {
+              "label": "③",
+              "text": "仮設備は工事完成時に撤去するのが原則で正しい",
+              "correct": true
+            },
+            {
+              "label": "④",
+              "text": "指定仮設は契約変更対象、任意仮設は対象外で正しい",
+              "correct": true
+            }
+          ],
           "igEligible": true,
           "packEligible": false
         },
@@ -35597,6 +36144,28 @@
               "num": 3,
               "text": "①②③が正しい組合せ <ExamPoint>下方限界を下回れば工程は遅れている</ExamPoint>",
               "correct": true
+            }
+          ],
+          "statements": [
+            {
+              "label": "①",
+              "text": "S 字型出来高曲線で工程管理する基本で正しい",
+              "correct": true
+            },
+            {
+              "label": "②",
+              "text": "縦軸出来高比率・横軸時間経過率は標準で正しい",
+              "correct": true
+            },
+            {
+              "label": "③",
+              "text": "上下限界内が許容範囲というのは工程管理曲線の基本ルールで正しい",
+              "correct": true
+            },
+            {
+              "label": "④",
+              "text": "下方限界を下回るのは「工程が遅れている」ことを意味し、進み過ぎではないため誤り",
+              "correct": false
             }
           ],
           "igEligible": true,
@@ -35727,6 +36296,28 @@
           "correct": 2,
           "correctText": "②④",
           "optionExplanations": [],
+          "statements": [
+            {
+              "label": "①",
+              "text": "最大値は 8 であり、10 ではないため誤り",
+              "correct": false
+            },
+            {
+              "label": "②",
+              "text": "度数分布は 6 を中心に左右対称なので平均値は 6 で正しい",
+              "correct": true
+            },
+            {
+              "label": "③",
+              "text": "範囲は最大値 8 − 最小値 4 = 4 であり、6 ではないため誤り",
+              "correct": false
+            },
+            {
+              "label": "④",
+              "text": "総数は 4 + 6 + 10 + 6 + 4 = 30 で正しい",
+              "correct": true
+            }
+          ],
           "igEligible": true,
           "packEligible": false
         },
@@ -35759,6 +36350,28 @@
             {
               "num": 3,
               "text": "①②④の組合せが正しい <ExamPoint>締固めは空気間隙を減らして透水性を低下させる</ExamPoint>",
+              "correct": true
+            }
+          ],
+          "statements": [
+            {
+              "label": "①",
+              "text": "品質規定方式の説明として正しい",
+              "correct": true
+            },
+            {
+              "label": "②",
+              "text": "工法規定方式の説明として正しい",
+              "correct": true
+            },
+            {
+              "label": "③",
+              "text": "締固めは空気間隙を減らし「透水性を低下」させる目的であり、上昇は誤り",
+              "correct": false
+            },
+            {
+              "label": "④",
+              "text": "ICT 建設機械の活用効果として正しい",
               "correct": true
             }
           ],
@@ -37534,6 +38147,18 @@
               "correct": true
             }
           ],
+          "statements": [
+            {
+              "label": "イ",
+              "text": "硬質土は、硬質粘土、礫混じり土及び礫混じり砂などで、剛性管の基礎には砂基礎などが用いられる。",
+              "correct": true
+            },
+            {
+              "label": "ロ",
+              "text": "極軟弱土は、非常に緩いシルトや有機質土などで、剛性管の基礎には鉄筋コンクリート基礎などが用いられる。",
+              "correct": true
+            }
+          ],
           "igEligible": false,
           "packEligible": false
         },
@@ -38683,6 +39308,28 @@
               "correct": true
             }
           ],
+          "statements": [
+            {
+              "label": "イ",
+              "text": "事前調査である。契約条件と設計図書の検討、現地調査が主な内容となる。",
+              "correct": true
+            },
+            {
+              "label": "ロ",
+              "text": "施工技術計画である。作業計画と工程計画を中心に、施工方法を具体化する。",
+              "correct": true
+            },
+            {
+              "label": "ハ",
+              "text": "仮設備計画である。直接仮設と間接仮設の計画を扱う。",
+              "correct": true
+            },
+            {
+              "label": "ニ",
+              "text": "管理計画である。安全衛生計画と実行予算など、工事の管理に関する事項を扱う。",
+              "correct": true
+            }
+          ],
           "igEligible": false,
           "packEligible": false
         },
@@ -38712,6 +39359,28 @@
           "correct": 3,
           "correctText": "①②④",
           "optionExplanations": [],
+          "statements": [
+            {
+              "label": "①",
+              "text": "実施工程は計画よりやや先行が望ましく正しい",
+              "correct": true
+            },
+            {
+              "label": "②",
+              "text": "進捗状況の周知徹底は正しい",
+              "correct": true
+            },
+            {
+              "label": "③",
+              "text": "工程表は施工順序と必要日数を図表化するもので「実行予算」は誤り",
+              "correct": false
+            },
+            {
+              "label": "④",
+              "text": "原因追及と改善は正しい",
+              "correct": true
+            }
+          ],
           "igEligible": true,
           "packEligible": false
         },
@@ -38807,6 +39476,28 @@
           "correct": 2,
           "correctText": "2つ",
           "optionExplanations": [],
+          "statements": [
+            {
+              "label": "①",
+              "text": "転倒・転落のおそれがある場所では運転者にシートベルト使用等を確実に講じる義務で「努めなければならない」は誤り",
+              "correct": false
+            },
+            {
+              "label": "②",
+              "text": "運転位置離脱時の措置は正しい",
+              "correct": true
+            },
+            {
+              "label": "③",
+              "text": "落石危険箇所のヘッドガード装備は正しい",
+              "correct": true
+            },
+            {
+              "label": "④",
+              "text": "修理・アタッチメント着脱時の措置に齟齬があり誤り",
+              "correct": false
+            }
+          ],
           "igEligible": true,
           "packEligible": false
         },
@@ -38836,6 +39527,28 @@
           "correct": 3,
           "correctText": "①③④",
           "optionExplanations": [],
+          "statements": [
+            {
+              "label": "①",
+              "text": "データ平均値 x の計算は正しい",
+              "correct": true
+            },
+            {
+              "label": "②",
+              "text": "範囲 R は各組のデータの最大と「最小」の差で求め「平均との差」は誤り",
+              "correct": false
+            },
+            {
+              "label": "③",
+              "text": "用紙への目盛は正しい",
+              "correct": true
+            },
+            {
+              "label": "④",
+              "text": "管理線（中心線・UCL・LCL）の計算は正しい",
+              "correct": true
+            }
+          ],
           "igEligible": true,
           "packEligible": false
         },
@@ -38865,6 +39578,28 @@
           "correct": 3,
           "correctText": "①②④",
           "optionExplanations": [],
+          "statements": [
+            {
+              "label": "①",
+              "text": "水平敷均しと均等締固めは正しい",
+              "correct": true
+            },
+            {
+              "label": "②",
+              "text": "最適含水比と最大乾燥密度の関係は正しい",
+              "correct": true
+            },
+            {
+              "label": "③",
+              "text": "工法規定方式は使用機種や締固め回数等を規定する方法であり，「重量や締固め時間」を規定するとした記述は誤り",
+              "correct": false
+            },
+            {
+              "label": "④",
+              "text": "ICT施工の効果説明は正しい",
+              "correct": true
+            }
+          ],
           "igEligible": true,
           "packEligible": false
         }
@@ -41707,6 +42442,28 @@
               "correct": false
             }
           ],
+          "statements": [
+            {
+              "label": "①",
+              "text": "走行性はトラフィカビリティーの定義であり、ワーカビリティーはコンクリートの施工性を表す語のため誤り",
+              "correct": false
+            },
+            {
+              "label": "②",
+              "text": "リッパビリティーの説明として正しい",
+              "correct": true
+            },
+            {
+              "label": "③",
+              "text": "作業能力の表現として正しい",
+              "correct": true
+            },
+            {
+              "label": "④",
+              "text": "ダンプトラックの作業効率要因として正しい",
+              "correct": true
+            }
+          ],
           "igEligible": true,
           "packEligible": true
         },
@@ -41787,6 +42544,28 @@
             {
               "num": 4,
               "text": "②③④ — ③④は誤りのため <ExamPoint>バーチャートは横軸に日数・縦軸に工種をとり棒線で表す</ExamPoint>",
+              "correct": false
+            }
+          ],
+          "statements": [
+            {
+              "label": "①",
+              "text": "ネットワーク式工程表の説明として正しい",
+              "correct": true
+            },
+            {
+              "label": "②",
+              "text": "出来高累計曲線の説明として正しい",
+              "correct": true
+            },
+            {
+              "label": "③",
+              "text": "バーチャートは横軸に時間、縦軸に工種をとり棒線で表すため、「出来高を縦軸にとり斜線で表す」は誤り",
+              "correct": false
+            },
+            {
+              "label": "④",
+              "text": "グラフ式工程表の縦軸・横軸の説明が誤り",
               "correct": false
             }
           ],
@@ -41939,6 +42718,28 @@
               "correct": false
             }
           ],
+          "statements": [
+            {
+              "label": "①",
+              "text": "x̄管理図は組ごとの平均値で管理する管理図であり、「分布の幅」で管理するのは誤り",
+              "correct": false
+            },
+            {
+              "label": "②",
+              "text": "R管理図は組ごとの分布の幅（範囲）で管理する管理図であり、「平均値」で管理するのは誤り",
+              "correct": false
+            },
+            {
+              "label": "③",
+              "text": "x̄-R管理図はx̄管理図とR管理図を併用するものとして正しい",
+              "correct": true
+            },
+            {
+              "label": "④",
+              "text": "x̄-R管理図で平均値の変動とばらつきの変化を同時に管理する説明として正しい",
+              "correct": true
+            }
+          ],
           "igEligible": true,
           "packEligible": true
         },
@@ -41986,6 +42787,28 @@
             {
               "num": 4,
               "text": "②③④ — ④は誤りのため <ExamPoint>盛土締固めの目的は含水比の低減・適正化であり増加ではない</ExamPoint>",
+              "correct": false
+            }
+          ],
+          "statements": [
+            {
+              "label": "①",
+              "text": "工法規定方式の説明として正しい",
+              "correct": true
+            },
+            {
+              "label": "②",
+              "text": "品質規定方式の説明として正しい",
+              "correct": true
+            },
+            {
+              "label": "③",
+              "text": "ICT建設機械の効果として正しい",
+              "correct": true
+            },
+            {
+              "label": "④",
+              "text": "盛土の締固めの目的は含水比の増加ではなく低減・適正化であり、誤り",
               "correct": false
             }
           ],
@@ -43744,6 +44567,18 @@
               "correct": true
             }
           ],
+          "statements": [
+            {
+              "label": "イ",
+              "text": "既設管渠より小さな二次製品を挿入して間隙に充塡材を注入するさや管工法、",
+              "correct": null
+            },
+            {
+              "label": "ロ",
+              "text": "樹脂を含浸した材料等を引き込んで加圧・硬化させる形成工法である。製管工法は既設管渠内で硬質塩化ビニル樹脂等の部材をかん合させながら管を構築する工法である。",
+              "correct": null
+            }
+          ],
           "igEligible": true,
           "packEligible": true
         },
@@ -44856,6 +45691,28 @@
           "correct": 3,
           "correctText": "3つ",
           "optionExplanations": [],
+          "statements": [
+            {
+              "label": "①",
+              "text": "作業能力は単独又は組み合わされた機械の時間当たりの平均作業量で表すので正しい",
+              "correct": true
+            },
+            {
+              "label": "②",
+              "text": "建設機械の走行性はトラフィカビリティーで、一般にコーン指数で判断する。ワーカビリティーは施工のしやすさを表す語で誤り",
+              "correct": false
+            },
+            {
+              "label": "③",
+              "text": "リッパビリティーは大型ブルドーザに装着されたリッパで作業できる程度を表すので正しい",
+              "correct": true
+            },
+            {
+              "label": "④",
+              "text": "ダンプトラックの作業効率は、運搬路の沿道条件、路面状態、昼夜の別等で変わるので正しい",
+              "correct": true
+            }
+          ],
           "igEligible": true,
           "packEligible": false
         },
@@ -44935,6 +45792,28 @@
           "correct": 3,
           "correctText": "①③④",
           "optionExplanations": [],
+          "statements": [
+            {
+              "label": "①",
+              "text": "バーチャートは各工事の必要日数を棒線で表した図表で正しい",
+              "correct": true
+            },
+            {
+              "label": "②",
+              "text": "ガントチャートは各作業の達成度（%）を表す工程表で、作業相互の関連や順序を表すのはネットワーク式工程表である",
+              "correct": false
+            },
+            {
+              "label": "③",
+              "text": "グラフ式工程表は工種ごとの工程を斜線で表した図表で正しい",
+              "correct": true
+            },
+            {
+              "label": "④",
+              "text": "出来高累計曲線は工事全体の出来高比率の累計を曲線で表した図表で正しい",
+              "correct": true
+            }
+          ],
           "igEligible": true,
           "packEligible": false
         },
@@ -45035,6 +45914,28 @@
               "correct": false
             }
           ],
+          "statements": [
+            {
+              "label": "イ",
+              "text": "元方事業者である。一の場所の事業の一部を請負人に請け負わせている事業者をいう。",
+              "correct": true
+            },
+            {
+              "label": "ロ",
+              "text": "特定元方事業者である。元方事業者のうち建設業等を行う者をいう。",
+              "correct": true
+            },
+            {
+              "label": "ハ",
+              "text": "協議組織である。特定元方事業者は労働災害防止のためその設置と運営を行う。",
+              "correct": true
+            },
+            {
+              "label": "ニ",
+              "text": "毎作業日にである。作業場所の巡視は毎作業日に少なくとも1回行う。",
+              "correct": true
+            }
+          ],
           "igEligible": true,
           "packEligible": true
         },
@@ -45114,6 +46015,28 @@
           "correct": 3,
           "correctText": "①②③",
           "optionExplanations": [],
+          "statements": [
+            {
+              "label": "①",
+              "text": "測定値のばらつきを知るのに最も簡単で効率的な統計手法で正しい",
+              "correct": true
+            },
+            {
+              "label": "②",
+              "text": "データの分布を表した柱状図で正しい",
+              "correct": true
+            },
+            {
+              "label": "③",
+              "text": "平均値が規格値の中央で左右対称なヒストグラムは品質管理が良好で正しい",
+              "correct": true
+            },
+            {
+              "label": "④",
+              "text": "ヒストグラムの縦軸は度数（データの個数）で、平均値ではない",
+              "correct": false
+            }
+          ],
           "igEligible": true,
           "packEligible": false
         },
@@ -45143,6 +46066,28 @@
           "correct": 2,
           "correctText": "③④",
           "optionExplanations": [],
+          "statements": [
+            {
+              "label": "①",
+              "text": "品質を仕様書に明示して工法を施工者に任せるのは品質規定方式の説明で、工法規定方式の説明ではない",
+              "correct": false
+            },
+            {
+              "label": "②",
+              "text": "締固め機械の機種・締固め回数・敷均し厚さ等を規定するのは工法規定方式の説明で、品質規定方式の説明ではない",
+              "correct": false
+            },
+            {
+              "label": "③",
+              "text": "締固めは法面の安定や土の支持力の増加等を目的に行うので正しい",
+              "correct": true
+            },
+            {
+              "label": "④",
+              "text": "ICT土工は電子情報を活用して効率的で高精度な施工を行うものなので正しい",
+              "correct": true
+            }
+          ],
           "igEligible": true,
           "packEligible": false
         }

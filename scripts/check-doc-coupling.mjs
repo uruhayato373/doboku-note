@@ -24,6 +24,13 @@
 // 真実源ルール: .claude/knowledge/reference/information-architecture.md「SSOT と参照規律」/ CLAUDE.md §8。
 
 import { execFileSync } from 'node:child_process';
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
 
 const SKILLS_GUIDE = '.claude/knowledge/reference/skills-guide.md';
 const SKILLS_REGISTRY = '.claude/knowledge/reference/skills-registry.md';
@@ -31,7 +38,7 @@ const AGENTS_REGISTRY = '.claude/knowledge/reference/agents-registry.md';
 
 if (process.env.SKIP_DOC_COUPLING === '1') {
   console.log('[check-doc-coupling] スキップ（SKIP_DOC_COUPLING=1）');
-  process.exit(0);
+  __exit(0);
 }
 
 // staged の name-status（リネームは A+D に分解して単純化）
@@ -140,7 +147,11 @@ if (violations.length) {
   console.error('      skills → skills-guide.md（一覧）＋ skills-registry.md（退役/追加ログ） / agents → agents-registry.md');
   console.error('      正当に台帳更新が不要なら SKIP_DOC_COUPLING=1 または git commit --no-verify で回避。');
   console.error('      ルール: CLAUDE.md §8 / .claude/knowledge/reference/information-architecture.md「SSOT と参照規律」');
-  process.exit(1);
+  __exit(1);
 }
 
 console.log('[check-doc-coupling] ✓ スキル/エージェントの台帳更新もれなし');
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

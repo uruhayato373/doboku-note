@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-10-11T00:50:59.147Z",
+  "updatedAt": "2026-10-12T07:56:02.261Z",
   "items": [
     {
       "slug": "1級・2級土木/1級土木/1級経験記述R6新形式と設問書き分け",
@@ -5765,6 +5765,23 @@
       "title": "2級土木 二次学科記述｜直前暗記ノート（穴埋め頻出語句 一問一答）"
     },
     {
+      "slug": "1級・2級土木/2級土木/R8二次の出題予想",
+      "path": "content/note/1級・2級土木/2級土木/R8二次の出題予想/article.md",
+      "exam": "1級・2級土木",
+      "noteUrl": "https://note.com/dobokunote/n/naa0821a3d631",
+      "noteId": "naa0821a3d631",
+      "status": "published",
+      "publishedAt": "2026-10-12",
+      "pricing": "free",
+      "price": null,
+      "contentType": "learning",
+      "series": "受験ガイド",
+      "noteMagazine": null,
+      "magazines": [],
+      "utmCampaign": "2c-r8-yosou",
+      "title": "2級土木 令和8年度 二次検定｜出題予想 — 過去5年の傾向から準備する範囲を決める"
+    },
+    {
       "slug": "1級・2級土木/2級土木/一次択一-過去問PDF",
       "path": "content/note/1級・2級土木/2級土木/一次択一-過去問PDF/article.md",
       "exam": "1級・2級土木",
@@ -5814,6 +5831,23 @@
       "magazines": [],
       "utmCampaign": "2c-essay-theme",
       "title": "2級土木 施工経験記述｜「安全・品質・工程」どれで書くか — 題材選びで半分決まる"
+    },
+    {
+      "slug": "1級・2級土木/2級土木/経験記述を残り3週間で仕上げる",
+      "path": "content/note/1級・2級土木/2級土木/経験記述を残り3週間で仕上げる/article.md",
+      "exam": "1級・2級土木",
+      "noteUrl": "https://note.com/dobokunote/n/n1edc95f39203",
+      "noteId": "n1edc95f39203",
+      "status": "published",
+      "publishedAt": "2026-10-12",
+      "pricing": "free",
+      "price": null,
+      "contentType": "learning",
+      "series": "施工経験記述",
+      "noteMagazine": null,
+      "magazines": [],
+      "utmCampaign": "2c-essay-3weeks",
+      "title": "2級土木 施工経験記述｜二次まで残り3週間で仕上げる手順 — 1つの工事で3テーマを書き切る"
     },
     {
       "slug": "1級・2級土木/2級土木/経験記述を自分の現場に置換",
@@ -18453,40 +18487,6 @@
     }
   ],
   "unpublished": [
-    {
-      "slug": "1級・2級土木/2級土木/R8二次の出題予想",
-      "path": "content/note/1級・2級土木/2級土木/R8二次の出題予想/article.md",
-      "exam": "1級・2級土木",
-      "noteUrl": null,
-      "noteId": null,
-      "status": "draft",
-      "publishedAt": null,
-      "pricing": "free",
-      "price": null,
-      "contentType": "learning",
-      "series": "受験ガイド",
-      "noteMagazine": null,
-      "magazines": [],
-      "utmCampaign": "2c-r8-yosou",
-      "title": "2級土木 令和8年度 二次検定｜出題予想 — 過去5年の傾向から準備する範囲を決める"
-    },
-    {
-      "slug": "1級・2級土木/2級土木/経験記述を残り3週間で仕上げる",
-      "path": "content/note/1級・2級土木/2級土木/経験記述を残り3週間で仕上げる/article.md",
-      "exam": "1級・2級土木",
-      "noteUrl": null,
-      "noteId": null,
-      "status": "draft",
-      "publishedAt": null,
-      "pricing": "free",
-      "price": null,
-      "contentType": "learning",
-      "series": "施工経験記述",
-      "noteMagazine": null,
-      "magazines": [],
-      "utmCampaign": "2c-essay-3weeks",
-      "title": "2級土木 施工経験記述｜二次まで残り3週間で仕上げる手順 — 1つの工事で3テーマを書き切る"
-    },
     {
       "slug": "1級・2級土木/R8二次-自己採点と合格発表まで-2級-無料",
       "path": "content/note/1級・2級土木/R8二次-自己採点と合格発表まで-2級-無料/article.md",

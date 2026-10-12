@@ -281,436 +281,508 @@
           "dq": false
         },
         {
-          "match": "magazines/2級土木-想定工事バンク/工事101-",
+          "match": "magazines/2級土木-想定工事バンク/工事101-住宅地道路側溝更新/",
           "home": "civil-2-keiken-local-road-pack",
           "upper": "civil-2-koji-bank",
-          "dq": true
+          "dq": true,
+          "_generated": true
         },
         {
-          "match": "magazines/2級土木-想定工事バンク/工事102-",
+          "match": "magazines/2級土木-想定工事バンク/工事102-通学路歩道切下げ整備/",
           "home": "civil-2-keiken-local-road-pack",
           "upper": "civil-2-koji-bank",
-          "dq": true
+          "dq": true,
+          "_generated": true
         },
         {
-          "match": "magazines/2級土木-想定工事バンク/工事104-",
+          "match": "magazines/2級土木-想定工事バンク/工事103-市道部分舗装修繕区画線復旧/",
+          "home": "civil-2-keiken-paving-pack",
+          "upper": "civil-2-koji-bank",
+          "dq": true,
+          "_generated": true
+        },
+        {
+          "match": "magazines/2級土木-想定工事バンク/工事104-山間道路ガードレール更新/",
           "home": "civil-2-keiken-local-road-pack",
           "upper": "civil-2-koji-bank",
-          "dq": true
+          "dq": true,
+          "_generated": true
         },
         {
-          "match": "magazines/2級土木-想定工事バンク/工事107-",
+          "match": "magazines/2級土木-想定工事バンク/工事105-路肩カラー舗装歩行空間整備/",
+          "home": "civil-2-keiken-paving-pack",
+          "upper": "civil-2-koji-bank",
+          "dq": true,
+          "_generated": true
+        },
+        {
+          "match": "magazines/2級土木-想定工事バンク/工事106-公共施設駐車場舗装/",
+          "home": "civil-2-keiken-paving-pack",
+          "upper": "civil-2-koji-bank",
+          "dq": true,
+          "_generated": true
+        },
+        {
+          "match": "magazines/2級土木-想定工事バンク/工事107-道路ブロック積擁壁更新/",
           "home": "civil-2-keiken-local-road-pack",
           "upper": "civil-2-koji-bank",
-          "dq": true
+          "dq": true,
+          "_generated": true
         },
         {
-          "match": "magazines/2級土木-想定工事バンク/工事111-",
+          "match": "magazines/2級土木-想定工事バンク/工事111-落石防護柵設置/",
           "home": "civil-2-keiken-local-road-pack",
           "upper": "civil-2-koji-bank",
-          "dq": true
+          "dq": true,
+          "_generated": true
         },
         {
-          "match": "magazines/2級土木-想定工事バンク/工事115-",
+          "match": "magazines/2級土木-想定工事バンク/工事115-切土法面植生基材吹付/",
           "home": "civil-2-keiken-local-road-pack",
           "upper": "civil-2-koji-bank",
-          "dq": true
+          "dq": true,
+          "_generated": true
         },
         {
-          "match": "magazines/2級土木-想定工事バンク/工事116-",
+          "match": "magazines/2級土木-想定工事バンク/工事116-道路法面小段排水更新/",
           "home": "civil-2-keiken-local-road-pack",
           "upper": "civil-2-koji-bank",
-          "dq": true
+          "dq": true,
+          "_generated": true
         },
         {
-          "match": "magazines/2級土木-想定工事バンク/工事48-",
-          "home": "civil-2-keiken-local-road-pack",
-          "upper": "civil-2-koji-bank",
-          "dq": true
-        },
-        {
-          "match": "magazines/2級土木-想定工事バンク/工事37-",
-          "home": "civil-2-keiken-paving-pack",
-          "upper": "civil-2-koji-bank",
-          "dq": true
-        },
-        {
-          "match": "magazines/2級土木-想定工事バンク/工事38-",
-          "home": "civil-2-keiken-paving-pack",
-          "upper": "civil-2-koji-bank",
-          "dq": true
-        },
-        {
-          "match": "magazines/2級土木-想定工事バンク/工事39-",
-          "home": "civil-2-keiken-paving-pack",
-          "upper": "civil-2-koji-bank",
-          "dq": true
-        },
-        {
-          "match": "magazines/2級土木-想定工事バンク/工事42-",
-          "home": "civil-2-keiken-paving-pack",
-          "upper": "civil-2-koji-bank",
-          "dq": true
-        },
-        {
-          "match": "magazines/2級土木-想定工事バンク/工事44-",
-          "home": "civil-2-keiken-paving-pack",
-          "upper": "civil-2-koji-bank",
-          "dq": true
-        },
-        {
-          "match": "magazines/2級土木-想定工事バンク/工事47-",
-          "home": "civil-2-keiken-paving-pack",
-          "upper": "civil-2-koji-bank",
-          "dq": true
-        },
-        {
-          "match": "magazines/2級土木-想定工事バンク/工事103-",
-          "home": "civil-2-keiken-paving-pack",
-          "upper": "civil-2-koji-bank",
-          "dq": true
-        },
-        {
-          "match": "magazines/2級土木-想定工事バンク/工事105-",
-          "home": "civil-2-keiken-paving-pack",
-          "upper": "civil-2-koji-bank",
-          "dq": true
-        },
-        {
-          "match": "magazines/2級土木-想定工事バンク/工事106-",
-          "home": "civil-2-keiken-paving-pack",
-          "upper": "civil-2-koji-bank",
-          "dq": true
-        },
-        {
-          "match": "magazines/2級土木-想定工事バンク/工事63-",
-          "home": "civil-2-keiken-water-drainage-pack",
-          "upper": "civil-2-koji-bank",
-          "dq": true
-        },
-        {
-          "match": "magazines/2級土木-想定工事バンク/工事65-",
-          "home": "civil-2-keiken-water-drainage-pack",
-          "upper": "civil-2-koji-bank",
-          "dq": true
-        },
-        {
-          "match": "magazines/2級土木-想定工事バンク/工事68-",
-          "home": "civil-2-keiken-water-drainage-pack",
-          "upper": "civil-2-koji-bank",
-          "dq": true
-        },
-        {
-          "match": "magazines/2級土木-想定工事バンク/工事108-",
-          "home": "civil-2-keiken-water-drainage-pack",
-          "upper": "civil-2-koji-bank",
-          "dq": true
-        },
-        {
-          "match": "magazines/2級土木-想定工事バンク/工事117-",
-          "home": "civil-2-keiken-water-drainage-pack",
-          "upper": "civil-2-koji-bank",
-          "dq": true
-        },
-        {
-          "match": "magazines/2級土木-想定工事バンク/工事118-",
-          "home": "civil-2-keiken-water-drainage-pack",
-          "upper": "civil-2-koji-bank",
-          "dq": true
-        },
-        {
-          "match": "magazines/2級土木-想定工事バンク/工事119-",
-          "home": "civil-2-keiken-water-drainage-pack",
-          "upper": "civil-2-koji-bank",
-          "dq": true
-        },
-        {
-          "match": "magazines/2級土木-想定工事バンク/工事120-",
-          "home": "civil-2-keiken-water-drainage-pack",
-          "upper": "civil-2-koji-bank",
-          "dq": true
-        },
-        {
-          "match": "magazines/2級土木-想定工事バンク/工事02-",
-          "home": "civil-2-keiken-river-disaster-pack",
-          "upper": "civil-2-koji-bank",
-          "dq": true
-        },
-        {
-          "match": "magazines/2級土木-想定工事バンク/工事25-",
-          "home": "civil-2-keiken-river-disaster-pack",
-          "upper": "civil-2-koji-bank",
-          "dq": true
-        },
-        {
-          "match": "magazines/2級土木-想定工事バンク/工事51-",
-          "home": "civil-2-keiken-river-disaster-pack",
-          "upper": "civil-2-koji-bank",
-          "dq": true
-        },
-        {
-          "match": "magazines/2級土木-想定工事バンク/工事53-",
-          "home": "civil-2-keiken-river-disaster-pack",
-          "upper": "civil-2-koji-bank",
-          "dq": true
-        },
-        {
-          "match": "magazines/2級土木-想定工事バンク/工事55-",
-          "home": "civil-2-keiken-river-disaster-pack",
-          "upper": "civil-2-koji-bank",
-          "dq": true
-        },
-        {
-          "match": "magazines/2級土木-想定工事バンク/工事56-",
-          "home": "civil-2-keiken-river-disaster-pack",
-          "upper": "civil-2-koji-bank",
-          "dq": true
-        },
-        {
-          "match": "magazines/2級土木-想定工事バンク/工事62-",
-          "home": "civil-2-keiken-river-disaster-pack",
-          "upper": "civil-2-koji-bank",
-          "dq": true
-        },
-        {
-          "match": "magazines/2級土木-想定工事バンク/工事112-",
-          "home": "civil-2-keiken-river-disaster-pack",
-          "upper": "civil-2-koji-bank",
-          "dq": true
-        },
-        {
-          "match": "magazines/2級土木-想定工事バンク/工事113-",
-          "home": "civil-2-keiken-river-disaster-pack",
-          "upper": "civil-2-koji-bank",
-          "dq": true
-        },
-        {
-          "match": "magazines/2級土木-想定工事バンク/工事114-",
-          "home": "civil-2-keiken-river-disaster-pack",
-          "upper": "civil-2-koji-bank",
-          "dq": true
-        },
-        {
-          "match": "magazines/2級土木-想定工事バンク/工事01-",
-          "home": "civil-2-keiken-earthwork-slope-pack",
-          "upper": "civil-2-koji-bank",
-          "dq": true
-        },
-        {
-          "match": "magazines/2級土木-想定工事バンク/工事05-",
-          "home": "civil-2-keiken-earthwork-slope-pack",
-          "upper": "civil-2-koji-bank",
-          "dq": true
-        },
-        {
-          "match": "magazines/2級土木-想定工事バンク/工事06-",
-          "home": "civil-2-keiken-earthwork-slope-pack",
-          "upper": "civil-2-koji-bank",
-          "dq": true
-        },
-        {
-          "match": "magazines/2級土木-想定工事バンク/工事07-",
-          "home": "civil-2-keiken-earthwork-slope-pack",
-          "upper": "civil-2-koji-bank",
-          "dq": true
-        },
-        {
-          "match": "magazines/2級土木-想定工事バンク/工事08-",
-          "home": "civil-2-keiken-earthwork-slope-pack",
-          "upper": "civil-2-koji-bank",
-          "dq": true
-        },
-        {
-          "match": "magazines/2級土木-想定工事バンク/工事13-",
-          "home": "civil-2-keiken-earthwork-slope-pack",
-          "upper": "civil-2-koji-bank",
-          "dq": true
-        },
-        {
-          "match": "magazines/2級土木-想定工事バンク/工事40-",
-          "home": "civil-2-keiken-earthwork-slope-pack",
-          "upper": "civil-2-koji-bank",
-          "dq": true
-        },
-        {
-          "match": "magazines/2級土木-想定工事バンク/工事99-",
-          "home": "civil-2-keiken-earthwork-slope-pack",
-          "upper": "civil-2-koji-bank",
-          "dq": true
-        },
-        {
-          "match": "magazines/2級土木-想定工事バンク/工事17-",
-          "home": "civil-2-keiken-concrete-foundation-pack",
-          "upper": "civil-2-koji-bank",
-          "dq": true
-        },
-        {
-          "match": "magazines/2級土木-想定工事バンク/工事18-",
-          "home": "civil-2-keiken-concrete-foundation-pack",
-          "upper": "civil-2-koji-bank",
-          "dq": true
-        },
-        {
-          "match": "magazines/2級土木-想定工事バンク/工事22-",
-          "home": "civil-2-keiken-concrete-foundation-pack",
-          "upper": "civil-2-koji-bank",
-          "dq": true
-        },
-        {
-          "match": "magazines/2級土木-想定工事バンク/工事23-",
-          "home": "civil-2-keiken-concrete-foundation-pack",
-          "upper": "civil-2-koji-bank",
-          "dq": true
-        },
-        {
-          "match": "magazines/2級土木-想定工事バンク/工事27-",
-          "home": "civil-2-keiken-concrete-foundation-pack",
-          "upper": "civil-2-koji-bank",
-          "dq": true
-        },
-        {
-          "match": "magazines/2級土木-想定工事バンク/工事28-",
-          "home": "civil-2-keiken-concrete-foundation-pack",
-          "upper": "civil-2-koji-bank",
-          "dq": true
-        },
-        {
-          "match": "magazines/2級土木-想定工事バンク/工事29-",
-          "home": "civil-2-keiken-concrete-foundation-pack",
-          "upper": "civil-2-koji-bank",
-          "dq": true
-        },
-        {
-          "match": "magazines/2級土木-想定工事バンク/工事35-",
-          "home": "civil-2-keiken-concrete-foundation-pack",
-          "upper": "civil-2-koji-bank",
-          "dq": true
-        },
-        {
-          "match": "magazines/2級土木-想定工事バンク/工事121-",
+          "match": "magazines/2級土木-想定工事バンク/工事123-林道路面・横断排水補修/",
           "home": "civil-2-keiken-agri-forest-pack",
           "upper": "civil-2-koji-bank",
-          "dq": true
+          "dq": true,
+          "_generated": true
         },
         {
-          "match": "magazines/2級土木-想定工事バンク/工事122-",
+          "match": "magazines/2級土木-想定工事バンク/工事48-歩道整備バリアフリー/",
+          "home": "civil-2-keiken-local-road-pack",
+          "upper": "civil-2-koji-bank",
+          "dq": true,
+          "_generated": true
+        },
+        {
+          "match": "magazines/2級土木-想定工事バンク/工事37-アスファルト舗装新設/",
+          "home": "civil-2-keiken-paving-pack",
+          "upper": "civil-2-koji-bank",
+          "dq": true,
+          "_generated": true
+        },
+        {
+          "match": "magazines/2級土木-想定工事バンク/工事38-アスファルト舗装打換え/",
+          "home": "civil-2-keiken-paving-pack",
+          "upper": "civil-2-koji-bank",
+          "dq": true,
+          "_generated": true
+        },
+        {
+          "match": "magazines/2級土木-想定工事バンク/工事39-コンクリート舗装版/",
+          "home": "civil-2-keiken-paving-pack",
+          "upper": "civil-2-koji-bank",
+          "dq": true,
+          "_generated": true
+        },
+        {
+          "match": "magazines/2級土木-想定工事バンク/工事42-排水性舗装/",
+          "home": "civil-2-keiken-paving-pack",
+          "upper": "civil-2-koji-bank",
+          "dq": true,
+          "_generated": true
+        },
+        {
+          "match": "magazines/2級土木-想定工事バンク/工事44-路上路盤再生/",
+          "home": "civil-2-keiken-paving-pack",
+          "upper": "civil-2-koji-bank",
+          "dq": true,
+          "_generated": true
+        },
+        {
+          "match": "magazines/2級土木-想定工事バンク/工事47-交差点改良/",
+          "home": "civil-2-keiken-paving-pack",
+          "upper": "civil-2-koji-bank",
+          "dq": true,
+          "_generated": true
+        },
+        {
+          "match": "magazines/2級土木-想定工事バンク/工事108-プレキャストL型水路布設/",
+          "home": "civil-2-keiken-water-drainage-pack",
+          "upper": "civil-2-koji-bank",
+          "dq": true,
+          "_generated": true
+        },
+        {
+          "match": "magazines/2級土木-想定工事バンク/工事117-住宅地水道枝線耐震管更新/",
+          "home": "civil-2-keiken-water-drainage-pack",
+          "upper": "civil-2-koji-bank",
+          "dq": true,
+          "_generated": true
+        },
+        {
+          "match": "magazines/2級土木-想定工事バンク/工事118-公共桝下水取付管整備/",
+          "home": "civil-2-keiken-water-drainage-pack",
+          "upper": "civil-2-koji-bank",
+          "dq": true,
+          "_generated": true
+        },
+        {
+          "match": "magazines/2級土木-想定工事バンク/工事119-小規模マンホール内面更生/",
+          "home": "civil-2-keiken-water-drainage-pack",
+          "upper": "civil-2-koji-bank",
+          "dq": true,
+          "_generated": true
+        },
+        {
+          "match": "magazines/2級土木-想定工事バンク/工事120-住宅地雨水集水施設改良/",
+          "home": "civil-2-keiken-water-drainage-pack",
+          "upper": "civil-2-koji-bank",
+          "dq": true,
+          "_generated": true
+        },
+        {
+          "match": "magazines/2級土木-想定工事バンク/工事63-下水道管渠開削/",
+          "home": "civil-2-keiken-water-drainage-pack",
+          "upper": "civil-2-koji-bank",
+          "dq": true,
+          "_generated": true
+        },
+        {
+          "match": "magazines/2級土木-想定工事バンク/工事65-推進工法小口径/",
+          "home": "civil-2-keiken-water-drainage-pack",
+          "upper": "civil-2-koji-bank",
+          "dq": true,
+          "_generated": true
+        },
+        {
+          "match": "magazines/2級土木-想定工事バンク/工事68-上水道配水管布設開削/",
+          "home": "civil-2-keiken-water-drainage-pack",
+          "upper": "civil-2-koji-bank",
+          "dq": true,
+          "_generated": true
+        },
+        {
+          "match": "magazines/2級土木-想定工事バンク/工事02-河川築堤盛土/",
+          "home": "civil-2-keiken-river-disaster-pack",
+          "upper": "civil-2-koji-bank",
+          "dq": true,
+          "_generated": true
+        },
+        {
+          "match": "magazines/2級土木-想定工事バンク/工事112-山間小河川かご工護岸/",
+          "home": "civil-2-keiken-river-disaster-pack",
+          "upper": "civil-2-koji-bank",
+          "dq": true,
+          "_generated": true
+        },
+        {
+          "match": "magazines/2級土木-想定工事バンク/工事113-河川湾曲部根固め/",
+          "home": "civil-2-keiken-river-disaster-pack",
+          "upper": "civil-2-koji-bank",
+          "dq": true,
+          "_generated": true
+        },
+        {
+          "match": "magazines/2級土木-想定工事バンク/工事114-洪水被災河川管理用通路復旧/",
+          "home": "civil-2-keiken-river-disaster-pack",
+          "upper": "civil-2-koji-bank",
+          "dq": true,
+          "_generated": true
+        },
+        {
+          "match": "magazines/2級土木-想定工事バンク/工事25-根固めブロック/",
+          "home": "civil-2-keiken-river-disaster-pack",
+          "upper": "civil-2-koji-bank",
+          "dq": true,
+          "_generated": true
+        },
+        {
+          "match": "magazines/2級土木-想定工事バンク/工事51-河川護岸ブロック張/",
+          "home": "civil-2-keiken-river-disaster-pack",
+          "upper": "civil-2-koji-bank",
+          "dq": true,
+          "_generated": true
+        },
+        {
+          "match": "magazines/2級土木-想定工事バンク/工事53-樋門樋管/",
+          "home": "civil-2-keiken-river-disaster-pack",
+          "upper": "civil-2-koji-bank",
+          "dq": true,
+          "_generated": true
+        },
+        {
+          "match": "magazines/2級土木-想定工事バンク/工事55-河道掘削しゅんせつ/",
+          "home": "civil-2-keiken-river-disaster-pack",
+          "upper": "civil-2-koji-bank",
+          "dq": true,
+          "_generated": true
+        },
+        {
+          "match": "magazines/2級土木-想定工事バンク/工事56-床止め落差工/",
+          "home": "civil-2-keiken-river-disaster-pack",
+          "upper": "civil-2-koji-bank",
+          "dq": true,
+          "_generated": true
+        },
+        {
+          "match": "magazines/2級土木-想定工事バンク/工事62-砂防堰堤/",
+          "home": "civil-2-keiken-river-disaster-pack",
+          "upper": "civil-2-koji-bank",
+          "dq": true,
+          "_generated": true
+        },
+        {
+          "match": "magazines/2級土木-想定工事バンク/工事121-農業用水路ライニング補修/",
           "home": "civil-2-keiken-agri-forest-pack",
           "upper": "civil-2-koji-bank",
-          "dq": true
+          "dq": true,
+          "_generated": true
         },
         {
-          "match": "magazines/2級土木-想定工事バンク/工事123-",
+          "match": "magazines/2級土木-想定工事バンク/工事122-小規模ため池洪水吐改修/",
           "home": "civil-2-keiken-agri-forest-pack",
           "upper": "civil-2-koji-bank",
-          "dq": true
+          "dq": true,
+          "_generated": true
         },
         {
-          "match": "magazines/2級土木-想定工事バンク/工事125-",
+          "match": "magazines/2級土木-想定工事バンク/工事125-圃場整備区画整理/",
           "home": "civil-2-keiken-agri-forest-pack",
           "upper": "civil-2-koji-bank",
-          "dq": true
+          "dq": true,
+          "_generated": true
         },
         {
-          "match": "magazines/2級土木-想定工事バンク/工事126-",
+          "match": "magazines/2級土木-想定工事バンク/工事126-用排水路更新PCフリューム/",
           "home": "civil-2-keiken-agri-forest-pack",
           "upper": "civil-2-koji-bank",
-          "dq": true
+          "dq": true,
+          "_generated": true
         },
         {
-          "match": "magazines/2級土木-想定工事バンク/工事127-",
+          "match": "magazines/2級土木-想定工事バンク/工事127-農地暗渠排水/",
           "home": "civil-2-keiken-agri-forest-pack",
           "upper": "civil-2-koji-bank",
-          "dq": true
+          "dq": true,
+          "_generated": true
         },
         {
-          "match": "magazines/2級土木-想定工事バンク/工事79-",
+          "match": "magazines/2級土木-想定工事バンク/工事109-小橋梁下面断面修復/",
           "home": "civil-2-keiken-bridge-repair-pack",
           "upper": "civil-2-koji-bank",
-          "dq": true
+          "dq": true,
+          "_generated": true
         },
         {
-          "match": "magazines/2級土木-想定工事バンク/工事80-",
+          "match": "magazines/2級土木-想定工事バンク/工事110-小橋梁伸縮装置取替/",
           "home": "civil-2-keiken-bridge-repair-pack",
           "upper": "civil-2-koji-bank",
-          "dq": true
+          "dq": true,
+          "_generated": true
         },
         {
-          "match": "magazines/2級土木-想定工事バンク/工事109-",
+          "match": "magazines/2級土木-想定工事バンク/工事128-橋梁支承取替/",
           "home": "civil-2-keiken-bridge-repair-pack",
           "upper": "civil-2-koji-bank",
-          "dq": true
+          "dq": true,
+          "_generated": true
         },
         {
-          "match": "magazines/2級土木-想定工事バンク/工事110-",
+          "match": "magazines/2級土木-想定工事バンク/工事129-橋面防水橋面舗装更新/",
           "home": "civil-2-keiken-bridge-repair-pack",
           "upper": "civil-2-koji-bank",
-          "dq": true
+          "dq": true,
+          "_generated": true
         },
         {
-          "match": "magazines/2級土木-想定工事バンク/工事128-",
+          "match": "magazines/2級土木-想定工事バンク/工事130-高欄地覆補修剥落防止/",
           "home": "civil-2-keiken-bridge-repair-pack",
           "upper": "civil-2-koji-bank",
-          "dq": true
+          "dq": true,
+          "_generated": true
         },
         {
-          "match": "magazines/2級土木-想定工事バンク/工事129-",
+          "match": "magazines/2級土木-想定工事バンク/工事79-床版取替更新/",
           "home": "civil-2-keiken-bridge-repair-pack",
           "upper": "civil-2-koji-bank",
-          "dq": true
+          "dq": true,
+          "_generated": true
         },
         {
-          "match": "magazines/2級土木-想定工事バンク/工事130-",
+          "match": "magazines/2級土木-想定工事バンク/工事80-橋梁耐震補強/",
           "home": "civil-2-keiken-bridge-repair-pack",
           "upper": "civil-2-koji-bank",
-          "dq": true
+          "dq": true,
+          "_generated": true
         },
         {
-          "match": "magazines/2級土木-想定工事バンク/工事57-",
+          "match": "magazines/2級土木-想定工事バンク/工事01-道路改良盛土/",
+          "home": "civil-2-keiken-earthwork-slope-pack",
+          "upper": "civil-2-koji-bank",
+          "dq": true,
+          "_generated": true
+        },
+        {
+          "match": "magazines/2級土木-想定工事バンク/工事05-サンドドレーン盛土/",
+          "home": "civil-2-keiken-earthwork-slope-pack",
+          "upper": "civil-2-koji-bank",
+          "dq": true,
+          "_generated": true
+        },
+        {
+          "match": "magazines/2級土木-想定工事バンク/工事06-セメント改良土盛土/",
+          "home": "civil-2-keiken-earthwork-slope-pack",
+          "upper": "civil-2-koji-bank",
+          "dq": true,
+          "_generated": true
+        },
+        {
+          "match": "magazines/2級土木-想定工事バンク/工事07-切土法面地すべり/",
+          "home": "civil-2-keiken-earthwork-slope-pack",
+          "upper": "civil-2-koji-bank",
+          "dq": true,
+          "_generated": true
+        },
+        {
+          "match": "magazines/2級土木-想定工事バンク/工事08-補強土壁テールアルメ/",
+          "home": "civil-2-keiken-earthwork-slope-pack",
+          "upper": "civil-2-koji-bank",
+          "dq": true,
+          "_generated": true
+        },
+        {
+          "match": "magazines/2級土木-想定工事バンク/工事13-高含水比粘性土盛土/",
+          "home": "civil-2-keiken-earthwork-slope-pack",
+          "upper": "civil-2-koji-bank",
+          "dq": true,
+          "_generated": true
+        },
+        {
+          "match": "magazines/2級土木-想定工事バンク/工事40-道路改良拡幅/",
+          "home": "civil-2-keiken-earthwork-slope-pack",
+          "upper": "civil-2-koji-bank",
+          "dq": true,
+          "_generated": true
+        },
+        {
+          "match": "magazines/2級土木-想定工事バンク/工事99-法面対策吹付グラウンドアンカー/",
+          "home": "civil-2-keiken-earthwork-slope-pack",
+          "upper": "civil-2-koji-bank",
+          "dq": true,
+          "_generated": true
+        },
+        {
+          "match": "magazines/2級土木-想定工事バンク/工事17-RCボックスカルバート/",
+          "home": "civil-2-keiken-concrete-foundation-pack",
+          "upper": "civil-2-koji-bank",
+          "dq": true,
+          "_generated": true
+        },
+        {
+          "match": "magazines/2級土木-想定工事バンク/工事18-逆T式擁壁/",
+          "home": "civil-2-keiken-concrete-foundation-pack",
+          "upper": "civil-2-koji-bank",
+          "dq": true,
+          "_generated": true
+        },
+        {
+          "match": "magazines/2級土木-想定工事バンク/工事22-暑中コンクリート/",
+          "home": "civil-2-keiken-concrete-foundation-pack",
+          "upper": "civil-2-koji-bank",
+          "dq": true,
+          "_generated": true
+        },
+        {
+          "match": "magazines/2級土木-想定工事バンク/工事23-寒中コンクリート/",
+          "home": "civil-2-keiken-concrete-foundation-pack",
+          "upper": "civil-2-koji-bank",
+          "dq": true,
+          "_generated": true
+        },
+        {
+          "match": "magazines/2級土木-想定工事バンク/工事27-場所打ち杭オールケーシング/",
+          "home": "civil-2-keiken-concrete-foundation-pack",
+          "upper": "civil-2-koji-bank",
+          "dq": true,
+          "_generated": true
+        },
+        {
+          "match": "magazines/2級土木-想定工事バンク/工事28-場所打ち杭アースドリル/",
+          "home": "civil-2-keiken-concrete-foundation-pack",
+          "upper": "civil-2-koji-bank",
+          "dq": true,
+          "_generated": true
+        },
+        {
+          "match": "magazines/2級土木-想定工事バンク/工事29-PHC杭打込み/",
+          "home": "civil-2-keiken-concrete-foundation-pack",
+          "upper": "civil-2-koji-bank",
+          "dq": true,
+          "_generated": true
+        },
+        {
+          "match": "magazines/2級土木-想定工事バンク/工事35-橋台直接基礎/",
+          "home": "civil-2-keiken-concrete-foundation-pack",
+          "upper": "civil-2-koji-bank",
+          "dq": true,
+          "_generated": true
+        },
+        {
+          "match": "magazines/2級土木-想定工事バンク/工事131-漁港物揚場補修/",
           "home": "civil-2-keiken-port-coast-pack",
           "upper": "civil-2-koji-bank",
-          "dq": true
+          "dq": true,
+          "_generated": true
         },
         {
-          "match": "magazines/2級土木-想定工事バンク/工事131-",
+          "match": "magazines/2級土木-想定工事バンク/工事132-小規模防波堤嵩上げ/",
           "home": "civil-2-keiken-port-coast-pack",
           "upper": "civil-2-koji-bank",
-          "dq": true
+          "dq": true,
+          "_generated": true
         },
         {
-          "match": "magazines/2級土木-想定工事バンク/工事132-",
+          "match": "magazines/2級土木-想定工事バンク/工事133-海岸堤防補修/",
           "home": "civil-2-keiken-port-coast-pack",
           "upper": "civil-2-koji-bank",
-          "dq": true
+          "dq": true,
+          "_generated": true
         },
         {
-          "match": "magazines/2級土木-想定工事バンク/工事133-",
+          "match": "magazines/2級土木-想定工事バンク/工事134-漁港用地舗装排水/",
           "home": "civil-2-keiken-port-coast-pack",
           "upper": "civil-2-koji-bank",
-          "dq": true
+          "dq": true,
+          "_generated": true
         },
         {
-          "match": "magazines/2級土木-想定工事バンク/工事134-",
+          "match": "magazines/2級土木-想定工事バンク/工事57-海岸護岸消波工/",
           "home": "civil-2-keiken-port-coast-pack",
           "upper": "civil-2-koji-bank",
-          "dq": true
+          "dq": true,
+          "_generated": true
         },
         {
-          "match": "magazines/2級土木-想定工事バンク/工事124-",
+          "match": "magazines/2級土木-想定工事バンク/工事124-公園園路・排水施設整備/",
           "home": "civil-2-keiken-park-private-pack",
           "upper": "civil-2-koji-bank",
-          "dq": true
+          "dq": true,
+          "_generated": true
         },
         {
-          "match": "magazines/2級土木-想定工事バンク/工事135-",
+          "match": "magazines/2級土木-想定工事バンク/工事135-小規模宅地造成/",
           "home": "civil-2-keiken-park-private-pack",
           "upper": "civil-2-koji-bank",
-          "dq": true
+          "dq": true,
+          "_generated": true
         },
         {
-          "match": "magazines/2級土木-想定工事バンク/工事136-",
+          "match": "magazines/2級土木-想定工事バンク/工事136-商業施設外構舗装排水/",
           "home": "civil-2-keiken-park-private-pack",
           "upper": "civil-2-koji-bank",
-          "dq": true
+          "dq": true,
+          "_generated": true
         },
         {
           "match": "magazines/2級土木-想定工事バンク/",

@@ -62,11 +62,17 @@ for (const ch of CHANNELS) {
     staleUnits: [],
   };
 
-  if (!hasSsot && !marker) {
+  // 任意チャネルは正規化結果（ui-urls / ui-history）がまだ無ければ「未取得」とだけ出して先へ進む（DN-0669）。
+  // マーカーに失敗が残っていても、それで GSC 側の整合の検査を巻き込まない。
+  if (!hasSsot && (!marker || !ch.required)) {
     if (ch.required) {
       errors.push(`[${ch.label}] SSOT もマーカーも無い（未実施）。\`npm run search-growth:audit\` を実行してください。`);
     } else {
-      infos.push(`[${ch.label}] 未実施（任意チャネル・一次経路は GA4 Data API）。`);
+      infos.push(
+        marker
+          ? `[${ch.label}] 未取得（正規化した記録が無い。直近の実行 run=${marker.lastAttempt?.runId ?? marker.lastRun ?? "?"} complete=${(marker.lastAttempt ?? marker).complete ?? "?"}。任意チャネル・一次経路は GA4 Data API）。`
+          : `[${ch.label}] 未取得（未実施。任意チャネル・一次経路は GA4 Data API）。`,
+      );
     }
     report.push(entry);
     continue;

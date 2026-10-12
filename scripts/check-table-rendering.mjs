@@ -21,8 +21,15 @@ import { readFileSync, writeSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 import { findUnrenderedTables, stripFrontmatter } from "./lib/table-rendering-rules.mjs";
 import { listFiles as listTree } from "./lib/fs-walk.mjs";
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
 
-const args = process.argv.slice(2);
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
+
+const args = __argv.slice(2);
 const STAGED = args.includes("--staged");
 const JSON_OUT = args.includes("--json");
 
@@ -84,7 +91,7 @@ for (const file of files) {
 
 if (JSON_OUT) {
   writeSync(1, JSON.stringify({ scanned: files.length, findings }, null, 2) + "\n");
-  process.exit(findings.length ? 1 : 0);
+  __exit(findings.length ? 1 : 0);
 }
 
 const label = STAGED ? "（staged）" : "";
@@ -94,26 +101,26 @@ const allowNote = allowed ? `・allowlist ${allowed} 件を除外` : "";
 if (files.length === 0) {
   if (STAGED) {
     console.log(`[check-table-rendering] skip（対象 .mdx が staged に無し）`);
-    process.exit(0);
+    __exit(0);
   }
   console.error(
     `[check-table-rendering] FAIL: 検査対象が 0 件。走査ルート ${ROOTS.join(", ")} を確認せよ（検査不成立）`,
   );
-  process.exit(1);
+  __exit(1);
 }
 
 if (parseFailed) {
   console.error(
     `[check-table-rendering] FAIL: ${parseFailed} 件がパース不能（検査不成立）`,
   );
-  process.exit(1);
+  __exit(1);
 }
 
 if (findings.length === 0) {
   console.log(
     `[check-table-rendering] OK（描画されない表なし${label}・${files.length} 記事を実検査${allowNote}）`,
   );
-  process.exit(0);
+  __exit(0);
 }
 
 console.error(
@@ -134,4 +141,8 @@ console.error("  1. ヘッダ行とデリミタ行のセル数不一致（GFM �
 console.error("  2. 改行コードの破損（連続 CR。node scripts/check-table-rendering.mjs で");
 console.error("     見つかったら validate-mdx の line-ending 検査も確認する）");
 console.error("  3. 直前の行と空行なしで繋がっている（ヘッダ行の直前には空行が要る）");
-process.exit(1);
+__exit(1);
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

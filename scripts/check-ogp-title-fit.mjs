@@ -26,10 +26,17 @@ import { wrapTitle, pickFontSize } from '../.claude/skills/conversion/ogp-create
 import { readDataset } from './lib/dataset-io.mjs';
 import { REPO_ROOT, SITE_CONTENT_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
 
 const FLOOR = 56; // これ未満のフォント（px）は「長すぎて小さく出る」＝NG
-const STAGED = process.argv.includes('--staged');
-const ALL = process.argv.includes('--all');
+const STAGED = __argv.includes('--staged');
+const ALL = __argv.includes('--all');
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const textConfig = readDataset(REPO_ROOT, 'config.ogp-settings').text;
@@ -88,10 +95,14 @@ if (ALL) {
   rows.sort((a, b) => a.font - b.font);
   console.log(`[check-ogp-title-fit] guide ${rows.length} 件 / FLOOR=${FLOOR}px 未満 NG ${ng.length} 件`);
   rows.forEach((r) => console.log(`  ${String(r.font).padStart(3)}px ${r.font < FLOOR ? '✗' : ' '} ${r.manual ? '[手動]' : '[自動]'} ${r.slug}  「${r.preview}」`));
-  process.exit(0);
+  __exit(0);
 }
-if (ng.length === 0) { console.log(`[check-ogp-title-fit] ✓ ${STAGED ? 'staged ' : ''}guide の OGP 主題フォントは全て ${FLOOR}px 以上（均一）`); process.exit(0); }
+if (ng.length === 0) { console.log(`[check-ogp-title-fit] ✓ ${STAGED ? 'staged ' : ''}guide の OGP 主題フォントは全て ${FLOOR}px 以上（均一）`); __exit(0); }
 console.error(`[check-ogp-title-fit] ✗ ${ng.length} 件のガイド OGP 主題が ${FLOOR}px 未満で小さく出ます`);
 console.error('  真実源: .claude/knowledge/reference/ogp-prompts.md「ガイドOGPタイトルの統一」→ ogp.title を短い2行に・詳細は subtitle へ');
 ng.forEach((r) => console.error(`  ${r.font}px  ${r.slug}  「${r.preview}」`));
-process.exit(1);
+__exit(1);
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

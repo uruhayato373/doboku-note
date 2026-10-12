@@ -6,6 +6,7 @@ import { tmpdir } from 'node:os';
 import { join, dirname } from 'node:path';
 
 import { DATASETS, datasetPath, patternOf } from '../scripts/lib/datasets.mjs';
+import { escapeRegExp } from '../scripts/lib/regexp-escape.mjs';
 import {
   FAMILIES,
   POLICIES,
@@ -195,8 +196,8 @@ test('CLI: 一時 repo で --commit が計画どおり unlink し、中身を変
     // add -A が削除も stage する（workflow の前提）
     execFileSync('git', ['-C', root, 'add', '-A', '--', 'data']);
     const staged = execFileSync('git', ['-C', root, '-c', 'core.quotepath=false', 'diff', '--cached', '--name-status', '--no-renames'], { encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 });
-    assert.match(staged, new RegExp(`^D\\t${psi(day(15)).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`, 'm'));
-    assert.match(staged, new RegExp(`^A\\t${newest.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`, 'm'));
+    assert.match(staged, new RegExp(`^D\\t${escapeRegExp(psi(day(15)))}`, 'm'));
+    assert.match(staged, new RegExp(`^A\\t${escapeRegExp(newest)}`, 'm'));
     assert.ok(!staged.includes(BUSINESS) && !staged.includes(RANK), '中身を変えない台帳に差分が無い');
   } finally {
     rmSync(root, { recursive: true, force: true });

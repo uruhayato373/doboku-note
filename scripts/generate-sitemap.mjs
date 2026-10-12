@@ -6,6 +6,7 @@ import { SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 import { renderSitemapEntry, resolveStaticLastmod } from './lib/sitemap-lastmod.mjs';
 import { buildLegacySitemapUrls, renderLegacySitemap, LEGACY_SITEMAP_FILE, LEGACY_SITEMAP_UNTIL } from './lib/legacy-sitemap.mjs';
 import { SITE_ORIGIN } from './lib/site-identity.mjs';
+import { parseRouteTable } from './lib/legacy-routes.mjs';
 import { buildRobotsTxt } from './lib/robots-txt.mjs';
 
 const OUT_DIR = 'out';
@@ -28,6 +29,7 @@ function parseRedirects() {
   const sources = new Set();
   if (!existsSync(REDIRECTS_FILE)) return { docRoutes, sources };
   const content = readFileSync(REDIRECTS_FILE, 'utf8');
+  for (const [slug, to] of parseRouteTable(content)) docRoutes.set(slug, to);
   for (const rawLine of content.split('\n')) {
     const line = rawLine.trim();
     if (!line || line.startsWith('#')) continue;

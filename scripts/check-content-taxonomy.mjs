@@ -32,15 +32,22 @@ import {
   buildAliasMap, normalizeTags, isStructuralTag, checkGroupAllowed, checkStructuralTags,
   evaluateSetRatchet, evaluateCountRatchet, countTopicDirections,
 } from './lib/content-taxonomy.mjs';
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
 
 const NAME = 'check-content-taxonomy';
-const ARGS = process.argv.slice(2);
+const ARGS = __argv.slice(2);
 const STAGED = ARGS.includes('--staged');
 const CI = ARGS.includes('--ci');
 const JSON_OUT = ARGS.includes('--json');
 const BASELINE_PATH = join(REPO_ROOT, '.claude/config/content-taxonomy-baseline.json');
 
-const fail2 = (msg) => { console.error(`[${NAME}] 検査不成立: ${msg}`); process.exit(2); };
+const fail2 = (msg) => { console.error(`[${NAME}] 検査不成立: ${msg}`); __exit(2); };
 
 let taxonomy; let categories; let tags; let topics; let catalog;
 try {
@@ -210,5 +217,9 @@ if (!JSON_OUT) for (const w of warns.slice(0, 40)) console.log(`[${NAME}] WARN $
 if (warns.length > 40 && !JSON_OUT) console.log(`[${NAME}] WARN … 他 ${warns.length - 40} 件`);
 
 (JSON_OUT ? console.error : console.log)(summary);
-if (bad) process.exit(1);
+if (bad) __exit(1);
 (JSON_OUT ? console.error : console.log)(`[${NAME}] ✓ 分類は整合${CI ? '（baseline 以下）' : ''}`);
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

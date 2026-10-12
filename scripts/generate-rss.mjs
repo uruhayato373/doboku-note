@@ -4,6 +4,7 @@ import matter from 'gray-matter';
 import { loadGitDates, lookupGitDates } from '../.claude/scripts/lib/git-dates.mjs';
 import { SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 import { SITE_ORIGIN } from './lib/site-identity.mjs';
+import { parseRouteTable } from './lib/legacy-routes.mjs';
 
 const SITE_TITLE = 'doboku-note - 土木系資格試験 専門技術ノート';
 const SITE_DESCRIPTION =
@@ -21,6 +22,7 @@ function parseDocRoutes() {
   const routes = new Map();
   if (!existsSync(REDIRECTS_FILE)) return routes;
   const content = readFileSync(REDIRECTS_FILE, 'utf8');
+  for (const [slug, to] of parseRouteTable(content)) routes.set(slug, to);
   for (const rawLine of content.split('\n')) {
     const line = rawLine.trim();
     if (!line || line.startsWith('#')) continue;

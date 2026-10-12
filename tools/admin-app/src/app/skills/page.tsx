@@ -55,8 +55,8 @@ export default function SkillsPage() {
               .slice()
               .sort((a, b) => a.name.localeCompare(b.name))
               .map((s) => (
-                <div className="kpi" key={s.file} style={{ padding: '12px 14px' }}>
-                  <div className="mono" style={{ color: 'var(--ink)', marginBottom: 4 }}>
+                <div className="kpi px-3.5! py-3!" key={s.file}>
+                  <div className="mono mb-1 text-[color:var(--ink)]">
                     {s.name}
                   </div>
                   <div className="small muted desc-clamp">{s.description}</div>

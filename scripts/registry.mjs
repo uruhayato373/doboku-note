@@ -11,6 +11,7 @@
  *   npm run registry -- import-x [--commit]              # X の下書きフォルダ全部（自分の投稿の一覧 data/x/own-posts と本文で照合）
  *   npm run registry -- approve --pub <公開 ID> --stage visual|final --expect <digest>   # 運営者だけ（管理画面の確認画面からコピーする）
  *   npm run registry -- stop --pub <公開 ID> --reason user-decision|superseded|gone|unverified-legacy
+ *   npm run registry -- unschedule --pub <公開 ID> --reason <理由>   # 予約を外す（scheduled → uploaded_private・後で予約し直せる）
  *
  * 取り込み（import）は既定で dry-run。approve は --expect（画面で見た版の digest）が今の中身と一致したときだけ書く。
  * approve・stop は運営者の判断なので、エージェント（Claude Code の Bash＝環境変数 CLAUDECODE=1）からは実行できない。
@@ -188,6 +189,23 @@ function stop() {
   console.log(`止めた: ${pub.id}（${pub.status} → stopped・${args.reason}）`);
 }
 
+/**
+ * 予約を外す（scheduled → uploaded_private）。YouTube 側の公開予約を外したあとに台帳を合わせる（2026-10-13・運営者が YouTube の投稿を一旦止めた）。
+ * stopped は戻れない終端なので、後で予約し直せる「非公開でアップロード済み」に戻す。元の予約日時は reason に残す。
+ * 公開を減らす向きの操作なので運営者だけに限らないが、理由は必須。YouTube 側の実体は scripts/youtube-unschedule.mjs が先に外して確かめる。
+ */
+function unschedule() {
+  const cfg = loadRegistryConfig(ROOT);
+  if (!args.pub || !args.reason || String(args.reason).trim().length < 4) throw new Error('unschedule には --pub <公開 ID> --reason <理由> が要る');
+  const pub = loadRegistry(ROOT).publications.find((p) => p.id === args.pub);
+  if (!pub) throw new Error(`台帳に無い: ${args.pub}`);
+  if (pub.status !== 'scheduled') throw new Error(`予約済みではない（${pub.status}）: ${pub.id}`);
+  if (!canTransition(cfg, 'scheduled', 'uploaded_private', pub.channel)) throw new Error('scheduled → uploaded_private は遷移に無い');
+  const reason = `${String(args.reason).trim()}（元の予約 ${pub.publishAt}）`;
+  writePublication(pub, { status: 'uploaded_private', publishAt: undefined, reason });
+  console.log(`予約を外した: ${pub.id}（scheduled → uploaded_private・元の予約 ${pub.publishAt}）`);
+}
+
 async function importInstagram() {
   const { instagramRows } = await import('./lib/registry-ig-state.mjs');
   const cfg = loadRegistryConfig(ROOT);
@@ -248,9 +266,9 @@ async function importX() {
   console.log('書いた');
 }
 
-const commands = { list, show, index, 'import-video-pack': importVideoPack, 'import-video-packs': importVideoPacks, 'import-instagram': importInstagram, 'import-x': importX, approve, stop };
+const commands = { list, show, index, 'import-video-pack': importVideoPack, 'import-video-packs': importVideoPacks, 'import-instagram': importInstagram, 'import-x': importX, approve, stop, unschedule };
 if (!commands[command]) {
-  console.error('Usage: npm run registry -- list|show|index|import-video-pack|import-video-packs|import-instagram|import-x|approve|stop …');
+  console.error('Usage: npm run registry -- list|show|index|import-video-pack|import-video-packs|import-instagram|import-x|approve|stop|unschedule …');
   process.exit(2);
 }
 await commands[command]();

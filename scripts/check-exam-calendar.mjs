@@ -7,6 +7,13 @@ import { activeIds, validateQualificationRegistry } from "./lib/qualification-re
 import { datasetPath } from "./lib/datasets.mjs";
 import { REPO_ROOT as ROOT } from "./lib/repository-paths.mjs";
 import { listFiles } from "./lib/fs-walk.mjs";
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
 
 const SSOT_PATH = join(ROOT, datasetPath("config.exam-calendar"));
 const calendar = JSON.parse(readFileSync(SSOT_PATH, "utf8"));
@@ -252,7 +259,7 @@ for (const root of PATH_LITERAL_ROOTS) {
 if (errors.length) {
   console.error("[check-exam-calendar] NG");
   for (const error of errors) console.error(`- ${error}`);
-  process.exit(1);
+  __exit(1);
 }
 
 const totalEvents = inspected.reduce((a, x) => a + x.n, 0);
@@ -262,3 +269,7 @@ console.log(
     `${scannedFiles} ファイルを走査（禁止パターン ${FORBIDDEN.length} 種）`,
 );
 for (const x of inspected) console.log(`  ${x.label}: ${x.n} 件`);
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

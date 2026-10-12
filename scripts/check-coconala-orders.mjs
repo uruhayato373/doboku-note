@@ -35,6 +35,13 @@ import { execFileSync } from 'node:child_process';
 import { assessSnapshot, reconcileOrders, classifyReplyDeadlines, classifyInquiries, inquiryClockMs } from './lib/coconala-guards.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
 
 const TAG = '[check-coconala-orders]';
 const SNAPSHOT_PATH = join(ROOT, datasetPath('coconala.orders-snapshot'));
@@ -45,10 +52,10 @@ const RESOLVED_PATH = join(ROOT, datasetPath('coconala.resolved-inquiries'));
 const REPLY_WARN_HOURS = 24;      // 返信期限の何時間前から要対応にするか
 const STALE_DAYS = 5;             // received のまま何日で納品滞留とみなすか（受注の状態の滞留。snapshot の鮮度ではない）
 
-const staged = process.argv.includes('--staged');
-const noFreshness = process.argv.includes('--no-freshness');
+const staged = __argv.includes('--staged');
+const noFreshness = __argv.includes('--no-freshness');
 // --json: 週次レビュー（surfacer）が読む機械可読出力。人向けログは出さない。
-const asJson = process.argv.includes('--json');
+const asJson = __argv.includes('--json');
 
 if (staged) {
   let changed = '';
@@ -60,7 +67,7 @@ if (staged) {
     p.includes(datasetPath('coconala.orders-snapshot')) ||
     p.includes('scripts/check-coconala-orders.mjs')
   );
-  if (!relevant) process.exit(0);
+  if (!relevant) __exit(0);
 }
 
 function readJsonOrParseError(path) {
@@ -88,16 +95,16 @@ if (!health.ok) {
       actions: [],
       warnings: [`ココナラの実体が検査不成立（${health.reason}）— 次セッションで npm run coconala-orders（ローカル限定）`],
     }, null, 2) + '\n');
-    process.exit(1);
+    __exit(1);
   }
   console.error(`${TAG} ✗ 検査不成立: ${health.reason}`);
   console.error(`   取得タブ ${snap?.scan?.tabsOk ?? '?'}/${snap?.scan?.tabsTotal ?? '?'} — 再取得: npm run coconala-orders`);
-  process.exit(2);
+  __exit(2);
 }
 const ageDays = health.ageDays;
 if (!log || log.__parseError) {
   console.error(`${TAG} ✗ ${datasetPath('coconala.orders')} が読めません（${ORDERS_PATH}）`);
-  process.exit(1);
+  __exit(1);
 }
 
 const snapOrders = Array.isArray(snap.orders) ? snap.orders : [];
@@ -211,7 +218,7 @@ if (asJson) {
     actionCount: actions.length, warningCount: warnings.length,
     actions, warnings,
   }, null, 2) + '\n');
-  process.exit(actions.length || warnings.length ? 1 : 0);
+  __exit(actions.length || warnings.length ? 1 : 0);
 }
 console.log(
   `${TAG} 実検査 ココナラ側 取引 ${snapOrders.length} 件 / orders.json ${logOrders.length} 件 / ` +
@@ -243,7 +250,11 @@ if (violations.length) {
   for (const v of violations) console.error(`  - ${v}`);
   console.error('');
   console.error('   運用・スキーマの真実源: .claude/knowledge/reference/coconala-operations.md');
-  process.exit(1);
+  __exit(1);
 }
 console.log('');
 console.log(`${TAG} ✓ ココナラ側の取引はすべて orders.json と一致`);
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

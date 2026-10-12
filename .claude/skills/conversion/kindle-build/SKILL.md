@@ -4,7 +4,7 @@ description: >
   Kindle(KDP)入稿用 EPUB を書籍IDから生成し、epubcheck＋check-kindle-format 機械検証と kindle-book-qa の5軸監査まで実行する。
   択一系（A=1級土木論点別 build-takuitsu-reconstruct / B=総監択一・D=技術士一次・E=2級土木択一 build-pe1-kindle）は spec で、
   記述式 essay 系（C=建設二次模範解答・F=総監記述式）は build-essay-kindle.mjs で決定論的にビルドする。構成定義/前付けが
-  未整備の書籍は kindle-book-composer に委譲。全書籍の状態は catalog.json（マスター登録簿）、成果物は kindle-dist/ を git 追跡。
+  未整備の書籍は kindle-book-composer に委譲。全書籍の状態は catalog.json（マスター登録簿）、成果物は kindle-dist/（実体は private R2・git 追跡しない。取り戻しは `npm run asset-hydrate -- --group kindle-dist`）。
   表紙画像は対象外。KDP への実入稿・出版は後工程の /kdp-publish（kdp-operator）が担当。
   Use when user asks to [Kindle本を作って, EPUBを生成, KDP入稿ファイル, A-01をビルド, essay模範解答本, Kindle出版の原稿, /kindle-build].
 user-invocable: true
@@ -46,7 +46,7 @@ Kindle 出版戦略（[strategy.md](../../../../content/kindle/strategy.md) = �
 表紙は全冊 spec 駆動で再生成可能（`scripts/kindle-covers/specs/<id>.json`＋`backgrounds/`、下記「表紙」参照）。全書籍の状態・ASIN は [`scripts/kindle-published/catalog.json`](../../../../scripts/kindle-published/catalog.json)（マスター登録簿）が真実源。
 
 - A系入力: `src/config/civil-1-exam-questions.json`（1,162問）。D/E系入力: 各 `content/site/**/article.mdx`（択一・全問完全解説）。C/F系入力: `content/note/**/article*.md`（記述式模範解答）
-- 出力: `.tmp/kindle-{id}/{id}.epub`。git 追跡の配布物は `scripts/kindle-dist/<id>.epub` + `<id>.jpg`（`npm run sync-kindle-dist` で spec から再生成）
+- 出力: `.tmp/kindle-{id}/{id}.epub`。配布物は `scripts/kindle-dist/<id>.epub`（R2 が正本・git 追跡しない） + `<id>.jpg`（`npm run sync-kindle-dist` で spec から再生成）
 
 ### ビルダー別の要点（2026-07-11 拡張）
 
@@ -123,7 +123,7 @@ Kindle 出版戦略（[strategy.md](../../../../content/kindle/strategy.md) = �
 
 - **KDP 新規/実績浅アカウントは本の作成数制限あり**（2026-07-11、d-03 提出時に到達）。数日〜で枠回復・売上/審査通過で緩和。**分割提出運用**が前提
 - **入稿メモ**: `npm run gen-kdp-memo <id...>` で共通テンプレ生成（共通項=著者 doboku-note/レーベル/AI申告/カテゴリ/フローは `config/kdp-memo.json` の defaults＝真実源、読取りは `scripts/lib/kdp-common.mjs`、固有値は books[id]、title/price/issuer は spec 自動取得）→ `scripts/kindle-published/KDP入力メモ_<id>.txt`。**KDP への実入稿・出版は後工程の `/kdp-publish`（`kdp-operator`）が自動化**
-- **配布物 git 追跡**: `npm run sync-kindle-dist -- --downloads` で ready 全冊を再ビルド→`kindle-dist/`＋`~/Downloads/kindle-<id>.(epub|cover.jpg)`
+- **配布物（R2 が正本）**: `npm run sync-kindle-dist -- --downloads` で ready 全冊を再ビルド→`kindle-dist/`＋`~/Downloads/kindle-<id>.(epub|cover.jpg)`
 - **提出後**: `npm run product -- set kindle-<書籍id> catalog.asin '"B0…"'` と `catalog.status '"live"'` で正本（config/products.json）を更新し（catalog.json は自動で作り直す）、`strategy.md` の該当シリーズ表に ASIN/出版日を追記
 
 ## 参照

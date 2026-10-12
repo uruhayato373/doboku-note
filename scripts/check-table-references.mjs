@@ -23,10 +23,17 @@ import { readdirSync, readFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 import { execFileSync } from "node:child_process";
 import { REPO_ROOT as ROOT, SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
 
 const POSTS = SITE_CONTENT_ROOT;
-const staged = process.argv.includes("--staged");
-const listOnly = process.argv.includes("--list");
+const staged = __argv.includes("--staged");
+const listOnly = __argv.includes("--list");
 
 // 「図表N.M（社会環境管理 標準テキスト）」は**外部テキストの引用**であって本文内の表を指さない。
 // 直前の「図」を除外しないと総監キーワードページで誤検知する（2026-08-18 実測 2 件）。
@@ -66,7 +73,7 @@ if (staged) {
   const s = stagedArticles();
   if (s === null) {
     console.log("[check-table-references] staged 取得不可のためスキップ");
-    process.exit(0);
+    __exit(0);
   }
   const want = new Set(s.map((p) => p.replace(/\\/g, "/")));
   articles = articles.filter((p) => want.has(p.replace(/\\/g, "/")));
@@ -105,7 +112,7 @@ console.log(
 
 if (dangling.length === 0) {
   console.log("[check-table-references] ✓ すべての「表N.M」参照にキャプションが実在");
-  process.exit(0);
+  __exit(0);
 }
 
 for (const d of dangling) console.error(`  ${d.file}  表${d.ref} を指すキャプションが無い`);
@@ -114,4 +121,8 @@ console.error(
     " ②中身が本文に散文/箇条書きであるならポインタ `（表N.M）` を外す" +
     " ③表そのものに価値があるなら起こす（CLAUDE.md §2「2軸比較のみ・4列以上禁止」に従う）\n",
 );
-process.exit(listOnly ? 0 : 1);
+__exit(listOnly ? 0 : 1);
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

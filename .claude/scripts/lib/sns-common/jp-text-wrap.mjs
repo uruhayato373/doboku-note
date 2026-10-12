@@ -11,6 +11,7 @@
  * 元実装: .claude/skills/conversion/ogp-create/scripts/lib/ogp-text.mjs
  * v4 改訂（2026-04-26）で sns-common 配下に移動し、OGP 側は thin wrapper として後方互換維持。
  */
+import { escapeRegExp } from '../../../../scripts/lib/regexp-escape.mjs';
 
 let budouxParser = null;
 let budouxTriedLoad = false;
@@ -33,7 +34,7 @@ async function loadBudouXParser() {
  */
 function splitBeforeMarkers(lines, markers) {
   if (!markers || markers.length === 0) return lines;
-  const escaped = markers.map(m => m.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|');
+  const escaped = markers.map(m => escapeRegExp(m)).join('|');
   const re = new RegExp(`(?=${escaped})`);
   return lines.flatMap(line => line.split(re));
 }

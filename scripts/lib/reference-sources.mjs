@@ -20,6 +20,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { REPO_ROOT } from './repository-paths.mjs';
 import { datasetPath } from './datasets.mjs';
+import { escapeRegExp } from './regexp-escape.mjs';
 
 export const REFERENCE_SOURCES_PATH = join(REPO_ROOT, datasetPath('config.reference-sources'));
 export const REFERENCE_BASELINE_PATH = join(REPO_ROOT, '.claude/config/reference-sources-baseline.json');
@@ -150,7 +151,7 @@ export function globToRegExp(glob) {
     if (c === '*') {
       if (glob[i + 1] === '*') { out += '.*'; i++; if (glob[i + 1] === '/') i++; }
       else out += '[^/]*';
-    } else out += c.replace(/[.+?^${}()|[\]\\]/g, '\\$&');
+    } else out += escapeRegExp(c);
   }
   return new RegExp(out + '$');
 }

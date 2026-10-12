@@ -14,6 +14,7 @@
 import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
 import { writeGeneratedJson } from '../../../scripts/lib/generated-json.mjs';
 import { join, relative } from 'node:path';
+import { extractStatementExplanations } from '../../../scripts/lib/statement-explanations.mjs';
 import { REPO_ROOT, SITE_CONTENT_ROOT } from '../../../scripts/lib/repository-paths.mjs';
 
 const POSTS = join(SITE_CONTENT_ROOT, 'civil-construction-2');
@@ -88,9 +89,11 @@ function parseArticle(dir) {
         oe.text = oe.text.replace(/[✅❌]/g, '').replace(/\s+/g, ' ').trim();
       }
     }
+    // ①〜・ア〜の記述ごとの解説（無ければ空。選択肢の解説 optionExplanations とは別に持つ）
+    const statements = detailsM ? extractStatementExplanations(detailsM[1], beforeDetails) : [];
     const correctText = (correct && options[correct - 1]) ? options[correct - 1].text : null;
     const packEligible = igEligible && options.length === 4 && optionExplanations.length === 4 && correct != null;
-    out.push({ id: `${year}-${String(no).padStart(2, '0')}`, no, term, body: stem, options, correct, ...(correctAll ? { correctAll } : {}), correctText, optionExplanations, igEligible, packEligible });
+    out.push({ id: `${year}-${String(no).padStart(2, '0')}`, no, term, body: stem, options, correct, ...(correctAll ? { correctAll } : {}), correctText, optionExplanations, ...(statements.length ? { statements } : {}), igEligible, packEligible });
   }
   return { year, term, questions: out };
 }

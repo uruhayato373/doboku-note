@@ -11,6 +11,7 @@ on:
       - "!scripts/check-*.mjs"
       - "!scripts/pre-commit-*.mjs"
       - "!scripts/install-pre-commit.mjs"
+      - "!scripts/lib/pre-commit-steps.mjs"
       - "!scripts/quality-audit.mjs"
       - "package.json"
       - "package-lock.json"

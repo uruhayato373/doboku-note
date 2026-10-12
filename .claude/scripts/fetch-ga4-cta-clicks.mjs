@@ -48,6 +48,7 @@ import {
   summarizeAffiliateByPage,
 } from "./lib/ga4-affiliate-by-page.mjs";
 import { buildAffiliateExperimentRequest, parseAffiliateExperimentRows, summarizeAffiliateExperiment } from "../../scripts/lib/affiliate-experiment-report.mjs";
+import { parseCliArgs } from "../../scripts/lib/cli-args.mjs";
 
 dotenv.config({ path: ".env.local" });
 
@@ -84,72 +85,39 @@ const EVENT_NAMES = [
 ];
 
 function parseArgs() {
-  const args = process.argv.slice(2);
-  const opts = {
-    days: DEFAULT_DAYS,
-    japanOnly: true,
-    byDevice: false,
-    byLabel: false,
-    byPlacement: false,
-    keyEvents: false,
-    byPage: false,
-    byExperiment: false,
-    // 月次窓（--month YYYY-MM）または任意の絶対日付（--start/--end）。
-    // 既定の --days は「前日を終端とする N 日」で月境界と揃わないため、EPC の分子
-    // （A8 は月次でしか出ない）と分母を同じ窓で取れない。DN-0062。
-    month: null,
-    startDate: null,
-    endDate: null,
+  // --by-device: pagePath の代わりに deviceCategory を 2 つ目の dimension にする（モバイル/PC 別。device 別 sessions は読み手がいないので 2026-10 に取得をやめた）。
+  // --by-label: event_label（=data-cta-label＝プログラム/面）を 2 つ目の dimension に。BuildJob-sidebar 等のプログラム×面別クリック内訳（アフィリ EPC 判定の分子）。別ファイル・非破壊。
+  // --by-placement: アフィリエイトの可視 impression / click を配置別に取得する（GA4 にイベントスコープの cta_placement カスタムディメンション登録が必要）。
+  // --by-page: アフィリエイトの表示・クリックをページ × ラベル × 面（クリックは日付も）で取る。
+  // --key-events: イベント別でなく、ページ別のキーイベント率（sessions / keyEvents / sessionKeyEventRate）を取る。
+  // 月次窓（--month YYYY-MM）または任意の絶対日付（--start/--end）。既定の --days は「前日を終端とする N 日」で月境界と揃わないため、
+  // EPC の分子（A8 は月次でしか出ない）と分母を同じ窓で取れない。DN-0062。--month は 2026-08 → 2026-08-01 〜 2026-08-31（月末日は自動導出）。
+  const v = parseCliArgs({
+    days: { type: "integer", default: DEFAULT_DAYS },
+    month: { type: "string" },
+    start: { type: "string", key: "startDate" },
+    end: { type: "string", key: "endDate" },
+    "no-japan-only": { type: "boolean" },
+    "by-device": { type: "boolean" },
+    "by-label": { type: "boolean" },
+    "by-placement": { type: "boolean" },
+    "by-page": { type: "boolean" },
+    "by-experiment": { type: "boolean" },
+    "key-events": { type: "boolean" },
+  });
+  return {
+    days: v.days,
+    japanOnly: !v.noJapanOnly,
+    byDevice: v.byDevice,
+    byLabel: v.byLabel,
+    byPlacement: v.byPlacement,
+    keyEvents: v.keyEvents,
+    byPage: v.byPage,
+    byExperiment: v.byExperiment,
+    month: v.month,
+    startDate: v.startDate,
+    endDate: v.endDate,
   };
-  for (let i = 0; i < args.length; i++) {
-    switch (args[i]) {
-      case "--days":
-        opts.days = parseInt(args[++i], 10);
-        break;
-      case "--month":
-        // 例: --month 2026-08 → 2026-08-01 〜 2026-08-31（月末日は自動導出）
-        opts.month = args[++i];
-        break;
-      case "--start":
-        opts.startDate = args[++i];
-        break;
-      case "--end":
-        opts.endDate = args[++i];
-        break;
-      case "--no-japan-only":
-        opts.japanOnly = false;
-        break;
-      case "--by-device":
-        // pagePath の代わりに deviceCategory を 2 つ目の dimension にする。
-        // モバイル/PC 別の CTA クリックを取る（device 別 sessions は読み手がいないので 2026-10 に取得をやめた）。
-        // downstream（report-monetization-coverage = page 別）は非破壊。
-        opts.byDevice = true;
-        break;
-      case "--by-label":
-        // pagePath の代わりに event_label（=data-cta-label＝プログラム/面）を 2 つ目の dimension に。
-        // BuildJob-sidebar / KensetsuJobs-sidebar / BuildJob-midtext / ビルドジョブ 等のプログラム×面別
-        // クリック内訳を取り、アフィリ EPC 判定（建設JOBs vs BuildJob）の分子にする。別ファイル・非破壊。
-        opts.byLabel = true;
-        break;
-      case "--by-placement":
-        // アフィリエイトの可視 impression / click を配置別に取得する。
-        // GA4 にイベントスコープの cta_placement カスタムディメンション登録が必要。
-        opts.byPlacement = true;
-        break;
-      case "--by-page":
-        // アフィリエイトの表示・クリックをページ × ラベル × 面（クリックは日付も）で取る。
-        opts.byPage = true;
-        break;
-      case "--by-experiment":
-        opts.byExperiment = true;
-        break;
-      case "--key-events":
-        // イベント別でなく、ページ別のキーイベント率（sessions / keyEvents / sessionKeyEventRate）を取る。
-        opts.keyEvents = true;
-        break;
-    }
-  }
-  return opts;
 }
 
 async function fetchCtaClicks(client, propertyId, opts) {

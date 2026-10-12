@@ -23,6 +23,13 @@
 import { readFileSync } from "node:fs";
 import { join, relative } from "node:path";
 import { REPO_ROOT } from "./lib/repository-paths.mjs";
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
 
 const CATEGORIES = join(REPO_ROOT, "src/config/categories.json");
 const HOME_CARDS = join(REPO_ROOT, "src/config/home-exam-cards.json");
@@ -35,7 +42,7 @@ function load(path) {
     return JSON.parse(readFileSync(path, "utf8"));
   } catch (e) {
     console.error(`[check-home-exam-coverage] ✗ ${rel(path)} を読めません: ${e.message}`);
-    process.exit(1);
+    __exit(1);
   }
 }
 
@@ -92,9 +99,13 @@ for (const card of homeCards) {
 if (errors.length) {
   console.error("[check-home-exam-coverage] ✗ トップの資格カードとカテゴリ定義に不整合:");
   for (const e of errors) console.error("  - " + e);
-  process.exit(1);
+  __exit(1);
 }
 
 console.log(
   `[check-home-exam-coverage] ✓ トップ資格カード ${homeCards.length} 件と categories.json が整合`,
 );
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

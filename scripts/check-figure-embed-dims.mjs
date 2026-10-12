@@ -35,11 +35,18 @@ import { join, basename } from "node:path";
 import { execFileSync } from "node:child_process";
 import { readMdxFile, writeMdxFile } from "../.claude/scripts/lib/mdx-io.mjs";
 import { REPO_ROOT as ROOT, SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
 
 const POSTS = SITE_CONTENT_ROOT;
-const staged = process.argv.includes("--staged");
-const listOnly = process.argv.includes("--list");
-const fix = process.argv.includes("--fix");
+const staged = __argv.includes("--staged");
+const listOnly = __argv.includes("--list");
+const fix = __argv.includes("--fix");
 
 function relFromRoot(full) {
   return full.replace(/\\/g, "/").replace(ROOT.replace(/\\/g, "/") + "/", "");
@@ -161,7 +168,7 @@ if (staged) {
   articles = listStagedArticles();
   if (articles === null) {
     console.log("[check-figure-embed-dims] staged 取得不可のためスキップ");
-    process.exit(0);
+    __exit(0);
   }
 } else {
   articles = listAllArticles();
@@ -179,7 +186,7 @@ for (const full of articles) {
     r = scanFile(full);
   } catch (e) {
     console.error(`[check-figure-embed-dims] 読み取り失敗 ${relFromRoot(full)}: ${e.message}`);
-    process.exit(1);
+    __exit(1);
   }
   candidates += r.candidates;
   resolved += r.resolved;
@@ -200,20 +207,20 @@ if (candidates > 0 && resolved === 0) {
   console.error(`\n[check-figure-embed-dims] ✗ 検査不成立: ${coverage}`);
   console.error(`  SVG 埋込 ${candidates} 箇所を見つけたが、SVG 実体を 1 件も解決できませんでした。`);
   console.error(`  想定原因: content/site のパス解決の破損 / src の接頭辞規約変更。`);
-  process.exit(1);
+  __exit(1);
 }
 
 if (fix) {
   console.log(`[check-figure-embed-dims] ${mismatches.length} 箇所を修正（${fixedFiles} ファイル）`);
   for (const x of mismatches) console.log(`  ${x.file} ${x.svg}: ${x.mdx} → ${x.viewBox}`);
   console.log(`  ${coverage}`);
-  process.exit(0);
+  __exit(0);
 }
 
 if (listOnly) {
   for (const x of mismatches) console.log(`${x.file}\t${x.svg}\tviewBox=${x.viewBox}\tMDX=${x.mdx}`);
   console.log(`\n[check-figure-embed-dims] 不一致 ${mismatches.length} 箇所 / ${coverage}`);
-  process.exit(0);
+  __exit(0);
 }
 
 if (mismatches.length) {
@@ -227,7 +234,11 @@ if (mismatches.length) {
   console.error(`        キャンバス移行で MDX の width/height が旧値のまま残る穴を本ゲートが塞ぐ。`);
   console.error(`  真実源: .claude/knowledge/reference/figure-canvas-policy.md §3\n`);
   console.error(`  ${coverage}`);
-  process.exit(1);
+  __exit(1);
 }
 
 console.log(`[check-figure-embed-dims] OK（不一致なし${scope}）— ${coverage}`);
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

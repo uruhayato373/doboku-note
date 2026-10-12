@@ -65,7 +65,8 @@ function loadRedirects() {
     if (!line || line.startsWith('#')) continue;
     const [from, to] = line.split(/\s+/);
     if (!from || !to) continue;
-    if (from.endsWith('/*')) prefixes.push(from.slice(0, -1));
+    // `/docs/river/*` も `/docs/civil-practice-*`（DN-0675 の動的ルール）も、* より前を接頭辞として見る。
+    if (from.includes('*')) prefixes.push(from.slice(0, from.indexOf('*')));
     else sources.add(from);
     targets.add(to.replace(/\/$/, '') || '/');
   }

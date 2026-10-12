@@ -91,7 +91,7 @@ MDX 内で使える主要コンポーネント（`src/lib/component-loader/index
 択一式過去問は以下を遵守:
 
 - 設問番号は **H2**（`## Ⅰ-1-1` / `## 問題 No.1`）— アンカー（rehype-slug）と TOC 階層の基準となる唯一の見出し。※ `primary`/`secondary`/`pastExam`（過去問）は問番号羅列を避けるため**サイドバー TOC 自体を非表示**（`src/app/docs/[...slug]/page.tsx`）。H2 ルールはアンカー生成・他 docGroup の TOC のために引き続き遵守する
-- `toc_max_heading_level: 2` を frontmatter に設定
+- `toc_max_heading_level: 2` を frontmatter に設定（目次の深さは `toc_min_heading_level`・`toc_max_heading_level` で決まる。`DocPage.tsx` が読むので旧 frontmatter として消さない）
 - 回答・解説は `<details>/<summary>` で開閉式にする
 - details 内に **H2/H3 見出しを使わない**（`**太字**` で代替）
 - details 内に `---`（水平線）を使わない（不要な区切り線・余白の原因になる）
@@ -287,6 +287,8 @@ published: true                      # false なら下書き・非表示
 sources: ["registry-id#detail"]      # 参考文献台帳の ID。#detail は条番号等（参照時のみ）
 ---
 ```
+
+公式の設問（試験の問題文の逐語）を含む過去問ページには `officialQuestions: true` を `group:` の下に付ける。lint-ja の表記統一と lint-mdx-mobile の文体・表の検査が、設問の範囲だけを対象外にする（印が無いと設問の転記が commit を止める）。
 
 `sources` は自由記述の書名ではなく `config/reference-sources.json` の ID を使う。逐語・図・公開可否と
 出典粒度は [reference-sources-policy.md](./reference-sources-policy.md) に従う。

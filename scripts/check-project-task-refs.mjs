@@ -17,6 +17,7 @@
  * （履歴のために死んだパスを持てる層を残すと、そこが検査の穴になる）。
  * `content/` へ出ていくチャネル素材（note/sns/textbook/coconala-blog）は恒久文書ではないので除外する。
  *
+ * 2026-10-12（DN-0587）: 引き継ぎ（`docs/handoffs/`）と `docs/reviews/` 全体も warning（isPointInTimeDoc）。
  * **日付つき週次・月次レビュー（`docs/reviews/weekly/**`・`docs/reviews/monthly/**`）だけは dangling-id を warning にする**（2026-08-25・月次は 2026-10-10）。
  *   この台帳は「完了＝カードごと削除」で完了を表すので、レビューが「DN-XXXX 完了」と実績を ID で
  *   書くたび、その ID は翌週には必ず消える。つまり**仕事を片付けるほどゲートが赤くなる**構造で、
@@ -41,6 +42,7 @@ import { join, relative, sep } from 'node:path';
 import { parseBacklog } from './lib/backlog-lib.mjs';
 import { REPO_ROOT as ROOT, TODO_ROOT } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
+import { exitWith, runMain, isCliEntry, runAsCli } from './lib/cli-run.mjs';
 
 const PROJECT_DIR = join(ROOT, 'docs');
 const BACKLOG = join(TODO_ROOT, 'backlog.md');
@@ -66,6 +68,16 @@ const toPosix = (v) => v.split(sep).join('/');
 // 月次レビュー（docs/reviews/monthly/）も同じ時点の記録（2026-10-10。月次が完了して消したカードを書いた回で CI が赤くなった）
 export const isDatedSnapshot = (rel) => rel.startsWith('docs/reviews/weekly/') || rel.startsWith('docs/reviews/monthly/');
 
+/**
+ * 書いた時点の記録で、指すカードを別セッションが閉じても CI を赤くしない文書（DN-0587）。
+ * 週次・月次スナップショットに加え、引き継ぎ（docs/handoffs/）とレビュー（docs/reviews/）。
+ * 2026-10-08 に別セッションが DN-0581 を閉じて、それを指す引き継ぎが残り、develop の全 PR の CI が約 45 分赤かった。
+ * 参照切れは CI では warning にし、引き継ぎ側の検査（check-handoff-extraction）が新しく書く参照の実在とカードを閉じる側の参照を止める。
+ * liveDocsReferencing（カードを閉じる側の検査）はこれを使わない＝閉じる人には引き継ぎの参照も見せる。
+ */
+export const isPointInTimeDoc = (rel) =>
+  isDatedSnapshot(rel) || rel.startsWith('docs/handoffs/') || rel.startsWith('docs/reviews/');
+
 /** 1 文書を検査して {errors, warnings} を返す（純関数・テストから使う）。 */
 export function auditProjectDoc(rel, content, knownIds) {
   const errors = [];
@@ -78,12 +90,12 @@ export function auditProjectDoc(rel, content, knownIds) {
       errors.push({ rule: 'retired-ref', at: `${rel}:${line}`, msg: `廃止済み参照: ${name}` });
     }
   }
-  const snapshot = isDatedSnapshot(rel);
+  const snapshot = isPointInTimeDoc(rel);
   for (const id of new Set(content.match(ID_RE) ?? [])) {
     if (knownIds.has(id)) continue;
     const f = { rule: 'dangling-id', at: rel, msg: `${id} は backlog に存在しない` };
     // 日付つきスナップショットでは「完了してカードが消えた」が正常な経路なので warning。
-    if (snapshot) warnings.push({ ...f, msg: f.msg + '（完了して削除された可能性・週次スナップショットなので warning）' });
+    if (snapshot) warnings.push({ ...f, msg: f.msg + '（カードが閉じた可能性・書いた時点の記録なので warning）' });
     else errors.push(f);
   }
 
@@ -124,28 +136,28 @@ export function readProjectDocs(root = ROOT) {
   return listFiles(join(root, 'docs'), { ext: '.md', allowMissing: true }).map((p) => ({ rel: toPosix(relative(root, p)), content: readFileSync(p, 'utf8') }));
 }
 
-function main() {
+function main(argv = process.argv.slice(2)) {
   if (process.env.SKIP_PROJECT_TASK_REFS === '1') {
     console.log('[check-project-task-refs] SKIP_PROJECT_TASK_REFS=1 のためスキップ');
-    process.exit(0);
+    exitWith(0);
   }
-  const JSON_OUT = process.argv.includes('--json');
+  const JSON_OUT = argv.includes('--json');
 
   const backlogPath = BACKLOG;
   if (!existsSync(backlogPath)) {
     console.error(`✗ 検査不成立: ${toPosix(relative(ROOT, BACKLOG))} が無い（ID の実在を確かめられない）`);
-    process.exit(2);
+    exitWith(2);
   }
   const knownIds = new Set(parseBacklog(readFileSync(backlogPath, 'utf8')).map((c) => c.id).filter(Boolean));
   if (knownIds.size === 0) {
     console.error('✗ 検査不成立: backlog から ID を 1 件も抽出できなかった');
-    process.exit(2);
+    exitWith(2);
   }
 
   const files = listFiles(PROJECT_DIR, { ext: '.md', allowMissing: true });
   if (files.length === 0) {
     console.error('✗ 検査不成立: docs/ に恒久文書の .md が 1 件も無い');
-    process.exit(2);
+    exitWith(2);
   }
 
   const errors = [];
@@ -172,7 +184,7 @@ function main() {
 
   if (JSON_OUT) {
     writeSync(1, JSON.stringify({ files: files.length, ids: knownIds.size, errors, warnings, uncheckedTotal }, null, 2) + '\n');
-    process.exit(errors.length ? 1 : 0);
+    exitWith(errors.length ? 1 : 0);
   }
 
   for (const w of warnings.slice(0, 20)) console.log(`  [warn] ${w.at}  ${w.msg}`);
@@ -181,15 +193,19 @@ function main() {
   if (errors.length === 0) {
     console.log('[check-project-task-refs] ✓ live 文書の廃止参照 0・ID 参照切れ 0'
       + (snapshotDangling ? `（週次スナップショットの ${snapshotDangling} 件は上記のとおり warning）` : ''));
-    process.exit(0);
+    exitWith(0);
   }
   for (const e of errors) console.error(`  [${e.rule}] ${e.at}  ${e.msg}`);
   console.error(
     '\n廃止済み経路はファイルを作り直して参照を成立させない。現行経路（.claude/todo/backlog.md）へ' +
       '書き換えるか、記述ごと削除する。参照切れ ID は backlog を確認してから直す。\n',
   );
-  process.exit(1);
+  exitWith(1);
 }
 
-const isMain = process.argv[1] && process.argv[1].endsWith('check-project-task-refs.mjs');
-if (isMain) main();
+/** pre-commit-dispatch が in-process で呼ぶ入口（process.exit を呼ばず { code } を返す・DN-0688） */
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runMain(main, argv);
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

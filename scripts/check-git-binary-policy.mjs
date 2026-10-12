@@ -32,6 +32,7 @@ import { existsSync, readFileSync, writeFileSync, openSync, readSync, closeSync 
 import { join, dirname, basename } from 'node:path';
 import { datasetPath } from './lib/datasets.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { exitWith, runMain, isCliEntry, runAsCli } from './lib/cli-run.mjs';
 
 const POLICY_PATH = join(ROOT, datasetPath('config.git-binary-policy'));
 const BASELINE_PATH = join(ROOT, '.claude/state/quality/git-binary-baseline.json');
@@ -246,15 +247,14 @@ function renderSummary(counts, baselineCounts, budgetRows, increased, violations
   return L.join('\n');
 }
 
-function main() {
-  const argv = process.argv.slice(2);
+function main(argv = process.argv.slice(2)) {
   const STAGED = argv.includes('--staged');
   const UPDATE = argv.includes('--update-baseline');
   const SUMMARY = argv.includes('--summary');
 
   if (!existsSync(POLICY_PATH)) {
     console.error('[check-git-binary-policy] FAIL: ポリシーが無い（' + POLICY_PATH + '）。検査不成立。');
-    process.exit(1);
+    exitWith(1);
   }
   const policy = JSON.parse(readFileSync(POLICY_PATH, 'utf-8'));
   const blobs = targetBlobs(STAGED);
@@ -262,7 +262,7 @@ function main() {
   // 「検査ゼロを PASS と呼ばない」（CLAUDE.md §9）。
   if (!STAGED && blobs.length === 0) {
     console.error('[check-git-binary-policy] FAIL: 追跡 blob が 0 件。検査が成立していない。');
-    process.exit(1);
+    exitWith(1);
   }
 
   const { violations, budgetRows, inspected } = evaluateBlobs({
@@ -298,12 +298,12 @@ function main() {
     }
     if (violations.length > 20) console.error('  ... ほか ' + (violations.length - 20) + ' 件');
     console.error('  正当な一時回避は SKIP_GIT_BINARY_POLICY=1、恒久的なら policy の allowlist へ理由付きで追加すること。');
-    process.exit(1);
+    exitWith(1);
   }
 
   if (!existsSync(BASELINE_PATH)) {
     console.error('[check-git-binary-policy] FAIL: baseline が無い。まず `npm run check-git-binary-policy -- --update-baseline` を実行すること。');
-    process.exit(1);
+    exitWith(1);
   }
   const baseline = JSON.parse(readFileSync(BASELINE_PATH, 'utf-8'));
   const { increased, repaid } = ratchet(counts, baseline.counts || {});
@@ -327,10 +327,15 @@ function main() {
         if (v.correctPlace) console.error('      正しい置き場: ' + v.correctPlace);
       }
     }
-    process.exit(1);
+    exitWith(1);
   }
   console.log('[check-git-binary-policy] ✓ baseline から増加なし');
 }
 
 // import 時に CLI を走らせない（テストが純関数だけを使うため）。
-if (process.argv[1] && process.argv[1].endsWith('check-git-binary-policy.mjs')) main();
+/** pre-commit-dispatch が in-process で呼ぶ入口（process.exit を呼ばず { code } を返す・DN-0688） */
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runMain(main, argv);
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);
