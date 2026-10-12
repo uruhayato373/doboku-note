@@ -2938,6 +2938,23 @@
       "commit": "417dbae801af",
       "verification": null,
       "note": "PR #1009 マージ。check-relative-links --staged が staged の削除・改名（diff-filter=DR）の旧パスを集め、リポジトリの .md からそこを指すリンクを壊れとして出す。実機で、リンクされた commands.md を git rm すると exit 1・4 件"
+    },
+    {
+      "id": "DN-0620",
+      "at": "2026-10-12",
+      "task": "品質監査でテスト standards-ogp-guards が一時的に置く孤児 OGP を、並走する check-orphan-ogp が拾って CI が偶発的に赤くなる",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "scripts/quality-audit.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "156ecda568ed",
+      "verification": null,
+      "note": "PR #1005（2026-10-12）で quality-audit の orphan-ogp を serial: true にし、unit-tests を含む並列分の後に回すようにした。テストが一時的に置く __test-orphan__/ogp.png と同時に走らない構造なので、10 回流す確認は不要。直近の develop の失敗 run に orphan-ogp の fail は 0 件"
     }
   ]
 }
