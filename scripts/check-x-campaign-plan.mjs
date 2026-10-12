@@ -27,6 +27,7 @@ import { readFileSync, readdirSync, existsSync } from "node:fs";
 import { basename, join } from "node:path";
 import { readDocMetaIndex } from "./lib/doc-meta-index.mjs";
 import { todayJst } from "./lib/jst-date.mjs";
+import { parseLegacyRedirects } from "./lib/legacy-routes.mjs";
 import { SNS_CONTENT_ROOT } from "./lib/repository-paths.mjs";
 
 const MIN_GAP_MIN = 60;      // 同一日の投稿間隔の下限（分）
@@ -46,9 +47,9 @@ if (files.length === 0) {
 const docIndex = readDocMetaIndex();
 const docs = new Set(Object.keys(docIndex.docs ?? docIndex));
 // 公開URLへ移行済みの記事も同じ公開記事索引から検証する。
-const publicPaths = new Set(readFileSync('public/_redirects', 'utf8').split(/\r?\n/)
-  .map(line => line.trim().split(/\s+/))
-  .filter(([from, to]) => from?.startsWith('/docs/') && to?.startsWith('/') &&
+const redirectsText = readFileSync('public/_redirects', 'utf8');
+const publicPaths = new Set([...parseLegacyRedirects(redirectsText)]
+  .filter(([from, to]) => to?.startsWith('/') &&
     docs.has(from.slice(6)) && docIndex.docs[from.slice(6)]?.published === true)
   .map(([, to]) => to));
 
