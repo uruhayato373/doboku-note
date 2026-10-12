@@ -194,6 +194,7 @@
     "drive-vault-sync": "node scripts/drive-vault-sync.mjs",
     "check-drive-vault": "node scripts/check-drive-vault.mjs",
     "check-disk-hygiene": "node scripts/check-disk-hygiene.mjs",
+    "check-branch-hygiene": "node scripts/check-branch-hygiene.mjs",
     "check-youtube-cover-handoff": "node scripts/check-youtube-cover-handoff.mjs",
     "resources:check": "node scripts/local-resource-audit.mjs --quick",
     "resources:audit": "node scripts/local-resource-audit.mjs",

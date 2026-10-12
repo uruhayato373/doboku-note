@@ -323,6 +323,9 @@ const CHECKS = [
   { id: 'disk-hygiene', npm: 'check-disk-hygiene', timeout: 120_000, ci: false,
     skip: () => (process.platform === 'darwin' || process.platform === 'win32' ? null : 'ローカル専用（macOS / Windows。CI Linux には置き場も日次掃除も無い）'),
     note: 'ローカルディスク肥大の surfacer。読み手＝SessionStart/Stop フック（--quick）と日次掃除ログ（mac: ~/Library/Logs/doboku-note/ / win: ~/.local/state/doboku-note/logs/）。掃除の実体は disk-hygiene:fix（mac: launchd / win: タスクスケジューラ）' },
+  // 溜まったブランチ・止まった worktree の surfacer（DN-0638）。ローカルの git の状態なので CI には意味が無い。
+  { id: 'branch-hygiene', npm: 'check-branch-hygiene', timeout: 120_000, ci: false,
+    note: '入り済み（squash 含む）のブランチ・止まった未マージのブランチ・未コミットのまま止まった worktree を出す。報告のみ（削除しない・見つかっても exit 0）。読み手＝運営者が週次レビューの前に回す（quality:audit のローカル実行）' },
   { id: 'reference-sources', npm: 'check-reference-sources', timeout: 120_000, ci: true, note: '参考文献 class・記事 sources ID・出典粒度・非公開文字起こしの漏洩・未付与 baseline ラチェットを検査（逐語照合はローカル deep）' },
   // R2 へ退避済みのファイルが git add -f・--no-verify・マージ等で再追跡されていないか（DN-0156・
   // 2026-08-29 追加）。pre-commit（--staged）はローカルでの事故を止めるが、それをバイパスされた
