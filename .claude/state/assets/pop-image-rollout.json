@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "_doc": ".claude/knowledge/reference/pop-image-policy.md",
   "taskId": "DN-0184",
-  "updatedAt": "2026-10-12T04:17:22.609Z",
+  "updatedAt": "2026-10-12T05:05:28.680Z",
   "scope": {
     "channels": [
       "youtube",
@@ -51,14 +51,14 @@
       "evidence": "content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/pop-image.json#revisions/shorts-pop-fullbleed-20261012",
       "sceneCount": 3,
       "videoRecomposed": true,
-      "externalUpdated": false
+      "externalUpdated": true
     },
     {
       "publicationId": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1",
       "evidence": "content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/pop-image.json#revisions/shorts-pop-fullbleed-20261012",
       "sceneCount": 3,
       "videoRecomposed": true,
-      "externalUpdated": false
+      "externalUpdated": true
     }
   ],
   "partialPublicationImages": [
@@ -2416,11 +2416,26 @@
     ],
     "localImageAndVideoQa": "passed",
     "audioPacketsUnchanged": true,
-    "externalUpdated": false,
+    "externalUpdated": true,
     "oldPrivatePreviewIds": [
       "BefqxvhjEZ0",
       "tMxQesShhL8"
     ],
-    "next": "新版のYouTube実表示確認、旧非公開版・作業用プレビューの整理"
+    "next": "旧プレビュー1本をAPI応答が安定してから照合・整理。新版2本は非公開で採用済み。",
+    "liveScenesChecked": 6,
+    "newPrivateVideoIds": [
+      "uNCBD0A9zpw",
+      "vYPjT713Hyg"
+    ],
+    "oldDeletionPending": true,
+    "deletedVideoIds": [
+      "lb5HDoptayQ",
+      "g86O04mXoVM",
+      "BefqxvhjEZ0"
+    ],
+    "pendingOldVideoIds": [
+      "tMxQesShhL8"
+    ],
+    "cleanupTaskId": "DN-0698"
   }
 }

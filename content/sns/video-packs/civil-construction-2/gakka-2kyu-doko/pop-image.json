@@ -1836,7 +1836,7 @@
             "sha256": "b0ee2d4f7dc88756fe10336a2f4e9a9f1f7bd4895453e33677c78cf574ad10f6"
           },
           "review": {
-            "status": "local-video-qa-passed",
+            "status": "live-private-video-verified",
             "checkedSceneCount": 3,
             "liveShortsUiVerified": true,
             "score": 4.5,
@@ -1969,15 +1969,83 @@
               "checkedAt": "2026-10-12T04:31:52.802Z",
               "method": "YouTube Studio related-video selection saved; Shorts related href read back",
               "observedHref": "https://www.youtube.com/watch?v=lNI2f_SjCTk"
+            },
+            "thumbnailVerification": {
+              "requestedAt": "2026-10-12T04:21:54.716Z",
+              "expectedSha256": "80048affe8aec7da22b3f6d524083f443ec8f8715a5aeb0774ba5e67152191ec",
+              "phase": "verified",
+              "acceptedSha256": "80048affe8aec7da22b3f6d524083f443ec8f8715a5aeb0774ba5e67152191ec",
+              "checkedAt": "2026-10-12T04:45:28.050Z",
+              "comparison": {
+                "fit": "portrait-center",
+                "mean": 2.548193101933216,
+                "worstTile": 8.97265625,
+                "rawMean": 3.9404236233157586,
+                "normalization": "native-portrait-size-and-symmetric-blur-2",
+                "matched": true,
+                "thresholds": {
+                  "mean": 3,
+                  "worstTile": 22
+                },
+                "method": "cdn-pixel-comparison-v5",
+                "publicFeedVerified": false
+              }
+            },
+            "postActivationUi": {
+              "checkedAt": "2026-10-12T04:59:55.528Z",
+              "method": "native Chrome YouTube Shorts accessibility readback",
+              "videoId": "uNCBD0A9zpw",
+              "channelHandle": "@doboku-note",
+              "relatedVideoId": "lNI2f_SjCTk",
+              "relatedLinkMatched": true
+            },
+            "adminNewIds": {
+              "checkedAt": "2026-10-12T04:53:52.033Z",
+              "status": 200,
+              "main": true,
+              "qualification": true,
+              "newVideoIds": [
+                {
+                  "id": "uNCBD0A9zpw",
+                  "present": true
+                },
+                {
+                  "id": "vYPjT713Hyg",
+                  "present": true
+                }
+              ],
+              "method": "HTTP SSR",
+              "browserScreenshotVerified": false
             }
           },
           "publication": {
-            "status": "private-preview-live-checked-finalization-pending",
-            "externalUpdated": false,
+            "status": "private-replacement-verified",
+            "externalUpdated": true,
             "existingVideoId": "lb5HDoptayQ",
             "supersededPrivatePreviewId": "BefqxvhjEZ0",
             "privateR2Staged": true,
-            "newPrivatePreviewId": "uNCBD0A9zpw"
+            "newPrivatePreviewId": "uNCBD0A9zpw",
+            "newVideoId": "uNCBD0A9zpw",
+            "privacy": "private",
+            "activationAt": "2026-10-12T04:51:06.489Z",
+            "activationRunId": "38205390124",
+            "receiptScope": "pop-soil-shorts-fullbleed-20261012-930320f6-final",
+            "oldDeletionPending": false,
+            "retiredVideos": [
+              {
+                "id": "lb5HDoptayQ",
+                "newId": "uNCBD0A9zpw",
+                "phase": "deleted",
+                "deletedAt": "2026-10-12T04:57:50.774Z"
+              },
+              {
+                "id": "BefqxvhjEZ0",
+                "newId": "uNCBD0A9zpw",
+                "phase": "deleted",
+                "deletedAt": "2026-10-12T05:00:19.138Z"
+              }
+            ],
+            "checkedAt": "2026-10-12T05:05:28.680Z"
           },
           "thumbnailTransfer": {
             "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/upload-thumbnail.80048aff.png",
@@ -1989,7 +2057,8 @@
             "sourceSha256": "4eccd275c87f501962bf94f6502dc00af0d7c90ffee8b6f6aff8ce336b4e9401"
           },
           "metadataAdoptionVerification": {
-            "checkedAt": "2026-10-12T04:43:25.757Z",
+            "checkedAt": "2026-10-12T04:52:47.523Z",
+            "videoSha256": "3a25370e4aa5b27bc782e404f15ec05a19c25d65aea24bc11b838d16646c67b0",
             "matchesReviewedVideo": true
           }
         },
@@ -2188,7 +2257,7 @@
             "sha256": "49ac2293b6abc167bc2849f5d18f88e7b6fb3ec185fc66a15a687ebb16748d4f"
           },
           "review": {
-            "status": "local-video-qa-passed",
+            "status": "live-private-video-verified",
             "checkedSceneCount": 3,
             "liveShortsUiVerified": true,
             "score": 4.5,
@@ -2321,15 +2390,85 @@
               "checkedAt": "2026-10-12T04:31:52.802Z",
               "method": "YouTube Studio related-video selection saved; Shorts related href read back",
               "observedHref": "https://www.youtube.com/watch?v=lNI2f_SjCTk"
+            },
+            "thumbnailVerification": {
+              "requestedAt": "2026-10-12T04:22:03.241Z",
+              "expectedSha256": "9660df1399cc8197163359a77c57db0f62db52087b316a6df5f092765d6fbf1f",
+              "phase": "verified",
+              "acceptedSha256": "9660df1399cc8197163359a77c57db0f62db52087b316a6df5f092765d6fbf1f",
+              "checkedAt": "2026-10-12T04:45:30.784Z",
+              "comparison": {
+                "fit": "portrait-center",
+                "mean": 2.497074545987112,
+                "worstTile": 10.161458333333334,
+                "rawMean": 3.9678621118922086,
+                "normalization": "native-portrait-size-and-symmetric-blur-2",
+                "matched": true,
+                "thresholds": {
+                  "mean": 3,
+                  "worstTile": 22
+                },
+                "method": "cdn-pixel-comparison-v5",
+                "publicFeedVerified": false
+              }
+            },
+            "postActivationUi": {
+              "checkedAt": "2026-10-12T04:59:55.532Z",
+              "method": "native Chrome YouTube Shorts accessibility readback",
+              "videoId": "vYPjT713Hyg",
+              "channelHandle": "@doboku-note",
+              "relatedVideoId": "lNI2f_SjCTk",
+              "relatedLinkMatched": true
+            },
+            "adminNewIds": {
+              "checkedAt": "2026-10-12T04:53:52.033Z",
+              "status": 200,
+              "main": true,
+              "qualification": true,
+              "newVideoIds": [
+                {
+                  "id": "uNCBD0A9zpw",
+                  "present": true
+                },
+                {
+                  "id": "vYPjT713Hyg",
+                  "present": true
+                }
+              ],
+              "method": "HTTP SSR",
+              "browserScreenshotVerified": false
             }
           },
           "publication": {
-            "status": "private-preview-live-checked-finalization-pending",
-            "externalUpdated": false,
+            "status": "private-replacement-verified",
+            "externalUpdated": true,
             "existingVideoId": "g86O04mXoVM",
             "supersededPrivatePreviewId": "tMxQesShhL8",
             "privateR2Staged": true,
-            "newPrivatePreviewId": "vYPjT713Hyg"
+            "newPrivatePreviewId": "vYPjT713Hyg",
+            "newVideoId": "vYPjT713Hyg",
+            "privacy": "private",
+            "activationAt": "2026-10-12T04:51:10.246Z",
+            "activationRunId": "38205390124",
+            "receiptScope": "pop-soil-shorts-fullbleed-20261012-930320f6-final",
+            "oldDeletionPending": true,
+            "retiredVideos": [
+              {
+                "id": "g86O04mXoVM",
+                "newId": "vYPjT713Hyg",
+                "phase": "deleted",
+                "deletedAt": "2026-10-12T04:59:03.434Z"
+              },
+              {
+                "id": "tMxQesShhL8",
+                "newId": "vYPjT713Hyg",
+                "phase": "activated",
+                "deletedAt": null
+              }
+            ],
+            "checkedAt": "2026-10-12T05:05:28.680Z",
+            "cleanupTaskId": "DN-0698",
+            "cleanupBlocker": "YouTube API old-video metadata differs intermittently from frozen snapshot; deletion gate retained"
           },
           "thumbnailTransfer": {
             "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/upload-thumbnail.9660df13.png",
@@ -2341,7 +2480,8 @@
             "sourceSha256": "8d71afb36c0247cd9059a85c7c8e75aa3a5b69e4771516ad2372028eff1cec48"
           },
           "metadataAdoptionVerification": {
-            "checkedAt": "2026-10-12T04:43:25.765Z",
+            "checkedAt": "2026-10-12T04:52:47.523Z",
+            "videoSha256": "b563ce956e14085f213189d7586a40c66baf9c1ba2bf098a1f1a17c1992eb1d3",
             "matchesReviewedVideo": true
           }
         }
@@ -2755,6 +2895,16 @@
         "issue": "右と下の大きな無地余白により内容が左上へ偏って見える",
         "resolution": "全面背景と中央の重心へ再設計。寸法検査と完成映像の構図検査を分離。",
         "preserveAudio": true
+      },
+      "externalFinalization": {
+        "checkedAt": "2026-10-12T05:05:28.680Z",
+        "replacementCount": 2,
+        "deletedOldCount": 3,
+        "pendingOldCount": 1,
+        "privacy": "private",
+        "lastRunId": "38206257559",
+        "receiptScope": "pop-soil-shorts-fullbleed-20261012-930320f6-final",
+        "cleanupTaskId": "DN-0698"
       }
     }
   }
