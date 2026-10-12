@@ -3074,6 +3074,23 @@
       "commit": "82b99e0fd511",
       "verification": null,
       "note": "36ab89038・33c507de6。文部科学省 技術士第二次試験実施大綱（令和8年度向け案）で、総監の必須科目の口頭試験は 経歴及び応用能力 60 点・体系的専門知識 40 点と確認し、合格戦略と目次記事の誤記（知識を問わない・技術者倫理が試問事項）を直した。check-mdx-facts 減少 0"
+    },
+    {
+      "id": "DN-0593",
+      "at": "2026-10-12",
+      "task": "総監の動画パック monbun-yomikata の layers 場面が描画できない（要点が画面に収まらない）",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "scripts/lib/video-explanation.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "b5f1884d2f80",
+      "verification": null,
+      "note": "要点 3 枚を短くし render-longform --pack-dir …/monbun-yomikata --skip-tts が exit 0（8 場面）、layers の画面を目視確認。check-video-content PASS（157 件）"
     }
   ]
 }
