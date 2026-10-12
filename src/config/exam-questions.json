@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-12T11:03:11.691Z",
+  "generatedAt": "2026-10-12T11:05:52.675Z",
   "years": [
     {
       "year": "h21",
@@ -11292,11 +11292,6 @@
           "statements": [
             {
               "label": "ア",
-              "text": "〜(オ)すべてが[**労働組合法第7条**](https://laws.e-gov.go.jp/law/324AC0000000174#Mp-At_7)に定める不当労働行為に該当する。",
-              "correct": null
-            },
-            {
-              "label": "ア",
               "text": "組合結成を理由とした解雇 → 不利益取扱いの禁止（第7条第1号）",
               "correct": true
             },
@@ -12086,11 +12081,6 @@
           "correct": 5,
           "judgments": [],
           "statements": [
-            {
-              "label": "ア",
-              "text": "〜(オ)すべての拡張子が悪意のあるソフトウェアに使用される可能性がある。",
-              "correct": null
-            },
             {
               "label": "ア",
               "text": "doc：マクロウィルスを埋め込むことが可能",
