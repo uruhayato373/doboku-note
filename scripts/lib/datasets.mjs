@@ -213,6 +213,9 @@ export const DATASETS = [
   d('ga4.admin-inventory', 'data/ga4/admin-inventory.json', 'state', 'site', 'GA4 管理画面の設定の最新', { freshness: { warnDays: 90 }, schema: 'Ga4AdminInventory' }),
   d('ga4.admin-last-run', 'data/ga4/admin-last-run.json', 'state', 'site', 'GA4 管理画面の設定を画面から最後に揃えた記録', { planned: true }),
   d('ga4.ui-last-run', 'data/ga4/ui-last-run.json', 'state', 'site', 'GA4 の画面取得を最後に回した記録', { schema: 'Ga4UiLastRun' }),
+  d('ga4.ui-urls', 'data/ga4/ui-urls.json', 'state', 'site', 'GA4 の画面から取った一覧（取得と正規化が通ったら入る。2026-07-30 から取得が失敗のまま）', { planned: true }),
+  d('ga4.ui-history', 'data/ga4/ui-history.json', 'ledger', 'site', 'GA4 の画面取得の結果の推移', { planned: true }),
+  d('ga4.ui-diff', 'data/ga4/ui-diff/{ts}.json', 'series', 'site', 'GA4 の画面取得の前回との差', { planned: true, retain: { family: 'ga4-ui', keepAll: true } }),
   d('ga4.ui-raw', 'data/ga4/ui/{ts}/{**}', 'raw', 'site', 'GA4 の画面から取った CSV', { local: true, regen: 'npm run ga4-ui:fetch（画面から取り直す）' }),
   // GSC
   d('gsc.reports', 'data/gsc/reports/{date}.json', 'series', 'site', 'GSC の検索指標（取得した日ごとに 1 ファイル・page／query／page×query／date。水曜分の page は 1000 行で打ち切り）', { retain: { family: 'gsc', maxAgeDays: 90, keepNewestPerSection: true }, schema: 'GscReports' }),
