@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-13T04:26:31.742Z",
+  "generated_at": "2026-10-13T04:28:26.606Z",
   "summary": {
-    "total_mdx_files": 1405,
+    "total_mdx_files": 1406,
     "total_unique_tags": 132,
     "allowlist_size": 330,
     "known_count": 132,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 229,
+      "count": 230,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1245,6 +1245,7 @@
         "civil-practice-slope-drainage-monitoring",
         "civil-practice-slope-protection-selection",
         "civil-practice-soil-improvement-sandbag",
+        "civil-practice-special-concrete-selection",
         "civil-practice-stacking-heat-machine-safety",
         "civil-practice-subbase-subgrade-control",
         "civil-practice-trench-excavation-safety",
@@ -3244,7 +3245,7 @@
     },
     {
       "name": "コンクリート",
-      "count": 49,
+      "count": 50,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-concrete-key-points",
@@ -3276,6 +3277,7 @@
         "civil-practice-risk-assessment-construction-workflow",
         "civil-practice-road-fixtures-precast",
         "civil-practice-safety-patrol-corrective-action",
+        "civil-practice-special-concrete-selection",
         "concrete-chief-engineer-textbook-construction",
         "concrete-chief-engineer-textbook-durability",
         "concrete-chief-engineer-textbook-materials",
@@ -3300,7 +3302,7 @@
     },
     {
       "name": "品質管理",
-      "count": 47,
+      "count": 48,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-four-management",
@@ -3324,6 +3326,7 @@
         "civil-practice-ready-mixed-concrete-ordering",
         "civil-practice-reference-values",
         "civil-practice-safety-patrol-corrective-action",
+        "civil-practice-special-concrete-selection",
         "civil-practice-steel-material-properties",
         "concrete-chief-engineer-textbook-production-qc",
         "concrete-chief-engineer-textbook-products",
