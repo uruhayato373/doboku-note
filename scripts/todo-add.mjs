@@ -27,7 +27,7 @@ import { commitFileToRemoteBranch } from './lib/git-direct-commit.mjs';
 import { todayJst } from './lib/jst-date.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const BACKLOG = '.claude/todo/backlog.md';
+export const BACKLOG = '.claude/todo/backlog.md';
 const BASELINE = '.claude/config/backlog-vocab-baseline.json';
 
 const TIER_ALIASES = { 高: '🔴', high: '🔴', '🔴': '🔴', 中: '🟡', mid: '🟡', '🟡': '🟡', 低: '🟢', low: '🟢', '🟢': '🟢', 判断待ち: '🟣', hold: '🟣', '🟣': '🟣' };
@@ -83,6 +83,29 @@ export function validateNewCard(before, after, id, tierEmoji, opts) {
   return problems;
 }
 
+/**
+ * backlog の中身（current）へカードを 1 枚差し込んだ文書と ID を返す（採番・組み立て・check-backlog-schema と同じ検査）。
+ * 検査に落ちたら投げる。search-improvement の add（カードと実験台帳を 1 commit で積む）も使う。
+ */
+export function addCard(current, { title, tier, kind, domain, category, when, due, verify, body }, { root = ROOT, today = todayJst() } = {}) {
+  const tierEmoji = resolveTier(tier);
+  if (!tierEmoji) throw new Error(`重要度が不正: ${tier}`);
+  const pkg = JSON.parse(readFileSync(join(root, 'package.json'), 'utf8'));
+  const baseline = existsSync(join(root, BASELINE)) ? JSON.parse(readFileSync(join(root, BASELINE), 'utf8')) : { categories: {} };
+  const opts = {
+    npmScripts: new Set(Object.keys(pkg.scripts ?? {})),
+    allowedCategories: new Set([...CANONICAL_CATEGORIES, ...Object.keys(baseline.categories ?? {})]),
+    domainLabels: new Set(loadDomains(root).domains.map((d) => d.label)),
+  };
+  const r = nextId(current, backlogGitLog({ cwd: root }));
+  if (r.degraded) throw new Error('git の履歴を読めず採番できない（削除済みの番号と衝突しうるので止める）');
+  const cardLines = buildCard({ id: r.next, title: title.trim(), kind, domain, category, when, due, verify, today, body });
+  const text = insertCard(current, tierEmoji, cardLines);
+  const problems = validateNewCard(current, text, r.next, tierEmoji, opts);
+  if (problems.length) throw new Error(`カードが検査に通らない:\n  - ${problems.join('\n  - ')}`);
+  return { id: r.next, text, cardLines };
+}
+
 function parseArgs(argv) {
   const o = { trailers: [] };
   for (let i = 0; i < argv.length; i++) {
@@ -114,23 +137,10 @@ function main() {
   // 🔴・🟡 は [時期:] が必須。指定が無ければ期日の月、それも無ければ今月にする
   const when = a.when ?? (['🔴', '🟡'].includes(tierEmoji) ? (a.due ? a.due.slice(0, 7) : today.slice(0, 7)) : undefined);
 
-  const pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8'));
-  const baseline = existsSync(join(ROOT, BASELINE)) ? JSON.parse(readFileSync(join(ROOT, BASELINE), 'utf8')) : { categories: {} };
-  const opts = {
-    npmScripts: new Set(Object.keys(pkg.scripts ?? {})),
-    allowedCategories: new Set([...CANONICAL_CATEGORIES, ...Object.keys(baseline.categories ?? {})]),
-    domainLabels: new Set(loadDomains(ROOT).domains.map((d) => d.label)),
-  };
-
   const assemble = (current) => {
-    const r = nextId(current, backlogGitLog({ cwd: ROOT }));
-    if (r.degraded) throw new Error('git の履歴を読めず採番できない（削除済みの番号と衝突しうるので止める）');
-    const cardLines = buildCard({ id: r.next, title: a.title.trim(), kind: a.kind, domain: a.domain, category: a.category, when, due: a.due, verify: a.verify, today, body });
-    const text = insertCard(current, tierEmoji, cardLines);
-    const problems = validateNewCard(current, text, r.next, tierEmoji, opts);
-    if (problems.length) throw new Error(`カードが検査に通らない:\n  - ${problems.join('\n  - ')}`);
-    const message = [`todo: ${r.next} を起票する（${a.title.trim()}）`, ...(a.trailers.length ? ['', ...a.trailers] : [])].join('\n') + '\n';
-    return { text, message, result: { id: r.next, cardLines } };
+    const { id, text, cardLines } = addCard(current, { title: a.title, tier: a.tier, kind: a.kind, domain: a.domain, category: a.category, when, due: a.due, verify: a.verify, body }, { today });
+    const message = [`todo: ${id} を起票する（${a.title.trim()}）`, ...(a.trailers.length ? ['', ...a.trailers] : [])].join('\n') + '\n';
+    return { text, message, result: { id, cardLines } };
   };
 
   try {

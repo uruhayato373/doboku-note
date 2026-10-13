@@ -11,6 +11,7 @@ import { createHash } from 'node:crypto';
 import { inferIntent } from './seo-watch-strategy.mjs';
 import { judgeLedger } from './experiment-due.mjs';
 import { addDays } from './business-direction.mjs';
+import { isLegacyPath } from './legacy-routes.mjs';
 
 export const oppId = (type, key) => `OPP-${createHash('sha256').update(`${type}|${key}`).digest('hex').slice(0, 10)}`;
 
@@ -73,7 +74,7 @@ export function detectSeo(pack, ctx) {
   const watched = new Set((ctx.watchwords ?? []).map((w) => `${w.targetPath}\u0000${w.keyword}`));
   if (s.gscPageQueryWeek?.ok && s.gscPageQueryBase?.ok) {
     const rows = combineGscRows([s.gscPageQueryWeek.rows, s.gscPageQueryBase.rows], legacy)
-      .filter((r) => r.query && !r.page.startsWith('/docs/') && !watched.has(`${r.page}\u0000${r.query}`));
+      .filter((r) => r.query && !isLegacyPath(r.page) && !watched.has(`${r.page}\u0000${r.query}`));
     for (const r of rows) {
       if (r.impressions < seo.minImpressions || r.position == null) continue;
       const weeklyImpr = r.impressions / 5;
@@ -117,7 +118,7 @@ export function detectSeo(pack, ctx) {
   if (s.gscPageWeek?.ok && s.gscPageBase?.ok) {
     const week = new Map(combineGscRows([s.gscPageWeek.rows], legacy).map((r) => [r.page, r]));
     for (const b of combineGscRows([s.gscPageBase.rows], legacy)) {
-      if (b.page.startsWith('/docs/')) continue;
+      if (isLegacyPath(b.page)) continue;
       const baseWeekly = b.clicks / 4;
       const w = week.get(b.page)?.clicks ?? 0;
       if (baseWeekly < seo.dropMinBaseWeeklyClicks || w > baseWeekly * (1 - seo.dropRatio)) continue;
@@ -134,7 +135,7 @@ export function detectSeo(pack, ctx) {
   if (series.length === seo.decayWeeks + 1) {
     const maps = series.map((p) => new Map(combineGscRows([p.sections.gscPageWeek.rows], legacy).map((r) => [r.page, r.clicks])));
     for (const [page, first] of maps[0]) {
-      if (page.startsWith('/docs/') || first < seo.decayMinWeeklyClicks) continue;
+      if (isLegacyPath(page) || first < seo.decayMinWeeklyClicks) continue;
       const vals = maps.map((m) => m.get(page) ?? 0);
       if (!vals.every((v, i) => i === 0 || v < vals[i - 1])) continue;
       out.push(seoItem('seo-decay', page, {

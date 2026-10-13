@@ -11,6 +11,10 @@
  */
 export const ROUTE_TABLE_PREFIX = "# route ";
 
+/** 情報設計移行前の旧 URL の接頭辞。旧 URL かどうかはここ（isLegacyPath）だけで判定する（tests/legacy-prefix-ratchet.test.mjs） */
+export const LEGACY_PREFIX = "/docs/";
+export const isLegacyPath = (path) => String(path ?? "").startsWith(LEGACY_PREFIX);
+
 /** `_redirects` のテキストから、動的ルールがまとめて 301 にする slug → 正規パス の表（# route 行）を取り出す。 */
 export function parseRouteTable(text) {
   const map = new Map();

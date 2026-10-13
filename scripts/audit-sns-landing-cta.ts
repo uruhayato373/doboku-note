@@ -26,6 +26,7 @@ import { sidebarProduct } from '../src/lib/sidebar-discovery';
 import { hasStaticToolNoteCta } from './lib/sns-landing-cta.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
+import { LEGACY_PREFIX, isLegacyPath } from './lib/legacy-routes.mjs';
 
 const CI = process.argv.includes('--ci');
 const SITE = join(ROOT, 'content/site');
@@ -96,7 +97,7 @@ for (const [path, links] of [...linkCount].sort()) {
     verdicts.push({ path, links, kind: 'tool', ok, note: ok ? 'page.tsx に note 静的ブロック' : src ? 'note の静的ブロックなし（クライアント描画は SSR に出ない）' : 'page.tsx が見つからない' });
     continue;
   }
-  const slug = path.startsWith('/docs/') ? path.slice(6) : routeToSlug.get(path);
+  const slug = isLegacyPath(path) ? path.slice(LEGACY_PREFIX.length) : routeToSlug.get(path);
   const doc = slug ? docs.get(slug) : undefined;
   if (doc) {
     if (doc.isCareer) { excluded.career++; continue; }
