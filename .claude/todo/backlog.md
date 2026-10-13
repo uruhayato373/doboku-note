@@ -376,20 +376,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
-### [DN-0720] 検索キーワード戦略の見直しに期限と記録を持たせ、初回で受け皿（2級の転職ガイド）と技術図書の拡張を決める
-タグ: [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-10-13]
-
-**起点**: 2026-10-13 に運営者から「キーワード戦略は定期的に見直すの？」。現状は `docs/strategy/16_検索キーワード戦略.md`「月次で見ること」と monthly-review SKILL.md 手順 3 に「クラスターや受け皿の変更は月次でだけ行う」とあるだけで、見直した日・次の期限・結果の記録が無い（`config/search-strategy.json` に日付の欄が無い）。見直しが抜けても気づけない。
-
-**今わかっている見直し項目**:
-- 施工管理の転職クラスターの受け皿（pagePrefixes）に 2 級のガイドが無く、`/exam/civil-construction-2/guide/career-agent-comparison`（DN-0648・EXP-032 の対象）が「受け皿外」になっている
-- 技術図書クラスターは上位の帯が 34 語（平均 8.8 位）まで来たが、Google のクリックは 28 日で 2（GSC 2026-09-09〜10-06）。16 の「1 桁が取れてから広げる」の条件を満たしたかの判断（DN-0393）
-
-**やること**: `config/search-strategy.json` に `review: { lastReviewed, intervalDays }` を足し、期限超過を管理画面（検索 ＞ キーワード戦略）と月次レビューの下書きに出す。見直しの結果（クラスター・受け皿の変更とその理由）は 16 の「点検記録」に残す。上の 2 項目を最初の見直しで決める。
-
-**完了条件**: 設定に見直しの日と間隔があり、期限を過ぎると管理画面と月次の下書きに出る。初回の見直しで受け皿の変更（または変えない理由）が 16 に記録されている。
-
-**実験**: なし（戦略の見直しの仕組みと受け皿の決定で、1 ページの順位改善ではない）
 
 
 ### [DN-0719] EXP-012 の判定（11/26）を受けて、自治体の土木担当・コンクリート入門シリーズの第1波に着手するか決める
@@ -417,20 +403,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 - B-11 これからのコンクリート — 低炭素・プレキャスト・省力化（新規にするかは判定時に決める。技士 textbook-environment と重ならない範囲だけ）
 - ★入口: 工種別ノート（category-curriculum.json の civil-practice）の concrete ブロックを B の順に並べ替える
 
-### [DN-0718] 検索キーワード戦略の改善候補と起票カードを EXP-ID で結び、28 日後の判定を experiments.json に残す
-タグ: [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-10-13]
-
-**起点**: 2026-10-13 のキーワード戦略画面（/metrics/search-strategy）の改修中に確認。改善候補と起票カードの対応、改善結果の記録が ID で管理されていない。
-
-**現状**:
-- 候補とカードの対応は `scripts/lib/search-opportunities.mjs` の `cardedPathsFrom`（81 行）が backlog.md の本文から URL パスを正規表現で拾っているだけ。カードに対象ページ・クラスターの構造化された欄がない。本文に別件でパスが出るカードも「起票済」と表示される
-- カードを完了すると backlog から消え、同じページは「未起票」に戻る（再起票のおそれ）
-- 「反映後 28 日で対象語が上がったか」の結果はカードの完了記録（自由記述）に書くだけで、データセットに残らない。月次レビュー（monthly-review SKILL.md 17 行）も手作業で照合する
-- 改善状態の正本の `data/business/experiments.json`（EXP-###・measure.scope.pages・anchor・preDays/postDays）は使われていない（DN-0645・0646・0648・0652 の参照なし）
-
-**やること**: 週次レビューで起票するときに、対象ページ・検索語・起票時の順位と表示を EXP（measure.scope.pages）に登録し、カードには EXP-ID を書く。`search-opportunities.mjs` は backlog の本文ではなく experiments.json の scope.pages で「起票済・判定待ち・判定済み」を付ける。管理画面の状態欄に EXP-ID と判定を出す。weekly-review／monthly-review の SKILL と 16_検索キーワード戦略.md を同じ commit で直す。
-
-**完了条件**: 起票済みの候補がすべて EXP-ID でたどれる。カード完了後も「未起票」に戻らない。`node --test tests/search-opportunities.test.mjs` に experiments 経由の対応づけのテストがある。
 
 
 ### [DN-0715] 1級土木 第二次検定の合格発表後、DM 10051134 の購入者へ結果を伺い、合格なら体験談・評価をお願いする

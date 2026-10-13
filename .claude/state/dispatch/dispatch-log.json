@@ -3533,6 +3533,32 @@
       "commit": "c310c8ba43b2",
       "verification": null,
       "note": "切れた送客先 2 件を解消。外部の note 記事（onicon・404）は isolation-stop-safety の参考資料から外した（96f826b9b）。削除済みの旧マガジン m758aba129301 は、主任技士の小論文動画 3 本の youtube.json（7af7b4d18）と、10/15 に予約中の X 投稿（運営者の承認のうえ 2026-10-13 に予約の本文を後継の cce-essay-reiwa-pack へ差し替え・c310c8ba4）を直した。検査は X の投稿済みの記録を見ず予約中の原稿を見る形に（PR #1025）。check-outbound-links 494 件すべて生存・切れ 0"
+    },
+    {
+      "id": "DN-0718",
+      "at": "2026-10-13",
+      "task": "検索キーワード戦略の改善候補と起票カードを EXP-ID で結び、28 日後の判定を experiments.json に残す",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "022fa8bd669a",
+      "verification": "npm run check-search-improvements（実験 13・違反 0）・node --test tests/search-*.test.mjs（20 件）",
+      "note": "PR #1049。検索改善をカード（DN）⇄実験台帳（EXP・kind search-strategy）で起票→本番反映（sync・CI）→計測（ページ×検索語）→判定（close）まで回す CLI search-improvement と結び付きの CI ゲート check-search-improvements を新設。既存カード 13 件を EXP-022〜034 に結び、4 件は理由つきで実験にしない。受け皿外・旧 URL・判定待ちは週次の処置（triage --check が完了条件）。帯・旧 URL・デプロイのワークフローの直書きを 1 か所に寄せ tests/search-cycle-literals.test.mjs で止める"
+    },
+    {
+      "id": "DN-0720",
+      "at": "2026-10-13",
+      "task": "検索キーワード戦略の見直しに期限と記録を持たせ、初回で受け皿（2級の転職ガイド）と技術図書の拡張を決める",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "022fa8bd669a",
+      "verification": "npm run search-improvement -- triage --check（要処置 0）",
+      "note": "見直しの期限と記録は、毎週の処置（search-improvement triage・完了条件 --check）と設定の pageDecisions（理由と日付）に置き換えた。受け皿は 2 級のガイドを転職クラスターへ、型枠の実務記事を技術図書クラスターへ加えた（PR #1049）。技術図書の拡張の判断は DN-0393 に残す"
     }
   ]
 }
