@@ -4,9 +4,12 @@
  *
  * CI（Drive mount なし）では参考文献台帳 ↔ book-manifest ↔ drive-manifest を検査する。
  * Drive mount がある端末では、全原本とページ画像サンプル（--deep は全件）の bytes/sha256 も照合する。
+ * あわせて原本 PDF の実ページ数（pdfinfo）が台帳の expectedPdfPages と同じかを見る（2026-10-13。違うと増えたページが
+ * 黙って画像にならず、除外の範囲もずれる）。pdfinfo が無い端末では照合しないと出す。
  */
 
 import fs from 'node:fs';
+import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import {
   loadDriveConfig,
@@ -76,6 +79,19 @@ let vaultReads = 0;
 let vaultUnreadable = 0;
 let checkedOcrArtifacts = 0;
 let checkedCrops = 0;
+let checkedPdfPageCounts = 0;
+let pdfinfoMissing = false;
+/** pdfinfo で PDF のページ数を読む。pdfinfo が無ければ null（照合しない）、読めなければ undefined。 */
+function pdfPageCount(file) {
+  try {
+    const out = execFileSync('pdfinfo', [file], { encoding: 'utf8', timeout: 60_000, maxBuffer: 4 * 1024 * 1024, stdio: ['ignore', 'pipe', 'ignore'] });
+    const m = out.match(/^Pages:\s+(\d+)/m);
+    return m ? Number(m[1]) : undefined;
+  } catch (err) {
+    if (err.code === 'ENOENT') { pdfinfoMissing = true; return null; }
+    return undefined;
+  }
+}
 for (const source of targets) {
   const label = source.id;
   try { validateBookBundleSource(source); }
@@ -174,6 +190,15 @@ for (const source of targets) {
     if (!actual) continue;
     checkedSources += 1;
     if (actual.sha256 !== recorded.sha256 || actual.bytes !== recorded.bytes) fail(label, `${entry.vaultPath} の原本 bytes/sha256 が不一致`);
+    const bundleFile = source.bookBundle.sourceFiles.find((f) => sourceRepoPath(source, f.order) === recorded.repoPath);
+    if (bundleFile && !pdfinfoMissing) {
+      const n = pdfPageCount(file);
+      if (n === undefined) warnings.push(`${label}: ${entry.vaultPath} のページ数を読めなかった`);
+      else if (n !== null) {
+        checkedPdfPageCounts += 1;
+        if (n !== bundleFile.expectedPdfPages) fail(label, `${entry.vaultPath} は ${n} 頁、台帳の expectedPdfPages は ${bundleFile.expectedPdfPages}（増えた頁が画像にならない・除外の範囲がずれる。参考文献の台帳（reference-sources.json）を直して build-reference-book-pages）`);
+      }
+    }
   }
 
   const pageRecords = manifest.pages || [];
@@ -221,7 +246,7 @@ for (const source of targets) {
 }
 
 console.log(`[${NAME}] 対象 ${targets.length} 冊 / manifest ${checkedManifests} 冊`);
-console.log(`[${NAME}] Drive 実体照合: 原本 ${checkedSources} ファイル / ページ画像 ${checkedPages} 枚${DEEP ? '（全件）' : `（各冊 約${SAMPLE} 枚）`} / OCR ${checkedOcrArtifacts} / crop ${checkedCrops}`);
+console.log(`[${NAME}] Drive 実体照合: 原本 ${checkedSources} ファイル（実ページ数 ${checkedPdfPageCounts} 件${pdfinfoMissing ? '・pdfinfo が無く未照合' : ''}） / ページ画像 ${checkedPages} 枚${DEEP ? '（全件）' : `（各冊 約${SAMPLE} 枚）`} / OCR ${checkedOcrArtifacts} / crop ${checkedCrops}`);
 for (const warning of warnings) console.warn(`  ! ${warning}`);
 if (vaultReads > 0 && vaultUnreadable === vaultReads) {
   console.error(`[${NAME}] 検査不成立: Drive の実体 ${vaultReads} 件をすべて読めなかった（マウントが止まっているか同期中）。Google Drive の本体アプリを起動して再検査`);

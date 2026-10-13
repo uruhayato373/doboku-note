@@ -351,3 +351,42 @@ export function validateBookManifestShape(source, manifest) {
   }
   return errors;
 }
+
+/**
+ * 1 冊の網羅の状況（2026-10-13）。「教材は全部画像化・文字起こし済みか」に、ページ画像を開かずに答えるための集計。
+ * 原本のページ数（expectedPdfPages）と除外（excludedPdfPageRanges・理由つき）は参考文献の台帳（config/reference-sources.json）、
+ * ページ画像と文字起こしの状態は git の book-manifest.json が正本。Drive 側の book-manifest には除外の理由は載らない。
+ * @returns {{ pdfPages:number, excludedPdfPages:number, excluded:{ order:number, start:number, end:number, reason:string }[],
+ *   plannedPages:number, imagedPages:number|null, ocr:{ complete:number, pending:number, other:number }|null, manifestMatchesPlan:boolean|null }}
+ */
+export function bookCoverageSummary(source, manifest) {
+  const files = source.bookBundle?.sourceFiles ?? [];
+  const excluded = [];
+  for (const file of files) {
+    for (const r of file.excludedPdfPageRanges ?? []) excluded.push({ order: file.order, start: r.start, end: r.end, reason: r.reason });
+  }
+  const pdfPages = files.reduce((n, f) => n + (f.expectedPdfPages ?? 0), 0);
+  const excludedPdfPages = excluded.reduce((n, r) => n + (r.end - r.start + 1), 0);
+  const plannedPages = buildBookPagePlan(source).length;
+  if (!manifest) return { pdfPages, excludedPdfPages, excluded, plannedPages, imagedPages: null, ocr: null, manifestMatchesPlan: null };
+  const pages = manifest.pages ?? [];
+  const ocr = { complete: 0, pending: 0, other: 0 };
+  for (const p of pages) {
+    if (p.ocrStatus === 'complete') ocr.complete += 1;
+    else if (p.ocrStatus === 'pending') ocr.pending += 1;
+    else ocr.other += 1;
+  }
+  return { pdfPages, excludedPdfPages, excluded, plannedPages, imagedPages: pages.length, ocr, manifestMatchesPlan: pages.length === plannedPages };
+}
+
+/** 除外の理由ごとに束ねた短い説明（同じ理由の範囲は 1 つにまとめ、ページ数を足す）。 */
+export function summarizeExclusions(excluded) {
+  const byReason = new Map();
+  for (const r of excluded) {
+    const cur = byReason.get(r.reason) ?? { reason: r.reason, pages: 0, files: new Set() };
+    cur.pages += r.end - r.start + 1;
+    cur.files.add(r.order);
+    byReason.set(r.reason, cur);
+  }
+  return [...byReason.values()].map((x) => ({ reason: x.reason, pages: x.pages, files: [...x.files].sort((a, b) => a - b) }));
+}
