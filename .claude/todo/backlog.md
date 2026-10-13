@@ -389,6 +389,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 2. 新規 35 章・補強 4 章の骨子を `content/sources/series/municipal-civil-engineer/` に書く。根拠は Web の検索を優先して集める（2026-10-13 運営者。市販書の PDF は取り寄せない）: 法令は e-Gov の条（`npm run egov-laws` が通ること）、通知・要領は国交省、統計は白書、運用の例は都道府県・市の公開の手引き。Drive 直下の「土木奥義」は docs/strategy/18 の 3 区分に従い、公開の法令・基準だけを根拠にする。Drive の 6 冊と行政書士テキスト（DN-0732）は `--suggest` の候補から補助として選ぶ
 3. 第 1 波（A-08 占用・A-14 河川区域の許可・A-19 里道と水路）から先に作り、運営者に確かめてもらう。A-22 地元説明会・A-40 住民・議会への説明も一般論で書く（公開の指針から。体験談は作らない・2026-10-13 運営者）
 4. 骨子で使った URL だけの資料を、記事を書く前に参考文献の台帳へ入れる
+**済んだこと**（2026-10-13）: 39 章（新規 35・補強 4）の骨子を下書きで作った（`content/sources/series/municipal-civil-engineer/`・論点 654・すべてに一次資料。担当 9 体が Web・e-Gov で根拠を集めた）。骨子が引く法令 43 本を参考文献の台帳へ登録し、条を台帳の id に揃えた（814 か所すべて e-Gov の写しに実在）。事実ファイル `.claude/knowledge/reference/municipal-civil-engineer-sources.md` を起こした。A-08 は令和8年の道路法改正（占用の申請書・完了の届出・維持修繕協定）を足したので下書きに戻した。残り: 運営者の確認（第 1 波 A-08・A-14・A-19 から）と、記事を書く前に URL だけの根拠（286 件）のうち記事で使うものを台帳へ。
 **完了条件**: 39 章の骨子が approved で `check-content-series` が緑（一次資料の無い論点 0）。第 1 波の 3 章は 11/25 までに approved。
 
 
