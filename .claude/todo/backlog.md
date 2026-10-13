@@ -520,11 +520,10 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 ### [DN-0664] 5〜9 月の受取額を台帳から記録し、9 月は KDP の確定後に complete にする
 タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-11] [期日:2026-10-17]
 
-**起点**: 2026-10-11 に受取額を 3 つの台帳（note.sales・coconala.revenue・kdp.royalties）から組み立てる形にした（#977・#982・#983）。プロジェクトは 5 月開始だが、記録（data/business/records の netReceipts）は 8 月（complete）と 9 月（partial）だけ。note の 5 月は確定値（控除後 ¥27,997）を取り込み済み、6・7 月は login-collectors の手動実行（run 38109465998・38109600073）で取り込み中。KDP の 9 月は推計 ¥9,806、確定は 10/16 以降の金曜の定期取得で入る。
+**起点**: 2026-10-11 に受取額を 3 つの台帳（note.sales・coconala.revenue・kdp.royalties）から組み立てる形にした（#977・#982・#983）。記録（data/business/records の netReceipts）は 5・6・8 月が complete、7 月（KDP が 7/31 取得の推計）と 9 月が partial。KDP の 9 月は推計 ¥9,806、確定は 10/16 以降の金曜の定期取得で入る。
 
 **やること**:
-1. 6・7 月の run が develop に入ったら（data/note/sales.json の months に 2026-06・2026-07 の net がある）、npm run record-net-receipts -- --month 2026-05 --commit（06・07 も）で記録してコミットする。5・6 月は 3 つとも確定で complete、7 月は KDP が 7/30 取得の推計なので partial。入っていなければ run ログの note-sales-fetch を見て month を指定し直す。
-2. 10/16 以降の取得で data/kdp/royalties.json の 2026-09 が estimated:false になったら、npm run record-net-receipts -- --month 2026-09 --commit（前の partial を訂正先にする）でコミットし、9 月の月次レビュー記録を supersedes で確定版にする。
+1. 10/16 以降の取得で data/kdp/royalties.json の 2026-09 が estimated:false になったら、npm run record-net-receipts -- --month 2026-09 --commit（前の partial を訂正先にする）でコミットし、9 月の月次レビュー記録を supersedes で確定版にする。
 
 **完了条件**: 管理画面トップ（?month=2026-05〜09）の受取額がすべて note 確定値で出て、2026-05・06・09 の netReceipts が complete で記録されている。
 
