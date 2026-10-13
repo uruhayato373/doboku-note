@@ -1,12 +1,13 @@
 #!/usr/bin/env node
 /**
- * check-search-improvements.mjs — 検索キーワード戦略の改善（実験台帳の kind: search-strategy）とバックログのカードが ID で結ばれているか。
+ * check-search-improvements.mjs — 検索キーワード戦略の改善（実験台帳の kind: search-strategy）が「直して記録した」状態だけか・カードとの結び付きが正しいか。
  * ---------------------------------------------------------------------------
  * 判定は scripts/lib/search-improvement.mjs の linkErrors（唯一の実装）。committed の台帳・backlog・dispatch-log・設定だけを読み、
  * 壁時計に依存しない（quality-audit の ci:true・pre-commit で backlog / 実験台帳 / 設定 / dispatch-log を触ったとき）。
- *   - EXP の対象（クラスター・ページ・カード）と measure 仕様が揃っている
- *   - 起票中の EXP のカードが backlog か dispatch-log にあり、カードの本文に EXP-ID がある（双方向）
- *   - 起点が「検索キーワード戦略」のカードは EXP に結ばれている（手で起票して計測が漏れるのを止める）
+ *   - EXP の対象（クラスター・ページ）と measure 仕様と改善の記録（commit・日付・内容）が揃っている
+ *   - 改善の記録の無い EXP（「起票済」で止まる状態）を作らない（2026-10-13 にカードの 9 件が直したのに計測へ進んでいなかった）
+ *   - 起点が「検索キーワード戦略」のカードを作らない（ページの順位改善は週次レビューが直して record する。改善以外は「なし（理由）」）
+ *   - 旧来のカードと EXP の ID は双方向に一致する
  *   - 同じページに計測の終わっていない EXP が 2 つない・計測中は境目と判定日がある・判定済みは結果がある
  * exit: 0 違反なし / 1 違反あり
  * ---------------------------------------------------------------------------
@@ -30,7 +31,7 @@ const exps = ledger.experiments.filter(isSearchExperiment).length;
 console.log(`${TAG} 検索改善の実験 ${exps} 件・backlog のカード ${cards.length} 枚を検査 / 違反 ${errors.length} 件`);
 for (const e of errors) console.log(`  ✗ ${e}`);
 if (errors.length) {
-  console.log(`${TAG} 起票は npm run search-improvement -- add、既存カードの結び付けは link（scripts/search-improvement.mjs）`);
+  console.log(`${TAG} 改善は直して develop に入れた commit を npm run search-improvement -- record で記録する（scripts/search-improvement.mjs）`);
   process.exitCode = 1;
 } else if (!exps) console.log(`${TAG} 検索改善の実験が 0 件（実験側の結び付けは検査していない。カード側の起点だけ検査した）`);
 else console.log(`${TAG} ✓ 実験とカードは ID で結ばれている`);

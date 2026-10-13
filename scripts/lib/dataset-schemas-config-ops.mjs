@@ -366,7 +366,7 @@ export const ConfigSearchStrategy = z
       }),
     cycle: z
       .object({
-        filePerWeek: posInt.describe('週次レビューが 1 週に起票する改善の上限'),
+        improvePerWeek: posInt.describe('週次レビューが 1 週に直して記録する改善の件数（直せる候補がこれより少なければその数）。週次の完了条件 triage --check --weekly が数える'),
         legacyGraceDays: posInt.describe('旧 URL が転送後（登録リクエスト後）この日数を過ぎても候補に残れば、週次の処置（正規 URL の登録リクエスト）が要る'),
         measure: z
           .object({

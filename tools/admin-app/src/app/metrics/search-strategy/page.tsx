@@ -15,7 +15,7 @@ export const dynamic = 'force-dynamic';
 
 /**
  * 検索 ＞ キーワード戦略。クラスター（docs/strategy/16_検索キーワード戦略.md）ごとの推移（shadcn dashboard-01 の SectionCards の形）と、
- * 改善候補の帯で表示のある検索語をページ単位に束ねた改善候補（クラスターのタブ＋Data Table）、起票した改善の実験（起票→本番反映→計測→判定）。
+ * 改善候補の帯で表示のある検索語をページ単位に束ねた改善候補（クラスターのタブ＋Data Table）、直した改善の実験（直す→本番反映→計測→判定）と週次の処置。
  * 組み立て・帯の境目と表示名・印は scripts/lib/search-opportunities.mjs と search-improvement.mjs（CLI と同じ）。ここは並べるだけ。
  */
 type Query = { query: string; position: number; impressions: number };
@@ -23,14 +23,14 @@ type Candidate = { page: string; impressions: number; bestPosition: number; quer
 type Prev = { impressions: number; clicks: number; top10: number; striking: number; avgPosition: number | null } | null;
 type Cluster = { id: string; label: string; queries: number; impressions: number; clicks: number; top10: number; striking: number; avgPosition: number | null; candidates: Candidate[]; candidateTotal: number; previous: Prev };
 type Bands = { top: string; striking: string };
-type Experiment = { id: string; phase: keyof typeof PHASES; cluster: string; clusterLabel: string; page: string; card: string; queries: number; nextCheck: string | null; measurement: { pre: number | null; post: number | null; verdictHint: string; complete: boolean } | null; result: keyof typeof RESULTS | null };
+type Experiment = { id: string; phase: keyof typeof PHASES; cluster: string; clusterLabel: string; page: string; card: string | null; implementedAt: string | null; change: string | null; queries: number; nextCheck: string | null; measurement: { pre: number | null; post: number | null; verdictHint: string; complete: boolean } | null; result: keyof typeof RESULTS | null };
 type Triage = { cluster: string; clusterLabel: string; page: string; impressions: number | null; kind: string; status: 'action' | 'observe'; action?: string; note?: string };
-type Result = { period: { startDate: string; endDate: string } | null; previous: { startDate: string; endDate: string } | null; bands: Bands; clusters: Cluster[]; experiments: Experiment[]; triage: Triage[] };
+type Result = { period: { startDate: string; endDate: string } | null; previous: { startDate: string; endDate: string } | null; bands: Bands; clusters: Cluster[]; experiments: Experiment[]; triage: Triage[]; quota: { recorded: number; required: number; since: string } | null };
 
 const BASE = '/metrics/search-strategy';
 const QUERY_SHOWN = 3;
 /** 印（candidateMarks の key）と段階（phaseOf）の色。意味は lib が決め、ここは見た目だけ */
-const MARK_TONE: Record<string, Tone> = { experiment: 'info', watched: 'good', 'legacy-action': 'warn', 'legacy-wait': 'neutral', 'off-target': 'warn', routed: 'info', 'routed-action': 'warn', last: 'neutral', unfiled: 'neutral' };
+const MARK_TONE: Record<string, Tone> = { experiment: 'info', watched: 'good', 'legacy-action': 'warn', 'legacy-wait': 'neutral', 'off-target': 'warn', routed: 'info', 'routed-action': 'warn', last: 'neutral', todo: 'neutral' };
 const PHASE_TONE: Record<string, Tone> = { filed: 'info', implemented: 'warn', measuring: 'info', 'verdict-due': 'warn', closed: 'good', abandoned: 'neutral' };
 const md = (d: string) => d.slice(5).replace('-', '/');
 const num = (n: number) => n.toLocaleString();
@@ -184,7 +184,7 @@ const EXPERIMENT_COLUMNS: DataTableColumn[] = [
   { key: 'phase', label: '段階' },
   { key: 'page', label: 'ページ', wrap: true },
   { key: 'cluster', label: 'クラスター' },
-  { key: 'card', label: 'カード' },
+  { key: 'change', label: '改善（日付・内容）', wrap: true, sortable: false },
   { key: 'measure', label: '計測（前→後）', sortable: false },
   { key: 'nextCheck', label: '判定できる日' },
   { key: 'result', label: '判定' },
@@ -195,7 +195,7 @@ function experimentRows(experiments: Experiment[]): DataTableRow[] {
     const m = e.measurement;
     return {
       id: e.id,
-      values: { id: e.id, phase: PHASES[e.phase], page: e.page, cluster: e.clusterLabel, card: e.card, measure: null, nextCheck: e.nextCheck, result: e.result ? RESULTS[e.result] : null },
+      values: { id: e.id, phase: PHASES[e.phase], page: e.page, cluster: e.clusterLabel, change: e.implementedAt ? `${e.implementedAt} ${e.change ?? e.card ?? ''}` : null, measure: null, nextCheck: e.nextCheck, result: e.result ? RESULTS[e.result] : null },
       cells: {
         phase: <StatusBadge tone={PHASE_TONE[e.phase]}>{PHASES[e.phase]}</StatusBadge>,
         page: <PageCell path={e.page} />,
@@ -246,7 +246,7 @@ export default async function SearchStrategyPage({ searchParams }: { searchParam
           ))}
         </Grid>
 
-        <Section title={`週次の処置（要処置 ${r.triage.filter((t) => t.status === 'action').length}・観察中 ${r.triage.filter((t) => t.status === 'observe').length}）`}>
+        <Section title={`週次の処置（要処置 ${r.triage.filter((t) => t.status === 'action').length}・観察中 ${r.triage.filter((t) => t.status === 'observe').length}${r.quota ? `・今週の改善 ${r.quota.recorded}/${r.quota.required}` : ''}）`}>
           <DataTable columns={TRIAGE_COLUMNS} rows={triageRows(r.triage)} pageSize={50} emptyText="処置の要る候補なし" />
         </Section>
 
@@ -266,8 +266,8 @@ export default async function SearchStrategyPage({ searchParams }: { searchParam
           <DataTable key={selected?.id ?? 'all'} columns={columns} rows={candidateRows(pool)} filter="ページ・検索語・状態で絞り込み" pageSize={50} emptyText="候補なし" />
         </Section>
 
-        <Section title="改善の実験（起票→本番反映→計測→判定）">
-          <DataTable columns={EXPERIMENT_COLUMNS} rows={experimentRows(r.experiments)} filter="実験・ページ・カード・段階で絞り込み" pageSize={50} emptyText="起票した改善なし" />
+        <Section title="改善の実験（直す→本番反映→計測→判定）">
+          <DataTable columns={EXPERIMENT_COLUMNS} rows={experimentRows(r.experiments)} filter="実験・ページ・カード・段階で絞り込み" pageSize={50} emptyText="記録した改善なし" />
         </Section>
       </Stack>
     </>

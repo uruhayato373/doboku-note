@@ -5,9 +5,9 @@
  * config/search-strategy.json のクラスターごとに、最新の GSC 検索語×ページ集計（CI 供給）から
  * 表示・クリック・上位の帯の件数・改善候補の帯の件数（帯の境目は config の striking）と、重ならない直前の期間との差を出す。
  * 改善候補＝改善候補の帯で表示がある検索語をページ単位に束ねたもの。観察中（SEO Rank Watch）・実験の段階と前回の判定
- * （実験台帳の kind: search-strategy）・未起票の印を付ける（印は search-opportunities.mjs の candidateMarks）。取得はしない。
+ * （実験台帳の kind: search-strategy）・未着手の印を付ける（印は search-opportunities.mjs の candidateMarks）。取得はしない。
  *
- * 読み手: 週次レビュー（--json の fileable の上位を npm run search-improvement -- add で起票）・月次レビュー（クラスター別の推移と experiments の判定）。
+ * 読み手: 週次レビュー（--json の fileable の上位をその週に直して npm run search-improvement -- record・triage の要処置を 0 に）・月次レビュー（クラスター別の推移と experiments の判定）。
  *
  * 使い方:
  *   node scripts/report-search-opportunities.mjs          # 人が読む出力

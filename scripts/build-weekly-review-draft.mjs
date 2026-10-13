@@ -142,21 +142,20 @@ md.push('## 点検と Issue', '', block(R.checks, 60) + note(R.checks), '');
 md.push('## バックログの関門', '', block(R.gate, 50) + note(R.gate), '');
 md.push('## バックログの健全性', '', block(R.backlogHealth, 20) + note(R.backlogHealth), '');
 
-// 起票してよい候補（fileable）と週の上限（cycle.filePerWeek）は search-opportunities と config が決める。ここでは並べるだけ
+// 直してよい候補（fileable）・週の改善件数（cycle.improvePerWeek）・週次の処置は search-opportunities と config が決める。ここでは並べるだけ
 const S = R.search.data;
-const perWeek = S?.config?.cycle?.filePerWeek;
+const perWeek = S?.config?.cycle?.improvePerWeek;
 const fileable = S?.fileable ?? [];
-md.push(`## 検索の改善候補（起票してよい ${fileable.length} 件・上位 ${perWeek ?? '—'} 件を npm run search-improvement -- add で起票する）`, '');
+const quota = S?.quota;
+md.push(`## 検索の改善（今週 ${quota ? `${quota.recorded}/${quota.required}` : '—'} 件。直してよい ${fileable.length} 件の上位を develop で直し、npm run search-improvement -- record --page <path> --change "…" --commit で記録する）`, '');
 md.push(fileable.length ? fileable.slice(0, perWeek).map((x) => `- [${x.clusterLabel}] ${x.page}「${x.queries?.[0]?.query ?? ''}」表示 ${x.impressions}・最良 ${x.bestPosition} 位${x.lastResult ? `（前回 ${x.lastResult.id}: ${x.lastResult.result}）` : ''}`).join('\n') : (S ? '- なし' : `- （未取得・rc=${R.search.rc}）`), '');
-// 週次の処置（受け皿外・旧 URL・誘導の見直し）。要処置が 0 になるまで処置する（完了条件 npm run search-improvement -- triage --check）
+// 週次の処置（受け皿外・旧 URL・誘導の見直し・記録の無い実験・判定待ち・本番に入らない改善）。完了条件 npm run search-improvement -- triage --check --weekly
 const triage = S?.triage ?? [];
 const triageAction = triage.filter((t) => t.status === 'action');
 md.push(`## 検索の週次処置（要処置 ${triageAction.length}・観察中 ${triage.length - triageAction.length}）`, '');
 md.push(S ? (triage.length ? triage.map((t) => `- ${t.status === 'action' ? '要処置' : '観察中'} [${t.clusterLabel}] ${t.page}: ${t.action ?? t.note}`).join('\n') : '- なし') : '- （未取得）', '');
 const phases = Object.groupBy(S?.experiments ?? [], (e) => e.phase);
-md.push('## 検索改善の実験（起票→本番反映→計測→判定）', '', S ? `- ${Object.entries(phases).map(([k, v]) => `${k} ${v.length}`).join(' / ') || '0 件'}` : '- （未取得）');
-for (const e of [...(phases['verdict-due'] ?? []), ...(phases.implemented ?? [])]) md.push(`- ${e.id}（${e.phase}）${e.page}・${e.card}${e.measurement ? `・${e.measurement.pre}→${e.measurement.post}（目安 ${e.measurement.verdictHint}）` : ''}`);
-md.push('');
+md.push('## 検索改善の実験（直す→本番反映→計測→判定）', '', S ? `- ${Object.entries(phases).map(([k, v]) => `${k} ${v.length}`).join(' / ') || '0 件'}` : '- （未取得）', '');
 
 const pick = (r, re, n = 8) => r.out.split('\n').filter((l) => re.test(l)).slice(0, n).join('\n');
 md.push('## PSI と実ユーザー計測', '', '```', pick(R.psi, /coverage|CI ゲート違反|\*\*(TBT|CLS|LCP|SEO)/), pick(R.webVitals, /^実ユーザー|不良|要改善/), '```' + note(R.psi), '');

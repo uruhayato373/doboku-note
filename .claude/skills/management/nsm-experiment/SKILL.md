@@ -25,7 +25,7 @@ domain: strategy
 
 ## 検索キーワード戦略の専用経路
 
-`kind: search-strategy` の実験は `npm run search-improvement`（add・link・sync・close）だけが書く。起票（カード⇄EXP を 1 commit）→ カード完了（dispatch-log の commit）→ その commit を含む本番デプロイの日を境目に running（sync・CI の fetch-metrics が毎週）→ CI の measure-experiments が「対象ページ × 起票時の検索語」を前後で測る → VERDICT_DUE で close。直接の JSON 編集と、このスキルの start / close を使わない。カードと実験の結び付きは `npm run check-search-improvements`（CI ゲート）が止める。
+`kind: search-strategy` の実験は `npm run search-improvement`（record・sync・close・decide・triage）だけが書く。週次レビューがその週に直して develop に入れた commit を record（段階「本番反映待ち」）→ その commit を含む本番デプロイの日を境目に running（sync・CI の fetch-metrics が毎週）→ CI の measure-experiments が「対象ページ × 直す前の検索語」を前後で測る → 判定待ちを close。直接の JSON 編集と、このスキルの propose / start / close を使わない。改善の記録の無い EXP とカード積みは `npm run check-search-improvements`（CI ゲート）が止める。
 
 ## なぜこのスキルがあるのか
 

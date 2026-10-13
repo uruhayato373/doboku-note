@@ -156,6 +156,7 @@
     "report-search-opportunities": "node scripts/report-search-opportunities.mjs",
     "search-improvement": "node scripts/search-improvement.mjs",
     "check-search-improvements": "node scripts/check-search-improvements.mjs",
+    "check-search-triage": "node scripts/check-search-triage.mjs",
     "report-web-vitals": "node scripts/report-web-vitals.mjs",
     "record-net-receipts": "node scripts/record-net-receipts.mjs",
     "x-profile-sync": "node scripts/x-profile-sync.mjs",

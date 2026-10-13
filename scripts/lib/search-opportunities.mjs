@@ -4,8 +4,8 @@
  * GSC の検索語×ページ集計（data/gsc/reports/<日付>.json の page-query・CI 供給）を読み、
  * クラスター（検索語の正規表現）ごとに 表示・クリック・上位の帯の件数・改善候補の帯の件数を出す。帯の境目は config の striking だけが持つ。
  * 改善候補は「改善候補の帯で表示がある検索語」をページ単位に束ねたもの（既存ページの手直しで上位へ上げる対象）。
- * 起票・計測・判定の状態は実験台帳（kind: search-strategy・search-improvement.mjs）から ID で引く。SEO Rank Watch で観察中のページにも印を付ける。
- * 読み手: 週次レビュー（fileable の上位を起票）・月次レビュー（クラスター別の推移と判定）・管理画面 検索 ＞ キーワード戦略。
+ * 直した改善の段階・前回の判定は実験台帳（kind: search-strategy・search-improvement.mjs）から ID で引く。SEO Rank Watch で観察中のページにも印を付ける。
+ * 読み手: 週次レビュー（fileable の上位をその週に直して record・triage の要処置を 0 に）・月次レビュー（クラスター別の推移と判定）・管理画面 検索 ＞ キーワード戦略。
  * ---------------------------------------------------------------------------
  */
 import { execFileSync } from 'node:child_process';
@@ -21,7 +21,7 @@ import { LEGACY_REDIRECTED_AT } from './legacy-sitemap.mjs';
 import { buildContentIndex } from './content-index.mjs';
 import { REPO_ROOT, SITE_CONTENT_ROOT } from './repository-paths.mjs';
 import { jstDayOf, todayJst } from './jst-date.mjs';
-import { PHASES, RESULTS, dispatchIndex, experimentsByPage, implementationOf, isSearchExperiment, latestMeasurement, phaseOf } from './search-improvement.mjs';
+import { PHASES, RESULTS, dispatchIndex, experimentsByPage, implementationOf, isSearchExperiment, latestMeasurement, phaseOf, weeklyQuota } from './search-improvement.mjs';
 
 export const CONFIG = datasetPath('config.search-strategy');
 
@@ -112,7 +112,7 @@ export function summarizeCluster(cluster, rows, striking, { watchedPaths = new S
       const watched = watchedPaths.has(g.page);
       const legacyUrl = isLegacyPath(g.page);
       const inTarget = inTargetOf(cluster, g.page);
-      const experiment = exp.open ? { id: exp.open.id, phase: phaseOf(exp.open, dispatchById), card: exp.open.searchStrategy.card, nextCheck: exp.open.next_check_date ?? null } : null;
+      const experiment = exp.open ? { id: exp.open.id, phase: phaseOf(exp.open, dispatchById), card: exp.open.searchStrategy.card ?? null, nextCheck: exp.open.next_check_date ?? null } : null;
       return {
         ...g,
         queries: g.queries.sort((a, b) => b.impressions - a.impressions),
@@ -147,42 +147,43 @@ export function summarizeCluster(cluster, rows, striking, { watchedPaths = new S
  * （commit が develop・main に無い＝squash マージで変わった・未 push など）。それまでは観察（CI の sync が毎週探す）。
  */
 export function triageExperiment(e, { today, graceDays }) {
+  if (e.phase === 'filed') return { kind: 'unrecorded', status: 'action', action: `${e.id} に改善の記録が無い → 直して develop に入れ、npm run search-improvement -- record --id ${e.id} --sha <commit> --change "…" --commit` };
   if (e.phase === 'verdict-due') {
     const m = e.measurement ?? {};
-    return { kind: 'verdict', status: 'action', action: `${e.id}（${e.card}）の事後窓が確定（${m.pre ?? '—'}→${m.post ?? '—'}・目安 ${m.verdictHint ?? '—'}）→ npm run search-improvement -- close --id ${e.id} --result <success|partial|no-effect|negative> --learning "…" --commit` };
+    return { kind: 'verdict', status: 'action', action: `${e.id} の事後窓が確定（${m.pre ?? '—'}→${m.post ?? '—'}・目安 ${m.verdictHint ?? '—'}）→ npm run search-improvement -- close --id ${e.id} --result <success|partial|no-effect|negative> --learning "…" --commit` };
   }
   if (e.phase === 'implemented' && e.implementedAt) {
     const days = daysBetween(e.implementedAt, today);
-    if (days < graceDays) return { kind: 'deploy-wait', status: 'observe', note: `${e.id}（${e.card}）カード完了 ${e.implementedAt}・本番反映待ち` };
-    return { kind: 'deploy-wait', status: 'action', action: `${e.id}（${e.card}）カード完了から ${days} 日たっても本番デプロイに入っていない → dispatch-log の commit が develop・main にあるか確かめ、npm run search-improvement -- sync を回す` };
+    if (days < graceDays) return { kind: 'deploy-wait', status: 'observe', note: `${e.id} 改善 ${e.implementedAt}・本番反映待ち` };
+    return { kind: 'deploy-wait', status: 'action', action: `${e.id} の改善（${e.implementedAt}）から ${days} 日たっても本番デプロイに入っていない → 記録した commit が develop・main にあるか確かめ（squash で変わっていれば record をやり直す）、本番へ出して npm run search-improvement -- sync を回す` };
   }
   return { kind: 'none', status: 'none' };
 }
 
 /** 印の意味（管理画面のツールチップ・CLI の凡例）。印を足したらここにも足す */
 export const MARK_HINTS = {
-  experiment: '改善の実験の段階（起票済→本番反映待ち→計測中→判定待ち）と、直すカード',
-  watched: 'SEO Rank Watch で 1 キーワードを観察中。ここからは起票しない',
+  experiment: '直した改善の実験の段階（本番反映待ち→計測中→判定待ち）',
+  watched: 'SEO Rank Watch で 1 キーワードを観察中。ここからは直さない',
   'legacy-action': '旧 URL（/docs/）で今週の処置が要る（転送・転送先の公開・サイト内リンク・登録リクエスト）。週次レビューで処置する',
   'legacy-wait': '旧 URL（/docs/）。転送・公開・サイト内リンクは確認済みで、Google の置き換え待ち（期限を過ぎたら登録リクエスト）',
   'off-target': '受け皿（設定の pagePrefixes）の外のページ。週次レビューで受け皿に加えるか、狙いのページへ誘導するかを決める',
   routed: '狙いのページへ誘導すると決めて観察中（期限を過ぎても出ていれば判断を見直す）',
   'routed-action': '誘導してから期限を過ぎても出ている。週次レビューで判断を見直す',
   last: '前回の実験の判定。同じ直し方を繰り返さない',
-  unfiled: '起票してよい候補（週次レビューが search-improvement add で起票する）',
+  todo: '直してよい候補。週次レビューが表示の多い順に improvePerWeek 件をその週に直し、search-improvement record で記録する',
 };
 
 /** 候補の印（唯一の判定。CLI・管理画面・週次の下書きが使う）。key は表示の色分け、hint は意味。triage は triageCandidate の結果 */
 export function candidateMarks(p) {
   const out = [];
   const t = p.triage ?? { kind: 'none' };
-  if (p.experiment) out.push({ key: 'experiment', label: `${PHASES[p.experiment.phase]} ${p.experiment.id}・${p.experiment.card}` });
+  if (p.experiment) out.push({ key: 'experiment', label: `${PHASES[p.experiment.phase]} ${p.experiment.id}` });
   if (p.watched) out.push({ key: 'watched', label: '観察中' });
   if (t.kind === 'legacy') out.push(t.status === 'action' ? { key: 'legacy-action', label: '旧URL・要処置' } : { key: 'legacy-wait', label: '旧URL・置き換え待ち' });
   if (t.kind === 'off-target') out.push({ key: 'off-target', label: '受け皿外・要処置' });
   if (t.kind === 'routed') out.push(t.status === 'action' ? { key: 'routed-action', label: '誘導・要見直し' } : { key: 'routed', label: `誘導済 → ${p.decision.to}` });
   if (p.lastResult) out.push({ key: 'last', label: `前回 ${RESULTS[p.lastResult.result] ?? p.lastResult.result} ${p.lastResult.id}` });
-  if (p.fileable) out.push({ key: 'unfiled', label: '未起票' });
+  if (p.fileable) out.push({ key: 'todo', label: '未着手' });
   return out.map((m) => ({ ...m, hint: MARK_HINTS[m.key] }));
 }
 
@@ -255,7 +256,7 @@ function latestBing(root) {
   return data.sections?.query?.ok ? { file, rows: data.sections.query.rows ?? [] } : null;
 }
 
-/** 起票してよい候補（全クラスター・表示の多い順・同じページは表示の多いクラスターの 1 件だけ）。 */
+/** 直してよい候補（全クラスター・表示の多い順・同じページは表示の多いクラスターの 1 件だけ）。 */
 export function fileableCandidates(clusters) {
   const best = new Map();
   for (const c of clusters) for (const p of c.allCandidates ?? c.candidates) {
@@ -279,6 +280,8 @@ export function experimentRows(experiments, dispatchById, clusters) {
       page: e.searchStrategy?.page ?? null,
       card: e.searchStrategy?.card ?? null,
       implementedAt: implementationOf(e, dispatchById)?.at ?? null,
+      change: e.implementation?.change ?? null,
+      closedAt: e.closed_at ? jstDayOf(new Date(e.closed_at)) : null,
       queries: e.measure?.scope?.queries?.length ?? 0,
       createdAt: e.created_at ?? null,
       startedAt: e.started_at ?? null,
@@ -292,7 +295,7 @@ export function experimentRows(experiments, dispatchById, clusters) {
 
 /**
  * maxCandidates はクラスターごとに返す候補の上限（既定は config の maxCandidatesPerCluster。管理画面は表で全件を出すので Infinity）。
- * asOf（YYYY-MM-DD）を渡すと、その日より前に終わる集計を最新として扱う（既存のカードを起票した日の状態で結ぶ link が使う）。
+ * asOf（YYYY-MM-DD）を渡すと、その日より前に終わる集計を最新として扱う（直した日より前の状態を基準にする record が使う）。
  */
 export function buildSearchOpportunities(root, { maxCandidates, asOf } = {}) {
   const config = readJson(root, CONFIG);
@@ -302,7 +305,7 @@ export function buildSearchOpportunities(root, { maxCandidates, asOf } = {}) {
   const dispatchById = dispatchIndex((readDatasetIf(root, 'state.dispatch-log') ?? { entries: [] }).entries);
   const experiments = experimentRows(ledger.experiments, dispatchById, config.clusters);
   const snaps = listPageQuerySnapshots(root).filter((s) => !asOf || s.data.meta.endDate < asOf);
-  if (!snaps.length) return { config, bands, period: null, source: null, previous: null, clusters: [], fileable: [], experiments };
+  if (!snaps.length) return { config, bands, period: null, source: null, previous: null, clusters: [], fileable: [], triage: [], quota: null, experiments };
   const latest = snaps[0];
   // 比べる相手は最新と重ならない直前の期間（日数は集計の窓から決める）
   const prev = snaps.find((s) => s.data.meta.endDate < latest.data.meta.startDate) ?? null;
@@ -337,6 +340,8 @@ export function buildSearchOpportunities(root, { maxCandidates, asOf } = {}) {
     ...experiments.map((e) => ({ cluster: e.cluster, clusterLabel: e.clusterLabel, page: e.page, impressions: null, ...triageExperiment(e, { today, graceDays: config.cycle.legacyGraceDays }) })).filter((t) => t.status !== 'none'),
   ];
   const fileable = fileableCandidates(all);
+  // 週次の改善の件数（週次レビューの完了条件 triage --check --weekly が見る）
+  const quota = weeklyQuota({ rows: experiments, fileable: fileable.length, perWeek: config.cycle.improvePerWeek, today });
   const clusters = all.map(({ allCandidates, ...c }) => c);
   return {
     config,
@@ -348,6 +353,7 @@ export function buildSearchOpportunities(root, { maxCandidates, asOf } = {}) {
     clusters,
     fileable,
     triage,
+    quota,
     experiments,
   };
 }

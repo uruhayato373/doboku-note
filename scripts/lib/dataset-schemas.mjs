@@ -519,12 +519,21 @@ const Experiment = z
       .object({
         cluster: z.string().min(1).describe('検索キーワード戦略の設定（台帳 id config.search-strategy）のクラスター id'),
         page: z.string().regex(/^\//).describe('改善するページ（正規パス）'),
-        card: z.string().regex(/^DN-\d{4}$/).describe('改善を実装するバックログのカード'),
+        card: z.string().regex(/^DN-\d{4}$/).optional().describe('2026-10-13 以前にカードで起票した改善のカード（新しい改善はカードを作らず implementation に記録する）'),
         contentPath: z.string().optional().describe('ページの原稿（content/site/…）'),
       })
       .strict()
       .optional()
       .describe('kind が search-strategy の実験（search-improvement.mjs が書く）の対象。結び付きの検査は check-search-improvements'),
+    implementation: z
+      .object({
+        commit: z.string().regex(/^[0-9a-f]{7,40}$/).describe('改善を develop に入れた commit（本番デプロイに入った日を sync が探す）'),
+        at: jstDate('commit の日'),
+        change: z.string().min(1).describe('何を直したか'),
+      })
+      .strict()
+      .optional()
+      .describe('kind が search-strategy の実験の改善の記録（npm run search-improvement -- record が書く）'),
     actions: z.array(z.union([z.string(), z.looseObject({})])).optional().describe('施策の一覧。手で書いた実験は文字列の行、seo-rank-watch の実験はオブジェクト'),
     reviewDays: z.number().int().min(1).optional().describe('seo-rank-watch の再計測の窓（7・14・28 日）'),
   })

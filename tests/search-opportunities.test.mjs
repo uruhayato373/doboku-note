@@ -58,9 +58,9 @@ test('起票済み・判定済みの印は実験台帳（kind: search-strategy�
   assert.equal(okinawa.fileable, false, '計測の終わっていない実験があるページは起票しない');
   assert.equal(kinki.fileable, true, '判定済みのページは次の起票の候補に戻る');
   assert.deepEqual(candidateMarks(okinawa).map((m) => m.key), ['experiment']);
-  assert.deepEqual(candidateMarks(kinki).map((m) => [m.key, m.label]), [['last', '前回 効果なし EXP-020'], ['unfiled', '未起票']]);
+  assert.deepEqual(candidateMarks(kinki).map((m) => [m.key, m.label]), [['last', '前回 効果なし EXP-020'], ['todo', '未着手']]);
   const every = candidateMarks({ ...okinawa, watched: true, triage: { kind: 'off-target', status: 'action' }, lastResult: { id: 'EXP-1', result: 'success' }, fileable: true });
-  assert.deepEqual(every.map((m) => m.key), ['experiment', 'watched', 'off-target', 'last', 'unfiled']);
+  assert.deepEqual(every.map((m) => m.key), ['experiment', 'watched', 'off-target', 'last', 'todo']);
   assert.ok(every.every((m) => m.hint), '印にはすべて意味（MARK_HINTS）がある');
 });
 
@@ -103,7 +103,8 @@ test('週次の処置: 判定待ちの実験は close を促し、カード完�
   assert.match(triageExperiment({ ...e, phase: 'verdict-due' }, opts).action, /close --id EXP-030/);
   assert.equal(triageExperiment({ ...e, phase: 'implemented', implementedAt: '2026-10-01' }, opts).status, 'observe');
   assert.equal(triageExperiment({ ...e, phase: 'implemented', implementedAt: '2026-09-01' }, opts).status, 'action');
-  for (const phase of ['filed', 'measuring', 'closed', 'abandoned']) assert.equal(triageExperiment({ ...e, phase }, opts).status, 'none');
+  assert.match(triageExperiment({ ...e, phase: 'filed' }, opts).action, /改善の記録が無い/, '起票だけの状態は要処置');
+  for (const phase of ['measuring', 'closed', 'abandoned']) assert.equal(triageExperiment({ ...e, phase }, opts).status, 'none');
 });
 
 test('起票してよい候補は全クラスターで同じページを 1 件にまとめ、表示の多い順に並べる', () => {

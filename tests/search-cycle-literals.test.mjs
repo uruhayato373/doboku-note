@@ -49,7 +49,7 @@ test('順位の帯・計測の型・週の起票数を、検索改善のコー�
     const c = code(read(f));
     for (const [lit, what] of banned) if (c.includes(lit)) hits.push(`${f}: 「${lit}」— ${what}を使う`);
     for (const k of measureKeys) if (new RegExp(`\\b${k}:\\s*\\d`).test(c)) hits.push(`${f}: ${k} を数字で書いている — config の cycle.measure を使う`);
-    if (/上位\s*\d+\s*件/.test(c)) hits.push(`${f}: 「上位 N 件」— config の cycle.filePerWeek を使う`);
+    if (/上位\s*\d+\s*件/.test(c)) hits.push(`${f}: 「上位 N 件」— config の cycle.improvePerWeek を使う`);
   }
   assert.deepEqual(hits, []);
 });
