@@ -364,6 +364,18 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0727] コンクリートの実務シリーズの図・写真を、本の頁の切り出しと AI の描き直しで入れる（image-policy の改定から）
+タグ: [領域:サイト] [時期:2026-10] [種類:制作] [起票:2026-10-13]
+
+**起点**: 2026-10-13、コンクリートの実務シリーズ（concrete-practice）の新規 10 章を書き終えた（DN-0724）。記事は図・写真なしで公開の状態。運営者の決定（2026-10-13）は「画像は本の頁から切り出す（クロップ）」「本の写真を元に AI で描き直すことはやる」。後者は image-policy（2026-10-07）と食い違う。
+
+**やること**:
+1. image-policy（.claude/knowledge/reference/image-policy.md）と docs/strategy/18 の「図と写真」を、本の写真を元に AI で描き直す場合の条件（構図をなぞらない・文字を入れない・ai-image-fidelity-auditor の監査・出所の記録）で改める。運営者の確認を取る。
+2. 各章の brief（.tmp/book-coverage/series/<slug>.brief.md の「図・写真の候補」・頁 id つき）と、執筆担当が返した図の位置を、台帳 config/content-series.json の項目の visuals に入れる。執筆担当の案: C-32 は工場数と出荷量の推移・不具合の段階と止める仕組み・就業者の年齢構成の 3 図、C-09 は環境条件ごとに動かす項目の対応図、C-00 は五つの立場と書類の受け渡しの関係図（各章の見出しは workflow の結果。章ごとに 1〜3 枚）。
+3. `npm run check-content-series -- --crop-jobs --series concrete-practice` で切り出し（Codex）→ `--visual-jobs` で図は自作 SVG、写真は AI で描き直し → 監査 → 記事へ配置。
+**完了条件**: 新規 10 章の visuals が台帳に入り、`check-content-series` の図・写真の未完了が 0（使わないものは skipped と理由）。
+
+
 ### [DN-0725] 2級土木の note 記事 2 本が 10/10 と 10/12 で二重投稿になっていないか確かめる
 タグ: [領域:商品] [時期:2026-10] [種類:不具合] [起票:2026-10-13]
 
