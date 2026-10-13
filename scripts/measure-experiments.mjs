@@ -21,11 +21,12 @@ import dotenv from 'dotenv';
 import { jst } from './lib/business-direction.mjs';
 import { normPath, foldGsc } from './lib/growth-pack.mjs';
 import { specErrors, specHash, measureWindows, verdictHint, deltaPct, sumSales, sumGscPages, alreadyMeasured, inScope, salesWindowFinalized } from './lib/experiment-measure.mjs';
-import { buildContentIndex } from './build-growth-digest.mjs';
+import { buildContentIndex } from './lib/content-index.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
 import { writeDataset } from './lib/dataset-write.mjs';
 import { latestReport } from './lib/metric-reports.mjs';
+import { SITE_ORIGIN } from './lib/site-identity.mjs';
 import { recordAffiliateExperimentMeasurements } from './lib/affiliate-experiment-report.mjs';
 import { ga4FromEnv, japanFilter, spamExclusion, andFilter, runReportAll } from '../.claude/scripts/lib/ga4-client.mjs';
 import { getAuth, fetchSearchAnalytics } from '../.claude/skills/analytics/fetch-gsc-data/scripts/fetch-gsc-data.mjs';
@@ -66,8 +67,11 @@ async function ga4Value(ga4, spec, windows) {
 }
 
 async function gscValue(auth, spec, windows, legacy) {
+  // 検索語で絞る実験（scope.queries）はページ×検索語で取る。ページが 1 つなら API 側でそのページに絞る
+  const byQuery = Boolean(spec.scope.queries);
+  const onePage = byQuery && spec.scope.pages?.length === 1 ? { page: `${SITE_ORIGIN}${spec.scope.pages[0]}`, exact: true } : {};
   const one = async (w) => {
-    const res = foldGsc(await fetchSearchAnalytics(auth, { startDate: w.startDate, endDate: w.endDate, effectiveDimensions: ['page'], all: true, country: 'jpn' }));
+    const res = foldGsc(await fetchSearchAnalytics(auth, { startDate: w.startDate, endDate: w.endDate, effectiveDimensions: byQuery ? ['page', 'query'] : ['page'], all: true, country: 'jpn', ...onePage }));
     return sumGscPages(res.rows.map((r) => ({ ...r, page: legacy.get(r.page) ?? r.page })), spec);
   };
   return { pre: await one(windows.pre), post: await one(windows.post) };

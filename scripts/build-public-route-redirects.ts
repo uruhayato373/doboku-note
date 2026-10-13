@@ -6,7 +6,7 @@ import { getAllPublicDocRoutes, getPublicDocPath } from '../src/lib/content-rout
 import { getAllCategories, getCategoryHubPath } from '../src/lib/categories';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { planDocRedirects, isGeneratedDocRule } from './lib/docs-redirect-plan.mjs';
-import { ROUTE_TABLE_PREFIX } from './lib/legacy-routes.mjs';
+import { ROUTE_TABLE_PREFIX, isLegacyPath } from './lib/legacy-routes.mjs';
 
 const path = join(REPO_ROOT, 'public/_redirects');
 const startMarker = '# BEGIN GENERATED PUBLIC ROUTES';
@@ -35,7 +35,7 @@ function canonicalizeExistingTargets(value: string): string {
       const docMatch = line.match(/^(\s*\/\S+\s+)(\/docs\/([a-z0-9-]+))(\s+30[18]\s*)$/i);
       if (docMatch) {
         const target = getPublicDocPath(docMatch[3]!);
-        return target.startsWith('/docs/') ? line : `${docMatch[1]}${target}${docMatch[4]}`;
+        return isLegacyPath(target) ? line : `${docMatch[1]}${target}${docMatch[4]}`;
       }
       const categoryMatch = line.match(/^(\s*\/\S+\s+)\/category\/([a-z0-9-]+)(\s+30[18]\s*)$/i);
       if (categoryMatch) {

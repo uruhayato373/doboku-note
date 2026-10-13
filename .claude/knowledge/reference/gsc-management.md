@@ -618,7 +618,7 @@ EXP-006 の本判定は予定どおり next_check 2026-08-27 に、カバレッ�
 - ① 本番の SEO 監査（check-seo-production + seo-production-audit.yml）は作らない。deploy 後の `npm run check-production-ssr` と日次の seo-rank-watch で足りる
 - ② 資格の入口ページに CollectionPage / ItemList を付ける → DN-0412
 - ③ 未登録ページを統合・noindex する基準は、建設部門・RCCM の登録率の調査（DN-0390）で決める
-- ④ GSC 実験の対象と成功指標は、検索キーワード戦略の 11〜30 位の改善サイクル（report-search-opportunities・週次で起票・28 日後に判定）にまとめる
+- ④ GSC 実験の対象と成功指標は、検索キーワード戦略の改善サイクル（report-search-opportunities で候補・search-improvement で起票→本番反映→計測→判定。実験台帳の kind search-strategy）にまとめる
 
 ### 2026-10-02（週次・自動レビュー）
 

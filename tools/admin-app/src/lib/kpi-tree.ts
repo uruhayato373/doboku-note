@@ -32,8 +32,8 @@ export type KpiView = {
   channels: { label: string; value: number | null }[];
   qualifications: { label: string; value: number | null }[];
   site: { indexRatio: number | null; gscClicks: number | null; organicUsers: number | null };
-  /** 検索クラスター別の 1 桁の検索語数（GSC の 28 日集計。KPI の暦月とは期間が違う）。 */
-  search: { period: string | null; clusters: { label: string; top10: number; prevTop10: number | null; impressions: number }[] };
+  /** 検索クラスター別の上位の帯の検索語数（GSC の 28 日集計。KPI の暦月とは期間が違う）。topLabel は帯の表示名（設定から作る）。 */
+  search: { period: string | null; topLabel: string | null; clusters: { label: string; top10: number; prevTop10: number | null; impressions: number }[] };
 };
 
 /** ツリーの並び（15_KPIツリー.md）。depth 0 は頂点、1 はチャネルの金額、2 はその入口。 */
@@ -97,10 +97,10 @@ export function loadKpiView(month?: string): KpiView {
     .at(-1);
 
   const cell = (metric: string, scope: string) => groups.flatMap((g) => g.rows).find((r) => r.id === metric)?.cells[scope]?.value ?? null;
-  let search: KpiView['search'] = { period: null, clusters: [] };
+  let search: KpiView['search'] = { period: null, topLabel: null, clusters: [] };
   try {
-    const so = buildSearchOpportunities(root) as { period: { startDate: string; endDate: string } | null; clusters: { label: string; top10: number; impressions: number; previous: { top10: number } | null }[] };
-    search = { period: so.period ? `${so.period.startDate}〜${so.period.endDate}` : null, clusters: so.clusters.map((c) => ({ label: c.label, top10: c.top10, prevTop10: c.previous?.top10 ?? null, impressions: c.impressions })) };
+    const so = buildSearchOpportunities(root) as { period: { startDate: string; endDate: string } | null; bands: { top: string }; clusters: { label: string; top10: number; impressions: number; previous: { top10: number } | null }[] };
+    search = { period: so.period ? `${so.period.startDate}〜${so.period.endDate}` : null, topLabel: so.bands.top, clusters: so.clusters.map((c) => ({ label: c.label, top10: c.top10, prevTop10: c.previous?.top10 ?? null, impressions: c.impressions })) };
   } catch { /* 検索の集計が無ければ空 */ }
 
   return {

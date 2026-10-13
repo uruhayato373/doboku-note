@@ -364,6 +364,25 @@ export const ConfigSearchStrategy = z
       .superRefine((s, ctx) => {
         if (s.minPosition >= s.maxPosition) flag(ctx, ['minPosition'], 'minPosition は maxPosition より小さい');
       }),
+    cycle: z
+      .object({
+        improvePerWeek: posInt.describe('週次レビューが 1 週に直して記録する改善の件数（直せる候補がこれより少なければその数）。週次の完了条件 triage --check --weekly が数える'),
+        legacyGraceDays: posInt.describe('旧 URL が転送後（登録リクエスト後）この日数を過ぎても候補に残れば、週次の処置（正規 URL の登録リクエスト）が要る'),
+        measure: z
+          .object({
+            metric: z.enum(['gsc.position', 'gsc.impressions', 'gsc.clicks']).describe('起票した改善を前後比較する指標（対象ページ × 起票時の検索語）'),
+            direction: z.enum(['increase', 'decrease']),
+            preDays: z.number().int().min(7),
+            postDays: z.number().int().min(7),
+            lagDays: z.number().int().min(0).describe('本番反映から事後窓までの空き日数'),
+            minEffect: z.number().positive().describe('改善とみなす相対変化'),
+            minVolume: posInt.describe('前後とも、この表示回数に届かなければ判定不能'),
+          })
+          .strict()
+          .describe('実験台帳の measure 仕様の型（experiment-measure.mjs の specErrors に通る形）'),
+      })
+      .strict()
+      .describe('改善の起票と計測（scripts/lib/search-improvement.mjs）'),
     clusters: z
       .array(
         z
@@ -372,7 +391,24 @@ export const ConfigSearchStrategy = z
             label: text,
             audience: text,
             queryPattern: regexText.describe('検索語に当てる正規表現'),
-            pagePrefixes: z.array(z.string().regex(/^\//, '/ で始まる')).min(1).describe('受け皿のページのパスの接頭辞'),
+            pagePrefixes: z.array(z.string().regex(/^\//, '/ で始まる')).min(1).describe('受け皿のページのパスの接頭辞（設計した受け皿）'),
+            pageDecisions: z
+              .array(
+                z
+                  .object({
+                    path: z.string().regex(/^\//, '/ で始まる').describe('ページ（接頭辞で当てる）'),
+                    decision: z.enum(['accept', 'route']).describe('accept＝受け皿に加える・route＝狙いのページ（to）へ内部リンクで誘導する'),
+                    to: z.string().regex(/^\//).optional(),
+                    reason: text,
+                    decidedAt: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+                  })
+                  .strict()
+                  .superRefine((d, ctx) => {
+                    if (d.decision === 'route' && !d.to) flag(ctx, ['to'], 'route には誘導先（to）が要る');
+                  }),
+              )
+              .optional()
+              .describe('週次レビューが受け皿外の候補に下した判断（npm run search-improvement -- decide が書く）'),
             goal: text,
           })
           .strict(),

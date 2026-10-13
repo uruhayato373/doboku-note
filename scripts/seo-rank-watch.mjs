@@ -10,6 +10,7 @@ import { discoverCandidates } from './lib/seo-watch-strategy.mjs';
 import { SITE_ORIGIN } from './lib/site-identity.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { parseLegacyRedirects } from './lib/legacy-routes.mjs';
+import { DEPLOY_BRANCH, DEPLOY_WORKFLOW } from './lib/production-deploys.mjs';
 
 async function main() {
   const { values: opts, positionals } = parseArgs({ allowPositionals: true, options: {
@@ -160,7 +161,7 @@ async function main() {
     const deployedContent = execFileSync('git', ['show', `${proof.head_sha}:${watch.contentPath}`], { cwd: root, stdio: ['ignore', 'pipe', 'pipe'] });
     if (hash(deployedContent) !== exp.actions.at(-1).contentHash) throw new WatchError('Deployed content differs from recorded action; fetch git refs or inspect deployment');
     // A newer successful production deployment must not have replaced the recorded version.
-    const runs = JSON.parse(execFileSync('gh', ['api', `repos/${repository}/actions/workflows/cloudflare-deploy.yml/runs?branch=main&status=success&per_page=1`], { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }));
+    const runs = JSON.parse(execFileSync('gh', ['api', `repos/${repository}/actions/workflows/${DEPLOY_WORKFLOW}/runs?branch=${DEPLOY_BRANCH}&status=success&per_page=1`], { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }));
     if (String(runs.workflow_runs?.[0]?.id) !== opts['run-id']) throw new WatchError('Use the latest successful production deployment');
     const mutate = (ledger) => { const current = experimentFor(ledger.experiments, watch.id); markDeployed(current, proof); return { id: current.id, nextReviewDate: current.next_check_date }; };
     console.log(JSON.stringify({ committed: Boolean(opts.commit), ...(opts.commit ? await updateLedger(root, mutate) : mutate(structuredClone(store))) }, null, 2));
