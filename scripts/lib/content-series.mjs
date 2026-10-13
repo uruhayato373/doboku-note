@@ -384,3 +384,47 @@ export function imageProgress(view, basis, ctx) {
   }
   return out;
 }
+
+/**
+ * シリーズの章 1 つの資料（packet）。割り当てた本の項目（本 id・項目 id・文字起こしのファイル・頁・見出し・字数）と、
+ * 関連記事・根拠の id・注記・各本の文字起こしの場所を並べる。brief を作る担当と QA が読む（市販書籍の見出しを含むので
+ * git 管理外の .tmp/ にだけ書く）。項目の見出しは Drive の候補表から引くので、Drive が無ければ null。
+ * @returns {{ markdown: string, units: number } | null}
+ */
+export function chapterPacket(basis, config, ctx, vaultRoot, seriesId, itemId, articlePath) {
+  if (!vaultRoot) return null;
+  const series = (config.series ?? []).find((s) => s.id === seriesId);
+  const item = series?.sections.flatMap((sec) => sec.items).find((i) => i.id === itemId);
+  if (!item) throw new Error(`台帳に無い章: ${seriesId}/${itemId}`);
+  const key = `${seriesId}/${itemId}`;
+  const lines = [];
+  const ocrDirs = [];
+  let units = 0;
+  for (const [bookId, book] of Object.entries(basis.books ?? {})) {
+    const src = ctx.referenceSources.find((s) => s.id === bookId);
+    const dir = src?.origin?.vaultDir ? join(vaultRoot, ...src.origin.vaultDir.split('/')) : null;
+    const file = dir ? join(dir, 'coverage', 'candidates.json') : null;
+    if (!file || !existsSync(file)) throw new Error(`${bookId}: Drive に候補表が無い`);
+    ocrDirs.push(`${bookId} → ${join(dir, 'ocr')}/`);
+    const byId = new Map(JSON.parse(readFileSync(file, 'utf8')).units.map((u) => [u.id, u]));
+    for (const [unit, v] of Object.entries(book.units ?? {})) {
+      if (v !== key) continue;
+      const u = byId.get(unit);
+      if (!u) throw new Error(`${bookId}/${unit}: 候補表に無い項目`);
+      lines.push(`- ${bookId} ${unit} ${u.file} ${u.page} 「${u.heading}」（${u.chars}字）`);
+      units += 1;
+    }
+  }
+  const dash = (xs) => (xs?.length ? xs.join('・') : '—');
+  const markdown = [
+    `# ${itemId} ${item.title}`, '',
+    `- 記事: ${articlePath}${ctx.stateOf(articlePath).exists ? '' : '（新規）'}`,
+    `- 関連記事（重複させない・リンクする）: ${dash(item.links)}`,
+    `- 根拠の参考文献 id: ${dash(item.sources)}`,
+    `- 注記: ${item.note ?? '—'}`, '',
+    '## 割り当てた本の項目（文字起こしは各本の ocr/ にある）', '',
+    ...lines, '',
+    `OCR の場所: ${ocrDirs.join(' ; ')}`, '',
+  ].join('\n');
+  return { markdown, units };
+}

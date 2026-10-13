@@ -145,3 +145,26 @@ test('visualStage・imageProgress: 図・写真の段階は切り出し図・画
   assert.equal(p.stages.cropped, 1);
   assert.equal(p.pages.pending, 1, '一部だけ切り出した頁は切り出し待ちに数える');
 });
+
+test('chapterPacket: 章に割り当てた本の項目だけを、Drive の候補表の見出しつきで並べる（Drive が無ければ null）', async () => {
+  const { mkdtempSync, mkdirSync, writeFileSync } = await import('node:fs');
+  const { tmpdir } = await import('node:os');
+  const { join } = await import('node:path');
+  const { chapterPacket } = await import('../scripts/lib/content-series.mjs');
+  const vault = mkdtempSync(join(tmpdir(), 'packet-'));
+  mkdirSync(join(vault, 'books', 'b1', 'coverage'), { recursive: true });
+  writeFileSync(join(vault, 'books', 'b1', 'coverage', 'candidates.json'), JSON.stringify({ units: [
+    { id: 'u0001', file: 'part-01.md', page: 'p0010', heading: '見出しA', chars: 300 },
+    { id: 'u0002', file: 'part-01.md', page: 'p0011', heading: '見出しB', chars: 200 },
+  ] }));
+  const config = { series: [{ id: 's', sections: [{ title: 't', items: [{ id: 'X-1', title: '章', plan: 'new', links: [A] }] }] }] };
+  const basis = { books: { b1: { units: { u0001: 's/X-1', u0002: 's/X-2' } } } };
+  const ctx = { referenceSources: [{ id: 'b1', origin: { vaultDir: 'books/b1' } }], stateOf };
+  const p = chapterPacket(basis, config, ctx, vault, 's', 'X-1', 'content/site/civil-practice/new/article.mdx');
+  assert.equal(p.units, 1);
+  assert.match(p.markdown, /b1 u0001 part-01\.md p0010 「見出しA」（300字）/);
+  assert.doesNotMatch(p.markdown, /見出しB/);
+  assert.match(p.markdown, /article\.mdx（新規）/);
+  assert.equal(chapterPacket(basis, config, ctx, null, 's', 'X-1', A), null);
+  assert.throws(() => chapterPacket(basis, config, ctx, vault, 's', 'X-9', A), /台帳に無い章/);
+});

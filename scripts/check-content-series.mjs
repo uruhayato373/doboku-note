@@ -13,15 +13,19 @@
  * 使い方: npm run check-content-series [-- --json | --visual-jobs]
  *   --visual-jobs  合格・配置済みでない図・写真の作業一覧を JSON で出す（Codex に渡す。写真は gen-article-photo のコマンド付き）
  *   --crop-jobs [--series <id>]  シリーズの章に使う本の頁のうち、図の切り出しが終わっていない頁の一覧を JSON で出す（Codex に渡す）
+ *   --packet <シリーズ id>/<項目 id> --article <content/site/…/article.mdx>  章の資料（割り当てた本の項目の一覧）を
+ *                .tmp/book-coverage/series/<slug>.packet.md へ書く（Drive が要る。workflow series-chapter の入力・book-coverage-expansion.md §4）
  * exit: 0 合格 / 1 違反あり / 2 検査不成立（シリーズが 0 件）
  */
 import { parseCliArgs } from './lib/cli-args.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
-import { loadSeriesConfig, seriesContext, seriesView, validateSeries, loadBasis, validateBasis, basisDriveIssues, basisView, visualJobs, chapterPages, cropSummary, cropJobs } from './lib/content-series.mjs';
+import { loadSeriesConfig, seriesContext, seriesView, validateSeries, loadBasis, validateBasis, basisDriveIssues, basisView, visualJobs, chapterPages, cropSummary, cropJobs, chapterPacket } from './lib/content-series.mjs';
 import { loadDriveConfig, resolveVaultRoot } from './lib/drive-vault.mjs';
+import { mkdirSync, writeFileSync } from 'node:fs';
+import { dirname, join } from 'node:path';
 
 const NAME = 'check-content-series';
-const args = parseCliArgs({ json: { type: 'boolean' }, 'visual-jobs': { type: 'boolean' }, 'crop-jobs': { type: 'boolean' }, series: { type: 'string' } });
+const args = parseCliArgs({ json: { type: 'boolean' }, 'visual-jobs': { type: 'boolean' }, 'crop-jobs': { type: 'boolean' }, series: { type: 'string' }, packet: { type: 'string' }, article: { type: 'string' } });
 const config = loadSeriesConfig(REPO_ROOT);
 const ctx = seriesContext(REPO_ROOT);
 const basis = loadBasis(REPO_ROOT);
@@ -29,11 +33,35 @@ const view = seriesView(config, ctx.stateOf);
 // --visual-jobs は一覧だけを出して終える（process.exit を直後に呼ぶとパイプで出力が切れるので、exitCode と分岐で終える）
 if (args.visualJobs) process.stdout.write(`${JSON.stringify(visualJobs(view, ctx), null, 2)}\n`);
 else if (args.cropJobs) process.stdout.write(`${JSON.stringify(cropJobs(basis, ctx, { series: args.series ?? null }), null, 2)}\n`);
+else if (args.packet) writePacket();
 else report();
 
+function vault() {
+  try { return resolveVaultRoot({ cfg: loadDriveConfig() }).root ?? null; } catch { return null; }
+}
+
+function writePacket() {
+  const [seriesId, itemId] = args.packet.split('/');
+  const m = /^content\/site\/[a-z0-9-]+\/([a-z0-9-]+)\/article\.mdx$/.exec(args.article ?? '');
+  if (!seriesId || !itemId || !m) {
+    console.error(`usage: node scripts/${NAME}.mjs --packet <シリーズ id>/<項目 id> --article content/site/<区分>/<slug>/article.mdx`);
+    process.exitCode = 2;
+    return;
+  }
+  const packet = chapterPacket(basis, config, ctx, vault(), seriesId, itemId, args.article);
+  if (!packet) {
+    console.error(`[${NAME}] Drive が無いので章の資料を作れない（項目の見出しは Drive の候補表にある）`);
+    process.exitCode = 2;
+    return;
+  }
+  const out = join(REPO_ROOT, '.tmp', 'book-coverage', 'series', `${m[1]}.packet.md`);
+  mkdirSync(dirname(out), { recursive: true });
+  writeFileSync(out, packet.markdown);
+  console.log(`[${NAME}] ${args.packet}: 本の項目 ${packet.units} 件 → ${out.slice(REPO_ROOT.length + 1)}`);
+}
+
 function report() {
-  let vaultRoot = null;
-  try { vaultRoot = resolveVaultRoot({ cfg: loadDriveConfig() }).root ?? null; } catch { vaultRoot = null; }
+  const vaultRoot = vault();
   const driveIssues = basisDriveIssues(basis, vaultRoot, ctx.referenceSources);
   const issues = [...validateSeries(config, ctx), ...validateBasis(basis, config, ctx), ...(driveIssues ?? [])];
   const bv = basisView(basis);
