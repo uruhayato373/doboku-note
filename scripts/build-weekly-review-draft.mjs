@@ -142,11 +142,16 @@ md.push('## 点検と Issue', '', block(R.checks, 60) + note(R.checks), '');
 md.push('## バックログの関門', '', block(R.gate, 50) + note(R.gate), '');
 md.push('## バックログの健全性', '', block(R.backlogHealth, 20) + note(R.backlogHealth), '');
 
-const cand = [];
-for (const c of R.search.data?.clusters ?? []) for (const x of c.candidates ?? []) if (!x.watched && !x.card && !x.legacyUrl) cand.push({ cluster: c.id, ...x });
-cand.sort((a, b) => b.impressions - a.impressions);
-md.push(`## 検索の改善候補（未起票 ${cand.length} 件・上位 3 件を起票する）`, '');
-md.push(cand.length ? cand.slice(0, 5).map((x) => `- [${x.cluster}] ${x.page}「${x.queries?.[0]?.query ?? ''}」表示 ${x.impressions}・最高 ${x.bestPosition} 位`).join('\n') : (R.search.data ? '- なし' : `- （未取得・rc=${R.search.rc}）`), '');
+// 起票してよい候補（fileable）と週の上限（cycle.filePerWeek）は search-opportunities と config が決める。ここでは並べるだけ
+const S = R.search.data;
+const perWeek = S?.config?.cycle?.filePerWeek;
+const fileable = S?.fileable ?? [];
+md.push(`## 検索の改善候補（起票してよい ${fileable.length} 件・上位 ${perWeek ?? '—'} 件を npm run search-improvement -- add で起票する）`, '');
+md.push(fileable.length ? fileable.slice(0, perWeek).map((x) => `- [${x.clusterLabel}] ${x.page}「${x.queries?.[0]?.query ?? ''}」表示 ${x.impressions}・最良 ${x.bestPosition} 位${x.lastResult ? `（前回 ${x.lastResult.id}: ${x.lastResult.result}）` : ''}`).join('\n') : (S ? '- なし' : `- （未取得・rc=${R.search.rc}）`), '');
+const phases = Object.groupBy(S?.experiments ?? [], (e) => e.phase);
+md.push('## 検索改善の実験（起票→本番反映→計測→判定）', '', S ? `- ${Object.entries(phases).map(([k, v]) => `${k} ${v.length}`).join(' / ') || '0 件'}` : '- （未取得）');
+for (const e of [...(phases['verdict-due'] ?? []), ...(phases.implemented ?? [])]) md.push(`- ${e.id}（${e.phase}）${e.page}・${e.card}${e.measurement ? `・${e.measurement.pre}→${e.measurement.post}（目安 ${e.measurement.verdictHint}）` : ''}`);
+md.push('');
 
 const pick = (r, re, n = 8) => r.out.split('\n').filter((l) => re.test(l)).slice(0, n).join('\n');
 md.push('## PSI と実ユーザー計測', '', '```', pick(R.psi, /coverage|CI ゲート違反|\*\*(TBT|CLS|LCP|SEO)/), pick(R.webVitals, /^実ユーザー|不良|要改善/), '```' + note(R.psi), '');

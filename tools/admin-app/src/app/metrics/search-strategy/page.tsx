@@ -1,5 +1,5 @@
 import { Minus, TrendingDown, TrendingUp } from 'lucide-react';
-import { DataTable, StatusBadge, type DataTableColumn, type DataTableRow } from '@/components/admin';
+import { DataTable, StatusBadge, type DataTableColumn, type DataTableRow, type Tone } from '@/components/admin';
 import { Grid, Section, Stack } from '@/components/layout';
 import SearchTabs from '@/components/SearchTabs';
 import { PageHead } from '@/components/ui';
@@ -7,22 +7,30 @@ import { Badge } from '@/components/ui/badge';
 import { Card, CardAction, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { findRepoRoot } from '@/lib/repo-root';
-import { buildSearchOpportunities } from '../../../../../../scripts/lib/search-opportunities.mjs';
+import { buildSearchOpportunities, candidateMarks } from '../../../../../../scripts/lib/search-opportunities.mjs';
+import { PHASES, RESULTS } from '../../../../../../scripts/lib/search-improvement.mjs';
 import { SITE_ORIGIN } from '../../../../../../scripts/lib/site-identity.mjs';
 
 export const dynamic = 'force-dynamic';
 
 /**
  * 検索 ＞ キーワード戦略。クラスター（docs/strategy/16_検索キーワード戦略.md）ごとの推移（shadcn dashboard-01 の SectionCards の形）と、
- * 11〜30 位で表示のある検索語をページ単位に束ねた改善候補（クラスターのタブ＋Data Table）。組み立ては scripts/lib/search-opportunities.mjs（CLI と同じ）。
+ * 改善候補の帯で表示のある検索語をページ単位に束ねた改善候補（クラスターのタブ＋Data Table）、起票した改善の実験（起票→本番反映→計測→判定）。
+ * 組み立て・帯の境目と表示名・印は scripts/lib/search-opportunities.mjs と search-improvement.mjs（CLI と同じ）。ここは並べるだけ。
  */
 type Query = { query: string; position: number; impressions: number };
-type Candidate = { page: string; impressions: number; bestPosition: number; queries: Query[]; watched: boolean; card: string | null; legacyUrl: boolean; inTarget: boolean };
+type Candidate = { page: string; impressions: number; bestPosition: number; queries: Query[]; watched: boolean; legacyUrl: boolean; inTarget: boolean; fileable: boolean; experiment: { id: string; phase: string; card: string } | null; lastResult: { id: string; result: string } | null };
 type Prev = { impressions: number; clicks: number; top10: number; striking: number; avgPosition: number | null } | null;
 type Cluster = { id: string; label: string; queries: number; impressions: number; clicks: number; top10: number; striking: number; avgPosition: number | null; candidates: Candidate[]; candidateTotal: number; previous: Prev };
+type Bands = { top: string; striking: string };
+type Experiment = { id: string; phase: keyof typeof PHASES; cluster: string; clusterLabel: string; page: string; card: string; queries: number; nextCheck: string | null; measurement: { pre: number | null; post: number | null; verdictHint: string; complete: boolean } | null; result: keyof typeof RESULTS | null };
+type Result = { period: { startDate: string; endDate: string } | null; previous: { startDate: string; endDate: string } | null; bands: Bands; clusters: Cluster[]; experiments: Experiment[] };
 
 const BASE = '/metrics/search-strategy';
 const QUERY_SHOWN = 3;
+/** 印（candidateMarks の key）と段階（phaseOf）の色。意味は lib が決め、ここは見た目だけ */
+const MARK_TONE: Record<string, Tone> = { experiment: 'info', watched: 'good', legacy: 'warn', 'off-target': 'warn', last: 'neutral', unfiled: 'neutral' };
+const PHASE_TONE: Record<string, Tone> = { filed: 'info', implemented: 'warn', measuring: 'info', 'verdict-due': 'warn', closed: 'good', abandoned: 'neutral' };
 const md = (d: string) => d.slice(5).replace('-', '/');
 const num = (n: number) => n.toLocaleString();
 const signed = (d: number) => (d === 0 ? '±0' : `${d > 0 ? '+' : ''}${num(d)}`);
@@ -52,8 +60,10 @@ function Metric({ label, value, note }: { label: string; value: string; note?: s
   );
 }
 
-function ClusterCard({ c }: { c: Cluster }) {
+function ClusterCard({ c, bands, experiments }: { c: Cluster; bands: Bands; experiments: Experiment[] }) {
   const p = c.previous;
+  const open = experiments.filter((e) => e.phase !== 'closed' && e.phase !== 'abandoned').length;
+  const closed = experiments.filter((e) => e.phase === 'closed').length;
   return (
     <Card className="gap-4">
       <CardHeader>
@@ -62,7 +72,7 @@ function ClusterCard({ c }: { c: Cluster }) {
         </CardDescription>
         <CardTitle className="text-2xl font-semibold tabular-nums">
           {num(c.top10)}
-          <span className="ml-1.5 text-xs font-normal text-muted-foreground">1桁の検索語</span>
+          <span className="ml-1.5 text-xs font-normal text-muted-foreground">{bands.top}の検索語</span>
         </CardTitle>
         <CardAction>
           <Delta now={c.top10} before={p?.top10} />
@@ -73,7 +83,8 @@ function ClusterCard({ c }: { c: Cluster }) {
           <Metric label="表示" value={num(c.impressions)} note={p ? signed(c.impressions - p.impressions) : null} />
           <Metric label="クリック" value={num(c.clicks)} note={p ? signed(c.clicks - p.clicks) : null} />
           <Metric label="平均順位" value={c.avgPosition == null ? '—' : `${c.avgPosition}位`} note={p?.avgPosition != null ? `前 ${p.avgPosition}位` : null} />
-          <Metric label="11〜30位" value={num(c.striking)} note={p ? signed(c.striking - p.striking) : null} />
+          <Metric label={bands.striking} value={num(c.striking)} note={p ? signed(c.striking - p.striking) : null} />
+          <Metric label="改善の実験" value={num(open)} note={closed ? `判定済 ${closed}` : null} />
         </dl>
       </CardFooter>
     </Card>
@@ -124,18 +135,59 @@ function QueriesCell({ queries }: { queries: Query[] }) {
   );
 }
 
-function statusOf(p: Candidate) {
-  const out: { label: string; tone: 'good' | 'warn' | 'neutral' | 'info' }[] = [];
-  if (p.card) out.push({ label: `起票済 ${p.card}`, tone: 'info' });
-  if (p.watched) out.push({ label: '観察中', tone: 'good' });
-  if (p.legacyUrl) out.push({ label: '旧URL', tone: 'warn' });
-  if (!p.inTarget) out.push({ label: '受け皿外', tone: 'warn' });
-  return out.length ? out : [{ label: '未起票', tone: 'neutral' as const }];
+function candidateRows(pool: (Candidate & { cluster: string })[]): DataTableRow[] {
+  return pool.map((p) => {
+    const marks = candidateMarks(p) as { key: string; label: string }[];
+    return {
+      id: `${p.cluster}:${p.page}`,
+      values: { page: p.page, cluster: p.cluster, impressions: p.impressions, best: p.bestPosition, queries: p.queries.map((q) => q.query).join(' '), status: marks.map((m) => m.label).join(' ') },
+      cells: {
+        page: <PageCell path={p.page} />,
+        best: `${p.bestPosition}位`,
+        queries: <QueriesCell queries={p.queries} />,
+        status: (
+          <div className="flex flex-wrap gap-1">
+            {marks.map((m) => (
+              <StatusBadge key={m.label} tone={MARK_TONE[m.key]}>
+                {m.label}
+              </StatusBadge>
+            ))}
+          </div>
+        ),
+      },
+    };
+  });
+}
+
+const EXPERIMENT_COLUMNS: DataTableColumn[] = [
+  { key: 'id', label: '実験' },
+  { key: 'phase', label: '段階' },
+  { key: 'page', label: 'ページ', wrap: true },
+  { key: 'cluster', label: 'クラスター' },
+  { key: 'card', label: 'カード' },
+  { key: 'measure', label: '計測（前→後）', sortable: false },
+  { key: 'nextCheck', label: '判定できる日' },
+  { key: 'result', label: '判定' },
+];
+
+function experimentRows(experiments: Experiment[]): DataTableRow[] {
+  return experiments.map((e) => {
+    const m = e.measurement;
+    return {
+      id: e.id,
+      values: { id: e.id, phase: PHASES[e.phase], page: e.page, cluster: e.clusterLabel, card: e.card, measure: null, nextCheck: e.nextCheck, result: e.result ? RESULTS[e.result] : null },
+      cells: {
+        phase: <StatusBadge tone={PHASE_TONE[e.phase]}>{PHASES[e.phase]}</StatusBadge>,
+        page: <PageCell path={e.page} />,
+        measure: m ? `${m.pre ?? '—'} → ${m.post ?? '—'}（${m.complete ? '確定' : '途中'}・${m.verdictHint}）` : '—',
+      },
+    };
+  });
 }
 
 export default async function SearchStrategyPage({ searchParams }: { searchParams: Promise<{ cluster?: string }> }) {
   const sp = await searchParams;
-  const r = buildSearchOpportunities(findRepoRoot(), { maxCandidates: Infinity }) as { period: { startDate: string; endDate: string } | null; previous: { startDate: string; endDate: string } | null; clusters: Cluster[] };
+  const r = buildSearchOpportunities(findRepoRoot(), { maxCandidates: Infinity }) as Result;
   const head = (
     <>
       <PageHead title="検索" sub={r.period ? `Google ${md(r.period.startDate)}〜${md(r.period.endDate)}${r.previous ? `（比較 ${md(r.previous.startDate)}〜${md(r.previous.endDate)}）` : ''}` : undefined} />
@@ -155,7 +207,6 @@ export default async function SearchStrategyPage({ searchParams }: { searchParam
   const pool = (selected ? [selected] : r.clusters).flatMap((c) => c.candidates.map((p) => ({ ...p, cluster: c.label })));
   if (!selected) pool.sort((a, b) => b.impressions - a.impressions || a.bestPosition - b.bestPosition);
   const total = r.clusters.reduce((s, c) => s + c.candidateTotal, 0);
-
   const columns: DataTableColumn[] = [
     { key: 'page', label: 'ページ', wrap: true },
     ...(selected ? [] : [{ key: 'cluster', label: 'クラスター' }]),
@@ -164,34 +215,6 @@ export default async function SearchStrategyPage({ searchParams }: { searchParam
     { key: 'queries', label: '検索語（順位・表示）', wrap: true, sortable: false },
     { key: 'status', label: '状態' },
   ];
-  const rows: DataTableRow[] = pool.map((p) => {
-    const status = statusOf(p);
-    return {
-      id: `${p.cluster}:${p.page}`,
-      values: {
-        page: p.page,
-        cluster: p.cluster,
-        impressions: p.impressions,
-        best: p.bestPosition,
-        queries: p.queries.map((q) => q.query).join(' '),
-        status: status.map((s) => s.label).join(' '),
-      },
-      cells: {
-        page: <PageCell path={p.page} />,
-        best: `${p.bestPosition}位`,
-        queries: <QueriesCell queries={p.queries} />,
-        status: (
-          <div className="flex flex-wrap gap-1">
-            {status.map((s) => (
-              <StatusBadge key={s.label} tone={s.tone}>
-                {s.label}
-              </StatusBadge>
-            ))}
-          </div>
-        ),
-      },
-    };
-  });
 
   return (
     <>
@@ -199,11 +222,11 @@ export default async function SearchStrategyPage({ searchParams }: { searchParam
       <Stack gap="lg">
         <Grid min="md">
           {r.clusters.map((c) => (
-            <ClusterCard key={c.id} c={c} />
+            <ClusterCard key={c.id} c={c} bands={r.bands} experiments={r.experiments.filter((e) => e.cluster === c.id)} />
           ))}
         </Grid>
 
-        <Section title="改善候補（11〜30位）">
+        <Section title={`改善候補（${r.bands.striking}）`}>
           <TabsList aria-label="クラスター" className="max-w-full overflow-x-auto">
             <TabsTrigger href={BASE} active={!selected}>
               すべて
@@ -216,7 +239,11 @@ export default async function SearchStrategyPage({ searchParams }: { searchParam
               </TabsTrigger>
             ))}
           </TabsList>
-          <DataTable key={selected?.id ?? 'all'} columns={columns} rows={rows} filter="ページ・検索語・状態で絞り込み" pageSize={50} emptyText="候補なし" />
+          <DataTable key={selected?.id ?? 'all'} columns={columns} rows={candidateRows(pool)} filter="ページ・検索語・状態で絞り込み" pageSize={50} emptyText="候補なし" />
+        </Section>
+
+        <Section title="改善の実験（起票→本番反映→計測→判定）">
+          <DataTable columns={EXPERIMENT_COLUMNS} rows={experimentRows(r.experiments)} filter="実験・ページ・カード・段階で絞り込み" pageSize={50} emptyText="起票した改善なし" />
         </Section>
       </Stack>
     </>

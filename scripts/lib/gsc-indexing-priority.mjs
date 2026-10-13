@@ -18,6 +18,7 @@
  * 登録済みが MIN_INDEXED_FOR_OWN_MEAN 本未満の型は、平均が当てにならないので上位のまとまり
  * （全資格の同じ節 → /exam 全体の順）の平均で代用する（未登録率は自分の型のまま）。代用したことは types[].basis に残す。
  */
+import { isLegacyPath } from "./legacy-routes.mjs";
 
 /** 平均表示を自分の型の登録済みページから取るのに要る本数（これ未満は上位のまとまりで代用する） */
 export const MIN_INDEXED_FOR_OWN_MEAN = 3;
@@ -93,7 +94,7 @@ export function buildIndexingPriority({
   cooldownDays = 14,
   minIndexed = MIN_INDEXED_FOR_OWN_MEAN,
 }) {
-  const canon = (p) => (p.startsWith("/docs/") ? legacyRoutes.get(p) ?? p : p);
+  const canon = (p) => (isLegacyPath(p) ? legacyRoutes.get(p) ?? p : p);
   const demand = new Map();
   for (const r of gscPageRows ?? []) {
     const p = canon(toPath(r.keys?.[0]));

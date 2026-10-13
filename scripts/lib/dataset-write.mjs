@@ -65,6 +65,19 @@ export function writeDataset(root, id, value, { values } = {}) {
   return { file, changed: true };
 }
 
+/**
+ * .json のデータセットの中身を型で検査し、ファイルに入る文字列にして返す（書かない）。
+ * 作業ツリーを通さずリモートへ直接 commit する呼び手（git-direct-commit・search-improvement）が使う。
+ * @returns {{ file: string, text: string }}
+ */
+export function formatDataset(id, value, { values } = {}) {
+  const file = datasetPath(id, values);
+  if (!file.endsWith('.json')) throw new Error(`${id}: formatDataset は .json だけ（${file}）`);
+  const text = formatJson(value);
+  assertMatchesSchema(resolveDataset(id), JSON.parse(text), '書く中身');
+  return { file, text };
+}
+
 /** ファイルの最後が改行で終わっていないか（空・無いファイルは false）。追記が前の行に繋がるのを防ぐ */
 function lacksFinalNewline(abs) {
   if (!existsSync(abs) || statSync(abs).size === 0) return false;

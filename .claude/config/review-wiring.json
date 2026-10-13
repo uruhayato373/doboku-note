@@ -92,6 +92,12 @@
           "role": "判断"
         },
         {
+          "command": "search-improvement",
+          "label": "検索改善の起票・本番反映・判定（カード⇄実験 ID）",
+          "stage": "検索",
+          "role": "判断"
+        },
+        {
           "command": "seo-rank-watch",
           "label": "検索順位の監視と改善",
           "stage": "検索",
@@ -389,6 +395,12 @@
         {
           "command": "report-search-opportunities",
           "label": "検索クラスターの推移",
+          "stage": "検索",
+          "role": "判断"
+        },
+        {
+          "command": "search-improvement",
+          "label": "検索改善の判定（クラスター別の成否）",
           "stage": "検索",
           "role": "判断"
         },

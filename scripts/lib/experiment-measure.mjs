@@ -4,7 +4,7 @@
 // measure 仕様（experiments[].measure・任意）:
 //   { specVersion: 1,
 //     metric: 'gsc.clicks' | 'gsc.impressions' | 'gsc.position' | 'ga4.sessions' | 'ga4.event:<eventName>' | 'sales.revenue' | 'sales.count',
-//     scope: { pages?: string[], pagePrefix?: string, source?: 'google' | 'all', productPrefix?: string, productIds?: string[] },
+//     scope: { pages?: string[], pagePrefix?: string, queries?: string[]（gsc.* だけ・ページ×検索語で測る）, source?: 'google' | 'all', productPrefix?: string, productIds?: string[] },
 //     anchor?: 'YYYY-MM-DD'（既定 started_at の日付）, preDays: 28, postDays: 28, lagDays: 3,
 //     direction: 'increase' | 'decrease', minEffect: 0.1（相対）, minVolume: 20,
 //     target?: number（事後窓の絶対目標。新商品の売上など前後比が意味を持たない実験で使う） }
@@ -24,6 +24,10 @@ export function specErrors(spec) {
   if (spec.metric?.startsWith('sales.')) {
     if (!s.productPrefix && !(Array.isArray(s.productIds) && s.productIds.length)) e.push('sales.* は scope.productPrefix か scope.productIds が必要');
   } else if (!(Array.isArray(s.pages) && s.pages.length) && !s.pagePrefix) e.push('scope.pages か scope.pagePrefix が必要');
+  if (s.queries !== undefined) {
+    if (!spec.metric?.startsWith('gsc.')) e.push('scope.queries は gsc.* だけ');
+    if (!(Array.isArray(s.queries) && s.queries.length && s.queries.every((q) => typeof q === 'string' && q.trim()))) e.push('scope.queries は空でない検索語の配列');
+  }
   for (const k of ['preDays', 'postDays']) if (!Number.isInteger(spec[k]) || spec[k] < 7) e.push(`${k} は 7 以上の整数`);
   if (!['increase', 'decrease'].includes(spec.direction)) e.push('direction は increase / decrease');
   if (spec.anchor && !/^\d{4}-\d{2}-\d{2}$/.test(spec.anchor)) e.push('anchor は YYYY-MM-DD');
@@ -48,6 +52,13 @@ export function measureWindows(spec, startedAt, today) {
   if (postStart > lastFinal) return null;
   const postEnd = postEndFull <= lastFinal ? postEndFull : lastFinal;
   return { anchor, pre, post: { startDate: postStart, endDate: postEnd }, complete: postEnd === postEndFull };
+}
+
+/** 事後窓が確定して自動計測が「確定」になる最初の日（measureWindows が complete を返す日）。next_check_date に使う。 */
+export function completeOn(spec, startedAt) {
+  const anchor = spec.anchor ?? String(startedAt ?? '').slice(0, 10);
+  const postEndFull = addDays(addDays(anchor, spec.lagDays ?? 3), spec.postDays - 1);
+  return addDays(postEndFull, GSC_FINAL_LAG_DAYS);
 }
 
 const days = (w) => Math.round((Date.parse(w.endDate) - Date.parse(w.startDate)) / 86400000) + 1;
@@ -98,9 +109,10 @@ export function sumSales(sales, spec, window) {
 /** ページが scope（pages の完全一致か pagePrefix の前方一致）に入るか。GA4 / GSC 共通の唯一の判定。 */
 export const inScope = (page, scope) => (scope.pages ?? []).includes(page) || Boolean(scope.pagePrefix && page.startsWith(scope.pagePrefix));
 
-/** GSC の page 行（正規 URL へ寄せ済み）を scope で絞って集計する。 */
+/** GSC の page 行（正規 URL へ寄せ済み・scope.queries があれば page×query 行）を scope で絞って集計する。 */
 export function sumGscPages(rows, spec) {
-  const hit = rows.filter((r) => inScope(r.page, spec.scope));
+  const queries = spec.scope.queries ? new Set(spec.scope.queries) : null;
+  const hit = rows.filter((r) => inScope(r.page, spec.scope) && (!queries || queries.has(r.query)));
   const clicks = hit.reduce((a, r) => a + r.clicks, 0);
   const impressions = hit.reduce((a, r) => a + r.impressions, 0);
   if (spec.metric === 'gsc.position') return { value: impressions ? Math.round((hit.reduce((a, r) => a + r.position * r.impressions, 0) / impressions) * 10) / 10 : null, volume: impressions };

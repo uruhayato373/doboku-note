@@ -364,6 +364,24 @@ export const ConfigSearchStrategy = z
       .superRefine((s, ctx) => {
         if (s.minPosition >= s.maxPosition) flag(ctx, ['minPosition'], 'minPosition は maxPosition より小さい');
       }),
+    cycle: z
+      .object({
+        filePerWeek: posInt.describe('週次レビューが 1 週に起票する改善の上限'),
+        measure: z
+          .object({
+            metric: z.enum(['gsc.position', 'gsc.impressions', 'gsc.clicks']).describe('起票した改善を前後比較する指標（対象ページ × 起票時の検索語）'),
+            direction: z.enum(['increase', 'decrease']),
+            preDays: z.number().int().min(7),
+            postDays: z.number().int().min(7),
+            lagDays: z.number().int().min(0).describe('本番反映から事後窓までの空き日数'),
+            minEffect: z.number().positive().describe('改善とみなす相対変化'),
+            minVolume: posInt.describe('前後とも、この表示回数に届かなければ判定不能'),
+          })
+          .strict()
+          .describe('実験台帳の measure 仕様の型（experiment-measure.mjs の specErrors に通る形）'),
+      })
+      .strict()
+      .describe('改善の起票と計測（scripts/lib/search-improvement.mjs）'),
     clusters: z
       .array(
         z

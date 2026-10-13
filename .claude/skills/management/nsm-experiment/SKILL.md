@@ -23,6 +23,9 @@ domain: strategy
 
 `kind: seo-rank-watch` の実験は [seo-rank-watch.md](../../../knowledge/reference/seo-rank-watch.md) のCLIで記録・本番照合・reviewする。以下の汎用10日/28日基準や直接JSON編集を適用しない。状態は同じexperiments.jsonを使い、proposed→本番反映待ち→running（observing）→proposed/done/abandonedへ移す。検索意図に応える1件改善の入口は `/weekly-improve --rank-watch`。
 
+## 検索キーワード戦略の専用経路
+
+`kind: search-strategy` の実験は `npm run search-improvement`（add・link・sync・close）だけが書く。起票（カード⇄EXP を 1 commit）→ カード完了（dispatch-log の commit）→ その commit を含む本番デプロイの日を境目に running（sync・CI の fetch-metrics が毎週）→ CI の measure-experiments が「対象ページ × 起票時の検索語」を前後で測る → VERDICT_DUE で close。直接の JSON 編集と、このスキルの start / close を使わない。カードと実験の結び付きは `npm run check-search-improvements`（CI ゲート）が止める。
 
 ## なぜこのスキルがあるのか
 
