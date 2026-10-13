@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   // title template `%s | doboku-note` で自動付与されるため "doboku-note" は重ねない
   title: "コンクリート 単位水量・水和水 計算ツール｜余剰水の内訳",
   description:
-    "水セメント比と単位セメント量から単位水量を計算し、水和反応に必要な水（セメント質量の25〜30%）と余剰水の内訳を確認します。単位水量175kg/m³・水セメント比65%の目安も表示、登録不要・無料。",
+    "水セメント比と単位セメント量から単位水量を計算し、水和で取り込まれる水（結合水約23%・合計約44%）と余剰水の内訳を確認します。単位水量175kg/m³と水セメント比の上限（鉄筋55%・無筋60%）も表示、登録不要・無料。",
   alternates: { canonical: "/tools/water-content" },
   openGraph: {
     type: "website",
@@ -46,7 +46,7 @@ export default function WaterContentPage() {
         title="コンクリート 単位水量・水和水 計算ツール"
         lead={
           <>
-            水セメント比と単位セメント量から<strong className="text-(--ink)">単位水量</strong>を計算し、水和反応に必要な水（セメント質量の25〜30%）と<strong className="text-(--ink)">余剰水</strong>の内訳を確認します。
+            水セメント比と単位セメント量から<strong className="text-(--ink)">単位水量</strong>を計算し、水和で取り込まれる水（セメント質量の約23%〜約44%）と<strong className="text-(--ink)">余剰水</strong>の内訳を確認します。
           </>
         }
       />

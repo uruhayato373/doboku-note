@@ -364,6 +364,18 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0727] コンクリートの実務シリーズの図・写真を、本の頁の切り出しと AI の描き直しで入れる（image-policy の改定から）
+タグ: [領域:サイト] [時期:2026-10] [種類:制作] [起票:2026-10-13]
+
+**起点**: 2026-10-13、コンクリートの実務シリーズ（concrete-practice）の新規 10 章を書き終えた（DN-0724）。記事は図・写真なしで公開の状態。運営者の決定（2026-10-13）は「画像は本の頁から切り出す（クロップ）」「本の写真を元に AI で描き直すことはやる」。後者は image-policy（2026-10-07）と食い違う。
+
+**やること**:
+1. image-policy（.claude/knowledge/reference/image-policy.md）と docs/strategy/18 の「図と写真」を、本の写真を元に AI で描き直す場合の条件（構図をなぞらない・文字を入れない・ai-image-fidelity-auditor の監査・出所の記録）で改める。運営者の確認を取る。
+2. 各章の brief（.tmp/book-coverage/series/<slug>.brief.md の「図・写真の候補」・頁 id つき）と、執筆担当が返した図の位置を、台帳 config/content-series.json の項目の visuals に入れる。執筆担当の案: C-32 は工場数と出荷量の推移・不具合の段階と止める仕組み・就業者の年齢構成の 3 図、C-09 は環境条件ごとに動かす項目の対応図、C-00 は五つの立場と書類の受け渡しの関係図（各章の見出しは workflow の結果。章ごとに 1〜3 枚）。
+3. `npm run check-content-series -- --crop-jobs --series concrete-practice` で切り出し（Codex）→ `--visual-jobs` で図は自作 SVG、写真は AI で描き直し → 監査 → 記事へ配置。
+**完了条件**: 新規 10 章の visuals が台帳に入り、`check-content-series` の図・写真の未完了が 0（使わないものは skipped と理由）。
+
+
 ### [DN-0725] 2級土木の note 記事 2 本が 10/10 と 10/12 で二重投稿になっていないか確かめる
 タグ: [領域:商品] [時期:2026-10] [種類:不具合] [起票:2026-10-13]
 
@@ -374,29 +386,8 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 **完了条件**: 2 本それぞれ note 上の公開版が 1 本だけで、その noteId が原稿 frontmatter と一致している。
 
 
-### [DN-0724] コンクリートの実務シリーズ（concrete-practice）の残り 3 章と、カリキュラム・逆向きリンク・画像の切り出しを進める
-タグ: [領域:サイト] [時期:2026-10] [種類:制作] [起票:2026-10-13]
-
-**起点**: 2026-10-13、シリーズ concrete-practice（台帳 config/content-series.json は PR #1050）の新規 10 章のうち 7 章を書いた（工事の段取り・生コンの注文・できた構造物の検査・なぜ固まるか・特殊なコンクリート・基準の移り変わり・省力化と新技術）。トークンの上限のため残りを分けた。
-**やること**:
-0. 先に流れをスキルにして節約する（2026-10-13 運営者と合意）: (a) book-coverage-expand に「シリーズの章を書く」形を足し、.tmp/book-coverage/series/ の BRIEF・WRITER・QA の指示書をリポジトリへ移す。(b) シリーズで確かめた一次資料（JIS A 5308:2024・土木工事共通仕様書 令和8年3月の条と頁・国交省の通知と要領の URL・中国地整の手引き）を 1 ファイルにまとめ、執筆担当はそこから引く。(c) 本の項目が少ない章と、まとめの章は brief を親が書く。(d) QA は本を全部読み直さず、見出しの比較で似ていそうな節だけ本と照らす。(e) 担当の返答を決まった数行にする。目安は 1 章 80〜110 万 → 50〜60 万トークン。brief の担当をエージェント定義にするか（本は読める・書けるのは brief だけ）もここで決める
-1. 残り 3 章: C-32 品質と担い手（concrete-quality-and-workforce・著者の意見は論点だけ）、C-09 耐久性の決め方（concrete-durability-specification・割り当て項目 0 なので brief は親が既存記事と示方書から書く）、C-00 全体像のハブ（concrete-roles-overview・ほかの章ができてから。brief は親が書く）。手順と指示書は .tmp/book-coverage/series/（BRIEF・WRITER・QA-INSTRUCTIONS.md、章ごとの packet.md）。1 章あたり約 80〜110 万トークン（brief 16〜30 万・執筆 37〜47 万・QA 18〜29 万）
-2. 書いた章の逆向きリンクとカリキュラムへの登録（各執筆担当の返答にある「逆向きリンク」「カリキュラムの区分案」。src/config/category-curriculum.json の civil-practice の concrete ブロックを読む順に並べ替える）
-3. 画像: 各 brief の「図・写真の候補」（頁 id）を台帳の visuals に入れ、check-content-series --crop-jobs で切り出し → 写真は切り出した写真を元に AI で描き直す（その前に image-policy を改める・docs/strategy/18 の「図と写真」）
-**完了条件**: 3 章がコミット済み、新規の章がカリキュラムに登録され、逆向きリンクが張られている。
-**済んだこと**（2026-10-13）: 0. は PR #1052（workflow series-chapter・check-content-series --packet・手順書 §4・事実ファイル concrete-practice-sources.md）。2. は済み（書いた 7 章をカリキュラムへ・既存 16 記事から逆向きリンク・台帳の新規 10 章に paths）。C-09 の brief は親が書いた（.tmp/book-coverage/series/）。残り: PR #1052 のマージ → C-32・C-09 を workflow で → C-00 → 3.
 
 
-### [DN-0723] コンクリートの既存記事と計算ツールの数値を一次資料にそろえる（水和に必要な水・水セメント比・暑中の上限）
-タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-13] [進行中]
-
-**起点**: 2026-10-13、コンクリートの実務シリーズの執筆中に、既存の記事・ツールの数値が一次資料と食い違うのを見つけた（受入れ検査の記事の水セメント比は同日直した）。
-- 水和に必要な水: civil-practice/concrete-finishing-curing の「セメント質量のおよそ25〜30%」、civil-practice/reference-values の「25〜30%」、src/app/tools/water-content/WaterContentClient.tsx の 0.25〜0.30。日本コンクリート工学会の論文値は結合水 約23%・ゲル水 約21%・合計 約44%（https://data.jci-net.or.jp/data_pdf/26/026-01-1211.pdf）。新記事 civil-practice/concrete-hydration-basics はこちらで書いた。concrete-chief-engineer/textbook-materials は 25%＋15% と 23%＋21% を併記している
-- 水セメント比: reference-values の「目安 65%以下」と WaterContentClient の WC_GUIDE_MAX = 65。土木工事共通仕様書（令和8年3月）1-3-3-3・国官技第61号は一般の環境で鉄筋 55%・無筋 60% 以下
-- 暑中の上限: civil-practice/concrete-placement-timing は「35℃以下」だけ。共通仕様書 1-3-9-2 は品質を確保できる場合 38℃、それ以外 35℃
-**やること**: 一次資料で確かめて記事を直す（develop）。ツールの定数はコードなので PR。
-**完了条件**: 上の 4 か所が一次資料と一致し、記事の出典に版を書く。
-**済んだこと**（2026-10-13）: 記事 3 本（concrete-finishing-curing・reference-values・concrete-placement-timing）を develop で直した。ツール（WaterContentClient の定数・page.tsx の説明）は PR #1051。concrete-chief-engineer/textbook-materials は試験の教科書で、25%＋15% と論文値を併記して数値の揺れを説明しているので直さない。残り: PR #1051 のマージ。
 
 
 ### [DN-0722] 2級模試の原稿（C9 解答解説）の解答欄の字数・行数の案内を Drive の原本と配布 PDF に反映する
