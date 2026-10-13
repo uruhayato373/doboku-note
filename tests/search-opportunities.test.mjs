@@ -3,7 +3,7 @@
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { summarizeCluster, summarizeBing, bandLabels, candidateMarks, fileableCandidates, inTop, inStriking, triageCandidate, triageExperiment, decisionFor } from '../scripts/lib/search-opportunities.mjs';
+import { summarizeCluster, summarizeBing, bandLabels, candidateMarks, fileableCandidates, inTop, inStriking, triageCandidate, triageExperiment, decisionFor, escapeEre } from '../scripts/lib/search-opportunities.mjs';
 import { experimentsByPage, dispatchIndex } from '../scripts/lib/search-improvement.mjs';
 
 const S = 'https://doboku-note.com';
@@ -105,6 +105,11 @@ test('週次の処置: 判定待ちの実験は close を促し、カード完�
   assert.equal(triageExperiment({ ...e, phase: 'implemented', implementedAt: '2026-09-01' }, opts).status, 'action');
   assert.match(triageExperiment({ ...e, phase: 'filed' }, opts).action, /改善の記録が無い/, '起票だけの状態は要処置');
   for (const phase of ['measuring', 'closed', 'abandoned']) assert.equal(triageExperiment({ ...e, phase }, opts).status, 'none');
+});
+
+test('git grep -E に渡すページは、正規表現の記号とバックスラッシュをすべて逃がす（CodeQL: 不完全な逃がし）', () => {
+  assert.equal(escapeEre('/docs/a.b(c)[d]\\e|f+g'), '/docs/a\\.b\\(c\\)\\[d\\]\\\\e\\|f\\+g');
+  assert.equal(new RegExp(`^${escapeEre('/a.b\\c')}$`).test('/a.b\\c'), true);
 });
 
 test('起票してよい候補は全クラスターで同じページを 1 件にまとめ、表示の多い順に並べる', () => {

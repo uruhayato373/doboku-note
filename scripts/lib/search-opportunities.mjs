@@ -192,6 +192,8 @@ export function candidateMarks(p) {
  * 転送先の最後の登録リクエスト（gsc.indexing-history の commit の run）を返す。
  */
 const linkMemo = new Map();
+/** git grep -E（POSIX 拡張正規表現）に文字列をそのまま渡すための逃がし（記号とバックスラッシュをすべて） */
+export const escapeEre = (s) => String(s).replace(/[\\^$.*+?()[\]{}|]/g, '\\$&');
 export function legacyStatus(root, pages) {
   if (!pages.length) return new Map();
   const { index, legacy } = buildContentIndex(root);
@@ -204,7 +206,7 @@ export function legacyStatus(root, pages) {
     const key = `${root}:${head}:${page}`;
     if (!linkMemo.has(key)) {
       try {
-        linkMemo.set(key, git(['grep', '-l', '-E', `${page.replace(/\./g, '\\.')}([)"'#?[:space:]/]|$)`, 'HEAD', '--', siteDir]).split('\n').filter(Boolean).length);
+        linkMemo.set(key, git(['grep', '-l', '-E', `${escapeEre(page)}([)"'#?[:space:]/]|$)`, 'HEAD', '--', siteDir]).split('\n').filter(Boolean).length);
       } catch (e) {
         if (e.status !== 1) throw e;
         linkMemo.set(key, 0);
