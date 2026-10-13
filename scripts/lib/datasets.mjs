@@ -157,6 +157,7 @@ export const DATASETS = [
   d('registry.media', 'content/registry/media/{name}', 'config', 'sns', 'コンテンツ台帳: 素材（資格ごと・brand）', { schema: 'RegistryMedia' }),
   // 教材
   d('config.reference-sources', 'config/reference-sources.json', 'config', 'material', '参考文献（原本・一次資料）の区分と扱い', { schema: 'ConfigReferenceSources' }),
+  d('config.egov-laws', 'config/egov-laws.json', 'config', 'material', 'e-Gov の法令（法令 ID・題名・条の一覧・最新の改正の施行日）。記事の e-Gov へのリンクと参考文献の台帳の法令を照合する', { schema: 'ConfigEgovLaws' }),
   d('config.content-series', 'config/content-series.json', 'config', 'site', 'サイト記事のシリーズ企画（目次・計画・根拠。状態は記事の実体から出す）', { schema: 'ConfigContentSeries' }),
   d('config.content-series-basis', 'config/content-series-basis.json', 'config', 'site', '書籍の全項目をシリーズの項目・記事に割り当てる（使わない項目は理由）。項目 id だけで見出しは持たない', { schema: 'ConfigContentSeriesBasis' }),
   // 管理

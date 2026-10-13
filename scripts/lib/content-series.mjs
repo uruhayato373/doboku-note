@@ -94,7 +94,36 @@ export function validateSeries(config, ctx) {
     if (entry.hubItem && !itemIds.has(entry.hubItem)) issues.push(`${at}: 入口のハブ ${entry.hubItem} が項目に無い`);
     if (entry.curriculum && !ctx.curriculumCategories.has(entry.curriculum.split(':')[0])) {
       issues.push(`${at}: 入口の工種別ノート ${entry.curriculum} の資格が category-curriculum.json に無い`);
+    } else if (entry.curriculum && ctx.curriculumOf) issues.push(...curriculumIssues(series, ctx));
+  }
+  return issues;
+}
+
+/**
+ * シリーズの章とカリキュラム（src/config/category-curriculum.json）の食い違い。
+ * 入口の資格（entry.curriculum の「資格:区分」）の記事で公開済みの章は、その資格のカリキュラムのどこかに載っていること。
+ * 入口の区分に載っている章は、台帳の並び（読む順）と同じ順で並んでいること。
+ * 2026-10-13 に、書いた 7 章がカリキュラムに無く、区分の並びも手で直していた。
+ */
+function curriculumIssues(series, ctx) {
+  const [category, blockId] = series.entry.curriculum.split(':');
+  const { all, block } = ctx.curriculumOf(category, blockId);
+  const prefix = `content/site/${category}/`;
+  const order = [];
+  const issues = [];
+  for (const item of (series.sections ?? []).flatMap((sec) => sec.items ?? [])) {
+    for (const p of item.paths ?? []) {
+      if (!p.startsWith(prefix) || !ctx.stateOf(p).published) continue;
+      const slug = p.slice(prefix.length).replace(/\/article\.mdx$|\.mdx$/, '');
+      if (!all.has(slug)) issues.push(`${series.id}/${item.id}: 公開した章 ${slug} がカリキュラム（${category}）に無い`);
+      if (!order.includes(slug)) order.push(slug);
     }
+  }
+  if (block) {
+    const want = order.filter((x) => block.includes(x));
+    const got = block.filter((x) => want.includes(x));
+    const at = want.findIndex((x, i) => got[i] !== x);
+    if (at >= 0) issues.push(`${series.id}: カリキュラムの区分 ${series.entry.curriculum} の並びが台帳の読む順と違う（${at + 1} 番目: 台帳 ${want[at]}・区分 ${got[at]}）`);
   }
   return issues;
 }
@@ -147,12 +176,28 @@ export function seriesContext(root) {
   const aiLedger = existsSync(aiFile) ? JSON.parse(readFileSync(aiFile, 'utf8')) : null;
   const curriculum = JSON.parse(readFileSync(join(root, 'src', 'config', 'category-curriculum.json'), 'utf8'));
   const curriculumCategories = new Set(Object.keys(curriculum).filter((k) => !k.startsWith('$')));
+  // 資格のカリキュラムに載る slug 全部（形は資格ごとに違うので slugs の配列を拾う）と、id の一致する区分の並び
+  const curriculumOf = (category, blockId) => {
+    const all = new Set();
+    let block = null;
+    const walk = (n) => {
+      if (Array.isArray(n)) return n.forEach(walk);
+      if (!n || typeof n !== 'object') return;
+      if (Array.isArray(n.slugs)) {
+        n.slugs.forEach((x) => typeof x === 'string' && all.add(x));
+        if (blockId && n.id === blockId) block = n.slugs;
+      }
+      Object.values(n).forEach(walk);
+    };
+    walk(curriculum[category]);
+    return { all, block };
+  };
   const cache = new Map();
   const stateOf = (path) => {
     if (!cache.has(path)) cache.set(path, articleStateFromFile(root, path));
     return cache.get(path);
   };
-  return { root, referenceSources, sourceIds, referenceClasses, bookSummary, provenance, aiLedger, bookManifest, curriculumCategories, stateOf };
+  return { root, referenceSources, sourceIds, referenceClasses, bookSummary, provenance, aiLedger, bookManifest, curriculumCategories, curriculumOf, stateOf };
 }
 
 /**
@@ -396,6 +441,8 @@ export function chapterPacket(basis, config, ctx, vaultRoot, seriesId, itemId, a
   const series = (config.series ?? []).find((s) => s.id === seriesId);
   const item = series?.sections.flatMap((sec) => sec.items).find((i) => i.id === itemId);
   if (!item) throw new Error(`台帳に無い章: ${seriesId}/${itemId}`);
+  // 先に台帳の paths に記事を入れる（書いた記事が台帳から外れないように。book-coverage-expansion.md §4 の 1）
+  if (!(item.paths ?? []).includes(articlePath)) throw new Error(`${seriesId}/${itemId}: 台帳の paths に ${articlePath} が無い（先に台帳へ入れる）`);
   const key = `${seriesId}/${itemId}`;
   const lines = [];
   const ocrDirs = [];
