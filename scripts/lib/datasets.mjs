@@ -121,7 +121,6 @@ export const DATASETS = [
   // サイト
   d('config.content-rules', 'config/content-rules.json', 'config', 'site', 'サイト記事の機械品質ルールの重大度と適用範囲', { schema: 'ConfigContentRules' }),
   d('config.search-strategy', 'config/search-strategy.json', 'config', 'site', '検索キーワード戦略のクラスタ', { schema: 'ConfigSearchStrategy' }),
-  d('config.seo-watchwords', 'config/seo-watchwords.json', 'config', 'site', '順位を見張る検索語', { schema: 'ConfigSeoWatchwords' }),
   d('config.seo-meta-config', 'config/seo-meta-config.json', 'config', 'site', 'SEO meta 監査の対象と巡回の設定', { schema: 'ConfigSeoMeta' }),
   d('config.growth-cycle', 'config/growth-cycle.json', 'config', 'site', '成長サイクル（計測ダイジェスト）の設定', { schema: 'ConfigGrowthCycle' }),
   d('config.indexnow', 'config/indexnow.json', 'config', 'site', 'IndexNow の更新通知の設定', { schema: 'ConfigIndexnow' }),
@@ -225,7 +224,7 @@ export const DATASETS = [
   d('gsc.reports', 'data/gsc/reports/{date}.json', 'series', 'site', 'GSC の検索指標（取得した日ごとに 1 ファイル・page／query／page×query／date。水曜分の page は 1000 行で打ち切り）', { retain: { family: 'gsc', maxAgeDays: 90, keepNewestPerSection: true }, schema: 'GscReports' }),
   d('gsc.sitemaps', 'data/gsc/sitemaps.json', 'state', 'site', 'サイトマップの送信状態', { freshness: { warnDays: 10 }, schema: 'GscSitemaps' }),
   d('gsc.index-coverage-history', 'data/gsc/index-coverage.json', 'ledger', 'site', 'インデックス登録率の推移（全体と資格別）', { schema: 'GscIndexCoverage' }),
-  d('gsc.rank-watch', 'data/gsc/rank-watch/{month}.jsonl', 'ledger', 'site', '見張っている検索語の順位（watch-…）と見張りの判断（run-…）。月ごとに 1 行 1 件の追記だけ', { immutable: true, schema: 'RankWatch' }),
+  d('gsc.rank-watch', 'data/gsc/rank-watch/{month}.jsonl', 'ledger', 'site', '退役した SEO Rank Watch の順位（watch-…）と判断（run-…）の記録（2026-09〜10-13）。書き手は無く、検索の改善は search-strategy の実験だけで回す', { immutable: true, schema: 'RankWatch' }),
   d('gsc.url-inspection', 'data/gsc/url-inspection/{ts}.json', 'series', 'site', 'URL 検査の結果（新しい 2 回分だけ残す。資格別の率は履歴 gsc.index-coverage-history に書く）', { retain: { family: 'url-inspection', keepNewest: 2 }, schema: 'GscUrlInspection' }),
   d('gsc.url-inspection-single', 'data/gsc/url-inspection-single/{ts}.json', 'series', 'site', 'URL 検査の単発の結果', { retain: { family: 'url-inspection', keepNewest: 2 }, schema: 'GscUrlInspectionSingle' }),
   d('gsc.indexing-history', 'data/gsc/indexing-history.json', 'ledger', 'site', 'インデックス登録の申請の記録', { schema: 'GscIndexingHistory' }),

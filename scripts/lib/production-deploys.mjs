@@ -1,7 +1,7 @@
 /**
  * production-deploys.mjs — 本番デプロイ（main で成功した cloudflare-deploy.yml の run）と、ある commit が本番に入った日（唯一の実装）。
  * ---------------------------------------------------------------------------
- * 読み手: 検索キーワード戦略の改善（search-improvement.mjs の sync・本番反映の日を計測の境目にする）・SEO Rank Watch（seo-rank-watch.mjs の deploy）。
+ * 読み手: 検索キーワード戦略の改善（search-improvement.mjs の sync・本番反映の日を計測の境目にする）。
  * 取得は gh api（手元は gh のログイン・CI は GH_TOKEN と permissions: actions: read）。祖先の判定は手元の git を先に使い、
  * 浅い clone で commit が無いときだけ GitHub の compare API に聞く。
  * ---------------------------------------------------------------------------

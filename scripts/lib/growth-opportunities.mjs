@@ -8,7 +8,6 @@
 // - 自然検索の分母は google（GSC と突合できる）。GA4 の bing は bot 疑いがあるため Bing Webmaster と別照合する
 // - 欠測は 0 にしない。入力が無い・打ち切り・thresholding は measurement カテゴリの機会として必ず表に出す
 import { createHash } from 'node:crypto';
-import { inferIntent } from './seo-watch-strategy.mjs';
 import { judgeLedger } from './experiment-due.mjs';
 import { addDays } from './business-direction.mjs';
 import { isLegacyPath } from './legacy-routes.mjs';
@@ -50,9 +49,7 @@ const qualificationOf = (page, qualifications) => qualifications.find((id) => pa
 function seoItem(type, key, fields, ctx) {
   const { page, query } = fields.key;
   const qualification = qualificationOf(page, ctx.qualifications);
-  const intent = query ? inferIntent(query) : null;
   const contentPath = ctx.contentIndex.get(page) ?? null;
-  const improvable = Boolean(query && qualification && contentPath && ['exam-task', 'exam-topic'].includes(intent));
   return {
     id: oppId(type, key),
     category: 'seo',
@@ -60,21 +57,22 @@ function seoItem(type, key, fields, ctx) {
     ...fields,
     qualification,
     contentPath,
-    suggest: improvable ? ['watchword', 'backlog'] : ['backlog'],
-    watchwordDraft: improvable ? { keyword: query, targetPath: page, contentPath, qualification, intent, evidence: { kind: 'gsc', source: ctx.packFile } } : null,
+    suggest: query && contentPath ? ['experiment', 'backlog'] : ['backlog'],
   };
 }
 
-/** SEO の機会（35 日の page×query と週／基線の page）。旧 URL は正規 URL へ寄せ、既に監視中の語は除く。 */
+/**
+ * SEO の機会（35 日の page×query と週／基線の page）。旧 URL は正規 URL へ寄せる。
+ * 11〜30 位の取りこぼし（改善候補の帯）は検索キーワード戦略のサイクル（search-improvement）だけが受け持つのでここでは出さない。
+ */
 export function detectSeo(pack, ctx) {
   const seo = ctx.config.seo;
   const s = pack.sections;
   const out = [];
   const legacy = ctx.legacy ?? new Map();
-  const watched = new Set((ctx.watchwords ?? []).map((w) => `${w.targetPath}\u0000${w.keyword}`));
   if (s.gscPageQueryWeek?.ok && s.gscPageQueryBase?.ok) {
     const rows = combineGscRows([s.gscPageQueryWeek.rows, s.gscPageQueryBase.rows], legacy)
-      .filter((r) => r.query && !isLegacyPath(r.page) && !watched.has(`${r.page}\u0000${r.query}`));
+      .filter((r) => r.query && !isLegacyPath(r.page));
     for (const r of rows) {
       if (r.impressions < seo.minImpressions || r.position == null) continue;
       const weeklyImpr = r.impressions / 5;
@@ -85,13 +83,6 @@ export function detectSeo(pack, ctx) {
           key: { page: r.page, query: r.query },
           title: `「${r.query}」は平均 ${round(r.position)} 位なのに CTR ${metrics.ctr}%（期待 ${round(exp * 100, 1)}%）`,
           metrics, expectedWeeklyGain: { value: round(weeklyImpr * (exp - r.ctr)), unit: 'searchClicks' },
-        }, ctx));
-      } else if (r.position >= seo.strikingPositionMin && r.position <= seo.strikingPositionMax) {
-        const target = expectedCtr(seo.strikingTargetPosition, seo);
-        out.push(seoItem('seo-striking-distance', `${r.page}|${r.query}`, {
-          key: { page: r.page, query: r.query },
-          title: `「${r.query}」が平均 ${round(r.position)} 位（${seo.strikingTargetPosition} 位圏へ上げる余地）`,
-          metrics, expectedWeeklyGain: { value: round(weeklyImpr * Math.max(0, target - r.ctr)), unit: 'searchClicks' },
         }, ctx));
       }
     }
@@ -175,7 +166,7 @@ export function detectRevenue(pack, ctx) {
           title: `${page} の CTA クリック率 ${round(ctr * 100, 2)}%（サイト平均 ${round(siteCtr * 100, 2)}%）`,
           metrics: { ctaImpressions35d: imp, ctaClicks35d: clk, ctrPct: round(ctr * 100, 2), siteCtrPct: round(siteCtr * 100, 2) },
           expectedWeeklyGain: { value: round((imp / 5) * (siteCtr - ctr), 1), unit: 'ctaClicks' },
-          suggest: ['backlog', 'experiment'], watchwordDraft: null,
+          suggest: ['backlog', 'experiment'],
         });
       }
     }
@@ -191,7 +182,7 @@ export function detectRevenue(pack, ctx) {
           title: `演習の完了率が ${round(wr * 100)}%（基線 ${round(br * 100)}%）に低下`,
           metrics: { weekStarts: ws, weekCompletions: wc, baseStarts: bs, baseCompletions: bc },
           expectedWeeklyGain: { value: round(ws * (br - wr)), unit: 'quizCompletions' },
-          suggest: ['backlog'], watchwordDraft: null,
+          suggest: ['backlog'],
         });
       }
     }
@@ -206,7 +197,7 @@ export function detectRevenue(pack, ctx) {
         title: `${r.page} は流入 ${r.users} 人（28 日）なのに${r.gap ? '収益導線' : 'note 導線'}が無い`,
         metrics: { users28d: r.users, sessions28d: r.sessions, gap: Boolean(r.gap), noteGap: Boolean(r.noteGap) },
         expectedWeeklyGain: { value: round(((r.sessions ?? r.users) / 4) * sessionsCtr, 1), unit: 'ctaClicks' },
-        suggest: ['backlog'], watchwordDraft: null,
+        suggest: ['backlog'],
       });
     }
     const placements = (cov.placementCtr ?? []).filter((p) => p.impressions >= rv.minPlacementImpressions28d);
@@ -220,7 +211,7 @@ export function detectRevenue(pack, ctx) {
         title: `配置 ${p.placement} は表示 ${p.impressions}（28 日）で CTR ${round(ctr * 100, 2)}%（配置の中央値 ${round(median * 100, 2)}%）`,
         metrics: { impressions28d: p.impressions, clicks28d: p.clicks, ctrPct: round(ctr * 100, 2), medianCtrPct: round(median * 100, 2) },
         expectedWeeklyGain: { value: round((p.impressions / 4) * (median - ctr), 1), unit: 'ctaClicks' },
-        suggest: ['experiment', 'backlog'], watchwordDraft: null,
+        suggest: ['experiment', 'backlog'],
       });
     }
   }
@@ -231,7 +222,7 @@ export function detectRevenue(pack, ctx) {
 export function detectMeasurement(pack, ctx) {
   const m = ctx.config.measurement;
   const out = [];
-  const add = (type, key, title, metrics = {}) => out.push({ id: oppId(type, key), category: 'measurement', type, key: { subject: key }, title, metrics, expectedWeeklyGain: null, suggest: ['backlog'], watchwordDraft: null });
+  const add = (type, key, title, metrics = {}) => out.push({ id: oppId(type, key), category: 'measurement', type, key: { subject: key }, title, metrics, expectedWeeklyGain: null, suggest: ['backlog'] });
   for (const [name, s] of Object.entries(pack.sections ?? {})) {
     if (!s.ok) add('measurement-section-failed', name, `成長パックの ${name} が取得失敗: ${s.error}`);
     else if (s.truncated) add('measurement-truncated', name, `成長パックの ${name} が打ち切り（${s.rows.length}/${s.rowCount ?? '?'} 行）`);
@@ -262,7 +253,7 @@ export function detectExperiments(experiments, nowMs) {
       id: oppId('experiment-due', `${d.id}|${kinds}`), category: 'experiment', type: 'experiment-due', key: { experiment: d.id, reasons: kinds },
       title: `${d.id}（${d.title}）: ${d.reasons.map((r) => r.detail).join(' / ')}`,
       metrics: { status: d.status, nextCheckDate: d.nextCheckDate }, expectedWeeklyGain: null,
-      suggest: ['verdict', 'defer'], watchwordDraft: null, review: d.review,
+      suggest: ['verdict', 'defer'], review: d.review,
     };
   });
 }

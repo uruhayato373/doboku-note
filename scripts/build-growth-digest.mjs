@@ -4,7 +4,7 @@
  * 改善機会のダイジェストを作る（オフライン・決定的）。
  *
  * 入力: data/analysis/growth/pack-YYYY-Www.json（必須）と過去パック、monetization/coverage-*.json、
- *       bing/bing-*.json、data/business/experiments.json、config/seo-watchwords.json、
+ *       bing/bing-*.json、data/business/experiments.json、
  *       growth/triage-log.json（週次レビューの処分・抑止に使う）、public/_redirects + content/site（URL→原稿）
  * 出力: data/analysis/growth/digest-YYYY-Www.json（CI だけが書く。週次レビューは読むだけ）
  *
@@ -78,7 +78,6 @@ export function buildDigest({ week, root = ROOT, today = jst() } = {}) {
     config: cfg.digest,
     qualifications: direction(root).qualifications.map((q) => q.id),
     ...(({ index, legacy }) => ({ contentIndex: index, legacy }))(buildContentIndex(root)),
-    watchwords: readJsonOr(datasetPath('config.seo-watchwords'), { watchwords: [] }).watchwords,
     packFile, history, coverage, inputs,
   };
   ctx.bingReconciliation = reconcileBing(pack, bing);
@@ -147,7 +146,7 @@ export function renderMarkdown(d) {
       L.push(`| ${s.id} | ${CATEGORY[s.category]} | ${s.title.replace(/\|/g, '｜')} | ${gain} | ${s.suggest.join(' / ')} |`);
     }
   } else L.push('（トリアージ対象なし）');
-  L.push('', '全件を `npm run growth-triage -- list` で確認し、`apply --decisions <file> --commit` で backlog / 実験 / watchword / 束ね / 却下 / 保留に振り分ける。');
+  L.push('', '全件を `npm run growth-triage -- list` で確認し、`apply --decisions <file> --commit` で backlog / 実験 / 束ね / 却下 / 保留に振り分ける（11〜30 位の取りこぼしは検索キーワード戦略のサイクルが受け持つ）。');
   return L.join('\n');
 }
 

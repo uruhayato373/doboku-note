@@ -8,7 +8,6 @@ export const TAB_SETS = {
   search: [
     { href: '/metrics/search-strategy', label: 'キーワード戦略' },
     { href: '/metrics/gsc', label: '全体（GSC）' },
-    { href: '/metrics/seo-watch', label: '改善中' },
     { href: '/metrics/index', label: 'インデックス' },
   ],
   market: [

@@ -60,11 +60,9 @@ export function judgeExperiment(e, nowMs = Date.now(), t = DEFAULT_THRESHOLDS) {
     reasons.push({ kind: 'PENDING', detail: `要人手 ${pending.length} 件: ${pending.map((p) => p.action).join(' / ')}` });
   }
   const verdictDue = reasons.some((r) => r.kind === 'VERDICT_DUE');
-  const review = e.kind === 'seo-rank-watch'
-    ? `npm run seo-rank-watch -- review --id ${e.watchId} --no-fetch`
-    : e.kind === 'search-strategy'
-      ? (verdictDue ? `npm run search-improvement -- close --id ${e.id} --result <success|partial|no-effect|negative> --learning "…" --commit` : 'npm run search-improvement -- status（自動計測は CI の fetch-metrics が毎週追記する）')
-      : `/nsm-experiment ${st === 'measuring' || reasons.some((r) => r.kind === 'VERDICT_DUE') ? 'close' : 'measure'} ${e.id}`;
+  const review = e.kind === 'search-strategy'
+    ? (verdictDue ? `npm run search-improvement -- close --id ${e.id} --result <success|partial|no-effect|negative> --learning "…" --commit` : 'npm run search-improvement -- status（自動計測は CI の fetch-metrics が毎週追記する）')
+    : `/nsm-experiment ${st === 'measuring' || verdictDue ? 'close' : 'measure'} ${e.id}`;
   return {
     id: e.id, review, title: e.title, status: st, targetMetric: e.target_metric ?? null,
     nextCheckDate: e.next_check_date ?? null, daysSinceStart: sinceStart, daysSinceTouch: sinceTouch,

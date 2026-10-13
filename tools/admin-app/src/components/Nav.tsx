@@ -24,7 +24,7 @@ type Tab = {
   href: string;
   label: string;
   match: string;
-  /** 同じ項目を現在地とみなす別の画面（画面内タブで行き来する URL。例: 検索 ＝ /metrics/gsc・/metrics/seo-watch ほか） */
+  /** 同じ項目を現在地とみなす別の画面（画面内タブで行き来する URL。例: 検索 ＝ /metrics/gsc・/metrics/search-strategy ほか） */
   matchAlso?: readonly string[];
   query?: Readonly<Record<string, string>>;
 };

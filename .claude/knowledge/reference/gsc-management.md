@@ -42,7 +42,7 @@ Google Search Console の継続管理（インデックス被覆・検索パフ�
 | `gsc-request-indexing` | Script（Playwright・**Mac の launchd `gsc-local` が毎日 10 件**・手動も可） | 未登録 URL を URL 検査で診断し、**インデックス登録をリクエスト**（既定 dry-run・`--commit` gate・上限 10 件/回）。crawled-not-indexed への直接レバー。**discovered-not-indexed（未クロール）には強制クロールとしてより直接に効く**。入力は `--from-ssot` / `--urls` / `--file`（正規パス。旧 `/docs/slug` は `_redirects` の 301 先へ自動変換） | SSOT または URL 一覧 → `data/gsc/indexing-{requests,history}.json` |
 | `gsc-local` | Mac の launchd（毎日 10:30・`npm run gsc-local:install`） | ログインしたブラウザが要る GSC 作業（登録リクエスト 10 件・月次 UI CSV）を Mac 自身で回す。専用 worktree（`.claude/worktrees/gsc-local`・lock 済み）を origin/develop に揃えて実行し台帳を push。未ログインは macOS 通知。**hosted runner は Google が失効させ、self-hosted runner は公開リポジトリで fork PR に Mac 上のコード実行を許しうるため使わない**（2026-09-24） | 順位表・UI → `gsc-indexing/*`・`gsc-ui/last-run.json`・`gsc-ui/ssot/` |
 | `check-gsc-sitemaps` | Script（surfacer・オフライン） | `data/gsc/sitemaps.json` を見て、記録が古い・robots.txt の sitemap が GSC に未登録・送信失敗（権限不足）・エラー・14 日以上未読み込みなら DUE。旧 URL sitemap のリダイレクト警告は数えない。weekly-review-guard が毎週 job summary へ | `sitemaps-latest.json` → DUE |
-| `seo-rank-watch` | Script（週次CIでcollect、セッションでreview/1件改善） | 固定クエリの確定7日比較・本番反映起点の観察。入口 `/weekly-improve --rank-watch`、詳細 [運用手順](seo-rank-watch.md) | `data/gsc/rank-watch/<月>.jsonl`（追記）＋既存 `experiments.json` |
+| `search-improvement` | Script（週次レビューが record/triage/close、CI fetch-metrics が sync・28日計測） | 11〜30 位の帯の候補→改善→本番反映起点の前後計測。入口 `/weekly-review`、詳細 [検索キーワード戦略](../../../docs/strategy/16_検索キーワード戦略.md) | `experiments.json`（kind search-strategy）。旧 `data/gsc/rank-watch/<月>.jsonl` は 2026-10-13 廃止後の不変アーカイブ（書き手なし） |
 | `check-experiment-due` | Script（surfacer） | 実験台帳の再計測/close 期限（サイクルの最後の輪）。weekly-review が列挙 | `experiments.json` → DUE 一覧 |
 | `search-growth:cem-plan` | Script（月次・ローカル手動） | 総監 crawled-not-indexed の 5 分類再分類（下記「総監 CNI 5分類の運用ルール」） | URL Inspection 履歴 → `improvements/cem-index-consolidation-*.{json,md}` |
 | 機械履歴 | `data/gsc/index-coverage.json` | indexed_ratio の時系列と、資格別（`/exam/<資格>/` 配下）の検査数・登録数・率（`by_qualification`）。URL 検査のバッチ（`data/gsc/url-inspection/`）は新しい 2 回分しか残さないので、資格別はバッチから数え直さずここを読む | CI が append |
@@ -615,7 +615,7 @@ EXP-006 の本判定は予定どおり next_check 2026-08-27 に、カバレッ�
 
 ### 2026-09-27（手動・SEO の保留 4 点の判断・旧 DN-0320）
 
-- ① 本番の SEO 監査（check-seo-production + seo-production-audit.yml）は作らない。deploy 後の `npm run check-production-ssr` と日次の seo-rank-watch で足りる
+- ① 本番の SEO 監査（check-seo-production + seo-production-audit.yml）は作らない。deploy 後の `npm run check-production-ssr` と検索改善の週次計測（search-improvement）で足りる
 - ② 資格の入口ページに CollectionPage / ItemList を付ける → DN-0412
 - ③ 未登録ページを統合・noindex する基準は、建設部門・RCCM の登録率の調査（DN-0390）で決める
 - ④ GSC 実験の対象と成功指標は、検索キーワード戦略の改善サイクル（report-search-opportunities で候補・search-improvement で起票→本番反映→計測→判定。実験台帳の kind search-strategy）にまとめる

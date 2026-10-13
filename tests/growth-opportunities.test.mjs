@@ -15,7 +15,7 @@ const pq = (page, query, clicks, impressions, position) => ({ page, query, click
 const pg = (page, clicks, impressions = clicks * 20, position = 5) => ({ page, clicks, impressions, position });
 const ev = (page, event, week, base) => ({ page, event, week: { count: week, users: week }, base: { count: base, users: base } });
 const basePack = (sections) => ({ week: '2026-W38', period: { startDate: '2026-09-14', endDate: '2026-09-20' }, baseline: { startDate: '2026-08-17', endDate: '2026-09-13' }, sections });
-const ctx = (extra = {}) => ({ config: cfg, qualifications: ['civil-construction-1'], contentIndex: new Map([['/exam/civil-construction-1/textbook/a', 'content/site/civil-construction-1/textbook-a/article.mdx']]), legacy: new Map([['/docs/civil-construction-1-textbook-a', '/exam/civil-construction-1/textbook/a']]), watchwords: [], packFile: 'pack.json', history: [], inputs: [], ...extra });
+const ctx = (extra = {}) => ({ config: cfg, qualifications: ['civil-construction-1'], contentIndex: new Map([['/exam/civil-construction-1/textbook/a', 'content/site/civil-construction-1/textbook-a/article.mdx']]), legacy: new Map([['/docs/civil-construction-1-textbook-a', '/exam/civil-construction-1/textbook/a']]), packFile: 'pack.json', history: [], inputs: [], ...extra });
 
 test('opportunity ids are stable and type-scoped', () => {
   assert.equal(oppId('seo-x', '/a|q'), oppId('seo-x', '/a|q'));
@@ -32,7 +32,7 @@ test('legacy /docs/ rows fold into the canonical page instead of being dropped',
   assert.equal(rows[0].legacy, true);
 });
 
-test('detectSeo flags high-impression low-CTR and striking-distance queries with a watchword draft when improvable', () => {
+test('detectSeo flags high-impression low-CTR queries and leaves the 11-30 band to the search-strategy cycle', () => {
   const pack = basePack({
     gscPageQueryWeek: gsc([pq('/exam/civil-construction-1/textbook/a', '過去問 解答', 0, 30, 4)]),
     gscPageQueryBase: gsc([pq('/exam/civil-construction-1/textbook/a', '過去問 解答', 0, 90, 4), pq('/exam/civil-construction-1/textbook/b', 'キーワード 計算', 1, 200, 14)]),
@@ -40,24 +40,18 @@ test('detectSeo flags high-impression low-CTR and striking-distance queries with
   const items = detectSeo(pack, ctx());
   const low = items.find((i) => i.type === 'seo-high-impr-low-ctr');
   assert.ok(low);
-  assert.equal(low.watchwordDraft.contentPath, 'content/site/civil-construction-1/textbook-a/article.mdx');
-  assert.equal(low.watchwordDraft.intent, 'exam-task');
-  assert.deepEqual(low.suggest, ['watchword', 'backlog']);
-  const strike = items.find((i) => i.type === 'seo-striking-distance');
-  assert.ok(strike);
-  assert.equal(strike.watchwordDraft, null, '原稿が見つからないページは watchword にしない');
-  assert.ok(strike.expectedWeeklyGain.value > 0);
+  assert.equal(low.contentPath, 'content/site/civil-construction-1/textbook-a/article.mdx');
+  assert.deepEqual(low.suggest, ['experiment', 'backlog']);
+  assert.equal(items.find((i) => i.type === 'seo-striking-distance'), undefined, '取りこぼしの帯は search-improvement だけが受け持つ（二重の経路を作らない）');
 });
 
-test('detectSeo skips already-watched queries and does not report migration as a traffic drop', () => {
+test('detectSeo does not report migration as a traffic drop', () => {
   const pack = basePack({
-    gscPageQueryWeek: gsc([pq('/exam/civil-construction-1/textbook/a', '過去問 解答', 0, 60, 4)]),
-    gscPageQueryBase: gsc([]),
     // 旧 URL 40 クリック（基線）→ 正規 URL 10 クリック（週）: 寄せれば週平均 10 と同じで急落ではない
     gscPageWeek: gsc([pg('/exam/civil-construction-1/textbook/a', 10)]),
     gscPageBase: gsc([pg('/docs/civil-construction-1-textbook-a', 40)]),
   });
-  const items = detectSeo(pack, ctx({ watchwords: [{ targetPath: '/exam/civil-construction-1/textbook/a', keyword: '過去問 解答' }] }));
+  const items = detectSeo(pack, ctx());
   assert.deepEqual(items, []);
 });
 
@@ -154,7 +148,7 @@ test('buildDigest runs end-to-end on a fixture repository and renders the review
   const root = mkdtempSync(join(tmpdir(), 'growth-'));
   t.after(() => rmSync(root, { recursive: true, force: true }));
   for (const d of ['config', 'data/analysis/growth', 'data/business', 'public', 'content/site/civil-construction-1/textbook-a']) mkdirSync(join(root, d), { recursive: true });
-  for (const f of ['config/growth-cycle.json', 'config/business-direction.json', 'config/qualification-registry.json', 'config/seo-watchwords.json']) writeFileSync(join(root, f), readFileSync(f));
+  for (const f of ['config/growth-cycle.json', 'config/business-direction.json', 'config/qualification-registry.json']) writeFileSync(join(root, f), readFileSync(f));
   writeFileSync(join(root, 'public/_redirects'), '/docs/civil-construction-1-textbook-a /exam/civil-construction-1/textbook/a 301\n');
   writeFileSync(join(root, 'content/site/civil-construction-1/textbook-a/article.mdx'), '---\ntitle: a\n---\n');
   writeFileSync(join(root, 'data/business/experiments.json'), JSON.stringify({ experiments: [] }));
@@ -170,7 +164,7 @@ test('buildDigest runs end-to-end on a fixture repository and renders the review
   assert.equal(d.week, '2026-W38');
   assert.equal(d.kpis.gsc.clicks, 3);
   const seo = d.surfaced.find((s) => s.type === 'seo-high-impr-low-ctr');
-  assert.equal(seo.watchwordDraft.contentPath, 'content/site/civil-construction-1/textbook-a/article.mdx');
+  assert.equal(seo.contentPath, 'content/site/civil-construction-1/textbook-a/article.mdx');
   assert.ok(d.surfaced.some((s) => s.type === 'measurement-input-missing'), 'monetization / bing が無いことを欠測として出す');
   const md = renderMarkdown(d);
   assert.match(md, /^<!-- growth-digest:2026-W38 -->/);
