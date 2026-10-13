@@ -4,7 +4,7 @@
  * GSC の検索語×ページ集計（data/gsc/reports/<日付>.json の page-query・CI 供給）を読み、
  * クラスター（検索語の正規表現）ごとに 表示・クリック・上位の帯の件数・改善候補の帯の件数を出す。帯の境目は config の striking だけが持つ。
  * 改善候補は「改善候補の帯で表示がある検索語」をページ単位に束ねたもの（既存ページの手直しで上位へ上げる対象）。
- * 直した改善の段階・前回の判定は実験台帳（kind: search-strategy・search-improvement.mjs）から ID で引く。SEO Rank Watch で観察中のページにも印を付ける。
+ * 直した改善の段階・前回の判定は実験台帳（kind: search-strategy・search-improvement.mjs）から ID で引く。検索の改善はこのサイクルだけで回す（別の監視経路を持たない・2026-10-13 に SEO Rank Watch を統合して退役）。
  * 読み手: 週次レビュー（fileable の上位をその週に直して record・triage の要処置を 0 に）・月次レビュー（クラスター別の推移と判定）・管理画面 検索 ＞ キーワード戦略。
  * ---------------------------------------------------------------------------
  */
@@ -89,7 +89,7 @@ export function listPageQuerySnapshots(root) {
  * クラスター 1 つ分の集計（純関数）。rows は GSC の { keys: [page, query], clicks, impressions, position }。
  * byPage は experimentsByPage（ページ → 計測中の EXP と最後に判定した EXP）、dispatchById は dispatch-log の索引。
  */
-export function summarizeCluster(cluster, rows, striking, { watchedPaths = new Set(), byPage = new Map(), dispatchById = new Map() } = {}) {
+export function summarizeCluster(cluster, rows, striking, { byPage = new Map(), dispatchById = new Map() } = {}) {
   const re = new RegExp(cluster.queryPattern, 'i');
   const mine = rows.filter((r) => re.test(r.keys[1]));
   const impressions = mine.reduce((s, r) => s + r.impressions, 0);
@@ -110,7 +110,6 @@ export function summarizeCluster(cluster, rows, striking, { watchedPaths = new S
     .filter((g) => g.impressions >= striking.minImpressions)
     .map((g) => {
       const exp = byPage.get(g.page) ?? {};
-      const watched = watchedPaths.has(g.page);
       const legacyUrl = isLegacyPath(g.page);
       const inTarget = inTargetOf(cluster, g.page);
       const experiment = exp.open ? { id: exp.open.id, phase: phaseOf(exp.open, dispatchById), card: exp.open.searchStrategy.card ?? null, nextCheck: exp.open.next_check_date ?? null } : null;
@@ -121,11 +120,10 @@ export function summarizeCluster(cluster, rows, striking, { watchedPaths = new S
         inTarget,
         decision: decisionFor(cluster, g.page),
         legacyUrl,
-        watched,
         experiment,
         lastResult: exp.closed ? { id: exp.closed.id, result: exp.closed.result, closedAt: exp.closed.closed_at } : null,
         // 受け皿外は週次の判断（受け皿に加える）が先。誘導すると決めたページも直さない
-        fileable: !watched && !legacyUrl && !experiment && inTarget,
+        fileable: !legacyUrl && !experiment && inTarget,
       };
     })
     .sort((a, b) => b.impressions - a.impressions || a.bestPosition - b.bestPosition);
@@ -164,7 +162,6 @@ export function triageExperiment(e, { today, graceDays }) {
 /** 印の意味（管理画面のツールチップ・CLI の凡例）。印を足したらここにも足す */
 export const MARK_HINTS = {
   experiment: '直した改善の実験の段階（本番反映待ち→計測中→判定待ち）',
-  watched: 'SEO Rank Watch で 1 キーワードを観察中。ここからは直さない',
   'legacy-action': '旧 URL（/docs/）で今週の処置が要る（転送・転送先の公開・サイト内リンク・登録リクエスト）。週次レビューで処置する',
   'legacy-wait': '旧 URL（/docs/）。転送・公開・サイト内リンクは確認済みで、Google の置き換え待ち（期限を過ぎたら登録リクエスト）',
   'off-target': '受け皿（設定の pagePrefixes）の外のページ。週次レビューで受け皿に加えるか、狙いのページへ誘導するかを決める',
@@ -179,7 +176,6 @@ export function candidateMarks(p) {
   const out = [];
   const t = p.triage ?? { kind: 'none' };
   if (p.experiment) out.push({ key: 'experiment', label: `${PHASES[p.experiment.phase]} ${p.experiment.id}` });
-  if (p.watched) out.push({ key: 'watched', label: '観察中' });
   if (t.kind === 'legacy') out.push(t.status === 'action' ? { key: 'legacy-action', label: '旧URL・要処置' } : { key: 'legacy-wait', label: '旧URL・置き換え待ち' });
   if (t.kind === 'off-target') out.push({ key: 'off-target', label: '受け皿外・要処置' });
   if (t.kind === 'routed') out.push(t.status === 'action' ? { key: 'routed-action', label: '誘導・要見直し' } : { key: 'routed', label: `誘導済 → ${p.decision.to}` });
@@ -312,14 +308,12 @@ export function buildSearchOpportunities(root, { maxCandidates, asOf } = {}) {
   const latest = snaps[0];
   // 比べる相手は最新と重ならない直前の期間（日数は集計の窓から決める）
   const prev = snaps.find((s) => s.data.meta.endDate < latest.data.meta.startDate) ?? null;
-  const watch = readDatasetIf(root, 'config.seo-watchwords') ?? { watchwords: [] };
-  const watchedPaths = new Set((watch.watchwords ?? []).map((w) => w.targetPath));
   const byPage = experimentsByPage(ledger.experiments);
 
   const bing = latestBing(root);
   const days = windowDays(latest.data.meta);
   const all = config.clusters.map((c) => {
-    const now = summarizeCluster(c, latest.data.rows, config.striking, { watchedPaths, byPage, dispatchById });
+    const now = summarizeCluster(c, latest.data.rows, config.striking, { byPage, dispatchById });
     const b = bing ? summarizeBing(c, bing.rows, config.striking, days) : null;
     const before = prev ? summarizeCluster(c, prev.data.rows, config.striking) : null;
     return {

@@ -144,8 +144,8 @@ const OppItem = z.looseObject({
   title: z.string().min(1),
   metrics: z.looseObject({}).describe('根拠の数値'),
   expectedWeeklyGain: z.object({ value: z.number(), unit: z.enum(['searchClicks', 'ctaClicks', 'quizCompletions']) }).strict().nullable().describe('期待効果（週あたり）。計測・実験は null'),
-  suggest: z.array(z.enum(['watchword', 'backlog', 'experiment', 'verdict', 'defer'])).describe('推奨の処分'),
-  watchwordDraft: z.looseObject({ keyword: z.string(), targetPath: z.string() }).nullable().describe('監視語の下書き。SEO で改善できるときだけ'),
+  suggest: z.array(z.enum(['watchword', 'backlog', 'experiment', 'verdict', 'defer'])).describe('推奨の処分（watchword は退役した SEO Rank Watch の登録。2026-10-13 より前のダイジェストだけに残る）'),
+  watchwordDraft: z.looseObject({ keyword: z.string(), targetPath: z.string() }).nullable().optional().describe('退役した SEO Rank Watch の監視語の下書き（2026-10-13 より前のダイジェストだけに残る）'),
 });
 
 /** 週次の成長ダイジェスト（data/analysis/growth/digest-{週}.json）。週次レビューでトリアージする改善機会 */

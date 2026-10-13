@@ -499,10 +499,10 @@ const Experiment = z
   .looseObject({
     id: z.string().min(1),
     title: z.string().min(1),
-    kind: z.string().optional().describe('seo-rank-watch は seo-rank-watch.mjs が書く検索順位の実験（hypothesis・target_delta を持たない）。search-strategy は search-improvement.mjs が書く検索キーワード戦略の改善。それ以外は無い'),
-    hypothesis: z.string().min(1).optional().describe('仮説。kind が seo-rank-watch でない実験では必須'),
-    target_metric: z.string().min(1).optional().describe('指標。kind が seo-rank-watch でない実験では必須'),
-    target_delta: z.string().optional().describe('目標の変化。kind が seo-rank-watch でない実験では必須'),
+    kind: z.enum(['search-strategy']).optional().describe('search-strategy は search-improvement.mjs が書く検索キーワード戦略の改善（検索の改善はこれだけ）。無ければ手で書いた実験'),
+    hypothesis: z.string().min(1).optional().describe('仮説（必須）'),
+    target_metric: z.string().min(1).optional().describe('指標（必須）'),
+    target_delta: z.string().optional().describe('目標の変化（必須）'),
     status: experimentStatus,
     created_at: jstDateOrUtcTime('起票').optional(),
     started_at: jstDateOrUtcTime('開始').optional(),
@@ -514,7 +514,6 @@ const Experiment = z
     pending_user_actions: z.array(z.looseObject({ action: z.string() })).optional().describe('人が手を打つ残作業'),
     measure: ExperimentMeasure.optional(),
     measurements: z.array(z.looseObject({ source: z.string().optional() })).optional().describe('計測の記録。source が auto の行は measure-experiments.mjs が追記する'),
-    watchId: z.string().optional().describe('seo-rank-watch の実験が指す見張りの id'),
     searchStrategy: z
       .object({
         cluster: z.string().min(1).describe('検索キーワード戦略の設定（台帳 id config.search-strategy）のクラスター id'),
@@ -534,19 +533,13 @@ const Experiment = z
       .strict()
       .optional()
       .describe('kind が search-strategy の実験の改善の記録（npm run search-improvement -- record が書く）'),
-    actions: z.array(z.union([z.string(), z.looseObject({})])).optional().describe('施策の一覧。手で書いた実験は文字列の行、seo-rank-watch の実験はオブジェクト'),
-    reviewDays: z.number().int().min(1).optional().describe('seo-rank-watch の再計測の窓（7・14・28 日）'),
+    actions: z.array(z.string()).optional().describe('施策の一覧（文字列の行）'),
   })
   .superRefine((e, ctx) => {
     if (e.kind === 'search-strategy') {
       for (const k of ['searchStrategy', 'measure']) if (e[k] === undefined) flag(ctx, [k], `search-strategy の実験には ${k} が要る`);
     }
-    if (e.kind === 'seo-rank-watch') {
-      if (!e.watchId) flag(ctx, ['watchId'], 'seo-rank-watch の実験には watchId が要る');
-      for (const k of ['actions', 'history']) if (e[k] === undefined) flag(ctx, [k], `seo-rank-watch の実験には ${k} が要る`);
-    } else {
-      for (const k of ['hypothesis', 'target_metric', 'target_delta']) if (e[k] === undefined) flag(ctx, [k], `${k} が要る（seo-rank-watch 以外の実験）`);
-    }
+    for (const k of ['hypothesis', 'target_metric', 'target_delta']) if (e[k] === undefined) flag(ctx, [k], `${k} が要る`);
     (e.measurements ?? []).forEach((m, i) => {
       if (m.source !== 'auto') return;
       const r = (m.metric === 'affiliate-design' ? AffiliateDesignMeasurement : AutoMeasurement).safeParse(m);
@@ -688,7 +681,7 @@ export const YoutubePosted = z
   .superRefine(uniqueBy('key', 'key'))
   .meta({ title: 'YouTube の投稿済み' });
 
-// 順位の見張り（data/gsc/rank-watch/<月>.jsonl・追記だけ）。行の中身は seo-rank-watch.mjs が決める。
+// 順位の見張り（data/gsc/rank-watch/<月>.jsonl・追記だけ）。退役した SEO Rank Watch の記録（2026-10-13 以降の書き手は無い）。
 // recordId の接頭辞と type が対応する: watch-（計測 measurement・施策後の再計測 review）と run-（判断 decision・方針の見直し policy-review）
 const rankMetrics = z
   .object({

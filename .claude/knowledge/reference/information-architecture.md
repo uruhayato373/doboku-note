@@ -183,7 +183,7 @@ content/
 > 現在の起票元: `ci.yml`（**Pre-merge check が赤**・2026-08-24 追加）・`uptime-ping.yml`（SSR 健全性の失敗・同）・
 > `weekly-review-guard.yml`（記録層の沈黙／**重要 workflow が赤いまま・動いていない**／**quality-audit の report 区分 FAIL**・同）・
 > `index-coverage.yml`（閾値の無条件異常）・`gsc-auto-review.yml`（CI 実行失敗・記録未生成・実行時の【要確認】）・
-> `seo-rank-watch.yml`（日次処理の失敗）・`ops-audit.yml`（**投稿・配信・転記の遅れ**＝quality-audit の ops 区分・2026-09-18 追加。
+> `ops-audit.yml`（**投稿・配信・転記の遅れ**＝quality-audit の ops 区分・2026-09-18 追加。
 > それまで membership-drip が Pre-merge のゲートに混ざり、記事が 2 日遅れるたびに全 PR が赤になっていた。2026-10-10 から遅れは Issue だけで job は緑）・
 > `note-live-audit.yml`（note のライブ監査の異常・2026-10-10）・`weekly-review-draft.yml`（週次レビューの材料の欠け・同）・
 > Mac の `scripts/scheduled/weekly-review.sh`（土曜の自動の週次レビューが develop に入らない・channel weekly-review-local・同）。

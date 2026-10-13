@@ -13,15 +13,11 @@ domain: strategy
 
 ## 資格別の事業改善との接続
 
-方針・指標の正典は `docs/strategy/01_プロダクト戦略.md` と `config/business-direction.json`。新たな事業レビュー起点の提案には `businessContext` として qualification（重点資格IDまたはall）、readerNeed、verifiedGap、metricId、reviewRecord（`data/business/records/` のreview参照）を付け、既存のbaseline/next_check_dateに基準期間・再測定日を持たせる。状態台帳はexperiments.jsonを継続する。集客以外の学習・販売・運営負担も評価対象だが、SEO Rank Watchには以下の専用契約を適用する。
+方針・指標の正典は `docs/strategy/01_プロダクト戦略.md` と `config/business-direction.json`。新たな事業レビュー起点の提案には `businessContext` として qualification（重点資格IDまたはall）、readerNeed、verifiedGap、metricId、reviewRecord（`data/business/records/` のreview参照）を付け、既存のbaseline/next_check_dateに基準期間・再測定日を持たせる。状態台帳はexperiments.jsonを継続する。集客以外の学習・販売・運営負担も評価対象だが、検索キーワード戦略には以下の専用契約を適用する。
 
 **実行環境**: ライブ計測（baseline/current の取得）を伴う操作は **creds + 外部到達性がある環境（macOS 等）専用**。会社 PC（社内プロキシで Google API 遮断）では `metrics-reader.mjs` のライブ呼び出しは通らない。
 
 > その場合は CI がコミットした `data/{ga4,gsc}/reports/` のスナップショットを読んで baseline/current を比較する（既定経路）。計測は CI/CD 供給が正で、ローカル creds 未設定は「計測基盤未整備」ではない。恒久ルール: `.claude/knowledge/reference/measurement-incidents.md`（2026-06-05）。
-
-## SEO Rank Watch の専用経路
-
-`kind: seo-rank-watch` の実験は [seo-rank-watch.md](../../../knowledge/reference/seo-rank-watch.md) のCLIで記録・本番照合・reviewする。以下の汎用10日/28日基準や直接JSON編集を適用しない。状態は同じexperiments.jsonを使い、proposed→本番反映待ち→running（observing）→proposed/done/abandonedへ移す。検索意図に応える1件改善の入口は `/weekly-improve --rank-watch`。
 
 ## 検索キーワード戦略の専用経路
 

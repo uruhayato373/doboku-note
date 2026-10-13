@@ -7,11 +7,10 @@
 // なので、**未宣言の日付付きファイルは赤**（coverage 検査）にして、新しい系列が黙って増えるのを止める。
 //
 // 決して触らないもの: 台帳で immutable のデータセット（data/business/records の KPI 台帳＝check-business-direction が
-// 削除を拒否、rank-watch＝check-seo-rank-watch「Rank history is immutable」）。plan() はこれらを delete に入れない
+// 削除を拒否、退役した SEO Rank Watch の順位記録 gsc.rank-watch）。plan() はこれらを delete に入れない
 // （tests/prune-state-snapshots.test.mjs が assert する）。手元だけの生データ（local）は対象外。
 //
-// pin（名前で参照されるので消せない）: `config/seo-watchwords.json` の `evidence.source`、business 台帳が
-// `sources[]` で指すパス。CLI が集めて `pins` に渡す。
+// pin（名前で参照されるので消せない）: business 台帳が `sources[]` で指すパス。CLI が集めて `pins` に渡す。
 
 import { DATASETS, datasetsFor } from './datasets.mjs';
 import { REPORT_KINDS } from './metric-reports.mjs';
@@ -194,13 +193,9 @@ function safeRead(readJson, file) {
   }
 }
 
-/** seo-watchwords.json / business 台帳から「名前で参照される記録のパス」を抜く（純粋） */
-export function collectPins({ watchwords = null, businessDocs = [] } = {}) {
+/** business 台帳から「名前で参照される記録のパス」を抜く（純粋） */
+export function collectPins({ businessDocs = [] } = {}) {
   const pins = new Set();
-  for (const w of watchwords?.watchwords || []) {
-    // 「ファイル#枠」はファイルを残す
-    if (w?.evidence?.kind === 'gsc' && typeof w.evidence.source === 'string') pins.add(norm(w.evidence.source.split('#')[0]));
-  }
   // 新しいパス（data/…）と、台帳に残る旧パス（.claude/state/…）の両方を拾う
   const re = /(?<![A-Za-z0-9_.-])(?:data|\.claude\/state)\/[A-Za-z0-9_./-]+\.(?:json|md)/g;
   for (const text of businessDocs) for (const m of String(text).matchAll(re)) pins.add(norm(m[0]));

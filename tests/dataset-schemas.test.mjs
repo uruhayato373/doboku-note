@@ -467,7 +467,7 @@ test('business.experiments: コードとスキルが使う状態（measuring・a
   for (const status of ['completed', 'cancelled', 'paused', 'closed']) assertFails(E, ledger([exp({ status })]), /^experiments\.0\.status/);
 });
 
-test('business.experiments: id の重複・仮説なし・日付の誤りを止める。seo-rank-watch の実験は仮説なしで通る', () => {
+test('business.experiments: id の重複・仮説なし・日付の誤りを止める。検索の改善の種類は search-strategy だけ', () => {
   const E = SCHEMAS.Experiments;
   assertOk(E, ledger([exp(), exp({ id: 'EXP-101' })]));
   assertFails(E, ledger([exp(), exp()]), /^experiments\.1: 実験の id「EXP-100」が重複/);
@@ -478,12 +478,8 @@ test('business.experiments: id の重複・仮説なし・日付の誤りを止�
   assertFails(E, ledger([exp({ next_check_date: '2026-02-30' })]), /next_check_date/);
   assertFails(E, ledger([exp({ started_at: '2026-10-01T09:00:00+09:00' })]), /started_at/);
   assertOk(E, ledger([exp({ started_at: '2026-04-25', closed_at: null })]), '日付だけの古い行も通す');
-  const seo = { id: 'SEO-scraper', kind: 'seo-rank-watch', watchId: 'scraper-definition', title: 't', status: 'proposed', created_at: '2026-10-01T05:50:34.963Z', actions: [], history: [{ date: '2026-10-01', event: 'record', actionIndex: 0 }], next_check_date: null };
-  assertOk(E, ledger([seo]));
-  const { watchId: _w, ...noWatch } = seo;
-  assertFails(E, ledger([noWatch]), /watchId/);
-  const { actions: _a, ...noActions } = seo;
-  assertFails(E, ledger([noActions]), /actions/);
+  // 検索の改善は search-strategy だけ（2026-10-13 に SEO Rank Watch を統合して退役）。ほかの種類は書けない
+  assertFails(E, ledger([exp({ kind: 'seo-rank-watch' })]), /kind/);
 });
 
 test('business.experiments: measure 仕様は任意で、付けたら型を持つ。running でも付けなくてよい', () => {

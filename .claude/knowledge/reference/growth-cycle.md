@@ -16,8 +16,8 @@ title: 成長サイクル（GA4 起点の計測→記録→改善）
 | 意味の判断 | CI `gsc-auto-review.yml`（金 12:00）の `metrics-analyzer` | ダイジェストの `OPP-…` を引用して「なぜ・何を確かめるか」を足す（再抽出しない） |
 | 評価 | 同 publish 内の `search-improvement sync --write`（検索改善の本番反映の検出）→ `measure-experiments`（reset 後の develop 最新に対して） | `measure`仕様は前後の窓を自動計測し、事後窓完了で`VERDICT_DUE`。`measurementPlan.kind=affiliate-design`は保存済み案別実測を`measurements[]`へ追記し、28日で再検討する。少数データは保留 |
 | 異常 | `fetch-metrics.yml` の Report step | 取得失敗・整合性違反は Issue `fetch-metrics`、検査不成立（キー未設定・権限不足）は `fetch-metrics-check-invalid`。復旧で自動クローズ |
-| 処分 | ローカル土曜の `/weekly-review`（Agent G・Phase 2.5） | `growth-digest --print` をレビューへ埋め込み、`growth-triage apply` で全件を backlog / 実験 / watchword / 裁定 / 束ね / 却下 / 保留に振り分け → `metrics/growth/triage-log.json` |
-| 実行 | 既存の実行経路 | SEO＝日次 `seo-rank-watch`（watchword を 1 件ずつ自動改善・効果判定）／収益導線・計測修理＝`/backlog-sweep`／実験＝`/nsm-experiment start` → 翌週 CI が自動計測 |
+| 処分 | ローカル土曜の `/weekly-review`（Agent G・Phase 2.5） | `growth-digest --print` をレビューへ埋め込み、`growth-triage apply` で全件を backlog / 実験 / 裁定 / 束ね / 却下 / 保留に振り分け → `metrics/growth/triage-log.json` |
+| 実行 | 既存の実行経路 | SEO＝週次レビューの検索キーワード戦略サイクル（`search-improvement`。直す→記録→CI が 28 日計測→判定。11〜30 位の帯はここだけが持つ）／収益導線・計測修理＝`/backlog-sweep`／実験＝`/nsm-experiment start` → 翌週 CI が自動計測 |
 | 反映ゲート | 月曜 `weekly-review-guard.yml` の `check-growth-triage` | 未処分 0・レビューにマーカー（申し送りの振り分けは pre-commit の `check-handoff-extraction` が別に検査）。違反は Issue `growth-triage`、検査不成立は `growth-triage-check-invalid`（復旧で自動クローズ） |
 
 週の対応: **土曜 W のレビューは digest W−1**（`reviewPeriod('weekly')`＝事業レビューと同じ窓）。GSC の日付は太平洋時間、レビューは JST。
@@ -28,7 +28,7 @@ title: 成長サイクル（GA4 起点の計測→記録→改善）
 |---|---|---|---|
 | 計測 | `measurement-section-failed` / `-truncated` / `-thresholded` / `-input-missing` / `-event-vanished` / `-bing-mismatch` | — | 全件 |
 | 実験 | `experiment-due`（experiment-due の MEASURE/CLOSE/DECIDE/PENDING/NO_BASELINE） | — | 全件 |
-| SEO | `seo-high-impr-low-ctr` / `seo-striking-distance` / `seo-cannibalization` / `seo-traffic-drop` / `seo-decay` | 検索クリック/週 | 5（1 ページ 1 件） |
+| SEO | `seo-high-impr-low-ctr` / `seo-cannibalization` / `seo-traffic-drop` / `seo-decay` | 検索クリック/週 | 5（1 ページ 1 件） |
 | 収益導線 | `revenue-page-cta-rate` / `revenue-placement-ctr` / `revenue-no-cta` / `revenue-quiz-funnel-drop` | CTA クリック/週・演習完了/週 | 3 |
 
 - 閾値は `growth-cycle.json` の `digest`。期待効果は単位が違うので**カテゴリ内でだけ**並べる
@@ -36,7 +36,7 @@ title: 成長サイクル（GA4 起点の計測→記録→改善）
 - 旧 `/docs/` URL は `_redirects` で正規 URL へ寄せて合算する（移行を「急落」「共食い」と誤検出しない）
 - 欠測は 0 にしない。入力の欠落・打ち切り・thresholding は計測の機会として必ず表に出す
 - 「未登録なのに需要あり」は `report-search-growth` / `index-coverage` の担当なので作らない。前年同週は GA4 履歴が 2027 年まで無いので使わない
-- SEO の watchword 下書きは、受験意図（`inferIntent`）が exam-task / exam-topic で原稿が特定できるものだけに付く（Rank Watch の方針と同じ）
+- SEO の低 CTR・共食い・急落・劣化は `experiment` / `backlog` で処分する。11〜30 位の帯は検索キーワード戦略（`report-search-opportunities`）だけが持ち、ダイジェストには出さない（2026-10-13 に SEO Rank Watch を統合し `watchword` と `seo-striking-distance` を廃止）
 
 ## 処分の規則
 

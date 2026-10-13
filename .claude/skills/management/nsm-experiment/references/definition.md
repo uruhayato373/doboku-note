@@ -8,4 +8,4 @@ NSM（頂点の指標）は手数料等控除後の月の受取額 `netReceipts`
 
 目標と基準値は `data/business/records/` のtarget/snapshot履歴で管理する。対象・期間・根拠・見直し日を必要とし、未計測や過去の仮目標で埋めない。
 
-実験の状態は `data/business/experiments.json`、週次・月次の判断は事業レビュー履歴。手順は `.claude/knowledge/reference/business-review.md`。SEO Rank Watchは `.claude/knowledge/reference/seo-rank-watch.md` の本番反映後7日・延長・1位判定を優先する。
+実験の状態は `data/business/experiments.json`、週次・月次の判断は事業レビュー履歴。手順は `.claude/knowledge/reference/business-review.md`。検索順位の改善（kind `search-strategy`）は `npm run search-improvement` を優先する。

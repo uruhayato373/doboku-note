@@ -123,7 +123,6 @@ export const MOVED_PATHS = [
   [".claude/config/figure-sources.json", "config/figure-sources.json"],
   [".claude/config/ig-competitors.json", "config/ig-competitors.json"],
   [".claude/config/product-lineup.json", "config/product-lineup.json"],
-  [".claude/config/seo-watchwords.json", "config/seo-watchwords.json"],
   [".claude/state/x-repost/config.json", "config/x-repost.json"],
   [".claude/config/affiliate-asp.json", "config/affiliate-asp.json"],
   [".claude/config/asset-storage.json", "config/asset-storage.json"],

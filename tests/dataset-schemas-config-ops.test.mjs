@@ -77,16 +77,6 @@ check('ConfigSearchStrategy', 'config.search-strategy', [
   [(d) => { d.clusters[0].pagePrefixes = ['exam/']; }, /pagePrefixes/],
 ]);
 
-check('ConfigSeoWatchwords', 'config.seo-watchwords', [
-  [(d) => { d.watchwords[0].mode = 'observe'; }, /watchwords\.0\.mode/],
-  [(d) => { d.watchwords[0].intent = 'other'; }, /watchwords\.0\.intent/],
-  [(d) => { d.watchwords[0].priority = 4; }, /watchwords\.0\.priority/],
-  [(d) => { d.watchwords[0].targetPath = '/exam/x/'; }, /targetPath/],
-  [(d) => { d.watchwords.push(d.watchwords[0]); }, /見張りの id「/],
-  [(d) => { d.strategy.reviewEveryDays = 3; }, /reviewEveryDays/],
-  [(d) => { d.siteUrl = 'https://doboku-note.com'; }, /siteUrl/],
-]);
-
 check('ConfigSeoMeta', 'config.seo-meta-config', [
   [(d) => { d.thresholds.description.min_length = 300; }, /min_length は max_length 以下/],
   [(d) => { d.thresholds.description.max_length = 250; }, /max_length は lint_max_length 以下/],
@@ -96,7 +86,7 @@ check('ConfigSeoMeta', 'config.seo-meta-config', [
 
 check('ConfigGrowthCycle', 'config.growth-cycle', [
   [(d) => { d.digest.seo.lowCtrRatio = 3; }, /digest\.seo\.lowCtrRatio/],
-  [(d) => { d.digest.seo.strikingPositionMin = 99; }, /strikingPositionMin は strikingPositionMax 以下/],
+  [(d) => { d.digest.seo.strikingPositionMin = 8; }, /strikingPositionMin/], // 取りこぼしの帯は search-strategy だけが持つ
   [(d) => { d.digest.revenue.ctaClickEvents = []; }, /ctaClickEvents/],
   [(d) => { d.gscCountry = 'japan'; }, /gscCountry/],
 ]);
