@@ -376,6 +376,29 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0724] コンクリートの実務シリーズ（concrete-practice）の残り 3 章と、カリキュラム・逆向きリンク・画像の切り出しを進める
+タグ: [領域:サイト] [時期:2026-10] [種類:制作] [起票:2026-10-13]
+
+**起点**: 2026-10-13、シリーズ concrete-practice（台帳 config/content-series.json は PR #1050）の新規 10 章のうち 7 章を書いた（工事の段取り・生コンの注文・できた構造物の検査・なぜ固まるか・特殊なコンクリート・基準の移り変わり・省力化と新技術）。トークンの上限のため残りを分けた。
+**やること**:
+0. 先に流れをスキルにして節約する（2026-10-13 運営者と合意）: (a) book-coverage-expand に「シリーズの章を書く」形を足し、.tmp/book-coverage/series/ の BRIEF・WRITER・QA の指示書をリポジトリへ移す。(b) シリーズで確かめた一次資料（JIS A 5308:2024・土木工事共通仕様書 令和8年3月の条と頁・国交省の通知と要領の URL・中国地整の手引き）を 1 ファイルにまとめ、執筆担当はそこから引く。(c) 本の項目が少ない章と、まとめの章は brief を親が書く。(d) QA は本を全部読み直さず、見出しの比較で似ていそうな節だけ本と照らす。(e) 担当の返答を決まった数行にする。目安は 1 章 80〜110 万 → 50〜60 万トークン。brief の担当をエージェント定義にするか（本は読める・書けるのは brief だけ）もここで決める
+1. 残り 3 章: C-32 品質と担い手（concrete-quality-and-workforce・著者の意見は論点だけ）、C-09 耐久性の決め方（concrete-durability-specification・割り当て項目 0 なので brief は親が既存記事と示方書から書く）、C-00 全体像のハブ（concrete-roles-overview・ほかの章ができてから。brief は親が書く）。手順と指示書は .tmp/book-coverage/series/（BRIEF・WRITER・QA-INSTRUCTIONS.md、章ごとの packet.md）。1 章あたり約 80〜110 万トークン（brief 16〜30 万・執筆 37〜47 万・QA 18〜29 万）
+2. 書いた章の逆向きリンクとカリキュラムへの登録（各執筆担当の返答にある「逆向きリンク」「カリキュラムの区分案」。src/config/category-curriculum.json の civil-practice の concrete ブロックを読む順に並べ替える）
+3. 画像: 各 brief の「図・写真の候補」（頁 id）を台帳の visuals に入れ、check-content-series --crop-jobs で切り出し → 写真は切り出した写真を元に AI で描き直す（その前に image-policy を改める・docs/strategy/18 の「図と写真」）
+**完了条件**: 3 章がコミット済み、新規の章がカリキュラムに登録され、逆向きリンクが張られている。
+
+
+### [DN-0723] コンクリートの既存記事と計算ツールの数値を一次資料にそろえる（水和に必要な水・水セメント比・暑中の上限）
+タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-13]
+
+**起点**: 2026-10-13、コンクリートの実務シリーズの執筆中に、既存の記事・ツールの数値が一次資料と食い違うのを見つけた（受入れ検査の記事の水セメント比は同日直した）。
+- 水和に必要な水: civil-practice/concrete-finishing-curing の「セメント質量のおよそ25〜30%」、civil-practice/reference-values の「25〜30%」、src/app/tools/water-content/WaterContentClient.tsx の 0.25〜0.30。日本コンクリート工学会の論文値は結合水 約23%・ゲル水 約21%・合計 約44%（https://data.jci-net.or.jp/data_pdf/26/026-01-1211.pdf）。新記事 civil-practice/concrete-hydration-basics はこちらで書いた。concrete-chief-engineer/textbook-materials は 25%＋15% と 23%＋21% を併記している
+- 水セメント比: reference-values の「目安 65%以下」と WaterContentClient の WC_GUIDE_MAX = 65。土木工事共通仕様書（令和8年3月）1-3-3-3・国官技第61号は一般の環境で鉄筋 55%・無筋 60% 以下
+- 暑中の上限: civil-practice/concrete-placement-timing は「35℃以下」だけ。共通仕様書 1-3-9-2 は品質を確保できる場合 38℃、それ以外 35℃
+**やること**: 一次資料で確かめて記事を直す（develop）。ツールの定数はコードなので PR。
+**完了条件**: 上の 4 か所が一次資料と一致し、記事の出典に版を書く。
+
+
 ### [DN-0722] 2級模試の原稿（C9 解答解説）の解答欄の字数・行数の案内を Drive の原本と配布 PDF に反映する
 タグ: [領域:商品] [時期:2026-10] [種類:不具合] [起票:2026-10-13]
 
