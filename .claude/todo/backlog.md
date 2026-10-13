@@ -300,6 +300,8 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 **進捗（2026-10-04）**: 受付停止に決定（2級を主力へ切り替え）。カタログは 1級 7 件すべて `paused`（`absence`・`resumeOn: 2027-07-01`）へ変更した（PR #858 に同梱）。ライブの休止は Playwright のココナラ保存セッションが切れていて未実行（9/23 保存・ログイン待ちでタイムアウト）。運営者がログインしてから `node scripts/coconala-pause.mjs --service coconala-tensaku-4theme --commit` と `--service coconala-sakusei-4theme --commit` を実行する。経験記述ブログ 12 本（`content/coconala/blog/`）も送客先を 2級の全3テーマ版へ替えた（ソースのみ）。同じログインのあとで `coconala-blog-publish --update --commit` を各記事に実行してライブへ反映する。1級の note 記事 214 本にある 1級サービス（4418735・4350199）へのリンクは、休止ページへ届くだけなので来季の文面と合わせて差し替える。
 
 **期日の変更（週次レビュー 2026-10-10）**: Mac でのログイン作業（DN-0643）と同じ日にまとめるため 2026-10-14 へ。
+**進捗（2026-10-14）**: coconala-pause の試行（変更なし）で状態を確かめた。休止済み: coconala-tensaku-set（4317375）・coconala-sakusei（4317796）。**公開中のまま**: coconala-sakusei-4theme（4350199）＝`node scripts/coconala-pause.mjs --service coconala-sakusei-4theme --commit` で休止できる。未確認: coconala-tensaku-4theme（4418735・1級2級共通に作り替え済み）と coconala-1kyu-premium（4341335）は、Mac の空きメモリ不足（1,088MB < 1,200MB）でブラウザの起動が見送られ確かめられなかった。他のアプリを閉じてから試行し直す。ブログ 12 本のライブ反映（coconala-blog-publish --update）は未着手。
+
 
 ### [DN-0312] ココナラ room 18351970（1級）の残り2テーマ（環境対策・施工計画）を DM で添削する
 タグ: [収益化] [領域:商品] [時期:2026-09..2026-10] [種類:改善] [起票:2026-09-25] [期日:2026-10-14]
