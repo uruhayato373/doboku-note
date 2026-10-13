@@ -137,7 +137,7 @@ function QueriesCell({ queries }: { queries: Query[] }) {
 
 function candidateRows(pool: (Candidate & { cluster: string })[]): DataTableRow[] {
   return pool.map((p) => {
-    const marks = candidateMarks(p) as { key: string; label: string }[];
+    const marks = candidateMarks(p) as { key: string; label: string; hint: string }[];
     return {
       id: `${p.cluster}:${p.page}`,
       values: { page: p.page, cluster: p.cluster, impressions: p.impressions, best: p.bestPosition, queries: p.queries.map((q) => q.query).join(' '), status: marks.map((m) => m.label).join(' ') },
@@ -148,7 +148,7 @@ function candidateRows(pool: (Candidate & { cluster: string })[]): DataTableRow[
         status: (
           <div className="flex flex-wrap gap-1">
             {marks.map((m) => (
-              <StatusBadge key={m.label} tone={MARK_TONE[m.key]}>
+              <StatusBadge key={m.label} tone={MARK_TONE[m.key]} title={m.hint}>
                 {m.label}
               </StatusBadge>
             ))}

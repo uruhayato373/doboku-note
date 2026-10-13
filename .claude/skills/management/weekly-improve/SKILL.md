@@ -82,7 +82,7 @@ Traffic-Drop, Hidden-Winner, Orphan-Query, SNS-Source-Shift〔SNS 流入の急�
 
 ### Phase 3: pending 実験の再計測
 
-まず `npm run seo-rank-watch -- report --json` でrank-watchの期限を確認し、対象は専用reviewへ渡す。`kind: seo-rank-watch` を以下の10日/28日手動手順では変更しない。
+まず `npm run seo-rank-watch -- report --json` でrank-watchの期限を確認し、対象は専用reviewへ渡す。`kind: seo-rank-watch` を以下の10日/28日手動手順では変更しない。`kind: search-strategy` も同じく変更せず、`npm run search-improvement`（sync・close）に従う。
 
 `data/business/experiments.json` を読み、status が `running` かつ `started_at + 10 日経過`の実験を列挙。該当があればユーザーに提示:
 

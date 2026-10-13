@@ -102,7 +102,17 @@ export function summarizeCluster(cluster, rows, striking, { watchedPaths = new S
   };
 }
 
-/** 候補の印（唯一の判定。CLI・管理画面・週次の下書きが使う）。key は表示の色分けに使う。 */
+/** 印の意味（管理画面のツールチップ・CLI の凡例）。印を足したらここにも足す */
+export const MARK_HINTS = {
+  experiment: '改善の実験の段階（起票済→本番反映待ち→計測中→判定待ち）と、直すカード',
+  watched: 'SEO Rank Watch で 1 キーワードを観察中。ここからは起票しない',
+  legacy: '旧 URL（/docs/）。本文は直さず、新 URL への転送と内部リンクを確かめる',
+  'off-target': 'クラスターの受け皿（設定の pagePrefixes）の外のページ。狙いのページへ内部リンクを足すか、受け皿に加えるかを月次で決める',
+  last: '前回の実験の判定。同じ直し方を繰り返さない',
+  unfiled: '起票してよい候補（週次レビューが search-improvement add で起票する）',
+};
+
+/** 候補の印（唯一の判定。CLI・管理画面・週次の下書きが使う）。key は表示の色分け、hint は意味。 */
 export function candidateMarks(p) {
   const out = [];
   if (p.experiment) out.push({ key: 'experiment', label: `${PHASES[p.experiment.phase]} ${p.experiment.id}・${p.experiment.card}` });
@@ -111,7 +121,7 @@ export function candidateMarks(p) {
   if (!p.inTarget) out.push({ key: 'off-target', label: '受け皿外' });
   if (p.lastResult) out.push({ key: 'last', label: `前回 ${RESULTS[p.lastResult.result] ?? p.lastResult.result} ${p.lastResult.id}` });
   if (p.fileable) out.push({ key: 'unfiled', label: '未起票' });
-  return out;
+  return out.map((m) => ({ ...m, hint: MARK_HINTS[m.key] }));
 }
 
 /**

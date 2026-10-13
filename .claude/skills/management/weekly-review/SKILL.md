@@ -97,6 +97,7 @@ domain: strategy
 - **検索キーワード戦略（改善の起票・本番反映・判定）**: 起票から判定までを実験台帳（`experiments.json` の kind `search-strategy`）とカードの ID で回す（`docs/strategy/16_検索キーワード戦略.md`「改善サイクル」）。
   1. `npm run search-improvement -- sync --commit`（カード完了の commit を含む本番デプロイの日から計測を始める。CI も毎週回すので差分が無ければ何もしない）
   2. `npm run report-search-opportunities -- --json` の `fileable[]`（観察中・旧URL・計測中の実験が無い候補。`lastResult` は前回の判定）を表示の多い順に、`config.cycle.filePerWeek` 件まで `npm run search-improvement -- add --page <path> --todo "直す箇所（title/description/冒頭の答え/見出し/内部リンク）" --commit` で起票する（カードと EXP を 1 commit。週の上限は CLI が止める）。前回が効果なしのページは同じ直し方を繰り返さず、検索意図とのずれを `--todo` に書く。新規ページは作らない。1 キーワードの 7 日観察が要るものは下の SEO Rank Watch へ登録する
+  `--commit` は origin/develop へ直接積むので、続く手順が最新の backlog・台帳を読むよう、そのたびに `git pull --ff-only` で取り込む。
   3. 下の実験サイクルの期限で `VERDICT_DUE` になった kind `search-strategy` は、`review` のとおり `npm run search-improvement -- close --id EXP-### --result <success|partial|no-effect|negative> --learning "…" --commit` で判定する
 - **SEO Rank Watch**: `npm run seo-rank-watch -- report --json` で資格別候補・実行/待機理由・観察期限・達成後監視・鮮度・同時実行上限・方針レビュー期限を確認する。一般用語の順位だけを週の成果にしない。観察/方針の期限到来は `/weekly-improve --rank-watch --no-fetch` へ渡す。汎用NSMの10日/28日基準でrank-watchを変更しない。確認後は専用 `log-run` で判断を記録する。
 - **実験サイクルの期限**: `npm run check-experiment-due -- --json`（オフライン・`experiments.json` 参照）。
@@ -167,7 +168,7 @@ B. 実験進捗レポート:
   - running: 経過日数、baseline との gap（metrics-reader で再取得）
   - measuring: baseline vs current の前後比較
   - 今週 close したもの: result + learnings
-- `kind: seo-rank-watch` は上記の汎用metrics-reader比較から除外し、専用 `npm run seo-rank-watch -- report --json` / review で固定条件の非重複7日を扱う。
+- `kind: seo-rank-watch` は上記の汎用metrics-reader比較から除外し、専用 `npm run seo-rank-watch -- report --json` / review で固定条件の非重複7日を扱う。`kind: search-strategy` も除外し、`npm run search-improvement -- status` と `check-experiment-due` の `review`（`search-improvement close`）に従う。
 - その他の各 running 実験について baseline の metric が現状でどう動いたかを数値表示
 - 出力を「## 実験の進捗」セクションとして埋め込む
 
@@ -529,7 +530,7 @@ npm run review-checks -- --cadence weekly --run YYYY-Www --write
    | `backlog` | 単発の実装（CTA 配置・文言、title/description、計測の修理、導線ゼロの解消） | title / tier（high・mid・low・hold）/ category / domain（領域ラベル）/ kind / doing / done（high・mid は period＝YYYY-MM[..YYYY-MM]、任意 verify） | `.claude/todo/backlog.md` の DN → `/backlog-sweep` |
    | `experiment` | 効果を前後で測るべき変更（配置・文言の試行など） | title / hypothesis / targetMetric / targetDelta（任意 measure） | `experiments.json`（proposed）→ `/nsm-experiment start`。measure を付ければ CI が自動計測 |
    | `watchword` | 受験意図の SEO 機会（watchword 下書きがあるものだけ） | watch（id / priority / audience / need / rationale / nextStep ほか） | `seo-watchwords.json`（improve）→ 日次 `seo-rank-watch` が自動改善・効果判定 |
-   | `verdict` | 期限の来た実験（VERDICT_DUE 等） | result（success・partial・no-effect・negative）/ learnings | 実験を close |
+   | `verdict` | 期限の来た実験（VERDICT_DUE 等。kind `search-strategy` は `verdict` で閉じず `search-improvement close`） | result（success・partial・no-effect・negative）/ learnings | 実験を close |
    | `bundle` | 既存カード・実験や同じバッチの起票で足りる | into（DN / EXP / OPP） | 起票しない |
    | `reject` | 対応しない | reason（10 字以上） | 12 週は再表示しない |
    | `defer` | 今は判断できない | until / reason | until まで再表示しない |

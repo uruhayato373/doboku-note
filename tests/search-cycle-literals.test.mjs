@@ -30,6 +30,8 @@ const SEARCH_FILES = [
   'scripts/check-search-improvements.mjs',
   'scripts/build-weekly-review-draft.mjs',
   'tools/admin-app/src/app/metrics/search-strategy/page.tsx',
+  'tools/admin-app/src/lib/kpi-tree.ts',
+  'tools/admin-app/src/app/page.tsx',
 ];
 
 test('順位の帯・計測の型・週の起票数を、検索改善のコードに数字で書き写さない', () => {

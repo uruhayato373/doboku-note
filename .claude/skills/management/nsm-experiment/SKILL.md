@@ -74,7 +74,7 @@ EXP-005: pending_user_actions が 4 日以上未消化）。改善を打って�
 |---|---|---|
 | MEASURE_DUE | running かつ next_check_date 超過（未設定なら開始から 28 日） | `/nsm-experiment measure <id>` |
 | CLOSE_DUE | measuring のまま 14 日 | `/nsm-experiment close <id>` |
-| DECIDE_DUE | proposed のまま 14 日 | start か abandon を決める |
+| DECIDE_DUE | proposed のまま 14 日（kind `search-strategy` は出さない。カードの時期と本番反映で進む） | start か abandon を決める |
 | PENDING | pending_user_actions が残っている | 記載のアクションを実行 |
 | NO_BASELINE | running なのに baseline が無い | 前後比較が不可能＝baseline を先に確定 |
 
@@ -213,6 +213,7 @@ propose / start のときに、前後比較できる実験には `measure` を�
   "direction": "increase", "minEffect": 0.1, "minVolume": 20 }
 ```
 
+- `gsc.*` は `scope.queries`（検索語の配列）を足すと、`pages` / `pagePrefix` のページ × その検索語だけで測る（検索キーワード戦略の改善）
 - metric: `gsc.clicks` / `gsc.impressions` / `gsc.position` / `ga4.sessions`（scope.source=`google` で自然検索 google のみ）/ `ga4.event:<イベント名>` / `sales.revenue` / `sales.count`（scope.productPrefix か productIds）
 - 新商品の売上など前後比が意味を持たない実験は `target`（事後窓の絶対目標）を付ける → 目安は `target-met` / `target-missed`
 - 目安（`verdictHint`）は improved / no-effect / worse / insufficient-data / in-progress。**裁定ではない**（季節性・同時施策は人が見る）
