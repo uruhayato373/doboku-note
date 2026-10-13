@@ -45,7 +45,7 @@ Instagram のリーチは日次合計＝延べ（同一ユーザーの重複を�
 2. 対象期間の `snapshot` を保存する。集計値・元ファイルのhash・その時点の方針が凍結される。売上の個人情報は複製しない。同じ期間の直前のスナップショットと方針・集計・確定待ちが同じなら新しい記録は作らず、直前のファイルを返す（出力に `unchanged: true`。レビューはそのファイルを参照してよい）。
 3. 重点資格ごとに実測と未確認を分け、商品説明・記事・導線の現物を照合する。
 4. `review` を記録する。`qualification: all`, `cadence: weekly/monthly`, `period`, `snapshot`, `qualificationsReviewed`（重点資格ID全て）, `status: complete/provisional`, `findings`, `decision`, `nextAction`, `experimentIds`, `nextReviewDate` が必要。資格別の実測がない場合はprovisional。completeはレビュー作業の完了であり、改善効果・全指標の計測完了を意味しない。
-5. 次の改善は `/nsm-experiment propose` へ渡す。対象資格、読者の課題、現物で確認した不足、変更案、評価指標、基準期間、再計測日とレビュー記録の参照を付ける。SEOは `/weekly-improve --rank-watch` の専用契約を使う。単発実装はbacklogへ起票し、定常運用はweeklyから直接扱う。
+5. 次の改善は `/nsm-experiment propose` へ渡す。対象資格、読者の課題、現物で確認した不足、変更案、評価指標、基準期間、再計測日とレビュー記録の参照を付ける。SEO は検索キーワード戦略（`npm run search-improvement`）の専用契約を使う。単発実装はbacklogへ起票し、定常運用はweeklyから直接扱う。
 6. 再計測後に実験を評価し、学びを次のレビューへ返す。判定に必要なデータが足りなければ保留理由と次回日を記す。同じ周期・期間の二重レビューは拒否し、訂正は追記する。
 
 目標は `target` 記録。対象指標・資格のcompleteな実測snapshot、目標値、方向（at-least/at-most）、適用日、見直し日、設定理由を持つ。適用期間の開始日以前の目標を表示する。後から設定した目標で過去の達成を装わない。
@@ -54,4 +54,4 @@ Instagram のリーチは日次合計＝延べ（同一ユーザーの重複を�
 
 管理画面の保存は127.0.0.1/localhostの同一OriginからのJSONのみ。既存台帳の任意編集・外部投稿・本番デプロイは行わない。保存はローカル追記で、スキルの終了時に対象JSONを明示してGitへコミットする。複数書込みはロックで排他する。
 
-`check-business-direction` は設定、履歴、実行可能な集計、既存履歴の改変を検査する。CIのquality gateとpre-commitから実行。データ0件はそのまま0件と表示し、計測できたこととは呼ばない。定期実行は既存SEO Rank Watch/週次PDCAが同じ期間キー・期日を読み、不要な二重実行を避ける。記録がなく期限を過ぎたレビューは管理画面に残る。
+`check-business-direction` は設定、履歴、実行可能な集計、既存履歴の改変を検査する。CIのquality gateとpre-commitから実行。データ0件はそのまま0件と表示し、計測できたこととは呼ばない。定期実行は既存の週次PDCA（search-improvement を含む）が同じ期間キー・期日を読み、不要な二重実行を避ける。記録がなく期限を過ぎたレビューは管理画面に残る。

@@ -19,7 +19,7 @@ export const dynamic = 'force-dynamic';
  * 組み立て・帯の境目と表示名・印は scripts/lib/search-opportunities.mjs と search-improvement.mjs（CLI と同じ）。ここは並べるだけ。
  */
 type Query = { query: string; position: number; impressions: number };
-type Candidate = { page: string; impressions: number; bestPosition: number; queries: Query[]; watched: boolean; legacyUrl: boolean; inTarget: boolean; fileable: boolean; experiment: { id: string; phase: string; card: string } | null; lastResult: { id: string; result: string } | null };
+type Candidate = { page: string; impressions: number; bestPosition: number; queries: Query[]; legacyUrl: boolean; inTarget: boolean; fileable: boolean; experiment: { id: string; phase: string; card: string } | null; lastResult: { id: string; result: string } | null };
 type Prev = { impressions: number; clicks: number; top10: number; striking: number; avgPosition: number | null } | null;
 type Cluster = { id: string; label: string; queries: number; impressions: number; clicks: number; top10: number; striking: number; avgPosition: number | null; candidates: Candidate[]; candidateTotal: number; previous: Prev };
 type Bands = { top: string; striking: string };
@@ -30,7 +30,7 @@ type Result = { period: { startDate: string; endDate: string } | null; previous:
 const BASE = '/metrics/search-strategy';
 const QUERY_SHOWN = 3;
 /** 印（candidateMarks の key）と段階（phaseOf）の色。意味は lib が決め、ここは見た目だけ */
-const MARK_TONE: Record<string, Tone> = { experiment: 'info', watched: 'good', 'legacy-action': 'warn', 'legacy-wait': 'neutral', 'off-target': 'warn', routed: 'info', 'routed-action': 'warn', last: 'neutral', todo: 'neutral' };
+const MARK_TONE: Record<string, Tone> = { experiment: 'info', 'legacy-action': 'warn', 'legacy-wait': 'neutral', 'off-target': 'warn', routed: 'info', 'routed-action': 'warn', last: 'neutral', todo: 'neutral' };
 const PHASE_TONE: Record<string, Tone> = { filed: 'info', implemented: 'warn', measuring: 'info', 'verdict-due': 'warn', closed: 'good', abandoned: 'neutral' };
 const md = (d: string) => d.slice(5).replace('-', '/');
 const num = (n: number) => n.toLocaleString();

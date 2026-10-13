@@ -118,7 +118,6 @@ const CHECKS = [
   { id: 'generated-indexes', npm: 'check-generated-indexes', timeout: 180_000, ci: true, note: 'refresh-indexes の生成物（src/config の索引・人気記事・frequent-topics・演習データ public/quiz）がコミットと一致。MDX 追加時の回し忘れを止める（2026-10-02: 演習データだけ refresh-indexes に無く、解説 2 問が古いまま配信されていた）' },
   { id: 'memory', npm: 'check-memory', timeout: 30_000, ci: true, note: 'エージェントの記憶（.claude/memory）の frontmatter・名前重複・索引の網羅と読み込み上限（200 行 / 25KB）' },
   { id: 'business-direction', npm: 'check-business-direction', timeout: 30_000, ci: true, note: '資格別事業方針・計測とレビュー履歴の整合' },
-  { id: 'seo-rank-watch', npm: 'check-seo-rank-watch', timeout: 30_000, ci: true, note: '順位監視・観察状態・履歴の整合' },
   // ── ci:true 厳格ゲート ──
   { id: 'type-check', npm: 'type-check', timeout: 240_000, ci: true },
   // 管理画面（tools/admin-app）は別 tsconfig で、ルートの type-check が見ない。content-items.ts の 2 件が誰にも検査されないまま落ちていた（DN-0660）。結果は PR の diff だけで決まる

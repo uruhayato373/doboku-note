@@ -3,7 +3,7 @@
  * check-growth-triage.mjs — 週次レビューが計測を「確実に」反映したかの機械ゲート（月曜の weekly-review-guard が実行）。
  *
  * 検査（最新の機会ダイジェストと最新の週次レビューに対して）:
- *   1. ダイジェストの表示対象がすべて triage-log で処分されている（backlog / 実験 / watchword / 裁定 / 束ね / 却下 / 保留）
+ *   1. ダイジェストの表示対象がすべて triage-log で処分されている（backlog / 実験 / 裁定 / 束ね / 却下 / 保留）
  *   2. 最新の週次レビュー本文にダイジェストのマーカー `<!-- growth-digest:YYYY-Www -->` がある（計測を埋め込んだ証跡）
  *
  * 「## 来週への申し送り」の振り分け先（DN / 定常 / #Issue / EXP）は scripts/check-handoff-extraction.mjs が

@@ -4,7 +4,6 @@
 // 処分（action）:
 //   backlog    … DN カードを起票（単発実装。CTA 配置・文言、title/description、計測の修理など）
 //   experiment … 実験を proposed で起票（measure 仕様を付ければ CI が自動計測）
-//   watchword  … seo-watchwords に improve で登録（日次 seo-rank-watch が 1 件ずつ自動改善・効果判定）
 //   verdict    … 期限の来た実験を裁定して close（result / learnings）
 //   bundle     … 既存の DN / EXP / 同じバッチの OPP にまとめる
 //   reject     … 却下（理由必須。suppressWeeks.reject 週は再表示しない）
@@ -13,7 +12,8 @@
 import { CANONICAL_CATEGORIES, KINDS, parseWhen } from './backlog-lib.mjs';
 import { datasetPath } from './datasets.mjs';
 
-export const ACTIONS = ['backlog', 'experiment', 'watchword', 'verdict', 'bundle', 'reject', 'defer'];
+// 11〜30 位の取りこぼしは検索キーワード戦略のサイクル（search-improvement）が受け持つ。ここに検索語の監視の処分は無い（2026-10-13 に SEO Rank Watch を統合して退役）
+export const ACTIONS = ['backlog', 'experiment', 'verdict', 'bundle', 'reject', 'defer'];
 export const TIER_HEADINGS = { high: '## 🔴', mid: '## 🟡', low: '## 🟢', hold: '## 🟣' };
 export const RESULTS = ['success', 'partial', 'no-effect', 'negative'];
 
@@ -28,7 +28,7 @@ export function validateDecisions(decisions, { items, backlogIds, experimentIds,
   const errors = [];
   const byId = new Map(items.map((i) => [i.id, i]));
   const seen = new Set();
-  const batchTargets = new Set(decisions.filter((d) => ['backlog', 'experiment', 'watchword'].includes(d.action) && d.id).map((d) => d.id));
+  const batchTargets = new Set(decisions.filter((d) => ['backlog', 'experiment'].includes(d.action) && d.id).map((d) => d.id));
   decisions.forEach((d, n) => {
     const at = `decisions[${n}]${d.id ? `(${d.id})` : ''}`;
     if (!ACTIONS.includes(d.action)) { errors.push(`${at}: action が不正（${ACTIONS.join(' / ')}）`); return; }
@@ -53,8 +53,6 @@ export function validateDecisions(decisions, { items, backlogIds, experimentIds,
     if (d.action === 'experiment') {
       for (const k of ['title', 'hypothesis', 'targetMetric', 'targetDelta']) if (!text(d[k], 5)) errors.push(`${at}: ${k}（5 字以上）が必要`);
     }
-    if (d.action === 'watchword' && !d.watch) errors.push(`${at}: watch（audience / need / rationale / nextStep / priority / id）が必要`);
-    if (d.action === 'watchword' && d.id && !byId.get(d.id)?.watchwordDraft) errors.push(`${at}: この機会には watchword 下書きが無い（受験意図・原稿を確認できない語は backlog にする）`);
     if (d.action === 'verdict') {
       if (byId.get(d.id)?.category !== 'experiment') errors.push(`${at}: verdict は実験の機会だけ`);
       if (!RESULTS.includes(d.result)) errors.push(`${at}: result は ${RESULTS.join(' / ')}`);
@@ -141,17 +139,6 @@ export function closeExperiment(exp, d, nowIso) {
   exp.learnings = d.learnings;
   exp.closed_at = nowIso;
   (exp.history ??= []).push({ date: nowIso, action: 'closed', summary: `週次トリアージで裁定（${d.result}）` });
-}
-
-/** digest の watchwordDraft と判断の watch を合わせて seo-watchwords の 1 行にする。 */
-export function buildWatch(item, watch) {
-  const draft = item?.watchwordDraft ?? {};
-  return {
-    country: 'jpn', device: null, enabled: true, mode: 'improve',
-    keyword: draft.keyword, targetPath: draft.targetPath, contentPath: draft.contentPath,
-    qualification: draft.qualification, intent: draft.intent, evidence: draft.evidence,
-    ...watch,
-  };
 }
 
 /** この週でまだ処分されていない表示対象。 */

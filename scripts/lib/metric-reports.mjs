@@ -8,7 +8,7 @@
  *
  * 読み手は種類の id（台帳の旧い id と同じ ga4.page・gsc.query など）で引く。参照は「ファイル#種類」。
  * 移す前の名前（data/metrics/ga4/ga4-page-<時刻>.json）で書かれた参照も readReportRef で読める
- * （business 台帳・seo-watchwords が名前で指している）。
+ * （business 台帳が名前で指している）。
  */
 import { existsSync, readFileSync } from 'node:fs';
 import { isAbsolute, join } from 'node:path';

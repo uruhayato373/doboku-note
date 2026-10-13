@@ -146,11 +146,10 @@ test('plan: 成長パックは最新＋減衰判定の過去 3 週、導線の�
   assert.equal(by('monetization').filter((e) => e.decision === 'delete').length, 2);
 });
 
-test('collectPins: seo-watchwords の gsc evidence と business 台帳が指すパスを拾い、移す前の名前は今の置き場へ読み替える', () => {
+test('collectPins: business 台帳が指すパスを拾い、移す前の名前は今の置き場へ読み替える', () => {
   const legacy = 'data/metrics/gsc/gsc-page-query-2026-09-10T22-51-42.json';
   const pins = collectPins({
-    watchwords: { watchwords: [{ evidence: { kind: 'gsc', source: legacy } }, { evidence: { kind: 'hypothesis', source: '仮説' } }] },
-    businessDocs: [`{"sources":[{"file":"${BUSINESS}"},{"file":"data/sales/sales-log.json"}]}`],
+    businessDocs: [`{"sources":[{"file":"${BUSINESS}"},{"file":"data/sales/sales-log.json"},{"file":"${legacy}"}]}`],
   });
   assert.deepEqual([...pins].sort(), [BUSINESS, 'data/gsc/reports/2026-09-11.json', 'data/note/sales.json'].sort(), '取得時刻の JST の日のファイル');
 });

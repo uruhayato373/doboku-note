@@ -17,7 +17,7 @@ title: 推奨ワークフロー
 1. 06:00 JST  fetch-metrics.yml（自動）<- GSC + GA4 取得・成長パック・Bing・検索改善の本番反映の検出・実験の自動計測・機会ダイジェスト
    12:00 JST  gsc-auto-review.yml（自動）<- ダイジェストの OPP に意味の判断を足す
 土曜:
-2. 09:00 JST  /weekly-review          <- 実績を振り返る（計測ダイジェストを埋め込み、全件トリアージで backlog/実験/watchword へ起票）
+2. 09:00 JST  /weekly-review          <- 実績を振り返る（計測ダイジェストを埋め込み、全件トリアージで backlog/実験へ起票）
 3. 09:00 JST  /plan-weekly            <- 来週の計画を .claude/todo/weekly.md に書く（[時期:] が今月を含むカードと申し送りの DN から選定）
 月曜:
 4. 11:17 JST  weekly-review-guard.yml（自動）<- 先週分の *-review.md 欠落を赤落ち・計測ダイジェストの未処分/未反映を Issue で検知

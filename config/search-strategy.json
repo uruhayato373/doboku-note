@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "_doc": "docs/strategy/16_検索キーワード戦略.md",
-  "_note": "検索キーワード戦略の機械正本。クラスター（狙う読者 × 検索語の型 × 受け皿のページ）ごとに、GSC の検索語×ページ集計から、striking の帯（minPosition〜maxPosition）で表示がある改善候補を出す（帯より上が上位の帯）。cycle は週次レビューが直して記録する改善の件数（improvePerWeek）・旧 URL と誘導の観察期限・直した改善を実験台帳（experiments.json の kind search-strategy）で前後比較する計測の型。実装は scripts/lib/search-opportunities.mjs と search-improvement.mjs、CLI は npm run report-search-opportunities と npm run search-improvement、管理画面は 検索 ＞ キーワード戦略。1 キーワードの実験と 7 日観察は既存の SEO Rank Watch（seo-watchwords.json）が持つ。",
+  "_note": "検索キーワード戦略の機械正本。クラスター（狙う読者 × 検索語の型 × 受け皿のページ）ごとに、GSC の検索語×ページ集計から、striking の帯（minPosition〜maxPosition）で表示がある改善候補を出す（帯より上が上位の帯）。cycle は週次レビューが直して記録する改善の件数（improvePerWeek）・旧 URL と誘導の観察期限・直した改善を実験台帳（experiments.json の kind search-strategy）で前後比較する計測の型。実装は scripts/lib/search-opportunities.mjs と search-improvement.mjs、CLI は npm run report-search-opportunities と npm run search-improvement、管理画面は 検索 ＞ キーワード戦略。検索の改善はこのサイクルだけで回す（2026-10-13 に SEO Rank Watch を統合して退役）。",
   "striking": {
     "minPosition": 10.5,
     "maxPosition": 30,

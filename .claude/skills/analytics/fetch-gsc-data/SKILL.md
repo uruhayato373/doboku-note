@@ -118,4 +118,4 @@ JSONファイルを Read ツールで読み込み、以下の観点で分析す�
 
 日付はGSCのPT（America/Los_Angeles）、両端包含。`--days 7` は7日、`--days 28` は28日。既定はPTの今日−3日までの `dataState: final`・web検索。任意期間は `--start-date YYYY-MM-DD --end-date YYYY-MM-DD` の組で指定する。
 
-`--query` / `--page` は従来どおり部分一致。`--exact` を併用すると両方を完全一致にする。`--country jpn` / `--device MOBILE` も指定可能。SEO Rank Watchはこの共有fetcherを使う（[運用手順](../../../knowledge/reference/seo-rank-watch.md)）。既存snapshotを書換えず、新規ファイルへ保存する。
+`--query` / `--page` は従来どおり部分一致。`--exact` を併用すると両方を完全一致にする。`--country jpn` / `--device MOBILE` も指定可能。既存snapshotを書換えず、新規ファイルへ保存する。

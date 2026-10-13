@@ -59,8 +59,8 @@ test('起票済み・判定済みの印は実験台帳（kind: search-strategy�
   assert.equal(kinki.fileable, true, '判定済みのページは次の起票の候補に戻る');
   assert.deepEqual(candidateMarks(okinawa).map((m) => m.key), ['experiment']);
   assert.deepEqual(candidateMarks(kinki).map((m) => [m.key, m.label]), [['last', '前回 効果なし EXP-020'], ['todo', '未着手']]);
-  const every = candidateMarks({ ...okinawa, watched: true, triage: { kind: 'off-target', status: 'action' }, lastResult: { id: 'EXP-1', result: 'success' }, fileable: true });
-  assert.deepEqual(every.map((m) => m.key), ['experiment', 'watched', 'off-target', 'last', 'todo']);
+  const every = candidateMarks({ ...okinawa, triage: { kind: 'off-target', status: 'action' }, lastResult: { id: 'EXP-1', result: 'success' }, fileable: true });
+  assert.deepEqual(every.map((m) => m.key), ['experiment', 'off-target', 'last', 'todo']);
   assert.ok(every.every((m) => m.hint), '印にはすべて意味（MARK_HINTS）がある');
 });
 

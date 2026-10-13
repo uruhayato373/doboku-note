@@ -152,8 +152,6 @@ jobs:
           GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
         run: node scripts/gsc-sitemaps.mjs --submit
 
-      # 登録クエリの計測・効果判定・改善は日次 seo-rank-watch.yml が担当する。
-
       # 収益カバレッジ ダッシュボード用: ページ別流入（report-monetization-coverage.mts が
       # 最新 ga4-page-*.json を読む）。
       - name: Fetch GA4 (page, for monetization coverage)

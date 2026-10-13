@@ -104,7 +104,7 @@ Phase 0 の snapshot 直後、`data/business/weekly/YYYY-Www.json` を読み、�
    - Phase 0 で `data/business/weekly/YYYY-Www.json` が生成済みならそれを使ってもよい
    - creds + 外部到達性がある環境に限り、任意で metrics-reader を直接呼んでもよい
 2. data/business/experiments.json を読んで以下を把握:
-   - `kind: seo-rank-watch` と `kind: search-strategy` は汎用10日/28日・metrics-reader比較と start 候補から除外（search-strategy は `npm run search-improvement -- status` に従う。proposed はカードの時期で進む）。seo-rank-watch は `npm run seo-rank-watch -- report --json` の状態・期限を転記し、`/weekly-improve --rank-watch --no-fetch` へ送る。観察中ページへ別実験を提案しない。
+   - `kind: search-strategy` は汎用10日/28日・metrics-reader比較と start 候補から除外（search-strategy は `npm run search-improvement -- status` に従う。proposed はカードの時期で進む）。計測中のページへ別実験を提案しない。
    - running 実験: 経過日数、baseline との gap
    - measuring 実験: 前後比較の中間サマリ
    - proposed 実験: 優先順位（次に start すべきもの）

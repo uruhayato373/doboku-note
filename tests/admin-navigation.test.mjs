@@ -121,7 +121,7 @@ test('既存の判断画面はすべてサイドバーのどこか 1 か所に�
   const reachable = [...hrefs, ...tabbed];
   for (const href of [
     '/strategy/policy', '/metrics/business', '/strategy/qualifications', '/content/ledger', '/content/lineup',
-    '/sales', '/product/status', '/affiliate', '/affiliate/placements', '/affiliate/programs', '/metrics/seo-watch', '/metrics/gsc', '/metrics/ga4',
+    '/sales', '/product/status', '/affiliate', '/affiliate/placements', '/affiliate/programs', '/metrics/gsc', '/metrics/ga4',
     '/metrics/psi', '/sns', '/metrics/video', '/gallery/characters', '/schedule', '/todo',
     '/plans', '/quality', '/knowledge', '/agents', '/skills', '/content/lifecycle', '/content', '/materials',
   ]) {
