@@ -36,10 +36,17 @@ import { readDocMetaIndex } from './lib/doc-meta-index.mjs';
 import { classifySitePath, loadSiteRoutes, siteLinkRegex } from './lib/site-links.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
 
-const STAGED = process.argv.includes('--staged');
-const MDX = process.argv.includes('--mdx');
-const NOTE = process.argv.includes('--note');
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
+
+const STAGED = __argv.includes('--staged');
+const MDX = __argv.includes('--mdx');
+const NOTE = __argv.includes('--note');
 // 索引が無ければ生成してから検証する（以前は無いと黙って検証をスキップしていた＝検査ゼロの緑）
 const valid = new Set(Object.keys(readDocMetaIndex().docs));
 
@@ -121,7 +128,7 @@ for (const f of files) {
 }
 if (!routes.loaded && modern.checked > 0) {
   console.error('[check-sns-urls] ✗ 検査不成立: public/_redirects を読めず新 URL の実在を判定できない');
-  process.exit(2);
+  __exit(2);
 }
 
 if (problems.length) {
@@ -129,6 +136,10 @@ if (problems.length) {
   for (const p of problems) console.error('  ' + p);
   console.error('\n対処: note・SNS のリンクは新 URL（https://doboku-note.com/exam/{資格}/{種別}/{slug}）で書く。');
   console.error('旧 /docs/ は「カテゴリ-ディレクトリ」のフラット slug（例: pe-construction-r07-required）。MDX 本文は /docs/{slug} のまま');
-  process.exit(1);
+  __exit(1);
 }
 console.log(`[check-sns-urls] ✓ ${files.length} ファイルの /docs/ リンクと新 URL ${modern.checked} 件は全て本番に実在（/standards・/topics の独自ページ ${modern.unverified} 件は未判定）`);
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

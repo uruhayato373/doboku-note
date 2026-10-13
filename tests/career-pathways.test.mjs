@@ -13,6 +13,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import test from 'node:test';
 import { loadTsModule } from './lib/load-ts.mjs';
+import { parseLegacyRedirects } from '../scripts/lib/legacy-routes.mjs';
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
 const read = (rel) => readFileSync(join(ROOT, rel), 'utf8');
@@ -20,16 +21,11 @@ const read = (rel) => readFileSync(join(ROOT, rel), 'utf8');
 function publicRouteIndex() {
   const bySlug = new Map();
   const byPath = new Map();
-  let managed = false;
-  for (const raw of read('public/_redirects').split('\n')) {
-    const line = raw.trim();
-    if (line === '# BEGIN GENERATED PUBLIC ROUTES') { managed = true; continue; }
-    if (line === '# END GENERATED PUBLIC ROUTES') break;
-    if (!managed || !line || line.startsWith('#')) continue;
-    const match = line.match(/^\/docs\/([^/*\s]+)\s+(\/\S+)\s+301$/);
-    if (!match) continue;
-    bySlug.set(match[1], match[2]);
-    byPath.set(match[2], match[1]);
+  // 静的 301 と、動的ルールがまとめる slug の表（# route）の両方から引く。
+  for (const [from, to] of parseLegacyRedirects(read('public/_redirects'))) {
+    const slug = from.slice('/docs/'.length);
+    bySlug.set(slug, to);
+    byPath.set(to, slug);
   }
   return { bySlug, byPath };
 }

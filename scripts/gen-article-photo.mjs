@@ -31,6 +31,7 @@ import { describeFigure, fileSha, syncImageDims } from './lib/figure-review.mjs'
 import { AI_LEDGER_FILE, emptyAiLedger, promptSha } from './lib/image-origin.mjs';
 import { generateWithCodex } from './lib/codex-image.mjs';
 import { readMdxFile, writeMdxFile } from '../.claude/scripts/lib/mdx-io.mjs';
+import { escapeRegExp } from './lib/regexp-escape.mjs';
 
 const ROOT = resolve(import.meta.dirname, '..');
 
@@ -65,7 +66,7 @@ export async function fitPhoto(input, { aspect, width }, maxBytes = Infinity) {
 /** 本文の src の拡張子を .webp に揃え、width/height を合わせる。変えた箇所の数 */
 function rewireMdx(mdxAbs, name, w, h) {
   const { raw, eol } = readMdxFile(mdxAbs);
-  const re = new RegExp(`(/${name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})\\.(?:png|jpe?g)\\b`, 'g');
+  const re = new RegExp(`(/${escapeRegExp(name)})\\.(?:png|jpe?g)\\b`, 'g');
   const swapped = raw.replace(re, '$1.webp');
   const r = syncImageDims(swapped, name, w, h);
   if (r.raw !== raw) writeMdxFile(mdxAbs, r.raw, eol);

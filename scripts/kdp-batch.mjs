@@ -14,8 +14,8 @@ import { homedir } from 'node:os'
 import { todayJst } from './lib/jst-date.mjs'
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs'
 import { updateKindleCatalog } from './lib/product-registry.mjs'
+import { REPO_ROOT as REPO } from './lib/repository-paths.mjs';
 
-const REPO = resolve(import.meta.dirname, '..')
 const DIST = resolve(REPO, 'scripts/kindle-dist')
 const DL = resolve(homedir(), 'Downloads')
 const PROFILE = resolveProfileDir('kdp', { cwd: REPO, repoRoot: REPO })
@@ -86,7 +86,7 @@ for (const id of ids) {
   }
   const epub = resolve(DIST, `${id}.epub`)
   const cover = resolve(DIST, `${id}.jpg`)
-  if (!existsSync(epub) || !existsSync(cover)) { console.error(`STOP: ${id} の EPUB/表紙が ${DIST} に無い`); process.exit(1) }
+  if (!existsSync(epub) || !existsSync(cover)) { console.error(`STOP: ${id} の EPUB/表紙が ${DIST} に無い（R2 に退避済み。npm run asset-hydrate -- --group kindle-dist で取り戻す）`); process.exit(1) }
   copyFileSync(epub, resolve(DL, `kindle-${id}.epub`))
   copyFileSync(cover, resolve(DL, `kindle-cover-${id}.jpg`))
 

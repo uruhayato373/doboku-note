@@ -30,9 +30,8 @@
  */
 import { chromium } from 'playwright';
 import { readFileSync, writeFileSync, existsSync, mkdirSync, writeSync, statSync } from 'node:fs';
-import { join, dirname, basename } from 'node:path';
+import { join, basename } from 'node:path';
 import { createHash } from 'node:crypto';
-import { fileURLToPath } from 'node:url';
 import { homedir } from 'node:os';
 import { fileSha256, recordUploaded } from './lib/kindle-uploaded.mjs';
 import { datasetPath } from './lib/datasets.mjs';
@@ -42,8 +41,8 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { jstClock, todayJst } from './lib/jst-date.mjs';
 import { updateKindleCatalog } from './lib/product-registry.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PROFILE = resolveProfileDir('kdp', { cwd: ROOT, repoRoot: ROOT });
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 const TMP = join(ROOT, '.tmp');
@@ -95,10 +94,10 @@ if (ID && (MODE_SET_PRICE || MODE_UPDATE_COVER) && !hasSpec(ID)) {
   console.log(`[prep] id=${ID} title="${(book.title || '').slice(0, 34)}" price=¥${book.price} mode=${COMMIT_PUBLISH ? 'PUBLISH(出版する)' : 'DRAFT(下書きのみ)'}`);
 }
 if (MODE_UPDATE_COVER) {
-  // 表紙の真実源は git 管理の scripts/kindle-dist/<id>.jpg（A 系はファイル名が小文字）。
+  // 表紙の真実源は private R2 の kindle/dist/<id>.jpg（手元は scripts/kindle-dist/・asset-hydrate -- --group kindle-dist で取り戻す）（A 系はファイル名が小文字）。
   const candidates = getArg('--cover') ? [getArg('--cover')] : [ID, ID.toLowerCase()].map((n) => join(ROOT, 'scripts/kindle-dist', `${n}.jpg`));
   book.cover = candidates.find((f) => existsSync(f));
-  if (!book.cover) { console.error(`ABORT: 表紙が無い: ${candidates.join(' / ')}`); process.exit(1); }
+  if (!book.cover) { console.error(`ABORT: 表紙が無い: ${candidates.join(' / ')}\n（R2 に退避済み。npm run asset-hydrate -- --group kindle-dist で取り戻す）`); process.exit(1); }
   if (!/\.jpe?g$/i.test(book.cover)) { console.error(`ABORT: 表紙は JPEG のみ: ${book.cover}`); process.exit(1); }
 }
 

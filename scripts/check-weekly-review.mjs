@@ -16,19 +16,11 @@
 import { existsSync, appendFileSync, readdirSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { addDays, isoWeekKey } from "./lib/review-week.mjs";
+import { todayJst } from "./lib/jst-date.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const REVIEW_DIR = join(__dirname, "..", "docs", "reviews", "weekly");
-
-// ISO 8601 週番号（月曜始まり・週の木曜が属する年が ISO 年）。
-function isoWeek(date) {
-  const d = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate()));
-  const dayNum = d.getUTCDay() || 7; // Sun=0 → 7
-  d.setUTCDate(d.getUTCDate() + 4 - dayNum); // その週の木曜へ移動
-  const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
-  const week = Math.ceil(((d - yearStart) / 86400000 + 1) / 7);
-  return { year: d.getUTCFullYear(), week };
-}
 
 function writeSummary(lines) {
   if (process.env.GITHUB_STEP_SUMMARY) {
@@ -36,10 +28,8 @@ function writeSummary(lines) {
   }
 }
 
-const now = new Date();
-// 先週（＝直近で完了した ISO 週）を対象にする。今 - 7 日は必ず前 ISO 週に落ちる。
-const target = isoWeek(new Date(now.getTime() - 7 * 86400000));
-const weekId = `${target.year}-W${String(target.week).padStart(2, "0")}`;
+// 先週（＝直近で完了した ISO 週）を対象にする。JST の今日 - 7 日は必ず前 ISO 週に落ちる（週の換算は review-week.mjs）
+const weekId = isoWeekKey(addDays(todayJst(), -7));
 const file = join(REVIEW_DIR, `${weekId}-review.md`);
 const relFile = `docs/reviews/weekly/${weekId}-review.md`;
 
@@ -79,13 +69,11 @@ function latestReviewWeek() {
   return weeks[weeks.length - 1];
 }
 
-/** 週の新旧比較（year, week の辞書順）。 */
-const weekRank = (w) => w.year * 100 + w.week;
 
 const latest = latestReviewWeek();
 lines.push(`- 現存する最新レビュー: **${latest ? latest.id : "なし"}**`, "");
 
-if (latest && weekRank(latest) >= weekRank(target)) {
+if (latest && latest.id >= weekId) { // YYYY-Www は辞書順＝新旧順
   const note =
     latest.id === weekId
       ? "先週分がそのまま残っています"

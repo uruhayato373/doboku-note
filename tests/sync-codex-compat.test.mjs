@@ -34,6 +34,8 @@ function makeFixture({ git = false } = {}) {
   writeFile(root, 'scripts/sync-codex-compat.mjs', REAL_SCRIPT_SRC);
   // スクリプトはルートを scripts/lib/repository-paths.mjs の場所から決めるので、コピー先が root になる
   writeFile(root, 'scripts/lib/repository-paths.mjs', readFileSync(join(ROOT, 'scripts/lib/repository-paths.mjs'), 'utf8'));
+  // run() に包んだ CLI の入口（DN-0688）が import する共通部品
+  writeFile(root, 'scripts/lib/cli-run.mjs', readFileSync(join(ROOT, 'scripts/lib/cli-run.mjs'), 'utf8'));
   if (git) execFileSync('git', ['init', '-q'], { cwd: root });
   return root;
 }

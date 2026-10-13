@@ -21,7 +21,7 @@ Google Search Console の継続管理（インデックス被覆・検索パフ�
 
 | 担当 | 種別 | 責務 | 入力 → 出力 |
 |---|---|---|---|
-| `index-coverage.yml` | CI（**週次**・水 JST 11:00。2026-09-17 に月次から変更） | 全 sitemap URL の URL Inspection（5 並列・checkpoint・~35 分）+ 履歴追記 + **登録リクエスト順位表**（`data/gsc/indexing-priority.{json,txt}`＝表示実績のある未登録を先頭に、直近 14 日にリクエスト済みは除外）。完走しなかった月は batch に `partial:true` が立ち、history には積まず完全性ゲートで赤にする（2026-09-01 の 120 分 cancelled の再発防止） | API/sitemap → `url-inspection/*.json` + `data/gsc/index-coverage.json`（develop） |
+| `index-coverage.yml` | CI（**週次**・水 JST 11:00。2026-09-17 に月次から変更） | 全 sitemap URL の URL Inspection（5 並列・checkpoint・~35 分）+ 履歴追記 + **登録リクエスト順位表**（`data/gsc/indexing-priority.{json,txt}`＝表示実績のある未登録を先頭に、表示 0 は**型ごとの期待値**〔同じ型の登録済み 1 本あたり 28 日表示（最大の 1 本を除く平均）× 型の未登録率。登録済み 3 本未満の型は上位のまとまりの平均で代用・根拠は json の `types`〕の降順、直近 14 日にリクエスト済みは除外）。完走しなかった月は batch に `partial:true` が立ち、history には積まず完全性ゲートで赤にする（2026-09-01 の 120 分 cancelled の再発防止） | API/sitemap → `url-inspection/*.json` + `data/gsc/index-coverage.json`（develop） |
 | `fetch-metrics.yml` | CI（週次・金 JST 6:00） | GSC query/date/page/page×query + GA4。あわせて本番 robots.txt の sitemap を Search Console API で送信し読み込み状況を記録（`gsc-sitemaps`・ログイン不要）。成長パック（前の完了週×28 日基線の GA4/GSC 全件）・Bing・GA4 Admin API の観測・実験の自動計測・機会ダイジェストも同じ run で作る（[growth-cycle.md](growth-cycle.md)） | API → `data/{gsc,ga4}/・data/analysis/growth/・data/bing/` |
 | `gsc-index-auditor` | Evaluator（sonnet） | coverage 分類・indexed_ratio・履歴差分・原因バケット・hygiene URL surface | url-inspection + history → 診断テキスト（audit-only） |
 | `metrics-analyzer` | Evaluator（sonnet） | index 済みページの performance 8 パターン（SNS-Source-Shift＋page×query の Cannibalization/Content-Decay 含む） | gsc/ga4（`gsc.page-query` 含む）→ `improvements/*.md` |
@@ -64,7 +64,7 @@ coverage 指標は動かない。効果は GA4 の `Organic Search` のうち Bi
 
 2026-08-22 の URL 移行後も旧 `/docs` が表示の 32%（28 日で 4,487 / 14,183）を取り、新 URL 18 件が「Google が旧 URL を正規に選択」の重複だった（2026-09-23）。
 Google の「Move a site with URL changes」（2026-08-20 更新）の手順どおり、旧 URL だけを載せた `sitemap-legacy.xml` を
-`scripts/generate-sitemap.mjs` が出し、`robots.txt` の `Sitemap:` 行で知らせる（転送先が今の sitemap に載っている旧 URL だけ・lastmod は 301 にした 2026-08-22）。
+`scripts/generate-sitemap.mjs` が出し、`robots.txt` の `Sitemap:` 行で知らせる（転送先が今の sitemap に載っている旧 URL だけ・lastmod は 301 にした 2026-08-22）。移転日より後に作った記事（frontmatter の created が 2026-08-22 より後）の `/docs/<slug>` は実在したことが無いので出さない（2026-10-11・載せていた 254 件が GSC の「検出 - インデックス未登録」を 173 件水増ししていた）。
 `sitemap.xml`（index-coverage・IndexNow・check-seo-build の母集合）には混ぜない。GSC の旧 sitemap に出る「リダイレクト」警告は Google の手順上ふつうなので無視する。
 期限 `LEGACY_SITEMAP_UNTIL`（`scripts/lib/legacy-sitemap.mjs`）を過ぎたビルドでは自動で出さなくなる。延長・前倒しは旧 URL の表示比率（`gsc-page` の `/docs/` 行）で判断する。
 
@@ -652,3 +652,16 @@ EXP-006 の本判定は予定どおり next_check 2026-08-27 に、カバレッ�
   3. 未認識 59 件（うち前回 sitemap 既在 37 件）の偏在（pe-construction・kyushu）は次回 batch で解消するか観測。1 点では取りこぼしか未検出か判別不能
 - 異常フラグ: なし（ratio 79.5%≥60% / 前回比 −0.4pt / discovered 15.4%<20% / hygiene 0 / inspected=sitemap / results 1,579 件・前回比 +10.1%）
 - 注記: 自動生成・最終決定は人間。batch の実体パスは `data/gsc/url-inspection/2026-09-30T07-42-14.json`
+
+### 2026-10-11（手動・サイト全体の検索改善・/google-search-growth 相当・DN-0666）
+
+- 観測（GSC UI CSV 2026-10-11 取得・16 ユニット中 取得 11・対象なし 5・失敗 0／URL 検査 batch 10-07／GSC page 09-09〜10-06）: indexed_ratio **81.6%**（09-30 の 79.5% から +2.1pt）・技術要因 0。28 日のクリック 922（前 28 日 180）・平均順位 12.3（同 19.2）。1級・2級の二次系が約半分
+- 「検出 - 未登録」478（09-24 の 281 から +278）の約 9 割は見かけ: sitemap-legacy.xml に載せていた**移転後に作った記事の実在しない /docs URL** 173 件と part-N の計上タイミング 80 件。実質の増加は +24 件
+- 判断と実施:
+  1. sitemap-legacy.xml から created が 2026-08-22 より後の slug を外した（PR #988・本番 1,399 → 1,145 件）
+  2. favicon が無かった（/favicon.ico 404・rel=icon 無し）→ src/app に favicon.ico・icon.png・apple-icon.png（PR #988・本番で 200 と link を確認）
+  3. TechArticle に image（ogp.png）・/exam の本文を 200 字超に（PR #988）
+  4. CTR 実験を 2 本に限って開始: EXP-020（2級二次 4 本の題名の語順・説明・冒頭）・EXP-021（総監の定型題名 5 本を「語とは｜区別点」に）。一括変更はしない
+  5. 本文からのリンクが 0 本の 8 ページへ 23 記事から内部リンク。2級 R8 二次の解答例ページの枠を 10/25 前に公開（DN-0678）
+- 見送り・判断待ち: 削除済み /standards/guides の 404（表示 85）・数字付き 404 24 件・/standards/<機関>/common の重複 → DN-0677。順位表の期待値順と分類器 → DN-0674。_redirects の上限 → DN-0675。check-seo-build の warn の置き場 → DN-0676。check-google-ui-ssot の不具合 → DN-0669
+- 次に見るもの: 10-14 の batch で legacy 除外後の discovered と canonical 不一致 13 件、10-18 以降に concrete-engineer textbook 3 本の再リクエスト、EXP-020/021 は本番反映（10-11）の 28 日後

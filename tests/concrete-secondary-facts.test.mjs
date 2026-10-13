@@ -39,7 +39,10 @@ test('原典照合済みの8問で5空欄の記号と解答順が一致する',(
  for(const [heading,answers] of sourceCases){
   const s=section(heading); assert.ok(s,heading);
   const prompt=s.split('<details>')[0];
-  for(const i of 'イロハニホ') assert.equal((prompt.match(new RegExp(`【\\(${i}\\)】`,'g'))??[]).length,1,heading+i);
+  // 原典で同じ空欄が 2 か所ある問題（DN-0633 で原典の画像と照合）:
+  // 平成29年度 問題3 (2)「管径が(ロ)ほど」「管径の(ロ)輸送管」／平成27年度 問題3 (1)(2)「十分に(ロ)させ」／平成24年度 問題3 (2)(3)「表面を(ニ)にする」
+  const repeated = { 平成29年度: { ロ: 2 }, 平成27年度: { ロ: 2 }, 平成24年度: { ニ: 2 } }[heading.slice(0, 6)] ?? {};
+  for(const i of 'イロハニホ') assert.equal((prompt.match(new RegExp(`【\\(${i}\\)】`,'g'))??[]).length,repeated[i]??1,heading+i);
   assert.ok(s.includes(answers.map((a,i)=>`(${'イロハニホ'[i]}) ${a}`).join(' / ')),heading);
   assert.match(s,/原問題PDF[^\n]+#page=\d+/);
  }

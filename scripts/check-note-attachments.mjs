@@ -38,6 +38,14 @@ import { NOTE_BASE } from './lib/site-identity.mjs';
 import { fetchFailDominant } from './lib/inconclusive-gate.mjs';
 import { todayJst } from './lib/jst-date.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { datasetPath } from './lib/datasets.mjs';
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
 
 const BASE = join(ROOT, 'content/note');
 
@@ -45,7 +53,7 @@ const BASE = join(ROOT, 'content/note');
 // 共有する。単一真実源は scripts/lib/note-attachments.mjs（DN-0177 で切り出し）。
 const ALLOW_PATH = join(ROOT, '.claude/config/note-attachments-allow.json');
 
-const argv = process.argv.slice(2);
+const argv = __argv.slice(2);
 const LIVE = argv.includes('--live');
 const STAGED = argv.includes('--staged');
 const JSON_OUT = argv.includes('--json');
@@ -122,8 +130,8 @@ if (!LIVE) {
     console.log(`  ローカルで: node scripts/check-note-attachments.mjs --live`);
   }
   // 検査ゼロで PASS を返さない（--staged は「note 記事を触っていない」が正常なので除く）
-  if (!STAGED && targets.length === 0) { console.error('✗ 検査対象0件＝走査が壊れている疑い（検査不成立）'); process.exit(1); }
-  process.exit(violations.length ? 1 : 0);
+  if (!STAGED && targets.length === 0) { console.error('✗ 検査対象0件＝走査が壊れている疑い（検査不成立）'); __exit(1); }
+  __exit(violations.length ? 1 : 0);
 }
 
 // ============================ live 層 ============================
@@ -136,7 +144,7 @@ if (!LIVE) {
 // 実際 2026-08-03 の実査は「不足 192 件」と出したまま4日放置され、その中に居た
 // 建設部門 7 本（約束あり）は購入者からの指摘で初めて発覚した。
 const need = targets.filter((t) => t.expected.length > 0);
-if (need.length === 0) { console.error('✗ 検査対象0件＝走査が壊れている疑い（検査不成立）'); process.exit(1); }
+if (need.length === 0) { console.error('✗ 検査対象0件＝走査が壊れている疑い（検査不成立）'); __exit(1); }
 
 // note-browser.mjs は playwright を静的 import するため、--source（CI）経路を
 // 依存なしに保つ元設計（動的 import）をそのまま踏襲する（playwright は devDependency）。
@@ -150,7 +158,7 @@ await page.goto('https://note.com/settings/account', { waitUntil: 'domcontentloa
 const gate = await assertAccountGate(page, { url: null });
 if (!gate.ok) {
   console.error('✗ ABORT: note にログインしていない（npm run note-edit-session で1回ログインする）');
-  await ctx.close(); process.exit(2);
+  await ctx.close(); __exit(2);
 }
 console.log(`[check-note-attachments --live] 対象 ${need.length} 件を実査（著者ログイン＝有料エリアも見える）\n`);
 
@@ -227,7 +235,7 @@ console.log(`  内訳: **本文で約束していて未添付 ${shortPromised.le
 // 欠落リストを state に残す（.tmp は git 管理外で、過去の添付 done-log はこれで失われている）。
 if (!ONLY) {
   const { writeFileSync, mkdirSync } = await import('node:fs');
-  const outPath = join(ROOT, '.claude/state/note-attachments-missing.json');
+  const outPath = join(ROOT, datasetPath('state.note-attachments-missing'));
   mkdirSync(dirname(outPath), { recursive: true });
   // 既存を丸ごと置き換えると、人が手で足した注記（過去の偽陰性の根拠など）が黙って消える。
   // 計算した項目だけを上書きし、知らないキーはそのまま残す。
@@ -242,7 +250,7 @@ if (!ONLY) {
     missingSilent: shortSilent.map((s) => ({ noteId: s.noteId, title: s.title, live: s.live, want: s.want, pdfs: s.expected })),
     missing: short.map((s) => ({ noteId: s.noteId, title: s.title, live: s.live, want: s.want, pdfs: s.expected, promises: !!s.promises })),
   }, null, 2) + '\n');
-  console.log(`\n欠落リスト: .claude/state/note-attachments-missing.json（${short.length} 件）`);
+  console.log(`\n欠落リスト: ${datasetPath('state.note-attachments-missing')}（${short.length} 件）`);
 }
 if (short.length) {
   console.error('\n✗ ライブに PDF が添付されていない（購入者が受け取れない）:');
@@ -251,5 +259,9 @@ if (short.length) {
     for (const p of s.expected) console.error(`      node scripts/note-attach-file.mjs --note ${s.noteId} --file "${p}" --commit`);
   }
 }
-if (fetchFailDominant(fetchFail.length, need.length)) { console.error('\n✗ 取得失敗が支配的＝検査不成立'); process.exit(1); }
-process.exit(short.length ? 1 : 0);
+if (fetchFailDominant(fetchFail.length, need.length)) { console.error('\n✗ 取得失敗が支配的＝検査不成立'); __exit(1); }
+__exit(short.length ? 1 : 0);
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

@@ -37,6 +37,13 @@
 import { execFileSync } from 'node:child_process';
 import { loadConfig, loadManifest } from './lib/asset-storage.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
 
 /** Git 追跡を意図的に維持する group（DN-0151(3)決着）。退避済み＝再追跡異常の対象から除く。 */
 // 2026-09-05: kindle-dist は Drive vault（drive-vault.json・coexistWithGit）へ移り asset-storage.json から消えたので空。
@@ -61,7 +68,7 @@ function headPaths() {
 }
 
 function main() {
-  const argv = process.argv.slice(2);
+  const argv = __argv.slice(2);
   const STAGED = argv.includes('--staged');
   const ALL = argv.includes('--all');
 
@@ -69,7 +76,7 @@ function main() {
   // 明示的に FAIL にする（CLAUDE.md §9「検査ゼロを PASS と呼ばない」）。
   if (!STAGED && !ALL) {
     console.error('[check-asset-reentry] FAIL: --staged（pre-commit 用）または --all（CI 用）のどちらかが必須');
-    process.exit(1);
+    __exit(1);
   }
 
   let cfg;
@@ -79,7 +86,7 @@ function main() {
     manifest = loadManifest();
   } catch (e) {
     console.error('[check-asset-reentry] FAIL: ' + e.message);
-    process.exit(1);
+    __exit(1);
   }
 
   const groups = (cfg.groups || []).filter((g) => !COEXIST_WITH_GIT.includes(g.id));
@@ -95,7 +102,7 @@ function main() {
 
   if (groups.length === 0) {
     console.error('[check-asset-reentry] FAIL: asset-storage.json に検査対象の group が無い（kindle-dist を除いて 0 件）。検査不成立。');
-    process.exit(1);
+    __exit(1);
   }
 
   const violations = [];
@@ -124,8 +131,12 @@ function main() {
   console.error('        `git restore --staged <path>` で取り消してください。');
   console.error('        意図的に git 管理へ戻す場合は manifest.json から該当エントリを削除し、');
   console.error('        asset-storage.json の group 定義を見直してください。');
-  process.exit(1);
+  __exit(1);
 }
 
 // import 時に CLI を走らせない（将来テストを純関数化する余地を残す）。
-if (process.argv[1] && process.argv[1].endsWith('check-asset-reentry.mjs')) main();
+if (__argv[1] && __argv[1].endsWith('check-asset-reentry.mjs')) main();
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

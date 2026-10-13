@@ -147,7 +147,7 @@ A8 だけは**管理画面にサイト切替が存在しない**ため、assert 
 | afb の未提携案件を探す | `npm run afb:scan -- --query 建設,現場` | 検索モード既定。crawl モードは 38 ページで実用的でない |
 | A8 の案件開拓 | `/scout-asp` | A8 専用。こちらとは別系統 |
 | A8 の成果 CSV 取込 | `/a8-report` | [a8-affiliate-pipeline.md](a8-affiliate-pipeline.md) |
-| 配線の整合検査 | `npm run check-affiliate-placements` | 配置ルールが案件（catalog の active・Red Line でない）・期限内の mat・面の語彙・カテゴリ・実験と整合し、同じ面に重なるルールが無いか。MDX の手書き `<CareerAffiliate program=…>` のカテゴリがルールに覆われているか。`--upcoming` は 7 日以内の境界 | pre-commit（pre-commit-ci-gates）・quality-audit ci／`--upcoming` は ops |
+| 配線の整合検査 | `npm run check-affiliate-placements` | 配置ルールが案件（catalog の active・Red Line でない）・mat の有無・面の語彙・カテゴリ・実験と整合し、同じ面に重なるルールが無いか。MDX の手書き `<CareerAffiliate program=…>` のカテゴリがルールに覆われているか。`--upcoming` は 7 日以内の境界と mat の期限切れ（壁時計依存は ops へ・2026-10-11） | pre-commit（pre-commit-ci-gates）・quality-audit ci／`--upcoming` は ops |
 
 ### 安全弁
 
@@ -190,6 +190,7 @@ A8 だけは**管理画面にサイト切替が存在しない**ため、assert 
 5. `alt` を埋める
 6. **A8 の JavaScript 型バナーは使わない** — Next.js で動かない。「旧版を表示する」でシンプルな `<a><img/></a>` を取得
 7. **広告リンクは `rel={AFFILIATE_LINK_REL}` と `referrerPolicy={AFFILIATE_LINK_REFERRER_POLICY}`（`no-referrer-when-downgrade`）を対で付ける**（`src/components/ui/AffiliateParts.tsx`）。サイト既定の Referrer-Policy（`strict-origin-when-cross-origin`）のままだと A8 にはドメインしか届かず、成果別レポートの「リファラ」でページが分からない。対の欠けと rel の直書きは `tests/affiliate-link-referrer.test.mjs` が止める（2026-10-07〜）
+8. **手書き `<CareerAffiliate program=…>` は 1 記事 1 枚**。2 つ以上あっても `DocPage` が最初の 1 枚だけ描く（2026-10-11。2級の過去問 50 本で同じ案件のカードが 2 枚出ていた。MDX は書き換えない）
 
 ### 現在の配置（真実源は配置ルール）
 
@@ -199,10 +200,10 @@ A8 だけは**管理画面にサイト切替が存在しない**ため、assert 
 
 | 案件 | 現行の面 | 適用 |
 |---|---|---|
-| ビルドジョブ | 1級・建設部門・コンクリート系・一次・RCCM・実務（/practice）の記事とカテゴリ hub、2級はキャリア記事だけ。公的基準の章末（`standards-end`）・トップ（`home-section`）・ツール（`tool-inline`・`career-tool`）。2026-10-07 20:00 からは公的基準の章以外（`standards-list-end`）・トピック（`topic-end`）・実務ツール等（`tool-end`）・測量士・舗装・建築の記事と資格トップも（EXP-018）。面ごとの対象カテゴリ（本文カードは 1級・建設部門・RCCM だけ、実務は本文中間・記事末だけ等）は配置ルールが正 | 2026-09-08 JST 以降のビルドで通常条件。実務・RCCM の資格トップ・公的基準・トップ・ツール・コンクリート技士と RCCM の本文中間は 2026-10-07 17:00 から（EXP-017） |
+| ビルドジョブ | 1級・建設部門・コンクリート系・一次・RCCM・実務（/practice）の記事とカテゴリ hub、2級はキャリア記事だけ。公的基準の章末（`standards-end`）・トップ（`home-section`）・ツール（`tool-inline`・`career-tool`）。2026-10-07 20:00 からは公的基準の章以外（`standards-list-end`）・トピック（`topic-end`）・実務ツール等（`tool-end`）・測量士・舗装・建築の記事と資格トップも（EXP-018）。面ごとの対象カテゴリ（本文カードは 1級・建設部門・RCCM だけ、実務は本文中間・記事末だけ等）は配置ルールが正 | 2026-09-08 JST 以降のビルドで通常条件。実務・RCCM の資格トップ・公的基準・トップ・ツール・コンクリート技士と RCCM の本文中間は 2026-10-07 17:00 から（EXP-017）。非キャリア記事の記事末 300×250（PL-0015）は 2026-10-11 に閉じた（28 日で article-end 面 4,161 表示 0 クリック・DN-0695）。EXP-017/018 の記事末（実務・測量士等）は各判定日まで残す |
 | 建設JOBs | 2級の学習ページ（本文カード・本文中間・記事末）と 2級の資格トップ | 2026-10-07 17:00 から再開（EXP-017・裁定ログ 2026-10-07）。キャリア記事はビルドジョブのまま |
 | GKSキャリア | 一般配置停止。creativeは過去分岐として保持 | A8終了予定2026-09-28を実機確認 |
-| ハイクラス DX・コンサル | 総監の記事末・hub（記事サイドバーは 2026-09-26 撤去） | 既存配置継続。今回の条件照合対象外 |
+| ハイクラス DX・コンサル | 総監の本文中間（PL-0002）と hub（PL-0008/0009）。記事末は 2026-10-11 に閉じた（28 日 487 表示 0 クリック）、記事サイドバーは 2026-09-26 撤去 | 記事面の条件（2026-10-11・DN-0695）: 総監カテゴリのみ・本文中間のみ。根拠は 28 日 822 表示 4 クリック（CTR 0.49%・全面で最高）。見直しは EXP-008 の判定（10/20）と同時 |
 
 公的基準のページ（章・章以外とも）は右のナビ欄（`StandardsNavigation`）には広告を置かず、本文末に 1 枠だけ置く。トップ・ツール・公的基準・トピックは面が 1 つなので、`AffiliateSlot` がその面でピクセルを 1 発出す。2026-10-07 の本番実測で広告の無かったページは運営ページ（about・contact・privacy・terms・links・search・sitemap-keywords）と `/exam` だけ。
 

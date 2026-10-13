@@ -35,7 +35,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
-          node-version: "20"
+          node-version: "22"
           cache: "npm"
 
       - name: Install dependencies
@@ -95,7 +95,9 @@ jobs:
           fi
 
           git commit -m "chore(metrics): psi daily audit $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
-          git push origin develop
+          git fetch origin develop
+          git rebase origin/develop
+          git push origin HEAD:develop
 
       # タスク自動化(task-queue.json/build-todo)は廃止(2026-06-11、.claude/todo/ 手動運用へ一本化)。
       # CI 失敗にするのは2種類だけ: field 実害 / 取得失敗率20%超。

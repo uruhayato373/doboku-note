@@ -28,6 +28,8 @@ title: スキル ガバナンス記録
 
 ---
 
+- 2026-10-12: `social/video-content` を追加（DN-0406）。動画パックの薄い入口。`video-script-writer`（Generator）→ `check-video-content` → `video-content-qa`（Evaluator・audit-only）を回して承認待ちで止まる。レンダリング・投稿・承認は担当外。合計 `109→110`、social `25→26`、agents `+2`。
+
 ## カテゴリ構造（件数の SSOT＝`find .claude/skills -name SKILL.md` 実数）
 
 > 2026-09-13 事業運用統合: monthly-review新設。north-star-metric / weekly-review / weekly-plan / plan-weekly / nsm-experimentをbusiness-directionの資格別学習・販売・運営KPIと追記レビューへ結線。management 24→25、全105→106。改善状態は既存experimentsを継続。
@@ -51,12 +53,12 @@ title: スキル ガバナンス記録
 ├── management/      # 24 — 計画・分析・戦略
 ├── dev/             # 15 — 開発・CI/CD・ローカルPlaywright認証運用・アセット置き場の判定
 ├── analytics/       # 2 — サイト分析
-├── social/          # 25 — SNS 投稿・note運用
+├── social/          # 26 — SNS 投稿・note運用
 ├── metrics/         # 1 — 売上記録
 └── ui/              # 1 — UI/UX デザイン
 ```
 
-合計 **109 スキル**（10 カテゴリ・SKILL.md 実数）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
+合計 **110 スキル**（10 カテゴリ・SKILL.md 実数）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
 
 > 2026-09-05 新設: `dev/asset-route`（Git の外に置くアセットの置き場を **誰が使うか** で決める決定木＋コマンド。サイトが配信→public R2 / GitHub Actions が読み書き→private R2 / 人か手元のスクリプトだけ→Google Drive vault）。背景＝同日、共通仕様書のページ画像 3.4GB を「教材ページ画像→private R2」の行に従って private R2 へ上げかけた。その行はスキャン書籍の著作権のために書かれたもので、資産の種類で列挙する旧ルールには判断軸が無かった。`asset-storage.json` の全 group に `audience` を必須化し（`loadConfig`・`tests/asset-storage.test.mjs`・新 `check-drive-vault` の 3 か所で止める）、Drive 側は独立した系 `drive-vault.json` / `drive-vault-sync` / `drive-manifest.json` にした（R2 の fail-closed なコードに第 3 バケットの分岐を足さない）。**新エージェントは作らない**（検査は決定的スクリプトで足りる・CLAUDE.md §9）。合計 `104→105`、dev `14→15`。
 
@@ -146,7 +148,7 @@ title: スキル ガバナンス記録
 > 2026-07-25 更新（review蓄積防止）: `management/weekly-review` の保持方針を「全週Markdown蓄積」から「最新レビュー＋次週計画のみ」へ変更。旧週は未完タスクを `.claude/todo/backlog.md`、恒久知見を `.claude/knowledge/` へ抽出して削除し、履歴はgitで保持する。description/呼び出し方法は不変。
 > 2026-06-02 更新（過去問QA是正セッション）: 経験記述3点を実体験から追加 hardening（skill `authoring/civil-keiken-magazine` ＋ agents `civil-keiken-essay-writer`/`civil-keiken-essay-qa`）。①**ⅰ）型の列挙マーカーは字数算入**（`1.`リストはカウンタが行頭記号を除去するが ⅰ）は本文インライン算入。`1.`→ⅰ）体裁統一で旧形式(3)対応処置175字が溢れやすく、変更後 `keiken-charcount --strict` 再実行必須）を writer/qa に明記。②**note タグは別ファイル `hashtags.txt` が SoT**（既存全 note 記事の規約。`/note-hashtags`・単一行 space 区切り・最大99・80–90個目安。**本文には入れない**）を writer/skill/qa に明記（当初 body 末尾節と誤記したが既存 `hashtags.txt` 規約に合わせ即訂正。1級過去問5本の hashtags.txt を15→90個へ更新）。③**マガジン公開後の URL 反映フロー**（note-magazines.ts `published:true`＋`noteUrl`／本文プレースホルダ→マガジンURL単独行リンクカード／_meta `magazineUrl`）を skill に新設。併せて qa gate「本文 note URL 直書き=0」を**導線リンクカード URL は許可**へ是正（[[feedback_note_link_card]] との矛盾解消）、改変前提キーワードを同義表現（雛形・改変前提のテンプレート等）可へ緩和。
 > 2026-06-09 更新（動画 JIT 化・ストレージ削減）: IG リール動画を**在庫として git に持たない**運用に変更。`scripts/publish-reel-jit.mjs`（生成→Business Suite 予約→mp4 削除）を新設し、reel の **mp4 / img(PNG) / slide-NN.mp4 を gitignore**（再生成可能な派生物）。**SoT は slide-data.json + reels/wav** のみコミット。`reels/video.mp4`(444MB)・`reels/img`(485MB)・`slide-NN.mp4`(218MB) を git rm で作業ツリーから除去（累計約1.15GB削減・今後の肥大停止）。注: `--from-reels`(legacy) を使う時は ig-reel-create で reels/img・slide-NN.mp4 を先に再生成。`.git` 履歴圧縮(filter-repo/force-push)は並行作業中の衝突リスクのため未実施。**`video.mp4` が無いのは正常**。
-> 2026-06-18 更新（wav も R2 退避＝上記 wav-commit を一部更新）: 上記 2026-06-09 では wav を「コミットする SoT」としたが、wav（700件・596MB）は git 肥大が大きく、2026-06-10 の editorial-reels glob で実際には `.gitignore` 済みだった（doc と gitignore が矛盾＝untrack 漏れで tracked のまま残存）。**wav も R2 退避方針に統一**：`reels/wav` を git 追跡から除去（`git rm --cached`）し、`npm run upload-sns-r2`＋`sns-archive-auditor`（新設 Evaluator）で R2 退避。**コミットする SoT は slide-data.json + reels/script.txt + caption.txt のみ**。wav は script.txt から VOICEVOX 再生成可＋R2 バックアップで復元可（JIT/流用時は手元に無ければ取得・再生成）。真実源 `.claude/knowledge/reference/sns-archive-policy.md`。
+> 2026-06-18 更新（wav も R2 退避＝上記 wav-commit を一部更新）: 上記 2026-06-09 では wav を「コミットする SoT」としたが、wav（700件・596MB）は git 肥大が大きく、2026-06-10 の editorial-reels glob で実際には `.gitignore` 済みだった（doc と gitignore が矛盾＝untrack 漏れで tracked のまま残存）。**wav も R2 退避方針に統一**：`reels/wav` を git 追跡から除去（`git rm --cached`）し、`旧 upload-sns-r2`＋`sns-archive-auditor`（新設 Evaluator）で R2 退避。**コミットする SoT は slide-data.json + reels/script.txt + caption.txt のみ**。wav は script.txt から VOICEVOX 再生成可＋R2 バックアップで復元可（JIT/流用時は手元に無ければ取得・再生成）。真実源 `.claude/knowledge/reference/sns-archive-policy.md`。
 > 2026-06-12 追加（ドキュメント同期ガード3層）: `dev/doc-sync`（コード/設定変更 diff × 候補 doc を `doc-sync-auditor`〔新設 Evaluator〕で突合し prose・表・コマンド・件数・閾値の**意味的陳腐化**を検出→親が適用）。あわせて決定論ガード `scripts/check-doc-coupling.mjs`（スキル/エージェントの追加・削除・description 変更に skills-guide/registry・agents-registry の更新が伴うかを pre-commit で検証＝**capability ドリフト**の機械検知）を新設し pre-commit に配線（`install-pre-commit.mjs`／`npm run check-doc-coupling`）。役割分担＝`check-doc-refs`(壊れ参照)・`check-doc-coupling`(台帳もれ)＝機械／`/doc-sync`＝意味的ズレ（LLM・節目に手動）。発火規律＝`src/**` `scripts/**` `.claude/**` `package.json` 等「ドキュメント化された面」変更時のみ、純コンテンツ MDX 編集では回さない。CLAUDE.md §8 に protocol 追記。「使いながら改善」前提の v1（誤検知/拾い漏れを見て抽出範囲・grep・判定基準を更新）。
 > 2026-06-09 更新: `social/yt-shorts-create` の `per-problem-shorts.mjs` に **`--ig-mode` / `--questions`** を追加し、IG 用「1問1リール」を生成可能に（実測 36-45 秒）。出力は `reels-pp/q<N>/{video.mp4, caption.txt}` の**自己完結ディレクトリ**＝`publish-ig-bs --reel <q-dir>` を**無改修**で1本ずつ予約できる。素材は YT 短ナレ wav（`.tmp/yt-gen/narration`）＋既存 `reels/wav`＋カバーキャッシュを流用＝**新規 TTS ゼロ**。PNG は ytMode（カルーセルチャーム抑止）流用、caption は論点（`correctText`）主役＋管理ハッシュタグ（`buildIgReelCaption`）。背景: 従来のフル reel（全4問・138-295秒）が IG には長すぎた。R7 5管理×各2問=10本を 12:30/日次で感触テスト予約（2026-06-09）。
 > 2026-06-09 更新: `social/publish-ig-bs` に **リール予約投稿（`--reel`）** を追加。`reels/video.mp4`+`reels/caption.txt` を読み、ホーム「リール動画を作成」→ reels_composer（3 ステップ: 作成→編集→シェアする）を駆動。実測差分: ①動画 filechooser ＋処理待ち（自動生成サムネ出現で判定）②ステップ送りは右下「次へ」を座標 click（サムネ送りの ZWSP「次へ」誤爆回避）③予約は「日時を指定」→日付/時刻（カルーセルと共通の spinbutton/aria-valuenow）→「公開日時を指定」で確定。日付/時刻入力を `fillDateTimeFields` に共通化。実機で 1 本予約成功を Planner 確認 → 削除済み（2026-06-09）。
@@ -176,9 +178,8 @@ title: スキル ガバナンス記録
 | スクリプト | 用途 | SKILL.md |
 |---|---|---|
 | `check-option-dup.mjs` | 過去問 MDX の重複選択肢検出（組合せ問題で2選択肢が完全一致＝転記ミス確定） | Step 5.6 |
-| `check-answer-consistency.mjs` | `正答：N` と ✅/❌ バッジ位置の整合・正答欠落・ExamPoint内バッジ混入を検出 | Step 5.6 |
 
-技術士第一次試験 R元〜R7 整備（2026-06-04）で抽出した汎用ガード。視覚突合（Step 5.7）を通過したページでも誤転記を機械検出するため、全試験の過去問変換で再利用する。
+技術士第一次試験 R元〜R7 整備（2026-06-04）で抽出した汎用ガード。正答と ✅/❌ の整合は全資格共通の `npm run check-answer-marks`（`scripts/check-answer-marks.mjs`・DN-0665）へ移した。視覚突合（Step 5.7）を通過したページでも誤転記を機械検出するため、全試験の過去問変換で再利用する。
 
 ---
 

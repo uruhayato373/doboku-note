@@ -87,9 +87,9 @@ note 有料記事・マガジンの販売履歴を一元管理する運用手順
 - 総額が一致したら、その月は**追記ではなく差し替える**。部分的に手入力された月へ追記すると
   重複と誤転記（実際に 2026-07-13 の1件が日付か金額違いで残っていた）が混ざる
 
-`productId` の解決順: 手当表 → 既存ログの同一タイトルに紐づく確定済みproductIdが1種類だけなら再利用 → `src/lib/note-magazines.ts` の `title`/`shortTitle` →
+`productId` の解決順: 既存ログの同一タイトルに紐づく確定済みproductIdが1種類だけなら再利用 → カタログに無い単品の手当表（`scripts/lib/sales-normalize.mjs` の `SINGLE_ARTICLE_TITLE_RULES`・題名の見分けに足りる語で当てる） → `src/lib/note-magazines.ts` の `noteTitle`（販売履歴に出る note 上のマガジン名）/`title`/`shortTitle` →
 `content/note/**/article*.md` の H1 → ディレクトリ名。note の表示名はカタログ名と揺れるので
-（例「技術士 総監｜記述式 完全パック」＝ `essay-complete-pack`）、揺れは手当表で吸収する。
+（例「技術士 総監｜記述式 完全パック」＝ `essay-complete-pack`）、揺れはマガジンなら `noteTitle` 照合、カタログに無い単品なら手当表で吸収する。建設部門のカタログ id（`pe-construction-*`）は `toLedgerProductId` で台帳の `bk-*` 系統へ寄せる。
 
 ## 運用フロー
 
@@ -211,6 +211,7 @@ npm run report-site-to-sales -- --month 2026-08
 1. `src/lib/note-magazines.ts` にエントリ追加（マガジンの場合）／ココナラは `src/lib/coconala-services.ts`
 2. `.claude/agents/sales-recorder.md` の productId 推定ルールに追加
 3. 本ドキュメントの命名規則テーブルに追記
+4. カタログに無い単品で、note の題名が変わる・初出で `article:unknown-*` になる場合は、`scripts/lib/sales-normalize.mjs` の `SINGLE_ARTICLE_TITLE_RULES` に 1 行足す（`tests/sales-normalize.test.mjs` が規則同士の重なりを止める）
 
 > **機械ガード**: 手順②の取りこぼし（mapping 陳腐化）は `npm run check-sales-mapping` が検知する。
 > data/note/sales.json に出現する productId が sales-recorder.md の mapping パターンに一致しない、
@@ -272,9 +273,11 @@ npm run check-kdp-report-freshness # 取得期限・全書籍行・catalog紐付
 | 突合 | 書籍は `scripts/kindle-published/catalog.json` の `title: subtitle` で `bookId` に紐づけ（副題ドリフト時は主タイトルで再照合） |
 | 期間 | 当月と前月のみ（KDP の日付入力は React が握り潰すためカレンダーのプリセットを使う）。それ以前の確定値は `/pmr` を目視 |
 
-**運用**: 毎月28日以降に当月を 1 回、翌月16日以降に前月を再取得して上書きする（KENP は翌月15日頃に確定）。
-当月分は `estimated: true`、確定再取得は `estimated: false` で記録する。取得できなかった項目は 0 埋めせず `null` で残す。
-`check-kdp-report-freshness` はこの2期限に加え、共有KDP口座のうちdoboku-note catalogでLIVEの書籍（対象月末までに出版した本）が全冊取得・紐付けできることを確認する。
+**運用**: login-collectors.yml（kdp）が毎週金曜 06:50 に当月（推計）と、確定値が入るまでの前月を取り直す（取る月は `kdp-report --list-due`。KENP は翌月15日頃に確定）。
+翌月16日より前に取った値は `estimated: true`、16日以降の取得は `estimated: false` で記録する（2026-10-11 から日付で判定）。取得できなかった項目は 0 埋めせず `null` で残す。
+手動で今すぐ取るときは `gh workflow run login-collectors.yml --ref develop -f service=kdp`（`-f month=YYYY-MM` でその月だけ）。
+ココナラの売上履歴（`data/coconala/revenue.json`）は Mac の launchd `coconala-local`（毎週火曜・`npm run coconala-local:install`）が取る（CI からは 403）。note の過去月は `gh workflow run login-collectors.yml --ref develop -f service=note -f month=YYYY-MM`。
+`check-kdp-report-freshness` は前月確定（23日以降）・当月推計（28日以降）の2期限に加え、共有KDP口座のうちdoboku-note catalogでLIVEの書籍（対象月末までに出版した本）が全冊取得・紐付けできることを確認する。
 他サイトの書籍行は `externalRows` として数えるが、doboku-noteの取得完全性の母数には入れない。
 `quality:audit --ops` と日次 `ops-audit.yml` が停止を通知し、復旧時に通知を閉じる。月次事業レビューは同じ台帳の
 書籍別行からdoboku-note分の `kdpRoyalty` だけを合算し、推計はpartial、確定かつ全冊紐付け済みのみcompleteとして扱う。
@@ -299,6 +302,7 @@ KENP既読ページは共有口座全体値でサイト帰属できないため�
 | `scripts/sales-summary.mjs` | 集計スクリプト（月フィルタは位置引数。`-- 2026-06`） |
 | `scripts/note-sales-fetch.mjs` | note ダッシュボードからの read-only 自動取得＋検算＋差し替え（`npm run note-sales-fetch`） |
 | `scripts/lib/sales-normalize.mjs` | productId 解決・表記ゆれ正規化・検算の純関数（`tests/sales-normalize.test.mjs`） |
+| `scripts/lib/sales-mapping.mjs` | カタログ（note-magazines.ts）の解析 `catalogMagazines`（`tests/sales-mapping-catalog.test.mjs`） |
 | `scripts/report-site-to-sales.mjs` | 月次のサイト送客→note 売上の突合（純関数 `scripts/lib/site-to-sales.mjs`・`tests/site-to-sales.test.mjs`） |
 | `scripts/check-sales-mapping.mjs` | productId が mapping に文書化されているか検証する pre-commit ガード |
 | `scripts/kdp-report.mjs` | KDP 月次ロイヤリティ取得（`npm run kdp-report`・読み取り専用） |

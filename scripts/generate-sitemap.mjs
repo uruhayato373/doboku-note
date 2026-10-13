@@ -6,6 +6,8 @@ import { SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 import { renderSitemapEntry, resolveStaticLastmod } from './lib/sitemap-lastmod.mjs';
 import { buildLegacySitemapUrls, renderLegacySitemap, LEGACY_SITEMAP_FILE, LEGACY_SITEMAP_UNTIL } from './lib/legacy-sitemap.mjs';
 import { SITE_ORIGIN } from './lib/site-identity.mjs';
+import { parseRouteTable } from './lib/legacy-routes.mjs';
+import { buildRobotsTxt } from './lib/robots-txt.mjs';
 
 const OUT_DIR = 'out';
 const POSTS_DIR = SITE_CONTENT_ROOT;
@@ -27,6 +29,7 @@ function parseRedirects() {
   const sources = new Set();
   if (!existsSync(REDIRECTS_FILE)) return { docRoutes, sources };
   const content = readFileSync(REDIRECTS_FILE, 'utf8');
+  for (const [slug, to] of parseRouteTable(content)) docRoutes.set(slug, to);
   for (const rawLine of content.split('\n')) {
     const line = rawLine.trim();
     if (!line || line.startsWith('#')) continue;
@@ -107,7 +110,9 @@ function walkMdxFiles(dir, gitDatesLazy, segments = [], results = []) {
 
     const lastmod = resolveLastmod(data, full, gitDatesLazy);
 
-    results.push({ slug, lastmod, category: data.category });
+    // 旧 /docs の sitemap（legacy-sitemap.mjs）が「移転後に作った記事」を外すために使う（YYYY-MM-DD）
+    const created = data.created instanceof Date ? data.created.toISOString().slice(0, 10) : data.created ? String(data.created).slice(0, 10) : null;
+    results.push({ slug, lastmod, category: data.category, created });
   }
   return results;
 }
@@ -267,85 +272,17 @@ const legacySitemap = buildLegacySitemapUrls({
   docRoutes,
   sitemapLocs: new Set(unique.map((u) => u.loc)),
   siteUrl: SITE_ORIGIN,
+  createdBySlug: new Map(mdxDocs.filter((d) => d.created).map((d) => [d.slug, d.created])),
 });
 if (legacySitemap.active) {
   writeFileSync(join(OUT_DIR, LEGACY_SITEMAP_FILE), renderLegacySitemap(legacySitemap.urls));
 }
 
-// AI 学習データ収集クローラー（LLM 用）を全面 disallow。
-// 公益的な GoogleBot / Bingbot 等は許可（検索インデックスの正常稼働を維持）。
-// 背景: 2026-05 の GA4 で Bing 経由 1,293 users (40%) が engage 21%/bounce 79% の
-// 異常パターン示しており、AI クローラー混入が疑われる。
-const robots = `# 検索エンジンクローラー（Allow）
-User-agent: *
-Allow: /
-
-# AI 学習データ収集クローラーは全面 disallow
-User-agent: GPTBot
-Disallow: /
-
-User-agent: ChatGPT-User
-Disallow: /
-
-User-agent: OAI-SearchBot
-Disallow: /
-
-User-agent: ClaudeBot
-Disallow: /
-
-User-agent: Claude-Web
-Disallow: /
-
-User-agent: anthropic-ai
-Disallow: /
-
-User-agent: PerplexityBot
-Disallow: /
-
-User-agent: Perplexity-User
-Disallow: /
-
-User-agent: Google-Extended
-Disallow: /
-
-User-agent: Applebot-Extended
-Disallow: /
-
-User-agent: FacebookBot
-Disallow: /
-
-User-agent: Meta-ExternalAgent
-Disallow: /
-
-User-agent: Meta-ExternalFetcher
-Disallow: /
-
-User-agent: Bytespider
-Disallow: /
-
-User-agent: Amazonbot
-Disallow: /
-
-User-agent: cohere-ai
-Disallow: /
-
-User-agent: omgili
-Disallow: /
-
-User-agent: DataForSeoBot
-Disallow: /
-
-User-agent: SemrushBot
-Disallow: /
-
-User-agent: AhrefsBot
-Disallow: /
-
-User-agent: MJ12bot
-Disallow: /
-
-Sitemap: ${SITE_ORIGIN}/sitemap.xml
-${legacySitemap.active ? `Sitemap: ${SITE_ORIGIN}/${LEGACY_SITEMAP_FILE}\n` : ''}`;
+// robots.txt（方針と一覧は scripts/lib/robots-txt.mjs・docs/operations/robots-ai-crawler-decision.md）。
+// 検索エンジンと AI 検索は許可、AI の学習用クローラーと SEO ツールは拒否。旧 /docs の一時 sitemap は期限内だけ載せる。
+const robots = buildRobotsTxt({
+  sitemaps: [`${SITE_ORIGIN}/sitemap.xml`, ...(legacySitemap.active ? [`${SITE_ORIGIN}/${LEGACY_SITEMAP_FILE}`] : [])],
+});
 writeFileSync(join(OUT_DIR, 'robots.txt'), robots);
 
 // サマリ出力

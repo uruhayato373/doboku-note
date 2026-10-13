@@ -37,11 +37,17 @@ const RESULT_SCHEMA = {
     sourcePdf: { type: 'string', description: 'reextract の出典 PDF パス。それ以外は空文字' },
     sourcePage: { type: 'number', description: 'reextract の出典ページ（1 始まり）。それ以外は0' },
     sourceDpi: { type: 'number', description: 'reextract のレンダリング dpi。それ以外は0' },
+    rotate: { type: 'number', description: 'reextract の回転（時計回り 0/90/180/270）。cropBox は回した後のページ画像の座標。それ以外は0' },
+    postDespeckle: { type: 'number', description: 'reextract で孤立した黒い点を消した面積の上限（画素）。しなければ0' },
+    postWidth: { type: 'number', description: 'reextract で縮めた後の幅。縮めなければ0' },
+    postColors: { type: 'number', description: 'reextract で png を減色した色数。しなければ0' },
     selfVerify: { type: 'string', enum: ['clean', 'suspect'] },
   },
 }
 
-const items = typeof args === 'string' ? JSON.parse(args) : args
+// args は worklist の配列、または { runId, items }（runId を省くと figKey 一覧から決める。Date は使えない）
+const parsedArgs = typeof args === 'string' ? JSON.parse(args) : args
+const items = Array.isArray(parsedArgs) ? parsedArgs : parsedArgs?.items
 if (!Array.isArray(items) || items.length === 0) {
   log('args が空です。worklist（figure-review-queue.mjs --next の配列）を渡してください。')
   return []
@@ -65,6 +71,7 @@ const promptOf = (it) => {
     lines.push(`切れていると判定した理由: ${it.whyCut || '（記録なし）'}`)
     lines.push(`記録済みの出典: ${it.recordedSource ? JSON.stringify(it.recordedSource) : 'なし'}`)
     lines.push(`原典候補（記事の sources から。まずここを見る）: ${it.sourceCandidates?.length ? JSON.stringify(it.sourceCandidates) : 'なし'}`)
+    if (it.bookHit) lines.push(`書籍 OCR から引いた図の場所（find-book-figure。PDF のページは p 番号、印字は本のページ。まずこのページを描画して確かめる）: ${JSON.stringify(it.bookHit)}`)
     lines.push(`候補で見つからないときだけ探す場所: ${(it.sourceRoots || []).join(' | ')}`)
     if (it.vaultNote) lines.push(`注意: ${it.vaultNote}`)
   }
@@ -76,6 +83,7 @@ const fallback = (it) => ({
   figKey: it.figKey, action: 'error',
   reason: 'agent returned null（未処理）', selfVerify: 'suspect',
   newWidth: 0, newHeight: 0, cropBox: '', removed: '', sourcePdf: '', sourcePage: 0, sourceDpi: 0,
+  rotate: 0, postDespeckle: 0, postWidth: 0, postColors: 0,
 })
 
 phase('Crop')
@@ -85,5 +93,17 @@ const results = await parallel(items.map((it) => () =>
     phase: 'Crop', schema: RESULT_SCHEMA, agentType: 'figure-crop-worker', model: 'sonnet',
   }).then((r) => r || fallback(it))
 ))
+
+// 結果をファイルに残す（会話の要約後に判定を transcript から拾い直さないため・DN-0556）。
+// スクリプトにはファイル書き込みが無いので、書き込みだけを agent に頼み、書いた件数を返させて照合する。
+const runId = (!Array.isArray(parsedArgs) && parsedArgs?.runId)
+  || 'w' + [...items.map((it) => it.figKey).join('|')].reduce((h, c) => ((h * 33) ^ c.charCodeAt(0)) >>> 0, 5381).toString(36)
+const resultsPath = `.tmp/figure-loop/results-${runId}.json`
+const written = await agent(
+  `次の JSON をそのまま（一字も変えず）${resultsPath} に書け。リポジトリのルートで、Bash で \`mkdir -p .tmp/figure-loop\` の後、引用符つきヒアドキュメント（<<'JSON_EOF'）で書くこと。書いた後に \`node -e "console.log(JSON.parse(require('fs').readFileSync('${resultsPath}','utf8')).length)"\` を実行し、その件数を count に入れて返せ。\n\n${JSON.stringify(results)}`,
+  { label: 'save-results', phase: 'Crop', agentType: 'general-purpose', model: 'sonnet', effort: 'low', schema: { type: 'object', additionalProperties: false, required: ['count'], properties: { count: { type: 'number' } } } },
+)
+if (written?.count === results.length) log(`結果を ${resultsPath} に保存（${results.length} 件）→ record --from-results ${resultsPath} --pass <figKey...>`)
+else log(`警告: 結果ファイル ${resultsPath} の保存を確認できなかった（書いた件数 ${written?.count ?? '不明'} / ${results.length}）。戻り値の配列から .tmp/figure-loop/ に自分で保存すること`)
 
 return results

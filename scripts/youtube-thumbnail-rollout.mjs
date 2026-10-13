@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 import { mkdirSync, readFileSync, writeFileSync, existsSync } from 'node:fs';
-import { resolve, dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { resolve, join } from 'node:path';
 import { parseArgs } from 'node:util';
 import { google } from 'googleapis';
 import { createEnvelopeKeys, sealReport, openReport } from './lib/youtube-rollout-envelope.mjs';
@@ -12,8 +11,8 @@ import { fetchThumbnail, compareThumbnail } from './lib/youtube-thumbnail-image.
 import { updateThumbnailBatch } from './lib/youtube-thumbnail-batch.mjs';
 import { youtubePublications } from './lib/registry-youtube-view.mjs';
 import { loadVideoState } from './lib/registry-video-state.mjs';
+import { REPO_ROOT as root } from './lib/repository-paths.mjs';
 
-const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const { values: args } = parseArgs({ options: { mode: { type: 'string', default: 'inventory' },
   out: { type: 'string', default: '.tmp/youtube-rollout' }, input: { type: 'string' }, 'key-file': { type: 'string' },
   'expect-plan-sha256': { type: 'string' }, start: { type: 'string', default: '0' }, limit: { type: 'string', default: '1' },

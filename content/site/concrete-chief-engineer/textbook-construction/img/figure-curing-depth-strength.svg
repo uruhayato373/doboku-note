@@ -1,0 +1,38 @@
+<!-- authored 2026-10-10 doboku-note 自作。題材は乾燥面からの距離と圧縮強度の関係の概念グラフ。数値は示さない。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="乾燥面からの距離と圧縮強度の概念グラフ。標準養生の供試体の強度が最も高く、湿潤養生を続けた躯体はやや下がり、早く乾燥させた躯体は表面に近いほど強度が低い">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .t-sec { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-in { font-size: 13px; fill: #1a3a5c; }
+      .ax { stroke: #555; stroke-width: 1.5; fill: none; }
+      .c-ok { stroke: #3a7d44; stroke-width: 2.5; fill: none; }
+      .c-ng { stroke: #b22234; stroke-width: 2.5; fill: none; }
+      .c-sp { stroke: #2e6da4; stroke-width: 1.5; stroke-dasharray: 6 3; fill: none; }
+      .l-ok { fill: #3a7d44; }
+      .l-ng { fill: #b22234; }
+      .box { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-sec" x="20" y="26">乾燥面に近いほど強度が低い</text>
+  <path class="ax" d="M56,46 L56,300 L356,300"/>
+  <text x="20" y="62">圧縮強度</text>
+  <text x="256" y="324">乾燥面からの距離</text>
+  <text x="62" y="316">表面</text>
+  <path class="c-sp" d="M60,90 L346,90"/>
+  <text x="62" y="82">供試体（標準養生）</text>
+  <path class="c-ok" d="M60,130 Q120,116 346,112"/>
+  <text class="l-ok" x="206" y="106">湿潤養生を続けた躯体</text>
+  <path class="c-ng" d="M60,260 Q110,190 180,150 Q250,126 346,120"/>
+  <text class="l-ng" x="126" y="214">早く乾燥させた躯体</text>
+
+  <rect class="box" x="30" y="344" width="340" height="52" rx="6"/>
+  <text class="t-in" x="42" y="366">型枠を外すと、乾燥が表面から内部へ進む。</text>
+  <text class="t-in" x="42" y="386">水の補給が遅れると表層の水和が止まる</text>
+  <text x="200" y="430" text-anchor="middle">供試体の強度は、躯体の強度とは別に確かめる</text>
+  <text x="200" y="448" text-anchor="middle">解体時期は強度または積算温度で推定する</text>
+</svg>

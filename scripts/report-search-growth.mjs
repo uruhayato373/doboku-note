@@ -28,6 +28,8 @@ import { readdirSync, readFileSync, writeFileSync, mkdirSync, existsSync, statSy
 import { execFileSync } from "node:child_process";
 import { join, relative } from "node:path";
 import { classifyUrl } from "./lib/search-growth-classifier.mjs";
+import { loadInternalInbound } from "./lib/internal-inbound.mjs";
+import { parseLegacyRedirects } from "./lib/legacy-routes.mjs";
 import { toJoinKey, toComparisonKey, slugFromKey, toAbsoluteUrl } from "./lib/url-normalization.mjs";
 import { matchWildcardRedirect } from "./lib/redirect-matcher.mjs";
 import { latestFile } from "./lib/datasets.mjs";
@@ -351,25 +353,6 @@ function loadDraftSlugs() {
   return set;
 }
 
-/** 内部リンク流入数（best-effort・keyword-relations.json が target として持つ回数）。無ければ null。 */
-function loadInternalInbound() {
-  const j = readJsonOr("src/config/keyword-relations.json", null);
-  if (!j) return null;
-  const counts = new Map();
-  const bump = (slug) => counts.set(slug, (counts.get(slug) || 0) + 1);
-  // 形が版により異なるため防御的に走査
-  const walk = (obj) => {
-    if (!obj || typeof obj !== "object") return;
-    if (Array.isArray(obj)) return obj.forEach(walk);
-    for (const [k, v] of Object.entries(obj)) {
-      if (typeof v === "string" && /^[a-z0-9-]+$/.test(v)) bump(v);
-      else walk(v);
-    }
-  };
-  walk(j);
-  return counts;
-}
-
 /** live HTTP（任意）: HEAD→失敗時 GET。redirect chain と最終 status を返す。 */
 async function liveHttp(url) {
   const out = { httpStatus: null, redirectTarget: null, redirectHops: 0, redirectLoop: false };
@@ -404,6 +387,13 @@ async function liveHttp(url) {
   return out;
 }
 
+/** Google に登録済みか（URL Inspection の verdict=PASS、または「送信して登録されました」等）。「未登録」は含めない。 */
+function isIndexedState(verdict, state) {
+  if (verdict === "PASS") return true;
+  const s = String(state ?? "");
+  return /登録されました|^(Submitted and indexed|Indexed, not submitted)/i.test(s) && !/未登録/.test(s);
+}
+
 // ── main ─────────────────────────────────────────────
 
 async function main() {
@@ -415,7 +405,12 @@ async function main() {
   const { live: liveSitemap, local: localSitemap, liveSource } = await loadSitemaps();
   const { map: redirects, wildcards } = loadRedirects();
   const docMeta = loadDocMeta();
-  const internalInbound = loadInternalInbound();
+  // 内部リンク元の記事数は MDX 本文の実リンクから数える（旧: keyword-relations 由来でキーワード以外は常に 0）。
+  const redirectsPath = join(REPO_ROOT, "public/_redirects");
+  const internalInbound = loadInternalInbound(
+    REPO_ROOT,
+    existsSync(redirectsPath) ? parseLegacyRedirects(readFileSync(redirectsPath, "utf-8")) : new Map(),
+  );
   const draftSlugs = loadDraftSlugs();
 
   // URL universe = GSC UI 行 ∪ Inspection 結果（問題 URL に集中）。
@@ -508,6 +503,8 @@ async function main() {
       robots,
       gscUiIssue: primaryIssue,
       gscInspectionState: insp?.state || null,
+      isIndexed: isIndexedState(inspVerdict, insp?.state),
+      googleChoseOtherCanonical: !!googleCanonical && !googleIsSelf,
       clicks: g?.clicks ?? 0,
       impressions,
       ctr: g?.ctr ?? 0,
@@ -515,13 +512,7 @@ async function main() {
       activeUsers,
       sessions: a?.sessions ?? 0,
       engagementRate: a?.engagementRate ?? null,
-      internalInbound: internalInbound && slug
-        ? internalInbound.get(
-            meta?.category === "pe-comprehensive-management" && slug.startsWith("pe-comprehensive-management-")
-              ? slug.slice("pe-comprehensive-management-".length)
-              : slug,
-          ) ?? 0
-        : null,
+      internalInbound: internalInbound && !e.isQueryVariant ? internalInbound.get(jk) ?? 0 : null,
       lastCrawled: insp?.lastCrawl || null,
       // 派生シグナル
       isIntentionalRedirect: !!redir,
@@ -577,6 +568,7 @@ async function main() {
     "FIX_TECHNICAL",
     "REDIRECT_LEGACY",
     "KEEP_MONITOR",
+    "CANONICAL_ELSEWHERE",
     "CONSOLIDATE_CANDIDATE",
     "NOINDEX_CANDIDATE",
     "EXPECTED_EXCLUSION",
@@ -585,7 +577,7 @@ async function main() {
   const counts = Object.fromEntries(ACTIONS.map((a) => [a, rows.filter((r) => r.action === a).length]));
 
   // 優先修正 Top20（FIX_TECHNICAL > REDIRECT_LEGACY、impressions 降順）
-  const priorityRank = { FIX_TECHNICAL: 0, REDIRECT_LEGACY: 1, CONSOLIDATE_CANDIDATE: 2, NOINDEX_CANDIDATE: 3, UNKNOWN_REVIEW: 4, KEEP_MONITOR: 5, EXPECTED_EXCLUSION: 6 };
+  const priorityRank = { FIX_TECHNICAL: 0, REDIRECT_LEGACY: 1, CONSOLIDATE_CANDIDATE: 2, CANONICAL_ELSEWHERE: 2, NOINDEX_CANDIDATE: 3, UNKNOWN_REVIEW: 4, KEEP_MONITOR: 5, EXPECTED_EXCLUSION: 6 };
   const top = [...rows]
     .filter((r) => ["FIX_TECHNICAL", "REDIRECT_LEGACY", "CONSOLIDATE_CANDIDATE", "UNKNOWN_REVIEW"].includes(r.action))
     .sort((x, y) => (priorityRank[x.action] - priorityRank[y.action]) || (y.impressions - x.impressions) || (y.confidence - x.confidence))
@@ -725,6 +717,7 @@ function renderMarkdown(meta, rows, top, counts, prevCounts) {
   L.push("");
   L.push(`- FIX_TECHNICAL ${counts.FIX_TECHNICAL} 件: sitemap 掲載なのに壊れている URL の技術修正（redirect/canonical/robots）`);
   L.push(`- REDIRECT_LEGACY ${counts.REDIRECT_LEGACY} 件: 旧 URL → 後継への 301 追加（\`public/_redirects\`）`);
+  L.push(`- CANONICAL_ELSEWHERE ${counts.CANONICAL_ELSEWHERE} 件: Google が別の URL を canonical に選んだ。内部リンク・301・統合のどれで正すかを判断`);
   L.push(`- CONSOLIDATE_CANDIDATE ${counts.CONSOLIDATE_CANDIDATE} 件 / NOINDEX_CANDIDATE ${counts.NOINDEX_CANDIDATE} 件: 統合/noindex は要精査（自動適用しない）`);
   L.push(`- UNKNOWN_REVIEW ${counts.UNKNOWN_REVIEW} 件: 追加データ（GSC UI CSV / live HTTP）で確定`);
   L.push("");

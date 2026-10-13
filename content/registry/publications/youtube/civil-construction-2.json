@@ -107,7 +107,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-2/gakka-2kyu-concrete/youtube.json#longform",
-      "status": "scheduled",
+      "status": "published",
       "publishAt": "2026-10-10T11:00:00Z",
       "approval": {
         "by": "user",
@@ -118,7 +118,12 @@
       "platform": {
         "id": "xX9zcjzLrAA",
         "url": "https://www.youtube.com/watch?v=xX9zcjzLrAA",
-        "privacy": "private"
+        "privacy": "public",
+        "publishedAt": "2026-10-10T11:00:00.000Z",
+        "evidence": {
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-10-10T19:30:17.248Z"
+        }
       },
       "times": {
         "rendered": "2026-09-05T05:31:27.208Z",
@@ -298,8 +303,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-2/gakka-2kyu-hoki/youtube.json#longform",
-      "status": "scheduled",
-      "publishAt": "2026-10-16T11:00:00Z",
+      "status": "uploaded_private",
       "approval": {
         "by": "user",
         "at": "2026-09-05T01:43:32.352Z",
@@ -323,7 +327,8 @@
       "media": {
         "cover": "civil-construction-2/gakka-2kyu-hoki/youtube.longform/cover",
         "cta": "civil-construction-2/gakka-2kyu-hoki/youtube.longform/cta"
-      }
+      },
+      "reason": "2026-10-13 運営者が YouTube の投稿を一旦止め、公開予約を外した（元の予約 2026-10-16T11:00:00Z）"
     },
     {
       "id": "civil-construction-2/gakka-2kyu-hoki/youtube.short.point-block1-2",
@@ -391,7 +396,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-2/gakka-2kyu-kiso/youtube.json#longform",
-      "status": "scheduled",
+      "status": "published",
       "publishAt": "2026-10-12T11:00:00Z",
       "approval": {
         "by": "user",
@@ -402,7 +407,12 @@
       "platform": {
         "id": "EaGr39dA7c8",
         "url": "https://www.youtube.com/watch?v=EaGr39dA7c8",
-        "privacy": "private"
+        "privacy": "public",
+        "publishedAt": "2026-10-12T11:00:32.000Z",
+        "evidence": {
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-10-12T22:35:49.647Z"
+        }
       },
       "times": {
         "rendered": "2026-09-05T05:31:28.856Z",
@@ -484,8 +494,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-2/gakka-2kyu-sekokeikaku/youtube.json#longform",
-      "status": "scheduled",
-      "publishAt": "2026-10-14T11:00:00Z",
+      "status": "uploaded_private",
       "approval": {
         "by": "user",
         "at": "2026-09-05T01:43:32.352Z",
@@ -509,7 +518,8 @@
       "media": {
         "cover": "civil-construction-2/gakka-2kyu-sekokeikaku/youtube.longform/cover",
         "cta": "civil-construction-2/gakka-2kyu-sekokeikaku/youtube.longform/cta"
-      }
+      },
+      "reason": "2026-10-13 運営者が YouTube の投稿を一旦止め、公開予約を外した（元の予約 2026-10-14T11:00:00Z）"
     },
     {
       "id": "civil-construction-2/gakka-2kyu-sekokeikaku/youtube.short.point-block1-2",
@@ -577,8 +587,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-2/gakka-kijutsu-2kyu/youtube.json#longform",
-      "status": "scheduled",
-      "publishAt": "2026-10-17T11:00:00Z",
+      "status": "uploaded_private",
       "approval": {
         "by": "user",
         "at": "2026-09-05T01:43:32.352Z",
@@ -602,7 +611,8 @@
       "media": {
         "cover": "civil-construction-2/gakka-kijutsu-2kyu/youtube.longform/cover",
         "cta": "civil-construction-2/gakka-kijutsu-2kyu/youtube.longform/cta"
-      }
+      },
+      "reason": "2026-10-13 運営者が YouTube の投稿を一旦止め、公開予約を外した（元の予約 2026-10-17T11:00:00Z）"
     },
     {
       "id": "civil-construction-2/gakka-kijutsu-2kyu/youtube.short.point-fields-1",
@@ -670,8 +680,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-2/keiken-2kyu-level/youtube.json#longform",
-      "status": "scheduled",
-      "publishAt": "2026-10-18T11:00:00Z",
+      "status": "uploaded_private",
       "approval": {
         "by": "user",
         "at": "2026-09-05T01:43:32.352Z",
@@ -695,7 +704,8 @@
       "media": {
         "cover": "civil-construction-2/keiken-2kyu-level/youtube.longform/cover",
         "cta": "civil-construction-2/keiken-2kyu-level/youtube.longform/cta"
-      }
+      },
+      "reason": "2026-10-13 運営者が YouTube の投稿を一旦止め、公開予約を外した（元の予約 2026-10-18T11:00:00Z）"
     },
     {
       "id": "civil-construction-2/keiken-2kyu-level/youtube.short.point-kata-2",
@@ -763,7 +773,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-2/keiken-anzen-2kyu-kakikata/youtube.json#longform",
-      "status": "scheduled",
+      "status": "published",
       "publishAt": "2026-10-11T11:00:00Z",
       "approval": {
         "by": "user",
@@ -774,7 +784,12 @@
       "platform": {
         "id": "FjhdM9A5vkw",
         "url": "https://www.youtube.com/watch?v=FjhdM9A5vkw",
-        "privacy": "private"
+        "privacy": "public",
+        "publishedAt": "2026-10-11T11:00:35.000Z",
+        "evidence": {
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-10-11T19:42:04.501Z"
+        }
       },
       "times": {
         "rendered": "2026-09-05T05:21:41.253Z",
@@ -954,8 +969,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-2/keiken-genten-kyotsuten/youtube.json#longform",
-      "status": "scheduled",
-      "publishAt": "2026-10-20T11:00:00Z",
+      "status": "uploaded_private",
       "approval": {
         "by": "user",
         "at": "2026-09-05T01:43:32.352Z",
@@ -974,7 +988,8 @@
       "media": {
         "cover": "civil-construction-2/keiken-genten-kyotsuten/youtube.longform/cover",
         "cta": "civil-construction-2/keiken-genten-kyotsuten/youtube.longform/cta"
-      }
+      },
+      "reason": "2026-10-13 運営者が YouTube の投稿を一旦止め、公開予約を外した（元の予約 2026-10-20T11:00:00Z）"
     },
     {
       "id": "civil-construction-2/keiken-genten-kyotsuten/youtube.short.point-kaigyo-2",
@@ -1042,8 +1057,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-2/keiken-hinshitsu-kakikata/youtube.json#longform",
-      "status": "scheduled",
-      "publishAt": "2026-10-13T11:00:00Z",
+      "status": "uploaded_private",
       "approval": {
         "by": "user",
         "at": "2026-09-05T01:43:32.352Z",
@@ -1067,7 +1081,8 @@
       "media": {
         "cover": "civil-construction-2/keiken-hinshitsu-kakikata/youtube.longform/cover",
         "cta": "civil-construction-2/keiken-hinshitsu-kakikata/youtube.longform/cta"
-      }
+      },
+      "reason": "2026-10-13 運営者が YouTube の投稿を一旦止め、公開予約を外した（元の予約 2026-10-13T11:00:00Z）"
     },
     {
       "id": "civil-construction-2/keiken-hinshitsu-kakikata/youtube.short.point-kadai-2",
@@ -1135,8 +1150,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-2/keiken-koji-ga-nai/youtube.json#longform",
-      "status": "scheduled",
-      "publishAt": "2026-10-19T11:00:00Z",
+      "status": "uploaded_private",
       "approval": {
         "by": "user",
         "at": "2026-09-05T01:43:32.352Z",
@@ -1160,7 +1174,8 @@
       "media": {
         "cover": "civil-construction-2/keiken-koji-ga-nai/youtube.longform/cover",
         "cta": "civil-construction-2/keiken-koji-ga-nai/youtube.longform/cta"
-      }
+      },
+      "reason": "2026-10-13 運営者が YouTube の投稿を一旦止め、公開予約を外した（元の予約 2026-10-19T11:00:00Z）"
     },
     {
       "id": "civil-construction-2/keiken-koji-ga-nai/youtube.short.point-taisho-1",
@@ -1228,8 +1243,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-2/keiken-kotei-kakikata/youtube.json#longform",
-      "status": "scheduled",
-      "publishAt": "2026-10-15T11:00:00Z",
+      "status": "uploaded_private",
       "approval": {
         "by": "user",
         "at": "2026-09-05T01:43:32.352Z",
@@ -1253,7 +1267,8 @@
       "media": {
         "cover": "civil-construction-2/keiken-kotei-kakikata/youtube.longform/cover",
         "cta": "civil-construction-2/keiken-kotei-kakikata/youtube.longform/cta"
-      }
+      },
+      "reason": "2026-10-13 運営者が YouTube の投稿を一旦止め、公開予約を外した（元の予約 2026-10-15T11:00:00Z）"
     },
     {
       "id": "civil-construction-2/keiken-kotei-kakikata/youtube.short.point-nagare-1",
@@ -1321,8 +1336,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-2/keiken-nendo-keiko-2kyu/youtube.json#longform",
-      "status": "scheduled",
-      "publishAt": "2026-10-21T11:00:00Z",
+      "status": "uploaded_private",
       "approval": {
         "by": "user",
         "at": "2026-09-05T01:43:32.352Z",
@@ -1341,7 +1355,8 @@
       "media": {
         "cover": "civil-construction-2/keiken-nendo-keiko-2kyu/youtube.longform/cover",
         "cta": "civil-construction-2/keiken-nendo-keiko-2kyu/youtube.longform/cta"
-      }
+      },
+      "reason": "2026-10-13 運営者が YouTube の投稿を一旦止め、公開予約を外した（元の予約 2026-10-21T11:00:00Z）"
     },
     {
       "id": "civil-construction-2/keiken-nendo-keiko-2kyu/youtube.short.point-gakka-fields-2",
@@ -1409,8 +1424,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-2/kikinagashi-2kyu-matome/youtube.json#longform",
-      "status": "scheduled",
-      "publishAt": "2026-10-22T11:00:00Z",
+      "status": "uploaded_private",
       "approval": {
         "by": "user",
         "at": "2026-09-05T01:43:32.352Z",
@@ -1429,7 +1443,8 @@
       "media": {
         "cover": "civil-construction-2/kikinagashi-2kyu-matome/youtube.longform/cover",
         "cta": "civil-construction-2/kikinagashi-2kyu-matome/youtube.longform/cta"
-      }
+      },
+      "reason": "2026-10-13 運営者が YouTube の投稿を一旦止め、公開予約を外した（元の予約 2026-10-22T11:00:00Z）"
     },
     {
       "id": "civil-construction-2/kikinagashi-2kyu-matome/youtube.short.point-soil-tests-1",

@@ -39,7 +39,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
-          node-version: "20"
+          node-version: "22"
           cache: "npm"
 
       - name: Install dependencies
@@ -434,7 +434,9 @@ jobs:
           fi
 
           git commit -m "chore(metrics): gsc+ga4 weekly fetch $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
-          git push origin develop
+          git fetch origin develop
+          git rebase origin/develop
+          git push origin HEAD:develop
 
       # 計測データは前ステップで commit 済み。異常は automation-failure Issue に記録し、復旧時に自動クローズする。
       # rc=1（計測異常・事業計測の取得失敗）と rc=2（検査不成立＝入力ファイルなし）は channel を分ける。

@@ -124,6 +124,9 @@ test('citation: class ごとの出典粒度を ref 詳細・本文・台帳 URL 
   assert.equal(checkCitationEvidence({ citation: 'section', source: law, ref: 'labor-safety-rules#第240条', articleText: '' }).ok, true);
   assert.equal(checkCitationEvidence({ citation: 'section', source: law, ref: 'labor-safety-rules', articleText: '第240条を確認する。' }).ok, true);
   assert.equal(checkCitationEvidence({ citation: 'section', source: law, ref: 'labor-safety-rules', articleText: '' }).ok, false);
+  // 過去問の記事は見出しの「問題 No.5」が箇所指定（条文の引用を外しても箇所は残る）
+  assert.equal(checkCitationEvidence({ citation: 'section', source: law, ref: 'labor-safety-rules', articleText: '## 問題 No.5\n' }).ok, true);
+  assert.equal(checkCitationEvidence({ citation: 'section', source: law, ref: 'labor-safety-rules', articleText: 'No.5 の問題' }).ok, false);
   assert.equal(checkCitationEvidence({ citation: 'title', source: law, ref: 'x', articleText: '' }).ok, true);
   assert.equal(checkCitationEvidence({ citation: 'name', source: law, ref: 'x', articleText: '' }).ok, true);
 });

@@ -21,6 +21,7 @@ import satori from 'satori';
 import sharp from 'sharp';
 import { readCatalog, readListings } from './lib/coconala-session.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { requireLocalAsset } from './lib/asset-storage.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
 import { REPO_ROOT as ROOT, COCONALA_CONTENT_ROOT } from './lib/repository-paths.mjs';
 
@@ -70,7 +71,8 @@ function productLine(id) {
 
 /** 級別 wide マスターから商品ライン別の窓を切り出して 1200×900 の data URI にする */
 async function croppedBgDataUri(examKey, line) {
-  const src = path.join(ROOT, BG_WIDE[examKey]);
+  // 背景は R2 に退避してある（素材の group ogp-background）。手元に無ければ取り戻し方を示して止まる
+  const src = requireLocalAsset(BG_WIDE[examKey]) ?? path.join(ROOT, BG_WIDE[examKey]);
   const x = CROP_X[line] ?? 560;
   const buf = await sharp(src)
     .extract({ left: x, top: 0, width: 889, height: 667 })

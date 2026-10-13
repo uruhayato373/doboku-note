@@ -7,12 +7,12 @@
 `content/sns/instagram/video-packs/{exam}/{sourcePackId}/slide-data.json` がカルーセル原稿、派生ディレクトリの `reels/script.json` がInstagram専用の台本。YouTubeの台本を直接読み上げない。校正で変えた論点は `coverHeadline` で表紙にも反映する。A案ロゴ・白/紺/青/黄・大きな見出し・既存の先生素材を共通レンダラーで使う。
 
 ```bash
-npm run instagram-carousels:render -- --all
+node scripts/render-instagram-video-pack-carousels.mjs --all
 VOICEVOX_BASE_URL=http://127.0.0.1:50021 npm run instagram-reels:render -- --all --concurrency 1
 npm run check-instagram-reels -- --media
-npm run instagram-campaign -- --check --media
-npm run instagram-campaign -- --gallery
-npm run instagram-campaign -- --schedule
+node scripts/instagram-campaign.mjs --check --media
+node scripts/instagram-campaign.mjs --gallery
+node scripts/instagram-campaign.mjs --schedule
 ```
 
 音声にはローカルのVOICEVOX（青山龍星）とffmpegを使う。「要＝かなめ」は読み辞書を通す。画像6〜10枚、動画30〜60秒、キャプションとプロフィール導線を検査する。動画は音声を含め全フレームをデコードした後に生成証跡を書く。原稿・テンプレート・出力SHAが変われば未完成へ戻る。途中停止時は同じコマンドで確認済み出力を再利用できる。字幕は数値・単位と日本語の語句をまとめ、CTAは文節ごとに表示する。説明画面は数値分断と1字だけの行も検査する。

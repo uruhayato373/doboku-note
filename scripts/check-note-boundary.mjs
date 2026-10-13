@@ -23,11 +23,18 @@ import { join, relative } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { REPO_ROOT, NOTE_CONTENT_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
 
 const ROOT_REL = relative(REPO_ROOT, ROOT).split('\\').join('/');
 const DEFAULT_BOUNDARY = '試験問題|予想問題';
-const STAGED = process.argv.includes('--staged');
-const ALL = process.argv.includes('--all');
+const STAGED = __argv.includes('--staged');
+const ALL = __argv.includes('--all');
 
 const fm = (raw, k) => { const m = raw.match(new RegExp('^' + k + ':[ \\t]*(.*)$', 'm')); return m ? m[1].trim().replace(/^["']|["']$/g, '') : null; };
 const stripFm = (raw) => raw.replace(/^---[\s\S]*?---\r?\n/, '');
@@ -76,13 +83,17 @@ if (ALL) {
   console.log(`=== note 有料境界チェック（${checked} 件・paid published）===`);
   console.log(`境界未解決: ${violations.length}`);
   for (const v of violations) console.log(`  ✗ ${v.f}\n      ${v.reason}`);
-  process.exit(0);
+  __exit(0);
 }
 if (!violations.length) {
   console.log(`[check-note-boundary] ✓ ${scope}${checked} 件の paid 記事は有料境界が全て解決可能`);
-  process.exit(0);
+  __exit(0);
 }
 console.error(`[check-note-boundary] ✗ 有料境界が未解決の記事 ${violations.length} 件（${scope}${checked} 件中）:`);
 for (const v of violations) console.error(`     ${v.f}\n       ${v.reason}`);
 console.error(`\n  frontmatter に paidBoundary（境界H2の先頭一致）を付与してください。SSOT: .claude/knowledge/reference/note-api-verification.md`);
-process.exit(1);
+__exit(1);
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

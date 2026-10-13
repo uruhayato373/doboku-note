@@ -40,7 +40,7 @@ test('検査ゼロ（ナビ一覧 0 件）は PASS ではなく検査不成立',
   assert.ok(i > 0, 'listsFound === 0 の分岐が無い');
   const block = SRC.slice(i, i + 600);
   assert.ok(
-    block.includes('process.exit(1)'),
+    block.includes('__exit(1)'), // run() に包んだ（DN-0688）ので process.exit は runBody が渡す __exit になっている
     '0 件のときに exit 1 していない（「混入なし」と「1 箇所も見ていない」が同じ緑になる）',
   );
 });

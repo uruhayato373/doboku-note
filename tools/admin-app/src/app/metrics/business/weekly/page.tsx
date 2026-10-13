@@ -1,6 +1,6 @@
 import { PageHead } from '@/components/ui';
 import { Section, Stack } from '@/components/layout';
-import { Checklist, Current, Outcome, ReviewUnavailable, RunPicker, loadReview } from '../review-parts';
+import { AutomationStatus, Checklist, Current, Outcome, ReviewUnavailable, RunPicker, loadReview } from '../review-parts';
 
 export const dynamic = 'force-dynamic';
 
@@ -14,9 +14,10 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ r
       <PageHead title="週次レビュー" />
       <RunPicker base="/metrics/business/weekly" options={d.options} selected={d.selected.key} />
       <Section title="実施状況">
-        <Current sel={d.selected} />
+        <Current sel={d.selected} cadenceId="weekly" />
       </Section>
       {d.procedure && <Checklist procedure={d.procedure} />}
+      <AutomationStatus a={d.automation} cadenceId="weekly" />
       {d.cadence && <Outcome c={d.cadence} review={d.selected.review} gate={d.selected.current ? d.gate : null} />}
     </Stack>
   );

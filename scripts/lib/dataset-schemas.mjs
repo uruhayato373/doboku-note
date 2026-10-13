@@ -58,10 +58,12 @@ export const NoteSalesLog = z
             count: count('取引件数'),
             total: yen('月の販売総額'),
             finalized: z.boolean().describe('ダッシュボードの月次総額と突合して確定したか'),
+            net: yen('手数料控除後売上（売上管理の月別詳細。note の確定日＝翌月 2 日以降だけ出る）').optional(),
+            fee: yen('手数料（売上管理の月別詳細の手数料の絶対値）').optional(),
           })
           .strict(),
       )
-      .describe('月ごとの取得記録。取得したときの件数と総額で、その月の sales の行と一致する（note-sales-fetch が月ごと差し替える）'),
+      .describe('月ごとの取得記録。取得したときの件数と総額で、その月の sales の行と一致する（note-sales-fetch が月ごと差し替える）。net・fee は確定後に月別詳細から読めた月だけ持つ'),
   })
   .strict()
   .superRefine((log, ctx) => {
@@ -95,7 +97,7 @@ export const KdpRoyalties = z
         z
           .object({
             fetchedAt: utcTime('取得時刻'),
-            range: z.object({ start: jstDate('集計の開始日'), end: jstDate('集計の終了日') }).strict().describe('集計の期間（その月の 1 日〜月末）'),
+            range: z.object({ start: jstDate('集計の開始日'), end: jstDate('集計の終了日') }).strict().describe('集計の期間（その月の 1 日〜月末。推計の当月は取得日まで）'),
             estimated: z.boolean().describe('推計値なら true（KENP の確定前）'),
             total: z.object({ bookCount: count('本の数'), ...kdpAmounts, royalty: signedYen('ロイヤリティの合計') }).strict().describe('アカウント全体の合計。royalty は 3 項目の合計（各項目の丸めで 1 円ずれうる）'),
             kenpPagesRead: orNull(count('KENP の既読ページ数（マーケットプレイスの合計）'), 'マーケットプレイス別を読めなかった月は null'),
@@ -148,8 +150,11 @@ export const KdpRoyalties = z
   .superRefine((log, ctx) => {
     for (const [m, e] of Object.entries(log.months)) {
       const at = (...path) => ['months', m, ...path];
-      if (e.range.start !== `${m}-01` || e.range.end !== `${m}-${String(lastDayOfMonth(m)).padStart(2, '0')}`) {
-        flag(ctx, at('range'), `集計の期間 ${e.range.start}〜${e.range.end} が ${m} の 1 日〜月末ではない`);
+      // 推計の月は月の途中まで（週次で当月を取る・2026-10-11）。確定の月は 1 日〜月末
+      const monthEnd = `${m}-${String(lastDayOfMonth(m)).padStart(2, '0')}`;
+      const endOk = e.estimated ? e.range.end.startsWith(`${m}-`) && e.range.end <= monthEnd : e.range.end === monthEnd;
+      if (e.range.start !== `${m}-01` || !endOk) {
+        flag(ctx, at('range'), `集計の期間 ${e.range.start}〜${e.range.end} が ${m} の 1 日〜${e.estimated ? '月内' : '月末'}ではない`);
       }
       // 3 項目はそれぞれ丸めて表示されるので、合計が 1 円ずれることがある
       if (!sumEquals([e.total.ebook, e.total.print, e.total.kenp], e.total.royalty, 1)) flag(ctx, at('total', 'royalty'), `royalty ${e.total.royalty} が ebook＋print＋kenp と合わない`);
@@ -173,6 +178,32 @@ export const KdpRoyalties = z
   })
   .meta({ title: 'KDP のロイヤリティ' });
 
+
+/** ココナラの売上履歴（data/coconala/revenue.json）。手数料控除後・トークルームのクローズ日で計上。購入者・サービス名は記録しない */
+export const CoconalaRevenue = z
+  .object({
+    schemaVersion: z.literal(1),
+    fetchedAt: utcTime('最後に売上履歴を読んだ時刻'),
+    source: z.string().describe('取得元'),
+    cumulativeYen: yen('売上実績の「累積売上」（サービス）。rows の合計と一致したときだけ書く'),
+    rows: z
+      .array(
+        z
+          .object({
+            closedAt: jstDate('売上に計上された日（トークルームのクローズ日）'),
+            talkroomId: z.string().regex(/^\d+$/).describe('トークルーム番号'),
+            kind: z.enum(['service', 'tip']).describe('サービスの売上・おひねり'),
+            netYen: yen('手数料控除後の売上'),
+          })
+          .strict(),
+      )
+      .describe('売上履歴の 1 行 1 件（新しい順）'),
+  })
+  .strict()
+  .superRefine((log, ctx) => {
+    if (!sumEquals(log.rows.map((r) => r.netYen), log.cumulativeYen)) flag(ctx, ['cumulativeYen'], `累積売上 ${log.cumulativeYen} が rows の合計と合わない`);
+  })
+  .meta({ title: 'ココナラの売上履歴' });
 
 /** 受注 1 件の型（版の欄を除く）。版つきの型 CoconalaOrders がこれに版の欄を足す */
 const CoconalaOrderRow = z

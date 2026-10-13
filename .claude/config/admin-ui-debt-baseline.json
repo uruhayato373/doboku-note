@@ -1,60 +1,11 @@
 {
   "_comment": "check-admin-ui-debt のラチェット基準値。ページごとの生 card クラス・インライン style・生の <table>・生の badge クラスの件数。増えたら CI が落ちる。shadcn 部品へ移して減らしたら `node scripts/check-admin-ui-debt.mjs --update` で下げる（DN-0432）。",
-  "_updatedAt": "2026-10-07",
+  "_updatedAt": "2026-10-12",
   "totals": {
     "rawCard": 0,
-    "inlineStyle": 21,
+    "inlineStyle": 0,
     "rawTable": 0,
     "rawBadge": 0
   },
-  "files": {
-    "tools/admin-app/src/app/affiliate/page.tsx": {
-      "rawCard": 0,
-      "inlineStyle": 3,
-      "rawTable": 0,
-      "rawBadge": 0
-    },
-    "tools/admin-app/src/app/materials/page.tsx": {
-      "rawCard": 0,
-      "inlineStyle": 6,
-      "rawTable": 0,
-      "rawBadge": 0
-    },
-    "tools/admin-app/src/app/metrics/kpi/page.tsx": {
-      "rawCard": 0,
-      "inlineStyle": 1,
-      "rawTable": 0,
-      "rawBadge": 0
-    },
-    "tools/admin-app/src/app/plan/roadmap/page.tsx": {
-      "rawCard": 0,
-      "inlineStyle": 1,
-      "rawTable": 0,
-      "rawBadge": 0
-    },
-    "tools/admin-app/src/app/product/status/page.tsx": {
-      "rawCard": 0,
-      "inlineStyle": 2,
-      "rawTable": 0,
-      "rawBadge": 0
-    },
-    "tools/admin-app/src/app/skills/page.tsx": {
-      "rawCard": 0,
-      "inlineStyle": 2,
-      "rawTable": 0,
-      "rawBadge": 0
-    },
-    "tools/admin-app/src/app/sns/page.tsx": {
-      "rawCard": 0,
-      "inlineStyle": 4,
-      "rawTable": 0,
-      "rawBadge": 0
-    },
-    "tools/admin-app/src/app/strategy/competitors/page.tsx": {
-      "rawCard": 0,
-      "inlineStyle": 2,
-      "rawTable": 0,
-      "rawBadge": 0
-    }
-  }
+  "files": {}
 }

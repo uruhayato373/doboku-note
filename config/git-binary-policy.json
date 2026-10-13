@@ -186,13 +186,6 @@
       ]
     },
     {
-      "path": "config/ogp/backgrounds/",
-      "reason": "資格別ブランド写真プール。note カバーとサイト OGP の再生成入力そのもので、これを外すと REGENERATE 分類が再生成不能になる",
-      "appliesTo": [
-        "size"
-      ]
-    },
-    {
       "path": "public/",
       "reason": "サイトが直接配信する静的アセットの原本。R2 ではなく Next.js のビルド入力",
       "appliesTo": [
@@ -215,17 +208,17 @@
       ]
     },
     {
-      "path": ".claude/state/assets/drive-manifest.json",
-      "reason": "Google Drive vault 退避の台帳（drive-vault.json 系・2026-09-05）。R2 側の manifest.json と同じ理由で Git に置くしかない。2026-09-06（DN-0172）に lean format（導出できる vaultPath / regenerable を省き・1 エントリ 1 行）へ変換して 12.9 → 7.8 MiB（23,485 件）。それでも JSON 上限 4 MiB を超えるので size のみ例外。",
+      "path": "src/config/civil-1-exam-questions.json",
+      "reason": "1級土木の一次過去問の演習データ（parse-civil-1-questions が記事から作り直す生成物。Web 演習・iOS アプリ・SNS パックが読む）。2026-10-11（DN-0623）に平成18・21・22・24年度を足して 1,546 問・4.1 MiB になり JSON 上限 4 MiB を超えた。字下げを無くせば 3.1 MiB になるが、差分が 1 行になり問題ごとの変更を追えなくなるので size のみ例外にする。年度を足し続けて 6 MiB を超えるなら、年度ごとのファイルに分けるか字下げ無しを検討する。",
       "appliesTo": [
         "size"
       ]
     },
     {
-      "path": "scripts/kindle-dist/",
-      "reason": "KDP 入稿済み EPUB+表紙 jpg。drive-vault.json の kindle-dist group で Google Drive vault（制作物/Kindle/）へ控えを持つが、check-kindle-format.mjs が ci:true で CI がこの Git 実体を直接検査するため untrack はしない（DN-0151(3) 決着）。Git が正本、Drive は控え。untrack するには (i) 全冊再ビルドの内容一致検証 (ii) check-kindle-format の CI 実体依存問題の解決 の両方が要る。",
+      "path": ".claude/state/assets/drive-manifest.json",
+      "reason": "Google Drive vault 退避の台帳（drive-vault.json 系・2026-09-05）。R2 側の manifest.json と同じ理由で Git に置くしかない。2026-09-06（DN-0172）に lean format（導出できる vaultPath / regenerable を省き・1 エントリ 1 行）へ変換して 12.9 → 7.8 MiB（23,485 件）。それでも JSON 上限 4 MiB を超えるので size のみ例外。",
       "appliesTo": [
-        "generated-ebook"
+        "size"
       ]
     }
   ]

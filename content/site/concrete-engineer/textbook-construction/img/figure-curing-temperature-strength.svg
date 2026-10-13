@@ -1,0 +1,32 @@
+<!-- authored 2026-10-10 doboku-note 自作。養生温度と水分による強度の伸びを示す概念図（数値なし）。書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="養生温度と強度の伸びの概念図。高温養生は初期に強度が出るが長期は小さく、低温養生は初期は遅いが長期に最も大きくなる。乾燥すると途中で伸びが止まる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .h { font-size: 12px; font-weight: 700; fill: #1a3a5c; }
+      .ax { stroke: #555; stroke-width: 1.5; fill: none; }
+      .c { stroke-width: 2.5; fill: none; }
+    </style>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+  </defs>
+  <text class="h" x="200" y="22" text-anchor="middle">早く強度が出る養生ほど、後の伸びは小さい</text>
+  <rect x="20" y="36" width="360" height="330" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+  <line class="ax" x1="56" y1="336" x2="56" y2="56" marker-end="url(#ar)"/>
+  <line class="ax" x1="56" y1="336" x2="362" y2="336" marker-end="url(#ar)"/>
+  <text x="62" y="62">強度</text>
+  <text x="358" y="354" text-anchor="end">材齢（時間の経過）</text>
+  <path class="c" stroke="#3a7d44" d="M56,336 C110,330 150,262 205,200 S300,110 350,92"/>
+  <path class="c" stroke="#2e6da4" d="M56,336 C92,300 130,214 180,184 S290,142 350,128"/>
+  <path class="c" stroke="#b22234" d="M56,336 C70,270 90,190 130,160 S220,152 350,152"/>
+  <path class="c" stroke="#8a8a8a" stroke-dasharray="5 4" d="M56,336 C80,300 100,262 130,246 L350,246"/>
+  <text x="200" y="268">乾燥すると水和が止まり頭打ち</text>
+  <rect x="20" y="376" width="360" height="82" rx="6" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+  <line x1="34" y1="394" x2="62" y2="394" stroke="#b22234" stroke-width="2.5"/>
+  <text x="72" y="398">高温養生：初期は大きい、長期は小さい</text>
+  <line x1="34" y1="414" x2="62" y2="414" stroke="#2e6da4" stroke-width="2.5"/>
+  <text x="72" y="418">標準的な温度：中間</text>
+  <line x1="34" y1="434" x2="62" y2="434" stroke="#3a7d44" stroke-width="2.5"/>
+  <text x="72" y="438">低温養生（凍結なし）：初期は遅い、長期は最大</text>
+  <rect x="20" y="468" width="360" height="26" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+  <text class="h" x="200" y="485" text-anchor="middle">曲線は傾向を示す概念図で、数値ではない</text>
+</svg>

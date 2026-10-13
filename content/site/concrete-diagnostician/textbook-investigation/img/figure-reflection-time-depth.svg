@@ -1,0 +1,60 @@
+<!-- authored 2026-10-10 doboku-note 自作。題材はコンクリート診断士教材の反射波による欠陥深さの算定。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="反射波で欠陥の深さを求める考え方。表面のセンサから送った波が欠陥で反射して戻る往復時間と波の速度から深さを算定する。超音波、衝撃弾性波、電磁波レーダごとの算定式を並べる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .t-lb   { font-size: 11px; fill: #1a3a5c; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-eq   { font-size: 12px; fill: #222; }
+      .conc   { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .box-b  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-g  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-r  { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .go     { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .back   { stroke: #8a8a8a; stroke-width: 2; stroke-dasharray: 4 3; fill: none; }
+      .dim    { stroke: #555; stroke-width: 1; fill: none; }
+    </style>
+    <marker id="ab" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ag" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#8a8a8a"/></marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">深さは往復時間か共振周波数から求める</text>
+  <text class="t-sec" x="20" y="38">反射法の基本</text>
+
+  <rect class="conc" x="60" y="70" width="280" height="140"/>
+  <rect class="box-b" x="185" y="54" width="60" height="16" rx="3"/>
+  <text class="t-lb" x="215" y="66" text-anchor="middle">センサ</text>
+  <line class="go" x1="203" y1="72" x2="203" y2="136" marker-end="url(#ab)"/>
+  <line class="back" x1="227" y1="140" x2="227" y2="76" marker-end="url(#ag)"/>
+  <rect class="box-r" x="185" y="140" width="60" height="14" rx="3"/>
+  <text class="t-lb" x="255" y="151">欠陥</text>
+  <line class="dim" x1="150" y1="70" x2="150" y2="140"/>
+  <line class="dim" x1="144" y1="70" x2="156" y2="70"/>
+  <line class="dim" x1="144" y1="140" x2="156" y2="140"/>
+  <text class="t-lb" x="142" y="109" text-anchor="end">深さ d</text>
+  <text class="t-desc" x="203" y="180" text-anchor="middle">往きと戻りで 2d を進む</text>
+  <text class="t-eq" x="200" y="238" text-anchor="middle">d ＝ v × t ÷ 2（v：波の速度、t：往復時間）</text>
+
+  <text class="t-sec" x="20" y="268">方法ごとの深さの出し方</text>
+
+  <rect class="box-b" x="20" y="276" width="360" height="54" rx="6"/>
+  <text class="t-name" x="35" y="298">超音波（反射法）</text>
+  <text class="t-eq" x="35" y="318">d ＝ v × t ÷ 2</text>
+
+  <rect class="box-w" x="20" y="345" width="360" height="54" rx="6"/>
+  <text class="t-name" x="35" y="367">衝撃弾性波</text>
+  <text class="t-eq" x="35" y="387">共振周波数 f から d ＝ v ÷ (2f)</text>
+
+  <rect class="box-g" x="20" y="414" width="360" height="54" rx="6"/>
+  <text class="t-name" x="35" y="436">電磁波レーダ</text>
+  <text class="t-eq" x="35" y="456">d ＝ c × t ÷ (2√εr)　εr：比誘電率</text>
+
+  <text class="t-desc" x="200" y="488" text-anchor="middle">水分が多いと速度が変わり、深さがずれる</text>
+</svg>

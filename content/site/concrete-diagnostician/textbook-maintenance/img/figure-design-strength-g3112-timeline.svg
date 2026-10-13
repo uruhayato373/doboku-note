@@ -1,0 +1,53 @@
+<!-- authored 2026-10-10 doboku-note 自作。題材はコンクリート診断士テキスト「維持管理・基準」の論点。一次資料の年表を再構成したもので、特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="鉄筋コンクリート用棒鋼JIS G 3112の改正史と、設計基準強度の竣工年別の最頻値を並べた年表。1964年制定、1985年にSD30をAとBに区分、1991年にSI表示へ全面切替、2020年にSD295Bを廃止">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; fill: #555; font-size: 12px; }
+      .h { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .y { font-weight: bold; fill: #1a3a5c; }
+      .b { font-weight: bold; fill: #1a3a5c; }
+      .m { font-size: 11px; fill: #555; }
+      .row { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1; }
+      .key { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .band { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="h" x="22" y="22">年</text>
+  <text class="h" x="84" y="22">内容</text>
+  <line x1="16" y1="30" x2="366" y2="30" stroke="#d7d7d7" stroke-width="1"/>
+  <rect class="band" x="16" y="36" width="350" height="22" rx="4"/>
+  <text class="h" x="24" y="51">鉄筋 JIS G 3112 の改正</text>
+  <rect class="row" x="16" y="63" width="350" height="54" rx="4"/>
+  <text class="y" x="22" y="85">1964年</text>
+  <text class="b" x="84" y="85">制定(降伏点を kgf/mm² で表示)</text>
+  <text x="84" y="103">SR24・SR30、SD24〜SD50</text>
+  <rect class="key" x="16" y="122" width="350" height="54" rx="4"/>
+  <text class="y" x="22" y="144">1985年</text>
+  <text class="b" x="84" y="144">SD30を A と B に区分</text>
+  <text x="84" y="162">SD30B以上に降伏点の上限を追加</text>
+  <rect class="row" x="16" y="181" width="350" height="54" rx="4"/>
+  <text class="y" x="22" y="203">1987〜</text>
+  <text class="y" x="22" y="221">91年</text>
+  <text class="b" x="84" y="203">SI単位を併記(1987)</text>
+  <text x="84" y="221">1991年1月から全面SI(SD295A等)</text>
+  <rect class="row" x="16" y="240" width="350" height="54" rx="4"/>
+  <text class="y" x="22" y="262">2020年</text>
+  <text class="b" x="84" y="262">SD295Bを廃止、SD295AはSD295</text>
+  <text x="84" y="280">高強度の SD590A〜SD785R を追加</text>
+  <rect class="band" x="16" y="299" width="350" height="22" rx="4"/>
+  <text class="h" x="24" y="314">設計基準強度の例</text>
+  <rect class="row" x="16" y="326" width="350" height="72" rx="4"/>
+  <text class="y" x="22" y="348">建築</text>
+  <text class="b" x="84" y="348">大阪府の学校RC造(竣工年別の最多)</text>
+  <text x="84" y="366">〜1960頃 Fc15、1960〜70頃 Fc18</text>
+  <text x="84" y="384">1970頃〜 Fc21</text>
+  <rect class="row" x="16" y="403" width="350" height="72" rx="4"/>
+  <text class="y" x="22" y="425">土木</text>
+  <text class="b" x="84" y="425">カルバートの標準的な材料</text>
+  <text x="84" y="443">1975年 210kgf/cm²、鉄筋SD30</text>
+  <text x="84" y="461">1999年 24N/mm²、鉄筋SD345</text>
+</svg>

@@ -14,7 +14,14 @@ export function stripMarkdown(value) {
     .trim();
 }
 
-export function renderQuizMarkdown(value) {
+// 問題文の空欄（「より ア な構造体」のように空白で挟んだア〜コ 1 文字。段落の先頭も含む）。空白だけでは空欄に見えないので枠を付ける。
+// 括弧の中（「（ ア ）」）は空欄のことも記述の記号のこともあり、括弧で見分けられるので付けない。「ア → イ」の並びと表の見出し（<th>ア</th>）も外す
+const BLANK_PATTERN = /(?<![→⇒（(][ \u3000]+)(?<=[ \u3000]|<p>)([ア-コ])(?=[ \u3000])(?![ \u3000]+[→⇒）)])/gu;
+// 記号のない空欄（「次の記述の、　　　　に入る語句」のように全角空白が 3 つ以上続き「に入る」「に当てはまる」が続くもの）
+const EMPTY_BLANK_PATTERN = /(?<![（(])\u3000{3,}(?=に(?:入|当て|あて))/gu;
+
+/** @param {string} value @param {{ blanks?: boolean }} [options] blanks: 問題文の空欄を枠（span.quiz-blank）にする */
+export function renderQuizMarkdown(value, { blanks = false } = {}) {
   const htmlTokens = [];
   const token = (html) => {
     const key = `QUIZHTMLTOKEN${htmlTokens.length}END`;
@@ -44,6 +51,11 @@ export function renderQuizMarkdown(value) {
       .use(remarkHtml, { sanitize: false })
       .processSync(source),
   ).trim();
+  if (blanks) {
+    html = html
+      .replace(BLANK_PATTERN, '<span class="quiz-blank">$1</span>')
+      .replace(EMPTY_BLANK_PATTERN, '<span class="quiz-blank">\u3000</span>');
+  }
   html = html.replace(/QUIZHTMLTOKEN(\d+)END/g, (_, i) => htmlTokens[Number(i)] || '');
   return html;
 }

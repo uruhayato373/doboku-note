@@ -102,7 +102,7 @@ domain: strategy
   サイクルが閉じない（EXP-004 は 27 日、EXP-005 は 4 日以上放置された実績がある）。
 - **内部リンク健全性**: 公開ページの壊れた内部リンクは CI ゲート（quality-audit `internal-links`・ci:true）が止める。GSC の理由別 CSV との突合は `/google-search-growth` で行う（週次では実行しない）。
 - A8 成果取込期限（月次）: 日次の ops 点検（quality-audit の `ops:true`・赤は automation-failure Issue channel ops・復旧で自動クローズ）の `a8-report-due` が 30 日超を知らせる（週次では実行しない）。Issue が開いている週だけ `/a8-report` を申し送る。掲載中の広告の未集計・混入疑い（`issues[]`）は `/a8-report` の中で扱う。
-- **note の記事単位の同期（2026-09-29〜）**: 反映は Mac の launchd `note-sync`（日曜 3:00・1 記事 1 回の更新）が行う。週次では**結果を読むだけ**: `data/note/sync-log.json` の最新 run（更新した記事と部品・失敗・問題）と `npm run note-sync-plan`（反映待ち・止まっている記事と直し方）。管理画面 `/content/note-sync` でも同じものが見える。止まっている記事（中断・会員特典の公開範囲未指定・画像欠け・有料境界の見出しが無い・価格変更）はカードの直し方どおりに次セッションで直す。sync-log の最新 run が 8 日より古ければ launchd が止まっている（Mac で launchd `note-sync` の状態を確認する）。旧 `/docs` → 新 URL の張り替えだけの「301 等価」は同期の対象にしない（`check-note-republish` が別に数える）。
+- **note の記事単位の同期（2026-09-29〜）**: 反映は Mac の launchd `note-sync`（日曜 3:00・1 記事 1 回の更新）が行う。週次では**結果を読むだけ**: `data/note/sync-log.json` の最新 run（更新した記事と部品・失敗・問題）と `npm run note-sync-plan`（反映待ち・止まっている記事と直し方）。管理画面 `/content/note-sync` でも同じものが見える。止まっている記事（中断・会員特典の公開範囲未指定・画像欠け・有料境界の見出しが無い・価格変更）はカードの直し方どおりに次セッションで直す。launchd が止まっていないかは日次の ops 点検（quality-audit の `ops:true`）の `note-sync-freshness` が見る（同期の記録の最新が台帳 `note.sync-log` の freshness を超えたら FAIL・週次では実行しない）。Issue が開いていれば Mac で launchd `note-sync` の状態とログを確認する。旧 `/docs` → 新 URL の張り替えだけの「301 等価」は同期の対象にしない（`check-note-republish` が別に数える）。
 - note 構成監査: 有料境界の破損（FULL_LOCK/PAYWALL_LEAK/BOUNDARY_SHIFT 等）は週次 CI `note-live-audit.yml` が検査し、失敗は同ワークフローの Issue で届く（週次では実行しない）。
 
   **出力の「実検査 N本（対象M・取得失敗K）」を必ず読む**。live 系の検査は取得できていなければ「異常なし」ではなく「検査できていない」＝ N が対象数から大きく欠けていたら結果を信用しない（取得失敗率 >20% ならスクリプト側が exit 1 で落とす）。2026-07-28 まで 675/675 が取得失敗でも緑を返していた実績がある。同種の live 検査 `check-note-live-headings` も同じ観点で見る。
@@ -269,6 +269,7 @@ B. 実験進捗レポート:
 sales.json が 34 日止まっていたことに誰も気づかず、下流のガードレールが「売上は停止中」という
 前提を1か月抱えたままだった。
 - 売上転記の停滞（note-sales-fetch）と KDP ロイヤリティの取得停止は、日次の ops 点検（quality-audit の `ops:true`・赤は automation-failure Issue channel ops・復旧で自動クローズ）の `sales-freshness`・`kdp-report-freshness` が知らせる（週次では実行しない）。Issue が開いていれば**カバレッジの議論より先に**対象月・不足を報告する。カバレッジは流入 × 配線であって実売ではないので、転記が止まっていると収益の実態が欠けたまま議論が進む。KDP は note の sales.json と粒度が異なるため混ぜない。
+- 月の受取額（手数料控除後）は下書きの「月の受取額」節（管理画面トップと同じ集計・今月の途中経過と前月・チャネルごとに確定／途中／推計／未取得）をそのまま載せる。未取得のチャネルがあれば、その取得（login-collectors の note・coconala・kdp）が今週動いたかを先に確かめる。
 - Issue が無ければ `npm run sales-summary` の当月行（件数・金額）を 1 行で載せる。
   「異常なし」ではなく**実検査件数と最終転記日**を書くこと。
 

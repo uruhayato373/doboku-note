@@ -116,7 +116,7 @@ gh api repos/uruhayato373/doboku-note/environments   # 方針に応じて0件 or
 
 ## 関連
 
-- `scripts/check-workflow-hygiene.mjs` — SHA-pin/permissions/timeout-minutesの機械ゲート（既に対応済み・本ドキュメントの対象外）
+- `scripts/check-workflow-hygiene.mjs` — SHA-pin/permissions/timeout-minutes・develop へ rebase 無しで push する run:（2026-10-11 追加・競合で記録が落ちる）・node-version の 22 統一（2026-10-11 追加・20 と 22 の混在を止める）の機械ゲート（既に対応済み・本ドキュメントの対象外）
 - `.github/workflows/r2-delete.yml` — 既に良い設計の参考実装（workflow_dispatch限定・dry-run既定）
 - `.claude/knowledge/reference/playwright-auth-profiles.md` §CI — encrypted-stateの詳細設計
 - CLAUDE.md §10「重要なステップごとにチェックポイントを置く」— 複数セッション常態下でのforce-pushの危険性

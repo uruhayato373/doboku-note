@@ -16,6 +16,7 @@
 import { execFileSync } from 'node:child_process';
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
+import { escapeRegExp } from './regexp-escape.mjs';
 
 /**
  * 置き場。strict の置き場（config/・data/）は JSON に型が必須で、コードのパスの直書きを止める。
@@ -134,7 +135,7 @@ export const DATASETS = [
   d('config.public-view-breakpoints', 'config/public-view-breakpoints.json', 'config', 'site', '公開ページの見え方検査の画面幅', { schema: 'ConfigPublicViewBreakpoints' }),
   d('config.standards-structure', 'config/standards-structure.json', 'config', 'site', '土木工事共通仕様書の構造化の設定', { schema: 'ConfigStandardsStructure' }),
   d('config.ogp-settings', 'config/ogp/settings.json', 'config', 'site', 'OGP の設定（テンプレートの自動選定・定義＝note カバー共通・タイトルの改行と字の大きさ）', { schema: 'ConfigOgpSettings' }),
-  d('config.ogp-backgrounds', 'config/ogp/backgrounds/{name}.png', 'config', 'site', 'OGP の資格別の背景画像'),
+  d('config.ogp-backgrounds', 'config/ogp/backgrounds/{name}.png', 'config', 'site', 'OGP の資格別の背景画像（AI で作った一点物。実体は private R2・素材の group ogp-background。2026-10-10 に git から外した）', { local: true, regen: 'npm run asset-hydrate -- --group ogp-background（R2 から取り戻す。作り直しは scripts/generate-ogp-backgrounds.mjs だが同じ画素は再現しない）' }),
   // SNS
   d('config.x-account', 'config/x-account.json', 'config', 'sns', 'X のアカウントとプロフィール', { schema: 'ConfigXAccount' }),
   d('config.x-repost', 'config/x-repost.json', 'config', 'sns', 'X の引用リポストの設定', { schema: 'ConfigXRepost' }),
@@ -156,6 +157,8 @@ export const DATASETS = [
   d('registry.media', 'content/registry/media/{name}', 'config', 'sns', 'コンテンツ台帳: 素材（資格ごと・brand）', { schema: 'RegistryMedia' }),
   // 教材
   d('config.reference-sources', 'config/reference-sources.json', 'config', 'material', '参考文献（原本・一次資料）の区分と扱い', { schema: 'ConfigReferenceSources' }),
+  d('config.content-series', 'config/content-series.json', 'config', 'site', 'サイト記事のシリーズ企画（目次・計画・根拠。状態は記事の実体から出す）', { schema: 'ConfigContentSeries' }),
+  d('config.content-series-basis', 'config/content-series-basis.json', 'config', 'site', '書籍の全項目をシリーズの項目・記事に割り当てる（使わない項目は理由）。項目 id だけで見出しは持たない', { schema: 'ConfigContentSeriesBasis' }),
   // 管理
   d('config.domains', 'config/domains.json', 'config', 'ops', '事業の領域・サイドバー・文書の割り当て', { schema: 'DomainsConfig' }),
   d('config.asset-storage', 'config/asset-storage.json', 'config', 'ops', 'R2 に置くアセットの置き場', { schema: 'ConfigAssetStorage' }),
@@ -171,14 +174,15 @@ export const DATASETS = [
   d('note.sales', 'data/note/sales.json', 'ledger', 'product', 'note の販売履歴（1 取引 1 行・購入者は記録しない）', { schema: 'NoteSalesLog', freshness: { warnDays: 10, failDays: 21 } }),
   d('note.magazines', 'data/note/magazines.json', 'state', 'product', 'note のマガジンと収録記事の公開状態（週次の取得）', { schema: 'NoteMagazines', freshness: { failDays: 9 } }),
   d('note.status', 'data/note/status.json', 'state', 'product', 'note 記事の公開状態の要約（週次の取得）', { freshness: { failDays: 9 }, schema: 'NoteStatusSnapshot' }),
-  d('note.sync-log', 'data/note/sync-log.json', 'ledger', 'product', '原稿から note への反映の記録', { schema: 'NoteSyncLog' }),
+  d('note.sync-log', 'data/note/sync-log.json', 'ledger', 'product', '原稿から note への反映の記録', { schema: 'NoteSyncLog', freshness: { failDays: 8 } }),
   d('note.articles-pv', 'data/note/articles-pv/{month}.json', 'series', 'product', 'note の記事別の月間 PV', { schema: 'NoteArticlesPv' }),
   d('note.referrers', 'data/note/referrers/{month}.json', 'series', 'product', 'note の月間の流入元', { schema: 'NoteReferrers' }),
   d('note.competitors', 'data/note/competitors/{date}.json', 'series', 'strategy', 'note の競合クリエイターの商品と価格（四半期・全社の通常実行だけ）', { retain: { family: 'competitors', keepAll: true }, freshness: { warnDays: 90 }, schema: 'NoteCompetitors' }),
   // KDP
-  d('kdp.royalties', 'data/kdp/royalties.json', 'ledger', 'product', 'KDP の月ごとのロイヤリティ（当月は推計）', { schema: 'KdpRoyalties' }),
+  d('kdp.royalties', 'data/kdp/royalties.json', 'ledger', 'product', 'KDP の月ごとのロイヤリティ（当月と確定前の前月は推計。週次で取り直す）', { schema: 'KdpRoyalties' }),
   // ココナラ
   d('coconala.orders', 'data/coconala/orders.json', 'ledger', 'product', 'ココナラの受注の記録', { schema: 'CoconalaOrders' }),
+  d('coconala.revenue', 'data/coconala/revenue.json', 'ledger', 'product', 'ココナラの売上履歴（手数料控除後・クローズ日で計上。週次で取り直す）', { schema: 'CoconalaRevenue', freshness: { warnDays: 10, failDays: 21 } }),
   d('coconala.orders-snapshot', 'data/coconala/orders-snapshot.json', 'state', 'product', 'ココナラの取引一覧の最新（受注の照合元）', { schema: 'CoconalaOrdersSnapshot', freshness: { failDays: 7 } }),
   d('coconala.kpi', 'data/coconala/kpi.json', 'ledger', 'product', 'ココナラの出品ごとの閲覧・お気に入りの推移', { schema: 'CoconalaKpi' }),
   d('coconala.analytics', 'data/coconala/analytics.json', 'state', 'product', 'ココナラの出品分析の最新', { schema: 'CoconalaAnalytics', freshness: { failDays: 8 } }),
@@ -212,6 +216,9 @@ export const DATASETS = [
   d('ga4.admin-inventory', 'data/ga4/admin-inventory.json', 'state', 'site', 'GA4 管理画面の設定の最新', { freshness: { warnDays: 90 }, schema: 'Ga4AdminInventory' }),
   d('ga4.admin-last-run', 'data/ga4/admin-last-run.json', 'state', 'site', 'GA4 管理画面の設定を画面から最後に揃えた記録', { planned: true }),
   d('ga4.ui-last-run', 'data/ga4/ui-last-run.json', 'state', 'site', 'GA4 の画面取得を最後に回した記録', { schema: 'Ga4UiLastRun' }),
+  d('ga4.ui-urls', 'data/ga4/ui-urls.json', 'state', 'site', 'GA4 の画面から取った一覧（取得と正規化が通ったら入る。2026-07-30 から取得が失敗のまま）', { planned: true }),
+  d('ga4.ui-history', 'data/ga4/ui-history.json', 'ledger', 'site', 'GA4 の画面取得の結果の推移', { planned: true }),
+  d('ga4.ui-diff', 'data/ga4/ui-diff/{ts}.json', 'series', 'site', 'GA4 の画面取得の前回との差', { planned: true, retain: { family: 'ga4-ui', keepAll: true } }),
   d('ga4.ui-raw', 'data/ga4/ui/{ts}/{**}', 'raw', 'site', 'GA4 の画面から取った CSV', { local: true, regen: 'npm run ga4-ui:fetch（画面から取り直す）' }),
   // GSC
   d('gsc.reports', 'data/gsc/reports/{date}.json', 'series', 'site', 'GSC の検索指標（取得した日ごとに 1 ファイル・page／query／page×query／date。水曜分の page は 1000 行で打ち切り）', { retain: { family: 'gsc', maxAgeDays: 90, keepNewestPerSection: true }, schema: 'GscReports' }),
@@ -237,6 +244,7 @@ export const DATASETS = [
   d('cloudflare.zone', 'data/cloudflare/zone/{date}.json', 'series', 'site', 'Cloudflare のゾーンの解析', { planned: true, retain: { family: 'cloudflare', maxAgeDays: 120 }, freshness: { failDays: 3 } }),
   // 過去問・R2（人とスクリプトが書く作業の台帳。config/ から移した。設定ではなく、取得・削除の進み具合の記録）
   d('pastexams.inventory', 'data/pastexams/inventory.json', 'ledger', 'product', '過去問の年度の在庫（公式の掲載状態・取得日・PDF の SHA-256 とページ数。取得スクリプトが書き換える）', { schema: 'PastExamInventory' }),
+  d('pastexams.question-ledger', 'data/pastexams/questions/{name}.json', 'ledger', 'product', '過去問の問題台帳（1 問ごとの原典・ページ・公式正答・転記の照合。キーは演習データの問題 ID。検査は check-past-exam-ledger）', { schema: 'PastExamQuestionLedger', refs: [{ at: 'qualification', to: 'qualification' }, { at: 'questions[].article', to: 'article' }] }),
   d('r2.delete-list', 'data/r2/delete-list.txt', 'ledger', 'ops', 'R2 から消すオブジェクトの一覧（1 行 1 キー。削除済みはコメント行で残す）'),
 
   // ===== data/: 自社で発生した記録 =====
@@ -264,6 +272,7 @@ export const DATASETS = [
   d('analysis.career-funnel-baseline', 'data/analysis/career-funnel-baseline/{date}.json', 'evidence', 'affiliate', '転職アフィリエイトのファネルの基準線', { retain: { family: 'affiliate', keepAll: true }, schema: 'CareerFunnelBaseline' }),
   d('analysis.buildjob-report', 'data/analysis/buildjob-report.md', 'report', 'affiliate', 'ビルドジョブの成果の報告'),
   d('analysis.psi-report', 'data/analysis/psi-report.md', 'report', 'site', 'PSI の最新の報告'),
+  d('analysis.seo-build-summary', 'data/analysis/seo-build-summary.json', 'ledger', 'site', 'build 後 SEO スキャン（check-seo-build）の日ごとの検査数・error・warn の型別件数（CI が develop の push ごとに足す。週次レビューが前週比を出す）', { schema: 'SeoBuildSummary' }),
   d('analysis.seo-meta', 'data/analysis/seo-meta.json', 'state', 'site', 'サイトの SEO meta の監査結果', { schema: 'SeoMeta' }),
   d('analysis.affiliate-opportunities', 'data/analysis/affiliate-opportunities/{date}.json', 'evidence', 'affiliate', '未活用のアフィリエイト案件の調査（文書が引用）', { retain: { family: 'affiliate', keepAll: true }, schema: 'AffiliateOpportunities' }),
   d('analysis.affiliate-research', 'data/analysis/affiliate-research/{date}.json', 'evidence', 'affiliate', '転職アフィリエイトの競合・読者の調査（文書が引用）', { retain: { family: 'affiliate', keepAll: true }, schema: 'AffiliateResearch' }),
@@ -288,13 +297,11 @@ export const DATASETS = [
   d('state.broken-explanations', '.claude/state/broken-explanations.json', 'evidence', 'site', '壊れた過去問解説の検出結果'),
   d('state.primary-answer-distribution', '.claude/state/primary-answer-distribution.json', 'state', 'site', '択一過去問の正答番号の分布'),
   d('state.content-expansion', '.claude/state/content-expansion.json', 'state', 'site', '記事の拡充の進み具合'),
-  d('state.resurrection-candidates', '.claude/state/resurrection-candidates/{date}.md', 'report', 'site', '復活候補ページ（/resurrect-content）'),
   d('state.proofread-learnings', '.claude/state/proofread-learnings/{date}.md', 'report', 'site', '校正の学びの蒸留（/distill-proofread-learnings）'),
   d('state.pdf-mdx-audit', '.claude/state/pdf-mdx-audit/{date}{suffix}.json', 'evidence', 'site', 'PDF→MDX 変換の監査結果'),
   d('state.civil-figure-rework-failures', '.claude/state/civil-figure-rework/failures.log', 'evidence', 'site', '1級土木の図の作り直しで失敗したものの記録'),
   // 過去問起点のキーワード校正（技術士総監）
   d('state.exam-keyword-cycles-progress', '.claude/state/exam-keyword-cycles/progress.json', 'state', 'site', '過去問起点の校正サイクルの進み具合（/exam-keyword-cycle）'),
-  d('state.exam-keyword-cycles-archive', '.claude/state/exam-keyword-cycles/logs-archive-2026-04/{**}', 'evidence', 'site', '同上の 2026-04 までのログ（凍結）'),
   d('state.exam-keyword-umbrella-drafts', '.claude/state/exam-keyword-cycles/umbrella-drafts/{name}.md', 'raw', 'site', '同上の親キーワードの下書き', { local: true, regen: '/exam-keyword-cycle が作り直す' }),
   d('state.exam-keyword-audits', '.claude/state/exam-keyword-audits/{name}/{**}', 'evidence', 'site', '過去問とキーワードの紐づけ監査（/audit-exam-mapping）'),
   d('state.exam-keyword-map', '.claude/state/exam-keyword-map.json', 'state', 'site', '過去問→キーワードの対応（生成索引）'),
@@ -306,7 +313,6 @@ export const DATASETS = [
   d('state.pe-essay-review', '.claude/state/pe-essay-review/{name}.md', 'report', 'site', '技術士総監の記述式答案のレビュー'),
   // 図版
   d('state.figure-audit', '.claude/state/figure-audit/{date}.json', 'evidence', 'site', '図版の監査結果'),
-  d('state.figure-audit-visual', '.claude/state/figure-audit-visual/{name}.json', 'evidence', 'site', '過去問の図の目視監査（年度ごと）'),
   d('state.figure-provenance', '.claude/state/figure-provenance.json', 'state', 'site', '図の出所の索引（audit-figures）'),
   d('state.figure-text-audit', '.claude/state/figure-text-audit.json', 'evidence', 'site', '図の文字の監査結果'),
   d('state.svg-audit', '.claude/state/svg-audit.json', 'state', 'site', 'SVG の機械監査（refresh-indexes）'),
@@ -324,8 +330,6 @@ export const DATASETS = [
   d('state.ai-image-review-ledger', '.claude/state/quality/ai-image-review-ledger.json', 'ledger', 'site', 'AI 生成の写真の実物どおり判定の記録（check-image-origin record-ai）'),
   d('state.figure-review-ledger', '.claude/state/quality/figure-review-ledger.json', 'ledger', 'site', '図の目視判定の記録'),
   d('state.figure-crop-report', '.claude/state/quality/figure-crop-report.json', 'state', 'site', '図のクロップ品質の最新'),
-  d('state.civil-1-primary-official-keys', '.claude/state/quality/civil-1-primary-official-keys.json', 'evidence', 'site', '1級土木 第一次検定の公式正答（照合用）'),
-  d('state.civil-1-primary-tools', '.claude/state/quality/civil-1-primary-tools/{name}.mjs', 'evidence', 'site', '同上の照合に使った使い捨てのスクリプト'),
   d('state.quality-campaigns', '.claude/state/quality/content-{name}.json', 'evidence', 'site', '記事の拡充・出典の回復の一回きりの作業記録'),
   d('state.playwright-auth-wiring', '.claude/state/quality/playwright-auth-wiring-last.json', 'state', 'ops', 'Playwright の認証の配線検査の最新'),
   d('state.repo-assets-baseline', '.claude/state/repo-assets/baseline.json', 'config', 'ops', 'リポジトリのアセットの基準線'),
@@ -354,16 +358,20 @@ export const DATASETS = [
   d('state.note-republish', '.claude/state/note-republish/{**}', 'state', 'product', 'note の再公開の進み具合と対象の一覧'),
   d('state.note-publish-lists', '.claude/state/note-publish/{name}.txt', 'state', 'product', 'note の公開の対象の一覧'),
   d('state.note-cover-v4', '.claude/state/note-cover-v4-{name}', 'state', 'product', 'note カバー V4 の差し替えの進み具合（記事・マガジン・目視の一覧）'),
-  d('state.note-attachments', '.claude/state/note-attach{name}.json', 'state', 'product', 'note の PDF 添付の反映・欠落の記録'),
+  d('state.note-attachments-missing', '.claude/state/note-attachments-missing.json', 'state', 'product', 'note の PDF 添付の live 実査で見つけた欠落（check-note-attachments --live が書き、note-attach-batch と check-note-delivery-due が読む）', { freshness: { failDays: 14 } }),
+  d('state.note-attachment-loss', '.claude/state/note-attachment-loss.json', 'state', 'product', 'note の添付を捨てたまま（再添付待ち）の記録'),
+  d('state.note-attach-done', '.claude/state/note-attach-done.json', 'state', 'product', 'note の PDF 添付の反映済みの記録'),
   d('state.note-remaining-lists', '.claude/state/note-{name}.txt', 'state', 'product', 'note の一括反映で残っている記事の一覧（タグ・UTM・タグ同期）'),
   d('state.note-republish-hashes', '.claude/state/note-republish-hashes.json', 'state', 'product', 'note の再公開で反映した本文のハッシュ'),
   d('state.note-swap-banner-done', '.claude/state/note-swap-banner-done.json', 'state', 'product', 'note のバナーの差し替えを終えた記事'),
   d('state.note-update-aborted', '.claude/state/note-update-aborted.json', 'state', 'product', 'note の本文の反映を途中で止めた記事'),
   // SNS・動画
   d('state.youtube-thumbnails', '.claude/state/youtube-thumbnail-{name}.json', 'state', 'sns', 'YouTube のサムネイルの意匠と差し替えの進み具合'),
-  d('state.video-status', '.claude/state/video-{name}.json', 'state', 'sns', '動画パックの状態・編集の指摘・公開の照合'),
+  d('state.video-publication-verify', '.claude/state/video-publication-verify.json', 'state', 'sns', '動画パックの公開の照合（verify-video-publication・verify-yt-status.yml が週次で書き、check-video-publication が読む）', { freshness: { failDays: 14 } }),
+  d('state.video-editorial-findings', '.claude/state/video-editorial-findings.json', 'state', 'sns', '動画パックの編集の指摘'),
   d('state.yt-verify', '.claude/state/yt-verify/latest.json', 'state', 'sns', 'YouTube の公開の照合の最新'),
   d('state.x-posted-live', '.claude/state/x-posted-live/latest.json', 'state', 'sns', 'X の投稿の照合の最新'),
+  d('state.x-sync-last-run', '.claude/state/x-publish/last-sync.json', 'state', 'sns', 'X の予約キュー照合（x-sync-status）を最後に完走した時刻と結果。SessionStart が TTL 内なら Playwright を起動しない（DN-0688）', { local: true, regen: 'node scripts/x-sync-status.mjs --dry（次の照合で作り直す。git には入れない＝セッションごとに変わり、CI の scheduled-publish が拾うと bot commit になる）' }),
   d('state.x-repost-queue', '.claude/state/x-repost/{name}', 'raw', 'sns', 'X の引用リポストの候補・承認・停止の印', { local: true, regen: '/x-repost が作り直す' }),
   d('state.instagram', '.claude/state/instagram-{name}.json', 'state', 'sns', 'Instagram のキャンペーンと編集の品質確認'),
   d('state.ig-reconcile', '.claude/state/ig-reconcile/{name}.json', 'state', 'sns', 'Instagram の照合結果（verify-ig-status）'),
@@ -377,14 +385,13 @@ export const DATASETS = [
 
 // ---- パスの照合 -----------------------------------------------------------------
 
-const escape = (s) => s.replace(/[.+?^$()[\]\\|]/g, '\\$&');
 const compiled = new Map();
 
 /** 台帳のパスの型を正規表現にする（全体一致） */
 export function patternOf(path) {
   if (!compiled.has(path)) {
     let re = '';
-    for (const part of path.split(/(\{[^}]+\})/)) re += part.startsWith('{') ? (SLOTS[part] ?? escape(part)) : escape(part);
+    for (const part of path.split(/(\{[^}]+\})/)) re += part.startsWith('{') ? (SLOTS[part] ?? escapeRegExp(part)) : escapeRegExp(part);
     compiled.set(path, new RegExp(`^${re}$`));
   }
   return compiled.get(path);
@@ -399,6 +406,9 @@ export const datasetById = (id) => DATASETS.find((x) => x.id === id) ?? null;
  * 古い id を渡しても止まらないよう、消した id はここへ移して後継に読み替える（tests/ci-data.test.mjs が YAML の id を検査）。
  */
 export const RETIRED_IDS = {
+  // 2026-10-10 data/ 全体の SSOT 見直し: ファイル名でまとめていた行をファイルごとに分け、鮮度を持たせた
+  'state.note-attachments': 'state.note-attachments-missing',
+  'state.video-status': 'state.video-publication-verify',
   'note.competitors-latest': 'note.competitors',
   'coconala.competitors-latest': 'coconala.competitors',
   'coconala.blog-competitors-latest': 'coconala.blog-competitors',

@@ -1,0 +1,47 @@
+<!-- authored 2026-10-10 doboku-note 自作。題材は乾燥収縮ひび割れの発生条件（収縮量・拘束・引張で耐える量）。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="乾燥収縮ひび割れの考え方。自由に収縮したときのひずみは大きいが、拘束があると引張として残り、引張クリープで一部が緩和される。それでも引張で耐えられるひずみ能力を上回るとひび割れが生じる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; }
+      .t-lead { fill: #555; }
+      .t-label { fill: #1a3a5c; }
+      .t-desc { fill: #555; }
+      .dash { stroke: #b22234; stroke-width: 1.5; stroke-dasharray: 4 3; fill: none; }
+      .axis { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="366" y="16" text-anchor="end">模式図（数値なし）</text>
+
+  <line class="axis" x1="30" y1="300" x2="360" y2="300" />
+  <line class="axis" x1="30" y1="40" x2="30" y2="300" />
+  <text class="t-lead" x="36" y="36">ひずみ</text>
+
+  <rect x="50" y="90" width="70" height="210" rx="3" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5" />
+  <rect x="150" y="170" width="70" height="130" rx="3" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <rect x="250" y="240" width="70" height="60" rx="3" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5" />
+
+  <line class="dash" x1="150" y1="240" x2="350" y2="240" />
+  <path d="M185 172 L185 238" stroke="#b22234" stroke-width="2" fill="none" />
+  <text class="t-label" x="228" y="200">超過分</text>
+  <text class="t-label" x="228" y="214">＝ひび割れ</text>
+
+  <g class="t-label" text-anchor="middle">
+    <text x="85" y="318">拘束なしで</text>
+    <text x="85" y="332">縮む量</text>
+    <text x="185" y="318">拘束下で残る</text>
+    <text x="185" y="332">引張ひずみ</text>
+    <text x="285" y="318">引張で耐えら</text>
+    <text x="285" y="332">れるひずみ</text>
+  </g>
+
+  <text class="t-desc" x="85" y="82" text-anchor="middle">緩和前</text>
+  <text class="t-desc" x="185" y="162" text-anchor="middle">拘束・緩和後</text>
+
+  <rect x="20" y="360" width="360" height="124" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5" />
+  <text class="t-desc" x="34" y="384">縮む量が大きくても、拘束が弱ければ引張は小さい</text>
+  <text class="t-desc" x="34" y="406">引張クリープが応力の一部を逃がす</text>
+  <text class="t-desc" x="34" y="428">残った引張が耐えられる量を超えた所で割れる</text>
+  <text class="t-desc" x="34" y="450">対策は縮む量を減らす・耐える量を確保する</text>
+  <text class="t-desc" x="34" y="472">・割れる位置を制御する</text>
+</svg>

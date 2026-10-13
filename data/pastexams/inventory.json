@@ -884,6 +884,16 @@
               "file": "R07/R07_第二次検定.pdf",
               "sourceUrl": null,
               "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "answer",
+              "section": "第一次検定 正答肢",
+              "file": "R07/R07_第一次検定_正答.pdf",
+              "sourceUrl": "https://web.archive.org/web/20250723123101/https://www.jctc.jp/wjctcp/wp-content/uploads/2025/07/20250707d_seitou.pdf",
+              "acquiredAt": "2026-10-10",
+              "note": "JCTC の公式 PDF（掲載終了・Wayback の保存版）",
+              "sha256": "69a2e6ee7bd483c3ee0c493ee3939a0d04f73b96e4b8bf32e2913488b91e31ff",
+              "pages": 1
             }
           ]
         },
@@ -911,6 +921,16 @@
               "file": "R06/R06_第二次検定.pdf",
               "sourceUrl": null,
               "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "answer",
+              "section": "第一次検定 正答肢",
+              "file": "R06/R06_第一次検定_正答.pdf",
+              "sourceUrl": "https://web.archive.org/web/20240709070742/https://www.jctc.jp/wjctcp/wp-content/uploads/2024/07/20240708d_seitou.pdf",
+              "acquiredAt": "2026-10-10",
+              "note": "JCTC の公式 PDF（掲載終了・Wayback の保存版。後の版と正答は同じ）",
+              "sha256": "780f6ac043c0fc26af46c28e92204724d4f576fb800634c7978545761829bfac",
+              "pages": 1
             }
           ]
         },
@@ -938,6 +958,16 @@
               "file": "R05/R05_第二次検定.pdf",
               "sourceUrl": null,
               "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "answer",
+              "section": "第一次検定 正答肢",
+              "file": "R05/R05_第一次検定_正答.pdf",
+              "sourceUrl": "https://web.archive.org/web/20240118002552/https://www.jctc.jp/wjctcp/wp-content/uploads/2023/07/20230703d_seitou.pdf",
+              "acquiredAt": "2026-10-10",
+              "note": "JCTC の公式 PDF（掲載終了・Wayback の保存版）",
+              "sha256": "f08bbbc3c0a8db53d6ce669d962615a06e6e9396c60809db5bb061f641fab7b7",
+              "pages": 1
             }
           ]
         },
@@ -965,6 +995,16 @@
               "file": "R04/R04_第二次検定.pdf",
               "sourceUrl": null,
               "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "answer",
+              "section": "第一次検定 正答肢",
+              "file": "R04/R04_第一次検定_正答.pdf",
+              "sourceUrl": "https://web.archive.org/web/20220704042238/https://www.jctc.jp/kentei/220704d_fo67aa/220704d.pdf",
+              "acquiredAt": "2026-10-10",
+              "note": "JCTC の公式 PDF（掲載終了・Wayback の保存版）",
+              "sha256": "2d11cd67204f0c81e46f0f422e1131f000505b6a27f8cefa2b9634f33e73a4eb",
+              "pages": 1
             }
           ]
         },
@@ -992,6 +1032,16 @@
               "file": "R03/R03_第二次検定.pdf",
               "sourceUrl": null,
               "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "answer",
+              "section": "第一次検定 正答肢",
+              "file": "R03/R03_第一次検定_正答.pdf",
+              "sourceUrl": "https://web.archive.org/web/20210706015521/https://www.jctc.jp/kentei/210705d_4e3a88/index.html",
+              "acquiredAt": "2026-10-10",
+              "note": "JCTC の正答肢の HTML ページ（Wayback の保存版）を PDF に印刷して原本にした",
+              "sha256": "5e7a9d275cdec67f20a0d5487f32f442af55f64b22960de98a25a756f3d908e6",
+              "pages": 1
             }
           ]
         },
@@ -1012,6 +1062,26 @@
               "file": "R02/R02_第一次検定_問題B.pdf",
               "sourceUrl": null,
               "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "answer",
+              "section": "学科試験 正答肢",
+              "file": "R02/R02_学科試験_正答.pdf",
+              "sourceUrl": "https://web.archive.org/web/20201027202226/http://www.jctc.jp/kentei/201005d_gha0we/index.html",
+              "acquiredAt": "2026-10-10",
+              "note": "JCTC の正答肢の HTML ページ（掲載終了・Wayback の保存版）を PDF に印刷して原本にした",
+              "sha256": "3f5b6eb132478b0eee17282a7020d41da185b142df25c65706a1305adf9d211a",
+              "pages": 1
+            },
+            {
+              "kind": "question",
+              "section": "実地試験",
+              "file": "R02/R02_実地試験.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-10-10",
+              "note": "公式（JCTC）の掲載は終了。CIC 日本建設情報センターの年度別の過去問掲載（https://www.cic-ct.co.jp/pdf/kakomon/civil/r2/r2_1cj.pdf）を取得し、表紙で年度・試験を確かめた",
+              "sha256": "6393ce1b239660a2688965331b6c67a85a90fcce3ab9cbc0e7de80ce9cc19eff",
+              "pages": 9
             }
           ]
         },
@@ -1040,6 +1110,16 @@
               "sourceUrl": "https://www.jctc.jp/kentei/191007d_f79dyy/qa.pdf",
               "acquiredAt": "2026-10-09",
               "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "answer",
+              "section": "学科試験 正答肢",
+              "file": "R01/R01_学科試験_正答.pdf",
+              "sourceUrl": "https://web.archive.org/web/20190719122941/http://www.jctc.jp/kentei/190708d_7pgaai/index.html",
+              "acquiredAt": "2026-10-10",
+              "note": "JCTC の正答肢の HTML ページ（掲載終了・Wayback の保存版）を PDF に印刷して原本にした",
+              "sha256": "8893406fd699d23336a5f479872ef43d776e191593c1526a4d934a1d5cfb5b0a",
+              "pages": 1
             }
           ]
         },
@@ -1068,6 +1148,62 @@
               "sourceUrl": "https://www.jctc.jp/kentei/180817d_72cd68/answer.html",
               "acquiredAt": "2026-10-09",
               "note": "公式の掲載終了後に Wayback Machine の保存版（合格発表の正答ページ HTML）から取得し、PDF に印刷して保存"
+            },
+            {
+              "kind": "question",
+              "section": "実地試験",
+              "file": "H30/H30_実地試験.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-10-10",
+              "note": "公式（JCTC）の掲載は終了。CIC 日本建設情報センターの年度別の過去問掲載（https://www.cic-ct.co.jp/pdf/kakomon/civil/h30/30_1cj.pdf）を取得し、表紙で年度・試験を確かめた",
+              "sha256": "be8d55c915882755eaf38aa9e1bdd11923ab74c02cbc87d14d6eb3a8d727accd",
+              "pages": 9
+            }
+          ]
+        },
+        {
+          "year": 2017,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "学科試験 問題A",
+              "file": "H29/H29_学科試験_問題A.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-10-10",
+              "note": "公式（JCTC）の掲載は終了。全国建設研修センターの許諾を明記した dobokujira.com の再配布（wp-content/uploads/2021/05/h29_1dobokuA_gakka_doboku.pdf）を取得し、表紙で年度・試験・問題の区分を確かめた",
+              "sha256": "2a1f327f1a2c34b9f1965ea3091f44e682546698149c05d716aac2406a66199d",
+              "pages": 24
+            },
+            {
+              "kind": "question",
+              "section": "学科試験 問題B",
+              "file": "H29/H29_学科試験_問題B.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-10-10",
+              "note": "公式（JCTC）の掲載は終了。全国建設研修センターの許諾を明記した dobokujira.com の再配布（wp-content/uploads/2021/05/h29_1dobokuB_gakka_doboku.pdf）を取得し、表紙で年度・試験・問題の区分を確かめた",
+              "sha256": "afb12d6d12b33c71e7232447b3e83243c83cc2e0e957ddef0ea02243182b6826",
+              "pages": 15
+            },
+            {
+              "kind": "answer",
+              "section": "学科試験 正答肢",
+              "file": "H29/H29_学科試験_正答.pdf",
+              "sourceUrl": "https://web.archive.org/web/20170722105148/http://www.jctc.jp/kentei/170703d_yitg65/index.html",
+              "acquiredAt": "2026-10-10",
+              "note": "JCTC の正答肢の HTML ページ（掲載終了・Wayback の保存版）を PDF に印刷して原本にした",
+              "sha256": "565691f2c935ddcd5569615f80cde0f95bb2574afdd4a37933fb5331641218df",
+              "pages": 1
+            },
+            {
+              "kind": "question",
+              "section": "実地試験",
+              "file": "H29/H29_実地試験.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-10-10",
+              "note": "公式（JCTC）の掲載は終了。CIC 日本建設情報センターの年度別の過去問掲載（https://www.cic-ct.co.jp/pdf/kakomon/civil/h29/29_1cj.pdf）を取得し、表紙で年度・試験を確かめた",
+              "sha256": "9659ac796c380335b5631c65fb6757db0be95529ecc01a6452bc81fdb2ee25c5",
+              "pages": 9
             }
           ]
         },
@@ -1098,6 +1234,16 @@
               "sourceUrl": "https://www.jctc.jp/kentei/160817d_f41554/answer.html",
               "acquiredAt": "2026-10-09",
               "note": "公式の掲載終了後に Wayback Machine の保存版（合格発表の正答ページ HTML）から取得し、PDF に印刷して保存"
+            },
+            {
+              "kind": "question",
+              "section": "実地試験",
+              "file": "H28/H28_実地試験.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-10-10",
+              "note": "公式（JCTC）の掲載は終了。CIC 日本建設情報センターの年度別の過去問掲載（https://www.cic-ct.co.jp/pdf/kakomon/civil/h28/28_1cj.pdf）を取得し、表紙で年度・試験を確かめた",
+              "sha256": "e1b5b81d03e7f8e33dbaa32ed94642772441e479b1b5334670460f0a1b6c8480",
+              "pages": 9
             }
           ]
         },
@@ -1158,6 +1304,26 @@
               "sourceUrl": "https://www.jctc.jp/kentei/141006d_h98d56/qa.pdf",
               "acquiredAt": "2026-10-09",
               "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            },
+            {
+              "kind": "question",
+              "section": "学科試験 問題A",
+              "file": "H26/H26_学科試験_問題A.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-10-10",
+              "note": "公式（JCTC）の掲載は終了。全国建設研修センターの許諾を明記した dobokujira.com の再配布（wp-content/uploads/2021/05/h26_1dobokuA_gakka_doboku.pdf）を取得し、表紙で年度・試験・問題の区分を確かめた",
+              "sha256": "393b7ca0ac4caa45bfd83342954fcc8101165c8084b2bef91a43e6398a4b22be",
+              "pages": 25
+            },
+            {
+              "kind": "answer",
+              "section": "学科試験 正答肢",
+              "file": "H26/H26_学科試験_正答.pdf",
+              "sourceUrl": "https://web.archive.org/web/20141011022531/http://www.jctc.jp/kentei/140707d_noejne/index.html",
+              "acquiredAt": "2026-10-10",
+              "note": "JCTC の正答肢の HTML ページ（掲載終了・Wayback の保存版）を PDF に印刷して原本にした",
+              "sha256": "b316592a115037d9ada47b535cf8e65621998d4c649fae302bbf20655d59439b",
+              "pages": 1
             }
           ]
         },
@@ -1226,6 +1392,22 @@
               "sourceUrl": "https://www.jctc.jp/kentei/0115d_hiuiho/qa.pdf",
               "acquiredAt": "2026-10-09",
               "note": "公式の掲載終了後に Wayback Machine の保存版から取得"
+            }
+          ]
+        },
+        {
+          "year": 2011,
+          "official": "removed",
+          "files": [
+            {
+              "kind": "question",
+              "section": "実地試験",
+              "file": "H23/H23_実地試験.pdf",
+              "sourceUrl": null,
+              "acquiredAt": "2026-10-10",
+              "note": "公式（JCTC）の qa.pdf は掲載終了・Wayback にも無い。全国建設研修センターの許諾を明記した dobokujira.com の再配布（wp-content/uploads/2021/05/h23_1doboku_jitti_doboku.pdf）を取得し、表紙で年度・試験を確かめた",
+              "sha256": "a6cba59fb08591aea1310093ff873fc42c23fc030dc93e0722245a35ea775fab",
+              "pages": 8
             }
           ]
         },
@@ -4847,6 +5029,16 @@
               "file": "H30/H30_試験問題_記述式.pdf",
               "sourceUrl": null,
               "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "answer",
+              "section": "択一式 正答（H25〜H30 一括）",
+              "file": "H30/H30_択一式_正答_H25-H30.pdf",
+              "sourceUrl": "https://www.engineer.or.jp/c_topics/003/attached/attach_3935_10.pdf",
+              "acquiredAt": "2026-10-10",
+              "note": "日本技術士会「技術士第二次試験 択一式問題の正答」全部門。総監は H25=p21・H26=p42・H27=p63・H28=p84・H29=p105・H30=p126。H28 Ⅰ-1-9 は 2016-10-03 の訂正で不適切な問題として全員を正解扱い",
+              "sha256": "516c8e148fa4630247e8e2896b50e07686cf82fae3842ee33061cc588e244cf4",
+              "pages": 126
             }
           ]
         },
@@ -4967,6 +5159,16 @@
               "file": "H24/H24_試験問題_記述式.pdf",
               "sourceUrl": null,
               "acquiredAt": "2026-09-05"
+            },
+            {
+              "kind": "answer",
+              "section": "択一式 正答（H19〜H24 一括）",
+              "file": "H24/H24_択一式_正答_H19-H24.pdf",
+              "sourceUrl": "https://www.engineer.or.jp/c_topics/003/attached/attach_3935_11.pdf",
+              "acquiredAt": "2026-10-10",
+              "note": "日本技術士会「技術士第二次試験 択一式問題の正答」。1 ページ 1 年度（H21=p3・H22=p4・H23=p5・H24=p6）",
+              "sha256": "fc6003bc5e50ada412ad0255dcb897ae8169f1e4eb3a7872fc67dcee4193e370",
+              "pages": 6
             }
           ]
         },

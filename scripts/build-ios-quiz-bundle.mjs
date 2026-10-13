@@ -5,13 +5,18 @@
  *   node scripts/build-ios-quiz-bundle.mjs --app pe [--out <dir>] [--allow-removed <ID,...>]
  *
  * 1. scripts/build-quiz-data.mjs と同じ正規化で、アプリに入れる試験のデータセットを作る（Web の public/quiz は書かない）
- * 2. 本文・選択肢・解説の HTML が参照する記事画像（/posts/...）を R2 の公開ホストから取り、images/ に置いて参照を書き換える
- * 3. KaTeX の CSS と woff2 フォントを katex/ に置く（描画済みの数式 HTML を JavaScript なしで表示するため）
+ * 2. 本文・選択肢・解説の HTML（Markdown しか無い問題は変換した HTML）が参照する記事画像（/posts/...）を、リポジトリの記事の img/ から
+ *    （無ければ R2 の公開ホストから）取り、images/ に置いて参照を書き換える。書き出した HTML の参照先がすべて images/ にあるかを確かめる
+ * 3. KaTeX の CSS と woff2 フォントを katex/ に置く（描画済みの数式 HTML を JavaScript なしで表示するため）。
+ *    問題文・解説の見た目（src/styles/quiz-content.css）と、その色（globals.css のトークンの写し quiz-tokens.css）も置く
+ *    （サイトの演習と同じ CSS をアプリが読む。scripts/lib/quiz-style.mjs）
  * 4. 問題 ID を検査する。試験の中で重複していれば止める。前回の manifest.json から消えた ID があれば止める
  *    （アプリの学習履歴は「試験 + 問題 ID」に紐づくので、ID が消えると履歴が消える。意図して消すときだけ --allow-removed に並べる）
+ * 5. 問題台帳（data/pastexams/questions・DN-0647）で、転記を原典と照合していない問題・正答が公式と違う問題があれば止める。
+ *    開発中の試し書き出しだけ --allow-unverified で通す（正答の不一致は通さない）
  *
  * 出力（既定 .tmp/ios-bundle/<app>/。iOS リポジトリの Resources を --out に渡す）:
- *   manifest.json・<試験>.json・images/・katex/
+ *   manifest.json・<試験>.json・images/・katex/・quiz-content.css・quiz-tokens.css
  * exit 0 = 書き出し成功 / exit 1 = ID 検査・画像取得の失敗、または対象 0 件
  */
 import { spawnSync } from 'node:child_process';
@@ -19,19 +24,23 @@ import { copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync,
 import { createRequire } from 'node:module';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { REPO_ROOT } from './lib/repository-paths.mjs';
+import { REPO_ROOT, SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 import { R2_PUBLIC_ORIGIN } from './lib/site-identity.mjs';
 import { renderQuizMarkdown } from './lib/quiz-markdown.mjs';
+import { QUIZ_CONTENT_CSS, quizTokensCss } from './lib/quiz-style.mjs';
 import { SOURCES, buildDataset } from './build-quiz-data.mjs';
+import { qualificationOfQuizExam, readLedger, unreadyForApp } from './lib/past-exam-ledger.mjs';
 
 const NAME = 'build-ios-quiz-bundle';
 
-/** アプリ（系統）ごとに収める試験。土木施工管理技士アプリ（civil-1・civil-2）は DN-0628 で足す */
+/** アプリ（系統）ごとに収める試験 */
 export const APPS = {
   pe: { label: '技術士 過去問', exams: ['pe-first-stage', 'cem'] },
+  doboku: { label: '土木施工管理技士 過去問', exams: ['civil-1', 'civil-2'] },
 };
 
 const IMG_SRC = /(<img\b[^>]*?\ssrc=")(\/posts\/[^"]+)(")/g;
+const BUNDLED_SRC = /<img\b[^>]*?\ssrc="images\/([^"]+)"/g;
 
 /** HTML 中の記事画像の参照（/posts/...）を集める */
 export function collectImageSrcs(html) {
@@ -76,19 +85,32 @@ export function checkIds(datasets, previous, allowRemoved = []) {
   return { duplicates, removed };
 }
 
+/** アプリ（QuizEngine の yearRank）が読める年度コード: h26・r07・r01-retry・2級土木の r07z（前期）・r07k（後期） */
+export const APP_YEAR_CODE = /^[hr]\d{2}(?:-retry|z|k)?$/;
+
 /** 1 問の表示用 HTML をそろえる（無ければ Markdown から作る）。画像の参照はアプリ内へ書き換える */
 export function toBundleQuestion(q) {
-  const html = (h, text) => rewriteImageSrcs(h ?? (text ? renderQuizMarkdown(text) : ''));
+  const html = (h, text, options) => rewriteImageSrcs(h ?? (text ? renderQuizMarkdown(text, options) : ''));
   return {
     ...q,
-    bodyHtml: html(q.bodyHtml, q.body),
+    bodyHtml: html(q.bodyHtml, q.body, { blanks: true }),
     options: q.options.map((o) => ({ ...o, html: html(o.html, o.text) })),
     explanations: q.explanations.map((e) => ({ ...e, html: html(e.html, e.text) })),
+    // 記述ごとの解説（①〜・ア〜）。本文の HTML の画像もアプリ内へ書き換える
+    ...(q.statements?.length ? { statements: q.statements.map((s) => ({ ...s, html: html(s.html, s.text) })), statementsHtml: rewriteImageSrcs(q.statementsHtml) } : {}),
   };
 }
 
+/** 1 問の表示用 HTML（アプリ内への書き換え前。Markdown しか無い項目は変換する） */
 function rawHtmlOf(q) {
-  return [q.bodyHtml, ...q.options.map((o) => o.html), ...q.explanations.map((e) => e.html)].join('\n');
+  const h = (html, text, options) => html ?? (text ? renderQuizMarkdown(text, options) : '');
+  return [h(q.bodyHtml, q.body, { blanks: true }), ...q.options.map((o) => h(o.html, o.text)), ...q.explanations.map((e) => h(e.html, e.text)), q.statementsHtml ?? ''].join('\n');
+}
+
+/** 書き出した問題の HTML が参照するアプリ内の画像（images/ からの相対パス）。Markdown から作った HTML の画像も含む */
+export function bundledImageRels(q) {
+  const html = [q.bodyHtml, ...q.options.map((o) => o.html), ...q.explanations.map((e) => e.html), q.statementsHtml ?? ''].join('\n');
+  return [...html.matchAll(BUNDLED_SRC)].map((m) => m[1]);
 }
 
 function fetchImage(src, dest) {
@@ -146,30 +168,60 @@ function main() {
     process.exit(1);
   }
 
-  // 画像（キャッシュに無いものだけ R2 から取る）
-  const srcs = [...new Set(datasets.flatMap((ds) => ds.questions.flatMap((q) => collectImageSrcs(rawHtmlOf(q)))))].sort();
+  // 年度コード: アプリは年度コードから新しい順に並べ、最新年度を無料で開放する（QuizEngine の yearRank）。読めない年度があると無料版が古い年度を開く
+  const unreadableYears = datasets.flatMap((ds) => ds.years.map((y) => y.year).filter((y) => !APP_YEAR_CODE.test(y)).map((y) => `${ds.exam}/${y}`));
+  if (unreadableYears.length) {
+    console.error(`[${NAME}] アプリが並べられない年度コード: ${unreadableYears.join(', ')}（読める形は ${APP_YEAR_CODE}。QuizEngine の yearRank と合わせて足す）`);
+    process.exit(1);
+  }
+
+  // 問題台帳: 未照合の問題・公式正答と違う問題を出さない（DN-0647）
+  const allowUnverified = process.argv.includes('--allow-unverified');
+  let blocked = 0;
+  for (const ds of datasets) {
+    const qualification = qualificationOfQuizExam(ds.exam);
+    const ledger = qualification ? readLedger(qualification) : null;
+    const { unverified, mismatch } = unreadyForApp(ledger, ds.questions);
+    console.log(`[${NAME}] ${ds.exam}: ${ds.questions.length} 問中 転記の照合が未了 ${unverified.length}・公式正答と不一致 ${mismatch.length}${ledger ? '' : '（問題台帳なし）'}`);
+    for (const id of mismatch.slice(0, 10)) console.error(`  公式正答と不一致 ${ds.exam}/${id}`);
+    blocked += mismatch.length + (allowUnverified ? 0 : unverified.length);
+  }
+  if (blocked) {
+    console.error(`[${NAME}] 照合が済んでいない問題があるので書き出さない（npm run check-past-exam-ledger。試し書き出しは --allow-unverified）`);
+    process.exit(1);
+  }
+  if (allowUnverified) console.warn(`[${NAME}] --allow-unverified: 未照合の問題を含めて書き出す（提出用には使わない）`);
+
+  // 画像: 書き出す HTML（Markdown しか無い問題は変換した HTML）が参照するものを集める。
+  // リポジトリの記事の img/ にあればそれを使い（未 deploy で R2 に無い新しい図も入る）、無ければキャッシュか R2 から取る
+  const bundles = datasets.map((ds) => ({ ds, questions: ds.questions.map(toBundleQuestion) }));
+  const rels = [...new Set(bundles.flatMap((b) => b.questions.flatMap(bundledImageRels)))].sort();
   const failures = [];
   let fetched = 0;
-  for (const src of srcs) {
-    const cached = join(cacheDir, src.slice('/posts/'.length));
+  let local = 0;
+  const sourceOf = new Map();
+  for (const rel of rels) {
+    const inRepo = join(SITE_CONTENT_ROOT, rel);
+    if (existsSync(inRepo)) { sourceOf.set(rel, inRepo); local += 1; continue; }
+    const cached = join(cacheDir, rel);
+    sourceOf.set(rel, cached);
     if (existsSync(cached)) continue;
-    const err = fetchImage(src, cached);
-    if (err) failures.push(`${src}: ${err}`);
+    const err = fetchImage(`/posts/${rel}`, cached);
+    if (err) failures.push(`/posts/${rel}: ${err}`);
     else fetched += 1;
   }
   if (failures.length) {
     for (const f of failures.slice(0, 10)) console.error(`  画像を取れない ${f}`);
-    console.error(`[${NAME}] 画像 ${srcs.length} 件中 ${failures.length} 件を取れない。書き出さない`);
+    console.error(`[${NAME}] 画像 ${rels.length} 件中 ${failures.length} 件を取れない。書き出さない`);
     process.exit(1);
   }
 
   // 書き出し（images/ と katex/ は作り直す）
   rmSync(join(out, 'images'), { recursive: true, force: true });
   rmSync(join(out, 'katex'), { recursive: true, force: true });
-  for (const src of srcs) {
-    const rel = src.slice('/posts/'.length);
+  for (const rel of rels) {
     mkdirSync(dirname(join(out, 'images', rel)), { recursive: true });
-    copyFileSync(join(cacheDir, rel), join(out, 'images', rel));
+    copyFileSync(sourceOf.get(rel), join(out, 'images', rel));
   }
   const require = createRequire(import.meta.url);
   const katexDist = join(dirname(require.resolve('katex/package.json')), 'dist');
@@ -177,11 +229,13 @@ function main() {
   copyFileSync(join(katexDist, 'katex.min.css'), join(out, 'katex', 'katex.min.css'));
   const fonts = readdirSync(join(katexDist, 'fonts')).filter((f) => f.endsWith('.woff2'));
   for (const f of fonts) copyFileSync(join(katexDist, 'fonts', f), join(out, 'katex', 'fonts', f));
+  copyFileSync(QUIZ_CONTENT_CSS, join(out, 'quiz-content.css'));
+  writeFileSync(join(out, 'quiz-tokens.css'), quizTokensCss(), 'utf8');
 
   const exams = [];
-  for (const ds of datasets) {
+  for (const { ds, questions } of bundles) {
     const file = `${ds.exam}.json`;
-    writeFileSync(join(out, file), JSON.stringify({ ...ds, questions: ds.questions.map(toBundleQuestion) }) + '\n', 'utf8');
+    writeFileSync(join(out, file), JSON.stringify({ ...ds, questions }) + '\n', 'utf8');
     exams.push({ exam: ds.exam, examLabel: ds.examLabel, file, questions: ds.questions.length, years: ds.years.length, ids: ds.questions.map((q) => q.id) });
   }
   const manifest = {
@@ -191,13 +245,21 @@ function main() {
     generatedAt: new Date().toISOString(),
     sourceCommit: gitHead(),
     katexVersion: require('katex/package.json').version,
-    images: srcs.length,
+    images: rels.length,
     exams,
   };
   writeFileSync(manifestPath, JSON.stringify(manifest, null, 2) + '\n', 'utf8');
 
+  // 書き出した HTML の画像の参照先が images/ にすべてあるか（無いとアプリで画像が欠ける）
+  const missing = rels.filter((rel) => !existsSync(join(out, 'images', rel)));
+  if (missing.length) {
+    for (const m of missing.slice(0, 10)) console.error(`  同梱されていない画像 images/${m}`);
+    console.error(`[${NAME}] HTML が参照する画像 ${rels.length} 件中 ${missing.length} 件が images/ に無い`);
+    process.exit(1);
+  }
+
   for (const e of exams) console.log(`[${NAME}] ${e.exam}: ${e.questions} 問 / ${e.years} 年度`);
-  console.log(`[${NAME}] 画像 ${srcs.length} 件（新規取得 ${fetched}）・KaTeX フォント ${fonts.length} 件・ID 検査 ${total} 問（前回 manifest ${previous ? 'あり' : 'なし'}）-> ${out}`);
+  console.log(`[${NAME}] 画像 ${rels.length} 件（リポジトリ ${local}・R2 から新規取得 ${fetched}・参照先の欠け 0）・KaTeX フォント ${fonts.length} 件・ID 検査 ${total} 問（前回 manifest ${previous ? 'あり' : 'なし'}）-> ${out}`);
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) main();

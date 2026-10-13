@@ -21,20 +21,14 @@ import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { createOutput, runAsCli } from './lib/cli-run.mjs';
 import { jstClock } from './lib/jst-date.mjs';
+import { isoWeekKey } from './lib/review-week.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 const DUE_DOW = 6;      // 土曜
 const DUE_HOUR = 9;     // 09:00 JST
 
-/** ISO 8601 の週番号（YYYY-Www）。d は「JST に +9h した Date」を渡す（UTC メソッドで読む）。 */
-export function isoWeek(d) {
-  const t = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()));
-  const dow = t.getUTCDay() || 7;
-  t.setUTCDate(t.getUTCDate() + 4 - dow);
-  const y = t.getUTCFullYear();
-  const w = Math.ceil(((t - Date.UTC(y, 0, 1)) / 86_400_000 + 1) / 7);
-  return `${y}-W${String(w).padStart(2, '0')}`;
-}
+/** ISO 8601 の週番号（YYYY-Www）。d は「JST に +9h した Date」を渡す（UTC メソッドで読む）。換算は review-week.mjs */
+export const isoWeek = (d) => isoWeekKey(d.toISOString().slice(0, 10));
 
 /**
  * 純関数: 今（UTC ms）と「review が在るか」の判定関数から、催促すべき週番号を返す（無ければ null）。

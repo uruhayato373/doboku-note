@@ -32,12 +32,13 @@
       "time": "20:24",
       "slot": "C",
       "exam": "civil-2",
-      "type": "出題傾向の点検",
-      "funnel": "linkless",
-      "target": null,
+      "type": "ココナラ添削",
+      "funnel": "coconala",
+      "target": "https://coconala.com/services/4418778",
       "image": null,
-      "draft": "106-civil2-lastweek-2026-10",
-      "tweet": 2
+      "draft": "107-civil2-coconala-2026-10",
+      "tweet": 2,
+      "salesAdjacencyReason": "2026-10-12 に X の予約一覧で確認。前後に別計画の朝・昼の学習点検（非販売）が入り、実際の予約では販売投稿が隣り合わない"
     },
     {
       "date": "2026-10-18",

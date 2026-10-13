@@ -33,9 +33,11 @@
 import { readFileSync, existsSync, writeSync } from 'node:fs';
 import { join } from 'node:path';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { datasetPath, freshnessDays } from './lib/datasets.mjs';
 
-const STATE = join(ROOT, '.claude/state/note-attachments-missing.json');
-const STALE_DAYS = 14;      // 有料記事の追加・PDF差替えの頻度から、2週間を上限とする
+const STATE = join(ROOT, datasetPath('state.note-attachments-missing'));
+// 有料記事の追加・PDF差替えの頻度から 2 週間を上限とする。値は台帳 state.note-attachments-missing の freshness.failDays
+const STALE_DAYS = freshnessDays('state.note-attachments-missing', 'failDays');
 const asJson = process.argv.includes('--json');
 const TAG = '[check-note-delivery-due]';
 
@@ -96,7 +98,7 @@ if (!existsSync(STATE)) {
 
 // D. --allow-attachment-loss で意図的に捨てた添付が、再添付されないまま残っていないか。
 //    実査（--live）は手動なので、次に回すまで最大14日気づけない。捨てた瞬間の記録で埋める。
-const LOSS = join(ROOT, '.claude/state/note-attachment-loss.json');
+const LOSS = join(ROOT, datasetPath('state.note-attachment-loss'));
 if (existsSync(LOSS)) {
   try {
     const l = JSON.parse(readFileSync(LOSS, 'utf8'));

@@ -72,12 +72,13 @@ function yearLabel(code: string): string {
  */
 function PrimaryExamTable2({ docs, secondaryDocs = [] }: { docs: DocMeta[]; secondaryDocs?: DocMeta[] | undefined }) {
   // 年度コードでグループ化
-  const yearMap = new Map<string, { zenki?: DocMeta; kouki?: DocMeta }>();
+  // 平成27年度までは年1回（10月）の学科試験で slug に期が無い（primary-h26）。10月の列に「学科」として出す
+  const yearMap = new Map<string, { zenki?: DocMeta; kouki?: DocMeta; single?: DocMeta }>();
   for (const doc of docs) {
-    const match = doc.slug?.match(/(r|h)(\d+)-(zenki|kouki)$/);
+    const match = doc.slug?.match(/primary-(r|h)(\d+)(?:-(zenki|kouki))?$/);
     if (!match) continue;
     const yearCode = `${match[1]}${match[2]}`;
-    const part = match[3] as 'zenki' | 'kouki';
+    const part = (match[3] ?? 'single') as 'zenki' | 'kouki' | 'single';
     if (!yearMap.has(yearCode)) yearMap.set(yearCode, {});
     yearMap.get(yearCode)![part] = doc;
   }
@@ -110,7 +111,7 @@ function PrimaryExamTable2({ docs, secondaryDocs = [] }: { docs: DocMeta[]; seco
       label: yearLabel(yearCode),
       cells: [
         { label: '前期', doc: pair.zenki },
-        { label: '後期', doc: pair.kouki },
+        pair.single ? { label: '学科', doc: pair.single } : { label: '後期', doc: pair.kouki },
         ...(hasSecondary ? [{ label: '第2次', doc: secondaryMap.get(yearCode) }] : []),
       ],
     };

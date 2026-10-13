@@ -18,8 +18,8 @@ import { loadRegistry, qualificationLabel } from './lib/qualification-registry.m
 import { IG_HANDLE as ACCOUNT } from './lib/site-identity.mjs';
 import { todayJst as jstToday } from './lib/jst-date.mjs';
 import { readIgPublication } from './lib/registry-ig-store.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const PACKS_ROOT = join(ROOT, 'content/sns/video-packs');
 const IG_ROOT = join(ROOT, 'content/sns/instagram/video-packs');
 // 既存カルーセルの主力帯（12:00 / 19:00）と衝突させず、朝・昼・夜の3本へ分散する。

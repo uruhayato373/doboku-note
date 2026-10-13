@@ -1,0 +1,49 @@
+<!-- authored 2026-10-10 doboku-note 自作。題材はコンクリート診断士教材の走行型レーザ計測車によるひび割れ幅計測。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="走行型レーザ計測車によるひび割れ計測の流れ。走行しながらレーザを走査し、反射の強弱を画像化し、画像処理でひび割れを抽出して分布と幅を記録する。精度を左右する条件と測れないものを併記する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-name { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-sum  { font-size: 12px; fill: #222; }
+      .box-b  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-g  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .arr    { stroke: #8a8a8a; stroke-width: 1.5; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#8a8a8a"/></marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">レーザ走査から、ひび割れの分布と幅まで</text>
+
+  <rect class="box-b" x="20" y="28" width="360" height="62" rx="6"/>
+  <text class="t-name" x="35" y="52">1　走行しながらレーザを走査</text>
+  <text class="t-desc" x="35" y="72">覆工面へレーザ光を当て、反射を受ける</text>
+  <line class="arr" x1="200" y1="90" x2="200" y2="108" marker-end="url(#arrow)"/>
+
+  <rect class="box-b" x="20" y="110" width="360" height="62" rx="6"/>
+  <text class="t-name" x="35" y="134">2　反射の強弱を画像にする</text>
+  <text class="t-desc" x="35" y="154">ひび割れ部は反射が弱く、暗い線になる</text>
+  <line class="arr" x1="200" y1="172" x2="200" y2="190" marker-end="url(#arrow)"/>
+
+  <rect class="box-b" x="20" y="192" width="360" height="62" rx="6"/>
+  <text class="t-name" x="35" y="216">3　画像処理でひび割れを抽出</text>
+  <text class="t-desc" x="35" y="236">暗い線の位置と太さを読み取る</text>
+  <line class="arr" x1="200" y1="254" x2="200" y2="272" marker-end="url(#arrow)"/>
+
+  <rect class="box-g" x="20" y="274" width="360" height="62" rx="6"/>
+  <text class="t-name" x="35" y="298">4　分布図とひび割れ幅の一覧</text>
+  <text class="t-desc" x="35" y="318">覆工の展開図に重ねて記録する</text>
+
+  <text class="t-sec" x="20" y="366">結果を読むときの条件</text>
+  <rect class="box-surface" x="20" y="374" width="360" height="104" rx="6"/>
+  <text class="t-sum" x="35" y="398">精度は走行速度と壁面の状態で変わる</text>
+  <text class="t-sum" x="35" y="420">汚れ・濡れ・漏水があると線が乱れる</text>
+  <text class="t-sum" x="35" y="442">閉じて見えないひび割れは測れない</text>
+  <text class="t-sum" x="35" y="464">幅は画素の細かさより小さくは読めない</text>
+</svg>

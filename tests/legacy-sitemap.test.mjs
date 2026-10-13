@@ -40,3 +40,21 @@ test("sitemap.xml と同じ 1 行 1 エントリで、lastmod は 301 になっ�
   assert.match(xml, /^<\?xml version="1.0" encoding="UTF-8"\?>\n<urlset xmlns="http:\/\/www\.sitemaps\.org\/schemas\/sitemap\/0\.9">\n/);
   assert.match(xml, /<url><loc>https:\/\/doboku-note\.com\/docs\/a<\/loc><lastmod>2026-08-22<\/lastmod><\/url>/);
 });
+
+test("移転日より後に作った記事の旧 /docs URL は出さない（実在しなかった旧 URL・DN-0666）", () => {
+  const createdBySlug = new Map([
+    ["pe-comprehensive-management-cost-benefit-analysis", "2026-04-08"],
+    ["civil-construction-1-guide-surveying", "2026-09-16"],
+  ]);
+  const r = buildLegacySitemapUrls({ docRoutes, sitemapLocs, siteUrl: SITE, createdBySlug, now: new Date("2026-10-11T00:00:00Z") });
+  assert.deepEqual(r.urls, [`${SITE}/docs/pe-comprehensive-management-cost-benefit-analysis`]);
+});
+
+test("移転日ちょうどに作った記事と、作成日の分からない記事は残す", () => {
+  const createdBySlug = new Map([["civil-construction-1-guide-surveying", "2026-08-22"]]);
+  const r = buildLegacySitemapUrls({ docRoutes, sitemapLocs, siteUrl: SITE, createdBySlug, now: new Date("2026-10-11T00:00:00Z") });
+  assert.deepEqual(r.urls, [
+    `${SITE}/docs/civil-construction-1-guide-surveying`,
+    `${SITE}/docs/pe-comprehensive-management-cost-benefit-analysis`,
+  ]);
+});

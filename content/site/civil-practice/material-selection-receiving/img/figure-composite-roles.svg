@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="複合材料を粒子分散、繊維強化、積層の三つの形に分け、鉄筋コンクリートの役割分担を添えた分類図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; fill: #1a3a5c; font-size: 12px; }
+      .h { font-size: 13px; font-weight: bold; }
+      .s { font-size: 11px; fill: #555; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .mat { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .alt { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .part { fill: #ffffff; stroke: #555; stroke-width: 1.5; }
+      .fib { fill: none; stroke: #d4a017; stroke-width: 3; }
+    </style>
+  </defs>
+  <rect width="400" height="500" fill="#ffffff" />
+  <rect class="box" x="10" y="12" width="380" height="104" rx="6" />
+  <rect class="mat" x="22" y="24" width="110" height="80" rx="4" />
+  <path class="fib" d="M30,38 H124 M30,52 H124 M30,66 H124 M30,80 H124 M30,94 H124" />
+  <text x="148" y="40" class="h">繊維強化</text>
+  <text x="148" y="62">繊維が荷重、母材が力を伝える</text>
+  <text x="148" y="84" class="s">FRP／繊維補強コンクリート</text>
+  <rect class="box" x="10" y="126" width="380" height="104" rx="6" />
+  <rect class="mat" x="22" y="138" width="110" height="16" />
+  <rect class="alt" x="22" y="154" width="110" height="16" />
+  <rect class="mat" x="22" y="170" width="110" height="16" />
+  <rect class="alt" x="22" y="186" width="110" height="16" />
+  <rect class="mat" x="22" y="202" width="110" height="16" />
+  <text x="148" y="154" class="h">積層</text>
+  <text x="148" y="176">層を重ねて性質を組み合わせる</text>
+  <text x="148" y="198" class="s">合板・集成材</text>
+  <text x="148" y="216" class="s">鋼板とゴムの積層ゴム支承</text>
+  <rect class="box" x="10" y="240" width="380" height="104" rx="6" />
+  <rect class="mat" x="22" y="252" width="110" height="80" rx="4" />
+  <circle class="part" cx="44" cy="276" r="9" />
+  <circle class="part" cx="78" cy="272" r="7" />
+  <circle class="part" cx="108" cy="282" r="10" />
+  <circle class="part" cx="56" cy="310" r="8" />
+  <circle class="part" cx="92" cy="314" r="9" />
+  <text x="148" y="268" class="h">粒子分散</text>
+  <text x="148" y="290">粒を母材に散らし、骨格にする</text>
+  <text x="148" y="312" class="s">コンクリート／アスファルト混合物</text>
+  <rect class="box" x="10" y="358" width="380" height="132" rx="6" />
+  <text x="22" y="380" class="s">鉄筋コンクリート・PCの分担</text>
+  <rect class="mat" x="30" y="396" width="90" height="70" rx="3" />
+  <circle class="alt" cx="46" cy="454" r="5" />
+  <circle class="alt" cx="75" cy="454" r="5" />
+  <circle class="alt" cx="104" cy="454" r="5" />
+  <text x="148" y="410">コンクリート：圧縮を受ける</text>
+  <text x="148" y="432">鉄筋・PC鋼材：引張を受ける</text>
+  <text x="148" y="454" class="s">線膨張係数が近く、付着して一体</text>
+  <text x="148" y="474" class="s">アルカリ性が鉄筋を錆から守る</text>
+</svg>

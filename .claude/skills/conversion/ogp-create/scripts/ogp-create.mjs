@@ -117,6 +117,7 @@ import { renderTemplate, LAYOUT_CONSTANTS } from './lib/ogp-templates.mjs';
 import { wrapTitle, pickFontSize } from './lib/ogp-text.mjs';
 import { REPO_ROOT as PROJECT_ROOT, SITE_CONTENT_ROOT } from '../../../../../scripts/lib/repository-paths.mjs';
 import { datasetDir, datasetPath } from '../../../../../scripts/lib/datasets.mjs';
+import { requireLocalAsset } from '../../../../../scripts/lib/asset-storage.mjs';
 import { listFiles } from '../../../../../scripts/lib/fs-walk.mjs';
 import { parseCliArgs } from '../../../../../scripts/lib/cli-args.mjs';
 
@@ -235,13 +236,14 @@ function loadBackgroundImage(templateDef) {
 }
 
 // 資格ごとに共有する背景画像を解決する。category → exam-key → backgrounds/<key>.{png,webp,jpg}。
-// 存在しなければ null（＝従来のオフホワイト背景にフォールバック、後方互換）。
+// 背景は R2 に退避してある（2026-10-10・素材の group ogp-background）。台帳にあるのに手元に無ければ止める
+// （黙ってオフホワイトに落とさない）。台帳にも無い資格だけ null＝従来のオフホワイト背景（後方互換）。
 function resolveBackgroundImage(category) {
   const key = CATEGORY_TO_EXAM_KEY[category];
   if (!key) return null;
   for (const ext of ['png', 'webp', 'jpg', 'jpeg']) {
-    const abs = path.join(BACKGROUNDS_DIR, `${key}.${ext}`);
-    if (fs.existsSync(abs)) {
+    const abs = requireLocalAsset(path.relative(PROJECT_ROOT, path.join(BACKGROUNDS_DIR, `${key}.${ext}`)));
+    if (abs) {
       const buf = fs.readFileSync(abs);
       const mime = ext === 'jpg' ? 'jpeg' : ext;
       return `data:image/${mime};base64,${buf.toString('base64')}`;

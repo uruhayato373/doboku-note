@@ -6,24 +6,24 @@ utmCampaign: cd-case-retaining-initial-defect
 noteMagazine: コンクリート診断士-想定構造物8ケース
 notePublishedAt: "2026-09-20"
 noteId: "n6e5ca4e6933c"
-title: "コンクリート診断士 記述式 問題B｜RC擁壁の豆板・コールドジョイントと中性化"
+title: "コンクリート診断士 記述式 模範答案｜RC擁壁の豆板・コールドジョイントと中性化"
 noteUrl: "https://note.com/dobokunote/n/n6e5ca4e6933c"
 noteStatus: published
 published: false
 technicalReview: approved
 paidBoundary: "答案の方針"
 price: 1480
-coverTitle: "問題B｜RC擁壁の初期欠陥・中性化"
+coverTitle: "模範答案｜RC擁壁の初期欠陥・中性化"
 cover:
   variant: crop-safe-v4
   leadIn: "コンクリート診断士｜構造物別"
   headline: "RC擁壁"
-  hi: "問題B"
+  hi: "土木"
   hiSuffix: "初期欠陥・中性化"
   benefit: "診断から対策まで答案化"
 ---
 
-# コンクリート診断士 記述式 問題B｜RC擁壁の豆板・コールドジョイントと中性化
+# コンクリート診断士 記述式 模範答案｜RC擁壁の豆板・コールドジョイントと中性化
 
 **こんな人のための記事です**
 
@@ -37,7 +37,7 @@ cover:
 - 内部欠陥と鉄筋腐食を確かめる調査計画
 - 原因除去と再発防止を含む補修計画
 
-本記事は、コンクリート診断士試験の問題Bを想定したオリジナル教材です。実在する過去問の再録ではありません。観察事実から劣化機構を推定し、調査、評価、対策までを一つの論理でつなぐ練習に使います。
+本記事は、コンクリート診断士試験の記述式（構造物の診断の問題）を想定したオリジナル教材です。実在する過去問の再録ではありません。観察事実から劣化機構を推定し、調査、評価、対策までを一つの論理でつなぐ練習に使います。
 
 > 模範答案は型を示すものです。構造形式、環境、調査結果、数値は自分が解く設問の条件に合わせて置き換えてください。
 

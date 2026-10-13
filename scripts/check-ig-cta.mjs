@@ -27,8 +27,15 @@ import { execFileSync } from 'node:child_process';
 import { figurePackLabels } from '../.claude/scripts/sns/lib/figure-pack-labels.mjs';
 import { REPO_ROOT, SNS_CONTENT_ROOT } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
 
-const STAGED = process.argv.includes('--staged');
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
+
+const STAGED = __argv.includes('--staged');
 const ROOT = join(SNS_CONTENT_ROOT, 'instagram');
 // 表示・staged（git の出力）との照合は、リポジトリルートからの相対パスで行う
 const repoRel = (p) => relative(REPO_ROOT, p).split('\\').join('/');
@@ -70,6 +77,10 @@ if (problems.length) {
   console.error(`[check-ig-cta] ✗ ${problems.length} 件のテンプレ逸脱:`);
   for (const p of problems) console.error(`  - ${p}`);
   console.error(`  → SSOT: .claude/skills/social/ig-figure-pack/templates/03-cta.template.svg をコピーして {{...}} だけ差し替える`);
-  process.exit(1);
+  __exit(1);
 }
 console.log(`[check-ig-cta] ✓ ${files.length} パックの CTA が新標準テンプレに準拠`);
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

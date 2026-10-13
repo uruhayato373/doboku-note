@@ -6,24 +6,24 @@ utmCampaign: cd-case-reservoir-leakage
 noteMagazine: コンクリート診断士-想定構造物8ケース
 notePublishedAt: "2026-09-20"
 noteId: "ncc5f3f67f326"
-title: "コンクリート診断士 記述式 問題B｜RC配水池のひび割れ・漏水"
+title: "コンクリート診断士 記述式 模範答案｜RC配水池のひび割れ・漏水"
 noteUrl: "https://note.com/dobokunote/n/ncc5f3f67f326"
 noteStatus: published
 published: false
 technicalReview: approved
 paidBoundary: "答案の方針"
 price: 1480
-coverTitle: "問題B｜RC配水池のひび割れ・漏水"
+coverTitle: "模範答案｜RC配水池のひび割れ・漏水"
 cover:
   variant: crop-safe-v4
   leadIn: "コンクリート診断士｜構造物別"
   headline: "RC配水池"
-  hi: "問題B"
+  hi: "土木"
   hiSuffix: "ひび割れ・漏水"
   benefit: "診断から対策まで答案化"
 ---
 
-# コンクリート診断士 記述式 問題B｜RC配水池のひび割れ・漏水
+# コンクリート診断士 記述式 模範答案｜RC配水池のひび割れ・漏水
 
 **こんな人のための記事です**
 
@@ -37,7 +37,7 @@ cover:
 - 満水・水位変動とひび割れ挙動の調べ方
 - 止水性、付着性、衛生性を満たす補修計画
 
-本記事は、コンクリート診断士試験の問題Bを想定したオリジナル教材です。実在する過去問の再録ではありません。観察事実から劣化機構を推定し、調査、評価、対策までを一つの論理でつなぐ練習に使います。
+本記事は、コンクリート診断士試験の記述式（構造物の診断の問題）を想定したオリジナル教材です。実在する過去問の再録ではありません。観察事実から劣化機構を推定し、調査、評価、対策までを一つの論理でつなぐ練習に使います。
 
 > 模範答案は型を示すものです。構造形式、環境、調査結果、数値は自分が解く設問の条件に合わせて置き換えてください。
 

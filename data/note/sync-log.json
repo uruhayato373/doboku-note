@@ -1,6 +1,212 @@
 {
   "runs": [
     {
+      "startedAt": "2026-10-10T18:00:08.285Z",
+      "finishedAt": "2026-10-10T18:13:04.514Z",
+      "plan": {
+        "synced": 586,
+        "ready": 345,
+        "blocked": 3,
+        "blockers": {
+          "aborted": 3
+        }
+      },
+      "articles": {
+        "attempted": 200,
+        "updated": [
+          {
+            "path": "content/note/1級・2級土木/R8二次-自己採点と合格発表まで-1級-無料/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-小論文テーマ別-令和形式/00-出題傾向分析/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/コンクリート主任技士/magazines/コンクリート主任技士-令和形式-02-プレキャスト工場/05-担い手不足と品質確保/article.md",
+            "parts": [
+              "cover"
+            ]
+          },
+          {
+            "path": "content/note/1級・2級土木/給料表で読む土木公務員の年収-無料/article.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/1級・2級土木/転職エージェント比較-無料/article.md",
+            "parts": [
+              "body"
+            ]
+          },
+          {
+            "path": "content/note/1級・2級土木/土木公務員の職務経歴書-無料/article.md",
+            "parts": [
+              "body"
+            ]
+          }
+        ],
+        "failed": [
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R03/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "配布 PDF を取り寄せられない: コピー失敗: Unknown system error -11: Unknown system error -11, read — content/note/技術士建設部門/magazines/BK-02_河川砂防/R03/建設部門-河川-R03-II-1-模範解答.pdf /     コピー失敗: Unknown system error -11: Unknown system error -11, read — content/note/技術士建設部門/magazines/BK-02_河川砂防/R03/建設部門-河川-R03-II-2-模範解答.pdf"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R03/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "配布 PDF を取り寄せられない: コピー失敗: Unknown system error -11: Unknown system error -11, read — content/note/技術士建設部門/magazines/BK-02_河川砂防/R03/建設部門-河川-R03-II-1-模範解答.pdf /     コピー失敗: Unknown system error -11: Unknown system error -11, read — content/note/技術士建設部門/magazines/BK-02_河川砂防/R03/建設部門-河川-R03-II-2-模範解答.pdf"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R05/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "配布 PDF を取り寄せられない: コピー失敗: Unknown system error -11: Unknown system error -11, read — content/note/技術士建設部門/magazines/BK-02_河川砂防/R05/建設部門-河川-R05-III-模範解答.pdf /     コピー失敗: Unknown system error -11: Unknown system error -11, read — content/note/技術士建設部門/magazines/BK-02_河川砂防/R05/建設部門-河川-R05-II-2-模範解答.pdf"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R05/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "配布 PDF を取り寄せられない: コピー失敗: Unknown system error -11: Unknown system error -11, read — content/note/技術士建設部門/magazines/BK-02_河川砂防/R05/建設部門-河川-R05-III-模範解答.pdf /     コピー失敗: Unknown system error -11: Unknown system error -11, read — content/note/技術士建設部門/magazines/BK-02_河川砂防/R05/建設部門-河川-R05-II-2-模範解答.pdf"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R06/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "配布 PDF を取り寄せられない: コピー失敗: Unknown system error -11: Unknown system error -11, read — content/note/技術士建設部門/magazines/BK-02_河川砂防/R06/建設部門-河川-R06-II-2-模範解答.pdf /     コピー失敗: Unknown system error -11: Unknown system error -11, read — content/note/技術士建設部門/magazines/BK-02_河川砂防/R06/建設部門-河川-R06-II-1-模範解答.pdf"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R06/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "配布 PDF を取り寄せられない: コピー失敗: Unknown system error -11: Unknown system error -11, read — content/note/技術士建設部門/magazines/BK-02_河川砂防/R06/建設部門-河川-R06-II-2-模範解答.pdf /     コピー失敗: Unknown system error -11: Unknown system error -11, read — content/note/技術士建設部門/magazines/BK-02_河川砂防/R06/建設部門-河川-R06-II-1-模範解答.pdf"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R07/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "配布 PDF を取り寄せられない: コピー失敗: Unknown system error -11: Unknown system error -11, read — content/note/技術士建設部門/magazines/BK-02_河川砂防/R07/建設部門-河川-R07-II-1-模範解答.pdf /     コピー失敗: Unknown system error -11: Unknown system error -11, read — content/note/技術士建設部門/magazines/BK-02_河川砂防/R07/建設部門-河川-R07-II-2-模範解答.pdf"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R07/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "配布 PDF を取り寄せられない: コピー失敗: Unknown system error -11: Unknown system error -11, read — content/note/技術士建設部門/magazines/BK-02_河川砂防/R07/建設部門-河川-R07-II-1-模範解答.pdf /     コピー失敗: Unknown system error -11: Unknown system error -11, read — content/note/技術士建設部門/magazines/BK-02_河川砂防/R07/建設部門-河川-R07-II-2-模範解答.pdf"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R08-yosou/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "配布 PDF を取り寄せられない: コピー失敗: Unknown system error -11: Unknown system error -11, read — content/note/技術士建設部門/magazines/BK-02_河川砂防/R08-yosou/建設部門-河川-R08予想-II-1-予想問題と模範解答.pdf /     コピー失敗: Unknown system error -11: Unknown system error -11, read — content/note/技術士建設部門/magazines/BK-02_河川砂防/R08-yosou/建設部門-河川-R08予想-II-2-予想問題と模"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-02_河川砂防/R08-yosou/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "配布 PDF を取り寄せられない: コピー失敗: Unknown system error -11: Unknown system error -11, read — content/note/技術士建設部門/magazines/BK-02_河川砂防/R08-yosou/建設部門-河川-R08予想-II-1-予想問題と模範解答.pdf /     コピー失敗: Unknown system error -11: Unknown system error -11, read — content/note/技術士建設部門/magazines/BK-02_河川砂防/R08-yosou/建設部門-河川-R08予想-II-2-予想問題と模"
+          },
+          {
+            "path": "content/note/技術士総監/立場別模範論文の選び方/article.md",
+            "parts": [
+              "cover"
+            ],
+            "reason": "skip: [skip] na030d9cb3060 反映済み（未反映の部品なし）: content/note/技術士総監/立場別模範論文の選び方/article.md"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R03/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R03/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R04/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R04/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R05/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "[FAIL] --reattach-pdf: live の添付 1 件のうち 1 件がローカルに無い → 本文を触らず中断: nb50d168c443a"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R05/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R07/article-II1.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          },
+          {
+            "path": "content/note/技術士建設部門/magazines/BK-01_道路/R07/article-II2.md",
+            "parts": [
+              "body"
+            ],
+            "reason": "結果なし（連続失敗で中断された可能性）"
+          }
+        ]
+      },
+      "magazines": {
+        "attempted": 0,
+        "updated": [],
+        "failed": []
+      },
+      "problems": [
+        "PDF を Drive から取り寄せられない: content/note/技術士建設部門/magazines/BK-02_河川砂防/R03/article-II1.md（コピー失敗: Unknown system error -11: Unknown system error -11, read — content/note/技術士建設部門/magazines/BK-02_河川砂防/R03/建設部門-河川-R03-II-1-模範解答.pdf /     コピー失敗: Unknown system error -11: Unknown system error -11, read — content/note/技術士建設部門/magazines/BK-02_河川砂防/R03/建設部門-河川-R03-II-2-模範解答.pdf）",
+        "PDF を Drive から取り寄せられない: content/note/技術士建設部門/magazines/BK-02_河川砂防/R03/article-II2.md（コピー失敗: Unknown system error -11: Unknown system error -11, read — content/note/技術士建設部門/magazines/BK-02_河川砂防/R03/建設部門-河川-R03-II-1-模範解答.pdf /     コピー失敗: Unknown system error -11: Unknown system error -11, read — content/note/技術士建設部門/magazines/BK-02_河川砂防/R03/建設部門-河川-R03-II-2-模範解答.pdf）",
+        "PDF を Drive から取り寄せられない: content/note/技術士建設部門/magazines/BK-02_河川砂防/R05/article-II1.md（コピー失敗: Unknown system error -11: Unknown system error -11, read — content/note/技術士建設部門/magazines/BK-02_河川砂防/R05/建設部門-河川-R05-III-模範解答.pdf /     コピー失敗: Unknown system error -11: Unknown system error -11, read — content/note/技術士建設部門/magazines/BK-02_河川砂防/R05/建設部門-河川-R05-II-2-模範解答.pdf）",
+        "PDF を Drive から取り寄せられない: content/note/技術士建設部門/magazines/BK-02_河川砂防/R05/article-II2.md（コピー失敗: Unknown system error -11: Unknown system error -11, read — content/note/技術士建設部門/magazines/BK-02_河川砂防/R05/建設部門-河川-R05-III-模範解答.pdf /     コピー失敗: Unknown system error -11: Unknown system error -11, read — content/note/技術士建設部門/magazines/BK-02_河川砂防/R05/建設部門-河川-R05-II-2-模範解答.pdf）",
+        "PDF を Drive から取り寄せられない: content/note/技術士建設部門/magazines/BK-02_河川砂防/R06/article-II1.md（コピー失敗: Unknown system error -11: Unknown system error -11, read — content/note/技術士建設部門/magazines/BK-02_河川砂防/R06/建設部門-河川-R06-II-2-模範解答.pdf /     コピー失敗: Unknown system error -11: Unknown system error -11, read — content/note/技術士建設部門/magazines/BK-02_河川砂防/R06/建設部門-河川-R06-II-1-模範解答.pdf）",
+        "PDF を Drive から取り寄せられない: content/note/技術士建設部門/magazines/BK-02_河川砂防/R06/article-II2.md（コピー失敗: Unknown system error -11: Unknown system error -11, read — content/note/技術士建設部門/magazines/BK-02_河川砂防/R06/建設部門-河川-R06-II-2-模範解答.pdf /     コピー失敗: Unknown system error -11: Unknown system error -11, read — content/note/技術士建設部門/magazines/BK-02_河川砂防/R06/建設部門-河川-R06-II-1-模範解答.pdf）",
+        "PDF を Drive から取り寄せられない: content/note/技術士建設部門/magazines/BK-02_河川砂防/R07/article-II1.md（コピー失敗: Unknown system error -11: Unknown system error -11, read — content/note/技術士建設部門/magazines/BK-02_河川砂防/R07/建設部門-河川-R07-II-1-模範解答.pdf /     コピー失敗: Unknown system error -11: Unknown system error -11, read — content/note/技術士建設部門/magazines/BK-02_河川砂防/R07/建設部門-河川-R07-II-2-模範解答.pdf）",
+        "PDF を Drive から取り寄せられない: content/note/技術士建設部門/magazines/BK-02_河川砂防/R07/article-II2.md（コピー失敗: Unknown system error -11: Unknown system error -11, read — content/note/技術士建設部門/magazines/BK-02_河川砂防/R07/建設部門-河川-R07-II-1-模範解答.pdf /     コピー失敗: Unknown system error -11: Unknown system error -11, read — content/note/技術士建設部門/magazines/BK-02_河川砂防/R07/建設部門-河川-R07-II-2-模範解答.pdf）",
+        "PDF を Drive から取り寄せられない: content/note/技術士建設部門/magazines/BK-02_河川砂防/R08-yosou/article-II1.md（コピー失敗: Unknown system error -11: Unknown system error -11, read — content/note/技術士建設部門/magazines/BK-02_河川砂防/R08-yosou/建設部門-河川-R08予想-II-1-予想問題と模範解答.pdf /     コピー失敗: Unknown system error -11: Unknown system error -11, read — content/note/技術士建設部門/magazines/BK-02_河川砂防/R08-yosou/建設部門-河川-R08予想-II-2-予想問題と模）",
+        "PDF を Drive から取り寄せられない: content/note/技術士建設部門/magazines/BK-02_河川砂防/R08-yosou/article-II2.md（コピー失敗: Unknown system error -11: Unknown system error -11, read — content/note/技術士建設部門/magazines/BK-02_河川砂防/R08-yosou/建設部門-河川-R08予想-II-1-予想問題と模範解答.pdf /     コピー失敗: Unknown system error -11: Unknown system error -11, read — content/note/技術士建設部門/magazines/BK-02_河川砂防/R08-yosou/建設部門-河川-R08予想-II-2-予想問題と模）",
+        "記事の更新が連続で失敗したので残りを止めた（note 側の変更・レート制限を疑う）"
+      ]
+    },
+    {
       "startedAt": "2026-10-07T07:56:08.059Z",
       "finishedAt": "2026-10-07T08:19:00.131Z",
       "plan": {
@@ -926,29 +1132,6 @@
     {
       "startedAt": "2026-10-01T17:11:22.696Z",
       "finishedAt": "2026-10-01T17:17:59.670Z",
-      "plan": {
-        "synced": 611,
-        "ready": 283,
-        "blocked": 4,
-        "blockers": {
-          "aborted": 4
-        }
-      },
-      "articles": {
-        "attempted": 0,
-        "updated": [],
-        "failed": []
-      },
-      "magazines": {
-        "attempted": 0,
-        "updated": [],
-        "failed": []
-      },
-      "problems": []
-    },
-    {
-      "startedAt": "2026-10-01T17:04:30.629Z",
-      "finishedAt": "2026-10-01T17:11:09.283Z",
       "plan": {
         "synced": 611,
         "ready": 283,

@@ -825,6 +825,70 @@
         "/exam/pe-construction/past-exams/r08-road",
         "/exam/pe-first-stage/guide/r08-answers"
       ]
+    },
+    {
+      "runId": "2026-10-11T06-51-11Z",
+      "collectedAt": "2026-10-11T06:51:11.121Z",
+      "mode": "commit",
+      "status": "ok",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 2,
+      "accepted": 2,
+      "alreadyIndexed": 0,
+      "unreadable": 0,
+      "slugs": [
+        "/exam/civil-construction-1/secondary/r08",
+        "/practice/steel-material-properties"
+      ],
+      "acceptedSlugs": [
+        "/exam/civil-construction-1/secondary/r08",
+        "/practice/steel-material-properties"
+      ]
+    },
+    {
+      "runId": "2026-10-13T01-30-04Z",
+      "collectedAt": "2026-10-13T01:30:04.352Z",
+      "mode": "commit",
+      "status": "ok",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 14,
+      "accepted": 10,
+      "alreadyIndexed": 4,
+      "unreadable": 0,
+      "slugs": [
+        "/practice/trench-excavation-safety",
+        "/exam/civil-construction-2/guide/foundation-key-points",
+        "/exam/civil-construction-1/guide/construction-plan",
+        "/exam/pe-construction/past-exams/r06-road",
+        "/exam/pe-construction/guide/competency-revision-r8",
+        "/exam/pe-construction/past-exams/r07-urban-planning",
+        "/exam/pe-construction/keywords/environment-exam-themes",
+        "/exam/pe-construction/keywords/required-exam-themes",
+        "/exam/pe-construction/past-exams/r06-urban-planning",
+        "/exam/pe-construction/keywords/power-civil-exam-themes",
+        "/exam/pe-comprehensive-management/keywords/human-capital-disclosure",
+        "/exam/rccm/guide/difference-pe",
+        "/exam/rccm/guide/eligibility-application",
+        "/exam/rccm/guide/mondai1-keiken-ronbun"
+      ],
+      "acceptedSlugs": [
+        "/exam/pe-construction/past-exams/r06-road",
+        "/exam/pe-construction/guide/competency-revision-r8",
+        "/exam/pe-construction/past-exams/r07-urban-planning",
+        "/exam/pe-construction/keywords/required-exam-themes",
+        "/exam/pe-construction/past-exams/r06-urban-planning",
+        "/exam/pe-construction/keywords/power-civil-exam-themes",
+        "/exam/pe-comprehensive-management/keywords/human-capital-disclosure",
+        "/exam/rccm/guide/difference-pe",
+        "/exam/rccm/guide/eligibility-application",
+        "/exam/rccm/guide/mondai1-keiken-ronbun"
+      ]
     }
   ]
 }

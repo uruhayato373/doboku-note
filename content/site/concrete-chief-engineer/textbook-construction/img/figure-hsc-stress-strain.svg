@@ -1,0 +1,32 @@
+<!-- authored 2026-10-10 doboku-note 自作。題材は普通強度と高強度コンクリートの圧縮応力-ひずみ曲線の、ピーク後の下降の違い。数値は示さない。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="普通強度と高強度のコンクリートの圧縮応力とひずみの曲線を重ねた概念図。高強度は最大応力が大きく、そのあと急に応力が落ち、普通強度はゆるやかに下がる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .t-sec { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .ax { stroke: #555; stroke-width: 1.5; fill: none; }
+      .c1 { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+      .c3 { stroke: #b22234; stroke-width: 2.5; fill: none; }
+    </style>
+  </defs>
+
+  <text class="t-sec" x="20" y="26">強度が高いほど下降が急になる</text>
+  <path class="ax" d="M60,56 L60,400 L360,400"/>
+  <text x="20" y="64">応力</text>
+  <text x="320" y="420">ひずみ</text>
+  <path class="c1" d="M60,400 C80,330 110,292 140,290 C200,292 260,340 330,385"/>
+  <path class="c3" d="M60,400 C85,260 130,126 175,120 C190,122 200,180 212,398"/>
+  <circle cx="140" cy="290" r="3" fill="#2e6da4"/>
+  <circle cx="175" cy="120" r="3" fill="#b22234"/>
+  <text x="226" y="96">最大応力のあと</text>
+  <text x="226" y="112">急に落ちる</text>
+  <text x="250" y="308">ゆるやかに下がる</text>
+  <line class="c3" x1="30" y1="448" x2="52" y2="448"/>
+  <text x="58" y="452">高強度</text>
+  <line class="c1" x1="150" y1="448" x2="172" y2="448"/>
+  <text x="178" y="452">普通強度</text>
+  <text x="200" y="480" text-anchor="middle">最大応力時のひずみは強度とともにやや大きくなる</text>
+</svg>

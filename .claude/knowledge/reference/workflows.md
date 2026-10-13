@@ -43,7 +43,7 @@ title: 推奨ワークフロー
 >
 > 調査の実務:
 > - **trigger_id は `RemoteTrigger {action:"get"}` で直接引く**。`list` はページ送りが効かず（`next_cursor` を body に渡しても無視される）、先頭 20 件が別プロジェクトの使い捨て `send_later` トリガーで埋まって正典まで辿り着けない。ID は memory `cloud-routines-minimized` に記録がある
-> - **発火の成否は「PR が存在するか」で見る**（`gh pr list` の `headRefName` が `claude/weekly-pdca-YYYY-Www`）。機械判定は `npm run check-weekly-routine-fired`（2026-09-19 撤去）
+> - **発火の成否は「PR が存在するか」で見る**（`gh pr list` の `headRefName` が `claude/weekly-pdca-YYYY-Www`）。機械判定は `check-weekly-routine-fired`（npm script・2026-09-19 撤去）
 > - **`git ls-remote` でブランチの有無を見てはいけない**（2026-08-16 に私が踏んだ罠）。PR の close/merge 後にブランチは自動削除されるため、**成功した週でも空になる**。「ブランチが無い＝push 前に落ちた＝起動失敗」と推論したが、これは**不在を証拠と取り違えた誤り**だった。失敗がどの段階で起きているかは、この方法では分からない
 >
 > 対処として、ルーティン本文に **Phase 8.5「沈黙の禁止」**（PR 作成に到達しなければ `scripts/report-automation-failure.mjs` で automation-failure を起票してから終了）を追加し、モデル指定を `claude-sonnet-4-6` から `claude-sonnet-5` へ更新した。**ただし後者は実行ログを見られないまま立てた仮説であり、根本原因は未特定**（環境失効・認証切れ等の可能性が残る）。
@@ -258,6 +258,10 @@ CLAUDE.md §1・§2・§5・§10 の根拠と経緯（ルール本文は CLAUDE.
 - 各セッションは `git worktree add <別dir> -b <feature> origin/develop` で独立した HEAD／index／作業ツリーを持ち、`develop` へは PR で集約する（`.git` オブジェクトは共有）。Claude Code の `EnterWorktree` は `.claude/worktrees/` に作り、既定の base は origin/main なので、作った直後に `git merge --ff-only origin/develop` で develop 先頭へ合わせる（main 派生のままだと develop 側の新しいゲートが無く重複作業になる）。node_modules は本体へ symlink して使う（Turbopack は symlink を拒否するので dev は `--webpack`）
 - 別の worktree での作業は `git -C <絶対パス>` と絶対パスで行う。Claude Code の Bash は括弧の外の `cd` でセッションの作業ディレクトリが移り、以後の相対パスとサブエージェントの書き込み先がずれる。その場所での実行が要るときはサブシェル `( cd <dir> && … )` に閉じる。PreToolUse のフック `check-cd-scope` が、worktree やプロジェクトの下の階層への素の `cd` を止める（DN-0622）
 - 単一セッションで短時間の作業に worktree は作らない（§5「worktree は複数セッション並行時だけ」）
+
+### feature ブランチを最新 develop へ載せ直す
+
+`node scripts/replay-onto-develop.mjs <sha...> [--push]`（`npm run replay-onto-develop -- <sha...> --push`）。commit の実在・fetch・`reset --keep origin/develop`・cherry-pick・`git patch-id` での元とのパッチ照合を 1 段ずつ確かめ、失敗したら残った状態と戻し方を出して非 0 で終える。`--push` は同じパッチのときだけ（develop 以外は `--force-with-lease`）。手で `;` 繋ぎにしない（失敗の後も push まで進んだ事故が 3 回。memory `reference_partial_clone_repack_hazard`）。
 
 ### 同一ワークツリーで並行せざるを得ないとき
 

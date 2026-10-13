@@ -2,7 +2,7 @@
 /**
  * KDP 月次ロイヤリティ台帳が、確定値の取得サイクルから脱落していないかを検査する。
  *
- * - 毎月16日以降: 前月の確定値（estimated:false）が必要
+ * - 毎月23日以降: 前月の確定値（estimated:false）が必要（確定は翌月16日以降の取得。週次の取得（金曜）が 16〜22 日に必ず 1 回入るので 23 日で判定する・2026-10-11）
  * - 毎月28日以降: 当月の推計値も必要
  * - 共有KDP口座のうち、doboku-note catalog のLIVE書籍（対象月末までに出版した本）が全冊取得できること
  *
@@ -18,7 +18,7 @@ import { REPO_ROOT } from './lib/repository-paths.mjs';
 
 const STATE = datasetPath('kdp.royalties');
 const CATALOG = join(REPO_ROOT, 'scripts/kindle-published/catalog.json');
-const FINAL_DUE_DAY = 16;
+const FINAL_DUE_DAY = 23;
 const ESTIMATE_DUE_DAY = 28;
 const JSON_OUT = process.argv.includes('--json');
 const TAG = '[check-kdp-report-freshness]';

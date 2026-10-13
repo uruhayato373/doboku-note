@@ -1,12 +1,31 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-10-09T20:19:34.390Z",
+  "checkedAt": "2026-10-12T22:35:49.647Z",
   "channel": "youtube",
   "targets": 352,
   "checked": 346,
-  "observed": 346,
+  "observed": 343,
   "advanced": [
-    "civil-construction-2/keiken-gaiyo-2kyu/youtube.longform"
+    "civil-construction-2/gakka-2kyu-kiso/youtube.longform"
   ],
-  "findings": []
+  "findings": [
+    {
+      "id": "civil-construction-2/gakka-2kyu-doko/youtube.longform",
+      "severity": "fail",
+      "code": "gone",
+      "message": "videoId sqkP7vheZ_Q が videos.list で取れない（削除・BAN・別チャンネル）"
+    },
+    {
+      "id": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2",
+      "severity": "warn",
+      "code": "gone",
+      "message": "videoId lb5HDoptayQ が videos.list で取れない（削除・BAN・別チャンネル）"
+    },
+    {
+      "id": "civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1",
+      "severity": "warn",
+      "code": "gone",
+      "message": "videoId g86O04mXoVM が videos.list で取れない（削除・BAN・別チャンネル）"
+    }
+  ]
 }

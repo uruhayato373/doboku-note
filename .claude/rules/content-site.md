@@ -27,7 +27,7 @@ CLAUDE.md §2/§3/§11 の記事規約の詳細。真実源は [content-authorin
 ## 完了条件
 
 - PDF→MDX 変換は `/verify-pdf-mdx` でルーブリック ≥ 2.0
-- MDX 追加・変更後は `npm run refresh-indexes` を実行してから commit（backlinks・cross-exam・tags・pillar 問題・頻出論点のインデックス不整合を防ぐ）
+- MDX 追加・変更後は `npm run refresh-indexes` を実行してから commit（backlinks・cross-exam・tags・pillar 問題・頻出論点のインデックス不整合を防ぐ）。過去問記事では演習データ `src/config/*-exam-questions.json`・`public/quiz/*.json` も作り直されるので同じ commit に含める。問題を足す・ID を変えたら `npm run sync-past-exam-ledger -- --write`（問題台帳・`check-past-exam-ledger` が CI で止める）
 - 1 記事の修正が完了したら即 commit（`git add` は変更したファイルだけ明示）
 - 統合済み記事を再公開しない: `published: true` なのに `_redirects` の転送元になっているとページは在るのに別ページへ飛ぶ（`npm run check-published-vs-redirects`）
 - 太字・GFM テーブルが実際に描画されるか（`npm run check-bold-rendering` / `npm run check-table-rendering`、機械修正は `npm run fix-bold-rendering`）。本文が指す「表N.M」のキャプション実在（`npm run check-table-references`）

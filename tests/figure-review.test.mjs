@@ -118,7 +118,7 @@ test('判定の検査: 切り出し直しは出典（PDF とページ）を必�
   assert.equal(validateVerdict({ ...ok, verdict: 'great' }).length, 1);
   assert.equal(validateVerdict({ ...ok, reason: '' }).length, 1);
   assert.equal(validateVerdict({ ...ok, action: 'reextract' }).length, 1);
-  assert.deepEqual(validateVerdict({ ...ok, action: 'reextract', source: { pdf: 'x.pdf', page: 5 } }), []);
+  assert.deepEqual(validateVerdict({ ...ok, action: 'reextract', source: { pdf: 'x.pdf', page: 5, cropBox: [0, 0, 10, 10] } }), []);
   assert.equal(validateVerdict({ figKey: 'a/x/img/f', verdict: 'needs-source', action: 'recrop', reason: '上端で図が切れている' }).length, 1);
 });
 

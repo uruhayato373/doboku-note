@@ -21,6 +21,34 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-0717] 2級土木「土工の頻出点」の動画（sqkP7vheZ_Q）が YouTube から消え、develop の CI が video-publication で赤い
+タグ: [領域:SNS] [時期:2026-10] [種類:不具合] [起票:2026-10-13]
+
+**起点**: 2026-10-12T22:35Z の registry-reconcile が gakka-2kyu-doko/longform を gone と記録し（.claude/state/video-publication-verify.json）、以後 develop の quality audit（video-publication V05）が赤い。前回 10-11T19:42Z の照合では見えていた。oEmbed は 404（非公開なら 401/403）なので削除の可能性が高い。10-12T21:56Z の予約取り消し（youtube-unschedule・未来の予約 38 本）は公開済みのこの動画を対象にしていない。
+**やること**: 運営者が消したのか（YouTube 側の削除・違反措置か）を YouTube Studio で確かめる。意図どおりなら運営者が `npm run registry -- stop --pub civil-construction-2/gakka-2kyu-doko/youtube.longform --reason gone` を実行し、registry-reconcile を回し直して照合記録から外す。意図しない削除・違反措置なら原因を記録して再アップロードを判断する。
+**完了条件**: develop の CI（audit の video-publication）が緑。
+
+
+
+
+
+
+### [DN-0678] 2級土木 第2次検定（10/25）の令和8年度 解答例ページを試験前に枠だけ出しておく
+タグ: [領域:サイト] [時期:2026-10] [種類:制作] [起票:2026-10-11]
+
+**起点**: 2026-10-11 の metrics-analyzer。1級二次の直前直後（10/4 前後）は年度別の解答例ページ（r04・r06）がクリック 56・80 を取った。令和8年度の解答例ページは 1級・2級とも無い（content/site/civil-construction-{1,2} に secondary-r08 が無い）。2級二次は 10/25。総監の DN-0500（枠だけ先に公開）と同じ方式で、試験前に「令和8年度 2級土木 2次試験 解答例」の枠ページを出し、問題の公開後に本体を埋める。
+**やること**: 2級 secondary-r08 の枠（試験の概要・問題公開の見込み・過去年度の解答例への導線）を 10/22 までに公開する。問題の公開時期は主催者の案内で確かめる。試験後に問題と解答例を入れる。1級 r08 も同じ要領で。
+**完了条件**: 10/25 より前に 2級 r08 の枠が本番にあり、試験後 1 週間以内に問題と解答例が入っている。
+**進捗（2026-10-11・2）**: 1級 令和8年度 第二次検定のページ（/exam/civil-construction-1/secondary/r08・全 11 問の問題と解答例・past-exam-qa 済み）を公開し、インデックス登録をリクエスト（受理）。**残り**: 2級は 10/26 13 時の問題公表後に、問題と解答例を /exam/civil-construction-2/guide/r08-secondary-answers 側か新しい secondary-r08 に入れる。
+**進捗（2026-10-11）**: 枠ページ /exam/civil-construction-2/guide/r08-secondary-answers を公開し本番で 200 を確認（試験日時・問題の公表 10/26 13 時・解答は非公表・合格基準・合格発表 2027-02-03 は受検の手引と国交省資料で確認）。直前2週間の記事の合格発表日と筆記具の誤りも直した。**残り**: 10/26 13 時の問題公表後に、問題と解答例を入れる（1 週間以内）。1級 r08 は未着手。
+
+
+### [DN-0670] 2級土木の既存動画4本に技術表現の訂正を反映する
+タグ: [領域:商品] [時期:2026-10] [種類:不具合] [検証:check-video-content] [起票:2026-10-11]
+
+gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2kyu の画像/台本を、締固め度の現場乾燥密度、配合とスランプ、原因別ひび割れ対策、工事選定条件の断定回避へ修正した。総まとめ動画への反映と別に、元4本の外部公開状態を照合し、必要な動画再生成・画像確認・訂正説明または差替えを行う。
+
+
 ### [DN-0658] 2級YouTubeの通常動画3本・Shorts6本の休止中診断リンクを現行添削へ直す
 タグ: [領域:SNS] [時期:2026-10] [種類:不具合] [起票:2026-10-10] [期日:2026-10-13]
 
@@ -29,7 +57,6 @@
 **やること**: 3パックの主CTAと概要欄を、現行の2級全3テーマ添削（4418778、24時間）へ合わせる。kind・対象資格・サービスIDと受付状態を正本・ブラウザで確認し、各動画の utm_campaign と形式別 utm_content を保持する。題名・予約時刻・動画IDは維持する。動画内の末尾の案内との一致も確認する。DN-0278 の冒頭リンク・著者表記改修と重複する箇所はまとめ、DN-0110 の進行中の移行計画 desiredSnippet／planSha256 を壊さない順序で同期する（移行完了後か、私有の計画・受領記録を整合させられる工程）。ブラウザは @doboku-note 管理アカウントへのログインが必要。概要欄を書き換えただけで外部反映済みにはしない。
 
 **完了条件**: 通常動画3本・Shorts6本をそれぞれ実査し、9本すべてで現行の2級サービスへ到達でき、休止中診断への案内が残っていない。原稿・台帳・YouTube実体・移行計画の一致を記録する。
-
 
 ### [DN-0440] コンクリート主任技士の小論文添削を、直前期（11月）の受注に応えられる状態にする
 タグ: [収益化] [領域:商品] [時期:2026-10..2026-11] [種類:改善] [起票:2026-09-29] [期日:2026-10-31]
@@ -44,19 +71,6 @@
 
 **関門（週次レビュー 2026-10-10）**: 判断待ちではなく人の作業（プロフィールの資格欄の追加）なので 🔴 へ移した（S3）。期日 10/31。
 
-### [DN-0647] 過去問の問題台帳（data/pastexams）を SSOT にし、原典・公式正答・転記照合を問題 ID で結んで CI と iOS 書き出しで止める
-タグ: [コンテンツ品質] [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-10-10]
-
-**起点**: 2026-10-10、iOS 択一アプリ（DN-0453）の前に過去問の品質カードを片づけるにあたり、照合の体制を確かめた。公式の PDF は Drive vault（past-exam-source-pdf）に揃っているが、(1) 記事・問題から原典 PDF を辿れない（1級・2級土木の frontmatter は `sources: cecc-past-exams` だけ）、(2) 公式正答のデータは 1級一次だけが `.claude/state/quality/civil-1-primary-official-keys.json` にあり CI が読まない（2級・技術士一次・総監は無い）、(3) 問題ごとに「いつ・どの原典で照合したか」の記録が無い、(4) `build-ios-quiz-bundle` は未照合の問題を止めない、(5) 在庫台帳は `check-past-exam-inventory` が FAIL 2,112 件（DN-0487）で土木の SHA-256 は 0/104。これまでの転記ミス 81 件・捏造約 240 箇所・DN-0633 はすべて人手で見つかった。
-**やること**:
-1. 問題台帳 `data/pastexams/questions/{exam}.json`（台帳 id `pastexams.question-ledger`）を SSOT にする。キーは今の問題 ID（アプリの学習履歴が紐づく `h26-a-01`・`r07-basic-ⅰ-1-1`・`h21-01`・`r03k-01`）。1 問ごとに原典（在庫台帳のファイルキー・ページ）・公式正答・記事・転記照合の状態（verified / fixed / unverified / no-source と日付・方法）を持つ
-2. 同期スクリプトで演習データ（civil-1・civil-2・pe-first-stage・cem）から行を作り、既存の照合記録を保つ。1級一次の公式正答を state から移す
-3. 検査 `check-past-exam-ledger`: 台帳と演習データの ID の過不足、記事の正答と公式正答の不一致、原典キーの実在を FAIL（ci:true）。照合率は資格ごとに件数で出す（検査した数と対象数）
-4. `build-ios-quiz-bundle` は転記照合が verified/fixed でない問題を含むと止める
-5. 管理画面に資格ごとの照合率と不一致を出す
-6. 在庫台帳の FAIL 2,112 件の原因を直し（DN-0487 を吸収）、土木の原本に SHA-256 を記録する
-**完了条件**: `npm run check-past-exam-ledger` が 4 資格の全問を検査して FAIL 0、iOS 書き出しが未照合で止まることをテストで確かめ、管理画面に照合率が出ている。
-
 ### [DN-0643] Mac でログイン系の取得を復旧する（ココナラ・afb・もしもの再ログインと、9 月分の note 売上・アクセス・ココナラ分析の取得）
 タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-10] [期日:2026-10-14]
 
@@ -64,10 +78,12 @@
 
 **やること**: Mac で npm run auth:login -- --service coconala（afb・moshimo も）→ auth:export。続けて npm run coconala-orders・npm run coconala-analytics -- --append-kpi・npm run note-sales-fetch・npm run note-traffic-fetch -- --month 2026-09 --commit を回す。note の添付実査（check-note-attachments --live）が 14 日を超えていればそれも回す。9 月の月次レビュー（/monthly-review）はこの取得のあとに行う。
 
+**9 月の受取額（NSM）**: note・ココナラ分は 10/11 に記録済み（partial）。KDP 確定後の取り直しは DN-0664。
+
 **完了条件**: #571・#746・#862・#863 が自動クローズし、npm run check-coconala-orders -- --json が inconclusive:false を返す。
 
 ### [DN-0642] 重要 workflow 7 本の不健全（note-live-audit 4 連続失敗・ops-audit 18 連続・note-public-view 12 日）を原因ごとに直す
-タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-10] [期日:2026-10-17]
+タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-10] [期日:2026-10-17] [進行中]
 
 **起点**: 週次レビュー（2026-09-28〜2026-10-04）の点検。npm run check-workflow-health が 7 本を不健全と判定（2026-10-10）: fetch-metrics（2 連続失敗・#958 で原因修正）、note-live-audit（最終 success 21 日前・4 連続失敗）、ops-audit（18 連続失敗＝#571 の ops 区分 FAIL）、cloudflare-metrics・cloudflare-config-audit（DN-0485）、weekly-review-guard（W40 レビュー未作成で赤・本レビューで解消見込み）、note-public-view（最終 success 12 日前）。Issue #478（2026-08-31〜）・#940 が開いたまま。
 
@@ -75,18 +91,7 @@
 
 **完了条件**: npm run check-workflow-health が exit 0（または残りが DN-0485 の Cloudflare 2 本だけ）で、#478・#940 が自動クローズしている。
 
-### [DN-0633] 1級土木 第二次の分野別過去問ページ 4 本の設問を、公式の問題 PDF と照合し直して作り直す（別の年度の問題・存在しない問題・違う選択肢が混ざっている）
-タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [起票:2026-10-10]
-
-**起点**: 2026-10-10、DN-0595（二次過去問の設問が教本と合わない）を公式の問題と照らしたところ、1級土木 第二次の分野別の過去問ページで、設問の文・選択肢が公式の問題と違うものが多数見つかった。公式の問題 PDF は CIC が年度別に掲載している（例 https://www.cic-ct.co.jp/pdf/kakomon/civil/h29/29_1cj.pdf ・h30/30_1cj.pdf ・r2/r2_1cj.pdf ・h28/28_1cj.pdf）。手元の `content/sources/past-exams/１級土木施工管理技士/` は H29 のフォルダが無く、H30 は学科の正答だけ。
-**見つかった食い違い（平成29・30年度を中心に一部だけ照合）**:
-- secondary-earthwork-past-problems: H29〔問題1〕（公式は問題2・構造物と盛土の接続部）が別の文、H29〔問題2〕（公式は問題7）の 5 工法のうち 3 つが公式に無い工法、H30〔問題1〕（公式は問題2）の設問と答え 4 つが違う、H30〔問題2〕は H30 に存在しない（H28 に近い問題がある）。R1〔問題1〕〔問題2〕・R2〔問題1〕も設問の文が違う
-- secondary-quality-management-past-problems: H30 No.6 は H30 に存在しない（答えの語句は H29 問題4 のもの・H29 問題4 自体が未収録）、H29 No.7（公式は問題9）は検査の名称と求める内容が違う、H29 No.8（非破壊検査）は H29 に存在しない（H28 の出題に近いが項目も違う）、R2 No.1（公式は問題8）が別の設問、H30 No.5 の「令和2年度〔問題5〕」の参照は問題9 の誤り
-- secondary-construction-plan-past-problems: H29（公式は問題6）が別の設問（令和2年度の文を元にした別問題）、H30（公式は問題11）は表の構造と表記が違う、R2 No.1（公式は問題6）の設問の文が違う
-- secondary-concrete-past-problems: H29 問題3 (3) で「1日の総打込み量」が抜けている（要旨は一致）
-- 照合していない: concrete の R1・R2・H28 以前、earthwork・construction-plan・quality の H28 以前
-**やること**: 4 ページの全問を、年度ごとに CIC の公式の問題 PDF と目で照らし（memory feedback_exam_pdf_cross_reference）、設問・選択肢を公式どおりに直す。その年度に存在しない問題は消すか正しい年度へ移す。答え・解説は公式の解答が非公表なので、設問文から整合する語句で書き直す。PDF は past-exam-source-pdf で Drive vault に入れる（/past-exam-archive）。数が多いので年度ごとにコミットする。
-**完了条件**: 4 ページの全問について公式の問題 PDF の出典（年度・問題番号）つきで照合済みになり、食い違いが 0。照合した問題数を記録する。
+**進捗（2026-10-12）**: check-workflow-health で note-live-audit・ops-audit・note-public-view・fetch-metrics は緑に戻っていた。weekly-review-guard は 10/5 の赤（週次レビュー前の未処分 OPP＝正しい赤）の後、main で手動実行して緑（run 38214647988）。weekly-review-draft は 10/10 に main へ入ったばかりで最初の cron が 10/16 のため「run 0 件」で赤だった＝検査の穴。初回の cron 枠の前は健全とみなす修正を PR #1008 に出した。残りは DN-0485 の Cloudflare 2 本だけ。#478・#940 は日次の ops-audit で自動クローズするかを見る。
 
 ### [DN-0453] 過去問 iOS アプリを総監・技術士（建設部門）・1級土木でまず試作する
 タグ: [収益化] [領域:商品] [時期:2026-10..2026-11] [期日:2026-11-08] [種類:改善] [起票:2026-09-29]
@@ -95,19 +100,15 @@
 
 **やること**（2026-10-10 に中断。別セッションの整理が済んでから再開する）:
 1. 運営者: macOS を 15.6 以降（`softwareupdate` に Sequoia 15.8.1 が出ている）へ上げ、Xcode 26 に入れ替える。2026-04-28 以降、App Store Connect へは Xcode 26（iOS 26 SDK）で組み立てたものしか上げられない。いま入っている Xcode 16.4（iOS 18.6 シミュレータ）は開発には使えるが提出できない。入れ替えのときは iOS 以外のプラットフォームを入れず、16.4 は消す（空きは 2026-10-10 時点で約 21GB）。あわせて Apple Developer Program の登録（個人か法人か）、App Store Connect の有料アプリ契約・銀行口座・税務情報と小規模事業者プログラムの申請（07 §5）
-2. `~/doboku-quiz-ios` に Xcode プロジェクト（技術士アプリの target・`Packages/QuizEngine` のローカルパッケージ・`AppData/Gijutsushi/QuizData` のフォルダ参照）を作り、シミュレータで組み立てて動かす。画面・問題表示（WKWebView）・買い切り（StoreKit 2）・通知のコードは書き済みでビルド前。問題データは `npm run build-ios-quiz-bundle -- --app pe --out ~/doboku-quiz-ios/AppData/Gijutsushi/QuizData` で作る（git 管理外）。iOS リポジトリは手元だけにあるので、GitHub の非公開リポジトリを運営者の了承を得て作り、push する
+2. `~/doboku-quiz-ios` に Xcode プロジェクト（技術士アプリの target・`Packages/QuizEngine` のローカルパッケージ・`AppData/Gijutsushi/QuizData` のフォルダ参照）を作り、シミュレータで組み立てて動かす。画面・問題表示（WKWebView）・買い切り（StoreKit 2）・通知のコードは書き済みでビルド前。問題データは `npm run build-ios-quiz-bundle -- --app pe --out ~/doboku-quiz-ios/AppData/Gijutsushi/QuizData` で作る（git 管理外）。書き出しは問題台帳（`data/pastexams/questions`・DN-0647）で転記の照合が済んでいない問題・公式正答と違う問題があると止まる（試しの組み立てだけ `--allow-unverified`）。iOS リポジトリは手元だけにあるので、GitHub の非公開リポジトリを運営者の了承を得て作り、push する
 3. 買い切りの確かめは StoreKit のテスト構成（.storekit）と TestFlight の Sandbox で行う。App Store Connect に `com.doboku-note.gijutsushi.full.pe-first-stage`（非消耗型・¥1,480）を作る。サイトのメール登録ページ（DN-0632）ができたら `AppConfig.mailSignupURL` に入れる
 4. TestFlight の内部テストで運営者が実機確認し、2026-11-08 までに審査へ提出できれば技術士アプリ（第一次試験のみ）を App Store で公開する（無料ダウンロード＋全年度 ¥1,480）。有料アプリ契約が間に合わなければ無料版（最新年度）だけで先に出す。過ぎたら TestFlight 止まりにする（07 §7）。公開前に出題元の転載条件を確かめる
 5. 総監を技術士アプリへ試験設定とデータだけで足し、土木施工管理技士アプリ（1級＋2級）を同じエンジンで作る手順を記録する（2級土木の正規化は DN-0628）
 
+**進み具合（2026-10-11）**: 1 は macOS 27.0.1・Xcode 27.0 で済み（Apple Developer Program・有料アプリ契約は未）。2 は済み（技術士・土木施工管理技士の 2 本をシミュレータで組み立てて動かした。iOS リポジトリはまだ手元だけ）。5 は済み（総監は設定とデータだけで載り、土木アプリは同じエンジンで作った。手順は 07）。4 の転載条件は調べた: 日本技術士会・全国建設研修センターとも過去問の利用条件を示しておらず、App Store 審査ガイドライン 5.2.1 は許可の無い第三者の著作物を禁じるので、**審査に出す前に両機関へ書面で許諾を求める**（運営者が送る。文案は 07 §5）。返事が来るまでは TestFlight の内部テストまで。
+
 **完了条件**: 技術士アプリ（第一次試験）が TestFlight で動き、総監が試験設定とデータだけで載り、土木施工管理技士アプリを作る手順が記録されている。
 
-### [DN-0615] check-keiken-answer-split が正しい説明文を [D] と誤検知して develop の CI が赤い（経験記述の書き方 563 行）
-タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-09]
-
-**起点**: 2026-10-09、develop の CI（quality-audit の keiken-answer-split・ci:true）が赤い。`content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx:563`（6325dbc60「書籍の網羅から追記する」で追加）の「令和6年度以降の形式では、検討した項目が（1）の区画の後半に入り、対応処置は（2）に入るので、検討の理由は項目ごとに短く絞る。」を、`scripts/lib/keiken-answer-split.mjs` の checkClaim が [D]「1級の(2)に検討項目そのものを割り当てている」と判定する。本文は検討項目を（1）、対応処置を（2）に置いており正しい。（2）の後ろの同じ文の続き（「検討の理由は…」）を（2）の中身として読んでいる誤検知。
-**やること**: 主張の切り出し（（2）の後ろをどこまで（2）の中身とみなすか）を、「…に入るので、」のような接続で切るように直し、上の文を回帰の見本にする（テストつき）。記事の本文は 2026-10-09 に言い換えて CI を通したので（b202397f3）、見本はテストの中に置く。
-**完了条件**: 上の文をテストに入れて違反に出ず、既存の真の違反の見本はこれまでどおり出る。
 
 ### [DN-0614] コンテンツ台帳 P1: content/registry の土台（設計書・型・台帳・CLI・検査・素材の ID 置き場）を作る
 タグ: [領域:SNS] [時期:2026-10] [種類:改善] [起票:2026-10-09] [進行中]
@@ -153,14 +154,6 @@
 3. 公開画面の概要欄でクレジットが出ていることを数本で確かめる
 **完了条件**: 予約・公開済みの全通常動画と Shorts の概要欄に「VOICEVOX:青山龍星」があり、`youtube.json` と YouTube の実体が一致する。
 
-### [DN-0591] コンクリート 5 冊の判定のし直しで出た追記 123 件（gap 9・partial 154）をサイトへ展開する
-タグ: [領域:教材] [時期:2026-11] [種類:制作] [起票:2026-10-08]
-
-2026-10-10 に、コンクリート 5 冊（concrete-chief-textbook-2022・2024・concrete-diagnostician-textbook・concrete-basics-5th・construction-materials-basics）の候補表を `--rejudge` で作り直し、展開後のサイトに対して意味判定をやり直した（936 節。`--check` 違反 0・判定は Drive vault に同期済み・要約 `.claude/state/book-coverage.json` の判定日は 2026-10-10）。新しい gap は 9 節（診断士 3・基本 4・建設材料 2）、partial は 154 節で、追記の計画は 123 件（診断士 71・基本 32・建設材料 11・主任技士 2022 7・2024 1）。
-診断士の判定で、サイトの guide-essay・guide-trends の記述式の説明（問題A・問題B・3.5時間）が本の 2020 年版（2019 年度から問題B のみ・3.0 時間）と食い違うと指摘された。最新の試験要項（JCI）で確かめてから直す。
-総監の論文の本（pe-cem-essay-guide）は展開しない（2026-10-10 運営者判断・`--status` では未着手のまま残る）。
-**やること**: リポジトリの道具（`npm run drive-vault-sync -- --pull --group reference-book-coverage --commit` → `audit-reference-book-coverage --briefs --shelf コンクリート` と `--source-id construction-materials-basics` → Workflow `book-coverage-expand`・`book-coverage-photos`・`scripts/book-coverage-commit.mjs`。手順は book-coverage-expansion.md §0）で展開する。`.tmp/book-coverage/` の旧い道具は使わない。回して詰まった点は道具を直す。
-**完了条件**: `--status` で 5 冊が「展開済み」になり、診断士の記述式の説明を一次資料で確かめて直した。
 
 ### [DN-0567] Mac の週次 note 同期で、配布 PDF を Drive から取り寄せられない原因を突き止めて直す
 タグ: [収益化] [領域:商品] [時期:2026-10] [種類:不具合] [起票:2026-10-07] [期日:2026-10-12]
@@ -170,6 +163,8 @@
 **やること**: (1) PR #905（取り寄せに失敗した記事を note へ送らず、理由を記録する）が develop に入っていることを確かめる。(2) Mac の `~/Library/Logs/doboku-note/note-sync.log` の 10/04 分と、10/11 の週次の `sync-log.json` の problems（#905 から理由が入る）を読み、原因を決める。(3) マウントが原因なら `note-sync.sh` の冒頭でマウントを確かめ、無ければ取り寄せを飛ばして理由を残す（または Drive の起動を待つ）。
 
 **完了条件**: 10/11 以降の週次で「PDF を Drive から取り寄せられない」が 0 件。
+
+**手がかり（2026-10-10）**: 同じ日に Google Drive の本体アプリが止まっていて、マウントの read が全部 ETIMEDOUT になっていた（File Provider の拡張だけ動いていた・`open -a "Google Drive"` で 20 秒後に復旧）。10/4 の取り寄せの失敗も同じ原因の可能性が高い。次の日曜の同期の前に `pgrep -fl "Google Drive.app/Contents/MacOS"` で本体が動いているかを見る（memory reference_drive_vault_ledger_drift）。
 
 ### [DN-0502] 技術士一次試験の主要10ページを GSC でインデックス登録リクエストする（Mac・運営者作業）
 タグ: [SNS・マーケ] [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-10-02] [期日:2026-10-17]
@@ -193,7 +188,7 @@
 **期日の変更（週次レビュー 2026-10-10）**: Mac でのログイン作業（DN-0643）と同じ日にまとめるため 2026-10-17 へ。
 
 ### [DN-0500] 技術士一次試験 令和8年度（11/22）の解答速報ページを事前に用意し、公式正答の公開後すぐ埋める
-タグ: [SNS・マーケ] [領域:サイト] [時期:2026-10..2026-11] [種類:制作] [起票:2026-10-02] [期日:2026-11-22]
+タグ: [SNS・マーケ] [領域:サイト] [時期:2026-11] [種類:制作] [起票:2026-10-02] [期日:2026-11-22]
 
 **起点**: 2026-10-02 の調査で、試験直後は「技術士一次試験 解答 令和8年度」の検索が集中する時期と判断した。現在の一次試験ページは Google の表示が月 251 回と少なく（GSC 9 月）、Bing の「技術士一次試験」（週 400〜660 表示・3〜5 位）が実質の入口。試験日に受け皿が無いと、年に一度の需要の山を取り逃す。
 
@@ -216,7 +211,7 @@
 **完了条件**: 両 workflow が成功し、`npm run check-workflow-health` で cloudflare-metrics が ✓。
 
 ### [DN-0535] 主任技士 小論文の新マガジン17誌に POP カバーを付ける（Codex で画像生成）
-タグ: [収益化] [領域:商品] [時期:2026-10..2026-11] [種類:制作] [起票:2026-10-05] [期日:2026-11-15]
+タグ: [収益化] [領域:商品] [時期:2026-11] [種類:制作] [起票:2026-10-05] [期日:2026-11-15]
 
 **起点**: DN-0523 で公開した全40答案・立場別5テーマ8誌・立場別合格パック8誌のカバーは従来の自動生成器（V5）で作り、POP 意匠になっていない。10/3 の全40答案の POP 案は削除したテーマ別5本前提の「PDFダウンロード」帯つきで使えない。画像生成は Codex が担当する（2026-10-05 ユーザー指示）。
 
@@ -253,6 +248,10 @@
 
 **完了条件**: 実例記事を公開し、10/26の評価に欠測と実測を区別した数字があり、試験後の価格・受付状態を決めている。
 
+**進捗（2026-10-12）**: 手順 2 は済み（2級記事のココナラ URL は全3テーマ版へ付け替え済み・旧 URL 0 件・check-note-republish の 2級 drift 0）。手順 3 の (a) は、無料 2 本の img/ に著者バナー（figure-author-authority-pop.png）を置いた（画像は git 管理外の手元準備）。2 本とも note-lint OK・noteStatus: draft。残りは運営者の判断とログインが要るもの: (1) 無料 2 本の公開（「残り3週間」は試験 13 日前の今は題名と合わない。本文には「残りが3週間より短いときに削る順番」の節がある）、(2) ココナラ添削の受付締切日（標準は 10/18）を決めて `2026-10-civil-final.json` の販促文面へ入れる、(3) ココナラの全3テーマ版のライブ反映と 2テーマ版・PDF のライブ休止（ココナラのログインが切れている＝DN-0643）。
+
+**進捗（2026-10-12 午後・運営者判断）**: ココナラ添削の受付締切は **10/18（日）** に決定。無料 2 本を公開した（R8 二次の出題予想 naa0821a3d631・経験記述を残り3週間で仕上げる n1edc95f39203。後者は導入に「残りが 2 週間を切ったら削る順番の節から」を 1 文足した）。note API で published・価格 0、check-note-structure は CRITICAL 0。X は承認を得て、10/14 20:51 と 10/17 20:24 の学習点検の予約の本文を締切告知（107-civil2-coconala-2026-10）に差し替え、差し替え元に残っていた画像を外した（予約一覧で日時・本文・画像なしを確認）。検査の整合は PR #1011。**残り**: ココナラの出品ページへの締切の記載・全3テーマ版のライブ反映・2テーマ版と PDF の休止（DN-0643 のログイン後）、10/26 に受注件数と PV の記録、3 本目（添削の実例）は運営者の素材待ち。
+
 ### [DN-0537] Instagram の予約補充が 9/20 で止まっているので、2級（10/25）直前のテーマから予約を再開する
 タグ: [収益化] [領域:SNS] [時期:2026-10] [種類:不具合] [起票:2026-10-05] [期日:2026-10-24]
 
@@ -276,7 +275,7 @@
 **完了条件**: 10/24 までの Instagram に 2級の投稿が予約され、Planner で実体を確かめて `status.json` に記録し、補充の仕組みと instagram-campaign.md の記述が一致している。
 
 ### [DN-0538] ココナラの経験記述添削を 1 商品（services/4418735）へ集約し、旧 8 商品を片付ける
-タグ: [収益化] [領域:商品] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-05] [期日:2026-11-15]
+タグ: [収益化] [領域:商品] [時期:2026-11] [種類:改善] [起票:2026-10-05] [期日:2026-11-15]
 
 **起点**: 2026-10-05 のユーザー決定（ココナラ展開キット.md §2 決定ログ「10/26 以降の年間の棚」）。添削・指導を級・テーマ数・形式で 8 商品に分けたため閲覧とレビューが散り、人の作業の受注は 1 件だけ。旧 DN-0264（本試験後の棚を据え置くか休止するか）はこの設計で答えたので統合した。
 
@@ -365,6 +364,165 @@
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0722] 2級模試の原稿（C9 解答解説）の解答欄の字数・行数の案内を Drive の原本と配布 PDF に反映する
+タグ: [領域:商品] [時期:2026-10] [種類:不具合] [起票:2026-10-13]
+
+**起点**: 2026-10-13、civil の MDX の commit で `check-keiken-answer-split` が手元に戻した 2 級模試の原稿（`content/coconala/assets/moshi-src/C9-2級模試/解答解説.md`・git 管理外・Drive vault）の不整合 3 件で止まった。解答欄の案内が「各区画おおむね 200 字前後」「(1) 7 行・250 字程度」「(2) 9 行・300 字程度」で、正本（`config/keiken-answer-sheet-limits.json` の civil-2＝各欄 250 字）と模試自身の記入欄（10 行）に合っていなかった。
+
+**済んだこと**: 手元の写しの 3 か所を「250 字前後」「10 行・250 字程度」に直した（検査は ✓）。Drive の原本と配布 PDF は未反映。
+
+**やること**: 手元の写しを Drive vault の原本へ反映する（再取得で古い版に戻らないように）。2 級模試 PDF（`coconala-2kyu-moshi-pdf`）がまだ販売中なら PDF を作り直して差し替えるか、10/25 の本試験後の出品停止（既存カード）まで据え置くかを決める。
+
+**完了条件**: Drive の原本が直っていて、手元を取り直しても `node scripts/check-keiken-answer-split.mjs` が ✓。PDF の扱い（差し替え／据え置き）が決まっている。
+
+
+### [DN-0720] 検索キーワード戦略の見直しに期限と記録を持たせ、初回で受け皿（2級の転職ガイド）と技術図書の拡張を決める
+タグ: [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-10-13]
+
+**起点**: 2026-10-13 に運営者から「キーワード戦略は定期的に見直すの？」。現状は `docs/strategy/16_検索キーワード戦略.md`「月次で見ること」と monthly-review SKILL.md 手順 3 に「クラスターや受け皿の変更は月次でだけ行う」とあるだけで、見直した日・次の期限・結果の記録が無い（`config/search-strategy.json` に日付の欄が無い）。見直しが抜けても気づけない。
+
+**今わかっている見直し項目**:
+- 施工管理の転職クラスターの受け皿（pagePrefixes）に 2 級のガイドが無く、`/exam/civil-construction-2/guide/career-agent-comparison`（DN-0648・EXP-032 の対象）が「受け皿外」になっている
+- 技術図書クラスターは上位の帯が 34 語（平均 8.8 位）まで来たが、Google のクリックは 28 日で 2（GSC 2026-09-09〜10-06）。16 の「1 桁が取れてから広げる」の条件を満たしたかの判断（DN-0393）
+
+**やること**: `config/search-strategy.json` に `review: { lastReviewed, intervalDays }` を足し、期限超過を管理画面（検索 ＞ キーワード戦略）と月次レビューの下書きに出す。見直しの結果（クラスター・受け皿の変更とその理由）は 16 の「点検記録」に残す。上の 2 項目を最初の見直しで決める。
+
+**完了条件**: 設定に見直しの日と間隔があり、期限を過ぎると管理画面と月次の下書きに出る。初回の見直しで受け皿の変更（または変えない理由）が 16 に記録されている。
+
+**実験**: なし（戦略の見直しの仕組みと受け皿の決定で、1 ページの順位改善ではない）
+
+
+### [DN-0719] EXP-012 の判定（11/26）を受けて、自治体の土木担当・コンクリート入門シリーズの第1波に着手するか決める
+タグ: [領域:サイト] [時期:2026-11] [種類:意思決定] [起票:2026-10-13] [期日:2026-11-27]
+
+**起点**: 2026-10-13、運営者の依頼で試験とは別軸の読み物シリーズ 2 つを企画した（シリーズ id `municipal-civil-engineer`・`concrete-practice`・`construction-materials`。コンクリートは 2026-10-13 に書籍 5 冊の全項目を割り当てた 33 章へ広げた）。記事の一覧（目次・計画・根拠・第何波か）はシリーズ企画の台帳 `config/content-series.json`、置き場・根拠資料の扱い・着手の条件は docs/strategy/18_自治体土木担当・コンクリートシリーズ方針2026-10.md。管理画面はサイト＞シリーズ企画。運営者の判断で、記事は EXP-012（記事末の資格カード）の判定まで書かない。
+**やること**: EXP-012 の事後窓の終わり（2026-11-26）の判定を 18 番「着手の判定」に当てる。継続なら台帳で `wave: 1` の項目をそれぞれ制作カードにする（カードの本文にシリーズの id を書く）。再計測なら待ち、停止なら台帳の gate に結果を書いて残す。
+**完了条件**: 判定の結果と次の対応を 18 番に 1 行で残す。着手するなら第 1 波の制作カードを起票し、18 番の「DN-0719」の参照を書き換える（消すと check-project-task-refs が止める）。
+
+### [DN-0718] 検索キーワード戦略の改善候補と起票カードを EXP-ID で結び、28 日後の判定を experiments.json に残す
+タグ: [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-10-13]
+
+**起点**: 2026-10-13 のキーワード戦略画面（/metrics/search-strategy）の改修中に確認。改善候補と起票カードの対応、改善結果の記録が ID で管理されていない。
+
+**現状**:
+- 候補とカードの対応は `scripts/lib/search-opportunities.mjs` の `cardedPathsFrom`（81 行）が backlog.md の本文から URL パスを正規表現で拾っているだけ。カードに対象ページ・クラスターの構造化された欄がない。本文に別件でパスが出るカードも「起票済」と表示される
+- カードを完了すると backlog から消え、同じページは「未起票」に戻る（再起票のおそれ）
+- 「反映後 28 日で対象語が上がったか」の結果はカードの完了記録（自由記述）に書くだけで、データセットに残らない。月次レビュー（monthly-review SKILL.md 17 行）も手作業で照合する
+- 改善状態の正本の `data/business/experiments.json`（EXP-###・measure.scope.pages・anchor・preDays/postDays）は使われていない（DN-0645・0646・0648・0652 の参照なし）
+
+**やること**: 週次レビューで起票するときに、対象ページ・検索語・起票時の順位と表示を EXP（measure.scope.pages）に登録し、カードには EXP-ID を書く。`search-opportunities.mjs` は backlog の本文ではなく experiments.json の scope.pages で「起票済・判定待ち・判定済み」を付ける。管理画面の状態欄に EXP-ID と判定を出す。weekly-review／monthly-review の SKILL と 16_検索キーワード戦略.md を同じ commit で直す。
+
+**完了条件**: 起票済みの候補がすべて EXP-ID でたどれる。カード完了後も「未起票」に戻らない。`node --test tests/search-opportunities.test.mjs` に experiments 経由の対応づけのテストがある。
+
+
+### [DN-0715] 1級土木 第二次検定の合格発表後、DM 10051134 の購入者へ結果を伺い、合格なら体験談・評価をお願いする
+タグ: [領域:商品] [時期:2027-01] [種類:改善] [起票:2026-10-13] [期日:2027-01-15]
+
+ココナラ DM 10051134 の購入者（予想模擬試験＋二次対策16冊セットを購入。2026-09-01 に経験記述の区切りの誤りを指摘し、修正版を送付済み）から、2026-10-12 に本番の受検報告とお礼が届き、10-13 に返信済み。合格発表は 2027-01-08（config/exam-calendar.json）。発表後に DM で結果を伺い、合格なら体験談の掲載可否（匿名可）とココナラでの評価をお願いする。不合格なら労いと翌年の案内にとどめ、売り込まない。体験談を使う場合は掲載先（ココナラ出品ページ・サイト・note）と表現を運営者が決め、合格保証の印象を与える書き方をしない。DM の本文は node scripts/coconala-dm.mjs 10051134 で取れる（出力は .tmp/ のみ・個人情報をリポジトリに入れない）。送信は運営者が行う。
+
+
+
+
+### [DN-0698] YouTube移行の読み戻し不整合と旧プレビューの残存を解消
+タグ: [SNS・マーケ] [領域:SNS] [時期:2026-10] [種類:不具合] [検証:test] [起票:2026-10-12]
+
+起点: 土工Shortsの画像差し替えで、YouTube APIの直後の応答と後続実査が一致せず、動画処理・登録情報・削除の確認が繰り返し停止した。新版 uNCBD0A9zpw / vYPjT713Hyg は非公開で採用・実表示確認済み。旧3本は削除確認済み。残る不採用プレビュー tMxQesShhL8 はタグ欠落/復帰を含む読み戻し不一致が再発し、削除前の照合で停止中。
+
+やること: scripts/lib/youtube-migration-finalize.mjs の確認未成立を保存済み意図から安全に再照合できるようにし、不完全応答・反映遅延・実際の他者変更を区別する。新規アップロードを重複させず、凍結計画や削除ゲートを緩めない。旧プレビューは最新の実体を再確認してから整理する。
+
+根拠: actions/runs/38206187919 では旧情報の一致を確認し activated、その次の actions/runs/38206257559 で Old video metadata drift。前者直前にも同じ不一致が再発。作業ブランチ codex/youtube-pop-thumbnails。凍結計画SHA c68ac386ee38c75bf564cf9dc55045041f6d8707f887d213c8bf64aeacadb149、private receipt scope pop-soil-shorts-fullbleed-20261012-930320f6-final。制作物・旧新対応は土工パックの pop-image.json と素材台帳を参照。
+
+完了条件: 読み戻しの遅延/欠落と本当のメタデータ変更の回帰テストを通し、後者では削除しない。新版2本・音声・字幕・非公開設定を保持し、旧プレビューの不存在をAPIで確認して台帳を更新する。
+
+
+### [DN-0697] YouTube通常動画の再生数欠測を解消し、全欠測を合計0回と表示しない
+タグ: [領域:SNS] [時期:2026-10] [種類:不具合] [起票:2026-10-12]
+
+**起点**: 2026-10-12 の youtube-own-metrics で通常動画74本を取得したが再生数あり0本。2026-10-10も73本中0本、10-08は70本中70本だった。Shortsは12本中12本取得できる。欠測を再生0回として削除判断に使えない。
+**やること**: scripts/lib/youtube-listing.mjs の通常動画の再生数取得を切り分け、取得不能の集計は0ではなく欠測として出す。対象動画が存在するのに全再生数欠測なら検査不成立を明示する。生のnullを保持し、前回値を今回値へ補完しない。
+**完了条件**: 通常動画とShortsを分けて対象数・再生数取得数を確認できる。通常動画全欠測のfixtureが緑の成功や合計0回にならず、有効な0回とは区別できる。
+
+
+
+
+
+
+
+
+
+
+
+
+### [DN-0677] 検索で表示のある削除済みページ（/standards/guides の 5 本）・数字付き 404・共通仕様書の機関別重複の扱いを決める
+タグ: [領域:サイト] [時期:2026-10] [種類:意思決定] [起票:2026-10-11]
+
+**起点**: 2026-10-11 のサイト全体の SEO 診断（DN-0666）で、判断が要る 3 件が残った。(1) 2026-08-30 に公開し 09-08 のコミット 4fdb687d6 が記事 5 本（content/site/reference-materials-*）と 301 ごと消した /standards/guides/{inverted-siphon,floodgate,hyogo-port-materials,river-abandonment,tunnel-02}。inverted-siphon は表示 44・順位 7.2、floodgate は表示 41。案 A＝/standards へ 301（soft 404 扱いの可能性）、案 B＝404 のまま、案 C＝記事を復元。削除が意図的だったかは履歴が 08-22 に圧縮されていて確かめられない。(2) 末尾が -N の 404 24 件（例 /exam/civil-construction-1/guide/four-management-5）。表示 0・内部参照 0・親記事は実在。9/4 の方針（対応先が一意なものだけ 301）に合う。(3) /standards/<機関>/common の 10 面は本文の 98.7% が同じで、Google は shikoku/common の正規に hokuriku/common を選んでいる。章ページと同じ indexable 判定を入れて非 canonical 機関を noindex にするか、地域名の検索意図のために残すか。
+**やること**: 運営者が 3 件の方針を決め、決まった分を public/_redirects（手動部分）・src/app/standards/[agency]/[document]/page.tsx に入れる。
+**完了条件**: 3 件の方針が記録され、決まった変更が本番に出ている。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### [DN-0667] CI の coconala 取得（403 で毎週失敗）を止めるか CI 不可として扱う
+タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-11] [期日:2026-10-31]
+
+**起点**: 2026-10-11 に CI（hosted runner）からのココナラが、保存したログイン状態を渡しても /mypage が 403 Forbidden になると分かった（run 38106927733）。9/30 から login-collectors の coconala が毎週失敗している（#746）。取得は Mac の launchd `coconala-local`（PR #984）へ移した。
+
+**やること**: coconala-local が 2 週続けて台帳を develop へ push できたら、`.claude/config/playwright-auth-profiles.json` の coconala の読み取り（login-collectors の coconala の cron と collect）を止めるか、403 の実行を失敗ではなく「CI 不可」として Issue を立てない形にする。ops-write（書き込み）で coconala を CI から使っているかを先に確かめ、使っているなら書き込みは残す。
+
+**完了条件**: login-collectors の coconala が毎週 automation-failure Issue を立てない状態になり、#746 が閉じている。
+
+
+### [DN-0666] 書籍の展開で触った 24 記事の SEO を GSC に沿って整える（未登録 4 本の登録依頼・検索意図・相互リンク・メタ）
+タグ: [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-10-11]
+
+**起点**: 2026-10-11、書籍の網羅の展開（DN-0591）とコンクリート系の照合で触った 24 記事を GSC（2026-10-10 取得・直近 28 日）で見た。合計は表示 540・クリック 24。concrete-engineer の textbook 3 本（construction・materials・production-qc）が「検出 - インデックス未登録」、新設の civil-practice/steel-material-properties は URL 検査も未実施（被リンク 1 本）。伸ばせる候補: concrete-diagnostician/textbook-deterioration（「コンクリート 中性化」表示 87・順位約 28）、concrete-chief-engineer/guide-essay（「コンクリート主任技士 小論文」表示 113・順位約 8）、pe-first-stage/guide-basic-subject（表示 72・順位約 10）。seo-meta（題名・説明の長さ）の結果は、data/analysis/seo-meta.json と URL の形が合わず、照合できていない（未確認）。
+**やること**: (1) 未登録 4 本を `npm run gsc-indexing:request` でインデックス登録をリクエストする (2) 候補 3 本を search-intent-auditor で検索意図と照らし、題名・説明・見出しを直す (3) 展開した記事どうしの相互リンクを補い、被リンクの少ないページを解消する (4) 触った記事の title・description の長さを check-seo-meta で検査する。
+**完了条件**: 4 本のインデックス登録リクエストの記録が data/gsc/indexing-requests.json にある。候補 3 本の修正がコミット済み。check-seo-meta で触った記事の違反 0。
+**進捗（2026-10-11）**: サイト全体の分析に広げて実施（GSC UI CSV 取得→search-growth→4 Evaluator）。済み: favicon・legacy sitemap の実在しない URL 254 件の除外・TechArticle の image・/exam の本文（PR #988・本番確認）、CTR 実験 EXP-020（2級二次 4 本）・EXP-021（総監 5 本）、リンク 0 本の 8 ページへ内部リンク 23 本、check-seo-meta は全 1,659 URL で違反は /exam の 1 件のみ→解消。**残り**: (1) concrete-engineer textbook 3 本は 10-04 に依頼済みで 10-18 まで再依頼できない→10-18 以降に steel-material-properties と合わせて `npm run gsc-indexing:request -- --urls …`。(2) 当初の候補 3 本（劣化機構「コンクリート 中性化」・主任技士の小論文ガイド・技術士一次の基礎科目）は metrics-analyzer の上位 25 に入らず未着手。EXP-020/021 の結果を見てから判断。観測と判断は gsc-management.md の 2026-10-11 の項。
+
+
+
+
+### [DN-0664] 5〜9 月の受取額を台帳から記録し、9 月は KDP の確定後に complete にする
+タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-11] [期日:2026-10-17]
+
+**起点**: 2026-10-11 に受取額を 3 つの台帳（note.sales・coconala.revenue・kdp.royalties）から組み立てる形にした（#977・#982・#983）。プロジェクトは 5 月開始だが、記録（data/business/records の netReceipts）は 8 月（complete）と 9 月（partial）だけ。note の 5 月は確定値（控除後 ¥27,997）を取り込み済み、6・7 月は login-collectors の手動実行（run 38109465998・38109600073）で取り込み中。KDP の 9 月は推計 ¥9,806、確定は 10/16 以降の金曜の定期取得で入る。
+
+**やること**:
+1. 6・7 月の run が develop に入ったら（data/note/sales.json の months に 2026-06・2026-07 の net がある）、npm run record-net-receipts -- --month 2026-05 --commit（06・07 も）で記録してコミットする。5・6 月は 3 つとも確定で complete、7 月は KDP が 7/30 取得の推計なので partial。入っていなければ run ログの note-sales-fetch を見て month を指定し直す。
+2. 10/16 以降の取得で data/kdp/royalties.json の 2026-09 が estimated:false になったら、npm run record-net-receipts -- --month 2026-09 --commit（前の partial を訂正先にする）でコミットし、9 月の月次レビュー記録を supersedes で確定版にする。
+
+**完了条件**: 管理画面トップ（?month=2026-05〜09）の受取額がすべて note 確定値で出て、2026-05・06・09 の netReceipts が complete で記録されている。
+
+
+
+### [DN-0599] 総まとめ・聞き流し（承認済み動画パックの連結・チャプター付き）の1本目「2級 直前総まとめ」を音声付きにして承認・公開する
+タグ: [領域:SNS] [時期:2026-10] [種類:制作] [起票:2026-10-08] [進行中]
+
+**起点**: 競合の土木の動画321本では30〜60分の再生中央値が21,000回、題名に「聞き流し」を含む19本は30,000回（[07c](../../docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md) §1）。2026-10-08 にユーザーが試作に採用した（`config/youtube-formats.json` の `compilation` は trial）。
+**済み（2026-10-08）**: 組み立ての仕組み（`compilation.json` → `npm run build-video-compilation` → `render-longform`・`check-video-content` の K01/K02）。1本目のパック `content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen/`（2級の承認済み15パック・15章・設計尺26分）。画面と字幕の無音プレビューを10秒ごとに目視した。
+**やること**:
+1. VOICEVOX のある環境で `npm run render-longform -- --pack-dir content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen --speaker 13` を回す（この Mac には VOICEVOX が無い。字幕の焼き込みは libass 入りの ffmpeg が要る＝Mac は ffmpeg-full）。元パックの wav は使わない（Drive の wav は 2026-09-05 版で読みの辞書が古く、予約済み動画は 2026-09-09 版）
+2. 表紙と締めの採用画像（`cover-design.json`・`cta-design.json`）を作り、`youtube.json`（題名に「聞き流し」「総まとめ」、概要欄のチャプターは render-manifest の実尺から、UTM `utm_campaign=matome-2kyu-chokuzen`）を用意する
+3. video-content-qa → ユーザー承認 → 予約。2級の試験（10/25）の前、単体動画の予約が終わる 10/22 の翌日 10/23 を目安にする
+4. 公開28日後に再生・視聴維持を単体動画と比べ、`compilation` を active か rejected にする。次の候補は1級二次の経験記述 howto・1級一次の学科 exam-point（2027年の試験前）
+**前提**: 公開はユーザー承認後だけ。
+**完了条件**: 2級 直前総まとめが承認済みで予約・公開され、28日後の比較を 07 §11 に1段落で残して `compilation` の status を決める。
+
+**関門（月次レビュー 2026-09・2026-10-10）**: 2級二次（10/25）前の 10/23 目安の制作なので 🟢 から 🟡 に上げた（運営者判断）。
+
+
 ### [DN-0657] 総監の港湾・空港ペルソナを1年度A・Bで試作し、新5候補の拡充順を決める
 タグ: [領域:商品] [時期:2026-11] [種類:制作] [起票:2026-10-10]
 
@@ -377,16 +535,6 @@
 
 
 
-
-
-### [DN-0654] pre-commit の check-relative-links が、削除したファイルを指す他の文書のリンクを見ていない
-タグ: [エージェント・SSOT] [領域:管理] [時期:2026-10] [種類:不具合] [検証:check-relative-links] [起票:2026-10-10]
-
-**起点**: 週次レビュー（2026-10-05〜2026-10-11）。W40 レビューの確定で docs/reviews/weekly/2026-W39-review.md を削除したコミット（395f5fbb3）が pre-commit を通り、develop の Pre-merge が relative-links で赤になった（#960・docs/marketing/07c の 10 行目が W39 を指していた）。pre-commit の --staged は staged ファイルから出るリンクだけを検査し、削除した宛先を指す未変更ファイルのリンクを見ない。週次レビューは毎週旧週を消すので再発しやすい。
-
-**やること**: check-relative-links の staged モードで、staged の削除・改名（git diff --cached --diff-filter=DR）があれば、リポジトリ全体からその宛先への相対リンクを探して壊れとして出す。回帰テストを tests/ に足す（削除したファイルを指すリンクがあると exit 1）。
-
-**完了条件**: 他の文書からリンクされたファイルを削除して git commit すると pre-commit が止まり、テストが npm test で通る。
 
 
 ### [DN-0598] 経営の指標（business-direction）に YouTube 経由のサイト利用者を主 KPI として足す
@@ -415,6 +563,8 @@
 
 **完了条件（改）**: 次の図書 1 種の整理ページが公開され、反映 28 日後の表示を共通仕様書と比べた記録が本カードにある。
 
+**判断（2026-10-12・次の図書と発行元）**: 次は国土交通省の「土木工事施工管理基準及び規格値（案）」（出来形管理基準・品質管理基準）にする。発行元は本省版を先にし（各地整は本省版を準用するので 1 文書で全国を受けられる）、地方版は九州の「土木工事施工管理の手引き」（全文ライブラリに収録済み・209 ページ）を 2 番目に置く。根拠: (1) 共通仕様書の章記事 32 本が既に「施工管理基準」を参照しており、受け皿のページができれば内部リンクの行き先がそろう、(2) 技術図書クラスターの queryPattern に出来形・品質管理基準が入っていて、実務記事が「盛土 品質管理基準」9 位で表示を取っている、(3) 設計要領は構造物ごとに分かれて分量が大きく、積算基準・歩掛は改定が頻繁で単価を含むので後にする。GSC（2026-09-09〜10-06）の技術図書の表示は 225 のうち 204 が共通仕様書で、他の図書の語はページが無いので表示がほぼ 0（需要の大小は GSC からは判断できない）。**次の一手**: 本省版の原典 PDF の入手と利用条件（政府標準利用規約・出典明記）を確かめ、全文ライブラリへ足してから章立ての整理ページを 1 本目として作る。
+
 ### [DN-0348] 技術士 上下水道部門の商品設計を決める（出題テーマ・競合・書ける範囲）
 タグ: [収益化] [領域:商品] [時期:2026-10..2026-11] [種類:制作] [起票:2026-09-26]
 
@@ -426,43 +576,15 @@
 
 **判断（週次レビュー 2026-10-10・運営者）**: 今月から着手する。10 月中に (1) 出題テーマの整理を先に進め、(2)〜(4) は 11 月に続ける。
 
-### [DN-0644] 送客先の切れたリンク 2 件（check-outbound-links）を直す
-タグ: [収益化] [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-10]
-
-**起点**: 週次レビュー（2026-09-28〜2026-10-04）の点検。#867（quality-audit report 区分）で check-outbound-links が送客先 496 件中 2 件を切れと判定（2026-10-05）。
-
-**やること**: node scripts/check-outbound-links.mjs で切れた 2 件の URL と掲載ページを特定し、商品の移転・削除なら正しい URL へ差し替えるか掲載を外す。
-
-**完了条件**: check-outbound-links の切れが 0 件で、#867 が次の weekly-review-guard で自動クローズしている。
 
 ### [DN-0639] main に開いたままの CodeQL の警告（high 18 件ほか）を振り分けて、直すか理由つきで dismiss する
-タグ: [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-10]
+タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-10-10]
 
 **起点**: 2026-10-10、#957（スクリプトの共通化のリファクタ）の CodeQL が 22 件の「新しい警告」（high 18・medium 4）を出した。調べると、どれも main にすでに開いている既存の警告（18 件）と同じファイル・同じ規則で、差分が大きいために出し直されたものだった。既存の警告は手当てされずに残っている。中身: 管理画面の stored XSS（tools/admin-app/src/components/DocRootView.tsx・DocDetailView.tsx・app/knowledge/page.tsx）、コマンド引数から組み立てた正規表現（note-update-body・note-reanchor-boundary・note-publish・note-attach-file・note-article-price-sweep・lib/note-live-check）、不完全な HTML 除去（parse-exam-questions・note-update-body・note-reanchor-boundary・note-publish・keiken-charcount）、絶対パスに依る shell（ogp-gallery）。
 **やること**: 開いている CodeQL の警告（`gh api repos/uruhayato373/doboku-note/code-scanning/alerts?state=open`）を 1 件ずつ、実害（管理画面は手元専用・引数は運営者が渡すなど）と直し方で振り分け、直すものは直し、誤検知・受容するものは理由をつけて dismiss する。
 **完了条件**: 開いている CodeQL の警告が 0 件（直したか、理由つきで dismiss した）。
 
-### [DN-0637] dependabot のセキュリティ更新の PR が main 向きに開き、develop を通らずに本番へ出る経路を塞ぐ
-タグ: [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-10]
 
-**起点**: 2026-10-10、dependabot の Next 16.3.8（#925）を向き先を確かめずにマージし、develop を通らずに main へ入ってデプロイが起動した。`.github/dependabot.yml` は npm・github-actions とも `target-branch: develop` だが、**セキュリティ更新の PR はこの設定に従わず既定のブランチ（main）へ向く**。今回は CI 緑のパッチ更新で害は無かったが、develop の CI・品質監査を経ずに本番へ出る経路が残っている。
-**やること**: main 向きに開いた dependabot の PR を develop へ付け替える workflow（`pull_request_target` の opened で、作者が dependabot[bot] かつ base が main なら `gh pr edit --base develop` してコメントを残す）を足すか、main への PR を develop 以外から受けたら CI を赤にする検査を足す。どちらにするかは、main を守る既存の仕組み（Auto-merge on green など）と合わせて決める。
-**完了条件**: main 向きの dependabot の PR が develop 向きになる（または main へ直接マージできない）ことを、テストか実際の PR で確かめる。
-
-### [DN-0635] 並行する PR が dispatch-log.json の末尾に記録を足して毎回衝突するので、両方を残して合わせる merge driver を入れる
-タグ: [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-10]
-
-**起点**: 2026-10-10、並行する PR（#951・#952・#953・#955）と develop への直 push のたびに `.claude/state/dispatch/dispatch-log.json` が衝突し、手で 5 回解消した。todo:complete はどのブランチでも配列の末尾に記録を足すので、2 本目以降の PR は必ず衝突し、衝突中の PR には GitHub の pull_request の CI が起動しない（#953 は衝突に気づくまで audit・build が 1 度も走らなかった）。解消のたびに、両方の記録を残す同じ手作業（develop の並び＋ブランチだけの記録を末尾）をしている。
-**やること**: 両方の記録を残して合わせる merge driver（`scripts/merge-dispatch-log.mjs`。id・at・task で重複を落とし、develop 側の並びの後にブランチ側だけの記録を足し、JSON の書式を保つ）を作り、`.gitattributes` に `merge=dispatch-log` を書く。driver の登録（git config）はクローンごとに要るので、`scripts/install-pre-commit.mjs`（または同等のセットアップ）で登録する。backlog.md の同様の衝突も数える（今回は自動で合わさった）。
-**完了条件**: 末尾に別々の記録を足した 2 本のブランチを合わせても衝突しないことをテストで確かめ、driver を登録していない環境では従来どおり衝突として止まる（黙って片方を捨てない）。
-
-### [DN-0634] 1級土木 H29 問題B No.4・No.31 の設問と解説の食い違いを、原本を探して直す（公式 PDF が掲載終了・保存版にも無い）
-タグ: [領域:サイト] [時期:2026-11] [種類:不具合] [起票:2026-10-10]
-
-**起点**: 2026-10-10、DN-0618（1級土木 H29 問題B No.4 の解説が選択肢と食い違う）を照合した。該当は No.31 の選択肢 4 で、設問の文「水や塩化物イオンの浸入が想定されない場合でも，防水処理を行っておくのが望ましい」と、解説「想定される箇所には防水処理を行わなければならない」が食い違う（primary-h29-b/article.mdx L840・L850）。正答（3）は公式の正答肢表（Wayback の JCTC 170703d_yitg65・CIC 29_1cga.pdf）と一致する。同じ記事の No.4 選択肢 1 も、設問の文のままだと労働安全衛生規則第338条のただし書どおりの正しい文になり、正答 1 と矛盾する（設問の転記が原文と違う疑い）。guide-concrete-key-points L418 が No.31 の設問の文を引用している。
-**原本が無い**: H29 学科試験 問題B の公式 PDF（qb.pdf）は Wayback に 301・404 しか残っておらず、CIC は正答の表だけ。`data/pastexams/inventory.json` にも H29 の行が無い。
-**やること**: 問題B の原本を探す（Wayback の CDX を別の URL・時期で引く、国会図書館・書店の過去問集は使わない＝市販書籍の写しになる）。見つかれば No.4・No.31 の設問を原文で直し、解説を合わせる。見つからなければ、設問の文と矛盾しない解説に直し（No.31 は「望ましい」に合わせる）、原本未確認と記事の出典に書く。
-**完了条件**: No.4・No.31 の設問と解説が矛盾しない。原本で確かめたか、未確認と明記したかを記録する。
 
 ### [DN-0632] サイトにメールの登録ページを作り、配信サービスを選ぶ（iOS アプリと記事から案内して note・ココナラへつなぐ）
 タグ: [収益化] [領域:サイト] [時期:2026-10..2026-11] [種類:制作] [起票:2026-10-10]
@@ -478,7 +600,7 @@
 **完了条件**: 登録ページが本番にあり、テスト用アドレスで登録→確認メール→配信停止まで通り、iOS アプリから張るリンク先 URL が決まっている。
 
 ### [DN-0630] Chrome の自己複製（code_sign_clone）を check-disk-hygiene と日次掃除の対象に入れる
-タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-10]
+タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-10]
 
 **起点**: 2026-10-10 に Xcode を入れる空き容量を調べたところ、`$(dirname $TMPDIR)/X/com.google.Chrome.code_sign_clone/` に Chrome の自己複製が 8 個・11 GB 溜まっていた。Chrome は起動のたびに 1.4 GB の複製を作り、終了後も残す。Playwright で Chrome を起動する自動化（note・X・KDP・Playwright MCP）でも 1 回ごとに増える。`npm run check-disk-hygiene` はこの場所を見ていないので「問題なし」と出ていた。同日、起動中の Chrome が使っていない 6 個を手で消した（手順はメモリ reference_mac_disk_reclaim）。
 
@@ -500,9 +622,11 @@
 **完了条件**: `find content/sns -name status.json -o -name posted.json` が 0 件。check-information-architecture・check-content-registry・test が緑。Drive に日付フォルダの採用カバーが残らない。
 
 ### [DN-0628] 土木施工管理技士 iOS アプリ（1級＋2級）を App Store に無料で出す
-タグ: [収益化] [領域:商品] [時期:2027-02..2027-05] [種類:改善] [起票:2026-10-09]
+タグ: [収益化] [領域:商品] [時期:2027-02..2027-05] [種類:改善] [起票:2026-10-09] [進行中]
 
 **起点**: 2026-10-09 の方針（docs/products/07_iOS択一アプリ試作方針.md §3.1〜§3.4）で、施工管理は種目ごとに 1 本、1級と 2級は同じアプリにまとめる。2級前期は例年 6 月、1級第一次は 7 月なので、2027 年春に出す。競合は 1級が TK office（18 年分・全問 ¥1,600）、2級がドリルラボ（12 回・全問 ¥1,870）。こちらは最新年度を無料で試せて全年度は ¥1,480 の買い切り（07 §1）、全選択肢の解説付きで、公式正答付きの収録を 1級 16 年度以上・2級 14 回にする（DN-0623）。
+
+**進み具合（2026-10-11）**: 手順 1 の試作が済んだ。iOS リポジトリ（~/doboku-quiz-ios 9bb8f4a）に target Doboku（1級 1,162 問・2級 695 問・各 ¥1,480 の買い切り）を足し、シミュレータで起動・年度別・組合せ問題（表の行を選択肢にする）・採点を確かめた。書き出しは `npm run build-ios-quiz-bundle -- --app doboku`（問題台帳の関門を通る）。2級の正答が 2 つある 1 問（R05 後期 No.12・公式正答 3 と 4）は、正答 1 つの演習データに入らず出題から外れている。
 
 **やること**:
 1. DN-0624 の判断を受け、DN-0453 で記録した横展開の手順どおり、技術士アプリと同じエンジンで土木施工管理技士アプリを作る（1級・2級の切り替え、図の同梱）
@@ -547,17 +671,13 @@
 2. 公式の問題と正答が揃う年度から構造化し、選択肢ごとの解説を付けて `src/config/civil-1-exam-questions.json`（1級 平成18・21・22・24年度）・`civil-2-exam-questions.json`（2級 平成18・20・26・27年度）に足す。公式正答が無い年度（1級 平成25年度、2級 平成21・25年度）は 07 §3.4 の条件で扱う
 3. 正答は公式と照合し、原典と視覚照合する（過去に転記ミスが 81 件あった）
 
+**進み具合（2026-10-11）**: 2 と 3 は済み。1級 平成18・21・22・24年度（384 問）と 2級 平成18・20・26・27年度（244 問）を公開し、問題台帳に全問の照合と公式正答を記録した（1級 16 年度・1,546 問、2級 15 回・940 問。転記は文字層の抽出＋ページ画像との 2 回照合、解説は past-exam-qa の監査を反映）。2級は平成28年度に前期が始まるまでの年 1 回の試験を `primary-h26` の形で載せた（PR #978）。残りは 1（1級の平成19・20・23年度の学科問題が見つかれば 18 年度以上になる）と、公式正答が無い年度（1級 平成25年度、2級 平成21・25年度）の扱い。
+
 **完了条件**: 1級土木の構造化データが 18 年度分以上になり、足した年度の全問が公式正答と一致し、在庫台帳と Drive に原本が揃っている。
 
-### [DN-0620] 品質監査でテスト standards-ogp-guards が一時的に置く孤児 OGP を、並走する check-orphan-ogp が拾って CI が偶発的に赤くなる
-タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [検証:check-orphan-ogp] [起票:2026-10-09]
-
-**起点**: 2026-10-09、PR #947 の audit が orphan-ogp で落ちた（content/site/standards-articles/chubu/common/chapters/__test-orphan__/ogp.png）。tests/standards-ogp-guards.test.mjs:112-145 が実リポジトリに一時ファイルを置いて check-orphan-ogp を流し、finally で消す。quality-audit はテストと検査を並行で回すので、その間に走った orphan-ogp が一時ファイルを孤児として数える。PR の変更とは無関係で、再実行で通る。
-**やること**: テストを一時ディレクトリ（ROOT を差し替えられる形）で回すか、quality-audit で orphan-ogp とテストを直列にする。
-**完了条件**: 同じ組み合わせを 10 回流して orphan-ogp が赤にならない。
 
 ### [DN-0597] YouTube Analytics（視聴維持率・インプレッションのクリック率・流入元・Shorts→関連動画）を CI で取得し data/youtube へ残す
-タグ: [領域:SNS] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-08]
+タグ: [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-10-08]
 
 **起点**: 一覧から取れるのは累計の再生数と尺だけ（`data/youtube/own-videos/` の caveat）。DN-0110 の6週間判定（Shorts→関連動画の流入・視聴維持）と DN-0601 の図解版の比較（28日の視聴維持）には YouTube Analytics が要る。いまは数値が無く、判定できない。
 **やること**:
@@ -568,7 +688,7 @@
 **完了条件**: 記録が2週続けて増え、DN-0110 の判定と DN-0601 の比較に要る指標（Shorts→関連動画の視聴回数、通常動画の平均視聴率）が欠測なく読める。
 
 ### [DN-0596] YouTube の数値（自社は月次・競合は四半期）を GitHub Actions で定期取得し、取り忘れで前回比が切れないようにする
-タグ: [領域:SNS] [時期:2026-10..2026-11] [種類:改善] [検証:check-competitor-scan-due] [起票:2026-10-08]
+タグ: [領域:SNS] [時期:2026-11] [種類:改善] [検証:check-competitor-scan-due] [起票:2026-10-08]
 
 **起点**: 2026-10-08 に YouTube の数値の正本として台帳 `youtube.own-videos`（自社・月次）と `youtube.competitors`（競合・四半期）、取得スクリプト `npm run youtube-own-metrics`・`npm run scout-youtube-competitors` を作り、初回の記録を `data/youtube/` に置いた。今は手元で回すだけで、取り忘れると前回比が切れる。
 **やること**:
@@ -579,26 +699,15 @@
 **罠**: 日本語表示の一覧は「1.2万回」を null にするので英語表示と動画 ID で結合している（`scripts/lib/youtube-listing.mjs`）。ランナーの IP で一覧まで止まるなら手動に戻し、理由を measurement-incidents.md に書く。
 **完了条件**: 両方の workflow が2回続けて成功し、`data/youtube/own-videos/`・`data/youtube/competitors/` に日付つきの記録が増える。`npm run check-competitor-scan-due -- --platform youtube` が ci として OK。
 
-### [DN-0593] 総監の動画パック monbun-yomikata の layers 場面が描画できない（要点が画面に収まらない）
-タグ: [領域:SNS] [時期:2026-10] [種類:不具合] [起票:2026-10-08]
-
-**現象**: 総監の動画パック `content/sns/video-packs/pe-comprehensive-management/monbun-yomikata` の scene `layers` が「説明画面の要点を分割してください: layers」で描画できない（2026-10-08、全パック 2,482 場面の描画比較で 1 件。変更前のコードでも同じ）。状態は qa_passed。
-**影響**: このパックの mp4 を作り直すとき `render-longform` が止まる（backlog の原本照合カードで「monbun-yomikata は原稿を直したので mp4 を再生成」とある）。
-**やること**: `layers` の items を2場面に分けるか短くし、`node scripts/render-longform.mjs --pack-dir content/sns/video-packs/pe-comprehensive-management/monbun-yomikata --skip-tts` が完走することを確かめる。台本の意味は変えない。
-**完了条件**: 上のコマンドが exit 0、`npm run check-video-content` PASS。
 
 ### [DN-0589] Drive vault の検査（check-drive-vault）が develop で FAIL 86 件のまま：kindle-dist の未同期と動画レンダーの不一致を片付ける
-タグ: [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-08]
+タグ: [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-10-08]
 
 2026-10-08 に PR #927 の確認で、本番の作業ツリー（develop）でも node scripts/check-drive-vault.mjs が FAIL 86 件（WARN 126 件）だった。主な中身は scripts/kindle-dist/*.jpg の unsynced（ローカルにしか無く、この Mac を失うと復元できない）と .tmp/video-render/**/thumbnail.png の vault-mismatch。Mac 専用で CI には無く、誰も読んでいない赤になっている。やること: (1) 内訳を group ごとに出し、作り直せるものと正本を分ける。(2) 正本は drive-vault-sync --group <g> --commit、作り直したものは --force で反映。(3) Mac で定期的に読む人を決める（週次レビューの点検に入れるか、SessionStart の警告に件数を出す）。完了条件: check-drive-vault の FAIL 0・読む人が commands.md か週次の手順に書いてある
 
-### [DN-0587] 引き継ぎ・レビューの point-in-time 文書が指すカードを別セッションが閉じても、develop の CI を赤くしない
-タグ: [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-08]
-
-2026-10-08、docs/handoffs/2026-10-08-dataset-catalog-unification.md が DN-0581 を参照していたところ、別セッションが DN-0581 を修正コミット e5df3a4bc の中で閉じ（todo:complete を通らず、doc-refs の確認も通らない）、マージで両方が develop に揃った時点で ci.yml の audit（tests/project-task-refs.test.mjs の dangling-id）が赤になった（run は 08a551580）。引き継ぎを消すまで約 45 分、develop の全 PR の CI が赤のままだった。案: (1) docs/handoffs/・docs/reviews/ の dangling-id は CI では警告にし、引き継ぎの抽出漏れ検査（check-handoff-extraction）側で扱う。(2) backlog.md からカードを消すコミット（todo:complete 以外）でも、pre-commit で liveDocsReferencing を回して止める。完了条件: 両方の回帰テスト・引き継ぎがカードを指したまま閉じても ci.yml が緑・pre-commit が todo:complete 外の削除を止める
 
 ### [DN-0582] Windowsで全体テスト11件が失敗するパス・改行・既存前提を直す
-タグ: [領域:管理] [時期:2026-10] [種類:不具合] [検証:test] [起票:2026-10-08]
+タグ: [領域:管理] [時期:2026-12] [種類:不具合] [検証:test] [起票:2026-10-08]
 
 2026-10-08、Windows / Node 22 の独立 worktree で npm test を実行し、2,823 件中 2,806 成功・11 失敗・6 skip。追加したアフィリエイト実験テストは成功。失敗は既存領域で、区切り文字・file URL・CRLF・prh の API/前提に関するもの。
 
@@ -609,7 +718,7 @@
 完了条件: Windows と Linux の npm test が実検査数を示して成功し、共有フックや入力 fixture の不変条件が維持される。
 
 ### [DN-0579] Windows PC から Tailscale 経由で管理画面が開けるか確認する
-タグ: [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-08]
+タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-08]
 
 別 PC（Windows）から Mac 上の管理画面（`npm run admin`・127.0.0.1:3021）を Tailscale 経由で開けるか確認する。Mac 側の設定は 2026-10-08 に完了済み（PR #924 で `allowedDevOrigins: ['**.ts.net']`、`tailscale serve --bg 3021` 実行済み・Mac からの取得は 200 を確認）。
 
@@ -621,7 +730,7 @@
 - 手順の正本: tools/admin-app/README.md「別 PC から開く（Tailscale）」
 
 ### [DN-0568] note のログイン確認が一度失敗しただけで、週次のマガジンのカバー登録が残り全部止まる
-タグ: [収益化] [領域:商品] [時期:2026-10] [種類:不具合] [起票:2026-10-07]
+タグ: [収益化] [領域:商品] [時期:2026-11] [種類:不具合] [起票:2026-10-07]
 
 **起点**: 2026-10-07 に `note-sync-routine --magazines-only` を会社 PC で回したところ、7 誌目まではログインの確認（`note-magazine-cover.mjs` の account ゲート）が通ったのに、8 誌目だけ `ABORT: account != dobokunote`（exit 2）になった。週次はこれを「ログインが切れた」と扱って `break` し、残りの 47 誌を登録しなかった。直後に同じプロファイルで再実行すると通ったので、ログインは切れておらず、確認が一時的に失敗しただけとみている（設定ページを `domcontentloaded` の 2.5 秒後に読むだけで、表示が遅いと本文にクリエイター名が出ない、が有力。**原因は未確認**）。
 
@@ -630,7 +739,7 @@
 **完了条件**: account ゲートの一時的な失敗で週次が止まらない（テストで exit 2 → 再試行 → 成功の流れを確かめる）。
 
 ### [DN-0569] 2026-10-07 に会社 PC で登録したマガジンカバーの控えを Drive vault へ保存する
-タグ: [収益化] [領域:商品] [時期:2026-10..2026-11] [種類:不具合] [起票:2026-10-07]
+タグ: [収益化] [領域:商品] [時期:2026-11] [種類:不具合] [起票:2026-10-07]
 
 **起点**: 2026-10-07 にマガジンのカバー 56 誌（39＋17。1 誌は登録後の確認で落ちた回に入った）を会社 PC の `note-sync-routine --magazines-only` で note へ登録した。会社 PC には Google ドライブのマウントが無いので、登録した版の控え（Drive vault の `note-magazine-cover-png`）の保存が `drive-vault-sync` で失敗した（実行記録の problems に「マガジンカバーを Drive へ保存できなかった」）。台帳（`magazineCovers`）の記録と note 上の画像は済んでいる。
 
@@ -638,43 +747,9 @@
 
 **完了条件**: `node scripts/drive-vault-sync.mjs --group note-magazine-cover-png` の差分が 0 件で、2026-10-07 に登録した誌の控えが vault にある。
 
-### [DN-0551] 技術士一次 H27・H28 の ExamPoint「対比点は「A」と「B」の違い」約 80 項目を、違いの要点（体言止め）で書き直す
-タグ: [コンテンツ品質] [領域:サイト] [時期:2026-10..2026-12] [種類:改善] [起票:2026-10-06]
-
-**起点**: 2026-10-06 に技術士一次の ExamPoint の lint 9-11（項目に句点・読点 2 つ以上）を直した際、`content/site/pe-first-stage/h27-*`・`h28-*` の 6 本に残る「対比点は「＜選択肢の文＞」と「＜選択肢の文＞」の違い」約 80 項目は、選択肢の文をそのまま「」で引いているため、読点を抜くと引用が原文と食い違う。機械的な修正は取り消して元のままにした（9-11 が残る: h27-construction 31・h28-construction 30・h27-aptitude 8・h28-basic 6・h27-basic 3・h28-aptitude 2）。
-
-**やること**: 各項目を、2 つの選択肢の文の引用ではなく「何が違うか」の要点（例: 「土の密度は土粒子＋水、乾燥密度は土粒子だけの質量で定義」）を体言止めで書く。選択肢の原文は直上の解説行と設問に残っているので、ExamPoint では引用しない。1 項目に句点なし・読点 1 つ以内、項目は 3 個以内。
-
-**完了条件**: 6 本の `node .claude/scripts/lint-mdx-mobile.mjs` で 9-11 が 0、`npm run check-mdx-facts -- <file>` で数値の減少 0（「」の語の減少は引用をやめた分として commit に書く）、`npx textlint` 0 件。
-
-### [DN-0552] 1級土木 一次の過去問演習データへ、記事の図の修正を反映する
-タグ: [コンテンツ品質] [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-06]
-
-**起点**: 2026-10-06 の図クロップ品質ループ（`/figure-quality-loop`）で、1級土木 一次の過去問記事の図を切り出し直すと、過去問演習（`/tools/kakomon-quiz`）のデータには反映されないと分かった。演習データ `src/config/civil-1-exam-questions.json`（→ `npm run build-quiz-data` → `public/quiz/civil-1.json`）は記事の MDX から `.claude/scripts/sns/parse-civil-1-questions.mjs` で作るが、2026-07-16 から作り直されていない。図 50 枚のうち 10 枚で width/height が記事と違い、H30 問題A No.10 は、切り出し直した h30-a-fig-10 が図の全体になったので、記事では縮小版の h30-a-fig-11 と図名「（上部）」を外す（PR #887 の後に入る）が、演習データには重複したまま残る。画像のパスは同じなので、演習でも直した画像は出ている。
-
-**やること**: `parse-civil-1-questions.mjs` が既存の年度も記事から作り直せるかを確かめて（見出しに「追加のみ」とある）、記事の図・寸法の変更が演習データに入るようにする。作り直すか、`refresh-indexes` か検査で記事との差を止めるかを選ぶ。作り直したら、どの記事からも演習データからも参照されなくなった `content/site/civil-construction-1/primary-h30-a/img/h30-a-fig-11.{png,webp}` と、H29 問題A No.1 の断片 `primary-h29-a/img/h29-a-fig-02`・`h29-a-fig-03`（fig-01・fig-04 を図の全体に切り出し直したので 2026-10-07 に記事から外した）を消す（Kindle の EPUB `scripts/kindle-dist/e-02.epub` にも入っているので、EPUB の作り直しと合わせる）。
-
-**完了条件**: `src/config/civil-1-exam-questions.json` の図の width/height と図の並びが記事の MDX と一致し（不一致 0 件）、`public/quiz/civil-1.json` の H30 No.10 の図が 1 枚になっている。
-
-### [DN-0562] Kindle の EPUB・表紙（scripts/kindle-dist）を Git から出し、置き場の方針どおりにする
-タグ: [インフラ・計測] [領域:商品] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-07]
-
-**起点**: 置き場の方針（asset-storage-policy.md §1）は「誰が使うかで決める」で、人が使うものは Drive、CI が読むものは R2 に置く。`scripts/kindle-dist` だけは例外として Git に入っている（138 件・90MB、EPUB 65・表紙 jpg 72）。
-- `config/drive-vault.json` の理由は `coexistWithGit: true`「Git が正本（CI の check-kindle-format が blob を読む）で、Drive は控え」。
-- 「CI が読む」は、方針では `ci`＝R2 の行に当たり、Git に置く理由にならない。
-- 作り直すたびに履歴に積まれる。履歴の切り詰め（2026-08-22）以降で 286 版・159MB あり、記事画像 1,569 版・99MB より重い。
-- Drive の控えは台帳 76 件と sha256 が 1 件も合わず、控えになっていない（DN-0451）。
-
-**やること**:
-1. 正本の置き場を決める。第一案は private R2 で、`kindle-format` の検査（quality-audit の `ci: true`）が R2 から読む。人が入稿に使う控えは Drive。
-2. asset-storage-policy.md §4 の手順で `git rm --cached` し、`.gitignore` に拡張子で足す。台帳（R2 の manifest か drive-manifest）に登録し、空の復元先から復元して sha256 を照合する。
-3. `check-kindle-format`・`kdp-publish.mjs`・`kindle-build` の読み書き先を新しい置き場に合わせる。CI は R2 から取り寄せて検査し、取り寄せに失敗したら検査不成立にする。
-4. `config/drive-vault.json` の `coexistWithGit` を外し、asset-storage-policy.md の表を直す。DN-0451 の同期と順番を合わせる。
-
-**完了条件**: `git ls-files scripts/kindle-dist` が README だけになり、CI の `kindle-format` が新しい置き場から全 EPUB を読んで通る。復元経路で全件の sha256 が一致する。
 
 ### [DN-0554] フックの鮮度チェックが post-commit の欠落を見ず、Mac に post-commit が入っていなかった
-タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-07]
+タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-10-07]
 
 **起点**: 2026-10-07、pathspec commit（`git commit -- <path>`）の後に index だけ古い版が残った（`MM`）。#885 が `scripts/install-pre-commit.mjs` に post-commit（`scripts/sync-index-after-commit.mjs`）を足したのに、この Mac の `.git/hooks` には pre-commit しか無かった。pre-commit に埋め込む鮮度チェックは `HOOK_CONTENT_BODY`（pre-commit の本文）の hash しか比べないので、post-commit だけが増えた版では「古い」と出ない。手で `npm run pre-commit:install` を入れ直した。
 
@@ -682,69 +757,11 @@
 
 **完了条件**: post-commit を消した状態で commit すると pre-commit が理由つきで止まり、`npm run pre-commit:install` の後は通る（テストで固定）。
 
-### [DN-0570] 図の切り出し直しを、記録（切り出し枠・回転）から同じ画像に作り直せるようにする
-タグ: [コンテンツ品質] [領域:サイト] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-07]
 
-**起点**: 図ごとの出典は 2026-10-07（PR #914）に `config/figure-sources.json` の `provenance`（186 件）へ一本化した。ただし残るのは原典の PDF・ページ・dpi だけで、切り出し枠（cropBox）・回転（書籍スキャンは 180° 逆さのページがある）・余白・減色は残らない。そのため、同じ画像を作り直せない。
 
-**やること**:
-1. record が worker の結果から `cropBox`・`rotate`・後処理（減色・点の除去）を `provenance` に残すようにする（型を足す）。
-2. `scripts/figure-reextract.mjs <figKey>` で記録から画像を作り直し、配信中の画像と同じ寸法・画素の差が閾値以下になることを確かめる。閾値はこのカードで決める。Drive vault の在る PC でだけ動き、無ければ検査不成立で exit 2 にする。
-
-**完了条件**: 新しく切り出し直した図は `provenance` に枠と回転があり、`figure-reextract.mjs` で任意の 3 枚を作り直すと配信中の画像と一致する。
-
-### [DN-0556] 図クロップ品質ループの親の手作業（判定の記録・QA・結果の保存）を機械にする
-タグ: [コンテンツ品質] [領域:サイト] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-07]
-
-**起点**: 2026-10-06〜07 に `/figure-quality-loop` を 51 周回した。親は毎周、次を手でやっていた。
-- worker の結果から判定 JSON（`.tmp/figure-loop/verdicts-*.json`）を書いた。
-- 新旧の比較画像を作った。
-- 画像から図番号のキャプションを外した図について、MDX に caption か `<p>` があるかを見た。
-- `check-figure-crop-integrity --file` を webp だけに掛けていた。png の切れ端判定は CI で初めて出た（図5.4。判定は誤りで、#890 で検査を直した）。
-- Workflow の結果がファイルに残らないので、会話の要約後は transcript から判定を拾い直した。
-- worker は毎回、書籍の図のページを pdftotext と目で探した。二次問題解説集の OCR には `<!-- p0122 印字:114 -->` のページ印と `（図: 図2.41 押え盛土工法。…）` があり、引けば一発で分かる。
-
-**やること**:
-1. `figure-crop-batch.workflow.mjs` が結果を `.tmp/figure-loop/results-<runId>.json` に書く。
-2. `figure-review-queue.mjs record --from-results <file> --pass <figKey...>` で、worker の結果から判定（source・cropBox 込み）を作る。
-3. `scripts/figure-qa-sheet.mjs <figKey...>` が次の 3 つを一括で出し、親は合否だけを決める。
-   - png・webp 両方のクロップ検査
-   - 新旧を並べた画像
-   - 画像から図番号のキャプションが消えたのに MDX に caption が無い図の一覧
-4. record は、png か webp のどちらかに STRAY_SLIVER があれば記録を拒む。
-5. `scripts/find-book-figure.mjs "図2.41"` で、書籍・PDF のページ・印字ページ・図名を OCR から引いて worker に渡す。
-6. SKILL.md（`.claude/skills/quality/figure-quality-loop/`）の手順を置き換え、`/doc-sync` を回す。
-
-**完了条件**: 判定 4 枚と切り出し直し 2 枚の 1 周を、手で JSON を書かずに `record --from-results` と `figure-qa-sheet` だけで記録できる。record が切れ端のある png を拒むことをテストで固定する。
-
-### [DN-0557] 書籍から作った解説記事で、図の番号・alt・本文の参照が原典とずれていないかを機械で照合し、残りの記事を直す
-タグ: [コンテンツ品質] [領域:サイト] [時期:2026-10..2026-11] [種類:不具合] [起票:2026-10-07]
-
-**起点**: 2026-10-07、`civil-construction-1/secondary-earthwork-basics` の軟弱地盤対策を二次問題解説集2021 と照合して直した（ec373c03d）。見つかった不具合は次のとおり。
-- 図2.36〜2.52 が 1 節ずつずれて載っていた。
-- alt が画像と合っていなかった（図2.41 が「サーチャージ工法の原理」）。
-- 本文の図番号が違う図を指していた（サーチャージで「図2.41」、深層混合で「図2.44」）。
-- 1 枚の図が左右 2 枚に割られていた（図2.42）。
-- 同じ図が 2 回載っていた（図2.52）。
-- 別の教材の図番号（図1.93）が画像に写り込んでいた。
-- 薬液注入工法の本文が、石灰パイル工法の説明の繰り返しだった。
-
-同じ日、1級一次 H29 でも同じ図の切れ端が「（詳細）」の図名で重複していた。同じ書籍から作った他の `secondary-*-basics` と textbook 由来のガイドはまだ見ていないが、同じ生成の誤りが残っている見込みが高い。
-
-**やること**:
-1. 検査を作り、次の 4 点を見る。
-   - `ArticleImage` の alt・caption の「図X.Y 図名」が、書籍の OCR（Drive vault の `原資料PDF/書籍/<book>/ocr/*.md` の `（図: 図X.Y 図名。…）`）と一致するか
-   - 本文の「**図 X.Y**」が、同じ節（H4）にある図を指しているか
-   - 同じ図番号が 2 回出ていないか
-   - 図名に分割の印（「（上部）」「（下部）」「（詳細）」）が付いていないか
-2. CI でも回せるよう、書籍の図番号・図名・ページだけの索引を repo の `config/` へ書き出し、datasets 台帳に宣言する。持つのは図名までで、本文は持たない。
-3. 1級・2級土木の書籍由来の記事に掛け、ずれを原典と照合して直す。市販書籍（流用不可）の図は切り出し直さない（DN-0571 で自作の図に置き換える）。図番号・alt・本文の参照のずれだけを直す。
-4. 検査を quality-audit に登録する（決定的なら `ci: true`）。
-
-**完了条件**: 検査が対象記事数と実検査数を出し、不一致 0 件。quality-audit に載っている。
 
 ### [DN-0558] figure-crop-worker がネットからファイルを取得するのを hook で止める
-タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-07]
+タグ: [インフラ・計測] [領域:管理] [時期:2026-12] [種類:不具合] [起票:2026-10-07]
 
 **起点**: 2026-10-06、`figure-crop-worker`（sonnet）が原典を探す途中で、国交省の白書 PDF を `curl` で無断取得した（運営者は後で使用を承認）。
 - 今の歯止めは `.claude/agents/figure-crop-worker.md` の「`curl`・`wget` で取得しない」という一文だけで、守られる保証が無い。
@@ -785,7 +802,7 @@
 **完了条件**: 反映から 28 日後の集計で、「コンクリート主任技士 過去問」系の検索語に資格トップが出ていて、表示が増えている。
 
 ### [DN-0525] noteカバーの未退避14件を保全し、R2台帳との不一致を解消する
-タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-03]
+タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:不具合] [起票:2026-10-03]
 
 **起点**: `npm run check-asset-storage` が manifest 2,610件を検査し、既存カバーの未退避14件（舗装6・管工事1・測量士7）で exit 1。ローカルと台帳のハッシュ不一致も140件。今回保存した2級土木・コンクリートのPOPカバー4枚には問題がなく、R2読み戻しでサイズ・SHA-256の一致を確認済み。
 
@@ -795,7 +812,7 @@
 
 
 ### [DN-0518] note 配布PDFの spec（scripts/pdf-specs・pdf-spec.json）を記事の現行構成に合わせ、作り直すと中身が欠ける・導線が混入する状態を直す
-タグ: [収益化] [領域:商品] [時期:2026-10] [種類:不具合] [起票:2026-10-03]
+タグ: [収益化] [領域:商品] [時期:2026-11] [種類:不具合] [起票:2026-10-03]
 
 **起点**: 2026-10-03 の配布PDF全数点検（全 51 spec・697 本を `.tmp` へ作り直して販売中PDFと本文比較）。改訂を反映すべき建設部門・総監の 67 本は差し替え済みだが、次の spec は今の記事で作り直すと販売中より悪くなるため差し替えを見送った。(1) RCCM問題I 部門別 3 本（上水道・下水道・土質及び基礎）が 6,000 字→400 字前後に欠ける。(2) 総監口頭試験-完全準備-想定25問 が 10,591→1,485 字に欠ける。(3) 1級土木 経験記述 完全攻略パック 100 本で「関連リンク 出題傾向と書き方（無料）…」が PDF に混入し、合格ラボ誘導文が抜ける。(4) 2テーマ組合せ大全・学科記述テーマ別（1級・2級）で末尾の「出典」節が落ちる。(5) 建設部門-口頭試験対策-想定33問 でもくじ誘導文（note URL）が混入する。販売中PDFは中身がそろっているので購入者への実害は今は無いが、次に記事を直して作り直すと欠けたPDFを配ってしまう。あわせて 1級・2級の約 200 本は本文の目印を【〇〇】へそろえた改訂（DN-0277）が PDF に未反映（見た目のみ）。`content/coconala/assets/pdf/` の C8/C9 の回番号なし旧版 4 本はどこからも参照されていない。
 
@@ -804,7 +821,7 @@
 **完了条件**: 全 spec の作り直しで、販売中PDFとの差が「意図した改訂」だけになり、欠落・導線混入が 0 件。
 
 ### [DN-0514] 2級土木の note 商品ラインナップを試験後に整理する（販売 0 の 18 商品の見せ方・工種別パックを工事バンクの入口に）
-タグ: [収益化] [領域:商品] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-02]
+タグ: [収益化] [領域:商品] [時期:2026-11] [種類:改善] [起票:2026-10-02]
 
 **起点**: 2026-10-02 の導線点検。2級の有料 22 商品のうち、まとめ売りで売れたのは 4 商品（完成答案集 3・直前パック 2・想定工事バンク 2・過去問模範答案集 1）と単品記事 11 件で、残り 18 商品（工種別パック 10・二次まるごと・学科記述テーマ別・暗記ノート・出題分析・予想模試・択一 PDF・小規模インフラ 4 工事）は販売 0（`data/note/sales.json`・9/28〜30 は DN-0511 で未取得）。工種別パック 10 本は想定工事バンクの部分集合（`config/products.json` の civil-2-koji-bank の includes）だが、サイトでは例文ページ下部のカードにしか無く表示は各 3 回前後（GA4 9/4〜10/1）。二次まるごと（¥8,800）は公開以来 0 件・案内記事の 9 月閲覧 15 で、値上げ（¥12,000 案）は 1級まるごと ¥11,800 を上回るため見送った。
 
@@ -813,7 +830,7 @@
 **完了条件**: 18 商品それぞれの扱いが `config/products.json` と配線（`src/lib/magazine-placement.ts`）に反映され、判断理由が EXP-011 の learnings に残っている。
 
 ### [DN-0503] 技術士一次試験の科目別の過去問一覧（基礎・適性・専門 建設・専門 上下水道）を作る
-タグ: [SNS・マーケ] [領域:サイト] [時期:2026-10..2026-11] [種類:制作] [起票:2026-10-02]
+タグ: [SNS・マーケ] [領域:サイト] [時期:2026-11] [種類:制作] [起票:2026-10-02]
 
 **起点**: 2026-10-02 の確認。一次試験の過去問は「年度×科目」の 64 ページ（`/exam/pe-first-stage/primary/{年度}-{basic|aptitude|construction|water-supply}`）で、一覧はカテゴリページの年度×科目の表だけ。科目ごとに全年度をまとめた一覧が無く、「技術士一次試験 基礎科目 過去問」のような科目名付きの検索の受け皿が無い（科目別の学習ガイド `guide-basic-subject` 等が近い役割）。需要は未確認（GSC・Bing に科目名付きのクエリはまだほぼ出ていない）。
 
@@ -827,7 +844,7 @@
 **進捗（2026-10-02）**: (b) を採用。基礎・適性・専門（建設部門）の対策ガイドに「過去問一覧（平成23〜令和7年度・全16回）」の節と無料演習への導線を足し、seoTitle に「過去問一覧」を入れた。上下水道は科目ガイド `/exam/pe-first-stage/guide/water-supply-subject`（出題の並び・毎回出るテーマ・25問の選び方・全16回560問の一覧）を新設。本番反映済み（c0eceb317）。残りは公開 4 週間後（10/30 前後）に GSC・Bing で科目名付きクエリの表示とクリックを記録すること。
 
 ### [DN-0501] 技術士一次試験の note CTA のクリック率を比べ、配置を見直す
-タグ: [収益化] [領域:商品] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-02]
+タグ: [収益化] [領域:商品] [時期:2026-11] [種類:改善] [起票:2026-10-02]
 
 **起点**: 一次試験ページの note CTA は表示約 1,300・クリック約 16（約 1.2%、GA4 by-label 10/2 取得）、note 3 商品（過去問PDF 合本・直前暗記ノート・直前パック）の売上記録は 0 件。過去問ページの平均セッション時間は 5〜10 分。2026-10-02 の運営者指示で一次試験の過去問PDF CTA に生成済みの本文用・サイドバー用 POP 画像を採用するため、変更後の反応を比較する。
 
@@ -838,7 +855,7 @@
 **完了条件**: 配置別の表示・クリックと売上を記録し、配置を維持するか変更するかを決めた。
 
 ### [DN-0499] 技術士一次試験ページの SEO を直す（インデックス回復・題名を検索語へ・過去問一覧を受け皿に）
-タグ: [SNS・マーケ] [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-10-02] [進行中]
+タグ: [SNS・マーケ] [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-10-02] [進行中]
 
 **起点**: 2026-10-02 の調査。一次試験 53 ページのうち Google のインデックス済みは 27（52%・サイト全体 79%）で、R07 基礎と無料演習は「Google に認識されていない」（URL 検査 9/30）。Google の表示は月 251 回・14 クリック。Bing は「技術士一次試験」週 400〜660 表示・3〜5 位なのにクリック率 1〜3%、「過去問」「過去問 解答」は 6〜8 位で 0 クリック。題名は「令和7年度 技術士第一次試験 基礎科目 過去問解説【技術士 第一次試験】」と末尾が重複している。
 
@@ -850,7 +867,7 @@
 **完了条件**: 変更をデプロイし、4 週間後（2026-11 初め）の GSC で一次試験ページのインデックス数・表示回数、Bing で「技術士一次試験 過去問」系のクリックを変更前（本カードの数値）と比べて記録する。
 
 ### [DN-0527] note マガジンに入っている「原稿と結び付かない記事」31 本を確かめ、原稿の記事へ差し替える
-タグ: [収益化] [領域:商品] [時期:2026-10] [種類:不具合] [起票:2026-10-04]
+タグ: [収益化] [領域:商品] [時期:2026-11] [種類:不具合] [起票:2026-10-04]
 
 **起点**: 2026-10-04 に note の全商品 143 件を `content/products/note/` へ移したとき、公開中のマガジンの収録記録（`data/note/magazines.json`）に、原稿の frontmatter の noteId と一致しない記事が 31 本あった。題名は原稿と同じで ID だけが違う（例: 建設部門 道路 R07 II-1 は原稿が `n9c791def70f4`、マガジンの収録が `n123cf1c5f8f0`）。内訳は 1級 施工経験記述 完全攻略パック 14・建設部門 道路 選択科目 模範解答集 16（道路まるごとパックも includes で同じ記事）・総監 記述式 完全パック 1。正本には今の収録どおり `note:<noteId>` で書き、`npm run check-products` が毎回一覧を出す。
 
@@ -860,21 +877,9 @@
 
 **完了条件**: `npm run check-products` の「原稿と結び付かない収録」が 0 本。
 
-### [DN-0493] 商品の正本の段階2: 導線設定・カバー設定を正本から生成し、商品設計の画面を正本から読む
-タグ: [収益化] [領域:商品] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-01]
-
-**起点**: DN-0492（PR #807）で 2級土木の note 商品23件を `content/products/note/` へ移し、`note-magazines.ts` の該当部分を生成にした（2026-10-04 に残りの資格も移し、note の全 143 件が正本から生成）。冒頭導線の記事別ルール（`config/note-intro-standard.json` の variants.civil2）・カバー設定（`config/note-covers.json` の characterCovers）・マガジンの `note掲載文.txt` は、まだ正本と別に手で持っている。
-
-**やること**:
-1. 冒頭導線の記事別ルールを、正本の persona・members から生成する（`npm run product -- gen` に含める）。
-2. カバー設定（proof・benefit・magazineName）と `note掲載文.txt` を正本の catalog から生成する。
-3. 管理画面の商品設計（`/product/design`）を、収録の実測だけでなく正本（作成予定の商品・収録の意図との差）からも出す。
-4. 正本の変更から note への反映計画（作成・改称・収録の追加）を出す `npm run product -- plan` を作る（実行は従来の承認つきスクリプト）。
-
-**完了条件**: 2級土木で、パック1本の追加が「正本に1ファイル足す → gen → note への反映」で済み、手で直すファイルが正本以外に無い。
 
 ### [DN-0490] 技術士・1級土木の副業と独立のガイドを 1 本書き、検索需要を 8 週で確かめる
-タグ: [SNS・マーケ] [領域:サイト] [時期:2026-10..2026-12] [種類:制作] [起票:2026-10-01]
+タグ: [SNS・マーケ] [領域:サイト] [時期:2026-12] [種類:制作] [起票:2026-10-01]
 
 **起点**: 2026-10-01 のユーザー相談（建設業の補助金申請・建設業許可の受注で副業という視点）。自サイトの GSC（7〜9 月の全スナップショット・直近 28 日 935 クエリ）と Bing（07-05〜上位 1,200 クエリ）に「副業・独立・補助金・建設業許可」を含むクエリは 0 件（記事が無いため。需要が無い証拠ではない）。Google サジェストには「技術士 独立 年収／独立開業／建設部門 副業」「土木 積算・設計・CAD 副業」「建設業許可 専任技術者 副業」が出る。補助金申請代行・名義貸しはサジェスト無し。
 
@@ -885,7 +890,7 @@
 **完了条件**: 公開・`npm run refresh-indexes` 済みで develop に push。公開から 8 週後（2026-12 末）に GSC・Bing で副業・独立クエリの表示有無を確認し、表示が出なければこのテーマを広げない判断をカードに書いて閉じる。
 
 ### [DN-0491] 運営者の行政書士取得を前提に、行政書士（建設業許可・補助金）領域の展開計画を立てる
-タグ: [収益化] [領域:戦略] [時期:2026-10] [種類:意思決定] [起票:2026-10-01]
+タグ: [収益化] [領域:戦略] [時期:2026-11] [種類:意思決定] [起票:2026-10-01]
 
 **起点**: 2026-10-01 にユーザーが「行政書士は取得する」と決定。`docs/strategy/02_設計思想.md` と `03_事業戦略.md` では行政書士は「将来候補・未着手」のまま。
 
@@ -894,7 +899,7 @@
 **完了条件**: 02・03 が更新され、展開する／しないと時期が決まって、展開するなら制作カードへ分割されている。
 
 ### [DN-0486] 資格の正本の要対応 57 件（主担当の原文照合が未了 27 件ほか）を公式ページで照合して verification を更新する
-タグ: [コンテンツ品質] [領域:戦略] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-01]
+タグ: [コンテンツ品質] [領域:戦略] [時期:2026-11] [種類:改善] [起票:2026-10-01]
 
 **起点**: 月次レビュー（2026-08-01〜2026-08-31）の資格の正本と市場で見つけた。`npm run exam-ssot-status` が 37 資格中 26 資格で要対応 57 件。うち 27 件は「主担当の原文照合が未了（調査担当の読み取りのみ）」、残りは次年度日程の未登録・統計の公式 PDF 未特定など。
 
@@ -904,17 +909,8 @@
 
 **残り（2026-10-06 時点・全体 56 件）**: active で残るのは測量士・測量士補の次年度日程の 2 件だけ（国土地理院の令和9年の公式発表を確かめて `exam-calendar.json` を更新。gsi.go.jp はクラウドのセッションから届かないので手元の端末で確認する）。
 
-### [DN-0487] 過去問の年度在庫で「取得済みなのに Drive 台帳にも手元にも無い」2,112 件を、実在に合わせて直すか取得し直す
-タグ: [コンテンツ品質] [領域:戦略] [時期:2026-10] [種類:不具合] [起票:2026-10-01]
-
-**起点**: 月次レビュー（2026-08-01〜2026-08-31）の点検と Issue で見つけた。`npm run check-past-exam-inventory` が FAIL 2,112 件（WARN 0）。全件が技術士の重点外の部門（第一次試験 361・機械 171・農業 133・電気電子 113・化学 105 ほか 20 部門）で、理由は全件「取得済みと書いたのに Drive 台帳にも手元にも無い」。
-
-**やること**: (1) 実際に Drive の過去問 vault にあるかを 1 部門で確かめ、台帳（`data/pastexams/inventory.json`）の書き方の誤りか、ファイルの欠落かを切り分ける。(2) 台帳の誤りなら取得状態を実在に合わせて直す。欠落なら `/past-exam-archive` の手順で公式から取り直すか、重点外の部門は在庫の対象から外す（外すなら理由を台帳に書く）。
-
-**完了条件**: `npm run check-past-exam-inventory` が FAIL 0 件。
-
 ### [DN-0484] afb を CI で取得し、取得スクリプト自身が Secrets でログインする形を試す
-タグ: [インフラ・計測] [領域:管理] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-01] [進行中]
+タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-01] [進行中]
 
 **起点**: 2026-10-01 にユーザー決定で、ログインが必要な全サービスを CI でも自動で入り直す方針にした。afb はログイン状態を別プロセスへ持ち出せない（`sessionPersistsAcrossProcesses: false`・9/21 CI で requiredlogin へ戻された）ため、`auth-session-refresh --ci` で入り直してから別プロセスの取得スクリプトを動かす形は効かない。
 
@@ -925,7 +921,7 @@
 **2026-10-01 実装**: (1)〜(3) を実装（`openAsp` が同じプロセスで 1 回だけログイン・CI では人を待たずに失敗）。残りは (4) 11/4 の定期実行（または `workflow_dispatch` service=afb）の結果を見て判断する。main へ deploy してから。
 
 ### [DN-0483] もしもアフィリエイトの CI 取得を新設し、Secrets で入り直す形を試す
-タグ: [インフラ・計測] [領域:管理] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-01] [進行中]
+タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-01] [進行中]
 
 **起点**: 2026-10-01 にユーザー決定で、ログインが必要な全サービスを CI でも自動で入り直す方針にした。もしもは正本で `ci.mode: none`（CI で取得していない）で、手元の `affiliate-status` / `affiliate-apply` だけが使う。口座は stats47 と共用。
 
@@ -936,7 +932,7 @@
 **2026-10-01 実装**: (1)〜(3) を実装（提携状況を `affiliate-status --asp moshimo --write` で毎週日曜 21:40 UTC に取得）。残りは Mac の `auth-session-refresh --export` でもしもの暗号化 state を渡すこと（DN-0479 と同じ Mac 作業）と、main へ deploy 後の実行結果で (4) を判断すること。
 
 ### [DN-0481] A8 の CI 取得で Secrets による入り直しを 10 月の火曜実行で評価し、続けるか戻すかを決める
-タグ: [インフラ・計測] [領域:管理] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-01] [期日:2026-11-05]
+タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-01] [期日:2026-11-05]
 
 **起点**: A8 は揮発性 Cookie で、Mac から渡した暗号化 state が CI の定期収集の時点で切れていた（2026-09-22 run 35670832802・Issue #570）。2026-10-01 にユーザー決定で、A8 も GitHub Secrets（`DOBOKU_AUTH_A8_USER` / `_PASSWORD`）を持たせ、`login-collectors.yml` で切れていたときだけ 1 回入り直す形にした。口座は stats47 と共用。
 
@@ -949,7 +945,7 @@
 **完了条件**: 続ける／戻すを決め、正本・ワークフロー・Secrets をその状態にそろえた。
 
 ### [DN-0480] KDP の CI 取得（Secrets で入り直し）を 10/16・10/28 の実行で評価し、続けるか戻すかを決める
-タグ: [インフラ・計測] [領域:管理] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-01] [期日:2026-11-05]
+タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-01] [期日:2026-11-05]
 
 **起点**: 2026-10-01 にユーザー決定で、KDP も GitHub Secrets（`DOBOKU_AUTH_KDP_USER` / `_PASSWORD`）を持たせ、`login-collectors.yml` の KDP を `enabled:true` に戻して試すことにした。9/21 は CI の state 復元で Amazon が端末変更として再認証を求め、手元のセッションまで切れたため `enabled:false` にしていた。今回は CI の「Re-login with Secrets」と各 PC の毎日のログイン維持（17:45）で入り直せる形にしてある。
 
@@ -962,7 +958,7 @@
 **完了条件**: 続ける／戻すを決め、正本・ワークフロー・Secrets をその状態にそろえた。
 
 ### [DN-0479] Mac でも全ログインサービスの資格情報をキーチェーンへ登録し、管理画面で揃ったことを確かめる
-タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-01]
+タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-01]
 
 **起点**: 2026-10-01 にユーザー決定で、ログインが必要な全サービスの ID/PW を各 PC の OS 資格情報ストアで管理する方針にした。正本は `.claude/config/playwright-auth-profiles.json` の `services.<id>.credential`、確認は管理画面の 管理 ＞ ログインと資格情報（`/ops/auth`）。Windows は note・ココナラを登録済み（同日）で、Mac は未着手。管理画面が見えるのはその PC の登録だけなので、Mac は Mac で確かめる。
 
@@ -988,17 +984,6 @@
 
 **完了条件**: `git grep -n -e 今週のお題 -e 直前に答案 -- 'content/note/1級・2級土木/メンバーシップ/*article.md'` が W11 以外で0件、公開 API で W01〜W10 と添削事例01の本文に「今週のお題」「直前に答案」が無い。W11 の扱いが決まっている。
 
-### [DN-0475] 2級土木 一次の残り 6 年度分（前期 r07・後期 r03〜r07）と 1級土木 一次の設問文の転記ずれを公式問題と照合する
-タグ: [コンテンツ品質] [領域:サイト] [時期:2026-10..2026-11] [種類:不具合] [起票:2026-10-01]
-
-**起点**: 2026-09-30 に 2級土木 一次前期 r03〜r06 を公式問題と照合したところ（DN-0473）、AI 転記の崩れが 4 年度で数百行あり、意味が変わるもの（「適当なもの／でないもの」の取り違え、「堆積させなければならない」→「させてはならない」、表の中身の別内容）も含まれていた。同じ手順で作った他の年度にも同種の崩れがある見込みが高い。
-
-**やること**: `content/site/civil-construction-2/primary-r07-zenki` と `primary-r03-kouki`〜`primary-r07-kouki`、`content/site/civil-construction-1/primary-*`（h26〜r07・a/b）の全問について、設問文・選択肢を公式の問題（全国建設研修センターの公表 PDF、現行ページが 404 なら Wayback Machine。1級は docs/textbook 配下の原典 PDF も可）と照合し、ずれを直す。正答は公式の正答表と照合し、変わる場合は解説と ExamPoint も合わせる。年度ごとに commit し、`past-exam-qa` で監査する。原典が取れない年度は理由を残す。
-
-**手がかり（2026-10-06）**: (a) r07 前期 No.63（足場の数値の組合せ）は正答 (1) の作業床幅を「30 cm 以上」とし、解説が「条文上 40 cm が原則だが小規模特例あり」と補っている。労働安全衛生規則 第563条は作業床の幅 40 cm 以上・支持物 2 以上なので、今の選択肢表ではどれも条文と合わない＝転記の崩れが疑わしい（r08 前期 No.53 の公式正答でも「作業床の幅は 30 cm 以上」は誤り）。最優先で原典と照合する。(b) 2級の PDF は poppler（pdftotext/pdftoppm）だと太字＝設問番号と「適当でないもの」等の極性語が落ち、ふりがなが混入する。照合は pypdfium2（`python3 -I`）で描画した画像で行う（DN-0547 で確認）。r07 前期の公式 PDF は現行ページに無く、jctc.jp の wp-content/uploads/2025/06 の推測 URL も 404、web.archive.org はクラウドのセッションから届かないので、手元の端末で原典を取る。
-
-**完了条件**: 対象の全年度で照合済み（照合できなかった年度・問題は理由つきで列挙）、`past-exam-qa` で転記起因の指摘が 0、`npm run refresh-indexes` 済み。
-
 ### [DN-0468] 技術系公務員の定年延長と再任用のガイドを新規に書く（土木公務員の資格意図の受け皿）
 タグ: [SNS・マーケ] [領域:サイト] [時期:2026-12..2027-02] [種類:制作] [起票:2026-09-30]
 
@@ -1017,26 +1002,10 @@
 
 **完了条件**: 本文 3,000 字以上で公開・`refresh-indexes` 済み。既存 2 本から本記事へリンクがあり、`npm run check-career-separation` が通る。
 
-### [DN-0470] 建設部門の guide/career に技術士の定年後の働き方の節を足す
-タグ: [SNS・マーケ] [領域:サイト] [時期:2026-12..2027-02] [種類:改善] [起票:2026-09-30]
 
-**起点**: 計画書（docs/strategy/17）の順 3。GSC で「技術士 年収」系が約 11 表示（73 位前後）、「技術士転職」7。冒頭の年収の答えは 2026-09-30 に足し済み（DN-0391）。
-
-**やること**: `content/site/pe-construction/guide-career` に再就職・顧問・嘱託など定年後の働き方の節を足す。独立の詳細は DN-0472 の記事へ送る（先行リンクは張らない）。年収の数値は公表統計で照合する。転職導線は既存の配置を保つ。
-
-**完了条件**: 節を追加して公開済み、冒頭の年収の答えを損なっていない、`refresh-indexes` 済み、`npm run check-career-separation` が通る。
-
-### [DN-0471] 1級土木の age-career に 60 代の再雇用・嘱託・技術者の年齢の節を足す
-タグ: [SNS・マーケ] [領域:サイト] [時期:2026-12..2027-02] [種類:改善] [起票:2026-09-30]
-
-**起点**: 計画書（docs/strategy/17）の順 4。`civil-construction-1/guide-age-career` は 11 表示・13.5 位。現状は 40〜50 代中心。
-
-**やること**: 60 代の再雇用・嘱託と、監理技術者・主任技術者の年齢面の扱いを一次資料（国交省など）で確かめて節にする。転職導線は既存の配置を保つ。他者の体験談や想定年収は載せない。
-
-**完了条件**: 節を追加して公開済み、本文 3,000 字以上を維持、`refresh-indexes` 済み、`npm run check-career-separation` が通る。
 
 ### [DN-0467] coconala-edit の公開中サービス dry-run を実機で 1 回走らせ、exit 0 と公開画像が変わらないことを確かめる（運営者の再ログイン後）
-タグ: [インフラ・計測] [領域:商品] [時期:2026-10] [種類:不具合] [起票:2026-09-30]
+タグ: [インフラ・計測] [領域:商品] [時期:2026-11] [種類:不具合] [起票:2026-09-30]
 
 **起点**: PR #848 で、公開中サービスの `coconala-edit.mjs` を `--commit` なしで回すと送信しない dry-run になり、画像には触らず枚数だけ読むようにした（回帰テスト `tests/coconala-submit-choice.test.mjs`）。2026-10-03 の実機確認は Mac のココナラのログインが切れていて未実施（6 分待機でタイムアウト・パスワードはエージェントが入れない）。
 
@@ -1045,7 +1014,7 @@
 **完了条件**: 上の実行が `RESULT` の `mode:"dry-run"`・exit 0 で終わり、公開ページの og:image が実行前と同じ。
 
 ### [DN-0452] 管工事（1級・2級）の施工記述を分析し、note 教材を 1 商品で試す
-タグ: [収益化] [領域:商品] [時期:2026-10] [種類:制作] [起票:2026-09-29]
+タグ: [収益化] [領域:商品] [時期:2026-11] [種類:制作] [起票:2026-09-29]
 
 **起点**: 2026-09-29 に運営者が管工事を見送りから候補へ戻した（docs/strategy/06_多資格展開戦略.md 判断の記録）。令和6年度から第二次の経験記述は「施工記述」になり、設備全般・工程管理・安全管理が必須、空調か衛生を 1 問選ぶ形式（令和7年度 JCTC 公表問題）。受験者ごとの経験に左右されにくいため模範答案を作りやすく、衛生（給排水）は運営者の上下水道の専門と重なる。
 
@@ -1060,7 +1029,7 @@
 **完了条件**: note に 1 商品が公開され、`pipe-work-*` の出題形式と競合が正本に記録されている。
 
 ### [DN-0454] 管工事・建築・電気工事（1級・2級）の択一過去問を集め、正答と解説を整える
-タグ: [収益化] [領域:商品] [時期:2026-10] [種類:制作] [起票:2026-09-29]
+タグ: [収益化] [領域:商品] [時期:2026-12] [種類:制作] [起票:2026-09-29]
 
 **起点**: 2026-09-29 に運営者が、iOS 試作（DN-0453）の前に択一の過去問データを揃えると判断した。アプリの中身と、サイトの無料入口の両方になる。電気工事は記述の商品は作らず、択一とアプリだけ扱う（docs/strategy/06_多資格展開戦略.md）。公式（JCTC 等）は直近の年度しか掲載しない。
 
@@ -1114,7 +1083,7 @@
 **完了条件**: `/exam/pipe-work/` が本番に出て（deploy 後 `npm run check-production-ssr`）、ガイドが guide-qa 合格。
 
 ### [DN-0451] 今日R2へ保存したKDP成果物を現行のDrive保管へ同期し、保存経路の不整合を解消する
-タグ: [インフラ・計測] [領域:商品] [時期:2026-10] [種類:不具合] [起票:2026-09-29]
+タグ: [インフラ・計測] [領域:商品] [時期:2026-11] [種類:不具合] [起票:2026-09-29]
 
 **起点**: 2026-09-29 にKDP成果物をR2へ保存した一方、現行SSOTの `config/drive-vault.json` は `kindle-dist` を `audience: human`、Google Drive `制作物/Kindle` 保管としている。対象ファイルと実行経路は未特定。R2上の実体は保全し、調査中に削除・上書きしない。2026-10-07 時点で `quality:audit:ci` の drive-vault が `scripts/kindle-dist/a-05.jpg`・`a-06.jpg` を「ローカルにしか無い（台帳未登録）。このマシンを失うと復元不能」と FAIL にする。ただし 2 枚とも git で追跡済みで origin/develop と同じ中身なので、実際は復元できる（`check-drive-vault.mjs` は git の追跡を見ずに「復元不能」と書く。文言を直すか、git 追跡済みを区別する）。`node scripts/drive-vault-sync.mjs --group kindle-dist` の dry-run は 138 件中 137 件を対象にし（台帳 `kindle-dist` の 76 件と sha256 が 1 件も合わない）、Drive の `制作物/Kindle` には同名の 110 件が既にある。`--commit` は同名を上書きするので、先に同名の sha256 を比べて差分だけにする（手順 2）。
 
@@ -1128,7 +1097,7 @@
 **完了条件**: 当日R2へ保存したKDP成果物の対象数と実検査数が一致し、全件がDriveへ同期・台帳登録され、Drive読み戻しと復元でSHA-256一致を確認済み。保存経路の不整合原因が解消され、R2実体は削除されていない。
 
 ### [DN-0441] develop に「build 必須」のルールセットを作り、PR の自動マージが CI を待つようにする
-タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-09-29]
+タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-09-29]
 
 **起点**: 2026-09-29 にリポジトリの「Allow auto-merge」をオンにした。だが develop には合格必須の検査が無く、自動マージを予約すると CI を待たずに即マージされる。従来のブランチ保護で必須検査を足すと、develop へ直接 push するワークフロー 16 本（fetch-metrics・ogp-supply・competitor-scan ほか）が止まるので、ルールセットで PR のマージだけに build を求める。ルールセットはセキュリティ設定なので運営者が設定する（同日に設定したつもりが API では 0 件だった）。
 
@@ -1145,19 +1114,6 @@
 
 **完了条件**: 対象未満のユーザー比率（%）と取得期間を記録し、main 昇格の可否を決めている。
 
-### [DN-0432] 管理画面を shadcn/ui の標準部品・雛形・テーマで作り直し、余白やカードの書き方を共通化する
-タグ: [UI・UX] [領域:管理] [時期:2026-10..2026-11] [種類:改善] [起票:2026-09-28] [進行中]
-
-**起点**: 2026-09-28、KPI 画面のカード同士がくっつく不具合（PR #684 で修正）から、見た目の共通化・再利用・単一責務を相談した。原因は余白を `.card + .card`（直後がカードのときだけ）で決めていたことで、ページ側は生の `className="card"` 102 箇所・インライン `style` 161 箇所・`globals.css` 2,300 行超に依存し、`src/components/primitives.tsx` の Card/Badge は 7 ファイルでしか使われていない。前提の Tailwind v4 移行は PR #683 で完了済み。
-
-**やること**:
-1. 土台：`components.json` を置き、shadcn の Card / Badge / Button / Table / Tabs / Chart を CLI で追加して `primitives.tsx`・`ui.tsx` の重複を置き換える。テーマは shadcn の CSS 変数（基本色は slate 等から選ぶ）に寄せる
-2. レイアウト部品：`Stack` / `Grid` / `Section` を足し、並べ方の余白は親の `gap` で持つ。`.card + .card` を廃止する
-3. 枠：`sidebar` と `dashboard-01` の雛形で左ナビ＋本文を作り直し、KPI 画面から移す。残りの画面は数回に分けて移し、移した分の `globals.css` を削る
-4. ゲート：ページ（`tools/admin-app/src/app/**`）の生 `className="card"` とインライン `style` の件数を lint で数え、基準値より増えたら落とす
-5. 表：`TableFrame` を直に置いている 37 ページを `components/admin` の `DataTable`（shadcn の Data Table）へ移す。行ごとに形が違う表は除く
-
-**完了条件**: KPI 画面が shadcn 部品とレイアウト部品だけで書かれ、`.card + .card` が無い。全画面の移行後、ページの生 `className="card"` とインライン `style` が 0（または lint の基準値以下）で、ゲートが CI にある。
 
 ### [DN-0423] テーマ（/topics）15 ページを検索の入口として働くように作り直す
 タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11..2026-12] [種類:改善] [起票:2026-09-27]
@@ -1198,7 +1154,7 @@
 **完了条件**: 対象の手直しを終え、28 日後に同じ画面で表示のあるページの割合が上がったかを確かめたら、このカードを削除する。
 
 ### [DN-0417] 週次 GSC まとめ W38 の未起票の改善候補 5 件を片付ける（題名・CTA・共食い）
-タグ: [SNS・マーケ] [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-09-27]
+タグ: [SNS・マーケ] [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-09-27]
 
 **起点**: 2026-09-27 の集客バックログ点検で、`data/analysis/growth/digest-2026-W38.json` の候補のうち DN-0338 以外にカードが無かった。
 - OPP-07ad782c8d「スクレープドーザ」6.3 位・CTR 0%（`/exam/civil-construction-1/textbook/scraper`）
@@ -1266,7 +1222,7 @@
 **完了条件**: 台帳で選んだ note の記事とココナラの出品を、計画の確認→実行で更新でき、実行後に台帳の「ずれ」から消える。
 
 ### [DN-0362] Playwright 認証を「人・Mac・CI」の役割分担で設計し直し、ログインの維持を自動化する
-タグ: [インフラ・計測] [領域:管理] [時期:2026-10..2026-11] [種類:改善] [起票:2026-09-27] [進行中]
+タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-09-27] [進行中]
 
 **起点**: 2026-09-27、Instagram の状態確認で、自動化用プロファイルの多くが期限切れのまま使う直前まで気づけない構造だと分かった（`.claude/knowledge/reference/playwright-auth-profiles.md` の 9/7 実測で 9 サービス中 6 つが expired）。サービスごとの CI 扱いはあるが、ログインを誰がどこでするかの共通ルールと、ログインの維持・期限切れ検知が無い。文書の一部は Windows 前提（`%LOCALAPPDATA%`）のまま。stats47 には、キーチェーンの ID/PW で切れたときだけ 1 回再ログインし、2FA・CAPTCHA では止めて通知、失敗は 1 回で止める実装がある（`~/stats47/.claude/scripts/measurement/refresh-session.mjs`・`bootstrap-session.mjs`）。A8・もしもは stats47 とログイン状態を共有済み。
 
@@ -1275,7 +1231,7 @@
 **完了条件**: 役割分担が文書にあり、note・ココナラのログイン維持が launchd（Mac）とタスクスケジューラ（Windows）で動き、週次レビューにログイン健康診断の欄があることを確認したら、このカードを削除する。
 
 ### [DN-0363] SNS の入口→サイト→note/ココナラの経路を台帳と機械監査で管理する
-タグ: [収益化] [領域:SNS] [時期:2026-10..2026-11] [種類:改善] [起票:2026-09-27]
+タグ: [収益化] [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-09-27]
 
 **起点**: 2026-09-27 の点検で、入口の多くが収益に繋がっていなかった。X は自己紹介が「固定ポストの無料note白書R7」と書くのに固定は 7 資格ルート（サイトトップ行き・285 表示）で、`x-account.json` とも食い違い。Instagram は固定 0 件・ハイライトは技術士総監 1 つだけ（`ig-account.json` の予定 5 つのうち 4 つ未作成）。`/links` には撤退済み Brain のリンクが本番に残存（ソースは削除済み・未 deploy）。サイトの 1級・2級 hub は直前期に暗記ノート単品（¥580）だけへ直リンクし、ココナラ導線も無かった（hub は PR #657 で直前総仕上げパックへ差し替え）。PC で Business Suite からストーリー投稿、instagram.com からハイライト作成ができることは確認済み。
 
@@ -1385,7 +1341,7 @@ Mac で行う（各 1 回・順に）: (1) `git pull` で Windows 対応・設�
 **進捗（2026-10-02）**: Windows 分は完了。手順 1〜3 を実施し、旧パスの git 管理外ファイル 153 件（ココナラ素材 19・gsc-ui 70・ga4-ui 2・a8-ui 62）を上書きなしで新しい置き場へ移し、旧ディレクトリを削除（残り 0 件）。`check-information-architecture`（違反 0）と `check-drive-vault -- --staged-only` は通過。手順 4 は手元に保存される計画が無く対象なし。`.claude/state/` に残る git 管理外ファイル（content-ledger.json・quality/・improvements/ 等）は現行スクリプトの出力先なので移さない。Mac 分も同日に手順 1〜3 を実施（`.claude/` 側の取り残し 0 件、`data/metrics/` の gsc-ui 3 回分・a8-ui 6 回分を `data/gsc/ui/`・`data/a8/ui/` へ移して旧ディレクトリを削除）し、`.gitignore` の移行中の行を消した。残りは Mac の定期処理の次回実行が `data/` へ書いていることの確認と、Windows の worktree `.claude/worktrees/data3` の `git worktree remove`（ブランチ `feat/data-config`・`feat/data-rank-watch` は origin で削除済み・DN-0498 の引き継ぎから移した）。
 
 ### [DN-0494] Windows の記憶（memory）が repo の .claude/memory 1 本を指しているかを確かめて揃える
-タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-02]
+タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-02]
 
 **起点**: 2026-10-02、Mac の記憶が別リポジトリ `doboku-note-memory` へフック同期されたまま repo と分裂していた（DN-0233 (4)）。Windows は 09-14 に junction 済みのはずだが、同じフックや実ディレクトリが残っていないかは未確認。**着手条件**: `check-memory` を入れる PR（feature/memory-guard）が develop にマージ済み。
 
@@ -1432,7 +1388,7 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 **完了条件**: 通常動画112本とShorts224本を外部実体で照合し、全Shortsの関連動画・予約日時・著者表記が正しく、全機械・意味ゲートがPASSする。6週間後の継続/修正/停止判断とbaselineを記録したらカードを削除する。
 
 ### [DN-0317] ログイン必須の計測・書き込みの CI 化を、残りのサービスへ canary で広げる
-タグ: [インフラ・計測] [領域:管理] [時期:2026-10..2026-12] [種類:改善] [起票:2026-09-25]
+タグ: [インフラ・計測] [領域:管理] [時期:2026-12] [種類:改善] [起票:2026-09-25]
 
 **起点**: PR #548 / #549 / #550（2026-09-21 merge）で暗号化 storageState による CI 化の基盤は揃い、a8・coconala・note(traffic) は schedule 起動で緑（2026-09-22〜25）。残りのサービスは `ci.enabled:false` のまま。
 
@@ -1441,7 +1397,7 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 **完了条件**: 対象サービスがすべて `canary:false` で cron 稼働するか、サービスごとのカードへ分けたら、このカードを削除する。
 
 ### [DN-0338] 1級土木「ネットワーク式工程表」のtitle・descriptionを「インターフェアリングフロートとは」の検索意図に合わせる
-タグ: [コンテンツ品質] [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-09-26]
+タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-09-26]
 
 **起点**: 週次トリアージ（data/analysis/growth/digest-2026-W38.json）の OPP-2ee0d7aa00: 「インターフェアリングフロートとは」は平均 7.6 位なのに CTR 0.16%（期待 3%）（期待効果 6.9 searchClicks/週）。原稿: `content/site/civil-construction-1/textbook-network-schedule/article.mdx`
 
@@ -1452,7 +1408,7 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 **進捗（2026-09-27）**: seoTitle を「インターフェアリングフロートとは｜IF＝TF−FF…」に、description とリードを定義と試験での問われ方（IF を求める計算・TF＝FF＋IF の空欄補充）に直して develop へ反映（29cbf89f2）。残りは 28 日後（10/25 前後）の CTR 比較だけ。
 
 ### [DN-0346] ココナラの資格別の市場スキャンを取り直し、展開の判断のココナラ列を下限から実測に変える
-タグ: [インフラ・計測] [領域:戦略] [時期:2026-10] [種類:改善] [起票:2026-09-26]
+タグ: [インフラ・計測] [領域:戦略] [時期:2026-11] [種類:改善] [起票:2026-09-26]
 
 **起点**: 2026-09-26 の市場スキャンで、ココナラの資格別の検索語 26 語は Playwright のメモリガード（空き 1,175MB < 閾値 1,200MB）で取得できなかった。管理画面 戦略 ＞ 資格と市場 ＞ 展開の判断のココナラ列は、汎用の検索結果から数えた下限（*）のまま。
 
@@ -1461,7 +1417,7 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 **完了条件**: `npm run qualification-market` のココナラ列から * が消え（見送り以外の全資格）、取得物をコミットしたら、このカードを削除する。
 
 ### [DN-0311] ココナラの商品展開を「人の作業が主役・PDF は安い入口」へ組み直し、note・KDP と資格ごとに棲み分ける
-タグ: [収益化] [領域:商品] [時期:2026-10..2026-11] [種類:改善] [起票:2026-09-25]
+タグ: [収益化] [領域:商品] [時期:2026-11] [種類:改善] [起票:2026-09-25]
 
 **起点**: 2026-09-25 に、ココナラの競合（`market-research.json` 9/23 取得・関連358サービス、主要ページは当日取り直し）と自社の note（`data/note/sales.json` 303件）・KDP（`data/kdp/royalties.json` 7〜8月）・ココナラ（`data/coconala/orders.json` 4件・`data/coconala/kpi.json`）を突き合わせた。
 - ココナラ土木では人の作業が売れ筋。ちゃんさと技師の添削2問 ¥12,000 が316件、4問セット ¥24,000 が156件（件数は半分でも売上額はほぼ同じ）、作成代行はセット ¥32,000 が168件で単発 ¥16,000 の138件を上回る。**「セットは売れない」ではない**
@@ -1520,7 +1476,7 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 **手順・停止条件**: [実装計画](../plans/DN-0220-diagram-rollout.md)。
 
 ### [DN-0186] Windows端末のR2・Google Drive接続を整え、クラウド実体監査を成立させる
-タグ: [インフラ・計測] [領域:管理] [時期:2026-10..2026-11] [種類:不具合] [検証:resources:cloud] [起票:2026-09-10]
+タグ: [インフラ・計測] [領域:管理] [時期:2026-12] [種類:不具合] [検証:resources:cloud] [起票:2026-09-10]
 
 **起点**: 2026-09-10の実査では、ローカル自動監査のR2資格情報が未設定、rcloneの `doboku-gdrive` 接続も未設定で `npm run resources:cloud` が検査不成立。Driveコネクタ経由では既存vaultの1ファイルを全バイト・SHA-256照合できており、Drive自体の不存在ではない。
 
@@ -1533,7 +1489,7 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 **参照**: [ローカル資源運用](../knowledge/reference/local-resource-policy.md)、[アセット保管方針](../knowledge/reference/asset-storage-policy.md)。CIキー整備はDN-0135、このカードは端末の自動監査経路を担当する。
 
 ### [DN-0184] YouTube・SNSの人物／見出しテンプレートを複数ポーズで実装し、既存予約・公開投稿へ反映する
-タグ: [SNS・マーケ] [領域:SNS] [時期:2026-09..2026-10] [種類:改善] [Codex候補] [起票:2026-09-08]
+タグ: [SNS・マーケ] [領域:SNS] [時期:2026-12] [種類:改善] [Codex候補] [起票:2026-09-08]
 
 **目的**: 「doboku-note先生＋短い極太見出し」の採用方針を生成テンプレートへ実装し、別PCでログイン済みの投稿実体へ反映する。制作・公開の定常運用と6週間計測は DN-0110、このカードは意匠と更新経路の改修を担当する。
 
@@ -1549,15 +1505,6 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 6. 予約分を優先し、公開済みYouTubeはサムネ変更から進める。Instagramの本文／Reelsカバー／本体、Xの編集期限を項目別に確認する。動画本体の再アップロードや投稿の削除・再投稿が必要なものは、URL・反応履歴への影響を示してユーザーの依頼範囲内で扱う。保存後にID・予約日時・公開状態・実表示を再照合し、素材生成だけで外部反映済みとしない。
 
 **完了条件**: 3ポーズ以上の比較を経た媒体別テンプレートが実装され、代表画像／動画の目視と該当機械検査が通ること。適用対象の一覧に「反映・実表示確認済み／変更不可と理由／対象外と理由」が揃い、未対応を完了へ混ぜず、予約重複・意図しない即時公開・投稿履歴の無断削除がないこと。機械検査だけで外部反映を判定しない。
-
-### [DN-0303] 手取り・運営費用・作業時間を週次で記録し、事業 KPI の利益判断を埋める
-タグ: [収益化] [領域:戦略] [時期:2026-10..2026-12] [種類:改善] [起票:2026-09-25]
-
-**起点**: 2026-09-25 に GA4 計測と事業 KPI（`config/business-direction.json`）の収益化サイクルを点検したところ、22 指標のうち `netReceipts`（手数料等控除後の受取額）・`costYen`（運営費用）・`workMinutes`（運営作業時間）が全資格・全期間で null だった。CLAUDE.md の判断基準は「受取・費用・運営時間まで確認する」だが、売上（noteRevenue 等）はあっても利益と時間あたりの効率が数字で見えない。記録の入口 `node scripts/business-review.mjs record --input <JSON> --commit` はあるが、何を・いつ・どの粒度で入れるかが決まっていない。
-
-**やること**: (1) ユーザーと決める: 手取りの出所（note・ココナラ・KDP・A8 の各入金明細／プラットフォームの手数料控除後の月次表示）、費用の範囲（サーバー・API・ツール課金・外注・広告）、作業時間の測り方（週次レビューで資格別の概算を手入力／タスク単位で記録）、記録の粒度（週次か月次か・資格別に按分するか）。(2) 決めた方法を business-review.md に書き、週次または月次レビューの手順に記録の工程を入れる。自動で取れるもの（例: ココナラ・note の手数料率から手取りを計算）はスクリプト化する。(3) 1 回目の記録を入れる。
-
-**完了条件**: 直近の完了期間で 3 指標が null でなく記録され、`buildReport` のセルに出る。記録手順が business-review.md と週次/月次スキルにある。
 
 ### [DN-0135] 人・外部実体が必要な残務
 タグ: [収益化] [領域:管理] [時期:2026-09..2026-12] [種類:不具合] [起票:2026-08-25]
@@ -1584,7 +1531,7 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 **完了条件**: 各行の実体が解消したら行ごと消し、全行が消えたらカードを削除する。
 
 ### [DN-0272] 部分更新の `replaceTopCta`／`insertTopCta` が冒頭 CTA を見出しにし、直後の見出しをカードで割る
-タグ: [収益化] [領域:商品] [時期:2026-10] [種類:不具合] [起票:2026-09-23] [進行中]
+タグ: [収益化] [領域:商品] [時期:2026-11] [種類:不具合] [起票:2026-09-23] [進行中]
 
 **起点**: 2026-09-23 に公開 note 918 本をライブ API で走査したところ、R8予想問題（n8e92e4673a99）と総監択一式17年分分析（n3bcb87efddad）の 2 本で、冒頭 CTA の文が `h2` になり、その後ろに URL だけの段落・カードが並び、直後の見出し「R8 で何が出るのか」「はじめに」が「R」「は」の段落＋カード＋残りの段落に割れていた（目次から節が消える）。2 本とも同日に全文更新で元の構造へ戻し、API で確認済み。形から見て、`scripts/note-update-partial.mjs` の `replaceTopCta`／`insertTopCta` が「次の `h2` の直前へ caret を置いて Enter→文字入力→URL 入力」する実装で、入力が見出しブロックの中に入ったとみられる（どの実行で起きたかは未特定）。
 
@@ -1602,7 +1549,7 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 **完了条件**: `npm run check-x-queue-health` の issues が空で、Article 1・3・4 の `article_url` が埋まっている。
 
 ### [DN-0366] 資格ハブから技術士・総監・1級土木へのクリックを計測する
-タグ: [インフラ・計測] [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-09-27]
+タグ: [インフラ・計測] [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-09-27]
 
 **起点**: 土木公務員 SEO 第1期の判定表で「クリックあり」のときの次の対応が「関連資格ページと収益導線への遷移を計測」（13_土木公務員SEO戦略2026-08.md）。資格ハブ `pe-comprehensive-management-public-engineer-qualification-map` からの遷移は、まだ測れていない。
 
@@ -1624,7 +1571,7 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 **進捗（2026-09-27）**: `npm run record-net-receipts` を作った（PR）。note の手数料控除後売上は売上管理の月別詳細（`/dashboard/salesmanage?datespan=YYYYMM`）から自動取得、KDP は data/kdp/royalties.json の catalog 対象・確定値、ココナラは `--coconala` で渡す。2026-08 で試運転し 74,218 円（手で拾った値と一致）。残りは 9 月分を 10 月初めの月次で記録すること。ココナラの自動取得は DN-0414。
 
 ### [DN-0368] 運営費用と作業時間の記録方法を決め、時間あたり受取額を出す
-タグ: [インフラ・計測] [領域:管理] [時期:2026-10..2026-11] [種類:改善] [起票:2026-09-27]
+タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-09-27]
 
 **起点**: KPI ツリー（15_KPIツリー.md）の運営の制約で、`costYen`・`workMinutes` が全期間未計測。受取額の目標を置いても、手間に見合うかが判断できない。
 
@@ -1632,8 +1579,10 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 
 **完了条件**: 2026年10月分の費用と作業時間が記録され、管理画面で受取額 − 費用と時間あたり受取額が出る。
 
+**判断（月次レビュー 2026-09・2026-10-10・運営者）**: 費用・作業時間の両方を記録する。費用は固定費（サーバー・AI 利用料・ドメイン・ツール）を月 1 回、作業時間は週 1 回の自己申告（概算）で記録する。DN-0303（同じ題材・2026-09-25 起票）はこのカードへまとめて消した。受取額（netReceipts）の記録は DN-0367・DN-0643。
+
 ### [DN-0383] 共通仕様書の地域別ページを 1 桁へ（沖縄県・中国地整・北陸地整・北海道・近畿地整）
-タグ: [コンテンツ品質] [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-09-27]
+タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-09-27]
 
 **起点**: 検索キーワード戦略（`docs/strategy/16_検索キーワード戦略.md`）の技術図書クラスター。2026-08-25〜09-21 の Google で「沖縄県 土木工事共通仕様書」10.7 位（表示 9）、「中国地整 共通仕様書」10.6 位（12）、「共通仕様書 北陸地方整備局」12 位（3）、「北海道開発局 共通仕様書」11 位など、発行元名＋共通仕様書の語が 10〜12 位に並ぶ（`npm run report-search-opportunities`）。
 
@@ -1644,7 +1593,7 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 **進捗（2026-10-02）**: 対応は 208270c14（2026-09-27）で反映済み・本番確認済み（例 `北陸地方整備局 土木工事共通仕様書（令和8年3月）・工事必携`）。残りは反映 28 日後（10/25 前後）の集計だけ。注意: 検索語「沖縄県 土木工事共通仕様書」は県の仕様書を探す意図の可能性があり、`/standards/okinawa` は国の沖縄総合事務局の仕様書なので、順位が上がらなければ意図のずれとして扱う。
 
 ### [DN-0384] 技術士 CPD のキーワード記事を「CPD 義務化・ガイドライン」の検索語で 1 ページ目へ
-タグ: [コンテンツ品質] [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-09-27]
+タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-09-27]
 
 **起点**: 16_検索キーワード戦略.md の資格名クラスター。`/exam/pe-comprehensive-management/keywords/cpd` が「技術士cpd義務化」22 位（表示 14）、「技術士cpdガイドライン」18.8 位（13）。表示はあるのに 2 ページ目。
 
@@ -1655,7 +1604,7 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 **進捗（2026-09-27）**: seoTitle・description に「義務化」「ガイドライン」を入れ、冒頭で「努力義務（技術士法第47条の2）・基準 20／推奨 50 CPD 時間（うち倫理 1 時間）」に答えた（日本技術士会 CPD ガイドライン Ver.1.3 と照合）。総監の試験ガイドと建設部門のキャリアガイドから内部リンクを足した。残りは反映から 28 日後の順位の確認。
 
 ### [DN-0385] 1級土木 二次の令和6年度 解答例ページを「解答例 令和6年」の検索語で 1 ページ目へ
-タグ: [コンテンツ品質] [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-09-27]
+タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-09-27]
 
 **起点**: 16_検索キーワード戦略.md の資格名クラスター。`/exam/civil-construction-1/secondary/r06` が「1級土木施工管理技士 2次試験 解答例 令和6年」16.2 位（表示 12）。令和7年度版（r07）は SEO Rank Watch で観察中（11 位）なので、r06 は同じ型の直しを先に当てられる。10/4 の二次検定の直前で需要が高い。
 
@@ -1666,7 +1615,7 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 **進捗（2026-09-27）**: title・seoTitle・description・冒頭に「令和6年度 2次試験（第二次検定）解答例」を入れ、r06 → r07 のリンクを足した（r07 → r06 は既存・r07 は触っていない）。目次は既存の問題番号ジャンプで足りる。残りは反映から 28 日後の順位の確認。
 
 ### [DN-0386] 資格ハブを「土木公務員 資格」の検索語で 1 桁へ
-タグ: [コンテンツ品質] [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-09-27]
+タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-09-27]
 
 **起点**: 16_検索キーワード戦略.md の土木公務員クラスター。資格ハブ `/exam/pe-comprehensive-management/guide/public-engineer-qualification-map` が「土木公務員 資格」10.8 位（表示 5）、「公務員 土木 資格」11 位、「rccm 受験資格 公務員」15 位。あと少しで 1 ページ目。記事の新設（DN-0365）・遷移の計測（DN-0366）とは別に、既存ハブの手直しで先に上げる。
 
@@ -1734,7 +1683,7 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 **完了条件**: `npm run report-web-vitals` が exit 0 で、判定できた組が 1 つ以上ある。PSI の /search desktop CLS が 0.1 未満。
 
 ### [DN-0414] ココナラの売上履歴（手数料控除後・クローズ日計上）を月別に自動取得し、受取額の記録に入れる
-タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-09-27]
+タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-09-27]
 
 **起点**: 2026-09-27 に `record-net-receipts`（DN-0367）を作ったとき、ココナラだけ自動取得できなかった。Playwright のココナラのプロファイルはログインが切れていて、ブラウザの画面では売上のページの URL がメニューの奥にあり特定できなかった。手持ちの orders-snapshot / orders.json は販売価格だけで、手数料控除後の額と計上日（クローズ日）を持たない。
 
@@ -1743,7 +1692,7 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 **完了条件**: `npm run record-net-receipts -- --month 2026-09` がココナラの値を自動で取り、手で確かめた額と一致する。
 
 ### [DN-0641] CTA クリック率がサイト平均を下回る 3 ページ（2級 exam-overview・1級 leveling・1級 secondary getting-started）の導線を本文の読む流れに合わせる
-タグ: [収益化] [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-10-10]
+タグ: [収益化] [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-10-10]
 
 **起点**: 週次トリアージ（data/analysis/growth/digest-2026-W39.json）の OPP-8028130bb4: /exam/civil-construction-2/guide/exam-overview の CTA クリック率 0.25%（サイト平均 0.68%）（期待効果 1 ctaClicks/週）
 
@@ -1752,17 +1701,132 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 **完了条件**: 3 ページの CTA の位置・送客先の変更が公開され、反映 28 日後の同ページの CTA クリック率を変更前と比べた記録が本カードの完了記録にある（少数なら判定保留と書く）。
 
 ### [DN-0650] 2級二次（10/25）前に、2級 secondary/r05 と guide/overview の CTA を読者の次の行動に合わせる
-タグ: [収益化] [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-10-10]
+タグ: [収益化] [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-10-10] [進行中]
 
 **起点**: 週次トリアージ（data/analysis/growth/digest-2026-W40.json）の OPP-2a23ae57dc: /exam/civil-construction-2/secondary/r05 の CTA クリック率 0.33%（サイト平均 0.74%）（期待効果 1.2 ctaClicks/週）
 
 **やること**: W40 ダイジェストの 35 日 CTA クリック率: /exam/civil-construction-2/secondary/r05 0.33%（表示 1,501・クリック 5）、/exam/civil-construction-2/guide/overview 0.32%（表示 1,265・クリック 4）（サイト平均 0.74%）。現物でカードの位置と送客先を確かめ、過去問ページは解答の直後に経験記述の想定工事バンク・直前パック、概要ページはリード直後に二次まるごとパックを置く（10/6 に 2級 exam-overview で行った形・cfd04f598）。価格は書かない。
 
 **完了条件**: 2 ページの CTA の変更が 10/18 までに公開され、反映 28 日後の CTA クリック率を変更前と比べた記録が本カードの完了記録にある（試験後で少数なら判定保留と書く）。
+
+**進捗（2026-10-12・DN-0650）**: 現物を確かめた。r05 は冒頭の 1 行（直前パック・EXP-014）と中間の自動配置（二次まるごと）はあったが、本文のカードは問題1 の折りたたみの中だけで、開かない読者には見えなかった。概要は本文に商品カードが無く、冒頭の 1 行は一次の精読ガイドだけだった。r05 は問題1 の解答の直後（折りたたみの外）に想定工事バンク（utm secondary-r05-after-q1）、最後の問題の後に直前パック（secondary-r05-end）、概要はリード直後に二次まるごと（guide-overview-lead）を置いた（3197f24f2・1d7ac3bd0）。本番反映は次のデプロイ。**28 日後の比較は 2026-11-09 以降**（試験 10/25 を挟むので、試験後は少数で判定保留になりうる）。
+
+### [DN-0699] KDP の商品展開をもっと絞り込む
+タグ: [収益化] [種類:意思決定] [領域:商品] [時期:2026-10..2026-12] [起票:2026-10-12]
+
+メモには「（7？）」とある（絞り込む先の冊数か）。売れている型に寄せ、残りを止める。（出典: 2026-10-07 の手書きメモ・vault dairy/2026-10-07）
+
+### [DN-0700] アフィリエイトの展開を広げる（1 件アクセスがあった）
+タグ: [収益化] [種類:改善] [領域:アフィリエイト] [時期:2026-10..2026-12] [起票:2026-10-12]
+
+アクセスのあった 1 件を起点に、置く場所と案件を広げる。（出典: 2026-10-07 の手書きメモ・vault dairy/2026-10-07）
+
+### [DN-0701] 技術士一次試験で、展開できるものは全て展開する（過去問を iOS → KDP → note）
+タグ: [収益化] [種類:制作] [領域:商品] [時期:2026-10..2026-12] [起票:2026-10-12]
+
+過去問を iOS アプリ・KDP・note へ順に展開する。関連: DN-0503（科目別の過去問一覧）・DN-0624（試験後のアプリ判断）。（出典: 2026-09-29・10-07 の手書きメモ・vault dairy/2026-09-29・2026-10-07）
+
+### [DN-0702] ココナラの商品ページにサンプル画像・動画とトークルームの例を載せる
+タグ: [収益化] [種類:制作] [領域:商品] [時期:2026-10..2026-12] [起票:2026-10-12]
+
+（出典: 2026-10 の手書きメモ・vault dairy/2026-10-07）
+
+### [DN-0703] コンクリート主任技士の note への導線を考え直す
+タグ: [収益化] [種類:改善] [領域:サイト] [時期:2026-10..2026-12] [起票:2026-10-12]
+
+（出典: 2026-10 の手書きメモ・vault dairy/2026-10-07）
+
+### [DN-0704] note の商品名・価格がカタログと同期しているかを確かめ、単品で売っている「マガジン扱い」の商品を整理する
+タグ: [収益化] [種類:不具合] [領域:商品] [時期:2026-10..2026-12] [起票:2026-10-12]
+
+メモ: 「note の商品名や価格がカタログと同期していない？」「単品で売っているマガジン扱いの商品とは？」。（出典: 2026-10 の手書きメモ・vault dairy/2026-10-07）
+
+### [DN-0705] config/（固定的な設定）と data/（動的なデータ）の分け方に沿って、ハードコードを無くし JSON を統合する
+タグ: [エージェント・SSOT] [種類:改善] [領域:管理] [時期:2026-10..2026-12] [起票:2026-10-12]
+
+関連: DN-0496（分離後の各 PC の追従）・DN-0524（config の zod 型）。（出典: 2026-10 の手書きメモ・vault dairy/2026-10-07）
+
+### [DN-0706] 技術士一次試験のサイト CTA 画像を作る（基礎・適性、専門）
+タグ: [UI・UX] [種類:制作] [領域:サイト] [時期:2026-10..2026-11] [起票:2026-10-12]
+
+（出典: 2026-10 の手書きメモ・vault dairy/2026-10-07）
+
+### [DN-0707] 画像（note・ココナラ・SVG/PNG）の置き場を git ではなく Drive か R2 に決め、ローカルに持たない
+タグ: [エージェント・SSOT] [種類:改善] [領域:管理] [時期:2026-10..2026-12] [起票:2026-10-12]
+
+メモ: 「画像は R2 かドライブに集めること・ローカルで持たない」「SVG・PNG の git 管理ルールは整理した方が良い」「画像は Google Drive MCP を使えるか、PDF はサイズが大きいので無理」。関連: DN-0186・DN-0451・DN-0525。（出典: 2026-09-29・10 月の手書きメモ・vault dairy/2026-09-29・2026-10-07）
+
+### [DN-0708] note・ココナラ・KDP の使い分けを整理し、過去問の分析から商品展開を考える
+タグ: [収益化] [種類:意思決定] [領域:戦略] [時期:2026-10..2026-12] [起票:2026-10-12]
+
+メモの図: 記述式の模範解答・資格チャンネル・過去問・「全部パック」をどう設計するか。（出典: 2026-09-29 の手書きメモ・vault dairy/2026-09-29）
+
+### [DN-0709] 過去問を保存するフォルダを教材と分け、管理と同期の方法を決める
+タグ: [エージェント・SSOT] [種類:意思決定] [領域:管理] [時期:2026-10..2026-12] [起票:2026-10-12]
+
+（出典: 2026-09-29 の手書きメモ・vault dairy/2026-09-29）
+
+### [DN-0710] note 記事のカテゴリと記事の品質を見直す
+タグ: [コンテンツ品質] [種類:改善] [領域:商品] [時期:2026-10..2026-12] [起票:2026-10-12]
+
+（出典: 2026-09-28 の手書きメモ・vault dairy/2026-09-28）
+
+### [DN-0711] shadcn/ui の Data Table とカラーテーマを入れ、stats47 と UI を共通化する
+タグ: [UI・UX] [種類:改善] [領域:サイト] [時期:2026-10..2026-12] [起票:2026-10-12]
+
+両リポとも Tailwind v4 ＋ shadcn/ui。stats47 側は `SHADCN-UI-COMMON-01`。（出典: 2026-09-28・10 月の手書きメモ・vault dairy/2026-09-28・2026-10-07）
+
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-0716] 書籍 4 冊の文字起こし未完了 54 頁を、文字起こしするか理由つきで不要にする（reference-book-status で発見）
+タグ: [領域:教材] [種類:不具合] [起票:2026-10-13]
+
+**起点**: 2026-10-13、`npm run reference-book-status`（PR #1048）で書籍 27 冊の網羅を出したところ、ページ画像はあるのに文字起こしが pending のページが 4 冊に 54 頁あった（総監論文対策の 18 頁は展開しない本なので除く）。どのカードでも追われていない。
+- civil1-textbook-general 28 頁（p0007・p0032・p0034・p0035・p0037・p0063・p0064・p0070 … p0378）
+- civil1-textbook-management 18 頁（p0015・p0023・p0039・p0048・p0050・p0070・p0075・p0105 … p0295）
+- pe-cem-textbook 3 頁（p0001・p0053・p0319）
+- pe-construction-keyword-book 5 頁（p0006・p0020・p0046・p0111・p0257）
+**やること**: 各ページの画像を見て、本文があれば文字起こしを足して `record-reference-book-artifacts` で complete にする。図だけ・白紙・扉などで文字起こしが要らないページは、推測で complete にせず、理由が台帳に残る形（文字起こし不要の状態と理由）を決めて記録する。
+**完了条件**: `npm run reference-book-status` で 4 冊の文字起こしが n/n（または理由つきの不要だけが残る）になり、`npm run check-reference-book-pages` が通る。
+**閉じるときの注意**: 4 冊は参考文献の台帳（reference-sources.json）の `bookBundle.ocrPending` に `{ "backlogId": "DN-0716" }` と書いてある（PR #1048）。残りを 0 にしてから外す。残りがあるままこのカードを閉じると、check-reference-book-pages が「追うカードが backlog に無い」で CI を止める。
+
+
+### [DN-0714] refresh-indexes を CRLF で取り出した作業ツリーで回すと、生成 JSON の問題文に \r\n が入り偽の差分が出る
+タグ: [領域:サイト] [種類:不具合] [起票:2026-10-13]
+
+Windows（autocrlf で MDX が CRLF）で npm run refresh-indexes を回すと、記事に変更がなくても src/config/exam-questions.json・src/config/civil-1-exam-questions.json・public/quiz/civil-1.json の問題文の改行が \n→\r\n に変わり、数百行の差分になる（2026-10-13 の同期後に確認。generatedAt 以外の実体変更は 0）。llms*.txt・quiz/pe-first-stage.json・popular-pages.json は行末だけの差分。原因: scripts/parse-exam-questions.mjs:139 と .claude/scripts/sns/parse-civil-1-questions.mjs:33（civil-2 も同型の見込み）が readFileSync の結果を改行正規化せずに本文を切り出す。対処: 読み込み直後に \r\n→\n へ正規化する（共通 lib があれば集約）。完了条件: CRLF の作業ツリーで refresh-indexes を回しても上記 JSON に generatedAt 以外の差分が出ないこと、回帰テスト（CRLF 入力で本文に \r が残らない）を tests/ に足すこと。
+
+
+
+
+
+
+
+
+
+
+
+
+### [DN-0679] 技術士 建設部門の過去問ページ（r01〜r08 の約 17 本）へ、テーマ記事以外からの内部リンクを足す
+タグ: [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-10-11]
+
+**起点**: 2026-10-11 の seo-fix-planner。技術士 建設部門の「検出 - インデックス未登録」46 件のうち 32 件が公開から 60 日超で、/exam/pe-construction/past-exams/r01〜r08-* はテーマ記事からの参照が各 1 本しか無い（一覧コンポーネントからのリンクは数えていない）。DN-0390（建設部門と RCCM の登録率）とも関係する。
+**やること**: 各専門分野のガイド・必須科目の書き方ガイドから、該当年度の過去問ページへ文脈に合う内部リンクを張る（1 記事 1〜2 本）。
+**完了条件**: 対象の過去問ページそれぞれに、本文からの内部リンクが 3 本以上あり、次の URL 検査で登録状況を比べた記録がある。
+
+
+
+
+### [DN-0673] 「該当しないもの」「許可を必要としないもの」を選ぶ過去問の正答の ✅/❌ の向きを 1 つにそろえる
+タグ: [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-10-11]
+
+**起点**: 2026-10-11、DN-0665 の集計で、「該当しないもの」「許可を必要としないもの」「適用されないもの」を選ぶ問題の正答の印が、記事によって ✅（問いに当てはまる）と ❌（記述が正しくない）に分かれていると分かった（1級 ❌14・✅4、2級 ❌19・✅20、技術士一次 ✅13・❌7）。「適当でない」「誤っている」の問題（正答は ❌ が 2,893:49）や「適当な」の問題（✅ が 1,581:4）と違い、文から向きが決まらないので `check-answer-marks` は向きを照合していない。サイトの演習は ✅ を「○ 適当」、❌ を「× 適当でない」と出すので、同じ形の問題で正答の ○× が揃わない。
+**やること**: この形の問題の約束（正答を ❌ にそろえる案が「否定の問いは正答だけ ❌」と同じ形）を決め、解説の文（「該当しないため正解 ✅」等）ごと直す。決めた約束を `scripts/lib/answer-marks.mjs` の向きの判定に足す。
+**完了条件**: 約束を SKILL.md（exam-questions-import Step 5.6）に書き、該当する問題の向きが 1 つにそろい、`npm run check-answer-marks` がこの形の向きも照合して 0 件。
+
+
 ### [DN-0653] 東北地方整備局の共通仕様書ページの title・description・冒頭を「東北地方整備局 共通仕様書」に合わせる
-タグ: [コンテンツ品質] [領域:サイト] [種類:改善] [起票:2026-10-10]
+タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-10-10]
 
 **起点**: 週次レビュー（2026-10-05〜2026-10-11）の検索キーワード戦略（技術図書クラスター・GSC 2026-09-09〜10-06）。/standards/tohoku は「東北地方整備局 共通仕様書」で表示 7・最高 11 位・クリック 0。DN-0383（沖縄・中国・北陸・北海道・近畿）の対象に東北が無い。
 
@@ -1770,16 +1834,14 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 
 **完了条件**: 反映後 28 日の集計で対象語の表示が増えるか 1 桁順位に入ったかを本カードの完了記録に書く。
 
-
 ### [DN-0652] 2級「テキスト」ガイドの title・description・冒頭を「2級土木施工管理技士 テキスト おすすめ」に合わせる
-タグ: [コンテンツ品質] [領域:サイト] [種類:改善] [起票:2026-10-10]
+タグ: [コンテンツ品質] [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-10-10]
 
 **起点**: 週次レビュー（2026-10-05〜2026-10-11）の検索キーワード戦略（report-search-opportunities・資格名クラスター・GSC 2026-09-09〜10-06）。/exam/civil-construction-2/guide/textbooks は「2級土木施工管理技士 テキスト おすすめ」ほかで表示 10・最高 12 位・クリック 0。
 
 **やること**: seoTitle・description・冒頭の答えで「一次・二次それぞれに何を選ぶか」を先に示し、書籍名の逐語引用はしない（出典のみ）。2級二次（10/25）前は既存の導線（想定工事バンク・直前パック）を変えない。新規ページは作らない。
 
 **完了条件**: 反映後 28 日の集計で対象語の表示が増えるか 1 桁順位に入ったかを本カードの完了記録に書く。
-
 
 ### [DN-0604] 2027 年の 1 級一次から YouTube の解答速報（暫定の明示と訂正の出し方つき）を準備する
 タグ: [SNS・マーケ] [領域:SNS] [時期:2027-05] [種類:制作] [起票:2026-10-08]
@@ -1796,7 +1858,7 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 **完了条件（改）**: 2027 年の 1 級一次の前に、形（ライブか当日夜の録画か）・正答の確かめ方・当日の制作手順が決まり、exam-sokuho が trial になっている。
 
 ### [DN-0648] 2級「転職エージェント比較」ガイドの title・description・冒頭を「施工管理 転職エージェント」に合わせる
-タグ: [コンテンツ品質] [領域:サイト] [種類:改善] [起票:2026-10-10]
+タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-10-10]
 
 **起点**: 週次レビュー（2026-09-28〜2026-10-04）の検索キーワード戦略（施工管理の転職クラスター・GSC 2026-09-07〜10-04）。/exam/civil-construction-2/guide/career-agent-comparison は「施工管理 転職エージェント」（17.3 位・表示 7）ほかで表示 13・クリック 0（対象外の語を含む）。
 
@@ -1805,7 +1867,7 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 **完了条件**: 反映後 28 日の集計で対象語の表示が増えるか 1 桁順位に入ったかを本カードの完了記録に書く。
 
 ### [DN-0646] 1級「発注者支援」ガイドの title・description・冒頭を「施工管理から転職」に答える形にする
-タグ: [コンテンツ品質] [領域:サイト] [種類:改善] [起票:2026-10-10]
+タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-10-10]
 
 **起点**: 週次レビュー（2026-09-28〜2026-10-04）の検索キーワード戦略（施工管理の転職クラスター・GSC 2026-09-07〜10-04）。/exam/civil-construction-1/guide/hatchu-shien は「施工管理から転職」（20.6 位・表示 13）ほかで表示 16・クリック 0。
 
@@ -1814,7 +1876,7 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 **完了条件**: 反映後 28 日の集計で対象語の表示が増えるか 1 桁順位に入ったかを本カードの完了記録に書く。
 
 ### [DN-0645] 建設部門「難易度・合格率」ガイドの title・description・冒頭の答えを「技術士 難易度」に合わせる
-タグ: [コンテンツ品質] [領域:サイト] [種類:改善] [起票:2026-10-10]
+タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-10-10]
 
 **起点**: 週次レビュー（2026-09-28〜2026-10-04）の検索キーワード戦略（report-search-opportunities・資格名クラスター・GSC 2026-09-07〜10-04）。/exam/pe-construction/guide/nanido-goukakuritsu は「技術士 難易度」（27 位・表示 26）ほか 11 語で表示 52・クリック 1・最高 13.5 位。
 
@@ -1822,81 +1884,11 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 
 **完了条件**: 反映後 28 日の集計で対象語の表示が増えるか 1 桁順位に入ったかを本カードの完了記録に書く。
 
-### [DN-0638] マージ済み（squash 含む）のブランチ・止まった未マージのブランチ・未コミットのまま放置の worktree を検査で挙げる
-タグ: [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-10]
 
-**起点**: 2026-10-10、ブランチがローカル 41 本・リモート 26 本、worktree が 10 個まで溜まっていた。大半は中身が develop に入り済み（squash でマージ済みなので `git branch --merged` では出ない）で、1 本（refactor/script-shared-helpers）は 10/04 から止まった作業が worktree に未コミットのまま残っていた。片づけには、tree の比較と PR のマージのコミットで 1 本ずつ判定する手作業が要った。`check-disk-hygiene` はマージ済みの worktree は挙げるが、ブランチと、未コミットのまま止まった worktree は挙げない。リポジトリの設定「マージ後にブランチを自動で消す」（delete_branch_on_merge）は 2026-10-10 にオンにした（PR のリモートのブランチはマージで消える。ローカルのブランチ・PR を経ないブランチ・worktree は残る）。
-**やること**: `check-disk-hygiene`（または新しい `check-branch-hygiene`）に、(1) 中身が develop に入り済みのブランチ（ローカル・リモート。tree が同じか、PR のマージのコミットが develop にある）、(2) N 日以上動いていない未マージのブランチ、(3) 未コミットの変更を持ったまま N 日以上動いていない worktree、を出す。週次レビューで読む（または SessionStart で件数だけ出す）。
-**完了条件**: 3 種類それぞれをテストの見本で検出し、squash でマージ済みのブランチを「未マージ」と誤って挙げない。
 
-### [DN-0636] スクリプト共通化のリファクタを develop と衝突した 48 ファイルにやり直す（ルート・走査・引数・JSON 読みを共通部品へ）
-タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-10]
-
-**起点**: 2026-10-10、10/04 から止まっていたスクリプト共通化のリファクタ（refactor/script-shared-helpers・PR #957）を develop へ入れた。develop と衝突した 48 ファイルは develop の版（いま動いている挙動）を採ったので、そのファイルはまだ自前のルート計算・walk・parseArgs・readJson を持つ。ラチェットの基準値は root 68・walk 43・parseArgs 26・readJson 10（tests/script-helpers-ratchet.test.mjs・tests/read-json-ratchet.test.mjs）。
-**対象（衝突で develop の版を採ったファイル）**:
-- `.claude/scripts/fetch-ga4-cta-clicks.mjs`
-- `.claude/scripts/lint-mdx-mobile.mjs`
-- `.claude/scripts/report-career-funnel.mjs`
-- `.claude/scripts/youtube/publish-video-batch.cjs`
-- `.claude/scripts/youtube/publish-video-pack.cjs`
-- `.claude/skills/social/publish-x/publish-x.ts`
-- `scripts/audit-figure-text.mjs`
-- `scripts/build-figure-provenance.mjs`
-- `scripts/check-affiliate-mats.mjs`
-- `scripts/check-affiliate-wiring.mjs`
-- `scripts/check-coconala-wiring.mjs`
-- `scripts/check-datasets.mjs`
-- `scripts/check-external-write-orphans.mjs`
-- `scripts/check-figure-crop-integrity.mjs`
-- `scripts/check-note-live-headings.mjs`
-- `scripts/check-video-publication.mjs`
-- `scripts/check-youtube-public-view.mjs`
-- `scripts/check-youtube-video-pack-shorts.mjs`
-- `scripts/generate-guide-covers.mjs`
-- `scripts/generate-ogp-backgrounds.mjs`
-- `scripts/ig-status.mjs`
-- `scripts/kdp-batch.mjs`
-- `scripts/kdp-publish.mjs`
-- `scripts/lib/coconala-session.mjs`
-- `scripts/lib/product-registry.mjs`
-- `scripts/note-magazine-cover.mjs`
-- `scripts/note-price-sweep.mjs`
-- `scripts/note-reconcile-title-price.mjs`
-- `scripts/note-swap-author-banner.mjs`
-- `scripts/prepare-instagram-video-pack-reels.mjs`
-- `scripts/prepare-video-pack-shorts.mjs`
-- `scripts/prepare-youtube-longforms.mts`
-- `scripts/publish-instagram-video-pack-reels.mjs`
-- `scripts/render-approved-longforms.mjs`
-- `scripts/render-longform.mjs`
-- `scripts/render-x-figure-drafts.mjs`
-- `scripts/stage-youtube-covers.mjs`
-- `scripts/stage-youtube-renders-r2.mjs`
-- `scripts/stage-youtube-shorts-r2.mjs`
-- `scripts/static-server.mjs`
-- `scripts/todo-complete.mjs`
-- `scripts/verify-ig-status.mjs`
-- `scripts/verify-video-publication.mjs`
-- `scripts/youtube-thumbnail-rollout.mjs`
-- `tests/career-funnel-report.test.mjs`
-- `tests/video-content-check.test.mjs`
-- `tests/video-publication-check.test.mjs`
-- `tests/youtube-authority-metadata.test.mjs`
-**やること**: 各ファイルのリポジトリのルートを `scripts/lib/repository-paths.mjs` の REPO_ROOT、再帰の走査を `scripts/lib/fs-walk.mjs` の listFiles、引数を `scripts/lib/cli-args.mjs` の parseCliArgs、JSON の読み込みを `scripts/lib/json-io.mjs` の readJson に置き換え（code ルールの共通部品の項）、減った分だけラチェットの基準値を下げる。挙動を変えないこと（各スクリプトの既存のテスト・--help・dry-run で確かめる）。
-**完了条件**: 上のファイルの自前の定義が 0（root-ok の行を除く）になり、ラチェットの基準値を下げた。全テスト緑。
-
-### [DN-0603] 公開前の10秒ごとの画面確認（無音プレビュー・コンタクトシート・同じ画面の割合）をスクリプトにして承認前の関門にする
-タグ: [領域:SNS] [種類:改善] [起票:2026-10-08]
-
-**起点**: 公開前の画面確認（設計尺の無音プレビュー→10秒ごとに1枚）は video-content-policy §4 の3つのコマンドを手で回す形で、数値（直前と同じ画面の割合など）は 2026-10-08 にその場の Python で出しただけ。人によって見落としが出る。
-**やること**:
-1. `render-longform` に `--preview`（または `scripts/video-preview-sheet.mjs`）を足し、無音プレビュー・10秒ごとのコンタクトシート・数値（直前と同じ画面の割合・冒頭の表紙の秒数・20秒以上同じ画面が続く箇所）を `.tmp/video-render/{packId}/` に出す（Git に入れない）
-2. 判定の閾値（例: 冒頭の表紙は5秒以内、同じ画面は20秒まで）は `config/video-content.json` に置き、checker とプレビューが同じ値を読む
-3. approved に上げる前に、この数値と画像を確認したことを状態の記録に残す
-**完了条件**: 既存パック1本と図解版で数値が出て、判定ロジックを tests で固定する。
 
 ### [DN-0602] 競合動画を Mac で10秒ごとに切り出して画面の切り替え間隔を測り、07c §3 を埋める
-タグ: [領域:SNS] [種類:改善] [起票:2026-10-08]
+タグ: [領域:SNS] [時期:2026-11] [種類:改善] [起票:2026-10-08]
 
 **起点**: 2026-10-08、クラウドの調査環境では競合動画の映像を取れなかった（web 系はロボット確認、android は映像が 403。[07c](../../docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md) §3 の todo）。競合の画面が何秒ごとに変わるかは、サムネと自動の3コマからの推定にとどまる。
 **やること**: Mac で 07c §6 の手順（deno と最新の yt-dlp・memory の reference_competitors_civil「競合YouTube動画の映像解析の手順と罠」）で、次の6本を10秒ごとに切り出して目視する。土木マン「経験記述は型で書け」（6HJFfA1dlkc）、日建学院「1級土木実地試験 経験記述の書き方」（hk6FP82vFOA）、ちゃんさと「経験記述NG例」（oWQmFoe-7z0）、雅「1級第2次 コンクリート」（R34hnuS-jHU）、建設資格データ研究所「全189問 約90分で総まとめ」（TM3eoT0TvMY・先頭3分と以降は数分おき）、ひげごろー「2級経験記述」（ct5SznUfGVM）。見るのは、画面の切り替え間隔、人物（講師・キャラクター）と図の出方、冒頭10秒の見せ方。
@@ -1904,7 +1896,7 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 **完了条件**: 07c §3 の todo を消し、自社の旧形式・図解版と同じ物差し（10秒ごとの比較で直前と同じ画面の割合）で競合6本の値を表に入れる。
 
 ### [DN-0601] 図解版の試作 koji-gaiyo-sheet-zukai を音声付きで公開し、旧版と28日の再生・視聴維持を比べる
-タグ: [領域:SNS] [種類:制作] [検証:check-video-content] [起票:2026-10-08]
+タグ: [領域:SNS] [時期:2026-11] [種類:制作] [検証:check-video-content] [起票:2026-10-08]
 
 **起点**: 図解版の試作パック `content/sns/video-packs/civil-construction-1/koji-gaiyo-sheet-zukai/`（先生の常駐・解答用紙の図・悪い例と良い例、約3分20秒・音声なし）は、10秒ごとの比較で「直前と同じ画面」が旧形式40回中32回→19回中2回（[07c](../../docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md) §3）。再生と視聴維持で効くかはまだ分からない。`config/youtube-formats.json` の `single-topic-zukai`（trial）。
 **やること**（2026-10-08 の判断: DN-0597 で視聴維持を取れるようになってから公開する）:
@@ -1915,7 +1907,7 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 **完了条件**: 比べた結果を 07 §11 に1段落で残し、`single-topic-zukai` を active か rejected にする。active なら公開済みパックの作り直しの順番を決める。
 
 ### [DN-0600] 一問一答（読み上げ）の動画の型を作る（過去問記事から論点の穴埋めと答えのカード）
-タグ: [領域:SNS] [種類:制作] [起票:2026-10-08]
+タグ: [領域:SNS] [時期:2026-11] [種類:制作] [起票:2026-10-08]
 
 **起点**: 建設資格データ研究所が VOICEVOX の読み上げで一問一答を作り、90分・24,735回再生。日建学院の「一問一答」10本は再生中央値51,500回（[07c](../../docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md) §1・§2）。自社は VOICEVOX と過去問の記事を両方持つ。`config/youtube-formats.json` の `quiz-tts`（proposed）。
 **やること**（2026-10-08 の判断: 2027年1〜3月に着手する）:
@@ -1924,28 +1916,7 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 3. 20〜90分に束ね、分野ごとのチャプターを付ける。送り先は一次の頻出論点の note・過去問 PDF・模試（DN-0279 と同じ線）
 **完了条件**: 1級一次の1分野で20問の試作を作り、10秒プレビューで目視して承認待ちで止める。`quiz-tts` を trial にする。
 
-### [DN-0599] 総まとめ・聞き流し（承認済み動画パックの連結・チャプター付き）の1本目「2級 直前総まとめ」を音声付きにして承認・公開する
-タグ: [領域:SNS] [時期:2026-10] [種類:制作] [起票:2026-10-08] [進行中]
 
-**起点**: 競合の土木の動画321本では30〜60分の再生中央値が21,000回、題名に「聞き流し」を含む19本は30,000回（[07c](../../docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md) §1）。2026-10-08 にユーザーが試作に採用した（`config/youtube-formats.json` の `compilation` は trial）。
-**済み（2026-10-08）**: 組み立ての仕組み（`compilation.json` → `npm run build-video-compilation` → `render-longform`・`check-video-content` の K01/K02）。1本目のパック `content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen/`（2級の承認済み15パック・15章・設計尺26分）。画面と字幕の無音プレビューを10秒ごとに目視した。
-**やること**:
-1. VOICEVOX のある環境で `npm run render-longform -- --pack-dir content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen --speaker 13` を回す（この Mac には VOICEVOX が無い。字幕の焼き込みは libass 入りの ffmpeg が要る＝Mac は ffmpeg-full）。元パックの wav は使わない（Drive の wav は 2026-09-05 版で読みの辞書が古く、予約済み動画は 2026-09-09 版）
-2. 表紙と締めの採用画像（`cover-design.json`・`cta-design.json`）を作り、`youtube.json`（題名に「聞き流し」「総まとめ」、概要欄のチャプターは render-manifest の実尺から、UTM `utm_campaign=matome-2kyu-chokuzen`）を用意する
-3. video-content-qa → ユーザー承認 → 予約。2級の試験（10/25）の前、単体動画の予約が終わる 10/22 の翌日 10/23 を目安にする
-4. 公開28日後に再生・視聴維持を単体動画と比べ、`compilation` を active か rejected にする。次の候補は1級二次の経験記述 howto・1級一次の学科 exam-point（2027年の試験前）
-**前提**: 公開はユーザー承認後だけ。
-**完了条件**: 2級 直前総まとめが承認済みで予約・公開され、28日後の比較を 07 §11 に1段落で残して `compilation` の status を決める。
-
-### [DN-0590] git 呼び出しの maxBuffer 検査が、引数にテンプレート文字列（${…}）を含む呼び出しで maxBuffer を見落として誤って止める
-タグ: [領域:管理] [種類:不具合] [起票:2026-10-08]
-
-2026-10-08、scripts/audit-reference-book-coverage.mjs の execFileSync('git', [..., `--since=${since}…`, ...], { encoding, maxBuffer }) が tests/git-exec-maxbuffer.test.mjs で「maxBuffer 未指定」になった（maxBuffer は書いてあった）。呼び出しの切り出しがテンプレートの { } で途切れているとみられる。引数を変数へ出して回避した。やること: findGitCalls をテンプレート文字列と入れ子の括弧に対応させ、回帰テスト（${} を含む引数で maxBuffer ありは通る・無しは止める）を足す
-
-### [DN-0588] 正規表現のエスケープを共通の部品 1 つにまとめ、各スクリプトでの書き写しを増やさない
-タグ: [領域:管理] [種類:改善] [起票:2026-10-08]
-
-2026-10-08、path-literals.mjs で置き場のパスを正規表現へ入れるとき「.」だけを逃がし、CodeQL（Incomplete string escaping）に指摘された（PR #927）。scripts/ に同じ escapeRegExp の書き写しが 16 か所あり、逃がす記号が少しずつ違う（datasets.mjs・reference-sources.mjs・disk-hygiene.mjs・playwright-auth.mjs は * や {} を意図して外すグロブ用、ほかは全記号）。案: scripts/lib/regexp-escape.mjs に escapeRegExp（全記号）と globToRegExp を置いて置き換え、tests/read-json-ratchet.test.mjs と同じ形のラチェットで書き写しを増やさない。完了条件: 置き換え後に既存テスト全件が通る・ラチェットの基準線が 0 か理由つきの例外だけ
 
 ### [DN-0572] note からココナラへの冒頭導線（DN-0268）の反映後 30 日の閲覧・注文を読み、残すか決める
 タグ: [収益化] [領域:商品] [時期:2026-11] [種類:意思決定] [起票:2026-10-07]
@@ -1956,33 +1927,10 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 
 **完了条件**: 2026-11-06 以降に前後 30 日の閲覧・注文を比べ、導線を残す・文面を変える・外すのどれかを決めて、ココナラ運用文書（coconala-operations.md）の決定ログに 1 行残す。
 
-### [DN-0565] 「公式の設問を含むページ」の判定を、パスの正規表現から分類データへ移す
-タグ: [コンテンツ品質] [領域:サイト] [種類:改善] [起票:2026-10-07]
 
-**起点**: lint-ja・lint-mdx-mobile は、公式問題の逐語を表記統一から外すページを、`scripts/lib/official-question-text.mjs` の `OFFICIAL_QUESTION_PAGE`（パスの正規表現）で決めている。分類の正本 `src/config/content-taxonomy.json` の group `secondary` は記述式の解説（`*-basics`）と過去問（`*-past-problems`）の両方を含むので、分類からは引けない。正規表現に無い種類のページは黙って対象外になり、`secondary-*-past-problems` は 2026-10-07（DN-0553・#889）まで設問の転記が commit を止めていた。
-
-**やること**:
-1. 分類（`content-taxonomy.json` の flags か、frontmatter の印）に「公式の設問を含む」を持たせる。
-2. `official-question-text.mjs` がその印を読むようにする。
-3. 置き換え前の正規表現と対象ページの集合が一致することをテストで確かめてから、正規表現を消す。
-
-**完了条件**: `OFFICIAL_QUESTION_PAGE` の正規表現が無くなる。判定対象のページ集合が置き換え前と一致する（テスト）。
-
-### [DN-0559] develop への載せ直し（fetch → reset --keep → cherry-pick → パッチ照合 → push）をスクリプト 1 本にする
-タグ: [インフラ・計測] [領域:管理] [種類:改善] [起票:2026-10-07]
-
-**起点**: 並行セッションと CI の自動コミットで develop が数分おきに進む。2026-10-06〜07 の図ループでは、commit のたびに手書きのゲートで載せ直した（約 15 回）。手順を `;` で繋いで、失敗の後も先へ進んだ事故が 3 回ある（memory `reference_partial_clone_repack_hazard`「push を失敗しうる手順に ; で繋がない」）。
-
-**やること**: `scripts/replay-onto-develop.mjs <sha...> [--push]` を作る。
-- 処理: commit が在ることを確かめ、`git fetch`・`git reset --keep origin/develop`・`git cherry-pick` を行い、元の範囲と同じパッチかを比べる。`--push` は、同じパッチのときだけ push する。
-- 途中で止まった場合: 何が残ったかを出して非 0 で終える。cherry-pick が止まったら `--quit` で抜け、作業ツリーには触れない。
-- テスト: 一時リポジトリで「同じパッチ」「衝突」「commit 失敗の後に呼ばれた」の 3 通りを固定する。
-- 文書: workflows.md「ブランチ・並行セッション運用」と memory の該当節を、このスクリプトの案内に置き換える。
-
-**完了条件**: テスト 3 通りが通り、workflows.md の手順がスクリプト 1 行になっている。
 
 ### [DN-0560] macOS でだけ落ちるコマンド（BSD と GNU の差）を CI の前に止める
-タグ: [インフラ・計測] [領域:管理] [種類:改善] [起票:2026-10-07]
+タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-07]
 
 **起点**: 2026-10-07、`tests/sync-index-after-commit.test.mjs` の `sed -i "s/…/"` が macOS の BSD sed で落ち、Mac で回す `npm run test` と `quality:audit:ci` の unit-tests が赤くなっていた（#891 で `-i.bak` に直した）。CI は Linux だけなので、Mac でだけ落ちる書き方は CI では見つからない。
 
@@ -1992,22 +1940,6 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 3. 今ある該当箇所を直す。
 
 **完了条件**: 検査が対象ファイル数と検出数を出し、検出 0 件。わざと `sed -i "s/a/b/" f` を入れたテストが落ちる。
-
-### [DN-0561] 1級土木 一次 H27・H28 の問題 PDF（原典）を入手し、原典が無くて直せない図 2 枚を切り出し直す
-タグ: [コンテンツ品質] [領域:サイト] [種類:改善] [起票:2026-10-07]
-
-**起点**: 図クロップ品質ループで、次の 2 枚が `source-unavailable`（原典なし）のまま残った。
-- `primary-h27-a/img/h27-a-fig-02`: 凡例「△：支承」の右側が切れている
-- `primary-h28-a/img/h28-a-fig-13`: 製管工法の立坑上部が切れている
-
-vault にある 1級土木の問題 PDF は H30 以降だけ。一次問題解説集2021 も代わりにならず、H27 No.18 の図のページはスキャンから欠け、H28 の図はページの上が切れている。公開元で H27・H28 の PDF が今も配られているかは未確認。
-
-**やること**:
-1. 公開元（全国建設研修センター等）で H27・H28 の問題 PDF が手に入るかを確かめる。
-2. 手に入るなら、運営者の了解を得てダウンロードし、Drive vault `原資料PDF/過去問/１級土木施工管理技士/` に置き、`/figure-quality-loop` の reextract 段で 2 枚を切り出し直す。
-3. 手に入らなければ、記事の注記で欠けを補うか SVG で描き直すかを決める（過去問の図の SVG 化の基準は memory `reference_figure_provenance_system`）。
-
-**完了条件**: 2 枚とも判定台帳で `ok` になっている。入手できない場合は、その判断と代わりの対応が記事に入っている。
 
 ### [DN-0524] .claude/config/ の JSON 20 本に zod の型を付ける（/ops/auth の認証設定を含む）
 タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-03]
@@ -2037,7 +1969,7 @@ vault にある 1級土木の問題 PDF は H30 以降だけ。一次問題解�
 **完了条件**: 会社 PC で `node scripts/fetch-pe-first-stage-historical.mjs` が全件 PASS（上下水道を含む）し、quality-audit の note が検査対象と一致する。
 
 ### [DN-0488] stats47 の建設統計・行政財政指標を note 記事のデータ根拠に 1〜2 点埋め込んで試作する
-タグ: [収益化] [領域:商品] [種類:改善] [起票:2026-10-01]
+タグ: [収益化] [領域:商品] [時期:2026-12] [種類:改善] [起票:2026-10-01]
 
 **起点**: 月次レビュー（2026-08-01〜2026-08-31）の点検と Issue で、2026-07-21 から開いたままの GitHub Issue #422（cross-pollination）をバックログへ移した（タスクは GitHub Issue でなく backlog で持つ）。元の提案は、stats47 の行政財政・建設・インフラ指標を、技術者の収入実態・発注者視点の note 記事の根拠として流用すること。
 
@@ -2046,7 +1978,7 @@ vault にある 1級土木の問題 PDF は H30 以降だけ。一次問題解�
 **完了条件**: 試作 1 本を公開した、または関門で削除を決めた。
 
 ### [DN-0474] 総監記述式 H21〜H24 の模範論文 12 本を再レビューで 8.0 へ上げ、H21〜H27 の公開を判断する
-タグ: [コンテンツ品質] [領域:商品] [種類:改善] [起票:2026-09-30]
+タグ: [コンテンツ品質] [領域:商品] [時期:2027-01] [種類:改善] [起票:2026-09-30]
 
 **起点**: 2026-09-30 に H21〜H27 の 21 本を作成・3ペルソナレビュー反映まで済ませた（すべて `published: false`・`reviewStatus: needs-review`）。H21〜H24 の 12 本は反映前の総合が 7.0〜7.6 で、反映後の再レビューをしていない。レビュー記録は `.claude/state/pe-essay-review/h2*-essay-*.md`。
 
@@ -2055,7 +1987,7 @@ vault にある 1級土木の問題 PDF は H30 以降だけ。一次問題解�
 **完了条件**: 12 本の再レビュー後の総合がすべて 8.0 以上（届かないものは理由を記録）で、公開するかどうかが決まり、`docs/editorial/01_記述式コンテンツ戦略.md` の年度表が現況と一致している。
 
 ### [DN-0472] 技術士として独立する現実のガイドを書く（独立・開業の検索表示が出てから）
-タグ: [SNS・マーケ] [領域:サイト] [種類:制作] [起票:2026-09-30]
+タグ: [SNS・マーケ] [領域:サイト] [時期:2027-01] [種類:制作] [起票:2026-09-30]
 
 **起点**: 計画書（docs/strategy/17）の順 5。「独立」「開業」「定年後」系の語は GSC で表示 0（2026-08-28〜09-24）。素材は note 無料記事「総監を取って独立した技術者の収入実態」。
 
@@ -2144,7 +2076,7 @@ vault にある 1級土木の問題 PDF は H30 以降だけ。一次問題解�
 **完了条件**: reference-sources.json と教材の対応表に新年度版が登録されたら、このカードを削除する。
 
 ### [DN-0276] 次の実投稿で publish-x.ts が posted_url を書くか確認する
-タグ: [SNS・マーケ] [領域:SNS] [種類:改善] [起票:2026-09-23]
+タグ: [SNS・マーケ] [領域:SNS] [時期:2026-10] [種類:改善] [起票:2026-09-23]
 
 **やった**: (2)(3) は実装・実データ検証済み。`scripts/check-x-posted-live.mjs`（+ `scripts/lib/x-posted-live.mjs`・test 5件）が `content/sns/x/{draft,published}/*/status.json` の `status:"posted"` を集め、`posted_url` を持つものだけ `https://publish.twitter.com/oembed?url=...`（ログイン不要）で照合する。既存 8 件（旧「19件」から実減）で実行し、live 8 / gone 0 / 取得失敗 0 を確認した。`posted_url` の無い投稿済み（162件）と本文にサイトリンクが無いもの（121件・意図的な linkless 施策を含むため gate しない）は件数のみ報告する。週次 `link-audit.yml`（金曜）に組み込み済み（PR は本カードのブランチで作成）。
 (1) `publish-x.ts` に `findLatestPostedUrl()` を追加し、即時投稿の直後に自分のプロフィールから本文一致で `/status/<ID>` を読み、`status.json` の `posted_url`（既存8件と同じキー名）へ書くようにした。取れなくても投稿は失敗にしない。
@@ -2154,7 +2086,7 @@ vault にある 1級土木の問題 PDF は H30 以降だけ。一次問題解�
 **完了条件**: 次の実投稿で `status.json` に `posted_url` が記録されたら、このカードを削除する。
 
 ### [DN-0271] 総監 設問3国家施策バンクの序章（¥100・有料境界が末尾）の冒頭に「この記事でわかること」を反映する
-タグ: [収益化] [領域:商品] [種類:改善] [起票:2026-09-23]
+タグ: [収益化] [領域:商品] [時期:2026-11] [種類:改善] [起票:2026-09-23]
 
 **起点**: 2026-09-23 の note 再公開一括処理で、`content/note/技術士総監/magazines/総監記述式-設問3国家施策バンク/00-序章/article.md`（n3eb135ebdff7）だけが反映できずに残った。原稿の変更は冒頭への「この記事でわかること」（太字1行＋箇条書き3項目）の追加 1 か所だが、次の 3 つが重なって既存の道具では安全に入れられない。
 
@@ -2180,7 +2112,7 @@ vault にある 1級土木の問題 PDF は H30 以降だけ。一次問題解�
 **残り**: 次の年度切替（2027年1月）の直後に quality-audit.mjs の `year-staleness` エントリを `ci:true` へ上げ、週次レビューで一覧を見ながら 2 週間以内に 0 件（または全件を年度スラッグ除外に追加）へ収束させたら `ci:false` へ戻し、このカードを削除する。
 
 ### [DN-0234] Codex の archived_sessions 1.25 GB を棚卸しして 30 日超を消す
-タグ: [インフラ・計測] [領域:管理] [種類:改善] [起票:2026-09-14]
+タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-09-14]
 
 **起点**: `~/.codex/archived_sessions` 1.34 GB・`sessions` 65 MB・`plugins` 455 MB（Windows 09-14 実測）。`disk-hygiene.json` の `reportOnly` で「30 日超は手で棚卸し」と決めており自動削除しない。`thread_history_1.sqlite` 725 MB も同居。
 
@@ -2189,7 +2121,7 @@ vault にある 1級土木の問題 PDF は H30 以降だけ。一次問題解�
 **完了条件**: `archived_sessions` が 300 MB 未満、手順が doc にあること。
 
 ### [DN-0175] SNS残存画像を公開完了後に再監査する
-タグ: [インフラ・計測] [領域:管理] [種類:改善] [Codex候補] [起票:2026-09-06]
+タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [Codex候補] [起票:2026-09-06]
 
 2026-09-06 のSNS容量監査で、重い動画・音声はDrive退避とローリング削除まで完了した。現時点で
 削除せず保持した小容量資産は、IG CEM PNG 48件（4.09MiB・投稿状態とSoT内訳が未確定）、legacy
@@ -2268,6 +2200,8 @@ Drive台帳・vault・Drive APIの照合前にローカル実体を削除しな�
 **やること**: 運営者が上記ページを撮影・入手して vault へ置いたら、原本と照合して記事・図解・SNS との対応を再照合する。動画 sanso-kozo・monbun-yomikata は原稿を直したので mp4 を再生成して公開・予約状態と照合する。
 
 **完了条件**: 全対象に原本ページと再照合根拠があり、必要な制作と検査が成立していること。原本自体の欠損は推測で埋めず、入手・再撮影が必要な書名とページを対応表に残す。他教材に同じ主題があることを原典充足の根拠にしない。
+
+**更新（2026-10-13）**: 総監論文対策（pe-cem-essay-guide）は 2026-10-10 の運営者判断で展開しないことになったので、同書の 9 論点（第2章 4・第6章 5）を教材の台帳で「対象外」にし、このカードから外した。残りの原典待ちは 7 論点（1級土木二次問題集2021 4・総監受験万全対策 第1章 2・技術士論文の書き方 1）。
 
 ### [DN-0209] 総監R8記述式を公式問題と照合し、再現版の注記・図・解答方針を確定する
 タグ: [コンテンツ品質] [領域:サイト] [時期:2027-04..2027-06] [種類:不具合] [起票:2026-09-13]
@@ -2463,7 +2397,7 @@ SEO記事・note・SNS
 Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定したらカードを削除する。
 
 ### [DN-0401] 転職アフィリ記事の「検証済みファクトパック」（年収・2024 年問題・担い手・合格率）を年次で照合し直す
-タグ: [コンテンツ品質] [領域:アフィリエイト] [種類:改善] [起票:2026-09-27]
+タグ: [コンテンツ品質] [領域:アフィリエイト] [時期:2027-01] [種類:改善] [起票:2026-09-27]
 
 **起点**: 2026-09-27 に docs/operations/08_転職アフィリ記事ビルド計画.md を棚卸しした。記事インベントリ（サイト S1〜S27・note N1〜N12）はすべて公開済みで計画としては完了、配置と単価の正本は `.claude/knowledge/reference/affiliate-operations.md` と 09_BuildJob収益最大化スプリント.md に移っている。残る価値は、全キャリア記事が引用する「検証済みファクトパック」（2026-06 に一次照合）の鮮度だけ。原文は `git show 747fab5d9:docs/operations/08_転職アフィリ記事ビルド計画.md`。
 
@@ -2472,7 +2406,7 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 **完了条件**: ファクトパックの 4 項目に照合日と出典 URL が付き、差分のあった記事が直っている。
 
 ### [DN-0403] 総監・建設部門の note 共同マガジンの候補と参加条件を調べる
-タグ: [収益化] [領域:商品] [種類:意思決定] [起票:2026-09-27]
+タグ: [収益化] [領域:商品] [時期:2026-12] [種類:意思決定] [起票:2026-09-27]
 
 **起点**: 2026-09-27 に docs/ に埋もれた未完の作業を洗い出した。docs/strategy/09_販売チャネル競合分析.md のアクション3（共同マガジン・外部リーチの検討着手）が backlog に無かった。sosou_nino のリーチ源の一つが共同マガジン。
 
@@ -2480,17 +2414,9 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 
 **完了条件**: 候補の一覧と参加するかの判断材料がこのカードに書かれている。
 
-### [DN-0406] 動画パックの入口 /video-content と、台本の Generator・Evaluator エージェント（video-script-writer・video-content-qa）を作る
-タグ: [エージェント・SSOT] [領域:SNS] [種類:改善] [起票:2026-09-27]
-
-**起点**: 2026-09-27 に docs/ に埋もれた未完の作業を洗い出した。docs/marketing/06_動画コンテンツ運用設計.md §4 で新設を決めていたが、スキルもエージェントも無く backlog にも無かった。機械検査 `check-video-content` は実装済み。
-
-**やること**: 06 §4 の責務分担どおり、`/create-skill` で `/video-content`（薄いオーケストレーター）と 2 つのエージェントを作り、skills-guide・agents-registry を更新する。
-
-**完了条件**: `npm run check-doc-coupling` が通り、動画パック 1 本をこの入口で作って `npm run check-video-content` が通る。
 
 ### [DN-0640] 総監キーワード「コストドライバー」の題名修正（10/6）の効果を「コストドライバーとは」の28日 CTR で確かめる
-タグ: [コンテンツ品質] [領域:サイト] [種類:改善] [起票:2026-10-10]
+タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-10-10]
 
 **起点**: 週次トリアージ（data/analysis/growth/digest-2026-W39.json）の OPP-57ad840c93: 「コストドライバーとは」は平均 8.8 位なのに CTR 0%（期待 2.5%）（期待効果 0.4 searchClicks/週）。原稿: `content/site/pe-comprehensive-management/cost-driver/article.mdx`
 
@@ -2499,7 +2425,7 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 **完了条件**: 2026-11-03 以降の 28 日の同クエリの CTR を変更前（0%）と比べた記録が本カードの完了記録にある。
 
 ### [DN-0649] 検索語に定義で答えていない 3 ページ（品質規定方式・工程能力図・余力管理）の title・description・冒頭を直す
-タグ: [コンテンツ品質] [領域:サイト] [種類:改善] [起票:2026-10-10]
+タグ: [コンテンツ品質] [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-10-10]
 
 **起点**: 週次トリアージ（data/analysis/growth/digest-2026-W40.json）の OPP-c878fd373e: 「品質規定方式とは」は平均 8.8 位なのに CTR 0.45%（期待 2.5%）（期待効果 0.9 searchClicks/週）。原稿: `content/site/civil-practice/embankment-quality-control/article.mdx`
 
@@ -2508,7 +2434,7 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 **完了条件**: 3 ページの題名・説明・冒頭が公開され、反映 28 日後の同クエリの CTR を変更前と比べた記録が本カードの完了記録にある。
 
 ### [DN-0651] 1級 secondary/r04 の CTA と「2次試験 解答例 令和4年」の題名を合格発表までの読者に合わせる
-タグ: [収益化] [領域:サイト] [種類:改善] [起票:2026-10-10]
+タグ: [収益化] [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-10-10]
 
 **起点**: 週次トリアージ（data/analysis/growth/digest-2026-W40.json）の OPP-7befa328e8: /exam/civil-construction-1/secondary/r04 の CTA クリック率 0.15%（サイト平均 0.74%）（期待効果 0.8 ctaClicks/週）
 
@@ -2517,6 +2443,48 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 **完了条件**: CTA と seoTitle の変更が公開され、反映 28 日後の CTA クリック率と対象語の順位を変更前と比べた記録が本カードの完了記録にある。
 
 ## 🟣 判断待ち — ユーザーの意思決定が必要
+
+### [DN-0721] 技術図書（共通仕様書）の章から、同じテーマの実務・試験の解説へ回遊させるかを決める
+タグ: [領域:サイト] [種類:意思決定] [起票:2026-10-13]
+
+**起点**: 2026-10-13 に運営者から「共通仕様書などの順位が良いので、これを起点に回遊させては」。実測（2026-10-13 時点）:
+- Google（GSC 2026-09-09〜10-06）: 技術図書クラスターは上位の帯 34 語・平均 8.8 位だが、`/standards/` 全体でクリック 2・表示 244。順位のわりに検索量が小さい
+- GA4（2026-09-12〜10-09・日本・全流入）: `/standards/` 422 セッション（Bing など Google 以外が中心）、1 セッションの閲覧 1.86 ページ（試験 1.32）、エンゲージメント率 0.55（試験 0.76）。回遊は技術図書の章の中で起きている
+- 技術図書のページ（`src/app/standards/[agency]/[document]/page.tsx` ほか）から試験・実務のページへのリンクは無い（パンくずと章だけ）
+
+**判断してほしいこと**: 技術図書の章から、同じテーマの実務記事（`/practice/`）と試験の解説（1 級土木の施工管理・品質管理など）へつなぐ導線を作るか。規模は試験（15,500 セッション）の 3% 弱なので、効果は小さい見込み。読者は実務で仕様書を引く人で、受験者とは限らない。
+
+**やるなら**: 章のテーマ（コンクリート・土工・品質管理など）と記事の対応を設定に置き、章ページの末尾に「関連する実務・試験の解説」を出す。効果は実験台帳（EXP・`ga4.event` か技術図書から他の区画へのセッション）で前後 28 日比較する。
+
+**完了条件**: やる／やらないを決め、やるなら導線と EXP を作る。やらないなら理由を 16_検索キーワード戦略.md の点検記録に残す。
+
+
+
+
+
+
+### [DN-0691] civil-exam-textbook-index（2026-05-16 で停止・refresh-indexes 未配線）を再生成して配線する
+タグ: [領域:サイト] [時期:2026-11] [種類:改善] [検証:check-generated-indexes] [起票:2026-10-11]
+
+**決定（2026-10-11・運営者）**: EXP-014（判定 2026-10-26）と EXP-020（10/11 開始・判定日は measure に従う）の判定が出るまで待ち、11 月に配線する。判定前に数十ページの内部リンクを動かさない。
+
+**起点**: 2026-10-11 の回遊監査。src/config/civil-exam-textbook-index.json（1級）は 5/16、-2.json（2級）は 5/29 から更新されておらず、生成スクリプト .claude/scripts/build-civil-exam-textbook-index.mjs は package.json にも refresh-indexes にも入っていない。読み手は src/components/ui/PastExamBacklinks と RelatedTextbooks。2級の過去問 24 ページで textbook への自動リンクが 0 本。
+**決めること**: いま再生成すると数十ページの内部リンクが一度に変わり、進行中の SEO 実験（EXP-014・EXP-020）の条件が動く。実験の判定日まで待つか、先に配線するか。
+**やること（決まったら）**: スクリプトを package.json に載せ refresh-indexes に足す。生成物の差分を確認して commit。
+**完了条件**: npm run refresh-indexes で 2 ファイルが更新され、2級の過去問ページに textbook リンクが出る。
+
+
+
+
+
+
+### [DN-0662] コンクリート技士・主任技士・診断士を iOS アプリにするかを決める（問題文は非公開・主任技士は書籍由来・診断士の権利の確認範囲が未記録）
+タグ: [収益化] [領域:商品] [種類:意思決定] [起票:2026-10-11]
+
+**起点**: 2026-10-11、iOS 択一アプリへどの資格を載せられるかを確かめた。コンクリート技士・主任技士・診断士は、実施機関の日本コンクリート工学会が問題文を公開していない（`config/exam-formats.json` の pastExams.questions = none。正答だけ約 1 か月掲載）。サイトの問題は、技士 48 問がオリジナル（original-questions）、主任技士 237 問が市販の過去問解説本（技報堂出版）からの書き起こし、診断士 98 問（primary-exercise-01〜08）は出どころと権利の確認範囲が未確認（memory には「権利確認済」とある）。
+**決めること**: (1) コンクリート系を iOS アプリにするか。するならオリジナル問題を何問・どの分野で作るか（有料アプリとして成り立つ量）。(2) 主任技士 237 問のサイト掲載を続けてよいか（書籍由来の転記）。(3) 診断士 98 問の権利の確認範囲を記録する。
+**判断の材料**: 技術士アプリ（DN-0453）の感触の振り返り（DN-0624）。
+
 
 ### [DN-0507] 「解答・解説」の開封計測を見て、過去問の解説を有料側（note・KDP）へ移すかを決める
 タグ: [収益化] [領域:商品] [時期:2026-11] [種類:意思決定] [起票:2026-10-02]
@@ -2601,3 +2569,13 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 **起点**: 転職アフィリは確定 3 件未満では案件の勝敗を決めない。1 年分の EPC で継続案件を決める。（2026-09-26 に年間ロードマップの重点をバックログへ一本化したときに起票）
 
 **完了条件**: 継続・停止の案件を決め、affiliate-catalog.json と配置を更新したら、このカードを削除する。
+
+### [DN-0712] 1級土木の「まだ間に合う」を展開するかを決める
+タグ: [収益化] [領域:商品] [種類:意思決定] [起票:2026-10-12]
+
+（出典: 2026-09-29 の手書きメモ・vault dairy/2026-09-29）
+
+### [DN-0713] 公務員へ転職したい人のニーズがあるかを確かめ、扱うかを決める
+タグ: [収益化] [領域:戦略] [種類:意思決定] [起票:2026-10-12]
+
+関連: DN-0468（技術系公務員の定年延長と再任用）。（出典: 2026-09-28 の手書きメモ・vault dairy/2026-09-28）

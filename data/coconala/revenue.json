@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "fetchedAt": "2026-10-13T01:50:29.053Z",
+  "source": "ココナラ 売上管理・振込申請（/mypage/revenue）の売上履歴を npm run coconala-revenue で read-only 取得。手数料控除後・クローズ日で計上",
+  "cumulativeYen": 21450,
+  "rows": [
+    {
+      "closedAt": "2026-09-25",
+      "talkroomId": "18351970",
+      "kind": "tip",
+      "netYen": 7020
+    },
+    {
+      "closedAt": "2026-09-25",
+      "talkroomId": "18351970",
+      "kind": "service",
+      "netYen": 4680
+    },
+    {
+      "closedAt": "2026-09-10",
+      "talkroomId": "18194267",
+      "kind": "service",
+      "netYen": 1950
+    },
+    {
+      "closedAt": "2026-08-10",
+      "talkroomId": "18082691",
+      "kind": "service",
+      "netYen": 1950
+    },
+    {
+      "closedAt": "2026-08-08",
+      "talkroomId": "18091375",
+      "kind": "service",
+      "netYen": 5850
+    }
+  ]
+}

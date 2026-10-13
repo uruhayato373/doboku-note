@@ -116,6 +116,38 @@ export function findUnguardedExitCaptures(runScript) {
   return hits;
 }
 
+/**
+ * 9. develop へ rebase 無しで push。develop は bot と人の push が 1 日 100 回を超えるので、
+ *    checkout 時点の HEAD にそのまま commit して `git push origin develop` すると non-fast-forward で
+ *    落ちる。scheduled-publish.yml（X の公開済み status）がこれで記録を失うと次回に二重投稿しうる。
+ *    `git push` の対象が develop の run: には、同じ run: の中に `git rebase origin/develop`
+ *    （または `git pull --rebase`）があることを要求する（competitor-scan.yml が見本）。
+ */
+export function findPushWithoutRebase(runScript) {
+  const src = String(runScript ?? '').split('\n').map((l) => l.replace(/(^|\s)#.*$/, '')).join('\n');
+  const pushes = [...src.matchAll(/^\s*git push\b[^\n]*\bdevelop\b[^\n]*$/gm)];
+  if (pushes.length === 0) return [];
+  const rebased = /\bgit rebase\b[^\n]*\borigin\/develop\b/.test(src) || /\bgit pull\b[^\n]*--rebase\b/.test(src);
+  if (rebased) return [];
+  return pushes.map((m) => ({ text: m[0].trim().slice(0, 80) }));
+}
+
+/**
+ * 10. Node のバージョンが揃っているか。2026-10-11 まで node-version は "20" が 32 か所・"22" が 13 か所で混在していた
+ *     （Node 20 は 2026-04 に公式 EOL・ローカルは v22）。片方だけで通る依存の差が CI の赤の切り分けを難しくするので、
+ *     actions/setup-node の node-version は NODE_VERSION（22）だけを許す。
+ */
+export const NODE_VERSION = '22';
+export function findNonStandardNodeVersions(content, expected = NODE_VERSION) {
+  const hits = [];
+  String(content ?? '').split('\n').forEach((raw, i) => {
+    const line = raw.replace(/(^|\s)#.*$/, '');
+    const m = /^\s*node-version:\s*["']?([^"'\s]+)["']?\s*$/.exec(line);
+    if (m && m[1] !== expected) hits.push({ line: i + 1, version: m[1], text: raw.trim().slice(0, 80) });
+  });
+  return hits;
+}
+
 async function main() {
   const files = listWorkflowFiles();
   let hookCommitScanned = 0;
@@ -243,6 +275,25 @@ async function main() {
       }
     }
 
+    // 10. Node のバージョン（findNonStandardNodeVersions 参照）
+    for (const h of findNonStandardNodeVersions(content)) {
+      violations.push({
+        file, kind: 'node-version', line: h.line,
+        message: `node-version が ${h.version}（CI は Node ${NODE_VERSION} に揃える。Node 20 は 2026-04 に EOL・engines は >=20.9）: ${h.text}`,
+      });
+    }
+
+    // 9. develop へ rebase 無しで push（findPushWithoutRebase 参照）
+    for (const script of runScripts) {
+      for (const h of findPushWithoutRebase(script)) {
+        violations.push({
+          file, kind: 'push-without-rebase', line: 0,
+          message: `develop へ rebase 無しで push している（他の push と競合すると記録が落ちる）: ${h.text}`
+            + ' → 直前に `git fetch origin develop` と `git rebase origin/develop` を置き `git push origin HEAD:develop` にする（competitor-scan.yml が見本）',
+        });
+      }
+    }
+
     // 6. 行継続の潰れ（findCollapsedContinuations 参照）
     for (const script of runScripts) {
       for (const h of findCollapsedContinuations(script)) {
@@ -266,7 +317,7 @@ async function main() {
     + `（うち フック有効で commit する ${hookCommitScanned} 本の doc-meta-index、`
     + `gh 通知ステップ ${ghStepsScanned} 件の GH_TOKEN も確認）`);
   if (violations.length === 0) {
-    console.log(`${TAG} ✓ actionlint / permissions / timeout-minutes / SHA固定 / doc-meta-index / 行継続 / GH_TOKEN / errexit 下の $? いずれも違反なし`);
+    console.log(`${TAG} ✓ actionlint / permissions / timeout-minutes / SHA固定 / doc-meta-index / 行継続 / GH_TOKEN / errexit 下の $? / develop への rebase 無し push / node-version いずれも違反なし`);
     process.exit(0);
   }
   for (const v of violations) {

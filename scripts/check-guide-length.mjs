@@ -24,13 +24,20 @@ import { execFileSync } from 'node:child_process';
 import { REPO_ROOT, SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
 
 const THRESHOLD = readDataset(REPO_ROOT, 'config.content-rules').lengths.guideMinChars;
 const ROOT = SITE_CONTENT_ROOT;
 // 表示・staged（git の出力）との照合は、リポジトリルートからの相対パスで行う
 const rel = (p) => relative(REPO_ROOT, p).split('\\').join('/');
-const STAGED = process.argv.includes('--staged');
-const ALL = process.argv.includes('--all');
+const STAGED = __argv.includes('--staged');
+const ALL = __argv.includes('--all');
 
 function walk(dir) {
   return listFiles(dir, { ext: '.mdx', followLinks: true, allowMissing: true }).map(rel);
@@ -94,14 +101,14 @@ if (ALL) {
   for (const r of under) {
     console.log(`  ${String(r.len).padStart(5)}  ${r.published ? '' : '(draft) '}${r.f}`);
   }
-  process.exit(0);
+  __exit(0);
 }
 
 const fails = rows.filter((r) => r.len < THRESHOLD);
 if (fails.length === 0) {
   const scope = STAGED ? 'staged ' : 'published ';
   console.log(`[check-guide-length] ✓ ${scope}guide 記事 ${rows.length} 件は全て ${THRESHOLD} 字以上`);
-  process.exit(0);
+  __exit(0);
 }
 
 console.error(`[check-guide-length] ✗ ${fails.length} 件のガイド記事が本文 ${THRESHOLD} 字未満（薄い記事）`);
@@ -111,4 +118,8 @@ for (const r of fails) {
   console.error(`  ${String(r.len).padStart(5)} 字（あと ${short} 字）  ${r.f}`);
 }
 console.error(`  → 各 H2 セクションの散文導入を §17（200〜400字/セクション）に沿って充実させてください。`);
-process.exit(1);
+__exit(1);
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

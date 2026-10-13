@@ -29,13 +29,13 @@
  */
 
 import { readdirSync, readFileSync, writeFileSync, existsSync, statSync, unlinkSync } from "fs";
-import { join, relative, dirname } from "path";
-import { fileURLToPath, pathToFileURL } from "url";
+import { join, relative } from "path";
+import { pathToFileURL } from "url";
 import { todayJst } from "./lib/jst-date.mjs";
 import { canTransition, loadRegistryConfig } from "./lib/content-registry.mjs";
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { parseCliArgs } from "./lib/cli-args.mjs";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = join(__dirname, "..");
 export const IG_DIR = join(ROOT, "content/sns/instagram");
 
 const EXCLUDE_DIRS = new Set(["_dev", "highlights", "stories", "img", "carousel", "reels"]);
@@ -44,21 +44,16 @@ export const FORMATS = ["carousel", "reels", "stories"];
 const FMT_LETTER = { carousel: "C", reels: "R", stories: "S" };
 
 // ─── args ─────────────────────────────────────────────────────
-function parseArgs(argv) {
-  const flags = {};
-  const positional = [];
-  for (let i = 0; i < argv.length; i++) {
-    if (argv[i].startsWith("--")) {
-      const [k, v] = argv[i].slice(2).split("=");
-      flags[k] = v !== undefined ? v : (argv[i + 1] && !argv[i + 1].startsWith("--") ? argv[++i] : true);
-    } else {
-      positional.push(argv[i]);
-    }
-  }
-  return { flags, positional };
-}
-
-const { flags, positional } = parseArgs(process.argv.slice(2));
+const { _: positional, ...flags } = parseCliArgs({
+  exam: { type: "string" },
+  year: { type: "string" },
+  format: { type: "string" },
+  date: { type: "string" },
+  url: { type: "string" },
+  note: { type: "string" },
+  pending: { type: "boolean" },
+  done: { type: "boolean" },
+});
 const command = positional[0]; // mark / unmark / migrate / summary / undefined (list)
 const targetArg = positional[1]; // relative path under IG_DIR
 const formatArg = positional[2]; // carousel / reels / stories（mark/unmark 時）
@@ -92,7 +87,7 @@ function isPack(dir) {
     entries.includes("carousel");
 }
 
-export function walkPacks(dir, depth = 0) {
+export function findPackDirs(dir, depth = 0) {
   const result = [];
   if (depth > 6) return result;
   let entries;
@@ -104,7 +99,7 @@ export function walkPacks(dir, depth = 0) {
     if (isPack(full)) {
       result.push(full);
     } else {
-      result.push(...walkPacks(full, depth + 1));
+      result.push(...findPackDirs(full, depth + 1));
     }
   }
   return result;
@@ -325,7 +320,7 @@ function doUnmark(packDir) {
 
 function doMigrate() {
   let n = 0;
-  for (const dir of walkPacks(IG_DIR)) {
+  for (const dir of findPackDirs(IG_DIR)) {
     const raw = readPostedRaw(dir);
     if (!raw) continue;
     if (FORMATS.some((f) => f in raw)) continue; // 既に新スキーマ
@@ -348,7 +343,7 @@ if (isMain) {
   } else if (command === "migrate") {
     doMigrate();
   } else {
-    const allPacks = walkPacks(IG_DIR).map(packInfo);
+    const allPacks = findPackDirs(IG_DIR).map(packInfo);
     const filtered = filterPacks(allPacks);
     if (command === "summary") {
       printSummary(filtered);

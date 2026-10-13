@@ -37,10 +37,18 @@ function parseChecks(source) {
       ci: /\bci:\s*true\b/.test(flags),
       ops: /\bops:\s*true\b/.test(flags),
       npm: /npm:\s*'([^']+)'/.exec(block)?.[1] ?? '',
+      timeout: /\btimeout:\s*[0-9_]+/.test(flags),
       note,
     };
   });
 }
+
+test('全検査に timeout がある（無いと setTimeout(undefined) で即 TIMEOUT になり、CI が赤になる）', () => {
+  // 2026-10-13: content-series を timeout なしで登録し、フル実行で 0.0 秒の TIMEOUT になった
+  const checks = parseChecks(SRC);
+  assert.ok(checks.length >= 100, `検査が ${checks.length} 件しか読めない（定義の形が変わった＝検査不成立）`);
+  assert.deepEqual(checks.filter((c) => !c.timeout).map((c) => c.id), []);
+});
 
 test('ops:true の検査は ci:false（マージゲートに混ざらない）', () => {
   const checks = parseChecks(SRC);
@@ -48,12 +56,16 @@ test('ops:true の検査は ci:false（マージゲートに混ざらない）',
   assert.ok(ops.length >= 1, 'ops:true が 1 件も無い（区分が消えた＝検査不成立）');
   assert.deepEqual(ops.filter((c) => c.ci).map((c) => c.id), [], 'ops:true なのに ci:true の検査がある');
   assert.ok(ops.some((c) => c.id === 'membership-drip'), 'membership-drip が ops に居ない（ci に戻すと全 PR が赤になる）');
+  // 2026-10-11: 広告リンクの期限（affiliate-placements）と照合記録の古さ（video-publication）は壁時計依存なので ops 側へ分けた
+  for (const id of ['affiliate-placements-upcoming', 'video-publication-freshness']) {
+    assert.ok(ops.some((c) => c.id === id), `${id} が ops に居ない（壁時計依存の検査が消えたか ci に戻った）`);
+  }
 });
 
 test('壁時計・鮮度に依存する検査が ci:true に居ない（再混入の検知）', () => {
   // id / npm / note に「予定日を過ぎた」「転記が止まった」を示す語があれば、PR の diff では直せない
   // 検査とみなす。誤検知なら note の書き方を変えるのではなく、本当に diff で決まるかを見直す。
-  const WALLCLOCK = /overdue|drip|freshness|予定日|配信予定|転記が止|日超過|GRACE_DAYS/;
+  const WALLCLOCK = /overdue|drip|freshness|予定日|配信予定|転記が止|日超過|GRACE_DAYS|期限内|期限切れ|鮮度切れ/;
   const bad = parseChecks(SRC)
     .filter((c) => c.ci && WALLCLOCK.test(`${c.id} ${c.npm} ${c.note}`))
     .map((c) => c.id);

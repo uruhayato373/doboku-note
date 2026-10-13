@@ -3,7 +3,14 @@
 // 技術士一次だけだった例外を、土木施工管理の第1次検定（## 問題 No.N）にも広げた。
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { OFFICIAL_QUESTION_PAGE, officialTextRanges, blankOfficialQuestionLines } from '../scripts/lib/official-question-text.mjs';
+import { execFileSync } from 'node:child_process';
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
+import { hasOfficialQuestionMark, isOfficialQuestionFile, officialTextRanges, blankOfficialQuestionLines } from '../scripts/lib/official-question-text.mjs';
+import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
+
+// 「公式の設問を含むページ」は frontmatter の `officialQuestions: true`（DN-0565）。パスで引く
+const isMarkedPage = (p) => isOfficialQuestionFile(join(REPO_ROOT, p));
 
 test('対象ページ: 技術士一次・建設部門の年度別、土木施工管理の第1次・第2次検定（ガイドは対象外）', () => {
   for (const p of [
@@ -11,14 +18,14 @@ test('対象ページ: 技術士一次・建設部門の年度別、土木施工
     'content/site/pe-first-stage/r01-retry-basic/article.mdx',
     'content/site/civil-construction-2/primary-r05-zenki/article.mdx',
     'content/site/civil-construction-1/primary-h26-a/article.mdx',
-    'content\\site\\civil-construction-2\\primary-r03-kouki\\article.mdx',
+    'content/site/civil-construction-2/primary-r03-kouki/article.mdx',
     // 2026-10-06: lint-mdx-mobile（15-x）と判定を一本化して足した 2 種
     'content/site/civil-construction-1/secondary-r07/article.mdx',
     'content/site/pe-construction/r06-urban-planning/article.mdx',
     // DN-0549: 総監の択一と測量士の択一
     'content/site/pe-comprehensive-management/r05-primary/article.mdx',
     'content/site/surveyor/primary-r07/article.mdx',
-  ]) assert.equal(OFFICIAL_QUESTION_PAGE.test(p), true, p);
+  ]) assert.equal(isMarkedPage(p), true, p);
   for (const p of [
     'content/site/pe-first-stage/guide-basic/article.mdx',
     'content/site/civil-construction-2/guide-overview/article.mdx',
@@ -26,7 +33,7 @@ test('対象ページ: 技術士一次・建設部門の年度別、土木施工
     'content/site/pe-construction/guide-career/article.mdx',
     'content/site/surveyor/guide-overview/article.mdx',
     'content/site/pe-comprehensive-management/primary-statistics-2026/article.mdx',
-  ]) assert.equal(OFFICIAL_QUESTION_PAGE.test(p), false, p);
+  ]) assert.equal(isMarkedPage(p), false, p);
 });
 
 test('土木の設問（## 問題 No.N 〜 <details>）は行全体、解説は選択肢原文の引用部分だけを除く', () => {
@@ -85,8 +92,9 @@ test('第2次検定（## 問題 N）と建設部門（## II-1 の ASCII 表記�
 
 test('blankOfficialQuestionLines: 対象ページだけ公式問題の行を空にする（見出しは残す・lint-mdx-mobile の 15-x 用）', () => {
   const lines = ['導入。', '## 問題 1', '設問文。', '<details>', '解説。'];
-  assert.deepEqual(blankOfficialQuestionLines(lines, 'content/site/civil-construction-2/secondary-r05/article.mdx'), ['導入。', '## 問題 1', '', '<details>', '解説。']);
-  assert.deepEqual(blankOfficialQuestionLines(lines, 'content/site/civil-construction-2/guide-overview/article.mdx'), lines);
+  assert.deepEqual(blankOfficialQuestionLines(lines, true), ['導入。', '## 問題 1', '', '<details>', '解説。']);
+  assert.deepEqual(blankOfficialQuestionLines(lines, false), lines);
+
 });
 
 test('測量士の問題見出し（## No.N）も問題の始まり、文体検査用の空白化では見出し行を残す', () => {
@@ -94,7 +102,7 @@ test('測量士の問題見出し（## No.N）も問題の始まり、文体検�
   assert.equal(r.get(2), Infinity);
   assert.equal(r.has(4), false);
   const lines = ['## No.3', '設問文。', '<details>', '解説。'];
-  assert.deepEqual(blankOfficialQuestionLines(lines, 'content/site/surveyor/primary-r07/article.mdx'), ['## No.3', '', '<details>', '解説。']);
+  assert.deepEqual(blankOfficialQuestionLines(lines, true), ['## No.3', '', '<details>', '解説。']);
 });
 
 test('1級土木 二次の分野別過去問（DN-0553）: 年度の見出し（## と ###）から <details> までが設問の逐語', () => {
@@ -105,8 +113,8 @@ test('1級土木 二次の分野別過去問（DN-0553）: 年度の見出し（
     'content/site/civil-construction-1/secondary-construction-plan-past-problems/article.mdx',
     'content/site/civil-construction-1/secondary-quality-management-past-problems/article.mdx',
     'content/site/civil-construction-1/secondary-concrete-past-problems/article.mdx',
-  ]) assert.equal(OFFICIAL_QUESTION_PAGE.test(p), true, p);
-  assert.equal(OFFICIAL_QUESTION_PAGE.test('content/site/civil-construction-1/secondary-earthwork-basics/article.mdx'), false);
+  ]) assert.equal(isMarkedPage(p), true, p);
+  assert.equal(isMarkedPage('content/site/civil-construction-1/secondary-earthwork-basics/article.mdx'), false);
   const r = officialTextRanges([
     '## 出題傾向', // 1
     '仕上がり厚さ', // 2
@@ -125,4 +133,42 @@ test('1級土木 二次の分野別過去問（DN-0553）: 年度の見出し（
   assert.equal(r.has(6), false, '解説は自著');
   assert.equal(r.get(9), Infinity, 'h3 の年度見出しも設問の始まり');
   assert.equal(r.has(11), false);
+});
+
+/**
+ * 置き換え前（パスの正規表現）の対象ページの集合を固定する（DN-0565）。
+ * 下の正規表現は置き換え前の定義の写しで、判定には使わない＝「印の集合が置き換え前と一致する」ことの基準。
+ * 一致を確かめた時点（2026-10-12）で 245 ページ。新しい種類の過去問ページに印を付けるのは自由だが、
+ * 置き換え前に対象だったページから印が落ちると、その設問の転記が表記統一に止められるので落とす。
+ */
+const PE_SUBJECTS = 'required|geotechnical|steel-concrete|urban-planning|river-coast|port-airport|power-civil|road|railway|tunnel|construction-planning|environment';
+const LEGACY_PAGE = new RegExp(
+  String.raw`[\\/](?:pe-first-stage[\\/][hr]\d{2}(?:-retry)?-(?:basic|aptitude|construction|water-supply)` +
+    String.raw`|pe-construction[\\/]r\d{2}-(?:${PE_SUBJECTS})` +
+    String.raw`|civil-construction-[12][\\/](?:primary-[a-z0-9-]+|secondary-[rh]\d{2}|secondary-[a-z-]+-past-problems)` +
+    String.raw`|pe-comprehensive-management[\\/][hr]\d{2}-primary|surveyor[\\/]primary-r\d{2})[\\/]article\.mdx$`,
+);
+const QUESTION_HEADING_LINE = /^(?:##\s+(?:[ⅠⅡⅢⅣIVX]+[-－]\d|問題\s*(?:No\.\s*)?\d|No\.\s*\d)|#{2,3}\s+(?:令和|平成)(?:\d+|元)年度)/m;
+
+test('印を持つページの集合は、置き換え前の正規表現の対象ページを全て含み、余分なページは設問の見出しを持つ（DN-0565）', () => {
+  const files = execFileSync('git', ['-c', 'core.quotepath=false', 'ls-files', '-z', 'content/site'], { cwd: REPO_ROOT, encoding: 'utf8', maxBuffer: 1 << 26 })
+    .split('\0').filter((f) => f.endsWith('/article.mdx'));
+  const marked = new Set();
+  for (const f of files) if (hasOfficialQuestionMark(readFileSync(join(REPO_ROOT, f), 'utf8'))) marked.add(f);
+  const legacy = files.filter((f) => LEGACY_PAGE.test(f));
+  assert.ok(files.length > 1000, `走査した記事 ${files.length} 件（検査不成立）`);
+  assert.equal(legacy.length, 245, '置き換え前の対象ページ数');
+  assert.deepEqual(legacy.filter((f) => !marked.has(f)), [], '置き換え前は対象だったが印が無いページ');
+  const extra = [...marked].filter((f) => !LEGACY_PAGE.test(f));
+  const noHeading = extra.filter((f) => !QUESTION_HEADING_LINE.test(readFileSync(join(REPO_ROOT, f), 'utf8').replace(/^---[\s\S]*?\n---/, '')));
+  assert.deepEqual(noHeading, [], '印はあるが設問の見出しが無いページ');
+});
+
+test('印の読み取り: frontmatter の officialQuestions: true だけ。false・本文中・無い・読めないファイルは対象外', () => {
+  assert.equal(hasOfficialQuestionMark('---\ntitle: x\nofficialQuestions: true\n---\n本文'), true);
+  assert.equal(hasOfficialQuestionMark('---\r\ntitle: x\r\nofficialQuestions: true\r\n---\r\n本文'), true);
+  assert.equal(hasOfficialQuestionMark('---\nofficialQuestions: false\n---\n'), false);
+  assert.equal(hasOfficialQuestionMark('---\ntitle: x\n---\nofficialQuestions: true\n'), false);
+  assert.equal(hasOfficialQuestionMark('officialQuestions: true\n'), false);
+  assert.equal(isOfficialQuestionFile(join(REPO_ROOT, 'content/site/no-such/article.mdx')), false);
 });

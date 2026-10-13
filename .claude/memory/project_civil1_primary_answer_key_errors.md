@@ -5,6 +5,8 @@ metadata:
   type: project
 ---
 
+**現況（2026-10-10・DN-0647）**: 公式正答の正本は問題台帳 `data/pastexams/questions/civil-construction-1.json`（1 問ごとの原典 PDF・ページ・公式正答・転記の照合）。旧 `.claude/state/quality/civil-1-primary-official-keys.json` と使い捨ての照合スクリプトは台帳へ移して削除した。`npm run check-past-exam-ledger`（CI）が演習データの正答と公式正答の不一致を止め、iOS の書き出しは未照合の問題を止める。原典は全年度そろった（H26 問題A・H29 問題A/B は許諾明記の再配布 dobokujira、H26・H29・R01〜R07 の正答肢は JCTC の Wayback 保存版）。以下は経緯。
+
 1級土木施工管理技士 一次過去問（`.local/r2/posts/civil-construction-1/primary-*`）に2種の系統的バグ。2026-07-10 の品質採点で検出し r04-a / r05-a を修正（PR/commit 152d69c6e系4本＋採点6113ae8b7）。
 
 **バグ1（主）**: 各設問の `<details>` 内で正答肢1つしか解説がなく、誤答肢3つの正誤理由が丸ごと欠落。過去問の折衷案構造では各選択肢に正誤理由(✅/❌)が必須。r04-a/r05-a 各61問=計122問×4肢を `past-exam-rewriter` で補完（全問4マークに整合）。

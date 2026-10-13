@@ -107,6 +107,47 @@
       ],
       "reason": "保存済みのOGP原本から生成する表示用WebP。ogp-supplyが原本sha256と生成レシピをR2メタデータで照合し、供給後の読み戻しを検証する。原本台帳を真実源とし、派生画像の台帳コピーは持たない。",
       "phase": "site-ogp-thumbnails"
+    },
+    {
+      "id": "ogp-background",
+      "audience": "ci",
+      "match": {
+        "pathRegex": "^config/ogp/backgrounds/[^/]+\\.png$"
+      },
+      "bucket": "private",
+      "keyPrefix": "ogp/backgrounds/",
+      "keyFrom": "stripPrefix:config/ogp/backgrounds/",
+      "visibilityFrom": "fixed:private",
+      "regenerable": false,
+      "generator": "scripts/generate-ogp-backgrounds.mjs",
+      "requiredBy": [
+        ".claude/skills/conversion/ogp-create/scripts/ogp-create.mjs（サイト OGP・cover の無い note カバー）",
+        "scripts/coconala-thumb.mjs（ココナラのサムネイル）",
+        ".github/workflows/ogp-supply.yml（CI の OGP 生成の前に asset-hydrate で取り戻す）"
+      ],
+      "reason": "資格別の OGP 背景（AI で作った一点物・7 枚 9.6MB）。config/ は人が決める設定の置き場で、CI が読む素材は private R2 が原則なので 2026-10-10 に git から外した（data/ の SSOT 見直し）。Codex の画像生成は同じ画素を再現しないので、再生成ではなく保管する。手元・CI とも使う直前に asset-hydrate で取り戻し、無ければ requireLocalAsset が止める",
+      "phase": "4-B"
+    },
+    {
+      "id": "kindle-dist",
+      "audience": "ci",
+      "match": {
+        "pathRegex": "^scripts/kindle-dist/.+\\.(epub|jpg)$"
+      },
+      "bucket": "private",
+      "keyPrefix": "kindle/dist/",
+      "keyFrom": "stripPrefix:scripts/kindle-dist/",
+      "visibilityFrom": "fixed:private",
+      "regenerable": true,
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ],
+      "reason": "KDP へ入稿する EPUB（65）と表紙 jpg（72）。Git に入れると作り直すたびに履歴へ積まれる（2026-08-22 以降で 286 版・159MB）ので、CI が読む配布物は private R2 が原則（asset-storage-policy §1 ci）として 2026-10-12 に git から外した（DN-0562）。spec から決定的に再ビルドできる（regenerable）が、入稿済みの版を保全するため R2 を正本にする。人が入稿に使う控えは Drive vault（DN-0451）。",
+      "phase": "4-B"
     }
   ]
 }

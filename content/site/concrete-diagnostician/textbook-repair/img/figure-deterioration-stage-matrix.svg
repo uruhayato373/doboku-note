@@ -1,0 +1,27 @@
+<!-- authored 2026-10-10 doboku-note 自作。劣化段階の判定の手がかりと主工法の対応を再構成。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="劣化段階を潜伏期・進展期・加速期・劣化期に分け、段階の判定の手がかりと主工法を対応させた図。機構ごとの外せない条件としてASR、化学的侵食、凍害の注意を添える">
+<style>text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN","Hiragino Sans",sans-serif;font-size:11px;fill:#222;text-anchor:middle}.h{font-weight:bold;fill:#1a3a5c}.n{fill:#555}rect{stroke-width:1}</style>
+<g fill="#f5f5f5" stroke="#d7d7d7"><rect x="8" y="12" width="64" height="28"/><rect x="72" y="12" width="136" height="28"/><rect x="208" y="12" width="164" height="28"/></g>
+<text text-anchor="middle" class="h" x="40" y="30">段階</text><text text-anchor="middle" class="h" x="140" y="30">判定の手がかり</text><text text-anchor="middle" class="h" x="290" y="30">主工法</text>
+<g fill="#e8f0fe" stroke="#2e6da4"><rect x="8" y="40" width="64" height="84"/><rect x="72" y="40" width="136" height="84"/><rect x="208" y="40" width="164" height="84"/></g>
+<text text-anchor="middle" class="h" x="40" y="86">潜伏期</text>
+<text text-anchor="middle" x="140" y="72">腐食発生限界の</text><text text-anchor="middle" x="140" y="86">手前</text><text text-anchor="middle" x="140" y="100">（腐食は未発生）</text>
+<text text-anchor="middle" x="290" y="72">表面被覆</text><text text-anchor="middle" x="290" y="86">・含浸で</text><text text-anchor="middle" x="290" y="100">侵入を抑える</text>
+<g fill="#d0e8d0" stroke="#3a7d44"><rect x="8" y="124" width="64" height="84"/><rect x="72" y="124" width="136" height="84"/><rect x="208" y="124" width="164" height="84"/></g>
+<text text-anchor="middle" class="h" x="40" y="170">進展期</text>
+<text text-anchor="middle" x="140" y="163">限界を超えた</text><text text-anchor="middle" x="140" y="177">ひび割れは無い</text>
+<text text-anchor="middle" x="290" y="156">侵入抑制を継続</text><text text-anchor="middle" x="290" y="170">ひび割れ部の</text><text text-anchor="middle" x="290" y="184">脆弱部を除去</text>
+<g fill="#fff3cd" stroke="#d4a017"><rect x="8" y="208" width="64" height="84"/><rect x="72" y="208" width="136" height="84"/><rect x="208" y="208" width="164" height="84"/></g>
+<text text-anchor="middle" class="h" x="40" y="254">加速期</text>
+<text text-anchor="middle" x="140" y="247">腐食ひび割れ</text><text text-anchor="middle" x="140" y="261">浮き・剥落</text>
+<text text-anchor="middle" x="290" y="240">断面修復が主役</text><text text-anchor="middle" x="290" y="254">残る未修復部に</text><text text-anchor="middle" x="290" y="268">脱塩・電気防食等</text>
+<g fill="#f8d7da" stroke="#b22234"><rect x="8" y="292" width="64" height="84"/><rect x="72" y="292" width="136" height="84"/><rect x="208" y="292" width="164" height="84"/></g>
+<text text-anchor="middle" class="h" x="40" y="338">劣化期</text>
+<text text-anchor="middle" x="140" y="331">断面欠損で</text><text text-anchor="middle" x="140" y="345">耐力が低下</text>
+<text text-anchor="middle" x="290" y="331">補強・剥落防止</text><text text-anchor="middle" x="290" y="345">打換え</text>
+<rect x="20" y="388" width="360" height="100" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+<text text-anchor="middle" class="h" x="200" y="412">機構ごとに外せない条件</text>
+<text text-anchor="middle" class="n" x="200" y="433">ASR　水を断ち、透湿性を確保する</text>
+<text text-anchor="middle" class="n" x="200" y="451">化学的侵食　耐薬品性の被覆を使う</text>
+<text text-anchor="middle" class="n" x="200" y="469">凍害　耐凍害性の修復材を使う</text>
+</svg>

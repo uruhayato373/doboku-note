@@ -16,6 +16,14 @@ export type QuizExplanation = {
   statementCorrect?: boolean | null;
 };
 
+/** ①〜④・ア〜エの記述ごとの解説（記述を数える／組み合わせる問題）。選択肢の解説の前に出す */
+type QuizStatement = {
+  label: string; // 見出しの記号。例: "①" / "ア"
+  text: string; // 印を除いた Markdown
+  html: string; // 本文の表示用 HTML
+  correct: boolean | null; // 記述が正しい（適当）か。読めないものは null
+};
+
 export type QuizQuestion = {
   id: string; // 例: "h26-a-01"
   year: string; // 例: "h26" / "r07"
@@ -27,8 +35,11 @@ export type QuizQuestion = {
   bodyHtml?: string; // 数式・表・図を含むビルド時生成済みHTML（信頼済みローカルMDX由来）
   options: QuizOption[];
   correct: number | null; // 正答の選択肢番号。公式正答が未掲載の問題は null
+  correctAll?: number[]; // 公式正答が複数ある問題の全部（どれを選んでも正解）。correct は最初の番号
   explanations: QuizExplanation[]; // 全選択肢の正誤解説
   examPoint?: { summary: string; items: string[] } | null;
+  statements?: QuizStatement[]; // 記述ごとの解説。無い問題は省く
+  statementsHtml?: string; // statements を並べた表示用 HTML のかたまり（サイトと iOS が同じ文字列を差し込む）
   socialEligible?: boolean;
   socialExclusionReasons?: string[];
   articlePath?: string; // 詳細な元記事へのサイト内パス

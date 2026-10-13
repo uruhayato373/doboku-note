@@ -1,0 +1,93 @@
+/*
+ * 過去問演習の問題文・選択肢・解説の HTML（scripts/lib/quiz-markdown.mjs が書き出す）の見た目。
+ * サイトの演習（/tools/kakomon-quiz。globals.css が @import）と iOS アプリ（build-ios-quiz-bundle が
+ * QuizData/quiz-content.css として同梱）の両方がこの 1 枚を読む。中身の見た目はここだけで直す。
+ * 色はサイトのトークン（globals.css の --ink 等）。アプリには同じ値を quiz-tokens.css として書き出す
+ * （scripts/lib/quiz-style.mjs の QUIZ_TOKENS。ここで新しいトークンを使ったらそこにも足す）。
+ */
+.quiz-rich-text p {
+  margin: 0;
+}
+.quiz-rich-text p + p {
+  margin-top: 0.5rem;
+}
+.quiz-rich-text strong {
+  color: var(--ink);
+}
+.quiz-rich-text table {
+  min-width: 100%;
+  border-collapse: collapse;
+}
+.quiz-rich-text th,
+.quiz-rich-text td {
+  border: 1px solid var(--rule-soft);
+  padding: 0.25rem 0.5rem;
+  vertical-align: top;
+}
+.quiz-rich-text img {
+  display: block;
+  margin: 0.75rem auto;
+  max-width: 100%;
+  max-height: 420px;
+  height: auto;
+}
+/* 問題文の空欄（ア〜コ・全角空白の空欄）を枠で囲む */
+.quiz-rich-text .quiz-blank {
+  display: inline-block;
+  min-width: 2.4em;
+  margin: 0 0.125rem;
+  padding: 0 0.25rem;
+  border: 1px solid var(--ink-body);
+  text-align: center;
+  line-height: 1.5;
+}
+/* 横に長い数式は数式だけを横スクロールさせ、画面ははみ出させない */
+.quiz-rich-text .katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 2px 0;
+}
+
+/*
+ * 記述ごとの解説（①〜・ア〜）。選択肢の解説の前に出す（scripts/lib/statement-explanations.mjs の renderStatementsHtml が書き出す）。
+ * 色は既存のトークンだけ（○ は positive、× は danger）。
+ */
+.quiz-statements {
+  margin: 0 0 0.75rem;
+}
+.quiz-statements-title {
+  margin: 0 0 0.25rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+.quiz-statement {
+  padding: 0.5rem 0;
+  border-top: 1px solid var(--rule-soft);
+  font-size: 0.8125rem; /* サイトでは 13px。アプリは文字の大きさの設定（html の font-size）に追従させる */
+  line-height: 1.7;
+}
+.quiz-statement-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.5rem;
+  margin-bottom: 0.125rem;
+}
+.quiz-statement-label {
+  font-weight: 700;
+  color: var(--ink);
+}
+.quiz-statement-verdict {
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+.quiz-statement-verdict.ok {
+  color: var(--color-positive);
+}
+.quiz-statement-verdict.ng {
+  color: var(--color-danger);
+}
+.quiz-statement-body {
+  color: var(--ink-body);
+}

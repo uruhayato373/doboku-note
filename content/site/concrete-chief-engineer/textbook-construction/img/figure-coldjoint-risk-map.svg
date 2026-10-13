@@ -1,0 +1,49 @@
+<!-- authored 2026-10-10 doboku-note 自作。題材は区画の打込み順とコールドジョイントの要注意箇所の表示。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="打設計画の平面概念図。床を4区画に分けて時計回りに打ち、先に打った区画との空きが最も長くなる境界を赤線、直射日光の当たる打継ぎ面を黄色で示す。下に表示、シート養生、被せ打ちの3手順">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .t-sec { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-num { font-size: 20px; font-weight: bold; fill: #1a3a5c; }
+      .t-in { font-size: 13px; fill: #1a3a5c; }
+      .cell { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .cell-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .ng { stroke: #b22234; stroke-width: 4; fill: none; }
+      .step { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .arrow { stroke: #555; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker id="ah" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#555"/>
+    </marker>
+  </defs>
+
+  <text class="t-sec" x="20" y="26">打込み順と空き時間（平面）</text>
+  <rect class="cell" x="100" y="46" width="100" height="90"/>
+  <rect class="cell" x="200" y="46" width="100" height="90"/>
+  <rect class="cell-w" x="200" y="136" width="100" height="90"/>
+  <rect class="cell" x="100" y="136" width="100" height="90"/>
+  <text class="t-num" x="150" y="98" text-anchor="middle">①</text>
+  <text class="t-num" x="250" y="98" text-anchor="middle">②</text>
+  <text class="t-num" x="250" y="188" text-anchor="middle">③</text>
+  <text class="t-num" x="150" y="188" text-anchor="middle">④</text>
+  <text x="250" y="212" text-anchor="middle">直射日光</text>
+  <line class="ng" x1="102" y1="136" x2="198" y2="136"/>
+  <rect class="cell-w" x="30" y="248" width="14" height="14"/>
+  <text x="52" y="259">日向の打継ぎ面</text>
+  <line class="ng" x1="206" y1="255" x2="226" y2="255"/>
+  <text x="232" y="259">空きが最長の境界</text>
+
+  <text class="t-sec" x="20" y="296">要注意箇所への手当て</text>
+  <rect class="step" x="30" y="308" width="340" height="40" rx="6"/>
+  <text class="t-in" x="42" y="333">1 平面図と現場に要注意箇所を表示する</text>
+  <rect class="step" x="30" y="364" width="340" height="40" rx="6"/>
+  <text class="t-in" x="42" y="389">2 日向の打継ぎ面はシートで覆う</text>
+  <rect class="step" x="30" y="420" width="340" height="40" rx="6"/>
+  <text class="t-in" x="42" y="445">3 遅れたら硬化前に戻り、上から被せ打つ</text>
+  <line class="arrow" x1="200" y1="349" x2="200" y2="362" marker-end="url(#ah)"/>
+  <line class="arrow" x1="200" y1="405" x2="200" y2="418" marker-end="url(#ah)"/>
+  <text x="200" y="486" text-anchor="middle">計画を変えても境界の位置が分かる割付けにする</text>
+</svg>

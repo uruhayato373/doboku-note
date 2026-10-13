@@ -3,7 +3,8 @@
   "entry": [
     "scripts/**/*.{mjs,cjs,js,ts}",
     ".claude/scripts/**/*.{mjs,cjs,js}",
-    ".claude/skills/**/scripts/**/*.{mjs,cjs,js}"
+    ".claude/skills/**/scripts/**/*.{mjs,cjs,js}",
+    ".claude/skills/**/scripts-*/**/*.{mjs,cjs,js}"
   ],
   "project": [
     "src/**/*.{ts,tsx}",
@@ -53,6 +54,7 @@
     "@radix-ui/react-separator",
     "@radix-ui/react-tooltip",
     "@tanstack/react-table",
-    "textlint"
+    "textlint",
+    "@fontsource/manrope"
   ]
 }

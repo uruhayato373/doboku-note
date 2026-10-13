@@ -1,0 +1,18 @@
+{
+  "kind": "measurement",
+  "qualification": "all",
+  "period": {
+    "startDate": "2026-09-01",
+    "endDate": "2026-09-30"
+  },
+  "channel": "operations",
+  "subject": "netReceipts",
+  "coverage": "partial",
+  "source": "note 売上管理 2026-09 の売上詳細「手数料控除後売上」89,402円（売上 106,800円・手数料 17,398円）＋ココナラ 売上履歴 2026-09 計上分 13,650円（手数料控除後・トークルームのクローズ日で計上）。振込手数料は含めない。欠測: KDP。record-net-receipts で取得。",
+  "values": {
+    "netReceipts": null
+  },
+  "schemaVersion": 1,
+  "createdAt": "2026-10-11T00:14:22.733Z",
+  "strategyHash": "efe2531382f59018c338aca8cdeeb530e91a44a642f6c6c1dd6e5b980cc973be"
+}

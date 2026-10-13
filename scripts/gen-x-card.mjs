@@ -22,6 +22,7 @@ import { examColor } from "../.claude/scripts/sns/lib/exam-palette.mjs";
 import { stripTweetMemos } from "./lib/x-tweets-md.mjs";
 import { renderXCharacterCard } from './lib/x-character-card.mjs';
 import { REPO_ROOT as PROJECT_ROOT } from './lib/repository-paths.mjs';
+import { escapeRegExp } from './lib/regexp-escape.mjs';
 
 const DRAFTS_DIR = join(PROJECT_ROOT, "content/sns/x/draft");
 
@@ -54,11 +55,10 @@ const examColors = (slug) => ({ bg: examColor(slug, "deep").use, fill: EXAM_FILL
 
 // 見出し・バッジの資格名は registry（qualification-registry.json）の短い名前・ごく短い名前から組み立てる（写さない）。
 // キーはカバーのトークン（note-cover-tokens.json）のキーで、名前はトークンの qualification: から引く。
-const escRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 const examCard = (slug, suffix = "") => {
   const names = coverExamNames(slug);
   const headerLabel = `${names.short}${suffix}`;
-  return { headerLabel, titleRe: new RegExp(`【${escRe(headerLabel)}】(.+?) ?#\\d+`), badge: names.badge, colors: examColors(slug) };
+  return { headerLabel, titleRe: new RegExp(`【${escapeRegExp(headerLabel)}】(.+?) ?#\\d+`), badge: names.badge, colors: examColors(slug) };
 };
 const EXAM_CONFIG = {
   // qualification-ssot: allow シリーズ名（総監キーワード解説）で資格名ではない

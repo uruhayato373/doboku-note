@@ -51,6 +51,9 @@ test('/content の Kindle カードは KPI を表示し /content/kindle へリ�
 test('Kindle は左ナビの「販売状態」から Kindle タブで到達できる', async ({ page }) => {
   // 2026-09-26 のナビ再編でチャネルはサイドバーの枝にせず、/product/status のタブにした（domains.json navRules）
   await page.goto('/');
+  // スマホ幅では左ナビは Sheet（Toggle Sidebar で開く）。デスクトップ幅では常に出ている
+  const toggle = page.getByRole('button', { name: 'Toggle Sidebar' });
+  if (await toggle.isVisible()) await toggle.click();
   await page.locator('[data-slot=sidebar] a[href="/product/status"]').first().click();
   await expect(page).toHaveURL(/\/product\/status/);
   await page.locator('nav.filterbar').getByRole('link', { name: 'Kindle', exact: true }).click();

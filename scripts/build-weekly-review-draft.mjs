@@ -9,6 +9,7 @@
  *
  * 集めるもの（すべてオフライン。GitHub の Issue だけ gh を使う）: 計測ダイジェスト（W−1）・資格別 KPI（W−1 窓と前週）・
  * ダイジェストの未処分・実験の期限・点検と Issue・バックログの関門と健全性・検索の改善候補・PSI と実ユーザー計測・
+ * build 後 SEO スキャン（check-seo-build の件数と前週比）・
  * note 同期・X 予約キュー・ココナラ取引・売上台帳の当月行。
  *
  * Usage:
@@ -27,22 +28,26 @@ import { dirname, join } from 'node:path';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { parseCliArgs } from './lib/cli-args.mjs';
 import { todayJst } from './lib/jst-date.mjs';
-import { isoWeekKey, weekPeriod } from './lib/business-direction.mjs';
+import { isoWeekKey, reviewWeekOfDay, reviewWindowOfWeek, weekPeriod } from './lib/review-week.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { readDatasetIf } from './lib/dataset-io.mjs';
+import { renderSeoBuildSection } from './lib/seo-build-summary.mjs';
 import { qualificationShortLabel } from './lib/qualification-names.mjs';
 import { loadRegistry } from './lib/qualification-registry.mjs';
+import { loadMonthReceipts } from './lib/net-receipts-ledger.mjs';
+import { shiftMonth } from './lib/net-receipts.mjs';
 
 const TAG = '[weekly-review-draft]';
 const args = parseCliArgs({ week: { type: 'string' }, print: { type: 'boolean' }, check: { type: 'boolean' } });
 
-const week = args.week ?? isoWeekKey(todayJst());
+const week = args.week ?? reviewWeekOfDay(todayJst());
 let period;
 try { period = weekPeriod(week); } catch { period = null; }
 if (!period) { console.error(`${TAG} 検査不成立: 週の指定が不正（${week}）`); process.exit(2); }
-const addDays = (d, n) => { const t = new Date(`${d}T00:00:00Z`); t.setUTCDate(t.getUTCDate() + n); return t.toISOString().slice(0, 10); };
-const windowPeriod = { startDate: addDays(period.startDate, -7), endDate: addDays(period.startDate, -1) };
-const prevWindow = { startDate: addDays(windowPeriod.startDate, -7), endDate: addDays(windowPeriod.startDate, -1) };
+// 回（レビューの週）が振り返る期間と、その前の週（前週比の基準）。換算は review-week.mjs
+const windowPeriod = reviewWindowOfWeek(week);
 const windowWeek = isoWeekKey(windowPeriod.startDate);
+const prevWindow = reviewWindowOfWeek(windowWeek);
 
 /** 1 本のコマンドを回す。失敗しても止めず、rc と出力を残す（欠けは下書きに「未取得」と書く） */
 function run(id, cmd, cmdArgs, { json = false, timeoutMs = 180_000 } = {}) {
@@ -103,6 +108,17 @@ md.push(`対象期間: ${period.startDate} 〜 ${period.endDate}（事業レビ�
 md.push('> [!note] この下書きの使い方', '> `/weekly-review` はここから機械の節を写し、判断の節（計画 vs 実績・トリアージ・課題・学び・バックログの関門・申し送り）を書いて `docs/reviews/weekly/<週>-review.md` に保存する。数字は転記し直さない。', '');
 if (missing.length) md.push('## 材料の欠け（先に直す）', '', ...missing.map((m) => `- ${m}`), '');
 
+// 月の受取額（NSM）。管理画面トップと同じ組み立て（週次の CI が更新した 3 つの台帳）で、今月の途中経過と前月を出す
+const RECEIPT_STATUS = { final: '確定', 'to-date': '途中', estimate: '推計', missing: '未取得' };
+const thisMonth = todayJst().slice(0, 7);
+md.push('## 月の受取額（手数料控除後・管理画面トップと同じ集計）', '', '| 月 | 合計 | note | ココナラ | KDP |', '|---|---|---|---|---|');
+for (const m of [thisMonth, shiftMonth(thisMonth, -1)]) {
+  const r = loadMonthReceipts(REPO_ROOT, m);
+  const cell = (c) => `${c.value == null ? '—' : `¥${c.value.toLocaleString('ja-JP')}`}（${RECEIPT_STATUS[c.status]}${c.asOf ? `・${c.asOf.slice(5)} 取得` : ''}）`;
+  md.push(`| ${m}${m === thisMonth ? '（途中）' : ''} | ${r.total == null ? '—' : `¥${r.total.toLocaleString('ja-JP')}`}${r.complete ? '（確定）' : ''} | ${r.channels.map(cell).join(' | ')} |`);
+}
+md.push('');
+
 md.push(`## 資格別 KPI（${windowWeek} 窓・前週比）`, '');
 md.push(`| 指標 | 全体 | 前週比 | ${QUALS.map((q) => qualificationShortLabel(REGISTRY, q) ?? q).join(' | ')} |`, `|---|--:|--:|${QUALS.map(() => '--:').join('|')}|`);
 for (const [m, label] of METRICS) {
@@ -134,6 +150,10 @@ md.push(cand.length ? cand.slice(0, 5).map((x) => `- [${x.cluster}] ${x.page}「
 
 const pick = (r, re, n = 8) => r.out.split('\n').filter((l) => re.test(l)).slice(0, n).join('\n');
 md.push('## PSI と実ユーザー計測', '', '```', pick(R.psi, /coverage|CI ゲート違反|\*\*(TBT|CLS|LCP|SEO)/), pick(R.webVitals, /^実ユーザー|不良|要改善/), '```' + note(R.psi), '');
+// build 後 SEO スキャン（check-seo-build）の件数と前週比。CI が develop の push ごとに data/analysis/ へ記録する（DN-0676）
+let seoBuildHistory = null;
+try { seoBuildHistory = readDatasetIf(REPO_ROOT, 'analysis.seo-build-summary')?.history ?? null; } catch { seoBuildHistory = null; }
+md.push(...renderSeoBuildSection(seoBuildHistory, todayJst()));
 md.push('## note 同期', '', block(R.noteSync, 10) + note(R.noteSync), '');
 md.push('## X 予約キュー', '', block(R.xQueue, 15) + note(R.xQueue), '');
 const co = R.coconala.data;

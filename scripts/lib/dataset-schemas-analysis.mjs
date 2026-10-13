@@ -494,6 +494,36 @@ export const CareerFunnelBaseline = careerFunnelShape(true).meta({ title: '転�
 
 const SeoViolation = z.object({ type: z.string().min(1).describe('違反コード（seo-checks.mjs の code か fetch_error・html_missing・html_parse_error）'), severity: z.enum(['HIGH', 'MEDIUM', 'LOW']), message: z.string() }).strict();
 const SeoTextField = z.object({ value: z.string(), length: count('文字数') }).strict().nullable().describe('取れなければ null');
+const SeoBuildEntry = z
+  .object({
+    date: jstDate('記録した日'),
+    generatedAt: utcTime('その日の最後の記録の時刻'),
+    sitemapUrls: count('sitemap 掲載 URL 数'),
+    checked: count('検査した URL 数'),
+    errors: count('error（ゲート違反）の件数'),
+    warnings: count('warn（参考・非ゲート）の件数'),
+    errorsByCode: z.record(z.string(), count('件数')).describe('error の型別件数'),
+    warningsByCode: z.record(z.string(), count('件数')).describe('warn の型別件数'),
+  })
+  .strict();
+/** build 後 SEO スキャン（check-seo-build）の日ごとの結果（data/analysis/seo-build-summary.json）。CI が develop の push ごとに足し、週次レビューが前週比を出す */
+export const SeoBuildSummary = z
+  .object({
+    schemaVersion: z.literal(1).describe('このファイルの形の版'),
+    history: z.array(SeoBuildEntry).superRefine(uniqueBy('date', '日付')).describe('日付の昇順・1 日 1 行'),
+  })
+  .strict()
+  .superRefine((m, ctx) => {
+    m.history.forEach((h, i) => {
+      if (i > 0 && h.date <= m.history[i - 1].date) flag(ctx, ['history', i, 'date'], `${h.date} が前の行 ${m.history[i - 1].date} より新しくない（昇順でない）`);
+      const errors = Object.values(h.errorsByCode).reduce((a, b) => a + b, 0);
+      const warnings = Object.values(h.warningsByCode).reduce((a, b) => a + b, 0);
+      if (errors !== h.errors) flag(ctx, ['history', i, 'errorsByCode'], `型別の合計 ${errors} が errors ${h.errors} と合わない`);
+      if (warnings !== h.warnings) flag(ctx, ['history', i, 'warningsByCode'], `型別の合計 ${warnings} が warnings ${h.warnings} と合わない`);
+    });
+  })
+  .meta({ title: 'build 後 SEO スキャンの日ごとの結果' });
+
 /** SEO meta の監査結果（data/analysis/seo-meta.json）。summary と違反のある URL の行だけ。欄の名前は書き手の snake_case のまま */
 export const SeoMeta = z
   .object({
@@ -705,6 +735,57 @@ export const PastExamInventory = z
   .strict()
   .meta({ title: '過去問の在庫台帳' });
 
+// ---- 過去問の問題台帳（data/pastexams/questions/{資格}.json・DN-0647。共通部品は scripts/lib/past-exam-ledger.mjs） ----------
+
+const ledgerCheck = {
+  checkedAt: jstDate('確かめた日').optional(),
+  by: z.enum(['self', 'agent', 'import']).optional().describe('確かめた人（import は旧データからの移し替え）'),
+  note: z.string().optional(),
+};
+const LedgerRow = z
+  .object({
+    id: z.string().min(1).describe('演習データの問題 ID（アプリの学習履歴のキー。変えない）'),
+    article: z.string().regex(/^[a-z0-9-]+\/[a-z0-9-]+$/, '<資格>/<記事>').describe('問題を載せている記事（content/site の下）'),
+    no: z.string().min(1).describe('原典での問題番号（表示用）'),
+    source: z
+      .object({
+        question: z.string().regex(/\.pdf$/).nullable().describe('問題の原典（在庫台帳 files[].file）。無ければ null'),
+        page: z.number().int().min(1).nullable().describe('原典のページ（1 始まり）。未確認は null'),
+        answer: z.string().regex(/\.pdf$/).nullable().describe('公式正答の原典（在庫台帳 files[].file）。無ければ null'),
+      })
+      .strict(),
+    answer: z
+      .object({
+        status: z.enum(['unchecked', 'official', 'no-official']).describe('公式正答の確認（未確認・公式で確認済み・公式の正答が無い）'),
+        official: z.array(z.number().int().min(1).max(5)).min(1).nullable().describe('公式正答の番号（全員正解などは複数）'),
+        ...ledgerCheck,
+      })
+      .strict()
+      .superRefine((a, ctx) => {
+        if ((a.status === 'official') !== (a.official != null)) flag(ctx, ['official'], 'official は status が official のときだけ書く');
+      }),
+    transcription: z
+      .object({
+        status: z.enum(['unverified', 'verified', 'fixed', 'no-source']).describe('設問・選択肢の転記の照合（未了・原典どおり・直して原典どおり・原典が無い）'),
+        ...ledgerCheck,
+      })
+      .strict()
+      .superRefine((t, ctx) => {
+        if (t.status !== 'unverified' && !t.checkedAt) flag(ctx, ['checkedAt'], `${t.status} には checkedAt が要る`);
+      }),
+  })
+  .strict();
+/** 過去問の問題台帳。1 資格 1 ファイル。照合は check-past-exam-ledger */
+export const PastExamQuestionLedger = z
+  .object({
+    schemaVersion: z.literal(1),
+    qualification: z.string().regex(/^[a-z0-9-]+$/).describe('資格 id（在庫台帳・資格台帳と同じ）'),
+    quizExam: z.string().min(1).describe('演習データの試験 id（build-quiz-data の SOURCES）'),
+    questions: z.array(LedgerRow).superRefine(uniqueBy('id', '問題 ID')),
+  })
+  .strict()
+  .meta({ title: '過去問の問題台帳' });
+
 // ---- 書籍の網羅の要約（.claude/state/book-coverage.json。見出しを含む詳細は Drive vault の coverage/） --------------
 
 const articleSlug = z.string().regex(/^[a-z0-9-]+\/[a-z0-9-]+$/, '<資格>/<記事のディレクトリ>').describe('記事（content/site/ の下）');
@@ -749,6 +830,7 @@ export const StateBookCoverage = z
             candidates: CoverageCandidates,
             verdict: CoverageVerdict.nullable().describe('意味判定の件数（まだ判定していなければ null）'),
             judgedAt: jstDate('意味判定の日').nullable(),
+            judgedHead: z.string().regex(/^[0-9a-f]{7,40}$/, 'コミットの SHA').optional().describe('判定日を付けたときの HEAD。これより後の Book-Coverage コミットだけを展開として数える（DN-0659。無い行は従来どおり）'),
             expansions: z
               .array(z.object({ article: articleSlug, commits: z.array(z.string().regex(/^[0-9a-f]{7,40}$/, 'コミットの SHA')).describe('展開したコミット（まだなら空）') }).strict())
               .superRefine(uniqueBy('article', '記事'))

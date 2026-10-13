@@ -14,7 +14,7 @@ name: ☁️ Audit Cloudflare zone config (weekly)
 
 on:
   schedule:
-    - cron: "47 21 * * 1" # JST 06:47 Monday（UTC 21:47 Sunday）
+    - cron: "47 21 * * 0" # JST 06:47 Monday（UTC 21:47 Sunday）
   workflow_dispatch:
     inputs:
       accept_baseline:
@@ -46,7 +46,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
-          node-version: "20"
+          node-version: "22"
           cache: "npm"
 
       - name: Install dependencies

@@ -51,15 +51,25 @@ test('backlog に無い DN-#### は error、実在する ID は通す', () => {
 // 偽赤は偽緑と同じくらい信号を殺すので、日付つきスナップショットに限って warning へ降格する。
 // live 文書（作業指示書として今も読まれるレビューを含む）は error のまま——ここを緩めると
 // 「読者を存在しないタスクへ案内する」本来の実害が拾えなくなる。
-test('週次スナップショットの参照切れは warning、live 文書は error のまま', () => {
+test('週次・月次スナップショット、引き継ぎ、レビューの参照切れは warning、恒久文書は error のまま', () => {
   const md = '- R2 台帳外の一掃（`DN-9999` 完了）';
   const snap = auditProjectDoc('docs/reviews/weekly/2026-W35-review.md', md, IDS);
   assert.deepEqual(snap.errors, [], '週次スナップショットで error にしない');
   assert.deepEqual(snap.warnings.map((w) => w.rule), ['dangling-id']);
 
-  // 同じ reviews/ でも weekly/ の外は live 扱い（例: 作業指示書として参照され続ける静的監査）
-  const live = auditProjectDoc('docs/reviews/2026-07-11-static-ui-codebase-audit.md', md, IDS);
-  assert.deepEqual(live.errors.map((e) => e.rule), ['dangling-id']);
+  // 月次レビューも同じ時点の記録（2026-10-10）
+  const monthly = auditProjectDoc('docs/reviews/monthly/2026-09-review.md', md, IDS);
+  assert.deepEqual(monthly.errors, [], '月次スナップショットで error にしない');
+  assert.deepEqual(monthly.warnings.map((w) => w.rule), ['dangling-id']);
+
+  // 引き継ぎ・レビュー全体も書いた時点の記録（2026-10-12・DN-0587）。別セッションが閉じたカードで develop の CI を赤くしない
+  for (const rel of ['docs/handoffs/2026-10-08-x.md', 'docs/reviews/2026-07-11-static-ui-codebase-audit.md']) {
+    const r = auditProjectDoc(rel, md, IDS);
+    assert.deepEqual(r.errors, [], `${rel} は error にしない`);
+    assert.deepEqual(r.warnings.map((w) => w.rule), ['dangling-id'], `${rel} は件数を warning に出す`);
+  }
+  // それ以外の恒久文書は error のまま
+  assert.deepEqual(auditProjectDoc('docs/strategy/a.md', md, IDS).errors.map((e) => e.rule), ['dangling-id']);
 
   // 廃止参照は週次でも error（降格するのは dangling-id だけ）
   const retired = auditProjectDoc('docs/reviews/weekly/2026-W35-review.md', '`task-queue.json` 参照', IDS);

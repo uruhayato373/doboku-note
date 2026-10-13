@@ -323,6 +323,86 @@
           "removed": 3
         }
       ]
+    },
+    {
+      "runId": "2026-10-11T03-29-41Z",
+      "collectedAt": "2026-10-11T03:29:41.003Z",
+      "property": "sc-domain:doboku-note.com",
+      "status": "ok",
+      "complete": true,
+      "manifestUnits": 16,
+      "downloadedUnits": 11,
+      "normalizedUnits": 11,
+      "skippedUnits": 0,
+      "totalRows": 3776,
+      "units": [
+        {
+          "unit": "crawledNotIndexed--allKnownPages",
+          "rows": 381,
+          "added": 31,
+          "removed": 38
+        },
+        {
+          "unit": "redirect--allKnownPages",
+          "rows": 1000,
+          "added": 66,
+          "removed": 66
+        },
+        {
+          "unit": "notFound--allKnownPages",
+          "rows": 320,
+          "added": 6,
+          "removed": 8
+        },
+        {
+          "unit": "alternateCanonical--allKnownPages",
+          "rows": 174,
+          "added": 2,
+          "removed": 0
+        },
+        {
+          "unit": "forbidden--allKnownPages",
+          "rows": 5,
+          "added": 0,
+          "removed": 0
+        },
+        {
+          "unit": "discoveredNotIndexed--allKnownPages",
+          "rows": 478,
+          "added": 278,
+          "removed": 81
+        },
+        {
+          "unit": "noindex--allKnownPages",
+          "rows": 157,
+          "added": 45,
+          "removed": 0
+        },
+        {
+          "unit": "crawledNotIndexed--allSubmittedPages",
+          "rows": 322,
+          "added": 321,
+          "removed": 20
+        },
+        {
+          "unit": "redirect--allSubmittedPages",
+          "rows": 431,
+          "added": 431,
+          "removed": 0
+        },
+        {
+          "unit": "notFound--allSubmittedPages",
+          "rows": 30,
+          "added": 30,
+          "removed": 0
+        },
+        {
+          "unit": "discoveredNotIndexed--allSubmittedPages",
+          "rows": 478,
+          "added": 278,
+          "removed": 81
+        }
+      ]
     }
   ]
 }

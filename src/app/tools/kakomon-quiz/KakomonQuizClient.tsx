@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import Link from "next/link";
 import type { QuizDataset, QuizQuestion } from "@/lib/quiz/types";
+import { correctLabel, isCorrectChoice } from "@/lib/quiz/grading";
 import { event } from "@/lib/gtag";
 import {
   buildQuizFunnelEvent,
@@ -474,7 +475,7 @@ function QuizRunner({
       setAnswered(true);
       return;
     }
-    const correct = num === q.correct;
+    const correct = isCorrectChoice(q, num);
     setSelected(num);
     setAnswered(true);
     if (correct) setScore((s) => s + 1);
@@ -562,7 +563,7 @@ function QuizRunner({
         </div>
         <div className="flex flex-col gap-2.5">
           {q.options.map((o) => {
-            const isCorrect = o.num === q.correct;
+            const isCorrect = isCorrectChoice(q, o.num);
             const isPicked = selected === o.num;
             let borderClass = "border-(--rule-soft)";
             let bg: CSSProperties | undefined;
@@ -605,14 +606,17 @@ function QuizRunner({
           <div className="mt-5 rounded-card-content bg-(--bg) p-4">
             <div
               className="text-sm font-bold mb-2"
-              style={{ color: q.correct == null ? "var(--ink-body)" : selected === q.correct ? OK : NG }}
+              style={{ color: q.correct == null ? "var(--ink-body)" : selected != null && isCorrectChoice(q, selected) ? OK : NG }}
             >
               {q.correct == null
                 ? "この問題は採点対象外です。取り扱いの理由は解説・元記事で確認してください"
-                : selected === q.correct
+                : selected != null && isCorrectChoice(q, selected)
                   ? "正解！"
-                  : `不正解（正解は ${q.correct}）`}
+                  : `不正解（正解は ${correctLabel(q)}）`}
             </div>
+            {q.statementsHtml && <div className="mb-3" dangerouslySetInnerHTML={{ __html: q.statementsHtml }} />}
+            {/* 選択肢の行が無く、記述ごとの解説だけの問題（組合せの選択肢は記述の解説から読める）は、中身のない選択肢の一覧を出さない */}
+            {!(q.statementsHtml && q.explanations.every((e) => !e.text && !e.html)) && (
             <ul className="flex flex-col gap-1.5">
               {q.explanations.map((e) => (
                 <li key={e.num} className="flex items-start gap-2 text-[13px] leading-6 text-(--ink-body)">
@@ -626,6 +630,7 @@ function QuizRunner({
                 </li>
               ))}
             </ul>
+            )}
             {q.articlePath && (
               <Link href={q.articlePath} className="focus-ring mt-3 inline-block text-[13px] font-bold text-(--accent) hover:underline">
                 元記事で詳しい解説を読む →
@@ -659,7 +664,8 @@ function QuizRichText({
   className?: string;
   strong?: boolean;
 }) {
-  const styles = `quiz-rich-text min-w-0 text-[13px] leading-6 text-(--ink-body) [&_p]:m-0 [&_p+_p]:mt-2 [&_strong]:text-(--ink) [&_table]:min-w-full [&_table]:border-collapse [&_td]:border [&_td]:border-(--rule-soft) [&_td]:px-2 [&_td]:py-1 [&_th]:border [&_th]:border-(--rule-soft) [&_th]:px-2 [&_th]:py-1 [&_img]:mx-auto [&_img]:my-3 [&_img]:h-auto [&_img]:max-h-[420px] [&_img]:max-w-full ${strong ? "text-[15px] sm:text-[16px] leading-[1.9] font-bold text-(--ink)" : ""} ${className}`;
+  // 中身（段落・表・画像・空欄の枠・数式）の見た目は src/styles/quiz-content.css（iOS アプリと共有）。ここは文字の大きさと色だけ
+  const styles = `quiz-rich-text min-w-0 text-[13px] leading-6 text-(--ink-body) ${strong ? "text-[15px] sm:text-[16px] leading-[1.9] font-bold text-(--ink)" : ""} ${className}`;
   if (!html) return <span className={styles}>{text}</span>;
   // HTML は scripts/build-quiz-data.mjs が追跡下のMDXだけからビルドした信頼済みデータ。
   return <div className={styles} dangerouslySetInnerHTML={{ __html: html }} />;

@@ -1,0 +1,48 @@
+<!-- authored 2026-10-10 doboku-note 自作。題材は高流動コンクリートのフローの経時低下と、打込み口からの流動勾配・流動距離の関係。特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="高流動コンクリートの流動特性の概念図。上は時間とともにスランプフローが下がり配合により下がり方が違うグラフ。下は打込み口から遠ざかるほど表面が下がる流動勾配と流動距離の断面">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .t-sec { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-in { fill: #1a3a5c; }
+      .ax { stroke: #555; stroke-width: 1.5; fill: none; }
+      .cA { stroke: #3a7d44; stroke-width: 2.5; fill: none; }
+      .cB { stroke: #b22234; stroke-width: 2.5; fill: none; }
+      .lim { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 5 3; fill: none; }
+      .conc { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .form { stroke: #555; stroke-width: 3; fill: none; }
+      .pipe { stroke: #2e6da4; stroke-width: 6; fill: none; stroke-linecap: round; }
+      .dim { stroke: #555; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker id="ah" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#555"/>
+    </marker>
+  </defs>
+
+  <text class="t-sec" x="20" y="26">時間とともにフローが落ちる</text>
+  <path class="ax" d="M56,40 L56,200 L356,200"/>
+  <text x="22" y="52">フロー</text>
+  <text x="250" y="222">練上がりからの時間</text>
+  <path class="cA" d="M60,70 Q200,84 346,104"/>
+  <path class="cB" d="M60,70 Q170,98 346,176"/>
+  <line class="lim" x1="60" y1="140" x2="346" y2="140"/>
+  <text x="62" y="156">荷卸し時の下限</text>
+  <line class="cA" x1="30" y1="248" x2="52" y2="248"/>
+  <text x="58" y="252">低下が小さい配合</text>
+  <line class="cB" x1="204" y1="248" x2="226" y2="248"/>
+  <text x="232" y="252">低下が大きい配合</text>
+
+  <text class="t-sec" x="20" y="300">遠くへ流すほど勾配がつく</text>
+  <polyline class="form" points="40,320 40,440 360,440 360,320"/>
+  <polygon class="conc" points="42,348 358,410 358,438 42,438"/>
+  <line class="pipe" x1="70" y1="306" x2="70" y2="346"/>
+  <text class="t-in" x="84" y="318">打込み口</text>
+  <text class="t-in" x="150" y="378">流動勾配</text>
+  <line class="dim" x1="70" y1="456" x2="350" y2="456" marker-end="url(#ah)"/>
+  <line class="dim" x1="70" y1="450" x2="70" y2="462"/>
+  <text class="t-in" x="210" y="474" text-anchor="middle">流動距離</text>
+  <text x="200" y="492" text-anchor="middle">遠いほど粗骨材が遅れ、分離しやすい</text>
+</svg>

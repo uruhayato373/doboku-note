@@ -1,0 +1,48 @@
+<!-- authored 2026-10-10 doboku-note 自作。断面力ごとの変形の概念図。書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="断面力ごとの変形の概念図。軸力は部材の縮み、曲げはたわみ、せん断はずれと斜めひび割れ、ねじりは部材のねじれとらせん状のひび割れとして現れ、温度や収縮、クリープ、沈下は別の原因として整理した">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .b { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+      .l { fill: #1a3a5c; }
+      .c { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .m { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .a { stroke: #2e6da4; stroke-width: 1.5; fill: none; }
+      .d { stroke: #8a8a8a; stroke-width: 1.5; stroke-dasharray: 4 3; fill: none; }
+      .r { stroke: #b22234; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker id="ah" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4" /></marker>
+  </defs>
+  <rect class="c" x="20" y="14" width="175" height="130" rx="6" />
+  <rect class="c" x="205" y="14" width="175" height="130" rx="6" />
+  <rect class="c" x="20" y="154" width="175" height="130" rx="6" />
+  <rect class="c" x="205" y="154" width="175" height="130" rx="6" />
+  <text class="b" x="30" y="34">軸力</text>
+  <rect class="m" x="94" y="62" width="28" height="64" />
+  <rect class="d" x="94" y="52" width="28" height="74" />
+  <line class="a" x1="108" y1="40" x2="108" y2="58" marker-end="url(#ah)" />
+  <text class="l" x="30" y="138">縮み（短縮）</text>
+  <text class="b" x="215" y="34">曲げ</text>
+  <rect class="m" x="230" y="70" width="126" height="12" />
+  <path class="d" d="M230,70 Q293,100 356,70" />
+  <line class="a" x1="293" y1="44" x2="293" y2="66" marker-end="url(#ah)" />
+  <text class="l" x="215" y="138">たわみ・回転</text>
+  <text class="b" x="30" y="174">せん断</text>
+  <polygon class="m" points="84,202 124,202 134,254 94,254" />
+  <rect class="d" x="84" y="202" width="40" height="52" />
+  <path class="r" d="M92,208 L128,250" />
+  <text class="l" x="30" y="274">ずれ・斜めひび割れ</text>
+  <text class="b" x="215" y="174">ねじり</text>
+  <rect class="m" x="250" y="196" width="100" height="44" />
+  <path class="r" d="M262,240 L282,196 M292,240 L312,196 M322,240 L342,196" />
+  <text class="l" x="215" y="274">らせん状のひび割れ</text>
+  <rect class="c" x="20" y="296" width="360" height="92" rx="6" />
+  <text class="b" x="32" y="316">断面力以外の原因</text>
+  <text class="l" x="32" y="338">温度・乾燥収縮：拘束されるとひび割れ</text>
+  <text class="l" x="32" y="358">クリープ：持続荷重で変形が時間とともに増加</text>
+  <text class="l" x="32" y="378">沈下：支持の沈下側へ傾き、斜めに割れる</text>
+  <rect class="c" x="20" y="402" width="360" height="78" rx="6" />
+  <text class="l" x="32" y="424">変形の向きと大きさを測り、</text>
+  <text class="l" x="32" y="444">外力か材料の性質かを分けてから、</text>
+  <text class="l" x="32" y="464">ひび割れの向きと照らして原因を決める</text>
+</svg>

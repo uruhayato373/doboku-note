@@ -22,18 +22,26 @@
 //   node scripts/check-affiliate-mats.mjs            # src/ + content/site + content/note 全体
 //   node scripts/check-affiliate-mats.mjs --staged   # git staged の該当ファイルのみ（pre-commit 用）
 
-import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { todayJst } from './lib/jst-date.mjs';
 import { datasetPath } from './lib/datasets.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
 
-const STAGED = process.argv.includes('--staged');
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
+
+const STAGED = __argv.includes('--staged');
 const REGISTRY = datasetPath('config.affiliate-mats');
 
 if (!existsSync(REGISTRY)) {
   console.error(`[check-affiliate-mats] ${REGISTRY} が無いため検証をスキップ`);
-  process.exit(0);
+  __exit(0);
 }
 
 const registry = JSON.parse(readFileSync(REGISTRY, 'utf8')).mats;
@@ -47,16 +55,7 @@ const SCAN_DIRS = ['src', 'content/site', 'content/note'];
 const NOTE_SURFACE = 'note-article';
 const SCAN_EXT = /\.(ts|tsx|mjs|mts|js|jsx|md|mdx|json)$/;
 
-function walk(dir, out = []) {
-  if (!existsSync(dir)) return out;
-  for (const e of readdirSync(dir)) {
-    const p = join(dir, e);
-    const st = statSync(p);
-    if (st.isDirectory()) walk(p, out);
-    else if (SCAN_EXT.test(e)) out.push(p.split('\\').join('/'));
-  }
-  return out;
-}
+const walk = (dir) => listFiles(dir, { match: (_path, name) => SCAN_EXT.test(name), allowMissing: true, followLinks: true }).map((p) => p.split('\\').join('/'));
 
 let files;
 if (STAGED) {
@@ -145,11 +144,15 @@ if (unknown.length > 0) {
 }
 
 if (mdxRaw.length > 0 || unknown.length > 0 || noteDisallowed.length > 0) {
-  process.exit(1);
+  __exit(1);
 }
 
 const scope = STAGED ? 'staged' : `${files.length} ファイル`;
 console.log(
   `[check-affiliate-mats] ✓ ${scope} の a8mat は全て許可リストに存在（既知 ${seenKnown.size}/${known.size} 種が出現）`,
 );
-process.exit(0);
+__exit(0);
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

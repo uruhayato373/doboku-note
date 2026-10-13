@@ -98,7 +98,7 @@ callout 内に通常 markdown（リスト・表・コードブロック・リン
 > - `lca` → `life-cycle-assessment` を探す
 > - 見つからなければエントリ削除
 >
-> 完了条件: `npm run check-mdx` で HIGH = 0
+> 完了条件: `node .claude/scripts/lint-mdx-mobile.mjs <file>` で HIGH = 0
 ```
 
 ---

@@ -33,9 +33,9 @@ export default async function ProductStatusPage({ searchParams }: { searchParams
             {t.label}
           </Link>
         ))}
-        <span className="small muted" style={{ marginLeft: 'auto' }}>
+        <span className="small muted ml-auto">
           {tab.work.map(([label, href]) => (
-            <Link key={href} href={href} style={{ marginLeft: 12 }}>
+            <Link key={href} href={href} className="ml-3">
               {label}
             </Link>
           ))}

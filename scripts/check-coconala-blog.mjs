@@ -36,10 +36,17 @@ import { execFileSync } from 'node:child_process';
 import { readCatalog } from './lib/coconala-session.mjs';
 import { assertBlogPost, BlogGuardError, TITLE_MAX } from './lib/coconala-blog-guards.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
 
 const BLOG_DIR = join(ROOT, 'content/coconala/blog');
 const TAG = '[check-coconala-blog]';
-const argv = process.argv.slice(2);
+const argv = __argv.slice(2);
 const STAGED = argv.includes('--staged');
 const AS_JSON = argv.includes('--json');
 const STALE_DRAFT_DAYS = 30;
@@ -159,12 +166,12 @@ const inconclusive = out.readFail > 0;
 
 if (AS_JSON) {
   writeSync(1, JSON.stringify({ ...out, inconclusive }, null, 2) + '\n');
-  process.exit(inconclusive ? 2 : out.due ? 1 : 0);
+  __exit(inconclusive ? 2 : out.due ? 1 : 0);
 }
 
 if (out.target === 0) {
   console.log(`${TAG} 対象ゼロ（${STAGED ? 'staged に該当記事なし' : 'content/coconala/blog/ に記事がまだありません'}）— 異常なしではなく未着手`);
-  process.exit(0);
+  __exit(0);
 }
 console.log(`${TAG} 検査 ${out.inspected}/${out.target} 件（公開 ${out.published} / 下書き ${out.drafts}）` +
   `${out.readFail ? ` ・読取失敗 ${out.readFail}` : ''}`);
@@ -172,7 +179,11 @@ if (!out.titleLengthChecked) {
   console.log(`${TAG} 注: タイトル長は未検査（TITLE_MAX 未計測 — 実機プローブで確定させること）`);
 }
 for (const w of out.warnings) console.log(`  △ ${w}`);
-if (inconclusive) { console.error(`${TAG} 検査不成立（読めないファイルがある）`); process.exit(2); }
-if (!out.due) { console.log(`${TAG} OK`); process.exit(0); }
+if (inconclusive) { console.error(`${TAG} 検査不成立（読めないファイルがある）`); __exit(2); }
+if (!out.due) { console.log(`${TAG} OK`); __exit(0); }
 for (const v of out.violations) console.error(`  ▼ ${v}`);
-process.exit(1);
+__exit(1);
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

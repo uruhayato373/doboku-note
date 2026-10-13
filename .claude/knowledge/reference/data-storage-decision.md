@@ -40,7 +40,7 @@ sections:
 
 | 項目 | ファイル |
 |---|---|
-| zod スキーマ | `.claude/scripts/lib/frontmatter-schema.mjs` + `src/lib/frontmatter-schema.ts` |
+| zod スキーマ | `.claude/scripts/lib/frontmatter-schema.mjs`（TS 側の再エクスポートは使い手が無く 2026-10-11 に削除） |
 | タグ辞書ビルダー | `.claude/scripts/build-tag-index.mjs` → `src/config/tag-dictionary.json` |
 | 試験横断キーワード | `.claude/scripts/build-cross-exam-keyword-index.mjs` → `src/config/cross-exam-keywords.json` |
 | frontmatter lint | `.claude/scripts/lint-frontmatter.mjs` |
@@ -73,7 +73,8 @@ frontmatter 検査ルールの追加・変更手順は `.claude/skills/quality/c
 - **なぜ 1 ファイルか（2026-10-06 に運営者が決定）**: 2026-10-01 の当初は並行セッションの衝突を減らすため 1 商品 1 ファイル（`content/products/<channel>/<id>.json`）にしたが、価格を変えるたびに置き場が散って追いにくく、運営者が「商品データは 1 ファイルに集約する」と決めた。並びを channel → id に固定し、書き換えは `npm run product`（型の検査・並び・キー順・字下げ 2・LF）だけで行うので、別々の商品を触る並行セッションの差分は別の行に出る。同じ商品を同時に触ったときは Git の衝突として表に出る（黙って上書きされない）。旧パスは `repository-paths.mjs` の移動表で `config/products.json#<id>` に読み替える
 - **全チャネル**: note（段階1・2026-10-04 に全 159 件）、Kindle（段階2・2026-10-06 に 72 冊。id は `kindle-<書籍id の小文字>`・並びは `order`・`scripts/kindle-published/catalog.json` は `npm run product -- gen` の生成物で、KDP スクリプトは `updateKindleCatalog` で正本へ書く）。ココナラ（段階3・2026-10-06 に 34 件。id は catalog.id と同じ・並びは `order`・`src/lib/coconala-services.ts` の SERVICES_RAW は生成ブロックで、出品・休止スクリプトは `updateCoconalaService`、`check-coconala-wiring` は正本を直接読む）。note の記事の単品価格（段階4・2026-10-06 に 804 本）は `articlePrices`（キーは記事のパス）に持ち、記事の frontmatter の `price` はその写し（`npm run product -- gen` が書く・新しい記事の price は gen が取り込む）。価格を変えるのは `npm run product -- price <article.md> <円>` と、それを呼ぶ note-price-sweep・note-reconcile-title-price・backfill-note-article-meta だけ。マガジンの掲載文（note掲載文.txt）の機械用の欄（セット価格・単品価格）も gen が正本から書く。`check-products` は pre-commit（pre-commit-ci-gates）と CI で、これらのずれを止める
 - **Windows / Mac / CI**: 判定と生成は JSON だけで完結（DB に依存しない）。SQLite は sql.js（WASM）でネイティブのビルド不要。`.gitattributes` で `config/products.json` を LF 固定
-- **段階1**: note の全商品（2026-10-01 に 2級土木、2026-10-04 に残り 10 資格＝143 件）を移し、`src/lib/note-magazines.ts` の中身は資格ごとの生成ブロック（`// <generated:products <資格>>`）になった（読み手は変えない）。複数の資格にまたがる商品は group id（`civil-construction-1-2`）か主な資格に置く。原稿の noteId と結び付かない note 上の収録（同じ題名の別 ID が収録されているなど）は `members` に `note:<noteId>` で書き、`check-products` が件数と中身を毎回出す。残り（導線設定・カバー設定の生成、管理画面の SQLite 読み、他チャネル、読み手の JSON 直読み）は段階2以降
+- **段階1**: note の全商品（2026-10-01 に 2級土木、2026-10-04 に残り 10 資格＝143 件）を移し、`src/lib/note-magazines.ts` の中身は資格ごとの生成ブロック（`// <generated:products <資格>>`）になった（読み手は変えない）。複数の資格にまたがる商品は group id（`civil-construction-1-2`）か主な資格に置く。原稿の noteId と結び付かない note 上の収録（同じ題名の別 ID が収録されているなど）は `members` に `note:<noteId>` で書き、`check-products` が件数と中身を毎回出す。残り（管理画面の SQLite 読み、読み手の JSON 直読み）は後続
+- **段階2（2026-10-12・DN-0493）**: ペルソナ別パック（`persona` と `cover` を持つ note マガジン。今は 2級土木の想定工事バンクから切り出した 10 本）の導線・カバー・掲載文を正本から作る。`cover`（マガジンの置き場・カバーの 4 文言）・`listing.appeal`（アピールポイント）・`intro.notHome`（複数のパックに入る記事の収録元を persona の順から外す例外）を商品に持ち、`npm run product -- gen` が `config/note-intro-standard.json` の `variants.civil2` の `magazines`（対象 10 件）と収録記事ごとの `rules`（`_generated: true`・72 件）、`config/note-covers.json` の `additionalMagazines`（10 行）、`<cover.magazineDir>/note掲載文.txt`（10 本）を書く。題名・価格・説明は `catalog` から（説明は `catalog.description` の定型から読み手・工事の例・件数を取る。定型でなければ gen と check-products が止める）。**パック 1 本の追加は「正本に商品を足す（`bank` の `includes` にも足す）→ gen → note への反映」で、正本以外に手で直すファイルが無い**（`tests/product-note-derive.test.mjs`）。手書きのまま残すのは、型の共通部（root・banner・ココナラ）、ペルソナ別パック以外のマガジン（過去問・完成答案集・学科記述ほか）の題名・説明と rules、それらの掲載文。`npm run product -- plan` は正本とコミット済みの収録記録の差を、作成・改称・価格・収録の追加と外し・退役の計画にして出す（読むだけ。実行は計画の各行のコマンド）。管理画面の商品設計はこの計画と同じ収録の意図との差と、作成予定の商品を出す
 
 **D1 へ移す条件**: 編集者が 3 名以上になる／管理画面から商品を直接書き換えたい／購入者データを扱う。生成する SQLite を D1 と同じスキーマにしてあるので、移すときはデータの移し替えだけで済む。
 
@@ -181,6 +182,17 @@ git 管理の data/ は 846 → 約 280 ファイル（約 7 割減）、年間�
 - 段階 3（2026-10-10・DN-0586）: 台帳の行に `refs: [{ at: '場所', to: 'qualification'|'product'|'article' }]` を宣言すると、`check-datasets` が全ファイルで参照先の実在を見る（`scripts/lib/dataset-refs.mjs`。場所は `books.*.expansions[].article` の形）。検査した参照の件数を出し、宣言があるのに 1 件も拾えなければ違反（場所の書き間違い）・全体で 0 件なら検査不成立。最初に宣言したのは `state.book-coverage`（展開した記事）・`config.products`（商品の資格）・`config.business-direction`（重点資格）の 3 つ（537 件）。
   既存の個別の検査で置き換えられるかの洗い出し: `check-qualification-ssot` は資格 id の照合に加えて名前の写しを見るので残す（id の照合だけは refs と重なる）／`check-category-curriculum` の slug の実在（260 件）は、読む `src/config/category-curriculum.json` が台帳の置き場（AREAS）の外なので、`src/config` を置き場に足すまで個別のまま／`check-products` は生成ブロックとの一致を見るもので、参照の実在ではないので置き換えない。新しく参照を持つデータを足すときは、個別の検査を書く前に refs で宣言する
 
+## 全体の棚卸し（2026-10-10）
+
+台帳 251 データセット・git 管理 963 ファイルを、台帳の宣言と実物・コードの参照・最終更新・中身のハッシュで突き合わせた（調査の道具は `.tmp/` の一回きり）。台帳の構造（宣言・型・直書き・重なり・参照）は `check-datasets` が既に止めていて違反 0。残っていたずれと処置:
+
+- **読み手のいない記録**: コード・スキル・文書のどこからも引かれず 2026-08 から止まっていた `.claude/state/` の 3 種（`resurrection-candidates`・`exam-keyword-cycles/logs-archive-2026-04` の 286 ファイル・`figure-audit-visual`）を台帳の行ごと消した（中身は git 履歴）。スキルが書く・文書が根拠に引くものは残した
+- **鮮度の直書き**: data/ の鮮度は 23 データセットとも台帳の `freshness` から読んでいた。残っていた直書きは `.claude/state/` を読む 2 本（動画の公開照合 14 日・note の添付の実査 14 日）と、手順書の文中だけにあった note の同期の 8 日。ファイル名を `{name}` でまとめた行（`state.video-status`・`state.note-attachments`）をファイルごとの行に分けて freshness を持たせ、検査を台帳から読むようにした。note の同期は `note.sync-log` に freshness を宣言し、日次の ops 点検 `note-sync-freshness` を足した（10/4 に Mac の同期が Google Drive の停止で失敗していたのに、CI からは反映待ちとしか見えなかった）
+- **週の換算**: 週次レビューの回と振り返り期間の換算が 7 か所に別実装だったのを `scripts/lib/review-week.mjs`（依存ゼロ）にまとめた（#968）
+- **時点の記録**: 月次レビュー（`docs/reviews/monthly/`）も週次と同じく完了して消えたカードへの参照を warning にした（`check-project-task-refs`）
+
+残したもの（理由つき）: 寿命の無い `.claude/state/` の作業記録（`link-audit` 26・`pe-first-stage-audit` 63・`pe-essay-review` 40・`improvements` 32）は手元のスキルが書いて読むもので、寿命の仕組み（prune）は data/ の CI の書き手が呼ぶ作りなので宣言しても効かない（減らすなら書き手の側で消す）／事業の台帳（`business.measurement`・`business.snapshot`）は追記だけの記録なので統合も削除もしない／data/ の series・ledger の鮮度の未宣言 35 種は、読む検査が鮮度で判定していない（取得の途中結果・人が書く台帳）ので宣言しない。運営者の判断（2026-10-10）: `config/ogp/backgrounds/`（AI で作った一点物の画像 9.6MB）は private R2 へ移した（素材の group `ogp-background`・git では追跡しない・使う直前に asset-hydrate）。`data/inbox/mail-events.json`（Obsidian の mail-triage が書き、このリポジトリに読み手がいない）は受け箱として残す
+
 ## 参考リンク
 
 - Cloudflare D1: https://developers.cloudflare.com/d1/
@@ -194,3 +206,4 @@ git 管理の data/ は 846 → 約 280 ファイル（約 7 割減）、年間�
 - 2026-10-02: 「設定・記録の構成と型の正本」を追加（台帳 `datasets.mjs`・型の正本 zod・フォルダの原則・統合の基準）
 - 2026-10-03: 台帳に `freshness`（鮮度の閾値）を追加し、設定・記録の読み書きの共通部品（`json-io`・`dataset-io`・`dataset-write`）と、JST の日付の出し方（`jst-date.mjs`）・取得失敗の上限（`inconclusive-gate.mjs`）を 1 か所にした
 - 2026-10-08: 「台帳を 1 本にして DB のように扱う」を追加（置き場 `.claude/state/` を台帳へ・Drive vault の宣言 `drive`・`local` は作り直せる一時出力だけ・直書きのラチェット）
+- 2026-10-10: 「全体の棚卸し」を追加（読み手のいない記録 3 種の削除・`.claude/state/` の鮮度を台帳へ・note の同期の停止の検査・週の換算の一本化・月次レビューを時点の記録に）

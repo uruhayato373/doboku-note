@@ -58,7 +58,7 @@
  *   9-11 HIGH  <ExamPoint items> の各文字列に句読点（、。，．）を含む（機械分割バグ検出）
  *   9-12 HIGH  civil secondary-r0X で `## 問題` 数 > `<details>` 数（解答欠落検出）
  *   9-13 MEDIUM civil 過去問 MDX に textbook/guide への内部リンクが無い（内部リンク密度の指標）
- *   0-2 HIGH   Docusaurus 旧 frontmatter（id/sidebar_label/toc_min_heading_level/toc_max_heading_level）残存
+ *   0-2 HIGH   Docusaurus 旧 frontmatter（id/sidebar_label）残存。toc_min/max_heading_level はサイトが目次の深さに使う（DocPage.tsx）ので対象外
  *  10-1 HIGH   <ArticleImage caption> が 60 字超（説明型 caption、§8 違反）
  *  10-2 MEDIUM 生 <img> タグ検出（<ArticleImage> への移行を推奨）
  *  10-3 MEDIUM 画像 alt 属性が 80 字超過
@@ -85,19 +85,26 @@
  */
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join, resolve, dirname, relative, sep } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { execSync } from 'node:child_process';
 import { datasetPath } from '../../scripts/lib/datasets.mjs';
 import { lintMdxHygiene } from '#lib/mdx-hygiene-rules.mjs';
 import { NOTE_BASE } from '../../scripts/lib/site-identity.mjs';
-import { blankOfficialQuestionLines, officialQuestionLines } from '../../scripts/lib/official-question-text.mjs';
+import { blankOfficialQuestionLines, hasOfficialQuestionMark, officialQuestionLines } from '../../scripts/lib/official-question-text.mjs';
+import { REPO_ROOT } from '../../scripts/lib/repository-paths.mjs';
+import { parseCliArgs } from '../../scripts/lib/cli-args.mjs';
+import { runBody, isCliEntry, runAsCli } from '../../scripts/lib/cli-run.mjs';
+
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
 
 const CELL_MAX = 15;
 
 // ── ルール設定（config/content-rules.json）────────────────────────────
 // 重大度・資格×種別の有効/無効を外部化した SSOT。不在/破損時はスクリプト内
 // ハードコード値（各ルール function が push する severity）へフォールバックする。
-const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 
 function loadContentRules() {
   const p = resolve(REPO_ROOT, datasetPath('config.content-rules'));
@@ -166,19 +173,20 @@ const POSTS_ROOT = resolve(REPO_ROOT, 'content/site');
  *   --ci                新規違反があれば exit 1（--baseline と併用）
  */
 function parseArgs(argv) {
-  const flags = { all: false, baseline: null, updateBaseline: false, report: null, ci: false };
-  const positional = [];
-  for (const a of argv) {
-    if (a === '--all') flags.all = true;
-    else if (a === '--update-baseline') flags.updateBaseline = true;
-    else if (a === '--ci') flags.ci = true;
-    else if (a === '--baseline') flags.baseline = DEFAULT_BASELINE;
-    else if (a.startsWith('--baseline=')) flags.baseline = resolve(a.slice('--baseline='.length));
-    else if (a === '--report') flags.report = DEFAULT_REPORT;
-    else if (a.startsWith('--report=')) flags.report = resolve(a.slice('--report='.length));
-    else positional.push(a);
-  }
-  return { flags, positional };
+  // --baseline・--report は値を省略できる（省略時は既定のパス）。parseCliArgs は値を取るフラグを `--name=値` で受けるので、省略形だけここで既定値へ寄せる
+  const withDefaults = argv.map((a) => (a === '--baseline' ? `--baseline=${DEFAULT_BASELINE}` : a === '--report' ? `--report=${DEFAULT_REPORT}` : a));
+  const v = parseCliArgs(
+    { all: { type: 'boolean' }, 'update-baseline': { type: 'boolean' }, ci: { type: 'boolean' }, baseline: { type: 'string' }, report: { type: 'string' } },
+    withDefaults,
+  );
+  const flags = {
+    all: v.all,
+    baseline: v.baseline === null ? null : resolve(v.baseline),
+    updateBaseline: v.updateBaseline,
+    report: v.report === null ? null : resolve(v.report),
+    ci: v.ci,
+  };
+  return { flags, positional: v._ };
 }
 
 function isPublished(filePath) {
@@ -211,7 +219,7 @@ function resolveTargets(positional, flags) {
   for (const a of positional) {
     if (!existsSync(a)) {
       console.error(`Not found: ${a}`);
-      process.exit(2);
+      __exit(2);
     }
     const st = statSync(a);
     if (st.isDirectory()) {
@@ -1690,7 +1698,7 @@ function lintR8SpokeFixedPersonas(lines, raw, filePath, findings) {
 
 // ── 0-2: Docusaurus 旧 frontmatter 検出 ────────────────────────────────────
 /**
- * 0-2 HIGH: frontmatter に id/sidebar_label/toc_min_heading_level/toc_max_heading_level が残存。
+ * 0-2 HIGH: frontmatter に id/sidebar_label が残存（toc_* は目次の深さに使うので対象外）。
  *
  * Docusaurus 由来の旧フィールドで doboku-note では未使用。migrate-civil-frontmatter.mjs で一括削除可。
  */
@@ -1764,7 +1772,7 @@ function lintLegacyFrontmatter(raw, findings) {
   const fmMatch = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/);
   if (!fmMatch) return;
   const fmLines = fmMatch[1].split(/\r?\n/);
-  const legacyFields = ['id', 'sidebar_label', 'toc_min_heading_level', 'toc_max_heading_level'];
+  const legacyFields = ['id', 'sidebar_label'];
   fmLines.forEach((line, idx) => {
     for (const field of legacyFields) {
       if (new RegExp(`^${field}\\s*:`).test(line)) {
@@ -2049,14 +2057,14 @@ function lintFile(filePath) {
 
   // カテゴリ15: 文体（1文の長さ・文末の単調回避）（content-principles.md §24）
   // 公式問題の逐語（設問文）は原文を保持するので 15-x の対象外。範囲の判定は lib に一本化（lint-ja と共有）
-  lintProseStyle(blankOfficialQuestionLines(lines, filePath), findings);
+  lintProseStyle(blankOfficialQuestionLines(lines, hasOfficialQuestionMark(raw)), findings);
 
   // 追加衛生ルール: 0-3 文字化け / 0-4 TODO残存 / 2-4 アンカー重複 / 7-1 装飾絵文字 / 10-6 alt品質
   lintMdxHygiene(lines, findings);
 
   // 公式問題の逐語の中の表（選択肢の組合せ・作業日数・試験データの表）は原文の構造を変えられないので
   // 1-1/1-3/1-4 の対象外（DN-0549）。範囲は lint-ja・15-x と同じ lib の判定。解説（<details> 内）の表は従来どおり。
-  const officialLines = officialQuestionLines(lines, filePath);
+  const officialLines = officialQuestionLines(lines, hasOfficialQuestionMark(raw));
   const OFFICIAL_TABLE_RULES = new Set(['1-1', '1-3', '1-4']);
   const outsideOfficial = findings.filter((f) => !(OFFICIAL_TABLE_RULES.has(f.rule) && officialLines.has(f.line)));
 
@@ -2183,11 +2191,11 @@ function buildReport({ perFile, totals, regressions, pop }) {
 }
 
 function main() {
-  const { flags, positional } = parseArgs(process.argv.slice(2));
+  const { flags, positional } = parseArgs(__argv.slice(2));
   const targets = resolveTargets(positional, flags);
   if (targets.length === 0) {
     console.log('No MDX files to lint.');
-    process.exit(0);
+    __exit(0);
   }
 
   const ratchetMode = flags.all || flags.baseline || flags.updateBaseline || flags.report;
@@ -2237,12 +2245,12 @@ function main() {
     console.log(`\n${'='.repeat(60)}`);
     if (!anyFindings) {
       console.log(`✓ ${targets.length} file(s) passed.`);
-      process.exit(0);
+      __exit(0);
     }
     console.log(
       `Summary: HIGH ${totals.HIGH} / MEDIUM ${totals.MEDIUM} / LOW ${totals.LOW}`,
     );
-    process.exit(totalHigh > 0 ? 1 : 0);
+    __exit(totalHigh > 0 ? 1 : 0);
   }
 
   // ── ラチェット/レポートモード ──
@@ -2283,7 +2291,7 @@ function main() {
       counts,
     });
     console.log(`baseline 更新: ${relPath(outPath)}（${Object.keys(counts).length} 記事）`);
-    process.exit(0);
+    __exit(0);
   }
 
   // ラチェット判定
@@ -2293,11 +2301,15 @@ function main() {
       console.log(`  ${g.file}  (${g.rule}) ${g.was} → ${g.now}`);
     }
     if (regressions.length > 30) console.log(`  … 他 ${regressions.length - 30} 件`);
-    if (flags.ci) process.exit(1);
+    if (flags.ci) __exit(1);
   } else {
     console.log('✓ baseline 比の新規違反なし');
   }
-  process.exit(0);
+  __exit(0);
 }
 
 main();
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

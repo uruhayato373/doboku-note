@@ -24,22 +24,23 @@
  * 方針の真実源: .claude/knowledge/reference/affiliate-operations.md「キャリアの計測は 2 つの窓を混ぜない」
  * 評価サイクル: data/business/experiments.json の EXP-008（凍結した基線と deploy+28 日で比較する）
  */
-import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
-import { fileURLToPath } from "node:url";
 import { datasetPath, freshnessDays, latestFile } from "../../scripts/lib/datasets.mjs";
 import { latestReportRef, readJsonOrReport } from "../../scripts/lib/metric-reports.mjs";
 import { REFERRER_FULL_SINCE, resultsFromReportLog } from "../../scripts/lib/a8-report-csv.mjs";
 import { readLabelProgramMap } from "../../scripts/lib/affiliate-labels.mjs";
-import { slugFromKey } from "../../scripts/lib/url-normalization.mjs";
+import { publicPathFromSlug, slugFromKey } from "../../scripts/lib/url-normalization.mjs";
 import { matchesPage } from "../../src/lib/affiliate-placement-core.mjs";
+import { escapeRegExp } from '../../scripts/lib/regexp-escape.mjs';
+import { REPO_ROOT as ROOT } from '../../scripts/lib/repository-paths.mjs';
+import { listFiles } from "../../scripts/lib/fs-walk.mjs";
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 const CONFIG = join(ROOT, datasetPath("config.career-funnel"));
 const SITE_DIR = join(ROOT, "content/site");
 const NOTE_DIR = join(ROOT, "content/note");
 
-const readJson = (p) => readJsonOrReport(ROOT, p);
+const readReportJson = (p) => readJsonOrReport(ROOT, p);
 const toPosix = (p) => p.split("\\").join("/");
 /** リポジトリ相対のパス。既に相対（GA4・GSC の「ファイル#枠」の参照など）ならそのまま返す（先頭を切ると 2026-10-02 以降の参照が「son#…」に壊れていた） */
 const relative = (p) => {
@@ -376,7 +377,7 @@ export function sumA8(rows) {
 // ---- 収集 -------------------------------------------------------------------
 
 function collectCareerDocs(cfg) {
-  const index = readJson(join(ROOT, "src/config/doc-meta-index.json"));
+  const index = readReportJson(join(ROOT, "src/config/doc-meta-index.json"));
   const docs = [];
   for (const [slug, m] of Object.entries(index.docs)) {
     if (!(m.tags ?? []).includes("career")) continue;
@@ -405,19 +406,14 @@ const EXTRA_LINK_SOURCES = ["src/config/career-pathways.ts"];
 
 /** content/site の全 MDX を読み、career slug への literal 内部リンクと CareerAffiliate 出現を数える。 */
 function scanSiteSources(careerSlugs) {
-  const files = [];
-  const walk = (dir) => {
-    for (const e of readdirSync(dir, { withFileTypes: true })) {
-      const p = join(dir, e.name);
-      if (e.isDirectory()) walk(p);
-      else if (e.name.endsWith(".mdx")) files.push(p);
-    }
-  };
-  walk(SITE_DIR);
+  const files = listFiles(SITE_DIR, { ext: ".mdx" });
 
   const inboundLinks = new Map(careerSlugs.map((s) => [s, 0]));
   const affiliateBySlug = new Map(careerSlugs.map((s) => [s, { careerAffiliate: 0, placements: [] }]));
   const slugOfFile = new Map();
+  // 内部リンクは旧 /docs/<slug> と正規の公開パス（/exam/…）の両方で張られる。2026-08-22 の URL 移行後は後者が主で、
+  // /docs/ だけ数えると被リンク 0 に見える（2026-10-11 に 22/45 本が「被リンク 0」と誤報告された）
+  const linkPatterns = careerLinkPatterns(careerSlugs);
 
   for (const f of files) {
     const parts = relative(f).split("/"); // content/site/{category}/{...}
@@ -434,7 +430,7 @@ function scanSiteSources(careerSlugs) {
     const self = slugOfFile.get(f);
     for (const slug of careerSlugs) {
       if (slug === self) continue;
-      const hits = src.split(`/docs/${slug}`).length - 1;
+      const hits = countLinkHits(src, linkPatterns.get(slug));
       if (hits > 0) inboundLinks.set(slug, inboundLinks.get(slug) + hits);
     }
     if (self && affiliateBySlug.has(self)) {
@@ -451,12 +447,32 @@ function scanSiteSources(careerSlugs) {
     extraScanned += 1;
     const src = readFileSync(abs, "utf8");
     for (const slug of careerSlugs) {
-      const hits = src.split(`/docs/${slug}`).length - 1;
+      const hits = countLinkHits(src, linkPatterns.get(slug));
       if (hits > 0) inboundLinks.set(slug, inboundLinks.get(slug) + hits);
     }
   }
 
   return { inboundLinks, affiliateBySlug, siteFiles: files.length, extraScanned };
+}
+
+/**
+ * career slug ごとの「本文に書かれうるリンク文字列」。旧 /docs/<slug> と正規公開パス（publicPathFromSlug）。
+ * 公開パスは末尾に区切り（` ` ` ) ` ` " ` ` ' ` ` # ` ` ? ` 行末）が続くときだけ数え、
+ * `/exam/x/guide/salary` が `/exam/x/guide/salary-up` に誤って当たらないようにする。
+ * @param {string[]} careerSlugs
+ * @returns {Map<string, { legacy: string, canonical: string|null }>}
+ */
+export function careerLinkPatterns(careerSlugs) {
+  return new Map(careerSlugs.map((slug) => [slug, { legacy: `/docs/${slug}`, canonical: publicPathFromSlug(slug) }]));
+}
+
+/** 本文中のリンク出現数（旧 URL＋正規 URL）。境界を見るので前方一致の別記事は数えない。 */
+export function countLinkHits(src, pattern) {
+  if (!pattern) return 0;
+  const bounded = (p) => new RegExp(escapeRegExp(p) + "(?=[\\s)\"'#?]|$)", "g");
+  let n = (src.match(bounded(pattern.legacy)) ?? []).length;
+  if (pattern.canonical) n += (src.match(bounded(pattern.canonical)) ?? []).length;
+  return n;
 }
 
 function collectNoteCareer(cfg) {
@@ -465,27 +481,20 @@ function collectNoteCareer(cfg) {
     const m = new RegExp(`^${key}:\\s*"?([^"\\r\\n]+)"?`, "m").exec(head);
     return m ? m[1].trim() : null;
   };
-  const walk = (dir) => {
-    for (const e of readdirSync(dir, { withFileTypes: true })) {
-      const p = join(dir, e.name);
-      if (e.isDirectory()) walk(p);
-      // 型別ファイル（article-*.md）を落とさない（CLAUDE.md §9）
-      else if (/^article(-[^/\\]+)?\.md$/.test(e.name)) {
-        const head = readFileSync(p, "utf8").slice(0, 2000);
-        const utm = field(head, "utmCampaign");
-        if (!utm || !utm.startsWith(cfg.noteUtmPrefix)) continue;
-        out.push({
-          path: relative(p),
-          utmCampaign: utm,
-          noteId: field(head, "noteId"),
-          noteUrl: field(head, "noteUrl"),
-          noteStatus: field(head, "noteStatus"),
-          notePricing: field(head, "notePricing"),
-        });
-      }
-    }
-  };
-  walk(NOTE_DIR);
+  // 型別ファイル（article-*.md）を落とさない（CLAUDE.md §9）
+  for (const p of listFiles(NOTE_DIR, { match: (_path, name) => /^article(-[^/\\]+)?\.md$/.test(name) })) {
+    const head = readFileSync(p, "utf8").slice(0, 2000);
+    const utm = field(head, "utmCampaign");
+    if (!utm || !utm.startsWith(cfg.noteUtmPrefix)) continue;
+    out.push({
+      path: relative(p),
+      utmCampaign: utm,
+      noteId: field(head, "noteId"),
+      noteUrl: field(head, "noteUrl"),
+      noteStatus: field(head, "noteStatus"),
+      notePricing: field(head, "notePricing"),
+    });
+  }
   out.sort((a, b) => a.utmCampaign.localeCompare(b.utmCampaign));
   return out;
 }
@@ -499,7 +508,7 @@ function main() {
   const say = jsonOut ? console.error : console.log;
   const warnings = [];
 
-  const cfg = readJson(CONFIG);
+  const cfg = readReportJson(CONFIG);
 
   const inputs = {
     // by-label は同じ日に 28 日窓と暦月の 2 枠がある。配置別（28 日窓）と並べるので 28 日窓を選ぶ（暦月の方が後に書かれて先頭に来る）
@@ -523,13 +532,13 @@ function main() {
     process.exit(2);
   }
 
-  const ga4Label = readJson(inputs.ga4Label);
-  const ga4Placement = inputs.ga4Placement ? readJson(inputs.ga4Placement) : { meta: null, rows: [] };
-  const ga4Page = inputs.ga4Page ? readJson(inputs.ga4Page) : { meta: null, rows: [] };
-  const ga4ByPage = inputs.ga4ByPage ? readJson(inputs.ga4ByPage) : null;
-  const gscPageQuery = readJson(inputs.gscPageQuery);
-  const a8 = { records: inputs.a8 ? resultsFromReportLog(readJson(inputs.a8)) : [] }; // 月×案件は report-log の単月の期間から導く
-  const afb = inputs.afb ? readJson(inputs.afb) : null;
+  const ga4Label = readReportJson(inputs.ga4Label);
+  const ga4Placement = inputs.ga4Placement ? readReportJson(inputs.ga4Placement) : { meta: null, rows: [] };
+  const ga4Page = inputs.ga4Page ? readReportJson(inputs.ga4Page) : { meta: null, rows: [] };
+  const ga4ByPage = inputs.ga4ByPage ? readReportJson(inputs.ga4ByPage) : null;
+  const gscPageQuery = readReportJson(inputs.gscPageQuery);
+  const a8 = { records: inputs.a8 ? resultsFromReportLog(readReportJson(inputs.a8)) : [] }; // 月×案件は report-log の単月の期間から導く
+  const afb = inputs.afb ? readReportJson(inputs.afb) : null;
 
   // GA4 の窓は配置別の窓（管理画面が配置別の表と並べて出す）。ラベル別の窓が違えば WARN（同じ run で取るので普通は一致する）
   const windows = checkWindows(ga4Placement.meta ?? ga4Label.meta, gscPageQuery.meta);
@@ -558,10 +567,17 @@ function main() {
   const careerSlugs = docs.map((d) => d.slug);
   const { inboundLinks, affiliateBySlug, siteFiles, extraScanned } = scanSiteSources(careerSlugs);
 
+  // GA4 の pagePath は 2026-08-22 の移行後は正規 URL（/exam/…）。旧 /docs/ だけ見ると career 記事が 1 本も当たらず
+  // 「観測範囲外」と誤報告する（2026-10-11 実例）。slugFromKey が旧・正規の両方を slug に寄せる。同じ slug へ複数行
+  //（旧 URL と正規 URL・クエリ付き）が来たら合算する
   const ga4PageBySlug = new Map();
   for (const r of ga4Page.rows ?? []) {
-    const m = /^\/docs\/([^/?#]+)/.exec(r.page ?? "");
-    if (m) ga4PageBySlug.set(m[1], { users: r.activeUsers ?? 0, sessions: r.sessions ?? 0 });
+    const slug = slugFromKey(r.page ?? "");
+    if (!slug) continue;
+    const cur = ga4PageBySlug.get(slug) ?? { users: 0, sessions: 0 };
+    cur.users += r.activeUsers ?? 0;
+    cur.sessions += r.sessions ?? 0;
+    ga4PageBySlug.set(slug, cur);
   }
 
   const gscBySlug = new Map();
@@ -569,10 +585,8 @@ function main() {
   for (const r of gscPageQuery.rows ?? []) {
     const [url, query] = r.keys ?? [];
     if (!url) continue;
-    const m = /\/docs\/([^/?#]+)/.exec(url);
-    if (!m) continue;
-    const slug = m[1];
-    if (!inboundLinks.has(slug)) continue;
+    const slug = slugFromKey(url);
+    if (!slug || !inboundLinks.has(slug)) continue;
     gscCareerRows += 1;
     const cur = gscBySlug.get(slug) ?? { impressions: 0, clicks: 0, positions: [], queries: [] };
     cur.impressions += r.impressions ?? 0;
@@ -605,9 +619,16 @@ function main() {
   });
 
   const inGa4Top = ledger.filter((r) => r.ga4Users != null).length;
+  // 照合の崩れ（URL 体系の変更など）を「career 記事は観測範囲外」の緑に見せない: GA4 に公開記事の行が十分あるのに
+  // career 記事が 1 本も当たらないなら、照合側の不具合として検査不成立にする（CLAUDE.md §9）
+  const ga4DocRows = (ga4Page.rows ?? []).filter((r) => slugFromKey(r.page ?? "")).length;
+  if (inGa4Top === 0 && ga4DocRows >= 100) {
+    console.error(`✗ 検査不成立: GA4 page に公開記事の行が ${ga4DocRows} 件あるのに career 記事が 1 本も照合できない（URL の照合を疑う）`);
+    process.exit(2);
+  }
   if (inGa4Top === 0) {
     warnings.push(
-      `GA4 page スナップショットは上位 ${ga4Page.meta?.limit ?? "?"} ページのみで、career 記事は 1 本も入っていない。` +
+      `GA4 page スナップショットは ${(ga4Page.rows ?? []).length} 行（limit ${ga4Page.meta?.limit ?? "?"}）で、career 記事は 1 本も入っていない。` +
         "users/sessions は「0」ではなく「観測範囲外」なので断定に使わない",
     );
   }
@@ -646,7 +667,7 @@ function main() {
 
   // 配置の語彙（台帳 config.cta-placements）と照らす。語彙に無い配置は数字を残したまま WARN（落とすと凍結した基線との合計がずれる）。
   // 撤去済みの配置に表示があるのは、窓が撤去日をまたいでいるだけなので異常ではない（窓が撤去日を過ぎれば消える）
-  const vocab = readJson(join(ROOT, datasetPath("config.cta-placements"))).affiliate;
+  const vocab = readReportJson(join(ROOT, datasetPath("config.cta-placements"))).affiliate;
   for (const [placement, v] of byPlacement.map.entries()) {
     if (placement === "(not set)" || placement === "") continue;
     const known = vocab[placement];
@@ -698,7 +719,7 @@ function main() {
 
   // --- 起票時基線との比較 ---
   // 基線は凍結ファイル（config の baseline が指す日）から読む。数字を config に写さない
-  const frozenBase = readJson(join(ROOT, datasetPath(cfg.baseline.dataset, { date: cfg.baseline.date })));
+  const frozenBase = readReportJson(join(ROOT, datasetPath(cfg.baseline.dataset, { date: cfg.baseline.date })));
   const base = {
     affiliateImpressions: frozenBase.funnel.affiliateCta.totalImpressions,
     affiliateClicks: frozenBase.funnel.affiliateCta.totalClicks,
@@ -728,10 +749,10 @@ function main() {
   const noteCareer = collectNoteCareer(cfg);
 
   // 配置ルール単位: ページ別があればルールを一意に決めて数え、無ければ面の合計（面を共有するルールは分けられない）
-  const placementRules = readJson(join(ROOT, datasetPath("config.affiliate-placements"))).rules;
+  const placementRules = readReportJson(join(ROOT, datasetPath("config.affiliate-placements"))).rules;
   let byRuleSection;
   if (ga4ByPage?.meta) {
-    const index = readJson(join(ROOT, "src/config/doc-meta-index.json"));
+    const index = readReportJson(join(ROOT, "src/config/doc-meta-index.json"));
     const attributed = attributeByPage(
       placementRules,
       { start: ga4ByPage.meta.startDate, end: ga4ByPage.meta.endDate },
@@ -759,8 +780,8 @@ function main() {
 
   // A8 の成果別（1 成果 1 行）をページと案件で配置ルールへ寄せる。成果の出どころの真実源（GA4 の clickLog は取りこぼす）
   {
-    const index = readJson(join(ROOT, "src/config/doc-meta-index.json"));
-    const reportLog = inputs.a8 ? readJson(inputs.a8) : {};
+    const index = readReportJson(join(ROOT, "src/config/doc-meta-index.json"));
+    const reportLog = inputs.a8 ? readReportJson(inputs.a8) : {};
     byRuleSection.conversions = attributeConversions(reportLog.conversions ?? [], placementRules, (path) => pageContextOf(path, index, slugFromKey), { matchesPage });
     // 広告リンクがページの URL を渡すようになった後の成果でページが取れないのは、リファラ方針の退行か他サイト経由
     const lost = byRuleSection.conversions.filter((c) => !c.pageKnown && Date.parse(c.clickedAt) >= Date.parse(REFERRER_FULL_SINCE));

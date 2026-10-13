@@ -6228,11 +6228,11 @@
         "id": "cd-essay-complete-pack",
         "published": true,
         "noteUrl": "https://note.com/dobokunote/m/m8a5396da31ce",
-        "noteTitle": "診断士 記述式｜問題A・B 完全パック",
-        "title": "コンクリート診断士 記述式｜問題A・B 完全パック",
-        "description": "解法ガイド、問題Aの模範答案2本、問題Bの劣化機構別5ケースと構造物別8ケースを統合した記述式全16記事。問題A・Bを一つの商品で通して練習したい受験者向け。",
+        "noteTitle": "診断士 記述式｜完全パック 全16記事",
+        "title": "コンクリート診断士 記述式｜完全パック 全16記事",
+        "description": "解法ガイドと、建築・土木の入門2ケース、劣化機構別5ケース、構造物別8ケースを統合した記述式全16記事。2019年度からの形式（構造物の診断の問題・建築／土木から選択）の答案を、一つの商品で通して練習したい受験者向け。",
         "shortTitle": "診断士 記述式 完全パック",
-        "shortDescription": "解法ガイド＋問題A 2本＋問題B 13ケースの全16記事。",
+        "shortDescription": "解法ガイド＋入門2ケース＋13ケースの全16記事。",
         "price": "¥5,980（16記事セット）",
         "badge": "note 限定 完全パック"
       },
@@ -6255,11 +6255,11 @@
         "id": "cd-essay-magazine",
         "published": true,
         "noteUrl": "https://note.com/dobokunote/m/mf2a132408b6f",
-        "noteTitle": "コンクリート診断士 記述式｜問題A・問題B 模範答案集",
-        "title": "コンクリート診断士 記述式｜問題A・問題B 模範答案集",
-        "description": "コンクリート診断士試験 記述式（問題A・問題B）のフル模範答案集。問題A（資質・論述）2本、問題B（具体構造物の診断・対策提案）5本を塩害・中性化・ASR・凍害・疲労複合の劣化機構別に収録。答案の型と採点視点をまとめた解法ガイド1本付き。想定問題はオリジナル代表例、固有数値は置換前提。",
+        "noteTitle": "コンクリート診断士 記述式｜模範答案集",
+        "title": "コンクリート診断士 記述式｜模範答案集",
+        "description": "コンクリート診断士試験 記述式（構造物の診断の問題）のフル模範答案集。建築・土木の入門2ケース（集合住宅の外壁劣化と予防保全／RC高架橋の剥落と第三者被害）と、塩害・中性化・ASR・凍害・疲労複合の劣化機構別5ケースを収録。答案の型と採点視点をまとめた解法ガイド1本付き。想定問題はオリジナル代表例、固有数値は置換前提。",
         "shortTitle": "コンクリート診断士 記述式 模範答案集",
-        "shortDescription": "問題A・問題Bのフル模範答案を劣化機構別に8本。変状把握→劣化機構推定→調査→評価→対策の型を反復。",
+        "shortDescription": "構造物の診断のフル模範答案を8本。変状把握→劣化機構推定→調査→評価→対策の型を反復。",
         "price": "¥2,980（8本セット）",
         "badge": "note 限定 教材"
       },
@@ -6275,7 +6275,7 @@
       ],
       "memo": [
         "原稿配置: content/note/コンクリート診断士/magazines/コンクリート診断士-記述式-模範答案集/",
-        "コンクリート診断士 記述式（問題A・問題B）模範答案集。劣化機構別フル答案 8 本。",
+        "コンクリート診断士 記述式 模範答案集（2026-10-11 に 2019 年度からの形式へ作り直し・DN-0661）。フル答案 8 本。",
         "2026-07-31 公開。8記事とも有料境界の検証を通してから投稿し、マガジンへ 8/8 収録済み",
         "（note API で実体確認）。published:true により guide-essay / textbook-assessment /",
         "textbook-repair の3面で CTA が発火する（magazine-placement.ts 配線済み）。"
@@ -6295,7 +6295,7 @@
         "noteUrl": "https://note.com/dobokunote/m/m1526302c9c99",
         "noteTitle": "診断士｜択一・記述式 まるごと",
         "title": "コンクリート診断士｜択一・記述式 まるごとパック",
-        "description": "四肢択一演習98問の印刷用PDFと、解法ガイド、問題Aの模範答案2本、問題Bの13ケースを束ねる全17記事の総合教材。",
+        "description": "四肢択一演習98問の印刷用PDFと、解法ガイド、建築・土木の入門2ケース、記述式13ケースを束ねる全17記事の総合教材。",
         "shortTitle": "診断士 択一・記述式 まるごと",
         "shortDescription": "択一98問PDF＋記述式全16記事を一括収録。",
         "price": "¥6,980（17記事セット）",
@@ -6320,11 +6320,11 @@
         "id": "cd-problem-a-pack",
         "published": true,
         "noteUrl": "https://note.com/dobokunote/m/m864077343c10",
-        "noteTitle": "診断士 記述式｜問題A集中パック",
-        "title": "コンクリート診断士 記述式｜問題A集中パック",
-        "description": "診断士の役割と倫理、維持管理の考え方を論じる問題Aの模範答案2本に、答案の型と採点視点をまとめた解法ガイドを加えた全3記事。問題Aだけを短期間で固めたい受験者向け。",
-        "shortTitle": "診断士｜問題A集中パック",
-        "shortDescription": "問題Aの模範答案2本と解法ガイドを収録。",
+        "noteTitle": "診断士 記述式｜入門パック",
+        "title": "コンクリート診断士 記述式｜入門パック",
+        "description": "2019年度からの記述式（構造物の診断の問題・建築／土木から選択）に初めて取り組む受験者向けの全3記事。答案の型と採点視点をまとめた解法ガイドに、建築（集合住宅の外壁劣化と予防保全）と土木（RC高架橋の剥落と第三者被害）の模範答案を1本ずつ収録。",
+        "shortTitle": "診断士｜記述式 入門パック",
+        "shortDescription": "解法ガイドと建築・土木の模範答案2本を収録。",
         "price": "¥1,980（3記事セット）",
         "badge": "note 限定 教材"
       },
@@ -6348,13 +6348,13 @@
         "id": "cd-problem-b-pack",
         "published": true,
         "noteUrl": "https://note.com/dobokunote/m/m629f8736f9c3",
-        "noteTitle": "診断士 記述式｜問題B 13ケース",
-        "title": "コンクリート診断士 記述式｜問題B 13ケース",
-        "description": "既存の劣化機構別5ケースと、新規の構造物別8ケースを統合した問題Bの全13ケース。変状把握、劣化機構の推定、調査、評価、対策の型を横断して反復できる。解法ガイドを含む全14記事。",
-        "shortTitle": "診断士｜問題B 13ケース",
+        "noteTitle": "診断士 記述式｜13ケース",
+        "title": "コンクリート診断士 記述式｜13ケース",
+        "description": "劣化機構別5ケースと構造物別8ケースを統合した、記述式（構造物の診断の問題）の全13ケース。変状把握、劣化機構の推定、調査、評価、対策の型を横断して反復できる。解法ガイドを含む全14記事。",
+        "shortTitle": "診断士｜記述式 13ケース",
         "shortDescription": "劣化機構別5＋構造物別8の全13ケース。",
         "price": "¥4,980（14記事セット）",
-        "badge": "note 限定 問題B完全版"
+        "badge": "note 限定 13ケース完全版"
       },
       "members": [],
       "includes": [
@@ -6413,7 +6413,7 @@
         "noteUrl": "https://note.com/dobokunote/m/md94d10122def",
         "noteTitle": "診断士 記述式｜構造物別8ケース",
         "title": "コンクリート診断士 記述式｜構造物別 想定8ケース",
-        "description": "下水処理施設、道路トンネル、立体駐車場、PC橋、配水池、港湾桟橋、RC橋脚、RC擁壁の8構造物を題材に、変状把握から劣化機構の推定、調査、評価、対策までを一貫して論じる問題Bのオリジナル想定問題とフル模範答案集。",
+        "description": "下水処理施設、道路トンネル、立体駐車場、PC橋、配水池、港湾桟橋、RC橋脚、RC擁壁の8構造物を題材に、変状把握から劣化機構の推定、調査、評価、対策までを一貫して論じる、記述式（構造物の診断の問題）のオリジナル想定問題とフル模範答案集。",
         "shortTitle": "診断士 記述式｜構造物別8ケース",
         "shortDescription": "8構造物で、診断から対策までの答案構成を反復する。",
         "price": "¥3,980（8本セット・単品各¥1,480）",
@@ -7444,6 +7444,16 @@
       "series": "keiken",
       "tier": "magazine",
       "persona": "E",
+      "cover": {
+        "magazineDir": "content/note/1級・2級土木/2級土木/magazines/2級土木-農業土木林道8工事",
+        "qualifier": "2級土木｜施工経験記述",
+        "magazineName": "農業土木・林道",
+        "proof": "農業土木・林道の8工事",
+        "benefit": "作付け・通水期限を書き分ける"
+      },
+      "listing": {
+        "appeal": "農地や水路の工事で、作付けや通水の期限をどう答案にするか迷う方へ。圃場・水路・ため池・林道の8工事から、自分の現場に近い答案を選べます。想定工事バンク購入者は追加購入不要です。"
+      },
       "catalog": {
         "id": "civil-2-keiken-agri-forest-pack",
         "published": true,
@@ -7477,6 +7487,16 @@
       "series": "keiken",
       "tier": "magazine",
       "persona": "F",
+      "cover": {
+        "magazineDir": "content/note/1級・2級土木/2級土木/magazines/2級土木-橋梁構造物補修7工事",
+        "qualifier": "2級土木｜施工経験記述",
+        "magazineName": "橋梁・構造物の補修",
+        "proof": "橋梁補修の7工事",
+        "benefit": "規制下の補修を書き分ける"
+      },
+      "listing": {
+        "appeal": "橋の補修は通行規制と狭い作業空間が課題になる方へ。床版・支承・伸縮装置・防水・高欄など7工事で、補修工事の管理を書き分けられます。想定工事バンク購入者は追加購入不要です。"
+      },
       "catalog": {
         "id": "civil-2-keiken-bridge-repair-pack",
         "published": true,
@@ -7509,6 +7529,16 @@
       "series": "keiken",
       "tier": "magazine",
       "persona": "H",
+      "cover": {
+        "magazineDir": "content/note/1級・2級土木/2級土木/magazines/2級土木-コンクリート構造物基礎10工事",
+        "qualifier": "2級土木｜施工経験記述",
+        "magazineName": "コンクリート構造物・基礎",
+        "proof": "構造物・基礎の10工事",
+        "benefit": "打設と基礎を書き分ける"
+      },
+      "listing": {
+        "appeal": "打設・養生や杭の管理を答案にしたい方へ。コンクリート構造物と基礎の10工事で、温度・品質・工程の書き分けが見えます。想定工事バンク購入者は追加購入不要です。"
+      },
       "catalog": {
         "id": "civil-2-keiken-concrete-foundation-pack",
         "published": true,
@@ -7544,6 +7574,16 @@
       "series": "keiken",
       "tier": "magazine",
       "persona": "G",
+      "cover": {
+        "magazineDir": "content/note/1級・2級土木/2級土木/magazines/2級土木-土工造成法面10工事",
+        "qualifier": "2級土木｜施工経験記述",
+        "magazineName": "土工・造成・法面",
+        "proof": "土工・法面の10工事",
+        "benefit": "締固めと法面を書き分ける"
+      },
+      "listing": {
+        "appeal": "締固めや法面の安定をどう答案にするか迷う方へ。軟弱地盤から法面対策までの10工事で、土工の品質・安全・工程を書き分けられます。想定工事バンク購入者は追加購入不要です。"
+      },
       "catalog": {
         "id": "civil-2-keiken-earthwork-slope-pack",
         "published": true,
@@ -7579,6 +7619,24 @@
       "series": "keiken",
       "tier": "magazine",
       "persona": "A",
+      "cover": {
+        "magazineDir": "content/note/1級・2級土木/2級土木/magazines/2級土木-地域道路付帯施設10工事",
+        "qualifier": "2級土木｜施工経験記述",
+        "magazineName": "市町村道路の維持修繕",
+        "proof": "市町村道の12工事",
+        "benefit": "担当した維持修繕から選ぶ"
+      },
+      "listing": {
+        "appeal": "市町村道の小さな工事を毎年いくつも担当していて、どれで書くか迷う方へ。生活道路・付帯施設・法面の12工事から、自分の現場に近い答案を選べます。想定工事バンク購入者は追加購入不要です。"
+      },
+      "intro": {
+        "notHome": [
+          "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事103-市道部分舗装修繕区画線復旧/article.md",
+          "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事105-路肩カラー舗装歩行空間整備/article.md",
+          "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事106-公共施設駐車場舗装/article.md",
+          "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事123-林道路面・横断排水補修/article.md"
+        ]
+      },
       "catalog": {
         "id": "civil-2-keiken-local-road-pack",
         "published": true,
@@ -7616,6 +7674,16 @@
       "series": "keiken",
       "tier": "magazine",
       "persona": "J",
+      "cover": {
+        "magazineDir": "content/note/1級・2級土木/2級土木/magazines/2級土木-公園施設民間外構6工事",
+        "qualifier": "2級土木｜施工経験記述",
+        "magazineName": "公園・公共施設・民間外構",
+        "proof": "施設・外構の6工事",
+        "benefit": "利用者のいる現場を書き分ける"
+      },
+      "listing": {
+        "appeal": "利用者のいる施設や民間の現場で、第三者対策をどう書くか迷う方へ。公園・施設・宅地・商業施設の6工事から、自分の現場に近い答案を選べます。想定工事バンク購入者は追加購入不要です。"
+      },
       "catalog": {
         "id": "civil-2-keiken-park-private-pack",
         "published": true,
@@ -7647,6 +7715,16 @@
       "series": "keiken",
       "tier": "magazine",
       "persona": "B",
+      "cover": {
+        "magazineDir": "content/note/1級・2級土木/2級土木/magazines/2級土木-舗装会社の新設修繕9工事",
+        "qualifier": "2級土木｜施工経験記述",
+        "magazineName": "舗装会社の新設・修繕",
+        "proof": "舗装の9工事",
+        "benefit": "新設も修繕も書き分ける"
+      },
+      "listing": {
+        "appeal": "舗装の現場しか経験がなく、題材の幅に不安がある方へ。新設・打換え・修繕・特殊舗装の9工事で、同じ舗装でも管理の書き分け方が見えます。想定工事バンク購入者は追加購入不要です。"
+      },
       "catalog": {
         "id": "civil-2-keiken-paving-pack",
         "published": true,
@@ -7681,6 +7759,16 @@
       "series": "keiken",
       "tier": "magazine",
       "persona": "I",
+      "cover": {
+        "magazineDir": "content/note/1級・2級土木/2級土木/magazines/2級土木-港湾漁港海岸5工事",
+        "qualifier": "2級土木｜施工経験記述",
+        "magazineName": "港湾・漁港・海岸",
+        "proof": "漁港・海岸の5工事",
+        "benefit": "潮位と漁業調整を書き分ける"
+      },
+      "listing": {
+        "appeal": "潮位・波浪や漁業者との調整を答案にしたい方へ。漁港・海岸の5工事で、海の工事ならではの管理を書き分けられます。想定工事バンク購入者は追加購入不要です。"
+      },
       "catalog": {
         "id": "civil-2-keiken-port-coast-pack",
         "published": true,
@@ -7711,6 +7799,16 @@
       "series": "keiken",
       "tier": "magazine",
       "persona": "D",
+      "cover": {
+        "magazineDir": "content/note/1級・2級土木/2級土木/magazines/2級土木-河川砂防災害復旧10工事",
+        "qualifier": "2級土木｜施工経験記述",
+        "magazineName": "河川・砂防・災害復旧",
+        "proof": "河川・砂防の10工事",
+        "benefit": "水際の管理を書き分ける"
+      },
+      "listing": {
+        "appeal": "出水期の制約や水替えを答案にしたい方へ。新設から災害復旧までの10工事で、河川・砂防ならではの管理を書き分けられます。想定工事バンク購入者は追加購入不要です。"
+      },
       "catalog": {
         "id": "civil-2-keiken-river-disaster-pack",
         "published": true,
@@ -7773,6 +7871,16 @@
       "series": "keiken",
       "tier": "magazine",
       "persona": "C",
+      "cover": {
+        "magazineDir": "content/note/1級・2級土木/2級土木/magazines/2級土木-上下水道排水5工事",
+        "qualifier": "2級土木｜施工経験記述",
+        "magazineName": "上下水道・管工事",
+        "proof": "管路・排水の8工事",
+        "benefit": "担当した管工事から選ぶ"
+      },
+      "listing": {
+        "appeal": "管路の現場で、品質・安全・工程をどう書き分けるか迷う方へ。開削・推進・更生・排水の8工事から、自分の現場に近い答案を選べます。想定工事バンク購入者は追加購入不要です。"
+      },
       "catalog": {
         "id": "civil-2-keiken-water-drainage-pack",
         "published": true,

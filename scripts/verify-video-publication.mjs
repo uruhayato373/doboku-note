@@ -25,19 +25,19 @@
 import { execFileSync } from 'node:child_process';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
 
 import { loadConfig, discoverPacks } from './lib/video-content-check.mjs';
 import { loadVideoState } from './lib/registry-video-state.mjs';
+import { datasetPath } from './lib/datasets.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const argv = new Set(process.argv.slice(2));
 const DRY = argv.has('--dry');
 const JSON_OUT = argv.has('--json');
 const log = (...a) => { if (!JSON_OUT) console.log(...a); };
 
 const config = loadConfig(ROOT);
-const OUT_PATH = join(ROOT, '.claude/state/video-publication-verify.json');
+const OUT_PATH = join(ROOT, datasetPath('state.video-publication-verify'));
 
 /** published 相当＝外部実体を持つはずの状態 */
 const LIVE_STATUSES = ['published', 'measured', 'refresh_due'];

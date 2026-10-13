@@ -30,7 +30,10 @@ export const CHECKS = [
   { name: 'gsc-login', script: 'scripts/check-gsc-login.mjs', args: [], timeout: 5_000 },
   { name: 'resources', script: 'scripts/local-resource-audit.mjs', args: ['--quick'], timeout: 30_000 },
   { name: 'disk-hygiene', script: 'scripts/check-disk-hygiene.mjs', args: ['--quick'], timeout: 15_000 },
-  { name: 'x-sync', script: 'scripts/x-sync-status.mjs', args: ['--dry'], timeout: 60_000 },
+  // x-sync は Playwright で x.com を開く（1 回 9.6 秒・SessionStart 13.9 秒の 7 割）。前回の完走が 4 時間以内で
+  // queued の不在が無ければ起動しない（state.x-sync-last-run・DN-0688）。ログイン済みプロファイルで開く回数を減らすのは
+  // X 凍結ガードレールの観点でも良い。不在を見つけた回は TTL を使わず次のセッションでも警告を出し直す
+  { name: 'x-sync', script: 'scripts/x-sync-status.mjs', args: ['--dry', '--max-age-minutes', '240'], timeout: 60_000 },
 ];
 
 const TIMEOUT = Symbol('timeout');

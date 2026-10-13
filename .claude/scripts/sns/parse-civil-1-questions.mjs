@@ -1,5 +1,5 @@
 /**
- * parse-civil-1-questions.mjs — 1級土木 第一次検定 過去問 MDX → 試験別問題JSON（追加のみ）
+ * parse-civil-1-questions.mjs — 1級土木 第一次検定 過去問 MDX → 試験別問題JSON（全年度を記事から作り直す・中身が変わったときだけ書く・refresh-indexes の build-exam-question-data）
  *
  * 入力: content/site/civil-construction-1/primary-{年度}-{a|b}/article.mdx
  * 出力: src/config/civil-1-exam-questions.json
@@ -11,7 +11,9 @@
  * 設計: docs/marketing/03_多資格SNS展開設計.md
  */
 import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
+import { writeGeneratedJson } from '../../../scripts/lib/generated-json.mjs';
 import { join, relative } from 'node:path';
+import { extractStatementExplanations } from '../../../scripts/lib/statement-explanations.mjs';
 import { REPO_ROOT, SITE_CONTENT_ROOT } from '../../../scripts/lib/repository-paths.mjs';
 
 const POSTS = join(SITE_CONTENT_ROOT, 'civil-construction-1');
@@ -84,10 +86,12 @@ function parseArticle(dir) {
         oe.text = oe.text.replace(/[✅❌]/g, '').replace(/\s+/g, ' ').trim();
       }
     }
+    // ①〜・ア〜の記述ごとの解説（無ければ空。選択肢の解説 optionExplanations とは別に持つ）
+    const statements = detailsM ? extractStatementExplanations(detailsM[1], beforeDetails) : [];
     const correctText = (correct && options[correct - 1]) ? options[correct - 1].text : null;
     // packEligible: IGスライド化に必要な要素が完全に揃った問題のみ（テキストのみ＋選択肢4＋解説4＋正答）
     const packEligible = igEligible && options.length === 4 && optionExplanations.length === 4 && correct != null;
-    out.push({ id: `${year}-${part.toLowerCase()}-${String(no).padStart(2, '0')}`, no, part, body: stem, options, correct, correctText, optionExplanations, igEligible, packEligible });
+    out.push({ id: `${year}-${part.toLowerCase()}-${String(no).padStart(2, '0')}`, no, part, body: stem, options, correct, correctText, optionExplanations, ...(statements.length ? { statements } : {}), igEligible, packEligible });
   }
   return { year, part, questions: out };
 }
@@ -101,7 +105,7 @@ for (const d of dirs) {
 }
 const years = Object.keys(byYear).sort().map((year) => ({ year, questions: byYear[year].sort((a, b) => a.part.localeCompare(b.part) || a.no - b.no) }));
 const result = { generatedAt: new Date().toISOString().slice(0, 19) + 'Z', exam: 'civil-1', years };
-writeFileSync(OUT, JSON.stringify(result, null, 2));
+if (!writeGeneratedJson(OUT, result, { newline: false })) console.log('変更なし（書かない）');
 
 // サマリ
 const tot = years.reduce((s, y) => s + y.questions.length, 0);

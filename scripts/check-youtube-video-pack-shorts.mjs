@@ -5,8 +5,8 @@ import { join } from 'node:path';
 import { readDataset } from './lib/dataset-io.mjs';
 import { utmChannel } from './lib/utm-contract.mjs';
 import { loadVideoState } from './lib/registry-video-state.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const PACKS_ROOT = join(ROOT, 'content/sns/video-packs');
 // 概要欄の送客リンクの UTM の期待値は契約（config/utm-templates.json の youtube.shorts）から受け取る
 const SHORTS_UTM = utmChannel('youtube.shorts');
@@ -29,7 +29,7 @@ const STATE = loadVideoState(ROOT);
 let packCount = 0;
 let shortsCount = 0;
 
-function readJson(path) {
+function readJsonLenient(path) {
   return JSON.parse(readFileSync(path, 'utf8'));
 }
 
@@ -56,15 +56,15 @@ for (const exam of EXAMS) {
     // 総まとめ（compilation.json）は Shorts を持たない別の型。パック数・Shorts 数には入れず、
     // ユーザー承認後（approved 以降）の予約枠だけを公開枠の重複と1日の上限に数える。承認前の枠は下書きなので警告に留める
     if (existsSync(join(dir, 'compilation.json'))) {
-      const publishAt = readJson(youtubePath).longform?.publishAt;
+      const publishAt = readJsonLenient(youtubePath).longform?.publishAt;
       if (APPROVED.has(STATE.packs?.[packId]?.derivatives?.longform?.status)) addSlot(publishAt, `${packId}:longform`);
       else if (publishAt) pendingSlots.push([publishAt, `${packId}:longform`]);
       continue;
     }
     packCount += 1;
-    const manifest = readJson(manifestPath);
-    const storyboard = readJson(storyboardPath);
-    const youtube = readJson(youtubePath);
+    const manifest = readJsonLenient(manifestPath);
+    const storyboard = readJsonLenient(storyboardPath);
+    const youtube = readJsonLenient(youtubePath);
     const sceneIds = new Set((storyboard.scenes ?? []).map((scene) => scene.sceneId));
     const shorts = youtube.shorts ?? [];
     const expected = manifest.outputs?.shorts;

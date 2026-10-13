@@ -29,6 +29,7 @@ import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync, statSync, writeSync } from 'node:fs';
 import { extname, basename, join, sep } from 'node:path';
 import { REPO_ROOT as ROOT, MOVED_PATHS, RESTRUCTURED_PATHS } from './lib/repository-paths.mjs';
+import { exitWith, runMain, isCliEntry, runAsCli } from './lib/cli-run.mjs';
 
 const CONFIG = join(ROOT, '.claude/config/information-architecture.json');
 const toPosix = (v) => v.split(sep).join('/');
@@ -161,29 +162,29 @@ export function auditDualSsot(pairs, exists = (p) => existsSync(join(ROOT, p))) 
   return out;
 }
 
-function main() {
+function main(argv = process.argv.slice(2)) {
   if (process.env.SKIP_INFORMATION_ARCHITECTURE === '1') {
     console.log('[check-information-architecture] SKIP_INFORMATION_ARCHITECTURE=1 のためスキップ');
-    process.exit(0);
+    exitWith(0);
   }
-  const staged = process.argv.includes('--staged');
-  const jsonOut = process.argv.includes('--json');
+  const staged = argv.includes('--staged');
+  const jsonOut = argv.includes('--json');
 
   if (!existsSync(CONFIG)) {
     console.error(`✗ 検査不成立: 設定が無い（${CONFIG}）`);
-    process.exit(2);
+    exitWith(2);
   }
   let cfg;
   try { cfg = loadConfig(); } catch (e) {
     console.error(`✗ 検査不成立: 設定が壊れている: ${e.message}`);
-    process.exit(2);
+    exitWith(2);
   }
 
   const files = listTargets({ staged });
   // 検査ゼロを PASS と呼ばない（§9）。全量で 0 件なら走査が壊れている
   if (!staged && files.length === 0) {
     console.error('✗ 検査不成立: 追跡ファイルが 1 件も取れない');
-    process.exit(2);
+    exitWith(2);
   }
 
   const violations = files.flatMap((f) => auditPath(f, cfg));
@@ -204,7 +205,7 @@ function main() {
     // 検査ゼロを PASS と呼ばない: 走査対象が消えていたら止める
     if (!staged && scanned === 0) {
       console.error('✗ 検査不成立: 旧パス走査の対象が 0 件（scanGlobs の設定ミスを疑う）');
-      process.exit(2);
+      exitWith(2);
     }
   }
 
@@ -217,18 +218,23 @@ function main() {
 
   if (jsonOut) {
     writeSync(1, JSON.stringify({ files: files.length, violations }, null, 2) + '\n');
-    process.exit(violations.length ? 1 : 0);
+    exitWith(violations.length ? 1 : 0);
   }
   if (violations.length === 0) {
     console.log('[check-information-architecture] ✓ 置き場のモデルへの逆戻りなし');
-    process.exit(0);
+    exitWith(0);
   }
   for (const v of violations.slice(0, 40)) console.error(`  [${v.rule}] ${v.file}\n      ${v.msg}`);
   if (violations.length > 40) console.error(`  … 他 ${violations.length - 40} 件`);
   console.error('\n置き場の判断フローは .claude/knowledge/reference/information-architecture.md。');
   console.error('正当な例外は .claude/config/information-architecture.json の allowlist へ理由付きで登録する。');
-  process.exit(1);
+  exitWith(1);
 }
 
 // scripts/check-sales-freshness.mjs と同じ isMain ガード（import 時は実行しない）
-if (process.argv[1] && toPosix(process.argv[1]).endsWith('check-information-architecture.mjs')) main();
+/** pre-commit-dispatch が in-process で呼ぶ入口（process.exit を呼ばず { code } を返す・DN-0688） */
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runMain(main, argv);
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

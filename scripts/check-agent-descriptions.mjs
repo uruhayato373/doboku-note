@@ -19,6 +19,7 @@ import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import { REPO_ROOT, CLAUDE_ROOT, STATE_ROOT } from './lib/repository-paths.mjs';
+import { isCliEntry, runAsCli } from './lib/cli-run.mjs';
 
 export const MAX_CHARS = 300;
 const AGENTS_DIR = join(CLAUDE_ROOT, 'agents');
@@ -90,8 +91,7 @@ function listStaged() {
     .map((p) => ({ name: p.slice(AGENTS_REL.length + 1, -3), content: execFileSync('git', ['show', `:${p}`], { cwd: REPO_ROOT, encoding: 'utf8' }) }));
 }
 
-function main() {
-  const argv = process.argv.slice(2);
+function main(argv = process.argv.slice(2)) {
   const staged = argv.includes('--staged');
   const update = argv.includes('--update-baseline');
   const json = argv.includes('--json');
@@ -132,4 +132,9 @@ function main() {
   return 0;
 }
 
-if (process.argv[1] && process.argv[1].endsWith('check-agent-descriptions.mjs')) process.exit(main());
+/** pre-commit-dispatch が in-process で呼ぶ入口（process.exit を呼ばず { code } を返す・DN-0688） */
+export function run({ argv = process.argv.slice(2) } = {}) {
+  return { code: main(argv) };
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

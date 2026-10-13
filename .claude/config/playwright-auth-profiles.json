@@ -91,6 +91,7 @@
         "readOnlyScripts": [
           "scripts/coconala-orders.mjs",
           "scripts/coconala-analytics.mjs",
+          "scripts/coconala-revenue.mjs",
           "scripts/check-coconala-analytics.mjs",
           "scripts/check-coconala-blog.mjs",
           "scripts/coconala-discover.mjs",
@@ -138,7 +139,7 @@
           "read",
           "write"
         ],
-        "cron": "40 21 15,27 * *",
+        "cron": "50 21 * * 4",
         "stateDomains": [
           "amazon.co.jp",
           "amazon.com"

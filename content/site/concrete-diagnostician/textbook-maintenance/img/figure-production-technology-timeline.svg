@@ -1,0 +1,68 @@
+<!-- authored 2026-10-10 doboku-note 自作。題材はコンクリート診断士テキスト「維持管理・基準」の論点。一次資料の年表を再構成したもので、特定の書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="生コン・ポンプ・流動化の導入時期と、竣工年から確かめる事項を並べた年表。1949年生コン工場、1950年国産ポンプ、1953年JIS A 5308、1964年ポンプ車、1965年の改定、1975年頃の流動化剤、1983年の施工指針">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; fill: #555; font-size: 12px; }
+      .h { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .y { font-weight: bold; fill: #1a3a5c; }
+      .b { font-weight: bold; fill: #1a3a5c; }
+      .m { font-size: 11px; fill: #555; }
+      .row { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1; }
+      .key { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .band { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="h" x="22" y="22">年</text>
+  <text class="h" x="78" y="22">製造・施工の出来事</text>
+  <text class="h" x="236" y="22">診断で確かめること</text>
+  <line x1="16" y1="30" x2="366" y2="30" stroke="#d7d7d7" stroke-width="1"/>
+  <rect class="row" x="16" y="36" width="350" height="54" rx="4"/>
+  <text class="y" x="22" y="58">1949年</text>
+  <text class="b" x="78" y="58">工場生産の生コン</text>
+  <text x="78" y="76">試験操業(業平橋)</text>
+  <text x="236" y="58">それ以前は現場練り</text>
+  <text x="236" y="76">配合記録に乏しい</text>
+  <rect class="row" x="16" y="96" width="350" height="54" rx="4"/>
+  <text class="y" x="22" y="118">1950〜</text>
+  <text class="y" x="22" y="136">53年</text>
+  <text class="b" x="78" y="118">国産ポンプ(1950)</text>
+  <text x="78" y="136">生コンJIS制定(1953)</text>
+  <text x="236" y="118">打込み方法の</text>
+  <text x="236" y="136">記録を確かめる</text>
+  <rect class="row" x="16" y="156" width="350" height="54" rx="4"/>
+  <text class="y" x="22" y="178">1959〜</text>
+  <text class="y" x="22" y="196">64年</text>
+  <text class="b" x="78" y="178">現場練りから工場練り</text>
+  <text x="78" y="196">ポンプ車の開発(1964)</text>
+  <text x="236" y="178">現場練り期か</text>
+  <text x="236" y="196">工場練り期かを見る</text>
+  <rect class="key" x="16" y="216" width="350" height="54" rx="4"/>
+  <text class="y" x="22" y="238">1965年</text>
+  <text class="b" x="78" y="238">JIS表示制度</text>
+  <text x="78" y="256">JASS5・公共仕様書の改定</text>
+  <text x="236" y="238">コアの強度不足が</text>
+  <text x="236" y="256">減った例(大阪府)</text>
+  <rect class="row" x="16" y="276" width="350" height="54" rx="4"/>
+  <text class="y" x="22" y="298">1975年</text>
+  <text class="y" x="22" y="316">ごろ</text>
+  <text class="b" x="78" y="298">高性能減水剤を</text>
+  <text x="78" y="316">流動化剤に使用</text>
+  <text x="236" y="298">軟練り・加水の</text>
+  <text x="236" y="316">履歴を確認</text>
+  <rect class="row" x="16" y="336" width="350" height="54" rx="4"/>
+  <text class="y" x="22" y="358">1978年</text>
+  <text class="b" x="78" y="358">AEコンクリートが</text>
+  <text x="78" y="376">JIS A 5308に入る</text>
+  <text x="236" y="358">AEの有無は</text>
+  <text x="236" y="376">仕様書で確かめる</text>
+  <rect class="row" x="16" y="396" width="350" height="54" rx="4"/>
+  <text class="y" x="22" y="418">1983年</text>
+  <text class="b" x="78" y="418">流動化コンクリート</text>
+  <text x="78" y="436">施工指針(案)</text>
+  <text x="236" y="418">流動化の有無は</text>
+  <text x="236" y="436">施工記録で確認</text>
+</svg>

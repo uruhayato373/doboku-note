@@ -132,7 +132,8 @@ function markerClaims(line) {
     || !/^(?:で|の|へ|に(?:記述|示|挙|述|書|記載))/.test(line.slice(m.end).trimStart()));
   return filtered.map((m, i) => ({
     slot: m.slot, token: m.token,
-    text: stripMarkup(line.slice(m.index, i + 1 < filtered.length ? filtered[i + 1].index : line.length)).split('。')[0],
+    // 「（2）に入るので、検討の理由は…」のように理由・結果の接続で続く後半は、その欄の中身ではない。
+    text: stripMarkup(line.slice(m.index, i + 1 < filtered.length ? filtered[i + 1].index : line.length)).split('。')[0].replace(/(?:ので|ことから)、.*$/, ''),
     paired: filtered.length > 1, source: stripMarkup(line),
   }));
 }

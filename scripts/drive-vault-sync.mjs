@@ -18,6 +18,8 @@
 //   node scripts/drive-vault-sync.mjs --pull --path 'content/note/技術士総監/x/pdf/' --commit  # vault → repo
 //   node scripts/drive-vault-sync.mjs --group white-paper-source-pdf --from-vault --commit
 //                                                                                   # vault にだけある原本をその場で読み、台帳へ登録する（vault へは書かない）
+//   node scripts/drive-vault-sync.mjs --group past-exam-source-pdf --from-vault --cloud --commit
+//                                                                                   # マウントを読まず Drive API のハッシュ（rclone）で登録する（クラウドにしか無いファイルの取り寄せがタイムアウトするとき）
 //
 // exit 0 = 成功（dry-run 含む） / exit 1 = 検証失敗・対象 0 件・マウント無しで書けない・リモート未設定で --cloud
 //
@@ -226,6 +228,7 @@ async function push(cfg, group, mount, manifest) {
     ({ GetObjectCommand } = await import('@aws-sdk/client-s3'));
   }
 
+  const cloudForVault = FROM_VAULT && CLOUD ? cloudHashes(cfg, rows.map((r) => r.vaultRel)) : null;
   let copied = 0, adopted = 0, unchanged = 0, registered = 0;
   const failures = [];
   let sinceCheckpoint = 0;
@@ -236,6 +239,7 @@ async function push(cfg, group, mount, manifest) {
       regenerable: Boolean(r.group.regenerable), syncedAt: new Date().toISOString(), verifiedAt: new Date().toISOString(),
       ...(extra.adopted || manifest.entries[r.rel]?.adopted ? { adopted: true } : {}),
       ...(extra.dims || {}),
+      ...(extra.driveFileId ? { driveFileId: extra.driveFileId } : {}),
     });
     sinceCheckpoint++;
     if (sinceCheckpoint >= 50) { checkpoint(); console.log('  ... ' + (copied + adopted + unchanged + registered) + '/' + rows.length + '（台帳へ中間保存）'); }
@@ -244,8 +248,16 @@ async function push(cfg, group, mount, manifest) {
   async function processOne(r) {
     // 期待値（sha256/bytes）。ローカル源は実測、R2 源は R2 台帳の値。
     let expected;
-    if (r.source === 'local' || r.source === 'vault') expected = await realBytesAndHashes(r.abs);
-    else expected = { sha256: r.r2.sha256, bytes: r.r2.bytes };
+    if (r.source === 'vault' && cloudForVault) {
+      // --from-vault --cloud: マウントを読まず Drive API のハッシュで登録する（クラウドにしか無いファイルの取り寄せはタイムアウトしうる）
+      const c = cloudForVault.get(toVaultRel(r.vaultRel));
+      if (!c?.sha256) { failures.push({ rel: r.rel, stage: 'cloud', msg: 'Drive API に sha256 が無い（' + r.vaultRel + '）' }); return; }
+      expected = { sha256: c.sha256, md5: c.md5, bytes: c.size, driveFileId: c.id };
+    } else if (r.source === 'local' || r.source === 'vault') {
+      // マウントの読みは 1 件ずつ失敗しうる（クラウドにしか無いファイルの取り寄せのタイムアウト）。全体を止めず失敗として数える
+      try { expected = await realBytesAndHashes(r.abs); }
+      catch (e) { failures.push({ rel: r.rel, stage: 'read', msg: String(e.code || e.message).slice(0, 120) }); return; }
+    } else expected = { sha256: r.r2.sha256, bytes: r.r2.bytes };
 
     const cur = manifest.entries[r.rel];
     const conflict = immutableConflict(r.group, r.rel, expected.sha256, cur);
@@ -259,7 +271,7 @@ async function push(cfg, group, mount, manifest) {
         failures.push({ rel: r.rel, stage: 'plan', msg: '台帳のキーから導いた vault パスが実体と違う: ' + r.vaultRel });
         return;
       }
-      record(r, expected, { vaultPath: r.vaultRel, dims: null });
+      record(r, expected, { vaultPath: r.vaultRel, dims: null, ...(expected.driveFileId ? { driveFileId: expected.driveFileId } : {}) });
       registered++;
       return;
     }
@@ -335,6 +347,35 @@ async function push(cfg, group, mount, manifest) {
   console.log('  次: R2 側を消す前に `--verify --cloud`（Drive API の md5 照合）を通すこと。マウントへ書けた＝クラウドに上がった、ではない。');
 }
 
+// ------------------------------------------------------------------ cloud（Drive API のハッシュ）
+
+/**
+ * rclone で Drive API 側のハッシュ（md5・sha256）・サイズ・ファイル ID を取る。vault 相対パス → 値。
+ * vaultPaths の先頭 2 階層ごとに 1 回 lsjson する。rclone・リモートが無ければ fail-closed（die）。
+ */
+function cloudHashes(cfg, vaultPaths) {
+  const remote = cfg.cloud?.rcloneRemote;
+  const remoteRoot = cfg.cloud?.remoteRoot;
+  const which = spawnSync('rclone', ['version'], { encoding: 'utf-8' });
+  if (which.status !== 0) die('--cloud には rclone が要る（brew install rclone）。照合できないので exit 1。');
+  const remotes = spawnSync('rclone', ['listremotes'], { encoding: 'utf-8' }).stdout || '';
+  if (!remotes.split('\n').includes(remote + ':')) {
+    die('rclone リモート "' + remote + '" が未設定。`rclone config` で Google Drive バックエンドを ' + remote + ' の名で作る（ブラウザ OAuth・1 回）。未設定のまま R2 側を消してはいけない。');
+  }
+  const out = new Map();
+  const dirs = [...new Set(vaultPaths.map((v) => toVaultRel(v).split('/').slice(0, 2).join('/')))];
+  for (const d of dirs) {
+    const r = spawnSync('rclone', ['lsjson', '--hash', '--recursive', '--files-only', remote + ':' + remoteRoot + '/' + d], { encoding: 'utf-8', maxBuffer: 512 * 1024 * 1024 });
+    if (r.status !== 0) die('rclone lsjson が失敗: ' + d + ' — ' + String(r.stderr).slice(0, 200));
+    for (const o of JSON.parse(r.stdout || '[]')) {
+      const md5 = o.Hashes?.md5 || o.Hashes?.MD5;
+      if (md5) out.set(toVaultRel(d + '/' + o.Path), { md5, sha256: o.Hashes?.sha256 || o.Hashes?.SHA256 || null, size: o.Size, id: o.ID });
+    }
+    console.log('  cloud: ' + d + ' — ' + out.size + ' オブジェクトのハッシュを取得（累計）');
+  }
+  return out;
+}
+
 // ------------------------------------------------------------------ verify（local ↔ 台帳 ↔ vault [↔ cloud]）
 
 async function verify(cfg, group, mount, manifest) {
@@ -347,28 +388,7 @@ async function verify(cfg, group, mount, manifest) {
   console.log('[' + NAME + ' --verify] 対象 ' + entries.length + ' 件 / mount=' + mount.root + (DEEP ? ' / 全件' : ' / サンプル約 ' + SAMPLE + ' 件（全件は --deep）') + (CLOUD ? ' / cloud md5 照合あり' : ''));
 
   // cloud: rclone で Drive API 側のハッシュを取る。無ければ fail-closed。
-  let cloudMd5 = null;
-  if (CLOUD) {
-    const remote = cfg.cloud?.rcloneRemote;
-    const remoteRoot = cfg.cloud?.remoteRoot;
-    const which = spawnSync('rclone', ['version'], { encoding: 'utf-8' });
-    if (which.status !== 0) die('--cloud には rclone が要る（brew install rclone）。照合できないので exit 1。');
-    const remotes = spawnSync('rclone', ['listremotes'], { encoding: 'utf-8' }).stdout || '';
-    if (!remotes.split('\n').includes(remote + ':')) {
-      die('rclone リモート "' + remote + '" が未設定。`rclone config` で Google Drive バックエンドを ' + remote + ' の名で作る（ブラウザ OAuth・1 回）。未設定のまま R2 側を消してはいけない。');
-    }
-    cloudMd5 = new Map();
-    const dirs = [...new Set(entries.map(([, e]) => toVaultRel(e.vaultPath).split('/').slice(0, 2).join('/')))];
-    for (const d of dirs) {
-      const r = spawnSync('rclone', ['lsjson', '--hash', '--recursive', '--files-only', remote + ':' + remoteRoot + '/' + d], { encoding: 'utf-8', maxBuffer: 512 * 1024 * 1024 });
-      if (r.status !== 0) die('rclone lsjson が失敗: ' + d + ' — ' + String(r.stderr).slice(0, 200));
-      for (const o of JSON.parse(r.stdout || '[]')) {
-        const md5 = o.Hashes?.md5 || o.Hashes?.MD5;
-        if (md5) cloudMd5.set(toVaultRel(d + '/' + o.Path), { md5, size: o.Size, id: o.ID });
-      }
-      console.log('  cloud: ' + d + ' — ' + cloudMd5.size + ' オブジェクトのハッシュを取得（累計）');
-    }
-  }
+  const cloudMd5 = CLOUD ? cloudHashes(cfg, entries.map(([, e]) => e.vaultPath)) : null;
 
   const step = DEEP ? 1 : Math.max(1, Math.floor(entries.length / SAMPLE));
   const ok = [];

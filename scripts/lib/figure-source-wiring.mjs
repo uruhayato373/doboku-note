@@ -11,13 +11,15 @@
  * そのため試験ページでは書籍の宣言を求めず、市販書籍（figureReuse: false）からの切り出しも許す。
  */
 
-import { OFFICIAL_QUESTION_PAGE } from './official-question-text.mjs';
+import { join } from 'node:path';
+import { isOfficialQuestionFile } from './official-question-text.mjs';
+import { REPO_ROOT } from './repository-paths.mjs';
 
 const VAULT_PREFIX = 'vault:';
 
 /** 記事ディレクトリ（content/site 相対）が試験ページか。 */
 export function isExamArticle(articleDir) {
-  return OFFICIAL_QUESTION_PAGE.test(`content/site/${articleDir}/article.mdx`);
+  return isOfficialQuestionFile(join(REPO_ROOT, 'content/site', articleDir, 'article.mdx'));
 }
 
 /**

@@ -12,8 +12,7 @@
 import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
-import { dirname, join, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join, resolve } from 'node:path';
 
 import { COCONALA_SERVICES } from '../src/lib/coconala-services.ts';
 import { NOTE_MAGAZINES } from '../src/lib/note-magazines.ts';
@@ -21,10 +20,11 @@ import { loadRegistry, qualificationLabel, qualificationShortLabel } from './lib
 import { SITE_ORIGIN } from './lib/site-identity.mjs';
 import { setUtmParams } from './lib/utm-contract.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
+import { parseJson } from './lib/json-io.mjs';
 import { voicevoxCredit } from './lib/voicevox-credit.mjs';
 import { loadVideoState, saveVideoState } from './lib/registry-video-state.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const PACKS_ROOT = join(ROOT, 'content/sns/video-packs');
 const CHANNEL = { id: 'UCHRnXPqoc0Hls8nXiK_ZYqA', title: 'doboku-note' } as const;
 const PRODUCTION_DISCLOSURE = readDataset(ROOT, 'config.youtube-production-disclosure');
@@ -55,9 +55,7 @@ const onlyPackId = val('--pack-id', '');
 const scope = val('--scope', 'civil');
 const publishAtArg = val('--publish-at', '');
 
-function readJson(path: string) {
-  return JSON.parse(readFileSync(path, 'utf8'));
-}
+const readJsonAt = (path: string) => parseJson(readFileSync(path, 'utf8'), path);
 
 function writeJson(path: string, value: unknown) {
   writeFileSync(path, JSON.stringify(value, null, 2) + '\n');
@@ -68,7 +66,7 @@ function loadPacks(exam: TargetExam) {
     .filter((entry) => entry.isDirectory())
     .map((entry) => {
       const dir = join(PACKS_ROOT, exam, entry.name);
-      return { dir, manifest: readJson(join(dir, 'video-pack.json')) as Manifest };
+      return { dir, manifest: readJsonAt(join(dir, 'video-pack.json')) as Manifest };
     })
     .filter(({ dir, manifest }) => manifest.exam === exam && !existsSync(join(dir, 'compilation.json')));
 }
@@ -80,7 +78,7 @@ function buildCompilationSchedule() {
   for (const exam of TARGET_EXAMS) {
     const dir = join(PACKS_ROOT, exam, onlyPackId);
     if (!existsSync(join(dir, 'compilation.json'))) continue;
-    return [{ dir, manifest: readJson(join(dir, 'video-pack.json')) as Manifest, publishAt: publishAtArg }];
+    return [{ dir, manifest: readJsonAt(join(dir, 'video-pack.json')) as Manifest, publishAt: publishAtArg }];
   }
   throw new Error(`総まとめパックがない: ${onlyPackId}`);
 }
@@ -252,7 +250,7 @@ function assertMedia(packId: string, maxSec: number) {
   for (const path of [video, thumbnail, renderManifest]) {
     if (!existsSync(path) || statSync(path).size === 0) throw new Error(`${packId}: レンダー実体がありません ${path}`);
   }
-  const rendered = readJson(renderManifest);
+  const rendered = readJsonAt(renderManifest);
   if (!rendered.tts || rendered.mp4 !== 'video.mp4' || rendered.totalSec < 60 || rendered.totalSec > maxSec) {
     throw new Error(`${packId}: render-manifest が公開条件を満たしません`);
   }
@@ -292,7 +290,7 @@ function clock(sec: number) {
 
 /** 総まとめの概要欄チャプター（0:00 始まり）。章の区切り画面 cNN-title の実尺の開始時刻から作る */
 function compilationChapters(dir: string, rendered: any) {
-  const spec = readJson(join(dir, 'compilation.json'));
+  const spec = readJsonAt(join(dir, 'compilation.json'));
   const titles = spec.parts.flatMap((part: any) => part.chapters.map((c: any) => c.title));
   const starts: Array<[number, string]> = [];
   let t = 0;
@@ -382,7 +380,7 @@ async function main() {
       updated += 1;
     } else {
       const youtubePath = join(item.dir, 'youtube.json');
-      const existing = existsSync(youtubePath) ? readJson(youtubePath) : null;
+      const existing = existsSync(youtubePath) ? readJsonAt(youtubePath) : null;
       writeJson(youtubePath, makeYoutube(item.dir, item.manifest, item.publishAt, existing));
       if (derivative.approvedBy !== 'user') {
         // 承認前は youtube.json を見本として書くだけ。承認（--schedule）を飛ばして rendered にしない
