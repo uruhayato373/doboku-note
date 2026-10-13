@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "fetchedAt": "2026-10-11T03:41:08.590Z",
-  "status": "partial",
+  "fetchedAt": "2026-10-13T01:47:51.169Z",
+  "status": "ok",
   "source": "coconala.com /mypage/received_orders/*（Playwright・read-only）",
   "privacyNote": "購入者名・購入者ID・トークルーム本文・DM 本文は保存しない。保存するのは talkroomId / dmId / サービス / 金額 / 日付 / ステータス / 未返信 / 返信期限のみ。DM は subject（引用されたサービス名）だけを採る。送信者名と本文プレビューはブラウザ内で判定にのみ使い、結果のブール値（fromStaff / oneWay / violationRemoved）だけを残す。",
   "scan": {
@@ -26,25 +26,25 @@
         "key": "open",
         "label": "取引中",
         "url": "https://coconala.com/mypage/received_orders/open",
-        "ok": false,
-        "rows": null,
-        "reason": "ページ取得に失敗"
+        "ok": true,
+        "rows": 0,
+        "rawRows": 0
       },
       {
         "key": "closed",
         "label": "完了",
         "url": "https://coconala.com/mypage/received_orders/closed",
-        "ok": false,
-        "rows": null,
-        "reason": "ページ取得に失敗"
+        "ok": true,
+        "rows": 4,
+        "rawRows": 4
       },
       {
         "key": "canceled",
         "label": "キャンセル",
         "url": "https://coconala.com/mypage/received_orders/canceled",
-        "ok": false,
-        "rows": null,
-        "reason": "ページ取得に失敗"
+        "ok": true,
+        "rows": 0,
+        "rawRows": 0
       },
       {
         "key": "unreplied",
@@ -61,12 +61,84 @@
         "rows": 5
       }
     ],
-    "tabsOk": 4,
+    "tabsOk": 7,
     "tabsTotal": 7,
     "deadlineFailed": 0
   },
-  "orders": [],
+  "orders": [
+    {
+      "talkroomId": "18351970",
+      "talkroomUrl": "https://coconala.com/talkrooms/18351970",
+      "tab": "closed",
+      "tabLabel": "完了",
+      "serviceId": null,
+      "listingText": "土木経験記述を技術士の元発注者が添削します 技術士・元発注者の目で赤入れ＋書き直し1回",
+      "priceYen": 15000,
+      "soldOn": "2026-09-25",
+      "deliveryDueSet": false,
+      "statusLabel": "完了",
+      "lastMessageAt": "09/25 20:45",
+      "unreplied": false,
+      "replyDueAt": null
+    },
+    {
+      "talkroomId": "18194267",
+      "talkroomUrl": "https://coconala.com/talkrooms/18194267",
+      "tab": "closed",
+      "tabLabel": "完了",
+      "serviceId": null,
+      "listingText": "1級土木二次の予想模擬試験を送ります 本番形式の予想模試1回分＋解答解説で総仕上げ",
+      "priceYen": 2500,
+      "soldOn": "2026-08-25",
+      "deliveryDueSet": false,
+      "statusLabel": "完了",
+      "lastMessageAt": "09/07 13:38",
+      "unreplied": false,
+      "replyDueAt": null
+    },
+    {
+      "talkroomId": "18091375",
+      "talkroomUrl": "https://coconala.com/talkrooms/18091375",
+      "tab": "closed",
+      "tabLabel": "完了",
+      "serviceId": null,
+      "listingText": "1級土木 二次対策 教材16冊セット（予想模擬試験を除く）",
+      "priceYen": 7500,
+      "soldOn": "2026-08-06",
+      "deliveryDueSet": true,
+      "statusLabel": "完了",
+      "lastMessageAt": "08/07 13:12",
+      "unreplied": false,
+      "replyDueAt": null
+    },
+    {
+      "talkroomId": "18082691",
+      "talkroomUrl": "https://coconala.com/talkrooms/18082691",
+      "tab": "closed",
+      "tabLabel": "完了",
+      "serviceId": null,
+      "listingText": "1級土木二次の予想模擬試験を送ります 本番形式の予想模試1回分＋解答解説で総仕上げ",
+      "priceYen": 2500,
+      "soldOn": "2026-08-04",
+      "deliveryDueSet": true,
+      "statusLabel": "完了",
+      "lastMessageAt": "08/09 06:24",
+      "unreplied": false,
+      "replyDueAt": null
+    }
+  ],
   "inquiries": [
+    {
+      "dmId": "10051134",
+      "dateText": "1時間前",
+      "subject": "",
+      "unread": false,
+      "fromStaff": false,
+      "oneWay": false,
+      "violationRemoved": false,
+      "dmUrl": "https://coconala.com/mypage/direct_message/10051134",
+      "serviceId": null
+    },
     {
       "dmId": "10227804",
       "dateText": "9月28日",
@@ -87,17 +159,6 @@
       "oneWay": true,
       "violationRemoved": false,
       "dmUrl": "https://coconala.com/mypage/direct_message/10075959",
-      "serviceId": null
-    },
-    {
-      "dmId": "10051134",
-      "dateText": "9月1日",
-      "subject": "",
-      "unread": false,
-      "fromStaff": false,
-      "oneWay": false,
-      "violationRemoved": false,
-      "dmUrl": "https://coconala.com/mypage/direct_message/10051134",
       "serviceId": null
     },
     {
