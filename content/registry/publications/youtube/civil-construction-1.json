@@ -9,7 +9,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/career-agent-katsuyo/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-26T22:30:00Z",
       "approval": {
         "by": "user",
@@ -39,7 +39,8 @@
       "media": {
         "cover": "civil-construction-1/career-agent-katsuyo/youtube.longform/cover",
         "cta": "civil-construction-1/career-agent-katsuyo/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/career-agent-katsuyo/youtube.short.point-step1-1",
@@ -50,7 +51,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/career-agent-katsuyo/youtube.json#shorts/point-step1-1",
       "relatedTo": "civil-construction-1/career-agent-katsuyo/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -69,7 +70,8 @@
       "media": {
         "cover": "civil-construction-1/career-agent-katsuyo/youtube.short.point-step1-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/career-agent-katsuyo/youtube.short.point-step2-2",
@@ -80,7 +82,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/career-agent-katsuyo/youtube.json#shorts/point-step2-2",
       "relatedTo": "civil-construction-1/career-agent-katsuyo/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -99,7 +101,8 @@
       "media": {
         "cover": "civil-construction-1/career-agent-katsuyo/youtube.short.point-step2-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/career-komuin-minkan/youtube.longform",
@@ -107,7 +110,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/career-komuin-minkan/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-27T11:00:00Z",
       "approval": {
         "by": "user",
@@ -137,7 +140,8 @@
       "media": {
         "cover": "civil-construction-1/career-komuin-minkan/youtube.longform/cover",
         "cta": "civil-construction-1/career-komuin-minkan/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/career-komuin-minkan/youtube.short.point-step1-1",
@@ -148,7 +152,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/career-komuin-minkan/youtube.json#shorts/point-step1-1",
       "relatedTo": "civil-construction-1/career-komuin-minkan/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -167,7 +171,8 @@
       "media": {
         "cover": "civil-construction-1/career-komuin-minkan/youtube.short.point-step1-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/career-komuin-minkan/youtube.short.point-step2-2",
@@ -178,7 +183,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/career-komuin-minkan/youtube.json#shorts/point-step2-2",
       "relatedTo": "civil-construction-1/career-komuin-minkan/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -197,7 +202,8 @@
       "media": {
         "cover": "civil-construction-1/career-komuin-minkan/youtube.short.point-step2-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/career-nenshu-up/youtube.longform",
@@ -205,7 +211,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/career-nenshu-up/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-27T22:30:00Z",
       "approval": {
         "by": "user",
@@ -235,7 +241,8 @@
       "media": {
         "cover": "civil-construction-1/career-nenshu-up/youtube.longform/cover",
         "cta": "civil-construction-1/career-nenshu-up/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/career-nenshu-up/youtube.short.point-step1-1",
@@ -246,7 +253,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/career-nenshu-up/youtube.json#shorts/point-step1-1",
       "relatedTo": "civil-construction-1/career-nenshu-up/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -265,7 +272,8 @@
       "media": {
         "cover": "civil-construction-1/career-nenshu-up/youtube.short.point-step1-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/career-nenshu-up/youtube.short.point-step2-2",
@@ -276,7 +284,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/career-nenshu-up/youtube.json#shorts/point-step2-2",
       "relatedTo": "civil-construction-1/career-nenshu-up/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -295,7 +303,8 @@
       "media": {
         "cover": "civil-construction-1/career-nenshu-up/youtube.short.point-step2-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/career-tenshoku-timing/youtube.longform",
@@ -303,7 +312,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/career-tenshoku-timing/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-28T03:30:00Z",
       "approval": {
         "by": "user",
@@ -333,7 +342,8 @@
       "media": {
         "cover": "civil-construction-1/career-tenshoku-timing/youtube.longform/cover",
         "cta": "civil-construction-1/career-tenshoku-timing/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/career-tenshoku-timing/youtube.short.point-step1-1",
@@ -344,7 +354,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/career-tenshoku-timing/youtube.json#shorts/point-step1-1",
       "relatedTo": "civil-construction-1/career-tenshoku-timing/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -363,7 +373,8 @@
       "media": {
         "cover": "civil-construction-1/career-tenshoku-timing/youtube.short.point-step1-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/career-tenshoku-timing/youtube.short.point-step2-2",
@@ -374,7 +385,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/career-tenshoku-timing/youtube.json#shorts/point-step2-2",
       "relatedTo": "civil-construction-1/career-tenshoku-timing/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -393,7 +404,8 @@
       "media": {
         "cover": "civil-construction-1/career-tenshoku-timing/youtube.short.point-step2-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/career-white-kigyo/youtube.longform",
@@ -401,7 +413,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/career-white-kigyo/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-28T11:00:00Z",
       "approval": {
         "by": "user",
@@ -431,7 +443,8 @@
       "media": {
         "cover": "civil-construction-1/career-white-kigyo/youtube.longform/cover",
         "cta": "civil-construction-1/career-white-kigyo/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/career-white-kigyo/youtube.short.point-step1-1",
@@ -442,7 +455,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/career-white-kigyo/youtube.json#shorts/point-step1-1",
       "relatedTo": "civil-construction-1/career-white-kigyo/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -461,7 +474,8 @@
       "media": {
         "cover": "civil-construction-1/career-white-kigyo/youtube.short.point-step1-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/career-white-kigyo/youtube.short.point-step2-2",
@@ -472,7 +486,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/career-white-kigyo/youtube.json#shorts/point-step2-2",
       "relatedTo": "civil-construction-1/career-white-kigyo/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -491,7 +505,8 @@
       "media": {
         "cover": "civil-construction-1/career-white-kigyo/youtube.short.point-step2-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/career-yameru-mae/youtube.longform",
@@ -499,7 +514,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/career-yameru-mae/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-28T22:30:00Z",
       "approval": {
         "by": "user",
@@ -529,7 +544,8 @@
       "media": {
         "cover": "civil-construction-1/career-yameru-mae/youtube.longform/cover",
         "cta": "civil-construction-1/career-yameru-mae/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/career-yameru-mae/youtube.short.point-step1-1",
@@ -540,7 +556,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/career-yameru-mae/youtube.json#shorts/point-step1-1",
       "relatedTo": "civil-construction-1/career-yameru-mae/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -559,7 +575,8 @@
       "media": {
         "cover": "civil-construction-1/career-yameru-mae/youtube.short.point-step1-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/career-yameru-mae/youtube.short.point-step2-2",
@@ -570,7 +587,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/career-yameru-mae/youtube.json#shorts/point-step2-2",
       "relatedTo": "civil-construction-1/career-yameru-mae/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -589,7 +606,8 @@
       "media": {
         "cover": "civil-construction-1/career-yameru-mae/youtube.short.point-step2-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/chokuzen-check-1kyu-niji/youtube.longform",
@@ -597,7 +615,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/chokuzen-check-1kyu-niji/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-10-03T11:00:00Z",
       "approval": {
         "by": "user",
@@ -627,7 +645,8 @@
       "media": {
         "cover": "civil-construction-1/chokuzen-check-1kyu-niji/youtube.longform/cover",
         "cta": "civil-construction-1/chokuzen-check-1kyu-niji/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/chokuzen-check-1kyu-niji/youtube.short.point-check-3points-2",
@@ -638,7 +657,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/chokuzen-check-1kyu-niji/youtube.json#shorts/point-check-3points-2",
       "relatedTo": "civil-construction-1/chokuzen-check-1kyu-niji/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -657,7 +676,8 @@
       "media": {
         "cover": "civil-construction-1/chokuzen-check-1kyu-niji/youtube.short.point-check-3points-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/chokuzen-check-1kyu-niji/youtube.short.point-policy-1",
@@ -668,7 +688,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/chokuzen-check-1kyu-niji/youtube.json#shorts/point-policy-1",
       "relatedTo": "civil-construction-1/chokuzen-check-1kyu-niji/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -687,7 +707,8 @@
       "media": {
         "cover": "civil-construction-1/chokuzen-check-1kyu-niji/youtube.short.point-policy-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-anzen-taisei/youtube.longform",
@@ -695,7 +716,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/gakka-anzen-taisei/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-16T11:00:00Z",
       "approval": {
         "by": "user",
@@ -725,7 +746,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-anzen-taisei/youtube.longform/cover",
         "cta": "civil-construction-1/gakka-anzen-taisei/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-anzen-taisei/youtube.short.point-step1-1",
@@ -736,7 +758,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-anzen-taisei/youtube.json#shorts/point-step1-1",
       "relatedTo": "civil-construction-1/gakka-anzen-taisei/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -755,7 +777,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-anzen-taisei/youtube.short.point-step1-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-anzen-taisei/youtube.short.point-step2-2",
@@ -766,7 +789,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-anzen-taisei/youtube.json#shorts/point-step2-2",
       "relatedTo": "civil-construction-1/gakka-anzen-taisei/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -785,7 +808,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-anzen-taisei/youtube.short.point-step2-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-ashiba-kijun/youtube.longform",
@@ -793,7 +817,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/gakka-ashiba-kijun/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-16T22:30:00Z",
       "approval": {
         "by": "user",
@@ -823,7 +847,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-ashiba-kijun/youtube.longform/cover",
         "cta": "civil-construction-1/gakka-ashiba-kijun/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-ashiba-kijun/youtube.short.point-step1-1",
@@ -834,7 +859,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-ashiba-kijun/youtube.json#shorts/point-step1-1",
       "relatedTo": "civil-construction-1/gakka-ashiba-kijun/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -853,7 +878,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-ashiba-kijun/youtube.short.point-step1-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-ashiba-kijun/youtube.short.point-step2-2",
@@ -864,7 +890,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-ashiba-kijun/youtube.json#shorts/point-step2-2",
       "relatedTo": "civil-construction-1/gakka-ashiba-kijun/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -883,7 +909,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-ashiba-kijun/youtube.short.point-step2-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-crane-sogo/youtube.longform",
@@ -891,7 +918,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/gakka-crane-sogo/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-17T11:00:00Z",
       "approval": {
         "by": "user",
@@ -921,7 +948,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-crane-sogo/youtube.longform/cover",
         "cta": "civil-construction-1/gakka-crane-sogo/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-crane-sogo/youtube.short.point-overview-1",
@@ -932,7 +960,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-crane-sogo/youtube.json#shorts/point-overview-1",
       "relatedTo": "civil-construction-1/gakka-crane-sogo/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -951,7 +979,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-crane-sogo/youtube.short.point-overview-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-crane-sogo/youtube.short.point-step1-2",
@@ -962,7 +991,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-crane-sogo/youtube.json#shorts/point-step1-2",
       "relatedTo": "civil-construction-1/gakka-crane-sogo/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -981,7 +1010,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-crane-sogo/youtube.short.point-step1-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-dodome-kussaku/youtube.longform",
@@ -989,7 +1019,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/gakka-dodome-kussaku/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-17T22:30:00Z",
       "approval": {
         "by": "user",
@@ -1019,7 +1049,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-dodome-kussaku/youtube.longform/cover",
         "cta": "civil-construction-1/gakka-dodome-kussaku/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-dodome-kussaku/youtube.short.point-step1-1",
@@ -1030,7 +1061,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-dodome-kussaku/youtube.json#shorts/point-step1-1",
       "relatedTo": "civil-construction-1/gakka-dodome-kussaku/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -1049,7 +1080,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-dodome-kussaku/youtube.short.point-step1-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-dodome-kussaku/youtube.short.point-step2-2",
@@ -1060,7 +1092,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-dodome-kussaku/youtube.json#shorts/point-step2-2",
       "relatedTo": "civil-construction-1/gakka-dodome-kussaku/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -1079,7 +1111,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-dodome-kussaku/youtube.short.point-step2-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-doshitsu-chosa/youtube.longform",
@@ -1087,7 +1120,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/gakka-doshitsu-chosa/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-18T03:30:00Z",
       "approval": {
         "by": "user",
@@ -1117,7 +1150,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-doshitsu-chosa/youtube.longform/cover",
         "cta": "civil-construction-1/gakka-doshitsu-chosa/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-doshitsu-chosa/youtube.short.point-genri-1",
@@ -1128,7 +1162,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-doshitsu-chosa/youtube.json#shorts/point-genri-1",
       "relatedTo": "civil-construction-1/gakka-doshitsu-chosa/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -1147,7 +1181,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-doshitsu-chosa/youtube.short.point-genri-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-doshitsu-chosa/youtube.short.point-gyakubiki-2",
@@ -1158,7 +1193,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-doshitsu-chosa/youtube.json#shorts/point-gyakubiki-2",
       "relatedTo": "civil-construction-1/gakka-doshitsu-chosa/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -1177,7 +1212,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-doshitsu-chosa/youtube.short.point-gyakubiki-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-haikibutsu-recycle/youtube.longform",
@@ -1185,7 +1221,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/gakka-haikibutsu-recycle/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-18T11:00:00Z",
       "approval": {
         "by": "user",
@@ -1215,7 +1251,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-haikibutsu-recycle/youtube.longform/cover",
         "cta": "civil-construction-1/gakka-haikibutsu-recycle/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-haikibutsu-recycle/youtube.short.point-overview-1",
@@ -1226,7 +1263,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-haikibutsu-recycle/youtube.json#shorts/point-overview-1",
       "relatedTo": "civil-construction-1/gakka-haikibutsu-recycle/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -1245,7 +1282,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-haikibutsu-recycle/youtube.short.point-overview-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-haikibutsu-recycle/youtube.short.point-step1-2",
@@ -1256,7 +1294,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-haikibutsu-recycle/youtube.json#shorts/point-step1-2",
       "relatedTo": "civil-construction-1/gakka-haikibutsu-recycle/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -1275,7 +1313,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-haikibutsu-recycle/youtube.short.point-step1-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-hinshitsu-kensa/youtube.longform",
@@ -1283,7 +1322,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/gakka-hinshitsu-kensa/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-18T22:30:00Z",
       "approval": {
         "by": "user",
@@ -1313,7 +1352,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-hinshitsu-kensa/youtube.longform/cover",
         "cta": "civil-construction-1/gakka-hinshitsu-kensa/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-hinshitsu-kensa/youtube.short.point-step1-1",
@@ -1324,7 +1364,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-hinshitsu-kensa/youtube.json#shorts/point-step1-1",
       "relatedTo": "civil-construction-1/gakka-hinshitsu-kensa/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -1343,7 +1383,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-hinshitsu-kensa/youtube.short.point-step1-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-hinshitsu-kensa/youtube.short.point-step2-2",
@@ -1354,7 +1395,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-hinshitsu-kensa/youtube.json#shorts/point-step2-2",
       "relatedTo": "civil-construction-1/gakka-hinshitsu-kensa/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -1373,7 +1414,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-hinshitsu-kensa/youtube.short.point-step2-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-histogram/youtube.longform",
@@ -1381,7 +1423,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/gakka-histogram/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-19T11:00:00Z",
       "approval": {
         "by": "user",
@@ -1411,7 +1453,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-histogram/youtube.longform/cover",
         "cta": "civil-construction-1/gakka-histogram/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-histogram/youtube.short.point-overview-1",
@@ -1422,7 +1465,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-histogram/youtube.json#shorts/point-overview-1",
       "relatedTo": "civil-construction-1/gakka-histogram/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -1441,7 +1484,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-histogram/youtube.short.point-overview-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-histogram/youtube.short.point-step1-2",
@@ -1452,7 +1496,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-histogram/youtube.json#shorts/point-step1-2",
       "relatedTo": "civil-construction-1/gakka-histogram/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -1471,7 +1515,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-histogram/youtube.short.point-step1-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-hoki-kasen-doro/youtube.longform",
@@ -1479,7 +1524,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/gakka-hoki-kasen-doro/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-19T22:30:00Z",
       "approval": {
         "by": "user",
@@ -1509,7 +1554,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-hoki-kasen-doro/youtube.longform/cover",
         "cta": "civil-construction-1/gakka-hoki-kasen-doro/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-hoki-kasen-doro/youtube.short.point-overview-1",
@@ -1520,7 +1566,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-hoki-kasen-doro/youtube.json#shorts/point-overview-1",
       "relatedTo": "civil-construction-1/gakka-hoki-kasen-doro/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -1539,7 +1585,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-hoki-kasen-doro/youtube.short.point-overview-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-hoki-kasen-doro/youtube.short.point-step1-2",
@@ -1550,7 +1597,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-hoki-kasen-doro/youtube.json#shorts/point-step1-2",
       "relatedTo": "civil-construction-1/gakka-hoki-kasen-doro/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -1569,7 +1616,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-hoki-kasen-doro/youtube.short.point-step1-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-hoki-kenchiku-kayaku/youtube.longform",
@@ -1577,7 +1625,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/gakka-hoki-kenchiku-kayaku/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-20T03:30:00Z",
       "approval": {
         "by": "user",
@@ -1607,7 +1655,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-hoki-kenchiku-kayaku/youtube.longform/cover",
         "cta": "civil-construction-1/gakka-hoki-kenchiku-kayaku/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-hoki-kenchiku-kayaku/youtube.short.point-overview-1",
@@ -1618,7 +1667,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-hoki-kenchiku-kayaku/youtube.json#shorts/point-overview-1",
       "relatedTo": "civil-construction-1/gakka-hoki-kenchiku-kayaku/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -1637,7 +1686,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-hoki-kenchiku-kayaku/youtube.short.point-overview-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-hoki-kenchiku-kayaku/youtube.short.point-step1-2",
@@ -1648,7 +1698,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-hoki-kenchiku-kayaku/youtube.json#shorts/point-step1-2",
       "relatedTo": "civil-construction-1/gakka-hoki-kenchiku-kayaku/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -1667,7 +1717,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-hoki-kenchiku-kayaku/youtube.short.point-step1-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-kankyo-hozen/youtube.longform",
@@ -1675,7 +1726,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/gakka-kankyo-hozen/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-20T11:00:00Z",
       "approval": {
         "by": "user",
@@ -1705,7 +1756,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-kankyo-hozen/youtube.longform/cover",
         "cta": "civil-construction-1/gakka-kankyo-hozen/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-kankyo-hozen/youtube.short.point-overview-1",
@@ -1716,7 +1768,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-kankyo-hozen/youtube.json#shorts/point-overview-1",
       "relatedTo": "civil-construction-1/gakka-kankyo-hozen/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -1735,7 +1787,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-kankyo-hozen/youtube.short.point-overview-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-kankyo-hozen/youtube.short.point-step1-2",
@@ -1746,7 +1799,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-kankyo-hozen/youtube.json#shorts/point-step1-2",
       "relatedTo": "civil-construction-1/gakka-kankyo-hozen/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -1765,7 +1818,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-kankyo-hozen/youtube.short.point-step1-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-kanrizu/youtube.longform",
@@ -1773,7 +1827,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/gakka-kanrizu/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-20T22:30:00Z",
       "approval": {
         "by": "user",
@@ -1803,7 +1857,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-kanrizu/youtube.longform/cover",
         "cta": "civil-construction-1/gakka-kanrizu/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-kanrizu/youtube.short.point-step1-1",
@@ -1814,7 +1869,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-kanrizu/youtube.json#shorts/point-step1-1",
       "relatedTo": "civil-construction-1/gakka-kanrizu/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -1833,7 +1888,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-kanrizu/youtube.short.point-step1-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-kanrizu/youtube.short.point-step2-2",
@@ -1844,7 +1900,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-kanrizu/youtube.json#shorts/point-step2-2",
       "relatedTo": "civil-construction-1/gakka-kanrizu/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -1863,7 +1919,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-kanrizu/youtube.short.point-step2-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-kensetsugyoho/youtube.longform",
@@ -1871,7 +1928,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/gakka-kensetsugyoho/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-21T11:00:00Z",
       "approval": {
         "by": "user",
@@ -1901,7 +1958,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-kensetsugyoho/youtube.longform/cover",
         "cta": "civil-construction-1/gakka-kensetsugyoho/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-kensetsugyoho/youtube.short.point-overview-1",
@@ -1912,7 +1970,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-kensetsugyoho/youtube.json#shorts/point-overview-1",
       "relatedTo": "civil-construction-1/gakka-kensetsugyoho/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -1931,7 +1989,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-kensetsugyoho/youtube.short.point-overview-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-kensetsugyoho/youtube.short.point-step1-2",
@@ -1942,7 +2001,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-kensetsugyoho/youtube.json#shorts/point-step1-2",
       "relatedTo": "civil-construction-1/gakka-kensetsugyoho/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -1961,7 +2020,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-kensetsugyoho/youtube.short.point-step1-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-kikai-kiso/youtube.longform",
@@ -1969,7 +2029,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/gakka-kikai-kiso/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-21T22:30:00Z",
       "approval": {
         "by": "user",
@@ -1999,7 +2059,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-kikai-kiso/youtube.longform/cover",
         "cta": "civil-construction-1/gakka-kikai-kiso/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-kikai-kiso/youtube.short.point-bunrui-1",
@@ -2010,7 +2071,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-kikai-kiso/youtube.json#shorts/point-bunrui-1",
       "relatedTo": "civil-construction-1/gakka-kikai-kiso/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -2029,7 +2090,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-kikai-kiso/youtube.short.point-bunrui-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-kikai-kiso/youtube.short.point-gendoki-2",
@@ -2040,7 +2102,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-kikai-kiso/youtube.json#shorts/point-gendoki-2",
       "relatedTo": "civil-construction-1/gakka-kikai-kiso/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -2059,7 +2121,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-kikai-kiso/youtube.short.point-gendoki-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-kotei-kanri-kiso/youtube.longform",
@@ -2067,7 +2130,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/gakka-kotei-kanri-kiso/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-22T03:30:00Z",
       "approval": {
         "by": "user",
@@ -2097,7 +2160,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-kotei-kanri-kiso/youtube.longform/cover",
         "cta": "civil-construction-1/gakka-kotei-kanri-kiso/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-kotei-kanri-kiso/youtube.short.point-step1-1",
@@ -2108,7 +2172,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-kotei-kanri-kiso/youtube.json#shorts/point-step1-1",
       "relatedTo": "civil-construction-1/gakka-kotei-kanri-kiso/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -2127,7 +2191,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-kotei-kanri-kiso/youtube.short.point-step1-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-kotei-kanri-kiso/youtube.short.point-step2-2",
@@ -2138,7 +2203,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-kotei-kanri-kiso/youtube.json#shorts/point-step2-2",
       "relatedTo": "civil-construction-1/gakka-kotei-kanri-kiso/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -2157,7 +2222,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-kotei-kanri-kiso/youtube.short.point-step2-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-kussaku-tsumikomi-kikai/youtube.longform",
@@ -2165,7 +2231,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/gakka-kussaku-tsumikomi-kikai/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-22T11:00:00Z",
       "approval": {
         "by": "user",
@@ -2195,7 +2261,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-kussaku-tsumikomi-kikai/youtube.longform/cover",
         "cta": "civil-construction-1/gakka-kussaku-tsumikomi-kikai/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-kussaku-tsumikomi-kikai/youtube.short.point-bulldozer-1",
@@ -2206,7 +2273,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-kussaku-tsumikomi-kikai/youtube.json#shorts/point-bulldozer-1",
       "relatedTo": "civil-construction-1/gakka-kussaku-tsumikomi-kikai/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -2225,7 +2292,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-kussaku-tsumikomi-kikai/youtube.short.point-bulldozer-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-kussaku-tsumikomi-kikai/youtube.short.point-shovel-2",
@@ -2236,7 +2304,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-kussaku-tsumikomi-kikai/youtube.json#shorts/point-shovel-2",
       "relatedTo": "civil-construction-1/gakka-kussaku-tsumikomi-kikai/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -2255,7 +2323,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-kussaku-tsumikomi-kikai/youtube.short.point-shovel-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-morido-shimekatame/youtube.longform",
@@ -2263,7 +2332,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/gakka-morido-shimekatame/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-22T22:30:00Z",
       "approval": {
         "by": "user",
@@ -2293,7 +2362,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-morido-shimekatame/youtube.longform/cover",
         "cta": "civil-construction-1/gakka-morido-shimekatame/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-morido-shimekatame/youtube.short.point-overview-1",
@@ -2304,7 +2374,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-morido-shimekatame/youtube.json#shorts/point-overview-1",
       "relatedTo": "civil-construction-1/gakka-morido-shimekatame/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -2323,7 +2393,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-morido-shimekatame/youtube.short.point-overview-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-morido-shimekatame/youtube.short.point-step1-2",
@@ -2334,7 +2405,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-morido-shimekatame/youtube.json#shorts/point-step1-2",
       "relatedTo": "civil-construction-1/gakka-morido-shimekatame/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -2353,7 +2424,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-morido-shimekatame/youtube.short.point-step1-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-nanjaku-jiban/youtube.longform",
@@ -2361,7 +2433,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/gakka-nanjaku-jiban/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-23T11:00:00Z",
       "approval": {
         "by": "user",
@@ -2391,7 +2463,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-nanjaku-jiban/youtube.longform/cover",
         "cta": "civil-construction-1/gakka-nanjaku-jiban/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-nanjaku-jiban/youtube.short.point-overview-1",
@@ -2402,7 +2475,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-nanjaku-jiban/youtube.json#shorts/point-overview-1",
       "relatedTo": "civil-construction-1/gakka-nanjaku-jiban/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -2421,7 +2494,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-nanjaku-jiban/youtube.short.point-overview-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-nanjaku-jiban/youtube.short.point-step1-2",
@@ -2432,7 +2506,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-nanjaku-jiban/youtube.json#shorts/point-step1-2",
       "relatedTo": "civil-construction-1/gakka-nanjaku-jiban/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -2451,7 +2525,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-nanjaku-jiban/youtube.short.point-step1-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-network-koteihyo/youtube.longform",
@@ -2459,7 +2534,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/gakka-network-koteihyo/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-23T22:30:00Z",
       "approval": {
         "by": "user",
@@ -2489,7 +2564,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-network-koteihyo/youtube.longform/cover",
         "cta": "civil-construction-1/gakka-network-koteihyo/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-network-koteihyo/youtube.short.point-overview-1",
@@ -2500,7 +2576,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-network-koteihyo/youtube.json#shorts/point-overview-1",
       "relatedTo": "civil-construction-1/gakka-network-koteihyo/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -2519,7 +2595,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-network-koteihyo/youtube.short.point-overview-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-network-koteihyo/youtube.short.point-step1-2",
@@ -2530,7 +2607,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-network-koteihyo/youtube.json#shorts/point-step1-2",
       "relatedTo": "civil-construction-1/gakka-network-koteihyo/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -2549,7 +2626,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-network-koteihyo/youtube.short.point-step1-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-nori-hogoko/youtube.longform",
@@ -2557,7 +2635,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/gakka-nori-hogoko/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-24T03:30:00Z",
       "approval": {
         "by": "user",
@@ -2587,7 +2665,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-nori-hogoko/youtube.longform/cover",
         "cta": "civil-construction-1/gakka-nori-hogoko/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-nori-hogoko/youtube.short.point-gensoku-1",
@@ -2598,7 +2677,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-nori-hogoko/youtube.json#shorts/point-gensoku-1",
       "relatedTo": "civil-construction-1/gakka-nori-hogoko/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -2617,7 +2696,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-nori-hogoko/youtube.short.point-gensoku-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-nori-hogoko/youtube.short.point-hisho-2",
@@ -2628,7 +2708,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-nori-hogoko/youtube.json#shorts/point-hisho-2",
       "relatedTo": "civil-construction-1/gakka-nori-hogoko/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -2647,7 +2727,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-nori-hogoko/youtube.short.point-hisho-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-risk-assessment/youtube.longform",
@@ -2655,7 +2736,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/gakka-risk-assessment/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-24T11:00:00Z",
       "approval": {
         "by": "user",
@@ -2685,7 +2766,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-risk-assessment/youtube.longform/cover",
         "cta": "civil-construction-1/gakka-risk-assessment/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-risk-assessment/youtube.short.point-step1-1",
@@ -2696,7 +2778,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-risk-assessment/youtube.json#shorts/point-step1-1",
       "relatedTo": "civil-construction-1/gakka-risk-assessment/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -2715,7 +2797,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-risk-assessment/youtube.short.point-step1-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-risk-assessment/youtube.short.point-step2-2",
@@ -2726,7 +2809,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-risk-assessment/youtube.json#shorts/point-step2-2",
       "relatedTo": "civil-construction-1/gakka-risk-assessment/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -2745,7 +2828,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-risk-assessment/youtube.short.point-step2-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-roudou-kijun/youtube.longform",
@@ -2753,7 +2837,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/gakka-roudou-kijun/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-24T22:30:00Z",
       "approval": {
         "by": "user",
@@ -2783,7 +2867,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-roudou-kijun/youtube.longform/cover",
         "cta": "civil-construction-1/gakka-roudou-kijun/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-roudou-kijun/youtube.short.point-step1-1",
@@ -2794,7 +2879,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-roudou-kijun/youtube.json#shorts/point-step1-1",
       "relatedTo": "civil-construction-1/gakka-roudou-kijun/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -2813,7 +2898,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-roudou-kijun/youtube.short.point-step1-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-roudou-kijun/youtube.short.point-step2-2",
@@ -2824,7 +2910,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-roudou-kijun/youtube.json#shorts/point-step2-2",
       "relatedTo": "civil-construction-1/gakka-roudou-kijun/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -2843,7 +2929,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-roudou-kijun/youtube.short.point-step2-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-sekokeikaku-kiso/youtube.longform",
@@ -2851,7 +2938,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/gakka-sekokeikaku-kiso/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-25T11:00:00Z",
       "approval": {
         "by": "user",
@@ -2881,7 +2968,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-sekokeikaku-kiso/youtube.longform/cover",
         "cta": "civil-construction-1/gakka-sekokeikaku-kiso/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-sekokeikaku-kiso/youtube.short.point-step1-1",
@@ -2892,7 +2980,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-sekokeikaku-kiso/youtube.json#shorts/point-step1-1",
       "relatedTo": "civil-construction-1/gakka-sekokeikaku-kiso/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -2911,7 +2999,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-sekokeikaku-kiso/youtube.short.point-step1-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-sekokeikaku-kiso/youtube.short.point-step2-2",
@@ -2922,7 +3011,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-sekokeikaku-kiso/youtube.json#shorts/point-step2-2",
       "relatedTo": "civil-construction-1/gakka-sekokeikaku-kiso/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -2941,7 +3030,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-sekokeikaku-kiso/youtube.short.point-step2-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-sokuryo-3ten/youtube.longform",
@@ -2949,7 +3039,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/gakka-sokuryo-3ten/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-25T22:30:00Z",
       "approval": {
         "by": "user",
@@ -2979,7 +3069,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-sokuryo-3ten/youtube.longform/cover",
         "cta": "civil-construction-1/gakka-sokuryo-3ten/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-sokuryo-3ten/youtube.short.point-kijun-1",
@@ -2990,7 +3081,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-sokuryo-3ten/youtube.json#shorts/point-kijun-1",
       "relatedTo": "civil-construction-1/gakka-sokuryo-3ten/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -3009,7 +3100,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-sokuryo-3ten/youtube.short.point-kijun-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-sokuryo-3ten/youtube.short.point-suijun-2",
@@ -3020,7 +3112,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-sokuryo-3ten/youtube.json#shorts/point-suijun-2",
       "relatedTo": "civil-construction-1/gakka-sokuryo-3ten/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -3039,7 +3131,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-sokuryo-3ten/youtube.short.point-suijun-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-ukeoi-yakkan/youtube.longform",
@@ -3047,7 +3140,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/gakka-ukeoi-yakkan/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-26T03:30:00Z",
       "approval": {
         "by": "user",
@@ -3077,7 +3170,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-ukeoi-yakkan/youtube.longform/cover",
         "cta": "civil-construction-1/gakka-ukeoi-yakkan/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-ukeoi-yakkan/youtube.short.point-overview-1",
@@ -3088,7 +3182,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-ukeoi-yakkan/youtube.json#shorts/point-overview-1",
       "relatedTo": "civil-construction-1/gakka-ukeoi-yakkan/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -3107,7 +3201,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-ukeoi-yakkan/youtube.short.point-overview-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-ukeoi-yakkan/youtube.short.point-step1-2",
@@ -3118,7 +3213,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-ukeoi-yakkan/youtube.json#shorts/point-step1-2",
       "relatedTo": "civil-construction-1/gakka-ukeoi-yakkan/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -3137,7 +3232,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-ukeoi-yakkan/youtube.short.point-step1-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-unpan-shimekatame-kikai/youtube.longform",
@@ -3145,7 +3241,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/gakka-unpan-shimekatame-kikai/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-26T11:00:00Z",
       "approval": {
         "by": "user",
@@ -3175,7 +3271,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-unpan-shimekatame-kikai/youtube.longform/cover",
         "cta": "civil-construction-1/gakka-unpan-shimekatame-kikai/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-unpan-shimekatame-kikai/youtube.short.point-scraper-1",
@@ -3186,7 +3283,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-unpan-shimekatame-kikai/youtube.json#shorts/point-scraper-1",
       "relatedTo": "civil-construction-1/gakka-unpan-shimekatame-kikai/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -3205,7 +3302,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-unpan-shimekatame-kikai/youtube.short.point-scraper-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/gakka-unpan-shimekatame-kikai/youtube.short.point-unpan-2",
@@ -3216,7 +3314,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/gakka-unpan-shimekatame-kikai/youtube.json#shorts/point-unpan-2",
       "relatedTo": "civil-construction-1/gakka-unpan-shimekatame-kikai/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -3235,7 +3333,8 @@
       "media": {
         "cover": "civil-construction-1/gakka-unpan-shimekatame-kikai/youtube.short.point-unpan-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-2theme-heiki/youtube.longform",
@@ -3243,7 +3342,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/keiken-2theme-heiki/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-08T11:00:00Z",
       "approval": {
         "by": "user",
@@ -3273,7 +3372,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-2theme-heiki/youtube.longform/cover",
         "cta": "civil-construction-1/keiken-2theme-heiki/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-2theme-heiki/youtube.short.point-overview-1",
@@ -3284,7 +3384,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/keiken-2theme-heiki/youtube.json#shorts/point-overview-1",
       "relatedTo": "civil-construction-1/keiken-2theme-heiki/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -3303,7 +3403,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-2theme-heiki/youtube.short.point-overview-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-2theme-heiki/youtube.short.point-step1-2",
@@ -3314,7 +3415,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/keiken-2theme-heiki/youtube.json#shorts/point-step1-2",
       "relatedTo": "civil-construction-1/keiken-2theme-heiki/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -3333,7 +3434,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-2theme-heiki/youtube.short.point-step1-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-ai-sekkei/youtube.longform",
@@ -3341,7 +3443,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/keiken-ai-sekkei/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-14T11:00:00Z",
       "approval": {
         "by": "user",
@@ -3371,7 +3473,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-ai-sekkei/youtube.longform/cover",
         "cta": "civil-construction-1/keiken-ai-sekkei/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-ai-sekkei/youtube.short.point-overview-1",
@@ -3382,7 +3485,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/keiken-ai-sekkei/youtube.json#shorts/point-overview-1",
       "relatedTo": "civil-construction-1/keiken-ai-sekkei/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -3401,7 +3504,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-ai-sekkei/youtube.short.point-overview-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-ai-sekkei/youtube.short.point-step1-2",
@@ -3412,7 +3516,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/keiken-ai-sekkei/youtube.json#shorts/point-step1-2",
       "relatedTo": "civil-construction-1/keiken-ai-sekkei/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -3431,7 +3535,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-ai-sekkei/youtube.short.point-step1-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-anzen-1kyu/youtube.longform",
@@ -3439,7 +3544,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/keiken-anzen-1kyu/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-10T11:00:00Z",
       "approval": {
         "by": "user",
@@ -3469,7 +3574,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-anzen-1kyu/youtube.longform/cover",
         "cta": "civil-construction-1/keiken-anzen-1kyu/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-anzen-1kyu/youtube.short.point-compare-measures-2",
@@ -3480,7 +3586,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/keiken-anzen-1kyu/youtube.json#shorts/point-compare-measures-2",
       "relatedTo": "civil-construction-1/keiken-anzen-1kyu/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -3499,7 +3605,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-anzen-1kyu/youtube.short.point-compare-measures-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-anzen-1kyu/youtube.short.point-identify-hazard-1",
@@ -3510,7 +3617,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/keiken-anzen-1kyu/youtube.json#shorts/point-identify-hazard-1",
       "relatedTo": "civil-construction-1/keiken-anzen-1kyu/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -3529,7 +3636,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-anzen-1kyu/youtube.short.point-identify-hazard-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-dokugaku-genkai/youtube.longform",
@@ -3537,7 +3645,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/keiken-dokugaku-genkai/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-10-02T03:30:00Z",
       "approval": {
         "by": "user",
@@ -3567,7 +3675,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-dokugaku-genkai/youtube.longform/cover",
         "cta": "civil-construction-1/keiken-dokugaku-genkai/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-dokugaku-genkai/youtube.short.point-layer-format-2",
@@ -3578,7 +3687,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/keiken-dokugaku-genkai/youtube.json#shorts/point-layer-format-2",
       "relatedTo": "civil-construction-1/keiken-dokugaku-genkai/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -3597,7 +3706,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-dokugaku-genkai/youtube.short.point-layer-format-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-dokugaku-genkai/youtube.short.point-layer-overview-1",
@@ -3608,7 +3718,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/keiken-dokugaku-genkai/youtube.json#shorts/point-layer-overview-1",
       "relatedTo": "civil-construction-1/keiken-dokugaku-genkai/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -3627,7 +3737,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-dokugaku-genkai/youtube.short.point-layer-overview-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-hinshitsu-1kyu/youtube.longform",
@@ -3635,7 +3746,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/keiken-hinshitsu-1kyu/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-10T22:30:00Z",
       "approval": {
         "by": "user",
@@ -3665,7 +3776,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-hinshitsu-1kyu/youtube.longform/cover",
         "cta": "civil-construction-1/keiken-hinshitsu-1kyu/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-hinshitsu-1kyu/youtube.short.point-focus-item-2",
@@ -3676,7 +3788,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/keiken-hinshitsu-1kyu/youtube.json#shorts/point-focus-item-2",
       "relatedTo": "civil-construction-1/keiken-hinshitsu-1kyu/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -3695,7 +3807,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-hinshitsu-1kyu/youtube.short.point-focus-item-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-hinshitsu-1kyu/youtube.short.point-gap-to-issue-1",
@@ -3706,7 +3819,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/keiken-hinshitsu-1kyu/youtube.json#shorts/point-gap-to-issue-1",
       "relatedTo": "civil-construction-1/keiken-hinshitsu-1kyu/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -3725,7 +3838,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-hinshitsu-1kyu/youtube.short.point-gap-to-issue-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-kadai-kakikata/youtube.longform",
@@ -3733,7 +3847,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/keiken-kadai-kakikata/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-09T11:00:00Z",
       "approval": {
         "by": "user",
@@ -3763,7 +3877,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-kadai-kakikata/youtube.longform/cover",
         "cta": "civil-construction-1/keiken-kadai-kakikata/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-kadai-kakikata/youtube.short.point-block1-1",
@@ -3774,7 +3889,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/keiken-kadai-kakikata/youtube.json#shorts/point-block1-1",
       "relatedTo": "civil-construction-1/keiken-kadai-kakikata/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -3793,7 +3908,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-kadai-kakikata/youtube.short.point-block1-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-kadai-kakikata/youtube.short.point-block2-2",
@@ -3804,7 +3920,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/keiken-kadai-kakikata/youtube.json#shorts/point-block2-2",
       "relatedTo": "civil-construction-1/keiken-kadai-kakikata/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -3823,7 +3939,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-kadai-kakikata/youtube.short.point-block2-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-kaizen-example/youtube.longform",
@@ -3831,7 +3948,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/keiken-kaizen-example/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-10-02T11:00:00Z",
       "approval": {
         "by": "user",
@@ -3861,7 +3978,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-kaizen-example/youtube.longform/cover",
         "cta": "civil-construction-1/keiken-kaizen-example/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-kaizen-example/youtube.short.point-general-1",
@@ -3872,7 +3990,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/keiken-kaizen-example/youtube.json#shorts/point-general-1",
       "relatedTo": "civil-construction-1/keiken-kaizen-example/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -3891,7 +4009,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-kaizen-example/youtube.short.point-general-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-kaizen-example/youtube.short.point-reasoning-2",
@@ -3902,7 +4021,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/keiken-kaizen-example/youtube.json#shorts/point-reasoning-2",
       "relatedTo": "civil-construction-1/keiken-kaizen-example/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -3921,7 +4040,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-kaizen-example/youtube.short.point-reasoning-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-kankyo-1kyu/youtube.longform",
@@ -3929,7 +4049,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/keiken-kankyo-1kyu/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-11T22:30:00Z",
       "approval": {
         "by": "user",
@@ -3959,7 +4079,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-kankyo-1kyu/youtube.longform/cover",
         "cta": "civil-construction-1/keiken-kankyo-1kyu/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-kankyo-1kyu/youtube.short.point-background-1",
@@ -3970,7 +4091,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/keiken-kankyo-1kyu/youtube.json#shorts/point-background-1",
       "relatedTo": "civil-construction-1/keiken-kankyo-1kyu/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -3989,7 +4110,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-kankyo-1kyu/youtube.short.point-background-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-kankyo-1kyu/youtube.short.point-three-categories-2",
@@ -4000,7 +4122,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/keiken-kankyo-1kyu/youtube.json#shorts/point-three-categories-2",
       "relatedTo": "civil-construction-1/keiken-kankyo-1kyu/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -4019,7 +4141,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-kankyo-1kyu/youtube.short.point-three-categories-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-kento-kakikata/youtube.longform",
@@ -4027,7 +4150,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/keiken-kento-kakikata/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-09T22:30:00Z",
       "approval": {
         "by": "user",
@@ -4057,7 +4180,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-kento-kakikata/youtube.longform/cover",
         "cta": "civil-construction-1/keiken-kento-kakikata/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-kento-kakikata/youtube.short.point-block1-1",
@@ -4068,7 +4192,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/keiken-kento-kakikata/youtube.json#shorts/point-block1-1",
       "relatedTo": "civil-construction-1/keiken-kento-kakikata/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -4087,7 +4211,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-kento-kakikata/youtube.short.point-block1-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-kento-kakikata/youtube.short.point-block2-2",
@@ -4098,7 +4223,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/keiken-kento-kakikata/youtube.json#shorts/point-block2-2",
       "relatedTo": "civil-construction-1/keiken-kento-kakikata/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -4117,7 +4242,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-kento-kakikata/youtube.short.point-block2-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-kotei-1kyu/youtube.longform",
@@ -4125,7 +4251,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/keiken-kotei-1kyu/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-11T11:00:00Z",
       "approval": {
         "by": "user",
@@ -4155,7 +4281,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-kotei-1kyu/youtube.longform/cover",
         "cta": "civil-construction-1/keiken-kotei-1kyu/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-kotei-1kyu/youtube.short.point-prevent-in-advance-2",
@@ -4166,7 +4293,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/keiken-kotei-1kyu/youtube.json#shorts/point-prevent-in-advance-2",
       "relatedTo": "civil-construction-1/keiken-kotei-1kyu/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -4185,7 +4312,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-kotei-1kyu/youtube.short.point-prevent-in-advance-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-kotei-1kyu/youtube.short.point-three-factors-1",
@@ -4196,7 +4324,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/keiken-kotei-1kyu/youtube.json#shorts/point-three-factors-1",
       "relatedTo": "civil-construction-1/keiken-kotei-1kyu/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -4215,7 +4343,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-kotei-1kyu/youtube.short.point-three-factors-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-nendo-keiko-1kyu/youtube.longform",
@@ -4223,7 +4352,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/keiken-nendo-keiko-1kyu/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-10-01T22:30:00Z",
       "approval": {
         "by": "user",
@@ -4253,7 +4382,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-nendo-keiko-1kyu/youtube.longform/cover",
         "cta": "civil-construction-1/keiken-nendo-keiko-1kyu/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-nendo-keiko-1kyu/youtube.short.point-overview-1",
@@ -4264,7 +4394,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/keiken-nendo-keiko-1kyu/youtube.json#shorts/point-overview-1",
       "relatedTo": "civil-construction-1/keiken-nendo-keiko-1kyu/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -4283,7 +4413,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-nendo-keiko-1kyu/youtube.short.point-overview-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-nendo-keiko-1kyu/youtube.short.point-step1-2",
@@ -4294,7 +4425,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/keiken-nendo-keiko-1kyu/youtube.json#shorts/point-step1-2",
       "relatedTo": "civil-construction-1/keiken-nendo-keiko-1kyu/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -4313,7 +4444,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-nendo-keiko-1kyu/youtube.short.point-step1-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-ochiru-toan-1kyu/youtube.longform",
@@ -4321,7 +4453,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/keiken-ochiru-toan-1kyu/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-10-02T22:30:00Z",
       "approval": {
         "by": "user",
@@ -4351,7 +4483,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-ochiru-toan-1kyu/youtube.longform/cover",
         "cta": "civil-construction-1/keiken-ochiru-toan-1kyu/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-ochiru-toan-1kyu/youtube.short.point-gap-1",
@@ -4362,7 +4495,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/keiken-ochiru-toan-1kyu/youtube.json#shorts/point-gap-1",
       "relatedTo": "civil-construction-1/keiken-ochiru-toan-1kyu/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -4381,7 +4514,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-ochiru-toan-1kyu/youtube.short.point-gap-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-ochiru-toan-1kyu/youtube.short.point-generic-2",
@@ -4392,7 +4526,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/keiken-ochiru-toan-1kyu/youtube.json#shorts/point-generic-2",
       "relatedTo": "civil-construction-1/keiken-ochiru-toan-1kyu/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -4411,7 +4545,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-ochiru-toan-1kyu/youtube.short.point-generic-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-r6-shinkeishiki/youtube.longform",
@@ -4419,7 +4554,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/keiken-r6-shinkeishiki/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-08T03:30:00Z",
       "approval": {
         "by": "user",
@@ -4449,7 +4584,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-r6-shinkeishiki/youtube.longform/cover",
         "cta": "civil-construction-1/keiken-r6-shinkeishiki/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-r6-shinkeishiki/youtube.short.point-change-1",
@@ -4460,7 +4596,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/keiken-r6-shinkeishiki/youtube.json#shorts/point-change-1",
       "relatedTo": "civil-construction-1/keiken-r6-shinkeishiki/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -4479,7 +4615,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-r6-shinkeishiki/youtube.short.point-change-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-r6-shinkeishiki/youtube.short.point-structure-2",
@@ -4490,7 +4627,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/keiken-r6-shinkeishiki/youtube.json#shorts/point-structure-2",
       "relatedTo": "civil-construction-1/keiken-r6-shinkeishiki/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -4509,7 +4646,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-r6-shinkeishiki/youtube.short.point-structure-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-sekokeikaku-1kyu/youtube.longform",
@@ -4517,7 +4655,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/keiken-sekokeikaku-1kyu/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-12T03:30:00Z",
       "approval": {
         "by": "user",
@@ -4547,7 +4685,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-sekokeikaku-1kyu/youtube.longform/cover",
         "cta": "civil-construction-1/keiken-sekokeikaku-1kyu/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-sekokeikaku-1kyu/youtube.short.point-four-categories-2",
@@ -4558,7 +4697,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/keiken-sekokeikaku-1kyu/youtube.json#shorts/point-four-categories-2",
       "relatedTo": "civil-construction-1/keiken-sekokeikaku-1kyu/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -4577,7 +4716,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-sekokeikaku-1kyu/youtube.short.point-four-categories-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-sekokeikaku-1kyu/youtube.short.point-plan-vs-management-1",
@@ -4588,7 +4728,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/keiken-sekokeikaku-1kyu/youtube.json#shorts/point-plan-vs-management-1",
       "relatedTo": "civil-construction-1/keiken-sekokeikaku-1kyu/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -4607,7 +4747,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-sekokeikaku-1kyu/youtube.short.point-plan-vs-management-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-soteikoji-katsuyo/youtube.longform",
@@ -4615,7 +4756,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/keiken-soteikoji-katsuyo/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-14T03:30:00Z",
       "approval": {
         "by": "user",
@@ -4645,7 +4786,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-soteikoji-katsuyo/youtube.longform/cover",
         "cta": "civil-construction-1/keiken-soteikoji-katsuyo/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-soteikoji-katsuyo/youtube.short.point-overview-1",
@@ -4656,7 +4798,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/keiken-soteikoji-katsuyo/youtube.json#shorts/point-overview-1",
       "relatedTo": "civil-construction-1/keiken-soteikoji-katsuyo/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -4675,7 +4817,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-soteikoji-katsuyo/youtube.short.point-overview-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-soteikoji-katsuyo/youtube.short.point-step1-2",
@@ -4686,7 +4829,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/keiken-soteikoji-katsuyo/youtube.json#shorts/point-step1-2",
       "relatedTo": "civil-construction-1/keiken-soteikoji-katsuyo/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -4705,7 +4848,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-soteikoji-katsuyo/youtube.short.point-step1-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-taio-hyoka/youtube.longform",
@@ -4713,7 +4857,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/keiken-taio-hyoka/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-10T03:30:00Z",
       "approval": {
         "by": "user",
@@ -4743,7 +4887,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-taio-hyoka/youtube.longform/cover",
         "cta": "civil-construction-1/keiken-taio-hyoka/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-taio-hyoka/youtube.short.point-block1-1",
@@ -4754,7 +4899,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/keiken-taio-hyoka/youtube.json#shorts/point-block1-1",
       "relatedTo": "civil-construction-1/keiken-taio-hyoka/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -4773,7 +4918,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-taio-hyoka/youtube.short.point-block1-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-taio-hyoka/youtube.short.point-block2-2",
@@ -4784,7 +4930,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/keiken-taio-hyoka/youtube.json#shorts/point-block2-2",
       "relatedTo": "civil-construction-1/keiken-taio-hyoka/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -4803,7 +4949,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-taio-hyoka/youtube.short.point-block2-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-taisho-koji/youtube.longform",
@@ -4811,7 +4958,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/keiken-taisho-koji/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-08T22:30:00Z",
       "approval": {
         "by": "user",
@@ -4841,7 +4988,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-taisho-koji/youtube.longform/cover",
         "cta": "civil-construction-1/keiken-taisho-koji/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-taisho-koji/youtube.short.point-block1-1",
@@ -4852,7 +5000,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/keiken-taisho-koji/youtube.json#shorts/point-block1-1",
       "relatedTo": "civil-construction-1/keiken-taisho-koji/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -4871,7 +5019,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-taisho-koji/youtube.short.point-block1-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-taisho-koji/youtube.short.point-block2-2",
@@ -4882,7 +5031,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/keiken-taisho-koji/youtube.json#shorts/point-block2-2",
       "relatedTo": "civil-construction-1/keiken-taisho-koji/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -4901,7 +5050,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-taisho-koji/youtube.short.point-block2-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-yosou-renshu/youtube.longform",
@@ -4909,7 +5059,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/keiken-yosou-renshu/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-10-01T11:00:00Z",
       "approval": {
         "by": "user",
@@ -4939,7 +5089,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-yosou-renshu/youtube.longform/cover",
         "cta": "civil-construction-1/keiken-yosou-renshu/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-yosou-renshu/youtube.short.point-overview-1",
@@ -4950,7 +5101,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/keiken-yosou-renshu/youtube.json#shorts/point-overview-1",
       "relatedTo": "civil-construction-1/keiken-yosou-renshu/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -4969,7 +5120,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-yosou-renshu/youtube.short.point-overview-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/keiken-yosou-renshu/youtube.short.point-step1-2",
@@ -4980,7 +5132,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/keiken-yosou-renshu/youtube.json#shorts/point-step1-2",
       "relatedTo": "civil-construction-1/keiken-yosou-renshu/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -4999,7 +5151,8 @@
       "media": {
         "cover": "civil-construction-1/keiken-yosou-renshu/youtube.short.point-step1-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/kikinagashi-anzen-suchi/youtube.longform",
@@ -5007,7 +5160,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/kikinagashi-anzen-suchi/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-30T22:30:00Z",
       "approval": {
         "by": "user",
@@ -5037,7 +5190,8 @@
       "media": {
         "cover": "civil-construction-1/kikinagashi-anzen-suchi/youtube.longform/cover",
         "cta": "civil-construction-1/kikinagashi-anzen-suchi/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/kikinagashi-anzen-suchi/youtube.short.point-scaffold-platform-1",
@@ -5048,7 +5202,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/kikinagashi-anzen-suchi/youtube.json#shorts/point-scaffold-platform-1",
       "relatedTo": "civil-construction-1/kikinagashi-anzen-suchi/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -5067,7 +5221,8 @@
       "media": {
         "cover": "civil-construction-1/kikinagashi-anzen-suchi/youtube.short.point-scaffold-platform-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/kikinagashi-anzen-suchi/youtube.short.point-scaffold-rail-2",
@@ -5078,7 +5233,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/kikinagashi-anzen-suchi/youtube.json#shorts/point-scaffold-rail-2",
       "relatedTo": "civil-construction-1/kikinagashi-anzen-suchi/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -5097,7 +5252,8 @@
       "media": {
         "cover": "civil-construction-1/kikinagashi-anzen-suchi/youtube.short.point-scaffold-rail-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/kikinagashi-doko-suchi/youtube.longform",
@@ -5105,7 +5261,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/kikinagashi-doko-suchi/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-29T22:30:00Z",
       "approval": {
         "by": "user",
@@ -5135,7 +5291,8 @@
       "media": {
         "cover": "civil-construction-1/kikinagashi-doko-suchi/youtube.longform/cover",
         "cta": "civil-construction-1/kikinagashi-doko-suchi/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/kikinagashi-doko-suchi/youtube.short.point-embankment-check-2",
@@ -5146,7 +5303,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/kikinagashi-doko-suchi/youtube.json#shorts/point-embankment-check-2",
       "relatedTo": "civil-construction-1/kikinagashi-doko-suchi/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -5165,7 +5322,8 @@
       "media": {
         "cover": "civil-construction-1/kikinagashi-doko-suchi/youtube.short.point-embankment-check-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/kikinagashi-doko-suchi/youtube.short.point-soft-ground-judge-1",
@@ -5176,7 +5334,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/kikinagashi-doko-suchi/youtube.json#shorts/point-soft-ground-judge-1",
       "relatedTo": "civil-construction-1/kikinagashi-doko-suchi/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -5195,7 +5353,8 @@
       "media": {
         "cover": "civil-construction-1/kikinagashi-doko-suchi/youtube.short.point-soft-ground-judge-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/kikinagashi-hinshitsu-kikaku/youtube.longform",
@@ -5203,7 +5362,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/kikinagashi-hinshitsu-kikaku/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-30T03:30:00Z",
       "approval": {
         "by": "user",
@@ -5233,7 +5392,8 @@
       "media": {
         "cover": "civil-construction-1/kikinagashi-hinshitsu-kikaku/youtube.longform/cover",
         "cta": "civil-construction-1/kikinagashi-hinshitsu-kikaku/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/kikinagashi-hinshitsu-kikaku/youtube.short.point-full-vs-sampling-2",
@@ -5244,7 +5404,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/kikinagashi-hinshitsu-kikaku/youtube.json#shorts/point-full-vs-sampling-2",
       "relatedTo": "civil-construction-1/kikinagashi-hinshitsu-kikaku/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -5263,7 +5423,8 @@
       "media": {
         "cover": "civil-construction-1/kikinagashi-hinshitsu-kikaku/youtube.short.point-full-vs-sampling-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/kikinagashi-hinshitsu-kikaku/youtube.short.point-population-sampling-1",
@@ -5274,7 +5435,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/kikinagashi-hinshitsu-kikaku/youtube.json#shorts/point-population-sampling-1",
       "relatedTo": "civil-construction-1/kikinagashi-hinshitsu-kikaku/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -5293,7 +5454,8 @@
       "media": {
         "cover": "civil-construction-1/kikinagashi-hinshitsu-kikaku/youtube.short.point-population-sampling-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/kikinagashi-hoki-suchi/youtube.longform",
@@ -5301,7 +5463,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/kikinagashi-hoki-suchi/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-30T11:00:00Z",
       "approval": {
         "by": "user",
@@ -5331,7 +5493,8 @@
       "media": {
         "cover": "civil-construction-1/kikinagashi-hoki-suchi/youtube.longform/cover",
         "cta": "civil-construction-1/kikinagashi-hoki-suchi/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/kikinagashi-hoki-suchi/youtube.short.point-avg-wage-contract-1",
@@ -5342,7 +5505,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/kikinagashi-hoki-suchi/youtube.json#shorts/point-avg-wage-contract-1",
       "relatedTo": "civil-construction-1/kikinagashi-hoki-suchi/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -5361,7 +5524,8 @@
       "media": {
         "cover": "civil-construction-1/kikinagashi-hoki-suchi/youtube.short.point-avg-wage-contract-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/kikinagashi-hoki-suchi/youtube.short.point-dismissal-notice-2",
@@ -5372,7 +5536,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/kikinagashi-hoki-suchi/youtube.json#shorts/point-dismissal-notice-2",
       "relatedTo": "civil-construction-1/kikinagashi-hoki-suchi/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -5391,7 +5555,8 @@
       "media": {
         "cover": "civil-construction-1/kikinagashi-hoki-suchi/youtube.short.point-dismissal-notice-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/koji-gaiyo-7items/youtube.longform",
@@ -5399,7 +5564,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/koji-gaiyo-7items/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -5441,7 +5606,8 @@
       "media": {
         "cover": "civil-construction-1/koji-gaiyo-7items/youtube.longform/cover",
         "cta": "civil-construction-1/koji-gaiyo-7items/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/koji-gaiyo-7items/youtube.short.koki-sekoryo",
@@ -5451,7 +5617,7 @@
       "variant": "koki-sekoryo",
       "copy": "content/sns/video-packs/civil-construction-1/koji-gaiyo-7items/youtube.json#shorts/koki-sekoryo",
       "relatedTo": "civil-construction-1/koji-gaiyo-7items/youtube.longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-06T22:30:00Z",
       "approval": {
         "by": "user",
@@ -5482,7 +5648,8 @@
       "media": {
         "cover": "civil-construction-1/koji-gaiyo-7items/youtube.short.koki-sekoryo/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/koji-gaiyo-7items/youtube.short.koshu-sekoryo",
@@ -5492,7 +5659,7 @@
       "variant": "koshu-sekoryo",
       "copy": "content/sns/video-packs/civil-construction-1/koji-gaiyo-7items/youtube.json#shorts/koshu-sekoryo",
       "relatedTo": "civil-construction-1/koji-gaiyo-7items/youtube.longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-05T22:30:00Z",
       "approval": {
         "by": "user",
@@ -5539,7 +5706,8 @@
       "media": {
         "cover": "civil-construction-1/koji-gaiyo-7items/youtube.short.koshu-sekoryo/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/koji-gaiyo-sheet-zukai/youtube.longform",
@@ -5557,7 +5725,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/niji-junbi-roadmap/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-07T22:30:00Z",
       "approval": {
         "by": "user",
@@ -5587,7 +5755,8 @@
       "media": {
         "cover": "civil-construction-1/niji-junbi-roadmap/youtube.longform/cover",
         "cta": "civil-construction-1/niji-junbi-roadmap/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/niji-junbi-roadmap/youtube.short.point-overview-2",
@@ -5598,7 +5767,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/niji-junbi-roadmap/youtube.json#shorts/point-overview-2",
       "relatedTo": "civil-construction-1/niji-junbi-roadmap/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -5617,7 +5786,8 @@
       "media": {
         "cover": "civil-construction-1/niji-junbi-roadmap/youtube.short.point-overview-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/niji-junbi-roadmap/youtube.short.point-time-matters-1",
@@ -5628,7 +5798,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/niji-junbi-roadmap/youtube.json#shorts/point-time-matters-1",
       "relatedTo": "civil-construction-1/niji-junbi-roadmap/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -5647,7 +5817,8 @@
       "media": {
         "cover": "civil-construction-1/niji-junbi-roadmap/youtube.short.point-time-matters-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/niji-kijutsu-concrete/youtube.longform",
@@ -5655,7 +5826,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/niji-kijutsu-concrete/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-12T22:30:00Z",
       "approval": {
         "by": "user",
@@ -5685,7 +5856,8 @@
       "media": {
         "cover": "civil-construction-1/niji-kijutsu-concrete/youtube.longform/cover",
         "cta": "civil-construction-1/niji-kijutsu-concrete/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/niji-kijutsu-concrete/youtube.short.point-overlap-time-1",
@@ -5696,7 +5868,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/niji-kijutsu-concrete/youtube.json#shorts/point-overlap-time-1",
       "relatedTo": "civil-construction-1/niji-kijutsu-concrete/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -5715,7 +5887,8 @@
       "media": {
         "cover": "civil-construction-1/niji-kijutsu-concrete/youtube.short.point-overlap-time-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/niji-kijutsu-concrete/youtube.short.point-vibration-2",
@@ -5726,7 +5899,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/niji-kijutsu-concrete/youtube.json#shorts/point-vibration-2",
       "relatedTo": "civil-construction-1/niji-kijutsu-concrete/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -5745,7 +5918,8 @@
       "media": {
         "cover": "civil-construction-1/niji-kijutsu-concrete/youtube.short.point-vibration-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/niji-kijutsu-doko/youtube.longform",
@@ -5753,7 +5927,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/niji-kijutsu-doko/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-12T11:00:00Z",
       "approval": {
         "by": "user",
@@ -5783,7 +5957,8 @@
       "media": {
         "cover": "civil-construction-1/niji-kijutsu-doko/youtube.longform/cover",
         "cta": "civil-construction-1/niji-kijutsu-doko/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/niji-kijutsu-doko/youtube.short.point-gradient-2",
@@ -5794,7 +5969,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/niji-kijutsu-doko/youtube.json#shorts/point-gradient-2",
       "relatedTo": "civil-construction-1/niji-kijutsu-doko/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -5813,7 +5988,8 @@
       "media": {
         "cover": "civil-construction-1/niji-kijutsu-doko/youtube.short.point-gradient-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/niji-kijutsu-doko/youtube.short.point-thickness-1",
@@ -5824,7 +6000,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/niji-kijutsu-doko/youtube.json#shorts/point-thickness-1",
       "relatedTo": "civil-construction-1/niji-kijutsu-doko/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -5843,7 +6019,8 @@
       "media": {
         "cover": "civil-construction-1/niji-kijutsu-doko/youtube.short.point-thickness-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/niji-kijutsu-hinshitsu/youtube.longform",
@@ -5851,7 +6028,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/niji-kijutsu-hinshitsu/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-13T11:00:00Z",
       "approval": {
         "by": "user",
@@ -5881,7 +6058,8 @@
       "media": {
         "cover": "civil-construction-1/niji-kijutsu-hinshitsu/youtube.longform/cover",
         "cta": "civil-construction-1/niji-kijutsu-hinshitsu/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/niji-kijutsu-hinshitsu/youtube.short.point-acceptance-test-2",
@@ -5892,7 +6070,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/niji-kijutsu-hinshitsu/youtube.json#shorts/point-acceptance-test-2",
       "relatedTo": "civil-construction-1/niji-kijutsu-hinshitsu/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -5911,7 +6089,8 @@
       "media": {
         "cover": "civil-construction-1/niji-kijutsu-hinshitsu/youtube.short.point-acceptance-test-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/niji-kijutsu-hinshitsu/youtube.short.point-compaction-1",
@@ -5922,7 +6101,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/niji-kijutsu-hinshitsu/youtube.json#shorts/point-compaction-1",
       "relatedTo": "civil-construction-1/niji-kijutsu-hinshitsu/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -5941,7 +6120,8 @@
       "media": {
         "cover": "civil-construction-1/niji-kijutsu-hinshitsu/youtube.short.point-compaction-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/niji-kijutsu-sekokeikaku/youtube.longform",
@@ -5949,7 +6129,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/niji-kijutsu-sekokeikaku/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-13T22:30:00Z",
       "approval": {
         "by": "user",
@@ -5979,7 +6159,8 @@
       "media": {
         "cover": "civil-construction-1/niji-kijutsu-sekokeikaku/youtube.longform/cover",
         "cta": "civil-construction-1/niji-kijutsu-sekokeikaku/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/niji-kijutsu-sekokeikaku/youtube.short.point-pattern1-1",
@@ -5990,7 +6171,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/niji-kijutsu-sekokeikaku/youtube.json#shorts/point-pattern1-1",
       "relatedTo": "civil-construction-1/niji-kijutsu-sekokeikaku/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -6009,7 +6190,8 @@
       "media": {
         "cover": "civil-construction-1/niji-kijutsu-sekokeikaku/youtube.short.point-pattern1-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/niji-kijutsu-sekokeikaku/youtube.short.point-pattern2-2",
@@ -6020,7 +6202,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/niji-kijutsu-sekokeikaku/youtube.json#shorts/point-pattern2-2",
       "relatedTo": "civil-construction-1/niji-kijutsu-sekokeikaku/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -6039,7 +6221,8 @@
       "media": {
         "cover": "civil-construction-1/niji-kijutsu-sekokeikaku/youtube.short.point-pattern2-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/roadmap-1kyu-vs-2kyu/youtube.longform",
@@ -6047,7 +6230,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/roadmap-1kyu-vs-2kyu/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-14T22:30:00Z",
       "approval": {
         "by": "user",
@@ -6077,7 +6260,8 @@
       "media": {
         "cover": "civil-construction-1/roadmap-1kyu-vs-2kyu/youtube.longform/cover",
         "cta": "civil-construction-1/roadmap-1kyu-vs-2kyu/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/roadmap-1kyu-vs-2kyu/youtube.short.point-step1-1",
@@ -6088,7 +6272,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/roadmap-1kyu-vs-2kyu/youtube.json#shorts/point-step1-1",
       "relatedTo": "civil-construction-1/roadmap-1kyu-vs-2kyu/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -6107,7 +6291,8 @@
       "media": {
         "cover": "civil-construction-1/roadmap-1kyu-vs-2kyu/youtube.short.point-step1-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/roadmap-1kyu-vs-2kyu/youtube.short.point-step2-2",
@@ -6118,7 +6303,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/roadmap-1kyu-vs-2kyu/youtube.json#shorts/point-step2-2",
       "relatedTo": "civil-construction-1/roadmap-1kyu-vs-2kyu/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -6137,7 +6322,8 @@
       "media": {
         "cover": "civil-construction-1/roadmap-1kyu-vs-2kyu/youtube.short.point-step2-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/roadmap-juken-shikaku/youtube.longform",
@@ -6145,7 +6331,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/roadmap-juken-shikaku/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-15T11:00:00Z",
       "approval": {
         "by": "user",
@@ -6175,7 +6361,8 @@
       "media": {
         "cover": "civil-construction-1/roadmap-juken-shikaku/youtube.longform/cover",
         "cta": "civil-construction-1/roadmap-juken-shikaku/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/roadmap-juken-shikaku/youtube.short.point-step1-1",
@@ -6186,7 +6373,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/roadmap-juken-shikaku/youtube.json#shorts/point-step1-1",
       "relatedTo": "civil-construction-1/roadmap-juken-shikaku/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -6205,7 +6392,8 @@
       "media": {
         "cover": "civil-construction-1/roadmap-juken-shikaku/youtube.short.point-step1-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/roadmap-juken-shikaku/youtube.short.point-step2-2",
@@ -6216,7 +6404,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/roadmap-juken-shikaku/youtube.json#shorts/point-step2-2",
       "relatedTo": "civil-construction-1/roadmap-juken-shikaku/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -6235,7 +6423,8 @@
       "media": {
         "cover": "civil-construction-1/roadmap-juken-shikaku/youtube.short.point-step2-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/roadmap-nanido-goukakuritsu/youtube.longform",
@@ -6243,7 +6432,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/roadmap-nanido-goukakuritsu/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-15T22:30:00Z",
       "approval": {
         "by": "user",
@@ -6273,7 +6462,8 @@
       "media": {
         "cover": "civil-construction-1/roadmap-nanido-goukakuritsu/youtube.longform/cover",
         "cta": "civil-construction-1/roadmap-nanido-goukakuritsu/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/roadmap-nanido-goukakuritsu/youtube.short.point-step1-1",
@@ -6284,7 +6474,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/roadmap-nanido-goukakuritsu/youtube.json#shorts/point-step1-1",
       "relatedTo": "civil-construction-1/roadmap-nanido-goukakuritsu/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -6303,7 +6493,8 @@
       "media": {
         "cover": "civil-construction-1/roadmap-nanido-goukakuritsu/youtube.short.point-step1-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/roadmap-nanido-goukakuritsu/youtube.short.point-step2-2",
@@ -6314,7 +6505,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/roadmap-nanido-goukakuritsu/youtube.json#shorts/point-step2-2",
       "relatedTo": "civil-construction-1/roadmap-nanido-goukakuritsu/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -6333,7 +6524,8 @@
       "media": {
         "cover": "civil-construction-1/roadmap-nanido-goukakuritsu/youtube.short.point-step2-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/sekokan-shippaidan/youtube.longform",
@@ -6341,7 +6533,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/sekokan-shippaidan/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-29T11:00:00Z",
       "approval": {
         "by": "user",
@@ -6371,7 +6563,8 @@
       "media": {
         "cover": "civil-construction-1/sekokan-shippaidan/youtube.longform/cover",
         "cta": "civil-construction-1/sekokan-shippaidan/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/sekokan-shippaidan/youtube.short.point-step1-1",
@@ -6382,7 +6575,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/sekokan-shippaidan/youtube.json#shorts/point-step1-1",
       "relatedTo": "civil-construction-1/sekokan-shippaidan/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -6401,7 +6594,8 @@
       "media": {
         "cover": "civil-construction-1/sekokan-shippaidan/youtube.short.point-step1-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/sekokan-shippaidan/youtube.short.point-step2-2",
@@ -6412,7 +6606,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/sekokan-shippaidan/youtube.json#shorts/point-step2-2",
       "relatedTo": "civil-construction-1/sekokan-shippaidan/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -6431,7 +6625,8 @@
       "media": {
         "cover": "civil-construction-1/sekokan-shippaidan/youtube.short.point-step2-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/study-plan-1kyu/youtube.longform",
@@ -6439,7 +6634,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-1/study-plan-1kyu/youtube.json#longform",
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-09-16T03:30:00Z",
       "approval": {
         "by": "user",
@@ -6469,7 +6664,8 @@
       "media": {
         "cover": "civil-construction-1/study-plan-1kyu/youtube.longform/cover",
         "cta": "civil-construction-1/study-plan-1kyu/youtube.longform/cta"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/study-plan-1kyu/youtube.short.point-step1-1",
@@ -6480,7 +6676,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/study-plan-1kyu/youtube.json#shorts/point-step1-1",
       "relatedTo": "civil-construction-1/study-plan-1kyu/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -6499,7 +6695,8 @@
       "media": {
         "cover": "civil-construction-1/study-plan-1kyu/youtube.short.point-step1-1/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "civil-construction-1/study-plan-1kyu/youtube.short.point-step2-2",
@@ -6510,7 +6707,7 @@
       "copy": "content/sns/video-packs/civil-construction-1/study-plan-1kyu/youtube.json#shorts/point-step2-2",
       "relatedTo": "civil-construction-1/study-plan-1kyu/youtube.longform",
       "idException": "imported-before-cutover",
-      "status": "uploaded_private",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -6529,7 +6726,8 @@
       "media": {
         "cover": "civil-construction-1/study-plan-1kyu/youtube.short.point-step2-2/cover",
         "cta": "brand/bridge-notebook-a/cta-shorts"
-      }
+      },
+      "stopReason": "user-decision"
     }
   ]
 }
