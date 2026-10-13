@@ -17,6 +17,7 @@ import { SITE_ORIGIN } from './site-identity.mjs';
 import { readJson } from './json-io.mjs';
 import { readDatasetIf } from './dataset-io.mjs';
 import { isLegacyPath } from './legacy-routes.mjs';
+import { escapeRegExp } from './regexp-escape.mjs';
 import { LEGACY_REDIRECTED_AT } from './legacy-sitemap.mjs';
 import { buildContentIndex } from './content-index.mjs';
 import { REPO_ROOT, SITE_CONTENT_ROOT } from './repository-paths.mjs';
@@ -192,8 +193,8 @@ export function candidateMarks(p) {
  * 転送先の最後の登録リクエスト（gsc.indexing-history の commit の run）を返す。
  */
 const linkMemo = new Map();
-/** git grep -E（POSIX 拡張正規表現）に文字列をそのまま渡すための逃がし（記号とバックスラッシュをすべて） */
-export const escapeEre = (s) => String(s).replace(/[\\^$.*+?()[\]{}|]/g, '\\$&');
+/** git grep -E（POSIX 拡張正規表現）に渡すページの逃がし（共通部品 escapeRegExp。記号とバックスラッシュをすべて逃がす）。テストの入口として再輸出する */
+export const escapeEre = escapeRegExp;
 export function legacyStatus(root, pages) {
   if (!pages.length) return new Map();
   const { index, legacy } = buildContentIndex(root);
