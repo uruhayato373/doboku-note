@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-13T08:02:00.663Z",
+  "updated_at": "2026-10-13T09:57:10.601Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -3804,7 +3804,7 @@
       "hypothesis": "/exam/pe-comprehensive-management/guide/exam-index は 5 語が11〜30位（最良 24.3 位・表示 30）。検索意図に合わせて title・description・冒頭の答え・見出し・内部リンクを直せば、同じ検索語の順位が上がる",
       "target_metric": "対象ページ × 直す前の検索語 5 語の GSC 平均順位（本番反映の前 28 日・後 28 日）",
       "target_delta": "平均順位が 10% 以上良くなる。前後どちらかの表示が 10 未満なら判定不能",
-      "status": "proposed",
+      "status": "running",
       "created_at": "2026-10-13",
       "searchStrategy": {
         "cluster": "qualification",
@@ -3874,7 +3874,8 @@
         "lagDays": 3,
         "direction": "decrease",
         "minEffect": 0.1,
-        "minVolume": 10
+        "minVolume": 10,
+        "anchor": "2026-10-13"
       },
       "history": [
         {
@@ -3886,13 +3887,26 @@
           "event": "implemented",
           "commit": "494e125f3e53",
           "change": "description と冒頭の第1段落で「技術士 総合技術監理部門とは」に先に答える（定義・筆記の構成・令和7年度の最終合格率22.7%）"
+        },
+        {
+          "at": "2026-10-13T09:57:10.601Z",
+          "event": "deployed",
+          "commit": "494e125f3e53",
+          "deploy": {
+            "id": 38369551066,
+            "sha": "b960d76b683315295322f2a70911a162022ede79",
+            "at": "2026-10-13T08:33:52Z",
+            "url": "https://github.com/uruhayato373/doboku-note/actions/runs/38369551066"
+          }
         }
       ],
       "implementation": {
         "commit": "494e125f3e53",
         "at": "2026-10-13",
         "change": "description と冒頭の第1段落で「技術士 総合技術監理部門とは」に先に答える（定義・筆記の構成・令和7年度の最終合格率22.7%）"
-      }
+      },
+      "started_at": "2026-10-13",
+      "next_check_date": "2026-11-16"
     },
     {
       "id": "EXP-036",
@@ -3901,7 +3915,7 @@
       "hypothesis": "/exam/civil-construction-1/guide/difficulty は 4 語が11〜30位（最良 16 位・表示 10）。検索意図に合わせて title・description・冒頭の答え・見出し・内部リンクを直せば、同じ検索語の順位が上がる",
       "target_metric": "対象ページ × 直す前の検索語 4 語の GSC 平均順位（本番反映の前 28 日・後 28 日）",
       "target_delta": "平均順位が 10% 以上良くなる。前後どちらかの表示が 10 未満なら判定不能",
-      "status": "proposed",
+      "status": "running",
       "created_at": "2026-10-13",
       "searchStrategy": {
         "cluster": "qualification",
@@ -3964,7 +3978,8 @@
         "lagDays": 3,
         "direction": "decrease",
         "minEffect": 0.1,
-        "minVolume": 10
+        "minVolume": 10,
+        "anchor": "2026-10-13"
       },
       "history": [
         {
@@ -3976,13 +3991,26 @@
           "event": "implemented",
           "commit": "01fd4ff4c2fd",
           "change": "seoTitle・description・冒頭で合格率の水準（第1次4〜6割・令和8年度49.8%、第2次3〜4割・令和7年度38.9%）を先に示し、「ともに40%台」の古い記述を直す"
+        },
+        {
+          "at": "2026-10-13T09:57:10.601Z",
+          "event": "deployed",
+          "commit": "01fd4ff4c2fd",
+          "deploy": {
+            "id": 38369551066,
+            "sha": "b960d76b683315295322f2a70911a162022ede79",
+            "at": "2026-10-13T08:33:52Z",
+            "url": "https://github.com/uruhayato373/doboku-note/actions/runs/38369551066"
+          }
         }
       ],
       "implementation": {
         "commit": "01fd4ff4c2fd",
         "at": "2026-10-13",
         "change": "seoTitle・description・冒頭で合格率の水準（第1次4〜6割・令和8年度49.8%、第2次3〜4割・令和7年度38.9%）を先に示し、「ともに40%台」の古い記述を直す"
-      }
+      },
+      "started_at": "2026-10-13",
+      "next_check_date": "2026-11-16"
     },
     {
       "id": "EXP-037",
@@ -3991,7 +4019,7 @@
       "hypothesis": "/exam/pe-construction/keywords/port-airport-exam-themes は 1 語が11〜30位（最良 10.5 位・表示 8）。検索意図に合わせて title・description・冒頭の答え・見出し・内部リンクを直せば、同じ検索語の順位が上がる",
       "target_metric": "対象ページ × 直す前の検索語 1 語の GSC 平均順位（本番反映の前 28 日・後 28 日）",
       "target_delta": "平均順位が 10% 以上良くなる。前後どちらかの表示が 10 未満なら判定不能",
-      "status": "proposed",
+      "status": "running",
       "created_at": "2026-10-13",
       "searchStrategy": {
         "cluster": "qualification",
@@ -4033,7 +4061,8 @@
         "lagDays": 3,
         "direction": "decrease",
         "minEffect": 0.1,
-        "minVolume": 10
+        "minVolume": 10,
+        "anchor": "2026-10-13"
       },
       "history": [
         {
@@ -4045,13 +4074,26 @@
           "event": "implemented",
           "commit": "ea459a39a8fc",
           "change": "seoTitle・description・冒頭を「技術士 港湾及び空港」の検索語に合わせ、選択科目の出題テーマ・過去問分析であることを先に示す"
+        },
+        {
+          "at": "2026-10-13T09:57:10.601Z",
+          "event": "deployed",
+          "commit": "ea459a39a8fc",
+          "deploy": {
+            "id": 38369551066,
+            "sha": "b960d76b683315295322f2a70911a162022ede79",
+            "at": "2026-10-13T08:33:52Z",
+            "url": "https://github.com/uruhayato373/doboku-note/actions/runs/38369551066"
+          }
         }
       ],
       "implementation": {
         "commit": "ea459a39a8fc",
         "at": "2026-10-13",
         "change": "seoTitle・description・冒頭を「技術士 港湾及び空港」の検索語に合わせ、選択科目の出題テーマ・過去問分析であることを先に示す"
-      }
+      },
+      "started_at": "2026-10-13",
+      "next_check_date": "2026-11-16"
     }
   ]
 }
