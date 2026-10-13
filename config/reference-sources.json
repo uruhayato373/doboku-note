@@ -4299,6 +4299,138 @@
       }
     },
     {
+      "id": "city-planning-act",
+      "title": "都市計画法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "都市計画法": "city-planning-act"
+      }
+    },
+    {
+      "id": "land-readjustment-act",
+      "title": "土地区画整理法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "土地区画整理法": "land-readjustment-act"
+      }
+    },
+    {
+      "id": "urban-park-act",
+      "title": "都市公園法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "都市公園法": "urban-park-act"
+      }
+    },
+    {
+      "id": "sewerage-act",
+      "title": "下水道法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "下水道法": "sewerage-act"
+      }
+    },
+    {
+      "id": "port-act",
+      "title": "港湾法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "港湾法": "port-act"
+      }
+    },
+    {
+      "id": "coast-act",
+      "title": "海岸法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "海岸法": "coast-act"
+      }
+    },
+    {
+      "id": "sabo-act",
+      "title": "砂防法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "砂防法": "sabo-act"
+      }
+    },
+    {
+      "id": "steep-slope-act",
+      "title": "急傾斜地の崩壊による災害の防止に関する法律",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "急傾斜地の崩壊による災害の防止に関する法律": "steep-slope-act"
+      }
+    },
+    {
+      "id": "cultural-properties-act",
+      "title": "文化財保護法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "文化財保護法": "cultural-properties-act"
+      }
+    },
+    {
+      "id": "pfi-act",
+      "title": "民間資金等の活用による公共施設等の整備等の促進に関する法律",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "民間資金等の活用による公共施設等の整備等の促進に関する法律": "pfi-act"
+      }
+    },
+    {
+      "id": "national-spatial-planning-act",
+      "title": "国土形成計画法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "国土形成計画法": "national-spatial-planning-act"
+      }
+    },
+    {
+      "id": "infrastructure-priority-plan-act",
+      "title": "社会資本整備重点計画法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "社会資本整備重点計画法": "infrastructure-priority-plan-act"
+      }
+    },
+    {
       "id": "land-expropriation-act",
       "title": "土地収用法",
       "class": "external-primary",

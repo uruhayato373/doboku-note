@@ -10,15 +10,15 @@
       "policy": "docs/strategy/18_自治体土木担当・コンクリートシリーズ方針2026-10.md",
       "gate": "EXP-012（記事末の資格カード）の判定（事後窓の終わり 2026-11-26）で継続になるまで、新規記事は書かない（2026-10-13 運営者判断）",
       "entry": {
-        "hubItem": "A-1",
+        "hubItem": "A-00",
         "curriculum": "civil-practice:municipal"
       },
       "sections": [
         {
-          "title": "全体像",
+          "title": "入口",
           "items": [
             {
-              "id": "A-1",
+              "id": "A-00",
               "title": "自治体の土木職の仕事 — 管理と事業の二つの役割",
               "plan": "new",
               "sources": [
@@ -26,16 +26,59 @@
                 "road-act",
                 "river-act"
               ],
-              "note": "シリーズのハブ"
+              "note": "シリーズのハブ。管理（道路・河川・公物）と事業（計画から検査まで）の二つの役割と、各章への案内"
             },
             {
-              "id": "A-2",
+              "id": "A-01",
               "title": "土木担当の 1 年 — 予算要求・発注・出水期・決算・会計検査",
               "plan": "new",
               "sources": [
                 "local-autonomy-act",
                 "local-finance-act"
               ]
+            },
+            {
+              "id": "A-02",
+              "title": "社会資本の全体像 — 種類・整備の歩み・投資の推移と維持更新の時代",
+              "plan": "new",
+              "sources": [
+                "mlit-white-paper",
+                "chihou-zaisei-white-paper"
+              ],
+              "note": "統計は白書の最新値。整備から維持更新へ移った背景を、担当の仕事につなげる"
+            }
+          ]
+        },
+        {
+          "title": "仕事の土台（法令・行政・財政）",
+          "items": [
+            {
+              "id": "A-03",
+              "title": "法令の読み方 — 憲法・法律・政令・省令・条例・規則・要綱・通知",
+              "plan": "new",
+              "sources": [
+                "japan-constitution",
+                "local-autonomy-act"
+              ],
+              "note": "道路法・河川法の章を読む前提。条文の構造（条・項・号）と、通知・要綱の効力の違い"
+            },
+            {
+              "id": "A-04",
+              "title": "国・都道府県・市町村の役割分担 — 行政組織と自治事務・法定受託事務",
+              "plan": "new",
+              "sources": [
+                "local-autonomy-act"
+              ]
+            },
+            {
+              "id": "A-05",
+              "title": "予算と財源 — 補助金・交付金・地方債と予算の流れ",
+              "plan": "new",
+              "sources": [
+                "local-finance-act",
+                "chihou-zaisei-white-paper"
+              ],
+              "note": "事業化（要望から事業化まで）の前提。予算の年間の流れは「土木担当の 1 年」に任せる"
             }
           ]
         },
@@ -43,7 +86,7 @@
           "title": "道路を管理する",
           "items": [
             {
-              "id": "A-3",
+              "id": "A-06",
               "title": "道路法の骨格 — 道路の種類と管理者",
               "plan": "new",
               "sources": [
@@ -51,7 +94,7 @@
               ]
             },
             {
-              "id": "A-4",
+              "id": "A-07",
               "title": "路線の認定・区域の決定・供用開始",
               "plan": "strengthen",
               "paths": [
@@ -62,7 +105,7 @@
               ]
             },
             {
-              "id": "A-5",
+              "id": "A-08",
               "title": "道路占用許可の審査 — 占用物件・期間・占用料・掘削後の復旧",
               "plan": "new",
               "sources": [
@@ -72,7 +115,7 @@
               "wave": 1
             },
             {
-              "id": "A-6",
+              "id": "A-09",
               "title": "承認工事（道路法 24 条）と道路使用許可（道路交通法 77 条）の違い",
               "plan": "new",
               "sources": [
@@ -85,7 +128,7 @@
               "note": "受注者の段取りは既存の schedule-and-road-permit に残す"
             },
             {
-              "id": "A-7",
+              "id": "A-10",
               "title": "道路の境界確定と道路台帳",
               "plan": "new",
               "sources": [
@@ -94,7 +137,7 @@
               ]
             },
             {
-              "id": "A-8",
+              "id": "A-11",
               "title": "道路の点検と長寿命化計画",
               "plan": "new",
               "sources": [
@@ -107,7 +150,7 @@
               "note": "予防保全の一般論は既存記事に任せ、管理者の点検義務と計画に絞る"
             },
             {
-              "id": "A-9",
+              "id": "A-12",
               "title": "標識と防護柵",
               "plan": "existing",
               "paths": [
@@ -121,10 +164,10 @@
           ]
         },
         {
-          "title": "河川を管理する",
+          "title": "川と海岸を管理する",
           "items": [
             {
-              "id": "A-10",
+              "id": "A-13",
               "title": "河川法の骨格 — 一級・二級・準用・普通河川と管理者",
               "plan": "new",
               "sources": [
@@ -133,7 +176,7 @@
               ]
             },
             {
-              "id": "A-11",
+              "id": "A-14",
               "title": "河川区域の許可 — 占用（24 条）・工作物の新築（26 条）・土地の掘削（27 条）",
               "plan": "new",
               "sources": [
@@ -143,7 +186,7 @@
               "wave": 1
             },
             {
-              "id": "A-12",
+              "id": "A-15",
               "title": "工作物の技術審査 — 橋・樋門・管が堤防を横切るとき",
               "plan": "new",
               "sources": [
@@ -152,7 +195,7 @@
               ]
             },
             {
-              "id": "A-13",
+              "id": "A-16",
               "title": "河川管理施設の点検と操作 — 堤防・樋門・水門",
               "plan": "new",
               "sources": [
@@ -164,7 +207,7 @@
               "note": "堤防の壊れ方と補強は既存記事に任せる"
             },
             {
-              "id": "A-14",
+              "id": "A-17",
               "title": "河川整備計画と流域治水",
               "plan": "strengthen",
               "paths": [
@@ -174,6 +217,20 @@
                 "river-act",
                 "specified-urban-river-act"
               ]
+            },
+            {
+              "id": "A-18",
+              "title": "海岸と港湾 — 海岸法・港湾法と管理者",
+              "plan": "new",
+              "sources": [
+                "coast-act",
+                "port-act",
+                "coastal-facility-technical-standard"
+              ],
+              "links": [
+                "content/site/civil-construction-1/textbook-coast-port/article.mdx"
+              ],
+              "note": "沿岸の自治体向け。施設の技術は試験の教科書に任せ、管理者と許可に絞る"
             }
           ]
         },
@@ -181,7 +238,7 @@
           "title": "法定外公共物",
           "items": [
             {
-              "id": "A-15",
+              "id": "A-19",
               "title": "里道・水路の管理 — 国からの譲与・境界・占用",
               "plan": "new",
               "sources": [
@@ -196,7 +253,17 @@
           "title": "事業を進める（発注者として）",
           "items": [
             {
-              "id": "A-16",
+              "id": "A-20",
+              "title": "計画の体系と事業評価 — 国土形成計画・社会資本整備重点計画・費用便益",
+              "plan": "new",
+              "sources": [
+                "national-spatial-planning-act",
+                "infrastructure-priority-plan-act"
+              ],
+              "note": "国の計画と自治体の事業のつながり、補助事業の評価（新規・再評価・事後評価）"
+            },
+            {
+              "id": "A-21",
               "title": "要望から事業化まで — 地元の要望・調査・予算",
               "plan": "new",
               "sources": [
@@ -204,13 +271,13 @@
               ]
             },
             {
-              "id": "A-17",
+              "id": "A-22",
               "title": "地元説明会と合意形成",
               "plan": "new",
               "note": "運営者の経験が中心。団体・個人・案件が特定できる書き方をしない"
             },
             {
-              "id": "A-18",
+              "id": "A-23",
               "title": "用地の取得と損失補償",
               "plan": "new",
               "sources": [
@@ -219,7 +286,32 @@
               ]
             },
             {
-              "id": "A-19",
+              "id": "A-24",
+              "title": "埋蔵文化財 — 包蔵地の照会と工事前の調査",
+              "plan": "new",
+              "sources": [
+                "cultural-properties-act"
+              ],
+              "note": "事業の計画段階で教育委員会へ照会する。届出・試掘・本調査と工期への影響"
+            },
+            {
+              "id": "A-25",
+              "title": "環境への配慮 — 環境アセスメント・騒音と振動・建設副産物",
+              "plan": "new",
+              "sources": [
+                "environmental-impact-assessment-act",
+                "noise-regulation-act",
+                "vibration-regulation-act",
+                "construction-recycling-act"
+              ],
+              "links": [
+                "content/site/pe-comprehensive-management/environmental-impact-assessment/article.mdx",
+                "content/site/civil-construction-1/textbook-construction-byproduct-recycle/article.mdx"
+              ],
+              "note": "制度の解説は既存記事に任せ、発注者が設計・積算・特記仕様書で決めることに絞る"
+            },
+            {
+              "id": "A-26",
               "title": "発注方式と入札",
               "plan": "existing",
               "paths": [
@@ -231,8 +323,20 @@
               ]
             },
             {
-              "id": "A-20",
-              "title": "監督と検査",
+              "id": "A-27",
+              "title": "PFI と官民連携 — 指定管理・包括的民間委託・PFI の選び方",
+              "plan": "new",
+              "sources": [
+                "pfi-act",
+                "local-autonomy-act"
+              ],
+              "links": [
+                "content/site/pe-comprehensive-management/pfi/article.mdx"
+              ]
+            },
+            {
+              "id": "A-28",
+              "title": "監督と検査 — 品確法と施工管理",
               "plan": "strengthen",
               "paths": [
                 "content/site/civil-practice/construction-inspection-types/article.mdx"
@@ -241,10 +345,10 @@
                 "public-works-quality-act",
                 "local-autonomy-act"
               ],
-              "note": "監督員の役割を補う"
+              "note": "監督員の役割と品確法の発注者の責務を補う"
             },
             {
-              "id": "A-21",
+              "id": "A-29",
               "title": "設計変更",
               "plan": "strengthen",
               "paths": [
@@ -256,7 +360,20 @@
               "note": "発注者の側を補う"
             },
             {
-              "id": "A-22",
+              "id": "A-30",
+              "title": "工事の安全と発注者 — 労働安全衛生法と発注者の役割",
+              "plan": "new",
+              "sources": [
+                "labor-safety-act",
+                "mlit-safety-guideline"
+              ],
+              "links": [
+                "content/site/civil-construction-1/textbook-safety-industrial-safety-law/article.mdx"
+              ],
+              "note": "事業者（受注者）の義務は既存記事に任せ、発注者が設計・積算・監督でできることに絞る"
+            },
+            {
+              "id": "A-31",
               "title": "会計検査",
               "plan": "existing",
               "paths": [
@@ -269,10 +386,59 @@
           ]
         },
         {
+          "title": "まちをつくる",
+          "items": [
+            {
+              "id": "A-32",
+              "title": "都市計画法の骨格 — 区域区分・用途地域・都市計画決定",
+              "plan": "new",
+              "sources": [
+                "city-planning-act"
+              ]
+            },
+            {
+              "id": "A-33",
+              "title": "開発許可と公共施設の帰属 — 開発でできた道路・公園・調整池を引き取るとき",
+              "plan": "new",
+              "sources": [
+                "city-planning-act"
+              ],
+              "note": "土木担当が協議と引継ぎで当たる。帰属のときの検査と台帳への登録"
+            },
+            {
+              "id": "A-34",
+              "title": "土地区画整理事業 — 換地・減歩と公共施設の整備",
+              "plan": "new",
+              "sources": [
+                "land-readjustment-act"
+              ]
+            },
+            {
+              "id": "A-35",
+              "title": "都市公園の管理 — 設置・占用・遊具の安全",
+              "plan": "new",
+              "sources": [
+                "urban-park-act"
+              ]
+            },
+            {
+              "id": "A-36",
+              "title": "下水道と雨水対策 — 汚水・雨水・浸水対策と管路の管理",
+              "plan": "new",
+              "sources": [
+                "sewerage-act"
+              ],
+              "links": [
+                "content/site/civil-construction-1/textbook-water-sewer/article.mdx"
+              ]
+            }
+          ]
+        },
+        {
           "title": "災害に備える",
           "items": [
             {
-              "id": "A-23",
+              "id": "A-37",
               "title": "災害復旧事業と災害査定",
               "plan": "new",
               "sources": [
@@ -280,13 +446,27 @@
               ]
             },
             {
-              "id": "A-24",
+              "id": "A-38",
               "title": "地域防災計画と水防",
               "plan": "new",
               "sources": [
                 "disaster-countermeasures-basic-act",
                 "flood-control-act"
               ]
+            },
+            {
+              "id": "A-39",
+              "title": "土砂災害と砂防 — 警戒区域・砂防法・急傾斜地",
+              "plan": "new",
+              "sources": [
+                "sediment-disaster-act",
+                "sabo-act",
+                "steep-slope-act"
+              ],
+              "links": [
+                "content/site/civil-construction-1/textbook-sabo-landslide/article.mdx"
+              ],
+              "note": "砂防工事は都道府県が中心。市町村は警戒区域の周知と避難に関わる"
             }
           ]
         },
@@ -294,10 +474,21 @@
           "title": "仕事の進め方",
           "items": [
             {
-              "id": "A-25",
+              "id": "A-40",
               "title": "住民・議会への説明と資料づくり",
               "plan": "new",
               "note": "運営者の経験が中心"
+            },
+            {
+              "id": "A-41",
+              "title": "土木職が取る資格 — 技術士・施工管理技士・測量士の使いどころ",
+              "plan": "new",
+              "links": [
+                "content/site/pe-first-stage/guide-overview/article.mdx",
+                "content/site/civil-construction-1/guide-exam-overview/article.mdx",
+                "content/site/surveyor/guide-overview/article.mdx"
+              ],
+              "note": "業務で求められる場面（監督・検査・設計の照査・技術職の昇任）から、各資格のガイドへ案内する"
             }
           ]
         }
