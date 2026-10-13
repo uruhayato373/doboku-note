@@ -384,6 +384,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 2. 書いた章の逆向きリンクとカリキュラムへの登録（各執筆担当の返答にある「逆向きリンク」「カリキュラムの区分案」。src/config/category-curriculum.json の civil-practice の concrete ブロックを読む順に並べ替える）
 3. 画像: 各 brief の「図・写真の候補」（頁 id）を台帳の visuals に入れ、check-content-series --crop-jobs で切り出し → 写真は切り出した写真を元に AI で描き直す（その前に image-policy を改める・docs/strategy/18 の「図と写真」）
 **完了条件**: 3 章がコミット済み、新規の章がカリキュラムに登録され、逆向きリンクが張られている。
+**済んだこと**（2026-10-13）: 0. は PR #1052（workflow series-chapter・check-content-series --packet・手順書 §4・事実ファイル concrete-practice-sources.md）。2. は済み（書いた 7 章をカリキュラムへ・既存 16 記事から逆向きリンク・台帳の新規 10 章に paths）。C-09 の brief は親が書いた（.tmp/book-coverage/series/）。残り: PR #1052 のマージ → C-32・C-09 を workflow で → C-00 → 3.
 
 
 ### [DN-0723] コンクリートの既存記事と計算ツールの数値を一次資料にそろえる（水和に必要な水・水セメント比・暑中の上限）
