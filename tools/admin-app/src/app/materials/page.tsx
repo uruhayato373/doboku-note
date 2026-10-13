@@ -5,6 +5,31 @@ import { findRepoRoot } from '@/lib/repo-root';
 import { expansionReport, sourceSummary, linkedProductsByUnit, siteWiring, DECISION_LABELS } from '../../../../../scripts/lib/content-expansion.mjs';
 import categories from '../../../../../src/config/categories.json';
 import { SITE_ORIGIN } from '../../../../../scripts/lib/site-identity.mjs';
+import { loadReferenceSources } from '../../../../../scripts/lib/reference-sources.mjs';
+import { bookCoverageSummary, summarizeExclusions, manifestRepoPath, ocrPendingIssue } from '../../../../../scripts/lib/reference-book-bundle.mjs';
+import { parseBacklog } from '../../../../../scripts/lib/backlog-lib.mjs';
+import { TODO_ROOT } from '../../../../../scripts/lib/repository-paths.mjs';
+import { existsSync, readFileSync } from 'node:fs';
+import { join } from 'node:path';
+
+type BookCoverage = { pdfPages: number; excludedPdfPages: number; plannedPages: number; imagedPages: number | null; ocr: { complete: number; notNeeded: number; unfinished: number } | null; manifestMatchesPlan: boolean | null; exclusions: { reason: string; pages: number; files: number[] }[]; ocrTracking: string | null; ocrUntracked: boolean };
+
+/** 書籍の網羅（原本の頁・理由つきの除外・ページ画像・文字起こしと残りを追うカード）。正本は config/reference-sources.json と book-manifest.json。 */
+function loadBookCoverage(root: string, sourceId: string): BookCoverage | null {
+  try {
+    const src = (loadReferenceSources() as { sources: { id: string; bookBundle?: unknown }[] }).sources.find((x) => x.id === sourceId && x.bookBundle);
+    if (!src) return null;
+    const file = join(root, manifestRepoPath(src as never));
+    const manifest = existsSync(file) ? JSON.parse(readFileSync(file, 'utf8')) : null;
+    const c = bookCoverageSummary(src as never, manifest) as Omit<BookCoverage, 'exclusions' | 'ocrTracking' | 'ocrUntracked'> & { excluded: { order: number; start: number; end: number; reason: string }[] };
+    const backlogFile = join(TODO_ROOT, 'backlog.md');
+    const openIds = new Set((existsSync(backlogFile) ? parseBacklog(readFileSync(backlogFile, 'utf8')) : []).map((x: { id: string | null }) => x.id).filter(Boolean) as string[]);
+    const track = ocrPendingIssue(src as never, manifest, openIds) as { tracking: string | null; error: string | null };
+    return { ...c, exclusions: summarizeExclusions(c.excluded) as BookCoverage['exclusions'], ocrTracking: track.tracking, ocrUntracked: Boolean(track.error) };
+  } catch {
+    return null;
+  }
+}
 
 export const dynamic = 'force-dynamic';
 
@@ -88,7 +113,7 @@ export default async function MaterialsPage({ searchParams }: { searchParams: Pr
   // 商品＝台帳に記録した商品原稿、または論点の記事へリンクしている note / Kindle（関連商品・派生情報）
   const products = (u: Unit) => [...new Set([...u.productArtifacts.map((a) => a.path), ...(linked.get(u.id) ?? [])])];
   if (source && view === 'site') return <SiteView source={source} wiring={wiring} sources={report.sources} />;
-  return source ? <Detail source={source} products={products} onlyAttention={only === 'attention'} sitePages={wiring.bySource.get(source.sourceId)?.length ?? 0} /> : <List sources={report.sources} issues={report.issues} products={products} wiring={wiring} />;
+  return source ? <Detail source={source} products={products} onlyAttention={only === 'attention'} sitePages={wiring.bySource.get(source.sourceId)?.length ?? 0} book={loadBookCoverage(findRepoRoot(), source.sourceId)} /> : <List sources={report.sources} issues={report.issues} products={products} wiring={wiring} />;
 }
 
 function List({ sources, issues, products, wiring }: { sources: Source[]; issues: string[]; products: (u: Unit) => string[]; wiring: Wiring }) {
@@ -167,7 +192,7 @@ function List({ sources, issues, products, wiring }: { sources: Source[]; issues
   );
 }
 
-function Detail({ source, products, onlyAttention, sitePages }: { source: Source; products: (u: Unit) => string[]; onlyAttention: boolean; sitePages: number }) {
+function Detail({ source, products, onlyAttention, sitePages, book }: { source: Source; products: (u: Unit) => string[]; onlyAttention: boolean; sitePages: number; book: BookCoverage | null }) {
   const m = sourceSummary(source) as Summary;
   const units = onlyAttention ? source.units.filter(needsAttention) : source.units;
   const base = `/materials?id=${encodeURIComponent(source.sourceId)}`;
@@ -190,6 +215,7 @@ function Detail({ source, products, onlyAttention, sitePages }: { source: Source
         {onlyAttention ? <strong>要確認のみ（{units.length}）</strong> : <Link href={`${base}&only=attention`}>要確認のみ（{source.units.filter(needsAttention).length}）</Link>}
         <Link href={`${base}&view=site`}>サイトの配線先（{sitePages}）</Link>
       </nav>
+      {book && <BookCoverageLine book={book} />}
       {source.scopeNote && <p className="small muted">{source.scopeNote}</p>}
       <TableFrame>
         <TableHeader>
@@ -330,5 +356,26 @@ function SiteView({ source, wiring, sources }: { source: Source; wiring: Wiring;
         </div>
       ))}
     </>
+  );
+}
+
+/** 原本が全部ページ画像・文字起こしになっているか。除外は理由つき、文字起こしの残りは追うカードか理由つき。 */
+function BookCoverageLine({ book }: { book: BookCoverage }) {
+  const ocrDone = book.ocr ? book.ocr.complete + book.ocr.notNeeded : 0;
+  const ocrTotal = book.imagedPages ?? 0;
+  const ok = book.manifestMatchesPlan && book.ocr && ocrDone === ocrTotal;
+  return (
+    <div className="small mb-2">
+      <span className={ok ? 'text-muted-foreground' : 'project-warning-text'}>
+        原本 {book.pdfPages} 頁 · 除外 {book.excludedPdfPages} 頁 · ページ画像 {book.imagedPages ?? '—'}
+        {book.manifestMatchesPlan === false && `（計画 ${book.plannedPages} と不一致）`} · 文字起こし {ocrDone}/{ocrTotal}
+        {ocrDone < ocrTotal && (book.ocrUntracked ? '（残りを誰も追っていない）' : `（残りは ${book.ocrTracking}）`)}
+      </span>
+      {book.exclusions.length > 0 && (
+        <ul className="text-xs text-muted-foreground">
+          {book.exclusions.map((e) => <li key={e.reason}>除外 {e.pages} 頁（分冊 {e.files.join(',')}）: {e.reason}</li>)}
+        </ul>
+      )}
+    </div>
   );
 }

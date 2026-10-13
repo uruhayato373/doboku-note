@@ -182,3 +182,56 @@ test('book manifest: OCR と監査済み crop の来歴・partial 状態を保�
   delete candidate.ocrArtifacts;
   assert.ok(validateBookManifestShape(source, candidate).some((message) => message.includes('ocrStatus=complete')));
 });
+
+// 2026-10-13: 「全部画像化・文字起こし済みか」を、ページ画像を開かずに台帳から答える集計（実データ）
+test('bookCoverageSummary: 実データの基本と仕組み 第5版は 320 頁・除外 10（理由つき）・画像 310・文字起こし 310', async () => {
+  const fs = await import('node:fs');
+  const path = await import('node:path');
+  const { bookCoverageSummary, summarizeExclusions, manifestRepoPath } = await import('../scripts/lib/reference-book-bundle.mjs');
+  const { loadReferenceSources } = await import('../scripts/lib/reference-sources.mjs');
+  const { REPO_ROOT } = await import('../scripts/lib/repository-paths.mjs');
+  const src = loadReferenceSources().sources.find((x) => x.id === 'concrete-basics-5th');
+  const manifest = JSON.parse(fs.readFileSync(path.join(REPO_ROOT, manifestRepoPath(src)), 'utf8'));
+  const s = bookCoverageSummary(src, manifest);
+  assert.equal(s.pdfPages, 320);
+  assert.equal(s.excludedPdfPages, 10);
+  assert.equal(s.plannedPages, 310);
+  assert.equal(s.imagedPages, 310);
+  assert.equal(s.manifestMatchesPlan, true);
+  assert.equal(s.ocr.complete, 310);
+  assert.ok(s.excluded.every((r) => r.reason));
+  const noManifest = bookCoverageSummary(src, null);
+  assert.equal(noManifest.imagedPages, null);
+  assert.deepEqual(summarizeExclusions([
+    { order: 1, start: 9, end: 10, reason: 'A' }, { order: 2, start: 1, end: 3, reason: 'B' }, { order: 3, start: 1, end: 1, reason: 'B' },
+  ]), [{ reason: 'A', pages: 2, files: [1] }, { reason: 'B', pages: 4, files: [2, 3] }]);
+});
+
+test('ocrPendingIssue: 文字起こしの残りは、開いているカードか理由が無いと止める（2026-10-13・54 頁が誰にも追われていなかった）', async () => {
+  const { ocrPendingIssue } = await import('../scripts/lib/reference-book-bundle.mjs');
+  const manifest = (statuses) => ({ pages: statuses.map((ocrStatus, i) => ({ id: `p${i}`, ocrStatus })) });
+  const book = (ocrPending) => ({ id: 'x', bookBundle: ocrPending ? { ocrPending } : {} });
+  const open = new Set(['DN-0716']);
+  const rest = manifest(['complete', 'pending', 'failed', 'not-needed', 'partial']);
+
+  const untracked = ocrPendingIssue(book(null), rest, open);
+  assert.equal(untracked.unfinished, 3);
+  assert.match(untracked.error, /誰も追っていない/);
+
+  const byCard = ocrPendingIssue(book({ backlogId: 'DN-0716' }), rest, open);
+  assert.equal(byCard.error, null);
+  assert.equal(byCard.tracking, 'DN-0716');
+
+  const closedCard = ocrPendingIssue(book({ backlogId: 'DN-0716' }), rest, new Set());
+  assert.match(closedCard.error, /DN-0716 が backlog に無い/);
+
+  const byReason = ocrPendingIssue(book({ reason: '展開しない本' }), rest, new Set());
+  assert.equal(byReason.error, null);
+  assert.equal(byReason.tracking, '理由: 展開しない本');
+
+  const done = ocrPendingIssue(book({ backlogId: 'DN-0716' }), manifest(['complete', 'not-needed']), new Set());
+  assert.equal(done.unfinished, 0);
+  assert.equal(done.error, null);
+  assert.match(done.warning, /外す/);
+  assert.equal(ocrPendingIssue(book(null), manifest(['complete']), new Set()).warning, null);
+});

@@ -37,10 +37,18 @@ function parseChecks(source) {
       ci: /\bci:\s*true\b/.test(flags),
       ops: /\bops:\s*true\b/.test(flags),
       npm: /npm:\s*'([^']+)'/.exec(block)?.[1] ?? '',
+      timeout: /\btimeout:\s*[0-9_]+/.test(flags),
       note,
     };
   });
 }
+
+test('全検査に timeout がある（無いと setTimeout(undefined) で即 TIMEOUT になり、CI が赤になる）', () => {
+  // 2026-10-13: content-series を timeout なしで登録し、フル実行で 0.0 秒の TIMEOUT になった
+  const checks = parseChecks(SRC);
+  assert.ok(checks.length >= 100, `検査が ${checks.length} 件しか読めない（定義の形が変わった＝検査不成立）`);
+  assert.deepEqual(checks.filter((c) => !c.timeout).map((c) => c.id), []);
+});
 
 test('ops:true の検査は ci:false（マージゲートに混ざらない）', () => {
   const checks = parseChecks(SRC);
