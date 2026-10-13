@@ -18,6 +18,8 @@ concurrency:
 
 permissions:
   contents: write
+  # 検索改善の実験（search-improvement sync）が本番デプロイ（cloudflare-deploy.yml の run）と compare を gh api で読む
+  actions: read
   # 計測アラート（整合性・日次異常・事業計測の取得失敗）を automation-failure Issue に記録する
   issues: write
 
@@ -385,6 +387,7 @@ jobs:
         env:
           GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
           GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -411,6 +414,9 @@ jobs:
           # （土曜の週次レビューが push する処分記録）を読む必要があるので、ここで実行して同じ commit に載せる。
           # 自動計測を先に行い、ダイジェストが VERDICT_DUE を拾えるようにする。
           set +e
+          # 検索改善の実験: カード完了の commit を含む本番デプロイを見つけたら、その日を境目に計測を始める（自動計測より先）
+          node scripts/search-improvement.mjs sync --write
+          echo "search_sync_rc=$?" >> "$GITHUB_OUTPUT"
           node scripts/measure-experiments.mjs --commit
           echo "measure_rc=$?" >> "$GITHUB_OUTPUT"
           node scripts/build-growth-digest.mjs
@@ -455,6 +461,7 @@ jobs:
           AFFILIATE_EXPERIMENT_OUTCOME: ${{ steps.affiliateexperiment.outcome }}
           DIGEST_RC: ${{ steps.publish.outputs.digest_rc }}
           MEASURE_RC: ${{ steps.publish.outputs.measure_rc }}
+          SEARCH_SYNC_RC: ${{ steps.publish.outputs.search_sync_rc }}
           PUBLISH_OUTCOME: ${{ steps.publish.outcome }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
@@ -472,6 +479,8 @@ jobs:
           [ "$AFFILIATE_BY_PAGE_RC" = "2" ] && invalid+=("アフィリエイトのページ別: affiliate_days が日数でない")
           [ "$PUBLISH_OUTCOME" = "failure" ] && anomalies+=("develop への publish 失敗（計測・自動計測・ダイジェストが記録されていない）")
           [ "$MEASURE_RC" = "1" ] && anomalies+=("実験の自動計測（measure-experiments）の取得失敗")
+          [ "$SEARCH_SYNC_RC" = "1" ] && anomalies+=("検索改善の実験の本番反映の検出（search-improvement sync）の取得失敗（gh api）")
+          [ "$SEARCH_SYNC_RC" = "2" ] && invalid+=("検索改善の実験の本番反映の検出: 引数・設定が不正")
           [ "$MEASURE_RC" = "2" ] && invalid+=("実験の自動計測: measure 仕様が不正、または認証なし")
           [ "$DIGEST_RC" = "1" ] && anomalies+=("機会ダイジェスト（build-growth-digest）の生成失敗")
           [ "$DIGEST_RC" = "2" ] && invalid+=("機会ダイジェスト: 成長パックが無く生成できない（今週の週次トリアージ対象が作られていない）")

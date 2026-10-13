@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-2/keiken-2kyu-level/youtube.longform/cover.703ead76.png",
-        "sha256": "703ead76fbb79fa10d3431f4c7b55c98e774616a74325e4a2686968fad422e47",
-        "specSha256": "41044cb8e20bfd1876d13ac5ed2490c58604abec331ce3014446f338cafb19d3"
+        "path": ".tmp/media/civil-construction-2/keiken-2kyu-level/youtube.longform/cover.e840cd78.png",
+        "sha256": "e840cd788b3a24099c71a17cc45b2a9f2b6b1df99243118ea72d9be928ad91f5",
+        "specSha256": "027081d79ebce927399cf8237337dedc2f045d7c25f87385d0e6c3b1c535f76e"
       }
     },
     "point-level-1": {
@@ -31,13 +36,18 @@
       "accentLine": 2,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-2/keiken-2kyu-level/youtube.short.point-level-1/cover.a8e0a441.png",
-        "sha256": "a8e0a44156d6b26335776c18050675979491f46964b7995dc0c180eca3b87d1c",
-        "specSha256": "3f04c4f90e9ecdeb97f61eb1936e348ac96c67566a8e43138c25a95ebb4c7cc0"
+        "path": ".tmp/media/civil-construction-2/keiken-2kyu-level/youtube.short.point-level-1/cover.4f5d576f.png",
+        "sha256": "4f5d576f9804a3462c4343eceafb13322a80171b464620998aa298fd52f18848",
+        "specSha256": "a0db7f317709e6d3f632723b0257a3c946f39e977885d87bba72877215157ef0"
       }
     },
     "point-kata-2": {
@@ -50,13 +60,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-2/keiken-2kyu-level/youtube.short.point-kata-2/cover.56f59fb9.png",
-        "sha256": "56f59fb97772aacae56727a5b9b43d8eb7b938068281e83efefbc0ace411c1e1",
-        "specSha256": "5b5458f298a4ff238ac0d31f83a3e142f75e0df3f7da00ebe4ce9e40090eb045"
+        "path": ".tmp/media/civil-construction-2/keiken-2kyu-level/youtube.short.point-kata-2/cover.f7d8bee8.png",
+        "sha256": "f7d8bee8b4fd8097864dc9978674b0f8821f1c23dda3d725ea6e19232b612561",
+        "specSha256": "b08bde95c8f48966c76fac4422badec2c3155428c5a1630583427d128b17d861"
       }
     }
   }

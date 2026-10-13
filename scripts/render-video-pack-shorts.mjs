@@ -20,6 +20,8 @@ import { renderYoutubeCover, validateCoverDesign } from './lib/youtube-cover.mjs
 import { readVideoCta } from './lib/video-cta.mjs';
 import { narrationInput, reusableNarration, sha256 as bytesSha256 } from './lib/video-narration-cache.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { readJsonIf } from './lib/json-io.mjs';
+import { assertTemplateShortsAllowed } from './lib/video-image-reproduction.mjs';
 
 const W = 1080;
 const H = 1920;
@@ -58,6 +60,8 @@ const packDir = resolve(ROOT, args['pack-dir']);
 const manifest = JSON.parse(readFileSync(join(packDir, 'video-pack.json'), 'utf8'));
 const storyboard = JSON.parse(readFileSync(join(packDir, 'storyboard.json'), 'utf8'));
 const publish = JSON.parse(readFileSync(join(packDir, 'youtube.json'), 'utf8'));
+assertTemplateShortsAllowed(readJsonIf(packDir, 'pop-image.json'),
+  (publish.shorts ?? []).filter(item => !args.key || item.key === args.key).map(item => item.key));
 const coverDesignPath = join(packDir, 'cover-design.json');
 const coverDesign = existsSync(coverDesignPath)
   ? validateCoverDesign(JSON.parse(readFileSync(coverDesignPath, 'utf8')), { exam: EXAM_TO_PALETTE[manifest.exam] }) : null;

@@ -119,7 +119,7 @@ export function loadPreviewInput(root, packId) {
   if (!scenes.length) return { ok: false, message: `${renderDir}/render-manifest.json に場面が無い` };
 
   // 尺が読めない場面があると concat の duration が NaN になり、ffmpeg が分かりにくく失敗する。その前に場面 ID つきで止める
-  const noSec = scenes.filter((s) => (s.designSec ?? s.actualSec) == null || !Number.isFinite(Number(s.designSec ?? s.actualSec))).map((s) => s.sceneId ?? '(sceneId なし)');
+  const noSec = scenes.filter((s) => (s.designSec ?? s.actualSec) == null || !Number.isFinite(Number(s.actualSec ?? s.designSec))).map((s) => s.sceneId ?? '(sceneId なし)');
   if (noSec.length) return { ok: false, message: `${renderDir}/render-manifest.json の場面に designSec も actualSec も無い（${noSec.length} 件: ${noSec.slice(0, 3).join(', ')}）。描画し直す: ${renderHint}` };
 
   const visualCheck = readDataset(root, 'config.video-content').visualCheck;
@@ -136,7 +136,7 @@ export function loadPreviewInput(root, packId) {
   return { ok: true, renderDir, manifest, scenes, visualCheck, pngShaBySceneId };
 }
 
-/** 数値の文書（preview-metrics.json の中身）。無音プレビューの尺は設計尺、総尺は実尺があれば実尺 */
+/** 数値の文書（preview-metrics.json の中身）。無音プレビューの尺は実尺（未合成なら設計尺）、総尺は実尺があれば実尺 */
 export function buildMetricsDoc({ packId, pubId = null, manifest, scenes, visualCheck, metrics, designTotal }) {
   return {
     packId, pubId, renderedAt: manifest.renderedAt ?? null, sceneCount: scenes.length,
@@ -153,8 +153,8 @@ function buildPreviewMedia(root, { renderDir, manifest, scenes, visualCheck, des
   const outAbs = join(root, outRel);
   mkdirSync(outAbs, { recursive: true });
 
-  // 無音プレビュー: 場面ごとの設計尺で並べ、render の字幕を焼く
-  const concat = [...scenes.map((s) => `file ../img/${s.png}\nduration ${Number(s.designSec ?? s.actualSec)}`), `file ../img/${scenes.at(-1).png}`].join('\n');
+  // 無音プレビュー: 実尺（未合成なら設計尺）で並べ、render の字幕と同期する
+  const concat = [...scenes.map((s) => `file ../img/${s.png}\nduration ${Number(s.actualSec ?? s.designSec)}`), `file ../img/${scenes.at(-1).png}`].join('\n');
   writeFileSync(join(outAbs, 'preview.txt'), `${concat}\n`);
   const assRel = `${renderDir}/subtitles.ass`;
   const vf = ['fps=' + visualCheck.previewFps];
@@ -203,7 +203,7 @@ export async function runPreview(root, { pub, commit }) {
   const { renderDir, manifest, scenes, visualCheck, pngShaBySceneId } = input;
 
   const metrics = previewMetrics(scenes, pngShaBySceneId, visualCheck);
-  const designTotal = scenes.reduce((a, s) => a + Number(s.designSec ?? s.actualSec ?? 0), 0);
+  const designTotal = scenes.reduce((a, s) => a + Number(s.actualSec ?? s.designSec ?? 0), 0);
   const metricsDoc = buildMetricsDoc({ packId, pubId: pub, manifest, scenes, visualCheck, metrics, designTotal });
 
   const outRel = `${renderDir}/preview`;
@@ -284,7 +284,7 @@ export function runPackPreview(root, { packId, metricsOnly = false, ffmpeg }) {
   if (!input.ok) { console.error(input.message); return { code: 1, message: input.message }; }
   const { renderDir, manifest, scenes, visualCheck, pngShaBySceneId } = input;
   const metrics = previewMetrics(scenes, pngShaBySceneId, visualCheck);
-  const designTotal = scenes.reduce((a, s) => a + Number(s.designSec ?? s.actualSec ?? 0), 0);
+  const designTotal = scenes.reduce((a, s) => a + Number(s.actualSec ?? s.designSec ?? 0), 0);
   const metricsDoc = buildMetricsDoc({ packId, manifest, scenes, visualCheck, metrics, designTotal });
   const outRel = `${renderDir}/preview`;
   mkdirSync(join(root, outRel), { recursive: true });

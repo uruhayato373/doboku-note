@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-comprehensive",
+      "headline": [
+        "5管理の列挙",
+        "どう抜け出す？"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pop-pointing",
+        "frame": "waist"
+      },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "question",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-comprehensive-management/gokanri-tradeoff/youtube.longform/cover.0d3a3ef7.png",
+        "sha256": "0d3a3ef78e4aaa67d4fa66efacd2c7a6802592812808e40b5d01ab4f89897292",
+        "specSha256": "7389c375a4462285d1263edebde1bab1ac1e23df960d65ad05ec57797fc0a365"
+      }
+    }
+  }
+}

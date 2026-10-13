@@ -99,7 +99,7 @@ Shortsのプラットフォーム上限と、doboku-noteが採用する推奨尺
 
 16:9通常動画のレンダラーは `npm run render-longform`（`scripts/render-longform.mjs`・純粋ロジックは `scripts/lib/longform-render.mjs`）。scene の視覚要素は additive フィールド `visual: { kind: 'cover'|'points'|'figure'|'compare'|'sheet', heading, items[], src?, flow? }` で持ち（compare・sheet と任意フィールドは下の表）、試験色は exam-palette（note-cover-tokens.json）を解決する。`figure` はリポジトリ内の既存SVG/PNG/WebP/JPEGだけを`src`で参照し、本文の図解を1920×1080へ再利用する。出力は `.tmp/video-render/{packId}/`（PNG・WAV・ASS・render-manifest.json・mp4）で、パックディレクトリと Git にはバイナリを書かない。VOICEVOX/ffmpeg の無い環境は `--skip-tts` で PNG/ASS まで生成し、mp4 は VOICEVOX と ffmpeg/ffprobe を用意した Windows / Mac 等で同コマンドを完走させる。現在、動画生成用の GitHub Actions ワークフローは無い。
 
-通常動画・パック派生Shortsの説明画面は `scripts/lib/video-explanation.mjs` を共用する。白背景に試験色の見出し・STEPラベル・淡い要点カードを配置し、文字量に応じて文字サイズと行高を配分する。4項目以上の横長画面は複数列にし、字幕領域を空ける。`figure` は元図に基づく短い `flow[]` を指定すると編集可能な縦フローで表示できる。
+通常動画・パック派生Shortsの標準説明画面は `scripts/lib/video-explanation.mjs` を共用する。通常動画の `visual.art` 指定場面は `scripts/lib/video-editorial-art.mjs` で1920×1080のSVGからPNGへ描画する。構図は `art.type` で指定し、承認済み表紙があれば表紙を優先する。口頭対策の図は `five-management`・`decision`・`learning-loop`・`influence` を使え、後3種は `items` が4件必須。技術士（`pe-*`）は資格テーマの配色・資格名を使う。`art.source` は実在するサイト図解を動画向けに再構成する根拠であり、元SVGの直接埋め込みではない。`--resume` でも `visual.art` のPNGは再生成する。白背景に試験色の見出し・STEPラベル・淡い要点カードを配置し、文字量に応じて文字サイズと行高を配分する。4項目以上の横長画面は複数列にし、字幕領域を空ける。`figure` は元図に基づく短い `flow[]` を指定すると編集可能な縦フローで表示できる。
 
 16:9 の scene は次の任意フィールドを持てる（2026-10-08 追加。指定しない既存パックの画面は、下の改行規則を除いて変わらない）。
 
@@ -143,7 +143,7 @@ YouTube の stage スクリプトはローカル実体が無くても、`video-r
 
 ### 総まとめ（聞き流し）パック
 
-承認済みパックを束ねた20〜60分の通常動画（型は `config/youtube-formats.json` の `compilation`）。正本はパックの `compilation.json`（章立て `parts[].chapters[]`、冒頭 `opening`・後半の前置き `parts[].intro`・締め `closing` の語り）で、元パックの場面は写さない。`npm run build-video-compilation -- --pack-dir <パック>` が、同じ試験の元パックから表紙と締め（`dropSceneIds`）を外した場面を読み、章の区切り画面（第N章）を挟んだ `storyboard.json` を生成する（`--check` は一致の確認だけ）。
+承認済みパックを束ねた20〜60分の通常動画（型は `config/youtube-formats.json` の `compilation`）。正本はパックの `compilation.json`（章立て `parts[].chapters[]`、冒頭 `opening`・後半の前置き `parts[].intro`・締め `closing` の語り）で、元パックの場面は写さない。`npm run build-video-compilation -- --pack-dir <パック>` が、同じ試験の元パックから表紙と締め（`dropSceneIds`）を外した場面を読み、章の区切り画面（第N章）を挟んだ `storyboard.json` を生成する（`--check` は一致の確認だけ）。場面別の画面指定は `compilation.json.visuals[組み立て後のsceneId]` に保存する。指定値を `scene.visual` にコピーし、語り・字幕・時間は変更しない。不明なsceneIdはエラーになる。
 
 - 元パックは通常動画をユーザーが承認したもの（state の `longform.approvedBy: 'user'`）だけ
 - 場面は `c{NN}-{元の sceneId}` と `from: {packId, sceneId}` を持ち、ラベル（押さえるポイント・まとめ）は元の sceneId で決まる
@@ -286,6 +286,8 @@ APIへ非公開アップロード済みで関連動画設定待ちのShortsは `
 生成物の容量が大きいため、転送時は動画を1本ずつ読み、全本のバイナリをメモリに保持しない。Driveとprivate R2の両方で実体をハッシュ照合した完成動画は、手元のキャッシュを整理できる。ローカルmp4がない場合、この計画処理は既知のハッシュに対応するprivate R2実体を読み、ハッシュとffprobeを再検査する（R2の認証情報が必要）。未転送・未検証の完成動画や採用原本を容量対策だけで消さない。再生成可能なWAV・場面PNGは完成mp4の保存検証後に整理できる。
 
 手動workflow `sync-yt-descriptions.yml` の `migration-upload` は計画のハッシュ・チャンネル・旧動画のメタデータ・送信動画のハッシュを照合する。既定dry-run、`commit=true` で通知なしの非公開アップロードだけを行う。既存タイトルとの一致で旧版を再利用しない。private R2へアップロード意図を先に保存し、応答を失った場合は再投稿せず記録と専用タグを照合する。処理完了は動画の尺・縦横寸法・音声ストリームまで実査する。このoperationに公開設定変更・サムネ更新・旧版削除は含まれない。サムネの日次制限中も非公開アップロードの結果を保持し、制限解除後の残工程へ引き継ぐ。
+
+同じ旧動画を別版へ移行する場合は、計画の任意欄 `receiptScope` に3〜80文字のslugを指定する。実行とreportが使うreceiptだけを `<base>/revisions/<scope>/receipts/` に分け、旧履歴を保持する。省略時は従来の `<base>/receipts/` を使う。media・plans・controlの保存先は共通のまま。
 
 残工程も同じworkflowでphaseを指定する。`migration-audit` は旧版の字幕・再生リスト所属と新版の処理完了を取得し、`commit=true` の場合だけprivate台帳へ記録する（YouTubeへの書き込みなし）。`migration-thumbnail` は再試行可能日時を守り、設定後のCDN画像を比較する。受理済みで表示待ちの場合は再送しない。明示的な上限拒否は24時間の待機後に再試行できる状態として記録し、通信断などで結果不明の場合は再送せず照合する。
 

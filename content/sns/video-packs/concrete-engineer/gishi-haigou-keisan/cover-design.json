@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "pc-work",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/concrete-engineer/gishi-haigou-keisan/youtube.longform/cover.7e594ccd.png",
-        "sha256": "7e594ccd48043dabb299c4bbbb852bac52bf3688dfec23bbbe71b2c63039b4a1",
-        "specSha256": "de6cbd7405f35de8871551e037a1a3fc303bf465f27830c9cf5b38ea9cc802ab"
+        "path": ".tmp/media/concrete-engineer/gishi-haigou-keisan/youtube.longform/cover.a94b1caf.png",
+        "sha256": "a94b1caf6a7c8965bae80cbb104e168db530283bbc1b6c56ff42958322b95a66",
+        "specSha256": "2648e5cb1a1a197307fb45eda999657b8f24ef8430ee9b9247e9a6a778fee0f0"
       }
     },
     "point-step1-1": {
@@ -30,13 +35,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "pc-work",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/concrete-engineer/gishi-haigou-keisan/youtube.short.point-step1-1/cover.db746129.png",
-        "sha256": "db74612990517664cf4362f0cc59a1c18fdeedd7f33ab3b2a9cc9c480ca6e14a",
-        "specSha256": "dd0ee334f096de5df7b15741fa2b7da19c81e04334726c5e3180210c3a7c4252"
+        "path": ".tmp/media/concrete-engineer/gishi-haigou-keisan/youtube.short.point-step1-1/cover.53b9da83.png",
+        "sha256": "53b9da83d7b250e23255c789ddabd8a9e004dd46b60378ba77b9200daab14df4",
+        "specSha256": "3c8448f29955dbea297caacd7752cc7cf8c83aef73964b4dccd8c5f1a191bf22"
       }
     },
     "point-step2-2": {
@@ -50,13 +60,18 @@
       "accentLine": 2,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/concrete-engineer/gishi-haigou-keisan/youtube.short.point-step2-2/cover.21daf7ad.png",
-        "sha256": "21daf7ad8cb7b14a8260c9d06886f55b4f21bb4e1204701b0176eb02bfce5291",
-        "specSha256": "d2d7da2f0f4a2291f40407420a3e2c5591555de3c5fc4dda402bc6387acd2630"
+        "path": ".tmp/media/concrete-engineer/gishi-haigou-keisan/youtube.short.point-step2-2/cover.5dd89c5b.png",
+        "sha256": "5dd89c5b65eccd502402f3020aa2523502ee5c11a073f523ab1ba5eaa5cd5330",
+        "specSha256": "a5e68c4d793abaa2cb6205b22ae18bcbe37671fb354cd150773775a0188d732f"
       }
     }
   }

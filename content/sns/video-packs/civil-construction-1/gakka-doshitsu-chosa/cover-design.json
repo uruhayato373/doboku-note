@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/gakka-doshitsu-chosa/youtube.longform/cover.cc0c2db6.png",
-        "sha256": "cc0c2db6d657485f989cb3a17a8e2093d7fab73ba11151ab5e8794f6efb43a78",
-        "specSha256": "2160afdbd4383fa4b6d8010abe710ec522997eb33101d78f2e84ee0b6e5841c5"
+        "path": ".tmp/media/civil-construction-1/gakka-doshitsu-chosa/youtube.longform/cover.75c1a3c7.png",
+        "sha256": "75c1a3c79cbe9d605cc3443e17a23f22d2deb4da644a67fa57bd7702c9fb65f3",
+        "specSha256": "cddc053bfa5f111ca3d7d2a9a2252edd432c90c9e7673220c0c785833a969fec"
       }
     },
     "point-genri-1": {
@@ -30,13 +35,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "thinking",
+        "pose": "pop-pointing",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "compare",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/gakka-doshitsu-chosa/youtube.short.point-genri-1/cover.7dcc3d8e.png",
-        "sha256": "7dcc3d8e77424c136bf1f7520cd85389d5b26817277c934f783df37dab0d5b1a",
-        "specSha256": "27187913115e6c557b187b9c066f4198632dcb7036e26cd9b9fb1cb08a680926"
+        "path": ".tmp/media/civil-construction-1/gakka-doshitsu-chosa/youtube.short.point-genri-1/cover.dfe41909.png",
+        "sha256": "dfe419091280f7ff77ab6d911760f56ec17b6ca2e916d3ab0da24b56a39c7f54",
+        "specSha256": "ed091bd9e893c841bd9c808a6b41ae051b21f8c0abd828d2a5ab8eea580fb782"
       }
     },
     "point-gyakubiki-2": {
@@ -49,13 +59,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "thinking",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/gakka-doshitsu-chosa/youtube.short.point-gyakubiki-2/cover.209a0594.png",
-        "sha256": "209a0594fab40a84b71cf6549396399766481434f99f5128d324c0d4375f0762",
-        "specSha256": "44607f71e342c92443d87bcc3fc271754f85ff7277bfbe150c0c03fa0f543586"
+        "path": ".tmp/media/civil-construction-1/gakka-doshitsu-chosa/youtube.short.point-gyakubiki-2/cover.30f52e2a.png",
+        "sha256": "30f52e2a33be2794e45294057c955279f32c01a4b3bb72a780ab9beb74ae4955",
+        "specSha256": "2e5081d5de7b758c1daee1f9f1e4d42c6af311edb3cd3258866b45ffcfcb7498"
       }
     }
   }

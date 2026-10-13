@@ -1,0 +1,283 @@
+{
+  "policy": ".claude/knowledge/reference/pop-image-policy.md",
+  "designVersion": "pop-20260927",
+  "channel": "youtube",
+  "source": "content/sns/video-packs/civil-construction-2/anzen-ippanron-3riyu",
+  "outputs": {
+    "longform": {
+      "publicationId": "civil-construction-2/anzen-ippanron-3riyu/youtube.longform",
+      "copy": {
+        "exam": "civil-2",
+        "headline": [
+          "安全管理の答案",
+          "一般論になる",
+          "３つの原因"
+        ],
+        "benefit": "",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/video-packs/civil-construction-2/anzen-ippanron-3riyu/cover-design.json#covers/longform",
+        "content/sns/video-packs/civil-construction-2/anzen-ippanron-3riyu/youtube.json#longform"
+      ],
+      "references": [
+        {
+          "path": ".tmp/video-render/pop-matome-2kyu-20261010/thumbnail-palm-v1.png",
+          "sha256": "8fd0987d6c7b7ad74645dbfa1971f42f3128e47ed4645c9d93048a579b6542cb"
+        },
+        {
+          "path": "content/sns/_assets/character/_source/pop-red-pen.png",
+          "sha256": "ed9d70558688350c8b8005b94fe14d1f6021efdc69d2288ff58f3e6394e23284"
+        }
+      ],
+      "prompt": "参照画像の右側の先生キャラクターを正確に継承した、動画表紙に組み込む人物だけの高解像度PNG素材を制作してください。白い無地のヘルメット、黒髪、黒縁眼鏡、40代男性の同じ顔とひげ、紺の作業服とネクタイ、黄色と白の反射帯。参照の顔の描線・アニメ塗り・表情を保持。腰から上、正面を向き、片手に赤い添削ペン、もう片手に無地の白い答案用紙を持ち、論文の書き方を紹介するポーズ。紙には文字や線を描かない。自然な5本指と手首。ヘルメットの頂点・両肘・手指・腰の端まで完全に収め、外側に5%以上の透過余白。人物は画面の大部分を占める。背景は完全透明、文字・ロゴ・記号・背景・床・影・看板は一切なし。元の表紙にある文字や緑背景は描かない。1人だけ。",
+      "promptScope": "共有する先生素材の生成。見出しは編集可能な原稿をレンダラーで組版。",
+      "format": {
+        "width": 1920,
+        "height": 1080
+      },
+      "render": {
+        "template": "character-pop-v2",
+        "variant": "write",
+        "pose": "pop-red-pen"
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-2/anzen-ippanron-3riyu/youtube.longform/cover.7938bde8.png",
+        "sha256": "7938bde8968d9b61f9fb3f763ba03d016e765f6eec7a42ff641935930a4faabe"
+      },
+      "review": {
+        "status": "agent-reviewed",
+        "by": "Codex",
+        "checkedAt": "2026-10-10T15:17:18.121Z",
+        "viewportWidth": 360,
+        "checks": [
+          "見出しと資格名の可読性",
+          "文字化け",
+          "文字・人物の切れ",
+          "内容と見出しの整合"
+        ],
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "key": ".tmp/media/civil-construction-2/anzen-ippanron-3riyu/youtube.longform/cover.7938bde8.png"
+      },
+      "publication": "ローカル差し替え・外部未反映"
+    },
+    "point-cause1-1": {
+      "publicationId": "civil-construction-2/anzen-ippanron-3riyu/youtube.short.point-cause1-1",
+      "copy": {
+        "exam": "civil-2",
+        "headline": [
+          "安全管理の答案",
+          "現場条件がない"
+        ],
+        "benefit": "",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/video-packs/civil-construction-2/anzen-ippanron-3riyu/cover-design.json#covers/point-cause1-1",
+        "content/sns/video-packs/civil-construction-2/anzen-ippanron-3riyu/youtube.json#shorts/point-cause1-1"
+      ],
+      "references": [
+        {
+          "path": ".tmp/video-render/pop-matome-2kyu-20261010/thumbnail-palm-v1.png",
+          "sha256": "8fd0987d6c7b7ad74645dbfa1971f42f3128e47ed4645c9d93048a579b6542cb"
+        },
+        {
+          "path": "content/sns/_assets/character/_source/pop-red-pen.png",
+          "sha256": "ed9d70558688350c8b8005b94fe14d1f6021efdc69d2288ff58f3e6394e23284"
+        }
+      ],
+      "prompt": "参照画像の右側の先生キャラクターを正確に継承した、動画表紙に組み込む人物だけの高解像度PNG素材を制作してください。白い無地のヘルメット、黒髪、黒縁眼鏡、40代男性の同じ顔とひげ、紺の作業服とネクタイ、黄色と白の反射帯。参照の顔の描線・アニメ塗り・表情を保持。腰から上、正面を向き、片手に赤い添削ペン、もう片手に無地の白い答案用紙を持ち、論文の書き方を紹介するポーズ。紙には文字や線を描かない。自然な5本指と手首。ヘルメットの頂点・両肘・手指・腰の端まで完全に収め、外側に5%以上の透過余白。人物は画面の大部分を占める。背景は完全透明、文字・ロゴ・記号・背景・床・影・看板は一切なし。元の表紙にある文字や緑背景は描かない。1人だけ。",
+      "promptScope": "共有する先生素材の生成。見出しは編集可能な原稿をレンダラーで組版。",
+      "format": {
+        "width": 1080,
+        "height": 1920
+      },
+      "render": {
+        "template": "character-pop-v2",
+        "variant": "write",
+        "pose": "pop-red-pen"
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-2/anzen-ippanron-3riyu/youtube.short.point-cause1-1/cover.598a98ad.png",
+        "sha256": "598a98ad264a793b8e5716177d0c0b48ee6f8e5f013e27e0d705d02dbfe0709e"
+      },
+      "review": {
+        "status": "agent-reviewed",
+        "by": "Codex",
+        "checkedAt": "2026-10-10T15:17:18.121Z",
+        "viewportWidth": 360,
+        "checks": [
+          "見出しと資格名の可読性",
+          "文字化け",
+          "文字・人物の切れ",
+          "内容と見出しの整合"
+        ],
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "key": ".tmp/media/civil-construction-2/anzen-ippanron-3riyu/youtube.short.point-cause1-1/cover.598a98ad.png"
+      },
+      "publication": "ローカル差し替え・外部未反映"
+    },
+    "point-cause2-2": {
+      "publicationId": "civil-construction-2/anzen-ippanron-3riyu/youtube.short.point-cause2-2",
+      "copy": {
+        "exam": "civil-2",
+        "headline": [
+          "安全管理の答案",
+          "対策の列挙だけ"
+        ],
+        "benefit": "",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/video-packs/civil-construction-2/anzen-ippanron-3riyu/cover-design.json#covers/point-cause2-2",
+        "content/sns/video-packs/civil-construction-2/anzen-ippanron-3riyu/youtube.json#shorts/point-cause2-2"
+      ],
+      "references": [
+        {
+          "path": ".tmp/video-render/pop-matome-2kyu-20261010/thumbnail-palm-v1.png",
+          "sha256": "8fd0987d6c7b7ad74645dbfa1971f42f3128e47ed4645c9d93048a579b6542cb"
+        },
+        {
+          "path": "content/sns/_assets/character/_source/pop-red-pen.png",
+          "sha256": "ed9d70558688350c8b8005b94fe14d1f6021efdc69d2288ff58f3e6394e23284"
+        }
+      ],
+      "prompt": "参照画像の右側の先生キャラクターを正確に継承した、動画表紙に組み込む人物だけの高解像度PNG素材を制作してください。白い無地のヘルメット、黒髪、黒縁眼鏡、40代男性の同じ顔とひげ、紺の作業服とネクタイ、黄色と白の反射帯。参照の顔の描線・アニメ塗り・表情を保持。腰から上、正面を向き、片手に赤い添削ペン、もう片手に無地の白い答案用紙を持ち、論文の書き方を紹介するポーズ。紙には文字や線を描かない。自然な5本指と手首。ヘルメットの頂点・両肘・手指・腰の端まで完全に収め、外側に5%以上の透過余白。人物は画面の大部分を占める。背景は完全透明、文字・ロゴ・記号・背景・床・影・看板は一切なし。元の表紙にある文字や緑背景は描かない。1人だけ。",
+      "promptScope": "共有する先生素材の生成。見出しは編集可能な原稿をレンダラーで組版。",
+      "format": {
+        "width": 1080,
+        "height": 1920
+      },
+      "render": {
+        "template": "character-pop-v2",
+        "variant": "write",
+        "pose": "pop-red-pen"
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-2/anzen-ippanron-3riyu/youtube.short.point-cause2-2/cover.1ee1b2a4.png",
+        "sha256": "1ee1b2a462b8ac4bd5424fe2e4260f4fbaf684ad68262b5dffd51821b1d5dc82"
+      },
+      "review": {
+        "status": "agent-reviewed",
+        "by": "Codex",
+        "checkedAt": "2026-10-10T15:17:18.121Z",
+        "viewportWidth": 360,
+        "checks": [
+          "見出しと資格名の可読性",
+          "文字化け",
+          "文字・人物の切れ",
+          "内容と見出しの整合"
+        ],
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "key": ".tmp/media/civil-construction-2/anzen-ippanron-3riyu/youtube.short.point-cause2-2/cover.1ee1b2a4.png"
+      },
+      "publication": "ローカル差し替え・外部未反映"
+    }
+  },
+  "revisions": {
+    "point-cause1-1": {
+      "version": "pop-poster-v3",
+      "publicationId": "civil-construction-2/anzen-ippanron-3riyu/youtube.short.point-cause1-1",
+      "copy": {
+        "exam": "2級土木",
+        "headline": [
+          "安全管理",
+          "現場条件",
+          "書いてる？"
+        ],
+        "authority": "総監が解説"
+      },
+      "evidence": [
+        "content/sns/video-packs/civil-construction-2/anzen-ippanron-3riyu/storyboard.json#cause1"
+      ],
+      "pose": "red-pen-audit",
+      "generation": [
+        {
+          "step": "original",
+          "prompt": "Use case: ads-marketing.\n参照画像はユーザー自身の承認済みココナラ商品画像です。これと同じ先生、極太で躍動感のある日本語、白・黄色・少量の赤、鮮やかな資格色、斜め帯、薄い土木現場背景が一体になった、完成済みのYouTube Shorts表紙を新しく制作してください。\n1080×1920、9:16の縦長。横長原本の単純クロップ・引き伸ばしは禁止。人物だけの素材ではなく、文字と人物と背景が一体のポスターです。上の文字、離れた下の小さな人物、空白の大きい説明スライドにはしない。\n大見出しと先生の顔が中央の縦長ポスターを満たす。背景の薄い現場イラストは細部を主張しない。中央の75%の高さで構図を完結し、上下各約180〜230pxは背景の延長だけにする。右端約170pxは操作ボタンに備えて文字と目を置かない。重要文字と帽子・顔は完全に画面内。顔は画面の幅の約38%、人物の上半身は中央から下へ大きく配置し、小さな立ち絵にしない。下端の空白は背景の継続と人物の胴体で自然に埋める。顔の上に文字を重ねない。\n最上部の資格名は白の極太文字に濃い輪郭と強い影。主題は白または黄色の極太文字に濃い輪郭。問い・注意語は赤または黄色に白い輪郭。硬い長方形の白いテキスト箱を縦に並べず、斜めの白い面、線、ダイナミックな文字の大小で見せる。実際のココナラ原本に近い描き込みと迫力。主要文字は幅360pxで一目で読める大きさに。\n40代男性の同じ先生。原本の顔・短い黒髪・黒縁眼鏡・軽いひげ・白い無地ヘルメット・紺色作業服・白シャツ・紺のネクタイ・黄色と白の反射帯を保持。大人の知的で親しみやすい顔、若い少年・別人・写真風に変えない。\n指定した日本語だけを正確に表示する。ブランド名・URL・値段・合格保証・数字・追加の説明・YouTubeのUIは足さない。ココナラのサービス文言はコピーしない。\nこの画像は2級土木の施工経験記述・安全管理で、現場条件が書かれていない答案の直し方を扱うShortsの表紙。資格色は原本の深緑・明るいエメラルド・ミント。\n表示する文字は「2級土木」「安全管理」「現場条件」「書いてる？」「総監が解説」の5つだけ。上〜中央に大きく「2級土木」、主題「安全管理」。その下〜中央の左に「現場条件」「書いてる？」を力強い2行。主題の中で「書いてる？」を赤の極太、白い輪郭で強調。黄色の小さな斜め帯に「総監が解説」。\n先生は赤ペンで答案の不足を指摘する動作。原本と同じ顔の先生が画面の中央右に大きく、赤ペンを少し前方へ向ける。片方の手に白い答案紙を持つ。紙の文字は描かず、数本の薄い罫線だけ。赤ペンと視線が左側の問いへつながる。顔と上半身を大きくし、左の文字を隠さない。",
+          "references": [
+            {
+              "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+              "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+            }
+          ],
+          "format": {
+            "width": 941,
+            "height": 1672
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/anzen-ippanron-3riyu/youtube.short.point-cause1-1/cover.9481a364.png",
+            "sha256": "9481a364c7dd8eba96033725348635f165ddd16ba152ddc9ec42bdb9acb56d1d"
+          },
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/civil-construction-2/anzen-ippanron-3riyu/youtube.short.point-cause1-1/cover.9481a364.png"
+          }
+        },
+        {
+          "step": "safe",
+          "prompt": "画像1は修正対象の、既に制作した縦型表紙です。先生の顔、ポーズ、服、文字、色、ココナラらしい極太の縁取り・斜め帯・背景の描き込みを保持して、縦型Shortsの安全な配置に構成し直してください。画像自体をクロップしたり、縦横比を歪めたりしない。\n重要な修正：上端から画像の高さの12%（約230px相当）は背景だけ。最下部の16%（約300px相当）は文字なし。右端の14%（約150px相当）は背景または服の端だけ。文字・眼・口・手の動作をこの範囲に入れない。主要なデザインはx=5〜84%、y=13〜82%に収める。人物の服の下端は画面下端まで自然に続いてよい。\n文字と顔のサイズ関係、描線、太い輪郭と斜めの文字の迫力は保持。余白を一様な単色の長方形にせず、元の斜線・現場シルエット・光の背景を上下へ描き足す。本文スライドのような白い箱・小さな人物へ戻さない。\n「総監が解説」は短い黄色帯に5文字すべてをはっきり描く。先生の帽子・顔・手や別の文字と重ねず、左の空いている小さな領域へ置く。文言・ポーズを変えず、同じ先生を保持。指定外の文言・ブランド・UI・値段は一切追加しない。\n出力は9:16の完成画像。",
+          "references": [
+            {
+              "path": ".tmp/media/civil-construction-2/anzen-ippanron-3riyu/youtube.short.point-cause1-1/cover.9481a364.png",
+              "sha256": "9481a364c7dd8eba96033725348635f165ddd16ba152ddc9ec42bdb9acb56d1d"
+            }
+          ],
+          "format": {
+            "width": 941,
+            "height": 1672
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/anzen-ippanron-3riyu/youtube.short.point-cause1-1/cover.82255575.png",
+            "sha256": "82255575f7e90788190804b94807c6a3f9e88572cc87616d4bcc3b600ba26e2c"
+          },
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/civil-construction-2/anzen-ippanron-3riyu/youtube.short.point-cause1-1/cover.82255575.png"
+          }
+        }
+      ],
+      "output": {
+        "path": ".tmp/media/civil-construction-2/anzen-ippanron-3riyu/youtube.short.point-cause1-1/cover.82255575.png",
+        "sha256": "82255575f7e90788190804b94807c6a3f9e88572cc87616d4bcc3b600ba26e2c"
+      },
+      "format": {
+        "width": 941,
+        "height": 1672
+      },
+      "storage": {
+        "group": "content-media",
+        "key": ".tmp/media/civil-construction-2/anzen-ippanron-3riyu/youtube.short.point-cause1-1/cover.82255575.png"
+      },
+      "review": {
+        "status": "composition-preview",
+        "checkedAt": "2026-10-11T00:27:48.271Z",
+        "by": "Codex",
+        "viewportWidth": 360,
+        "checks": {
+          "copyMatches": true,
+          "readable": true,
+          "poseMatchesContent": true,
+          "authorityNotOccluded": true
+        },
+        "userImageReview": "style-approved",
+        "shortsUiReview": "pending",
+        "styleApproval": {
+          "date": "2026-10-11",
+          "evidence": "ok この感じでショートも通常動画も",
+          "scope": "通常動画・Shortsの意匠と内容別ポーズ。媒体寸法・操作UI・動画への採用は別途確認"
+        }
+      },
+      "publication": "意匠承認済み・動画未採用・外部未反映"
+    }
+  }
+}

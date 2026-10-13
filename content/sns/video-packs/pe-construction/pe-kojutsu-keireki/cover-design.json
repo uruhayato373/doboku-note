@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-construction",
+      "headline": [
+        "技術士 建設部門",
+        "口頭対策",
+        "判断を語れる？"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が解説"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-construction/pe-kojutsu-keireki/youtube.longform/cover.ab1d6df2.png",
+        "sha256": "ab1d6df2a54d0583eaa0f0cda95e60a3663f0d44a99dcf0952b25443a8d45709",
+        "specSha256": "1ae9fe1285fc26ad3eb5bf685198f63d66d858ee0cc893936d1e52cb975b3547"
+      }
+    }
+  }
+}

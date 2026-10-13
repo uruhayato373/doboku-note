@@ -1,0 +1,227 @@
+{
+  "revisions": {
+    "longform-20261011": {
+      "designVersion": "pop-poster-v3",
+      "publicationId": "pe-construction/pe-kojutsu-keireki/youtube.longform",
+      "prompt": "この承認POP画像の人物と意匠を参照して別の通常YouTube動画サムネイルを作成。横長16:9、希望1920×1080。主色は建設部門の深いインディゴ(#33356B)と明るい青紫、アクセントに黄と赤。極太白/黄色文字と太い輪郭、躍動する斜め帯と薄い橋梁現場。指定文字だけ：上段「技術士 建設部門」、中央「口頭対策」、下段「判断を語れる？」、小さな黄色帯「総監が解説」。左60%に大きな文字、右40%に先生。同じ40代男性の黒髪、黒眼鏡、軽い髭、紺作業服、白無地ヘルメットと反射帯。ポーズは経歴を振り返る姿：片手に開いた無地ノート、もう片手の赤ペンでノートを示しながら読者に顔を向ける。総監の口頭サムネイルの手のひら説明ポーズと区別。表情は落ち着いた親しみ。日本語を正確に。文字・顔・帽子は画面外周6%以上内側。右下の時間表示を避ける。追加文字/数字/ロゴ/URL/価格/合格保証は不可。",
+      "references": [
+        {
+          "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/cover.1431f3f2.png",
+          "sha256": "1431f3f217dd475d80b4000edcdb7572eac203f1e8ff250530f6f76547871386"
+        }
+      ],
+      "copy": {
+        "headline": [
+          "技術士 建設部門",
+          "口頭対策",
+          "判断を語れる？"
+        ],
+        "authority": "総監が解説"
+      },
+      "generation": {
+        "tool": "built-in image_gen",
+        "normalization": "1920×1080、縦横比保持、周囲4%の配信用余白"
+      },
+      "output": {
+        "path": ".tmp/media/pe-construction/pe-kojutsu-keireki/youtube.longform/cover.ab1d6df2.png",
+        "sha256": "ab1d6df2a54d0583eaa0f0cda95e60a3663f0d44a99dcf0952b25443a8d45709",
+        "width": 1920,
+        "height": 1080
+      },
+      "review": {
+        "status": "ai-ok",
+        "by": "ai-image-fidelity-auditor",
+        "scope": "最終採用PNGの原寸・360px。文字、顔・手指、ポーズ、安全域。ユーザー承認とは別。"
+      },
+      "storage": {
+        "group": "content-media"
+      },
+      "publication": "画像差し替え完成動画を管理画面へ登録。音声は既存動画のコピー。YouTubeへの公開は別工程。",
+      "contentImageReview": {
+        "date": "2026-10-11",
+        "status": "ai-ok",
+        "by": "Codex screenshot review",
+        "sceneCount": 12,
+        "scope": "全場面のブラウザスクリーンショットで文字・項目数・矢印・図の重なりを確認。サイト図解を動画向けに再構成。",
+        "userImageReview": "pending",
+        "audioReplaced": false,
+        "videoRecomposed": false,
+        "layouts": {
+          "approved-cover": 1,
+          "compare": 1,
+          "grid": 1,
+          "sheet": 1,
+          "diagram": 3,
+          "steps": 2,
+          "mapping": 1,
+          "recap": 1,
+          "closing": 1
+        },
+        "scenes": [
+          {
+            "sceneId": "cover",
+            "sha256": "ab1d6df2a54d0583eaa0f0cda95e60a3663f0d44a99dcf0952b25443a8d45709"
+          },
+          {
+            "sceneId": "premise",
+            "sha256": "40346f3b349d6668b0c567467a66328289a62315fc0fedd78b232cf6bba8fa6d"
+          },
+          {
+            "sceneId": "criteria",
+            "sha256": "ae4d3f785f2f8df664f67f0136d4d7b1323fedbabe3db9649854e041379e6592"
+          },
+          {
+            "sceneId": "fact-sheet",
+            "sha256": "a4fc821de634c9f52dac8446c5f6be064f897ffa2f8c10f041dc5ddc02e8b941"
+          },
+          {
+            "sceneId": "management",
+            "sha256": "abbfd9ea58b0c4e8ff02e264d2b40191f08be2a9bedaabaa248555b9ac8f7d27"
+          },
+          {
+            "sceneId": "evaluation",
+            "sha256": "30368f77497229c183345fd4fc981fbf60602b8ec90ecabc5faaba0e2deb58e1"
+          },
+          {
+            "sceneId": "communication",
+            "sha256": "da5f4ab8bb58fa6917350d92071237193a6e0c7cd725eac4d8fe28ef23daeef6"
+          },
+          {
+            "sceneId": "ethics",
+            "sha256": "950c69f32c6d779e2b6eaf153b9580f84732dc0bde19f392189f427f8d1c5de9"
+          },
+          {
+            "sceneId": "cpd",
+            "sha256": "c560132200023f61980dc66a884a7873574b25cad73e254595a47fcdcf80e772"
+          },
+          {
+            "sceneId": "answer-example",
+            "sha256": "4c1d0cd7f3277de96150f937a072466a8157a124dc470175b576c614a82ec133"
+          },
+          {
+            "sceneId": "summary",
+            "sha256": "001928c61bf2128c165cc0b8d503866c60431c87688065ecfe7122b5fcffe1db"
+          },
+          {
+            "sceneId": "cta",
+            "sha256": "e725aa4d277d85070c86dbba328942821ed51aea011be1a8d5e0636e3cefda1d"
+          }
+        ],
+        "sources": [
+          {
+            "path": "content/site/pe-comprehensive-management/pdca-cycle/img/figure-pdca-cycle.svg",
+            "sha256": "9dc8c19ae48125553c3c9f1c234f5df5881fb566c49eeea3abf29d90123f2fe9"
+          },
+          {
+            "path": "content/site/pe-construction/gyoumu-keireki-hyou/img/figure-career-decision-evidence.svg",
+            "sha256": "865f0aad8d32b7f38e6d28623ab1c58e99b9774578f966e4b785bcbc4e13023f"
+          }
+        ]
+      },
+      "videoImageReplacement": {
+        "source": ".tmp/media/pe-construction/pe-kojutsu-keireki/youtube.longform/video.39f579af.mp4",
+        "sourceSha256": "39f579aff4c3a22f7021ddef5c01f3d0420d56847b7d479240a1fbbcea746778",
+        "outputSha256": "849103fe2cc94b25c5de144e180c9281f56439c0cce2df19707eba567e4429d1",
+        "audioPacketsUnchanged": true,
+        "audioPacketSha256": "d87c88dc17a2a92596b7bb30b2d62e1315000520172fcf80e436b12a67cc0ebc",
+        "ttsRegenerated": false,
+        "subtitlesSha256": "43d4130d87355b970807aae4e3b061485714a1ecbd1fddd4a78ce3a25daf0c55",
+        "timingMethod": "original unchanged cached WAV durations",
+        "durationSec": 196.565333,
+        "frames": 5896,
+        "scenes": [
+          {
+            "sceneId": "cover",
+            "startSec": 0,
+            "endSec": 3.018667,
+            "imageSha256": "ab1d6df2a54d0583eaa0f0cda95e60a3663f0d44a99dcf0952b25443a8d45709"
+          },
+          {
+            "sceneId": "premise",
+            "startSec": 3.018667,
+            "endSec": 19.872,
+            "imageSha256": "40346f3b349d6668b0c567467a66328289a62315fc0fedd78b232cf6bba8fa6d"
+          },
+          {
+            "sceneId": "criteria",
+            "startSec": 19.872,
+            "endSec": 36.725333,
+            "imageSha256": "ae4d3f785f2f8df664f67f0136d4d7b1323fedbabe3db9649854e041379e6592"
+          },
+          {
+            "sceneId": "fact-sheet",
+            "startSec": 36.725333,
+            "endSec": 56.416,
+            "imageSha256": "a4fc821de634c9f52dac8446c5f6be064f897ffa2f8c10f041dc5ddc02e8b941"
+          },
+          {
+            "sceneId": "management",
+            "startSec": 56.416,
+            "endSec": 75.050667,
+            "imageSha256": "abbfd9ea58b0c4e8ff02e264d2b40191f08be2a9bedaabaa248555b9ac8f7d27"
+          },
+          {
+            "sceneId": "evaluation",
+            "startSec": 75.050667,
+            "endSec": 91.733334,
+            "imageSha256": "30368f77497229c183345fd4fc981fbf60602b8ec90ecabc5faaba0e2deb58e1"
+          },
+          {
+            "sceneId": "communication",
+            "startSec": 91.733334,
+            "endSec": 110.944001,
+            "imageSha256": "da5f4ab8bb58fa6917350d92071237193a6e0c7cd725eac4d8fe28ef23daeef6"
+          },
+          {
+            "sceneId": "ethics",
+            "startSec": 110.944001,
+            "endSec": 130.133334,
+            "imageSha256": "950c69f32c6d779e2b6eaf153b9580f84732dc0bde19f392189f427f8d1c5de9"
+          },
+          {
+            "sceneId": "cpd",
+            "startSec": 130.133334,
+            "endSec": 148.14933399999998,
+            "imageSha256": "c560132200023f61980dc66a884a7873574b25cad73e254595a47fcdcf80e772"
+          },
+          {
+            "sceneId": "answer-example",
+            "startSec": 148.14933399999998,
+            "endSec": 166.95466699999997,
+            "imageSha256": "4c1d0cd7f3277de96150f937a072466a8157a124dc470175b576c614a82ec133"
+          },
+          {
+            "sceneId": "summary",
+            "startSec": 166.95466699999997,
+            "endSec": 185.56799999999998,
+            "imageSha256": "001928c61bf2128c165cc0b8d503866c60431c87688065ecfe7122b5fcffe1db"
+          },
+          {
+            "sceneId": "cta",
+            "startSec": 185.56799999999998,
+            "endSec": 196.53333333333333,
+            "imageSha256": "e725aa4d277d85070c86dbba328942821ed51aea011be1a8d5e0636e3cefda1d"
+          }
+        ],
+        "encoding": {
+          "videoEncoder": "libx264",
+          "preset": "ultrafast",
+          "crf": 21,
+          "fps": 30,
+          "pixelFormat": "yuv420p",
+          "audio": "stream copy from existing video",
+          "pngInput": "RGB normalization in scratch; approved PNG unchanged"
+        },
+        "review": {
+          "status": "machine-verified",
+          "audio": "encoded audio packet SHA256 exact match",
+          "browserPlayback": "Played and sought successfully in admin; screenshot visually verified, readyState=4, no media error.",
+          "userFinalReview": "pending",
+          "seekVerifiedSec": [
+            65
+          ]
+        }
+      }
+    }
+  }
+}

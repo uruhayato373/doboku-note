@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/career-yameru-mae/youtube.longform/cover.7d18b469.png",
-        "sha256": "7d18b469b518f82d61348cec2d94229e68e8fbcba5cec1b61c014a357d61abae",
-        "specSha256": "0882282d70ed3d06c6030a500ea71dd649f026a48ff442cf3665d02ec56c27da"
+        "path": ".tmp/media/civil-construction-1/career-yameru-mae/youtube.longform/cover.a2b66eac.png",
+        "sha256": "a2b66eacf7c40060625d49f6d7d117cf6631a57480e147437c04c1baf0e0864b",
+        "specSha256": "d3fdc928e90a7a8a2de2577805c24f6a2b1c567ac55ea0b05ca3ca57c15518d8"
       }
     },
     "point-step1-1": {
@@ -30,13 +35,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "thinking",
+        "pose": "pop-pointing",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "question",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/career-yameru-mae/youtube.short.point-step1-1/cover.8458ec36.png",
-        "sha256": "8458ec36825d91d77b16a5d5c5c6de57a6dce4f900f6d32ace4e0ca8666c0006",
-        "specSha256": "ed89c20d32baac9f7ae840db30424940aae8b88e3031548b163d90e8ee53555a"
+        "path": ".tmp/media/civil-construction-1/career-yameru-mae/youtube.short.point-step1-1/cover.da1a5cb9.png",
+        "sha256": "da1a5cb9f54196fb211a4401db47f22091a6b6e3d29ffa8aad828186bedce4fc",
+        "specSha256": "e23031d1b5015c9de2c8ad022909cb16c92b0750697600e7ce63465108c58c9f"
       }
     },
     "point-step2-2": {
@@ -49,13 +59,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/career-yameru-mae/youtube.short.point-step2-2/cover.973825c6.png",
-        "sha256": "973825c69367a433d968d7f7da643c898796247a4d708e0314bfcf6c8277636b",
-        "specSha256": "b016b9c00ec5801e8efcbe7b07f855a5e2208c3492d225a7ef7f4814081f1adf"
+        "path": ".tmp/media/civil-construction-1/career-yameru-mae/youtube.short.point-step2-2/cover.5b4d27ce.png",
+        "sha256": "5b4d27cea41a1a3a1da0ecca247d9689d0fdf742fd73c357a1f29a004f328e42",
+        "specSha256": "fb1251438769845244960928d30e45ed6f751320de36affe3d587fde568e6613"
       }
     }
   }

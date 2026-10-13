@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "packId": "pe-kojutsu-keireki",
+  "exam": "pe-construction",
+  "title": "技術士建設部門の口頭対策 — 業務経歴とコンピテンシーを結ぶ",
+  "audience": "建設部門の筆記試験後に口頭試験の準備を始める受験者",
+  "pain": "業務経歴は説明できても、自分の判断と成果をコンピテンシーにつなげて語れない",
+  "promise": "実際の業務の事実を、口頭試験で説明する判断・行動・結果へ整理できる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/gyoumu-keireki-hyou/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/competency-revision-r8/article.mdx"
+    },
+    {
+      "type": "external",
+      "url": "https://www.mext.go.jp/b_menu/shingi/gijyutu/gijyutu7/toushin/1412635_00009.htm",
+      "title": "文部科学省「令和8年度技術士試験合否決定基準」口頭試験"
+    },
+    {
+      "type": "external",
+      "url": "https://www.mext.go.jp/content/20251118-mxt_kiban02-000045976_14.pdf",
+      "title": "文部科学省「技術士に求められる資質能力（コンピテンシー）改訂への対応について」令和8年度適用・新旧対照表"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "pe-construction-oral-guide",
+    "campaign": "pe-kojutsu-keireki"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}

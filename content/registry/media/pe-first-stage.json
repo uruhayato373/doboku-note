@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "scope": "pe-first-stage",
+  "media": [
+    {
+      "id": "pe-first-stage/pe1-zentaizou/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "1941cd22fa523fcb233e8ab7b8ad756ad7398be8755037b881d8380fb39398f9",
+      "bytes": 704052,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/pe-first-stage/pe1-zentaizou/youtube.longform/cover.1941cd22.png"
+      },
+      "provenance": {
+        "kind": "template",
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/pe-first-stage/pe1-zentaizou/cover-design.json#covers/longform",
+        "specSha256": "9dd67e35be59715d5494abe2e9fe981f2b3ad13e6e73ec787795cb3fd00db129"
+      },
+      "legacyPaths": []
+    }
+  ]
+}

@@ -8,12 +8,23 @@
   "promise": "経歴を5管理の言葉へ翻訳して語る準備の考え方が分かる",
   "intent": "howto",
   "sourceRefs": [
-    { "type": "site", "path": "content/site/pe-comprehensive-management/exam-passing-strategy/article.mdx" },
-    { "type": "site", "path": "content/site/pe-comprehensive-management/exam-application-guide/article.mdx" }
+    {
+      "type": "site",
+      "path": "content/site/pe-comprehensive-management/exam-passing-strategy/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-comprehensive-management/exam-application-guide/article.mdx"
+    },
+    {
+      "type": "external",
+      "url": "https://www.mext.go.jp/b_menu/shingi/gijyutu/gijyutu7/toushin/1412635_00009.htm",
+      "title": "文部科学省 令和8年度技術士試験合否決定基準"
+    }
   ],
   "primaryCta": {
     "kind": "note-magazine",
-    "targetId": "essay-complete-pack",
+    "targetId": "tankan-oral-complete",
     "campaign": "sokan-kojutsu-kangaekata"
   },
   "outputs": {

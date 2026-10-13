@@ -72,6 +72,16 @@ export function assembleCompilation(spec, loadSource) {
   if (n === 0) throw new Error('chapters が 0 件です');
   scenes.push({ ...spec.closing, sceneId: 'cta' });
 
+  // A compilation may need a different visual explanation from the source
+  // video. Keep its narration, captions, and timing derived from the source.
+  const sceneIds = new Set(scenes.map(s => s.sceneId));
+  for (const id of Object.keys(spec.visuals ?? {})) {
+    if (!sceneIds.has(id)) throw new Error(`visuals に存在しない場面があります: ${id}`);
+  }
+  for (const scene of scenes) {
+    if (spec.visuals?.[scene.sceneId]) scene.visual = structuredClone(spec.visuals[scene.sceneId]);
+  }
+
   // 設計尺は 0.1 秒単位の整数で積む（浮動小数の誤差で start/end の連続が崩れないように）
   let t = 0;
   const timed = scenes.map((s) => {

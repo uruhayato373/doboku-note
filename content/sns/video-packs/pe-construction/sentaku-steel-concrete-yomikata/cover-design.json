@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-construction",
+      "headline": [
+        "鋼構造・コンクリ",
+        "テーマの読み方"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-construction/sentaku-steel-concrete-yomikata/youtube.longform/cover.dd324ac1.png",
+        "sha256": "dd324ac1a547e45e24b219095c71407cf7bfa0cd1f7fa0651331a09ff0398964",
+        "specSha256": "cccf3b8bd2526ff23415f720e32801f240773b7ff0e752833a34b8bf7fe52e02"
+      }
+    }
+  }
+}

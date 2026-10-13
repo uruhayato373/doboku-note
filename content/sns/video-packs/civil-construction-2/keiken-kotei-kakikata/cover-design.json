@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-2/keiken-kotei-kakikata/youtube.longform/cover.090feab0.png",
-        "sha256": "090feab0c78db07d4211d8775842318ef0c965fca879acac5d8991cac252848d",
-        "specSha256": "13bcd46757979a4e9019c7d650628808c82c6d321ea23d5f3656fabc86ac6925"
+        "path": ".tmp/media/civil-construction-2/keiken-kotei-kakikata/youtube.longform/cover.1b2b45f0.png",
+        "sha256": "1b2b45f0cf258f4dc7cc7cd439d788be96e531d091e91fe0798ca97c8765dcf7",
+        "specSha256": "1fd308785129dc508b562aa724b25d7cd691ebcc565d3ab01f3969491e65b994"
       }
     },
     "point-nagare-1": {
@@ -30,13 +35,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-2/keiken-kotei-kakikata/youtube.short.point-nagare-1/cover.0c1c1fac.png",
-        "sha256": "0c1c1facecee71b31f7c96f5ed1c5358ef16da074bd81c9d5f6362b23a9af661",
-        "specSha256": "71aae7dc70685d6ed79f1767c5b98e00aab8b9e824313ef39ad9cb9d4cd3d203"
+        "path": ".tmp/media/civil-construction-2/keiken-kotei-kakikata/youtube.short.point-nagare-1/cover.3bee2e8c.png",
+        "sha256": "3bee2e8c0a20ea6d7b374d307e4564901aa82f9dc4f22f84192071a80daec091",
+        "specSha256": "f5b0bd9ad4b62f7de689b3214e7956b5eb5759bf2c96973227ab82bf63641d52"
       }
     },
     "point-tenko-2": {
@@ -49,13 +59,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-2/keiken-kotei-kakikata/youtube.short.point-tenko-2/cover.50262d97.png",
-        "sha256": "50262d972860257d315bb898c795285fa06821cd3971422d2a7be182b9c3616a",
-        "specSha256": "5c02355191e4b5b051532d7332a1271ce27338efcdcccfb02756678cbc3653bf"
+        "path": ".tmp/media/civil-construction-2/keiken-kotei-kakikata/youtube.short.point-tenko-2/cover.1da95d6f.png",
+        "sha256": "1da95d6fa00ab55556dd6b04ee699f6abb6c22802faab179f7a25f4ab629e4d2",
+        "specSha256": "ffec8374a92c02d4a52c6ecfa76116785a1639a43162193f287ba90c452cb7ff"
       }
     }
   }

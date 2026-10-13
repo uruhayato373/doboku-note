@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/keiken-r6-shinkeishiki/youtube.longform/cover.56d118fd.png",
-        "sha256": "56d118fdd1051541a3682fbc0903c6b867af98029781b9092edf36ac5697a782",
-        "specSha256": "9c3181089b98d7debb36c86fff8dda9ba40039d6aa8703928fe799e72b86c693"
+        "path": ".tmp/media/civil-construction-1/keiken-r6-shinkeishiki/youtube.longform/cover.9d66005a.png",
+        "sha256": "9d66005a2b5a9187f8bff1e35ff8db8794716f398b982e3be9510c2c0ea22656",
+        "specSha256": "cb75d58af71cf3d0953cdfdc1c7ac11c5ad3aece396d09a4a5a775c2cc1d7d82"
       }
     },
     "point-change-1": {
@@ -30,13 +35,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "thinking",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/keiken-r6-shinkeishiki/youtube.short.point-change-1/cover.c68fa142.png",
-        "sha256": "c68fa142225754bd093857e92b5bfa449c83486f6838a65d4e4af1acbad7edb4",
-        "specSha256": "114da28ef934a540b3d19aa2d87d024e53c3f9154faa4c554789449c9b9374b3"
+        "path": ".tmp/media/civil-construction-1/keiken-r6-shinkeishiki/youtube.short.point-change-1/cover.e28d031e.png",
+        "sha256": "e28d031eccfcff2509bdd7095e2f24151465d9ca89605671401ee00d9d0154ba",
+        "specSha256": "ca68dc91fdcd3191b645d999df36c7b5ee7875f70164f5ecc69f8b022f415c3a"
       }
     },
     "point-structure-2": {
@@ -49,13 +59,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/keiken-r6-shinkeishiki/youtube.short.point-structure-2/cover.5c158afc.png",
-        "sha256": "5c158afcd4cd571d678f220fa2fbc1af25900f5aac418063712f63dd50091be8",
-        "specSha256": "070bfe5f65cdc2fc11928daba6c6c7020b6f25421a6ed52a63e707ae0f7feede"
+        "path": ".tmp/media/civil-construction-1/keiken-r6-shinkeishiki/youtube.short.point-structure-2/cover.62e0fa11.png",
+        "sha256": "62e0fa116ca24bb9a6e5c859c4f73a075d04d98b4a484f8a901a805ae41d1af1",
+        "specSha256": "c757dff3051b9e46ffab449ee50230bbfa49e9fd4d386dedf2703d6c05c4822e"
       }
     }
   }

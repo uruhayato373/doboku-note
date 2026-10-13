@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-2/gakka-kijutsu-2kyu/youtube.longform/cover.7c2331e1.png",
-        "sha256": "7c2331e1421bdb2adfaf6bf62cd6208678752d584d27a9d25d6e2b017c9f46e5",
-        "specSha256": "390d4993d209cd09369fccbe9b4b1fd8ad261104d1a52f31649f29c8845f804f"
+        "path": ".tmp/media/civil-construction-2/gakka-kijutsu-2kyu/youtube.longform/cover.32d4d19f.png",
+        "sha256": "32d4d19f6a8c5a4efb09a2dd4098b62ec15d1767b46eaf9a6483056a8bc4c214",
+        "specSha256": "d22a43b8b6f4c8a6277ed64f109e24625c5919714da6321a06b707f9b0175083"
       }
     },
     "point-fields-1": {
@@ -30,13 +35,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "pointing",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-2/gakka-kijutsu-2kyu/youtube.short.point-fields-1/cover.9c8e2af2.png",
-        "sha256": "9c8e2af2fde2df1cddc6aeb0deebc61f6331819eaf97a46d5d32fcba0ffdfdd3",
-        "specSha256": "37aa7b8c6c3920e1caec0a1923383e3f67616a1308c601e90f56c28851a57165"
+        "path": ".tmp/media/civil-construction-2/gakka-kijutsu-2kyu/youtube.short.point-fields-1/cover.cc1eb54f.png",
+        "sha256": "cc1eb54f43e4e3433a5bb24592964be498c56453cad4b73230acf1642c4fd565",
+        "specSha256": "c43f89e24b6373d457f007fe9d9516d6f7a433ff22d57dc1ec6388837ddd6522"
       }
     },
     "point-pattern1-2": {
@@ -49,13 +59,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-2/gakka-kijutsu-2kyu/youtube.short.point-pattern1-2/cover.a5c045f4.png",
-        "sha256": "a5c045f48aff3e9fc48f707c0f9a04223d0f8c7dc68e5a57cdc421284286de90",
-        "specSha256": "0a34be6a68e0bc1460ecbfc3ee69f8a5ba9a92cb97e19de1185f62a10e29a8dc"
+        "path": ".tmp/media/civil-construction-2/gakka-kijutsu-2kyu/youtube.short.point-pattern1-2/cover.7e2faf64.png",
+        "sha256": "7e2faf64a3b4843a6201a642983f590f896d423a889fe901f0faab9f9381111e",
+        "specSha256": "3f5da59f28500e85413bb243cf423e5792da53f6997f9cde1f419400f6aaa815"
       }
     }
   }

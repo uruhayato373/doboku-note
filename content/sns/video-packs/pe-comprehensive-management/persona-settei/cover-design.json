@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-comprehensive",
+      "headline": [
+        "論文の立場",
+        "どう選ぶ？"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-comprehensive-management/persona-settei/youtube.longform/cover.61ec583c.png",
+        "sha256": "61ec583cc31ce1ca7c57ba79279fa762803fc2ffbb43144a283f180eba8faf1f",
+        "specSha256": "a5c6c1e9d5a9995cdda77817b3dde339e70b8855509c2701e5c1806cf19cc1b3"
+      }
+    }
+  }
+}

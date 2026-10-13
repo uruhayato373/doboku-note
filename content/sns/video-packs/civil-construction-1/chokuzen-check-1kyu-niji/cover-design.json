@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "good-sign",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/chokuzen-check-1kyu-niji/youtube.longform/cover.4ca8cca1.png",
-        "sha256": "4ca8cca1ed8ada33020e87cee6e3598580b0c707a119983923c82778c1d9adac",
-        "specSha256": "9f61d657efe43544c37d794bdae1e96898ddb3d4d79709ae0baf147e89932b36"
+        "path": ".tmp/media/civil-construction-1/chokuzen-check-1kyu-niji/youtube.longform/cover.a440570a.png",
+        "sha256": "a440570a3143fcf20820a3176ec6ee44c545e4e8e14f7f128c2bd8fa10777524",
+        "specSha256": "202026b692f02efb60a5bf19e180259ad0defc475eada62bc2d9044456ae8650"
       }
     },
     "point-policy-1": {
@@ -30,13 +35,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "thinking",
+        "pose": "pop-pointing",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "question",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/chokuzen-check-1kyu-niji/youtube.short.point-policy-1/cover.c3c7dcd2.png",
-        "sha256": "c3c7dcd2d292b1ce78ada12cdb8146a5ca17b6d2ff35a984ea9b0e2181622b7f",
-        "specSha256": "86c6d63b79fe6e1a48ea2dc1d6b58ea0185922ad3a0d07071fe8310e72e35e13"
+        "path": ".tmp/media/civil-construction-1/chokuzen-check-1kyu-niji/youtube.short.point-policy-1/cover.9ca90072.png",
+        "sha256": "9ca90072aaae61228c9182fa2820f5d009a2b9081eb7d19b128ca7817da7e18b",
+        "specSha256": "a4a2ef9aab88cbcd62d140351f842c70a9dbb04f136f6ce4f1903593d497d908"
       }
     },
     "point-check-3points-2": {
@@ -49,13 +59,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/chokuzen-check-1kyu-niji/youtube.short.point-check-3points-2/cover.a611958b.png",
-        "sha256": "a611958bb57c033f4ee625addbdf65a915bfad6f5d95847958c5bcacad69c2e1",
-        "specSha256": "1cff85cc2ad96354986f230cb29718de49b5c0b902a53900dcdf683be3534de0"
+        "path": ".tmp/media/civil-construction-1/chokuzen-check-1kyu-niji/youtube.short.point-check-3points-2/cover.9e9f95ea.png",
+        "sha256": "9e9f95ea33aee5902775d3232e117edae4f7575854bcbb1e810350ff6f84e67d",
+        "specSha256": "7011683665148bceb5a8883cdfa8eba3ff2f58ad543f0440d0a3b198732329c9"
       }
     }
   }

@@ -968,6 +968,246 @@
       "reason": "先端にプランジャを持つ円筒形のリバウンドハンマーを橋脚の壁面に垂直に当て、壁面に3列3行の9点の測定格子が描かれている。alt と本文の反発度法と一致し、手や部位の崩れも無い（本体の窓や尾部のキャップは省略されているが誤解は招かない）",
       "reviewedAt": "2026-10-07T23:10:40.546Z"
     },
+    "media:brand/character-pop-v2/teacher-explaining": {
+      "sha": "e88700289679362e",
+      "verdict": "ok",
+      "reason": "原寸と縮小表示で参照と同じ顔・帽子・服装、自然な5本指と手首、透過背景を確認し、帽子・顔・手指に切れや変形がない。",
+      "reviewedAt": "2026-10-10T14:51:49.953Z"
+    },
+    "media:brand/character-pop-v2/teacher-pointing": {
+      "sha": "f0bafda4a9743b3f",
+      "verdict": "ok",
+      "reason": "参照と同じ人物が人差し指1本を立て、残る4本の指と手首の接続が自然で、透過背景と帽子・顔・手指の切れがないことを原寸と縮小表示で確認した。",
+      "reviewedAt": "2026-10-10T14:51:49.957Z"
+    },
+    "media:brand/character-pop-v2/teacher-red-pen": {
+      "sha": "ed9d70558688350c",
+      "verdict": "ok",
+      "reason": "参照と同じ人物が赤ペンと無地の白紙を自然な指・手首で保持し、紙に文字や線がなく、背景の透過と帽子・顔・手指・小物の切れがないことを確認した。",
+      "reviewedAt": "2026-10-10T14:51:49.957Z"
+    },
+    "media:civil-construction-2/character-10-a/x.post.t07/cover": {
+      "sha": "7d9cdf3f06f2681d",
+      "verdict": "ok",
+      "reason": "原寸・360pxで課題と対応と結論を確認。指定文言、人物の同一性、外周6％安全域を独立監査して問題なし。",
+      "reviewedAt": "2026-10-11T12:56:10.957Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/instagram.carousel/cover": {
+      "sha": "f80fadffcae2832a",
+      "verdict": "ok",
+      "reason": "原寸・360pxで資格と4テーマを確認。人物専用列で排水材を遮らず、主要文字と図の外周7％以上を独立監査。",
+      "reviewedAt": "2026-10-11T12:56:10.957Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/instagram.reel.point-overview-1/cover": {
+      "sha": "4fe5395ef89372ff",
+      "verdict": "ok",
+      "reason": "原寸・360pxで資格と4項目を確認。右約12％と下約18％に操作UI用余白、ドレーン図は技術的に整合。",
+      "reviewedAt": "2026-10-11T12:56:10.957Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/youtube.longform/cover": {
+      "sha": "659cd5716340bd99",
+      "verdict": "ok",
+      "reason": "最終PNGを原寸と360pxで独立監査。画像内余白と外付け4％で6％以上の安全域、4項目と排水方向の整合を確認。",
+      "reviewedAt": "2026-10-11T13:02:08.898Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/youtube.longform/cta": {
+      "sha": "61740ed545b0cfb8",
+      "verdict": "ok",
+      "reason": "原寸360px判読、コピーと人物一致、主要文字と図の重なりなし",
+      "reviewedAt": "2026-10-11T15:36:46.407Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/youtube.longform/scene-002": {
+      "sha": "55c107a6f520707c",
+      "verdict": "ok",
+      "reason": "原寸360px判読、コピーと人物一致、主要文字と図の重なりなし",
+      "reviewedAt": "2026-10-11T15:36:46.406Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/youtube.longform/scene-003": {
+      "sha": "438c5f6d2e619f69",
+      "verdict": "ok",
+      "reason": "原寸360px判読、文字崩れ・排水方向修正済み、人物と文字図重なりなし、字幕余白あり",
+      "reviewedAt": "2026-10-11T15:39:29.080Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/youtube.longform/scene-004": {
+      "sha": "d747367ff70b83bb",
+      "verdict": "ok",
+      "reason": "3試験と目的の対応を原寸360pxで判読、図は機器概念に簡略化",
+      "reviewedAt": "2026-10-11T15:35:46.674Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/youtube.longform/scene-005": {
+      "sha": "bbfeb12da9f27fea",
+      "verdict": "ok",
+      "reason": "土量10012090は例と明記、未掘削地山と状態差が適切",
+      "reviewedAt": "2026-10-11T15:35:46.674Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/youtube.longform/scene-006": {
+      "sha": "d4df1083a1183812",
+      "verdict": "ok",
+      "reason": "原寸360px判読、文字崩れ・排水方向修正済み、人物と文字図重なりなし、字幕余白あり",
+      "reviewedAt": "2026-10-11T15:39:29.080Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/youtube.longform/scene-007": {
+      "sha": "28f4cd3a3d392a65",
+      "verdict": "ok",
+      "reason": "排水材への流入・上向き排水、砂質地盤の深部締固めと置換が適切",
+      "reviewedAt": "2026-10-11T15:35:46.674Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/youtube.longform/scene-008": {
+      "sha": "50815c8d2f349d50",
+      "verdict": "ok",
+      "reason": "原寸・360px幅で4項目と対応関係を判読。人物と文字図の重なりなし。鉛直排水材と砂層接続が適切。字幕余白あり。",
+      "reviewedAt": "2026-10-11T15:26:38.971Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/youtube.longform/scene-009": {
+      "sha": "61740ed545b0cfb8",
+      "verdict": "ok",
+      "reason": "原寸360px判読、コピーと人物一致、主要文字と図の重なりなし",
+      "reviewedAt": "2026-10-11T15:36:46.407Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cover": {
+      "sha": "4eccd275c87f5019",
+      "verdict": "ok",
+      "reason": "修正版で「試験名」の全文字が髪から分離し、「目的で覚える」とも重ならず、土入り瓶・拡大図・先生の手と顔・残る指定文字に破綻がない。",
+      "reviewedAt": "2026-10-12T04:15:54.826Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cta": {
+      "sha": "d2e66def4766a40b",
+      "verdict": "ok",
+      "reason": "今回の全面版を確認し、4つの指定文字列と再生記号が正確で、先生の顔・眼鏡・短いひげ・作業服、スマホを握る手と下向きの指に生成破綻がない。",
+      "reviewedAt": "2026-10-12T04:15:54.827Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/scene-002": {
+      "sha": "d64b1708916912a1",
+      "verdict": "ok",
+      "reason": "今回の横並び対応表を確認し、3試験とN値・支持力・路床と路盤の支持力の対応、地盤の硬さの指標という補足が正確で、先生の指と文字に崩れがない。",
+      "reviewedAt": "2026-10-12T04:15:54.827Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover": {
+      "sha": "8d71afb36c0247cd",
+      "verdict": "ok",
+      "reason": "修正版でクリップボード上の「4テーマ」だけが消え、4個のチェックと主見出し「4テーマで整理」が保持され、4つの技術図・人物の手・指定文字に破綻がない。",
+      "reviewedAt": "2026-10-12T04:15:54.827Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cta": {
+      "sha": "d2e66def4766a40b",
+      "verdict": "ok",
+      "reason": "今回の全面版を確認し、4つの指定文字列と再生記号が正確で、先生の顔・眼鏡・短いひげ・作業服、スマホを握る手と下向きの指に生成破綻がない。",
+      "reviewedAt": "2026-10-12T04:15:54.827Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/scene-002": {
+      "sha": "64362ed29f4e60a0",
+      "verdict": "ok",
+      "reason": "今回の全面版を確認し、4テーマとL・Cの表記が指示どおりで、土試料・ダンプ・前鉄輪と後タイヤのローラ・草のある土の斜面、先生の指示棒と手が自然である。",
+      "reviewedAt": "2026-10-12T04:15:54.827Z"
+    },
+    "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/cover": {
+      "sha": "b24e58035b4ad295",
+      "verdict": "ok",
+      "reason": "独立AI画像監査：最終採用PNGを原寸と360pxで実見。指定4文言・ポーズ・顔と手指・安全域に問題なし。ユーザー承認は含まない。",
+      "reviewedAt": "2026-10-11T03:36:30.152Z"
+    },
+    "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-009": {
+      "sha": "aab35acafff98d1a",
+      "verdict": "ok",
+      "reason": "試験と目的、地山からL・Cへの分岐、最適含水比と締固め度の区別が本文と一致。日本語と下端安全域に問題なし。",
+      "reviewedAt": "2026-10-11T11:18:14.351Z"
+    },
+    "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-017": {
+      "sha": "9dc5ddac3021735a",
+      "verdict": "ok",
+      "reason": "混和剤・混和材、性能指標、施工順序、ひび割れ原因を正しく整理。スランプの誤矢印はなく、文字の重なりもなし。",
+      "reviewedAt": "2026-10-11T11:18:14.353Z"
+    },
+    "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-026": {
+      "sha": "64c9baa674829b74",
+      "verdict": "ok",
+      "reason": "直接基礎底面と支持層の接触、深い支持層への杭、孔壁保護の断面を確認。5項目が本文と一致し、下端安全域も確保。",
+      "reviewedAt": "2026-10-11T11:18:14.353Z"
+    },
+    "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-034": {
+      "sha": "08d1e0ea50a3ce3b",
+      "verdict": "ok",
+      "reason": "3法の確認点と許可・届出の区別が本文と一致。日本語は明瞭で、文字の重なり・切れなし。",
+      "reviewedAt": "2026-10-11T11:18:14.353Z"
+    },
+    "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-042": {
+      "sha": "64963160e667107b",
+      "verdict": "ok",
+      "reason": "4段階が事前調査→基本計画→詳細計画→管理計画となり本文と一致。図面の擬似文字は除去され、日本語の誤字・重なり・切れはなく、下端字幕安全域も確保されている。",
+      "reviewedAt": "2026-10-11T11:18:14.353Z"
+    },
+    "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-064": {
+      "sha": "93b9ae60462d2cc2",
+      "verdict": "ok",
+      "reason": "5分野と覚え方の対応が本文と一致。機械・基礎のアイコンに教材上の重大な破綻はなく、日本語と安全域も良好。",
+      "reviewedAt": "2026-10-11T11:18:14.353Z"
+    },
+    "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-071": {
+      "sha": "9ddbde0473042a86",
+      "verdict": "ok",
+      "reason": "経験記述の安全・品質・工程の3管理と、学科記述の頻出分野優先が本文と一致。文字の欠け・重なりなし。",
+      "reviewedAt": "2026-10-11T11:18:14.353Z"
+    },
+    "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-079": {
+      "sha": "c9966cb3265476dc",
+      "verdict": "ok",
+      "reason": "工事概要の5つの照合点が本文と一致。人物は文字を遮らず、下端字幕用余白も確保。",
+      "reviewedAt": "2026-10-11T11:18:14.353Z"
+    },
+    "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-087": {
+      "sha": "0252db58f38f4f10",
+      "verdict": "ok",
+      "reason": "現場条件と規格値の差、5要素の一方向の流れ、数値による対応と簡潔な評価が本文と一致。測定装置の誤表示なし。",
+      "reviewedAt": "2026-10-11T11:18:14.353Z"
+    },
+    "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-095": {
+      "sha": "2d39a98d2354b11c",
+      "verdict": "ok",
+      "reason": "3種類の制約と5要素の流れが本文と一致。「日数・台数・班数」も明瞭で、文字の重なり・切れなし。",
+      "reviewedAt": "2026-10-11T11:18:14.353Z"
+    },
+    "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-102": {
+      "sha": "8766980d008bb1f9",
+      "verdict": "ok",
+      "reason": "課題の絞込み、数値基準、対応の具体化、検討と対応の照合が本文と一致。安全設備の概略図と下端安全域に問題なし。",
+      "reviewedAt": "2026-10-11T11:18:14.353Z"
+    },
+    "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-108": {
+      "sha": "ad14b51c68e037c0",
+      "verdict": "ok",
+      "reason": "現場条件・因果・数値による具体化が本文と一致。「原因→影響→対策」は一方向で、逆戻り矢印なし。",
+      "reviewedAt": "2026-10-11T11:18:14.353Z"
+    },
+    "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-115": {
+      "sha": "ec960b93dfca244f",
+      "verdict": "ok",
+      "reason": "体裁・整合・具体性の3点を確認。悪い答案例は赤い×、下段は適切な点検行動への緑チェックとなり、意味の逆転なし。",
+      "reviewedAt": "2026-10-11T11:18:14.353Z"
+    },
+    "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-123": {
+      "sha": "9f61ae48354ed507",
+      "verdict": "ok",
+      "reason": "「観点→検討→対応→結果」と第三者確認が本文と一致。「実際の結果を書く」への修正を確認し、日本語と下端安全域も良好。",
+      "reviewedAt": "2026-10-11T11:18:14.353Z"
+    },
+    "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-130": {
+      "sha": "f89f4872db82e379",
+      "verdict": "ok",
+      "reason": "穴埋め・複数記述・選択問題の3形式と答え方が本文と一致。各パネルの文字は明瞭で、人物による遮蔽と下端侵入なし。",
+      "reviewedAt": "2026-10-11T11:18:14.353Z"
+    },
+    "media:pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/cover": {
+      "sha": "51e3f120f8a8d8c5",
+      "verdict": "ok",
+      "reason": "独立AI画像監査：最終採用PNGを原寸と360pxで実見。指定4文言・ポーズ・顔と手指・安全域に問題なし。ユーザー承認は含まない。",
+      "reviewedAt": "2026-10-11T03:36:30.184Z"
+    },
+    "media:pe-construction/pe-kojutsu-keireki/youtube.longform/cover": {
+      "sha": "ab1d6df2a54d0583",
+      "verdict": "ok",
+      "reason": "独立AI画像監査：最終採用PNGを原寸と360pxで実見。指定4文言・ポーズ・顔と手指・安全域に問題なし。ユーザー承認は含まない。",
+      "reviewedAt": "2026-10-11T03:36:30.184Z"
+    },
     "pe-comprehensive-management/liquefaction/img/photo-liquefaction-manhole-uplift": {
       "sha": "f9ac6c9e44a99f05",
       "promptSha": "488373b3151bc865",

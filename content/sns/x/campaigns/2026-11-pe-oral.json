@@ -15,21 +15,21 @@
   "strategy": {
     "cadence": "1日1本（販売と無料記事の案内は夜C、学習は朝Aと昼B）",
     "primaryExam": "pe-construction",
-    "note": "技術士第二次試験（総監・建設部門）の筆記合格発表日（11/4予定）から口頭試験の前月末まで。合格者には口頭教材2点、合格しなかった人には無料記事2本で次の準備を案内する（DN-0248）。無料記事2本はD当日に運営者が公開するまでURLが無いため、案内の投稿は linkless のまま pendingNoteArticle に原稿を記録した。公開後にnote URLを確定してから funnel:note・target（UTM付き）へ切り替える。無料記事は src/lib/note-magazines.ts に無く、check-x-campaign-plan は note 送客をこのカタログで照合するので、切り替えの前にカタログ側の扱いを決める。発表日は公式掲載で確かめてから予約を投入し、変わったら日付をずらす。",
+    "note": "技術士第二次試験（総監・建設部門）の筆記合格発表日（11/4予定）から口頭試験の前月末まで。合格者には口頭教材3点、合格しなかった人には無料記事2本で次の準備を案内する（DN-0248）。無料記事2本はD当日に運営者が公開するまでURLが無いため、案内の投稿は linkless のまま pendingNoteArticle に原稿を記録した。公開後にnote URLを確定してから funnel:note・target（UTM付き）へ切り替える。無料記事は src/lib/note-magazines.ts に無く、check-x-campaign-plan は note 送客をこのカタログで照合するので、切り替えの前にカタログ側の扱いを決める。発表日は公式掲載で確かめてから予約を投入し、変わったら日付をずらす。",
     "mix": {
       "pe-comprehensive": 12,
       "pe-construction": 15
     },
     "funnelMix": {
-      "linkless": 21,
-      "note": 6,
+      "linkless": 20,
+      "note": 7,
       "pendingNoteArticle": 4
     },
     "rules": [
       "販売（note）は1日1本・スロットCのみ・時系列で連続させない。無料記事の案内も公開後はnote送客になるので同じ間隔で置く",
       "各教材の案内は3回まで。回ごとに角度（収録内容）とフック・締めの文を変える（x-post-policy §11.1）",
       "価格は本文に書かない（正本は src/lib/note-magazines.ts）。想定問答は独自作成で実際の出題の再現ではない旨を崩さない",
-      "運営者の立場は src/config/author.ts のとおり（元・地方自治体の土木職〔発注者〕、技術士 建設部門・上下水道部門・総合技術監理部門）。口頭教材2点の購入数・売上は書かない（2026-10-06 時点で data/note/sales.json に販売記録なし）。合否の保証や断定はしない",
+      "運営者の立場は src/config/author.ts のとおり（元・地方自治体の土木職〔発注者〕、技術士 建設部門・上下水道部門・総合技術監理部門）。口頭教材3点の購入数・売上は書かない（2026-10-06 時点で data/note/sales.json に販売記録なし）。合否の保証や断定はしない",
       "成績通知の評価の区分や意味は公式に公表されていないため、投稿で断定しない",
       "口頭試験の日時は受験者ごとに違うため「あと N 日」は書かない",
       "ハッシュタグは総監 #技術士 #総監、建設部門 #技術士 #建設部門 を基本に1〜3個（x-post-policy §4）"
@@ -112,10 +112,10 @@
       "exam": "pe-construction",
       "type": "教材案内",
       "funnel": "note",
-      "target": "https://note.com/dobokunote/n/n5bc0bcde96ac?utm_source=x&utm_medium=social&utm_campaign=pe-oral-2026-11&utm_content=2026-11-10-C",
+      "target": "https://note.com/dobokunote/n/n1fcaf65dc75b?utm_source=x&utm_medium=social&utm_campaign=pe-oral-2026-11&utm_content=2026-11-10-C",
       "image": null,
-      "topic": "改訂コンピテンシー対応の想定問答33問と週次ロードマップ",
-      "magazineId": "pe-construction-oral-guide"
+      "topic": "総監を除く全部門共通の想定24問・5部門の当てはめ例・印刷用PDF",
+      "magazineId": "pe-oral-general-guide"
     },
     {
       "date": "2026-11-11",
@@ -244,14 +244,15 @@
     },
     {
       "date": "2026-11-22",
-      "time": "12:40",
-      "slot": "B",
+      "time": "20:05",
+      "slot": "C",
       "exam": "pe-construction",
-      "type": "体験",
-      "funnel": "linkless",
-      "target": null,
+      "type": "教材案内",
+      "funnel": "note",
+      "target": "https://note.com/dobokunote/n/n1fcaf65dc75b?utm_source=x&utm_medium=social&utm_campaign=pe-oral-2026-11&utm_content=2026-11-22-C",
       "image": null,
-      "topic": "建設部門の合格者として：自分の立場と役割を一言で言えるようにする"
+      "topic": "建設以外の口頭準備：4試問事項ごとの回答骨子を自分の業務へ置き換える",
+      "magazineId": "pe-oral-general-guide"
     },
     {
       "date": "2026-11-23",

@@ -6,6 +6,10 @@ title: スキル ガバナンス記録
 
 # スキル ガバナンス記録
 
+- 2026-10-12: `create-pop-image` の生成指示へ全面背景とUI安全域の区別を追加。`yt-shorts-publisher-qa` は全場面の字幕入り画像・原寸／360px・SHA別の確認数を返す。全場面差し替え版は `youtube-shorts:restore` で復元し、旧テンプレートへの逆戻りを停止する。新スキル・エージェントは追加しない。
+- 2026-10-11: 通常動画の共有ffmpeg合成器で場面ごとの丸めを廃止し、画像の絶対時刻とWAV実尺を共通化。40場面の実ffmpeg回帰テストへ拡張。
+- 2026-10-11: `create-pop-image` / `yt-shorts-create` を通常動画・Shortsの承認見本、内容別ポーズ、Drive原本＋SHAによる復元へ結線。既存AI画像監査・Shorts QAにPOP画像入力を追加。スキル・エージェントの新設なし。
+
 - 2026-10-03: `weekly-review` の収益導線レポートに正規URL照合数・集計不成立・同期間の商品売上の読み方を反映。CTA別購入帰属と商品合計を区別する。件数は不変。
 
 - 2026-09-27: `social/create-pop-image` を追加。承認済みPOP意匠の媒体横断制作と原本・生成履歴を管理。note-magazine-cover／create-x-card／coconala-publishから結線。専任エージェントは追加しない。

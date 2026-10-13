@@ -1,0 +1,695 @@
+{
+  "policy": ".claude/knowledge/reference/pop-image-policy.md",
+  "designVersion": "pop-20260927",
+  "channel": "youtube",
+  "source": "content/sns/youtube/cover-design.json",
+  "outputs": {
+    "access-control": {
+      "publicationId": "pe-comprehensive-management/cem-kw-access-control/youtube.short",
+      "copy": {
+        "exam": "pe-comprehensive",
+        "headline": [
+          "アクセス制御",
+          "権限を設定する"
+        ],
+        "benefit": "総監キーワード",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/youtube/cover-design.json#covers/access-control",
+        "content/sns/youtube/legacy-metadata.json#entries/access-control"
+      ],
+      "references": [
+        {
+          "path": ".tmp/video-render/pop-matome-2kyu-20261010/thumbnail-palm-v1.png",
+          "sha256": "8fd0987d6c7b7ad74645dbfa1971f42f3128e47ed4645c9d93048a579b6542cb"
+        },
+        {
+          "path": "content/sns/_assets/character/_source/pop-explaining.png",
+          "sha256": "e88700289679362e7a5ab6867187b32287701b861e55fe0be2d5835b2de527a0"
+        }
+      ],
+      "prompt": "参照画像の右側の先生キャラクターを正確に継承した、動画表紙に組み込む人物だけの高解像度PNG素材を制作してください。白い無地のヘルメット、黒髪、黒縁眼鏡、40代男性の同じ顔とひげ、紺の作業服とネクタイ、黄色と白の反射帯。参照の顔の描線・アニメ塗り・表情を保持。腰から上、正面を向き、画面左へ片手を開いて内容を紹介するポーズ。指は自然な5本指。ヘルメットの頂点・両肘・手指・腰の端まで完全に収め、外側に5%以上の透過余白。人物は画面の大部分を占める。手が左へ大きく突き出しすぎない。背景は完全透明、文字・ロゴ・記号・背景・床・影・看板は一切なし。横長の表紙で文字は左に置くため、人物の顔は素材の中央から少し右。元の表紙にある文字や緑背景は描かない。1人だけ。",
+      "promptScope": "共有する先生素材の生成。見出しは編集可能な原稿をレンダラーで組版。",
+      "format": {
+        "width": 1080,
+        "height": 1920
+      },
+      "render": {
+        "template": "character-pop-v2",
+        "variant": "explain",
+        "pose": "pop-explaining"
+      },
+      "output": {
+        "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.406eae75.png",
+        "sha256": "406eae75637cef2b81a034bac3c8242225eb477d7fa09e00e9e942dff9420859"
+      },
+      "review": {
+        "status": "agent-reviewed",
+        "by": "Codex",
+        "checkedAt": "2026-10-10T15:17:18.121Z",
+        "viewportWidth": 360,
+        "checks": [
+          "見出しと資格名の可読性",
+          "文字化け",
+          "文字・人物の切れ",
+          "内容と見出しの整合"
+        ],
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "key": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.406eae75.png"
+      },
+      "publication": "ローカル差し替え・外部未反映"
+    },
+    "multisource-evaluation": {
+      "publicationId": "pe-comprehensive-management/cem-kw-multisource-evaluation/youtube.short",
+      "copy": {
+        "exam": "pe-comprehensive",
+        "headline": [
+          "多面評価",
+          "複数の視点で"
+        ],
+        "benefit": "総監キーワード",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/youtube/cover-design.json#covers/multisource-evaluation",
+        "content/sns/youtube/legacy-metadata.json#entries/multisource-evaluation"
+      ],
+      "references": [
+        {
+          "path": ".tmp/video-render/pop-matome-2kyu-20261010/thumbnail-palm-v1.png",
+          "sha256": "8fd0987d6c7b7ad74645dbfa1971f42f3128e47ed4645c9d93048a579b6542cb"
+        },
+        {
+          "path": "content/sns/_assets/character/_source/pop-explaining.png",
+          "sha256": "e88700289679362e7a5ab6867187b32287701b861e55fe0be2d5835b2de527a0"
+        }
+      ],
+      "prompt": "参照画像の右側の先生キャラクターを正確に継承した、動画表紙に組み込む人物だけの高解像度PNG素材を制作してください。白い無地のヘルメット、黒髪、黒縁眼鏡、40代男性の同じ顔とひげ、紺の作業服とネクタイ、黄色と白の反射帯。参照の顔の描線・アニメ塗り・表情を保持。腰から上、正面を向き、画面左へ片手を開いて内容を紹介するポーズ。指は自然な5本指。ヘルメットの頂点・両肘・手指・腰の端まで完全に収め、外側に5%以上の透過余白。人物は画面の大部分を占める。手が左へ大きく突き出しすぎない。背景は完全透明、文字・ロゴ・記号・背景・床・影・看板は一切なし。横長の表紙で文字は左に置くため、人物の顔は素材の中央から少し右。元の表紙にある文字や緑背景は描かない。1人だけ。",
+      "promptScope": "共有する先生素材の生成。見出しは編集可能な原稿をレンダラーで組版。",
+      "format": {
+        "width": 1080,
+        "height": 1920
+      },
+      "render": {
+        "template": "character-pop-v2",
+        "variant": "explain",
+        "pose": "pop-explaining"
+      },
+      "output": {
+        "path": ".tmp/media/pe-comprehensive-management/cem-kw-multisource-evaluation/youtube.short/cover.adb2d540.png",
+        "sha256": "adb2d54007823e5cd92e6cb494f5a1f51f32f76b71f717f6e5194b00f999a1fe"
+      },
+      "review": {
+        "status": "agent-reviewed",
+        "by": "Codex",
+        "checkedAt": "2026-10-10T15:17:18.121Z",
+        "viewportWidth": 360,
+        "checks": [
+          "見出しと資格名の可読性",
+          "文字化け",
+          "文字・人物の切れ",
+          "内容と見出しの整合"
+        ],
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "key": ".tmp/media/pe-comprehensive-management/cem-kw-multisource-evaluation/youtube.short/cover.adb2d540.png"
+      },
+      "publication": "ローカル差し替え・外部未反映"
+    },
+    "r03-pfi": {
+      "publicationId": "pe-comprehensive-management/cem-r03-p01-q2/youtube.short",
+      "copy": {
+        "exam": "pe-comprehensive",
+        "headline": [
+          "コンセッション",
+          "所有と運営を",
+          "区別する"
+        ],
+        "benefit": "令和３年度 択一",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/youtube/cover-design.json#covers/r03-pfi",
+        "content/sns/youtube/legacy-metadata.json#entries/r03-pfi"
+      ],
+      "references": [
+        {
+          "path": ".tmp/video-render/pop-matome-2kyu-20261010/thumbnail-palm-v1.png",
+          "sha256": "8fd0987d6c7b7ad74645dbfa1971f42f3128e47ed4645c9d93048a579b6542cb"
+        },
+        {
+          "path": "content/sns/_assets/character/_source/pop-pointing.png",
+          "sha256": "f0bafda4a9743b3f2c8ca5182299d0e1ed8851165f33b5b60bddfc0598d9a1eb"
+        }
+      ],
+      "prompt": "参照画像の右側の先生キャラクターを正確に継承した、動画表紙に組み込む人物だけの高解像度PNG素材を制作してください。白い無地のヘルメット、黒髪、黒縁眼鏡、40代男性の同じ顔とひげ、紺の作業服とネクタイ、黄色と白の反射帯。参照の顔の描線・アニメ塗り・表情を保持。腰から上、正面を向き、画面左側の肩の横で人差し指を上へ1本立て、要点を説明するポーズ。残り4本の指と手首は自然な構造。ヘルメットの頂点・両肘・手指・腰の端まで完全に収め、外側に5%以上の透過余白。人物は画面の大部分を占める。背景は完全透明、文字・ロゴ・記号・背景・床・影・看板は一切なし。元の表紙にある文字や緑背景は描かない。1人だけ。",
+      "promptScope": "共有する先生素材の生成。見出しは編集可能な原稿をレンダラーで組版。",
+      "format": {
+        "width": 1080,
+        "height": 1920
+      },
+      "render": {
+        "template": "character-pop-v2",
+        "variant": "compare",
+        "pose": "pop-pointing"
+      },
+      "output": {
+        "path": ".tmp/media/pe-comprehensive-management/cem-r03-p01-q2/youtube.short/cover.51838bb9.png",
+        "sha256": "51838bb98f66a6b2862fdab0cc241d9aac087f5282b4afc6f9c8b2d4306b4020"
+      },
+      "review": {
+        "status": "agent-reviewed",
+        "by": "Codex",
+        "checkedAt": "2026-10-10T15:17:18.121Z",
+        "viewportWidth": 360,
+        "checks": [
+          "見出しと資格名の可読性",
+          "文字化け",
+          "文字・人物の切れ",
+          "内容と見出しの整合"
+        ],
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "key": ".tmp/media/pe-comprehensive-management/cem-r03-p01-q2/youtube.short/cover.51838bb9.png"
+      },
+      "publication": "ローカル差し替え・外部未反映"
+    },
+    "r03-quality": {
+      "publicationId": "pe-comprehensive-management/cem-r03-p01-q3/youtube.short",
+      "copy": {
+        "exam": "pe-comprehensive",
+        "headline": [
+          "管理限界と",
+          "抜取検査の前提"
+        ],
+        "benefit": "令和３年度 択一",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/youtube/cover-design.json#covers/r03-quality",
+        "content/sns/youtube/legacy-metadata.json#entries/r03-quality"
+      ],
+      "references": [
+        {
+          "path": ".tmp/video-render/pop-matome-2kyu-20261010/thumbnail-palm-v1.png",
+          "sha256": "8fd0987d6c7b7ad74645dbfa1971f42f3128e47ed4645c9d93048a579b6542cb"
+        },
+        {
+          "path": "content/sns/_assets/character/_source/pop-explaining.png",
+          "sha256": "e88700289679362e7a5ab6867187b32287701b861e55fe0be2d5835b2de527a0"
+        }
+      ],
+      "prompt": "参照画像の右側の先生キャラクターを正確に継承した、動画表紙に組み込む人物だけの高解像度PNG素材を制作してください。白い無地のヘルメット、黒髪、黒縁眼鏡、40代男性の同じ顔とひげ、紺の作業服とネクタイ、黄色と白の反射帯。参照の顔の描線・アニメ塗り・表情を保持。腰から上、正面を向き、画面左へ片手を開いて内容を紹介するポーズ。指は自然な5本指。ヘルメットの頂点・両肘・手指・腰の端まで完全に収め、外側に5%以上の透過余白。人物は画面の大部分を占める。手が左へ大きく突き出しすぎない。背景は完全透明、文字・ロゴ・記号・背景・床・影・看板は一切なし。横長の表紙で文字は左に置くため、人物の顔は素材の中央から少し右。元の表紙にある文字や緑背景は描かない。1人だけ。",
+      "promptScope": "共有する先生素材の生成。見出しは編集可能な原稿をレンダラーで組版。",
+      "format": {
+        "width": 1080,
+        "height": 1920
+      },
+      "render": {
+        "template": "character-pop-v2",
+        "variant": "explain",
+        "pose": "pop-explaining"
+      },
+      "output": {
+        "path": ".tmp/media/pe-comprehensive-management/cem-r03-p01-q3/youtube.short/cover.fc8f3858.png",
+        "sha256": "fc8f38589f4663987e0c6b4672ec9fa2c6608f308a58d71a738d800944ce27ea"
+      },
+      "review": {
+        "status": "agent-reviewed",
+        "by": "Codex",
+        "checkedAt": "2026-10-10T15:17:18.121Z",
+        "viewportWidth": 360,
+        "checks": [
+          "見出しと資格名の可読性",
+          "文字化け",
+          "文字・人物の切れ",
+          "内容と見出しの整合"
+        ],
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "key": ".tmp/media/pe-comprehensive-management/cem-r03-p01-q3/youtube.short/cover.fc8f3858.png"
+      },
+      "publication": "ローカル差し替え・外部未反映"
+    },
+    "r03-critical-path": {
+      "publicationId": "pe-comprehensive-management/cem-r03-p01-q4/youtube.short",
+      "copy": {
+        "exam": "pe-comprehensive",
+        "headline": [
+          "作業を分けると",
+          "工期は縮まる？"
+        ],
+        "benefit": "令和３年度 択一｜CP短縮計算",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/youtube/cover-design.json#covers/r03-critical-path",
+        "content/sns/youtube/legacy-metadata.json#entries/r03-critical-path"
+      ],
+      "references": [
+        {
+          "path": ".tmp/video-render/pop-matome-2kyu-20261010/thumbnail-palm-v1.png",
+          "sha256": "8fd0987d6c7b7ad74645dbfa1971f42f3128e47ed4645c9d93048a579b6542cb"
+        },
+        {
+          "path": "content/sns/_assets/character/_source/pop-pointing.png",
+          "sha256": "f0bafda4a9743b3f2c8ca5182299d0e1ed8851165f33b5b60bddfc0598d9a1eb"
+        }
+      ],
+      "prompt": "参照画像の右側の先生キャラクターを正確に継承した、動画表紙に組み込む人物だけの高解像度PNG素材を制作してください。白い無地のヘルメット、黒髪、黒縁眼鏡、40代男性の同じ顔とひげ、紺の作業服とネクタイ、黄色と白の反射帯。参照の顔の描線・アニメ塗り・表情を保持。腰から上、正面を向き、画面左側の肩の横で人差し指を上へ1本立て、要点を説明するポーズ。残り4本の指と手首は自然な構造。ヘルメットの頂点・両肘・手指・腰の端まで完全に収め、外側に5%以上の透過余白。人物は画面の大部分を占める。背景は完全透明、文字・ロゴ・記号・背景・床・影・看板は一切なし。元の表紙にある文字や緑背景は描かない。1人だけ。",
+      "promptScope": "共有する先生素材の生成。見出しは編集可能な原稿をレンダラーで組版。",
+      "format": {
+        "width": 1080,
+        "height": 1920
+      },
+      "render": {
+        "template": "character-pop-v2",
+        "variant": "question",
+        "pose": "pop-pointing"
+      },
+      "output": {
+        "path": ".tmp/media/pe-comprehensive-management/cem-r03-p01-q4/youtube.short/cover.2a9d5406.png",
+        "sha256": "2a9d5406d49fe4baf5098c65a5dad677e43877b69c39507ae73eabd7015bac41"
+      },
+      "review": {
+        "status": "agent-reviewed",
+        "by": "Codex",
+        "checkedAt": "2026-10-10T15:17:18.121Z",
+        "viewportWidth": 360,
+        "checks": [
+          "見出しと資格名の可読性",
+          "文字化け",
+          "文字・人物の切れ",
+          "内容と見出しの整合"
+        ],
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "key": ".tmp/media/pe-comprehensive-management/cem-r03-p01-q4/youtube.short/cover.2a9d5406.png"
+      },
+      "publication": "ローカル差し替え・外部未反映"
+    },
+    "r03-decoupling": {
+      "publicationId": "pe-comprehensive-management/cem-r03-p02-q1/youtube.short",
+      "copy": {
+        "exam": "pe-comprehensive",
+        "headline": [
+          "デカップリング",
+          "ポイントの分類"
+        ],
+        "benefit": "令和３年度 択一",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/youtube/cover-design.json#covers/r03-decoupling",
+        "content/sns/youtube/legacy-metadata.json#entries/r03-decoupling"
+      ],
+      "references": [
+        {
+          "path": ".tmp/video-render/pop-matome-2kyu-20261010/thumbnail-palm-v1.png",
+          "sha256": "8fd0987d6c7b7ad74645dbfa1971f42f3128e47ed4645c9d93048a579b6542cb"
+        },
+        {
+          "path": "content/sns/_assets/character/_source/pop-explaining.png",
+          "sha256": "e88700289679362e7a5ab6867187b32287701b861e55fe0be2d5835b2de527a0"
+        }
+      ],
+      "prompt": "参照画像の右側の先生キャラクターを正確に継承した、動画表紙に組み込む人物だけの高解像度PNG素材を制作してください。白い無地のヘルメット、黒髪、黒縁眼鏡、40代男性の同じ顔とひげ、紺の作業服とネクタイ、黄色と白の反射帯。参照の顔の描線・アニメ塗り・表情を保持。腰から上、正面を向き、画面左へ片手を開いて内容を紹介するポーズ。指は自然な5本指。ヘルメットの頂点・両肘・手指・腰の端まで完全に収め、外側に5%以上の透過余白。人物は画面の大部分を占める。手が左へ大きく突き出しすぎない。背景は完全透明、文字・ロゴ・記号・背景・床・影・看板は一切なし。横長の表紙で文字は左に置くため、人物の顔は素材の中央から少し右。元の表紙にある文字や緑背景は描かない。1人だけ。",
+      "promptScope": "共有する先生素材の生成。見出しは編集可能な原稿をレンダラーで組版。",
+      "format": {
+        "width": 1080,
+        "height": 1920
+      },
+      "render": {
+        "template": "character-pop-v2",
+        "variant": "explain",
+        "pose": "pop-explaining"
+      },
+      "output": {
+        "path": ".tmp/media/pe-comprehensive-management/cem-r03-p02-q1/youtube.short/cover.798792c0.png",
+        "sha256": "798792c046c3790e79f29f854fd8912c95752bb437eeb21a05202d9badf7517b"
+      },
+      "review": {
+        "status": "agent-reviewed",
+        "by": "Codex",
+        "checkedAt": "2026-10-10T15:17:18.121Z",
+        "viewportWidth": 360,
+        "checks": [
+          "見出しと資格名の可読性",
+          "文字化け",
+          "文字・人物の切れ",
+          "内容と見出しの整合"
+        ],
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "key": ".tmp/media/pe-comprehensive-management/cem-r03-p02-q1/youtube.short/cover.798792c0.png"
+      },
+      "publication": "ローカル差し替え・外部未反映"
+    },
+    "r03-break-even": {
+      "publicationId": "pe-comprehensive-management/cem-r03-p02-q2/youtube.short",
+      "copy": {
+        "exam": "pe-comprehensive",
+        "headline": [
+          "損益分岐点と",
+          "限界利益率"
+        ],
+        "benefit": "令和３年度 択一｜計算の要点",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/youtube/cover-design.json#covers/r03-break-even",
+        "content/sns/youtube/legacy-metadata.json#entries/r03-break-even"
+      ],
+      "references": [
+        {
+          "path": ".tmp/video-render/pop-matome-2kyu-20261010/thumbnail-palm-v1.png",
+          "sha256": "8fd0987d6c7b7ad74645dbfa1971f42f3128e47ed4645c9d93048a579b6542cb"
+        },
+        {
+          "path": "content/sns/_assets/character/_source/pop-explaining.png",
+          "sha256": "e88700289679362e7a5ab6867187b32287701b861e55fe0be2d5835b2de527a0"
+        }
+      ],
+      "prompt": "参照画像の右側の先生キャラクターを正確に継承した、動画表紙に組み込む人物だけの高解像度PNG素材を制作してください。白い無地のヘルメット、黒髪、黒縁眼鏡、40代男性の同じ顔とひげ、紺の作業服とネクタイ、黄色と白の反射帯。参照の顔の描線・アニメ塗り・表情を保持。腰から上、正面を向き、画面左へ片手を開いて内容を紹介するポーズ。指は自然な5本指。ヘルメットの頂点・両肘・手指・腰の端まで完全に収め、外側に5%以上の透過余白。人物は画面の大部分を占める。手が左へ大きく突き出しすぎない。背景は完全透明、文字・ロゴ・記号・背景・床・影・看板は一切なし。横長の表紙で文字は左に置くため、人物の顔は素材の中央から少し右。元の表紙にある文字や緑背景は描かない。1人だけ。",
+      "promptScope": "共有する先生素材の生成。見出しは編集可能な原稿をレンダラーで組版。",
+      "format": {
+        "width": 1080,
+        "height": 1920
+      },
+      "render": {
+        "template": "character-pop-v2",
+        "variant": "explain",
+        "pose": "pop-explaining"
+      },
+      "output": {
+        "path": ".tmp/media/pe-comprehensive-management/cem-r03-p02-q2/youtube.short/cover.f275492f.png",
+        "sha256": "f275492f9c6dc905816635e85dfafdbc8f2423428c9a32a2961212f460c007c2"
+      },
+      "review": {
+        "status": "agent-reviewed",
+        "by": "Codex",
+        "checkedAt": "2026-10-10T15:17:18.121Z",
+        "viewportWidth": 360,
+        "checks": [
+          "見出しと資格名の可読性",
+          "文字化け",
+          "文字・人物の切れ",
+          "内容と見出しの整合"
+        ],
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "key": ".tmp/media/pe-comprehensive-management/cem-r03-p02-q2/youtube.short/cover.f275492f.png"
+      },
+      "publication": "ローカル差し替え・外部未反映"
+    },
+    "r03-cash-flow": {
+      "publicationId": "pe-comprehensive-management/cem-r03-p02-q3/youtube.short",
+      "copy": {
+        "exam": "pe-comprehensive",
+        "headline": [
+          "間接法のCF",
+          "何を調整する？"
+        ],
+        "benefit": "令和３年度 択一",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/youtube/cover-design.json#covers/r03-cash-flow",
+        "content/sns/youtube/legacy-metadata.json#entries/r03-cash-flow"
+      ],
+      "references": [
+        {
+          "path": ".tmp/video-render/pop-matome-2kyu-20261010/thumbnail-palm-v1.png",
+          "sha256": "8fd0987d6c7b7ad74645dbfa1971f42f3128e47ed4645c9d93048a579b6542cb"
+        },
+        {
+          "path": "content/sns/_assets/character/_source/pop-pointing.png",
+          "sha256": "f0bafda4a9743b3f2c8ca5182299d0e1ed8851165f33b5b60bddfc0598d9a1eb"
+        }
+      ],
+      "prompt": "参照画像の右側の先生キャラクターを正確に継承した、動画表紙に組み込む人物だけの高解像度PNG素材を制作してください。白い無地のヘルメット、黒髪、黒縁眼鏡、40代男性の同じ顔とひげ、紺の作業服とネクタイ、黄色と白の反射帯。参照の顔の描線・アニメ塗り・表情を保持。腰から上、正面を向き、画面左側の肩の横で人差し指を上へ1本立て、要点を説明するポーズ。残り4本の指と手首は自然な構造。ヘルメットの頂点・両肘・手指・腰の端まで完全に収め、外側に5%以上の透過余白。人物は画面の大部分を占める。背景は完全透明、文字・ロゴ・記号・背景・床・影・看板は一切なし。元の表紙にある文字や緑背景は描かない。1人だけ。",
+      "promptScope": "共有する先生素材の生成。見出しは編集可能な原稿をレンダラーで組版。",
+      "format": {
+        "width": 1080,
+        "height": 1920
+      },
+      "render": {
+        "template": "character-pop-v2",
+        "variant": "question",
+        "pose": "pop-pointing"
+      },
+      "output": {
+        "path": ".tmp/media/pe-comprehensive-management/cem-r03-p02-q3/youtube.short/cover.97a8b686.png",
+        "sha256": "97a8b686ebf26d6008d1c54b9dcb17c4465194205935cc7c0dcdbf0334b2a939"
+      },
+      "review": {
+        "status": "agent-reviewed",
+        "by": "Codex",
+        "checkedAt": "2026-10-10T15:17:18.121Z",
+        "viewportWidth": 360,
+        "checks": [
+          "見出しと資格名の可読性",
+          "文字化け",
+          "文字・人物の切れ",
+          "内容と見出しの整合"
+        ],
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "key": ".tmp/media/pe-comprehensive-management/cem-r03-p02-q3/youtube.short/cover.97a8b686.png"
+      },
+      "publication": "ローカル差し替え・外部未反映"
+    },
+    "r03-maintenance": {
+      "publicationId": "pe-comprehensive-management/cem-r03-p02-q4/youtube.short",
+      "copy": {
+        "exam": "pe-comprehensive",
+        "headline": [
+          "設備管理と",
+          "保全費の区分"
+        ],
+        "benefit": "令和３年度 択一",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/youtube/cover-design.json#covers/r03-maintenance",
+        "content/sns/youtube/legacy-metadata.json#entries/r03-maintenance"
+      ],
+      "references": [
+        {
+          "path": ".tmp/video-render/pop-matome-2kyu-20261010/thumbnail-palm-v1.png",
+          "sha256": "8fd0987d6c7b7ad74645dbfa1971f42f3128e47ed4645c9d93048a579b6542cb"
+        },
+        {
+          "path": "content/sns/_assets/character/_source/pop-explaining.png",
+          "sha256": "e88700289679362e7a5ab6867187b32287701b861e55fe0be2d5835b2de527a0"
+        }
+      ],
+      "prompt": "参照画像の右側の先生キャラクターを正確に継承した、動画表紙に組み込む人物だけの高解像度PNG素材を制作してください。白い無地のヘルメット、黒髪、黒縁眼鏡、40代男性の同じ顔とひげ、紺の作業服とネクタイ、黄色と白の反射帯。参照の顔の描線・アニメ塗り・表情を保持。腰から上、正面を向き、画面左へ片手を開いて内容を紹介するポーズ。指は自然な5本指。ヘルメットの頂点・両肘・手指・腰の端まで完全に収め、外側に5%以上の透過余白。人物は画面の大部分を占める。手が左へ大きく突き出しすぎない。背景は完全透明、文字・ロゴ・記号・背景・床・影・看板は一切なし。横長の表紙で文字は左に置くため、人物の顔は素材の中央から少し右。元の表紙にある文字や緑背景は描かない。1人だけ。",
+      "promptScope": "共有する先生素材の生成。見出しは編集可能な原稿をレンダラーで組版。",
+      "format": {
+        "width": 1080,
+        "height": 1920
+      },
+      "render": {
+        "template": "character-pop-v2",
+        "variant": "explain",
+        "pose": "pop-explaining"
+      },
+      "output": {
+        "path": ".tmp/media/pe-comprehensive-management/cem-r03-p02-q4/youtube.short/cover.65993546.png",
+        "sha256": "659935465e083b5eb2f3f064527d9a713e8773e17eef1e4201af95949fb4c4d2"
+      },
+      "review": {
+        "status": "agent-reviewed",
+        "by": "Codex",
+        "checkedAt": "2026-10-10T15:17:18.121Z",
+        "viewportWidth": 360,
+        "checks": [
+          "見出しと資格名の可読性",
+          "文字化け",
+          "文字・人物の切れ",
+          "内容と見出しの整合"
+        ],
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "key": ".tmp/media/pe-comprehensive-management/cem-r03-p02-q4/youtube.short/cover.65993546.png"
+      },
+      "publication": "ローカル差し替え・外部未反映"
+    },
+    "r07-quality": {
+      "publicationId": "pe-comprehensive-management/cem-r07-p01-q1/youtube.short",
+      "copy": {
+        "exam": "pe-comprehensive",
+        "headline": [
+          "管理限界と",
+          "規格値の違い"
+        ],
+        "benefit": "令和７年度 択一",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/youtube/cover-design.json#covers/r07-quality",
+        "content/sns/youtube/legacy-metadata.json#entries/r07-quality"
+      ],
+      "references": [
+        {
+          "path": ".tmp/video-render/pop-matome-2kyu-20261010/thumbnail-palm-v1.png",
+          "sha256": "8fd0987d6c7b7ad74645dbfa1971f42f3128e47ed4645c9d93048a579b6542cb"
+        },
+        {
+          "path": "content/sns/_assets/character/_source/pop-pointing.png",
+          "sha256": "f0bafda4a9743b3f2c8ca5182299d0e1ed8851165f33b5b60bddfc0598d9a1eb"
+        }
+      ],
+      "prompt": "参照画像の右側の先生キャラクターを正確に継承した、動画表紙に組み込む人物だけの高解像度PNG素材を制作してください。白い無地のヘルメット、黒髪、黒縁眼鏡、40代男性の同じ顔とひげ、紺の作業服とネクタイ、黄色と白の反射帯。参照の顔の描線・アニメ塗り・表情を保持。腰から上、正面を向き、画面左側の肩の横で人差し指を上へ1本立て、要点を説明するポーズ。残り4本の指と手首は自然な構造。ヘルメットの頂点・両肘・手指・腰の端まで完全に収め、外側に5%以上の透過余白。人物は画面の大部分を占める。背景は完全透明、文字・ロゴ・記号・背景・床・影・看板は一切なし。元の表紙にある文字や緑背景は描かない。1人だけ。",
+      "promptScope": "共有する先生素材の生成。見出しは編集可能な原稿をレンダラーで組版。",
+      "format": {
+        "width": 1080,
+        "height": 1920
+      },
+      "render": {
+        "template": "character-pop-v2",
+        "variant": "compare",
+        "pose": "pop-pointing"
+      },
+      "output": {
+        "path": ".tmp/media/pe-comprehensive-management/cem-r07-p01-q1/youtube.short/cover.e44cd185.png",
+        "sha256": "e44cd18571a8d449a0ab40eb2be1076fe58d1376d09f3ffc701496d86cd184b3"
+      },
+      "review": {
+        "status": "agent-reviewed",
+        "by": "Codex",
+        "checkedAt": "2026-10-10T15:17:18.121Z",
+        "viewportWidth": 360,
+        "checks": [
+          "見出しと資格名の可読性",
+          "文字化け",
+          "文字・人物の切れ",
+          "内容と見出しの整合"
+        ],
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "key": ".tmp/media/pe-comprehensive-management/cem-r07-p01-q1/youtube.short/cover.e44cd185.png"
+      },
+      "publication": "ローカル差し替え・外部未反映"
+    }
+  },
+  "revisions": {
+    "access-control": {
+      "version": "pop-poster-v3",
+      "publicationId": "pe-comprehensive-management/cem-kw-access-control/youtube.short",
+      "copy": {
+        "exam": "技術士 総監",
+        "headline": [
+          "アクセス権",
+          "誰に与える？"
+        ],
+        "authority": "総監が解説"
+      },
+      "evidence": [
+        "content/sns/youtube/cover-design.json"
+      ],
+      "pose": "thinking-permissions",
+      "generation": [
+        {
+          "step": "original",
+          "prompt": "Use case: ads-marketing.\n参照画像はユーザー自身の承認済みココナラ商品画像です。これと同じ先生、極太で躍動感のある日本語、白・黄色・少量の赤、鮮やかな資格色、斜め帯、薄い土木現場背景が一体になった、完成済みのYouTube Shorts表紙を新しく制作してください。\n1080×1920、9:16の縦長。横長原本の単純クロップ・引き伸ばしは禁止。人物だけの素材ではなく、文字と人物と背景が一体のポスターです。上の文字、離れた下の小さな人物、空白の大きい説明スライドにはしない。\n大見出しと先生の顔が中央の縦長ポスターを満たす。背景の薄い現場イラストは細部を主張しない。中央の75%の高さで構図を完結し、上下各約180〜230pxは背景の延長だけにする。右端約170pxは操作ボタンに備えて文字と目を置かない。重要文字と帽子・顔は完全に画面内。顔は画面の幅の約38%、人物の上半身は中央から下へ大きく配置し、小さな立ち絵にしない。下端の空白は背景の継続と人物の胴体で自然に埋める。顔の上に文字を重ねない。\n最上部の資格名は白の極太文字に濃い輪郭と強い影。主題は白または黄色の極太文字に濃い輪郭。問い・注意語は赤または黄色に白い輪郭。硬い長方形の白いテキスト箱を縦に並べず、斜めの白い面、線、ダイナミックな文字の大小で見せる。実際のココナラ原本に近い描き込みと迫力。主要文字は幅360pxで一目で読める大きさに。\n40代男性の同じ先生。原本の顔・短い黒髪・黒縁眼鏡・軽いひげ・白い無地ヘルメット・紺色作業服・白シャツ・紺のネクタイ・黄色と白の反射帯を保持。大人の知的で親しみやすい顔、若い少年・別人・写真風に変えない。\n指定した日本語だけを正確に表示する。ブランド名・URL・値段・合格保証・数字・追加の説明・YouTubeのUIは足さない。ココナラのサービス文言はコピーしない。\nこの画像は技術士総合技術監理部門のアクセス制御・アクセス権限設定の学習Shortsの表紙。参照の緑を技術士総監の深いネイビー・鮮やかな青・シアンへ置き換える。文字・キャラクター・描き込みはココナラ原本の迫力を継承。\n表示する文字は「技術士 総監」「アクセス権」「誰に与える？」「総監が解説」の4つだけ。上に白の極太「技術士 総監」。中央に「アクセス権」を極太の白または黄色、その下に「誰に与える？」を黄色の大きな問い。黄色の小さな斜め帯に「総監が解説」。\n先生は権限の割り当てを考えているポーズ。片手をあごに軽く添え、もう片手に小さな閉じたノートを持つ。少し眉を上げた穏やかな思案表情で、困り過ぎ・怒り・笑いの大げさな表情にはしない。赤ペン・指差し・手のひら解説とは異なる動作。顔と上半身を大きく中央右〜下に置く。背景には小さな抽象的な鍵・人物・分岐の薄いシルエットだけを足し、実在のアクセス設定画面や読めない細かい文字は描かない。",
+          "references": [
+            {
+              "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+              "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+            }
+          ],
+          "format": {
+            "width": 941,
+            "height": 1672
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.00480497.png",
+            "sha256": "004804970a126928dfed8c36c416de677ad07937c8eb03e29afbc962d10bb615"
+          },
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.00480497.png"
+          }
+        },
+        {
+          "step": "safe",
+          "prompt": "画像1は修正対象の、既に制作した縦型表紙です。先生の顔、ポーズ、服、文字、色、ココナラらしい極太の縁取り・斜め帯・背景の描き込みを保持して、縦型Shortsの安全な配置に構成し直してください。画像自体をクロップしたり、縦横比を歪めたりしない。\n重要な修正：上端から画像の高さの12%（約230px相当）は背景だけ。最下部の16%（約300px相当）は文字なし。右端の14%（約150px相当）は背景または服の端だけ。文字・眼・口・手の動作をこの範囲に入れない。主要なデザインはx=5〜84%、y=13〜82%に収める。人物の服の下端は画面下端まで自然に続いてよい。\n文字と顔のサイズ関係、描線、太い輪郭と斜めの文字の迫力は保持。余白を一様な単色の長方形にせず、元の斜線・現場シルエット・光の背景を上下へ描き足す。本文スライドのような白い箱・小さな人物へ戻さない。\n「総監が解説」は短い黄色帯に5文字すべてをはっきり描く。先生の帽子・顔・手や別の文字と重ねず、左の空いている小さな領域へ置く。文言・ポーズを変えず、同じ先生を保持。指定外の文言・ブランド・UI・値段は一切追加しない。\n出力は9:16の完成画像。",
+          "references": [
+            {
+              "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.00480497.png",
+              "sha256": "004804970a126928dfed8c36c416de677ad07937c8eb03e29afbc962d10bb615"
+            }
+          ],
+          "format": {
+            "width": 941,
+            "height": 1672
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png",
+            "sha256": "226ec38a86790720f220ec2ca340d5f984d9297d6275ede0872c9ee42f64b092"
+          },
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png"
+          }
+        }
+      ],
+      "output": {
+        "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png",
+        "sha256": "226ec38a86790720f220ec2ca340d5f984d9297d6275ede0872c9ee42f64b092"
+      },
+      "format": {
+        "width": 941,
+        "height": 1672
+      },
+      "storage": {
+        "group": "content-media",
+        "key": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png"
+      },
+      "review": {
+        "status": "composition-preview",
+        "checkedAt": "2026-10-11T00:27:48.296Z",
+        "by": "Codex",
+        "viewportWidth": 360,
+        "checks": {
+          "copyMatches": true,
+          "readable": true,
+          "poseMatchesContent": true,
+          "authorityNotOccluded": true
+        },
+        "userImageReview": "style-approved",
+        "shortsUiReview": "pending",
+        "styleApproval": {
+          "date": "2026-10-11",
+          "evidence": "ok この感じでショートも通常動画も",
+          "scope": "通常動画・Shortsの意匠と内容別ポーズ。媒体寸法・操作UI・動画への採用は別途確認"
+        }
+      },
+      "publication": "意匠承認済み・動画未採用・外部未反映"
+    }
+  }
+}

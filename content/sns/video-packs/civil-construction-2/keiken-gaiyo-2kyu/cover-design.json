@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "pointing",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-2/keiken-gaiyo-2kyu/youtube.longform/cover.669433af.png",
-        "sha256": "669433afc2cdd56c06b598b232d49aa52f6702ce5406bdb43828b9d40b616d70",
-        "specSha256": "2777db25b4e7d8699bb19d9af7ff390f9a086870827c555975aa06d2e474d480"
+        "path": ".tmp/media/civil-construction-2/keiken-gaiyo-2kyu/youtube.longform/cover.98064355.png",
+        "sha256": "98064355d935f1c3f375c41be4a0b43f396f9b9ab910a37abe2194a1fd933939",
+        "specSha256": "a0bd7a649b4d5d4e4519326464aa4bbc015d10bb05251ea5ed40b83843fc94e3"
       }
     },
     "point-step1-1": {
@@ -31,13 +36,18 @@
       "accentLine": 2,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-2/keiken-gaiyo-2kyu/youtube.short.point-step1-1/cover.dfc6ecaf.png",
-        "sha256": "dfc6ecafe5953e5c43d44f174255bb9c1dbfb21cde4da815178c10b8110fa15b",
-        "specSha256": "a9838cd83850f6f49a031f3de7f873fcadd60849593b8afa11ad329511b0db86"
+        "path": ".tmp/media/civil-construction-2/keiken-gaiyo-2kyu/youtube.short.point-step1-1/cover.73031180.png",
+        "sha256": "7303118033a3fdc446d280f58b6d1941efa7b45156a28f06829aed10d50a9264",
+        "specSha256": "88bf1b7359a9667148279415367f288045ae2a91274c861652d5dc9a2accb9fa"
       }
     },
     "point-step2-2": {
@@ -50,13 +60,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-2/keiken-gaiyo-2kyu/youtube.short.point-step2-2/cover.9b719c25.png",
-        "sha256": "9b719c25b7746c7c25a90f52456d43d72addc61f2c3467e563e150ed5178eee2",
-        "specSha256": "582f682a21858044bc0436cb29db04949fffcde08070a5e0c5457683b7453629"
+        "path": ".tmp/media/civil-construction-2/keiken-gaiyo-2kyu/youtube.short.point-step2-2/cover.443bad2d.png",
+        "sha256": "443bad2d296866623eb8920fa2bd081acd990eac66ef9d5e3c768a4ee77b6372",
+        "specSha256": "ebaca212360673cc5cacbe5f9659e56f0de97bacb47d5ecb76e643298027f6bb"
       }
     }
   }

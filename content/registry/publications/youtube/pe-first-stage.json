@@ -8,7 +8,10 @@
       "work": "pe1-zentaizou",
       "account": "youtube:main",
       "format": "longform",
-      "status": "qa_passed"
+      "status": "qa_passed",
+      "media": {
+        "cover": "pe-first-stage/pe1-zentaizou/youtube.longform/cover"
+      }
     }
   ]
 }

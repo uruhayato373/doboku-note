@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-10-12T07:56:02.261Z",
+  "updatedAt": "2026-10-13T03:56:02.563Z",
   "items": [
     {
       "slug": "1級・2級土木/1級土木/1級経験記述R6新形式と設問書き分け",
@@ -5847,7 +5847,7 @@
       "noteMagazine": null,
       "magazines": [],
       "utmCampaign": "2c-essay-3weeks",
-      "title": "2級土木 施工経験記述｜二次まで残り3週間で仕上げる手順 — 1つの工事で3テーマを書き切る"
+      "title": "2級土木 施工経験記述｜残り2週間で仕上げる手順 — 1つの工事で3テーマを書き切る"
     },
     {
       "slug": "1級・2級土木/2級土木/経験記述を自分の現場に置換",
@@ -12892,6 +12892,24 @@
       "title": "技術士 建設部門｜口頭試験対策 — 令和8年度 改訂コンピテンシー対応の想定問答バンクと合格発表後の準備ロードマップ"
     },
     {
+      "slug": "技術士建設部門/magazines/口頭試験対策-全部門共通",
+      "path": "content/note/技術士建設部門/magazines/口頭試験対策-全部門共通/article.md",
+      "exam": "技術士建設部門",
+      "magazine": "口頭試験対策-全部門共通",
+      "noteUrl": "https://note.com/dobokunote/n/n1fcaf65dc75b",
+      "noteId": "n1fcaf65dc75b",
+      "status": "published",
+      "publishedAt": "2026-10-10",
+      "pricing": "paid",
+      "price": 1980,
+      "contentType": "product",
+      "series": "技術士-口頭試験対策-全部門共通",
+      "noteMagazine": null,
+      "magazines": [],
+      "utmCampaign": "pe-oral-general",
+      "title": "技術士 口頭試験対策（全部門共通）— 令和8年度 改訂コンピテンシー対応の想定問答と、部門別の当てはめ例"
+    },
+    {
       "slug": "技術士建設部門/インフラ維持管理・更新の論点キーワード",
       "path": "content/note/技術士建設部門/インフラ維持管理・更新の論点キーワード/article.md",
       "exam": "技術士建設部門",
@@ -18432,7 +18450,7 @@
       "noteMagazine": null,
       "magazines": [],
       "utmCampaign": "persona-selector-intro",
-      "title": "総監記述式 模範論文｜あなたはどの立場で書くか・17ペルソナの選び方"
+      "title": "総監記述式 模範論文｜あなたはどの立場で書くか・20ペルソナの選び方"
     },
     {
       "slug": "共通/AIで土木資格を攻略",
@@ -18520,24 +18538,6 @@
       "magazines": [],
       "utmCampaign": "pipe-work-2027",
       "title": "管工事施工管理技士 第二次検定「施工記述」機器別 模範解答バンク（1級・2級／令和6年度からの新形式）"
-    },
-    {
-      "slug": "技術士建設部門/magazines/口頭試験対策-全部門共通",
-      "path": "content/note/技術士建設部門/magazines/口頭試験対策-全部門共通/article.md",
-      "exam": "技術士建設部門",
-      "magazine": "口頭試験対策-全部門共通",
-      "noteUrl": null,
-      "noteId": null,
-      "status": "draft",
-      "publishedAt": null,
-      "pricing": "paid",
-      "price": 1980,
-      "contentType": "product",
-      "series": "技術士-口頭試験対策-全部門共通",
-      "noteMagazine": null,
-      "magazines": [],
-      "utmCampaign": "pe-oral-general",
-      "title": "技術士 口頭試験対策（全部門共通）— 令和8年度 改訂コンピテンシー対応の想定問答と、部門別の当てはめ例"
     },
     {
       "slug": "技術士建設部門/筆記合格発表後にやること-無料",
@@ -19787,7 +19787,7 @@
       "key": null,
       "title": "技術士 口頭試験対策（全部門共通）｜令和8年度 改訂コンピテンシー対応の想定問答と部門別の当てはめ例",
       "price": "¥1,980",
-      "published": false
+      "published": true
     },
     {
       "id": "pe1-anki-note",

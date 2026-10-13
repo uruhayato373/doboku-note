@@ -1,0 +1,185 @@
+{
+  "policy": ".claude/knowledge/reference/pop-image-policy.md",
+  "designVersion": "pop-20260927",
+  "channel": "youtube",
+  "source": "content/sns/video-packs/concrete-chief-engineer/shunin-properties-ronten",
+  "outputs": {
+    "longform": {
+      "publicationId": "concrete-chief-engineer/shunin-properties-ronten/youtube.longform",
+      "copy": {
+        "exam": "concrete-chief",
+        "headline": [
+          "コンクリート",
+          "性質の頻出点"
+        ],
+        "benefit": "",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/video-packs/concrete-chief-engineer/shunin-properties-ronten/cover-design.json#covers/longform",
+        "content/sns/video-packs/concrete-chief-engineer/shunin-properties-ronten/youtube.json#longform"
+      ],
+      "references": [
+        {
+          "path": ".tmp/video-render/pop-matome-2kyu-20261010/thumbnail-palm-v1.png",
+          "sha256": "8fd0987d6c7b7ad74645dbfa1971f42f3128e47ed4645c9d93048a579b6542cb"
+        },
+        {
+          "path": "content/sns/_assets/character/_source/pop-explaining.png",
+          "sha256": "e88700289679362e7a5ab6867187b32287701b861e55fe0be2d5835b2de527a0"
+        }
+      ],
+      "prompt": "参照画像の右側の先生キャラクターを正確に継承した、動画表紙に組み込む人物だけの高解像度PNG素材を制作してください。白い無地のヘルメット、黒髪、黒縁眼鏡、40代男性の同じ顔とひげ、紺の作業服とネクタイ、黄色と白の反射帯。参照の顔の描線・アニメ塗り・表情を保持。腰から上、正面を向き、画面左へ片手を開いて内容を紹介するポーズ。指は自然な5本指。ヘルメットの頂点・両肘・手指・腰の端まで完全に収め、外側に5%以上の透過余白。人物は画面の大部分を占める。手が左へ大きく突き出しすぎない。背景は完全透明、文字・ロゴ・記号・背景・床・影・看板は一切なし。横長の表紙で文字は左に置くため、人物の顔は素材の中央から少し右。元の表紙にある文字や緑背景は描かない。1人だけ。",
+      "promptScope": "共有する先生素材の生成。見出しは編集可能な原稿をレンダラーで組版。",
+      "format": {
+        "width": 1920,
+        "height": 1080
+      },
+      "render": {
+        "template": "character-pop-v2",
+        "variant": "explain",
+        "pose": "pop-explaining"
+      },
+      "output": {
+        "path": ".tmp/media/concrete-chief-engineer/shunin-properties-ronten/youtube.longform/cover.5b635a36.png",
+        "sha256": "5b635a3653112c8b2cbb50dbc767a15fabb52ba916366e433d018093bfd8e6d4"
+      },
+      "review": {
+        "status": "agent-reviewed",
+        "by": "Codex",
+        "checkedAt": "2026-10-10T15:17:18.121Z",
+        "viewportWidth": 360,
+        "checks": [
+          "見出しと資格名の可読性",
+          "文字化け",
+          "文字・人物の切れ",
+          "内容と見出しの整合"
+        ],
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "key": ".tmp/media/concrete-chief-engineer/shunin-properties-ronten/youtube.longform/cover.5b635a36.png"
+      },
+      "publication": "ローカル差し替え・外部未反映"
+    },
+    "point-bingham-2": {
+      "publicationId": "concrete-chief-engineer/shunin-properties-ronten/youtube.short.point-bingham-2",
+      "copy": {
+        "exam": "concrete-chief",
+        "headline": [
+          "ビンガム流体",
+          "２つの指標"
+        ],
+        "benefit": "",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/video-packs/concrete-chief-engineer/shunin-properties-ronten/cover-design.json#covers/point-bingham-2",
+        "content/sns/video-packs/concrete-chief-engineer/shunin-properties-ronten/youtube.json#shorts/point-bingham-2"
+      ],
+      "references": [
+        {
+          "path": ".tmp/video-render/pop-matome-2kyu-20261010/thumbnail-palm-v1.png",
+          "sha256": "8fd0987d6c7b7ad74645dbfa1971f42f3128e47ed4645c9d93048a579b6542cb"
+        },
+        {
+          "path": "content/sns/_assets/character/_source/pop-explaining.png",
+          "sha256": "e88700289679362e7a5ab6867187b32287701b861e55fe0be2d5835b2de527a0"
+        }
+      ],
+      "prompt": "参照画像の右側の先生キャラクターを正確に継承した、動画表紙に組み込む人物だけの高解像度PNG素材を制作してください。白い無地のヘルメット、黒髪、黒縁眼鏡、40代男性の同じ顔とひげ、紺の作業服とネクタイ、黄色と白の反射帯。参照の顔の描線・アニメ塗り・表情を保持。腰から上、正面を向き、画面左へ片手を開いて内容を紹介するポーズ。指は自然な5本指。ヘルメットの頂点・両肘・手指・腰の端まで完全に収め、外側に5%以上の透過余白。人物は画面の大部分を占める。手が左へ大きく突き出しすぎない。背景は完全透明、文字・ロゴ・記号・背景・床・影・看板は一切なし。横長の表紙で文字は左に置くため、人物の顔は素材の中央から少し右。元の表紙にある文字や緑背景は描かない。1人だけ。",
+      "promptScope": "共有する先生素材の生成。見出しは編集可能な原稿をレンダラーで組版。",
+      "format": {
+        "width": 1080,
+        "height": 1920
+      },
+      "render": {
+        "template": "character-pop-v2",
+        "variant": "explain",
+        "pose": "pop-explaining"
+      },
+      "output": {
+        "path": ".tmp/media/concrete-chief-engineer/shunin-properties-ronten/youtube.short.point-bingham-2/cover.bda01649.png",
+        "sha256": "bda0164938e09c37f4a6a9d8c86678d91223c9eca6e193514ec44a59f3e648af"
+      },
+      "review": {
+        "status": "agent-reviewed",
+        "by": "Codex",
+        "checkedAt": "2026-10-10T15:17:18.121Z",
+        "viewportWidth": 360,
+        "checks": [
+          "見出しと資格名の可読性",
+          "文字化け",
+          "文字・人物の切れ",
+          "内容と見出しの整合"
+        ],
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "key": ".tmp/media/concrete-chief-engineer/shunin-properties-ronten/youtube.short.point-bingham-2/cover.bda01649.png"
+      },
+      "publication": "ローカル差し替え・外部未反映"
+    },
+    "point-consistency-1": {
+      "publicationId": "concrete-chief-engineer/shunin-properties-ronten/youtube.short.point-consistency-1",
+      "copy": {
+        "exam": "concrete-chief",
+        "headline": [
+          "コンシステンシー",
+          "測定単位を確認"
+        ],
+        "benefit": "",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/video-packs/concrete-chief-engineer/shunin-properties-ronten/cover-design.json#covers/point-consistency-1",
+        "content/sns/video-packs/concrete-chief-engineer/shunin-properties-ronten/youtube.json#shorts/point-consistency-1"
+      ],
+      "references": [
+        {
+          "path": ".tmp/video-render/pop-matome-2kyu-20261010/thumbnail-palm-v1.png",
+          "sha256": "8fd0987d6c7b7ad74645dbfa1971f42f3128e47ed4645c9d93048a579b6542cb"
+        },
+        {
+          "path": "content/sns/_assets/character/_source/pop-explaining.png",
+          "sha256": "e88700289679362e7a5ab6867187b32287701b861e55fe0be2d5835b2de527a0"
+        }
+      ],
+      "prompt": "参照画像の右側の先生キャラクターを正確に継承した、動画表紙に組み込む人物だけの高解像度PNG素材を制作してください。白い無地のヘルメット、黒髪、黒縁眼鏡、40代男性の同じ顔とひげ、紺の作業服とネクタイ、黄色と白の反射帯。参照の顔の描線・アニメ塗り・表情を保持。腰から上、正面を向き、画面左へ片手を開いて内容を紹介するポーズ。指は自然な5本指。ヘルメットの頂点・両肘・手指・腰の端まで完全に収め、外側に5%以上の透過余白。人物は画面の大部分を占める。手が左へ大きく突き出しすぎない。背景は完全透明、文字・ロゴ・記号・背景・床・影・看板は一切なし。横長の表紙で文字は左に置くため、人物の顔は素材の中央から少し右。元の表紙にある文字や緑背景は描かない。1人だけ。",
+      "promptScope": "共有する先生素材の生成。見出しは編集可能な原稿をレンダラーで組版。",
+      "format": {
+        "width": 1080,
+        "height": 1920
+      },
+      "render": {
+        "template": "character-pop-v2",
+        "variant": "explain",
+        "pose": "pop-explaining"
+      },
+      "output": {
+        "path": ".tmp/media/concrete-chief-engineer/shunin-properties-ronten/youtube.short.point-consistency-1/cover.88c2e2b0.png",
+        "sha256": "88c2e2b0a703d6db7a4b91b800dec4921b4c5a2d767fa4047bf4270b02e0e434"
+      },
+      "review": {
+        "status": "agent-reviewed",
+        "by": "Codex",
+        "checkedAt": "2026-10-10T15:17:18.121Z",
+        "viewportWidth": 360,
+        "checks": [
+          "見出しと資格名の可読性",
+          "文字化け",
+          "文字・人物の切れ",
+          "内容と見出しの整合"
+        ],
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "key": ".tmp/media/concrete-chief-engineer/shunin-properties-ronten/youtube.short.point-consistency-1/cover.88c2e2b0.png"
+      },
+      "publication": "ローカル差し替え・外部未反映"
+    }
+  }
+}

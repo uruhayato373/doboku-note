@@ -6,6 +6,7 @@ import { execFileSync } from 'node:child_process';
 import { readMdxFile, writeMdxFile } from '../.claude/scripts/lib/mdx-io.mjs';
 import { report, readWatchConfig, readJson, LEDGER, HISTORY, KIND, hash, dateJst, statusOf, latestMeasurement, readMeasurements, recordAction, updateLedger, decisionRecord, writeDecision } from './lib/seo-rank-watch.mjs';
 import { validateAgentResult, applyReplacements, waitingReason } from './lib/seo-rank-watch-ci.mjs';
+import { DEPLOY_BRANCH, DEPLOY_WORKFLOW } from './lib/production-deploys.mjs';
 
 const root = process.cwd(), args = process.argv.slice(2), command = args[0]; // root-ok: テストが一時ディレクトリを cwd にして実行する
 const dirArg = args.indexOf('--dir');
@@ -23,7 +24,7 @@ async function main() {
     if (!pending.length) { console.log('本番反映待ち0件。観察開始の照合対象なし。'); return; }
     const repo = process.env.GITHUB_REPOSITORY;
     if (repo !== 'uruhayato373/doboku-note') throw Error('Unexpected repository');
-    const response = JSON.parse(execFileSync('gh', ['api', `repos/${repo}/actions/workflows/cloudflare-deploy.yml/runs?branch=main&status=success&per_page=1`], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }));
+    const response = JSON.parse(execFileSync('gh', ['api', `repos/${repo}/actions/workflows/${DEPLOY_WORKFLOW}/runs?branch=${DEPLOY_BRANCH}&status=success&per_page=1`], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }));
     const proof = response.workflow_runs?.[0];
     if (!proof) { console.log('成功した本番反映が無いため観察開始を待機。'); return; }
     if (!/^[a-f0-9]{40}$/.test(proof.head_sha)) throw Error('Invalid production commit');

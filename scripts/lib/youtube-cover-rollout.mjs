@@ -16,7 +16,10 @@ export function loadCoverSources(root) {
     const path = join(p.dir, 'cover-design.json');
     if (!existsSync(path)) continue;
     const design = validateCoverDesign(JSON.parse(readFileSync(path)), { exam: EXAM_TO_PALETTE[p.exam] });
-    const y = JSON.parse(readFileSync(join(p.dir, 'youtube.json')));
+    const youtubePath = join(p.dir, 'youtube.json');
+    const y = existsSync(youtubePath) ? JSON.parse(readFileSync(youtubePath)) : {
+      longform: { key: 'longform', title: JSON.parse(readFileSync(join(p.dir, 'video-pack.json'))).title }, shorts: []
+    };
     const derivatives = state.packs[p.slug]?.derivatives;
     for (const item of [y.longform, ...y.shorts]) {
       const spec = design.covers[item.key];

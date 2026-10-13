@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-construction",
+      "headline": [
+        "二次試験の独学",
+        "何をどの順で？"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pop-pointing",
+        "frame": "waist"
+      },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "question",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-construction/secondary-study-houhou/youtube.longform/cover.61977b31.png",
+        "sha256": "61977b3187cfe54732f0421145f620147d6d4c12a9eef321744eaa434ec7daac",
+        "specSha256": "356852b7aeec1bc276c50ee01dd85d8d7701c680da5c0ffa81fe72501cbc22bc"
+      }
+    }
+  }
+}

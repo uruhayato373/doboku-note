@@ -5,19 +5,25 @@
       "format": "longform",
       "exam": "civil-2",
       "headline": [
-        "２級土木",
-        "直前総まとめ"
+        "2級土木",
+        "耳で総復習",
+        "一次＋二次"
       ],
       "accentLine": 1,
-      "subtitle": "一次の頻出点と二次の記述を聞き流しで",
+      "subtitle": "",
       "character": {
-        "pose": "smile",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "listen",
+        "authority": "総監が解説"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/cover.2a24500d.png",
-        "sha256": "2a24500dd9c74fb1886ff03eefd95a4f777bef4ab581e8399bda599a0f239ce2",
-        "specSha256": "556f1358a82ead9927b0b97ca83031e8a593ecd99e3b1382fe6d29a591468277"
+        "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/cover.b24e5803.png",
+        "sha256": "b24e58035b4ad2955f2b9309e181d714558d49da1609503c2cd59eab1b621055",
+        "specSha256": "c18bb1dac56ed971d44a192941798c4ef4942b619f4fa9241d6c4d9302bd298d"
       }
     }
   }

@@ -1,0 +1,114 @@
+{
+  "policy": ".claude/knowledge/reference/pop-image-policy.md",
+  "source": "content/sns/x/draft/096-character-2026-10-a",
+  "outputs": {
+    "t07": {
+      "publicationId": "civil-construction-2/character-10-a/x.post.t07",
+      "copy": {
+        "headline": [
+          "課題と対応",
+          "つながってる？"
+        ],
+        "points": [
+          "課題：含水比が高い",
+          "対応：人数を増やす"
+        ],
+        "benefit": "何を改善する対策か確認"
+      },
+      "evidence": [
+        "content/sns/x/draft/096-character-2026-10-a/tweets.md#Tweet07"
+      ],
+      "prompt": "添付の承認済み2級土木POP画像と同じ人物・精密な漫画画風で、X学習カードを新規制作。横長1200×675。主題は2級土木施工経験記述の「課題と対応がつながるか」の答案点検。上左に資格「2級土木」、大見出し「課題と対応」「つながってる？」、緑と黄色の明るいPOP。中央左に大きい2枚の白い答案付箋、左の付箋は「課題」「含水比が高い」、右は「対応」「人数を増やす」。その間の矢印に赤い大きい疑問符「？」、この対応では課題解決の説明になっていないことを示す。下に黄色の帯で「何を改善する対策か確認」。先生は右側、参照の同一黒髪・黒縁眼鏡・短いひげ・紺作業服、赤ペンを持ち答案に首を傾げて点検するポーズ。人物・赤ペンと文字を重ねない。図や建設機械を飾りに足さず答案比較を主役に。指定どおりの日本語、価格・URL・合格保証・著者資格・章番号なし。全周6％安全域、360px幅で大見出しと2つの付箋が読める大きな文字。\n",
+      "references": [
+        {
+          "path": ".tmp/soil-chapter/soil-chapter.png",
+          "sha256": "0acb21610960faaab52faf307483a78e9f8e4dad6fa66195092d3f9d6ab6e032"
+        }
+      ],
+      "generations": [
+        {
+          "path": ".tmp/media/civil-construction-2/character-10-a/x.post.t07/generation-cover-v1.cf91549b.png",
+          "sha256": "cf91549b5eb2d981ff2880e45e22cbca45826d47c3f2a6b441f24edfee983cff"
+        }
+      ],
+      "output": {
+        "path": ".tmp/media/civil-construction-2/character-10-a/x.post.t07/cover.7d9cdf3f.png",
+        "sha256": "7d9cdf3f06f2681d52af5e892232fb1aac6e7e61d076d15cbc0d8d39de937ee4",
+        "width": 1200,
+        "height": 675
+      },
+      "review": {
+        "status": "ai-ok",
+        "by": "ai-image-fidelity-auditor",
+        "viewportWidth": 360,
+        "screenshot": ".tmp/media/civil-construction-2/gakka-2kyu-doko/work/review-batch01-360.0de618a9.jpg",
+        "userImageReview": "pending",
+        "screenshotSha256": "0de618a950ba7802d6555f6da276e9c24420bb1d797b117a7765869dfa69546a",
+        "adminVerified": true
+      },
+      "publication": "ローカル画像のみ採用・外部未反映・音声と動画は保持",
+      "storage": {
+        "group": "content-media",
+        "cloudVerified": true
+      }
+    }
+  },
+  "revisions": {
+    "all-channels-20261011-batch01": {
+      "design": "pop-poster-v3",
+      "entries": [
+        {
+          "publicationId": "civil-construction-2/character-10-a/x.post.t07",
+          "copy": {
+            "headline": [
+              "課題と対応",
+              "つながってる？"
+            ],
+            "points": [
+              "課題：含水比が高い",
+              "対応：人数を増やす"
+            ],
+            "benefit": "何を改善する対策か確認"
+          },
+          "evidence": [
+            "content/sns/x/draft/096-character-2026-10-a/tweets.md#Tweet07"
+          ],
+          "prompt": "添付の承認済み2級土木POP画像と同じ人物・精密な漫画画風で、X学習カードを新規制作。横長1200×675。主題は2級土木施工経験記述の「課題と対応がつながるか」の答案点検。上左に資格「2級土木」、大見出し「課題と対応」「つながってる？」、緑と黄色の明るいPOP。中央左に大きい2枚の白い答案付箋、左の付箋は「課題」「含水比が高い」、右は「対応」「人数を増やす」。その間の矢印に赤い大きい疑問符「？」、この対応では課題解決の説明になっていないことを示す。下に黄色の帯で「何を改善する対策か確認」。先生は右側、参照の同一黒髪・黒縁眼鏡・短いひげ・紺作業服、赤ペンを持ち答案に首を傾げて点検するポーズ。人物・赤ペンと文字を重ねない。図や建設機械を飾りに足さず答案比較を主役に。指定どおりの日本語、価格・URL・合格保証・著者資格・章番号なし。全周6％安全域、360px幅で大見出しと2つの付箋が読める大きな文字。\n",
+          "references": [
+            {
+              "path": ".tmp/soil-chapter/soil-chapter.png",
+              "sha256": "0acb21610960faaab52faf307483a78e9f8e4dad6fa66195092d3f9d6ab6e032"
+            }
+          ],
+          "generations": [
+            {
+              "path": ".tmp/media/civil-construction-2/character-10-a/x.post.t07/generation-cover-v1.cf91549b.png",
+              "sha256": "cf91549b5eb2d981ff2880e45e22cbca45826d47c3f2a6b441f24edfee983cff"
+            }
+          ],
+          "output": {
+            "path": ".tmp/media/civil-construction-2/character-10-a/x.post.t07/cover.7d9cdf3f.png",
+            "sha256": "7d9cdf3f06f2681d52af5e892232fb1aac6e7e61d076d15cbc0d8d39de937ee4",
+            "width": 1200,
+            "height": 675
+          },
+          "review": {
+            "status": "ai-ok",
+            "by": "ai-image-fidelity-auditor",
+            "viewportWidth": 360,
+            "screenshot": ".tmp/media/civil-construction-2/gakka-2kyu-doko/work/review-batch01-360.0de618a9.jpg",
+            "userImageReview": "pending",
+            "screenshotSha256": "0de618a950ba7802d6555f6da276e9c24420bb1d797b117a7765869dfa69546a",
+            "adminVerified": true
+          },
+          "publication": "ローカル画像のみ採用・外部未反映・音声と動画は保持",
+          "storage": {
+            "group": "content-media",
+            "cloudVerified": true
+          }
+        }
+      ],
+      "previousOutputs": {}
+    }
+  }
+}

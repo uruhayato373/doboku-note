@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "pc-work",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/concrete-engineer/gishi-mix-design-ronten/youtube.longform/cover.7116bcb1.png",
-        "sha256": "7116bcb1d680134d051ec71cf0d758b2d328c1567e4fcc20eda21c91e89ef705",
-        "specSha256": "07609f67bf71275cf2a989e9da99ee8be6f444bf812e409610d7cb24ca9230b5"
+        "path": ".tmp/media/concrete-engineer/gishi-mix-design-ronten/youtube.longform/cover.49d79dea.png",
+        "sha256": "49d79dea19753a72efeb2dc5c9d762eab165e1287dd6b6e71b990697cde49e22",
+        "specSha256": "ca204c07e8f306062fe11b9eaf78431f1c78a97340e862c2523cabebea7129e9"
       }
     },
     "point-step1-1": {
@@ -30,13 +35,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "pointing",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/concrete-engineer/gishi-mix-design-ronten/youtube.short.point-step1-1/cover.56eb1763.png",
-        "sha256": "56eb1763882acb20a4bcd39aa7475fbb5b63ce434fcb9f74770b258e40d06fb4",
-        "specSha256": "f84dfcbf4c6de3eaa0e20cc1bfbad0531310c9bcefaebb5a448cbde6c8ac3039"
+        "path": ".tmp/media/concrete-engineer/gishi-mix-design-ronten/youtube.short.point-step1-1/cover.5f41465e.png",
+        "sha256": "5f41465e56f2d40ad6f26afce165ece224fcd12d6e19536960f3c93a795ec6db",
+        "specSha256": "61e0921afba59db7bba73b2fa098848673967562003e230a0f729d7e791bd362"
       }
     },
     "point-step2-2": {
@@ -49,13 +59,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/concrete-engineer/gishi-mix-design-ronten/youtube.short.point-step2-2/cover.78304fc8.png",
-        "sha256": "78304fc878bb8fdf7ee0048ac71802e33924e487da4d2b9866a6ef16dbaf7deb",
-        "specSha256": "c1935242940d5f2bf5e736dd8c23de07a4e70bf6fa8e86dc779351883e3c9c07"
+        "path": ".tmp/media/concrete-engineer/gishi-mix-design-ronten/youtube.short.point-step2-2/cover.358f9c1c.png",
+        "sha256": "358f9c1cf7ed1a0764f91241aa0e33756bbfa5f7bb4fd20865a6d595f3ac8967",
+        "specSha256": "be1a988dec4d8c786324fcd5122a4f7cf4be1b32ed872cb389306e396ec30bee"
       }
     }
   }

@@ -8,7 +8,7 @@
  * check-note-site-utm / check-x-utm / check-sns-urls / fix-legacy-site-links が共用する。
  */
 import { existsSync, readFileSync } from "node:fs";
-import { parseLegacyRedirects } from "./legacy-routes.mjs";
+import { isLegacyPath, parseLegacyRedirects } from "./legacy-routes.mjs";
 import { SITE_ORIGIN } from "./site-identity.mjs";
 
 // 値の定義は site-identity.mjs（check-note-site-utm / check-x-utm が従来どおりここから import できるよう再公開する）。
@@ -65,7 +65,7 @@ const trimSlash = (p) => {
  */
 export function classifySitePath(path, routes) {
   const p = trimSlash(path);
-  if (p.startsWith("/docs/")) return { kind: "legacy", path: p, to: routes.legacy.get(p) ?? null };
+  if (isLegacyPath(p)) return { kind: "legacy", path: p, to: routes.legacy.get(p) ?? null };
   if (routes.canonical.has(p) || routes.hubs.has(p)) return { kind: "ok", path: p };
   if (/^\/(standards|topics)(\/|$)/.test(p)) return { kind: "unverified", path: p };
   return { kind: "unknown", path: p, suggestion: suggestCanonical(p, routes) };

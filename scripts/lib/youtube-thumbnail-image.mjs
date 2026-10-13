@@ -54,10 +54,36 @@ export async function compareThumbnail(expected, actual) {
     for(const cw of [w-1,w,w+1])for(const left of new Set([Math.floor((meta.width-cw)/2),Math.ceil((meta.width-cw)/2)])){
       const pixels=await sharp(actual).extract({left,top:0,width:cw,height:h}).resize(rw,rh).blur(1).removeAlpha().toColourspace('srgb').raw().toBuffer();
       score(rendered,pixels,rw,rh,'portrait-center');
+      // Match the CDN's integer-sized portrait before the comparison resize.
+      // A direct resize otherwise stretches a 404px portrait as if it were
+      // 405px, creating edge error across the whole authored image.
+      const nativeExpected=await sharp(expected).resize(cw,h,{fit:'fill'}).png().toBuffer();
+      const nativeActual=await sharp(actual).extract({left,top:0,width:cw,height:h}).png().toBuffer();
+      const atScale=async (bytes,blur)=>sharp(bytes).resize(rw,rh).blur(blur).removeAlpha().toColourspace('srgb').raw().toBuffer();
+      const scaledExpected=await atScale(nativeExpected,1),scaledActual=await atScale(nativeActual,1);
+      score(scaledExpected,scaledActual,rw,rh,'portrait-center');
+      const candidate=scores.at(-1);
+      // Keep the local tile gate BEFORE stronger noise smoothing, so a missing
+      // letter cannot be hidden by the compression-tolerant whole-image mean.
+      if(candidate.mean>=3&&candidate.worstTile<22){
+        const smoothedExpected=await atScale(nativeExpected,2),smoothedActual=await atScale(nativeActual,2);
+        let sum=0;for(let i=0;i<smoothedActual.length;i++)sum+=Math.abs(smoothedExpected[i]-smoothedActual[i]);
+        candidate.rawMean=candidate.mean;candidate.mean=sum/smoothedActual.length;candidate.normalization='native-portrait-size-and-symmetric-blur-2';
+      }
     }
   }
   const best=scores.sort((a,b)=>a.mean-b.mean)[0];
   const maxTileError=best.fit==='portrait-center'?22:15;
+  // Public CDN JPEGs can be more compressed than the private preview. Smooth
+  // only subpixel noise on both full landscape images; keep the ORIGINAL
+  // local-tile limit so missing letters cannot be hidden by this normalization.
+  if(source.width>=source.height && meta.width>=meta.height && best.mean>=3 && best.worstTile<maxTileError){
+    const rendered=await sharp(expected).resize(width,height,{fit:best.fit,background:'#000000'}).blur(0.7).removeAlpha().toColourspace('srgb').raw().toBuffer();
+    const pixels=await sharp(actual).resize(width,height).blur(0.7).removeAlpha().toColourspace('srgb').raw().toBuffer();
+    let sum=0;
+    for(let i=0;i<pixels.length;i++)sum+=Math.abs(rendered[i]-pixels[i]);
+    best.rawMean=best.mean;best.mean=sum/pixels.length;best.normalization='symmetric-blur-0.7';
+  }
   return {...best, matched: best.mean < 3 && best.worstTile < maxTileError,
-    thresholds:{mean:3,worstTile:maxTileError},method:'cdn-pixel-comparison-v3',publicFeedVerified:false};
+    thresholds:{mean:3,worstTile:maxTileError},method:'cdn-pixel-comparison-v5',publicFeedVerified:false};
 }

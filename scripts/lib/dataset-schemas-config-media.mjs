@@ -548,7 +548,7 @@ const reviewedAt = jstDate('確認日');
 const CharacterPose = z
   .object({
     slug: poseSlug.describe('ポーズの id（ポーズ内容の kebab-case）'),
-    file: z.string().regex(/^[a-z0-9-]+\.png$/, '小文字・数字・ハイフンの .png').describe('素材の画像ファイル名'),
+    file: z.string().regex(/^(?:_source\/)?[a-z0-9-]+\.png$/, '小文字・数字・ハイフンの .png（原本は _source/ 可）').describe('素材の画像ファイル名'),
     framing: z
       .object({
         source: z.object({ width: pixels('原画像の幅'), height: pixels('原画像の高さ'), sha256 }).strict().describe('切り取りの元にした原画像'),
@@ -813,6 +813,13 @@ const BookBundle = z
       .array(z.looseObject({ order: z.number().int().positive().describe('並び順'), originalName: z.string().min(1).describe('原本の元のファイル名') }))
       .min(1)
       .describe('原本の PDF（巻ごと）'),
+    ocrPending: z
+      .union([
+        z.object({ backlogId: z.string().regex(/^DN-\d{4}$/).describe('文字起こしの残りを追うカード（backlog に残っている間だけ有効）') }).strict(),
+        z.object({ reason: z.string().min(1).describe('残りを文字起こししないと決めた理由') }).strict(),
+      ])
+      .optional()
+      .describe('文字起こしの残り（complete・not-needed 以外のページ）を誰が追うか。残りがあるのに無いと check-reference-book-pages が止める'),
     coverageSiteDirs: z
       .array(z.string().regex(/^[a-z0-9-]+$/, '資格ディレクトリ'))
       .min(1)
@@ -877,6 +884,100 @@ export const ConfigReferenceSources = z
     });
   })
   .meta({ title: '参考文献の区分と扱い' });
+
+// ---- サイト記事のシリーズ企画（config/content-series.json） ------------------------------------------------------
+// 状態（公開・下書き・未着手）は持たない。記事の実体から scripts/lib/content-series.mjs が出す。中身の検査（根拠 id・記事の実在）も同じ lib。
+
+const seriesArticlePath = z.string().regex(/^content\/site\/[a-z0-9-]+\/(?:[a-z0-9-]+\/article\.mdx|[a-z0-9-]+\.mdx)$/, '記事のパス（content/site/<資格>/<dir>/article.mdx か <資格>/<name>.mdx）');
+
+const SeriesItem = z
+  .object({
+    id: z.string().regex(/^[A-Za-z0-9-]+$/).describe('シリーズ内の項目 id（A-5 など）'),
+    title: z.string().min(1).describe('記事の題（仮題でよい）'),
+    plan: z.enum(['new', 'strengthen', 'existing', 'excluded']).describe('新規・既存の補強・既存のまま・対象外'),
+    paths: z.array(seriesArticlePath).optional().describe('この項目を担う記事。新規は書くと決めたパス（無くてよい）、既存・補強は必須'),
+    links: z.array(seriesArticlePath).optional().describe('詳しい説明を任せる関連記事（教科書記事など）'),
+    sources: z.array(z.string().regex(/^[a-z0-9][a-z0-9-]*(?:#.+)?$/)).optional().describe('根拠の参考文献 id（参考文献の台帳 reference-sources.json）'),
+    wave: z.number().int().positive().optional().describe('何波目に書くか'),
+    note: z.string().min(1).optional(),
+    reason: z.string().min(1).optional().describe('対象外にした理由（plan=excluded のとき必須）'),
+    visuals: z
+      .array(
+        z
+          .object({
+            kind: z.enum(['figure', 'photo']).describe('図（自作の SVG）か写真（AI で生成・gen-article-photo）'),
+            subject: z.string().min(1).describe('何を見せるか'),
+            figKey: z.string().regex(/^[a-z0-9-]+\/[^/]+\/img\/[^/.]+$/).optional().describe('置き場（<資格>/<記事>/img/<名前>・拡張子なし）。記事の場所が決まったら書く'),
+            crop: z
+              .object({ book: z.string().regex(/^[a-z0-9][a-z0-9-]*$/), id: z.string().min(1) })
+              .strict()
+              .optional()
+              .describe('元にした本の切り出し図（書籍の台帳 book-manifest の crops の id）'),
+            skip: z.string().min(1).optional().describe('切り出し図を使わないと決めた理由（crop と組で書く）'),
+          })
+          .strict(),
+      )
+      .optional()
+      .describe('図・写真の計画。状態は画像の実体と出所の台帳・AI 画像の台帳から出す'),
+  })
+  .strict();
+
+const ContentSeries = z
+  .object({
+    id: z.string().regex(/^[a-z0-9][a-z0-9-]*$/).describe('シリーズの id。バックログのカードの本文に書くと管理画面がつなぐ'),
+    title: z.string().min(1),
+    audience: z.string().min(1).describe('読者'),
+    area: z.enum(['practice', 'exam', 'standards', 'topics']).describe('記事を置く公開領域（05_情報アーキテクチャ）'),
+    policy: z.string().startsWith('docs/').describe('判断の記録（置き場・根拠資料の扱い・着手の条件）'),
+    gate: z.string().min(1).optional().describe('着手の条件（満たすまで新規記事を書かない）'),
+    entry: z
+      .object({
+        hubItem: z.string().min(1).optional().describe('入口のハブ記事にする項目 id'),
+        curriculum: z.string().regex(/^[a-z0-9-]+:[a-z0-9-]+$/).optional().describe('入口にする工種別ノートのブロック（資格:ブロック id。新しいブロックでもよい）'),
+      })
+      .strict()
+      .optional(),
+    sections: z
+      .array(z.object({ title: z.string().min(1), items: z.array(SeriesItem).min(1) }).strict())
+      .min(1),
+  })
+  .strict();
+
+const basisValue = z.union([
+  z.string().regex(/^[a-z0-9-]+\/[A-Za-z0-9-]+$/).describe('シリーズ id/項目 id'),
+  z.object({ article: seriesArticlePath.describe('シリーズの外の記事で使う') }).strict(),
+  z.object({ excluded: z.string().min(1).describe('使わない理由') }).strict(),
+]);
+
+/** 書籍の全項目の割り当て（config/content-series-basis.json）。項目 id は Drive の候補表の id で、見出しは持たない */
+export const ConfigContentSeriesBasis = z
+  .object({
+    schemaVersion: schemaVersion1,
+    description: doc(),
+    books: z.record(
+      z.string().regex(/^[a-z0-9][a-z0-9-]*$/),
+      z
+        .object({
+          units: z.record(z.string().regex(/^u\d{4}$/), basisValue),
+          pages: z
+            .record(z.string().regex(/^u\d{4}$/), z.array(z.string().regex(/^p\d{4}$/)))
+            .describe('項目 → 本の頁（book-manifest の pages の id）。図・写真はこの頁から切り出すので、章と図をつなぐ'),
+        })
+        .strict(),
+    ),
+  })
+  .strict()
+  .meta({ title: '書籍の全項目の割り当て' });
+
+/** サイト記事のシリーズ企画の台帳。サイト記事の企画の正本（todo-standards §1-2） */
+export const ConfigContentSeries = z
+  .object({
+    schemaVersion: schemaVersion1,
+    description: doc(),
+    series: z.array(ContentSeries).min(1).superRefine(uniqueBy('id', 'シリーズの id')),
+  })
+  .strict()
+  .meta({ title: 'サイト記事のシリーズ企画' });
 
 // ---- YouTube の動画の型 --------------------------------------------------------------------
 

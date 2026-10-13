@@ -24,6 +24,7 @@
 - [hub強化とSEO判断](feedback_hub_strengthening_approach.md) — クエリ整合・即noindex禁止
 - [IGパック記録](feedback_ig_pack_posted_json.md) — posted.json・配色は現物確認
 - [Kindle重複防止](feedback_kindle_dup_prevention.md) — 差替えでASIN維持
+- [シェルの失敗で停止](feedback_shell_fail_fast.md) — assert失敗後のGit操作禁止・巨大JSONはparseで確認
 - [スクリプト編集安全](feedback_mdx_script_frontmatter_safety.md) — frontmatter分離・Python CR
 - [計測はCI供給](feedback_metrics_cicd_supplied.md) — PSIはfield・GAはSSR
 - [並行セッションgit](feedback_multi_session_concurrent_git.md) — pathspec commit・復元禁止

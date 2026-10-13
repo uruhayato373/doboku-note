@@ -17,6 +17,8 @@ domain: sns
 
 再生成は外部の予約・公開投稿を自動更新しない。動画冒頭を改修する未投稿パックはカバーと動画派生物を揃える。公開済みサムネだけの変更は §0.1 に従い、動画本体の更新と区別する。
 
+表紙制作は [/create-pop-image](../create-pop-image/SKILL.md) の通常動画・Shorts手順へ渡す。承認見本・内容別ポーズ・原本保存・再現性は [POP画像方針](../../../knowledge/reference/pop-image-policy.md) が正典。動画パック由来の通常動画／Shortsは [VIDEO-RENDER.md](../../../../content/sns/youtube/VIDEO-RENDER.md) のレンダー経路を使う。画像確認だけの依頼では、動画の再生成・外部反映を完了扱いにしない。
+
 ## 前提
 
 1. **ffmpeg / ffprobe が PATH にある**

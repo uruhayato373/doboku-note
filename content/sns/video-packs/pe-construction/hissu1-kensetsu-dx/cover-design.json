@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-construction",
+      "headline": [
+        "建設DX",
+        "施策を答案へ"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-construction/hissu1-kensetsu-dx/youtube.longform/cover.0f8de512.png",
+        "sha256": "0f8de5126b348a3ddda5e0674b768c6840849d9dede4e8bb7a07886de6017cdf",
+        "specSha256": "90a30259db4daaf0e50bf0bda0dceb02b97a55012208e416b6047e4227edbe21"
+      }
+    }
+  }
+}

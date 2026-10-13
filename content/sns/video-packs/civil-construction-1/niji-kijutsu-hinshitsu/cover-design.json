@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "reading",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/niji-kijutsu-hinshitsu/youtube.longform/cover.dd0923fb.png",
-        "sha256": "dd0923fb4b4a7d0bc28f00e8dc4db2ae60664e8d1006cb1d65994a4fc2e37371",
-        "specSha256": "74998fe1762c7dde5bbfccfbde87130a96b1d921f4097b5bb53598c45cba445c"
+        "path": ".tmp/media/civil-construction-1/niji-kijutsu-hinshitsu/youtube.longform/cover.79e90f12.png",
+        "sha256": "79e90f12e9caf052486310e71a10b479cdec8ca2a150fcd1116f3055805e7f50",
+        "specSha256": "545e222d73b62a399d0b2fdb4c494b3d47fb1797ecdc2c2097ead8a659a05793"
       }
     },
     "point-compaction-1": {
@@ -30,13 +35,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/niji-kijutsu-hinshitsu/youtube.short.point-compaction-1/cover.69c8f471.png",
-        "sha256": "69c8f471ed07d6ef3b6f710701cd4af3ee90d5e9f4a18dd498b6274d147e50fa",
-        "specSha256": "33d61281c684b3ae2b44da5d09fd988de961c264be7a78afb4174792663cdd25"
+        "path": ".tmp/media/civil-construction-1/niji-kijutsu-hinshitsu/youtube.short.point-compaction-1/cover.27c6036f.png",
+        "sha256": "27c6036f17b5ed4d6eefba630e677cb155fb19fdac7a71c6b673e42b2ce71206",
+        "specSha256": "5958f667803870d5144ef13466e75f6e4827f0c0020b722a4d94f7eb8b80d109"
       }
     },
     "point-acceptance-test-2": {
@@ -49,13 +59,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "reading",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/niji-kijutsu-hinshitsu/youtube.short.point-acceptance-test-2/cover.600f4847.png",
-        "sha256": "600f4847a6c057946bac3e2c6b27ffb1e65b75fe2f009a90b1d85cbc4d866c09",
-        "specSha256": "0ae54ab58bb573d9177c3e81617757e360a7875186857cc8d35db3d48fdd32b3"
+        "path": ".tmp/media/civil-construction-1/niji-kijutsu-hinshitsu/youtube.short.point-acceptance-test-2/cover.2b8d704e.png",
+        "sha256": "2b8d704e27b8c95dc6c031a263e5d3ee7582dec9d92397a3ba6c352346651c89",
+        "specSha256": "73c9a7d93a7a2cd1133dc5b898aac5144fd7858282b9a828d75314b4b614879c"
       }
     }
   }

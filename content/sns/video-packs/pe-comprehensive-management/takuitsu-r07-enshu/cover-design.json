@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-comprehensive",
+      "headline": [
+        "令和7年度択一",
+        "3問で型を確認"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-comprehensive-management/takuitsu-r07-enshu/youtube.longform/cover.5102749a.png",
+        "sha256": "5102749a7e28be7bcdab11f44f1193b9732bb6dd3205df3e7b2c7b223c9cedb4",
+        "specSha256": "551bb7fb8ee6c6f88cffdb8996f199423c4c73b5aa03c918ed0732cfae2edfa6"
+      }
+    }
+  }
+}

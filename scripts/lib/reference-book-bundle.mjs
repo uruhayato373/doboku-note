@@ -351,3 +351,68 @@ export function validateBookManifestShape(source, manifest) {
   }
   return errors;
 }
+
+/**
+ * 1 冊の網羅の状況（2026-10-13）。「教材は全部画像化・文字起こし済みか」に、ページ画像を開かずに答えるための集計。
+ * 原本のページ数（expectedPdfPages）と除外（excludedPdfPageRanges・理由つき）は参考文献の台帳（config/reference-sources.json）が正本で、
+ * book-manifest.json（git と Drive は同じ中身）の sourceFiles[] にも写る。pages[] だけを見て「除外の理由が無い」と判断しない。
+ * ページ画像と文字起こしの状態は book-manifest.json の pages[] が正本。
+ * @returns {{ pdfPages:number, excludedPdfPages:number, excluded:{ order:number, start:number, end:number, reason:string }[],
+ *   plannedPages:number, imagedPages:number|null, ocr:{ complete:number, notNeeded:number, unfinished:number }|null, manifestMatchesPlan:boolean|null }}
+ */
+export function bookCoverageSummary(source, manifest) {
+  const files = source.bookBundle?.sourceFiles ?? [];
+  const excluded = [];
+  for (const file of files) {
+    for (const r of file.excludedPdfPageRanges ?? []) excluded.push({ order: file.order, start: r.start, end: r.end, reason: r.reason });
+  }
+  const pdfPages = files.reduce((n, f) => n + (f.expectedPdfPages ?? 0), 0);
+  const excludedPdfPages = excluded.reduce((n, r) => n + (r.end - r.start + 1), 0);
+  const plannedPages = buildBookPagePlan(source).length;
+  if (!manifest) return { pdfPages, excludedPdfPages, excluded, plannedPages, imagedPages: null, ocr: null, manifestMatchesPlan: null };
+  const pages = manifest.pages ?? [];
+  const ocr = { complete: 0, notNeeded: 0, unfinished: 0 };
+  for (const p of pages) {
+    if (p.ocrStatus === 'complete') ocr.complete += 1;
+    else if (p.ocrStatus === 'not-needed') ocr.notNeeded += 1;
+    else ocr.unfinished += 1;
+  }
+  return { pdfPages, excludedPdfPages, excluded, plannedPages, imagedPages: pages.length, ocr, manifestMatchesPlan: pages.length === plannedPages };
+}
+
+/** 除外の理由ごとに束ねた短い説明（同じ理由の範囲は 1 つにまとめ、ページ数を足す）。 */
+export function summarizeExclusions(excluded) {
+  const byReason = new Map();
+  for (const r of excluded) {
+    const cur = byReason.get(r.reason) ?? { reason: r.reason, pages: 0, files: new Set() };
+    cur.pages += r.end - r.start + 1;
+    cur.files.add(r.order);
+    byReason.set(r.reason, cur);
+  }
+  return [...byReason.values()].map((x) => ({ reason: x.reason, pages: x.pages, files: [...x.files].sort((a, b) => a - b) }));
+}
+
+/**
+ * 文字起こしの残りを誰が追っているか（2026-10-13）。残り（not-needed・complete 以外のページ）があるのに、
+ * 追うカードも「しない」理由も無い状態を止める。54 頁がどのカードにも載らず、聞かれて初めて見つかったため。
+ * 追い方は参考文献の台帳の bookBundle.ocrPending に { backlogId: 'DN-####' }（backlog に残っている間だけ有効）か { reason }。
+ * @param {Set<string>} openBacklogIds backlog に残っている（＝完了していない）カードの id
+ * @returns {{ unfinished:number, tracking:string|null, error:string|null, warning:string|null }}
+ */
+export function ocrPendingIssue(source, manifest, openBacklogIds) {
+  const unfinished = (manifest?.pages ?? []).filter((p) => p.ocrStatus !== 'complete' && p.ocrStatus !== 'not-needed').length;
+  const tracked = source.bookBundle?.ocrPending ?? null;
+  const tracking = tracked?.backlogId ?? (tracked?.reason ? `理由: ${tracked.reason}` : null);
+  if (unfinished === 0) {
+    return { unfinished, tracking, error: null, warning: tracked ? 'bookBundle.ocrPending が残っている（文字起こしの残りは 0 頁なので外す）' : null };
+  }
+  if (!tracked) {
+    return { unfinished, tracking, warning: null,
+      error: `文字起こしの残り ${unfinished} 頁を誰も追っていない（文字起こしする／npm run todo:add で起票して参考文献の台帳の bookBundle.ocrPending.backlogId に書く／しないと決めたら ocrPending.reason に理由を書く）` };
+  }
+  if (tracked.backlogId && !openBacklogIds.has(tracked.backlogId)) {
+    return { unfinished, tracking, warning: null,
+      error: `文字起こしの残り ${unfinished} 頁を追う ${tracked.backlogId} が backlog に無い（完了・削除済み）。残りを文字起こしするか、起票し直して ocrPending を書き換える` };
+  }
+  return { unfinished, tracking, error: null, warning: null };
+}

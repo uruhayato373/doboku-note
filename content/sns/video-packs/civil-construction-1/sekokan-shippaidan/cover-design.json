@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "pointing",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/sekokan-shippaidan/youtube.longform/cover.a07dc2eb.png",
-        "sha256": "a07dc2eb07ef2841f5f1c15b7b79c34b75fbd7ba0c3681715d5fc55c30ffdd87",
-        "specSha256": "ae5c942423d60f56b96802f34516897d630873514ec6c8307b4904f4a3f524d0"
+        "path": ".tmp/media/civil-construction-1/sekokan-shippaidan/youtube.longform/cover.b08a613f.png",
+        "sha256": "b08a613f274e64a1c14a1ddf7f63c7940b2367af74bbd4b8890f80206f00ec03",
+        "specSha256": "e36d3731606d4b9db5bf1ebd0517e67d301c6edc73f6415980ab9133c626f6ba"
       }
     },
     "point-step1-1": {
@@ -30,13 +35,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/sekokan-shippaidan/youtube.short.point-step1-1/cover.787c7fc4.png",
-        "sha256": "787c7fc43017c685a764ac9336ad15346554202c286acb92e8caf3a784bcdfae",
-        "specSha256": "d767e5195516ecad1911a4399d846328bf9d97e4290a6522febbd9d07478feb5"
+        "path": ".tmp/media/civil-construction-1/sekokan-shippaidan/youtube.short.point-step1-1/cover.8cd201b9.png",
+        "sha256": "8cd201b9dd5912662f47922925b623d8532d63e57a07e6e1eb55e346e2ef1f84",
+        "specSha256": "42cb885e993a51424f37cfa27c48b3f64aef11356380dea01e3ec44d7849bfdf"
       }
     },
     "point-step2-2": {
@@ -49,13 +59,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/sekokan-shippaidan/youtube.short.point-step2-2/cover.54294e79.png",
-        "sha256": "54294e79ac45dd389b005de1e7cd513b3ca495e2c2bad1b8f2d96bbc41e8c9fb",
-        "specSha256": "7923c8c461c442a3a09e22fe09ee277b5a25c236cc2532b527f367de10bd1267"
+        "path": ".tmp/media/civil-construction-1/sekokan-shippaidan/youtube.short.point-step2-2/cover.2f6a129b.png",
+        "sha256": "2f6a129b7f214e18e15f2b6a4df6a44d1b6a3ae546213054030dba96e62c3543",
+        "specSha256": "90eed35699e721367e157779d0fa8105c4db7fe8128af5b61cbc2daf7d88b9f7"
       }
     }
   }

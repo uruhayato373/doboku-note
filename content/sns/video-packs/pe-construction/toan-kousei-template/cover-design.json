@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-construction",
+      "headline": [
+        "答案の構成",
+        "設問から逆算"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-construction/toan-kousei-template/youtube.longform/cover.82f30dc5.png",
+        "sha256": "82f30dc5208e80e21a9d9eaee68269a027bd83f5684226be8d3c373626e94227",
+        "specSha256": "adc211d3abc1d22dbf40cd9476aefd2b67597a4e4f1d24c06d4af063098b46ed"
+      }
+    }
+  }
+}

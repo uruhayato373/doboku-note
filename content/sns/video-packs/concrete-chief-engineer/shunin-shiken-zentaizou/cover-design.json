@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "wave",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform/cover.033e2a24.png",
-        "sha256": "033e2a242326d4aaca8b3e82c72686276c7226c0a05a31f6e7abc7500b2e5cc6",
-        "specSha256": "971bccf64dc883a55b4f619e4b6b17b2c9fb90116148144dec617c0aa0173fd2"
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform/cover.19cd214e.png",
+        "sha256": "19cd214e72277b2e8e49ebeaa6260be36d0d616259ed1539e434d84ed28ac158",
+        "specSha256": "95f26d55f4d9da9f70f90bf447bfecd412961222d62315d3569fdb2f77c96b64"
       }
     },
     "point-overview-1": {
@@ -30,13 +35,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "plan",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/youtube.short.point-overview-1/cover.d9ec861b.png",
-        "sha256": "d9ec861b25179692f004ee63486895d79e7034092c01eb64c03d60f48f8ecc44",
-        "specSha256": "b38e49b1caeb97c8e847a3d6b8368bc82f090608de73d6445a98842b82492f77"
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/youtube.short.point-overview-1/cover.3aef6e82.png",
+        "sha256": "3aef6e823e0ecbbca877f1858f37bc9197b66c369dd27258eec71d667c13de81",
+        "specSha256": "ddb33d74d0c9cb5f122f867ec44bc7534463e4ba94e92d2bb6edd5226b241b69"
       }
     },
     "point-step1-2": {
@@ -49,13 +59,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/youtube.short.point-step1-2/cover.cef517df.png",
-        "sha256": "cef517dfe021fd872783aa0567d69cae1266f3eb1cdeee2548a2f945669c0c89",
-        "specSha256": "fad78702e65a89293e4d43789ed8f8a3bc1ea280b8b3161367ea4b7947ed6fd5"
+        "path": ".tmp/media/concrete-chief-engineer/shunin-shiken-zentaizou/youtube.short.point-step1-2/cover.5fe14458.png",
+        "sha256": "5fe144584e8ba229d633a443c047be6ff9a50edabc6c19f57842395839f76f04",
+        "specSha256": "9c697bf3eb115e15a503592ea2877fe22eb865e51f3908988b7882d7536d623d"
       }
     }
   }

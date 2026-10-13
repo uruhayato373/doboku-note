@@ -163,6 +163,12 @@
           "match": "/content/articles"
         },
         {
+          "label": "シリーズ企画",
+          "href": "/content/series",
+          "kind": "inventory",
+          "match": "/content/series"
+        },
+        {
           "label": "検索",
           "href": "/metrics/search-strategy",
           "kind": "results",

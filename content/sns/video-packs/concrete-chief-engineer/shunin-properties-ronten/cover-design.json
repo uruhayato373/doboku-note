@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "pointing",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/concrete-chief-engineer/shunin-properties-ronten/youtube.longform/cover.07125e8e.png",
-        "sha256": "07125e8e1b0973ffed7e216134f1609a40bda9546d87d7735effbe636a74e825",
-        "specSha256": "1efc59e59750ca43d9dbc5038669eba9d5240bacb245ca01f061a5fe043a1fb5"
+        "path": ".tmp/media/concrete-chief-engineer/shunin-properties-ronten/youtube.longform/cover.5b635a36.png",
+        "sha256": "5b635a3653112c8b2cbb50dbc767a15fabb52ba916366e433d018093bfd8e6d4",
+        "specSha256": "d2092c511857cc6526d697df0fff1ae51c117031d804e72fb1d6f44d4c2f46b3"
       }
     },
     "point-consistency-1": {
@@ -30,13 +35,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/concrete-chief-engineer/shunin-properties-ronten/youtube.short.point-consistency-1/cover.479803db.png",
-        "sha256": "479803dbe058b246a674d12e03c5fce467bb363aa1cb773d645ce7d9b159309e",
-        "specSha256": "240ad8b4a336927b3e3c07c9b584e03f5ac2ed7e986c8cdc2ccab22c8bffa327"
+        "path": ".tmp/media/concrete-chief-engineer/shunin-properties-ronten/youtube.short.point-consistency-1/cover.88c2e2b0.png",
+        "sha256": "88c2e2b0a703d6db7a4b91b800dec4921b4c5a2d767fa4047bf4270b02e0e434",
+        "specSha256": "c1d97f1dad7567bf8c12323e78a7138ecbcffccc0272e1584107b32adde3c261"
       }
     },
     "point-bingham-2": {
@@ -49,13 +59,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "pointing",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/concrete-chief-engineer/shunin-properties-ronten/youtube.short.point-bingham-2/cover.3ba99a69.png",
-        "sha256": "3ba99a69f7d4884dbf5bde3b0c10c332668359c8bdcac8d23f3a30b193a80dbf",
-        "specSha256": "be219e6548b5b856926d15bab3493739cfc310d76bcd48f38ea6e24a8c319516"
+        "path": ".tmp/media/concrete-chief-engineer/shunin-properties-ronten/youtube.short.point-bingham-2/cover.bda01649.png",
+        "sha256": "bda0164938e09c37f4a6a9d8c86678d91223c9eca6e193514ec44a59f3e648af",
+        "specSha256": "45f779f3902707e1f0aa5f8bb690e83fd7992e66235e3c218a4ae763ce8a1801"
       }
     }
   }

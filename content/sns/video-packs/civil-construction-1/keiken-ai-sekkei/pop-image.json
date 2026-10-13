@@ -1,0 +1,186 @@
+{
+  "policy": ".claude/knowledge/reference/pop-image-policy.md",
+  "designVersion": "pop-20260927",
+  "channel": "youtube",
+  "source": "content/sns/video-packs/civil-construction-1/keiken-ai-sekkei",
+  "outputs": {
+    "longform": {
+      "publicationId": "civil-construction-1/keiken-ai-sekkei/youtube.longform",
+      "copy": {
+        "exam": "civil-1",
+        "headline": [
+          "経験記述とAI",
+          "丸投げは危険"
+        ],
+        "benefit": "",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/video-packs/civil-construction-1/keiken-ai-sekkei/cover-design.json#covers/longform",
+        "content/sns/video-packs/civil-construction-1/keiken-ai-sekkei/youtube.json#longform"
+      ],
+      "references": [
+        {
+          "path": ".tmp/video-render/pop-matome-2kyu-20261010/thumbnail-palm-v1.png",
+          "sha256": "8fd0987d6c7b7ad74645dbfa1971f42f3128e47ed4645c9d93048a579b6542cb"
+        },
+        {
+          "path": "content/sns/_assets/character/_source/pop-red-pen.png",
+          "sha256": "ed9d70558688350c8b8005b94fe14d1f6021efdc69d2288ff58f3e6394e23284"
+        }
+      ],
+      "prompt": "参照画像の右側の先生キャラクターを正確に継承した、動画表紙に組み込む人物だけの高解像度PNG素材を制作してください。白い無地のヘルメット、黒髪、黒縁眼鏡、40代男性の同じ顔とひげ、紺の作業服とネクタイ、黄色と白の反射帯。参照の顔の描線・アニメ塗り・表情を保持。腰から上、正面を向き、片手に赤い添削ペン、もう片手に無地の白い答案用紙を持ち、論文の書き方を紹介するポーズ。紙には文字や線を描かない。自然な5本指と手首。ヘルメットの頂点・両肘・手指・腰の端まで完全に収め、外側に5%以上の透過余白。人物は画面の大部分を占める。背景は完全透明、文字・ロゴ・記号・背景・床・影・看板は一切なし。元の表紙にある文字や緑背景は描かない。1人だけ。",
+      "promptScope": "共有する先生素材の生成。見出しは編集可能な原稿をレンダラーで組版。",
+      "format": {
+        "width": 1920,
+        "height": 1080
+      },
+      "render": {
+        "template": "character-pop-v2",
+        "variant": "write",
+        "pose": "pop-red-pen"
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-1/keiken-ai-sekkei/youtube.longform/cover.9ab5c3a9.png",
+        "sha256": "9ab5c3a98a7edab0d4d4b720920e6826cb6749e002ea9710fa4110bb44cb6e14"
+      },
+      "review": {
+        "status": "agent-reviewed",
+        "by": "Codex",
+        "checkedAt": "2026-10-10T15:17:18.121Z",
+        "viewportWidth": 360,
+        "checks": [
+          "見出しと資格名の可読性",
+          "文字化け",
+          "文字・人物の切れ",
+          "内容と見出しの整合"
+        ],
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "key": ".tmp/media/civil-construction-1/keiken-ai-sekkei/youtube.longform/cover.9ab5c3a9.png"
+      },
+      "publication": "ローカル差し替え・外部未反映"
+    },
+    "point-overview-1": {
+      "publicationId": "civil-construction-1/keiken-ai-sekkei/youtube.short.point-overview-1",
+      "copy": {
+        "exam": "civil-1",
+        "headline": [
+          "経験記述",
+          "AI丸投げの",
+          "落とし穴"
+        ],
+        "benefit": "",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/video-packs/civil-construction-1/keiken-ai-sekkei/cover-design.json#covers/point-overview-1",
+        "content/sns/video-packs/civil-construction-1/keiken-ai-sekkei/youtube.json#shorts/point-overview-1"
+      ],
+      "references": [
+        {
+          "path": ".tmp/video-render/pop-matome-2kyu-20261010/thumbnail-palm-v1.png",
+          "sha256": "8fd0987d6c7b7ad74645dbfa1971f42f3128e47ed4645c9d93048a579b6542cb"
+        },
+        {
+          "path": "content/sns/_assets/character/_source/pop-red-pen.png",
+          "sha256": "ed9d70558688350c8b8005b94fe14d1f6021efdc69d2288ff58f3e6394e23284"
+        }
+      ],
+      "prompt": "参照画像の右側の先生キャラクターを正確に継承した、動画表紙に組み込む人物だけの高解像度PNG素材を制作してください。白い無地のヘルメット、黒髪、黒縁眼鏡、40代男性の同じ顔とひげ、紺の作業服とネクタイ、黄色と白の反射帯。参照の顔の描線・アニメ塗り・表情を保持。腰から上、正面を向き、片手に赤い添削ペン、もう片手に無地の白い答案用紙を持ち、論文の書き方を紹介するポーズ。紙には文字や線を描かない。自然な5本指と手首。ヘルメットの頂点・両肘・手指・腰の端まで完全に収め、外側に5%以上の透過余白。人物は画面の大部分を占める。背景は完全透明、文字・ロゴ・記号・背景・床・影・看板は一切なし。元の表紙にある文字や緑背景は描かない。1人だけ。",
+      "promptScope": "共有する先生素材の生成。見出しは編集可能な原稿をレンダラーで組版。",
+      "format": {
+        "width": 1080,
+        "height": 1920
+      },
+      "render": {
+        "template": "character-pop-v2",
+        "variant": "write",
+        "pose": "pop-red-pen"
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-1/keiken-ai-sekkei/youtube.short.point-overview-1/cover.2b0c4c06.png",
+        "sha256": "2b0c4c06a554da9e74b8baf790e6692432831a348a281f97f0175e394df1eda9"
+      },
+      "review": {
+        "status": "agent-reviewed",
+        "by": "Codex",
+        "checkedAt": "2026-10-10T15:17:18.121Z",
+        "viewportWidth": 360,
+        "checks": [
+          "見出しと資格名の可読性",
+          "文字化け",
+          "文字・人物の切れ",
+          "内容と見出しの整合"
+        ],
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "key": ".tmp/media/civil-construction-1/keiken-ai-sekkei/youtube.short.point-overview-1/cover.2b0c4c06.png"
+      },
+      "publication": "ローカル差し替え・外部未反映"
+    },
+    "point-step1-2": {
+      "publicationId": "civil-construction-1/keiken-ai-sekkei/youtube.short.point-step1-2",
+      "copy": {
+        "exam": "civil-1",
+        "headline": [
+          "経験記述とAI",
+          "分担を決める"
+        ],
+        "benefit": "",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/video-packs/civil-construction-1/keiken-ai-sekkei/cover-design.json#covers/point-step1-2",
+        "content/sns/video-packs/civil-construction-1/keiken-ai-sekkei/youtube.json#shorts/point-step1-2"
+      ],
+      "references": [
+        {
+          "path": ".tmp/video-render/pop-matome-2kyu-20261010/thumbnail-palm-v1.png",
+          "sha256": "8fd0987d6c7b7ad74645dbfa1971f42f3128e47ed4645c9d93048a579b6542cb"
+        },
+        {
+          "path": "content/sns/_assets/character/_source/pop-red-pen.png",
+          "sha256": "ed9d70558688350c8b8005b94fe14d1f6021efdc69d2288ff58f3e6394e23284"
+        }
+      ],
+      "prompt": "参照画像の右側の先生キャラクターを正確に継承した、動画表紙に組み込む人物だけの高解像度PNG素材を制作してください。白い無地のヘルメット、黒髪、黒縁眼鏡、40代男性の同じ顔とひげ、紺の作業服とネクタイ、黄色と白の反射帯。参照の顔の描線・アニメ塗り・表情を保持。腰から上、正面を向き、片手に赤い添削ペン、もう片手に無地の白い答案用紙を持ち、論文の書き方を紹介するポーズ。紙には文字や線を描かない。自然な5本指と手首。ヘルメットの頂点・両肘・手指・腰の端まで完全に収め、外側に5%以上の透過余白。人物は画面の大部分を占める。背景は完全透明、文字・ロゴ・記号・背景・床・影・看板は一切なし。元の表紙にある文字や緑背景は描かない。1人だけ。",
+      "promptScope": "共有する先生素材の生成。見出しは編集可能な原稿をレンダラーで組版。",
+      "format": {
+        "width": 1080,
+        "height": 1920
+      },
+      "render": {
+        "template": "character-pop-v2",
+        "variant": "write",
+        "pose": "pop-red-pen"
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-1/keiken-ai-sekkei/youtube.short.point-step1-2/cover.70fb1b4c.png",
+        "sha256": "70fb1b4cab8b4a86d3d890c425df4aa2dd405226edc87add72b019575edb4a5e"
+      },
+      "review": {
+        "status": "agent-reviewed",
+        "by": "Codex",
+        "checkedAt": "2026-10-10T15:17:18.121Z",
+        "viewportWidth": 360,
+        "checks": [
+          "見出しと資格名の可読性",
+          "文字化け",
+          "文字・人物の切れ",
+          "内容と見出しの整合"
+        ],
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "key": ".tmp/media/civil-construction-1/keiken-ai-sekkei/youtube.short.point-step1-2/cover.70fb1b4c.png"
+      },
+      "publication": "ローカル差し替え・外部未反映"
+    }
+  }
+}

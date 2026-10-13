@@ -53502,7 +53502,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:07.131Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/a-01.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/a-05.jpg": {
       "bucket": "private",
@@ -53514,7 +53523,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:07.131Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/a-05.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/a-03.jpg": {
       "bucket": "private",
@@ -53526,7 +53544,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:07.310Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/a-03.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/b-heisei.epub": {
       "bucket": "private",
@@ -53536,7 +53563,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:07.313Z"
+      "verifiedAt": "2026-10-12T10:06:07.313Z",
+      "logicalPath": "scripts/kindle-dist/b-heisei.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/a-06.jpg": {
       "bucket": "private",
@@ -53548,7 +53584,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:07.471Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/a-06.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/a-04.jpg": {
       "bucket": "private",
@@ -53560,7 +53605,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:07.473Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/a-04.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/a-00.jpg": {
       "bucket": "private",
@@ -53572,7 +53626,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:07.566Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/a-00.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/a-02.jpg": {
       "bucket": "private",
@@ -53584,7 +53647,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:07.582Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/a-02.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/b-heisei.jpg": {
       "bucket": "private",
@@ -53596,7 +53668,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:07.764Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/b-heisei.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/c-01.epub": {
       "bucket": "private",
@@ -53606,7 +53687,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:07.978Z"
+      "verifiedAt": "2026-10-12T10:06:07.978Z",
+      "logicalPath": "scripts/kindle-dist/c-01.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/c-03.epub": {
       "bucket": "private",
@@ -53616,7 +53706,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:08.079Z"
+      "verifiedAt": "2026-10-12T10:06:08.079Z",
+      "logicalPath": "scripts/kindle-dist/c-03.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/c-02.epub": {
       "bucket": "private",
@@ -53626,7 +53725,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:08.084Z"
+      "verifiedAt": "2026-10-12T10:06:08.084Z",
+      "logicalPath": "scripts/kindle-dist/c-02.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/b-reiwa.epub": {
       "bucket": "private",
@@ -53636,7 +53744,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:08.114Z"
+      "verifiedAt": "2026-10-12T10:06:08.114Z",
+      "logicalPath": "scripts/kindle-dist/b-reiwa.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/c-01.jpg": {
       "bucket": "private",
@@ -53648,7 +53765,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:08.412Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/c-01.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/c-05.epub": {
       "bucket": "private",
@@ -53658,7 +53784,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:08.670Z"
+      "verifiedAt": "2026-10-12T10:06:08.670Z",
+      "logicalPath": "scripts/kindle-dist/c-05.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/c-04.epub": {
       "bucket": "private",
@@ -53668,7 +53803,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:08.672Z"
+      "verifiedAt": "2026-10-12T10:06:08.672Z",
+      "logicalPath": "scripts/kindle-dist/c-04.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/c-02.jpg": {
       "bucket": "private",
@@ -53680,7 +53824,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:08.681Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/c-02.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/b-reiwa.jpg": {
       "bucket": "private",
@@ -53692,7 +53845,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:08.718Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/b-reiwa.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/c-04.jpg": {
       "bucket": "private",
@@ -53704,7 +53866,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:08.728Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/c-04.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/c-06.epub": {
       "bucket": "private",
@@ -53714,7 +53885,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:09.077Z"
+      "verifiedAt": "2026-10-12T10:06:09.077Z",
+      "logicalPath": "scripts/kindle-dist/c-06.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/c-03.jpg": {
       "bucket": "private",
@@ -53726,7 +53906,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:09.290Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/c-03.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/c-08.epub": {
       "bucket": "private",
@@ -53736,7 +53925,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:09.307Z"
+      "verifiedAt": "2026-10-12T10:06:09.307Z",
+      "logicalPath": "scripts/kindle-dist/c-08.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/c-07.jpg": {
       "bucket": "private",
@@ -53748,7 +53946,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:09.308Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/c-07.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/c-06.jpg": {
       "bucket": "private",
@@ -53760,7 +53967,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:09.497Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/c-06.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/c-07.epub": {
       "bucket": "private",
@@ -53770,7 +53986,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:09.673Z"
+      "verifiedAt": "2026-10-12T10:06:09.673Z",
+      "logicalPath": "scripts/kindle-dist/c-07.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/c-05.jpg": {
       "bucket": "private",
@@ -53782,7 +54007,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:09.673Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/c-05.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/c-09.epub": {
       "bucket": "private",
@@ -53792,7 +54026,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:09.704Z"
+      "verifiedAt": "2026-10-12T10:06:09.704Z",
+      "logicalPath": "scripts/kindle-dist/c-09.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/c-08.jpg": {
       "bucket": "private",
@@ -53804,7 +54047,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:09.818Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/c-08.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/c-10.jpg": {
       "bucket": "private",
@@ -53816,7 +54068,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:10.088Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/c-10.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/c-09.jpg": {
       "bucket": "private",
@@ -53828,7 +54089,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:10.096Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/c-09.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/c-11.epub": {
       "bucket": "private",
@@ -53838,7 +54108,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:10.132Z"
+      "verifiedAt": "2026-10-12T10:06:10.132Z",
+      "logicalPath": "scripts/kindle-dist/c-11.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/c-I.epub": {
       "bucket": "private",
@@ -53848,7 +54127,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:10.155Z"
+      "verifiedAt": "2026-10-12T10:06:10.155Z",
+      "logicalPath": "scripts/kindle-dist/c-I.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/c-10.epub": {
       "bucket": "private",
@@ -53858,7 +54146,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:10.647Z"
+      "verifiedAt": "2026-10-12T10:06:10.647Z",
+      "logicalPath": "scripts/kindle-dist/c-10.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/d-00.jpg": {
       "bucket": "private",
@@ -53870,7 +54167,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:10.709Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/d-00.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/d-00.epub": {
       "bucket": "private",
@@ -53880,7 +54186,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:10.745Z"
+      "verifiedAt": "2026-10-12T10:06:10.745Z",
+      "logicalPath": "scripts/kindle-dist/d-00.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/d-02.epub": {
       "bucket": "private",
@@ -53890,7 +54205,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:10.748Z"
+      "verifiedAt": "2026-10-12T10:06:10.748Z",
+      "logicalPath": "scripts/kindle-dist/d-02.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/d-01.jpg": {
       "bucket": "private",
@@ -53902,7 +54226,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:10.808Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/d-01.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/c-I.jpg": {
       "bucket": "private",
@@ -53914,7 +54247,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:10.826Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/c-I.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/c-11.jpg": {
       "bucket": "private",
@@ -53926,7 +54268,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:10.996Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/c-11.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/d-01.epub": {
       "bucket": "private",
@@ -53936,7 +54287,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:11.119Z"
+      "verifiedAt": "2026-10-12T10:06:11.119Z",
+      "logicalPath": "scripts/kindle-dist/d-01.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/d-02.jpg": {
       "bucket": "private",
@@ -53948,7 +54308,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:11.296Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/d-02.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/e-02.jpg": {
       "bucket": "private",
@@ -53960,7 +54329,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:11.506Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/e-02.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/f-01.epub": {
       "bucket": "private",
@@ -53970,7 +54348,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:11.729Z"
+      "verifiedAt": "2026-10-12T10:06:11.729Z",
+      "logicalPath": "scripts/kindle-dist/f-01.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/e-01.jpg": {
       "bucket": "private",
@@ -53982,7 +54369,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:11.736Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/e-01.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/d-03.jpg": {
       "bucket": "private",
@@ -53994,7 +54390,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:11.770Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/d-03.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/f-02.epub": {
       "bucket": "private",
@@ -54004,7 +54409,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:11.988Z"
+      "verifiedAt": "2026-10-12T10:06:11.988Z",
+      "logicalPath": "scripts/kindle-dist/f-02.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/e-01.epub": {
       "bucket": "private",
@@ -54014,7 +54428,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:12.004Z"
+      "verifiedAt": "2026-10-12T10:06:12.004Z",
+      "logicalPath": "scripts/kindle-dist/e-01.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/f-01.jpg": {
       "bucket": "private",
@@ -54026,7 +54449,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:12.168Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/f-01.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/f-03.epub": {
       "bucket": "private",
@@ -54036,7 +54468,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:12.223Z"
+      "verifiedAt": "2026-10-12T10:06:12.223Z",
+      "logicalPath": "scripts/kindle-dist/f-03.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/d-03.epub": {
       "bucket": "private",
@@ -54046,7 +54487,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:12.319Z"
+      "verifiedAt": "2026-10-12T10:06:12.319Z",
+      "logicalPath": "scripts/kindle-dist/d-03.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/f-04.epub": {
       "bucket": "private",
@@ -54056,7 +54506,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:12.466Z"
+      "verifiedAt": "2026-10-12T10:06:12.466Z",
+      "logicalPath": "scripts/kindle-dist/f-04.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/f-05.epub": {
       "bucket": "private",
@@ -54066,7 +54525,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:12.635Z"
+      "verifiedAt": "2026-10-12T10:06:12.635Z",
+      "logicalPath": "scripts/kindle-dist/f-05.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/f-03.jpg": {
       "bucket": "private",
@@ -54078,7 +54546,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:12.721Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/f-03.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/f-06.epub": {
       "bucket": "private",
@@ -54088,7 +54565,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:12.891Z"
+      "verifiedAt": "2026-10-12T10:06:12.891Z",
+      "logicalPath": "scripts/kindle-dist/f-06.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/f-04.jpg": {
       "bucket": "private",
@@ -54100,7 +54586,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:13.021Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/f-04.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/f-02.jpg": {
       "bucket": "private",
@@ -54112,7 +54607,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:13.058Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/f-02.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/e-02.epub": {
       "bucket": "private",
@@ -54122,7 +54626,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:13.172Z"
+      "verifiedAt": "2026-10-12T10:06:13.172Z",
+      "logicalPath": "scripts/kindle-dist/e-02.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/f-07.epub": {
       "bucket": "private",
@@ -54132,7 +54645,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:13.178Z"
+      "verifiedAt": "2026-10-12T10:06:13.178Z",
+      "logicalPath": "scripts/kindle-dist/f-07.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/f-06.jpg": {
       "bucket": "private",
@@ -54144,7 +54666,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:13.319Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/f-06.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/f-05.jpg": {
       "bucket": "private",
@@ -54156,7 +54687,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:13.387Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/f-05.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/f-08.epub": {
       "bucket": "private",
@@ -54166,7 +54706,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:13.398Z"
+      "verifiedAt": "2026-10-12T10:06:13.398Z",
+      "logicalPath": "scripts/kindle-dist/f-08.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/f-09.epub": {
       "bucket": "private",
@@ -54176,7 +54725,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:13.601Z"
+      "verifiedAt": "2026-10-12T10:06:13.601Z",
+      "logicalPath": "scripts/kindle-dist/f-09.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/f-08.jpg": {
       "bucket": "private",
@@ -54188,7 +54746,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:13.633Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/f-08.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/f-07.jpg": {
       "bucket": "private",
@@ -54200,7 +54767,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:13.638Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/f-07.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/f-10.epub": {
       "bucket": "private",
@@ -54210,7 +54786,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:13.651Z"
+      "verifiedAt": "2026-10-12T10:06:13.651Z",
+      "logicalPath": "scripts/kindle-dist/f-10.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/f-11.epub": {
       "bucket": "private",
@@ -54220,7 +54805,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:13.859Z"
+      "verifiedAt": "2026-10-12T10:06:13.859Z",
+      "logicalPath": "scripts/kindle-dist/f-11.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/f-11.jpg": {
       "bucket": "private",
@@ -54232,7 +54826,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:14.007Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/f-11.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/f-12.epub": {
       "bucket": "private",
@@ -54242,7 +54845,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:14.063Z"
+      "verifiedAt": "2026-10-12T10:06:14.063Z",
+      "logicalPath": "scripts/kindle-dist/f-12.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/f-13.epub": {
       "bucket": "private",
@@ -54252,7 +54864,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:14.118Z"
+      "verifiedAt": "2026-10-12T10:06:14.118Z",
+      "logicalPath": "scripts/kindle-dist/f-13.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/f-09.jpg": {
       "bucket": "private",
@@ -54264,7 +54885,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:14.174Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/f-09.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/f-10.jpg": {
       "bucket": "private",
@@ -54276,7 +54906,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:14.398Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/f-10.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/f-14.epub": {
       "bucket": "private",
@@ -54286,7 +54925,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:14.399Z"
+      "verifiedAt": "2026-10-12T10:06:14.399Z",
+      "logicalPath": "scripts/kindle-dist/f-14.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/f-13.jpg": {
       "bucket": "private",
@@ -54298,7 +54946,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:14.402Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/f-13.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/f-12.jpg": {
       "bucket": "private",
@@ -54310,7 +54967,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:14.476Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/f-12.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/f-15.epub": {
       "bucket": "private",
@@ -54320,7 +54986,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:14.545Z"
+      "verifiedAt": "2026-10-12T10:06:14.545Z",
+      "logicalPath": "scripts/kindle-dist/f-15.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/f-16.epub": {
       "bucket": "private",
@@ -54330,7 +55005,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:14.767Z"
+      "verifiedAt": "2026-10-12T10:06:14.767Z",
+      "logicalPath": "scripts/kindle-dist/f-16.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/f-15.jpg": {
       "bucket": "private",
@@ -54342,7 +55026,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:15.118Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/f-15.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/f-16.jpg": {
       "bucket": "private",
@@ -54354,7 +55047,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:15.174Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/f-16.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/g-02.epub": {
       "bucket": "private",
@@ -54364,7 +55066,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:15.180Z"
+      "verifiedAt": "2026-10-12T10:06:15.180Z",
+      "logicalPath": "scripts/kindle-dist/g-02.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/g-02.jpg": {
       "bucket": "private",
@@ -54376,7 +55087,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:15.233Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/g-02.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/h-01.epub": {
       "bucket": "private",
@@ -54386,7 +55106,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:15.273Z"
+      "verifiedAt": "2026-10-12T10:06:15.273Z",
+      "logicalPath": "scripts/kindle-dist/h-01.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/f-14.jpg": {
       "bucket": "private",
@@ -54398,7 +55127,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:15.293Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/f-14.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/g-01.jpg": {
       "bucket": "private",
@@ -54410,7 +55148,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:15.513Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/g-01.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/i-01.epub": {
       "bucket": "private",
@@ -54420,7 +55167,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:15.747Z"
+      "verifiedAt": "2026-10-12T10:06:15.747Z",
+      "logicalPath": "scripts/kindle-dist/i-01.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/i-03.epub": {
       "bucket": "private",
@@ -54430,7 +55186,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:15.809Z"
+      "verifiedAt": "2026-10-12T10:06:15.809Z",
+      "logicalPath": "scripts/kindle-dist/i-03.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/i-02.epub": {
       "bucket": "private",
@@ -54440,7 +55205,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:15.866Z"
+      "verifiedAt": "2026-10-12T10:06:15.866Z",
+      "logicalPath": "scripts/kindle-dist/i-02.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/i-01.jpg": {
       "bucket": "private",
@@ -54452,7 +55226,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:15.896Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/i-01.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/i-02.jpg": {
       "bucket": "private",
@@ -54464,7 +55247,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:16.129Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/i-02.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/i-03.jpg": {
       "bucket": "private",
@@ -54476,7 +55268,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:16.198Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/i-03.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/g-01.epub": {
       "bucket": "private",
@@ -54486,7 +55287,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:16.239Z"
+      "verifiedAt": "2026-10-12T10:06:16.239Z",
+      "logicalPath": "scripts/kindle-dist/g-01.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/i-04.epub": {
       "bucket": "private",
@@ -54496,7 +55306,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:16.350Z"
+      "verifiedAt": "2026-10-12T10:06:16.350Z",
+      "logicalPath": "scripts/kindle-dist/i-04.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/i-11.epub": {
       "bucket": "private",
@@ -54506,7 +55325,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:16.380Z"
+      "verifiedAt": "2026-10-12T10:06:16.380Z",
+      "logicalPath": "scripts/kindle-dist/i-11.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/i-04.jpg": {
       "bucket": "private",
@@ -54518,7 +55346,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:16.458Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/i-04.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/h-01.jpg": {
       "bucket": "private",
@@ -54530,7 +55367,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:16.621Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/h-01.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/i-11.jpg": {
       "bucket": "private",
@@ -54542,7 +55388,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:16.790Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/i-11.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/i-14.epub": {
       "bucket": "private",
@@ -54552,7 +55407,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:16.978Z"
+      "verifiedAt": "2026-10-12T10:06:16.978Z",
+      "logicalPath": "scripts/kindle-dist/i-14.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/i-13.epub": {
       "bucket": "private",
@@ -54562,7 +55426,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:17.035Z"
+      "verifiedAt": "2026-10-12T10:06:17.035Z",
+      "logicalPath": "scripts/kindle-dist/i-13.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/i-15.epub": {
       "bucket": "private",
@@ -54572,7 +55445,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:17.107Z"
+      "verifiedAt": "2026-10-12T10:06:17.107Z",
+      "logicalPath": "scripts/kindle-dist/i-15.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/i-12.jpg": {
       "bucket": "private",
@@ -54584,7 +55466,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:17.124Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/i-12.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/i-13.jpg": {
       "bucket": "private",
@@ -54596,7 +55487,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:17.233Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/i-13.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/i-12.epub": {
       "bucket": "private",
@@ -54606,7 +55506,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:17.325Z"
+      "verifiedAt": "2026-10-12T10:06:17.325Z",
+      "logicalPath": "scripts/kindle-dist/i-12.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/i-14.jpg": {
       "bucket": "private",
@@ -54618,7 +55527,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:17.413Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/i-14.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/i-16.epub": {
       "bucket": "private",
@@ -54628,7 +55546,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:17.508Z"
+      "verifiedAt": "2026-10-12T10:06:17.508Z",
+      "logicalPath": "scripts/kindle-dist/i-16.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/i-17.epub": {
       "bucket": "private",
@@ -54638,7 +55565,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:17.567Z"
+      "verifiedAt": "2026-10-12T10:06:17.567Z",
+      "logicalPath": "scripts/kindle-dist/i-17.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/i-15.jpg": {
       "bucket": "private",
@@ -54650,7 +55586,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:17.651Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/i-15.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/i-16.jpg": {
       "bucket": "private",
@@ -54662,7 +55607,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:17.684Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/i-16.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/i-17.jpg": {
       "bucket": "private",
@@ -54674,7 +55628,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:17.882Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/i-17.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/i-18.jpg": {
       "bucket": "private",
@@ -54686,7 +55649,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:17.939Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/i-18.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/i-19.epub": {
       "bucket": "private",
@@ -54696,7 +55668,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:17.963Z"
+      "verifiedAt": "2026-10-12T10:06:17.963Z",
+      "logicalPath": "scripts/kindle-dist/i-19.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/i-18.epub": {
       "bucket": "private",
@@ -54706,7 +55687,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:18.029Z"
+      "verifiedAt": "2026-10-12T10:06:18.029Z",
+      "logicalPath": "scripts/kindle-dist/i-18.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/i-19.jpg": {
       "bucket": "private",
@@ -54718,7 +55708,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:18.129Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/i-19.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/i-20.epub": {
       "bucket": "private",
@@ -54728,7 +55727,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:18.193Z"
+      "verifiedAt": "2026-10-12T10:06:18.193Z",
+      "logicalPath": "scripts/kindle-dist/i-20.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/i-21.epub": {
       "bucket": "private",
@@ -54738,7 +55746,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:18.220Z"
+      "verifiedAt": "2026-10-12T10:06:18.220Z",
+      "logicalPath": "scripts/kindle-dist/i-21.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/i-22.epub": {
       "bucket": "private",
@@ -54748,7 +55765,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:18.455Z"
+      "verifiedAt": "2026-10-12T10:06:18.455Z",
+      "logicalPath": "scripts/kindle-dist/i-22.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/i-21.jpg": {
       "bucket": "private",
@@ -54760,7 +55786,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:18.531Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/i-21.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/i-24.epub": {
       "bucket": "private",
@@ -54770,7 +55805,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:18.708Z"
+      "verifiedAt": "2026-10-12T10:06:18.708Z",
+      "logicalPath": "scripts/kindle-dist/i-24.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/i-20.jpg": {
       "bucket": "private",
@@ -54782,7 +55826,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:18.755Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/i-20.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/i-23.epub": {
       "bucket": "private",
@@ -54792,7 +55845,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:18.820Z"
+      "verifiedAt": "2026-10-12T10:06:18.820Z",
+      "logicalPath": "scripts/kindle-dist/i-23.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/i-22.jpg": {
       "bucket": "private",
@@ -54804,7 +55866,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:18.995Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/i-22.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/j-01.epub": {
       "bucket": "private",
@@ -54814,7 +55885,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:19.010Z"
+      "verifiedAt": "2026-10-12T10:06:19.010Z",
+      "logicalPath": "scripts/kindle-dist/j-01.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/i-24.jpg": {
       "bucket": "private",
@@ -54826,7 +55906,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:19.043Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/i-24.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/j-01.jpg": {
       "bucket": "private",
@@ -54838,7 +55927,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:19.132Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/j-01.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/j-02.epub": {
       "bucket": "private",
@@ -54848,7 +55946,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:19.169Z"
+      "verifiedAt": "2026-10-12T10:06:19.169Z",
+      "logicalPath": "scripts/kindle-dist/j-02.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/j-03.epub": {
       "bucket": "private",
@@ -54858,7 +55965,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:19.409Z"
+      "verifiedAt": "2026-10-12T10:06:19.409Z",
+      "logicalPath": "scripts/kindle-dist/j-03.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/j-11.epub": {
       "bucket": "private",
@@ -54868,7 +55984,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:19.612Z"
+      "verifiedAt": "2026-10-12T10:06:19.612Z",
+      "logicalPath": "scripts/kindle-dist/j-11.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/j-12.epub": {
       "bucket": "private",
@@ -54878,7 +56003,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:19.629Z"
+      "verifiedAt": "2026-10-12T10:06:19.629Z",
+      "logicalPath": "scripts/kindle-dist/j-12.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/j-02.jpg": {
       "bucket": "private",
@@ -54890,7 +56024,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:19.678Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/j-02.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/i-23.jpg": {
       "bucket": "private",
@@ -54902,7 +56045,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:19.751Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/i-23.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/j-03.jpg": {
       "bucket": "private",
@@ -54914,7 +56066,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:19.860Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/j-03.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/j-12.jpg": {
       "bucket": "private",
@@ -54926,7 +56087,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:19.955Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/j-12.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/j-13.epub": {
       "bucket": "private",
@@ -54936,7 +56106,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:20.037Z"
+      "verifiedAt": "2026-10-12T10:06:20.037Z",
+      "logicalPath": "scripts/kindle-dist/j-13.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/j-11.jpg": {
       "bucket": "private",
@@ -54948,7 +56127,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:20.086Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/j-11.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/j-13.jpg": {
       "bucket": "private",
@@ -54960,7 +56148,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:20.223Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/j-13.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/j-14.epub": {
       "bucket": "private",
@@ -54970,7 +56167,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:20.228Z"
+      "verifiedAt": "2026-10-12T10:06:20.228Z",
+      "logicalPath": "scripts/kindle-dist/j-14.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/j-15.epub": {
       "bucket": "private",
@@ -54980,7 +56186,16 @@
       "visibility": "private",
       "regenerable": true,
       "group": "kindle-dist",
-      "verifiedAt": "2026-10-12T10:06:20.311Z"
+      "verifiedAt": "2026-10-12T10:06:20.311Z",
+      "logicalPath": "scripts/kindle-dist/j-15.epub",
+      "mime": "application/epub+zip",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/j-14.jpg": {
       "bucket": "private",
@@ -54992,7 +56207,16 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:20.483Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/j-14.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
     },
     "scripts/kindle-dist/j-15.jpg": {
       "bucket": "private",
@@ -55004,7 +56228,163 @@
       "group": "kindle-dist",
       "verifiedAt": "2026-10-12T10:06:20.692Z",
       "width": 1600,
-      "height": 2560
+      "height": 2560,
+      "logicalPath": "scripts/kindle-dist/j-15.jpg",
+      "mime": "image/jpeg",
+      "generator": "npm run sync-kindle-dist",
+      "requiredBy": [
+        "scripts/check-kindle-epub-leak.mjs（CI の quality:audit:ci が配布 EPUB を展開して検査する）",
+        "scripts/kdp-publish.mjs（人が手元で入稿する。手元に無ければ asset-hydrate で取り戻す）",
+        "scripts/kdp-batch.mjs",
+        ".github/workflows/ci.yml（quality-audit の前に asset-hydrate --group kindle-dist で取り戻す）"
+      ]
+    },
+    "content/site/civil-practice/concrete-work-preparation/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/concrete-work-preparation/ogp.png",
+      "sha256": "39352b450b477b45becfbb4f61ce91ef722f699b0d7242a219975432e0377859",
+      "bytes": 63050,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-13T03:41:43.506Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/concrete-work-preparation/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "69ade713bdac599c"
+    },
+    "content/site/civil-practice/concrete-structure-inspection/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/concrete-structure-inspection/ogp.png",
+      "sha256": "ebc1dde8b1ecd7c01dc1f96665fc8ed428dbde341f2625386209805472f96f96",
+      "bytes": 73931,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-13T03:51:32.618Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/concrete-structure-inspection/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "ac1ca3372d35940c"
+    },
+    "content/site/civil-practice/ready-mixed-concrete-ordering/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/ready-mixed-concrete-ordering/ogp.png",
+      "sha256": "80ed4399abc360dbd89a30b9f0716f9765bfdebd4eafb5daad924179310349de",
+      "bytes": 72054,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-13T03:51:32.705Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/ready-mixed-concrete-ordering/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "1e4172e4ba37d51e"
+    },
+    "content/site/civil-practice/concrete-hydration-basics/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/concrete-hydration-basics/ogp.png",
+      "sha256": "1a66fd4fb08eea45ec469463312bb3340412470df85117929eda4f231ae78190",
+      "bytes": 66723,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-13T04:17:03.320Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/concrete-hydration-basics/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "ecdf65c43972392d"
+    },
+    "content/site/civil-practice/concrete-labor-saving-technology/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/concrete-labor-saving-technology/ogp.png",
+      "sha256": "59ef8f38017ab96400787d6b54309d7d3dcbfa8ef772fafda227c2e265f2843d",
+      "bytes": 73147,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-13T04:27:56.981Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/concrete-labor-saving-technology/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "4291167d2dcf9fc8"
+    },
+    "content/site/civil-practice/special-concrete-selection/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/special-concrete-selection/ogp.png",
+      "sha256": "8119396c3359c58284941c521ee16fc9ecb64d2fa96b64be2613f8533c4090f1",
+      "bytes": 71455,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-13T04:30:50.756Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/special-concrete-selection/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "27e3435c1bed8dde"
+    },
+    "content/site/civil-practice/concrete-standards-history/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/concrete-standards-history/ogp.png",
+      "sha256": "97354527dd0b6e51e11a72aaa41c56ae27fc4e84fd56442eb9a7fc9b68e1acbf",
+      "bytes": 69979,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-13T04:35:04.664Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/concrete-standards-history/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "0a3832ca40282aaa"
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",

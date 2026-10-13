@@ -46,7 +46,8 @@ export function judgeExperiment(e, nowMs = Date.now(), t = DEFAULT_THRESHOLDS) {
   if (st === 'measuring' && sinceTouch != null && sinceTouch >= t.closeDays) {
     reasons.push({ kind: 'CLOSE_DUE', detail: `measuring のまま ${sinceTouch}日（しきい値 ${t.closeDays}日）` });
   }
-  if (st === 'proposed' && sinceTouch != null && sinceTouch >= t.proposeDays) {
+  // 検索キーワード戦略の改善は、proposed の間はカードの時期と本番反映が進め方を決める（sync が本番反映で running にする）
+  if (st === 'proposed' && e.kind !== 'search-strategy' && sinceTouch != null && sinceTouch >= t.proposeDays) {
     reasons.push({ kind: 'DECIDE_DUE', detail: `proposed のまま ${sinceTouch}日（start か abandon の判断待ち）` });
   }
   const finalAuto = (e.measurements ?? []).filter((m) => m?.source === 'auto' && m.complete);
@@ -58,9 +59,12 @@ export function judgeExperiment(e, nowMs = Date.now(), t = DEFAULT_THRESHOLDS) {
   if (pending.length > 0 && st !== 'done' && st !== 'abandoned') {
     reasons.push({ kind: 'PENDING', detail: `要人手 ${pending.length} 件: ${pending.map((p) => p.action).join(' / ')}` });
   }
+  const verdictDue = reasons.some((r) => r.kind === 'VERDICT_DUE');
   const review = e.kind === 'seo-rank-watch'
     ? `npm run seo-rank-watch -- review --id ${e.watchId} --no-fetch`
-    : `/nsm-experiment ${st === 'measuring' || reasons.some((r) => r.kind === 'VERDICT_DUE') ? 'close' : 'measure'} ${e.id}`;
+    : e.kind === 'search-strategy'
+      ? (verdictDue ? `npm run search-improvement -- close --id ${e.id} --result <success|partial|no-effect|negative> --learning "…" --commit` : 'npm run search-improvement -- status（自動計測は CI の fetch-metrics が毎週追記する）')
+      : `/nsm-experiment ${st === 'measuring' || reasons.some((r) => r.kind === 'VERDICT_DUE') ? 'close' : 'measure'} ${e.id}`;
   return {
     id: e.id, review, title: e.title, status: st, targetMetric: e.target_metric ?? null,
     nextCheckDate: e.next_check_date ?? null, daysSinceStart: sinceStart, daysSinceTouch: sinceTouch,

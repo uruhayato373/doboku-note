@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-construction",
+      "headline": [
+        "国土と地域",
+        "整備の論点を整理"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-construction/hissu1-kokudo-chiiki/youtube.longform/cover.5c7c6c52.png",
+        "sha256": "5c7c6c521558760f7f6db16509d4dc02305769de3edf4d54d14f89877caab91b",
+        "specSha256": "8b9e810b450dccb5ede4bd7c592d529e2dde78e7efaf0ecf09b79087a8fa1315"
+      }
+    }
+  }
+}

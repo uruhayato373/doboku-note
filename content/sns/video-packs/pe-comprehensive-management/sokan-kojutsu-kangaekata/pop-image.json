@@ -1,0 +1,311 @@
+{
+  "policy": ".claude/knowledge/reference/pop-image-policy.md",
+  "designVersion": "pop-20260927",
+  "channel": "youtube",
+  "source": "content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-kangaekata",
+  "outputs": {
+    "longform": {
+      "publicationId": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform",
+      "copy": {
+        "exam": "pe-comprehensive",
+        "headline": [
+          "総監の口頭試験",
+          "経歴を語れる？"
+        ],
+        "benefit": "",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-kangaekata/cover-design.json#covers/longform",
+        "content/sns/video-packs/pe-comprehensive-management/sokan-kojutsu-kangaekata/storyboard.json"
+      ],
+      "references": [
+        {
+          "path": ".tmp/video-render/pop-matome-2kyu-20261010/thumbnail-palm-v1.png",
+          "sha256": "8fd0987d6c7b7ad74645dbfa1971f42f3128e47ed4645c9d93048a579b6542cb"
+        },
+        {
+          "path": "content/sns/_assets/character/_source/pop-pointing.png",
+          "sha256": "f0bafda4a9743b3f2c8ca5182299d0e1ed8851165f33b5b60bddfc0598d9a1eb"
+        }
+      ],
+      "prompt": "参照画像の右側の先生キャラクターを正確に継承した、動画表紙に組み込む人物だけの高解像度PNG素材を制作してください。白い無地のヘルメット、黒髪、黒縁眼鏡、40代男性の同じ顔とひげ、紺の作業服とネクタイ、黄色と白の反射帯。参照の顔の描線・アニメ塗り・表情を保持。腰から上、正面を向き、画面左側の肩の横で人差し指を上へ1本立て、要点を説明するポーズ。残り4本の指と手首は自然な構造。ヘルメットの頂点・両肘・手指・腰の端まで完全に収め、外側に5%以上の透過余白。人物は画面の大部分を占める。背景は完全透明、文字・ロゴ・記号・背景・床・影・看板は一切なし。元の表紙にある文字や緑背景は描かない。1人だけ。",
+      "promptScope": "共有する先生素材の生成。見出しは編集可能な原稿をレンダラーで組版。",
+      "format": {
+        "width": 1920,
+        "height": 1080
+      },
+      "render": {
+        "template": "character-pop-v2",
+        "variant": "question",
+        "pose": "pop-pointing"
+      },
+      "output": {
+        "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/cover.870a0862.png",
+        "sha256": "870a0862584d5683ddde144c3b04712bbadbbd1aebaa3cfd6212665cbf707f0f"
+      },
+      "review": {
+        "status": "agent-reviewed",
+        "by": "Codex",
+        "checkedAt": "2026-10-10T15:17:18.121Z",
+        "viewportWidth": 360,
+        "checks": [
+          "見出しと資格名の可読性",
+          "文字化け",
+          "文字・人物の切れ",
+          "内容と見出しの整合"
+        ],
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "key": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/cover.870a0862.png"
+      },
+      "publication": "ローカル差し替え・外部未反映"
+    }
+  },
+  "revisions": {
+    "longform-20261011": {
+      "designVersion": "pop-poster-v3",
+      "publicationId": "pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform",
+      "prompt": "参照画像の同一キャラクターと派手で読みやすいPOP意匠を使い、新しい通常YouTube動画の横長16:9サムネイル、希望1920×1080を作る。テーマは総監の口頭試験。指定文字4箇所のみ：最上段「技術士 総監」、中央大きく「口頭試験」、その下「経歴を語れる？」、下の小さい黄色帯「総監が解説」。白と黄色の極太文字、深紺の太い縁取り。背景は明るいコバルトブルーと水色の斜め帯、薄い土木現場。人物は同じ40代の男性、黒髪黒眼鏡軽い髭、無地の白ヘルメット、紺の作業服・ネクタイ・反射帯。右側に胸上で大きく配置。ポーズは口頭説明の練習：左腕に無地の経歴ノートを抱え、右手を胸の前で自然に開いて相手へ説明する。指差し・顎に手を置くポーズにはしない。文字は左60%、人物は右40%。文字と顔は外周6%以上内側、右下は時間表示の余白。文字の重なり・追加文字・URL・ロゴ・価格・合格保証は不可。日本語を指定どおり読みやすく。",
+      "references": [
+        {
+          "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png",
+          "sha256": "226ec38a86790720f220ec2ca340d5f984d9297d6275ede0872c9ee42f64b092"
+        }
+      ],
+      "copy": {
+        "headline": [
+          "技術士 総監",
+          "口頭試験",
+          "経歴を語れる？"
+        ],
+        "authority": "総監が解説"
+      },
+      "generation": {
+        "tool": "built-in image_gen",
+        "normalization": "1920×1080、縦横比保持、周囲4%の配信用余白"
+      },
+      "output": {
+        "path": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/cover.51e3f120.png",
+        "sha256": "51e3f120f8a8d8c5ed68d4170020872ae7b44fd5a7215ac859cc9c5570fb6697",
+        "width": 1920,
+        "height": 1080
+      },
+      "review": {
+        "status": "ai-ok",
+        "by": "ai-image-fidelity-auditor",
+        "scope": "最終採用PNGの原寸・360px。文字、顔・手指、ポーズ、安全域。ユーザー承認とは別。"
+      },
+      "storage": {
+        "group": "content-media"
+      },
+      "publication": "画像差し替え完成動画を管理画面へ登録。音声は既存動画のコピー。YouTubeへの公開は別工程。",
+      "contentImageReview": {
+        "date": "2026-10-11",
+        "status": "ai-ok",
+        "by": "Codex screenshot review",
+        "sceneCount": 13,
+        "scope": "全場面のブラウザスクリーンショットで文字・項目数・矢印・図の重なりを確認。サイト図解を動画向けに再構成。",
+        "userImageReview": "pending",
+        "audioReplaced": false,
+        "videoRecomposed": false,
+        "layouts": {
+          "approved-cover": 1,
+          "numbers": 1,
+          "mapping": 1,
+          "diagram": 4,
+          "focus": 1,
+          "steps": 1,
+          "compare": 1,
+          "grid": 1,
+          "recap": 1,
+          "closing": 1
+        },
+        "scenes": [
+          {
+            "sceneId": "cover",
+            "sha256": "51e3f120f8a8d8c5ed68d4170020872ae7b44fd5a7215ac859cc9c5570fb6697"
+          },
+          {
+            "sceneId": "premise",
+            "sha256": "bd18016530efcba203e36a08ab31d220978552879b1417ff7835ab1316d95c8d"
+          },
+          {
+            "sceneId": "premise-detail",
+            "sha256": "dccc8f1106fe68a58f757b8cce4389146092abf638b4fc54c0968f879f5b9cf7"
+          },
+          {
+            "sceneId": "whatasked",
+            "sha256": "d72669d6e19b1c8869ab15fa6b1aedb86456c594781b3edc2ec9ca2c08d24d34"
+          },
+          {
+            "sceneId": "whatasked-detail",
+            "sha256": "94a2afb1a6aa2766bb70dbe123b790bec3544bb8cfa9d08dd1578d6c09e33232"
+          },
+          {
+            "sceneId": "cases",
+            "sha256": "553583d7866c1f00ff474de8509b834ff7f7485d98968217a796a0fb735dd945"
+          },
+          {
+            "sceneId": "cases-detail",
+            "sha256": "0e4563703defb8c55a8f335ae2f0ce4e5adc8c102680eb4a18d4fff03f639f25"
+          },
+          {
+            "sceneId": "story",
+            "sha256": "d0341f62d57f23c4fd8fc606f60a6257786f3b3c783af69afa3a540da54b96c0"
+          },
+          {
+            "sceneId": "story-detail",
+            "sha256": "530bc914cea44d8bf7dda81735a8dec038ef588d68392c19bbe04f27a9639b3e"
+          },
+          {
+            "sceneId": "qa",
+            "sha256": "c4bbedbd1b78e57b104c360238d563a2adbe9542d13615a2c44adcfea32e57dd"
+          },
+          {
+            "sceneId": "qa-detail",
+            "sha256": "dfd434b5721cfd713a0068c5100469ed2e57cbbb310749d9a167fb328c63fa8f"
+          },
+          {
+            "sceneId": "summary",
+            "sha256": "7794630070f3e36bc2172c0198e1f6831a935ed228182aa6d5d96c075f84de1a"
+          },
+          {
+            "sceneId": "cta",
+            "sha256": "c8bea64a96eec881af59e2f124ecf6f7151dc8c0e55790a6f01470895b84aa55"
+          }
+        ],
+        "sources": [
+          {
+            "path": "content/site/pe-comprehensive-management/exam-application-guide/img/figure-measure-management-matrix.svg",
+            "sha256": "9883e6cbfb837e0ae1933771614196385fa77a890d1afc7abbe40bd9a6908ca7"
+          },
+          {
+            "path": "content/site/pe-comprehensive-management/keyword-2026/img/figure-five-management-learning.svg",
+            "sha256": "651172286fb2a07c76efade7991cf6095a191f9273f505fade08e43f1ff1c9e4"
+          },
+          {
+            "path": "content/site/pe-comprehensive-management/pdca-cycle/img/figure-pdca-cycle.svg",
+            "sha256": "9dc8c19ae48125553c3c9f1c234f5df5881fb566c49eeea3abf29d90123f2fe9"
+          },
+          {
+            "path": "content/site/pe-construction/gyoumu-keireki-hyou/img/figure-career-decision-evidence.svg",
+            "sha256": "865f0aad8d32b7f38e6d28623ab1c58e99b9774578f966e4b785bcbc4e13023f"
+          }
+        ]
+      },
+      "videoImageReplacement": {
+        "source": ".tmp/media/pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/video.12119f76.mp4",
+        "sourceSha256": "12119f764e0d064685b3a1d0930c20f6632ea493e319cb71eeb714c20d8dbbe9",
+        "outputSha256": "4f5afa6f3b06f61a2c1ccc2aab088741f020913fdc95e6f55e8bd2f601d7dc6d",
+        "audioPacketsUnchanged": true,
+        "audioPacketSha256": "447a0e6ca6e426b2ded974094cd7761dc4b3c337ed5ce321a31965847f6822df",
+        "ttsRegenerated": false,
+        "subtitlesSha256": "d0b8e530651371cb50dbac890ad60503db4740fb092dd57dc3b2f2a6895f98c7",
+        "timingMethod": "existing subtitle text alignment; within-caption boundaries proportional to character offset",
+        "durationSec": 166.066667,
+        "frames": 4982,
+        "scenes": [
+          {
+            "sceneId": "cover",
+            "startSec": 0,
+            "endSec": 10.92,
+            "imageSha256": "51e3f120f8a8d8c5ed68d4170020872ae7b44fd5a7215ac859cc9c5570fb6697"
+          },
+          {
+            "sceneId": "premise",
+            "startSec": 10.92,
+            "endSec": 23.78185,
+            "imageSha256": "bd18016530efcba203e36a08ab31d220978552879b1417ff7835ab1316d95c8d"
+          },
+          {
+            "sceneId": "premise-detail",
+            "startSec": 23.78185,
+            "endSec": 32.18,
+            "imageSha256": "dccc8f1106fe68a58f757b8cce4389146092abf638b4fc54c0968f879f5b9cf7"
+          },
+          {
+            "sceneId": "whatasked",
+            "startSec": 32.18,
+            "endSec": 42.135,
+            "imageSha256": "d72669d6e19b1c8869ab15fa6b1aedb86456c594781b3edc2ec9ca2c08d24d34"
+          },
+          {
+            "sceneId": "whatasked-detail",
+            "startSec": 42.135,
+            "endSec": 58.25,
+            "imageSha256": "94a2afb1a6aa2766bb70dbe123b790bec3544bb8cfa9d08dd1578d6c09e33232"
+          },
+          {
+            "sceneId": "cases",
+            "startSec": 58.25,
+            "endSec": 67.78818,
+            "imageSha256": "553583d7866c1f00ff474de8509b834ff7f7485d98968217a796a0fb735dd945"
+          },
+          {
+            "sceneId": "cases-detail",
+            "startSec": 67.78818,
+            "endSec": 85.28,
+            "imageSha256": "0e4563703defb8c55a8f335ae2f0ce4e5adc8c102680eb4a18d4fff03f639f25"
+          },
+          {
+            "sceneId": "story",
+            "startSec": 85.28,
+            "endSec": 94.92,
+            "imageSha256": "d0341f62d57f23c4fd8fc606f60a6257786f3b3c783af69afa3a540da54b96c0"
+          },
+          {
+            "sceneId": "story-detail",
+            "startSec": 94.92,
+            "endSec": 111.52,
+            "imageSha256": "530bc914cea44d8bf7dda81735a8dec038ef588d68392c19bbe04f27a9639b3e"
+          },
+          {
+            "sceneId": "qa",
+            "startSec": 111.52,
+            "endSec": 125.5596,
+            "imageSha256": "c4bbedbd1b78e57b104c360238d563a2adbe9542d13615a2c44adcfea32e57dd"
+          },
+          {
+            "sceneId": "qa-detail",
+            "startSec": 125.5596,
+            "endSec": 137.24,
+            "imageSha256": "dfd434b5721cfd713a0068c5100469ed2e57cbbb310749d9a167fb328c63fa8f"
+          },
+          {
+            "sceneId": "summary",
+            "startSec": 137.24,
+            "endSec": 157.41,
+            "imageSha256": "7794630070f3e36bc2172c0198e1f6831a935ed228182aa6d5d96c075f84de1a"
+          },
+          {
+            "sceneId": "cta",
+            "startSec": 157.41,
+            "endSec": 166.06666666666666,
+            "imageSha256": "c8bea64a96eec881af59e2f124ecf6f7151dc8c0e55790a6f01470895b84aa55"
+          }
+        ],
+        "encoding": {
+          "videoEncoder": "libx264",
+          "preset": "ultrafast",
+          "crf": 21,
+          "fps": 30,
+          "pixelFormat": "yuv420p",
+          "audio": "stream copy from existing video",
+          "pngInput": "RGB normalization in scratch; approved PNG unchanged"
+        },
+        "review": {
+          "status": "machine-verified",
+          "audio": "encoded audio packet SHA256 exact match",
+          "browserPlayback": "Played and sought successfully in admin; screenshot visually verified, readyState=4, no media error.",
+          "userFinalReview": "pending",
+          "seekVerifiedSec": [
+            35
+          ]
+        }
+      }
+    }
+  }
+}

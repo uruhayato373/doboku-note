@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "good-sign",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "plan",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.longform/cover.fd3bb039.png",
-        "sha256": "fd3bb0397ac3c96ddbb62d05d66523907377ffc47a6f4e6d6df7219358fe5115",
-        "specSha256": "3ad0f7b0bb4c85943654c2436ef6d74a5f7d48e53871a2d8914065fee89b16c3"
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.longform/cover.f6f6c61f.png",
+        "sha256": "f6f6c61f197485254e3ecd11fd6ade99fbe3ffd8cfd3f9d2c709f57b62a2c065",
+        "specSha256": "9f89b44ef115998b5fb5def0e534f84c0f97557c2d43511d58a813b70df22ed6"
       }
     },
     "point-step1-1": {
@@ -30,13 +35,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "good-sign",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.short.point-step1-1/cover.2bd33e01.png",
-        "sha256": "2bd33e01a1d6f0059913f1f79c9285271f8194d43e663c89a2e952d3d44e82ee",
-        "specSha256": "0e9e954706ecc42c87be0351bfab1595f7d7252ad8cae869c689d181576e71c7"
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.short.point-step1-1/cover.da53b81f.png",
+        "sha256": "da53b81f90e3140134debcfb947663a6d8cce612d0f830e5848ccef6a92f0eba",
+        "specSha256": "2f80d3a873b36f390485ba0ee4c5831b132db4d80386053ece2fa4fbcb3c3f1a"
       }
     },
     "point-step2-2": {
@@ -49,13 +59,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.short.point-step2-2/cover.c4a876e2.png",
-        "sha256": "c4a876e220a8ed132b7860ebb033808592e703a88f3174071312da3168f5cb3c",
-        "specSha256": "c2b1031670f365e658ba5e429d5d8d0e8c41bd5adb1a5d024f597335e120af83"
+        "path": ".tmp/media/concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.short.point-step2-2/cover.296c8167.png",
+        "sha256": "296c8167e1021bfd454f17be18728a2a049b59738c3532ec837f90d175de8e8e",
+        "specSha256": "8a02ff91e4bd148254f1ee1c80636412cea4bd92fd25f508232e7fbb962ff383"
       }
     }
   }
