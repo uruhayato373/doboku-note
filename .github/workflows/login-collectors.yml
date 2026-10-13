@@ -11,7 +11,6 @@ name: "🔐 Login collectors (encrypted state)"
 on:
   schedule:
     - cron: "20 21 * * 1" # a8       月 21:20 UTC = 火 06:20 JST
-    - cron: "20 21 * * 2" # coconala 火 21:20 UTC = 水 06:20 JST
     - cron: "20 21 * * 3" # note     水 21:20 UTC = 木 06:20 JST
     - cron: "50 21 * * 4" # kdp      木 21:50 UTC = 金 06:50 JST（当月の推計と確定前の前月を毎週取り直す・2026-10-11）
     - cron: "10 22 * * 5" # x        金 22:10 UTC = 土 07:10 JST
@@ -27,7 +26,6 @@ on:
           - all
           - a8
           - kdp
-          - coconala
           - note
           - x
           - google
