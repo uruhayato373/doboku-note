@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-13T04:15:56.055Z",
+  "generated_at": "2026-10-13T04:26:31.742Z",
   "summary": {
-    "total_mdx_files": 1404,
+    "total_mdx_files": 1405,
     "total_unique_tags": 132,
     "allowlist_size": 330,
     "known_count": 132,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 228,
+      "count": 229,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1191,6 +1191,7 @@
         "civil-practice-concrete-crack-causes",
         "civil-practice-concrete-finishing-curing",
         "civil-practice-concrete-hydration-basics",
+        "civil-practice-concrete-labor-saving-technology",
         "civil-practice-concrete-mix-acceptance",
         "civil-practice-concrete-placement-order",
         "civil-practice-concrete-placement-timing",
@@ -3243,7 +3244,7 @@
     },
     {
       "name": "コンクリート",
-      "count": 48,
+      "count": 49,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-concrete-key-points",
@@ -3261,6 +3262,7 @@
         "civil-practice-concrete-crack-causes",
         "civil-practice-concrete-finishing-curing",
         "civil-practice-concrete-hydration-basics",
+        "civil-practice-concrete-labor-saving-technology",
         "civil-practice-concrete-mix-acceptance",
         "civil-practice-concrete-placement-order",
         "civil-practice-concrete-placement-timing",
@@ -4834,6 +4836,18 @@
       ]
     },
     {
+      "name": "生産性向上",
+      "count": 5,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-concrete-labor-saving-technology",
+        "civil-practice-netis-new-technology-use",
+        "pe-construction-kensetsu-dx",
+        "pe-construction-ninaite-dx-ronbun-keyword",
+        "pe-construction-ninaite-kakuho-seisansei"
+      ]
+    },
+    {
       "name": "脱炭素",
       "count": 5,
       "inAllowlist": true,
@@ -4987,17 +5001,6 @@
         "pe-first-stage-h30-basic",
         "pe-first-stage-h30-construction",
         "pe-first-stage-h30-water-supply"
-      ]
-    },
-    {
-      "name": "生産性向上",
-      "count": 4,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-netis-new-technology-use",
-        "pe-construction-kensetsu-dx",
-        "pe-construction-ninaite-dx-ronbun-keyword",
-        "pe-construction-ninaite-kakuho-seisansei"
       ]
     },
     {
