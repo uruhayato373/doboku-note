@@ -1,7 +1,8 @@
 {
   "_doc": "check-gate-parity のラチェット baseline。package.json に定義があるが pre-commit / quality-audit / workflow / SKILL のどこからも呼ばれない検査を、理由付きで記録する。ここに無い新規オーファンは CI が落とす。配線したら該当行を削除する（スクリプトが info で知らせる）。",
-  "_updatedAt": "2026-10-08",
+  "_updatedAt": "2026-10-13",
   "orphans": {
+    "check-afb-outcomes-freshness": "afb の成果の鮮度。doboku-note は afb の広告を置いておらず、2026-10-13 に afb の取得ごと止めた（DN-0643）。afb で広告を置くときに quality-audit の ops へ戻すので、スクリプトは残す",
     "audit-figure-text": "図版内テキストの棚卸し。図を大量に作った直後に手で叩く調査ツールで、常時ゲートにすると既存債務で赤になる",
     "audit-pe-textbook-keyword-coverage": "総監テキストとキーワードの被覆調査。コンテンツ企画時に手で叩く分析ツールで、合否のあるゲートではない",
     "audit-reference-book-coverage": "書籍 bundle の章・節がサイトのどこで扱われているかの候補表。書籍→サイト展開の着手時に手で叩く調査ツールで、文字起こしは Drive 由来の手元複製のため CI では成立せず、合否のあるゲートではない（2026-10-08）",
