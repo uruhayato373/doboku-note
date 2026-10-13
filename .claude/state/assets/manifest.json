@@ -56385,6 +56385,27 @@
         "scripts/check-orphan-ogp.mjs"
       ],
       "srcHash": "0a3832ca40282aaa"
+    },
+    "content/site/civil-practice/concrete-durability-specification/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/concrete-durability-specification/ogp.png",
+      "sha256": "1e79aa4dad54cf601cfb2d0f766eb12eb59536935e54877638d5b742b65a4432",
+      "bytes": 70529,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-13T06:56:10.741Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/concrete-durability-specification/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "ab375c59866fd617"
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",
