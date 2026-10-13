@@ -3,7 +3,7 @@
  * 型を足す約束は dataset-schemas.mjs の先頭。部品は dataset-schema-parts.mjs。
  */
 import { z } from 'zod';
-import { jstDate, offsetTime, count, sha256, flag, uniqueBy } from './dataset-schema-parts.mjs';
+import { jstDate, offsetTime, utcTime, count, sha256, flag, uniqueBy } from './dataset-schema-parts.mjs';
 
 // ---- 共通の小さな部品 --------------------------------------------------------------------------
 
@@ -786,6 +786,9 @@ export const ConfigVideoContent = z
 
 // ---- 参考文献（config/reference-sources.json） ----------------------------------------------------------------
 
+/** e-Gov 法令検索の法令 ID（例 327AC1000000180＝道路法） */
+const EGOV_LAW_ID = /^[0-9]{3}[A-Z0-9]{2,}[0-9A-Z]+$/;
+
 const ReferenceClass = z
   .object({
     label: z.string().min(1),
@@ -864,6 +867,13 @@ const ReferenceSource = z
       .min(1)
       .optional()
       .describe('書籍との逐語一致から差し引く公式の文章（DN-0617）。この資料を sources に挙げた記事にだけ効く。市販書籍には書かない'),
+    egov: z
+      .union([
+        z.object({ lawId: z.string().regex(EGOV_LAW_ID, 'e-Gov の法令 ID').describe('e-Gov 法令検索の法令 ID（台帳 config.egov-laws の写しに条の一覧と改正の施行日がある）') }).strict(),
+        z.object({ none: z.string().min(1).describe('e-Gov に単独の法令として無い理由（改正法の通称など）') }).strict(),
+      ])
+      .optional()
+      .describe('法令（id が -act・-order・-rules か japan-constitution）の e-Gov の法令 ID。法令には必須（egov-laws が止める）'),
     notes: z.string().min(1).optional(),
   })
   .strict();
@@ -1017,3 +1027,27 @@ export const ConfigYoutubeFormats = z
   })
   .strict()
   .meta({ title: 'YouTube の動画の型' });
+
+// ---- e-Gov の法令（config/egov-laws.json） -------------------------------------------------------------------
+
+export const ConfigEgovLaws = z
+  .object({
+    schemaVersion: schemaVersion1,
+    description: doc(),
+    fetchedAt: utcTime('e-Gov 法令 API から取り直した時刻'),
+    laws: z
+      .record(
+        z.string().regex(EGOV_LAW_ID, 'e-Gov の法令 ID'),
+        z
+          .object({
+            title: z.string().min(1).describe('法令名（e-Gov の現行の題名）'),
+            lawNum: z.string().min(1).describe('法令番号（昭和二十七年法律第百八十号 など）'),
+            enforced: jstDate('取り直した時点の最新の改正の施行日').nullable(),
+            articles: z.array(z.string().regex(/^\d+(?:_\d+)*(?::\d+(?:_\d+)*)?$/, '条の番号（第32条の2 は 32_2・削除された条の範囲は 39:41）')).describe('本則の条の番号。リンクの #Mp-At_<番号> が実在するかを見る'),
+          })
+          .strict(),
+      )
+      .describe('記事がリンクする法令と、参考文献の台帳が指す法令'),
+  })
+  .strict();
+
