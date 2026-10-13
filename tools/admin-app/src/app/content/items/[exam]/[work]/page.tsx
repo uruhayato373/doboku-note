@@ -18,9 +18,9 @@ export const dynamic = 'force-dynamic';
  */
 
 const ROLE_LABEL: Record<string, string> = {
-  cover: '表紙', cta: '締め', 'preview-metrics': '無音プレビューの数値', preview: '無音プレビュー', video: '完成動画', subtitles: '字幕',
+  cover: '表紙', cta: '締め', 'preview-metrics': '無音プレビューの数値', preview: '無音プレビュー', video: '動画', subtitles: '字幕',
 };
-const roleLabel = (role: string) => ROLE_LABEL[role] ?? (/^contact-sheet(-\d+)?$/.test(role) ? `コンタクトシート${role.replace('contact-sheet', '') ? ` ${role.split('-').pop()}` : ''}` : role);
+const roleLabel = (role: string) => ROLE_LABEL[role] ?? (/^scene-\d+$/.test(role) ? `場面 ${Number(role.split('-').pop())}` : /^contact-sheet(-\d+)?$/.test(role) ? `コンタクトシート${role.replace('contact-sheet', '') ? ` ${role.split('-').pop()}` : ''}` : role);
 
 const STATUS_TONE: Record<string, Tone> = {
   published: 'good', scheduled: 'info', uploaded_private: 'info', draft: 'neutral', stopped: 'bad',
@@ -54,9 +54,9 @@ function MissingNote({ examId, workId }: { examId: string; workId: string }) {
 function MediaBlock({ m, detail, examId, workId }: { m: ItemMedia; detail: MediaDetail; examId: string; workId: string }) {
   const label = roleLabel(m.role);
   const size = m.width && m.height ? `${m.width}×${m.height}` : null;
-  const meta = [size, m.durationSec != null ? `${m.durationSec} 秒` : null, bytesLabel(m.bytes) || null, m.availability === 'vault' ? 'Drive から配信' : null]
+  const meta = /^scene-\d+$/.test(m.role) ? '' : [size, m.durationSec != null ? `${m.durationSec} 秒` : null, bytesLabel(m.bytes) || null, m.availability === 'vault' ? 'Drive から配信' : null]
     .filter(Boolean).join(' · ');
-  const isImage = m.role === 'cover' || m.role === 'cta' || /^contact-sheet(-\d+)?$/.test(m.role);
+  const isImage = m.type?.startsWith('image/') ?? false;
 
   let body: ReactNode;
   if (m.role === 'preview-metrics') {
@@ -103,7 +103,7 @@ function MediaBlock({ m, detail, examId, workId }: { m: ItemMedia; detail: Media
   } else if (isImage) {
     body = (
       <a href={m.src} target="_blank" rel="noopener noreferrer">
-        <img src={m.src} alt={label} width={360} loading="lazy" className="max-w-full border" />
+        <img src={m.src} alt={label} width={360} loading="lazy" className="w-full max-w-3xl border dark:border-border" />
       </a>
     );
   } else if (m.role === 'preview') {
@@ -115,7 +115,7 @@ function MediaBlock({ m, detail, examId, workId }: { m: ItemMedia; detail: Media
   }
 
   return (
-    <div className="flex flex-col gap-1">
+    <div id={m.id} className="flex flex-col gap-1 scroll-mt-4">
       <h4 className="m-0 text-sm font-semibold">
         {label}
         {meta ? <span className="ml-2 font-normal text-muted-foreground">{meta}</span> : null}
@@ -157,9 +157,24 @@ function Publication({ p, detail, examId, workId }: { p: ItemPublication; detail
       </TableFrame>
 
       <div className="flex flex-col gap-4">
-        <h3 className="m-0 font-semibold">素材（画面が先、音声は後）</h3>
+        <h3 className="m-0 font-semibold">表紙・コンテンツ画像・動画</h3>
+        <nav aria-label="素材への移動" className="flex flex-wrap gap-4 text-sm">
+          {p.media.find((m) => m.role === 'cover') ? <a href={`#${p.media.find((m) => m.role === 'cover')!.id}`}>表紙</a> : null}
+          {p.media.some((m) => /^scene-\d+$/.test(m.role)) ? <a href={`#${p.id}-scenes`}>コンテンツ画像</a> : null}
+          {p.media.find((m) => m.role === 'video') ? <a href={`#${p.media.find((m) => m.role === 'video')!.id}`}>動画</a> : null}
+        </nav>
         {p.media.length === 0 ? <p className="text-sm text-muted-foreground">素材の行がない。</p> : null}
-        {p.media.map((m) => <MediaBlock key={m.role} m={m} detail={detail} examId={examId} workId={workId} />)}
+        {p.media.filter((m) => m.role === 'cover').map((m) => <MediaBlock key={m.role} m={m} detail={detail} examId={examId} workId={workId} />)}
+        {p.media.some((m) => /^scene-\d+$/.test(m.role)) ? (
+          <div>
+            <h4 id={`${p.id}-scenes`} className="mb-2 scroll-mt-4 text-sm font-semibold">コンテンツ画像（再生順・クリックで原寸）</h4>
+            <p className="mb-3 text-sm text-muted-foreground">制作画像は動画と別に更新されます。画像の変更が動画にも反映されているかは、動画で確認してください。</p>
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+              {p.media.filter((m) => /^scene-\d+$/.test(m.role)).map((m) => <MediaBlock key={m.role} m={m} detail={detail} examId={examId} workId={workId} />)}
+            </div>
+          </div>
+        ) : null}
+        {p.media.filter((m) => m.role !== 'cover' && !/^scene-\d+$/.test(m.role)).map((m) => <MediaBlock key={m.role} m={m} detail={detail} examId={examId} workId={workId} />)}
       </div>
 
       <div className="flex flex-col gap-1">

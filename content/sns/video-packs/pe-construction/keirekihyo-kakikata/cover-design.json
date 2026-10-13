@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-construction",
+      "headline": [
+        "業務経歴票",
+        "720字を組む"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-construction/keirekihyo-kakikata/youtube.longform/cover.7238a944.png",
+        "sha256": "7238a9447a5564dbb63c9659c987523850c8ca556ec26d5920a45d6412b25d50",
+        "specSha256": "4d2d261ff1706fd80dda8fe13b2918f19d1515ab87fb8a13f4416f7db81948ab"
+      }
+    }
+  }
+}

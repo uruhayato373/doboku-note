@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-construction",
+      "headline": [
+        "道路",
+        "テーマの読み方"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-construction/sentaku-road-yomikata/youtube.longform/cover.4b50f020.png",
+        "sha256": "4b50f020433135550d86e400c8e271300fa93c4c411bc701ee09289bc40a198a",
+        "specSha256": "3a1dcbb93d2aa6130dc101a57cca2cc0745021ca1f21c8137e49a0979f1f6f5a"
+      }
+    }
+  }
+}

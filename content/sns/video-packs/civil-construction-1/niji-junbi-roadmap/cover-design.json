@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "good-sign",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "plan",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/niji-junbi-roadmap/youtube.longform/cover.3436080f.png",
-        "sha256": "3436080f8e87c42ba552fbc0da05461dbc9a972801f73bcca4bb51649dc06d5b",
-        "specSha256": "50bc2bfa35d7922e920a778659c9596b0424bdaaf00987ed439594d00c067903"
+        "path": ".tmp/media/civil-construction-1/niji-junbi-roadmap/youtube.longform/cover.472320e0.png",
+        "sha256": "472320e066712abe2ccc45d2f650376e7c5a605aa4d5c2e1b7866e29688d740f",
+        "specSha256": "016b357b37888d143dfcf1bd53f522eb57ab10704f374cd87c61ea62df47b464"
       }
     },
     "point-time-matters-1": {
@@ -30,13 +35,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "pointing",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "plan",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/niji-junbi-roadmap/youtube.short.point-time-matters-1/cover.7d5113cb.png",
-        "sha256": "7d5113cbc9f61f8dfc2e1c1b022f15f35d4ce2d645cf72178d59f9511dd7791a",
-        "specSha256": "e0c5c7aa9249fd957fd5d7d2a4c58faa6e7463a0320c8141d03a31fdd498dfc7"
+        "path": ".tmp/media/civil-construction-1/niji-junbi-roadmap/youtube.short.point-time-matters-1/cover.6c8063d5.png",
+        "sha256": "6c8063d5c9f3bdb784e6dd52683711b17acc7bb18f36ffe4016ba51f5b09c990",
+        "specSha256": "e0662ad5da24957b1bf210e7c2d590214edfae51a3fd298b9c4fd0d72e87e07e"
       }
     },
     "point-overview-2": {
@@ -49,13 +59,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "wave",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "plan",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/niji-junbi-roadmap/youtube.short.point-overview-2/cover.5bb10f82.png",
-        "sha256": "5bb10f829380bacf9e9a379c9efc271ab9e50d8f94ea810721ed47b46552961b",
-        "specSha256": "964123c940e646a18bcf56b94c6a9c92cf36ccde533b77a2c273df0057caa8d7"
+        "path": ".tmp/media/civil-construction-1/niji-junbi-roadmap/youtube.short.point-overview-2/cover.f96472e6.png",
+        "sha256": "f96472e6d48a078a986c28e4316ebac6b55d43b2a51f2919d166083210b03805",
+        "specSha256": "3641778288a2811bc3bcfd1fd29b8ab78416f0732fb8f24a28206c27284dd449"
       }
     }
   }

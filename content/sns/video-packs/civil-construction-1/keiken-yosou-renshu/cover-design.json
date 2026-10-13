@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "smile",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/keiken-yosou-renshu/youtube.longform/cover.58d41db0.png",
-        "sha256": "58d41db0afdafc74d1f739d565a35c54d64bae92372289daf3528aad02ec6a2d",
-        "specSha256": "77f4139505913164271e25b7d3c2a63191913553179a41eb02c4f9b96ec4e140"
+        "path": ".tmp/media/civil-construction-1/keiken-yosou-renshu/youtube.longform/cover.7d216f5b.png",
+        "sha256": "7d216f5b765af95d42bc78cf0a51e7981e7c64983ec4f5c7a79fe136f3969c0b",
+        "specSha256": "f83c04d05cf9d840ed8f4d2cf8aee3386805e2d0f2c512468503bd15ce4a15da"
       }
     },
     "point-overview-1": {
@@ -31,13 +36,18 @@
       "accentLine": 2,
       "subtitle": "",
       "character": {
-        "pose": "thinking",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/keiken-yosou-renshu/youtube.short.point-overview-1/cover.8aaa58c4.png",
-        "sha256": "8aaa58c441278add7db0e52214e04601ed6030219352f92045a0b08369d58594",
-        "specSha256": "afdfedd123907be69588c206f69b958a1dac5a169413a2ba349138b2420ad0f7"
+        "path": ".tmp/media/civil-construction-1/keiken-yosou-renshu/youtube.short.point-overview-1/cover.1cd6ea94.png",
+        "sha256": "1cd6ea945da902f642a3235a8b5e46134973188d718dad87f2b7908e7e9968e6",
+        "specSha256": "f81e91afc5585ae5f6d9b03824a6c6e7d216b21de7e6f05df5559054ad67d8f3"
       }
     },
     "point-step1-2": {
@@ -51,13 +61,18 @@
       "accentLine": 2,
       "subtitle": "",
       "character": {
-        "pose": "smile",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/keiken-yosou-renshu/youtube.short.point-step1-2/cover.ef0fb6e6.png",
-        "sha256": "ef0fb6e61009e074aece964f4a5967d94a2993af0629d1cbf67b4df08f76f175",
-        "specSha256": "687499bfd1c2cf89de0492ecc6b0db8613e3d80e79faa4db4e427e0b3997d6d7"
+        "path": ".tmp/media/civil-construction-1/keiken-yosou-renshu/youtube.short.point-step1-2/cover.c861e5ae.png",
+        "sha256": "c861e5ae68bc28c9eaeec82ee5d1402755ca3bdb25778208e09214d7d6421977",
+        "specSha256": "5416251256df181a64673cd80035a00f9709ca3f55ba6433edbda6a446d8da4e"
       }
     }
   }

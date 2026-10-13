@@ -36,6 +36,8 @@ developer_instructions = """
 
 `mdx`・`heading`・`context` は無いので、描くべき物は `用途の説明`・`role`・`prompt` から決める。判定の記録は `record-ai` が `media:<素材 ID>` の鍵で、素材の sha256 の先頭 16 桁つきで書く（R10 が見る）。
 
+POP表紙のAI素材では、対象の `pop-image.json` と [承認見本](../knowledge/reference/pop-image-policy.md) を入力に追加する。キャラクターは参照PNGの顔・髪・メガネ・ひげ・服装と照合し、内容に合う指定ポーズ、手指や装備の破綻、指定文字列を判定する。イラストを機械写真の写実性基準で落とさない。配色の好みやアクセス増の予測は担当外。未登録の制作案は記録用の `media:<id>` を創作せず、参照パスを示した所見として返す。
+
 ## 手順
 
 1. `img` を Read する（大きければ `magick <img> -resize 900x /tmp/<名前>.png` で縮小してから）。

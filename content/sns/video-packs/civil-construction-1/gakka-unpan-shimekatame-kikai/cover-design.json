@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "thinking",
+        "pose": "pop-pointing",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "compare",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/gakka-unpan-shimekatame-kikai/youtube.longform/cover.9e6232d0.png",
-        "sha256": "9e6232d0647b1fddb39e49b56e99accfd2dd8358d787b45e42d6ce835fbd70c5",
-        "specSha256": "cfb0b478b2fabb87629ac6414a5f025f36e3b7f49ed548f3d4b3cbb2638fff3d"
+        "path": ".tmp/media/civil-construction-1/gakka-unpan-shimekatame-kikai/youtube.longform/cover.6af13c7c.png",
+        "sha256": "6af13c7cc91a614507486e9eed39aa679f74759edc9a93bcfcfe52e6a639037c",
+        "specSha256": "db13526af85663d519730efd0113be761a22f11bbb5207eb959fa7da87904843"
       }
     },
     "point-scraper-1": {
@@ -30,13 +35,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/gakka-unpan-shimekatame-kikai/youtube.short.point-scraper-1/cover.7ca0875d.png",
-        "sha256": "7ca0875d0c6146034bfa51cbe8db86ef957d5d23261eba318ec426b4b558da69",
-        "specSha256": "4e8ad9d01e0cc247c2fdbbd332583d5e4ba23ac6a2d6a9475d1f4709339810b8"
+        "path": ".tmp/media/civil-construction-1/gakka-unpan-shimekatame-kikai/youtube.short.point-scraper-1/cover.08fbd293.png",
+        "sha256": "08fbd2934907c28bc96a0f1e3dabe7fe86d9bd151c7ea37e1a5d958d8b5d4aaf",
+        "specSha256": "54dadb5cb7db0fb5fe327df93b3deba4926a5fbe9c189e53f53632b955464597"
       }
     },
     "point-unpan-2": {
@@ -50,13 +60,18 @@
       "accentLine": 2,
       "subtitle": "",
       "character": {
-        "pose": "thinking",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/gakka-unpan-shimekatame-kikai/youtube.short.point-unpan-2/cover.92d39f1d.png",
-        "sha256": "92d39f1de3191d30dd456de6a814857b126016005ed988ecd9e7449524df9e93",
-        "specSha256": "bbf56aa3d204d655e24249ece2177ea3611d3ba5480f3934f415ad5e78ceb6bd"
+        "path": ".tmp/media/civil-construction-1/gakka-unpan-shimekatame-kikai/youtube.short.point-unpan-2/cover.c6cc5b8c.png",
+        "sha256": "c6cc5b8cc9e76a15e69eb6153fb90421a7d6cfad80e32fae4d5ccefbe53d32c2",
+        "specSha256": "28e601566c7d235f2637e57d9071729eb69f2dbb074b58c2082a68b42d476742"
       }
     }
   }

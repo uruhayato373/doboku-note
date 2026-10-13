@@ -68,3 +68,29 @@ test('plate --commit: 生成されなければ何も書かず code 3', async () 
     assert.equal(t.calls.media.length, 0);
   } finally { rmSync(t.root, { recursive: true, force: true }); }
 });
+
+test('plate --input: 既存画像を再生成せず同じ画素で採用し、入力を保持する', async () => {
+  const t = await setup();
+  try {
+    const input = join(t.root, 'selected.png');
+    writeFileSync(input, t.png);
+    const r = await runPlate(t.root, { pub: PUB, role: 'scene-009', promptFile: t.promptFile, input: 'selected.png', commit: true }, t.deps);
+    assert.equal(t.gen.length, 0);
+    assert.equal(r.row.sha256, sha(t.png));
+    assert.deepEqual(readFileSync(join(t.root, r.path)), t.png);
+    assert.deepEqual(readFileSync(input), t.png);
+    assert.equal(r.row.provenance.kind, 'ai-generated');
+    const ledger = JSON.parse(readFileSync(join(t.root, '.claude/state/quality/ai-image-review-ledger.json'), 'utf8'));
+    assert.equal(ledger.figures[`media:${PUB}/scene-009`].sha, sha(t.png).slice(0, 16));
+  } finally { rmSync(t.root, { recursive: true, force: true }); }
+});
+
+test('plate --input: 欠けた入力は生成へ戻らず台帳も書かない', async () => {
+  const t = await setup();
+  try {
+    await assert.rejects(runPlate(t.root, { pub: PUB, role: 'scene-009', promptFile: t.promptFile, input: 'missing.png', commit: true }, t.deps), /ENOENT/);
+    assert.equal(t.gen.length, 0);
+    assert.equal(t.calls.media.length, 0);
+    assert.equal(t.calls.pubs.length, 0);
+  } finally { rmSync(t.root, { recursive: true, force: true }); }
+});

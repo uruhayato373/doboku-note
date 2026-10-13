@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-comprehensive",
+      "headline": [
+        "その設問",
+        "役割を読める？"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pop-pointing",
+        "frame": "waist"
+      },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "question",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/youtube.longform/cover.c1b45eb2.png",
+        "sha256": "c1b45eb2355565077adf8b3d6d023b25a67e27bfdaaf8af0706bd96a239522c5",
+        "specSha256": "75f0b31892db1cdc7f87cb501b859f0cbd640ebf408004890fb9909b4e4fb219"
+      }
+    }
+  }
+}

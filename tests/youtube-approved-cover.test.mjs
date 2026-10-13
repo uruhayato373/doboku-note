@@ -24,3 +24,10 @@ test('reviewed pixels are preserved; stale input, altered bytes and wrong dimens
     assert.equal(await readApprovedCover(root,{},{}),null);
   } finally {rmSync(root,{recursive:true,force:true});}
 });
+
+test('pop-poster-v3 requires adopted artwork rather than silently falling back to typography', async () => {
+  const {validateCoverSpec}=await import('../scripts/lib/youtube-cover.mjs');
+  const spec={format:'longform',exam:'civil-2',headline:['2級土木','耳で総復習'],accentLine:1,subtitle:'',character:{pose:'pop-explaining',frame:'waist'},design:'pop-poster-v3'};
+  assert.throws(()=>validateCoverSpec(spec),/採用PNG/);
+  assert.doesNotThrow(()=>validateCoverSpec({...spec,approvedImage:{path:'checked.png'}}));
+});

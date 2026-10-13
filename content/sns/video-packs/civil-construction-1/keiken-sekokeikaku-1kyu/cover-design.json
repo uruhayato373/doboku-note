@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/keiken-sekokeikaku-1kyu/youtube.longform/cover.89e0ce50.png",
-        "sha256": "89e0ce50d40ceb79178035a0fd95e6f3034e99a3675770c07d6e1bc5e9614630",
-        "specSha256": "54815e56b0363c26f273cedc01af74534a2b1baa1d7d858a8975f005eaeec846"
+        "path": ".tmp/media/civil-construction-1/keiken-sekokeikaku-1kyu/youtube.longform/cover.7eee5be8.png",
+        "sha256": "7eee5be847014cd9b09176a2d7e87fefd47e8243a13765f7e2cc98db9bc33a00",
+        "specSha256": "dfb5bca6b1e82154a8498d1b7534014e0ca5ce80a5164260f93e34e33e689910"
       }
     },
     "point-plan-vs-management-1": {
@@ -30,13 +35,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "thinking",
+        "pose": "pop-pointing",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "compare",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/keiken-sekokeikaku-1kyu/youtube.short.point-plan-vs-management-1/cover.0e9fedee.png",
-        "sha256": "0e9fedeecf83f1ea62d20530f2f21c31a924fcd6e6c394b1ca1649d316ed269e",
-        "specSha256": "964abeb40e7097a4f718cfd513f4472498cd6ff28ae7535a93ce6e2640721777"
+        "path": ".tmp/media/civil-construction-1/keiken-sekokeikaku-1kyu/youtube.short.point-plan-vs-management-1/cover.8a3112b9.png",
+        "sha256": "8a3112b91eaa053327847dc6daa54032fd86c6d01d5476a61700939265c67868",
+        "specSha256": "e52b66ed2a669cdee5e3bebbb8184b4467cb9e0084b40749704431e5c4113603"
       }
     },
     "point-four-categories-2": {
@@ -49,13 +59,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/keiken-sekokeikaku-1kyu/youtube.short.point-four-categories-2/cover.e31a0550.png",
-        "sha256": "e31a055039d2e4547442f6dd69bb5e067a9d16de9d95c2e65ac4bf2b513b0eab",
-        "specSha256": "d1b15acc09602975ba94f8fdfa68e323b872b0dbe7452524815b6df17168d057"
+        "path": ".tmp/media/civil-construction-1/keiken-sekokeikaku-1kyu/youtube.short.point-four-categories-2/cover.d46f5695.png",
+        "sha256": "d46f569549cd992d2d6f955b9ed5126946588b648d00b73bf67bb6b689b7ed8c",
+        "specSha256": "ac9bc23a306bea7851f512987e329aae943a8e338bf69fcb0484f17e49321ac6"
       }
     }
   }

@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/gakka-dodome-kussaku/youtube.longform/cover.ab856fec.png",
-        "sha256": "ab856fec64f7640f5da7afd364e72bfed5799f0e402dfc5e16339e02271819fe",
-        "specSha256": "4781f6d0f28e4c3ab42e593da0520946cc1664664d42435e86e91e10a2555e34"
+        "path": ".tmp/media/civil-construction-1/gakka-dodome-kussaku/youtube.longform/cover.849bfae1.png",
+        "sha256": "849bfae185dc2d344b5605b79a7291c04076ec03eabbc2aaedead1adaf260562",
+        "specSha256": "6800182f8b031a00f819d42c2f52204b2b7fa32eca2af4ffcc03425cf8e5c851"
       }
     },
     "point-step1-1": {
@@ -31,13 +36,18 @@
       "accentLine": 2,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/gakka-dodome-kussaku/youtube.short.point-step1-1/cover.a06fe17c.png",
-        "sha256": "a06fe17cfdcc1cf23b77f46709091cd576b747118ad6926b153cbec9738e7b98",
-        "specSha256": "377404e63ea9a6c6c315b7e6a0840ea3c05fd69be0bc7dd77f9abed468712f00"
+        "path": ".tmp/media/civil-construction-1/gakka-dodome-kussaku/youtube.short.point-step1-1/cover.ea05bdba.png",
+        "sha256": "ea05bdba877b6740a6fb640681d5afee67a57e7b65fe069c0f7db353c2c1fb98",
+        "specSha256": "9c031f318c3d87ee529588dd4b23038789c7fdbdee49f2166c357294cbf3a98a"
       }
     },
     "point-step2-2": {
@@ -50,13 +60,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/gakka-dodome-kussaku/youtube.short.point-step2-2/cover.15b02a7a.png",
-        "sha256": "15b02a7a4db9a4e7fd237ca20fa11dbf8ec0cea90062d8cfa6e0989295a31f6c",
-        "specSha256": "dadf5be9f449cf020dabc9d4cdadacd86a8cc1ba15589b313e4081cca742aa1f"
+        "path": ".tmp/media/civil-construction-1/gakka-dodome-kussaku/youtube.short.point-step2-2/cover.0f557c72.png",
+        "sha256": "0f557c723c41c66be08664596eab465165ce075c339578949e7bfa7f17479a36",
+        "specSha256": "3f0da7b4359b4e345adec1ef630a9151572bccc4159a2c1a8cf6256c758fc74c"
       }
     }
   }

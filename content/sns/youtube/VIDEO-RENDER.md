@@ -1,12 +1,12 @@
 # 採用カバーから動画を生成する
 
-採用画像346枚はGoogle Driveに個別PNGとして保存し、全バイト読み戻しのSHA-256照合とDrive台帳への登録を完了した。確認済みPNGをそのまま使うため、Macに制作時のポップ体フォントは不要。
+採用画像はGoogle Driveに個別PNGとして保存する。保存状態はDrive台帳、採用パスとSHA-256は各カバー原稿を参照する。確認済みPNGをそのまま使うため、Macに制作時のポップ体フォントは不要。
 
 [採用画像フォルダー](https://drive.google.com/drive/folders/1wP21EWW4E4CPMZpLXk_j5nVMgbVW2YQ-)
 
 ## Macで素材を復元する
 
-Gitの作業ブランチ `codex/character-framing` を最新にし、依存関係を `npm ci --legacy-peer-deps` で用意する。Google Driveアプリでdoboku-noteのvaultを同期してから、リポジトリ直下で実行する。
+採用原稿を含むGitの作業ブランチを最新にし、依存関係を `npm ci --legacy-peer-deps` で用意する。Google Driveアプリでdoboku-noteのvaultを同期してから、リポジトリ直下で実行する。
 
 ```bash
 npm run drive-vault-sync -- --pull --group content-media --commit
@@ -19,7 +19,9 @@ npm run check-youtube-cover-handoff -- --local
 
 ## 音声付き動画を生成する
 
-Windows/MacのどちらでもVOICEVOXエンジンとffmpeg/ffprobeが必要。VOICEVOXを起動して以下を実行する。動画生成用のGitHub Actionsは現在ない。
+全場面の差し替えレシピがあるShortsは、下記テンプレート生成を使わず「全場面差し替え版の完全復元」へ進む。`--force` / `--preview-only` でも旧本文・締め画像への逆戻りは許可しない。
+
+Windows/MacのどちらでもVOICEVOXエンジンとffmpeg/ffprobeが必要。メモリの少ない端末ではエンジンを `--cpu_num_threads 1` で起動し、パックを順に生成する。VOICEVOXを起動して以下を実行する。動画生成用のGitHub Actionsは現在ない。
 
 ```bash
 node scripts/render-longform.mjs --pack-dir content/sns/video-packs/civil-construction-1/koji-gaiyo-7items --skip-tts
@@ -29,7 +31,13 @@ node scripts/render-video-pack-shorts.mjs --pack-dir content/sns/video-packs/civ
 
 出力先は `.tmp/video-render/{packId}/`。最初の1パックで表紙・読み上げ・字幕・切り替わりを確認してから一括生成する。採用画像は表紙・冒頭に使い、説明画面は白と資格別のブランド色を軸にしたプレゼン形式へ統一する。大きな結論見出し、STEPラベル、淡い要点カードを使い、文字数・項目数に応じて文字サイズと配置を調整する。legacy総監カバーは動画パックの一括生成には混ぜない。
 
-## 今回の検証範囲
+## 図解を使った場面画像の確認
+
+通常動画の `visual.art` は、章扉・対応図・比較・手順・記入例・サイト図解を再構成した画像を指定する。総まとめは生成済みstoryboardを直接直さず、`compilation.json.visuals[sceneId]` を更新して `build-video-compilation` を実行する。語り・字幕・尺は変わらない。図解の `art.source` には参照元SVGの実在パスを記録する。
+
+音声を後工程にする場合は `render-longform --skip-tts --resume --refresh-png` で画像を生成し、全場面のスクリーンショットを確認する。`media promote --pub <公開ID> --commit` は画像のみのrender-manifestから表紙と場面画像を取り込み、既存動画・字幕を保持する。その後 `media sync --work <資格>/<作品> --commit` と `media verify --work <資格>/<作品>` を通し、管理画面の作品詳細で採用画像を確認する。画像確認済みと完成動画の確認済みは分けて記録する。
+
+## 旧A案の検証記録（2026-09-09）
 
 Mac実機で採用PNG346枚を復元し、全件のSHA-256一致を確認した。VOICEVOX 0.25.2・話者13で代表パックの通常動画とShortsを生成し、映像・字幕・音声ストリーム・音量、音声認識による台本の冒頭から末尾までの収録を確認した。人による試聴済みとは扱わない。通常動画の場面を音声実尺へ揃える修正を適用し、実ffmpegの時刻同期テストを通した。ユーザーの試聴指摘を受け「概要の要は」を「概要のかなめは」に読み替え、VOICEVOXの音素を確認した。字幕は漢字のまま保持する。全体の生成・保存とYouTube更新の進捗は [更新状態](../../../.claude/state/youtube-thumbnail-rollout.json) を参照する。
 
@@ -48,6 +56,39 @@ YouTubeへの公開・再投稿は別工程。サムネ更新前に新しい実�
 
 説明画面だけを更新する再生成は `--resume --refresh-png` を使う。音声は `tts-inputs.json` の読み替え後の入力・話者・WAVハッシュが一致するときだけ再利用し、読み修正や話者変更、旧キャッシュの来歴不明時は再合成する。
 
-2026-09-09採用のA案（橋＋ノートのロゴ）は、通常動画の表紙右上とShorts表紙の下部へ展開した。`config/video-brand.json` が共通ロゴ・背景・Shorts CTAを指定する。`node scripts/apply-video-brand.mjs --preview` で代表画像を確認し、`--commit` でローカルの全表紙と各パックのCTA入力を更新する。このコマンドはYouTubeへ書き込まない。原版を残してロゴを合成し、各動画の締め見出しと教材名はstoryboardから描画する。表紙はAPI上限の2MB以内に収める。
+旧A案の適用手順：2026-09-09採用の橋＋ノートのロゴは、通常動画の表紙右上とShorts表紙の下部へ展開した。`config/video-brand.json` が共通ロゴ・背景・Shorts CTAを指定する。`node scripts/apply-video-brand.mjs --preview` で代表画像を確認し、`--commit` でローカルの全表紙と各パックのCTA入力を更新する。このコマンドはYouTubeへ書き込まない。原版を残してロゴを合成し、各動画の締め見出しと教材名はstoryboardから描画する。表紙はAPI上限の2MB以内に収める。
+
+従来の `pop-v2` 組版によるPOP表紙の一括制作は `npm run youtube-covers -- --all`、ローカル採用は `--commit`。旧A案の一括処理はPOP表紙へ重ねて実行しない。画像一覧は `.tmp/youtube-covers/pop-all/index.html`。`brand-video-pack` も `pop-v2` / `pop-poster-v3` の表紙は追加合成せず、採用PNGの画素を保持する。
 
 ブランド共通の素材（ロゴ・通常動画の背景・Shorts の締め画像）は `.tmp/media/_brand/bridge-notebook-a/`（`config/video-brand.json` が指す）、各動画用の締め画像は各パックの `youtube.longform/cta.{sha8}.png`。これらもDrive vault（group content-media）から復元する。各 `cta-design.json` が締め画像の入力とSHA-256を持つ。確認版の「工事概要7項目」は採用時のCTA画像を保持する。動画パックのShortsは同じブランド意匠で「関連動画へ」と案内し、専用の音声と字幕を使う。Shorts生成前に通常動画を `--speaker 13 --resume --refresh-png` で生成し、話者をrender-manifestへ記録する。画像の全展開と動画本体・YouTubeの移行完了は別で、適用状況は更新状態の `preparation.ctaDesign` と `migration` で確認する。
+
+## 全面POP画像の制作と復元
+
+通常動画・Shorts共通の意匠とポーズは [/create-pop-image](../../../.claude/skills/social/create-pop-image/SKILL.md) と [承認見本](../../../.claude/knowledge/reference/pop-image-policy.md) を使う。見本の `pop-poster-v3` は全面画像生成版で、上記 `pop-v2` 一括コマンドでは再制作できない。
+
+コピー・参照SHA・全文プロンプト・実寸・確認結果は `pop-image.json` の `revisions`、PNGは `.tmp/media/` に保存する。各 `output.path` を対象として保存とクラウド照合を行う（下記PATHは対象JSONの実値へ置換）。
+
+```bash
+node scripts/drive-vault-sync.mjs --path PATH --commit
+node scripts/drive-vault-sync.mjs --path PATH --verify --deep --cloud --commit
+node scripts/drive-vault-sync.mjs --path PATH --pull --commit
+```
+
+完全再現は復元PNGと `output.sha256` の一致で判断する。フォントや画像生成モデルの再実行には依存しない。内容変更は別の派生版として記録する。生成時の実寸が媒体寸法と異なる場合は、採用前に最終サイズと安全域を整え、最終PNGのSHAを記録する。
+
+`revisions` への保存や意匠承認だけでは採用されない。媒体確認後の最終PNGを `cover-design.json` の採用入力へ接続（pop-poster-v3 は採用PNG必須。欠落時は停止し、テンプレートへ戻さない）し、素材・公開台帳は既存 `media` / `registry` 経由で更新してから `check-youtube-cover-handoff --local` を実行する。private R2の `stage-youtube-covers` が転送するのも、この採用入力に接続済みの画像だけ。制作途中の比較画像を転送・公開済みとは扱わない。
+
+## 全場面差し替え版の完全復元
+
+`pop-image.json` の `revisions.*.publications[].reproduction` は全場面の採用PNG、表示時刻、元動画、元ASS、確認済み完成MP4のSHAを持つレシピを指す。現在の `youtube.json` の動画SHAに一致するレシピだけを選び、次のコマンドで検査・復元する。例は2級土木の土工Shorts2本。
+
+```bash
+npm run youtube-shorts:restore -- --pack-dir content/sns/video-packs/civil-construction-2/gakka-2kyu-doko
+npm run youtube-shorts:restore -- --pack-dir content/sns/video-packs/civil-construction-2/gakka-2kyu-doko --restore
+```
+
+`--key point-block1-2` 等で1本に限定できる。既定は読み取り検査、`--restore` は欠落ファイルだけをDriveから取り戻す。既存ファイルのSHA不一致は上書きせず停止する。合格条件は対象数が正で、全素材・レシピ・完成MP4のSHA、PNG 1080×1920、全場面の連続した尺が一致すること。動画・画像の採用先や外部投稿は変更しない。
+
+この完全復元はTTS・画像生成・エンコードを実行せず、確認済みの動画・音声・字幕をバイト単位で戻す。新しい画像や尺で再編集するときは新レシピと新しいQAが必要。汎用のレシピ再エンコード機能は未実装であり、一時制作スクリプトを復元手順として使わない。同じ生成プロンプトや別端末のエンコーダーから同じ画素・MP4バイト列が出るとは保証しない。
+
+構図の合否はSHA検査の対象外。全場面の原画像と字幕入り完成フレームを原寸・360pxで見て、背景が四辺まで続くこと、左上への縮小配置・巨大な無地余白・文字と字幕の重なりがないことを画像／動画SHAに結び付けて記録する。実際のShorts操作UIは別に確認し、未確認ならその状態を残す。

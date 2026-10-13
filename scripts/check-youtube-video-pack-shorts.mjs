@@ -94,8 +94,10 @@ for (const exam of EXAMS) {
       }
       const disclosureCount = description.split('【この動画の制作について】').length - 1;
       if (disclosureCount !== 1) errors.push(`${label}: 制作表記見出し=${disclosureCount}回 (期待値1)`);
-      if (!/^video\/render\/.+\/shorts\/.+\/shorts\.mp4$/u.test(item.r2Key ?? '')) errors.push(`${label}: r2Key不正`);
-      if (!/^video\/render\/.+\/shorts\/.+\/thumbnail\.png$/u.test(item.thumbnailR2Key ?? '')) errors.push(`${label}: thumbnailR2Key不正`);
+      // 描画先（video/render/…/shorts/…）か、差し替え版を中身のハッシュ名で置いた移行先（youtube-migration/<回>/media/<sha256>.<拡張子>。ファイル名が sha と一致すること）
+      const migrated = (key, ext, sha) => new RegExp(`^youtube-migration/[^/]+/media/([a-f0-9]{64})\\.${ext}$`, 'u').exec(key ?? '')?.[1] === sha;
+      if (!/^video\/render\/.+\/shorts\/.+\/shorts\.mp4$/u.test(item.r2Key ?? '') && !migrated(item.r2Key, 'mp4', item.sha256)) errors.push(`${label}: r2Key不正`);
+      if (!/^video\/render\/.+\/shorts\/.+\/thumbnail\.png$/u.test(item.thumbnailR2Key ?? '') && !migrated(item.thumbnailR2Key, 'png', item.thumbnailSha256)) errors.push(`${label}: thumbnailR2Key不正`);
       if (!/^[a-f0-9]{64}$/u.test(item.sha256 ?? '')) errors.push(`${label}: sha256未確定または不正`);
       if (!/^[a-f0-9]{64}$/u.test(item.thumbnailSha256 ?? '')) errors.push(`${label}: thumbnailSha256未確定または不正`);
       if (!item.publishAt) errors.push(`${label}: publishAtなし`);

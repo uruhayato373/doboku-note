@@ -32,15 +32,22 @@
 import { readFileSync, existsSync, statSync, writeSync } from 'node:fs';
 import { join, dirname, relative, sep } from 'node:path';
 import { examColor } from '../.claude/scripts/sns/lib/exam-palette.mjs';
-import { cardSpecHash, validateCharacterCard } from './lib/x-character-spec.mjs';
+import { cardSpecHash, validateCharacterCard, validateAdoptedCardLedger } from './lib/x-character-spec.mjs';
 import { isXCardPng, listScopedXCardPngs } from './lib/x-card-render-scope.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
+import { sha256File } from './lib/asset-storage.mjs';
 
 const LEDGER = join(ROOT, '.claude/state/sns/x-card-render.json');
 const X_DIR = join(ROOT, 'content/sns/x');
 const JSON_OUT = process.argv.includes('--json');
 const NAME = 'check-x-card-render';
+
+const readCardSpec = rel => {
+  const specFile = join(ROOT, dirname(dirname(rel)), 'cards.json');
+  const number = String(Number(rel.match(/\/tweet-(\d+)-/)?.[1]));
+  return JSON.parse(readFileSync(specFile, 'utf8')).tweets[number];
+};
 
 const toPosix = (p) => p.split(sep).join('/');
 
@@ -72,6 +79,12 @@ for (const rel of pngs) {
   inspected += 1;
   if (!meta.keywordName) errors.push({ rule: 'empty-keyword', at: rel, msg: '主題（keywordName）が空のまま描画されている' });
   if (!meta.headerLabel) errors.push({ rule: 'empty-header', at: rel, msg: 'ヘッダラベルが空' });
+  if (meta.template === 'pop-poster-v3') {
+    try {
+      validateAdoptedCardLedger(readCardSpec(rel), meta);
+      if (sha256File(join(ROOT, rel)) !== meta.sha256) throw new Error('採用POP画像のPNG hashが不一致です');
+    } catch (error) { errors.push({ rule: 'adopted-image', at: rel, msg: error.message }); }
+  }
 
   // 総監は管理分野色（tokens に無い）なので対象外。それ以外は exam-palette の deep と一致すること。
   if (meta.exam && meta.exam !== 'pe-comprehensive') {
@@ -95,13 +108,12 @@ for (const rel of pngs) {
 const stalePng = Object.keys(entries).filter((k) => !inScope.has(k));
 for (const k of stalePng) {
   const entry=entries[k];
-  if(entry.template==='x-teacher-v1') {
+  if(['x-teacher-v1', 'pop-poster-v3'].includes(entry.template)) {
     try {
-      const specFile=join(ROOT,dirname(dirname(k)),'cards.json');
-      const number=String(Number(k.match(/\/tweet-(\d+)-/)?.[1]));
-      const spec=JSON.parse(readFileSync(specFile,'utf8')).tweets[number];
+      const spec=readCardSpec(k);
       validateCharacterCard(spec);
       if(cardSpecHash(spec)!==entry.specSha256)throw Error('画像用原稿が描画後に変わっています');
+      if (entry.template === 'pop-poster-v3') validateAdoptedCardLedger(spec, entry);
       reproducible++;
       continue;
     } catch(error) { errors.push({rule:'regeneration-source',at:k,msg:error.message});continue; }
@@ -118,7 +130,7 @@ if (JSON_OUT) {
 }
 
 console.log(summary);
-if(reproducible)console.log(`[${NAME}] 先生カード ${reproducible} 件は原稿hashのみ検査。Git 管理下に画像なし・画像実体は未検査（gen-x-card --draft で再生成）。`);
+if(reproducible)console.log(`[${NAME}] 先生カード ${reproducible} 件は原稿hashと採用参照を検査。Git 管理下に画像なし・画像実体は未検査（gen-x-card --draft で再出力。POPは保存PNGを使用）。`);
 if (pngs.length === 0) {
   console.error(`[${NAME}] ✗ 検査不成立: 対象の PNG が 1 枚も無い。0 件を「異常なし」と読まない。`);
   process.exit(1);

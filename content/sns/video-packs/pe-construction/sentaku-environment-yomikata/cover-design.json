@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-construction",
+      "headline": [
+        "建設環境",
+        "テーマの読み方"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-construction/sentaku-environment-yomikata/youtube.longform/cover.bee42aed.png",
+        "sha256": "bee42aedbf92cd97cc4a3fe9e547bbd0eff5d1970cc82bb0abfee8e35e7de628",
+        "specSha256": "f04bbe9af93db0831fa1344a7a673cb2de4acbc2dc65ffd0de3cded43e5295ab"
+      }
+    }
+  }
+}

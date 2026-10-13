@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "smile",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "listen",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/kikinagashi-hinshitsu-kikaku/youtube.longform/cover.42d77319.png",
-        "sha256": "42d77319a23d7cab87dd75e6c24b7d37b3216bc96cb6e5270758fea4b3157e5d",
-        "specSha256": "5986d1865543400ec21b6646374301cd8305d1208d9d562e834e40a94fa924eb"
+        "path": ".tmp/media/civil-construction-1/kikinagashi-hinshitsu-kikaku/youtube.longform/cover.17f98b37.png",
+        "sha256": "17f98b37040c86104682c71865df2199266205e525ea09be0ebd71debb1d073c",
+        "specSha256": "1e7c2902321b960acb93b4625d273b4c9040c9bcf7e745d5ea6ce774aa7d01bf"
       }
     },
     "point-population-sampling-1": {
@@ -30,13 +35,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/kikinagashi-hinshitsu-kikaku/youtube.short.point-population-sampling-1/cover.c8ed66d4.png",
-        "sha256": "c8ed66d427b0447bdd3fc0c64b229a4b50f52edaeaa4284e79ce462ebcdfefb0",
-        "specSha256": "04210c1165b8b1b8d11b0281ea087a1c7166b0b39d01d7f33b84baa6fa5165b1"
+        "path": ".tmp/media/civil-construction-1/kikinagashi-hinshitsu-kikaku/youtube.short.point-population-sampling-1/cover.4d3c2449.png",
+        "sha256": "4d3c2449c1fc00e16a3c16e9e24574c7fa8b1205633b933f9d7c1e35d6c524c5",
+        "specSha256": "404e01097fbed0fa6a6c326545c3658ba94a654b8c1d3177ce2eed2e1cf8360d"
       }
     },
     "point-full-vs-sampling-2": {
@@ -49,13 +59,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "thinking",
+        "pose": "pop-pointing",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "compare",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/kikinagashi-hinshitsu-kikaku/youtube.short.point-full-vs-sampling-2/cover.4ed12d75.png",
-        "sha256": "4ed12d7569f569f67fc9d2acbdedd53e2e734915cff695240105c66499c470d6",
-        "specSha256": "da16d62062a314c545c449704fad06ce82fab9d4253391d8f8491e9e4f923e44"
+        "path": ".tmp/media/civil-construction-1/kikinagashi-hinshitsu-kikaku/youtube.short.point-full-vs-sampling-2/cover.50f40155.png",
+        "sha256": "50f40155a0f053717b6b4e84c494e7ac7ac74d14e843665dd095137c10a4fb94",
+        "specSha256": "e3e0b7030735090fa0c884adb1549b9bda498ec0d4d711798ebb556a84982d7a"
       }
     }
   }

@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "reading",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/gakka-kensetsugyoho/youtube.longform/cover.374912ee.png",
-        "sha256": "374912ee58088948ea523d5c957cd52bb6088182d6ab240d463bde1d5b44744d",
-        "specSha256": "877c77688fa563aa8f0f062147b361ddcf47b3b8ceac373a81cb5ae2a4a37df1"
+        "path": ".tmp/media/civil-construction-1/gakka-kensetsugyoho/youtube.longform/cover.4cf0c1e5.png",
+        "sha256": "4cf0c1e519df8e53274847454dedb4077e66cfcb72efa33f6d09113d194fca5d",
+        "specSha256": "e3c896d8681b53c5a645d826f71539ccc51ad91125935710f12e6b71bded6125"
       }
     },
     "point-overview-1": {
@@ -30,13 +35,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "thinking",
+        "pose": "pop-pointing",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "question",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/gakka-kensetsugyoho/youtube.short.point-overview-1/cover.d5e55c1c.png",
-        "sha256": "d5e55c1c1a0a229e7b4b34d450a250504d8dfc3880967af04b8d0612555b9343",
-        "specSha256": "c6f754462533d02538d4c90673e0ab506aca7eaf013fd6bb17d1f4a82d1af09d"
+        "path": ".tmp/media/civil-construction-1/gakka-kensetsugyoho/youtube.short.point-overview-1/cover.1b8d811c.png",
+        "sha256": "1b8d811ca130383925248ee74f4b21892be47f131033760aabec7c5803801769",
+        "specSha256": "096d6f9f82fde6964b129f0d030e5be6887f7b9396a8beb524ff4016eb153376"
       }
     },
     "point-step1-2": {
@@ -49,13 +59,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/gakka-kensetsugyoho/youtube.short.point-step1-2/cover.f3d6f464.png",
-        "sha256": "f3d6f464ef55f4ab876c85fab03dd0a9c333626f54d95516927912c688753b5b",
-        "specSha256": "98859ff0700e0fd606fa65e9bb36b314d48dfb62cae41e1d5ff5144abb48c9c1"
+        "path": ".tmp/media/civil-construction-1/gakka-kensetsugyoho/youtube.short.point-step1-2/cover.e4630cb5.png",
+        "sha256": "e4630cb54017d7cf8fcbd72ffb7a5129d750aba07c445c6ac0b22b8e5fc4ed9f",
+        "specSha256": "2ba1918cbe27da3ff2418b21f1c799377078a3e9bcfeb3168d2cbb1ed5491472"
       }
     }
   }

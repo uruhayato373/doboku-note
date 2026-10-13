@@ -6,18 +6,23 @@
       "exam": "civil-2",
       "headline": [
         "土工の頻出点",
-        "要点を押さえる"
+        "4テーマで整理"
       ],
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "pointing",
+        "pose": "guide-pointer",
         "frame": "waist"
       },
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.longform/cover.01aa08f1.png",
-        "sha256": "01aa08f1b8c3e3cde8706a8da82db4936733de71b50b12772bccf892313b090a",
-        "specSha256": "965dd65dab3e3a535ff1f8f37e69f759fe24d24024e84c3f81a53de774a310bc"
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.longform/cover.659cd571.png",
+        "sha256": "659cd5716340bd9914ea2eadf2fde97ff3b049ac8d5b989bb2f5e6e641320fc7",
+        "specSha256": "95a2f64ff576d129e3407816888c399a9fcd9bdea2e3829a2a113b6bc149ada8"
       }
     },
     "point-overview-1": {
@@ -25,18 +30,23 @@
       "exam": "civil-2",
       "headline": [
         "土工の頻出点",
-        "４テーマで整理"
+        "4テーマで整理"
       ],
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "pointing",
+        "pose": "checklist-pen",
         "frame": "waist"
       },
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover.911496ef.png",
-        "sha256": "911496efba6ce0f71242f59a1748513cde5ffc7eb12da47fe6ace363c80af3c2",
-        "specSha256": "429cdbdc6b40829cface47cc66ffe19162f3bccbad64c27cca0f8c9a5d69a6f0"
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-overview-1/cover.8d71afb3.png",
+        "sha256": "8d71afb36c0247cd9059a85c7c8e75aa3a5b69e4771516ad2372028eff1cec48",
+        "specSha256": "7180284a8c1841c49bb559c168d8198a7b3c72bf2c59a47c05624c6fe9d920ba"
       }
     },
     "point-block1-2": {
@@ -49,13 +59,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "smile",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cover.630cf0b5.png",
-        "sha256": "630cf0b574a0430dd0501d4d43f4b833b5028a56f0eed6d842754b09c5baa9de",
-        "specSha256": "4abab81a27cb3a205b7c568e4b44bf93caaeb1bbb7630bc8ba71f96681f980c1"
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.short.point-block1-2/cover.4eccd275.png",
+        "sha256": "4eccd275c87f501962bf94f6502dc00af0d7c90ffee8b6f6aff8ce336b4e9401",
+        "specSha256": "07f5e13819c520623146b01eb54d1dc76977dbc4b43dc2827350b6742cbbf496"
       }
     }
   }

@@ -14,7 +14,7 @@ test('fractional scene durations do not accumulate into subtitle drift', {
 }, async () => {
   const dir = mkdtempSync(join(tmpdir(), 'longform-timing-'));
   try {
-    const durations = [1.9, 1.9, 1.9, 1.9];
+    const durations = Array.from({ length: 40 }, () => 0.341);
     const pngPaths = [], wavPaths = [];
     for (const [i, duration] of durations.entries()) {
       const png = join(dir, `${i}.png`), wav = join(dir, `${i}.wav`);

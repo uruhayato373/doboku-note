@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-construction",
+      "headline": [
+        "令和8年度改訂",
+        "答案はどう変わる"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-construction/competency-r8-taiou/youtube.longform/cover.d88af5bc.png",
+        "sha256": "d88af5bc3a68bc97c536689b57756b9219b21c152cfabf3f9c64dc8a488e268e",
+        "specSha256": "319a3b82df0c98ce5d1467fe5e010f301c25d727db994d53b02a539adf014920"
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-construction",
+      "headline": [
+        "勉強の時間",
+        "試験日から逆算"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "plan",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-construction/gakushuu-schedule-gyakusan/youtube.longform/cover.0fb4d6a7.png",
+        "sha256": "0fb4d6a7ae0ba8db1808ad6c4bb2feb488aa066f070b71faddb1cd535470f145",
+        "specSha256": "039de77696a587bbe4f9841d73626e9f5e183be7702e14c1c9925c8a29dc22a9"
+      }
+    }
+  }
+}

@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "thinking",
+        "pose": "pop-pointing",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "question",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/career-tenshoku-timing/youtube.longform/cover.9f077b51.png",
-        "sha256": "9f077b519d0492b7523c8effbce83a1878b22cb10bc6b1a1dfddd4c0f8375b15",
-        "specSha256": "b098778d0e17c11025a40a0a7c0396dad4bed30d188aa9b7b919f47190e0d43b"
+        "path": ".tmp/media/civil-construction-1/career-tenshoku-timing/youtube.longform/cover.68777ecc.png",
+        "sha256": "68777eccf93bc6c4ee16601bf71cf326b84ffb97db8966c2d729a0ea400400ad",
+        "specSha256": "50bbf9d499a19c8bae1771bae223b1bb7518b76be1712792093447718b15c1e8"
       }
     },
     "point-step1-1": {
@@ -30,13 +35,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/career-tenshoku-timing/youtube.short.point-step1-1/cover.0c17f036.png",
-        "sha256": "0c17f0366a372646782c7c08a3c6fc7b0ac0342296e74c9cfa79df58d58a7dac",
-        "specSha256": "b6b2fe4d88f1dabbd893b53c7f4d1d96c4bed76b09d26bd641c12cd0c1826989"
+        "path": ".tmp/media/civil-construction-1/career-tenshoku-timing/youtube.short.point-step1-1/cover.6e91816f.png",
+        "sha256": "6e91816f8c609ed0d993842dfd0796408b9a0ee99704cec59602178cf54cff71",
+        "specSha256": "163036ba076ac3b9bcf13cefc8d7f6186f8920f5d204a995d03ce3859063d87b"
       }
     },
     "point-step2-2": {
@@ -49,13 +59,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "thinking",
+        "pose": "pop-pointing",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "question",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/career-tenshoku-timing/youtube.short.point-step2-2/cover.c522938b.png",
-        "sha256": "c522938b0595ed7a99b0316adf0d785152257aab4025b37ca29e95014b7555f3",
-        "specSha256": "ecd09456c9b79fea16a9c9ff80459a5c5659df59e154628d036a995822cfe96c"
+        "path": ".tmp/media/civil-construction-1/career-tenshoku-timing/youtube.short.point-step2-2/cover.77513dc5.png",
+        "sha256": "77513dc5155b0f3edf188711999b55ca8e47e4c35cd5fe44e492297c34f03da8",
+        "specSha256": "e16966255d301fec7428dcf4d76e9d5322414b079cc4938d04c4e759feab5106"
       }
     }
   }

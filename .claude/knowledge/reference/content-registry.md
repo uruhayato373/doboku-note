@@ -85,7 +85,7 @@ config/content-registry.json          チャネル×形式・アカウント・I
 
 ## 確認画面と承認（P3・2026-10-09）
 
-- 管理画面 `/content/items`（一覧）と `/content/items/{exam}/{work}`（詳細）。形は `scripts/lib/media-review.mjs` だけが組み立て、画面は読むだけ（ボタンはコピーとリンクだけ）。並びは「画面が先、音声は後」（表紙・締め・画面確認の数値・コンタクトシート・無音プレビュー → 完成動画・字幕）。
+- 管理画面 `/content/items`（一覧）と `/content/items/{exam}/{work}`（詳細）。形は `scripts/lib/media-review.mjs` だけが組み立て、画面は読むだけ（ボタンはコピーとリンクだけ）。並びは「画面が先、音声は後」（表紙・全場面の画像・締め・画面確認の数値・コンタクトシート・無音プレビュー → 完成動画・字幕）。
 - 素材は手元（`/media/cmedia/…`）か Drive のマウント（`/media/vault/…`・名前の sha8 と台帳の bytes が一致するときだけ）から配信する。配信は Range（206・416）と HEAD に対応し、全配信元で realpath を検査する。判定は `scripts/lib/media-serve.mjs`・`http-range.mjs`。Drive の手元に落ちていない素材は 409「要復元」で、画面は pull のコマンドを出す。Drive の絶対パス（メールアドレスを含む）は画面にも応答にも出さない。
 - 画面確認の素材は `npm run media -- preview --pub <id> [--commit]`（`scripts/lib/media-preview.mjs`・DN-0603）。無音プレビュー・`contactSheetEverySec` 秒ごとのコンタクトシート（長尺は `contact-sheet-2` 以降）・数値（`preview-metrics`。冒頭の表紙の秒数・直前と同じ画面の割合・同じ画面が続く箇所。閾値は `config/video-content.json` の `visualCheck`）。
 - 承認は運営者が自分の端末で、画面に出るコマンドをコピーして打つ: `npm run registry -- approve --pub <id> --stage visual|final --expect <digest>`。`--expect` が今の中身の digest と違えば書かない。final は visual の承認が先（YouTube）。AI 生成の素材に判定 ok が無ければ書かない。Claude Code の Bash（`CLAUDECODE=1`）からは実行できない。止めるのは `npm run registry -- stop --pub <id> --reason …`（stopped は戻れない終端）。後で予約し直す前提で予約だけを外すのは `npm run registry -- unschedule --pub <id> --reason …`（scheduled → uploaded_private・元の予約日時を reason に残す。YouTube 側は先に `.github/workflows/youtube-unschedule.yml` で外す。2026-10-13 に YouTube を一旦止めたときに足した）。
@@ -94,9 +94,10 @@ config/content-registry.json          チャネル×形式・アカウント・I
 
 ## 素材の置き場
 
+- 画像生成ツールで完成済みの画像は `npm run media -- plate --pub <公開ID> --role <役割> --prompt-file <生成指示> --input <画像パス> --commit` で画素を保持して採用する。再生成せずAI来歴と未判定の監査行を登録し、`ai-image-fidelity-auditor` の判定を `check-image-origin record-ai` で記録する。入力が欠けた場合は生成へ戻らず停止する。
 - 手元 `.tmp/media/{exam}/{work}/{channel}.{format}[.{variant}]/{role}.{sha8}.{ext}` → Drive `制作物/コンテンツ/` の同じ相対パス（drive-vault の group `content-media`・`immutable`）。ブランド共通は `.tmp/media/_brand/{design}/{role}.{sha8}.{ext}`。
 - `{sha8}` は中身の sha256 の先頭 8 桁。同じ名前で中身が違うことは起こらない（描き直すと別名になる）。immutable の group では上書きと `--force` を拒否する。
-- 描画の作業場 `.tmp/video-render/{packId}/` は使い捨て。成果物だけを `npm run media -- promote` で取り込む。
+- 描画の作業場 `.tmp/video-render/{packId}/` は使い捨て。成果物だけを `npm run media -- promote` で取り込む。作品内の表示順を表す `scene-NNN` と複数枚の `contact-sheet-N` は役割の連番を許す。render-manifest の全場面PNGは `scene-NNN` として登録し、詳細画面の本文画像ギャラリーと visual digest の対象になる。
 - パスの組み立てと分解は `scripts/lib/media-paths.mjs` だけが行う。採用 PNG として読んでよいパスの判定（`isAdoptedPngPath`）もここにあり、表紙・締め画像の読み手（`youtube-approved-cover.mjs`・`stage-youtube-covers.mjs`・`video-cta.mjs`）が使う。
 - 2026-10-09 に、2026-09-09 の一括適用で日付フォルダ・連番名に置いた採用表紙 337・締め画像 113・ブランド素材 3（ロゴ・背景・Shorts の締め画像＝`_brand/bridge-notebook-a/`）を、画素を変えずにこの置き場へ移した（`npm run media -- adopt-video-brand`・DN-0607）。Shorts の公開の `media.cta` はブランド共通の素材 `brand/bridge-notebook-a/cta-shorts` を指す。旧 Shorts の 10 件（`content/sns/youtube/cover-design.json`）は台帳の ID ができる P4 で移す。
 - CI が読む YouTube の転送用は private R2 の sha 名（`youtube-staging/{sha256}.mp4`）へ P3 で移す。

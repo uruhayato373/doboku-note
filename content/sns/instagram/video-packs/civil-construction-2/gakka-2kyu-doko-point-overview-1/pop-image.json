@@ -1,0 +1,120 @@
+{
+  "policy": ".claude/knowledge/reference/pop-image-policy.md",
+  "source": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-doko-point-overview-1",
+  "outputs": {
+    "reel": {
+      "publicationId": "civil-construction-2/gakka-2kyu-doko/instagram.reel.point-overview-1",
+      "copy": {
+        "exam": "2級土木",
+        "headline": [
+          "土工の頻出点",
+          "4テーマで整理"
+        ],
+        "themes": [
+          "土質試験",
+          "土量変化",
+          "締固め",
+          "軟弱地盤"
+        ],
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/storyboard.json#overview"
+      ],
+      "prompt": "承認画像の同一先生と緑黄色POPの漫画画風で、YouTube ShortsとInstagram Reelsに共用する縦1080×1920の冒頭表紙を新規制作。縦9:16専用構図。上端10％、右端18％、下端20％は背景のみの安全域。全ての重要な文字は幅の左8％から右80％まで、高さ12％から74％までに入れる。文字は上から「2級土木」「土工の頻出点」「4テーマで整理」。中央に大きい2×2のカード、正確に4つ「土質試験」「土量変化」「締固め」「軟弱地盤」。人物は四カードの下、胸上の小さい先生、左手で4テーマのチェックリストを掲げ、右手でペンを握り解説、参照と同じ黒髪・黒眼鏡・ひげ・紺作業服。カードと人物は重ならない。各カードの漫画図は、土試料と採取器、土を積むダンプ、ローラー、細い砂ドレーン断面。軟弱地盤図は上に薄い水平砂排水層、均質な粘土地盤に埋めた細い鉛直排水材、太い穴開きパイプや地下の水槽なし。黄色の著者帯「総監が制作」は高さ72％、下の20％余白には文字を置かない。人物は80％以下に伸ばさない。太く正確な日本語、短い明瞭な見出し。価格・URL・合格保証・指定以外の文字なし。縦専用で、横長画像を切り取っただけにしない。\n",
+      "references": [
+        {
+          "path": ".tmp/soil-chapter/soil-chapter.png",
+          "sha256": "0acb21610960faaab52faf307483a78e9f8e4dad6fa66195092d3f9d6ab6e032"
+        }
+      ],
+      "generations": [
+        {
+          "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/instagram.reel.point-overview-1/generation-cover-v1.5e4db439.png",
+          "sha256": "5e4db4395ad17d47d1072aa836f0e2009eade00105cd86c9097e1b0312b74c02"
+        }
+      ],
+      "output": {
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/instagram.reel.point-overview-1/cover.4fe5395e.png",
+        "sha256": "4fe5395ef89372ff29df1a95e7b03da8fa952dac0245ab51d3930aea045ad165",
+        "width": 1080,
+        "height": 1920
+      },
+      "review": {
+        "status": "ai-ok",
+        "by": "ai-image-fidelity-auditor",
+        "viewportWidth": 360,
+        "screenshot": ".tmp/media/civil-construction-2/gakka-2kyu-doko/work/review-batch01-360.0de618a9.jpg",
+        "userImageReview": "pending",
+        "screenshotSha256": "0de618a950ba7802d6555f6da276e9c24420bb1d797b117a7765869dfa69546a",
+        "adminVerified": true
+      },
+      "publication": "ローカル画像のみ採用・外部未反映・音声と動画は保持",
+      "storage": {
+        "group": "content-media",
+        "cloudVerified": true
+      }
+    }
+  },
+  "revisions": {
+    "all-channels-20261011-batch01": {
+      "design": "pop-poster-v3",
+      "entries": [
+        {
+          "publicationId": "civil-construction-2/gakka-2kyu-doko/instagram.reel.point-overview-1",
+          "copy": {
+            "exam": "2級土木",
+            "headline": [
+              "土工の頻出点",
+              "4テーマで整理"
+            ],
+            "themes": [
+              "土質試験",
+              "土量変化",
+              "締固め",
+              "軟弱地盤"
+            ],
+            "authority": "総監が制作"
+          },
+          "evidence": [
+            "content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/storyboard.json#overview"
+          ],
+          "prompt": "承認画像の同一先生と緑黄色POPの漫画画風で、YouTube ShortsとInstagram Reelsに共用する縦1080×1920の冒頭表紙を新規制作。縦9:16専用構図。上端10％、右端18％、下端20％は背景のみの安全域。全ての重要な文字は幅の左8％から右80％まで、高さ12％から74％までに入れる。文字は上から「2級土木」「土工の頻出点」「4テーマで整理」。中央に大きい2×2のカード、正確に4つ「土質試験」「土量変化」「締固め」「軟弱地盤」。人物は四カードの下、胸上の小さい先生、左手で4テーマのチェックリストを掲げ、右手でペンを握り解説、参照と同じ黒髪・黒眼鏡・ひげ・紺作業服。カードと人物は重ならない。各カードの漫画図は、土試料と採取器、土を積むダンプ、ローラー、細い砂ドレーン断面。軟弱地盤図は上に薄い水平砂排水層、均質な粘土地盤に埋めた細い鉛直排水材、太い穴開きパイプや地下の水槽なし。黄色の著者帯「総監が制作」は高さ72％、下の20％余白には文字を置かない。人物は80％以下に伸ばさない。太く正確な日本語、短い明瞭な見出し。価格・URL・合格保証・指定以外の文字なし。縦専用で、横長画像を切り取っただけにしない。\n",
+          "references": [
+            {
+              "path": ".tmp/soil-chapter/soil-chapter.png",
+              "sha256": "0acb21610960faaab52faf307483a78e9f8e4dad6fa66195092d3f9d6ab6e032"
+            }
+          ],
+          "generations": [
+            {
+              "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/instagram.reel.point-overview-1/generation-cover-v1.5e4db439.png",
+              "sha256": "5e4db4395ad17d47d1072aa836f0e2009eade00105cd86c9097e1b0312b74c02"
+            }
+          ],
+          "output": {
+            "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/instagram.reel.point-overview-1/cover.4fe5395e.png",
+            "sha256": "4fe5395ef89372ff29df1a95e7b03da8fa952dac0245ab51d3930aea045ad165",
+            "width": 1080,
+            "height": 1920
+          },
+          "review": {
+            "status": "ai-ok",
+            "by": "ai-image-fidelity-auditor",
+            "viewportWidth": 360,
+            "screenshot": ".tmp/media/civil-construction-2/gakka-2kyu-doko/work/review-batch01-360.0de618a9.jpg",
+            "userImageReview": "pending",
+            "screenshotSha256": "0de618a950ba7802d6555f6da276e9c24420bb1d797b117a7765869dfa69546a",
+            "adminVerified": true
+          },
+          "publication": "ローカル画像のみ採用・外部未反映・音声と動画は保持",
+          "storage": {
+            "group": "content-media",
+            "cloudVerified": true
+          }
+        }
+      ],
+      "previousOutputs": {}
+    }
+  }
+}

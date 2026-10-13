@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "pointing",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/gakka-haikibutsu-recycle/youtube.longform/cover.240b3343.png",
-        "sha256": "240b3343fc65bfe162e5c20a0e7a4b322e10f7507fd086533d0059c047ab20a8",
-        "specSha256": "61ab372dca543ad9a3d5e7c941c2c04306bb6e4fe892a79da6c84c81ca585474"
+        "path": ".tmp/media/civil-construction-1/gakka-haikibutsu-recycle/youtube.longform/cover.3415f5d6.png",
+        "sha256": "3415f5d6c3c73c68b67fa6b2c0548ad29be4e287264e7d140486c996e37d7cb5",
+        "specSha256": "4cefb82bbf7250ad0b9b3f9b2fa8eb278e89a5a154ea24e000ec4873ae4612dd"
       }
     },
     "point-overview-1": {
@@ -30,13 +35,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/gakka-haikibutsu-recycle/youtube.short.point-overview-1/cover.0b0da0d0.png",
-        "sha256": "0b0da0d03394364d3ba118ece8765c00086694aab2b7862700583472b8017970",
-        "specSha256": "2c91f9e01aa3786bfecacf16ba870aea9caa5c430d0ba799cb5ccc6b9136aa11"
+        "path": ".tmp/media/civil-construction-1/gakka-haikibutsu-recycle/youtube.short.point-overview-1/cover.dcf85b32.png",
+        "sha256": "dcf85b32b77603d3afe1c88d5f6864e314b6872c80b5357b65b18ca2acd049f9",
+        "specSha256": "b3d2001f2c78f0f5932b4b3292b32f73e9b0510020a093b7a6d36acae6f18b55"
       }
     },
     "point-step1-2": {
@@ -49,13 +59,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/gakka-haikibutsu-recycle/youtube.short.point-step1-2/cover.10c0a13f.png",
-        "sha256": "10c0a13f4073edd20dcd19d3e6f4740e7faed8939b910f0a60caa3463d60ff82",
-        "specSha256": "95861b7e139dcfc4f26897b1d22795ae18b4fc456656283ea02001940188043f"
+        "path": ".tmp/media/civil-construction-1/gakka-haikibutsu-recycle/youtube.short.point-step1-2/cover.a73cbd35.png",
+        "sha256": "a73cbd3502a1ecb76f4386020f92e7660cf7587b22a6a8f8f52922890af2d61f",
+        "specSha256": "839cf0a6d894d317da54e88e534237250b7c25497a4fea8c39da0068fe122bd3"
       }
     }
   }

@@ -1,0 +1,304 @@
+{
+  "policy": ".claude/knowledge/reference/pop-image-policy.md",
+  "designVersion": "pop-20260927",
+  "channel": "youtube",
+  "source": "content/sns/video-packs/civil-construction-2/gakka-2kyu-concrete",
+  "outputs": {
+    "longform": {
+      "publicationId": "civil-construction-2/gakka-2kyu-concrete/youtube.longform",
+      "copy": {
+        "exam": "civil-2",
+        "headline": [
+          "コンクリート",
+          "頻出点を整理"
+        ],
+        "benefit": "",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/video-packs/civil-construction-2/gakka-2kyu-concrete/cover-design.json#covers/longform",
+        "content/sns/video-packs/civil-construction-2/gakka-2kyu-concrete/youtube.json#longform"
+      ],
+      "references": [
+        {
+          "path": ".tmp/video-render/pop-matome-2kyu-20261010/thumbnail-palm-v1.png",
+          "sha256": "8fd0987d6c7b7ad74645dbfa1971f42f3128e47ed4645c9d93048a579b6542cb"
+        },
+        {
+          "path": "content/sns/_assets/character/_source/pop-explaining.png",
+          "sha256": "e88700289679362e7a5ab6867187b32287701b861e55fe0be2d5835b2de527a0"
+        }
+      ],
+      "prompt": "参照画像の右側の先生キャラクターを正確に継承した、動画表紙に組み込む人物だけの高解像度PNG素材を制作してください。白い無地のヘルメット、黒髪、黒縁眼鏡、40代男性の同じ顔とひげ、紺の作業服とネクタイ、黄色と白の反射帯。参照の顔の描線・アニメ塗り・表情を保持。腰から上、正面を向き、画面左へ片手を開いて内容を紹介するポーズ。指は自然な5本指。ヘルメットの頂点・両肘・手指・腰の端まで完全に収め、外側に5%以上の透過余白。人物は画面の大部分を占める。手が左へ大きく突き出しすぎない。背景は完全透明、文字・ロゴ・記号・背景・床・影・看板は一切なし。横長の表紙で文字は左に置くため、人物の顔は素材の中央から少し右。元の表紙にある文字や緑背景は描かない。1人だけ。",
+      "promptScope": "共有する先生素材の生成。見出しは編集可能な原稿をレンダラーで組版。",
+      "format": {
+        "width": 1920,
+        "height": 1080
+      },
+      "render": {
+        "template": "character-pop-v2",
+        "variant": "explain",
+        "pose": "pop-explaining"
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-concrete/youtube.longform/cover.30b3c732.png",
+        "sha256": "30b3c732e9b6d20ba7a5cf89976d4b0ed60ce7160ca5ec129c1fe89c3071e484"
+      },
+      "review": {
+        "status": "agent-reviewed",
+        "by": "Codex",
+        "checkedAt": "2026-10-10T15:17:18.121Z",
+        "viewportWidth": 360,
+        "checks": [
+          "見出しと資格名の可読性",
+          "文字化け",
+          "文字・人物の切れ",
+          "内容と見出しの整合"
+        ],
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "key": ".tmp/media/civil-construction-2/gakka-2kyu-concrete/youtube.longform/cover.30b3c732.png"
+      },
+      "publication": "ローカル差し替え・外部未反映"
+    },
+    "point-block1-2": {
+      "publicationId": "civil-construction-2/gakka-2kyu-concrete/youtube.short.point-block1-2",
+      "copy": {
+        "exam": "civil-2",
+        "headline": [
+          "混和剤と混和材",
+          "違いを区別する"
+        ],
+        "benefit": "",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/video-packs/civil-construction-2/gakka-2kyu-concrete/cover-design.json#covers/point-block1-2",
+        "content/sns/video-packs/civil-construction-2/gakka-2kyu-concrete/youtube.json#shorts/point-block1-2"
+      ],
+      "references": [
+        {
+          "path": ".tmp/video-render/pop-matome-2kyu-20261010/thumbnail-palm-v1.png",
+          "sha256": "8fd0987d6c7b7ad74645dbfa1971f42f3128e47ed4645c9d93048a579b6542cb"
+        },
+        {
+          "path": "content/sns/_assets/character/_source/pop-pointing.png",
+          "sha256": "f0bafda4a9743b3f2c8ca5182299d0e1ed8851165f33b5b60bddfc0598d9a1eb"
+        }
+      ],
+      "prompt": "参照画像の右側の先生キャラクターを正確に継承した、動画表紙に組み込む人物だけの高解像度PNG素材を制作してください。白い無地のヘルメット、黒髪、黒縁眼鏡、40代男性の同じ顔とひげ、紺の作業服とネクタイ、黄色と白の反射帯。参照の顔の描線・アニメ塗り・表情を保持。腰から上、正面を向き、画面左側の肩の横で人差し指を上へ1本立て、要点を説明するポーズ。残り4本の指と手首は自然な構造。ヘルメットの頂点・両肘・手指・腰の端まで完全に収め、外側に5%以上の透過余白。人物は画面の大部分を占める。背景は完全透明、文字・ロゴ・記号・背景・床・影・看板は一切なし。元の表紙にある文字や緑背景は描かない。1人だけ。",
+      "promptScope": "共有する先生素材の生成。見出しは編集可能な原稿をレンダラーで組版。",
+      "format": {
+        "width": 1080,
+        "height": 1920
+      },
+      "render": {
+        "template": "character-pop-v2",
+        "variant": "compare",
+        "pose": "pop-pointing"
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-concrete/youtube.short.point-block1-2/cover.6275262c.png",
+        "sha256": "6275262c61144bfdfb14d49d736e2cccabe4d0db4d3667db5d0e65dd41eca77a"
+      },
+      "review": {
+        "status": "agent-reviewed",
+        "by": "Codex",
+        "checkedAt": "2026-10-10T15:17:18.121Z",
+        "viewportWidth": 360,
+        "checks": [
+          "見出しと資格名の可読性",
+          "文字化け",
+          "文字・人物の切れ",
+          "内容と見出しの整合"
+        ],
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "key": ".tmp/media/civil-construction-2/gakka-2kyu-concrete/youtube.short.point-block1-2/cover.6275262c.png"
+      },
+      "publication": "ローカル差し替え・外部未反映"
+    },
+    "point-overview-1": {
+      "publicationId": "civil-construction-2/gakka-2kyu-concrete/youtube.short.point-overview-1",
+      "copy": {
+        "exam": "civil-2",
+        "headline": [
+          "コンクリート",
+          "４テーマで整理"
+        ],
+        "benefit": "",
+        "authority": "総監が制作"
+      },
+      "evidence": [
+        "content/sns/video-packs/civil-construction-2/gakka-2kyu-concrete/cover-design.json#covers/point-overview-1",
+        "content/sns/video-packs/civil-construction-2/gakka-2kyu-concrete/youtube.json#shorts/point-overview-1"
+      ],
+      "references": [
+        {
+          "path": ".tmp/video-render/pop-matome-2kyu-20261010/thumbnail-palm-v1.png",
+          "sha256": "8fd0987d6c7b7ad74645dbfa1971f42f3128e47ed4645c9d93048a579b6542cb"
+        },
+        {
+          "path": "content/sns/_assets/character/_source/pop-explaining.png",
+          "sha256": "e88700289679362e7a5ab6867187b32287701b861e55fe0be2d5835b2de527a0"
+        }
+      ],
+      "prompt": "参照画像の右側の先生キャラクターを正確に継承した、動画表紙に組み込む人物だけの高解像度PNG素材を制作してください。白い無地のヘルメット、黒髪、黒縁眼鏡、40代男性の同じ顔とひげ、紺の作業服とネクタイ、黄色と白の反射帯。参照の顔の描線・アニメ塗り・表情を保持。腰から上、正面を向き、画面左へ片手を開いて内容を紹介するポーズ。指は自然な5本指。ヘルメットの頂点・両肘・手指・腰の端まで完全に収め、外側に5%以上の透過余白。人物は画面の大部分を占める。手が左へ大きく突き出しすぎない。背景は完全透明、文字・ロゴ・記号・背景・床・影・看板は一切なし。横長の表紙で文字は左に置くため、人物の顔は素材の中央から少し右。元の表紙にある文字や緑背景は描かない。1人だけ。",
+      "promptScope": "共有する先生素材の生成。見出しは編集可能な原稿をレンダラーで組版。",
+      "format": {
+        "width": 1080,
+        "height": 1920
+      },
+      "render": {
+        "template": "character-pop-v2",
+        "variant": "explain",
+        "pose": "pop-explaining"
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-concrete/youtube.short.point-overview-1/cover.35484d87.png",
+        "sha256": "35484d87b59b6c6323863edf2cbfbdca39248845a6ac9fcb990a0ee4ac280bd8"
+      },
+      "review": {
+        "status": "agent-reviewed",
+        "by": "Codex",
+        "checkedAt": "2026-10-10T15:17:18.121Z",
+        "viewportWidth": 360,
+        "checks": [
+          "見出しと資格名の可読性",
+          "文字化け",
+          "文字・人物の切れ",
+          "内容と見出しの整合"
+        ],
+        "userImageReview": "pending"
+      },
+      "storage": {
+        "group": "content-media",
+        "key": ".tmp/media/civil-construction-2/gakka-2kyu-concrete/youtube.short.point-overview-1/cover.35484d87.png"
+      },
+      "publication": "ローカル差し替え・外部未反映"
+    }
+  },
+  "revisions": {
+    "point-block1-2": {
+      "version": "pop-poster-v3",
+      "publicationId": "civil-construction-2/gakka-2kyu-concrete/youtube.short.point-block1-2",
+      "copy": {
+        "exam": "2級土木",
+        "headline": [
+          "混和剤",
+          "混和材",
+          "違いは？"
+        ],
+        "authority": "総監が解説"
+      },
+      "evidence": [
+        "content/sns/video-packs/civil-construction-2/gakka-2kyu-concrete/storyboard.json"
+      ],
+      "pose": "two-palms-compare",
+      "generation": [
+        {
+          "step": "original",
+          "prompt": "Use case: ads-marketing.\n参照画像はユーザー自身の承認済みココナラ商品画像です。これと同じ先生、極太で躍動感のある日本語、白・黄色・少量の赤、鮮やかな資格色、斜め帯、薄い土木現場背景が一体になった、完成済みのYouTube Shorts表紙を新しく制作してください。\n1080×1920、9:16の縦長。横長原本の単純クロップ・引き伸ばしは禁止。人物だけの素材ではなく、文字と人物と背景が一体のポスターです。上の文字、離れた下の小さな人物、空白の大きい説明スライドにはしない。\n大見出しと先生の顔が中央の縦長ポスターを満たす。背景の薄い現場イラストは細部を主張しない。中央の75%の高さで構図を完結し、上下各約180〜230pxは背景の延長だけにする。右端約170pxは操作ボタンに備えて文字と目を置かない。重要文字と帽子・顔は完全に画面内。顔は画面の幅の約38%、人物の上半身は中央から下へ大きく配置し、小さな立ち絵にしない。下端の空白は背景の継続と人物の胴体で自然に埋める。顔の上に文字を重ねない。\n最上部の資格名は白の極太文字に濃い輪郭と強い影。主題は白または黄色の極太文字に濃い輪郭。問い・注意語は赤または黄色に白い輪郭。硬い長方形の白いテキスト箱を縦に並べず、斜めの白い面、線、ダイナミックな文字の大小で見せる。実際のココナラ原本に近い描き込みと迫力。主要文字は幅360pxで一目で読める大きさに。\n40代男性の同じ先生。原本の顔・短い黒髪・黒縁眼鏡・軽いひげ・白い無地ヘルメット・紺色作業服・白シャツ・紺のネクタイ・黄色と白の反射帯を保持。大人の知的で親しみやすい顔、若い少年・別人・写真風に変えない。\n指定した日本語だけを正確に表示する。ブランド名・URL・値段・合格保証・数字・追加の説明・YouTubeのUIは足さない。ココナラのサービス文言はコピーしない。\nこの画像は2級土木のコンクリートの学習で、混和剤と混和材を区別するShortsの表紙。資格色は原本の緑、明るいミントを多めにして比較の爽やかさを出す。\n表示する文字は「2級土木」「混和剤」「混和材」「違いは？」「総監が解説」の5つだけ。上に大きな白い「2級土木」。中央上に「混和剤」と「混和材」を大きく、二つを対比して見せる。その下に「違いは？」を黄色の極太、濃い輪郭で主役にする。「総監が解説」は黄色の小さい斜め帯。二つを比べることが文字だけで伝わる。文字の並びを横長サムネのまま縦に押し込まない。\n先生は赤ペンや指差しを使わず、左右の両手のひらを上向きに広げ、二つの考え方を比較して説明するポーズ。両手は自然な5本指で肩幅の範囲に収め、画面外へ切らない。顔と胸上を中央右〜下に大きく。参照の同じ大人の顔、眼鏡、ヘルメット、服を保持。袋・液体・実物の薬剤などは描かない。",
+          "references": [
+            {
+              "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+              "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+            }
+          ],
+          "format": {
+            "width": 941,
+            "height": 1672
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/gakka-2kyu-concrete/youtube.short.point-block1-2/cover.5da24034.png",
+            "sha256": "5da24034fa5d0ea6c00e94766e2e30262ae8d67da4f8b793aae8df4c611088b1"
+          },
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/civil-construction-2/gakka-2kyu-concrete/youtube.short.point-block1-2/cover.5da24034.png"
+          }
+        },
+        {
+          "step": "safe",
+          "prompt": "画像1は修正対象の、既に制作した縦型表紙です。先生の顔、ポーズ、服、文字、色、ココナラらしい極太の縁取り・斜め帯・背景の描き込みを保持して、縦型Shortsの安全な配置に構成し直してください。画像自体をクロップしたり、縦横比を歪めたりしない。\n重要な修正：上端から画像の高さの12%（約230px相当）は背景だけ。最下部の16%（約300px相当）は文字なし。右端の14%（約150px相当）は背景または服の端だけ。文字・眼・口・手の動作をこの範囲に入れない。主要なデザインはx=5〜84%、y=13〜82%に収める。人物の服の下端は画面下端まで自然に続いてよい。\n文字と顔のサイズ関係、描線、太い輪郭と斜めの文字の迫力は保持。余白を一様な単色の長方形にせず、元の斜線・現場シルエット・光の背景を上下へ描き足す。本文スライドのような白い箱・小さな人物へ戻さない。\n「総監が解説」は短い黄色帯に5文字すべてをはっきり描く。先生の帽子・顔・手や別の文字と重ねず、左の空いている小さな領域へ置く。文言・ポーズを変えず、同じ先生を保持。指定外の文言・ブランド・UI・値段は一切追加しない。\n出力は9:16の完成画像。",
+          "references": [
+            {
+              "path": ".tmp/media/civil-construction-2/gakka-2kyu-concrete/youtube.short.point-block1-2/cover.5da24034.png",
+              "sha256": "5da24034fa5d0ea6c00e94766e2e30262ae8d67da4f8b793aae8df4c611088b1"
+            }
+          ],
+          "format": {
+            "width": 941,
+            "height": 1672
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/gakka-2kyu-concrete/youtube.short.point-block1-2/cover.2e1bc853.png",
+            "sha256": "2e1bc8533e59d0f081d7808e633f700f1bca30f08a1e3e6f82b77792fd5fd6c3"
+          },
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/civil-construction-2/gakka-2kyu-concrete/youtube.short.point-block1-2/cover.2e1bc853.png"
+          }
+        },
+        {
+          "step": "final",
+          "prompt": "画像の文字、人物、両手で比べるポーズ、背景、顔、縦横比とサイズをそのまま保持してください。変更は黄色の著者帯の配置だけです。黄色帯の「総監が解説」の最後の「説」がヘルメットに隠れています。黄色帯を少し左へ、文字をひとまわり小さくして、5文字をすべて画面内に見せてください。左端に白い余白を少し確保する。帯全体の横幅は画像幅の40%まで、人物と絶対に重ならない。先生の頭を動かさない、他の文言や背景を足さない。元の極太・斜めのPOP意匠を保持してください。完成画像1枚。",
+          "references": [
+            {
+              "path": ".tmp/media/civil-construction-2/gakka-2kyu-concrete/youtube.short.point-block1-2/cover.2e1bc853.png",
+              "sha256": "2e1bc8533e59d0f081d7808e633f700f1bca30f08a1e3e6f82b77792fd5fd6c3"
+            }
+          ],
+          "format": {
+            "width": 941,
+            "height": 1672
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/gakka-2kyu-concrete/youtube.short.point-block1-2/cover.44337489.png",
+            "sha256": "4433748920fa6c609bdc7b4c0d15f9a1307c25776dab011d53001d032515e569"
+          },
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/civil-construction-2/gakka-2kyu-concrete/youtube.short.point-block1-2/cover.44337489.png"
+          }
+        }
+      ],
+      "output": {
+        "path": ".tmp/media/civil-construction-2/gakka-2kyu-concrete/youtube.short.point-block1-2/cover.44337489.png",
+        "sha256": "4433748920fa6c609bdc7b4c0d15f9a1307c25776dab011d53001d032515e569"
+      },
+      "format": {
+        "width": 941,
+        "height": 1672
+      },
+      "storage": {
+        "group": "content-media",
+        "key": ".tmp/media/civil-construction-2/gakka-2kyu-concrete/youtube.short.point-block1-2/cover.44337489.png"
+      },
+      "review": {
+        "status": "composition-preview",
+        "checkedAt": "2026-10-11T00:27:48.288Z",
+        "by": "Codex",
+        "viewportWidth": 360,
+        "checks": {
+          "copyMatches": true,
+          "readable": true,
+          "poseMatchesContent": true,
+          "authorityNotOccluded": true
+        },
+        "userImageReview": "style-approved",
+        "shortsUiReview": "pending",
+        "styleApproval": {
+          "date": "2026-10-11",
+          "evidence": "ok この感じでショートも通常動画も",
+          "scope": "通常動画・Shortsの意匠と内容別ポーズ。媒体寸法・操作UI・動画への採用は別途確認"
+        }
+      },
+      "publication": "意匠承認済み・動画未採用・外部未反映"
+    }
+  }
+}

@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "pointing",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/keiken-taio-hyoka/youtube.longform/cover.52d2280a.png",
-        "sha256": "52d2280a1364ad4f1941c21f8f4b503d9b9e5db7f4830d91e2ec14b3e91532af",
-        "specSha256": "6ed04d7b84ac8c559cdc2674a1c9adc385d846288f2df6189b247a2fd98e7fc8"
+        "path": ".tmp/media/civil-construction-1/keiken-taio-hyoka/youtube.longform/cover.9f85ad57.png",
+        "sha256": "9f85ad57d788c73f60bea54a10f01a5d7f80740e1275878ed73613f6b327f548",
+        "specSha256": "67753eae8314e86afc1f048798ea354ed2f2e35c6ef687f31083432809a273da"
       }
     },
     "point-block1-1": {
@@ -30,13 +35,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "pointing",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/keiken-taio-hyoka/youtube.short.point-block1-1/cover.ecb51ea5.png",
-        "sha256": "ecb51ea5bb483611973fe442e381ed3eb662940dbe0b2de59a952943df5a9b60",
-        "specSha256": "b2ce04d1ceb489ad174f46194f7576a9781b9c78f7e0c5ee062bd3373c78b659"
+        "path": ".tmp/media/civil-construction-1/keiken-taio-hyoka/youtube.short.point-block1-1/cover.7798b063.png",
+        "sha256": "7798b063ea6d8b213d323583ff80c9b0d06d6e94e6ee6f4bec2a4cb03cfe67fa",
+        "specSha256": "da051ecfb1fb931f0261ec6476ccb2d1763c89a0fb5a001d959c7601f208e31d"
       }
     },
     "point-block2-2": {
@@ -50,13 +60,18 @@
       "accentLine": 2,
       "subtitle": "",
       "character": {
-        "pose": "pointing",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/keiken-taio-hyoka/youtube.short.point-block2-2/cover.0c40beaa.png",
-        "sha256": "0c40beaaf696d905e8652f6df677f6d6a2df3ef15ffd5cb4730e2600905897da",
-        "specSha256": "5e1276b8db3f1daa917dfd953e52c7945660150017145660f7245f503b36dd52"
+        "path": ".tmp/media/civil-construction-1/keiken-taio-hyoka/youtube.short.point-block2-2/cover.f2e5ac5c.png",
+        "sha256": "f2e5ac5c6af1e02ab5418aacaa714045629cc2306dcdfa3cd559151e06fa1994",
+        "specSha256": "7a98f03daf2c40a013b745a140513d849a51e9eab8bfed990903916cead45c1f"
       }
     }
   }

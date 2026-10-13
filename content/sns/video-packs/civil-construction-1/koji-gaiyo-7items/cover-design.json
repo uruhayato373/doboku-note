@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "施工経験記述｜矛盾を防ぐ確認順序",
       "character": {
-        "pose": "pointing",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/koji-gaiyo-7items/youtube.longform/cover.fb3acc81.png",
-        "sha256": "fb3acc8149564025c0b9ad9ad69289c1e0dadf8e49a6721b0dcafc35495ad47d",
-        "specSha256": "a87732ea5ab4964024967a1ed2d3ce453ad4d0154c3249c4ab6f83b90aa0b6e1"
+        "path": ".tmp/media/civil-construction-1/koji-gaiyo-7items/youtube.longform/cover.af2003cd.png",
+        "sha256": "af2003cd61ac4ef3fb51cdfaa64f618bf652e4f937d8bf4b7e25b346c20ba11b",
+        "specSha256": "3e3592839eb3bcc20145f9a12fd58b56220cec5fd22525342dddba1309943a16"
       }
     },
     "koshu-sekoryo": {
@@ -30,13 +35,18 @@
       "accentLine": 1,
       "subtitle": "工事概要の書き方",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-red-pen",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/koji-gaiyo-7items/youtube.short.koshu-sekoryo/cover.c9ac3479.png",
-        "sha256": "c9ac34794f336978c77024272e69b98d7251d9f00b3fa3bd322628f547e47a35",
-        "specSha256": "629e6a3ad794587ec39e57fb458fe6f7475b9300526441a4be728be05735d863"
+        "path": ".tmp/media/civil-construction-1/koji-gaiyo-7items/youtube.short.koshu-sekoryo/cover.1de5a084.png",
+        "sha256": "1de5a0847f71c7cb799c552f6026023369ba655d01b5135275cc800e4ad414cf",
+        "specSha256": "ba82764edd704536a95917d7ebe461c93f5213e243491b66ff670d0ca0180cb2"
       }
     },
     "koki-sekoryo": {
@@ -49,13 +59,18 @@
       "accentLine": 1,
       "subtitle": "工事概要の整合チェック",
       "character": {
-        "pose": "thinking",
+        "pose": "pop-pointing",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "question",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/koji-gaiyo-7items/youtube.short.koki-sekoryo/cover.c9753f2b.png",
-        "sha256": "c9753f2b54a4b152f157cf6650aeee93ee5b5ebf2672d15a14fde18f140683f3",
-        "specSha256": "81ab7a3d7e4be9833ab2c43c2559a185f18f118dde42ecacbcdc533aaea07889"
+        "path": ".tmp/media/civil-construction-1/koji-gaiyo-7items/youtube.short.koki-sekoryo/cover.a8090e22.png",
+        "sha256": "a8090e2293d1e63d29eb5fae2925d5d41c55b77df74081fb87c801febbad8f88",
+        "specSha256": "1ae9fdd0ff8f73a9f01f25ce29c1f6fff9653ca73bc531195947864b2305406d"
       }
     }
   }

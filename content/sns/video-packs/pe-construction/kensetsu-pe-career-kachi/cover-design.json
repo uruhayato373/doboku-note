@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-construction",
+      "headline": [
+        "技術士の価値",
+        "仕事はどう変わる"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-construction/kensetsu-pe-career-kachi/youtube.longform/cover.4132c90a.png",
+        "sha256": "4132c90a413ef31b32bef221b8583b235d819f961c63739900d1e88abd5d424d",
+        "specSha256": "7912cf0ea7d6153c913d7b5023d37aa5c2bf7e36408cf2ad8e07e246889edf54"
+      }
+    }
+  }
+}

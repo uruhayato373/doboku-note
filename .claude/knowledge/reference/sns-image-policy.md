@@ -15,8 +15,8 @@ YouTube サムネ・Shorts/Reels 冒頭・Instagram 表紙・X カードでは�
 
 | 場面 | 既定の構成 |
 |---|---|
-| YouTube 通常動画サムネ（16:9） | 紺背景、白・黄色の極太見出しを左、先生の上半身を右 |
-| Shorts / Reels 冒頭（9:16） | 紺背景、問いを上部、先生を下部。操作ボタン・字幕・説明欄との重なりを実表示で確認 |
+| YouTube 通常動画サムネ（16:9） | 資格色のPOP背景、極太見出しを左、先生の上半身を右。総監訴求は黄色の帯 |
+| Shorts / Reels 冒頭（9:16） | 資格色のPOP背景、問いを上部、先生を下部。操作ボタン・字幕・説明欄との重なりを実表示で確認 |
 | Instagram 表紙（4:5） | 白背景、紺・青の極太見出し、黄色の強調、先生を右下 |
 | X カード（16:9） | 短い結論または問いを主役に、先生と図を内容に合わせて配置 |
 | 解説・問題・解答画面 | 図・選択肢・本文の面積を優先。先生は小さな案内役、不要なら省略。16:9 通常動画は scene で指定したときだけ右列（幅440px）に立つ案内役（[動画コンテンツ運用ポリシー §4](./video-content-policy.md)） |
@@ -25,7 +25,7 @@ YouTube サムネ・Shorts/Reels 冒頭・Instagram 表紙・X カードでは�
 - 見出しは原則 2〜3 行。長い題名を縮小して押し込まず、意味を保って短くする。問いの例「最短工期、どこで決まる？」は当該論点にだけ使い、全投稿へ固定しない。合格保証・根拠のない実績・内容にない煽りを足さない。
 - 新テンプレートの採用時は同じテーマ・見出しで複数ポーズを比較する。指差し・考え中・手のひらで解説など既存 manifest の候補から選び、問い／解説／締めに合わせて使い分ける。全投稿を同じポーズに固定せず、変化のためだけに内容と無関係な表情を使わない。
 - 縁取り・影は背景との分離に必要な範囲。人物・大見出し・補足の階層を作り、文字や図への人物の重なりを避ける。媒体別の既存寸法と余白規約は引き続き適用する。
-- 制作時は文字を編集可能なデータとレイアウトとして保持し、既存人物素材を合成する。生成画像に焼き付いた日本語や生成フォントを量産の真実源にしない。
+- テンプレート組版は文字を編集可能なデータとレイアウトとして保持し、既存人物素材を合成する。全面POP画像生成は [POP画像方針](./pop-image-policy.md) の承認見本を参照し、文字原稿・生成指示・参照SHAを `pop-image.json` に保持する。焼き付いた日本語や生成フォントを唯一の文字原稿にしない。
 - 人物の全身・腰上・胸上は [キャラクター素材ポリシー「全身・腰上・胸上の派生」](./character-asset-policy.md) の確認済み切り取りを使う。投稿時に `pose` / `frame` / `width` を選び、原寸不足なら配置を小さくするか高解像度原本を別途用意する。人物素材の生成だけで媒体別テンプレートや外部投稿の更新を完了としない。
 - QA は表紙をスマホ相当の幅 360px で実画像確認し、見出しの判読・人物同一性・文字切れ・重なり・強調の節度を指摘する。動画は冒頭フレームも確認する。実画像未確認は「未検査」とする。
 - これは新規制作・改修時の目標。既存レンダラーが自動的に対応済みとは扱わない。共通テンプレートを実装し、代表 1 件を確認してから量産へ展開する。
@@ -52,7 +52,11 @@ SNS（YouTube・Shorts/Reels・Instagram・X・note の図）に載せる機械�
 
 YouTube の後付けサムネ処理は `node .claude/scripts/youtube/set-thumbnail-uploaded.mjs`。単一の `--video-id`・`--image`・期待するチャンネルを持つ `--channel-file`（動画パックの youtube.json）を必須とし、既定はローカルdry-run。`--check-live` はアカウントと動画の実査のみ、`--commit --expect-sha256 HASH` は確認した画像だけを送る。APIは `thumbnails.set` だけを書込みに使い、公開設定・予約・本文・動画本体は更新しない。API上限2MBとアカウント一致を検査し、前後記録は `.tmp/youtube-thumbnail-updates/run-*/report.json`。API受理と画面での画像確認は別で、後者はStudio/公開画面で確認する。Shortsは機能の段階的提供があるため、アカウントごとに編集欄を確認する。既存 IG 投稿スキルは新規投稿用で、既存予約を編集済みとは扱わない。
 
-動画パックに `cover-design.json` を置くと、`npm run brand-video-pack -- --pack-dir <pack>` で人物＋編集可能な見出しの表紙（PNG・来歴）を `.tmp/media/{exam}/{packId}/youtube.*/` へ描く。共通実装は `scripts/lib/youtube-cover.mjs`。`covers.longform` は1920×1080、`covers[Shortのkey]` は1080×1920。各specは `format`・試験パレットの `exam`・2〜3行の `headline`（1行8文字以内）・`accentLine`・`subtitle`（24文字以内）・`character: {pose, frame}` を持つ。原画像は上書き・引き伸ばしせず、要修正素材と長すぎる見出しは停止する。未指定パックとlegacyレンダラーは従来意匠のまま。
+動画パックに `cover-design.json` を置くと、`npm run youtube-covers -- --spec PATH` で人物＋編集可能な見出しの見本（PNG/SVG/来歴manifest）を `.tmp/youtube-covers/run-*/` へ生成する。採用する表紙の描画は `npm run brand-video-pack -- --pack-dir <pack>`（PNG・来歴、`.tmp/media/{exam}/{packId}/youtube.*/`）。共通実装は `scripts/lib/youtube-cover.mjs`。`covers.longform` は1920×1080、`covers[Shortのkey]` は1080×1920。各specは `format`・試験パレットの `exam`・2〜3行の `headline`（1行8文字以内）・`accentLine`・`subtitle`（24文字以内）・`character: {pose, frame}` を持つ。原画像は上書き・引き伸ばしせず、要修正素材と長すぎる見出しは停止する。科目番号は字形のあるASCIIの `I / II / III` を使い、ローマ数字記号 `Ⅰ / Ⅱ / Ⅲ` は拒否する。未指定パックとlegacyレンダラーは従来意匠のまま。
+
+従来のPOP組版は `design: "pop-v2"` と `pop: {variant, authority}` で指定する。variantは `listen`・`write`・`compare`・`question`・`plan`・`explain`。`npm run youtube-covers -- --all` は停止済みを除くYouTube台帳の表紙を生成し、`.tmp/youtube-covers/pop-all/index.html` に確認一覧を作る。`--exam`・`--pub` で対象を絞り、`--commit` で原稿と正規の素材台帳へ採用する。音声・字幕・動画本体・公開状態・運営者の承認は変更しない。人物原本は `_source/`（Driveの `repo-archive`）、完成PNGは `content-media` に保存・クラウド照合する。選択済みの完成画像は入力とSHAが一致する場合に画素を保持する。
+
+画像生成ツールで作った構図比較案は制作元の `pop-image.json` の `revisions` にコピー・ポーズ・生成履歴・SHAを保存し、採用中の `outputs` と区別する。legacy Shortsの同ファイルもGitで保持する。比較案の保存だけでは `cover-design.json`・素材台帳・動画冒頭は更新されない。`pop-v2`の自動組版は人物3素材を使うため、内容別の追加ポーズや原本に近い構図を自動生成済みとは扱わない。
 
 動画の冒頭デザインを刷新する未投稿パックは、カバー画像と動画を同時再生成する。公開済み YouTube のサムネだけを変える場合は動画本体を変更したと記録しない。既存投稿の削除・再投稿は同じ ID の編集と異なり、URL・反応履歴への影響を示してユーザーの依頼範囲内で行う。
 
@@ -61,6 +65,8 @@ YouTube の後付けサムネ処理は `node .claude/scripts/youtube/set-thumbna
 全チャンネルの対象確認は `scripts/youtube-thumbnail-rollout.mjs --mode inventory`。既存 `sync-yt-descriptions.yml` の手動入力 `operation=thumbnail-inventory` で、選択したrefのコードを使う（従来の `descriptions` jobとは排他）。uploadsを全ページ取得し、総件数・重複・詳細取得の被覆・口座を検査する。0件/欠落は検査不成立。YouTubeへの書き込みはない。公開リポジトリのログへ非公開動画情報を出さず、`--mode keygen` で手元に生成した一時公開鍵だけを `report_public_key` へ渡す。artifactは暗号化JSONのみ・保持3日。秘密鍵は手元の `.tmp/youtube-rollout/keys.json` に留め、Git/CIへ送らない。取得したartifactは `--mode decrypt --input PATH --key-file .tmp/youtube-rollout/keys.json` で手元へ復号する。
 
 uploadsのページ境界で同じ公開IDが重複する場合は、投稿台帳のIDを `videos.list` で実査して不足を補完する。重複を除くだけで完了とはしない。口座が一致する実体の総数＝uploadsの総数、かつuploads由来の未取得IDが0であることを要求する。重複・補完ID・削除済み台帳IDは暗号化記録へ残し、削除済み動画を再投稿しない。
+
+uploadsと台帳で総数が一致しない場合だけ、`search.list`（`forMine=true`・`type=video`・`order=date`、最大20ページ）でも補完し、`videos.list`でIDと所有口座を照合する。台帳由来と所有動画検索由来の補完は証拠で区別する。補完後も総数が一致しなければ停止する。
 
 ### 全動画のサムネイル更新
 
@@ -77,7 +83,7 @@ uploadsのページ境界で同じ公開IDが重複する場合は、投稿台�
 
 公開中の動画を先に処理する場合はCIの `public_only=true`（CLIは `--public-only`）を使う。全件計画のSHAは同じまま、実査時点でpublicの対象だけをID順で選ぶ。後から全件処理しても、既に画像が一致する動画には再送しない。
 
-ShortsのCDN画像にはYouTubeが左右へ暗い拡大背景を補う場合がある。画素照合は左右の生成背景でなく中央の**元の縦画像全体**を対象とし、縮小時の1px丸めを考慮する。縦画像の比較時だけ両画像へ同じ1pxのぼかしをかけ、縮小・JPEG変換による輪郭差をならす。見出しや人物の領域を切り捨てて一致扱いにはしない。全体平均と局所タイル誤差を併用し、文字領域の欠落と横長への中央クロップが不一致になることを回帰テストで確認する。
+ShortsのCDN画像にはYouTubeが左右へ暗い拡大背景を補う場合がある。画素照合は左右の生成背景でなく中央の**元の縦画像全体**を対象とし、縮小時の1px丸めを考慮する。縦画像の比較では両画像へ同じ1pxのぼかしをかけ、縮小・JPEG変換による輪郭差をならす。CDNの中心画像の整数幅・高さへ先に揃える候補も比較し、その局所誤差が22未満かつ平均誤差が3以上の場合だけ、双方へ2pxのぼかしをかけた平均を再比較する。このとき局所誤差は1pxぼかし時の値を維持する。横長は平均誤差が3以上でも元の局所誤差が15未満の場合に限り、双方の全画像へ同じ0.7pxのぼかしをかけて平均を再比較し、元の局所上限は維持する。見出しや人物の領域を切り捨てて一致扱いにはしない。全体平均と局所タイル誤差を併用し、文字領域の欠落と横長への中央クロップが不一致になることを回帰テストで確認する。
 
 ## 適用範囲
 

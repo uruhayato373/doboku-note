@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-comprehensive",
+      "headline": [
+        "令和8年度予想",
+        "白書から絞る"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-comprehensive-management/r8-yosou-theme/youtube.longform/cover.62d9a13d.png",
+        "sha256": "62d9a13dbbf6e8a4d4fc8a4af7c5683a04483767617da34b91eb6f9819eddd51",
+        "specSha256": "251dc9a3489610c29a11427830bce053de2ec758056572214b2327c065c207c8"
+      }
+    }
+  }
+}

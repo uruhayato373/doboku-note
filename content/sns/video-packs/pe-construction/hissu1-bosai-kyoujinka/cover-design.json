@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-construction",
+      "headline": [
+        "防災・強靱化",
+        "論文の論点整理"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-construction/hissu1-bosai-kyoujinka/youtube.longform/cover.75085760.png",
+        "sha256": "75085760e73f45fcc7e613b46d4628bbef49aca04d854b392df69da492c6029a",
+        "specSha256": "99e6fb656f8c55364b6ee24c89a9fb81b8658711044989b10479361c24a5591b"
+      }
+    }
+  }
+}

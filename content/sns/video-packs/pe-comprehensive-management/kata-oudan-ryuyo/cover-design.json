@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-comprehensive",
+      "headline": [
+        "論文パターン",
+        "年度を越え活用"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-comprehensive-management/kata-oudan-ryuyo/youtube.longform/cover.f7bb4bb6.png",
+        "sha256": "f7bb4bb6b0a7cac4b7493b5c4590a61bc7edcfef927177552ccab599b999fe31",
+        "specSha256": "6e547dd1416271e06c26e92c9b0ecdb59718def1e515beb8740f3ffc94eef8e3"
+      }
+    }
+  }
+}

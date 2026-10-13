@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import { VideoAnnualPlan } from '@/components/video-annual-plan';
+import { loadLongformPlan } from '../../../../../../scripts/lib/youtube-longform-plan.mjs';
 import { readFileSync } from 'node:fs';
 import { PanelCard, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow } from '@/components/admin';
 import { PageHead } from '@/components/ui';
@@ -32,16 +34,22 @@ const COLOR: Record<string, string> = { exam: 'text-[color:var(--accent)]', resu
  * 設定（期間・買い場の週数）は annual-roadmap.json。年間の方針（注力しない・四半期定例）は annual.md を下部に表示する
  * （年間の画面はここだけ。/todo?f=annual はここへ転送）。
  */
-export default function RoadmapPage() {
+export default async function RoadmapPage({ searchParams }: { searchParams: Promise<{ view?: string; m?: string; e?: string; library?: string }> }) {
+  const sp = await searchParams;
   const root = findRepoRoot();
   const cfg = loadRoadmap(root) as { period: { start: string; end: string }; buyWindowWeeks: number };
   const months = monthsOf(cfg.period) as string[];
+  let videos: ReturnType<typeof loadLongformPlan> | null = null;
+  let videoError: string | null = null;
+  try { videos = loadLongformPlan(root); } catch (e) { videoError = (e as Error).message; }
   const calendar = JSON.parse(readFileSync(repoPath(datasetPath('config.exam-calendar')), 'utf8'));
   const registry = JSON.parse(readFileSync(repoPath(datasetPath('config.qualification-registry')), 'utf8')) as {
     qualifications: { id: string; portfolio: string; label?: string; shortLabel?: string }[];
   };
   const active = registry.qualifications.filter((q) => q.portfolio === 'active');
   const nameOf = (id: string) => active.find((q) => q.id === id)?.shortLabel ?? active.find((q) => q.id === id)?.label ?? id;
+  const videoExams = new Set(videos?.rows.map((r) => r.exam) ?? []);
+  const periods = Object.entries(calendar.exams as Record<string, { periods?: Record<string, { label: string; window: string }> }>).filter(([id]) => videoExams.has(id)).flatMap(([exam, q]) => Object.values(q.periods ?? {}).map((p) => ({ exam, ...p })));
   const rows = examTimeline(calendar, active.map((q) => q.id), cfg.period, cfg.buyWindowWeeks) as Row[];
   const domains = domainList();
   const rank = (label: string | null) => {
@@ -74,9 +82,17 @@ export default function RoadmapPage() {
   const buysIn = (m: string) =>
     rows.flatMap((r) => r.buys.filter((b) => b.fromDate.slice(0, 7) <= m && m < b.toDate.slice(0, 7)).map((b) => ({ ...b, q: nameOf(r.id) })));
 
+  if (sp.view === 'video') return <>
+    <PageHead title="年間ロードマップ · 通常動画" sub={`${cfg.period.start}〜${cfg.period.end} · 試験日・期間は既存台帳を参照`} />
+    <nav className="project-crumbs"><Link href="/plan/roadmap">全体計画</Link> · <Link href="/plan/roadmap?view=video">通常動画</Link></nav>
+    {videos ? <VideoAnnualPlan board={videos} months={months} exams={rows.filter((r) => videoExams.has(r.id))} periods={periods} month={months.includes(sp.m ?? '') ? sp.m : undefined} exam={sp.e} library={sp.library === '1'} /> : <p>動画計画を取得できません: {videoError}</p>}
+  </>;
+
   return (
     <>
       <PageHead title="年間ロードマップ" sub={`${cfg.period.start.replace('-', '/')}〜${cfg.period.end.replace('-', '/')}`} />
+      <nav className="project-crumbs"><Link href="/plan/roadmap?view=video">通常動画の制作・公開計画</Link></nav>
+      {videoError && <p>動画計画を取得できません: {videoError}</p>}
       <p className="mb-2 text-xs text-muted-foreground">
         ● 試験　◆ 合格発表　■ 申込　緑＝買い場（試験前 {cfg.buyWindowWeeks} 週）　薄い字＝昨年度からの推定　中＝前年同月の売上（資格別）　右＝その月に始めるカード（バックログの [時期:]）
       </p>
@@ -90,6 +106,7 @@ export default function RoadmapPage() {
             <TableHead className="w-[34%]">資格の行事</TableHead>
             <TableHead className="w-[18%]">前年同月の売上</TableHead>
             <TableHead>やること（領域）</TableHead>
+            <TableHead>通常動画</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -135,6 +152,13 @@ export default function RoadmapPage() {
                     {c.wip && <span className="project-warning-text"> 進行中</span>}
                   </div>
                 ))}
+              </TableCell>
+              <TableCell className="align-top whitespace-normal text-xs">
+                {videos ? <Link href={`/plan/roadmap?view=video&m=${m}`}>
+                  着手 {videos.rows.filter((r) => r.start?.startsWith(m)).length} 件<br />
+                  公開 {videos.rows.filter((r) => r.date?.startsWith(m) && !['library', 'reuse'].includes(r.action)).length} 枠<br />
+                  再案内 {videos.rows.filter((r) => r.date?.startsWith(m) && r.action === 'reuse').length} 件
+                </Link> : '未取得'}
               </TableCell>
             </TableRow>
           ))}

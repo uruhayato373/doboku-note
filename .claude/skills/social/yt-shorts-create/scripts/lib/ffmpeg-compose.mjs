@@ -12,7 +12,7 @@
  */
 
 import { spawn, spawnSync } from 'node:child_process';
-import { writeFileSync, mkdirSync, existsSync, renameSync } from 'node:fs';
+import { writeFileSync, mkdirSync, existsSync, renameSync, mkdtempSync, rmSync } from 'node:fs';
 import { dirname, join, resolve, isAbsolute } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -195,27 +195,20 @@ export async function composeStaticSlidesVideo({ pngPaths, wavPaths, assPath, ou
   const durations = [];
   for (const wav of wavPaths) durations.push(await probeDuration(wav));
 
-  // 入力ごとのデコーダと色変換がそれぞれスレッドを持つので、総まとめ（131場面・262入力）では
-  // 1プロセスのスレッド上限（macOS 2048）を超え「Resource temporarily unavailable」で止まった（2026-10-08）。
-  // 場面が多いときだけ、静止画の読み込みと色変換を1スレッドにする（出力は同じ）。
-  const many = pngPaths.length > 40;
-  const args = ['-y'];
-  for (let i = 0; i < pngPaths.length; i++) {
-    args.push('-loop', '1', '-framerate', '1', '-t', String(durations[i]), ...(many ? ['-threads', '1'] : []), '-i', pngPaths[i], '-i', wavPaths[i]);
-  }
-
-  const filters = [];
-  const concatInputs = [];
-  for (let i = 0; i < pngPaths.length; i++) {
-    const videoInput = i * 2;
-    const audioInput = videoInput + 1;
-    // 1 fps の静止画入力をそのまま concat すると端数秒が場面ごとに延び、
-    // WAV 実尺で組んだ字幕が先行する。映像も同じ実尺で切ってから連結する。
-    filters.push(`[${videoInput}:v]fps=30,tpad=stop_mode=clone:stop_duration=1,trim=duration=${durations[i]},setpts=PTS-STARTPTS,${many ? 'scale=threads=1,' : ''}format=yuv420p,setsar=1[v${i}]`);
-    filters.push(`[${audioInput}:a]aresample=async=1:first_pts=0[a${i}]`);
-    concatInputs.push(`[v${i}][a${i}]`);
-  }
-  filters.push(`${concatInputs.join('')}concat=n=${pngPaths.length}:v=1:a=1[vcat][aout]`);
+  // 各場面を個別に30fpsへ丸めると端数が累積する。画像は絶対時刻を持つ1入力、
+  // 音声は別のconcatにし、字幕と同じWAV実尺の時計に合わせる。
+  const scratch = mkdtempSync(join(dirname(outPath), '.slides-'));
+  const imageList = join(scratch, 'images.ffconcat');
+  const quote = path => resolve(path).replace(/'/g, "'\\''");
+  writeFileSync(imageList, 'ffconcat version 1.0\n' + pngPaths.map((path, i) =>
+    `file '${quote(path)}'\noption framerate 30\nduration ${durations[i]}\n`).join('')
+    + `file '${quote(pngPaths.at(-1))}'\noption framerate 30\n`);
+  const args = ['-y', '-threads', '1', '-f', 'concat', '-safe', '0', '-i', imageList];
+  for (const wav of wavPaths) args.push('-i', wav);
+  const filters = wavPaths.map((_, i) => `[${i + 1}:a]aresample=async=1:first_pts=0[a${i}]`);
+  filters.push(wavPaths.map((_, i) => `[a${i}]`).join('') + `concat=n=${wavPaths.length}:v=0:a=1[aout]`);
+  const totalSec = durations.reduce((a, b) => a + b, 0);
+  filters.push(`[0:v]fps=30,trim=duration=${totalSec},format=yuv420p,setsar=1[vcat]`);
 
   const absAssPath = isAbsolute(assPath) ? assPath : resolve(assPath);
   const escAssPath = absAssPath.replace(/\\/g, '\\\\').replace(/:/g, '\\:');
@@ -234,10 +227,10 @@ export async function composeStaticSlidesVideo({ pngPaths, wavPaths, assPath, ou
     '-map', '[vout]', '-map', '[aout]',
     // 通常動画は静止スライド主体で、画質は CRF が支配する。ultrafast にしても
     // 視覚品質を保ったままエンコード時間だけを大きく短縮できる（容量は増える）。
-    ...videoArgs, '-pix_fmt', 'yuv420p',
+    ...videoArgs, '-threads', '2', '-pix_fmt', 'yuv420p',
     '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', '-shortest', outPath,
   );
-  await runFFmpeg(args);
+  try { await runFFmpeg(args); } finally { rmSync(scratch, { recursive: true, force: true }); }
   // options.loudnorm: 聞き流し（総まとめ）は移動中に聞くので -16 LUFS へそろえる。既定は従来どおり音量を変えない。
   // 262入力のグラフに loudnorm を入れると ffmpeg 9.0.1 が途中でシグナル終了したので（2026-10-08）、映像はコピーし音声だけ2回目に直す
   if (options.loudnorm) {

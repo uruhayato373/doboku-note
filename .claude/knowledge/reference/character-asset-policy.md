@@ -7,7 +7,7 @@ POP表紙・商品サムネイルでは [共通制作方針](./pop-image-policy.
 
 - **アイデンティティ（不変条件）の SoT** → `content/sns/_assets/character/CHARACTER-SPEC.md`（設定書）
 - **ポーズ素材の機械可読 SoT** → `config/character-poses.json`（manifest）
-- **素材の実体** → `content/sns/_assets/character/*.png`（透過個別）＋ `_source/`（生成元グリッド）
+- **素材の実体** → `content/sns/_assets/character/*.png`（透過個別）＋ `_source/`（生成原本：グリッド・個別ポーズ）。個別原本は台帳の `file: _source/<pose>.png` から直接参照できる。
 - **抽出ツール** → `scripts/character-extract.mjs`（`npm run character-extract`）
 
 ## SNS 表紙への適用
@@ -32,6 +32,7 @@ content/sns/_assets/character/
   README.md              # 素材dir 直下の案内
   <pose>.png             # 透過個別ポーズ（全身・正面・背景透過・トリム済み）
   _source/grid-*.png     # 生成元グリッド（参照マスター・抽出元）
+  _source/<pose>.png     # 個別生成原本（台帳から直接参照可）
 ```
 
 - 命名は **ポーズ内容の kebab-case**（`pointing` / `whiteboard` / `congrats` 等）。一覧と分類は manifest が SoT。

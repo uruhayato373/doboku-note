@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-construction",
+      "headline": [
+        "選択II・III",
+        "答案どう分ける？"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-construction/sentaku-kakiwake-3type/youtube.longform/cover.1075b97d.png",
+        "sha256": "1075b97db5ecea103d35fff678507762d4d0709307cbbf5782baf8f7ba097ad0",
+        "specSha256": "6e49844ec8a5faf9823e1f1d9d023ef36f8b1ef9c12510ea5f4334243983dc6b"
+      }
+    }
+  }
+}

@@ -111,21 +111,27 @@
     },
     "7": {
       "headline": [
-        "課題と対応を",
-        "線で結んでみる"
+        "課題と対応",
+        "つながってる？"
       ],
       "points": [
-        "課題に対する対策になっているか",
-        "話が飛んだ部分を探す"
+        "課題：含水比が高い",
+        "対応：人数を増やす",
+        "何を改善する対策か確認"
       ],
       "character": {
-        "pose": "thinking",
-        "frame": "bust"
+        "pose": "red-pen-review",
+        "frame": "waist"
       },
       "sourcePaths": [
         "content/site/civil-construction-2/secondary-experience-writing-examples/article.mdx"
       ],
-      "alt": "課題と対応を。線で結んでみる。課題に対する対策になっているか。話が飛んだ部分を探す。"
+      "alt": "2級土木。課題と対応、つながってる？ 課題は含水比が高い、対応は人数を増やす。何を改善する対策か確認。",
+      "design": "pop-poster-v3",
+      "approvedImage": {
+        "path": ".tmp/media/civil-construction-2/character-10-a/x.post.t07/cover.7d9cdf3f.png",
+        "sha256": "7d9cdf3f06f2681d52af5e892232fb1aac6e7e61d076d15cbc0d8d39de937ee4"
+      }
     },
     "8": {
       "headline": [

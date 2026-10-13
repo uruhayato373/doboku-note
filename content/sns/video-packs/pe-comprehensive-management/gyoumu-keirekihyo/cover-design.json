@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-comprehensive",
+      "headline": [
+        "業務経歴票",
+        "総監らしく書く"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pop-red-pen",
+        "frame": "waist"
+      },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "write",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-comprehensive-management/gyoumu-keirekihyo/youtube.longform/cover.04b97529.png",
+        "sha256": "04b975299122ba74438009fc5efc18470b50b53df8a5bcc1238996a3e6e1421c",
+        "specSha256": "094e393a36b903754f623676488e0ed1b60cbd4e60e911b14cdcea378499afb9"
+      }
+    }
+  }
+}

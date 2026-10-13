@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "smile",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.longform/cover.d4cb3659.png",
-        "sha256": "d4cb36592900a7de048d929355fc56cc15859a3b17f2e8120c9a6d11cef461c7",
-        "specSha256": "b20f8cb044b513bcfb7ba8612d6de4a7997727be26a11adabfb8bea8b475e9f3"
+        "path": ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.longform/cover.51c7bb93.png",
+        "sha256": "51c7bb93173b143b82d1f72583208d4512e4d563c0dc07f0f3b5cffc1077d708",
+        "specSha256": "6472ff1d680793cff4dd3526499a1a910162132f7cc046f92326322b76b92edf"
       }
     },
     "point-overview-1": {
@@ -30,13 +35,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "wave",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.short.point-overview-1/cover.7447e079.png",
-        "sha256": "7447e07989c9be125c67823cf4d483881d608f6295556b51e41a1f74897442f2",
-        "specSha256": "ed7c5fcf4bc7251bd2a825923bcce68ee9bb439fed4cc0fa758b713427856874"
+        "path": ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.short.point-overview-1/cover.ce3f7b03.png",
+        "sha256": "ce3f7b03d6c4e77430aacb2fbbd9a64169ea4ab350631f76ec8013d916b4b0bd",
+        "specSha256": "5f638f57e488563a764930c724c505e49fd899fa218a4ee24ed34bde4ac5132c"
       }
     },
     "point-step1-2": {
@@ -49,13 +59,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.short.point-step1-2/cover.21e6cc2a.png",
-        "sha256": "21e6cc2a79e17ef21b2247c18969ccc3db421d229ed69658207356eec0204805",
-        "specSha256": "1014bbb49ef7a5b181f13b216a843cc8ebf4a24db2b461c443410b9f7e6b81de"
+        "path": ".tmp/media/concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.short.point-step1-2/cover.d8235dee.png",
+        "sha256": "d8235dee35bed829acb00e5ed55cb5ca708f7b69d9e2676bb2759776b7b13fe4",
+        "specSha256": "3ca3ddeaf5762db3ffa19135276e09472ce2f7d2b9ec1def1700d2f8f99e1e01"
       }
     }
   }

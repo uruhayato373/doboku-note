@@ -17,10 +17,10 @@
     ],
     "categoryId": "27",
     "publishAt": "2026-10-08T20:00:00+09:00",
-    "r2Key": "video/render/gakka-2kyu-doko/video.mp4",
-    "thumbnailR2Key": "video/render/gakka-2kyu-doko/img/00-cover.png",
-    "sha256": "ea52bc0945323e9d760c446b338a69a1782d7eca07773352876f4a91d6f7123e",
-    "thumbnailSha256": "01aa08f1b8c3e3cde8706a8da82db4936733de71b50b12772bccf892313b090a"
+    "r2Key": "youtube-migration/bridge-notebook-a-20260909/media/24a4dc08c783ce3c99341ad865476ce961871ebc7fc55cd4223ee75edbd7c21e.mp4",
+    "thumbnailR2Key": "youtube-migration/bridge-notebook-a-20260909/media/659cd5716340bd9914ea2eadf2fde97ff3b049ac8d5b989bb2f5e6e641320fc7.png",
+    "sha256": "24a4dc08c783ce3c99341ad865476ce961871ebc7fc55cd4223ee75edbd7c21e",
+    "thumbnailSha256": "659cd5716340bd9914ea2eadf2fde97ff3b049ac8d5b989bb2f5e6e641320fc7"
   },
   "shorts": [
     {
@@ -38,10 +38,10 @@
       ],
       "categoryId": "27",
       "publishAt": "2026-10-09T12:30:00+09:00",
-      "r2Key": "video/render/gakka-2kyu-doko/shorts/point-overview-1/shorts.mp4",
-      "thumbnailR2Key": "video/render/gakka-2kyu-doko/shorts/point-overview-1/thumbnail.png",
-      "sha256": "1cdfa72fea8712a12dbfdf3ba414bca90a4d008293ebe7f95fe4edffd5a12015",
-      "thumbnailSha256": "911496efba6ce0f71242f59a1748513cde5ffc7eb12da47fe6ace363c80af3c2"
+      "r2Key": "youtube-migration/bridge-notebook-a-20260909/media/b563ce956e14085f213189d7586a40c66baf9c1ba2bf098a1f1a17c1992eb1d3.mp4",
+      "thumbnailR2Key": "youtube-migration/bridge-notebook-a-20260909/media/9660df1399cc8197163359a77c57db0f62db52087b316a6df5f092765d6fbf1f.png",
+      "sha256": "b563ce956e14085f213189d7586a40c66baf9c1ba2bf098a1f1a17c1992eb1d3",
+      "thumbnailSha256": "9660df1399cc8197163359a77c57db0f62db52087b316a6df5f092765d6fbf1f"
     },
     {
       "key": "point-block1-2",
@@ -58,10 +58,10 @@
       ],
       "categoryId": "27",
       "publishAt": "2026-10-10T07:30:00+09:00",
-      "r2Key": "video/render/gakka-2kyu-doko/shorts/point-block1-2/shorts.mp4",
-      "thumbnailR2Key": "video/render/gakka-2kyu-doko/shorts/point-block1-2/thumbnail.png",
-      "sha256": "de9fe38ca03520dc1ff2d08c802389cd683cc3b087c703bee965315e3e48fe08",
-      "thumbnailSha256": "630cf0b574a0430dd0501d4d43f4b833b5028a56f0eed6d842754b09c5baa9de"
+      "r2Key": "youtube-migration/bridge-notebook-a-20260909/media/3a25370e4aa5b27bc782e404f15ec05a19c25d65aea24bc11b838d16646c67b0.mp4",
+      "thumbnailR2Key": "youtube-migration/bridge-notebook-a-20260909/media/80048affe8aec7da22b3f6d524083f443ec8f8715a5aeb0774ba5e67152191ec.png",
+      "sha256": "3a25370e4aa5b27bc782e404f15ec05a19c25d65aea24bc11b838d16646c67b0",
+      "thumbnailSha256": "80048affe8aec7da22b3f6d524083f443ec8f8715a5aeb0774ba5e67152191ec"
     }
   ]
 }

@@ -8,7 +8,7 @@
 import { copyFileSync, existsSync, mkdirSync, readFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { createHash } from 'node:crypto';
-import { dirname, extname, join } from 'node:path';
+import { dirname, extname, join, resolve } from 'node:path';
 import sharp from 'sharp';
 import { loadRegistry, mediaIdOf, parsePubId } from './content-registry.mjs';
 import { upsertMedia, upsertPublications } from './content-registry-write.mjs';
@@ -21,7 +21,7 @@ const sha256Of = (buf) => createHash('sha256').update(buf).digest('hex');
 
 /**
  * @param {string} root
- * @param {{ pub: string, role: string, promptFile: string, model?: string|null, commit?: boolean }} o
+ * @param {{ pub: string, role: string, promptFile: string, model?: string|null, input?: string, commit?: boolean }} o
  * @param {{ generate?: Function, now?: () => Date, load?: Function, upsertMedia?: Function, upsertPublications?: Function, log?: Function }} [deps]
  * @returns {Promise<{ committed: boolean, mediaId: string, path?: string, row?: object, code: number }>}
  */
@@ -45,7 +45,7 @@ export async function runPlate(root, o, deps = {}) {
   log(`置き場の予定: .tmp/media/${pub.id}/${o.role}.{sha8}.{ext}（生成後に決まる）`);
   if (!o.commit) { log('dry-run（codex を呼んでいない・書いていない）。生成するときは --commit'); return { committed: false, mediaId, code: 0 }; }
 
-  const generated = generate(prompt, o.model ?? null);
+  const generated = o.input ? resolve(root, o.input) : generate(prompt, o.model ?? null);
   if (!generated) { log('画像が生成されなかった（codex のログを確認）'); return { committed: false, mediaId, code: 3 }; }
   const buf = readFileSync(generated);
   const sha256 = sha256Of(buf);
@@ -71,7 +71,7 @@ export async function runPlate(root, o, deps = {}) {
   writeMedia(root, pub.exam, [row]);
   // 生成の一時フォルダ（codex-image.mjs が os.tmpdir() に作る gen-article-photo-* だけ）を片付ける
   const genDir = dirname(generated);
-  if (genDir.startsWith(tmpdir()) && /[\\/]gen-article-photo-[^\\/]+$/.test(genDir)) rmSync(genDir, { recursive: true, force: true });
+  if (!o.input && genDir.startsWith(tmpdir()) && /[\\/]gen-article-photo-[^\\/]+$/.test(genDir)) rmSync(genDir, { recursive: true, force: true });
   writePubs(root, pub.channel, pub.exam, [{ ...pub, media: { ...(pub.media ?? {}), [o.role]: mediaId } }]);
 
   const ledger = readJsonIf(root, AI_LEDGER_FILE) ?? emptyAiLedger();
@@ -80,6 +80,6 @@ export async function runPlate(root, o, deps = {}) {
   writeJson(root, AI_LEDGER_FILE, ledger);
 
   log(`置いた: ${path}（${meta.width}×${meta.height}）。素材の行と公開の行 media.${o.role} を書き、AI 台帳へ記録した（判定は未）`);
-  log(`次: ai-image-fidelity-auditor で判定し node scripts/check-image-origin.mjs record-ai media:${mediaId} ok|fail <理由>`);
+  log(`次: ai-image-fidelity-auditor で判定し node scripts/check-image-origin.mjs record-ai <verdicts.json>（figKey: media:${mediaId}）`);
   return { committed: true, mediaId, path, row, code: 0 };
 }

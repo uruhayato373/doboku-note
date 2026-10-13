@@ -1,4 +1,5 @@
 import { createHash } from 'node:crypto';
+import { isAdoptedPngPath } from './media-paths.mjs';
 
 export const cardSpecHash = spec => createHash('sha256').update(JSON.stringify(spec)).digest('hex');
 export function validateCharacterCard(spec) {
@@ -10,5 +11,17 @@ export function validateCharacterCard(spec) {
   }
   if (!spec.character?.pose || !spec.character?.frame || typeof spec.alt !== 'string' || !spec.alt.trim()) throw new Error('先生の指定と画像の説明が必要です');
   if (!Array.isArray(spec.sourcePaths) || !spec.sourcePaths.length) throw new Error('画像の根拠となる原稿パスが必要です');
+  if (spec.design !== undefined && spec.design !== 'pop-poster-v3') throw new Error('未知のXカードデザインです');
+  if (spec.design === 'pop-poster-v3' && (!isAdoptedPngPath(spec.approvedImage?.path) ||
+      !/^[a-f0-9]{64}$/.test(spec.approvedImage?.sha256 ?? ''))) throw new Error('POPカードは採用PNGのパスとsha256が必要です');
   return spec;
+}
+
+export function validateAdoptedCardLedger(spec, entry) {
+  validateCharacterCard(spec);
+  if (spec.design !== 'pop-poster-v3' || entry.template !== 'pop-poster-v3' ||
+      entry.specSha256 !== cardSpecHash(spec) || entry.sha256 !== spec.approvedImage.sha256 ||
+      entry.approvedImage?.path !== spec.approvedImage.path || entry.approvedImage?.sha256 !== spec.approvedImage.sha256) {
+    throw new Error('採用POP画像・原稿と描画台帳が一致しません');
+  }
 }

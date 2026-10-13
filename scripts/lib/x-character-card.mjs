@@ -5,10 +5,19 @@ import { coverFonts } from './youtube-cover.mjs';
 import { renderCharacterFrame } from './character-framing.mjs';
 import { resolveExam } from '../../.claude/scripts/sns/lib/exam-palette.mjs';
 import { cardSpecHash, validateCharacterCard } from './x-character-spec.mjs';
+import { readVerifiedVideoPng } from './youtube-approved-cover.mjs';
 
 export async function renderXCharacterCard(root, tweet, input) {
   const spec = validateCharacterCard(input);
   const theme = resolveExam(tweet.exam);
+  if (spec.design === 'pop-poster-v3') {
+    const buffer = await readVerifiedVideoPng(root, spec.approvedImage, { width: 1200, height: 675 });
+    return { buffer, meta: { template: 'pop-poster-v3', exam: tweet.exam, headerLabel: theme.label,
+      keywordName: spec.headline.join(' '), sectionTitle: tweet.sectionTitle, body: spec.points.join(' '),
+      lines: spec.points.length, droppedLines: 0, sha256: spec.approvedImage.sha256,
+      specSha256: cardSpecHash(spec), approvedImage: { ...spec.approvedImage }, alt: spec.alt,
+      character: { ...spec.character } } };
+  }
   const character = await renderCharacterFrame(root, spec.character);
   const scale = Math.min(1, 330 / character.width, 445 / character.height);
   const cw = Math.round(character.width * scale), ch = Math.round(character.height * scale);

@@ -2612,33 +2612,24 @@
       }
     },
     "content/sns/x/draft/096-character-2026-10-a/img/tweet-07-2026-10-a.png": {
-      "template": "x-teacher-v1",
+      "template": "pop-poster-v3",
       "exam": "civil-2",
       "headerLabel": "2級土木施工管理技士",
-      "keywordName": "課題と対応を 線で結んでみる",
+      "keywordName": "課題と対応 つながってる？",
       "sectionTitle": "10/10 12:30・2級土木施工管理技士",
-      "colors": {
-        "bg": "#1C5038",
-        "fill": "#3E9069"
-      },
-      "body": "課題に対する対策になっているか 話が飛んだ部分を探す",
-      "bodySize": 32,
-      "lines": 2,
+      "body": "課題：含水比が高い 対応：人数を増やす 何を改善する対策か確認",
+      "lines": 3,
       "droppedLines": 0,
-      "sha256": "050ea56c89e76ba515516d5eb85d16daaaa7de17e9f659ef8a3ec405c4adb141",
-      "specSha256": "ebd36a55d5e56af4e8b87f7c837001238d53246dc3a23d64cbe8059d9df1bae4",
-      "alt": "課題と対応を。線で結んでみる。課題に対する対策になっているか。話が飛んだ部分を探す。",
+      "sha256": "7d9cdf3f06f2681d52af5e892232fb1aac6e7e61d076d15cbc0d8d39de937ee4",
+      "specSha256": "807ddfe69be823483f735c51213e65c808aeaec5063b1fba86a58eef7a1e2095",
+      "approvedImage": {
+        "path": ".tmp/media/civil-construction-2/character-10-a/x.post.t07/cover.7d9cdf3f.png",
+        "sha256": "7d9cdf3f06f2681d52af5e892232fb1aac6e7e61d076d15cbc0d8d39de937ee4"
+      },
+      "alt": "2級土木。課題と対応、つながってる？ 課題は含水比が高い、対応は人数を増やす。何を改善する対策か確認。",
       "character": {
-        "pose": "thinking",
-        "frame": "bust",
-        "sourceSha256": "9effcfc973c5ec7083e60ab3fd7fa57cadd03b2f69b209cdf1d4deb2ba3007ac",
-        "placement": {
-          "left": 840,
-          "top": 153,
-          "width": 330,
-          "height": 429
-        },
-        "enlarged": false
+        "pose": "red-pen-review",
+        "frame": "waist"
       }
     },
     "content/sns/x/draft/096-character-2026-10-a/img/tweet-08-2026-10-a.png": {

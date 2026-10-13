@@ -19,6 +19,7 @@ async function main() {
   if (!bytes || sha256(bytes) !== env.PLAN_SHA256) throw new Error('Frozen plan integrity mismatch');
   const plan = JSON.parse(bytes);
   assertPlan(plan);
+  const receipts = plan.receiptScope ? migrationStorage(env, { receiptScope: plan.receiptScope }) : storage;
   for (const key of ['YOUTUBE_CLIENT_ID', 'YOUTUBE_CLIENT_SECRET', 'YOUTUBE_REFRESH_TOKEN']) if (!env[key]) throw new Error('YouTube credentials unavailable');
   const auth = new google.auth.OAuth2(env.YOUTUBE_CLIENT_ID, env.YOUTUBE_CLIENT_SECRET);
   auth.setCredentials({ refresh_token: env.YOUTUBE_REFRESH_TOKEN });
@@ -41,12 +42,12 @@ async function main() {
   };
   for (const item of targets) {
     const result = await actions[operation](youtube, item, { commit: env.APPLY_MIGRATION === 'true', playlists,
-      load: storage.load, save: async (id, receipt) => { await storage.save(id, receipt); report({ complete: false, rows, latestReceipt: receipt }); },
+      load: receipts.load, save: async (id, receipt) => { await receipts.save(id, receipt); report({ complete: false, rows, latestReceipt: receipt }); },
       getBytes, getMedia: async media => Readable.from(await getBytes(media)),
       loadControl: async () => { const b = await storage.get(`${storage.prefix}control.json`); return b ? JSON.parse(b) : {}; },
       saveControl: async value => storage.put(`${storage.prefix}control.json`, Buffer.from(JSON.stringify(value))),
     });
-    rows.push({ oldId: item.oldVideo.id, sourceKey: item.sourceKey, ...result, receipt: await storage.load(item.oldVideo.id) });
+    rows.push({ oldId: item.oldVideo.id, sourceKey: item.sourceKey, ...result, receipt: await receipts.load(item.oldVideo.id) });
     report({ complete: false, planSha256: env.PLAN_SHA256, rows });
     console.log(JSON.stringify({ checked: rows.length, phase: result.phase }));
   }

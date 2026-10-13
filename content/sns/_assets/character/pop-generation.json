@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "policy": ".claude/knowledge/reference/pop-image-policy.md",
+  "designVersion": "pop-20260927",
+  "channel": "youtube",
+  "reference": {
+    "path": ".tmp/video-render/pop-matome-2kyu-20261010/thumbnail-palm-v1.png",
+    "sha256": "8fd0987d6c7b7ad74645dbfa1971f42f3128e47ed4645c9d93048a579b6542cb"
+  },
+  "entries": [
+    {
+      "pose": "pop-explaining",
+      "prompt": "参照画像の右側の先生キャラクターを正確に継承した、動画表紙に組み込む人物だけの高解像度PNG素材を制作してください。白い無地のヘルメット、黒髪、黒縁眼鏡、40代男性の同じ顔とひげ、紺の作業服とネクタイ、黄色と白の反射帯。参照の顔の描線・アニメ塗り・表情を保持。腰から上、正面を向き、画面左へ片手を開いて内容を紹介するポーズ。指は自然な5本指。ヘルメットの頂点・両肘・手指・腰の端まで完全に収め、外側に5%以上の透過余白。人物は画面の大部分を占める。手が左へ大きく突き出しすぎない。背景は完全透明、文字・ロゴ・記号・背景・床・影・看板は一切なし。横長の表紙で文字は左に置くため、人物の顔は素材の中央から少し右。元の表紙にある文字や緑背景は描かない。1人だけ。",
+      "tool": "image_gen",
+      "transparentBackground": true,
+      "output": {
+        "path": "content/sns/_assets/character/_source/pop-explaining.png",
+        "sha256": "e88700289679362e7a5ab6867187b32287701b861e55fe0be2d5835b2de527a0"
+      },
+      "mediaId": "brand/character-pop-v2/teacher-explaining"
+    },
+    {
+      "pose": "pop-pointing",
+      "prompt": "参照画像の右側の先生キャラクターを正確に継承した、動画表紙に組み込む人物だけの高解像度PNG素材を制作してください。白い無地のヘルメット、黒髪、黒縁眼鏡、40代男性の同じ顔とひげ、紺の作業服とネクタイ、黄色と白の反射帯。参照の顔の描線・アニメ塗り・表情を保持。腰から上、正面を向き、画面左側の肩の横で人差し指を上へ1本立て、要点を説明するポーズ。残り4本の指と手首は自然な構造。ヘルメットの頂点・両肘・手指・腰の端まで完全に収め、外側に5%以上の透過余白。人物は画面の大部分を占める。背景は完全透明、文字・ロゴ・記号・背景・床・影・看板は一切なし。元の表紙にある文字や緑背景は描かない。1人だけ。",
+      "tool": "image_gen",
+      "transparentBackground": true,
+      "output": {
+        "path": "content/sns/_assets/character/_source/pop-pointing.png",
+        "sha256": "f0bafda4a9743b3f2c8ca5182299d0e1ed8851165f33b5b60bddfc0598d9a1eb"
+      },
+      "mediaId": "brand/character-pop-v2/teacher-pointing"
+    },
+    {
+      "pose": "pop-red-pen",
+      "prompt": "参照画像の右側の先生キャラクターを正確に継承した、動画表紙に組み込む人物だけの高解像度PNG素材を制作してください。白い無地のヘルメット、黒髪、黒縁眼鏡、40代男性の同じ顔とひげ、紺の作業服とネクタイ、黄色と白の反射帯。参照の顔の描線・アニメ塗り・表情を保持。腰から上、正面を向き、片手に赤い添削ペン、もう片手に無地の白い答案用紙を持ち、論文の書き方を紹介するポーズ。紙には文字や線を描かない。自然な5本指と手首。ヘルメットの頂点・両肘・手指・腰の端まで完全に収め、外側に5%以上の透過余白。人物は画面の大部分を占める。背景は完全透明、文字・ロゴ・記号・背景・床・影・看板は一切なし。元の表紙にある文字や緑背景は描かない。1人だけ。",
+      "tool": "image_gen",
+      "transparentBackground": true,
+      "output": {
+        "path": "content/sns/_assets/character/_source/pop-red-pen.png",
+        "sha256": "ed9d70558688350c8b8005b94fe14d1f6021efdc69d2288ff58f3e6394e23284"
+      },
+      "mediaId": "brand/character-pop-v2/teacher-red-pen"
+    }
+  ]
+}

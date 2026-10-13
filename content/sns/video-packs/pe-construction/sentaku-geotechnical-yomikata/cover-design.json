@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "pe-construction",
+      "headline": [
+        "土質・基礎",
+        "テーマの読み方"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pop-explaining",
+        "frame": "waist"
+      },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/pe-construction/sentaku-geotechnical-yomikata/youtube.longform/cover.8908d7ce.png",
+        "sha256": "8908d7ced7700903f9a2db7031c719c492532dec7128f88f9c8af5268cc02480",
+        "specSha256": "aad55e085e509eafb4e2d6c184e6be7dc36d3d5be27c4f066830ac0b75519d9d"
+      }
+    }
+  }
+}

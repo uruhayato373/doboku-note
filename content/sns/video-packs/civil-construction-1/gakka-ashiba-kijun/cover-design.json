@@ -11,13 +11,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "pointing",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/gakka-ashiba-kijun/youtube.longform/cover.d13ec190.png",
-        "sha256": "d13ec190cb335c9cacc3767001e107c89e55765408b3b7882523445485cd2121",
-        "specSha256": "8a3494031079bf845d4bb8c838a4e6bb1a9bff493c127950c8f0fc2e20ce52aa"
+        "path": ".tmp/media/civil-construction-1/gakka-ashiba-kijun/youtube.longform/cover.c3e61d38.png",
+        "sha256": "c3e61d38ed915e77d9cbb08d6036474575547e20a42d64c6f945cc90fca8c147",
+        "specSha256": "be8a5617bd60be90472b585951d5e8b8988675e479095c3ae91382d523011bf6"
       }
     },
     "point-step1-1": {
@@ -30,13 +35,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "pointing",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/gakka-ashiba-kijun/youtube.short.point-step1-1/cover.d7732df4.png",
-        "sha256": "d7732df484e44546b3a3057023f9258f2736fdc91bdb9d020ecc099673e23591",
-        "specSha256": "66cbd97c02e124d4315cc7b02b5236b1bb0643588cb7f00f4822eb717cf47242"
+        "path": ".tmp/media/civil-construction-1/gakka-ashiba-kijun/youtube.short.point-step1-1/cover.37b5ebc6.png",
+        "sha256": "37b5ebc6c0d33d74f3dcbe3837f051a0f3ddba9ecb2e78f532c74b4a1995b149",
+        "specSha256": "41ab288553bb88f84c2e2f9ee687b7e58a80e40b70b08b37f03c4b2629f1e7e4"
       }
     },
     "point-step2-2": {
@@ -49,13 +59,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-1/gakka-ashiba-kijun/youtube.short.point-step2-2/cover.13f5b043.png",
-        "sha256": "13f5b043cafac21039807503133a50dff0aff735c89a91d7da96618f65fac948",
-        "specSha256": "34d807eaa4bd58b10cd2ad151c002d2fb1c787eff95ade847fe353e99eeb46b4"
+        "path": ".tmp/media/civil-construction-1/gakka-ashiba-kijun/youtube.short.point-step2-2/cover.4d40ab3d.png",
+        "sha256": "4d40ab3da1c5eb5d53b9aab6da30d2eccaa5dac0918b676edaf3b15726197cda",
+        "specSha256": "727f620d2d31a75decfef4a96413c2b9cf686d803a1ba49a942dadae854ed46d"
       }
     }
   }

@@ -6,22 +6,23 @@
       "id": "concrete-engineer/gishi-12week-plan/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "2c4c52f9c575f67c3cc004854530b8e0b9ddedee11d0fd19823bfaf2063487ea",
-      "bytes": 231686,
+      "sha256": "308172ebd8eee7a7a05a0c0e1174632e866b09d2dd860d0c8ff31fefaa2a73c7",
+      "bytes": 650605,
       "width": 1920,
       "height": 1080,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-engineer/gishi-12week-plan/youtube.longform/cover.2c4c52f9.png"
+        "path": ".tmp/media/concrete-engineer/gishi-12week-plan/youtube.longform/cover.308172eb.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/concrete-engineer/gishi-12week-plan/cover-design.json#longform",
-        "specSha256": "b08a0333c56acf639493bfa053c7059eacd8ab26768602f9bbc5b20210bb168c"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/concrete-engineer/gishi-12week-plan/cover-design.json#covers/longform",
+        "specSha256": "3051e1dc305501ed4d6866d787500f08ffd37cf45c86d7f89c608da6124e5a49"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/300.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/300.png",
+        ".tmp/media/concrete-engineer/gishi-12week-plan/youtube.longform/cover.2c4c52f9.png"
       ]
     },
     {
@@ -49,66 +50,69 @@
       "id": "concrete-engineer/gishi-12week-plan/youtube.short.point-step1-1/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "46ca3543c06009da9ce1b762e2f353a8a5f4b6fcb92ed18f967c8b7e89045713",
-      "bytes": 179898,
+      "sha256": "51f2835db8a434d76150d7245ec5d8e948bdc4fd27c9d093b7fe80b85d7d6351",
+      "bytes": 675339,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-engineer/gishi-12week-plan/youtube.short.point-step1-1/cover.46ca3543.png"
+        "path": ".tmp/media/concrete-engineer/gishi-12week-plan/youtube.short.point-step1-1/cover.51f2835d.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/concrete-engineer/gishi-12week-plan/cover-design.json#point-step1-1",
-        "specSha256": "b42daf9a45b03ff18d80fce4bcb3dac63b9ca8e6b4b6c626c4a4433c9c6e40a0"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/concrete-engineer/gishi-12week-plan/cover-design.json#covers/point-step1-1",
+        "specSha256": "077f131d000a63a10f6a140bba08ac8ce4b940c2367475c30569b07ed22487de"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/301.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/301.png",
+        ".tmp/media/concrete-engineer/gishi-12week-plan/youtube.short.point-step1-1/cover.46ca3543.png"
       ]
     },
     {
       "id": "concrete-engineer/gishi-12week-plan/youtube.short.point-step2-2/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "b926cda088f36266d4d9a933f452fef09307d09565bfbf5b2d71e73464d3f794",
-      "bytes": 185810,
+      "sha256": "b246d570e77f097c1cd14eda10a5f2bd99a40c2001228e095335f835c7a7fac2",
+      "bytes": 672926,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-engineer/gishi-12week-plan/youtube.short.point-step2-2/cover.b926cda0.png"
+        "path": ".tmp/media/concrete-engineer/gishi-12week-plan/youtube.short.point-step2-2/cover.b246d570.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/concrete-engineer/gishi-12week-plan/cover-design.json#point-step2-2",
-        "specSha256": "be2eac7b5703cb1b44fc1253333eb710b88d808e56cf56cac0ba585ddab9d589"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/concrete-engineer/gishi-12week-plan/cover-design.json#covers/point-step2-2",
+        "specSha256": "d4f3d385c17232ed1dc9f629180472970e183294cdb16ed06ba1c9f8fbddac1e"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/302.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/302.png",
+        ".tmp/media/concrete-engineer/gishi-12week-plan/youtube.short.point-step2-2/cover.b926cda0.png"
       ]
     },
     {
       "id": "concrete-engineer/gishi-construction-ronten/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "f2364ba58f0e2aa95b9206f203516a70f9002459f4664314e949f856b90b5aae",
-      "bytes": 234972,
+      "sha256": "c8d866f13e0fd0b392e8aa47ac2a7a665f05b9fd1a5ad841c3fbd06ff788dfe1",
+      "bytes": 659582,
       "width": 1920,
       "height": 1080,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-engineer/gishi-construction-ronten/youtube.longform/cover.f2364ba5.png"
+        "path": ".tmp/media/concrete-engineer/gishi-construction-ronten/youtube.longform/cover.c8d866f1.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/concrete-engineer/gishi-construction-ronten/cover-design.json#longform",
-        "specSha256": "477c5f8616560d4be3086b49c3779512ad8718cb88c7890fa179ff81dcd4bc07"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/concrete-engineer/gishi-construction-ronten/cover-design.json#covers/longform",
+        "specSha256": "02f491a485c4feba78ef363587148b33f4935dca20d209099e689e973915f35d"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/303.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/303.png",
+        ".tmp/media/concrete-engineer/gishi-construction-ronten/youtube.longform/cover.f2364ba5.png"
       ]
     },
     {
@@ -136,66 +140,69 @@
       "id": "concrete-engineer/gishi-construction-ronten/youtube.short.point-step1-1/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "4c7e2531a9fbe998936390d1dcf5098620801efea4ba65264f598648f1770472",
-      "bytes": 194843,
+      "sha256": "6493c596ff38865a38936c5c2871a65646be1475b609da6ba38d5311a4ab700c",
+      "bytes": 673905,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-engineer/gishi-construction-ronten/youtube.short.point-step1-1/cover.4c7e2531.png"
+        "path": ".tmp/media/concrete-engineer/gishi-construction-ronten/youtube.short.point-step1-1/cover.6493c596.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/concrete-engineer/gishi-construction-ronten/cover-design.json#point-step1-1",
-        "specSha256": "2b1e57b6e8e82c0035f84eefa1cd93d24b809321bcf0d54fc3990d855b58947f"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/concrete-engineer/gishi-construction-ronten/cover-design.json#covers/point-step1-1",
+        "specSha256": "046434c7772f791e18afed454733499cfaca8606e8e84cc1ee58007ea3746776"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/304.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/304.png",
+        ".tmp/media/concrete-engineer/gishi-construction-ronten/youtube.short.point-step1-1/cover.4c7e2531.png"
       ]
     },
     {
       "id": "concrete-engineer/gishi-construction-ronten/youtube.short.point-step2-2/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "f0128923c3779f421bc99f9f938afc4a140616aa7ac9e8afabab6fee8753dd2f",
-      "bytes": 195863,
+      "sha256": "ea352efb642e4d6746b18bed0c96229e016178d70ec5227738bd6070decc987c",
+      "bytes": 674857,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-engineer/gishi-construction-ronten/youtube.short.point-step2-2/cover.f0128923.png"
+        "path": ".tmp/media/concrete-engineer/gishi-construction-ronten/youtube.short.point-step2-2/cover.ea352efb.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/concrete-engineer/gishi-construction-ronten/cover-design.json#point-step2-2",
-        "specSha256": "bbcd096497a5b5728575ba1373c21419e3f0972c7e01e427968b761cf1c9ddd9"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/concrete-engineer/gishi-construction-ronten/cover-design.json#covers/point-step2-2",
+        "specSha256": "20d133f4649d97fad0bf2ef9fbda9e037174cc89ace759c486881276e7b31ebf"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/305.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/305.png",
+        ".tmp/media/concrete-engineer/gishi-construction-ronten/youtube.short.point-step2-2/cover.f0128923.png"
       ]
     },
     {
       "id": "concrete-engineer/gishi-environment-ronten/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "f580681b252e5200a4c35ef186a9af74f176f7657912ad7491fbdc3843058cec",
-      "bytes": 198391,
+      "sha256": "97731d3fb7721e49efd68729d160ffa38a2cfe5e2eabd8a2460d0d031ef56e72",
+      "bytes": 652593,
       "width": 1920,
       "height": 1080,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-engineer/gishi-environment-ronten/youtube.longform/cover.f580681b.png"
+        "path": ".tmp/media/concrete-engineer/gishi-environment-ronten/youtube.longform/cover.97731d3f.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/concrete-engineer/gishi-environment-ronten/cover-design.json#longform",
-        "specSha256": "192779bd0db95c08d1148c397845c9253b833cf5e4390d0e6c0333d7f028901e"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/concrete-engineer/gishi-environment-ronten/cover-design.json#covers/longform",
+        "specSha256": "18bb660e36a5bae50a63307c38c649b712183dc5354704fe757e180a48e16a3e"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/306.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/306.png",
+        ".tmp/media/concrete-engineer/gishi-environment-ronten/youtube.longform/cover.f580681b.png"
       ]
     },
     {
@@ -223,66 +230,69 @@
       "id": "concrete-engineer/gishi-environment-ronten/youtube.short.point-step1-1/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "0ca68b6f9296a2df61ab0ce2694ce5e5014a4bef40cdadd16a2db74529338712",
-      "bytes": 196785,
+      "sha256": "af1b14d9193070b818751ebb8003587784a2b7284362c4d4dcba8d94cbe43760",
+      "bytes": 662522,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-engineer/gishi-environment-ronten/youtube.short.point-step1-1/cover.0ca68b6f.png"
+        "path": ".tmp/media/concrete-engineer/gishi-environment-ronten/youtube.short.point-step1-1/cover.af1b14d9.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/concrete-engineer/gishi-environment-ronten/cover-design.json#point-step1-1",
-        "specSha256": "8a9f8822df861eb61b05dc8d7da647e9bf3d0ad7de9dd78bd5621a15038663d8"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/concrete-engineer/gishi-environment-ronten/cover-design.json#covers/point-step1-1",
+        "specSha256": "2680398dac1d2c755cb2ff5686d9fb86ba9d471fb87430f0abcd6984cc77b788"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/307.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/307.png",
+        ".tmp/media/concrete-engineer/gishi-environment-ronten/youtube.short.point-step1-1/cover.0ca68b6f.png"
       ]
     },
     {
       "id": "concrete-engineer/gishi-environment-ronten/youtube.short.point-step2-2/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "e9c6add85f4c3bec4f00862e0669e66331608f227f422f88b9227614d83bb1ac",
-      "bytes": 177840,
+      "sha256": "27d26eb3757748bd4faf2ca373a2ab05c3f0fe9881037bf3e7636cb900f64db6",
+      "bytes": 667898,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-engineer/gishi-environment-ronten/youtube.short.point-step2-2/cover.e9c6add8.png"
+        "path": ".tmp/media/concrete-engineer/gishi-environment-ronten/youtube.short.point-step2-2/cover.27d26eb3.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/concrete-engineer/gishi-environment-ronten/cover-design.json#point-step2-2",
-        "specSha256": "14a8084b6310e9a56a9c91679e100173876dc8e0fc36c52a9688d18ea48b1a52"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/concrete-engineer/gishi-environment-ronten/cover-design.json#covers/point-step2-2",
+        "specSha256": "250b1f1f96aea5c612150944e0d87d0a9549c7f47a46015c4bde50a7edaa2960"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/308.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/308.png",
+        ".tmp/media/concrete-engineer/gishi-environment-ronten/youtube.short.point-step2-2/cover.e9c6add8.png"
       ]
     },
     {
       "id": "concrete-engineer/gishi-haigou-keisan/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "7e594ccd48043dabb299c4bbbb852bac52bf3688dfec23bbbe71b2c63039b4a1",
-      "bytes": 199654,
+      "sha256": "a94b1caf6a7c8965bae80cbb104e168db530283bbc1b6c56ff42958322b95a66",
+      "bytes": 647911,
       "width": 1920,
       "height": 1080,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-engineer/gishi-haigou-keisan/youtube.longform/cover.7e594ccd.png"
+        "path": ".tmp/media/concrete-engineer/gishi-haigou-keisan/youtube.longform/cover.a94b1caf.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/concrete-engineer/gishi-haigou-keisan/cover-design.json#longform",
-        "specSha256": "de6cbd7405f35de8871551e037a1a3fc303bf465f27830c9cf5b38ea9cc802ab"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/concrete-engineer/gishi-haigou-keisan/cover-design.json#covers/longform",
+        "specSha256": "2648e5cb1a1a197307fb45eda999657b8f24ef8430ee9b9247e9a6a778fee0f0"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/309.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/309.png",
+        ".tmp/media/concrete-engineer/gishi-haigou-keisan/youtube.longform/cover.7e594ccd.png"
       ]
     },
     {
@@ -310,66 +320,69 @@
       "id": "concrete-engineer/gishi-haigou-keisan/youtube.short.point-step1-1/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "db74612990517664cf4362f0cc59a1c18fdeedd7f33ab3b2a9cc9c480ca6e14a",
-      "bytes": 163696,
+      "sha256": "53b9da83d7b250e23255c789ddabd8a9e004dd46b60378ba77b9200daab14df4",
+      "bytes": 674664,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-engineer/gishi-haigou-keisan/youtube.short.point-step1-1/cover.db746129.png"
+        "path": ".tmp/media/concrete-engineer/gishi-haigou-keisan/youtube.short.point-step1-1/cover.53b9da83.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/concrete-engineer/gishi-haigou-keisan/cover-design.json#point-step1-1",
-        "specSha256": "dd0ee334f096de5df7b15741fa2b7da19c81e04334726c5e3180210c3a7c4252"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/concrete-engineer/gishi-haigou-keisan/cover-design.json#covers/point-step1-1",
+        "specSha256": "3c8448f29955dbea297caacd7752cc7cf8c83aef73964b4dccd8c5f1a191bf22"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/310.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/310.png",
+        ".tmp/media/concrete-engineer/gishi-haigou-keisan/youtube.short.point-step1-1/cover.db746129.png"
       ]
     },
     {
       "id": "concrete-engineer/gishi-haigou-keisan/youtube.short.point-step2-2/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "21daf7ad8cb7b14a8260c9d06886f55b4f21bb4e1204701b0176eb02bfce5291",
-      "bytes": 190232,
+      "sha256": "5dd89c5b65eccd502402f3020aa2523502ee5c11a073f523ab1ba5eaa5cd5330",
+      "bytes": 672710,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-engineer/gishi-haigou-keisan/youtube.short.point-step2-2/cover.21daf7ad.png"
+        "path": ".tmp/media/concrete-engineer/gishi-haigou-keisan/youtube.short.point-step2-2/cover.5dd89c5b.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/concrete-engineer/gishi-haigou-keisan/cover-design.json#point-step2-2",
-        "specSha256": "d2d7da2f0f4a2291f40407420a3e2c5591555de3c5fc4dda402bc6387acd2630"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/concrete-engineer/gishi-haigou-keisan/cover-design.json#covers/point-step2-2",
+        "specSha256": "a5e68c4d793abaa2cb6205b22ae18bcbe37671fb354cd150773775a0188d732f"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/311.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/311.png",
+        ".tmp/media/concrete-engineer/gishi-haigou-keisan/youtube.short.point-step2-2/cover.21daf7ad.png"
       ]
     },
     {
       "id": "concrete-engineer/gishi-jis-handan/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "370286cd4675749a248fcf5882750b517740c60646276207172d40150298553b",
-      "bytes": 224275,
+      "sha256": "8cf72ef7e7eda80f491fd1038f34ca895f45998af4a197923e418db7cf02db93",
+      "bytes": 643867,
       "width": 1920,
       "height": 1080,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-engineer/gishi-jis-handan/youtube.longform/cover.370286cd.png"
+        "path": ".tmp/media/concrete-engineer/gishi-jis-handan/youtube.longform/cover.8cf72ef7.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/concrete-engineer/gishi-jis-handan/cover-design.json#longform",
-        "specSha256": "84fb6d8ff552b3b96d5efc4fa52e0d2fe63cebf1f280529053733a19f1814dae"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/concrete-engineer/gishi-jis-handan/cover-design.json#covers/longform",
+        "specSha256": "a02d382dda6f48627ca2f71fa51864c91b216ed65893f8b29f16d1eba5b9b308"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/312.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/312.png",
+        ".tmp/media/concrete-engineer/gishi-jis-handan/youtube.longform/cover.370286cd.png"
       ]
     },
     {
@@ -397,66 +410,69 @@
       "id": "concrete-engineer/gishi-jis-handan/youtube.short.point-step1-1/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "1a4abda5db5e29a2dc90afcab9aacc9de53a0a915b45ace1ed2a1cb20b28488e",
-      "bytes": 154531,
+      "sha256": "94bfb71db032a56f51bfce31ade5f577cf2f960689e571fdeda01f73f36ad082",
+      "bytes": 651807,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-engineer/gishi-jis-handan/youtube.short.point-step1-1/cover.1a4abda5.png"
+        "path": ".tmp/media/concrete-engineer/gishi-jis-handan/youtube.short.point-step1-1/cover.94bfb71d.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/concrete-engineer/gishi-jis-handan/cover-design.json#point-step1-1",
-        "specSha256": "7bca81408aebbbbea920af989a2e15a55a22582073feba27420caed483f6b5bf"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/concrete-engineer/gishi-jis-handan/cover-design.json#covers/point-step1-1",
+        "specSha256": "a7fd572032f7f56b6fc9a5fad5c2ebf2ae14a4ce827ed410bdf78c5eb4436b5b"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/313.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/313.png",
+        ".tmp/media/concrete-engineer/gishi-jis-handan/youtube.short.point-step1-1/cover.1a4abda5.png"
       ]
     },
     {
       "id": "concrete-engineer/gishi-jis-handan/youtube.short.point-step2-2/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "b5c1970b92b3a48f136ed9162abe292ef00ebf2bacd41cd55ef33e11eff81c80",
-      "bytes": 180776,
+      "sha256": "8ec5f7b69cc0e7b095f740c8fa950363f62fbab3445961dba4fb0d513b18595e",
+      "bytes": 661474,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-engineer/gishi-jis-handan/youtube.short.point-step2-2/cover.b5c1970b.png"
+        "path": ".tmp/media/concrete-engineer/gishi-jis-handan/youtube.short.point-step2-2/cover.8ec5f7b6.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/concrete-engineer/gishi-jis-handan/cover-design.json#point-step2-2",
-        "specSha256": "fbf1f04fae1dfe9bbe3c82aa46439d7087d3516e2ee2c65e2e5de5fa545dfca8"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/concrete-engineer/gishi-jis-handan/cover-design.json#covers/point-step2-2",
+        "specSha256": "363882dd8d8315b5f51d92eded8f84ef1eddbcedee9dc427f61ce3849c36a609"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/314.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/314.png",
+        ".tmp/media/concrete-engineer/gishi-jis-handan/youtube.short.point-step2-2/cover.b5c1970b.png"
       ]
     },
     {
       "id": "concrete-engineer/gishi-jukenshikaku-2026/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "a420469d83ecfcaa64a4cfc465a935837e82d67b1d5b246d86ac80b7e07bb143",
-      "bytes": 214268,
+      "sha256": "e51748ffb754526ee8de40c21ef66ced77f6e7fc851eb3e751336d09652b7559",
+      "bytes": 649926,
       "width": 1920,
       "height": 1080,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-engineer/gishi-jukenshikaku-2026/youtube.longform/cover.a420469d.png"
+        "path": ".tmp/media/concrete-engineer/gishi-jukenshikaku-2026/youtube.longform/cover.e51748ff.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/concrete-engineer/gishi-jukenshikaku-2026/cover-design.json#longform",
-        "specSha256": "eb840030cc8e01f07a6e9c0e1ad62c28c2e92773eaa73b080066e0a9784cf496"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/concrete-engineer/gishi-jukenshikaku-2026/cover-design.json#covers/longform",
+        "specSha256": "941d8eea79e8457d3e79a7dcdd75c8cea0a11c7d10d59a07cc5be48448a3f407"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/315.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/315.png",
+        ".tmp/media/concrete-engineer/gishi-jukenshikaku-2026/youtube.longform/cover.a420469d.png"
       ]
     },
     {
@@ -484,66 +500,69 @@
       "id": "concrete-engineer/gishi-jukenshikaku-2026/youtube.short.point-step1-1/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "99fd45b257e0c173dc7096dc8902ba74e264f3a9d5504e31abb2db0195c53e4e",
-      "bytes": 166030,
+      "sha256": "e2653fd9d8fac6809b7509074ae8f1395da660689ab06bd25bc7852376084634",
+      "bytes": 677536,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-engineer/gishi-jukenshikaku-2026/youtube.short.point-step1-1/cover.99fd45b2.png"
+        "path": ".tmp/media/concrete-engineer/gishi-jukenshikaku-2026/youtube.short.point-step1-1/cover.e2653fd9.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/concrete-engineer/gishi-jukenshikaku-2026/cover-design.json#point-step1-1",
-        "specSha256": "01e6545b9cf3b19053902bddab7733f1b9ee709eb68d07ac58383cfd73f86a3a"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/concrete-engineer/gishi-jukenshikaku-2026/cover-design.json#covers/point-step1-1",
+        "specSha256": "0ce3aebc3b23755682a6fd9e6a747b26e07ef174a865b0d9bb66ea8eb0d4149c"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/316.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/316.png",
+        ".tmp/media/concrete-engineer/gishi-jukenshikaku-2026/youtube.short.point-step1-1/cover.99fd45b2.png"
       ]
     },
     {
       "id": "concrete-engineer/gishi-jukenshikaku-2026/youtube.short.point-step2-2/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "27b753b5f6fec7029f2fc4e099fe2a1bf7fe69a37dec3409741e15f7171cc6a3",
-      "bytes": 171968,
+      "sha256": "b568d2d987666839ca00f09ddb92acf958e2470350b9096e7f185a6e8b75a92f",
+      "bytes": 691562,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-engineer/gishi-jukenshikaku-2026/youtube.short.point-step2-2/cover.27b753b5.png"
+        "path": ".tmp/media/concrete-engineer/gishi-jukenshikaku-2026/youtube.short.point-step2-2/cover.b568d2d9.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/concrete-engineer/gishi-jukenshikaku-2026/cover-design.json#point-step2-2",
-        "specSha256": "557a6cbf0c36ac6ab12381187d3c18db6754418d9c0c825a8f5d2bb93feb1610"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/concrete-engineer/gishi-jukenshikaku-2026/cover-design.json#covers/point-step2-2",
+        "specSha256": "78318ec779caaa7139fa7cc933e3bf1ced9601947b742b6f941a5acf98766964"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/317.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/317.png",
+        ".tmp/media/concrete-engineer/gishi-jukenshikaku-2026/youtube.short.point-step2-2/cover.27b753b5.png"
       ]
     },
     {
       "id": "concrete-engineer/gishi-materials-ronten/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "4b8eb8c86411f0598af48f4003366fe6c478651b246b092bfdd6972e6ea7b42a",
-      "bytes": 203917,
+      "sha256": "9d4233f15f98d6f84ba2f9265b987eda701cf5ecdd2d665ce4195585fccf4688",
+      "bytes": 660452,
       "width": 1920,
       "height": 1080,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-engineer/gishi-materials-ronten/youtube.longform/cover.4b8eb8c8.png"
+        "path": ".tmp/media/concrete-engineer/gishi-materials-ronten/youtube.longform/cover.9d4233f1.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/concrete-engineer/gishi-materials-ronten/cover-design.json#longform",
-        "specSha256": "00b35c472b253840b559a7475e25402c1203e783edee7308864a59147ecd4d5a"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/concrete-engineer/gishi-materials-ronten/cover-design.json#covers/longform",
+        "specSha256": "bb3b9127c7301cb036d47b4a81e5209034f47ab3afea32d0e3fc2f49b37a8c4d"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/318.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/318.png",
+        ".tmp/media/concrete-engineer/gishi-materials-ronten/youtube.longform/cover.4b8eb8c8.png"
       ]
     },
     {
@@ -571,66 +590,69 @@
       "id": "concrete-engineer/gishi-materials-ronten/youtube.short.point-step1-1/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "accc2e7106cea98b405cd23665e91608efe1c86c55d518d6e67552e1ef5a28c2",
-      "bytes": 161173,
+      "sha256": "9ab62a1247e389b46573bd833d19f1cb40f4f2e3487f7d1bfb82b81465139eae",
+      "bytes": 659952,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-engineer/gishi-materials-ronten/youtube.short.point-step1-1/cover.accc2e71.png"
+        "path": ".tmp/media/concrete-engineer/gishi-materials-ronten/youtube.short.point-step1-1/cover.9ab62a12.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/concrete-engineer/gishi-materials-ronten/cover-design.json#point-step1-1",
-        "specSha256": "c995645e603f12d1587a62c5af81de12050a085e8f4d12021bfea3f51ce2be46"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/concrete-engineer/gishi-materials-ronten/cover-design.json#covers/point-step1-1",
+        "specSha256": "cbaf47714f6508a95a583b8676c4411411e50810631039060f847e3e3a4b9252"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/319.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/319.png",
+        ".tmp/media/concrete-engineer/gishi-materials-ronten/youtube.short.point-step1-1/cover.accc2e71.png"
       ]
     },
     {
       "id": "concrete-engineer/gishi-materials-ronten/youtube.short.point-step2-2/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "2a3879c98cd4105785266bd70609cd2c7e86d79957ca493b548023d86c77054d",
-      "bytes": 180249,
+      "sha256": "93051cd4143da14b854a5eaf7c7a327878a9330f1f1901b182b508f30ba3ac4d",
+      "bytes": 677361,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-engineer/gishi-materials-ronten/youtube.short.point-step2-2/cover.2a3879c9.png"
+        "path": ".tmp/media/concrete-engineer/gishi-materials-ronten/youtube.short.point-step2-2/cover.93051cd4.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/concrete-engineer/gishi-materials-ronten/cover-design.json#point-step2-2",
-        "specSha256": "c99f884d4227abd069993a8f12a68025fda910d3cccfa8505ab9f6bcdd6dd38f"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/concrete-engineer/gishi-materials-ronten/cover-design.json#covers/point-step2-2",
+        "specSha256": "25885a9c0ca623849f718da485a33694dec9327defdab2857cb880a9451b355a"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/320.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/320.png",
+        ".tmp/media/concrete-engineer/gishi-materials-ronten/youtube.short.point-step2-2/cover.2a3879c9.png"
       ]
     },
     {
       "id": "concrete-engineer/gishi-mix-design-ronten/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "7116bcb1d680134d051ec71cf0d758b2d328c1567e4fcc20eda21c91e89ef705",
-      "bytes": 202882,
+      "sha256": "49d79dea19753a72efeb2dc5c9d762eab165e1287dd6b6e71b990697cde49e22",
+      "bytes": 652109,
       "width": 1920,
       "height": 1080,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-engineer/gishi-mix-design-ronten/youtube.longform/cover.7116bcb1.png"
+        "path": ".tmp/media/concrete-engineer/gishi-mix-design-ronten/youtube.longform/cover.49d79dea.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/concrete-engineer/gishi-mix-design-ronten/cover-design.json#longform",
-        "specSha256": "07609f67bf71275cf2a989e9da99ee8be6f444bf812e409610d7cb24ca9230b5"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/concrete-engineer/gishi-mix-design-ronten/cover-design.json#covers/longform",
+        "specSha256": "ca204c07e8f306062fe11b9eaf78431f1c78a97340e862c2523cabebea7129e9"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/321.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/321.png",
+        ".tmp/media/concrete-engineer/gishi-mix-design-ronten/youtube.longform/cover.7116bcb1.png"
       ]
     },
     {
@@ -658,66 +680,69 @@
       "id": "concrete-engineer/gishi-mix-design-ronten/youtube.short.point-step1-1/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "56eb1763882acb20a4bcd39aa7475fbb5b63ce434fcb9f74770b258e40d06fb4",
-      "bytes": 180034,
+      "sha256": "5f41465e56f2d40ad6f26afce165ece224fcd12d6e19536960f3c93a795ec6db",
+      "bytes": 668913,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-engineer/gishi-mix-design-ronten/youtube.short.point-step1-1/cover.56eb1763.png"
+        "path": ".tmp/media/concrete-engineer/gishi-mix-design-ronten/youtube.short.point-step1-1/cover.5f41465e.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/concrete-engineer/gishi-mix-design-ronten/cover-design.json#point-step1-1",
-        "specSha256": "f84dfcbf4c6de3eaa0e20cc1bfbad0531310c9bcefaebb5a448cbde6c8ac3039"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/concrete-engineer/gishi-mix-design-ronten/cover-design.json#covers/point-step1-1",
+        "specSha256": "61e0921afba59db7bba73b2fa098848673967562003e230a0f729d7e791bd362"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/322.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/322.png",
+        ".tmp/media/concrete-engineer/gishi-mix-design-ronten/youtube.short.point-step1-1/cover.56eb1763.png"
       ]
     },
     {
       "id": "concrete-engineer/gishi-mix-design-ronten/youtube.short.point-step2-2/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "78304fc878bb8fdf7ee0048ac71802e33924e487da4d2b9866a6ef16dbaf7deb",
-      "bytes": 180252,
+      "sha256": "358f9c1cf7ed1a0764f91241aa0e33756bbfa5f7bb4fd20865a6d595f3ac8967",
+      "bytes": 674463,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-engineer/gishi-mix-design-ronten/youtube.short.point-step2-2/cover.78304fc8.png"
+        "path": ".tmp/media/concrete-engineer/gishi-mix-design-ronten/youtube.short.point-step2-2/cover.358f9c1c.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/concrete-engineer/gishi-mix-design-ronten/cover-design.json#point-step2-2",
-        "specSha256": "c1935242940d5f2bf5e736dd8c23de07a4e70bf6fa8e86dc779351883e3c9c07"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/concrete-engineer/gishi-mix-design-ronten/cover-design.json#covers/point-step2-2",
+        "specSha256": "be1a988dec4d8c786324fcd5122a4f7cf4be1b32ed872cb389306e396ec30bee"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/323.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/323.png",
+        ".tmp/media/concrete-engineer/gishi-mix-design-ronten/youtube.short.point-step2-2/cover.78304fc8.png"
       ]
     },
     {
       "id": "concrete-engineer/gishi-production-qc-ronten/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "9fda383c68ccb99152fb3829067cbae8d4aaff7c89a261586b9fa5dc841fbb80",
-      "bytes": 234379,
+      "sha256": "146112a442fd5970f0afd33cd6e168cb6f821762726bb62c19983f6715f10cdf",
+      "bytes": 658228,
       "width": 1920,
       "height": 1080,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-engineer/gishi-production-qc-ronten/youtube.longform/cover.9fda383c.png"
+        "path": ".tmp/media/concrete-engineer/gishi-production-qc-ronten/youtube.longform/cover.146112a4.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/concrete-engineer/gishi-production-qc-ronten/cover-design.json#longform",
-        "specSha256": "be7f1fe2e42c4f6ede9de1d3fbeb29cc31ad0b54bc3a7b86ad7b510a88cd310b"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/concrete-engineer/gishi-production-qc-ronten/cover-design.json#covers/longform",
+        "specSha256": "a3ec43da9135f9cacbd64525411e8b446d9759883fd3e583d80140e911654d62"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/324.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/324.png",
+        ".tmp/media/concrete-engineer/gishi-production-qc-ronten/youtube.longform/cover.9fda383c.png"
       ]
     },
     {
@@ -745,66 +770,69 @@
       "id": "concrete-engineer/gishi-production-qc-ronten/youtube.short.point-qc1-1/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "94fb4dc83c1bc3560f315def516030226568de98f980ab35cf5415f488b478b9",
-      "bytes": 164894,
+      "sha256": "d977beb816a0277a8a6eed99a7a023dd5a4fa7e5db2c6f5778ca538624ade765",
+      "bytes": 668729,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-engineer/gishi-production-qc-ronten/youtube.short.point-qc1-1/cover.94fb4dc8.png"
+        "path": ".tmp/media/concrete-engineer/gishi-production-qc-ronten/youtube.short.point-qc1-1/cover.d977beb8.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/concrete-engineer/gishi-production-qc-ronten/cover-design.json#point-qc1-1",
-        "specSha256": "504a6a3c4406a1ea38bb52783e021a8c10c2157cf4187f9ae3f9b640cc9edb8d"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/concrete-engineer/gishi-production-qc-ronten/cover-design.json#covers/point-qc1-1",
+        "specSha256": "37f59d313a2a0f7edee40ae7a92a21bc8869e7f02f5df039413839344d230fed"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/325.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/325.png",
+        ".tmp/media/concrete-engineer/gishi-production-qc-ronten/youtube.short.point-qc1-1/cover.94fb4dc8.png"
       ]
     },
     {
       "id": "concrete-engineer/gishi-production-qc-ronten/youtube.short.point-qc2-2/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "ac009db6e18cb68c63ece09c5d7e29973d78f777fd0856825798ca937cc84bc3",
-      "bytes": 190052,
+      "sha256": "a0e34512867fa917b6b0c86d8cd12bf4d12b0ab1cbdb1665b6f84d25196d63d2",
+      "bytes": 667555,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-engineer/gishi-production-qc-ronten/youtube.short.point-qc2-2/cover.ac009db6.png"
+        "path": ".tmp/media/concrete-engineer/gishi-production-qc-ronten/youtube.short.point-qc2-2/cover.a0e34512.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/concrete-engineer/gishi-production-qc-ronten/cover-design.json#point-qc2-2",
-        "specSha256": "30d3b39a973f109ca214a309a79241622855c043903a474683fa3f2959b0cf12"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/concrete-engineer/gishi-production-qc-ronten/cover-design.json#covers/point-qc2-2",
+        "specSha256": "48605cbeb4dfc5a669e28fbe916584532ab81c783e052d7d37609cc46c5e11fa"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/326.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/326.png",
+        ".tmp/media/concrete-engineer/gishi-production-qc-ronten/youtube.short.point-qc2-2/cover.ac009db6.png"
       ]
     },
     {
       "id": "concrete-engineer/gishi-properties-testing-ronten/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "11d1b39623ce6464b4cc4c7fb5a7daa7ba131be5e0e28f444bfa58bc47b43b55",
-      "bytes": 205442,
+      "sha256": "932274dbfa131a247955a045b242f9a58206d82e7b8a80e6a00f668f8d7551d1",
+      "bytes": 645257,
       "width": 1920,
       "height": 1080,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-engineer/gishi-properties-testing-ronten/youtube.longform/cover.11d1b396.png"
+        "path": ".tmp/media/concrete-engineer/gishi-properties-testing-ronten/youtube.longform/cover.932274db.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/concrete-engineer/gishi-properties-testing-ronten/cover-design.json#longform",
-        "specSha256": "0ed02abe915f6b5eac50b7515bacbbe9996d0adde036ed3d3e81c064ff8ab7ff"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/concrete-engineer/gishi-properties-testing-ronten/cover-design.json#covers/longform",
+        "specSha256": "fe2f197150d5caee48b28d5622b1c408b4d1ca3916f1a2f3e706571f46d3f194"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/327.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/327.png",
+        ".tmp/media/concrete-engineer/gishi-properties-testing-ronten/youtube.longform/cover.11d1b396.png"
       ]
     },
     {
@@ -832,66 +860,69 @@
       "id": "concrete-engineer/gishi-properties-testing-ronten/youtube.short.point-step1-1/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "f72c4cf451941889e0bab204871ed2cca4cf5e2ac9d2b6283eac62c0d38307b5",
-      "bytes": 196235,
+      "sha256": "fb5712aa958169be832831b31682e7fe0a453e3fcf087c1e5e40ce410b550a89",
+      "bytes": 656995,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-engineer/gishi-properties-testing-ronten/youtube.short.point-step1-1/cover.f72c4cf4.png"
+        "path": ".tmp/media/concrete-engineer/gishi-properties-testing-ronten/youtube.short.point-step1-1/cover.fb5712aa.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/concrete-engineer/gishi-properties-testing-ronten/cover-design.json#point-step1-1",
-        "specSha256": "3db50b7fb8c9846a70ed544a01f8b56f3779627977af69ad084bac6f001eac71"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/concrete-engineer/gishi-properties-testing-ronten/cover-design.json#covers/point-step1-1",
+        "specSha256": "8630df6199a6ea216485f6702cbb0d82b7ca72971137f067f79a11abf7091280"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/328.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/328.png",
+        ".tmp/media/concrete-engineer/gishi-properties-testing-ronten/youtube.short.point-step1-1/cover.f72c4cf4.png"
       ]
     },
     {
       "id": "concrete-engineer/gishi-properties-testing-ronten/youtube.short.point-step2-2/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "b2b349cdbcb5aa7e07ffd3d6425ad0250b84c149af1374a11eaca45c8bdc4df3",
-      "bytes": 184493,
+      "sha256": "b362e0445cdf5fac7f75354f2cea04601826c0b4f722463c50601be4a28c7302",
+      "bytes": 675210,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-engineer/gishi-properties-testing-ronten/youtube.short.point-step2-2/cover.b2b349cd.png"
+        "path": ".tmp/media/concrete-engineer/gishi-properties-testing-ronten/youtube.short.point-step2-2/cover.b362e044.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/concrete-engineer/gishi-properties-testing-ronten/cover-design.json#point-step2-2",
-        "specSha256": "bafec7f80343d6e09d16d8b8c394db8c711c9a2004a3dcfc0a2d8276d9053e45"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/concrete-engineer/gishi-properties-testing-ronten/cover-design.json#covers/point-step2-2",
+        "specSha256": "f5e65101425c6c00eebba33b7c05d5bdc5ef851b85293e0bcb2a792b6213082c"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/329.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/329.png",
+        ".tmp/media/concrete-engineer/gishi-properties-testing-ronten/youtube.short.point-step2-2/cover.b2b349cd.png"
       ]
     },
     {
       "id": "concrete-engineer/gishi-shiken-zentaizou/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "a2a5ef52ca92f7f7dcafa49903529b0f326150913e913b114fa048dc3cd189e6",
-      "bytes": 233079,
+      "sha256": "04da7991c0df22a04fb8248c25b5c545ada2bac189594d07ef6a0073c486e9de",
+      "bytes": 652007,
       "width": 1920,
       "height": 1080,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-engineer/gishi-shiken-zentaizou/youtube.longform/cover.a2a5ef52.png"
+        "path": ".tmp/media/concrete-engineer/gishi-shiken-zentaizou/youtube.longform/cover.04da7991.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/concrete-engineer/gishi-shiken-zentaizou/cover-design.json#longform",
-        "specSha256": "f98b237a99a3a17bb36a7d3589a91ebeef18502b405995a7b72d4593dfd2433a"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/concrete-engineer/gishi-shiken-zentaizou/cover-design.json#covers/longform",
+        "specSha256": "2489e85b02969db62c0b3eeb4f91bea8a94df1cd36bedce0556a0c835ddba636"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/330.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/330.png",
+        ".tmp/media/concrete-engineer/gishi-shiken-zentaizou/youtube.longform/cover.a2a5ef52.png"
       ]
     },
     {
@@ -919,66 +950,69 @@
       "id": "concrete-engineer/gishi-shiken-zentaizou/youtube.short.point-step1-1/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "443249dae3a41239a7518c48242e8120792741bb422cd65af7fb59489764b761",
-      "bytes": 173546,
+      "sha256": "3432d0a16410ca7834d9af81d16229a9c3289e2c2ba974f09f5ec130280dda3a",
+      "bytes": 665675,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-engineer/gishi-shiken-zentaizou/youtube.short.point-step1-1/cover.443249da.png"
+        "path": ".tmp/media/concrete-engineer/gishi-shiken-zentaizou/youtube.short.point-step1-1/cover.3432d0a1.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/concrete-engineer/gishi-shiken-zentaizou/cover-design.json#point-step1-1",
-        "specSha256": "c73f9879bb45057f8b07878ed2611d59cfbdbe08722655a43c7c1c1722a0304e"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/concrete-engineer/gishi-shiken-zentaizou/cover-design.json#covers/point-step1-1",
+        "specSha256": "02077c5b740ad990e6b8be3f364caf3e1f77b979eae17d543b7b2c3ac48581fa"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/331.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/331.png",
+        ".tmp/media/concrete-engineer/gishi-shiken-zentaizou/youtube.short.point-step1-1/cover.443249da.png"
       ]
     },
     {
       "id": "concrete-engineer/gishi-shiken-zentaizou/youtube.short.point-step2-2/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "f7b4cb324572396616a7fa630a2ea3b7b6799aa966658ec4281b548f66bd86ba",
-      "bytes": 176215,
+      "sha256": "eee19976833da2583c64fd49783ac555e56ca40cd0a7c9ab80191ed345dd3201",
+      "bytes": 668591,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-engineer/gishi-shiken-zentaizou/youtube.short.point-step2-2/cover.f7b4cb32.png"
+        "path": ".tmp/media/concrete-engineer/gishi-shiken-zentaizou/youtube.short.point-step2-2/cover.eee19976.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/concrete-engineer/gishi-shiken-zentaizou/cover-design.json#point-step2-2",
-        "specSha256": "263b9fad84ea34080c44074ac316517d937a4c4e6168d541a0cbcbc96fd0909d"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/concrete-engineer/gishi-shiken-zentaizou/cover-design.json#covers/point-step2-2",
+        "specSha256": "8adaabcebd9c4b54ad8e594a26efe710ab64d6de2d0a64e5ecd551df160030a0"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/332.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/332.png",
+        ".tmp/media/concrete-engineer/gishi-shiken-zentaizou/youtube.short.point-step2-2/cover.f7b4cb32.png"
       ]
     },
     {
       "id": "concrete-engineer/gishi-shunin-dochira/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "86707aa24f8e6e15ee68523fe07ba3300ac800705ebd23018c7a7a7297a9071f",
-      "bytes": 192133,
+      "sha256": "6228527d14331dee79dde3ed1a5ced54afb582b91cb95a02a44ddd00a421ce4d",
+      "bytes": 803126,
       "width": 1920,
       "height": 1080,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-engineer/gishi-shunin-dochira/youtube.longform/cover.86707aa2.png"
+        "path": ".tmp/media/concrete-engineer/gishi-shunin-dochira/youtube.longform/cover.6228527d.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/concrete-engineer/gishi-shunin-dochira/cover-design.json#longform",
-        "specSha256": "b674e2dd98415505489b187e98ad0d52c8dabf0e0cac2720faf2932a233a8d03"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/concrete-engineer/gishi-shunin-dochira/cover-design.json#covers/longform",
+        "specSha256": "2626636fc32f8316e90e245432369b0071781f4d25c8a3f7ea4fc6e68d9bc143"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/333.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/333.png",
+        ".tmp/media/concrete-engineer/gishi-shunin-dochira/youtube.longform/cover.86707aa2.png"
       ]
     },
     {
@@ -1006,44 +1040,46 @@
       "id": "concrete-engineer/gishi-shunin-dochira/youtube.short.point-step1-1/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "d881639cf60c3c05db37debd823cfed1ebf5346d79df4b530cb5102ca220efd1",
-      "bytes": 156751,
+      "sha256": "c26cd14686e4af7ddeeee372bcc81ecbdd108cbacf972544e57f9594d66d27ac",
+      "bytes": 650870,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-engineer/gishi-shunin-dochira/youtube.short.point-step1-1/cover.d881639c.png"
+        "path": ".tmp/media/concrete-engineer/gishi-shunin-dochira/youtube.short.point-step1-1/cover.c26cd146.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/concrete-engineer/gishi-shunin-dochira/cover-design.json#point-step1-1",
-        "specSha256": "bda3f9ab72e6334b9a29a2405370926b83b466b0b990b1ac0d4c1fc003b05d10"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/concrete-engineer/gishi-shunin-dochira/cover-design.json#covers/point-step1-1",
+        "specSha256": "c662524df22795b76fac40fa60b15c4aea9b674100ebc6645afaa38c42b0000f"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/334.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/334.png",
+        ".tmp/media/concrete-engineer/gishi-shunin-dochira/youtube.short.point-step1-1/cover.d881639c.png"
       ]
     },
     {
       "id": "concrete-engineer/gishi-shunin-dochira/youtube.short.point-step2-2/cover",
       "role": "cover",
       "type": "image/png",
-      "sha256": "4467f5ff377083fc48aa73f37483767a866008560e73a6b29dd941fb1779456d",
-      "bytes": 183062,
+      "sha256": "db09ae1168b24f2384ab7a4b22343e4f2f07658334fed4a65adc14fcb2b95a5a",
+      "bytes": 671180,
       "width": 1080,
       "height": 1920,
       "store": {
         "tier": "drive",
-        "path": ".tmp/media/concrete-engineer/gishi-shunin-dochira/youtube.short.point-step2-2/cover.4467f5ff.png"
+        "path": ".tmp/media/concrete-engineer/gishi-shunin-dochira/youtube.short.point-step2-2/cover.db09ae11.png"
       },
       "provenance": {
         "kind": "template",
-        "by": "apply-video-brand",
-        "spec": "content/sns/video-packs/concrete-engineer/gishi-shunin-dochira/cover-design.json#point-step2-2",
-        "specSha256": "f85e26a88489b7f76bd91410de4eee8ef7480df092c28a52daf57c49f865369f"
+        "by": "youtube-covers",
+        "spec": "content/sns/video-packs/concrete-engineer/gishi-shunin-dochira/cover-design.json#covers/point-step2-2",
+        "specSha256": "99b3ea82089235059ea1bb7a89f7b0a77ef37819eac0d8725e07f54bdd5b053f"
       },
       "legacyPaths": [
-        ".tmp/video-render/youtube-covers-a-rollout-20260909/335.png"
+        ".tmp/video-render/youtube-covers-a-rollout-20260909/335.png",
+        ".tmp/media/concrete-engineer/gishi-shunin-dochira/youtube.short.point-step2-2/cover.4467f5ff.png"
       ]
     }
   ]

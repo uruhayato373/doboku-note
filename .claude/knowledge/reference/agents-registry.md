@@ -6,7 +6,7 @@ title: サブエージェント詳細レジストリ
 
 `.claude/agents/` に定義されたサブエージェント群の詳細。Generator/Evaluator 分離の原則に基づき設計。
 
-SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を共通参照する。ig-carousel-writer／ig-reels-writer／x-post-writer は短い見出しと台帳のポーズ候補を制作担当へ渡し、対応QAおよびyt-shorts-publisher-qaは画像の判読・同一性・重なりを確認する。ポーズ分類の真実源は [キャラクター素材ポリシー](./character-asset-policy.md) が案内する台帳で、一覧確認は管理画面 `/gallery/characters`。画像QAから外部投稿の更新完了を推定しない。
+SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を共通参照する。ig-carousel-writer／ig-reels-writer／x-post-writer は短い見出しと台帳のポーズ候補を制作担当へ渡し、対応QAおよびyt-shorts-publisher-qaは画像の判読・同一性・重なりを確認する。ポーズ分類の真実源は [キャラクター素材ポリシー](./character-asset-policy.md) が案内する台帳で、一覧確認は管理画面 `/gallery/characters`。画像QAから外部投稿の更新完了を推定しない。通常動画・ShortsのPOPは [承認見本](./pop-image-policy.md) と `pop-image.json` を参照し、`ai-image-fidelity-auditor` が文字・人物の忠実性、`yt-shorts-publisher-qa` がShorts表紙・操作UIを確認する。画像のみの入力は動画4軸を採点しない。
 
 > **件数の SSOT**: エージェント数の真実源は `.claude/agents/*.md` の実数（`find .claude/agents -maxdepth 1 -name '*.md' | wc -l`＝現在 **88**）と下記「エージェント一覧」表。CLAUDE.md など他 doc は件数を重複記載せずここを指す。追加/削除は同一 commit でこの表を更新する。
 
@@ -85,6 +85,8 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 
 ---
 
+Shortsの全場面POP差し替えは `yt-shorts-publisher-qa` が原画像と字幕入り完成フレームを原寸・360pxで照合し、画像／動画SHAと対象・実検査場面数を返す。巨大な無地余白と左上への縮小配置は寸法とは別に判定する。ライブUI未確認をローカルQAで補完したとは扱わない。
+
 ## エージェント一覧
 
 | エージェント                         | 役割                                                                                                   | 種別           | model   | 担当スキル                                                                 | Phase 1 対応                                |
@@ -149,7 +151,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | `ig-stories-writer`            | Instagram Stories の `stories/caption.txt` と `stories/note.md` をパック固有にキュレーション。投票/質問ステッカー文言・リンクスタンプ URL 確定。`angle` パラメータで6切り口の4枚ストーリー弧を制御 | Generator    | sonnet  | `.claude/knowledge/reference/ig-stories-policy.md` + `.claude/shared-policy/REPURPOSE.md` 参照（戦略 v7 で新設） | 🚧 Phase 1（2026-05-28 起動、2026-06-10 angle 追加）       |
 | `ig-stories-qa`                | Instagram Stories の **3 軸**ルーブリック品質評価（コピー力・リンク導線整合・ステッカー双方向性）。テンプレ未差替（「令和7年度」のまま等）と 02/03 ステッカー誤配置を減点 | Evaluator    | sonnet  | `.claude/knowledge/reference/ig-stories-policy.md` 参照（戦略 v7 で新設） | 🚧 Phase 1（2026-05-28 起動、戦略 v7 Phase C）       |
 | `yt-shorts-title-writer`       | YouTube Shorts（過去問派生）の**論点ベースのタイトル**を執筆し meta.json の既定タイトルを上書き（`技術士総監 令和X年度 択一｜論点 #Shorts`・40字以内・使い回し/ネタバレ禁止）。親が featured 設問文を抽出して渡す | Generator    | sonnet  | `.claude/knowledge/reference/yt-shorts-publisher-policy.md` §2 参照、`yt-shorts-publisher-qa` と対 | ✅ 運用中（2026-06-05 起動）            |
-| `yt-shorts-publisher-qa`       | YouTube Shorts（IG Reels 派生 mp4 + meta.json）の **4 軸**ルーブリック品質評価（尺=**≤60秒ゲート**〔60秒超は通常動画扱いで不合格〕・UTM 整合・タイトル長/検索性・字幕整合）。IG 用 UTM 混入を重大減点、予約後は `videos.list` で偽成功検証（policy §7） | Evaluator    | sonnet  | `.claude/knowledge/reference/yt-shorts-publisher-policy.md` 参照（戦略 v7 で新設、2026-06-05 v2 確定） | 🚧 Phase 1（2026-05-28 起動、戦略 v7 Phase D）       |
+| `yt-shorts-publisher-qa`       | YouTube Shorts（IG Reels 派生 mp4 + meta.json）の **4 軸**ルーブリック品質評価（尺=**縦/正方形・≤180秒ゲート**〔30〜60秒推奨〕・UTM 整合・タイトル長/検索性・字幕整合）。IG 用 UTM 混入を重大減点、予約後は `videos.list` で偽成功検証（policy §7） | Evaluator    | sonnet  | `.claude/knowledge/reference/yt-shorts-publisher-policy.md` 参照（戦略 v7 で新設、2026-06-05 v2 確定） | 🚧 Phase 1（2026-05-28 起動、戦略 v7 Phase D）       |
 | `video-script-writer`          | 動画パック（`content/sns/video-packs/{exam}/{slug}/` の video-pack.json・script.md・storyboard.json・派生ブリーフ）を 1 パック書く。出典を読んでから書き、逐語転用・主 CTA 複数・推測の URL/数値を避ける。全資格共通（資格別エージェントは作らない）。判定・レンダリング・投稿は担当外 | Generator    | sonnet  | `.claude/knowledge/reference/video-content-policy.md` §2-4・§6、`video-content-qa` と対 | 🚧 新設（DN-0406・2026-10-12） |
 | `video-content-qa`             | 動画パックの台本・企画を **6軸（0〜3）**で採点（悩み適合・事実/出典・視聴維持・図版音声字幕・差別化/Red Line・CTA/計測）。平均2.0以上かつ BLOCK なしで公開候補。`check-video-content` の FAIL と出典なし断定は BLOCK。修正・status 変更・投稿はしない（audit-only・`tools:` allowlist） | Evaluator    | sonnet  | `.claude/knowledge/reference/video-content-policy.md` §6-9、`video-script-writer` と対 | 🚧 新設（DN-0406・2026-10-12） |
 | `ig-highlight-designer`        | Instagram ハイライト（`highlights/NN_*/slide-data.json`）の Stories 用構造化データを 1 ハイライトずつ執筆。モダンシック意匠 + データ駆動レイアウト | Generator    | sonnet  | `.claude/knowledge/reference/ig-highlight-design-policy.md` 参照（戦略 v7.1 で新設） | 🚧 Phase 1（2026-05-28 起動、戦略 v7.1）              |
@@ -231,7 +233,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 | **svg-figure-auditor** | site: `content/site/**/img/figure-*.svg`（コンテンツ図版のみ）/ note: `content/note/**/img/figure-*.{svg,png}` | site=svg-tokens（viewBox/font/色 allowlist/marker）+ 概念伝達/alt/可読性/結線、note=note-svg-policy（キャンバス/フォント/ブランド/密度）。各 4 軸・加重 ≥2.0 かつ全軸 ≥2。**過去問クロップ（h*-primary）は対象外** | `/note-prepublish-review`（note 枝）/ 単体 SVG 監査時。機械 svg audit(P1-P8) の後段 |
 | **ig-reels-qa** | `reels/script.json` + `reels/caption.txt` + `reels/video.mp4` + 対応 `reels/img/*.png` | 尺・読み上げ完結性・キャプション/タグ品質・音声画面整合・保存導線（5軸）。「スワイプで」等カルーセル流用 CTA を重大減点 | IG Reels script.json 執筆後 / mp4 生成後 |
 | **ig-stories-qa** | `stories/caption.txt` + `stories/note.md` + 対応 `stories/img/01-04.png` | コピー力・リンク導線整合・ステッカー双方向性（3軸）。テンプレ未差替・ステッカー誤配置を減点 | IG Stories caption.txt 執筆後 |
-| **yt-shorts-publisher-qa** | `content/sns/youtube/<date>-<pack-id>/shorts.mp4` + `meta.json` + `thumbnail.png` | 尺=**≤60秒ゲート**・UTM 整合・タイトル長/検索性・字幕整合（4軸）。IG 用 UTM 混入を重大減点、予約後 `videos.list` 実査 | YT Shorts 派生 mp4 生成後（`yt-shorts-create --from-reels` 完了後） |
+| **yt-shorts-publisher-qa** | `content/sns/youtube/<date>-<pack-id>/shorts.mp4` + `meta.json` + `thumbnail.png` | 尺=**縦/正方形・≤180秒ゲート**〔30〜60秒推奨〕・UTM 整合・タイトル長/検索性・字幕整合（4軸）。IG 用 UTM 混入を重大減点、予約後 `videos.list` 実査 | YT Shorts 派生 mp4 生成後（`yt-shorts-create --from-reels` 完了後） |
 | **video-content-qa** | `content/sns/video-packs/{exam}/{slug}/`（video-pack.json・script.md・storyboard.json）＋ `sourceRefs` の実体 | 悩み適合・事実/出典・視聴維持・図版音声字幕整合・差別化/Red Line・CTA/計測（6軸 0〜3・平均 ≥2.0 かつ BLOCK なし）。`check-video-content` FAIL・出典なし断定・逐語転用・主 CTA 複数は BLOCK | `/video-content` で台本生成後（レンダリング前） |
 | **ig-highlight-qa** | `highlights/NN_*/slide-data.json` + `img/*.png` | サムネ識別性・リードコピー力・ジャンル一貫性・余白配分／セーフエリア（4軸）。IG UI セーフエリア侵入・本文 y>=1280 侵入・06_materials の note 有料直リンクを重大減点。`ig-stories-qa`（過去問 4 枚連投）とは別文脈 | IG ハイライト slide-data.json 執筆後 / PNG 生成後 |
 | **pe-secondary-exam-qa** | `content/note/技術士建設部門/magazines/{magazine}/{year}/article.md`（論述式 模範解答） | 設問適合・論述構成/論点絞り込み・分かりやすさ/あいまい表現排除・発注者視点/専門性・note完成度（5軸）＋字数上限〔枚数×600字〕・note-lint・設問1対1・論述式文体ゲート。論述原則は `技術士論文の書き方`（非公開・原則抽出）由来 | 技術士二次 模範解答 article.md 生成後 |

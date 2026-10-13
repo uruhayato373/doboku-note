@@ -12,13 +12,18 @@
       "accentLine": 2,
       "subtitle": "",
       "character": {
-        "pose": "reading",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/concrete-engineer/gishi-jis-handan/youtube.longform/cover.370286cd.png",
-        "sha256": "370286cd4675749a248fcf5882750b517740c60646276207172d40150298553b",
-        "specSha256": "84fb6d8ff552b3b96d5efc4fa52e0d2fe63cebf1f280529053733a19f1814dae"
+        "path": ".tmp/media/concrete-engineer/gishi-jis-handan/youtube.longform/cover.8cf72ef7.png",
+        "sha256": "8cf72ef7e7eda80f491fd1038f34ca895f45998af4a197923e418db7cf02db93",
+        "specSha256": "a02d382dda6f48627ca2f71fa51864c91b216ed65893f8b29f16d1eba5b9b308"
       }
     },
     "point-step1-1": {
@@ -31,13 +36,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "thinking",
+        "pose": "pop-pointing",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "compare",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/concrete-engineer/gishi-jis-handan/youtube.short.point-step1-1/cover.1a4abda5.png",
-        "sha256": "1a4abda5db5e29a2dc90afcab9aacc9de53a0a915b45ace1ed2a1cb20b28488e",
-        "specSha256": "7bca81408aebbbbea920af989a2e15a55a22582073feba27420caed483f6b5bf"
+        "path": ".tmp/media/concrete-engineer/gishi-jis-handan/youtube.short.point-step1-1/cover.94bfb71d.png",
+        "sha256": "94bfb71db032a56f51bfce31ade5f577cf2f960689e571fdeda01f73f36ad082",
+        "specSha256": "a7fd572032f7f56b6fc9a5fad5c2ebf2ae14a4ce827ed410bdf78c5eb4436b5b"
       }
     },
     "point-step2-2": {
@@ -50,13 +60,18 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "pop-explaining",
         "frame": "waist"
       },
+      "design": "pop-v2",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が制作"
+      },
       "approvedImage": {
-        "path": ".tmp/media/concrete-engineer/gishi-jis-handan/youtube.short.point-step2-2/cover.b5c1970b.png",
-        "sha256": "b5c1970b92b3a48f136ed9162abe292ef00ebf2bacd41cd55ef33e11eff81c80",
-        "specSha256": "fbf1f04fae1dfe9bbe3c82aa46439d7087d3516e2ee2c65e2e5de5fa545dfca8"
+        "path": ".tmp/media/concrete-engineer/gishi-jis-handan/youtube.short.point-step2-2/cover.8ec5f7b6.png",
+        "sha256": "8ec5f7b69cc0e7b095f740c8fa950363f62fbab3445961dba4fb0d513b18595e",
+        "specSha256": "363882dd8d8315b5f51d92eded8f84ef1eddbcedee9dc427f61ce3849c36a609"
       }
     }
   }

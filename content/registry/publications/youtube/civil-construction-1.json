@@ -5546,7 +5546,10 @@
       "work": "koji-gaiyo-sheet-zukai",
       "account": "youtube:main",
       "format": "longform",
-      "status": "draft"
+      "status": "draft",
+      "media": {
+        "cover": "civil-construction-1/koji-gaiyo-sheet-zukai/youtube.longform/cover"
+      }
     },
     {
       "id": "civil-construction-1/niji-junbi-roadmap/youtube.longform",
