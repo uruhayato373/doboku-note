@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-13T07:01:29.869Z",
+  "generated_at": "2026-10-13T07:11:16.671Z",
   "summary": {
-    "total_mdx_files": 1409,
+    "total_mdx_files": 1410,
     "total_unique_tags": 132,
     "allowlist_size": 330,
     "known_count": 132,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 233,
+      "count": 234,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1199,6 +1199,7 @@
         "civil-practice-concrete-pump-capacity",
         "civil-practice-concrete-quality-and-workforce",
         "civil-practice-concrete-repair-leakage",
+        "civil-practice-concrete-roles-overview",
         "civil-practice-concrete-standards-history",
         "civil-practice-concrete-structure-inspection",
         "civil-practice-concrete-work-preparation",
@@ -3248,7 +3249,7 @@
     },
     {
       "name": "コンクリート",
-      "count": 53,
+      "count": 54,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-concrete-key-points",
@@ -3274,6 +3275,7 @@
         "civil-practice-concrete-pump-capacity",
         "civil-practice-concrete-quality-and-workforce",
         "civil-practice-concrete-repair-leakage",
+        "civil-practice-concrete-roles-overview",
         "civil-practice-concrete-standards-history",
         "civil-practice-concrete-structure-inspection",
         "civil-practice-concrete-work-preparation",
@@ -3308,7 +3310,7 @@
     },
     {
       "name": "品質管理",
-      "count": 50,
+      "count": 51,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-four-management",
@@ -3325,6 +3327,7 @@
         "civil-practice-concrete-durability-specification",
         "civil-practice-concrete-hydration-basics",
         "civil-practice-concrete-quality-and-workforce",
+        "civil-practice-concrete-roles-overview",
         "civil-practice-concrete-structure-inspection",
         "civil-practice-concrete-work-preparation",
         "civil-practice-construction-inspection-types",
