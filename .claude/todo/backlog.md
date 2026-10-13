@@ -376,6 +376,22 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0718] 検索キーワード戦略の改善候補と起票カードを EXP-ID で結び、28 日後の判定を experiments.json に残す
+タグ: [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-10-13]
+
+**起点**: 2026-10-13 のキーワード戦略画面（/metrics/search-strategy）の改修中に確認。改善候補と起票カードの対応、改善結果の記録が ID で管理されていない。
+
+**現状**:
+- 候補とカードの対応は `scripts/lib/search-opportunities.mjs` の `cardedPathsFrom`（81 行）が backlog.md の本文から URL パスを正規表現で拾っているだけ。カードに対象ページ・クラスターの構造化された欄がない。本文に別件でパスが出るカードも「起票済」と表示される
+- カードを完了すると backlog から消え、同じページは「未起票」に戻る（再起票のおそれ）
+- 「反映後 28 日で対象語が上がったか」の結果はカードの完了記録（自由記述）に書くだけで、データセットに残らない。月次レビュー（monthly-review SKILL.md 17 行）も手作業で照合する
+- 改善状態の正本の `data/business/experiments.json`（EXP-###・measure.scope.pages・anchor・preDays/postDays）は使われていない（DN-0645・0646・0648・0652 の参照なし）
+
+**やること**: 週次レビューで起票するときに、対象ページ・検索語・起票時の順位と表示を EXP（measure.scope.pages）に登録し、カードには EXP-ID を書く。`search-opportunities.mjs` は backlog の本文ではなく experiments.json の scope.pages で「起票済・判定待ち・判定済み」を付ける。管理画面の状態欄に EXP-ID と判定を出す。weekly-review／monthly-review の SKILL と 16_検索キーワード戦略.md を同じ commit で直す。
+
+**完了条件**: 起票済みの候補がすべて EXP-ID でたどれる。カード完了後も「未起票」に戻らない。`node --test tests/search-opportunities.test.mjs` に experiments 経由の対応づけのテストがある。
+
+
 ### [DN-0715] 1級土木 第二次検定の合格発表後、DM 10051134 の購入者へ結果を伺い、合格なら体験談・評価をお願いする
 タグ: [領域:商品] [時期:2027-01] [種類:改善] [起票:2026-10-13] [期日:2027-01-15]
 
