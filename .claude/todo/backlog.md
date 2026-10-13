@@ -381,6 +381,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **起点**: 2026-10-13、シリーズ concrete-practice（台帳 config/content-series.json は PR #1050）の新規 10 章のうち 7 章を書いた（工事の段取り・生コンの注文・できた構造物の検査・なぜ固まるか・特殊なコンクリート・基準の移り変わり・省力化と新技術）。トークンの上限のため残りを分けた。
 **やること**:
+0. 先に流れをスキルにして節約する（2026-10-13 運営者と合意）: (a) book-coverage-expand に「シリーズの章を書く」形を足し、.tmp/book-coverage/series/ の BRIEF・WRITER・QA の指示書をリポジトリへ移す。(b) シリーズで確かめた一次資料（JIS A 5308:2024・土木工事共通仕様書 令和8年3月の条と頁・国交省の通知と要領の URL・中国地整の手引き）を 1 ファイルにまとめ、執筆担当はそこから引く。(c) 本の項目が少ない章と、まとめの章は brief を親が書く。(d) QA は本を全部読み直さず、見出しの比較で似ていそうな節だけ本と照らす。(e) 担当の返答を決まった数行にする。目安は 1 章 80〜110 万 → 50〜60 万トークン。brief の担当をエージェント定義にするか（本は読める・書けるのは brief だけ）もここで決める
 1. 残り 3 章: C-32 品質と担い手（concrete-quality-and-workforce・著者の意見は論点だけ）、C-09 耐久性の決め方（concrete-durability-specification・割り当て項目 0 なので brief は親が既存記事と示方書から書く）、C-00 全体像のハブ（concrete-roles-overview・ほかの章ができてから。brief は親が書く）。手順と指示書は .tmp/book-coverage/series/（BRIEF・WRITER・QA-INSTRUCTIONS.md、章ごとの packet.md）。1 章あたり約 80〜110 万トークン（brief 16〜30 万・執筆 37〜47 万・QA 18〜29 万）
 2. 書いた章の逆向きリンクとカリキュラムへの登録（各執筆担当の返答にある「逆向きリンク」「カリキュラムの区分案」。src/config/category-curriculum.json の civil-practice の concrete ブロックを読む順に並べ替える）
 3. 画像: 各 brief の「図・写真の候補」（頁 id）を台帳の visuals に入れ、check-content-series --crop-jobs で切り出し → 写真は切り出した写真を元に AI で描き直す（その前に image-policy を改める・docs/strategy/18 の「図と写真」）
