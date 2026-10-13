@@ -572,6 +572,7 @@
           "id": "concrete",
           "label": "コンクリート（配合・打込み・型枠・鉄筋）",
           "slugs": [
+            "concrete-roles-overview",
             "concrete-hydration-basics",
             "concrete-durability-specification",
             "ready-mixed-concrete-ordering",
