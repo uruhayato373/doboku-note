@@ -1,9 +1,9 @@
 export const meta = {
   name: 'series-chapter',
   description: 'シリーズの台帳の新規の章を、本の項目 → 論点の brief → 執筆 → 軽い QA → 修正 → コミットで 1 章 1 記事ずつ書く',
-  whenToUse: 'check-content-series --packet で章の資料を作った後。args は { root: リポジトリの絶対パス, items: [{ series, item, article, books, brief: "agent"|"parent", dn? }], facts?: シリーズの事実ファイルの絶対パス }（book-coverage-expansion.md §4）',
+  whenToUse: 'check-content-series --packet で章の資料を作った後。args は { root: リポジトリの絶対パス, items: [{ series, item, article, books, brief: "agent"|"parent"|"outline", dn? }], facts?: シリーズの事実ファイルの絶対パス }（book-coverage-expansion.md §4）',
   phases: [
-    { title: 'Brief', detail: '本の項目を読み、論点だけの brief を書く（brief: "agent" の章だけ）' },
+    { title: 'Brief', detail: '本の項目を読み、論点だけの brief を書く（brief: "agent" の章だけ。"outline" は確認済みの骨子を使う）' },
     { title: 'Write', detail: 'brief と事実ファイルから新しい記事を書く（本は読まない・画像は作らない）' },
     { title: 'QA', detail: '軽い QA: 事実ファイルに無い値と、見出しが本に似た節だけを確かめる（編集しない）' },
     { title: 'Fix', detail: 'QA の指摘を直す' },
@@ -17,14 +17,15 @@ if (!M || !M.startsWith('/') && !/^[A-Za-z]:[\\/]/.test(M)) throw new Error('arg
 const items = (args.items ?? []).map((it) => {
   const m = /^content\/site\/([a-z0-9-]+)\/([a-z0-9-]+)\/article\.mdx$/.exec(it.article ?? '')
   if (!m) throw new Error(`item.article は content/site/<区分>/<slug>/article.mdx: ${it.article}`)
-  if (!['agent', 'parent'].includes(it.brief)) throw new Error(`item.brief は agent か parent: ${it.item}`)
+  if (!['agent', 'parent', 'outline'].includes(it.brief)) throw new Error(`item.brief は agent・parent・outline のどれか: ${it.item}`)
   return { ...it, key: `${m[1]}/${m[2]}`, slug: m[2], books: it.books ?? [] }
 })
 const DOC = `${M}/.claude/knowledge/reference/book-coverage-expansion.md`
 const FACTS = args.facts ?? `${M}/.claude/knowledge/reference/concrete-practice-sources.md`
 const DIR = `${M}/.tmp/book-coverage/series`
 const PACKET = (it) => `${DIR}/${it.slug}.packet.md`
-const BRIEF = (it) => `${DIR}/${it.slug}.brief.md`
+// brief: "outline" は台帳で管理する確認済みの骨子（content/sources/series/<シリーズ>/<項目>.md）をそのまま brief にする
+const BRIEF = (it) => it.brief === 'outline' ? `${M}/content/sources/series/${it.series}/${it.item}.md` : `${DIR}/${it.slug}.brief.md`
 const COMMIT = `node ${M}/scripts/book-coverage-commit.mjs`
 
 /** 同時実行の上限つきの順番待ち。prio の大きい（後の段の）仕事を先に回す。同じ prio は先着順 */
@@ -104,14 +105,14 @@ const briefPrompt = (it) => `シリーズの章の brief を書く。手順と b
 
 const writePrompt = (it) => `シリーズの章（${it.series}/${it.item}）の新しい記事を 1 本書く。手順は ${DOC} の §1（Writer・新しい記事）と §4「執筆」を最初に読み、その通りにする。
 ${common(it)}
-- brief: ${BRIEF(it)}（論点だけ。本の文字起こし（ocr/）と ${PACKET(it)} は読まない）
+- brief: ${BRIEF(it)}（論点だけ。本の文字起こし（ocr/）と ${PACKET(it)} は読まない）${it.brief === 'outline' ? '。骨子の論点ごとの「根拠:」がこの章の出典で、法令の条は e-Gov の条へリンクする。「本:」は補助の項目 id で、本は読まない' : ''}
 - 事実: まず ${FACTS} を読み、そこにある値はそのまま使う（出典もそこから）。無い値だけ WebSearch / WebFetch で確かめ、factsVerified に書く。
 - 書籍 id（frontmatter の sources に入れる）: ${it.books.length ? it.books.join(', ') : 'なし'}
 最後に §1 の完了条件（新しい記事の分も）を回し、通してから返答する。返答は構造化出力だけ。`
 
 const qaPrompt = (it, w) => `${DOC} の §4「軽い QA」で、新しい記事 ${M}/${it.article} を確かめる。編集はしない。${noGit}
 - brief: ${BRIEF(it)}／事実ファイル: ${FACTS}（ここにある値は照合済み）／執筆担当が新しく確かめた値: ${JSON.stringify(w.factsVerified)}
-- 本との比較: ${PACKET(it)} の本の見出しの並びと記事の H2・H3 を比べ、似ている節だけ、その項目の文字起こしを開いて読み比べる
+- 本との比較: ${it.brief === 'outline' ? '骨子の「本:」に挙げた項目' : `${PACKET(it)} の本の項目`}の見出しの並びと記事の H2・H3 を比べ、似ている節だけ、その項目の文字起こしを開いて読み比べる（本の項目が無ければ飛ばす）
 - 40 字一致: \`node ${M}/scripts/check-reference-sources.mjs --deep 2>&1 | grep ${it.slug}\`
 - 要確認: ${JSON.stringify(w.needsCheck)}
 判定は直さなくてよければ PASS、直す箇所があれば FIX（重要度順に 場所 — 問題 — 直し方（正しい値と出典 URL））。返答は構造化出力だけ。`
@@ -129,12 +130,12 @@ const commitPrompt = (it) => `記事 ${it.key} をコミットする。作業デ
 exit 1 で pre-commit が止めたら、出力の指摘を ${M}/content/site/${it.key}/ の中だけで直し（手順は ${DOC} §1）、もう一度回す（最大 3 回）。ほかのファイルは触らない。git はこのスクリプトの外で使わない。
 返答は構造化出力（committed・最後に出たコミットの sha・回した回数・notes）。`
 
-log(`書く章 ${items.length} 本（brief を担当が書く ${items.filter((x) => x.brief === 'agent').length}・親が書いた ${items.filter((x) => x.brief === 'parent').length}）`)
+log(`書く章 ${items.length} 本（brief を担当が書く ${items.filter((x) => x.brief === 'agent').length}・親が書いた ${items.filter((x) => x.brief === 'parent').length}・確認済みの骨子 ${items.filter((x) => x.brief === 'outline').length}）`)
 
 const results = await pipeline(
   items,
-  (it) => it.brief === 'parent'
-    ? Promise.resolve({ b: { status: 'done', points: 0, unitsRead: 0, unreadUnits: [], notes: '親が書いた brief' } })
+  (it) => it.brief !== 'agent'
+    ? Promise.resolve({ b: { status: 'done', points: 0, unitsRead: 0, unreadUnits: [], notes: it.brief === 'outline' ? '確認済みの骨子' : '親が書いた brief' } })
     : work(() => agent(briefPrompt(it), { label: `brief:${it.slug}`, phase: 'Brief', schema: BRIEF_SCHEMA, model: 'sonnet' })).then((b) => ({ b })),
   (s, it) => {
     if (s.b?.status !== 'done') return s

@@ -180,3 +180,56 @@ test('validateSeries: 公開した章はカリキュラムに載り、入口の�
   assert.match(validateSeries(series([A, B]), ctx(['b', 'a'])).join('\n'), /並びが台帳の読む順と違う（1 番目: 台帳 a・区分 b）/);
   assert.match(validateSeries(series([A, C]), ctx(['a'])).join('\n'), /公開した章 c がカリキュラム/);
 });
+
+test('parseOutline・outlineIssues・outlineSummary: 骨子の論点と根拠を読み、一次資料の無い論点・台帳に無い id・確認日の無い確認済みを止める', async () => {
+  const { parseOutline, outlineIssues, outlineSummary } = await import('../scripts/lib/content-series.mjs');
+  const text = [
+    '---', 'series: s', 'item: X-1', 'status: approved', 'approvedAt: 2026-10-14', '---', '',
+    '## 読者と場面', '- 担当', '',
+    '## 論点',
+    '- 占用は許可が要る', '  - 根拠: road-act#第32条 占用の許可', '  - 本: civil1-textbook-management/u0376',
+    '- 手引きで流れを決める', '  - 根拠: https://www.mlit.go.jp/road/senyo/index.html 国交省',
+    '- 本だけの論点', '  - 本: civil1-textbook-management/u0001',
+    '- 台帳に無い id', '  - 根拠: no-such-act#第1条',
+  ].join('\n');
+  const o = parseOutline(text);
+  assert.equal(o.front.status, 'approved');
+  assert.equal(o.points.length, 4);
+  assert.deepEqual(o.points[0].refs.map((r) => r.kind), ['id', 'book']);
+  assert.equal(o.points[0].refs[0].detail, '#第32条');
+  const ctx = {
+    sourceIds: new Set(['road-act', 'civil1-textbook-management']),
+    referenceClasses: new Map([['road-act', 'external-primary'], ['civil1-textbook-management', 'commercial-book']]),
+    bookUnits: () => new Set(['u0376']),
+  };
+  const outlines = new Map([['s/X-1', { path: 'content/sources/series/s/X-1.md', ...o }]]);
+  const issues = outlineIssues({ outlines, stray: ['content/sources/series/s/X-9.md'] }, ctx).join('\n');
+  assert.match(issues, /X-9\.md: シリーズの台帳に無い章の骨子/);
+  assert.match(issues, /論点 3「本だけの論点」: 一次資料/);
+  assert.match(issues, /候補表に項目 u0001 が無い/);
+  assert.match(issues, /台帳に無い: no-such-act/);
+  assert.doesNotMatch(issues, /論点 1|論点 2/);
+  const sum = outlineSummary(outlines.get('s/X-1'), ctx);
+  assert.deepEqual([sum.status, sum.points, sum.withPrimary, sum.urlRefs, sum.bookRefs], ['approved', 4, 2, 1, 2]);
+  assert.equal(outlineSummary(null, ctx).status, 'none');
+  const draft = parseOutline(text.replace('status: approved\napprovedAt: 2026-10-14', 'status: approved'));
+  assert.match(outlineIssues({ outlines: new Map([['s/X-1', { path: 'p', ...draft }]]), stray: [] }, ctx).join('\n'), /approvedAt/);
+});
+
+test('suggestUnits: 章の語と本の項目の見出し・頻出語が重なる順に並べる', async () => {
+  const { suggestUnits } = await import('../scripts/lib/content-series.mjs');
+  const books = [{ id: 'b', title: '本', units: [
+    { id: 'u0001', heading: '道路の占用', topTerms: ['占用', '許可'] },
+    { id: 'u0002', heading: 'コンクリートの配合', topTerms: ['水セメント比'] },
+  ] }];
+  const rows = suggestUnits('道路占用許可の審査 占用物件と占用料', books);
+  assert.equal(rows[0].unit, 'u0001');
+  assert.equal(rows.some((r) => r.unit === 'u0002'), false);
+});
+
+test('実データ: 骨子はすべて検査を通る', async () => {
+  const { loadOutlines, outlineIssues } = await import('../scripts/lib/content-series.mjs');
+  const config = loadSeriesConfig(REPO_ROOT);
+  const ctx = seriesContext(REPO_ROOT);
+  assert.deepEqual(outlineIssues(loadOutlines(REPO_ROOT, config), ctx), []);
+});
