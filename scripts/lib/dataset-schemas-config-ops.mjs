@@ -419,60 +419,6 @@ export const ConfigSearchStrategy = z
   .strict()
   .meta({ title: '検索キーワード戦略' });
 
-// ---- config.seo-watchwords ---------------------------------------------------------------------
-
-const INTENT_IDS = ['exam-task', 'exam-topic', 'qualification-guide', 'reference'];
-
-const watchword = z
-  .object({
-    id: z.string().regex(/^[a-z0-9-]+$/),
-    keyword: text.describe('見張る検索語'),
-    targetPath: z.string().regex(/^\/(exam|practice|standards|topics|tools)\/[\w/-]+$/).refine((p) => !p.endsWith('/'), '正規のパス（末尾スラッシュなし）'),
-    contentPath: z.string().regex(/^(content\/site\/.+\.mdx|src\/app\/tools\/[\w/-]+\/page\.tsx)$/, '記事 MDX かツールのページ'),
-    priority: z.union([z.literal(1), z.literal(2), z.literal(3)]).describe('学習上の価値（1 が高い）'),
-    country: z.string().regex(/^[a-z]{3}$/).nullable().describe('GSC の国コード（3 文字）'),
-    device: z.enum(['MOBILE', 'DESKTOP', 'TABLET']).nullable().describe('null＝全端末'),
-    enabled: z.boolean(),
-    qualification: text.describe('資格 id（qualification-registry の id）'),
-    intent: z.enum(INTENT_IDS).describe('受験意図'),
-    mode: z.enum(['improve', 'monitor']).describe('improve＝記事を改善する・monitor＝計測だけ'),
-    examEvent: text.optional().describe('試験時期の判定に使う exam-calendar の予定の key（資格ごとの events の key）'),
-    audience: z.string().min(10),
-    need: z.string().min(10),
-    rationale: z.string().min(10),
-    nextStep: z.object({ label: text, path: z.string().regex(/^\/(exam|tools)\/[\w/-]+$/) }).strict(),
-    evidence: z.object({ kind: z.enum(['gsc', 'hypothesis']), source: text }).strict().describe('登録の根拠'),
-  })
-  .strict();
-
-/** 順位を見張る検索語（config/seo-watchwords.json）。選び方の検査は seo-rank-watch の validateConfig が持つ */
-export const ConfigSeoWatchwords = z
-  .object({
-    schemaVersion: z.literal(1),
-    siteUrl: z.string().regex(/^sc-domain:/, 'GSC のドメインプロパティ'),
-    policy: z
-      .object({
-        minImpressions: posInt,
-        minActiveDays: posInt,
-        maxConcurrent: posInt,
-        maxIneffectiveCycles: posInt,
-        maxSnapshotAgeDays: posInt,
-      })
-      .strict(),
-    watchwords: z.array(watchword).superRefine(uniqueBy('id', '見張りの id')),
-    strategy: z
-      .object({
-        version: z.literal(2).describe('戦略の版（seo-watch-strategy の strategyErrors が 2 を要求する。ファイルの版は schemaVersion）'),
-        reviewedAt: jstDate('戦略を見直した日'),
-        reviewEveryDays: z.number().int().min(7),
-        objective: z.string().min(10),
-        focusSource: text.describe('重点資格の正本（台帳 config.business-direction）。読み手が focusQualifications を足す'),
-      })
-      .strict(),
-  })
-  .strict()
-  .meta({ title: '順位を見張る検索語' });
-
 // ---- config.seo-meta-config --------------------------------------------------------------------
 
 /** SEO meta 監査の対象と巡回の設定（config/seo-meta-config.json）。キーは読み手（seo-checks・metadata.ts）に合わせた snake_case */
@@ -531,9 +477,6 @@ export const ConfigGrowthCycle = z
             expectedCtrByPosition: z.array(ratio).min(1).describe('順位 1 位から順の期待 CTR'),
             expectedCtrBeyond10: ratio,
             lowCtrRatio: ratio,
-            strikingPositionMin: nonNeg,
-            strikingPositionMax: nonNeg,
-            strikingTargetPosition: nonNeg,
             dropMinBaseWeeklyClicks: posInt,
             dropRatio: ratio,
             cannibalMinImpressionsPerPage: posInt,
@@ -542,9 +485,7 @@ export const ConfigGrowthCycle = z
             decayMinWeeklyClicks: posInt,
           })
           .strict()
-          .superRefine((s, ctx) => {
-            if (s.strikingPositionMin > s.strikingPositionMax) flag(ctx, ['strikingPositionMin'], 'strikingPositionMin は strikingPositionMax 以下');
-          }),
+          .describe('取りこぼしの帯（11〜30 位）は検索キーワード戦略（config.search-strategy の striking）だけが持つ'),
         revenue: z
           .object({
             ctaClickEvents: nonEmptyStrings,

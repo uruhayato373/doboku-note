@@ -20,12 +20,8 @@
 //   failMessage           止めるときに追加で出す 1 行（旧フックの echo）
 //   tail / failHint       出力を捕まえて、失敗時だけ末尾 tail 行と failHint を出す（旧フックの `> log; tail -N log`）
 
-import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
 import { AREAS } from './datasets.mjs';
-import { REPO_ROOT } from './repository-paths.mjs';
 import { CODE_DIRS, CONFIG_DIRS } from './qualification-ssot.mjs';
-import { CONFIG as SEO_WATCH_CONFIG, LEDGER as SEO_WATCH_LEDGER, HISTORY as SEO_WATCH_HISTORY } from './seo-rank-watch.mjs';
 
 const hasStaged = (ctx, re) => ctx.staged.some((f) => re.test(f));
 /** staged の変更（削除・改名を含む）のパスが 1 つでも前方一致するか。entries は --no-renames なので改名は削除＋追加で見える */
@@ -129,16 +125,7 @@ export const STEPS = [
   // 置き場のモデル（docs/content/config/data/.claude/実装）への逆戻り検知。廃止した置き場への新規ファイル・
   // docs への制作物混入・content への台帳混入。SKIP_INFORMATION_ARCHITECTURE=1 で回避
   s('check-information-architecture'),
-  // SEO観察中ページの変更と順位履歴の書換えを拒否する。
   s('check-business-direction'),
-  s('check-seo-rank-watch', ['--staged'], {
-    // 入力: 観察の設定・台帳・順位履歴・根拠のレポート（config/・data/）、検査自身（scripts/）、観察中ページの本文、
-    // 観察に影響する共有レイアウト（public/_redirects・src/app|components|styles）。記事 1 本の編集（観察対象外）では回さない
-    touches: (ctx) => {
-      const watched = JSON.parse(readFileSync(join(REPO_ROOT, SEO_WATCH_CONFIG), 'utf8')).watchwords.map((w) => w.contentPath);
-      return touchesPrefix(ctx, ['config/', 'data/', 'scripts/', 'public/_redirects', 'src/app/', 'src/components/', 'src/styles/', SEO_WATCH_CONFIG, SEO_WATCH_LEDGER, SEO_WATCH_HISTORY, ...watched]);
-    },
-  }),
   // SNS 投稿（content/sns/**）の /docs/ リンクが本番に実在するか検証（404 投稿の再発防止）
   s('check-sns-urls'),
   // 退役アカウント/ハンドル（404 の note 旧名・凍結 X 旧アカ）への参照（2026-08-13。

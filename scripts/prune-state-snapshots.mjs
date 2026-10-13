@@ -17,13 +17,13 @@
 // exit: 0 = 計画どおり（--commit なら削除完了）/ 1 = --check-coverage で未宣言あり、または削除に失敗 / 2 = 検査不成立（git が読めない）
 //
 // 触らないもの: 台帳で immutable のデータセット（KPI 台帳・rank-watch）、手元だけの生データ、
-// seo-watchwords.json の evidence.source と business 台帳が名前で指すファイル（pin）。
+// business 台帳が名前で指すファイル（pin）。
 
 import { execFileSync } from 'node:child_process';
-import { existsSync, readFileSync, unlinkSync } from 'node:fs';
+import { readFileSync, unlinkSync } from 'node:fs';
 import { join } from 'node:path';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
-import { DATASETS, datasetFiles, datasetPath } from './lib/datasets.mjs';
+import { DATASETS, datasetFiles } from './lib/datasets.mjs';
 import { DATA_ROOT, FAMILIES, RETIRED_FAMILIES, collectPins, plan } from './lib/prune-state-snapshots.mjs';
 
 function parseArgs(argv) {
@@ -61,14 +61,12 @@ function readJsonAt(root) {
 }
 
 function loadPins(root) {
-  const ww = join(root, datasetPath('config.seo-watchwords'));
-  const watchwords = existsSync(ww) ? JSON.parse(readFileSync(ww, 'utf8')) : null;
   // business の中身を変えない台帳（KPI の計測・時点記録・目標・レビュー・突合）が sources[] で名前を指すファイル
   const businessDocs = [];
   for (const x of DATASETS.filter((d) => d.id.startsWith('business.') && d.immutable)) {
     for (const f of datasetFiles(root, x.id)) if (f.endsWith('.json')) businessDocs.push(readFileSync(join(root, f), 'utf8'));
   }
-  return collectPins({ watchwords, businessDocs });
+  return collectPins({ businessDocs });
 }
 
 function main() {

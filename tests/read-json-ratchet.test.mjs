@@ -1,7 +1,7 @@
 /**
  * `readJson` を各スクリプトが個別に定義するのを増やさない（ラチェット）。
  * 以前は 40 を超えるファイルが同名の `readJson` を定義し（壊れたときに場所が出ない・握りつぶす・握りつぶさないが混在）、
- * business-direction.mjs と seo-rank-watch.mjs には同名同形の export が 2 つあった。共通部品は scripts/lib/json-io.mjs
+ * business-direction.mjs と（退役した）seo-rank-watch.mjs には同名同形の export が 2 つあった。共通部品は scripts/lib/json-io.mjs
  * （`readJson`・`readJsonIf`・`writeJson`・依存ゼロ）と、台帳の id で読む scripts/lib/dataset-io.mjs。
  *
  * 基準値より増えたら落ちる。減らしたときは基準値を下げる（上げない）。握りつぶす版（失敗を null や既定値にする）は
@@ -14,7 +14,6 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { readJson as ioReadJson } from '../scripts/lib/json-io.mjs';
 import { readJson as directionReadJson } from '../scripts/lib/business-direction.mjs';
-import { readJson as watchReadJson } from '../scripts/lib/seo-rank-watch.mjs';
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
 
 /** 今の数（scripts・.claude・tools の本番コード。tests は数えない）。減らしたら下げる */
@@ -44,9 +43,8 @@ test('基準値は今の数のまま（減らしたら BASELINE を下げる＝�
   assert.equal(definers().length, BASELINE);
 });
 
-test('business-direction.mjs・seo-rank-watch.mjs の readJson は json-io.mjs の再公開（別の実装を持たない）', () => {
+test('business-direction.mjs の readJson は json-io.mjs の再公開（別の実装を持たない）', () => {
   assert.equal(directionReadJson, ioReadJson);
-  assert.equal(watchReadJson, ioReadJson);
 });
 
 test('検出の型: 定義は数え、import と再公開は数えない', () => {

@@ -96,11 +96,10 @@ domain: strategy
 - **教材からの展開**: `npm run check-content-expansion -- --json` で全教材の未確認・必要制作・原典待ち・確認後の変更を確認する。判定手順は `.claude/knowledge/reference/content-expansion.md`、対応表は管理画面 `/materials`（教材ページの「要確認のみ」）。対象0件や概念名の対応だけを完了にしない。残務は既存backlog IDへ接続し、公開・予約・効果は各チャネルと事業レビューのSSOTで別に確認する。
 - **検索キーワード戦略（直す・記録・本番反映・判定・処置。その週のうちに回し、カードに積まない）**: 実験台帳（`experiments.json` の kind `search-strategy`）で回す（`docs/strategy/16_検索キーワード戦略.md`「改善サイクル」）。
   1. `npm run search-improvement -- sync --commit`（記録した commit を含む本番デプロイの日から計測を始める。CI も毎週回すので差分が無ければ何もしない）
-  2. **直す**: `npm run report-search-opportunities -- --json` の `fileable[]`（直してよい候補。`lastResult` は前回の判定）を表示の多い順に `config.cycle.improvePerWeek` 件、develop で直して commit・push する（title・seoTitle・description・冒頭の答え・見出し・内部リンク。MDX の規約と refresh-indexes に従う。前回が効果なしのページは同じ直し方を繰り返さない。新規ページは作らない）。1 キーワードの 7 日観察が要るものは下の SEO Rank Watch へ
+  2. **直す**: `npm run report-search-opportunities -- --json` の `fileable[]`（直してよい候補。`lastResult` は前回の判定）を表示の多い順に `config.cycle.improvePerWeek` 件、develop で直して commit・push する（title・seoTitle・description・冒頭の答え・見出し・内部リンク。MDX の規約と refresh-indexes に従う。前回が効果なしのページは同じ直し方を繰り返さない。新規ページは作らない）。
   3. **記録する**: 直したページごとに `npm run search-improvement -- record --page <path> --change "何を直したか" --commit`（commit は develop に入ったもの。`--commit` の後は `git pull --ff-only` で取り込む）
   4. **週次の処置（全件）**: `npm run search-improvement -- triage --weekly` の要処置をすべて片付ける。判定待ちは `close --id EXP-### --result <success|partial|no-effect|negative> --learning "…" --commit`。本番に入らない改善は commit の所在を確かめる。受け皿外は `decide --cluster <id> --page <接頭辞> --accept --reason "…" --commit`（受け皿に加える）か `--route-to <狙いのページ>`（受け皿外のページから狙いのページへ内部リンクを足して commit してから記録）。旧 URL は表示どおりに処置する（転送・転送先の公開・サイト内リンクの張り替え。期限切れは `npm run gsc-indexing:request -- --urls <正規 URL> --commit`＝Google への送信なので運営者の承認を得てから。送信は indexing-history に残り、次の週から観察に戻る）。誘導の期限切れは判断をやり直す
   5. **完了条件**: `npm run search-improvement -- triage --check --weekly` が exit 0（要処置 0 件・今週の改善が `improvePerWeek` 件以上か候補が尽きた）。観察中のものは期限まで待つ
-- **SEO Rank Watch**: `npm run seo-rank-watch -- report --json` で資格別候補・実行/待機理由・観察期限・達成後監視・鮮度・同時実行上限・方針レビュー期限を確認する。一般用語の順位だけを週の成果にしない。観察/方針の期限到来は `/weekly-improve --rank-watch --no-fetch` へ渡す。汎用NSMの10日/28日基準でrank-watchを変更しない。確認後は専用 `log-run` で判断を記録する。
 - **実験サイクルの期限**: `npm run check-experiment-due -- --json`（オフライン・`experiments.json` 参照）。
   これが「計測→記録→改善→**再計測**」の最後の輪。`due[]` の MEASURE_DUE / CLOSE_DUE / PENDING /
   NO_BASELINE をそのまま列挙する。改善を打って再計測されていない実験は学びが台帳に入らず
@@ -169,7 +168,7 @@ B. 実験進捗レポート:
   - running: 経過日数、baseline との gap（metrics-reader で再取得）
   - measuring: baseline vs current の前後比較
   - 今週 close したもの: result + learnings
-- `kind: seo-rank-watch` は上記の汎用metrics-reader比較から除外し、専用 `npm run seo-rank-watch -- report --json` / review で固定条件の非重複7日を扱う。`kind: search-strategy` も除外し、`npm run search-improvement -- status` と `check-experiment-due` の `review`（`search-improvement close`）に従う。
+- `kind: search-strategy` は上記の汎用metrics-reader比較から除外し、`npm run search-improvement -- status` と `check-experiment-due` の `review`（`search-improvement close`）に従う。
 - その他の各 running 実験について baseline の metric が現状でどう動いたかを数値表示
 - 出力を「## 実験の進捗」セクションとして埋め込む
 
@@ -514,7 +513,7 @@ npm run review-checks -- --cadence weekly --run YYYY-Www --write
   open 8 件・最古 43 日が溜まり、この節自体が「消化停止」と書く状態だった）。したがって **open のまま残っている
   ＝まだ復旧していない**と読む。`--resolve` の配線が無い channel（人手ルーティン起票）だけ復旧確認後に人が閉じる。
   起票元は `ci.yml`（Pre-merge が赤）・`uptime-ping.yml`・`weekly-review-guard.yml`（記録層の沈黙／workflow health／
-  report 区分 FAIL）・`index-coverage.yml`・`gsc-auto-review.yml`・`seo-rank-watch.yml`・`ops-audit.yml`（投稿・配信・
+  report 区分 FAIL）・`index-coverage.yml`・`gsc-auto-review.yml`・`ops-audit.yml`（投稿・配信・
   転記の遅れ＝quality-audit の ops 区分）
 
 
@@ -530,7 +529,6 @@ npm run review-checks -- --cadence weekly --run YYYY-Www --write
    |---|---|---|---|
    | `backlog` | 単発の実装（CTA 配置・文言、title/description、計測の修理、導線ゼロの解消） | title / tier（high・mid・low・hold）/ category / domain（領域ラベル）/ kind / doing / done（high・mid は period＝YYYY-MM[..YYYY-MM]、任意 verify） | `.claude/todo/backlog.md` の DN → `/backlog-sweep` |
    | `experiment` | 効果を前後で測るべき変更（配置・文言の試行など） | title / hypothesis / targetMetric / targetDelta（任意 measure） | `experiments.json`（proposed）→ `/nsm-experiment start`。measure を付ければ CI が自動計測 |
-   | `watchword` | 受験意図の SEO 機会（watchword 下書きがあるものだけ） | watch（id / priority / audience / need / rationale / nextStep ほか） | `seo-watchwords.json`（improve）→ 日次 `seo-rank-watch` が自動改善・効果判定 |
    | `verdict` | 期限の来た実験（VERDICT_DUE 等。kind `search-strategy` は `verdict` で閉じず `search-improvement close`） | result（success・partial・no-effect・negative）/ learnings | 実験を close |
    | `bundle` | 既存カード・実験や同じバッチの起票で足りる | into（DN / EXP / OPP） | 起票しない |
    | `reject` | 対応しない | reason（10 字以上） | 12 週は再表示しない |
@@ -541,7 +539,7 @@ npm run review-checks -- --cadence weekly --run YYYY-Www --write
 3. `npm run growth-triage -- apply --decisions .tmp/growth-triage-YYYY-Www.json` で検証（dry-run）→ 問題なければ `--commit`
    （全件を先に検証し 1 件でも不正なら何も書かない。DN の採番に git の全履歴が要るのでローカルで実行する）
 4. 出力された変更ファイルを**明示指定で** `git add` してコミット・push（`git add -A` 禁止）
-5. 「## 計測→改善トリアージ」節に `OPP → 処分 → DN/EXP/watchword/理由` の表を書く
+5. 「## 計測→改善トリアージ」節に `OPP → 処分 → DN/EXP/理由` の表を書く
 
 処分の目安: 期待効果/週が大きいものから。計測（measurement）は他の判断の前提なので先に直す。1 件の判断に
 迷ったら `defer` ではなく、確かめる作業自体を `backlog` にする（保留の山を作らない）。
@@ -641,7 +639,7 @@ pre-commit の `scripts/check-handoff-extraction.mjs` が 2026-W39 以降のレ�
 
 ## 計測→改善トリアージ
 
-<!-- Phase 2.5 の結果。| OPP | 区分 | 処分 | 行き先（DN/EXP/watchword）・理由 | の表。未処分 0 件で終える。 -->
+<!-- Phase 2.5 の結果。| OPP | 区分 | 処分 | 行き先（DN/EXP）・理由 | の表。未処分 0 件で終える。 -->
 
 ## 実験の進捗
 

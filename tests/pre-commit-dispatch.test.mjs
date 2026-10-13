@@ -7,7 +7,7 @@
 // 旧フックより**狭くした所は 3 つだけ**（GATED）。全量を走査する検査で、staged の変更がその入力に当たらないと飛ばす。
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { existsSync, mkdtempSync, readFileSync, rmSync, symlinkSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdtempSync, rmSync, symlinkSync, writeFileSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
@@ -43,7 +43,6 @@ const LEGACY = [
   ['scripts/check-reference-sources.mjs', ['--staged'], { skipEnv: ['SKIP_REFERENCE_SOURCES', 'nonempty'] }],
   ['scripts/check-information-architecture.mjs', ['--staged'], 'always'],
   ['scripts/check-business-direction.mjs', ['--staged'], 'always'],
-  ['scripts/check-seo-rank-watch.mjs', ['--staged'], 'always'],
   ['scripts/check-sns-urls.mjs', ['--staged'], 'always'],
   ['scripts/check-dead-handles.mjs', ['--staged'], 'always'],
   ['scripts/check-jst-date.mjs', ['--staged'], 'always'],
@@ -98,13 +97,12 @@ const LEGACY = [
 ];
 
 /** 全量を走査する検査のうち、旧フックより狭くしたもの（staged の変更が入力に当たらないと飛ばす） */
-const GATED = new Set(['scripts/check-datasets.mjs', 'scripts/check-seo-rank-watch.mjs', 'scripts/check-qualification-ssot.mjs']);
+const GATED = new Set(['scripts/check-datasets.mjs', 'scripts/check-qualification-ssot.mjs']);
 
-/** 3 検査の入力（テスト側で独立に持つ。steps の宣言とずれたら下のテストが落ちる） */
+/** 2 検査の入力（テスト側で独立に持つ。steps の宣言とずれたら下のテストが落ちる） */
 const GATE_INPUTS = {
   'scripts/check-datasets.mjs': { prefixes: ['config/', 'data/', '.claude/', 'scripts/', 'tools/', 'src/', '.github/workflows/', 'content/registry/'], files: ['package.json'], fileSet: true },
   'scripts/check-qualification-ssot.mjs': { prefixes: ['config/', '.claude/config/', '.claude/knowledge/', 'src/', 'scripts/', '.claude/scripts/', 'tools/admin-app/src/'], files: [], fileSet: false },
-  'scripts/check-seo-rank-watch.mjs': { prefixes: ['config/', 'data/', 'scripts/', 'src/app/', 'src/components/', 'src/styles/'], files: ['public/_redirects'], fileSet: false },
 };
 /** その commit で旧フックより狭くなる（飛ばす）検査 */
 function gatedOut(ctx) {
@@ -148,12 +146,12 @@ const makeCtx = ({ staged = [], status = 'M', env = {}, missing = [], contentQua
 });
 const planned = (ctx) => planSteps(ctx).map(({ step, argv }) => [step.script, argv]);
 
-test('LEGACY の表と STEPS が同じ件数・同じ順（旧フックの node 行 73 本）', () => {
-  assert.equal(LEGACY.length, 73);
+test('LEGACY の表と STEPS が同じ件数・同じ順（旧フックの node 行 72 本）', () => {
+  assert.equal(LEGACY.length, 72);
   assert.deepEqual(STEPS.map((s) => s.script), LEGACY.map(([s]) => s));
 });
 
-test('全量を走査する 3 検査を除き、どの staged でも旧フックと同じ検査が同じ引数・同じ順で呼ばれる', () => {
+test('全量を走査する 2 検査を除き、どの staged でも旧フックと同じ検査が同じ引数・同じ順で呼ばれる', () => {
   const mdx = 'content/site/building-construction/guide-x/article.mdx';
   const scenarios = [
     ['何も staged していない', makeCtx()],
@@ -180,16 +178,15 @@ test('全量を走査する 3 検査を除き、どの staged でも旧フック
   for (const [label, ctx] of scenarios) {
     assert.deepEqual(planned(ctx), legacyPlan(ctx, { gated: true }), label);
   }
-  // 3 検査が走る scenario と飛ぶ scenario の両方を含む（片方だけだと絞り込みの検査にならない）
+  // 2 検査が走る scenario と飛ぶ scenario の両方を含む（片方だけだと絞り込みの検査にならない）
   const skippedCounts = scenarios.map(([, ctx]) => gatedOut(ctx).size);
-  assert.ok(skippedCounts.some((n) => n === 3) && skippedCounts.some((n) => n < 3));
+  assert.ok(skippedCounts.some((n) => n === 2) && skippedCounts.some((n) => n < 2));
 });
 
-test('全量を走査する 3 検査は、入力に当たる変更があれば旧フックと同じく回る（コード・設定・データ・台帳の置き場）', () => {
+test('全量を走査する 2 検査は、入力に当たる変更があれば旧フックと同じく回る（コード・設定・データ・台帳の置き場）', () => {
   const triggers = {
     'scripts/check-datasets.mjs': ['config/exam-calendar.json', 'data/note/sales.json', '.claude/state/todo-claims.json', 'content/registry/articles.json', 'scripts/lib/datasets.mjs', 'tools/admin-app/src/x.tsx', 'src/lib/x.ts', '.github/workflows/ci.yml', 'package.json', '.claude/skills/x/SKILL.md'],
     'scripts/check-qualification-ssot.mjs': ['config/qualification-registry.json', '.claude/config/x.json', '.claude/knowledge/x.json', 'src/config/categories.json', 'scripts/x.mjs', '.claude/scripts/x.mjs', 'tools/admin-app/src/x.ts', 'src/lib/x.ts'],
-    'scripts/check-seo-rank-watch.mjs': ['config/seo-watchwords.json', 'data/business/experiments.json', 'data/gsc/rank-watch/2026-10.jsonl', 'scripts/lib/seo-rank-watch.mjs', 'public/_redirects', 'src/app/layout.tsx', 'src/components/x.tsx', 'src/styles/globals.css'],
   };
   for (const [script, paths] of Object.entries(triggers)) {
     for (const p of paths) {
@@ -201,18 +198,14 @@ test('全量を走査する 3 検査は、入力に当たる変更があれば�
   for (const status of ['A', 'D', 'T']) {
     assert.ok(planned(makeCtx({ staged: ['content/site/a/b/article.mdx'], status })).some(([s]) => s === 'scripts/check-datasets.mjs'), status);
   }
-  // 観察中ページ（設定の watchwords.contentPath）の本文を触ったら、順位観察の検査が回る
-  const watched = JSON.parse(readFileSync(join(ROOT, 'config/seo-watchwords.json'), 'utf8')).watchwords.map((w) => w.contentPath);
-  assert.ok(watched.length > 0, '観察対象が 0 件（設定の読み違い）');
-  assert.ok(planned(makeCtx({ staged: [watched[0]] })).some(([s]) => s === 'scripts/check-seo-rank-watch.mjs'));
 });
 
-test('全量を走査する 3 検査は、記事の編集（M）だけの commit では飛ばす＝旧フックより狭いのはここだけ', () => {
+test('全量を走査する 2 検査は、記事の編集（M）だけの commit では飛ばす＝旧フックより狭いのはここだけ', () => {
   const ctx = makeCtx({ staged: ['content/site/building-construction/guide-x/article.mdx', 'content/note/x/y/article.md', 'docs/README.md'], status: 'M' });
   const ran = new Set(planned(ctx).map(([s]) => s));
   for (const g of GATED) assert.ok(!ran.has(g), `${g} が記事の編集で回っている`);
-  assert.equal(gatedOut(ctx).size, 3);
-  // 飛ばすのは GATED の 3 本だけ。ほかは旧フックのまま
+  assert.equal(gatedOut(ctx).size, 2);
+  // 飛ばすのは GATED の 2 本だけ。ほかは旧フックのまま
   assert.deepEqual(planned(ctx), legacyPlan(ctx, { gated: true }));
 });
 
@@ -304,7 +297,7 @@ test('inProcess の検査はすべて run() を export し、import しただけ
   }
   // 子プロセスのままなのは npx tsx の 1 本だけ（検査ゼロを PASS と呼ばない）
   assert.deepEqual(STEPS.filter((s) => !s.inProcess).map((s) => s.id), ['check-magazine-cta-reachability']);
-  assert.equal(checked, 72);
+  assert.equal(checked, 71);
 });
 
 test('cli-run: runBody は process.exit を ExitSignal に、process.argv / exitCode を引数に読み替える', async () => {

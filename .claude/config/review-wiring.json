@@ -104,12 +104,6 @@
           "role": "判断"
         },
         {
-          "command": "seo-rank-watch",
-          "label": "検索順位の監視と改善",
-          "stage": "検索",
-          "role": "判断"
-        },
-        {
           "command": "fetch-gsc-data",
           "label": "GSC データ取得",
           "stage": "検索",

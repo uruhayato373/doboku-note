@@ -153,8 +153,6 @@
     "qualification-market": "node scripts/report-qualification-market.mjs",
     "scan-qualification-market": "node scripts/scan-qualification-market.mjs",
     "roll-backlog-when": "node scripts/roll-backlog-when.mjs",
-    "seo-rank-watch": "node scripts/seo-rank-watch.mjs",
-    "check-seo-rank-watch": "node scripts/check-seo-rank-watch.mjs",
     "report-search-opportunities": "node scripts/report-search-opportunities.mjs",
     "search-improvement": "node scripts/search-improvement.mjs",
     "check-search-improvements": "node scripts/check-search-improvements.mjs",

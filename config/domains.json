@@ -175,7 +175,6 @@
           "match": "/metrics/search-strategy",
           "matchAlso": [
             "/metrics/gsc",
-            "/metrics/seo-watch",
             "/metrics/index"
           ]
         },
@@ -396,7 +395,6 @@
     ".claude/knowledge/reference/book-coverage-expansion.md": "material",
     ".claude/knowledge/reference/concrete-practice-sources.md": "material",
     ".claude/knowledge/reference/sales-tracking.md": "product",
-    ".claude/knowledge/reference/seo-rank-watch.md": "site",
     ".claude/knowledge/reference/skills-design-guide.md": "ops",
     ".claude/knowledge/reference/skills-guide.md": "ops",
     ".claude/knowledge/reference/skills-registry.md": "ops",
