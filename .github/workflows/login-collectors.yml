@@ -16,7 +16,6 @@ on:
     - cron: "50 21 * * 4" # kdp      木 21:50 UTC = 金 06:50 JST（当月の推計と確定前の前月を毎週取り直す・2026-10-11）
     - cron: "10 22 * * 5" # x        金 22:10 UTC = 土 07:10 JST
     - cron: "20 21 2 * *" # google   毎月2日 21:20 UTC = 3日 06:20 JST
-    - cron: "30 22 3 * *" # afb      毎月3日 22:30 UTC = 4日 07:30 JST
     - cron: "40 21 * * 4" # instagram 木 21:40 UTC = 金 06:40 JST（Meta 利用制限中は Graph API 不可＝Playwright 照合）
   workflow_dispatch:
     inputs:
@@ -32,7 +31,6 @@ on:
           - note
           - x
           - google
-          - afb
           - instagram
       mode:
         description: "collect=収集まで実行 / probe-only=認証状態の復元確認のみ"
