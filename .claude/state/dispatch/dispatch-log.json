@@ -3775,6 +3775,36 @@
       "commit": "e1ae502faea0",
       "verification": "check-content-series ✓（骨子 1・確認済み 1・論点 8・一次資料 8）・PR #1056 の CI は video-publication（DN-0717）以外 緑",
       "note": "PR #1056 で骨子ファイル・検査・管理画面・workflow（brief: outline）・根拠の候補（--suggest）を入れた。見本 A-08 は運営者の確認で approved（2026-10-13）。管理画面のシリーズ企画で骨子の列と ?item= を確かめた"
+    },
+    {
+      "id": "DN-0667",
+      "at": "2026-10-13",
+      "task": "CI の coconala 取得（403 で毎週失敗）を止めるか CI 不可として扱う",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "db5873550d5a",
+      "verification": "PR #1059 の CI は video-publication（DN-0717）以外 緑・auth 系テスト 262 pass",
+      "note": "運営者判断（2026-10-13）で CI のココナラ取得を止め（PR #1059・ci.enabled false・cron と選択肢を外した）、Mac の coconala-local（launchd 毎週火 10:45）を正にした。coconala-local は 10/11・10/13 に台帳を push。Issue #746 を閉じた"
+    },
+    {
+      "id": "DN-0643",
+      "at": "2026-10-13",
+      "task": "Mac でログイン系の取得を復旧する（ココナラ・afb・もしもの再ログインと、9 月分の note 売上・アクセス・ココナラ分析の取得）",
+      "tier": "high",
+      "kind": "不具合",
+      "prevention": {
+        "type": "doc",
+        "ref": ".claude/knowledge/reference/playwright-auth-profiles.md"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "db5873550d5a",
+      "verification": "check-coconala-orders --json: snapshotAgeDays 0・7/7 タブ・inconclusive なし／Issue #746・#862・#863 クローズ",
+      "note": "ココナラは手元のログインが有効で取引・分析を取得（data/coconala）。CI の 403 は DN-0667 で CI 取得を止めて解消（#746 クローズ）。afb・もしもは広告が無いので CI 取得を止めた（PR #1058・#862・#863 クローズ）。afb は手元で再ログインして state を書き出し済み。note は別セッションの担当。#571 に残る失敗は cloudflare-metrics-freshness だけで DN-0485（Cloudflare の API トークン）が扱う。キーチェーンの自動ログインは A8・もしも・note だけが対象で、afb・KDP・ココナラは資格情報が未登録（運営者に登録の手順を案内済み）"
     }
   ]
 }

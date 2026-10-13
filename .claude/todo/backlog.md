@@ -73,16 +73,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **関門（週次レビュー 2026-10-10）**: 判断待ちではなく人の作業（プロフィールの資格欄の追加）なので 🔴 へ移した（S3）。期日 10/31。
 
-### [DN-0643] Mac でログイン系の取得を復旧する（ココナラ・afb・もしもの再ログインと、9 月分の note 売上・アクセス・ココナラ分析の取得）
-タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-10] [期日:2026-10-14]
-
-**起点**: 週次レビュー（2026-09-28〜2026-10-04）の点検。#571（ops 区分 FAIL: note-delivery-due・coconala-analytics・sales-freshness・monthly-review-due・cloudflare-metrics-freshness・afb-outcomes-freshness）が 9/22 から、#746 coconala（9/30〜）・#862 afb・#863 moshimo の login collector が期限切れ。ココナラの orders snapshot は 12.6 日前で評価未送信の検査が不成立。
-
-**やること**: Mac で npm run auth:login -- --service coconala（afb・moshimo も）→ auth:export。続けて npm run coconala-orders・npm run coconala-analytics -- --append-kpi・npm run note-sales-fetch・npm run note-traffic-fetch -- --month 2026-09 --commit を回す。note の添付実査（check-note-attachments --live）が 14 日を超えていればそれも回す。9 月の月次レビュー（/monthly-review）はこの取得のあとに行う。
-
-**9 月の受取額（NSM）**: note・ココナラ分は 10/11 に記録済み（partial）。KDP 確定後の取り直しは DN-0664。
-
-**完了条件**: #571・#746・#862・#863 が自動クローズし、npm run check-coconala-orders -- --json が inconclusive:false を返す。
 
 ### [DN-0642] 重要 workflow 7 本の不健全（note-live-audit 4 連続失敗・ops-audit 18 連続・note-public-view 12 日）を原因ごとに直す
 タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-10] [期日:2026-10-17] [進行中]
@@ -499,14 +489,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 
 
-### [DN-0667] CI の coconala 取得（403 で毎週失敗）を止めるか CI 不可として扱う
-タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-11] [期日:2026-10-31]
-
-**起点**: 2026-10-11 に CI（hosted runner）からのココナラが、保存したログイン状態を渡しても /mypage が 403 Forbidden になると分かった（run 38106927733）。9/30 から login-collectors の coconala が毎週失敗している（#746）。取得は Mac の launchd `coconala-local`（PR #984）へ移した。
-
-**やること**: coconala-local が 2 週続けて台帳を develop へ push できたら、`.claude/config/playwright-auth-profiles.json` の coconala の読み取り（login-collectors の coconala の cron と collect）を止めるか、403 の実行を失敗ではなく「CI 不可」として Issue を立てない形にする。ops-write（書き込み）で coconala を CI から使っているかを先に確かめ、使っているなら書き込みは残す。
-
-**完了条件**: login-collectors の coconala が毎週 automation-failure Issue を立てない状態になり、#746 が閉じている。
 
 
 ### [DN-0666] 書籍の展開で触った 24 記事の SEO を GSC に沿って整える（未登録 4 本の登録依頼・検索意図・相互リンク・メタ）
