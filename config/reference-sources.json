@@ -2323,6 +2323,17 @@
       }
     },
     {
+      "id": "jsce-concrete-spec-design",
+      "title": "コンクリート標準示方書 設計編（土木学会）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "コンクリート標準示方書 設計編": "jsce-concrete-spec-design"
+      }
+    },
+    {
       "id": "jsce-concrete-spec-construction",
       "title": "コンクリート標準示方書 施工編（土木学会）",
       "class": "external-primary",
