@@ -120,11 +120,35 @@ Writer は写真を作らない。返答に「写真を入れたい位置（直�
 
 1. 章の記事の置き場（`content/site/<区分>/<slug>/article.mdx`）を決め、台帳の項目の `paths` に入れる（書けた記事を台帳が追えるように）。
 2. `node scripts/check-content-series.mjs --packet <シリーズ id>/<項目 id> --article <記事のパス>` で章の資料（packet）を `.tmp/book-coverage/series/<slug>.packet.md` に作る（割り当てた本の項目の一覧。Drive が要る）。
-3. brief の作り手を決める。本の項目が 3 件以上の章は担当（workflow の Brief 段）。0〜2 件の章とハブの章は、親が既存記事と一次資料から下の形で `.tmp/book-coverage/series/<slug>.brief.md` を書く（本を読ませる担当を起こすより安い）。
-4. Workflow `series-chapter`（`.claude/workflows/series-chapter.js`）を args `{ root, items }` で回す。item は `{ series, item, article, books, brief: "agent" | "parent", dn? }`（`books` はコミットの trailer に書く書籍 id。本の項目が 0 件なら `[]`）。同時 3 体。
+3. brief の作り手を決める。章の骨子（下の「章の骨子」）が確認済みなら、それを brief にする（`brief: "outline"`）。骨子の無い章で、本の項目が 3 件以上なら担当（workflow の Brief 段）、0〜2 件の章とハブの章は親が既存記事と一次資料から下の形で `.tmp/book-coverage/series/<slug>.brief.md` を書く（本を読ませる担当を起こすより安い）。
+4. Workflow `series-chapter`（`.claude/workflows/series-chapter.js`）を args `{ root, items }` で回す。item は `{ series, item, article, books, brief: "agent" | "parent" | "outline", dn? }`（`books` はコミットの trailer に書く書籍 id。本の項目が 0 件なら `[]`）。同時 3 体。
 5. 終わったら、返答の `factsVerified` を [concrete-practice-sources.md](./concrete-practice-sources.md)（シリーズの事実ファイル）へ、`inboundLinks` を既存記事へ、`curriculumHint` を `src/config/category-curriculum.json` へ、`visuals` を台帳の項目へ入れる。
 
 シリーズの事実ファイルは、執筆担当がまず読み、そこに無い値だけを WebSearch で確かめるためのもの。別のシリーズを始めたら同じ形のファイルを作り、workflow の args `facts` に渡す。
+
+### 章の骨子（台帳で管理する brief）
+
+章（仕事の場面）から出発するシリーズ（自治体の土木担当など）は、brief を `.tmp` に捨てず、章の骨子として `content/sources/series/<シリーズ id>/<項目 id>.md` に残す（docs/strategy/18「章の骨子と根拠の配線」）。論点ごとに根拠をぶら下げ、`check-content-series` が検査する。
+
+```markdown
+---
+series: municipal-civil-engineer
+item: A-08
+status: draft            # 運営者が確かめたら approved と approvedAt: YYYY-MM-DD
+---
+## 読者と場面
+## 論点
+- 30 字以内の論点（自分の言葉）
+  - 根拠: road-act#第33条 占用の許可基準          # 参考文献の台帳の id（# の後ろに条など）
+  - 根拠: https://www.mlit.go.jp/... 運用通知（版）   # 台帳に無い資料は URL（記事を書く前に台帳へ）
+  - 本: civil1-textbook-management/u0376          # Drive の候補表の項目 id（補助・見出しは写さない）
+## 既存記事との分担
+## 図・写真の候補
+```
+
+- どの論点にも一次資料（台帳の法令・要領・白書の id か URL）の根拠を 1 つ以上付ける。本の項目だけの論点は検査が止める
+- 根拠は Web の検索（e-Gov・国交省・白書・都道府県や市の公開資料）を先に集める。本の項目の候補は `npm run check-content-series -- --suggest <シリーズ>/<項目>` が `.tmp` に出す
+- 管理画面のシリーズ企画の「骨子」の列と `?item=` で読める。確認済みにするのは運営者
 
 ### brief の形（本の項目を読む担当・親が書くときも同じ）
 

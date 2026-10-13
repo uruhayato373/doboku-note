@@ -5,7 +5,7 @@ import { PanelCard, StatusBadge, TableBody, TableCell, TableFrame, TableHead, Ta
 import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
 import { findRepoRoot } from '@/lib/repo-root';
-import { loadSeriesConfig, seriesContext, seriesView, validateSeries, loadBasis, validateBasis, basisView, imageProgress, chapterPages, PLAN_LABELS, STATE_LABELS, STAGE_LABELS } from '../../../../../../scripts/lib/content-series.mjs';
+import { loadSeriesConfig, seriesContext, seriesView, validateSeries, loadBasis, validateBasis, basisView, imageProgress, chapterPages, loadOutlines, outlineIssues, PLAN_LABELS, STATE_LABELS, STAGE_LABELS, OUTLINE_LABELS } from '../../../../../../scripts/lib/content-series.mjs';
 import { siteSlugOf } from '../../../../../../scripts/lib/content-expansion.mjs';
 import { publicPathFromSlug } from '../../../../../../scripts/lib/url-normalization.mjs';
 import { parseBacklog } from '../../../../../../scripts/lib/backlog-lib.mjs';
@@ -24,8 +24,11 @@ type Progress = {
   visuals: (Visual & { stage: keyof typeof STAGE_LABELS })[];
   stages: Record<string, number>;
 };
+type OutlineSummary = { status: keyof typeof OUTLINE_LABELS; points: number; withPrimary: number; urlRefs: number; bookRefs: number; path: string | null; approvedAt?: string | null };
+type OutlineRef = { kind: 'id' | 'url' | 'book' | 'invalid'; id?: string; detail?: string; value?: string; book?: string; unit?: string; note?: string };
+type Outline = { path: string; front: Record<string, string>; sections: Record<string, string[]>; points: { text: string; refs: OutlineRef[] }[] };
 type Item = {
-  id: string; title: string; plan: keyof typeof PLAN_LABELS; state: keyof typeof STATE_LABELS;
+  id: string; title: string; plan: keyof typeof PLAN_LABELS; state: keyof typeof STATE_LABELS; outline: OutlineSummary | null;
   sources?: string[]; links?: string[]; wave?: number; note?: string; reason?: string; articles: Article[]; visuals?: Visual[];
 };
 type Summary = { items: number; newTotal: number; published: number; draft: number; planned: number; strengthen: number; existing: number; excluded: number; missing: number };
@@ -74,8 +77,9 @@ export default async function SeriesPage({ searchParams }: { searchParams: Promi
   const config = loadSeriesConfig(root);
   const ctx = seriesContext(root);
   const basis = loadBasis(root);
-  const issues = [...(validateSeries(config, ctx) as string[]), ...(validateBasis(basis, config, ctx) as string[])];
-  const view = seriesView(config, ctx.stateOf) as unknown as Series[];
+  const outlineSet = loadOutlines(root, config) as { outlines: Map<string, Outline>; stray: string[] };
+  const issues = [...(validateSeries(config, ctx) as string[]), ...(validateBasis(basis, config, ctx) as string[]), ...(outlineIssues(outlineSet, ctx) as string[])];
+  const view = seriesView(config, ctx.stateOf, outlineSet.outlines, ctx) as unknown as Series[];
   const bv = basisView(basis) as { byItem: Map<string, Record<string, number>>; byBook: Record<string, { units: number; series: number; article: number; excluded: number }> };
   const progress = imageProgress(view, basis, ctx) as Map<string, Progress>;
   const bookDir = new Map((ctx.referenceSources as { id: string; bookBundle?: { directory: string } }[]).map((r) => [r.id, r.bookBundle?.directory ?? null]));
@@ -97,8 +101,13 @@ export default async function SeriesPage({ searchParams }: { searchParams: Promi
           状態（公開・下書き・未着手）は記事の実体から出す。カードの本文にシリーズの id を書くと、ここに関連カードとして出る。
           「教材」は書籍の項目のうちその章に割り当てた数（<code>{datasetPath('config.content-series-basis')}</code>）。
           「画像」は、章に使う本の頁（切り出し待ち・図なし・済み）→ その頁から切り出した図（どの計画にも結びついていない＝未対応）→ 図・写真の計画の段階（切り出し済み → 作成 → 監査 → 記事に配置）。
+          「骨子」は章ごとの骨子（<code>content/sources/series/&lt;シリーズ&gt;/&lt;項目&gt;.md</code>）の状態（骨子なし・骨子あり・確認済み）と、論点のうち一次資料（法令・要領・白書の id か URL）の根拠がある数。
           どれも書籍の台帳・画像の実体・AI 画像の台帳・記事の本文から出す。Codex に渡す一覧は <code>npm run check-content-series -- --crop-jobs</code>（切り出し）と <code>-- --visual-jobs</code>（作成から配置まで）。
         </p>
+
+        {focus && outlineSet.outlines.get(focus) && (
+          <ItemOutline itemKey={focus} title={pageList(focus).item?.title ?? focus} o={outlineSet.outlines.get(focus)!} />
+        )}
 
         {focus && progress.get(focus) && (
           <ItemImages itemKey={focus} title={pageList(focus).item?.title ?? focus} p={progress.get(focus)!} bookDir={bookDir} shortTitle={shortTitle} pages={chapterPagesOf(focus)} />
@@ -159,6 +168,7 @@ export default async function SeriesPage({ searchParams }: { searchParams: Promi
                     <TableHead>項目</TableHead>
                     <TableHead>計画</TableHead>
                     <TableHead>状態</TableHead>
+                    <TableHead>骨子</TableHead>
                     <TableHead>記事</TableHead>
                     <TableHead>教材</TableHead>
                     <TableHead>画像</TableHead>
@@ -168,7 +178,7 @@ export default async function SeriesPage({ searchParams }: { searchParams: Promi
                 <TableBody>
                   {s.sections.flatMap((sec) => [
                     <TableRow key={`${s.id}:${sec.title}`}>
-                      <TableHead colSpan={8} scope="rowgroup">{sec.title}</TableHead>
+                      <TableHead colSpan={9} scope="rowgroup">{sec.title}</TableHead>
                     </TableRow>,
                     ...sec.items.map((it) => (
                       <TableRow key={`${s.id}:${it.id}`} className="align-top">
@@ -182,6 +192,9 @@ export default async function SeriesPage({ searchParams }: { searchParams: Promi
                         </TableCell>
                         <TableCell className="whitespace-nowrap">{PLAN_LABELS[it.plan]}</TableCell>
                         <TableCell className="whitespace-nowrap"><StatusBadge tone={STATE_TONE[it.state]}>{STATE_LABELS[it.state]}</StatusBadge></TableCell>
+                        <TableCell className="text-xs whitespace-nowrap">
+                          <OutlineCell o={it.outline} href={`/content/series?item=${encodeURIComponent(`${s.id}/${it.id}`)}`} />
+                        </TableCell>
                         <TableCell className="text-xs">
                           {it.articles.length === 0 ? <span className="text-muted-foreground">—</span> : it.articles.map((a) => <div key={a.path}>{articleLink(a)}</div>)}
                         </TableCell>
@@ -287,3 +300,55 @@ function ItemImages({ itemKey, title, p, bookDir, shortTitle, pages }: {
     </PanelCard>
   );
 }
+
+const OUTLINE_TONE: Record<string, Tone> = { approved: 'good', draft: 'warn', none: 'neutral' };
+
+/** 章の行の「骨子」: 状態と、一次資料のある論点の数（詳しくは ?item=）。 */
+function OutlineCell({ o, href }: { o: OutlineSummary | null; href: string }) {
+  if (!o || o.status === 'none') return <span className="text-muted-foreground">{OUTLINE_LABELS.none}</span>;
+  return (
+    <Link href={href}>
+      <StatusBadge tone={OUTLINE_TONE[o.status]}>{OUTLINE_LABELS[o.status]}</StatusBadge>
+      <div className="tabular-nums">論点 {o.points}・一次資料 {o.withPrimary}</div>
+      {o.urlRefs > 0 && <div className="tabular-nums text-muted-foreground">URL だけ {o.urlRefs}</div>}
+    </Link>
+  );
+}
+
+/** ?item= の骨子: 論点と根拠（URL はリンク・台帳の id と本の項目はそのまま）。 */
+function ItemOutline({ itemKey, title, o }: { itemKey: string; title: string; o: Outline }) {
+  const status = o.front.status === 'approved' ? 'approved' : 'draft';
+  const refText = (r: OutlineRef) => {
+    if (r.kind === 'url') return <a href={r.value} target="_blank" rel="noreferrer">{r.value}</a>;
+    if (r.kind === 'book') return <code>{r.book}/{r.unit}</code>;
+    if (r.kind === 'id') return <code>{r.id}{r.detail}</code>;
+    return <span className="project-warning-text">{r.value}</span>;
+  };
+  const other = Object.entries(o.sections).filter(([h]) => h !== '論点');
+  return (
+    <PanelCard title={`骨子 ${itemKey} ${title}`}>
+      <div className="small mb-2 text-muted-foreground">
+        <StatusBadge tone={OUTLINE_TONE[status]}>{OUTLINE_LABELS[status]}</StatusBadge>{' '}
+        {o.front.approvedAt ? `確認日 ${o.front.approvedAt} · ` : ''}<code>{o.path}</code>
+      </div>
+      <ol className="text-sm">
+        {o.points.map((p, i) => (
+          <li key={i} className="mb-1">
+            <div>{p.text}</div>
+            <ul className="text-xs text-muted-foreground">
+              {p.refs.map((r, j) => <li key={j}>{r.kind === 'book' ? '本: ' : '根拠: '}{refText(r)} {r.note}</li>)}
+              {p.refs.length === 0 && <li className="project-warning-text">根拠が無い</li>}
+            </ul>
+          </li>
+        ))}
+      </ol>
+      {other.map(([h, lines]) => (
+        <div key={h} className="mt-2 text-sm">
+          <div className="font-medium">{h}</div>
+          <pre className="whitespace-pre-wrap text-xs text-muted-foreground">{lines.join('\n').trim()}</pre>
+        </div>
+      ))}
+    </PanelCard>
+  );
+}
+
