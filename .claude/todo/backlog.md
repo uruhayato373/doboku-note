@@ -21,18 +21,6 @@
 
 ## 🔴 高 — 重要度が高い
 
-### [DN-0728] シリーズの章の骨子と根拠の配線を台帳で管理する仕組みを作る（骨子ファイル・検査・管理画面・workflow・根拠の候補）
-タグ: [領域:サイト] [時期:2026-10] [種類:改善] [検証:check-content-series] [起票:2026-10-13] [進行中]
-
-**起点**: 2026-10-13、自治体の土木担当シリーズ（municipal-civil-engineer・42 章）は本ではなく章から出発するので、コンクリートの「本の全項目を章へ仕分ける」台帳は合わないと運営者と確認した。設計は docs/strategy/18「章の骨子と根拠の配線（A）」。今は brief を .tmp に捨てており、骨子も根拠も台帳に残らない。
-**やること**（コードなので PR）:
-1. 骨子の置き場 `content/sources/series/<シリーズ id>/<項目 id>.md`。frontmatter（series・item・status: draft / approved・approvedAt）と本文（読者と場面・論点・分担・図の候補）。論点ごとに `根拠:` 行（台帳の id＋条・URL＋版と頁・`book:<本 id>/<項目 id>`）を持つ形を決め、パーサを scripts/lib/content-series.mjs に置く
-2. check-content-series: 根拠の id・本の項目 id の実在、一次資料の無い論点、URL だけの根拠の数、approved なのに論点が空、を見る。台帳の項目の状態に「骨子なし・骨子あり・確認済み」を足す（記事の実体からの状態と並べる）
-3. 管理画面のシリーズ企画: 章ごとの論点の数・一次資料のある割合・確認済みか。`?item=` で骨子を読める
-4. workflow series-chapter: item に `brief: "outline"` を足し、確認済みの骨子を brief として使う（Brief の段を飛ばす）
-5. 根拠の候補: `check-content-series --suggest <シリーズ>/<項目>` が、章の題と論点の語から Drive の候補表（施工管理法規編・土木業界の動向 第3版・建設業界の動向 第5版・防災土木の基礎知識・安全管理のすべて 第7版・土木施工管理の基礎）の項目を挙げる（見出しつきの一覧は .tmp だけ）
-6. book-coverage-expansion.md §4 と commands.md を合わせる。シリーズの事実ファイルの置き場の決まりも書く
-**完了条件**: PR が develop に入り、`npm run check-content-series` と quality-audit:ci が緑。見本の骨子 1 本（A-08 道路占用許可の審査）が approved で検査を通り、管理画面に出る。
 
 
 ### [DN-0717] 2級土木「土工の頻出点」の動画（sqkP7vheZ_Q）が YouTube から消え、develop の CI が video-publication で赤い
@@ -392,7 +380,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 
 ### [DN-0729] 自治体の土木担当シリーズの 39 章（新規 35・補強 4）の骨子と根拠を作り、運営者の確認を受ける
-タグ: [領域:サイト] [時期:2026-11] [種類:制作] [検証:check-content-series] [起票:2026-10-13] [期日:2026-11-25]
+タグ: [領域:サイト] [時期:2026-11] [種類:制作] [検証:check-content-series] [起票:2026-10-13] [期日:2026-11-25] [進行中]
 
 **起点**: 2026-10-13、自治体の土木担当シリーズを 42 章（新規 35・補強 4・既存 3）に組み直した（config/content-series.json）。記事は EXP-012 の判定（DN-0719・11/26）まで書かないが、骨子は記事ではないので先に作り、運営者が確かめておく（書き直しを減らす）。
 **前提**: DN-0728（骨子と根拠の配線の仕組み）。

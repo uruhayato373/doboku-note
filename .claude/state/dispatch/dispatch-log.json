@@ -3762,6 +3762,19 @@
       "commit": "184734a0ac64",
       "verification": "check-doc-refs・check-information-architecture ✓",
       "note": "運営者判断（2026-10-13）: 置き場は新しい領域 /laws/<参考文献の id>。5 本以上の記事が引く 27 法令から始め、説明を書いたものだけ公開。05_情報アーキテクチャ「法令ページ」と 18 に記録し、DN-0731 のやることを確定した。あわせて DN-0732 は行政書士テキストの文字起こしに決まり（他の市販書 PDF は使わない・Web の検索を優先）"
+    },
+    {
+      "id": "DN-0728",
+      "at": "2026-10-13",
+      "task": "シリーズの章の骨子と根拠の配線を台帳で管理する仕組みを作る（骨子ファイル・検査・管理画面・workflow・根拠の候補）",
+      "tier": "high",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "e1ae502faea0",
+      "verification": "check-content-series ✓（骨子 1・確認済み 1・論点 8・一次資料 8）・PR #1056 の CI は video-publication（DN-0717）以外 緑",
+      "note": "PR #1056 で骨子ファイル・検査・管理画面・workflow（brief: outline）・根拠の候補（--suggest）を入れた。見本 A-08 は運営者の確認で approved（2026-10-13）。管理画面のシリーズ企画で骨子の列と ?item= を確かめた"
     }
   ]
 }
