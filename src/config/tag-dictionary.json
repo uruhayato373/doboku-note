@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-13T03:50:22.550Z",
+  "generated_at": "2026-10-13T04:15:56.055Z",
   "summary": {
-    "total_mdx_files": 1403,
+    "total_mdx_files": 1404,
     "total_unique_tags": 132,
     "allowlist_size": 330,
     "known_count": 132,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 227,
+      "count": 228,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1190,6 +1190,7 @@
         "civil-practice-concrete-compaction-numbers",
         "civil-practice-concrete-crack-causes",
         "civil-practice-concrete-finishing-curing",
+        "civil-practice-concrete-hydration-basics",
         "civil-practice-concrete-mix-acceptance",
         "civil-practice-concrete-placement-order",
         "civil-practice-concrete-placement-timing",
@@ -3242,7 +3243,7 @@
     },
     {
       "name": "コンクリート",
-      "count": 47,
+      "count": 48,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-concrete-key-points",
@@ -3259,6 +3260,7 @@
         "civil-practice-concrete-compaction-numbers",
         "civil-practice-concrete-crack-causes",
         "civil-practice-concrete-finishing-curing",
+        "civil-practice-concrete-hydration-basics",
         "civil-practice-concrete-mix-acceptance",
         "civil-practice-concrete-placement-order",
         "civil-practice-concrete-placement-timing",
@@ -3296,7 +3298,7 @@
     },
     {
       "name": "品質管理",
-      "count": 46,
+      "count": 47,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-four-management",
@@ -3310,6 +3312,7 @@
         "civil-construction-2-guide-quality-management",
         "civil-practice-asphalt-materials-types",
         "civil-practice-board-of-audit-inspection",
+        "civil-practice-concrete-hydration-basics",
         "civil-practice-concrete-structure-inspection",
         "civil-practice-concrete-work-preparation",
         "civil-practice-construction-inspection-types",
@@ -4794,6 +4797,19 @@
       ]
     },
     {
+      "name": "材料",
+      "count": 6,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-asphalt-materials-types",
+        "civil-practice-concrete-hydration-basics",
+        "civil-practice-steel-material-properties",
+        "concrete-chief-engineer-textbook-materials",
+        "concrete-chief-engineer-textbook-properties",
+        "concrete-engineer-textbook-materials"
+      ]
+    },
+    {
       "name": "pillar",
       "count": 5,
       "inAllowlist": true,
@@ -4815,18 +4831,6 @@
         "civil-practice-public-works-bidding-methods",
         "pe-construction-ninaite-dx-ronbun-keyword",
         "pe-construction-ninaite-kakuho-seisansei"
-      ]
-    },
-    {
-      "name": "材料",
-      "count": 5,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-asphalt-materials-types",
-        "civil-practice-steel-material-properties",
-        "concrete-chief-engineer-textbook-materials",
-        "concrete-chief-engineer-textbook-properties",
-        "concrete-engineer-textbook-materials"
       ]
     },
     {
