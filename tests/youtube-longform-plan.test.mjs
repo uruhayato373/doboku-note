@@ -44,11 +44,16 @@ test('締切逆転・同じ企画ID・試験日の複製を型で拒否する', 
   assert.equal(ConfigYoutubeLongformPlan.safeParse({ ...p, entries: [p.entries[0], p.entries[0]] }).success, false);
   assert.equal(ConfigYoutubeLongformPlan.safeParse({ ...p, examDates: {} }).success, false);
 });
-test('実台帳の通常動画を全件表示し、45本の未配分をなくす。期間は年間台帳から取得', () => {
+test('実台帳の通常動画を全件表示し、活動中の動画に未配分を残さない。期間は年間台帳から取得', () => {
   const b = loadLongformPlan(root, '2026-10-11');
   assert.ok(b.inventory >= 157);
   assert.equal(new Set(b.rows.filter((r) => r.publicationId).map((r) => r.publicationId)).size, b.inventory);
-  assert.equal(b.rows.filter((r) => r.action === 'unplanned').length, 0);
+  // 停止した公開も履歴として表示するが、次の制作日を決める対象にはしない。
+  assert.equal(b.rows.filter((r) => r.action === 'unplanned' && r.status !== 'stopped').length, 0);
+  for (const r of b.rows.filter((r) => r.action === 'unplanned' && r.status === 'stopped')) {
+    assert.equal(r.actual, null);
+    assert.match(r.warning, /保留/);
+  }
   assert.deepEqual(b.period, readDataset(root, 'config.annual-roadmap').period);
   for (const slug of ['r8-yosou-theme', 'r8-yosou-dashikata']) {
     const r = b.rows.find((r) => r.publicationId?.includes(`/${slug}/`));
