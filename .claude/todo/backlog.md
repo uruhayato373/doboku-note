@@ -379,10 +379,27 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 ### [DN-0719] EXP-012 の判定（11/26）を受けて、自治体の土木担当・コンクリート入門シリーズの第1波に着手するか決める
 タグ: [領域:サイト] [時期:2026-11] [種類:意思決定] [起票:2026-10-13] [期日:2026-11-27]
 
-**起点**: 2026-10-13、運営者の依頼で試験とは別軸の読み物シリーズ 2 つ（自治体の土木担当・コンクリート入門）の目次と根拠資料の扱いを決めた（docs/strategy/18_自治体土木担当・コンクリート入門シリーズ計画2026-10.md）。運営者の判断で、記事は EXP-012（記事末の資格カード）の判定まで書かない。
-**やること**: EXP-012 の事後窓の終わり（2026-11-26）の判定を 18 番の「第 1 波と判定」の表に当てる。継続なら A-5 道路占用許可・A-11 河川区域の許可・A-15 里道・水路と、工種別ノート concrete ブロックの読む順への並べ替え・B-2 生コンの注文を書く。再計測なら待ち、停止なら目次のまま残す。
-**完了条件**: 判定の結果と次の対応を 18 番に 1 行で残し、着手するなら第 1 波の制作をカードにする。
+**起点**: 2026-10-13、運営者の依頼で試験とは別軸の読み物シリーズ 2 つ（自治体の土木担当・コンクリート入門）を企画した。置き場・根拠資料の扱い・着手の条件（判断）は docs/strategy/18_自治体土木担当・コンクリート入門シリーズ方針2026-10.md、記事の一覧（企画）はこのカードが持つ（サイト記事には企画 SSOT が無いので backlog に置く・todo-standards §1-2）。運営者の判断で、記事は EXP-012（記事末の資格カード）の判定まで書かない。
+**やること**: EXP-012 の事後窓の終わり（2026-11-26）の判定を 18 番「着手の判定」に当てる。継続なら第 1 波（下の ★）をそれぞれ制作カードにし、残りはこのカードの一覧を次のカードへ移す。再計測なら待ち、停止なら一覧をこのカードに残したまま判断を 18 番へ 1 行残して閉じる。
+**完了条件**: 判定の結果と次の対応を 18 番に 1 行で残す。着手するなら第 1 波の制作カードを起票し、残りの一覧を移したカードへ 18 番の「DN-0719」の参照を書き換える（消すと check-project-task-refs が止める）。
 
+**A 自治体の土木担当**（新規 18・既存の補強 4・既存のまま 3。括弧は根拠の台帳 id）
+- 全体像: A-1 自治体の土木職の仕事 — 管理と事業の二つの役割（ハブ）（local-autonomy-act・road-act・river-act）／A-2 土木担当の 1 年 — 予算要求・発注・出水期・決算・会計検査（local-autonomy-act・local-finance-act）
+- 道路を管理する: A-3 道路法の骨格 — 道路の種類と管理者（road-act）／A-4 路線の認定・区域の決定・供用開始＝既存 service-commencement を補強／★A-5 道路占用許可の審査 — 占用物件・期間・占用料・掘削後の復旧（road-act・road-act-order）／A-6 承認工事（道路法 24 条）と道路使用許可（道路交通法 77 条）の違い（road-act・road-traffic-act。受注者の段取りは既存 schedule-and-road-permit に残す）／A-7 道路の境界確定と道路台帳（road-act・road-act-rules）／A-8 道路の点検と長寿命化計画（road-act-rules・road-bridge-inspection。既存 preventive-maintenance-diagnosis と役割を分ける）／A-9 標識と防護柵＝既存 road-fixtures-precast（road-sign-standard・guard-fence-standard）
+- 河川を管理する: A-10 河川法の骨格 — 一級・二級・準用・普通河川と管理者（river-act・river-act-order）／★A-11 河川区域の許可 — 占用（24 条）・工作物の新築（26 条）・土地の掘削（27 条）（river-act・river-structure-permit-standard）／A-12 工作物の技術審査 — 橋・樋門・管が堤防を横切るとき（river-facility-structure-order・river-structure-permit-standard）／A-13 河川管理施設の点検と操作 — 堤防・樋門・水門（small-river-inspection-guideline。既存 levee-failure-reinforcement と役割を分ける）／A-14 河川整備計画と流域治水＝既存 flood-control-facilities を補強（river-act・specified-urban-river-act）
+- 法定外公共物: ★A-15 里道・水路の管理 — 国からの譲与・境界・占用（state-property-special-measures-act・local-autonomy-act）
+- 事業を進める（発注者として）: A-16 要望から事業化まで — 地元の要望・調査・予算（local-finance-act）／A-17 地元説明会と合意形成（経験が中心）／A-18 用地の取得と損失補償（land-expropriation-act・public-land-compensation-standard）／A-19 発注方式と入札＝既存 public-works-delivery-methods・public-works-bidding-methods（public-works-quality-act）／A-20 監督と検査＝既存 construction-inspection-types に監督員の役割を補強（public-works-quality-act・local-autonomy-act）／A-21 設計変更＝既存 cost-and-design-change に発注者の側を補強（standard-contract-terms）／A-22 会計検査＝既存 board-of-audit-inspection（board-of-audit-act）
+- 災害に備える: A-23 災害復旧事業と災害査定（disaster-restoration-subsidy-act）／A-24 地域防災計画と水防（disaster-countermeasures-basic-act・flood-control-act）
+- 仕事の進め方: A-25 住民・議会への説明と資料づくり（経験が中心）
+
+**B コンクリート入門**（読む順。新規 3〜4、ほかは既存記事へのリンク）
+- B-1 コンクリートは何でできて、なぜ固まるか（新規。詳しくは技士 textbook-materials・textbook-properties-testing）
+- ★B-2 生コンを注文する — JIS A 5308 の呼び方と、購入者が指定できる事項（新規・jis）
+- B-3 受入れ検査＝concrete-mix-acceptance／B-4 打設の計画＝concrete-pump-capacity・concrete-placement-timing／B-5 鉄筋と型枠＝rebar-cover-placement・rebar-splice-selection・rebar-corrosion-handling・formwork-material-inspection・formwork-waterstop-details／B-6 打込み・締固め・打継ぎ＝concrete-compaction-numbers・concrete-placement-order／B-7 仕上げ・養生・型枠の取り外し＝concrete-finishing-curing・formwork-removal-timing／B-8 ひび割れを見分ける＝concrete-crack-causes
+- B-9 劣化の種類と点検 — 中性化・塩害・ASR・凍害、非破壊試験とコア（新規・jsce-concrete-spec-maintenance。詳しくは診断士 textbook-deterioration・textbook-investigation）
+- B-10 補修と補強＝concrete-repair-leakage・preventive-maintenance-diagnosis
+- B-11 これからのコンクリート — 低炭素・プレキャスト・省力化（新規にするかは判定時に決める。技士 textbook-environment と重ならない範囲だけ）
+- ★入口: 工種別ノート（category-curriculum.json の civil-practice）の concrete ブロックを B の順に並べ替える
 
 ### [DN-0718] 検索キーワード戦略の改善候補と起票カードを EXP-ID で結び、28 日後の判定を experiments.json に残す
 タグ: [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-10-13]
