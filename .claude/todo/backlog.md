@@ -376,6 +376,17 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0724] コンクリートの実務シリーズ（concrete-practice）の残り 3 章と、カリキュラム・逆向きリンク・画像の切り出しを進める
+タグ: [領域:サイト] [時期:2026-10] [種類:制作] [起票:2026-10-13]
+
+**起点**: 2026-10-13、シリーズ concrete-practice（台帳 config/content-series.json は PR #1050）の新規 10 章のうち 7 章を書いた（工事の段取り・生コンの注文・できた構造物の検査・なぜ固まるか・特殊なコンクリート・基準の移り変わり・省力化と新技術）。トークンの上限のため残りを分けた。
+**やること**:
+1. 残り 3 章: C-32 品質と担い手（concrete-quality-and-workforce・著者の意見は論点だけ）、C-09 耐久性の決め方（concrete-durability-specification・割り当て項目 0 なので brief は親が既存記事と示方書から書く）、C-00 全体像のハブ（concrete-roles-overview・ほかの章ができてから。brief は親が書く）。手順と指示書は .tmp/book-coverage/series/（BRIEF・WRITER・QA-INSTRUCTIONS.md、章ごとの packet.md）。1 章あたり約 80〜110 万トークン（brief 16〜30 万・執筆 37〜47 万・QA 18〜29 万）
+2. 書いた章の逆向きリンクとカリキュラムへの登録（各執筆担当の返答にある「逆向きリンク」「カリキュラムの区分案」。src/config/category-curriculum.json の civil-practice の concrete ブロックを読む順に並べ替える）
+3. 画像: 各 brief の「図・写真の候補」（頁 id）を台帳の visuals に入れ、check-content-series --crop-jobs で切り出し → 写真は切り出した写真を元に AI で描き直す（その前に image-policy を改める・docs/strategy/18 の「図と写真」）
+**完了条件**: 3 章がコミット済み、新規の章がカリキュラムに登録され、逆向きリンクが張られている。
+
+
 ### [DN-0723] コンクリートの既存記事と計算ツールの数値を一次資料にそろえる（水和に必要な水・水セメント比・暑中の上限）
 タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-13]
 
