@@ -110,3 +110,52 @@ Writer は写真を作らない。返答に「写真を入れたい位置（直�
 3. 記事の指定の位置に `<ArticleImage src="/posts/<資格>/<slug>/img/photo-….webp" alt="…" width={960} height={720} />` を入れる。生成の結果に寸法が出たら、それに合わせる。
 4. できた画像を Read で見て、本文と食い違う形や生成の破綻があれば、prompt を直して作り直す。
 5. 返答に、図のキー（`<資格>/<slug>/img/photo-…`）・prompt・本文の該当箇所を書く。親が `ai-image-fidelity-auditor` に監査させ、`node scripts/check-image-origin.mjs record-ai` で記録する。
+
+## 4. シリーズの章を書く（Workflow `series-chapter`）
+
+シリーズの台帳（`config/content-series.json`・[todo-standards](./todo-standards.md) §1-2）の新規の章を、1 章 = 1 本の新しい記事として書く。§0〜3 との違いは、本の項目をまず論点だけの brief に直し、執筆担当は本を読まないこと。2026-10-13 にコンクリートの実務シリーズの 7 章を手で回した流れを固めた（1 章 80〜110 万トークン → 目安 50〜60 万）。
+
+### 親が先にすること
+
+1. 章の記事の置き場（`content/site/<区分>/<slug>/article.mdx`）を決め、台帳の項目の `paths` に入れる（書けた記事を台帳が追えるように）。
+2. `node scripts/check-content-series.mjs --packet <シリーズ id>/<項目 id> --article <記事のパス>` で章の資料（packet）を `.tmp/book-coverage/series/<slug>.packet.md` に作る（割り当てた本の項目の一覧。Drive が要る）。
+3. brief の作り手を決める。本の項目が 3 件以上の章は担当（workflow の Brief 段）。0〜2 件の章とハブの章は、親が既存記事と一次資料から下の形で `.tmp/book-coverage/series/<slug>.brief.md` を書く（本を読ませる担当を起こすより安い）。
+4. Workflow `series-chapter`（`.claude/workflows/series-chapter.js`）を args `{ root, items }` で回す。item は `{ series, item, article, books, brief: "agent" | "parent", dn? }`（`books` はコミットの trailer に書く書籍 id。本の項目が 0 件なら `[]`）。同時 3 体。
+5. 終わったら、返答の `factsVerified` を [concrete-practice-sources.md](./concrete-practice-sources.md)（シリーズの事実ファイル）へ、`inboundLinks` を既存記事へ、`curriculumHint` を `src/config/category-curriculum.json` へ、`visuals` を台帳の項目へ入れる。
+
+シリーズの事実ファイルは、執筆担当がまず読み、そこに無い値だけを WebSearch で確かめるためのもの。別のシリーズを始めたら同じ形のファイルを作り、workflow の args `facts` に渡す。
+
+### brief の形（本の項目を読む担当・親が書くときも同じ）
+
+```markdown
+# <章の題>（brief）
+## 読者と場面        … 誰が・どの仕事の場面で・何に迷って読むか（2〜4 行）
+## 論点（読者の判断の順に並べる）
+- [論点] 30 字以内の語句 ／ 確かめる一次資料: <JIS・示方書・国交省の要領・共通仕様書・法令>（10〜25 個）
+## 一次資料で確かめてから書く数値・規格   … 何を確かめるかだけ。値は書かない
+## 既存記事との分担   … <記事のパス>: すでに書いてあること → リンクで済ませる／この記事だけが扱うこと
+## 本と食い違う・古いかもしれない点
+## 図・写真の候補     … <頁 id>（<本 id>）／ 何を見せるか ／ 図・写真・表（使わない候補は理由つき）
+```
+
+- 本の文章を写さない。論点は 30 字以内の語句で、自分の言葉で書く。本の見出しの言葉・節の並び・項目の数と順序・例・数値の表・図の構図を入れない。
+- 論点は、読者が仕事で判断する順（何を決める → 何を見る → どう確かめる → 何に気をつける）に組み直す。
+- 著者の意見・体験談は「何が問題になりうるか」だけを残し、意見そのものは入れない。
+
+### 執筆（§1 に足すこと）
+
+- 本の文字起こしと packet は読まない。brief とシリーズの事実ファイルと一次資料から書く。
+- 実務の記事（`/practice/`）なので、試験の文脈・合格の話・note の案内を書かない。発注者・監督・検査の立場でどこを見るかを一般論で書く。
+- frontmatter は同じ区分の既存の新しい記事（例 `civil-practice/concrete-mix-acceptance`）と同じ項目・順序。`tags` に `guide` と主題（例 `コンクリート`）を入れる。`seoTitle` の末尾は区分の決まり（civil-practice は「【土木施工の実務】」）。
+- 内部リンクは 2 本以上。リンク先は公開 URL（`/practice/<slug>` など）。
+- 画像は作らない。図・写真の位置と内容を返答に書く。
+
+### 軽い QA（§2 の代わり）
+
+- 事実: シリーズの事実ファイルにある値は照合済みとして扱い、ファイルに無い値・年号・条番号だけを一次資料で確かめる。
+- 独自性: 記事の H2・H3 の並びと packet の本の見出しの並びを比べ、言葉や順序が似ている節だけ、その項目の文字起こしを開いて読み比べる（全部は読まない）。40 字一致は `check-reference-sources --deep` に任せる。
+- 規約: §2 の 3〜5 と、実務記事の決まり（試験・note の案内が無い）。
+
+### 返答
+
+担当の返答は workflow の構造化出力だけ（数行の文章を返さない）。長い説明は notes の 200 字以内に収める。
