@@ -56322,6 +56322,48 @@
         "scripts/check-orphan-ogp.mjs"
       ],
       "srcHash": "ecdf65c43972392d"
+    },
+    "content/site/civil-practice/concrete-labor-saving-technology/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/concrete-labor-saving-technology/ogp.png",
+      "sha256": "59ef8f38017ab96400787d6b54309d7d3dcbfa8ef772fafda227c2e265f2843d",
+      "bytes": 73147,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-13T04:27:56.981Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/concrete-labor-saving-technology/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "4291167d2dcf9fc8"
+    },
+    "content/site/civil-practice/special-concrete-selection/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/special-concrete-selection/ogp.png",
+      "sha256": "8119396c3359c58284941c521ee16fc9ecb64d2fa96b64be2613f8533c4090f1",
+      "bytes": 71455,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-13T04:30:50.756Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/special-concrete-selection/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "27e3435c1bed8dde"
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",
