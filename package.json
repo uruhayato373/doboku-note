@@ -54,6 +54,7 @@
     "check-standards-page-images": "node scripts/check-standards-page-images.mjs",
     "check-content-series": "node scripts/check-content-series.mjs",
     "check-reference-book-pages": "node scripts/check-reference-book-pages.mjs",
+    "reference-book-status": "node scripts/reference-book-status.mjs",
     "check-e2e-targets": "node scripts/check-e2e-targets.mjs",
     "build-public-redirects": "tsx scripts/build-public-route-redirects.ts",
     "build-backlinks": "node .claude/skills/quality/exam-backlinks/scripts/build-exam-backlinks.mjs",
