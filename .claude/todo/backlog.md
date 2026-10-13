@@ -1783,6 +1783,14 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-0733] コンクリートの実務シリーズの補強待ち 5 章（セメント・鋼材・強度・生コン工場・打込み）を本の項目で書き足す
+タグ: [領域:サイト] [時期:2026-11] [種類:制作] [検証:check-content-series] [起票:2026-10-13]
+
+**起点**: 2026-10-13、コンクリートの実務シリーズの新規 10 章を書き終えた（DN-0724）。台帳で「補強待ち」の 5 章が残っている: C-02 セメント（concrete-engineer/textbook-materials・つくり方と歴史）、C-07 鉄筋と PC 鋼材（civil-practice/steel-material-properties）、C-08 強度の決め方（concrete-engineer/textbook-mix-design・発注者・設計者が何を根拠に決めるか）、C-14 生コン工場の仕事（concrete-engineer/textbook-production-qc・出荷・試験室・経営）、C-21 打込み・締固め・打継ぎ（civil-practice/concrete-compaction-numbers・concrete-placement-order・打ちにくい箇所・床面）。
+**やること**: 台帳の書籍の全項目の割り当て（config/content-series-basis.json）でこの 5 章に割り当てた本の項目から、`check-content-series --packet` で章の資料を作り、既存記事に足りない側面だけを書き足す（試験の教科書記事は試験の文脈を崩さない）。流れは book-coverage-expansion.md §4。DN-0728 の後なら骨子を残す。
+**完了条件**: 5 章の記事に追記がコミットされ、台帳の計画を strengthen から existing に変えて `check-content-series` が緑。
+
+
 ### [DN-0716] 書籍 4 冊の文字起こし未完了 54 頁を、文字起こしするか理由つきで不要にする（reference-book-status で発見）
 タグ: [領域:教材] [種類:不具合] [起票:2026-10-13]
 
