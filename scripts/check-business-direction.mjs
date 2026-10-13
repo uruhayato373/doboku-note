@@ -6,6 +6,13 @@ import { direction, records, validateRecord, buildReport, hash, strategyForRecor
 import { REPO_ROOT, resolveMovedPath } from './lib/repository-paths.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
 try {
   const root = REPO_ROOT, config = direction(root), rows = records(root);
   const errors = [];
@@ -21,8 +28,8 @@ try {
   }
   const git = args => execFileSync('git', args, { encoding: 'utf8', stdio: ['ignore','pipe','pipe'] });
   const normalizeEol = s => s.split(String.fromCharCode(13)).join('');
-  const changes = git(['diff', ...(process.argv.includes('--staged') ? ['--cached'] : ['HEAD']), '--name-only', '--no-renames', '-z', '--', RECORDS]).split('\0').filter(Boolean);
-  if (process.argv.includes('--staged')) {
+  const changes = git(['diff', ...(__argv.includes('--staged') ? ['--cached'] : ['HEAD']), '--name-only', '--no-renames', '-z', '--', RECORDS]).split('\0').filter(Boolean);
+  if (__argv.includes('--staged')) {
     const stagedPaths = [...changes, datasetPath('config.business-direction'), datasetPath('config.seo-watchwords')];
     for (const f of stagedPaths) {
       // autocrlf の端末では index=LF / 作業ツリー=CRLF になるので改行を正規化してから比較する（Windows で常に FAIL する偽赤の再発防止・2026-09-14）
@@ -43,5 +50,9 @@ try {
   const applicable = report.cells.filter(c => c.applicable !== false);
   console.log(`[business-direction] ${errors.length ? 'FAIL' : 'PASS'}: ${config.qualifications.length}資格 / ${config.metrics.length}指標 / ${rows.length}履歴。計測 ${applicable.filter(c => c.value != null).length}/${applicable.length}（対象外 ${report.cells.length - applicable.length}）`);
   for (const e of errors) console.error(e);
-  if (errors.length) process.exitCode = 1;
-} catch (e) { console.error(`[business-direction] FAIL: ${e.message}`); process.exitCode = 1; }
+  if (errors.length) __status.code = 1;
+} catch (e) { console.error(`[business-direction] FAIL: ${e.message}`); __status.code = 1; }
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

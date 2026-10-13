@@ -1,8 +1,9 @@
-import { buildReport, records, reviewPeriod } from '../../../../scripts/lib/business-direction.mjs';
+import { addDays, buildReport, records, reviewPeriod } from '../../../../scripts/lib/business-direction.mjs';
 import { salesByQualification } from '../../../../scripts/lib/sales-by-qualification.mjs';
 import { latestIndexAsOf } from '../../../../scripts/lib/index-coverage.mjs';
 import { buildSearchOpportunities } from '../../../../scripts/lib/search-opportunities.mjs';
 import { loadMonthReceipts } from '../../../../scripts/lib/net-receipts-ledger.mjs';
+import { todayJst } from '../../../../scripts/lib/jst-date.mjs';
 import { findRepoRoot } from './repo-root';
 
 /**
@@ -50,7 +51,10 @@ export function kpiPeriod(month?: string): { startDate: string; endDate: string 
   if (month && /^\d{4}-\d{2}$/.test(month)) {
     const [y, m] = month.split('-').map(Number) as [number, number];
     const last = new Date(Date.UTC(y, m, 0)).getUTCDate();
-    return { startDate: `${month}-01`, endDate: `${month}-${String(last).padStart(2, '0')}` };
+    const startDate = `${month}-01`;
+    // buildReport は「完了した日」までしか受け付けない。今月（途中）は昨日までに切る（切った結果が空＝月の 1 日・未来の月は、直近の完了月へ戻す）
+    const endDate = [`${month}-${String(last).padStart(2, '0')}`, addDays(todayJst(), -1)].sort()[0] as string;
+    if (endDate >= startDate) return { startDate, endDate };
   }
   return reviewPeriod('monthly');
 }

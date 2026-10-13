@@ -9,8 +9,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi/youtube.json#longform",
-      "status": "scheduled",
-      "publishAt": "2026-11-18T11:00:00Z",
+      "status": "uploaded_private",
       "approval": {
         "by": "user",
         "at": "2026-09-05T10:02:10.975Z",
@@ -32,7 +31,8 @@
       "media": {
         "cover": "concrete-chief-engineer/kikinagashi-shunin-suchi/youtube.longform/cover",
         "cta": "concrete-chief-engineer/kikinagashi-shunin-suchi/youtube.longform/cta"
-      }
+      },
+      "reason": "2026-10-13 運営者が YouTube の投稿を一旦止め、公開予約を外した（元の予約 2026-11-18T11:00:00Z）"
     },
     {
       "id": "concrete-chief-engineer/kikinagashi-shunin-suchi/youtube.short.point-tanni-saikotsu-kuuki-2",
@@ -100,8 +100,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.json#longform",
-      "status": "scheduled",
-      "publishAt": "2026-11-19T11:00:00Z",
+      "status": "uploaded_private",
       "approval": {
         "by": "user",
         "at": "2026-09-05T10:02:10.975Z",
@@ -123,7 +122,8 @@
       "media": {
         "cover": "concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.longform/cover",
         "cta": "concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.longform/cta"
-      }
+      },
+      "reason": "2026-10-13 運営者が YouTube の投稿を一旦止め、公開予約を外した（元の予約 2026-11-19T11:00:00Z）"
     },
     {
       "id": "concrete-chief-engineer/shunin-chokuzen-senryaku/youtube.short.point-step1-1",
@@ -191,8 +191,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-construction-ronten/youtube.json#longform",
-      "status": "scheduled",
-      "publishAt": "2026-11-05T11:00:00Z",
+      "status": "uploaded_private",
       "approval": {
         "by": "user",
         "at": "2026-09-05T10:02:10.975Z",
@@ -214,7 +213,8 @@
       "media": {
         "cover": "concrete-chief-engineer/shunin-construction-ronten/youtube.longform/cover",
         "cta": "concrete-chief-engineer/shunin-construction-ronten/youtube.longform/cta"
-      }
+      },
+      "reason": "2026-10-13 運営者が YouTube の投稿を一旦止め、公開予約を外した（元の予約 2026-11-05T11:00:00Z）"
     },
     {
       "id": "concrete-chief-engineer/shunin-construction-ronten/youtube.short.point-overview-1",
@@ -282,8 +282,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-durability-ronten/youtube.json#longform",
-      "status": "scheduled",
-      "publishAt": "2026-11-07T11:00:00Z",
+      "status": "uploaded_private",
       "approval": {
         "by": "user",
         "at": "2026-09-05T10:02:10.975Z",
@@ -305,7 +304,8 @@
       "media": {
         "cover": "concrete-chief-engineer/shunin-durability-ronten/youtube.longform/cover",
         "cta": "concrete-chief-engineer/shunin-durability-ronten/youtube.longform/cta"
-      }
+      },
+      "reason": "2026-10-13 運営者が YouTube の投稿を一旦止め、公開予約を外した（元の予約 2026-11-07T11:00:00Z）"
     },
     {
       "id": "concrete-chief-engineer/shunin-durability-ronten/youtube.short.point-carbonation-1",
@@ -373,8 +373,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.json#longform",
-      "status": "scheduled",
-      "publishAt": "2026-10-26T11:00:00Z",
+      "status": "uploaded_private",
       "approval": {
         "by": "user",
         "at": "2026-09-05T10:02:10.975Z",
@@ -397,7 +396,8 @@
       "media": {
         "cover": "concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.longform/cover",
         "cta": "concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.longform/cta"
-      }
+      },
+      "reason": "2026-10-13 運営者が YouTube の投稿を一旦止め、公開予約を外した（元の予約 2026-10-26T11:00:00Z）"
     },
     {
       "id": "concrete-chief-engineer/shunin-hinshutsu-yusen/youtube.short.point-overview-1",
@@ -465,8 +465,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-materials-ronten/youtube.json#longform",
-      "status": "scheduled",
-      "publishAt": "2026-10-28T11:00:00Z",
+      "status": "uploaded_private",
       "approval": {
         "by": "user",
         "at": "2026-09-05T10:02:10.975Z",
@@ -489,7 +488,8 @@
       "media": {
         "cover": "concrete-chief-engineer/shunin-materials-ronten/youtube.longform/cover",
         "cta": "concrete-chief-engineer/shunin-materials-ronten/youtube.longform/cta"
-      }
+      },
+      "reason": "2026-10-13 運営者が YouTube の投稿を一旦止め、公開予約を外した（元の予約 2026-10-28T11:00:00Z）"
     },
     {
       "id": "concrete-chief-engineer/shunin-materials-ronten/youtube.short.point-cement-types-2",
@@ -557,8 +557,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-mix-design-ronten/youtube.json#longform",
-      "status": "scheduled",
-      "publishAt": "2026-11-01T11:00:00Z",
+      "status": "uploaded_private",
       "approval": {
         "by": "user",
         "at": "2026-09-05T10:02:10.975Z",
@@ -581,7 +580,8 @@
       "media": {
         "cover": "concrete-chief-engineer/shunin-mix-design-ronten/youtube.longform/cover",
         "cta": "concrete-chief-engineer/shunin-mix-design-ronten/youtube.longform/cta"
-      }
+      },
+      "reason": "2026-10-13 運営者が YouTube の投稿を一旦止め、公開予約を外した（元の予約 2026-11-01T11:00:00Z）"
     },
     {
       "id": "concrete-chief-engineer/shunin-mix-design-ronten/youtube.short.point-overview-1",
@@ -649,8 +649,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.json#longform",
-      "status": "scheduled",
-      "publishAt": "2026-11-16T11:00:00Z",
+      "status": "uploaded_private",
       "approval": {
         "by": "user",
         "at": "2026-09-05T10:02:10.975Z",
@@ -672,7 +671,8 @@
       "media": {
         "cover": "concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.longform/cover",
         "cta": "concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.longform/cta"
-      }
+      },
+      "reason": "2026-10-13 運営者が YouTube の投稿を一旦止め、公開予約を外した（元の予約 2026-11-16T11:00:00Z）"
     },
     {
       "id": "concrete-chief-engineer/shunin-ochiru-shouronbun/youtube.short.point-chusho-2",
@@ -740,8 +740,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-production-qc-ronten/youtube.json#longform",
-      "status": "scheduled",
-      "publishAt": "2026-11-03T11:00:00Z",
+      "status": "uploaded_private",
       "approval": {
         "by": "user",
         "at": "2026-09-05T10:02:10.975Z",
@@ -763,7 +762,8 @@
       "media": {
         "cover": "concrete-chief-engineer/shunin-production-qc-ronten/youtube.longform/cover",
         "cta": "concrete-chief-engineer/shunin-production-qc-ronten/youtube.longform/cta"
-      }
+      },
+      "reason": "2026-10-13 運営者が YouTube の投稿を一旦止め、公開予約を外した（元の予約 2026-11-03T11:00:00Z）"
     },
     {
       "id": "concrete-chief-engineer/shunin-production-qc-ronten/youtube.short.point-overview-1",
@@ -831,8 +831,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-products-ronten/youtube.json#longform",
-      "status": "scheduled",
-      "publishAt": "2026-11-09T11:00:00Z",
+      "status": "uploaded_private",
       "approval": {
         "by": "user",
         "at": "2026-09-05T10:02:10.975Z",
@@ -854,7 +853,8 @@
       "media": {
         "cover": "concrete-chief-engineer/shunin-products-ronten/youtube.longform/cover",
         "cta": "concrete-chief-engineer/shunin-products-ronten/youtube.longform/cta"
-      }
+      },
+      "reason": "2026-10-13 運営者が YouTube の投稿を一旦止め、公開予約を外した（元の予約 2026-11-09T11:00:00Z）"
     },
     {
       "id": "concrete-chief-engineer/shunin-products-ronten/youtube.short.point-method-match-2",
@@ -922,8 +922,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-properties-ronten/youtube.json#longform",
-      "status": "scheduled",
-      "publishAt": "2026-10-30T11:00:00Z",
+      "status": "uploaded_private",
       "approval": {
         "by": "user",
         "at": "2026-09-05T10:02:10.975Z",
@@ -946,7 +945,8 @@
       "media": {
         "cover": "concrete-chief-engineer/shunin-properties-ronten/youtube.longform/cover",
         "cta": "concrete-chief-engineer/shunin-properties-ronten/youtube.longform/cta"
-      }
+      },
+      "reason": "2026-10-13 運営者が YouTube の投稿を一旦止め、公開予約を外した（元の予約 2026-10-30T11:00:00Z）"
     },
     {
       "id": "concrete-chief-engineer/shunin-properties-ronten/youtube.short.point-bingham-2",
@@ -1014,8 +1014,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-r8-juuten/youtube.json#longform",
-      "status": "scheduled",
-      "publishAt": "2026-11-17T11:00:00Z",
+      "status": "uploaded_private",
       "approval": {
         "by": "user",
         "at": "2026-09-05T10:02:10.975Z",
@@ -1037,7 +1036,8 @@
       "media": {
         "cover": "concrete-chief-engineer/shunin-r8-juuten/youtube.longform/cover",
         "cta": "concrete-chief-engineer/shunin-r8-juuten/youtube.longform/cta"
-      }
+      },
+      "reason": "2026-10-13 運営者が YouTube の投稿を一旦止め、公開予約を外した（元の予約 2026-11-17T11:00:00Z）"
     },
     {
       "id": "concrete-chief-engineer/shunin-r8-juuten/youtube.short.point-four-tiers-2",
@@ -1105,8 +1105,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-shiken-zentaizou/youtube.json#longform",
-      "status": "scheduled",
-      "publishAt": "2026-10-24T11:00:00Z",
+      "status": "uploaded_private",
       "approval": {
         "by": "user",
         "at": "2026-09-05T10:02:10.975Z",
@@ -1129,7 +1128,8 @@
       "media": {
         "cover": "concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform/cover",
         "cta": "concrete-chief-engineer/shunin-shiken-zentaizou/youtube.longform/cta"
-      }
+      },
+      "reason": "2026-10-13 運営者が YouTube の投稿を一旦止め、公開予約を外した（元の予約 2026-10-24T11:00:00Z）"
     },
     {
       "id": "concrete-chief-engineer/shunin-shiken-zentaizou/youtube.short.point-overview-1",
@@ -1197,8 +1197,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-shouronbun-kousei/youtube.json#longform",
-      "status": "scheduled",
-      "publishAt": "2026-11-15T11:00:00Z",
+      "status": "uploaded_private",
       "approval": {
         "by": "user",
         "at": "2026-09-05T10:02:10.975Z",
@@ -1220,7 +1219,8 @@
       "media": {
         "cover": "concrete-chief-engineer/shunin-shouronbun-kousei/youtube.longform/cover",
         "cta": "concrete-chief-engineer/shunin-shouronbun-kousei/youtube.longform/cta"
-      }
+      },
+      "reason": "2026-10-13 運営者が YouTube の投稿を一旦止め、公開予約を外した（元の予約 2026-11-15T11:00:00Z）"
     },
     {
       "id": "concrete-chief-engineer/shunin-shouronbun-kousei/youtube.short.point-kanten-1",
@@ -1288,8 +1288,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-shouronbun-theme/youtube.json#longform",
-      "status": "scheduled",
-      "publishAt": "2026-11-13T11:00:00Z",
+      "status": "uploaded_private",
       "approval": {
         "by": "user",
         "at": "2026-09-05T10:02:10.975Z",
@@ -1311,7 +1310,8 @@
       "media": {
         "cover": "concrete-chief-engineer/shunin-shouronbun-theme/youtube.longform/cover",
         "cta": "concrete-chief-engineer/shunin-shouronbun-theme/youtube.longform/cta"
-      }
+      },
+      "reason": "2026-10-13 運営者が YouTube の投稿を一旦止め、公開予約を外した（元の予約 2026-11-13T11:00:00Z）"
     },
     {
       "id": "concrete-chief-engineer/shunin-shouronbun-theme/youtube.short.point-nendo-1",
@@ -1379,8 +1379,7 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/concrete-chief-engineer/shunin-structural-design-ronten/youtube.json#longform",
-      "status": "scheduled",
-      "publishAt": "2026-11-11T11:00:00Z",
+      "status": "uploaded_private",
       "approval": {
         "by": "user",
         "at": "2026-09-05T10:02:10.975Z",
@@ -1402,7 +1401,8 @@
       "media": {
         "cover": "concrete-chief-engineer/shunin-structural-design-ronten/youtube.longform/cover",
         "cta": "concrete-chief-engineer/shunin-structural-design-ronten/youtube.longform/cta"
-      }
+      },
+      "reason": "2026-10-13 運営者が YouTube の投稿を一旦止め、公開予約を外した（元の予約 2026-11-11T11:00:00Z）"
     },
     {
       "id": "concrete-chief-engineer/shunin-structural-design-ronten/youtube.short.point-bending-assumptions-1",

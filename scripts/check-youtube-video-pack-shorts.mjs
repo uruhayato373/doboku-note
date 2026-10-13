@@ -5,8 +5,8 @@ import { join } from 'node:path';
 import { readDataset } from './lib/dataset-io.mjs';
 import { utmChannel } from './lib/utm-contract.mjs';
 import { loadVideoState } from './lib/registry-video-state.mjs';
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = process.cwd();
 const PACKS_ROOT = join(ROOT, 'content/sns/video-packs');
 // 概要欄の送客リンクの UTM の期待値は契約（config/utm-templates.json の youtube.shorts）から受け取る
 const SHORTS_UTM = utmChannel('youtube.shorts');
@@ -29,7 +29,7 @@ const STATE = loadVideoState(ROOT);
 let packCount = 0;
 let shortsCount = 0;
 
-function readJson(path) {
+function readJsonLenient(path) {
   return JSON.parse(readFileSync(path, 'utf8'));
 }
 
@@ -56,15 +56,15 @@ for (const exam of EXAMS) {
     // 総まとめ（compilation.json）は Shorts を持たない別の型。パック数・Shorts 数には入れず、
     // ユーザー承認後（approved 以降）の予約枠だけを公開枠の重複と1日の上限に数える。承認前の枠は下書きなので警告に留める
     if (existsSync(join(dir, 'compilation.json'))) {
-      const publishAt = readJson(youtubePath).longform?.publishAt;
+      const publishAt = readJsonLenient(youtubePath).longform?.publishAt;
       if (APPROVED.has(STATE.packs?.[packId]?.derivatives?.longform?.status)) addSlot(publishAt, `${packId}:longform`);
       else if (publishAt) pendingSlots.push([publishAt, `${packId}:longform`]);
       continue;
     }
     packCount += 1;
-    const manifest = readJson(manifestPath);
-    const storyboard = readJson(storyboardPath);
-    const youtube = readJson(youtubePath);
+    const manifest = readJsonLenient(manifestPath);
+    const storyboard = readJsonLenient(storyboardPath);
+    const youtube = readJsonLenient(youtubePath);
     const sceneIds = new Set((storyboard.scenes ?? []).map((scene) => scene.sceneId));
     const shorts = youtube.shorts ?? [];
     const expected = manifest.outputs?.shorts;
@@ -94,8 +94,10 @@ for (const exam of EXAMS) {
       }
       const disclosureCount = description.split('【この動画の制作について】').length - 1;
       if (disclosureCount !== 1) errors.push(`${label}: 制作表記見出し=${disclosureCount}回 (期待値1)`);
-      if (!/^video\/render\/.+\/shorts\/.+\/shorts\.mp4$/u.test(item.r2Key ?? '')) errors.push(`${label}: r2Key不正`);
-      if (!/^video\/render\/.+\/shorts\/.+\/thumbnail\.png$/u.test(item.thumbnailR2Key ?? '')) errors.push(`${label}: thumbnailR2Key不正`);
+      // 描画先（video/render/…/shorts/…）か、差し替え版を中身のハッシュ名で置いた移行先（youtube-migration/<回>/media/<sha256>.<拡張子>。ファイル名が sha と一致すること）
+      const migrated = (key, ext, sha) => new RegExp(`^youtube-migration/[^/]+/media/([a-f0-9]{64})\\.${ext}$`, 'u').exec(key ?? '')?.[1] === sha;
+      if (!/^video\/render\/.+\/shorts\/.+\/shorts\.mp4$/u.test(item.r2Key ?? '') && !migrated(item.r2Key, 'mp4', item.sha256)) errors.push(`${label}: r2Key不正`);
+      if (!/^video\/render\/.+\/shorts\/.+\/thumbnail\.png$/u.test(item.thumbnailR2Key ?? '') && !migrated(item.thumbnailR2Key, 'png', item.thumbnailSha256)) errors.push(`${label}: thumbnailR2Key不正`);
       if (!/^[a-f0-9]{64}$/u.test(item.sha256 ?? '')) errors.push(`${label}: sha256未確定または不正`);
       if (!/^[a-f0-9]{64}$/u.test(item.thumbnailSha256 ?? '')) errors.push(`${label}: thumbnailSha256未確定または不正`);
       if (!item.publishAt) errors.push(`${label}: publishAtなし`);

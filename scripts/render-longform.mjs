@@ -20,8 +20,8 @@ import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
 import sharp from 'sharp';
 import { existsSync, readFileSync, statSync, writeFileSync, mkdirSync, renameSync } from 'node:fs';
-import { resolve, dirname, join, basename, extname, relative, isAbsolute } from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { resolve, join, basename, extname, relative, isAbsolute } from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { parseArgs } from 'node:util';
 
 import {
@@ -32,9 +32,7 @@ import { renderYoutubeCover, validateCoverDesign } from './lib/youtube-cover.mjs
 import { readVideoCta } from './lib/video-cta.mjs';
 import { renderCharacterFrame } from './lib/character-framing.mjs';
 import { buildEditorialArtwork } from './lib/video-editorial-art.mjs';
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = resolve(__dirname, '..');
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 const { values: args } = parseArgs({
   args: process.argv.slice(2),

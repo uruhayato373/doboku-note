@@ -3,7 +3,7 @@
  *
  * ── 設計方針 ──
  * - 実体はこの .mjs に置く。Node スクリプト (`scripts/*.mjs`) からそのまま import できる。
- * - TypeScript 消費者向けには `src/lib/frontmatter-schema.ts` が型を再エクスポートする。
+ * - TypeScript 側の再エクスポート（src/lib/frontmatter-schema.ts）は使い手が 1 件も無く 2026-10-11 に削除した（knip・DN-0687）。
  * - 既存 746 MDX との互換性を壊さないため、ほぼ全フィールドをオプショナル、`.passthrough()` で未知フィールドを許容。
  *
  * 新試験を追加する時は src/config/categories.json（area / groups）へ登録してから

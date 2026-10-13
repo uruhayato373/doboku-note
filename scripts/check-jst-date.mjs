@@ -30,6 +30,7 @@ import { join, relative, sep } from 'node:path';
 import { execSync } from 'node:child_process';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
+import { isCliEntry, runAsCli } from './lib/cli-run.mjs';
 
 export const ROOTS = ['scripts', '.claude', 'tools'];
 const SKIP_DIRS = new Set(['node_modules', '.next', '.git', 'out', 'worktrees']);
@@ -93,10 +94,8 @@ export function isAllowed(file, kind, allow = ALLOW) {
 
 const walk = (d) => listFiles(d, { match: (_p, name) => CODE_FILE.test(name), skipDir: (_p, name) => SKIP_DIRS.has(name), allowMissing: true });
 
-const isMain = process.argv[1] && process.argv[1].endsWith('check-jst-date.mjs');
-
-if (isMain) {
-  const STAGED = process.argv.includes('--staged');
+function main(argv = process.argv.slice(2)) {
+  const STAGED = argv.includes('--staged');
 
   let files;
   if (STAGED) {
@@ -113,7 +112,7 @@ if (isMain) {
   // 全件実行で 0 は走査設定の故障なので落とす。
   if (!STAGED && files.length === 0) {
     console.error('[check-jst-date] NG: 走査対象が 0 ファイル（検査不成立）');
-    process.exit(1);
+    return 1;
   }
 
   const hits = [];
@@ -134,7 +133,15 @@ if (isMain) {
     console.error('\n  修正: import { todayJst, jstMonth, jstDayOf, jstClock } from "<lib>/jst-date.mjs" を使う（検出の型ごとの直し方）:');
     for (const k of new Set(hits.map((h) => h.kind))) console.error(`    ${k}: ${KINDS[k]}`);
     console.error('        外部 API が UTC を要求する等で意図的なら、check-jst-date.mjs の ALLOW に理由付きで追加する。');
-    process.exit(1);
+    return 1;
   }
   console.log('[check-jst-date] ✓ 運用記録の日付は全て JST（または理由付きで allowlist 済み）');
+  return 0;
 }
+
+/** pre-commit-dispatch が in-process で呼ぶ入口（process.exit を呼ばず { code } を返す・DN-0688） */
+export function run({ argv = process.argv.slice(2) } = {}) {
+  return { code: main(argv) };
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

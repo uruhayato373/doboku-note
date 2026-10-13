@@ -25,7 +25,7 @@
  *   node scripts/note-reconcile-title-price.mjs --adopt-live --commit   # note を正として原稿を書き換える（一回きりの整理）
  * ---------------------------------------------------------------------------
  */
-import { readFileSync, readdirSync, writeFileSync, writeSync } from 'node:fs';
+import { readFileSync, writeFileSync, writeSync } from 'node:fs';
 import { join } from 'node:path';
 import { execFileSync, spawnSync } from 'node:child_process';
 import { bodyHash, canonBodyHash, metaHash, titleHash, TITLE_LIVE_MISMATCH, loadState, saveState } from './lib/note-republish-hash.mjs';
@@ -35,6 +35,7 @@ import { todayJst } from './lib/jst-date.mjs';
 import { NOTE_CREATOR as CREATOR } from './lib/site-identity.mjs';
 import { MAX_FETCH_FAIL_RATE, fetchFailDominant } from './lib/inconclusive-gate.mjs';
 import { curlJson as apiCurlJson } from './lib/note-api.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 
 const args = process.argv.slice(2);
 const COMMIT = args.includes('--commit');
@@ -44,14 +45,6 @@ const FILTER = args.includes('--filter') ? args[args.indexOf('--filter') + 1] : 
 const ROOT = 'content/note';
 const THROTTLE_MS = 250;
 
-function walk(dir, acc = []) {
-  for (const e of readdirSync(dir, { withFileTypes: true })) {
-    const p = join(dir, e.name).replaceAll('\\', '/');
-    if (e.isDirectory()) walk(p, acc);
-    else if (/^article(-[^/\\]+)?\.md$/.test(e.name)) acc.push(p);
-  }
-  return acc;
-}
 const sleep = (ms) => spawnSync(process.execPath, ['-e', `setTimeout(()=>{},${ms})`]);
 // note API の取得は lib/note-api.mjs の curlJson に集約（DN-0694）。この script は { data } か { error } の従来の形（再試行 4 回・間隔は増やす）
 const curlJson = (url) => {
@@ -84,7 +77,7 @@ function setField(src, key, val) {
 
 // ---- 記事 ----
 const targets = [];
-for (const f of walk(ROOT)) {
+for (const f of listFiles(ROOT, { match: (_path, name) => /^article(-[^/\\]+)?\.md$/.test(name) }).map((p) => p.replaceAll('\\', '/'))) {
   if (FILTER && !f.includes(FILTER)) continue;
   const raw = readFileSync(f, 'utf8');
   const fm = fmBlock(toLf(raw));

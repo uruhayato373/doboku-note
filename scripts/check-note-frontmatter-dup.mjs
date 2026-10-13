@@ -23,9 +23,16 @@ import { join, relative } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { REPO_ROOT, NOTE_CONTENT_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
 
 const ROOT_REL = relative(REPO_ROOT, ROOT).split('\\').join('/');
-const STAGED = process.argv.includes('--staged');
+const STAGED = __argv.includes('--staged');
 
 let files;
 if (STAGED) {
@@ -68,7 +75,11 @@ if (violations.length) {
   }
   console.error('\n  → 正しい 1 行だけ残して削除する。YAML の重複キーはパーサによって停止/後勝ちが分かれ、');
   console.error('    magazine-to-pdf.mjs は停止する（2026-07-31 に PDF 生成 104 本が落ちた）。');
-  process.exit(1);
+  __exit(1);
 }
 
 console.log('✓ 重複キーなし');
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

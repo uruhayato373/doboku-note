@@ -50,10 +50,11 @@
  */
 import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync, writeSync } from 'node:fs';
-import { basename, join, sep } from 'node:path';
+import { join } from 'node:path';
 import { datasetPath, freshnessDays } from './lib/datasets.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
+import { exitWith, runMain, isCliEntry, runAsCli } from './lib/cli-run.mjs';
 
 const NOTE_DIR = join(ROOT, 'content/note');
 const SOT_PATH = join(ROOT, 'src/lib/note-magazines.ts');
@@ -239,19 +240,18 @@ function relevantStaged() {
     || p === datasetPath('config.note-magazine-membership'));
 }
 
-function fail(msg) { console.error(`✗ 検査不成立: ${msg}`); process.exit(2); }
+function fail(msg) { console.error(`✗ 検査不成立: ${msg}`); exitWith(2); }
 
-function main() {
+function main(argv = process.argv.slice(2)) {
   if (process.env.SKIP_MAGAZINE_MEMBERSHIP === '1') {
     console.log('[check-magazine-membership] SKIP_MAGAZINE_MEMBERSHIP=1 のためスキップ');
-    process.exit(0);
+    exitWith(0);
   }
-  const argv = process.argv.slice(2);
   const jsonOut = argv.includes('--json');
   const ci = argv.includes('--ci');
   const staged = argv.includes('--staged');
   const say = jsonOut ? console.error : console.log;
-  if (staged && !relevantStaged()) process.exit(0);
+  if (staged && !relevantStaged()) exitWith(0);
 
   // --- config ---
   let config;
@@ -439,7 +439,7 @@ function main() {
 
   if (ci && inclusionUnverified.length) {
     console.error(`\n[check-magazine-membership] ✗ 包含を照合できない束ね ${inclusionUnverified.length} 組（snapshot にパックか構成元が無い）: ${inclusionUnverified.join(', ')}`);
-    process.exit(1);
+    exitWith(1);
   }
   if (leaks.length) {
     console.error(`\n[check-magazine-membership] ✗ 束ね商品の包含漏れ ${leaks.length} 組（構成元にあってパックに無い記事）`);
@@ -463,14 +463,14 @@ function main() {
     console.error(`\n[check-magazine-membership] ✗ 未照合 ${unverified.length} 件（--ci ではライブ軸で全件照合できるはず）`);
     for (const r of unverified) console.error(`  ${r.id}  ${r.detail}`);
     console.error('\n  snapshot にそのマガジンが無いか、noteUrl が SoT と食い違っている。');
-    process.exit(1);
+    exitWith(1);
   }
 
   if (bad.length === 0) {
-    if (leaks.length) process.exit(1);
+    if (leaks.length) exitWith(1);
     say('[check-magazine-membership] ✓ 期待収録数と SoT 表記'
       + (freshness.ok ? '・ライブ収録数・束ね商品の包含' : '') + 'は一致');
-    process.exit(0);
+    exitWith(0);
   }
 
   console.error(`\n[check-magazine-membership] ✗ ${bad.length} 件でズレ`);
@@ -482,7 +482,12 @@ function main() {
     + '\n  3. snapshot 再生成 npm run verify-note-magazines -- --contents --json'
     + `\nペルソナ dir の外から収録している例外は ${datasetPath('config.note-magazine-membership')} の extras に理由付きで。`,
   );
-  process.exit(1);
+  exitWith(1);
 }
 
-if (process.argv[1] && basename(process.argv[1].split(sep).join('/')) === 'check-magazine-membership.mjs') main();
+/** pre-commit-dispatch が in-process で呼ぶ入口（process.exit を呼ばず { code } を返す・DN-0688） */
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runMain(main, argv);
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

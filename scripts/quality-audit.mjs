@@ -37,6 +37,7 @@ import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import net from 'node:net';
 import { datasetPath } from './lib/datasets.mjs';
+import { resolveVaultRoot } from './lib/drive-vault.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 const OUT_DIR = join(ROOT, '.claude', 'state', 'quality');
@@ -120,6 +121,8 @@ const CHECKS = [
   { id: 'seo-rank-watch', npm: 'check-seo-rank-watch', timeout: 30_000, ci: true, note: '順位監視・観察状態・履歴の整合' },
   // ── ci:true 厳格ゲート ──
   { id: 'type-check', npm: 'type-check', timeout: 240_000, ci: true },
+  // 管理画面（tools/admin-app）は別 tsconfig で、ルートの type-check が見ない。content-items.ts の 2 件が誰にも検査されないまま落ちていた（DN-0660）。結果は PR の diff だけで決まる
+  { id: 'type-check-admin', npm: 'type-check:admin', timeout: 240_000, ci: true, note: '管理画面（tools/admin-app）の tsc。ルートの type-check の対象外で、呼び出し元 .mjs の JSDoc 型の崩れを止める（DN-0660）' },
   // GitHub の runner では 3,000 件超のテストが 171〜182 秒掛かる（2026-10-11 の PR 3 本で実測。182 秒で timeout に当たり
   // 0 fail なのに CI が赤になった）。上限は実測の 1.6 倍に置く。手元のスリープ由来の水増しは inconclusive が分ける
   { id: 'unit-tests', npm: 'test', timeout: 300_000, ci: true },
@@ -178,6 +181,7 @@ const CHECKS = [
     skip: () => existsSync(join(ROOT, 'public', 'standards-data', 'catalog.json')) ? null : '生成物 public/standards-data が無い（npm run build-standards-data 後に実行）',
     note: '公開用 standards-data（Markdown / JSON-LD / 索引）の形式・条数・出典分離・noindex/CORS ヘッダー。build-standards-data の末尾でも走るが、生成物がある環境では横断監査でも再掲する（gate-parity のオーファン解消・DN-0205）',
   },
+  { id: 'content-series', npm: 'check-content-series', timeout: 30_000, ci: true, note: 'サイト記事のシリーズ企画の台帳（content-series.json）を検査（根拠の参考文献 id・既存と補強の記事の実在・関連記事・対象外の理由・入口）。状態は記事の実体から出し、件数だけ表示する' },
   { id: 'reference-book-pages', npm: 'check-reference-book-pages', timeout: 120_000, ci: true, note: '参考文献 ID 単位の書籍 bundle を検査（1冊1ディレクトリ・原本 sha256・分冊順・通しページ被覆・Drive 台帳結線）。実体が無い端末では manifest のみ検査する' },
   { id: 'figure-embed-dims', npm: 'check-figure-embed-dims', timeout: 90_000, ci: true, note: 'ArticleImage の width/height と SVG の実 viewBox の突合。従来は r2-audit（週次 cron）と pre-commit(staged) だけで、push 経路に backstop が無かった' },
   { id: 'bold-rendering', npm: 'check-bold-rendering', timeout: 120_000, ci: true, note: '閉じ/開き ** が flanking を満たさず太字にならずアスタリスクが本文に出る事故。remark で実パースして text ノードに ** が残るかで判定する（規則の再実装ではない）。2026-09-23 から note 記事（content/note の article*.md）も対象' },
@@ -323,6 +327,11 @@ const CHECKS = [
   { id: 'disk-hygiene', npm: 'check-disk-hygiene', timeout: 120_000, ci: false,
     skip: () => (process.platform === 'darwin' || process.platform === 'win32' ? null : 'ローカル専用（macOS / Windows。CI Linux には置き場も日次掃除も無い）'),
     note: 'ローカルディスク肥大の surfacer。読み手＝SessionStart/Stop フック（--quick）と日次掃除ログ（mac: ~/Library/Logs/doboku-note/ / win: ~/.local/state/doboku-note/logs/）。掃除の実体は disk-hygiene:fix（mac: launchd / win: タスクスケジューラ）' },
+  // 溜まったブランチ・止まった worktree の surfacer（DN-0638）。ローカルの git の状態なので CI には意味が無い。
+  { id: 'branch-hygiene', npm: 'check-branch-hygiene', timeout: 120_000, ci: false,
+    note: '入り済み（squash 含む）のブランチ・止まった未マージのブランチ・未コミットのまま止まった worktree を出す。報告のみ（削除しない・見つかっても exit 0）。読み手＝運営者が週次レビューの前に回す（quality:audit のローカル実行）' },
+  { id: 'figure-references', npm: 'check-figure-references', timeout: 60_000, ci: true, note: '書籍由来の記事（civil-construction-1/2・sources に市販書籍）の図番号の重複・図名の分割の印・alt と caption の番号の食い違い・本文の「図X.Y」が同じ節の図を指すか（記事だけで決まる。DN-0557）。0 本なら exit 2' },
+  { id: 'figure-references-ocr', npm: 'check-figure-references:ocr', timeout: 120_000, ci: false, skip: () => (resolveVaultRoot().root ? null : 'Drive vault が無い（市販書籍の図名は git に置かないので OCR を読めない。CI は skip）'), note: 'caption の「図X.Y 図名」を書籍 OCR（Drive vault）の図名と突合（DN-0557）。市販書籍の見出しを含む OCR は git に置けず CI で読めないので report 区分。読み手＝Drive をマウントした Mac のフル quality:audit（運営者）と、書籍由来の civil-construction-1/2 記事を直す担当（commit 前）。OCR を読めなければ exit 2' },
   { id: 'reference-sources', npm: 'check-reference-sources', timeout: 120_000, ci: true, note: '参考文献 class・記事 sources ID・出典粒度・非公開文字起こしの漏洩・未付与 baseline ラチェットを検査（逐語照合はローカル deep）' },
   // R2 へ退避済みのファイルが git add -f・--no-verify・マージ等で再追跡されていないか（DN-0156・
   // 2026-08-29 追加）。pre-commit（--staged）はローカルでの事故を止めるが、それをバイパスされた

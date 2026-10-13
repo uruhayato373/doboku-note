@@ -17,10 +17,17 @@ import { join, relative } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { datasetPath } from './lib/datasets.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
 
 const CONFIG_PATH = join(ROOT, datasetPath('config.keiken-answer-sheet-limits'));
 
-const args = process.argv.slice(2);
+const args = __argv.slice(2);
 const asJson = args.includes('--json');
 const strict = args.includes('--strict');
 const enforceMinFill = args.includes('--min-fill');
@@ -95,7 +102,7 @@ function stagedKeikenTargets() {
 let files = [];
 if (stagedMode) {
   files = stagedKeikenTargets();
-  if (files.length === 0) process.exit(0); // staged に keiken 記事なし → ゲート通過
+  if (files.length === 0) __exit(0); // staged に keiken 記事なし → ゲート通過
 } else if (inputs.length === 0) {
   files = defaultTargets();
 } else {
@@ -257,4 +264,8 @@ if (asJson) {
 }
 
 // borderline は28字/行なら収まり得るため通過。要圧縮(over)以上で fail。
-if (strict && gateFails > 0) process.exit(1);
+if (strict && gateFails > 0) __exit(1);
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

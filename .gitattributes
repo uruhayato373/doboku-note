@@ -19,3 +19,7 @@ data/**/*.jsonl text eol=lf
 # PC ごとに改行が変わると、中身が同じなのに差分が出て「同じ中身なら書かない」も効かなくなる
 config/**/*.json text eol=lf
 data/**/*.json text eol=lf
+
+# 並行 PR が dispatch-log.json の末尾に記録を足して毎回衝突する（DN-0635）。両方の記録を残して合わせる。
+# driver の登録はクローンごと（npm run pre-commit:install が git config merge.dispatch-log.driver を入れる）。未登録なら従来どおり衝突で止まる
+.claude/state/dispatch/dispatch-log.json merge=dispatch-log

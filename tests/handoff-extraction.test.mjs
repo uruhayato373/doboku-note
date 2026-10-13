@@ -224,3 +224,68 @@ test('CLI: handoff の前送りマーカー付き削除は backlog 未同梱で�
     rmSync(dir, { recursive: true, force: true });
   }
 });
+
+// --- DN-0587: 引き継ぎが指すカードを別セッションが閉じても CI を赤くしない代わりに、閉じる側と書く側で止める ---
+
+import { cardIdsInBacklog, removedCardIds, danglingIdsIn } from '../scripts/lib/handoff-extraction.mjs';
+
+test('removedCardIds / danglingIdsIn: 消えたカードと、台帳に無い参照を返す', () => {
+  const head = '### [DN-0100] a\n### [DN-0101] b\n';
+  assert.deepEqual(removedCardIds(head, '### [DN-0100] a\n'), ['DN-0101']);
+  assert.deepEqual(removedCardIds(head, head), []);
+  assert.deepEqual([...cardIdsInBacklog(head)], ['DN-0100', 'DN-0101']);
+  const known = { backlogIds: new Set(['DN-0100']), completedIds: new Set(['DN-0200']) };
+  assert.deepEqual(danglingIdsIn('DN-0100 DN-0200 DN-0999 DN-0999', known), ['DN-0999']);
+});
+
+const BACKLOG_TWO = '# backlog\n\n## 🔴 High\n\n### [DN-0100] 計測\nタグ: [運用] [種類:改善]\n\n本文\n\n### [DN-0101] 別件\nタグ: [運用] [種類:改善]\n\n本文\n';
+
+test('CLI: カードを消すコミットは、その ID を指す引き継ぎが残っていれば止まる（todo:complete 外の削除）', () => {
+  const { dir, g, write, run } = makeRepo();
+  try {
+    write('.claude/todo/backlog.md', BACKLOG_TWO);
+    write('docs/handoffs/2026-10-08-x.md', '# h\nDN-0101 の続き\n');
+    g('add', '-A');
+    g('commit', '-q', '-m', 'two cards + handoff');
+    write('.claude/todo/backlog.md', BACKLOG_TWO.split('\n### [DN-0101]')[0] + '\n');
+    g('add', '.claude/todo/backlog.md');
+    const r = run();
+    assert.equal(r.status, 1, r.stdout + r.stderr);
+    assert.match(r.stderr, /closed-card-referenced\] DN-0101/);
+    assert.match(r.stderr, /docs\/handoffs\/2026-10-08-x\.md/);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test('CLI: 参照を直す変更を同じコミットに入れれば、カードを消せる／参照の無いカードは素通り', () => {
+  const { dir, g, write, run } = makeRepo();
+  try {
+    write('.claude/todo/backlog.md', BACKLOG_TWO);
+    write('docs/handoffs/2026-10-08-x.md', '# h\nDN-0101 の続き\n');
+    g('add', '-A');
+    g('commit', '-q', '-m', 'two cards + handoff');
+    write('.claude/todo/backlog.md', BACKLOG_TWO.split('\n### [DN-0101]')[0] + '\n');
+    write('docs/handoffs/2026-10-08-x.md', '# h\n続きは完了\n');
+    g('add', '.claude/todo/backlog.md', 'docs/handoffs/2026-10-08-x.md');
+    const r = run();
+    assert.equal(r.status, 0, r.stdout + r.stderr);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test('CLI: 引き継ぎを足すコミットは、backlog にも完了記録にも無い ID で止まる', () => {
+  const { dir, g, write, run } = makeRepo();
+  try {
+    write('docs/handoffs/2026-10-12-x.md', '# h\nDN-0100 と DN-0200 は在る。DN-0999 は無い\n');
+    g('add', 'docs/handoffs/2026-10-12-x.md');
+    const r = run();
+    assert.equal(r.status, 1, r.stdout + r.stderr);
+    assert.match(r.stderr, /handoff-dangling-id\] docs\/handoffs\/2026-10-12-x\.md/);
+    assert.match(r.stderr, /DN-0999/);
+    assert.doesNotMatch(r.stderr, /DN-0100|DN-0200/);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});

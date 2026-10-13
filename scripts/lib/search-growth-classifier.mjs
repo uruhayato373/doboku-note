@@ -11,6 +11,7 @@
  *   CONSOLIDATE_CANDIDATE 類似ページ群・低需要・低利用・親ページあり
  *   NOINDEX_CANDIDATE    固有価値低・長期 impressions/GA4 ゼロ・統合先なし（自動適用しない）
  *   EXPECTED_EXCLUSION   意図した 301 / canonical 代替 / noindex / 既知の旧 URL
+ *   CANONICAL_ELSEWHERE  Google が別の URL を canonical に選んだ（インデックス名義が別 URL）。統合/301/内部リンクの判断が要る
  *   UNKNOWN_REVIEW       判断材料不足
  *
  * 自動適用してよいのは内部リンクの旧 URL 修正のみ（signal.autoFixableInternalLink）。
@@ -23,6 +24,33 @@ export const THRESHOLDS = {
   lowActiveUsers: 2, // GA4 activeUsers がこれ未満は「低利用」
   redirectChainWarn: 2, // redirect hop がこれ以上は技術問題
 };
+
+/** 検索結果ページ（/search?q=...）。noindex が意図で、Google が拾っても直すものは無い。 */
+export function isSearchResultPath(key) {
+  return /^\/search(\?|\/|$)/.test(String(key ?? ""));
+}
+
+const NON_HTML_EXT = /\.(?:txt|xml|json|jsonld|md|csv|js|mjs|css|map|woff2?|ttf|otf|ico|png|jpe?g|gif|webp|avif|svg|pdf|zip|webmanifest)$/i;
+const NON_HTML_PREFIX = /^\/(?:_next|cdn-cgi|standards-data|downloads|images|img|fonts)\//;
+/** HTML ページではない URL（アセット・データ・フィード）。インデックス対象にしない。 */
+export function isNonHtmlPath(key) {
+  const path = String(key ?? "").split(/[?#]/)[0];
+  return NON_HTML_EXT.test(path) || NON_HTML_PREFIX.test(path);
+}
+
+/**
+ * 本文の断片が URL として拾われたもの。1 階層だけで、slug の形（英字で始まる 3 文字以上の英数字とハイフン）ではない。
+ * 例: /8  /h)  /℃）とほぼ等しく…  /2.50  /m。実在ページを指す slug（/contact /privacy）は含まない。
+ */
+export function isFragmentPath(key) {
+  const path = String(key ?? "").split(/[?#]/)[0];
+  if (!path.startsWith("/") || path.indexOf("/", 1) !== -1) return false;
+  return !/^\/[a-z][a-z0-9-]{2,}$/i.test(path);
+}
+
+function isNotFoundIssue(sig) {
+  return sig.gscUiIssue === "notFound" || isNotFound(sig.httpStatus);
+}
 
 function isRedirectStatus(s) {
   return typeof s === "number" && s >= 300 && s < 400;
@@ -120,6 +148,37 @@ export function classifyUrl(sig = {}) {
     return finalize("EXPECTED_EXCLUSION", 0.75, reasons, sig);
   }
 
+  // 検索結果ページ・非 HTML・本文の断片は、直す対象ではない（DN-0674）。sitemap 外のものだけ。
+  if (!inSitemap && isSearchResultPath(sig.comparisonKey)) {
+    reasons.push("sitemap 外・サイト内検索の結果ページ（/search?q=。noindex が設計で、Google が拾っても直すものは無い）");
+    return finalize("EXPECTED_EXCLUSION", 0.9, reasons, sig);
+  }
+  if (!inSitemap && isNonHtmlPath(sig.comparisonKey)) {
+    reasons.push("sitemap 外・HTML ではないファイル（アセット・データ・フィード）。インデックス対象にしない");
+    return finalize("EXPECTED_EXCLUSION", 0.85, reasons, sig);
+  }
+  if (!inSitemap && isNotFoundIssue(sig) && isFragmentPath(sig.comparisonKey)) {
+    reasons.push("sitemap 外・本文の断片が URL として拾われた 404（実在するページを指していない）");
+    return finalize("EXPECTED_EXCLUSION", 0.85, reasons, sig);
+  }
+  // 需要・利用・後継・内部リンクのいずれも無い 404 は、Google が自然に落とす。内部リンクが 1 本でもあれば別（リンク切れ）。
+  if (
+    !inSitemap &&
+    sig.gscUiIssue === "notFound" &&
+    !hasSearchDemand(sig) &&
+    !hasGa4Usage(sig) &&
+    !sig.hasSuccessor &&
+    !((sig.internalInbound ?? 0) > 0)
+  ) {
+    reasons.push("sitemap 外・404・検索需要/GA4 利用/後継/内部リンクがいずれも無い（Google が自然に落とす）");
+    return finalize("EXPECTED_EXCLUSION", 0.7, reasons, sig);
+  }
+  // Google が別の URL を canonical に選んだ。KEEP と混ぜない（内部リンク・301・統合の判断が要る）。
+  if (sig.googleChoseOtherCanonical === true || (sig.gscUiIssue === "alternateCanonical" && hasSearchDemand(sig))) {
+    reasons.push(`Google が別の URL を canonical に選択（${sig.googleCanonical ?? "URL 不明"}）。需要あり/登録名義が別 URL`);
+    return finalize("CANONICAL_ELSEWHERE", 0.8, reasons, sig);
+  }
+
   // ── 3. REDIRECT_LEGACY: sitemap 外の旧 URL・後継あり・需要が残る ──
   if (!inSitemap && sig.hasSuccessor && (isNotFound(status) || isRedirectStatus(status) || status === null)) {
     if (hasSearchDemand(sig) || sig.hasExternalLinks) {
@@ -134,6 +193,23 @@ export function classifyUrl(sig = {}) {
       reasons.push("200 / self canonical / robots 正常・検索需要 or GA4 利用あり");
       return finalize("KEEP_MONITOR", 0.85, reasons, sig);
     }
+  }
+
+  // 登録済み・需要なし: 直すものは無い。表示が増えるまで見るだけ（DN-0674）。
+  if (status === 200 && sig.selfCanonical !== false && !isNoindex(sig) && sig.isIndexed === true) {
+    reasons.push("200 / self canonical / robots 正常・Google 登録済み・検索需要/GA4 利用はまだ無い");
+    return finalize("KEEP_MONITOR", 0.7, reasons, sig);
+  }
+  // sitemap 掲載の健全なページを Google が検出済みで未登録。登録リクエスト（indexing-priority）の待ち行列に任せる。
+  if (
+    inSitemap &&
+    status === 200 &&
+    sig.selfCanonical !== false &&
+    !isNoindex(sig) &&
+    sig.gscUiIssue === "discoveredNotIndexed"
+  ) {
+    reasons.push("sitemap 掲載・200・self canonical・Google は検出済みで未登録（登録リクエストの待ち。修正点なし）");
+    return finalize("KEEP_MONITOR", 0.6, reasons, sig);
   }
 
   // ── 5. CONSOLIDATE_CANDIDATE: 類似・低需要・親あり ──

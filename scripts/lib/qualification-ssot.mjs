@@ -18,11 +18,12 @@ import { join, relative } from 'node:path';
 import { REGISTRY_PATH, isQualificationRef, qualificationLabel } from './qualification-registry.mjs';
 import { datasetPath } from './datasets.mjs';
 import { readJson } from './json-io.mjs';
+import { escapeRegExp } from './regexp-escape.mjs';
 
 export const ALLOW_PATH = '.claude/config/qualification-ssot-allow.json';
 const NAME_KEYS = ['label', 'shortLabel', 'badgeLabel', 'name', 'title', 'short'];
-const CODE_DIRS = ['scripts', '.claude/scripts', 'tools/admin-app/src', 'src'];
-const CONFIG_DIRS = ['config', '.claude/config', '.claude/knowledge', 'src/config'];
+export const CODE_DIRS = ['scripts', '.claude/scripts', 'tools/admin-app/src', 'src'];
+export const CONFIG_DIRS = ['config', '.claude/config', '.claude/knowledge', 'src/config'];
 const ALIAS_SOURCES = [
   ['.claude/knowledge/design-system/note-cover-tokens.json', (j) => j.exams],
   [datasetPath('config.note-funnel'), (j) => j.exams],
@@ -126,7 +127,7 @@ const allowMatch = (pattern, path) => new RegExp(`^${pattern.replace(/[.[\]$]/g,
 /** コードの 1 ファイルで、資格 id（または別名）→ 日本語の対応表らしい行を返す（行番号は 1 始まり） */
 export function findCodeCopies(text, ids) {
   // id を正規表現の文字として扱う（特殊文字はすべてエスケープ）
-  const alt = [...ids].map((id) => id.replace(/[.*+?^${}()|[\]\\-]/g, '\\$&')).join('|');
+  const alt = [...ids].map((id) => escapeRegExp(id)).join('|');
   const patterns = [
     // '<資格>': '日本語' / '<資格>': { …日本語 / rccm: '日本語'
     new RegExp(`(?:['"\`](?:${alt})['"\`]|\\b(?:${alt})\\b)\\s*:\\s*(?:['"\`][^'"\`\\n]*${JP}|\\{[^}\\n]*${JP})`),

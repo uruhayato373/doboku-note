@@ -44,6 +44,7 @@
 
 import { execFileSync } from 'node:child_process';
 import { parseBacklog } from './lib/backlog-lib.mjs';
+import { liveDocsReferencing } from './check-project-task-refs.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import {
   HANDOFF_DIRECT_RE,
@@ -58,7 +59,17 @@ import {
   idsFromCards,
   completedIdsFromDispatchLog,
   experimentIdsFrom,
+  cardIdsInBacklog,
+  removedCardIds,
+  danglingIdsIn,
 } from './lib/handoff-extraction.mjs';
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
 
 const ARCHIVE_PREFIX = 'docs/handoffs/_archive/';
 const BACKLOG = '.claude/todo/backlog.md';
@@ -68,7 +79,7 @@ const MAX_BUFFER = 256 * 1024 * 1024;
 
 if (process.env.SKIP_HANDOFF_EXTRACT === '1') {
   console.log('[check-handoff-extraction] スキップ（SKIP_HANDOFF_EXTRACT=1）');
-  process.exit(0);
+  __exit(0);
 }
 
 const git = (args) => execFileSync('git', ['-c', 'core.quotepath=false', ...args], { encoding: 'utf8', maxBuffer: MAX_BUFFER });
@@ -208,12 +219,56 @@ if (deletedWeekly.length > 0 || changedReviews.length > 0) {
   }
 }
 
+// --- ルール5・6: カードの閉じ方と引き継ぎの参照（DN-0587） ---
+// CI の dangling-id は docs/handoffs/・docs/reviews/ では warning なので、赤にしない代わりにここで止める。
+const backlogNow = showIndex(BACKLOG);
+if (backlogNow != null) {
+  // 5. backlog からカードを消すコミットは、その ID を指す live 文書（引き継ぎ含む）が index に残っていれば止める。
+  //    todo:complete 経由でも手動削除でも同じ（todo-complete の liveDocsReferencing を流用）。参照を直す変更は同じコミットに入れる。
+  const removed = removedCardIds(showHead(BACKLOG) ?? '', backlogNow);
+  for (const id of removed) {
+    let paths = [];
+    try {
+      paths = lines(git(['grep', '--cached', '-l', '-w', '-e', id, '--', 'docs/*.md']));
+    } catch {
+      paths = []; // 該当なしは git grep が exit 1
+    }
+    const refs = liveDocsReferencing(paths.map((rel) => ({ rel, content: showIndex(rel) ?? '' })), id);
+    if (refs.length > 0) {
+      problems.push(
+        `[closed-card-referenced] ${id}\n` +
+          `  このコミットは ${BACKLOG} から ${id} を消すが、${refs.length} 件の文書がまだ指している: ${refs.join(', ')}\n` +
+          `  参照を完了扱いの文面（または削除）へ書き換えて同じコミットに入れてください。そのまま閉じると別ブランチの CI が dangling-id で赤くなります。`
+      );
+    }
+  }
+  // 6. 引き継ぎを足す・変えるコミットは、指す DN-ID が backlog か完了記録に在ること
+  const handoffs = staged.filter((s) => s.status !== 'D' && HANDOFF_DIRECT_RE.test(s.path)).map((s) => s.path);
+  if (handoffs.length > 0) {
+    const known = { backlogIds: cardIdsInBacklog(backlogNow), completedIds: completedIdsFromDispatchLog(readIndexJson(DISPATCH_LOG)) };
+    for (const path of handoffs) {
+      const dangling = danglingIdsIn(showIndex(path) ?? '', known);
+      if (dangling.length > 0) {
+        problems.push(
+          `[handoff-dangling-id] ${path}\n` +
+            `  backlog にも dispatch-log の完了記録にも無い ID を指している: ${dangling.join(', ')}\n` +
+            `  実在の ID に直すか、台帳外の作業ならカードを起票してから書いてください。`
+        );
+      }
+    }
+  }
+}
+
 if (problems.length > 0) {
   console.error('[check-handoff-extraction] handoff・週次レビュー処分の規律違反:');
   for (const p of problems) console.error('\n' + p);
   console.error(`\n合計 ${problems.length} 件。抽出→削除の順序を守るか、SKIP_HANDOFF_EXTRACT=1 で回避してください。`);
-  process.exit(1);
+  __exit(1);
 }
 
 console.log('[check-handoff-extraction] ✓ handoff・週次レビューの削除/確定に抽出もれなし');
-process.exit(0);
+__exit(0);
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

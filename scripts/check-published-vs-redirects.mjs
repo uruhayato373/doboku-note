@@ -31,11 +31,18 @@ import { execFileSync } from 'node:child_process';
 import matter from 'gray-matter';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
 
 const CONTENT = join(ROOT, 'content/site');
 const REDIRECTS = join(ROOT, 'public/_redirects');
 const TAG = '[check-published-vs-redirects]';
-const STAGED = process.argv.includes('--staged');
+const STAGED = __argv.includes('--staged');
 
 /**
  * _redirects の「完全一致 /docs/{slug}」な転送元 → 転送先。
@@ -106,7 +113,7 @@ for (const t of targets) {
 console.log(`${TAG} 記事統合用 /docs 転送元 ${redirects.size} 件（公開URL移行ブロックは除外）/ 対象 .mdx ${targets.length} 件 / published を実検査 ${inspected} 件${STAGED ? '（staged）' : ''}`);
 if (violations.length === 0) {
   console.log(`${TAG} OK: published な記事が 301 の転送元になっている箇所なし`);
-  process.exit(0);
+  __exit(0);
 }
 console.error(`${TAG} FAIL: published なのに 301 で別ページへ飛ぶ記事 ${violations.length} 件`);
 for (const v of violations) {
@@ -115,4 +122,8 @@ for (const v of violations) {
 }
 console.error('  統合済みの記事を再公開しようとしている可能性があります。');
 console.error('  公開するなら public/_redirects の該当行を消す。統合を維持するなら published: false に戻す。');
-process.exit(1);
+__exit(1);
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

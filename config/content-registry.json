@@ -133,7 +133,8 @@
       "scheduled": [
         "published",
         "failed",
-        "stopped"
+        "stopped",
+        "uploaded_private"
       ],
       "published": [
         "refresh_due",

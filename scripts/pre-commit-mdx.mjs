@@ -23,6 +23,13 @@ import { checkLineEndings } from "./lib/line-endings.mjs";
 import { checkImages } from "./lib/check-mdx-images.mjs";
 import { runGates } from "./pre-commit-ci-gates.mjs";
 import { restageQuiz } from "./lib/quiz-restage.mjs";
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
 
 // Get staged MDX files
 function getStagedMdxFiles() {
@@ -177,16 +184,16 @@ function checkBrokenTables(file, content) {
 
 async function main() {
   // CI の速い ci:true 検査を staged の範囲で先に回す（MDX が無い commit でも note・X は見る）
-  if (runGates().length > 0) process.exit(1);
+  if (runGates().length > 0) __exit(1);
 
   const files = getStagedMdxFiles();
   const svgFiles = getStagedSvgFiles();
 
   // 演習データの元記事を stage したら、フックの backfill-mdx-dates が進めた dateModified で作り直して stage する（DN-0548）
-  if (!restageQuiz(files).ok) process.exit(1);
+  if (!restageQuiz(files).ok) __exit(1);
 
   if (files.length === 0 && svgFiles.length === 0) {
-    process.exit(0); // Nothing to validate
+    __exit(0); // Nothing to validate
   }
 
   if (files.length > 0) {
@@ -325,15 +332,19 @@ async function main() {
     if (files.length > 0) parts.push(`${files.length} MDX`);
     if (svgFiles.length > 0) parts.push(`${svgFiles.length} SVG`);
     console.log(`pre-commit: ✓ All ${parts.join(" + ")} file(s) OK.`);
-    process.exit(0);
+    __exit(0);
   } else {
     console.error(`\npre-commit: ✗ ${errors.length} HIGH error(s):\n`);
     for (const { file, error } of errors) {
       console.error(`  ${file}: ${error}`);
     }
     console.error("\nCommit aborted. Fix the HIGH errors and try again.");
-    process.exit(1);
+    __exit(1);
   }
 }
 
-main();
+await main();
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

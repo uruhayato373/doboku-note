@@ -47,3 +47,47 @@
   overflow-y: hidden;
   padding: 2px 0;
 }
+
+/*
+ * 記述ごとの解説（①〜・ア〜）。選択肢の解説の前に出す（scripts/lib/statement-explanations.mjs の renderStatementsHtml が書き出す）。
+ * 色は既存のトークンだけ（○ は positive、× は danger）。
+ */
+.quiz-statements {
+  margin: 0 0 0.75rem;
+}
+.quiz-statements-title {
+  margin: 0 0 0.25rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+.quiz-statement {
+  padding: 0.5rem 0;
+  border-top: 1px solid var(--rule-soft);
+  font-size: 0.8125rem; /* サイトでは 13px。アプリは文字の大きさの設定（html の font-size）に追従させる */
+  line-height: 1.7;
+}
+.quiz-statement-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.5rem;
+  margin-bottom: 0.125rem;
+}
+.quiz-statement-label {
+  font-weight: 700;
+  color: var(--ink);
+}
+.quiz-statement-verdict {
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+.quiz-statement-verdict.ok {
+  color: var(--color-positive);
+}
+.quiz-statement-verdict.ng {
+  color: var(--color-danger);
+}
+.quiz-statement-body {
+  color: var(--ink-body);
+}

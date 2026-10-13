@@ -44,6 +44,7 @@ mkdir -p .tmp/figure-loop
 node scripts/figure-review-queue.mjs --next 8 --json > .tmp/figure-loop/batch.json
 # 切り出し直し待ちが 8 件以上、または判定待ちが 0 のとき: --stage reextract --next 4
 ```
+切り出し直しの図が書籍の図（記事の caption・alt が「図X.Y」）なら、worker に原典のページを渡す。`node scripts/find-book-figure.mjs "図2.41" --book <書籍名の一部>` が Drive vault の書籍 OCR から書籍・PDF・ページ・印字ページ・図名を JSON で返すので、`status: found` の `matches[0]` をその要素の `bookHit` に入れる（`multiple` は `--book` で絞る・`not-found` は入れない・exit 2 は vault が無い PC なので切り出し直しを回さない）。
 
 ### 2. ワーカーを並列で回す
 ```
@@ -52,31 +53,32 @@ Workflow({ scriptPath: ".claude/skills/quality/figure-recrop/scripts/figure-crop
 各図を `figure-crop-worker`（sonnet）が処理する。判定の規則（何を切り、何を残し、いつ needs-source にするか）は worker の定義が唯一の正本。
 
 ### 3. 親の QA（Evaluator）
-対象は **画像を書き換えた図（crop / reextract）** と **`selfVerify: suspect` の図**。それぞれ:
-1. `node scripts/check-figure-crop-integrity.mjs --file <img>` で `STRAY_SLIVER` が無く、新しい `EDGE_CUT`（図本体の切断）を作っていないこと。
-2. png に変換して Read し、写り込みが消えて図本体が欠けていないこと。reextract は旧画像（`git show HEAD:<img>`）と並べて、同じ図で欠けが戻っていること。
+Workflow は結果を `.tmp/figure-loop/results-<runId>.json` に保存する（保存の確認はログに出る。失敗の警告が出たら戻り値から自分で保存する）。対象は **画像を書き換えた図（crop / reextract）** と **`selfVerify: suspect` の図**。次の 1 コマンドで 3 つが出るので、親は合否だけを決める:
+```bash
+node scripts/figure-qa-sheet.mjs <書き換えた図と suspect の figKey...>
+```
+- png・webp 両方のクロップ検査（`STRAY_SLIVER` が無く、新しい `EDGE_CUT` を作っていないこと）
+- 新旧を並べた画像 `.tmp/figure-loop/qa-<図名>.png` を Read して、写り込みが消え図本体が欠けていないこと・reextract は同じ図で欠けが戻っていること
+- 画像から図番号のキャプションが消えたのに MDX に caption も直後の `<p>` も無い図の一覧。出典・図名が画面から消えるので `ArticleImage` の `caption` に足す
 
-写り込みとして出典表記（「〜より」「資料：」）や図番号キャプションを除いた図は、記事で出典・図名がまだ見えるか（`ArticleImage` の `caption` か直後の `<p>`。`alt` は画面に出ない）を見て、出典が消えるなら `caption` に足す。
-
-不合格（切り過ぎ・写り込み残り・別の図）は原画に戻し（`git checkout -- <追跡中の png> <webp>`。未追跡の png を pathspec に混ぜると全体が止まる）、その図は**記録しない**（次の周で再判定される）。`ok` で `clean` の図はそのまま記録する。
+不合格（切り過ぎ・写り込み残り・別の図）は原画に戻し（`git checkout -- <追跡中の png> <webp>`。未追跡の png を pathspec に混ぜると全体が止まる）、その図は**記録しない**（`--pass` に入れない。次の周で再判定される）。
 
 ### 4. 判定を記録する
-結果を下表で判定に直して `.tmp/figure-loop/verdicts.json`（配列）に書き、記録する:
-
-| worker の action | 親の QA | verdict | action |
-|---|---|---|---|
-| `ok` | — | `ok` | `none` |
-| `crop` | 合格 | `ok` | `recrop` |
-| `needs-source` | — | `needs-source` | `none` |
-| `reextract` | 合格 | `ok` | `reextract`（`source: {pdf, page, dpi}` 必須） |
-| `source-unavailable` | — | `source-unavailable` | `none` |
-| `error`・QA 不合格 | — | 記録しない | — |
-
-各要素は `{ figKey, verdict, action, reason, source? }`（reason は worker の reason を基に、何を直したか・何が切れているかを具体的に）。record は判定を判定台帳へ、`source` を `config/figure-sources.json` の `provenance`（図ごとの出典の正本）へ書く。
+判定 JSON は手で書かない。結果ファイルから作って記録する（QA に合格した書き換え済み・suspect の図だけを `--pass` に並べる。`ok`・`needs-source`・`source-unavailable` の判定は `--pass` なしで記録される）:
 ```bash
-node scripts/figure-review-queue.mjs record .tmp/figure-loop/verdicts.json
+node scripts/figure-review-queue.mjs record --from-results .tmp/figure-loop/results-<runId>.json --pass <QA 合格の figKey...>
 ```
-台帳は今の画像のハッシュで記録し、直した図は記事 MDX の `width`/`height` を新しい寸法に合わせる。台帳を手で編集しない。
+
+| worker の action | 親の QA | 記録される判定 |
+|---|---|---|
+| `ok` | — | verdict `ok`・action `none` |
+| `crop` | `--pass` | `ok`・`recrop` |
+| `needs-source` | — | `needs-source`・`none` |
+| `reextract` | `--pass` | `ok`・`reextract`（出典 `{pdf, page, dpi}`・切り出し枠と回転は結果から入る） |
+| `source-unavailable` | — | `source-unavailable`・`none` |
+| `error`・`--pass` に入れなかった書き換え | — | 記録しない（理由が出る） |
+
+record は判定を判定台帳へ、`source` を `config/figure-sources.json` の `provenance`（図ごとの出典の正本）へ書く。verdict=ok の図は png・webp のどちらかに `STRAY_SLIVER` があれば記録を拒む。台帳は今の画像のハッシュで記録し、直した図は記事 MDX の `width`/`height` を新しい寸法に合わせる。台帳を手で編集しない（結果ファイルを使えない特別な場合だけ `record <verdicts.json>` に `{ figKey, verdict, action, reason, source? }` の配列を渡す）。
 
 ### 5. commit して進捗を出す
 ```bash

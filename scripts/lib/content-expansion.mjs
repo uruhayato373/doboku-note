@@ -17,9 +17,16 @@ export const PRODUCT_ARTIFACT_RE = /^content\/(note|kindle|coconala)\//;
 export function sourceSummary(source) {
   const u = source.units ?? [];
   const count = (f) => u.filter(f).length;
+  const contentExcluded = count((x) => x.content === 'excluded');
   return {
     units: u.length,
     content: count((x) => x.content === 'covered'),
+    // 本文の割合の分母（対象外＝意図して展開しない論点を除く）と、100% に届かない理由の内訳（2026-10-13）
+    contentTarget: u.length - contentExcluded,
+    contentExcluded,
+    contentBlocked: count((x) => x.content === 'blocked'),
+    contentPartial: count((x) => x.content === 'partial'),
+    contentUnreviewed: count((x) => x.content === 'unreviewed'),
     visual: count((x) => ['existing', 'created', 'reused'].includes(x.visual?.decision)),
     visualNeeded: count((x) => x.visual?.decision === 'needed'),
     sns: count((x) => ['prepared', 'existing'].includes(x.derivative?.decision)),

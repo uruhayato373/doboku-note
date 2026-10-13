@@ -17,11 +17,18 @@ import { readdirSync, readFileSync, existsSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { execFileSync } from "node:child_process";
 import { REPO_ROOT as ROOT, SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
 
 const POSTS = SITE_CONTENT_ROOT;
 const CONFIG = join(ROOT, "config", "figure-canvas.json"); // path-literal-ok: tests/check-figure-canvas.test.mjs が scripts/lib/datasets.mjs（と zod）を含まない隔離環境へ複写して動かす
-const staged = process.argv.includes("--staged");
-const syncAllowlist = process.argv.includes("--sync-allowlist");
+const staged = __argv.includes("--staged");
+const syncAllowlist = __argv.includes("--sync-allowlist");
 
 const cfg = JSON.parse(readFileSync(CONFIG, "utf8"));
 const FEED = cfg.canvases.feed.viewBox; // [400,500]
@@ -75,7 +82,7 @@ if (syncAllowlist) {
   cfg.guard.migrationAllowlist = nonconf;
   writeFileSync(CONFIG, JSON.stringify(cfg, null, 2) + "\n");
   console.log(`[check-figure-canvas] migrationAllowlist 再同期: 移行待ち ${nonconf.length} 件`);
-  process.exit(0);
+  __exit(0);
 }
 
 // --- 命名規則チェック: figure- プレフィックスなし SVG を検出 ---
@@ -125,7 +132,7 @@ if (namingErrors.length) {
   for (const e of namingErrors) console.error("  " + e);
   console.error(`\n  修正: ファイル名に figure- プレフィックスを付け、MDX 参照も更新する。`);
   console.error(`  真実源: .claude/knowledge/reference/figure-canvas-policy.md\n`);
-  process.exit(1);
+  __exit(1);
 }
 
 const files = staged ? listStaged() : listAll();
@@ -168,7 +175,11 @@ if (errors.length) {
   );
   console.error(`  移行待ちなら config/figure-canvas.json の guard.migrationAllowlist に追加。`); // path-literal-ok: 同上（隔離環境で datasets.mjs を読めない）
   console.error(`  真実源: .claude/knowledge/reference/figure-canvas-policy.md\n`);
-  process.exit(1);
+  __exit(1);
 }
 
 console.log(`[check-figure-canvas] OK（${checked} 枚検査${staged ? "（staged）" : ""}・allowlist ${allow.size} 件免除）`);
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

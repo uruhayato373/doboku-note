@@ -16,6 +16,7 @@
 import { execFileSync } from 'node:child_process';
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
+import { escapeRegExp } from './regexp-escape.mjs';
 
 /**
  * 置き場。strict の置き場（config/・data/）は JSON に型が必須で、コードのパスの直書きを止める。
@@ -157,6 +158,8 @@ export const DATASETS = [
   d('registry.media', 'content/registry/media/{name}', 'config', 'sns', 'コンテンツ台帳: 素材（資格ごと・brand）', { schema: 'RegistryMedia' }),
   // 教材
   d('config.reference-sources', 'config/reference-sources.json', 'config', 'material', '参考文献（原本・一次資料）の区分と扱い', { schema: 'ConfigReferenceSources' }),
+  d('config.content-series', 'config/content-series.json', 'config', 'site', 'サイト記事のシリーズ企画（目次・計画・根拠。状態は記事の実体から出す）', { schema: 'ConfigContentSeries' }),
+  d('config.content-series-basis', 'config/content-series-basis.json', 'config', 'site', '書籍の全項目をシリーズの項目・記事に割り当てる（使わない項目は理由）。項目 id だけで見出しは持たない', { schema: 'ConfigContentSeriesBasis' }),
   // 管理
   d('config.domains', 'config/domains.json', 'config', 'ops', '事業の領域・サイドバー・文書の割り当て', { schema: 'DomainsConfig' }),
   d('config.asset-storage', 'config/asset-storage.json', 'config', 'ops', 'R2 に置くアセットの置き場', { schema: 'ConfigAssetStorage' }),
@@ -214,6 +217,9 @@ export const DATASETS = [
   d('ga4.admin-inventory', 'data/ga4/admin-inventory.json', 'state', 'site', 'GA4 管理画面の設定の最新', { freshness: { warnDays: 90 }, schema: 'Ga4AdminInventory' }),
   d('ga4.admin-last-run', 'data/ga4/admin-last-run.json', 'state', 'site', 'GA4 管理画面の設定を画面から最後に揃えた記録', { planned: true }),
   d('ga4.ui-last-run', 'data/ga4/ui-last-run.json', 'state', 'site', 'GA4 の画面取得を最後に回した記録', { schema: 'Ga4UiLastRun' }),
+  d('ga4.ui-urls', 'data/ga4/ui-urls.json', 'state', 'site', 'GA4 の画面から取った一覧（取得と正規化が通ったら入る。2026-07-30 から取得が失敗のまま）', { planned: true }),
+  d('ga4.ui-history', 'data/ga4/ui-history.json', 'ledger', 'site', 'GA4 の画面取得の結果の推移', { planned: true }),
+  d('ga4.ui-diff', 'data/ga4/ui-diff/{ts}.json', 'series', 'site', 'GA4 の画面取得の前回との差', { planned: true, retain: { family: 'ga4-ui', keepAll: true } }),
   d('ga4.ui-raw', 'data/ga4/ui/{ts}/{**}', 'raw', 'site', 'GA4 の画面から取った CSV', { local: true, regen: 'npm run ga4-ui:fetch（画面から取り直す）' }),
   // GSC
   d('gsc.reports', 'data/gsc/reports/{date}.json', 'series', 'site', 'GSC の検索指標（取得した日ごとに 1 ファイル・page／query／page×query／date。水曜分の page は 1000 行で打ち切り）', { retain: { family: 'gsc', maxAgeDays: 90, keepNewestPerSection: true }, schema: 'GscReports' }),
@@ -267,6 +273,7 @@ export const DATASETS = [
   d('analysis.career-funnel-baseline', 'data/analysis/career-funnel-baseline/{date}.json', 'evidence', 'affiliate', '転職アフィリエイトのファネルの基準線', { retain: { family: 'affiliate', keepAll: true }, schema: 'CareerFunnelBaseline' }),
   d('analysis.buildjob-report', 'data/analysis/buildjob-report.md', 'report', 'affiliate', 'ビルドジョブの成果の報告'),
   d('analysis.psi-report', 'data/analysis/psi-report.md', 'report', 'site', 'PSI の最新の報告'),
+  d('analysis.seo-build-summary', 'data/analysis/seo-build-summary.json', 'ledger', 'site', 'build 後 SEO スキャン（check-seo-build）の日ごとの検査数・error・warn の型別件数（CI が develop の push ごとに足す。週次レビューが前週比を出す）', { schema: 'SeoBuildSummary' }),
   d('analysis.seo-meta', 'data/analysis/seo-meta.json', 'state', 'site', 'サイトの SEO meta の監査結果', { schema: 'SeoMeta' }),
   d('analysis.affiliate-opportunities', 'data/analysis/affiliate-opportunities/{date}.json', 'evidence', 'affiliate', '未活用のアフィリエイト案件の調査（文書が引用）', { retain: { family: 'affiliate', keepAll: true }, schema: 'AffiliateOpportunities' }),
   d('analysis.affiliate-research', 'data/analysis/affiliate-research/{date}.json', 'evidence', 'affiliate', '転職アフィリエイトの競合・読者の調査（文書が引用）', { retain: { family: 'affiliate', keepAll: true }, schema: 'AffiliateResearch' }),
@@ -380,14 +387,13 @@ export const DATASETS = [
 
 // ---- パスの照合 -----------------------------------------------------------------
 
-const escape = (s) => s.replace(/[.+?^$()[\]\\|]/g, '\\$&');
 const compiled = new Map();
 
 /** 台帳のパスの型を正規表現にする（全体一致） */
 export function patternOf(path) {
   if (!compiled.has(path)) {
     let re = '';
-    for (const part of path.split(/(\{[^}]+\})/)) re += part.startsWith('{') ? (SLOTS[part] ?? escape(part)) : escape(part);
+    for (const part of path.split(/(\{[^}]+\})/)) re += part.startsWith('{') ? (SLOTS[part] ?? escapeRegExp(part)) : escapeRegExp(part);
     compiled.set(path, new RegExp(`^${re}$`));
   }
   return compiled.get(path);

@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { EmptyRow, numCol, StatusBadge, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow } from '@/components/admin';
 import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
-import { loadDesignView, type DesignMagazine, type DesignSingle, type DesignStage, type Ref } from '@/lib/product-design';
+import { loadDesignView, type DesignMagazine, type DesignPlanned, type DesignSingle, type DesignStage, type Intent, type Ref } from '@/lib/product-design';
 
 export const dynamic = 'force-dynamic';
 
@@ -12,12 +12,13 @@ const TIERS = [
   { id: 'pack', label: 'パック' },
   { id: 'magazine', label: 'マガジン' },
   { id: 'single', label: '単品' },
+  { id: 'planned', label: '作成予定' },
 ] as const;
 type TierId = (typeof TIERS)[number]['id'];
 
 /**
  * /product/design — 商品設計（read-only）。資格ごとに note 商品をパック・マガジン・単品の層で並べる。
- * 層は note の実際の収録から決める（lib/product-design.ts）。資格はサイドバーの「商品設計」の枝、
+ * 層は note の実際の収録から決め、商品の正本（収録の意図）との差と、作成予定の商品を重ねる（lib/product-design.ts）。資格はサイドバーの「商品設計」の枝、
  * 試験区分（s）と層（t）はページのタブ。表は 1 枚だけ置く（Card で囲まない）。
  * マガジン名を押すとその商品の行へ、単品タブは ?m=<マガジン> で収録記事に絞り、?orphan=1 でマガジン無しに絞る。
  */
@@ -61,7 +62,8 @@ export default async function ProductDesignPage({
     if (p.orphan) u.set('orphan', '1');
     return `/product/design?${u.toString()}`;
   };
-  const count = (st: DesignStage, t: TierId) => (t === 'pack' ? st.packs.length : t === 'magazine' ? st.magazines.length : st.singles.length);
+  const count = (st: DesignStage, t: TierId) =>
+    t === 'pack' ? st.packs.length : t === 'magazine' ? st.magazines.length : t === 'planned' ? st.planned.length : st.singles.length;
 
   return (
     <>
@@ -94,7 +96,9 @@ export default async function ProductDesignPage({
                 </Link>
               )}
             </nav>
-            {tier === 'single' ? (
+            {tier === 'planned' ? (
+              <PlannedTable rows={stage.planned} />
+            ) : tier === 'single' ? (
               <SingleTable stage={stage} m={sp.m ?? null} orphan={Boolean(sp.orphan)} href={href} />
             ) : (
               <MagazineTable
@@ -140,11 +144,12 @@ function MagazineTable({
           <TableHead>商品</TableHead>
           <TableHead className={numCol}>価格</TableHead>
           <TableHead className={numCol}>収録</TableHead>
+          <TableHead>意図との差</TableHead>
           <TableHead>{relation}</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
-        {rows.length === 0 && <EmptyRow colSpan={4}>なし</EmptyRow>}
+        {rows.length === 0 && <EmptyRow colSpan={5}>なし</EmptyRow>}
         {rows.map((m) => (
           <TableRow key={m.id} id={m.id} className="align-top">
             <TableCell className="min-w-[16rem] whitespace-normal">
@@ -161,8 +166,60 @@ function MagazineTable({
               {m.count == null ? '—' : <Link href={href({ t: 'single', m: m.id })}>{m.count}</Link>}
             </TableCell>
             <TableCell className="whitespace-normal text-sm">
+              <IntentCell intent={m.intent} />
+            </TableCell>
+            <TableCell className="whitespace-normal text-sm">
               <RefLinks refs={pick(m)} href={href} tierOf={tierOf} />
             </TableCell>
+          </TableRow>
+        ))}
+      </TableBody>
+    </TableFrame>
+  );
+}
+
+/** 正本の収録の意図に対する note 上の差。一致なら緑、足りない・意図に無いがあれば本数、正本に無い商品は — */
+function IntentCell({ intent }: { intent: Intent | null }) {
+  if (!intent) return <span className="text-muted-foreground">正本に無い</span>;
+  if (intent.notIn == null || intent.extra == null) return <StatusBadge tone="warn">収録を読めない</StatusBadge>;
+  const pending = intent.pending ? <span className="text-muted-foreground">（公開待ちの原稿 {intent.pending} 本）</span> : null;
+  if (intent.notIn === 0 && intent.extra === 0) {
+    return (
+      <>
+        <StatusBadge tone="good">意図どおり {intent.expected}</StatusBadge> {pending}
+      </>
+    );
+  }
+  return (
+    <>
+      {intent.notIn > 0 && <StatusBadge tone="warn">未収録 {intent.notIn}</StatusBadge>} {intent.extra > 0 && <StatusBadge tone="warn">意図に無い {intent.extra}</StatusBadge>} {pending}
+    </>
+  );
+}
+
+/** 正本にあって未公開の商品（作成予定）。作るときは npm run product -- plan が反映のコマンドを出す */
+function PlannedTable({ rows }: { rows: DesignPlanned[] }) {
+  return (
+    <TableFrame>
+      <TableHeader>
+        <TableRow>
+          <TableHead>商品</TableHead>
+          <TableHead className={numCol}>価格</TableHead>
+          <TableHead className={numCol}>意図の収録</TableHead>
+          <TableHead>ペルソナ</TableHead>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        {rows.length === 0 && <EmptyRow colSpan={4}>なし</EmptyRow>}
+        {rows.map((x) => (
+          <TableRow key={x.id} id={x.id} className="align-top">
+            <TableCell className="min-w-[16rem] whitespace-normal">{x.title}</TableCell>
+            <TableCell className={numCol}>{x.price ?? '—'}</TableCell>
+            <TableCell className={numCol}>
+              {x.expected}
+              {x.pending > 0 && <span className="text-muted-foreground">（公開待ち {x.pending}）</span>}
+            </TableCell>
+            <TableCell className="text-sm">{x.persona ?? '—'}</TableCell>
           </TableRow>
         ))}
       </TableBody>

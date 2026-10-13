@@ -465,6 +465,7 @@ const introVariant = z
             dq: z.boolean().describe('失格注意の段落を持つか'),
             coconalaLead: z.string().optional().describe('coconala.lead のキー（無ければ default）'),
             _why: text.optional(),
+            _generated: z.literal(true).optional().describe('npm run product -- gen が正本の persona・members から作った規則（手で直さない。置き場は最初の _generated の位置）'),
           })
           .strict(),
       )
@@ -865,6 +866,25 @@ export const NoteProduct = z
     /** 設計上の層 */
     tier: z.enum(['pack', 'magazine', 'single', 'membership']),
     persona: z.string().nullable().default(null),
+    /**
+     * ペルソナ別パック（persona 付きの note マガジン）の導線・カバー・掲載文の入力（DN-0493）。
+     * cover があれば config/note-covers.json の additionalMagazines の 1 行、note-intro-standard.json の
+     * 冒頭導線（magazines の 1 件と、収録記事ごとの rules）と、cover.magazineDir/note掲載文.txt を npm run product -- gen が作る
+     */
+    cover: z
+      .object({
+        magazineDir: z.string().describe('マガジンのディレクトリ（リポジトリ相対）。カバー画像と note掲載文.txt の置き場'),
+        qualifier: z.string(),
+        magazineName: z.string(),
+        proof: z.string(),
+        benefit: z.string(),
+      })
+      .strict()
+      .optional(),
+    /** note掲載文.txt の「アピールポイント」。題名・価格・説明は catalog から作る */
+    listing: z.object({ appeal: z.string().min(1) }).strict().optional(),
+    /** 冒頭導線の「この記事の収録元」の決め方。複数のパックに入る記事は、ペルソナの順で最初のパックを収録元にする。例外だけここに書く */
+    intro: z.object({ notHome: z.array(z.string()).min(1).describe('このパックを収録元にしない members（別のパックを収録元にする）') }).strict().optional(),
     /** note-magazines.ts の該当エントリ（そのまま書き出す） */
     catalog: productCatalog,
     /**

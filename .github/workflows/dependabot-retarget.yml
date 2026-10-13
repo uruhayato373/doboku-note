@@ -1,0 +1,32 @@
+name: Retarget dependabot PR to develop
+
+# dependabot の version updates は dependabot.yml の target-branch: develop に従うが、security updates は
+# 既定のブランチ（main）へ向く。そのままマージすると develop の CI・品質監査を経ずに本番へ出る
+# （2026-10-10 に #925 で実際に起きた・DN-0637）。main 向きに開いた dependabot の PR を develop へ付け替える。
+#
+# - pull_request_target は base（main）の workflow で動く＝main へ deploy して初めて効く
+# - PR の head を checkout もビルドもしない（pull_request_target で信頼できないコードを動かさない）。gh の API 呼び出しだけ
+on:
+  pull_request_target:
+    types: [opened, reopened]
+    branches: [main]
+
+permissions:
+  pull-requests: write
+
+jobs:
+  retarget:
+    if: github.event.pull_request.user.login == 'dependabot[bot]' && github.event.pull_request.base.ref == 'main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Retarget the PR to develop and leave a comment
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR: ${{ github.event.pull_request.number }}
+        run: |
+          set -euo pipefail
+          gh pr edit "$PR" --repo "$REPO" --base develop
+          gh pr comment "$PR" --repo "$REPO" --body "dependabot のセキュリティ更新は main 向きに開くため、develop 向きに付け替えました（DN-0637）。develop の CI・品質監査を通してからマージしてください。main へは develop からの昇格でだけ入れます。"

@@ -24,7 +24,7 @@ type Row = { id: string; label: string; marks: Mark[]; buys: Buy[] };
 const md = (d: string) => `${Number(d.slice(5, 7))}/${Number(d.slice(8, 10))}`;
 const mon = (ym: string) => `${Number(ym.slice(5))}月`;
 const ICON: Record<string, string> = { exam: '●', result: '◆', application: '■' };
-const COLOR: Record<string, string> = { exam: 'var(--accent)', result: 'var(--good)', application: 'var(--ink-muted)' };
+const COLOR: Record<string, string> = { exam: 'text-[color:var(--accent)]', result: 'text-[color:var(--good)]', application: 'text-[color:var(--ink-muted)]' };
 
 /**
  * /plan/roadmap — 年間ロードマップ（時間軸は縦＝月の行）。
@@ -111,7 +111,7 @@ export default async function RoadmapPage({ searchParams }: { searchParams: Prom
         </TableHeader>
         <TableBody>
           {months.map((m) => (
-            <TableRow key={m} style={m === thisMonth ? { background: 'var(--accent-fill)' } : undefined}>
+            <TableRow key={m} className={m === thisMonth ? 'bg-[var(--accent-fill)]' : undefined}>
               <TableCell className="align-top font-bold">
                 {m === months[0] || m.endsWith('-01') ? <div className="text-xs text-muted-foreground">{m.slice(0, 4)}</div> : null}
                 {mon(m)}
@@ -119,7 +119,7 @@ export default async function RoadmapPage({ searchParams }: { searchParams: Prom
               <TableCell className="align-top whitespace-normal text-xs">
                 {eventsIn(m).map((e, i) => (
                   <div key={i} className={e.estimated ? 'opacity-50' : undefined}>
-                    <span style={{ color: COLOR[e.kind] ?? 'inherit' }}>{ICON[e.kind] ?? '・'}</span> {md(e.date)} {e.q} {e.label}
+                    <span className={COLOR[e.kind]}>{ICON[e.kind] ?? '・'}</span> {md(e.date)} {e.q} {e.label}
                     {e.estimated ? '（推定）' : ''}
                   </div>
                 ))}

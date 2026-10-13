@@ -51,6 +51,7 @@ import { uploadInstagramImagesInOrder } from "../../../../scripts/lib/instagram-
 import { leanContextOptions } from "../../../../scripts/lib/playwright-launch.mjs";
 import { IG_HANDLE } from "../../../../scripts/lib/site-identity.mjs";
 import { jstClock } from "../../../../scripts/lib/jst-date.mjs";
+import { escapeRegExp } from "../../../../scripts/lib/regexp-escape.mjs";
 import { REPO_ROOT as PROJECT_ROOT } from "../../../../scripts/lib/repository-paths.mjs";
 import { parseCliArgs } from "../../../../scripts/lib/cli-args.mjs";
 
@@ -152,7 +153,7 @@ const SEL = {
   // 投稿先ドロップダウンを開くフィールド（FB ページ名を表示している）
   placementField: (p: Page): Locator[] => [
     p.getByRole("combobox", { name: /^投稿先\s/ }),
-    p.getByText(new RegExp(FB_PAGE_NAME.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))).first(),
+    p.getByText(new RegExp(escapeRegExp(FB_PAGE_NAME))).first(),
   ],
   // ドロップダウン内のアカウント option（2026-06-09 実測: role=option, aria-checked）
   placementOption: (p: Page, name: string): Locator => p.getByRole("option", { name }),
@@ -502,7 +503,7 @@ async function setPlacementInstagramOnly(page: Page, keepFb: boolean): Promise<v
   };
 
   // ドロップダウンを開く（proven: 投稿先フィールドのテキストをクリック。最大2回）
-  const field = (await firstVisible(SEL.placementField(page), 3000)) || page.getByText(new RegExp(FB_PAGE_NAME.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))).first();
+  const field = (await firstVisible(SEL.placementField(page), 3000)) || page.getByText(new RegExp(escapeRegExp(FB_PAGE_NAME))).first();
   let opened = false;
   for (let attempt = 0; attempt < 2 && !opened; attempt++) {
     await clickResilient(field);

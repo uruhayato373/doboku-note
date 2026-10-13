@@ -32,6 +32,8 @@ title: スキル ガバナンス記録
 
 ---
 
+- 2026-10-12: `social/video-content` を追加（DN-0406）。動画パックの薄い入口。`video-script-writer`（Generator）→ `check-video-content` → `video-content-qa`（Evaluator・audit-only）を回して承認待ちで止まる。レンダリング・投稿・承認は担当外。合計 `109→110`、social `25→26`、agents `+2`。
+
 ## カテゴリ構造（件数の SSOT＝`find .claude/skills -name SKILL.md` 実数）
 
 > 2026-09-13 事業運用統合: monthly-review新設。north-star-metric / weekly-review / weekly-plan / plan-weekly / nsm-experimentをbusiness-directionの資格別学習・販売・運営KPIと追記レビューへ結線。management 24→25、全105→106。改善状態は既存experimentsを継続。
@@ -55,12 +57,12 @@ title: スキル ガバナンス記録
 ├── management/      # 24 — 計画・分析・戦略
 ├── dev/             # 15 — 開発・CI/CD・ローカルPlaywright認証運用・アセット置き場の判定
 ├── analytics/       # 2 — サイト分析
-├── social/          # 25 — SNS 投稿・note運用
+├── social/          # 26 — SNS 投稿・note運用
 ├── metrics/         # 1 — 売上記録
 └── ui/              # 1 — UI/UX デザイン
 ```
 
-合計 **109 スキル**（10 カテゴリ・SKILL.md 実数）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
+合計 **110 スキル**（10 カテゴリ・SKILL.md 実数）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
 
 > 2026-09-05 新設: `dev/asset-route`（Git の外に置くアセットの置き場を **誰が使うか** で決める決定木＋コマンド。サイトが配信→public R2 / GitHub Actions が読み書き→private R2 / 人か手元のスクリプトだけ→Google Drive vault）。背景＝同日、共通仕様書のページ画像 3.4GB を「教材ページ画像→private R2」の行に従って private R2 へ上げかけた。その行はスキャン書籍の著作権のために書かれたもので、資産の種類で列挙する旧ルールには判断軸が無かった。`asset-storage.json` の全 group に `audience` を必須化し（`loadConfig`・`tests/asset-storage.test.mjs`・新 `check-drive-vault` の 3 か所で止める）、Drive 側は独立した系 `drive-vault.json` / `drive-vault-sync` / `drive-manifest.json` にした（R2 の fail-closed なコードに第 3 バケットの分岐を足さない）。**新エージェントは作らない**（検査は決定的スクリプトで足りる・CLAUDE.md §9）。合計 `104→105`、dev `14→15`。
 

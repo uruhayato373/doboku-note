@@ -27,7 +27,15 @@ import { readFileSync, readdirSync, existsSync } from "node:fs";
 import { basename, join } from "node:path";
 import { readDocMetaIndex } from "./lib/doc-meta-index.mjs";
 import { todayJst } from "./lib/jst-date.mjs";
+import { parseLegacyRedirects } from "./lib/legacy-routes.mjs";
 import { SNS_CONTENT_ROOT } from "./lib/repository-paths.mjs";
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
 
 const MIN_GAP_MIN = 60;      // 同一日の投稿間隔の下限（分）
 const SALES_FUNNELS = ["note", "coconala", "brain"];
@@ -36,19 +44,19 @@ const SLOTS = ["A", "B", "C"];
 // 引数省略時は x-campaigns/ の全 *.json を検査する（旧実装は 2026-08 固定＝
 // 9月以降のファイルを作っても無検査で素通りしていた。2026-08-12 是正）。
 const DIR = join(SNS_CONTENT_ROOT, "x", "campaigns");
-const files = process.argv[2]
-  ? [process.argv[2]]
+const files = __argv[2]
+  ? [__argv[2]]
   : readdirSync(DIR).filter((f) => f.endsWith(".json")).map((f) => join(DIR, f)).sort();
 if (files.length === 0) {
   console.error("[check-x-campaign-plan] NG: 検査対象 0 ファイル（検査不成立）");
-  process.exit(1);
+  __exit(1);
 }
 const docIndex = readDocMetaIndex();
 const docs = new Set(Object.keys(docIndex.docs ?? docIndex));
 // 公開URLへ移行済みの記事も同じ公開記事索引から検証する。
-const publicPaths = new Set(readFileSync('public/_redirects', 'utf8').split(/\r?\n/)
-  .map(line => line.trim().split(/\s+/))
-  .filter(([from, to]) => from?.startsWith('/docs/') && to?.startsWith('/') &&
+const redirectsText = readFileSync('public/_redirects', 'utf8');
+const publicPaths = new Set([...parseLegacyRedirects(redirectsText)]
+  .filter(([from, to]) => to?.startsWith('/') &&
     docs.has(from.slice(6)) && docIndex.docs[from.slice(6)]?.published === true)
   .map(([, to]) => to));
 
@@ -81,7 +89,7 @@ const noteMags = parseNote();
 for (const [name, cat] of [["coconala", coconala], ["note", noteMags]]) {
   if (!cat || cat.size === 0) {
     console.error(`[check-x-campaign-plan] NG: ${name} カタログを 0 件しか読めなかった（検査不成立）`);
-    process.exit(1);
+    __exit(1);
   }
 }
 /** URL からクエリ・末尾スラッシュを落としてカタログ URL と突合する */
@@ -182,6 +190,13 @@ for (const file of files) {
     `${a.date} ${a.time ?? ""}`.localeCompare(`${b.date} ${b.time ?? ""}`));
   for (let i = 1; i < chrono.length; i++) {
     if (SALES_FUNNELS.includes(chrono[i].funnel) && SALES_FUNNELS.includes(chrono[i - 1].funnel)) {
+      // この検査は計画ファイル 1 本の中だけで隣接を見る。実際の予約で他の計画の非販売投稿が前後に入っていると
+      // 確かめたときだけ、その投稿に salesAdjacencyReason（確かめた日と間に入る投稿）を書いて WARN に下げる（前後両方の隣接に効く）。
+      const reason = [chrono[i].salesAdjacencyReason, chrono[i - 1].salesAdjacencyReason].find((r) => typeof r === "string" && r.trim().length >= 10);
+      if (typeof reason === "string" && reason.trim().length >= 10) {
+        retainedWarnings.push(`販売投稿が計画内で連続（理由付き）: ${chrono[i - 1].date} ${chrono[i - 1].time ?? ""} → ${chrono[i].date} ${chrono[i].time ?? ""}: ${reason}`);
+        continue;
+      }
       errors.push(`販売投稿が連続: ${chrono[i - 1].date} ${chrono[i - 1].time ?? ""} → ${chrono[i].date} ${chrono[i].time ?? ""}`);
     }
   }
@@ -246,4 +261,8 @@ for (const file of files) {
   }
 }
 console.log(`[check-x-campaign-plan] ${files.length} ファイル / 投稿 ${totalPosts} 件を実検査（カタログ: ココナラ${coconala.size} / note${noteMags.size}）`);
-if (anyError) process.exit(1);
+if (anyError) __exit(1);
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

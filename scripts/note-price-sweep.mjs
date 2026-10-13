@@ -15,12 +15,12 @@
  *   node scripts/note-price-sweep.mjs --dir <magazineDir> --from 1980 --to 500 --commit
  * ---------------------------------------------------------------------------
  */
-import { readFileSync, existsSync, readdirSync } from 'node:fs';
-import { join, dirname, relative } from 'node:path';
+import { readFileSync, existsSync } from 'node:fs';
+import { join, relative } from 'node:path';
 import { setArticlePrices } from './lib/product-registry.mjs';
-import { fileURLToPath } from 'node:url';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
 const argv = process.argv.slice(2);
 const getArg = (n, d) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : d; };
 const DIR = getArg('--dir');
@@ -32,15 +32,7 @@ const abs = join(ROOT, DIR);
 if (!existsSync(abs)) { console.error('dir not found: ' + abs); process.exit(1); }
 
 // 再帰 walk（globSync は Node22+ のため使わない）。article.md と型別 article-<type>.md の両方を対象。
-function walk(dir, out = []) {
-  for (const e of readdirSync(dir, { withFileTypes: true })) {
-    const p = join(dir, e.name);
-    if (e.isDirectory()) walk(p, out);
-    else if (/^article(-[^/]+)?\.md$/.test(e.name)) out.push(p);
-  }
-  return out;
-}
-const files = walk(abs);
+const files = listFiles(abs, { match: (_path, name) => /^article(-[^/]+)?\.md$/.test(name) });
 const re = new RegExp(`^(price:[ \\t]*)${FROM}\\b`, 'm');
 const targets = files.filter((f) => re.test(readFileSync(f, 'utf8')));
 const hit = targets.length;

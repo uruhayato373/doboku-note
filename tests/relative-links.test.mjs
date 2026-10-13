@@ -93,3 +93,37 @@ test('listTracked はディレクトリも含み、対象 0 件ではない', ()
   assert.ok(t.has('package.json'), 'ファイルが入っていない');
   assert.ok(t.has('scripts'), 'ディレクトリが入っていない（ディレクトリ宛リンクが全部落ちる）');
 });
+
+// 2026-10-12（DN-0654）: staged モードが、削除・改名した宛先を指す「変更していない文書」のリンクを見ていなかった。
+import { parseRemoved, findLinksToRemoved } from '../scripts/check-relative-links.mjs';
+
+test('parseRemoved: 削除と改名の旧パスだけを返し、追加・コピーの宛先は返さない', () => {
+  const z = ['D', 'docs/reviews/weekly/2026-W39-review.md', 'R100', 'docs/a.md', 'docs/b.md', 'C090', 'docs/c.md', 'docs/d.md', ''].join('\0');
+  assert.deepEqual(parseRemoved(z), ['docs/reviews/weekly/2026-W39-review.md', 'docs/a.md']);
+  assert.deepEqual(parseRemoved(''), []);
+});
+
+test('findLinksToRemoved: 削除したファイルを指す他の文書のリンクを壊れとして出す', () => {
+  const removed = new Set(['docs/reviews/weekly/2026-W39-review.md']);
+  const docs = [
+    { file: 'docs/marketing/07c.md', source: '前回は[W39](../reviews/weekly/2026-W39-review.md)を見る。\n' },
+    { file: 'docs/other.md', source: '[関係ない](./other2.md)\n' },
+  ];
+  const onDisk = new Set(['docs/other2.md']);
+  const hits = findLinksToRemoved(docs, removed, (p) => onDisk.has(p), onDisk);
+  assert.equal(hits.length, 1);
+  assert.equal(hits[0].file, 'docs/marketing/07c.md');
+  assert.equal(hits[0].resolved, 'docs/reviews/weekly/2026-W39-review.md');
+  assert.equal(hits[0].kind, 'missing');
+});
+
+test('findLinksToRemoved: 消えた宛先と無関係の既存の壊れリンクは出さない（staged の判定を広げない）', () => {
+  const removed = new Set(['docs/gone.md']);
+  const docs = [{ file: 'docs/x.md', source: '[gone](./gone.md) と [昔から無い](./never.md)\n' }];
+  const hits = findLinksToRemoved(docs, removed, () => false, new Set());
+  assert.deepEqual(hits.map((h) => h.resolved), ['docs/gone.md']);
+});
+
+test('findLinksToRemoved: 削除が無ければ何も読まない', () => {
+  assert.deepEqual(findLinksToRemoved([{ file: 'a.md', source: '[x](./b.md)' }], new Set(), () => false, new Set()), []);
+});

@@ -18,7 +18,10 @@
  * 参考（warn・非ゲート）: description 160 字超・JSON-LD 欠落/見出し乖離/推奨キー欠落・
  *   noncanonical link・orphan・到達不能。
  *
- * Usage: node scripts/check-seo-build.mjs [--json] [--ci] [--out <dir>]
+ * --summary-out <file>: 1 回分の結果（検査数・error・warn の型別件数）を JSON で書く。CI が build 後に渡し、
+ *   publish ジョブが data/analysis/seo-build-summary.json の履歴へ足す（record-seo-build-summary.mjs・DN-0676）。
+ *
+ * Usage: node scripts/check-seo-build.mjs [--json] [--ci] [--out <dir>] [--summary-out <file>]
  */
 
 import fs from 'node:fs';
@@ -390,6 +393,28 @@ const summary = {
     out_of_scope: jsonLdStats.outOfScope,
   },
 };
+
+const summaryOut = getArg('--summary-out', null);
+if (summaryOut) {
+  const countBy = (list) => {
+    const o = {};
+    for (const f of list) o[f.code] = (o[f.code] || 0) + 1;
+    return o;
+  };
+  fs.mkdirSync(path.dirname(path.resolve(summaryOut)), { recursive: true });
+  fs.writeFileSync(
+    summaryOut,
+    `${JSON.stringify({
+      generatedAt: summary.generated_at,
+      sitemapUrls: expected,
+      checked,
+      errors: errors.length,
+      warnings: warns.length,
+      errorsByCode: countBy(errors),
+      warningsByCode: countBy(warns),
+    }, null, 2)}\n`,
+  );
+}
 
 if (jsonOut) {
   console.log(JSON.stringify({ summary, findings }, null, 2));

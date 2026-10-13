@@ -42,10 +42,17 @@ import { execFileSync } from 'node:child_process';
 import { datasetPath } from './lib/datasets.mjs';
 import { REPO_ROOT as ROOT, NOTE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
 
 const CONFIG = datasetPath('config.note-price-consistency');
 
-const argv = process.argv.slice(2);
+const argv = __argv.slice(2);
 const staged = argv.includes('--staged');
 const asJson = argv.includes('--json');
 
@@ -58,7 +65,7 @@ if (staged) {
     /^content\/note\/.*\/article(-[^/]+)?\.md$/.test(p.trim())
     || p.includes('src/lib/note-magazines.ts')
     || p.includes(CONFIG));
-  if (!relevant) process.exit(0); // note 記事・価格 SoT に無関係な commit → スキップ
+  if (!relevant) __exit(0); // note 記事・価格 SoT に無関係な commit → スキップ
 }
 
 const cfg = existsSync(join(ROOT, CONFIG))
@@ -68,7 +75,7 @@ const cfg = existsSync(join(ROOT, CONFIG))
 const absBase = NOTE_CONTENT_ROOT;
 if (!existsSync(absBase)) {
   console.log('[check-note-price-consistency] content/note が無いためスキップ');
-  process.exit(0);
+  __exit(0);
 }
 
 // 記事を収集して (シリーズ, マガジン) ごとに価格を集計する。
@@ -164,7 +171,7 @@ for (const [series, spec] of Object.entries(cfg.uniformSeries || {})) {
 const magCount = byMagazine.size;
 if (asJson) {
   writeSync(1, JSON.stringify({ magazines: magCount, violations }, null, 2) + '\n');
-  process.exit(violations.length ? 1 : 0);
+  __exit(violations.length ? 1 : 0);
 }
 
 if (violations.length) {
@@ -181,6 +188,10 @@ if (violations.length) {
   console.error(`  (b) 意図的な価格差 → ${CONFIG} の allowMagazines / allowSeries に理由つきで追記する。`);
   console.error('\n背景: 2026-07-24 完全攻略パック18本の値崩れ / 2026-07-28 建設部門116本の frontmatter 不一致。');
   console.error('  frontmatter↔live 突合（check-note-structure）は両方同じ誤価格だと検出できないため本ガードが要る。');
-  process.exit(1);
+  __exit(1);
 }
 console.log(`[check-note-price-consistency] ✓ 公開済み ${publishedCount} 本に title・（有料は）price あり／有料マガジン ${magCount} 件の単品価格はマガジン内・シリーズ内で一貫`);
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

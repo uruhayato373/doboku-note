@@ -22,9 +22,16 @@ import { coverFitIssues } from './lib/note-character-cover.mjs';
 import { loadCoverSources, collectArticleFiles, buildArticleTarget, buildMagazineTargets } from './lib/note-cover-inventory.mjs';
 import { MAGAZINES } from './generate-magazine-covers.mjs';
 import { REPO_ROOT as ROOT, NOTE_CONTENT_ROOT as NOTE_DIR } from './lib/repository-paths.mjs';
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
 
-const STAGED = process.argv.includes('--staged');
-const ALL = process.argv.includes('--all');
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
+
+const STAGED = __argv.includes('--staged');
+const ALL = __argv.includes('--all');
 
 function stagedMd() {
   try {
@@ -70,13 +77,17 @@ const scopeLabel = `記事 ${articles}件 / マガジン ${magazines}件`;
 if (ALL) {
   console.log(`[check-note-cover-fit] ${scopeLabel} / 違反 ${ng.length} 件`);
   ng.forEach((r) => r.issues.forEach((i) => console.log(`  ✗ ${r.slug}  ${i}`)));
-  process.exit(0);
+  __exit(0);
 }
 if (ng.length === 0) {
   console.log(`[check-note-cover-fit] ✓ ${STAGED ? 'staged ' : ''}note カバー(${scopeLabel}) は描画枠に収まる`);
-  process.exit(0);
+  __exit(0);
 }
 console.error(`[check-note-cover-fit] ✗ ${ng.length} 件の note カバーが描画枠に収まらない（生成が失敗する）`);
 console.error('  真実源: .claude/knowledge/design-system/note-cover-character-v5.md → 文言を短縮し再生成 (node scripts/generate-note-covers.mjs <slug>)');
 ng.forEach((r) => r.issues.forEach((i) => console.error(`  ${r.slug}  ${i}`)));
-process.exit(1);
+__exit(1);
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

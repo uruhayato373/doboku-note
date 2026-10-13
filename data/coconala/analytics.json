@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "fetchedAt": "2026-10-11T03:45:35.474Z",
-  "fetchedOnJst": "2026-10-11",
+  "fetchedAt": "2026-10-13T01:49:55.079Z",
+  "fetchedOnJst": "2026-10-13",
   "status": "ok",
   "source": "coconala.com /mypage/analytics（Playwright・read-only・書き込みなし）",
   "caveats": [
@@ -11,21 +11,21 @@
   ],
   "period": {
     "services": {
-      "from": "2026-09-11",
-      "to": "2026-10-10",
+      "from": "2026-09-13",
+      "to": "2026-10-12",
       "label": "過去30日間",
       "windowDays": 30
     },
     "blogs": {
-      "from": "2026-09-12",
-      "to": "2026-10-11",
+      "from": "2026-09-14",
+      "to": "2026-10-13",
       "label": "過去30日間",
       "windowDays": 30
     }
   },
   "totals": {
     "impressions": null,
-    "views": 1532,
+    "views": 1598,
     "orders": 1,
     "salesYen": 15000,
     "favorites": 1,
@@ -41,7 +41,7 @@
       "title": "2級経験記述 全3テーマを24時間で添削します",
       "ok": true,
       "impressions": null,
-      "views": 111,
+      "views": 132,
       "orders": 0,
       "favorites": 0,
       "masked": [
@@ -55,7 +55,7 @@
       "title": "2級経験記述の全3テーマ骨子を24時間で設計します",
       "ok": true,
       "impressions": null,
-      "views": 102,
+      "views": 123,
       "orders": 0,
       "favorites": 0,
       "masked": [
@@ -69,7 +69,7 @@
       "title": "コンクリート主任技士の小論文を添削します",
       "ok": true,
       "impressions": null,
-      "views": 83,
+      "views": 105,
       "orders": 0,
       "favorites": 0,
       "masked": [
@@ -292,7 +292,7 @@
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-09-25",
-      "views": 13
+      "views": 15
     },
     {
       "title": "経験記述の工程管理、遅延要因から評価まで書く手順",
@@ -355,7 +355,7 @@
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-08-17",
-      "views": 12
+      "views": 11
     },
     {
       "title": "【第2回】経験記述が独学で伸びない理由｜自己採点が成立しない構造",
@@ -369,7 +369,7 @@
       "kind": "記事",
       "status": "公開中",
       "postedOn": "2026-08-12",
-      "views": 17
+      "views": 18
     }
   ],
   "scan": {

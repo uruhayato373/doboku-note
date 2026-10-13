@@ -82,9 +82,9 @@ test('/plans は read-only（完了・削除の操作を置かない）', async 
   await page.goto('/plans');
   await expect(page.getByRole('heading', { name: '実装計画', level: 1 })).toBeVisible();
   // 「絞り込む」以外のボタンが本文に増えていたら、read-only の約束が崩れている
-  // （左ナビのテーマ切替はページの操作ではないので main の中だけを見る）
+  // （左ナビのテーマ切替・スマホ幅の左ナビを開く Toggle Sidebar はページの操作ではないので除く）
   const labels = await page.locator('main').getByRole('button').allInnerTexts();
-  expect(labels.filter((t) => t.trim() && t.trim() !== '絞り込む')).toEqual([]);
+  expect(labels.filter((t) => t.trim() && t.trim() !== '絞り込む' && t.trim() !== 'Toggle Sidebar')).toEqual([]);
 });
 
 test('存在しない文書とトラバーサル候補は 404', async ({ page }) => {

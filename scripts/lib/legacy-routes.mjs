@@ -3,9 +3,29 @@
  * 真実源は `public/_redirects` の静的 301 行（`/docs/x  /exam/y  301`）。
  */
 
-/** `_redirects` のテキストから 旧 /docs パス → 正規パス の Map を作る。 */
+/**
+ * 旧 /docs/<slug> の大半は、管理ブロックの動的ルール（`/docs/<接頭辞>* → <正規パス接頭辞>:splat`）でまとめて 301 にする（DN-0675）。
+ * 動的ルールからは slug 一覧を引けないので、同じ内容を「# route /docs/<slug> <正規パス>」のコメントで並べる。
+ * コメントは Cloudflare のルールに数えない。sitemap・RSS・URL 実在検査はこの表から slug → 正規パスを引く。
+ * 表と動的ルールの一致は tests/public-route-redirects.test.mjs が検査する。
+ */
+export const ROUTE_TABLE_PREFIX = "# route ";
+
+/** `_redirects` のテキストから、動的ルールがまとめて 301 にする slug → 正規パス の表（# route 行）を取り出す。 */
+export function parseRouteTable(text) {
+  const map = new Map();
+  for (const line of String(text).split(/\r?\n/)) {
+    if (!line.startsWith(ROUTE_TABLE_PREFIX)) continue;
+    const m = line.slice(ROUTE_TABLE_PREFIX.length).match(/^\/docs\/([a-z0-9-]+)\s+(\/\S+)\s*$/);
+    if (m) map.set(m[1], m[2]);
+  }
+  return map;
+}
+
+/** `_redirects` のテキストから 旧 /docs パス → 正規パス の Map を作る（# route の表も含む）。 */
 export function parseLegacyRedirects(text) {
   const map = new Map();
+  for (const [slug, to] of parseRouteTable(text)) map.set(`/docs/${slug}`, to);
   for (const line of String(text).split(/\r?\n/)) {
     const m = line.match(/^(\/docs\/[a-z0-9-]+)\s+(\/\S+)\s+301\b/);
     if (m) map.set(m[1], m[2]);

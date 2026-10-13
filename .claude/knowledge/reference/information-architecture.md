@@ -99,7 +99,7 @@ content/
 5. **未完了タスクか** → まず性質で分岐（真実源 → [todo-standards.md](./todo-standards.md) §1-2）:
    チャネル状態→各 SSOT（frontmatter / catalog / posted.json / services.ts）へ・カードにしない ／
    反復する運用サイクル→weekly の定常運用節（surfacer から pull）・カードにしない ／
-   コンテンツ制作企画→企画SSOT（`noteコンテンツ計画.md` / `content/kindle/strategy.md` 等）／
+   コンテンツ制作企画→企画SSOT（`noteコンテンツ計画.md` / `content/kindle/strategy.md` / サイト記事のシリーズは `config/content-series.json` 等）／
    それ以外の単発（不具合・改善・意思決定・計測）→ `.claude/todo/backlog.md`（ID は `DN-####`）
 6. **機械が読む設定・記録・状態か** → 事業・試験・商品の正本やツールの設定は `config/`／売上・計測・受注など事業の記録は `data/`／エージェントの作業状態・生成索引は `.claude/state/`／品質ゲートの基準・許可リストと CI 書き込み・認証の許可リストは `.claude/config/`（迷ったら「エージェントがいなくても事業として残すべきか」で分ける。残すべきなら `config/`・`data/`）。`config/`・`data/`・`.claude/state/` に置くファイルは先に台帳 `scripts/lib/datasets.mjs` に 1 行宣言する（台帳は 1 本で、置き場は格納場所。種類・領域・型。`npm run check-datasets` が未宣言・型の違反・id の取得元と合わない置き場を止める。構成と統合の基準は [data-storage-decision.md](./data-storage-decision.md)「設定・記録の構成と型の正本」）。ただし公開の事実の正本（ID・状態・外部 ID・承認・素材の参照）は `content/registry/`（[content-registry.md](content-registry.md)）。git に置けない記録・判定は手元に残さず Drive vault に置き、台帳に `drive` で宣言する（同「台帳を 1 本にして DB のように扱う」）
 7. 上記いずれでもない一時メモは作らない（`.tmp/` 配下のみ）
@@ -279,7 +279,7 @@ content/
 |---|---|---|---|
 | 参照 | `scripts/check-doc-refs.mjs` | 壊れた `.md`/`.mdx` パス参照 | pre-commit（機械） |
 | 台帳 | `scripts/check-doc-coupling.mjs` | スキル/エージェントの追加・削除・description 変更に対する skills-guide/registry・agents-registry の更新もれ（capability ドリフト） | pre-commit（機械） |
-| handoff | `scripts/check-handoff-extraction.mjs` | handoff 直下 `*.md` を削除するコミットで前送りマーカー（🔴🟡/残タスク/次アクション/別PC 等）があるのに backlog 未同梱＝残タスク抽出もれ／`_archive/` への追加＝廃止機構の復活（2026-07-14 退避事故の再発防止）／週次レビューの削除で申し送り項目に台帳上の居場所が無い・W39 以降のレビューで振り分け先が無い（DN-0230） | pre-commit（機械） |
+| handoff | `scripts/check-handoff-extraction.mjs` | handoff 直下 `*.md` を削除するコミットで前送りマーカー（🔴🟡/残タスク/次アクション/別PC 等）があるのに backlog 未同梱＝残タスク抽出もれ／`_archive/` への追加＝廃止機構の復活（2026-07-14 退避事故の再発防止）／週次レビューの削除で申し送り項目に台帳上の居場所が無い・W39 以降のレビューで振り分け先が無い（DN-0230）／backlog のカードを消すコミットでそのカードを指す live 文書（引き継ぎ含む）が index に残る・引き継ぎが backlog にも完了記録にも無い ID を指す（DN-0587。CI の dangling-id は `docs/handoffs/`・`docs/reviews/` では warning） | pre-commit（機械） |
 | 配線 | `scripts/check-magazine-wiring.mjs` | 新 keiken マガジンが字数ツール（`keiken-charcount`）の探索対象に配線されず字数ゲートを素通りする漏れ（content-line 配線ドリフト） | pre-commit（機械） |
 | クラスタ | `scripts/check-policy-anchors.mjs` ＋ `agent-hook.mjs decision-doc-checkpoint` | 1つの決定が複数文書（ADR/skill/checklist/戦略SoT）に散在し片方だけ更新する横展開もれ（policy ドリフト） | commit フック（機械・advisory）＋ PreCompact/SessionEnd（締め切り） |
 | 意味 | `/doc-sync` ＋ `doc-sync-auditor` | コード変更で prose・表・コマンド・件数・閾値が旧仕様化（semantic staleness） | 節目に手動（LLM・sonnet） |
@@ -287,7 +287,7 @@ content/
 **参照ガード**（`check-doc-refs.mjs`）: スキル・エージェント・docs 内の `.md` / `.mdx` 参照がリポジトリ内に実在するかを検証する。
 
 - 全体検証: `npm run check-doc-refs`
-- pre-commit: staged の `.claude/skills/` `.claude/agents/` `.claude/rules/` `docs/` `CLAUDE.md` を自動検査（`scripts/install-pre-commit.mjs` に登録済み）
+- pre-commit: staged の `.claude/skills/` `.claude/agents/` `.claude/rules/` `docs/` `CLAUDE.md` を自動検査（`scripts/lib/pre-commit-steps.mjs` に登録済み）
 - 対象外（実在しなくても正当）: `.claude/state/**`（生成物）・`.claude/plans/**`（一時）・`.claude/memory/**`（Claude Code の auto-memory。2026-09-14 から repo 管理し `node scripts/setup-memory-link.mjs` が両 PC の `~/.claude/projects/<key>/memory` を junction/symlink でここへ向ける。個人知見なので当時のパスを残す。**正本はここ 1 本**で、別リポジトリへの同期フックは置かない（2026-10-02 に Mac だけ実ディレクトリ＋別リポジトリ同期のまま 188 件 vs 143 件に分裂していた）。`npm run check-memory` が frontmatter・索引の網羅と読み込み上限（200 行 / 25KB）を pre-commit と quality:audit で、`--session` が SessionStart でリンクと別同期フックを検査し、worktree のキーにリンクが無ければ自動で張る）・`docs/handoffs/**`・`docs/reviews/**`・`content/sns/**`（point-in-time 記録）。コード参照（`src/*.tsx` 等）は build/type-check/lint が担う別系統
 
 **台帳ガード**（`check-doc-coupling.mjs`・2026-06-12 新設）: skills SKILL.md の追加/削除/description 変更には `skills-guide.md`＋`skills-registry.md`、agents `.md` の同種変更には `agents-registry.md` が同一コミットに staged されているかを検証。違反でコミット停止。正当に不要なら `SKIP_DOC_COUPLING=1`。CLAUDE.md §8 の文章ルールに強制力を与える。

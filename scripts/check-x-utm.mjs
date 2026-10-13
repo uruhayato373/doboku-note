@@ -28,13 +28,20 @@ import { classifySitePath, loadSiteRoutes, SITE_ORIGIN } from './lib/site-links.
 import { datasetPath } from './lib/datasets.mjs';
 import { utmChannelFamily } from './lib/utm-contract.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
 
 if (process.env.SKIP_X_UTM === '1') {
   console.log('[check-x-utm] SKIP_X_UTM=1 のためスキップ');
-  process.exit(0);
+  __exit(0);
 }
 
-const STAGED = process.argv.includes('--staged');
+const STAGED = __argv.includes('--staged');
 const ROOTS = ['content/sns/x/draft', 'content/sns/x/published'];
 // 期待する source / medium は契約（config/utm-templates.json の x.*）から受け取る。コードに書き写さない。
 const X_UTM = utmChannelFamily('x');
@@ -90,7 +97,7 @@ if (problems.length) {
   console.error(`\n対処: X の送客リンクは ${SITE_ORIGIN}/exam/{資格}/{種別}/{slug}?utm_source=${X_UTM.source}&utm_medium=${X_UTM.medium}&utm_campaign={施策}&utm_content={${X_UTM.contents.join('|')}} にする。`);
   console.error(`真実源: ${datasetPath('config.utm-templates')}（x.post）／.claude/knowledge/reference/x-post-policy.md §6。`);
   console.error('（既存違反のバーンダウン中は SKIP_X_UTM=1 で一時回避可）');
-  process.exit(1);
+  __exit(1);
 }
 
 console.log(`[check-x-utm] ✓ ${files.length} ファイルの X 送客リンクは UTM 規約に適合`);
@@ -99,3 +106,7 @@ if (legacy.length) {
   console.log(`[check-x-utm] 注意: 旧 /docs URL ${legacy.length} 件（301 で届く・新しい原稿は新 URL で書く）`);
   if (STAGED) for (const l of legacy) console.log('  [legacy-url] ' + l);
 }
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

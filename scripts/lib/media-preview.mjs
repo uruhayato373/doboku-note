@@ -18,11 +18,33 @@ const sha256Of = (buf) => createHash('sha256').update(buf).digest('hex');
 const round1 = (n) => Math.round(n * 10) / 10;
 const round3 = (n) => Math.round(n * 1000) / 1000;
 
+/** every 秒ごとのコマ（0, every, 2*every, …）で、直前のコマと同じ PNG だった回数。コマは 2 つ以上で比べられる */
+function sampleRepeats(scenes, shaOf, every) {
+  const none = { everySec: every ?? null, samples: 0, same: 0, ratio: 0 };
+  if (!(every > 0) || !scenes.length) return none;
+  const secOf = (s) => Number(s.actualSec ?? s.designSec ?? 0);
+  const total = scenes.reduce((a, s) => a + secOf(s), 0);
+  let idx = 0;
+  let end = secOf(scenes[0]);
+  let prev = null;
+  let samples = 0;
+  let same = 0;
+  for (let t = 0; t < total; t += every) {
+    while (t >= end && idx < scenes.length - 1) { idx += 1; end += secOf(scenes[idx]); }
+    const key = shaOf(scenes[idx].sceneId) ?? `scene:${scenes[idx].sceneId}`;
+    samples += 1;
+    if (prev !== null && key === prev) same += 1;
+    prev = key;
+  }
+  return { everySec: every, samples, same, ratio: samples > 1 ? round3(same / (samples - 1)) : 0 };
+}
+
 /**
  * 画面の数値（純関数）。
  * @param {{ sceneId: string, actualSec?: number|null, designSec?: number|null }[]} scenes
  * @param {Record<string,string>|Map<string,string>} pngShaBySceneId 場面 ID → PNG の sha256
- * @param {{ maxOpeningCoverSec: number, maxRepeatFrameRatio: number, longStaticSec: number }} visualCheck
+ * @param {{ maxOpeningCoverSec: number, maxRepeatFrameRatio: number, longStaticSec: number, contactSheetEverySec?: number }} visualCheck
+ *   contactSheetEverySec があれば、その秒ごとに見たときの「直前のコマと同じ画面」の回数（sampledRepeat）も数える
  */
 export function previewMetrics(scenes, pngShaBySceneId, visualCheck) {
   const shaOf = (id) => (pngShaBySceneId instanceof Map ? pngShaBySceneId.get(id) : pngShaBySceneId?.[id]);
@@ -48,6 +70,9 @@ export function previewMetrics(scenes, pngShaBySceneId, visualCheck) {
     i = j + 1;
   }
 
+  // コンタクトシートと同じ刻み（contactSheetEverySec 秒ごと）で見たとき、直前のコマと同じ PNG だった回数
+  const sampledRepeat = sampleRepeats(scenes, shaOf, visualCheck.contactSheetEverySec);
+
   const warnings = [];
   if (openingCoverSec > visualCheck.maxOpeningCoverSec) {
     warnings.push(`冒頭の表紙が ${round1(openingCoverSec)} 秒続く（目安 ${visualCheck.maxOpeningCoverSec} 秒以内）`);
@@ -55,18 +80,18 @@ export function previewMetrics(scenes, pngShaBySceneId, visualCheck) {
   if (repeatFrameRatio > visualCheck.maxRepeatFrameRatio) {
     warnings.push(`直前と同じ画面の割合が ${Math.round(repeatFrameRatio * 100)}%（目安 ${Math.round(visualCheck.maxRepeatFrameRatio * 100)}% 以下）`);
   }
+  if (sampledRepeat.samples > 1 && sampledRepeat.ratio > visualCheck.maxRepeatFrameRatio) {
+    warnings.push(`${visualCheck.contactSheetEverySec} 秒ごとのコマで直前と同じ画面が ${sampledRepeat.same}/${sampledRepeat.samples - 1} 回（${Math.round(sampledRepeat.ratio * 100)}%・目安 ${Math.round(visualCheck.maxRepeatFrameRatio * 100)}% 以下）`);
+  }
   for (const s of longStatic) {
     warnings.push(`同じ画面が ${round1(s.sec)} 秒続く（${s.fromSceneId} から ${s.toSceneId}・目安 ${visualCheck.longStaticSec} 秒未満）`);
   }
-  return { openingCoverSec: round3(openingCoverSec), repeatFrameRatio: round3(repeatFrameRatio), longStatic, warnings };
+  return { openingCoverSec: round3(openingCoverSec), repeatFrameRatio: round3(repeatFrameRatio), sampledRepeat, longStatic, warnings };
 }
 
-function ffmpegBin() {
-  return existsSync(FFMPEG_FULL) ? FFMPEG_FULL : 'ffmpeg';
-}
 
 function runFfmpeg(root, args) {
-  const r = spawnSync(ffmpegBin(), ['-hide_banner', '-loglevel', 'error', '-y', ...args], { cwd: root, encoding: 'utf8' });
+  const r = spawnSync(findFfmpeg() ?? 'ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', ...args], { cwd: root, encoding: 'utf8' });
   if (r.error || r.status !== 0) throw new Error(`ffmpeg が失敗した: ${r.error?.message ?? (r.stderr || '').trim().split('\n').slice(-3).join(' / ')}`);
 }
 
@@ -76,37 +101,29 @@ function fail(message) {
   return { ok: false, message };
 }
 
-/**
- * 画面確認の素材を作る。既定は dry-run（作業場に作るだけで台帳は書かない）。
- * @returns {Promise<{ ok: boolean, message?: string, metrics?: object, files?: object[] }>}
- */
-export async function runPreview(root, { pub, commit }) {
-  if (!pub) return fail('--pub <公開 ID> が要る');
-  const parsed = parsePubId(pub);
-  if (!parsed) return fail(`公開 ID の形が違う: ${pub}`);
-  if (parsed.channel !== 'youtube') return fail(`未対応: ${pub}（今の preview は YouTube の通常動画だけ）`);
-  if (parsed.format !== 'longform') {
-    return fail(`未対応: ${pub}（Shorts は作品ごとの render-manifest.json が無く、通常動画の shorts/{key}/ にだけ描画物がある。通常動画の preview を使う）`);
-  }
-  const reg = loadRegistry(root);
-  const row = reg.publications.find((p) => p.id === pub);
-  const work = reg.works.find((w) => w.id === parsed.work && w.exam === parsed.exam);
-  if (!row || !work) return fail(`台帳に無い: ${pub}（先に npm run registry -- import-video-pack）`);
+/** 手元の ffmpeg（ass フィルタのある ffmpeg-full を優先）。無ければ null */
+export function findFfmpeg() {
+  if (existsSync(FFMPEG_FULL)) return FFMPEG_FULL;
+  const r = spawnSync('ffmpeg', ['-version'], { encoding: 'utf8' });
+  return r.error || r.status !== 0 ? null : 'ffmpeg';
+}
 
-  const packId = work.id;
+/** 描画済みの作業場（.tmp/video-render/{packId}）から場面・PNG の sha・閾値を読む。足りなければ { ok:false, message } */
+export function loadPreviewInput(root, packId) {
   const renderDir = `.tmp/video-render/${packId}`;
   const manifestPath = join(root, renderDir, 'render-manifest.json');
-  if (!existsSync(manifestPath)) return fail(`${renderDir}/render-manifest.json が無い。先に描画する: npm run render-longform -- --pack-id ${packId}`);
+  const renderHint = `npm run render-longform -- --pack-dir content/sns/video-packs/{exam}/${packId} --skip-tts`;
+  if (!existsSync(manifestPath)) return { ok: false, message: `${renderDir}/render-manifest.json が無い。先に描画する: ${renderHint}` };
   const manifest = JSON.parse(readFileSync(manifestPath, 'utf8'));
   const scenes = manifest.scenes ?? [];
-  if (!scenes.length) return fail(`${renderDir}/render-manifest.json に場面が無い`);
+  if (!scenes.length) return { ok: false, message: `${renderDir}/render-manifest.json に場面が無い` };
 
   // 尺が読めない場面があると concat の duration が NaN になり、ffmpeg が分かりにくく失敗する。その前に場面 ID つきで止める
   const noSec = scenes.filter((s) => (s.designSec ?? s.actualSec) == null || !Number.isFinite(Number(s.actualSec ?? s.designSec))).map((s) => s.sceneId ?? '(sceneId なし)');
-  if (noSec.length) return fail(`${renderDir}/render-manifest.json の場面に designSec も actualSec も無い（${noSec.length} 件: ${noSec.slice(0, 3).join(', ')}）。描画し直す: npm run render-longform -- --pack-id ${packId}`);
+  if (noSec.length) return { ok: false, message: `${renderDir}/render-manifest.json の場面に designSec も actualSec も無い（${noSec.length} 件: ${noSec.slice(0, 3).join(', ')}）。描画し直す: ${renderHint}` };
 
   const visualCheck = readDataset(root, 'config.video-content').visualCheck;
-  if (!visualCheck) return fail('動画の設定（config.video-content）に visualCheck が無い');
+  if (!visualCheck) return { ok: false, message: '動画の設定（config.video-content）に visualCheck が無い' };
 
   const pngShaBySceneId = {};
   const missingPng = [];
@@ -115,18 +132,23 @@ export async function runPreview(root, { pub, commit }) {
     if (!existsSync(abs)) { missingPng.push(`img/${s.png}`); continue; }
     pngShaBySceneId[s.sceneId] = sha256Of(readFileSync(abs));
   }
-  if (missingPng.length) return fail(`場面の PNG が無い（${missingPng.length} 件: ${missingPng.slice(0, 3).join(', ')}）。先に描画する: npm run render-longform -- --pack-id ${packId} --skip-tts`);
+  if (missingPng.length) return { ok: false, message: `場面の PNG が無い（${missingPng.length} 件: ${missingPng.slice(0, 3).join(', ')}）。先に描画する: ${renderHint}` };
+  return { ok: true, renderDir, manifest, scenes, visualCheck, pngShaBySceneId };
+}
 
-  const metrics = previewMetrics(scenes, pngShaBySceneId, visualCheck);
-  const designTotal = scenes.reduce((a, s) => a + Number(s.actualSec ?? s.designSec ?? 0), 0);
-  const metricsDoc = {
-    packId, pubId: pub, renderedAt: manifest.renderedAt ?? null, sceneCount: scenes.length,
+/** 数値の文書（preview-metrics.json の中身）。無音プレビューの尺は実尺（未合成なら設計尺）、総尺は実尺があれば実尺 */
+export function buildMetricsDoc({ packId, pubId = null, manifest, scenes, visualCheck, metrics, designTotal }) {
+  return {
+    packId, pubId, renderedAt: manifest.renderedAt ?? null, sceneCount: scenes.length,
     totalSec: round3(scenes.reduce((a, s) => a + Number(s.actualSec ?? s.designSec ?? 0), 0)), previewSec: round3(designTotal),
     ...metrics, thresholds: {
       maxOpeningCoverSec: visualCheck.maxOpeningCoverSec, maxRepeatFrameRatio: visualCheck.maxRepeatFrameRatio, longStaticSec: visualCheck.longStaticSec,
     },
   };
+}
 
+/** 無音プレビュー mp4 とコンタクトシートを作る（ffmpeg が要る）。シートの { role, file } を返す */
+function buildPreviewMedia(root, { renderDir, manifest, scenes, visualCheck, designTotal }) {
   const outRel = `${renderDir}/preview`;
   const outAbs = join(root, outRel);
   mkdirSync(outAbs, { recursive: true });
@@ -155,6 +177,44 @@ export async function runPreview(root, { pub, commit }) {
     ]);
     sheets.push({ role: n === 1 ? 'contact-sheet' : `contact-sheet-${n}`, file: name });
   }
+  return sheets;
+}
+
+/**
+ * 画面確認の素材を作る。既定は dry-run（作業場に作るだけで台帳は書かない）。
+ * @returns {Promise<{ ok: boolean, message?: string, metrics?: object, files?: object[] }>}
+ */
+export async function runPreview(root, { pub, commit }) {
+  if (!pub) return fail('--pub <公開 ID> が要る');
+  const parsed = parsePubId(pub);
+  if (!parsed) return fail(`公開 ID の形が違う: ${pub}`);
+  if (parsed.channel !== 'youtube') return fail(`未対応: ${pub}（今の preview は YouTube の通常動画だけ）`);
+  if (parsed.format !== 'longform') {
+    return fail(`未対応: ${pub}（Shorts は作品ごとの render-manifest.json が無く、通常動画の shorts/{key}/ にだけ描画物がある。通常動画の preview を使う）`);
+  }
+  const reg = loadRegistry(root);
+  const row = reg.publications.find((p) => p.id === pub);
+  const work = reg.works.find((w) => w.id === parsed.work && w.exam === parsed.exam);
+  if (!row || !work) return fail(`台帳に無い: ${pub}（先に npm run registry -- import-video-pack）`);
+
+  const packId = work.id;
+  const input = loadPreviewInput(root, packId);
+  if (!input.ok) return fail(input.message);
+  const { renderDir, manifest, scenes, visualCheck, pngShaBySceneId } = input;
+
+  const metrics = previewMetrics(scenes, pngShaBySceneId, visualCheck);
+  const designTotal = scenes.reduce((a, s) => a + Number(s.actualSec ?? s.designSec ?? 0), 0);
+  const metricsDoc = buildMetricsDoc({ packId, pubId: pub, manifest, scenes, visualCheck, metrics, designTotal });
+
+  const outRel = `${renderDir}/preview`;
+  const outAbs = join(root, outRel);
+  mkdirSync(outAbs, { recursive: true });
+  let sheets;
+  try {
+    sheets = buildPreviewMedia(root, { renderDir, manifest, scenes, visualCheck, designTotal });
+  } catch (e) {
+    return fail(e.message);
+  }
   writeFileSync(join(outAbs, 'preview-metrics.json'), `${JSON.stringify(metricsDoc, null, 2)}\n`);
 
   const files = [
@@ -167,9 +227,7 @@ export async function runPreview(root, { pub, commit }) {
   });
 
   console.log(`${pub}: 場面 ${scenes.length}・プレビュー ${round1(designTotal)} 秒・コンタクトシート ${sheets.length} 枚`);
-  console.log(`  冒頭の表紙 ${round1(metrics.openingCoverSec)} 秒 / 直前と同じ画面 ${Math.round(metrics.repeatFrameRatio * 100)}% / 長い静止 ${metrics.longStatic.length} 箇所`);
-  for (const w of metrics.warnings) console.log(`  注意: ${w}`);
-  if (!metrics.warnings.length) console.log('  注意なし');
+  printMetrics(metrics);
   for (const f of files) console.log(`  ${f.role.padEnd(16)} ${f.sha256.slice(0, 8)}  ${f.rel}`);
 
   if (!commit) {
@@ -203,6 +261,55 @@ export async function runPreview(root, { pub, commit }) {
   console.log(`台帳に書いた: 素材 ${rows.length} 件（${pub}）`);
   console.log(`次: npm run media -- sync --work ${parsed.exam}/${parsed.work} --commit`);
   return { ok: true, metrics: metricsDoc, files };
+}
+
+/** 数値の注意行を出す（runPreview と runPackPreview で同じ見た目） */
+function printMetrics(metrics) {
+  console.log(`  冒頭の表紙 ${round1(metrics.openingCoverSec)} 秒 / 直前と同じ画面 ${Math.round(metrics.repeatFrameRatio * 100)}%（${metrics.sampledRepeat.everySec} 秒ごとのコマでは ${metrics.sampledRepeat.same}/${Math.max(0, metrics.sampledRepeat.samples - 1)} 回）/ 長い静止 ${metrics.longStatic.length} 箇所`);
+  for (const w of metrics.warnings) console.log(`  注意: ${w}`);
+  if (!metrics.warnings.length) console.log('  注意なし');
+}
+
+/**
+ * 台帳を使わず、動画パック 1 本の画面確認をする（DN-0603・scripts/video-preview-sheet.mjs の本体）。
+ * 数値は render-manifest.json と場面の PNG だけで出す（動画も ffmpeg も要らない）。無音プレビューとコンタクトシートは ffmpeg があるときだけ作る。
+ * 出力は .tmp/video-render/{packId}/preview/（Git に入れない）。注意は承認を止めない。
+ * 終了コード: 0＝完走（注意があっても 0）／1＝入力が足りない（描画していない・PNG 欠け）／2＝検査不成立（ffmpeg が無く、動画とシートは作れなかった。数値は出した）
+ * @param {string} root
+ * @param {{ packId: string, metricsOnly?: boolean, ffmpeg?: string|null }} opts ffmpeg はテスト用に差し替える（undefined なら手元を探す）
+ * @returns {{ code: 0|1|2, message?: string, metrics?: object, metricsDoc?: object, sheets?: object[] }}
+ */
+export function runPackPreview(root, { packId, metricsOnly = false, ffmpeg }) {
+  const input = loadPreviewInput(root, packId);
+  if (!input.ok) { console.error(input.message); return { code: 1, message: input.message }; }
+  const { renderDir, manifest, scenes, visualCheck, pngShaBySceneId } = input;
+  const metrics = previewMetrics(scenes, pngShaBySceneId, visualCheck);
+  const designTotal = scenes.reduce((a, s) => a + Number(s.actualSec ?? s.designSec ?? 0), 0);
+  const metricsDoc = buildMetricsDoc({ packId, manifest, scenes, visualCheck, metrics, designTotal });
+  const outRel = `${renderDir}/preview`;
+  mkdirSync(join(root, outRel), { recursive: true });
+  writeFileSync(join(root, outRel, 'preview-metrics.json'), `${JSON.stringify(metricsDoc, null, 2)}\n`);
+
+  console.log(`${packId}: 場面 ${scenes.length}（PNG ${Object.keys(pngShaBySceneId).length} 枚を検査）・設計尺 ${round1(designTotal)} 秒`);
+  printMetrics(metrics);
+  console.log(`  数値: ${outRel}/preview-metrics.json`);
+  if (metricsOnly) return { code: 0, metrics, metricsDoc, sheets: [] };
+
+  const bin = ffmpeg === undefined ? findFfmpeg() : ffmpeg;
+  if (!bin) {
+    const message = '検査不成立: ffmpeg が無く、無音プレビューとコンタクトシートは作れなかった（数値は上のとおり出した）。ffmpeg のある Mac で同じコマンドを実行する';
+    console.error(message);
+    return { code: 2, message, metrics, metricsDoc, sheets: [] };
+  }
+  try {
+    const sheets = buildPreviewMedia(root, { renderDir, manifest, scenes, visualCheck, designTotal });
+    console.log(`  無音プレビュー: ${outRel}/preview.mp4`);
+    for (const sh of sheets) console.log(`  コンタクトシート: ${outRel}/${sh.file}`);
+    return { code: 0, metrics, metricsDoc, sheets };
+  } catch (e) {
+    console.error(e.message);
+    return { code: 1, message: e.message, metrics, metricsDoc };
+  }
 }
 
 /**

@@ -12,12 +12,12 @@
  */
 import { createHash } from 'node:crypto';
 import { isExamArticle } from './figure-source-wiring.mjs';
+import { escapeRegExp } from './regexp-escape.mjs';
 
 export const AI_KINDS = new Set(['ai-generated']);
 export const AI_LEDGER_FILE = '.claude/state/quality/ai-image-review-ledger.json';
 export const AI_VERDICTS = ['ok', 'fail'];
 
-const escRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
 /**
  * 図の出所。{ kind, from: 'provenance' | 'exam-page', entry } か、決められなければ null。
@@ -36,7 +36,7 @@ export function originOf({ figKey, provenance, articleSources, cfg, inExplanatio
 
 /** 本文で name の画像を参照しているタグ（<img> / <ArticleImage>）。開始位置と全文。無ければ null */
 export function imageTagFor(content, name) {
-  const re = new RegExp(`<(?:img|ArticleImage)\\b[^>]*?/${escRe(name)}\\.(?:webp|png|jpg|jpeg)\\b[^>]*>`);
+  const re = new RegExp(`<(?:img|ArticleImage)\\b[^>]*?/${escapeRegExp(name)}\\.(?:webp|png|jpg|jpeg)\\b[^>]*>`);
   const m = re.exec(content);
   return m ? { index: m.index, tag: m[0] } : null;
 }

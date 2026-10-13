@@ -1,7 +1,7 @@
 <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
   style="max-width:400px;width:100%"
   role="img"
-  aria-label="水セメント比と品質・施工性の関係。水セメント比を小さくするほど強度と耐久性は高まるが、流動性が下がって施工性は低下する。逆に大きくすると施工性は上がるが強度と耐久性は下がる。2 つの傾向は逆向きであり、上限値と下限値の範囲内で適切な値を選ぶ">
+  aria-label="セメント量を変えずに水量だけを変えた場合の、水セメント比と品質・施工性の関係（概念図）。水セメント比を小さくするほど強度と耐久性は高まり、この条件では流動性が下がる。実際の配合では、強度・耐久性から水セメント比の上限を決め、流動性は単位水量と混和剤（AE減水剤など）で確保する">
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
@@ -24,7 +24,7 @@
     </marker>
   </defs>
 
-  <text class="t-lead" x="200" y="18" text-anchor="middle">2 本の傾向が逆を向くから中間を選ぶことになる</text>
+  <text class="t-lead" x="200" y="18" text-anchor="middle">セメント量を変えずに水量だけを変えた場合（概念図）</text>
 
   <rect class="band" x="186" y="62" width="62" height="180" rx="4"/>
   <text class="t-band" x="217" y="52" text-anchor="middle">適切な範囲</text>
@@ -47,8 +47,8 @@
   <text class="t-sec" x="200" y="322" text-anchor="middle">読み取り方</text>
   <line class="rule" x1="36" y1="331" x2="364" y2="331"/>
   <text class="t-item" x="40" y="356">水セメント比を小さくすると空隙が減り緻密になる</text>
-  <text class="t-item" x="40" y="380">流動性が下がると鉄筋が密な部材で充填しにくい</text>
+  <text class="t-item" x="40" y="380">この条件では水を減らすほど流動性が下がる</text>
   <text class="t-item" x="40" y="404">スランプが大きすぎると骨材が沈降して材料分離</text>
-  <text class="t-item" x="40" y="428">ポンプ圧送ではスランプの確保が必要になる</text>
-  <text class="t-item" x="40" y="452">上限値・下限値の範囲内で部位に応じて決める</text>
+  <text class="t-item" x="40" y="428">流動性は単位水量と混和剤（減水剤）で確保する</text>
+  <text class="t-item" x="40" y="452">W/C は強度・耐久性から上限を決めて選ぶ</text>
 </svg>

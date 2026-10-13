@@ -19,6 +19,7 @@ import { createHash } from 'node:crypto';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join, relative, sep } from 'node:path';
 import matter from 'gray-matter';
+import { escapeRegExp } from './regexp-escape.mjs';
 
 export const LEDGER_FILE = '.claude/state/quality/figure-review-ledger.json';
 export const VERDICTS = ['ok', 'needs-source', 'source-unavailable'];
@@ -67,6 +68,14 @@ export function validEntry(ledger, figKey, sha) {
 /** 判定 → provenance の needs（build-figure-provenance.mjs が台帳を読んで上書きする） */
 export function needsFromVerdict(verdict) {
   return { ok: 'ok', 'needs-source': 'reextract', 'source-unavailable': 'rescan-need-source' }[verdict] ?? null;
+}
+
+/** `(l,t,r,b)`・`l,t,r,b`・配列 → [l,t,r,b]（整数 4 つで r>l・b>t・負でない）。不正なら null */
+export function parseCropBox(v) {
+  const nums = Array.isArray(v) ? v : String(v ?? '').match(/-?\d+(?:\.\d+)?/g)?.map(Number);
+  if (!nums || nums.length !== 4 || !nums.every((n) => Number.isInteger(n) && n >= 0)) return null;
+  const [l, t, r, b] = nums;
+  return r > l && b > t ? [l, t, r, b] : null;
 }
 
 /**
@@ -157,11 +166,10 @@ export function articleInfo(postsRoot, slug, cache = new Map()) {
   return info;
 }
 
-const escRe = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
 /** 本文が参照している拡張子（webp / png / svg / jpg / jpeg）。参照していなければ null */
 export function referencedExt(content, name) {
-  const m = content.match(new RegExp(`/${escRe(name)}\\.(webp|png|svg|jpg|jpeg)\\b`, 'i'));
+  const m = content.match(new RegExp(`/${escapeRegExp(name)}\\.(webp|png|svg|jpg|jpeg)\\b`, 'i'));
   return m ? m[1].toLowerCase() : null;
 }
 
@@ -211,7 +219,7 @@ export function describeFigure({ siteRoot, repoRoot, figKey, cache = new Map() }
 /** MDX 本文で name の <img>/<ArticleImage> の width/height を w×h に合わせる。変えた数と新しい本文を返す */
 export function syncImageDims(raw, name, w, h) {
   let changed = 0;
-  const tagRe = new RegExp(`<(?:img|ArticleImage)\\b[^>]*?/${escRe(name)}\\.(?:webp|png|jpg|jpeg)\\b[^>]*>`, 'g');
+  const tagRe = new RegExp(`<(?:img|ArticleImage)\\b[^>]*?/${escapeRegExp(name)}\\.(?:webp|png|jpg|jpeg)\\b[^>]*>`, 'g');
   const out = raw.replace(tagRe, (tag) => {
     const next = tag
       .replace(/(\bwidth=[{"])\d+([}"])/, `$1${w}$2`)
@@ -233,8 +241,103 @@ export function validateVerdict(v) {
   if (v.action === 'reextract' && !(v.source && v.source.pdf && Number.isInteger(v.source.page))) {
     errs.push(`${v.figKey}: 切り出し直し（reextract）は source.pdf と source.page が必要（次に辿り直さないため）`);
   }
+  if (v.source && v.source.cropBox !== undefined && !parseCropBox(v.source.cropBox)) {
+    errs.push(`${v.figKey}: source.cropBox は [left, top, right, bottom]（整数・right > left・bottom > top）`);
+  }
+  if (v.source && v.source.rotate !== undefined && ![0, 90, 180, 270].includes(v.source.rotate)) {
+    errs.push(`${v.figKey}: source.rotate は 0 / 90 / 180 / 270`);
+  }
+  if (v.action === 'reextract' && v.source && !parseCropBox(v.source.cropBox)) {
+    errs.push(`${v.figKey}: 切り出し直し（reextract）は source.cropBox が必要（枠と回転を残さないと同じ画像を作り直せない・DN-0570）`);
+  }
   if (v.verdict === 'needs-source' && v.action && v.action !== 'none') {
     errs.push(`${v.figKey}: needs-source は直していない判定なので action は none`);
   }
   return errs;
+}
+
+/** QA を通さずに記録してよい worker の action（画像を書き換えない判定） */
+const NO_REWRITE = new Set(['ok', 'needs-source', 'source-unavailable']);
+
+/**
+ * figure-crop-batch の結果（worker の構造化出力の配列）→ 判定（record の入力）。手で JSON を書かない（DN-0556）。
+ * 画像を書き換えた図（crop・reextract）と selfVerify が suspect の図は、親が目視 QA に合格させた figKey（pass）だけを記録する。
+ * action='error'・結果なし・QA 未合格は skipped に理由を付けて返す（記録しない＝次の周で判定待ちに残る）。
+ * 切り出し直し（reextract）は出典と枠・回転・後処理（DN-0570）を source に入れる。
+ */
+export function verdictsFromResults(results, { pass = [] } = {}) {
+  const passSet = new Set(pass);
+  const byKey = new Map();
+  for (const r of results) if (r && typeof r.figKey === 'string') byKey.set(r.figKey, r);
+  const verdicts = [];
+  const skipped = [];
+  const errors = [];
+  for (const k of passSet) if (!byKey.has(k)) errors.push(`--pass の ${k} が結果ファイルに無い`);
+  for (const [figKey, r] of byKey) {
+    const removed = typeof r.removed === 'string' && r.removed.trim() ? `（${r.removed.trim()}）` : '';
+    const reason = `${String(r.reason ?? '').trim()}${r.action === 'crop' || r.action === 'reextract' ? removed : ''}`;
+    if (r.action === 'error' || !['ok', 'crop', 'needs-source', 'reextract', 'source-unavailable'].includes(r.action)) {
+      skipped.push({ figKey, why: `worker が結果を返せなかった（action=${r.action}）` });
+      continue;
+    }
+    const rewrites = !NO_REWRITE.has(r.action);
+    if ((rewrites || r.selfVerify === 'suspect') && !passSet.has(figKey)) {
+      skipped.push({ figKey, why: `${rewrites ? '画像を書き換えた' : 'selfVerify=suspect の'}図は親の QA に合格してから --pass で指す` });
+      continue;
+    }
+    if (r.action === 'ok') verdicts.push({ figKey, verdict: 'ok', action: 'none', reason });
+    else if (r.action === 'needs-source') verdicts.push({ figKey, verdict: 'needs-source', action: 'none', reason });
+    else if (r.action === 'source-unavailable') verdicts.push({ figKey, verdict: 'source-unavailable', action: 'none', reason });
+    else if (r.action === 'crop') verdicts.push({ figKey, verdict: 'ok', action: 'recrop', reason });
+    else {
+      const post = {};
+      for (const [k, f] of [['despeckle', 'postDespeckle'], ['width', 'postWidth'], ['colors', 'postColors']]) if (r[f] > 0) post[k] = r[f];
+      verdicts.push({
+        figKey, verdict: 'ok', action: 'reextract', reason,
+        source: {
+          pdf: r.sourcePdf, page: r.sourcePage, ...(r.sourceDpi >= 0 && Number.isInteger(r.sourceDpi) ? { dpi: r.sourceDpi } : {}),
+          ...(parseCropBox(r.cropBox) ? { cropBox: parseCropBox(r.cropBox) } : {}),
+          ...(r.rotate ? { rotate: r.rotate } : {}), ...(Object.keys(post).length ? { post } : {}),
+        },
+      });
+    }
+  }
+  verdicts.sort((a, b) => a.figKey.localeCompare(b.figKey));
+  return { verdicts, skipped, errors };
+}
+
+/**
+ * MDX で name の図に出典・図名が見えるか。`caption` 属性が空でない、またはタグの直後の非空行が `<p` で始まる。
+ * 画像から図番号のキャプションを除いたとき、画面にそれが残るかの判定に使う（alt は画面に出ない）。
+ */
+export function captionStatus(raw, name) {
+  const tagRe = new RegExp(`<(?:img|ArticleImage)\\b[^>]*?/${escapeRegExp(name)}\\.(?:webp|png|jpg|jpeg)\\b[^>]*>`);
+  const m = tagRe.exec(raw);
+  if (!m) return { found: false, caption: false, nextP: false };
+  const caption = /\bcaption=(?:"[^"]+"|\{[^}]+\})/.test(m[0]);
+  const rest = raw.slice(m.index + m[0].length).split('\n').find((l) => l.trim() !== '');
+  const nextP = Boolean(rest && /^\s*<p[\s>]/.test(rest));
+  return { found: true, caption, nextP };
+}
+
+/** OCR 文字列に図番号のキャプション（「図 3.7」「図2.20」「Fig.」）の行があるか */
+export function hasFigureCaption(text) {
+  return /^\s*(?:図|Fig\.?)\s*[0-9０-９]/m.test(String(text ?? ''));
+}
+
+/**
+ * 判定の source（pdf は portable な形にしてから渡す）から provenance の 1 件を作る。
+ * PDF から切り出した図は pdf-crop（kind 省略）か試験の図（prior が exam-official ならそのまま）。
+ * 切り出し枠・回転・後処理（DN-0570）は値のあるものだけ書く（回転 0 と空の後処理は省く）。前の記録の枠は引き継がない（画像が変わったため）。
+ */
+export function provenanceEntryFor(prior, { pdf, page, dpi, cropBox, rotate, post }) {
+  const keepKind = prior?.kind === 'exam-official' ? { kind: 'exam-official' } : {};
+  const box = parseCropBox(cropBox);
+  const p = Object.fromEntries(['despeckle', 'width', 'colors'].filter((k) => Number.isInteger(post?.[k]) && post[k] > 0).map((k) => [k, post[k]]));
+  return {
+    ...keepKind, pdf,
+    ...(page >= 1 ? { page } : {}),
+    ...(Number.isInteger(dpi) ? { dpi } : {}),
+    ...(box ? { cropBox: box, ...(rotate ? { rotate } : {}), ...(Object.keys(p).length ? { post: p } : {}) } : {}),
+  };
 }

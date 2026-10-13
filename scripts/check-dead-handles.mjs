@@ -29,8 +29,15 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { execSync, execFileSync } from 'node:child_process';
 import { findIdentityLiterals, isIdentityScanTarget } from './lib/identity-literals.mjs';
+import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
 
-const STAGED = process.argv.includes('--staged');
+// in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
+// process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
+// 本文は字下げしていない（複数行の文字列を壊さないため）。CLI として起動したときの引数・出力・終了コードは従来と同じ。
+export async function run({ argv = process.argv.slice(2) } = {}) {
+  return runBody(argv, import.meta.url, async ({ argv: __argv, exit: __exit, status: __status }) => {
+
+const STAGED = __argv.includes('--staged');
 
 // 退役したハンドル。**なぜ死んだか**を必ず書く（生きているものを足さないため）。
 const DEAD = [
@@ -77,7 +84,7 @@ files = files.filter((f) => /\.(md|mdx|json|mjs|cjs|js|ts|mts|tsx|txt|ya?ml|sh)$
 
 if (!STAGED && files.length === 0) {
   console.error('[check-dead-handles] NG: 走査対象が 0 ファイル（検査不成立）');
-  process.exit(1);
+  __exit(1);
 }
 
 const hits = [];
@@ -105,7 +112,7 @@ console.log(`[check-dead-handles] うちコード ${identityScanned} ファイ�
 // 全件実行でコードが 1 件も走査されないのは、検査が動いていないだけ（緑にしない）
 if (!STAGED && identityScanned === 0) {
   console.error('[check-dead-handles] NG: 識別子の再宣言の走査対象が 0 ファイル（検査不成立）');
-  process.exit(1);
+  __exit(1);
 }
 
 if (hits.length) {
@@ -119,5 +126,9 @@ if (redeclared.length) {
   console.error('\n  サイト・アカウントの識別子は定義 1 か所から import する（書き写すと値が動いたとき直し漏れる）。');
   console.error('  記事 1 本分の URL のようなデータは止めない。意図して書く行は行末に `// identity-literal-ok: 理由`。');
 }
-if (hits.length || redeclared.length) process.exit(1);
+if (hits.length || redeclared.length) __exit(1);
 console.log('[check-dead-handles] ✓ 退役ハンドルへの参照なし・識別子の再宣言なし');
+  });
+}
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

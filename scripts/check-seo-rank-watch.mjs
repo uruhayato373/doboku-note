@@ -2,8 +2,8 @@
 /** Validate ledger provenance; staged commits cannot alter protected page content or past rank data. */
 import { execFileSync } from 'node:child_process';
 import { readFileSync, existsSync } from 'node:fs';
-import { resolve, join } from 'node:path';
-import { pathToFileURL } from 'node:url';
+import { join } from 'node:path';
+import { isCliEntry, runAsCli } from './lib/cli-run.mjs';
 import { REPO_ROOT, resolveMovedPath } from './lib/repository-paths.mjs';
 import { readReportRef } from './lib/metric-reports.mjs';
 import { CONFIG, LEDGER, HISTORY, KIND, validateConfig, validateSnapshot, readMeasurements, deploymentFor, statusOf, hash, scopeKey, readRuns, validateRun, hasRecord } from './lib/seo-rank-watch.mjs';
@@ -36,8 +36,8 @@ export function observationViolations(before, after, changedPaths, getContent) {
   }
   return errors;
 }
-function main() {
-  const root = REPO_ROOT, staged = process.argv.includes('--staged');
+function main(argv = process.argv.slice(2)) {
+  const root = REPO_ROOT, staged = argv.includes('--staged');
   const git = (args) => execFileSync('git', args, { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
   const get = (path) => staged ? git(['show', `:${path}`]) : readFileSync(join(root, path), 'utf8');
   const raw = JSON.parse(get(CONFIG));
@@ -88,8 +88,11 @@ function main() {
   } else errors.push(...observationViolations(ledger, ledger, [], get));
   for (const error of errors) console.error(`[seo-rank-watch] ${error}`);
   console.log(`[seo-rank-watch] ${errors.length ? 'FAIL' : 'PASS'}: ${config.watchwords.length} watches / ${config.strategy.focusQualifications.length} qualifications, ${ids.size} experiments, ${runs.length} decisions`);
-  if (errors.length) process.exitCode = 1;
+  return errors.length ? 1 : 0;
 }
-if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
-  try { main(); } catch { console.error('[seo-rank-watch] FAIL: config, ledger or staged files could not be validated'); process.exitCode = 1; }
+/** pre-commit-dispatch が in-process で呼ぶ入口（process.exit を呼ばず { code } を返す・DN-0688） */
+export function run({ argv = process.argv.slice(2) } = {}) {
+  try { return { code: main(argv) }; } catch { console.error('[seo-rank-watch] FAIL: config, ledger or staged files could not be validated'); return { code: 1 }; }
 }
+
+if (isCliEntry(import.meta.url)) runAsCli(run);

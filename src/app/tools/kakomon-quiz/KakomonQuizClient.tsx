@@ -614,6 +614,9 @@ function QuizRunner({
                   ? "正解！"
                   : `不正解（正解は ${correctLabel(q)}）`}
             </div>
+            {q.statementsHtml && <div className="mb-3" dangerouslySetInnerHTML={{ __html: q.statementsHtml }} />}
+            {/* 選択肢の行が無く、記述ごとの解説だけの問題（組合せの選択肢は記述の解説から読める）は、中身のない選択肢の一覧を出さない */}
+            {!(q.statementsHtml && q.explanations.every((e) => !e.text && !e.html)) && (
             <ul className="flex flex-col gap-1.5">
               {q.explanations.map((e) => (
                 <li key={e.num} className="flex items-start gap-2 text-[13px] leading-6 text-(--ink-body)">
@@ -627,6 +630,7 @@ function QuizRunner({
                 </li>
               ))}
             </ul>
+            )}
             {q.articlePath && (
               <Link href={q.articlePath} className="focus-ring mt-3 inline-block text-[13px] font-bold text-(--accent) hover:underline">
                 元記事で詳しい解説を読む →

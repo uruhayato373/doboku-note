@@ -5,6 +5,7 @@
 //   extra   … ライブにあって原稿に無い（prune のときだけ削除対象）
 //   addable … missing のうち上限 99 に収まる分（prune なら extra を消した後の空きで数える）
 // を返す。note は上限 99 を超える保存を全体ごと拒否するため、addable は必ず上限内に切る。
+import { escapeRegExp } from './regexp-escape.mjs';
 
 export const NOTE_TAG_CAP = 99;
 
@@ -57,7 +58,7 @@ export function verifyTagSync({ after, plan, liveCount, rejected = [] }) {
 // 公開設定のタグ chip（<button>#タグ<削除アイコン></button>）の文字に一致させる正規表現。
 // textContent は SVG 由来の改行が後ろに付く（"#まとめ\n\n"）ため、アンカーの内側で空白を許す。
 export function tagChipPattern(tag) {
-  const esc = tag.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const esc = escapeRegExp(tag);
   return new RegExp(`^\\s*#${esc}\\s*$`);
 }
 
