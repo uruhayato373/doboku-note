@@ -157,7 +157,7 @@ test('chapterPacket: 章に割り当てた本の項目だけを、Drive の候�
     { id: 'u0001', file: 'part-01.md', page: 'p0010', heading: '見出しA', chars: 300 },
     { id: 'u0002', file: 'part-01.md', page: 'p0011', heading: '見出しB', chars: 200 },
   ] }));
-  const config = { series: [{ id: 's', sections: [{ title: 't', items: [{ id: 'X-1', title: '章', plan: 'new', links: [A] }] }] }] };
+  const config = { series: [{ id: 's', sections: [{ title: 't', items: [{ id: 'X-1', title: '章', plan: 'new', links: [A], paths: ['content/site/civil-practice/new/article.mdx'] }] }] }] };
   const basis = { books: { b1: { units: { u0001: 's/X-1', u0002: 's/X-2' } } } };
   const ctx = { referenceSources: [{ id: 'b1', origin: { vaultDir: 'books/b1' } }], stateOf };
   const p = chapterPacket(basis, config, ctx, vault, 's', 'X-1', 'content/site/civil-practice/new/article.mdx');
@@ -166,5 +166,17 @@ test('chapterPacket: 章に割り当てた本の項目だけを、Drive の候�
   assert.doesNotMatch(p.markdown, /見出しB/);
   assert.match(p.markdown, /article\.mdx（新規）/);
   assert.equal(chapterPacket(basis, config, ctx, null, 's', 'X-1', A), null);
+  assert.throws(() => chapterPacket(basis, config, ctx, vault, 's', 'X-1', B), /paths に/);
   assert.throws(() => chapterPacket(basis, config, ctx, vault, 's', 'X-9', A), /台帳に無い章/);
+});
+
+test('validateSeries: 公開した章はカリキュラムに載り、入口の区分では台帳の順に並ぶ', () => {
+  const C = 'content/site/civil-practice/c/article.mdx';
+  const files2 = { [A]: { exists: true, published: true }, [B]: { exists: true, published: true }, [C]: { exists: true, published: true } };
+  const st = (p) => files2[p] ?? { exists: false, published: false };
+  const series = (paths) => ({ series: [{ id: 's', entry: { curriculum: 'civil-practice:blk' }, sections: [{ title: 't', items: paths.map((p, i) => ({ id: `X-${i}`, title: 'x', plan: 'new', paths: [p] })) }] }] });
+  const ctx = (slugs, other = []) => ({ sourceIds: new Set(), curriculumCategories: new Set(['civil-practice']), stateOf: st, curriculumOf: () => ({ all: new Set([...slugs, ...other]), block: slugs }) });
+  assert.deepEqual(validateSeries(series([A, B, C]), ctx(['a', 'x', 'b'], ['c'])), []);
+  assert.match(validateSeries(series([A, B]), ctx(['b', 'a'])).join('\n'), /並びが台帳の読む順と違う（1 番目: 台帳 a・区分 b）/);
+  assert.match(validateSeries(series([A, C]), ctx(['a'])).join('\n'), /公開した章 c がカリキュラム/);
 });
