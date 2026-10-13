@@ -3749,6 +3749,19 @@
       "commit": "ea205ec90b5c",
       "verification": "grep で 25〜30%・65%以下・WC_GUIDE_MAX が対象 4 か所に残っていない",
       "note": "記事 3 本（concrete-finishing-curing・reference-values・concrete-placement-timing）を develop で、計算ツール（WaterContentClient・page.tsx）を PR #1051 で一次資料（JCI 論文・共通仕様書 令和8年3月 1-3-3・1-3-9-2）にそろえた。主任技士の教科書は併記で数値の揺れを説明しているので据え置き"
+    },
+    {
+      "id": "DN-0730",
+      "at": "2026-10-13",
+      "task": "法令ページ（法令から記事へ）の置き場と公開の基準を決める",
+      "tier": "hold",
+      "kind": "意思決定",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "184734a0ac64",
+      "verification": "check-doc-refs・check-information-architecture ✓",
+      "note": "運営者判断（2026-10-13）: 置き場は新しい領域 /laws/<参考文献の id>。5 本以上の記事が引く 27 法令から始め、説明を書いたものだけ公開。05_情報アーキテクチャ「法令ページ」と 18 に記録し、DN-0731 のやることを確定した。あわせて DN-0732 は行政書士テキストの文字起こしに決まり（他の市販書 PDF は使わない・Web の検索を優先）"
     }
   ]
 }

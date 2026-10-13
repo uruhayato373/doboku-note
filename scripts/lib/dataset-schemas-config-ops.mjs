@@ -357,7 +357,6 @@ export const ConfigSearchStrategy = z
       .object({
         minPosition: z.number().min(1).describe('改善候補にする順位の下限（この順位より下）'),
         maxPosition: z.number().min(1).describe('改善候補にする順位の上限'),
-        minImpressions: posInt,
         maxCandidatesPerCluster: posInt,
       })
       .strict()

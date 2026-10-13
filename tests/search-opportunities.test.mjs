@@ -3,7 +3,7 @@
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { summarizeCluster, summarizeBing, bandLabels, candidateMarks, fileableCandidates, inTop, inStriking, triageCandidate, triageExperiment, decisionFor, escapeEre } from '../scripts/lib/search-opportunities.mjs';
+import { summarizeCluster, summarizeBing, bandLabels, candidateStriking, candidateMarks, fileableCandidates, inTop, inStriking, triageCandidate, triageExperiment, decisionFor, escapeEre } from '../scripts/lib/search-opportunities.mjs';
 import { experimentsByPage, dispatchIndex } from '../scripts/lib/search-improvement.mjs';
 
 const S = 'https://doboku-note.com';
@@ -133,4 +133,14 @@ test('Bing は検索語だけを GSC と同じ日数で合算し、表示で重�
   assert.equal(b.queries, 2);
   assert.equal(b.top10, 1);
   assert.deepEqual(b.candidates.map((q) => [q.query, q.position, q.impressions]), [['技術士 cpd', 13, 8]]);
+});
+
+test('候補の表示の下限は計測の型（cycle.measure.minVolume）だけが持つ。直しても判定に足りないページは候補にしない', async () => {
+  const { readFileSync } = await import('node:fs');
+  const config = JSON.parse(readFileSync(new URL('../config/search-strategy.json', import.meta.url), 'utf8'));
+  assert.equal(config.striking.minImpressions, undefined, '設定に別の下限を持たない（食い違いの再発防止）');
+  const s = candidateStriking(config);
+  assert.equal(s.minImpressions, config.cycle.measure.minVolume);
+  const rows = [row('/standards/a', 'a 共通仕様書', 12, s.minImpressions - 1), row('/standards/b', 'b 共通仕様書', 12, s.minImpressions)];
+  assert.deepEqual(summarizeCluster(cluster, rows, s).candidates.map((c) => c.page), ['/standards/b']);
 });
