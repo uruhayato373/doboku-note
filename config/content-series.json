@@ -628,7 +628,11 @@
                 },
                 {
                   "kind": "photo",
-                  "subject": "壁のコンクリートからコアを採取している様子（コアドリルと採取したコア）"
+                  "subject": "径の違う採取コアを並べた写真。コアの径と骨材の最大寸法の関係を見せる",
+                  "crop": {
+                    "book": "concrete-basics-5th",
+                    "id": "photo-core-sizes"
+                  }
                 }
               ]
             }

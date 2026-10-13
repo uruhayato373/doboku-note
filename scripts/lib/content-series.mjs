@@ -20,6 +20,12 @@ export const VISUAL_LABELS = {
   planned: '未作成', spec: '仕様あり・未生成', placed: '配置済み',
   'not-generated': '仕様と画像が違う', unreviewed: '未監査', failed: '不合格', ok: '合格',
 };
+/** 図・写真 1 枚の進み具合（切り出し → 作成・描き直し → 監査 → 記事への配置）。 */
+export const STAGES = ['crop-missing', 'planned', 'cropped', 'unreviewed', 'failed', 'created', 'embedded', 'skipped'];
+export const STAGE_LABELS = {
+  'crop-missing': '切り出し図が無い', planned: '未着手', cropped: '切り出し済み・未作成', unreviewed: '作成済み・未監査',
+  failed: '監査で不合格', created: '作成済み・記事に未配置', embedded: '記事に配置済み', skipped: '使わない',
+};
 export const STATE_LABELS = {
   published: '公開', draft: '下書き', planned: '未着手', strengthen: '補強待ち', existing: '既存', excluded: '対象外', missing: '記事が無い',
 };
@@ -168,12 +174,21 @@ export function visualState(visual, ctx) {
 export function visualJobs(view, ctx) {
   const jobs = [];
   for (const s of view) for (const sec of s.sections) for (const it of sec.items) for (const v of it.visuals ?? []) {
-    const state = visualState(v, ctx);
-    if (state === 'ok' || state === 'placed') continue;
-    const next = !v.figKey ? '記事の場所が決まったら figKey を台帳に書く'
-      : v.kind === 'photo' ? `npm run gen-article-photo -- --fig ${v.figKey}${state === 'planned' ? ' --prompt "<被写体の指示>"' : ''}`
-      : `自作の SVG を content/site/${v.figKey}.svg に置く（create-svg）`;
-    jobs.push({ series: s.id, item: it.id, kind: v.kind, subject: v.subject, figKey: v.figKey ?? null, state, next });
+    const stage = visualStage(v, ctx);
+    if (stage === 'embedded' || stage === 'skipped') continue;
+    const next = {
+      'crop-missing': `切り出し図 ${v.crop?.book}/${v.crop?.id} を切り出して登録する（check-content-series --crop-jobs）`,
+      planned: !v.figKey ? '元にする切り出し図（crop）か、置き場（figKey）を台帳に書く'
+        : v.kind === 'photo' ? `npm run gen-article-photo -- --fig ${v.figKey}${ctx.provenance?.[v.figKey]?.prompt ? '' : ' --prompt "<被写体の指示>"'}`
+        : `自作の SVG を content/site/${v.figKey}.svg に置く（create-svg）`,
+      cropped: !v.figKey ? '記事の場所が決まったら figKey を台帳に書く'
+        : v.kind === 'photo' ? `切り出し図を元に AI で描き直して配置する（npm run gen-article-photo -- --fig ${v.figKey} --from <描き直した画像>）`
+        : `切り出し図を下敷きに自作の SVG を content/site/${v.figKey}.svg に置く（create-svg）`,
+      unreviewed: 'ai-image-fidelity-auditor で判定して check-image-origin record-ai で記録する',
+      failed: '指示を直して作り直す',
+      created: `記事に <ArticleImage src="/posts/${v.figKey}.…"> を入れる`,
+    }[stage];
+    jobs.push({ series: s.id, item: it.id, kind: v.kind, subject: v.subject, crop: v.crop ?? null, figKey: v.figKey ?? null, stage, next });
   }
   return jobs;
 }
@@ -315,4 +330,57 @@ export function cropJobs(basis, ctx, { series = null } = {}) {
     }
   }
   return jobs;
+}
+
+/** 置き場（<資格>/<記事>/img/<名前>）から記事のパスを出す。 */
+function articleOfFigKey(figKey) {
+  const m = figKey.match(/^([a-z0-9-]+)\/([^/]+)\/img\//);
+  return m ? `content/site/${m[1]}/${m[2]}/article.mdx` : null;
+}
+
+/**
+ * 図・写真 1 枚の段階。手で書く欄は無く、切り出し図（book-manifest の crops）・画像の実体・AI 画像の台帳・記事の本文から出す。
+ *   skipped（使わない）→ crop-missing（指定した切り出し図が台帳に無い）→ planned（切り出し図も置き場も無い）
+ *   → cropped（切り出し図はあるが、サイトの画像がまだ無い）→ unreviewed / failed（写真の監査）→ created（記事にまだ入れていない）→ embedded
+ */
+export function visualStage(visual, ctx) {
+  if (visual.skip) return 'skipped';
+  if (visual.crop) {
+    const crops = ctx.bookManifest?.(visual.crop.book)?.crops ?? [];
+    if (!crops.some((c) => c.id === visual.crop.id)) return 'crop-missing';
+  }
+  const state = visualState(visual, ctx);
+  if (state === 'planned' || state === 'spec') return visual.crop ? 'cropped' : 'planned';
+  if (state === 'unreviewed' || state === 'not-generated') return 'unreviewed';
+  if (state === 'failed') return 'failed';
+  const article = articleOfFigKey(visual.figKey);
+  const file = article ? join(ctx.root, ...article.split('/')) : null;
+  const body = file && existsSync(file) ? readFileSync(file, 'utf8') : '';
+  return body.includes(`/posts/${visual.figKey}.`) ? 'embedded' : 'created';
+}
+
+/**
+ * 章ごとの画像の進み具合: 本の頁（切り出し待ち・図なし・済み）、その頁の切り出し図（対応を決めた・未対応）、図・写真の段階ごとの数。
+ * 未対応 = 章の頁にある切り出し図のうち、どの計画（visuals の crop）にも結びついていないもの。
+ */
+export function imageProgress(view, basis, ctx) {
+  const pagesByItem = chapterPages(basis, ctx);
+  const out = new Map();
+  for (const s of view) for (const sec of s.sections) for (const it of sec.items) {
+    const key = `${s.id}/${it.id}`;
+    const pages = pagesByItem.get(key)?.pages ?? [];
+    const crops = [];
+    for (const p of pages) for (const c of ctx.bookManifest?.(p.book)?.crops ?? []) if (c.pageId === p.page) crops.push({ book: p.book, id: c.id, page: p.page, caption: c.caption ?? null, path: c.path });
+    const linked = new Set((it.visuals ?? []).filter((v) => v.crop).map((v) => `${v.crop.book}/${v.crop.id}`));
+    const stages = Object.fromEntries(STAGES.map((st) => [st, 0]));
+    const visuals = (it.visuals ?? []).map((v) => { const stage = visualStage(v, ctx); stages[stage] += 1; return { ...v, stage }; });
+    out.set(key, {
+      pages: cropSummary(pages),
+      crops: crops.map((c) => ({ ...c, linked: linked.has(`${c.book}/${c.id}`) })),
+      unlinkedCrops: crops.filter((c) => !linked.has(`${c.book}/${c.id}`)).length,
+      visuals,
+      stages,
+    });
+  }
+  return out;
 }

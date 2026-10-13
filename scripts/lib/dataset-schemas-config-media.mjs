@@ -901,6 +901,12 @@ const SeriesItem = z
             kind: z.enum(['figure', 'photo']).describe('図（自作の SVG）か写真（AI で生成・gen-article-photo）'),
             subject: z.string().min(1).describe('何を見せるか'),
             figKey: z.string().regex(/^[a-z0-9-]+\/[^/]+\/img\/[^/.]+$/).optional().describe('置き場（<資格>/<記事>/img/<名前>・拡張子なし）。記事の場所が決まったら書く'),
+            crop: z
+              .object({ book: z.string().regex(/^[a-z0-9][a-z0-9-]*$/), id: z.string().min(1) })
+              .strict()
+              .optional()
+              .describe('元にした本の切り出し図（書籍の台帳 book-manifest の crops の id）'),
+            skip: z.string().min(1).optional().describe('切り出し図を使わないと決めた理由（crop と組で書く）'),
           })
           .strict(),
       )

@@ -91,8 +91,9 @@ test('visualState・visualJobs: 図と写真の状態は実体と台帳から出
     { kind: 'photo', subject: 'todo', figKey: 'civil-practice/x/img/photo-b' },
   ] }] }] }];
   const jobs = visualJobs(view, ctx);
-  assert.equal(jobs.length, 1);
-  assert.match(jobs[0].next, /gen-article-photo -- --fig civil-practice\/x\/img\/photo-b$/);
+  assert.equal(jobs.length, 2, '置いただけの図は記事への配置が残る');
+  assert.equal(jobs.find((j) => j.kind === 'figure').stage, 'created');
+  assert.match(jobs.find((j) => j.kind === 'photo').next, /gen-article-photo -- --fig civil-practice\/x\/img\/photo-b$/);
 });
 
 test('実データ: 書籍の全項目の割り当ては違反 0（件数は書籍の網羅の要約と一致）', async () => {
@@ -116,4 +117,31 @@ test('chapterPages・cropJobs: 章と本の頁をつなぎ、切り出しの終�
   assert.equal(jobs.length, 1, 'p0001 は 2 章で使うが作業は 1 回');
   assert.deepEqual(jobs[0].chapters, ['s/X-1', 's/X-2']);
   assert.equal(jobs[0].pageImage, '原資料PDF/書籍/bk__x/pages/p0001.jpg');
+});
+
+test('visualStage・imageProgress: 図・写真の段階は切り出し図・画像・監査・記事の本文から出し、未対応の切り出し図を数える', async () => {
+  const { visualStage, imageProgress } = await import('../scripts/lib/content-series.mjs');
+  const { mkdtempSync, mkdirSync, writeFileSync } = await import('node:fs');
+  const { join } = await import('node:path');
+  const { tmpdir } = await import('node:os');
+  const root = mkdtempSync(join(tmpdir(), 'series-stage-'));
+  mkdirSync(join(root, 'content/site/civil-practice/x/img'), { recursive: true });
+  writeFileSync(join(root, 'content/site/civil-practice/x/img/figure-a.svg'), '<svg/>');
+  writeFileSync(join(root, 'content/site/civil-practice/x/img/figure-b.svg'), '<svg/>');
+  writeFileSync(join(root, 'content/site/civil-practice/x/article.mdx'), '<ArticleImage src="/posts/civil-practice/x/img/figure-a.svg" />');
+  const manifest = { pages: [{ id: 'p0001', cropStatus: 'partial' }], crops: [{ id: 'c1', pageId: 'p0001', path: 'crops/p0001_c1.png' }, { id: 'c2', pageId: 'p0001', path: 'crops/p0001_c2.png' }] };
+  const ctx = { root, provenance: {}, aiLedger: { figures: {} }, bookManifest: () => manifest };
+  assert.equal(visualStage({ kind: 'figure', subject: 's', skip: '同じ内容の図が既にある', crop: { book: 'bk', id: 'c2' } }, ctx), 'skipped');
+  assert.equal(visualStage({ kind: 'figure', subject: 's', crop: { book: 'bk', id: 'zz' } }, ctx), 'crop-missing');
+  assert.equal(visualStage({ kind: 'figure', subject: 's' }, ctx), 'planned');
+  assert.equal(visualStage({ kind: 'figure', subject: 's', crop: { book: 'bk', id: 'c1' } }, ctx), 'cropped');
+  assert.equal(visualStage({ kind: 'figure', subject: 's', crop: { book: 'bk', id: 'c1' }, figKey: 'civil-practice/x/img/figure-b' }, ctx), 'created');
+  assert.equal(visualStage({ kind: 'figure', subject: 's', crop: { book: 'bk', id: 'c1' }, figKey: 'civil-practice/x/img/figure-a' }, ctx), 'embedded');
+  const view = [{ id: 's', sections: [{ items: [{ id: 'X-1', visuals: [{ kind: 'figure', subject: 's', crop: { book: 'bk', id: 'c1' } }] }] }] }];
+  const basis = { books: { bk: { units: { u0001: 's/X-1' }, pages: { u0001: ['p0001'] } } } };
+  const p = imageProgress(view, basis, ctx).get('s/X-1');
+  assert.equal(p.crops.length, 2);
+  assert.equal(p.unlinkedCrops, 1, 'c2 はどの計画にも結びついていない');
+  assert.equal(p.stages.cropped, 1);
+  assert.equal(p.pages.pending, 1, '一部だけ切り出した頁は切り出し待ちに数える');
 });
