@@ -376,6 +376,17 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0723] コンクリートの既存記事と計算ツールの数値を一次資料にそろえる（水和に必要な水・水セメント比・暑中の上限）
+タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-13]
+
+**起点**: 2026-10-13、コンクリートの実務シリーズの執筆中に、既存の記事・ツールの数値が一次資料と食い違うのを見つけた（受入れ検査の記事の水セメント比は同日直した）。
+- 水和に必要な水: civil-practice/concrete-finishing-curing の「セメント質量のおよそ25〜30%」、civil-practice/reference-values の「25〜30%」、src/app/tools/water-content/WaterContentClient.tsx の 0.25〜0.30。日本コンクリート工学会の論文値は結合水 約23%・ゲル水 約21%・合計 約44%（https://data.jci-net.or.jp/data_pdf/26/026-01-1211.pdf）。新記事 civil-practice/concrete-hydration-basics はこちらで書いた。concrete-chief-engineer/textbook-materials は 25%＋15% と 23%＋21% を併記している
+- 水セメント比: reference-values の「目安 65%以下」と WaterContentClient の WC_GUIDE_MAX = 65。土木工事共通仕様書（令和8年3月）1-3-3-3・国官技第61号は一般の環境で鉄筋 55%・無筋 60% 以下
+- 暑中の上限: civil-practice/concrete-placement-timing は「35℃以下」だけ。共通仕様書 1-3-9-2 は品質を確保できる場合 38℃、それ以外 35℃
+**やること**: 一次資料で確かめて記事を直す（develop）。ツールの定数はコードなので PR。
+**完了条件**: 上の 4 か所が一次資料と一致し、記事の出典に版を書く。
+
+
 ### [DN-0722] 2級模試の原稿（C9 解答解説）の解答欄の字数・行数の案内を Drive の原本と配布 PDF に反映する
 タグ: [領域:商品] [時期:2026-10] [種類:不具合] [起票:2026-10-13]
 

@@ -56259,6 +56259,48 @@
         "scripts/check-orphan-ogp.mjs"
       ],
       "srcHash": "69ade713bdac599c"
+    },
+    "content/site/civil-practice/concrete-structure-inspection/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/concrete-structure-inspection/ogp.png",
+      "sha256": "ebc1dde8b1ecd7c01dc1f96665fc8ed428dbde341f2625386209805472f96f96",
+      "bytes": 73931,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-13T03:51:32.618Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/concrete-structure-inspection/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "ac1ca3372d35940c"
+    },
+    "content/site/civil-practice/ready-mixed-concrete-ordering/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/ready-mixed-concrete-ordering/ogp.png",
+      "sha256": "80ed4399abc360dbd89a30b9f0716f9765bfdebd4eafb5daad924179310349de",
+      "bytes": 72054,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-13T03:51:32.705Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/ready-mixed-concrete-ordering/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "1e4172e4ba37d51e"
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",
