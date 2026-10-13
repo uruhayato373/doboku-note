@@ -387,7 +387,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 **やること**:
 1. シリーズの事実ファイル `.claude/knowledge/reference/municipal-civil-engineer-sources.md` を起こす（確かめた法令の条・通知・白書の版と URL）
 2. 新規 35 章・補強 4 章の骨子を `content/sources/series/municipal-civil-engineer/` に書く。根拠は Web の検索を優先して集める（2026-10-13 運営者。市販書の PDF は取り寄せない）: 法令は e-Gov の条（`npm run egov-laws` が通ること）、通知・要領は国交省、統計は白書、運用の例は都道府県・市の公開の手引き。Drive 直下の「土木奥義」は docs/strategy/18 の 3 区分に従い、公開の法令・基準だけを根拠にする。Drive の 6 冊と行政書士テキスト（DN-0732）は `--suggest` の候補から補助として選ぶ
-3. 第 1 波（A-08 占用・A-14 河川区域の許可・A-19 里道と水路）から先に作り、運営者に確かめてもらう。経験が中心の章（A-22 地元説明会・A-40 住民・議会への説明）は、運営者に論点を聞いてから書く
+3. 第 1 波（A-08 占用・A-14 河川区域の許可・A-19 里道と水路）から先に作り、運営者に確かめてもらう。A-22 地元説明会・A-40 住民・議会への説明も一般論で書く（公開の指針から。体験談は作らない・2026-10-13 運営者）
 4. 骨子で使った URL だけの資料を、記事を書く前に参考文献の台帳へ入れる
 **完了条件**: 39 章の骨子が approved で `check-content-series` が緑（一次資料の無い論点 0）。第 1 波の 3 章は 11/25 までに approved。
 
