@@ -22,11 +22,11 @@
 ## 🔴 高 — 重要度が高い
 
 ### [DN-0728] シリーズの章の骨子と根拠の配線を台帳で管理する仕組みを作る（骨子ファイル・検査・管理画面・workflow・根拠の候補）
-タグ: [領域:サイト] [時期:2026-10] [種類:改善] [検証:check-content-series] [起票:2026-10-13]
+タグ: [領域:サイト] [時期:2026-10] [種類:改善] [検証:check-content-series] [起票:2026-10-13] [進行中]
 
 **起点**: 2026-10-13、自治体の土木担当シリーズ（municipal-civil-engineer・42 章）は本ではなく章から出発するので、コンクリートの「本の全項目を章へ仕分ける」台帳は合わないと運営者と確認した。設計は docs/strategy/18「章の骨子と根拠の配線（A）」。今は brief を .tmp に捨てており、骨子も根拠も台帳に残らない。
 **やること**（コードなので PR）:
-1. 骨子の置き場 `content/series/<シリーズ id>/<項目 id>.md`。frontmatter（series・item・status: draft / approved・approvedAt）と本文（読者と場面・論点・分担・図の候補）。論点ごとに `根拠:` 行（台帳の id＋条・URL＋版と頁・`book:<本 id>/<項目 id>`）を持つ形を決め、パーサを scripts/lib/content-series.mjs に置く
+1. 骨子の置き場 `content/sources/series/<シリーズ id>/<項目 id>.md`。frontmatter（series・item・status: draft / approved・approvedAt）と本文（読者と場面・論点・分担・図の候補）。論点ごとに `根拠:` 行（台帳の id＋条・URL＋版と頁・`book:<本 id>/<項目 id>`）を持つ形を決め、パーサを scripts/lib/content-series.mjs に置く
 2. check-content-series: 根拠の id・本の項目 id の実在、一次資料の無い論点、URL だけの根拠の数、approved なのに論点が空、を見る。台帳の項目の状態に「骨子なし・骨子あり・確認済み」を足す（記事の実体からの状態と並べる）
 3. 管理画面のシリーズ企画: 章ごとの論点の数・一次資料のある割合・確認済みか。`?item=` で骨子を読める
 4. workflow series-chapter: item に `brief: "outline"` を足し、確認済みの骨子を brief として使う（Brief の段を飛ばす）
@@ -398,7 +398,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 **前提**: DN-0728（骨子と根拠の配線の仕組み）。
 **やること**:
 1. シリーズの事実ファイル `.claude/knowledge/reference/municipal-civil-engineer-sources.md` を起こす（確かめた法令の条・通知・白書の版と URL）
-2. 新規 35 章・補強 4 章の骨子を `content/series/municipal-civil-engineer/` に書く。根拠は Web の検索を優先して集める（2026-10-13 運営者。市販書の PDF は取り寄せない）: 法令は e-Gov の条（`npm run egov-laws` が通ること）、通知・要領は国交省、統計は白書、運用の例は都道府県・市の公開の手引き。Drive 直下の「土木奥義」は docs/strategy/18 の 3 区分に従い、公開の法令・基準だけを根拠にする。Drive の 6 冊と行政書士テキスト（DN-0732）は `--suggest` の候補から補助として選ぶ
+2. 新規 35 章・補強 4 章の骨子を `content/sources/series/municipal-civil-engineer/` に書く。根拠は Web の検索を優先して集める（2026-10-13 運営者。市販書の PDF は取り寄せない）: 法令は e-Gov の条（`npm run egov-laws` が通ること）、通知・要領は国交省、統計は白書、運用の例は都道府県・市の公開の手引き。Drive 直下の「土木奥義」は docs/strategy/18 の 3 区分に従い、公開の法令・基準だけを根拠にする。Drive の 6 冊と行政書士テキスト（DN-0732）は `--suggest` の候補から補助として選ぶ
 3. 第 1 波（A-08 占用・A-14 河川区域の許可・A-19 里道と水路）から先に作り、運営者に確かめてもらう。経験が中心の章（A-22 地元説明会・A-40 住民・議会への説明）は、運営者に論点を聞いてから書く
 4. 骨子で使った URL だけの資料を、記事を書く前に参考文献の台帳へ入れる
 **完了条件**: 39 章の骨子が approved で `check-content-series` が緑（一次資料の無い論点 0）。第 1 波の 3 章は 11/25 までに approved。
