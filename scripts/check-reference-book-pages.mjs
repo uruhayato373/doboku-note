@@ -6,6 +6,8 @@
  * Drive mount がある端末では、全原本とページ画像サンプル（--deep は全件）の bytes/sha256 も照合する。
  * あわせて原本 PDF の実ページ数（pdfinfo）が台帳の expectedPdfPages と同じかを見る（2026-10-13。違うと増えたページが
  * 黙って画像にならず、除外の範囲もずれる）。pdfinfo が無い端末では照合しないと出す。
+ * 文字起こしの残り（complete・not-needed 以外のページ）がある本は、参考文献の台帳の bookBundle.ocrPending に
+ * 追うカード（backlog に残っているもの）か、しない理由が無いと止める（2026-10-13。54 頁がどのカードにも載っていなかった）。
  */
 
 import fs from 'node:fs';
@@ -23,12 +25,14 @@ import {
   bookRepoRoot,
   buildBookPagePlan,
   manifestRepoPath,
+  ocrPendingIssue,
   sourceRepoPath,
   validateBookBundleSource,
   validateBookManifestShape,
 } from './lib/reference-book-bundle.mjs';
+import { parseBacklog } from './lib/backlog-lib.mjs';
 import { loadReferenceSources } from './lib/reference-sources.mjs';
-import { REPO_ROOT } from './lib/repository-paths.mjs';
+import { REPO_ROOT, TODO_ROOT } from './lib/repository-paths.mjs';
 
 const NAME = 'check-reference-book-pages';
 const args = process.argv.slice(2);
@@ -92,6 +96,15 @@ function pdfPageCount(file) {
     return undefined;
   }
 }
+// 文字起こしの残りを追うカード（bookBundle.ocrPending.backlogId）が backlog に残っているかを見る（2026-10-13）
+const backlogFile = path.join(TODO_ROOT, 'backlog.md');
+if (!fs.existsSync(backlogFile)) {
+  console.error(`[${NAME}] 検査不成立: ${path.relative(REPO_ROOT, backlogFile)} が無い（文字起こしの残りを追うカードを確かめられない）`);
+  process.exit(2);
+}
+const openBacklogIds = new Set(parseBacklog(fs.readFileSync(backlogFile, 'utf8')).map((card) => card.id).filter(Boolean));
+const ocrRemaining = { books: 0, pages: 0, byCard: 0, byReason: 0 };
+
 for (const source of targets) {
   const label = source.id;
   try { validateBookBundleSource(source); }
@@ -108,6 +121,15 @@ for (const source of targets) {
   catch (error) { fail(label, `${manifestRel} を読めない: ${error.message}`); continue; }
   checkedManifests += 1;
   for (const message of validateBookManifestShape(source, manifest)) fail(label, message);
+  const ocr = ocrPendingIssue(source, manifest, openBacklogIds);
+  if (ocr.error) fail(label, ocr.error);
+  if (ocr.warning) warnings.push(`${label}: ${ocr.warning}`);
+  if (ocr.unfinished > 0) {
+    ocrRemaining.books += 1;
+    ocrRemaining.pages += ocr.unfinished;
+    if (source.bookBundle.ocrPending?.backlogId) ocrRemaining.byCard += 1;
+    else if (source.bookBundle.ocrPending?.reason) ocrRemaining.byReason += 1;
+  }
   const expectedPages = buildBookPagePlan(source);
   if (manifest.pageCount !== expectedPages.length) fail(label, `pageCount ${manifest.pageCount} / 期待 ${expectedPages.length}`);
 
@@ -245,7 +267,7 @@ for (const source of targets) {
   for (const repoPath of unexpectedSource) fail(label, `book-manifest に無い原本エントリ: ${repoPath}`);
 }
 
-console.log(`[${NAME}] 対象 ${targets.length} 冊 / manifest ${checkedManifests} 冊`);
+console.log(`[${NAME}] 対象 ${targets.length} 冊 / manifest ${checkedManifests} 冊 / 文字起こしの残り ${ocrRemaining.books} 冊 ${ocrRemaining.pages} 頁（カードで追う ${ocrRemaining.byCard} 冊・しない理由つき ${ocrRemaining.byReason} 冊）`);
 console.log(`[${NAME}] Drive 実体照合: 原本 ${checkedSources} ファイル（実ページ数 ${checkedPdfPageCounts} 件${pdfinfoMissing ? '・pdfinfo が無く未照合' : ''}） / ページ画像 ${checkedPages} 枚${DEEP ? '（全件）' : `（各冊 約${SAMPLE} 枚）`} / OCR ${checkedOcrArtifacts} / crop ${checkedCrops}`);
 for (const warning of warnings) console.warn(`  ! ${warning}`);
 if (vaultReads > 0 && vaultUnreadable === vaultReads) {

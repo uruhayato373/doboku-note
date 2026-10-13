@@ -813,6 +813,13 @@ const BookBundle = z
       .array(z.looseObject({ order: z.number().int().positive().describe('並び順'), originalName: z.string().min(1).describe('原本の元のファイル名') }))
       .min(1)
       .describe('原本の PDF（巻ごと）'),
+    ocrPending: z
+      .union([
+        z.object({ backlogId: z.string().regex(/^DN-\d{4}$/).describe('文字起こしの残りを追うカード（backlog に残っている間だけ有効）') }).strict(),
+        z.object({ reason: z.string().min(1).describe('残りを文字起こししないと決めた理由') }).strict(),
+      ])
+      .optional()
+      .describe('文字起こしの残り（complete・not-needed 以外のページ）を誰が追うか。残りがあるのに無いと check-reference-book-pages が止める'),
     coverageSiteDirs: z
       .array(z.string().regex(/^[a-z0-9-]+$/, '資格ディレクトリ'))
       .min(1)
