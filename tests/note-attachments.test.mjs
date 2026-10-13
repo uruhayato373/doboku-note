@@ -3,6 +3,17 @@ import assert from 'node:assert/strict';
 import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
+import { listAttachedFiles } from '../scripts/lib/note-attach.mjs';
+
+test('添付検出: 公式資料の PDF URL だけなら添付済みにしない', async () => {
+  const page = { evaluate: async () => ['https://example.jp/official.pdf'] };
+  assert.deepEqual(await listAttachedFiles(page), []);
+});
+
+test('添付検出: 出典 URL と実際の配布 PDF を区別する', async () => {
+  const page = { evaluate: async () => ['https://example.jp/official.pdf', '想定24問.pdf'] };
+  assert.deepEqual(await listAttachedFiles(page), ['想定24問.pdf']);
+});
 
 import {
   evaluatePreSaveGate,
