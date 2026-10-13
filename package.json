@@ -53,6 +53,7 @@
     "check-standards-data": "node scripts/check-standards-data.mjs",
     "check-standards-page-images": "node scripts/check-standards-page-images.mjs",
     "check-content-series": "node scripts/check-content-series.mjs",
+    "egov-laws": "node scripts/egov-laws.mjs",
     "check-reference-book-pages": "node scripts/check-reference-book-pages.mjs",
     "reference-book-status": "node scripts/reference-book-status.mjs",
     "check-e2e-targets": "node scripts/check-e2e-targets.mjs",

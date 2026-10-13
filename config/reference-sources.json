@@ -2120,6 +2120,9 @@
       "aliases": {
         "労働安全衛生法第59条・第60条": "labor-safety-act#第59条・第60条",
         "労働安全衛生法第28条の2": "labor-safety-act#第28条の2"
+      },
+      "egov": {
+        "lawId": "347AC0000000057"
       }
     },
     {
@@ -2133,6 +2136,9 @@
         "労働安全衛生法施行令第20条第16号": "labor-safety-order#第20条第16号",
         "労働安全衛生法施行令第6条第9号": "labor-safety-order#第6条第9号",
         "労働安全衛生法施行令第6条第12号": "labor-safety-order#第6条第12号"
+      },
+      "egov": {
+        "lawId": "347CO0000000318"
       }
     },
     {
@@ -2157,6 +2163,9 @@
         "労働安全衛生規則第429条": "labor-safety-rules#第429条",
         "労働安全衛生規則第612条の2": "labor-safety-rules#第612条の2",
         "労働安全衛生規則第164条": "labor-safety-rules#第164条"
+      },
+      "egov": {
+        "lawId": "347M50002000032"
       }
     },
     {
@@ -2171,6 +2180,9 @@
         "クレーン等安全規則第215条": "crane-safety-rules#第215条",
         "クレーン等安全規則第67条": "crane-safety-rules#第67条",
         "クレーン等安全規則第68条": "crane-safety-rules#第68条"
+      },
+      "egov": {
+        "lawId": "347M50002000034"
       }
     },
     {
@@ -2217,6 +2229,9 @@
       "aliases": {
         "建設業法": "construction-business-act",
         "建設業法第26条の4第1項": "construction-business-act#第26条の4第1項"
+      },
+      "egov": {
+        "lawId": "324AC0000000100"
       }
     },
     {
@@ -2231,6 +2246,9 @@
         "道路法第46条": "road-act#第46条",
         "道路法第91条": "road-act#第91条",
         "道路法第32条": "road-act#第32条"
+      },
+      "egov": {
+        "lawId": "327AC1000000180"
       }
     },
     {
@@ -2242,6 +2260,9 @@
       },
       "aliases": {
         "道路法施行規則": "road-act-rules"
+      },
+      "egov": {
+        "lawId": "327M50004000025"
       }
     },
     {
@@ -2254,6 +2275,9 @@
       "aliases": {
         "道路整備特別措置法第6条": "road-special-measures-act#第6条",
         "道路整備特別措置法第7条": "road-special-measures-act#第7条"
+      },
+      "egov": {
+        "lawId": "331AC0000000007"
       }
     },
     {
@@ -2265,6 +2289,9 @@
       },
       "aliases": {
         "道路交通法第77条": "road-traffic-act#第77条"
+      },
+      "egov": {
+        "lawId": "335AC0000000105"
       }
     },
     {
@@ -2276,6 +2303,9 @@
       },
       "aliases": {
         "道路構造令": "road-structure-order"
+      },
+      "egov": {
+        "lawId": "345CO0000000320"
       }
     },
     {
@@ -2287,6 +2317,9 @@
       },
       "aliases": {
         "河川法": "river-act"
+      },
+      "egov": {
+        "lawId": "339AC0000000167"
       }
     },
     {
@@ -2298,6 +2331,9 @@
       },
       "aliases": {
         "騒音規制法": "noise-regulation-act"
+      },
+      "egov": {
+        "lawId": "343AC0000000098"
       }
     },
     {
@@ -2309,6 +2345,9 @@
       },
       "aliases": {
         "振動規制法": "vibration-regulation-act"
+      },
+      "egov": {
+        "lawId": "351AC0000000064"
       }
     },
     {
@@ -2320,6 +2359,9 @@
       },
       "aliases": {
         "水質汚濁防止法": "water-pollution-act"
+      },
+      "egov": {
+        "lawId": "345AC0000000138"
       }
     },
     {
@@ -3255,6 +3297,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "322AC0000000049"
       }
     },
     {
@@ -3263,6 +3308,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "419AC0000000128"
       }
     },
     {
@@ -3271,6 +3319,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "324AC0000000174"
       }
     },
     {
@@ -3279,6 +3330,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "321AC0000000025"
       }
     },
     {
@@ -3287,6 +3341,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "360AC0000000088"
       }
     },
     {
@@ -3295,6 +3352,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "334AC0000000137"
       }
     },
     {
@@ -3303,6 +3363,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "347AC0000000113"
       }
     },
     {
@@ -3314,6 +3377,9 @@
       },
       "aliases": {
         "育児介護休業法": "childcare-family-care-leave-act"
+      },
+      "egov": {
+        "lawId": "403AC0000000076"
       }
     },
     {
@@ -3322,6 +3388,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "415AC0000000120"
       }
     },
     {
@@ -3330,6 +3399,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "427AC0000000064"
       }
     },
     {
@@ -3338,6 +3410,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "346AC0000000068"
       }
     },
     {
@@ -3346,6 +3421,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "335AC0000000123"
       }
     },
     {
@@ -3354,6 +3432,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "none": "改正法（働き方改革を推進するための関係法律の整備に関する法律・平成30年法律第71号）の通称。e-Gov には改正後の各法（労働基準法・労働安全衛生法など）が載る"
       }
     },
     {
@@ -3362,6 +3443,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "405AC0000000076"
       }
     },
     {
@@ -3370,6 +3454,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "341AC0000000132"
       }
     },
     {
@@ -3378,6 +3465,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "416AC0000000122"
       }
     },
     {
@@ -3386,6 +3476,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "405AC0000000091"
       }
     },
     {
@@ -3394,6 +3487,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "343AC0000000097"
       }
     },
     {
@@ -3402,6 +3498,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "414AC0000000053"
       }
     },
     {
@@ -3410,6 +3509,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "409AC0000000081"
       }
     },
     {
@@ -3418,6 +3520,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "347AC0000000085"
       }
     },
     {
@@ -3426,6 +3531,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "412AC0000000110"
       }
     },
     {
@@ -3434,6 +3542,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "345AC0000000137"
       }
     },
     {
@@ -3442,6 +3553,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "403AC0000000048"
       }
     },
     {
@@ -3450,6 +3564,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "412AC0000000104"
       }
     },
     {
@@ -3458,6 +3575,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "407AC0000000112"
       }
     },
     {
@@ -3466,6 +3586,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "410AC0000000097"
       }
     },
     {
@@ -3474,6 +3597,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "412AC0000000116"
       }
     },
     {
@@ -3482,6 +3608,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "414AC0000000087"
       }
     },
     {
@@ -3490,6 +3619,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "420AC1000000058"
       }
     },
     {
@@ -3498,6 +3630,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "404AC0000000075"
       }
     },
     {
@@ -3506,6 +3641,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "410AC0000000117"
       }
     },
     {
@@ -3514,6 +3652,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "354AC0000000049"
       }
     },
     {
@@ -3522,6 +3663,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "414AC1000000071"
       }
     },
     {
@@ -3530,6 +3674,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "412AC1000000100"
       }
     },
     {
@@ -3538,6 +3685,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "348AC0000000117"
       }
     },
     {
@@ -3546,6 +3696,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "413AC1000000064"
       }
     },
     {
@@ -3626,6 +3779,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "336AC0000000223"
       }
     },
     {
@@ -3634,6 +3790,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "416AC0000000112"
       }
     },
     {
@@ -3642,6 +3801,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "411AC0000000156"
       }
     },
     {
@@ -3650,6 +3812,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "324AC0000000193"
       }
     },
     {
@@ -3658,6 +3823,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "412AC0000000057"
       }
     },
     {
@@ -3666,6 +3834,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "425AC1000000095"
       }
     },
     {
@@ -3674,6 +3845,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "322AC0000000054"
       }
     },
     {
@@ -3682,6 +3856,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "405AC0000000047"
       }
     },
     {
@@ -3690,6 +3867,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "334AC0000000121"
       }
     },
     {
@@ -3698,6 +3878,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "334AC0000000123"
       }
     },
     {
@@ -3706,6 +3889,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "334AC0000000125"
       }
     },
     {
@@ -3714,6 +3900,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "334AC0000000127"
       }
     },
     {
@@ -3722,6 +3911,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "345AC0000000048"
       }
     },
     {
@@ -3730,6 +3922,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "406AC0000000085"
       }
     },
     {
@@ -3738,6 +3933,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "348AC0000000031"
       }
     },
     {
@@ -3746,6 +3944,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "415AC0000000057"
       }
     },
     {
@@ -3754,6 +3955,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "426AC1000000104"
       }
     },
     {
@@ -3762,6 +3966,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "411AC0000000128"
       }
     },
     {
@@ -3770,6 +3977,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "411AC0000000078"
       }
     },
     {
@@ -3778,6 +3988,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "417AC0000000086"
       }
     },
     {
@@ -3786,6 +3999,9 @@
       "class": "external-primary",
       "origin": {
         "kind": "none"
+      },
+      "egov": {
+        "lawId": "323AC0000000025"
       }
     },
     {
@@ -4147,6 +4363,9 @@
       },
       "aliases": {
         "日本国憲法第90条": "japan-constitution#第90条"
+      },
+      "egov": {
+        "lawId": "321CONSTITUTION"
       }
     },
     {
@@ -4163,6 +4382,9 @@
         "会計検査院法第26条": "board-of-audit-act#第26条",
         "会計検査院法第29条": "board-of-audit-act#第29条",
         "会計検査院法第34条": "board-of-audit-act#第34条"
+      },
+      "egov": {
+        "lawId": "322AC0000000073"
       }
     },
     {
@@ -4219,6 +4441,9 @@
       },
       "aliases": {
         "道路法施行令": "road-act-order"
+      },
+      "egov": {
+        "lawId": "327CO0000000479"
       }
     },
     {
@@ -4230,6 +4455,9 @@
       },
       "aliases": {
         "河川法施行令": "river-act-order"
+      },
+      "egov": {
+        "lawId": "340CO0000000014"
       }
     },
     {
@@ -4241,6 +4469,9 @@
       },
       "aliases": {
         "河川管理施設等構造令": "river-facility-structure-order"
+      },
+      "egov": {
+        "lawId": "351CO0000000199"
       }
     },
     {
@@ -4285,6 +4516,9 @@
       },
       "aliases": {
         "地方自治法": "local-autonomy-act"
+      },
+      "egov": {
+        "lawId": "322AC0000000067"
       }
     },
     {
@@ -4296,6 +4530,177 @@
       },
       "aliases": {
         "地方財政法": "local-finance-act"
+      },
+      "egov": {
+        "lawId": "323AC0000000109"
+      }
+    },
+    {
+      "id": "city-planning-act",
+      "title": "都市計画法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "都市計画法": "city-planning-act"
+      },
+      "egov": {
+        "lawId": "343AC0000000100"
+      }
+    },
+    {
+      "id": "land-readjustment-act",
+      "title": "土地区画整理法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "土地区画整理法": "land-readjustment-act"
+      },
+      "egov": {
+        "lawId": "329AC0000000119"
+      }
+    },
+    {
+      "id": "urban-park-act",
+      "title": "都市公園法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "都市公園法": "urban-park-act"
+      },
+      "egov": {
+        "lawId": "331AC0000000079"
+      }
+    },
+    {
+      "id": "sewerage-act",
+      "title": "下水道法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "下水道法": "sewerage-act"
+      },
+      "egov": {
+        "lawId": "333AC0000000079"
+      }
+    },
+    {
+      "id": "port-act",
+      "title": "港湾法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "港湾法": "port-act"
+      },
+      "egov": {
+        "lawId": "325AC0000000218"
+      }
+    },
+    {
+      "id": "coast-act",
+      "title": "海岸法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "海岸法": "coast-act"
+      },
+      "egov": {
+        "lawId": "331AC0000000101"
+      }
+    },
+    {
+      "id": "sabo-act",
+      "title": "砂防法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "砂防法": "sabo-act"
+      },
+      "egov": {
+        "lawId": "130AC0000000029"
+      }
+    },
+    {
+      "id": "steep-slope-act",
+      "title": "急傾斜地の崩壊による災害の防止に関する法律",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "急傾斜地の崩壊による災害の防止に関する法律": "steep-slope-act"
+      },
+      "egov": {
+        "lawId": "344AC0000000057"
+      }
+    },
+    {
+      "id": "cultural-properties-act",
+      "title": "文化財保護法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "文化財保護法": "cultural-properties-act"
+      },
+      "egov": {
+        "lawId": "325AC0100000214"
+      }
+    },
+    {
+      "id": "pfi-act",
+      "title": "民間資金等の活用による公共施設等の整備等の促進に関する法律",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "民間資金等の活用による公共施設等の整備等の促進に関する法律": "pfi-act"
+      },
+      "egov": {
+        "lawId": "411AC1000000117"
+      }
+    },
+    {
+      "id": "national-spatial-planning-act",
+      "title": "国土形成計画法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "国土形成計画法": "national-spatial-planning-act"
+      },
+      "egov": {
+        "lawId": "325AC0000000205"
+      }
+    },
+    {
+      "id": "infrastructure-priority-plan-act",
+      "title": "社会資本整備重点計画法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "社会資本整備重点計画法": "infrastructure-priority-plan-act"
+      },
+      "egov": {
+        "lawId": "415AC0000000020"
       }
     },
     {
@@ -4307,6 +4712,9 @@
       },
       "aliases": {
         "土地収用法": "land-expropriation-act"
+      },
+      "egov": {
+        "lawId": "326AC0100000219"
       }
     },
     {
@@ -4329,6 +4737,9 @@
       },
       "aliases": {
         "公共土木施設災害復旧事業費国庫負担法": "disaster-restoration-subsidy-act"
+      },
+      "egov": {
+        "lawId": "326AC0000000097"
       }
     },
     {
@@ -4340,6 +4751,9 @@
       },
       "aliases": {
         "国有財産特別措置法": "state-property-special-measures-act"
+      },
+      "egov": {
+        "lawId": "327AC0000000219"
       }
     },
     {
@@ -4351,6 +4765,9 @@
       },
       "aliases": {
         "特定都市河川浸水被害対策法": "specified-urban-river-act"
+      },
+      "egov": {
+        "lawId": "415AC0000000077"
       }
     },
     {
@@ -4362,6 +4779,9 @@
       },
       "aliases": {
         "公共工事の品質確保の促進に関する法律": "public-works-quality-act"
+      },
+      "egov": {
+        "lawId": "417AC1000000018"
       }
     },
     {
