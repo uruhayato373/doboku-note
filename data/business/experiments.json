@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-13T03:11:39.217Z",
+  "updated_at": "2026-10-13T05:22:17.790Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -3233,7 +3233,7 @@
       "hypothesis": "/exam/pe-construction/guide/nanido-goukakuritsu は 12 語が11〜30位（最良 10.7 位・表示 33）。検索意図に合わせて title・description・冒頭の答え・見出し・内部リンクを直せば、同じ検索語の順位が上がる",
       "target_metric": "対象ページ × 起票時の検索語 12 語の GSC 平均順位（本番反映の前 28 日・後 28 日）",
       "target_delta": "平均順位が 10% 以上良くなる。前後どちらかの表示が 10 未満なら判定不能",
-      "status": "proposed",
+      "status": "running",
       "created_at": "2026-10-13",
       "searchStrategy": {
         "cluster": "qualification",
@@ -3353,7 +3353,8 @@
         "lagDays": 3,
         "direction": "decrease",
         "minEffect": 0.1,
-        "minVolume": 10
+        "minVolume": 10,
+        "anchor": "2026-10-13"
       },
       "history": [
         {
@@ -3366,13 +3367,26 @@
           "event": "implemented",
           "commit": "1d7867446a2d",
           "change": "seoTitle・description・冒頭で「技術士の難易度」に先に答えた（建設部門の筆記は受験者の1〜2割・令和7年度は約9.8%）"
+        },
+        {
+          "at": "2026-10-13T05:22:17.790Z",
+          "event": "deployed",
+          "commit": "1d7867446a2d",
+          "deploy": {
+            "id": 38350557430,
+            "sha": "bf8ddba48dee7cc3df5a3ff0bbabdb6eab75dd46",
+            "at": "2026-10-13T05:21:24Z",
+            "url": "https://github.com/uruhayato373/doboku-note/actions/runs/38350557430"
+          }
         }
       ],
       "implementation": {
         "commit": "1d7867446a2d",
         "at": "2026-10-13",
         "change": "seoTitle・description・冒頭で「技術士の難易度」に先に答えた（建設部門の筆記は受験者の1〜2割・令和7年度は約9.8%）"
-      }
+      },
+      "started_at": "2026-10-13",
+      "next_check_date": "2026-11-16"
     },
     {
       "id": "EXP-031",
@@ -3381,7 +3395,7 @@
       "hypothesis": "/exam/civil-construction-1/guide/hatchu-shien は 3 語が11〜30位（最良 18.5 位・表示 18）。検索意図に合わせて title・description・冒頭の答え・見出し・内部リンクを直せば、同じ検索語の順位が上がる",
       "target_metric": "対象ページ × 起票時の検索語 3 語の GSC 平均順位（本番反映の前 28 日・後 28 日）",
       "target_delta": "平均順位が 10% 以上良くなる。前後どちらかの表示が 10 未満なら判定不能",
-      "status": "proposed",
+      "status": "running",
       "created_at": "2026-10-13",
       "searchStrategy": {
         "cluster": "career",
@@ -3438,7 +3452,8 @@
         "lagDays": 3,
         "direction": "decrease",
         "minEffect": 0.1,
-        "minVolume": 10
+        "minVolume": 10,
+        "anchor": "2026-10-13"
       },
       "history": [
         {
@@ -3451,13 +3466,26 @@
           "event": "implemented",
           "commit": "368297d3dd84",
           "change": "seoTitle・description・冒頭で「施工管理から転職」に発注者支援で答え、転職の入口と 2 級のエージェント選びへの関連リンクを足した"
+        },
+        {
+          "at": "2026-10-13T05:22:17.790Z",
+          "event": "deployed",
+          "commit": "368297d3dd84",
+          "deploy": {
+            "id": 38350557430,
+            "sha": "bf8ddba48dee7cc3df5a3ff0bbabdb6eab75dd46",
+            "at": "2026-10-13T05:21:24Z",
+            "url": "https://github.com/uruhayato373/doboku-note/actions/runs/38350557430"
+          }
         }
       ],
       "implementation": {
         "commit": "368297d3dd84",
         "at": "2026-10-13",
         "change": "seoTitle・description・冒頭で「施工管理から転職」に発注者支援で答え、転職の入口と 2 級のエージェント選びへの関連リンクを足した"
-      }
+      },
+      "started_at": "2026-10-13",
+      "next_check_date": "2026-11-16"
     },
     {
       "id": "EXP-032",
@@ -3466,7 +3494,7 @@
       "hypothesis": "/exam/civil-construction-2/guide/career-agent-comparison は 5 語が11〜30位（最良 16 位・表示 13）。検索意図に合わせて title・description・冒頭の答え・見出し・内部リンクを直せば、同じ検索語の順位が上がる",
       "target_metric": "対象ページ × 起票時の検索語 5 語の GSC 平均順位（本番反映の前 28 日・後 28 日）",
       "target_delta": "平均順位が 10% 以上良くなる。前後どちらかの表示が 10 未満なら判定不能",
-      "status": "proposed",
+      "status": "running",
       "created_at": "2026-10-13",
       "searchStrategy": {
         "cluster": "career",
@@ -3537,7 +3565,8 @@
         "lagDays": 3,
         "direction": "decrease",
         "minEffect": 0.1,
-        "minVolume": 10
+        "minVolume": 10,
+        "anchor": "2026-10-13"
       },
       "history": [
         {
@@ -3550,13 +3579,26 @@
           "event": "implemented",
           "commit": "d945e6ed0e8b",
           "change": "seoTitle・description・冒頭で転職エージェントを選ぶ軸（求人の種類・建設業の知識・希望地域）を先に示した"
+        },
+        {
+          "at": "2026-10-13T05:22:17.790Z",
+          "event": "deployed",
+          "commit": "d945e6ed0e8b",
+          "deploy": {
+            "id": 38350557430,
+            "sha": "bf8ddba48dee7cc3df5a3ff0bbabdb6eab75dd46",
+            "at": "2026-10-13T05:21:24Z",
+            "url": "https://github.com/uruhayato373/doboku-note/actions/runs/38350557430"
+          }
         }
       ],
       "implementation": {
         "commit": "d945e6ed0e8b",
         "at": "2026-10-13",
         "change": "seoTitle・description・冒頭で転職エージェントを選ぶ軸（求人の種類・建設業の知識・希望地域）を先に示した"
-      }
+      },
+      "started_at": "2026-10-13",
+      "next_check_date": "2026-11-16"
     },
     {
       "id": "EXP-033",
@@ -3565,7 +3607,7 @@
       "hypothesis": "/exam/civil-construction-2/guide/textbooks は 3 語が11〜30位（最良 12 位・表示 10）。検索意図に合わせて title・description・冒頭の答え・見出し・内部リンクを直せば、同じ検索語の順位が上がる",
       "target_metric": "対象ページ × 起票時の検索語 3 語の GSC 平均順位（本番反映の前 28 日・後 28 日）",
       "target_delta": "平均順位が 10% 以上良くなる。前後どちらかの表示が 10 未満なら判定不能",
-      "status": "proposed",
+      "status": "running",
       "created_at": "2026-10-13",
       "searchStrategy": {
         "cluster": "qualification",
@@ -3622,7 +3664,8 @@
         "lagDays": 3,
         "direction": "decrease",
         "minEffect": 0.1,
-        "minVolume": 10
+        "minVolume": 10,
+        "anchor": "2026-10-13"
       },
       "history": [
         {
@@ -3635,13 +3678,26 @@
           "event": "implemented",
           "commit": "96ce8c6164bf",
           "change": "seoTitle・description・冒頭で第1次・第2次それぞれのテキストの選び方に先に答えた"
+        },
+        {
+          "at": "2026-10-13T05:22:17.790Z",
+          "event": "deployed",
+          "commit": "96ce8c6164bf",
+          "deploy": {
+            "id": 38350557430,
+            "sha": "bf8ddba48dee7cc3df5a3ff0bbabdb6eab75dd46",
+            "at": "2026-10-13T05:21:24Z",
+            "url": "https://github.com/uruhayato373/doboku-note/actions/runs/38350557430"
+          }
         }
       ],
       "implementation": {
         "commit": "96ce8c6164bf",
         "at": "2026-10-13",
         "change": "seoTitle・description・冒頭で第1次・第2次それぞれのテキストの選び方に先に答えた"
-      }
+      },
+      "started_at": "2026-10-13",
+      "next_check_date": "2026-11-16"
     },
     {
       "id": "EXP-034",
