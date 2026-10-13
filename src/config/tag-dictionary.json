@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-13T04:34:04.864Z",
+  "generated_at": "2026-10-13T06:55:15.060Z",
   "summary": {
-    "total_mdx_files": 1407,
+    "total_mdx_files": 1408,
     "total_unique_tags": 132,
     "allowlist_size": 330,
     "known_count": 132,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 231,
+      "count": 232,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1189,6 +1189,7 @@
         "civil-practice-checklist-shoring-buoyancy",
         "civil-practice-concrete-compaction-numbers",
         "civil-practice-concrete-crack-causes",
+        "civil-practice-concrete-durability-specification",
         "civil-practice-concrete-finishing-curing",
         "civil-practice-concrete-hydration-basics",
         "civil-practice-concrete-labor-saving-technology",
@@ -3246,7 +3247,7 @@
     },
     {
       "name": "コンクリート",
-      "count": 51,
+      "count": 52,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-concrete-key-points",
@@ -3262,6 +3263,7 @@
         "civil-construction-2-guide-concrete-key-points",
         "civil-practice-concrete-compaction-numbers",
         "civil-practice-concrete-crack-causes",
+        "civil-practice-concrete-durability-specification",
         "civil-practice-concrete-finishing-curing",
         "civil-practice-concrete-hydration-basics",
         "civil-practice-concrete-labor-saving-technology",
@@ -3304,7 +3306,7 @@
     },
     {
       "name": "品質管理",
-      "count": 48,
+      "count": 49,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-four-management",
@@ -3318,6 +3320,7 @@
         "civil-construction-2-guide-quality-management",
         "civil-practice-asphalt-materials-types",
         "civil-practice-board-of-audit-inspection",
+        "civil-practice-concrete-durability-specification",
         "civil-practice-concrete-hydration-basics",
         "civil-practice-concrete-structure-inspection",
         "civil-practice-concrete-work-preparation",
