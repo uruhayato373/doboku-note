@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "month": "2026-09",
-  "fetchedAt": "2026-10-11T01:35:18.216Z",
+  "fetchedAt": "2026-10-13T22:06:31.798Z",
   "source": "note ダッシュボード「アクセス状況」記事の流入元（Playwright read-only・自己閲覧を含む・doboku-note.com は 2026-09 まで rel=noreferrer で no referrer に含まれる）",
   "period": {
     "from": "2026-09-01",
@@ -215,19 +215,19 @@
     {
       "month": "2026-10",
       "sources": {
-        "no referrer": 4645,
-        "note.com": 580,
-        "Google": 238,
-        "www.bing.com": 257,
-        "search.yahoo.co.jp": 76,
-        "doboku-note.com": 55,
+        "no referrer": 7350,
+        "note.com": 672,
+        "Google": 288,
+        "www.bing.com": 309,
+        "search.yahoo.co.jp": 102,
+        "doboku-note.com": 67,
         "X": 0,
         "notification": 0,
         "copilot.microsoft.com": 1,
-        "service.smt.docomo.ne.jp": 1,
-        "other": 7
+        "service.smt.docomo.ne.jp": 4,
+        "other": 8
       },
-      "total": 5860
+      "total": 8801
     }
   ],
   "targetMonth": {
