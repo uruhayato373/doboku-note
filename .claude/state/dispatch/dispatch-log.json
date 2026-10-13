@@ -3719,6 +3719,36 @@
       "commit": "7800aa03cfd2",
       "verification": "npm run search-improvement -- status（EXP-034 が本番反映待ち／計測中）",
       "note": "改善は EXP-034 に record 済み（commit・日付・直した内容）。反映 28 日後の確認はカードで待たず、実験台帳の自動計測（CI の measure-experiments・ページ×直す前の検索語）と週次の判定（triage の判定待ち → close）へ移した（PR #1049・DN-0718 の続き）"
+    },
+    {
+      "id": "DN-0724",
+      "at": "2026-10-13",
+      "task": "コンクリートの実務シリーズ（concrete-practice）の残り 3 章と、カリキュラム・逆向きリンク・画像の切り出しを進める",
+      "tier": "mid",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "ea205ec90b5c",
+      "verification": "node scripts/check-content-series.mjs（concrete-practice 新規 10・公開 10）・check-category-curriculum ✓",
+      "note": "新規 10 章すべてコミット（C-00・C-09・C-32 は workflow series-chapter で 1 章約 36〜52 万トークン）。カリキュラムのコンクリートの区分に 10 本を登録してシリーズの読む順に並べ、既存 24 記事から逆向きリンク。手順 0 は PR #1052。画像（手順 3）は DN-0727 へ分けた"
+    },
+    {
+      "id": "DN-0723",
+      "at": "2026-10-13",
+      "task": "コンクリートの既存記事と計算ツールの数値を一次資料にそろえる（水和に必要な水・水セメント比・暑中の上限）",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "doc",
+        "ref": ".claude/knowledge/reference/concrete-practice-sources.md"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "ea205ec90b5c",
+      "verification": "grep で 25〜30%・65%以下・WC_GUIDE_MAX が対象 4 か所に残っていない",
+      "note": "記事 3 本（concrete-finishing-curing・reference-values・concrete-placement-timing）を develop で、計算ツール（WaterContentClient・page.tsx）を PR #1051 で一次資料（JCI 論文・共通仕様書 令和8年3月 1-3-3・1-3-9-2）にそろえた。主任技士の教科書は併記で数値の揺れを説明しているので据え置き"
     }
   ]
 }
