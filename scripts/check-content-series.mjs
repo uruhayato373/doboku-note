@@ -12,21 +12,23 @@
  *
  * 使い方: npm run check-content-series [-- --json | --visual-jobs]
  *   --visual-jobs  合格・配置済みでない図・写真の作業一覧を JSON で出す（Codex に渡す。写真は gen-article-photo のコマンド付き）
+ *   --crop-jobs [--series <id>]  シリーズの章に使う本の頁のうち、図の切り出しが終わっていない頁の一覧を JSON で出す（Codex に渡す）
  * exit: 0 合格 / 1 違反あり / 2 検査不成立（シリーズが 0 件）
  */
 import { parseCliArgs } from './lib/cli-args.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
-import { loadSeriesConfig, seriesContext, seriesView, validateSeries, loadBasis, validateBasis, basisDriveIssues, basisView, visualJobs } from './lib/content-series.mjs';
+import { loadSeriesConfig, seriesContext, seriesView, validateSeries, loadBasis, validateBasis, basisDriveIssues, basisView, visualJobs, chapterPages, cropSummary, cropJobs } from './lib/content-series.mjs';
 import { loadDriveConfig, resolveVaultRoot } from './lib/drive-vault.mjs';
 
 const NAME = 'check-content-series';
-const args = parseCliArgs({ json: { type: 'boolean' }, 'visual-jobs': { type: 'boolean' } });
+const args = parseCliArgs({ json: { type: 'boolean' }, 'visual-jobs': { type: 'boolean' }, 'crop-jobs': { type: 'boolean' }, series: { type: 'string' } });
 const config = loadSeriesConfig(REPO_ROOT);
 const ctx = seriesContext(REPO_ROOT);
 const basis = loadBasis(REPO_ROOT);
 const view = seriesView(config, ctx.stateOf);
 // --visual-jobs は一覧だけを出して終える（process.exit を直後に呼ぶとパイプで出力が切れるので、exitCode と分岐で終える）
 if (args.visualJobs) process.stdout.write(`${JSON.stringify(visualJobs(view, ctx), null, 2)}\n`);
+else if (args.cropJobs) process.stdout.write(`${JSON.stringify(cropJobs(basis, ctx, { series: args.series ?? null }), null, 2)}\n`);
 else report();
 
 function report() {
@@ -56,6 +58,12 @@ function report() {
     const units = books.reduce((n, [, t]) => n + t.units, 0);
     console.log(`[${NAME}] 書籍 ${books.length} 冊・${units} 項目の割り当てを実検査（${driveIssues === null ? 'Drive が無いので件数だけで照合' : 'Drive の候補表と id を照合'}）`);
     for (const [id, t] of books) console.log(`  ${id}: シリーズ ${t.series} / ほかの記事 ${t.article} / 使わない（理由つき） ${t.excluded}`);
+    const pages = [...chapterPages(basis, ctx).values()];
+    const uniq = new Map();
+    for (const info of pages) for (const p of info.pages) uniq.set(`${p.book}/${p.page}`, p);
+    const crop = cropSummary([...uniq.values()]);
+    const noPage = pages.reduce((n, i) => n + i.noPageUnits, 0);
+    console.log(`[${NAME}] 章と本の頁の結びつき: 頁 ${crop.pages}（切り出し待ち ${crop.pending}・図なし ${crop.notNeeded}・済み ${crop.done}・切り出した図 ${crop.crops}）/ 頁の取れない項目 ${noPage}（一覧は --crop-jobs）`);
     const jobs = visualJobs(view, ctx);
     console.log(`[${NAME}] 図・写真の計画 ${view.reduce((n, s) => n + s.sections.reduce((m, sec) => m + sec.items.reduce((k, i) => k + (i.visuals ?? []).length, 0), 0), 0)} 件 / 未完了 ${jobs.length} 件（一覧は --visual-jobs）`);
     for (const issue of issues) console.error(`  ✗ ${issue}`);

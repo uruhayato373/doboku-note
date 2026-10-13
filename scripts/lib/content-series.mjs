@@ -128,6 +128,15 @@ export function seriesContext(root) {
   const referenceClasses = new Map(referenceSources.map((s) => [s.id, s.class]));
   const bookSummary = readDatasetIf(root, 'state.book-coverage')?.books ?? {};
   const provenance = readDataset(root, 'config.figure-sources').provenance ?? {};
+  const manifests = new Map();
+  const bookManifest = (bookId) => {
+    if (!manifests.has(bookId)) {
+      const dir = referenceSources.find((s) => s.id === bookId)?.bookBundle?.directory;
+      const file = dir ? join(root, 'content', 'sources', 'books', dir, 'book-manifest.json') : null;
+      manifests.set(bookId, file && existsSync(file) ? JSON.parse(readFileSync(file, 'utf8')) : null);
+    }
+    return manifests.get(bookId);
+  };
   const aiFile = join(root, ...AI_LEDGER_FILE.split('/'));
   const aiLedger = existsSync(aiFile) ? JSON.parse(readFileSync(aiFile, 'utf8')) : null;
   const curriculum = JSON.parse(readFileSync(join(root, 'src', 'config', 'category-curriculum.json'), 'utf8'));
@@ -137,7 +146,7 @@ export function seriesContext(root) {
     if (!cache.has(path)) cache.set(path, articleStateFromFile(root, path));
     return cache.get(path);
   };
-  return { root, referenceSources, sourceIds, referenceClasses, bookSummary, provenance, aiLedger, curriculumCategories, stateOf };
+  return { root, referenceSources, sourceIds, referenceClasses, bookSummary, provenance, aiLedger, bookManifest, curriculumCategories, stateOf };
 }
 
 /**
@@ -192,6 +201,14 @@ export function validateBasis(basis, config, ctx) {
       if (typeof v === 'string') { if (!items.has(v)) issues.push(`${bookId}/${unit}: 割り当て先 ${v} がシリーズの台帳に無い`); }
       else if (v.article && !ctx.stateOf(v.article).exists) issues.push(`${bookId}/${unit}: 記事が無い: ${v.article}`);
     }
+    // 頁（図・写真を切り出す頁）: 項目は割り当てにあるもの、頁は書籍の台帳（book-manifest）にあるもの
+    const manifest = ctx.bookManifest?.(bookId);
+    const pageIds = manifest ? new Set(manifest.pages.map((p) => p.id)) : null;
+    for (const [unit, pages] of Object.entries(book.pages ?? {})) {
+      if (!(unit in (book.units ?? {}))) issues.push(`${bookId}/${unit}: 頁の欄にあるが割り当てに無い項目`);
+      if (pageIds) for (const p of pages) if (!pageIds.has(p)) issues.push(`${bookId}/${unit}: 頁 ${p} が書籍の台帳に無い`);
+    }
+    if (!manifest) issues.push(`${bookId}: 書籍の台帳（book-manifest.json）が無い`);
   }
   return issues;
 }
@@ -233,4 +250,69 @@ export function basisView(basis) {
     byBook[bookId] = t;
   }
   return { byItem, byBook };
+}
+
+/**
+ * 章（シリーズ id/項目 id）→ 本の頁と、その頁の図の切り出しの状態（book-manifest の pages[].cropStatus・crops）。
+ * 頁は割り当ての pages から。図は頁の上にあるので、章と図はこの頁でつながる（台帳に図の一覧を写さない）。
+ */
+export function chapterPages(basis, ctx) {
+  const out = new Map();
+  for (const [bookId, book] of Object.entries(basis.books ?? {})) {
+    const manifest = ctx.bookManifest?.(bookId);
+    const status = new Map((manifest?.pages ?? []).map((p) => [p.id, p.cropStatus]));
+    const crops = new Map();
+    for (const c of manifest?.crops ?? []) crops.set(c.pageId, (crops.get(c.pageId) ?? 0) + 1);
+    for (const [unit, v] of Object.entries(book.units ?? {})) {
+      if (typeof v !== 'string') continue;
+      const cur = out.get(v) ?? { pages: [], noPageUnits: 0 };
+      const pages = book.pages?.[unit] ?? [];
+      if (pages.length === 0) cur.noPageUnits += 1;
+      for (const page of pages) {
+        if (!cur.pages.some((x) => x.book === bookId && x.page === page)) cur.pages.push({ book: bookId, page, cropStatus: status.get(page) ?? null, crops: crops.get(page) ?? 0 });
+      }
+      out.set(v, cur);
+    }
+  }
+  return out;
+}
+
+/** 頁の切り出しの集計（切り出し待ち・図なし・済み・図の数）。 */
+export function cropSummary(pages) {
+  const t = { pages: pages.length, pending: 0, notNeeded: 0, done: 0, crops: 0 };
+  for (const p of pages) {
+    if (p.cropStatus === 'not-needed') t.notNeeded += 1;
+    else if (p.cropStatus === 'complete') t.done += 1;
+    else t.pending += 1;
+    t.crops += p.crops;
+  }
+  return t;
+}
+
+/**
+ * Codex に渡す切り出しの作業一覧: シリーズの章に使う頁のうち、切り出しが終わっていない頁（同じ頁は 1 回）。
+ * 頁の画像は Drive vault の <書籍>/pages/<頁>.jpg、切り出した図は <書籍>/crops/<頁>_<図の id>.png に置き、
+ * record-reference-book-artifacts で書籍の台帳へ登録する（図の無い頁は cropStatus を not-needed にする）。
+ */
+export function cropJobs(basis, ctx, { series = null } = {}) {
+  const seen = new Set();
+  const jobs = [];
+  const pagesByItem = chapterPages(basis, ctx);
+  for (const [item, info] of pagesByItem) {
+    if (series && !item.startsWith(`${series}/`)) continue;
+    for (const p of info.pages) {
+      const key = `${p.book}/${p.page}`;
+      if (seen.has(key) || p.cropStatus === 'complete' || p.cropStatus === 'not-needed') continue;
+      seen.add(key);
+      const src = ctx.referenceSources.find((r) => r.id === p.book);
+      const dir = src?.bookBundle?.directory;
+      jobs.push({
+        book: p.book, page: p.page, chapters: [...pagesByItem].filter(([, i]) => i.pages.some((x) => x.book === p.book && x.page === p.page)).map(([k]) => k),
+        pageImage: src?.origin?.vaultDir ? `${src.origin.vaultDir}/pages/${p.page}.jpg` : null,
+        cropPath: dir ? `content/sources/books/${dir}/crops/${p.page}_<図の id>.png` : null,
+        record: `npm run record-reference-book-artifacts -- --source-id ${p.book} --crop-path <cropPath> --crop-page ${p.page} --figure-id <図の id> --caption "<図の題>" --commit`,
+      });
+    }
+  }
+  return jobs;
 }

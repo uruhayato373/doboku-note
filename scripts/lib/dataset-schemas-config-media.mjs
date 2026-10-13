@@ -941,7 +941,17 @@ export const ConfigContentSeriesBasis = z
   .object({
     schemaVersion: schemaVersion1,
     description: doc(),
-    books: z.record(z.string().regex(/^[a-z0-9][a-z0-9-]*$/), z.object({ units: z.record(z.string().regex(/^u\d{4}$/), basisValue) }).strict()),
+    books: z.record(
+      z.string().regex(/^[a-z0-9][a-z0-9-]*$/),
+      z
+        .object({
+          units: z.record(z.string().regex(/^u\d{4}$/), basisValue),
+          pages: z
+            .record(z.string().regex(/^u\d{4}$/), z.array(z.string().regex(/^p\d{4}$/)))
+            .describe('項目 → 本の頁（book-manifest の pages の id）。図・写真はこの頁から切り出すので、章と図をつなぐ'),
+        })
+        .strict(),
+    ),
   })
   .strict()
   .meta({ title: '書籍の全項目の割り当て' });

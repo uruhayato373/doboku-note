@@ -5,7 +5,7 @@ import { PanelCard, StatusBadge, TableBody, TableCell, TableFrame, TableHead, Ta
 import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
 import { findRepoRoot } from '@/lib/repo-root';
-import { loadSeriesConfig, seriesContext, seriesView, validateSeries, loadBasis, validateBasis, basisView, visualState, PLAN_LABELS, STATE_LABELS, VISUAL_LABELS } from '../../../../../../scripts/lib/content-series.mjs';
+import { loadSeriesConfig, seriesContext, seriesView, validateSeries, loadBasis, validateBasis, basisView, visualState, chapterPages, cropSummary, PLAN_LABELS, STATE_LABELS, VISUAL_LABELS } from '../../../../../../scripts/lib/content-series.mjs';
 import { siteSlugOf } from '../../../../../../scripts/lib/content-expansion.mjs';
 import { publicPathFromSlug } from '../../../../../../scripts/lib/url-normalization.mjs';
 import { parseBacklog } from '../../../../../../scripts/lib/backlog-lib.mjs';
@@ -67,6 +67,7 @@ export default async function SeriesPage() {
   const issues = [...(validateSeries(config, ctx) as string[]), ...(validateBasis(basis, config, ctx) as string[])];
   const view = seriesView(config, ctx.stateOf) as unknown as Series[];
   const bv = basisView(basis) as { byItem: Map<string, Record<string, number>>; byBook: Record<string, { units: number; series: number; article: number; excluded: number }> };
+  const pagesByItem = chapterPages(basis, ctx) as Map<string, { pages: { book: string; page: string; cropStatus: string | null; crops: number }[]; noPageUnits: number }>;
   const shortTitle = new Map((ctx.referenceSources as { id: string; shortTitle?: string; title: string }[]).map((r) => [r.id, r.shortTitle ?? r.title]));
   const cards = cardsBySeries(view.map((s) => s.id));
 
@@ -138,6 +139,7 @@ export default async function SeriesPage() {
                     <TableHead>状態</TableHead>
                     <TableHead>記事</TableHead>
                     <TableHead>教材</TableHead>
+                    <TableHead>本の頁</TableHead>
                     <TableHead>図・写真</TableHead>
                     <TableHead>根拠</TableHead>
                   </TableRow>
@@ -145,7 +147,7 @@ export default async function SeriesPage() {
                 <TableBody>
                   {s.sections.flatMap((sec) => [
                     <TableRow key={`${s.id}:${sec.title}`}>
-                      <TableHead colSpan={8} scope="rowgroup">{sec.title}</TableHead>
+                      <TableHead colSpan={9} scope="rowgroup">{sec.title}</TableHead>
                     </TableRow>,
                     ...sec.items.map((it) => (
                       <TableRow key={`${s.id}:${it.id}`} className="align-top">
@@ -164,6 +166,14 @@ export default async function SeriesPage() {
                         </TableCell>
                         <TableCell className="text-xs whitespace-nowrap">
                           {Object.entries(bv.byItem.get(`${s.id}/${it.id}`) ?? {}).map(([b, n]) => <div key={b}>{shortTitle.get(b) ?? b} {n}</div>)}
+                        </TableCell>
+                        <TableCell className="text-xs whitespace-nowrap">
+                          {(() => {
+                            const info = pagesByItem.get(`${s.id}/${it.id}`);
+                            if (!info || info.pages.length === 0) return <span className="text-muted-foreground">—</span>;
+                            const t = cropSummary(info.pages) as { pages: number; pending: number; notNeeded: number; done: number; crops: number };
+                            return <span title="図・写真はこの頁から切り出す">{t.pages} 頁 · 切り出し待ち {t.pending} · 図 {t.crops}</span>;
+                          })()}
                         </TableCell>
                         <TableCell className="text-xs">
                           {(it.visuals ?? []).length === 0 ? <span className="text-muted-foreground">—</span> : (it.visuals ?? []).map((v) => {

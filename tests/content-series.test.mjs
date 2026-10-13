@@ -56,20 +56,21 @@ test('validateBasis: 書籍の項目数・割り当て先の項目と記事・�
   const ctx = {
     referenceClasses: new Map([['book', 'commercial-book'], ['law', 'external-primary']]),
     bookSummary: { book: { candidates: { textUnits: 3 } } },
+    bookManifest: (id) => (id === 'book' ? { pages: [{ id: 'p0001' }, { id: 'p0002' }] } : null),
     stateOf,
   };
-  const ok = { books: { book: { units: { u0001: 's/X-1', u0002: { article: A }, u0003: { excluded: '索引' } } } } };
+  const ok = { books: { book: { units: { u0001: 's/X-1', u0002: { article: A }, u0003: { excluded: '索引' } }, pages: { u0001: ['p0001'], u0002: ['p0002'], u0003: [] } } } };
   assert.deepEqual(validateBasis(ok, config, ctx), []);
   assert.deepEqual(basisView(ok).byBook.book, { units: 3, series: 1, article: 1, excluded: 1 });
   assert.deepEqual(basisView(ok).byItem.get('s/X-1'), { book: 1 });
 
   const bad = { books: {
-    book: { units: { u0001: 's/X-9', u0002: { article: 'content/site/civil-practice/gone/article.mdx' } } },
+    book: { units: { u0001: 's/X-9', u0002: { article: 'content/site/civil-practice/gone/article.mdx' } }, pages: { u0001: ['p0009'], u0099: [] } },
     law: { units: {} },
     nobook: { units: {} },
   } };
   const issues = validateBasis(bad, config, ctx).join('\n');
-  for (const re of [/割り当て 2 項目 ≠ 書籍の項目 3/, /s\/X-9 がシリーズの台帳に無い/, /記事が無い/, /law: 書籍/, /nobook: 参考文献の台帳に無い/]) assert.match(issues, re);
+  for (const re of [/割り当て 2 項目 ≠ 書籍の項目 3/, /s\/X-9 がシリーズの台帳に無い/, /記事が無い/, /law: 書籍/, /nobook: 参考文献の台帳に無い/, /頁 p0009 が書籍の台帳に無い/, /u0099: 頁の欄にあるが割り当てに無い/]) assert.match(issues, re);
 });
 
 test('visualState・visualJobs: 図と写真の状態は実体と台帳から出し、未完了だけを作業にする', async () => {
@@ -97,4 +98,22 @@ test('visualState・visualJobs: 図と写真の状態は実体と台帳から出
 test('実データ: 書籍の全項目の割り当ては違反 0（件数は書籍の網羅の要約と一致）', async () => {
   const { loadBasis, validateBasis } = await import('../scripts/lib/content-series.mjs');
   assert.deepEqual(validateBasis(loadBasis(REPO_ROOT), loadSeriesConfig(REPO_ROOT), seriesContext(REPO_ROOT)), []);
+});
+
+test('chapterPages・cropJobs: 章と本の頁をつなぎ、切り出しの終わっていない頁を 1 回ずつ作業にする', async () => {
+  const { chapterPages, cropSummary, cropJobs } = await import('../scripts/lib/content-series.mjs');
+  const manifest = { pages: [{ id: 'p0001', cropStatus: 'pending' }, { id: 'p0002', cropStatus: 'not-needed' }, { id: 'p0003', cropStatus: 'complete' }], crops: [{ pageId: 'p0003' }, { pageId: 'p0003' }] };
+  const ctx = { bookManifest: () => manifest, referenceSources: [{ id: 'bk', origin: { vaultDir: '原資料PDF/書籍/bk__x' }, bookBundle: { directory: 'bk__x' } }] };
+  const basis = { books: { bk: {
+    units: { u0001: 's/X-1', u0002: 's/X-1', u0003: 's/X-2', u0004: { excluded: '索引' }, u0005: 's/X-2' },
+    pages: { u0001: ['p0001', 'p0002'], u0002: ['p0002'], u0003: ['p0001', 'p0003'], u0004: ['p0003'], u0005: [] },
+  } } };
+  const cp = chapterPages(basis, ctx);
+  assert.deepEqual(cp.get('s/X-1').pages.map((p) => p.page), ['p0001', 'p0002']);
+  assert.equal(cp.get('s/X-2').noPageUnits, 1);
+  assert.deepEqual(cropSummary(cp.get('s/X-2').pages), { pages: 2, pending: 1, notNeeded: 0, done: 1, crops: 2 });
+  const jobs = cropJobs(basis, ctx);
+  assert.equal(jobs.length, 1, 'p0001 は 2 章で使うが作業は 1 回');
+  assert.deepEqual(jobs[0].chapters, ['s/X-1', 's/X-2']);
+  assert.equal(jobs[0].pageImage, '原資料PDF/書籍/bk__x/pages/p0001.jpg');
 });
