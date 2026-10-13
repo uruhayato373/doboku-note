@@ -39,7 +39,14 @@ export function isAncestor(root, ancestor, descendant) {
   } catch (e) {
     if (e.status === 1) return false; // 両方あって祖先でない
   }
-  const status = run(root, 'gh', ['api', `repos/{owner}/{repo}/compare/${ancestor}...${descendant}`, '--jq', '.status']).trim();
+  let status;
+  try {
+    status = run(root, 'gh', ['api', `repos/{owner}/{repo}/compare/${ancestor}...${descendant}`, '--jq', '.status']).trim();
+  } catch (e) {
+    // GitHub が知らない commit（push されていない・消えたブランチ）は本番に入りようがない。通信の失敗などは投げる
+    if (/HTTP 404/.test(String(e.stderr ?? ''))) return false;
+    throw e;
+  }
   return status === 'ahead' || status === 'identical';
 }
 
