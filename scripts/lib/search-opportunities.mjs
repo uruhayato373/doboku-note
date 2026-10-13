@@ -66,6 +66,14 @@ export function triageCandidate(p, { today, graceDays, redirectedAt = LEGACY_RED
 export const inTop = (position, striking) => position < striking.minPosition;
 /** 改善候補の帯（minPosition〜maxPosition） */
 export const inStriking = (position, striking) => position >= striking.minPosition && position <= striking.maxPosition;
+/**
+ * 候補にする帯の条件。表示の下限は計測の型（cycle.measure.minVolume）から引く（設定に別の数を持たない）。
+ * 直しても判定に足りない表示のページを「未着手」に積まないため（2026-10-13・候補 3 表示と判定 10 表示の食い違い）。
+ */
+export function candidateStriking(config) {
+  return { ...config.striking, minImpressions: config.cycle.measure.minVolume };
+}
+
 /** 帯の表示名（設定から作る。画面・CLI・カードに順位の数字を直書きしない） */
 export function bandLabels(striking) {
   const from = Math.ceil(striking.minPosition);
@@ -298,8 +306,9 @@ export function experimentRows(experiments, dispatchById, clusters) {
  */
 export function buildSearchOpportunities(root, { maxCandidates, asOf } = {}) {
   const config = readJson(root, CONFIG);
-  const limit = maxCandidates ?? config.striking.maxCandidatesPerCluster;
-  const bands = bandLabels(config.striking);
+  const striking = candidateStriking(config);
+  const limit = maxCandidates ?? striking.maxCandidatesPerCluster;
+  const bands = bandLabels(striking);
   const ledger = readDatasetIf(root, 'business.experiments') ?? { experiments: [] };
   const dispatchById = dispatchIndex((readDatasetIf(root, 'state.dispatch-log') ?? { entries: [] }).entries);
   const experiments = experimentRows(ledger.experiments, dispatchById, config.clusters);
@@ -313,9 +322,9 @@ export function buildSearchOpportunities(root, { maxCandidates, asOf } = {}) {
   const bing = latestBing(root);
   const days = windowDays(latest.data.meta);
   const all = config.clusters.map((c) => {
-    const now = summarizeCluster(c, latest.data.rows, config.striking, { byPage, dispatchById });
-    const b = bing ? summarizeBing(c, bing.rows, config.striking, days) : null;
-    const before = prev ? summarizeCluster(c, prev.data.rows, config.striking) : null;
+    const now = summarizeCluster(c, latest.data.rows, striking, { byPage, dispatchById });
+    const b = bing ? summarizeBing(c, bing.rows, striking, days) : null;
+    const before = prev ? summarizeCluster(c, prev.data.rows, striking) : null;
     return {
       ...now,
       allCandidates: now.candidates,
