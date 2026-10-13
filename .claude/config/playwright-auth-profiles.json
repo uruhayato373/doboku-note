@@ -354,10 +354,10 @@
       "accountConfigPath": "config/affiliate-asp.json",
       "sessionMode": "profile-plus-state",
       "interactiveLoginRequired": true,
-      "notes": "2026-10-01: CI 取得を新設（affiliate-status --asp moshimo --write・提携状況）。state は Mac の auth-session-refresh --export が渡す（DN-0483）。",
+      "notes": "2026-10-01: CI 取得を新設（affiliate-status --asp moshimo --write・提携状況）。state は Mac の auth-session-refresh --export が渡す（DN-0483）。2026-10-13: doboku-note はもしもの広告を置いていない（記事のリンク 0）ので CI 取得を止めた（運営者判断・DN-0643）。広告を置くときは ci.enabled を true に戻し、login-collectors.yml の cron と選択肢を戻す。",
       "ci": {
         "mode": "encrypted-state",
-        "enabled": true,
+        "enabled": false,
         "canary": false,
         "operations": [
           "read"
