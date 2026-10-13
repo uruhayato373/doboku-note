@@ -233,3 +233,12 @@ test('実データ: 骨子はすべて検査を通る', async () => {
   const ctx = seriesContext(REPO_ROOT);
   assert.deepEqual(outlineIssues(loadOutlines(REPO_ROOT, config), ctx), []);
 });
+
+test('outlineIssues: 骨子の法令の条が e-Gov の写しの本則に無ければ止める（第32条の2 は 32_2）', async () => {
+  const { parseOutline, outlineIssues } = await import('../scripts/lib/content-series.mjs');
+  const o = parseOutline(['---', 'series: s', 'item: X-1', 'status: draft', '---', '## 論点', '- 許可が要る', '  - 根拠: road-act#第32条の2 x', '- 無い条', '  - 根拠: road-act#第999条 x', '- 条なし', '  - 根拠: road-act 道路法'].join('\n'));
+  const ctx = { sourceIds: new Set(['road-act']), referenceClasses: new Map([['road-act', 'external-primary']]), egovArticles: () => new Set(['32', '32_2']) };
+  const issues = outlineIssues({ outlines: new Map([['s/X-1', { path: 'p', ...o }]]), stray: [] }, ctx);
+  assert.equal(issues.length, 1);
+  assert.match(issues[0], /road-act に第999条が無い/);
+});

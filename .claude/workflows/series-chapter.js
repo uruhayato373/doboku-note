@@ -21,7 +21,8 @@ const items = (args.items ?? []).map((it) => {
   return { ...it, key: `${m[1]}/${m[2]}`, slug: m[2], books: it.books ?? [] }
 })
 const DOC = `${M}/.claude/knowledge/reference/book-coverage-expansion.md`
-const FACTS = args.facts ?? `${M}/.claude/knowledge/reference/concrete-practice-sources.md`
+// シリーズの事実ファイルは .claude/knowledge/reference/<シリーズ id>-sources.md（args.facts で上書きできる）
+const FACTS_OF = (it) => args.facts ?? `${M}/.claude/knowledge/reference/${it.series}-sources.md`
 const DIR = `${M}/.tmp/book-coverage/series`
 const PACKET = (it) => `${DIR}/${it.slug}.packet.md`
 // brief: "outline" は台帳で管理する確認済みの骨子（content/sources/series/<シリーズ>/<項目>.md）をそのまま brief にする
@@ -106,12 +107,12 @@ const briefPrompt = (it) => `シリーズの章の brief を書く。手順と b
 const writePrompt = (it) => `シリーズの章（${it.series}/${it.item}）の新しい記事を 1 本書く。手順は ${DOC} の §1（Writer・新しい記事）と §4「執筆」を最初に読み、その通りにする。
 ${common(it)}
 - brief: ${BRIEF(it)}（論点だけ。本の文字起こし（ocr/）と ${PACKET(it)} は読まない）${it.brief === 'outline' ? '。骨子の論点ごとの「根拠:」がこの章の出典で、法令の条は e-Gov の条へリンクする。「本:」は補助の項目 id で、本は読まない' : ''}
-- 事実: まず ${FACTS} を読み、そこにある値はそのまま使う（出典もそこから）。無い値だけ WebSearch / WebFetch で確かめ、factsVerified に書く。
+- 事実: まず ${FACTS_OF(it)} を読み、そこにある値はそのまま使う（出典もそこから）。無い値だけ WebSearch / WebFetch で確かめ、factsVerified に書く。
 - 書籍 id（frontmatter の sources に入れる）: ${it.books.length ? it.books.join(', ') : 'なし'}
 最後に §1 の完了条件（新しい記事の分も）を回し、通してから返答する。返答は構造化出力だけ。`
 
 const qaPrompt = (it, w) => `${DOC} の §4「軽い QA」で、新しい記事 ${M}/${it.article} を確かめる。編集はしない。${noGit}
-- brief: ${BRIEF(it)}／事実ファイル: ${FACTS}（ここにある値は照合済み）／執筆担当が新しく確かめた値: ${JSON.stringify(w.factsVerified)}
+- brief: ${BRIEF(it)}／事実ファイル: ${FACTS_OF(it)}（ここにある値は照合済み）／執筆担当が新しく確かめた値: ${JSON.stringify(w.factsVerified)}
 - 本との比較: ${it.brief === 'outline' ? '骨子の「本:」に挙げた項目' : `${PACKET(it)} の本の項目`}の見出しの並びと記事の H2・H3 を比べ、似ている節だけ、その項目の文字起こしを開いて読み比べる（本の項目が無ければ飛ばす）
 - 40 字一致: \`node ${M}/scripts/check-reference-sources.mjs --deep 2>&1 | grep ${it.slug}\`
 - 要確認: ${JSON.stringify(w.needsCheck)}
