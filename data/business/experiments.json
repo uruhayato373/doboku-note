@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-13T01:50:01.445Z",
+  "updated_at": "2026-10-13T03:11:39.217Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -2460,7 +2460,7 @@
       "hypothesis": "/standards/okinawa は 2 語が11〜30位（最良 10.7 位・表示 16）。検索意図に合わせて title・description・冒頭の答え・見出し・内部リンクを直せば、同じ検索語の順位が上がる",
       "target_metric": "対象ページ × 起票時の検索語 2 語の GSC 平均順位（本番反映の前 28 日・後 28 日）",
       "target_delta": "平均順位が 10% 以上良くなる。前後どちらかの表示が 10 未満なら判定不能",
-      "status": "proposed",
+      "status": "running",
       "created_at": "2026-10-13",
       "searchStrategy": {
         "cluster": "standards",
@@ -2509,15 +2509,40 @@
         "lagDays": 3,
         "direction": "decrease",
         "minEffect": 0.1,
-        "minVolume": 10
+        "minVolume": 10,
+        "anchor": "2026-09-27"
       },
       "history": [
         {
           "at": "2026-10-13T01:49:32.569Z",
           "event": "linked",
           "card": "DN-0383"
+        },
+        {
+          "at": "2026-10-13T03:09:04.983Z",
+          "event": "implemented",
+          "commit": "208270c14e72",
+          "change": "地域別共通仕様書ページの title・description・H1 に発行元の正式名と「土木工事共通仕様書」・版を入れた（全地域の共通テンプレート）"
+        },
+        {
+          "at": "2026-10-13T03:11:39.217Z",
+          "event": "deployed",
+          "commit": "208270c14e72",
+          "deploy": {
+            "id": 36315053964,
+            "sha": "69e8a7add932060f430a51ebd11e97f5bfeafe8e",
+            "at": "2026-09-27T11:18:10Z",
+            "url": "https://github.com/uruhayato373/doboku-note/actions/runs/36315053964"
+          }
         }
-      ]
+      ],
+      "implementation": {
+        "commit": "208270c14e72",
+        "at": "2026-09-27",
+        "change": "地域別共通仕様書ページの title・description・H1 に発行元の正式名と「土木工事共通仕様書」・版を入れた（全地域の共通テンプレート）"
+      },
+      "started_at": "2026-09-27",
+      "next_check_date": "2026-10-31"
     },
     {
       "id": "EXP-023",
@@ -2526,7 +2551,7 @@
       "hypothesis": "/standards/chugoku/local は 2 語が11〜30位（最良 10.6 位・表示 14）。検索意図に合わせて title・description・冒頭の答え・見出し・内部リンクを直せば、同じ検索語の順位が上がる",
       "target_metric": "対象ページ × 起票時の検索語 2 語の GSC 平均順位（本番反映の前 28 日・後 28 日）",
       "target_delta": "平均順位が 10% 以上良くなる。前後どちらかの表示が 10 未満なら判定不能",
-      "status": "proposed",
+      "status": "running",
       "created_at": "2026-10-13",
       "searchStrategy": {
         "cluster": "standards",
@@ -2575,15 +2600,40 @@
         "lagDays": 3,
         "direction": "decrease",
         "minEffect": 0.1,
-        "minVolume": 10
+        "minVolume": 10,
+        "anchor": "2026-09-27"
       },
       "history": [
         {
           "at": "2026-10-13T01:49:35.965Z",
           "event": "linked",
           "card": "DN-0383"
+        },
+        {
+          "at": "2026-10-13T03:09:13.692Z",
+          "event": "implemented",
+          "commit": "208270c14e72",
+          "change": "地域別共通仕様書ページの title・description・H1 に発行元の正式名と「土木工事共通仕様書」・版を入れた（全地域の共通テンプレート）"
+        },
+        {
+          "at": "2026-10-13T03:11:39.217Z",
+          "event": "deployed",
+          "commit": "208270c14e72",
+          "deploy": {
+            "id": 36315053964,
+            "sha": "69e8a7add932060f430a51ebd11e97f5bfeafe8e",
+            "at": "2026-09-27T11:18:10Z",
+            "url": "https://github.com/uruhayato373/doboku-note/actions/runs/36315053964"
+          }
         }
-      ]
+      ],
+      "implementation": {
+        "commit": "208270c14e72",
+        "at": "2026-09-27",
+        "change": "地域別共通仕様書ページの title・description・H1 に発行元の正式名と「土木工事共通仕様書」・版を入れた（全地域の共通テンプレート）"
+      },
+      "started_at": "2026-09-27",
+      "next_check_date": "2026-10-31"
     },
     {
       "id": "EXP-024",
@@ -2592,7 +2642,7 @@
       "hypothesis": "/standards/hokuriku は 2 語が11〜30位（最良 12 位・表示 5）。検索意図に合わせて title・description・冒頭の答え・見出し・内部リンクを直せば、同じ検索語の順位が上がる",
       "target_metric": "対象ページ × 起票時の検索語 2 語の GSC 平均順位（本番反映の前 28 日・後 28 日）",
       "target_delta": "平均順位が 10% 以上良くなる。前後どちらかの表示が 10 未満なら判定不能",
-      "status": "proposed",
+      "status": "running",
       "created_at": "2026-10-13",
       "searchStrategy": {
         "cluster": "standards",
@@ -2641,15 +2691,40 @@
         "lagDays": 3,
         "direction": "decrease",
         "minEffect": 0.1,
-        "minVolume": 10
+        "minVolume": 10,
+        "anchor": "2026-09-27"
       },
       "history": [
         {
           "at": "2026-10-13T01:49:38.128Z",
           "event": "linked",
           "card": "DN-0383"
+        },
+        {
+          "at": "2026-10-13T03:09:22.526Z",
+          "event": "implemented",
+          "commit": "208270c14e72",
+          "change": "地域別共通仕様書ページの title・description・H1 に発行元の正式名と「土木工事共通仕様書」・版を入れた（全地域の共通テンプレート）"
+        },
+        {
+          "at": "2026-10-13T03:11:39.217Z",
+          "event": "deployed",
+          "commit": "208270c14e72",
+          "deploy": {
+            "id": 36315053964,
+            "sha": "69e8a7add932060f430a51ebd11e97f5bfeafe8e",
+            "at": "2026-09-27T11:18:10Z",
+            "url": "https://github.com/uruhayato373/doboku-note/actions/runs/36315053964"
+          }
         }
-      ]
+      ],
+      "implementation": {
+        "commit": "208270c14e72",
+        "at": "2026-09-27",
+        "change": "地域別共通仕様書ページの title・description・H1 に発行元の正式名と「土木工事共通仕様書」・版を入れた（全地域の共通テンプレート）"
+      },
+      "started_at": "2026-09-27",
+      "next_check_date": "2026-10-31"
     },
     {
       "id": "EXP-025",
@@ -2658,7 +2733,7 @@
       "hypothesis": "/standards/hokkaido は 6 語が11〜30位（最良 11 位・表示 7）。検索意図に合わせて title・description・冒頭の答え・見出し・内部リンクを直せば、同じ検索語の順位が上がる",
       "target_metric": "対象ページ × 起票時の検索語 6 語の GSC 平均順位（本番反映の前 28 日・後 28 日）",
       "target_delta": "平均順位が 10% 以上良くなる。前後どちらかの表示が 10 未満なら判定不能",
-      "status": "proposed",
+      "status": "running",
       "created_at": "2026-10-13",
       "searchStrategy": {
         "cluster": "standards",
@@ -2735,15 +2810,40 @@
         "lagDays": 3,
         "direction": "decrease",
         "minEffect": 0.1,
-        "minVolume": 10
+        "minVolume": 10,
+        "anchor": "2026-09-27"
       },
       "history": [
         {
           "at": "2026-10-13T01:49:40.283Z",
           "event": "linked",
           "card": "DN-0383"
+        },
+        {
+          "at": "2026-10-13T03:09:31.852Z",
+          "event": "implemented",
+          "commit": "208270c14e72",
+          "change": "地域別共通仕様書ページの title・description・H1 に発行元の正式名と「土木工事共通仕様書」・版を入れた（全地域の共通テンプレート）"
+        },
+        {
+          "at": "2026-10-13T03:11:39.217Z",
+          "event": "deployed",
+          "commit": "208270c14e72",
+          "deploy": {
+            "id": 36315053964,
+            "sha": "69e8a7add932060f430a51ebd11e97f5bfeafe8e",
+            "at": "2026-09-27T11:18:10Z",
+            "url": "https://github.com/uruhayato373/doboku-note/actions/runs/36315053964"
+          }
         }
-      ]
+      ],
+      "implementation": {
+        "commit": "208270c14e72",
+        "at": "2026-09-27",
+        "change": "地域別共通仕様書ページの title・description・H1 に発行元の正式名と「土木工事共通仕様書」・版を入れた（全地域の共通テンプレート）"
+      },
+      "started_at": "2026-09-27",
+      "next_check_date": "2026-10-31"
     },
     {
       "id": "EXP-026",
@@ -2752,7 +2852,7 @@
       "hypothesis": "/standards/kinki は 2 語が11〜30位（最良 10.5 位・表示 3）。検索意図に合わせて title・description・冒頭の答え・見出し・内部リンクを直せば、同じ検索語の順位が上がる",
       "target_metric": "対象ページ × 起票時の検索語 2 語の GSC 平均順位（本番反映の前 28 日・後 28 日）",
       "target_delta": "平均順位が 10% 以上良くなる。前後どちらかの表示が 10 未満なら判定不能",
-      "status": "proposed",
+      "status": "running",
       "created_at": "2026-10-13",
       "searchStrategy": {
         "cluster": "standards",
@@ -2801,15 +2901,40 @@
         "lagDays": 3,
         "direction": "decrease",
         "minEffect": 0.1,
-        "minVolume": 10
+        "minVolume": 10,
+        "anchor": "2026-09-27"
       },
       "history": [
         {
           "at": "2026-10-13T01:49:42.575Z",
           "event": "linked",
           "card": "DN-0383"
+        },
+        {
+          "at": "2026-10-13T03:09:40.774Z",
+          "event": "implemented",
+          "commit": "208270c14e72",
+          "change": "地域別共通仕様書ページの title・description・H1 に発行元の正式名と「土木工事共通仕様書」・版を入れた（全地域の共通テンプレート）"
+        },
+        {
+          "at": "2026-10-13T03:11:39.217Z",
+          "event": "deployed",
+          "commit": "208270c14e72",
+          "deploy": {
+            "id": 36315053964,
+            "sha": "69e8a7add932060f430a51ebd11e97f5bfeafe8e",
+            "at": "2026-09-27T11:18:10Z",
+            "url": "https://github.com/uruhayato373/doboku-note/actions/runs/36315053964"
+          }
         }
-      ]
+      ],
+      "implementation": {
+        "commit": "208270c14e72",
+        "at": "2026-09-27",
+        "change": "地域別共通仕様書ページの title・description・H1 に発行元の正式名と「土木工事共通仕様書」・版を入れた（全地域の共通テンプレート）"
+      },
+      "started_at": "2026-09-27",
+      "next_check_date": "2026-10-31"
     },
     {
       "id": "EXP-027",
@@ -2818,7 +2943,7 @@
       "hypothesis": "/exam/pe-comprehensive-management/keywords/cpd は 2 語が11〜30位（最良 18.6 位・表示 29）。検索意図に合わせて title・description・冒頭の答え・見出し・内部リンクを直せば、同じ検索語の順位が上がる",
       "target_metric": "対象ページ × 起票時の検索語 2 語の GSC 平均順位（本番反映の前 28 日・後 28 日）",
       "target_delta": "平均順位が 10% 以上良くなる。前後どちらかの表示が 10 未満なら判定不能",
-      "status": "proposed",
+      "status": "running",
       "created_at": "2026-10-13",
       "searchStrategy": {
         "cluster": "qualification",
@@ -2868,15 +2993,40 @@
         "lagDays": 3,
         "direction": "decrease",
         "minEffect": 0.1,
-        "minVolume": 10
+        "minVolume": 10,
+        "anchor": "2026-09-27"
       },
       "history": [
         {
           "at": "2026-10-13T01:49:45.089Z",
           "event": "linked",
           "card": "DN-0384"
+        },
+        {
+          "at": "2026-10-13T03:11:09.937Z",
+          "event": "implemented",
+          "commit": "c4fbbb79aec2",
+          "change": "seoTitle・description に「義務化」「ガイドライン」を入れ、冒頭で努力義務（技術士法第47条の2）と CPD 時間に答え、総監・建設部門のガイドから内部リンクを足した"
+        },
+        {
+          "at": "2026-10-13T03:11:39.217Z",
+          "event": "deployed",
+          "commit": "c4fbbb79aec2",
+          "deploy": {
+            "id": 36315053964,
+            "sha": "69e8a7add932060f430a51ebd11e97f5bfeafe8e",
+            "at": "2026-09-27T11:18:10Z",
+            "url": "https://github.com/uruhayato373/doboku-note/actions/runs/36315053964"
+          }
         }
-      ]
+      ],
+      "implementation": {
+        "commit": "c4fbbb79aec2",
+        "at": "2026-09-27",
+        "change": "seoTitle・description に「義務化」「ガイドライン」を入れ、冒頭で努力義務（技術士法第47条の2）と CPD 時間に答え、総監・建設部門のガイドから内部リンクを足した"
+      },
+      "started_at": "2026-09-27",
+      "next_check_date": "2026-10-31"
     },
     {
       "id": "EXP-028",
@@ -2885,7 +3035,7 @@
       "hypothesis": "/exam/civil-construction-1/secondary/r06 は 1 語が11〜30位（最良 16.2 位・表示 12）。検索意図に合わせて title・description・冒頭の答え・見出し・内部リンクを直せば、同じ検索語の順位が上がる",
       "target_metric": "対象ページ × 起票時の検索語 1 語の GSC 平均順位（本番反映の前 28 日・後 28 日）",
       "target_delta": "平均順位が 10% 以上良くなる。前後どちらかの表示が 10 未満なら判定不能",
-      "status": "proposed",
+      "status": "running",
       "created_at": "2026-10-13",
       "searchStrategy": {
         "cluster": "qualification",
@@ -2928,15 +3078,40 @@
         "lagDays": 3,
         "direction": "decrease",
         "minEffect": 0.1,
-        "minVolume": 10
+        "minVolume": 10,
+        "anchor": "2026-09-27"
       },
       "history": [
         {
           "at": "2026-10-13T01:49:47.501Z",
           "event": "linked",
           "card": "DN-0385"
+        },
+        {
+          "at": "2026-10-13T03:10:07.681Z",
+          "event": "implemented",
+          "commit": "2987ed7a137f",
+          "change": "title・seoTitle・description・冒頭に「令和6年度 2次試験（第二次検定）解答例」を入れ、r07 へのリンクを足した"
+        },
+        {
+          "at": "2026-10-13T03:11:39.217Z",
+          "event": "deployed",
+          "commit": "2987ed7a137f",
+          "deploy": {
+            "id": 36315053964,
+            "sha": "69e8a7add932060f430a51ebd11e97f5bfeafe8e",
+            "at": "2026-09-27T11:18:10Z",
+            "url": "https://github.com/uruhayato373/doboku-note/actions/runs/36315053964"
+          }
         }
-      ]
+      ],
+      "implementation": {
+        "commit": "2987ed7a137f",
+        "at": "2026-09-27",
+        "change": "title・seoTitle・description・冒頭に「令和6年度 2次試験（第二次検定）解答例」を入れ、r07 へのリンクを足した"
+      },
+      "started_at": "2026-09-27",
+      "next_check_date": "2026-10-31"
     },
     {
       "id": "EXP-029",
@@ -2945,7 +3120,7 @@
       "hypothesis": "/exam/pe-comprehensive-management/guide/public-engineer-qualification-map は 5 語が11〜30位（最良 11 位・表示 11）。検索意図に合わせて title・description・冒頭の答え・見出し・内部リンクを直せば、同じ検索語の順位が上がる",
       "target_metric": "対象ページ × 起票時の検索語 5 語の GSC 平均順位（本番反映の前 28 日・後 28 日）",
       "target_delta": "平均順位が 10% 以上良くなる。前後どちらかの表示が 10 未満なら判定不能",
-      "status": "proposed",
+      "status": "running",
       "created_at": "2026-10-13",
       "searchStrategy": {
         "cluster": "public-servant",
@@ -3016,15 +3191,40 @@
         "lagDays": 3,
         "direction": "decrease",
         "minEffect": 0.1,
-        "minVolume": 10
+        "minVolume": 10,
+        "anchor": "2026-09-27"
       },
       "history": [
         {
           "at": "2026-10-13T01:49:50.077Z",
           "event": "linked",
           "card": "DN-0386"
+        },
+        {
+          "at": "2026-10-13T03:10:16.761Z",
+          "event": "implemented",
+          "commit": "f1192cc75516",
+          "change": "公務員の実務経験が 1級土木・RCCM の受験資格にどう扱われるかの比較表を足した（題名・冒頭は既に検索語に答えていた）"
+        },
+        {
+          "at": "2026-10-13T03:11:39.217Z",
+          "event": "deployed",
+          "commit": "f1192cc75516",
+          "deploy": {
+            "id": 36315053964,
+            "sha": "69e8a7add932060f430a51ebd11e97f5bfeafe8e",
+            "at": "2026-09-27T11:18:10Z",
+            "url": "https://github.com/uruhayato373/doboku-note/actions/runs/36315053964"
+          }
         }
-      ]
+      ],
+      "implementation": {
+        "commit": "f1192cc75516",
+        "at": "2026-09-27",
+        "change": "公務員の実務経験が 1級土木・RCCM の受験資格にどう扱われるかの比較表を足した（題名・冒頭は既に検索語に答えていた）"
+      },
+      "started_at": "2026-09-27",
+      "next_check_date": "2026-10-31"
     },
     {
       "id": "EXP-030",
@@ -3160,8 +3360,19 @@
           "at": "2026-10-13T01:49:52.212Z",
           "event": "linked",
           "card": "DN-0645"
+        },
+        {
+          "at": "2026-10-13T03:10:25.198Z",
+          "event": "implemented",
+          "commit": "1d7867446a2d",
+          "change": "seoTitle・description・冒頭で「技術士の難易度」に先に答えた（建設部門の筆記は受験者の1〜2割・令和7年度は約9.8%）"
         }
-      ]
+      ],
+      "implementation": {
+        "commit": "1d7867446a2d",
+        "at": "2026-10-13",
+        "change": "seoTitle・description・冒頭で「技術士の難易度」に先に答えた（建設部門の筆記は受験者の1〜2割・令和7年度は約9.8%）"
+      }
     },
     {
       "id": "EXP-031",
@@ -3234,8 +3445,19 @@
           "at": "2026-10-13T01:49:54.286Z",
           "event": "linked",
           "card": "DN-0646"
+        },
+        {
+          "at": "2026-10-13T03:10:33.699Z",
+          "event": "implemented",
+          "commit": "368297d3dd84",
+          "change": "seoTitle・description・冒頭で「施工管理から転職」に発注者支援で答え、転職の入口と 2 級のエージェント選びへの関連リンクを足した"
         }
-      ]
+      ],
+      "implementation": {
+        "commit": "368297d3dd84",
+        "at": "2026-10-13",
+        "change": "seoTitle・description・冒頭で「施工管理から転職」に発注者支援で答え、転職の入口と 2 級のエージェント選びへの関連リンクを足した"
+      }
     },
     {
       "id": "EXP-032",
@@ -3322,8 +3544,19 @@
           "at": "2026-10-13T01:49:56.690Z",
           "event": "linked",
           "card": "DN-0648"
+        },
+        {
+          "at": "2026-10-13T03:10:41.849Z",
+          "event": "implemented",
+          "commit": "d945e6ed0e8b",
+          "change": "seoTitle・description・冒頭で転職エージェントを選ぶ軸（求人の種類・建設業の知識・希望地域）を先に示した"
         }
-      ]
+      ],
+      "implementation": {
+        "commit": "d945e6ed0e8b",
+        "at": "2026-10-13",
+        "change": "seoTitle・description・冒頭で転職エージェントを選ぶ軸（求人の種類・建設業の知識・希望地域）を先に示した"
+      }
     },
     {
       "id": "EXP-033",
@@ -3396,8 +3629,19 @@
           "at": "2026-10-13T01:49:58.860Z",
           "event": "linked",
           "card": "DN-0652"
+        },
+        {
+          "at": "2026-10-13T03:10:51.095Z",
+          "event": "implemented",
+          "commit": "96ce8c6164bf",
+          "change": "seoTitle・description・冒頭で第1次・第2次それぞれのテキストの選び方に先に答えた"
         }
-      ]
+      ],
+      "implementation": {
+        "commit": "96ce8c6164bf",
+        "at": "2026-10-13",
+        "change": "seoTitle・description・冒頭で第1次・第2次それぞれのテキストの選び方に先に答えた"
+      }
     },
     {
       "id": "EXP-034",
@@ -3406,7 +3650,7 @@
       "hypothesis": "/standards/tohoku は 3 語が11〜30位（最良 11 位・表示 7）。検索意図に合わせて title・description・冒頭の答え・見出し・内部リンクを直せば、同じ検索語の順位が上がる",
       "target_metric": "対象ページ × 起票時の検索語 3 語の GSC 平均順位（本番反映の前 28 日・後 28 日）",
       "target_delta": "平均順位が 10% 以上良くなる。前後どちらかの表示が 10 未満なら判定不能",
-      "status": "proposed",
+      "status": "running",
       "created_at": "2026-10-13",
       "searchStrategy": {
         "cluster": "standards",
@@ -3462,15 +3706,40 @@
         "lagDays": 3,
         "direction": "decrease",
         "minEffect": 0.1,
-        "minVolume": 10
+        "minVolume": 10,
+        "anchor": "2026-09-27"
       },
       "history": [
         {
           "at": "2026-10-13T01:50:01.439Z",
           "event": "linked",
           "card": "DN-0653"
+        },
+        {
+          "at": "2026-10-13T03:09:49.675Z",
+          "event": "implemented",
+          "commit": "208270c14e72",
+          "change": "地域別共通仕様書ページの title・description・H1 に発行元の正式名と「土木工事共通仕様書」・版を入れた（全地域の共通テンプレート）"
+        },
+        {
+          "at": "2026-10-13T03:11:39.217Z",
+          "event": "deployed",
+          "commit": "208270c14e72",
+          "deploy": {
+            "id": 36315053964,
+            "sha": "69e8a7add932060f430a51ebd11e97f5bfeafe8e",
+            "at": "2026-09-27T11:18:10Z",
+            "url": "https://github.com/uruhayato373/doboku-note/actions/runs/36315053964"
+          }
         }
-      ]
+      ],
+      "implementation": {
+        "commit": "208270c14e72",
+        "at": "2026-09-27",
+        "change": "地域別共通仕様書ページの title・description・H1 に発行元の正式名と「土木工事共通仕様書」・版を入れた（全地域の共通テンプレート）"
+      },
+      "started_at": "2026-09-27",
+      "next_check_date": "2026-10-31"
     }
   ]
 }
