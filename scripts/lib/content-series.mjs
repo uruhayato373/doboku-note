@@ -201,12 +201,18 @@ export function seriesContext(root) {
     walk(curriculum[category]);
     return { all, block };
   };
+  // 骨子の「根拠: <法令 id>#第N条」の条が e-Gov の写し（config.egov-laws）にあるか（法令 id → 本則の条の番号）
+  const egovLaws = readDatasetIf(root, 'config.egov-laws')?.laws ?? null;
+  const egovArticles = (sourceId) => {
+    const lawId = referenceSources.find((s) => s.id === sourceId)?.egov?.lawId;
+    return lawId && egovLaws?.[lawId] ? new Set(egovLaws[lawId].articles) : null;
+  };
   const cache = new Map();
   const stateOf = (path) => {
     if (!cache.has(path)) cache.set(path, articleStateFromFile(root, path));
     return cache.get(path);
   };
-  return { root, referenceSources, sourceIds, referenceClasses, bookSummary, provenance, aiLedger, bookManifest, curriculumCategories, curriculumOf, stateOf };
+  return { root, referenceSources, sourceIds, referenceClasses, bookSummary, provenance, aiLedger, bookManifest, curriculumCategories, curriculumOf, egovArticles, stateOf };
 }
 
 /**
@@ -607,6 +613,12 @@ export function outlineIssues({ outlines, stray }, ctx) {
       for (const r of p.refs) {
         if (r.kind === 'invalid') issues.push(`${where}: 根拠の形が読めない: ${r.value}`);
         else if (r.kind === 'id' && !ctx.sourceIds.has(r.id)) issues.push(`${where}: 根拠の id が参考文献の台帳に無い: ${r.id}`);
+        else if (r.kind === 'id') {
+          // 条は e-Gov の写しの本則の条と照合する（第32条の2 → 32_2。写しの無い法令・条を書かない根拠は照合しない）
+          const m = /^#第(\d+)条((?:の\d+)*)/.exec(r.detail ?? '');
+          const articles = m ? ctx.egovArticles?.(r.id) : null;
+          if (m && articles && !articles.has([m[1], ...m[2].split('の').filter(Boolean)].join('_'))) issues.push(`${where}: ${r.id} に${r.detail.slice(1).match(/^第[\d]+条(?:の\d+)*/)[0]}が無い（e-Gov の写し）`);
+        }
         else if (r.kind === 'book') {
           if (!ctx.referenceClasses.has(r.book)) issues.push(`${where}: 本の id が参考文献の台帳に無い: ${r.book}`);
           else {

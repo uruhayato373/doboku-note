@@ -122,9 +122,9 @@ Writer は写真を作らない。返答に「写真を入れたい位置（直�
 2. `node scripts/check-content-series.mjs --packet <シリーズ id>/<項目 id> --article <記事のパス>` で章の資料（packet）を `.tmp/book-coverage/series/<slug>.packet.md` に作る（割り当てた本の項目の一覧。Drive が要る）。
 3. brief の作り手を決める。章の骨子（下の「章の骨子」）が確認済みなら、それを brief にする（`brief: "outline"`）。骨子の無い章で、本の項目が 3 件以上なら担当（workflow の Brief 段）、0〜2 件の章とハブの章は親が既存記事と一次資料から下の形で `.tmp/book-coverage/series/<slug>.brief.md` を書く（本を読ませる担当を起こすより安い）。
 4. Workflow `series-chapter`（`.claude/workflows/series-chapter.js`）を args `{ root, items }` で回す。item は `{ series, item, article, books, brief: "agent" | "parent" | "outline", dn? }`（`books` はコミットの trailer に書く書籍 id。本の項目が 0 件なら `[]`）。同時 3 体。
-5. 終わったら、返答の `factsVerified` を [concrete-practice-sources.md](./concrete-practice-sources.md)（シリーズの事実ファイル）へ、`inboundLinks` を既存記事へ、`curriculumHint` を `src/config/category-curriculum.json` へ、`visuals` を台帳の項目へ入れる。
+5. 終わったら、返答の `factsVerified` をシリーズの事実ファイル（例 [concrete-practice-sources.md](./concrete-practice-sources.md)・[municipal-civil-engineer-sources.md](./municipal-civil-engineer-sources.md)）へ、`inboundLinks` を既存記事へ、`curriculumHint` を `src/config/category-curriculum.json` へ、`visuals` を台帳の項目へ入れる。
 
-シリーズの事実ファイルは、執筆担当がまず読み、そこに無い値だけを WebSearch で確かめるためのもの。別のシリーズを始めたら同じ形のファイルを作り、workflow の args `facts` に渡す。
+シリーズの事実ファイルは、執筆担当がまず読み、そこに無い値だけを WebSearch で確かめるためのもの。置き場は `.claude/knowledge/reference/<シリーズ id>-sources.md` で、workflow はこの名前で引く（別の場所なら args `facts`）。別のシリーズを始めたら同じ形のファイルを作る。
 
 ### 章の骨子（台帳で管理する brief）
 
@@ -146,7 +146,7 @@ status: draft            # 運営者が確かめたら approved と approvedAt: 
 ## 図・写真の候補
 ```
 
-- どの論点にも一次資料（台帳の法令・要領・白書の id か URL）の根拠を 1 つ以上付ける。本の項目だけの論点は検査が止める
+- どの論点にも一次資料（台帳の法令・要領・白書の id か URL）の根拠を 1 つ以上付ける。本の項目だけの論点は検査が止める。台帳の法令の条（`road-act#第32条の2`）は e-Gov の写しの本則の条と照合する
 - 根拠は Web の検索（e-Gov・国交省・白書・都道府県や市の公開資料）を先に集める。本の項目の候補は `npm run check-content-series -- --suggest <シリーズ>/<項目>` が `.tmp` に出す
 - 管理画面のシリーズ企画の「骨子」の列と `?item=` で読める。確認済みにするのは運営者
 
