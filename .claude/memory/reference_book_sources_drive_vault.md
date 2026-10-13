@@ -66,4 +66,4 @@ Drive MCP `create_file` はバイナリに `base64Content` が要るが、filesy
 
 **取り戻し（--pull）の範囲（2026-10-10）**: `--pull --path content/sources/books/` のように接頭辞を広く取ると、書籍のページ画像まで数百枚取り寄せる（701 枚で止めた）。group 単位なら `--pull --group <group id>`（例: `reference-book-coverage`）で絞る。DN-0631 で `--pull` も既定は dry-run（件数と合計サイズを出すだけ）になり、書くのは `--commit` を付けたときだけ。
 
-**書籍の網羅の確認（2026-10-13）**: 「教材は全部画像化・文字起こし済みか」は `npm run reference-book-status`（`--reasons`）か管理画面の教材の詳細を先に見る。画像にしていない原本ページの理由は `config/reference-sources.json` の `excludedPdfPageRanges` が正本で、Drive の `book-manifest.json` には載らない。Drive 側だけを見て「理由が無い」と報告し、記録済みの除外（主任技士 2024 の高画質再スキャン 120 頁・Kindle のレビュー画面など）をページ画像で確かめ直した。
+**書籍の網羅の確認（2026-10-13）**: 「教材は全部画像化・文字起こし済みか」は `npm run reference-book-status`（`--reasons`）か管理画面の教材の詳細を先に見る。画像にしていない原本ページの理由は `config/reference-sources.json` の `excludedPdfPageRanges` が正本で、`book-manifest.json`（git と Drive は同じ中身）の `sourceFiles[].excludedPdfPageRanges` にも写っている。`pages[]` だけを見て「理由が無い」と報告し、記録済みの除外（主任技士 2024 の高画質再スキャン 120 頁・Kindle のレビュー画面など）をページ画像で確かめ直した（その後「Drive には載らない」とも誤って書いた。どちらも欄を読まずに断定した）。文字起こしの残りは `bookBundle.ocrPending`（追うカードか理由）に書き、無いと `check-reference-book-pages`（CI）が止める。

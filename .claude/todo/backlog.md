@@ -1754,6 +1754,7 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 - pe-construction-keyword-book 5 頁（p0006・p0020・p0046・p0111・p0257）
 **やること**: 各ページの画像を見て、本文があれば文字起こしを足して `record-reference-book-artifacts` で complete にする。図だけ・白紙・扉などで文字起こしが要らないページは、推測で complete にせず、理由が台帳に残る形（文字起こし不要の状態と理由）を決めて記録する。
 **完了条件**: `npm run reference-book-status` で 4 冊の文字起こしが n/n（または理由つきの不要だけが残る）になり、`npm run check-reference-book-pages` が通る。
+**閉じるときの注意**: 4 冊は参考文献の台帳（reference-sources.json）の `bookBundle.ocrPending` に `{ "backlogId": "DN-0716" }` と書いてある（PR #1048）。残りを 0 にしてから外す。残りがあるままこのカードを閉じると、check-reference-book-pages が「追うカードが backlog に無い」で CI を止める。
 
 
 ### [DN-0714] refresh-indexes を CRLF で取り出した作業ツリーで回すと、生成 JSON の問題文に \r\n が入り偽の差分が出る
