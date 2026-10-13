@@ -157,6 +157,7 @@ export const DATASETS = [
   d('registry.media', 'content/registry/media/{name}', 'config', 'sns', 'コンテンツ台帳: 素材（資格ごと・brand）', { schema: 'RegistryMedia' }),
   // 教材
   d('config.reference-sources', 'config/reference-sources.json', 'config', 'material', '参考文献（原本・一次資料）の区分と扱い', { schema: 'ConfigReferenceSources' }),
+  d('config.content-series', 'config/content-series.json', 'config', 'site', 'サイト記事のシリーズ企画（目次・計画・根拠。状態は記事の実体から出す）', { schema: 'ConfigContentSeries' }),
   // 管理
   d('config.domains', 'config/domains.json', 'config', 'ops', '事業の領域・サイドバー・文書の割り当て', { schema: 'DomainsConfig' }),
   d('config.asset-storage', 'config/asset-storage.json', 'config', 'ops', 'R2 に置くアセットの置き場', { schema: 'ConfigAssetStorage' }),
