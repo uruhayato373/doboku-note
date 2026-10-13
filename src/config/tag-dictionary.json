@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-11T06:22:30.583Z",
+  "generated_at": "2026-10-13T03:40:26.309Z",
   "summary": {
-    "total_mdx_files": 1400,
+    "total_mdx_files": 1401,
     "total_unique_tags": 132,
     "allowlist_size": 330,
     "known_count": 132,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 224,
+      "count": 225,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1195,6 +1195,7 @@
         "civil-practice-concrete-placement-timing",
         "civil-practice-concrete-pump-capacity",
         "civil-practice-concrete-repair-leakage",
+        "civil-practice-concrete-work-preparation",
         "civil-practice-construction-inspection-types",
         "civil-practice-construction-plan-document",
         "civil-practice-cost-and-design-change",
@@ -3291,7 +3292,7 @@
     },
     {
       "name": "コンクリート",
-      "count": 44,
+      "count": 45,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-concrete-key-points",
@@ -3313,6 +3314,7 @@
         "civil-practice-concrete-placement-timing",
         "civil-practice-concrete-pump-capacity",
         "civil-practice-concrete-repair-leakage",
+        "civil-practice-concrete-work-preparation",
         "civil-practice-formwork-removal-timing",
         "civil-practice-preventive-maintenance-diagnosis",
         "civil-practice-risk-assessment-construction-workflow",
@@ -3342,7 +3344,7 @@
     },
     {
       "name": "品質管理",
-      "count": 43,
+      "count": 44,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-four-management",
@@ -3356,6 +3358,7 @@
         "civil-construction-2-guide-quality-management",
         "civil-practice-asphalt-materials-types",
         "civil-practice-board-of-audit-inspection",
+        "civil-practice-concrete-work-preparation",
         "civil-practice-construction-inspection-types",
         "civil-practice-material-selection-receiving",
         "civil-practice-numerical-model-review",
@@ -3525,6 +3528,45 @@
       ]
     },
     {
+      "name": "施工計画",
+      "count": 32,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-guide-construction-plan",
+        "civil-construction-1-secondary-construction-plan-basics",
+        "civil-construction-1-secondary-construction-plan-past-problems",
+        "civil-construction-1-textbook-construction-mgmt-overview",
+        "civil-construction-1-textbook-construction-plan-overview",
+        "civil-construction-1-textbook-management-subplans",
+        "civil-construction-1-textbook-site-investigation",
+        "civil-construction-1-textbook-work-scheduling",
+        "civil-construction-2-guide-construction-plan-key-points",
+        "civil-practice-ai-document-verification",
+        "civil-practice-bim-cim-site-practice",
+        "civil-practice-concrete-work-preparation",
+        "civil-practice-construction-inspection-types",
+        "civil-practice-construction-plan-document",
+        "civil-practice-cost-and-design-change",
+        "civil-practice-earthquake-tsunami-site-response",
+        "civil-practice-gis-layer-validation",
+        "civil-practice-ict-construction-workflow",
+        "civil-practice-material-selection-receiving",
+        "civil-practice-netis-new-technology-use",
+        "civil-practice-numerical-model-review",
+        "civil-practice-oshms-pdca-site-operation",
+        "civil-practice-pre-construction-process",
+        "civil-practice-quality-record-site-bcp",
+        "civil-practice-risk-assessment-construction-workflow",
+        "civil-practice-site-wireless-communication",
+        "civil-practice-typhoon-forecast-work-planning",
+        "civil-practice-volcanic-hazard-site-planning",
+        "pe-comprehensive-management-construction-plan",
+        "pe-comprehensive-management-method-planning",
+        "pe-comprehensive-management-process-planning-construction",
+        "pe-construction-construction-planning-ronbun-keyword"
+      ]
+    },
+    {
       "name": "道路",
       "count": 32,
       "inAllowlist": true,
@@ -3561,44 +3603,6 @@
         "pe-construction-r08-road",
         "pe-construction-road-exam-themes",
         "pe-construction-road-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "施工計画",
-      "count": 31,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-guide-construction-plan",
-        "civil-construction-1-secondary-construction-plan-basics",
-        "civil-construction-1-secondary-construction-plan-past-problems",
-        "civil-construction-1-textbook-construction-mgmt-overview",
-        "civil-construction-1-textbook-construction-plan-overview",
-        "civil-construction-1-textbook-management-subplans",
-        "civil-construction-1-textbook-site-investigation",
-        "civil-construction-1-textbook-work-scheduling",
-        "civil-construction-2-guide-construction-plan-key-points",
-        "civil-practice-ai-document-verification",
-        "civil-practice-bim-cim-site-practice",
-        "civil-practice-construction-inspection-types",
-        "civil-practice-construction-plan-document",
-        "civil-practice-cost-and-design-change",
-        "civil-practice-earthquake-tsunami-site-response",
-        "civil-practice-gis-layer-validation",
-        "civil-practice-ict-construction-workflow",
-        "civil-practice-material-selection-receiving",
-        "civil-practice-netis-new-technology-use",
-        "civil-practice-numerical-model-review",
-        "civil-practice-oshms-pdca-site-operation",
-        "civil-practice-pre-construction-process",
-        "civil-practice-quality-record-site-bcp",
-        "civil-practice-risk-assessment-construction-workflow",
-        "civil-practice-site-wireless-communication",
-        "civil-practice-typhoon-forecast-work-planning",
-        "civil-practice-volcanic-hazard-site-planning",
-        "pe-comprehensive-management-construction-plan",
-        "pe-comprehensive-management-method-planning",
-        "pe-comprehensive-management-process-planning-construction",
-        "pe-construction-construction-planning-ronbun-keyword"
       ]
     },
     {
