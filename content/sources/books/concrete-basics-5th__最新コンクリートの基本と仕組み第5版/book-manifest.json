@@ -5073,7 +5073,7 @@
       "image": "pages/p0201.jpg",
       "repoPath": "content/sources/books/concrete-basics-5th__最新コンクリートの基本と仕組み第5版/pages/p0201.jpg",
       "ocrStatus": "complete",
-      "cropStatus": "pending",
+      "cropStatus": "partial",
       "sha256": "c72c75c6cae3f7f1b38a6d93348e10237ece26415a624544896121f95e3a7331",
       "md5": "e4a76cf9b062bfd04a43818a0eb23f32",
       "bytes": 462284,
@@ -8195,8 +8195,38 @@
       "recordedAt": "2026-09-08T22:09:13.372Z"
     }
   ],
-  "crops": [],
-  "updatedAt": "2026-09-08T22:09:13.372Z",
+  "crops": [
+    {
+      "id": "photo-core-sizes",
+      "pageId": "p0201",
+      "sourceImage": "pages/p0201.jpg",
+      "path": "crops/p0201_photo-core-sizes.png",
+      "repoPath": "content/sources/books/concrete-basics-5th__最新コンクリートの基本と仕組み第5版/crops/p0201_photo-core-sizes.png",
+      "caption": "大きさの異なるコア（直径 10cm・7.3cm・3.3cm）",
+      "bbox": {
+        "x": 490,
+        "y": 1505,
+        "w": 1230,
+        "h": 912
+      },
+      "sha256": "d95e39b9fb13f7635e3ccf49fba28b2f8628e591f0ad22753dd9db6247db5ea3",
+      "md5": "5e38cb12543aee534292069f0ef764e0",
+      "bytes": 852729,
+      "width": 1230,
+      "height": 912,
+      "audit": {
+        "status": "pass",
+        "scores": {
+          "clipPurity": 3,
+          "completeness": 3,
+          "correctFigure": 3,
+          "altIdentifiability": 3
+        },
+        "reviewedAt": "2026-10-13T02:48:25.482Z"
+      }
+    }
+  ],
+  "updatedAt": "2026-10-13T02:48:25.482Z",
   "migration": {
     "strategy": "copy-verify-switch-then-delete-separately",
     "legacyKept": true,
