@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-13T04:28:26.606Z",
+  "generated_at": "2026-10-13T04:34:04.864Z",
   "summary": {
-    "total_mdx_files": 1406,
+    "total_mdx_files": 1407,
     "total_unique_tags": 132,
     "allowlist_size": 330,
     "known_count": 132,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 230,
+      "count": 231,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1197,6 +1197,7 @@
         "civil-practice-concrete-placement-timing",
         "civil-practice-concrete-pump-capacity",
         "civil-practice-concrete-repair-leakage",
+        "civil-practice-concrete-standards-history",
         "civil-practice-concrete-structure-inspection",
         "civil-practice-concrete-work-preparation",
         "civil-practice-construction-inspection-types",
@@ -3245,7 +3246,7 @@
     },
     {
       "name": "コンクリート",
-      "count": 50,
+      "count": 51,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-concrete-key-points",
@@ -3269,6 +3270,7 @@
         "civil-practice-concrete-placement-timing",
         "civil-practice-concrete-pump-capacity",
         "civil-practice-concrete-repair-leakage",
+        "civil-practice-concrete-standards-history",
         "civil-practice-concrete-structure-inspection",
         "civil-practice-concrete-work-preparation",
         "civil-practice-formwork-removal-timing",
@@ -4054,6 +4056,30 @@
       ]
     },
     {
+      "name": "維持管理",
+      "count": 17,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-guide-concrete-maintenance",
+        "civil-practice-concrete-standards-history",
+        "civil-practice-large-fill-landslide",
+        "civil-practice-levee-failure-reinforcement",
+        "civil-practice-monitoring-sensor-selection",
+        "civil-practice-seismic-design-levels",
+        "concrete-chief-engineer-textbook-durability",
+        "concrete-diagnostician-textbook-assessment",
+        "concrete-diagnostician-textbook-maintenance",
+        "concrete-diagnostician-textbook-repair",
+        "pe-comprehensive-management-h22-essay-general-contractor",
+        "pe-comprehensive-management-h25-essay-general-contractor",
+        "pe-comprehensive-management-h25-essay-river-consultant",
+        "pe-comprehensive-management-h25-essay-road-municipality",
+        "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance",
+        "pe-construction-iji-kanri-ronbun-keyword",
+        "pe-construction-infra-roukyuuka-iji"
+      ]
+    },
+    {
       "name": "基礎科目",
       "count": 16,
       "inAllowlist": true,
@@ -4120,29 +4146,6 @@
         "pe-comprehensive-management-r06-essay-river-consultant",
         "pe-comprehensive-management-r07-essay-river-consultant",
         "pe-construction-river-coast-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "維持管理",
-      "count": 16,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-guide-concrete-maintenance",
-        "civil-practice-large-fill-landslide",
-        "civil-practice-levee-failure-reinforcement",
-        "civil-practice-monitoring-sensor-selection",
-        "civil-practice-seismic-design-levels",
-        "concrete-chief-engineer-textbook-durability",
-        "concrete-diagnostician-textbook-assessment",
-        "concrete-diagnostician-textbook-maintenance",
-        "concrete-diagnostician-textbook-repair",
-        "pe-comprehensive-management-h22-essay-general-contractor",
-        "pe-comprehensive-management-h25-essay-general-contractor",
-        "pe-comprehensive-management-h25-essay-river-consultant",
-        "pe-comprehensive-management-h25-essay-road-municipality",
-        "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance",
-        "pe-construction-iji-kanri-ronbun-keyword",
-        "pe-construction-infra-roukyuuka-iji"
       ]
     },
     {
@@ -4875,6 +4878,18 @@
       ]
     },
     {
+      "name": "鉄筋",
+      "count": 5,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-concrete-standards-history",
+        "civil-practice-concrete-structure-inspection",
+        "civil-practice-rebar-corrosion-handling",
+        "civil-practice-rebar-cover-placement",
+        "civil-practice-rebar-splice-selection"
+      ]
+    },
+    {
       "name": "データ利活用",
       "count": 4,
       "inAllowlist": true,
@@ -5015,17 +5030,6 @@
         "pavement-guide-overview",
         "pavement-guide-sentaku-hinshutsu",
         "pavement-guide-study-plan"
-      ]
-    },
-    {
-      "name": "鉄筋",
-      "count": 4,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-concrete-structure-inspection",
-        "civil-practice-rebar-corrosion-handling",
-        "civil-practice-rebar-cover-placement",
-        "civil-practice-rebar-splice-selection"
       ]
     },
     {
