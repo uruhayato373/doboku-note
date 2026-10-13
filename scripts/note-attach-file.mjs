@@ -12,7 +12,7 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
  *
  * 工程: account ゲート → editor.note.com/notes/{key}/edit → 本文末尾へ移動・空段落 →
  *   「+」挿入メニュー → ファイル → PDF アップロード → 公開に進む → （価格/境界は変更せず）
- *   更新する。冪等のため既添付検出はせず（呼び側で重複回避）。
+ *   更新する。既添付なら再公開のみ、複数添付は --force。
  *
  * 使い方:
  *   node scripts/note-attach-file.mjs --note <noteKey> --file <pdf path>            # probe
@@ -31,6 +31,7 @@ import { join, dirname } from 'node:path';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { NOTE_BASE } from './lib/site-identity.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { listAttachedFiles, countEmbeds } from './lib/note-attach.mjs';
 
 const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
@@ -87,9 +88,9 @@ try {
   await sleep(2000);
   console.log('[2] editor:', page.url());
 
-  const fileBase = fileAbs.split(/[\\/]/).pop();
-  // 冪等: 既に PDF ファイルカードが本文にあるか（".pdf" は添付カードのみに出現・prose は "PDF" 大文字）
-  const already = await page.evaluate(() => /\.pdf/i.test(document.querySelector('[contenteditable=true]')?.innerText || ''));
+  // 出典 URL の .pdf は添付ではない。全文置換 CLI と同じ検出規則を使う。
+  const attachedBefore = await listAttachedFiles(page);
+  const already = attachedBefore.length > 0;
   console.log('[2.5] 既存PDFカード=' + already);
 
   if (!MUTATE) {
@@ -147,11 +148,7 @@ try {
     let up = { embeds: embedsBefore, hasPdf: false };
     for (let i = 0; i < 13; i++) {
       await sleep(3000);
-      up = await page.evaluate(() => {
-        const ed = document.querySelector('[contenteditable=true]');
-        const embeds = document.querySelectorAll('[contenteditable=true] figure, [contenteditable=true] [embedded-service], [contenteditable=true] [data-name]').length;
-        return { embeds, hasPdf: /\.pdf/i.test(ed?.innerText || '') };
-      });
+      up = { embeds: await countEmbeds(page), hasPdf: (await listAttachedFiles(page)).length > attachedBefore.length };
       if (up.embeds > embedsBefore || up.hasPdf) break;
     }
     console.log(`[4] upload check: embedsBefore=${embedsBefore} embedsAfter=${up.embeds} pdfVisible=${up.hasPdf}`);
@@ -168,7 +165,7 @@ try {
     console.log('[5d] PDF 添付済み下書きを保存');
     await page.goto(`https://editor.note.com/notes/${NOTE}/edit/`, { waitUntil: 'domcontentloaded', timeout: 60000 });
     await page.waitForSelector('[contenteditable=true]', { timeout: 30000 }); await sleep(2500);
-    const persisted = await page.evaluate(() => /\.pdf/i.test(document.querySelector('[contenteditable=true]')?.innerText || ''));
+    const persisted = (await listAttachedFiles(page)).length > 0;
     console.log('[5d] 再読込後PDFカード=' + persisted);
     if (!persisted) { console.error('[5d] ★偽成功: 下書き再読込後にPDFカードが無い★'); exitCode = 9; }
     await page.screenshot({ path: join(ROOT, '.tmp/attach-draft-done.png'), fullPage: false }).catch(() => {});
