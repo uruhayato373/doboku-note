@@ -4183,6 +4183,160 @@
         "kind": "external",
         "url": "https://report.jbaudit.go.jp/org/r04/2022-r04-0349-0.htm"
       }
+    },
+    {
+      "id": "road-act-order",
+      "title": "道路法施行令",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "道路法施行令": "road-act-order"
+      }
+    },
+    {
+      "id": "river-act-order",
+      "title": "河川法施行令",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "河川法施行令": "river-act-order"
+      }
+    },
+    {
+      "id": "river-facility-structure-order",
+      "title": "河川管理施設等構造令",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "河川管理施設等構造令": "river-facility-structure-order"
+      }
+    },
+    {
+      "id": "river-structure-permit-standard",
+      "title": "工作物設置許可基準（国土交通省）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "工作物設置許可基準（国土交通省）": "river-structure-permit-standard"
+      }
+    },
+    {
+      "id": "small-river-inspection-guideline",
+      "title": "中小河川の堤防等河川管理施設及び河道の点検要領（国土交通省）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "中小河川の堤防等河川管理施設及び河道の点検要領（国土交通省）": "small-river-inspection-guideline"
+      }
+    },
+    {
+      "id": "road-sign-standard",
+      "title": "道路標識設置基準・同解説（日本道路協会）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "道路標識設置基準・同解説（日本道路協会）": "road-sign-standard"
+      }
+    },
+    {
+      "id": "local-autonomy-act",
+      "title": "地方自治法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "地方自治法": "local-autonomy-act"
+      }
+    },
+    {
+      "id": "local-finance-act",
+      "title": "地方財政法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "地方財政法": "local-finance-act"
+      }
+    },
+    {
+      "id": "land-expropriation-act",
+      "title": "土地収用法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "土地収用法": "land-expropriation-act"
+      }
+    },
+    {
+      "id": "public-land-compensation-standard",
+      "title": "公共用地の取得に伴う損失補償基準要綱",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "公共用地の取得に伴う損失補償基準要綱": "public-land-compensation-standard"
+      }
+    },
+    {
+      "id": "disaster-restoration-subsidy-act",
+      "title": "公共土木施設災害復旧事業費国庫負担法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "公共土木施設災害復旧事業費国庫負担法": "disaster-restoration-subsidy-act"
+      }
+    },
+    {
+      "id": "state-property-special-measures-act",
+      "title": "国有財産特別措置法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "国有財産特別措置法": "state-property-special-measures-act"
+      }
+    },
+    {
+      "id": "specified-urban-river-act",
+      "title": "特定都市河川浸水被害対策法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "特定都市河川浸水被害対策法": "specified-urban-river-act"
+      }
+    },
+    {
+      "id": "public-works-quality-act",
+      "title": "公共工事の品質確保の促進に関する法律",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "公共工事の品質確保の促進に関する法律": "public-works-quality-act"
+      }
     }
   ]
 }

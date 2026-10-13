@@ -21,6 +21,14 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-0717] 2級土木「土工の頻出点」の動画（sqkP7vheZ_Q）が YouTube から消え、develop の CI が video-publication で赤い
+タグ: [領域:SNS] [時期:2026-10] [種類:不具合] [起票:2026-10-13]
+
+**起点**: 2026-10-12T22:35Z の registry-reconcile が gakka-2kyu-doko/longform を gone と記録し（.claude/state/video-publication-verify.json）、以後 develop の quality audit（video-publication V05）が赤い。前回 10-11T19:42Z の照合では見えていた。oEmbed は 404（非公開なら 401/403）なので削除の可能性が高い。10-12T21:56Z の予約取り消し（youtube-unschedule・未来の予約 38 本）は公開済みのこの動画を対象にしていない。
+**やること**: 運営者が消したのか（YouTube 側の削除・違反措置か）を YouTube Studio で確かめる。意図どおりなら運営者が `npm run registry -- stop --pub civil-construction-2/gakka-2kyu-doko/youtube.longform --reason gone` を実行し、registry-reconcile を回し直して照合記録から外す。意図しない削除・違反措置なら原因を記録して再アップロードを判断する。
+**完了条件**: develop の CI（audit の video-publication）が緑。
+
+
 
 
 
@@ -367,6 +375,47 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 **完了条件**: 次の CI 照合 snapshot で published_UNrecorded と anomaly が 0、または残りの各件に理由（削除済み・対象外など）が台帳に記録されている。
 
 ## 🟡 中 — 重要度が中くらい
+
+### [DN-0719] EXP-012 の判定（11/26）を受けて、自治体の土木担当・コンクリート入門シリーズの第1波に着手するか決める
+タグ: [領域:サイト] [時期:2026-11] [種類:意思決定] [起票:2026-10-13] [期日:2026-11-27]
+
+**起点**: 2026-10-13、運営者の依頼で試験とは別軸の読み物シリーズ 2 つ（自治体の土木担当・コンクリート入門）を企画した。置き場・根拠資料の扱い・着手の条件（判断）は docs/strategy/18_自治体土木担当・コンクリート入門シリーズ方針2026-10.md、記事の一覧（企画）はこのカードが持つ（サイト記事には企画 SSOT が無いので backlog に置く・todo-standards §1-2）。運営者の判断で、記事は EXP-012（記事末の資格カード）の判定まで書かない。
+**やること**: EXP-012 の事後窓の終わり（2026-11-26）の判定を 18 番「着手の判定」に当てる。継続なら第 1 波（下の ★）をそれぞれ制作カードにし、残りはこのカードの一覧を次のカードへ移す。再計測なら待ち、停止なら一覧をこのカードに残したまま判断を 18 番へ 1 行残して閉じる。
+**完了条件**: 判定の結果と次の対応を 18 番に 1 行で残す。着手するなら第 1 波の制作カードを起票し、残りの一覧を移したカードへ 18 番の「DN-0719」の参照を書き換える（消すと check-project-task-refs が止める）。
+
+**A 自治体の土木担当**（新規 18・既存の補強 4・既存のまま 3。括弧は根拠の台帳 id）
+- 全体像: A-1 自治体の土木職の仕事 — 管理と事業の二つの役割（ハブ）（local-autonomy-act・road-act・river-act）／A-2 土木担当の 1 年 — 予算要求・発注・出水期・決算・会計検査（local-autonomy-act・local-finance-act）
+- 道路を管理する: A-3 道路法の骨格 — 道路の種類と管理者（road-act）／A-4 路線の認定・区域の決定・供用開始＝既存 service-commencement を補強／★A-5 道路占用許可の審査 — 占用物件・期間・占用料・掘削後の復旧（road-act・road-act-order）／A-6 承認工事（道路法 24 条）と道路使用許可（道路交通法 77 条）の違い（road-act・road-traffic-act。受注者の段取りは既存 schedule-and-road-permit に残す）／A-7 道路の境界確定と道路台帳（road-act・road-act-rules）／A-8 道路の点検と長寿命化計画（road-act-rules・road-bridge-inspection。既存 preventive-maintenance-diagnosis と役割を分ける）／A-9 標識と防護柵＝既存 road-fixtures-precast（road-sign-standard・guard-fence-standard）
+- 河川を管理する: A-10 河川法の骨格 — 一級・二級・準用・普通河川と管理者（river-act・river-act-order）／★A-11 河川区域の許可 — 占用（24 条）・工作物の新築（26 条）・土地の掘削（27 条）（river-act・river-structure-permit-standard）／A-12 工作物の技術審査 — 橋・樋門・管が堤防を横切るとき（river-facility-structure-order・river-structure-permit-standard）／A-13 河川管理施設の点検と操作 — 堤防・樋門・水門（small-river-inspection-guideline。既存 levee-failure-reinforcement と役割を分ける）／A-14 河川整備計画と流域治水＝既存 flood-control-facilities を補強（river-act・specified-urban-river-act）
+- 法定外公共物: ★A-15 里道・水路の管理 — 国からの譲与・境界・占用（state-property-special-measures-act・local-autonomy-act）
+- 事業を進める（発注者として）: A-16 要望から事業化まで — 地元の要望・調査・予算（local-finance-act）／A-17 地元説明会と合意形成（経験が中心）／A-18 用地の取得と損失補償（land-expropriation-act・public-land-compensation-standard）／A-19 発注方式と入札＝既存 public-works-delivery-methods・public-works-bidding-methods（public-works-quality-act）／A-20 監督と検査＝既存 construction-inspection-types に監督員の役割を補強（public-works-quality-act・local-autonomy-act）／A-21 設計変更＝既存 cost-and-design-change に発注者の側を補強（standard-contract-terms）／A-22 会計検査＝既存 board-of-audit-inspection（board-of-audit-act）
+- 災害に備える: A-23 災害復旧事業と災害査定（disaster-restoration-subsidy-act）／A-24 地域防災計画と水防（disaster-countermeasures-basic-act・flood-control-act）
+- 仕事の進め方: A-25 住民・議会への説明と資料づくり（経験が中心）
+
+**B コンクリート入門**（読む順。新規 3〜4、ほかは既存記事へのリンク）
+- B-1 コンクリートは何でできて、なぜ固まるか（新規。詳しくは技士 textbook-materials・textbook-properties-testing）
+- ★B-2 生コンを注文する — JIS A 5308 の呼び方と、購入者が指定できる事項（新規・jis）
+- B-3 受入れ検査＝concrete-mix-acceptance／B-4 打設の計画＝concrete-pump-capacity・concrete-placement-timing／B-5 鉄筋と型枠＝rebar-cover-placement・rebar-splice-selection・rebar-corrosion-handling・formwork-material-inspection・formwork-waterstop-details／B-6 打込み・締固め・打継ぎ＝concrete-compaction-numbers・concrete-placement-order／B-7 仕上げ・養生・型枠の取り外し＝concrete-finishing-curing・formwork-removal-timing／B-8 ひび割れを見分ける＝concrete-crack-causes
+- B-9 劣化の種類と点検 — 中性化・塩害・ASR・凍害、非破壊試験とコア（新規・jsce-concrete-spec-maintenance。詳しくは診断士 textbook-deterioration・textbook-investigation）
+- B-10 補修と補強＝concrete-repair-leakage・preventive-maintenance-diagnosis
+- B-11 これからのコンクリート — 低炭素・プレキャスト・省力化（新規にするかは判定時に決める。技士 textbook-environment と重ならない範囲だけ）
+- ★入口: 工種別ノート（category-curriculum.json の civil-practice）の concrete ブロックを B の順に並べ替える
+
+### [DN-0718] 検索キーワード戦略の改善候補と起票カードを EXP-ID で結び、28 日後の判定を experiments.json に残す
+タグ: [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-10-13]
+
+**起点**: 2026-10-13 のキーワード戦略画面（/metrics/search-strategy）の改修中に確認。改善候補と起票カードの対応、改善結果の記録が ID で管理されていない。
+
+**現状**:
+- 候補とカードの対応は `scripts/lib/search-opportunities.mjs` の `cardedPathsFrom`（81 行）が backlog.md の本文から URL パスを正規表現で拾っているだけ。カードに対象ページ・クラスターの構造化された欄がない。本文に別件でパスが出るカードも「起票済」と表示される
+- カードを完了すると backlog から消え、同じページは「未起票」に戻る（再起票のおそれ）
+- 「反映後 28 日で対象語が上がったか」の結果はカードの完了記録（自由記述）に書くだけで、データセットに残らない。月次レビュー（monthly-review SKILL.md 17 行）も手作業で照合する
+- 改善状態の正本の `data/business/experiments.json`（EXP-###・measure.scope.pages・anchor・preDays/postDays）は使われていない（DN-0645・0646・0648・0652 の参照なし）
+
+**やること**: 週次レビューで起票するときに、対象ページ・検索語・起票時の順位と表示を EXP（measure.scope.pages）に登録し、カードには EXP-ID を書く。`search-opportunities.mjs` は backlog の本文ではなく experiments.json の scope.pages で「起票済・判定待ち・判定済み」を付ける。管理画面の状態欄に EXP-ID と判定を出す。weekly-review／monthly-review の SKILL と 16_検索キーワード戦略.md を同じ commit で直す。
+
+**完了条件**: 起票済みの候補がすべて EXP-ID でたどれる。カード完了後も「未起票」に戻らない。`node --test tests/search-opportunities.test.mjs` に experiments 経由の対応づけのテストがある。
+
 
 ### [DN-0715] 1級土木 第二次検定の合格発表後、DM 10051134 の購入者へ結果を伺い、合格なら体験談・評価をお願いする
 タグ: [領域:商品] [時期:2027-01] [種類:改善] [起票:2026-10-13] [期日:2027-01-15]
@@ -1743,6 +1792,19 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 両リポとも Tailwind v4 ＋ shadcn/ui。stats47 側は `SHADCN-UI-COMMON-01`。（出典: 2026-09-28・10 月の手書きメモ・vault dairy/2026-09-28・2026-10-07）
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
+
+### [DN-0716] 書籍 4 冊の文字起こし未完了 54 頁を、文字起こしするか理由つきで不要にする（reference-book-status で発見）
+タグ: [領域:教材] [種類:不具合] [起票:2026-10-13]
+
+**起点**: 2026-10-13、`npm run reference-book-status`（PR #1048）で書籍 27 冊の網羅を出したところ、ページ画像はあるのに文字起こしが pending のページが 4 冊に 54 頁あった（総監論文対策の 18 頁は展開しない本なので除く）。どのカードでも追われていない。
+- civil1-textbook-general 28 頁（p0007・p0032・p0034・p0035・p0037・p0063・p0064・p0070 … p0378）
+- civil1-textbook-management 18 頁（p0015・p0023・p0039・p0048・p0050・p0070・p0075・p0105 … p0295）
+- pe-cem-textbook 3 頁（p0001・p0053・p0319）
+- pe-construction-keyword-book 5 頁（p0006・p0020・p0046・p0111・p0257）
+**やること**: 各ページの画像を見て、本文があれば文字起こしを足して `record-reference-book-artifacts` で complete にする。図だけ・白紙・扉などで文字起こしが要らないページは、推測で complete にせず、理由が台帳に残る形（文字起こし不要の状態と理由）を決めて記録する。
+**完了条件**: `npm run reference-book-status` で 4 冊の文字起こしが n/n（または理由つきの不要だけが残る）になり、`npm run check-reference-book-pages` が通る。
+**閉じるときの注意**: 4 冊は参考文献の台帳（reference-sources.json）の `bookBundle.ocrPending` に `{ "backlogId": "DN-0716" }` と書いてある（PR #1048）。残りを 0 にしてから外す。残りがあるままこのカードを閉じると、check-reference-book-pages が「追うカードが backlog に無い」で CI を止める。
+
 
 ### [DN-0714] refresh-indexes を CRLF で取り出した作業ツリーで回すと、生成 JSON の問題文に \r\n が入り偽の差分が出る
 タグ: [領域:サイト] [種類:不具合] [起票:2026-10-13]
