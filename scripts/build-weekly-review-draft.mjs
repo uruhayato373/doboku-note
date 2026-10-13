@@ -148,6 +148,11 @@ const perWeek = S?.config?.cycle?.filePerWeek;
 const fileable = S?.fileable ?? [];
 md.push(`## 検索の改善候補（起票してよい ${fileable.length} 件・上位 ${perWeek ?? '—'} 件を npm run search-improvement -- add で起票する）`, '');
 md.push(fileable.length ? fileable.slice(0, perWeek).map((x) => `- [${x.clusterLabel}] ${x.page}「${x.queries?.[0]?.query ?? ''}」表示 ${x.impressions}・最良 ${x.bestPosition} 位${x.lastResult ? `（前回 ${x.lastResult.id}: ${x.lastResult.result}）` : ''}`).join('\n') : (S ? '- なし' : `- （未取得・rc=${R.search.rc}）`), '');
+// 週次の処置（受け皿外・旧 URL・誘導の見直し）。要処置が 0 になるまで処置する（完了条件 npm run search-improvement -- triage --check）
+const triage = S?.triage ?? [];
+const triageAction = triage.filter((t) => t.status === 'action');
+md.push(`## 検索の週次処置（要処置 ${triageAction.length}・観察中 ${triage.length - triageAction.length}）`, '');
+md.push(S ? (triage.length ? triage.map((t) => `- ${t.status === 'action' ? '要処置' : '観察中'} [${t.clusterLabel}] ${t.page}: ${t.action ?? t.note}`).join('\n') : '- なし') : '- （未取得）', '');
 const phases = Object.groupBy(S?.experiments ?? [], (e) => e.phase);
 md.push('## 検索改善の実験（起票→本番反映→計測→判定）', '', S ? `- ${Object.entries(phases).map(([k, v]) => `${k} ${v.length}`).join(' / ') || '0 件'}` : '- （未取得）');
 for (const e of [...(phases['verdict-due'] ?? []), ...(phases.implemented ?? [])]) md.push(`- ${e.id}（${e.phase}）${e.page}・${e.card}${e.measurement ? `・${e.measurement.pre}→${e.measurement.post}（目安 ${e.measurement.verdictHint}）` : ''}`);

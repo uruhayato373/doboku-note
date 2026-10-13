@@ -3,7 +3,7 @@
  */
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { summarizeCluster, summarizeBing, bandLabels, candidateMarks, fileableCandidates, inTop, inStriking } from '../scripts/lib/search-opportunities.mjs';
+import { summarizeCluster, summarizeBing, bandLabels, candidateMarks, fileableCandidates, inTop, inStriking, triageCandidate, triageExperiment, decisionFor } from '../scripts/lib/search-opportunities.mjs';
 import { experimentsByPage, dispatchIndex } from '../scripts/lib/search-improvement.mjs';
 
 const S = 'https://doboku-note.com';
@@ -59,9 +59,51 @@ test('起票済み・判定済みの印は実験台帳（kind: search-strategy�
   assert.equal(kinki.fileable, true, '判定済みのページは次の起票の候補に戻る');
   assert.deepEqual(candidateMarks(okinawa).map((m) => m.key), ['experiment']);
   assert.deepEqual(candidateMarks(kinki).map((m) => [m.key, m.label]), [['last', '前回 効果なし EXP-020'], ['unfiled', '未起票']]);
-  const every = candidateMarks({ ...okinawa, watched: true, legacyUrl: true, inTarget: false, lastResult: { id: 'EXP-1', result: 'success' }, fileable: true });
-  assert.equal(every.length, 6);
+  const every = candidateMarks({ ...okinawa, watched: true, triage: { kind: 'off-target', status: 'action' }, lastResult: { id: 'EXP-1', result: 'success' }, fileable: true });
+  assert.deepEqual(every.map((m) => m.key), ['experiment', 'watched', 'off-target', 'last', 'unfiled']);
   assert.ok(every.every((m) => m.hint), '印にはすべて意味（MARK_HINTS）がある');
+});
+
+test('週次の処置: 受け皿外は判断が要り、受け皿に加えれば候補に戻り、誘導は期限まで観察してから見直す', () => {
+  const opts = { today: '2026-10-13', graceDays: 28, redirectedAt: '2026-08-22' };
+  const withDecision = (pageDecisions) => ({ ...cluster, pageDecisions });
+  const rows = [row('/practice/x', 'x 共通仕様書', 12, 9)];
+  const off = summarizeCluster(cluster, rows, striking).candidates[0];
+  assert.equal(off.inTarget, false);
+  assert.equal(off.fileable, false, '受け皿外は判断が先（直さない）');
+  assert.equal(triageCandidate(off, opts).status, 'action');
+  const accepted = summarizeCluster(withDecision([{ path: '/practice/x', decision: 'accept', reason: 'r', decidedAt: '2026-10-13' }]), rows, striking).candidates[0];
+  assert.equal(accepted.inTarget, true);
+  assert.equal(accepted.fileable, true);
+  assert.equal(triageCandidate(accepted, opts).status, 'none');
+  const routed = summarizeCluster(withDecision([{ path: '/practice/x', decision: 'route', to: '/standards/a', reason: 'r', decidedAt: '2026-10-01' }]), rows, striking).candidates[0];
+  assert.equal(routed.fileable, false);
+  assert.equal(triageCandidate(routed, opts).status, 'observe');
+  assert.equal(triageCandidate(routed, { ...opts, today: '2026-10-29' }).status, 'action', '誘導から期限を過ぎても出ていれば見直す');
+  assert.equal(decisionFor(withDecision([{ path: '/practice/', decision: 'accept', reason: 'r', decidedAt: '2026-10-13' }]), '/practice/x').decision, 'accept', '判断は接頭辞で当てる');
+});
+
+test('週次の処置: 旧 URL は転送・公開・サイト内リンクを確かめ、転送か登録リクエストから期限を過ぎたら登録リクエストを促す', () => {
+  const opts = { today: '2026-10-13', graceDays: 28, redirectedAt: '2026-08-22' };
+  const legacy = (l) => ({ page: '/docs/a', legacyUrl: true, inTarget: false, legacy: l });
+  const ok = { to: '/exam/a', published: true, inboundLinks: 0, requestedAt: null };
+  assert.match(triageCandidate(legacy({ ...ok, to: null }), opts).action, /転送先が無い/);
+  assert.match(triageCandidate(legacy({ ...ok, published: false }), opts).action, /公開されていない/);
+  assert.match(triageCandidate(legacy({ ...ok, inboundLinks: 2 }), opts).action, /2 本が旧 URL を指している/);
+  assert.match(triageCandidate(legacy(ok), opts).action, /gsc-indexing:request -- --urls \/exam\/a/, '転送から 52 日で置き換わっていない');
+  const requested = triageCandidate(legacy({ ...ok, requestedAt: '2026-09-17' }), opts);
+  assert.equal(requested.status, 'observe');
+  assert.match(requested.note, /登録リクエスト 2026-09-17・置き換え待ち（あと 2 日）/);
+  assert.deepEqual(candidateMarks({ ...legacy(ok), triage: requested }).map((m) => m.key), ['legacy-wait']);
+});
+
+test('週次の処置: 判定待ちの実験は close を促し、カード完了から期限を過ぎても本番に入らない実験は確かめさせる', () => {
+  const opts = { today: '2026-10-13', graceDays: 28 };
+  const e = { id: 'EXP-030', card: 'DN-0645', measurement: { pre: 15, post: 9, verdictHint: 'improved' } };
+  assert.match(triageExperiment({ ...e, phase: 'verdict-due' }, opts).action, /close --id EXP-030/);
+  assert.equal(triageExperiment({ ...e, phase: 'implemented', implementedAt: '2026-10-01' }, opts).status, 'observe');
+  assert.equal(triageExperiment({ ...e, phase: 'implemented', implementedAt: '2026-09-01' }, opts).status, 'action');
+  for (const phase of ['filed', 'measuring', 'closed', 'abandoned']) assert.equal(triageExperiment({ ...e, phase }, opts).status, 'none');
 });
 
 test('起票してよい候補は全クラスターで同じページを 1 件にまとめ、表示の多い順に並べる', () => {

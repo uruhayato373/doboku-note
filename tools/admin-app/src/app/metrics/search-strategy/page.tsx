@@ -24,12 +24,13 @@ type Prev = { impressions: number; clicks: number; top10: number; striking: numb
 type Cluster = { id: string; label: string; queries: number; impressions: number; clicks: number; top10: number; striking: number; avgPosition: number | null; candidates: Candidate[]; candidateTotal: number; previous: Prev };
 type Bands = { top: string; striking: string };
 type Experiment = { id: string; phase: keyof typeof PHASES; cluster: string; clusterLabel: string; page: string; card: string; queries: number; nextCheck: string | null; measurement: { pre: number | null; post: number | null; verdictHint: string; complete: boolean } | null; result: keyof typeof RESULTS | null };
-type Result = { period: { startDate: string; endDate: string } | null; previous: { startDate: string; endDate: string } | null; bands: Bands; clusters: Cluster[]; experiments: Experiment[] };
+type Triage = { cluster: string; clusterLabel: string; page: string; impressions: number | null; kind: string; status: 'action' | 'observe'; action?: string; note?: string };
+type Result = { period: { startDate: string; endDate: string } | null; previous: { startDate: string; endDate: string } | null; bands: Bands; clusters: Cluster[]; experiments: Experiment[]; triage: Triage[] };
 
 const BASE = '/metrics/search-strategy';
 const QUERY_SHOWN = 3;
 /** 印（candidateMarks の key）と段階（phaseOf）の色。意味は lib が決め、ここは見た目だけ */
-const MARK_TONE: Record<string, Tone> = { experiment: 'info', watched: 'good', legacy: 'warn', 'off-target': 'warn', last: 'neutral', unfiled: 'neutral' };
+const MARK_TONE: Record<string, Tone> = { experiment: 'info', watched: 'good', 'legacy-action': 'warn', 'legacy-wait': 'neutral', 'off-target': 'warn', routed: 'info', 'routed-action': 'warn', last: 'neutral', unfiled: 'neutral' };
 const PHASE_TONE: Record<string, Tone> = { filed: 'info', implemented: 'warn', measuring: 'info', 'verdict-due': 'warn', closed: 'good', abandoned: 'neutral' };
 const md = (d: string) => d.slice(5).replace('-', '/');
 const num = (n: number) => n.toLocaleString();
@@ -159,6 +160,25 @@ function candidateRows(pool: (Candidate & { cluster: string })[]): DataTableRow[
   });
 }
 
+const TRIAGE_COLUMNS: DataTableColumn[] = [
+  { key: 'status', label: '処置' },
+  { key: 'page', label: 'ページ', wrap: true },
+  { key: 'cluster', label: 'クラスター' },
+  { key: 'impressions', label: '表示', num: true },
+  { key: 'what', label: '内容', wrap: true, sortable: false },
+];
+
+function triageRows(items: Triage[]): DataTableRow[] {
+  return [...items].sort((a, b) => (a.status === b.status ? (b.impressions ?? 0) - (a.impressions ?? 0) : a.status === 'action' ? -1 : 1)).map((t) => ({
+    id: `${t.cluster}:${t.page}`,
+    values: { status: t.status === 'action' ? '要処置' : '観察中', page: t.page, cluster: t.clusterLabel, impressions: t.impressions, what: t.action ?? t.note ?? '' },
+    cells: {
+      status: <StatusBadge tone={t.status === 'action' ? 'warn' : 'neutral'}>{t.status === 'action' ? '要処置' : '観察中'}</StatusBadge>,
+      page: <PageCell path={t.page} />,
+    },
+  }));
+}
+
 const EXPERIMENT_COLUMNS: DataTableColumn[] = [
   { key: 'id', label: '実験' },
   { key: 'phase', label: '段階' },
@@ -225,6 +245,10 @@ export default async function SearchStrategyPage({ searchParams }: { searchParam
             <ClusterCard key={c.id} c={c} bands={r.bands} experiments={r.experiments.filter((e) => e.cluster === c.id)} />
           ))}
         </Grid>
+
+        <Section title={`週次の処置（要処置 ${r.triage.filter((t) => t.status === 'action').length}・観察中 ${r.triage.filter((t) => t.status === 'observe').length}）`}>
+          <DataTable columns={TRIAGE_COLUMNS} rows={triageRows(r.triage)} pageSize={50} emptyText="処置の要る候補なし" />
+        </Section>
 
         <Section title={`改善候補（${r.bands.striking}）`}>
           <TabsList aria-label="クラスター" className="max-w-full overflow-x-auto">

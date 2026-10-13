@@ -19,6 +19,10 @@
  *       カードが swept / fail で閉じたら中止にする。CI（fetch-metrics の publish）が measure-experiments の前に --write で回す
  *   npm run search-improvement -- close --id EXP-### --result success|partial|no-effect|negative --learning "…" [--commit|--write]
  *       確定した自動計測（VERDICT_DUE）を判定して閉じる
+ *   npm run search-improvement -- triage [--check] [--json]
+ *       今週の処置（受け皿外・旧 URL・誘導の見直し）と観察中のもの。--check は要処置が残れば exit 1（週次レビューの完了条件）
+ *   npm run search-improvement -- decide --cluster <id> --page <接頭辞> (--accept | --route-to <狙いのページ>) --reason "…" [--commit|--write]
+ *       受け皿外の候補の判断を設定（クラスターの pageDecisions）へ理由と日付つきで記録する
  *
  *   書き込み: 既定は dry-run（表示だけ）。--write は作業ツリーへ書く。--commit は作業ツリーに触れず origin/develop へ直接積む
  *   （backlog と実験台帳を 1 つの commit にする・lib/git-direct-commit.mjs）。
@@ -37,7 +41,7 @@ import { addDays } from './lib/business-direction.mjs';
 import { jstDayOf, todayJst } from './lib/jst-date.mjs';
 import { findCard } from './backlog-edit.mjs';
 import { BACKLOG, addCard } from './todo-add.mjs';
-import { buildContentIndex } from './build-growth-digest.mjs';
+import { buildContentIndex } from './lib/content-index.mjs';
 import { CONFIG, buildSearchOpportunities } from './lib/search-opportunities.mjs';
 import { normalizeTargetPath } from './lib/legacy-routes.mjs';
 import { firstDeployContaining, isAncestor, listProductionDeploys } from './lib/production-deploys.mjs';
@@ -55,11 +59,13 @@ const CARD = { tier: '中', kind: '改善', domain: 'サイト', category: 'コ�
 const args = parseCliArgs({
   page: { type: 'string' }, cluster: { type: 'string' }, todo: { type: 'string' }, title: { type: 'string' }, when: { type: 'string' },
   card: { type: 'string' }, none: { type: 'string' }, id: { type: 'string' }, result: { type: 'string' }, learning: { type: 'string' },
+  reason: { type: 'string' }, 'route-to': { type: 'string' }, accept: { type: 'boolean' }, check: { type: 'boolean' },
   commit: { type: 'boolean' }, write: { type: 'boolean' }, json: { type: 'boolean' },
 });
 const command = args._[0];
 // Git Bash は "/exam/..." を Windows のパスに書き換えて渡すので戻す（normalizeTargetPath）
-if (args.page) args.page = normalizeTargetPath(args.page, new Map());
+// decide の --page は接頭辞なので、末尾の / は残す
+if (args.page) args.page = normalizeTargetPath(args.page, new Map()) + (args.page.endsWith('/') && args.page !== '/' ? '/' : '');
 
 class UsageError extends Error {}
 const fail = (msg) => { throw new UsageError(msg); };
@@ -68,16 +74,18 @@ const fail = (msg) => { throw new UsageError(msg); };
  * 実験台帳（と必要なら backlog）を書き換える。mutate({ ledger, backlog }) は台帳を直接書き換え、backlog の新しい中身・commit メッセージ・結果を返す。
  * dry-run は作業ツリーの中身で mutate だけ行い、--write は作業ツリーへ書き、--commit は origin/develop の最新に対して行い 1 commit で積む。
  */
-function apply({ backlog: needsBacklog = false, ledger: needsLedger = true }, mutate) {
-  const paths = [needsBacklog && BACKLOG, needsLedger && LEDGER].filter(Boolean);
+function apply({ backlog: needsBacklog = false, ledger: needsLedger = true, config: needsConfig = false }, mutate) {
+  const paths = [needsBacklog && BACKLOG, needsLedger && LEDGER, needsConfig && CONFIG].filter(Boolean);
   const run = (current) => {
     const ledger = needsLedger ? JSON.parse(current[LEDGER]) : null;
-    const out = mutate({ ledger, backlog: current[BACKLOG] });
+    const config = needsConfig ? JSON.parse(current[CONFIG]) : null;
+    const out = mutate({ ledger, config, backlog: current[BACKLOG] });
     const texts = {};
     if (needsLedger) {
       ledger.updated_at = new Date().toISOString();
       texts[LEDGER] = formatDataset(LEDGER_ID, ledger).text;
     }
+    if (needsConfig) texts[CONFIG] = formatDataset('config.search-strategy', config).text;
     if (needsBacklog && out.backlog != null) texts[BACKLOG] = out.backlog;
     return { texts, message: out.message, result: out.result };
   };
@@ -240,7 +248,38 @@ function cmdStatus() {
   }
 }
 
-const COMMANDS = { status: cmdStatus, add: cmdAdd, link: cmdLink, sync: cmdSync, close: cmdClose };
+/** 今週の処置（受け皿外・旧 URL・誘導の見直し）。--check は処置の要るものが残っていれば exit 1（週次レビューの完了条件） */
+function cmdTriage() {
+  const r = opportunities();
+  if (!r.period) fail('GSC の検索語×ページ集計が無い');
+  const action = r.triage.filter((t) => t.status === 'action');
+  const observe = r.triage.filter((t) => t.status === 'observe');
+  if (args.json) {
+    process.stdout.write(`${JSON.stringify({ action, observe }, null, 2)}\n`);
+  } else {
+    const total = r.clusters.reduce((s, c) => s + c.candidateTotal, 0);
+    console.log(`${TAG} 候補 ${total} 件・検索改善の実験 ${r.experiments.length} 件を検査（GSC ${r.period.startDate}〜${r.period.endDate}）/ 要処置 ${action.length} / 観察中 ${observe.length}`);
+    for (const t of action) console.log(`  ✗ [${t.clusterLabel}] ${t.page}${t.impressions != null ? `（表示 ${t.impressions}）` : ''}: ${t.action}`);
+    for (const t of observe) console.log(`  … [${t.clusterLabel}] ${t.page}: ${t.note}`);
+  }
+  return args.check && action.length ? 1 : 0;
+}
+
+/** 受け皿外の候補の判断を設定（クラスターの pageDecisions）へ理由と日付つきで記録する */
+function cmdDecide() {
+  if (!args.cluster || !args.page || !args.reason || !(args.accept || args.routeTo)) fail('decide には --cluster・--page（接頭辞で当てる）・--reason と、--accept か --route-to <狙いのページ> が要る');
+  if (args.accept && args.routeTo) fail('--accept と --route-to は同時に使わない');
+  const to = args.routeTo ? normalizeTargetPath(args.routeTo, new Map()) : undefined;
+  const decision = { path: args.page, decision: args.accept ? 'accept' : 'route', ...(to ? { to } : {}), reason: args.reason.trim(), decidedAt: todayJst() };
+  apply({ ledger: false, config: true }, ({ config }) => {
+    const c = config.clusters.find((x) => x.id === args.cluster) ?? fail(`クラスター ${args.cluster} が ${CONFIG} に無い`);
+    c.pageDecisions = [...(c.pageDecisions ?? []).filter((d) => d.path !== decision.path), decision];
+    return { message: `search: ${c.label} の ${decision.path} を${decision.decision === 'accept' ? '受け皿に加える' : `${to} へ誘導する`}（${decision.reason}）\n`, result: null };
+  });
+  console.log(`${TAG} ${args.cluster}: ${decision.path} → ${decision.decision === 'accept' ? '受け皿に加える' : `誘導 ${to}`}（${decision.reason}）`);
+}
+
+const COMMANDS = { status: cmdStatus, add: cmdAdd, link: cmdLink, sync: cmdSync, close: cmdClose, triage: cmdTriage, decide: cmdDecide };
 try {
   if (!COMMANDS[command]) fail(`サブコマンドは ${Object.keys(COMMANDS).join(' / ')}`);
   if (args.commit && args.write) fail('--commit と --write は同時に使わない');

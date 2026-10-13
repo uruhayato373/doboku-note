@@ -21,7 +21,7 @@ import dotenv from 'dotenv';
 import { jst } from './lib/business-direction.mjs';
 import { normPath, foldGsc } from './lib/growth-pack.mjs';
 import { specErrors, specHash, measureWindows, verdictHint, deltaPct, sumSales, sumGscPages, alreadyMeasured, inScope, salesWindowFinalized } from './lib/experiment-measure.mjs';
-import { buildContentIndex } from './build-growth-digest.mjs';
+import { buildContentIndex } from './lib/content-index.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
 import { writeDataset } from './lib/dataset-write.mjs';

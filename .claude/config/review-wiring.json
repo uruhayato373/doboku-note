@@ -93,7 +93,13 @@
         },
         {
           "command": "search-improvement",
-          "label": "検索改善の起票・本番反映・判定（カード⇄実験 ID）",
+          "label": "検索改善の起票・本番反映・判定・週次の処置（カード⇄実験 ID）",
+          "stage": "検索",
+          "role": "判断"
+        },
+        {
+          "command": "gsc-indexing:request",
+          "label": "置き換わらない旧 URL の正規 URL を登録リクエスト（運営者の承認後）",
           "stage": "検索",
           "role": "判断"
         },

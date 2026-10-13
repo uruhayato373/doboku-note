@@ -21,7 +21,7 @@
  * exit: 0 成功 / 2 検査不成立（パックが無い）
  */
 import { existsSync, readdirSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs';
-import { join, relative, resolve, sep } from 'node:path';
+import { join, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { direction, jst } from './lib/business-direction.mjs';
 import { datasetDir, datasetPath, latestFile } from './lib/datasets.mjs';
@@ -30,8 +30,7 @@ import {
   summarizeKpis, topMovers, reconcileBing, inputCoverage,
 } from './lib/growth-opportunities.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
-import { listFiles } from './lib/fs-walk.mjs';
-import { LEGACY_PREFIX, parseLegacyRedirects } from './lib/legacy-routes.mjs';
+import { buildContentIndex } from './lib/content-index.mjs';
 
 const TAG = '[growth-digest]';
 const GROWTH = datasetDir('analysis.growth-pack');
@@ -51,31 +50,8 @@ const latestAt = (root, dir, re) => {
 const readJsonOr = (p, fallback) => readJsonAt(ROOT, p, fallback);
 const latestIn = (dir, re) => latestAt(ROOT, dir, re);
 
-/**
- * 公開パス → 原稿パス（index）と、旧 URL → 正規 URL（legacy）。旧 /docs/<slug> の 301 先を公開パスとし、
- * slug は content/site の相対パスから導く（generate-sitemap と同じ規則）。
- */
-export function buildContentIndex(root = ROOT) {
-  const redirects = new Map();
-  const file = join(root, 'public/_redirects');
-  if (existsSync(file)) {
-    // 静的 301 と、動的ルールがまとめる slug の表（# route）の両方から引く。
-    for (const [from, to] of parseLegacyRedirects(readFileSync(file, 'utf8'))) {
-      redirects.set(from.slice(LEGACY_PREFIX.length), to.replace(/\/+$/, ''));
-    }
-  }
-  const index = new Map();
-  const siteRoot = join(root, 'content/site');
-  for (const full of listFiles(siteRoot, { ext: '.mdx', allowMissing: true })) {
-    const segs = relative(siteRoot, full).split(sep);
-    const base = segs.pop().replace(/\.mdx$/, '');
-    const slug = (base === 'article' ? segs : [...segs, base]).join('-');
-    const path = redirects.get(slug);
-    if (path) index.set(path, relative(root, full).split(sep).join('/'));
-  }
-  const legacy = new Map([...redirects].map(([slug, to]) => [`/docs/${slug}`, to]));
-  return { index, legacy };
-}
+// 公開パス → 原稿パスと旧 URL → 正規 URL の対応は lib/content-index.mjs（既存の import 先のため再輸出する）
+export { buildContentIndex };
 
 export function buildDigest({ week, root = ROOT, today = jst() } = {}) {
   const readJsonOr = (p, fallback) => readJsonAt(root, p, fallback);

@@ -99,6 +99,8 @@ domain: strategy
   2. `npm run report-search-opportunities -- --json` の `fileable[]`（観察中・旧URL・計測中の実験が無い候補。`lastResult` は前回の判定）を表示の多い順に、`config.cycle.filePerWeek` 件まで `npm run search-improvement -- add --page <path> --todo "直す箇所（title/description/冒頭の答え/見出し/内部リンク）" --commit` で起票する（カードと EXP を 1 commit。週の上限は CLI が止める）。前回が効果なしのページは同じ直し方を繰り返さず、検索意図とのずれを `--todo` に書く。新規ページは作らない。1 キーワードの 7 日観察が要るものは下の SEO Rank Watch へ登録する
   `--commit` は origin/develop へ直接積むので、続く手順が最新の backlog・台帳を読むよう、そのたびに `git pull --ff-only` で取り込む。
   3. 下の実験サイクルの期限で `VERDICT_DUE` になった kind `search-strategy` は、`review` のとおり `npm run search-improvement -- close --id EXP-### --result <success|partial|no-effect|negative> --learning "…" --commit` で判定する
+  4. **週次の処置（全件・今週中）**: `npm run search-improvement -- triage` の要処置をすべて片付ける（判定待ちの実験の close と、本番に入らない実験の確認も含む）。受け皿外は `decide --cluster <id> --page <接頭辞> --accept --reason "…" --commit`（受け皿に加える）か `--route-to <狙いのページ>`（受け皿外のページから狙いのページへ内部リンクを足し、その場で commit してから記録）。旧 URL は表示どおりに処置する（転送・転送先の公開・サイト内リンクの張り替え。期限切れは `npm run gsc-indexing:request -- --urls <正規 URL> --commit`＝Google への送信なので運営者の承認を得てから。送信は indexing-history に残り、次の週から観察に戻る）。誘導の期限切れは判断をやり直す。カードには回さない
+  5. **完了条件**: `npm run search-improvement -- triage --check` が exit 0（要処置 0 件）。観察中のものは期限まで待つ
 - **SEO Rank Watch**: `npm run seo-rank-watch -- report --json` で資格別候補・実行/待機理由・観察期限・達成後監視・鮮度・同時実行上限・方針レビュー期限を確認する。一般用語の順位だけを週の成果にしない。観察/方針の期限到来は `/weekly-improve --rank-watch --no-fetch` へ渡す。汎用NSMの10日/28日基準でrank-watchを変更しない。確認後は専用 `log-run` で判断を記録する。
 - **実験サイクルの期限**: `npm run check-experiment-due -- --json`（オフライン・`experiments.json` 参照）。
   これが「計測→記録→改善→**再計測**」の最後の輪。`due[]` の MEASURE_DUE / CLOSE_DUE / PENDING /
