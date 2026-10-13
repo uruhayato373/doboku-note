@@ -21,6 +21,14 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-0717] 2級土木「土工の頻出点」の動画（sqkP7vheZ_Q）が YouTube から消え、develop の CI が video-publication で赤い
+タグ: [領域:SNS] [時期:2026-10] [種類:不具合] [起票:2026-10-13]
+
+**起点**: 2026-10-12T22:35Z の registry-reconcile が gakka-2kyu-doko/longform を gone と記録し（.claude/state/video-publication-verify.json）、以後 develop の quality audit（video-publication V05）が赤い。前回 10-11T19:42Z の照合では見えていた。oEmbed は 404（非公開なら 401/403）なので削除の可能性が高い。10-12T21:56Z の予約取り消し（youtube-unschedule・未来の予約 38 本）は公開済みのこの動画を対象にしていない。
+**やること**: 運営者が消したのか（YouTube 側の削除・違反措置か）を YouTube Studio で確かめる。意図どおりなら運営者が `npm run registry -- stop --pub civil-construction-2/gakka-2kyu-doko/youtube.longform --reason gone` を実行し、registry-reconcile を回し直して照合記録から外す。意図しない削除・違反措置なら原因を記録して再アップロードを判断する。
+**完了条件**: develop の CI（audit の video-publication）が緑。
+
+
 
 
 
