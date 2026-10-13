@@ -3,7 +3,7 @@ import { extname, join, resolve, sep } from 'node:path';
 import { Readable } from 'node:stream';
 import { repoPath } from '@/lib/repo-root';
 import { servePlan } from '../../../../../../../scripts/lib/media-serve.mjs';
-import { loadDriveManifest, resolveVaultRoot, vaultAbsFor } from '../../../../../../../scripts/lib/drive-vault.mjs';
+import { driveGroupFor, loadDriveConfig, loadDriveManifest, resolveVaultRoot, vaultAbsFor, vaultRelFor } from '../../../../../../../scripts/lib/drive-vault.mjs';
 import { parseMediaPath } from '../../../../../../../scripts/lib/media-paths.mjs';
 import { NOTE_CONTENT_ROOT, SITE_CONTENT_ROOT, SNS_CONTENT_ROOT } from '../../../../../../../scripts/lib/repository-paths.mjs';
 
@@ -11,6 +11,7 @@ import { NOTE_CONTENT_ROOT, SITE_CONTENT_ROOT, SNS_CONTENT_ROOT } from '../../..
  * /media/{posts|sns|note|kindle|kindlepub|kindlepreview}/... → リポジトリ内ルートへの static serve。
  * tools/admin/lib/media.mjs の traversal ガード + MIME allowlist を移植。
  * cmedia（手元の素材）・vault（Drive の素材）は Range・HEAD に対応する（動画・音声のシーク用）。読み取り専用（GET・HEAD のみ）。
+ * book（Drive の書籍の頁画像・切り出し図）は /media/book/<書籍ディレクトリ>/(pages|crops)/<file>。Drive の台帳に reference-book-page-image として載るものだけ（シリーズ企画の画像の確認用）。
  * ローカル専用だが drive-by 読み出しを想定し許可ルート外は 403。
  */
 
@@ -71,6 +72,22 @@ async function serve(req: Request, params: Promise<{ root: string; path: string[
     const entry = loadDriveManifest().entries?.['.tmp/media/' + rel];
     if (!entry) return text('404 Not Found', 404);
     base = vaultAbsFor(vr.root, VAULT_SUBDIR);
+    expectedBytes = Number(entry.bytes);
+  } else if (root === 'book') {
+    if (!/^[^/]+\/(?:pages|crops)\/[^/]+\.(?:png|jpe?g|webp)$/i.test(rel)) return text('403 Forbidden', 403);
+    const key = `content/sources/books/${rel}`;
+    const entry = loadDriveManifest().entries?.[key];
+    if (!entry || entry.group !== 'reference-book-page-image') return text('404 Not Found', 404);
+    const vr = resolveVaultRoot();
+    if (!vr.root) return text('404 Drive のマウントが無い', 404);
+    const cfg = loadDriveConfig();
+    const group = driveGroupFor(key, cfg);
+    if (!group) return text('404 Not Found', 404);
+    const vaultRel = vaultRelFor(key, group);
+    // 下の共通の検査（許可ルートの外へ出ない・MIME）に乗せるため、置き場の親を base、ファイル名を rel にする
+    const abs = vaultAbsFor(vr.root, vaultRel);
+    base = resolve(abs, '..');
+    rel = abs.slice(base.length + 1);
     expectedBytes = Number(entry.bytes);
   } else {
     base = MEDIA_ROOTS[root];
