@@ -35,6 +35,12 @@ export const GATES = [
     cmd: () => ['node', 'scripts/wire-note-paid-cta.mjs', '--check'],
   },
   {
+    id: 'search-improvements',
+    // 検索改善の実験とカードの結び付き（実験台帳・backlog・dispatch-log・検索キーワード戦略の設定）。全量で 1 秒
+    match: (f) => [datasetPath('business.experiments'), datasetPath('config.search-strategy'), datasetPath('state.dispatch-log'), '.claude/todo/backlog.md'].includes(f),
+    cmd: () => ['node', 'scripts/check-search-improvements.mjs'],
+  },
+  {
     id: 'x-review',
     match: (f) => f.startsWith('content/sns/x/'),
     cmd: () => ['node', 'scripts/check-x-review.mjs'],

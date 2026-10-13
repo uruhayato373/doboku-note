@@ -280,6 +280,8 @@ const CHECKS = [
   { id: 'year-staleness', npm: 'check-year-staleness', timeout: 60_000, ci: false, note: 'ガイド・keyword 記事の title/seoTitle/description に残る前年度以前の年度表現（DN-0426）。過去問・年度別記事（group past-exam/primary/secondary、r05-essay-* 等の年度スラッグ）は主題なので除外。年度切替（毎年1月）の直後 2 週間だけ ci:true へ上げ、0 件になったら ci:false へ戻す。読み手＝/weekly-review（年度切替直後のみ確認）' },
   { id: 'review-wiring', npm: 'check-review-wiring', timeout: 30_000, ci: true, note: '週次・月次レビューのスキルの実行コマンドと配線の正本（review-wiring.json）の一致。管理画面の配線図が実態とずれないため' },
   { id: 'search-opportunities', npm: 'report-search-opportunities', timeout: 30_000, ci: true, note: '検索キーワード戦略の設定と GSC 検索語×ページ集計から改善候補を組み立てられるか（committed state だけを読む・壁時計に依存しない）。候補の中身は週次レビューが読んで起票する' },
+  { id: 'search-triage', npm: 'check-search-triage', timeout: 60_000, ci: false, ops: true, note: '検索改善の週次の処置（受け皿外・旧 URL・誘導の見直し・改善の記録の無い実験・判定待ち・本番に入らない改善）が残っていないか。旧 URL・誘導の期限が壁時計に依存するので ops。読み手＝週次レビュー（要処置が残れば ops Issue が開き、処置で自動クローズ。週次の完了条件は search-improvement triage --check --weekly）' },
+  { id: 'search-improvements', npm: 'check-search-improvements', timeout: 30_000, ci: true, note: '検索改善の実験（experiments.json の kind search-strategy）に改善の記録の無いもの（起票だけで止まる状態）が無いか・起点が検索キーワード戦略のカード（改善のカード積み）が無いか・旧来のカードとの ID の結び付き（committed state だけ・壁時計に依存しない）。改善は直して npm run search-improvement -- record' },
   { id: 'x-campaign-plan', npm: 'check-x-campaign-plan', timeout: 30_000, ci: true, note: 'X月間計画の日付・導線・URL・販売投稿間隔を検査' },
   { id: 'x-review', npm: 'check-x-review', timeout: 30_000, ci: true, note: 'X確認期間の原稿・時刻・公開マガジン導線・先生カードの再生成元を検査' },
   { id: 'x-card-render', npm: 'check-x-card-render', timeout: 30_000, ci: true, note: 'Xカード画像の配色・主題・生URL焼込みを描画台帳で検査（画像は開かない）' },

@@ -36,21 +36,41 @@ function git(root, args, { input, env } = {}) {
  * @param {number} [o.retries=3]
  * @returns {{ commit: string, base: string, pushed: boolean, result: any }}
  */
-export function commitFileToRemoteBranch({ root, path, transform, branch = 'develop', remote = 'origin', push = true, retries = 3 }) {
+export function commitFileToRemoteBranch({ root, path, transform, ...rest }) {
+  return commitFilesToRemoteBranch({
+    root,
+    paths: [path],
+    transform: (current, attempt) => {
+      const { text, message, result } = transform(current[path], attempt);
+      return { texts: { [path]: text }, message, result };
+    },
+    ...rest,
+  });
+}
+
+/**
+ * 複数のファイルを 1 つの commit でリモートへ積む（カードと実験台帳を同時に書く search-improvement など）。
+ * transform は { パス: 今の中身 } を受け取り、{ texts: { パス: 新しい中身 }, message, result } を返す。
+ * 返したパスのどれも変わらなければ投げる。
+ */
+export function commitFilesToRemoteBranch({ root, paths, transform, branch = 'develop', remote = 'origin', push = true, retries = 3 }) {
   let lastError = null;
   for (let attempt = 1; attempt <= retries; attempt++) {
     git(root, ['fetch', '-q', remote, branch]);
     const base = git(root, ['rev-parse', `${remote}/${branch}`]).trim();
-    const current = git(root, ['show', `${base}:${path}`]);
-    const { text, message, result } = transform(current, attempt);
-    if (text === current) throw new Error(`${path} が変わらない（積むものが無い）`);
-    const blob = git(root, ['hash-object', '-w', '--stdin'], { input: text }).trim();
+    const current = Object.fromEntries(paths.map((p) => [p, git(root, ['show', `${base}:${p}`])]));
+    const { texts, message, result } = transform(current, attempt);
+    const changed = Object.entries(texts).filter(([p, t]) => t !== current[p]);
+    if (!changed.length) throw new Error(`${paths.join('・')} が変わらない（積むものが無い）`);
     const index = join(tmpdir(), `git-direct-commit-${process.pid}-${Date.now()}.index`);
     let tree;
     try {
       const env = { GIT_INDEX_FILE: index };
       git(root, ['read-tree', base], { env });
-      git(root, ['update-index', '--add', '--cacheinfo', `100644,${blob},${path}`], { env });
+      for (const [p, t] of changed) {
+        const blob = git(root, ['hash-object', '-w', '--stdin'], { input: t }).trim();
+        git(root, ['update-index', '--add', '--cacheinfo', `100644,${blob},${p}`], { env });
+      }
       tree = git(root, ['write-tree'], { env }).trim();
     } finally {
       rmSync(index, { force: true });

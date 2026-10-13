@@ -167,7 +167,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ m
           {v.search.clusters.map((c) => (
             <Tile
               key={c.label}
-              label={`1桁の検索語・${c.label}`}
+              label={`${v.search.topLabel}の検索語・${c.label}`}
               value={String(c.top10)}
               sub={c.prevTop10 == null ? undefined : `前 ${c.prevTop10}`}
             />

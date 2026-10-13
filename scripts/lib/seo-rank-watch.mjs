@@ -10,6 +10,7 @@ import { datasetDir, datasetPath } from './datasets.mjs';
 import { GSC_PROPERTY, SITE_ORIGIN } from './site-identity.mjs';
 import { readDatasetIf } from './dataset-io.mjs';
 import { appendDataset } from './dataset-write.mjs';
+import { isProductionDeploy } from './production-deploys.mjs';
 
 export class WatchError extends Error {}
 
@@ -266,7 +267,7 @@ export function recordAction(store, config, watch, action, measurement, now = ne
 }
 export function markDeployed(exp, proof, now = new Date()) {
   if (statusOf(exp) !== 'pending-deploy') throw new WatchError('No pending action');
-  if (proof.conclusion !== 'success' || proof.status !== 'completed' || proof.head_branch !== 'main' || proof.path !== '.github/workflows/cloudflare-deploy.yml' || !/^[a-f0-9]{40}$/.test(proof.head_sha ?? '') || !Number.isFinite(Date.parse(proof.updated_at)) || Date.parse(proof.updated_at) > now.getTime()) throw new WatchError('Successful main production deployment required');
+  if (!isProductionDeploy(proof) || Date.parse(proof.updated_at) > now.getTime()) throw new WatchError('Successful main production deployment required');
   if (jstDayOf(proof.updated_at) < exp.actions.at(-1).date) throw new WatchError('Deployment predates the action');
   exp.history.push({ date: dateJst(now), event: 'deployed', actionIndex: exp.actions.length - 1, deployedAt: proof.updated_at, commit: proof.head_sha, url: proof.html_url });
   exp.status = 'running'; exp.started_at = proof.updated_at; exp.reviewDays = 7;
