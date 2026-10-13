@@ -10,7 +10,7 @@
       "format": "short",
       "legacyKey": "access-control",
       "copy": "content/sns/youtube/legacy-metadata.json#entries/access-control",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -27,7 +27,8 @@
       },
       "media": {
         "cover": "pe-comprehensive-management/cem-kw-access-control/youtube.short/cover"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "pe-comprehensive-management/cem-kw-multisource-evaluation/youtube.short",
@@ -36,7 +37,7 @@
       "format": "short",
       "legacyKey": "multisource-evaluation",
       "copy": "content/sns/youtube/legacy-metadata.json#entries/multisource-evaluation",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -53,7 +54,8 @@
       },
       "media": {
         "cover": "pe-comprehensive-management/cem-kw-multisource-evaluation/youtube.short/cover"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "pe-comprehensive-management/cem-r03-p01-q1/youtube.short",
@@ -78,7 +80,7 @@
       "legacyKey": "r03-pack-01-q2",
       "copy": "content/sns/youtube/legacy-metadata.json#entries/r03-pfi",
       "publishAt": "2026-06-09T12:30:00+09:00",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -98,7 +100,8 @@
       },
       "media": {
         "cover": "pe-comprehensive-management/cem-r03-p01-q2/youtube.short/cover"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "pe-comprehensive-management/cem-r03-p01-q3/youtube.short",
@@ -108,7 +111,7 @@
       "legacyKey": "r03-pack-01-q3",
       "copy": "content/sns/youtube/legacy-metadata.json#entries/r03-quality",
       "publishAt": "2026-06-09T20:00:00+09:00",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -128,7 +131,8 @@
       },
       "media": {
         "cover": "pe-comprehensive-management/cem-r03-p01-q3/youtube.short/cover"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "pe-comprehensive-management/cem-r03-p01-q4/youtube.short",
@@ -138,7 +142,7 @@
       "legacyKey": "r03-pack-01-q4",
       "copy": "content/sns/youtube/legacy-metadata.json#entries/r03-critical-path",
       "publishAt": "2026-06-10T07:30:00+09:00",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -158,7 +162,8 @@
       },
       "media": {
         "cover": "pe-comprehensive-management/cem-r03-p01-q4/youtube.short/cover"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "pe-comprehensive-management/cem-r03-p02-q1/youtube.short",
@@ -168,7 +173,7 @@
       "legacyKey": "r03-pack-02-q1",
       "copy": "content/sns/youtube/legacy-metadata.json#entries/r03-decoupling",
       "publishAt": "2026-06-10T12:30:00+09:00",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -188,7 +193,8 @@
       },
       "media": {
         "cover": "pe-comprehensive-management/cem-r03-p02-q1/youtube.short/cover"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "pe-comprehensive-management/cem-r03-p02-q2/youtube.short",
@@ -198,7 +204,7 @@
       "legacyKey": "r03-pack-02-q2",
       "copy": "content/sns/youtube/legacy-metadata.json#entries/r03-break-even",
       "publishAt": "2026-06-10T20:00:00+09:00",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -218,7 +224,8 @@
       },
       "media": {
         "cover": "pe-comprehensive-management/cem-r03-p02-q2/youtube.short/cover"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "pe-comprehensive-management/cem-r03-p02-q3/youtube.short",
@@ -228,7 +235,7 @@
       "legacyKey": "r03-pack-02-q3",
       "copy": "content/sns/youtube/legacy-metadata.json#entries/r03-cash-flow",
       "publishAt": "2026-06-11T07:30:00+09:00",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -248,7 +255,8 @@
       },
       "media": {
         "cover": "pe-comprehensive-management/cem-r03-p02-q3/youtube.short/cover"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "pe-comprehensive-management/cem-r03-p02-q4/youtube.short",
@@ -258,7 +266,7 @@
       "legacyKey": "r03-pack-02-q4",
       "copy": "content/sns/youtube/legacy-metadata.json#entries/r03-maintenance",
       "publishAt": "2026-06-11T12:30:00+09:00",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -278,7 +286,8 @@
       },
       "media": {
         "cover": "pe-comprehensive-management/cem-r03-p02-q4/youtube.short/cover"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "pe-comprehensive-management/cem-r03-p03-q1/youtube.short",
@@ -1980,7 +1989,7 @@
       "legacyKey": "r07-pack-01-q1",
       "copy": "content/sns/youtube/legacy-metadata.json#entries/r07-quality",
       "publishAt": "2026-07-23T07:30:00+09:00",
-      "status": "published",
+      "status": "stopped",
       "approval": {
         "by": "user",
         "contentSha256": null,
@@ -1997,7 +2006,8 @@
       },
       "media": {
         "cover": "pe-comprehensive-management/cem-r07-p01-q1/youtube.short/cover"
-      }
+      },
+      "stopReason": "user-decision"
     },
     {
       "id": "pe-comprehensive-management/cem-r07-p01-q2/youtube.short",
