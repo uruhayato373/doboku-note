@@ -10,10 +10,16 @@
  */
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { readDataset } from './dataset-io.mjs';
+import { readDataset, readDatasetIf } from './dataset-io.mjs';
+import { AI_LEDGER_FILE, aiPhotoStatus } from './image-origin.mjs';
+import { fileSha } from './figure-review.mjs';
 
 export const SERIES_PLANS = ['new', 'strengthen', 'existing', 'excluded'];
 export const PLAN_LABELS = { new: '新規', strengthen: '補強', existing: '既存', excluded: '対象外' };
+export const VISUAL_LABELS = {
+  planned: '未作成', spec: '仕様あり・未生成', placed: '配置済み',
+  'not-generated': '仕様と画像が違う', unreviewed: '未監査', failed: '不合格', ok: '合格',
+};
 export const STATE_LABELS = {
   published: '公開', draft: '下書き', planned: '未着手', strengthen: '補強待ち', existing: '既存', excluded: '対象外', missing: '記事が無い',
 };
@@ -117,7 +123,13 @@ export function seriesView(config, stateOf) {
 
 /** 検査と管理画面が使う文脈（参考文献の id・記事の実体・工種別ノートの資格）。 */
 export function seriesContext(root) {
-  const sourceIds = new Set(readDataset(root, 'config.reference-sources').sources.map((s) => s.id));
+  const referenceSources = readDataset(root, 'config.reference-sources').sources;
+  const sourceIds = new Set(referenceSources.map((s) => s.id));
+  const referenceClasses = new Map(referenceSources.map((s) => [s.id, s.class]));
+  const bookSummary = readDatasetIf(root, 'state.book-coverage')?.books ?? {};
+  const provenance = readDataset(root, 'config.figure-sources').provenance ?? {};
+  const aiFile = join(root, ...AI_LEDGER_FILE.split('/'));
+  const aiLedger = existsSync(aiFile) ? JSON.parse(readFileSync(aiFile, 'utf8')) : null;
   const curriculum = JSON.parse(readFileSync(join(root, 'src', 'config', 'category-curriculum.json'), 'utf8'));
   const curriculumCategories = new Set(Object.keys(curriculum).filter((k) => !k.startsWith('$')));
   const cache = new Map();
@@ -125,5 +137,100 @@ export function seriesContext(root) {
     if (!cache.has(path)) cache.set(path, articleStateFromFile(root, path));
     return cache.get(path);
   };
-  return { sourceIds, curriculumCategories, stateOf };
+  return { root, referenceSources, sourceIds, referenceClasses, bookSummary, provenance, aiLedger, curriculumCategories, stateOf };
+}
+
+/**
+ * 図・写真 1 枚の状態（計画と、画像の実体・出所の台帳・AI 画像の台帳から出す。台帳に「済」を書かない）。
+ * 図: 置き場（figKey）の SVG があれば placed。写真: 画像があれば image-origin の aiPhotoStatus、無ければ仕様（prompt）の有無。
+ * 作るのは既存の流れ（図は自作の SVG、写真は npm run gen-article-photo＝codex exec の画像生成）。
+ */
+export function visualState(visual, ctx) {
+  if (!visual.figKey) return 'planned';
+  const base = join(ctx.root, 'content', 'site', ...visual.figKey.split('/'));
+  if (visual.kind === 'figure') return ['.svg', '.webp', '.png'].some((ext) => existsSync(base + ext)) ? 'placed' : 'planned';
+  const entry = ctx.provenance?.[visual.figKey];
+  const file = ['.webp', '.png', '.jpg'].map((ext) => base + ext).find((f) => existsSync(f));
+  if (!file) return entry?.prompt ? 'spec' : 'planned';
+  return aiPhotoStatus({ entry, rec: ctx.aiLedger?.figures?.[visual.figKey], sha: fileSha(file) });
+}
+
+/** Codex などに渡す図・写真の作業一覧（合格・配置済み以外）。写真は gen-article-photo のコマンドを付ける。 */
+export function visualJobs(view, ctx) {
+  const jobs = [];
+  for (const s of view) for (const sec of s.sections) for (const it of sec.items) for (const v of it.visuals ?? []) {
+    const state = visualState(v, ctx);
+    if (state === 'ok' || state === 'placed') continue;
+    const next = !v.figKey ? '記事の場所が決まったら figKey を台帳に書く'
+      : v.kind === 'photo' ? `npm run gen-article-photo -- --fig ${v.figKey}${state === 'planned' ? ' --prompt "<被写体の指示>"' : ''}`
+      : `自作の SVG を content/site/${v.figKey}.svg に置く（create-svg）`;
+    jobs.push({ series: s.id, item: it.id, kind: v.kind, subject: v.subject, figKey: v.figKey ?? null, state, next });
+  }
+  return jobs;
+}
+
+export function loadBasis(root) {
+  return readDataset(root, 'config.content-series-basis');
+}
+
+/**
+ * 書籍の全項目の割り当ての検査。項目数は書籍の網羅の要約（book-coverage.json の candidates.textUnits）と一致させる
+ * （Drive が無くても件数で照合できる。id そのものの照合は basisDriveIssues）。
+ */
+export function validateBasis(basis, config, ctx) {
+  const issues = [];
+  const items = new Set((config.series ?? []).flatMap((s) => (s.sections ?? []).flatMap((sec) => sec.items.map((i) => `${s.id}/${i.id}`))));
+  for (const [bookId, book] of Object.entries(basis.books ?? {})) {
+    const cls = ctx.referenceClasses.get(bookId);
+    if (!cls) { issues.push(`${bookId}: 参考文献の台帳に無い`); continue; }
+    if (!['commercial-book', 'operator-owned'].includes(cls)) issues.push(`${bookId}: 書籍（commercial-book・operator-owned）でない（${cls}）`);
+    const expected = ctx.bookSummary?.[bookId]?.candidates?.textUnits;
+    const n = Object.keys(book.units ?? {}).length;
+    if (typeof expected !== 'number') issues.push(`${bookId}: 書籍の網羅の要約に項目数が無い（audit-reference-book-coverage --summary）`);
+    else if (n !== expected) issues.push(`${bookId}: 割り当て ${n} 項目 ≠ 書籍の項目 ${expected}（割り当てもれ・古い割り当て）`);
+    for (const [unit, v] of Object.entries(book.units ?? {})) {
+      if (typeof v === 'string') { if (!items.has(v)) issues.push(`${bookId}/${unit}: 割り当て先 ${v} がシリーズの台帳に無い`); }
+      else if (v.article && !ctx.stateOf(v.article).exists) issues.push(`${bookId}/${unit}: 記事が無い: ${v.article}`);
+    }
+  }
+  return issues;
+}
+
+/** Drive の候補表（見出しを含む）と、割り当ての項目 id がちょうど一致するか。Drive が無ければ null（照合しない）。 */
+export function basisDriveIssues(basis, vaultRoot, referenceSources) {
+  if (!vaultRoot) return null;
+  const issues = [];
+  for (const [bookId, book] of Object.entries(basis.books ?? {})) {
+    const src = referenceSources.find((s) => s.id === bookId);
+    const file = src?.origin?.vaultDir ? join(vaultRoot, ...src.origin.vaultDir.split('/'), 'coverage', 'candidates.json') : null;
+    if (!file || !existsSync(file)) { issues.push(`${bookId}: Drive に候補表が無い`); continue; }
+    const ids = new Set(JSON.parse(readFileSync(file, 'utf8')).units.map((u) => u.id));
+    const assigned = new Set(Object.keys(book.units ?? {}));
+    const missing = [...ids].filter((id) => !assigned.has(id));
+    const extra = [...assigned].filter((id) => !ids.has(id));
+    if (missing.length) issues.push(`${bookId}: 割り当てていない項目 ${missing.length}（${missing.slice(0, 5).join('・')}…）`);
+    if (extra.length) issues.push(`${bookId}: 候補表に無い項目 ${extra.length}（${extra.slice(0, 5).join('・')}…）`);
+  }
+  return issues;
+}
+
+/** 割り当ての集計: 項目（シリーズ id/項目 id）→ 書籍ごとの件数、書籍 → 内訳。 */
+export function basisView(basis) {
+  const byItem = new Map();
+  const byBook = {};
+  for (const [bookId, book] of Object.entries(basis.books ?? {})) {
+    const t = { units: 0, series: 0, article: 0, excluded: 0 };
+    for (const v of Object.values(book.units ?? {})) {
+      t.units += 1;
+      if (typeof v === 'string') {
+        t.series += 1;
+        const m = byItem.get(v) ?? {};
+        m[bookId] = (m[bookId] ?? 0) + 1;
+        byItem.set(v, m);
+      } else if (v.article) t.article += 1;
+      else t.excluded += 1;
+    }
+    byBook[bookId] = t;
+  }
+  return { byItem, byBook };
 }

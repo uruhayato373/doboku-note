@@ -45,6 +45,7 @@
   → 文字起こしに source frontmatter を付けて source-transcript group で同期
   → 記事 frontmatter の sources から ID で参照し、class 所定の粒度で出典を書く
   → 展開の網羅は audit-reference-book-coverage で章・節ごとに確かめる（手元専用。見出しを含む候補表と意味判定は Drive vault の 原資料PDF/書籍/<dir>/coverage/、git には見出しを含まない要約 .claude/state/book-coverage.json だけ）
+  → 試験とは別軸のシリーズへ使うときは、候補表の全項目をシリーズの章・ほかの記事・使わない理由へ割り当てる（config/content-series-basis.json。項目 id だけで見出しは持たない・check-content-series が件数と id を照合）
   → check-reference-sources（通常／staged／deep）で鎖と利用条件を検査
 ```
 

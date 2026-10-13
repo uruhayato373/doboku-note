@@ -62,6 +62,8 @@ SVG 制作は `create-svg` スキルに従う。モバイル 400px viewBox、デ
 3. **監査**: `node scripts/check-image-origin.mjs --ai-queue --json` の項目を `ai-image-fidelity-auditor` が判定（種別・構造・本文・生成の破綻）→ `node scripts/check-image-origin.mjs record-ai <verdicts.json>`。不合格は `prompt` を直して 2 からやり直す
 4. **検査**: `npm run check-image-origin`（`quality:audit:ci`）が、出所なし・実写・4:3 でない・未生成・未監査・不合格を止める
 
+シリーズ企画の台帳（`config/content-series.json`）の項目に `visuals` で図・写真を計画したときは、`npm run check-content-series -- --visual-jobs` が未完了の一覧（写真は上の 2 のコマンドつき）を出す。Codex にはこの一覧を渡し、1〜4 を通させる（2026-10-13）。
+
 | 状態 | 意味 |
 |---|---|
 | 未生成 | 仕様の `prompt` から作った記録が今の画像に無い（指示を変えた・手で差し替えた） |

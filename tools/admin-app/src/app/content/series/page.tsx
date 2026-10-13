@@ -5,7 +5,7 @@ import { PanelCard, StatusBadge, TableBody, TableCell, TableFrame, TableHead, Ta
 import { Stack } from '@/components/layout';
 import { PageHead } from '@/components/ui';
 import { findRepoRoot } from '@/lib/repo-root';
-import { loadSeriesConfig, seriesContext, seriesView, validateSeries, PLAN_LABELS, STATE_LABELS } from '../../../../../../scripts/lib/content-series.mjs';
+import { loadSeriesConfig, seriesContext, seriesView, validateSeries, loadBasis, validateBasis, basisView, visualState, PLAN_LABELS, STATE_LABELS, VISUAL_LABELS } from '../../../../../../scripts/lib/content-series.mjs';
 import { siteSlugOf } from '../../../../../../scripts/lib/content-expansion.mjs';
 import { publicPathFromSlug } from '../../../../../../scripts/lib/url-normalization.mjs';
 import { parseBacklog } from '../../../../../../scripts/lib/backlog-lib.mjs';
@@ -16,9 +16,10 @@ import { SITE_ORIGIN } from '../../../../../../scripts/lib/site-identity.mjs';
 export const dynamic = 'force-dynamic';
 
 type Article = { path: string; exists: boolean; published: boolean };
+type Visual = { kind: 'figure' | 'photo'; subject: string; figKey?: string };
 type Item = {
   id: string; title: string; plan: keyof typeof PLAN_LABELS; state: keyof typeof STATE_LABELS;
-  sources?: string[]; links?: string[]; wave?: number; note?: string; reason?: string; articles: Article[];
+  sources?: string[]; links?: string[]; wave?: number; note?: string; reason?: string; articles: Article[]; visuals?: Visual[];
 };
 type Summary = { items: number; newTotal: number; published: number; draft: number; planned: number; strengthen: number; existing: number; excluded: number; missing: number };
 type Series = {
@@ -27,6 +28,7 @@ type Series = {
 };
 type Card = { id: string; title: string };
 
+const VISUAL_TONE: Record<string, Tone> = { ok: 'good', placed: 'good', unreviewed: 'warn', spec: 'info', planned: 'neutral', 'not-generated': 'warn', failed: 'bad' };
 const STATE_TONE: Record<string, Tone> = {
   published: 'good', existing: 'good', draft: 'warn', strengthen: 'info', planned: 'neutral', excluded: 'neutral', missing: 'bad',
 };
@@ -61,8 +63,11 @@ export default async function SeriesPage() {
   const root = findRepoRoot();
   const config = loadSeriesConfig(root);
   const ctx = seriesContext(root);
-  const issues = validateSeries(config, ctx) as string[];
+  const basis = loadBasis(root);
+  const issues = [...(validateSeries(config, ctx) as string[]), ...(validateBasis(basis, config, ctx) as string[])];
   const view = seriesView(config, ctx.stateOf) as unknown as Series[];
+  const bv = basisView(basis) as { byItem: Map<string, Record<string, number>>; byBook: Record<string, { units: number; series: number; article: number; excluded: number }> };
+  const shortTitle = new Map((ctx.referenceSources as { id: string; shortTitle?: string; title: string }[]).map((r) => [r.id, r.shortTitle ?? r.title]));
   const cards = cardsBySeries(view.map((s) => s.id));
 
   return (
@@ -72,7 +77,34 @@ export default async function SeriesPage() {
         <p className="text-sm text-muted-foreground">
           試験・教科書とは別の軸で書く記事のシリーズ。目次・計画・根拠は <code>{datasetPath('config.content-series')}</code>、
           状態（公開・下書き・未着手）は記事の実体から出す。カードの本文にシリーズの id を書くと、ここに関連カードとして出る。
+          「教材」は書籍の項目のうちその章に割り当てた数（<code>{datasetPath('config.content-series-basis')}</code>）。
+          図・写真は計画だけを持ち、作るのは既存の流れ（図は自作の SVG、写真は <code>npm run gen-article-photo</code>＝Codex の画像生成）。未完了の一覧は <code>npm run check-content-series -- --visual-jobs</code>。
         </p>
+
+        <PanelCard title="書籍の全項目の割り当て">
+          <TableFrame>
+            <TableHeader>
+              <TableRow>
+                <TableHead>書籍</TableHead>
+                <TableHead>項目</TableHead>
+                <TableHead>シリーズの章</TableHead>
+                <TableHead>ほかの記事</TableHead>
+                <TableHead>使わない（理由つき）</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {Object.entries(bv.byBook).map(([id, t]) => (
+                <TableRow key={id}>
+                  <TableCell><Link href={`/materials?id=${encodeURIComponent(id)}`}>{shortTitle.get(id) ?? id}</Link></TableCell>
+                  <TableCell className="tabular-nums">{t.units}</TableCell>
+                  <TableCell className="tabular-nums">{t.series}</TableCell>
+                  <TableCell className="tabular-nums">{t.article}</TableCell>
+                  <TableCell className="tabular-nums">{t.excluded}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </TableFrame>
+        </PanelCard>
 
         {issues.length > 0 && (
           <PanelCard title={`台帳の問題 ${issues.length} 件`}>
@@ -105,13 +137,15 @@ export default async function SeriesPage() {
                     <TableHead>計画</TableHead>
                     <TableHead>状態</TableHead>
                     <TableHead>記事</TableHead>
+                    <TableHead>教材</TableHead>
+                    <TableHead>図・写真</TableHead>
                     <TableHead>根拠</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   {s.sections.flatMap((sec) => [
                     <TableRow key={`${s.id}:${sec.title}`}>
-                      <TableHead colSpan={6} scope="rowgroup">{sec.title}</TableHead>
+                      <TableHead colSpan={8} scope="rowgroup">{sec.title}</TableHead>
                     </TableRow>,
                     ...sec.items.map((it) => (
                       <TableRow key={`${s.id}:${it.id}`} className="align-top">
@@ -127,6 +161,20 @@ export default async function SeriesPage() {
                         <TableCell className="whitespace-nowrap"><StatusBadge tone={STATE_TONE[it.state]}>{STATE_LABELS[it.state]}</StatusBadge></TableCell>
                         <TableCell className="text-xs">
                           {it.articles.length === 0 ? <span className="text-muted-foreground">—</span> : it.articles.map((a) => <div key={a.path}>{articleLink(a)}</div>)}
+                        </TableCell>
+                        <TableCell className="text-xs whitespace-nowrap">
+                          {Object.entries(bv.byItem.get(`${s.id}/${it.id}`) ?? {}).map(([b, n]) => <div key={b}>{shortTitle.get(b) ?? b} {n}</div>)}
+                        </TableCell>
+                        <TableCell className="text-xs">
+                          {(it.visuals ?? []).length === 0 ? <span className="text-muted-foreground">—</span> : (it.visuals ?? []).map((v) => {
+                            const st = visualState(v, ctx) as string;
+                            return (
+                              <div key={v.subject} className="mb-1">
+                                {v.kind === 'photo' ? '写真' : '図'} <StatusBadge tone={VISUAL_TONE[st]}>{VISUAL_LABELS[st as keyof typeof VISUAL_LABELS]}</StatusBadge>
+                                <div className="text-muted-foreground">{v.subject}</div>
+                              </div>
+                            );
+                          })}
                         </TableCell>
                         <TableCell className="text-xs font-mono">{(it.sources ?? []).join(' ') || '—'}</TableCell>
                       </TableRow>

@@ -1,0 +1,1959 @@
+{
+  "schemaVersion": 1,
+  "description": "書籍（参考文献 id）の全項目を、どのシリーズの項目・どの記事で使うか、使わないならその理由で割り当てる。項目 id は書籍の網羅の候補表（Drive の coverage/candidates.json）の id で、市販書籍の見出しは持たない。値は「シリーズ id/項目 id」か { article } か { excluded }。項目数は書籍の網羅の要約（book-coverage.json）の textUnits と一致させる。",
+  "books": {
+    "concrete-basics-5th": {
+      "units": {
+        "u0001": {
+          "excluded": "前付け"
+        },
+        "u0002": {
+          "excluded": "写真キャプション"
+        },
+        "u0003": {
+          "excluded": "写真キャプション"
+        },
+        "u0004": {
+          "excluded": "写真キャプション"
+        },
+        "u0005": {
+          "excluded": "写真キャプション"
+        },
+        "u0006": {
+          "excluded": "写真キャプション"
+        },
+        "u0007": {
+          "excluded": "写真キャプション"
+        },
+        "u0008": {
+          "excluded": "写真キャプション"
+        },
+        "u0009": {
+          "excluded": "前付け"
+        },
+        "u0010": {
+          "excluded": "前付け"
+        },
+        "u0011": {
+          "excluded": "目次"
+        },
+        "u0012": {
+          "excluded": "目次"
+        },
+        "u0013": {
+          "excluded": "目次"
+        },
+        "u0014": {
+          "excluded": "章導入"
+        },
+        "u0015": "concrete-practice/C-01",
+        "u0016": "concrete-practice/C-12",
+        "u0017": "concrete-practice/C-12",
+        "u0018": "concrete-practice/C-12",
+        "u0019": "concrete-practice/C-12",
+        "u0020": "concrete-practice/C-12",
+        "u0021": "concrete-practice/C-12",
+        "u0022": "concrete-practice/C-12",
+        "u0023": {
+          "excluded": "写真キャプション"
+        },
+        "u0024": "concrete-practice/C-12",
+        "u0025": "concrete-practice/C-12",
+        "u0026": "concrete-practice/C-12",
+        "u0027": "concrete-practice/C-12",
+        "u0029": "concrete-practice/C-01",
+        "u0030": {
+          "excluded": "本の中で重複"
+        },
+        "u0031": "concrete-practice/C-01",
+        "u0033": "concrete-practice/C-00",
+        "u0034": "concrete-practice/C-00",
+        "u0036": "concrete-practice/C-05",
+        "u0037": "concrete-practice/C-05",
+        "u0038": "concrete-practice/C-05",
+        "u0039": {
+          "excluded": "本の中で重複"
+        },
+        "u0041": "concrete-practice/C-06",
+        "u0042": "concrete-practice/C-06",
+        "u0043": {
+          "excluded": "本の中で重複"
+        },
+        "u0044": "concrete-practice/C-06",
+        "u0045": "concrete-practice/C-06",
+        "u0046": "concrete-practice/C-06",
+        "u0047": "concrete-practice/C-06",
+        "u0049": {
+          "excluded": "章導入"
+        },
+        "u0050": "concrete-practice/C-06",
+        "u0051": {
+          "excluded": "本の中で重複"
+        },
+        "u0053": {
+          "excluded": "写真キャプション"
+        },
+        "u0054": "concrete-practice/C-06",
+        "u0055": "concrete-practice/C-06",
+        "u0056": {
+          "excluded": "章導入"
+        },
+        "u0060": "concrete-practice/C-02",
+        "u0061": "concrete-practice/C-02",
+        "u0063": {
+          "excluded": "語源の雑談"
+        },
+        "u0064": "concrete-practice/C-02",
+        "u0065": "concrete-practice/C-02",
+        "u0066": "concrete-practice/C-02",
+        "u0067": "concrete-practice/C-02",
+        "u0069": "concrete-practice/C-02",
+        "u0070": "concrete-practice/C-02",
+        "u0071": "concrete-practice/C-02",
+        "u0072": "concrete-practice/C-02",
+        "u0073": "concrete-practice/C-02",
+        "u0075": "concrete-practice/C-02",
+        "u0076": "concrete-practice/C-02",
+        "u0077": "concrete-practice/C-02",
+        "u0078": "concrete-practice/C-02",
+        "u0079": "concrete-practice/C-02",
+        "u0080": "concrete-practice/C-02",
+        "u0081": "concrete-practice/C-02",
+        "u0082": "concrete-practice/C-02",
+        "u0083": "concrete-practice/C-02",
+        "u0085": "concrete-practice/C-04",
+        "u0086": "concrete-practice/C-04",
+        "u0087": "concrete-practice/C-04",
+        "u0088": "concrete-practice/C-04",
+        "u0089": "concrete-practice/C-04",
+        "u0090": "concrete-practice/C-04",
+        "u0092": {
+          "excluded": "章導入"
+        },
+        "u0093": "concrete-practice/C-03",
+        "u0094": "concrete-practice/C-03",
+        "u0095": "concrete-practice/C-03",
+        "u0097": "concrete-practice/C-03",
+        "u0098": "concrete-practice/C-03",
+        "u0099": "concrete-practice/C-03",
+        "u0101": "concrete-practice/C-03",
+        "u0102": "concrete-practice/C-03",
+        "u0104": "concrete-practice/C-03",
+        "u0105": "concrete-practice/C-03",
+        "u0106": "concrete-practice/C-03",
+        "u0107": "concrete-practice/C-03",
+        "u0108": "concrete-practice/C-03",
+        "u0109": "concrete-practice/C-04",
+        "u0110": "concrete-practice/C-04",
+        "u0111": "concrete-practice/C-04",
+        "u0112": "concrete-practice/C-04",
+        "u0113": "concrete-practice/C-04",
+        "u0114": "concrete-practice/C-04",
+        "u0115": "concrete-practice/C-04",
+        "u0116": "concrete-practice/C-04",
+        "u0117": "concrete-practice/C-04",
+        "u0118": {
+          "excluded": "章導入"
+        },
+        "u0119": "concrete-practice/C-08",
+        "u0120": "concrete-practice/C-08",
+        "u0121": "concrete-practice/C-08",
+        "u0122": "concrete-practice/C-08",
+        "u0123": "concrete-practice/C-08",
+        "u0124": "concrete-practice/C-08",
+        "u0125": "concrete-practice/C-08",
+        "u0127": "concrete-practice/C-10",
+        "u0129": "concrete-practice/C-10",
+        "u0130": "concrete-practice/C-10",
+        "u0131": "concrete-practice/C-10",
+        "u0132": "concrete-practice/C-10",
+        "u0133": "concrete-practice/C-10",
+        "u0134": "concrete-practice/C-10",
+        "u0136": "concrete-practice/C-10",
+        "u0137": "concrete-practice/C-10",
+        "u0138": "concrete-practice/C-10",
+        "u0139": "concrete-practice/C-10",
+        "u0140": "concrete-practice/C-10",
+        "u0141": "concrete-practice/C-10",
+        "u0142": "concrete-practice/C-11",
+        "u0143": "concrete-practice/C-11",
+        "u0144": "concrete-practice/C-11",
+        "u0145": "concrete-practice/C-11",
+        "u0146": "concrete-practice/C-11",
+        "u0148": "concrete-practice/C-14",
+        "u0149": "concrete-practice/C-14",
+        "u0150": "concrete-practice/C-14",
+        "u0151": "concrete-practice/C-14",
+        "u0152": "concrete-practice/C-14",
+        "u0153": "concrete-practice/C-14",
+        "u0154": "concrete-practice/C-14",
+        "u0155": "concrete-practice/C-14",
+        "u0156": "concrete-practice/C-14",
+        "u0157": {
+          "excluded": "資格の宣伝的言及"
+        },
+        "u0158": "concrete-practice/C-14",
+        "u0160": "concrete-practice/C-15",
+        "u0161": "concrete-practice/C-15",
+        "u0162": {
+          "excluded": "本の中で重複（u0165）"
+        },
+        "u0165": "concrete-practice/C-15",
+        "u0166": "concrete-practice/C-15",
+        "u0167": "concrete-practice/C-15",
+        "u0169": "concrete-practice/C-15",
+        "u0170": {
+          "excluded": "章扉"
+        },
+        "u0172": "concrete-practice/C-17",
+        "u0173": "concrete-practice/C-17",
+        "u0176": "concrete-practice/C-17",
+        "u0177": "concrete-practice/C-17",
+        "u0179": "concrete-practice/C-18",
+        "u0180": "concrete-practice/C-18",
+        "u0181": "concrete-practice/C-18",
+        "u0182": "concrete-practice/C-18",
+        "u0183": "concrete-practice/C-18",
+        "u0185": "concrete-practice/C-19",
+        "u0186": {
+          "excluded": "本の中で重複（u0185）"
+        },
+        "u0187": "concrete-practice/C-19",
+        "u0188": "concrete-practice/C-19",
+        "u0189": "concrete-practice/C-19",
+        "u0190": "concrete-practice/C-19",
+        "u0191": "concrete-practice/C-19",
+        "u0194": "concrete-practice/C-20",
+        "u0195": "concrete-practice/C-20",
+        "u0196": "concrete-practice/C-21",
+        "u0197": "concrete-practice/C-21",
+        "u0198": "concrete-practice/C-21",
+        "u0199": "concrete-practice/C-21",
+        "u0200": "concrete-practice/C-21",
+        "u0202": "concrete-practice/C-21",
+        "u0203": "concrete-practice/C-21",
+        "u0204": "concrete-practice/C-21",
+        "u0205": "concrete-practice/C-21",
+        "u0206": {
+          "excluded": "本の中で重複（u0203）"
+        },
+        "u0207": {
+          "excluded": "本の中で重複（u0205）"
+        },
+        "u0208": "concrete-practice/C-21",
+        "u0209": "concrete-practice/C-17",
+        "u0211": "concrete-practice/C-22",
+        "u0213": "concrete-practice/C-22",
+        "u0214": "concrete-practice/C-22",
+        "u0215": {
+          "excluded": "章扉"
+        },
+        "u0217": "concrete-practice/C-24",
+        "u0218": "concrete-practice/C-24",
+        "u0219": "concrete-practice/C-25",
+        "u0220": "concrete-practice/C-25",
+        "u0221": "concrete-practice/C-25",
+        "u0222": "concrete-practice/C-25",
+        "u0223": "concrete-practice/C-25",
+        "u0224": "concrete-practice/C-23",
+        "u0225": "concrete-practice/C-23",
+        "u0227": "concrete-practice/C-23",
+        "u0228": "concrete-practice/C-23",
+        "u0229": "concrete-practice/C-23",
+        "u0231": "concrete-practice/C-23",
+        "u0232": "concrete-practice/C-23",
+        "u0233": "concrete-practice/C-23",
+        "u0235": "concrete-practice/C-23",
+        "u0236": "concrete-practice/C-23",
+        "u0237": "concrete-practice/C-23",
+        "u0239": "concrete-practice/C-23",
+        "u0240": "concrete-practice/C-23",
+        "u0241": "concrete-practice/C-23",
+        "u0243": "concrete-practice/C-28",
+        "u0244": "concrete-practice/C-28",
+        "u0246": "concrete-practice/C-28",
+        "u0247": {
+          "excluded": "本の中で重複（u0246）"
+        },
+        "u0248": "concrete-practice/C-28",
+        "u0249": "concrete-practice/C-28",
+        "u0250": "concrete-practice/C-28",
+        "u0251": "concrete-practice/C-28",
+        "u0252": "concrete-practice/C-28",
+        "u0253": "concrete-practice/C-28",
+        "u0254": "concrete-practice/C-28",
+        "u0255": "concrete-practice/C-28",
+        "u0256": "concrete-practice/C-28",
+        "u0257": "concrete-practice/C-28",
+        "u0258": "concrete-practice/C-28",
+        "u0259": "concrete-practice/C-28",
+        "u0260": {
+          "excluded": "図キャプション"
+        },
+        "u0262": "concrete-practice/C-28",
+        "u0263": {
+          "excluded": "章導入"
+        },
+        "u0265": "concrete-practice/C-18",
+        "u0266": "concrete-practice/C-18",
+        "u0268": "concrete-practice/C-18",
+        "u0269": "concrete-practice/C-18",
+        "u0272": "concrete-practice/C-17",
+        "u0273": "concrete-practice/C-19",
+        "u0274": {
+          "excluded": "本の中で重複"
+        },
+        "u0275": "concrete-practice/C-19",
+        "u0276": "concrete-practice/C-21",
+        "u0277": "concrete-practice/C-21",
+        "u0278": {
+          "excluded": "図キャプション"
+        },
+        "u0279": "concrete-practice/C-21",
+        "u0280": "concrete-practice/C-17",
+        "u0281": "concrete-practice/C-21",
+        "u0282": "concrete-practice/C-17",
+        "u0283": {
+          "excluded": "図キャプション"
+        },
+        "u0284": {
+          "excluded": "章導入"
+        },
+        "u0285": "concrete-practice/C-17",
+        "u0286": "concrete-practice/C-21",
+        "u0287": "concrete-practice/C-19",
+        "u0288": "concrete-practice/C-19",
+        "u0289": "concrete-practice/C-20",
+        "u0290": "concrete-practice/C-20",
+        "u0292": "concrete-practice/C-20",
+        "u0293": "concrete-practice/C-20",
+        "u0294": "concrete-practice/C-21",
+        "u0295": "concrete-practice/C-21",
+        "u0296": "concrete-practice/C-21",
+        "u0297": "concrete-practice/C-21",
+        "u0298": {
+          "excluded": "本の中で重複"
+        },
+        "u0299": "concrete-practice/C-21",
+        "u0300": "concrete-practice/C-17",
+        "u0301": "concrete-practice/C-17",
+        "u0303": "concrete-practice/C-22",
+        "u0304": "concrete-practice/C-22",
+        "u0305": "concrete-practice/C-22",
+        "u0307": {
+          "excluded": "図キャプション"
+        },
+        "u0309": "concrete-practice/C-23",
+        "u0310": {
+          "excluded": "図キャプション"
+        },
+        "u0311": "concrete-practice/C-23",
+        "u0312": "concrete-practice/C-23",
+        "u0314": "concrete-practice/C-23",
+        "u0315": "concrete-practice/C-21",
+        "u0316": {
+          "excluded": "図キャプション"
+        },
+        "u0317": "concrete-practice/C-21",
+        "u0318": "concrete-practice/C-23",
+        "u0319": "concrete-practice/C-23",
+        "u0320": "concrete-practice/C-23",
+        "u0321": {
+          "excluded": "章導入"
+        },
+        "u0323": {
+          "excluded": "本の中で重複"
+        },
+        "u0325": {
+          "excluded": "本の中で重複"
+        },
+        "u0326": "concrete-practice/C-31",
+        "u0327": "concrete-practice/C-31",
+        "u0328": {
+          "excluded": "本の中で重複"
+        },
+        "u0329": "concrete-practice/C-31",
+        "u0330": "concrete-practice/C-31",
+        "u0331": {
+          "excluded": "図キャプション"
+        },
+        "u0332": "concrete-practice/C-30",
+        "u0333": {
+          "excluded": "図キャプション"
+        },
+        "u0335": "concrete-practice/C-32",
+        "u0336": {
+          "excluded": "図キャプション"
+        },
+        "u0337": "concrete-practice/C-32",
+        "u0338": "concrete-practice/C-32",
+        "u0339": {
+          "excluded": "図キャプション"
+        },
+        "u0341": "concrete-practice/C-32",
+        "u0344": {
+          "excluded": "図キャプション"
+        },
+        "u0345": "concrete-practice/C-32",
+        "u0346": "concrete-practice/C-32",
+        "u0347": {
+          "excluded": "図キャプション"
+        },
+        "u0350": {
+          "excluded": "本の中で重複"
+        },
+        "u0351": {
+          "excluded": "本の中で重複"
+        },
+        "u0352": "concrete-practice/C-19",
+        "u0353": "concrete-practice/C-19",
+        "u0354": {
+          "excluded": "本の中で重複"
+        },
+        "u0355": "concrete-practice/C-21",
+        "u0356": "concrete-practice/C-21",
+        "u0357": {
+          "excluded": "本の中で重複"
+        },
+        "u0358": "concrete-practice/C-21",
+        "u0359": {
+          "excluded": "本の中で重複"
+        },
+        "u0360": {
+          "excluded": "本の中で重複"
+        },
+        "u0361": {
+          "excluded": "本の中で重複"
+        },
+        "u0362": {
+          "excluded": "本の中で重複"
+        },
+        "u0363": "concrete-practice/C-21",
+        "u0364": {
+          "excluded": "あとがき"
+        },
+        "u0366": {
+          "excluded": "索引"
+        },
+        "u0367": {
+          "excluded": "索引"
+        },
+        "u0368": {
+          "excluded": "索引"
+        },
+        "u0369": {
+          "excluded": "索引"
+        },
+        "u0370": {
+          "excluded": "索引"
+        },
+        "u0371": {
+          "excluded": "索引"
+        },
+        "u0372": {
+          "excluded": "索引"
+        },
+        "u0373": {
+          "excluded": "索引"
+        },
+        "u0376": {
+          "excluded": "奥付"
+        },
+        "u0377": {
+          "excluded": "奥付"
+        }
+      }
+    },
+    "concrete-chief-textbook-2022": {
+      "units": {
+        "u0012": {
+          "excluded": "前付け"
+        },
+        "u0015": {
+          "excluded": "過去問の設問と本の解説。設問は試験実施機関の公開問題として過去問のページで扱い、本の解説は使わない"
+        },
+        "u0016": {
+          "excluded": "過去問の設問と本の解説。設問は試験実施機関の公開問題として過去問のページで扱い、本の解説は使わない"
+        },
+        "u0017": {
+          "excluded": "過去問の設問と本の解説。設問は試験実施機関の公開問題として過去問のページで扱い、本の解説は使わない"
+        },
+        "u0018": {
+          "excluded": "過去問の設問と本の解説。設問は試験実施機関の公開問題として過去問のページで扱い、本の解説は使わない"
+        },
+        "u0019": {
+          "excluded": "過去問の設問と本の解説。設問は試験実施機関の公開問題として過去問のページで扱い、本の解説は使わない"
+        },
+        "u0020": {
+          "excluded": "過去問の設問と本の解説。設問は試験実施機関の公開問題として過去問のページで扱い、本の解説は使わない"
+        },
+        "u0021": {
+          "excluded": "過去問の設問と本の解説。設問は試験実施機関の公開問題として過去問のページで扱い、本の解説は使わない"
+        },
+        "u0022": {
+          "excluded": "過去問の設問と本の解説。設問は試験実施機関の公開問題として過去問のページで扱い、本の解説は使わない"
+        },
+        "u0023": {
+          "excluded": "過去問の設問と本の解説。設問は試験実施機関の公開問題として過去問のページで扱い、本の解説は使わない"
+        },
+        "u0029": {
+          "excluded": "過去問の設問と本の解説。設問は試験実施機関の公開問題として過去問のページで扱い、本の解説は使わない"
+        },
+        "u0030": {
+          "excluded": "過去問の設問と本の解説。設問は試験実施機関の公開問題として過去問のページで扱い、本の解説は使わない"
+        },
+        "u0034": {
+          "excluded": "前付け"
+        },
+        "u0044": {
+          "excluded": "前付け"
+        },
+        "u0053": {
+          "excluded": "前付け"
+        },
+        "u0061": {
+          "excluded": "前付け"
+        },
+        "u0063": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0066": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0067": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0069": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0070": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0071": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0072": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0074": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0076": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0078": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0080": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0082": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0083": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0085": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0086": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0088": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0090": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0091": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0092": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0094": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0095": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0097": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0098": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0100": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0101": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0102": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0104": "concrete-practice/C-12",
+        "u0105": "concrete-practice/C-12",
+        "u0106": {
+          "excluded": "過去問の設問と本の解説。設問は試験実施機関の公開問題として過去問のページで扱い、本の解説は使わない"
+        },
+        "u0108": "concrete-practice/C-12",
+        "u0109": {
+          "excluded": "過去問の設問と本の解説。設問は試験実施機関の公開問題として過去問のページで扱い、本の解説は使わない"
+        },
+        "u0112": "concrete-practice/C-12",
+        "u0113": {
+          "excluded": "過去問の設問と本の解説。設問は試験実施機関の公開問題として過去問のページで扱い、本の解説は使わない"
+        },
+        "u0114": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0115": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0116": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0117": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0119": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0120": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0122": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0124": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0126": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0127": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0129": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0130": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0131": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0133": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0134": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0136": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0137": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0139": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0140": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0142": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0144": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0145": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0147": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0149": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0151": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0153": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0155": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0156": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0157": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0158": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0160": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0161": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0162": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0164": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0168": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0170": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0172": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0174": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0177": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0179": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0180": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0182": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0184": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0185": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0187": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0188": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0189": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0191": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0192": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0193": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0194": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0195": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0196": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0197": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0199": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0201": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0202": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0204": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0206": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0208": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0212": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0214": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0216": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0217": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0218": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0219": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0222": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0225": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0226": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0227": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0228": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0229": "concrete-practice/C-11",
+        "u0230": {
+          "excluded": "過去問の設問と本の解説。設問は試験実施機関の公開問題として過去問のページで扱い、本の解説は使わない"
+        },
+        "u0231": {
+          "excluded": "過去問の設問と本の解説。設問は試験実施機関の公開問題として過去問のページで扱い、本の解説は使わない"
+        },
+        "u0232": {
+          "excluded": "過去問の設問と本の解説。設問は試験実施機関の公開問題として過去問のページで扱い、本の解説は使わない"
+        },
+        "u0233": {
+          "excluded": "過去問の設問と本の解説。設問は試験実施機関の公開問題として過去問のページで扱い、本の解説は使わない"
+        },
+        "u0234": {
+          "excluded": "過去問の設問と本の解説。設問は試験実施機関の公開問題として過去問のページで扱い、本の解説は使わない"
+        },
+        "u0235": {
+          "excluded": "過去問の設問と本の解説。設問は試験実施機関の公開問題として過去問のページで扱い、本の解説は使わない"
+        },
+        "u0236": {
+          "excluded": "過去問の設問と本の解説。設問は試験実施機関の公開問題として過去問のページで扱い、本の解説は使わない"
+        },
+        "u0237": {
+          "excluded": "過去問の設問と本の解説。設問は試験実施機関の公開問題として過去問のページで扱い、本の解説は使わない"
+        },
+        "u0238": {
+          "excluded": "過去問の設問と本の解説。設問は試験実施機関の公開問題として過去問のページで扱い、本の解説は使わない"
+        },
+        "u0240": {
+          "article": "content/site/concrete-chief-engineer/guide-trends/article.mdx"
+        },
+        "u0241": {
+          "excluded": "過去問の設問と本の解説。設問は試験実施機関の公開問題として過去問のページで扱い、本の解説は使わない"
+        },
+        "u0251": "concrete-practice/C-03",
+        "u0254": "concrete-practice/C-03",
+        "u0274": "concrete-practice/C-05",
+        "u0279": "concrete-practice/C-05",
+        "u0290": "concrete-practice/C-06",
+        "u0291": "concrete-practice/C-06",
+        "u0298": "concrete-practice/C-06",
+        "u0299": "concrete-practice/C-06",
+        "u0331": "concrete-practice/C-14",
+        "u0352": "concrete-practice/C-21",
+        "u0363": "concrete-practice/C-18",
+        "u0419": "concrete-practice/C-13"
+      }
+    },
+    "concrete-chief-textbook-2024": {
+      "units": {
+        "u0003": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0004": {
+          "article": "content/site/concrete-chief-engineer/guide-trends/article.mdx"
+        },
+        "u0006": {
+          "excluded": "前付け・索引"
+        },
+        "u0009": "concrete-practice/C-02",
+        "u0015": "concrete-practice/C-02",
+        "u0017": "concrete-practice/C-03",
+        "u0018": "concrete-practice/C-03",
+        "u0034": "concrete-practice/C-07",
+        "u0038": "concrete-practice/C-07",
+        "u0051": "concrete-practice/C-06",
+        "u0053": "concrete-practice/C-06",
+        "u0055": "concrete-practice/C-06",
+        "u0057": "concrete-practice/C-06",
+        "u0060": "concrete-practice/C-06",
+        "u0061": "concrete-practice/C-06",
+        "u0063": "concrete-practice/C-06",
+        "u0064": "concrete-practice/C-06",
+        "u0065": "concrete-practice/C-06",
+        "u0066": "concrete-practice/C-06",
+        "u0069": "concrete-practice/C-25",
+        "u0073": "concrete-practice/C-25",
+        "u0082": "concrete-practice/C-11",
+        "u0085": "concrete-practice/C-11",
+        "u0091": "concrete-practice/C-14",
+        "u0092": "concrete-practice/C-14",
+        "u0094": "concrete-practice/C-14",
+        "u0095": "concrete-practice/C-14",
+        "u0097": "concrete-practice/C-14",
+        "u0098": "concrete-practice/C-14",
+        "u0100": "concrete-practice/C-14",
+        "u0101": "concrete-practice/C-14",
+        "u0103": "concrete-practice/C-14",
+        "u0105": "concrete-practice/C-15",
+        "u0107": "concrete-practice/C-15",
+        "u0109": "concrete-practice/C-15",
+        "u0111": "concrete-practice/C-15",
+        "u0113": "concrete-practice/C-15",
+        "u0125": "concrete-practice/C-15",
+        "u0135": "concrete-practice/C-21",
+        "u0136": "concrete-practice/C-21",
+        "u0139": "concrete-practice/C-21",
+        "u0140": "concrete-practice/C-22",
+        "u0141": "concrete-practice/C-21",
+        "u0142": "concrete-practice/C-22",
+        "u0144": "concrete-practice/C-22",
+        "u0145": "concrete-practice/C-22",
+        "u0147": "concrete-practice/C-22",
+        "u0149": "concrete-practice/C-22",
+        "u0150": "concrete-practice/C-18",
+        "u0152": "concrete-practice/C-18",
+        "u0153": "concrete-practice/C-18",
+        "u0154": "concrete-practice/C-21",
+        "u0155": "concrete-practice/C-18",
+        "u0157": "concrete-practice/C-18",
+        "u0158": "concrete-practice/C-18",
+        "u0160": "concrete-practice/C-18",
+        "u0161": "concrete-practice/C-18",
+        "u0163": "concrete-practice/C-12",
+        "u0164": "concrete-practice/C-12",
+        "u0166": "concrete-practice/C-12",
+        "u0167": "concrete-practice/C-12",
+        "u0179": "concrete-practice/C-12",
+        "u0180": "concrete-practice/C-12",
+        "u0181": "concrete-practice/C-12",
+        "u0183": "concrete-practice/C-12",
+        "u0200": "concrete-practice/C-16",
+        "u0219": {
+          "excluded": "過去問の設問と本の解説。設問は試験実施機関の公開問題として過去問のページで扱い、本の解説は使わない"
+        },
+        "u0242": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0243": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0244": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0245": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0246": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0247": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0248": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0249": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0250": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0251": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0252": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0253": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0254": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0255": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0256": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0257": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0258": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0259": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0260": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0261": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0262": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0263": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0264": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0265": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0266": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0267": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0268": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0269": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0270": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0271": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0272": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0273": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0274": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0275": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0276": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0277": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0278": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0279": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0280": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0281": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0282": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0283": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0284": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0285": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0286": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0287": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0288": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0289": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0290": "concrete-practice/C-21",
+        "u0291": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0292": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0293": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0294": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0295": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0296": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0297": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0298": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0299": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0300": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0301": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0302": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0303": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0304": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0305": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0306": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0307": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0308": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0309": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0310": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0311": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0312": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        },
+        "u0313": {
+          "article": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+        }
+      }
+    },
+    "concrete-diagnostician-textbook": {
+      "units": {
+        "u0001": {
+          "excluded": "前付け"
+        },
+        "u0002": {
+          "excluded": "前付け"
+        },
+        "u0004": {
+          "article": "content/site/concrete-diagnostician/guide-overview/article.mdx"
+        },
+        "u0005": {
+          "article": "content/site/concrete-diagnostician/guide-overview/article.mdx"
+        },
+        "u0006": {
+          "excluded": "前付け"
+        },
+        "u0008": {
+          "article": "content/site/concrete-diagnostician/guide-overview/article.mdx"
+        },
+        "u0009": {
+          "article": "content/site/concrete-diagnostician/guide-overview/article.mdx"
+        },
+        "u0010": {
+          "excluded": "年度ごとの日程"
+        },
+        "u0011": {
+          "article": "content/site/concrete-diagnostician/guide-overview/article.mdx"
+        },
+        "u0012": {
+          "article": "content/site/concrete-diagnostician/guide-overview/article.mdx"
+        },
+        "u0013": {
+          "article": "content/site/concrete-diagnostician/guide-overview/article.mdx"
+        },
+        "u0014": {
+          "article": "content/site/concrete-diagnostician/guide-overview/article.mdx"
+        },
+        "u0016": {
+          "article": "content/site/concrete-diagnostician/guide-trends/article.mdx"
+        },
+        "u0017": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0018": {
+          "excluded": "本書独自の分類記号"
+        },
+        "u0020": {
+          "excluded": "目次"
+        },
+        "u0021": {
+          "excluded": "目次"
+        },
+        "u0022": {
+          "excluded": "目次"
+        },
+        "u0023": {
+          "excluded": "目次"
+        },
+        "u0024": {
+          "excluded": "目次"
+        },
+        "u0025": {
+          "excluded": "目次"
+        },
+        "u0030": {
+          "excluded": "目次"
+        },
+        "u0031": {
+          "excluded": "目次"
+        },
+        "u0034": "concrete-practice/C-24",
+        "u0035": "concrete-practice/C-24",
+        "u0036": "concrete-practice/C-24",
+        "u0037": "concrete-practice/C-24",
+        "u0038": "concrete-practice/C-24",
+        "u0039": "concrete-practice/C-24",
+        "u0042": "concrete-practice/C-24",
+        "u0047": "concrete-practice/C-24",
+        "u0050": "concrete-practice/C-24",
+        "u0051": "concrete-practice/C-24",
+        "u0052": "concrete-practice/C-24",
+        "u0054": "concrete-practice/C-24",
+        "u0058": "concrete-practice/C-24",
+        "u0059": "concrete-practice/C-24",
+        "u0060": "concrete-practice/C-24",
+        "u0061": "concrete-practice/C-24",
+        "u0063": "concrete-practice/C-24",
+        "u0064": "concrete-practice/C-24",
+        "u0066": "concrete-practice/C-24",
+        "u0067": "concrete-practice/C-24",
+        "u0069": "concrete-practice/C-24",
+        "u0070": "concrete-practice/C-24",
+        "u0071": "concrete-practice/C-24",
+        "u0072": "concrete-practice/C-24",
+        "u0073": "concrete-practice/C-24",
+        "u0076": "concrete-practice/C-24",
+        "u0079": "concrete-practice/C-24",
+        "u0081": "concrete-practice/C-25",
+        "u0082": "concrete-practice/C-25",
+        "u0083": "concrete-practice/C-25",
+        "u0084": "concrete-practice/C-25",
+        "u0085": "concrete-practice/C-25",
+        "u0086": "concrete-practice/C-25",
+        "u0087": "concrete-practice/C-25",
+        "u0088": "concrete-practice/C-25",
+        "u0090": "concrete-practice/C-25",
+        "u0092": "concrete-practice/C-25",
+        "u0093": "concrete-practice/C-25",
+        "u0094": "concrete-practice/C-25",
+        "u0095": "concrete-practice/C-25",
+        "u0096": "concrete-practice/C-25",
+        "u0097": "concrete-practice/C-25",
+        "u0098": "concrete-practice/C-25",
+        "u0099": "concrete-practice/C-25",
+        "u0100": "concrete-practice/C-25",
+        "u0101": "concrete-practice/C-25",
+        "u0102": "concrete-practice/C-25",
+        "u0103": "concrete-practice/C-25",
+        "u0104": "concrete-practice/C-25",
+        "u0105": "concrete-practice/C-25",
+        "u0107": "concrete-practice/C-25",
+        "u0108": "concrete-practice/C-25",
+        "u0109": "concrete-practice/C-25",
+        "u0110": "concrete-practice/C-25",
+        "u0111": "concrete-practice/C-25",
+        "u0112": "concrete-practice/C-25",
+        "u0113": "concrete-practice/C-25",
+        "u0114": "concrete-practice/C-25",
+        "u0116": "concrete-practice/C-25",
+        "u0117": "concrete-practice/C-25",
+        "u0118": "concrete-practice/C-25",
+        "u0119": "concrete-practice/C-25",
+        "u0120": "concrete-practice/C-25",
+        "u0124": "concrete-practice/C-26",
+        "u0125": "concrete-practice/C-26",
+        "u0126": "concrete-practice/C-26",
+        "u0127": "concrete-practice/C-26",
+        "u0129": "concrete-practice/C-26",
+        "u0131": "concrete-practice/C-26",
+        "u0132": "concrete-practice/C-26",
+        "u0134": "concrete-practice/C-26",
+        "u0135": "concrete-practice/C-26",
+        "u0136": "concrete-practice/C-26",
+        "u0138": "concrete-practice/C-26",
+        "u0141": "concrete-practice/C-26",
+        "u0142": "concrete-practice/C-26",
+        "u0143": "concrete-practice/C-26",
+        "u0144": "concrete-practice/C-26",
+        "u0146": "concrete-practice/C-26",
+        "u0147": "concrete-practice/C-26",
+        "u0149": "concrete-practice/C-26",
+        "u0150": "concrete-practice/C-26",
+        "u0151": "concrete-practice/C-26",
+        "u0153": "concrete-practice/C-26",
+        "u0154": "concrete-practice/C-26",
+        "u0155": "concrete-practice/C-26",
+        "u0156": "concrete-practice/C-26",
+        "u0157": "concrete-practice/C-26",
+        "u0158": "concrete-practice/C-26",
+        "u0159": "concrete-practice/C-26",
+        "u0162": "concrete-practice/C-26",
+        "u0163": "concrete-practice/C-26",
+        "u0164": "concrete-practice/C-26",
+        "u0165": "concrete-practice/C-26",
+        "u0166": "concrete-practice/C-26",
+        "u0168": "concrete-practice/C-26",
+        "u0169": "concrete-practice/C-26",
+        "u0170": "concrete-practice/C-26",
+        "u0174": "concrete-practice/C-26",
+        "u0175": "concrete-practice/C-26",
+        "u0176": "concrete-practice/C-26",
+        "u0177": "concrete-practice/C-26",
+        "u0178": "concrete-practice/C-26",
+        "u0179": "concrete-practice/C-26",
+        "u0180": "concrete-practice/C-26",
+        "u0181": "concrete-practice/C-26",
+        "u0182": "concrete-practice/C-26",
+        "u0183": "concrete-practice/C-26",
+        "u0184": "concrete-practice/C-26",
+        "u0185": "concrete-practice/C-26",
+        "u0186": "concrete-practice/C-26",
+        "u0188": "concrete-practice/C-26",
+        "u0189": "concrete-practice/C-26",
+        "u0194": "concrete-practice/C-27",
+        "u0195": "concrete-practice/C-27",
+        "u0196": "concrete-practice/C-27",
+        "u0197": "concrete-practice/C-27",
+        "u0199": "concrete-practice/C-27",
+        "u0200": "concrete-practice/C-27",
+        "u0201": "concrete-practice/C-27",
+        "u0202": "concrete-practice/C-27",
+        "u0203": "concrete-practice/C-27",
+        "u0204": "concrete-practice/C-27",
+        "u0206": "concrete-practice/C-27",
+        "u0207": "concrete-practice/C-27",
+        "u0208": "concrete-practice/C-27",
+        "u0209": "concrete-practice/C-27",
+        "u0210": "concrete-practice/C-27",
+        "u0212": "concrete-practice/C-27",
+        "u0213": "concrete-practice/C-27",
+        "u0214": "concrete-practice/C-27",
+        "u0216": "concrete-practice/C-27",
+        "u0217": "concrete-practice/C-27",
+        "u0218": "concrete-practice/C-27",
+        "u0220": "concrete-practice/C-27",
+        "u0221": "concrete-practice/C-27",
+        "u0222": "concrete-practice/C-27",
+        "u0225": "concrete-practice/C-27",
+        "u0227": "concrete-practice/C-27",
+        "u0230": "concrete-practice/C-27",
+        "u0234": "concrete-practice/C-27",
+        "u0235": "concrete-practice/C-27",
+        "u0236": "concrete-practice/C-27",
+        "u0238": "concrete-practice/C-27",
+        "u0239": "concrete-practice/C-27",
+        "u0240": "concrete-practice/C-27",
+        "u0249": "concrete-practice/C-28",
+        "u0250": "concrete-practice/C-28",
+        "u0254": "concrete-practice/C-28",
+        "u0256": "concrete-practice/C-28",
+        "u0257": "concrete-practice/C-28",
+        "u0261": "concrete-practice/C-28",
+        "u0262": "concrete-practice/C-28",
+        "u0263": "concrete-practice/C-28",
+        "u0264": "concrete-practice/C-28",
+        "u0265": "concrete-practice/C-28",
+        "u0267": "concrete-practice/C-28",
+        "u0269": "concrete-practice/C-28",
+        "u0271": "concrete-practice/C-28",
+        "u0273": "concrete-practice/C-28",
+        "u0274": "concrete-practice/C-28",
+        "u0276": "concrete-practice/C-28",
+        "u0277": "concrete-practice/C-28",
+        "u0278": "concrete-practice/C-28",
+        "u0279": "concrete-practice/C-28",
+        "u0282": "concrete-practice/C-28",
+        "u0283": "concrete-practice/C-28",
+        "u0284": "concrete-practice/C-28",
+        "u0286": "concrete-practice/C-28",
+        "u0288": "concrete-practice/C-28",
+        "u0289": "concrete-practice/C-28",
+        "u0291": "concrete-practice/C-28",
+        "u0292": "concrete-practice/C-28",
+        "u0293": "concrete-practice/C-28",
+        "u0294": "concrete-practice/C-28",
+        "u0296": "concrete-practice/C-28",
+        "u0297": "concrete-practice/C-28",
+        "u0298": "concrete-practice/C-28",
+        "u0299": "concrete-practice/C-28",
+        "u0300": "concrete-practice/C-28",
+        "u0301": "concrete-practice/C-28",
+        "u0302": "concrete-practice/C-28",
+        "u0303": "concrete-practice/C-28",
+        "u0305": "concrete-practice/C-28",
+        "u0307": "concrete-practice/C-28",
+        "u0308": "concrete-practice/C-28",
+        "u0309": "concrete-practice/C-28",
+        "u0313": "concrete-practice/C-29",
+        "u0314": "concrete-practice/C-29",
+        "u0315": "concrete-practice/C-29",
+        "u0317": "concrete-practice/C-29",
+        "u0319": "concrete-practice/C-29",
+        "u0320": "concrete-practice/C-29",
+        "u0321": "concrete-practice/C-29",
+        "u0323": "concrete-practice/C-29",
+        "u0330": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0332": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0333": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0334": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0335": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0336": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0337": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0338": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0339": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0340": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0341": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0343": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0344": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0346": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0347": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0348": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0350": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0351": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0352": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0353": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0356": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0357": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0358": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0360": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0362": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0363": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0364": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0366": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0367": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0368": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0370": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0372": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0373": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0374": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0376": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0377": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0378": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0380": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0382": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0383": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0385": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0386": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0388": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0390": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0391": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0392": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0394": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0395": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0397": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0400": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0401": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0403": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0406": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0407": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0408": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0411": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0412": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0413": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0416": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0417": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0420": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0421": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0424": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0426": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0430": {
+          "article": "content/site/concrete-diagnostician/guide-trends/article.mdx"
+        },
+        "u0431": {
+          "article": "content/site/concrete-diagnostician/guide-trends/article.mdx"
+        },
+        "u0432": {
+          "article": "content/site/concrete-diagnostician/guide-trends/article.mdx"
+        },
+        "u0433": {
+          "article": "content/site/concrete-diagnostician/guide-trends/article.mdx"
+        },
+        "u0434": {
+          "article": "content/site/concrete-diagnostician/guide-trends/article.mdx"
+        },
+        "u0435": {
+          "article": "content/site/concrete-diagnostician/guide-trends/article.mdx"
+        },
+        "u0436": {
+          "article": "content/site/concrete-diagnostician/guide-trends/article.mdx"
+        },
+        "u0437": {
+          "article": "content/site/concrete-diagnostician/guide-trends/article.mdx"
+        },
+        "u0438": {
+          "article": "content/site/concrete-diagnostician/guide-trends/article.mdx"
+        },
+        "u0440": {
+          "excluded": "過去問の設問と本の解説。設問は試験実施機関の公開問題として過去問のページで扱い、本の解説は使わない"
+        },
+        "u0441": {
+          "excluded": "過去問の設問と本の解説。設問は試験実施機関の公開問題として過去問のページで扱い、本の解説は使わない"
+        },
+        "u0443": {
+          "excluded": "過去問の設問と本の解説。設問は試験実施機関の公開問題として過去問のページで扱い、本の解説は使わない"
+        },
+        "u0444": {
+          "excluded": "過去問の設問と本の解説。設問は試験実施機関の公開問題として過去問のページで扱い、本の解説は使わない"
+        },
+        "u0446": {
+          "excluded": "過去問の設問と本の解説。設問は試験実施機関の公開問題として過去問のページで扱い、本の解説は使わない"
+        },
+        "u0447": {
+          "excluded": "過去問の設問と本の解説。設問は試験実施機関の公開問題として過去問のページで扱い、本の解説は使わない"
+        },
+        "u0450": {
+          "excluded": "過去問の設問と本の解説。設問は試験実施機関の公開問題として過去問のページで扱い、本の解説は使わない"
+        },
+        "u0451": {
+          "excluded": "過去問の設問と本の解説。設問は試験実施機関の公開問題として過去問のページで扱い、本の解説は使わない"
+        },
+        "u0452": {
+          "excluded": "過去問の設問と本の解説。設問は試験実施機関の公開問題として過去問のページで扱い、本の解説は使わない"
+        },
+        "u0454": {
+          "excluded": "過去問の設問と本の解説。設問は試験実施機関の公開問題として過去問のページで扱い、本の解説は使わない"
+        },
+        "u0455": {
+          "excluded": "過去問の設問と本の解説。設問は試験実施機関の公開問題として過去問のページで扱い、本の解説は使わない"
+        },
+        "u0456": {
+          "article": "content/site/concrete-diagnostician/guide-trends/article.mdx"
+        },
+        "u0457": {
+          "article": "content/site/concrete-diagnostician/guide-trends/article.mdx"
+        },
+        "u0458": {
+          "article": "content/site/concrete-diagnostician/guide-trends/article.mdx"
+        },
+        "u0459": {
+          "article": "content/site/concrete-diagnostician/guide-trends/article.mdx"
+        },
+        "u0460": {
+          "article": "content/site/concrete-diagnostician/guide-trends/article.mdx"
+        },
+        "u0461": {
+          "article": "content/site/concrete-diagnostician/guide-trends/article.mdx"
+        },
+        "u0462": {
+          "article": "content/site/concrete-diagnostician/guide-essay/article.mdx"
+        },
+        "u0463": {
+          "excluded": "過去問の設問と本の解説。設問は試験実施機関の公開問題として過去問のページで扱い、本の解説は使わない"
+        },
+        "u0464": {
+          "excluded": "過去問の設問と本の解説。設問は試験実施機関の公開問題として過去問のページで扱い、本の解説は使わない"
+        },
+        "u0465": {
+          "excluded": "過去問の設問と本の解説。設問は試験実施機関の公開問題として過去問のページで扱い、本の解説は使わない"
+        },
+        "u0466": {
+          "excluded": "過去問の設問と本の解説。設問は試験実施機関の公開問題として過去問のページで扱い、本の解説は使わない"
+        },
+        "u0467": {
+          "excluded": "過去問の設問と本の解説。設問は試験実施機関の公開問題として過去問のページで扱い、本の解説は使わない"
+        },
+        "u0468": {
+          "excluded": "過去問の設問と本の解説。設問は試験実施機関の公開問題として過去問のページで扱い、本の解説は使わない"
+        },
+        "u0469": {
+          "excluded": "過去問の設問と本の解説。設問は試験実施機関の公開問題として過去問のページで扱い、本の解説は使わない"
+        },
+        "u0470": {
+          "excluded": "過去問の設問と本の解説。設問は試験実施機関の公開問題として過去問のページで扱い、本の解説は使わない"
+        },
+        "u0471": {
+          "excluded": "過去問の設問と本の解説。設問は試験実施機関の公開問題として過去問のページで扱い、本の解説は使わない"
+        },
+        "u0472": {
+          "article": "content/site/concrete-diagnostician/guide-trends/article.mdx"
+        },
+        "u0473": {
+          "article": "content/site/concrete-diagnostician/guide-trends/article.mdx"
+        },
+        "u0474": {
+          "article": "content/site/concrete-diagnostician/guide-trends/article.mdx"
+        },
+        "u0475": {
+          "article": "content/site/concrete-diagnostician/guide-trends/article.mdx"
+        },
+        "u0476": {
+          "article": "content/site/concrete-diagnostician/guide-trends/article.mdx"
+        },
+        "u0477": {
+          "article": "content/site/concrete-diagnostician/guide-trends/article.mdx"
+        },
+        "u0478": {
+          "article": "content/site/concrete-diagnostician/guide-trends/article.mdx"
+        },
+        "u0479": {
+          "article": "content/site/concrete-diagnostician/guide-trends/article.mdx"
+        },
+        "u0480": {
+          "article": "content/site/concrete-diagnostician/guide-trends/article.mdx"
+        },
+        "u0481": {
+          "article": "content/site/concrete-diagnostician/guide-trends/article.mdx"
+        },
+        "u0482": {
+          "excluded": "過去問の設問と本の解説。設問は試験実施機関の公開問題として過去問のページで扱い、本の解説は使わない"
+        },
+        "u0483": {
+          "excluded": "過去問の設問と本の解説。設問は試験実施機関の公開問題として過去問のページで扱い、本の解説は使わない"
+        }
+      }
+    },
+    "construction-materials-basics": {
+      "units": {
+        "u0001": {
+          "excluded": "前付け・目次"
+        },
+        "u0002": {
+          "excluded": "前付け・目次"
+        },
+        "u0004": {
+          "excluded": "前付け・目次"
+        },
+        "u0005": {
+          "excluded": "前付け・目次"
+        },
+        "u0006": {
+          "excluded": "前付け・目次"
+        },
+        "u0008": {
+          "excluded": "前付け・目次"
+        },
+        "u0009": {
+          "excluded": "章扉"
+        },
+        "u0011": "construction-materials/M-01",
+        "u0013": "construction-materials/M-01",
+        "u0015": "construction-materials/M-01",
+        "u0016": "construction-materials/M-01",
+        "u0017": "construction-materials/M-01",
+        "u0018": "construction-materials/M-01",
+        "u0020": "construction-materials/M-01",
+        "u0021": "construction-materials/M-01",
+        "u0022": "construction-materials/M-01",
+        "u0023": "construction-materials/M-01",
+        "u0024": "construction-materials/M-01",
+        "u0025": "construction-materials/M-01",
+        "u0027": "construction-materials/M-01",
+        "u0028": "construction-materials/M-01",
+        "u0029": "construction-materials/M-01",
+        "u0030": "construction-materials/M-01",
+        "u0031": {
+          "excluded": "章扉"
+        },
+        "u0033": "concrete-practice/C-01",
+        "u0034": "concrete-practice/C-01",
+        "u0036": "concrete-practice/C-02",
+        "u0037": "concrete-practice/C-02",
+        "u0038": "concrete-practice/C-02",
+        "u0040": "concrete-practice/C-02",
+        "u0042": "concrete-practice/C-02",
+        "u0043": "concrete-practice/C-02",
+        "u0044": "concrete-practice/C-02",
+        "u0045": "concrete-practice/C-02",
+        "u0047": "concrete-practice/C-02",
+        "u0048": "concrete-practice/C-12",
+        "u0049": "concrete-practice/C-02",
+        "u0050": "concrete-practice/C-02",
+        "u0052": "concrete-practice/C-03",
+        "u0053": "concrete-practice/C-03",
+        "u0054": "concrete-practice/C-03",
+        "u0055": "concrete-practice/C-03",
+        "u0056": "concrete-practice/C-03",
+        "u0057": "concrete-practice/C-12",
+        "u0058": "concrete-practice/C-03",
+        "u0059": "concrete-practice/C-03",
+        "u0060": "concrete-practice/C-04",
+        "u0061": "concrete-practice/C-04",
+        "u0063": "concrete-practice/C-05",
+        "u0064": {
+          "excluded": "前付け"
+        },
+        "u0065": "concrete-practice/C-06",
+        "u0066": "concrete-practice/C-23",
+        "u0067": "concrete-practice/C-06",
+        "u0068": "concrete-practice/C-06",
+        "u0069": "concrete-practice/C-06",
+        "u0070": "concrete-practice/C-25",
+        "u0072": "concrete-practice/C-11",
+        "u0073": "concrete-practice/C-11",
+        "u0075": "concrete-practice/C-10",
+        "u0076": "concrete-practice/C-12",
+        "u0077": "concrete-practice/C-12",
+        "u0078": "concrete-practice/C-12",
+        "u0079": "concrete-practice/C-12",
+        "u0080": "concrete-practice/C-12",
+        "u0082": "concrete-practice/C-12",
+        "u0083": "concrete-practice/C-12",
+        "u0084": "concrete-practice/C-12",
+        "u0085": "concrete-practice/C-12",
+        "u0086": "concrete-practice/C-12",
+        "u0087": "concrete-practice/C-12",
+        "u0088": "concrete-practice/C-12",
+        "u0089": "concrete-practice/C-12",
+        "u0090": "concrete-practice/C-16",
+        "u0092": "concrete-practice/C-23",
+        "u0093": "concrete-practice/C-23",
+        "u0096": "construction-materials/M-02",
+        "u0097": "construction-materials/M-02",
+        "u0099": "construction-materials/M-02",
+        "u0100": "construction-materials/M-02",
+        "u0102": "construction-materials/M-02",
+        "u0103": "construction-materials/M-02",
+        "u0104": "construction-materials/M-02",
+        "u0106": "construction-materials/M-02",
+        "u0107": "construction-materials/M-02",
+        "u0108": "construction-materials/M-02",
+        "u0110": "construction-materials/M-02",
+        "u0111": "construction-materials/M-02",
+        "u0112": "construction-materials/M-02",
+        "u0113": "construction-materials/M-02",
+        "u0114": "construction-materials/M-02",
+        "u0115": "construction-materials/M-02",
+        "u0116": "construction-materials/M-02",
+        "u0117": "construction-materials/M-02",
+        "u0119": "construction-materials/M-02",
+        "u0121": "construction-materials/M-02",
+        "u0122": "construction-materials/M-02",
+        "u0123": "construction-materials/M-02",
+        "u0126": "construction-materials/M-02",
+        "u0127": "construction-materials/M-02",
+        "u0128": "construction-materials/M-02",
+        "u0129": "construction-materials/M-02",
+        "u0130": "concrete-practice/C-07",
+        "u0131": {
+          "excluded": "章扉"
+        },
+        "u0133": "construction-materials/M-03",
+        "u0135": "construction-materials/M-03",
+        "u0137": "construction-materials/M-03",
+        "u0138": "construction-materials/M-03",
+        "u0139": "construction-materials/M-03",
+        "u0141": "construction-materials/M-03",
+        "u0142": "construction-materials/M-03",
+        "u0143": "construction-materials/M-03",
+        "u0148": "construction-materials/M-03",
+        "u0150": "construction-materials/M-03",
+        "u0151": "construction-materials/M-03",
+        "u0152": "construction-materials/M-03",
+        "u0153": "construction-materials/M-03",
+        "u0155": "construction-materials/M-03",
+        "u0157": "construction-materials/M-04",
+        "u0158": "construction-materials/M-04",
+        "u0160": "construction-materials/M-04",
+        "u0161": "construction-materials/M-04",
+        "u0162": "construction-materials/M-04",
+        "u0164": "construction-materials/M-04",
+        "u0166": "construction-materials/M-04",
+        "u0167": "construction-materials/M-04",
+        "u0168": "construction-materials/M-04",
+        "u0170": "construction-materials/M-04",
+        "u0171": "construction-materials/M-05",
+        "u0172": "construction-materials/M-05",
+        "u0174": "construction-materials/M-05",
+        "u0176": "construction-materials/M-05",
+        "u0177": "construction-materials/M-05",
+        "u0179": "construction-materials/M-05",
+        "u0180": "construction-materials/M-05",
+        "u0182": "construction-materials/M-05",
+        "u0183": "construction-materials/M-05",
+        "u0185": "construction-materials/M-05",
+        "u0187": "construction-materials/M-05",
+        "u0189": {
+          "excluded": "索引"
+        },
+        "u0190": {
+          "excluded": "索引"
+        },
+        "u0191": {
+          "excluded": "索引"
+        },
+        "u0192": {
+          "excluded": "索引"
+        },
+        "u0193": {
+          "excluded": "索引"
+        },
+        "u0194": {
+          "excluded": "索引"
+        },
+        "u0195": {
+          "excluded": "索引"
+        },
+        "u0196": {
+          "excluded": "索引"
+        },
+        "u0197": {
+          "excluded": "索引"
+        },
+        "u0199": {
+          "excluded": "索引・参考文献"
+        }
+      }
+    }
+  }
+}

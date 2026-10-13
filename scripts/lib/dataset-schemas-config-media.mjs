@@ -894,6 +894,18 @@ const SeriesItem = z
     wave: z.number().int().positive().optional().describe('何波目に書くか'),
     note: z.string().min(1).optional(),
     reason: z.string().min(1).optional().describe('対象外にした理由（plan=excluded のとき必須）'),
+    visuals: z
+      .array(
+        z
+          .object({
+            kind: z.enum(['figure', 'photo']).describe('図（自作の SVG）か写真（AI で生成・gen-article-photo）'),
+            subject: z.string().min(1).describe('何を見せるか'),
+            figKey: z.string().regex(/^[a-z0-9-]+\/[^/]+\/img\/[^/.]+$/).optional().describe('置き場（<資格>/<記事>/img/<名前>・拡張子なし）。記事の場所が決まったら書く'),
+          })
+          .strict(),
+      )
+      .optional()
+      .describe('図・写真の計画。状態は画像の実体と出所の台帳・AI 画像の台帳から出す'),
   })
   .strict();
 
@@ -917,6 +929,22 @@ const ContentSeries = z
       .min(1),
   })
   .strict();
+
+const basisValue = z.union([
+  z.string().regex(/^[a-z0-9-]+\/[A-Za-z0-9-]+$/).describe('シリーズ id/項目 id'),
+  z.object({ article: seriesArticlePath.describe('シリーズの外の記事で使う') }).strict(),
+  z.object({ excluded: z.string().min(1).describe('使わない理由') }).strict(),
+]);
+
+/** 書籍の全項目の割り当て（config/content-series-basis.json）。項目 id は Drive の候補表の id で、見出しは持たない */
+export const ConfigContentSeriesBasis = z
+  .object({
+    schemaVersion: schemaVersion1,
+    description: doc(),
+    books: z.record(z.string().regex(/^[a-z0-9][a-z0-9-]*$/), z.object({ units: z.record(z.string().regex(/^u\d{4}$/), basisValue) }).strict()),
+  })
+  .strict()
+  .meta({ title: '書籍の全項目の割り当て' });
 
 /** サイト記事のシリーズ企画の台帳。サイト記事の企画の正本（todo-standards §1-2） */
 export const ConfigContentSeries = z
