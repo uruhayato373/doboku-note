@@ -1744,6 +1744,18 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-0716] 書籍 4 冊の文字起こし未完了 54 頁を、文字起こしするか理由つきで不要にする（reference-book-status で発見）
+タグ: [領域:教材] [種類:不具合] [起票:2026-10-13]
+
+**起点**: 2026-10-13、`npm run reference-book-status`（PR #1048）で書籍 27 冊の網羅を出したところ、ページ画像はあるのに文字起こしが pending のページが 4 冊に 54 頁あった（総監論文対策の 18 頁は展開しない本なので除く）。どのカードでも追われていない。
+- civil1-textbook-general 28 頁（p0007・p0032・p0034・p0035・p0037・p0063・p0064・p0070 … p0378）
+- civil1-textbook-management 18 頁（p0015・p0023・p0039・p0048・p0050・p0070・p0075・p0105 … p0295）
+- pe-cem-textbook 3 頁（p0001・p0053・p0319）
+- pe-construction-keyword-book 5 頁（p0006・p0020・p0046・p0111・p0257）
+**やること**: 各ページの画像を見て、本文があれば文字起こしを足して `record-reference-book-artifacts` で complete にする。図だけ・白紙・扉などで文字起こしが要らないページは、推測で complete にせず、理由が台帳に残る形（文字起こし不要の状態と理由）を決めて記録する。
+**完了条件**: `npm run reference-book-status` で 4 冊の文字起こしが n/n（または理由つきの不要だけが残る）になり、`npm run check-reference-book-pages` が通る。
+
+
 ### [DN-0714] refresh-indexes を CRLF で取り出した作業ツリーで回すと、生成 JSON の問題文に \r\n が入り偽の差分が出る
 タグ: [領域:サイト] [種類:不具合] [起票:2026-10-13]
 
