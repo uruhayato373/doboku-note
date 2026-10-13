@@ -1,0 +1,796 @@
+{
+  "schemaVersion": 1,
+  "description": "サイト記事のシリーズ企画（目次・計画・根拠）。状態（公開・下書き・未着手）は書かず、記事の実体から scripts/lib/content-series.mjs が出す。判断の記録は各シリーズの policy、実行はバックログのカード（本文にシリーズの id を書く）。サイト記事の企画の正本（todo-standards §1-2）。",
+  "series": [
+    {
+      "id": "municipal-civil-engineer",
+      "title": "自治体の土木担当",
+      "audience": "自治体に土木職で入った人・異動した人",
+      "area": "practice",
+      "policy": "docs/strategy/18_自治体土木担当・コンクリートシリーズ方針2026-10.md",
+      "gate": "EXP-012（記事末の資格カード）の判定（事後窓の終わり 2026-11-26）で継続になるまで、新規記事は書かない（2026-10-13 運営者判断）",
+      "entry": {
+        "hubItem": "A-1",
+        "curriculum": "civil-practice:municipal"
+      },
+      "sections": [
+        {
+          "title": "全体像",
+          "items": [
+            {
+              "id": "A-1",
+              "title": "自治体の土木職の仕事 — 管理と事業の二つの役割",
+              "plan": "new",
+              "sources": [
+                "local-autonomy-act",
+                "road-act",
+                "river-act"
+              ],
+              "note": "シリーズのハブ"
+            },
+            {
+              "id": "A-2",
+              "title": "土木担当の 1 年 — 予算要求・発注・出水期・決算・会計検査",
+              "plan": "new",
+              "sources": [
+                "local-autonomy-act",
+                "local-finance-act"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "道路を管理する",
+          "items": [
+            {
+              "id": "A-3",
+              "title": "道路法の骨格 — 道路の種類と管理者",
+              "plan": "new",
+              "sources": [
+                "road-act"
+              ]
+            },
+            {
+              "id": "A-4",
+              "title": "路線の認定・区域の決定・供用開始",
+              "plan": "strengthen",
+              "paths": [
+                "content/site/civil-practice/service-commencement/article.mdx"
+              ],
+              "sources": [
+                "road-act"
+              ]
+            },
+            {
+              "id": "A-5",
+              "title": "道路占用許可の審査 — 占用物件・期間・占用料・掘削後の復旧",
+              "plan": "new",
+              "sources": [
+                "road-act",
+                "road-act-order"
+              ],
+              "wave": 1
+            },
+            {
+              "id": "A-6",
+              "title": "承認工事（道路法 24 条）と道路使用許可（道路交通法 77 条）の違い",
+              "plan": "new",
+              "sources": [
+                "road-act",
+                "road-traffic-act"
+              ],
+              "links": [
+                "content/site/civil-practice/schedule-and-road-permit/article.mdx"
+              ],
+              "note": "受注者の段取りは既存の schedule-and-road-permit に残す"
+            },
+            {
+              "id": "A-7",
+              "title": "道路の境界確定と道路台帳",
+              "plan": "new",
+              "sources": [
+                "road-act",
+                "road-act-rules"
+              ]
+            },
+            {
+              "id": "A-8",
+              "title": "道路の点検と長寿命化計画",
+              "plan": "new",
+              "sources": [
+                "road-act-rules",
+                "road-bridge-inspection"
+              ],
+              "links": [
+                "content/site/civil-practice/preventive-maintenance-diagnosis/article.mdx"
+              ],
+              "note": "予防保全の一般論は既存記事に任せ、管理者の点検義務と計画に絞る"
+            },
+            {
+              "id": "A-9",
+              "title": "標識と防護柵",
+              "plan": "existing",
+              "paths": [
+                "content/site/civil-practice/road-fixtures-precast/article.mdx"
+              ],
+              "sources": [
+                "road-sign-standard",
+                "guard-fence-standard"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "河川を管理する",
+          "items": [
+            {
+              "id": "A-10",
+              "title": "河川法の骨格 — 一級・二級・準用・普通河川と管理者",
+              "plan": "new",
+              "sources": [
+                "river-act",
+                "river-act-order"
+              ]
+            },
+            {
+              "id": "A-11",
+              "title": "河川区域の許可 — 占用（24 条）・工作物の新築（26 条）・土地の掘削（27 条）",
+              "plan": "new",
+              "sources": [
+                "river-act",
+                "river-structure-permit-standard"
+              ],
+              "wave": 1
+            },
+            {
+              "id": "A-12",
+              "title": "工作物の技術審査 — 橋・樋門・管が堤防を横切るとき",
+              "plan": "new",
+              "sources": [
+                "river-facility-structure-order",
+                "river-structure-permit-standard"
+              ]
+            },
+            {
+              "id": "A-13",
+              "title": "河川管理施設の点検と操作 — 堤防・樋門・水門",
+              "plan": "new",
+              "sources": [
+                "small-river-inspection-guideline"
+              ],
+              "links": [
+                "content/site/civil-practice/levee-failure-reinforcement/article.mdx"
+              ],
+              "note": "堤防の壊れ方と補強は既存記事に任せる"
+            },
+            {
+              "id": "A-14",
+              "title": "河川整備計画と流域治水",
+              "plan": "strengthen",
+              "paths": [
+                "content/site/civil-practice/flood-control-facilities/article.mdx"
+              ],
+              "sources": [
+                "river-act",
+                "specified-urban-river-act"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "法定外公共物",
+          "items": [
+            {
+              "id": "A-15",
+              "title": "里道・水路の管理 — 国からの譲与・境界・占用",
+              "plan": "new",
+              "sources": [
+                "state-property-special-measures-act",
+                "local-autonomy-act"
+              ],
+              "wave": 1
+            }
+          ]
+        },
+        {
+          "title": "事業を進める（発注者として）",
+          "items": [
+            {
+              "id": "A-16",
+              "title": "要望から事業化まで — 地元の要望・調査・予算",
+              "plan": "new",
+              "sources": [
+                "local-finance-act"
+              ]
+            },
+            {
+              "id": "A-17",
+              "title": "地元説明会と合意形成",
+              "plan": "new",
+              "note": "運営者の経験が中心。団体・個人・案件が特定できる書き方をしない"
+            },
+            {
+              "id": "A-18",
+              "title": "用地の取得と損失補償",
+              "plan": "new",
+              "sources": [
+                "land-expropriation-act",
+                "public-land-compensation-standard"
+              ]
+            },
+            {
+              "id": "A-19",
+              "title": "発注方式と入札",
+              "plan": "existing",
+              "paths": [
+                "content/site/civil-practice/public-works-delivery-methods/article.mdx",
+                "content/site/civil-practice/public-works-bidding-methods/article.mdx"
+              ],
+              "sources": [
+                "public-works-quality-act"
+              ]
+            },
+            {
+              "id": "A-20",
+              "title": "監督と検査",
+              "plan": "strengthen",
+              "paths": [
+                "content/site/civil-practice/construction-inspection-types/article.mdx"
+              ],
+              "sources": [
+                "public-works-quality-act",
+                "local-autonomy-act"
+              ],
+              "note": "監督員の役割を補う"
+            },
+            {
+              "id": "A-21",
+              "title": "設計変更",
+              "plan": "strengthen",
+              "paths": [
+                "content/site/civil-practice/cost-and-design-change/article.mdx"
+              ],
+              "sources": [
+                "standard-contract-terms"
+              ],
+              "note": "発注者の側を補う"
+            },
+            {
+              "id": "A-22",
+              "title": "会計検査",
+              "plan": "existing",
+              "paths": [
+                "content/site/civil-practice/board-of-audit-inspection/article.mdx"
+              ],
+              "sources": [
+                "board-of-audit-act"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "災害に備える",
+          "items": [
+            {
+              "id": "A-23",
+              "title": "災害復旧事業と災害査定",
+              "plan": "new",
+              "sources": [
+                "disaster-restoration-subsidy-act"
+              ]
+            },
+            {
+              "id": "A-24",
+              "title": "地域防災計画と水防",
+              "plan": "new",
+              "sources": [
+                "disaster-countermeasures-basic-act",
+                "flood-control-act"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "仕事の進め方",
+          "items": [
+            {
+              "id": "A-25",
+              "title": "住民・議会への説明と資料づくり",
+              "plan": "new",
+              "note": "運営者の経験が中心"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "concrete-practice",
+      "title": "コンクリートの実務",
+      "audience": "コンクリートに関わるすべての人（発注者・設計者・生コン工場・施工者・維持管理者）。初めて担当する人から受験者まで",
+      "area": "practice",
+      "policy": "docs/strategy/18_自治体土木担当・コンクリートシリーズ方針2026-10.md",
+      "gate": "EXP-012（記事末の資格カード）の判定（事後窓の終わり 2026-11-26）で継続になるまで、新規記事は書かない（2026-10-13 運営者判断）",
+      "entry": {
+        "hubItem": "C-00",
+        "curriculum": "civil-practice:concrete"
+      },
+      "sections": [
+        {
+          "title": "入口",
+          "items": [
+            {
+              "id": "C-00",
+              "title": "コンクリートの全体像 — 誰が何を決めるか",
+              "plan": "new",
+              "note": "シリーズのハブ。発注者・設計者・生コン工場・施工者・維持管理者の役割で全章を案内する",
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "発注者・設計者・生コン工場・施工者・維持管理者が、それぞれ何を決めるかの関係図"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "知る（材料と性質）",
+          "items": [
+            {
+              "id": "C-01",
+              "title": "コンクリートはなぜ固まるか — 水和と、温度・水分の役割",
+              "plan": "new",
+              "sources": [
+                "jsce-concrete-spec-construction"
+              ],
+              "links": [
+                "content/site/concrete-engineer/textbook-materials/article.mdx",
+                "content/site/concrete-engineer/textbook-properties-testing/article.mdx"
+              ],
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "水和が進む様子と、温度・水分で強度の伸びが変わる関係の概念図"
+                }
+              ]
+            },
+            {
+              "id": "C-02",
+              "title": "セメント — 種類・選び方・つくり方・歴史",
+              "plan": "strengthen",
+              "paths": [
+                "content/site/concrete-engineer/textbook-materials/article.mdx"
+              ],
+              "links": [
+                "content/site/concrete-chief-engineer/textbook-materials/article.mdx"
+              ],
+              "note": "つくり方と歴史を補う"
+            },
+            {
+              "id": "C-03",
+              "title": "骨材 — 種類・品質・有害物・再生骨材とスラグ",
+              "plan": "existing",
+              "paths": [
+                "content/site/concrete-engineer/textbook-materials/article.mdx"
+              ],
+              "links": [
+                "content/site/concrete-chief-engineer/textbook-materials/article.mdx"
+              ]
+            },
+            {
+              "id": "C-04",
+              "title": "水と混和材料",
+              "plan": "existing",
+              "paths": [
+                "content/site/concrete-engineer/textbook-materials/article.mdx"
+              ],
+              "links": [
+                "content/site/concrete-chief-engineer/textbook-materials/article.mdx"
+              ]
+            },
+            {
+              "id": "C-05",
+              "title": "固まる前の性質 — 流動性・材料分離・ブリーディング",
+              "plan": "existing",
+              "paths": [
+                "content/site/concrete-engineer/textbook-properties-testing/article.mdx"
+              ],
+              "links": [
+                "content/site/concrete-chief-engineer/textbook-properties/article.mdx"
+              ]
+            },
+            {
+              "id": "C-06",
+              "title": "固まった後の性質 — 強度・変形・体積変化・水密性",
+              "plan": "existing",
+              "paths": [
+                "content/site/concrete-chief-engineer/textbook-properties/article.mdx"
+              ],
+              "links": [
+                "content/site/concrete-engineer/textbook-properties-testing/article.mdx"
+              ]
+            },
+            {
+              "id": "C-07",
+              "title": "鉄筋と PC 鋼材",
+              "plan": "strengthen",
+              "paths": [
+                "content/site/civil-practice/steel-material-properties/article.mdx"
+              ],
+              "links": [
+                "content/site/concrete-chief-engineer/textbook-structural-design/article.mdx"
+              ],
+              "note": "鉄筋・PC 鋼材の種類と扱いを補う"
+            }
+          ]
+        },
+        {
+          "title": "決める（発注者・設計者）",
+          "items": [
+            {
+              "id": "C-08",
+              "title": "強度の決め方 — 設計基準強度・呼び強度・配合強度",
+              "plan": "strengthen",
+              "paths": [
+                "content/site/concrete-engineer/textbook-mix-design/article.mdx"
+              ],
+              "note": "発注者・設計者が何を根拠に決めるかを補う"
+            },
+            {
+              "id": "C-09",
+              "title": "耐久性の決め方 — かぶり・水セメント比・環境条件",
+              "plan": "new",
+              "sources": [
+                "jsce-concrete-spec-construction"
+              ],
+              "links": [
+                "content/site/concrete-chief-engineer/textbook-durability/article.mdx"
+              ],
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "環境条件（塩害・凍害・中性化）ごとに、かぶりと水セメント比をどう決めるかの対応図"
+                }
+              ]
+            },
+            {
+              "id": "C-10",
+              "title": "生コンを注文する — JIS A 5308 の呼び方と、購入者が指定できる事項",
+              "plan": "new",
+              "sources": [
+                "jis#A5308"
+              ],
+              "wave": 1,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "生コンの呼び方（種類・呼び強度・スランプ・粗骨材の最大寸法・セメント）の読み方の図解"
+                }
+              ]
+            },
+            {
+              "id": "C-11",
+              "title": "配合設計",
+              "plan": "existing",
+              "paths": [
+                "content/site/concrete-engineer/textbook-mix-design/article.mdx",
+                "content/site/concrete-chief-engineer/textbook-mix-design/article.mdx"
+              ]
+            },
+            {
+              "id": "C-12",
+              "title": "条件で選ぶ特殊なコンクリート — 寒中・暑中・マス・水中・高流動・高強度・繊維補強・軽量・吹付け",
+              "plan": "new",
+              "sources": [
+                "jsce-concrete-spec-construction"
+              ],
+              "links": [
+                "content/site/concrete-chief-engineer/textbook-construction/article.mdx"
+              ],
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "施工の条件（気温・部材の厚さ・水中・狭い所）から特殊なコンクリートを選ぶ対応図"
+                }
+              ]
+            },
+            {
+              "id": "C-13",
+              "title": "構造の基本 — RC と PC の仕組み",
+              "plan": "existing",
+              "paths": [
+                "content/site/concrete-chief-engineer/textbook-structural-design/article.mdx"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "つくる（生コン工場・製品）",
+          "items": [
+            {
+              "id": "C-14",
+              "title": "生コン工場の仕事 — 設備・製造・出荷・試験室・経営",
+              "plan": "strengthen",
+              "paths": [
+                "content/site/concrete-engineer/textbook-production-qc/article.mdx"
+              ],
+              "note": "出荷・試験室・経営を補う"
+            },
+            {
+              "id": "C-15",
+              "title": "工場の品質管理と検査",
+              "plan": "existing",
+              "paths": [
+                "content/site/concrete-chief-engineer/textbook-production-qc/article.mdx"
+              ],
+              "links": [
+                "content/site/concrete-engineer/textbook-production-qc/article.mdx"
+              ]
+            },
+            {
+              "id": "C-16",
+              "title": "プレキャスト製品",
+              "plan": "existing",
+              "paths": [
+                "content/site/concrete-chief-engineer/textbook-products/article.mdx"
+              ],
+              "links": [
+                "content/site/civil-practice/road-fixtures-precast/article.mdx"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "打つ（施工者）",
+          "items": [
+            {
+              "id": "C-17",
+              "title": "工事の段取り — 予算・工期・現場説明会・事前検討会・周知会・反省会",
+              "plan": "new",
+              "links": [
+                "content/site/civil-practice/construction-plan-document/article.mdx"
+              ],
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "発注から打設当日・振り返りまでの段取りの流れ図"
+                }
+              ]
+            },
+            {
+              "id": "C-18",
+              "title": "鉄筋と型枠・支保工",
+              "plan": "existing",
+              "paths": [
+                "content/site/civil-practice/rebar-cover-placement/article.mdx",
+                "content/site/civil-practice/rebar-splice-selection/article.mdx",
+                "content/site/civil-practice/rebar-corrosion-handling/article.mdx",
+                "content/site/civil-practice/formwork-material-inspection/article.mdx",
+                "content/site/civil-practice/formwork-waterstop-details/article.mdx",
+                "content/site/civil-practice/checklist-shoring-buoyancy/article.mdx"
+              ]
+            },
+            {
+              "id": "C-19",
+              "title": "打設計画 — 工法・人員と機器・順序・天候",
+              "plan": "existing",
+              "paths": [
+                "content/site/civil-practice/concrete-pump-capacity/article.mdx",
+                "content/site/civil-practice/concrete-placement-timing/article.mdx"
+              ]
+            },
+            {
+              "id": "C-20",
+              "title": "受入れ検査",
+              "plan": "existing",
+              "paths": [
+                "content/site/civil-practice/concrete-mix-acceptance/article.mdx"
+              ]
+            },
+            {
+              "id": "C-21",
+              "title": "打込み・締固め・打継ぎ — 打ちにくい箇所と床面を含む",
+              "plan": "strengthen",
+              "paths": [
+                "content/site/civil-practice/concrete-compaction-numbers/article.mdx",
+                "content/site/civil-practice/concrete-placement-order/article.mdx"
+              ],
+              "note": "打ちにくい箇所・床面の打込みを補う"
+            },
+            {
+              "id": "C-22",
+              "title": "仕上げ・養生・型枠の解体",
+              "plan": "existing",
+              "paths": [
+                "content/site/civil-practice/concrete-finishing-curing/article.mdx",
+                "content/site/civil-practice/formwork-removal-timing/article.mdx"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "確かめる（検査）",
+          "items": [
+            {
+              "id": "C-23",
+              "title": "できた構造物の検査 — コア・小径コア・非破壊試験",
+              "plan": "new",
+              "sources": [
+                "jsce-concrete-spec-maintenance"
+              ],
+              "links": [
+                "content/site/concrete-engineer/textbook-properties-testing/article.mdx",
+                "content/site/concrete-diagnostician/textbook-investigation/article.mdx"
+              ],
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "検査方法（コア・小径コア・反発度・超音波・電磁波レーダ）の選び方の比較図"
+                },
+                {
+                  "kind": "photo",
+                  "subject": "径の違う採取コアを並べた写真。コアの径と骨材の最大寸法の関係を見せる",
+                  "crop": {
+                    "book": "concrete-basics-5th",
+                    "id": "photo-core-sizes"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "守る（維持管理）",
+          "items": [
+            {
+              "id": "C-24",
+              "title": "変状の見分け方 — 初期欠陥・ひび割れ・剥離・錆汁・たわみ",
+              "plan": "existing",
+              "paths": [
+                "content/site/civil-practice/concrete-crack-causes/article.mdx",
+                "content/site/concrete-diagnostician/textbook-variation/article.mdx"
+              ]
+            },
+            {
+              "id": "C-25",
+              "title": "劣化の仕組み — 中性化・塩害・ASR・凍害・化学的侵食・疲労・火災",
+              "plan": "existing",
+              "paths": [
+                "content/site/concrete-diagnostician/textbook-deterioration/article.mdx"
+              ],
+              "links": [
+                "content/site/concrete-chief-engineer/textbook-durability/article.mdx"
+              ]
+            },
+            {
+              "id": "C-26",
+              "title": "点検と調査の進め方",
+              "plan": "existing",
+              "paths": [
+                "content/site/concrete-diagnostician/textbook-investigation/article.mdx"
+              ],
+              "links": [
+                "content/site/civil-practice/preventive-maintenance-diagnosis/article.mdx"
+              ]
+            },
+            {
+              "id": "C-27",
+              "title": "評価と判定 — 要求性能・劣化の予測・補修の要否",
+              "plan": "existing",
+              "paths": [
+                "content/site/concrete-diagnostician/textbook-assessment/article.mdx"
+              ]
+            },
+            {
+              "id": "C-28",
+              "title": "補修と補強の選び方",
+              "plan": "existing",
+              "paths": [
+                "content/site/civil-practice/concrete-repair-leakage/article.mdx",
+                "content/site/concrete-diagnostician/textbook-repair/article.mdx"
+              ]
+            },
+            {
+              "id": "C-29",
+              "title": "基準の移り変わり — 古い構造物を見る目",
+              "plan": "new",
+              "sources": [
+                "jsce-concrete-spec-maintenance"
+              ],
+              "links": [
+                "content/site/concrete-diagnostician/textbook-maintenance/article.mdx"
+              ],
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "主な基準の改定（塩化物の規制・ASR 対策・かぶり）を年表に並べ、建設年代から構造物の弱点を読む図"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "これから",
+          "items": [
+            {
+              "id": "C-30",
+              "title": "環境と資源循環 — 低炭素・エコセメント・再生骨材・建設副産物",
+              "plan": "existing",
+              "paths": [
+                "content/site/concrete-engineer/textbook-environment/article.mdx"
+              ]
+            },
+            {
+              "id": "C-31",
+              "title": "省力化と新技術 — プレキャスト化・3D プリンター・自動化",
+              "plan": "new",
+              "links": [
+                "content/site/concrete-chief-engineer/textbook-products/article.mdx"
+              ],
+              "visuals": [
+                {
+                  "kind": "photo",
+                  "subject": "プレキャストの部材をクレーンで据え付けている現場"
+                }
+              ]
+            },
+            {
+              "id": "C-32",
+              "title": "品質と担い手 — 品質意識の移り変わりと業界の課題",
+              "plan": "new",
+              "note": "著者の意見はなぞらず、統計・白書など別の資料で書く"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "construction-materials",
+      "title": "建設材料",
+      "audience": "土木の材料を選ぶ・受け入れる人（コンクリート以外の材料）",
+      "area": "practice",
+      "policy": "docs/strategy/18_自治体土木担当・コンクリートシリーズ方針2026-10.md",
+      "gate": "EXP-012（記事末の資格カード）の判定（事後窓の終わり 2026-11-26）で継続になるまで、新規記事は書かない（2026-10-13 運営者判断）",
+      "sections": [
+        {
+          "title": "建設材料",
+          "items": [
+            {
+              "id": "M-01",
+              "title": "建設材料の全体像 — 構造物ごとの材料・性質・規格・環境",
+              "plan": "new",
+              "links": [
+                "content/site/civil-practice/material-selection-receiving/article.mdx"
+              ]
+            },
+            {
+              "id": "M-02",
+              "title": "鋼材",
+              "plan": "existing",
+              "paths": [
+                "content/site/civil-practice/steel-material-properties/article.mdx"
+              ]
+            },
+            {
+              "id": "M-03",
+              "title": "アスファルト",
+              "plan": "existing",
+              "paths": [
+                "content/site/civil-practice/asphalt-materials-types/article.mdx"
+              ]
+            },
+            {
+              "id": "M-04",
+              "title": "高分子材料 — 樹脂・ゴム・繊維・連続繊維補強材",
+              "plan": "new"
+            },
+            {
+              "id": "M-05",
+              "title": "木材と石材",
+              "plan": "new"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
