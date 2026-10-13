@@ -128,8 +128,10 @@ function latestBing(root) {
   return data.sections?.query?.ok ? { file, rows: data.sections.query.rows ?? [] } : null;
 }
 
-export function buildSearchOpportunities(root) {
+/** maxCandidates はクラスターごとに返す候補の上限（既定は config の maxCandidatesPerCluster。管理画面は表で全件を出すので Infinity）。 */
+export function buildSearchOpportunities(root, { maxCandidates } = {}) {
   const config = readJson(root, CONFIG);
+  const limit = maxCandidates ?? config.striking.maxCandidatesPerCluster;
   const snaps = listPageQuerySnapshots(root);
   if (!snaps.length) return { config, period: null, source: null, previous: null, clusters: [] };
   const latest = snaps[0];
@@ -146,9 +148,9 @@ export function buildSearchOpportunities(root) {
     const before = prev ? summarizeCluster(c, prev.data.rows, config.striking) : null;
     return {
       ...now,
-      candidates: now.candidates.slice(0, config.striking.maxCandidatesPerCluster),
+      candidates: now.candidates.slice(0, limit),
       candidateTotal: now.candidates.length,
-      bing: b ? { queries: b.queries, top10: b.top10, candidates: b.candidates.slice(0, config.striking.maxCandidatesPerCluster), candidateTotal: b.candidates.length } : null,
+      bing: b ? { queries: b.queries, top10: b.top10, candidates: b.candidates.slice(0, limit), candidateTotal: b.candidates.length } : null,
       previous: before ? { impressions: before.impressions, clicks: before.clicks, top10: before.top10, striking: before.striking, avgPosition: before.avgPosition } : null,
     };
   });
