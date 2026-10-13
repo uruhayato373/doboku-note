@@ -4346,6 +4346,42 @@
         "kind": "external",
         "url": "https://www.cgr.mlit.go.jp/ctc/pdf/technology/concrete/a4-06.pdf"
       }
+    },
+    {
+      "id": "mlit-concrete-quality-notice-2001",
+      "title": "土木コンクリート構造物の品質確保について（国官技第61号・平成13年3月29日・国土交通省大臣官房技術調査課長）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.qsr.mlit.go.jp/content/900012378.pdf"
+      }
+    },
+    {
+      "id": "mlit-ndt-notice-2018",
+      "title": "非破壊試験等によるコンクリートの品質管理について（国官技第44号・平成30年10月24日・国土交通省大臣官房技術調査課長）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/common/001260868.pdf"
+      }
+    },
+    {
+      "id": "mlit-ndt-strength-guideline-2018",
+      "title": "微破壊・非破壊試験によるコンクリート構造物の強度測定要領（平成30年10月・国土交通省大臣官房技術調査課）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/common/001260869.pdf"
+      }
+    },
+    {
+      "id": "mlit-ndt-rebar-cover-guideline-2018",
+      "title": "非破壊試験によるコンクリート構造物中の配筋状態及びかぶり測定要領（平成30年10月・国土交通省大臣官房技術調査課）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/common/001260872.pdf"
+      }
     }
   ]
 }
