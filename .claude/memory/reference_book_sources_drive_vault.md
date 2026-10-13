@@ -65,3 +65,5 @@ Drive MCP `create_file` はバイナリに `base64Content` が要るが、filesy
 代替: ①ブラウザで drive.google.com へ手動ドラッグ＆ドロップ ②OAuth スクリプト（`C:\tmp\upload-to-drive.mjs`・gemini-cli の公開 installed-app 資格を流用・drive.file スコープ・REST マルチパート。**client_id/secret の値はリポジトリにも memory にも書かない**＝GitHub push protection が止める）③git 管理のまま Mac 側で使う。確立済み運用: PNG は git commit で保持、caption.txt のみ MCP で Drive へ。
 
 **取り戻し（--pull）の範囲（2026-10-10）**: `--pull --path content/sources/books/` のように接頭辞を広く取ると、書籍のページ画像まで数百枚取り寄せる（701 枚で止めた）。group 単位なら `--pull --group <group id>`（例: `reference-book-coverage`）で絞る。DN-0631 で `--pull` も既定は dry-run（件数と合計サイズを出すだけ）になり、書くのは `--commit` を付けたときだけ。
+
+**書籍の網羅の確認（2026-10-13）**: 「教材は全部画像化・文字起こし済みか」は `npm run reference-book-status`（`--reasons`）か管理画面の教材の詳細を先に見る。画像にしていない原本ページの理由は `config/reference-sources.json` の `excludedPdfPageRanges` が正本で、Drive の `book-manifest.json` には載らない。Drive 側だけを見て「理由が無い」と報告し、記録済みの除外（主任技士 2024 の高画質再スキャン 120 頁・Kindle のレビュー画面など）をページ画像で確かめ直した。
