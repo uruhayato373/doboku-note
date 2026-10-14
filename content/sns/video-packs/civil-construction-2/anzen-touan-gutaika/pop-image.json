@@ -1,0 +1,337 @@
+{
+  "policy": ".claude/knowledge/reference/pop-image-policy.md",
+  "designVersion": "pop-20260927",
+  "channel": "youtube",
+  "source": "content/sns/video-packs/civil-construction-2/anzen-touan-gutaika",
+  "revisions": {
+    "longform-image-review": {
+      "version": "pop-poster-v3",
+      "publicationId": "civil-construction-2/anzen-touan-gutaika/youtube.longform",
+      "purpose": "通常動画の表紙・本文の代表場面・締めの3枚を先に確認する制作下書き",
+      "derivedFromWork": "civil-construction-2/anzen-ippanron-3riyu",
+      "historicalPublications": "削除済みの旧作品・公開ID・素材・承認は変更しない",
+      "requestedFormat": {
+        "width": 1920,
+        "height": 1080
+      },
+      "formatNote": "生成原本の実寸を各画像へ記録。動画用1920×1080への出力は画像確認後の工程。",
+      "evidence": [
+        "config/products.json#civil-2-experience-essay",
+        "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集/安全管理/article.md"
+      ],
+      "references": [
+        {
+          "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+          "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+        },
+        {
+          "path": ".tmp/media/civil-construction-2/anzen-ippanron-3riyu/youtube.short.point-cause1-1/cover.82255575.png",
+          "sha256": "82255575f7e90788190804b94807c6a3f9e88572cc87616d4bcc3b600ba26e2c"
+        }
+      ],
+      "generator": {
+        "tool": "image_gen",
+        "model": "not-reported-by-tool"
+      },
+      "images": [
+        {
+          "role": "cover",
+          "copy": [
+            "2級土木",
+            "安全管理",
+            "答案を具体化",
+            "現場条件から書く",
+            "総監が解説"
+          ],
+          "prompt": "Edit this exact image. Make ONE clear layout change: REMOVE the yellow 「総監が解説」 badge from the bottom completely, leaving only the continuing green illustrated background there. Recreate the same 「総監が解説」 yellow badge at the TOP, immediately to the right of 「2級土木」 and to the left of the teacher's helmet. Reduce the width/size of 「2級土木」 moderately to make room in that top row, but it must remain very large and legible. The whole top row is fully inside the canvas. Do NOT leave any duplicate badge at the bottom. Preserve 「安全管理」「答案を具体化」「現場条件から書く」 in the left area; all of these already end above the lower safe area. The bottom 12% must contain NO letters, underline or banners; continuous green background and teacher torso only, no blank stripe. Preserve the same teacher, natural red-pen hand, other hand holding an answer sheet, exact illustration identity, colors, and pop-poster-v3 bold typography. Do not add words. Exact same five strings only: 2級土木 / 総監が解説 / 安全管理 / 答案を具体化 / 現場条件から書く. One finished 16:9 landscape PNG.",
+          "format": {
+            "width": 1672,
+            "height": 941
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/cover.906b74b3.png",
+            "sha256": "906b74b3197b4f8d4a13f3e280934c3d8208f7f0c7e5f580c27a0373cad0946e"
+          },
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/cover.906b74b3.png",
+            "status": "cloud-verified",
+            "verification": "local sha256 / cloud md5 一致（生成履歴8件中8件）"
+          },
+          "review": {
+            "status": "ai-audit-ok",
+            "userImageReview": "pending",
+            "videoAdoption": "not-rendered",
+            "priorFindings": [
+              "初版: 下端10%に重要文字が入る。CTAは右手に多指。修正版は文字位置と指差しを調整。"
+            ],
+            "auditor": "ai-image-fidelity-auditor",
+            "reason": "参照と一致する顔・髪・眼鏡・ひげ・服装、自然な赤ペンと答案用紙の保持、指定5文言の正確さと幅360pxでの判読性、下端10%に重要文字がないことを確認した。",
+            "axes": {
+              "type": "ok",
+              "structure": "ok",
+              "text": "ok",
+              "artifacts": "ok",
+              "lettering": "ok"
+            }
+          },
+          "generation": [
+            {
+              "step": "original",
+              "prompt": "Use case: ads-marketing / scientific-educational.\nYou are creating one finished Japanese educational graphic for a 2級土木施工管理技士 YouTube normal video. Output a single flat, full-bleed LANDSCAPE 16:9 image, target 1920×1080. Not a collage, mockup, photographed screen, or set of slides.\nREFERENCE ROLES: Reference 1 is the owner's approved 2級土木 POP product artwork: preserve the same teacher's facial identity and illustration technique, green palette, forceful Japanese typography with deep outlines, white and yellow highlights, small purposeful red accent, diagonal energy and subtle civil-engineering background. Reference 2 is the approved safety-management red-pen teacher poster; use it for character and topic context, NOT its vertical layout, old text, or blank margins.\nThe teacher is the identical adult male in his forties: short black hair, black rectangular glasses, mild beard, white plain helmet, navy workwear, white shirt, navy tie, yellow/white reflective bands. Friendly intelligent adult, not young/cute or photorealistic. Draw natural hands and fingers. No logos on helmet.\nCreate all typography, character and background together as a coherent finished pop-poster-v3 image; not the old small-character template. Extend the illustrated green background to all four edges. Important content inside 6% edge margins, not cut off, and keep the bottom 10% free of essential text for later subtitles while continuing background/torso. Avoid oversized blank areas. Use very large correctly rendered Japanese that reads at display width 360px. Show only the specified text verbatim; no brands, URLs, prices, page numbers, invented statistics, guarantees, or extra small labels. Do not copy the reference's paid correction service claims.\nThis is the COVER. Left two thirds carry a strong 3-level headline; the large teacher occupies the right third, holding an answer sheet in one hand and a red pen in the other, checking and explaining. Sheet has only pale abstract rules, no text. Keep teacher's face, pen and all letters unobscured. Deep emerald / mint background with an understated bridge silhouette and diagonal white/yellow shapes. It should feel like the approved energetic sales artwork adapted to a high-quality tutorial.\nExact visible Japanese:\n「2級土木」\n「安全管理」\n「答案を具体化」\n「現場条件から書く」\n「総監が解説」\nMake 2級土木 very large white, 安全管理 and 答案を具体化 the main two-line subject with dark-green/white and red emphasis. Place 現場条件から書く as a shorter clear subtitle. 総監が解説 sits in a distinct yellow band, separate from the exam name. Do not add 3つの原因 or any numerical promise.",
+              "references": [
+                {
+                  "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                  "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+                },
+                {
+                  "path": ".tmp/media/civil-construction-2/anzen-ippanron-3riyu/youtube.short.point-cause1-1/cover.82255575.png",
+                  "sha256": "82255575f7e90788190804b94807c6a3f9e88572cc87616d4bcc3b600ba26e2c"
+                }
+              ],
+              "format": {
+                "width": 1672,
+                "height": 941
+              },
+              "output": {
+                "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/cover.af9293ba.png",
+                "sha256": "af9293bae5af9a4b01f7cae58fb8593c8b65360f9c0adaececda0df06d4d3ce3"
+              }
+            },
+            {
+              "step": "safe-layout",
+              "prompt": "Edit the attached finished image, preserving its identity, green pop-poster-v3 style, all Japanese wording verbatim, meaning, colors and landscape aspect ratio. Deliver one finished landscape image, not a comparison sheet. Correct the lower caption safe area: every essential character, yellow text banner and red underline must be FULLY above y=82% of total image height. The bottom 18% contains ONLY continuing illustrated background or the teacher's torso, absolutely no text, banners, rules or arrows. Do not make a blank solid strip: continue the existing green diagonal/scene background through the full canvas. Move and reflow the existing typography upward into y=5% through y=82% without cropping letters or faces; shorten spaces, not text. The teacher's identity, helmet, glasses, beard, clothing are invariant. Do not add or remove any text. This is a correction of the same design, not a new style. In particular move the yellow 総監が解説 badge upward to around y=73%, fully ending by y=82%. Maintain the large qualification and main subject on the left, red-pen teacher on right. Keep the complete helmet with some top breathing room. All five text strings stay exactly: 2級土木 / 安全管理 / 答案を具体化 / 現場条件から書く / 総監が解説.",
+              "references": [
+                {
+                  "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/cover.af9293ba.png",
+                  "sha256": "af9293bae5af9a4b01f7cae58fb8593c8b65360f9c0adaececda0df06d4d3ce3"
+                }
+              ],
+              "format": {
+                "width": 1672,
+                "height": 941
+              },
+              "output": {
+                "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/cover.6460b0f4.png",
+                "sha256": "6460b0f4087d63f21784d2cb588d00c76efbd8fa332818f763af79fae61e9bc7"
+              }
+            },
+            {
+              "step": "compact-layout",
+              "prompt": "Edit this exact image. Make ONE clear layout change: REMOVE the yellow 「総監が解説」 badge from the bottom completely, leaving only the continuing green illustrated background there. Recreate the same 「総監が解説」 yellow badge at the TOP, immediately to the right of 「2級土木」 and to the left of the teacher's helmet. Reduce the width/size of 「2級土木」 moderately to make room in that top row, but it must remain very large and legible. The whole top row is fully inside the canvas. Do NOT leave any duplicate badge at the bottom. Preserve 「安全管理」「答案を具体化」「現場条件から書く」 in the left area; all of these already end above the lower safe area. The bottom 12% must contain NO letters, underline or banners; continuous green background and teacher torso only, no blank stripe. Preserve the same teacher, natural red-pen hand, other hand holding an answer sheet, exact illustration identity, colors, and pop-poster-v3 bold typography. Do not add words. Exact same five strings only: 2級土木 / 総監が解説 / 安全管理 / 答案を具体化 / 現場条件から書く. One finished 16:9 landscape PNG.",
+              "references": [
+                {
+                  "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/cover.6460b0f4.png",
+                  "sha256": "6460b0f4087d63f21784d2cb588d00c76efbd8fa332818f763af79fae61e9bc7"
+                }
+              ],
+              "format": {
+                "width": 1672,
+                "height": 941
+              },
+              "output": {
+                "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/cover.906b74b3.png",
+                "sha256": "906b74b3197b4f8d4a13f3e280934c3d8208f7f0c7e5f580c27a0373cad0946e"
+              }
+            }
+          ]
+        },
+        {
+          "role": "scene-001",
+          "copy": [
+            "2級土木｜安全管理",
+            "現場条件から対策を考える",
+            "現場条件",
+            "狭いヤード",
+            "課題",
+            "人と重機が接近",
+            "対策",
+            "動線を分ける",
+            "考え方の例",
+            "自分の現場の事実で書く"
+          ],
+          "prompt": "Edit the attached finished image, preserving its identity, green pop-poster-v3 style, all Japanese wording verbatim, meaning, colors and landscape aspect ratio. Deliver one finished landscape image, not a comparison sheet. Correct the lower caption safe area: every essential character, yellow text banner and red underline must be FULLY above y=82% of total image height. The bottom 18% contains ONLY continuing illustrated background or the teacher's torso, absolutely no text, banners, rules or arrows. Do not make a blank solid strip: continue the existing green diagonal/scene background through the full canvas. Move and reflow the existing typography upward into y=5% through y=82% without cropping letters or faces; shorten spaces, not text. The teacher's identity, helmet, glasses, beard, clothing are invariant. Do not add or remove any text. This is a correction of the same design, not a new style. The bottom message 自分の現場の事実で書く and 考え方の例 badge must move up to y=73%-81%. Compress the overly tall top headings slightly, place the three-card diagram across y=35%-69%, keeping its large legible text and exact left-to-right arrows. Preserve the explanatory pictures and all labels, with no change to the condition-risk-measure meaning. Teacher remains a small guide on right. Words exactly unchanged: 2級土木｜安全管理 / 現場条件から対策を考える / 現場条件 / 狭いヤード / 課題 / 人と重機が接近 / 対策 / 動線を分ける / 考え方の例 / 自分の現場の事実で書く.",
+          "format": {
+            "width": 1672,
+            "height": 941
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-001.d6f17a6d.png",
+            "sha256": "d6f17a6dc6ffe4839abff06508a7b943d1abdd43b9252571df48abec232a86af"
+          },
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-001.d6f17a6d.png",
+            "status": "cloud-verified",
+            "verification": "local sha256 / cloud md5 一致（生成履歴8件中8件）"
+          },
+          "review": {
+            "status": "ai-audit-ok",
+            "userImageReview": "pending",
+            "videoAdoption": "not-rendered",
+            "priorFindings": [
+              "初版: 下端10%に重要文字が入る。CTAは右手に多指。修正版は文字位置と指差しを調整。"
+            ],
+            "auditor": "ai-image-fidelity-auditor",
+            "reason": "人物と手指に破綻がなく、「狭いヤード→人と重機が接近→動線を分ける」の図・矢印・例示表記が整合し、指定文言を幅360pxで判読でき、重要文字が下端10%より上に収まることを確認した。",
+            "axes": {
+              "type": "ok",
+              "structure": "ok",
+              "text": "ok",
+              "artifacts": "ok",
+              "lettering": "ok"
+            }
+          },
+          "generation": [
+            {
+              "step": "original",
+              "prompt": "Use case: ads-marketing / scientific-educational.\nYou are creating one finished Japanese educational graphic for a 2級土木施工管理技士 YouTube normal video. Output a single flat, full-bleed LANDSCAPE 16:9 image, target 1920×1080. Not a collage, mockup, photographed screen, or set of slides.\nREFERENCE ROLES: Reference 1 is the owner's approved 2級土木 POP product artwork: preserve the same teacher's facial identity and illustration technique, green palette, forceful Japanese typography with deep outlines, white and yellow highlights, small purposeful red accent, diagonal energy and subtle civil-engineering background. Reference 2 is the approved safety-management red-pen teacher poster; use it for character and topic context, NOT its vertical layout, old text, or blank margins.\nThe teacher is the identical adult male in his forties: short black hair, black rectangular glasses, mild beard, white plain helmet, navy workwear, white shirt, navy tie, yellow/white reflective bands. Friendly intelligent adult, not young/cute or photorealistic. Draw natural hands and fingers. No logos on helmet.\nCreate all typography, character and background together as a coherent finished pop-poster-v3 image; not the old small-character template. Extend the illustrated green background to all four edges. Important content inside 6% edge margins, not cut off, and keep the bottom 10% free of essential text for later subtitles while continuing background/torso. Avoid oversized blank areas. Use very large correctly rendered Japanese that reads at display width 360px. Show only the specified text verbatim; no brands, URLs, prices, page numbers, invented statistics, guarantees, or extra small labels. Do not copy the reference's paid correction service claims.\nThis is ONE BODY teaching slide. Prioritize the readable teaching diagram over the teacher. Keep the same palette and drawing style but make the center calm pale mint/white for reading, with green illustrated edges rather than a dense poster behind all text.\nA very large top heading, then three spacious horizontally arranged steps connected LEFT TO RIGHT by clear arrows. Each step has a short category label and one bold concrete phrase. Do not reverse or cross the arrows. Show a small green badge 「考え方の例」 to indicate an illustrative example, not a factual account of the author's construction project.\nThe three steps are:\n1. label 「現場条件」, content 「狭いヤード」\n2. label 「課題」, content 「人と重機が接近」\n3. label 「対策」, content 「動線を分ける」\nThe diagram describes identifying risk and considering a measure, not a claim that one measure alone guarantees safety. No actual machinery diagram, law, numeric threshold, pass guarantee, or correct/incorrect marks.\nExact other text:\n「2級土木｜安全管理」\n「現場条件から対策を考える」\n「自分の現場の事実で書く」\nRender the main content in large readable type, with line breaks within longer phrases if necessary. A small waist-up red-pen teacher acts as a guide on the lower right, maximum 20% width, never obscuring cards, arrows or text. All text above bottom 10%.",
+              "references": [
+                {
+                  "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                  "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+                },
+                {
+                  "path": ".tmp/media/civil-construction-2/anzen-ippanron-3riyu/youtube.short.point-cause1-1/cover.82255575.png",
+                  "sha256": "82255575f7e90788190804b94807c6a3f9e88572cc87616d4bcc3b600ba26e2c"
+                }
+              ],
+              "format": {
+                "width": 1672,
+                "height": 941
+              },
+              "output": {
+                "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-001.0f0e170f.png",
+                "sha256": "0f0e170fc254ee0e71e54c307b490764e8288157d71a6bade37eec25c81d738d"
+              }
+            },
+            {
+              "step": "safe-layout",
+              "prompt": "Edit the attached finished image, preserving its identity, green pop-poster-v3 style, all Japanese wording verbatim, meaning, colors and landscape aspect ratio. Deliver one finished landscape image, not a comparison sheet. Correct the lower caption safe area: every essential character, yellow text banner and red underline must be FULLY above y=82% of total image height. The bottom 18% contains ONLY continuing illustrated background or the teacher's torso, absolutely no text, banners, rules or arrows. Do not make a blank solid strip: continue the existing green diagonal/scene background through the full canvas. Move and reflow the existing typography upward into y=5% through y=82% without cropping letters or faces; shorten spaces, not text. The teacher's identity, helmet, glasses, beard, clothing are invariant. Do not add or remove any text. This is a correction of the same design, not a new style. The bottom message 自分の現場の事実で書く and 考え方の例 badge must move up to y=73%-81%. Compress the overly tall top headings slightly, place the three-card diagram across y=35%-69%, keeping its large legible text and exact left-to-right arrows. Preserve the explanatory pictures and all labels, with no change to the condition-risk-measure meaning. Teacher remains a small guide on right. Words exactly unchanged: 2級土木｜安全管理 / 現場条件から対策を考える / 現場条件 / 狭いヤード / 課題 / 人と重機が接近 / 対策 / 動線を分ける / 考え方の例 / 自分の現場の事実で書く.",
+              "references": [
+                {
+                  "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-001.0f0e170f.png",
+                  "sha256": "0f0e170fc254ee0e71e54c307b490764e8288157d71a6bade37eec25c81d738d"
+                }
+              ],
+              "format": {
+                "width": 1672,
+                "height": 941
+              },
+              "output": {
+                "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-001.d6f17a6d.png",
+                "sha256": "d6f17a6dc6ffe4839abff06508a7b943d1abdd43b9252571df48abec232a86af"
+              }
+            }
+          ]
+        },
+        {
+          "role": "cta",
+          "copy": [
+            "2級土木",
+            "施工経験記述",
+            "完成答案集",
+            "安全・品質・工程",
+            "自分の経験に置き換えて練習",
+            "概要欄から確認",
+            "総監が制作"
+          ],
+          "prompt": "Edit the attached closing graphic. The right-hand pointing gesture is now correct: preserve it and preserve the other hand holding sheets, facial identity, workwear and helmet. REBUILD THE LEFT TEXT LAYOUT more compactly so the yellow 「概要欄から確認」 band ends ABOVE 80% of the image height. Do not merely move it by a few pixels. This requires noticeably reducing the HEIGHT of the two giant main title rows and moving the supporting rows UPWARD. The left layout should follow these vertical zones: top qualification and authority at 4%-18%; 「施工経験記述」 at 21%-33%; 「完成答案集」 at 35%-49%; 「安全・品質・工程」 at 52%-60%; 「自分の経験に置き換えて練習」 at 62%-68%; bright yellow 「概要欄から確認」 band at 71%-80%. All wording stays large readable, using the ample left 64% width, with no overlap. DO NOT retain old text positions. Bottom 20% must have no letters, text band, red underline or arrows: only illustrated green diagonal background/teacher torso continuously to all edges, not a solid blank stripe. Maintain the vivid green/white/yellow/red POP design, preserve topic and every exact string. Exactly these seven strings once each: 2級土木 / 施工経験記述 / 完成答案集 / 安全・品質・工程 / 自分の経験に置き換えて練習 / 概要欄から確認 / 総監が制作. One finished 16:9 landscape image.",
+          "format": {
+            "width": 1672,
+            "height": 941
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/cta.4baa72a7.png",
+            "sha256": "4baa72a7831fc1cc8d1666a738d076fcdc8469b084153eb20ef75e450dd7e6a5"
+          },
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/cta.4baa72a7.png",
+            "status": "cloud-verified",
+            "verification": "local sha256 / cloud md5 一致（生成履歴8件中8件）"
+          },
+          "review": {
+            "status": "ai-audit-ok",
+            "userImageReview": "pending",
+            "videoAdoption": "not-rendered",
+            "priorFindings": [
+              "初版: 下端10%に重要文字が入る。CTAは右手に多指。修正版は文字位置と指差しを調整。"
+            ],
+            "auditor": "ai-image-fidelity-auditor",
+            "reason": "参照との人物同一性、右手の自然な5本指と指差し、答案用紙を持つ左手、商品に一致する安全・品質・工程の案内、指定7文言の正確さと幅360pxでの判読性、下端10%の重要文字安全域を確認した。",
+            "axes": {
+              "type": "ok",
+              "structure": "ok",
+              "text": "ok",
+              "artifacts": "ok",
+              "lettering": "ok"
+            }
+          },
+          "generation": [
+            {
+              "step": "original",
+              "prompt": "Use case: ads-marketing / scientific-educational.\nYou are creating one finished Japanese educational graphic for a 2級土木施工管理技士 YouTube normal video. Output a single flat, full-bleed LANDSCAPE 16:9 image, target 1920×1080. Not a collage, mockup, photographed screen, or set of slides.\nREFERENCE ROLES: Reference 1 is the owner's approved 2級土木 POP product artwork: preserve the same teacher's facial identity and illustration technique, green palette, forceful Japanese typography with deep outlines, white and yellow highlights, small purposeful red accent, diagonal energy and subtle civil-engineering background. Reference 2 is the approved safety-management red-pen teacher poster; use it for character and topic context, NOT its vertical layout, old text, or blank margins.\nThe teacher is the identical adult male in his forties: short black hair, black rectangular glasses, mild beard, white plain helmet, navy workwear, white shirt, navy tie, yellow/white reflective bands. Friendly intelligent adult, not young/cute or photorealistic. Draw natural hands and fingers. No logos on helmet.\nCreate all typography, character and background together as a coherent finished pop-poster-v3 image; not the old small-character template. Extend the illustrated green background to all four edges. Important content inside 6% edge margins, not cut off, and keep the bottom 10% free of essential text for later subtitles while continuing background/torso. Avoid oversized blank areas. Use very large correctly rendered Japanese that reads at display width 360px. Show only the specified text verbatim; no brands, URLs, prices, page numbers, invented statistics, guarantees, or extra small labels. Do not copy the reference's paid correction service claims.\nThis is the CLOSING product-guidance slide. The viewer has learned how to make a safety-management experience answer concrete. Now guide them to the existing note product which contains completed example answers across safety, quality and schedule management, together with guidance for adapting them to their own actual experience.\nLarge structured copy occupies left two thirds. Same teacher on right, warm confident expression, holding an unbranded answer-sheet booklet with pale lines and an open-hand invitation gesture. Do not depict a physical published book for sale, just simple answer sheets. Yellow CTA band is clearly visible above the bottom 10%; no drawn YouTube UI, no QR, no URL, no price.\nExact visible Japanese:\n「2級土木」\n「施工経験記述」\n「完成答案集」\n「安全・品質・工程」\n「自分の経験に置き換えて練習」\n「概要欄から確認」\n「総監が制作」\nLargest emphasis on 施工経験記述 and 完成答案集; qualification highly visible above, scopes below. 「概要欄から確認」 is the main call to action in a large yellow/green band. Place 「総監が制作」 as a secondary small-but-readable yellow badge separate from the qualification. This is a教材, so do not use 添削, 診断, 直接指導, 合格保証 or pretend that the examples are the viewer's actual work.",
+              "references": [
+                {
+                  "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                  "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+                },
+                {
+                  "path": ".tmp/media/civil-construction-2/anzen-ippanron-3riyu/youtube.short.point-cause1-1/cover.82255575.png",
+                  "sha256": "82255575f7e90788190804b94807c6a3f9e88572cc87616d4bcc3b600ba26e2c"
+                }
+              ],
+              "format": {
+                "width": 1672,
+                "height": 941
+              },
+              "output": {
+                "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/cta.d0e1dbc7.png",
+                "sha256": "d0e1dbc7e1d5e0be328ce76653f7c1c778c2ce64a4305fe926230271438a475d"
+              }
+            },
+            {
+              "step": "safe-layout",
+              "prompt": "Edit the attached finished image, preserving its identity, green pop-poster-v3 style, all Japanese wording verbatim, meaning, colors and landscape aspect ratio. Deliver one finished landscape image, not a comparison sheet. Correct the lower caption safe area: every essential character, yellow text banner and red underline must be FULLY above y=82% of total image height. The bottom 18% contains ONLY continuing illustrated background or the teacher's torso, absolutely no text, banners, rules or arrows. Do not make a blank solid strip: continue the existing green diagonal/scene background through the full canvas. Move and reflow the existing typography upward into y=5% through y=82% without cropping letters or faces; shorten spaces, not text. The teacher's identity, helmet, glasses, beard, clothing are invariant. Do not add or remove any text. This is a correction of the same design, not a new style. IMPORTANT ANATOMY REPAIR: The current forward open palm has SIX fingers; replace that gesture entirely with a simple anatomically correct right-hand pointing gesture: one index finger pointing toward the yellow CTA band on the left, three other fingers naturally curled, one thumb. Exactly FIVE fingers total, natural wrist and proportions. Keep the other hand holding the simple answer sheets with its normal anatomy. Move the entire 概要欄から確認 yellow CTA band into y=70%-81%, and place the scope and practice message above it; no text or banner below y=82%. Preserve all seven text strings exactly: 2級土木 / 施工経験記述 / 完成答案集 / 安全・品質・工程 / 自分の経験に置き換えて練習 / 概要欄から確認 / 総監が制作.",
+              "references": [
+                {
+                  "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/cta.d0e1dbc7.png",
+                  "sha256": "d0e1dbc7e1d5e0be328ce76653f7c1c778c2ce64a4305fe926230271438a475d"
+                }
+              ],
+              "format": {
+                "width": 1672,
+                "height": 941
+              },
+              "output": {
+                "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/cta.15f953be.png",
+                "sha256": "15f953be6c0603dc69f9bdf4408de63e552ca5890f38e799569f45e49146fb9d"
+              }
+            },
+            {
+              "step": "compact-layout",
+              "prompt": "Edit the attached closing graphic. The right-hand pointing gesture is now correct: preserve it and preserve the other hand holding sheets, facial identity, workwear and helmet. REBUILD THE LEFT TEXT LAYOUT more compactly so the yellow 「概要欄から確認」 band ends ABOVE 80% of the image height. Do not merely move it by a few pixels. This requires noticeably reducing the HEIGHT of the two giant main title rows and moving the supporting rows UPWARD. The left layout should follow these vertical zones: top qualification and authority at 4%-18%; 「施工経験記述」 at 21%-33%; 「完成答案集」 at 35%-49%; 「安全・品質・工程」 at 52%-60%; 「自分の経験に置き換えて練習」 at 62%-68%; bright yellow 「概要欄から確認」 band at 71%-80%. All wording stays large readable, using the ample left 64% width, with no overlap. DO NOT retain old text positions. Bottom 20% must have no letters, text band, red underline or arrows: only illustrated green diagonal background/teacher torso continuously to all edges, not a solid blank stripe. Maintain the vivid green/white/yellow/red POP design, preserve topic and every exact string. Exactly these seven strings once each: 2級土木 / 施工経験記述 / 完成答案集 / 安全・品質・工程 / 自分の経験に置き換えて練習 / 概要欄から確認 / 総監が制作. One finished 16:9 landscape image.",
+              "references": [
+                {
+                  "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/cta.15f953be.png",
+                  "sha256": "15f953be6c0603dc69f9bdf4408de63e552ca5890f38e799569f45e49146fb9d"
+                }
+              ],
+              "format": {
+                "width": 1672,
+                "height": 941
+              },
+              "output": {
+                "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/cta.4baa72a7.png",
+                "sha256": "4baa72a7831fc1cc8d1666a738d076fcdc8469b084153eb20ef75e450dd7e6a5"
+              }
+            }
+          ]
+        }
+      ],
+      "publication": "画像確認用下書き・外部未反映",
+      "reviewScope": "原寸と幅360pxの静止画像。下端10%の文字安全域。動画・音声・字幕合成は未作成。"
+    }
+  }
+}

@@ -986,6 +986,24 @@
       "reason": "参照と同じ人物が赤ペンと無地の白紙を自然な指・手首で保持し、紙に文字や線がなく、背景の透過と帽子・顔・手指・小物の切れがないことを確認した。",
       "reviewedAt": "2026-10-10T14:51:49.957Z"
     },
+    "media:civil-construction-2/anzen-touan-gutaika/youtube.longform/cover": {
+      "sha": "906b74b3197b4f8d",
+      "verdict": "ok",
+      "reason": "参照と一致する顔・髪・眼鏡・ひげ・服装、自然な赤ペンと答案用紙の保持、指定5文言の正確さと幅360pxでの判読性、下端10%に重要文字がないことを確認した。",
+      "reviewedAt": "2026-10-14T22:11:44.000Z"
+    },
+    "media:civil-construction-2/anzen-touan-gutaika/youtube.longform/cta": {
+      "sha": "4baa72a7831fc1cc",
+      "verdict": "ok",
+      "reason": "参照との人物同一性、右手の自然な5本指と指差し、答案用紙を持つ左手、商品に一致する安全・品質・工程の案内、指定7文言の正確さと幅360pxでの判読性、下端10%の重要文字安全域を確認した。",
+      "reviewedAt": "2026-10-14T22:11:44.007Z"
+    },
+    "media:civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-001": {
+      "sha": "d6f17a6dc6ffe483",
+      "verdict": "ok",
+      "reason": "人物と手指に破綻がなく、「狭いヤード→人と重機が接近→動線を分ける」の図・矢印・例示表記が整合し、指定文言を幅360pxで判読でき、重要文字が下端10%より上に収まることを確認した。",
+      "reviewedAt": "2026-10-14T22:11:44.007Z"
+    },
     "media:civil-construction-2/character-10-a/x.post.t07/cover": {
       "sha": "7d9cdf3f06f2681d",
       "verdict": "ok",

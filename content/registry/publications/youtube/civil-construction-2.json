@@ -105,6 +105,19 @@
       "stopReason": "user-decision"
     },
     {
+      "id": "civil-construction-2/anzen-touan-gutaika/youtube.longform",
+      "work": "anzen-touan-gutaika",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "draft",
+      "copy": "content/sns/video-packs/civil-construction-2/anzen-touan-gutaika/youtube.json#longform",
+      "media": {
+        "cover": "civil-construction-2/anzen-touan-gutaika/youtube.longform/cover",
+        "scene-001": "civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-001",
+        "cta": "civil-construction-2/anzen-touan-gutaika/youtube.longform/cta"
+      }
+    },
+    {
       "id": "civil-construction-2/gakka-2kyu-concrete/youtube.longform",
       "work": "gakka-2kyu-concrete",
       "account": "youtube:main",

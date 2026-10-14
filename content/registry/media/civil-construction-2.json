@@ -93,6 +93,75 @@
       ]
     },
     {
+      "id": "civil-construction-2/anzen-touan-gutaika/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "906b74b3197b4f8d4a13f3e280934c3d8208f7f0c7e5f580c27a0373cad0946e",
+      "bytes": 2202674,
+      "width": 1672,
+      "height": 941,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/cover.906b74b3.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Edit this exact image. Make ONE clear layout change: REMOVE the yellow 「総監が解説」 badge from the bottom completely, leaving only the continuing green illustrated background there. Recreate the same 「総監が解説」 yellow badge at the TOP, immediately to the right of 「2級土木」 and to the left of the teacher's helmet. Reduce the width/size of 「2級土木」 moderately to make room in that top row, but it must remain very large and legible. The whole top row is fully inside the canvas. Do NOT leave any duplicate badge at the bottom. Preserve 「安全管理」「答案を具体化」「現場条件から書く」 in the left area; all of these already end above the lower safe area. The bottom 12% must contain NO letters, underline or banners; continuous green background and teacher torso only, no blank stripe. Preserve the same teacher, natural red-pen hand, other hand holding an answer sheet, exact illustration identity, colors, and pop-poster-v3 bold typography. Do not add words. Exact same five strings only: 2級土木 / 総監が解説 / 安全管理 / 答案を具体化 / 現場条件から書く. One finished 16:9 landscape PNG.",
+        "promptSha256": "ab42b17f3ee1bdd030eae8deac1936a5cd38a2e987e0e894a18c567cb29e6adb",
+        "generatedAt": "2026-10-14T22:10:19.461Z"
+      },
+      "legacyPaths": [
+        ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/cover.af9293ba.png"
+      ]
+    },
+    {
+      "id": "civil-construction-2/anzen-touan-gutaika/youtube.longform/cta",
+      "role": "cta",
+      "type": "image/png",
+      "sha256": "4baa72a7831fc1cc8d1666a738d076fcdc8469b084153eb20ef75e450dd7e6a5",
+      "bytes": 2122339,
+      "width": 1672,
+      "height": 941,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/cta.4baa72a7.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Edit the attached closing graphic. The right-hand pointing gesture is now correct: preserve it and preserve the other hand holding sheets, facial identity, workwear and helmet. REBUILD THE LEFT TEXT LAYOUT more compactly so the yellow 「概要欄から確認」 band ends ABOVE 80% of the image height. Do not merely move it by a few pixels. This requires noticeably reducing the HEIGHT of the two giant main title rows and moving the supporting rows UPWARD. The left layout should follow these vertical zones: top qualification and authority at 4%-18%; 「施工経験記述」 at 21%-33%; 「完成答案集」 at 35%-49%; 「安全・品質・工程」 at 52%-60%; 「自分の経験に置き換えて練習」 at 62%-68%; bright yellow 「概要欄から確認」 band at 71%-80%. All wording stays large readable, using the ample left 64% width, with no overlap. DO NOT retain old text positions. Bottom 20% must have no letters, text band, red underline or arrows: only illustrated green diagonal background/teacher torso continuously to all edges, not a solid blank stripe. Maintain the vivid green/white/yellow/red POP design, preserve topic and every exact string. Exactly these seven strings once each: 2級土木 / 施工経験記述 / 完成答案集 / 安全・品質・工程 / 自分の経験に置き換えて練習 / 概要欄から確認 / 総監が制作. One finished 16:9 landscape image.",
+        "promptSha256": "1aec34808a86b7f58ec886059299082ded165cf7d3fe36efd87fe271e2170631",
+        "generatedAt": "2026-10-14T22:10:20.194Z"
+      },
+      "legacyPaths": [
+        ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/cta.d0e1dbc7.png"
+      ]
+    },
+    {
+      "id": "civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-001",
+      "role": "scene-001",
+      "type": "image/png",
+      "sha256": "d6f17a6dc6ffe4839abff06508a7b943d1abdd43b9252571df48abec232a86af",
+      "bytes": 2218416,
+      "width": 1672,
+      "height": 941,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-001.d6f17a6d.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Edit the attached finished image, preserving its identity, green pop-poster-v3 style, all Japanese wording verbatim, meaning, colors and landscape aspect ratio. Deliver one finished landscape image, not a comparison sheet. Correct the lower caption safe area: every essential character, yellow text banner and red underline must be FULLY above y=82% of total image height. The bottom 18% contains ONLY continuing illustrated background or the teacher's torso, absolutely no text, banners, rules or arrows. Do not make a blank solid strip: continue the existing green diagonal/scene background through the full canvas. Move and reflow the existing typography upward into y=5% through y=82% without cropping letters or faces; shorten spaces, not text. The teacher's identity, helmet, glasses, beard, clothing are invariant. Do not add or remove any text. This is a correction of the same design, not a new style. The bottom message 自分の現場の事実で書く and 考え方の例 badge must move up to y=73%-81%. Compress the overly tall top headings slightly, place the three-card diagram across y=35%-69%, keeping its large legible text and exact left-to-right arrows. Preserve the explanatory pictures and all labels, with no change to the condition-risk-measure meaning. Teacher remains a small guide on right. Words exactly unchanged: 2級土木｜安全管理 / 現場条件から対策を考える / 現場条件 / 狭いヤード / 課題 / 人と重機が接近 / 対策 / 動線を分ける / 考え方の例 / 自分の現場の事実で書く.",
+        "promptSha256": "527183f7a794199316b2351a05dacb47b1d46da08df46138d1864f8a7774f63d",
+        "generatedAt": "2026-10-14T22:10:19.817Z"
+      },
+      "legacyPaths": [
+        ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-001.0f0e170f.png"
+      ]
+    },
+    {
       "id": "civil-construction-2/character-10-a/x.post.t07/cover",
       "role": "cover",
       "type": "image/png",
