@@ -11,7 +11,7 @@ CLAUDE.md の「頻用コマンド」表から 2026-09-08 に移設した全一�
 ```bash
 npm run dev               # 開発サーバー（ポート 3020）
 npm run build             # 本番ビルド
-npm run serve             # out/ をローカル配信（既定 3025・`_redirects` の 301 も適用）。**E2E の既定ターゲット**でもある（dev だとルートの初回コンパイルでテストが実行ごとにランダムに落ち、旧 /category/ /docs/ は dev に存在せず検査できない）。要 `npm run build`
+npm run serve             # out/ をローカル配信（既定 3025・`_redirects` の 301 も適用・テキストは本番と同じく br/gzip 圧縮。無圧縮だと lhci が大きいページだけ本番より低く測る＝DN-0735）。**E2E の既定ターゲット**でもある（dev だとルートの初回コンパイルでテストが実行ごとにランダムに落ち、旧 /category/ /docs/ は dev に存在せず検査できない）。要 `npm run build`
 npm run type-check        # TypeScript チェック
 npm run lint              # ESLint チェック（no-console: warn/error のみ許容）
 npm run quality:audit     # コード・記事・画像/SVGの機械チェックを横断実行→.claude/state/quality/audit-latest.md（:ci でCI gate厳格版。GitHub Actionsでは失敗名と要点を検査結果の注釈にも出す。:ops で運用アラート区分〔ops:true＝配信・転記の遅れ〕だけ実行＝ops-audit.yml が日次で回し automation-failure Issue channel ops へ。--ci/--report-only/--ops は排他・0 件実行は exit 2）。スリープ・停止で壁時計だけが伸びた timeout/fail は inconclusive（検査不成立・exit 2）に分け、timeout は延ばさない（2026-10-11・DN-0693）
@@ -27,7 +27,7 @@ npm run check-client-chunk-size # build 済み out/_next/static/chunks の JS 1 
 npm run check-production-ssr # deploy 後の本番 SSR 検証（exit 0=正常 / 1=壊れている / **2=検査不成立＝接続できていない**。会社PCの HTTP 000／プロキシのブロック HTML をサイト障害と誤読しない・手打ち curl で代用しない）。/deploy と cloudflare-deploy.yml の公開後に実行。社内回線から接続できない場合は同workflowの verify_only=true で再デプロイせず外部検査。
 npm run check-production-sweep # 本番 sitemap 全 URL を実際に叩く（200・自己 canonical・<main>・noindex 無し・og:image 200・セキュリティヘッダ）。deploy 後と日曜に CI（production-sweep.yml）が自動。手元は `-- --sample 50`。exit 1=本番異常 / 2=検査不成立
 npm run test:e2e:a11y        # axe（WCAG 2.1 A/AA）を代表 8 ページ×light/dark で実行。critical 0 かつ serious が e2e/a11y-baseline.json を超えないことがゲート。基準更新は :baseline（修正を確認してから・減らす方向のみ）
-npx lhci autorun --config=lighthouserc.json  # Lighthouse を build 成果物（npm run serve）に対し代表4ページ（home/KW記事/過去問/ツール）で実行。**要 `npm run build`**。accessibility/seo ≥0.95・best-practices ≥0.9 は error（マージ不可）、performance ≥0.7 は warn（job summary のみ・lab の揺れが大きいためゲートしない）。PR（lighthouse.yml）で自動実行。**閾値の SSOT は lighthouserc.json**（本番 field 監視の config/psi-config.json とは目的が違うため意図的に別の値・二重管理しない。役割: lighthouserc=マージ前 lab ゲート／psi-config=本番後 field 監視+回帰検出）
+npx lhci autorun --config=lighthouserc.json  # Lighthouse を build 成果物（npm run serve）に対し代表4ページ（home/KW記事/過去問/ツール）で実行。**要 `npm run build`**。accessibility/seo ≥0.95・best-practices ≥0.9 は error（マージ不可）、performance ≥0.7 は warn（job summary のみ・lab の揺れが大きいためゲートしない。2026-10-14 まで serve が無圧縮で、二次の過去問ページだけが常に 0.66〜0.69 の warn だった）。PR（lighthouse.yml）で自動実行。**閾値の SSOT は lighthouserc.json**（本番 field 監視の config/psi-config.json とは目的が違うため意図的に別の値・二重管理しない。役割: lighthouserc=マージ前 lab ゲート／psi-config=本番後 field 監視+回帰検出）
 npm run check-command-guidance # 検査やスクリプトが案内するコマンド（npm run / node パス）が実在するか。**正典ドキュメント（CLAUDE.md / AGENTS.md / この一覧 / .claude/rules）の案内も対象**（記載はあるが package.json に無い `npm run serve` を 2026-08-30 まで放置していた再発防止）。2026-10-11 からは .claude/skills・.claude/knowledge・.claude/agents・docs/ の .md と .github/workflows の .yml も走査する（DN-0686。広げた時点で実在しない案内が 7 件あった）
 npm run schedule-view     # 予約・計画・期日の横断ビュー（読み取り専用・JST。exam-calendar/x-campaigns/x-status/ig-status/コンテンツ台帳の旧Shorts/backlogを集約。DN-0131のような超過を横断で surface する）
 ```

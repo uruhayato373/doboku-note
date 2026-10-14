@@ -15,6 +15,7 @@ on:
       - "content/**"
       - "next.config.mjs"
       - "lighthouserc.json"
+      - "scripts/static-server.mjs"
       - ".github/workflows/lighthouse.yml"
       - "package.json"
       - "package-lock.json"
