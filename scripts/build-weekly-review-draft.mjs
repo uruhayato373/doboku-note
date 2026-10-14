@@ -93,7 +93,7 @@ if (!R.experiments.data) missing.push('実験の期限（check-experiment-due）
 const fmt = (c) => (c == null || c.value == null ? '—' : `${Number(c.value).toLocaleString('ja-JP')}${c.coverage === 'partial' ? '（部分）' : ''}`);
 const REGISTRY = loadRegistry(REPO_ROOT);
 const QUALS = [...new Set(cells.filter((c) => c.qualification !== 'all').map((c) => c.qualification))];
-const METRICS = [['organicUsers', '自然検索'], ['gscClicks', 'Google クリック'], ['noteCtaClicks', 'note CTA'], ['noteSales', 'note 販売（件）'], ['noteRevenue', 'note 売上（円）'], ['coconalaOrders', 'ココナラ（件）'], ['quizStarts', '演習開始']];
+const METRICS = [['organicUsers', '自然検索'], ['gscClicks', 'Google クリック'], ['youtubeUsers', 'YouTube 経由'], ['noteCtaClicks', 'note CTA'], ['noteSales', 'note 販売（件）'], ['noteRevenue', 'note 売上（円）'], ['coconalaOrders', 'ココナラ（件）'], ['quizStarts', '演習開始']];
 const prevCells = R.businessPrev.data?.cells ?? [];
 const pct = (a, b) => (a?.value == null || b?.value == null || !b.value ? '—' : `${a.value >= b.value ? '+' : ''}${(((a.value - b.value) / b.value) * 100).toFixed(1)}%`);
 const failed = (r) => r.rc !== 0;

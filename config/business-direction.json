@@ -256,6 +256,17 @@
       ]
     },
     {
+      "id": "youtubeUsers",
+      "stage": "集客",
+      "label": "YouTube 経由のサイト利用者",
+      "unit": "人",
+      "definition": "GA4・日本・セッションの参照元が youtube（概要欄リンクの utm_source=youtube）のアクティブユーザー。期間全体を重複排除した値。再生数・登録者ではない。目標は 3 か月の実測を見てから決める（2026-10-10 運営者判断・DN-0598）。",
+      "channel": "GA4",
+      "appliesTo": [
+        "all"
+      ]
+    },
+    {
       "id": "igFollowers",
       "stage": "集客",
       "label": "Instagram フォロワー",

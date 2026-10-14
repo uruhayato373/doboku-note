@@ -41,7 +41,13 @@ async function run() {
       const [events] = await ga.runReport({ property: `properties/${id}`, dateRanges: [period], dimensions: [{ name: 'eventName' }], metrics: [{ name: 'eventCount' }], dimensionFilter: { andGroup: { expressions: eventExpressions } } });
       values.noteCtaClicks = Number(events.rows?.find(r => r.dimensionValues?.[0]?.value === 'note_cta_click')?.metricValues?.[0]?.value ?? 0);
       if (['all','civil-construction-1'].includes(qualification)) for (const [event, metric] of [['quiz_start','quizStarts'],['quiz_complete','quizCompletions']]) values[metric] = Number(events.rows?.find(r => r.dimensionValues?.[0]?.value === event)?.metricValues?.[0]?.value ?? 0);
-      const limited = users.metadata?.subjectToThresholding || events.metadata?.subjectToThresholding || users.metadata?.samplingMetadatas?.length || events.metadata?.samplingMetadatas?.length;
+      // YouTube 経由のサイト利用者（概要欄リンクの utm_source=youtube・DN-0598）。資格別には割らない
+      let youtube = null;
+      if (qualification === 'all') {
+        [youtube] = await ga.runReport({ property: `properties/${id}`, dateRanges: [period], metrics: [{ name: 'activeUsers' }], dimensionFilter: { andGroup: { expressions: [field('country', 'Japan'), field('sessionSource', 'youtube')] } } });
+        values.youtubeUsers = Number(youtube.rows?.[0]?.metricValues?.[0]?.value ?? 0);
+      }
+      const limited = users.metadata?.subjectToThresholding || events.metadata?.subjectToThresholding || youtube?.metadata?.subjectToThresholding || users.metadata?.samplingMetadatas?.length || events.metadata?.samplingMetadatas?.length || youtube?.metadata?.samplingMetadatas?.length;
       pending.push({ kind: 'measurement', qualification, period, channel: 'GA4', subject: 'aggregate', coverage: limited ? 'partial' : 'complete', source: 'GA4 Data API properties/419382901・日本。自然検索人数は期間全体。資格別は正規URL配下、演習は1級土木ツールを含む。', values });
       const filters = [{ dimension: 'country', operator: 'equals', expression: 'jpn' }];
       if (qualification !== 'all') filters.push({ dimension: 'page', operator: 'includingRegex', expression: `^${escapeRegExp(SITE_ORIGIN)}/exam/${qualification}/` });
