@@ -14,6 +14,8 @@ import { dirname, join } from 'node:path';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { parseJson } from './lib/json-io.mjs';
 
+// 注意: add-standards-document.mjs で 1 冊ずつ足した文書（2026-10-14 の mlit/sekou-kanri-kijun）は下の外部 manifest に無い。
+// ここで一括に作り直すと catalog から消えるので、作り直した後に add-standards-document を再実行する。
 const SOURCE_ROOT = join(ROOT, '.tmp', 'mlit-national-transcription');
 const OUTPUT_ROOT = join(SOURCE_ROOT, 'output');
 const MASTER_MANIFEST = join(SOURCE_ROOT, '全国版_manifest.json');
