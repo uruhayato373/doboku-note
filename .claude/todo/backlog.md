@@ -1331,16 +1331,12 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 ### [DN-0239] 日本語校正（textlint + prh）の偽陽性ゼロを2週間観察する
 タグ: [コンテンツ品質] [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-09-17]
 
-**実装済み**（PR [#650](https://github.com/uruhayato373/doboku-note/pull/650)・develop へ未マージ）: `textlint` + `textlint-rule-preset-ja-technical-writing` + `textlint-rule-prh`。`npm run lint:ja`（staged の `content/site/**/*.mdx` のみ・pre-commit + quality-audit `ci:true`）と `npm run lint:ja:all`（全件 report・ゲートしない）。辞書は `prh.yml`（実測で表記ゆれ確認済みの19語）。全件実測で `ja-no-redundant-expression`・`ja-no-successive-word`・`no-unmatched-pair`・`no-double-negative-ja` 等スタイル判断寄りの規則は誤検知が支配的と判明し無効化（過去問の空欄記法・記号連続・原文の二重否定表現を誤検知するため）。有効なのは文字衛生系（no-hankaku-kana 等）+ prh + jtf-style 2.1.8/2.1.9（全角英数）+ ja-no-abusage。ベースライン: 全 1,280 ファイル中 537 ファイルで検知 2,067 件。
+**起点**: `npm run lint:ja`（pre-commit・PR #650 で 2026-09-27 に導入）の誤検知を 2 週間観察する予定だった。観察中も誤検知が出て prh.yml を直している（10/6 #885 動詞の誤置換・10/7 #887 法令の用語と条文の引用・#889 と a0123c9ef 公式問題の原文・10/11 6dd218911 と 46ad77eca 動詞の連用形＋読点）。最後の修正は 2026-10-11 なので、観察はそこから数え直す。
 
-**残作業**: PR #650 のマージ後、日常のコミットで `lint:ja`（pre-commit）が誤検知で差し戻される事例が無いかを 2 週間観察する（目安 2026-10-10 まで）。差し戻しがあれば prh.yml/.textlintrc.json を調整、無ければこのカードを削除して完了とする。
+**残作業**: 2026-10-25 まで、日常のコミットで `lint:ja` が誤検知で差し戻される事例（prh.yml・.textlintrc.json の修正コミットや、誤検知を避けるための言い換え）が無いかを `git log --since=2026-10-11 -- prh.yml .textlintrc.json` と `git log -i --grep='lint:ja\|prh\|誤検知'` で確かめる。差し戻しがあれば規則を直して観察を数え直す。
 
-### [DN-0240] Lighthouse CI の warn 揺れゼロを2週間観察する
-タグ: [インフラ・計測] [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-09-17]
+**完了条件**: 2026-10-11 以降の連続 2 週間で、prh.yml・.textlintrc.json を誤検知のために直したコミットが 0 件。
 
-**実装済み**（PR [#651](https://github.com/uruhayato373/doboku-note/pull/651)・develop へ未マージ）: `@lhci/cli` を `.github/workflows/lighthouse.yml` で PR 実行。`lighthouserc.json` が代表4ページ（home / KW記事 / 過去問 / ツール）で `categories:accessibility ≥0.95`・`seo≥0.95`・`best-practices≥0.9` を error、`performance≥0.7` を warn（job summary のみ）でチェック。ローカルで実際にゲートを回し、見つかった3件の実在する a11y 違反（ロゴリンクの aria-label 不整合・広告バッジのダーク時コントラスト不足・SpecSheetList の見出しレベル固定）を修正済み。役割分担（本番 field 監視の psi-config とは二重管理しない）は commands.md に明記。
-
-**残作業**: PR #651 のマージ後、PR ごとの lhci 実行で `performance` warn が「実装と無関係な lab の揺れ」で頻発しないかを 2 週間観察する（目安 2026-10-10 まで）。揺れが大きければ `numberOfRuns`（現在3）を増やすか閾値を調整、問題なければこのカードを削除して完了とする。
 
 ### [DN-0231] Mac のGit保守を導入し、次回clone時にpartial cloneを使う（履歴は書き換えない）
 タグ: [インフラ・計測] [領域:管理] [時期:2026-11..2026-12] [種類:改善] [起票:2026-09-14]
