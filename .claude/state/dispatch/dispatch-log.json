@@ -3818,6 +3818,19 @@
       "commit": "95f05c4fd5b1",
       "verification": "gh run view <id> --log（ANSI を除いて categories.performance warning を数えた）",
       "note": "2026-09-27〜10-14 の lhci 715 回から 79 回を抜き出し、assert を読めた 68 回中 41 回で performance warn。43 件中 41 件が 1級 secondary/r06（0.66〜0.69）で、揺れではなく 1 ページの恒常的な閾値割れ。直す作業は DN-0735 へ抽出"
+    },
+    {
+      "id": "DN-0678",
+      "at": "2026-10-14",
+      "task": "2級土木 第2次検定（10/25）の令和8年度 解答例ページを試験前に枠だけ出しておく",
+      "tier": "high",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "8381f7303241",
+      "verification": "curl で /exam/civil-construction-1/secondary/r08 が 200 と <main>",
+      "note": "2級の枠ページ（guide/r08-secondary-answers）を試験前に公開済み・1級 r08 は問題と解答例まで公開済み（本番 200・<main> を確認）。10/26 公表後の本体は DN-0736 へ抽出"
     }
   ]
 }
