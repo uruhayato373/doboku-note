@@ -273,16 +273,6 @@ jobs:
             echo "月初 7 日以外なのでスキップ（day=$day）"
           fi
 
-      # afb（アフィリエイトB）成果を公式 API で取得する。Playwright 提携状態スキャンとは別系統
-      # （読み取り専用の conversion API・doboku-note の partner_site_id=984453 を行ごとに検査して
-      # 他サイト混入を防ぐ）。取得失敗はワークフロー全体を落とさず、鮮度は quality-audit の ops 区分
-      # （check-afb-outcomes-freshness）が日次で見る。
-      - name: Fetch afb outcomes (official API)
-        continue-on-error: true
-        env:
-          AFB_API_KEY: ${{ secrets.AFB_API_KEY }}
-        run: node .claude/scripts/fetch-afb-outcomes.mjs --commit
-
       # 週次 NSM スナップショット（台帳 business.weekly）。
       # 2026-W18 でローカル手動実行が途絶したのを CI 供給へ移行（measurement-incidents.md
       # 「計測は CI/CD 供給が正」2026-06-05）。metrics-reader が NSM+SNS流入(source別WoW)を

@@ -21,18 +21,16 @@
 
 ## 🔴 高 — 重要度が高い
 
-### [DN-0728] シリーズの章の骨子と根拠の配線を台帳で管理する仕組みを作る（骨子ファイル・検査・管理画面・workflow・根拠の候補）
-タグ: [領域:サイト] [時期:2026-10] [種類:改善] [検証:check-content-series] [起票:2026-10-13]
+### [DN-0736] 2級土木 令和8年度 第2次検定の問題と解答例を、10/26 の問題公表から 1 週間以内に入れる
+タグ: [領域:サイト] [時期:2026-10..2026-11] [種類:制作] [起票:2026-10-14] [期日:2026-11-02]
 
-**起点**: 2026-10-13、自治体の土木担当シリーズ（municipal-civil-engineer・42 章）は本ではなく章から出発するので、コンクリートの「本の全項目を章へ仕分ける」台帳は合わないと運営者と確認した。設計は docs/strategy/18「章の骨子と根拠の配線（A）」。今は brief を .tmp に捨てており、骨子も根拠も台帳に残らない。
-**やること**（コードなので PR）:
-1. 骨子の置き場 `content/series/<シリーズ id>/<項目 id>.md`。frontmatter（series・item・status: draft / approved・approvedAt）と本文（読者と場面・論点・分担・図の候補）。論点ごとに `根拠:` 行（台帳の id＋条・URL＋版と頁・`book:<本 id>/<項目 id>`）を持つ形を決め、パーサを scripts/lib/content-series.mjs に置く
-2. check-content-series: 根拠の id・本の項目 id の実在、一次資料の無い論点、URL だけの根拠の数、approved なのに論点が空、を見る。台帳の項目の状態に「骨子なし・骨子あり・確認済み」を足す（記事の実体からの状態と並べる）
-3. 管理画面のシリーズ企画: 章ごとの論点の数・一次資料のある割合・確認済みか。`?item=` で骨子を読める
-4. workflow series-chapter: item に `brief: "outline"` を足し、確認済みの骨子を brief として使う（Brief の段を飛ばす）
-5. 根拠の候補: `check-content-series --suggest <シリーズ>/<項目>` が、章の題と論点の語から Drive の候補表（施工管理法規編・土木業界の動向 第3版・建設業界の動向 第5版・防災土木の基礎知識・安全管理のすべて 第7版・土木施工管理の基礎）の項目を挙げる（見出しつきの一覧は .tmp だけ）
-6. book-coverage-expansion.md §4 と commands.md を合わせる。シリーズの事実ファイルの置き場の決まりも書く
-**完了条件**: PR が develop に入り、`npm run check-content-series` と quality-audit:ci が緑。見本の骨子 1 本（A-08 道路占用許可の審査）が approved で検査を通り、管理画面に出る。
+**起点**: DN-0678 で、令和8年度 2級土木 第2次検定の枠ページ /exam/civil-construction-2/guide/r08-secondary-answers を試験前に公開した（2026-10-11・本番 200）。1級 r08（/exam/civil-construction-1/secondary/r08）は問題と解答例まで公開済み。2級の問題の公表は 2026-10-26 13 時（受検の手引と国交省資料で確認済み）、公式の解答は非公表。
+
+**やること**: 10/26 13 時の公表後に問題を原典 PDF と突き合わせて入れ、解答例を書いて past-exam-qa を通す。置き場は枠ページへ入れるか、1級と同じ secondary-r08 を新しく作って枠から転送するかを、1級 r08 の構成に合わせて決める。公開後にインデックス登録をリクエストする。
+
+**完了条件**: 2026-11-02 までに 2級 令和8年度 第2次検定の問題と解答例が本番にあり、past-exam-qa の指摘が直っている。
+
+
 
 
 ### [DN-0717] 2級土木「土工の頻出点」の動画（sqkP7vheZ_Q）が YouTube から消え、develop の CI が video-publication で赤い
@@ -47,14 +45,6 @@
 
 
 
-### [DN-0678] 2級土木 第2次検定（10/25）の令和8年度 解答例ページを試験前に枠だけ出しておく
-タグ: [領域:サイト] [時期:2026-10] [種類:制作] [起票:2026-10-11]
-
-**起点**: 2026-10-11 の metrics-analyzer。1級二次の直前直後（10/4 前後）は年度別の解答例ページ（r04・r06）がクリック 56・80 を取った。令和8年度の解答例ページは 1級・2級とも無い（content/site/civil-construction-{1,2} に secondary-r08 が無い）。2級二次は 10/25。総監の DN-0500（枠だけ先に公開）と同じ方式で、試験前に「令和8年度 2級土木 2次試験 解答例」の枠ページを出し、問題の公開後に本体を埋める。
-**やること**: 2級 secondary-r08 の枠（試験の概要・問題公開の見込み・過去年度の解答例への導線）を 10/22 までに公開する。問題の公開時期は主催者の案内で確かめる。試験後に問題と解答例を入れる。1級 r08 も同じ要領で。
-**完了条件**: 10/25 より前に 2級 r08 の枠が本番にあり、試験後 1 週間以内に問題と解答例が入っている。
-**進捗（2026-10-11・2）**: 1級 令和8年度 第二次検定のページ（/exam/civil-construction-1/secondary/r08・全 11 問の問題と解答例・past-exam-qa 済み）を公開し、インデックス登録をリクエスト（受理）。**残り**: 2級は 10/26 13 時の問題公表後に、問題と解答例を /exam/civil-construction-2/guide/r08-secondary-answers 側か新しい secondary-r08 に入れる。
-**進捗（2026-10-11）**: 枠ページ /exam/civil-construction-2/guide/r08-secondary-answers を公開し本番で 200 を確認（試験日時・問題の公表 10/26 13 時・解答は非公表・合格基準・合格発表 2027-02-03 は受検の手引と国交省資料で確認）。直前2週間の記事の合格発表日と筆記具の誤りも直した。**残り**: 10/26 13 時の問題公表後に、問題と解答例を入れる（1 週間以内）。1級 r08 は未着手。
 
 
 ### [DN-0670] 2級土木の既存動画4本に技術表現の訂正を反映する
@@ -85,16 +75,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **関門（週次レビュー 2026-10-10）**: 判断待ちではなく人の作業（プロフィールの資格欄の追加）なので 🔴 へ移した（S3）。期日 10/31。
 
-### [DN-0643] Mac でログイン系の取得を復旧する（ココナラ・afb・もしもの再ログインと、9 月分の note 売上・アクセス・ココナラ分析の取得）
-タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-10] [期日:2026-10-14]
-
-**起点**: 週次レビュー（2026-09-28〜2026-10-04）の点検。#571（ops 区分 FAIL: note-delivery-due・coconala-analytics・sales-freshness・monthly-review-due・cloudflare-metrics-freshness・afb-outcomes-freshness）が 9/22 から、#746 coconala（9/30〜）・#862 afb・#863 moshimo の login collector が期限切れ。ココナラの orders snapshot は 12.6 日前で評価未送信の検査が不成立。
-
-**やること**: Mac で npm run auth:login -- --service coconala（afb・moshimo も）→ auth:export。続けて npm run coconala-orders・npm run coconala-analytics -- --append-kpi・npm run note-sales-fetch・npm run note-traffic-fetch -- --month 2026-09 --commit を回す。note の添付実査（check-note-attachments --live）が 14 日を超えていればそれも回す。9 月の月次レビュー（/monthly-review）はこの取得のあとに行う。
-
-**9 月の受取額（NSM）**: note・ココナラ分は 10/11 に記録済み（partial）。KDP 確定後の取り直しは DN-0664。
-
-**完了条件**: #571・#746・#862・#863 が自動クローズし、npm run check-coconala-orders -- --json が inconclusive:false を返す。
 
 ### [DN-0642] 重要 workflow 7 本の不健全（note-live-audit 4 連続失敗・ops-audit 18 連続・note-public-view 12 日）を原因ごとに直す
 タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-10] [期日:2026-10-17] [進行中]
@@ -322,6 +302,8 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 **進捗（2026-10-04）**: 受付停止に決定（2級を主力へ切り替え）。カタログは 1級 7 件すべて `paused`（`absence`・`resumeOn: 2027-07-01`）へ変更した（PR #858 に同梱）。ライブの休止は Playwright のココナラ保存セッションが切れていて未実行（9/23 保存・ログイン待ちでタイムアウト）。運営者がログインしてから `node scripts/coconala-pause.mjs --service coconala-tensaku-4theme --commit` と `--service coconala-sakusei-4theme --commit` を実行する。経験記述ブログ 12 本（`content/coconala/blog/`）も送客先を 2級の全3テーマ版へ替えた（ソースのみ）。同じログインのあとで `coconala-blog-publish --update --commit` を各記事に実行してライブへ反映する。1級の note 記事 214 本にある 1級サービス（4418735・4350199）へのリンクは、休止ページへ届くだけなので来季の文面と合わせて差し替える。
 
 **期日の変更（週次レビュー 2026-10-10）**: Mac でのログイン作業（DN-0643）と同じ日にまとめるため 2026-10-14 へ。
+**進捗（2026-10-14）**: coconala-pause の試行（変更なし）で状態を確かめた。休止済み: coconala-tensaku-set（4317375）・coconala-sakusei（4317796）。**公開中のまま**: coconala-sakusei-4theme（4350199）＝`node scripts/coconala-pause.mjs --service coconala-sakusei-4theme --commit` で休止できる。未確認: coconala-tensaku-4theme（4418735・1級2級共通に作り替え済み）と coconala-1kyu-premium（4341335）は、Mac の空きメモリ不足（1,088MB < 1,200MB）でブラウザの起動が見送られ確かめられなかった。他のアプリを閉じてから試行し直す。ブログ 12 本のライブ反映（coconala-blog-publish --update）は未着手。
+
 
 ### [DN-0312] ココナラ room 18351970（1級）の残り2テーマ（環境対策・施工計画）を DM で添削する
 タグ: [収益化] [領域:商品] [時期:2026-09..2026-10] [種類:改善] [起票:2026-09-25] [期日:2026-10-14]
@@ -337,7 +319,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 **期日の変更（週次レビュー 2026-10-10）**: Mac でのログイン作業（DN-0643）と同じ日にまとめるため 2026-10-14 へ。
 
 ### [DN-0262] 1級・2級土木 第2次検定 記述 Kindle（I・J系）26冊を KDP へ3回に分けて提出する
-タグ: [収益化] [領域:商品] [時期:2026-10..2026-12] [種類:制作] [起票:2026-09-23] [期日:2026-10-17]
+タグ: [収益化] [領域:商品] [時期:2026-10..2026-12] [種類:制作] [起票:2026-09-23]
 
 **起点**: 2026-09-23 にユーザーが「二次記述系も全部Kindle化」と指示し、26冊を制作した。KDP の新規作成は週10冊が上限（`content/kindle/strategy.md`「提出ペースと作成数制限」）。9/23 の i-04 で制限に到達したため（本は作成されていない）、同戦略の I・Jシリーズ節の改定後の計画で出す。2級は 10/25 の試験前に LIVE にしたい。
 
@@ -348,6 +330,9 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 **進捗（2026-10-02）**: 第1弾の残り（j-02 以降）を流す前の 1 冊 probe（j-02）で、新規作成の詳細フォームが開かずに停止した。原因は作成数制限ではなく、KDP の新規作成画面が直近のパスワード再入力を要求する（`/ap/signin?...max_auth_age=0` へ戻される）こと（ログイン状態の確認は通る）。**運営者が KDP の永続プロファイルで一度サインインし直してから** `node scripts/kdp-batch.mjs j-02 j-11 j-12 j-13 j-14 j-15 i-04 i-01` を流す（2級の J 系を先に・試験 10/25 前）。現状: j-01・j-03 審査中（9/28 提出）、残り 24 冊 ready。
 
 **追記（2026-10-02）**: PR #845 で `kdp-publish.mjs` の新規作成も再認証を待つようにした。`kdp-batch` を流すと KDP のサインイン画面が開くので、そこでパスワードを入れれば（3 分以内）そのまま下書き→出版へ進む。入れなければ「サインインし直して再実行」と出て止まる（本は作成されない）。
+**一旦停止（2026-10-13・運営者）**: KDP の提出は運営者の判断で止めた。再開するときは、(1) KDP のログインは 10/13 に通した（`doboku-note-auth-kdp` をキーチェーンに登録したので以後は毎日 17:45 の auth:refresh が保つ）、(2) 提出用の EPUB・表紙は R2 に退避されていて手元に無いので、先に `npm run asset-hydrate -- --group kindle-dist` で取り戻す（10/13 に j-02 で「EPUB/表紙が scripts/kindle-dist に無い」と止まった・KDP には何も作られていない）、(3) `DOBOKU_PW_ALLOW_PARALLEL=1 node scripts/kdp-batch.mjs j-02 j-11 j-12 j-13 j-14 j-15` から。状態は審査中 j-01・j-03、提出待ち 24 冊のまま。
+**判断を延期（2026-10-13・運営者）**: 2級の試験（10/25）前の提出はしない。理由: Kindle の受取額は 8 月 約 6,000 円・9 月 約 9,800 円（推計）で、土木の本は 9 月でも約 1,900 円（大半が 2級一次の過去問）。記述の本は公開 0。j-01・j-03 は 9/28 提出から 2 週間審査中で、今出しても公開が直前になる。直前の週は note・ココナラの 2級二次の商品（添削の締切 10/18）と食い合う。1級の I 系は来年向けで急がない。**10/26 以降に判断し直す**: 材料は j-01・j-03 の公開日と売上、note・ココナラの 2級商品の試験後の動き。審査が 2 週間を超えているので KDP の画面で止まっていないかも確かめる。
+
 
 ### [DN-0248] 技術士 口頭試験対策の無料導入2本と告知を筆記合格発表日に公開する
 タグ: [収益化] [領域:商品] [時期:2026-10..2026-12] [種類:制作] [起票:2026-09-16] [期日:2026-10-26]
@@ -378,6 +363,18 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0735] Lighthouse CI の performance warn が 1級 secondary/r06（0.66〜0.69）で PR の 6 割に出続けるのを直す
+タグ: [インフラ・計測] [領域:サイト] [時期:2026-10..2026-11] [種類:不具合] [起票:2026-10-14] [進行中]
+
+**起点**: DN-0240（Lighthouse CI の warn 揺れの観察）の結果、2026-09-27〜10-14 の lighthouse.yml 715 回から 79 回を抜き出し、assert を読めた 68 回のうち 41 回（60%）で categories.performance が warn だった。warn 43 件のうち 41 件が /exam/civil-construction-1/secondary/r06 で、点数は 0.66〜0.69（0.69 が 23・0.68 が 14・0.66〜0.67 が 6）。残り 2 件は alarp-principle。揺れではなく、1 ページが閾値 0.7 のすぐ下に張り付いていて、PR の差分と関係なく warn が出続ける（誰も読まない警告になっている）。
+
+**やること**: (1) lighthouse.yml の artifact（.lighthouseci）で r06 の LCP・TBT・CLS と重い要素（画像・折りたたみ内の大きな DOM・KaTeX など）を特定する。(2) 原因がページ側にあれば直し、lab の点数が 0.7 以上で安定することを PR の lhci で確かめる。(3) 直せない理由がある（内容の量そのもの）なら、実ユーザー計測（CrUX・DN-0397）で実害が無いことを確かめたうえで、lighthouserc.json の対象 URL を差し替えるか URL 別の閾値にし、理由を lighthouserc の隣に書く。
+
+**完了条件**: 直近の PR 20 回の lhci で performance の warn が 0〜1 回（r06 の点数が 0.7 以上、または理由つきで対象・閾値を変えた）。
+
+
+
+
 ### [DN-0731] 記事の末尾の「この記事の根拠法令」と法令ページを作る（e-Gov のリンクから自動で集める）
 タグ: [領域:サイト] [時期:2026-11] [種類:制作] [起票:2026-10-13]
 
@@ -392,15 +389,16 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 
 ### [DN-0729] 自治体の土木担当シリーズの 39 章（新規 35・補強 4）の骨子と根拠を作り、運営者の確認を受ける
-タグ: [領域:サイト] [時期:2026-11] [種類:制作] [検証:check-content-series] [起票:2026-10-13] [期日:2026-11-25]
+タグ: [領域:サイト] [時期:2026-11] [種類:制作] [検証:check-content-series] [起票:2026-10-13] [期日:2026-11-25] [進行中]
 
 **起点**: 2026-10-13、自治体の土木担当シリーズを 42 章（新規 35・補強 4・既存 3）に組み直した（config/content-series.json）。記事は EXP-012 の判定（DN-0719・11/26）まで書かないが、骨子は記事ではないので先に作り、運営者が確かめておく（書き直しを減らす）。
 **前提**: DN-0728（骨子と根拠の配線の仕組み）。
 **やること**:
 1. シリーズの事実ファイル `.claude/knowledge/reference/municipal-civil-engineer-sources.md` を起こす（確かめた法令の条・通知・白書の版と URL）
-2. 新規 35 章・補強 4 章の骨子を `content/series/municipal-civil-engineer/` に書く。根拠は Web の検索を優先して集める（2026-10-13 運営者。市販書の PDF は取り寄せない）: 法令は e-Gov の条（`npm run egov-laws` が通ること）、通知・要領は国交省、統計は白書、運用の例は都道府県・市の公開の手引き。Drive 直下の「土木奥義」は docs/strategy/18 の 3 区分に従い、公開の法令・基準だけを根拠にする。Drive の 6 冊と行政書士テキスト（DN-0732）は `--suggest` の候補から補助として選ぶ
-3. 第 1 波（A-08 占用・A-14 河川区域の許可・A-19 里道と水路）から先に作り、運営者に確かめてもらう。経験が中心の章（A-22 地元説明会・A-40 住民・議会への説明）は、運営者に論点を聞いてから書く
+2. 新規 35 章・補強 4 章の骨子を `content/sources/series/municipal-civil-engineer/` に書く。根拠は Web の検索を優先して集める（2026-10-13 運営者。市販書の PDF は取り寄せない）: 法令は e-Gov の条（`npm run egov-laws` が通ること）、通知・要領は国交省、統計は白書、運用の例は都道府県・市の公開の手引き。Drive 直下の「土木奥義」は docs/strategy/18 の 3 区分に従い、公開の法令・基準だけを根拠にする。Drive の 6 冊と行政書士テキスト（DN-0732）は `--suggest` の候補から補助として選ぶ
+3. 第 1 波（A-08 占用・A-14 河川区域の許可・A-19 里道と水路）から先に作り、運営者に確かめてもらう。A-22 地元説明会・A-40 住民・議会への説明も一般論で書く（公開の指針から。体験談は作らない・2026-10-13 運営者）
 4. 骨子で使った URL だけの資料を、記事を書く前に参考文献の台帳へ入れる
+**済んだこと**（2026-10-13）: 39 章（新規 35・補強 4）の骨子を下書きで作った（`content/sources/series/municipal-civil-engineer/`・論点 654・すべてに一次資料。担当 9 体が Web・e-Gov で根拠を集めた）。骨子が引く法令 43 本を参考文献の台帳へ登録し、条を台帳の id に揃えた（814 か所すべて e-Gov の写しに実在）。事実ファイル `.claude/knowledge/reference/municipal-civil-engineer-sources.md` を起こした。A-08 は令和8年の道路法改正（占用の申請書・完了の届出・維持修繕協定）を足したので下書きに戻した。第 1 波の A-08・A-14・A-19 は運営者の確認で approved（2026-10-13）。残り: 運営者の確認（36 章）と、記事を書く前に URL だけの根拠（286 件）のうち記事で使うものを台帳へ。
 **完了条件**: 39 章の骨子が approved で `check-content-series` が緑（一次資料の無い論点 0）。第 1 波の 3 章は 11/25 までに approved。
 
 
@@ -510,14 +508,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 
 
-### [DN-0667] CI の coconala 取得（403 で毎週失敗）を止めるか CI 不可として扱う
-タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-11] [期日:2026-10-31]
-
-**起点**: 2026-10-11 に CI（hosted runner）からのココナラが、保存したログイン状態を渡しても /mypage が 403 Forbidden になると分かった（run 38106927733）。9/30 から login-collectors の coconala が毎週失敗している（#746）。取得は Mac の launchd `coconala-local`（PR #984）へ移した。
-
-**やること**: coconala-local が 2 週続けて台帳を develop へ push できたら、`.claude/config/playwright-auth-profiles.json` の coconala の読み取り（login-collectors の coconala の cron と collect）を止めるか、403 の実行を失敗ではなく「CI 不可」として Issue を立てない形にする。ops-write（書き込み）で coconala を CI から使っているかを先に確かめ、使っているなら書き込みは残す。
-
-**完了条件**: login-collectors の coconala が毎週 automation-failure Issue を立てない状態になり、#746 が閉じている。
 
 
 ### [DN-0666] 書籍の展開で触った 24 記事の SEO を GSC に沿って整える（未登録 4 本の登録依頼・検索意図・相互リンク・メタ）
@@ -534,11 +524,10 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 ### [DN-0664] 5〜9 月の受取額を台帳から記録し、9 月は KDP の確定後に complete にする
 タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:改善] [起票:2026-10-11] [期日:2026-10-17]
 
-**起点**: 2026-10-11 に受取額を 3 つの台帳（note.sales・coconala.revenue・kdp.royalties）から組み立てる形にした（#977・#982・#983）。プロジェクトは 5 月開始だが、記録（data/business/records の netReceipts）は 8 月（complete）と 9 月（partial）だけ。note の 5 月は確定値（控除後 ¥27,997）を取り込み済み、6・7 月は login-collectors の手動実行（run 38109465998・38109600073）で取り込み中。KDP の 9 月は推計 ¥9,806、確定は 10/16 以降の金曜の定期取得で入る。
+**起点**: 2026-10-11 に受取額を 3 つの台帳（note.sales・coconala.revenue・kdp.royalties）から組み立てる形にした（#977・#982・#983）。記録（data/business/records の netReceipts）は 5・6・8 月が complete、7 月（KDP が 7/31 取得の推計）と 9 月が partial。KDP の 9 月は推計 ¥9,806、確定は 10/16 以降の金曜の定期取得で入る。
 
 **やること**:
-1. 6・7 月の run が develop に入ったら（data/note/sales.json の months に 2026-06・2026-07 の net がある）、npm run record-net-receipts -- --month 2026-05 --commit（06・07 も）で記録してコミットする。5・6 月は 3 つとも確定で complete、7 月は KDP が 7/30 取得の推計なので partial。入っていなければ run ログの note-sales-fetch を見て month を指定し直す。
-2. 10/16 以降の取得で data/kdp/royalties.json の 2026-09 が estimated:false になったら、npm run record-net-receipts -- --month 2026-09 --commit（前の partial を訂正先にする）でコミットし、9 月の月次レビュー記録を supersedes で確定版にする。
+1. 10/16 以降の取得で data/kdp/royalties.json の 2026-09 が estimated:false になったら、npm run record-net-receipts -- --month 2026-09 --commit（前の partial を訂正先にする）でコミットし、9 月の月次レビュー記録を supersedes で確定版にする。
 
 **完了条件**: 管理画面トップ（?month=2026-05〜09）の受取額がすべて note 確定値で出て、2026-05・06・09 の netReceipts が complete で記録されている。
 
@@ -601,6 +590,10 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 **完了条件（改）**: 次の図書 1 種の整理ページが公開され、反映 28 日後の表示を共通仕様書と比べた記録が本カードにある。
 
 **判断（2026-10-12・次の図書と発行元）**: 次は国土交通省の「土木工事施工管理基準及び規格値（案）」（出来形管理基準・品質管理基準）にする。発行元は本省版を先にし（各地整は本省版を準用するので 1 文書で全国を受けられる）、地方版は九州の「土木工事施工管理の手引き」（全文ライブラリに収録済み・209 ページ）を 2 番目に置く。根拠: (1) 共通仕様書の章記事 32 本が既に「施工管理基準」を参照しており、受け皿のページができれば内部リンクの行き先がそろう、(2) 技術図書クラスターの queryPattern に出来形・品質管理基準が入っていて、実務記事が「盛土 品質管理基準」9 位で表示を取っている、(3) 設計要領は構造物ごとに分かれて分量が大きく、積算基準・歩掛は改定が頻繁で単価を含むので後にする。GSC（2026-09-09〜10-06）の技術図書の表示は 225 のうち 204 が共通仕様書で、他の図書の語はページが無いので表示がほぼ 0（需要の大小は GSC からは判断できない）。**次の一手**: 本省版の原典 PDF の入手と利用条件（政府標準利用規約・出典明記）を確かめ、全文ライブラリへ足してから章立ての整理ページを 1 本目として作る。
+
+**原典と利用条件（2026-10-14 確認）**: 最新は本省版 **令和8年3月**（R7.3 版の次。共通仕様書〔R8.3〕第1編1-1-27 に対応）。本体 https://www.mlit.go.jp/tec/content/001990185.pdf（269 ページ・2,309,599 bytes・SHA-256 ae9d1ba85098f4bd913021ad4e354b85010d3c28930cf9480611859343e18b41）、新旧対照表 001990187.pdf（17 ページ）、写真管理基準（案）の改定通知 001990188.pdf。文字層あり（U+FFFD 0・文字の少ないページは p4・p212 の 2 枚だけ）。本文の大半は測定箇所の図を含む出来形・品質の規格値表。利用条件は国交省サイトの公共データ利用規約（PDL1.0）＝出典の記載と、加工したことの明記で利用できる（https://www.mlit.go.jp/link.html）。全文ライブラリは外部の文字起こし工程（`.tmp/mlit-national-transcription` の manifest・QA を `build-standards-library.mjs` が読む）から作る仕組みで、その工程の手順はリポジトリに無い。
+
+**全文ライブラリへの追加（2026-10-14・運営者が「全文ライブラリから正式に」を選択）**: `npm run add-standards-document` を作り、本省版 R8.3 を /standards/mlit/sekou-kanri-kijun（6 分冊・掲載ページ https://www.mlit.go.jp/tec/tec_tk_000052.html）として足した。269 ページのうち 259 は 2 抽出器（pdftotext・PyMuPDF）で一致、10 は目視（表紙・中扉 3・ℓ の二重取り 1・私用領域文字 6＝式の「＝」「－」と平均の X̄）で記録は content/sources/standards/mlit/sekou-kanri-kijun/visual-review.json。feature ブランチ feat/standards-mlit-sekou-kanri の PR で develop へ入れる。**残り**: (1) Mac で原本 PDF を Drive vault の 原資料PDF/共通仕様書 の下（本省）へ置き、`build-standards-page-images --agency mlit --role all` でページ画像を作る（Windows は Drive が見えず pdftoppm も無い）。(2) 共通仕様書の章記事 32 本の「施工管理基準」の言及から本ページへのリンクを張る（章記事は生成物なので build-standard-articles か reference-sources 側で）。(3) 本番反映から 28 日後に表示を共通仕様書と比べて記録する。
 
 **実験**: なし（1 ページの順位改善ではなく、技術図書の整理を次の分野へ広げる企画）
 
@@ -1336,16 +1329,12 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 ### [DN-0239] 日本語校正（textlint + prh）の偽陽性ゼロを2週間観察する
 タグ: [コンテンツ品質] [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-09-17]
 
-**実装済み**（PR [#650](https://github.com/uruhayato373/doboku-note/pull/650)・develop へ未マージ）: `textlint` + `textlint-rule-preset-ja-technical-writing` + `textlint-rule-prh`。`npm run lint:ja`（staged の `content/site/**/*.mdx` のみ・pre-commit + quality-audit `ci:true`）と `npm run lint:ja:all`（全件 report・ゲートしない）。辞書は `prh.yml`（実測で表記ゆれ確認済みの19語）。全件実測で `ja-no-redundant-expression`・`ja-no-successive-word`・`no-unmatched-pair`・`no-double-negative-ja` 等スタイル判断寄りの規則は誤検知が支配的と判明し無効化（過去問の空欄記法・記号連続・原文の二重否定表現を誤検知するため）。有効なのは文字衛生系（no-hankaku-kana 等）+ prh + jtf-style 2.1.8/2.1.9（全角英数）+ ja-no-abusage。ベースライン: 全 1,280 ファイル中 537 ファイルで検知 2,067 件。
+**起点**: `npm run lint:ja`（pre-commit・PR #650 で 2026-09-27 に導入）の誤検知を 2 週間観察する予定だった。観察中も誤検知が出て prh.yml を直している（10/6 #885 動詞の誤置換・10/7 #887 法令の用語と条文の引用・#889 と a0123c9ef 公式問題の原文・10/11 6dd218911 と 46ad77eca 動詞の連用形＋読点）。最後の修正は 2026-10-11 なので、観察はそこから数え直す。
 
-**残作業**: PR #650 のマージ後、日常のコミットで `lint:ja`（pre-commit）が誤検知で差し戻される事例が無いかを 2 週間観察する（目安 2026-10-10 まで）。差し戻しがあれば prh.yml/.textlintrc.json を調整、無ければこのカードを削除して完了とする。
+**残作業**: 2026-10-25 まで、日常のコミットで `lint:ja` が誤検知で差し戻される事例（prh.yml・.textlintrc.json の修正コミットや、誤検知を避けるための言い換え）が無いかを `git log --since=2026-10-11 -- prh.yml .textlintrc.json` と `git log -i --grep='lint:ja\|prh\|誤検知'` で確かめる。差し戻しがあれば規則を直して観察を数え直す。
 
-### [DN-0240] Lighthouse CI の warn 揺れゼロを2週間観察する
-タグ: [インフラ・計測] [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-09-17]
+**完了条件**: 2026-10-11 以降の連続 2 週間で、prh.yml・.textlintrc.json を誤検知のために直したコミットが 0 件。
 
-**実装済み**（PR [#651](https://github.com/uruhayato373/doboku-note/pull/651)・develop へ未マージ）: `@lhci/cli` を `.github/workflows/lighthouse.yml` で PR 実行。`lighthouserc.json` が代表4ページ（home / KW記事 / 過去問 / ツール）で `categories:accessibility ≥0.95`・`seo≥0.95`・`best-practices≥0.9` を error、`performance≥0.7` を warn（job summary のみ）でチェック。ローカルで実際にゲートを回し、見つかった3件の実在する a11y 違反（ロゴリンクの aria-label 不整合・広告バッジのダーク時コントラスト不足・SpecSheetList の見出しレベル固定）を修正済み。役割分担（本番 field 監視の psi-config とは二重管理しない）は commands.md に明記。
-
-**残作業**: PR #651 のマージ後、PR ごとの lhci 実行で `performance` warn が「実装と無関係な lab の揺れ」で頻発しないかを 2 週間観察する（目安 2026-10-10 まで）。揺れが大きければ `numberOfRuns`（現在3）を増やすか閾値を調整、問題なければこのカードを削除して完了とする。
 
 ### [DN-0231] Mac のGit保守を導入し、次回clone時にpartial cloneを使う（履歴は書き換えない）
 タグ: [インフラ・計測] [領域:管理] [時期:2026-11..2026-12] [種類:改善] [起票:2026-09-14]
@@ -1932,14 +1921,6 @@ Windows（autocrlf で MDX が CRLF）で npm run refresh-indexes を回すと�
 
 **完了条件**: 公開後28日間の配置別表示・クリックと、欠測を除いたCTRを記録し、配置を維持するか調整するか判断した。取得不成立はゼロとして扱わない。
 
-### [DN-0510] 一次試験の検査の説明文が古い・原典取得スクリプトが会社 PC のプロキシで落ちる
-タグ: [インフラ・計測] [領域:管理] [時期:2026-10..2026-11] [種類:不具合] [起票:2026-10-02]
-
-**起点**: 2026-10-02。(1) `scripts/quality-audit.mjs` の `pe-first-stage-historical` の note が「H25-H30の480問」のままだが、実際の検査対象は H23〜H30 の建設 3 科目と上下水道 16 回分の 40 ページ・1,190 問。(2) `scripts/fetch-pe-first-stage-historical.mjs` が Node の `fetch` で取得しており、会社 PC のプロキシで `TypeError: fetch failed` になる（規約は `curl --ssl-no-revoke`）。上下水道の原典（16 本＋正答 8 本）は過去問の在庫台帳（`data/pastexams/inventory.json`・固定した原典は files[] の sha256・pages）にも未登録。
-
-**やること**: (1) quality-audit の note を実態に合わせる。(2) 取得を `curl --ssl-no-revoke` に替え、取得失敗と SHA 不一致を区別して件数を出す。(3) 上下水道の原典 24 本の SHA-256・ページ数を在庫台帳の該当ファイル（files[]）に足す（`historicalSources` は専門科目の別部門を `h23-specialty-NN.pdf` の名で取り出す）。
-
-**完了条件**: 会社 PC で `node scripts/fetch-pe-first-stage-historical.mjs` が全件 PASS（上下水道を含む）し、quality-audit の note が検査対象と一致する。
 
 ### [DN-0488] stats47 の建設統計・行政財政指標を note 記事のデータ根拠に 1〜2 点埋め込んで試作する
 タグ: [収益化] [領域:商品] [時期:2026-12] [種類:改善] [起票:2026-10-01]
@@ -2417,15 +2398,16 @@ Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定した
 
 ## 🟣 判断待ち — ユーザーの意思決定が必要
 
-### [DN-0732] 行政書士テキストの基礎法学・憲法・行政法を文字起こしして台帳に載せ、自治体の土木担当シリーズの根拠の補助にする
-タグ: [領域:教材] [時期:2026-11] [種類:制作] [起票:2026-10-13]
+### [DN-0732] 行政書士テキストの行政法を文字起こしして台帳に載せ、自治体の土木担当シリーズの根拠の補助にする
+タグ: [領域:教材] [時期:2027-01] [種類:制作] [起票:2026-10-13]
 
 **起点**: 2026-10-13、運営者と自治体の土木担当シリーズの教材を決めた。土木行政の教科書と『自治体の土木担当になったら読む本』の PDF は使わない（取り寄せない）。根拠は Web の検索（e-Gov・国交省・白書・自治体の公開資料）を先にする。Drive の「教材/行政書士」のテキストは文字起こしして補助に使う。第2部 行政法（207 頁）は文字の層が無いスキャン。
 **やること**:
-1. 第5部 基礎法学（法令の読み方 A-03）・第1部 憲法（国と自治体の役割 A-04）・第2部 行政法（許可・行政行為・行政手続。占用・河川区域の許可の章）を対象にする。民法・商法・問題集は使わない
+1. 第2部 行政法（207 頁・許可・行政行為・行政手続・不服申立て。占用・河川区域の許可・法令の読み方の章）だけを対象にする（2026-10-13 運営者）。基礎法学・憲法・民法・商法・問題集は使わない（e-Gov と公開資料で足りる）
 2. 参考文献の台帳に commercial-book で登録し、Drive vault に書籍の束（bookBundle）を作って `pdf-to-mdx --scanned` の流れで文字起こしする（reference_scanned_pdf_pipeline の罠に注意）。候補表（audit-reference-book-coverage）を作り、DN-0728 の `--suggest` の対象に足す
 3. 章立て・項目の並びは写さない（brief 方式・逐語の検査を通す）
-**完了条件**: 3 部の文字起こしと候補表が Drive にあり、`check-reference-sources`・`check-reference-book-pages` が緑。`check-content-series --suggest` が行政法の項目を挙げる。
+**後回し**（2026-10-13 運営者）: 骨子 39 章は Web・e-Gov の一次資料だけで作り終え、第 1 波も確認済みになったので、文字起こし（3 部・約 350 頁・スキャン）の費用に見合う使い道が「論点の抜けの見比べ」に限られる。記事を書き始めて（DN-0719 の判定の後）、許可の章（A-08・A-14 など）や法令の読み方（A-03）で抜けが気になったら着手する。
+**完了条件**: 行政法の文字起こしと候補表が Drive にあり、`check-reference-sources`・`check-reference-book-pages` が緑。`check-content-series --suggest` が行政法の項目を挙げる。
 
 
 

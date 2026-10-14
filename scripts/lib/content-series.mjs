@@ -8,7 +8,7 @@
  *
  * 読み手: scripts/check-content-series.mjs（CI）・管理画面 /content/series。
  */
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { readDataset, readDatasetIf } from './dataset-io.mjs';
 import { AI_LEDGER_FILE, aiPhotoStatus } from './image-origin.mjs';
@@ -128,14 +128,21 @@ function curriculumIssues(series, ctx) {
   return issues;
 }
 
-/** シリーズごとに項目の状態を付け、件数を数える（管理画面と検査の出力が使う）。 */
-export function seriesView(config, stateOf) {
+/**
+ * シリーズごとに項目の状態を付け、件数を数える（管理画面と検査の出力が使う）。outlines を渡すと骨子の要約も付ける。
+ * @param {any} config
+ * @param {(path: string) => { exists: boolean, published: boolean }} stateOf
+ * @param {Map<string, any> | null} [outlines] loadOutlines の outlines
+ * @param {any} [ctx] seriesContext（一次資料の判定に使う）
+ */
+export function seriesView(config, stateOf, outlines = null, ctx = null) {
   return (config.series ?? []).map((series) => {
     const sections = (series.sections ?? []).map((section) => ({
       ...section,
       items: (section.items ?? []).map((item) => ({
         ...item,
         state: itemState(item, stateOf),
+        outline: outlines ? outlineSummary(outlines.get(`${series.id}/${item.id}`) ?? null, ctx) : null,
         articles: (item.paths ?? []).map((path) => ({ path, ...stateOf(path) })),
       })),
     }));
@@ -151,6 +158,8 @@ export function seriesView(config, stateOf) {
       existing: count((i) => i.state === 'existing'),
       excluded: count((i) => i.state === 'excluded'),
       missing: count((i) => i.state === 'missing'),
+      outlineApproved: count((i) => i.outline?.status === 'approved'),
+      outlineDraft: count((i) => i.outline?.status === 'draft'),
     };
     return { ...series, sections, summary };
   });
@@ -192,12 +201,18 @@ export function seriesContext(root) {
     walk(curriculum[category]);
     return { all, block };
   };
+  // 骨子の「根拠: <法令 id>#第N条」の条が e-Gov の写し（config.egov-laws）にあるか（法令 id → 本則の条の番号）
+  const egovLaws = readDatasetIf(root, 'config.egov-laws')?.laws ?? null;
+  const egovArticles = (sourceId) => {
+    const lawId = referenceSources.find((s) => s.id === sourceId)?.egov?.lawId;
+    return lawId && egovLaws?.[lawId] ? new Set(egovLaws[lawId].articles) : null;
+  };
   const cache = new Map();
   const stateOf = (path) => {
     if (!cache.has(path)) cache.set(path, articleStateFromFile(root, path));
     return cache.get(path);
   };
-  return { root, referenceSources, sourceIds, referenceClasses, bookSummary, provenance, aiLedger, bookManifest, curriculumCategories, curriculumOf, stateOf };
+  return { root, referenceSources, sourceIds, referenceClasses, bookSummary, provenance, aiLedger, bookManifest, curriculumCategories, curriculumOf, egovArticles, stateOf };
 }
 
 /**
@@ -475,3 +490,172 @@ export function chapterPacket(basis, config, ctx, vaultRoot, seriesId, itemId, a
   ].join('\n');
   return { markdown, units };
 }
+
+// ---- 章の骨子（content/sources/series/<シリーズ id>/<項目 id>.md） ------------------------------------------
+//
+// 章（仕事の場面）から出発するシリーズは、章 → 論点 → 根拠 の向きでつなぐ（docs/strategy/18「章の骨子と根拠の配線」）。
+// 骨子は自分の言葉の論点だけを持ち、市販書籍の見出し・文は入れない（本の項目は id だけで指す）。
+// 形（book-coverage-expansion.md §4）:
+//   ---
+//   series: municipal-civil-engineer
+//   item: A-08
+//   status: draft            # draft | approved（運営者が確かめたら approved と approvedAt）
+//   ---
+//   ## 論点
+//   - 占用許可の基準は物件・位置・構造で決まる
+//     - 根拠: road-act#第33条 占用の許可基準
+//     - 根拠: https://www.mlit.go.jp/... 運用通知（令和◯年）
+//     - 本: civil1-textbook-management/u0123
+
+export const OUTLINE_DIR = 'content/sources/series';
+export const OUTLINE_LABELS = { none: '骨子なし', draft: '骨子あり', approved: '確認済み' };
+/** 一次資料として数える参考文献の区分（法令・規格・要領・白書・省庁資料）。市販書籍は補助で数えない。 */
+const PRIMARY_CLASSES = new Set(['external-primary', 'government-publication', 'exam-official']);
+
+export function outlinePath(seriesId, itemId) {
+  return `${OUTLINE_DIR}/${seriesId}/${itemId}.md`;
+}
+
+/** 根拠 1 つを読む。url・book（本 id/項目 id）・id（参考文献の台帳の id。# の後ろに条など）。 */
+export function parseOutlineRef(raw, label) {
+  const text = raw.trim();
+  if (label === '本') {
+    const m = /^(?:book:)?([a-z0-9][a-z0-9-]*)\/(u\d{4})\b\s*(.*)$/.exec(text);
+    return m ? { kind: 'book', book: m[1], unit: m[2], note: m[3] } : { kind: 'invalid', value: text };
+  }
+  const url = /^(https?:\/\/\S+)\s*(.*)$/.exec(text);
+  if (url) return { kind: 'url', value: url[1], note: url[2] };
+  const id = /^([a-z0-9][a-z0-9-]*)(#\S+)?\s*(.*)$/.exec(text);
+  return id ? { kind: 'id', id: id[1], detail: id[2] ?? '', note: id[3] } : { kind: 'invalid', value: text };
+}
+
+/** 骨子のファイルを読む: frontmatter・見出しごとの本文・論点と根拠。 */
+export function parseOutline(text) {
+  const fm = /^---\r?\n([\s\S]*?)\r?\n---\r?\n?/.exec(text);
+  const front = {};
+  for (const line of (fm?.[1] ?? '').split(/\r?\n/)) {
+    const m = /^([A-Za-z]+):\s*(.*?)\s*(?:#.*)?$/.exec(line);
+    if (m) front[m[1]] = m[2].replace(/^['"]|['"]$/g, '');
+  }
+  const body = fm ? text.slice(fm[0].length) : text;
+  const sections = {};
+  let current = null;
+  for (const line of body.split(/\r?\n/)) {
+    const h = /^##\s+(.+?)\s*$/.exec(line);
+    if (h) { current = h[1]; sections[current] = []; continue; }
+    if (current) sections[current].push(line);
+  }
+  const points = [];
+  for (const line of sections['論点'] ?? []) {
+    const top = /^- (?!根拠:|本:)(.+)$/.exec(line);
+    if (top) { points.push({ text: top[1].trim(), refs: [] }); continue; }
+    const ref = /^\s+- (根拠|本):\s*(.+)$/.exec(line);
+    if (ref && points.length) points[points.length - 1].refs.push(parseOutlineRef(ref[2], ref[1]));
+  }
+  return { front, sections, points };
+}
+
+/** 骨子を全部読む。key は「シリーズ id/項目 id」。台帳に無い章のファイルは stray に入れる。 */
+export function loadOutlines(root, config) {
+  const outlines = new Map();
+  const stray = [];
+  const known = new Set((config.series ?? []).flatMap((s) => (s.sections ?? []).flatMap((sec) => sec.items.map((i) => `${s.id}/${i.id}`))));
+  const dir = join(root, ...OUTLINE_DIR.split('/'));
+  if (!existsSync(dir)) return { outlines, stray };
+  for (const seriesId of readdirSync(dir, { withFileTypes: true }).filter((d) => d.isDirectory()).map((d) => d.name)) {
+    for (const f of readdirSync(join(dir, seriesId)).filter((x) => x.endsWith('.md'))) {
+      const key = `${seriesId}/${f.slice(0, -3)}`;
+      const path = `${OUTLINE_DIR}/${key}.md`;
+      const parsed = parseOutline(readFileSync(join(dir, seriesId, f), 'utf8'));
+      if (!known.has(key)) stray.push(path);
+      else outlines.set(key, { path, ...parsed });
+    }
+  }
+  return { outlines, stray };
+}
+
+/** 根拠が一次資料（台帳の法令・要領・白書など）か URL か。本は数えない。 */
+function refIsPrimary(ref, ctx) {
+  if (ref.kind === 'url') return true;
+  return ref.kind === 'id' && PRIMARY_CLASSES.has(ctx.referenceClasses.get(ref.id));
+}
+
+/** 骨子 1 本の要約（管理画面と検査の出力）。 */
+export function outlineSummary(outline, ctx) {
+  if (!outline) return { status: 'none', points: 0, withPrimary: 0, urlRefs: 0, bookRefs: 0, path: null };
+  const pts = outline.points;
+  return {
+    status: outline.front.status === 'approved' ? 'approved' : 'draft',
+    points: pts.length,
+    withPrimary: ctx ? pts.filter((p) => p.refs.some((r) => refIsPrimary(r, ctx))).length : 0,
+    urlRefs: pts.reduce((n, p) => n + p.refs.filter((r) => r.kind === 'url').length, 0),
+    bookRefs: pts.reduce((n, p) => n + p.refs.filter((r) => r.kind === 'book').length, 0),
+    path: outline.path,
+    approvedAt: outline.front.approvedAt ?? null,
+  };
+}
+
+/**
+ * 骨子の違反。どの論点にも一次資料（台帳の法令・要領・白書か URL）が 1 つ以上あること、台帳の id・本の id が実在すること、
+ * frontmatter が置き場と合い、確認済みなら論点があって確認日があること。本の項目 id は ctx.bookUnits（Drive の候補表）があれば照合する。
+ */
+export function outlineIssues({ outlines, stray }, ctx) {
+  const issues = stray.map((p) => `${p}: シリーズの台帳に無い章の骨子`);
+  for (const [key, o] of outlines) {
+    const [seriesId, itemId] = key.split('/');
+    const at = o.path;
+    if (o.front.series !== seriesId || o.front.item !== itemId) issues.push(`${at}: frontmatter の series・item が置き場（${key}）と違う`);
+    if (!['draft', 'approved'].includes(o.front.status)) issues.push(`${at}: status は draft か approved`);
+    if (o.front.status === 'approved' && !/^\d{4}-\d{2}-\d{2}$/.test(o.front.approvedAt ?? '')) issues.push(`${at}: 確認済みなのに approvedAt（YYYY-MM-DD）が無い`);
+    if (o.front.status === 'approved' && o.points.length === 0) issues.push(`${at}: 確認済みなのに論点が無い`);
+    o.points.forEach((p, i) => {
+      const where = `${at} 論点 ${i + 1}「${p.text.slice(0, 20)}」`;
+      for (const r of p.refs) {
+        if (r.kind === 'invalid') issues.push(`${where}: 根拠の形が読めない: ${r.value}`);
+        else if (r.kind === 'id' && !ctx.sourceIds.has(r.id)) issues.push(`${where}: 根拠の id が参考文献の台帳に無い: ${r.id}`);
+        else if (r.kind === 'id') {
+          // 条は e-Gov の写しの本則の条と照合する（第32条の2 → 32_2。写しの無い法令・条を書かない根拠は照合しない）
+          const m = /^#第(\d+)条((?:の\d+)*)/.exec(r.detail ?? '');
+          const articles = m ? ctx.egovArticles?.(r.id) : null;
+          if (m && articles && !articles.has([m[1], ...m[2].split('の').filter(Boolean)].join('_'))) issues.push(`${where}: ${r.id} に${r.detail.slice(1).match(/^第[\d]+条(?:の\d+)*/)[0]}が無い（e-Gov の写し）`);
+        }
+        else if (r.kind === 'book') {
+          if (!ctx.referenceClasses.has(r.book)) issues.push(`${where}: 本の id が参考文献の台帳に無い: ${r.book}`);
+          else {
+            const units = ctx.bookUnits?.(r.book);
+            if (units && !units.has(r.unit)) issues.push(`${where}: ${r.book} の候補表に項目 ${r.unit} が無い`);
+          }
+        }
+      }
+      if (!p.refs.some((r) => refIsPrimary(r, ctx))) issues.push(`${where}: 一次資料（法令・要領・白書の id か URL）の根拠が無い`);
+    });
+  }
+  return issues;
+}
+
+/**
+ * 章の根拠の候補: 章の題・注記・骨子の論点の語と、Drive の候補表の項目（見出し・頻出語）の 2 文字の重なりで並べる。
+ * 見出しを含むので、出力は .tmp にだけ書く。books は { id, title, units } の配列（Drive の候補表から）。
+ */
+export function suggestUnits(query, books, { limit = 40 } = {}) {
+  const grams = (s) => {
+    const t = String(s).replace(/[\s、。・「」（）()【】〔〕\-—:：,.]/g, '');
+    const out = new Set();
+    for (let i = 0; i < t.length - 1; i += 1) out.add(t.slice(i, i + 2));
+    return out;
+  };
+  const q = grams(query);
+  const rows = [];
+  for (const b of books) {
+    for (const u of b.units) {
+      const g = grams(`${u.heading}${(u.topTerms ?? []).join('')}`);
+      if (g.size === 0) continue;
+      let hit = 0;
+      for (const x of g) if (q.has(x)) hit += 1;
+      const score = hit / Math.sqrt(g.size);
+      if (hit >= 2) rows.push({ book: b.id, title: b.title, unit: u.id, page: u.page, heading: u.heading, score });
+    }
+  }
+  return rows.sort((a, b) => b.score - a.score).slice(0, limit);
+}
+

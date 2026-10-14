@@ -7,9 +7,10 @@ import { pathToFileURL } from 'node:url';
 import { buildAliasMap, normalizeTags } from './lib/content-taxonomy.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 
+// 地方 10 機関＋本省（2026-10-14 に施工管理基準の本省版を追加・DN-0393）
 const EXPECTED_AGENCIES = [
   'chubu', 'chugoku', 'hokkaido', 'hokuriku', 'kanto',
-  'kinki', 'kyushu', 'okinawa', 'shikoku', 'tohoku',
+  'kinki', 'kyushu', 'mlit', 'okinawa', 'shikoku', 'tohoku',
 ];
 
 function findMdxFiles(directory) {
@@ -54,10 +55,10 @@ export function auditTopicWiring(root = REPO_ROOT) {
 
   const agencyIds = catalog.agencies.map((agency) => agency.agencyId).sort();
   if (JSON.stringify(agencyIds) !== JSON.stringify(EXPECTED_AGENCIES)) {
-    issues.push(`公開機関が10地方機関SSOTと不一致: ${agencyIds.join(', ')}`);
+    issues.push(`公開機関が SSOT（地方 10 機関＋本省）と不一致: ${agencyIds.join(', ')}`);
   }
-  if (catalog.totals.agencies !== 10 || catalog.agencies.length !== 10) {
-    issues.push(`公開機関数が10でない: totals=${catalog.totals.agencies}, entries=${catalog.agencies.length}`);
+  if (catalog.totals.agencies !== EXPECTED_AGENCIES.length || catalog.agencies.length !== EXPECTED_AGENCIES.length) {
+    issues.push(`公開機関数が${EXPECTED_AGENCIES.length}でない: totals=${catalog.totals.agencies}, entries=${catalog.agencies.length}`);
   }
 
   const practiceRoot = join(root, 'content/site/civil-practice');
@@ -96,5 +97,5 @@ if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) 
     result.issues.forEach((issue) => console.error(`- ${issue}`));
     process.exit(1);
   }
-  console.log('PASS: 全公開実務ガイドがtopicへ接続され、全国10機関と基準資料参照が解決できます。');
+  console.log(`PASS: 全公開実務ガイドがtopicへ接続され、全${EXPECTED_AGENCIES.length}機関と基準資料参照が解決できます。`);
 }

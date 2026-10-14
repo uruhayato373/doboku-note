@@ -4704,6 +4704,608 @@
       }
     },
     {
+      "id": "civil-code-act",
+      "title": "民法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "民法": "civil-code-act"
+      },
+      "egov": {
+        "lawId": "129AC0000000089"
+      }
+    },
+    {
+      "id": "cabinet-act",
+      "title": "内閣法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "内閣法": "cabinet-act"
+      },
+      "egov": {
+        "lawId": "322AC0000000005"
+      }
+    },
+    {
+      "id": "state-redress-act",
+      "title": "国家賠償法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "国家賠償法": "state-redress-act"
+      },
+      "egov": {
+        "lawId": "322AC0000000125"
+      }
+    },
+    {
+      "id": "local-autonomy-act-order",
+      "title": "地方自治法施行令",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "地方自治法施行令": "local-autonomy-act-order"
+      },
+      "egov": {
+        "lawId": "322CO0000000016"
+      }
+    },
+    {
+      "id": "national-government-organization-act",
+      "title": "国家行政組織法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "国家行政組織法": "national-government-organization-act"
+      },
+      "egov": {
+        "lawId": "323AC0000000120"
+      }
+    },
+    {
+      "id": "survey-act",
+      "title": "測量法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "測量法": "survey-act"
+      },
+      "egov": {
+        "lawId": "324AC0000000188"
+      }
+    },
+    {
+      "id": "local-allocation-tax-act",
+      "title": "地方交付税法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "地方交付税法": "local-allocation-tax-act"
+      },
+      "egov": {
+        "lawId": "325AC0000000211"
+      }
+    },
+    {
+      "id": "local-public-service-act",
+      "title": "地方公務員法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "地方公務員法": "local-public-service-act"
+      },
+      "egov": {
+        "lawId": "325AC0000000261"
+      }
+    },
+    {
+      "id": "fishing-port-act",
+      "title": "漁港及び漁場の整備等に関する法律",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "漁港及び漁場の整備等に関する法律": "fishing-port-act"
+      },
+      "egov": {
+        "lawId": "325AC1000000137"
+      }
+    },
+    {
+      "id": "national-land-survey-act",
+      "title": "国土調査法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "国土調査法": "national-land-survey-act"
+      },
+      "egov": {
+        "lawId": "326AC0000000180"
+      }
+    },
+    {
+      "id": "disaster-restoration-subsidy-act-order",
+      "title": "公共土木施設災害復旧事業費国庫負担法施行令",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "公共土木施設災害復旧事業費国庫負担法施行令": "disaster-restoration-subsidy-act-order"
+      },
+      "egov": {
+        "lawId": "326CO0000000107"
+      }
+    },
+    {
+      "id": "subsidy-execution-act",
+      "title": "補助金等に係る予算の執行の適正化に関する法律",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "補助金等に係る予算の執行の適正化に関する法律": "subsidy-execution-act"
+      },
+      "egov": {
+        "lawId": "330AC0000000179"
+      }
+    },
+    {
+      "id": "coast-act-rules",
+      "title": "海岸法施行規則",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "海岸法施行規則": "coast-act-rules"
+      },
+      "egov": {
+        "lawId": "331M50014800001"
+      }
+    },
+    {
+      "id": "special-tax-measures-act",
+      "title": "租税特別措置法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "租税特別措置法": "special-tax-measures-act"
+      },
+      "egov": {
+        "lawId": "332AC0000000026"
+      }
+    },
+    {
+      "id": "landslide-prevention-act",
+      "title": "地すべり等防止法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "地すべり等防止法": "landslide-prevention-act"
+      },
+      "egov": {
+        "lawId": "333AC0000000030"
+      }
+    },
+    {
+      "id": "severe-disaster-act",
+      "title": "激甚災害に対処するための特別の財政援助等に関する法律",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "激甚災害に対処するための特別の財政援助等に関する法律": "severe-disaster-act"
+      },
+      "egov": {
+        "lawId": "337AC0000000150"
+      }
+    },
+    {
+      "id": "river-act-rules",
+      "title": "河川法施行規則",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "河川法施行規則": "river-act-rules"
+      },
+      "egov": {
+        "lawId": "340M50004000007"
+      }
+    },
+    {
+      "id": "noise-regulation-act-order",
+      "title": "騒音規制法施行令",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "騒音規制法施行令": "noise-regulation-act-order"
+      },
+      "egov": {
+        "lawId": "343CO0000000324"
+      }
+    },
+    {
+      "id": "land-price-publication-act",
+      "title": "地価公示法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "地価公示法": "land-price-publication-act"
+      },
+      "egov": {
+        "lawId": "344AC0000000049"
+      }
+    },
+    {
+      "id": "public-land-expansion-act",
+      "title": "公有地の拡大の推進に関する法律",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "公有地の拡大の推進に関する法律": "public-land-expansion-act"
+      },
+      "egov": {
+        "lawId": "347AC0000000066"
+      }
+    },
+    {
+      "id": "national-land-use-planning-act",
+      "title": "国土利用計画法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "国土利用計画法": "national-land-use-planning-act"
+      },
+      "egov": {
+        "lawId": "349AC1000000092"
+      }
+    },
+    {
+      "id": "vibration-regulation-act-order",
+      "title": "振動規制法施行令",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "振動規制法施行令": "vibration-regulation-act-order"
+      },
+      "egov": {
+        "lawId": "351CO0000000280"
+      }
+    },
+    {
+      "id": "vibration-regulation-act-rules",
+      "title": "振動規制法施行規則",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "振動規制法施行規則": "vibration-regulation-act-rules"
+      },
+      "egov": {
+        "lawId": "351M50000002058"
+      }
+    },
+    {
+      "id": "professional-engineer-act",
+      "title": "技術士法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "技術士法": "professional-engineer-act"
+      },
+      "egov": {
+        "lawId": "358AC0000000025"
+      }
+    },
+    {
+      "id": "administrative-procedure-act",
+      "title": "行政手続法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "行政手続法": "administrative-procedure-act"
+      },
+      "egov": {
+        "lawId": "405AC0000000088"
+      }
+    },
+    {
+      "id": "environmental-impact-assessment-act-order",
+      "title": "環境影響評価法施行令",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "環境影響評価法施行令": "environmental-impact-assessment-act-order"
+      },
+      "egov": {
+        "lawId": "409CO0000000346"
+      }
+    },
+    {
+      "id": "information-disclosure-act",
+      "title": "行政機関の保有する情報の公開に関する法律",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "行政機関の保有する情報の公開に関する法律": "information-disclosure-act"
+      },
+      "egov": {
+        "lawId": "411AC0000000042"
+      }
+    },
+    {
+      "id": "public-works-bidding-fairness-act",
+      "title": "公共工事の入札及び契約の適正化の促進に関する法律",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "公共工事の入札及び契約の適正化の促進に関する法律": "public-works-bidding-fairness-act"
+      },
+      "egov": {
+        "lawId": "412AC0000000127"
+      }
+    },
+    {
+      "id": "construction-recycling-act-order",
+      "title": "建設工事に係る資材の再資源化等に関する法律施行令",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "建設工事に係る資材の再資源化等に関する法律施行令": "construction-recycling-act-order"
+      },
+      "egov": {
+        "lawId": "412CO0000000495"
+      }
+    },
+    {
+      "id": "policy-evaluation-act",
+      "title": "行政機関が行う政策の評価に関する法律",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "行政機関が行う政策の評価に関する法律": "policy-evaluation-act"
+      },
+      "egov": {
+        "lawId": "413AC0000000086"
+      }
+    },
+    {
+      "id": "urban-renaissance-act",
+      "title": "都市再生特別措置法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "都市再生特別措置法": "urban-renaissance-act"
+      },
+      "egov": {
+        "lawId": "414AC0000000022"
+      }
+    },
+    {
+      "id": "real-property-registration-act",
+      "title": "不動産登記法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "不動産登記法": "real-property-registration-act"
+      },
+      "egov": {
+        "lawId": "416AC0000000123"
+      }
+    },
+    {
+      "id": "coastal-facility-standard-order",
+      "title": "海岸保全施設の技術上の基準を定める省令",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "海岸保全施設の技術上の基準を定める省令": "coastal-facility-standard-order"
+      },
+      "egov": {
+        "lawId": "416M60000A00001"
+      }
+    },
+    {
+      "id": "general-rules-application-act",
+      "title": "法の適用に関する通則法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "法の適用に関する通則法": "general-rules-application-act"
+      },
+      "egov": {
+        "lawId": "418AC0000000078"
+      }
+    },
+    {
+      "id": "local-fiscal-soundness-act",
+      "title": "地方公共団体の財政の健全化に関する法律",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "地方公共団体の財政の健全化に関する法律": "local-fiscal-soundness-act"
+      },
+      "egov": {
+        "lawId": "419AC0000000094"
+      }
+    },
+    {
+      "id": "port-facility-standard-order",
+      "title": "港湾の施設の技術上の基準を定める省令",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "港湾の施設の技術上の基準を定める省令": "port-facility-standard-order"
+      },
+      "egov": {
+        "lawId": "419M60000800015"
+      }
+    },
+    {
+      "id": "construction-worker-safety-act",
+      "title": "建設工事従事者の安全及び健康の確保の推進に関する法律",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "建設工事従事者の安全及び健康の確保の推進に関する法律": "construction-worker-safety-act"
+      },
+      "egov": {
+        "lawId": "428AC0100000111"
+      }
+    },
+    {
+      "id": "city-planning-act-order",
+      "title": "都市計画法施行令",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "都市計画法施行令": "city-planning-act-order"
+      },
+      "egov": {
+        "lawId": "344CO0000000158"
+      }
+    },
+    {
+      "id": "city-planning-act-rules",
+      "title": "都市計画法施行規則",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "都市計画法施行規則": "city-planning-act-rules"
+      },
+      "egov": {
+        "lawId": "344M50004000049"
+      }
+    },
+    {
+      "id": "urban-park-act-order",
+      "title": "都市公園法施行令",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "都市公園法施行令": "urban-park-act-order"
+      },
+      "egov": {
+        "lawId": "331CO0000000290"
+      }
+    },
+    {
+      "id": "urban-park-act-rules",
+      "title": "都市公園法施行規則",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "都市公園法施行規則": "urban-park-act-rules"
+      },
+      "egov": {
+        "lawId": "331M50004000030"
+      }
+    },
+    {
+      "id": "sewerage-act-order",
+      "title": "下水道法施行令",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "下水道法施行令": "sewerage-act-order"
+      },
+      "egov": {
+        "lawId": "334CO0000000147"
+      }
+    },
+    {
+      "id": "local-public-enterprise-act",
+      "title": "地方公営企業法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "地方公営企業法": "local-public-enterprise-act"
+      },
+      "egov": {
+        "lawId": "327AC0000000292"
+      }
+    },
+    {
       "id": "land-expropriation-act",
       "title": "土地収用法",
       "class": "external-primary",

@@ -2069,6 +2069,7 @@ const MAGAZINES_RAW = {
     shortDescription: '改訂コンピテンシー対応の想定問答33問＋合格発表後の週次ロードマップ。',
     price: '¥1,980',
     badge: 'note 限定',
+    noteTitle: '技術士 建設部門｜口頭試験対策 — 令和8年度 改訂コンピテンシー対応の想定問答バンクと合格発表後の準備ロードマップ',
   },
   'pe-construction-port-airport-magazine': {
     id: 'pe-construction-port-airport-magazine',
