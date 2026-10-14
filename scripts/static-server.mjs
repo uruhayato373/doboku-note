@@ -17,6 +17,7 @@
  */
 
 import { createServer } from 'node:http';
+import { brotliCompressSync, gzipSync, constants as zlibConstants } from 'node:zlib';
 import { readFile, stat } from 'node:fs/promises';
 import { existsSync, readFileSync } from 'node:fs';
 import { join, extname, normalize } from 'node:path';
@@ -48,6 +49,30 @@ const MIME = {
   '.woff2': 'font/woff2',
   '.pdf': 'application/pdf',
 };
+
+const COMPRESSIBLE = new Set(['.html', '.js', '.mjs', '.css', '.json', '.txt', '.xml', '.svg']);
+
+/**
+ * 本番（Cloudflare）と同じくテキストを圧縮して返すための符号化を選ぶ（br を優先・無ければ gzip）。
+ * 2026-10-14 まで無圧縮で配っていたため、Lighthouse CI（低速回線のシミュレーション）が 250KB 級の
+ * 二次の過去問ページ（1級 secondary/r06）だけを LCP 8〜10 秒・0.66〜0.69 と測り、本番（0.89）と無関係な
+ * performance warn が PR の 6 割に出ていた（DN-0735）。
+ */
+export function pickEncoding(acceptEncoding, ext) {
+  if (!COMPRESSIBLE.has(ext)) return null;
+  const accepted = String(acceptEncoding ?? '')
+    .split(',')
+    .map((part) => part.trim().split(';')[0].toLowerCase());
+  if (accepted.includes('br')) return 'br';
+  if (accepted.includes('gzip')) return 'gzip';
+  return null;
+}
+
+function encode(body, encoding) {
+  if (encoding === 'br') return brotliCompressSync(body, { params: { [zlibConstants.BROTLI_PARAM_QUALITY]: 5 } });
+  if (encoding === 'gzip') return gzipSync(body);
+  return body;
+}
 
 /** `_redirects` を読み、完全一致とワイルドカード（`/docs/river/*`）に分けて持つ。 */
 function loadRedirects() {
@@ -134,12 +159,15 @@ async function main() {
       return;
     }
 
-    const body = await readFile(file);
+    const ext = extname(file);
+    const encoding = pickEncoding(request.headers['accept-encoding'], ext);
     response.writeHead(200, {
-      'Content-Type': MIME[extname(file)] ?? 'application/octet-stream',
+      'Content-Type': MIME[ext] ?? 'application/octet-stream',
       'Cache-Control': 'no-store',
+      ...(COMPRESSIBLE.has(ext) ? { Vary: 'Accept-Encoding' } : {}),
+      ...(encoding ? { 'Content-Encoding': encoding } : {}),
     });
-    response.end(body);
+    response.end(encode(await readFile(file), encoding));
   });
 
   server.listen(PORT, () => {

@@ -364,7 +364,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 ## 🟡 中 — 重要度が中くらい
 
 ### [DN-0735] Lighthouse CI の performance warn が 1級 secondary/r06（0.66〜0.69）で PR の 6 割に出続けるのを直す
-タグ: [インフラ・計測] [領域:サイト] [時期:2026-10..2026-11] [種類:不具合] [起票:2026-10-14]
+タグ: [インフラ・計測] [領域:サイト] [時期:2026-10..2026-11] [種類:不具合] [起票:2026-10-14] [進行中]
 
 **起点**: DN-0240（Lighthouse CI の warn 揺れの観察）の結果、2026-09-27〜10-14 の lighthouse.yml 715 回から 79 回を抜き出し、assert を読めた 68 回のうち 41 回（60%）で categories.performance が warn だった。warn 43 件のうち 41 件が /exam/civil-construction-1/secondary/r06 で、点数は 0.66〜0.69（0.69 が 23・0.68 が 14・0.66〜0.67 が 6）。残り 2 件は alarp-principle。揺れではなく、1 ページが閾値 0.7 のすぐ下に張り付いていて、PR の差分と関係なく warn が出続ける（誰も読まない警告になっている）。
 
