@@ -361,6 +361,16 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0735] Lighthouse CI の performance warn が 1級 secondary/r06（0.66〜0.69）で PR の 6 割に出続けるのを直す
+タグ: [インフラ・計測] [領域:サイト] [時期:2026-10..2026-11] [種類:不具合] [起票:2026-10-14]
+
+**起点**: DN-0240（Lighthouse CI の warn 揺れの観察）の結果、2026-09-27〜10-14 の lighthouse.yml 715 回から 79 回を抜き出し、assert を読めた 68 回のうち 41 回（60%）で categories.performance が warn だった。warn 43 件のうち 41 件が /exam/civil-construction-1/secondary/r06 で、点数は 0.66〜0.69（0.69 が 23・0.68 が 14・0.66〜0.67 が 6）。残り 2 件は alarp-principle。揺れではなく、1 ページが閾値 0.7 のすぐ下に張り付いていて、PR の差分と関係なく warn が出続ける（誰も読まない警告になっている）。
+
+**やること**: (1) lighthouse.yml の artifact（.lighthouseci）で r06 の LCP・TBT・CLS と重い要素（画像・折りたたみ内の大きな DOM・KaTeX など）を特定する。(2) 原因がページ側にあれば直し、lab の点数が 0.7 以上で安定することを PR の lhci で確かめる。(3) 直せない理由がある（内容の量そのもの）なら、実ユーザー計測（CrUX・DN-0397）で実害が無いことを確かめたうえで、lighthouserc.json の対象 URL を差し替えるか URL 別の閾値にし、理由を lighthouserc の隣に書く。
+
+**完了条件**: 直近の PR 20 回の lhci で performance の warn が 0〜1 回（r06 の点数が 0.7 以上、または理由つきで対象・閾値を変えた）。
+
+
 ### [DN-0734] YouTubeの現行ID以外で公開された移行版を台帳照合から取りこぼす
 タグ: [領域:SNS] [時期:2026-10] [種類:不具合] [起票:2026-10-14]
 
