@@ -363,6 +363,16 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0737] YouTube 通常動画の再生数が yt-dlp の一覧で取れなくなった原因を Mac で確かめて直す
+タグ: [領域:SNS] [時期:2026-10..2026-11] [種類:不具合] [起票:2026-10-14]
+
+**起点**: DN-0697 で、通常動画の再生数が 1 本も取れない回を検査不成立（exit 2・保存しない）にした。記録は 10/08 が 70/70 本、10/10 が 0/73 本、10/12 が 5/74 本で、Shorts は毎回 12/12 本取れている。取れなくなった原因（英語表示の /videos 一覧で yt-dlp が view_count を返さない）は、yt-dlp の入った Mac でしか確かめられない。
+
+**やること**: Mac で `yt-dlp --version` を確かめ、`yt-dlp --flat-playlist -J --playlist-end 10 --extractor-args youtube:lang=en https://www.youtube.com/channel/UCHRnXPqoc0Hls8nXiK_ZYqA/videos` の entries の view_count を見る。null なら yt-dlp を更新して取り直す。更新しても null なら、YouTube Data API（videos.list の statistics.viewCount）で取る案を検討する。
+
+**完了条件**: `npm run youtube-own-metrics -- --dry-run` が通常動画の再生数を全本（または欠測の理由つきで大半）取れ、exit 0 になる。
+
+
 ### [DN-0735] Lighthouse CI の performance warn が 1級 secondary/r06（0.66〜0.69）で PR の 6 割に出続けるのを直す
 タグ: [インフラ・計測] [領域:サイト] [時期:2026-10..2026-11] [種類:不具合] [起票:2026-10-14] [進行中]
 
