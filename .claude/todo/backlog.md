@@ -1921,14 +1921,6 @@ Windows（autocrlf で MDX が CRLF）で npm run refresh-indexes を回すと�
 
 **完了条件**: 公開後28日間の配置別表示・クリックと、欠測を除いたCTRを記録し、配置を維持するか調整するか判断した。取得不成立はゼロとして扱わない。
 
-### [DN-0510] 一次試験の検査の説明文が古い・原典取得スクリプトが会社 PC のプロキシで落ちる
-タグ: [インフラ・計測] [領域:管理] [時期:2026-10..2026-11] [種類:不具合] [起票:2026-10-02]
-
-**起点**: 2026-10-02。(1) `scripts/quality-audit.mjs` の `pe-first-stage-historical` の note が「H25-H30の480問」のままだが、実際の検査対象は H23〜H30 の建設 3 科目と上下水道 16 回分の 40 ページ・1,190 問。(2) `scripts/fetch-pe-first-stage-historical.mjs` が Node の `fetch` で取得しており、会社 PC のプロキシで `TypeError: fetch failed` になる（規約は `curl --ssl-no-revoke`）。上下水道の原典（16 本＋正答 8 本）は過去問の在庫台帳（`data/pastexams/inventory.json`・固定した原典は files[] の sha256・pages）にも未登録。
-
-**やること**: (1) quality-audit の note を実態に合わせる。(2) 取得を `curl --ssl-no-revoke` に替え、取得失敗と SHA 不一致を区別して件数を出す。(3) 上下水道の原典 24 本の SHA-256・ページ数を在庫台帳の該当ファイル（files[]）に足す（`historicalSources` は専門科目の別部門を `h23-specialty-NN.pdf` の名で取り出す）。
-
-**完了条件**: 会社 PC で `node scripts/fetch-pe-first-stage-historical.mjs` が全件 PASS（上下水道を含む）し、quality-audit の note が検査対象と一致する。
 
 ### [DN-0488] stats47 の建設統計・行政財政指標を note 記事のデータ根拠に 1〜2 点埋め込んで試作する
 タグ: [収益化] [領域:商品] [時期:2026-12] [種類:改善] [起票:2026-10-01]

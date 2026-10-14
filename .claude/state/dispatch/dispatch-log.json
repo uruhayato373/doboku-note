@@ -3848,6 +3848,23 @@
       "commit": "20703f0ac7dd",
       "verification": "content/registry/publications/youtube/*.json の status 集計（published 1・uploaded_private 2・stopped 535）",
       "note": "対象外として閉じる。運営者の方針（2026-10-14）は内容を精査した高品質の動画だけを続ける形で、旧版と移行版の並行公開は起きない見込み。再発したら新しく起票する"
+    },
+    {
+      "id": "DN-0510",
+      "at": "2026-10-14",
+      "task": "一次試験の検査の説明文が古い・原典取得スクリプトが会社 PC のプロキシで落ちる",
+      "tier": "low",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/fetch-pe-first-stage-historical.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "e23b0b9c81e8",
+      "verification": "会社 PC で node scripts/fetch-pe-first-stage-historical.mjs が 49/49 検証済み（取得失敗 0・不一致 0・ページ数未検査 0）、check-pe-first-stage-historical PASS 40 ページ / 1190 問",
+      "note": "取得を curl --ssl-no-revoke に替え、取得失敗・中身の不一致・ページ数未検査を分けて数える（失敗が支配的なら exit 2）。上下水道の問題 16 本と令和の正答 8 本の SHA-256・ページ数を在庫台帳に足した（問題はスキャン画像なので表紙を目視で年度・部門・再試験を確認）。令和・再試験・年度ごとの正答の名前の付け方を足し、テストで重複しないことを固定。quality-audit の note を 40 ページ・1,190 問に直した"
     }
   ]
 }
