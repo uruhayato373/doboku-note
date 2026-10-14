@@ -1,11 +1,11 @@
 import { expect, test } from '@playwright/test';
 
-test('全国10機関を選択し、共通仕様書一覧へ移動できる', async ({ page }) => {
+test('全11機関（地方 10＋本省）を選択し、共通仕様書一覧へ移動できる', async ({ page }) => {
   await page.goto('/standards');
 
   const agencies = page.locator('#agencies');
   await expect(agencies).toBeVisible();
-  await expect(agencies.locator('a[href^="/standards/"]')).toHaveCount(10);
+  await expect(agencies.locator('a[href^="/standards/"]')).toHaveCount(11);
   await agencies.getByRole('link', { name: /中部地方整備局/ }).click();
 
   await expect(page).toHaveURL(/\/standards\/chubu$/);

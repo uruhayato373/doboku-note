@@ -24,19 +24,25 @@ function extractEdition(title: string): string | null {
   return matches.at(-1)?.[0] ?? null;
 }
 
+/** 共通仕様書を持たない発行元（本省の施工管理基準など）は、収録している文書名で見出しを立てる */
+function agencyHeading(agencyName: string, documents: { title: string }[]): string {
+  const [only] = documents;
+  return documents.length === 1 && only ? `${agencyName} ${only.title}` : `${agencyName} 公開の技術基準`;
+}
+
 export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
   const { agency } = await params;
   const entry = getStandardsCatalog().agencies.find((candidate) => candidate.agencyId === agency);
   if (!entry) return { title: '発行機関が見つかりません', robots: { index: false, follow: false } };
-  const commonDoc = getStandardDocuments(agency).find((document) => document.role === 'common') ?? null;
+  const documents = getStandardDocuments(agency);
+  const commonDoc = documents.find((document) => document.role === 'common') ?? null;
   const edition = commonDoc ? extractEdition(commonDoc.title) : null;
+  const leadDoc = commonDoc ?? documents[0] ?? null;
   return buildPageMetadata({
-    title: edition
-      ? `${entry.agencyName} 土木工事共通仕様書（${edition}）・工事必携`
-      : `${entry.agencyName} 土木工事共通仕様書・工事必携`,
-    description: commonDoc
-      ? `${entry.agencyName}が公開する「${commonDoc.title}」ほか${entry.documentCount}文書、全${entry.pages.toLocaleString('ja-JP')}ページの文字起こし一覧。原典・版・QA情報を明示しています。`
-      : `${entry.agencyName}が公開する土木工事共通仕様書・工事必携等${entry.documentCount}文書、全${entry.pages.toLocaleString('ja-JP')}ページの文字起こし一覧。原典・版・QA情報を明示しています。`,
+    title: commonDoc
+      ? `${entry.agencyName} 土木工事共通仕様書${edition ? `（${edition}）` : ''}・工事必携`
+      : agencyHeading(entry.agencyName, documents),
+    description: `${entry.agencyName}が公開する${leadDoc ? `「${leadDoc.title}」` : '技術基準'}${entry.documentCount > 1 ? `ほか${entry.documentCount}文書` : ''}、全${entry.pages.toLocaleString('ja-JP')}ページの文字起こし一覧。原典・版・QA情報を明示しています。`,
     path: `/standards/${agency}`,
   });
 }
@@ -48,6 +54,7 @@ export default async function StandardsAgencyPage({ params }: { params: Promise<
   const documents = getStandardDocuments(agency);
   const commonDoc = documents.find((document) => document.role === 'common') ?? null;
   const edition = commonDoc ? extractEdition(commonDoc.title) : null;
+  const leadDoc = commonDoc ?? documents[0] ?? null;
 
   return (
     <PageShell variant="default">
@@ -62,9 +69,9 @@ export default async function StandardsAgencyPage({ params }: { params: Promise<
         variant="inline"
         className="border-b border-(--rule-soft) py-6 sm:py-8"
         breadcrumb={[{ label: 'ホーム', href: '/' }, { label: '基準類', href: '/standards' }, { label: entry.agencyName }]}
-        title={edition ? `${entry.agencyName} 土木工事共通仕様書（${edition}）` : `${entry.agencyName} 土木工事共通仕様書`}
-        lead={commonDoc
-          ? `${entry.agencyName}が公表する最新版「${commonDoc.title}」（全${commonDoc.pages.toLocaleString('ja-JP')}ページ）を含む${entry.documentCount}文書を収録しています。下の一覧から文書を選ぶと、版・章ごとに読めます。原本PDFと発行元ページへのリンクはページ末尾の出典欄にあります。`
+        title={commonDoc ? `${entry.agencyName} 土木工事共通仕様書${edition ? `（${edition}）` : ''}` : agencyHeading(entry.agencyName, documents)}
+        lead={leadDoc
+          ? `${entry.agencyName}が公表する最新版「${leadDoc.title}」（全${leadDoc.pages.toLocaleString('ja-JP')}ページ）を含む${entry.documentCount}文書を収録しています。下の一覧から文書を選ぶと、版・章ごとに読めます。原本PDFと発行元ページへのリンクはページ末尾の出典欄にあります。`
           : undefined}
         meta={<span className="text-sm">{entry.documentCount}文書 · {entry.pages.toLocaleString('ja-JP')}ページ</span>}
       />
