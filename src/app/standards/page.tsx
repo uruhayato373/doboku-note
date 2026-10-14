@@ -9,9 +9,11 @@ import { buildPageMetadata } from '@/lib/metadata';
 import { getStandardsCatalog } from '@/lib/standards';
 import AffiliateSlot from '@/components/ui/AffiliateSlot/AffiliateSlot';
 
+const { totals } = getStandardsCatalog();
+
 export const metadata: Metadata = buildPageMetadata({
   title: '土木工事共通仕様書・工事必携 全文検索ライブラリ',
-  description: '国土交通省の地方整備局等10機関が公開する土木工事共通仕様書、土木請負工事必携、施工管理・工事書類マニュアル72文書11,109ページを全文文字起こし。発行機関から資料を探し、原典・版を確認できます。',
+  description: `国土交通省と地方整備局等${totals.agencies}機関が公開する土木工事共通仕様書、施工管理基準、土木請負工事必携、施工管理・工事書類マニュアル${totals.documents}文書${totals.pages.toLocaleString('ja-JP')}ページを全文文字起こし。発行機関から資料を探し、原典・版を確認できます。`,
   path: '/standards',
 });
 

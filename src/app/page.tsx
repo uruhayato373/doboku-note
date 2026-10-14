@@ -11,8 +11,10 @@ import { CategoryDef } from "@/lib/categories";
 import Link from 'next/link';
 import SectionBlock from '@/components/layout/SectionBlock';
 import AffiliateSlot from '@/components/ui/AffiliateSlot/AffiliateSlot';
+import { getStandardsCatalog } from '@/lib/standards';
 
 const categories = categoriesData as CategoryDef[];
+const standardsTotals = getStandardsCatalog().totals;
 
 // ホームの自己 canonical / og:url。root（getCommonSeoData）は継承事故防止のため
 // canonical/og:url を持たないので、ホーム自身がここで "/" を明示する。
@@ -81,7 +83,7 @@ export default async function HomePage() {
               href: '/standards',
               label: 'STANDARDS',
               title: '共通仕様書・工事必携',
-              description: '全国10機関・72文書・11,109ページの全文文字起こしライブラリ',
+              description: `全国${standardsTotals.agencies}機関・${standardsTotals.documents}文書・${standardsTotals.pages.toLocaleString('ja-JP')}ページの全文文字起こしライブラリ`,
             },
             {
               href: '/topics',

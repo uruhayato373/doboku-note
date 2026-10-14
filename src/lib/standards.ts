@@ -122,6 +122,12 @@ export function getStandardPart(
 const STANDARD_PART_LABELS: Record<string, string> = {
   'chugoku/local/part-01': '第1〜3編 共通編・材料編・土木工事共通編 関係の独自仕様',
   'chugoku/local/part-02': '第6〜10編 河川・河川海岸・砂防・道路編 関係の独自仕様',
+  'mlit/sekou-kanri-kijun/part-01': '総則・出来形管理基準の目次・第1編 共通編〜第3編 土木工事共通編',
+  'mlit/sekou-kanri-kijun/part-02': '出来形管理基準 第3編 土木工事共通編',
+  'mlit/sekou-kanri-kijun/part-03': '出来形管理基準 第3編 土木工事共通編',
+  'mlit/sekou-kanri-kijun/part-04': '出来形管理基準 第3編〜第10編（河川・河川海岸・砂防・ダム・道路）',
+  'mlit/sekou-kanri-kijun/part-05': '出来形管理基準 第10編 道路編・品質管理基準',
+  'mlit/sekou-kanri-kijun/part-06': '品質管理基準・参考資料（ロックボルトの引抜試験）',
 };
 
 export function standardPartLabel(

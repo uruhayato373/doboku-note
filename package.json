@@ -40,6 +40,7 @@
     "audit-svg:ci": "node .claude/skills/quality/check-mdx/scripts/rules/svg/audit.mjs --fail-on=HIGH",
     "build": "node scripts/clean-build-output.mjs && npm run refresh-indexes && next build && npx pagefind --site out --output-path out/pagefind && node scripts/generate-sitemap.mjs && node scripts/generate-rss.mjs",
     "build-standards-library": "node scripts/build-standards-library.mjs",
+    "add-standards-document": "node scripts/add-standards-document.mjs",
     "serve": "node scripts/static-server.mjs",
     "build-standard-articles": "node scripts/build-standard-articles.mjs && node scripts/build-standards-comparison.mjs",
     "build-standards-comparison": "node scripts/build-standards-comparison.mjs",

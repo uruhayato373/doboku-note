@@ -5,18 +5,25 @@
   "status": "PASS_WITH_SOURCE_LIMITATIONS",
   "scope": "MLIT regional civil-works common specifications and bureau companion/Hikkei-equivalent documents",
   "totals": {
-    "agencies": 10,
-    "documents": 72,
-    "pages": 11109,
-    "parts": 274,
-    "sourceBytes": 202028704,
-    "markdownBytes": 31206414,
+    "agencies": 11,
+    "documents": 73,
+    "pages": 11378,
+    "parts": 280,
+    "sourceBytes": 204338303,
+    "markdownBytes": 32755284,
     "replacementCharacters": 0,
-    "visualReviewedPages": 775,
+    "visualReviewedPages": 785,
     "pendingVisualPages": 0,
     "unreadableRanges": 7
   },
   "agencies": [
+    {
+      "agencyId": "mlit",
+      "agencyName": "国土交通省",
+      "documentCount": 1,
+      "pages": 269,
+      "partCount": 6
+    },
     {
       "agencyId": "chubu",
       "agencyName": "中部地方整備局",
@@ -4190,6 +4197,82 @@
           "pageCount": 34,
           "sha256": "1eeaa254353d58338429d5e37ab3e8b869c2ddb6a444df8f6f8310ed17006d9e",
           "bytes": 127502
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "mlit",
+      "agencyName": "国土交通省",
+      "documentId": "sekou-kanri-kijun",
+      "role": "companion",
+      "title": "土木工事施工管理基準及び規格値（案） 令和8年3月",
+      "landing": "https://www.mlit.go.jp/tec/tec_tk_000052.html",
+      "sourceUrl": "https://www.mlit.go.jp/tec/content/001990185.pdf",
+      "sourceSha256": "ae9d1ba85098f4bd913021ad4e354b85010d3c28930cf9480611859343e18b41",
+      "sourceBytes": 2309599,
+      "pages": 269,
+      "partCount": 6,
+      "markdownBytes": 1548870,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 10,
+      "pendingVisualPages": 0,
+      "edition": "令和8年3月",
+      "sourceFile": "sekou-kanri-kijun__001990185.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "mlit/sekou-kanri-kijun/part-01.md",
+          "firstPage": 1,
+          "lastPage": 50,
+          "pageCount": 50,
+          "sha256": "7f419586a1ba8bc1faae1ac25870e3e23a213c4e213aa6066f82166f92c321e3",
+          "bytes": 271582
+        },
+        {
+          "slug": "part-02",
+          "file": "mlit/sekou-kanri-kijun/part-02.md",
+          "firstPage": 51,
+          "lastPage": 100,
+          "pageCount": 50,
+          "sha256": "b11d9eec4196eec32df56b598308e5c7c721ba0ce73515c646a2d0d835767bdd",
+          "bytes": 176842
+        },
+        {
+          "slug": "part-03",
+          "file": "mlit/sekou-kanri-kijun/part-03.md",
+          "firstPage": 101,
+          "lastPage": 150,
+          "pageCount": 50,
+          "sha256": "c23e57bf69e2c939533e1827e2d7c7f2cf11232bac9dde7cd4eb203a0c8c8a41",
+          "bytes": 163187
+        },
+        {
+          "slug": "part-04",
+          "file": "mlit/sekou-kanri-kijun/part-04.md",
+          "firstPage": 151,
+          "lastPage": 200,
+          "pageCount": 50,
+          "sha256": "dab389304885ad26bdde0ff3866e35ff0d627840909892225d79cf51a13baeae",
+          "bytes": 144322
+        },
+        {
+          "slug": "part-05",
+          "file": "mlit/sekou-kanri-kijun/part-05.md",
+          "firstPage": 201,
+          "lastPage": 250,
+          "pageCount": 50,
+          "sha256": "8612e4f45ab0aa8dd448e0cd77743d0c7a6c34f29b65e71a160cc954b317f8a7",
+          "bytes": 551260
+        },
+        {
+          "slug": "part-06",
+          "file": "mlit/sekou-kanri-kijun/part-06.md",
+          "firstPage": 251,
+          "lastPage": 269,
+          "pageCount": 19,
+          "sha256": "35140118f7825a4d52960c2369e2e655cc90e48c8273b6e08109730ec574ddd1",
+          "bytes": 241677
         }
       ],
       "unreadableRanges": []
