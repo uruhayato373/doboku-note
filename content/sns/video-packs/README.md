@@ -83,7 +83,7 @@
 | packId | タイトル | 悩み | intent | 段階 | 台本/構成 | 主CTA |
 |---|---|---|---|---|---|---|
 | `anzen-ippanron-3riyu` | 安全管理の答案が一般論になる3つの原因 | 安全管理の答案がどの現場でも通じる一般論になってしまう | diagnosis | 停止 | 台本/構成 | `coconala-shindan` |
-| `anzen-touan-gutaika` | 安全管理の答案を具体化する — 現場条件から書く | 安全対策を並べた答案になり、自分の現場の条件とつながらない | howto | 未登録 | —/— | `civil-2-experience-essay` |
+| `anzen-touan-gutaika` | 安全管理の答案を具体化する — 現場条件から書く | 安全対策を並べた答案になり、自分の現場の条件とつながらない | howto | 予約 | 台本/構成 | `civil-2-experience-essay` |
 | `gakka-2kyu-concrete` | 2級土木 コンクリートの頻出点 — 打込み・養生・継目 | 打込みや養生の細かい規定のどれが試験に出るのか分からない | exam-point | 停止 | 台本/構成 | `civil-2-takuitsu-pdf` |
 | `gakka-2kyu-doko` | 2級土木 土工の頻出点 — 最短で押さえる | 土工の範囲が広くどこから覚えれば得点になるか分からない | exam-point | 公開 | 台本/構成 | `civil-2-takuitsu-pdf` |
 | `gakka-2kyu-hoki` | 2級土木 法規の頻出点 — 労基法と安衛法を優先する | 法規の出題範囲が広すぎてどの法律を優先するか決められない | exam-point | 停止 | 台本/構成 | `civil-2-takuitsu-pdf` |

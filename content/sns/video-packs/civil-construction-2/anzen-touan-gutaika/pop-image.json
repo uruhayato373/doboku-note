@@ -332,6 +332,200 @@
       ],
       "publication": "画像確認用下書き・外部未反映",
       "reviewScope": "原寸と幅360pxの静止画像。下端10%の文字安全域。動画・音声・字幕合成は未作成。"
+    },
+    "longform-video": {
+      "version": "pop-poster-v3",
+      "publicationId": "civil-construction-2/anzen-touan-gutaika/youtube.longform",
+      "sourceRevision": "longform-image-review",
+      "canvas": [
+        1920,
+        1080
+      ],
+      "productionConversion": {
+        "tool": "ffmpeg",
+        "filter": "scale=1920:1080:flags=lanczos,setsar=1",
+        "note": "確認済み原画像を動画キャンバスへ等価配置。文言・人物は追加生成しない。"
+      },
+      "adoptedImages": {
+        "cover": {
+          "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/cover.dc301708.png",
+          "sha256": "dc301708ac15a33e589fda31c7bec66c8fd00f22df0ea55973cbb2cf595035ad"
+        },
+        "cta": {
+          "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/cta.e30cc205.png",
+          "sha256": "e30cc205813f8316a5b370ffff77ea8e7d9aeafc728cf7641d3f23a75dcf57c8"
+        }
+      },
+      "review": {
+        "status": "scheduled-after-checks",
+        "authorization": "2026-10-15 ユーザー「動画を作成して公開したい 時間は適度に設定して予約」",
+        "humanPlaybackReview": "not-recorded",
+        "checkedScenes": 10,
+        "captionOverlap": "none-observed",
+        "openingSeconds": 2.62,
+        "longStaticScenes": 0,
+        "speechSource": "storyboardの全10場面を読み辞書経由で合成、WAV実尺で同期",
+        "youtubeChecks": {
+          "copyright": "no-issues",
+          "communityGuidelines": "no-issues",
+          "observedAt": "2026-10-14T22:30:00.784Z"
+        },
+        "imageAudit": {
+          "cover": "ok",
+          "cta": "ok",
+          "by": "ai-image-fidelity-auditor"
+        }
+      },
+      "frameRecipe": {
+        "tool": "ffmpeg",
+        "purpose": "確認済み3枚を全画面で映し、本文の該当箇所だけを枠で強調する。字幕は別工程で合成。",
+        "scenes": [
+          {
+            "sceneId": "cover",
+            "source": {
+              "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/cover.906b74b3.png",
+              "sha256": "906b74b3197b4f8d4a13f3e280934c3d8208f7f0c7e5f580c27a0373cad0946e"
+            },
+            "filter": "scale=1920:1080:flags=lanczos,setsar=1",
+            "png": "00-cover.png",
+            "sha256": "dc301708ac15a33e589fda31c7bec66c8fd00f22df0ea55973cbb2cf595035ad"
+          },
+          {
+            "sceneId": "hook",
+            "source": {
+              "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-001.d6f17a6d.png",
+              "sha256": "d6f17a6dc6ffe4839abff06508a7b943d1abdd43b9252571df48abec232a86af"
+            },
+            "filter": "scale=1920:1080:flags=lanczos,setsar=1",
+            "png": "01-hook.png",
+            "sha256": "52df133ead2decb79602059ca7ed393c3d995cb16d2dfe671dbbc55c82f11700"
+          },
+          {
+            "sceneId": "premise",
+            "source": {
+              "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-001.d6f17a6d.png",
+              "sha256": "d6f17a6dc6ffe4839abff06508a7b943d1abdd43b9252571df48abec232a86af"
+            },
+            "filter": "drawbox=x=30:y=722:w=340:h=110:color=white:t=12,drawbox=x=30:y=722:w=340:h=110:color=0xFFDF00:t=6,scale=1920:1080:flags=lanczos,setsar=1",
+            "png": "02-premise.png",
+            "sha256": "177853760113e4417268746b4300d8254f9d77bbb6b371b87f2feeb5a0d251b9"
+          },
+          {
+            "sceneId": "condition",
+            "source": {
+              "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-001.d6f17a6d.png",
+              "sha256": "d6f17a6dc6ffe4839abff06508a7b943d1abdd43b9252571df48abec232a86af"
+            },
+            "filter": "drawbox=x=30:y=342:w=430:h=372:color=white:t=12,drawbox=x=30:y=342:w=430:h=372:color=0xFFDF00:t=6,scale=1920:1080:flags=lanczos,setsar=1",
+            "png": "03-condition.png",
+            "sha256": "18c568bb67cc51f3668b5fb7796af92c3eb8979bc6c39224ad2b787a8f68d470"
+          },
+          {
+            "sceneId": "risk",
+            "source": {
+              "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-001.d6f17a6d.png",
+              "sha256": "d6f17a6dc6ffe4839abff06508a7b943d1abdd43b9252571df48abec232a86af"
+            },
+            "filter": "drawbox=x=489:y=342:w=416:h=372:color=white:t=12,drawbox=x=489:y=342:w=416:h=372:color=0xFFDF00:t=6,scale=1920:1080:flags=lanczos,setsar=1",
+            "png": "04-risk.png",
+            "sha256": "a5ee74618db7d3e46b66e2aaf44be52d5e5ba1af3d9bc5e195397d32407cc429"
+          },
+          {
+            "sceneId": "measure",
+            "source": {
+              "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-001.d6f17a6d.png",
+              "sha256": "d6f17a6dc6ffe4839abff06508a7b943d1abdd43b9252571df48abec232a86af"
+            },
+            "filter": "drawbox=x=932:y=342:w=395:h=372:color=white:t=12,drawbox=x=932:y=342:w=395:h=372:color=0xFFDF00:t=6,scale=1920:1080:flags=lanczos,setsar=1",
+            "png": "05-measure.png",
+            "sha256": "5b1824fae6099b22d8df33e41d4d7642e27914fb2fb633b64634b3e9eb5ed70a"
+          },
+          {
+            "sceneId": "concrete",
+            "source": {
+              "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-001.d6f17a6d.png",
+              "sha256": "d6f17a6dc6ffe4839abff06508a7b943d1abdd43b9252571df48abec232a86af"
+            },
+            "filter": "drawbox=x=932:y=342:w=395:h=372:color=white:t=12,drawbox=x=932:y=342:w=395:h=372:color=0xFFDF00:t=6,drawbox=x=402:y=715:w=866:h=122:color=white:t=12,drawbox=x=402:y=715:w=866:h=122:color=0xFF3344:t=6,scale=1920:1080:flags=lanczos,setsar=1",
+            "png": "06-concrete.png",
+            "sha256": "7d4cd986cf94083a05b017a147018e7cb130cf7c9801ed2a337cf116d728df1f"
+          },
+          {
+            "sceneId": "question",
+            "source": {
+              "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-001.d6f17a6d.png",
+              "sha256": "d6f17a6dc6ffe4839abff06508a7b943d1abdd43b9252571df48abec232a86af"
+            },
+            "filter": "drawbox=x=402:y=715:w=866:h=122:color=white:t=12,drawbox=x=402:y=715:w=866:h=122:color=0xFF3344:t=6,scale=1920:1080:flags=lanczos,setsar=1",
+            "png": "07-question.png",
+            "sha256": "b79a646177a4c23142f6f51a467f0913995ec9b56c5164bfa9f29724ea5fc2e6"
+          },
+          {
+            "sceneId": "summary",
+            "source": {
+              "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-001.d6f17a6d.png",
+              "sha256": "d6f17a6dc6ffe4839abff06508a7b943d1abdd43b9252571df48abec232a86af"
+            },
+            "filter": "drawbox=x=30:y=342:w=430:h=372:color=white:t=12,drawbox=x=30:y=342:w=430:h=372:color=0xFFDF00:t=6,drawbox=x=489:y=342:w=416:h=372:color=white:t=12,drawbox=x=489:y=342:w=416:h=372:color=0xFFDF00:t=6,drawbox=x=932:y=342:w=395:h=372:color=white:t=12,drawbox=x=932:y=342:w=395:h=372:color=0xFFDF00:t=6,scale=1920:1080:flags=lanczos,setsar=1",
+            "png": "08-summary.png",
+            "sha256": "e57f314fb838c4c227fe390806f830cd28655db80d78871fb350e61113f1c895"
+          },
+          {
+            "sceneId": "cta",
+            "source": {
+              "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/cta.4baa72a7.png",
+              "sha256": "4baa72a7831fc1cc8d1666a738d076fcdc8469b084153eb20ef75e450dd7e6a5"
+            },
+            "filter": "scale=1920:1080:flags=lanczos,setsar=1",
+            "png": "09-cta.png",
+            "sha256": "e30cc205813f8316a5b370ffff77ea8e7d9aeafc728cf7641d3f23a75dcf57c8"
+          }
+        ]
+      },
+      "scriptQa": {
+        "by": "video-content-qa",
+        "at": "2026-10-15",
+        "scores": [
+          3,
+          3,
+          2,
+          2,
+          3,
+          3
+        ],
+        "average": 2.67,
+        "blocks": 0,
+        "verdict": "PASS",
+        "command": "npm run check-video-content",
+        "checked": 159,
+        "failed": 0
+      },
+      "audioNormalization": {
+        "filter": "loudnorm=I=-16:TP=-1.5:LRA=11",
+        "sampleRate": 48000,
+        "videoCodec": "copy",
+        "subtitleTiming": "unchanged"
+      },
+      "renderedVideo": {
+        "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/video.d5c46a0c.mp4",
+        "sha256": "d5c46a0cfa82b3f12d5566aeba50d286b9eaa0212ee2ebc92e0f64d8e86c6aa0",
+        "durationSec": 93.9,
+        "width": 1920,
+        "height": 1080,
+        "speaker": 13
+      },
+      "subtitles": {
+        "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/subtitles.bfd5648f.ass",
+        "sha256": "bfd5648f538a58c0fc6cd7bf4b3cf248b760b09613f65494370d8bde93dc0b07"
+      },
+      "publication": {
+        "status": "scheduled",
+        "videoId": "auR8P0pvmlU",
+        "url": "https://youtu.be/auR8P0pvmlU",
+        "publishAt": "2026-10-15T20:00:00+09:00",
+        "observedAt": "2026-10-14T22:30:00.784Z",
+        "evidence": "YouTube Studioの「スケジュールされた動画」ダイアログで2026年10月15日20:00・1:34・題名とIDを照合。GMT+0900。"
+      }
     }
   }
 }

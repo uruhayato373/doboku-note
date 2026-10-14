@@ -109,12 +109,57 @@
       "work": "anzen-touan-gutaika",
       "account": "youtube:main",
       "format": "longform",
-      "status": "draft",
       "copy": "content/sns/video-packs/civil-construction-2/anzen-touan-gutaika/youtube.json#longform",
       "media": {
         "cover": "civil-construction-2/anzen-touan-gutaika/youtube.longform/cover",
         "scene-001": "civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-001",
-        "cta": "civil-construction-2/anzen-touan-gutaika/youtube.longform/cta"
+        "cta": "civil-construction-2/anzen-touan-gutaika/youtube.longform/cta",
+        "scene-002": "civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-002",
+        "scene-003": "civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-003",
+        "scene-004": "civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-004",
+        "scene-005": "civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-005",
+        "scene-006": "civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-006",
+        "scene-007": "civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-007",
+        "scene-008": "civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-008",
+        "scene-009": "civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-009",
+        "scene-010": "civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-010",
+        "video": "civil-construction-2/anzen-touan-gutaika/youtube.longform/video",
+        "subtitles": "civil-construction-2/anzen-touan-gutaika/youtube.longform/subtitles",
+        "preview": "civil-construction-2/anzen-touan-gutaika/youtube.longform/preview",
+        "contact-sheet": "civil-construction-2/anzen-touan-gutaika/youtube.longform/contact-sheet",
+        "preview-metrics": "civil-construction-2/anzen-touan-gutaika/youtube.longform/preview-metrics"
+      },
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "user",
+          "at": "2026-10-14T22:28:31.242Z",
+          "digest": "bb8cd5a22a0958a88dfd926ab35bb23b7e5dc6d9064e0023d1b86331b792c349"
+        }
+      },
+      "platform": {
+        "id": "auR8P0pvmlU",
+        "url": "https://youtu.be/auR8P0pvmlU",
+        "privacy": "private"
+      },
+      "status": "scheduled",
+      "publishAt": "2026-10-15T20:00:00+09:00",
+      "approval": {
+        "by": "user",
+        "at": "2026-10-14T22:28:31.405Z",
+        "contentSha256": "cb5719d26244faecc7988a55886dfb05615aa7cbec7ec60fe75bd9716c21b12d"
+      },
+      "times": {
+        "rendered": "2026-10-14T22:29:18.425Z",
+        "uploaded": "2026-10-14T22:28:31.418Z",
+        "scheduled": "2026-10-14T22:30:00.784Z"
+      },
+      "disclosure": {
+        "syntheticMedia": false
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-10-14T22:29:18.425Z"
       }
     },
     {
