@@ -730,7 +730,7 @@ const ytVideoStats = z
   .object({
     sampled: count('一覧から取った動画の数'),
     withViews: count('再生数が取れた動画の数'),
-    totalViews: count('再生数の合計（取れた動画だけ）'),
+    totalViews: orNull(count('再生数の合計（取れた動画だけ）'), '再生数が 1 本も取れなければ null（0 回と区別する）'),
     medianViews: orNull(count('再生数の中央値'), '再生数が 1 本も取れなければ null'),
     medianDurationSec: orNull(count('尺の中央値（秒）'), '尺が 1 本も取れなければ null'),
   })

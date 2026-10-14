@@ -121,7 +121,7 @@
       "stats": {
         "sampled": 1,
         "withViews": 0,
-        "totalViews": 0,
+        "totalViews": null,
         "medianViews": null,
         "medianDurationSec": 135
       }
