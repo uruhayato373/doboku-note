@@ -373,14 +373,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 **完了条件**: 直近の PR 20 回の lhci で performance の warn が 0〜1 回（r06 の点数が 0.7 以上、または理由つきで対象・閾値を変えた）。
 
 
-### [DN-0734] YouTubeの現行ID以外で公開された移行版を台帳照合から取りこぼす
-タグ: [領域:SNS] [時期:2026-10] [種類:不具合] [起票:2026-10-14]
-
-起点: 2026-10-14の認証済みYouTube全件取得（Actions run 38471940264、thumbnail-inventory・commit=false）で、工事概要7項目の旧版 hJYV_U0qKvA と移行版 3MLA_Ee54uQ が共に公開中と確認した。content/registry/publications/youtube/civil-construction-1.json の civil-construction-1/koji-gaiyo-7items/youtube.longform は旧IDだけを指す。移行版はprivate R2の既存receiptで制作元へ特定できるが、現行IDだけを観測する照合では別IDの公開を見落とす。
-
-やること: 公開台帳と既存のprivate移行記録を照合し、現行ID以外の公開実体を検出・表示できるようにする。この作品の採用IDと旧版処分は運営者の判断へ渡し、動画IDの自動差し替えや無断削除はしない。DN-0608の台帳切り替えと整合させ、旧新対応表を公開Gitへ複製しない。
-
-完了条件: 現行台帳IDと同じ制作元の別公開動画がある場合、照合結果に漏れず現れ、上記2本の処分判断に必要な実体と台帳の対応を追跡できる。現行IDのみ・移行中の非公開版・公開済み別IDのケースを回帰テストで区別する。
 
 
 ### [DN-0731] 記事の末尾の「この記事の根拠法令」と法令ページを作る（e-Gov のリンクから自動で集める）

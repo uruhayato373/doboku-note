@@ -3831,6 +3831,23 @@
       "commit": "8381f7303241",
       "verification": "curl で /exam/civil-construction-1/secondary/r08 が 200 と <main>",
       "note": "2級の枠ページ（guide/r08-secondary-answers）を試験前に公開済み・1級 r08 は問題と解答例まで公開済み（本番 200・<main> を確認）。10/26 公表後の本体は DN-0736 へ抽出"
+    },
+    {
+      "id": "DN-0734",
+      "at": "2026-10-14",
+      "task": "YouTubeの現行ID以外で公開された移行版を台帳照合から取りこぼす",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "none",
+        "ref": "YouTube 整理（688 本削除・2026-10-13）で対象の旧版 hJYV_U0qKvA の公開行は stopped になり、移行版の二重公開という状況自体が無くなった"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "20703f0ac7dd",
+      "verification": "content/registry/publications/youtube/*.json の status 集計（published 1・uploaded_private 2・stopped 535）",
+      "note": "対象外として閉じる。運営者の方針（2026-10-14）は内容を精査した高品質の動画だけを続ける形で、旧版と移行版の並行公開は起きない見込み。再発したら新しく起票する"
     }
   ]
 }
