@@ -50,6 +50,7 @@ frontmatter `group` の語彙は 7 値。定義は**問題形式**で与え、�
 ## 4. 分野（section）
 
 資格内の分野の並びと、guide・textbook・keyword の配置は `src/config/category-curriculum.json` が持つ（`examGuide` / `textbookChapters` / `fields.blocks` / `keywordSection` / `careerFeatured`。形はカテゴリごとに違ってよい）。未掲載の guide は `check-category-curriculum` が WARN で出す。分野名は §5 の資格・科目タグと同じ表記を使う。
+- **実務（`civil-practice`）の工種別ノート（`fields.blocks`）には、工種の区分に加えてシリーズの区分を置ける**（[18_自治体土木担当・コンクリートシリーズ方針2026-10.md](../../../docs/strategy/18_自治体土木担当・コンクリートシリーズ方針2026-10.md)）。1 記事は 1 区分にだけ置く（表示は先に書いた区分が勝つ）。シリーズの章になった既存記事は、工種の区分からシリーズの区分へ移す。シリーズの記事には、横のナビ（タグの重なりで選ぶ）が近い章を出せるよう、シリーズ共通の主題タグ（自治体の土木担当は `地方公共団体`）と分野のタグ（`道路` `河川` など）を付ける。シリーズを工種別ノートとは別の節にする仕組みは、`/practice/` のカテゴリページが 28 日で 100 セッションを超えたら作る（2026-10-15 に 2 セッション）
 
 ## 5. タグ
 
