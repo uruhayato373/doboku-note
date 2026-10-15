@@ -1,0 +1,83 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は海岸法第7条・第8条・第10条・第37条の4・第37条の5、港湾法第37条・第38条の2、漁港法第39条。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="区域ごとの許可の相手と根拠の条を、占用と、工作物・土石の採取・掘削などの行為で並べた表。海岸保全区域は海岸法第7条と第8条、一般公共海岸区域は第37条の4と第37条の5、港湾区域・港湾隣接地域は港湾法第37条、漁港区域は漁港法第39条。臨港地区は許可でなく港湾法第38条の2の届出。国・自治体は協議で足りる。港湾法の許可があれば、重なる範囲で海岸法の許可は要らない。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }  /* ink-body */
+      .h { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 11px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .b { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .hd { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }  /* surface */
+      .src { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }  /* brand-fill / brand */
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }  /* warn-fill / warn */
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }  /* positive-fill / positive */
+      .sf { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; stroke-dasharray: 4 3; }
+    </style>
+  </defs>
+  <rect class="hd" x="10" y="10" width="96" height="36" rx="6"/>
+  <text class="h" x="58.0" y="33" text-anchor="middle">区域</text>
+  <rect class="hd" x="111" y="10" width="82" height="36" rx="6"/>
+  <text class="h" x="152.0" y="33" text-anchor="middle">許可の相手</text>
+  <rect class="hd" x="198" y="10" width="82" height="36" rx="6"/>
+  <text class="h" x="239.0" y="33" text-anchor="middle">占用</text>
+  <rect class="hd" x="285" y="10" width="104" height="36" rx="6"/>
+  <text class="h" x="337.0" y="26" text-anchor="middle">工作物・</text>
+  <text class="h" x="337.0" y="40" text-anchor="middle">採取・掘削</text>
+  <rect class="brand" x="10" y="52" width="96" height="56" rx="6"/>
+  <text class="n" x="20" y="76">海岸保全</text>
+  <text class="n" x="20" y="94">区域</text>
+  <rect class="brand" x="111" y="52" width="82" height="56" rx="6"/>
+  <text class="b" x="152.0" y="84.0" text-anchor="middle">海岸管理者</text>
+  <rect class="src" x="198" y="52" width="82" height="56" rx="6"/>
+  <text class="s" x="239.0" y="74" text-anchor="middle">海岸法</text>
+  <text class="n" x="239.0" y="94" text-anchor="middle">第7条</text>
+  <rect class="src" x="285" y="52" width="104" height="56" rx="6"/>
+  <text class="s" x="337.0" y="74" text-anchor="middle">海岸法</text>
+  <text class="n" x="337.0" y="94" text-anchor="middle">第8条</text>
+  <rect class="brand" x="10" y="113" width="96" height="56" rx="6"/>
+  <text class="n" x="20" y="137">一般公共</text>
+  <text class="n" x="20" y="155">海岸区域</text>
+  <rect class="brand" x="111" y="113" width="82" height="56" rx="6"/>
+  <text class="b" x="152.0" y="145.0" text-anchor="middle">海岸管理者</text>
+  <rect class="src" x="198" y="113" width="82" height="56" rx="6"/>
+  <text class="s" x="239.0" y="135" text-anchor="middle">海岸法</text>
+  <text class="n" x="239.0" y="155" text-anchor="middle">第37条の4</text>
+  <rect class="src" x="285" y="113" width="104" height="56" rx="6"/>
+  <text class="s" x="337.0" y="135" text-anchor="middle">海岸法</text>
+  <text class="n" x="337.0" y="155" text-anchor="middle">第37条の5</text>
+  <rect class="warn" x="10" y="174" width="96" height="56" rx="6"/>
+  <text class="n" x="20" y="198">港湾区域・</text>
+  <text class="n" x="20" y="216">港湾隣接地域</text>
+  <rect class="warn" x="111" y="174" width="82" height="56" rx="6"/>
+  <text class="b" x="152.0" y="206.0" text-anchor="middle">港湾管理者</text>
+  <rect class="src" x="198" y="174" width="82" height="56" rx="6"/>
+  <text class="s" x="239.0" y="196" text-anchor="middle">港湾法</text>
+  <text class="n" x="239.0" y="216" text-anchor="middle">第37条</text>
+  <rect class="src" x="285" y="174" width="104" height="56" rx="6"/>
+  <text class="s" x="337.0" y="196" text-anchor="middle">港湾法</text>
+  <text class="n" x="337.0" y="216" text-anchor="middle">第37条</text>
+  <rect class="warn" x="10" y="235" width="96" height="56" rx="6"/>
+  <text class="n" x="20" y="268">漁港区域</text>
+  <rect class="warn" x="111" y="235" width="82" height="56" rx="6"/>
+  <text class="b" x="152.0" y="267.0" text-anchor="middle">漁港管理者</text>
+  <rect class="src" x="198" y="235" width="82" height="56" rx="6"/>
+  <text class="s" x="239.0" y="257" text-anchor="middle">漁港法</text>
+  <text class="n" x="239.0" y="277" text-anchor="middle">第39条</text>
+  <rect class="src" x="285" y="235" width="104" height="56" rx="6"/>
+  <text class="s" x="337.0" y="257" text-anchor="middle">漁港法</text>
+  <text class="n" x="337.0" y="277" text-anchor="middle">第39条</text>
+  <rect class="sf" x="10" y="296" width="96" height="56" rx="6"/>
+  <text class="n" x="20" y="329">臨港地区</text>
+  <rect class="sf" x="111" y="296" width="82" height="56" rx="6"/>
+  <text class="b" x="152.0" y="328.0" text-anchor="middle">港湾管理者</text>
+  <rect class="sf" x="198" y="296" width="191" height="56" rx="6"/>
+  <text class="n" x="293.5" y="319" text-anchor="middle">許可でなく届出</text>
+  <text class="s" x="293.5" y="338" text-anchor="middle">港湾法第38条の2（60日前まで）</text>
+  <rect class="pos" x="10" y="362" width="380" height="58" rx="8"/>
+  <text class="n" x="22" y="385">国・自治体は、許可でなく協議で足りる</text>
+  <text class="s" x="22" y="405">海岸法第10条・港湾法第37条・漁港法第39条</text>
+  <rect class="pos" x="10" y="428" width="380" height="62" rx="8"/>
+  <text class="n" x="22" y="451">港湾法の許可があれば、海岸法の許可は不要</text>
+  <text class="s" x="22" y="471">港湾区域・港湾隣接地域に重なる範囲だけ（海岸法第10条第1項）</text>
+</svg>
