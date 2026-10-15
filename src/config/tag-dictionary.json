@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-15T04:10:06.400Z",
+  "generated_at": "2026-10-15T04:11:25.285Z",
   "summary": {
-    "total_mdx_files": 1424,
+    "total_mdx_files": 1425,
     "total_unique_tags": 133,
     "allowlist_size": 330,
     "known_count": 133,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 248,
+      "count": 249,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1233,6 +1233,7 @@
         "civil-practice-public-works-bidding-methods",
         "civil-practice-public-works-delivery-methods",
         "civil-practice-public-works-environmental-care",
+        "civil-practice-public-works-planning-evaluation",
         "civil-practice-quality-record-site-bcp",
         "civil-practice-ready-mixed-concrete-ordering",
         "civil-practice-rebar-corrosion-handling",
@@ -2690,7 +2691,7 @@
     },
     {
       "name": "関係法規",
-      "count": 89,
+      "count": 90,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-engineer-assignment",
@@ -2718,6 +2719,7 @@
         "civil-practice-public-works-bidding-methods",
         "civil-practice-public-works-delivery-methods",
         "civil-practice-public-works-environmental-care",
+        "civil-practice-public-works-planning-evaluation",
         "civil-practice-safety-document-cross-check",
         "civil-practice-safety-health-education-plan",
         "civil-practice-subcontract-fair-dealing",
@@ -3793,13 +3795,14 @@
     },
     {
       "name": "地方公共団体",
-      "count": 23,
+      "count": 24,
       "inAllowlist": true,
       "usedIn": [
         "civil-practice-board-of-audit-inspection",
         "civil-practice-coast-port-administrators",
         "civil-practice-owner-safety-responsibility",
         "civil-practice-public-meeting-consensus",
+        "civil-practice-public-works-planning-evaluation",
         "civil-practice-river-act-framework",
         "civil-practice-river-facility-inspection-operation",
         "civil-practice-road-boundary-and-road-ledger",
@@ -4905,6 +4908,18 @@
       ]
     },
     {
+      "name": "国土形成計画",
+      "count": 5,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-public-works-planning-evaluation",
+        "pe-construction-chiiki-dukuri-ronbun-keyword",
+        "pe-construction-infra-system-overseas",
+        "pe-construction-kokudo-keisei-chiiki",
+        "pe-construction-shakai-shihon-ronbun-keyword"
+      ]
+    },
+    {
       "name": "生産性向上",
       "count": 5,
       "inAllowlist": true,
@@ -4949,17 +4964,6 @@
         "pe-comprehensive-management-r03-essay-general-contractor",
         "pe-comprehensive-management-r03-essay-river-consultant",
         "pe-comprehensive-management-r03-essay-road-municipality"
-      ]
-    },
-    {
-      "name": "国土形成計画",
-      "count": 4,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-chiiki-dukuri-ronbun-keyword",
-        "pe-construction-infra-system-overseas",
-        "pe-construction-kokudo-keisei-chiiki",
-        "pe-construction-shakai-shihon-ronbun-keyword"
       ]
     },
     {
