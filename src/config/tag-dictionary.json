@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-15T03:59:16.357Z",
+  "generated_at": "2026-10-15T04:10:06.400Z",
   "summary": {
-    "total_mdx_files": 1423,
+    "total_mdx_files": 1424,
     "total_unique_tags": 133,
     "allowlist_size": 330,
     "known_count": 133,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 247,
+      "count": 248,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1222,6 +1222,7 @@
         "civil-practice-nature-conservation-mitigation",
         "civil-practice-netis-new-technology-use",
         "civil-practice-oshms-pdca-site-operation",
+        "civil-practice-owner-safety-responsibility",
         "civil-practice-pile-bearing-verification",
         "civil-practice-pile-concrete-head-treatment",
         "civil-practice-pipe-jacking-methods",
@@ -1540,7 +1541,7 @@
     },
     {
       "name": "安全管理",
-      "count": 155,
+      "count": 156,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-four-management",
@@ -1559,6 +1560,7 @@
         "civil-practice-earthquake-tsunami-site-response",
         "civil-practice-lifting-equipment-selection",
         "civil-practice-oshms-pdca-site-operation",
+        "civil-practice-owner-safety-responsibility",
         "civil-practice-rainfall-work-suspension",
         "civil-practice-risk-assessment-construction-workflow",
         "civil-practice-safety-culture-discipline",
@@ -2688,7 +2690,7 @@
     },
     {
       "name": "関係法規",
-      "count": 88,
+      "count": 89,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-engineer-assignment",
@@ -2710,6 +2712,7 @@
         "civil-practice-foreign-workers-site-check",
         "civil-practice-keishin-bidder-qualification",
         "civil-practice-license-scope-judgment",
+        "civil-practice-owner-safety-responsibility",
         "civil-practice-pre-construction-process",
         "civil-practice-public-meeting-consensus",
         "civil-practice-public-works-bidding-methods",
@@ -3790,11 +3793,12 @@
     },
     {
       "name": "地方公共団体",
-      "count": 22,
+      "count": 23,
       "inAllowlist": true,
       "usedIn": [
         "civil-practice-board-of-audit-inspection",
         "civil-practice-coast-port-administrators",
+        "civil-practice-owner-safety-responsibility",
         "civil-practice-public-meeting-consensus",
         "civil-practice-river-act-framework",
         "civil-practice-river-facility-inspection-operation",
