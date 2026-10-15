@@ -35,7 +35,7 @@ export default function RootLayout({
         <SidebarProvider>
           {/* useSearchParams の Suspense 境界は Nav の中（メニュー部分だけ）に置く */}
           <Nav todoLayers={layers} ledger={ledgerNav()} design={designQualifications()} materials={materialsNav()} domains={domainList()} stores={storeNav()} />
-          <SidebarInset>
+          <SidebarInset className="min-w-0">
             {/* スマホ幅だけの上部バー。サイドバーは SidebarTrigger で開く Sheet（公式 Sidebar のモバイル表示）になる */}
             <header className="sticky top-0 z-20 flex h-12 items-center gap-2 border-b border-sidebar-border bg-sidebar px-3 text-sidebar-foreground md:hidden">
               <SidebarTrigger />

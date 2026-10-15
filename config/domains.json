@@ -217,6 +217,12 @@
           "match": "/sns"
         },
         {
+          "label": "通常動画",
+          "href": "/sns/youtube/longform",
+          "kind": "actions",
+          "match": "/sns/youtube/longform"
+        },
+        {
           "label": "動画成果",
           "href": "/metrics/video",
           "kind": "results",
