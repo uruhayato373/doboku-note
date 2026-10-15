@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-15T09:37:46.962Z",
+  "generated_at": "2026-10-15T09:39:07.987Z",
   "summary": {
-    "total_mdx_files": 1447,
+    "total_mdx_files": 1448,
     "total_unique_tags": 133,
     "allowlist_size": 330,
     "known_count": 133,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 271,
+      "count": 272,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1209,6 +1209,7 @@
         "civil-practice-concrete-structure-inspection",
         "civil-practice-concrete-work-preparation",
         "civil-practice-construction-inspection-types",
+        "civil-practice-construction-materials-overview",
         "civil-practice-construction-plan-document",
         "civil-practice-cost-and-design-change",
         "civil-practice-development-permit-public-facilities",
@@ -3433,7 +3434,7 @@
     },
     {
       "name": "品質管理",
-      "count": 53,
+      "count": 54,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-four-management",
@@ -3454,6 +3455,7 @@
         "civil-practice-concrete-structure-inspection",
         "civil-practice-concrete-work-preparation",
         "civil-practice-construction-inspection-types",
+        "civil-practice-construction-materials-overview",
         "civil-practice-material-selection-receiving",
         "civil-practice-numerical-model-review",
         "civil-practice-polymer-construction-materials",
@@ -4767,6 +4769,22 @@
       ]
     },
     {
+      "name": "材料",
+      "count": 9,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-asphalt-materials-types",
+        "civil-practice-concrete-hydration-basics",
+        "civil-practice-construction-materials-overview",
+        "civil-practice-polymer-construction-materials",
+        "civil-practice-steel-material-properties",
+        "civil-practice-wood-and-stone-materials",
+        "concrete-chief-engineer-textbook-materials",
+        "concrete-chief-engineer-textbook-properties",
+        "concrete-engineer-textbook-materials"
+      ]
+    },
+    {
       "name": "河川、砂防及び海岸・海洋",
       "count": 9,
       "inAllowlist": true,
@@ -4843,21 +4861,6 @@
         "civil-construction-1-textbook-steel-structures",
         "civil-construction-1-textbook-tunnel-natm",
         "civil-construction-1-textbook-water-sewer"
-      ]
-    },
-    {
-      "name": "材料",
-      "count": 8,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-asphalt-materials-types",
-        "civil-practice-concrete-hydration-basics",
-        "civil-practice-polymer-construction-materials",
-        "civil-practice-steel-material-properties",
-        "civil-practice-wood-and-stone-materials",
-        "concrete-chief-engineer-textbook-materials",
-        "concrete-chief-engineer-textbook-properties",
-        "concrete-engineer-textbook-materials"
       ]
     },
     {
