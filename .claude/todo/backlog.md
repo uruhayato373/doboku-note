@@ -1926,6 +1926,8 @@ Windows（autocrlf で MDX が CRLF）で npm run refresh-indexes を回すと�
 
 **やること**: 方式を運営者が選んでから着手する。案A＝台帳に `.claude/config/` を 3 つ目の領域として載せ、型を台帳の schema に結ぶ（置き場の規則・パスの直書き検査・管理画面 /ops/store の拡張が要る）。案B＝台帳は変えず、20 本の型と検査だけを足す。型は `scripts/lib/dataset-schema-parts.mjs` の部品で書き、版の欄・strict の方針は `.claude/knowledge/reference/data-storage-decision.md`「型の正本は zod」に従う。
 
+**比較と推奨（2026-10-15）**: 実測で .claude/config/ の JSON は 21 本、コードからのパスの直書きは 60 ファイル・149 か所。案A は台帳を 1 本に保てる（data-storage-decision の方針どおり）が、台帳に載せた瞬間にこの 149 か所が「直書き」として検査に引っかかり、datasetPath への置き換えか 149 件のラチェットの台帳が要る。案B は 21 本の型と、型の無い JSON を止める検査だけで済み、直書きはそのまま。**推奨は案B を先に**（壊れるとログインや書き戻しが止まる、という起点の危険は型で塞がる）。直書きの整理は効果が別（置き場を移すときの取り残し防止）なので、要るなら別カードで案A へ移す。
+
 **完了条件**: `.claude/config/` の JSON 20 本すべてが型で検査され、型の無い JSON を CI が止める。`npm run check-datasets`（案A）か追加した検査（案B）が検査したファイル数を出して違反 0。
 
 ### [DN-0521] 上下水道ページの note 導線を公開4週間後に配置別CTRで評価する
