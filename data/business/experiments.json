@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-15T13:13:58.755Z",
+  "updated_at": "2026-10-15T13:15:35.543Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -2345,7 +2345,7 @@
       "closed_at": null,
       "result": null,
       "learnings": null,
-      "next_check_date": "2026-10-15",
+      "next_check_date": "2026-11-05",
       "pending_user_actions": [],
       "actions": [
         "A/B/Cを既存の許可済み3案件・既存掲載面へ展開。案件・広告URL・支給画像・1ページ1ピクセル・note順序は維持する。",
@@ -2565,6 +2565,11 @@
           "runUrl": "https://github.com/uruhayato373/doboku-note/actions/runs/37732697682",
           "pullRequest": "https://github.com/uruhayato373/doboku-note/pull/930",
           "note": "過去問の番号一覧を開閉式・44pxボタンへ変更し、冒頭の商品画像をコンパクト化して内容を見る案内を追加。仕様書の版情報・表配色・横スクロール案内も公開。本番2ページ×PC/スマホ×明暗の8条件と外部SSR検査exit 0を確認。共通UI変更はA/B/C全案に適用され、note送客の前後比較に影響し得るため変更時点を記録。訪問者の案別割当・イベント・開始日時・実測値は維持。"
+        },
+        {
+          "at": "2026-10-15T13:15:35.543Z",
+          "event": "measure-defer",
+          "note": "初回確認（公開7日後・窓 10/8〜10/14・CI の自動計測 2026-10-15T13:13Z）。配分は訪問者のほぼ1/3ずつ（閲覧 A1,915・B1,940・C1,971）で表示も3案とも出ている。表示/クリックは A1,270/5（CTR 0.39%）・B1,394/2（0.14%）・C0/1,385（0%）、note のクリック率は A0.78%・B1.01%・C0.60%。各案20クリックの目安に届かず3案とも insufficient-data のため勝敗は決めない。計画どおり28日後の 11/5 に CTR・note 送客・A8 発生/確定で再検討する。"
         }
       ],
       "started_at": "2026-10-08T02:31:46.811Z",
