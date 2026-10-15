@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-15T05:38:04.741Z",
+  "generated_at": "2026-10-15T05:38:42.212Z",
   "summary": {
-    "total_mdx_files": 1436,
+    "total_mdx_files": 1437,
     "total_unique_tags": 133,
     "allowlist_size": 330,
     "known_count": 133,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 260,
+      "count": 261,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1185,6 +1185,7 @@
         "civil-practice-asphalt-pavement-control",
         "civil-practice-backfill-river-excavation",
         "civil-practice-board-of-audit-inspection",
+        "civil-practice-budget-and-funding-sources",
         "civil-practice-buried-cultural-property-survey",
         "civil-practice-cast-in-place-pile-methods",
         "civil-practice-checklist-shoring-buoyancy",
@@ -3600,10 +3601,11 @@
     },
     {
       "name": "地方公共団体",
-      "count": 34,
+      "count": 35,
       "inAllowlist": true,
       "usedIn": [
         "civil-practice-board-of-audit-inspection",
+        "civil-practice-budget-and-funding-sources",
         "civil-practice-buried-cultural-property-survey",
         "civil-practice-city-planning-act-framework",
         "civil-practice-civil-engineer-annual-cycle",
@@ -4608,6 +4610,23 @@
       ]
     },
     {
+      "name": "行政手続き",
+      "count": 10,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-budget-and-funding-sources",
+        "civil-practice-buried-cultural-property-survey",
+        "civil-practice-ccus-kentaikyo-site",
+        "civil-practice-civil-engineer-annual-cycle",
+        "civil-practice-foreign-workers-site-check",
+        "civil-practice-how-to-read-laws-and-notices",
+        "civil-practice-keishin-bidder-qualification",
+        "civil-practice-license-scope-judgment",
+        "civil-practice-public-meeting-consensus",
+        "civil-practice-public-works-bidding-methods"
+      ]
+    },
+    {
       "name": "選択科目",
       "count": 10,
       "inAllowlist": true,
@@ -4719,22 +4738,6 @@
         "surveyor-primary-r06",
         "surveyor-primary-r07",
         "surveyor-primary-r08"
-      ]
-    },
-    {
-      "name": "行政手続き",
-      "count": 9,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-buried-cultural-property-survey",
-        "civil-practice-ccus-kentaikyo-site",
-        "civil-practice-civil-engineer-annual-cycle",
-        "civil-practice-foreign-workers-site-check",
-        "civil-practice-how-to-read-laws-and-notices",
-        "civil-practice-keishin-bidder-qualification",
-        "civil-practice-license-scope-judgment",
-        "civil-practice-public-meeting-consensus",
-        "civil-practice-public-works-bidding-methods"
       ]
     },
     {
