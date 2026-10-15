@@ -116,6 +116,9 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **進捗（2026-10-12）**: check-workflow-health で note-live-audit・ops-audit・note-public-view・fetch-metrics は緑に戻っていた。weekly-review-guard は 10/5 の赤（週次レビュー前の未処分 OPP＝正しい赤）の後、main で手動実行して緑（run 38214647988）。weekly-review-draft は 10/10 に main へ入ったばかりで最初の cron が 10/16 のため「run 0 件」で赤だった＝検査の穴。初回の cron 枠の前は健全とみなす修正を PR #1008 に出した。残りは DN-0485 の Cloudflare 2 本だけ。#478・#940 は日次の ops-audit で自動クローズするかを見る。
 
+**進捗（2026-10-15）**: check-workflow-health の赤は 3 本。Cloudflare の 2 本（DN-0485）に加え、gsc-auto-review が「最後の success が 13 日前」。10/9 の定期実行が、共通の concurrency group develop-git-write で待機中に取り消されていた（作成 3 秒後に cancelled）。仕組みの直しは DN-0750 に分けた。10/16 12:00 の定期実行が通れば残りは DN-0485 の 2 本だけになる。fetch-metrics は 10/15 の手動実行で保存と事業スナップショットの 2 か所が落ちていたのを PR #1081 で直した。Issue #478 はまだ open。
+
+
 ### [DN-0453] 過去問 iOS アプリを総監・技術士（建設部門）・1級土木でまず試作する
 タグ: [収益化] [領域:商品] [時期:2026-10..2026-11] [期日:2026-11-08] [種類:改善] [起票:2026-09-29]
 
@@ -190,26 +193,8 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **手がかり（2026-10-10）**: 同じ日に Google Drive の本体アプリが止まっていて、マウントの read が全部 ETIMEDOUT になっていた（File Provider の拡張だけ動いていた・`open -a "Google Drive"` で 20 秒後に復旧）。10/4 の取り寄せの失敗も同じ原因の可能性が高い。次の日曜の同期の前に `pgrep -fl "Google Drive.app/Contents/MacOS"` で本体が動いているかを見る（memory reference_drive_vault_ledger_drift）。
 
-### [DN-0502] 技術士一次試験の主要10ページを GSC でインデックス登録リクエストする（Mac・運営者作業）
-タグ: [SNS・マーケ] [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-10-02] [期日:2026-10-17]
+**進捗（2026-10-15）**: 10/11 の週次も失敗していた（河川砂防の 10 本が errno -11＝macOS の EDEADLK。File Provider がその場でダウンロードできない）。同じファイルは日中の手動 `drive-vault-sync --pull --commit` で失敗 0。対策を PR #1082 で develop に入れた（一時的な読み出し失敗は 20 秒・40 秒あけて読み直す・最初の取り寄せ前に Drive 本体を確かめ、止まっていれば起動して 60 秒待つ）。あわせて夜間用の作業ツリー（.claude/worktrees/note-sync）へ配布 PDF 773 件中の未取得 622 件を取り寄せた（失敗 0）ので、既存の PDF は次の週次で Drive を読まない。**残り**: 10/18 の週次の sync-log.json で「PDF を Drive から取り寄せられない」が 0 件なら完了。
 
-**起点**: DN-0499 の手作業分。2026-10-02 に一次試験の内部リンク・題名・一覧ページの改善を本番へ出した（PR #829・main d2fed24）。9/30 の URL 検査で一次試験 53 ページ中 26 ページが未登録（「検出 - インデックス未登録」20・「Google に認識されていません」6）で、R07 基礎と無料演習は Google に認識されていない。11/22 の試験前に検索の入口を開けたい。
-
-**やること**: 運営者が Mac で GSC（sc-domain:doboku-note.com）の URL 検査を開き、次の 10 URL を「インデックス登録をリクエスト」する（1 日の上限に注意）。
-1. https://doboku-note.com/exam/pe-first-stage
-2. https://doboku-note.com/exam/pe-first-stage/guide/overview
-3. https://doboku-note.com/exam/pe-first-stage/primary/r07-basic
-4. https://doboku-note.com/exam/pe-first-stage/primary/r07-aptitude
-5. https://doboku-note.com/exam/pe-first-stage/primary/r07-construction
-6. https://doboku-note.com/exam/pe-first-stage/primary/r06-basic
-7. https://doboku-note.com/exam/pe-first-stage/primary/r06-aptitude
-8. https://doboku-note.com/exam/pe-first-stage/primary/r05-basic
-9. https://doboku-note.com/exam/pe-first-stage/guide/study-plan
-10. https://doboku-note.com/tools/kakomon-quiz/pe-first-stage
-
-**完了条件**: 10 URL すべてでリクエストを送った（GSC の画面で「インデックス登録をリクエスト済み」を確認）。効果の確認は DN-0499 の完了条件（2026-11 初めの比較）で行う。
-
-**期日の変更（週次レビュー 2026-10-10）**: Mac でのログイン作業（DN-0643）と同じ日にまとめるため 2026-10-17 へ。
 
 ### [DN-0500] 技術士一次試験 令和8年度（11/22）の解答速報ページを事前に用意し、公式正答の公開後すぐ埋める
 タグ: [SNS・マーケ] [領域:サイト] [時期:2026-11] [種類:制作] [起票:2026-10-02] [期日:2026-11-22]
@@ -336,18 +321,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **note 側（2026-10-15 に対応・運営者の決定で外した）**: 1級の L3 194 本と共通の案内 5 本・自己採点・会員限定 12 本・LINE 誘導・RCCM から、受付していないココナラ出品へのリンクを外した（PR fix/civil1-coconala-cta-paused）。再発は check-coconala-wiring の「記事が受付していない出品へ送っていないか」が CI で止める。ライブへの反映は Mac の note 同期。以下は外す前の監査の記録: 1級の L3 約 194 ファイルの `cta:coconala-custom` が 4418735（paused・resumeOn 2026-10-26）と 4350199（下書きに戻され公開ページ 404）を案内している。土木もくじ :45 の「1級の添削は案内を止めている」と矛盾。外すか、10/26 の再開に合わせた文面へ切り替えるかを、受付を止めるか来季向けにするかの決定と一緒に決める。1 本ずつ直さず、管理ブロック（wire-note-funnel-cta 系）で `resumeOn` を見て切り替えるのが望ましい。
 
-### [DN-0312] ココナラ room 18351970（1級）の残り2テーマ（環境対策・施工計画）を DM で添削する
-タグ: [収益化] [領域:商品] [時期:2026-09..2026-10] [種類:改善] [起票:2026-09-25] [期日:2026-10-14]
-
-**起点**: 2026-09-25 17:15 に2テーマ（工程管理・安全管理）を正式に納品。購入者は 20:28 におひねり ¥9,000（全5テーマ版との差額として案内した額）を払い、20:45 に承諾して取引はクローズした。クローズ後のトークルームにはメッセージ欄が無いため、同日夜に購入者プロフィールの「メッセージを送る」から DM を送った（運営者操作）。約束は、本人が書いた残り3テーマ（品質管理・環境対策・施工計画）を受け取りから24時間以内に添削・書き直し1回、答案は 10/1 までが目安、迷ったら現場の事実を箇条書きで送れば題材の振り分けを手伝う（答案は本人が書く）。orders.json は serviceId `coconala-tensaku-4theme`・priceYen 15000・`quote` に根拠を記録済み。顧客原稿と文面は Mac の `.claude/worktrees/kosshi/.tmp/coconala/talkrooms/18351970/` にしかない（リポジトリ外）。
-
-**やること**: `npm run coconala-orders` で DM の新着を見る（DM の本文を取るスクリプトは無い＝運営者がブラウザで確認して貼る。トークルームの過去分は `node scripts/coconala-talkroom.mjs 18351970` で再取得できる）。答案が届いたら `/keiken-tensaku <答案> --grade 1` → `civil-keiken-tensaku-qa`（`check-tensaku-reply`）で PASS した文面を DM で返す（24時間以内）。書き直しを1回見たら orders.json の status を revised にし、購入者評価（期限 10/6）を返して closed にする。
-
-**進捗**: 2026-09-26 に品質管理を確認完了（DM 17:02・22:43 返信）。購入者評価は 9/25 22:18 に送信済み（orders.json の rating に記録）。残りは環境対策・施工計画。
-
-**完了条件**: 環境対策・施工計画の添削（と書き直し1回）を返し、orders.json の status が closed になったら、このカードを削除する。
-
-**期日の変更（週次レビュー 2026-10-10）**: Mac でのログイン作業（DN-0643）と同じ日にまとめるため 2026-10-14 へ。
 
 ### [DN-0262] 1級・2級土木 第2次検定 記述 Kindle（I・J系）26冊を KDP へ3回に分けて提出する
 タグ: [収益化] [領域:商品] [時期:2026-10..2026-12] [種類:制作] [起票:2026-09-23]
@@ -400,13 +373,26 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
-### [DN-0748] コンクリートの記事の JIS R 5210（2026 年改正）と JIS A 5308（2024 年改正）の値を洗い出して直す
-タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-15] [進行中]
+### [DN-0750] develop-git-write の並び順で、待機中の定期ワークフローが黙って取り消される（gsc-auto-review 10/9）
+タグ: [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-15]
 
-**起点**: 2026-10-15、コンクリートの実務シリーズの補強（DN-0733）で、規格の改正に追いついていない記述が見つかった。(1) JIS R 5210（ポルトランドセメント）が 2026-03-23 に改正され、少量混合成分の上限が 5 % から 10 % に上がった（国土交通省 国住指第 473 号 https://www.mlit.go.jp/jutakukentiku/build/content/001990192.pdf ）。(2) JIS A 5308 の 2024 年改正で、高強度コンクリートの強度の検査の頻度が他と同じ 150 m³ に 1 回になった。concrete-chief-engineer/textbook-materials と concrete-engineer/textbook-production-qc は直した。
-**やること**: コンクリート 3 資格（技士・主任技士・診断士）の教科書・ガイド記事と civil-practice のコンクリート記事で、JIS R 5210:2019 と JIS A 5308:2019 の値を書いた箇所を洗い出し、改正後の値と版を書き足す（強熱減量・少量混合成分・検査の頻度・納入書・戻りコンクリートなど）。2026 年版の規格票の表（附属書）で確かめられない値は「改正で変わった可能性」として断る。過去問（primary）は出題年の版が正なので本文は変えず、解説に改正を添えるかを決める。
-**追加で見つかった候補（2026-10-15・C-07 の補強の担当の報告。親は未確認）**: JIS G 3112（鉄筋コンクリート用棒鋼）が 2020 年（SD295A→SD295・SD295B 廃止）と 2025-04-21 に改正。(a) civil-construction-1/textbook-rebar-formwork の表3.32「曲げ内側の半径」が JIS G 3112:2020 の曲げ性の表と合わない可能性（SR295・SD345・SD390・SD490）。示方書のフックの曲げ内半径（表3.34）と混ざっていないかも含めて原文で確かめる。(b) concrete-chief-engineer/textbook-materials の「SD295A 以外は降伏点の上限がある」は 2020 年版では SD295。(c) JIS G 3109・G 3137 の現行の種類（G 3109 の異形は 2 種・G 3137 は C・D 種）。
-**完了条件**: 洗い出した箇所の一覧（記事・行・旧値・新値・出典）を残し、教科書・ガイドの記述が改正後の版に合っている。
+**起点**: 2026-10-15、check-workflow-health が gsc-auto-review.yml を「最後の success が 13 日前」で赤にした。10/9 の定期実行（09:49:06Z 作成）は、ジョブが始まる前の 09:49:09Z に cancelled になっていた。develop へ書き込むワークフローは共通の concurrency group `develop-git-write`（cancel-in-progress: false）を使い、コメントは「待たせるだけで落とさない」としている。ところが GitHub は同じ group の待機中（pending）の実行を 1 件しか残さず、新しい実行が並ぶと古い待機分を取り消す。cancel-in-progress: false は実行中のものを守るだけで、待機中のものは守らない。
+
+**やること**: develop-git-write を使う定期ワークフロー（fetch-metrics・gsc-auto-review など）を洗い出し、待機中に取り消されても週次の取得・記録が欠けないようにする。案は (1) 共通 group をやめ、push の直前に fetch・rebase・再試行する、(2) 取り消された定期実行を検知して再実行する、のどちらか。workflow-health の検査に「cancelled が続く」も数えるかを決める。
+
+**完了条件**: 共通 group による待機中の取り消しで週次の実行が欠けない仕組みが入り、コメントの誤り（落とさない）が直っている。
+
+
+### [DN-0749] GA4 週次レポートの EXP-019 案別行を細らせ、上限の例外（data/ga4/reports/）を外す
+タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-15]
+
+**起点**: 2026-10-15、fetch-metrics（develop の手動実行 run 38737548148）が data/ga4/reports/2026-10-15.json（4.8 MiB）を JSON の上限 4 MiB で保存できず止まった。主因は EXP-019 の案別レポート（affiliate-experiment）で、案×案件×面×ページ×端末×日の行を 28 日窓で毎週取り直すため、日数に比例して太る（2 日分で 0.52 MiB・2,331 行）。当座は config/git-binary-policy.json の allowlist に data/ga4/reports/ を理由つきで足して取得を通した。
+
+**やること**: EXP-019 の判定（2026-11-05）のあとで、affiliate-experiment の行の持ち方を見直す（判定に要る粒度だけを残す・列の重複を省く・別ファイルへ分ける、のどれか）。measure-experiments と dataset-schemas の読み手も合わせて直し、allowlist の data/ga4/reports/ を外す。
+
+**完了条件**: data/ga4/reports/*.json が allowlist なしで 4 MiB 以下に収まり、git-binary-policy の allowlist から data/ga4/reports/ が消えている。
+
+
 
 
 ### [DN-0746] 建設部門の模範解答集の II-2 に「発注者の場合／受注者の場合」の段落を足す（11 科目）

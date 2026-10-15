@@ -219,7 +219,8 @@ test('GscIndexingRequests: 実データが通り、語彙・集計の不整合�
   assertFails(S, broken(r, (x) => { x.summary.accepted += 1; }), /accepted/);
   assertFails(S, broken(r, (x) => { x.summary.inspected += 1; }), /inspected/);
   assertFails(S, broken(r, (x) => { delete x.summary; }), /summary/);
-  assertFails(S, broken(r, (x) => { x.targetCount = 1; }), /対象/);
+  // 対象件数は記録件数より 1 少なくする（固定の 1 だと、対象 1 件の実データでは壊れずに素通りした・2026-10-15）
+  assertFails(S, broken(r, (x) => { x.targetCount = x.items.length - 1; }), /対象/);
   assertFails(S, broken(r, (x) => { delete x.items[0].reachedVerdict; }), /reachedVerdict/);
   assertFails(S, broken(r, (x) => { x.mode = 'dry-run'; }), /dry-run/);
   // ログインできず中断した run（items も summary も無い）は通る

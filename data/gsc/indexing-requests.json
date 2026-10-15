@@ -1,20 +1,20 @@
 {
   "schemaVersion": 1,
-  "runId": "2026-10-15T01-30-06Z",
-  "collectedAt": "2026-10-15T01:30:07.002Z",
+  "runId": "2026-10-15T13-04-45Z",
+  "collectedAt": "2026-10-15T13:04:45.665Z",
   "property": "sc-domain:doboku-note.com",
   "mode": "commit",
-  "scriptVersion": "a6354739d",
+  "scriptVersion": "5e66c9722",
   "filter": {
     "category": null,
     "group": null
   },
   "limit": 10,
-  "targetCount": 108,
+  "targetCount": 1,
   "items": [
     {
-      "slug": "/standards/hokkaido/local/part-01",
-      "url": "https://doboku-note.com/standards/hokkaido/local/part-01",
+      "slug": "/exam/pe-first-stage/primary/r05-basic",
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/r05-basic",
       "inspected": {
         "state": "indexed",
         "reason": null,
@@ -28,218 +28,12 @@
         "status": "already-indexed"
       },
       "reachedVerdict": true
-    },
-    {
-      "slug": "/exam/concrete-diagnostician/textbook/variation",
-      "url": "https://doboku-note.com/exam/concrete-diagnostician/textbook/variation",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "クロール済み - インデックス未登録",
-        "lastCrawl": "2026/10/14 5:48:52",
-        "discoveredVia": "sitemap",
-        "crawlAllowed": true,
-        "indexingAllowed": true
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/exam/pe-first-stage/primary/r06-aptitude",
-      "url": "https://doboku-note.com/exam/pe-first-stage/primary/r06-aptitude",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/practice/accident-first-response",
-      "url": "https://doboku-note.com/practice/accident-first-response",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": false,
-        "status": "button-not-found",
-        "detail": "role=button 候補 0"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/practice/ccus-kentaikyo-site",
-      "url": "https://doboku-note.com/practice/ccus-kentaikyo-site",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/practice/concrete-durability-specification",
-      "url": "https://doboku-note.com/practice/concrete-durability-specification",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/practice/concrete-hydration-basics",
-      "url": "https://doboku-note.com/practice/concrete-hydration-basics",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/practice/concrete-labor-saving-technology",
-      "url": "https://doboku-note.com/practice/concrete-labor-saving-technology",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "URL が Google に認識されていません",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/practice/concrete-quality-and-workforce",
-      "url": "https://doboku-note.com/practice/concrete-quality-and-workforce",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/practice/concrete-roles-overview",
-      "url": "https://doboku-note.com/practice/concrete-roles-overview",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/practice/concrete-standards-history",
-      "url": "https://doboku-note.com/practice/concrete-standards-history",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": false,
-        "status": "button-not-found",
-        "detail": "role=button 候補 0"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/practice/concrete-structure-inspection",
-      "url": "https://doboku-note.com/practice/concrete-structure-inspection",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/practice/concrete-work-preparation",
-      "url": "https://doboku-note.com/practice/concrete-work-preparation",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
     }
   ],
-  "status": "ok",
+  "status": "no-requests",
   "summary": {
-    "inspected": 13,
-    "accepted": 10,
+    "inspected": 1,
+    "accepted": 0,
     "alreadyIndexed": 1,
     "unreadable": 0
   }

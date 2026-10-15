@@ -459,7 +459,7 @@ export function buildReport(root, period = reviewPeriod('weekly'), now = new Dat
     const target = currentRecords(history, 'target').find(t => t.qualification === qualification && t.metric === metric.id && t.effectiveDate <= period.startDate);
     const elsewhere = [...new Set(sources.filter(r => r.qualification === qualification && r.metric === metric.id && r.value != null && !samePeriod(r.period, period)).map(r => `${r.period.startDate}〜${r.period.endDate}`))];
     const missingNote = elsewhere.length ? `この期間の集計はありません。${elsewhere.join('・')} の値は別期間の既存計測に表示し、この期間へ按分・換算しません。` : 'この資格・指標・期間の集計は未取得です。';
-    return { qualification, metric: metric.id, value: fact?.value ?? null, coverage: fact?.coverage ?? 'missing', source: fact?.source ?? null, note: fact?.note ?? missingNote, target: target ?? null, applicable: true };
+    return { qualification, metric: metric.id, value: fact?.value ?? null, coverage: fact?.coverage ?? 'missing', source: fact?.source ?? null, note: fact?.note ?? missingNote, target: target?.value ?? null, applicable: true };
   }));
   const reviews = currentRecords(history, 'review');
   const due = ['weekly', 'monthly'].map(cadence => {
