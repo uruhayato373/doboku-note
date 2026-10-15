@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-15T05:36:44.423Z",
+  "generated_at": "2026-10-15T05:37:26.058Z",
   "summary": {
-    "total_mdx_files": 1434,
+    "total_mdx_files": 1435,
     "total_unique_tags": 133,
     "allowlist_size": 330,
     "known_count": 133,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 258,
+      "count": 259,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1210,6 +1210,7 @@
         "civil-practice-construction-inspection-types",
         "civil-practice-construction-plan-document",
         "civil-practice-cost-and-design-change",
+        "civil-practice-development-permit-public-facilities",
         "civil-practice-earth-retaining-displacement",
         "civil-practice-embankment-quality-control",
         "civil-practice-environment-neighborhood",
@@ -2602,7 +2603,7 @@
     },
     {
       "name": "関係法規",
-      "count": 94,
+      "count": 95,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-engineer-assignment",
@@ -2622,6 +2623,7 @@
         "civil-practice-ccus-kentaikyo-site",
         "civil-practice-city-planning-act-framework",
         "civil-practice-construction-industry-structure",
+        "civil-practice-development-permit-public-facilities",
         "civil-practice-environmental-impact-assessment-flow",
         "civil-practice-foreign-workers-site-check",
         "civil-practice-how-to-read-laws-and-notices",
@@ -3549,12 +3551,13 @@
     },
     {
       "name": "道路",
-      "count": 39,
+      "count": 40,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-2-guide-road-pavement-key-points",
         "civil-practice-asphalt-materials-types",
         "civil-practice-asphalt-pavement-control",
+        "civil-practice-development-permit-public-facilities",
         "civil-practice-national-prefecture-municipal-roles",
         "civil-practice-project-request-to-budget",
         "civil-practice-reading-civil-drawings",
@@ -3594,6 +3597,46 @@
       ]
     },
     {
+      "name": "地方公共団体",
+      "count": 33,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-board-of-audit-inspection",
+        "civil-practice-buried-cultural-property-survey",
+        "civil-practice-city-planning-act-framework",
+        "civil-practice-civil-engineer-annual-cycle",
+        "civil-practice-coast-port-administrators",
+        "civil-practice-development-permit-public-facilities",
+        "civil-practice-how-to-read-laws-and-notices",
+        "civil-practice-land-acquisition-compensation",
+        "civil-practice-national-prefecture-municipal-roles",
+        "civil-practice-owner-safety-responsibility",
+        "civil-practice-ppp-pfi-selection",
+        "civil-practice-project-request-to-budget",
+        "civil-practice-public-meeting-consensus",
+        "civil-practice-public-works-planning-evaluation",
+        "civil-practice-river-act-framework",
+        "civil-practice-river-facility-inspection-operation",
+        "civil-practice-road-boundary-and-road-ledger",
+        "civil-practice-road-inspection-longevity-plan",
+        "civil-practice-satomichi-suiro-management",
+        "pe-comprehensive-management-essay-pattern-cross-year-application",
+        "pe-comprehensive-management-h21-essay-road-municipality",
+        "pe-comprehensive-management-h22-essay-road-municipality",
+        "pe-comprehensive-management-h23-essay-road-municipality",
+        "pe-comprehensive-management-h24-essay-road-municipality",
+        "pe-comprehensive-management-h25-essay-road-municipality",
+        "pe-comprehensive-management-h26-essay-road-municipality",
+        "pe-comprehensive-management-h27-essay-road-municipality",
+        "pe-comprehensive-management-pattern-essay-road-municipality",
+        "pe-comprehensive-management-r03-essay-road-municipality",
+        "pe-comprehensive-management-r04-essay-road-municipality",
+        "pe-comprehensive-management-r05-essay-road-municipality",
+        "pe-comprehensive-management-r06-essay-road-municipality",
+        "pe-comprehensive-management-r07-essay-road-municipality"
+      ]
+    },
+    {
       "name": "DX",
       "count": 32,
       "inAllowlist": true,
@@ -3630,45 +3673,6 @@
         "pe-comprehensive-management-system-integrity",
         "pe-comprehensive-management-system-outage-degradation",
         "pe-comprehensive-management-system-reliability"
-      ]
-    },
-    {
-      "name": "地方公共団体",
-      "count": 32,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-board-of-audit-inspection",
-        "civil-practice-buried-cultural-property-survey",
-        "civil-practice-city-planning-act-framework",
-        "civil-practice-civil-engineer-annual-cycle",
-        "civil-practice-coast-port-administrators",
-        "civil-practice-how-to-read-laws-and-notices",
-        "civil-practice-land-acquisition-compensation",
-        "civil-practice-national-prefecture-municipal-roles",
-        "civil-practice-owner-safety-responsibility",
-        "civil-practice-ppp-pfi-selection",
-        "civil-practice-project-request-to-budget",
-        "civil-practice-public-meeting-consensus",
-        "civil-practice-public-works-planning-evaluation",
-        "civil-practice-river-act-framework",
-        "civil-practice-river-facility-inspection-operation",
-        "civil-practice-road-boundary-and-road-ledger",
-        "civil-practice-road-inspection-longevity-plan",
-        "civil-practice-satomichi-suiro-management",
-        "pe-comprehensive-management-essay-pattern-cross-year-application",
-        "pe-comprehensive-management-h21-essay-road-municipality",
-        "pe-comprehensive-management-h22-essay-road-municipality",
-        "pe-comprehensive-management-h23-essay-road-municipality",
-        "pe-comprehensive-management-h24-essay-road-municipality",
-        "pe-comprehensive-management-h25-essay-road-municipality",
-        "pe-comprehensive-management-h26-essay-road-municipality",
-        "pe-comprehensive-management-h27-essay-road-municipality",
-        "pe-comprehensive-management-pattern-essay-road-municipality",
-        "pe-comprehensive-management-r03-essay-road-municipality",
-        "pe-comprehensive-management-r04-essay-road-municipality",
-        "pe-comprehensive-management-r05-essay-road-municipality",
-        "pe-comprehensive-management-r06-essay-road-municipality",
-        "pe-comprehensive-management-r07-essay-road-municipality"
       ]
     },
     {
@@ -4887,6 +4891,19 @@
       ]
     },
     {
+      "name": "地域づくり",
+      "count": 6,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-city-planning-act-framework",
+        "civil-practice-development-permit-public-facilities",
+        "pe-comprehensive-management-h22-essay-river-consultant",
+        "pe-construction-chiiki-dukuri-ronbun-keyword",
+        "pe-construction-kokudo-keisei-chiiki",
+        "pe-construction-urban-planning-ronbun-keyword"
+      ]
+    },
+    {
       "name": "少子高齢化",
       "count": 6,
       "inAllowlist": true,
@@ -4947,18 +4964,6 @@
         "pe-construction-infra-system-overseas",
         "pe-construction-kokudo-keisei-chiiki",
         "pe-construction-shakai-shihon-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "地域づくり",
-      "count": 5,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-city-planning-act-framework",
-        "pe-comprehensive-management-h22-essay-river-consultant",
-        "pe-construction-chiiki-dukuri-ronbun-keyword",
-        "pe-construction-kokudo-keisei-chiiki",
-        "pe-construction-urban-planning-ronbun-keyword"
       ]
     },
     {
