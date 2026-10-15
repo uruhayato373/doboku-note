@@ -3,6 +3,7 @@ import {
   numCol, PanelCard, StatusBadge, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow, type Tone,
 } from '@/components/admin';
 import { PageHead } from '@/components/ui';
+import { longformPlanHref } from '@/lib/content-plan-links';
 import { videoPackBoard, examLabel, stageClass } from '@/lib/video-board';
 import { STAGE_ORDER, LABELS } from '@/lib/lifecycle';
 
@@ -63,6 +64,8 @@ export default async function VideoPackBoard({
       />
 
       <nav className="project-crumbs" aria-label="パンくず">
+        <Link href={longformPlanHref()}>通常動画の制作・公開管理</Link>
+        {' · '}
         <Link href="/content">コンテンツ</Link>
         {' · '}
         <Link href="/content/lifecycle">ライフサイクル</Link>

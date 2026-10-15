@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "packId": "touan-teishutsu-check",
+  "exam": "civil-construction-2",
+  "title": "答案の見直し｜条件・処置・結果のつながりを確認",
+  "audience": "2級土木の施工経験記述を書き終え、何を見直せばよいか迷う受検者",
+  "pain": "施工経験記述を書き終えたが、内容や事実のどこを見直せばよいか分からない",
+  "promise": "設問への回答、現場条件と処置のつながり、事実・数値・立場と記録の一致を順に点検できる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "note",
+      "path": "content/note/1級・2級土木/2級土木/施工経験記述で落ちる答案/article.md",
+      "access": "free"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "external",
+      "url": "https://www.jctc.jp/wjctcp/wp-content/uploads/2025/10/20251027d_mondaib1.pdf",
+      "title": "全国建設研修センター 令和7年度 2級土木施工管理技術検定 第二次検定（土木）問題"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-2-experience-essay",
+    "campaign": "touan-teishutsu-check"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}

@@ -1,0 +1,209 @@
+{
+  "policy": ".claude/knowledge/reference/pop-image-policy.md",
+  "designVersion": "pop-poster-v3",
+  "images": [
+    {
+      "role": "cover",
+      "mediaId": "civil-construction-2/keiken-daizai-erabi/youtube.longform/cover",
+      "copy": [
+        "2級土木",
+        "題材選び",
+        "規模より自分の経験",
+        "担当した管理を探す",
+        "総監・元発注者",
+        "1級・2級土木合格者"
+      ],
+      "references": [
+        {
+          "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/cover.6d461a7d.png",
+          "sha256": "6d461a7d29270911cbdeb4202056e9196493c0cfbae69dad97c351c3257c8fe5"
+        }
+      ],
+      "prompt": "Create ONE landscape16:9 Japanese emerald-green POP YouTube thumbnail intended1920×1080. Supplied image is STYLE and CHARACTER REFERENCE ONLY, not text to copy. Same mature Japanese male teacher: short black hair, black rectangular glasses, light beard, plain white helmet, navy workwear, yellow straps. EXACTLY TWO arms and TWO hands, anatomically natural. Continuous illustrated green construction background to all edges. Huge target label「2級土木」upper left. Smaller yellow author badge「総監・元発注者」「1級・2級土木合格者」in a separate region. Huge outlined dark-green topic text, red secondary headline. Keep ALL text in TOP THREE-QUARTERS of canvas, subtitle at y=70%. Bottom25% is continuous green illustration and teacher torso with NO TEXT, not blank. Face and text never clipped. Bold Japanese lettering readable at width360px. No extra words, URL, logo, price, dates, scores, guarantee. Topic「題材選び」. Red two-line headline「規模より」「自分の経験」. Subtitle「担当した管理を探す」. Pose: one hand holding an unlettered notebook, other hand holding a red pen at the notebook. Only TWO hands, neither hand touches face.",
+      "generator": {
+        "tool": "image_gen",
+        "model": "not-reported-by-tool"
+      },
+      "format": {
+        "width": 1920,
+        "height": 1080
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/youtube.longform/cover.88c9abd2.png",
+        "sha256": "88c9abd2531fa9bd1014e8062c6945491141d5c0151a4de1e17bd565b5223981"
+      },
+      "normalization": "sharpによる1920×1080 RGBへの寸法正規化のみ",
+      "review": {
+        "status": "ok",
+        "by": "ai-image-fidelity-auditor",
+        "at": "2026-10-15T22:59:23.712Z",
+        "scope": "原寸と幅360pxの文言・人体・図形・参照キャラクター整合"
+      },
+      "generatedSource": {
+        "path": ".tmp/video-render/keiken-daizai-erabi/source-generated-cover.png",
+        "sha256": "92abf1232a9278ccdbb615e142b62278ac831063ed1eb13011b9cd8567244dcd"
+      }
+    },
+    {
+      "role": "cta",
+      "mediaId": "civil-construction-2/keiken-daizai-erabi/youtube.longform/cta",
+      "sourceMediaId": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/cta",
+      "copy": [
+        "2級土木",
+        "施工経験記述",
+        "完成答案集",
+        "安全・品質・工程",
+        "自分の経験に置き換えて練習",
+        "概要欄から確認",
+        "総監・元発注者",
+        "1級・2級土木合格者"
+      ],
+      "references": [
+        {
+          "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/cta.4a212462.png",
+          "sha256": "4a2124622b99d35b3396c9d5764e066d5ac0d06891e368b481ca232189f88e2b"
+        }
+      ],
+      "prompt": "Edit the attached finished 16:9 landscape closing card for a Japanese educational video. Maintain the green pop-poster-v3 design and EXACT identity/anatomy of the teacher: plain white helmet, black rectangular glasses, short beard, navy workwear, one hand naturally pointing toward the CTA and the other holding answer sheets. Preserve these six text strings verbatim, once each: 「2級土木」「施工経験記述」「完成答案集」「安全・品質・工程」「自分の経験に置き換えて練習」「概要欄から確認」. Replace the old single line 「総監が制作」 with a TWO-LINE yellow credentials badge near the top: line 1 「総監・元発注者」, line 2 「1級・2級土木合格者」. This badge gives author credentials, clearly subordinate to the biggest target label 「2級土木」, with bold readable typography rather than tiny text. Reflow top heading and badge to avoid collisions; keep main title and CTA readable. Do not claim direct personal review, guaranteed passing, grading authority or teaching results. Add no other words, URL, logo, price or symbols. All important text and the pointing finger stay inside the canvas, all text and yellow CTA strip fully ABOVE 82% height. Bottom 18% only contains continuous illustrated green background and teacher torso, NOT a blank stripe. Preserve exactly five fingers per hand and the existing correct pointing pose. One polished landscape image intended 1920×1080, not a sheet or comparison.",
+      "generator": {
+        "tool": "image_gen",
+        "reuse": true
+      },
+      "format": {
+        "width": 1920,
+        "height": 1080
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/youtube.longform/cta.4a212462.png",
+        "sha256": "4a2124622b99d35b3396c9d5764e066d5ac0d06891e368b481ca232189f88e2b"
+      },
+      "review": {
+        "status": "ok",
+        "by": "ai-image-fidelity-auditor",
+        "at": "2026-10-15T22:59:23.712Z",
+        "scope": "原寸と幅360pxの文言・人体・図形・参照キャラクター整合"
+      }
+    }
+  ],
+  "authorization": {
+    "request": "5本ほど予約投稿してほしい　品質チェックしながら確実に",
+    "scope": "追加5本の制作・品質確認・YouTube予約投稿・台帳と管理画面への反映"
+  },
+  "contentQa": {
+    "avg": 3,
+    "blocks": 0,
+    "by": "video-content-qa",
+    "at": "2026-10-16",
+    "scope": "台本・storyboard・出典・商品導線"
+  },
+  "completedVideoReview": {
+    "by": "codex",
+    "at": "2026-10-15T22:59:23.712Z",
+    "packId": "keiken-daizai-erabi",
+    "duration": 127.2,
+    "video": {
+      "codec": "h264",
+      "width": 1920,
+      "height": 1080
+    },
+    "audio": {
+      "codec": "aac",
+      "sampleRate": "24000"
+    },
+    "scenesChecked": 14,
+    "scenesExpected": 14,
+    "maxFrameMae": 2.7098692255434784,
+    "audioInputsVerified": 14,
+    "blackOrLongSilence": 0,
+    "comparisons": [
+      {
+        "sceneId": "cover",
+        "time": 1.2266665,
+        "mae": 2.7098692255434784
+      },
+      {
+        "sceneId": "hook",
+        "time": 6.869333000000001,
+        "mae": 0.3689020984299517
+      },
+      {
+        "sceneId": "authority",
+        "time": 15.765333000000002,
+        "mae": 0.3471540987318841
+      },
+      {
+        "sceneId": "premise",
+        "time": 24.9759995,
+        "mae": 0.3749707503019324
+      },
+      {
+        "sceneId": "candidates",
+        "time": 34.1493325,
+        "mae": 0.40504302536231884
+      },
+      {
+        "sceneId": "condition",
+        "time": 43.295999,
+        "mae": 0.41671610809178744
+      },
+      {
+        "sceneId": "own-action",
+        "time": 53.4133325,
+        "mae": 0.4118466938405797
+      },
+      {
+        "sceneId": "records",
+        "time": 64.0159995,
+        "mae": 0.4693070652173913
+      },
+      {
+        "sceneId": "example",
+        "time": 73.82933299999999,
+        "mae": 0.4524754679951691
+      },
+      {
+        "sceneId": "example-questions",
+        "time": 83.109333,
+        "mae": 0.31956899154589374
+      },
+      {
+        "sceneId": "role-boundary",
+        "time": 92.2666665,
+        "mae": 0.32010114734299516
+      },
+      {
+        "sceneId": "choose",
+        "time": 101.984,
+        "mae": 0.32455748037439613
+      },
+      {
+        "sceneId": "summary",
+        "time": 111.9306665,
+        "mae": 0.4831731204710145
+      },
+      {
+        "sceneId": "cta",
+        "time": 121.909333,
+        "mae": 2.291858016304348
+      }
+    ],
+    "visualInspection": "全場面の完成動画フレームで文字切れ・字幕との重なりを確認",
+    "pronunciationInspection": "全場面のVOICEVOX読み解析と入力ハッシュを確認（全編の人による試聴ではない）",
+    "subtitleSafeArea": "生成画像は指定20%の無文字域を満たさないため、完成字幕を含むフレームで主要文字との干渉がないことを確認",
+    "videoSha256": "1a87a12dd7cf7b62a0ea13fb1b66d99fef364fd8e158283dd76fca6a79adc6fc"
+  },
+  "renderRecipe": {
+    "bodyImages": "storyboardのpoints/sheet/compareを描画。全画像を1920×1080 RGBに正規化後、--resumeで合成。",
+    "voice": "VOICEVOX:青山龍星",
+    "command": "PATH=/opt/homebrew/opt/ffmpeg-full/bin:$PATH npm run render-longform -- --pack-dir content/sns/video-packs/civil-construction-2/keiken-daizai-erabi --speaker 13 --resume",
+    "normalization": "ffmpeg loudnorm I=-16:TP=-1.5:LRA=11; AAC 24000Hz, 192k; video stream copy",
+    "storage": {
+      "status": "cloud-verified",
+      "contentMedia": 21,
+      "renderArtifacts": 37,
+      "sha256Verified": 58,
+      "cloudMd5Verified": 58,
+      "at": "2026-10-15T23:07:28.108Z"
+    }
+  }
+}

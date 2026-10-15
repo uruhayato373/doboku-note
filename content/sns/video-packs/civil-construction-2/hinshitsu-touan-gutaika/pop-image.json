@@ -1,0 +1,247 @@
+{
+  "policy": ".claude/knowledge/reference/pop-image-policy.md",
+  "designVersion": "pop-poster-v3",
+  "images": [
+    {
+      "role": "cover",
+      "mediaId": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/cover",
+      "copy": [
+        "2級土木",
+        "品質管理",
+        "試験だけで終わらない",
+        "現場条件から書く",
+        "総監・元発注者",
+        "1級・2級土木合格者"
+      ],
+      "references": [
+        {
+          "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/cover.ba16defd.png",
+          "sha256": "ba16defd11a2f6732515f7540d635169e8ad52ae62366aa6be5268a8056e7032"
+        }
+      ],
+      "prompt": "Edit the supplied finished Japanese YouTube cover into the next episode, keeping the EXACT SAME adult teacher identity, green pop-poster-v3 typography and illustrated background. One 16:9 landscape image intended 1920×1080. Change the topic text 安全管理 to 品質管理. Change main red text 答案を具体化 to 試験だけで終わらない. Keep subtitle 現場条件から書く. Keep top target label 2級土木, and separate yellow two-line credentials badge 総監・元発注者 / 1級・2級土木合格者. These six strings must appear exactly once, correct Japanese, no other text. Main headline 品質管理 in giant bold dark green with white/yellow outline; red second headline 試験だけで終わらない on TWO readable lines if needed. Keep author smaller than topic, same mature male, black short hair, black rectangular glasses, light beard, plain white helmet, navy workwear, natural five-finger hands holding red pen and answer sheet. No guarantees, URL, logo, prices, invented numbers or seals. Bold lettering fully legible at width360px. Recompose rather than cram text. Face and important letters inside6% edge margins. Every text string must be FULLY above y=80% of height; bottom20% only continuous illustrated green background and teacher torso, not a blank stripe. Keep reference's energetic but readable polished composition. This is quality management answer-writing guidance, not a construction test demonstration.",
+      "generator": {
+        "tool": "image_gen",
+        "model": "not-reported-by-tool"
+      },
+      "format": {
+        "width": 1920,
+        "height": 1080
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/cover.6d461a7d.png",
+        "sha256": "6d461a7d29270911cbdeb4202056e9196493c0cfbae69dad97c351c3257c8fe5"
+      },
+      "original": {
+        "path": "/Users/minamidaisuke/.codex/generated_images/01a1372e-82d7-77e2-8430-0eb33777699a/exec-57eeac70-5987-44ec-8893-ffecbd035a79.png",
+        "sha256": "e1138cc848bf321e15cba6f58b87fbc433b778a0b16304ed4d657f954df5c401"
+      },
+      "normalization": "1920×1080 RGB via sharp resize; artwork and wording unchanged",
+      "review": {
+        "status": "ai-audit-ok",
+        "by": "ai-image-fidelity-auditor",
+        "date": "2026-10-16",
+        "viewports": [
+          "original",
+          "width-360px"
+        ],
+        "figKey": "media:civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/cover",
+        "verdict": "ok",
+        "axes": {
+          "type": "ok",
+          "structure": "ok",
+          "text": "ok",
+          "artifacts": "ok",
+          "lettering": "ok"
+        },
+        "reason": "原寸・幅360pxで指定6文言の正確さと判読性、参照キャラの顔・髪・眼鏡・ひげ・服装、赤ペンと用紙を持つ自然な手指を確認し、下端10%に重要文字はないが、下端20%確保の生成目標は未達。"
+      }
+    },
+    {
+      "role": "body-reference",
+      "mediaId": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/body-reference",
+      "copy": [
+        "2級土木｜品質管理",
+        "夏季の施工",
+        "運搬・待機で温度上昇のおそれ",
+        "打込み時の温度を管理",
+        "考え方の例"
+      ],
+      "references": [
+        {
+          "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-001.d6f17a6d.png",
+          "sha256": "d6f17a6dc6ffe4839abff06508a7b943d1abdd43b9252571df48abec232a86af"
+        }
+      ],
+      "prompt": "Create one finished Japanese educational BODY graphic for the next 2級土木 quality-management video. Use the attached safety body graphic ONLY as an identity/style reference: same green pop-poster-v3, same mature teacher face, black rectangular glasses, short beard, plain white helmet, navy workwear, red pen. Replace every safety-topic word and example. 16:9 landscape intended 1920×1080. Calm white/mint central reading area, continuous green diagonal illustrated background at all edges. Small teacher max18% width on the right, do not obscure diagram. Large legible Japanese at width360px. Text EXACTLY: top 「2級土木｜品質管理」; main heading 「夏季の施工」; central phrase 「運搬・待機で温度上昇のおそれ」; lower main takeaway 「打込み時の温度を管理」; small badge 「考え方の例」. Render only these five strings, each once. Center diagram: simple illustrative concrete mixer truck icon under hot sun, followed by a clock indicating waiting, followed by a plain concrete placement area with a thermometer icon. Clear left-to-right arrows convey transport/waiting preceding placement; sun and heat emphasize why temperature control matters. Keep machinery symbolic and structurally simple, no technical cutaway, no measurement procedure, no thermometer numerals or thresholds, no people performing unsafe work. Do not imply waiting always raises temperature or temperature alone guarantees concrete strength. This is a hypothetical learning example, not the author's project record. Do not copy old arrows/cards as safety measures. All important text, glyphs and face must be comfortably within6% side margins and ABOVE y=78% of canvas height. Lower22% continuous illustrated background/torso only to reserve subtitles, no words or yellow bands there. No logo, URL, statistics, prices, guarantees, extra labels. One polished full-bleed graphic, no collage.",
+      "generator": {
+        "tool": "image_gen",
+        "model": "not-reported-by-tool"
+      },
+      "format": {
+        "width": 1920,
+        "height": 1080
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/body-reference.b0295ab0.png",
+        "sha256": "b0295ab0d7e3e3577884436150ccc97823e3e16d6f5c450fcf69a3e94538386b"
+      },
+      "original": {
+        "path": "/Users/minamidaisuke/.codex/generated_images/01a1372e-82d7-77e2-8430-0eb33777699a/exec-911afb83-3037-4302-91d2-1b5d0c08e36a.png",
+        "sha256": "2e8c770a57c708db335577e3c5eba1661be2d9596d25a272f6084ba88de371a9"
+      },
+      "normalization": "1920×1080 RGB via sharp resize; artwork and wording unchanged",
+      "review": {
+        "status": "ai-audit-ok",
+        "by": "ai-image-fidelity-auditor",
+        "date": "2026-10-16",
+        "viewports": [
+          "original",
+          "width-360px"
+        ],
+        "figKey": "media:civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/body-reference",
+        "verdict": "ok",
+        "axes": {
+          "type": "ok",
+          "structure": "ok",
+          "text": "ok",
+          "artifacts": "ok",
+          "lettering": "ok"
+        },
+        "reason": "原寸・幅360pxで指定5文言、参照キャラとの同一性と自然な手指、ミキサ車の車輪・ドラム・車体の接続、運搬・待機から打込み時温度管理へ進む図意を確認し、実績や数値の創作と下端10%の重要文字はないが、下端22%確保の生成目標は未達。"
+      }
+    },
+    {
+      "role": "cta",
+      "mediaId": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/cta",
+      "copy": [
+        "2級土木",
+        "施工経験記述",
+        "完成答案集",
+        "安全・品質・工程",
+        "自分の経験に置き換えて練習",
+        "概要欄から確認",
+        "総監・元発注者",
+        "1級・2級土木合格者"
+      ],
+      "references": [
+        {
+          "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/cta.4baa72a7.png",
+          "sha256": "4baa72a7831fc1cc8d1666a738d076fcdc8469b084153eb20ef75e450dd7e6a5"
+        }
+      ],
+      "prompt": "Edit the attached finished 16:9 landscape closing card for a Japanese educational video. Maintain the green pop-poster-v3 design and EXACT identity/anatomy of the teacher: plain white helmet, black rectangular glasses, short beard, navy workwear, one hand naturally pointing toward the CTA and the other holding answer sheets. Preserve these six text strings verbatim, once each: 「2級土木」「施工経験記述」「完成答案集」「安全・品質・工程」「自分の経験に置き換えて練習」「概要欄から確認」. Replace the old single line 「総監が制作」 with a TWO-LINE yellow credentials badge near the top: line 1 「総監・元発注者」, line 2 「1級・2級土木合格者」. This badge gives author credentials, clearly subordinate to the biggest target label 「2級土木」, with bold readable typography rather than tiny text. Reflow top heading and badge to avoid collisions; keep main title and CTA readable. Do not claim direct personal review, guaranteed passing, grading authority or teaching results. Add no other words, URL, logo, price or symbols. All important text and the pointing finger stay inside the canvas, all text and yellow CTA strip fully ABOVE 82% height. Bottom 18% only contains continuous illustrated green background and teacher torso, NOT a blank stripe. Preserve exactly five fingers per hand and the existing correct pointing pose. One polished landscape image intended 1920×1080, not a sheet or comparison.",
+      "generator": {
+        "tool": "image_gen",
+        "model": "not-reported-by-tool"
+      },
+      "format": {
+        "width": 1920,
+        "height": 1080
+      },
+      "output": {
+        "sha256": "4a2124622b99d35b3396c9d5764e066d5ac0d06891e368b481ca232189f88e2b",
+        "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/cta.4a212462.png"
+      },
+      "review": {
+        "status": "ai-audit-ok",
+        "by": "ai-image-fidelity-auditor",
+        "date": "2026-10-16",
+        "viewports": [
+          "original",
+          "width-360px"
+        ],
+        "figKey": "media:civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/cta",
+        "verdict": "ok",
+        "axes": {
+          "type": "ok",
+          "structure": "ok",
+          "text": "ok",
+          "artifacts": "ok",
+          "lettering": "ok"
+        },
+        "reason": "原寸・幅360pxで指定8文言の正確さと判読性、参照キャラとの同一性、自然な指差しと用紙保持、完成答案集への誘導内容を確認し、下端10%に重要文字はない。"
+      },
+      "derivedFrom": {
+        "mediaId": "civil-construction-2/anzen-touan-gutaika/youtube.longform/revision-cta",
+        "output": {
+          "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/revision-cta.89748909.png",
+          "sha256": "89748909f7120f8767b4016283df208deb207ff525af3b5b35c4394558c46e06"
+        },
+        "format": {
+          "width": 1672,
+          "height": 941
+        }
+      },
+      "reuse": true,
+      "note": "同じ完成答案集の共通CTA。画素・文言を変更せず再利用。"
+    }
+  ],
+  "renderRecipe": {
+    "bodyImages": "condition scene uses adopted full-bleed PNG via --resume. Other body scenes rendered from editable storyboard visuals.",
+    "voice": "VOICEVOX:青山龍星",
+    "normalization": "All frames 1920×1080 RGB before ffmpeg; loudnorm -16 LUFS",
+    "command": "PATH=/opt/homebrew/opt/ffmpeg-full/bin:$PATH npm run render-longform -- --pack-dir content/sns/video-packs/civil-construction-2/hinshitsu-touan-gutaika --speaker 13 --resume",
+    "review": {
+      "scenesChecked": 13,
+      "scenesMatched": 13,
+      "method": "完成MP4の全場面中点と採用PNGの字幕除外領域を画素比較。完成映像コンタクトシートを目視。",
+      "contentQA": {
+        "avg": 2.83,
+        "blocks": 0,
+        "scores": [
+          3,
+          2,
+          3,
+          3,
+          3,
+          3
+        ],
+        "by": "video-content-qa",
+        "at": "2026-10-16",
+        "repair": "技術scene sourceRefをscript内の国交省出典記録へ結線（sourceRefはローカルパス仕様）。読み対策の等義表現4件を変更。"
+      },
+      "audio": "全13場面の音声生成入力とWAV hashを照合。VOICEVOX kanaの誤読4箇所を等義表現に修正。人手の全編聴取は未実施。",
+      "durationSec": 110.677333,
+      "videoSha256": "160918df48a658f35a34912c3c1555e29c6097b8648aa3296bd30b68c724b01a",
+      "avCheck": {
+        "blackFramesOverHalfSecond": 0,
+        "silencesOverOneSecond": 0,
+        "audioCodec": "aac",
+        "videoCodec": "h264",
+        "resolution": [
+          1920,
+          1080
+        ]
+      }
+    },
+    "storage": {
+      "status": "cloud-verified",
+      "contentMedia": {
+        "expected": 26,
+        "sha256Verified": 26,
+        "cloudMd5Verified": 26
+      },
+      "renderArtifacts": {
+        "expected": 34,
+        "sha256Verified": 34,
+        "cloudMd5Verified": 34
+      },
+      "at": "2026-10-15T22:15:45.435Z"
+    },
+    "frameOverrides": [
+      {
+        "sceneId": "condition",
+        "frame": "05-condition.png",
+        "source": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/body-reference.b0295ab0.png",
+        "sha256": "b0295ab0d7e3e3577884436150ccc97823e3e16d6f5c450fcf69a3e94538386b",
+        "method": "After PNG generation, copy the adopted 1920×1080 RGB artwork to this frame; render with --resume (without --refresh-png)."
+      }
+    ]
+  },
+  "authorization": {
+    "date": "2026-10-16",
+    "source": "このチャットの運営者指示「次の2級土木『品質管理』を最新ルールで制作して、予約投稿まで進めてください。台帳と管理画面にも反映してください。」",
+    "scope": "品質管理の制作・YouTube予約投稿・台帳・管理画面反映"
+  }
+}

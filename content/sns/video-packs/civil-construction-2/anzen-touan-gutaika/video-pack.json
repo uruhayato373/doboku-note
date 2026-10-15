@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "packId": "anzen-touan-gutaika",
+  "exam": "civil-construction-2",
+  "title": "安全管理の答案を具体化する — 現場条件から書く",
+  "audience": "2級土木 第2次検定の施工経験記述で安全管理を準備する受検者",
+  "pain": "安全対策を並べた答案になり、自分の現場の条件とつながらない",
+  "promise": "現場条件・課題・対策をつなげ、自分の実際の工事経験を文章にする考え方が分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "note",
+      "path": "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集/安全管理/article.md",
+      "access": "paid"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-2-experience-essay",
+    "campaign": "anzen-touan-gutaika"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": 0,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}

@@ -105,6 +105,132 @@
       "stopReason": "user-decision"
     },
     {
+      "id": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform",
+      "work": "anzen-touan-gutaika-kaitei",
+      "account": "youtube:main",
+      "format": "longform",
+      "copy": "content/sns/video-packs/civil-construction-2/anzen-touan-gutaika-kaitei/youtube.json#longform",
+      "media": {
+        "cover": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/cover",
+        "cta": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/cta",
+        "scene-001": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/scene-001",
+        "scene-002": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/scene-002",
+        "scene-003": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/scene-003",
+        "scene-004": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/scene-004",
+        "scene-005": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/scene-005",
+        "scene-006": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/scene-006",
+        "scene-007": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/scene-007",
+        "scene-008": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/scene-008",
+        "scene-009": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/scene-009",
+        "scene-010": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/scene-010",
+        "scene-011": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/scene-011",
+        "video": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/video",
+        "subtitles": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/subtitles",
+        "preview": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/preview",
+        "preview-metrics": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/preview-metrics",
+        "contact-sheet": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/contact-sheet"
+      },
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "user",
+          "at": "2026-10-15T12:29:19.373Z",
+          "digest": "78b279ae189f9fcc3f8d06c4f580704327b1eea45b931ce79dddbbcd37f0ec6f"
+        }
+      },
+      "status": "scheduled",
+      "publishAt": "2026-10-17T20:00:00+09:00",
+      "approval": {
+        "by": "user",
+        "at": "2026-10-15T12:29:19.654Z",
+        "contentSha256": "81f6eb7e28965fbcfcee83922f082f74e43c54ad4d56dfc42b6a7a6c9fad2a9e"
+      },
+      "platform": {
+        "id": "GCyAWGoJthU",
+        "url": "https://youtu.be/GCyAWGoJthU",
+        "privacy": "private",
+        "evidence": {
+          "kind": "youtube-studio",
+          "ref": "https://studio.youtube.com/video/GCyAWGoJthU/edit — 2026-10-15確認:「この動画は 2026年10月17日 20:00 に 公開 に設定されます」(GMT+0900)"
+        }
+      },
+      "times": {
+        "rendered": "2026-10-15T12:27:34.659Z",
+        "uploaded": "2026-10-15T12:34:25.680Z",
+        "scheduled": "2026-10-15T12:34:25.680Z",
+        "metadataSynced": "2026-10-15T12:34:25.680Z"
+      },
+      "disclosure": {
+        "syntheticMedia": false
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-10-15T12:34:25.680Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/anzen-touan-gutaika/youtube.longform",
+      "work": "anzen-touan-gutaika",
+      "account": "youtube:main",
+      "format": "longform",
+      "copy": "content/sns/video-packs/civil-construction-2/anzen-touan-gutaika/youtube.json#longform",
+      "media": {
+        "cover": "civil-construction-2/anzen-touan-gutaika/youtube.longform/cover",
+        "scene-001": "civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-001",
+        "cta": "civil-construction-2/anzen-touan-gutaika/youtube.longform/cta",
+        "scene-002": "civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-002",
+        "scene-003": "civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-003",
+        "scene-004": "civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-004",
+        "scene-005": "civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-005",
+        "scene-006": "civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-006",
+        "scene-007": "civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-007",
+        "scene-008": "civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-008",
+        "scene-009": "civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-009",
+        "scene-010": "civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-010",
+        "video": "civil-construction-2/anzen-touan-gutaika/youtube.longform/video",
+        "subtitles": "civil-construction-2/anzen-touan-gutaika/youtube.longform/subtitles",
+        "preview": "civil-construction-2/anzen-touan-gutaika/youtube.longform/preview",
+        "contact-sheet": "civil-construction-2/anzen-touan-gutaika/youtube.longform/contact-sheet",
+        "preview-metrics": "civil-construction-2/anzen-touan-gutaika/youtube.longform/preview-metrics"
+      },
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "user",
+          "at": "2026-10-14T22:28:31.242Z",
+          "digest": "bb8cd5a22a0958a88dfd926ab35bb23b7e5dc6d9064e0023d1b86331b792c349"
+        }
+      },
+      "platform": {
+        "id": "auR8P0pvmlU",
+        "url": "https://youtu.be/auR8P0pvmlU",
+        "privacy": "public",
+        "evidence": {
+          "kind": "youtube-studio",
+          "ref": "https://studio.youtube.com/channel/UCHRnXPqoc0Hls8nXiK_ZYqA/videos/upload — 2026-10-15確認: auR8P0pvmlU は「公開」、公開日2026/10/15。動画への変更なし。"
+        }
+      },
+      "status": "published",
+      "publishAt": "2026-10-15T20:00:00+09:00",
+      "approval": {
+        "by": "user",
+        "at": "2026-10-14T22:28:31.405Z",
+        "contentSha256": "cb5719d26244faecc7988a55886dfb05615aa7cbec7ec60fe75bd9716c21b12d"
+      },
+      "times": {
+        "rendered": "2026-10-14T22:29:18.425Z",
+        "uploaded": "2026-10-14T22:28:31.418Z",
+        "scheduled": "2026-10-14T22:30:00.784Z"
+      },
+      "disclosure": {
+        "syntheticMedia": false
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-10-14T22:29:18.425Z"
+      }
+    },
+    {
       "id": "civil-construction-2/gakka-2kyu-concrete/youtube.longform",
       "work": "gakka-2kyu-concrete",
       "account": "youtube:main",
@@ -717,6 +843,73 @@
       "stopReason": "user-decision"
     },
     {
+      "id": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform",
+      "work": "hinshitsu-touan-gutaika",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "scheduled",
+      "copy": "content/sns/video-packs/civil-construction-2/hinshitsu-touan-gutaika/youtube.json#longform",
+      "media": {
+        "cover": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/cover",
+        "body-reference": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/body-reference",
+        "cta": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/cta",
+        "scene-001": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-001",
+        "scene-002": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-002",
+        "scene-003": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-003",
+        "scene-004": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-004",
+        "scene-005": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-005",
+        "scene-006": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-006",
+        "scene-007": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-007",
+        "scene-008": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-008",
+        "scene-009": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-009",
+        "scene-010": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-010",
+        "scene-011": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-011",
+        "scene-012": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-012",
+        "scene-013": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-013",
+        "video": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/video",
+        "subtitles": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/subtitles",
+        "preview": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/preview",
+        "preview-metrics": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/preview-metrics",
+        "contact-sheet": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/contact-sheet"
+      },
+      "publishAt": "2026-10-19T20:00:00+09:00",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "user",
+          "at": "2026-10-15T22:09:57.509Z",
+          "digest": "eb4921923e240a496f5859719f0f5a83f79cb5f34eb859774ab206c74009c797"
+        }
+      },
+      "approval": {
+        "by": "user",
+        "at": "2026-10-15T22:09:57.795Z",
+        "contentSha256": "9316033447c3abad7a70f34d5ecbc8e6e54bb6cf72559133bc91fc86313054a5"
+      },
+      "times": {
+        "rendered": "2026-10-15T22:08:32.023Z",
+        "uploaded": "2026-10-15T22:13:45.193Z",
+        "scheduled": "2026-10-15T22:13:45.193Z",
+        "metadataSynced": "2026-10-15T22:13:45.193Z"
+      },
+      "platform": {
+        "id": "7fEJR-WD8Ng",
+        "url": "https://youtu.be/7fEJR-WD8Ng",
+        "privacy": "private",
+        "evidence": {
+          "kind": "youtube-studio",
+          "ref": "https://studio.youtube.com/video/7fEJR-WD8Ng/edit — 2026-10-16確認:「この動画は 2026年10月19日 20:00 に 公開 に設定されます」(GMT+0900)。題名・専用サムネイル・1:51・チェック問題なしを照合。"
+        }
+      },
+      "disclosure": {
+        "syntheticMedia": false
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-10-15T22:13:45.193Z"
+      }
+    },
+    {
       "id": "civil-construction-2/keiken-2kyu-level/youtube.longform",
       "work": "keiken-2kyu-level",
       "account": "youtube:main",
@@ -912,6 +1105,73 @@
         "cta": "brand/bridge-notebook-a/cta-shorts"
       },
       "stopReason": "user-decision"
+    },
+    {
+      "id": "civil-construction-2/keiken-daizai-erabi/youtube.longform",
+      "work": "keiken-daizai-erabi",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "scheduled",
+      "media": {
+        "cover": "civil-construction-2/keiken-daizai-erabi/youtube.longform/cover",
+        "cta": "civil-construction-2/keiken-daizai-erabi/youtube.longform/cta",
+        "scene-001": "civil-construction-2/keiken-daizai-erabi/youtube.longform/scene-001",
+        "scene-002": "civil-construction-2/keiken-daizai-erabi/youtube.longform/scene-002",
+        "scene-003": "civil-construction-2/keiken-daizai-erabi/youtube.longform/scene-003",
+        "scene-004": "civil-construction-2/keiken-daizai-erabi/youtube.longform/scene-004",
+        "scene-005": "civil-construction-2/keiken-daizai-erabi/youtube.longform/scene-005",
+        "scene-006": "civil-construction-2/keiken-daizai-erabi/youtube.longform/scene-006",
+        "scene-007": "civil-construction-2/keiken-daizai-erabi/youtube.longform/scene-007",
+        "scene-008": "civil-construction-2/keiken-daizai-erabi/youtube.longform/scene-008",
+        "scene-009": "civil-construction-2/keiken-daizai-erabi/youtube.longform/scene-009",
+        "scene-010": "civil-construction-2/keiken-daizai-erabi/youtube.longform/scene-010",
+        "scene-011": "civil-construction-2/keiken-daizai-erabi/youtube.longform/scene-011",
+        "scene-012": "civil-construction-2/keiken-daizai-erabi/youtube.longform/scene-012",
+        "scene-013": "civil-construction-2/keiken-daizai-erabi/youtube.longform/scene-013",
+        "scene-014": "civil-construction-2/keiken-daizai-erabi/youtube.longform/scene-014",
+        "video": "civil-construction-2/keiken-daizai-erabi/youtube.longform/video",
+        "subtitles": "civil-construction-2/keiken-daizai-erabi/youtube.longform/subtitles",
+        "preview": "civil-construction-2/keiken-daizai-erabi/youtube.longform/preview",
+        "contact-sheet": "civil-construction-2/keiken-daizai-erabi/youtube.longform/contact-sheet",
+        "preview-metrics": "civil-construction-2/keiken-daizai-erabi/youtube.longform/preview-metrics"
+      },
+      "copy": "content/sns/video-packs/civil-construction-2/keiken-daizai-erabi/youtube.json#longform",
+      "publishAt": "2026-10-25T20:00:00+09:00",
+      "times": {
+        "rendered": "2026-10-15T22:53:18.035Z",
+        "uploaded": "2026-10-15T22:59:23.712Z",
+        "scheduled": "2026-10-15T22:59:23.712Z",
+        "metadataSynced": "2026-10-15T22:59:23.712Z"
+      },
+      "disclosure": {
+        "syntheticMedia": false
+      },
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "user",
+          "at": "2026-10-15T22:53:25.531Z",
+          "digest": "0dfd73987a60972ec8ac91c7af14f5d60fd559273a2fe071758838d97eb89967"
+        }
+      },
+      "approval": {
+        "by": "user",
+        "at": "2026-10-15T22:53:25.726Z",
+        "contentSha256": "da1e8a77e26c4443c51bc4ef5466272c0ea00e10266e9540638bf001a224ea6b"
+      },
+      "platform": {
+        "id": "oC4x6TOAoa8",
+        "url": "https://www.youtube.com/watch?v=oC4x6TOAoa8",
+        "privacy": "private",
+        "evidence": {
+          "kind": "youtube-studio",
+          "ref": "https://studio.youtube.com/video/oC4x6TOAoa8/edit — 予約完了画面で 2026-10-25T20:00:00+09:00 (JST) を確認。証跡 .tmp/five-videos/keiken-daizai-erabi/youtube-scheduled.png"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-10-15T22:59:23.712Z"
+      }
     },
     {
       "id": "civil-construction-2/keiken-gaiyo-2kyu/youtube.longform",
@@ -1485,6 +1745,73 @@
       "stopReason": "user-decision"
     },
     {
+      "id": "civil-construction-2/kento-taio-kakiwake/youtube.longform",
+      "work": "kento-taio-kakiwake",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "scheduled",
+      "media": {
+        "cover": "civil-construction-2/kento-taio-kakiwake/youtube.longform/cover",
+        "cta": "civil-construction-2/kento-taio-kakiwake/youtube.longform/cta",
+        "scene-001": "civil-construction-2/kento-taio-kakiwake/youtube.longform/scene-001",
+        "scene-002": "civil-construction-2/kento-taio-kakiwake/youtube.longform/scene-002",
+        "scene-003": "civil-construction-2/kento-taio-kakiwake/youtube.longform/scene-003",
+        "scene-004": "civil-construction-2/kento-taio-kakiwake/youtube.longform/scene-004",
+        "scene-005": "civil-construction-2/kento-taio-kakiwake/youtube.longform/scene-005",
+        "scene-006": "civil-construction-2/kento-taio-kakiwake/youtube.longform/scene-006",
+        "scene-007": "civil-construction-2/kento-taio-kakiwake/youtube.longform/scene-007",
+        "scene-008": "civil-construction-2/kento-taio-kakiwake/youtube.longform/scene-008",
+        "scene-009": "civil-construction-2/kento-taio-kakiwake/youtube.longform/scene-009",
+        "scene-010": "civil-construction-2/kento-taio-kakiwake/youtube.longform/scene-010",
+        "scene-011": "civil-construction-2/kento-taio-kakiwake/youtube.longform/scene-011",
+        "scene-012": "civil-construction-2/kento-taio-kakiwake/youtube.longform/scene-012",
+        "scene-013": "civil-construction-2/kento-taio-kakiwake/youtube.longform/scene-013",
+        "scene-014": "civil-construction-2/kento-taio-kakiwake/youtube.longform/scene-014",
+        "video": "civil-construction-2/kento-taio-kakiwake/youtube.longform/video",
+        "subtitles": "civil-construction-2/kento-taio-kakiwake/youtube.longform/subtitles",
+        "preview": "civil-construction-2/kento-taio-kakiwake/youtube.longform/preview",
+        "contact-sheet": "civil-construction-2/kento-taio-kakiwake/youtube.longform/contact-sheet",
+        "preview-metrics": "civil-construction-2/kento-taio-kakiwake/youtube.longform/preview-metrics"
+      },
+      "copy": "content/sns/video-packs/civil-construction-2/kento-taio-kakiwake/youtube.json#longform",
+      "publishAt": "2026-10-27T20:00:00+09:00",
+      "times": {
+        "rendered": "2026-10-15T22:54:01.816Z",
+        "uploaded": "2026-10-15T23:03:06.711Z",
+        "scheduled": "2026-10-15T23:03:06.711Z",
+        "metadataSynced": "2026-10-15T23:03:06.711Z"
+      },
+      "disclosure": {
+        "syntheticMedia": false
+      },
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "user",
+          "at": "2026-10-15T22:54:09.549Z",
+          "digest": "947cbf399da0b5c4b2e186397d0f206716b342beec19c20bd6b3a438b46fd697"
+        }
+      },
+      "approval": {
+        "by": "user",
+        "at": "2026-10-15T22:54:09.721Z",
+        "contentSha256": "17d21caf6b1ebd048e5ae573d0a3596615ff8f44cba54e5af202a9f521983202"
+      },
+      "platform": {
+        "id": "2SpZC1at1FU",
+        "url": "https://www.youtube.com/watch?v=2SpZC1at1FU",
+        "privacy": "private",
+        "evidence": {
+          "kind": "youtube-studio",
+          "ref": "https://studio.youtube.com/video/2SpZC1at1FU/edit — 予約完了画面で 2026-10-27T20:00:00+09:00 (JST) を確認。証跡 .tmp/five-videos/kento-taio-kakiwake/youtube-scheduled.png"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-10-15T23:03:06.711Z"
+      }
+    },
+    {
       "id": "civil-construction-2/kikinagashi-2kyu-matome/youtube.longform",
       "work": "kikinagashi-2kyu-matome",
       "account": "youtube:main",
@@ -1574,6 +1901,139 @@
         "cta": "brand/bridge-notebook-a/cta-shorts"
       },
       "stopReason": "user-decision"
+    },
+    {
+      "id": "civil-construction-2/koji-gaiyo-seigou/youtube.longform",
+      "work": "koji-gaiyo-seigou",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "scheduled",
+      "media": {
+        "cover": "civil-construction-2/koji-gaiyo-seigou/youtube.longform/cover",
+        "cta": "civil-construction-2/koji-gaiyo-seigou/youtube.longform/cta",
+        "scene-001": "civil-construction-2/koji-gaiyo-seigou/youtube.longform/scene-001",
+        "scene-002": "civil-construction-2/koji-gaiyo-seigou/youtube.longform/scene-002",
+        "scene-003": "civil-construction-2/koji-gaiyo-seigou/youtube.longform/scene-003",
+        "scene-004": "civil-construction-2/koji-gaiyo-seigou/youtube.longform/scene-004",
+        "scene-005": "civil-construction-2/koji-gaiyo-seigou/youtube.longform/scene-005",
+        "scene-006": "civil-construction-2/koji-gaiyo-seigou/youtube.longform/scene-006",
+        "scene-007": "civil-construction-2/koji-gaiyo-seigou/youtube.longform/scene-007",
+        "scene-008": "civil-construction-2/koji-gaiyo-seigou/youtube.longform/scene-008",
+        "scene-009": "civil-construction-2/koji-gaiyo-seigou/youtube.longform/scene-009",
+        "scene-010": "civil-construction-2/koji-gaiyo-seigou/youtube.longform/scene-010",
+        "scene-011": "civil-construction-2/koji-gaiyo-seigou/youtube.longform/scene-011",
+        "scene-012": "civil-construction-2/koji-gaiyo-seigou/youtube.longform/scene-012",
+        "scene-013": "civil-construction-2/koji-gaiyo-seigou/youtube.longform/scene-013",
+        "video": "civil-construction-2/koji-gaiyo-seigou/youtube.longform/video",
+        "subtitles": "civil-construction-2/koji-gaiyo-seigou/youtube.longform/subtitles",
+        "preview": "civil-construction-2/koji-gaiyo-seigou/youtube.longform/preview",
+        "contact-sheet": "civil-construction-2/koji-gaiyo-seigou/youtube.longform/contact-sheet",
+        "preview-metrics": "civil-construction-2/koji-gaiyo-seigou/youtube.longform/preview-metrics"
+      },
+      "copy": "content/sns/video-packs/civil-construction-2/koji-gaiyo-seigou/youtube.json#longform",
+      "publishAt": "2026-10-23T20:00:00+09:00",
+      "times": {
+        "rendered": "2026-10-15T22:52:14.661Z",
+        "uploaded": "2026-10-15T22:55:44.502Z",
+        "scheduled": "2026-10-15T22:55:44.502Z",
+        "metadataSynced": "2026-10-15T22:55:44.502Z"
+      },
+      "disclosure": {
+        "syntheticMedia": false
+      },
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "user",
+          "at": "2026-10-15T22:52:50.109Z",
+          "digest": "3ed33116a055da60513a020b9a5a782f4c21acf57173fc0a9d560d252aa5c588"
+        }
+      },
+      "approval": {
+        "by": "user",
+        "at": "2026-10-15T22:52:50.275Z",
+        "contentSha256": "db1af04104e2ce974b80b6dae2aae8f3834864cfe62881926fb60386bc4779f1"
+      },
+      "platform": {
+        "id": "QQAX-iLCwiE",
+        "url": "https://www.youtube.com/watch?v=QQAX-iLCwiE",
+        "privacy": "private",
+        "evidence": {
+          "kind": "youtube-studio",
+          "ref": "https://studio.youtube.com/video/QQAX-iLCwiE/edit — 予約完了画面で 2026-10-23T20:00:00+09:00 (JST) を確認。証跡 .tmp/five-videos/koji-gaiyo-seigou/youtube-scheduled.png"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-10-15T22:55:44.502Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/kotei-touan-gutaika/youtube.longform",
+      "work": "kotei-touan-gutaika",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "scheduled",
+      "media": {
+        "cover": "civil-construction-2/kotei-touan-gutaika/youtube.longform/cover",
+        "cta": "civil-construction-2/kotei-touan-gutaika/youtube.longform/cta",
+        "scene-001": "civil-construction-2/kotei-touan-gutaika/youtube.longform/scene-001",
+        "scene-002": "civil-construction-2/kotei-touan-gutaika/youtube.longform/scene-002",
+        "scene-003": "civil-construction-2/kotei-touan-gutaika/youtube.longform/scene-003",
+        "scene-004": "civil-construction-2/kotei-touan-gutaika/youtube.longform/scene-004",
+        "scene-005": "civil-construction-2/kotei-touan-gutaika/youtube.longform/scene-005",
+        "scene-006": "civil-construction-2/kotei-touan-gutaika/youtube.longform/scene-006",
+        "scene-007": "civil-construction-2/kotei-touan-gutaika/youtube.longform/scene-007",
+        "scene-008": "civil-construction-2/kotei-touan-gutaika/youtube.longform/scene-008",
+        "scene-009": "civil-construction-2/kotei-touan-gutaika/youtube.longform/scene-009",
+        "scene-010": "civil-construction-2/kotei-touan-gutaika/youtube.longform/scene-010",
+        "scene-011": "civil-construction-2/kotei-touan-gutaika/youtube.longform/scene-011",
+        "scene-012": "civil-construction-2/kotei-touan-gutaika/youtube.longform/scene-012",
+        "scene-013": "civil-construction-2/kotei-touan-gutaika/youtube.longform/scene-013",
+        "scene-014": "civil-construction-2/kotei-touan-gutaika/youtube.longform/scene-014",
+        "video": "civil-construction-2/kotei-touan-gutaika/youtube.longform/video",
+        "subtitles": "civil-construction-2/kotei-touan-gutaika/youtube.longform/subtitles",
+        "preview": "civil-construction-2/kotei-touan-gutaika/youtube.longform/preview",
+        "contact-sheet": "civil-construction-2/kotei-touan-gutaika/youtube.longform/contact-sheet",
+        "preview-metrics": "civil-construction-2/kotei-touan-gutaika/youtube.longform/preview-metrics"
+      },
+      "copy": "content/sns/video-packs/civil-construction-2/kotei-touan-gutaika/youtube.json#longform",
+      "publishAt": "2026-10-21T20:00:00+09:00",
+      "times": {
+        "rendered": "2026-10-15T22:49:18.003Z",
+        "uploaded": "2026-10-15T22:52:49.858Z",
+        "scheduled": "2026-10-15T22:52:49.858Z",
+        "metadataSynced": "2026-10-15T22:52:49.858Z"
+      },
+      "disclosure": {
+        "syntheticMedia": false
+      },
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "user",
+          "at": "2026-10-15T22:49:54.583Z",
+          "digest": "4a3c1c522a97246c111b51abdbd4d02eec9aed5099f2e97c153bd6c98d76fa53"
+        }
+      },
+      "approval": {
+        "by": "user",
+        "at": "2026-10-15T22:49:54.741Z",
+        "contentSha256": "4858ef2fb4a6911592ea2fb1417bcfd5789a3b6d4737729600fb5a8fceb26f10"
+      },
+      "platform": {
+        "id": "JgZ4X25vF1E",
+        "url": "https://www.youtube.com/watch?v=JgZ4X25vF1E",
+        "privacy": "private",
+        "evidence": {
+          "kind": "youtube-studio",
+          "ref": "https://studio.youtube.com/video/JgZ4X25vF1E/edit — 予約完了画面で 2026-10-21T20:00:00+09:00 (JST) を確認。証跡 .tmp/five-videos/kotei-touan-gutaika/youtube-scheduled.png"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-10-15T22:52:49.858Z"
+      }
     },
     {
       "id": "civil-construction-2/matome-2kyu-chokuzen/youtube.longform",
@@ -1921,6 +2381,73 @@
         "cta": "brand/bridge-notebook-a/cta-shorts"
       },
       "stopReason": "user-decision"
+    },
+    {
+      "id": "civil-construction-2/touan-teishutsu-check/youtube.longform",
+      "work": "touan-teishutsu-check",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "scheduled",
+      "media": {
+        "cover": "civil-construction-2/touan-teishutsu-check/youtube.longform/cover",
+        "cta": "civil-construction-2/touan-teishutsu-check/youtube.longform/cta",
+        "scene-001": "civil-construction-2/touan-teishutsu-check/youtube.longform/scene-001",
+        "scene-002": "civil-construction-2/touan-teishutsu-check/youtube.longform/scene-002",
+        "scene-003": "civil-construction-2/touan-teishutsu-check/youtube.longform/scene-003",
+        "scene-004": "civil-construction-2/touan-teishutsu-check/youtube.longform/scene-004",
+        "scene-005": "civil-construction-2/touan-teishutsu-check/youtube.longform/scene-005",
+        "scene-006": "civil-construction-2/touan-teishutsu-check/youtube.longform/scene-006",
+        "scene-007": "civil-construction-2/touan-teishutsu-check/youtube.longform/scene-007",
+        "scene-008": "civil-construction-2/touan-teishutsu-check/youtube.longform/scene-008",
+        "scene-009": "civil-construction-2/touan-teishutsu-check/youtube.longform/scene-009",
+        "scene-010": "civil-construction-2/touan-teishutsu-check/youtube.longform/scene-010",
+        "scene-011": "civil-construction-2/touan-teishutsu-check/youtube.longform/scene-011",
+        "scene-012": "civil-construction-2/touan-teishutsu-check/youtube.longform/scene-012",
+        "scene-013": "civil-construction-2/touan-teishutsu-check/youtube.longform/scene-013",
+        "scene-014": "civil-construction-2/touan-teishutsu-check/youtube.longform/scene-014",
+        "video": "civil-construction-2/touan-teishutsu-check/youtube.longform/video",
+        "subtitles": "civil-construction-2/touan-teishutsu-check/youtube.longform/subtitles",
+        "preview": "civil-construction-2/touan-teishutsu-check/youtube.longform/preview",
+        "contact-sheet": "civil-construction-2/touan-teishutsu-check/youtube.longform/contact-sheet",
+        "preview-metrics": "civil-construction-2/touan-teishutsu-check/youtube.longform/preview-metrics"
+      },
+      "copy": "content/sns/video-packs/civil-construction-2/touan-teishutsu-check/youtube.json#longform",
+      "publishAt": "2026-10-29T20:00:00+09:00",
+      "times": {
+        "rendered": "2026-10-15T22:54:09.909Z",
+        "uploaded": "2026-10-15T23:07:27.924Z",
+        "scheduled": "2026-10-15T23:07:27.924Z",
+        "metadataSynced": "2026-10-15T23:07:27.924Z"
+      },
+      "disclosure": {
+        "syntheticMedia": false
+      },
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "user",
+          "at": "2026-10-15T22:54:17.667Z",
+          "digest": "3b12e41ac6997c969984024f6ad8d6f70a11e22bfe38c975a451d34473fe8eb5"
+        }
+      },
+      "approval": {
+        "by": "user",
+        "at": "2026-10-15T22:54:17.855Z",
+        "contentSha256": "a13f3822d681708701c1518a78cea5ce438ccf3b242b9d062458d4a939513963"
+      },
+      "platform": {
+        "id": "ewMFfzVHdwc",
+        "url": "https://www.youtube.com/watch?v=ewMFfzVHdwc",
+        "privacy": "private",
+        "evidence": {
+          "kind": "youtube-studio",
+          "ref": "https://studio.youtube.com/video/ewMFfzVHdwc/edit — 予約完了画面で 2026-10-29T20:00:00+09:00 (JST) を確認。証跡 .tmp/five-videos/touan-teishutsu-check/youtube-scheduled.png"
+        }
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-10-15T23:07:27.924Z"
+      }
     }
   ]
 }
