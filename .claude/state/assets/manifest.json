@@ -56847,6 +56847,48 @@
         "scripts/check-orphan-ogp.mjs"
       ],
       "srcHash": "387dacb0684a4241"
+    },
+    "content/site/civil-practice/social-infrastructure-overview/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/social-infrastructure-overview/ogp.png",
+      "sha256": "c2b1c0231380302da74ea3e9f07ac115bfcc05e2b87539e8f15bd6a00c83b5d8",
+      "bytes": 64067,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-15T05:19:35.837Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/social-infrastructure-overview/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "c07b83b40870f557"
+    },
+    "content/site/civil-practice/civil-engineer-annual-cycle/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/civil-engineer-annual-cycle/ogp.png",
+      "sha256": "f1bdd0e7c1ffc0e97b2ab45052d08be3558c055a963d969966f8e624b88bf15f",
+      "bytes": 61742,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-15T05:19:36.029Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/civil-engineer-annual-cycle/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "8f703b65ef57cef5"
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",
