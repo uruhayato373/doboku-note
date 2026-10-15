@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-15T03:43:15.228Z",
+  "generated_at": "2026-10-15T03:59:16.357Z",
   "summary": {
-    "total_mdx_files": 1422,
+    "total_mdx_files": 1423,
     "total_unique_tags": 133,
     "allowlist_size": 330,
     "known_count": 133,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 246,
+      "count": 247,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1231,6 +1231,7 @@
         "civil-practice-public-meeting-consensus",
         "civil-practice-public-works-bidding-methods",
         "civil-practice-public-works-delivery-methods",
+        "civil-practice-public-works-environmental-care",
         "civil-practice-quality-record-site-bcp",
         "civil-practice-ready-mixed-concrete-ordering",
         "civil-practice-rebar-corrosion-handling",
@@ -2589,7 +2590,7 @@
     },
     {
       "name": "環境保全",
-      "count": 90,
+      "count": 91,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-environment-management",
@@ -2602,6 +2603,7 @@
         "civil-practice-environment-neighborhood",
         "civil-practice-environmental-impact-assessment-flow",
         "civil-practice-nature-conservation-mitigation",
+        "civil-practice-public-works-environmental-care",
         "concrete-engineer-textbook-environment",
         "pe-comprehensive-management-acid-rain",
         "pe-comprehensive-management-agenda-21",
@@ -2686,7 +2688,7 @@
     },
     {
       "name": "関係法規",
-      "count": 87,
+      "count": 88,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-engineer-assignment",
@@ -2712,6 +2714,7 @@
         "civil-practice-public-meeting-consensus",
         "civil-practice-public-works-bidding-methods",
         "civil-practice-public-works-delivery-methods",
+        "civil-practice-public-works-environmental-care",
         "civil-practice-safety-document-cross-check",
         "civil-practice-safety-health-education-plan",
         "civil-practice-subcontract-fair-dealing",
