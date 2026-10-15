@@ -8,7 +8,7 @@
       "audience": "自治体に土木職で入った人・異動した人",
       "area": "practice",
       "policy": "docs/strategy/18_自治体土木担当・コンクリートシリーズ方針2026-10.md",
-      "gate": "第 1 波（A-08・A-14・A-19）は 2026-10-15 に公開した。第 2 波（道路・河川の管理 8 章）と第 3 波（事業を進める 8 章）も同日の運営者判断で EXP-012 の判定を待たずに書く（DN-0739）。第 4 波以降は EXP-012 の判定（2026-11-26）と公開 28 日の計測で決める（DN-0719）",
+      "gate": "第 1〜第 3 波（19 本）は 2026-10-15 に公開した。残りの第 4 波（新規 16 章・補強 4 章）も同日の運営者判断で書いて公開する（DN-0742）。EXP-012 の判定（2026-11-26）と公開 28 日の計測は、シリーズの改善とコンクリート入門（B）の判断に使う（DN-0719）",
       "entry": {
         "hubItem": "A-00",
         "curriculum": "civil-practice:municipal"
@@ -21,31 +21,43 @@
               "id": "A-00",
               "title": "自治体の土木職の仕事 — 管理と事業の二つの役割",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/municipal-civil-engineer-work/article.mdx"
+              ],
               "sources": [
                 "local-autonomy-act",
                 "road-act",
                 "river-act"
               ],
-              "note": "シリーズのハブ。管理（道路・河川・公物）と事業（計画から検査まで）の二つの役割と、各章への案内"
+              "note": "シリーズのハブ。管理（道路・河川・公物）と事業（計画から検査まで）の二つの役割と、各章への案内",
+              "wave": 4
             },
             {
               "id": "A-01",
               "title": "土木担当の 1 年 — 予算要求・発注・出水期・決算・会計検査",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/civil-engineer-annual-cycle/article.mdx"
+              ],
               "sources": [
                 "local-autonomy-act",
                 "local-finance-act"
-              ]
+              ],
+              "wave": 4
             },
             {
               "id": "A-02",
               "title": "社会資本の全体像 — 種類・整備の歩み・投資の推移と維持更新の時代",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/social-infrastructure-overview/article.mdx"
+              ],
               "sources": [
                 "mlit-white-paper",
                 "chihou-zaisei-white-paper"
               ],
-              "note": "統計は白書の最新値。整備から維持更新へ移った背景を、担当の仕事につなげる"
+              "note": "統計は白書の最新値。整備から維持更新へ移った背景を、担当の仕事につなげる",
+              "wave": 4
             }
           ]
         },
@@ -56,29 +68,41 @@
               "id": "A-03",
               "title": "法令の読み方 — 憲法・法律・政令・省令・条例・規則・要綱・通知",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/how-to-read-laws-and-notices/article.mdx"
+              ],
               "sources": [
                 "japan-constitution",
                 "local-autonomy-act"
               ],
-              "note": "道路法・河川法の章を読む前提。条文の構造（条・項・号）と、通知・要綱の効力の違い"
+              "note": "道路法・河川法の章を読む前提。条文の構造（条・項・号）と、通知・要綱の効力の違い",
+              "wave": 4
             },
             {
               "id": "A-04",
               "title": "国・都道府県・市町村の役割分担 — 行政組織と自治事務・法定受託事務",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/national-prefecture-municipal-roles/article.mdx"
+              ],
               "sources": [
                 "local-autonomy-act"
-              ]
+              ],
+              "wave": 4
             },
             {
               "id": "A-05",
               "title": "予算と財源 — 補助金・交付金・地方債と予算の流れ",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/budget-and-funding-sources/article.mdx"
+              ],
               "sources": [
                 "local-finance-act",
                 "chihou-zaisei-white-paper"
               ],
-              "note": "事業化（要望から事業化まで）の前提。予算の年間の流れは「土木担当の 1 年」に任せる"
+              "note": "事業化（要望から事業化まで）の前提。予算の年間の流れは「土木担当の 1 年」に任せる",
+              "wave": 4
             }
           ]
         },
@@ -118,7 +142,8 @@
               ],
               "sources": [
                 "road-act"
-              ]
+              ],
+              "wave": 4
             },
             {
               "id": "A-08",
@@ -356,7 +381,8 @@
               "sources": [
                 "river-act",
                 "specified-urban-river-act"
-              ]
+              ],
+              "wave": 4
             },
             {
               "id": "A-18",
@@ -625,7 +651,8 @@
                 "public-works-quality-act",
                 "local-autonomy-act"
               ],
-              "note": "監督員の役割と品確法の発注者の責務を補う"
+              "note": "監督員の役割と品確法の発注者の責務を補う",
+              "wave": 4
             },
             {
               "id": "A-29",
@@ -637,7 +664,8 @@
               "sources": [
                 "standard-contract-terms"
               ],
-              "note": "発注者の側を補う"
+              "note": "発注者の側を補う",
+              "wave": 4
             },
             {
               "id": "A-30",
@@ -688,45 +716,65 @@
               "id": "A-32",
               "title": "都市計画法の骨格 — 区域区分・用途地域・都市計画決定",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/city-planning-act-framework/article.mdx"
+              ],
               "sources": [
                 "city-planning-act"
-              ]
+              ],
+              "wave": 4
             },
             {
               "id": "A-33",
               "title": "開発許可と公共施設の帰属 — 開発でできた道路・公園・調整池を引き取るとき",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/development-permit-public-facilities/article.mdx"
+              ],
               "sources": [
                 "city-planning-act"
               ],
-              "note": "土木担当が協議と引継ぎで当たる。帰属のときの検査と台帳への登録"
+              "note": "土木担当が協議と引継ぎで当たる。帰属のときの検査と台帳への登録",
+              "wave": 4
             },
             {
               "id": "A-34",
               "title": "土地区画整理事業 — 換地・減歩と公共施設の整備",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/land-readjustment-project/article.mdx"
+              ],
               "sources": [
                 "land-readjustment-act"
-              ]
+              ],
+              "wave": 4
             },
             {
               "id": "A-35",
               "title": "都市公園の管理 — 設置・占用・遊具の安全",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/urban-park-management/article.mdx"
+              ],
               "sources": [
                 "urban-park-act"
-              ]
+              ],
+              "wave": 4
             },
             {
               "id": "A-36",
               "title": "下水道と雨水対策 — 汚水・雨水・浸水対策と管路の管理",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/sewerage-and-stormwater/article.mdx"
+              ],
               "sources": [
                 "sewerage-act"
               ],
               "links": [
                 "content/site/civil-construction-1/textbook-water-sewer/article.mdx"
-              ]
+              ],
+              "wave": 4
             }
           ]
         },
@@ -737,23 +785,34 @@
               "id": "A-37",
               "title": "災害復旧事業と災害査定",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/disaster-recovery-assessment/article.mdx"
+              ],
               "sources": [
                 "disaster-restoration-subsidy-act"
-              ]
+              ],
+              "wave": 4
             },
             {
               "id": "A-38",
               "title": "地域防災計画と水防",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/regional-disaster-plan-flood-fighting/article.mdx"
+              ],
               "sources": [
                 "disaster-countermeasures-basic-act",
                 "flood-control-act"
-              ]
+              ],
+              "wave": 4
             },
             {
               "id": "A-39",
               "title": "土砂災害と砂防 — 警戒区域・砂防法・急傾斜地",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/sediment-disaster-erosion-control/article.mdx"
+              ],
               "sources": [
                 "sediment-disaster-act",
                 "sabo-act",
@@ -762,7 +821,8 @@
               "links": [
                 "content/site/civil-construction-1/textbook-sabo-landslide/article.mdx"
               ],
-              "note": "砂防工事は都道府県が中心。市町村は警戒区域の周知と避難に関わる"
+              "note": "砂防工事は都道府県が中心。市町村は警戒区域の周知と避難に関わる",
+              "wave": 4
             }
           ]
         },
@@ -773,7 +833,11 @@
               "id": "A-40",
               "title": "住民・議会への説明と資料づくり",
               "plan": "new",
-              "note": "一般論で書く（地方自治法の議会の規定・公開の資料づくりの手引きなどから）。体験談・団体・個人・案件が特定できる書き方をしない"
+              "note": "一般論で書く（地方自治法の議会の規定・公開の資料づくりの手引きなどから）。体験談・団体・個人・案件が特定できる書き方をしない",
+              "paths": [
+                "content/site/civil-practice/explaining-to-residents-and-council/article.mdx"
+              ],
+              "wave": 4
             },
             {
               "id": "A-41",
@@ -784,7 +848,11 @@
                 "content/site/civil-construction-1/guide-exam-overview/article.mdx",
                 "content/site/surveyor/guide-overview/article.mdx"
               ],
-              "note": "業務で求められる場面（監督・検査・設計の照査・技術職の昇任）から、各資格のガイドへ案内する"
+              "note": "業務で求められる場面（監督・検査・設計の照査・技術職の昇任）から、各資格のガイドへ案内する",
+              "paths": [
+                "content/site/civil-practice/municipal-engineer-qualifications/article.mdx"
+              ],
+              "wave": 4
             }
           ]
         }
