@@ -29,16 +29,18 @@ const legacy = [
   'https://coconala.com/services/4350199',
 ].join('\n\n') + '\n\n';
 
-test('標準順に組み直し、商品案内は1組だけにする', () => {
+// 2026-10-15: 1級の添削・骨子を休止し、1級の冒頭からココナラの案内を外した（config の 1級の urls が空）
+test('標準順に組み直し、商品案内は1組だけにする（1級はココナラの案内を出さない）', () => {
   const { intro, review } = rebuildIntro(legacy, PAST);
   assert.deepEqual(review, []);
   const order = ['# 題名', 'figure-author-authority-pop.png', 'この教材は', '総監の5つの管理', 'こんな人', 'わかること',
-    '\n---\n', 'cta:coconala-custom', '4418735', '4350199', '過去問 模範答案集」の収録記事', 'm3a578194a0a9',
+    '\n---\n', '過去問 模範答案集」の収録記事', 'm3a578194a0a9',
     'cta:pack-top', 'm8290970a7f05', '失格となります', '【〇〇】'];
   let pos = -1;
   for (const k of order) { const i = intro.indexOf(k, pos + 1); assert.ok(i > pos, `順序: ${k}`); pos = i; }
   assert.equal((intro.match(/figure-author-authority/g) || []).length, 1);
-  assert.equal((intro.match(/coconala\.com/g) || []).length, 2);
+  assert.equal((intro.match(/coconala\.com/g) || []).length, 0, '休止中の 1級の出品へ送らない');
+  assert.ok(!intro.includes('cta:coconala-custom'), '案内先が無ければ案内そのものを出さない');
   assert.ok(!intro.includes('合格ラインへ引き上げます'));
   assert.ok(!intro.includes('まだ答案が無い人は'));
   assert.ok(!intro.includes('m150c9db08902'), '収録元＋上位の2枚だけ');
