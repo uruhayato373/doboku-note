@@ -4119,6 +4119,23 @@
       "commit": "069ee018a94d",
       "verification": "npm run check-content-series → 図・写真の計画 106 件 / 未完了 0 件・PASS。本番（main 1a165644e）で 10 記事・13 枚（自作 SVG 11・AI 写真 2、写真は ai-image-fidelity-auditor ok・コアは描き直しの軸も ok）が記事に載り、画像が HTTP 200 で配信。check-production-ssr exit 0",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0748",
+      "at": "2026-10-15",
+      "task": "コンクリートの記事の JIS R 5210（2026 年改正）と JIS A 5308（2024 年改正）の値を洗い出して直す",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "doc",
+        "ref": ".claude/knowledge/reference/concrete-practice-sources.md"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "818ebd1678e2",
+      "verification": "本番（main a3c74688f）で 7 記事の改正後の文面を curl で確認（鉄筋の曲げ性・隅角部の外側・スランプ10cm削除・少量混合成分の増量は石灰石だけ・高強度も150m³に1回・強熱減量の規定値の削除・過去問の改正の注）。check-production-ssr exit 0。一覧は concrete-practice-sources.md の「JIS の改正を記事へ反映した箇所」",
+      "note": "改正の中身と直した箇所の一覧、原典の文字起こしの表が崩れて「鋭角」を「鉤角」と誤読していた点を事実ファイルに記録した（数値の表は頁画像で照合する）。過去問は出題年の版のまま、冒頭に改正の注を足した。"
     }
   ]
 }
