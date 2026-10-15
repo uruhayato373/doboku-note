@@ -134,6 +134,10 @@ test('targets require real complete baselines',t=>{
  const target={kind:'target',qualification:'all',period,metric:'notePv',value:20,direction:'at-least',effectiveDate:'2026-09-01',reviewDate:'2026-10-01',reason:'同じ対象の実測から設定する。',snapshot:first.file};
  assert.throws(()=>saveRecord(root,target,now),/実測/);
  saveRecord(root,measure(),now);const second=snapshot(root,period,now);saveRecord(root,{...target,snapshot:second.file},now);
+ // 2026-10-15: 目標の記録そのもの（オブジェクト）を cells.target に入れ、BusinessSnapshot の型で snapshot が毎週落ちていた。値だけを入れる
+ const later={startDate:'2026-09-01',endDate:'2026-09-07'};
+ assert.equal(buildReport(root,later,now).cells.find(c=>c.qualification==='all'&&c.metric==='notePv').target,20);
+ assert.doesNotThrow(()=>snapshot(root,later,now));
 });
 test('a snapshot identical to the previous one of the same period is not written again',t=>{
  const root=fixture(t), count=()=>records(root).filter(r=>r.kind==='snapshot').length;
