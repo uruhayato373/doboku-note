@@ -4063,6 +4063,23 @@
       "commit": "cbf5848f2896",
       "verification": "写真 8 枚を AI で作り ai-image-fidelity-auditor で全数 ok・record-ai 済み、本番で HTTP 200、visual-jobs の municipal-civil-engineer 0 件",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0725",
+      "at": "2026-10-15",
+      "task": "2級土木の note 記事 2 本が 10/10 と 10/12 で二重投稿になっていないか確かめる",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "none",
+        "ref": "重複は PR #965 の取り込み競合による一回限りの二重投稿。残す版の決定と もくじの付け替えまで済み、残りの非公開化と反映は DN-0743 へ切り出した"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "9074d9eee027",
+      "verification": "content/note/1級・2級土木/土木もくじ/article.md が残す版を指す",
+      "note": "note API v3 で 2 本ずつの二重公開を実測。原稿と同期の台帳が指す 10/12 の版（n1edc95f39203・naa0821a3d631）を残すと決め（2026-10-15 運営者）、土木もくじを付け替えた（PR #1076）。10/10 の版の非公開化とライブ反映は DN-0743（browser-use）"
     }
   ]
 }
