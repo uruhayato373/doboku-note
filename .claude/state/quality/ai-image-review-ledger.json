@@ -641,6 +641,33 @@
       "reason": "種別・構造・本文・破綻の4軸とも問題なし。手前に堤防法面の草地、中景に低水路の緩やかな流れと礫の寄洲、背景に河川敷と山並みがあり、本文・alt の「堤防法面の向こうの河川敷で高木化したハリエンジュ樹林」と一致する。樹林は細かい小葉の羽状複葉らしい軽い樹冠と、暗色で縦に割れた幹を持つ株立ち状の高木群で、ハリエンジュとして不自然な点はない。文字・看板・ロゴ・人物・構造物は無く、幹や枝の溶け・二重化も見当たらない。",
       "reviewedAt": "2026-10-09T09:16:25.721Z"
     },
+    "civil-practice/polymer-construction-materials/img/photo-cfrp-sheet-roller-impregnation": {
+      "sha": "8cc713aec0e737a2",
+      "promptSha": "118c9f35309960f8",
+      "tool": "Codex",
+      "generatedAt": "2026-10-15T10:26:04.499Z",
+      "verdict": "ok",
+      "reason": "桁下面（コンクリート）に黒い一方向の炭素繊維シートが長手方向に貼られ、作業員が後ろ向き（顔なし）で足場上から上向きにリブ付きの短いローラーを当てている。ローラー付近から奥は含浸済みの琥珀色で光沢があり、手前側は艶消しの黒い繊維目が見え、本文（含浸接着樹脂をローラーで含浸）と矛盾しない。足場に手摺・クランプ・樹脂用の黒いトレーがあり、手袋・白ヘルメット・グレーのつなぎで手指・四肢の破綻、文字・ロゴは無い。",
+      "reviewedAt": "2026-10-15T10:36:53.325Z"
+    },
+    "civil-practice/polymer-construction-materials/img/photo-geogrid-laid-on-embankment": {
+      "sha": "bcc2c3cdb30f96a3",
+      "promptSha": "a87fab4d5b25ee34",
+      "tool": "Codex",
+      "generatedAt": "2026-10-15T10:30:01.345Z",
+      "verdict": "ok",
+      "reason": "締固め済みの茶色い盛土面に、濃い灰色の樹脂製ジオグリッド（幅の平たいリブ・接合部がわずかに盛り上がった長方形の開口、鋼の溶接金網ではない）が1枚物でたるみ・しわ無く広がっている。縁のリブにさび色の鉄筋製U字ピンがほぼ等間隔で掛かり、開口から下の土が見える。奥に黄色いクローラ式油圧ショベルと土の山がボケて写り、本文の「継ぎ目なく、すき間なく、ずれないように敷く」と矛盾せず、人物・文字・部品の崩れは無い。",
+      "reviewedAt": "2026-10-15T10:36:53.327Z"
+    },
+    "civil-practice/polymer-construction-materials/img/photo-laminated-rubber-bearing-section": {
+      "sha": "f80b4855a5a9d63d",
+      "promptSha": "7e47f76a84124955",
+      "tool": "Codex",
+      "generatedAt": "2026-10-15T10:32:06.221Z",
+      "verdict": "ok",
+      "reason": "積層ゴム支承の切断面として、黒いゴム層（9層）と銀灰色の薄い内部鋼板（8枚）が水平・平行に交互に重なり、鋼板の端は左右の被覆ゴム帯の内側で止まって外周がゴムで包まれている。上下に本体より張り出した厚い鋼製エンドプレートがゴムに直接つながり、ボルト孔がある。木製パレット上・ヤード背景で、文字・マーキングは無い。右端の縦辺がわずかに内側へ傾くが、構造の理解を誤らせる程度ではない。",
+      "reviewedAt": "2026-10-15T10:36:53.327Z"
+    },
     "civil-practice/pre-construction-process/img/photo-right-of-way-boundary-stakes": {
       "sha": "49e4a9bcd5b9a4a3",
       "promptSha": "2cf6c330a08021a5",
@@ -775,6 +802,12 @@
       "verdict": "ok",
       "reason": "種別・構造: 傾斜した鋼管の支柱が丸い無筋コンクリート基礎に入り、地際に錆の流下と塗装の剥離が出ていて、prompt と本文（埋設基礎・吊り金具の点検）に合う。上部は横梁に吊り金具が二つ付き、各金具から鎖が下がる構造として成り立つ。奥の脚と滑り台も遠近として無理がない。破綻: 文字・ロゴ・人物・溶けた部品・二重の部位は無い。座板が外れて鎖だけ下がる点は不自然だが、教材の誤解にはならない。",
       "reviewedAt": "2026-10-15T07:06:47.288Z"
+    },
+    "civil-practice/wood-and-stone-materials/img/photo-dismantled-arch-voussoirs": {
+      "sha": "daa701fe05c51a19",
+      "promptSha": "9e441f67166a487b",
+      "tool": "Codex",
+      "generatedAt": "2026-10-15T10:36:17.350Z"
     },
     "concrete-chief-engineer/textbook-construction/img/photo-shotcrete-tunnel": {
       "sha": "c94a157bd95a2d63",
