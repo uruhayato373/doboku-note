@@ -1440,14 +1440,14 @@
       "page": 10,
       "dpi": 300
     },
-    "civil-construction-1/secondary-r08/img/i-9-crack-types": {
-      "pdf": "https://www.jctc.jp/wjctcp/wp-content/uploads/2026/10/20261005d_mondai.pdf",
-      "page": 9,
-      "dpi": 300
-    },
     "civil-construction-1/secondary-r08/img/i-10-crane-pile-unloading": {
       "pdf": "https://www.jctc.jp/wjctcp/wp-content/uploads/2026/10/20261005d_mondai.pdf",
       "page": 10,
+      "dpi": 300
+    },
+    "civil-construction-1/secondary-r08/img/i-9-crack-types": {
+      "pdf": "https://www.jctc.jp/wjctcp/wp-content/uploads/2026/10/20261005d_mondai.pdf",
+      "page": 9,
       "dpi": 300
     },
     "civil-construction-1/textbook-coast-port/img/photo-crane-barge-caisson": {
@@ -1885,6 +1885,16 @@
       "kind": "ai-generated",
       "tool": "Codex",
       "prompt": "A construction worker seen from the side, in a hard hat and work clothes, bending slightly to lift a stack of cement bags (plain, unlabeled) from the ground at a civil engineering site. He wears a passive wearable waist assist exoskeleton: a padded waist belt around the lower back, connected to rigid frame bars running down the outside of both thighs, with thigh pads strapped to the front of each thigh. The frame is clearly visible over the work trousers. Face turned away or hidden by helmet brim, no text, no logos, no brand marks. Shallow depth of field, blurred earthwork background."
+    },
+    "civil-practice/river-crossing-structure-review/img/photo-sluice-gate-wing-wall": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Documentary photo of a Japanese river sluice gate (higomon) at a grass levee, viewed from the river side at a slight angle. A reinforced concrete headwall with a steel slide gate frame at the culvert opening, and two concrete wing walls flaring outward left and right from the headwall, standing as separate free-standing retaining walls. Beyond the wing walls, the sloped levee face is covered with grey interlocking concrete block revetment that meets the wing wall tops neatly. Low concrete apron at the base, calm river water in front, mowed green levee grass, overcast daylight. Shallow depth of field, no people, no text, no logos."
+    },
+    "civil-practice/river-facility-inspection-operation/img/photo-sluice-operation-panel-gauge": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Documentary-style photo of a river sluice gate (himon) control point on a levee crest in Japan: a gray steel weatherproof local control panel box on a short concrete pedestal next to a small concrete gate operating platform with a hand-wheel style gate hoist, and a few meters beyond it a vertical enamel staff gauge (water level gauge) fixed on a concrete wall of the gate pier, with a bright red painted band marked across the upper part of the gauge to indicate an evacuation water level. Overcast daylight, grass levee slope and river channel softly blurred in background, shallow depth of field, no people, no readable text, no logos, no numerals on the gauge"
     },
     "civil-practice/river-park-erosion-control/img/photo-landslide-warning-sign": {
       "kind": "ai-generated",

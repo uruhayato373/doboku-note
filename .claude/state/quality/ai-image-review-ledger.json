@@ -659,6 +659,21 @@
       "reason": "種別・構造: 黒い腰ベルトが腰に巻かれ、両脚の外側へ剛性のあるフレーム棒が下り、大腿前面の黒いパッドにベルトで固定されている。外部電源や電動部は見えず、本文のパッシブ型の装着型補助具として成り立つ。本文: 腰ベルトと脚部フレームで資材を持ち上げる場面で、alt と一致し本文とも矛盾しない。破綻: 袋は無地で文字・ロゴなし。手袋の手は袋の上に自然に置かれ、指や脚の崩れ、二重の部位は見えない。背景は土工現場でヘルメットも自然。",
       "reviewedAt": "2026-10-09T09:35:27.276Z"
     },
+    "civil-practice/river-crossing-structure-review/img/photo-sluice-gate-wing-wall": {
+      "sha": "414b1618d267e713",
+      "promptSha": "1b5278ab56816459",
+      "tool": "Codex",
+      "generatedAt": "2026-10-15T06:48:47.493Z",
+      "verdict": "ok",
+      "reason": "種別・構造・本文・破綻のいずれも問題なし。中央に鉄筋コンクリートの門柱と呑口があり、ガイドレールと梯子つきの鋼製スライドゲート、上部の手すり付き管理台、下部の函体開口が通常の樋門として成り立つ。左右の斜めに下がる翼壁が呑口から外へ開き、その外側の堤防法面に連結ブロック張り護岸が翼壁の天端に沿って収まる。低い水叩き状のコンクリート前庭と前面の川水も本文（呑口・翼壁・ブロック張り護岸の取り合い）と矛盾しない。文字・ロゴ・溶けた部品・二重の部位は見当たらない。",
+      "reviewedAt": "2026-10-15T06:51:41.381Z"
+    },
+    "civil-practice/river-facility-inspection-operation/img/photo-sluice-operation-panel-gauge": {
+      "sha": "b51e051a1fa18632",
+      "promptSha": "5cc45e85a746f7b2",
+      "tool": "Codex",
+      "generatedAt": "2026-10-15T06:51:20.906Z"
+    },
     "civil-practice/river-park-erosion-control/img/photo-landslide-warning-sign": {
       "sha": "539fe096d2e697f3",
       "promptSha": "f9c75b3631942178",
