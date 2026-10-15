@@ -56679,6 +56679,27 @@
         "scripts/check-orphan-ogp.mjs"
       ],
       "srcHash": "aeaa4de7b5a8ebd2"
+    },
+    "content/site/civil-practice/public-meeting-consensus/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/public-meeting-consensus/ogp.png",
+      "sha256": "1b0d9cfa4c01e62437a9cf29030cc2b2d3edce9884c3a0aaee3c33a8e9675914",
+      "bytes": 66680,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-15T03:44:31.851Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/public-meeting-consensus/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "ada7ada8a704101d"
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",
