@@ -592,6 +592,8 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **完了条件（改）**: metrics に YouTube 送客の指標があり、週次・月次のスナップショットが値（欠測は null）を持ち、/metrics/business に出ている。npm run check-business-direction が通る。
 
+**進捗（2026-10-14）**: 指標 `youtubeUsers`（GA4・日本・sessionSource=youtube のアクティブユーザー・資格別には割らない）を business-direction.json に足し、`fetch-business-metrics.mjs` の全体（all）の GA4 集計で取得、週次レビューの下書きの表にも出す（PR feat/youtube-referral-kpi）。check-business-direction は 24 指標で PASS。**残り**: マージ後の CI の定期取得（fetch-metrics）で週次・月次の記録に値が入り、/metrics/business に出ていることを確かめて完了。
+
 ### [DN-0393] 国・都道府県の技術図書の整理を共通仕様書の次（施工管理基準から）へ広げる
 タグ: [コンテンツ品質] [領域:サイト] [時期:2026-10..2026-11] [種類:制作] [起票:2026-09-27]
 
