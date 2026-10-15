@@ -19381,12 +19381,12 @@
     "content/site/civil-practice/checklist-shoring-buoyancy/ogp.png": {
       "bucket": "public",
       "r2Key": "posts/civil-practice/checklist-shoring-buoyancy/ogp.png",
-      "sha256": "076f8c9f21b77aabd64d530a36add1b8637d769c891946c210723ff9d0c9b9ad",
-      "bytes": 73169,
+      "sha256": "4e5f41473c9cee4e759fa3d6bc098218d9694fb18b5392ec9c0707c36e9a6062",
+      "bytes": 73146,
       "visibility": "public",
       "regenerable": false,
       "group": "site-ogp-png",
-      "verifiedAt": "2026-09-14T09:10:33.532Z",
+      "verifiedAt": "2026-10-15T08:43:05.422Z",
       "width": 1200,
       "height": 630,
       "logicalPath": "content/site/civil-practice/checklist-shoring-buoyancy/ogp.png",
@@ -19397,7 +19397,7 @@
         "scripts/check-ogp-coverage.mjs",
         "scripts/check-orphan-ogp.mjs"
       ],
-      "srcHash": "7a2ba06bba96f7fd"
+      "srcHash": "ab1b97e3ec913c7e"
     },
     "content/site/civil-practice/concrete-compaction-numbers/ogp.png": {
       "bucket": "public",
@@ -19717,12 +19717,12 @@
     "content/site/civil-practice/formwork-material-inspection/ogp.png": {
       "bucket": "public",
       "r2Key": "posts/civil-practice/formwork-material-inspection/ogp.png",
-      "sha256": "e13ff648d50de3314734a324ed187e8e5f62d9a1ef7404d734a76e7bb2adb273",
-      "bytes": 69864,
+      "sha256": "aaec6ba876da46023fe9d9b467c187ef28a8e0af31debb5c1bae8ab5b158e90e",
+      "bytes": 69855,
       "visibility": "public",
       "regenerable": false,
       "group": "site-ogp-png",
-      "verifiedAt": "2026-09-14T09:10:36.509Z",
+      "verifiedAt": "2026-10-15T08:43:07.914Z",
       "width": 1200,
       "height": 630,
       "logicalPath": "content/site/civil-practice/formwork-material-inspection/ogp.png",
@@ -19733,7 +19733,7 @@
         "scripts/check-ogp-coverage.mjs",
         "scripts/check-orphan-ogp.mjs"
       ],
-      "srcHash": "3f187b83a1fbfca9"
+      "srcHash": "cf111f35dc08b4c8"
     },
     "content/site/civil-practice/formwork-removal-timing/ogp.png": {
       "bucket": "public",
@@ -19759,12 +19759,12 @@
     "content/site/civil-practice/formwork-waterstop-details/ogp.png": {
       "bucket": "public",
       "r2Key": "posts/civil-practice/formwork-waterstop-details/ogp.png",
-      "sha256": "3ab601e0275dd291ad2d6ea7f164ba4638ffc2dbf735198be2b5c8c2c81e78b8",
-      "bytes": 71459,
+      "sha256": "2b9d58ab63fa861627388e96da1595b8c3a34cf2ebea32929411f358998c6c51",
+      "bytes": 71439,
       "visibility": "public",
       "regenerable": false,
       "group": "site-ogp-png",
-      "verifiedAt": "2026-09-14T09:10:36.698Z",
+      "verifiedAt": "2026-10-15T08:43:04.147Z",
       "width": 1200,
       "height": 630,
       "logicalPath": "content/site/civil-practice/formwork-waterstop-details/ogp.png",
@@ -19775,7 +19775,7 @@
         "scripts/check-ogp-coverage.mjs",
         "scripts/check-orphan-ogp.mjs"
       ],
-      "srcHash": "37383e56d2a43d24"
+      "srcHash": "1c4c94f880294c5d"
     },
     "content/site/civil-practice/lifting-equipment-selection/ogp.png": {
       "bucket": "public",
@@ -19948,12 +19948,12 @@
     "content/site/civil-practice/rebar-corrosion-handling/ogp.png": {
       "bucket": "public",
       "r2Key": "posts/civil-practice/rebar-corrosion-handling/ogp.png",
-      "sha256": "c87c780db173226fabec4ee6d73c4d17606e86983dd55951c97f7434bfa500a7",
-      "bytes": 68276,
+      "sha256": "88ad4290bedeff194babc741b9698972205a79ef5cb5c885f1629c3ce23176b8",
+      "bytes": 68264,
       "visibility": "public",
       "regenerable": false,
       "group": "site-ogp-png",
-      "verifiedAt": "2026-09-14T09:10:39.140Z",
+      "verifiedAt": "2026-10-15T08:43:04.208Z",
       "width": 1200,
       "height": 630,
       "logicalPath": "content/site/civil-practice/rebar-corrosion-handling/ogp.png",
@@ -19964,17 +19964,17 @@
         "scripts/check-ogp-coverage.mjs",
         "scripts/check-orphan-ogp.mjs"
       ],
-      "srcHash": "d8a1eeaebdcdf2bc"
+      "srcHash": "ae6d2e255951f281"
     },
     "content/site/civil-practice/rebar-cover-placement/ogp.png": {
       "bucket": "public",
       "r2Key": "posts/civil-practice/rebar-cover-placement/ogp.png",
-      "sha256": "fa02e5d086b9efa482cdfa99ae6a25168cfc4d00ee0dabb96b5a9106d7385f22",
-      "bytes": 78526,
+      "sha256": "186b94855740bd5df5a4f67cb62b1d746ec586dbe69d32197ed157fb412b4f1d",
+      "bytes": 78509,
       "visibility": "public",
       "regenerable": false,
       "group": "site-ogp-png",
-      "verifiedAt": "2026-09-14T09:10:39.381Z",
+      "verifiedAt": "2026-10-15T08:43:04.394Z",
       "width": 1200,
       "height": 630,
       "logicalPath": "content/site/civil-practice/rebar-cover-placement/ogp.png",
@@ -19985,17 +19985,17 @@
         "scripts/check-ogp-coverage.mjs",
         "scripts/check-orphan-ogp.mjs"
       ],
-      "srcHash": "fd9d655e1331c815"
+      "srcHash": "ee7e5205bc122062"
     },
     "content/site/civil-practice/rebar-splice-selection/ogp.png": {
       "bucket": "public",
       "r2Key": "posts/civil-practice/rebar-splice-selection/ogp.png",
-      "sha256": "fc8c6b40c5ef4327b4bf0344c758a0c7c23abe101ba4bd3fe5292053843d0cf9",
-      "bytes": 69953,
+      "sha256": "1ed7b68401775d757bb225c5c89d0692123e2472d2292570b0738430a08fada4",
+      "bytes": 69956,
       "visibility": "public",
       "regenerable": false,
       "group": "site-ogp-png",
-      "verifiedAt": "2026-09-14T09:10:39.448Z",
+      "verifiedAt": "2026-10-15T08:43:04.607Z",
       "width": 1200,
       "height": 630,
       "logicalPath": "content/site/civil-practice/rebar-splice-selection/ogp.png",
@@ -20006,7 +20006,7 @@
         "scripts/check-ogp-coverage.mjs",
         "scripts/check-orphan-ogp.mjs"
       ],
-      "srcHash": "ee91c8d0c1d68fd8"
+      "srcHash": "e81973c22b38933e"
     },
     "content/site/civil-practice/reference-values/ogp.png": {
       "bucket": "public",
@@ -52025,7 +52025,7 @@
       "visibility": "public",
       "regenerable": false,
       "group": "site-ogp-png",
-      "verifiedAt": "2026-10-07T23:53:00.647Z",
+      "verifiedAt": "2026-10-15T08:43:04.832Z",
       "width": 1200,
       "height": 630,
       "logicalPath": "content/site/civil-practice/steel-material-properties/ogp.png",
@@ -52036,7 +52036,7 @@
         "scripts/check-ogp-coverage.mjs",
         "scripts/check-orphan-ogp.mjs"
       ],
-      "srcHash": "abdfb7de5768ad39"
+      "srcHash": "41aacd1b50b14496"
     },
     "content/site/pe-comprehensive-management/diversity-management/ogp.png": {
       "bucket": "public",
