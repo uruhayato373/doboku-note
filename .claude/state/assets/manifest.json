@@ -56931,6 +56931,27 @@
         "scripts/check-orphan-ogp.mjs"
       ],
       "srcHash": "1acf4e5c0299c2dd"
+    },
+    "content/site/civil-practice/city-planning-act-framework/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/city-planning-act-framework/ogp.png",
+      "sha256": "e256b4e247b8235c778e7850993b6be4b29076251d1e20e438fd9a8a7178cad2",
+      "bytes": 61937,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-15T05:37:41.053Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/city-planning-act-framework/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "a849ef360b579159"
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",
