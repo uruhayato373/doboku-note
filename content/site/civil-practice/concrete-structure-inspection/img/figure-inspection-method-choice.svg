@@ -1,0 +1,63 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点はできた構造物の強度・かぶり検査で、穴が残るか（非破壊かコアか）と、何が分かるか（強度か配筋・かぶりか）で検査方法を分ける整理。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="構造物の検査方法を、穴が残るかどうかと、何が分かるかで分けた図。強度は、穴が残らない非破壊のテストハンマーの反発度と超音波法で広く浅く推定し、届かなければ穴が残る小径コアとコアで深く確かめ、コアでも届かなければ対策を協議する。配筋とかぶりは、強度とは別に電磁波レーダ法や電磁誘導法で非破壊で測る。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .v { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 11px; fill: #555; }
+      .zone { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .zonew { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; } /* warn-fill / warn */
+      .row { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .hd { fill: #fff; stroke: #8a8a8a; stroke-width: 1.5; }
+      .cb { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; } /* brand-fill / brand */
+      .cp { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; } /* positive-fill / positive */
+      .box { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; } /* danger-fill / danger */
+      .ar { stroke: #2e6da4; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+
+  <!-- A 穴が残らない（強度） -->
+  <rect class="zone" x="16" y="10" width="368" height="140" rx="8"/>
+  <rect class="hd" x="28" y="18" width="150" height="20" rx="10"/><text class="t" x="103" y="32" text-anchor="middle">穴が残らない（非破壊）</text>
+  <text class="s" x="190" y="32">広く浅く・推定値</text>
+  <rect class="row" x="28" y="44" width="344" height="46" rx="6"/>
+  <text class="n" x="40" y="63">テストハンマーの反発度</text>
+  <text x="40" y="81">表面付近の硬さから推定する</text>
+  <rect class="cb" x="288" y="57" width="72" height="22" rx="11"/><text class="v" x="324" y="72" text-anchor="middle">強度</text>
+  <rect class="row" x="28" y="96" width="344" height="46" rx="6"/>
+  <text class="n" x="40" y="115">超音波法</text>
+  <text x="40" y="133">検量線が要る・測る幅は1,000mm以上</text>
+  <rect class="cb" x="288" y="109" width="72" height="22" rx="11"/><text class="v" x="324" y="124" text-anchor="middle">強度</text>
+
+  <path class="ar" d="M60,152V176" marker-end="url(#ah)"/>
+  <text class="t" x="74" y="168">強度が届かなければ</text>
+
+  <!-- B 穴が残る（強度） -->
+  <rect class="zonew" x="16" y="178" width="368" height="140" rx="8"/>
+  <rect class="hd" x="28" y="186" width="150" height="20" rx="10"/><text class="t" x="103" y="200" text-anchor="middle">穴が残る（コアを抜く）</text>
+  <text class="s" x="190" y="200">深く・確実</text>
+  <rect class="row" x="28" y="212" width="344" height="46" rx="6"/>
+  <text class="n" x="40" y="231">小径コア</text>
+  <text x="40" y="249">直径50mm以下・補修が必要</text>
+  <rect class="cb" x="288" y="225" width="72" height="22" rx="11"/><text class="v" x="324" y="240" text-anchor="middle">強度</text>
+  <rect class="row" x="28" y="264" width="344" height="46" rx="6"/>
+  <text class="n" x="40" y="283">コア（φ100mm）</text>
+  <text x="40" y="301">JIS A 1107で圧縮強度試験をする</text>
+  <rect class="cb" x="288" y="277" width="72" height="22" rx="11"/><text class="v" x="324" y="292" text-anchor="middle">強度</text>
+
+  <path class="ar" d="M60,320V344" marker-end="url(#ah)"/>
+  <text class="t" x="74" y="336">コアでも届かなければ</text>
+  <rect class="box" x="28" y="346" width="344" height="30" rx="6"/><text class="n" x="200" y="365" text-anchor="middle">監督職員と対策を協議する</text>
+
+  <!-- C 配筋・かぶり -->
+  <rect class="zone" x="16" y="392" width="368" height="90" rx="8"/>
+  <rect class="hd" x="28" y="400" width="150" height="20" rx="10"/><text class="t" x="103" y="414" text-anchor="middle">穴が残らない（非破壊）</text>
+  <text class="s" x="190" y="414">強度とは別の道具</text>
+  <rect class="row" x="28" y="426" width="344" height="46" rx="6"/>
+  <text class="n" x="40" y="445">電磁波レーダ法・電磁誘導法</text>
+  <text x="40" y="463">鉄筋の間隔とかぶりを測る</text>
+  <rect class="cp" x="268" y="439" width="92" height="22" rx="11"/><text class="v" x="314" y="454" text-anchor="middle">配筋・かぶり</text>
+</svg>
