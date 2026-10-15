@@ -4149,6 +4149,19 @@
       "commit": "5b08a17bd57f",
       "verification": "node scripts/gsc-request-indexing.mjs --urls <10件> の診断（登録済み 7・14 日以内にリクエスト済み 1）と --commit（r05-basic は登録済み・r06-aptitude は除外）。記録は data/gsc/indexing-{requests,history}.json",
       "note": "2026-10-15 に URL 検査で 10 URL を確かめた。8 件は登録済み（/exam/pe-first-stage・guide/overview・r07-basic・r07-aptitude・r07-construction・r05-basic・guide/study-plan・/tools/kakomon-quiz/pe-first-stage）。未登録の 2 件は Mac の GSC 自動ジョブ（gsc-local）が送信済み（r06-basic 10/08・r06-aptitude 10/15 01:30）。新たに送るものは無かった。効果の確認は DN-0499 の 11 月初めの比較で行う。"
+    },
+    {
+      "id": "DN-0312",
+      "at": "2026-10-15",
+      "task": "ココナラ room 18351970（1級）の残り2テーマ（環境対策・施工計画）を DM で添削する",
+      "tier": "high",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "f9c3bc651182",
+      "verification": "node scripts/coconala-orders.mjs（読み取り専用・DM 10227804 は 9月28日のまま未読 0）→ node scripts/check-coconala-orders.mjs で取引はすべて一致・DN-0312 の DM は要対応から外れた",
+      "note": "環境対策・施工計画は 9/27 に仕上げ版を返し、9/28 11:43 に 5 テーマと工事概要の記入例をまとめた Word を送付済み（orders.json の memo）。2026-10-15 に DM 一覧を取り直し、以後の新着が無いことを確認して orders.json を closed にした。"
     }
   ]
 }
