@@ -56448,6 +56448,258 @@
         "scripts/check-orphan-ogp.mjs"
       ],
       "srcHash": "e83a73b7437c6b41"
+    },
+    "content/site/civil-practice/road-occupancy-permit-review/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/road-occupancy-permit-review/ogp.png",
+      "sha256": "ea06fe593a68164530c34dd0a8b5ad7d40ad845e0b531b893006c27cd67cf77f",
+      "bytes": 62047,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-15T02:21:32.815Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/road-occupancy-permit-review/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "0bcf77582dbba91b"
+    },
+    "content/site/civil-practice/satomichi-suiro-management/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/satomichi-suiro-management/ogp.png",
+      "sha256": "180ecfcad0f5f8a95b81b265ed37fd58b33c5390779bff3720d3ed089a385efc",
+      "bytes": 62445,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-15T02:24:41.116Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/satomichi-suiro-management/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "81390411a8099a2b"
+    },
+    "content/site/civil-practice/river-area-permits/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/river-area-permits/ogp.png",
+      "sha256": "c961a8f962a5f452b509945a4e4177cf656e641c89ea3f4f5765d146a32c05a9",
+      "bytes": 74134,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-15T02:24:41.377Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/river-area-permits/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "acb8f5786be57b62"
+    },
+    "content/site/civil-practice/road-work-approval-vs-road-use-permit/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/road-work-approval-vs-road-use-permit/ogp.png",
+      "sha256": "207e447b7d29b07c5e71c0ed8e4aaff2c8e6b68f6631fb01540d87e264340c42",
+      "bytes": 69965,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-15T03:06:35.678Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/road-work-approval-vs-road-use-permit/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "632119c84ae5ad28"
+    },
+    "content/site/civil-practice/road-act-framework/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/road-act-framework/ogp.png",
+      "sha256": "0876c66072ae21f3a7e87e8562b996f4251644ae8aa5e9e80dd17aac1000c889",
+      "bytes": 59619,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-15T03:11:41.490Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/road-act-framework/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "ac5738c83335e9ab"
+    },
+    "content/site/civil-practice/road-boundary-and-road-ledger/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/road-boundary-and-road-ledger/ogp.png",
+      "sha256": "263ff726b9146ebd0b2bea82257cae3a369e33bd7e0858e58595efca2e51a1e0",
+      "bytes": 67966,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-15T03:11:41.710Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/road-boundary-and-road-ledger/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "ef880e34174ced9c"
+    },
+    "content/site/civil-practice/road-inspection-longevity-plan/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/road-inspection-longevity-plan/ogp.png",
+      "sha256": "aa874a3f06aeedcaf4cf34dd014a8b1aac91c2e59b8228c3fddac73af13fc0bd",
+      "bytes": 66316,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-15T03:14:40.848Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/road-inspection-longevity-plan/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "c66cc67ad2371e85"
+    },
+    "content/site/civil-practice/river-act-framework/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/river-act-framework/ogp.png",
+      "sha256": "9bcb59374bf60f4342a5a5ffda627a727de0bb28eb840357e613d8ad6f7f17c9",
+      "bytes": 60631,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-15T03:21:58.188Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/river-act-framework/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "7ef54e57c7dc0b8e"
+    },
+    "content/site/civil-practice/river-crossing-structure-review/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/river-crossing-structure-review/ogp.png",
+      "sha256": "fc1bc117a48c3791ca437d93c73a65c766601564c67477e4a9b4157d1d905dbe",
+      "bytes": 72743,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-15T03:24:57.447Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/river-crossing-structure-review/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "eaec03fda82e1316"
+    },
+    "content/site/civil-practice/river-facility-inspection-operation/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/river-facility-inspection-operation/ogp.png",
+      "sha256": "7680e7a18b13c35ca181eeab99c901ba565d6a75ff76c2da636b8e02a2e5e81f",
+      "bytes": 66479,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-15T03:30:00.692Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/river-facility-inspection-operation/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "5ea042b9515c0933"
+    },
+    "content/site/civil-practice/coast-port-administrators/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/coast-port-administrators/ogp.png",
+      "sha256": "d3c664ee9435b3b8e007d257645d7b9512bbd4cd8daef449819980e85d6b3a62",
+      "bytes": 67656,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-15T03:33:44.537Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/coast-port-administrators/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "aeaa4de7b5a8ebd2"
+    },
+    "content/site/civil-practice/public-meeting-consensus/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/public-meeting-consensus/ogp.png",
+      "sha256": "1b0d9cfa4c01e62437a9cf29030cc2b2d3edce9884c3a0aaee3c33a8e9675914",
+      "bytes": 66680,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-15T03:44:31.851Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/public-meeting-consensus/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "ada7ada8a704101d"
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",
