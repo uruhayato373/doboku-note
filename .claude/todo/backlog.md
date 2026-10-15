@@ -402,8 +402,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **完了条件**: 直近の PR 20 回の lhci で performance の warn が 0〜1 回（r06 の点数が 0.7 以上、または理由つきで対象・閾値を変えた）。
 
-
-
+**進捗（2026-10-15）**: 原因はページではなく、lhci が測る `npm run serve` が無圧縮だったこと（本番の r06 は 0.89）。serve を br/gzip にした PR #1063 をマージ（e74046251）。その後の lighthouse の実行 4 回で performance の warn は 0 回（色コードを落として数えた）。残りは 20 回たまるまでの観察。
 
 ### [DN-0731] 記事の末尾の「この記事の根拠法令」と法令ページを作る（e-Gov のリンクから自動で集める）
 タグ: [領域:サイト] [時期:2026-11] [種類:制作] [起票:2026-10-13]
