@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-15T02:22:32.492Z",
+  "generated_at": "2026-10-15T03:05:32.123Z",
   "summary": {
-    "total_mdx_files": 1413,
+    "total_mdx_files": 1414,
     "total_unique_tags": 133,
     "allowlist_size": 330,
     "known_count": 133,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 237,
+      "count": 238,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1240,6 +1240,7 @@
         "civil-practice-river-park-erosion-control",
         "civil-practice-road-fixtures-precast",
         "civil-practice-road-occupancy-permit-review",
+        "civil-practice-road-work-approval-vs-road-use-permit",
         "civil-practice-safety-culture-discipline",
         "civil-practice-safety-document-cross-check",
         "civil-practice-safety-health-education-plan",
@@ -3518,7 +3519,7 @@
     },
     {
       "name": "道路",
-      "count": 33,
+      "count": 34,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-2-guide-road-pavement-key-points",
@@ -3527,6 +3528,7 @@
         "civil-practice-reading-civil-drawings",
         "civil-practice-road-fixtures-precast",
         "civil-practice-road-occupancy-permit-review",
+        "civil-practice-road-work-approval-vs-road-use-permit",
         "civil-practice-schedule-and-road-permit",
         "civil-practice-seismic-design-levels",
         "civil-practice-service-commencement",
