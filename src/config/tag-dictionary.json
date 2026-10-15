@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-15T03:09:31.512Z",
+  "generated_at": "2026-10-15T03:10:11.283Z",
   "summary": {
-    "total_mdx_files": 1415,
+    "total_mdx_files": 1416,
     "total_unique_tags": 133,
     "allowlist_size": 330,
     "known_count": 133,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 239,
+      "count": 240,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1239,6 +1239,7 @@
         "civil-practice-river-area-permits",
         "civil-practice-river-park-erosion-control",
         "civil-practice-road-act-framework",
+        "civil-practice-road-boundary-and-road-ledger",
         "civil-practice-road-fixtures-precast",
         "civil-practice-road-occupancy-permit-review",
         "civil-practice-road-work-approval-vs-road-use-permit",
@@ -3520,7 +3521,7 @@
     },
     {
       "name": "道路",
-      "count": 35,
+      "count": 36,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-2-guide-road-pavement-key-points",
@@ -3528,6 +3529,7 @@
         "civil-practice-asphalt-pavement-control",
         "civil-practice-reading-civil-drawings",
         "civil-practice-road-act-framework",
+        "civil-practice-road-boundary-and-road-ledger",
         "civil-practice-road-fixtures-precast",
         "civil-practice-road-occupancy-permit-review",
         "civil-practice-road-work-approval-vs-road-use-permit",
@@ -4051,6 +4053,30 @@
       ]
     },
     {
+      "name": "地方公共団体",
+      "count": 17,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-board-of-audit-inspection",
+        "civil-practice-road-boundary-and-road-ledger",
+        "civil-practice-satomichi-suiro-management",
+        "pe-comprehensive-management-essay-pattern-cross-year-application",
+        "pe-comprehensive-management-h21-essay-road-municipality",
+        "pe-comprehensive-management-h22-essay-road-municipality",
+        "pe-comprehensive-management-h23-essay-road-municipality",
+        "pe-comprehensive-management-h24-essay-road-municipality",
+        "pe-comprehensive-management-h25-essay-road-municipality",
+        "pe-comprehensive-management-h26-essay-road-municipality",
+        "pe-comprehensive-management-h27-essay-road-municipality",
+        "pe-comprehensive-management-pattern-essay-road-municipality",
+        "pe-comprehensive-management-r03-essay-road-municipality",
+        "pe-comprehensive-management-r04-essay-road-municipality",
+        "pe-comprehensive-management-r05-essay-road-municipality",
+        "pe-comprehensive-management-r06-essay-road-municipality",
+        "pe-comprehensive-management-r07-essay-road-municipality"
+      ]
+    },
+    {
       "name": "専門科目（上下水道部門）",
       "count": 17,
       "inAllowlist": true,
@@ -4096,29 +4122,6 @@
         "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance",
         "pe-construction-iji-kanri-ronbun-keyword",
         "pe-construction-infra-roukyuuka-iji"
-      ]
-    },
-    {
-      "name": "地方公共団体",
-      "count": 16,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-board-of-audit-inspection",
-        "civil-practice-satomichi-suiro-management",
-        "pe-comprehensive-management-essay-pattern-cross-year-application",
-        "pe-comprehensive-management-h21-essay-road-municipality",
-        "pe-comprehensive-management-h22-essay-road-municipality",
-        "pe-comprehensive-management-h23-essay-road-municipality",
-        "pe-comprehensive-management-h24-essay-road-municipality",
-        "pe-comprehensive-management-h25-essay-road-municipality",
-        "pe-comprehensive-management-h26-essay-road-municipality",
-        "pe-comprehensive-management-h27-essay-road-municipality",
-        "pe-comprehensive-management-pattern-essay-road-municipality",
-        "pe-comprehensive-management-r03-essay-road-municipality",
-        "pe-comprehensive-management-r04-essay-road-municipality",
-        "pe-comprehensive-management-r05-essay-road-municipality",
-        "pe-comprehensive-management-r06-essay-road-municipality",
-        "pe-comprehensive-management-r07-essay-road-municipality"
       ]
     },
     {
