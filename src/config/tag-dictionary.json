@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generated_at": "2026-10-15T02:21:24.475Z",
+  "generated_at": "2026-10-15T02:22:32.492Z",
   "summary": {
-    "total_mdx_files": 1412,
-    "total_unique_tags": 132,
+    "total_mdx_files": 1413,
+    "total_unique_tags": 133,
     "allowlist_size": 330,
-    "known_count": 132,
+    "known_count": 133,
     "unknown_count": 0,
     "typo_candidates_count": 0
   },
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 236,
+      "count": 237,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1236,6 +1236,7 @@
         "civil-practice-rebar-splice-selection",
         "civil-practice-reference-values",
         "civil-practice-risk-assessment-construction-workflow",
+        "civil-practice-river-area-permits",
         "civil-practice-river-park-erosion-control",
         "civil-practice-road-fixtures-precast",
         "civil-practice-road-occupancy-permit-review",
@@ -3738,7 +3739,7 @@
     },
     {
       "name": "河川",
-      "count": 23,
+      "count": 24,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-textbook-river-works",
@@ -3748,6 +3749,7 @@
         "civil-practice-levee-failure-reinforcement",
         "civil-practice-nature-conservation-mitigation",
         "civil-practice-reading-civil-drawings",
+        "civil-practice-river-area-permits",
         "civil-practice-river-park-erosion-control",
         "civil-practice-satomichi-suiro-management",
         "pe-comprehensive-management-h21-essay-river-consultant",
@@ -5268,6 +5270,14 @@
       "inAllowlist": true,
       "usedIn": [
         "civil-practice-levee-failure-reinforcement"
+      ]
+    },
+    {
+      "name": "河川法",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-river-area-permits"
       ]
     },
     {
