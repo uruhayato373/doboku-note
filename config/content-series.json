@@ -95,7 +95,19 @@
               "sources": [
                 "road-act"
               ],
-              "wave": 2
+              "wave": 2,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "道路の4種類（高速自動車国道・一般国道・都道府県道・市町村道）を、路線の決め方、管理者、費用負担の関係で並べた関係図。国の指定区間・指定市・町村の特例は注記で足す",
+                  "figKey": "civil-practice/road-act-framework/img/figure-road-types-managers"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "「この道は誰が管理するか」を決める判断の流れ。道路法の道路か → 種類 → 国道なら指定区間の内外 → 第17条の特例（同意・公示）→ 第19・20条の協議、の分岐図",
+                  "figKey": "civil-practice/road-act-framework/img/figure-road-manager-decision-flow"
+                }
+              ]
             },
             {
               "id": "A-07",
@@ -143,7 +155,19 @@
                 "content/site/civil-practice/schedule-and-road-permit/article.mdx"
               ],
               "note": "受注者の段取りは既存の schedule-and-road-permit に残す",
-              "wave": 2
+              "wave": 2,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "一つの相談（出入口の新設、歩道の切り下げ、側溝の蓋、足場、道路の掘削）ごとに、承認・占用許可・使用許可のどれが要るかを示す早見の図（自作 SVG、2軸）",
+                  "figKey": "civil-practice/road-work-approval-vs-road-use-permit/img/figure-consultation-procedure-matrix"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "承認の申請 → 審査（設計と実施計画）→ 条件付き承認 → 使用許可・協議との調整 → 工事 → 完了確認・帰属、の流れ図（自作 SVG）",
+                  "figKey": "civil-practice/road-work-approval-vs-road-use-permit/img/figure-approval-flow"
+                }
+              ]
             },
             {
               "id": "A-10",
@@ -156,7 +180,19 @@
                 "road-act",
                 "road-act-rules"
               ],
-              "wave": 2
+              "wave": 2,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "同じ道路の断面図に、道路区域の線・筆界・所有権の範囲を画する線の三本を並べ、一致する場合とずれる場合を比べる自作 SVG（台帳の線は管理範囲であって土地の境界ではない、と読み分けられる図）",
+                  "figKey": "civil-practice/road-boundary-and-road-ledger/img/figure-three-boundary-lines"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "境界確認の流れ図（依頼・受理 → 現地立会いと協議 → 境界標 → 確定図 → 署名・承諾 → 通知（確認書）の交付 → 台帳への反映。協議が整わない場合の筆界特定・訴訟への分岐つき）",
+                  "figKey": "civil-practice/road-boundary-and-road-ledger/img/figure-boundary-confirmation-flow"
+                }
+              ]
             },
             {
               "id": "A-11",
@@ -173,7 +209,14 @@
                 "content/site/civil-practice/preventive-maintenance-diagnosis/article.mdx"
               ],
               "note": "予防保全の一般論は既存記事に任せ、管理者の点検義務と計画に絞る",
-              "wave": 2
+              "wave": 2,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "事務の流れ図（自作 SVG・400x500）: 巡視 → 点検（5年に1回・近接目視）→ 診断（Ⅰ〜Ⅳ）→ 措置（Ⅲ・Ⅳは次回点検まで5年以内。それまで監視・通行規制）→ 記録（利用期間中保存）→ 長寿命化修繕計画 → 補助の申請（短期の数値目標とコスト縮減効果）の縦の流れ。国の代行の要請は措置から分岐する破線で示す。図中にタイトル枠を入れない",
+                  "figKey": "civil-practice/road-inspection-longevity-plan/img/figure-inspection-to-subsidy-flow"
+                }
+              ]
             },
             {
               "id": "A-12",
@@ -203,7 +246,19 @@
                 "river-act",
                 "river-act-order"
               ],
-              "wave": 2
+              "wave": 2,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "河川の四区分（一級・二級・準用・普通）を並べ、指定する人・管理者・適用される法（河川法・二級の規定の準用・条例）を一覧にした図（自作 SVG、400x500）。準用河川の読替え（知事→市町村長、県→市町村、大臣→知事）も添える",
+                  "figKey": "civil-practice/river-act-framework/img/figure-river-four-classes"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "管内の川を調べる手順の流れ図：地点の特定→一級・二級の指定と指定区間の内外→準用河川の公示→普通河川の条例→台帳で区域確認（自作 SVG、400x500）",
+                  "figKey": "civil-practice/river-act-framework/img/figure-river-survey-order"
+                }
+              ]
             },
             {
               "id": "A-14",
@@ -241,7 +296,23 @@
                 "river-facility-structure-order",
                 "river-structure-permit-standard"
               ],
-              "wave": 2
+              "wave": 2,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "堤防と河道の断面に、橋台・橋脚・樋門・堤防乗り越し管・伏せ越しの置き場所と「置いてよい／避ける」位置（計画堤防内は橋台・樋門のみ、橋脚は堤体内に設けない、管は表法肩から堤外側は流水対策、天端・裏法肩から堤内側は計画堤防内に置かない）を示した自作 SVG",
+                  "figKey": "civil-practice/river-crossing-structure-review/img/figure-crossing-placement"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "申請図面 → 位置の確認 → 構造の確認 → 安定計算の確認 → 許可 → 完成検査 の審査の流れ図（自作 SVG。堤脚付近の通達の判断は位置・構造の確認に分岐）",
+                  "figKey": "civil-practice/river-crossing-structure-review/img/figure-review-order"
+                },
+                {
+                  "kind": "photo",
+                  "subject": "樋門と堤防の取付部（翼壁・護岸・胸壁の取り合い）。AI 生成する場合は実物の写真・図と照合して形を確かめる"
+                }
+              ]
             },
             {
               "id": "A-16",
@@ -257,7 +328,23 @@
                 "content/site/civil-practice/levee-failure-reinforcement/article.mdx"
               ],
               "note": "堤防の壊れ方と補強は既存記事に任せる",
-              "wave": 2
+              "wave": 2,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "年間サイクルの流れ図（自作SVG）。点検（出水期前・台風期・出水後）→一次評価（点検者）→二次評価（組織・必要なら専門家）→措置段階は即補修／監視段階は次の点検で再確認→年1回の総合的な評価→記録保存と次年度計画・水防の要注意箇所へ",
+                  "figKey": "civil-practice/river-facility-inspection-operation/img/figure-inspection-annual-cycle"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "樋門の断面図に点検部位を重ねた図（自作SVG）。周辺の堤防と取付護岸の範囲、函体の底版下の空洞、継手、門柱・操作台、胸壁・翼壁、函体内の土砂堆積を示す。機械設備は別基準と注記",
+                  "figKey": "civil-practice/river-facility-inspection-operation/img/figure-sluice-inspection-points"
+                },
+                {
+                  "kind": "photo",
+                  "subject": "樋門の機側操作盤とゲート操作台、近くの量水標に退避の目安水位の表示がある様子（AI写真にする場合は実物どおりの監査を通す。人の顔・文字は入れない）"
+                }
+              ]
             },
             {
               "id": "A-17",
@@ -287,7 +374,19 @@
                 "content/site/civil-construction-1/textbook-coast-port/article.mdx"
               ],
               "note": "沿岸の自治体向け。施設の技術は試験の教科書に任せ、管理者と許可に絞る",
-              "wave": 2
+              "wave": 2,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "海から陸へ、海岸保全区域（満潮時の水際線から原則50m・水面は干潮時の水際線から50m）・一般公共海岸区域・港湾区域・港湾隣接地域・臨港地区・漁港区域の重なりと、それぞれの管理者と許可の窓口を並べた断面と平面の模式図（自作 SVG・viewBox 0 0 400 500。臨港地区は海岸の管理者を動かさず届出の区域であることを区別して描く）",
+                  "figKey": "civil-practice/coast-port-administrators/img/figure-coastal-zones-overview"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "行為（占用・工作物の新設・土石の採取・掘削や盛土）× 区域（海岸保全・一般公共海岸・港湾・漁港）で許可の相手と条を示す 2 軸の行列図（自作 SVG）。国・自治体は協議で足りること、港湾法の許可で海岸法の許可が不要になる範囲、臨港地区は届出を併記する",
+                  "figKey": "civil-practice/coast-port-administrators/img/figure-permit-matrix-by-zone"
+                }
+              ]
             }
           ]
         },
@@ -341,7 +440,19 @@
                 "infrastructure-priority-plan-act"
               ],
               "note": "国の計画と自治体の事業のつながり、補助事業の評価（新規・再評価・事後評価）",
-              "wave": 3
+              "wave": 3,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "計画の鎖と評価の段階: 国土形成計画（全国・広域地方）→ 社会資本整備重点計画 → 県の計画 → 市のマスタープラン・市町村計画・個別施設計画 → 事業、の鎖を縦に並べ、事業側の評価（計画段階→新規採択→再評価→事後）を横に対応づけた自作SVG",
+                  "figKey": "civil-practice/public-works-planning-evaluation/img/figure-plan-chain-evaluation"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "補助事業の評価で市と国の分担を示す流れ図: 市が作る資料（費用便益比・計画の目標と指標・事業評価監視委員会への諮問）と、国（本省等）が決める補助金交付等の対応方針（採択・継続・中止）の流れ。自作SVG",
+                  "figKey": "civil-practice/public-works-planning-evaluation/img/figure-evaluation-roles"
+                }
+              ]
             },
             {
               "id": "A-21",
@@ -353,7 +464,14 @@
               "sources": [
                 "local-finance-act"
               ],
-              "wave": 3
+              "wave": 3,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "要望の受付 → 管理者の確認（市か国・県か）→ 現地確認と順位づけ（維持修繕・事業化・地元管理に分岐）→ 調査・設計（委託）→ 予算要求（補助・起債）→ 査定・議決 → 事業の実施 → 要望者への回答、の流れ図（自作 SVG・viewBox 0 0 400 500）。補助の可否と繰越しは分岐の注記で示す。",
+                  "figKey": "civil-practice/project-request-to-budget/img/figure-request-to-budget-flow"
+                }
+              ]
             },
             {
               "id": "A-22",
@@ -363,7 +481,14 @@
               "paths": [
                 "content/site/civil-practice/public-meeting-consensus/article.mdx"
               ],
-              "wave": 3
+              "wave": 3,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "説明会の準備から回答までの流れ図（範囲の把握 → 手法の選択 → 開催と記録 → 意見の整理 → 採否の理由の回答と公表）を自作SVG・400x500で。本文の最初の段落末尾（五つの手順を列挙した文）の直後に置く。段ごとの当てはめ先として、範囲の把握は事業の特性・受益と負担、手法の選択は目的・相手・予算と時間、整理は趣旨・件数・対応・理由の表、を短いラベルで添える。",
+                  "figKey": "civil-practice/public-meeting-consensus/img/figure-consensus-process"
+                }
+              ]
             },
             {
               "id": "A-23",
@@ -376,7 +501,14 @@
                 "land-expropriation-act",
                 "public-land-compensation-standard"
               ],
-              "wave": 3
+              "wave": 3,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "用地取得の流れ（事業計画の説明、幅杭、土地・物件の調査と調書、補償額の算定、補償説明と用地交渉、契約、登記・移転・引渡し、支払い）と、合意できない場合に事業の認定、調書、収用委員会への裁決申請（または協議の確認）へ進む分岐を示す流れ図（自作 SVG・viewBox 0 0 400 500）",
+                  "figKey": "civil-practice/land-acquisition-compensation/img/figure-land-acquisition-flow"
+                }
+              ]
             },
             {
               "id": "A-24",
@@ -389,7 +521,23 @@
                 "cultural-properties-act"
               ],
               "note": "事業の計画段階で教育委員会へ照会する。届出・試掘・本調査と工期への影響",
-              "wave": 3
+              "wave": 3,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "計画→照会→周知の包蔵地か→通知（協議）→試掘・確認調査→現状保存か記録保存か→本発掘→工事 の流れ図。節目に第94条・第95条・第97条を付ける（自作SVG）",
+                  "figKey": "civil-practice/buried-cultural-property-survey/img/figure-buried-property-flow"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "民間（第93条・着手の60日前に届出）と自治体の事業（第94条・事業計画の策定に当たりあらかじめ通知）の2列の対比図",
+                  "figKey": "civil-practice/buried-cultural-property-survey/img/figure-notification-vs-report"
+                },
+                {
+                  "kind": "photo",
+                  "subject": "試掘のトレンチ（重機で表土を除き、壁面の土層と遺構面を確かめる様子）。文字・人の顔なし、AI写真は実物どおりかを監査する"
+                }
+              ]
             },
             {
               "id": "A-25",
@@ -409,7 +557,22 @@
                 "content/site/civil-construction-1/textbook-construction-byproduct-recycle/article.mdx"
               ],
               "note": "制度の解説は既存記事に任せ、発注者が設計・積算・特記仕様書で決めることに絞る",
-              "wave": 3
+              "wave": 3,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "計画・設計・積算・特記仕様書・発注と契約・着工前・完了報告の時系列に、環境アセス・騒音振動・建設副産物の3本の帯を並べ、各段階で発注者が決めることと、届出・通知の期限（着工の7日前）、届出者（施工者／発注者）を示す図（自作SVG・viewBox 0 0 400 500）",
+                  "figKey": "civil-practice/public-works-environmental-care/img/figure-owner-env-timeline"
+                },
+                {
+                  "kind": "photo",
+                  "subject": "低騒音型建設機械の指定ラベル（超低騒音型の標識）が貼られたバックホウの実機。文字・ロゴは入れず、機体側面の標識を写す（使う場合は実物どおりかを監査）"
+                },
+                {
+                  "kind": "photo",
+                  "subject": "現場内の仮置き場で、コンクリート塊・アスファルト・コンクリート塊・木くずが品目ごとに仕切って分別して置かれている様子（浅い被写界深度、文字・人の顔なし）"
+                }
+              ]
             },
             {
               "id": "A-26",
@@ -437,7 +600,19 @@
               "links": [
                 "content/site/pe-comprehensive-management/pfi/article.mdx"
               ],
-              "wave": 3
+              "wave": 3,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "民間に任せる範囲(設計・建設・維持管理・運営)の広がり順に、指定管理・包括的民間委託・PFI・コンセッションを横に並べた比較図(範囲を帯の長さで示す自作SVG)",
+                  "figKey": "civil-practice/ppp-pfi-selection/img/figure-ppp-scope"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "指定管理者の指定手続の流れ図(条例の整備→募集→選定→議会の議決→指定→事業報告書・報告徴収→取消し)",
+                  "figKey": "civil-practice/ppp-pfi-selection/img/figure-designated-manager-flow"
+                }
+              ]
             },
             {
               "id": "A-28",
@@ -479,7 +654,19 @@
                 "content/site/civil-construction-1/textbook-safety-industrial-safety-law/article.mdx"
               ],
               "note": "事業者（受注者）の義務は既存記事に任せ、発注者が設計・積算・監督でできることに絞る",
-              "wave": 3
+              "wave": 3,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "設計→積算→契約（工期・内訳書）→着工→監督→事故・災害時の各段階に、発注者ができること（施工条件と埋設物の明示、休日・悪天候を見込む工期、安全衛生経費の積算、内訳書の確認、統括の指名、台帳と計画書の点検、中止と再発防止の確認）と根拠法令を載せた横の流れ図",
+                  "figKey": "civil-practice/owner-safety-responsibility/img/figure-owner-safety-steps"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "発注者、請負人A、請負人B、統括の措置を講ずる者（発注者が同意を得て指名）の関係を示す概念図。指名できないとき労基署長へ届出、署長が指名、人数が基準以上なら統括安全衛生責任者を選任",
+                  "figKey": "civil-practice/owner-safety-responsibility/img/figure-owner-designation"
+                }
+              ]
             },
             {
               "id": "A-31",
