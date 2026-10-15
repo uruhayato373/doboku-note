@@ -596,7 +596,6 @@
             "preventive-maintenance-diagnosis",
             "concrete-repair-leakage",
             "concrete-standards-history",
-            "road-fixtures-precast",
             "concrete-labor-saving-technology",
             "concrete-quality-and-workforce",
             "risk-assessment-construction-workflow",
@@ -628,18 +627,13 @@
             "subcontract-instruction-boundary",
             "subcontract-fair-dealing",
             "construction-industry-structure",
-            "public-works-delivery-methods",
-            "public-works-bidding-methods",
             "keishin-bidder-qualification",
             "netis-new-technology-use",
             "foreign-workers-site-check",
             "ccus-kentaikyo-site",
             "reading-civil-drawings",
             "construction-plan-document",
-            "cost-and-design-change",
             "quality-record-site-bcp",
-            "construction-inspection-types",
-            "board-of-audit-inspection",
             "reference-values",
             "schedule-and-road-permit",
             "typhoon-forecast-work-planning",
@@ -666,10 +660,8 @@
             "steel-material-properties",
             "material-selection-receiving",
             "river-park-erosion-control",
-            "service-commencement",
             "seismic-design-levels",
             "flood-season-river-work",
-            "flood-control-facilities",
             "levee-failure-reinforcement",
             "rainfall-work-suspension"
           ]
@@ -691,14 +683,17 @@
           "label": "自治体の土木担当（道路・河川・里道と水路の管理）",
           "slugs": [
             "road-act-framework",
+            "service-commencement",
             "road-occupancy-permit-review",
             "road-work-approval-vs-road-use-permit",
             "road-boundary-and-road-ledger",
             "road-inspection-longevity-plan",
+            "road-fixtures-precast",
             "river-act-framework",
             "river-area-permits",
             "river-crossing-structure-review",
             "river-facility-inspection-operation",
+            "flood-control-facilities",
             "coast-port-administrators",
             "satomichi-suiro-management"
           ]
@@ -713,8 +708,13 @@
             "land-acquisition-compensation",
             "buried-cultural-property-survey",
             "public-works-environmental-care",
+            "public-works-delivery-methods",
+            "public-works-bidding-methods",
             "ppp-pfi-selection",
-            "owner-safety-responsibility"
+            "construction-inspection-types",
+            "cost-and-design-change",
+            "owner-safety-responsibility",
+            "board-of-audit-inspection"
           ]
         },
         {
