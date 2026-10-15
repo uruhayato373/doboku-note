@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-15T05:58:29.617Z",
+  "generated_at": "2026-10-15T06:07:17.351Z",
   "summary": {
-    "total_mdx_files": 1440,
+    "total_mdx_files": 1441,
     "total_unique_tags": 133,
     "allowlist_size": 330,
     "known_count": 133,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 264,
+      "count": 265,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1270,6 +1270,7 @@
         "civil-practice-safety-patrol-corrective-action",
         "civil-practice-satomichi-suiro-management",
         "civil-practice-schedule-and-road-permit",
+        "civil-practice-sediment-disaster-erosion-control",
         "civil-practice-service-commencement",
         "civil-practice-sewerage-and-stormwater",
         "civil-practice-sheet-pile-snow-coating",
@@ -3605,7 +3606,7 @@
     },
     {
       "name": "地方公共団体",
-      "count": 38,
+      "count": 39,
       "inAllowlist": true,
       "usedIn": [
         "civil-practice-board-of-audit-inspection",
@@ -3630,6 +3631,7 @@
         "civil-practice-road-boundary-and-road-ledger",
         "civil-practice-road-inspection-longevity-plan",
         "civil-practice-satomichi-suiro-management",
+        "civil-practice-sediment-disaster-erosion-control",
         "civil-practice-sewerage-and-stormwater",
         "civil-practice-urban-park-management",
         "pe-comprehensive-management-essay-pattern-cross-year-application",
@@ -4199,6 +4201,30 @@
       ]
     },
     {
+      "name": "砂防",
+      "count": 17,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-textbook-sabo-landslide",
+        "civil-construction-2-guide-river-sabo-key-points",
+        "civil-practice-rainfall-work-suspension",
+        "civil-practice-sediment-disaster-erosion-control",
+        "pe-comprehensive-management-h22-essay-river-consultant",
+        "pe-comprehensive-management-h23-essay-river-consultant",
+        "pe-comprehensive-management-h24-essay-river-consultant",
+        "pe-comprehensive-management-h25-essay-river-consultant",
+        "pe-comprehensive-management-h26-essay-river-consultant",
+        "pe-comprehensive-management-h27-essay-river-consultant",
+        "pe-comprehensive-management-pattern-essay-river-consultant",
+        "pe-comprehensive-management-r03-essay-river-consultant",
+        "pe-comprehensive-management-r04-essay-river-consultant",
+        "pe-comprehensive-management-r05-essay-river-consultant",
+        "pe-comprehensive-management-r06-essay-river-consultant",
+        "pe-comprehensive-management-r07-essay-river-consultant",
+        "pe-construction-river-coast-ronbun-keyword"
+      ]
+    },
+    {
       "name": "基礎科目",
       "count": 16,
       "inAllowlist": true,
@@ -4242,29 +4268,6 @@
         "pe-first-stage-r05-construction",
         "pe-first-stage-r06-construction",
         "pe-first-stage-r07-construction"
-      ]
-    },
-    {
-      "name": "砂防",
-      "count": 16,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-textbook-sabo-landslide",
-        "civil-construction-2-guide-river-sabo-key-points",
-        "civil-practice-rainfall-work-suspension",
-        "pe-comprehensive-management-h22-essay-river-consultant",
-        "pe-comprehensive-management-h23-essay-river-consultant",
-        "pe-comprehensive-management-h24-essay-river-consultant",
-        "pe-comprehensive-management-h25-essay-river-consultant",
-        "pe-comprehensive-management-h26-essay-river-consultant",
-        "pe-comprehensive-management-h27-essay-river-consultant",
-        "pe-comprehensive-management-pattern-essay-river-consultant",
-        "pe-comprehensive-management-r03-essay-river-consultant",
-        "pe-comprehensive-management-r04-essay-river-consultant",
-        "pe-comprehensive-management-r05-essay-river-consultant",
-        "pe-comprehensive-management-r06-essay-river-consultant",
-        "pe-comprehensive-management-r07-essay-river-consultant",
-        "pe-construction-river-coast-ronbun-keyword"
       ]
     },
     {
@@ -4478,6 +4481,25 @@
       ]
     },
     {
+      "name": "行政手続き",
+      "count": 12,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-budget-and-funding-sources",
+        "civil-practice-buried-cultural-property-survey",
+        "civil-practice-ccus-kentaikyo-site",
+        "civil-practice-civil-engineer-annual-cycle",
+        "civil-practice-disaster-recovery-assessment",
+        "civil-practice-foreign-workers-site-check",
+        "civil-practice-how-to-read-laws-and-notices",
+        "civil-practice-keishin-bidder-qualification",
+        "civil-practice-license-scope-judgment",
+        "civil-practice-public-meeting-consensus",
+        "civil-practice-public-works-bidding-methods",
+        "civil-practice-sediment-disaster-erosion-control"
+      ]
+    },
+    {
       "name": "コンクリート主任技士",
       "count": 11,
       "inAllowlist": true,
@@ -4514,6 +4536,24 @@
       ]
     },
     {
+      "name": "国土強靱化",
+      "count": 11,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-disaster-recovery-assessment",
+        "civil-practice-sediment-disaster-erosion-control",
+        "civil-practice-seismic-design-levels",
+        "pe-comprehensive-management-h23-essay-general-contractor",
+        "pe-comprehensive-management-h23-essay-river-consultant",
+        "pe-comprehensive-management-h23-essay-road-municipality",
+        "pe-comprehensive-management-r8-essay-theme-disaster-recovery",
+        "pe-construction-bosai-kokudo-kyoujinka",
+        "pe-construction-bousai-genseigai-ronbun-keyword",
+        "pe-construction-seismic-damage-lessons",
+        "pe-construction-seismic-isolation-damping"
+      ]
+    },
+    {
       "name": "経験記述",
       "count": 11,
       "inAllowlist": true,
@@ -4529,24 +4569,6 @@
         "civil-construction-2-secondary-experience-writing-guide",
         "civil-construction-2-secondary-getting-started",
         "civil-construction-2-secondary-grading-and-partial-credit"
-      ]
-    },
-    {
-      "name": "行政手続き",
-      "count": 11,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-budget-and-funding-sources",
-        "civil-practice-buried-cultural-property-survey",
-        "civil-practice-ccus-kentaikyo-site",
-        "civil-practice-civil-engineer-annual-cycle",
-        "civil-practice-disaster-recovery-assessment",
-        "civil-practice-foreign-workers-site-check",
-        "civil-practice-how-to-read-laws-and-notices",
-        "civil-practice-keishin-bidder-qualification",
-        "civil-practice-license-scope-judgment",
-        "civil-practice-public-meeting-consensus",
-        "civil-practice-public-works-bidding-methods"
       ]
     },
     {
@@ -4583,23 +4605,6 @@
         "pe-construction-r08-steel-concrete",
         "pe-construction-steel-concrete-exam-themes",
         "pe-construction-steel-concrete-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "国土強靱化",
-      "count": 10,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-disaster-recovery-assessment",
-        "civil-practice-seismic-design-levels",
-        "pe-comprehensive-management-h23-essay-general-contractor",
-        "pe-comprehensive-management-h23-essay-river-consultant",
-        "pe-comprehensive-management-h23-essay-road-municipality",
-        "pe-comprehensive-management-r8-essay-theme-disaster-recovery",
-        "pe-construction-bosai-kokudo-kyoujinka",
-        "pe-construction-bousai-genseigai-ronbun-keyword",
-        "pe-construction-seismic-damage-lessons",
-        "pe-construction-seismic-isolation-damping"
       ]
     },
     {
