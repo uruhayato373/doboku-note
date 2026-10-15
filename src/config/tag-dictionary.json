@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-15T04:11:49.843Z",
+  "generated_at": "2026-10-15T04:12:14.495Z",
   "summary": {
-    "total_mdx_files": 1426,
+    "total_mdx_files": 1427,
     "total_unique_tags": 133,
     "allowlist_size": 330,
     "known_count": 133,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 250,
+      "count": 251,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1217,6 +1217,7 @@
         "civil-practice-formwork-removal-timing",
         "civil-practice-formwork-waterstop-details",
         "civil-practice-keishin-bidder-qualification",
+        "civil-practice-land-acquisition-compensation",
         "civil-practice-large-fill-landslide",
         "civil-practice-lifting-equipment-selection",
         "civil-practice-nature-conservation-mitigation",
@@ -2692,7 +2693,7 @@
     },
     {
       "name": "関係法規",
-      "count": 90,
+      "count": 91,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-engineer-assignment",
@@ -2713,6 +2714,7 @@
         "civil-practice-environmental-impact-assessment-flow",
         "civil-practice-foreign-workers-site-check",
         "civil-practice-keishin-bidder-qualification",
+        "civil-practice-land-acquisition-compensation",
         "civil-practice-license-scope-judgment",
         "civil-practice-owner-safety-responsibility",
         "civil-practice-pre-construction-process",
@@ -3798,11 +3800,12 @@
     },
     {
       "name": "地方公共団体",
-      "count": 25,
+      "count": 26,
       "inAllowlist": true,
       "usedIn": [
         "civil-practice-board-of-audit-inspection",
         "civil-practice-coast-port-administrators",
+        "civil-practice-land-acquisition-compensation",
         "civil-practice-owner-safety-responsibility",
         "civil-practice-project-request-to-budget",
         "civil-practice-public-meeting-consensus",
