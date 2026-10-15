@@ -1,0 +1,23 @@
+{
+  "kind": "measurement",
+  "qualification": "all",
+  "period": {
+    "startDate": "2026-09-01",
+    "endDate": "2026-09-30"
+  },
+  "channel": "GA4",
+  "subject": "aggregate",
+  "coverage": "complete",
+  "source": "GA4 Data API properties/419382901・日本。自然検索人数は期間全体。資格別は正規URL配下、演習は1級土木ツールを含む。",
+  "values": {
+    "organicUsers": 8440,
+    "noteCtaClicks": 440,
+    "quizStarts": 14,
+    "quizCompletions": 0,
+    "youtubeUsers": 22
+  },
+  "supersedes": "data/business/records/measurement-2026-10-07T08-27-22-532Z-a41c1327-2f93-468d-83c1-b7e943d23c8d.json",
+  "schemaVersion": 1,
+  "createdAt": "2026-10-15T13:12:41.944Z",
+  "strategyHash": "7da574eadd3ced97551d710fc7d1611f675e276997f4d2fefe1e18aa9a7d42db"
+}

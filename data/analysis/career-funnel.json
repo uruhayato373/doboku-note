@@ -1,51 +1,65 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-11T09:38:30.005Z",
+  "generatedAt": "2026-10-15T13:13:41.229Z",
   "windows": {
     "ga4": {
-      "start": "2026-09-12",
-      "end": "2026-10-09"
+      "start": "2026-09-17",
+      "end": "2026-10-14"
     },
     "gsc": {
-      "start": "2026-09-09",
-      "end": "2026-10-06"
+      "start": "2026-09-15",
+      "end": "2026-10-12"
     },
     "aligned": false,
     "usable": true
   },
   "inputs": {
-    "ga4Label": "data/ga4/reports/2026-10-10.json#cta-clicks-by-label",
-    "ga4Placement": "data/ga4/reports/2026-10-10.json#cta-clicks-by-placement",
-    "ga4ByPage": "data/ga4/reports/2026-10-10.json#affiliate-by-page",
-    "ga4Device": "data/ga4/reports/2026-10-10.json#cta-clicks-by-device",
-    "ga4Page": "data/ga4/reports/2026-10-10.json#page",
-    "gscPageQuery": "data/gsc/reports/2026-10-10.json#page-query",
+    "ga4Label": "data/ga4/reports/2026-10-15.json#cta-clicks-by-label",
+    "ga4Placement": "data/ga4/reports/2026-10-15.json#cta-clicks-by-placement",
+    "ga4ByPage": "data/ga4/reports/2026-10-15.json#affiliate-by-page",
+    "ga4Device": "data/ga4/reports/2026-10-15.json#cta-clicks-by-device",
+    "ga4Page": "data/ga4/reports/2026-10-15.json#page",
+    "gscPageQuery": "data/gsc/reports/2026-10-15.json#page-query",
     "a8": "data/a8/report-log.json",
     "afb": null
   },
   "coverage": {
-    "docMetaIndexTotal": 1360,
+    "docMetaIndexTotal": 1408,
     "careerArticles": 45,
-    "siteMdxScanned": 1400,
+    "siteMdxScanned": 1448,
     "extraLinkSourcesScanned": 1,
-    "gscRowsTotal": 1489,
-    "gscRowsMatchedCareer": 69,
-    "ga4LabelRowsMatched": 13,
-    "ga4PlacementRowsMatched": 14,
-    "careerArticlesInGa4Top": 24,
+    "gscRowsTotal": 1382,
+    "gscRowsMatchedCareer": 46,
+    "ga4LabelRowsMatched": 14,
+    "ga4PlacementRowsMatched": 16,
+    "careerArticlesInGa4Top": 26,
     "noteCareerArticles": 24
   },
   "funnel": {
     "highIntentQuery": {
-      "impressions": 144,
-      "clicks": 2,
+      "impressions": 168,
+      "clicks": 4,
       "rows": [
+        {
+          "query": "土木公務員 資格",
+          "url": "https://doboku-note.com/exam/pe-comprehensive-management/guide/public-engineer-qualification-map",
+          "impressions": 19,
+          "clicks": 1,
+          "position": 9.31578947368421
+        },
         {
           "query": "施工管理から転職",
           "url": "https://doboku-note.com/exam/civil-construction-1/guide/hatchu-shien",
-          "impressions": 15,
+          "impressions": 16,
           "clicks": 0,
-          "position": 20.466666666666665
+          "position": 20.375
+        },
+        {
+          "query": "公務員 土木 資格 おすすめ",
+          "url": "https://doboku-note.com/exam/pe-comprehensive-management/guide/public-engineer-qualification-map",
+          "impressions": 16,
+          "clicks": 0,
+          "position": 8.75
         },
         {
           "query": "土木施工管理技士 年収",
@@ -55,25 +69,18 @@
           "position": 5.785714285714286
         },
         {
-          "query": "土木公務員 資格",
-          "url": "https://doboku-note.com/exam/pe-comprehensive-management/guide/public-engineer-qualification-map",
-          "impressions": 12,
-          "clicks": 1,
-          "position": 10.25
-        },
-        {
-          "query": "公務員 土木 資格 おすすめ",
-          "url": "https://doboku-note.com/exam/pe-comprehensive-management/guide/public-engineer-qualification-map",
-          "impressions": 11,
-          "clicks": 0,
-          "position": 8.818181818181818
-        },
-        {
           "query": "公務員 土木職 資格",
           "url": "https://doboku-note.com/exam/pe-comprehensive-management/guide/public-engineer-qualification-map",
+          "impressions": 12,
+          "clicks": 0,
+          "position": 7.75
+        },
+        {
+          "query": "施工管理 転職エージェント",
+          "url": "https://doboku-note.com/exam/civil-construction-2/guide/career-agent-comparison",
           "impressions": 9,
           "clicks": 0,
-          "position": 8
+          "position": 28.333333333333332
         },
         {
           "query": "土木施工管理技士年収",
@@ -83,32 +90,39 @@
           "position": 6.25
         },
         {
-          "query": "施工管理 転職エージェント",
-          "url": "https://doboku-note.com/exam/civil-construction-2/guide/career-agent-comparison",
-          "impressions": 7,
-          "clicks": 0,
-          "position": 17.285714285714285
-        },
-        {
           "query": "rccm 公務員",
           "url": "https://doboku-note.com/exam/pe-comprehensive-management/guide/public-engineer-qualification-map",
-          "impressions": 6,
+          "impressions": 7,
           "clicks": 0,
-          "position": 11.166666666666666
+          "position": 10.714285714285714
         },
         {
           "query": "土木 公務員 資格",
           "url": "https://doboku-note.com/exam/pe-comprehensive-management/guide/public-engineer-qualification-map",
-          "impressions": 5,
+          "impressions": 6,
           "clicks": 0,
-          "position": 16.2
+          "position": 14.666666666666666
+        },
+        {
+          "query": "技術士 実務経験 公務員",
+          "url": "https://doboku-note.com/exam/pe-construction/guide/public-servant-merit",
+          "impressions": 5,
+          "clicks": 1,
+          "position": 8.6
         },
         {
           "query": "公務員 土木 資格",
           "url": "https://doboku-note.com/exam/pe-comprehensive-management/guide/public-engineer-qualification-map",
-          "impressions": 4,
+          "impressions": 5,
           "clicks": 0,
-          "position": 9.25
+          "position": 9
+        },
+        {
+          "query": "rccm 受験資格 公務員",
+          "url": "https://doboku-note.com/exam/pe-comprehensive-management/guide/public-engineer-qualification-map",
+          "impressions": 4,
+          "clicks": 1,
+          "position": 10.5
         },
         {
           "query": "施工管理が転職エージェントを活用する方法",
@@ -118,32 +132,39 @@
           "position": 8
         },
         {
-          "query": "技術士総合技術監理部門年収",
-          "url": "https://doboku-note.com/exam/pe-construction/guide/career",
-          "impressions": 3,
-          "clicks": 0,
-          "position": 29.333333333333332
-        },
-        {
-          "query": "rccm 受験資格 公務員",
-          "url": "https://doboku-note.com/exam/pe-comprehensive-management/guide/public-engineer-qualification-map",
-          "impressions": 2,
-          "clicks": 1,
-          "position": 12.5
-        },
-        {
           "query": "施工管理 から 転職",
           "url": "https://doboku-note.com/exam/civil-construction-1/guide/hatchu-shien",
-          "impressions": 2,
+          "impressions": 3,
           "clicks": 0,
-          "position": 18.5
+          "position": 18.333333333333332
+        },
+        {
+          "query": "施工管理 公務員",
+          "url": "https://doboku-note.com/exam/civil-construction-1/guide/public-servant",
+          "impressions": 3,
+          "clicks": 0,
+          "position": 13.666666666666666
         },
         {
           "query": "施工管理転職エージェント",
           "url": "https://doboku-note.com/exam/civil-construction-2/guide/career-agent-comparison",
+          "impressions": 3,
+          "clicks": 0,
+          "position": 35.666666666666664
+        },
+        {
+          "query": "技術士 公務員",
+          "url": "https://doboku-note.com/exam/pe-construction/guide/public-servant-merit",
+          "impressions": 3,
+          "clicks": 0,
+          "position": 11.666666666666666
+        },
+        {
+          "query": "施工管理 転職 エージェント",
+          "url": "https://doboku-note.com/exam/civil-construction-2/guide/career-agent-comparison",
           "impressions": 2,
           "clicks": 0,
-          "position": 19.5
+          "position": 43
         },
         {
           "query": "未経験 施工管理 転職エージェント",
@@ -188,32 +209,11 @@
           "position": 8
         },
         {
-          "query": "技術士 総合技術監理部門 年収",
-          "url": "https://doboku-note.com/exam/pe-construction/guide/career",
-          "impressions": 2,
-          "clicks": 0,
-          "position": 30
-        },
-        {
-          "query": "技術士転職",
-          "url": "https://doboku-note.com/exam/pe-construction/guide/career",
-          "impressions": 2,
-          "clicks": 0,
-          "position": 61.5
-        },
-        {
           "query": "技術士業務経歴公務員",
           "url": "https://doboku-note.com/exam/pe-construction/guide/gyoumu-keireki-hyou",
           "impressions": 2,
           "clicks": 0,
           "position": 17
-        },
-        {
-          "query": "技術士 実務経験 公務員",
-          "url": "https://doboku-note.com/docs/pe-construction-public-servant-merit",
-          "impressions": 1,
-          "clicks": 0,
-          "position": 11
         }
       ]
     },
@@ -226,92 +226,92 @@
     },
     "affiliateCta": {
       "byPlacement": {
-        "sidebar": {
-          "impressions": 6605,
-          "clicks": 2
-        },
         "article-inline": {
-          "impressions": 6129,
+          "impressions": 6333,
           "clicks": 9
         },
         "article-end": {
-          "impressions": 4161,
+          "impressions": 4204,
           "clicks": 0
         },
+        "sidebar": {
+          "impressions": 4191,
+          "clicks": 2
+        },
         "article-mid": {
-          "impressions": 3204,
-          "clicks": 4
+          "impressions": 3598,
+          "clicks": 5
         },
         "category-sidebar": {
-          "impressions": 625,
+          "impressions": 688,
           "clicks": 0
         },
         "category-mobile": {
-          "impressions": 102,
+          "impressions": 122,
           "clicks": 0
         },
         "standards-list-end": {
-          "impressions": 59,
-          "clicks": 0
-        },
-        "tool-inline": {
-          "impressions": 14,
+          "impressions": 122,
           "clicks": 0
         },
         "tool-end": {
-          "impressions": 12,
+          "impressions": 56,
+          "clicks": 2
+        },
+        "tool-inline": {
+          "impressions": 29,
           "clicks": 0
         },
         "home-section": {
-          "impressions": 2,
-          "clicks": 0
+          "impressions": 9,
+          "clicks": 2
         },
         "standards-end": {
-          "impressions": 1,
+          "impressions": 3,
           "clicks": 0
         }
       },
       "byLabel": {
         "ビルドジョブ": {
-          "impressions": 8033,
-          "clicks": 9
+          "impressions": 7825,
+          "clicks": 14
         },
         "BuildJob-sidebar": {
-          "impressions": 5828,
+          "impressions": 3856,
           "clicks": 1
         },
         "BuildJob-endbanner": {
-          "impressions": 3462,
-          "clicks": 0
-        },
-        "DXConsulting-sidebar": {
-          "impressions": 1488,
-          "clicks": 1
-        },
-        "ハイクラス DX・コンサル転職": {
-          "impressions": 911,
-          "clicks": 4
-        },
-        "DXConsulting-endbanner": {
-          "impressions": 545,
+          "impressions": 3145,
           "clicks": 0
         },
         "建設JOBs": {
-          "impressions": 477,
-          "clicks": 0
+          "impressions": 1425,
+          "clicks": 1
+        },
+        "DXConsulting-sidebar": {
+          "impressions": 1094,
+          "clicks": 1
+        },
+        "ハイクラス DX・コンサル転職": {
+          "impressions": 900,
+          "clicks": 3
         },
         "KensetsuJobs-endbanner": {
-          "impressions": 154,
+          "impressions": 609,
+          "clicks": 0
+        },
+        "DXConsulting-endbanner": {
+          "impressions": 450,
           "clicks": 0
         },
         "KensetsuJobs-sidebar": {
-          "impressions": 16,
+          "impressions": 51,
           "clicks": 0
         }
       },
-      "totalImpressions": 20914,
-      "totalClicks": 15,
-      "ctr": 0.0007172229128813235,
+      "totalImpressions": 19355,
+      "totalClicks": 20,
+      "ctr": 0.0010333247222939809,
       "notSet": [],
       "byRule": [
         {
@@ -323,11 +323,11 @@
           "until": "2026-10-07T17:00:00+09:00",
           "ga4": {
             "source": "page",
-            "coveredDays": 26,
+            "coveredDays": 21,
             "windowDays": 28,
-            "impressions": 895,
+            "impressions": 739,
             "clicks": 0,
-            "impressionsShared": 1009,
+            "impressionsShared": 1089,
             "clicksShared": 0,
             "ctr": null,
             "sharedWith": [
@@ -336,9 +336,7 @@
           },
           "a8": {
             "scope": "program",
-            "months": [
-              "2026-09"
-            ],
+            "months": [],
             "conversions": 0,
             "approved": 0,
             "revenueYen": 0
@@ -355,18 +353,16 @@
             "source": "page",
             "coveredDays": 28,
             "windowDays": 28,
-            "impressions": 822,
-            "clicks": 4,
+            "impressions": 807,
+            "clicks": 3,
             "impressionsShared": 0,
             "clicksShared": 0,
-            "ctr": 0.004866180048661801,
+            "ctr": 0.0037174721189591076,
             "sharedWith": []
           },
           "a8": {
             "scope": "program",
-            "months": [
-              "2026-09"
-            ],
+            "months": [],
             "conversions": 0,
             "approved": 0,
             "revenueYen": 0
@@ -381,11 +377,11 @@
           "until": "2026-10-07T17:00:00+09:00",
           "ga4": {
             "source": "page",
-            "coveredDays": 26,
+            "coveredDays": 21,
             "windowDays": 28,
-            "impressions": 2309,
-            "clicks": 9,
-            "impressionsShared": 3294,
+            "impressions": 1973,
+            "clicks": 8,
+            "impressionsShared": 2972,
             "clicksShared": 0,
             "ctr": null,
             "sharedWith": [
@@ -395,9 +391,7 @@
           },
           "a8": {
             "scope": "program",
-            "months": [
-              "2026-09"
-            ],
+            "months": [],
             "conversions": 0,
             "approved": 0,
             "revenueYen": 0
@@ -412,11 +406,11 @@
           "until": "2026-10-07T17:00:00+09:00",
           "ga4": {
             "source": "page",
-            "coveredDays": 26,
+            "coveredDays": 21,
             "windowDays": 28,
-            "impressions": 1577,
+            "impressions": 1321,
             "clicks": 0,
-            "impressionsShared": 1664,
+            "impressionsShared": 1427,
             "clicksShared": 0,
             "ctr": null,
             "sharedWith": [
@@ -425,9 +419,7 @@
           },
           "a8": {
             "scope": "program",
-            "months": [
-              "2026-09"
-            ],
+            "months": [],
             "conversions": 0,
             "approved": 0,
             "revenueYen": 0
@@ -439,12 +431,12 @@
           "slot": "article-end",
           "experiment": null,
           "from": "2026-09-08T00:00:00+09:00",
-          "until": null,
+          "until": "2026-10-11T19:55:00+09:00",
           "ga4": {
             "source": "page",
-            "coveredDays": 28,
+            "coveredDays": 25,
             "windowDays": 28,
-            "impressions": 487,
+            "impressions": 404,
             "clicks": 0,
             "impressionsShared": 0,
             "clicksShared": 0,
@@ -453,9 +445,7 @@
           },
           "a8": {
             "scope": "program",
-            "months": [
-              "2026-09"
-            ],
+            "months": [],
             "conversions": 0,
             "approved": 0,
             "revenueYen": 0
@@ -470,11 +460,11 @@
           "until": "2026-10-07T17:00:00+09:00",
           "ga4": {
             "source": "page",
-            "coveredDays": 26,
+            "coveredDays": 21,
             "windowDays": 28,
             "impressions": 15,
             "clicks": 0,
-            "impressionsShared": 94,
+            "impressionsShared": 133,
             "clicksShared": 0,
             "ctr": null,
             "sharedWith": [
@@ -483,9 +473,7 @@
           },
           "a8": {
             "scope": "program",
-            "months": [
-              "2026-09"
-            ],
+            "months": [],
             "conversions": 0,
             "approved": 0,
             "revenueYen": 0
@@ -500,11 +488,11 @@
           "until": "2026-10-07T17:00:00+09:00",
           "ga4": {
             "source": "page",
-            "coveredDays": 26,
+            "coveredDays": 21,
             "windowDays": 28,
             "impressions": 2,
             "clicks": 0,
-            "impressionsShared": 53,
+            "impressionsShared": 61,
             "clicksShared": 0,
             "ctr": null,
             "sharedWith": [
@@ -513,9 +501,7 @@
           },
           "a8": {
             "scope": "program",
-            "months": [
-              "2026-09"
-            ],
+            "months": [],
             "conversions": 0,
             "approved": 0,
             "revenueYen": 0
@@ -532,7 +518,7 @@
             "source": "page",
             "coveredDays": 28,
             "windowDays": 28,
-            "impressions": 114,
+            "impressions": 117,
             "clicks": 0,
             "impressionsShared": 0,
             "clicksShared": 0,
@@ -541,9 +527,7 @@
           },
           "a8": {
             "scope": "program",
-            "months": [
-              "2026-09"
-            ],
+            "months": [],
             "conversions": 0,
             "approved": 0,
             "revenueYen": 0
@@ -569,9 +553,7 @@
           },
           "a8": {
             "scope": "program",
-            "months": [
-              "2026-09"
-            ],
+            "months": [],
             "conversions": 0,
             "approved": 0,
             "revenueYen": 0
@@ -597,9 +579,7 @@
           },
           "a8": {
             "scope": "program",
-            "months": [
-              "2026-09"
-            ],
+            "months": [],
             "conversions": 0,
             "approved": 0,
             "revenueYen": 0
@@ -614,20 +594,18 @@
           "until": "2026-09-26T00:00:00+09:00",
           "ga4": {
             "source": "page",
-            "coveredDays": 14,
+            "coveredDays": 9,
             "windowDays": 28,
-            "impressions": 5202,
+            "impressions": 3193,
             "clicks": 1,
             "impressionsShared": 0,
             "clicksShared": 0,
-            "ctr": 0.00019223375624759708,
+            "ctr": 0.00031318509238960227,
             "sharedWith": []
           },
           "a8": {
             "scope": "program",
-            "months": [
-              "2026-09"
-            ],
+            "months": [],
             "conversions": 0,
             "approved": 0,
             "revenueYen": 0
@@ -642,20 +620,18 @@
           "until": "2026-09-26T00:00:00+09:00",
           "ga4": {
             "source": "page",
-            "coveredDays": 14,
+            "coveredDays": 9,
             "windowDays": 28,
-            "impressions": 1180,
+            "impressions": 821,
             "clicks": 1,
             "impressionsShared": 0,
             "clicksShared": 0,
-            "ctr": 0.000847457627118644,
+            "ctr": 0.001218026796589525,
             "sharedWith": []
           },
           "a8": {
             "scope": "program",
-            "months": [
-              "2026-09"
-            ],
+            "months": [],
             "conversions": 0,
             "approved": 0,
             "revenueYen": 0
@@ -670,11 +646,11 @@
           "until": null,
           "ga4": {
             "source": "page",
-            "coveredDays": 2,
+            "coveredDays": 7,
             "windowDays": 28,
             "impressions": 0,
-            "clicks": 0,
-            "impressionsShared": 1009,
+            "clicks": 2,
+            "impressionsShared": 1089,
             "clicksShared": 0,
             "ctr": null,
             "sharedWith": [
@@ -683,9 +659,7 @@
           },
           "a8": {
             "scope": "program",
-            "months": [
-              "2026-09"
-            ],
+            "months": [],
             "conversions": 0,
             "approved": 0,
             "revenueYen": 0
@@ -700,11 +674,11 @@
           "until": null,
           "ga4": {
             "source": "page",
-            "coveredDays": 2,
+            "coveredDays": 7,
             "windowDays": 28,
             "impressions": 0,
             "clicks": 0,
-            "impressionsShared": 3285,
+            "impressionsShared": 2962,
             "clicksShared": 0,
             "ctr": null,
             "sharedWith": [
@@ -713,9 +687,7 @@
           },
           "a8": {
             "scope": "program",
-            "months": [
-              "2026-09"
-            ],
+            "months": [],
             "conversions": 0,
             "approved": 0,
             "revenueYen": 0
@@ -727,14 +699,14 @@
           "slot": "article-end",
           "experiment": "EXP-008",
           "from": "2026-10-07T17:00:00+09:00",
-          "until": null,
+          "until": "2026-10-11T19:55:00+09:00",
           "ga4": {
             "source": "page",
-            "coveredDays": 2,
+            "coveredDays": 4,
             "windowDays": 28,
             "impressions": 0,
             "clicks": 0,
-            "impressionsShared": 1664,
+            "impressionsShared": 1427,
             "clicksShared": 0,
             "ctr": null,
             "sharedWith": [
@@ -743,9 +715,7 @@
           },
           "a8": {
             "scope": "program",
-            "months": [
-              "2026-09"
-            ],
+            "months": [],
             "conversions": 0,
             "approved": 0,
             "revenueYen": 0
@@ -760,11 +730,11 @@
           "until": null,
           "ga4": {
             "source": "page",
-            "coveredDays": 2,
+            "coveredDays": 7,
             "windowDays": 28,
             "impressions": 0,
             "clicks": 0,
-            "impressionsShared": 94,
+            "impressionsShared": 133,
             "clicksShared": 0,
             "ctr": null,
             "sharedWith": [
@@ -773,9 +743,7 @@
           },
           "a8": {
             "scope": "program",
-            "months": [
-              "2026-09"
-            ],
+            "months": [],
             "conversions": 0,
             "approved": 0,
             "revenueYen": 0
@@ -790,11 +758,11 @@
           "until": null,
           "ga4": {
             "source": "page",
-            "coveredDays": 2,
+            "coveredDays": 7,
             "windowDays": 28,
             "impressions": 0,
             "clicks": 0,
-            "impressionsShared": 53,
+            "impressionsShared": 61,
             "clicksShared": 0,
             "ctr": null,
             "sharedWith": [
@@ -803,9 +771,7 @@
           },
           "a8": {
             "scope": "program",
-            "months": [
-              "2026-09"
-            ],
+            "months": [],
             "conversions": 0,
             "approved": 0,
             "revenueYen": 0
@@ -820,7 +786,7 @@
           "until": null,
           "ga4": {
             "source": "page",
-            "coveredDays": 2,
+            "coveredDays": 7,
             "windowDays": 28,
             "impressions": 0,
             "clicks": 0,
@@ -831,9 +797,7 @@
           },
           "a8": {
             "scope": "program",
-            "months": [
-              "2026-09"
-            ],
+            "months": [],
             "conversions": 0,
             "approved": 0,
             "revenueYen": 0
@@ -848,11 +812,11 @@
           "until": null,
           "ga4": {
             "source": "page",
-            "coveredDays": 2,
+            "coveredDays": 7,
             "windowDays": 28,
             "impressions": 0,
             "clicks": 0,
-            "impressionsShared": 9,
+            "impressionsShared": 10,
             "clicksShared": 0,
             "ctr": null,
             "sharedWith": [
@@ -861,9 +825,7 @@
           },
           "a8": {
             "scope": "program",
-            "months": [
-              "2026-09"
-            ],
+            "months": [],
             "conversions": 0,
             "approved": 0,
             "revenueYen": 0
@@ -878,9 +840,9 @@
           "until": null,
           "ga4": {
             "source": "page",
-            "coveredDays": 2,
+            "coveredDays": 7,
             "windowDays": 28,
-            "impressions": 56,
+            "impressions": 138,
             "clicks": 0,
             "impressionsShared": 0,
             "clicksShared": 0,
@@ -889,9 +851,7 @@
           },
           "a8": {
             "scope": "program",
-            "months": [
-              "2026-09"
-            ],
+            "months": [],
             "conversions": 0,
             "approved": 0,
             "revenueYen": 0
@@ -906,20 +866,18 @@
           "until": null,
           "ga4": {
             "source": "page",
-            "coveredDays": 2,
+            "coveredDays": 7,
             "windowDays": 28,
-            "impressions": 415,
-            "clicks": 0,
+            "impressions": 1251,
+            "clicks": 1,
             "impressionsShared": 0,
             "clicksShared": 0,
-            "ctr": 0,
+            "ctr": 0.0007993605115907274,
             "sharedWith": []
           },
           "a8": {
             "scope": "program",
-            "months": [
-              "2026-09"
-            ],
+            "months": [],
             "conversions": 0,
             "approved": 0,
             "revenueYen": 0
@@ -934,9 +892,9 @@
           "until": null,
           "ga4": {
             "source": "page",
-            "coveredDays": 2,
+            "coveredDays": 7,
             "windowDays": 28,
-            "impressions": 154,
+            "impressions": 604,
             "clicks": 0,
             "impressionsShared": 0,
             "clicksShared": 0,
@@ -945,9 +903,7 @@
           },
           "a8": {
             "scope": "program",
-            "months": [
-              "2026-09"
-            ],
+            "months": [],
             "conversions": 0,
             "approved": 0,
             "revenueYen": 0
@@ -962,9 +918,9 @@
           "until": null,
           "ga4": {
             "source": "page",
-            "coveredDays": 2,
+            "coveredDays": 7,
             "windowDays": 28,
-            "impressions": 4,
+            "impressions": 6,
             "clicks": 0,
             "impressionsShared": 0,
             "clicksShared": 0,
@@ -973,9 +929,7 @@
           },
           "a8": {
             "scope": "program",
-            "months": [
-              "2026-09"
-            ],
+            "months": [],
             "conversions": 0,
             "approved": 0,
             "revenueYen": 0
@@ -990,7 +944,7 @@
           "until": null,
           "ga4": {
             "source": "page",
-            "coveredDays": 2,
+            "coveredDays": 7,
             "windowDays": 28,
             "impressions": 0,
             "clicks": 0,
@@ -1001,9 +955,7 @@
           },
           "a8": {
             "scope": "program",
-            "months": [
-              "2026-09"
-            ],
+            "months": [],
             "conversions": 0,
             "approved": 0,
             "revenueYen": 0
@@ -1018,9 +970,9 @@
           "until": null,
           "ga4": {
             "source": "page",
-            "coveredDays": 2,
+            "coveredDays": 7,
             "windowDays": 28,
-            "impressions": 142,
+            "impressions": 395,
             "clicks": 0,
             "impressionsShared": 0,
             "clicksShared": 0,
@@ -1029,9 +981,7 @@
           },
           "a8": {
             "scope": "program",
-            "months": [
-              "2026-09"
-            ],
+            "months": [],
             "conversions": 0,
             "approved": 0,
             "revenueYen": 0
@@ -1046,9 +996,9 @@
           "until": null,
           "ga4": {
             "source": "page",
-            "coveredDays": 2,
+            "coveredDays": 7,
             "windowDays": 28,
-            "impressions": 81,
+            "impressions": 233,
             "clicks": 0,
             "impressionsShared": 0,
             "clicksShared": 0,
@@ -1057,9 +1007,7 @@
           },
           "a8": {
             "scope": "program",
-            "months": [
-              "2026-09"
-            ],
+            "months": [],
             "conversions": 0,
             "approved": 0,
             "revenueYen": 0
@@ -1074,7 +1022,7 @@
           "until": null,
           "ga4": {
             "source": "page",
-            "coveredDays": 2,
+            "coveredDays": 7,
             "windowDays": 28,
             "impressions": 0,
             "clicks": 0,
@@ -1085,9 +1033,7 @@
           },
           "a8": {
             "scope": "program",
-            "months": [
-              "2026-09"
-            ],
+            "months": [],
             "conversions": 0,
             "approved": 0,
             "revenueYen": 0
@@ -1102,7 +1048,7 @@
           "until": null,
           "ga4": {
             "source": "page",
-            "coveredDays": 2,
+            "coveredDays": 7,
             "windowDays": 28,
             "impressions": 0,
             "clicks": 0,
@@ -1113,9 +1059,7 @@
           },
           "a8": {
             "scope": "program",
-            "months": [
-              "2026-09"
-            ],
+            "months": [],
             "conversions": 0,
             "approved": 0,
             "revenueYen": 0
@@ -1130,9 +1074,9 @@
           "until": null,
           "ga4": {
             "source": "page",
-            "coveredDays": 2,
+            "coveredDays": 7,
             "windowDays": 28,
-            "impressions": 43,
+            "impressions": 125,
             "clicks": 0,
             "impressionsShared": 0,
             "clicksShared": 0,
@@ -1141,9 +1085,7 @@
           },
           "a8": {
             "scope": "program",
-            "months": [
-              "2026-09"
-            ],
+            "months": [],
             "conversions": 0,
             "approved": 0,
             "revenueYen": 0
@@ -1158,7 +1100,7 @@
           "until": null,
           "ga4": {
             "source": "page",
-            "coveredDays": 2,
+            "coveredDays": 7,
             "windowDays": 28,
             "impressions": 0,
             "clicks": 0,
@@ -1169,9 +1111,7 @@
           },
           "a8": {
             "scope": "program",
-            "months": [
-              "2026-09"
-            ],
+            "months": [],
             "conversions": 0,
             "approved": 0,
             "revenueYen": 0
@@ -1186,7 +1126,7 @@
           "until": null,
           "ga4": {
             "source": "page",
-            "coveredDays": 2,
+            "coveredDays": 7,
             "windowDays": 28,
             "impressions": 0,
             "clicks": 0,
@@ -1197,9 +1137,7 @@
           },
           "a8": {
             "scope": "program",
-            "months": [
-              "2026-09"
-            ],
+            "months": [],
             "conversions": 0,
             "approved": 0,
             "revenueYen": 0
@@ -1214,20 +1152,18 @@
           "until": null,
           "ga4": {
             "source": "page",
-            "coveredDays": 2,
+            "coveredDays": 7,
             "windowDays": 28,
-            "impressions": 0,
+            "impressions": 1,
             "clicks": 0,
             "impressionsShared": 0,
             "clicksShared": 0,
-            "ctr": null,
+            "ctr": 0,
             "sharedWith": []
           },
           "a8": {
             "scope": "program",
-            "months": [
-              "2026-09"
-            ],
+            "months": [],
             "conversions": 0,
             "approved": 0,
             "revenueYen": 0
@@ -1242,20 +1178,18 @@
           "until": null,
           "ga4": {
             "source": "page",
-            "coveredDays": 2,
+            "coveredDays": 7,
             "windowDays": 28,
-            "impressions": 1,
-            "clicks": 0,
+            "impressions": 7,
+            "clicks": 2,
             "impressionsShared": 0,
             "clicksShared": 0,
-            "ctr": 0,
+            "ctr": 0.2857142857142857,
             "sharedWith": []
           },
           "a8": {
             "scope": "program",
-            "months": [
-              "2026-09"
-            ],
+            "months": [],
             "conversions": 0,
             "approved": 0,
             "revenueYen": 0
@@ -1270,9 +1204,9 @@
           "until": null,
           "ga4": {
             "source": "page",
-            "coveredDays": 2,
+            "coveredDays": 7,
             "windowDays": 28,
-            "impressions": 14,
+            "impressions": 29,
             "clicks": 0,
             "impressionsShared": 0,
             "clicksShared": 0,
@@ -1281,9 +1215,7 @@
           },
           "a8": {
             "scope": "program",
-            "months": [
-              "2026-09"
-            ],
+            "months": [],
             "conversions": 0,
             "approved": 0,
             "revenueYen": 0
@@ -1298,9 +1230,9 @@
           "until": null,
           "ga4": {
             "source": "page",
-            "coveredDays": 2,
+            "coveredDays": 7,
             "windowDays": 28,
-            "impressions": 59,
+            "impressions": 120,
             "clicks": 0,
             "impressionsShared": 0,
             "clicksShared": 0,
@@ -1309,9 +1241,7 @@
           },
           "a8": {
             "scope": "program",
-            "months": [
-              "2026-09"
-            ],
+            "months": [],
             "conversions": 0,
             "approved": 0,
             "revenueYen": 0
@@ -1326,7 +1256,7 @@
           "until": null,
           "ga4": {
             "source": "page",
-            "coveredDays": 2,
+            "coveredDays": 7,
             "windowDays": 28,
             "impressions": 0,
             "clicks": 0,
@@ -1337,9 +1267,7 @@
           },
           "a8": {
             "scope": "program",
-            "months": [
-              "2026-09"
-            ],
+            "months": [],
             "conversions": 0,
             "approved": 0,
             "revenueYen": 0
@@ -1354,20 +1282,18 @@
           "until": null,
           "ga4": {
             "source": "page",
-            "coveredDays": 2,
+            "coveredDays": 7,
             "windowDays": 28,
-            "impressions": 7,
-            "clicks": 0,
+            "impressions": 30,
+            "clicks": 2,
             "impressionsShared": 0,
             "clicksShared": 0,
-            "ctr": 0,
+            "ctr": 0.06666666666666667,
             "sharedWith": []
           },
           "a8": {
             "scope": "program",
-            "months": [
-              "2026-09"
-            ],
+            "months": [],
             "conversions": 0,
             "approved": 0,
             "revenueYen": 0
@@ -1382,9 +1308,9 @@
           "until": null,
           "ga4": {
             "source": "page",
-            "coveredDays": 2,
+            "coveredDays": 7,
             "windowDays": 28,
-            "impressions": 25,
+            "impressions": 66,
             "clicks": 0,
             "impressionsShared": 0,
             "clicksShared": 0,
@@ -1393,9 +1319,7 @@
           },
           "a8": {
             "scope": "program",
-            "months": [
-              "2026-09"
-            ],
+            "months": [],
             "conversions": 0,
             "approved": 0,
             "revenueYen": 0
@@ -1410,9 +1334,9 @@
           "until": null,
           "ga4": {
             "source": "page",
-            "coveredDays": 2,
+            "coveredDays": 7,
             "windowDays": 28,
-            "impressions": 23,
+            "impressions": 54,
             "clicks": 0,
             "impressionsShared": 0,
             "clicksShared": 0,
@@ -1421,9 +1345,7 @@
           },
           "a8": {
             "scope": "program",
-            "months": [
-              "2026-09"
-            ],
+            "months": [],
             "conversions": 0,
             "approved": 0,
             "revenueYen": 0
@@ -1438,7 +1360,7 @@
           "until": null,
           "ga4": {
             "source": "page",
-            "coveredDays": 2,
+            "coveredDays": 7,
             "windowDays": 28,
             "impressions": 0,
             "clicks": 0,
@@ -1449,9 +1371,7 @@
           },
           "a8": {
             "scope": "program",
-            "months": [
-              "2026-09"
-            ],
+            "months": [],
             "conversions": 0,
             "approved": 0,
             "revenueYen": 0
@@ -1466,7 +1386,7 @@
           "until": null,
           "ga4": {
             "source": "page",
-            "coveredDays": 2,
+            "coveredDays": 7,
             "windowDays": 28,
             "impressions": 1,
             "clicks": 0,
@@ -1477,9 +1397,7 @@
           },
           "a8": {
             "scope": "program",
-            "months": [
-              "2026-09"
-            ],
+            "months": [],
             "conversions": 0,
             "approved": 0,
             "revenueYen": 0
@@ -1487,26 +1405,26 @@
         }
       ],
       "byRuleWindow": {
-        "start": "2026-09-12",
-        "end": "2026-10-09",
+        "start": "2026-09-17",
+        "end": "2026-10-14",
         "source": "page"
       },
       "unattributed": {
-        "impressions": 1172,
+        "impressions": 1221,
         "clicks": 0,
         "top": [
           {
             "page": "/exam/pe-comprehensive-management",
-            "label": "DXConsulting-sidebar",
-            "placement": "sidebar",
-            "impressions": 85,
+            "label": "ハイクラス DX・コンサル転職",
+            "placement": "article-mid",
+            "impressions": 74,
             "clicks": 0
           },
           {
             "page": "/exam/pe-comprehensive-management",
-            "label": "ハイクラス DX・コンサル転職",
-            "placement": "article-mid",
-            "impressions": 60,
+            "label": "DXConsulting-sidebar",
+            "placement": "sidebar",
+            "impressions": 73,
             "clicks": 0
           },
           {
@@ -1517,30 +1435,30 @@
             "clicks": 0
           },
           {
-            "page": "/exam/civil-construction-1/secondary/r07",
-            "label": "BuildJob-sidebar",
-            "placement": "category-sidebar",
-            "impressions": 41,
-            "clicks": 0
-          },
-          {
             "page": "/exam/pe-first-stage",
             "label": "ビルドジョブ",
             "placement": "article-mid",
-            "impressions": 38,
-            "clicks": 0
-          },
-          {
-            "page": "/exam/pe-comprehensive-management",
-            "label": "DXConsulting-endbanner",
-            "placement": "article-end",
-            "impressions": 37,
+            "impressions": 47,
             "clicks": 0
           },
           {
             "page": "/",
             "label": "BuildJob-sidebar",
             "placement": "category-sidebar",
+            "impressions": 46,
+            "clicks": 0
+          },
+          {
+            "page": "/exam/civil-construction-1/secondary/r07",
+            "label": "BuildJob-sidebar",
+            "placement": "category-sidebar",
+            "impressions": 40,
+            "clicks": 0
+          },
+          {
+            "page": "/exam/pe-comprehensive-management",
+            "label": "DXConsulting-endbanner",
+            "placement": "article-end",
             "impressions": 36,
             "clicks": 0
           },
@@ -1548,26 +1466,80 @@
             "page": "/exam/concrete-chief-engineer",
             "label": "ビルドジョブ",
             "placement": "article-mid",
-            "impressions": 30,
-            "clicks": 0
-          },
-          {
-            "page": "/",
-            "label": "DXConsulting-sidebar",
-            "placement": "category-sidebar",
-            "impressions": 29,
+            "impressions": 35,
             "clicks": 0
           },
           {
             "page": "/",
             "label": "ビルドジョブ",
             "placement": "article-inline",
-            "impressions": 28,
+            "impressions": 26,
+            "clicks": 0
+          },
+          {
+            "page": "/about",
+            "label": "BuildJob-sidebar",
+            "placement": "category-sidebar",
+            "impressions": 25,
             "clicks": 0
           }
         ]
       },
       "clickLog": [
+        {
+          "date": "2026-10-14",
+          "page": "/",
+          "label": "ビルドジョブ",
+          "placement": "home-section",
+          "program": "buildjob",
+          "ruleId": "PL-0033",
+          "clicks": 1
+        },
+        {
+          "date": "2026-10-14",
+          "page": "/exam/civil-construction-2/guide/secondary-grading-and-partial-credit",
+          "label": "建設JOBs",
+          "placement": "article-inline",
+          "program": "kensetsu-jobs",
+          "ruleId": "PL-0021",
+          "clicks": 1
+        },
+        {
+          "date": "2026-10-14",
+          "page": "/exam/pe-first-stage/guide/overview",
+          "label": "ビルドジョブ",
+          "placement": "article-mid",
+          "program": "buildjob",
+          "ruleId": "PL-0013",
+          "clicks": 1
+        },
+        {
+          "date": "2026-10-14",
+          "page": "/tools/kakomon-quiz/pe-first-stage",
+          "label": "ビルドジョブ",
+          "placement": "tool-end",
+          "program": "buildjob",
+          "ruleId": "PL-0037",
+          "clicks": 2
+        },
+        {
+          "date": "2026-10-13",
+          "page": "/",
+          "label": "ビルドジョブ",
+          "placement": "home-section",
+          "program": "buildjob",
+          "ruleId": "PL-0033",
+          "clicks": 1
+        },
+        {
+          "date": "2026-10-13",
+          "page": "/exam/concrete-diagnostician/textbook/deterioration",
+          "label": "ビルドジョブ",
+          "placement": "article-mid",
+          "program": "buildjob",
+          "ruleId": "PL-0013",
+          "clicks": 1
+        },
         {
           "date": "2026-10-03",
           "page": "/exam/pe-comprehensive-management/past-exams/r08-primary",
@@ -1684,24 +1656,6 @@
           "program": "dx-consulting",
           "ruleId": "PL-0012",
           "clicks": 1
-        },
-        {
-          "date": "2026-09-16",
-          "page": "/exam/civil-construction-1/secondary/r07",
-          "label": "ビルドジョブ",
-          "placement": "article-inline",
-          "program": "buildjob",
-          "ruleId": "PL-0003",
-          "clicks": 1
-        },
-        {
-          "date": "2026-09-12",
-          "page": "/exam/pe-comprehensive-management/guide/course-selection-guide",
-          "label": "ハイクラス DX・コンサル転職",
-          "placement": "article-mid",
-          "program": "dx-consulting",
-          "ruleId": "PL-0002",
-          "clicks": 1
         }
       ],
       "conversions": [
@@ -1722,13 +1676,13 @@
     },
     "a8": {
       "window": {
-        "clicks": 79,
+        "clicks": 87,
         "conversions": 1,
         "approved": 0,
         "revenueYen": 0
       },
       "allTime": {
-        "clicks": 282,
+        "clicks": 290,
         "conversions": 2,
         "approved": 0,
         "revenueYen": 0
@@ -1743,31 +1697,31 @@
   "pillars": {
     "career-path": {
       "articles": 21,
-      "gscImpressions": 113,
+      "gscImpressions": 104,
       "gscClicks": 1,
       "inboundLinks": 61
     },
     "market-value": {
       "articles": 9,
-      "gscImpressions": 40,
+      "gscImpressions": 37,
       "gscClicks": 0,
       "inboundLinks": 40
     },
     "service-choice": {
       "articles": 5,
-      "gscImpressions": 19,
+      "gscImpressions": 23,
       "gscClicks": 0,
       "inboundLinks": 9
     },
     "quit": {
       "articles": 5,
-      "gscImpressions": 5,
+      "gscImpressions": 2,
       "gscClicks": 0,
       "inboundLinks": 14
     },
     "application": {
       "articles": 5,
-      "gscImpressions": 14,
+      "gscImpressions": 0,
       "gscClicks": 0,
       "inboundLinks": 13
     }
@@ -1799,18 +1753,13 @@
       "reviewStatus": "approved",
       "group": "guide",
       "pillar": "market-value",
-      "gscImpressions": 5,
+      "gscImpressions": 4,
       "gscClicks": 0,
-      "gscPosition": 65,
+      "gscPosition": 44,
       "topQueries": [
         {
           "query": "施工管理 資格手当",
           "impressions": 4,
-          "clicks": 0
-        },
-        {
-          "query": "資格 手当 一覧 建設 業",
-          "impressions": 1,
           "clicks": 0
         }
       ],
@@ -1828,16 +1777,10 @@
       "reviewStatus": "needs-review",
       "group": "guide",
       "pillar": "service-choice",
-      "gscImpressions": 1,
+      "gscImpressions": 0,
       "gscClicks": 0,
-      "gscPosition": 68,
-      "topQueries": [
-        {
-          "query": "施工管理job 評判",
-          "impressions": 1,
-          "clicks": 0
-        }
-      ],
+      "gscPosition": null,
+      "topQueries": [],
       "ga4Users": null,
       "ga4Sessions": null,
       "inboundLiteralLinks": 1,
@@ -1874,16 +1817,16 @@
       "pillar": "service-choice",
       "gscImpressions": 1,
       "gscClicks": 0,
-      "gscPosition": 18,
+      "gscPosition": 68,
       "topQueries": [
         {
-          "query": "施工管理 転職エージェント",
+          "query": "建設 転職エージェント 比較",
           "impressions": 1,
           "clicks": 0
         }
       ],
-      "ga4Users": null,
-      "ga4Sessions": null,
+      "ga4Users": 1,
+      "ga4Sessions": 1,
       "inboundLiteralLinks": 4,
       "careerAffiliateCount": 1,
       "placements": []
@@ -1985,9 +1928,9 @@
       "reviewStatus": "needs-review",
       "group": "guide",
       "pillar": "market-value",
-      "gscImpressions": 5,
+      "gscImpressions": 2,
       "gscClicks": 0,
-      "gscPosition": 76,
+      "gscPosition": 76.5,
       "topQueries": [
         {
           "query": "1級土木施工管理技士補 年収",
@@ -1995,18 +1938,13 @@
           "clicks": 0
         },
         {
-          "query": "土木施工管理 年収",
-          "impressions": 1,
-          "clicks": 0
-        },
-        {
-          "query": "土木施工管理 給料",
+          "query": "土木施工管理技士1級 平均年収",
           "impressions": 1,
           "clicks": 0
         }
       ],
-      "ga4Users": 6,
-      "ga4Sessions": 6,
+      "ga4Users": 3,
+      "ga4Sessions": 3,
       "inboundLiteralLinks": 3,
       "careerAffiliateCount": 0,
       "placements": []
@@ -2019,23 +1957,23 @@
       "reviewStatus": "approved",
       "group": "guide",
       "pillar": "career-path",
-      "gscImpressions": 32,
+      "gscImpressions": 35,
       "gscClicks": 0,
-      "gscPosition": 38.1,
+      "gscPosition": 36.5,
       "topQueries": [
         {
           "query": "サブコンとは コンサル",
-          "impressions": 14,
+          "impressions": 18,
           "clicks": 0
         },
         {
           "query": "サブコン コンサル",
-          "impressions": 8,
+          "impressions": 10,
           "clicks": 0
         },
         {
-          "query": "ゼネコン コンサル",
-          "impressions": 4,
+          "query": "ゼネコン サブコン",
+          "impressions": 2,
           "clicks": 0
         }
       ],
@@ -2081,8 +2019,8 @@
       "gscClicks": 0,
       "gscPosition": null,
       "topQueries": [],
-      "ga4Users": null,
-      "ga4Sessions": null,
+      "ga4Users": 1,
+      "ga4Sessions": 1,
       "inboundLiteralLinks": 0,
       "careerAffiliateCount": 1,
       "placements": []
@@ -2095,18 +2033,18 @@
       "reviewStatus": "approved",
       "group": "guide",
       "pillar": "career-path",
-      "gscImpressions": 14,
+      "gscImpressions": 25,
       "gscClicks": 0,
-      "gscPosition": 10.6,
+      "gscPosition": 10.4,
       "topQueries": [
         {
           "query": "技術士 オワコン",
-          "impressions": 8,
+          "impressions": 15,
           "clicks": 0
         },
         {
           "query": "建設業 オワコン",
-          "impressions": 6,
+          "impressions": 10,
           "clicks": 0
         }
       ],
@@ -2124,13 +2062,13 @@
       "reviewStatus": "needs-review",
       "group": "guide",
       "pillar": "market-value",
-      "gscImpressions": 6,
+      "gscImpressions": 7,
       "gscClicks": 0,
-      "gscPosition": 47.6,
+      "gscPosition": 47.4,
       "topQueries": [
         {
           "query": "1級 2級 土木",
-          "impressions": 3,
+          "impressions": 4,
           "clicks": 0
         },
         {
@@ -2144,8 +2082,8 @@
           "clicks": 0
         }
       ],
-      "ga4Users": 37,
-      "ga4Sessions": 41,
+      "ga4Users": 40,
+      "ga4Sessions": 44,
       "inboundLiteralLinks": 2,
       "careerAffiliateCount": 0,
       "placements": []
@@ -2158,18 +2096,18 @@
       "reviewStatus": "approved",
       "group": "guide",
       "pillar": "career-path",
-      "gscImpressions": 18,
+      "gscImpressions": 20,
       "gscClicks": 0,
-      "gscPosition": 19.3,
+      "gscPosition": 19.2,
       "topQueries": [
         {
           "query": "施工管理から転職",
-          "impressions": 15,
+          "impressions": 16,
           "clicks": 0
         },
         {
           "query": "施工管理 から 転職",
-          "impressions": 2,
+          "impressions": 3,
           "clicks": 0
         },
         {
@@ -2238,8 +2176,8 @@
           "clicks": 0
         }
       ],
-      "ga4Users": 7,
-      "ga4Sessions": 7,
+      "ga4Users": 8,
+      "ga4Sessions": 8,
       "inboundLiteralLinks": 3,
       "careerAffiliateCount": 1,
       "placements": []
@@ -2256,8 +2194,8 @@
       "gscClicks": 0,
       "gscPosition": null,
       "topQueries": [],
-      "ga4Users": 2,
-      "ga4Sessions": 2,
+      "ga4Users": 3,
+      "ga4Sessions": 3,
       "inboundLiteralLinks": 3,
       "careerAffiliateCount": 1,
       "placements": []
@@ -2270,17 +2208,17 @@
       "reviewStatus": "approved",
       "group": "guide",
       "pillar": "career-path",
-      "gscImpressions": 3,
+      "gscImpressions": 5,
       "gscClicks": 0,
-      "gscPosition": 10.7,
+      "gscPosition": 13.2,
       "topQueries": [
         {
-          "query": "公務員土木仕事内容",
-          "impressions": 1,
+          "query": "施工管理 公務員",
+          "impressions": 3,
           "clicks": 0
         },
         {
-          "query": "施工管理 公務員",
+          "query": "公務員土木仕事内容",
           "impressions": 1,
           "clicks": 0
         },
@@ -2308,8 +2246,8 @@
       "gscClicks": 0,
       "gscPosition": null,
       "topQueries": [],
-      "ga4Users": 4,
-      "ga4Sessions": 5,
+      "ga4Users": 5,
+      "ga4Sessions": 7,
       "inboundLiteralLinks": 0,
       "careerAffiliateCount": 1,
       "placements": []
@@ -2322,18 +2260,13 @@
       "reviewStatus": "approved",
       "group": "guide",
       "pillar": "quit",
-      "gscImpressions": 5,
+      "gscImpressions": 2,
       "gscClicks": 0,
-      "gscPosition": 64.8,
+      "gscPosition": 63.5,
       "topQueries": [
         {
           "query": "施工管理 きつい",
-          "impressions": 4,
-          "clicks": 0
-        },
-        {
-          "query": "土木施工管理 きつい",
-          "impressions": 1,
+          "impressions": 2,
           "clicks": 0
         }
       ],
@@ -2387,26 +2320,10 @@
       "reviewStatus": "approved",
       "group": "guide",
       "pillar": "application",
-      "gscImpressions": 14,
+      "gscImpressions": 0,
       "gscClicks": 0,
-      "gscPosition": 78.4,
-      "topQueries": [
-        {
-          "query": "職務 経歴 書 建設 業",
-          "impressions": 9,
-          "clicks": 0
-        },
-        {
-          "query": "土木作業員職務経歴書書き方",
-          "impressions": 1,
-          "clicks": 0
-        },
-        {
-          "query": "建設業 職務経歴書",
-          "impressions": 1,
-          "clicks": 0
-        }
-      ],
+      "gscPosition": null,
+      "topQueries": [],
       "ga4Users": 1,
       "ga4Sessions": 1,
       "inboundLiteralLinks": 6,
@@ -2515,8 +2432,8 @@
       "gscClicks": 0,
       "gscPosition": null,
       "topQueries": [],
-      "ga4Users": 7,
-      "ga4Sessions": 9,
+      "ga4Users": 10,
+      "ga4Sessions": 14,
       "inboundLiteralLinks": 7,
       "careerAffiliateCount": 0,
       "placements": []
@@ -2547,23 +2464,12 @@
       "reviewStatus": "approved",
       "group": "guide",
       "pillar": "career-path",
-      "gscImpressions": 6,
+      "gscImpressions": 0,
       "gscClicks": 0,
-      "gscPosition": 61.7,
-      "topQueries": [
-        {
-          "query": "2 級 建設 機械 施工 技士 メリット",
-          "impressions": 3,
-          "clicks": 0
-        },
-        {
-          "query": "土木施工管理技士 メリット",
-          "impressions": 3,
-          "clicks": 0
-        }
-      ],
-      "ga4Users": 5,
-      "ga4Sessions": 5,
+      "gscPosition": null,
+      "topQueries": [],
+      "ga4Users": 6,
+      "ga4Sessions": 6,
       "inboundLiteralLinks": 10,
       "careerAffiliateCount": 1,
       "placements": []
@@ -2576,22 +2482,22 @@
       "reviewStatus": "needs-review",
       "group": "guide",
       "pillar": "service-choice",
-      "gscImpressions": 13,
+      "gscImpressions": 18,
       "gscClicks": 0,
-      "gscPosition": 17.6,
+      "gscPosition": 24.3,
       "topQueries": [
         {
           "query": "施工管理 転職エージェント",
-          "impressions": 7,
+          "impressions": 9,
           "clicks": 0
         },
         {
           "query": "施工管理転職エージェント",
-          "impressions": 2,
+          "impressions": 3,
           "clicks": 0
         },
         {
-          "query": "未経験 施工管理 転職エージェント",
+          "query": "施工管理 転職 エージェント",
           "impressions": 2,
           "clicks": 0
         }
@@ -2625,8 +2531,8 @@
           "clicks": 0
         }
       ],
-      "ga4Users": 3,
-      "ga4Sessions": 3,
+      "ga4Users": 2,
+      "ga4Sessions": 2,
       "inboundLiteralLinks": 2,
       "careerAffiliateCount": 1,
       "placements": []
@@ -2731,8 +2637,8 @@
           "clicks": 0
         }
       ],
-      "ga4Users": 4,
-      "ga4Sessions": 5,
+      "ga4Users": 5,
+      "ga4Sessions": 6,
       "inboundLiteralLinks": 4,
       "careerAffiliateCount": 1,
       "placements": []
@@ -2745,23 +2651,18 @@
       "reviewStatus": "approved",
       "group": "guide",
       "pillar": "career-path",
-      "gscImpressions": 14,
+      "gscImpressions": 5,
       "gscClicks": 0,
-      "gscPosition": 31.6,
+      "gscPosition": 24.3,
       "topQueries": [
         {
           "query": "施工管理 第二新卒",
-          "impressions": 10,
+          "impressions": 3,
           "clicks": 0
         },
         {
           "query": "施工管理 転職 タイミング",
           "impressions": 2,
-          "clicks": 0
-        },
-        {
-          "query": "第二新卒 建設",
-          "impressions": 1,
           "clicks": 0
         }
       ],
@@ -2779,12 +2680,22 @@
       "reviewStatus": null,
       "group": "guide",
       "pillar": "career-path",
-      "gscImpressions": 1,
+      "gscImpressions": 3,
       "gscClicks": 0,
-      "gscPosition": 18,
+      "gscPosition": 29.3,
       "topQueries": [
         {
+          "query": "技術 士 独立",
+          "impressions": 1,
+          "clicks": 0
+        },
+        {
           "query": "技術士 副業",
+          "impressions": 1,
+          "clicks": 0
+        },
+        {
+          "query": "技術士副業",
           "impressions": 1,
           "clicks": 0
         }
@@ -2803,28 +2714,12 @@
       "reviewStatus": "approved",
       "group": "guide",
       "pillar": "career-path",
-      "gscImpressions": 14,
+      "gscImpressions": 0,
       "gscClicks": 0,
-      "gscPosition": 61,
-      "topQueries": [
-        {
-          "query": "技術士総合技術監理部門年収",
-          "impressions": 3,
-          "clicks": 0
-        },
-        {
-          "query": "技術士 総合技術監理部門 年収",
-          "impressions": 2,
-          "clicks": 0
-        },
-        {
-          "query": "技術士転職",
-          "impressions": 2,
-          "clicks": 0
-        }
-      ],
-      "ga4Users": 1,
-      "ga4Sessions": 3,
+      "gscPosition": null,
+      "topQueries": [],
+      "ga4Users": 2,
+      "ga4Sessions": 4,
       "inboundLiteralLinks": 2,
       "careerAffiliateCount": 1,
       "placements": []
@@ -2847,8 +2742,8 @@
           "clicks": 1
         }
       ],
-      "ga4Users": 4,
-      "ga4Sessions": 4,
+      "ga4Users": 5,
+      "ga4Sessions": 5,
       "inboundLiteralLinks": 2,
       "careerAffiliateCount": 1,
       "placements": []
@@ -3049,11 +2944,11 @@
     }
   ],
   "baselineDrift": [
-    "affiliate 表示: 起票時 7370 → 今回 20914（284%）",
-    "高意図 query 表示: 起票時 7 → 今回 144（2057%）"
+    "affiliate 表示: 起票時 7370 → 今回 19355（263%）",
+    "高意図 query 表示: 起票時 7 → 今回 168（2400%）"
   ],
   "warnings": [
     "入力欠落 1 件: afb（CI の fetch-metrics 供給を確認する）",
-    "窓が不一致（GA4 2026-09-12〜2026-10-09 / GSC 2026-09-09〜2026-10-06）。取得元の遅延差なので異常ではないが、出所を跨いで CTR/EPC を割らないこと"
+    "窓が不一致（GA4 2026-09-17〜2026-10-14 / GSC 2026-09-15〜2026-10-12）。取得元の遅延差なので異常ではないが、出所を跨いで CTR/EPC を割らないこと"
   ]
 }

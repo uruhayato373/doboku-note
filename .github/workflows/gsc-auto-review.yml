@@ -37,7 +37,7 @@ on:
   workflow_dispatch:
 
 # DN-0109 Phase 1: develop への自動書込み系ワークフロー間の push 衝突を防ぐ共通グループ。
-# 同時実行を待たせるだけで落とさない（cancel-in-progress: false）。
+# cancel-in-progress: false が守るのは実行中の run だけ。待機中は 1 件しか残らず古い待機分は取り消される（定期実行は rerun-cancelled-schedules.yml が再実行する・DN-0750）。
 concurrency:
   group: develop-git-write
   cancel-in-progress: false

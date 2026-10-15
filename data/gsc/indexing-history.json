@@ -999,6 +999,24 @@
         "/practice/concrete-structure-inspection",
         "/practice/concrete-work-preparation"
       ]
+    },
+    {
+      "runId": "2026-10-15T13-04-45Z",
+      "collectedAt": "2026-10-15T13:04:45.665Z",
+      "mode": "commit",
+      "status": "no-requests",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 1,
+      "accepted": 0,
+      "alreadyIndexed": 1,
+      "unreadable": 0,
+      "slugs": [
+        "/exam/pe-first-stage/primary/r05-basic"
+      ],
+      "acceptedSlugs": []
     }
   ]
 }
