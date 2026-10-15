@@ -1,0 +1,54 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は工作物設置許可基準・河川管理施設等構造令・河川砂防技術基準を重ねる技術審査の順と、堤脚付近の通達（建設省河治発第40号）による判断。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="工作物の技術審査の流れ図。申請図面から、位置の確認、構造の確認、安定計算の確認、許可、完成検査の順に進む。堤内地の堤脚付近の工作物は位置の確認から通達の範囲かを確かめ、範囲に入れば浸透流とすべり安定の計算を求めて安定計算の確認に進む。">
+  <defs>
+  <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .n { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 11px; fill: #1a3a5c; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .ok { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .wn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+  </style>
+  <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+
+  <rect class="b" x="14" y="22" width="190" height="58" rx="8"/>
+  <text class="n" x="109" y="46" text-anchor="middle">申請図面</text>
+  <text class="t" x="109" y="65" text-anchor="middle">管理者・条例の確認</text>
+
+  <rect class="b" x="14" y="100" width="190" height="58" rx="8"/>
+  <text class="n" x="109" y="124" text-anchor="middle">位置の確認</text>
+  <text class="t" x="109" y="143" text-anchor="middle">設置許可基準</text>
+
+  <rect class="b" x="14" y="178" width="190" height="58" rx="8"/>
+  <text class="n" x="109" y="202" text-anchor="middle">構造の確認</text>
+  <text class="t" x="109" y="221" text-anchor="middle">構造令（特例は条文の範囲）</text>
+
+  <rect class="b" x="14" y="256" width="190" height="58" rx="8"/>
+  <text class="n" x="109" y="280" text-anchor="middle">安定計算の確認</text>
+  <text class="t" x="109" y="299" text-anchor="middle">河川砂防技術基準</text>
+
+  <rect class="b" x="14" y="334" width="190" height="58" rx="8"/>
+  <text class="n" x="109" y="358" text-anchor="middle">許可</text>
+  <text class="t" x="109" y="377" text-anchor="middle">条件・検査の段取り</text>
+
+  <rect class="ok" x="14" y="412" width="190" height="58" rx="8"/>
+  <text class="n" x="109" y="436" text-anchor="middle">完成検査</text>
+  <text class="t" x="109" y="455" text-anchor="middle">合格後に使用開始</text>
+
+  <path class="a" d="M109,80V99" marker-end="url(#ah)"/>
+  <path class="a" d="M109,158V177" marker-end="url(#ah)"/>
+  <path class="a" d="M109,236V255" marker-end="url(#ah)"/>
+  <path class="a" d="M109,314V333" marker-end="url(#ah)"/>
+  <path class="a" d="M109,392V411" marker-end="url(#ah)"/>
+
+  <rect class="wn" x="228" y="100" width="158" height="58" rx="8"/>
+  <text class="n" x="307" y="124" text-anchor="middle">堤脚付近</text>
+  <text class="t" x="307" y="143" text-anchor="middle">通達の範囲か</text>
+  <path class="a" d="M205,129H227" marker-end="url(#ah)"/>
+  <path class="a" d="M307,158V285H206" marker-end="url(#ah)"/>
+  <text x="316" y="214">入るなら</text>
+  <text x="316" y="229">浸透流と</text>
+  <text x="316" y="244">すべり安定</text>
+</svg>

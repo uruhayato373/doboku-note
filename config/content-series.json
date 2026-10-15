@@ -8,7 +8,7 @@
       "audience": "自治体に土木職で入った人・異動した人",
       "area": "practice",
       "policy": "docs/strategy/18_自治体土木担当・コンクリートシリーズ方針2026-10.md",
-      "gate": "EXP-012（記事末の資格カード）の判定（事後窓の終わり 2026-11-26）で継続になるまで、新規記事は書かない（2026-10-13 運営者判断）",
+      "gate": "第 1〜第 3 波（19 本）は 2026-10-15 に公開した。残りの第 4 波（新規 16 章・補強 4 章）も同日の運営者判断で書いて公開する（DN-0742）。EXP-012 の判定（2026-11-26）と公開 28 日の計測は、シリーズの改善とコンクリート入門（B）の判断に使う（DN-0719）",
       "entry": {
         "hubItem": "A-00",
         "curriculum": "civil-practice:municipal"
@@ -21,31 +21,84 @@
               "id": "A-00",
               "title": "自治体の土木職の仕事 — 管理と事業の二つの役割",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/municipal-civil-engineer-work/article.mdx"
+              ],
               "sources": [
                 "local-autonomy-act",
                 "road-act",
                 "river-act"
               ],
-              "note": "シリーズのハブ。管理（道路・河川・公物）と事業（計画から検査まで）の二つの役割と、各章への案内"
+              "note": "シリーズのハブ。管理（道路・河川・公物）と事業（計画から検査まで）の二つの役割と、各章への案内",
+              "wave": 4,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "土木職の仕事の地図。左に管理（許可・監督・点検・修繕・境界・台帳）、右に事業（計画・予算・用地・契約・監督検査・引渡し）、中央に供用開始を置き、点検結果が修繕・更新の事業に戻る循環を矢印で示し、各区分に案内先の章 id を添える（自作 SVG・viewBox 0 0 400 500）",
+                  "figKey": "civil-practice/municipal-civil-engineer-work/img/figure-work-map"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "配属先（道路の窓口・河川の窓口・工事の発注・まちづくり・災害対応）ごとの読む順番の経路図。全員が最初に通る法令の読み方と役割分担から、各配属の3本（災害は2本）へ分かれる（自作 SVG・viewBox 0 0 400 500）",
+                  "figKey": "civil-practice/municipal-civil-engineer-work/img/figure-assignment-routes"
+                }
+              ]
             },
             {
               "id": "A-01",
               "title": "土木担当の 1 年 — 予算要求・発注・出水期・決算・会計検査",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/civil-engineer-annual-cycle/article.mdx"
+              ],
               "sources": [
                 "local-autonomy-act",
                 "local-finance-act"
+              ],
+              "wave": 4,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "4月から翌年5月までの年間カレンダー。予算（要求・査定・議決）、発注、出水期、点検、検査・実績報告・繰越し、出納閉鎖、決算、会計検査の帯を重ね、今年度・来年度・前年度の三つの年度が並ぶ時期を色分けし、各章への入口を添える（自作SVG）",
+                  "figKey": "civil-practice/civil-engineer-annual-cycle/img/figure-annual-calendar"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "予算編成の流れ図。方針 → 各局要求 → 財政担当の調整 → 市長査定 → 予算案公表 → 議会の審議・議決 → 事業実施。千葉市の公表資料を一例として、上に国の補助の計画提出・交付申請の動きを並べる（自作SVG・日程は例と明記）",
+                  "figKey": "civil-practice/civil-engineer-annual-cycle/img/figure-budget-flow"
+                }
               ]
             },
             {
               "id": "A-02",
               "title": "社会資本の全体像 — 種類・整備の歩み・投資の推移と維持更新の時代",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/social-infrastructure-overview/article.mdx"
+              ],
               "sources": [
                 "mlit-white-paper",
                 "chihou-zaisei-white-paper"
               ],
-              "note": "統計は白書の最新値。整備から維持更新へ移った背景を、担当の仕事につなげる"
+              "note": "統計は白書の最新値。整備から維持更新へ移った背景を、担当の仕事につなげる",
+              "wave": 4,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "施設の種類（道路・河川・下水道・港湾など）を、管理する主体（国・都道府県・市町村）に分けた見取り図。市町村が持つ範囲（市町村道、準用河川、公共下水道）を示す。表と同じ内容を図にする場合は2軸で構成する",
+                  "figKey": "civil-practice/social-infrastructure-overview/img/figure-facility-managers"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "整備から維持更新へ移った流れの年表。高度経済成長期の集中整備 → 平成25年メンテナンス元年・インフラ長寿命化基本計画 → 平成26年行動計画 → 令和3年第2次行動計画 → 令和8年第6次重点計画 → 群マネの展開",
+                  "figKey": "civil-practice/social-infrastructure-overview/img/figure-maintenance-timeline"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "地方財政白書 第19表（平成26年度〜令和6年度）の普通建設事業費を、補助事業費・単独事業費・国直轄事業負担金に分けた積み上げ棒グラフ。出典と年度を図に明記し、補助と単独が令和6年度に47.3%・47.7%となった点を示す",
+                  "figKey": "civil-practice/social-infrastructure-overview/img/figure-ordinary-construction-expenses"
+                }
+              ]
             }
           ]
         },
@@ -56,29 +109,92 @@
               "id": "A-03",
               "title": "法令の読み方 — 憲法・法律・政令・省令・条例・規則・要綱・通知",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/how-to-read-laws-and-notices/article.mdx"
+              ],
               "sources": [
                 "japan-constitution",
                 "local-autonomy-act"
               ],
-              "note": "道路法・河川法の章を読む前提。条文の構造（条・項・号）と、通知・要綱の効力の違い"
+              "note": "道路法・河川法の章を読む前提。条文の構造（条・項・号）と、通知・要綱の効力の違い",
+              "wave": 4,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "国の側（憲法→法律→政令→省令、告示・訓令・通達は別筋）と地方の側（条例→規則、要綱は法形式の外）の効力の序列図。誰が定めるか（国会・内閣・大臣・議会・長）を併記する（自作 SVG）",
+                  "figKey": "civil-practice/how-to-read-laws-and-notices/img/figure-legal-hierarchy"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "道路法第32条第1項第7号『政令で定めるもの』→ 道路法施行令第7条第4号（工事用板囲・足場・詰所）・第5号（工事用材料）とたどる流れ図（自作 SVG）",
+                  "figKey": "civil-practice/how-to-read-laws-and-notices/img/figure-delegation-trace"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "地方自治法第14条（第1〜3項）と第16条第2項（本文とただし書）を、柱書・項・号・ただし書に分解して色分けした構造図（自作 SVG）",
+                  "figKey": "civil-practice/how-to-read-laws-and-notices/img/figure-article-structure"
+                }
+              ]
             },
             {
               "id": "A-04",
               "title": "国・都道府県・市町村の役割分担 — 行政組織と自治事務・法定受託事務",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/national-prefecture-municipal-roles/article.mdx"
+              ],
               "sources": [
                 "local-autonomy-act"
+              ],
+              "wave": 4,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "国道・県道・市道と一級・二級・準用河川を、国・都道府県・市町村のどこが管理するかで並べた一覧図（自作SVG、4:5キャンバス）",
+                  "figKey": "civil-practice/national-prefecture-municipal-roles/img/figure-administrator-by-facility"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "自治事務と法定受託事務を、国・県の関与の強さ（助言・勧告、是正の要求、是正の指示、代執行、処理基準）で比べる対比図",
+                  "figKey": "civil-practice/national-prefecture-municipal-roles/img/figure-involvement-by-affair-type"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "市町村の窓口から県・国へ相談する道筋（技術的助言・協議・同意）の流れ図",
+                  "figKey": "civil-practice/national-prefecture-municipal-roles/img/figure-consultation-routes"
+                }
               ]
             },
             {
               "id": "A-05",
               "title": "予算と財源 — 補助金・交付金・地方債と予算の流れ",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/budget-and-funding-sources/article.mdx"
+              ],
               "sources": [
                 "local-finance-act",
                 "chihou-zaisei-white-paper"
               ],
-              "note": "事業化（要望から事業化まで）の前提。予算の年間の流れは「土木担当の 1 年」に任せる"
+              "note": "事業化（要望から事業化まで）の前提。予算の年間の流れは「土木担当の 1 年」に任せる",
+              "wave": 4,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "一つの事業の事業費が、国費（負担・補助・交付金）・地方債・一般財源に積み上がる模式図（数値なし・自作 SVG）",
+                  "figKey": "civil-practice/budget-and-funding-sources/img/figure-funding-stack"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "継続費・繰越明許費・債務負担行為・事故繰越しが、契約と支払いの時期の違いでどの場面に使われるかを年度の帯に載せた比較図",
+                  "figKey": "civil-practice/budget-and-funding-sources/img/figure-multi-year-mechanisms"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "社会資本総合整備計画の提出から交付申請・交付決定・実績報告・額の確定までの流れ図（計画単位と事業単位の違いを示す）",
+                  "figKey": "civil-practice/budget-and-funding-sources/img/figure-subsidy-grant-flow"
+                }
+              ]
             }
           ]
         },
@@ -89,35 +205,66 @@
               "id": "A-06",
               "title": "道路法の骨格 — 道路の種類と管理者",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/road-act-framework/article.mdx"
+              ],
               "sources": [
                 "road-act"
+              ],
+              "wave": 2,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "道路の4種類（高速自動車国道・一般国道・都道府県道・市町村道）を、路線の決め方、管理者、費用負担の関係で並べた関係図。国の指定区間・指定市・町村の特例は注記で足す",
+                  "figKey": "civil-practice/road-act-framework/img/figure-road-types-managers"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "「この道は誰が管理するか」を決める判断の流れ。道路法の道路か → 種類 → 国道なら指定区間の内外 → 第17条の特例（同意・公示）→ 第19・20条の協議、の分岐図",
+                  "figKey": "civil-practice/road-act-framework/img/figure-road-manager-decision-flow"
+                }
               ]
             },
             {
               "id": "A-07",
               "title": "路線の認定・区域の決定・供用開始",
-              "plan": "strengthen",
+              "plan": "existing",
               "paths": [
                 "content/site/civil-practice/service-commencement/article.mdx"
               ],
               "sources": [
                 "road-act"
-              ]
+              ],
+              "wave": 4,
+              "note": "2026-10-15 に骨子の論点を書き足して補強した（DN-0742）"
             },
             {
               "id": "A-08",
               "title": "道路占用許可の審査 — 占用物件・期間・占用料・掘削後の復旧",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/road-occupancy-permit-review/article.mdx"
+              ],
               "sources": [
                 "road-act",
                 "road-act-order"
               ],
-              "wave": 1
+              "wave": 1,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "申請書の受付 → 協議（警察署長・他の占用者・埋設物管理者）→ 基準への当てはめと許可・条件 → 工事 → 復旧の確認 → 更新または廃止と原状回復 の流れ図（自作 SVG・400x500）。各段の当てはめ先（法第33条・施行令第9〜15条・第87条・第40条）を小さく添える",
+                  "figKey": "civil-practice/road-occupancy-permit-review/img/figure-review-flow"
+                }
+              ]
             },
             {
               "id": "A-09",
               "title": "承認工事（道路法 24 条）と道路使用許可（道路交通法 77 条）の違い",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/road-work-approval-vs-road-use-permit/article.mdx"
+              ],
               "sources": [
                 "road-act",
                 "road-traffic-act"
@@ -125,21 +272,53 @@
               "links": [
                 "content/site/civil-practice/schedule-and-road-permit/article.mdx"
               ],
-              "note": "受注者の段取りは既存の schedule-and-road-permit に残す"
+              "note": "受注者の段取りは既存の schedule-and-road-permit に残す",
+              "wave": 2,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "一つの相談（出入口の新設、歩道の切り下げ、側溝の蓋、足場、道路の掘削）ごとに、承認・占用許可・使用許可のどれが要るかを示す早見の図（自作 SVG、2軸）",
+                  "figKey": "civil-practice/road-work-approval-vs-road-use-permit/img/figure-consultation-procedure-matrix"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "承認の申請 → 審査（設計と実施計画）→ 条件付き承認 → 使用許可・協議との調整 → 工事 → 完了確認・帰属、の流れ図（自作 SVG）",
+                  "figKey": "civil-practice/road-work-approval-vs-road-use-permit/img/figure-approval-flow"
+                }
+              ]
             },
             {
               "id": "A-10",
               "title": "道路の境界確定と道路台帳",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/road-boundary-and-road-ledger/article.mdx"
+              ],
               "sources": [
                 "road-act",
                 "road-act-rules"
+              ],
+              "wave": 2,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "同じ道路の断面図に、道路区域の線・筆界・所有権の範囲を画する線の三本を並べ、一致する場合とずれる場合を比べる自作 SVG（台帳の線は管理範囲であって土地の境界ではない、と読み分けられる図）",
+                  "figKey": "civil-practice/road-boundary-and-road-ledger/img/figure-three-boundary-lines"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "境界確認の流れ図（依頼・受理 → 現地立会いと協議 → 境界標 → 確定図 → 署名・承諾 → 通知（確認書）の交付 → 台帳への反映。協議が整わない場合の筆界特定・訴訟への分岐つき）",
+                  "figKey": "civil-practice/road-boundary-and-road-ledger/img/figure-boundary-confirmation-flow"
+                }
               ]
             },
             {
               "id": "A-11",
               "title": "道路の点検と長寿命化計画",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/road-inspection-longevity-plan/article.mdx"
+              ],
               "sources": [
                 "road-act-rules",
                 "road-bridge-inspection"
@@ -147,7 +326,15 @@
               "links": [
                 "content/site/civil-practice/preventive-maintenance-diagnosis/article.mdx"
               ],
-              "note": "予防保全の一般論は既存記事に任せ、管理者の点検義務と計画に絞る"
+              "note": "予防保全の一般論は既存記事に任せ、管理者の点検義務と計画に絞る",
+              "wave": 2,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "事務の流れ図（自作 SVG・400x500）: 巡視 → 点検（5年に1回・近接目視）→ 診断（Ⅰ〜Ⅳ）→ 措置（Ⅲ・Ⅳは次回点検まで5年以内。それまで監視・通行規制）→ 記録（利用期間中保存）→ 長寿命化修繕計画 → 補助の申請（短期の数値目標とコスト縮減効果）の縦の流れ。国の代行の要請は措置から分岐する破線で示す。図中にタイトル枠を入れない",
+                  "figKey": "civil-practice/road-inspection-longevity-plan/img/figure-inspection-to-subsidy-flow"
+                }
+              ]
             },
             {
               "id": "A-12",
@@ -170,58 +357,136 @@
               "id": "A-13",
               "title": "河川法の骨格 — 一級・二級・準用・普通河川と管理者",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/river-act-framework/article.mdx"
+              ],
               "sources": [
                 "river-act",
                 "river-act-order"
+              ],
+              "wave": 2,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "河川の四区分（一級・二級・準用・普通）を並べ、指定する人・管理者・適用される法（河川法・二級の規定の準用・条例）を一覧にした図（自作 SVG、400x500）。準用河川の読替え（知事→市町村長、県→市町村、大臣→知事）も添える",
+                  "figKey": "civil-practice/river-act-framework/img/figure-river-four-classes"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "管内の川を調べる手順の流れ図：地点の特定→一級・二級の指定と指定区間の内外→準用河川の公示→普通河川の条例→台帳で区域確認（自作 SVG、400x500）",
+                  "figKey": "civil-practice/river-act-framework/img/figure-river-survey-order"
+                }
               ]
             },
             {
               "id": "A-14",
               "title": "河川区域の許可 — 占用（24 条）・工作物の新築（26 条）・土地の掘削（27 条）",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/river-area-permits/article.mdx"
+              ],
               "sources": [
                 "river-act",
                 "river-structure-permit-standard"
               ],
-              "wave": 1
+              "wave": 1,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "河川の断面（堤内地・堤防・高水敷・低水路）に、占用（24条）・工作物（26条）・掘削等（27条）・保全区域（55条）がどこに効くかを重ねた図（自作 SVG・viewBox 0 0 400 500）",
+                  "figKey": "civil-practice/river-area-permits/img/figure-river-permit-sections"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "相談 → 区域と権原の確認 → 許可の種類の判断 → 申請書の審査 → 許可と条件 → 完成検査・届出 の流れ図（自作 SVG）",
+                  "figKey": "civil-practice/river-area-permits/img/figure-river-permit-checklist"
+                }
+              ]
             },
             {
               "id": "A-15",
               "title": "工作物の技術審査 — 橋・樋門・管が堤防を横切るとき",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/river-crossing-structure-review/article.mdx"
+              ],
               "sources": [
                 "river-facility-structure-order",
                 "river-structure-permit-standard"
+              ],
+              "wave": 2,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "堤防と河道の断面に、橋台・橋脚・樋門・堤防乗り越し管・伏せ越しの置き場所と「置いてよい／避ける」位置（計画堤防内は橋台・樋門のみ、橋脚は堤体内に設けない、管は表法肩から堤外側は流水対策、天端・裏法肩から堤内側は計画堤防内に置かない）を示した自作 SVG",
+                  "figKey": "civil-practice/river-crossing-structure-review/img/figure-crossing-placement"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "申請図面 → 位置の確認 → 構造の確認 → 安定計算の確認 → 許可 → 完成検査 の審査の流れ図（自作 SVG。堤脚付近の通達の判断は位置・構造の確認に分岐）",
+                  "figKey": "civil-practice/river-crossing-structure-review/img/figure-review-order"
+                },
+                {
+                  "kind": "photo",
+                  "subject": "樋門と堤防の取付部（翼壁・護岸・胸壁の取り合い）。AI 生成する場合は実物の写真・図と照合して形を確かめる",
+                  "figKey": "civil-practice/river-crossing-structure-review/img/photo-sluice-gate-wing-wall"
+                }
               ]
             },
             {
               "id": "A-16",
               "title": "河川管理施設の点検と操作 — 堤防・樋門・水門",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/river-facility-inspection-operation/article.mdx"
+              ],
               "sources": [
                 "small-river-inspection-guideline"
               ],
               "links": [
                 "content/site/civil-practice/levee-failure-reinforcement/article.mdx"
               ],
-              "note": "堤防の壊れ方と補強は既存記事に任せる"
+              "note": "堤防の壊れ方と補強は既存記事に任せる",
+              "wave": 2,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "年間サイクルの流れ図（自作SVG）。点検（出水期前・台風期・出水後）→一次評価（点検者）→二次評価（組織・必要なら専門家）→措置段階は即補修／監視段階は次の点検で再確認→年1回の総合的な評価→記録保存と次年度計画・水防の要注意箇所へ",
+                  "figKey": "civil-practice/river-facility-inspection-operation/img/figure-inspection-annual-cycle"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "樋門の断面図に点検部位を重ねた図（自作SVG）。周辺の堤防と取付護岸の範囲、函体の底版下の空洞、継手、門柱・操作台、胸壁・翼壁、函体内の土砂堆積を示す。機械設備は別基準と注記",
+                  "figKey": "civil-practice/river-facility-inspection-operation/img/figure-sluice-inspection-points"
+                },
+                {
+                  "kind": "photo",
+                  "subject": "樋門の機側操作盤とゲート操作台、近くの量水標に退避の目安水位の表示がある様子（AI写真にする場合は実物どおりの監査を通す。人の顔・文字は入れない）",
+                  "figKey": "civil-practice/river-facility-inspection-operation/img/photo-sluice-operation-panel-gauge"
+                }
+              ]
             },
             {
               "id": "A-17",
               "title": "河川整備計画と流域治水",
-              "plan": "strengthen",
+              "plan": "existing",
               "paths": [
                 "content/site/civil-practice/flood-control-facilities/article.mdx"
               ],
               "sources": [
                 "river-act",
                 "specified-urban-river-act"
-              ]
+              ],
+              "wave": 4,
+              "note": "2026-10-15 に骨子の論点を書き足して補強した（DN-0742）"
             },
             {
               "id": "A-18",
               "title": "海岸と港湾 — 海岸法・港湾法と管理者",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/coast-port-administrators/article.mdx"
+              ],
               "sources": [
                 "coast-act",
                 "port-act",
@@ -230,7 +495,20 @@
               "links": [
                 "content/site/civil-construction-1/textbook-coast-port/article.mdx"
               ],
-              "note": "沿岸の自治体向け。施設の技術は試験の教科書に任せ、管理者と許可に絞る"
+              "note": "沿岸の自治体向け。施設の技術は試験の教科書に任せ、管理者と許可に絞る",
+              "wave": 2,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "海から陸へ、海岸保全区域（満潮時の水際線から原則50m・水面は干潮時の水際線から50m）・一般公共海岸区域・港湾区域・港湾隣接地域・臨港地区・漁港区域の重なりと、それぞれの管理者と許可の窓口を並べた断面と平面の模式図（自作 SVG・viewBox 0 0 400 500。臨港地区は海岸の管理者を動かさず届出の区域であることを区別して描く）",
+                  "figKey": "civil-practice/coast-port-administrators/img/figure-coastal-zones-overview"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "行為（占用・工作物の新設・土石の採取・掘削や盛土）× 区域（海岸保全・一般公共海岸・港湾・漁港）で許可の相手と条を示す 2 軸の行列図（自作 SVG）。国・自治体は協議で足りること、港湾法の許可で海岸法の許可が不要になる範囲、臨港地区は届出を併記する",
+                  "figKey": "civil-practice/coast-port-administrators/img/figure-permit-matrix-by-zone"
+                }
+              ]
             }
           ]
         },
@@ -241,11 +519,31 @@
               "id": "A-19",
               "title": "里道・水路の管理 — 国からの譲与・境界・占用",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/satomichi-suiro-management/article.mdx"
+              ],
               "sources": [
                 "state-property-special-measures-act",
                 "local-autonomy-act"
               ],
-              "wave": 1
+              "wave": 1,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "里道・水路が道路法・河川法・下水道法の外にあることと、国から市町村への譲与（平成17年3月31日まで）で物件が『市町村有』と『国に残る（財務局が管理）』に分かれたことを示す図（自作の SVG・viewBox 0 0 400 500）",
+                  "figKey": "civil-practice/satomichi-suiro-management/img/figure-transfer-to-municipality"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "公図上の里道・水路（地番のない長狭物）と、申請地・隣接地・対面地の位置関係、境界確定で立会いを求める範囲を示す図（自作の SVG）",
+                  "figKey": "civil-practice/satomichi-suiro-management/img/figure-boundary-witnesses"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "用途廃止の審査（機能・同意・土地の形）→ 普通財産への変更 → 評価と契約 → 登記 の流れ図（自作の SVG）",
+                  "figKey": "civil-practice/satomichi-suiro-management/img/figure-sale-procedure"
+                }
+              ]
             }
           ]
         },
@@ -256,48 +554,121 @@
               "id": "A-20",
               "title": "計画の体系と事業評価 — 国土形成計画・社会資本整備重点計画・費用便益",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/public-works-planning-evaluation/article.mdx"
+              ],
               "sources": [
                 "national-spatial-planning-act",
                 "infrastructure-priority-plan-act"
               ],
-              "note": "国の計画と自治体の事業のつながり、補助事業の評価（新規・再評価・事後評価）"
+              "note": "国の計画と自治体の事業のつながり、補助事業の評価（新規・再評価・事後評価）",
+              "wave": 3,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "計画の鎖と評価の段階: 国土形成計画（全国・広域地方）→ 社会資本整備重点計画 → 県の計画 → 市のマスタープラン・市町村計画・個別施設計画 → 事業、の鎖を縦に並べ、事業側の評価（計画段階→新規採択→再評価→事後）を横に対応づけた自作SVG",
+                  "figKey": "civil-practice/public-works-planning-evaluation/img/figure-plan-chain-evaluation"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "補助事業の評価で市と国の分担を示す流れ図: 市が作る資料（費用便益比・計画の目標と指標・事業評価監視委員会への諮問）と、国（本省等）が決める補助金交付等の対応方針（採択・継続・中止）の流れ。自作SVG",
+                  "figKey": "civil-practice/public-works-planning-evaluation/img/figure-evaluation-roles"
+                }
+              ]
             },
             {
               "id": "A-21",
               "title": "要望から事業化まで — 地元の要望・調査・予算",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/project-request-to-budget/article.mdx"
+              ],
               "sources": [
                 "local-finance-act"
+              ],
+              "wave": 3,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "要望の受付 → 管理者の確認（市か国・県か）→ 現地確認と順位づけ（維持修繕・事業化・地元管理に分岐）→ 調査・設計（委託）→ 予算要求（補助・起債）→ 査定・議決 → 事業の実施 → 要望者への回答、の流れ図（自作 SVG・viewBox 0 0 400 500）。補助の可否と繰越しは分岐の注記で示す。",
+                  "figKey": "civil-practice/project-request-to-budget/img/figure-request-to-budget-flow"
+                }
               ]
             },
             {
               "id": "A-22",
               "title": "地元説明会と合意形成",
               "plan": "new",
-              "note": "一般論で書く（国交省の住民参加の指針など公開の資料から）。体験談・団体・個人・案件が特定できる書き方をしない"
+              "note": "一般論で書く（国交省の住民参加の指針など公開の資料から）。体験談・団体・個人・案件が特定できる書き方をしない",
+              "paths": [
+                "content/site/civil-practice/public-meeting-consensus/article.mdx"
+              ],
+              "wave": 3,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "説明会の準備から回答までの流れ図（範囲の把握 → 手法の選択 → 開催と記録 → 意見の整理 → 採否の理由の回答と公表）を自作SVG・400x500で。本文の最初の段落末尾（五つの手順を列挙した文）の直後に置く。段ごとの当てはめ先として、範囲の把握は事業の特性・受益と負担、手法の選択は目的・相手・予算と時間、整理は趣旨・件数・対応・理由の表、を短いラベルで添える。",
+                  "figKey": "civil-practice/public-meeting-consensus/img/figure-consensus-process"
+                }
+              ]
             },
             {
               "id": "A-23",
               "title": "用地の取得と損失補償",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/land-acquisition-compensation/article.mdx"
+              ],
               "sources": [
                 "land-expropriation-act",
                 "public-land-compensation-standard"
+              ],
+              "wave": 3,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "用地取得の流れ（事業計画の説明、幅杭、土地・物件の調査と調書、補償額の算定、補償説明と用地交渉、契約、登記・移転・引渡し、支払い）と、合意できない場合に事業の認定、調書、収用委員会への裁決申請（または協議の確認）へ進む分岐を示す流れ図（自作 SVG・viewBox 0 0 400 500）",
+                  "figKey": "civil-practice/land-acquisition-compensation/img/figure-land-acquisition-flow"
+                }
               ]
             },
             {
               "id": "A-24",
               "title": "埋蔵文化財 — 包蔵地の照会と工事前の調査",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/buried-cultural-property-survey/article.mdx"
+              ],
               "sources": [
                 "cultural-properties-act"
               ],
-              "note": "事業の計画段階で教育委員会へ照会する。届出・試掘・本調査と工期への影響"
+              "note": "事業の計画段階で教育委員会へ照会する。届出・試掘・本調査と工期への影響",
+              "wave": 3,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "計画→照会→周知の包蔵地か→通知（協議）→試掘・確認調査→現状保存か記録保存か→本発掘→工事 の流れ図。節目に第94条・第95条・第97条を付ける（自作SVG）",
+                  "figKey": "civil-practice/buried-cultural-property-survey/img/figure-buried-property-flow"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "民間（第93条・着手の60日前に届出）と自治体の事業（第94条・事業計画の策定に当たりあらかじめ通知）の2列の対比図",
+                  "figKey": "civil-practice/buried-cultural-property-survey/img/figure-notification-vs-report"
+                },
+                {
+                  "kind": "photo",
+                  "subject": "試掘のトレンチ（重機で表土を除き、壁面の土層と遺構面を確かめる様子）。文字・人の顔なし、AI写真は実物どおりかを監査する",
+                  "figKey": "civil-practice/buried-cultural-property-survey/img/photo-test-trench"
+                }
+              ]
             },
             {
               "id": "A-25",
               "title": "環境への配慮 — 環境アセスメント・騒音と振動・建設副産物",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/public-works-environmental-care/article.mdx"
+              ],
               "sources": [
                 "environmental-impact-assessment-act",
                 "noise-regulation-act",
@@ -308,7 +679,25 @@
                 "content/site/pe-comprehensive-management/environmental-impact-assessment/article.mdx",
                 "content/site/civil-construction-1/textbook-construction-byproduct-recycle/article.mdx"
               ],
-              "note": "制度の解説は既存記事に任せ、発注者が設計・積算・特記仕様書で決めることに絞る"
+              "note": "制度の解説は既存記事に任せ、発注者が設計・積算・特記仕様書で決めることに絞る",
+              "wave": 3,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "計画・設計・積算・特記仕様書・発注と契約・着工前・完了報告の時系列に、環境アセス・騒音振動・建設副産物の3本の帯を並べ、各段階で発注者が決めることと、届出・通知の期限（着工の7日前）、届出者（施工者／発注者）を示す図（自作SVG・viewBox 0 0 400 500）",
+                  "figKey": "civil-practice/public-works-environmental-care/img/figure-owner-env-timeline"
+                },
+                {
+                  "kind": "photo",
+                  "subject": "低騒音型建設機械の指定ラベル（超低騒音型の標識）が貼られたバックホウの実機。文字・ロゴは入れず、機体側面の標識を写す（使う場合は実物どおりかを監査）",
+                  "figKey": "civil-practice/public-works-environmental-care/img/photo-low-noise-backhoe"
+                },
+                {
+                  "kind": "photo",
+                  "subject": "現場内の仮置き場で、コンクリート塊・アスファルト・コンクリート塊・木くずが品目ごとに仕切って分別して置かれている様子（浅い被写界深度、文字・人の顔なし）",
+                  "figKey": "civil-practice/public-works-environmental-care/img/photo-sorted-debris-yard"
+                }
+              ]
             },
             {
               "id": "A-26",
@@ -326,18 +715,34 @@
               "id": "A-27",
               "title": "PFI と官民連携 — 指定管理・包括的民間委託・PFI の選び方",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/ppp-pfi-selection/article.mdx"
+              ],
               "sources": [
                 "pfi-act",
                 "local-autonomy-act"
               ],
               "links": [
                 "content/site/pe-comprehensive-management/pfi/article.mdx"
+              ],
+              "wave": 3,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "民間に任せる範囲(設計・建設・維持管理・運営)の広がり順に、指定管理・包括的民間委託・PFI・コンセッションを横に並べた比較図(範囲を帯の長さで示す自作SVG)",
+                  "figKey": "civil-practice/ppp-pfi-selection/img/figure-ppp-scope"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "指定管理者の指定手続の流れ図(条例の整備→募集→選定→議会の議決→指定→事業報告書・報告徴収→取消し)",
+                  "figKey": "civil-practice/ppp-pfi-selection/img/figure-designated-manager-flow"
+                }
               ]
             },
             {
               "id": "A-28",
               "title": "監督と検査 — 品確法と施工管理",
-              "plan": "strengthen",
+              "plan": "existing",
               "paths": [
                 "content/site/civil-practice/construction-inspection-types/article.mdx"
               ],
@@ -345,24 +750,29 @@
                 "public-works-quality-act",
                 "local-autonomy-act"
               ],
-              "note": "監督員の役割と品確法の発注者の責務を補う"
+              "note": "監督員の役割と品確法の発注者の責務を補う。2026-10-15 に骨子の論点を書き足して補強した（DN-0742）",
+              "wave": 4
             },
             {
               "id": "A-29",
               "title": "設計変更",
-              "plan": "strengthen",
+              "plan": "existing",
               "paths": [
                 "content/site/civil-practice/cost-and-design-change/article.mdx"
               ],
               "sources": [
                 "standard-contract-terms"
               ],
-              "note": "発注者の側を補う"
+              "note": "発注者の側を補う。2026-10-15 に骨子の論点を書き足して補強した（DN-0742）",
+              "wave": 4
             },
             {
               "id": "A-30",
               "title": "工事の安全と発注者 — 労働安全衛生法と発注者の役割",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/owner-safety-responsibility/article.mdx"
+              ],
               "sources": [
                 "labor-safety-act",
                 "mlit-safety-guideline"
@@ -370,7 +780,20 @@
               "links": [
                 "content/site/civil-construction-1/textbook-safety-industrial-safety-law/article.mdx"
               ],
-              "note": "事業者（受注者）の義務は既存記事に任せ、発注者が設計・積算・監督でできることに絞る"
+              "note": "事業者（受注者）の義務は既存記事に任せ、発注者が設計・積算・監督でできることに絞る",
+              "wave": 3,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "設計→積算→契約（工期・内訳書）→着工→監督→事故・災害時の各段階に、発注者ができること（施工条件と埋設物の明示、休日・悪天候を見込む工期、安全衛生経費の積算、内訳書の確認、統括の指名、台帳と計画書の点検、中止と再発防止の確認）と根拠法令を載せた横の流れ図",
+                  "figKey": "civil-practice/owner-safety-responsibility/img/figure-owner-safety-steps"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "発注者、請負人A、請負人B、統括の措置を講ずる者（発注者が同意を得て指名）の関係を示す概念図。指名できないとき労基署長へ届出、署長が指名、人数が基準以上なら統括安全衛生責任者を選任",
+                  "figKey": "civil-practice/owner-safety-responsibility/img/figure-owner-designation"
+                }
+              ]
             },
             {
               "id": "A-31",
@@ -392,44 +815,154 @@
               "id": "A-32",
               "title": "都市計画法の骨格 — 区域区分・用途地域・都市計画決定",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/city-planning-act-framework/article.mdx"
+              ],
               "sources": [
                 "city-planning-act"
+              ],
+              "wave": 4,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "都市計画の種類（区域区分・地域地区・都市施設・市街地開発事業）と決める主体（都道府県・市町村）を並べた関係図。都市施設は国道・県道と市町村道で主体が分かれる点、指定都市の区域では区域区分などを指定都市が定める点を注記する。本文に該当位置のコメントあり",
+                  "figKey": "civil-practice/city-planning-act-framework/img/figure-plan-types-deciders"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "案の縦覧（公告から2週間）→ 意見書 → 都市計画審議会 → 都道府県知事への協議 → 決定 → 告示（効力発生）の流れ図。縦覧中の案はまだ効力がないことを示す。本文に該当位置のコメントあり",
+                  "figKey": "civil-practice/city-planning-act-framework/img/figure-decision-flow"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "都市計画道路の区域内で建築の相談が来たときの判断の順（区域内か → 第54条の許可基準3つのどれかに合うか → 事業認可の告示後か。告示後は第65条で施行の障害になるかを見る）。本文に該当位置のコメントあり",
+                  "figKey": "civil-practice/city-planning-act-framework/img/figure-building-check-order"
+                }
               ]
             },
             {
               "id": "A-33",
               "title": "開発許可と公共施設の帰属 — 開発でできた道路・公園・調整池を引き取るとき",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/development-permit-public-facilities/article.mdx"
+              ],
               "sources": [
                 "city-planning-act"
               ],
-              "note": "土木担当が協議と引継ぎで当たる。帰属のときの検査と台帳への登録"
+              "note": "土木担当が協議と引継ぎで当たる。帰属のときの検査と台帳への登録",
+              "wave": 4,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "事前協議（法32条）→許可（法29条）→工事→完了検査・検査済証（法36条）→完了公告→公告の翌日の管理と土地の帰属（法39条・40条）→認定・供用開始・台帳 を、開発者・知事等・市町村の三列に分けた流れ図（自作 SVG）。公告の翌日を境に市町村の動きが始まることを示す",
+                  "figKey": "civil-practice/development-permit-public-facilities/img/figure-process-three-lanes"
+                },
+                {
+                  "kind": "photo",
+                  "subject": "開発区域内に設けられた調整池の例。フェンスで囲われ、底に低水路があり、法面は張り芝か擁壁で保護され、放流口と越流部が見える形（文字・人物なし。実物どおりかの監査が要る）",
+                  "figKey": "civil-practice/development-permit-public-facilities/img/photo-detention-pond"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "引継ぎの日に確かめる書類の確認表（協定書、検査済証・公告の写し、竣工図・完了図書、登記承諾書・印鑑証明書、台帳登録の五項目を、道路・公園・排水施設・調整池の列ごとに確かめるチェックリスト形式の自作 SVG）",
+                  "figKey": "civil-practice/development-permit-public-facilities/img/figure-handover-checklist"
+                }
+              ]
             },
             {
               "id": "A-34",
               "title": "土地区画整理事業 — 換地・減歩と公共施設の整備",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/land-readjustment-project/article.mdx"
+              ],
               "sources": [
                 "land-readjustment-act"
+              ],
+              "wave": 4,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "区画整理の前後を重ねた模式図。従前の宅地から公共用地（公共減歩）と保留地（保留地減歩）が生まれる様子。自作 SVG",
+                  "figKey": "civil-practice/land-readjustment-project/img/figure-reduction-before-after"
+                },
+                {
+                  "kind": "photo",
+                  "subject": "区画整理地内で道路・水路の工事が先行している現場の例（AI 生成か自前の実写。実物どおりかの監査が要る）",
+                  "figKey": "civil-practice/land-readjustment-project/img/photo-road-drain-construction-site"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "公共施設管理者負担金の手続の流れ（協議 → 事業計画に額と方法 → 覚書 → 年度ごとの協定 → 支出）",
+                  "figKey": "civil-practice/land-readjustment-project/img/figure-burden-payment-procedure"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "事業計画の公告 → 仮換地の指定 → 移転・工事 → 工事の完了と先行引継ぎ → 換地処分の公告（管理と土地の移転）の時系列図",
+                  "figKey": "civil-practice/land-readjustment-project/img/figure-process-timeline"
+                }
               ]
             },
             {
               "id": "A-35",
               "title": "都市公園の管理 — 設置・占用・遊具の安全",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/urban-park-management/article.mdx"
+              ],
               "sources": [
                 "urban-park-act"
+              ],
+              "wave": 4,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "設置許可（第5条）・占用許可（第6条）・公募設置管理制度（第5条の2以降）を、対象物と期間で並べた2軸の比較図。設置許可は公園施設（売店・飲食店など）で10年を超えない、占用許可は公園施設以外で10年・3年・1年・3月、公募設置管理制度は公募対象公園施設で認定の有効期間20年を超えない。",
+                  "figKey": "civil-practice/urban-park-management/img/figure-park-permit-comparison"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "日常点検、定期点検（年1回以上）、精密点検の流れ。異常があれば直ちに使用中止、続いて修繕・更新、最後に遊具履歴書へ記録、までを順に結ぶ流れ図（初期点検は設置直後の製造・施工者の点検として入口に添える）。",
+                  "figKey": "civil-practice/urban-park-management/img/figure-playground-inspection-flow"
+                },
+                {
+                  "kind": "photo",
+                  "subject": "点検で見る遊具の部位。支柱の根元（埋設した基礎の腐食）、ぶらんこの吊り金具と鎖の継手の摩耗、複合遊具のデッキ床板の欠落。使う場合は実物どおりかの監査が要る。",
+                  "figKey": "civil-practice/urban-park-management/img/photo-swing-support-base-inspection"
+                }
               ]
             },
             {
               "id": "A-36",
               "title": "下水道と雨水対策 — 汚水・雨水・浸水対策と管路の管理",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/sewerage-and-stormwater/article.mdx"
+              ],
               "sources": [
                 "sewerage-act"
               ],
               "links": [
                 "content/site/civil-construction-1/textbook-water-sewer/article.mdx"
+              ],
+              "wave": 4,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "汚水と雨水を、担当(下水道・道路・河川)と根拠の法律(下水道法・道路法・河川法・水防法)で並べた関係図(自作SVG)",
+                  "figKey": "civil-practice/sewerage-and-stormwater/img/figure-stormwater-responsibility"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "雨水管理総合計画の構成(雨水管理方針+段階的対策計画)と当面5年・中期10年・長期20年の目標、5年に1回の点検・見直しの周期(自作SVG)",
+                  "figKey": "civil-practice/sewerage-and-stormwater/img/figure-stormwater-master-plan"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "管路の点検→緊急度の判定→対策の期限(Ⅰは原則1年以内・Ⅱは応急措置のうえ5年以内)→道路管理者との情報共有の流れ図(自作SVG)。道路陥没や管内腐食の写真は使わない",
+                  "figKey": "civil-practice/sewerage-and-stormwater/img/figure-special-survey-flow"
+                }
               ]
             }
           ]
@@ -441,23 +974,58 @@
               "id": "A-37",
               "title": "災害復旧事業と災害査定",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/disaster-recovery-assessment/article.mdx"
+              ],
               "sources": [
                 "disaster-restoration-subsidy-act"
+              ],
+              "wave": 4,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "災害発生 → 応急工事・写真 → 災害報告（市町村→県→国）→ 測量・設計 → 国庫負担申請（県経由）→ 災害査定 → 事業費の決定 → 発注・施工（設計変更は事前協議）→ 精算 → 成功認定、の流れ図。市町村・都道府県・国の担当を帯で分け、10日以内・2か月以内の目安を添える（自作 SVG）",
+                  "figKey": "civil-practice/disaster-recovery-assessment/img/figure-procedure-swimlane"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "原形復旧・効用の復旧（橋に替える等）・改良復旧の三つの違いを、河川の断面で示す概念図（自作 SVG）",
+                  "figKey": "civil-practice/disaster-recovery-assessment/img/figure-three-restoration-types"
+                }
               ]
             },
             {
               "id": "A-38",
               "title": "地域防災計画と水防",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/regional-disaster-plan-flood-fighting/article.mdx"
+              ],
               "sources": [
                 "disaster-countermeasures-basic-act",
                 "flood-control-act"
+              ],
+              "wave": 4,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "計画の入れ子図（自作SVG）。防災基本計画（中央防災会議・令和8年7月14日修正）→ 都道府県地域防災計画・都道府県の水防計画 → 市町村地域防災計画（市町村防災会議、毎年検討・修正して県へ報告）・指定管理団体の水防計画（水防管理者、県の計画に応じて毎年検討）。矢印は『基づく』『抵触しない』『そろえる』で、土木部局が確かめる欄（事務の大綱・事項別の計画・整備の計画）を印で示す",
+                  "figKey": "civil-practice/regional-disaster-plan-flood-fighting/img/figure-plan-hierarchy"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "時系列の帯図（自作SVG）。平時（点検・備蓄・訓練・協定）→ 出水期前（重要水防箇所の合同巡視）→ 警戒（洪水予報・水防警報・出動準備）→ 切迫・発災（避難指示への材料・氾濫等の通報・公用負担・車両の移動）の順に、水防管理者（市町村長）・河川管理者（国・県・市）・市町村長（避難指示）・土木担当の4つの役割を横の帯で分け、情報と通報の向きを矢印で示す",
+                  "figKey": "civil-practice/regional-disaster-plan-flood-fighting/img/figure-flood-fighting-timeline"
+                }
               ]
             },
             {
               "id": "A-39",
               "title": "土砂災害と砂防 — 警戒区域・砂防法・急傾斜地",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/sediment-disaster-erosion-control/article.mdx"
+              ],
               "sources": [
                 "sediment-disaster-act",
                 "sabo-act",
@@ -466,7 +1034,20 @@
               "links": [
                 "content/site/civil-construction-1/textbook-sabo-landslide/article.mdx"
               ],
-              "note": "砂防工事は都道府県が中心。市町村は警戒区域の周知と避難に関わる"
+              "note": "砂防工事は都道府県が中心。市町村は警戒区域の周知と避難に関わる",
+              "wave": 4,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "三つの区域（砂防指定地・急傾斜地崩壊危険区域・警戒区域）を、指定する人・許可する人・工事をする人・市町村の役割で並べた対比図（自作SVG・止める側と逃がす側を色分け）",
+                  "figKey": "civil-practice/sediment-disaster-erosion-control/img/figure-three-zones-roles"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "基礎調査（県）→警戒区域の指定（知事、市町村長の意見・図書送付）→地域防災計画・住民への周知（市町村）→大雨時の警戒情報と区域を重ねた避難指示、の流れ図（自作SVG）",
+                  "figKey": "civil-practice/sediment-disaster-erosion-control/img/figure-warning-zone-flow"
+                }
+              ]
             }
           ]
         },
@@ -477,7 +1058,23 @@
               "id": "A-40",
               "title": "住民・議会への説明と資料づくり",
               "plan": "new",
-              "note": "一般論で書く（地方自治法の議会の規定・公開の資料づくりの手引きなどから）。体験談・団体・個人・案件が特定できる書き方をしない"
+              "note": "一般論で書く（地方自治法の議会の規定・公開の資料づくりの手引きなどから）。体験談・団体・個人・案件が特定できる書き方をしない",
+              "paths": [
+                "content/site/civil-practice/explaining-to-residents-and-council/article.mdx"
+              ],
+              "wave": 4,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "議会に出す資料の種類（議決・認定・承認を求める報告・報告のみ・法定の説明書類・公表資料）を、根拠の条と提出の時期で並べた対比図。自作SVG（viewBox 0 0 400 500）。第96条第1項第5号の契約、第211条の予算と説明書、第233条の決算と成果説明書類、第179条と第180条の専決処分、入札契約適正化法第7・8条の公表を、議会に出す／住民に公表するの二つの列で配置",
+                  "figKey": "civil-practice/explaining-to-residents-and-council/img/figure-materials-council-and-public"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "事業説明の組み立ての流れ図（何を決めたいか → 必要性と課題 → 複数の案 → 比較 → 選んだ理由 → これから・意見の窓口と対応の返し方）。自作SVG（viewBox 0 0 400 500）。比較の段に「図と数値で客観的に」、選んだ理由の段に「重視した観点とその理由」、最後に「聴いた意見は整理し、対応を返す」を添える",
+                  "figKey": "civil-practice/explaining-to-residents-and-council/img/figure-explanation-flow"
+                }
+              ]
             },
             {
               "id": "A-41",
@@ -488,7 +1085,18 @@
                 "content/site/civil-construction-1/guide-exam-overview/article.mdx",
                 "content/site/surveyor/guide-overview/article.mdx"
               ],
-              "note": "業務で求められる場面（監督・検査・設計の照査・技術職の昇任）から、各資格のガイドへ案内する"
+              "note": "業務で求められる場面（監督・検査・設計の照査・技術職の昇任）から、各資格のガイドへ案内する",
+              "paths": [
+                "content/site/civil-practice/municipal-engineer-qualifications/article.mdx"
+              ],
+              "wave": 4,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "業務の場面（監督・検査／設計の審査・技術判断／公共測量・用地）を左、結びつく資格（1級土木施工管理技士／技術士／測量士・測量士補）と確かめる機関・条文（全国建設研修センター／日本技術士会／国土地理院）を右に置いた対応図。viewBox 400x500 の自作 SVG、2 軸の対比",
+                  "figKey": "civil-practice/municipal-engineer-qualifications/img/figure-scene-qualification-map"
+                }
+              ]
             }
           ]
         }
@@ -500,7 +1108,7 @@
       "audience": "コンクリートに関わるすべての人（発注者・設計者・生コン工場・施工者・維持管理者）。初めて担当する人から受験者まで",
       "area": "practice",
       "policy": "docs/strategy/18_自治体土木担当・コンクリートシリーズ方針2026-10.md",
-      "gate": "EXP-012（記事末の資格カード）の判定（事後窓の終わり 2026-11-26）で継続になるまで、新規記事は書かない（2026-10-13 運営者判断）",
+      "gate": "2026-10-15 の運営者判断で、EXP-012 の判定を待たずに補強 5 章を書き足し、同日にシリーズを完結させた。図・写真は DN-0727。判定と公開 28 日の計測はシリーズの改善に使う（DN-0719）",
       "entry": {
         "hubItem": "C-00",
         "curriculum": "civil-practice:concrete"
@@ -553,14 +1161,14 @@
             {
               "id": "C-02",
               "title": "セメント — 種類・選び方・つくり方・歴史",
-              "plan": "strengthen",
+              "plan": "existing",
               "paths": [
                 "content/site/concrete-engineer/textbook-materials/article.mdx"
               ],
               "links": [
                 "content/site/concrete-chief-engineer/textbook-materials/article.mdx"
               ],
-              "note": "つくり方と歴史を補う"
+              "note": "つくり方と歴史を補う。2026-10-15 に本の項目から足りない側面を書き足して補強した（DN-0733）"
             },
             {
               "id": "C-03",
@@ -609,14 +1217,14 @@
             {
               "id": "C-07",
               "title": "鉄筋と PC 鋼材",
-              "plan": "strengthen",
+              "plan": "existing",
               "paths": [
                 "content/site/civil-practice/steel-material-properties/article.mdx"
               ],
               "links": [
                 "content/site/concrete-chief-engineer/textbook-structural-design/article.mdx"
               ],
-              "note": "鉄筋・PC 鋼材の種類と扱いを補う"
+              "note": "鉄筋・PC 鋼材の種類と扱いを補う。2026-10-15 に本の項目から足りない側面を書き足して補強した（DN-0733）"
             }
           ]
         },
@@ -626,11 +1234,11 @@
             {
               "id": "C-08",
               "title": "強度の決め方 — 設計基準強度・呼び強度・配合強度",
-              "plan": "strengthen",
+              "plan": "existing",
               "paths": [
                 "content/site/concrete-engineer/textbook-mix-design/article.mdx"
               ],
-              "note": "発注者・設計者が何を根拠に決めるかを補う"
+              "note": "発注者・設計者が何を根拠に決めるかを補う。2026-10-15 に本の項目から足りない側面を書き足して補強した（DN-0733）"
             },
             {
               "id": "C-09",
@@ -715,11 +1323,11 @@
             {
               "id": "C-14",
               "title": "生コン工場の仕事 — 設備・製造・出荷・試験室・経営",
-              "plan": "strengthen",
+              "plan": "existing",
               "paths": [
                 "content/site/concrete-engineer/textbook-production-qc/article.mdx"
               ],
-              "note": "出荷・試験室・経営を補う"
+              "note": "出荷・試験室・経営を補う。2026-10-15 に本の項目から足りない側面を書き足して補強した（DN-0733）"
             },
             {
               "id": "C-15",
@@ -798,12 +1406,12 @@
             {
               "id": "C-21",
               "title": "打込み・締固め・打継ぎ — 打ちにくい箇所と床面を含む",
-              "plan": "strengthen",
+              "plan": "existing",
               "paths": [
                 "content/site/civil-practice/concrete-compaction-numbers/article.mdx",
                 "content/site/civil-practice/concrete-placement-order/article.mdx"
               ],
-              "note": "打ちにくい箇所・床面の打込みを補う"
+              "note": "打ちにくい箇所・床面の打込みを補う。2026-10-15 に本の項目から足りない側面を書き足して補強した（DN-0733）"
             },
             {
               "id": "C-22",
@@ -970,7 +1578,11 @@
       "audience": "土木の材料を選ぶ・受け入れる人（コンクリート以外の材料）",
       "area": "practice",
       "policy": "docs/strategy/18_自治体土木担当・コンクリートシリーズ方針2026-10.md",
-      "gate": "EXP-012（記事末の資格カード）の判定（事後窓の終わり 2026-11-26）で継続になるまで、新規記事は書かない（2026-10-13 運営者判断）",
+      "gate": "2026-10-15 の運営者判断で、EXP-012 の判定を待たずに新規 3 章を書いて公開し、シリーズを完結させる（DN-0747）。判定と計測はシリーズの改善に使う（DN-0719）",
+      "entry": {
+        "hubItem": "M-01",
+        "curriculum": "civil-practice:construction-materials"
+      },
       "sections": [
         {
           "title": "建設材料",
@@ -981,6 +1593,25 @@
               "plan": "new",
               "links": [
                 "content/site/civil-practice/material-selection-receiving/article.mdx"
+              ],
+              "paths": [
+                "content/site/civil-practice/construction-materials-overview/article.mdx"
+              ],
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "道路の標準断面を輪切りにし、路床・路盤・基層と表層・排水・のり面保護・防護柵ごとに材料名を書き込む。鉄道の道床は隣に小さく並べる。自作SVG（400×500）で、構図は道路構造令の標準断面と共通仕様書の層の名前から起こす",
+                  "figKey": "civil-practice/construction-materials-overview/img/figure-materials-by-role"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "土（炉乾燥質量）・骨材（絶乾質量／表面乾燥飽水状態の質量）・木材（全乾質量）が、それぞれ何の質量を分母にするかを、水の質量と並べて示す概念図（任意）",
+                  "figKey": "civil-practice/construction-materials-overview/img/figure-water-content-denominators"
+                },
+                {
+                  "kind": "photo",
+                  "subject": "バラスト砕石を敷いた道床と、PC枕木、鋼レールの近景（AI写真・任意）"
+                }
               ]
             },
             {
@@ -1002,12 +1633,73 @@
             {
               "id": "M-04",
               "title": "高分子材料 — 樹脂・ゴム・繊維・連続繊維補強材",
-              "plan": "new"
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/polymer-construction-materials/article.mdx"
+              ],
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "鋼は降伏して伸びてから破断し、連続繊維補強材は直線のまま破断し、傾き（弾性率）が炭素・アラミド・ガラスで違うことを示す自作の概念図（数値は入れない）",
+                  "figKey": "civil-practice/polymer-construction-materials/img/figure-fiber-rupture-modes"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "盛土・護岸・路盤の断面で、シートや格子が補強・分離・排水・ろ過のどれを担うかを示す自作の模式図",
+                  "figKey": "civil-practice/polymer-construction-materials/img/figure-geosynthetics-functions"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "ポリマーセメント系（結合材はセメントのまま）、レジンコンクリート（樹脂が結合材）、含浸型（硬化体にしみ込む）の三つを、結合材の違いで並べた自作の模式図",
+                  "figKey": "civil-practice/polymer-construction-materials/img/figure-polymer-concrete-types"
+                },
+                {
+                  "kind": "photo",
+                  "subject": "桁下面の素地調整後に、炭素繊維シートへ含浸接着樹脂をローラーで含浸させている作業（形が複雑なので一次資料の写真で確かめてから prompt を書く）"
+                },
+                {
+                  "kind": "photo",
+                  "subject": "締め固めた盛土面にジオグリッドを水平にたるみなく敷き、ピンで固定した状況"
+                },
+                {
+                  "kind": "photo",
+                  "subject": "積層ゴム支承の切断面（ゴム層と内部鋼板が交互に重なり、外周に被覆ゴム、上下に沓プレート）"
+                }
+              ]
             },
             {
               "id": "M-05",
               "title": "木材と石材",
-              "plan": "new"
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/wood-and-stone-materials/article.mdx"
+              ],
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "含水率の帯を縦に並べた図。生材(辺材100〜200%)・繊維飽和点(約30%)・腐朽菌の活動が抑えられる20%以下・気乾(12〜15%)の各帯と、帯ごとに起きること(収縮・強さの増加・腐朽)を横に添える。数値は本文の確かめた値だけ。本の曲線は再現しない",
+                  "figKey": "civil-practice/wood-and-stone-materials/img/figure-moisture-content-bands"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "継手・ボルト孔・欠込みで、荷重の向きと繊維の向きが合う置き方とずれる置き方を2例並べる図。角度θを矢印で示し、ずれると強さが直角方向の値に近づくことを添える",
+                  "figKey": "civil-practice/wood-and-stone-materials/img/figure-grain-load-angle"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "『石の指定を読む三つの軸』。札3枚の縦並びで、岩種(花こう岩類など)・形状(板石など)・強度区分(硬石・準硬石・軟石)を示し、各軸に例を1つ添える。製品の呼び方の例『花こう岩・硬石・板石・1等品』を結ぶ",
+                  "figKey": "civil-practice/wood-and-stone-materials/img/figure-stone-spec-axes"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "木製の柵か土留めの断面で、雨水が入る経路と溜まる場所(木口・接合部・ボルト孔・水平面・地際)に、銅板・勾配・防腐処理K4以上などの対策を割り当てた図(任意)",
+                  "figKey": "civil-practice/wood-and-stone-materials/img/figure-timber-weak-points"
+                },
+                {
+                  "kind": "photo",
+                  "subject": "解体した石造アーチの輪石などが仮置き場に位置ごとに並ぶ様子。アーチ石の切り出し形が分かる浅い被写界深度。石の面に番号の文字は描かせない。形に自信が持てなければ公開事例写真で確かめてから prompt を書く"
+                }
+              ]
             }
           ]
         }

@@ -1,0 +1,49 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は国土交通白書 令和8年版の長寿命化の取組の経過と、第6次社会資本整備重点計画（令和8年1月閣議決定）。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="整備から維持更新へ移った流れの年表。高度経済成長期以降の集中整備、平成25年のメンテナンス元年とインフラ長寿命化基本計画、平成26年5月の行動計画、令和3年6月の第2次行動計画、令和7年10月の群マネの手引きVer.1、令和8年1月の第6次社会資本整備重点計画の順。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .d { font-size: 11px; font-weight: bold; fill: #555; }
+      .t { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .b-g { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .b-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .b-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .dot-g { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 2; }
+      .dot-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }
+      .dot-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }
+      .ln { stroke: #8a8a8a; stroke-width: 2; fill: none; }
+    </style>
+  </defs>
+
+  <path class="ln" d="M30,48V448"/>
+  <rect class="b-g" x="50" y="14" width="336" height="68" rx="8"/>
+  <circle class="dot-g" cx="30" cy="48" r="7"/>
+  <text class="d" x="62" y="34">高度経済成長期以降</text>
+  <text class="t" x="62" y="54">施設の集中整備</text>
+  <text x="62" y="72">いま古くなる側に入っている</text>
+  <rect class="b-b" x="50" y="94" width="336" height="68" rx="8"/>
+  <circle class="dot-b" cx="30" cy="128" r="7"/>
+  <text class="d" x="62" y="114">平成25年</text>
+  <text class="t" x="62" y="134">社会資本メンテナンス元年</text>
+  <text x="62" y="152">インフラ長寿命化基本計画（11月）</text>
+  <rect class="b-b" x="50" y="174" width="336" height="68" rx="8"/>
+  <circle class="dot-b" cx="30" cy="208" r="7"/>
+  <text class="d" x="62" y="194">平成26年5月</text>
+  <text class="t" x="62" y="214">インフラ長寿命化計画（行動計画）</text>
+  <text x="62" y="232">国土交通省が策定</text>
+  <rect class="b-b" x="50" y="254" width="336" height="68" rx="8"/>
+  <circle class="dot-b" cx="30" cy="288" r="7"/>
+  <text class="d" x="62" y="274">令和3年6月</text>
+  <text class="t" x="62" y="294">第2次の行動計画</text>
+  <text x="62" y="312">国土交通省が策定</text>
+  <rect class="b-b" x="50" y="334" width="336" height="68" rx="8"/>
+  <circle class="dot-b" cx="30" cy="368" r="7"/>
+  <text class="d" x="62" y="354">令和7年10月</text>
+  <text class="t" x="62" y="374">群マネの手引き Ver.1</text>
+  <text x="62" y="392">地域インフラ群再生戦略マネジメント</text>
+  <rect class="b-p" x="50" y="414" width="336" height="68" rx="8"/>
+  <circle class="dot-p" cx="30" cy="448" r="7"/>
+  <text class="d" x="62" y="434">令和8年1月</text>
+  <text class="t" x="62" y="454">第6次社会資本整備重点計画</text>
+  <text x="62" y="472">閣議決定・計画期間は令和12年度まで</text>
+</svg>

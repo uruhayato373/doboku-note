@@ -1,0 +1,51 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は道路法第18条・第28条、不動産登記法第123条第1号と法務省「筆界特定制度」の説明。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="同じ道路の断面に引かれる三本の線を比べた図。道路区域の線、筆界、所有権の範囲を画する線が同じ位置に重なる場合と、別々の位置になる場合を並べる。道路区域の線は台帳に載る管理範囲の端であり、土地の境界を決めたものではない。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }  /* ink-body */
+      .s { font-size: 11px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .b { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .pn { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .gr { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1; }  /* surface */
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }  /* brand-fill / brand */
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }  /* warn-fill / warn */
+      .l1 { stroke: #2e6da4; fill: none; }  /* brand */
+      .l2 { stroke: #b22234; fill: none; }  /* danger */
+      .l3 { stroke: #222; fill: none; stroke-dasharray: 5 3; }  /* ink-strong */
+    </style>
+  </defs>
+  <rect class="pn" x="10" y="8" width="380" height="184" rx="8"/>
+  <rect class="brand" x="20" y="18" width="150" height="22" rx="11"/>
+  <text class="b" x="95.0" y="33" text-anchor="middle">同じ位置に重なる場合</text>
+  <rect class="gr" x="22" y="92" width="356" height="50"/>
+  <path class="l1" d="M200,54V164" stroke-width="8"/>
+  <path class="l2" d="M200,54V164" stroke-width="4"/>
+  <path class="l3" d="M200,54V164" stroke-width="1.5"/>
+  <text class="b" x="188" y="68" text-anchor="end">道路区域の線</text>
+  <text class="b" x="212" y="68">筆界</text>
+  <text class="b" x="212" y="86">所有権の範囲の線</text>
+  <text class="s" x="28" y="182">道路側</text>
+  <text class="s" x="372" y="182" text-anchor="end">隣地側</text>
+  <rect class="pn" x="10" y="200" width="380" height="184" rx="8"/>
+  <rect class="warn" x="20" y="210" width="200" height="22" rx="11"/>
+  <text class="b" x="120.0" y="225" text-anchor="middle">別々の位置になる場合（例）</text>
+  <rect class="gr" x="22" y="284" width="356" height="50"/>
+  <path class="l1" d="M120,246V356" stroke-width="3"/>
+  <path class="l2" d="M200,246V356" stroke-width="3"/>
+  <path class="l3" d="M280,246V356" stroke-width="3"/>
+  <text class="b" x="114" y="260" text-anchor="end">道路区域の線</text>
+  <text class="b" x="206" y="260">筆界</text>
+  <text class="b" x="286" y="260">所有権の</text>
+  <text class="b" x="286" y="278">範囲の線</text>
+  <text class="s" x="28" y="374">道路側</text>
+  <text class="s" x="372" y="374" text-anchor="end">隣地側</text>
+  <rect class="pn" x="10" y="392" width="380" height="100" rx="8"/>
+  <path class="l1" d="M22,412H48" stroke-width="3"/>
+  <text x="58" y="416">道路区域の線：台帳に載る、管理する範囲の端</text>
+  <path class="l2" d="M22,434H48" stroke-width="3"/>
+  <text x="58" y="438">筆界：登記された土地を区切る線</text>
+  <path class="l3" d="M22,456H48" stroke-width="3"/>
+  <text x="58" y="460">所有権の範囲の線：所有権が及ぶ範囲</text>
+  <text class="b" x="22" y="482">台帳の線は、土地の境界を決めたものではない</text>
+</svg>

@@ -1,0 +1,55 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は道路法第2条・第3条・第8条・第11条・第13条・第17条・第19条・第20条。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="この道は誰が管理するかを決める判断の流れ。道路法の道路か、種類は何か、国道なら指定区間の内か外か、第17条の特例の同意と公示があるか、第19条・第20条の協議に別の定めがあるかの順に確かめ、根拠の条文が見つかってから答える。道路法の道路でなければ別の制度で扱い、国道以外は国道の確認を飛ばす。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }  /* ink-body */
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .b { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }  /* brand-fill / brand */
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }  /* warn-fill / warn */
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }  /* positive-fill / positive */
+      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ad { stroke: #8a8a8a; stroke-width: 1.5; fill: none; stroke-dasharray: 4 3; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+    <marker id="am" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#8a8a8a"/></marker>
+  </defs>
+
+  <rect class="brand" x="10" y="10" width="240" height="56" rx="8"/>
+  <text class="n" x="22" y="34">道路法の道路か</text>
+  <text x="22" y="54">第2条・第3条</text>
+  <path class="a" d="M250,38H272" marker-end="url(#ah)"/>
+  <rect class="warn" x="274" y="6" width="116" height="64" rx="8"/>
+  <text class="b" x="284" y="26">いいえ</text>
+  <text x="284" y="43">私道・里道など</text>
+  <text x="284" y="59">別の制度で扱う</text>
+
+  <path class="a" d="M130,66V92" marker-end="url(#ah)"/>
+  <rect class="brand" x="10" y="92" width="240" height="56" rx="8"/>
+  <text class="n" x="22" y="116">種類は何か</text>
+  <text x="22" y="136">第8条・第11条</text>
+
+  <path class="a" d="M130,148V174" marker-end="url(#ah)"/>
+  <rect class="brand" x="10" y="174" width="240" height="56" rx="8"/>
+  <text class="n" x="22" y="198">国道なら、指定区間の内か外か</text>
+  <text x="22" y="218">第13条</text>
+
+  <path class="ad" d="M250,120H262V284H252" marker-end="url(#am)"/>
+  <text x="270" y="196">国道以外は</text>
+  <text x="270" y="212">次へ進む</text>
+
+  <path class="a" d="M130,230V256" marker-end="url(#ah)"/>
+  <rect class="brand" x="10" y="256" width="240" height="56" rx="8"/>
+  <text class="n" x="22" y="280">特例の同意・公示があるか</text>
+  <text x="22" y="300">第17条</text>
+
+  <path class="a" d="M130,312V338" marker-end="url(#ah)"/>
+  <rect class="brand" x="10" y="338" width="240" height="56" rx="8"/>
+  <text class="n" x="22" y="362">境界・兼用の協議の定めはあるか</text>
+  <text x="22" y="382">第19条・第20条</text>
+
+  <path class="a" d="M130,394V420" marker-end="url(#ah)"/>
+  <rect class="pos" x="10" y="420" width="380" height="68" rx="8"/>
+  <text class="n" x="200" y="450" text-anchor="middle">根拠の条文が見つかってから</text>
+  <text class="n" x="200" y="470" text-anchor="middle">「誰の道か」を答える</text>
+</svg>

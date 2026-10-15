@@ -1,0 +1,62 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は点検・評価要領（国管理版・中小河川版）が示す樋門・水門の点検部位（周辺の堤防と取付護岸、函体底版下の空洞、継手、胸壁・翼壁・門柱、函体内の土砂堆積）。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="樋門を堤防の断面で見た点検部位の図。番号で、周辺の堤防と取付護岸、函体の底版下の空洞、継手、門柱、胸壁と翼壁、函体内の土砂堆積を示す。ゲートやポンプなどの機械設備は別の基準で点検する。">
+  <defs>
+  <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .m { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .l { font-size: 13px; fill: #1a3a5c; }
+      .lv { fill: #fff; stroke: #8a8a8a; stroke-width: 1.5; }
+      .g { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1; }
+      .w { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .d { fill: #d7d7d7; stroke: #8a8a8a; stroke-width: 1.5; }
+      .ng { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; stroke-dasharray: 4 3; }
+      .mk { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+  </style>
+  </defs>
+
+  <rect class="g" x="10" y="330" width="380" height="42"/>
+  <path d="M10,330H390" fill="none" style="stroke:#8a8a8a;stroke-width:1.5"/>
+  <text x="18" y="356">川側</text>
+  <text x="344" y="356">堤内地</text>
+
+  <polygon class="lv" points="80,330 150,130 250,130 320,330"/>
+  <path d="M80,330L150,130M320,330L250,130" fill="none" style="stroke:#2e6da4;stroke-width:4"/>
+
+  <rect class="d" x="84" y="84" width="14" height="192"/>
+
+  <rect class="w" x="58" y="276" width="284" height="54"/>
+  <rect x="68" y="284" width="264" height="38" style="fill:#fff;stroke:#8a8a8a;stroke-width:1"/>
+  <polygon points="190,322 190,312 330,312 330,322" style="fill:#d7d7d7;stroke:#8a8a8a;stroke-width:1"/>
+  <path d="M135,276V330M265,276V330" fill="none" style="stroke:#d4a017;stroke-width:4"/>
+
+  <rect class="d" x="48" y="246" width="12" height="84"/>
+  <polygon class="d" points="48,330 22,330 22,300 48,288"/>
+  <polygon class="d" points="340,330 366,330 366,300 340,288"/>
+
+  <rect class="ng" x="152" y="330" width="86" height="16"/>
+
+  <circle class="mk" cx="200" cy="200" r="10"/><text class="m" x="200" y="204" text-anchor="middle">1</text>
+  <circle class="mk" cx="195" cy="358" r="10"/><text class="m" x="195" y="362" text-anchor="middle">2</text>
+  <circle class="mk" cx="135" cy="256" r="10"/><text class="m" x="135" y="260" text-anchor="middle">3</text>
+  <circle class="mk" cx="265" cy="256" r="10"/><text class="m" x="265" y="260" text-anchor="middle">3</text>
+  <circle class="mk" cx="91" cy="62" r="10"/><text class="m" x="91" y="66" text-anchor="middle">4</text>
+  <circle class="mk" cx="35" cy="262" r="10"/><text class="m" x="35" y="266" text-anchor="middle">5</text>
+  <circle class="mk" cx="300" cy="298" r="10"/><text class="m" x="300" y="302" text-anchor="middle">6</text>
+
+  <circle class="mk" cx="30" cy="392" r="10"/><text class="m" x="30" y="396" text-anchor="middle">1</text>
+  <text class="l" x="48" y="397">周辺の堤防・取付護岸</text>
+  <circle class="mk" cx="30" cy="418" r="10"/><text class="m" x="30" y="422" text-anchor="middle">2</text>
+  <text class="l" x="48" y="423">函体の底版下の空洞</text>
+  <circle class="mk" cx="30" cy="444" r="10"/><text class="m" x="30" y="448" text-anchor="middle">3</text>
+  <text class="l" x="48" y="449">継手</text>
+  <circle class="mk" cx="220" cy="392" r="10"/><text class="m" x="220" y="396" text-anchor="middle">4</text>
+  <text class="l" x="238" y="397">門柱</text>
+  <circle class="mk" cx="220" cy="418" r="10"/><text class="m" x="220" y="422" text-anchor="middle">5</text>
+  <text class="l" x="238" y="423">胸壁・翼壁</text>
+  <circle class="mk" cx="220" cy="444" r="10"/><text class="m" x="220" y="448" text-anchor="middle">6</text>
+  <text class="l" x="238" y="449">函体内の土砂堆積</text>
+
+  <rect class="g" x="10" y="458" width="380" height="36" rx="8"/>
+  <text class="n" x="200" y="481" text-anchor="middle">ゲート・ポンプなどの機械設備は別の基準で点検</text>
+</svg>

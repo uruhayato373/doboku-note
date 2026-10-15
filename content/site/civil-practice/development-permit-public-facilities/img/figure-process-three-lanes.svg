@@ -1,0 +1,60 @@
+<!-- authored 2026-10-15 doboku-note 自作。開発許可の手続の順は都市計画法第29条・第32条・第36条・第39条・第40条による。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="開発許可の流れを、開発者・知事等・市町村の三列に分けた流れ図。事前協議と同意は法第32条、開発許可は法第29条、工事、完了の届出、完了検査と完了公告は法第36条。公告の翌日を境に、市町村の列で管理と土地の帰属が始まり、そのあと認定・供用開始・台帳の登録へ進む。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 11px; fill: #555; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .g { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .l { stroke: #d7d7d7; stroke-width: 1; fill: none; }
+      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+  <rect class="p" x="14" y="10" width="116" height="28" rx="6"/>
+  <text class="n" x="72" y="29" text-anchor="middle">開発者</text>
+  <rect class="w" x="142" y="10" width="116" height="28" rx="6"/>
+  <text class="n" x="200" y="29" text-anchor="middle">知事等</text>
+  <rect class="b" x="270" y="10" width="116" height="28" rx="6"/>
+  <text class="n" x="328" y="29" text-anchor="middle">市町村</text>
+  <path class="l" d="M134,44L134,466"/>
+  <path class="l" d="M262,44L262,466"/>
+  <rect class="p" x="14" y="50" width="116" height="42" rx="6"/>
+  <text class="n" x="72" y="68" text-anchor="middle">事前協議</text>
+  <text class="s" x="72" y="84" text-anchor="middle">法第32条</text>
+  <rect class="b" x="270" y="50" width="116" height="42" rx="6"/>
+  <text class="n" x="328" y="68" text-anchor="middle">協議・同意</text>
+  <text class="s" x="328" y="84" text-anchor="middle">法第32条</text>
+  <path class="a" d="M130,71H270" marker-end="url(#ah)"/>
+  <rect class="w" x="142" y="108" width="116" height="42" rx="6"/>
+  <text class="n" x="200" y="126" text-anchor="middle">開発許可</text>
+  <text class="s" x="200" y="142" text-anchor="middle">法第29条</text>
+  <rect class="p" x="14" y="166" width="116" height="42" rx="6"/>
+  <text class="n" x="72" y="192" text-anchor="middle">工事</text>
+  <rect class="p" x="14" y="224" width="116" height="42" rx="6"/>
+  <text class="n" x="72" y="242" text-anchor="middle">完了の届出</text>
+  <text class="s" x="72" y="258" text-anchor="middle">法第36条</text>
+  <rect class="w" x="142" y="282" width="116" height="42" rx="6"/>
+  <text class="n" x="200" y="300" text-anchor="middle">完了検査と公告</text>
+  <text class="s" x="200" y="316" text-anchor="middle">法第36条</text>
+  <path d="M10,341H390" fill="none" stroke="#b22234" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <rect class="d" x="14" y="333" width="108" height="17" rx="4"/>
+  <text class="t" x="68" y="346" text-anchor="middle">公告の翌日</text>
+  <rect class="b" x="270" y="358" width="116" height="42" rx="6"/>
+  <text class="n" x="328" y="376" text-anchor="middle">管理と土地が移る</text>
+  <text class="s" x="328" y="392" text-anchor="middle">法第39条・第40条</text>
+  <rect class="b" x="270" y="416" width="116" height="42" rx="6"/>
+  <text class="n" x="328" y="434" text-anchor="middle">認定・供用開始</text>
+  <text class="s" x="328" y="450" text-anchor="middle">台帳へ登録</text>
+  <path class="a" d="M72,92V100H200V108" marker-end="url(#ah)"/>
+  <path class="a" d="M200,150V158H72V166" marker-end="url(#ah)"/>
+  <path class="a" d="M72,208V224" marker-end="url(#ah)"/>
+  <path class="a" d="M72,266V274H200V282" marker-end="url(#ah)"/>
+  <path class="a" d="M200,324V334H332V358" marker-end="url(#ah)"/>
+  <path class="a" d="M332,400V416" marker-end="url(#ah)"/>
+</svg>

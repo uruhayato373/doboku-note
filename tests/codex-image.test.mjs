@@ -24,3 +24,12 @@ test('generateWithCodex: 偽の実行で画像ができた/できなかった', 
     assert.equal(other, null);
   } finally { rmSync(tmp, { recursive: true, force: true }); }
 });
+
+test('codexArgs: 添付の画像は -i で渡し、直後にフラグを置いて指示文を画像として読ませない', () => {
+  const a = codexArgs('/d', 'PROMPT', null, ['/x/crop.png']);
+  const i = a.indexOf('-i');
+  assert.equal(a[i + 1], '/x/crop.png');
+  assert.ok(a[i + 2].startsWith('--'), '-i の画像の直後はフラグ');
+  assert.ok(a.at(-1).includes('PROMPT'), '指示文は最後');
+  assert.ok(!codexArgs('/d', 'P', null).includes('-i'), '画像が無ければ -i を付けない');
+});

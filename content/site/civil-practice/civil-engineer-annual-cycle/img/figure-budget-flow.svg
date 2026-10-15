@@ -1,0 +1,67 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は千葉市の公表資料「予算編成の流れ」（日程の一例）と、社会資本整備総合交付金の交付要綱第8〜10。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="予算編成の流れの図。上段は国の補助の手続で、社会資本総合整備計画の提出、毎年度の交付申請、計画の公表と評価。下段は千葉市の日程を例にした市の予算の流れで、10月上旬の方針、10月末の各局の要求、11月から12月の財政担当の調整、1月中旬の市長査定、2月中旬の予算案の公表、2月から3月の議会の審議と議決、4月からの事業の実施の順。日程は一例。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }
+      .h { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .d { font-size: 12px; fill: #1a3a5c; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .y { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .p { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .a { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+
+  <text class="h" x="10" y="22">国の補助（市の予算とは別の手続）</text>
+  <rect class="b" x="10" y="32" width="170" height="58" rx="8"/>
+  <text class="n" x="22" y="54">計画の提出</text>
+  <text class="d" x="22" y="74">交付要綱 第8</text>
+  <path class="a" d="M182,61H206" marker-end="url(#ah)"/>
+  <rect class="b" x="208" y="32" width="182" height="58" rx="8"/>
+  <text class="n" x="220" y="54">毎年度の交付申請</text>
+  <text class="d" x="220" y="74">交付要綱 第9</text>
+  <rect class="p" x="10" y="98" width="380" height="30" rx="6"/>
+  <text class="d" x="22" y="118">計画は公表し、期間の終了時に評価して国へ報告（第10）</text>
+
+  <text class="h" x="10" y="156">市の予算の流れ（千葉市の日程の例）</text>
+
+  <rect class="p" x="10" y="166" width="84" height="30" rx="6"/>
+  <text class="n" x="52" y="186" text-anchor="middle">10月上旬</text>
+  <rect class="b" x="102" y="166" width="288" height="30" rx="6"/>
+  <text class="d" x="116" y="186" style="font-size:13px">予算編成の方針</text>
+  <path class="a" d="M246,198V207" marker-end="url(#ah)"/>
+  <rect class="p" x="10" y="208" width="84" height="30" rx="6"/>
+  <text class="n" x="52" y="228" text-anchor="middle">10月末</text>
+  <rect class="b" x="102" y="208" width="288" height="30" rx="6"/>
+  <text class="d" x="116" y="228" style="font-size:13px">各局の要求</text>
+  <path class="a" d="M246,240V249" marker-end="url(#ah)"/>
+  <rect class="p" x="10" y="250" width="84" height="30" rx="6"/>
+  <text class="n" x="52" y="270" text-anchor="middle">11〜12月</text>
+  <rect class="b" x="102" y="250" width="288" height="30" rx="6"/>
+  <text class="d" x="116" y="270" style="font-size:13px">財政担当の調整</text>
+  <path class="a" d="M246,282V291" marker-end="url(#ah)"/>
+  <rect class="p" x="10" y="292" width="84" height="30" rx="6"/>
+  <text class="n" x="52" y="312" text-anchor="middle">1月中旬</text>
+  <rect class="b" x="102" y="292" width="288" height="30" rx="6"/>
+  <text class="d" x="116" y="312" style="font-size:13px">市長への報告・査定</text>
+  <path class="a" d="M246,324V333" marker-end="url(#ah)"/>
+  <rect class="p" x="10" y="334" width="84" height="30" rx="6"/>
+  <text class="n" x="52" y="354" text-anchor="middle">2月中旬</text>
+  <rect class="b" x="102" y="334" width="288" height="30" rx="6"/>
+  <text class="d" x="116" y="354" style="font-size:13px">予算案の公表</text>
+  <path class="a" d="M246,366V375" marker-end="url(#ah)"/>
+  <rect class="p" x="10" y="376" width="84" height="30" rx="6"/>
+  <text class="n" x="52" y="396" text-anchor="middle">2〜3月</text>
+  <rect class="b" x="102" y="376" width="288" height="30" rx="6"/>
+  <text class="d" x="116" y="396" style="font-size:13px">議会の審議・議決</text>
+  <path class="a" d="M246,408V417" marker-end="url(#ah)"/>
+  <rect class="p" x="10" y="418" width="84" height="30" rx="6"/>
+  <text class="n" x="52" y="438" text-anchor="middle">4月〜</text>
+  <rect class="g" x="102" y="418" width="288" height="30" rx="6"/>
+  <text class="d" x="116" y="438" style="font-size:13px">事業の実施</text>
+  <rect class="y" x="10" y="460" width="380" height="30" rx="6"/>
+  <text class="d" x="22" y="480">日程は一例。自分の市の公開資料で確かめる</text>
+</svg>

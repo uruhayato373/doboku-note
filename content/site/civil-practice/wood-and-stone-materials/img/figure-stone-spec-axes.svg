@@ -1,0 +1,60 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は JIS A 5003 の石材の分類（岩石の種類・形状・物理的性質）を別々の軸として読み、製品の呼び方の例「花こう岩・硬石・板石・1等品・10×50×91」に対応づけること。分類名と例は記事本文で確かめた値のみ -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="石の指定を読む三つの軸。岩種は六つに分かれ、例は花こう岩類。形状は角石、板石、間知石、割石の四つで、例は板石。強度区分は圧縮強さで硬石、準硬石、軟石の三つに分かれ、例は硬石。製品の呼び方の例は、花こう岩、硬石、板石、1等品、10×50×91の順に、岩種、強度区分、形状、等級、寸法を並べる。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 12px; fill: #1a3a5c; }
+      .h { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .c { font-size: 12px; fill: #555; }
+      .p { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .off { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 3; }
+      .g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 3; }
+      .y { fill: #fff3cd; stroke: #d4a017; stroke-width: 3; }
+      .s { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <!-- 岩種 -->
+  <rect class="p" x="10" y="10" width="380" height="108" rx="8"/>
+  <rect x="22" y="22" width="64" height="22" rx="11" style="fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5"/><text class="h" x="54" y="37" text-anchor="middle">岩種</text>
+  <text class="t" x="96" y="38">岩石の種類で六つに分かれる</text>
+  <rect class="b" x="22" y="62" width="82" height="36" rx="6"/><text class="h" x="63" y="84" text-anchor="middle">花こう岩類</text>
+  <rect class="off" x="112" y="62" width="82" height="36" rx="6"/><text class="c" x="153" y="84" text-anchor="middle">安山岩類</text>
+  <rect class="off" x="202" y="62" width="82" height="36" rx="6"/><text class="c" x="243" y="84" text-anchor="middle">砂岩類</text>
+  <text class="c" x="294" y="84">ほか3類</text>
+
+  <!-- 形状 -->
+  <rect class="p" x="10" y="126" width="380" height="108" rx="8"/>
+  <rect x="22" y="138" width="64" height="22" rx="11" style="fill:#d0e8d0;stroke:#3a7d44;stroke-width:1.5"/><text class="h" x="54" y="153" text-anchor="middle">形状</text>
+  <text class="t" x="96" y="154">形で四つに分かれる</text>
+  <rect class="off" x="22" y="178" width="82" height="36" rx="6"/><text class="c" x="63" y="200" text-anchor="middle">角石</text>
+  <rect class="g" x="112" y="178" width="82" height="36" rx="6"/><text class="h" x="153" y="200" text-anchor="middle">板石</text>
+  <rect class="off" x="202" y="178" width="82" height="36" rx="6"/><text class="c" x="243" y="200" text-anchor="middle">間知石</text>
+  <rect class="off" x="292" y="178" width="82" height="36" rx="6"/><text class="c" x="333" y="200" text-anchor="middle">割石</text>
+
+  <!-- 強度区分 -->
+  <rect class="p" x="10" y="242" width="380" height="108" rx="8"/>
+  <rect x="22" y="254" width="84" height="22" rx="11" style="fill:#fff3cd;stroke:#d4a017;stroke-width:1.5"/><text class="h" x="64" y="269" text-anchor="middle">強度区分</text>
+  <text class="t" x="116" y="270">圧縮強さで三つに分かれる</text>
+  <rect class="y" x="22" y="294" width="82" height="36" rx="6"/><text class="h" x="63" y="316" text-anchor="middle">硬石</text>
+  <rect class="off" x="112" y="294" width="82" height="36" rx="6"/><text class="c" x="153" y="316" text-anchor="middle">準硬石</text>
+  <rect class="off" x="202" y="294" width="82" height="36" rx="6"/><text class="c" x="243" y="316" text-anchor="middle">軟石</text>
+  <text class="c" x="294" y="316">吸水率は参考値</text>
+
+  <!-- 製品の呼び方 -->
+  <rect class="p" x="10" y="358" width="380" height="132" rx="8"/>
+  <text class="n" x="22" y="382">製品の呼び方の例</text>
+  <rect class="b" x="22" y="396" width="76" height="36" rx="6"/><text class="h" x="60" y="418" text-anchor="middle">花こう岩</text>
+  <rect class="y" x="106" y="396" width="52" height="36" rx="6"/><text class="h" x="132" y="418" text-anchor="middle">硬石</text>
+  <rect class="g" x="166" y="396" width="52" height="36" rx="6"/><text class="h" x="192" y="418" text-anchor="middle">板石</text>
+  <rect class="s" x="226" y="396" width="60" height="36" rx="6"/><text class="h" x="256" y="418" text-anchor="middle">1等品</text>
+  <rect class="s" x="294" y="396" width="84" height="36" rx="6"/><text class="h" x="336" y="418" text-anchor="middle">10×50×91</text>
+  <text x="60" y="452" text-anchor="middle">岩種</text>
+  <text x="132" y="452" text-anchor="middle">強度区分</text>
+  <text x="192" y="452" text-anchor="middle">形状</text>
+  <text x="256" y="452" text-anchor="middle">等級</text>
+  <text x="336" y="452" text-anchor="middle">寸法</text>
+  <text x="22" y="476">三つの分類に、等級と寸法を並べて書く</text>
+</svg>

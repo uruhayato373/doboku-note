@@ -1,0 +1,42 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は木材の含水率の帯ごとに起きること（繊維飽和点より乾くと収縮と強さの増加、30%以上は腐朽菌が活動しやすい、20%以下は活動が抑えられる、気乾は12〜15%）。帯の高さは縮尺ではない。数値は記事本文で確かめた値のみ -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="木材の含水率を縦に並べた図。上ほど湿っている。生材の辺材は100〜200%。約30%が繊維飽和点で、これより乾くと収縮が始まり強さが増す。30%以上は腐朽菌が活動しやすい。20%以下は腐朽菌の活動が抑えられるが、水が戻れば再開する。12〜15%は空気中に長く置いたときに落ち着く気乾状態。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .v { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .n { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 13px; fill: #1a3a5c; }
+      .p { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .tick { stroke: #555; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+  <rect class="p" x="10" y="10" width="380" height="480" rx="8"/>
+
+  <text x="132" y="34" text-anchor="middle">湿った</text>
+  <text x="132" y="478" text-anchor="middle">乾いた</text>
+
+  <rect x="112" y="42" width="40" height="140" style="fill:#fff3cd;stroke:#d4a017;stroke-width:1.5"/>
+  <rect x="112" y="182" width="40" height="120" style="fill:#f5f5f5;stroke:#d7d7d7;stroke-width:1.5"/>
+  <rect x="112" y="302" width="40" height="156" style="fill:#d0e8d0;stroke:#3a7d44;stroke-width:1.5"/>
+  <rect x="112" y="388" width="40" height="28" style="fill:#fff;stroke:#3a7d44;stroke-width:1.5"/>
+  <path d="M132,194V450" fill="none" stroke="#2e6da4" stroke-width="2.5" marker-end="url(#ah)"/>
+
+  <path class="tick" d="M104,72H160"/>
+  <path class="tick" d="M104,182H160"/>
+  <path class="tick" d="M104,302H160"/>
+  <path class="tick" d="M104,402H160"/>
+
+  <text class="v" x="96" y="76" text-anchor="end">100〜200%</text>
+  <text x="96" y="92" text-anchor="end">生材（辺材）</text>
+  <text class="v" x="96" y="186" text-anchor="end">約30%</text>
+  <text x="96" y="202" text-anchor="end">繊維飽和点</text>
+  <text class="v" x="96" y="306" text-anchor="end">20%</text>
+  <text class="v" x="96" y="406" text-anchor="end">12〜15%</text>
+  <text x="96" y="422" text-anchor="end">気乾</text>
+
+  <text class="n" x="172" y="112">腐朽菌が</text><text class="n" x="172" y="130">活動しやすい</text>
+  <text class="t" x="172" y="178">これより乾くと</text><text class="t" x="172" y="194">収縮が始まり、強さが増す</text>
+  <text class="n" x="172" y="298">腐朽菌の活動が抑えられる</text><text class="t" x="172" y="316">水が戻れば再開する</text>
+  <text class="n" x="172" y="400">空気中に長く置いた</text><text class="n" x="172" y="418">ときに落ち着く</text>
+</svg>

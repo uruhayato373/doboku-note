@@ -1,0 +1,73 @@
+<!-- authored 2026-10-15 doboku-note 自作。管理者の区分は道路法第13・15・16条、河川法第9・10・100条の定め。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="道路と河川を、国・都道府県・市町村のどこが管理するかで並べた一覧図。高速自動車国道と指定区間の国道、一級河川の直轄区間は国。指定区間外の国道、都道府県道、二級河川は都道府県。市町村道と準用河川は市町村。一級河川の指定区間は大臣の権限の一部を知事が行う。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 11px; fill: #555; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .g { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .l { stroke: #d7d7d7; stroke-width: 1; fill: none; }
+      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+  <rect class="b" x="152" y="10" width="76" height="44" rx="6"/>
+  <text class="n" x="190" y="29" text-anchor="middle">国</text>
+  <text class="s" x="190" y="46" text-anchor="middle">大臣</text>
+  <rect class="b" x="232" y="10" width="76" height="44" rx="6"/>
+  <text class="n" x="270" y="29" text-anchor="middle">都道府県</text>
+  <text class="s" x="270" y="46" text-anchor="middle">知事</text>
+  <rect class="b" x="312" y="10" width="76" height="44" rx="6"/>
+  <text class="n" x="350" y="29" text-anchor="middle">市町村</text>
+  <text class="s" x="350" y="46" text-anchor="middle">市町村長</text>
+  <rect class="g" x="10" y="64" width="380" height="22" rx="4"/>
+  <text class="t" x="18" y="80">道路</text>
+  <text class="n" x="16" y="110">高速自動車国道</text>
+  <text class="s" x="16" y="127">指定区間の国道</text>
+  <path class="l" d="M10,134L390,134"/>
+  <rect class="b" x="158" y="96" width="64" height="32" rx="6"/>
+  <text class="t" x="190" y="117" text-anchor="middle">管理者</text>
+  <text class="n" x="16" y="161">指定区間外の国道</text>
+  <path class="l" d="M10,178L390,178"/>
+  <rect class="b" x="238" y="140" width="64" height="32" rx="6"/>
+  <text class="t" x="270" y="161" text-anchor="middle">管理者</text>
+  <text class="n" x="16" y="205">都道府県道</text>
+  <path class="l" d="M10,222L390,222"/>
+  <rect class="b" x="238" y="184" width="64" height="32" rx="6"/>
+  <text class="t" x="270" y="205" text-anchor="middle">管理者</text>
+  <text class="n" x="16" y="249">市町村道</text>
+  <path class="l" d="M10,266L390,266"/>
+  <rect class="b" x="318" y="228" width="64" height="32" rx="6"/>
+  <text class="t" x="350" y="249" text-anchor="middle">管理者</text>
+  <rect class="g" x="10" y="272" width="380" height="22" rx="4"/>
+  <text class="t" x="18" y="288">河川</text>
+  <text class="n" x="16" y="318">一級河川</text>
+  <text class="s" x="16" y="335">直轄区間</text>
+  <path class="l" d="M10,342L390,342"/>
+  <rect class="b" x="158" y="304" width="64" height="32" rx="6"/>
+  <text class="t" x="190" y="325" text-anchor="middle">管理者</text>
+  <text class="n" x="16" y="362">一級河川</text>
+  <text class="s" x="16" y="379">指定区間</text>
+  <path class="l" d="M10,386L390,386"/>
+  <rect class="b" x="158" y="348" width="64" height="32" rx="6"/>
+  <text class="t" x="190" y="369" text-anchor="middle">管理者</text>
+  <rect class="w" x="238" y="348" width="64" height="32" rx="6"/>
+  <text class="t" x="270" y="369" text-anchor="middle">一部を行う</text>
+  <text class="n" x="16" y="413">二級河川</text>
+  <path class="l" d="M10,430L390,430"/>
+  <rect class="b" x="238" y="392" width="64" height="32" rx="6"/>
+  <text class="t" x="270" y="413" text-anchor="middle">管理者</text>
+  <text class="n" x="16" y="457">準用河川</text>
+  <path class="l" d="M10,474L390,474"/>
+  <rect class="b" x="318" y="436" width="64" height="32" rx="6"/>
+  <text class="t" x="350" y="457" text-anchor="middle">管理者</text>
+  <rect class="b" x="16" y="482" width="14" height="14" rx="3"/>
+  <text class="s" x="36" y="493">管理者</text>
+  <rect class="w" x="96" y="482" width="14" height="14" rx="3"/>
+  <text class="s" x="116" y="493">大臣の権限の一部を知事が行う</text>
+</svg>

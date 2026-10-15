@@ -46,12 +46,10 @@ cover:
 
 ---
 
-<!-- cta:coconala-custom -->
-一次のあとに控える二次の施工経験記述は、ココナラで個別に対応しています。書いた答案があれば全5テーマの添削、まだ書けていなければヒアリングから骨子（構成）をつくります。
+<!-- cta:civil-1-primary-ronten -->
+全問を解く前に、どこから手を付けるかを決めたい人は、過去12年の出題頻度から施工管理法を中心に優先順位を付けた「出る順 合格ノート」が先です。
 
-https://coconala.com/services/4418735
-
-https://coconala.com/services/4350199
+https://note.com/dobokunote/n/nec34238ca6d6
 
 ## 収録内容
 

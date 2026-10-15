@@ -1,0 +1,67 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は盛土補強材（引張）、盛土内の排水、護岸の吸出し防止材（ろ過）で、地盤用のシートと格子が担う機能と、機能ごとに先に見る性能が違うこと。模式図であり縮尺はない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="地盤用のシートと格子が担う三つの機能を断面で並べた模式図。盛土の中のジオグリッドは引張を受け持つ補強で、先に見るのは引張強さ。盛土内のシートは水を逃がす排水で、先に見るのは施工中の短期の通水性能。護岸の裏の吸出し防止材は水を通して土砂を止めるろ過で、先に見るのは目詰まりを含む長期の安定性。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 12px; fill: #1a3a5c; }
+      .tb { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .h { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .p { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .soil { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .gnd { fill: #d7d7d7; }
+      .pw { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .pb { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .pg { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .grid { fill: none; stroke: #222; stroke-width: 2; }
+      .gridx { fill: none; stroke: #222; stroke-width: 8; stroke-dasharray: 1.5 6.5; }
+      .wa { fill: none; stroke: #2e6da4; stroke-width: 2.5; }
+      .sheet { fill: none; stroke: #222; stroke-width: 3; }
+      .dot { fill: #8a8a8a; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+    <marker id="ak" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#222"/></marker>
+  </defs>
+
+  <!-- 補強 -->
+  <rect class="p" x="10" y="10" width="380" height="156" rx="8"/>
+  <rect class="gnd" x="20" y="150" width="190" height="8"/>
+  <polygon class="soil" points="24,150 62,40 168,40 206,150"/>
+  <path class="grid" d="M55,70H175M46,96H184M37,122H193"/>
+  <path class="gridx" d="M55,70H175M46,96H184M37,122H193"/>
+  <path d="M100,83H64" fill="none" stroke="#222" stroke-width="2" marker-end="url(#ak)"/>
+  <path d="M140,83H176" fill="none" stroke="#222" stroke-width="2" marker-end="url(#ak)"/>
+  <text class="tb" x="120" y="87" text-anchor="middle">引張</text>
+  <rect class="pw" x="222" y="24" width="46" height="20" rx="10"/><text class="h" x="245" y="38" text-anchor="middle">補強</text>
+  <text class="n" x="222" y="66">ジオグリッド</text>
+  <text class="t" x="222" y="86">盛土の中で</text><text class="t" x="222" y="102">引張を受け持つ</text>
+  <text x="222" y="126">先に見る性能</text><text class="tb" x="222" y="144">引張強さ</text>
+
+  <!-- 排水 -->
+  <rect class="p" x="10" y="172" width="380" height="156" rx="8"/>
+  <rect class="gnd" x="20" y="312" width="190" height="8"/>
+  <polygon class="soil" points="24,312 62,202 168,202 206,312"/>
+  <path class="wa" d="M90,214V256" marker-end="url(#ah)"/><path class="wa" d="M120,214V256" marker-end="url(#ah)"/><path class="wa" d="M150,214V256" marker-end="url(#ah)"/>
+  <polygon points="42,264 198,264 195,284 39,284" style="fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5"/>
+  <path class="wa" d="M120,274H30" style="stroke-width:2" marker-end="url(#ah)"/><path class="wa" d="M120,274H210" style="stroke-width:2" marker-end="url(#ah)"/>
+  <rect class="pb" x="222" y="186" width="46" height="20" rx="10"/><text class="h" x="245" y="200" text-anchor="middle">排水</text>
+  <text class="n" x="222" y="228">盛土内の排水</text>
+  <text class="t" x="222" y="248">水を集めて</text><text class="t" x="222" y="264">外へ逃がす</text>
+  <text x="222" y="288">先に見る性能</text><text class="tb" x="222" y="306">施工中の短期の通水</text>
+
+  <!-- ろ過 -->
+  <rect class="p" x="10" y="334" width="380" height="156" rx="8"/>
+  <polygon class="soil" points="160,354 205,354 205,470 76,470"/>
+  <polygon points="20,400 106.7,400 56,470 20,470" style="fill:#e8f0fe;stroke:none"/>
+  <path d="M20,400H106.7" fill="none" stroke="#2e6da4" stroke-width="1.5"/>
+  <polygon points="140,354 156,354 72,470 56,470" style="fill:#d7d7d7;stroke:#8a8a8a;stroke-width:1.5"/>
+  <path class="sheet" d="M160,354L76,470"/>
+  <circle class="dot" cx="125" cy="408" r="2.2"/><circle class="dot" cx="132" cy="412" r="2.2"/><circle class="dot" cx="120" cy="418" r="2.2"/><circle class="dot" cx="127" cy="422" r="2.2"/>
+  <circle class="dot" cx="102" cy="442" r="2.2"/><circle class="dot" cx="109" cy="446" r="2.2"/><circle class="dot" cx="96" cy="452" r="2.2"/><circle class="dot" cx="103" cy="456" r="2.2"/>
+  <path class="wa" d="M192,430H70" marker-end="url(#ah)"/>
+  <text x="30" y="456">川</text><text x="184" y="384">土</text>
+  <rect class="pg" x="222" y="348" width="124" height="20" rx="10"/><text class="h" x="284" y="362" text-anchor="middle">ろ過（吸出し防止）</text>
+  <text class="n" x="222" y="390">護岸の吸出し防止材</text>
+  <text class="t" x="222" y="410">水は通し、</text><text class="t" x="222" y="426">土砂は止める</text>
+  <text x="222" y="450">先に見る性能</text><text class="tb" x="222" y="468">目詰まりを含む</text><text class="tb" x="222" y="484">長期の安定性</text>
+</svg>

@@ -1,0 +1,55 @@
+<!-- authored 2026-10-15 doboku-note 自作。説明の順は国土交通省の公共事業の構想段階における計画策定プロセスガイドライン（概要）を参考にして再構成した。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="事業の説明を組み立てる順の流れ図。何を決めたいか、必要性と課題、複数の案、比較、選んだ理由、これから、の順に並べる。比較の段では図と数値で客観的に示し、選んだ理由の段では重視した観点とその理由を書き、最後に聴いた意見を整理して対応を返す。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 11px; fill: #555; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .g { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .l { stroke: #d7d7d7; stroke-width: 1; fill: none; }
+      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+    <marker id="at" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+  <rect class="b" x="20" y="12" width="360" height="66" rx="8"/>
+  <circle cx="46" cy="45.0" r="12" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="t" x="46" y="50.0" text-anchor="middle">1</text>
+  <text class="n" x="70" y="41.0">何を決めたいか</text>
+  <text class="s" x="70" y="61.0">目的と、いま決めようとしていること</text>
+  <path class="a" d="M200.0,80L200.0,92" marker-end="url(#ah)"/>
+  <rect class="b" x="20" y="94" width="360" height="66" rx="8"/>
+  <circle cx="46" cy="127.0" r="12" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="t" x="46" y="132.0" text-anchor="middle">2</text>
+  <text class="n" x="70" y="123.0">必要性と課題</text>
+  <text class="s" x="70" y="143.0">なぜ必要か、何が課題か</text>
+  <path class="a" d="M200.0,162L200.0,174" marker-end="url(#ah)"/>
+  <rect class="b" x="20" y="176" width="360" height="66" rx="8"/>
+  <circle cx="46" cy="209.0" r="12" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="t" x="46" y="214.0" text-anchor="middle">3</text>
+  <text class="n" x="70" y="205.0">複数の案</text>
+  <text class="s" x="70" y="225.0">目的を達成できる案を並べる</text>
+  <path class="a" d="M200.0,244L200.0,256" marker-end="url(#ah)"/>
+  <rect class="b" x="20" y="258" width="360" height="66" rx="8"/>
+  <circle cx="46" cy="291.0" r="12" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="t" x="46" y="296.0" text-anchor="middle">4</text>
+  <text class="n" x="70" y="287.0">比較</text>
+  <text class="s" x="70" y="307.0">図と数値で客観的に</text>
+  <path class="a" d="M200.0,326L200.0,338" marker-end="url(#ah)"/>
+  <rect class="w" x="20" y="340" width="360" height="66" rx="8"/>
+  <circle cx="46" cy="373.0" r="12" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="t" x="46" y="378.0" text-anchor="middle">5</text>
+  <text class="n" x="70" y="369.0">選んだ理由</text>
+  <text class="s" x="70" y="389.0">重視した観点とその理由</text>
+  <path class="a" d="M200.0,408L200.0,420" marker-end="url(#ah)"/>
+  <rect class="p" x="20" y="422" width="360" height="66" rx="8"/>
+  <circle cx="46" cy="455.0" r="12" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="t" x="46" y="460.0" text-anchor="middle">6</text>
+  <text class="n" x="70" y="451.0">これから・意見の窓口</text>
+  <text class="s" x="70" y="471.0">聴いた意見は整理し、対応を返す</text>
+</svg>

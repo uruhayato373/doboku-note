@@ -1,0 +1,73 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は道路法第24条・第32条、道路交通法第77条と、窓口の早見（承認・占用・使用許可）。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="窓口に来る相談ごとに、承認・占用の許可・使用許可のどれが要るかを示した早見表。歩道の切り下げと側溝の蓋は承認が要り、工事中に規制や作業が出るなら使用許可も要る。足場や囲いを道路に出す場合と、水道管のために道路を掘る場合は、占用の許可と使用許可が要る。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }  /* ink-body */
+      .s { font-size: 11px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .b { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .l { font-size: 12px; font-weight: bold; fill: #222; }  /* ink-strong */
+      .hd { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }  /* surface */
+      .no { fill: #fff; stroke: #d7d7d7; stroke-width: 1; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }  /* brand-fill / brand */
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }  /* warn-fill / warn */
+    </style>
+  </defs>
+  <rect class="hd" x="10" y="10" width="124" height="86" rx="6"/>
+  <text class="n" x="72" y="58" text-anchor="middle">相談の例</text>
+  <rect class="hd" x="140" y="10" width="80" height="86" rx="6"/>
+  <text class="n" x="180" y="30" text-anchor="middle">承認</text>
+  <text class="s" x="180" y="50" text-anchor="middle">道路法</text>
+  <text class="s" x="180" y="66" text-anchor="middle">第24条</text>
+  <text class="s" x="180" y="84" text-anchor="middle" style="font-weight:bold;fill:#1a3a5c">管理者</text>
+  <rect class="hd" x="225" y="10" width="80" height="86" rx="6"/>
+  <text class="n" x="265" y="30" text-anchor="middle">占用</text>
+  <text class="s" x="265" y="50" text-anchor="middle">道路法</text>
+  <text class="s" x="265" y="66" text-anchor="middle">第32条</text>
+  <text class="s" x="265" y="84" text-anchor="middle" style="font-weight:bold;fill:#1a3a5c">管理者</text>
+  <rect class="hd" x="310" y="10" width="80" height="86" rx="6"/>
+  <text class="n" x="350" y="30" text-anchor="middle">使用許可</text>
+  <text class="s" x="350" y="50" text-anchor="middle">道路交通法</text>
+  <text class="s" x="350" y="66" text-anchor="middle">第77条</text>
+  <text class="s" x="350" y="84" text-anchor="middle" style="font-weight:bold;fill:#1a3a5c">警察署長</text>
+  <rect class="no" x="10" y="104" width="124" height="80" rx="6"/>
+  <text class="l" x="20" y="130">出入口をつくる</text>
+  <text class="l" x="20" y="148">ための歩道の</text>
+  <text class="l" x="20" y="166">切り下げ</text>
+  <rect class="brand" x="140" y="104" width="80" height="80" rx="6"/>
+  <text class="b" x="180" y="149" text-anchor="middle">要</text>
+  <rect class="no" x="225" y="104" width="80" height="80" rx="6"/>
+  <text class="s" x="265" y="148" text-anchor="middle">―</text>
+  <rect class="warn" x="310" y="104" width="80" height="80" rx="6"/>
+  <text class="n" x="350" y="149" text-anchor="middle">条件付き</text>
+  <rect class="no" x="10" y="190" width="124" height="80" rx="6"/>
+  <text class="l" x="20" y="234">側溝に蓋をかける</text>
+  <rect class="brand" x="140" y="190" width="80" height="80" rx="6"/>
+  <text class="b" x="180" y="235" text-anchor="middle">要</text>
+  <rect class="no" x="225" y="190" width="80" height="80" rx="6"/>
+  <text class="s" x="265" y="234" text-anchor="middle">―</text>
+  <rect class="warn" x="310" y="190" width="80" height="80" rx="6"/>
+  <text class="n" x="350" y="235" text-anchor="middle">条件付き</text>
+  <rect class="no" x="10" y="276" width="124" height="80" rx="6"/>
+  <text class="l" x="20" y="311">工事用の足場や</text>
+  <text class="l" x="20" y="329">囲いを道路に出す</text>
+  <rect class="no" x="140" y="276" width="80" height="80" rx="6"/>
+  <text class="s" x="180" y="320" text-anchor="middle">―</text>
+  <rect class="brand" x="225" y="276" width="80" height="80" rx="6"/>
+  <text class="b" x="265" y="321" text-anchor="middle">要</text>
+  <rect class="brand" x="310" y="276" width="80" height="80" rx="6"/>
+  <text class="b" x="350" y="321" text-anchor="middle">要</text>
+  <rect class="no" x="10" y="362" width="124" height="80" rx="6"/>
+  <text class="l" x="20" y="397">水道管を引くため</text>
+  <text class="l" x="20" y="415">道路を掘る</text>
+  <rect class="no" x="140" y="362" width="80" height="80" rx="6"/>
+  <text class="s" x="180" y="406" text-anchor="middle">―</text>
+  <rect class="brand" x="225" y="362" width="80" height="80" rx="6"/>
+  <text class="b" x="265" y="407" text-anchor="middle">要</text>
+  <rect class="brand" x="310" y="362" width="80" height="80" rx="6"/>
+  <text class="b" x="350" y="407" text-anchor="middle">要</text>
+  <rect class="brand" x="10" y="450" width="22" height="16" rx="3"/>
+  <text class="s" x="40" y="462">要＝その手続きが必要</text>
+  <rect class="warn" x="10" y="472" width="22" height="16" rx="3"/>
+  <text class="s" x="40" y="484">条件付き＝工事中に規制や作業が出るとき</text>
+</svg>

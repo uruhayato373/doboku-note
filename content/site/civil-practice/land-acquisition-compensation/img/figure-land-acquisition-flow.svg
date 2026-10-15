@@ -1,0 +1,67 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は国土交通省の用地取得のあらましと土地収用法第16条・第20条・第36条・第39条・第116条。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="用地取得の流れと収用への分かれ道を示した図。左の本線は事業計画の説明、幅杭の設置、土地・物件の調査と調書、補償額の算定、補償説明と用地交渉、契約、登記・移転・引渡し、支払いの順。用地交渉で合意できない場合は右の分岐に進み、事業の認定、土地調書・物件調書、収用委員会への裁決申請へ進む。裁決申請の代わりに協議の確認もある。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 11px; fill: #555; }
+      .bb { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .bp { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .bw { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .bd { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .bs { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .aw { stroke: #d4a017; stroke-width: 2; fill: none; }
+      .ag { stroke: #555; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+    <marker id="aw" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#d4a017"/></marker>
+    <marker id="ag" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+  <rect class="bb" x="10" y="12" width="180" height="44" rx="8"/>
+  <text class="n" x="100" y="38.5" text-anchor="middle">事業計画の説明</text>
+  <path class="a" d="M100.0,56V68" marker-end="url(#ah)"/>
+  <rect class="bb" x="10" y="70" width="180" height="44" rx="8"/>
+  <text class="n" x="100" y="96.5" text-anchor="middle">幅杭の設置</text>
+  <path class="a" d="M100.0,114V126" marker-end="url(#ah)"/>
+  <rect class="bb" x="10" y="128" width="180" height="44" rx="8"/>
+  <text class="n" x="100" y="154.5" text-anchor="middle">土地・物件の調査と調書</text>
+  <path class="a" d="M100.0,172V184" marker-end="url(#ah)"/>
+  <rect class="bb" x="10" y="186" width="180" height="44" rx="8"/>
+  <text class="n" x="100" y="212.5" text-anchor="middle">補償額の算定</text>
+  <path class="a" d="M100.0,230V242" marker-end="url(#ah)"/>
+  <rect class="bb" x="10" y="244" width="180" height="44" rx="8"/>
+  <text class="n" x="100" y="270.5" text-anchor="middle">補償説明と用地交渉</text>
+  <path class="a" d="M100.0,288V300" marker-end="url(#ah)"/>
+  <rect class="bb" x="10" y="302" width="180" height="44" rx="8"/>
+  <text class="n" x="100" y="328.5" text-anchor="middle">契約</text>
+  <path class="a" d="M100.0,346V358" marker-end="url(#ah)"/>
+  <rect class="bb" x="10" y="360" width="180" height="44" rx="8"/>
+  <text class="n" x="100" y="386.5" text-anchor="middle">登記・移転・引渡し</text>
+  <path class="a" d="M100.0,404V416" marker-end="url(#ah)"/>
+  <rect class="bb" x="10" y="418" width="180" height="44" rx="8"/>
+  <text class="n" x="100" y="444.5" text-anchor="middle">支払い</text>
+  <text class="t" x="222" y="236">合意できない場合</text>
+  <path class="aw" d="M190,266.0H220" marker-end="url(#aw)"/>
+  <rect class="bw" x="222" y="244" width="168" height="44" rx="8"/>
+  <text class="n" x="306" y="263" text-anchor="middle">事業の認定</text>
+  <text class="s" x="306" y="279" text-anchor="middle">第16条・第20条</text>
+  <path class="aw" d="M306.0,288V300" marker-end="url(#aw)"/>
+  <rect class="bw" x="222" y="302" width="168" height="44" rx="8"/>
+  <text class="n" x="306" y="321" text-anchor="middle">土地調書・物件調書</text>
+  <text class="s" x="306" y="337" text-anchor="middle">第36条</text>
+  <path class="aw" d="M306.0,346V358" marker-end="url(#aw)"/>
+  <rect class="bw" x="222" y="360" width="168" height="44" rx="8"/>
+  <text class="n" x="306" y="379" text-anchor="middle">収用委員会へ裁決申請</text>
+  <text class="s" x="306" y="395" text-anchor="middle">第39条</text>
+  <rect class="bs" x="284.0" y="409" width="44" height="18" rx="9"/>
+  <text class="t" x="306.0" y="422" text-anchor="middle">または</text>
+  <rect class="bw" x="222" y="430" width="168" height="44" rx="8"/>
+  <text class="n" x="306" y="449" text-anchor="middle">協議の確認</text>
+  <text class="s" x="306" y="465" text-anchor="middle">第116条</text>
+  <rect class="bb" x="222" y="14" width="22" height="14" rx="3"/>
+  <text x="252" y="26">任意の取得（本線）</text>
+  <rect class="bw" x="222" y="38" width="22" height="14" rx="3"/>
+  <text x="252" y="50">収用の手続（分岐）</text>
+</svg>

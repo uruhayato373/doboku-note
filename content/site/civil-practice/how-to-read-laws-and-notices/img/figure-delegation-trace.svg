@@ -1,0 +1,52 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は道路法第32条第1項第7号の「政令で定めるもの」と道路法施行令第7条第4号・第5号。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="法律の「政令で定める」から施行令へたどる流れ。道路法第32条第1項第7号の政令で定めるものから、道路法施行令第7条に降り、第4号の工事用板囲・足場・詰所その他の工事用施設、第5号の工事用材料へ着く。歩道に足場や詰所を置く相談は第4号に当たり、許可の対象になる。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }
+      .h { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .n { font-size: 16px; font-weight: bold; fill: #1a3a5c; }
+      .d { font-size: 13px; fill: #1a3a5c; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .y { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .a { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+
+  <rect class="b" x="10" y="12" width="380" height="116" rx="8"/>
+  <rect class="y" x="22" y="24" width="46" height="20" rx="10"/>
+  <text class="h" x="45" y="38" text-anchor="middle">法律</text>
+  <text class="n" x="22" y="70">道路法 第32条第1項 第7号</text>
+  <text class="d" x="22" y="94">…工作物、物件又は施設で</text>
+  <rect class="y" x="22" y="102" width="172" height="20" rx="4"/>
+  <text class="h" x="32" y="116" style="font-size:13px">「政令で定めるもの」</text>
+
+  <path class="a" d="M102,130V164" marker-end="url(#ah)"/>
+  <text x="116" y="152">「政令で定める」の印から降りる</text>
+
+  <rect class="b" x="10" y="166" width="380" height="76" rx="8"/>
+  <rect class="y" x="22" y="178" width="46" height="20" rx="10"/>
+  <text class="h" x="45" y="192" text-anchor="middle">政令</text>
+  <text class="n" x="22" y="224">道路法施行令 第7条</text>
+  <text class="d" x="218" y="224">委任を受けた物件の一覧</text>
+
+  <path class="a" d="M102,244V276" marker-end="url(#ah)"/>
+  <path class="a" d="M297,244V276" marker-end="url(#ah)"/>
+
+  <rect class="g" x="10" y="278" width="185" height="100" rx="8"/>
+  <text class="n" x="24" y="306">第4号</text>
+  <text class="d" x="24" y="332">工事用板囲、足場、詰所</text>
+  <text class="d" x="24" y="352">その他の工事用施設</text>
+  <rect class="g" x="205" y="278" width="185" height="100" rx="8"/>
+  <text class="n" x="219" y="306">第5号</text>
+  <text class="d" x="219" y="332">土石、竹木、瓦その他の</text>
+  <text class="d" x="219" y="352">工事用材料</text>
+
+  <path class="a" d="M102,380V412" marker-end="url(#ah)"/>
+  <text x="116" y="402">相談の物件が当たる号まで降りる</text>
+
+  <rect class="y" x="10" y="414" width="380" height="76" rx="8"/>
+  <text class="n" x="24" y="444">歩道に足場や詰所を置く相談</text>
+  <text class="d" x="24" y="470">第4号に当たり、占用許可の対象</text>
+</svg>

@@ -37,12 +37,6 @@ cover:
 
 直前に答案を人の目で確かめたいときは、ココナラで個別に受け付けています。書いた答案があれば添削、まだ書けていなければヒアリングから骨子（構成）をつくります。
 
-1級（全5テーマ）
-
-https://coconala.com/services/4418735
-
-https://coconala.com/services/4350199
-
 2級（全3テーマ）
 
 https://coconala.com/services/4418778

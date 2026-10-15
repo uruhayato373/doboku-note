@@ -41,13 +41,6 @@ cover:
 
 ---
 
-<!-- cta:coconala-custom -->
-自分の答案を人の目で確かめたいときは、ココナラで個別に対応しています。書いた答案があれば全5テーマの添削、まだ書けていなければヒアリングから骨子（構成）をつくります。
-
-https://coconala.com/services/4418735
-
-https://coconala.com/services/4350199
-
 本記事は「1級土木 施工経験記述 2テーマ組合せ大全」の収録記事です。当日指定される2テーマの全10組合せを、同じ工事で書き分けた答案集です。
 
 https://note.com/dobokunote/m/m74cfd7c695d6

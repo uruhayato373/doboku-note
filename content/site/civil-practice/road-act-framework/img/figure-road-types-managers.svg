@@ -1,0 +1,66 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は道路法第3条・第5条・第7条・第8条・第13条・第15〜17条・第49条。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="道路の4種類を、路線の決め方と管理者で並べた図。高速自動車国道と一般国道は政令で路線を指定し、国土交通大臣が管理する。ただし一般国道の指定区間外は都道府県。都道府県道は知事が認定して都道府県が、市町村道は市町村長が認定して市町村が管理する。費用は原則管理者の負担。指定市・市・町村には管理の特例がある。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }  /* ink-body */
+      .h { font-size: 11px; fill: #8a8a8a; }  /* ink-muted */
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .b { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .k { fill: #1a3a5c; }
+      .tag { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }  /* surface */
+      .src { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }  /* brand-fill / brand */
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }  /* warn-fill / warn */
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }  /* positive-fill / positive */
+    </style>
+  </defs>
+
+  <text class="h" x="10" y="17">種類</text>
+  <text class="h" x="108" y="17">路線の決め方</text>
+  <text class="h" x="258" y="17">管理者</text>
+
+  <rect class="tag" x="10" y="24" width="90" height="66" rx="6"/>
+  <text class="n" x="55" y="52" text-anchor="middle">高速自動車</text>
+  <text class="n" x="55" y="70" text-anchor="middle">国道</text>
+  <rect class="src" x="108" y="24" width="142" height="66" rx="6"/>
+  <text class="k" x="118" y="62" style="fill:#222">政令で路線を指定</text>
+  <rect class="brand" x="258" y="24" width="132" height="66" rx="6"/>
+  <text class="b" x="268" y="62">国土交通大臣</text>
+
+  <rect class="tag" x="10" y="98" width="90" height="66" rx="6"/>
+  <text class="n" x="55" y="136" text-anchor="middle">一般国道</text>
+  <rect class="src" x="108" y="98" width="142" height="66" rx="6"/>
+  <text class="k" x="118" y="136" style="fill:#222">政令で路線を指定</text>
+  <rect class="brand" x="258" y="98" width="132" height="34" rx="6"/>
+  <text class="b" x="268" y="119">内＝国土交通大臣</text>
+  <rect class="warn" x="258" y="132" width="132" height="32" rx="6"/>
+  <text class="b" x="268" y="153">外＝都道府県</text>
+
+  <rect class="tag" x="10" y="172" width="90" height="66" rx="6"/>
+  <text class="n" x="55" y="210" text-anchor="middle">都道府県道</text>
+  <rect class="src" x="108" y="172" width="142" height="66" rx="6"/>
+  <text class="k" x="118" y="200" style="fill:#222">知事が議会の議決</text>
+  <text class="k" x="118" y="218" style="fill:#222">を経て認定</text>
+  <rect class="warn" x="258" y="172" width="132" height="66" rx="6"/>
+  <text class="b" x="268" y="202">その路線のある</text>
+  <text class="b" x="268" y="220">都道府県</text>
+
+  <rect class="tag" x="10" y="246" width="90" height="66" rx="6"/>
+  <text class="n" x="55" y="284" text-anchor="middle">市町村道</text>
+  <rect class="src" x="108" y="246" width="142" height="66" rx="6"/>
+  <text class="k" x="118" y="274" style="fill:#222">市町村長が議会の</text>
+  <text class="k" x="118" y="292" style="fill:#222">議決を経て認定</text>
+  <rect class="pos" x="258" y="246" width="132" height="66" rx="6"/>
+  <text class="b" x="268" y="276">その路線のある</text>
+  <text class="b" x="268" y="294">市町村</text>
+
+  <rect class="brand" x="10" y="322" width="380" height="36" rx="6"/>
+  <text class="b" x="200" y="345" text-anchor="middle">費用は、特別の規定がなければ管理者の負担</text>
+
+  <rect class="warn" x="10" y="368" width="380" height="122" rx="8"/>
+  <text class="n" x="22" y="390">管理者が入れ替わる特例（第17条）</text>
+  <text class="k" x="22" y="412" style="fill:#222">指定市：指定区間外の国道・県道を当然に管理</text>
+  <text class="k" x="22" y="432" style="fill:#222">他の市：県の同意で、指定区間外の国道・県道を管理</text>
+  <text class="k" x="22" y="452" style="fill:#222">町村：県の同意で、県道を管理（国道は対象外）</text>
+  <text class="k" x="22" y="472" style="fill:#222">他の市町村：同意で、国道・県道の歩道などを工事</text>
+</svg>

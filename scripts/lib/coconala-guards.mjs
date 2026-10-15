@@ -341,3 +341,29 @@ export function resolveThumb({ id, approvedPath = null, flatPath, has, renderabl
   if (renderable) return { ok: true, source: 'renderable', where: null, warn };
   return { ok: false, source: null, where: null, warn: null };
 }
+
+/**
+ * 記事が受付していない（paused）ココナラ出品へ送っていないかを見る（2026-10-15）。
+ * 1級の添削を休止したあと、note の 1級記事 194 本が休止中の出品（4418735・4350199）へ読者を送り続けていた。
+ * @param {{ path: string, text: string }[]} files 記事の本文
+ * @param {{ id: string, status: string, serviceUrl?: string }[]} services カタログ
+ * @returns {{ path: string, line: number, serviceId: string, id: string|null, status: string }[]} 受付していない出品へのリンク
+ */
+export function findPausedServiceLinks(files, services) {
+  const byServiceId = new Map();
+  for (const s of services) {
+    const m = /coconala\.com\/services\/(\d+)/.exec(s.serviceUrl ?? '');
+    if (m) byServiceId.set(m[1], s);
+  }
+  const out = [];
+  for (const f of files) {
+    f.text.split(/\r?\n/).forEach((line, i) => {
+      for (const m of line.matchAll(/coconala\.com\/services\/(\d+)/g)) {
+        const s = byServiceId.get(m[1]);
+        if (!s || s.status !== 'listed') out.push({ path: f.path, line: i + 1, serviceId: m[1], id: s?.id ?? null, status: s?.status ?? 'カタログに無い' });
+      }
+    });
+  }
+  return out;
+}
+

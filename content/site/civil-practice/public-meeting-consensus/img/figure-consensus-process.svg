@@ -1,0 +1,61 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は国土交通省の構想段階の計画策定プロセスガイドラインが示す、説明会の準備から意見への回答までの手順（範囲の把握・手法の選択・意見の把握・意見の整理・採否の理由の説明）。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="説明会の準備から回答までの流れ図。範囲の把握、手法の選択、開催と記録、意見の整理、採否の理由の回答と公表の順に進む。範囲の把握は事業の特性と受益と負担、手法の選択は目的・相手・予算と時間、意見の整理は趣旨・件数・対応・理由の表、回答では採用しない理由を具体的に説明する。">
+  <defs>
+  <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .n { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .m { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 12px; fill: #1a3a5c; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .ok { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .sf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .d { stroke: #8a8a8a; stroke-width: 1.5; stroke-dasharray: 3 3; fill: none; }
+  </style>
+  <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+
+  <rect class="b" x="14" y="16" width="216" height="68" rx="8"/>
+  <circle cx="40" cy="50" r="12" style="fill:#fff;stroke:#2e6da4;stroke-width:1.5"/>
+  <text class="m" x="40" y="54" text-anchor="middle">1</text>
+  <text class="n" x="62" y="55">範囲の把握</text>
+  <rect class="sf" x="250" y="25" width="136" height="50" rx="8"/>
+  <path class="d" d="M231,50H249"/>
+  <text class="t" x="318" y="46" text-anchor="middle">事業の特性</text>
+  <text class="t" x="318" y="63" text-anchor="middle">受益と負担</text>
+  <rect class="b" x="14" y="112" width="216" height="68" rx="8"/>
+  <circle cx="40" cy="146" r="12" style="fill:#fff;stroke:#2e6da4;stroke-width:1.5"/>
+  <text class="m" x="40" y="150" text-anchor="middle">2</text>
+  <text class="n" x="62" y="151">手法の選択</text>
+  <rect class="sf" x="250" y="121" width="136" height="50" rx="8"/>
+  <path class="d" d="M231,146H249"/>
+  <text class="t" x="318" y="142" text-anchor="middle">目的・相手</text>
+  <text class="t" x="318" y="159" text-anchor="middle">予算と時間</text>
+  <rect class="b" x="14" y="208" width="216" height="68" rx="8"/>
+  <circle cx="40" cy="242" r="12" style="fill:#fff;stroke:#2e6da4;stroke-width:1.5"/>
+  <text class="m" x="40" y="246" text-anchor="middle">3</text>
+  <text class="n" x="62" y="247">開催と記録</text>
+  <rect class="sf" x="250" y="217" width="136" height="50" rx="8"/>
+  <path class="d" d="M231,242H249"/>
+  <text class="t" x="318" y="246" text-anchor="middle">意見を把握する</text>
+  <rect class="b" x="14" y="304" width="216" height="68" rx="8"/>
+  <circle cx="40" cy="338" r="12" style="fill:#fff;stroke:#2e6da4;stroke-width:1.5"/>
+  <text class="m" x="40" y="342" text-anchor="middle">4</text>
+  <text class="n" x="62" y="343">意見の整理</text>
+  <rect class="sf" x="250" y="313" width="136" height="50" rx="8"/>
+  <path class="d" d="M231,338H249"/>
+  <text class="t" x="318" y="334" text-anchor="middle">趣旨・件数・対応</text>
+  <text class="t" x="318" y="351" text-anchor="middle">理由の表</text>
+  <rect class="ok" x="14" y="400" width="216" height="68" rx="8"/>
+  <circle cx="40" cy="434" r="12" style="fill:#fff;stroke:#3a7d44;stroke-width:1.5"/>
+  <text class="m" x="40" y="438" text-anchor="middle">5</text>
+  <text class="n" x="62" y="439">採否の理由の回答と公表</text>
+  <rect class="sf" x="250" y="409" width="136" height="50" rx="8"/>
+  <path class="d" d="M231,434H249"/>
+  <text class="t" x="318" y="430" text-anchor="middle">採用しない理由を</text>
+  <text class="t" x="318" y="447" text-anchor="middle">具体的に丁寧に</text>
+  <path class="a" d="M122,84V111" marker-end="url(#ah)"/>
+  <path class="a" d="M122,180V207" marker-end="url(#ah)"/>
+  <path class="a" d="M122,276V303" marker-end="url(#ah)"/>
+  <path class="a" d="M122,372V399" marker-end="url(#ah)"/>
+</svg>

@@ -45,13 +45,13 @@ export function titleSignals(videos, signals) {
   });
 }
 
-/** 一覧全体の要約 */
+/** 一覧全体の要約。再生数が 1 本も取れなければ合計は null（「0 回」と「取れなかった」を混ぜない・DN-0697） */
 export function summarize(videos) {
   const withViews = videos.filter((v) => Number.isFinite(v.views));
   return {
     sampled: videos.length,
     withViews: withViews.length,
-    totalViews: withViews.reduce((sum, v) => sum + v.views, 0),
+    totalViews: withViews.length ? withViews.reduce((sum, v) => sum + v.views, 0) : null,
     medianViews: median(withViews.map((v) => v.views)),
     medianDurationSec: median(videos.map((v) => v.durationSec)),
   };

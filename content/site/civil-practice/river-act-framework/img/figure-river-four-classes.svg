@@ -1,0 +1,75 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は河川法第3条・第4条・第5条・第9条・第10条・第100条と河川法施行令第2条・第55条。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="管内の川の四区分を並べた図。一級河川は国土交通大臣が指定し国が管理する。二級河川は都道府県知事が指定し管理する。準用河川は市町村長が指定し管理し、二級河川の規定を準用する。普通河川は指定がなく河川法の適用外で、市町村が条例などで扱う。準用河川では、都道府県知事を市町村長、都道府県を市町村、国土交通大臣を都道府県知事と読み替える。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }  /* ink-body */
+      .h { font-size: 11px; fill: #8a8a8a; }  /* ink-muted */
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .b { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .k { fill: #222; }  /* ink-strong */
+      .tag { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }  /* surface */
+      .src { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }  /* brand-fill / brand */
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }  /* warn-fill / warn */
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }  /* positive-fill / positive */
+      .a { stroke: #3a7d44; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#3a7d44"/></marker>
+  </defs>
+  <text class="h" x="10" y="28">区分</text>
+  <text class="h" x="79" y="28">指定する人</text>
+  <text class="h" x="172" y="28">管理する人</text>
+  <text class="h" x="279" y="28">適用される法</text>
+  <rect class="tag" x="10" y="38" width="64" height="74" rx="6"/>
+  <text class="n" x="42.0" y="72.0" text-anchor="middle">一級</text>
+  <text class="n" x="42.0" y="90.0" text-anchor="middle">河川</text>
+  <rect class="src" x="79" y="38" width="88" height="74" rx="6"/>
+  <text class="k" x="87" y="79">国土交通大臣</text>
+  <rect class="brand" x="172" y="38" width="102" height="74" rx="6"/>
+  <text class="b" x="180" y="61">国</text>
+  <text class="b" x="180" y="79">（指定区間は</text>
+  <text class="b" x="180" y="97">県などが一部）</text>
+  <rect class="src" x="279" y="38" width="111" height="74" rx="6"/>
+  <text class="k" x="287" y="79">河川法</text>
+  <rect class="tag" x="10" y="118" width="64" height="74" rx="6"/>
+  <text class="n" x="42.0" y="152.0" text-anchor="middle">二級</text>
+  <text class="n" x="42.0" y="170.0" text-anchor="middle">河川</text>
+  <rect class="src" x="79" y="118" width="88" height="74" rx="6"/>
+  <text class="k" x="87" y="159">都道府県知事</text>
+  <rect class="warn" x="172" y="118" width="102" height="74" rx="6"/>
+  <text class="b" x="180" y="159">都道府県</text>
+  <rect class="src" x="279" y="118" width="111" height="74" rx="6"/>
+  <text class="k" x="287" y="159">河川法</text>
+  <rect class="tag" x="10" y="198" width="64" height="74" rx="6"/>
+  <text class="n" x="42.0" y="232.0" text-anchor="middle">準用</text>
+  <text class="n" x="42.0" y="250.0" text-anchor="middle">河川</text>
+  <rect class="src" x="79" y="198" width="88" height="74" rx="6"/>
+  <text class="k" x="87" y="239">市町村長</text>
+  <rect class="pos" x="172" y="198" width="102" height="74" rx="6"/>
+  <text class="b" x="180" y="239">市町村長</text>
+  <rect class="src" x="279" y="198" width="111" height="74" rx="6"/>
+  <text class="k" x="287" y="221">二級河川の</text>
+  <text class="k" x="287" y="239">規定を準用</text>
+  <text class="k" x="287" y="257">（第100条）</text>
+  <rect class="tag" x="10" y="278" width="64" height="74" rx="6"/>
+  <text class="n" x="42.0" y="312.0" text-anchor="middle">普通</text>
+  <text class="n" x="42.0" y="330.0" text-anchor="middle">河川</text>
+  <rect class="src" x="79" y="278" width="88" height="74" rx="6"/>
+  <text class="k" x="87" y="319">指定なし</text>
+  <rect class="pos" x="172" y="278" width="102" height="74" rx="6"/>
+  <text class="b" x="180" y="319">市町村</text>
+  <rect class="src" x="279" y="278" width="111" height="74" rx="6"/>
+  <text class="k" x="287" y="310">河川法の適用外</text>
+  <text class="k" x="287" y="328">条例などで扱う</text>
+  <rect class="pos" x="10" y="362" width="380" height="128" rx="8"/>
+  <text class="n" x="22" y="386">準用河川の読替え</text>
+  <text class="k" x="30" y="412">都道府県知事</text>
+  <path class="a" d="M140,408H168" marker-end="url(#ah)"/>
+  <text class="b" x="182" y="412">市町村長</text>
+  <text class="k" x="30" y="438">都道府県</text>
+  <path class="a" d="M140,434H168" marker-end="url(#ah)"/>
+  <text class="b" x="182" y="438">市町村</text>
+  <text class="k" x="30" y="464">国土交通大臣</text>
+  <path class="a" d="M140,460H168" marker-end="url(#ah)"/>
+  <text class="b" x="182" y="464">都道府県知事</text>
+</svg>

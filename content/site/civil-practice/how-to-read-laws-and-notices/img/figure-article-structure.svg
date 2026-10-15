@@ -1,0 +1,47 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は地方自治法第14条（第1〜3項）・第16条第2項の本文とただし書、道路法第32条第1項の柱書と号。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="条文を条・項・号・ただし書に分けて読む構造図。地方自治法第14条は第1項から第3項の三つの項で、条例を定められる範囲、義務を課せるのは条例だけか、罰則を置けるかに答える。第16条第2項は、本文の原則である20日以内の公布と、ただし書の例外である再議その他の措置を分けて読む。号を持つ条文は、柱書と各号を続けて読む。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }
+      .h { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .n { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .d { font-size: 13px; fill: #1a3a5c; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .y { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .x { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; stroke-dasharray: 5 4; }
+      .p { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <rect class="p" x="10" y="10" width="380" height="188" rx="8"/>
+  <text class="n" x="24" y="34">地方自治法 第14条</text>
+  <rect class="b" x="22" y="46" width="62" height="40" rx="6"/><text class="h" x="53" y="71" text-anchor="middle">第1項</text>
+  <text class="d" x="96" y="63">条例を定められる範囲は</text>
+  <text x="96" y="79">「法令に違反しない限りにおいて」</text>
+  <rect class="b" x="22" y="96" width="62" height="40" rx="6"/><text class="h" x="53" y="121" text-anchor="middle">第2項</text>
+  <text class="d" x="96" y="113">義務を課せるのは条例だけか</text>
+  <text x="96" y="129">義務を課し権利を制限するには条例</text>
+  <rect class="b" x="22" y="146" width="62" height="40" rx="6"/><text class="h" x="53" y="171" text-anchor="middle">第3項</text>
+  <text class="d" x="96" y="163">条例に罰則を置けるか</text>
+  <text x="96" y="179">2年以下の拘禁刑、100万円以下の罰金など</text>
+
+  <rect class="p" x="10" y="208" width="380" height="148" rx="8"/>
+  <text class="n" x="24" y="232">地方自治法 第16条第2項</text>
+  <rect class="g" x="22" y="244" width="356" height="46" rx="6"/>
+  <text class="h" x="34" y="262">本文（原則）</text>
+  <text class="d" x="34" y="280">長は、送付から20日以内に公布する</text>
+  <rect class="y" x="22" y="298" width="356" height="46" rx="6"/>
+  <text class="h" x="34" y="316">ただし書（例外）</text>
+  <text class="d" x="34" y="334">再議その他の措置を講じた場合は、この限りでない</text>
+
+  <rect class="p" x="10" y="366" width="380" height="124" rx="8"/>
+  <text class="n" x="24" y="390">号を持つ条文</text>
+  <rect class="x" x="22" y="402" width="356" height="32" rx="6"/>
+  <text class="h" x="34" y="422">柱書</text>
+  <text class="d" x="84" y="422">冒頭の文。各号とつなげて読む</text>
+  <rect class="x" x="22" y="442" width="356" height="38" rx="6"/>
+  <text class="h" x="34" y="460">各号</text>
+  <text class="d" x="84" y="460">例：道路法第32条第1項の第1号〜</text>
+  <text x="84" y="474" style="font-size:11px">地方自治法第14条・第16条第2項に号はない</text>
+</svg>

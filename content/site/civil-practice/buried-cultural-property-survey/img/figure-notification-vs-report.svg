@@ -1,0 +1,54 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は文化財保護法第93条（民間の届出）と第94条（国の機関・地方公共団体等の通知）。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="周知の埋蔵包蔵地を発掘する工事の手続を、民間と自治体の事業で比べた図。民間は第93条で、着手の60日前までに届出を行い、文化庁長官から調査などの指示がある。自治体の事業は第94条で、事業計画の策定に当たりあらかじめ通知を行い、文化庁長官から協議や勧告がある。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 11px; fill: #555; }
+      .bb { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .bp { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .bw { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .bd { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .bs { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .aw { stroke: #d4a017; stroke-width: 2; fill: none; }
+      .ag { stroke: #555; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+    <marker id="aw" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#d4a017"/></marker>
+    <marker id="ag" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+  <rect class="bb" x="10" y="12" width="185" height="476" rx="8"/>
+  <text class="n" x="102.5" y="48" text-anchor="middle" style="font-size:15px">民間の工事</text>
+  <path d="M20,84H185" stroke="#d7d7d7" stroke-width="1" fill="none"/>
+  <text class="s" x="24" y="104">根拠</text>
+  <text class="n" x="102.5" y="140" text-anchor="middle" style="font-size:15px">第93条</text>
+  <path d="M20,176H185" stroke="#d7d7d7" stroke-width="1" fill="none"/>
+  <text class="s" x="24" y="196">手続</text>
+  <text class="n" x="102.5" y="232" text-anchor="middle" style="font-size:15px">届出</text>
+  <path d="M20,268H185" stroke="#d7d7d7" stroke-width="1" fill="none"/>
+  <text class="s" x="24" y="288">出す時期</text>
+  <text class="n" x="102.5" y="340" text-anchor="middle">着手の60日前まで</text>
+  <path d="M20,384H185" stroke="#d7d7d7" stroke-width="1" fill="none"/>
+  <text class="s" x="24" y="404">その後</text>
+  <text class="n" x="102.5" y="434" text-anchor="middle">調査などの指示</text>
+  <text class="s" x="102.5" y="454" text-anchor="middle">文化庁長官から</text>
+  <rect class="bp" x="205" y="12" width="185" height="476" rx="8"/>
+  <text class="n" x="297.5" y="40" text-anchor="middle" style="font-size:15px">自治体の事業</text>
+  <text class="s" x="297.5" y="60" text-anchor="middle">国の機関・法人を含む</text>
+  <path d="M215,84H380" stroke="#d7d7d7" stroke-width="1" fill="none"/>
+  <text class="s" x="219" y="104">根拠</text>
+  <text class="n" x="297.5" y="140" text-anchor="middle" style="font-size:15px">第94条</text>
+  <path d="M215,176H380" stroke="#d7d7d7" stroke-width="1" fill="none"/>
+  <text class="s" x="219" y="196">手続</text>
+  <text class="n" x="297.5" y="232" text-anchor="middle" style="font-size:15px">通知</text>
+  <path d="M215,268H380" stroke="#d7d7d7" stroke-width="1" fill="none"/>
+  <text class="s" x="219" y="288">出す時期</text>
+  <text class="n" x="297.5" y="324" text-anchor="middle">事業計画の策定に当たり、</text>
+  <text class="n" x="297.5" y="344" text-anchor="middle">あらかじめ</text>
+  <path d="M215,384H380" stroke="#d7d7d7" stroke-width="1" fill="none"/>
+  <text class="s" x="219" y="404">その後</text>
+  <text class="n" x="297.5" y="434" text-anchor="middle">協議・勧告</text>
+  <text class="s" x="297.5" y="454" text-anchor="middle">文化庁長官から</text>
+</svg>

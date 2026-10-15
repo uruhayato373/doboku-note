@@ -1,0 +1,65 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は都市公園法第5条・第5条の2・第6条、同法施行令第14条。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="都市公園に持ち込まれた物の入口を、対象物と期間の二軸で比べた図。設置許可は第5条で、公園施設の売店・飲食店などが対象、期間は10年を超えない。占用許可は第6条で、公園施設以外の物が対象、期間は物件ごとに10年・3年・1年・3月。公募設置管理制度は第5条の2以降で、公募対象公園施設が対象、認定の有効期間は20年を超えない。管理者自身が設ける公園施設には許可は要らない。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }
+      .h { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .n { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .v { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .d { font-size: 12px; fill: #1a3a5c; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .y { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .p { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="h" x="62" y="28" text-anchor="middle">入口（条）</text>
+  <text class="h" x="185" y="28" text-anchor="middle">対象物</text>
+  <text class="h" x="323" y="28" text-anchor="middle">期間の上限</text>
+
+  <rect class="b" x="10" y="40" width="104" height="124" rx="8"/>
+  <text class="n" x="24" y="94">設置許可</text>
+  <text class="d" x="24" y="116">第5条</text>
+  <rect class="p" x="120" y="40" width="130" height="124" rx="8"/>
+  <text class="v" x="132" y="68">公園施設</text>
+  <text class="d" x="132" y="92">売店</text>
+  <text class="d" x="132" y="110">飲食店</text>
+  <text class="d" x="132" y="128">駐車場</text>
+  <rect class="p" x="256" y="40" width="134" height="124" rx="8"/>
+  <text class="v" x="268" y="86">10年を</text>
+  <text class="v" x="268" y="106">超えない</text>
+  <text class="d" x="268" y="130">更新も同じ</text>
+
+  <rect class="g" x="10" y="176" width="104" height="124" rx="8"/>
+  <text class="n" x="24" y="230">占用許可</text>
+  <text class="d" x="24" y="252">第6条</text>
+  <rect class="p" x="120" y="176" width="130" height="124" rx="8"/>
+  <text class="v" x="132" y="204">公園施設以外</text>
+  <text class="d" x="132" y="228">電柱・水道管</text>
+  <text class="d" x="132" y="246">ガス管</text>
+  <text class="d" x="132" y="264">仮設舞台</text>
+  <text class="d" x="132" y="282">工事の足場</text>
+  <rect class="p" x="256" y="176" width="134" height="124" rx="8"/>
+  <text class="v" x="268" y="206">10年・3年</text>
+  <text class="v" x="268" y="226">1年・3月</text>
+  <text class="d" x="268" y="256">物件ごとに</text>
+  <text class="d" x="268" y="274">上限が異なる</text>
+
+  <rect class="y" x="10" y="312" width="104" height="124" rx="8"/>
+  <text class="n" x="24" y="356">公募設置</text>
+  <text class="n" x="24" y="376">管理制度</text>
+  <text class="d" x="24" y="398">第5条の2以降</text>
+  <rect class="p" x="120" y="312" width="130" height="124" rx="8"/>
+  <text class="v" x="132" y="340">公募対象</text>
+  <text class="v" x="132" y="360">公園施設</text>
+  <text class="d" x="132" y="388">飲食店・売店など</text>
+  <text class="d" x="132" y="406">公募で選ぶ</text>
+  <rect class="p" x="256" y="312" width="134" height="124" rx="8"/>
+  <text class="d" x="268" y="342">認定の有効期間</text>
+  <text class="v" x="268" y="372">20年を</text>
+  <text class="v" x="268" y="392">超えない</text>
+
+  <rect class="p" x="10" y="448" width="380" height="40" rx="8"/>
+  <text class="d" x="24" y="473">管理者自身が設ける公園施設には許可は要らない</text>
+</svg>

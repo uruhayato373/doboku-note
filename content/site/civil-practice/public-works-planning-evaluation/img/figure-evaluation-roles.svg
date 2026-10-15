@@ -1,0 +1,45 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は補助事業等の再評価・新規事業採択時評価の実施要領（令和7年9月18日施行）が定める、市（実施主体）の資料作成・委員会の意見聴取・対応方針の決定と、本省等の補助金交付等に係る対応方針の決定の分担。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="補助事業の評価で市と国の分担を示した流れ図。市は費用便益比と計画の目標と指標の評価資料を作り、再評価では事業評価監視委員会の意見を聴き、対応方針を決めて決定理由を添えて本省等へ送付する。国の本省等は補助金交付等に係る対応方針を決定する。">
+  <defs>
+  <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .n { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .h { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 12px; fill: #1a3a5c; }
+      .lane { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .wn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+  </style>
+  <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+
+  <rect class="lane" x="8" y="14" width="200" height="472" rx="8"/>
+  <rect class="lane" x="220" y="14" width="172" height="472" rx="8"/>
+  <text class="h" x="108" y="40" text-anchor="middle">市（事業主体）</text>
+  <text class="h" x="306" y="40" text-anchor="middle">国（本省等）</text>
+
+  <rect class="b" x="20" y="62" width="176" height="124" rx="8"/>
+  <text class="n" x="108" y="94" text-anchor="middle">評価の資料を作る</text>
+  <text class="t" x="108" y="126" text-anchor="middle">費用便益比</text>
+  <text class="t" x="108" y="148" text-anchor="middle">計画の目標と指標</text>
+
+  <rect class="b" x="20" y="220" width="176" height="100" rx="8"/>
+  <text class="n" x="108" y="250" text-anchor="middle">事業評価監視委員会</text>
+  <text class="t" x="108" y="274" text-anchor="middle">再評価で意見を聴く</text>
+  <text class="t" x="108" y="294" text-anchor="middle">県の委員会に依頼も可</text>
+
+  <rect class="b" x="20" y="354" width="176" height="100" rx="8"/>
+  <text class="n" x="108" y="384" text-anchor="middle">対応方針を決定</text>
+  <text class="t" x="108" y="408" text-anchor="middle">決定理由を添えて送付</text>
+  <text class="t" x="108" y="428" text-anchor="middle">補助金交付等の要求も</text>
+
+  <rect class="wn" x="230" y="354" width="152" height="100" rx="8"/>
+  <text class="n" x="306" y="384" text-anchor="middle">対応方針を決定</text>
+  <text class="t" x="306" y="408" text-anchor="middle">補助金交付等に係る</text>
+  <text class="t" x="306" y="428" text-anchor="middle">採択・継続・中止</text>
+
+  <path class="a" d="M108,186V219" marker-end="url(#ah)"/>
+  <path class="a" d="M108,320V353" marker-end="url(#ah)"/>
+  <path class="a" d="M197,404H229" marker-end="url(#ah)"/>
+</svg>

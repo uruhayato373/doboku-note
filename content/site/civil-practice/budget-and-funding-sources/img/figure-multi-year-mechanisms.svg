@@ -1,0 +1,78 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は地方自治法第212条〜第215条・第220条第3項ただし書の年度またぎの四つの仕組み。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="年度をまたぐ工事の四つの仕組みを、今年度と翌年度の帯に載せた比較図。継続費は総額と年割額を決めて両年度で支出する。繰越明許費は支出が終わらない見込みを予算で認めて翌年度に繰り越す。債務負担行為は今年度に契約で債務を負い翌年度に支出する。事故繰越しは年度内の支出負担行為のあと避けがたい事故で支払いが終わらず繰り越す予算には載せない仕組み。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .t { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .tb { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 11px; fill: #555; }
+      .k { font-size: 12px; fill: #222; }
+      .b-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .b-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .b-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .b-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .b-g { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .b-x { fill: #fff; stroke: #8a8a8a; stroke-width: 1.5; stroke-dasharray: 4 3; }
+      .a { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+      .l { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+
+  <rect class="b-g" x="14" y="12" width="182" height="28" rx="6"/>
+  <text class="t" x="105" y="31" text-anchor="middle">今年度</text>
+  <rect class="b-g" x="204" y="12" width="182" height="28" rx="6"/>
+  <text class="t" x="295" y="31" text-anchor="middle">翌年度</text>
+  <path d="M200,42V50" stroke="#8a8a8a" stroke-width="1.5" fill="none"/>
+  <path d="M10,54H390" stroke="#d7d7d7" stroke-width="1" fill="none"/>
+  <text class="t" x="14" y="78">継続費</text>
+  <text class="s" x="61" y="78">第212条</text>
+  <rect class="b-b" x="300" y="63" width="86" height="22" rx="11"/>
+  <text class="s" x="343" y="78" text-anchor="middle">予算で定める</text>
+  <path d="M200,88V130" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="4 3" fill="none"/>
+  <rect class="b-b" x="14" y="92" width="182" height="30" rx="4"/>
+  <text class="k" x="105" y="112" text-anchor="middle">支出（年割額）</text>
+  <rect class="b-b" x="204" y="92" width="182" height="30" rx="4"/>
+  <text class="k" x="295" y="112" text-anchor="middle">支出（年割額）</text>
+  <text class="s" x="14" y="146">数年度の総額と年割額を決めて支出する</text>
+  <path d="M10,162H390" stroke="#d7d7d7" stroke-width="1" fill="none"/>
+  <text class="t" x="14" y="186">繰越明許費</text>
+  <text class="s" x="87" y="186">第213条</text>
+  <rect class="b-b" x="300" y="171" width="86" height="22" rx="11"/>
+  <text class="s" x="343" y="186" text-anchor="middle">予算で定める</text>
+  <path d="M200,196V238" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="4 3" fill="none"/>
+  <rect class="b-b" x="14" y="200" width="130" height="30" rx="4"/>
+  <text class="k" x="79" y="220" text-anchor="middle">支出</text>
+  <path class="a" d="M148,215H200" marker-end="url(#ah)"/>
+  <rect class="b-b" x="204" y="200" width="130" height="30" rx="4"/>
+  <text class="k" x="269" y="220" text-anchor="middle">繰り越して支出</text>
+  <text class="s" x="14" y="254">年度内に支出が終わらない見込みを認めておく</text>
+  <path d="M10,270H390" stroke="#d7d7d7" stroke-width="1" fill="none"/>
+  <text class="t" x="14" y="294">債務負担行為</text>
+  <text class="s" x="100" y="294">第214条</text>
+  <rect class="b-b" x="300" y="279" width="86" height="22" rx="11"/>
+  <text class="s" x="343" y="294" text-anchor="middle">予算で定める</text>
+  <path d="M200,304V346" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="4 3" fill="none"/>
+  <rect class="b-p" x="14" y="308" width="100" height="30" rx="4"/>
+  <text class="k" x="64" y="328" text-anchor="middle">契約</text>
+  <path class="a" d="M118,323H200" marker-end="url(#ah)"/>
+  <rect class="b-b" x="204" y="308" width="130" height="30" rx="4"/>
+  <text class="k" x="269" y="328" text-anchor="middle">支出</text>
+  <text class="s" x="14" y="362">今年度の予算の金額を超える債務を契約で負う</text>
+  <path d="M10,378H390" stroke="#d7d7d7" stroke-width="1" fill="none"/>
+  <text class="t" x="14" y="402">事故繰越し</text>
+  <text class="s" x="87" y="402">第220条第3項ただし書</text>
+  <rect class="b-w" x="286" y="387" width="100" height="22" rx="11"/>
+  <text class="s" x="336" y="402" text-anchor="middle">予算には載せない</text>
+  <path d="M200,412V454" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="4 3" fill="none"/>
+  <rect class="b-p" x="14" y="416" width="90" height="30" rx="4"/>
+  <text class="k" x="59" y="436" text-anchor="middle">支出負担行為</text>
+  <path class="a" d="M108,431H122" marker-end="url(#ah)"/>
+  <rect class="b-d" x="126" y="416" width="56" height="30" rx="4"/>
+  <text class="k" x="154" y="436" text-anchor="middle">事故</text>
+  <path class="a" d="M186,431H200" marker-end="url(#ah)"/>
+  <rect class="b-b" x="204" y="416" width="130" height="30" rx="4"/>
+  <text class="k" x="269" y="436" text-anchor="middle">繰り越して支出</text>
+  <text class="s" x="14" y="470">年度内に契約したが、避けがたい事故で支払いが終わらない</text>
+</svg>

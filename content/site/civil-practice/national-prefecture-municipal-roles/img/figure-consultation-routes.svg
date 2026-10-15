@@ -1,0 +1,50 @@
+<!-- authored 2026-10-15 doboku-note 自作。根拠は地方自治法第245条の2・第245条の4、道路法第17条、河川法第16条の3。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="市町村の窓口から国や県へ相談する四つの道筋を並べた図。技術的に迷うときは大臣や知事に助言を求める。国道や県道を管理したいときは県と協議して同意を得る。国や県の川の工事は河川管理者と協議する。国や県から求めがあれば、根拠の法律や政令を確かめる。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 11px; fill: #555; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .g { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .l { stroke: #d7d7d7; stroke-width: 1; fill: none; }
+      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+  <rect class="b" x="10" y="10" width="380" height="46" rx="8"/>
+  <text class="n" x="200" y="38" text-anchor="middle">市町村の窓口</text>
+  <path class="a" d="M24,56L24,444"/>
+  <rect class="g" x="40" y="70" width="350" height="94" rx="8"/>
+  <path class="a" d="M24,117L40,117" marker-end="url(#ah)"/>
+  <rect class="b" x="50" y="80" width="92" height="26" rx="13"/>
+  <text class="t" x="96" y="97" text-anchor="middle">助言を求める</text>
+  <text class="n" x="152" y="97">技術的に迷うとき</text>
+  <text class="s" x="52" y="128">相手：各大臣・都道府県知事</text>
+  <text class="s" x="52" y="148">地方自治法 第245条の4第3項</text>
+  <rect class="g" x="40" y="176" width="350" height="94" rx="8"/>
+  <path class="a" d="M24,223L40,223" marker-end="url(#ah)"/>
+  <rect class="p" x="50" y="186" width="92" height="26" rx="13"/>
+  <text class="t" x="96" y="203" text-anchor="middle">同意を得る</text>
+  <text class="n" x="152" y="203">国道・県道を市が管理するとき</text>
+  <text class="s" x="52" y="234">相手：都道府県（協議のうえ同意）</text>
+  <text class="s" x="52" y="254">道路法 第17条</text>
+  <rect class="g" x="40" y="282" width="350" height="94" rx="8"/>
+  <path class="a" d="M24,329L40,329" marker-end="url(#ah)"/>
+  <rect class="w" x="50" y="292" width="92" height="26" rx="13"/>
+  <text class="t" x="96" y="309" text-anchor="middle">協議する</text>
+  <text class="n" x="152" y="309">国や県の川の工事・維持</text>
+  <text class="s" x="52" y="340">相手：河川管理者</text>
+  <text class="s" x="52" y="360">河川法 第16条の3</text>
+  <rect class="g" x="40" y="388" width="350" height="94" rx="8"/>
+  <path class="a" d="M24,435L40,435" marker-end="url(#ah)"/>
+  <rect class="g" x="50" y="398" width="92" height="26" rx="13"/>
+  <text class="t" x="96" y="415" text-anchor="middle">根拠を確かめる</text>
+  <text class="n" x="152" y="415">国や県から求められたとき</text>
+  <text class="s" x="52" y="446">法律か政令に根拠があるか</text>
+  <text class="s" x="52" y="466">地方自治法 第245条の2</text>
+</svg>

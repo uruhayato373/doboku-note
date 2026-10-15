@@ -596,11 +596,21 @@
             "preventive-maintenance-diagnosis",
             "concrete-repair-leakage",
             "concrete-standards-history",
-            "road-fixtures-precast",
             "concrete-labor-saving-technology",
             "concrete-quality-and-workforce",
             "risk-assessment-construction-workflow",
             "safety-patrol-corrective-action"
+          ]
+        },
+        {
+          "id": "construction-materials",
+          "label": "建設材料（鋼材・アスファルト・高分子・木材と石材）",
+          "slugs": [
+            "construction-materials-overview",
+            "steel-material-properties",
+            "asphalt-materials-types",
+            "polymer-construction-materials",
+            "wood-and-stone-materials"
           ]
         },
         {
@@ -628,18 +638,13 @@
             "subcontract-instruction-boundary",
             "subcontract-fair-dealing",
             "construction-industry-structure",
-            "public-works-delivery-methods",
-            "public-works-bidding-methods",
             "keishin-bidder-qualification",
             "netis-new-technology-use",
             "foreign-workers-site-check",
             "ccus-kentaikyo-site",
             "reading-civil-drawings",
             "construction-plan-document",
-            "cost-and-design-change",
             "quality-record-site-bcp",
-            "construction-inspection-types",
-            "board-of-audit-inspection",
             "reference-values",
             "schedule-and-road-permit",
             "typhoon-forecast-work-planning",
@@ -662,16 +667,91 @@
           "label": "道路・河川構造物",
           "slugs": [
             "asphalt-pavement-control",
-            "asphalt-materials-types",
-            "steel-material-properties",
             "material-selection-receiving",
             "river-park-erosion-control",
-            "service-commencement",
             "seismic-design-levels",
             "flood-season-river-work",
-            "flood-control-facilities",
             "levee-failure-reinforcement",
             "rainfall-work-suspension"
+          ]
+        },
+        {
+          "id": "municipal-basics",
+          "label": "自治体の土木担当（入口と仕事の土台）",
+          "slugs": [
+            "municipal-civil-engineer-work",
+            "civil-engineer-annual-cycle",
+            "social-infrastructure-overview",
+            "how-to-read-laws-and-notices",
+            "national-prefecture-municipal-roles",
+            "budget-and-funding-sources"
+          ]
+        },
+        {
+          "id": "municipal",
+          "label": "自治体の土木担当（道路・河川・里道と水路の管理）",
+          "slugs": [
+            "road-act-framework",
+            "service-commencement",
+            "road-occupancy-permit-review",
+            "road-work-approval-vs-road-use-permit",
+            "road-boundary-and-road-ledger",
+            "road-inspection-longevity-plan",
+            "road-fixtures-precast",
+            "river-act-framework",
+            "river-area-permits",
+            "river-crossing-structure-review",
+            "river-facility-inspection-operation",
+            "flood-control-facilities",
+            "coast-port-administrators",
+            "satomichi-suiro-management"
+          ]
+        },
+        {
+          "id": "municipal-projects",
+          "label": "自治体の土木担当（事業を進める）",
+          "slugs": [
+            "public-works-planning-evaluation",
+            "project-request-to-budget",
+            "public-meeting-consensus",
+            "land-acquisition-compensation",
+            "buried-cultural-property-survey",
+            "public-works-environmental-care",
+            "public-works-delivery-methods",
+            "public-works-bidding-methods",
+            "ppp-pfi-selection",
+            "construction-inspection-types",
+            "cost-and-design-change",
+            "owner-safety-responsibility",
+            "board-of-audit-inspection"
+          ]
+        },
+        {
+          "id": "municipal-town",
+          "label": "自治体の土木担当（まちをつくる）",
+          "slugs": [
+            "city-planning-act-framework",
+            "development-permit-public-facilities",
+            "land-readjustment-project",
+            "urban-park-management",
+            "sewerage-and-stormwater"
+          ]
+        },
+        {
+          "id": "municipal-disaster",
+          "label": "自治体の土木担当（災害に備える）",
+          "slugs": [
+            "disaster-recovery-assessment",
+            "regional-disaster-plan-flood-fighting",
+            "sediment-disaster-erosion-control"
+          ]
+        },
+        {
+          "id": "municipal-work-style",
+          "label": "自治体の土木担当（仕事の進め方と資格）",
+          "slugs": [
+            "explaining-to-residents-and-council",
+            "municipal-engineer-qualifications"
           ]
         }
       ]

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-10-14",
+  "updatedAt": "2026-10-15",
   "currency": "JPY",
   "source": "note クリエイターダッシュボード「販売履歴」（2026-07 以降は Playwright で read-only 取得し、月次総額をダッシュボード表示と突合）",
   "privacyNote": "購入者名・ハンドルはプライバシー保護のため記録しない（売上分析には date / product / price で十分）。",
@@ -2376,7 +2376,7 @@
       "fee": 11011
     },
     "2026-10": {
-      "fetchedAt": "2026-10-14T08:49:25.951Z",
+      "fetchedAt": "2026-10-15T00:02:41.091Z",
       "count": 12,
       "total": 36180,
       "finalized": false

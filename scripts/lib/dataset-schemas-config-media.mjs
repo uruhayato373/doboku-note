@@ -146,6 +146,7 @@ const FigureProvenance = z
       .optional()
       .describe('切り出し後の処理（点の除去 → 縮小 → 減色の順）'),
     url: z.string().regex(/^https:\/\/.+/).optional().describe('公的資料の元のページ'),
+    basedOn: z.string().regex(/^vault:.+/, 'vault:<Drive vault 内の相対パス>').optional().describe('AI 写真の描き直しの元にした市販書の切り出し図（2026-10-15 運営者決定・image-policy「本の写真を元に描き直す」）'),
     license: z.string().min(1).optional().describe('利用条件（公共データ利用規約 1.0・政府標準利用規約 など）'),
     credit: z.string().min(1).optional().describe('提供者（caption に出典として出す名前）'),
     tool: z.string().min(1).optional().describe('生成に使った AI（Codex（gpt-6-astra）・ChatGPT など）'),
@@ -231,6 +232,7 @@ export const ConfigImageLimits = z
         tolerance: z.number().min(0).max(0.05).describe('比率の許容差（割合）'),
         width: z.number().int().positive().describe('配信する幅（px）。gen-article-photo がこの幅に縮める'),
         style: z.string().min(40).describe('全写真に共通する生成の指示（比率・写実・文字やロゴを入れない・実在の機種の形）。写真ごとの被写体は provenance の prompt'),
+        redraw: z.string().min(40).describe('市販書の写真を元に描き直すときに足す指示（構図・配置をなぞらない・元の文字や注記を写さない）。gen-article-photo --based-on が使う'),
       })
       .strict()
       .describe('記事の写真（AI 生成画像）の形。check-image-origin が比率を検査する（2026-10-07・DN-0578）'),

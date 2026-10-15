@@ -116,7 +116,9 @@ export function rebuildIntro(introRaw, rel) {
   }
   if (rule.dq && !dq.length) review.push('失格注意が見つからない（経験記述の答案記事）');
   const lead = CONFIG.coconala.lead[rule.coconalaLead || 'default'];
-  const commerce = ['<!-- cta:coconala-custom -->\n' + lead, ...CONFIG.coconala.urls];
+  // 案内先が無い（休止中）ときはココナラの案内そのものを出さない。既存の案内は上の COCO として外れる
+  // 規則で coconala:false の記事（受験資格・受験順など、答案を書く前の段階の読者）にも出さない
+  const commerce = CONFIG.coconala.urls.length && rule.coconala !== false ? ['<!-- cta:coconala-custom -->\n' + lead, ...CONFIG.coconala.urls] : [];
   if (rule.home) commerce.push(...magBlock(rule.home, 'home'));
   if (rule.entry) commerce.push(...ladderBlock(rule.entry, rule.upper));
   else if (rule.upper) commerce.push(...magBlock(rule.upper, 'upper'));

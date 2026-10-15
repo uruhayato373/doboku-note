@@ -3865,6 +3865,234 @@
       "commit": "e23b0b9c81e8",
       "verification": "会社 PC で node scripts/fetch-pe-first-stage-historical.mjs が 49/49 検証済み（取得失敗 0・不一致 0・ページ数未検査 0）、check-pe-first-stage-historical PASS 40 ページ / 1190 問",
       "note": "取得を curl --ssl-no-revoke に替え、取得失敗・中身の不一致・ページ数未検査を分けて数える（失敗が支配的なら exit 2）。上下水道の問題 16 本と令和の正答 8 本の SHA-256・ページ数を在庫台帳に足した（問題はスキャン画像なので表紙を目視で年度・部門・再試験を確認）。令和・再試験・年度ごとの正答の名前の付け方を足し、テストで重複しないことを固定。quality-audit の note を 40 ページ・1,190 問に直した"
+    },
+    {
+      "id": "DN-0697",
+      "at": "2026-10-14",
+      "task": "YouTube通常動画の再生数欠測を解消し、全欠測を合計0回と表示しない",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/youtube-listing.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "58e6d7f011d6",
+      "verification": "node --test tests/youtube-listing.test.mjs（全欠測の fixture が null・検査不成立、0 回は 0 のまま）、check-datasets PASS",
+      "note": "再生数が 1 本も取れない一覧は合計を null にし（本当の 0 回と区別）、動画があるのに全欠測のタブがあれば youtube-own-metrics が検査不成立（exit 2・保存しない）。一部欠測は本数を警告して残す。10/10・10/12 の記録の偽の合計 0 を null に直した。取れなくなった原因（yt-dlp の英語一覧の view_count）は Mac で DN-0737"
+    },
+    {
+      "id": "DN-0729",
+      "at": "2026-10-15",
+      "task": "自治体の土木担当シリーズの 39 章（新規 35・補強 4）の骨子と根拠を作り、運営者の確認を受ける",
+      "tier": "mid",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "63c206d4bc5e",
+      "verification": "npm run check-content-series（確認済み 39・下書き 0・一次資料あり 655/655・PASS）",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0738",
+      "at": "2026-10-15",
+      "task": "自治体の土木担当シリーズの第1波（A-08 占用・A-14 河川区域の許可・A-19 里道と水路）を書いて公開する",
+      "tier": "high",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "9c6a6b922458",
+      "verification": "本番 3 本 HTTP 200・<main あり、図 6 枚 HTTP 200（doboku-note.com と storage）、check-production-ssr exit 0、check-content-series PASS",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0740",
+      "at": "2026-10-15",
+      "task": "自治体の土木担当シリーズ A-22・A-25 の公開で develop の audit（content-series）が赤い（法令 ID・カリキュラム未掲載）",
+      "tier": "high",
+      "kind": "不具合",
+      "prevention": {
+        "type": "doc",
+        "ref": ".claude/knowledge/reference/book-coverage-expansion.md"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "731a8718c895",
+      "verification": "develop の Pre-merge check が 0bb521b03 で success（content-series・egov-laws とも緑）",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0739",
+      "at": "2026-10-15",
+      "task": "自治体の土木担当シリーズの第2波（道路・河川の管理 8 章）と第3波（事業を進める 8 章）を書いて公開する",
+      "tier": "high",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "69b4682d7046",
+      "verification": "本番 16 本 HTTP 200・<main あり、図 27 枚 HTTP 200（storage）、check-production-ssr exit 0、check-content-series PASS。写真 5 件は DN-0741 へ",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0717",
+      "at": "2026-10-15",
+      "task": "2級土木「土工の頻出点」の動画（sqkP7vheZ_Q）が YouTube から消え、develop の CI が video-publication で赤い",
+      "tier": "high",
+      "kind": "不具合",
+      "prevention": {
+        "type": "none",
+        "ref": "運営者の YouTube 整理と移行で上げ直された（lNI2f_SjCTk・10/12 公開）。台帳と照合が追従し、検査が働いた結果で再発防止の追加は不要"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "c0aa995ec751",
+      "verification": "content/registry/publications/youtube/civil-construction-2.json の status・platform.id、develop の Pre-merge check 0bb521b03 success",
+      "note": "gakka-2kyu-doko の通常動画は新しい ID lNI2f_SjCTk で公開中（台帳 published）。develop の Pre-merge check（audit・video-publication を含む）は 2026-10-15 に緑"
+    },
+    {
+      "id": "DN-0658",
+      "at": "2026-10-15",
+      "task": "2級YouTubeの通常動画3本・Shorts6本の休止中診断リンクを現行添削へ直す",
+      "tier": "high",
+      "kind": "不具合",
+      "prevention": {
+        "type": "none",
+        "ref": "対象の 3 パック（通常動画 3・Shorts 6）は YouTube 整理（2026-10-13 の 688 本削除）で全て stopped になり、直す対象が無くなった"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "c0aa995ec751",
+      "verification": "content/registry/publications/youtube/*.json の status 集計",
+      "note": "anzen-ippanron-3riyu・keiken-2kyu-level・keiken-genten-kyotsuten は台帳で全 stopped。休止中の診断への案内が出る動画は残っていない"
+    },
+    {
+      "id": "DN-0234",
+      "at": "2026-10-15",
+      "task": "Codex の archived_sessions 1.25 GB を棚卸しして 30 日超を消す",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "b1ea9107934e",
+      "verification": "find ~/.codex/archived_sessions -type f -mtime +7 | wc -l が 0",
+      "note": "保持期間 1 週間（2026-10-15 運営者判断）。運営者が PowerShell で 7 日超の 22 件（約 530MB）を削除し、7 日超は 0 件・残り 10 件 619MB。手順は disk-hygiene.md §5（Mac・Git Bash と PowerShell の両方）"
+    },
+    {
+      "id": "DN-0705",
+      "at": "2026-10-15",
+      "task": "config/（固定的な設定）と data/（動的なデータ）の分け方に沿って、ハードコードを無くし JSON を統合する",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "f5a271407a89",
+      "verification": "npm run check-datasets PASS",
+      "note": "config/・data/ の直書きは check-datasets が止め datasetPath で引く形になっている。残る .claude/config/ は DN-0524（案B）、.claude/state/ の直書きは state-path-literal-baseline のラチェットに任せる（2026-10-15 運営者が推奨案を採用）"
+    },
+    {
+      "id": "DN-0709",
+      "at": "2026-10-15",
+      "task": "過去問を保存するフォルダを教材と分け、管理と同期の方法を決める",
+      "tier": "mid",
+      "kind": "意思決定",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "f5a271407a89",
+      "verification": "content/sources/past-exams/README.md",
+      "note": "すでに分かれている: 原本は content/sources/past-exams（PDF は Drive 原資料PDF/過去問・group past-exam-source-pdf）、第三者の解説は content/sources/textbook/{資格}/過去問解説、在庫の正本は data/pastexams/inventory.json、手順は /past-exam-archive（2026-10-15 運営者が推奨案を採用）"
+    },
+    {
+      "id": "DN-0348",
+      "at": "2026-10-15",
+      "task": "技術士 上下水道部門の商品設計を決める（出題テーマ・競合・書ける範囲）",
+      "tier": "mid",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "f5a271407a89",
+      "verification": "DN-0349・DN-0350 のカードに決定が入っている",
+      "note": "出題テーマ・売り手と価格・書ける範囲と照合の体制・商品の順番と価格を content/note/技術士上下水道部門/出題テーマ_R01-R08.md にまとめ、運営者が推奨案を採用（2026-10-15）。DN-0349（必須I ¥3,480・2027-03 まで）・DN-0350（合格した選択科目から ¥2,980・パック ¥4,980・合格外の II-1 は factcheck 必須）に決定を書いて範囲を確定。どちらの選択科目で合格したかは DN-0350 の確認事項"
+    },
+    {
+      "id": "DN-0524",
+      "at": "2026-10-15",
+      "task": ".claude/config/ の JSON 20 本に zod の型を付ける（/ops/auth の認証設定を含む）",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "41351387f111",
+      "verification": "npm run check-agent-config: 21 件を実検査・違反 0、tests/check-agent-config.test.mjs pass（必須欄を消すと全型が落ちる）",
+      "note": "案B（2026-10-15 運営者が推奨案を採用）。.claude/config/ の JSON 21 本に型を付け（scripts/lib/dataset-schemas-agent-config.mjs）、npm run check-agent-config（quality-audit ci:true）が型の違反と型の無い JSON を止める。直書きの整理（案A）は効果が別なので必要になったら別カード"
+    },
+    {
+      "id": "DN-0742",
+      "at": "2026-10-15",
+      "task": "自治体の土木担当シリーズの残り（新規 16 章・補強 4 章）を書いて公開し、シリーズを完結させる",
+      "tier": "high",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "cbf5848f2896",
+      "verification": "本番でシリーズの記事 43 本 HTTP 200・<main あり、図と写真 96 枚 HTTP 200、check-production-ssr exit 0、check-content-series PASS（新規 35 公開・補強待ち 0）",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0741",
+      "at": "2026-10-15",
+      "task": "自治体の土木担当シリーズの写真 5 枚（A-15・A-16・A-24・A-25）を AI で作り、実物どおりかを監査して入れる",
+      "tier": "low",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "cbf5848f2896",
+      "verification": "写真 8 枚を AI で作り ai-image-fidelity-auditor で全数 ok・record-ai 済み、本番で HTTP 200、visual-jobs の municipal-civil-engineer 0 件",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0725",
+      "at": "2026-10-15",
+      "task": "2級土木の note 記事 2 本が 10/10 と 10/12 で二重投稿になっていないか確かめる",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "none",
+        "ref": "重複は PR #965 の取り込み競合による一回限りの二重投稿。残す版の決定と もくじの付け替えまで済み、残りの非公開化と反映は DN-0743 へ切り出した"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "9074d9eee027",
+      "verification": "content/note/1級・2級土木/土木もくじ/article.md が残す版を指す",
+      "note": "note API v3 で 2 本ずつの二重公開を実測。原稿と同期の台帳が指す 10/12 の版（n1edc95f39203・naa0821a3d631）を残すと決め（2026-10-15 運営者）、土木もくじを付け替えた（PR #1076）。10/10 の版の非公開化とライブ反映は DN-0743（browser-use）"
+    },
+    {
+      "id": "DN-0733",
+      "at": "2026-10-15",
+      "task": "コンクリートの実務シリーズの補強待ち 5 章（セメント・鋼材・強度・生コン工場・打込み）を本の項目で書き足す",
+      "tier": "low",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "db6495ac179e",
+      "verification": "5 章の追記をコミット・push（textbook-materials・textbook-mix-design・textbook-production-qc・steel-material-properties・concrete-placement-order・concrete-compaction-numbers）、台帳を existing に変更、check-content-series PASS、check-reference-sources --deep の逐語一致 0",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }

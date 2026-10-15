@@ -1,0 +1,75 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は工作物設置許可基準 第4・第17と河川管理施設等構造令 第61条・第62条・第72条の位置の考え方。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="堤防と河道の断面に、橋台・橋脚・樋門・堤防乗り越し管・伏せ越しの置き場所を示した図。計画堤防内に置けるのは橋台と樋門で、橋脚は堤体内に設けない。乗り越し管は表法肩から川側で流水の乱れ対策をし、天端から堤内側は計画堤防内に置かない。伏せ越しは堤防の地盤面から2m以上の深さに、堤防下の部分を構造上分離して設ける。">
+  <defs>
+  <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .r { font-size: 11px; font-weight: bold; fill: #b22234; }
+      .p { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .g { fill: #f5f5f5; }
+      .lv { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .w { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .d { fill: #d7d7d7; stroke: #8a8a8a; stroke-width: 1.5; }
+      .ok { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .ng { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .ln { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+  </style>
+  </defs>
+
+  <!-- 上段: 橋・樋門 -->
+  <rect class="p" x="10" y="8" width="380" height="226" rx="8"/>
+  <text class="n" x="22" y="28">橋・樋門</text>
+  <rect class="ok" x="226" y="14" width="86" height="18" rx="9"/><text class="t" x="269" y="27" text-anchor="middle">計画堤防内可</text>
+  <rect class="ng" x="318" y="14" width="64" height="18" rx="9"/><text class="t" x="350" y="27" text-anchor="middle">置かない</text>
+
+  <rect class="g" x="18" y="208" width="364" height="16"/>
+  <rect class="w" x="18" y="176" width="78" height="32"/>
+  <polygon class="lv" points="96,208 176,116 252,116 332,208"/>
+  <path class="ln" d="M18,208H382"/>
+  <text x="62" y="199">河道</text>
+  <text x="340" y="200">堤内地</text>
+
+  <rect class="d" x="18" y="64" width="186" height="8"/>
+  <rect class="d" x="48" y="72" width="12" height="136"/>
+  <text x="66" y="120">橋脚</text>
+
+  <path d="M176,46V116" style="stroke:#b22234;stroke-width:1.5;stroke-dasharray:4 3" fill="none"/>
+  <text class="t" x="176" y="42" text-anchor="middle">表法肩</text>
+  <text class="r" x="170" y="58" text-anchor="end">川側へは出さない</text>
+
+  <rect class="ok" x="176" y="72" width="28" height="44"/>
+  <text class="n" x="212" y="98">橋台</text>
+
+  <text x="156" y="146">計画堤防</text>
+  <rect class="ng" x="206" y="124" width="14" height="46" style="stroke-dasharray:4 3"/>
+  <text class="r" x="226" y="152">橋脚 ×</text>
+
+  <rect class="ok" x="110" y="178" width="210" height="28"/>
+  <text class="n" x="215" y="197" text-anchor="middle">樋門</text>
+
+  <!-- 下段: 管 -->
+  <rect class="p" x="10" y="242" width="380" height="252" rx="8"/>
+  <text class="n" x="22" y="262">管</text>
+  <rect class="g" x="18" y="412" width="364" height="76"/>
+  <polygon class="lv" points="96,412 176,326 252,326 332,412"/>
+  <path class="ln" d="M18,412H382"/>
+  <text x="24" y="430">川側</text>
+  <text x="340" y="430">堤内地</text>
+
+  <text class="n" x="22" y="292">堤防乗り越し管</text>
+  <path d="M176,300V326" style="stroke:#b22234;stroke-width:1.5;stroke-dasharray:4 3" fill="none"/>
+  <text class="t" x="176" y="296" text-anchor="middle">表法肩</text>
+  <path d="M46,407H91L172,319" fill="none" style="stroke:#d4a017;stroke-width:6"/>
+  <path d="M172,319H256L337,407H378" fill="none" style="stroke:#2e6da4;stroke-width:6"/>
+  <text x="22" y="354">川側は流水の乱れ対策</text>
+  <text x="262" y="296">天端から堤内側は</text>
+  <text x="262" y="309">計画堤防内に置かない</text>
+
+  <path d="M60,412V452H328V412" fill="none" style="stroke:#2e6da4;stroke-width:7;stroke-linejoin:round"/>
+  <path class="ln" d="M204,420V440" style="stroke:#555"/>
+  <polygon points="204,413 200,421 208,421" fill="#555"/><polygon points="204,447 200,439 208,439" fill="#555"/>
+  <text class="n" x="96" y="440">伏せ越し</text>
+  <text x="212" y="434">地盤面から2m以上</text>
+  <text x="204" y="476" text-anchor="middle">堤防下の部分は構造上分離</text>
+</svg>

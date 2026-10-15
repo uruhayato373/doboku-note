@@ -448,7 +448,7 @@ const introVariant = z
     include: strList.min(1).optional().describe('root 直下のうち対象にする記事（無ければ root 配下すべて）'),
     coconala: z
       .object({
-        urls: z.array(url).min(1).describe('冒頭に並べるココナラのサービス'),
+        urls: z.array(url).describe('冒頭に並べるココナラのサービス。空なら案内そのものを出さない（休止中・2026-10-15 に 1級の添削・骨子を外した）'),
         lead: z.object({ default: text, ichiji: text.optional() }).strict().describe('案内文。ichiji は一次の記事向け'),
       })
       .strict(),
@@ -464,6 +464,7 @@ const introVariant = z
             entry: z.string().optional().describe('上位パックより先に案内する入口の商品のマガジン id（低価格先出し。upper と一緒に 1 つの案内にする）'),
             dq: z.boolean().describe('失格注意の段落を持つか'),
             coconalaLead: z.string().optional().describe('coconala.lead のキー（無ければ default）'),
+            coconala: z.literal(false).optional().describe('false ならこの記事にはココナラの案内を出さない（答案を書く前の段階の読者向け・2026-10-15）'),
             _why: text.optional(),
             _generated: z.literal(true).optional().describe('npm run product -- gen が正本の persona・members から作った規則（手で直さない。置き場は最初の _generated の位置）'),
           })

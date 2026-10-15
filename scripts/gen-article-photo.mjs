@@ -14,7 +14,11 @@
  * 使い方:
  *   npm run gen-article-photo -- --fig <資格/記事/img/名前> [--prompt "被写体の指示" | --prompt-file <path>] [--model <codex のモデル>]
  *   npm run gen-article-photo -- --fig <figKey> --from <生成済みの画像> [--tool "Codex（gpt-6-astra）"]
+ *   npm run gen-article-photo -- --fig <figKey> --based-on <Drive vault の切り出し図> [--prompt "…"]
  *   --prompt を渡すと仕様（provenance の prompt）を書き換えてから生成する。渡さなければ仕様の prompt を使う。
+ *   --based-on は市販書の写真を元に描き直すとき（2026-10-15 運営者決定・image-policy「本の写真を元に描き直す」）。
+ *   元の画像を codex に添付し、aiPhoto.redraw（構図をなぞらない・文字を写さない）を指示に足し、provenance の basedOn に
+ *   出所（vault: のパス）を書く。仕様に basedOn があれば --based-on を省いても同じ元で描き直す（vault のマウントが要る）。
  *
  * 終了コード: 0 = 配置した / 1 = 入力・仕様の不備 / 3 = 生成に失敗（画像が出てこない）
  */
@@ -28,7 +32,8 @@ import { readJsonIf, writeJson } from './lib/json-io.mjs';
 import { writeDataset } from './lib/dataset-write.mjs';
 import { isCliEntry } from './lib/cli-run.mjs';
 import { describeFigure, fileSha, syncImageDims } from './lib/figure-review.mjs';
-import { AI_LEDGER_FILE, emptyAiLedger, promptSha } from './lib/image-origin.mjs';
+import { AI_LEDGER_FILE, emptyAiLedger, promptSha, vaultPathOf, vaultRefOf } from './lib/image-origin.mjs';
+import { resolveVaultRoot } from './lib/drive-vault.mjs';
 import { generateWithCodex } from './lib/codex-image.mjs';
 import { readMdxFile, writeMdxFile } from '../.claude/scripts/lib/mdx-io.mjs';
 import { escapeRegExp } from './lib/regexp-escape.mjs';
@@ -91,10 +96,31 @@ export async function run(argv = process.argv.slice(2)) {
   if (!prompt) { console.error(`✗ ${figKey}: 仕様に被写体の指示（prompt）が無い。--prompt で渡す`); return 1; }
   const tool = arg(argv, '--tool') ?? (from ? prev?.tool : null) ?? `Codex${model ? `（${model}）` : ''}`;
 
+  // 描き直しの元（市販書の切り出し図）。出所を辿れるよう Drive vault の中のファイルに限る
+  const basedOnArg = arg(argv, '--based-on');
+  const priorBasedOn = prev?.kind === 'ai-generated' ? prev.basedOn : undefined;
+  let basedOn = null;
+  let basedOnFile = null;
+  if (basedOnArg || priorBasedOn) {
+    const vault = resolveVaultRoot();
+    if (basedOnArg) {
+      if (!existsSync(basedOnArg)) { console.error(`✗ --based-on ${basedOnArg} が無い`); return 1; }
+      basedOn = vaultRefOf(resolve(basedOnArg), vault.root);
+      if (!basedOn) { console.error(`✗ --based-on は Drive vault の中の切り出し図に限る（出所を辿れるように）: ${basedOnArg}`); return 1; }
+      basedOnFile = resolve(basedOnArg);
+    } else {
+      basedOn = priorBasedOn;
+      basedOnFile = vault.root ? vaultPathOf(priorBasedOn, vault.root) : null;
+      if (!from && !(basedOnFile && existsSync(basedOnFile))) { console.error(`✗ ${figKey}: 仕様の描き直しの元 ${priorBasedOn} を開けない（Drive vault のマウントを確かめる）`); return 1; }
+    }
+  }
+
   let input = from;
   if (!input) {
-    console.log(`[gen-article-photo] ${figKey}: codex で生成中…`);
-    input = generateWithCodex(`${aiPhoto.style} Subject: ${prompt}`, model);
+    console.log(`[gen-article-photo] ${figKey}: codex で生成中…${basedOn ? `（${basedOn} を元に描き直す）` : ''}`);
+    input = basedOn
+      ? generateWithCodex(`${aiPhoto.style} ${aiPhoto.redraw} Subject: ${prompt}`, model, { images: [basedOnFile] })
+      : generateWithCodex(`${aiPhoto.style} Subject: ${prompt}`, model);
     if (!input) { console.error(`✗ ${figKey}: 画像が生成されなかった（codex のログを確認）`); return 3; }
   } else if (!existsSync(input)) { console.error(`✗ --from ${input} が無い`); return 1; }
 
@@ -103,7 +129,7 @@ export async function run(argv = process.argv.slice(2)) {
   writeFileSync(target, buf); // sharp(buf).toFile は再エンコードして上限に収めた画質が戻る
   const changed = rewireMdx(join(ROOT, fig.mdx), fig.name, width, height);
 
-  sourcesDoc.provenance[figKey] = { kind: 'ai-generated', tool, prompt, ...(prev?.note && prev?.kind === 'ai-generated' ? { note: prev.note } : {}) };
+  sourcesDoc.provenance[figKey] = { kind: 'ai-generated', tool, prompt, ...(basedOn ? { basedOn } : {}), ...(prev?.note && prev?.kind === 'ai-generated' ? { note: prev.note } : {}) };
   sourcesDoc.provenance = Object.fromEntries(Object.entries(sourcesDoc.provenance).sort(([a], [b]) => a.localeCompare(b)));
   writeDataset(ROOT, 'config.figure-sources', sourcesDoc);
 
