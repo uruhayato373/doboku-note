@@ -554,6 +554,7 @@
     "check-content-expansion:linked": "node scripts/check-content-expansion.mjs --linked",
     "check-domains": "node scripts/check-domains.mjs",
     "check-datasets": "node scripts/check-datasets.mjs",
+    "check-agent-config": "node scripts/check-agent-config.mjs",
     "ci-data": "node scripts/ci-data.mjs",
     "check-generated-indexes": "node scripts/check-generated-indexes.mjs",
     "standardize-civil1-note-intro": "node scripts/standardize-civil1-note-intro.mjs",
