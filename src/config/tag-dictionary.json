@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-15T04:12:38.944Z",
+  "generated_at": "2026-10-15T04:13:03.421Z",
   "summary": {
-    "total_mdx_files": 1428,
+    "total_mdx_files": 1429,
     "total_unique_tags": 133,
     "allowlist_size": 330,
     "known_count": 133,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 252,
+      "count": 253,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1228,6 +1228,7 @@
         "civil-practice-pile-bearing-verification",
         "civil-practice-pile-concrete-head-treatment",
         "civil-practice-pipe-jacking-methods",
+        "civil-practice-ppp-pfi-selection",
         "civil-practice-pre-construction-process",
         "civil-practice-precast-pile-methods",
         "civil-practice-preventive-maintenance-diagnosis",
@@ -3699,6 +3700,41 @@
       ]
     },
     {
+      "name": "地方公共団体",
+      "count": 28,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-board-of-audit-inspection",
+        "civil-practice-buried-cultural-property-survey",
+        "civil-practice-coast-port-administrators",
+        "civil-practice-land-acquisition-compensation",
+        "civil-practice-owner-safety-responsibility",
+        "civil-practice-ppp-pfi-selection",
+        "civil-practice-project-request-to-budget",
+        "civil-practice-public-meeting-consensus",
+        "civil-practice-public-works-planning-evaluation",
+        "civil-practice-river-act-framework",
+        "civil-practice-river-facility-inspection-operation",
+        "civil-practice-road-boundary-and-road-ledger",
+        "civil-practice-road-inspection-longevity-plan",
+        "civil-practice-satomichi-suiro-management",
+        "pe-comprehensive-management-essay-pattern-cross-year-application",
+        "pe-comprehensive-management-h21-essay-road-municipality",
+        "pe-comprehensive-management-h22-essay-road-municipality",
+        "pe-comprehensive-management-h23-essay-road-municipality",
+        "pe-comprehensive-management-h24-essay-road-municipality",
+        "pe-comprehensive-management-h25-essay-road-municipality",
+        "pe-comprehensive-management-h26-essay-road-municipality",
+        "pe-comprehensive-management-h27-essay-road-municipality",
+        "pe-comprehensive-management-pattern-essay-road-municipality",
+        "pe-comprehensive-management-r03-essay-road-municipality",
+        "pe-comprehensive-management-r04-essay-road-municipality",
+        "pe-comprehensive-management-r05-essay-road-municipality",
+        "pe-comprehensive-management-r06-essay-road-municipality",
+        "pe-comprehensive-management-r07-essay-road-municipality"
+      ]
+    },
+    {
       "name": "河川",
       "count": 28,
       "inAllowlist": true,
@@ -3768,40 +3804,6 @@
       ]
     },
     {
-      "name": "地方公共団体",
-      "count": 27,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-board-of-audit-inspection",
-        "civil-practice-buried-cultural-property-survey",
-        "civil-practice-coast-port-administrators",
-        "civil-practice-land-acquisition-compensation",
-        "civil-practice-owner-safety-responsibility",
-        "civil-practice-project-request-to-budget",
-        "civil-practice-public-meeting-consensus",
-        "civil-practice-public-works-planning-evaluation",
-        "civil-practice-river-act-framework",
-        "civil-practice-river-facility-inspection-operation",
-        "civil-practice-road-boundary-and-road-ledger",
-        "civil-practice-road-inspection-longevity-plan",
-        "civil-practice-satomichi-suiro-management",
-        "pe-comprehensive-management-essay-pattern-cross-year-application",
-        "pe-comprehensive-management-h21-essay-road-municipality",
-        "pe-comprehensive-management-h22-essay-road-municipality",
-        "pe-comprehensive-management-h23-essay-road-municipality",
-        "pe-comprehensive-management-h24-essay-road-municipality",
-        "pe-comprehensive-management-h25-essay-road-municipality",
-        "pe-comprehensive-management-h26-essay-road-municipality",
-        "pe-comprehensive-management-h27-essay-road-municipality",
-        "pe-comprehensive-management-pattern-essay-road-municipality",
-        "pe-comprehensive-management-r03-essay-road-municipality",
-        "pe-comprehensive-management-r04-essay-road-municipality",
-        "pe-comprehensive-management-r05-essay-road-municipality",
-        "pe-comprehensive-management-r06-essay-road-municipality",
-        "pe-comprehensive-management-r07-essay-road-municipality"
-      ]
-    },
-    {
       "name": "secondary",
       "count": 26,
       "inAllowlist": true,
@@ -3863,6 +3865,34 @@
       ]
     },
     {
+      "name": "維持管理",
+      "count": 21,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-guide-concrete-maintenance",
+        "civil-practice-coast-port-administrators",
+        "civil-practice-concrete-standards-history",
+        "civil-practice-large-fill-landslide",
+        "civil-practice-levee-failure-reinforcement",
+        "civil-practice-monitoring-sensor-selection",
+        "civil-practice-ppp-pfi-selection",
+        "civil-practice-river-facility-inspection-operation",
+        "civil-practice-road-inspection-longevity-plan",
+        "civil-practice-seismic-design-levels",
+        "concrete-chief-engineer-textbook-durability",
+        "concrete-diagnostician-textbook-assessment",
+        "concrete-diagnostician-textbook-maintenance",
+        "concrete-diagnostician-textbook-repair",
+        "pe-comprehensive-management-h22-essay-general-contractor",
+        "pe-comprehensive-management-h25-essay-general-contractor",
+        "pe-comprehensive-management-h25-essay-river-consultant",
+        "pe-comprehensive-management-h25-essay-road-municipality",
+        "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance",
+        "pe-construction-iji-kanri-ronbun-keyword",
+        "pe-construction-infra-roukyuuka-iji"
+      ]
+    },
+    {
       "name": "令和元年度",
       "count": 20,
       "inAllowlist": true,
@@ -3887,33 +3917,6 @@
         "pe-first-stage-r01-retry-construction",
         "pe-first-stage-r01-retry-water-supply",
         "pe-first-stage-r01-water-supply"
-      ]
-    },
-    {
-      "name": "維持管理",
-      "count": 20,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-guide-concrete-maintenance",
-        "civil-practice-coast-port-administrators",
-        "civil-practice-concrete-standards-history",
-        "civil-practice-large-fill-landslide",
-        "civil-practice-levee-failure-reinforcement",
-        "civil-practice-monitoring-sensor-selection",
-        "civil-practice-river-facility-inspection-operation",
-        "civil-practice-road-inspection-longevity-plan",
-        "civil-practice-seismic-design-levels",
-        "concrete-chief-engineer-textbook-durability",
-        "concrete-diagnostician-textbook-assessment",
-        "concrete-diagnostician-textbook-maintenance",
-        "concrete-diagnostician-textbook-repair",
-        "pe-comprehensive-management-h22-essay-general-contractor",
-        "pe-comprehensive-management-h25-essay-general-contractor",
-        "pe-comprehensive-management-h25-essay-river-consultant",
-        "pe-comprehensive-management-h25-essay-road-municipality",
-        "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance",
-        "pe-construction-iji-kanri-ronbun-keyword",
-        "pe-construction-infra-roukyuuka-iji"
       ]
     },
     {
@@ -4967,6 +4970,17 @@
       ]
     },
     {
+      "name": "PPP/PFI",
+      "count": 4,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-ppp-pfi-selection",
+        "pe-comprehensive-management-pfi",
+        "pe-construction-infra-system-overseas",
+        "pe-construction-shakai-shihon-ronbun-keyword"
+      ]
+    },
+    {
       "name": "データ利活用",
       "count": 4,
       "inAllowlist": true,
@@ -5107,16 +5121,6 @@
         "pavement-guide-overview",
         "pavement-guide-sentaku-hinshutsu",
         "pavement-guide-study-plan"
-      ]
-    },
-    {
-      "name": "PPP/PFI",
-      "count": 3,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-pfi",
-        "pe-construction-infra-system-overseas",
-        "pe-construction-shakai-shihon-ronbun-keyword"
       ]
     },
     {
