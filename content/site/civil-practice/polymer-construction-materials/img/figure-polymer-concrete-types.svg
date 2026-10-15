@@ -1,0 +1,67 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点はポリマーを使うコンクリートの三分類（ポリマーセメント系・レジンコンクリート・含浸型）を、セメントが結合材として残るかどうかで分けて読むこと。断面は模式図で縮尺はない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="ポリマーを使うコンクリートの三つの型を、結合材の違いで並べた模式図。ポリマーセメント系は結合材がセメントのままで、ポリマーを混ぜて性質を改善する。レジンコンクリートは結合材が液状のレジンで、セメントは入らない。含浸型は硬化したコンクリートに液状のモノマーをしみ込ませて固める。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 12px; fill: #1a3a5c; }
+      .h { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .p { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .pb { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .pg { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .pw { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .cem { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .res { fill: #e8f0fe; stroke: #8a8a8a; stroke-width: 1.5; }
+      .ag { fill: #fff; stroke: #8a8a8a; stroke-width: 1.2; stroke-linejoin: round; }
+      .pd { fill: #2e6da4; }
+      .wa { fill: none; stroke: #2e6da4; stroke-width: 2.5; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+
+  <!-- ポリマーセメント系 -->
+  <rect class="p" x="10" y="10" width="380" height="156" rx="8"/>
+  <rect class="cem" x="24" y="24" width="12" height="12" rx="2"/><text x="40" y="34">セメント</text>
+  <circle class="pd" cx="104" cy="30" r="4"/><text x="112" y="34">ポリマー</text>
+  <rect class="cem" x="24" y="44" width="170" height="112" rx="4"/>
+  <circle class="pd" cx="83" cy="62" r="2.4"/><circle class="pd" cx="84" cy="78" r="2.4"/><circle class="pd" cx="137" cy="64" r="2.4"/><circle class="pd" cx="137" cy="80" r="2.4"/>
+  <circle class="pd" cx="54" cy="92" r="2.4"/><circle class="pd" cx="102" cy="92" r="2.4"/><circle class="pd" cx="146" cy="94" r="2.4"/><circle class="pd" cx="174" cy="98" r="2.4"/>
+  <circle class="pd" cx="93" cy="116" r="2.4"/><circle class="pd" cx="154" cy="102" r="2.4"/><circle class="pd" cx="94" cy="138" r="2.4"/><circle class="pd" cx="140" cy="138" r="2.4"/>
+  <circle class="pd" cx="36" cy="96" r="2.4"/><circle class="pd" cx="36" cy="144" r="2.4"/><circle class="pd" cx="184" cy="92" r="2.4"/>
+  <polygon class="ag" points="38,54 64,50 76,66 62,82 40,76"/><polygon class="ag" points="94,56 120,52 132,70 112,84 90,74"/><polygon class="ag" points="148,54 176,58 180,80 156,86 142,70"/>
+  <polygon class="ag" points="44,100 72,96 80,116 62,132 40,120"/><polygon class="ag" points="106,102 134,98 146,118 126,134 104,124"/><polygon class="ag" points="160,106 182,112 180,136 158,140 150,122"/>
+  <polygon class="ag" points="60,140 86,138 90,150 64,152"/><polygon class="ag" points="120,142 148,140 154,152 124,154"/>
+  <rect class="pg" x="214" y="24" width="124" height="20" rx="10"/><text class="h" x="276" y="38" text-anchor="middle">ポリマーセメント系</text>
+  <text class="n" x="214" y="66">結合材はセメント</text>
+  <text class="t" x="214" y="86">ポリマーを混ぜて</text><text class="t" x="214" y="102">性質を改善する</text>
+  <text x="214" y="132">JIS A 6203（混和用）</text>
+
+  <!-- レジンコンクリート -->
+  <rect class="p" x="10" y="172" width="380" height="156" rx="8"/>
+  <rect class="res" x="24" y="186" width="12" height="12" rx="2" style="stroke:#2e6da4"/><text x="40" y="196">レジン</text>
+  <rect class="ag" x="92" y="186" width="12" height="12" rx="2"/><text x="108" y="196">骨材</text>
+  <rect class="res" x="24" y="206" width="170" height="112" rx="4"/>
+  <polygon class="ag" points="38,216 64,212 76,228 62,244 40,238"/><polygon class="ag" points="94,218 120,214 132,232 112,246 90,236"/><polygon class="ag" points="148,216 176,220 180,242 156,248 142,232"/>
+  <polygon class="ag" points="44,262 72,258 80,278 62,294 40,282"/><polygon class="ag" points="106,264 134,260 146,280 126,296 104,286"/><polygon class="ag" points="160,268 182,274 180,298 158,302 150,284"/>
+  <polygon class="ag" points="60,302 86,300 90,312 64,314"/><polygon class="ag" points="120,304 148,302 154,314 124,316"/>
+  <rect class="pb" x="214" y="186" width="124" height="20" rx="10"/><text class="h" x="276" y="200" text-anchor="middle">レジンコンクリート</text>
+  <text class="n" x="214" y="228">結合材は液状のレジン</text>
+  <text class="t" x="214" y="248">セメントは入らない</text><text class="t" x="214" y="264">骨材をレジンで結ぶ</text>
+  <text x="214" y="294">JIS A 1181</text>
+
+  <!-- 含浸型 -->
+  <rect class="p" x="10" y="334" width="380" height="156" rx="8"/>
+  <rect class="res" x="24" y="348" width="12" height="12" rx="2" style="stroke:#2e6da4"/><text x="40" y="358">モノマー</text>
+  <rect class="cem" x="104" y="348" width="12" height="12" rx="2"/><text x="120" y="358">コンクリート</text>
+  <rect class="cem" x="24" y="368" width="170" height="112" rx="4"/>
+  <path d="M24,368H194V418C164,426 134,416 104,424C74,430 44,418 24,422Z" fill="#e8f0fe"/>
+  <rect x="24" y="368" width="170" height="112" rx="4" fill="none" stroke="#8a8a8a" stroke-width="1.5"/>
+  <polygon class="ag" points="38,378 64,374 76,390 62,406 40,400"/><polygon class="ag" points="94,380 120,376 132,394 112,408 90,398"/><polygon class="ag" points="148,378 176,382 180,404 156,410 142,394"/>
+  <polygon class="ag" points="44,424 72,420 80,440 62,456 40,444"/><polygon class="ag" points="106,426 134,422 146,442 126,458 104,448"/><polygon class="ag" points="160,430 182,436 180,460 158,464 150,446"/>
+  <polygon class="ag" points="60,464 86,462 90,474 64,476"/><polygon class="ag" points="120,466 148,464 154,476 124,478"/>
+  <path class="wa" d="M83,370V402" marker-end="url(#ah)"/><path class="wa" d="M137,370V402" marker-end="url(#ah)"/>
+  <rect class="pw" x="214" y="348" width="56" height="20" rx="10"/><text class="h" x="242" y="362" text-anchor="middle">含浸型</text>
+  <text class="n" x="214" y="390">硬化体にしみ込ませる</text>
+  <text class="t" x="214" y="410">液状のモノマーを</text><text class="t" x="214" y="426">しみ込ませて固める</text>
+  <text x="214" y="456">表面含浸工法とは別</text>
+</svg>

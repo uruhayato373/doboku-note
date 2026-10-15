@@ -91,6 +91,12 @@ https://note.com/dobokunote/n/n4fde0f62dc20
 
 過去問のフル完成答案を手元に置きたい人は、買い切りマガジン「施工経験記述 完成答案集」もあります。サンプルで水準を確認したい人は、無料の「落ちる施工経験記述 診断」からどうぞ。
 
+1級は「施工経験記述 完成答案集（5管理）」、2級は「施工経験記述 完成答案集（安全・品質・工程）」です。
+
+https://note.com/dobokunote/m/m150c9db08902
+
+https://note.com/dobokunote/m/m1881a9578027
+
 自己添削の基準として使える出題傾向と記述の型は、[施工経験記述 出題傾向と書き方](https://doboku-note.com/exam/civil-construction-1/secondary/experience-writing-guide?utm_source=note&utm_medium=referral&utm_campaign=civil-keiken-funnel-self-review&utm_content=experience-writing-guide)に無料でまとめています。
 
 ---

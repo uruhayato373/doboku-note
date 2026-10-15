@@ -1,0 +1,82 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は道路の断面（盛土・路床、路盤、表層・基層、のり面、防護柵）と鉄道の断面（レール、まくらぎ、砕石の道床、路盤）を、支える土・荷重を渡す・走行面・守りの四役に対応づけること。構造と寸法は模式で縮尺はない。荷重を広げる破線は記事本文の説明に基づく -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="道路と鉄道の断面を、構造物の四つの役割に対応づけた図。役割は、支える土、荷重を渡す、走行面、守りの四つで、荷重を渡すのは橋。道路の断面では、盛土と路床は土、路盤は砕石、表層と基層はアスファルト混合物、のり面保護は植生やブロック、防護柵は附属物や二次製品。鉄道の断面では、レール、まくらぎ、砕石の道床が走行面で、その下の路盤が支える土。荷重は層を通って広がりながら下へ伝わる。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 12px; fill: #1a3a5c; }
+      .h { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .p { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .pw { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .pb { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .pg { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .ps { fill: #d7d7d7; stroke: #8a8a8a; stroke-width: 1.5; }
+      .lead { fill: none; stroke: #8a8a8a; stroke-width: 1; }
+      .dot { fill: #1a3a5c; stroke: #fff; stroke-width: 1.5; }
+      .spread { fill: none; stroke: #555; stroke-width: 1.5; stroke-dasharray: 4 3; }
+    </style>
+    <marker id="ak" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+
+  <!-- 四役の凡例 -->
+  <rect class="pw" x="14" y="12" width="68" height="22" rx="11"/><text class="h" x="48" y="27" text-anchor="middle">支える土</text>
+  <rect class="pb" x="90" y="12" width="116" height="22" rx="11"/><text class="h" x="148" y="27" text-anchor="middle">荷重を渡す（橋）</text>
+  <rect class="ps" x="214" y="12" width="56" height="22" rx="11"/><text class="h" x="242" y="27" text-anchor="middle">走行面</text>
+  <rect class="pg" x="278" y="12" width="46" height="22" rx="11"/><text class="h" x="301" y="27" text-anchor="middle">守り</text>
+
+  <!-- 道路 -->
+  <rect class="p" x="10" y="44" width="380" height="260" rx="8"/>
+  <text class="n" x="22" y="68">道路</text>
+  <polygon points="18,268 60,150 168,150 210,268" style="fill:#fff3cd;stroke:#d4a017;stroke-width:1.5"/>
+  <rect x="70" y="170" width="88" height="26" style="fill:#fff;stroke:#d4a017;stroke-width:1.5"/>
+  <circle cx="78" cy="176" r="2.2" fill="none" stroke="#d4a017" stroke-width="1"/><circle cx="90" cy="186" r="2.2" fill="none" stroke="#d4a017" stroke-width="1"/><circle cx="102" cy="175" r="2.2" fill="none" stroke="#d4a017" stroke-width="1"/><circle cx="114" cy="188" r="2.2" fill="none" stroke="#d4a017" stroke-width="1"/><circle cx="126" cy="177" r="2.2" fill="none" stroke="#d4a017" stroke-width="1"/><circle cx="138" cy="187" r="2.2" fill="none" stroke="#d4a017" stroke-width="1"/><circle cx="150" cy="176" r="2.2" fill="none" stroke="#d4a017" stroke-width="1"/><circle cx="84" cy="190" r="2.2" fill="none" stroke="#d4a017" stroke-width="1"/><circle cx="120" cy="181" r="2.2" fill="none" stroke="#d4a017" stroke-width="1"/><circle cx="96" cy="180" r="2.2" fill="none" stroke="#d4a017" stroke-width="1"/>
+  <rect x="70" y="158" width="88" height="12" style="fill:#f5f5f5;stroke:#8a8a8a;stroke-width:1.5"/>
+  <rect x="70" y="150" width="88" height="8" style="fill:#d7d7d7;stroke:#555;stroke-width:1.5"/>
+  <path d="M60,150L18,268M168,150L210,268" fill="none" stroke="#3a7d44" stroke-width="4"/>
+  <rect x="61" y="130" width="3" height="20" style="fill:#3a7d44"/><rect x="56" y="132" width="13" height="7" rx="2" style="fill:#d0e8d0;stroke:#3a7d44;stroke-width:1.5"/>
+  <rect x="164" y="130" width="3" height="20" style="fill:#3a7d44"/><rect x="159" y="132" width="13" height="7" rx="2" style="fill:#d0e8d0;stroke:#3a7d44;stroke-width:1.5"/>
+  <path d="M114,122V146" fill="none" stroke="#555" stroke-width="2.5" marker-end="url(#ak)"/>
+  <path class="spread" d="M106,196L82,236M122,196L146,236"/>
+
+  <circle class="dot" cx="171" cy="135" r="4"/><path class="lead" d="M175,134L226,84"/>
+  <circle class="dot" cx="140" cy="154" r="4"/><path class="lead" d="M144,154L226,132"/>
+  <circle class="dot" cx="146" cy="184" r="4"/><path class="lead" d="M150,183L226,180"/>
+  <circle class="dot" cx="196" cy="222" r="4"/><path class="lead" d="M200,223L226,228"/>
+  <circle class="dot" cx="150" cy="248" r="4"/><path class="lead" d="M154,249L226,276"/>
+
+  <rect class="pg" x="232" y="68" width="64" height="18" rx="9"/><text class="h" x="264" y="81" text-anchor="middle">守り</text>
+  <text class="n" x="304" y="82">防護柵</text><text class="t" x="232" y="104">附属物・二次製品</text>
+  <rect class="ps" x="232" y="116" width="64" height="18" rx="9"/><text class="h" x="264" y="129" text-anchor="middle">走行面</text>
+  <text class="n" x="304" y="130">表層・基層</text><text class="t" x="232" y="152">アスファルト混合物</text>
+  <rect class="pw" x="232" y="164" width="64" height="18" rx="9"/><text class="h" x="264" y="177" text-anchor="middle">支える土</text>
+  <text class="n" x="304" y="178">路盤</text><text class="t" x="232" y="200">砕石</text>
+  <rect class="pg" x="232" y="212" width="64" height="18" rx="9"/><text class="h" x="264" y="225" text-anchor="middle">守り</text>
+  <text class="n" x="304" y="226">のり面保護</text><text class="t" x="232" y="248">植生・ブロック・かご</text>
+  <rect class="pw" x="232" y="260" width="64" height="18" rx="9"/><text class="h" x="264" y="273" text-anchor="middle">支える土</text>
+  <text class="n" x="304" y="274">盛土・路床</text><text class="t" x="232" y="296">土</text>
+
+  <!-- 鉄道 -->
+  <rect class="p" x="10" y="312" width="380" height="178" rx="8"/>
+  <text class="n" x="22" y="336">鉄道</text>
+  <rect x="14" y="430" width="200" height="30" style="fill:#fff3cd;stroke:#d4a017;stroke-width:1.5"/>
+  <polygon points="44,386 184,386 214,430 14,430" style="fill:#f5f5f5;stroke:#8a8a8a;stroke-width:1.5"/>
+  <circle cx="60" cy="398" r="2.2" fill="none" stroke="#8a8a8a" stroke-width="1"/><circle cx="72" cy="406" r="2.2" fill="none" stroke="#8a8a8a" stroke-width="1"/><circle cx="84" cy="398" r="2.2" fill="none" stroke="#8a8a8a" stroke-width="1"/><circle cx="96" cy="408" r="2.2" fill="none" stroke="#8a8a8a" stroke-width="1"/><circle cx="108" cy="398" r="2.2" fill="none" stroke="#8a8a8a" stroke-width="1"/><circle cx="120" cy="408" r="2.2" fill="none" stroke="#8a8a8a" stroke-width="1"/><circle cx="132" cy="398" r="2.2" fill="none" stroke="#8a8a8a" stroke-width="1"/><circle cx="144" cy="406" r="2.2" fill="none" stroke="#8a8a8a" stroke-width="1"/><circle cx="156" cy="398" r="2.2" fill="none" stroke="#8a8a8a" stroke-width="1"/><circle cx="168" cy="408" r="2.2" fill="none" stroke="#8a8a8a" stroke-width="1"/><circle cx="66" cy="414" r="2.2" fill="none" stroke="#8a8a8a" stroke-width="1"/><circle cx="80" cy="418" r="2.2" fill="none" stroke="#8a8a8a" stroke-width="1"/><circle cx="94" cy="414" r="2.2" fill="none" stroke="#8a8a8a" stroke-width="1"/><circle cx="110" cy="418" r="2.2" fill="none" stroke="#8a8a8a" stroke-width="1"/><circle cx="124" cy="414" r="2.2" fill="none" stroke="#8a8a8a" stroke-width="1"/><circle cx="138" cy="418" r="2.2" fill="none" stroke="#8a8a8a" stroke-width="1"/><circle cx="152" cy="414" r="2.2" fill="none" stroke="#8a8a8a" stroke-width="1"/><circle cx="166" cy="418" r="2.2" fill="none" stroke="#8a8a8a" stroke-width="1"/><circle cx="48" cy="418" r="2.2" fill="none" stroke="#8a8a8a" stroke-width="1"/><circle cx="176" cy="418" r="2.2" fill="none" stroke="#8a8a8a" stroke-width="1"/><circle cx="30" cy="422" r="2.2" fill="none" stroke="#8a8a8a" stroke-width="1"/><circle cx="196" cy="422" r="2.2" fill="none" stroke="#8a8a8a" stroke-width="1"/>
+  <rect x="62" y="376" width="104" height="10" style="fill:#d7d7d7;stroke:#8a8a8a;stroke-width:1.5"/>
+  <path d="M85,352H95M90,352V374M82,374H98" fill="none" stroke="#555" stroke-width="3"/>
+  <path d="M133,352H143M138,352V374M130,374H146" fill="none" stroke="#555" stroke-width="3"/>
+  <path class="spread" d="M90,386L44,430M138,386L184,430"/>
+
+  <circle class="dot" cx="143" cy="358" r="4"/><path class="lead" d="M147,357L226,342"/>
+  <circle class="dot" cx="150" cy="381" r="4"/><path class="lead" d="M154,381L226,382"/>
+  <circle class="dot" cx="170" cy="410" r="4"/><path class="lead" d="M174,411L226,422"/>
+  <circle class="dot" cx="150" cy="446" r="4"/><path class="lead" d="M154,447L226,462"/>
+
+  <rect class="ps" x="232" y="328" width="64" height="18" rx="9"/><text class="h" x="264" y="341" text-anchor="middle">走行面</text>
+  <text class="n" x="304" y="342">レール</text>
+  <rect class="ps" x="232" y="368" width="64" height="18" rx="9"/><text class="h" x="264" y="381" text-anchor="middle">走行面</text>
+  <text class="n" x="304" y="382">まくらぎ</text>
+  <rect class="ps" x="232" y="408" width="64" height="18" rx="9"/><text class="h" x="264" y="421" text-anchor="middle">走行面</text>
+  <text class="n" x="304" y="422">砕石の道床</text>
+  <rect class="pw" x="232" y="448" width="64" height="18" rx="9"/><text class="h" x="264" y="461" text-anchor="middle">支える土</text>
+  <text class="n" x="304" y="462">路盤</text>
+</svg>

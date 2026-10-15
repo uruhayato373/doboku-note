@@ -1,0 +1,71 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は木製の柵で雨水が入る経路と溜まる場所（木口・水平な面・接合部とボルト孔・地際）に、記事本文の対策（銅板で覆う・勾配・雨水が入りにくい納まり・防腐処理K4以上）を割り当てること。構造は模式で縮尺はない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="木製の柵の模式図に、雨水が入る場所と対策を割り当てた図。支柱の頭の木口は銅板などで覆う。横木の水平な面には勾配をつけて雨水を溜めない。接合部とボルト孔は雨水が入りにくい納まりにして重点的に点検する。地際は防腐処理のK4以上か、水中や地中での利用を検討する。全体は屋根で覆い、傷んだ部材だけ交換できる構造にする。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 12px; fill: #1a3a5c; }
+      .h { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .wood { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .fib { fill: none; stroke: #d4a017; stroke-width: 1; }
+      .lead { fill: none; stroke: #8a8a8a; stroke-width: 1; }
+      .dot { fill: #b22234; stroke: #fff; stroke-width: 1.5; }
+      .wa { fill: none; stroke: #2e6da4; stroke-width: 2.5; }
+      .pill { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+
+  <!-- 雨 -->
+  <text x="20" y="30">雨水</text>
+  <path class="wa" d="M56,16V128" marker-end="url(#ah)"/>
+  <path class="wa" d="M104,16V50" marker-end="url(#ah)"/>
+  <path class="wa" d="M148,16V126" marker-end="url(#ah)"/>
+
+  <!-- 地盤 -->
+  <rect x="20" y="300" width="190" height="86" style="fill:#f5f5f5;stroke:none"/>
+  <path d="M20,300H210" fill="none" stroke="#8a8a8a" stroke-width="2"/>
+  <rect x="20" y="386" width="190" height="6" style="fill:#d7d7d7"/>
+
+  <!-- 支柱 -->
+  <rect class="wood" x="88" y="58" width="32" height="296"/>
+  <path class="fib" d="M96,58V354M104,58V354M112,58V354"/>
+
+  <!-- 横木 -->
+  <rect class="wood" x="30" y="140" width="148" height="32"/>
+  <path class="fib" d="M30,150H178M30,160H178"/>
+  <path d="M130,140C132,133 162,133 164,140Z" style="fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5"/>
+  <circle cx="104" cy="157" r="6" style="fill:#fff;stroke:#555;stroke-width:2"/>
+
+  <!-- 地際の帯 -->
+  <rect x="78" y="282" width="52" height="36" rx="4" style="fill:none;stroke:#b22234;stroke-width:1.5;stroke-dasharray:4 3"/>
+
+  <!-- 位置の印と引出線 -->
+  <circle class="dot" cx="104" cy="58" r="5"/>
+  <path class="lead" d="M109,58H216"/>
+  <circle class="dot" cx="172" cy="140" r="5"/>
+  <path class="lead" d="M177,140H190L216,130"/>
+  <circle class="dot" cx="104" cy="157" r="5"/>
+  <path class="lead" d="M109,160L216,196"/>
+  <circle class="dot" cx="104" cy="300" r="5"/>
+  <path class="lead" d="M109,300H216"/>
+
+  <!-- 弱点と対策 -->
+  <rect class="pill" x="222" y="38" width="50" height="22" rx="11"/><text class="h" x="247" y="53" text-anchor="middle">木口</text>
+  <text class="t" x="222" y="80">銅板などで覆う</text>
+
+  <rect class="pill" x="222" y="112" width="84" height="22" rx="11"/><text class="h" x="264" y="127" text-anchor="middle">水平な面</text>
+  <text class="t" x="222" y="152">勾配をつけ、</text><text class="t" x="222" y="168">雨水を溜めない</text>
+
+  <rect class="pill" x="222" y="186" width="130" height="22" rx="11"/><text class="h" x="287" y="201" text-anchor="middle">接合部・ボルト孔</text>
+  <text class="t" x="222" y="226">雨水が入りにくい納まり</text><text class="t" x="222" y="242">重点的に点検する</text>
+
+  <rect class="pill" x="222" y="288" width="84" height="22" rx="11"/><text class="h" x="264" y="303" text-anchor="middle">地際・水際</text>
+  <text class="t" x="222" y="328">防腐処理（K4以上）か、</text><text class="t" x="222" y="344">水中・地中で使う</text>
+
+  <!-- 全体 -->
+  <rect x="10" y="408" width="380" height="82" rx="8" style="fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5"/>
+  <text class="n" x="22" y="432">全体</text>
+  <text class="t" x="22" y="454">屋根で覆う</text>
+  <text class="t" x="22" y="474">傷んだ部材だけ交換できる構造にする</text>
+</svg>

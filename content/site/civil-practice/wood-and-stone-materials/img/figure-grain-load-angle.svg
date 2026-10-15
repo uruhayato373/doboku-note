@@ -1,0 +1,61 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は荷重の向きが繊維から傾くと強さが直角方向の値に向かって下がること（記事本文の Hankinson 式）。曲線は P と Q の比を10、定数 n を2とした形の概念図で、数値は読み取れない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="木材のボルト接合で、荷重の向きと繊維の向きが合う置き方とずれる置き方を並べ、荷重と繊維のなす角θが大きくなるほど強さが、繊維方向の強さPから直角方向の強さQへ向かって下がることを示した図。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 12px; fill: #1a3a5c; }
+      .h { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .p { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .wood { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .fib { fill: none; stroke: #d4a017; stroke-width: 1; }
+      .hole { fill: #fff; stroke: #555; stroke-width: 2; }
+      .ax { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker id="ag" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#3a7d44"/></marker>
+    <marker id="ar" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#b22234"/></marker>
+    <marker id="ak" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#8a8a8a"/></marker>
+  </defs>
+
+  <!-- 合う置き方 -->
+  <rect class="p" x="10" y="10" width="185" height="206" rx="8"/>
+  <rect x="22" y="20" width="60" height="22" rx="11" style="fill:#d0e8d0;stroke:#3a7d44;stroke-width:1.5"/><text class="h" x="52" y="35" text-anchor="middle">合う</text>
+  <rect class="wood" x="22" y="56" width="124" height="86"/>
+  <path class="fib" d="M22,70H146M22,84H146M22,98H146M22,112H146M22,126H146"/>
+  <circle class="hole" cx="62" cy="99" r="9"/>
+  <path d="M62,99H182" fill="none" stroke="#3a7d44" stroke-width="3" marker-end="url(#ag)"/>
+  <text class="n" x="22" y="164">荷重と繊維が同じ向き</text>
+  <text class="t" x="22" y="184">θ = 0°</text><text class="t" x="22" y="202">強さは P</text>
+
+  <!-- ずれる置き方 -->
+  <rect class="p" x="205" y="10" width="185" height="206" rx="8"/>
+  <rect x="217" y="20" width="60" height="22" rx="11" style="fill:#f8d7da;stroke:#b22234;stroke-width:1.5"/><text class="h" x="247" y="35" text-anchor="middle">ずれる</text>
+  <rect class="wood" x="217" y="56" width="124" height="86"/>
+  <path class="fib" d="M217,70H341M217,84H341M217,98H341M217,112H341M217,126H341"/>
+  <circle class="hole" cx="257" cy="84" r="9"/>
+  <path d="M257,84H322" fill="none" stroke="#555" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <path d="M257,84L316,118" fill="none" stroke="#b22234" stroke-width="3" marker-end="url(#ar)"/>
+  <path d="M291,84A34,34 0 0 1 286.4,101" fill="none" stroke="#555" stroke-width="1.5"/>
+  <text class="h" x="296" y="99">θ</text>
+  <text class="n" x="217" y="164">荷重が繊維から傾く</text>
+  <text class="t" x="217" y="184">θ が大きいほど</text><text class="t" x="217" y="202">強さは Q に近づく</text>
+
+  <!-- 強さと角度 -->
+  <rect class="p" x="10" y="224" width="380" height="266" rx="8"/>
+  <path class="ax" d="M50,444V252" marker-end="url(#ak)"/>
+  <path class="ax" d="M50,444H372" marker-end="url(#ak)"/>
+  <text x="58" y="250">強さ</text>
+  <text class="h" x="42" y="280" text-anchor="end">P</text>
+  <text class="h" x="42" y="440" text-anchor="end">Q</text>
+  <path d="M50,276H62M50,436H62" stroke="#8a8a8a" stroke-width="1.5" fill="none"/>
+  <path d="M50.0,276.0 L55.0,277.1 L60.0,280.3 L65.0,285.3 L70.0,291.9 L75.0,299.6 L80.0,308.1 L85.0,316.9 L90.0,325.8 L95.0,334.5 L100.0,342.9 L105.0,350.8 L110.0,358.2 L115.0,365.0 L120.0,371.3 L125.0,377.1 L130.0,382.3 L135.0,387.1 L140.0,391.5 L145.0,395.5 L150.0,399.1 L155.0,402.4 L160.0,405.3 L165.0,408.0 L170.0,410.5 L175.0,412.8 L180.0,414.8 L185.0,416.7 L190.0,418.4 L195.0,420.0 L200.0,421.5 L205.0,422.8 L210.0,424.0 L215.0,425.1 L220.0,426.2 L225.0,427.1 L230.0,428.0 L235.0,428.8 L240.0,429.5 L245.0,430.2 L250.0,430.8 L255.0,431.4 L260.0,432.0 L265.0,432.4 L270.0,432.9 L275.0,433.3 L280.0,433.7 L285.0,434.0 L290.0,434.3 L295.0,434.6 L300.0,434.9 L305.0,435.1 L310.0,435.3 L315.0,435.5 L320.0,435.6 L325.0,435.7 L330.0,435.8 L335.0,435.9 L340.0,436.0 L345.0,436.0 L350.0,436.0" fill="none" stroke="#2e6da4" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="50" cy="276" r="5" style="fill:#d0e8d0;stroke:#3a7d44;stroke-width:2"/>
+  <circle cx="150.0" cy="399.1" r="5" style="fill:#f8d7da;stroke:#b22234;stroke-width:2"/>
+  <text class="t" x="68" y="268">合う</text>
+  <text class="t" x="160.0" y="391.1">ずれる</text>
+  <text x="50" y="462" text-anchor="middle">0°</text>
+  <text x="350" y="462" text-anchor="middle">90°</text>
+  <text class="h" x="200" y="480" text-anchor="middle">荷重と繊維のなす角 θ</text>
+  <text class="t" x="214" y="298">P：繊維方向の強さ</text>
+  <text class="t" x="214" y="316">Q：直角方向の強さ</text>
+</svg>

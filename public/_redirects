@@ -1393,6 +1393,7 @@
 # route /docs/civil-practice-concrete-work-preparation /practice/concrete-work-preparation
 # route /docs/civil-practice-construction-industry-structure /practice/construction-industry-structure
 # route /docs/civil-practice-construction-inspection-types /practice/construction-inspection-types
+# route /docs/civil-practice-construction-materials-overview /practice/construction-materials-overview
 # route /docs/civil-practice-construction-plan-document /practice/construction-plan-document
 # route /docs/civil-practice-cost-and-design-change /practice/cost-and-design-change
 # route /docs/civil-practice-development-permit-public-facilities /practice/development-permit-public-facilities
@@ -1436,6 +1437,7 @@
 # route /docs/civil-practice-pile-bearing-verification /practice/pile-bearing-verification
 # route /docs/civil-practice-pile-concrete-head-treatment /practice/pile-concrete-head-treatment
 # route /docs/civil-practice-pipe-jacking-methods /practice/pipe-jacking-methods
+# route /docs/civil-practice-polymer-construction-materials /practice/polymer-construction-materials
 # route /docs/civil-practice-ppp-pfi-selection /practice/ppp-pfi-selection
 # route /docs/civil-practice-pre-construction-process /practice/pre-construction-process
 # route /docs/civil-practice-precast-pile-methods /practice/precast-pile-methods
@@ -1494,6 +1496,7 @@
 # route /docs/civil-practice-typhoon-forecast-work-planning /practice/typhoon-forecast-work-planning
 # route /docs/civil-practice-urban-park-management /practice/urban-park-management
 # route /docs/civil-practice-volcanic-hazard-site-planning /practice/volcanic-hazard-site-planning
+# route /docs/civil-practice-wood-and-stone-materials /practice/wood-and-stone-materials
 
 # Legacy category hubs → canonical public hubs
 /category/civil-construction-1 /exam/civil-construction-1 301
