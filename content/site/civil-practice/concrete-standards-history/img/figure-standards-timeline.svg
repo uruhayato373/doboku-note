@@ -1,0 +1,68 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は塩化物の規制・アルカリシリカ反応（ASR）対策・かぶりの主な基準の移り変わりを竣工年の帯に並べ、年代から構造物の弱点を読む整理。年は本文に出てくるものだけ。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="塩化物の規制、アルカリシリカ反応の対策、かぶりの主な基準を年代順に並べ、竣工年から構造物の弱点を読む図。昭和61年より前の竣工は内在塩とアルカリシリカ反応を疑い、昭和61年6月から平成14年8月の竣工は骨材が成績表の確認だけだった可能性があるアルカリシリカ反応を疑い、平成14年9月以降の直轄は優先順位を下げるにとどめて疑いは外さない。かぶりはどの年代でも規定値と実際が別なので実測する。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .y { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .o { font-size: 12px; fill: #222; }
+      .zone { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .row { fill: #fff; stroke: #d7d7d7; stroke-width: 1; }
+      .cb { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; } /* brand-fill / brand */
+      .cw { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; } /* warn-fill / warn */
+      .cp { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; } /* positive-fill / positive */
+      .cd { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; } /* danger-fill / danger */
+      .ar { stroke: #2e6da4; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+
+  <rect class="zone" x="16" y="10" width="368" height="144" rx="8"/>
+  <text class="n" x="28" y="30">昭和61年より前に竣工</text>
+  <rect class="cd" x="28" y="36" width="36" height="18" rx="9"/><text class="t" x="46" y="49" text-anchor="middle">疑い</text>
+  <text class="o" x="72" y="49">内在塩・ASR（反応性骨材を排除できない）</text>
+  <rect class="row" x="28" y="60" width="344" height="26" rx="5"/>
+  <text class="y" x="38" y="77">昭和47年</text>
+  <rect class="cp" x="108" y="63" width="48" height="20" rx="10"/><text class="t" x="132" y="77" text-anchor="middle">かぶり</text>
+  <text class="o" x="196" y="77">床版の最小かぶり30mm</text>
+  <rect class="row" x="28" y="90" width="344" height="26" rx="5"/>
+  <text class="y" x="38" y="107">昭和49年</text>
+  <rect class="cb" x="108" y="93" width="40" height="20" rx="10"/><text class="t" x="128" y="107" text-anchor="middle">塩分</text>
+  <text class="o" x="196" y="107">示方書：NaCl換算0.10%</text>
+  <rect class="row" x="28" y="120" width="344" height="26" rx="5"/>
+  <text class="y" x="38" y="137">昭和53年</text>
+  <rect class="cb" x="108" y="123" width="40" height="20" rx="10"/><text class="t" x="128" y="137" text-anchor="middle">塩分</text>
+  <text class="o" x="196" y="137">JIS A 5308に塩化物の規定</text>
+  <path class="ar" d="M200,156V168" marker-end="url(#ah)"/>
+  <rect class="zone" x="16" y="170" width="368" height="174" rx="8"/>
+  <text class="n" x="28" y="190">昭和61年6月〜平成14年8月に竣工</text>
+  <rect class="cd" x="28" y="196" width="36" height="18" rx="9"/><text class="t" x="46" y="209" text-anchor="middle">疑い</text>
+  <text class="o" x="72" y="209">ASR：骨材は成績表の確認だけの可能性</text>
+  <rect class="row" x="28" y="220" width="344" height="26" rx="5"/>
+  <text class="y" x="38" y="237">昭和61年</text>
+  <rect class="cb" x="108" y="223" width="38" height="20" rx="10"/><text class="t" x="127" y="237" text-anchor="middle">塩分</text>
+  <rect class="cw" x="150" y="223" width="38" height="20" rx="10"/><text class="t" x="169" y="237" text-anchor="middle">ASR</text>
+  <text class="o" x="196" y="237">総量規制・暫定対策（通達）</text>
+  <rect class="row" x="28" y="250" width="344" height="26" rx="5"/>
+  <text class="y" x="38" y="267">平成元年</text>
+  <rect class="cw" x="108" y="253" width="40" height="20" rx="10"/><text class="t" x="128" y="267" text-anchor="middle">ASR</text>
+  <text class="o" x="196" y="267">技調発第370号</text>
+  <rect class="row" x="28" y="280" width="344" height="26" rx="5"/>
+  <text class="y" x="38" y="297">平成13年</text>
+  <rect class="cp" x="108" y="283" width="48" height="20" rx="10"/><text class="t" x="132" y="297" text-anchor="middle">かぶり</text>
+  <text class="o" x="196" y="297">国官技第61号（スペーサー）</text>
+  <rect class="row" x="28" y="310" width="344" height="26" rx="5"/>
+  <text class="y" x="38" y="327">平成14年</text>
+  <rect class="cw" x="108" y="313" width="40" height="20" rx="10"/><text class="t" x="128" y="327" text-anchor="middle">ASR</text>
+  <text class="o" x="196" y="327">国官技第112号（直轄）</text>
+  <path class="ar" d="M200,346V358" marker-end="url(#ah)"/>
+  <rect class="zone" x="16" y="360" width="368" height="54" rx="8"/>
+  <text class="n" x="28" y="380">平成14年9月以降に竣工（直轄）</text>
+  <rect class="cd" x="28" y="388" width="36" height="18" rx="9"/><text class="t" x="46" y="401" text-anchor="middle">疑い</text>
+  <text class="o" x="72" y="401">優先順位を下げるにとどめる（外さない）</text>
+  <rect class="zone" x="16" y="428" width="368" height="62" rx="8"/>
+  <rect class="cp" x="28" y="438" width="48" height="20" rx="10"/><text class="t" x="52" y="452" text-anchor="middle">かぶり</text>
+  <text class="n" x="86" y="453">どの年代でも、規定値と実際は別</text>
+  <text class="o" x="28" y="478">竣工年にかかわらず実測する</text>
+</svg>

@@ -2,20 +2,20 @@
   "description": "サイト図版SVGの派生カタログ（SSOT）。build-svg-catalog.mjs が生成。手動編集しない。",
   "source": "content/site/**/img/*.svg",
   "summary": {
-    "total": 1443,
-    "embedded": 1443,
+    "total": 1454,
+    "embedded": 1454,
     "orphan": 0,
     "missingConcept": 4,
     "withHighAudit": 0,
     "figures": {
-      "total": 1328,
-      "conforming": 1328,
+      "total": 1339,
+      "conforming": 1339,
       "needsRework": 0
     },
     "byCategory": {
       "civil-construction-1": 495,
       "civil-construction-2": 25,
-      "civil-practice": 254,
+      "civil-practice": 265,
       "concrete-chief-engineer": 133,
       "concrete-diagnostician": 138,
       "concrete-engineer": 63,
@@ -9926,6 +9926,42 @@
       }
     },
     {
+      "file": "content/site/civil-practice/concrete-durability-specification/img/figure-environment-to-items.svg",
+      "category": "civil-practice",
+      "slug": "concrete-durability-specification",
+      "name": "figure-environment-to-items.svg",
+      "concept": "環境条件ごとに主に動かす耐久性の項目を並べた図。一般の環境は、かぶりと水セメント比。塩分の供給がある環境は、かぶり、セメントの種類、追加の対策。凍結融解の繰返しは、水セメント比と空気量。凍結防止剤が重なる環境は、かぶり、空気量、追加の対策。化学的な作用は、セメントの種類と被覆。アルカリシリカ反応の懸念は、骨材の指定と抑制対策の方式。環境が厳しいほど、かぶりは厚く、水セメント比の上限は下がる。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/concrete-hydration-basics/img/figure-hydration-strength-growth.svg",
+      "category": "civil-practice",
+      "slug": "concrete-hydration-basics",
+      "name": "figure-hydration-strength-growth.svg",
+      "concept": "コンクリートが固まる仕組みの概念図。上段は、練り混ぜ直後のセメント粒子から表面に水和物が育ち、つながって固まる三段階。下段は、材齢と強度の関係を示す模式図で、温度が高いと初期は速いが伸びが小さく、温度が低いと遅れるが伸び、水が切れると反応が進まず伸びが止まる。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-practice/concrete-mix-acceptance/img/figure-acceptance-cards.svg",
       "category": "civil-practice",
       "slug": "concrete-mix-acceptance",
@@ -9962,11 +9998,137 @@
       }
     },
     {
+      "file": "content/site/civil-practice/concrete-quality-and-workforce/img/figure-age-composition.svg",
+      "category": "civil-practice",
+      "slug": "concrete-quality-and-workforce",
+      "name": "figure-age-composition.svg",
+      "concept": "2024年の就業者に占める年齢別の割合を、建設業と全産業で比べた棒グラフ。55歳以上は建設業が36.7%、全産業が32.4%。29歳以下は建設業が11.7%、全産業が16.9%。建設業は55歳以上の割合が高く、29歳以下の割合が低い。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/concrete-quality-and-workforce/img/figure-defect-stages.svg",
+      "category": "civil-practice",
+      "slug": "concrete-quality-and-workforce",
+      "name": "figure-defect-stages.svg",
+      "concept": "コンクリートの不具合が生まれる三つの段階と、段階ごとに止める仕組みの対応図。製造は認証工場の選定、配合計画書、納入書。施工は荷卸し時の試験、単位水量の測定、施工計画書、段階確認、施工記録。条件設定は設計図書、工期、指示・協議の記録。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/concrete-quality-and-workforce/img/figure-plants-shipments.svg",
+      "category": "civil-practice",
+      "slug": "concrete-quality-and-workforce",
+      "name": "figure-plants-shipments.svg",
+      "concept": "レディーミクストコンクリートの工場数と出荷量の変化を示す棒グラフ。工場数は平成14年の4,449工場から平成30年の3,298工場へ減った。出荷量は平成2年度のピーク1億9,800万立方メートルから平成30年度の8,550万立方メートルへ減った。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-practice/concrete-repair-leakage/img/figure-self-healing-crack-closure.svg",
       "category": "civil-practice",
       "slug": "concrete-repair-leakage",
       "name": "figure-self-healing-crack-closure.svg",
       "concept": "ひび割れ断面が三段階で閉塞される様子。発生直後は水が通り、水がある間に析出物が面に付いて幅が狭まり、やがて閉塞する。細く動かず湿った条件で閉塞しやすい",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/concrete-roles-overview/img/figure-stakeholder-decisions.svg",
+      "category": "civil-practice",
+      "slug": "concrete-roles-overview",
+      "name": "figure-stakeholder-decisions.svg",
+      "concept": "コンクリート構造物に関わる五つの立場が、何を決めて何の書類を渡すかを順に示した図。発注者は造るものと確かめる基準を決め、設計者は強度・耐久性・形を決め、生コン工場は実際の配合を決め、施工者は運ぶ・打つ・守る手順を決め、維持管理者は点検と手当ての時期を決める。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/concrete-standards-history/img/figure-standards-timeline.svg",
+      "category": "civil-practice",
+      "slug": "concrete-standards-history",
+      "name": "figure-standards-timeline.svg",
+      "concept": "塩化物の規制、アルカリシリカ反応の対策、かぶりの主な基準を年代順に並べ、竣工年から構造物の弱点を読む図。昭和61年より前の竣工は内在塩とアルカリシリカ反応を疑い、昭和61年6月から平成14年8月の竣工は骨材が成績表の確認だけだった可能性があるアルカリシリカ反応を疑い、平成14年9月以降の直轄は優先順位を下げるにとどめて疑いは外さない。かぶりはどの年代でも規定値と実際が別なので実測する。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/concrete-structure-inspection/img/figure-inspection-method-choice.svg",
+      "category": "civil-practice",
+      "slug": "concrete-structure-inspection",
+      "name": "figure-inspection-method-choice.svg",
+      "concept": "構造物の検査方法を、穴が残るかどうかと、何が分かるかで分けた図。強度は、穴が残らない非破壊のテストハンマーの反発度と超音波法で広く浅く推定し、届かなければ穴が残る小径コアとコアで深く確かめ、コアでも届かなければ対策を協議する。配筋とかぶりは、強度とは別に電磁波レーダ法や電磁誘導法で非破壊で測る。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/concrete-work-preparation/img/figure-five-meetings-flow.svg",
+      "category": "civil-practice",
+      "slug": "concrete-work-preparation",
+      "name": "figure-five-meetings-flow.svg",
+      "concept": "コンクリート工事の段取りの五つの場を時系列に並べた図。着工前の受発注者間の調整で要求を契約の言葉にそろえ、着工後の方針説明で目的を伝え、打設の前の事前検討会で段取りを決めて打設計画書へ書き戻し、打設の直前の周知会で現場へ伝え、打設のあとの反省会で計画との差を残す。反省の記録は次の事前検討会へ戻る。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -12446,6 +12608,24 @@
       }
     },
     {
+      "file": "content/site/civil-practice/ready-mixed-concrete-ordering/img/figure-ordering-code-reading.svg",
+      "category": "civil-practice",
+      "slug": "ready-mixed-concrete-ordering",
+      "name": "figure-ordering-code-reading.svg",
+      "concept": "生コンの呼び方「普通 24 12 20 N」の読み方を、引き出し線で示した図。普通はコンクリートの種類で普通コンクリート、24は呼び強度、12はスランプ12cm、20は粗骨材の最大寸法20mm、Nはセメントの種類で普通ポルトランドセメント。下段に、セメントの記号の例と、呼び方に出ないので別に書いて注文する骨材の種類とアルカリシリカ反応の抑制対策を示す。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-practice/rebar-cover-placement/img/figure-cover-types.svg",
       "category": "civil-practice",
       "slug": "rebar-cover-placement",
@@ -13495,6 +13675,24 @@
       "slug": "soil-improvement-sandbag",
       "name": "figure-depth-zones.svg",
       "concept": "地盤改良の固化工法を改良深度で分ける浅層混合処理（3m以内）・中層混合処理（10m以内）・深層混合処理（10m超）の区分を示す断面図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/special-concrete-selection/img/figure-condition-to-special-concrete.svg",
+      "category": "civil-practice",
+      "slug": "special-concrete-selection",
+      "name": "figure-condition-to-special-concrete.svg",
+      "concept": "特殊なコンクリートを現場の条件から選ぶ対応図。先に、水を避ける、配筋を直す、時期を変えるで条件を動かせないかを見る。残った条件に応じて、日平均気温4℃以下は寒中、25℃超は暑中、打込み温度35℃超は35℃を超える暑中、水和熱が問題になる厚い部材はマス、水の中で打つは水中・水中不分離性、配筋が込み締固めが難しいは高流動・流動化、強度・軽さ・収縮補償は高強度・軽量骨材・膨張、型枠なしで面に付けるは吹付け・短繊維補強を選ぶ。条件が重なると対策が逆を向くので、解析か試験で示し承認を得る。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",

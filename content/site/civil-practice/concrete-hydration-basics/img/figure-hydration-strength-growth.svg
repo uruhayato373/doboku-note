@@ -1,0 +1,58 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は、セメントと水の水和反応の進み方と、温度・水分による強度の伸びの違い（傾向を示す概念図で、縦軸・横軸に数値の目盛りは付けない）。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="コンクリートが固まる仕組みの概念図。上段は、練り混ぜ直後のセメント粒子から表面に水和物が育ち、つながって固まる三段階。下段は、材齢と強度の関係を示す模式図で、温度が高いと初期は速いが伸びが小さく、温度が低いと遅れるが伸び、水が切れると反応が進まず伸びが止まる。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 13px; fill: #222; }
+      .st { font-size: 12px; font-weight: bold; fill: #1a3a5c; text-anchor: middle; }
+      .ax { font-size: 13px; font-weight: bold; fill: #222; }
+      .lg { font-size: 12px; fill: #555; }
+      .lt { font-size: 13px; fill: #222; }
+      .card { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .wt { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .hy circle { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 3; }
+      .hf circle { fill: #d0e8d0; stroke: none; }
+      .ce circle { fill: #d7d7d7; stroke: #8a8a8a; stroke-width: 1.5; }
+      .arw { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+      .axis { stroke: #555; stroke-width: 1.5; fill: none; }
+      .c-hot { stroke: #b22234; stroke-width: 3; fill: none; stroke-linecap: round; }
+      .c-low { stroke: #2e6da4; stroke-width: 3; fill: none; stroke-linecap: round; }
+      .c-dry { stroke: #d4a017; stroke-width: 3; fill: none; stroke-linecap: round; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+    <marker id="ak" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+
+  <!-- 上段：水和が進む三段階 -->
+  <rect class="card" x="10" y="8" width="380" height="164" rx="8"/>
+  <rect class="wt" x="20" y="18" width="104" height="100" rx="6"/>
+  <g class="ce"><circle cx="48" cy="46" r="9"/><circle cx="94" cy="44" r="9"/><circle cx="56" cy="88" r="9"/><circle cx="98" cy="90" r="9"/></g>
+  <rect class="wt" x="148" y="18" width="104" height="100" rx="6"/>
+  <g class="hy"><circle cx="176" cy="46" r="16"/><circle cx="222" cy="44" r="16"/><circle cx="184" cy="88" r="16"/><circle cx="226" cy="90" r="16"/></g>
+  <g class="ce"><circle cx="176" cy="46" r="9"/><circle cx="222" cy="44" r="9"/><circle cx="184" cy="88" r="9"/><circle cx="226" cy="90" r="9"/></g>
+  <rect class="wt" x="276" y="18" width="104" height="100" rx="6"/>
+  <g class="hy"><circle cx="304" cy="46" r="24"/><circle cx="350" cy="44" r="24"/><circle cx="312" cy="88" r="24"/><circle cx="354" cy="90" r="24"/></g>
+  <g class="hf"><circle cx="304" cy="46" r="24"/><circle cx="350" cy="44" r="24"/><circle cx="312" cy="88" r="24"/><circle cx="354" cy="90" r="24"/></g>
+  <g class="ce"><circle cx="304" cy="46" r="7"/><circle cx="350" cy="44" r="7"/><circle cx="312" cy="88" r="7"/><circle cx="354" cy="90" r="7"/></g>
+  <path class="arw" d="M126,68H146" marker-end="url(#ah)"/>
+  <path class="arw" d="M254,68H274" marker-end="url(#ah)"/>
+  <text class="st" x="72" y="138">練り混ぜ直後</text>
+  <text class="st" x="200" y="138">水和物が育つ</text>
+  <text class="st" x="328" y="138">つながって固まる</text>
+  <circle cx="30" cy="158" r="5" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1.5"/><text class="lg" x="40" y="162">セメント粒子</text>
+  <circle cx="142" cy="158" r="5" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/><text class="lg" x="152" y="162">水和物</text>
+  <rect x="234" y="153" width="10" height="10" rx="2" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/><text class="lg" x="250" y="162">水</text>
+
+  <!-- 下段：材齢と強度（概念図・目盛りなし） -->
+  <rect class="card" x="10" y="180" width="380" height="312" rx="8"/>
+  <path class="axis" d="M50,392V204" marker-end="url(#ak)"/>
+  <path class="axis" d="M50,392H372" marker-end="url(#ak)"/>
+  <text class="ax" x="58" y="224">強度</text>
+  <text class="ax" x="372" y="412" text-anchor="end">材齢（時間）</text>
+  <path class="c-dry" d="M54,392C84,351 112,327 148,316C170,311 200,308 366,308"/>
+  <path class="c-hot" d="M54,392C68,329 98,280 158,262C228,247 298,245 366,245"/>
+  <path class="c-low" d="M54,392C100,388 130,342 190,297C250,252 310,221 366,213"/>
+
+  <path class="c-hot" d="M22,430H46"/><text class="lt" x="56" y="434">温度が高い：初期は速いが、伸びは小さい</text>
+  <path class="c-low" d="M22,452H46"/><text class="lt" x="56" y="456">温度が低い（凍らない）：遅れるが、伸びる</text>
+  <path class="c-dry" d="M22,474H46"/><text class="lt" x="56" y="478">水が切れる：反応が進まず、伸びが止まる</text>
+</svg>
