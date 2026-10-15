@@ -56721,6 +56721,27 @@
         "scripts/check-orphan-ogp.mjs"
       ],
       "srcHash": "08fc69cb5139cd0e"
+    },
+    "content/site/civil-practice/owner-safety-responsibility/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/owner-safety-responsibility/ogp.png",
+      "sha256": "2450c3f7ee8bb342081568c5c23d7e8b748ac821ca9df212bec9d597914e7223",
+      "bytes": 66704,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-15T04:11:20.903Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/owner-safety-responsibility/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "368b3ed343ca9f59"
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",
