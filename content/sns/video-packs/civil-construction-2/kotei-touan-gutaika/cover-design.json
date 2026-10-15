@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-2",
+      "headline": [
+        "工程管理",
+        "増員だけで",
+        "終わらない"
+      ],
+      "accentLine": 1,
+      "subtitle": "遅れの原因から書く",
+      "character": {
+        "pose": "checklist-pen",
+        "frame": "waist"
+      },
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監・元発注者"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/youtube.longform/cover.e5cae605.png",
+        "sha256": "e5cae60535b2cdf97136c3c81b7ee559fd2dd4421dd027e2b1d59577d850a3de",
+        "specSha256": "a178dfc0df60fc6c15e764a65893f5890a2a1d412eba0c03b84bac8e3a33e955"
+      }
+    }
+  }
+}

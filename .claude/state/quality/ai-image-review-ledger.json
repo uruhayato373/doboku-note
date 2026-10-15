@@ -1295,6 +1295,54 @@
       "reason": "原寸・幅360pxで指定8文言の正確さと判読性、参照キャラとの同一性、自然な指差しと用紙保持、完成答案集への誘導内容を確認し、下端10%に重要文字はない。",
       "reviewedAt": "2026-10-15T22:07:39.266Z"
     },
+    "media:civil-construction-2/keiken-daizai-erabi/youtube.longform/cover": {
+      "sha": "88c9abd2531fa9bd",
+      "verdict": "ok",
+      "reason": "原寸・幅360pxで実行済みプロンプトの指定文言の正確さと判読性、資格表示の別配置、参照キャラとの同一性、用紙と赤ペンを持つ自然な両手を確認。文字切れや人体・背景機械の重大な破綻なし。下端20%（実行指示25%）無文字域は未達で、完成字幕との干渉は親工程で別検査。",
+      "reviewedAt": "2026-10-15T22:50:56.067Z"
+    },
+    "media:civil-construction-2/keiken-daizai-erabi/youtube.longform/cta": {
+      "sha": "4a2124622b99d35b",
+      "verdict": "ok",
+      "reason": "原寸・幅360pxで指定8文言の正確さと判読性、資格表示の別配置、参照キャラとの同一性、自然な指差しと用紙保持を確認し、文字切れや重大な背景破綻はなく下端10%にも重要文字はないが、CTA文字が高さ約82%まで達するため下20%の無文字域は未達。字幕干渉は完成映像で別確認。 同SHA256 4a2124622b99d35b3396c9d5764e066d5ac0d06891e368b481ca232189f88e2bの共通素材を再利用。",
+      "reviewedAt": "2026-10-15T22:49:45.231Z"
+    },
+    "media:civil-construction-2/kento-taio-kakiwake/youtube.longform/cover": {
+      "sha": "65a2fc75505a1b0b",
+      "verdict": "ok",
+      "reason": "原寸・幅360pxで実行済みプロンプトの指定文言の正確さと判読性、資格表示の別配置、参照キャラとの同一性、用紙と赤ペンを持つ自然な両手を確認。文字切れや人体・背景機械の重大な破綻なし。下端20%（実行指示25%）無文字域は未達で、完成字幕との干渉は親工程で別検査。",
+      "reviewedAt": "2026-10-15T22:50:56.068Z"
+    },
+    "media:civil-construction-2/kento-taio-kakiwake/youtube.longform/cta": {
+      "sha": "4a2124622b99d35b",
+      "verdict": "ok",
+      "reason": "原寸・幅360pxで指定8文言の正確さと判読性、資格表示の別配置、参照キャラとの同一性、自然な指差しと用紙保持を確認し、文字切れや重大な背景破綻はなく下端10%にも重要文字はないが、CTA文字が高さ約82%まで達するため下20%の無文字域は未達。字幕干渉は完成映像で別確認。 同SHA256 4a2124622b99d35b3396c9d5764e066d5ac0d06891e368b481ca232189f88e2bの共通素材を再利用。",
+      "reviewedAt": "2026-10-15T22:49:45.231Z"
+    },
+    "media:civil-construction-2/koji-gaiyo-seigou/youtube.longform/cover": {
+      "sha": "0ab5a456662b1bc4",
+      "verdict": "ok",
+      "reason": "原寸・幅360pxで指定6文言の正確さと判読性、資格表示の別配置、参照キャラとの同一性を確認。手は用紙を持つ左右2つだけで余分な手や腕・文字切れ・背景機械の重大な破綻はない。下20%の無文字域は未達。字幕干渉は完成映像で別確認。",
+      "reviewedAt": "2026-10-15T22:49:45.231Z"
+    },
+    "media:civil-construction-2/koji-gaiyo-seigou/youtube.longform/cta": {
+      "sha": "4a2124622b99d35b",
+      "verdict": "ok",
+      "reason": "原寸・幅360pxで指定8文言の正確さと判読性、資格表示の別配置、参照キャラとの同一性、自然な指差しと用紙保持を確認し、文字切れや重大な背景破綻はなく下端10%にも重要文字はないが、CTA文字が高さ約82%まで達するため下20%の無文字域は未達。字幕干渉は完成映像で別確認。 同SHA256 4a2124622b99d35b3396c9d5764e066d5ac0d06891e368b481ca232189f88e2bの共通素材を再利用。",
+      "reviewedAt": "2026-10-15T22:49:45.231Z"
+    },
+    "media:civil-construction-2/kotei-touan-gutaika/youtube.longform/cover": {
+      "sha": "e5cae60535b2cdf9",
+      "verdict": "ok",
+      "reason": "原寸・幅360pxで指定6文言の正確さと判読性、対象資格と著者資格の別配置、参照キャラとの同一性、工程表・赤ペンを持つ自然な両手を確認。文字切れや背景機械の重大な破綻なし。下20%の無文字域は未達。完成映像では親が字幕と主要文字の干渉なしを確認。",
+      "reviewedAt": "2026-10-15T22:49:45.230Z"
+    },
+    "media:civil-construction-2/kotei-touan-gutaika/youtube.longform/cta": {
+      "sha": "4a2124622b99d35b",
+      "verdict": "ok",
+      "reason": "原寸・幅360pxで指定8文言の正確さと判読性、資格表示の別配置、参照キャラとの同一性、自然な指差しと用紙保持を確認し、文字切れや重大な背景破綻はなく下端10%にも重要文字はないが、CTA文字が高さ約82%まで達するため下20%の無文字域は未達。字幕干渉は完成映像で別確認。 同SHA256 4a2124622b99d35b3396c9d5764e066d5ac0d06891e368b481ca232189f88e2bの共通素材を再利用。",
+      "reviewedAt": "2026-10-15T22:49:45.231Z"
+    },
     "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/cover": {
       "sha": "b24e58035b4ad295",
       "verdict": "ok",
@@ -1390,6 +1438,18 @@
       "verdict": "ok",
       "reason": "穴埋め・複数記述・選択問題の3形式と答え方が本文と一致。各パネルの文字は明瞭で、人物による遮蔽と下端侵入なし。",
       "reviewedAt": "2026-10-11T11:18:14.353Z"
+    },
+    "media:civil-construction-2/touan-teishutsu-check/youtube.longform/cover": {
+      "sha": "b7b1ad72d2d9a8bd",
+      "verdict": "ok",
+      "reason": "原寸・幅360pxで実行済みプロンプトの指定文言の正確さと判読性、資格表示の別配置、参照キャラとの同一性、用紙と赤ペンを持つ自然な両手を確認。文字切れや人体・背景機械の重大な破綻なし。下端20%（実行指示25%）無文字域は未達で、完成字幕との干渉は親工程で別検査。",
+      "reviewedAt": "2026-10-15T22:50:56.068Z"
+    },
+    "media:civil-construction-2/touan-teishutsu-check/youtube.longform/cta": {
+      "sha": "4a2124622b99d35b",
+      "verdict": "ok",
+      "reason": "原寸・幅360pxで指定8文言の正確さと判読性、資格表示の別配置、参照キャラとの同一性、自然な指差しと用紙保持を確認し、文字切れや重大な背景破綻はなく下端10%にも重要文字はないが、CTA文字が高さ約82%まで達するため下20%の無文字域は未達。字幕干渉は完成映像で別確認。 同SHA256 4a2124622b99d35b3396c9d5764e066d5ac0d06891e368b481ca232189f88e2bの共通素材を再利用。",
+      "reviewedAt": "2026-10-15T22:49:45.231Z"
     },
     "media:pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/cover": {
       "sha": "51e3f120f8a8d8c5",

@@ -4,7 +4,7 @@
 > 真実源: 各 `video-pack.json` ＋ コンテンツ台帳 `content/registry/`（YouTube の状態は台帳が正本）。契約: `.claude/knowledge/reference/video-content-policy.md`
 > 管理画面の企画ボード（資格・段階で絞り込める表）: `/content/video`
 
-パック数: **161**（更新: 2026-10-16）
+パック数: **166**（更新: 2026-10-16）
 
 ## 1級土木施工管理技士（67）
 
@@ -78,7 +78,7 @@
 | `sekokan-shippaidan` | 施工管理の失敗談 — 現場で学んだ教訓 | 失敗事例から学びたいが実名では誰も話してくれない | career | 停止 | 台本/構成 | `links-hub` |
 | `study-plan-1kyu` | 1級土木の勉強計画 — 何をいつまでに | 仕事と両立しながら何をどの順で進めるか計画できない | roadmap | 停止 | 台本/構成 | `links-hub` |
 
-## 2級土木施工管理技士（22）
+## 2級土木施工管理技士（27）
 
 | packId | タイトル | 悩み | intent | 段階 | 台本/構成 | 主CTA |
 |---|---|---|---|---|---|---|
@@ -94,16 +94,21 @@
 | `hinshitsu-touan-gutaika` | 品質管理｜試験をした、だけで終わらせない | 品質管理の答案が「試験をした」で終わり、現場条件に合った管理の内容が伝わらない | howto | 予約 | 台本/構成 | `civil-2-experience-essay` |
 | `keiken-2kyu-level` | 2級で求められる記述レベルはここまで | 特殊工法や高度な内容を書けないと受からないと思っている | exam-point | 停止 | 台本/構成 | `coconala-shindan` |
 | `keiken-anzen-2kyu-kakikata` | 2級 安全管理テーマの書き方 — 現場の数字で具体化する | 安全管理の検討内容をどう具体化すればよいか分からない | howto | 停止 | 台本/構成 | `civil-2-experience-essay` |
+| `keiken-daizai-erabi` | 題材選び｜規模より自分の経験 | 小規模な工事しか経験がなく、施工経験記述に書ける題材がないと思っている | howto | 予約 | 台本/構成 | `civil-2-experience-essay` |
 | `keiken-gaiyo-2kyu` | 2級 工事概要の書き方 — 最初の失点を防ぐ | 工事概要に何をどこまで書けば設問と整合するか分からない | howto | 停止 | 台本/構成 | `civil-2-koji-bank` |
 | `keiken-genten-kyotsuten` | 減点される答案の共通点 | 内容以前の理由で減点される答案の特徴を知らない | diagnosis | 停止 | 台本/構成 | `coconala-shindan` |
 | `keiken-hinshitsu-kakikata` | 品質管理テーマの組み立て方 | 品質管理の課題と対応処置の組み立て方が分からない | howto | 停止 | 台本/構成 | `civil-2-experience-essay` |
 | `keiken-koji-ga-nai` | 「書ける工事が無い」と感じたら | 小規模工事しか経験がなく題材にできるか不安 | diagnosis | 停止 | 台本/構成 | `civil-2-koji-bank` |
 | `keiken-kotei-kakikata` | 工程管理テーマの組み立て方 | 工程管理は遅延の話しか思いつかず内容が薄くなる | howto | 停止 | 台本/構成 | `civil-2-experience-essay` |
 | `keiken-nendo-keiko-2kyu` | 2級二次の出題傾向 — 5年分から読むテーマの流れ | 2級の二次で何がどの周期で出ているのか把握できていない | exam-point | 停止 | 台本/構成 | `civil-2-pastexam-essay` |
+| `kento-taio-kakiwake` | 検討と対応｜考えたことと実施したことを分ける | 検討した内容と実施した処置が同じ文章になり、考えた理由と実際の行動を分けられない | howto | 予約 | 台本/構成 | `civil-2-experience-essay` |
 | `kikinagashi-2kyu-matome` | 耳で覚える2級土木 — 頻出点の総ざらい | 直前期に全分野を机で回す時間が取れない | exam-point | 停止 | 台本/構成 | `civil-2-takuitsu-pdf` |
+| `koji-gaiyo-seigou` | 工事概要｜本文とのズレを防ぐ | 工事概要は埋めたが、本文の工種・時期・数量・担当と食い違っていないか確かめられない | howto | 予約 | 台本/構成 | `civil-2-experience-essay` |
+| `kotei-touan-gutaika` | 工程管理｜増員した、だけで終わらせない | 工程管理の答案に増員した事実しか書けず、その処置を選んだ理由が伝わらない | howto | 予約 | 台本/構成 | `civil-2-experience-essay` |
 | `matome-2kyu-chokuzen` | 2級土木 直前総まとめ — 一次の頻出点と二次の記述を聞き流しで | 試験直前に全分野の頻出点と記述の型を見直したいが、まとまった時間が取れない | exam-point | レビュー | 台本/構成 | `links-hub` |
 | `nikyuu-gaiyo-roadmap` | 2級土木の全体像と学習順序 | 受検資格・科目・日程と何から始めるかが分からない | roadmap | 停止 | 台本/構成 | `links-hub` |
 | `study-plan-2kyu` | 2級土木の勉強計画 — 仕事と両立する学習設計 | 仕事と両立しながら何をいつまでに進めるか計画できない | roadmap | 停止 | 台本/構成 | `links-hub` |
+| `touan-teishutsu-check` | 答案の見直し｜条件・処置・結果のつながりを確認 | 施工経験記述を書き終えたが、内容や事実のどこを見直せばよいか分からない | howto | 予約 | 台本/構成 | `civil-2-experience-essay` |
 
 ## 技術士 第一次試験（1）
 

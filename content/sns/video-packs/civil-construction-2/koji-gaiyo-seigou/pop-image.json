@@ -1,0 +1,206 @@
+{
+  "policy": ".claude/knowledge/reference/pop-image-policy.md",
+  "designVersion": "pop-poster-v3",
+  "images": [
+    {
+      "role": "cover",
+      "mediaId": "civil-construction-2/koji-gaiyo-seigou/youtube.longform/cover",
+      "copy": [
+        "2級土木",
+        "工事概要",
+        "本文とのズレを防ぐ",
+        "工種・数量・立場を確認",
+        "総監・元発注者",
+        "1級・2級土木合格者"
+      ],
+      "references": [
+        {
+          "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/cover.6d461a7d.png",
+          "sha256": "6d461a7d29270911cbdeb4202056e9196493c0cfbae69dad97c351c3257c8fe5"
+        }
+      ],
+      "prompt": "Create one 16:9 landscape Japanese YouTube POP thumbnail intended 1920×1080 using supplied cover as teacher identity and emerald-green pop-poster-v3 style reference. Same mature male, short black hair, rectangular black glasses, light beard, plain white helmet, navy workwear, yellow safety straps. Large teacher on right, comparing two simple unlettered answer sheets held side by side with a thoughtful reassuring expression. Exact upper-left target label「2級土木」. Separate smaller yellow two-line credentials badge「総監・元発注者」「1級・2級土木合格者」. Giant dark-green main topic「工事概要」with white/yellow outline. Giant red headline in TWO lines「本文との」「ズレを防ぐ」. Smaller readable subtitle「工種・数量・立場を確認」. Full-bleed energetic green construction illustration. Important text and face inside5% margins; all text FULLY ABOVE y=80%. Bottom20% continuous background/torso, NO text, no blank strip. Do not put subtitle near bottom edge. Legible360px. Natural five-finger hands and anatomy. No other text, logos, URLs, prices, dates, guarantees, numerical examples, seals. Do not recreate the reference wording; use only the exact six specified text strings.",
+      "repairPrompt": "Edit this Japanese thumbnail to fix ONLY the teacher's anatomy. There are currently THREE HANDS, which is wrong. REMOVE COMPLETELY the extra hand/finger touching the chin and its entire extra wrist/forearm near the chest. Replace that area with natural navy workwear and shirt/tie. Keep exactly TWO arms and TWO hands: one hand holding the LEFT sheet, and one hand holding the RIGHT sheet. Do not add any other hand. Preserve the teacher identity, face, glasses, helmet, beard, two sheets, all Japanese text EXACTLY unchanged, green construction background, colors and whole 16:9 composition. Anatomically plausible shoulders/arms connecting to those two hands. No other changes.",
+      "rejectedDraftReason": "余分な手を確認し、採用前に修正",
+      "generator": {
+        "tool": "image_gen",
+        "model": "not-reported-by-tool"
+      },
+      "format": {
+        "width": 1920,
+        "height": 1080
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/youtube.longform/cover.0ab5a456.png",
+        "sha256": "0ab5a456662b1bc42a8d3a3420afe64298c91524f6f8e09c0416445866e3595f"
+      },
+      "normalization": "sharpによる1920×1080 RGBへの寸法正規化のみ",
+      "review": {
+        "status": "ok",
+        "by": "ai-image-fidelity-auditor",
+        "at": "2026-10-15T22:55:44.502Z",
+        "scope": "原寸と幅360pxの文言・人体・図形・参照キャラクター整合"
+      },
+      "generatedSource": {
+        "path": ".tmp/video-render/koji-gaiyo-seigou/source-generated-cover.png",
+        "sha256": "1e63cd3ef4a1acdb80e6aa26f8f02ead5f9822a9660d64a6f68614674d48ff2e"
+      }
+    },
+    {
+      "role": "cta",
+      "mediaId": "civil-construction-2/koji-gaiyo-seigou/youtube.longform/cta",
+      "sourceMediaId": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/cta",
+      "copy": [
+        "2級土木",
+        "施工経験記述",
+        "完成答案集",
+        "安全・品質・工程",
+        "自分の経験に置き換えて練習",
+        "概要欄から確認",
+        "総監・元発注者",
+        "1級・2級土木合格者"
+      ],
+      "references": [
+        {
+          "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/cta.4a212462.png",
+          "sha256": "4a2124622b99d35b3396c9d5764e066d5ac0d06891e368b481ca232189f88e2b"
+        }
+      ],
+      "prompt": "Edit the attached finished 16:9 landscape closing card for a Japanese educational video. Maintain the green pop-poster-v3 design and EXACT identity/anatomy of the teacher: plain white helmet, black rectangular glasses, short beard, navy workwear, one hand naturally pointing toward the CTA and the other holding answer sheets. Preserve these six text strings verbatim, once each: 「2級土木」「施工経験記述」「完成答案集」「安全・品質・工程」「自分の経験に置き換えて練習」「概要欄から確認」. Replace the old single line 「総監が制作」 with a TWO-LINE yellow credentials badge near the top: line 1 「総監・元発注者」, line 2 「1級・2級土木合格者」. This badge gives author credentials, clearly subordinate to the biggest target label 「2級土木」, with bold readable typography rather than tiny text. Reflow top heading and badge to avoid collisions; keep main title and CTA readable. Do not claim direct personal review, guaranteed passing, grading authority or teaching results. Add no other words, URL, logo, price or symbols. All important text and the pointing finger stay inside the canvas, all text and yellow CTA strip fully ABOVE 82% height. Bottom 18% only contains continuous illustrated green background and teacher torso, NOT a blank stripe. Preserve exactly five fingers per hand and the existing correct pointing pose. One polished landscape image intended 1920×1080, not a sheet or comparison.",
+      "generator": {
+        "tool": "image_gen",
+        "reuse": true
+      },
+      "format": {
+        "width": 1920,
+        "height": 1080
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/youtube.longform/cta.4a212462.png",
+        "sha256": "4a2124622b99d35b3396c9d5764e066d5ac0d06891e368b481ca232189f88e2b"
+      },
+      "review": {
+        "status": "ok",
+        "by": "ai-image-fidelity-auditor",
+        "at": "2026-10-15T22:55:44.502Z",
+        "scope": "原寸と幅360pxの文言・人体・図形・参照キャラクター整合"
+      }
+    }
+  ],
+  "authorization": {
+    "request": "5本ほど予約投稿してほしい　品質チェックしながら確実に",
+    "scope": "追加5本の制作・品質確認・YouTube予約投稿・台帳と管理画面への反映"
+  },
+  "completedVideoReview": {
+    "by": "codex",
+    "at": "2026-10-15T22:55:44.502Z",
+    "packId": "koji-gaiyo-seigou",
+    "duration": 114.6,
+    "video": {
+      "codec": "h264",
+      "width": 1920,
+      "height": 1080
+    },
+    "audio": {
+      "codec": "aac",
+      "sampleRate": "24000"
+    },
+    "scenesChecked": 13,
+    "scenesExpected": 13,
+    "maxFrameMae": 2.6457799290458937,
+    "audioInputsVerified": 13,
+    "blackOrLongSilence": 0,
+    "comparisons": [
+      {
+        "sceneId": "cover",
+        "time": 1.0453335,
+        "mae": 2.6457799290458937
+      },
+      {
+        "sceneId": "hook",
+        "time": 6.5920005,
+        "mae": 0.3585465730676328
+      },
+      {
+        "sceneId": "authority",
+        "time": 15.669334,
+        "mae": 0.349891681763285
+      },
+      {
+        "sceneId": "premise",
+        "time": 24.389333999999998,
+        "mae": 0.26873358242753626
+      },
+      {
+        "sceneId": "work-type",
+        "time": 33.3600005,
+        "mae": 0.3149484827898551
+      },
+      {
+        "sceneId": "work-example",
+        "time": 42.922667,
+        "mae": 0.5291300573671498
+      },
+      {
+        "sceneId": "quantity",
+        "time": 52.3680005,
+        "mae": 0.2342613979468599
+      },
+      {
+        "sceneId": "period",
+        "time": 61.669334,
+        "mae": 0.5453436367753624
+      },
+      {
+        "sceneId": "role",
+        "time": 70.965334,
+        "mae": 0.40393134812801934
+      },
+      {
+        "sceneId": "verb",
+        "time": 79.8186675,
+        "mae": 0.23982242602657006
+      },
+      {
+        "sceneId": "own-work",
+        "time": 88.9066675,
+        "mae": 0.3645035099637681
+      },
+      {
+        "sceneId": "summary",
+        "time": 99.0400005,
+        "mae": 0.32663647342995167
+      },
+      {
+        "sceneId": "cta",
+        "time": 109.3973335,
+        "mae": 2.291858016304348
+      }
+    ],
+    "visualInspection": "全場面の完成動画フレームで文字切れ・字幕との重なりを確認",
+    "pronunciationInspection": "全場面のVOICEVOX読み解析と入力ハッシュを確認（全編の人による試聴ではない）",
+    "subtitleSafeArea": "生成画像は指定20%の無文字域を満たさないため、完成字幕を含むフレームで主要文字との干渉がないことを確認",
+    "videoSha256": "e81ed339b133c301b5d0872f6167acff7a0dec31dde686cfba0e54d2d3a4055a"
+  },
+  "contentQa": {
+    "avg": 3,
+    "blocks": 0,
+    "by": "video-content-qa",
+    "at": "2026-10-16",
+    "scope": "台本・storyboard・出典・商品導線"
+  },
+  "renderRecipe": {
+    "bodyImages": "storyboardのpoints/sheet/compareを描画。全画像を1920×1080 RGBに正規化後、--resumeで合成。",
+    "voice": "VOICEVOX:青山龍星",
+    "command": "PATH=/opt/homebrew/opt/ffmpeg-full/bin:$PATH npm run render-longform -- --pack-dir content/sns/video-packs/civil-construction-2/koji-gaiyo-seigou --speaker 13 --resume",
+    "normalization": "ffmpeg loudnorm I=-16:TP=-1.5:LRA=11; AAC 24000Hz, 192k; video stream copy",
+    "storage": {
+      "status": "cloud-verified",
+      "contentMedia": 20,
+      "renderArtifacts": 35,
+      "sha256Verified": 55,
+      "cloudMd5Verified": 55,
+      "at": "2026-10-15T23:07:28.091Z"
+    }
+  }
+}

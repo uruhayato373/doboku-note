@@ -1,0 +1,209 @@
+{
+  "policy": ".claude/knowledge/reference/pop-image-policy.md",
+  "designVersion": "pop-poster-v3",
+  "images": [
+    {
+      "role": "cover",
+      "mediaId": "civil-construction-2/kotei-touan-gutaika/youtube.longform/cover",
+      "copy": [
+        "2級土木",
+        "工程管理",
+        "増員だけで終わらない",
+        "遅れの原因から書く",
+        "総監・元発注者",
+        "1級・2級土木合格者"
+      ],
+      "references": [
+        {
+          "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/cover.6d461a7d.png",
+          "sha256": "6d461a7d29270911cbdeb4202056e9196493c0cfbae69dad97c351c3257c8fe5"
+        }
+      ],
+      "prompt": "Create one 16:9 landscape Japanese YouTube POP thumbnail intended 1920×1080 using supplied cover as teacher identity and emerald-green pop-poster-v3 style reference. Same mature male, short black hair, rectangular black glasses, light beard, plain white helmet, navy workwear, yellow safety straps. Large teacher on right. Exact upper-left target label「2級土木」. Separate smaller yellow two-line credentials badge「総監・元発注者」「1級・2級土木合格者」. Giant dark-green main topic with white/yellow outline; giant red supporting headline in two lines; smaller readable subtitle. Full-bleed green construction illustration. Important text and face inside5% margins and FULLY ABOVE y=80%; bottom20% continuous background/torso, no text, no blank strip. Legible360px. Natural hands and anatomy. No other text, logos, URLs, prices, dates, guarantees. Exact main topic「工程管理」. Red headline「増員だけで」「終わらない」. Subtitle「遅れの原因から書く」. Teacher holds a simple unlettered work-schedule sheet and points at connected task bars with a red pen. No tiny lettering on sheet.",
+      "generator": {
+        "tool": "image_gen",
+        "model": "not-reported-by-tool"
+      },
+      "format": {
+        "width": 1920,
+        "height": 1080
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/youtube.longform/cover.e5cae605.png",
+        "sha256": "e5cae60535b2cdf97136c3c81b7ee559fd2dd4421dd027e2b1d59577d850a3de"
+      },
+      "normalization": "sharpによる1920×1080 RGBへの寸法正規化のみ",
+      "review": {
+        "status": "ok",
+        "by": "ai-image-fidelity-auditor",
+        "at": "2026-10-15T22:52:49.858Z",
+        "scope": "原寸と幅360pxの文言・人体・図形・参照キャラクター整合"
+      },
+      "generatedSource": {
+        "path": ".tmp/video-render/kotei-touan-gutaika/source-generated-cover.png",
+        "sha256": "9e06678d9bda8b7e2c13c977ade2d947dd648c1787112227781e27000a541478"
+      }
+    },
+    {
+      "role": "cta",
+      "mediaId": "civil-construction-2/kotei-touan-gutaika/youtube.longform/cta",
+      "sourceMediaId": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/cta",
+      "copy": [
+        "2級土木",
+        "施工経験記述",
+        "完成答案集",
+        "安全・品質・工程",
+        "自分の経験に置き換えて練習",
+        "概要欄から確認",
+        "総監・元発注者",
+        "1級・2級土木合格者"
+      ],
+      "references": [
+        {
+          "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/cta.4a212462.png",
+          "sha256": "4a2124622b99d35b3396c9d5764e066d5ac0d06891e368b481ca232189f88e2b"
+        }
+      ],
+      "prompt": "Edit the attached finished 16:9 landscape closing card for a Japanese educational video. Maintain the green pop-poster-v3 design and EXACT identity/anatomy of the teacher: plain white helmet, black rectangular glasses, short beard, navy workwear, one hand naturally pointing toward the CTA and the other holding answer sheets. Preserve these six text strings verbatim, once each: 「2級土木」「施工経験記述」「完成答案集」「安全・品質・工程」「自分の経験に置き換えて練習」「概要欄から確認」. Replace the old single line 「総監が制作」 with a TWO-LINE yellow credentials badge near the top: line 1 「総監・元発注者」, line 2 「1級・2級土木合格者」. This badge gives author credentials, clearly subordinate to the biggest target label 「2級土木」, with bold readable typography rather than tiny text. Reflow top heading and badge to avoid collisions; keep main title and CTA readable. Do not claim direct personal review, guaranteed passing, grading authority or teaching results. Add no other words, URL, logo, price or symbols. All important text and the pointing finger stay inside the canvas, all text and yellow CTA strip fully ABOVE 82% height. Bottom 18% only contains continuous illustrated green background and teacher torso, NOT a blank stripe. Preserve exactly five fingers per hand and the existing correct pointing pose. One polished landscape image intended 1920×1080, not a sheet or comparison.",
+      "generator": {
+        "tool": "image_gen",
+        "reuse": true
+      },
+      "format": {
+        "width": 1920,
+        "height": 1080
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/youtube.longform/cta.4a212462.png",
+        "sha256": "4a2124622b99d35b3396c9d5764e066d5ac0d06891e368b481ca232189f88e2b"
+      },
+      "review": {
+        "status": "ok",
+        "by": "ai-image-fidelity-auditor",
+        "at": "2026-10-15T22:52:49.858Z",
+        "scope": "原寸と幅360pxの文言・人体・図形・参照キャラクター整合"
+      }
+    }
+  ],
+  "authorization": {
+    "request": "5本ほど予約投稿してほしい　品質チェックしながら確実に",
+    "scope": "追加5本の制作・品質確認・YouTube予約投稿・台帳と管理画面への反映"
+  },
+  "completedVideoReview": {
+    "by": "codex",
+    "at": "2026-10-15T22:52:49.858Z",
+    "packId": "kotei-touan-gutaika",
+    "duration": 119.3,
+    "video": {
+      "codec": "h264",
+      "width": 1920,
+      "height": 1080
+    },
+    "audio": {
+      "codec": "aac",
+      "sampleRate": "24000"
+    },
+    "scenesChecked": 14,
+    "scenesExpected": 14,
+    "maxFrameMae": 2.7068429196859904,
+    "audioInputsVerified": 14,
+    "blackOrLongSilence": 0,
+    "comparisons": [
+      {
+        "sceneId": "cover",
+        "time": 0.7893335,
+        "mae": 2.7068429196859904
+      },
+      {
+        "sceneId": "hook",
+        "time": 5.5200005,
+        "mae": 0.370573860205314
+      },
+      {
+        "sceneId": "authority",
+        "time": 13.856000499999999,
+        "mae": 0.350817481884058
+      },
+      {
+        "sceneId": "premise",
+        "time": 22.6453335,
+        "mae": 0.6318885869565217
+      },
+      {
+        "sceneId": "delay",
+        "time": 31.2106665,
+        "mae": 0.4558469202898551
+      },
+      {
+        "sceneId": "affected",
+        "time": 39.6906665,
+        "mae": 0.5498556385869565
+      },
+      {
+        "sceneId": "bottleneck",
+        "time": 48.592,
+        "mae": 0.653695652173913
+      },
+      {
+        "sceneId": "options",
+        "time": 57.5733335,
+        "mae": 0.5031368885869565
+      },
+      {
+        "sceneId": "conditions",
+        "time": 66.6293335,
+        "mae": 0.37091485507246374
+      },
+      {
+        "sceneId": "execution",
+        "time": 75.96799999999999,
+        "mae": 0.43357601147342995
+      },
+      {
+        "sceneId": "followup",
+        "time": 85.05599999999998,
+        "mae": 0.47187047101449275
+      },
+      {
+        "sceneId": "own-work",
+        "time": 94.03199999999998,
+        "mae": 0.3057457729468599
+      },
+      {
+        "sceneId": "summary",
+        "time": 103.68533349999998,
+        "mae": 0.5284678819444445
+      },
+      {
+        "sceneId": "cta",
+        "time": 114.04266699999998,
+        "mae": 2.514916213768116
+      }
+    ],
+    "visualInspection": "全場面の完成動画フレームで文字切れ・字幕との重なりを確認",
+    "pronunciationInspection": "全場面のVOICEVOX読み解析と入力ハッシュを確認（全編の人による試聴ではない）",
+    "subtitleSafeArea": "生成画像は指定20%の無文字域を満たさないため、完成字幕を含むフレームで主要文字との干渉がないことを確認",
+    "videoSha256": "ba7e09c7c368decfc52a0ca6a1b12e05720051badaaebdcd39a950fdb67a9b45"
+  },
+  "contentQa": {
+    "avg": 2.83,
+    "blocks": 0,
+    "by": "video-content-qa",
+    "at": "2026-10-16",
+    "scope": "台本・storyboard・出典・商品導線"
+  },
+  "renderRecipe": {
+    "bodyImages": "storyboardのpoints/sheet/compareを描画。全画像を1920×1080 RGBに正規化後、--resumeで合成。",
+    "voice": "VOICEVOX:青山龍星",
+    "command": "PATH=/opt/homebrew/opt/ffmpeg-full/bin:$PATH npm run render-longform -- --pack-dir content/sns/video-packs/civil-construction-2/kotei-touan-gutaika --speaker 13 --resume",
+    "normalization": "ffmpeg loudnorm I=-16:TP=-1.5:LRA=11; AAC 24000Hz, 192k; video stream copy",
+    "storage": {
+      "status": "cloud-verified",
+      "contentMedia": 21,
+      "renderArtifacts": 37,
+      "sha256Verified": 58,
+      "cloudMd5Verified": 58,
+      "at": "2026-10-15T23:07:28.073Z"
+    }
+  }
+}
