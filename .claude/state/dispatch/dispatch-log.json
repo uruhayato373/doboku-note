@@ -3972,6 +3972,19 @@
       "commit": "c0aa995ec751",
       "verification": "content/registry/publications/youtube/*.json の status 集計",
       "note": "anzen-ippanron-3riyu・keiken-2kyu-level・keiken-genten-kyotsuten は台帳で全 stopped。休止中の診断への案内が出る動画は残っていない"
+    },
+    {
+      "id": "DN-0234",
+      "at": "2026-10-15",
+      "task": "Codex の archived_sessions 1.25 GB を棚卸しして 30 日超を消す",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "b1ea9107934e",
+      "verification": "find ~/.codex/archived_sessions -type f -mtime +7 | wc -l が 0",
+      "note": "保持期間 1 週間（2026-10-15 運営者判断）。運営者が PowerShell で 7 日超の 22 件（約 530MB）を削除し、7 日超は 0 件・残り 10 件 619MB。手順は disk-hygiene.md §5（Mac・Git Bash と PowerShell の両方）"
     }
   ]
 }
