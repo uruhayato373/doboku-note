@@ -116,6 +116,9 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **進捗（2026-10-12）**: check-workflow-health で note-live-audit・ops-audit・note-public-view・fetch-metrics は緑に戻っていた。weekly-review-guard は 10/5 の赤（週次レビュー前の未処分 OPP＝正しい赤）の後、main で手動実行して緑（run 38214647988）。weekly-review-draft は 10/10 に main へ入ったばかりで最初の cron が 10/16 のため「run 0 件」で赤だった＝検査の穴。初回の cron 枠の前は健全とみなす修正を PR #1008 に出した。残りは DN-0485 の Cloudflare 2 本だけ。#478・#940 は日次の ops-audit で自動クローズするかを見る。
 
+**進捗（2026-10-15）**: check-workflow-health の赤は 3 本。Cloudflare の 2 本（DN-0485）に加え、gsc-auto-review が「最後の success が 13 日前」。10/9 の定期実行が、共通の concurrency group develop-git-write で待機中に取り消されていた（作成 3 秒後に cancelled）。仕組みの直しは DN-0750 に分けた。10/16 12:00 の定期実行が通れば残りは DN-0485 の 2 本だけになる。fetch-metrics は 10/15 の手動実行で保存と事業スナップショットの 2 か所が落ちていたのを PR #1081 で直した。Issue #478 はまだ open。
+
+
 ### [DN-0453] 過去問 iOS アプリを総監・技術士（建設部門）・1級土木でまず試作する
 タグ: [収益化] [領域:商品] [時期:2026-10..2026-11] [期日:2026-11-08] [種類:改善] [起票:2026-09-29]
 
@@ -189,6 +192,8 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 **完了条件**: 10/11 以降の週次で「PDF を Drive から取り寄せられない」が 0 件。
 
 **手がかり（2026-10-10）**: 同じ日に Google Drive の本体アプリが止まっていて、マウントの read が全部 ETIMEDOUT になっていた（File Provider の拡張だけ動いていた・`open -a "Google Drive"` で 20 秒後に復旧）。10/4 の取り寄せの失敗も同じ原因の可能性が高い。次の日曜の同期の前に `pgrep -fl "Google Drive.app/Contents/MacOS"` で本体が動いているかを見る（memory reference_drive_vault_ledger_drift）。
+
+**進捗（2026-10-15）**: 10/11 の週次も失敗していた（河川砂防の 10 本が errno -11＝macOS の EDEADLK。File Provider がその場でダウンロードできない）。同じファイルは日中の手動 `drive-vault-sync --pull --commit` で失敗 0。対策を PR #1082 で develop に入れた（一時的な読み出し失敗は 20 秒・40 秒あけて読み直す・最初の取り寄せ前に Drive 本体を確かめ、止まっていれば起動して 60 秒待つ）。あわせて夜間用の作業ツリー（.claude/worktrees/note-sync）へ配布 PDF 773 件中の未取得 622 件を取り寄せた（失敗 0）ので、既存の PDF は次の週次で Drive を読まない。**残り**: 10/18 の週次の sync-log.json で「PDF を Drive から取り寄せられない」が 0 件なら完了。
 
 
 ### [DN-0500] 技術士一次試験 令和8年度（11/22）の解答速報ページを事前に用意し、公式正答の公開後すぐ埋める
