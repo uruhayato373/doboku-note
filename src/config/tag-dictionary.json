@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-15T04:11:25.285Z",
+  "generated_at": "2026-10-15T04:11:49.843Z",
   "summary": {
-    "total_mdx_files": 1425,
+    "total_mdx_files": 1426,
     "total_unique_tags": 133,
     "allowlist_size": 330,
     "known_count": 133,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 249,
+      "count": 250,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1229,6 +1229,7 @@
         "civil-practice-pre-construction-process",
         "civil-practice-precast-pile-methods",
         "civil-practice-preventive-maintenance-diagnosis",
+        "civil-practice-project-request-to-budget",
         "civil-practice-public-meeting-consensus",
         "civil-practice-public-works-bidding-methods",
         "civil-practice-public-works-delivery-methods",
@@ -3536,12 +3537,13 @@
     },
     {
       "name": "道路",
-      "count": 37,
+      "count": 38,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-2-guide-road-pavement-key-points",
         "civil-practice-asphalt-materials-types",
         "civil-practice-asphalt-pavement-control",
+        "civil-practice-project-request-to-budget",
         "civil-practice-reading-civil-drawings",
         "civil-practice-road-act-framework",
         "civil-practice-road-boundary-and-road-ledger",
@@ -3693,6 +3695,41 @@
       ]
     },
     {
+      "name": "河川",
+      "count": 28,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-textbook-river-works",
+        "civil-construction-2-guide-river-sabo-key-points",
+        "civil-practice-flood-control-facilities",
+        "civil-practice-flood-season-river-work",
+        "civil-practice-levee-failure-reinforcement",
+        "civil-practice-nature-conservation-mitigation",
+        "civil-practice-project-request-to-budget",
+        "civil-practice-reading-civil-drawings",
+        "civil-practice-river-act-framework",
+        "civil-practice-river-area-permits",
+        "civil-practice-river-crossing-structure-review",
+        "civil-practice-river-facility-inspection-operation",
+        "civil-practice-river-park-erosion-control",
+        "civil-practice-satomichi-suiro-management",
+        "pe-comprehensive-management-h21-essay-river-consultant",
+        "pe-comprehensive-management-h22-essay-river-consultant",
+        "pe-comprehensive-management-h23-essay-river-consultant",
+        "pe-comprehensive-management-h24-essay-river-consultant",
+        "pe-comprehensive-management-h25-essay-river-consultant",
+        "pe-comprehensive-management-h26-essay-river-consultant",
+        "pe-comprehensive-management-h27-essay-river-consultant",
+        "pe-comprehensive-management-pattern-essay-river-consultant",
+        "pe-comprehensive-management-r03-essay-river-consultant",
+        "pe-comprehensive-management-r04-essay-river-consultant",
+        "pe-comprehensive-management-r05-essay-river-consultant",
+        "pe-comprehensive-management-r06-essay-river-consultant",
+        "pe-comprehensive-management-r07-essay-river-consultant",
+        "pe-construction-river-coast-ronbun-keyword"
+      ]
+    },
+    {
       "name": "令和8年度",
       "count": 27,
       "inAllowlist": true,
@@ -3724,40 +3761,6 @@
         "pe-construction-tunnel-exam-themes",
         "pe-construction-urban-planning-exam-themes",
         "surveyor-primary-r08"
-      ]
-    },
-    {
-      "name": "河川",
-      "count": 27,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-textbook-river-works",
-        "civil-construction-2-guide-river-sabo-key-points",
-        "civil-practice-flood-control-facilities",
-        "civil-practice-flood-season-river-work",
-        "civil-practice-levee-failure-reinforcement",
-        "civil-practice-nature-conservation-mitigation",
-        "civil-practice-reading-civil-drawings",
-        "civil-practice-river-act-framework",
-        "civil-practice-river-area-permits",
-        "civil-practice-river-crossing-structure-review",
-        "civil-practice-river-facility-inspection-operation",
-        "civil-practice-river-park-erosion-control",
-        "civil-practice-satomichi-suiro-management",
-        "pe-comprehensive-management-h21-essay-river-consultant",
-        "pe-comprehensive-management-h22-essay-river-consultant",
-        "pe-comprehensive-management-h23-essay-river-consultant",
-        "pe-comprehensive-management-h24-essay-river-consultant",
-        "pe-comprehensive-management-h25-essay-river-consultant",
-        "pe-comprehensive-management-h26-essay-river-consultant",
-        "pe-comprehensive-management-h27-essay-river-consultant",
-        "pe-comprehensive-management-pattern-essay-river-consultant",
-        "pe-comprehensive-management-r03-essay-river-consultant",
-        "pe-comprehensive-management-r04-essay-river-consultant",
-        "pe-comprehensive-management-r05-essay-river-consultant",
-        "pe-comprehensive-management-r06-essay-river-consultant",
-        "pe-comprehensive-management-r07-essay-river-consultant",
-        "pe-construction-river-coast-ronbun-keyword"
       ]
     },
     {
@@ -3795,12 +3798,13 @@
     },
     {
       "name": "地方公共団体",
-      "count": 24,
+      "count": 25,
       "inAllowlist": true,
       "usedIn": [
         "civil-practice-board-of-audit-inspection",
         "civil-practice-coast-port-administrators",
         "civil-practice-owner-safety-responsibility",
+        "civil-practice-project-request-to-budget",
         "civil-practice-public-meeting-consensus",
         "civil-practice-public-works-planning-evaluation",
         "civil-practice-river-act-framework",
