@@ -56595,6 +56595,48 @@
         "scripts/check-orphan-ogp.mjs"
       ],
       "srcHash": "c66cc67ad2371e85"
+    },
+    "content/site/civil-practice/river-act-framework/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/river-act-framework/ogp.png",
+      "sha256": "9bcb59374bf60f4342a5a5ffda627a727de0bb28eb840357e613d8ad6f7f17c9",
+      "bytes": 60631,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-15T03:21:58.188Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/river-act-framework/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "7ef54e57c7dc0b8e"
+    },
+    "content/site/civil-practice/river-crossing-structure-review/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/river-crossing-structure-review/ogp.png",
+      "sha256": "fc1bc117a48c3791ca437d93c73a65c766601564c67477e4a9b4157d1d905dbe",
+      "bytes": 72743,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-15T03:24:57.447Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/river-crossing-structure-review/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "eaec03fda82e1316"
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",
