@@ -305,21 +305,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 **完了条件**: `coconala-1kyu-moshi-pdf` と `coconala-2kyu-moshi-pdf` がココナラの出品一覧から消え（coconala-pause が実測で確認）、`npm run check-coconala-blog` と `npm run check-coconala-live` が通る。
 
 
-### [DN-0310] 1級二次（10/4）の後に、1級の経験記述サービスの受付を止めるか来季向けの文面へ替える
-タグ: [収益化] [領域:商品] [時期:2026-10..2026-12] [種類:改善] [検証:check-coconala-live] [起票:2026-09-25] [期日:2026-10-14]
-
-**起点**: 1級の添削・作成（`tensaku-set`・`tensaku-4theme`・`sakusei`・`sakusei-4theme`）と `1kyu-premium` の「お願い」欄に「二次検定（10/4予定）に確実に間に合わせるため、10/2受付分まで」と書いている。10/3 以降も受付中のままだと、試験後に買った人へ納品しても意味が無い。2級の試験後（10/25 以降）の棚は DN-0264 で決める。
-
-**やること**: 試験後（10/5 以降）に、1級の5件を `coconala-pause` で受付停止にするか、来季（令和9年度）向けの文面へ替えるかを決める。受付停止ならカタログの status と pauseReason を更新し、替えるなら `coconala-listings.json` を直して `coconala-edit --service <id> --commit`（出品中の編集は下書き保存を使わない）。1級の PDF 教材（模試・完成答案・フルパック）の扱いも同時に決める。
-
-**完了条件**: 10/6 までに5件が受付停止か新しい文面になり、`npm run check-coconala-live` が全件一致したら、このカードを削除する。
-
-**進捗（2026-10-04）**: 受付停止に決定（2級を主力へ切り替え）。カタログは 1級 7 件すべて `paused`（`absence`・`resumeOn: 2027-07-01`）へ変更した（PR #858 に同梱）。ライブの休止は Playwright のココナラ保存セッションが切れていて未実行（9/23 保存・ログイン待ちでタイムアウト）。運営者がログインしてから `node scripts/coconala-pause.mjs --service coconala-tensaku-4theme --commit` と `--service coconala-sakusei-4theme --commit` を実行する。経験記述ブログ 12 本（`content/coconala/blog/`）も送客先を 2級の全3テーマ版へ替えた（ソースのみ）。同じログインのあとで `coconala-blog-publish --update --commit` を各記事に実行してライブへ反映する。1級の note 記事 214 本にある 1級サービス（4418735・4350199）へのリンクは、休止ページへ届くだけなので来季の文面と合わせて差し替える。
-
-**期日の変更（週次レビュー 2026-10-10）**: Mac でのログイン作業（DN-0643）と同じ日にまとめるため 2026-10-14 へ。
-**進捗（2026-10-14）**: coconala-pause の試行（変更なし）で状態を確かめた。休止済み: coconala-tensaku-set（4317375）・coconala-sakusei（4317796）。**公開中のまま**: coconala-sakusei-4theme（4350199）＝`node scripts/coconala-pause.mjs --service coconala-sakusei-4theme --commit` で休止できる。未確認: coconala-tensaku-4theme（4418735・1級2級共通に作り替え済み）と coconala-1kyu-premium（4341335）は、Mac の空きメモリ不足（1,088MB < 1,200MB）でブラウザの起動が見送られ確かめられなかった。他のアプリを閉じてから試行し直す。ブログ 12 本のライブ反映（coconala-blog-publish --update）は未着手。
-
-**note 側（2026-10-15 に対応・運営者の決定で外した）**: 1級の L3 194 本と共通の案内 5 本・自己採点・会員限定 12 本・LINE 誘導・RCCM から、受付していないココナラ出品へのリンクを外した（PR fix/civil1-coconala-cta-paused）。再発は check-coconala-wiring の「記事が受付していない出品へ送っていないか」が CI で止める。ライブへの反映は Mac の note 同期。以下は外す前の監査の記録: 1級の L3 約 194 ファイルの `cta:coconala-custom` が 4418735（paused・resumeOn 2026-10-26）と 4350199（下書きに戻され公開ページ 404）を案内している。土木もくじ :45 の「1級の添削は案内を止めている」と矛盾。外すか、10/26 の再開に合わせた文面へ切り替えるかを、受付を止めるか来季向けにするかの決定と一緒に決める。1 本ずつ直さず、管理ブロック（wire-note-funnel-cta 系）で `resumeOn` を見て切り替えるのが望ましい。
 
 
 ### [DN-0262] 1級・2級土木 第2次検定 記述 Kindle（I・J系）26冊を KDP へ3回に分けて提出する

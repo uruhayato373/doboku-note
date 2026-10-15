@@ -4192,6 +4192,19 @@
       "commit": "b77b040d4323",
       "verification": "node scripts/drive-vault-sync.mjs --group coconala-asset --verify --deep → 159 件を sha256 実照合・不一致 0",
       "note": "2026-10-16 に確かめると、5 枚（tensaku-set・tensaku-4theme・1kyu-premium・sakusei・sakusei-4theme）は 9/27 の POP 意匠への差し替えで、承認台帳 data/coconala/thumb-approved.json・手元の実体・Drive の台帳の 3 つとも同じハッシュになっていた（旧版の上書きは差し替えで済んでいた）。全件照合で残った 1 件の不一致は POP の生成記録 generation-manifest.json で、Drive と手元は 9/30 版・台帳だけ 9/27 版だったので台帳を合わせた。会社 PC の worktree の片付けは Mac からは確かめられない。"
+    },
+    {
+      "id": "DN-0310",
+      "at": "2026-10-16",
+      "task": "1級二次（10/4）の後に、1級の経験記述サービスの受付を止めるか来季向けの文面へ替える",
+      "tier": "high",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "dc656c41acb1",
+      "verification": "node scripts/coconala-pause.mjs の下見で 1級の休止済み出品を全件確認 → npm run check-coconala-live（listed 3＋プロフィール 1 を実検査・一致 4・食い違い 0）",
+      "note": "2026-10-16、運営者の決定（10/4 受付停止・カタログは 1級 7 件とも paused）どおり、ライブで公開中のまま残っていた coconala-sakusei-4theme（4350199）と coconala-tensaku-4theme（4418735）を coconala-pause --commit で受付休止にし、stop_fg=1 を実測で確認した。tensaku-set・sakusei・1kyu-premium・1kyu-moshi-pdf・1kyu-full-pdf は既に休止中。1kyu-kakomon-pdf・1kyu-gakka-pdf は 8/5 の統廃合で引退し出品一覧に無い。tensaku-4theme の再開（1級・2級共通の新しい文面）は 10/26 以降に運営者が判断する（カタログの resumeOn）。note 側の導線は 10/15 に外し済み。"
     }
   ]
 }
