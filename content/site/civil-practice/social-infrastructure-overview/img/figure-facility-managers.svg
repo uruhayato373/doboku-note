@@ -1,0 +1,50 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は道路法第13条・第16条、河川法第9条・第10条・第100条、下水道法第3条、港湾法第2条・第33条の管理者の区分。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="施設の種類と管理者の対応表。国道は指定区間内が国、それ以外が都道府県。一級河川は国土交通大臣で指定区間の事務は知事。二級河川は都道府県知事。市町村が管理するのは市町村道、準用河川、公共下水道。港湾は港務局または地方公共団体。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #222; }
+      .h { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .r { font-size: 14px; font-weight: bold; fill: #222; }
+      .c { font-size: 12px; fill: #222; }
+      .l { font-size: 12px; fill: #555; }
+      .band { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .pill-m { fill: #fff; stroke: #2e6da4; stroke-width: 1.5; }
+      .pill-g { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .pill-x { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .pill-d { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; stroke-dasharray: 4 3; }
+      .sep { stroke: #d7d7d7; stroke-width: 1; fill: none; }
+    </style>
+  </defs>
+
+  <rect class="band" x="292" y="10" width="98" height="406" rx="6"/>
+  <text class="h" x="148" y="44" text-anchor="middle">国</text>
+  <text class="h" x="244" y="44" text-anchor="middle">都道府県</text>
+  <text class="h" x="341" y="44" text-anchor="middle">市町村</text>
+  <path class="sep" d="M10,58H390"/>
+  <text class="r" x="14" y="92">国道</text>
+  <rect class="pill-g" x="104" y="71" width="88" height="32" rx="6"/><text class="c" x="148" y="91" text-anchor="middle">指定区間内</text>
+  <rect class="pill-g" x="200" y="71" width="88" height="32" rx="6"/><text class="c" x="244" y="91" text-anchor="middle">それ以外</text>
+  <path class="sep" d="M10,112H390"/>
+  <text class="r" x="14" y="142">市町村道</text>
+  <rect class="pill-m" x="296" y="121" width="90" height="32" rx="6"/><text class="c" x="341" y="141" text-anchor="middle">路線の市町村</text>
+  <path class="sep" d="M10,162H390"/>
+  <text class="r" x="14" y="192">一級河川</text>
+  <rect class="pill-g" x="104" y="171" width="88" height="32" rx="6"/><text class="c" x="148" y="191" text-anchor="middle">国土交通大臣</text>
+  <rect class="pill-g" x="200" y="171" width="88" height="32" rx="6"/><text class="c" x="244" y="191" text-anchor="middle">指定区間の事務</text>
+  <path class="sep" d="M10,212H390"/>
+  <text class="r" x="14" y="242">二級河川</text>
+  <rect class="pill-g" x="200" y="221" width="88" height="32" rx="6"/><text class="c" x="244" y="241" text-anchor="middle">都道府県知事</text>
+  <path class="sep" d="M10,262H390"/>
+  <text class="r" x="14" y="292">準用河川</text>
+  <rect class="pill-m" x="296" y="271" width="90" height="32" rx="6"/><text class="c" x="341" y="291" text-anchor="middle">市町村長が指定</text>
+  <path class="sep" d="M10,312H390"/>
+  <text class="r" x="14" y="342">公共下水道</text>
+  <rect class="pill-d" x="200" y="321" width="88" height="32" rx="6"/><text class="c" x="244" y="341" text-anchor="middle">例外あり</text>
+  <rect class="pill-m" x="296" y="321" width="90" height="32" rx="6"/><text class="c" x="341" y="341" text-anchor="middle">原則は市町村</text>
+  <path class="sep" d="M10,362H390"/>
+  <text class="r" x="14" y="392">港湾</text>
+  <rect class="pill-x" x="200" y="371" width="186" height="32" rx="6"/><text class="c" x="293" y="391" text-anchor="middle">港務局または地方公共団体</text>
+  <path class="sep" d="M10,412H390"/>
+  <rect class="pill-m" x="14" y="436" width="22" height="14" rx="3"/><text class="l" x="44" y="448">市町村が管理する範囲</text>
+  <rect class="pill-d" x="14" y="460" width="22" height="14" rx="3"/><text class="l" x="44" y="472">法律が置く例外</text>
+</svg>
