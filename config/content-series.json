@@ -119,7 +119,8 @@
               "visuals": [
                 {
                   "kind": "figure",
-                  "subject": "申請書の受付 → 協議（警察署長・他の占用者・埋設物管理者）→ 基準への当てはめと許可・条件 → 工事 → 復旧の確認 → 更新または廃止と原状回復 の流れ図（自作 SVG・400x500）。各段の当てはめ先（法第33条・施行令第9〜15条・第87条・第40条）を小さく添える"
+                  "subject": "申請書の受付 → 協議（警察署長・他の占用者・埋設物管理者）→ 基準への当てはめと許可・条件 → 工事 → 復旧の確認 → 更新または廃止と原状回復 の流れ図（自作 SVG・400x500）。各段の当てはめ先（法第33条・施行令第9〜15条・第87条・第40条）を小さく添える",
+                  "figKey": "civil-practice/road-occupancy-permit-review/img/figure-review-flow"
                 }
               ]
             },
@@ -199,11 +200,13 @@
               "visuals": [
                 {
                   "kind": "figure",
-                  "subject": "河川の断面（堤内地・堤防・高水敷・低水路）に、占用（24条）・工作物（26条）・掘削等（27条）・保全区域（55条）がどこに効くかを重ねた図（自作 SVG・viewBox 0 0 400 500）"
+                  "subject": "河川の断面（堤内地・堤防・高水敷・低水路）に、占用（24条）・工作物（26条）・掘削等（27条）・保全区域（55条）がどこに効くかを重ねた図（自作 SVG・viewBox 0 0 400 500）",
+                  "figKey": "civil-practice/river-area-permits/img/figure-river-permit-sections"
                 },
                 {
                   "kind": "figure",
-                  "subject": "相談 → 区域と権原の確認 → 許可の種類の判断 → 申請書の審査 → 許可と条件 → 完成検査・届出 の流れ図（自作 SVG）"
+                  "subject": "相談 → 区域と権原の確認 → 許可の種類の判断 → 申請書の審査 → 許可と条件 → 完成検査・届出 の流れ図（自作 SVG）",
+                  "figKey": "civil-practice/river-area-permits/img/figure-river-permit-checklist"
                 }
               ]
             },
@@ -274,15 +277,18 @@
               "visuals": [
                 {
                   "kind": "figure",
-                  "subject": "里道・水路が道路法・河川法・下水道法の外にあることと、国から市町村への譲与（平成17年3月31日まで）で物件が『市町村有』と『国に残る（財務局が管理）』に分かれたことを示す図（自作の SVG・viewBox 0 0 400 500）"
+                  "subject": "里道・水路が道路法・河川法・下水道法の外にあることと、国から市町村への譲与（平成17年3月31日まで）で物件が『市町村有』と『国に残る（財務局が管理）』に分かれたことを示す図（自作の SVG・viewBox 0 0 400 500）",
+                  "figKey": "civil-practice/satomichi-suiro-management/img/figure-transfer-to-municipality"
                 },
                 {
                   "kind": "figure",
-                  "subject": "公図上の里道・水路（地番のない長狭物）と、申請地・隣接地・対面地の位置関係、境界確定で立会いを求める範囲を示す図（自作の SVG）"
+                  "subject": "公図上の里道・水路（地番のない長狭物）と、申請地・隣接地・対面地の位置関係、境界確定で立会いを求める範囲を示す図（自作の SVG）",
+                  "figKey": "civil-practice/satomichi-suiro-management/img/figure-boundary-witnesses"
                 },
                 {
                   "kind": "figure",
-                  "subject": "用途廃止の審査（機能・同意・土地の形）→ 普通財産への変更 → 評価と契約 → 登記 の流れ図（自作の SVG）"
+                  "subject": "用途廃止の審査（機能・同意・土地の形）→ 普通財産への変更 → 評価と契約 → 登記 の流れ図（自作の SVG）",
+                  "figKey": "civil-practice/satomichi-suiro-management/img/figure-sale-procedure"
                 }
               ]
             }
