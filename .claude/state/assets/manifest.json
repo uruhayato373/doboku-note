@@ -57099,6 +57099,27 @@
         "scripts/check-orphan-ogp.mjs"
       ],
       "srcHash": "00db6b2b3e6e6a27"
+    },
+    "content/site/civil-practice/regional-disaster-plan-flood-fighting/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/regional-disaster-plan-flood-fighting/ogp.png",
+      "sha256": "adfa051532691809ac9cc753ccab88b64f336ab85c81b42c803c0a05aceb4579",
+      "bytes": 65124,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-15T06:11:23.843Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/regional-disaster-plan-flood-fighting/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "8acaee8d1f87da69"
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",
