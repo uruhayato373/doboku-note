@@ -400,6 +400,16 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0749] GA4 週次レポートの EXP-019 案別行を細らせ、上限の例外（data/ga4/reports/）を外す
+タグ: [領域:管理] [時期:2026-11] [種類:改善] [起票:2026-10-15]
+
+**起点**: 2026-10-15、fetch-metrics（develop の手動実行 run 38737548148）が data/ga4/reports/2026-10-15.json（4.8 MiB）を JSON の上限 4 MiB で保存できず止まった。主因は EXP-019 の案別レポート（affiliate-experiment）で、案×案件×面×ページ×端末×日の行を 28 日窓で毎週取り直すため、日数に比例して太る（2 日分で 0.52 MiB・2,331 行）。当座は config/git-binary-policy.json の allowlist に data/ga4/reports/ を理由つきで足して取得を通した。
+
+**やること**: EXP-019 の判定（2026-11-05）のあとで、affiliate-experiment の行の持ち方を見直す（判定に要る粒度だけを残す・列の重複を省く・別ファイルへ分ける、のどれか）。measure-experiments と dataset-schemas の読み手も合わせて直し、allowlist の data/ga4/reports/ を外す。
+
+**完了条件**: data/ga4/reports/*.json が allowlist なしで 4 MiB 以下に収まり、git-binary-policy の allowlist から data/ga4/reports/ が消えている。
+
+
 ### [DN-0748] コンクリートの記事の JIS R 5210（2026 年改正）と JIS A 5308（2024 年改正）の値を洗い出して直す
 タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-15] [進行中]
 
