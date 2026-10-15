@@ -464,6 +464,7 @@ const introVariant = z
             entry: z.string().optional().describe('上位パックより先に案内する入口の商品のマガジン id（低価格先出し。upper と一緒に 1 つの案内にする）'),
             dq: z.boolean().describe('失格注意の段落を持つか'),
             coconalaLead: z.string().optional().describe('coconala.lead のキー（無ければ default）'),
+            coconala: z.literal(false).optional().describe('false ならこの記事にはココナラの案内を出さない（答案を書く前の段階の読者向け・2026-10-15）'),
             _why: text.optional(),
             _generated: z.literal(true).optional().describe('npm run product -- gen が正本の persona・members から作った規則（手で直さない。置き場は最初の _generated の位置）'),
           })
