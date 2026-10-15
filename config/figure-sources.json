@@ -1766,6 +1766,17 @@
       "tool": "Codex",
       "prompt": "Archaeological test trench on a rural road planning site in Japan: a narrow rectangular trench about 1.5 m deep and 2 m wide, topsoil stripped by an excavator whose bucket and arm are visible at the edge of the frame, the trench wall shows distinct horizontal soil layers (dark topsoil, brown subsoil, yellowish natural ground), and a flat cleaned excavation floor shows a faint dark circular soil stain as a feature surface. Spoil pile beside the trench, a plain measuring staff leaning in the trench with no readable numbers. No people, no text, no signs. Shallow depth of field, overcast daylight."
     },
+    "civil-practice/concrete-labor-saving-technology/img/photo-precast-installation-crane": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "A precast reinforced concrete box culvert segment, a large hollow rectangular concrete unit, hanging level from the hook of a mobile crane by four wire slings, being lowered onto a prepared crushed-stone and levelling-concrete bed in an excavated trench at a road construction site; two or three workers in hard hats, high-visibility vests and gloves stand back from under the load and guide it with tag ropes, already-installed box culvert segments lie in line in the trench, the crane outrigger and boom partly visible. Daytime, overcast natural light, realistic colour photograph seen from slightly above at the trench edge. Faces not identifiable, no logos, no signs, no labels, no numbers, no writing."
+    },
+    "civil-practice/concrete-structure-inspection/img/photo-core-diameters": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Three drilled concrete core specimens of clearly different diameters (about 100 mm, about 75 mm and about 50 mm) standing upright side by side on a light grey laboratory bench, each core roughly twice as tall as its diameter, cut surfaces showing grey cement paste with embedded crushed-stone coarse aggregate of up to about 20 mm; in the 50 mm core the aggregate pieces are almost as wide as the core. Seen from a three-quarter elevated angle in soft daylight, in colour, with a plain wall behind. No ruler, no tape measure, no labels, no numbers, no writing.",
+      "basedOn": "vault:原資料PDF/書籍/concrete-basics-5th__最新コンクリートの基本と仕組み第5版/crops/p0201_photo-core-sizes.png"
+    },
     "civil-practice/construction-inspection-types/img/photo-remote-rebar-check": {
       "kind": "ai-generated",
       "tool": "Codex",
