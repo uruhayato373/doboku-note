@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-15T05:57:51.702Z",
+  "generated_at": "2026-10-15T05:58:29.617Z",
   "summary": {
-    "total_mdx_files": 1439,
+    "total_mdx_files": 1440,
     "total_unique_tags": 133,
     "allowlist_size": 330,
     "known_count": 133,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 263,
+      "count": 264,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1271,6 +1271,7 @@
         "civil-practice-satomichi-suiro-management",
         "civil-practice-schedule-and-road-permit",
         "civil-practice-service-commencement",
+        "civil-practice-sewerage-and-stormwater",
         "civil-practice-sheet-pile-snow-coating",
         "civil-practice-sling-work-wire-rope",
         "civil-practice-slope-drainage-monitoring",
@@ -3604,7 +3605,7 @@
     },
     {
       "name": "地方公共団体",
-      "count": 37,
+      "count": 38,
       "inAllowlist": true,
       "usedIn": [
         "civil-practice-board-of-audit-inspection",
@@ -3629,6 +3630,7 @@
         "civil-practice-road-boundary-and-road-ledger",
         "civil-practice-road-inspection-longevity-plan",
         "civil-practice-satomichi-suiro-management",
+        "civil-practice-sewerage-and-stormwater",
         "civil-practice-urban-park-management",
         "pe-comprehensive-management-essay-pattern-cross-year-application",
         "pe-comprehensive-management-h21-essay-road-municipality",
@@ -3865,7 +3867,7 @@
     },
     {
       "name": "維持管理",
-      "count": 23,
+      "count": 24,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-concrete-maintenance",
@@ -3878,6 +3880,7 @@
         "civil-practice-river-facility-inspection-operation",
         "civil-practice-road-inspection-longevity-plan",
         "civil-practice-seismic-design-levels",
+        "civil-practice-sewerage-and-stormwater",
         "civil-practice-social-infrastructure-overview",
         "civil-practice-urban-park-management",
         "concrete-chief-engineer-textbook-durability",
@@ -4796,6 +4799,21 @@
       ]
     },
     {
+      "name": "流域治水",
+      "count": 8,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-flood-control-facilities",
+        "civil-practice-flood-season-river-work",
+        "civil-practice-sewerage-and-stormwater",
+        "pe-comprehensive-management-climate-change-adaptation-act",
+        "pe-comprehensive-management-sound-water-cycle",
+        "pe-construction-bosai-kokudo-kyoujinka",
+        "pe-construction-bousai-genseigai-ronbun-keyword",
+        "pe-construction-river-coast-ronbun-keyword"
+      ]
+    },
+    {
       "name": "RCCM",
       "count": 7,
       "inAllowlist": true,
@@ -4849,20 +4867,6 @@
         "pe-comprehensive-management-r04-essay-road-municipality",
         "pe-construction-kensetsu-dx",
         "pe-construction-ninaite-dx-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "流域治水",
-      "count": 7,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-flood-control-facilities",
-        "civil-practice-flood-season-river-work",
-        "pe-comprehensive-management-climate-change-adaptation-act",
-        "pe-comprehensive-management-sound-water-cycle",
-        "pe-construction-bosai-kokudo-kyoujinka",
-        "pe-construction-bousai-genseigai-ronbun-keyword",
-        "pe-construction-river-coast-ronbun-keyword"
       ]
     },
     {
@@ -5326,6 +5330,15 @@
       ]
     },
     {
+      "name": "上下水道",
+      "count": 2,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-textbook-water-sewer",
+        "civil-practice-sewerage-and-stormwater"
+      ]
+    },
+    {
       "name": "合格率",
       "count": 2,
       "inAllowlist": true,
@@ -5376,14 +5389,6 @@
       "inAllowlist": true,
       "usedIn": [
         "pe-construction-ninaite-kakuho-seisansei"
-      ]
-    },
-    {
-      "name": "上下水道",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-textbook-water-sewer"
       ]
     },
     {
