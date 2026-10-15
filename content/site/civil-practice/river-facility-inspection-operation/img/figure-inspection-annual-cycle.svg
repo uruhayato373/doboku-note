@@ -1,0 +1,60 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は点検・評価要領（中小河川版・国管理版）の年間の点検、一次・二次評価、措置段階と監視段階、年1回の総合的な評価、次年度計画と要注意箇所への活用。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="河川管理施設の点検から評価までの年間サイクルの流れ図。出水期前・台風期・出水後に点検し、一次評価は点検者、二次評価は組織で行う。措置段階は速やかに補修・更新、監視段階は経過を見る。年1回の総合的な評価を行い、記録の保存と次年度の点検計画、出水時の要注意箇所に生かし、次の年の点検へ戻る。">
+  <defs>
+  <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .n { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .c { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 11px; fill: #1a3a5c; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .ok { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .wn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .ng { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .chip { fill: #fff; stroke: #2e6da4; stroke-width: 1; }
+      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+  </style>
+  <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+
+  <rect class="b" x="30" y="14" width="340" height="84" rx="8"/>
+  <text class="n" x="200" y="36" text-anchor="middle">点検</text>
+  <rect class="chip" x="42" y="48" width="100" height="32" rx="16"/><text class="c" x="92" y="68" text-anchor="middle">出水期前</text>
+  <rect class="chip" x="150" y="48" width="100" height="32" rx="16"/><text class="c" x="200" y="68" text-anchor="middle">台風期</text>
+  <rect class="chip" x="258" y="48" width="100" height="32" rx="16"/><text class="c" x="308" y="68" text-anchor="middle">出水後</text>
+
+  <path class="a" d="M200,98V113" marker-end="url(#ah)"/>
+  <rect class="b" x="30" y="114" width="340" height="50" rx="8"/>
+  <text class="n" x="200" y="136" text-anchor="middle">一次評価</text>
+  <text class="t" x="200" y="153" text-anchor="middle">点検者が現場で</text>
+
+  <path class="a" d="M200,164V179" marker-end="url(#ah)"/>
+  <rect class="b" x="30" y="180" width="340" height="50" rx="8"/>
+  <text class="n" x="200" y="202" text-anchor="middle">二次評価</text>
+  <text class="t" x="200" y="219" text-anchor="middle">組織で判断・必要なら専門家</text>
+
+  <path class="a" d="M200,230V244H112V259" marker-end="url(#ah)"/>
+  <path class="a" d="M200,230V244H288V259" marker-end="url(#ah)"/>
+  <rect class="ng" x="30" y="260" width="166" height="52" rx="8"/>
+  <text class="n" x="113" y="282" text-anchor="middle">措置段階</text>
+  <text class="t" x="113" y="300" text-anchor="middle">速やかに補修・更新</text>
+  <rect class="wn" x="204" y="260" width="166" height="52" rx="8"/>
+  <text class="n" x="287" y="282" text-anchor="middle">監視段階</text>
+  <text class="t" x="287" y="300" text-anchor="middle">経過を見る</text>
+
+  <path class="a" d="M113,312V326H200V339" marker-end="url(#ah)"/>
+  <path class="a" d="M287,312V326H200V339" marker-end="url(#ah)"/>
+  <rect class="b" x="30" y="340" width="340" height="56" rx="8"/>
+  <text class="n" x="200" y="363" text-anchor="middle">年1回の総合的な評価</text>
+  <text class="t" x="200" y="381" text-anchor="middle">年度内の評価が終わった後</text>
+
+  <path class="a" d="M200,396V410H113V425" marker-end="url(#ah)"/>
+  <path class="a" d="M200,396V410H287V425" marker-end="url(#ah)"/>
+  <rect class="ok" x="30" y="426" width="166" height="56" rx="8"/>
+  <text class="n" x="113" y="449" text-anchor="middle">記録の保存</text>
+  <text class="t" x="113" y="467" text-anchor="middle">次年度の点検計画へ</text>
+  <rect class="ok" x="204" y="426" width="166" height="56" rx="8"/>
+  <text class="n" x="287" y="449" text-anchor="middle">要注意箇所</text>
+  <text class="t" x="287" y="467" text-anchor="middle">重要水防箇所と並べる</text>
+
+  <path d="M30,454H16V56H29" fill="none" style="stroke:#2e6da4;stroke-width:1.5;stroke-dasharray:4 3" marker-end="url(#ah)"/>
+</svg>
