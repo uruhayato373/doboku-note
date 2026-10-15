@@ -1,0 +1,59 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は都市計画法第17条第1項・第2項、第19条、第20条（縦覧・意見書・審議会・協議・決定・告示）。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="市町村が都市計画を決めるときの流れ。案の縦覧は公告の日から2週間、意見書は縦覧期間の満了日まで、都市計画審議会、都道府県知事への協議、決定、告示の順に進む。告示の前は決定後も効力がなく、告示の日から効力が生じる。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }
+      .h { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .n { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .d { font-size: 12px; fill: #1a3a5c; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .y { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .a { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+      .k { stroke: #d4a017; stroke-width: 2; fill: none; }
+      .kg { stroke: #3a7d44; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+
+  <rect class="b" x="10" y="20" width="270" height="60" rx="8"/>
+  <circle cx="34" cy="50" r="12" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/><text class="h" x="34" y="54.5" text-anchor="middle">1</text>
+  <text class="n" x="56" y="46">案の縦覧</text>
+  <text class="d" x="56" y="66">公告の日から2週間（第17条第1項）</text>
+  <path class="a" d="M145,82V94" marker-end="url(#ah)"/>
+
+  <rect class="b" x="10" y="96" width="270" height="60" rx="8"/>
+  <circle cx="34" cy="126" r="12" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/><text class="h" x="34" y="130.5" text-anchor="middle">2</text>
+  <text class="n" x="56" y="122">意見書</text>
+  <text class="d" x="56" y="142">縦覧の満了日まで（第17条第2項）</text>
+  <path class="a" d="M145,158V170" marker-end="url(#ah)"/>
+
+  <rect class="b" x="10" y="172" width="270" height="60" rx="8"/>
+  <circle cx="34" cy="202" r="12" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/><text class="h" x="34" y="206.5" text-anchor="middle">3</text>
+  <text class="n" x="56" y="198">都市計画審議会</text>
+  <text class="d" x="56" y="218">意見書の要旨も提出（第19条）</text>
+  <path class="a" d="M145,234V246" marker-end="url(#ah)"/>
+
+  <rect class="b" x="10" y="248" width="270" height="60" rx="8"/>
+  <circle cx="34" cy="278" r="12" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/><text class="h" x="34" y="282.5" text-anchor="middle">4</text>
+  <text class="n" x="56" y="274">都道府県知事への協議</text>
+  <text class="d" x="56" y="294">市町村が決める場合（第19条第3項）</text>
+  <path class="a" d="M145,310V322" marker-end="url(#ah)"/>
+
+  <rect class="b" x="10" y="324" width="270" height="60" rx="8"/>
+  <circle cx="34" cy="354" r="12" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/><text class="h" x="34" y="358.5" text-anchor="middle">5</text>
+  <text class="n" x="56" y="350">決定</text>
+  <text class="d" x="56" y="370">審議会の議を経て、市町村が決定</text>
+  <path class="a" d="M145,386V398" marker-end="url(#ah)"/>
+
+  <rect class="g" x="10" y="400" width="270" height="60" rx="8"/>
+  <circle cx="34" cy="430" r="12" fill="#fff" stroke="#3a7d44" stroke-width="1.5"/><text class="h" x="34" y="434.5" text-anchor="middle">6</text>
+  <text class="n" x="56" y="426">告示</text>
+  <text class="d" x="56" y="446">告示の日から効力が生じる（第20条）</text>
+
+  <path class="k" d="M294,22H302V382H294"/>
+  <text class="h" x="310" y="190">告示の前</text>
+  <text class="h" x="310" y="208">効力なし</text>
+  <path class="kg" d="M294,402H302V458H294"/>
+  <text class="h" x="310" y="426" style="fill:#1a3a5c">効力あり</text>
+</svg>
