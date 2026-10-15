@@ -1,0 +1,316 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 2,
+      "narration": "品質管理を具体化。",
+      "caption": "品質管理を具体化。",
+      "visual": {
+        "kind": "cover",
+        "heading": "試験をした、だけで終わらせない",
+        "items": [
+          "2級土木｜品質管理",
+          "管理項目・現場条件・確認方法"
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集/品質管理/article.md"
+    },
+    {
+      "sceneId": "hook",
+      "start": 2,
+      "end": 10,
+      "narration": "「試験をした」だけで終わっていませんか。管理項目、現場条件、確認方法をつなげます。",
+      "caption": "「試験をした」だけで終わっていませんか。管理項目、現場条件、確認方法をつなげます。",
+      "visual": {
+        "kind": "points",
+        "heading": "品質管理は、3つをつなげる",
+        "items": [
+          "管理項目：何を管理したか",
+          "現場条件：なぜ必要だったか",
+          "確認方法：どう確かめたか"
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集/品質管理/article.md"
+    },
+    {
+      "sceneId": "authority",
+      "start": 10,
+      "end": 20,
+      "narration": "総合技術監理部門の技術士で、1級・2級土木に合格した元発注者が、書く視点を解説します。",
+      "caption": "総合技術監理部門の技術士で、1級・2級土木に合格した元発注者が、書く視点を解説します。",
+      "visual": {
+        "kind": "points",
+        "heading": "解説：架（かける）",
+        "items": [
+          "技術士（総合技術監理部門）",
+          "元・地方自治体の土木職（発注者）",
+          "1級・2級土木施工管理技士 合格"
+        ]
+      },
+      "sourceRef": "src/config/author.ts"
+    },
+    {
+      "sceneId": "premise",
+      "start": 20,
+      "end": 30,
+      "narration": "試験の名前だけでは、何の品質を、なぜ確かめたのかが伝わりません。ここからは、考え方の例です。",
+      "caption": "試験の名前だけでは、何の品質を、なぜ確かめたのかが伝わりません。ここからは、考え方の例です。",
+      "visual": {
+        "kind": "compare",
+        "heading": "試験名の前に、目的を整理",
+        "ngLabel": "名前だけ",
+        "okLabel": "目的まで",
+        "rows": [
+          {
+            "ng": "試験を実施した",
+            "ok": "何を、なぜ確かめたか"
+          }
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集/品質管理/article.md"
+    },
+    {
+      "sceneId": "quality-item",
+      "start": 30,
+      "end": 41,
+      "narration": "まず、管理する項目を決めます。夏のコンクリート施工を例に、打込み時のコンクリート温度に注目します。",
+      "caption": "まず、管理する項目を決めます。夏のコンクリート施工を例に、打込み時のコンクリート温度に注目します。",
+      "visual": {
+        "kind": "sheet",
+        "heading": "何を管理するか：打込み時の温度",
+        "sheetTitle": "考え方の整理例",
+        "rows": [
+          {
+            "label": "管理項目",
+            "value": "打込み時の温度",
+            "state": "focus",
+            "order": 1
+          },
+          {
+            "label": "現場条件",
+            "value": "夏季の運搬・待機",
+            "state": "todo",
+            "order": 2
+          },
+          {
+            "label": "検討と処置",
+            "value": "搬入間隔と待機時間",
+            "state": "todo",
+            "order": 3
+          },
+          {
+            "label": "確認方法",
+            "value": "温度測定と管理値の照合",
+            "state": "todo",
+            "order": 4
+          }
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集/品質管理/article.md"
+    },
+    {
+      "sceneId": "condition",
+      "start": 41,
+      "end": 52,
+      "narration": "次に、現場条件です。夏の暑さに加え、運搬や待機で温度が上がるおそれを、管理が必要な理由につなげます。",
+      "caption": "次に、現場条件です。夏の暑さに加え、運搬や待機で温度が上がるおそれを、管理が必要な理由につなげます。",
+      "visual": {
+        "kind": "points",
+        "heading": "考え方の例：夏季のコンクリート",
+        "items": [
+          "夏季の施工",
+          "運搬・待機で温度上昇のおそれ",
+          "打込み時の温度を管理"
+        ],
+        "reveal": 3,
+        "focus": 1
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集/品質管理/article.md"
+    },
+    {
+      "sceneId": "measure",
+      "start": 52,
+      "end": 63,
+      "narration": "そこで、打込みの進み具合に合う搬入間隔を検討します。待機を減らす段取りと、実際に行った処置を整理します。",
+      "caption": "そこで、打込みの進み具合に合う搬入間隔を検討します。待機を減らす段取りと、実際に行った処置を整理します。",
+      "visual": {
+        "kind": "sheet",
+        "heading": "なぜ、その段取りにしたか",
+        "sheetTitle": "考え方の整理例",
+        "rows": [
+          {
+            "label": "管理項目",
+            "value": "打込み時の温度",
+            "state": "done",
+            "order": 1
+          },
+          {
+            "label": "現場条件",
+            "value": "夏季の運搬・待機",
+            "state": "done",
+            "order": 2
+          },
+          {
+            "label": "検討と処置",
+            "value": "搬入間隔と待機時間",
+            "state": "focus",
+            "order": 3
+          },
+          {
+            "label": "確認方法",
+            "value": "温度測定と管理値の照合",
+            "state": "todo",
+            "order": 4
+          }
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集/品質管理/article.md"
+    },
+    {
+      "sceneId": "verify-method",
+      "start": 63,
+      "end": 74,
+      "narration": "そして、確認方法です。この例なら、打込み時のコンクリート温度を測り、管理値と照合するところまでつなげます。",
+      "caption": "そして、確認方法です。この例なら、打込み時のコンクリート温度を測り、管理値と照合するところまでつなげます。",
+      "visual": {
+        "kind": "sheet",
+        "heading": "何を測り、何と比べるか",
+        "sheetTitle": "考え方の整理例",
+        "rows": [
+          {
+            "label": "管理項目",
+            "value": "打込み時の温度",
+            "state": "done",
+            "order": 1
+          },
+          {
+            "label": "現場条件",
+            "value": "夏季の運搬・待機",
+            "state": "done",
+            "order": 2
+          },
+          {
+            "label": "検討と処置",
+            "value": "搬入間隔と待機時間",
+            "state": "done",
+            "order": 3
+          },
+          {
+            "label": "確認方法",
+            "value": "温度測定と管理値の照合",
+            "state": "focus",
+            "order": 4
+          }
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集/品質管理/article.md"
+    },
+    {
+      "sceneId": "verify-record",
+      "start": 74,
+      "end": 85,
+      "narration": "管理値や測定の時期・頻度は、自分の工事の仕様書と施工計画を確認します。実際の測定結果も、記録から確かめます。",
+      "caption": "管理値や測定の時期・頻度は、自分の工事の仕様書と施工計画を確認します。実際の測定結果も、記録から確かめます。",
+      "visual": {
+        "kind": "points",
+        "heading": "数字は、自分の工事の記録から",
+        "items": [
+          "仕様書・施工計画：管理値と確認方法",
+          "試験・測定記録：実際の結果",
+          "経験した事実に合わせて書く"
+        ],
+        "reveal": 2
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集/品質管理/article.md"
+    },
+    {
+      "sceneId": "compare",
+      "start": 85,
+      "end": 95,
+      "narration": "「温度を測った」から一歩進めて、何を管理し、なぜ必要で、どう確かめたか。3つがつながるかを見直しましょう。",
+      "caption": "「温度を測った」から一歩進めて、何を管理し、なぜ必要で、どう確かめたか。3つがつながるかを見直しましょう。",
+      "visual": {
+        "kind": "compare",
+        "heading": "測定の報告から、管理の説明へ",
+        "ngLabel": "行動だけ",
+        "okLabel": "つながりを示す",
+        "rows": [
+          {
+            "label": "例",
+            "ng": "温度を測った",
+            "ok": "打込み時の温度\n夏季の運搬・待機\n測定して管理値と照合"
+          }
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集/品質管理/article.md"
+    },
+    {
+      "sceneId": "own-work",
+      "start": 95,
+      "end": 105,
+      "narration": "自分の工事では、品質を左右する条件は何でしたか。例を写さず、検討したこと、行った処置、確認結果を結びます。",
+      "caption": "自分の工事では、品質を左右する条件は何でしたか。例を写さず、検討したこと、行った処置、確認結果を結びます。",
+      "visual": {
+        "kind": "sheet",
+        "heading": "自分の工事で、3つを埋める",
+        "sheetTitle": "経験した事実の整理欄",
+        "rows": [
+          {
+            "label": "管理項目",
+            "value": "何を管理したか",
+            "state": "focus"
+          },
+          {
+            "label": "現場条件",
+            "value": "なぜ必要だったか",
+            "state": "todo"
+          },
+          {
+            "label": "確認方法",
+            "value": "何を測り、何と比べたか",
+            "state": "todo"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 105,
+      "end": 115,
+      "narration": "まとめです。管理項目、現場条件、確認方法をつなげる。「試験をした」で終わらず、必要な理由と確認結果を示します。",
+      "caption": "まとめです。管理項目、現場条件、確認方法をつなげる。「試験をした」で終わらず、必要な理由と確認結果を示します。",
+      "visual": {
+        "kind": "points",
+        "heading": "品質管理の具体化：3つのつながり",
+        "items": [
+          "何を管理したか",
+          "なぜ必要だったか",
+          "どう確かめ、何が分かったか"
+        ],
+        "reveal": 3,
+        "focus": 2
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集/品質管理/article.md"
+    },
+    {
+      "sceneId": "cta",
+      "start": 115,
+      "end": 127,
+      "narration": "元発注者・土木の合格者の視点で学ぶ完成答案集です。品質・安全・工程の答案と置換ガイドは、概要欄をご覧ください。",
+      "caption": "元発注者・土木の合格者の視点で学ぶ完成答案集です。品質・安全・工程の答案と置換ガイドは、概要欄をご覧ください。",
+      "visual": {
+        "kind": "points",
+        "heading": "自分の工事に置き換えて練習",
+        "items": [
+          "2級土木 施工経験記述 完成答案集",
+          "品質・安全・工程の完成答案＋置換ガイド",
+          "概要欄のnoteマガジンへ"
+        ]
+      },
+      "sourceRef": "config/products.json"
+    }
+  ]
+}

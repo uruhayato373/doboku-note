@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "packId": "hinshitsu-touan-gutaika",
+  "exam": "civil-construction-2",
+  "title": "品質管理｜試験をした、だけで終わらせない",
+  "audience": "2級土木 第2次検定の施工経験記述で品質管理を準備する受検者",
+  "pain": "品質管理の答案が「試験をした」で終わり、現場条件に合った管理の内容が伝わらない",
+  "promise": "管理項目・現場条件・確認方法をつなぎ、自分が行った品質管理を具体的に整理できる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "note",
+      "path": "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集/品質管理/article.md",
+      "access": "paid"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "external",
+      "url": "https://www.mlit.go.jp/tec/r08dobokukoujikyoutsuusiyousyo/honbun01_syo03_setsu09.html",
+      "title": "国土交通省 土木工事共通仕様書（案）令和8年3月 第1編第3章第9節 暑中コンクリート"
+    },
+    {
+      "type": "external",
+      "url": "https://www.mlit.go.jp/tec/r08dobokukoujikyoutsuusiyousyo/honbun01_syo03_setsu06.html",
+      "title": "国土交通省 土木工事共通仕様書（案）令和8年3月 第1編第3章第6節 運搬・打設"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-2-experience-essay",
+    "campaign": "hinshitsu-touan-gutaika"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}
