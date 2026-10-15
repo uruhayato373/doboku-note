@@ -56511,6 +56511,27 @@
         "scripts/check-orphan-ogp.mjs"
       ],
       "srcHash": "acb8f5786be57b62"
+    },
+    "content/site/civil-practice/road-work-approval-vs-road-use-permit/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/road-work-approval-vs-road-use-permit/ogp.png",
+      "sha256": "207e447b7d29b07c5e71c0ed8e4aaff2c8e6b68f6631fb01540d87e264340c42",
+      "bytes": 69965,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-15T03:06:35.678Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/road-work-approval-vs-road-use-permit/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "632119c84ae5ad28"
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",
