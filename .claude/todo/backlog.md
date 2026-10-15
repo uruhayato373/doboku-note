@@ -2090,7 +2090,7 @@ Windows（autocrlf で MDX が CRLF）で npm run refresh-indexes を回すと�
 
 **完了条件（改・2026-10-15）**: 保持期間を 1 週間にし（運営者判断）、7 日を超えたアーカイブが 0 件で、手順が disk-hygiene.md §5 にあること。300MB 未満は、直近 1 週間分だけで約 619MB あるため外した。
 
-**進捗（2026-10-14・Windows）**: 32 件・1.2GB のうち 30 日超は 0 件（1 件約 36MB の会話が直近 30 日に集中）。30 日ルールでは減らないので削除はしていない。棚卸しの手順は disk-hygiene.md §5 に足した。**残り（運営者の作業）**: Windows で `find ~/.codex/archived_sessions -type f -mtime +7 -delete` を実行する（7 日超 22 件・約 530MB）。消したあと `find ~/.codex/archived_sessions -type f -mtime +7 | wc -l` が 0 なら完了。
+**進捗（2026-10-14・Windows）**: 32 件・1.2GB のうち 30 日超は 0 件（1 件約 36MB の会話が直近 30 日に集中）。30 日ルールでは減らないので削除はしていない。棚卸しの手順は disk-hygiene.md §5 に足した。**残り（運営者の作業）**: Windows の PowerShell で `Get-ChildItem "$env:USERPROFILE\.codexrchived_sessions" -File | Where-Object { $_.LastWriteTime -lt (Get-Date).AddDays(-8) } | Remove-Item` を実行する（7 日超 22 件・約 530MB。PowerShell の find は find.exe で動かない）。消したあと `find ~/.codex/archived_sessions -type f -mtime +7 | wc -l` が 0 なら完了。
 
 ### [DN-0175] SNS残存画像を公開完了後に再監査する
 タグ: [インフラ・計測] [領域:管理] [時期:2026-11] [種類:改善] [Codex候補] [起票:2026-09-06]
