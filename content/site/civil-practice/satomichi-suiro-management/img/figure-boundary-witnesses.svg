@@ -1,0 +1,56 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は里道・水路と民有地の境界確定で現地立会いを求める範囲（申請地の両隣と対面地）。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="里道・水路と民有地の境界確定の平面図。里道・水路に接する申請地と里道・水路の境界を確かめる。現地の立会いには、管理者の市町村と申請者のほか、申請地の両隣の土地と、里道・水路をはさんだ向かい側の対面地の所有者が加わる。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }
+      .n { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 11px; fill: #555; }
+      .box-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .far { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; stroke-dasharray: 5 4; }
+      .boundary { stroke: #b22234; stroke-width: 4; }
+    </style>
+  </defs>
+
+  <!-- 申請地の側（両隣は立会い） -->
+  <rect class="box-positive" x="10" y="14" width="120" height="150"/>  <!-- positive -->
+  <text class="n" x="70" y="72" text-anchor="middle">隣接地</text>
+  <rect class="box-warn" x="47" y="88" width="46" height="20" rx="10"/>  <!-- warn -->
+  <text class="t" x="70" y="102" text-anchor="middle">立会い</text>
+
+  <rect class="box-brand" x="130" y="14" width="140" height="150"/>  <!-- brand -->
+  <text class="n" x="200" y="72" text-anchor="middle">申請地</text>
+  <text class="s" x="200" y="92" text-anchor="middle">申請者の土地</text>
+
+  <rect class="box-positive" x="270" y="14" width="120" height="150"/>  <!-- positive -->
+  <text class="n" x="330" y="72" text-anchor="middle">隣接地</text>
+  <rect class="box-warn" x="307" y="88" width="46" height="20" rx="10"/>  <!-- warn -->
+  <text class="t" x="330" y="102" text-anchor="middle">立会い</text>
+
+  <!-- 里道・水路（地番なし） -->
+  <rect class="box-surface" x="10" y="164" width="380" height="56"/>  <!-- surface -->
+  <text class="t" x="200" y="190" text-anchor="middle">里道・水路</text>
+  <text class="s" x="200" y="207" text-anchor="middle">公図上で地番のない細長い土地</text>
+
+  <!-- 確かめる境界（申請地と里道・水路の間） -->
+  <line class="boundary" x1="130" y1="164" x2="270" y2="164"/>  <!-- danger -->
+  <text class="t" x="200" y="150" text-anchor="middle">確かめる境界</text>
+
+  <!-- 対面地の側 -->
+  <rect class="far" x="10" y="220" width="120" height="150"/>
+  <rect class="box-positive" x="130" y="220" width="140" height="150"/>  <!-- positive -->
+  <text class="n" x="200" y="278" text-anchor="middle">対面地</text>
+  <rect class="box-warn" x="177" y="294" width="46" height="20" rx="10"/>  <!-- warn -->
+  <text class="t" x="200" y="308" text-anchor="middle">立会い</text>
+  <rect class="far" x="270" y="220" width="120" height="150"/>
+
+  <!-- 立ち会う人 -->
+  <rect class="box-surface" x="10" y="384" width="380" height="104" rx="8"/>  <!-- surface -->
+  <text class="t" x="24" y="406">現地で立ち会い、協議する人</text>
+  <text x="24" y="428">管理者（市町村）と申請者</text>
+  <text x="24" y="450">申請地の両隣の土地の所有者</text>
+  <text x="24" y="472">道や水路をはさんだ対面地の所有者</text>
+</svg>

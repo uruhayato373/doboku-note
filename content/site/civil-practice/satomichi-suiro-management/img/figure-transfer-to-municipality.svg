@@ -1,0 +1,67 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は里道・水路が道路法・河川法・下水道法の外にあること、国から市町村への譲与（平成17年3月31日まで）で所有と管理が分かれたこと。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="里道・水路は道路法・河川法・下水道法の対象の外にある。もとは国有財産で、平成17年3月31日までに国から市町村へ譲与され、機能のあるものは市町村が所有し管理する。譲与されなかったものは国に残り、財務局が所有し管理する。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }
+      .n { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .big { font-size: 16px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 11px; fill: #555; }
+      .box-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .chip { fill: #fff; stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 4 3; }
+      .ar { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+
+  <!-- 里道・水路と3法の関係 -->
+  <rect class="box-surface" x="10" y="12" width="380" height="104" rx="8"/>
+  <text class="n" x="200" y="36" text-anchor="middle">里道（赤道）・水路（青線）</text>
+  <text class="s" x="200" y="54" text-anchor="middle">次の3つの法律の対象の外にある</text>
+  <rect class="chip" x="22" y="66" width="110" height="36" rx="6"/><text class="t" x="77" y="89" text-anchor="middle">道路法</text>
+  <rect class="chip" x="145" y="66" width="110" height="36" rx="6"/><text class="t" x="200" y="89" text-anchor="middle">河川法</text>
+  <rect class="chip" x="268" y="66" width="110" height="36" rx="6"/><text class="t" x="323" y="89" text-anchor="middle">下水道法</text>
+
+  <path class="ar" d="M200,116V142" marker-end="url(#ah)"/>
+
+  <!-- もとは国有財産 -->
+  <rect class="box-brand" x="60" y="144" width="280" height="52" rx="8"/>
+  <text class="n" x="200" y="167" text-anchor="middle">もとは国有財産</text>
+  <text class="s" x="200" y="185" text-anchor="middle">国土交通大臣所管の土地</text>
+
+  <path class="ar" d="M200,196V218" marker-end="url(#ah)"/>
+
+  <!-- 譲与 -->
+  <rect class="box-surface" x="30" y="220" width="340" height="52" rx="8"/>
+  <text class="t" x="200" y="241" text-anchor="middle">市町村へ譲与（国有財産特別措置法第5条）</text>
+  <text class="t" x="200" y="260" text-anchor="middle">平成17年3月31日まで</text>
+
+  <path class="ar" d="M105,272V298" marker-end="url(#ah)"/>
+  <path class="ar" d="M295,272V298" marker-end="url(#ah)"/>
+
+  <!-- 条件 -->
+  <rect class="box-surface" x="12" y="300" width="186" height="34" rx="6"/>
+  <text class="t" x="105" y="322" text-anchor="middle">機能のあるもの</text>
+  <rect class="box-surface" x="202" y="300" width="186" height="34" rx="6"/>
+  <text class="t" x="295" y="322" text-anchor="middle">譲与されなかったもの</text>
+
+  <path class="ar" d="M105,334V358" marker-end="url(#ah)"/>
+  <path class="ar" d="M295,334V358" marker-end="url(#ah)"/>
+
+  <!-- 結果 -->
+  <rect class="box-positive" x="12" y="360" width="186" height="76" rx="8"/>
+  <text class="big" x="105" y="388" text-anchor="middle">市町村有</text>
+  <text x="105" y="410" text-anchor="middle">市町村が所有し、</text>
+  <text x="105" y="426" text-anchor="middle">管理する</text>
+  <rect class="box-warn" x="202" y="360" width="186" height="76" rx="8"/>
+  <text class="big" x="295" y="388" text-anchor="middle">国に残る</text>
+  <text x="295" y="410" text-anchor="middle">国（財務局）が所有し、</text>
+  <text x="295" y="426" text-anchor="middle">管理する</text>
+
+  <!-- 確認 -->
+  <rect class="box-surface" x="12" y="450" width="376" height="40" rx="8"/>
+  <text class="t" x="200" y="475" text-anchor="middle">目の前の土地は、どちらか。案件ごとに確かめる</text>
+</svg>
