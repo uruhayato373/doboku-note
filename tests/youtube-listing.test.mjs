@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { joinListings, lengthBuckets, median, summarize, titleSignals } from '../scripts/lib/youtube-listing.mjs';
-import { buildOwnSnapshot, formatOf, packIndex } from '../scripts/youtube-own-metrics.mjs';
+import { buildOwnSnapshot, formatOf, packIndex, viewsUnavailable } from '../scripts/youtube-own-metrics.mjs';
 import { buildRow, computeDrift } from '../scripts/scout-youtube-competitors.mjs';
 import { YoutubeCompetitors, YoutubeOwnVideos } from '../scripts/lib/dataset-schemas.mjs';
 
@@ -78,4 +78,26 @@ test('競合: 行の組み立てと前回比（登録者・新しい動画・追
   const snapshot = { schemaVersion: 1, fetchedAt: '2026-10-08T00:00:00.000Z', platform: 'youtube', source: 's', caveat: 'c', driftBasis: '2026-07-01.json', drift, competitors: [nowRow, added] };
   const r = YoutubeCompetitors.safeParse(snapshot);
   assert.ok(r.success, JSON.stringify(r.error?.issues?.slice(0, 3)));
+});
+
+// 2026-10-10: 通常動画 73 本すべて再生数が取れず、合計 0 回として残った（DN-0697）
+test('再生数が 1 本も取れない一覧は合計を null にし、検査不成立として扱う（本当の 0 回とは区別する）', () => {
+  const missing = [{ id: 'a', title: 'x', views: null, durationSec: 600 }, { id: 'b', title: 'y', views: null, durationSec: 700 }];
+  const zero = [{ id: 'c', title: 'z', views: 0, durationSec: 600 }];
+  assert.deepEqual(summarize(missing), { sampled: 2, withViews: 0, totalViews: null, medianViews: null, medianDurationSec: 650 });
+  assert.deepEqual(summarize(zero), { sampled: 1, withViews: 1, totalViews: 0, medianViews: 0, medianDurationSec: 600 });
+  assert.deepEqual(viewsUnavailable({ longform: summarize(missing), shorts: summarize(zero) }), ['longform']);
+  assert.deepEqual(viewsUnavailable({ longform: summarize([]), shorts: summarize(zero) }), [], '動画 0 本のタブは対象外（別の検査で止める）');
+  const snap = buildOwnSnapshot({
+    fetchedAt: '2026-10-10T00:00:00.000Z',
+    channel: { id: 'UCHRnXPqoc0Hls8nXiK_ZYqA', handle: '@doboku-note' },
+    subscriberCount: null,
+    longform: missing,
+    shorts: zero,
+    index: new Map(),
+    formats: [],
+    signals: [],
+  });
+  assert.equal(snap.summary.longform.totalViews, null);
+  assert.equal(YoutubeOwnVideos.safeParse(snap).success, true, '欠測の null は台帳の型に通る');
 });
