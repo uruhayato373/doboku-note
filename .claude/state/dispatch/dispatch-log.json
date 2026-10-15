@@ -3867,6 +3867,23 @@
       "note": "取得を curl --ssl-no-revoke に替え、取得失敗・中身の不一致・ページ数未検査を分けて数える（失敗が支配的なら exit 2）。上下水道の問題 16 本と令和の正答 8 本の SHA-256・ページ数を在庫台帳に足した（問題はスキャン画像なので表紙を目視で年度・部門・再試験を確認）。令和・再試験・年度ごとの正答の名前の付け方を足し、テストで重複しないことを固定。quality-audit の note を 40 ページ・1,190 問に直した"
     },
     {
+      "id": "DN-0697",
+      "at": "2026-10-14",
+      "task": "YouTube通常動画の再生数欠測を解消し、全欠測を合計0回と表示しない",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "tests/youtube-listing.test.mjs"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "58e6d7f011d6",
+      "verification": "node --test tests/youtube-listing.test.mjs（全欠測の fixture が null・検査不成立、0 回は 0 のまま）、check-datasets PASS",
+      "note": "再生数が 1 本も取れない一覧は合計を null にし（本当の 0 回と区別）、動画があるのに全欠測のタブがあれば youtube-own-metrics が検査不成立（exit 2・保存しない）。一部欠測は本数を警告して残す。10/10・10/12 の記録の偽の合計 0 を null に直した。取れなくなった原因（yt-dlp の英語一覧の view_count）は Mac で DN-0737"
+    },
+    {
       "id": "DN-0729",
       "at": "2026-10-15",
       "task": "自治体の土木担当シリーズの 39 章（新規 35・補強 4）の骨子と根拠を作り、運営者の確認を受ける",
@@ -3877,6 +3894,36 @@
       "plan": null,
       "commit": "63c206d4bc5e",
       "verification": "npm run check-content-series（確認済み 39・下書き 0・一次資料あり 655/655・PASS）",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0738",
+      "at": "2026-10-15",
+      "task": "自治体の土木担当シリーズの第1波（A-08 占用・A-14 河川区域の許可・A-19 里道と水路）を書いて公開する",
+      "tier": "high",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "9c6a6b922458",
+      "verification": "本番 3 本 HTTP 200・<main あり、図 6 枚 HTTP 200（doboku-note.com と storage）、check-production-ssr exit 0、check-content-series PASS",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0740",
+      "at": "2026-10-15",
+      "task": "自治体の土木担当シリーズ A-22・A-25 の公開で develop の audit（content-series）が赤い（法令 ID・カリキュラム未掲載）",
+      "tier": "high",
+      "kind": "不具合",
+      "prevention": {
+        "type": "doc",
+        "ref": ".claude/knowledge/reference/book-coverage-expansion.md"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "731a8718c895",
+      "verification": "develop の Pre-merge check が 0bb521b03 で success（content-series・egov-laws とも緑）",
       "note": "todo-complete.mjs 経由で完了処理"
     }
   ]

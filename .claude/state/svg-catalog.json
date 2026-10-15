@@ -2,20 +2,20 @@
   "description": "サイト図版SVGの派生カタログ（SSOT）。build-svg-catalog.mjs が生成。手動編集しない。",
   "source": "content/site/**/img/*.svg",
   "summary": {
-    "total": 1369,
-    "embedded": 1369,
+    "total": 1396,
+    "embedded": 1396,
     "orphan": 0,
     "missingConcept": 4,
     "withHighAudit": 0,
     "figures": {
-      "total": 1254,
-      "conforming": 1254,
+      "total": 1281,
+      "conforming": 1281,
       "needsRework": 0
     },
     "byCategory": {
       "civil-construction-1": 495,
       "civil-construction-2": 25,
-      "civil-practice": 180,
+      "civil-practice": 207,
       "concrete-chief-engineer": 133,
       "concrete-diagnostician": 138,
       "concrete-engineer": 63,
@@ -9584,6 +9584,42 @@
       }
     },
     {
+      "file": "content/site/civil-practice/buried-cultural-property-survey/img/figure-buried-property-flow.svg",
+      "category": "civil-practice",
+      "slug": "buried-cultural-property-survey",
+      "name": "figure-buried-property-flow.svg",
+      "concept": "埋蔵文化財の調査の流れを示した図。事業計画のあと、教育委員会に照会し、周知の包蔵地かを確かめる（第95条）。自治体の事業は通知と協議を行い（第94条）、試掘・確認調査で範囲を押さえる。そのうえで現状保存か記録保存かを決め、現状保存なら計画を見直すか盛土で残し、記録保存なら本発掘を経て工事に進む。工事中の発見は第97条。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/buried-cultural-property-survey/img/figure-notification-vs-report.svg",
+      "category": "civil-practice",
+      "slug": "buried-cultural-property-survey",
+      "name": "figure-notification-vs-report.svg",
+      "concept": "周知の埋蔵包蔵地を発掘する工事の手続を、民間と自治体の事業で比べた図。民間は第93条で、着手の60日前までに届出を行い、文化庁長官から調査などの指示がある。自治体の事業は第94条で、事業計画の策定に当たりあらかじめ通知を行い、文化庁長官から協議や勧告がある。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-practice/cast-in-place-pile-methods/img/figure-method-comparison.svg",
       "category": "civil-practice",
       "slug": "cast-in-place-pile-methods",
@@ -9661,6 +9697,42 @@
       "slug": "checklist-shoring-buoyancy",
       "name": "figure-buoyancy-balance.svg",
       "concept": "埋設管の浮力（F_b=γw×V）と、これを押さえ込む管の自重・埋戻し土の重さ・摩擦抵抗の釣合いを示す図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/coast-port-administrators/img/figure-coastal-zones-overview.svg",
+      "category": "civil-practice",
+      "slug": "coast-port-administrators",
+      "name": "figure-coastal-zones-overview.svg",
+      "concept": "海岸保全区域は、陸地は満潮時の水際線から、水面は干潮時の水際線から、原則50mを超えない範囲を断面で示した模式図。あわせて区域ごとの管理者を並べる。海岸保全区域と一般公共海岸区域は海岸管理者で原則は知事、港湾区域・港湾隣接地域は港湾管理者、漁港区域は漁港管理者で、重なれば港・漁港の管理者が優先する。臨港地区は港湾管理者への届出の区域で、海岸の管理者を動かさない。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/coast-port-administrators/img/figure-permit-matrix-by-zone.svg",
+      "category": "civil-practice",
+      "slug": "coast-port-administrators",
+      "name": "figure-permit-matrix-by-zone.svg",
+      "concept": "区域ごとの許可の相手と根拠の条を、占用と、工作物・土石の採取・掘削などの行為で並べた表。海岸保全区域は海岸法第7条と第8条、一般公共海岸区域は第37条の4と第37条の5、港湾区域・港湾隣接地域は港湾法第37条、漁港区域は漁港法第39条。臨港地区は許可でなく港湾法第38条の2の届出。国・自治体は協議で足りる。港湾法の許可があれば、重なる範囲で海岸法の許可は要らない。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -10628,6 +10700,24 @@
       }
     },
     {
+      "file": "content/site/civil-practice/land-acquisition-compensation/img/figure-land-acquisition-flow.svg",
+      "category": "civil-practice",
+      "slug": "land-acquisition-compensation",
+      "name": "figure-land-acquisition-flow.svg",
+      "concept": "用地取得の流れと収用への分かれ道を示した図。左の本線は事業計画の説明、幅杭の設置、土地・物件の調査と調書、補償額の算定、補償説明と用地交渉、契約、登記・移転・引渡し、支払いの順。用地交渉で合意できない場合は右の分岐に進み、事業の認定、土地調書・物件調書、収用委員会への裁決申請へ進む。裁決申請の代わりに協議の確認もある。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-practice/large-fill-landslide/img/figure-countermeasure-layout.svg",
       "category": "civil-practice",
       "slug": "large-fill-landslide",
@@ -11312,11 +11402,83 @@
       }
     },
     {
+      "file": "content/site/civil-practice/owner-safety-responsibility/img/figure-owner-designation.svg",
+      "category": "civil-practice",
+      "slug": "owner-safety-responsibility",
+      "name": "figure-owner-designation.svg",
+      "concept": "分離発注の現場で統括する人を発注者が指名する関係の図。発注者は請負人Aの同意を得て統括の措置を講ずる者に指名し、請負人Bの作業従事者も統括の対象になる。指名できないときは労働基準監督署長に届け出、指名がなければ署長が指名する。作業従事者が常時50人以上（ずい道等は30人以上）なら、統括安全衛生責任者を選任する。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/owner-safety-responsibility/img/figure-owner-safety-steps.svg",
+      "category": "civil-practice",
+      "slug": "owner-safety-responsibility",
+      "name": "figure-owner-safety-steps.svg",
+      "concept": "発注者が安全のために確かめる順番の図。設計で施工条件と埋設物を明示し、積算で安全衛生経費を見込み、契約で休日と悪天候を見込んだ工期と内訳書を確かめる。着工では分離発注なら統括の指名、監督では施工体制台帳と施工計画書の点検、事故や災害のときは中止と再発防止の確認を行う。各段階に根拠の法令・要綱を付けた。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-practice/pile-concrete-head-treatment/img/figure-tremie-overpour.svg",
       "category": "civil-practice",
       "slug": "pile-concrete-head-treatment",
       "name": "figure-tremie-overpour.svg",
       "concept": "トレミー管の先端を打設済みコンクリート中に2m以上保つ管理と、余盛りの高さ（無水掘り500mm以上・泥水が多い場合800mm以上）を示す断面図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/ppp-pfi-selection/img/figure-designated-manager-flow.svg",
+      "category": "civil-practice",
+      "slug": "ppp-pfi-selection",
+      "name": "figure-designated-manager-flow.svg",
+      "concept": "指定管理者の指定手続の流れ図。条例の整備、募集、選定、議会の議決、期間を定めた指定の順に進み、指定のあとは事業報告書の提出と報告の徴収、不適当なときは指定の取消しや業務の停止に進む。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/ppp-pfi-selection/img/figure-ppp-scope.svg",
+      "category": "civil-practice",
+      "slug": "ppp-pfi-selection",
+      "name": "figure-ppp-scope.svg",
+      "concept": "民間に任せる範囲の違いを、設計・建設・維持管理・運営の4段階に対する帯の長さで比べた図。指定管理者は公の施設の管理で維持管理と運営、包括的民間委託は複数の維持管理業務の束ね、PFIは設計から運営まで、コンセッションは利用料金を収入とする運営を任せる。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -11402,6 +11564,42 @@
       }
     },
     {
+      "file": "content/site/civil-practice/project-request-to-budget/img/figure-request-to-budget-flow.svg",
+      "category": "civil-practice",
+      "slug": "project-request-to-budget",
+      "name": "figure-request-to-budget-flow.svg",
+      "concept": "要望の受付から事業の実施までの流れ図。要望の受付、管理者の確認、現地確認と順位づけ、調査・設計、予算要求、予算案の調製と議決、要望者への回答、事業の実施の順に進む。国・県の施設は管理者へ引き継ぎ、維持修繕と地元管理は別の対応に分かれる。予算要求では補助か単独費か、繰越しや債務負担行為を確かめる。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/public-meeting-consensus/img/figure-consensus-process.svg",
+      "category": "civil-practice",
+      "slug": "public-meeting-consensus",
+      "name": "figure-consensus-process.svg",
+      "concept": "説明会の準備から回答までの流れ図。範囲の把握、手法の選択、開催と記録、意見の整理、採否の理由の回答と公表の順に進む。範囲の把握は事業の特性と受益と負担、手法の選択は目的・相手・予算と時間、意見の整理は趣旨・件数・対応・理由の表、回答では採用しない理由を具体的に説明する。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-practice/public-works-bidding-methods/img/figure-evaluation-value-plane.svg",
       "category": "civil-practice",
       "slug": "public-works-bidding-methods",
@@ -11461,6 +11659,60 @@
       "slug": "public-works-delivery-methods",
       "name": "figure-project-stages-roles.svg",
       "concept": "公共事業の七つの段階を縦に並べ、発注者、コンサルなど、施工者が各段階で担う役割を示した図。調査・設計は業務委託、施工は工事請負で契約が切り替わる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/public-works-environmental-care/img/figure-owner-env-timeline.svg",
+      "category": "civil-practice",
+      "slug": "public-works-environmental-care",
+      "name": "figure-owner-env-timeline.svg",
+      "concept": "公共工事の計画から完了まで、環境アセス、騒音・振動、建設副産物の3本の帯で発注者が決めることを並べた図。計画で環境アセスの対象かを確かめ、設計で規制地域と機械、発生を抑える工法を決め、積算で低騒音型の扱いと再資源化費用を見込む。特記仕様書で評価書の措置と副産物の条件を書き、契約では着工まで7日を確保する。着工前は騒音・振動を施工者が7日前に届け出、建設リサイクル法は発注者が通知する。完了で措置の記録と再資源化等の報告を受ける。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/public-works-planning-evaluation/img/figure-evaluation-roles.svg",
+      "category": "civil-practice",
+      "slug": "public-works-planning-evaluation",
+      "name": "figure-evaluation-roles.svg",
+      "concept": "補助事業の評価で市と国の分担を示した流れ図。市は費用便益比と計画の目標と指標の評価資料を作り、再評価では事業評価監視委員会の意見を聴き、対応方針を決めて決定理由を添えて本省等へ送付する。国の本省等は補助金交付等に係る対応方針を決定する。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/public-works-planning-evaluation/img/figure-plan-chain-evaluation.svg",
+      "category": "civil-practice",
+      "slug": "public-works-planning-evaluation",
+      "name": "figure-plan-chain-evaluation.svg",
+      "concept": "計画の鎖と評価の段階を並べた図。左は上から社会資本整備重点計画、国土形成計画、県の計画、市のマスタープランと市町村計画、個別施設計画、事業の順で、位置づけは事業から上へたどる。右は事業の評価で、計画段階評価、新規事業採択時評価、再評価、事後評価の順。計画段階評価は直轄等が対象で、評価は重点目標に照らす。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -11708,6 +11960,42 @@
       }
     },
     {
+      "file": "content/site/civil-practice/river-act-framework/img/figure-river-four-classes.svg",
+      "category": "civil-practice",
+      "slug": "river-act-framework",
+      "name": "figure-river-four-classes.svg",
+      "concept": "管内の川の四区分を並べた図。一級河川は国土交通大臣が指定し国が管理する。二級河川は都道府県知事が指定し管理する。準用河川は市町村長が指定し管理し、二級河川の規定を準用する。普通河川は指定がなく河川法の適用外で、市町村が条例などで扱う。準用河川では、都道府県知事を市町村長、都道府県を市町村、国土交通大臣を都道府県知事と読み替える。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/river-act-framework/img/figure-river-survey-order.svg",
+      "category": "civil-practice",
+      "slug": "river-act-framework",
+      "name": "figure-river-survey-order.svg",
+      "concept": "管内の川を調べる順番。川の名前と地点を特定し、一級・二級の指定と指定区間の内外を確かめ、準用河川の公示を確かめ、普通河川の条例の有無を確かめ、台帳で区域を確認する。一級・二級に当たれば国か県に照会し、準用河川に当たれば市町村長が管理し、条例がなければ財産管理の視点で整理する。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-practice/river-area-permits/img/figure-river-permit-checklist.svg",
       "category": "civil-practice",
       "slug": "river-area-permits",
@@ -11731,6 +12019,78 @@
       "slug": "river-area-permits",
       "name": "figure-river-permit-sections.svg",
       "concept": "河川の断面に四つの許可が効く位置を重ねた図。堤内地側の河川区域境界から50メートル以内が河川保全区域で、掘さくなどに第55条の許可が要る。河川区域の中では、高水敷で資材を置く占用が第24条、堤防を横断する管などの工作物が第26条、高水敷の掘削が第27条。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/river-crossing-structure-review/img/figure-crossing-placement.svg",
+      "category": "civil-practice",
+      "slug": "river-crossing-structure-review",
+      "name": "figure-crossing-placement.svg",
+      "concept": "堤防と河道の断面に、橋台・橋脚・樋門・堤防乗り越し管・伏せ越しの置き場所を示した図。計画堤防内に置けるのは橋台と樋門で、橋脚は堤体内に設けない。乗り越し管は表法肩から川側で流水の乱れ対策をし、天端から堤内側は計画堤防内に置かない。伏せ越しは堤防の地盤面から2m以上の深さに、堤防下の部分を構造上分離して設ける。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/river-crossing-structure-review/img/figure-review-order.svg",
+      "category": "civil-practice",
+      "slug": "river-crossing-structure-review",
+      "name": "figure-review-order.svg",
+      "concept": "工作物の技術審査の流れ図。申請図面から、位置の確認、構造の確認、安定計算の確認、許可、完成検査の順に進む。堤内地の堤脚付近の工作物は位置の確認から通達の範囲かを確かめ、範囲に入れば浸透流とすべり安定の計算を求めて安定計算の確認に進む。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/river-facility-inspection-operation/img/figure-inspection-annual-cycle.svg",
+      "category": "civil-practice",
+      "slug": "river-facility-inspection-operation",
+      "name": "figure-inspection-annual-cycle.svg",
+      "concept": "河川管理施設の点検から評価までの年間サイクルの流れ図。出水期前・台風期・出水後に点検し、一次評価は点検者、二次評価は組織で行う。措置段階は速やかに補修・更新、監視段階は経過を見る。年1回の総合的な評価を行い、記録の保存と次年度の点検計画、出水時の要注意箇所に生かし、次の年の点検へ戻る。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/river-facility-inspection-operation/img/figure-sluice-inspection-points.svg",
+      "category": "civil-practice",
+      "slug": "river-facility-inspection-operation",
+      "name": "figure-sluice-inspection-points.svg",
+      "concept": "樋門を堤防の断面で見た点検部位の図。番号で、周辺の堤防と取付護岸、函体の底版下の空洞、継手、門柱、胸壁と翼壁、函体内の土砂堆積を示す。ゲートやポンプなどの機械設備は別の基準で点検する。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -11798,6 +12158,78 @@
       }
     },
     {
+      "file": "content/site/civil-practice/road-act-framework/img/figure-road-manager-decision-flow.svg",
+      "category": "civil-practice",
+      "slug": "road-act-framework",
+      "name": "figure-road-manager-decision-flow.svg",
+      "concept": "この道は誰が管理するかを決める判断の流れ。道路法の道路か、種類は何か、国道なら指定区間の内か外か、第17条の特例の同意と公示があるか、第19条・第20条の協議に別の定めがあるかの順に確かめ、根拠の条文が見つかってから答える。道路法の道路でなければ別の制度で扱い、国道以外は国道の確認を飛ばす。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/road-act-framework/img/figure-road-types-managers.svg",
+      "category": "civil-practice",
+      "slug": "road-act-framework",
+      "name": "figure-road-types-managers.svg",
+      "concept": "道路の4種類を、路線の決め方と管理者で並べた図。高速自動車国道と一般国道は政令で路線を指定し、国土交通大臣が管理する。ただし一般国道の指定区間外は都道府県。都道府県道は知事が認定して都道府県が、市町村道は市町村長が認定して市町村が管理する。費用は原則管理者の負担。指定市・市・町村には管理の特例がある。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/road-boundary-and-road-ledger/img/figure-boundary-confirmation-flow.svg",
+      "category": "civil-practice",
+      "slug": "road-boundary-and-road-ledger",
+      "name": "figure-boundary-confirmation-flow.svg",
+      "concept": "官民境界の確認の流れ。依頼・受理、現地の立会いと協議、境界標の設置、確定図の作成、署名・承諾、通知（確認書）の交付、台帳への反映の順に進む。協議が整わないときは、筆界特定または訴訟に進む。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/road-boundary-and-road-ledger/img/figure-three-boundary-lines.svg",
+      "category": "civil-practice",
+      "slug": "road-boundary-and-road-ledger",
+      "name": "figure-three-boundary-lines.svg",
+      "concept": "同じ道路の断面に引かれる三本の線を比べた図。道路区域の線、筆界、所有権の範囲を画する線が同じ位置に重なる場合と、別々の位置になる場合を並べる。道路区域の線は台帳に載る管理範囲の端であり、土地の境界を決めたものではない。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-practice/road-fixtures-precast/img/figure-cross-terms.svg",
       "category": "civil-practice",
       "slug": "road-fixtures-precast",
@@ -11816,11 +12248,65 @@
       }
     },
     {
+      "file": "content/site/civil-practice/road-inspection-longevity-plan/img/figure-inspection-to-subsidy-flow.svg",
+      "category": "civil-practice",
+      "slug": "road-inspection-longevity-plan",
+      "name": "figure-inspection-to-subsidy-flow.svg",
+      "concept": "点検から補助申請までの事務の流れ。巡視、点検、診断（Ⅰ〜Ⅳ）、措置、記録、長寿命化修繕計画、補助の申請の順に進む。Ⅲ・Ⅳは次回点検まで5年以内に措置し、それまで監視や通行規制を行う。措置から、市町村の要請による国の代行が破線で分岐する。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-practice/road-occupancy-permit-review/img/figure-review-flow.svg",
       "category": "civil-practice",
       "slug": "road-occupancy-permit-review",
       "name": "figure-review-flow.svg",
       "concept": "道路占用許可の審査の流れを縦に並べた図。申請書の受付、警察署長・他の占用者・埋設物の管理者との協議、基準への当てはめと許可・条件、工事、復旧の確認、更新または廃止と原状回復の順で、各段の当てはめ先の条文を添えている。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/road-work-approval-vs-road-use-permit/img/figure-approval-flow.svg",
+      "category": "civil-practice",
+      "slug": "road-work-approval-vs-road-use-permit",
+      "name": "figure-approval-flow.svg",
+      "concept": "承認工事の進め方の流れ。承認の申請、設計と実施計画の審査、条件付きの承認、使用許可・協議との調整、工事、完了の確認と施設の帰属の順に進む。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/road-work-approval-vs-road-use-permit/img/figure-consultation-procedure-matrix.svg",
+      "category": "civil-practice",
+      "slug": "road-work-approval-vs-road-use-permit",
+      "name": "figure-consultation-procedure-matrix.svg",
+      "concept": "窓口に来る相談ごとに、承認・占用の許可・使用許可のどれが要るかを示した早見表。歩道の切り下げと側溝の蓋は承認が要り、工事中に規制や作業が出るなら使用許可も要る。足場や囲いを道路に出す場合と、水道管のために道路を掘る場合は、占用の許可と使用許可が要る。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",

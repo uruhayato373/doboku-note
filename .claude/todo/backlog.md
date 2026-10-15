@@ -21,16 +21,21 @@
 
 ## 🔴 高 — 重要度が高い
 
-### [DN-0738] 自治体の土木担当シリーズの第1波（A-08 占用・A-14 河川区域の許可・A-19 里道と水路）を書いて公開する
+
+
+### [DN-0739] 自治体の土木担当シリーズの第2波（道路・河川の管理 8 章）と第3波（事業を進める 8 章）を書いて公開する
 タグ: [領域:サイト] [時期:2026-10] [種類:制作] [検証:check-content-series] [起票:2026-10-15] [進行中]
 
-**起点**: 2026-10-15、運営者の判断で、自治体の土木担当シリーズ（`municipal-civil-engineer`）の第 1 波は EXP-012 の判定（11/26）を待たずに書いて公開する（docs/strategy/18「着手の条件」）。39 章の骨子は確認済み（DN-0729）。
+**起点**: 2026-10-15、第 1 波（A-08・A-14・A-19）を公開した直後に、運営者の判断で第 2・第 3 波も EXP-012 の判定（11/26）を待たずに書く（docs/strategy/18「着手の条件」）。骨子は 39 章すべて確認済み。
+**範囲**: 第 2 波＝道路と川の管理の残り 8 章（A-06・A-09・A-10・A-11・A-13・A-15・A-16・A-18）。第 3 波＝事業を進める 8 章（A-20・A-21・A-22・A-23・A-24・A-25・A-27・A-30）。記事の置き場は台帳の paths。
 **やること**:
-1. A-08 占用（`content/site/civil-practice/road-occupancy-permit-review/article.mdx`）・A-14 河川区域の許可（`river-area-permits`）・A-19 里道と水路（`satomichi-suiro-management`）を、確認済みの骨子から workflow series-chapter（`brief: "outline"`）で書く
-2. 返答の factsVerified を事実ファイルへ、inboundLinks を既存記事へ、curriculumHint を `src/config/category-curriculum.json` へ、visuals を台帳へ入れる
-3. 道路法の占用関係の改正（令和8年法律第65号）の施行期日の政令が出ていないか、公開前に確かめる（10/15 時点で未公布）
-4. 第 2 波以降の骨子の URL だけの根拠（257 件）は、その章を書く前に参考文献の台帳へ入れる（第 1 波は 0 件）
-**完了条件**: 3 本が公開（published: true）で `check-content-series` が緑、台帳の項目に記事のパスが入っている。公開から 28 日の計測は DN-0719 が見る。
+1. 16 章の骨子の URL だけの根拠を参考文献の台帳へ入れ、骨子を id に置き換える
+2. workflow series-chapter（`brief: "outline"`）で第 2 波 → 第 3 波の順に書く（同時 3 体）
+3. 返答の factsVerified・inboundLinks・curriculumHint・visuals を事実ファイル・既存記事・カリキュラム・台帳へ入れ、図を作って入れる
+4. CI が緑の develop を本番へ出し、check-production-ssr と各記事・図の URL を確かめる
+**完了条件**: 16 本が本番で HTTP 200・`check-content-series` が緑・図の計画が配置済み。公開から 28 日の計測は DN-0719 が見る。
+
+
 
 
 ### [DN-0736] 2級土木 令和8年度 第2次検定の問題と解答例を、10/26 の問題公表から 1 週間以内に入れる
@@ -455,7 +460,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 タグ: [領域:サイト] [時期:2026-11] [種類:意思決定] [起票:2026-10-13] [期日:2026-11-27]
 
 **起点**: 2026-10-13、運営者の依頼で試験とは別軸の読み物シリーズ 2 つを企画した（シリーズ id `municipal-civil-engineer`・`concrete-practice`・`construction-materials`。コンクリートは 2026-10-13 に書籍 5 冊の全項目を割り当てた 33 章へ広げた）。記事の一覧（目次・計画・根拠・第何波か）はシリーズ企画の台帳 `config/content-series.json`、置き場・根拠資料の扱い・着手の条件は docs/strategy/18_自治体土木担当・コンクリートシリーズ方針2026-10.md。管理画面はサイト＞シリーズ企画。運営者の判断で、記事は EXP-012（記事末の資格カード）の判定まで書かない。
-**2026-10-15 の変更**: 自治体の土木担当の第 1 波（A-08・A-14・A-19）は、運営者の判断で判定を待たずに書いて公開することにした（DN-0738）。このカードは第 2 波以降の判断に使う。
+**2026-10-15 の変更**: 自治体の土木担当の第 1 波（A-08・A-14・A-19）は、運営者の判断で判定を待たずに書いて公開することにした（DN-0738）。同日、第 2・第 3 波（16 章）も判定を待たずに書くことにした（DN-0739）。このカードは第 4 波以降の判断に使う。
 **やること**: EXP-012 の事後窓の終わり（2026-11-26）の判定を 18 番「着手の判定」に当てる。継続なら台帳で `wave: 1` の項目（自治体の土木担当は 2026-10-13 に 42 章へ組み直した後の A-08 占用・A-14 河川区域の許可・A-19 里道と水路）を、確認済みの骨子（DN-0729）から workflow series-chapter（`brief: "outline"`・DN-0728）で書く。制作カードの本文にシリーズの id を書く。コンクリートの実務は新規 10 章を 2026-10-13 に書き終えている（DN-0724）ので、判定は補強（DN-0733）と画像（DN-0727）の優先度にだけ効く。再計測なら待ち、停止なら台帳の gate に結果を書いて残す。
 **完了条件**: 判定の結果と次の対応を 18 番に 1 行で残す。着手するなら第 1 波の制作カードを起票し、18 番の「DN-0719」の参照を書き換える（消すと check-project-task-refs が止める）。
 
@@ -481,12 +486,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 完了条件: 読み戻しの遅延/欠落と本当のメタデータ変更の回帰テストを通し、後者では削除しない。新版2本・音声・字幕・非公開設定を保持し、旧プレビューの不存在をAPIで確認して台帳を更新する。
 
 
-### [DN-0697] YouTube通常動画の再生数欠測を解消し、全欠測を合計0回と表示しない
-タグ: [領域:SNS] [時期:2026-10] [種類:不具合] [起票:2026-10-12]
-
-**起点**: 2026-10-12 の youtube-own-metrics で通常動画74本を取得したが再生数あり0本。2026-10-10も73本中0本、10-08は70本中70本だった。Shortsは12本中12本取得できる。欠測を再生0回として削除判断に使えない。
-**やること**: scripts/lib/youtube-listing.mjs の通常動画の再生数取得を切り分け、取得不能の集計は0ではなく欠測として出す。対象動画が存在するのに全再生数欠測なら検査不成立を明示する。生のnullを保持し、前回値を今回値へ補完しない。
-**完了条件**: 通常動画とShortsを分けて対象数・再生数取得数を確認できる。通常動画全欠測のfixtureが緑の成功や合計0回にならず、有効な0回とは区別できる。
 
 
 
@@ -587,6 +586,8 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **完了条件（改）**: metrics に YouTube 送客の指標があり、週次・月次のスナップショットが値（欠測は null）を持ち、/metrics/business に出ている。npm run check-business-direction が通る。
 
+**進捗（2026-10-14）**: 指標 `youtubeUsers`（GA4・日本・sessionSource=youtube のアクティブユーザー・資格別には割らない）を business-direction.json に足し、`fetch-business-metrics.mjs` の全体（all）の GA4 集計で取得、週次レビューの下書きの表にも出す（PR feat/youtube-referral-kpi）。check-business-direction は 24 指標で PASS。**残り**: マージ後の CI の定期取得（fetch-metrics）で週次・月次の記録に値が入り、/metrics/business に出ていることを確かめて完了。
+
 ### [DN-0393] 国・都道府県の技術図書の整理を共通仕様書の次（施工管理基準から）へ広げる
 タグ: [コンテンツ品質] [領域:サイト] [時期:2026-10..2026-11] [種類:制作] [起票:2026-09-27]
 
@@ -604,7 +605,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **原典と利用条件（2026-10-14 確認）**: 最新は本省版 **令和8年3月**（R7.3 版の次。共通仕様書〔R8.3〕第1編1-1-27 に対応）。本体 https://www.mlit.go.jp/tec/content/001990185.pdf（269 ページ・2,309,599 bytes・SHA-256 ae9d1ba85098f4bd913021ad4e354b85010d3c28930cf9480611859343e18b41）、新旧対照表 001990187.pdf（17 ページ）、写真管理基準（案）の改定通知 001990188.pdf。文字層あり（U+FFFD 0・文字の少ないページは p4・p212 の 2 枚だけ）。本文の大半は測定箇所の図を含む出来形・品質の規格値表。利用条件は国交省サイトの公共データ利用規約（PDL1.0）＝出典の記載と、加工したことの明記で利用できる（https://www.mlit.go.jp/link.html）。全文ライブラリは外部の文字起こし工程（`.tmp/mlit-national-transcription` の manifest・QA を `build-standards-library.mjs` が読む）から作る仕組みで、その工程の手順はリポジトリに無い。
 
-**全文ライブラリへの追加（2026-10-14・運営者が「全文ライブラリから正式に」を選択）**: `npm run add-standards-document` を作り、本省版 R8.3 を /standards/mlit/sekou-kanri-kijun（6 分冊・掲載ページ https://www.mlit.go.jp/tec/tec_tk_000052.html）として足した。269 ページのうち 259 は 2 抽出器（pdftotext・PyMuPDF）で一致、10 は目視（表紙・中扉 3・ℓ の二重取り 1・私用領域文字 6＝式の「＝」「－」と平均の X̄）で記録は content/sources/standards/mlit/sekou-kanri-kijun/visual-review.json。feature ブランチ feat/standards-mlit-sekou-kanri の PR で develop へ入れる。**残り**: (1) Mac で原本 PDF を Drive vault の 原資料PDF/共通仕様書 の下（本省）へ置き、`build-standards-page-images --agency mlit --role all` でページ画像を作る（Windows は Drive が見えず pdftoppm も無い）。(2) 共通仕様書の章記事 32 本の「施工管理基準」の言及から本ページへのリンクを張る（章記事は生成物なので build-standard-articles か reference-sources 側で）。(3) 本番反映（2026-10-14・main 8dc591533）から 28 日後の 2026-11-11 以降に、表示を共通仕様書と比べて記録する。
+**全文ライブラリへの追加（2026-10-14・運営者が「全文ライブラリから正式に」を選択）**: `npm run add-standards-document` を作り、本省版 R8.3 を /standards/mlit/sekou-kanri-kijun（6 分冊・掲載ページ https://www.mlit.go.jp/tec/tec_tk_000052.html）として足した。269 ページのうち 259 は 2 抽出器（pdftotext・PyMuPDF）で一致、10 は目視（表紙・中扉 3・ℓ の二重取り 1・私用領域文字 6＝式の「＝」「－」と平均の X̄）で記録は content/sources/standards/mlit/sekou-kanri-kijun/visual-review.json。feature ブランチ feat/standards-mlit-sekou-kanri の PR で develop へ入れる。**残り**: (1) Mac で原本 PDF を Drive vault の 原資料PDF/共通仕様書 の下（本省）へ置き、`build-standards-page-images --agency mlit --role all` でページ画像を作る（Windows は Drive が見えず pdftoppm も無い）。(2) 章記事からの案内は、本文が「土木工事施工管理基準」に言及する章（8 機関 × 4 章）の末尾に「この章が参照する基準」として出す形にした（src/lib/standards.ts の STANDARD_MENTION_KEYWORDS・PR feat/standards-referenced-docs）。(3) 本番反映（2026-10-14・main 8dc591533）から 28 日後の 2026-11-11 以降に、表示を共通仕様書と比べて記録する。
 
 **実験**: なし（1 ページの順位改善ではなく、技術図書の整理を次の分野へ広げる企画）
 

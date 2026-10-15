@@ -678,9 +678,31 @@
           "id": "municipal",
           "label": "自治体の土木担当（道路・河川・里道と水路の管理）",
           "slugs": [
+            "road-act-framework",
             "road-occupancy-permit-review",
+            "road-work-approval-vs-road-use-permit",
+            "road-boundary-and-road-ledger",
+            "road-inspection-longevity-plan",
+            "river-act-framework",
             "river-area-permits",
+            "river-crossing-structure-review",
+            "river-facility-inspection-operation",
+            "coast-port-administrators",
             "satomichi-suiro-management"
+          ]
+        },
+        {
+          "id": "municipal-projects",
+          "label": "自治体の土木担当（事業を進める）",
+          "slugs": [
+            "public-works-planning-evaluation",
+            "project-request-to-budget",
+            "public-meeting-consensus",
+            "land-acquisition-compensation",
+            "buried-cultural-property-survey",
+            "public-works-environmental-care",
+            "ppp-pfi-selection",
+            "owner-safety-responsibility"
           ]
         }
       ]

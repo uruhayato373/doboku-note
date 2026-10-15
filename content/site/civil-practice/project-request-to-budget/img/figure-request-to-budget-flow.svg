@@ -1,0 +1,71 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は要望の受付から予算・回答・事業の実施までの振り分けの順（管理者・維持修繕か事業化か・補助か単独費か・年度をまたぐ組み方）。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="要望の受付から事業の実施までの流れ図。要望の受付、管理者の確認、現地確認と順位づけ、調査・設計、予算要求、予算案の調製と議決、要望者への回答、事業の実施の順に進む。国・県の施設は管理者へ引き継ぎ、維持修繕と地元管理は別の対応に分かれる。予算要求では補助か単独費か、繰越しや債務負担行為を確かめる。">
+  <defs>
+  <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .n { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 11px; fill: #1a3a5c; }
+      .c { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .ok { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .wn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .s { stroke: #d4a017; stroke-width: 1.5; fill: none; }
+  </style>
+  <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="as" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#d4a017"/></marker>
+  </defs>
+
+  <rect class="b" x="14" y="16" width="200" height="44" rx="8"/>
+  <text class="n" x="114" y="35" text-anchor="middle">要望の受付</text>
+  <text class="t" x="114" y="51" text-anchor="middle">窓口を一本化して記録</text>
+  <rect class="b" x="14" y="76" width="200" height="44" rx="8"/>
+  <text class="n" x="114" y="95" text-anchor="middle">管理者の確認</text>
+  <text class="t" x="114" y="111" text-anchor="middle">市か、国・県か</text>
+  <rect class="b" x="14" y="136" width="200" height="44" rx="8"/>
+  <text class="n" x="114" y="155" text-anchor="middle">現地確認と順位づけ</text>
+  <text class="t" x="114" y="171" text-anchor="middle">維持修繕か、事業化か</text>
+  <rect class="b" x="14" y="196" width="200" height="44" rx="8"/>
+  <text class="n" x="114" y="215" text-anchor="middle">調査・設計</text>
+  <text class="t" x="114" y="231" text-anchor="middle">測量・調査を委託</text>
+  <rect class="b" x="14" y="256" width="200" height="44" rx="8"/>
+  <text class="n" x="114" y="275" text-anchor="middle">予算要求</text>
+  <text class="t" x="114" y="291" text-anchor="middle">財政担当と調整</text>
+  <rect class="b" x="14" y="316" width="200" height="44" rx="8"/>
+  <text class="n" x="114" y="335" text-anchor="middle">予算案の調製・議決</text>
+  <text class="t" x="114" y="351" text-anchor="middle">市長が調製し、議会が議決</text>
+  <rect class="b" x="14" y="376" width="200" height="44" rx="8"/>
+  <text class="n" x="114" y="395" text-anchor="middle">要望者への回答</text>
+  <text class="t" x="114" y="411" text-anchor="middle">予算の成立後に理由を添えて</text>
+  <rect class="ok" x="14" y="436" width="200" height="44" rx="8"/>
+  <text class="n" x="114" y="455" text-anchor="middle">事業の実施</text>
+  <text class="t" x="114" y="471" text-anchor="middle">用地・積算・契約へ</text>
+  <path class="a" d="M114,60V75" marker-end="url(#ah)"/>
+  <path class="a" d="M114,120V135" marker-end="url(#ah)"/>
+  <path class="a" d="M114,180V195" marker-end="url(#ah)"/>
+  <path class="a" d="M114,240V255" marker-end="url(#ah)"/>
+  <path class="a" d="M114,300V315" marker-end="url(#ah)"/>
+  <path class="a" d="M114,360V375" marker-end="url(#ah)"/>
+  <path class="a" d="M114,420V435" marker-end="url(#ah)"/>
+
+  <text class="t" x="122" y="192">事業化</text>
+
+  <rect class="wn" x="232" y="80" width="154" height="36" rx="8"/>
+  <text class="c" x="309" y="95" text-anchor="middle">国・県の施設は</text>
+  <text class="c" x="309" y="109" text-anchor="middle">管理者へ引継ぎ</text>
+  <path class="s" d="M214,98H231" marker-end="url(#as)"/>
+
+  <rect class="wn" x="232" y="130" width="154" height="26" rx="8"/>
+  <text class="c" x="309" y="147" text-anchor="middle">維持修繕で対応</text>
+  <rect class="wn" x="232" y="164" width="154" height="26" rx="8"/>
+  <text class="c" x="309" y="181" text-anchor="middle">地元管理は制度を案内</text>
+  <path class="s" d="M214,143H231" marker-end="url(#as)"/>
+  <path class="s" d="M214,177H231" marker-end="url(#as)"/>
+
+  <rect class="wn" x="232" y="250" width="154" height="26" rx="8"/>
+  <text class="c" x="309" y="267" text-anchor="middle">補助か単独費か</text>
+  <rect class="wn" x="232" y="284" width="154" height="26" rx="8"/>
+  <text class="c" x="309" y="301" text-anchor="middle">繰越し・債務負担行為</text>
+  <path class="s" d="M214,263H231" marker-end="url(#as)"/>
+  <path class="s" d="M214,297H231" marker-end="url(#as)"/>
+</svg>

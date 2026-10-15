@@ -116,6 +116,23 @@ export function getStandardPart(
   return document && part ? { document, part } : null;
 }
 
+// 本文がこの文言で言及していたら、ライブラリに収録したその文書へ案内する（キー＝agencyId/documentId）。
+// 共通仕様書 1-1-27 施工管理などが「土木工事施工管理基準」を参照しているのに行き先が無かった（DN-0393）。
+// 「機械工事施工管理基準」は別の基準なので、文言は文書名の先頭から書く。
+const STANDARD_MENTION_KEYWORDS: Record<string, string[]> = {
+  'mlit/sekou-kanri-kijun': ['土木工事施工管理基準'],
+};
+
+export function getReferencedStandardDocuments(current: StandardDocument, text: string): StandardDocument[] {
+  return Object.entries(STANDARD_MENTION_KEYWORDS)
+    .filter(([key, keywords]) => key !== `${current.agencyId}/${current.documentId}` && keywords.some((keyword) => text.includes(keyword)))
+    .map(([key]) => {
+      const [agencyId, documentId] = key.split('/');
+      return agencyId && documentId ? getStandardDocument(agencyId, documentId) : null;
+    })
+    .filter((document): document is StandardDocument => document !== null);
+}
+
 // 分冊の中身を表す章名。分冊の題名が文書題名＋ページ範囲だけだと、文書ページと同じ
 // 検索語（例「中国地方整備局 共通仕様書」）を取り合うため、章名を題名の先頭に置く。
 // catalog.json は build-standards-library.mjs の生成物なので、ここで持つ。

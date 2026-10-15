@@ -5575,6 +5575,625 @@
         "kind": "external",
         "url": "https://www.mlit.go.jp/river/shinngikai_blog/shigenkentou/dai03/pdf/s02-01.pdf"
       }
+    },
+    {
+      "id": "bunka-excavation-cost-report-2021",
+      "title": "道路事業に伴う発掘調査の位置づけと発掘調査費用について（報告）（令和3年11月30日・文化庁 埋蔵文化財発掘調査体制等の整備充実に関する調査研究委員会）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.bunka.go.jp/seisaku/bunkazai/shokai/pdf/93600501_01.pdf"
+      }
+    },
+    {
+      "id": "bunka-council-buried-cultural-property-report-2022",
+      "title": "これからの埋蔵文化財保護の在り方について（第一次報告書）（令和4年7月22日・文化審議会文化財分科会）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.bunka.go.jp/seisaku/bunkazai/shokai/pdf/93958001_02.pdf"
+      }
+    },
+    {
+      "id": "bunka-excavation-design-transparency-guideline-2026",
+      "title": "埋蔵文化財発掘調査の設計の透明化と業務の発注に関するガイドラインについて（報告）（令和8年3月31日・文化庁 埋蔵文化財発掘調査体制等の整備充実に関する調査研究委員会）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.bunka.go.jp/seisaku/bunkazai/shokai/pdf/94353501_01.pdf"
+      }
+    },
+    {
+      "id": "bunka-buried-cultural-property-notice-1998",
+      "title": "埋蔵文化財の保護と発掘調査の円滑化等について（通知）（平成10年9月29日庁保記第75号・文化庁次長）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.bunka.go.jp/seisaku/bunkazai/shokai/pdf/hokoku_03.pdf"
+      }
+    },
+    {
+      "id": "bunka-excavation-estimate-standard-2000",
+      "title": "埋蔵文化財の本発掘調査に関する積算標準について（報告）（平成12年9月28日・文化庁 埋蔵文化財発掘調査体制等の整備充実に関する調査研究委員会）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.bunka.go.jp/seisaku/bunkazai/shokai/pdf/hokoku_04.pdf"
+      }
+    },
+    {
+      "id": "chubu-meikoku-official-private-boundary-guide",
+      "title": "国道に面している土地をお持ちの方で、官民境界線を確かめたい方へ（国土交通省 中部地方整備局 名古屋国道事務所）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.cbr.mlit.go.jp/meikoku/request/boundary/pdf/ninka_kyokai_reiwa.pdf"
+      }
+    },
+    {
+      "id": "mlit-block-boundary-survey-guide-2024",
+      "title": "街区境界調査の手引（令和6年3月19日・国土交通省 不動産・建設経済局 地籍整備課）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.chiseki.go.jp/info/pdf/%E3%80%90web%E6%8E%B2%E8%BC%89%E7%94%A8%E3%80%91%E8%A1%97%E5%8C%BA%E5%A2%83%E7%95%8C%E8%AA%BF%E6%9F%BB%E3%81%AE%E6%89%8B%E5%BC%95%EF%BC%88R06.3.19%EF%BC%89.pdf"
+      }
+    },
+    {
+      "id": "kashiwa-road-boundary-determination",
+      "title": "道路の境界確定（柏市）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.city.kashiwa.lg.jp/dorosomu/jigyosha/development/doro/kyokaikakute.html"
+      }
+    },
+    {
+      "id": "kawasaki-road-act-procedure-guideline",
+      "title": "道路法の手続きに関する事務取扱い要領（川崎市、令和5年4月1日施行の改正まで）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.city.kawasaki.jp/templates/outline/cmsfiles/contents/0000008/8289/710ADouhouTetuJimuYouryou.pdf"
+      }
+    },
+    {
+      "id": "koriyama-public-works-evaluation-guideline",
+      "title": "郡山市公共事業評価実施要綱（郡山市、令和7年4月1日施行の改正まで）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.city.koriyama.lg.jp/uploaded/attachment/99310.pdf"
+      }
+    },
+    {
+      "id": "matsue-civil-request-system-r8",
+      "title": "令和8年度 土木要望（道路・河川・水路・公園）制度について（松江市 都市整備部 建設総務課）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.city.matsue.lg.jp/material/files/group/90/R8seidosetsumei.pdf"
+      }
+    },
+    {
+      "id": "sakai-road-boundary-determination-guideline",
+      "title": "道路境界確定協議事務取扱要領（堺市、2025年4月1日更新）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.city.sakai.lg.jp/shisei/sonota/jyorei/youkou/kensetsu/dourokyoukaikakuteikyougijimutor.html"
+      }
+    },
+    {
+      "id": "sapporo-ordinary-river-management-ordinance",
+      "title": "札幌市普通河川管理条例（平成12年3月31日条例第28号）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.city.sapporo.jp/ncms/reiki/d1w_reiki_nonframe/H412901010028/H412901010028_j.html"
+      }
+    },
+    {
+      "id": "yokohama-road-ledger-copy-certificate",
+      "title": "「道路台帳図」写し証明（オンライン受付・郵送交付）について（横浜市、2026年9月8日更新）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.city.yokohama.lg.jp/kurashi/machizukuri-kankyo/doro/tetsuzuki/zumen/20221122152952821.html"
+      }
+    },
+    {
+      "id": "env-construction-noise-standard-notice",
+      "title": "特定建設作業に伴つて発生する騒音の規制に関する基準（昭和43年11月27日厚生省・建設省告示第1号・環境省）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.env.go.jp/hourei/07/000050.html"
+      }
+    },
+    {
+      "id": "ktr-hitachi-road-ledger",
+      "title": "道路台帳（国土交通省 関東地方整備局 常陸河川国道事務所）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.ktr.mlit.go.jp/hitachi/hitachi01207.html"
+      }
+    },
+    {
+      "id": "mlit-land-acquisition-plan-to-compensation",
+      "title": "事業計画説明～補償金の支払いまで（国土交通省）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/common/001208294.pdf"
+      }
+    },
+    {
+      "id": "mlit-land-acquisition-compensation-explanation",
+      "title": "補償の説明等（国土交通省）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/common/001208297.pdf"
+      }
+    },
+    {
+      "id": "mlit-land-acquisition-tax-exceptions",
+      "title": "税法上の特例（国土交通省）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/common/001208299.pdf"
+      }
+    },
+    {
+      "id": "mlit-national-spatial-plan-3rd",
+      "title": "国土計画：第三次国土形成計画（全国計画）（令和5年7月28日閣議決定・国土交通省）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/kokudoseisaku/kokudokeikaku_fr3_000003.html"
+      }
+    },
+    {
+      "id": "mlit-port-facility-maintenance",
+      "title": "港湾：港湾施設の維持管理（国土交通省 港湾局）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/kowan/kowan_fr5_000051.html"
+      }
+    },
+    {
+      "id": "mlit-levee-toe-structure-notice-1994",
+      "title": "堤内地の堤脚付近に設置する工作物の位置等について（平成6年5月31日建設省河治発第40号・建設省河川局治水課長通達）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/notice/noticedata/sgml/052/78000086/78000086.html"
+      }
+    },
+    {
+      "id": "mlit-social-infra-grant-guideline",
+      "title": "社会資本整備総合交付金交付要綱（平成22年3月26日制定・令和8年4月7日最終改正・国土交通省）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/page/content/001852523.pdf"
+      }
+    },
+    {
+      "id": "mlit-coastal-facility-maintenance-manual-revision-outline",
+      "title": "海岸保全施設維持管理マニュアル改訂 概要（国土交通省 報道発表資料）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/report/press/content/001350557.pdf"
+      }
+    },
+    {
+      "id": "mlit-press-2022-09-infra-longevity-followup",
+      "title": "国土交通省のインフラ長寿命化に関する取組状況を取りまとめました ～インフラ長寿命化計画（行動計画）のフォローアップ結果（令和３年度末時点）～（令和4年9月28日・国土交通省 総合政策局 報道発表）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/report/press/content/001514598.pdf"
+      }
+    },
+    {
+      "id": "mlit-press-2025-08-road-maintenance-annual-report",
+      "title": "橋梁等の2024年度（令和6年度）点検結果をとりまとめ ～道路メンテナンス年報（3巡目1年目）の公表～（令和7年8月25日・国土交通省 道路局 報道発表）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/report/press/content/001906343.pdf"
+      }
+    },
+    {
+      "id": "mlit-press-2014-04-road-maintenance-ordinance",
+      "title": "道路の維持修繕に関する省令・告示の制定について（道路法施行規則の一部改正等）（平成26年4月2日・国土交通省 報道発表）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/report/press/road01_hh_000412.html"
+      }
+    },
+    {
+      "id": "mlit-press-2024-05-road-base-map-database",
+      "title": "全国道路基盤地図等データベースの公開開始（令和6年5月31日・国土交通省 報道発表）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/report/press/road01_hh_001807.html"
+      }
+    },
+    {
+      "id": "mlit-press-2026-01-infra-priority-plan",
+      "title": "令和12年度までの社会資本整備・交通政策の羅針盤となる計画を策定 ～第６次「社会資本整備重点計画」・第３次「交通政策基本計画」を本日閣議決定～（令和8年1月16日・国土交通省 報道発表）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/report/press/sogo12_hh_000496.html"
+      }
+    },
+    {
+      "id": "mlit-gate-management-system-guideline-v3-3",
+      "title": "津波・高潮対策における水門・陸閘等管理システムガイドライン（Ver.3.3）（令和8年3月・農林水産省 農村振興局・水産庁、国土交通省 水管理・国土保全局・港湾局）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/river/shishin_guideline/kaigan/suimonguidelinev3.3.pdf"
+      }
+    },
+    {
+      "id": "mlit-levee-channel-inspection-evaluation-guideline",
+      "title": "堤防等河川管理施設及び河道の点検・評価要領（令和5年3月・国土交通省 水管理・国土保全局 河川環境課）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/river/shishin_guideline/kasen/pdf/01_teibou_tenkenhyouka_youryou_r503.pdf"
+      }
+    },
+    {
+      "id": "mlit-sluice-operator-evacuation-guideline",
+      "title": "樋門等の操作規則・操作要領作成における操作員退避検討に当たってのガイドライン（令和元年6月21日事務連絡・国土交通省水管理・国土保全局河川環境課河川保全企画室長）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/river/shishin_guideline/kasen/pdf/himon_sousa_guideline.pdf"
+      }
+    },
+    {
+      "id": "mlit-permitted-structure-review-guide",
+      "title": "許可工作物技術審査の手引きについて（平成23年5月11日事務連絡・国土交通省河川局河川環境課河川保全企画室長）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/river/shishin_guideline/kasen/pdf/kyokakousakubutu_tebiki.pdf"
+      }
+    },
+    {
+      "id": "mlit-river-facility-operation-entrustment-notice",
+      "title": "河川管理施設の操作の委託について（平成24年3月9日国水環第106号・国土交通省水管理・国土保全局河川環境課長）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/river/shishin_guideline/kasen/pdf/sisetsusousa_itaku.pdf"
+      }
+    },
+    {
+      "id": "mlit-road-ledger",
+      "title": "道路：道路台帳（国土交通省 道路局）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/road/douro_daityou.html"
+      }
+    },
+    {
+      "id": "mlit-road-cost-benefit-manual-2025",
+      "title": "費用便益分析マニュアル（令和7年8月・国土交通省 道路局・都市局）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/road/ir/ir-hyouka/ben-eki_2.pdf"
+      }
+    },
+    {
+      "id": "mlit-road-administration-guide-road-types",
+      "title": "道路行政の簡単解説 Ⅱ.道路の種類（国土交通省 道路局）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/road/sisaku/dorogyousei/2.pdf"
+      }
+    },
+    {
+      "id": "mlit-road-maintenance-subsidy-scheme",
+      "title": "道路メンテナンス事業補助制度（国土交通省 道路局、令和8年度）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/road/sisaku/yobohozen/pdf/jigyo-hojo.pdf"
+      }
+    },
+    {
+      "id": "mlit-road-maintenance-annual-report-2026",
+      "title": "道路メンテナンス年報（国土交通省 道路局、2026年8月）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/road/sisaku/yobohozen/pdf/r07/r07_08maint.pdf"
+      }
+    },
+    {
+      "id": "mlit-road-maintenance-annual-report-2025-outline",
+      "title": "道路メンテナンス年報（2025年度）の概要（国土交通省 道路局）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/road/sisaku/yobohozen/pdf/r07/r07road_outline.pdf"
+      }
+    },
+    {
+      "id": "mlit-bridge-periodic-inspection-guideline-2024",
+      "title": "道路橋定期点検要領（技術的助言）（令和6年3月・国土交通省 道路局）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/road/sisaku/yobohozen/tenken/yobo7_1.pdf"
+      }
+    },
+    {
+      "id": "mlit-road-aging-countermeasures",
+      "title": "道路：道路の老朽化対策（国土交通省 道路局）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/road/sisaku/yobohozen/yobohozen.html"
+      }
+    },
+    {
+      "id": "mlit-road-consultation-data-collection",
+      "title": "道路：道の相談室：道に関する各種データ集（国土交通省 道路局）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/road/soudan/soudan_10b_01.html"
+      }
+    },
+    {
+      "id": "mlit-comprehensive-outsourcing-guide-2023",
+      "title": "インフラメンテナンスにおける包括的民間委託導入の手引き（令和5年3月・国土交通省 総合政策局）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/sogoseisaku/maintenance/_pdf/houkatsu_tebiki.pdf"
+      }
+    },
+    {
+      "id": "mlit-construction-byproduct-guideline",
+      "title": "建設副産物適正処理推進要綱（平成14年5月30日改正・国土交通省）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/sogoseisaku/region/recycle/d11pdf/recyclehou/recycle_rule/youkou.pdf"
+      }
+    },
+    {
+      "id": "mlit-civil-works-supervision-standard",
+      "title": "土木工事監督技術基準（案）（昭和54年2月26日建設省技調発第94号・最終改正 令和4年3月31日国官技第355号・国土交通省）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/tec/content/001475846.pdf"
+      }
+    },
+    {
+      "id": "mlit-ordering-operation-guideline-2025",
+      "title": "発注関係事務の運用に関する指針（平成27年1月30日・令和7年2月3日改正・公共工事の品質確保の促進に関する関係省庁連絡会議）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/tec/content/001860706.pdf"
+      }
+    },
+    {
+      "id": "mlit-project-evaluation-planning-stage-guideline",
+      "title": "国土交通省所管公共事業の計画段階評価実施要領（令和7年9月18日施行・国土交通省）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/tec/hyouka/public/250918/youryou/01_keikaku_koukyou250918.pdf"
+      }
+    },
+    {
+      "id": "mlit-project-evaluation-new-adoption-guideline",
+      "title": "国土交通省所管公共事業の新規事業採択時評価実施要領（令和7年9月18日施行・国土交通省）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/tec/hyouka/public/250918/youryou/02_shinki_koukyou250918.pdf"
+      }
+    },
+    {
+      "id": "mlit-project-evaluation-reevaluation-guideline",
+      "title": "国土交通省所管公共事業の再評価実施要領（令和7年9月18日施行・国土交通省）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/tec/hyouka/public/250918/youryou/04_sai_koukyou250918.pdf"
+      }
+    },
+    {
+      "id": "mlit-project-evaluation-post-completion-guideline",
+      "title": "国土交通省所管公共事業の完了後の事後評価実施要領（令和7年9月18日施行・国土交通省）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/tec/hyouka/public/250918/youryou/06_jigo_koukyou250918.pdf"
+      }
+    },
+    {
+      "id": "mlit-cost-benefit-technical-guideline-common-2025",
+      "title": "公共事業評価の費用便益分析に関する技術指針（共通編）（令和7年9月・国土交通省）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/tec/hyouka/public/250918_shishin/shishin/shishin250918.pdf"
+      }
+    },
+    {
+      "id": "mlit-concept-stage-planning-process-guideline",
+      "title": "公共事業の構想段階における計画策定プロセスガイドライン（解説）（平成21年3月・国土交通省）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/tec/kanri/pdf/koukyou_guidegaiyou.pdf"
+      }
+    },
+    {
+      "id": "mlit-construction-soil-destination-clarification",
+      "title": "建設発生土の搬出先の明確化等（国土交通省）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/totikensangyo/const/content/001499462.pdf"
+      }
+    },
+    {
+      "id": "mlit-land-compensation-standards-page",
+      "title": "土地：補償基準等（国土交通省）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/totikensangyo/totikensangyo_tk1_000023.html"
+      }
+    },
+    {
+      "id": "moj-boundary-specification-system",
+      "title": "筆界特定制度（法務省）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.moj.go.jp/MINJI/minji104.html"
+      }
+    },
+    {
+      "id": "saitama-police-road-use-permit-criteria",
+      "title": "審査基準 道路の使用の許可（道路交通法第77条第1項）（令和6年3月1日作成・埼玉県警察）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.police.pref.saitama.lg.jp/documents/32088/77-1dourosiyou.pdf"
+      }
+    },
+    {
+      "id": "osaka-road-work-approval",
+      "title": "道路工事施行承認について（大阪府、2013年8月21日更新）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.pref.osaka.lg.jp/o130070/dorokankyo/sekou/index.html"
+      }
+    },
+    {
+      "id": "shiga-road-work-by-non-manager-approval",
+      "title": "道路管理者以外の者が行う工事の承認（県土整備部道路保全課）（滋賀県）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.pref.shiga.lg.jp/ba00/10510.html"
+      }
+    },
+    {
+      "id": "soumu-river-sluice-recommendation-2023",
+      "title": "「河川の陸閘の管理・運用に関する調査」の結果に基づく勧告（概要）（令和5年7月7日・総務省）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.soumu.go.jp/main_content/000891170.pdf"
+      }
+    },
+    {
+      "id": "cao-ppp-pfi-priority-consideration-guideline-2025",
+      "title": "多様な PPP/PFI 手法導入を優先的に検討するための指針（令和７年改定版）（令和7年6月4日・内閣府 民間資金等活用事業推進会議決定）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www8.cao.go.jp/pfi/yuusenkentou/pdf/shishin7.pdf"
+      }
+    },
+    {
+      "id": "river-facility-structure-order-rules",
+      "title": "河川管理施設等構造令施行規則",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "河川管理施設等構造令施行規則": "river-facility-structure-order-rules"
+      },
+      "egov": {
+        "lawId": "351M50004000013"
+      }
+    },
+    {
+      "id": "expressway-act",
+      "title": "高速自動車国道法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "高速自動車国道法": "expressway-act"
+      },
+      "egov": {
+        "lawId": "332AC0000000079"
+      }
+    },
+    {
+      "id": "cultural-properties-act-order",
+      "title": "文化財保護法施行令",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "文化財保護法施行令": "cultural-properties-act-order"
+      },
+      "egov": {
+        "lawId": "350CO0000000267"
+      }
+    },
+    {
+      "id": "land-expropriation-act-rules",
+      "title": "土地収用法施行規則",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "土地収用法施行規則": "land-expropriation-act-rules"
+      },
+      "egov": {
+        "lawId": "326M50004000033"
+      }
+    },
+    {
+      "id": "national-spatial-planning-act-order",
+      "title": "国土形成計画法施行令",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "国土形成計画法施行令": "national-spatial-planning-act-order"
+      },
+      "egov": {
+        "lawId": "418CO0000000230"
+      }
     }
   ]
 }

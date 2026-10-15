@@ -1,0 +1,45 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点はPFI法第2条（特定事業の対象）、地方自治法第244条の2、国土交通省の包括的民間委託導入の手引き。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="民間に任せる範囲の違いを、設計・建設・維持管理・運営の4段階に対する帯の長さで比べた図。指定管理者は公の施設の管理で維持管理と運営、包括的民間委託は複数の維持管理業務の束ね、PFIは設計から運営まで、コンセッションは利用料金を収入とする運営を任せる。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 11px; fill: #555; }
+      .bb { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .bp { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .bw { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .bd { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .bs { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .aw { stroke: #d4a017; stroke-width: 2; fill: none; }
+      .ag { stroke: #555; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+    <marker id="aw" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#d4a017"/></marker>
+    <marker id="ag" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+  <rect class="bs" x="114" y="12" width="66" height="476" rx="6" style="stroke:none"/>
+  <text class="t" x="147.0" y="36" text-anchor="middle" style="font-size:12px">設計</text>
+  <rect class="bs" x="184" y="12" width="66" height="476" rx="6" style="stroke:none"/>
+  <text class="t" x="217.0" y="36" text-anchor="middle" style="font-size:12px">建設</text>
+  <rect class="bs" x="254" y="12" width="66" height="476" rx="6" style="stroke:none"/>
+  <text class="t" x="287.0" y="36" text-anchor="middle" style="font-size:12px">維持管理</text>
+  <rect class="bs" x="324" y="12" width="66" height="476" rx="6" style="stroke:none"/>
+  <text class="t" x="357.0" y="36" text-anchor="middle" style="font-size:12px">運営</text>
+  <text class="n" x="10" y="87">指定管理者</text>
+  <rect class="bb" x="256" y="64" width="132" height="40" rx="8"/>
+  <text class="s" x="112" y="128">公の施設の管理（条例・期間・議決）</text>
+  <path d="M8,156H392" stroke="#d7d7d7" stroke-width="1" fill="none"/>
+  <text class="n" x="10" y="195">包括的民間委託</text>
+  <rect class="bb" x="256" y="172" width="62" height="40" rx="8"/>
+  <text class="s" x="112" y="236">複数の維持管理業務を束ねる</text>
+  <path d="M8,264H392" stroke="#d7d7d7" stroke-width="1" fill="none"/>
+  <text class="n" x="10" y="303">PFI</text>
+  <rect class="bb" x="116" y="280" width="272" height="40" rx="8"/>
+  <text class="s" x="112" y="344">整備から運営までを長期で任せる</text>
+  <path d="M8,372H392" stroke="#d7d7d7" stroke-width="1" fill="none"/>
+  <text class="n" x="10" y="411">コンセッション</text>
+  <rect class="bb" x="256" y="388" width="132" height="40" rx="8"/>
+  <text class="s" x="112" y="452">運営権を設定し、利用料金を収入にする</text>
+</svg>

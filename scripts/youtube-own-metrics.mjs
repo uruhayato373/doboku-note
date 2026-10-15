@@ -11,7 +11,8 @@
  *   npm run youtube-own-metrics                 # 取得して保存
  *   npm run youtube-own-metrics -- --dry-run    # 取得して要約だけ表示（保存しない）
  *   npm run youtube-own-metrics -- --limit 600  # 一覧から取る本数の上限（既定 500・タブごと）
- * 取得に失敗したら何も書かず exit 1。
+ * 取得に失敗したら何も書かず exit 1。動画はあるのに再生数が 1 本も取れないタブがあれば、検査不成立として書かず exit 2
+ * （2026-10-10 に通常動画 73 本すべてが再生数なしで、合計 0 回として残った・DN-0697）。
  */
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -75,6 +76,11 @@ export function buildOwnSnapshot({ fetchedAt, channel, subscriberCount, longform
   };
 }
 
+/** 動画はあるのに再生数が 1 本も取れなかったタブ（検査不成立。取れた本数が少ないだけなら部分取得として残す） */
+export function viewsUnavailable(summary) {
+  return Object.entries(summary).filter(([, s]) => s.sampled > 0 && s.withViews === 0).map(([tab]) => tab);
+}
+
 function main() {
   const config = readDataset(ROOT, 'config.youtube-formats');
   const status = loadVideoState(ROOT);
@@ -91,11 +97,19 @@ function main() {
     signals: config.titleSignals,
   });
   const { longform, shorts } = snapshot.summary;
-  console.log(`[youtube-own-metrics] 通常動画 ${longform.sampled} 本（再生数あり ${longform.withViews}・合計 ${longform.totalViews}・中央値 ${longform.medianViews}）／Shorts ${shorts.sampled} 本（再生数あり ${shorts.withViews}）・登録者 ${snapshot.channel.subscriberCount ?? '不明'}`);
+  console.log(`[youtube-own-metrics] 通常動画 ${longform.sampled} 本（再生数あり ${longform.withViews}・合計 ${longform.totalViews ?? '欠測'}・中央値 ${longform.medianViews ?? '欠測'}）／Shorts ${shorts.sampled} 本（再生数あり ${shorts.withViews}）・登録者 ${snapshot.channel.subscriberCount ?? '不明'}`);
   for (const g of snapshot.byFormat) console.log(`  ${g.kind} ${g.format ?? '(パック外)'}: ${g.stats.sampled} 本・中央値 ${g.stats.medianViews}`);
   if (longform.sampled + shorts.sampled === 0) {
     console.error('[youtube-own-metrics] 一覧が 0 本（取得の失敗を疑う）。保存しない');
     process.exit(1);
+  }
+  for (const [tab, s] of Object.entries(snapshot.summary)) {
+    if (s.withViews < s.sampled) console.warn(`[youtube-own-metrics] ${tab}: ${s.sampled - s.withViews}/${s.sampled} 本の再生数が取れない（欠測。0 回として扱わない）`);
+  }
+  const unavailable = viewsUnavailable(snapshot.summary);
+  if (unavailable.length) {
+    console.error(`[youtube-own-metrics] ${unavailable.join('・')} は動画があるのに再生数が 1 本も取れない（検査不成立）。保存しない。yt-dlp の版と英語表示の一覧の view_count を確かめる`);
+    process.exit(2);
   }
   if (DRY) return;
   const stamp = todayJst();

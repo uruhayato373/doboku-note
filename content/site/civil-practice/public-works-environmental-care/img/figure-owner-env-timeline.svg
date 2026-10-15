@@ -1,0 +1,80 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は環境影響評価法第38条、騒音規制法・振動規制法第14条、建設リサイクル法第10条・第11条。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="公共工事の計画から完了まで、環境アセス、騒音・振動、建設副産物の3本の帯で発注者が決めることを並べた図。計画で環境アセスの対象かを確かめ、設計で規制地域と機械、発生を抑える工法を決め、積算で低騒音型の扱いと再資源化費用を見込む。特記仕様書で評価書の措置と副産物の条件を書き、契約では着工まで7日を確保する。着工前は騒音・振動を施工者が7日前に届け出、建設リサイクル法は発注者が通知する。完了で措置の記録と再資源化等の報告を受ける。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 11px; fill: #555; }
+      .bb { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .bp { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .bw { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .bd { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .bs { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .aw { stroke: #d4a017; stroke-width: 2; fill: none; }
+      .ag { stroke: #555; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+    <marker id="aw" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#d4a017"/></marker>
+    <marker id="ag" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+  <rect class="bb" x="82" y="8" width="100" height="480" rx="8"/>
+  <text class="n" x="132" y="31" text-anchor="middle">環境アセス</text>
+  <rect class="bp" x="186" y="8" width="100" height="480" rx="8"/>
+  <text class="n" x="236" y="31" text-anchor="middle">騒音・振動</text>
+  <rect class="bs" x="290" y="8" width="100" height="480" rx="8"/>
+  <text class="n" x="340" y="31" text-anchor="middle">建設副産物</text>
+  <rect class="bs" x="8" y="44" width="68" height="56" rx="6"/>
+  <text class="t" x="42" y="76" text-anchor="middle" style="font-size:12px">計画</text>
+  <rect class="bs" x="8" y="107" width="68" height="56" rx="6"/>
+  <text class="t" x="42" y="139" text-anchor="middle" style="font-size:12px">設計</text>
+  <rect class="bs" x="8" y="170" width="68" height="56" rx="6"/>
+  <text class="t" x="42" y="202" text-anchor="middle" style="font-size:12px">積算</text>
+  <rect class="bs" x="8" y="233" width="68" height="56" rx="6"/>
+  <text class="t" x="42" y="265" text-anchor="middle" style="font-size:12px">特記仕様書</text>
+  <rect class="bs" x="8" y="296" width="68" height="56" rx="6"/>
+  <text class="t" x="42" y="328" text-anchor="middle" style="font-size:12px">発注・契約</text>
+  <rect class="bs" x="8" y="359" width="68" height="56" rx="6"/>
+  <text class="t" x="42" y="391" text-anchor="middle" style="font-size:12px">着工前</text>
+  <rect class="bs" x="8" y="422" width="68" height="56" rx="6"/>
+  <text class="t" x="42" y="454" text-anchor="middle" style="font-size:12px">完了</text>
+  <rect class="bc" x="86" y="44" width="92" height="56" rx="6" style="fill:#fff;stroke:#d7d7d7;stroke-width:1"/>
+  <text x="132" y="68.5" text-anchor="middle" style="fill:#222">対象か確かめる</text>
+  <text x="132" y="83.5" text-anchor="middle" style="fill:#222">条例も確認</text>
+  <rect class="bc" x="190" y="107" width="92" height="56" rx="6" style="fill:#fff;stroke:#d7d7d7;stroke-width:1"/>
+  <text x="236" y="131.5" text-anchor="middle" style="fill:#222">規制地域と機械</text>
+  <text x="236" y="146.5" text-anchor="middle" style="fill:#222">夜間の協議</text>
+  <rect class="bc" x="294" y="107" width="92" height="56" rx="6" style="fill:#fff;stroke:#d7d7d7;stroke-width:1"/>
+  <text x="340" y="131.5" text-anchor="middle" style="fill:#222">発生を抑える</text>
+  <text x="340" y="146.5" text-anchor="middle" style="fill:#222">工法を選ぶ</text>
+  <rect class="bc" x="190" y="170" width="92" height="56" rx="6" style="fill:#fff;stroke:#d7d7d7;stroke-width:1"/>
+  <text x="236" y="202" text-anchor="middle" style="fill:#222">低騒音型の扱い</text>
+  <rect class="bc" x="294" y="170" width="92" height="56" rx="6" style="fill:#fff;stroke:#d7d7d7;stroke-width:1"/>
+  <text x="340" y="194.5" text-anchor="middle" style="fill:#222">再資源化費用</text>
+  <text x="340" y="209.5" text-anchor="middle" style="fill:#222">発生土の処理費</text>
+  <rect class="bc" x="86" y="233" width="92" height="56" rx="6" style="fill:#fff;stroke:#d7d7d7;stroke-width:1"/>
+  <text x="132" y="265" text-anchor="middle" style="fill:#222">評価書の措置</text>
+  <rect class="bc" x="294" y="233" width="92" height="56" rx="6" style="fill:#fff;stroke:#d7d7d7;stroke-width:1"/>
+  <text x="340" y="257.5" text-anchor="middle" style="fill:#222">副産物の条件</text>
+  <text x="340" y="272.5" text-anchor="middle" style="fill:#222">発生土の搬出先</text>
+  <rect class="bc" x="190" y="296" width="92" height="56" rx="6" style="fill:#fff;stroke:#d7d7d7;stroke-width:1"/>
+  <text x="236" y="320.5" text-anchor="middle" style="fill:#222">着工まで</text>
+  <text x="236" y="335.5" text-anchor="middle" style="fill:#222">7日を確保</text>
+  <rect class="bc" x="294" y="296" width="92" height="56" rx="6" style="fill:#fff;stroke:#d7d7d7;stroke-width:1"/>
+  <text x="340" y="313" text-anchor="middle" style="fill:#222">契約書面に</text>
+  <text x="340" y="328" text-anchor="middle" style="fill:#222">分別解体の方法</text>
+  <text x="340" y="343" text-anchor="middle" style="fill:#222">と費用</text>
+  <rect class="bw" x="190" y="359" width="92" height="56" rx="6" style=""/>
+  <text x="236" y="383.5" text-anchor="middle" style="fill:#222;font-weight:bold">施工者が届出</text>
+  <text x="236" y="398.5" text-anchor="middle" style="fill:#222">着工の7日前</text>
+  <rect class="bw" x="294" y="359" width="92" height="56" rx="6" style=""/>
+  <text x="340" y="383.5" text-anchor="middle" style="fill:#222;font-weight:bold">発注者が通知</text>
+  <text x="340" y="398.5" text-anchor="middle" style="fill:#222">民間は7日前届出</text>
+  <rect class="bc" x="86" y="422" width="92" height="56" rx="6" style="fill:#fff;stroke:#d7d7d7;stroke-width:1"/>
+  <text x="132" y="446.5" text-anchor="middle" style="fill:#222">措置の記録を</text>
+  <text x="132" y="461.5" text-anchor="middle" style="fill:#222">受け取る</text>
+  <rect class="bc" x="294" y="422" width="92" height="56" rx="6" style="fill:#fff;stroke:#d7d7d7;stroke-width:1"/>
+  <text x="340" y="446.5" text-anchor="middle" style="fill:#222">再資源化等の</text>
+  <text x="340" y="461.5" text-anchor="middle" style="fill:#222">報告を受ける</text>
+</svg>
