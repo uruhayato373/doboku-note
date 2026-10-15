@@ -2,20 +2,20 @@
   "description": "サイト図版SVGの派生カタログ（SSOT）。build-svg-catalog.mjs が生成。手動編集しない。",
   "source": "content/site/**/img/*.svg",
   "summary": {
-    "total": 1396,
-    "embedded": 1396,
+    "total": 1434,
+    "embedded": 1434,
     "orphan": 0,
     "missingConcept": 4,
     "withHighAudit": 0,
     "figures": {
-      "total": 1281,
-      "conforming": 1281,
+      "total": 1319,
+      "conforming": 1319,
       "needsRework": 0
     },
     "byCategory": {
       "civil-construction-1": 495,
       "civil-construction-2": 25,
-      "civil-practice": 207,
+      "civil-practice": 245,
       "concrete-chief-engineer": 133,
       "concrete-diagnostician": 138,
       "concrete-engineer": 63,
@@ -9584,6 +9584,60 @@
       }
     },
     {
+      "file": "content/site/civil-practice/budget-and-funding-sources/img/figure-funding-stack.svg",
+      "category": "civil-practice",
+      "slug": "budget-and-funding-sources",
+      "name": "figure-funding-stack.svg",
+      "concept": "一つの事業の事業費が財源に積み上がる模式図。国費が付く事業は、国費（負担・補助・交付金）と市の負担分に分かれ、市の負担分は県の補助・分担金など、地方債、一般財源で賄う。国費が付かない単独事業は、全体が市の負担分で、同じく県の補助・分担金など、地方債、一般財源で賄う。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/budget-and-funding-sources/img/figure-multi-year-mechanisms.svg",
+      "category": "civil-practice",
+      "slug": "budget-and-funding-sources",
+      "name": "figure-multi-year-mechanisms.svg",
+      "concept": "年度をまたぐ工事の四つの仕組みを、今年度と翌年度の帯に載せた比較図。継続費は総額と年割額を決めて両年度で支出する。繰越明許費は支出が終わらない見込みを予算で認めて翌年度に繰り越す。債務負担行為は今年度に契約で債務を負い翌年度に支出する。事故繰越しは年度内の支出負担行為のあと避けがたい事故で支払いが終わらず繰り越す予算には載せない仕組み。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/budget-and-funding-sources/img/figure-subsidy-grant-flow.svg",
+      "category": "civil-practice",
+      "slug": "budget-and-funding-sources",
+      "name": "figure-subsidy-grant-flow.svg",
+      "concept": "補助金は事業ごとに、交付金は計画ごとに動くことを比べた流れ図。補助金は申請、交付の決定、実績報告、額の確定の順。交付金は事業を計画に位置づけ、社会資本総合整備計画を提出し、毎年度交付を申請し、事業の進み具合で次年度の交付限度額を調整する。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-practice/buried-cultural-property-survey/img/figure-buried-property-flow.svg",
       "category": "civil-practice",
       "slug": "buried-cultural-property-survey",
@@ -9697,6 +9751,96 @@
       "slug": "checklist-shoring-buoyancy",
       "name": "figure-buoyancy-balance.svg",
       "concept": "埋設管の浮力（F_b=γw×V）と、これを押さえ込む管の自重・埋戻し土の重さ・摩擦抵抗の釣合いを示す図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/city-planning-act-framework/img/figure-building-check-order.svg",
+      "category": "civil-practice",
+      "slug": "city-planning-act-framework",
+      "name": "figure-building-check-order.svg",
+      "concept": "都市計画道路の区域内で建築の相談が来たときの判断の順。区域内か、事業認可の告示後かを見る。告示前は第53条の許可制で、第54条の許可基準3つのいずれかに合うかを見る。告示後は第65条の許可制で、事業の障害になるおそれがあるかを見て、施行者の意見を聴く。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/city-planning-act-framework/img/figure-decision-flow.svg",
+      "category": "civil-practice",
+      "slug": "city-planning-act-framework",
+      "name": "figure-decision-flow.svg",
+      "concept": "市町村が都市計画を決めるときの流れ。案の縦覧は公告の日から2週間、意見書は縦覧期間の満了日まで、都市計画審議会、都道府県知事への協議、決定、告示の順に進む。告示の前は決定後も効力がなく、告示の日から効力が生じる。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/city-planning-act-framework/img/figure-plan-types-deciders.svg",
+      "category": "civil-practice",
+      "slug": "city-planning-act-framework",
+      "name": "figure-plan-types-deciders.svg",
+      "concept": "都市計画の種類と、決める主体を並べた対比図。土地利用の区域区分は都道府県、用途地域などの地域地区は市町村が決める。都市施設は、一般国道・県道が都道府県、市町村道が市町村。市街地開発事業は面的に市街地を整える事業で、主体は計画ごとに確認する。指定都市の区域では区域区分などを指定都市が定め、広域の施設などは都道府県のままである。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/civil-engineer-annual-cycle/img/figure-annual-calendar.svg",
+      "category": "civil-practice",
+      "slug": "civil-engineer-annual-cycle",
+      "name": "figure-annual-calendar.svg",
+      "concept": "4月から翌年5月までの年間カレンダー。来年度の予算の要求・調整は10月から12月、査定・議決は1月から3月。発注は4月から始まり年間に分散する。出水期は梅雨から秋。河川の点検は出水期前、完成検査・実績報告・繰越しは2月から3月、出納閉鎖は5月末。前年度分の決算の審査・認定と会計検査・監査は夏から秋。仕事を、前年度・今年度・来年度の三つの年度に色分けしている。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/civil-engineer-annual-cycle/img/figure-budget-flow.svg",
+      "category": "civil-practice",
+      "slug": "civil-engineer-annual-cycle",
+      "name": "figure-budget-flow.svg",
+      "concept": "予算編成の流れの図。上段は国の補助の手続で、社会資本総合整備計画の提出、毎年度の交付申請、計画の公表と評価。下段は千葉市の日程を例にした市の予算の流れで、10月上旬の方針、10月末の各局の要求、11月から12月の財政担当の調整、1月中旬の市長査定、2月中旬の予算案の公表、2月から3月の議会の審議と議決、4月からの事業の実施の順。日程は一例。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -10052,6 +10196,78 @@
       }
     },
     {
+      "file": "content/site/civil-practice/development-permit-public-facilities/img/figure-handover-checklist.svg",
+      "category": "civil-practice",
+      "slug": "development-permit-public-facilities",
+      "name": "figure-handover-checklist.svg",
+      "concept": "引継ぎの日に確かめる書類の確認表。協定書、検査済証と公告の写し、竣工図と完了図書、登記承諾書と印鑑証明書、台帳への登録の五項目を、道路・公園・排水施設・調整池の列ごとに確かめる。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/development-permit-public-facilities/img/figure-process-three-lanes.svg",
+      "category": "civil-practice",
+      "slug": "development-permit-public-facilities",
+      "name": "figure-process-three-lanes.svg",
+      "concept": "開発許可の流れを、開発者・知事等・市町村の三列に分けた流れ図。事前協議と同意は法第32条、開発許可は法第29条、工事、完了の届出、完了検査と完了公告は法第36条。公告の翌日を境に、市町村の列で管理と土地の帰属が始まり、そのあと認定・供用開始・台帳の登録へ進む。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/disaster-recovery-assessment/img/figure-procedure-swimlane.svg",
+      "category": "civil-practice",
+      "slug": "disaster-recovery-assessment",
+      "name": "figure-procedure-swimlane.svg",
+      "concept": "公共土木施設の災害復旧の手続を、市町村・都道府県・国の三列に分けた流れ図。災害発生、応急工事と写真、災害報告（終息後10日以内）、測量・設計、県を経由した国庫負担の申請、災害査定（被災後2か月以内が目安）、事業費の決定、発注と施工（設計変更は事前協議）、精算、成功認定の順に進む。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/disaster-recovery-assessment/img/figure-three-restoration-types.svg",
+      "category": "civil-practice",
+      "slug": "disaster-recovery-assessment",
+      "name": "figure-three-restoration-types.svg",
+      "concept": "災害復旧の三つの考え方を比べた概念図。原形復旧は被災前と同じ形に直す。効用の復旧は、同じ効用を保つ別の形に直す。たとえば流出した木橋の場所にコンクリート橋を架ける。改良復旧は、復旧に合わせて川幅を広げ、河床を掘り、築堤して再度災害を防ぐ。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-practice/earth-retaining-displacement/img/figure-management-levels.svg",
       "category": "civil-practice",
       "slug": "earth-retaining-displacement",
@@ -10201,6 +10417,42 @@
       "slug": "excavation-bottom-failure",
       "name": "figure-failure-modes.svg",
       "concept": "掘削底面が壊れる3つの形（ヒービング・ボイリング・盤ぶくれ）を土質と地下水の条件で見分けるための対応表",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/explaining-to-residents-and-council/img/figure-explanation-flow.svg",
+      "category": "civil-practice",
+      "slug": "explaining-to-residents-and-council",
+      "name": "figure-explanation-flow.svg",
+      "concept": "事業の説明を組み立てる順の流れ図。何を決めたいか、必要性と課題、複数の案、比較、選んだ理由、これから、の順に並べる。比較の段では図と数値で客観的に示し、選んだ理由の段では重視した観点とその理由を書き、最後に聴いた意見を整理して対応を返す。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/explaining-to-residents-and-council/img/figure-materials-council-and-public.svg",
+      "category": "civil-practice",
+      "slug": "explaining-to-residents-and-council",
+      "name": "figure-materials-council-and-public.svg",
+      "concept": "市町村が議会に出す資料と、住民に公表する資料を二つの列に並べた対比図。議会には、契約の議案（第96条第1項第5号）、予算と説明書（第211条）、決算と成果説明書類（第233条）、専決処分の報告（第179条・第180条）を出す。住民には、発注の見通しと入札契約の結果（入札契約適正化法第7条・第8条）と決算の要領を公表する。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -10538,6 +10790,60 @@
       }
     },
     {
+      "file": "content/site/civil-practice/how-to-read-laws-and-notices/img/figure-article-structure.svg",
+      "category": "civil-practice",
+      "slug": "how-to-read-laws-and-notices",
+      "name": "figure-article-structure.svg",
+      "concept": "条文を条・項・号・ただし書に分けて読む構造図。地方自治法第14条は第1項から第3項の三つの項で、条例を定められる範囲、義務を課せるのは条例だけか、罰則を置けるかに答える。第16条第2項は、本文の原則である20日以内の公布と、ただし書の例外である再議その他の措置を分けて読む。号を持つ条文は、柱書と各号を続けて読む。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/how-to-read-laws-and-notices/img/figure-delegation-trace.svg",
+      "category": "civil-practice",
+      "slug": "how-to-read-laws-and-notices",
+      "name": "figure-delegation-trace.svg",
+      "concept": "法律の「政令で定める」から施行令へたどる流れ。道路法第32条第1項第7号の政令で定めるものから、道路法施行令第7条に降り、第4号の工事用板囲・足場・詰所その他の工事用施設、第5号の工事用材料へ着く。歩道に足場や詰所を置く相談は第4号に当たり、許可の対象になる。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/how-to-read-laws-and-notices/img/figure-legal-hierarchy.svg",
+      "category": "civil-practice",
+      "slug": "how-to-read-laws-and-notices",
+      "name": "figure-legal-hierarchy.svg",
+      "concept": "法令の効力の序列を、国と地方公共団体の二列で並べた図。国は憲法、法律、政令、省令の順で、定める者は国会、内閣、各省大臣。地方公共団体は条例、規則の順で、定める者は地方議会と長。条例は法令に違反しない限りで定める。告示・訓令・通達は別筋、要綱・要領は法形式の外に置く。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-practice/ict-construction-workflow/img/figure-cad-layer-stack.svg",
       "category": "civil-practice",
       "slug": "ict-construction-workflow",
@@ -10705,6 +11011,60 @@
       "slug": "land-acquisition-compensation",
       "name": "figure-land-acquisition-flow.svg",
       "concept": "用地取得の流れと収用への分かれ道を示した図。左の本線は事業計画の説明、幅杭の設置、土地・物件の調査と調書、補償額の算定、補償説明と用地交渉、契約、登記・移転・引渡し、支払いの順。用地交渉で合意できない場合は右の分岐に進み、事業の認定、土地調書・物件調書、収用委員会への裁決申請へ進む。裁決申請の代わりに協議の確認もある。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/land-readjustment-project/img/figure-burden-payment-procedure.svg",
+      "category": "civil-practice",
+      "slug": "land-readjustment-project",
+      "name": "figure-burden-payment-procedure.svg",
+      "concept": "公共施設管理者負担金の手続を、協議、事業計画に額と方法を定める、覚書、年度ごとの協定、支出の順に並べた流れ図。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/land-readjustment-project/img/figure-process-timeline.svg",
+      "category": "civil-practice",
+      "slug": "land-readjustment-project",
+      "name": "figure-process-timeline.svg",
+      "concept": "土地区画整理事業の時系列図。事業計画の公告、仮換地の指定、移転と工事、工事の完了と先行引継ぎ、換地処分の公告の順に進み、換地処分の公告の翌日に公共施設の管理と土地が市町村などへ移る。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/land-readjustment-project/img/figure-reduction-before-after.svg",
+      "category": "civil-practice",
+      "slug": "land-readjustment-project",
+      "name": "figure-reduction-before-after.svg",
+      "concept": "土地区画整理の前後を並べた模式図。従前の宅地のまま並ぶ区画から、地権者が土地を少しずつ出し合う減歩によって、道路や公園などの公共用地と、売却して事業費に充てる保留地が生まれ、残りが宅地になる。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -11173,6 +11533,114 @@
       "slug": "monitoring-sensor-selection",
       "name": "figure-strain-to-voltage.svg",
       "concept": "部材のひずみがひずみゲージの抵抗変化になり、ブリッジ回路で電圧差として取り出され、増幅と数値化を経て記録されるまでの流れ。温度の影響が混ざる点も示す",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/municipal-civil-engineer-work/img/figure-assignment-routes.svg",
+      "category": "civil-practice",
+      "slug": "municipal-civil-engineer-work",
+      "name": "figure-assignment-routes.svg",
+      "concept": "配属先ごとの読む順番の経路図。全員が最初に法令の読み方と国・県・市町村の役割分担を読み、そこから配属先ごとに三本ずつ読む。道路の窓口は道路法の骨格、道路占用許可の審査、承認工事と道路使用許可。河川の窓口は河川法の骨格、河川区域の許可、河川の工作物の技術審査。工事の発注は公共事業の流れと発注方式、工事検査の種類と役割、原価と設計変更。まちづくりは都市計画法の骨格、開発許可と公共施設の帰属、土地区画整理事業。災害対応は地域防災計画と水防、災害復旧と災害査定の二本。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/municipal-civil-engineer-work/img/figure-work-map.svg",
+      "category": "civil-practice",
+      "slug": "municipal-civil-engineer-work",
+      "name": "figure-work-map.svg",
+      "concept": "土木職の仕事の地図。左に管理（点検、修繕、許可、監督、境界・台帳、公物）、右に事業（計画、予算、用地、契約、検査、引渡し）を並べ、事業から供用開始を経て管理へ移り、点検の結果が更新の事業へ戻る循環を矢印で示す。各区分に案内先の章を添える。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/municipal-engineer-qualifications/img/figure-scene-qualification-map.svg",
+      "category": "civil-practice",
+      "slug": "municipal-engineer-qualifications",
+      "name": "figure-scene-qualification-map.svg",
+      "concept": "仕事の場面と資格と確かめ先の対応図。工事の監督・検査は1級土木施工管理技士で、全国建設研修センター、建設業法第27条、地方自治法第234条の2。設計の審査・技術判断は技術士で、日本技術士会、技術士法第2条と第32条。公共測量・用地は測量士・測量士補で、国土地理院、測量法第48条と第49条。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/national-prefecture-municipal-roles/img/figure-administrator-by-facility.svg",
+      "category": "civil-practice",
+      "slug": "national-prefecture-municipal-roles",
+      "name": "figure-administrator-by-facility.svg",
+      "concept": "道路と河川を、国・都道府県・市町村のどこが管理するかで並べた一覧図。高速自動車国道と指定区間の国道、一級河川の直轄区間は国。指定区間外の国道、都道府県道、二級河川は都道府県。市町村道と準用河川は市町村。一級河川の指定区間は大臣の権限の一部を知事が行う。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/national-prefecture-municipal-roles/img/figure-consultation-routes.svg",
+      "category": "civil-practice",
+      "slug": "national-prefecture-municipal-roles",
+      "name": "figure-consultation-routes.svg",
+      "concept": "市町村の窓口から国や県へ相談する四つの道筋を並べた図。技術的に迷うときは大臣や知事に助言を求める。国道や県道を管理したいときは県と協議して同意を得る。国や県の川の工事は河川管理者と協議する。国や県から求めがあれば、根拠の法律や政令を確かめる。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/national-prefecture-municipal-roles/img/figure-involvement-by-affair-type.svg",
+      "category": "civil-practice",
+      "slug": "national-prefecture-municipal-roles",
+      "name": "figure-involvement-by-affair-type.svg",
+      "concept": "自治事務と法定受託事務で、国や県が使える関与を比べた図。助言・勧告、資料の提出の要求、協議は両方に及び、是正の要求は自治事務と市町村の第二号法定受託事務に及ぶ。是正の指示、代執行、処理基準は法定受託事務だけに設けられる。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -11924,6 +12392,42 @@
       }
     },
     {
+      "file": "content/site/civil-practice/regional-disaster-plan-flood-fighting/img/figure-flood-fighting-timeline.svg",
+      "category": "civil-practice",
+      "slug": "regional-disaster-plan-flood-fighting",
+      "name": "figure-flood-fighting-timeline.svg",
+      "concept": "水防の時期ごとの役割分担の帯図。平時、出水期前、警戒、切迫・発災の順に、河川管理者、水防管理者、土木担当、市町村長の受け持ちを並べる。出水期前は水防管理者が危険箇所を河川管理者へ連絡して合同巡視。警戒では河川管理者が洪水予報と水防警報を出して水防管理者が出動を準備。切迫・発災では氾濫の危険を通報し、土木担当が判断材料を渡して市町村長が避難指示を出す。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/regional-disaster-plan-flood-fighting/img/figure-plan-hierarchy.svg",
+      "category": "civil-practice",
+      "slug": "regional-disaster-plan-flood-fighting",
+      "name": "figure-plan-hierarchy.svg",
+      "concept": "防災の計画と水防の計画の三階建ての図。国の防災基本計画に基づいて市町村地域防災計画を作り、都道府県地域防災計画に抵触しない。水防は都道府県の水防計画に、指定管理団体の水防計画をそろえる。市町村地域防災計画では事務の大綱、事項別の計画、整備の計画の欄を土木担当が確かめる。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-practice/risk-assessment-construction-workflow/img/figure-assist-suit-fit.svg",
       "category": "civil-practice",
       "slug": "risk-assessment-construction-workflow",
@@ -12518,6 +13022,42 @@
       }
     },
     {
+      "file": "content/site/civil-practice/sediment-disaster-erosion-control/img/figure-three-zones-roles.svg",
+      "category": "civil-practice",
+      "slug": "sediment-disaster-erosion-control",
+      "name": "figure-three-zones-roles.svg",
+      "concept": "三つの区域を、指定する人・許可する人・工事をする人・市町村の役割で並べた対比図。砂防指定地は国土交通大臣が指定し、知事が許可して工事をする止める側。急傾斜地崩壊危険区域は知事が指定し許可し、都道府県が工事をする止める側で、市町村長は意見を述べる。土砂災害警戒区域は知事が指定し、工事ではなく警戒避難体制を整える逃がす側で、市町村が地域防災計画と周知と避難指示を担う。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/sediment-disaster-erosion-control/img/figure-warning-zone-flow.svg",
+      "category": "civil-practice",
+      "slug": "sediment-disaster-erosion-control",
+      "name": "figure-warning-zone-flow.svg",
+      "concept": "警戒区域に関する流れ。都道府県の基礎調査、知事による警戒区域の指定と図書の送付、市町村の地域防災計画と住民への周知。大雨のときは、知事の警戒情報と警戒区域を重ね、市町村長が警戒区域を単位に避難指示を判断する。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-practice/seismic-design-levels/img/figure-retrofit-force-sharing.svg",
       "category": "civil-practice",
       "slug": "seismic-design-levels",
@@ -12559,6 +13099,60 @@
       "slug": "seismic-design-levels",
       "name": "figure-two-level-design.svg",
       "concept": "地震の強さと起きやすさの関係を示す曲線に、レベル1とレベル2の位置を置き、それぞれに許す被害と計算の流儀を並べた図。レベル1はよく起きる地震で機能を保ち弾性範囲で照査し、レベル2はめったに起きない巨大地震で傷は出ても倒壊させず塑性変形を見込んで照査する",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/sewerage-and-stormwater/img/figure-special-survey-flow.svg",
+      "category": "civil-practice",
+      "slug": "sewerage-and-stormwater",
+      "name": "figure-special-survey-flow.svg",
+      "concept": "全国特別重点調査の流れ図。管径2m以上で平成6年度以前に設置された管路を調査し、緊急度ⅠとⅡに判定する。緊急度Ⅰは原則1年以内、緊急度Ⅱは応急措置のうえ5年以内が対策の期限。緊急度Ⅰの箇所は道路管理者と情報を共有する。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/sewerage-and-stormwater/img/figure-stormwater-master-plan.svg",
+      "category": "civil-practice",
+      "slug": "sewerage-and-stormwater",
+      "name": "figure-stormwater-master-plan.svg",
+      "concept": "雨水管理総合計画の構成と周期の図。計画は雨水管理方針と段階的対策計画の二本立てで、方針に計画期間・下水道計画区域・計画降雨・段階的対策の方針を、段階的対策計画に計画降雨に対するハード対策と超える降雨へのハード・ソフト対策を置く。目標は当面が概ね5年、中期が概ね10年後、長期が概ね20年後。5年に1回を基本に点検し、実情と大きくずれたら見直す。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/sewerage-and-stormwater/img/figure-stormwater-responsibility.svg",
+      "category": "civil-practice",
+      "slug": "sewerage-and-stormwater",
+      "name": "figure-stormwater-responsibility.svg",
+      "concept": "汚水と雨水を、担当と根拠の法律で並べた関係図。汚水は下水道法に基づく公共下水道で、下水道管理者の市町村が担当する。雨水は、下水道管理者の雨水公共下水道、道路管理者が道路法で扱う道路の側溝、河川管理者が河川法で扱う放流先の河川、水防法で知事または市町村長が指定する雨水出水浸水想定区域に分かれる。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -12739,6 +13333,60 @@
       "slug": "slope-protection-selection",
       "name": "figure-slope-reading.svg",
       "concept": "斜面の断面で見る遷急点・流れ盤・地層境界の湧水・風化表層土と、平面で見る谷状に凹んで水が集まる集水地形を並べた見立ての図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/social-infrastructure-overview/img/figure-facility-managers.svg",
+      "category": "civil-practice",
+      "slug": "social-infrastructure-overview",
+      "name": "figure-facility-managers.svg",
+      "concept": "施設の種類と管理者の対応表。国道は指定区間内が国、それ以外が都道府県。一級河川は国土交通大臣で指定区間の事務は知事。二級河川は都道府県知事。市町村が管理するのは市町村道、準用河川、公共下水道。港湾は港務局または地方公共団体。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/social-infrastructure-overview/img/figure-maintenance-timeline.svg",
+      "category": "civil-practice",
+      "slug": "social-infrastructure-overview",
+      "name": "figure-maintenance-timeline.svg",
+      "concept": "整備から維持更新へ移った流れの年表。高度経済成長期以降の集中整備、平成25年のメンテナンス元年とインフラ長寿命化基本計画、平成26年5月の行動計画、令和3年6月の第2次行動計画、令和7年10月の群マネの手引きVer.1、令和8年1月の第6次社会資本整備重点計画の順。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/social-infrastructure-overview/img/figure-ordinary-construction-expenses.svg",
+      "category": "civil-practice",
+      "slug": "social-infrastructure-overview",
+      "name": "figure-ordinary-construction-expenses.svg",
+      "concept": "平成26年度から令和6年度までの普通建設事業費を補助事業費、単独事業費、国直轄事業負担金に分けた積み上げ棒グラフ。総額は14兆円台から15兆円台で動く。補助事業費の割合は平成26年度の52.4%から令和6年度の47.3%へ、単独事業費は42.9%から47.7%へ変わり、令和6年度は単独が補助を上回る。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -13063,6 +13711,42 @@
       "slug": "typhoon-forecast-work-planning",
       "name": "figure-wind-probability.svg",
       "concept": "暴風域に入る確率の時系列グラフで、立ち上がり・ピーク・終わりの時刻を読み、退避に必要な時間の合計と立ち上がりまでの残り時間を比べる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/urban-park-management/img/figure-park-permit-comparison.svg",
+      "category": "civil-practice",
+      "slug": "urban-park-management",
+      "name": "figure-park-permit-comparison.svg",
+      "concept": "都市公園に持ち込まれた物の入口を、対象物と期間の二軸で比べた図。設置許可は第5条で、公園施設の売店・飲食店などが対象、期間は10年を超えない。占用許可は第6条で、公園施設以外の物が対象、期間は物件ごとに10年・3年・1年・3月。公募設置管理制度は第5条の2以降で、公募対象公園施設が対象、認定の有効期間は20年を超えない。管理者自身が設ける公園施設には許可は要らない。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/urban-park-management/img/figure-playground-inspection-flow.svg",
+      "category": "civil-practice",
+      "slug": "urban-park-management",
+      "name": "figure-playground-inspection-flow.svg",
+      "concept": "遊具の点検の流れ。設置直後に製造・施工者が行う初期点検が入口。管理者が日常点検と年1回以上の定期点検を行い、異常があれば直ちに使用を中止する。必要なら専門技術者に精密点検を委託し、補修・改良・更新・撤去から選び、最後に遊具履歴書へ記録する。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
