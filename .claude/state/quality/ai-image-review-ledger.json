@@ -767,6 +767,15 @@
       "reason": "柱頭部の軸から伸びる振り子アームが斜め上に持ち上がり、軸から台座の試験片支持台までの距離とアーム長がほぼ等しく、下ろせばハンマーが試験片位置に届く。支持台・ダイヤル・V ノッチ角棒 3 本と破断片 2 本が本文と一致し、読める文字や崩れた部位も無い",
       "reviewedAt": "2026-10-07T23:50:42.581Z"
     },
+    "civil-practice/urban-park-management/img/photo-swing-support-base-inspection": {
+      "sha": "7ebcc72951f8335c",
+      "promptSha": "c4e50f7816689478",
+      "tool": "Codex",
+      "generatedAt": "2026-10-15T07:06:06.273Z",
+      "verdict": "ok",
+      "reason": "種別・構造: 傾斜した鋼管の支柱が丸い無筋コンクリート基礎に入り、地際に錆の流下と塗装の剥離が出ていて、prompt と本文（埋設基礎・吊り金具の点検）に合う。上部は横梁に吊り金具が二つ付き、各金具から鎖が下がる構造として成り立つ。奥の脚と滑り台も遠近として無理がない。破綻: 文字・ロゴ・人物・溶けた部品・二重の部位は無い。座板が外れて鎖だけ下がる点は不自然だが、教材の誤解にはならない。",
+      "reviewedAt": "2026-10-15T07:06:47.288Z"
+    },
     "concrete-chief-engineer/textbook-construction/img/photo-shotcrete-tunnel": {
       "sha": "c94a157bd95a2d63",
       "promptSha": "543fec40f6340c1c",
