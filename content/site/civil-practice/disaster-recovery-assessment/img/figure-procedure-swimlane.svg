@@ -1,0 +1,63 @@
+<!-- authored 2026-10-15 doboku-note 自作。手続の順は公共土木施設災害復旧事業費国庫負担法と施行令、国土交通省の公開資料による。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="公共土木施設の災害復旧の手続を、市町村・都道府県・国の三列に分けた流れ図。災害発生、応急工事と写真、災害報告（終息後10日以内）、測量・設計、県を経由した国庫負担の申請、災害査定（被災後2か月以内が目安）、事業費の決定、発注と施工（設計変更は事前協議）、精算、成功認定の順に進む。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 11px; fill: #555; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .g { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .l { stroke: #d7d7d7; stroke-width: 1; fill: none; }
+      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+    <marker id="at" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+  <rect class="b" x="14" y="8" width="116" height="24" rx="6"/>
+  <text class="n" x="72" y="25" text-anchor="middle">市町村</text>
+  <rect class="p" x="142" y="8" width="116" height="24" rx="6"/>
+  <text class="n" x="200" y="25" text-anchor="middle">都道府県</text>
+  <rect class="g" x="270" y="8" width="116" height="24" rx="6"/>
+  <text class="n" x="328" y="25" text-anchor="middle">国</text>
+  <path class="l" d="M134,38L134,476"/>
+  <path class="l" d="M262,38L262,476"/>
+  <rect class="g" x="14" y="40" width="70" height="20" rx="10"/>
+  <text class="t" x="49" y="54" text-anchor="middle">災害発生</text>
+  <path class="a" d="M72,60V70" marker-end="url(#ah)"/>
+  <rect class="b" x="14" y="70" width="116" height="30" rx="6"/>
+  <text class="n" x="72" y="90" text-anchor="middle">応急工事・写真</text>
+  <rect class="b" x="14" y="116" width="372" height="30" rx="6"/>
+  <text class="n" x="24" y="136">災害報告（市町村 → 県 → 国）</text>
+  <rect class="w" x="282" y="120" width="98" height="22" rx="11"/>
+  <text class="t" x="331" y="135" text-anchor="middle">終息後10日以内</text>
+  <rect class="b" x="14" y="162" width="116" height="30" rx="6"/>
+  <text class="n" x="72" y="182" text-anchor="middle">測量・設計</text>
+  <rect class="b" x="14" y="208" width="372" height="30" rx="6"/>
+  <text class="n" x="24" y="228">国庫負担の申請（県を経由）</text>
+  <rect class="g" x="270" y="254" width="116" height="30" rx="6"/>
+  <text class="n" x="328" y="274" text-anchor="middle">災害査定</text>
+  <rect class="w" x="142" y="258" width="116" height="22" rx="11"/>
+  <text class="t" x="200" y="273" text-anchor="middle">被災後2か月以内</text>
+  <rect class="g" x="270" y="300" width="116" height="30" rx="6"/>
+  <text class="n" x="328" y="320" text-anchor="middle">事業費の決定</text>
+  <rect class="b" x="14" y="346" width="116" height="30" rx="6"/>
+  <text class="n" x="72" y="366" text-anchor="middle">発注・施工</text>
+  <rect class="w" x="142" y="350" width="116" height="22" rx="11"/>
+  <text class="t" x="200" y="365" text-anchor="middle">設計変更は事前協議</text>
+  <rect class="b" x="14" y="392" width="116" height="30" rx="6"/>
+  <text class="n" x="72" y="412" text-anchor="middle">精算</text>
+  <rect class="p" x="142" y="438" width="116" height="30" rx="6"/>
+  <text class="n" x="200" y="458" text-anchor="middle">成功認定</text>
+  <path class="a" d="M72,100V116" marker-end="url(#ah)"/>
+  <path class="a" d="M72,146V162" marker-end="url(#ah)"/>
+  <path class="a" d="M72,192V208" marker-end="url(#ah)"/>
+  <path class="a" d="M332,238V254" marker-end="url(#ah)"/>
+  <path class="a" d="M332,284V300" marker-end="url(#ah)"/>
+  <path class="a" d="M332,330V338H72V346" marker-end="url(#ah)"/>
+  <path class="a" d="M72,376V392" marker-end="url(#ah)"/>
+  <path class="a" d="M72,422V430H200V438" marker-end="url(#ah)"/>
+</svg>
