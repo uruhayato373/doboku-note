@@ -228,14 +228,15 @@
             {
               "id": "A-07",
               "title": "路線の認定・区域の決定・供用開始",
-              "plan": "strengthen",
+              "plan": "existing",
               "paths": [
                 "content/site/civil-practice/service-commencement/article.mdx"
               ],
               "sources": [
                 "road-act"
               ],
-              "wave": 4
+              "wave": 4,
+              "note": "2026-10-15 に骨子の論点を書き足して補強した（DN-0742）"
             },
             {
               "id": "A-08",
@@ -427,7 +428,8 @@
                 },
                 {
                   "kind": "photo",
-                  "subject": "樋門と堤防の取付部（翼壁・護岸・胸壁の取り合い）。AI 生成する場合は実物の写真・図と照合して形を確かめる"
+                  "subject": "樋門と堤防の取付部（翼壁・護岸・胸壁の取り合い）。AI 生成する場合は実物の写真・図と照合して形を確かめる",
+                  "figKey": "civil-practice/river-crossing-structure-review/img/photo-sluice-gate-wing-wall"
                 }
               ]
             },
@@ -459,14 +461,15 @@
                 },
                 {
                   "kind": "photo",
-                  "subject": "樋門の機側操作盤とゲート操作台、近くの量水標に退避の目安水位の表示がある様子（AI写真にする場合は実物どおりの監査を通す。人の顔・文字は入れない）"
+                  "subject": "樋門の機側操作盤とゲート操作台、近くの量水標に退避の目安水位の表示がある様子（AI写真にする場合は実物どおりの監査を通す。人の顔・文字は入れない）",
+                  "figKey": "civil-practice/river-facility-inspection-operation/img/photo-sluice-operation-panel-gauge"
                 }
               ]
             },
             {
               "id": "A-17",
               "title": "河川整備計画と流域治水",
-              "plan": "strengthen",
+              "plan": "existing",
               "paths": [
                 "content/site/civil-practice/flood-control-facilities/article.mdx"
               ],
@@ -474,7 +477,8 @@
                 "river-act",
                 "specified-urban-river-act"
               ],
-              "wave": 4
+              "wave": 4,
+              "note": "2026-10-15 に骨子の論点を書き足して補強した（DN-0742）"
             },
             {
               "id": "A-18",
@@ -653,7 +657,8 @@
                 },
                 {
                   "kind": "photo",
-                  "subject": "試掘のトレンチ（重機で表土を除き、壁面の土層と遺構面を確かめる様子）。文字・人の顔なし、AI写真は実物どおりかを監査する"
+                  "subject": "試掘のトレンチ（重機で表土を除き、壁面の土層と遺構面を確かめる様子）。文字・人の顔なし、AI写真は実物どおりかを監査する",
+                  "figKey": "civil-practice/buried-cultural-property-survey/img/photo-test-trench"
                 }
               ]
             },
@@ -684,11 +689,13 @@
                 },
                 {
                   "kind": "photo",
-                  "subject": "低騒音型建設機械の指定ラベル（超低騒音型の標識）が貼られたバックホウの実機。文字・ロゴは入れず、機体側面の標識を写す（使う場合は実物どおりかを監査）"
+                  "subject": "低騒音型建設機械の指定ラベル（超低騒音型の標識）が貼られたバックホウの実機。文字・ロゴは入れず、機体側面の標識を写す（使う場合は実物どおりかを監査）",
+                  "figKey": "civil-practice/public-works-environmental-care/img/photo-low-noise-backhoe"
                 },
                 {
                   "kind": "photo",
-                  "subject": "現場内の仮置き場で、コンクリート塊・アスファルト・コンクリート塊・木くずが品目ごとに仕切って分別して置かれている様子（浅い被写界深度、文字・人の顔なし）"
+                  "subject": "現場内の仮置き場で、コンクリート塊・アスファルト・コンクリート塊・木くずが品目ごとに仕切って分別して置かれている様子（浅い被写界深度、文字・人の顔なし）",
+                  "figKey": "civil-practice/public-works-environmental-care/img/photo-sorted-debris-yard"
                 }
               ]
             },
@@ -735,7 +742,7 @@
             {
               "id": "A-28",
               "title": "監督と検査 — 品確法と施工管理",
-              "plan": "strengthen",
+              "plan": "existing",
               "paths": [
                 "content/site/civil-practice/construction-inspection-types/article.mdx"
               ],
@@ -743,20 +750,20 @@
                 "public-works-quality-act",
                 "local-autonomy-act"
               ],
-              "note": "監督員の役割と品確法の発注者の責務を補う",
+              "note": "監督員の役割と品確法の発注者の責務を補う。2026-10-15 に骨子の論点を書き足して補強した（DN-0742）",
               "wave": 4
             },
             {
               "id": "A-29",
               "title": "設計変更",
-              "plan": "strengthen",
+              "plan": "existing",
               "paths": [
                 "content/site/civil-practice/cost-and-design-change/article.mdx"
               ],
               "sources": [
                 "standard-contract-terms"
               ],
-              "note": "発注者の側を補う",
+              "note": "発注者の側を補う。2026-10-15 に骨子の論点を書き足して補強した（DN-0742）",
               "wave": 4
             },
             {
@@ -853,7 +860,8 @@
                 },
                 {
                   "kind": "photo",
-                  "subject": "開発区域内に設けられた調整池の例。フェンスで囲われ、底に低水路があり、法面は張り芝か擁壁で保護され、放流口と越流部が見える形（文字・人物なし。実物どおりかの監査が要る）"
+                  "subject": "開発区域内に設けられた調整池の例。フェンスで囲われ、底に低水路があり、法面は張り芝か擁壁で保護され、放流口と越流部が見える形（文字・人物なし。実物どおりかの監査が要る）",
+                  "figKey": "civil-practice/development-permit-public-facilities/img/photo-detention-pond"
                 },
                 {
                   "kind": "figure",
@@ -881,7 +889,8 @@
                 },
                 {
                   "kind": "photo",
-                  "subject": "区画整理地内で道路・水路の工事が先行している現場の例（AI 生成か自前の実写。実物どおりかの監査が要る）"
+                  "subject": "区画整理地内で道路・水路の工事が先行している現場の例（AI 生成か自前の実写。実物どおりかの監査が要る）",
+                  "figKey": "civil-practice/land-readjustment-project/img/photo-road-drain-construction-site"
                 },
                 {
                   "kind": "figure",
@@ -919,7 +928,8 @@
                 },
                 {
                   "kind": "photo",
-                  "subject": "点検で見る遊具の部位。支柱の根元（埋設した基礎の腐食）、ぶらんこの吊り金具と鎖の継手の摩耗、複合遊具のデッキ床板の欠落。使う場合は実物どおりかの監査が要る。"
+                  "subject": "点検で見る遊具の部位。支柱の根元（埋設した基礎の腐食）、ぶらんこの吊り金具と鎖の継手の摩耗、複合遊具のデッキ床板の欠落。使う場合は実物どおりかの監査が要る。",
+                  "figKey": "civil-practice/urban-park-management/img/photo-swing-support-base-inspection"
                 }
               ]
             },

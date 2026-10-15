@@ -1761,10 +1761,20 @@
       "tool": "Codex",
       "prompt": "A civil engineer seen from behind and slightly from the side, holding a tablet up at arm's length on an open outdoor construction site with bare graded ground. The tablet screen shows the live camera view of the same site with a translucent 3D model of a concrete retaining wall structure overlaid on the ground, aligned to the terrain. The tablet screen is the sharp focal point; the background site (excavator far away, soil, fence) is softly blurred with shallow depth of field. No faces visible, no text, no logos, no readable letters on screen. Hard hat and high-visibility vest on the person."
     },
+    "civil-practice/buried-cultural-property-survey/img/photo-test-trench": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Archaeological test trench on a rural road planning site in Japan: a narrow rectangular trench about 1.5 m deep and 2 m wide, topsoil stripped by an excavator whose bucket and arm are visible at the edge of the frame, the trench wall shows distinct horizontal soil layers (dark topsoil, brown subsoil, yellowish natural ground), and a flat cleaned excavation floor shows a faint dark circular soil stain as a feature surface. Spoil pile beside the trench, a plain measuring staff leaning in the trench with no readable numbers. No people, no text, no signs. Shallow depth of field, overcast daylight."
+    },
     "civil-practice/construction-inspection-types/img/photo-remote-rebar-check": {
       "kind": "ai-generated",
       "tool": "Codex",
       "prompt": "Close-up photograph of a construction worker seen from the side and slightly behind, wearing a white hard hat with a small wearable camera mounted on the side of the helmet, filming a completed rebar cage assembled in a neat grid pattern tied with binding wire at the crossings. The worker holds a measuring scale (steel tape or ruler) against a rebar to show the spacing, and a small blank survey board without any readable writing stands propped near the bars. Outdoor civil engineering site in daylight, shallow depth of field with the rebar grid in focus and the background blurred. No faces visible, no text, no logos."
+    },
+    "civil-practice/development-permit-public-facilities/img/photo-detention-pond": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "A residential-development stormwater detention pond (dry detention basin) in Japan, seen from the top of a gentle embankment at a slight elevated angle. The pond is enclosed by a green chain-link fence with a locked maintenance gate. The bottom is a flat grassy floor with a narrow concrete-lined low-flow channel running along its center toward a concrete outlet structure on the far side, with a small circular outflow pipe opening at its base and a rectangular concrete overflow weir notch on top. The side slopes are covered with mown turf grass, one side has a short concrete retaining wall. Suburban houses blurred in the far background, clear daytime sky, no water standing or only a thin trickle in the channel. Shallow depth of field, no people, no text, no signs."
     },
     "civil-practice/earthquake-tsunami-site-response/img/photo-girder-end-fall-prevention": {
       "kind": "ai-generated",
@@ -1805,6 +1815,11 @@
       "kind": "ai-generated",
       "tool": "Codex",
       "prompt": "A small aluminum survey boat on a calm river near a harbor quay, side three-quarter view. A GNSS antenna dome on a short mast on the cabin roof, and a vertical side-mount pole bolted to the gunwale carrying a compact multibeam echosounder transducer head partly submerged just below the water surface, with a small motion sensor box on the pole. Neat cables run along the rail. Realistic photograph, shallow depth of field, soft overcast daylight, no text, no logos, no people visible."
+    },
+    "civil-practice/land-readjustment-project/img/photo-road-drain-construction-site": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "A new residential road under construction inside a land readjustment district in Japan: graded gravel subbase of a new road with a precast U-shaped concrete drainage channel being set along one side, a small excavator beside it, orange safety cones and plain stakes marking the boundary lines. On the far side of the new road there are rows of vacant graded lots, and at the edge of the site a couple of old low wooden Japanese houses still standing close to the work area, untouched. Overcast daylight, shallow depth of field with the foreground channel sharp and the background softly blurred, no people, no signs, no text."
     },
     "civil-practice/large-fill-landslide/img/photo-horizontal-drain-outlets": {
       "kind": "ai-generated",
@@ -1876,6 +1891,16 @@
       "tool": "Codex",
       "prompt": "A small quadcopter drone hovering close beneath the underside of a concrete road bridge girder, photographed from below looking up at the grey concrete girders and bridge deck underside, the drone positioned a short distance from the girder bottom surface as if inspecting it, its four rotors and a downward-up facing camera visible; in the lower background a distant operator in a helmet and high-visibility vest stands on the ground beside a river bank, seen small and from behind, no face visible; shallow depth of field, overcast daylight, no text, no logos"
     },
+    "civil-practice/public-works-environmental-care/img/photo-low-noise-backhoe": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Side view of a medium-size yellow hydraulic excavator (backhoe) parked on a flat gravel construction site in daylight, boom lowered, a small plain rectangular blank sticker plate attached on the side of the cab body (no text, no logos, no symbols), shallow depth of field with blurred background of site fencing and soil mounds, no people"
+    },
+    "civil-practice/public-works-environmental-care/img/photo-sorted-debris-yard": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Temporary storage yard inside a civil engineering construction site, separate piles of crushed concrete blocks, broken asphalt pavement pieces, and wood waste placed in distinct sections divided by low concrete barriers or steel partitions, each pile clearly separated, shallow depth of field, daylight, no signs, no text, no people"
+    },
     "civil-practice/quality-record-site-bcp/img/photo-blackboard-revetment-shot": {
       "kind": "ai-generated",
       "tool": "Codex",
@@ -1920,6 +1945,11 @@
       "kind": "ai-generated",
       "tool": "Codex",
       "prompt": "A pendulum-type Charpy impact testing machine in a steel materials testing laboratory, side view. A tall rigid steel frame with a pivot near the top; a long pendulum arm hangs from the pivot down to the base, so that the heavy hammer at the end of the arm would strike a specimen resting on the anvil supports at the very bottom of the machine. In this photo the pendulum is raised and latched at its starting angle to one side (about 140 degrees from the hanging position), the arm length clearly reaching from the pivot to the anvil level. A notched square steel test specimen lies on the two anvil supports at the bottom centre inside a transparent safety guard. An analogue dial gauge near the pivot without readable numbers. On a small bench in the foreground lie three square-section steel specimens (10 x 10 x 55 mm) with a V notch at mid-length and two broken halves, one with a bright crystalline flat fracture surface and one with a dull fibrous torn surface. Even indoor lighting, no people, no text, no logos."
+    },
+    "civil-practice/urban-park-management/img/photo-swing-support-base-inspection": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "Realistic documentary photo of a public park swing set, low angle close-up of one steel A-frame leg where the galvanized steel pipe enters the ground at a concrete footing, surface rust and paint flaking visible at the ground line, with the top crossbeam above holding a swing hanger bracket and a chain attached, shallow depth of field, soft overcast daylight, grass and sand ground, no children, no people, no text"
     },
     "concrete-chief-engineer/primary-construction/img/form-pressure-h29": {
       "ref": "jcia-past-exams",
