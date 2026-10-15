@@ -1786,6 +1786,15 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-0741] 自治体の土木担当シリーズの写真 5 枚（A-15・A-16・A-24・A-25）を AI で作り、実物どおりかを監査して入れる
+タグ: [領域:サイト] [時期:2026-11] [種類:制作] [検証:check-content-series] [起票:2026-10-15]
+
+**起点**: 2026-10-15、自治体の土木担当シリーズの第 2・第 3 波（DN-0739）を公開した。図 27 枚は入れたが、台帳の図・写真の計画のうち写真 5 件は作っていない（自作 SVG の担当の範囲外）。
+**対象**: A-15 river-crossing-structure-review（樋門と堤防の取付部）・A-16 river-facility-inspection-operation（機側操作盤）・A-24 buried-cultural-property-survey（試掘トレンチ）・A-25 public-works-environmental-care（低騒音型バックホウ／分別の仮置き場）。一覧は `npm run check-content-series -- --visual-jobs`。
+**やること**: workflow `book-coverage-photos` で AI 写真を作り、`ai-image-fidelity-auditor` で実物どおりかを監査し、`check-image-origin record-ai` で記録して記事に入れる（book-coverage-expansion.md §3）。実物と食い違う写真は入れずに台帳の計画を skip にする。
+**完了条件**: 5 件が記事に配置済みか、理由つきで skip。`check-content-series` の municipal-civil-engineer の未完了 0。
+
+
 ### [DN-0733] コンクリートの実務シリーズの補強待ち 5 章（セメント・鋼材・強度・生コン工場・打込み）を本の項目で書き足す
 タグ: [領域:サイト] [時期:2026-11] [種類:制作] [検証:check-content-series] [起票:2026-10-13]
 
