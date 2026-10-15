@@ -434,6 +434,15 @@
       "reason": "屋外の整地された現場で、ヘルメットと反射ベストの作業者が後ろ向きにタブレットを構えている。画面を拡大して確認すると、現地映像の地面に半透明の白い擁壁モデル(控え壁つきの壁体と底版)が地形に沿って重なり、本文のAR確認(新設構造物の取り合いを現地で見る)と合う。顔・文字・ロゴ・読める画面表示は無い。手指やタブレット枠も崩れていない。背景の油圧ショベル(クローラ・ブーム・アーム・バケット)、仮囲い、杭と縄も実物として成立している。軽微な点として、画面内の背景(遠景の水面や橋)は実際の背景と細部が違い、画面が撮影側を向く構図は厳密には不自然だが、教材として誤解を招くほどではない。",
       "reviewedAt": "2026-10-09T10:48:50.152Z"
     },
+    "civil-practice/buried-cultural-property-survey/img/photo-test-trench": {
+      "sha": "768d764d6d2716a9",
+      "promptSha": "9bf0f01a85ca8fd2",
+      "tool": "Codex",
+      "generatedAt": "2026-10-15T06:55:02.800Z",
+      "verdict": "ok",
+      "reason": "種別・構造: 重機で表土を除いた矩形の試掘坑で、壁面に暗色の表土、褐色の下層、黄色の地山が水平に重なる。右上のバケットは爪・アーム・油圧ホースが揃い、浮いた部位は無い。底は平らに清掃され、淡い暗色の円形の土色変化（遺構面の検出）が見える。脇に排土の山、赤白の標尺（読める数字なし）が壁に立て掛けてある。本文の「範囲・遺構面の数と深さ」と alt の説明に矛盾しない。破綻: 文字・看板・人物・崩れた部品は無い。トレンチは細長でなく方形に近いが、教材として誤解を招く差ではない。",
+      "reviewedAt": "2026-10-15T06:58:18.360Z"
+    },
     "civil-practice/construction-inspection-types/img/photo-remote-rebar-check": {
       "sha": "4d6cc39631e31cbe",
       "promptSha": "3db4324530a6e0b1",
@@ -640,6 +649,18 @@
       "verdict": "ok",
       "reason": "種別・構造: 桁下面を見上げる構図で、コンクリート桁、橋脚、遠景の別の橋が実在の橋として成り立つ。ドローンは中央本体から左右へ腕が伸び、各腕の先にモーター（回転で羽根はぼやける）、本体下に脚、前方にカメラ雲台があり、桁下面の近くにホバリングしている。本文: 桁下に回り込む点検、河川敷にいる操縦者が小さく後ろ向きで、白ヘルメットと黄色い反射ベストを着けており、記事の場面と一致する。破綻: 文字・ロゴ・二重の部位・溶けた部品は無く、羽根の描写が薄いのは回転ブレとして許容できる。",
       "reviewedAt": "2026-10-09T09:53:43.391Z"
+    },
+    "civil-practice/public-works-environmental-care/img/photo-low-noise-backhoe": {
+      "sha": "98d57857ef53c809",
+      "promptSha": "e8fcc42ad8fe9c3f",
+      "tool": "Codex",
+      "generatedAt": "2026-10-15T06:56:43.580Z"
+    },
+    "civil-practice/public-works-environmental-care/img/photo-sorted-debris-yard": {
+      "sha": "9ee2b12fdeba3f94",
+      "promptSha": "f0cccd5c6fb8e35e",
+      "tool": "Codex",
+      "generatedAt": "2026-10-15T06:57:53.081Z"
     },
     "civil-practice/quality-record-site-bcp/img/photo-blackboard-revetment-shot": {
       "sha": "c12f987f41150ad3",
