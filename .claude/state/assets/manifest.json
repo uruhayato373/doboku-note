@@ -56742,6 +56742,90 @@
         "scripts/check-orphan-ogp.mjs"
       ],
       "srcHash": "368b3ed343ca9f59"
+    },
+    "content/site/civil-practice/public-works-planning-evaluation/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/public-works-planning-evaluation/ogp.png",
+      "sha256": "c619af8500e8663a0cff5df6e3fb4bcad2c53a3a0dde72886cae78122d8e411f",
+      "bytes": 64826,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-15T04:14:01.769Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/public-works-planning-evaluation/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "e7db38d125283693"
+    },
+    "content/site/civil-practice/buried-cultural-property-survey/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/buried-cultural-property-survey/ogp.png",
+      "sha256": "8bc29009f6d0eb62a7d370b63a99f03ca03195f614075dbf3aba05fcaa94ae2d",
+      "bytes": 69618,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-15T04:14:01.772Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/buried-cultural-property-survey/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "15eff0b67df060c4"
+    },
+    "content/site/civil-practice/land-acquisition-compensation/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/land-acquisition-compensation/ogp.png",
+      "sha256": "caf23241ad53601aebeb39de38ce97e42211b4d4b1f11093bccd6a158c2feacf",
+      "bytes": 67346,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-15T04:14:01.911Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/land-acquisition-compensation/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "afc115929f991e1a"
+    },
+    "content/site/civil-practice/project-request-to-budget/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/project-request-to-budget/ogp.png",
+      "sha256": "e4f5bf892e0a77e3c66072a9751995f27316a686005ef6dbc3d3e3a26534c30c",
+      "bytes": 64688,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-15T04:14:02.236Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/project-request-to-budget/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "08633c0dfe15db8d"
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",
