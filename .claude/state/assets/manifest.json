@@ -57036,6 +57036,48 @@
         "scripts/check-orphan-ogp.mjs"
       ],
       "srcHash": "7311ffffd0f5d5fa"
+    },
+    "content/site/civil-practice/disaster-recovery-assessment/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/disaster-recovery-assessment/ogp.png",
+      "sha256": "12b8939f6efededa54f49c966cfd8610ac7f1005ed917cbf4e26be9e05e917f9",
+      "bytes": 68715,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-15T05:59:02.043Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/disaster-recovery-assessment/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "77e891da3265a6a1"
+    },
+    "content/site/civil-practice/sewerage-and-stormwater/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/sewerage-and-stormwater/ogp.png",
+      "sha256": "b6ca9c64ce2c43878c33d01e4f69d7ec272e1116d79824a9c6ec9fa797f7ecdf",
+      "bytes": 67012,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-15T06:01:36.500Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/sewerage-and-stormwater/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "da186723df280deb"
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",
