@@ -4024,6 +4024,19 @@
       "commit": "f5a271407a89",
       "verification": "DN-0349・DN-0350 のカードに決定が入っている",
       "note": "出題テーマ・売り手と価格・書ける範囲と照合の体制・商品の順番と価格を content/note/技術士上下水道部門/出題テーマ_R01-R08.md にまとめ、運営者が推奨案を採用（2026-10-15）。DN-0349（必須I ¥3,480・2027-03 まで）・DN-0350（合格した選択科目から ¥2,980・パック ¥4,980・合格外の II-1 は factcheck 必須）に決定を書いて範囲を確定。どちらの選択科目で合格したかは DN-0350 の確認事項"
+    },
+    {
+      "id": "DN-0524",
+      "at": "2026-10-15",
+      "task": ".claude/config/ の JSON 20 本に zod の型を付ける（/ops/auth の認証設定を含む）",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "41351387f111",
+      "verification": "npm run check-agent-config: 21 件を実検査・違反 0、tests/check-agent-config.test.mjs pass（必須欄を消すと全型が落ちる）",
+      "note": "案B（2026-10-15 運営者が推奨案を採用）。.claude/config/ の JSON 21 本に型を付け（scripts/lib/dataset-schemas-agent-config.mjs）、npm run check-agent-config（quality-audit ci:true）が型の違反と型の無い JSON を止める。直書きの整理（案A）は効果が別なので必要になったら別カード"
     }
   ]
 }
