@@ -6194,6 +6194,420 @@
       "egov": {
         "lawId": "418CO0000000230"
       }
+    },
+    {
+      "id": "cao-evacuation-information-guideline-2026",
+      "title": "避難情報に関するガイドライン（令和8年3月・内閣府（防災担当））",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.bousai.go.jp/oukyu/hinanjouhou/r3_hinanjouhou_guideline/pdf/hinan_guideline_r8_1.pdf"
+      }
+    },
+    {
+      "id": "cao-disaster-basic-plan",
+      "title": "防災基本計画（内閣府 防災情報のページ）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.bousai.go.jp/taisaku/keikaku/kihon.html"
+      }
+    },
+    {
+      "id": "bunka-official-writing-guideline-2022",
+      "title": "公用文作成の考え方（建議）（令和4年1月7日・文化審議会）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.bunka.go.jp/seisaku/bunkashingikai/kokugo/hokoku/pdf/93731901_01.pdf"
+      }
+    },
+    {
+      "id": "chiba-city-budget-compilation-flow",
+      "title": "予算編成の流れ（千葉市 財政局）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.city.chiba.jp/zaiseikyoku/zaisei/zaisei/documents/01_r8yosann_henseinonagare.pdf"
+      }
+    },
+    {
+      "id": "joetsu-city-road-designation-application",
+      "title": "市道認定の申請手続きについて（上越市 都市整備部 道路課）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.city.joetsu.niigata.jp/uploaded/attachment/281320.pdf"
+      }
+    },
+    {
+      "id": "jpe-pe-second-exam-page",
+      "title": "第二次試験（公益社団法人 日本技術士会）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.engineer.or.jp/c_categories/index02010.html"
+      }
+    },
+    {
+      "id": "gsi-surveyor-exam-registration",
+      "title": "測量士・測量士補試験及び登録（国土地理院）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.gsi.go.jp/LAW/SHIKEN/SHIKEN-top.htm"
+      }
+    },
+    {
+      "id": "jma-doshakikikuru",
+      "title": "土砂キキクル（気象庁）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.jma.go.jp/jma/kishou/know/bosai/doshakeikai.html"
+      }
+    },
+    {
+      "id": "ktr-design-change-guideline-2025",
+      "title": "工事請負契約における設計変更ガイドライン（総合版）（令和7年3月・関東地方整備局）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.ktr.mlit.go.jp/ktr_content/content/000697185.pdf"
+      }
+    },
+    {
+      "id": "ktr-tone-upper-important-flood-fighting-spots",
+      "title": "重要水防箇所って何？（利根川上流河川事務所・国土交通省 関東地方整備局）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.ktr.mlit.go.jp/tonejo/tonejo00119.html"
+      }
+    },
+    {
+      "id": "mlit-stormwater-management-plan-guideline-2021",
+      "title": "雨水管理総合計画策定ガイドライン（案）（令和3年11月・国土交通省 水管理・国土保全局下水道部）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/mizukokudo/sewerage/content/001728942.pdf"
+      }
+    },
+    {
+      "id": "mlit-sewer-nationwide-survey-notice-2026-04",
+      "title": "下水道管路の全国特別重点調査の結果公表及び今後の対応について（要請）（事務連絡・令和8年4月21日・国土交通省 水管理・国土保全局 下水道事業課）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/mizukokudo/sewerage/content/002015103.pdf"
+      }
+    },
+    {
+      "id": "mlit-route-designation-notice-1954",
+      "title": "路線認定、区域決定及び供用開始等の取扱について（昭和29年11月17日建設省道発第416号・道路局長通達）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/notice/noticedata/sgml/066/79000001/79000001.html"
+      }
+    },
+    {
+      "id": "mlit-social-infra-grant-and-disaster-safety-grant",
+      "title": "社会資本整備総合交付金と防災・安全交付金（国土交通省）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/page/content/002000088.pdf"
+      }
+    },
+    {
+      "id": "mlit-press-2026-03-27-sewerage-act-amendment-bill",
+      "title": "「下水道法等の一部を改正する法律案」を閣議決定（令和8年3月27日・国土交通省 水管理・国土保全局上下水道企画課、道路局路政課 報道発表）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/report/press/content/001992097.pdf"
+      }
+    },
+    {
+      "id": "mlit-press-2021-11-12-yamato-river-designation",
+      "title": "大和川水系大和川等の特定都市河川指定に向けて流域の自治体等への意見聴取を実施します（令和3年11月12日・国土交通省 報道発表）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/report/press/mizukokudo05_hh_000133.html"
+      }
+    },
+    {
+      "id": "mlit-flood-hazard-map-guide",
+      "title": "水害ハザードマップ作成の手引き（平成28年4月・令和3年12月一部改定・国土交通省 水管理・国土保全局）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/river/basic_info/jigyo_keikaku/saigai/tisiki/hazardmap/suigai_hazardmap_tebiki_1.pdf"
+      }
+    },
+    {
+      "id": "mlit-disaster-recovery-flow",
+      "title": "災害復旧事業の主な流れ（国土交通省）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/river/bousai/hukkyu/pdf/00-index-nagare.pdf"
+      }
+    },
+    {
+      "id": "mlit-disaster-recovery-subsidy-overview",
+      "title": "災害復旧事業（補助）の概要（国土交通省）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/river/bousai/hukkyu/pdf/00-index-saigaihukkyu-gaiyo.pdf"
+      }
+    },
+    {
+      "id": "mlit-basin-flood-control-projects",
+      "title": "流域治水プロジェクト（国土交通省 水管理・国土保全局）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/river/kasen/ryuiki_pro/index.html"
+      }
+    },
+    {
+      "id": "mlit-climate-change-flood-control-proposal-summary",
+      "title": "気候変動を踏まえた治水計画のあり方 提言 改訂版【概要】（国土交通省）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/river/shinngikai_blog/chisui_kentoukai/pdf/r0304/00_gaiyou.pdf"
+      }
+    },
+    {
+      "id": "mlit-river-management-classification-2019",
+      "title": "河川の管理について（資料2・令和元年7月30日・国土交通省 水管理・国土保全局河川環境課）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/river/shinngikai_blog/kentoukai/drone/dai01kai/pdf/2_kanri.pdf"
+      }
+    },
+    {
+      "id": "mlit-climate-change-water-disaster-report-2020",
+      "title": "気候変動を踏まえた水災害対策のあり方について 答申（令和2年7月・社会資本整備審議会）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/river/shinngikai_blog/shaseishin/kasenbunkakai/shouiinkai/kikouhendou_suigai/pdf/03_honbun.pdf"
+      }
+    },
+    {
+      "id": "mlit-flood-season-river-work-notice-2026-01",
+      "title": "直轄河川における出水期間中の工事施工の取扱いについて（事務連絡・令和8年1月8日・国土交通省 水管理・国土保全局治水課 流域治水企画官）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/river/shishin_guideline/kasen/pdf/2607_shussuikisekou.pdf"
+      }
+    },
+    {
+      "id": "mlit-regional-infra-group-management-study-groups",
+      "title": "地域インフラ群再生戦略マネジメント計画策定手法検討会・地域インフラ群再生戦略マネジメント実施手法検討会（国土交通省 インフラメンテナンス情報）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/sogoseisaku/maintenance/03activity/03_02_06.html"
+      }
+    },
+    {
+      "id": "mlit-regional-infra-group-management-model-areas",
+      "title": "群マネモデル地域（国土交通省 インフラメンテナンス情報）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/sogoseisaku/maintenance/03activity/03_02_07.html"
+      }
+    },
+    {
+      "id": "mlit-infra-over-50-years-percentage",
+      "title": "建設後50年以上経過する社会資本の割合（国土交通省）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/sogoseisaku/maintenance/_pdf/50year_percentage.pdf"
+      }
+    },
+    {
+      "id": "mlit-white-paper-2026-data",
+      "title": "令和8年版 国土交通白書 第II部 関連データ集（国土交通省）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/statistics/content/002013722.pdf"
+      }
+    },
+    {
+      "id": "mlit-supervision-inspection-evaluation-handbook-2023",
+      "title": "公共事業の品質確保のための監督・検査・成績評定の手引き －実務者のための参考書－（令和5年12月・国土交通省 大臣官房技術調査課）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/tec/content/001751888.pdf"
+      }
+    },
+    {
+      "id": "mlit-concept-stage-planning-process-guideline-overview",
+      "title": "公共事業の構想段階における計画策定プロセスガイドラインの概要（国土交通省）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/tec/kanri/pdf/processGL.pdf"
+      }
+    },
+    {
+      "id": "mlit-land-readjustment-operation-guideline-2024",
+      "title": "土地区画整理事業運用指針（令和6年4月・国土交通省都市局）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/toshi/city/sigaiti/content/001740690.pdf"
+      }
+    },
+    {
+      "id": "mlit-land-readjustment-page",
+      "title": "市街地整備：土地区画整理事業（国土交通省）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/toshi/city/sigaiti/toshi_urbanmainte_tk_000020.html"
+      }
+    },
+    {
+      "id": "mlit-development-permit-operation-guideline",
+      "title": "開発許可制度運用指針（平成26年8月1日国都計第67号・最終改正 令和7年3月19日国都計第193号・国土交通省）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/toshi/city_plan/content/001877574.pdf"
+      }
+    },
+    {
+      "id": "mlit-development-park-technical-advice-2025",
+      "title": "開発行為に伴い設置する公園等について（技術的助言）（令和7年3月19日国都計第192号・国都公景第259号・国土交通省都市局）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/toshi/city_plan/content/001877589.pdf"
+      }
+    },
+    {
+      "id": "mlit-city-planning-operation-guideline-13th",
+      "title": "都市計画運用指針 第13版（令和7年3月・国土交通省）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/toshi/city_plan/content/001880861.pdf"
+      }
+    },
+    {
+      "id": "mlit-large-disaster-assessment-policy-explanation",
+      "title": "「大規模災害時における公共土木施設災害復旧事業査定方針」解説（令和4年6月改定・国土交通省）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/toshi/content/001402749.pdf"
+      }
+    },
+    {
+      "id": "mlit-park-playground-equipment-safety-guideline",
+      "title": "都市公園における遊具の安全確保に関する指針（改訂第3版）（令和6年6月・国土交通省）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/toshi/park/content/001751662.pdf"
+      }
+    },
+    {
+      "id": "mlit-urban-park-act-operation-guideline-7th",
+      "title": "都市公園法運用指針（第7版）（令和6年12月・国土交通省都市局）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/toshi/park/content/001753336.pdf"
+      }
+    },
+    {
+      "id": "mlit-park-pfi-page",
+      "title": "公園とみどり：Park-PFI等の活用（国土交通省）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/toshi/park/toshi_parkgreen_fr_000059.html"
+      }
+    },
+    {
+      "id": "mlit-park-facility-safety-inspection-guideline-page",
+      "title": "公園とみどり：公園施設の安全点検に係る指針（国土交通省）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/toshi/park/toshi_parkgreen_tk_000084.html"
+      }
+    },
+    {
+      "id": "mlit-construction-leveling-page",
+      "title": "建設産業・不動産業：施工時期の平準化について（国土交通省）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/totikensangyo/const/totikensangyo_const_tk1_000105.html"
+      }
+    },
+    {
+      "id": "moj-law-translation-guide-2024",
+      "title": "法令翻訳の手引き（令和6年3月改訂版・法務省大臣官房司法法制部）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.moj.go.jp/content/001414689.pdf"
+      }
+    },
+    {
+      "id": "soumu-own-vs-delegated-affairs",
+      "title": "自治事務と法定受託事務（総務省）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.soumu.go.jp/main_content/000451012.pdf"
+      }
+    },
+    {
+      "id": "soumu-sewerage-management-considerations-2024",
+      "title": "下水道事業の経営等のあり方に係る検討事項（資料3・令和6年10月・総務省自治財政局準公営企業室）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.soumu.go.jp/main_content/000973368.pdf"
+      }
+    },
+    {
+      "id": "soumu-local-allocation-tax-overview",
+      "title": "地方交付税制度の概要（総務省）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.soumu.go.jp/main_content/001022461.pdf"
+      }
+    },
+    {
+      "id": "soumu-local-bond-consent-standard-2026",
+      "title": "令和8年度地方債同意等基準（令和8年総務省告示第159号・総務省）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.soumu.go.jp/main_content/001068238.pdf"
+      }
     }
   ]
 }
