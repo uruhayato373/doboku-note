@@ -1,0 +1,42 @@
+<!-- authored 2026-10-15 doboku-note 自作。数値は本文に書いた2024年の就業者の年齢構成（55歳以上・29歳以下の割合。建設業と全産業）だけ。棒の長さは0からの比。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="2024年の就業者に占める年齢別の割合を、建設業と全産業で比べた棒グラフ。55歳以上は建設業が36.7%、全産業が32.4%。29歳以下は建設業が11.7%、全産業が16.9%。建設業は55歳以上の割合が高く、29歳以下の割合が低い。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .val { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .l { font-size: 12px; fill: #222; }
+      .zone { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .ax { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .bk { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; } /* brand-fill / brand */
+      .bz { fill: #fff; stroke: #8a8a8a; stroke-width: 1.5; } /* surface / ink-muted */
+      .sum { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; } /* warn-fill / warn */
+    </style>
+  </defs>
+
+  <text x="28" y="24">2024年の就業者に占める割合</text>
+
+  <rect class="zone" x="16" y="36" width="368" height="164" rx="8"/>
+  <text class="n" x="28" y="60">55歳以上</text>
+  <path class="ax" d="M84,68V188"/>
+  <text class="l" x="28" y="101">建設業</text>
+  <rect class="bk" x="84" y="68" width="264.2" height="56"/>
+  <text class="val" x="94" y="102">36.7%</text>
+  <text class="l" x="28" y="165">全産業</text>
+  <rect class="bz" x="84" y="132" width="233.3" height="56"/>
+  <text class="val" x="94" y="166">32.4%</text>
+
+  <rect class="zone" x="16" y="214" width="368" height="164" rx="8"/>
+  <text class="n" x="28" y="238">29歳以下</text>
+  <path class="ax" d="M84,246V366"/>
+  <text class="l" x="28" y="279">建設業</text>
+  <rect class="bk" x="84" y="246" width="84.2" height="56"/>
+  <text class="val" x="94" y="280">11.7%</text>
+  <text class="l" x="28" y="343">全産業</text>
+  <rect class="bz" x="84" y="310" width="121.7" height="56"/>
+  <text class="val" x="94" y="344">16.9%</text>
+
+  <rect class="sum" x="16" y="392" width="368" height="74" rx="8"/>
+  <text class="n" x="28" y="423">55歳以上の割合は、建設業が高い</text>
+  <text class="n" x="28" y="447">29歳以下の割合は、建設業が低い</text>
+</svg>
