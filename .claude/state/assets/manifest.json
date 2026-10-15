@@ -56952,6 +56952,69 @@
         "scripts/check-orphan-ogp.mjs"
       ],
       "srcHash": "a849ef360b579159"
+    },
+    "content/site/civil-practice/land-readjustment-project/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/land-readjustment-project/ogp.png",
+      "sha256": "905935eca8dea7ccbe372661c6f9d4d65a5854c954922dfc2137ad7038900ac6",
+      "bytes": 64216,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-15T05:40:33.176Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/land-readjustment-project/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "5d9c02a03a1ca0e4"
+    },
+    "content/site/civil-practice/development-permit-public-facilities/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/development-permit-public-facilities/ogp.png",
+      "sha256": "440752b034c4f7acb782f74a794365f24bf613e7e82e2a4c5b7d722b70a58ef4",
+      "bytes": 68356,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-15T05:40:33.221Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/development-permit-public-facilities/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "42870da83c9a72e7"
+    },
+    "content/site/civil-practice/budget-and-funding-sources/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/budget-and-funding-sources/ogp.png",
+      "sha256": "abdb232f2dcc8a3505500bf3fd32ff083038c2b6a7cb047300b01c5f0279fe7a",
+      "bytes": 63985,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-15T05:40:33.326Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/budget-and-funding-sources/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "bc8b765332507fc3"
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",
