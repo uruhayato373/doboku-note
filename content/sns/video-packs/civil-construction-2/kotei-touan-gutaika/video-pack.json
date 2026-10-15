@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "packId": "kotei-touan-gutaika",
+  "exam": "civil-construction-2",
+  "title": "工程管理｜増員した、だけで終わらせない",
+  "audience": "2級土木 第2次検定の施工経験記述で工程管理の内容を具体化したい受検者",
+  "pain": "工程管理の答案に増員した事実しか書けず、その処置を選んだ理由が伝わらない",
+  "promise": "遅延原因と影響工種を整理し、理由のある処置と結果を自分の工事の記録から説明できる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "note",
+      "path": "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集/工程管理/article.md",
+      "access": "paid"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "external",
+      "url": "https://www.mlit.go.jp/tec/r08dobokukoujikyoutsuusiyousyo/honbun01_syo01_setsu01.html",
+      "title": "国土交通省 土木工事共通仕様書（案）令和8年3月 第1編第1章第1節 総則・1-1-1-6 施工計画書"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-2-experience-essay",
+    "campaign": "kotei-touan-gutaika"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}
