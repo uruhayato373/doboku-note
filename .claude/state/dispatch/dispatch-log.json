@@ -4179,6 +4179,19 @@
       "commit": "9b63af15b2a1",
       "verification": "node --test tests/cancelled-schedule-runs.test.mjs（3 pass）。下見で 10/9 の gsc-auto-review（run 37913698267）だけを判定。main で workflow_dispatch（run 38811906273）が成功し 13 本を実検査・再実行 0 件。デプロイ後 check-production-ssr exit 0",
       "note": "PR #1085。共通 group develop-git-write の定期ワークフロー 13 本を 2 時間ごとに見て、待機中に取り消された run（定期・初回・ジョブ 0・30 時間以内・後に成功も実行中も無い）を gh run rerun する rerun-cancelled-schedules.yml を足し、12 本の誤ったコメント（待たせるだけで落とさない）を直した。check-workflow-health は cancelled を失敗に数えないまま、見張り役を workflow-health.json に登録。GITHUB_TOKEN での rerun そのものは、対象が出たときに初めて確かめられる。"
+    },
+    {
+      "id": "DN-0314",
+      "at": "2026-10-16",
+      "task": "Drive vault にあるココナラ商品画像の旧版5枚を、現行の生成画像で上書きするか決める",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "b77b040d4323",
+      "verification": "node scripts/drive-vault-sync.mjs --group coconala-asset --verify --deep → 159 件を sha256 実照合・不一致 0",
+      "note": "2026-10-16 に確かめると、5 枚（tensaku-set・tensaku-4theme・1kyu-premium・sakusei・sakusei-4theme）は 9/27 の POP 意匠への差し替えで、承認台帳 data/coconala/thumb-approved.json・手元の実体・Drive の台帳の 3 つとも同じハッシュになっていた（旧版の上書きは差し替えで済んでいた）。全件照合で残った 1 件の不一致は POP の生成記録 generation-manifest.json で、Drive と手元は 9/30 版・台帳だけ 9/27 版だったので台帳を合わせた。会社 PC の worktree の片付けは Mac からは確かめられない。"
     }
   ]
 }
