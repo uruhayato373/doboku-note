@@ -1596,6 +1596,22 @@
               ],
               "paths": [
                 "content/site/civil-practice/construction-materials-overview/article.mdx"
+              ],
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "道路の標準断面を輪切りにし、路床・路盤・基層と表層・排水・のり面保護・防護柵ごとに材料名を書き込む。鉄道の道床は隣に小さく並べる。自作SVG（400×500）で、構図は道路構造令の標準断面と共通仕様書の層の名前から起こす",
+                  "figKey": "civil-practice/construction-materials-overview/img/figure-materials-by-role"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "土（炉乾燥質量）・骨材（絶乾質量／表面乾燥飽水状態の質量）・木材（全乾質量）が、それぞれ何の質量を分母にするかを、水の質量と並べて示す概念図（任意）",
+                  "figKey": "civil-practice/construction-materials-overview/img/figure-water-content-denominators"
+                },
+                {
+                  "kind": "photo",
+                  "subject": "バラスト砕石を敷いた道床と、PC枕木、鋼レールの近景（AI写真・任意）"
+                }
               ]
             },
             {
@@ -1620,6 +1636,35 @@
               "plan": "new",
               "paths": [
                 "content/site/civil-practice/polymer-construction-materials/article.mdx"
+              ],
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "鋼は降伏して伸びてから破断し、連続繊維補強材は直線のまま破断し、傾き（弾性率）が炭素・アラミド・ガラスで違うことを示す自作の概念図（数値は入れない）",
+                  "figKey": "civil-practice/polymer-construction-materials/img/figure-fiber-rupture-modes"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "盛土・護岸・路盤の断面で、シートや格子が補強・分離・排水・ろ過のどれを担うかを示す自作の模式図",
+                  "figKey": "civil-practice/polymer-construction-materials/img/figure-geosynthetics-functions"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "ポリマーセメント系（結合材はセメントのまま）、レジンコンクリート（樹脂が結合材）、含浸型（硬化体にしみ込む）の三つを、結合材の違いで並べた自作の模式図",
+                  "figKey": "civil-practice/polymer-construction-materials/img/figure-polymer-concrete-types"
+                },
+                {
+                  "kind": "photo",
+                  "subject": "桁下面の素地調整後に、炭素繊維シートへ含浸接着樹脂をローラーで含浸させている作業（形が複雑なので一次資料の写真で確かめてから prompt を書く）"
+                },
+                {
+                  "kind": "photo",
+                  "subject": "締め固めた盛土面にジオグリッドを水平にたるみなく敷き、ピンで固定した状況"
+                },
+                {
+                  "kind": "photo",
+                  "subject": "積層ゴム支承の切断面（ゴム層と内部鋼板が交互に重なり、外周に被覆ゴム、上下に沓プレート）"
+                }
               ]
             },
             {
@@ -1628,6 +1673,32 @@
               "plan": "new",
               "paths": [
                 "content/site/civil-practice/wood-and-stone-materials/article.mdx"
+              ],
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "含水率の帯を縦に並べた図。生材(辺材100〜200%)・繊維飽和点(約30%)・腐朽菌の活動が抑えられる20%以下・気乾(12〜15%)の各帯と、帯ごとに起きること(収縮・強さの増加・腐朽)を横に添える。数値は本文の確かめた値だけ。本の曲線は再現しない",
+                  "figKey": "civil-practice/wood-and-stone-materials/img/figure-moisture-content-bands"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "継手・ボルト孔・欠込みで、荷重の向きと繊維の向きが合う置き方とずれる置き方を2例並べる図。角度θを矢印で示し、ずれると強さが直角方向の値に近づくことを添える",
+                  "figKey": "civil-practice/wood-and-stone-materials/img/figure-grain-load-angle"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "『石の指定を読む三つの軸』。札3枚の縦並びで、岩種(花こう岩類など)・形状(板石など)・強度区分(硬石・準硬石・軟石)を示し、各軸に例を1つ添える。製品の呼び方の例『花こう岩・硬石・板石・1等品』を結ぶ",
+                  "figKey": "civil-practice/wood-and-stone-materials/img/figure-stone-spec-axes"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "木製の柵か土留めの断面で、雨水が入る経路と溜まる場所(木口・接合部・ボルト孔・水平面・地際)に、銅板・勾配・防腐処理K4以上などの対策を割り当てた図(任意)",
+                  "figKey": "civil-practice/wood-and-stone-materials/img/figure-timber-weak-points"
+                },
+                {
+                  "kind": "photo",
+                  "subject": "解体した石造アーチの輪石などが仮置き場に位置ごとに並ぶ様子。アーチ石の切り出し形が分かる浅い被写界深度。石の面に番号の文字は描かせない。形に自信が持てなければ公開事例写真で確かめてから prompt を書く"
+                }
               ]
             }
           ]

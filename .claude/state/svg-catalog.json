@@ -2,20 +2,20 @@
   "description": "サイト図版SVGの派生カタログ（SSOT）。build-svg-catalog.mjs が生成。手動編集しない。",
   "source": "content/site/**/img/*.svg",
   "summary": {
-    "total": 1434,
-    "embedded": 1434,
+    "total": 1443,
+    "embedded": 1443,
     "orphan": 0,
     "missingConcept": 4,
     "withHighAudit": 0,
     "figures": {
-      "total": 1319,
-      "conforming": 1319,
+      "total": 1328,
+      "conforming": 1328,
       "needsRework": 0
     },
     "byCategory": {
       "civil-construction-1": 495,
       "civil-construction-2": 25,
-      "civil-practice": 245,
+      "civil-practice": 254,
       "concrete-chief-engineer": 133,
       "concrete-diagnostician": 138,
       "concrete-engineer": 63,
@@ -10124,6 +10124,42 @@
       }
     },
     {
+      "file": "content/site/civil-practice/construction-materials-overview/img/figure-materials-by-role.svg",
+      "category": "civil-practice",
+      "slug": "construction-materials-overview",
+      "name": "figure-materials-by-role.svg",
+      "concept": "道路と鉄道の断面を、構造物の四つの役割に対応づけた図。役割は、支える土、荷重を渡す、走行面、守りの四つで、荷重を渡すのは橋。道路の断面では、盛土と路床は土、路盤は砕石、表層と基層はアスファルト混合物、のり面保護は植生やブロック、防護柵は附属物や二次製品。鉄道の断面では、レール、まくらぎ、砕石の道床が走行面で、その下の路盤が支える土。荷重は層を通って広がりながら下へ伝わる。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/construction-materials-overview/img/figure-water-content-denominators.svg",
+      "category": "civil-practice",
+      "slug": "construction-materials-overview",
+      "name": "figure-water-content-denominators.svg",
+      "concept": "水の割合を表す言葉で、水の質量を割る相手が違うことを示した図。土の含水比は炉乾燥した土の質量で割る。骨材の吸水率は絶乾質量で割り、含水率は乾燥後の試料の質量で割り、表面水率は表面乾燥飽水状態の質量で割る。木材の含水率は全乾質量で割り、100%を超えることもある。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-practice/cost-and-design-change/img/figure-adr-three-procedures.svg",
       "category": "civil-practice",
       "slug": "cost-and-design-change",
@@ -11911,6 +11947,60 @@
       "slug": "pile-concrete-head-treatment",
       "name": "figure-tremie-overpour.svg",
       "concept": "トレミー管の先端を打設済みコンクリート中に2m以上保つ管理と、余盛りの高さ（無水掘り500mm以上・泥水が多い場合800mm以上）を示す断面図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/polymer-construction-materials/img/figure-fiber-rupture-modes.svg",
+      "category": "civil-practice",
+      "slug": "polymer-construction-materials",
+      "name": "figure-fiber-rupture-modes.svg",
+      "concept": "応力とひずみの関係を、鋼と連続繊維補強材で並べた概念図。鋼は降伏してから大きく伸びて破断する。連続繊維補強材は降伏せず直線のまま破断し、直線の傾き（弾性率）は炭素、アラミド、ガラスの順に小さくなる。炭素は小さいひずみで破断する。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/polymer-construction-materials/img/figure-geosynthetics-functions.svg",
+      "category": "civil-practice",
+      "slug": "polymer-construction-materials",
+      "name": "figure-geosynthetics-functions.svg",
+      "concept": "地盤用のシートと格子が担う三つの機能を断面で並べた模式図。盛土の中のジオグリッドは引張を受け持つ補強で、先に見るのは引張強さ。盛土内のシートは水を逃がす排水で、先に見るのは施工中の短期の通水性能。護岸の裏の吸出し防止材は水を通して土砂を止めるろ過で、先に見るのは目詰まりを含む長期の安定性。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/polymer-construction-materials/img/figure-polymer-concrete-types.svg",
+      "category": "civil-practice",
+      "slug": "polymer-construction-materials",
+      "name": "figure-polymer-concrete-types.svg",
+      "concept": "ポリマーを使うコンクリートの三つの型を、結合材の違いで並べた模式図。ポリマーセメント系は結合材がセメントのままで、ポリマーを混ぜて性質を改善する。レジンコンクリートは結合材が液状のレジンで、セメントは入らない。含浸型は硬化したコンクリートに液状のモノマーをしみ込ませて固める。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -13783,6 +13873,78 @@
       "slug": "volcanic-hazard-site-planning",
       "name": "figure-volcano-disaster-system.svg",
       "concept": "火山防災の体系。観測と区分、噴火警報とレベル、地域の警戒避難体制、避難施設と降灰対策の四つの層を順に確認する",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/wood-and-stone-materials/img/figure-grain-load-angle.svg",
+      "category": "civil-practice",
+      "slug": "wood-and-stone-materials",
+      "name": "figure-grain-load-angle.svg",
+      "concept": "木材のボルト接合で、荷重の向きと繊維の向きが合う置き方とずれる置き方を並べ、荷重と繊維のなす角θが大きくなるほど強さが、繊維方向の強さPから直角方向の強さQへ向かって下がることを示した図。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/wood-and-stone-materials/img/figure-moisture-content-bands.svg",
+      "category": "civil-practice",
+      "slug": "wood-and-stone-materials",
+      "name": "figure-moisture-content-bands.svg",
+      "concept": "木材の含水率を縦に並べた図。上ほど湿っている。生材の辺材は100〜200%。約30%が繊維飽和点で、これより乾くと収縮が始まり強さが増す。30%以上は腐朽菌が活動しやすい。20%以下は腐朽菌の活動が抑えられるが、水が戻れば再開する。12〜15%は空気中に長く置いたときに落ち着く気乾状態。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/wood-and-stone-materials/img/figure-stone-spec-axes.svg",
+      "category": "civil-practice",
+      "slug": "wood-and-stone-materials",
+      "name": "figure-stone-spec-axes.svg",
+      "concept": "石の指定を読む三つの軸。岩種は六つに分かれ、例は花こう岩類。形状は角石、板石、間知石、割石の四つで、例は板石。強度区分は圧縮強さで硬石、準硬石、軟石の三つに分かれ、例は硬石。製品の呼び方の例は、花こう岩、硬石、板石、1等品、10×50×91の順に、岩種、強度区分、形状、等級、寸法を並べる。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/wood-and-stone-materials/img/figure-timber-weak-points.svg",
+      "category": "civil-practice",
+      "slug": "wood-and-stone-materials",
+      "name": "figure-timber-weak-points.svg",
+      "concept": "木製の柵の模式図に、雨水が入る場所と対策を割り当てた図。支柱の頭の木口は銅板などで覆う。横木の水平な面には勾配をつけて雨水を溜めない。接合部とボルト孔は雨水が入りにくい納まりにして重点的に点検する。地際は防腐処理のK4以上か、水中や地中での利用を検討する。全体は屋根で覆い、傷んだ部材だけ交換できる構造にする。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
