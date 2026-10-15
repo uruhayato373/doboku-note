@@ -56700,6 +56700,27 @@
         "scripts/check-orphan-ogp.mjs"
       ],
       "srcHash": "ada7ada8a704101d"
+    },
+    "content/site/civil-practice/public-works-environmental-care/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/public-works-environmental-care/ogp.png",
+      "sha256": "d35657e139187c159f6e37f1950ae58cd2301d7278bd5db36f288ecc1730aea4",
+      "bytes": 66305,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-15T04:00:26.201Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/public-works-environmental-care/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "08fc69cb5139cd0e"
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",
