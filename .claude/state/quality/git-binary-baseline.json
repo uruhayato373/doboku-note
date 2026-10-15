@@ -1,42 +1,42 @@
 {
-  "updatedAt": "2026-09-14T03:12:58.809Z",
-  "head": "6ba91bc42255ea99471de1370c479361ce393d1b",
+  "updatedAt": "2026-10-15T12:56:07.584Z",
+  "head": "818ebd1678e222aedcf6c3b9590e197664e0a174",
   "note": "DN-0111 の移行が進むたびに締める。最終目標は全カテゴリ 0。更新: npm run check-git-binary-policy -- --update-baseline",
-  "inspectedBlobs": 13037,
+  "inspectedBlobs": 14989,
   "counts": {
     "generated-ebook": 8,
-    "size-limit": 8,
+    "size-limit": 7,
     "magic-mismatch": 1
   },
   "budgets": [
     {
       "dir": "content/note",
-      "usedMiB": 39.2,
+      "usedMiB": 43.7,
       "capMiB": 150,
       "over": false
     },
     {
       "dir": "content/site",
-      "usedMiB": 120,
-      "capMiB": 120,
+      "usedMiB": 138.5,
+      "capMiB": 140,
       "over": false
     },
     {
       "dir": "content/sns",
-      "usedMiB": 35,
+      "usedMiB": 38.4,
       "capMiB": 60,
       "over": false
     },
     {
       "dir": "content/sources",
-      "usedMiB": 6.7,
+      "usedMiB": 7.9,
       "capMiB": 20,
       "over": false
     },
     {
       "dir": "scripts",
-      "usedMiB": 83.5,
-      "capMiB": 100,
+      "usedMiB": 30.2,
+      "capMiB": 130,
       "over": false
     }
   ]
