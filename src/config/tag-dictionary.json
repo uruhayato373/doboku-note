@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-15T05:17:26.123Z",
+  "generated_at": "2026-10-15T05:18:28.346Z",
   "summary": {
-    "total_mdx_files": 1430,
+    "total_mdx_files": 1431,
     "total_unique_tags": 133,
     "allowlist_size": 330,
     "known_count": 133,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 254,
+      "count": 255,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1268,6 +1268,7 @@
         "civil-practice-sling-work-wire-rope",
         "civil-practice-slope-drainage-monitoring",
         "civil-practice-slope-protection-selection",
+        "civil-practice-social-infrastructure-overview",
         "civil-practice-soil-improvement-sandbag",
         "civil-practice-special-concrete-selection",
         "civil-practice-stacking-heat-machine-safety",
@@ -3839,6 +3840,35 @@
       ]
     },
     {
+      "name": "維持管理",
+      "count": 22,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-guide-concrete-maintenance",
+        "civil-practice-coast-port-administrators",
+        "civil-practice-concrete-standards-history",
+        "civil-practice-large-fill-landslide",
+        "civil-practice-levee-failure-reinforcement",
+        "civil-practice-monitoring-sensor-selection",
+        "civil-practice-ppp-pfi-selection",
+        "civil-practice-river-facility-inspection-operation",
+        "civil-practice-road-inspection-longevity-plan",
+        "civil-practice-seismic-design-levels",
+        "civil-practice-social-infrastructure-overview",
+        "concrete-chief-engineer-textbook-durability",
+        "concrete-diagnostician-textbook-assessment",
+        "concrete-diagnostician-textbook-maintenance",
+        "concrete-diagnostician-textbook-repair",
+        "pe-comprehensive-management-h22-essay-general-contractor",
+        "pe-comprehensive-management-h25-essay-general-contractor",
+        "pe-comprehensive-management-h25-essay-river-consultant",
+        "pe-comprehensive-management-h25-essay-road-municipality",
+        "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance",
+        "pe-construction-iji-kanri-ronbun-keyword",
+        "pe-construction-infra-roukyuuka-iji"
+      ]
+    },
+    {
       "name": "必須科目",
       "count": 21,
       "inAllowlist": true,
@@ -3864,34 +3894,6 @@
         "pe-construction-seismic-damage-lessons",
         "pe-construction-seismic-isolation-damping",
         "pe-construction-shakai-shihon-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "維持管理",
-      "count": 21,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-guide-concrete-maintenance",
-        "civil-practice-coast-port-administrators",
-        "civil-practice-concrete-standards-history",
-        "civil-practice-large-fill-landslide",
-        "civil-practice-levee-failure-reinforcement",
-        "civil-practice-monitoring-sensor-selection",
-        "civil-practice-ppp-pfi-selection",
-        "civil-practice-river-facility-inspection-operation",
-        "civil-practice-road-inspection-longevity-plan",
-        "civil-practice-seismic-design-levels",
-        "concrete-chief-engineer-textbook-durability",
-        "concrete-diagnostician-textbook-assessment",
-        "concrete-diagnostician-textbook-maintenance",
-        "concrete-diagnostician-textbook-repair",
-        "pe-comprehensive-management-h22-essay-general-contractor",
-        "pe-comprehensive-management-h25-essay-general-contractor",
-        "pe-comprehensive-management-h25-essay-river-consultant",
-        "pe-comprehensive-management-h25-essay-road-municipality",
-        "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance",
-        "pe-construction-iji-kanri-ronbun-keyword",
-        "pe-construction-infra-roukyuuka-iji"
       ]
     },
     {
@@ -5137,6 +5139,16 @@
       ]
     },
     {
+      "name": "インフラ老朽化",
+      "count": 3,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-social-infrastructure-overview",
+        "pe-comprehensive-management-aging-infrastructure",
+        "pe-construction-infra-roukyuuka-iji"
+      ]
+    },
+    {
       "name": "キーワード学習",
       "count": 3,
       "inAllowlist": true,
@@ -5252,15 +5264,6 @@
       "usedIn": [
         "civil-construction-1-keyword-2026",
         "pe-comprehensive-management-exam-index"
-      ]
-    },
-    {
-      "name": "インフラ老朽化",
-      "count": 2,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-aging-infrastructure",
-        "pe-construction-infra-roukyuuka-iji"
       ]
     },
     {
