@@ -36,10 +36,11 @@ import { datasetDir, datasetPath } from './lib/datasets.mjs';
 import { parseJson, readJsonIf, writeJson } from './lib/json-io.mjs';
 import { isCliEntry } from './lib/cli-run.mjs';
 import { figuresInExplanation, sourceIdsOf } from './lib/figure-source-wiring.mjs';
+import { resolveVaultRoot } from './lib/drive-vault.mjs';
 import { describeFigure, fileSha, listFigureKeys } from './lib/figure-review.mjs';
 import {
   AI_KINDS, AI_LEDGER_FILE, aiPhotoStatus, captionFor, emptyAiLedger, imageTagFor, originFindings, originOf,
-  mediaIdOfKey, sourceCommentFor, validateAiVerdict,
+  mediaIdOfKey, sourceCommentFor, validateAiVerdict, vaultPathOf,
 } from './lib/image-origin.mjs';
 
 const ROOT = resolve(import.meta.dirname, '..');
@@ -125,6 +126,7 @@ async function runCheck(argv) {
 /** 判定待ち（未監査）の写真。auditor に渡す材料（直前の見出し・本文・生成の指示）を付ける */
 async function runAiQueue(argv) {
   const { rows } = await inspect();
+  const vaultRoot = resolveVaultRoot().root;
   const items = rows.filter((r) => r.status === 'unreviewed').map((r) => {
     const content = readFileSync(join(ROOT, r.mdx), 'utf8');
     const t = imageTagFor(content, r.name);
@@ -135,6 +137,9 @@ async function runAiQueue(argv) {
       heading: [...before.matchAll(/^#{2,4} .+$/gm)].pop()?.[0] ?? null,
       context: before.trimEnd().split(/\n\s*\n/).slice(-2).join('\n\n').slice(-1200),
       prompt: r.origin.entry?.prompt ?? null,
+      // 市販書の写真を元に描き直した写真は、元の画像と見比べて「なぞっていないか」も判定する（image-policy）
+      basedOn: r.origin.entry?.basedOn ?? null,
+      basedOnFile: r.origin.entry?.basedOn ? vaultPathOf(r.origin.entry.basedOn, vaultRoot) : null,
     };
   });
   if (argv.includes('--json')) console.log(JSON.stringify(items, null, 2));
@@ -169,6 +174,8 @@ async function runRecordAi(file) {
     if (!r) errs.push(`${v.figKey}: 公開記事で使っている画像ではない`);
     else if (!r.status) errs.push(`${v.figKey}: 台帳の種別が AI 生成でない（${r.origin?.kind ?? '記録なし'}）`);
     else if (r.status === 'not-generated') errs.push(`${v.figKey}: 今の画像が仕様の指示から作られた記録が無い。先に npm run gen-article-photo で生成・配置する`);
+    // 市販書の写真を元に描き直した写真は、元と見比べた「描き直し」の軸が ok のときだけ ok にできる（image-policy・2026-10-15）
+    else if (r.origin?.entry?.basedOn && v.verdict === 'ok' && v.axes?.redraw !== 'ok') errs.push(`${v.figKey}: 描き直しの元（${r.origin.entry.basedOn}）と見比べた axes.redraw が ok でないので ok にできない`);
   }
   if (errs.length) { for (const e of errs) console.error(`✗ ${e}`); console.error('台帳は書いていない'); return 1; }
   const ledger = readJsonIf(ROOT, AI_LEDGER_FILE) ?? emptyAiLedger();

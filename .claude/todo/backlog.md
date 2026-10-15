@@ -424,6 +424,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 3. `npm run check-content-series -- --crop-jobs --series concrete-practice` で切り出し（Codex）→ `--visual-jobs` で図は自作 SVG、写真は AI で描き直し → 監査 → 記事へ配置。
 **完了条件**: 新規 10 章の visuals が台帳に入り、`check-content-series` の図・写真の未完了が 0（使わないものは skipped と理由）。
 
+**進捗（2026-10-15）**: 手順 1 は済み。運営者は「本の写真を AI に渡して描き直す」を選んだ（翻案の危険は承知のうえ）。条件（構図をなぞらない・元の文字を写さない・出所を basedOn に記録・元と見比べる監査）を image-policy「本の写真を元に描き直す」と 18 に書き、gen-article-photo --based-on・aiPhoto.redraw・監査の描き直しの軸・record-ai の検査を実装した（PR feat/ai-photo-redraw-from-book）。**残り**: 手順 2（visuals を台帳へ）と 3（切り出し → 作成 → 監査 → 配置。Drive vault の見える Mac か Codex）。
 
 ### [DN-0725] 2級土木の note 記事 2 本が 10/10 と 10/12 で二重投稿になっていないか確かめる
 タグ: [領域:商品] [時期:2026-10] [種類:不具合] [起票:2026-10-13]
