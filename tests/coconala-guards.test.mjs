@@ -24,6 +24,7 @@ import {
   parseInquiryDate,
   inquiryClockMs,
 } from '../scripts/lib/coconala-guards.mjs';
+import { findPausedServiceLinks } from '../scripts/lib/coconala-guards.mjs';
 
 /** 本日のカタログを模したフィクスチャ */
 const CATALOG = [
@@ -365,3 +366,15 @@ test('resolveThumb: 承認原本もフラット画像も描画定義も無けれ
   const r = resolveThumb({ id: 'coconala-none', approvedPath: 'a/pop/none.png', flatPath: 'a/thumb-none.png', has: () => null, renderable: false });
   assert.equal(r.ok, false);
 });
+
+// 2026-10-15: 1級の添削を休止したあとも note の 1級記事 194 本が休止中の出品へ送り続けていた
+test('findPausedServiceLinks: 受付中でない出品・カタログに無い出品へのリンクを行番号つきで拾う', () => {
+  const services = [
+    { id: 'a', status: 'listed', serviceUrl: 'https://coconala.com/services/111' },
+    { id: 'b', status: 'paused', serviceUrl: 'https://coconala.com/services/222' },
+  ];
+  const files = [{ path: 'x.md', text: 'intro\nhttps://coconala.com/services/111\n\nhttps://coconala.com/services/222\n- [c](https://coconala.com/services/333)' }];
+  assert.deepEqual(findPausedServiceLinks(files, services).map((l) => [l.line, l.serviceId, l.status]), [[4, '222', 'paused'], [5, '333', 'カタログに無い']]);
+  assert.deepEqual(findPausedServiceLinks([{ path: 'y.md', text: 'https://coconala.com/services/111' }], services), []);
+});
+
