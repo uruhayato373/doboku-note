@@ -3878,6 +3878,19 @@
       "commit": "63c206d4bc5e",
       "verification": "npm run check-content-series（確認済み 39・下書き 0・一次資料あり 655/655・PASS）",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0738",
+      "at": "2026-10-15",
+      "task": "自治体の土木担当シリーズの第1波（A-08 占用・A-14 河川区域の許可・A-19 里道と水路）を書いて公開する",
+      "tier": "high",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "9c6a6b922458",
+      "verification": "本番 3 本 HTTP 200・<main あり、図 6 枚 HTTP 200（doboku-note.com と storage）、check-production-ssr exit 0、check-content-series PASS",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }

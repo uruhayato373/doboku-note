@@ -8,7 +8,7 @@
       "audience": "自治体に土木職で入った人・異動した人",
       "area": "practice",
       "policy": "docs/strategy/18_自治体土木担当・コンクリートシリーズ方針2026-10.md",
-      "gate": "第 1 波（A-08・A-14・A-19）は 2026-10-15 の運営者判断で EXP-012 の判定を待たずに書いて公開する（DN-0738）。第 2 波以降は EXP-012 の判定（事後窓の終わり 2026-11-26）と第 1 波の公開 28 日の計測で決める（DN-0719）",
+      "gate": "第 1 波（A-08・A-14・A-19）は 2026-10-15 に公開した。第 2 波（道路・河川の管理 8 章）と第 3 波（事業を進める 8 章）も同日の運営者判断で EXP-012 の判定を待たずに書く（DN-0739）。第 4 波以降は EXP-012 の判定（2026-11-26）と公開 28 日の計測で決める（DN-0719）",
       "entry": {
         "hubItem": "A-00",
         "curriculum": "civil-practice:municipal"
@@ -89,9 +89,13 @@
               "id": "A-06",
               "title": "道路法の骨格 — 道路の種類と管理者",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/road-act-framework/article.mdx"
+              ],
               "sources": [
                 "road-act"
-              ]
+              ],
+              "wave": 2
             },
             {
               "id": "A-07",
@@ -128,6 +132,9 @@
               "id": "A-09",
               "title": "承認工事（道路法 24 条）と道路使用許可（道路交通法 77 条）の違い",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/road-work-approval-vs-road-use-permit/article.mdx"
+              ],
               "sources": [
                 "road-act",
                 "road-traffic-act"
@@ -135,21 +142,29 @@
               "links": [
                 "content/site/civil-practice/schedule-and-road-permit/article.mdx"
               ],
-              "note": "受注者の段取りは既存の schedule-and-road-permit に残す"
+              "note": "受注者の段取りは既存の schedule-and-road-permit に残す",
+              "wave": 2
             },
             {
               "id": "A-10",
               "title": "道路の境界確定と道路台帳",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/road-boundary-and-road-ledger/article.mdx"
+              ],
               "sources": [
                 "road-act",
                 "road-act-rules"
-              ]
+              ],
+              "wave": 2
             },
             {
               "id": "A-11",
               "title": "道路の点検と長寿命化計画",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/road-inspection-longevity-plan/article.mdx"
+              ],
               "sources": [
                 "road-act-rules",
                 "road-bridge-inspection"
@@ -157,7 +172,8 @@
               "links": [
                 "content/site/civil-practice/preventive-maintenance-diagnosis/article.mdx"
               ],
-              "note": "予防保全の一般論は既存記事に任せ、管理者の点検義務と計画に絞る"
+              "note": "予防保全の一般論は既存記事に任せ、管理者の点検義務と計画に絞る",
+              "wave": 2
             },
             {
               "id": "A-12",
@@ -180,10 +196,14 @@
               "id": "A-13",
               "title": "河川法の骨格 — 一級・二級・準用・普通河川と管理者",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/river-act-framework/article.mdx"
+              ],
               "sources": [
                 "river-act",
                 "river-act-order"
-              ]
+              ],
+              "wave": 2
             },
             {
               "id": "A-14",
@@ -214,22 +234,30 @@
               "id": "A-15",
               "title": "工作物の技術審査 — 橋・樋門・管が堤防を横切るとき",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/river-crossing-structure-review/article.mdx"
+              ],
               "sources": [
                 "river-facility-structure-order",
                 "river-structure-permit-standard"
-              ]
+              ],
+              "wave": 2
             },
             {
               "id": "A-16",
               "title": "河川管理施設の点検と操作 — 堤防・樋門・水門",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/river-facility-inspection-operation/article.mdx"
+              ],
               "sources": [
                 "small-river-inspection-guideline"
               ],
               "links": [
                 "content/site/civil-practice/levee-failure-reinforcement/article.mdx"
               ],
-              "note": "堤防の壊れ方と補強は既存記事に任せる"
+              "note": "堤防の壊れ方と補強は既存記事に任せる",
+              "wave": 2
             },
             {
               "id": "A-17",
@@ -247,6 +275,9 @@
               "id": "A-18",
               "title": "海岸と港湾 — 海岸法・港湾法と管理者",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/coast-port-administrators/article.mdx"
+              ],
               "sources": [
                 "coast-act",
                 "port-act",
@@ -255,7 +286,8 @@
               "links": [
                 "content/site/civil-construction-1/textbook-coast-port/article.mdx"
               ],
-              "note": "沿岸の自治体向け。施設の技術は試験の教科書に任せ、管理者と許可に絞る"
+              "note": "沿岸の自治体向け。施設の技術は試験の教科書に任せ、管理者と許可に絞る",
+              "wave": 2
             }
           ]
         },
@@ -301,48 +333,71 @@
               "id": "A-20",
               "title": "計画の体系と事業評価 — 国土形成計画・社会資本整備重点計画・費用便益",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/public-works-planning-evaluation/article.mdx"
+              ],
               "sources": [
                 "national-spatial-planning-act",
                 "infrastructure-priority-plan-act"
               ],
-              "note": "国の計画と自治体の事業のつながり、補助事業の評価（新規・再評価・事後評価）"
+              "note": "国の計画と自治体の事業のつながり、補助事業の評価（新規・再評価・事後評価）",
+              "wave": 3
             },
             {
               "id": "A-21",
               "title": "要望から事業化まで — 地元の要望・調査・予算",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/project-request-to-budget/article.mdx"
+              ],
               "sources": [
                 "local-finance-act"
-              ]
+              ],
+              "wave": 3
             },
             {
               "id": "A-22",
               "title": "地元説明会と合意形成",
               "plan": "new",
-              "note": "一般論で書く（国交省の住民参加の指針など公開の資料から）。体験談・団体・個人・案件が特定できる書き方をしない"
+              "note": "一般論で書く（国交省の住民参加の指針など公開の資料から）。体験談・団体・個人・案件が特定できる書き方をしない",
+              "paths": [
+                "content/site/civil-practice/public-meeting-consensus/article.mdx"
+              ],
+              "wave": 3
             },
             {
               "id": "A-23",
               "title": "用地の取得と損失補償",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/land-acquisition-compensation/article.mdx"
+              ],
               "sources": [
                 "land-expropriation-act",
                 "public-land-compensation-standard"
-              ]
+              ],
+              "wave": 3
             },
             {
               "id": "A-24",
               "title": "埋蔵文化財 — 包蔵地の照会と工事前の調査",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/buried-cultural-property-survey/article.mdx"
+              ],
               "sources": [
                 "cultural-properties-act"
               ],
-              "note": "事業の計画段階で教育委員会へ照会する。届出・試掘・本調査と工期への影響"
+              "note": "事業の計画段階で教育委員会へ照会する。届出・試掘・本調査と工期への影響",
+              "wave": 3
             },
             {
               "id": "A-25",
               "title": "環境への配慮 — 環境アセスメント・騒音と振動・建設副産物",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/public-works-environmental-care/article.mdx"
+              ],
               "sources": [
                 "environmental-impact-assessment-act",
                 "noise-regulation-act",
@@ -353,7 +408,8 @@
                 "content/site/pe-comprehensive-management/environmental-impact-assessment/article.mdx",
                 "content/site/civil-construction-1/textbook-construction-byproduct-recycle/article.mdx"
               ],
-              "note": "制度の解説は既存記事に任せ、発注者が設計・積算・特記仕様書で決めることに絞る"
+              "note": "制度の解説は既存記事に任せ、発注者が設計・積算・特記仕様書で決めることに絞る",
+              "wave": 3
             },
             {
               "id": "A-26",
@@ -371,13 +427,17 @@
               "id": "A-27",
               "title": "PFI と官民連携 — 指定管理・包括的民間委託・PFI の選び方",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/ppp-pfi-selection/article.mdx"
+              ],
               "sources": [
                 "pfi-act",
                 "local-autonomy-act"
               ],
               "links": [
                 "content/site/pe-comprehensive-management/pfi/article.mdx"
-              ]
+              ],
+              "wave": 3
             },
             {
               "id": "A-28",
@@ -408,6 +468,9 @@
               "id": "A-30",
               "title": "工事の安全と発注者 — 労働安全衛生法と発注者の役割",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/owner-safety-responsibility/article.mdx"
+              ],
               "sources": [
                 "labor-safety-act",
                 "mlit-safety-guideline"
@@ -415,7 +478,8 @@
               "links": [
                 "content/site/civil-construction-1/textbook-safety-industrial-safety-law/article.mdx"
               ],
-              "note": "事業者（受注者）の義務は既存記事に任せ、発注者が設計・積算・監督でできることに絞る"
+              "note": "事業者（受注者）の義務は既存記事に任せ、発注者が設計・積算・監督でできることに絞る",
+              "wave": 3
             },
             {
               "id": "A-31",
