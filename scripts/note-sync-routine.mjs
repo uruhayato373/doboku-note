@@ -93,6 +93,18 @@ function parseRun(text) {
   return result;
 }
 
+// Drive 本体が止まっていると、マウントの読み出しが全部 ETIMEDOUT になる（2026-10-04 の週次・DN-0567）。
+// 最初の取り寄せの前に 1 回だけ確かめ、止まっていれば起動して待つ。
+let driveChecked = false;
+function ensureDriveRunning() {
+  if (driveChecked || process.platform !== 'darwin') return;
+  driveChecked = true;
+  if (spawnSync('pgrep', ['-f', 'Google Drive.app/Contents/MacOS/Google Drive']).status === 0) return;
+  console.log(TAG + ' Google Drive の本体が止まっていたので起動して 60 秒待つ');
+  spawnSync('open', ['-a', 'Google Drive']);
+  spawnSync('sleep', ['60']);
+}
+
 async function syncArticles(items) {
   const updated = []; const failed = [];
   for (let i = 0; i < items.length; i += CHUNK) {
@@ -102,6 +114,7 @@ async function syncArticles(items) {
     const pulled = [];
     for (const item of items.slice(i, i + CHUNK)) {
       if (item.needsPdfPull) {
+        ensureDriveRunning();
         const r = node(['scripts/drive-vault-sync.mjs', '--pull', '--path', `${dirname(item.path)}/`, '--commit']);
         if (r.status !== 0) {
           const why = r.out.split('\n').filter((l) => /FAIL|vault に無い|コピー失敗|台帳と違う|マウント/.test(l)).slice(0, 2).join(' / ').trim().slice(0, 300);
