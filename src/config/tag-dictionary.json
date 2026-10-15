@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-15T05:38:42.212Z",
+  "generated_at": "2026-10-15T05:51:26.597Z",
   "summary": {
-    "total_mdx_files": 1437,
+    "total_mdx_files": 1438,
     "total_unique_tags": 133,
     "allowlist_size": 330,
     "known_count": 133,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 261,
+      "count": 262,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1280,6 +1280,7 @@
         "civil-practice-stacking-heat-machine-safety",
         "civil-practice-subbase-subgrade-control",
         "civil-practice-trench-excavation-safety",
+        "civil-practice-urban-park-management",
         "concrete-chief-engineer-guide-essay",
         "concrete-chief-engineer-guide-overview",
         "concrete-chief-engineer-guide-trends",
@@ -2605,7 +2606,7 @@
     },
     {
       "name": "関係法規",
-      "count": 96,
+      "count": 97,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-engineer-assignment",
@@ -2644,6 +2645,7 @@
         "civil-practice-safety-health-education-plan",
         "civil-practice-subcontract-fair-dealing",
         "civil-practice-subcontract-instruction-boundary",
+        "civil-practice-urban-park-management",
         "pe-comprehensive-management-air-pollution-control-act",
         "pe-comprehensive-management-antitrust-compliance",
         "pe-comprehensive-management-asbestos-issue",
@@ -3601,7 +3603,7 @@
     },
     {
       "name": "地方公共団体",
-      "count": 35,
+      "count": 36,
       "inAllowlist": true,
       "usedIn": [
         "civil-practice-board-of-audit-inspection",
@@ -3625,6 +3627,7 @@
         "civil-practice-road-boundary-and-road-ledger",
         "civil-practice-road-inspection-longevity-plan",
         "civil-practice-satomichi-suiro-management",
+        "civil-practice-urban-park-management",
         "pe-comprehensive-management-essay-pattern-cross-year-application",
         "pe-comprehensive-management-h21-essay-road-municipality",
         "pe-comprehensive-management-h22-essay-road-municipality",
@@ -3860,7 +3863,7 @@
     },
     {
       "name": "維持管理",
-      "count": 22,
+      "count": 23,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-concrete-maintenance",
@@ -3874,6 +3877,7 @@
         "civil-practice-road-inspection-longevity-plan",
         "civil-practice-seismic-design-levels",
         "civil-practice-social-infrastructure-overview",
+        "civil-practice-urban-park-management",
         "concrete-chief-engineer-textbook-durability",
         "concrete-diagnostician-textbook-assessment",
         "concrete-diagnostician-textbook-maintenance",
