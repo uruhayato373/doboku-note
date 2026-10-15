@@ -134,3 +134,15 @@ test('判定の鍵: 記事の画像に加えて media:<素材 ID> を受ける�
   assert.deepEqual(validateAiVerdict({ ...base, figKey: 'a/b/img/c' }), []);
   assert.equal(validateAiVerdict({ ...base, figKey: 'a/b/c' }).length, 1);
 });
+
+test('vaultRefOf・vaultPathOf: 描き直しの元は Drive vault の中だけを vault:<相対パス> で記録し、手元のパスへ戻せる', async () => {
+  const { vaultRefOf, vaultPathOf } = await import('../scripts/lib/image-origin.mjs');
+  const root = 'G:/マイドライブ/doboku-note';
+  const file = 'G:' + String.fromCharCode(92) + 'マイドライブ' + String.fromCharCode(92) + 'doboku-note/原資料PDF/書籍/x/crops/p0012_a.png';
+  assert.equal(vaultRefOf(file, root), 'vault:原資料PDF/書籍/x/crops/p0012_a.png');
+  assert.equal(vaultRefOf('C:/tmp/a.png', root), null, 'vault の外は記録しない');
+  assert.equal(vaultRefOf(file, null), null, 'vault が無ければ記録しない');
+  assert.equal(vaultPathOf('vault:原資料PDF/書籍/x/crops/p0012_a.png', root + '/'), 'G:/マイドライブ/doboku-note/原資料PDF/書籍/x/crops/p0012_a.png');
+  assert.equal(vaultPathOf('https://example.jp/a.png', root), null);
+});
+
