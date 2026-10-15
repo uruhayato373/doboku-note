@@ -57120,6 +57120,48 @@
         "scripts/check-orphan-ogp.mjs"
       ],
       "srcHash": "8acaee8d1f87da69"
+    },
+    "content/site/civil-practice/municipal-engineer-qualifications/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/municipal-engineer-qualifications/ogp.png",
+      "sha256": "5a50e394ab173d8dd643bbe99736b762bd5b3c204003386e6d0fe45a01f531e1",
+      "bytes": 61936,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-15T06:15:18.811Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/municipal-engineer-qualifications/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "55d73d32e883ca23"
+    },
+    "content/site/civil-practice/explaining-to-residents-and-council/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/explaining-to-residents-and-council/ogp.png",
+      "sha256": "7727bfff2f2e6b5148f83130ffa546ef0b76b273e53a4226133d6497be264854",
+      "bytes": 69046,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-15T06:15:19.006Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/explaining-to-residents-and-council/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "c61006f549019095"
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",
