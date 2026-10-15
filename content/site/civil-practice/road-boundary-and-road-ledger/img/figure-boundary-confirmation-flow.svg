@@ -1,0 +1,51 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は堺市「道路境界確定協議事務取扱要領」の手順（第3〜13条）と、法務省「筆界特定制度」・不動産登記法第143条・第148条。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="官民境界の確認の流れ。依頼・受理、現地の立会いと協議、境界標の設置、確定図の作成、署名・承諾、通知（確認書）の交付、台帳への反映の順に進む。協議が整わないときは、筆界特定または訴訟に進む。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }  /* ink-body */
+      .s { font-size: 11px; fill: #555; }
+      .n { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .b { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }  /* brand-fill / brand */
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }  /* warn-fill / warn */
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }  /* positive-fill / positive */
+      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ad { stroke: #8a8a8a; stroke-width: 1.5; fill: none; stroke-dasharray: 4 3; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+    <marker id="am" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#8a8a8a"/></marker>
+  </defs>
+  <rect class="brand" x="10" y="10" width="240" height="52" rx="8"/>
+  <text class="n" x="22" y="32">依頼・受理</text>
+  <text x="22" y="52">依頼書の提出と審査（第3条・第8条）</text>
+  <path class="a" d="M130,62V80" marker-end="url(#ah)"/>
+  <rect class="brand" x="10" y="80" width="240" height="52" rx="8"/>
+  <text class="n" x="22" y="102">現地の立会いと協議</text>
+  <text x="22" y="122">関係者を呼び、記録を残す（第9条）</text>
+  <path class="a" d="M130,132V150" marker-end="url(#ah)"/>
+  <path class="ad" d="M250,106H270" marker-end="url(#am)"/>
+  <rect class="warn" x="272" y="72" width="118" height="68" rx="8"/>
+  <text class="b" x="282" y="91">整わないとき</text>
+  <text x="282" y="110">筆界特定</text>
+  <text x="282" y="128">または訴訟</text>
+  <rect class="brand" x="10" y="150" width="240" height="52" rx="8"/>
+  <text class="n" x="22" y="172">境界標の設置</text>
+  <text x="22" y="192">協議が整ったとき（第10条）</text>
+  <path class="a" d="M130,202V220" marker-end="url(#ah)"/>
+  <rect class="brand" x="10" y="220" width="240" height="52" rx="8"/>
+  <text class="n" x="22" y="242">確定図の作成</text>
+  <text x="22" y="262">座標値で位置を復元（第11条）</text>
+  <path class="a" d="M130,272V290" marker-end="url(#ah)"/>
+  <rect class="brand" x="10" y="290" width="240" height="52" rx="8"/>
+  <text class="n" x="22" y="312">署名・承諾</text>
+  <text x="22" y="332">依頼者と相隣地所有者（第12条）</text>
+  <path class="a" d="M130,342V360" marker-end="url(#ah)"/>
+  <rect class="brand" x="10" y="360" width="240" height="52" rx="8"/>
+  <text class="n" x="22" y="382">通知（確認書）の交付</text>
+  <text x="22" y="402">市長が通知を交付（第13条）</text>
+  <path class="a" d="M130,412V430" marker-end="url(#ah)"/>
+  <rect class="pos" x="10" y="430" width="240" height="52" rx="8"/>
+  <text class="n" x="22" y="452">台帳への反映</text>
+  <text x="22" y="472">図面の線や地番を直す</text>
+  <text class="s" x="274" y="486">条は堺市の要領</text>
+</svg>
