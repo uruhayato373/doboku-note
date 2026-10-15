@@ -190,26 +190,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **手がかり（2026-10-10）**: 同じ日に Google Drive の本体アプリが止まっていて、マウントの read が全部 ETIMEDOUT になっていた（File Provider の拡張だけ動いていた・`open -a "Google Drive"` で 20 秒後に復旧）。10/4 の取り寄せの失敗も同じ原因の可能性が高い。次の日曜の同期の前に `pgrep -fl "Google Drive.app/Contents/MacOS"` で本体が動いているかを見る（memory reference_drive_vault_ledger_drift）。
 
-### [DN-0502] 技術士一次試験の主要10ページを GSC でインデックス登録リクエストする（Mac・運営者作業）
-タグ: [SNS・マーケ] [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-10-02] [期日:2026-10-17]
-
-**起点**: DN-0499 の手作業分。2026-10-02 に一次試験の内部リンク・題名・一覧ページの改善を本番へ出した（PR #829・main d2fed24）。9/30 の URL 検査で一次試験 53 ページ中 26 ページが未登録（「検出 - インデックス未登録」20・「Google に認識されていません」6）で、R07 基礎と無料演習は Google に認識されていない。11/22 の試験前に検索の入口を開けたい。
-
-**やること**: 運営者が Mac で GSC（sc-domain:doboku-note.com）の URL 検査を開き、次の 10 URL を「インデックス登録をリクエスト」する（1 日の上限に注意）。
-1. https://doboku-note.com/exam/pe-first-stage
-2. https://doboku-note.com/exam/pe-first-stage/guide/overview
-3. https://doboku-note.com/exam/pe-first-stage/primary/r07-basic
-4. https://doboku-note.com/exam/pe-first-stage/primary/r07-aptitude
-5. https://doboku-note.com/exam/pe-first-stage/primary/r07-construction
-6. https://doboku-note.com/exam/pe-first-stage/primary/r06-basic
-7. https://doboku-note.com/exam/pe-first-stage/primary/r06-aptitude
-8. https://doboku-note.com/exam/pe-first-stage/primary/r05-basic
-9. https://doboku-note.com/exam/pe-first-stage/guide/study-plan
-10. https://doboku-note.com/tools/kakomon-quiz/pe-first-stage
-
-**完了条件**: 10 URL すべてでリクエストを送った（GSC の画面で「インデックス登録をリクエスト済み」を確認）。効果の確認は DN-0499 の完了条件（2026-11 初めの比較）で行う。
-
-**期日の変更（週次レビュー 2026-10-10）**: Mac でのログイン作業（DN-0643）と同じ日にまとめるため 2026-10-17 へ。
 
 ### [DN-0500] 技術士一次試験 令和8年度（11/22）の解答速報ページを事前に用意し、公式正答の公開後すぐ埋める
 タグ: [SNS・マーケ] [領域:サイト] [時期:2026-11] [種類:制作] [起票:2026-10-02] [期日:2026-11-22]

@@ -4136,6 +4136,19 @@
       "commit": "818ebd1678e2",
       "verification": "本番（main a3c74688f）で 7 記事の改正後の文面を curl で確認（鉄筋の曲げ性・隅角部の外側・スランプ10cm削除・少量混合成分の増量は石灰石だけ・高強度も150m³に1回・強熱減量の規定値の削除・過去問の改正の注）。check-production-ssr exit 0。一覧は concrete-practice-sources.md の「JIS の改正を記事へ反映した箇所」",
       "note": "改正の中身と直した箇所の一覧、原典の文字起こしの表が崩れて「鋭角」を「鉤角」と誤読していた点を事実ファイルに記録した（数値の表は頁画像で照合する）。過去問は出題年の版のまま、冒頭に改正の注を足した。"
+    },
+    {
+      "id": "DN-0502",
+      "at": "2026-10-15",
+      "task": "技術士一次試験の主要10ページを GSC でインデックス登録リクエストする（Mac・運営者作業）",
+      "tier": "high",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "5b08a17bd57f",
+      "verification": "node scripts/gsc-request-indexing.mjs --urls <10件> の診断（登録済み 7・14 日以内にリクエスト済み 1）と --commit（r05-basic は登録済み・r06-aptitude は除外）。記録は data/gsc/indexing-{requests,history}.json",
+      "note": "2026-10-15 に URL 検査で 10 URL を確かめた。8 件は登録済み（/exam/pe-first-stage・guide/overview・r07-basic・r07-aptitude・r07-construction・r05-basic・guide/study-plan・/tools/kakomon-quiz/pe-first-stage）。未登録の 2 件は Mac の GSC 自動ジョブ（gsc-local）が送信済み（r06-basic 10/08・r06-aptitude 10/15 01:30）。新たに送るものは無かった。効果の確認は DN-0499 の 11 月初めの比較で行う。"
     }
   ]
 }
