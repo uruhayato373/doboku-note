@@ -56877,7 +56877,7 @@
       "visibility": "public",
       "regenerable": false,
       "group": "site-ogp-png",
-      "verifiedAt": "2026-10-15T05:19:36.029Z",
+      "verifiedAt": "2026-10-15T07:16:45.048Z",
       "width": 1200,
       "height": 630,
       "logicalPath": "content/site/civil-practice/civil-engineer-annual-cycle/ogp.png",
@@ -56888,7 +56888,7 @@
         "scripts/check-ogp-coverage.mjs",
         "scripts/check-orphan-ogp.mjs"
       ],
-      "srcHash": "8f703b65ef57cef5"
+      "srcHash": "08829d8742441b05"
     },
     "content/site/civil-practice/how-to-read-laws-and-notices/ogp.png": {
       "bucket": "public",
@@ -57003,7 +57003,7 @@
       "visibility": "public",
       "regenerable": false,
       "group": "site-ogp-png",
-      "verifiedAt": "2026-10-15T05:40:33.326Z",
+      "verifiedAt": "2026-10-15T07:16:45.029Z",
       "width": 1200,
       "height": 630,
       "logicalPath": "content/site/civil-practice/budget-and-funding-sources/ogp.png",
@@ -57014,7 +57014,175 @@
         "scripts/check-ogp-coverage.mjs",
         "scripts/check-orphan-ogp.mjs"
       ],
-      "srcHash": "bc8b765332507fc3"
+      "srcHash": "80fc257d803c8b53"
+    },
+    "content/site/civil-practice/urban-park-management/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/urban-park-management/ogp.png",
+      "sha256": "c787ca118c625239041d62de7b70095ed6027780be280803dead969ca629ea1a",
+      "bytes": 61457,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-15T05:52:35.670Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/urban-park-management/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "7311ffffd0f5d5fa"
+    },
+    "content/site/civil-practice/disaster-recovery-assessment/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/disaster-recovery-assessment/ogp.png",
+      "sha256": "12b8939f6efededa54f49c966cfd8610ac7f1005ed917cbf4e26be9e05e917f9",
+      "bytes": 68715,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-15T05:59:02.043Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/disaster-recovery-assessment/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "77e891da3265a6a1"
+    },
+    "content/site/civil-practice/sewerage-and-stormwater/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/sewerage-and-stormwater/ogp.png",
+      "sha256": "b6ca9c64ce2c43878c33d01e4f69d7ec272e1116d79824a9c6ec9fa797f7ecdf",
+      "bytes": 67012,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-15T06:01:36.500Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/sewerage-and-stormwater/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "da186723df280deb"
+    },
+    "content/site/civil-practice/sediment-disaster-erosion-control/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/sediment-disaster-erosion-control/ogp.png",
+      "sha256": "1662bd9c8baa703c5427e259ed710be03aaf8529d5b787f18a529789ca1f045b",
+      "bytes": 64256,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-15T06:08:12.345Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/sediment-disaster-erosion-control/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "00db6b2b3e6e6a27"
+    },
+    "content/site/civil-practice/regional-disaster-plan-flood-fighting/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/regional-disaster-plan-flood-fighting/ogp.png",
+      "sha256": "adfa051532691809ac9cc753ccab88b64f336ab85c81b42c803c0a05aceb4579",
+      "bytes": 65124,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-15T06:11:23.843Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/regional-disaster-plan-flood-fighting/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "8acaee8d1f87da69"
+    },
+    "content/site/civil-practice/municipal-engineer-qualifications/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/municipal-engineer-qualifications/ogp.png",
+      "sha256": "5a50e394ab173d8dd643bbe99736b762bd5b3c204003386e6d0fe45a01f531e1",
+      "bytes": 61936,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-15T07:16:45.059Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/municipal-engineer-qualifications/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "ced96af29fafeb65"
+    },
+    "content/site/civil-practice/explaining-to-residents-and-council/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/explaining-to-residents-and-council/ogp.png",
+      "sha256": "7727bfff2f2e6b5148f83130ffa546ef0b76b273e53a4226133d6497be264854",
+      "bytes": 69046,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-15T06:15:19.006Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/explaining-to-residents-and-council/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "c61006f549019095"
+    },
+    "content/site/civil-practice/municipal-civil-engineer-work/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/municipal-civil-engineer-work/ogp.png",
+      "sha256": "0636a2cad34d4aa4f8075e2b148dfa7a1fdd87755baa457ee7eb2d6928802e69",
+      "bytes": 64515,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-15T07:16:45.211Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/municipal-civil-engineer-work/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "798211dc69ac0fe9"
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",

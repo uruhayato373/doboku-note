@@ -1,0 +1,55 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は災害対策基本法第34条・第42条、水防法第7条・第33条の計画の階層。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="防災の計画と水防の計画の三階建ての図。国の防災基本計画に基づいて市町村地域防災計画を作り、都道府県地域防災計画に抵触しない。水防は都道府県の水防計画に、指定管理団体の水防計画をそろえる。市町村地域防災計画では事務の大綱、事項別の計画、整備の計画の欄を土木担当が確かめる。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .t { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .tb { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 11px; fill: #555; }
+      .k { font-size: 12px; fill: #222; }
+      .b-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .b-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .b-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .b-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .b-g { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .b-x { fill: #fff; stroke: #8a8a8a; stroke-width: 1.5; stroke-dasharray: 4 3; }
+      .a { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+      .l { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+
+  <text class="tb" x="14" y="28">防災の計画（災害対策基本法）</text>
+  <text class="tb" x="209" y="28">水防の計画（水防法）</text>
+  <rect class="b-b" x="10" y="44" width="185" height="84" rx="8"/>
+  <text class="t" x="102" y="72" text-anchor="middle">防災基本計画</text>
+  <text class="s" x="102" y="94" text-anchor="middle">中央防災会議・毎年検討</text>
+  <text class="s" x="102" y="111" text-anchor="middle">令和8年7月14日修正</text>
+  <rect class="b-b" x="76" y="170" width="119" height="60" rx="8"/>
+  <text class="t" x="135" y="196" text-anchor="middle">都道府県</text>
+  <text class="t" x="135" y="214" text-anchor="middle">地域防災計画</text>
+  <rect class="b-p" x="205" y="170" width="185" height="60" rx="8"/>
+  <text class="t" x="297" y="196" text-anchor="middle">都道府県の水防計画</text>
+  <text class="s" x="297" y="214" text-anchor="middle">知事が毎年検討</text>
+  <rect class="b-b" x="10" y="276" width="185" height="196" rx="8"/>
+  <text class="t" x="102" y="302" text-anchor="middle">市町村地域防災計画</text>
+  <text class="s" x="102" y="322" text-anchor="middle">市町村防災会議・毎年検討</text>
+  <text class="s" x="102" y="338" text-anchor="middle">修正したら県へ報告</text>
+  <text class="tb" x="22" y="366">土木担当が確かめる欄</text>
+  <rect class="b-w" x="22" y="376" width="161" height="24" rx="5"/>
+  <text class="k" x="102" y="393" text-anchor="middle">事務の大綱</text>
+  <rect class="b-w" x="22" y="406" width="161" height="24" rx="5"/>
+  <text class="k" x="102" y="423" text-anchor="middle">事項別の計画</text>
+  <rect class="b-w" x="22" y="436" width="161" height="24" rx="5"/>
+  <text class="k" x="102" y="453" text-anchor="middle">整備の計画</text>
+  <rect class="b-p" x="205" y="276" width="185" height="76" rx="8"/>
+  <text class="t" x="297" y="306" text-anchor="middle">指定管理団体の水防計画</text>
+  <text class="s" x="297" y="328" text-anchor="middle">水防管理者（市町村長）</text>
+  <path class="a" d="M26,129V274" marker-end="url(#ah)"/>
+  <text class="k" x="34" y="206">基づく</text>
+  <path class="a" d="M135,231V274" marker-end="url(#ah)"/>
+  <text class="k" x="143" y="258">抵触しない</text>
+  <path class="a" d="M297,231V274" marker-end="url(#ah)"/>
+  <text class="k" x="305" y="258">そろえる</text>
+</svg>

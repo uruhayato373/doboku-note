@@ -1,0 +1,66 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は憲法第98条・第73条・第94条、国家行政組織法第12条・第14条、地方自治法第14条・第15条。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="法令の効力の序列を、国と地方公共団体の二列で並べた図。国は憲法、法律、政令、省令の順で、定める者は国会、内閣、各省大臣。地方公共団体は条例、規則の順で、定める者は地方議会と長。条例は法令に違反しない限りで定める。告示・訓令・通達は別筋、要綱・要領は法形式の外に置く。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }
+      .h { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .n { font-size: 16px; font-weight: bold; fill: #1a3a5c; }
+      .d { font-size: 12px; fill: #1a3a5c; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .x { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; stroke-dasharray: 5 4; }
+      .p { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1; }
+      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+
+  <rect class="p" x="10" y="10" width="185" height="26" rx="13"/>
+  <text class="h" x="102.5" y="28" text-anchor="middle">国</text>
+  <rect class="p" x="205" y="10" width="185" height="26" rx="13"/>
+  <text class="h" x="297.5" y="28" text-anchor="middle">地方公共団体</text>
+
+  <rect class="b" x="10" y="46" width="185" height="62" rx="8"/>
+  <text class="n" x="24" y="72">憲法</text>
+  <text class="d" x="24" y="94">最高法規（第98条）</text>
+  <path class="a" d="M102,110V126" marker-end="url(#ah)"/>
+  <rect class="b" x="10" y="128" width="185" height="62" rx="8"/>
+  <text class="n" x="24" y="154">法律</text>
+  <text class="d" x="24" y="176">定める者：国会</text>
+  <path class="a" d="M102,192V208" marker-end="url(#ah)"/>
+  <rect class="b" x="10" y="210" width="185" height="62" rx="8"/>
+  <text class="n" x="24" y="236">政令</text>
+  <text class="d" x="24" y="258">定める者：内閣</text>
+  <path class="a" d="M102,274V290" marker-end="url(#ah)"/>
+  <rect class="b" x="10" y="292" width="185" height="62" rx="8"/>
+  <text class="n" x="24" y="318">省令</text>
+  <text class="d" x="24" y="340">定める者：各省大臣</text>
+
+  <rect class="g" x="205" y="46" width="185" height="108" rx="8"/>
+  <text class="n" x="219" y="72">条例</text>
+  <text class="d" x="219" y="94">定める者：地方議会</text>
+  <text class="d" x="219" y="120">法令に違反しない限り</text>
+  <text class="d" x="219" y="138">（地方自治法第14条第1項）</text>
+  <path class="a" d="M297,156V172" marker-end="url(#ah)" style="stroke:#3a7d44"/>
+  <rect class="g" x="205" y="174" width="185" height="62" rx="8"/>
+  <text class="n" x="219" y="200">規則</text>
+  <text class="d" x="219" y="222">定める者：長</text>
+
+  <rect class="x" x="10" y="380" width="185" height="84" rx="8"/>
+  <text class="n" x="24" y="406">告示・訓令・通達</text>
+  <text class="d" x="24" y="428">効力の序列とは別筋</text>
+  <text class="d" x="24" y="448">（国の側の文書）</text>
+  <rect class="x" x="205" y="380" width="185" height="84" rx="8"/>
+  <text class="n" x="219" y="406">要綱・要領</text>
+  <text class="d" x="219" y="428">法形式の外</text>
+  <text class="d" x="219" y="448">（行政内部の定め）</text>
+
+  <rect class="b" x="215" y="272" width="22" height="14" rx="3"/>
+  <text x="246" y="284">国の法形式</text>
+  <rect class="g" x="215" y="296" width="22" height="14" rx="3"/>
+  <text x="246" y="308">地方の法形式</text>
+  <rect class="x" x="215" y="320" width="22" height="14" rx="3"/>
+  <text x="246" y="332">別筋・法形式の外</text>
+  <path class="a" d="M215,350H236" marker-end="url(#ah)"/>
+  <text x="246" y="354">上位から下位へ</text>
+</svg>

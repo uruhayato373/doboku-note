@@ -3985,6 +3985,45 @@
       "commit": "b1ea9107934e",
       "verification": "find ~/.codex/archived_sessions -type f -mtime +7 | wc -l が 0",
       "note": "保持期間 1 週間（2026-10-15 運営者判断）。運営者が PowerShell で 7 日超の 22 件（約 530MB）を削除し、7 日超は 0 件・残り 10 件 619MB。手順は disk-hygiene.md §5（Mac・Git Bash と PowerShell の両方）"
+    },
+    {
+      "id": "DN-0705",
+      "at": "2026-10-15",
+      "task": "config/（固定的な設定）と data/（動的なデータ）の分け方に沿って、ハードコードを無くし JSON を統合する",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "f5a271407a89",
+      "verification": "npm run check-datasets PASS",
+      "note": "config/・data/ の直書きは check-datasets が止め datasetPath で引く形になっている。残る .claude/config/ は DN-0524（案B）、.claude/state/ の直書きは state-path-literal-baseline のラチェットに任せる（2026-10-15 運営者が推奨案を採用）"
+    },
+    {
+      "id": "DN-0709",
+      "at": "2026-10-15",
+      "task": "過去問を保存するフォルダを教材と分け、管理と同期の方法を決める",
+      "tier": "mid",
+      "kind": "意思決定",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "f5a271407a89",
+      "verification": "content/sources/past-exams/README.md",
+      "note": "すでに分かれている: 原本は content/sources/past-exams（PDF は Drive 原資料PDF/過去問・group past-exam-source-pdf）、第三者の解説は content/sources/textbook/{資格}/過去問解説、在庫の正本は data/pastexams/inventory.json、手順は /past-exam-archive（2026-10-15 運営者が推奨案を採用）"
+    },
+    {
+      "id": "DN-0348",
+      "at": "2026-10-15",
+      "task": "技術士 上下水道部門の商品設計を決める（出題テーマ・競合・書ける範囲）",
+      "tier": "mid",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "f5a271407a89",
+      "verification": "DN-0349・DN-0350 のカードに決定が入っている",
+      "note": "出題テーマ・売り手と価格・書ける範囲と照合の体制・商品の順番と価格を content/note/技術士上下水道部門/出題テーマ_R01-R08.md にまとめ、運営者が推奨案を採用（2026-10-15）。DN-0349（必須I ¥3,480・2027-03 まで）・DN-0350（合格した選択科目から ¥2,980・パック ¥4,980・合格外の II-1 は factcheck 必須）に決定を書いて範囲を確定。どちらの選択科目で合格したかは DN-0350 の確認事項"
     }
   ]
 }

@@ -1,0 +1,62 @@
+<!-- authored 2026-10-15 doboku-note 自作。原形復旧・効用の復旧・改良復旧の区別は公共土木施設災害復旧事業費国庫負担法第2条と国土交通省の資料による。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="災害復旧の三つの考え方を比べた概念図。原形復旧は被災前と同じ形に直す。効用の復旧は、同じ効用を保つ別の形に直す。たとえば流出した木橋の場所にコンクリート橋を架ける。改良復旧は、復旧に合わせて川幅を広げ、河床を掘り、築堤して再度災害を防ぐ。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 11px; fill: #555; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .g { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .l { stroke: #d7d7d7; stroke-width: 1; fill: none; }
+      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+    <marker id="at" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+  <rect x="10" y="8" width="380" height="144" rx="8" fill="#fff" stroke="#d7d7d7" stroke-width="1.5"/>
+  <rect class="b" x="254" y="22" width="124" height="26" rx="13"/>
+  <text class="t" x="316" y="39" text-anchor="middle">原形復旧</text>
+  <text class="s" x="254" y="70">被災前と同じ形に</text>
+  <text class="s" x="254" y="88">直す</text>
+  <polygon points="18,62 58,62 80,106 174,106 196,62 236,62 236,142 18,142" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1.5"/>
+  <polygon points="71,92 183,92 174,106 80,106" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <path d="M58,62 L80,106" fill="none" stroke="#8a8a8a" stroke-width="4"/>
+  <path d="M174,106 L196,62" fill="none" stroke="#8a8a8a" stroke-width="4"/>
+  <text class="s" x="112" y="128" text-anchor="middle">護岸</text>
+  <rect x="10" y="158" width="380" height="144" rx="8" fill="#fff" stroke="#d7d7d7" stroke-width="1.5"/>
+  <rect class="p" x="254" y="172" width="124" height="26" rx="13"/>
+  <text class="t" x="316" y="189" text-anchor="middle">効用の復旧</text>
+  <text class="s" x="254" y="220">同じ効用を保つ</text>
+  <text class="s" x="254" y="238">別の形に直す</text>
+  <text class="s" x="254" y="256">例：橋に替える</text>
+  <rect x="18" y="220" width="40" height="72" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1.5"/>
+  <rect x="196" y="220" width="40" height="72" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1.5"/>
+  <rect x="58" y="262" width="138" height="30" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <path d="M42,224 L212,224" fill="none" stroke="#8a8a8a" stroke-width="2" stroke-dasharray="5 4"/>
+  <path d="M84,224 L84,262" fill="none" stroke="#8a8a8a" stroke-width="2" stroke-dasharray="5 4"/>
+  <path d="M170,224 L170,262" fill="none" stroke="#8a8a8a" stroke-width="2" stroke-dasharray="5 4"/>
+  <text class="s" x="109" y="246" text-anchor="middle">元の木橋</text>
+  <rect x="42" y="211" width="170" height="9" fill="#d7d7d7" stroke="#555" stroke-width="1.5"/>
+  <text class="t" x="127" y="198" text-anchor="middle">コンクリート橋</text>
+  <rect x="10" y="308" width="380" height="144" rx="8" fill="#fff" stroke="#d7d7d7" stroke-width="1.5"/>
+  <rect class="w" x="254" y="322" width="124" height="26" rx="13"/>
+  <text class="t" x="316" y="339" text-anchor="middle">改良復旧</text>
+  <text class="s" x="254" y="370">復旧に合わせて</text>
+  <text class="s" x="254" y="388">再度災害を防ぐ</text>
+  <text class="s" x="254" y="406">例：築堤・河床掘削</text>
+  <polygon points="18,362 32,362 52,422 190,422 216,348 236,348 236,442 18,442" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1.5"/>
+  <polygon points="43,394 196,394 190,422 52,422" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <path d="M58,362 L80,406 L174,406 L196,362 L236,362" fill="none" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <path d="M124,354H38" stroke="#2e6da4" stroke-width="2" fill="none" marker-end="url(#ah)"/>
+  <path d="M124,354H210" stroke="#2e6da4" stroke-width="2" fill="none" marker-end="url(#ah)"/>
+  <text class="s" x="124" y="344" text-anchor="middle">川幅を広げる</text>
+  <text class="s" x="227" y="340" text-anchor="middle">築堤</text>
+  <text class="s" x="122" y="438" text-anchor="middle">河床を掘る</text>
+  <path d="M118,407V420" stroke="#2e6da4" stroke-width="2" fill="none" marker-end="url(#ah)"/>
+  <path d="M14,478H44" stroke="#8a8a8a" stroke-width="2" stroke-dasharray="5 4" fill="none"/>
+  <text class="s" x="52" y="482">破線は被災前の形</text>
+</svg>
