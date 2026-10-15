@@ -12,13 +12,14 @@ import StandardsAttribution from '@/components/standards/StandardsAttribution';
 import StandardDataLinks from '@/components/standards/StandardDataLinks';
 import StandardsNavigation from '@/components/standards/StandardsNavigation';
 import StandardTopicLinks from '@/components/standards/StandardTopicLinks';
+import StandardReferenceLinks from '@/components/standards/StandardReferenceLinks';
 import SourceRef from '@/components/standards/SourceRef';
 import QualificationBridge from '@/components/ui/QualificationBridge/QualificationBridge';
 import AffiliateSlot from '@/components/ui/AffiliateSlot/AffiliateSlot';
 import rehypeHeadingIds from '@/lib/rehype-heading-ids';
 import rehypeScrollableFocus from '@/lib/rehype-scrollable-focus';
 import { buildPageMetadata } from '@/lib/metadata';
-import { getStandardDocuments, standardDocumentPath, standardPartPath } from '@/lib/standards';
+import { getReferencedStandardDocuments, getStandardDocuments, standardDocumentPath, standardPartPath } from '@/lib/standards';
 import {
   getStandardChapter,
   getStandardChapters,
@@ -84,6 +85,7 @@ export default async function StandardChapterPage({ params }: { params: Promise<
   const { document: entry, chapter: target } = resolved;
   const markdown = readStandardChapterMarkdown(agency, document, target);
   const relatedTopics = getTopicsForStandardText(entry, markdown);
+  const referencedDocuments = getReferencedStandardDocuments(entry, markdown);
 
   const firstPart = entry.parts.find(
     (part) => target.firstPage >= part.firstPage && target.firstPage <= part.lastPage,
@@ -182,6 +184,7 @@ export default async function StandardChapterPage({ params }: { params: Promise<
             <StandardDataLinks document={entry} chapter={target} />
           </section>
 
+          <StandardReferenceLinks documents={referencedDocuments} />
           <StandardTopicLinks topics={relatedTopics} />
           {/* 共通仕様書の読者（発注者・施工会社）を資格の入口へ。本文の外に 1 枚だけ置く。 */}
           <div className="mt-10">
