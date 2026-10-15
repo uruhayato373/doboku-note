@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-15T03:10:11.283Z",
+  "generated_at": "2026-10-15T03:13:26.943Z",
   "summary": {
-    "total_mdx_files": 1416,
+    "total_mdx_files": 1417,
     "total_unique_tags": 133,
     "allowlist_size": 330,
     "known_count": 133,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 240,
+      "count": 241,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1241,6 +1241,7 @@
         "civil-practice-road-act-framework",
         "civil-practice-road-boundary-and-road-ledger",
         "civil-practice-road-fixtures-precast",
+        "civil-practice-road-inspection-longevity-plan",
         "civil-practice-road-occupancy-permit-review",
         "civil-practice-road-work-approval-vs-road-use-permit",
         "civil-practice-safety-culture-discipline",
@@ -3521,7 +3522,7 @@
     },
     {
       "name": "道路",
-      "count": 36,
+      "count": 37,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-2-guide-road-pavement-key-points",
@@ -3531,6 +3532,7 @@
         "civil-practice-road-act-framework",
         "civil-practice-road-boundary-and-road-ledger",
         "civil-practice-road-fixtures-precast",
+        "civil-practice-road-inspection-longevity-plan",
         "civil-practice-road-occupancy-permit-review",
         "civil-practice-road-work-approval-vs-road-use-permit",
         "civil-practice-schedule-and-road-permit",
@@ -3980,6 +3982,31 @@
       ]
     },
     {
+      "name": "地方公共団体",
+      "count": 18,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-board-of-audit-inspection",
+        "civil-practice-road-boundary-and-road-ledger",
+        "civil-practice-road-inspection-longevity-plan",
+        "civil-practice-satomichi-suiro-management",
+        "pe-comprehensive-management-essay-pattern-cross-year-application",
+        "pe-comprehensive-management-h21-essay-road-municipality",
+        "pe-comprehensive-management-h22-essay-road-municipality",
+        "pe-comprehensive-management-h23-essay-road-municipality",
+        "pe-comprehensive-management-h24-essay-road-municipality",
+        "pe-comprehensive-management-h25-essay-road-municipality",
+        "pe-comprehensive-management-h26-essay-road-municipality",
+        "pe-comprehensive-management-h27-essay-road-municipality",
+        "pe-comprehensive-management-pattern-essay-road-municipality",
+        "pe-comprehensive-management-r03-essay-road-municipality",
+        "pe-comprehensive-management-r04-essay-road-municipality",
+        "pe-comprehensive-management-r05-essay-road-municipality",
+        "pe-comprehensive-management-r06-essay-road-municipality",
+        "pe-comprehensive-management-r07-essay-road-municipality"
+      ]
+    },
+    {
       "name": "工程管理",
       "count": 18,
       "inAllowlist": true,
@@ -4002,6 +4029,31 @@
         "pe-comprehensive-management-pert-cpm",
         "pe-comprehensive-management-process-planning-construction",
         "pe-comprehensive-management-progress-management"
+      ]
+    },
+    {
+      "name": "維持管理",
+      "count": 18,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-guide-concrete-maintenance",
+        "civil-practice-concrete-standards-history",
+        "civil-practice-large-fill-landslide",
+        "civil-practice-levee-failure-reinforcement",
+        "civil-practice-monitoring-sensor-selection",
+        "civil-practice-road-inspection-longevity-plan",
+        "civil-practice-seismic-design-levels",
+        "concrete-chief-engineer-textbook-durability",
+        "concrete-diagnostician-textbook-assessment",
+        "concrete-diagnostician-textbook-maintenance",
+        "concrete-diagnostician-textbook-repair",
+        "pe-comprehensive-management-h22-essay-general-contractor",
+        "pe-comprehensive-management-h25-essay-general-contractor",
+        "pe-comprehensive-management-h25-essay-river-consultant",
+        "pe-comprehensive-management-h25-essay-road-municipality",
+        "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance",
+        "pe-construction-iji-kanri-ronbun-keyword",
+        "pe-construction-infra-roukyuuka-iji"
       ]
     },
     {
@@ -4053,30 +4105,6 @@
       ]
     },
     {
-      "name": "地方公共団体",
-      "count": 17,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-board-of-audit-inspection",
-        "civil-practice-road-boundary-and-road-ledger",
-        "civil-practice-satomichi-suiro-management",
-        "pe-comprehensive-management-essay-pattern-cross-year-application",
-        "pe-comprehensive-management-h21-essay-road-municipality",
-        "pe-comprehensive-management-h22-essay-road-municipality",
-        "pe-comprehensive-management-h23-essay-road-municipality",
-        "pe-comprehensive-management-h24-essay-road-municipality",
-        "pe-comprehensive-management-h25-essay-road-municipality",
-        "pe-comprehensive-management-h26-essay-road-municipality",
-        "pe-comprehensive-management-h27-essay-road-municipality",
-        "pe-comprehensive-management-pattern-essay-road-municipality",
-        "pe-comprehensive-management-r03-essay-road-municipality",
-        "pe-comprehensive-management-r04-essay-road-municipality",
-        "pe-comprehensive-management-r05-essay-road-municipality",
-        "pe-comprehensive-management-r06-essay-road-municipality",
-        "pe-comprehensive-management-r07-essay-road-municipality"
-      ]
-    },
-    {
       "name": "専門科目（上下水道部門）",
       "count": 17,
       "inAllowlist": true,
@@ -4098,30 +4126,6 @@
         "pe-first-stage-r05-water-supply",
         "pe-first-stage-r06-water-supply",
         "pe-first-stage-r07-water-supply"
-      ]
-    },
-    {
-      "name": "維持管理",
-      "count": 17,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-guide-concrete-maintenance",
-        "civil-practice-concrete-standards-history",
-        "civil-practice-large-fill-landslide",
-        "civil-practice-levee-failure-reinforcement",
-        "civil-practice-monitoring-sensor-selection",
-        "civil-practice-seismic-design-levels",
-        "concrete-chief-engineer-textbook-durability",
-        "concrete-diagnostician-textbook-assessment",
-        "concrete-diagnostician-textbook-maintenance",
-        "concrete-diagnostician-textbook-repair",
-        "pe-comprehensive-management-h22-essay-general-contractor",
-        "pe-comprehensive-management-h25-essay-general-contractor",
-        "pe-comprehensive-management-h25-essay-river-consultant",
-        "pe-comprehensive-management-h25-essay-road-municipality",
-        "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance",
-        "pe-construction-iji-kanri-ronbun-keyword",
-        "pe-construction-infra-roukyuuka-iji"
       ]
     },
     {
