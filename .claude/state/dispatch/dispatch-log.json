@@ -4037,6 +4037,32 @@
       "commit": "41351387f111",
       "verification": "npm run check-agent-config: 21 件を実検査・違反 0、tests/check-agent-config.test.mjs pass（必須欄を消すと全型が落ちる）",
       "note": "案B（2026-10-15 運営者が推奨案を採用）。.claude/config/ の JSON 21 本に型を付け（scripts/lib/dataset-schemas-agent-config.mjs）、npm run check-agent-config（quality-audit ci:true）が型の違反と型の無い JSON を止める。直書きの整理（案A）は効果が別なので必要になったら別カード"
+    },
+    {
+      "id": "DN-0742",
+      "at": "2026-10-15",
+      "task": "自治体の土木担当シリーズの残り（新規 16 章・補強 4 章）を書いて公開し、シリーズを完結させる",
+      "tier": "high",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "cbf5848f2896",
+      "verification": "本番でシリーズの記事 43 本 HTTP 200・<main あり、図と写真 96 枚 HTTP 200、check-production-ssr exit 0、check-content-series PASS（新規 35 公開・補強待ち 0）",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0741",
+      "at": "2026-10-15",
+      "task": "自治体の土木担当シリーズの写真 5 枚（A-15・A-16・A-24・A-25）を AI で作り、実物どおりかを監査して入れる",
+      "tier": "low",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "cbf5848f2896",
+      "verification": "写真 8 枚を AI で作り ai-image-fidelity-auditor で全数 ok・record-ai 済み、本番で HTTP 200、visual-jobs の municipal-civil-engineer 0 件",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }
