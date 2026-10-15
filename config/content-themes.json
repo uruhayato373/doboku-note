@@ -44,6 +44,10 @@
         "pathPrefix": "技術士建設部門/"
       },
       {
+        "theme": "pe-water-supply",
+        "pathPrefix": "技術士上下水道部門/"
+      },
+      {
         "theme": "pe-first-stage",
         "pathPrefix": "技術士一次/"
       },
