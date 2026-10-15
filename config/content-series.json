@@ -1108,7 +1108,7 @@
       "audience": "コンクリートに関わるすべての人（発注者・設計者・生コン工場・施工者・維持管理者）。初めて担当する人から受験者まで",
       "area": "practice",
       "policy": "docs/strategy/18_自治体土木担当・コンクリートシリーズ方針2026-10.md",
-      "gate": "EXP-012（記事末の資格カード）の判定（事後窓の終わり 2026-11-26）で継続になるまで、新規記事は書かない（2026-10-13 運営者判断）",
+      "gate": "2026-10-15 の運営者判断で、EXP-012 の判定を待たずに補強 5 章を書き足してシリーズを完結させる（DN-0733）。図・写真は DN-0727。判定と公開 28 日の計測はシリーズの改善に使う（DN-0719）",
       "entry": {
         "hubItem": "C-00",
         "curriculum": "civil-practice:concrete"
@@ -1578,7 +1578,11 @@
       "audience": "土木の材料を選ぶ・受け入れる人（コンクリート以外の材料）",
       "area": "practice",
       "policy": "docs/strategy/18_自治体土木担当・コンクリートシリーズ方針2026-10.md",
-      "gate": "EXP-012（記事末の資格カード）の判定（事後窓の終わり 2026-11-26）で継続になるまで、新規記事は書かない（2026-10-13 運営者判断）",
+      "gate": "2026-10-15 の運営者判断で、EXP-012 の判定を待たずに新規 3 章を書いて公開し、シリーズを完結させる（DN-0747）。判定と計測はシリーズの改善に使う（DN-0719）",
+      "entry": {
+        "hubItem": "M-01",
+        "curriculum": "civil-practice:construction-materials"
+      },
       "sections": [
         {
           "title": "建設材料",
@@ -1589,6 +1593,9 @@
               "plan": "new",
               "links": [
                 "content/site/civil-practice/material-selection-receiving/article.mdx"
+              ],
+              "paths": [
+                "content/site/civil-practice/construction-materials-overview/article.mdx"
               ]
             },
             {
@@ -1610,12 +1617,18 @@
             {
               "id": "M-04",
               "title": "高分子材料 — 樹脂・ゴム・繊維・連続繊維補強材",
-              "plan": "new"
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/polymer-construction-materials/article.mdx"
+              ]
             },
             {
               "id": "M-05",
               "title": "木材と石材",
-              "plan": "new"
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/wood-and-stone-materials/article.mdx"
+              ]
             }
           ]
         }
