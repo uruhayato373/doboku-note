@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-15T05:22:14.904Z",
+  "generated_at": "2026-10-15T05:23:10.764Z",
   "summary": {
-    "total_mdx_files": 1432,
+    "total_mdx_files": 1433,
     "total_unique_tags": 133,
     "allowlist_size": 330,
     "known_count": 133,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 256,
+      "count": 257,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1223,6 +1223,7 @@
         "civil-practice-land-acquisition-compensation",
         "civil-practice-large-fill-landslide",
         "civil-practice-lifting-equipment-selection",
+        "civil-practice-national-prefecture-municipal-roles",
         "civil-practice-nature-conservation-mitigation",
         "civil-practice-netis-new-technology-use",
         "civil-practice-oshms-pdca-site-operation",
@@ -3546,12 +3547,13 @@
     },
     {
       "name": "道路",
-      "count": 38,
+      "count": 39,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-2-guide-road-pavement-key-points",
         "civil-practice-asphalt-materials-types",
         "civil-practice-asphalt-pavement-control",
+        "civil-practice-national-prefecture-municipal-roles",
         "civil-practice-project-request-to-budget",
         "civil-practice-reading-civil-drawings",
         "civil-practice-road-act-framework",
@@ -3669,7 +3671,7 @@
     },
     {
       "name": "地方公共団体",
-      "count": 30,
+      "count": 31,
       "inAllowlist": true,
       "usedIn": [
         "civil-practice-board-of-audit-inspection",
@@ -3678,6 +3680,7 @@
         "civil-practice-coast-port-administrators",
         "civil-practice-how-to-read-laws-and-notices",
         "civil-practice-land-acquisition-compensation",
+        "civil-practice-national-prefecture-municipal-roles",
         "civil-practice-owner-safety-responsibility",
         "civil-practice-ppp-pfi-selection",
         "civil-practice-project-request-to-budget",
@@ -3742,7 +3745,7 @@
     },
     {
       "name": "河川",
-      "count": 28,
+      "count": 29,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-textbook-river-works",
@@ -3750,6 +3753,7 @@
         "civil-practice-flood-control-facilities",
         "civil-practice-flood-season-river-work",
         "civil-practice-levee-failure-reinforcement",
+        "civil-practice-national-prefecture-municipal-roles",
         "civil-practice-nature-conservation-mitigation",
         "civil-practice-project-request-to-budget",
         "civil-practice-reading-civil-drawings",
