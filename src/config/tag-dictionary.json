@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-15T03:05:32.123Z",
+  "generated_at": "2026-10-15T03:09:31.512Z",
   "summary": {
-    "total_mdx_files": 1414,
+    "total_mdx_files": 1415,
     "total_unique_tags": 133,
     "allowlist_size": 330,
     "known_count": 133,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 238,
+      "count": 239,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1238,6 +1238,7 @@
         "civil-practice-risk-assessment-construction-workflow",
         "civil-practice-river-area-permits",
         "civil-practice-river-park-erosion-control",
+        "civil-practice-road-act-framework",
         "civil-practice-road-fixtures-precast",
         "civil-practice-road-occupancy-permit-review",
         "civil-practice-road-work-approval-vs-road-use-permit",
@@ -3519,13 +3520,14 @@
     },
     {
       "name": "道路",
-      "count": 34,
+      "count": 35,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-2-guide-road-pavement-key-points",
         "civil-practice-asphalt-materials-types",
         "civil-practice-asphalt-pavement-control",
         "civil-practice-reading-civil-drawings",
+        "civil-practice-road-act-framework",
         "civil-practice-road-fixtures-precast",
         "civil-practice-road-occupancy-permit-review",
         "civil-practice-road-work-approval-vs-road-use-permit",
