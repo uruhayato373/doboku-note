@@ -105,6 +105,70 @@
       "stopReason": "user-decision"
     },
     {
+      "id": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform",
+      "work": "anzen-touan-gutaika-kaitei",
+      "account": "youtube:main",
+      "format": "longform",
+      "copy": "content/sns/video-packs/civil-construction-2/anzen-touan-gutaika-kaitei/youtube.json#longform",
+      "media": {
+        "cover": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/cover",
+        "cta": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/cta",
+        "scene-001": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/scene-001",
+        "scene-002": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/scene-002",
+        "scene-003": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/scene-003",
+        "scene-004": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/scene-004",
+        "scene-005": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/scene-005",
+        "scene-006": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/scene-006",
+        "scene-007": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/scene-007",
+        "scene-008": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/scene-008",
+        "scene-009": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/scene-009",
+        "scene-010": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/scene-010",
+        "scene-011": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/scene-011",
+        "video": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/video",
+        "subtitles": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/subtitles",
+        "preview": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/preview",
+        "preview-metrics": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/preview-metrics",
+        "contact-sheet": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/contact-sheet"
+      },
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "user",
+          "at": "2026-10-15T12:29:19.373Z",
+          "digest": "78b279ae189f9fcc3f8d06c4f580704327b1eea45b931ce79dddbbcd37f0ec6f"
+        }
+      },
+      "status": "scheduled",
+      "publishAt": "2026-10-17T20:00:00+09:00",
+      "approval": {
+        "by": "user",
+        "at": "2026-10-15T12:29:19.654Z",
+        "contentSha256": "81f6eb7e28965fbcfcee83922f082f74e43c54ad4d56dfc42b6a7a6c9fad2a9e"
+      },
+      "platform": {
+        "id": "GCyAWGoJthU",
+        "url": "https://youtu.be/GCyAWGoJthU",
+        "privacy": "private",
+        "evidence": {
+          "kind": "youtube-studio",
+          "ref": "https://studio.youtube.com/video/GCyAWGoJthU/edit — 2026-10-15確認:「この動画は 2026年10月17日 20:00 に 公開 に設定されます」(GMT+0900)"
+        }
+      },
+      "times": {
+        "rendered": "2026-10-15T12:27:34.659Z",
+        "uploaded": "2026-10-15T12:34:25.680Z",
+        "scheduled": "2026-10-15T12:34:25.680Z",
+        "metadataSynced": "2026-10-15T12:34:25.680Z"
+      },
+      "disclosure": {
+        "syntheticMedia": false
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-10-15T12:34:25.680Z"
+      }
+    },
+    {
       "id": "civil-construction-2/anzen-touan-gutaika/youtube.longform",
       "work": "anzen-touan-gutaika",
       "account": "youtube:main",
@@ -140,9 +204,13 @@
       "platform": {
         "id": "auR8P0pvmlU",
         "url": "https://youtu.be/auR8P0pvmlU",
-        "privacy": "private"
+        "privacy": "public",
+        "evidence": {
+          "kind": "youtube-studio",
+          "ref": "https://studio.youtube.com/channel/UCHRnXPqoc0Hls8nXiK_ZYqA/videos/upload — 2026-10-15確認: auR8P0pvmlU は「公開」、公開日2026/10/15。動画への変更なし。"
+        }
       },
-      "status": "scheduled",
+      "status": "published",
       "publishAt": "2026-10-15T20:00:00+09:00",
       "approval": {
         "by": "user",

@@ -93,6 +93,333 @@
       ]
     },
     {
+      "id": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/contact-sheet",
+      "role": "contact-sheet",
+      "type": "image/jpeg",
+      "sha256": "da783f26b8850c0aa62579b8beca72ade4579364cdf085b4a1b8f886b4d7d9ae",
+      "bytes": 719688,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/contact-sheet.da783f26.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/civil-construction-2/anzen-touan-gutaika-kaitei/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1620
+    },
+    {
+      "id": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "ba16defd11a2f6732515f7540d635169e8ad52ae62366aa6be5268a8056e7032",
+      "bytes": 4067879,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/cover.ba16defd.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Edit the attached 16:9 landscape YouTube cover. Keep the same teacher identity, natural hands holding red pen and answer sheet, plain white helmet, black glasses, beard, navy workwear and green pop-poster-v3 visual style. Preserve these four Japanese text strings exactly: 「2級土木」「安全管理」「答案を具体化」「現場条件から書く」. Replace 「総監が解説」 with a clearly separated TWO-LINE yellow author-credentials badge: first line 「総監・元発注者」, second line 「1級・2級土木合格者」. These are the author's real credentials, not the target qualification: the largest target label must remain 「2級土木」. Recompose the top-left and top-center areas enough that both credential lines are legible; do not squeeze the new text into a one-line tiny band. The main topic remains the visual priority and the teacher stays on the right. All six specified text strings occur exactly once with correct Japanese glyphs; remove the old 「総監が解説」. No added words, logo, URL, numbers, price, guarantee or certification seals. Use generous bold glyphs without colliding strokes. Important letters and face entirely inside margins, all text above 82% image height; bottom 18% contains only continuous illustrated green background/teacher torso, not a blank stripe. Deliver one polished landscape image, intended 1920×1080, same visual density and character as reference.",
+        "promptSha256": "0cb866db21659e7413340de65a66adf723421e5d4af3a5f15dc916a90a4dcc04",
+        "generatedAt": "2026-10-15T12:17:20.522Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/cta",
+      "role": "cta",
+      "type": "image/png",
+      "sha256": "4a2124622b99d35b3396c9d5764e066d5ac0d06891e368b481ca232189f88e2b",
+      "bytes": 4052913,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/cta.4a212462.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Edit the attached finished 16:9 landscape closing card for a Japanese educational video. Maintain the green pop-poster-v3 design and EXACT identity/anatomy of the teacher: plain white helmet, black rectangular glasses, short beard, navy workwear, one hand naturally pointing toward the CTA and the other holding answer sheets. Preserve these six text strings verbatim, once each: 「2級土木」「施工経験記述」「完成答案集」「安全・品質・工程」「自分の経験に置き換えて練習」「概要欄から確認」. Replace the old single line 「総監が制作」 with a TWO-LINE yellow credentials badge near the top: line 1 「総監・元発注者」, line 2 「1級・2級土木合格者」. This badge gives author credentials, clearly subordinate to the biggest target label 「2級土木」, with bold readable typography rather than tiny text. Reflow top heading and badge to avoid collisions; keep main title and CTA readable. Do not claim direct personal review, guaranteed passing, grading authority or teaching results. Add no other words, URL, logo, price or symbols. All important text and the pointing finger stay inside the canvas, all text and yellow CTA strip fully ABOVE 82% height. Bottom 18% only contains continuous illustrated green background and teacher torso, NOT a blank stripe. Preserve exactly five fingers per hand and the existing correct pointing pose. One polished landscape image intended 1920×1080, not a sheet or comparison.",
+        "promptSha256": "d0f695f3592166b72002f33070c7b068124315fa40fb98d0dc9c7468ce8996fe",
+        "generatedAt": "2026-10-15T12:17:20.896Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/preview",
+      "role": "preview",
+      "type": "video/mp4",
+      "sha256": "31a6064a0d116f90c79d28ba19ee97d04b77c3ea183bf2e0fad583dc7e9352d2",
+      "bytes": 4117696,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/preview.31a6064a.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/civil-construction-2/anzen-touan-gutaika-kaitei/storyboard.json"
+      },
+      "durationSec": 100.971
+    },
+    {
+      "id": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/preview-metrics",
+      "role": "preview-metrics",
+      "type": "application/json",
+      "sha256": "3baaf86553d33885afdf7b65c593221121381a6650525bd5f81920f9258c5b86",
+      "bytes": 532,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/preview-metrics.3baaf865.json"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/civil-construction-2/anzen-touan-gutaika-kaitei/storyboard.json"
+      }
+    },
+    {
+      "id": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/scene-001",
+      "role": "scene-001",
+      "type": "image/png",
+      "sha256": "ba16defd11a2f6732515f7540d635169e8ad52ae62366aa6be5268a8056e7032",
+      "bytes": 4067879,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/scene-001.ba16defd.png"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/civil-construction-2/anzen-touan-gutaika-kaitei/storyboard.json#cover"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/scene-002",
+      "role": "scene-002",
+      "type": "image/png",
+      "sha256": "52df133ead2decb79602059ca7ed393c3d995cb16d2dfe671dbbc55c82f11700",
+      "bytes": 2857673,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/scene-002.52df133e.png"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/civil-construction-2/anzen-touan-gutaika-kaitei/storyboard.json#hook"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/scene-003",
+      "role": "scene-003",
+      "type": "image/png",
+      "sha256": "e29c2605cf7529fd4993e27d4fda913106bb4f6001d065003ee256a2c563e350",
+      "bytes": 73828,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/scene-003.e29c2605.png"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/civil-construction-2/anzen-touan-gutaika-kaitei/storyboard.json#authority"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/scene-004",
+      "role": "scene-004",
+      "type": "image/png",
+      "sha256": "177853760113e4417268746b4300d8254f9d77bbb6b371b87f2feeb5a0d251b9",
+      "bytes": 2842971,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/scene-004.17785376.png"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/civil-construction-2/anzen-touan-gutaika-kaitei/storyboard.json#premise"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/scene-005",
+      "role": "scene-005",
+      "type": "image/png",
+      "sha256": "18c568bb67cc51f3668b5fb7796af92c3eb8979bc6c39224ad2b787a8f68d470",
+      "bytes": 2839168,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/scene-005.18c568bb.png"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/civil-construction-2/anzen-touan-gutaika-kaitei/storyboard.json#condition"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/scene-006",
+      "role": "scene-006",
+      "type": "image/png",
+      "sha256": "a5ee74618db7d3e46b66e2aaf44be52d5e5ba1af3d9bc5e195397d32407cc429",
+      "bytes": 2842059,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/scene-006.a5ee7461.png"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/civil-construction-2/anzen-touan-gutaika-kaitei/storyboard.json#risk"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/scene-007",
+      "role": "scene-007",
+      "type": "image/png",
+      "sha256": "5b1824fae6099b22d8df33e41d4d7642e27914fb2fb633b64634b3e9eb5ed70a",
+      "bytes": 2838889,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/scene-007.5b1824fa.png"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/civil-construction-2/anzen-touan-gutaika-kaitei/storyboard.json#measure"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/scene-008",
+      "role": "scene-008",
+      "type": "image/png",
+      "sha256": "7d4cd986cf94083a05b017a147018e7cb130cf7c9801ed2a337cf116d728df1f",
+      "bytes": 2807499,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/scene-008.7d4cd986.png"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/civil-construction-2/anzen-touan-gutaika-kaitei/storyboard.json#concrete"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/scene-009",
+      "role": "scene-009",
+      "type": "image/png",
+      "sha256": "b79a646177a4c23142f6f51a467f0913995ec9b56c5164bfa9f29724ea5fc2e6",
+      "bytes": 2826216,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/scene-009.b79a6461.png"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/civil-construction-2/anzen-touan-gutaika-kaitei/storyboard.json#question"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/scene-010",
+      "role": "scene-010",
+      "type": "image/png",
+      "sha256": "e57f314fb838c4c227fe390806f830cd28655db80d78871fb350e61113f1c895",
+      "bytes": 2802180,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/scene-010.e57f314f.png"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/civil-construction-2/anzen-touan-gutaika-kaitei/storyboard.json#summary"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/scene-011",
+      "role": "scene-011",
+      "type": "image/png",
+      "sha256": "4a2124622b99d35b3396c9d5764e066d5ac0d06891e368b481ca232189f88e2b",
+      "bytes": 4052913,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/scene-011.4a212462.png"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/civil-construction-2/anzen-touan-gutaika-kaitei/storyboard.json#cta"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/subtitles",
+      "role": "subtitles",
+      "type": "text/x-ssa",
+      "sha256": "875435d48744fece8dd853395c7ad2b0fcf91f5ce521b0969a72a1b0fc8f44cf",
+      "bytes": 3801,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/subtitles.875435d4.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/civil-construction-2/anzen-touan-gutaika-kaitei/storyboard.json"
+      }
+    },
+    {
+      "id": "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/video",
+      "role": "video",
+      "type": "video/mp4",
+      "sha256": "155ddb73e6e09ba46fdd278c1df6963e9a9ed874929480b3d2bd31abfde15218",
+      "bytes": 18021145,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/video.155ddb73.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/civil-construction-2/anzen-touan-gutaika-kaitei/storyboard.json",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 101
+    },
+    {
       "id": "civil-construction-2/anzen-touan-gutaika/youtube.longform/contact-sheet",
       "role": "contact-sheet",
       "type": "image/jpeg",

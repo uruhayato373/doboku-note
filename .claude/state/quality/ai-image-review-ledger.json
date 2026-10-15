@@ -1121,6 +1121,18 @@
       "reason": "参照と同じ人物が赤ペンと無地の白紙を自然な指・手首で保持し、紙に文字や線がなく、背景の透過と帽子・顔・手指・小物の切れがないことを確認した。",
       "reviewedAt": "2026-10-10T14:51:49.957Z"
     },
+    "media:civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/cover": {
+      "sha": "ba16defd11a2f673",
+      "verdict": "ok",
+      "reason": "1920×1080原寸と幅360pxで指定6文言の正確さ・判読性、人物と手指、対象資格と著者資格の区別、author.tsとの整合を確認し、下端10%（y972以降）に重要文字はない。",
+      "reviewedAt": "2026-10-15T12:19:46.580Z"
+    },
+    "media:civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/cta": {
+      "sha": "4a2124622b99d35b",
+      "verdict": "ok",
+      "reason": "1920×1080原寸と幅360pxで指定8文言の正確さ・判読性、自然な指差しと用紙保持、著者資格と完成答案集の商品内容の整合を確認し、下端10%（y972以降）に重要文字はない。",
+      "reviewedAt": "2026-10-15T12:19:46.580Z"
+    },
     "media:civil-construction-2/anzen-touan-gutaika/youtube.longform/cover": {
       "sha": "dc301708ac15a33e",
       "verdict": "ok",

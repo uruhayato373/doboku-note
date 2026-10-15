@@ -25,6 +25,17 @@
       }
     },
     {
+      "id": "anzen-touan-gutaika-kaitei",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-2/anzen-touan-gutaika-kaitei",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-10-15",
+        "by": "video-content-qa"
+      }
+    },
+    {
       "id": "c2-anzen-excavation-p01",
       "kind": "ig-pack",
       "definition": "content/sns/instagram/civil-2/theme-packs/anzen-excavation/pack-01"
