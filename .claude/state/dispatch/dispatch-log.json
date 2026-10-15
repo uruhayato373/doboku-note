@@ -3908,6 +3908,23 @@
       "commit": "9c6a6b922458",
       "verification": "本番 3 本 HTTP 200・<main あり、図 6 枚 HTTP 200（doboku-note.com と storage）、check-production-ssr exit 0、check-content-series PASS",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0740",
+      "at": "2026-10-15",
+      "task": "自治体の土木担当シリーズ A-22・A-25 の公開で develop の audit（content-series）が赤い（法令 ID・カリキュラム未掲載）",
+      "tier": "high",
+      "kind": "不具合",
+      "prevention": {
+        "type": "doc",
+        "ref": ".claude/knowledge/reference/book-coverage-expansion.md"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "731a8718c895",
+      "verification": "develop の Pre-merge check が 0bb521b03 で success（content-series・egov-laws とも緑）",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }

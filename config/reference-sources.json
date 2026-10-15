@@ -6152,6 +6152,48 @@
       "egov": {
         "lawId": "332AC0000000079"
       }
+    },
+    {
+      "id": "cultural-properties-act-order",
+      "title": "文化財保護法施行令",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "文化財保護法施行令": "cultural-properties-act-order"
+      },
+      "egov": {
+        "lawId": "350CO0000000267"
+      }
+    },
+    {
+      "id": "land-expropriation-act-rules",
+      "title": "土地収用法施行規則",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "土地収用法施行規則": "land-expropriation-act-rules"
+      },
+      "egov": {
+        "lawId": "326M50004000033"
+      }
+    },
+    {
+      "id": "national-spatial-planning-act-order",
+      "title": "国土形成計画法施行令",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "国土形成計画法施行令": "national-spatial-planning-act-order"
+      },
+      "egov": {
+        "lawId": "418CO0000000230"
+      }
     }
   ]
 }

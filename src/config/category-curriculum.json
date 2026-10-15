@@ -690,6 +690,20 @@
             "coast-port-administrators",
             "satomichi-suiro-management"
           ]
+        },
+        {
+          "id": "municipal-projects",
+          "label": "自治体の土木担当（事業を進める）",
+          "slugs": [
+            "public-works-planning-evaluation",
+            "project-request-to-budget",
+            "public-meeting-consensus",
+            "land-acquisition-compensation",
+            "buried-cultural-property-survey",
+            "public-works-environmental-care",
+            "ppp-pfi-selection",
+            "owner-safety-responsibility"
+          ]
         }
       ]
     }
