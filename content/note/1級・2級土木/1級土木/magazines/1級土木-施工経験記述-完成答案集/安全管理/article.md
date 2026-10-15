@@ -43,13 +43,6 @@ cover:
 
 ---
 
-<!-- cta:coconala-custom -->
-自分の答案を人の目で確かめたいときは、ココナラで個別に対応しています。書いた答案があれば全5テーマの添削、まだ書けていなければヒアリングから骨子（構成）をつくります。
-
-https://coconala.com/services/4418735
-
-https://coconala.com/services/4350199
-
 本記事は「1級土木 施工経験記述 完成答案集」の収録記事です。工種×テーマ別に、5管理のフル完成答案をまとめたマガジンです。
 
 https://note.com/dobokunote/m/m150c9db08902

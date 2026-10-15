@@ -15,6 +15,21 @@ import { isExamArticle } from './figure-source-wiring.mjs';
 import { escapeRegExp } from './regexp-escape.mjs';
 
 export const AI_KINDS = new Set(['ai-generated']);
+
+/** 描き直しの元（Drive vault の中のファイル）を provenance に書く形（vault:<vault 内の相対パス>）。vault の外なら null */
+export function vaultRefOf(absPath, vaultRoot) {
+  if (!vaultRoot) return null;
+  const norm = (p) => p.replace(/\\/g, '/').replace(/\/+$/, '');
+  const root = `${norm(vaultRoot)}/`;
+  const file = norm(absPath);
+  return file.startsWith(root) && file.length > root.length ? `vault:${file.slice(root.length)}` : null;
+}
+
+/** vault:<相対パス> を手元のパスへ戻す（vault が無ければ null） */
+export function vaultPathOf(ref, vaultRoot) {
+  if (!vaultRoot || typeof ref !== 'string' || !ref.startsWith('vault:')) return null;
+  return `${vaultRoot.replace(/\\/g, '/').replace(/\/+$/, '')}/${ref.slice('vault:'.length)}`;
+}
 export const AI_LEDGER_FILE = '.claude/state/quality/ai-image-review-ledger.json';
 export const AI_VERDICTS = ['ok', 'fail'];
 

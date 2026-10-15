@@ -51,13 +51,6 @@ cover:
 
 ---
 
-<!-- cta:coconala-custom -->
-一次のあとに控える二次の施工経験記述は、ココナラで個別に対応しています。書いた答案があれば全5テーマの添削、まだ書けていなければヒアリングから骨子（構成）をつくります。
-
-https://coconala.com/services/4418735
-
-https://coconala.com/services/4350199
-
 <!-- cta:civil-mokuji -->
 1級・2級土木のほかの記事・経験記述の答案集は「土木もくじ」から一覧できます。
 

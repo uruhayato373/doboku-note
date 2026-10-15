@@ -4024,6 +4024,62 @@
       "commit": "f5a271407a89",
       "verification": "DN-0349・DN-0350 のカードに決定が入っている",
       "note": "出題テーマ・売り手と価格・書ける範囲と照合の体制・商品の順番と価格を content/note/技術士上下水道部門/出題テーマ_R01-R08.md にまとめ、運営者が推奨案を採用（2026-10-15）。DN-0349（必須I ¥3,480・2027-03 まで）・DN-0350（合格した選択科目から ¥2,980・パック ¥4,980・合格外の II-1 は factcheck 必須）に決定を書いて範囲を確定。どちらの選択科目で合格したかは DN-0350 の確認事項"
+    },
+    {
+      "id": "DN-0524",
+      "at": "2026-10-15",
+      "task": ".claude/config/ の JSON 20 本に zod の型を付ける（/ops/auth の認証設定を含む）",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "41351387f111",
+      "verification": "npm run check-agent-config: 21 件を実検査・違反 0、tests/check-agent-config.test.mjs pass（必須欄を消すと全型が落ちる）",
+      "note": "案B（2026-10-15 運営者が推奨案を採用）。.claude/config/ の JSON 21 本に型を付け（scripts/lib/dataset-schemas-agent-config.mjs）、npm run check-agent-config（quality-audit ci:true）が型の違反と型の無い JSON を止める。直書きの整理（案A）は効果が別なので必要になったら別カード"
+    },
+    {
+      "id": "DN-0742",
+      "at": "2026-10-15",
+      "task": "自治体の土木担当シリーズの残り（新規 16 章・補強 4 章）を書いて公開し、シリーズを完結させる",
+      "tier": "high",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "cbf5848f2896",
+      "verification": "本番でシリーズの記事 43 本 HTTP 200・<main あり、図と写真 96 枚 HTTP 200、check-production-ssr exit 0、check-content-series PASS（新規 35 公開・補強待ち 0）",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0741",
+      "at": "2026-10-15",
+      "task": "自治体の土木担当シリーズの写真 5 枚（A-15・A-16・A-24・A-25）を AI で作り、実物どおりかを監査して入れる",
+      "tier": "low",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "cbf5848f2896",
+      "verification": "写真 8 枚を AI で作り ai-image-fidelity-auditor で全数 ok・record-ai 済み、本番で HTTP 200、visual-jobs の municipal-civil-engineer 0 件",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0725",
+      "at": "2026-10-15",
+      "task": "2級土木の note 記事 2 本が 10/10 と 10/12 で二重投稿になっていないか確かめる",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "none",
+        "ref": "重複は PR #965 の取り込み競合による一回限りの二重投稿。残す版の決定と もくじの付け替えまで済み、残りの非公開化と反映は DN-0743 へ切り出した"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "9074d9eee027",
+      "verification": "content/note/1級・2級土木/土木もくじ/article.md が残す版を指す",
+      "note": "note API v3 で 2 本ずつの二重公開を実測。原稿と同期の台帳が指す 10/12 の版（n1edc95f39203・naa0821a3d631）を残すと決め（2026-10-15 運営者）、土木もくじを付け替えた（PR #1076）。10/10 の版の非公開化とライブ反映は DN-0743（browser-use）"
     }
   ]
 }

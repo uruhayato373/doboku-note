@@ -50,7 +50,7 @@ SVG 制作は `create-svg` スキルに従う。モバイル 400px viewBox、デ
 
 ## 写真は AI で生成する（2026-10-07 運営者決定）
 
-記事と SNS の写真（機械・器械の外観、変状の見た目、現場の様子）は**すべて AI で生成した画像**にする（SNS は [sns-image-policy.md](./sns-image-policy.md) §0.0）。CC/PD の実写・自前撮影・メーカー画像と、実写を AI で描き直した画像は使わない。比率は **4:3**（配信 960×720 の WebP）にそろえる。比率・配信幅・全写真に共通する生成の指示は `config/image-limits.json` の `aiPhoto` だけが持つ。
+記事と SNS の写真（機械・器械の外観、変状の見た目、現場の様子）は**すべて AI で生成した画像**にする（SNS は [sns-image-policy.md](./sns-image-policy.md) §0.0）。CC/PD の実写・自前撮影・メーカー画像と、実写を AI で描き直した画像は使わない（例外は下の「本の写真を元に描き直す」だけ）。比率は **4:3**（配信 960×720 の WebP）にそろえる。比率・配信幅・全写真に共通する生成の指示は `config/image-limits.json` の `aiPhoto` だけが持つ。
 
 > [!warning] なぜ（2026-10-07）
 > 1級土木テキスト 8 記事の機械の写真 23 枚は、Wikimedia Commons の実写を AI で描き直した画像だった。元の出典コメントと caption は消え、出所の記録は無く、描き直したセオドライトは実在しない形の器械になっていた。誰も実物と照らしていなかった。
@@ -61,6 +61,17 @@ SVG 制作は `create-svg` スキルに従う。モバイル 400px viewBox、デ
 2. **生成と配置**: `npm run gen-article-photo -- --fig <資格/記事/img/名前> [--prompt "…"] [--model <codex のモデル>]`。生成 → 中央で 4:3 に切る → `<図キー>.webp` を書く → 記事の src と width/height を合わせる → 実績の台帳（`.claude/state/quality/ai-image-review-ledger.json`）に sha と promptSha を記録する。生成済みの画像は `--from <画像>` で配置だけ行う
 3. **監査**: `node scripts/check-image-origin.mjs --ai-queue --json` の項目を `ai-image-fidelity-auditor` が判定（種別・構造・本文・生成の破綻）→ `node scripts/check-image-origin.mjs record-ai <verdicts.json>`。不合格は `prompt` を直して 2 からやり直す
 4. **検査**: `npm run check-image-origin`（`quality:audit:ci`）が、出所なし・実写・4:3 でない・未生成・未監査・不合格を止める
+
+### 本の写真を元に描き直す（2026-10-15 運営者決定・シリーズ企画の写真）
+
+シリーズ企画（`config/content-series.json`）の章で、書籍の頁から切り出した写真（Drive vault の `<書籍>/crops/`）を元に AI で描き直すことは認める。描き直しても市販書の写真の翻案になりうるので、次の 4 つをすべて満たすときだけ使う。
+
+1. **構図をなぞらない**: 元の写真は「何を写すか・どの特徴を見せるか」を知るためだけに使い、カメラの向き・画角・背景・物の配置は変える。共通の指示は `config/image-limits.json` の `aiPhoto.redraw`（`gen-article-photo` が `--based-on` のときに足す）
+2. **元の文字を写さない**: 文字・図番・矢印・寸法線・注記・透かしを持ち込まない
+3. **出所を記録する**: `npm run gen-article-photo -- --fig <図キー> --based-on <vault の切り出し図>` で生成し、`provenance` の `basedOn`（`vault:<相対パス>`）に元を残す。vault の外の画像は元にできない
+4. **元と見比べて監査する**: `ai-image-fidelity-auditor` が元の切り出し図と見比べる「描き直し」の軸（`axes.redraw`）を判定する。`record-ai` は `basedOn` のある写真を `axes.redraw` が ok でないかぎり ok にしない
+
+本の**図**は流用しない（自作 SVG の題材・下敷きにだけ使う。[18 シリーズ方針](../../../docs/strategy/18_自治体土木担当・コンクリートシリーズ方針2026-10.md)「図と写真」）。
 
 シリーズ企画の台帳（`config/content-series.json`）の項目に `visuals` で図・写真を計画したときは、`npm run check-content-series -- --visual-jobs` が未完了の一覧（写真は上の 2 のコマンドつき）を出す。Codex にはこの一覧を渡し、1〜4 を通させる（2026-10-13）。
 
