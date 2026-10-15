@@ -1,0 +1,55 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は砂防法第2条・第4条・第5条・第15条、急傾斜地法第3条・第7条・第12条、土砂災害防止法第7条・第8条・第10条。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="三つの区域を、指定する人・許可する人・工事をする人・市町村の役割で並べた対比図。砂防指定地は国土交通大臣が指定し、知事が許可して工事をする止める側。急傾斜地崩壊危険区域は知事が指定し許可し、都道府県が工事をする止める側で、市町村長は意見を述べる。土砂災害警戒区域は知事が指定し、工事ではなく警戒避難体制を整える逃がす側で、市町村が地域防災計画と周知と避難指示を担う。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }
+      .h { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .n { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .d { font-size: 12px; fill: #1a3a5c; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .w { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .ln { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <rect class="b" x="10" y="10" width="380" height="148" rx="8"/>
+  <text class="n" x="24" y="34">砂防指定地</text>
+  <rect class="w" x="316" y="18" width="62" height="22" rx="11"/>
+  <text class="h" x="347" y="33" text-anchor="middle">止める側</text>
+  <text class="h" x="24" y="58">指定</text>
+  <text class="d" x="76" y="58">国土交通大臣</text>
+  <text class="h" x="24" y="82">許可</text>
+  <text class="d" x="76" y="82">都道府県知事（対象は県の条例）</text>
+  <text class="h" x="24" y="106">工事</text>
+  <text class="d" x="76" y="106">都道府県知事</text>
+  <text class="h" x="24" y="130">市町村</text>
+  <text class="d" x="76" y="130">指定・管理には関わらない</text>
+  <text class="d" x="76" y="147">費用の負担を求められることがある</text>
+  <rect class="b" x="10" y="168" width="380" height="148" rx="8"/>
+  <text class="n" x="24" y="192">急傾斜地崩壊危険区域</text>
+  <rect class="w" x="316" y="176" width="62" height="22" rx="11"/>
+  <text class="h" x="347" y="191" text-anchor="middle">止める側</text>
+  <text class="h" x="24" y="216">指定</text>
+  <text class="d" x="76" y="216">都道府県知事（市町村長の意見を聴く）</text>
+  <text class="h" x="24" y="240">許可</text>
+  <text class="d" x="76" y="240">都道府県知事（国・自治体は協議）</text>
+  <text class="h" x="24" y="264">工事</text>
+  <text class="d" x="76" y="264">都道府県</text>
+  <text class="h" x="24" y="288">市町村</text>
+  <text class="d" x="76" y="288">指定の前に意見を述べる</text>
+  <text class="d" x="76" y="305">効力は公示の日から生じる</text>
+  <rect class="g" x="10" y="326" width="380" height="148" rx="8"/>
+  <text class="n" x="24" y="350">土砂災害警戒区域</text>
+  <rect class="w" x="316" y="334" width="62" height="22" rx="11"/>
+  <text class="h" x="347" y="349" text-anchor="middle">逃がす側</text>
+  <text class="h" x="24" y="374">指定</text>
+  <text class="d" x="76" y="374">都道府県知事（市町村長の意見を聴く）</text>
+  <text class="h" x="24" y="398">許可</text>
+  <text class="d" x="76" y="398">警戒区域は不要（特別警戒区域の開発は知事）</text>
+  <text class="h" x="24" y="422">工事</text>
+  <text class="d" x="76" y="422">しない。警戒避難体制を整える</text>
+  <text class="h" x="24" y="446">市町村</text>
+  <text class="d" x="76" y="446">地域防災計画に区域ごとに定める</text>
+  <text class="d" x="76" y="463">住民への周知と避難指示の判断</text>
+</svg>

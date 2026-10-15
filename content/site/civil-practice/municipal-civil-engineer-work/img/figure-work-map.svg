@@ -1,0 +1,73 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は市町村の土木職の仕事を管理と事業の二つに分け、供用開始でつないだ循環。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="土木職の仕事の地図。左に管理（点検、修繕、許可、監督、境界・台帳、公物）、右に事業（計画、予算、用地、契約、検査、引渡し）を並べ、事業から供用開始を経て管理へ移り、点検の結果が更新の事業へ戻る循環を矢印で示す。各区分に案内先の章を添える。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .t { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .tb { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 11px; fill: #555; }
+      .k { font-size: 12px; fill: #222; }
+      .b-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .b-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .b-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .b-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .b-g { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .b-x { fill: #fff; stroke: #8a8a8a; stroke-width: 1.5; stroke-dasharray: 4 3; }
+      .a { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+      .l { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+
+  <rect class="b-b" x="8" y="10" width="158" height="40" rx="8"/>
+  <text class="t" x="87" y="29" text-anchor="middle">管理</text>
+  <text class="s" x="87" y="44" text-anchor="middle">預かる施設を守る</text>
+  <rect class="b-w" x="234" y="10" width="158" height="40" rx="8"/>
+  <text class="t" x="313" y="29" text-anchor="middle">事業</text>
+  <text class="s" x="313" y="44" text-anchor="middle">新しい施設をつくる</text>
+  <rect class="b-b" x="8" y="62" width="158" height="46" rx="6"/>
+  <text class="t" x="18" y="82">点検</text>
+  <text class="s" x="18" y="99">河川管理施設の点検と操作</text>
+  <rect class="b-b" x="8" y="116" width="158" height="46" rx="6"/>
+  <text class="t" x="18" y="136">修繕</text>
+  <text class="s" x="18" y="153">道路の点検と長寿命化計画</text>
+  <rect class="b-b" x="8" y="170" width="158" height="46" rx="6"/>
+  <text class="t" x="18" y="190">許可</text>
+  <text class="s" x="18" y="207">道路占用許可の審査</text>
+  <rect class="b-b" x="8" y="224" width="158" height="46" rx="6"/>
+  <text class="t" x="18" y="244">監督</text>
+  <text class="s" x="18" y="261">道路法の骨格</text>
+  <rect class="b-b" x="8" y="278" width="158" height="46" rx="6"/>
+  <text class="t" x="18" y="298">境界・台帳</text>
+  <text class="s" x="18" y="315">道路の境界確定と台帳</text>
+  <rect class="b-b" x="8" y="332" width="158" height="46" rx="6"/>
+  <text class="t" x="18" y="352">公物</text>
+  <text class="s" x="18" y="369">里道・水路の管理</text>
+  <rect class="b-w" x="234" y="62" width="158" height="46" rx="6"/>
+  <text class="t" x="244" y="82">計画</text>
+  <text class="s" x="244" y="99">計画の体系と事業評価</text>
+  <rect class="b-w" x="234" y="116" width="158" height="46" rx="6"/>
+  <text class="t" x="244" y="136">予算</text>
+  <text class="s" x="244" y="153">予算と財源の仕組み</text>
+  <rect class="b-w" x="234" y="170" width="158" height="46" rx="6"/>
+  <text class="t" x="244" y="190">用地</text>
+  <text class="s" x="244" y="207">用地の取得と損失補償</text>
+  <rect class="b-w" x="234" y="224" width="158" height="46" rx="6"/>
+  <text class="t" x="244" y="244">契約</text>
+  <text class="s" x="244" y="261">公共工事の入札・契約方式</text>
+  <rect class="b-w" x="234" y="278" width="158" height="46" rx="6"/>
+  <text class="t" x="244" y="298">検査</text>
+  <text class="s" x="244" y="315">工事検査の種類と役割</text>
+  <rect class="b-w" x="234" y="332" width="158" height="46" rx="6"/>
+  <text class="t" x="244" y="352">引渡し</text>
+  <text class="s" x="244" y="369">公共事業の流れと発注方式</text>
+  <text class="s" x="200" y="76" text-anchor="middle">点検の結果</text>
+  <text class="s" x="200" y="90" text-anchor="middle">更新事業へ</text>
+  <path class="a" d="M170,100H230" marker-end="url(#ah)"/>
+  <path class="a" d="M290,380V412" marker-end="url(#ah)"/>
+  <path class="a" d="M110,414V382" marker-end="url(#ah)"/>
+  <rect class="b-p" x="80" y="416" width="240" height="56" rx="8"/>
+  <text class="t" x="200" y="440" text-anchor="middle">供用開始</text>
+  <text class="s" x="200" y="458" text-anchor="middle">供用開始とは</text>
+</svg>

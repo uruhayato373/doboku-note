@@ -1,0 +1,50 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は国土交通省「遊具の安全確保に関する指針」（改訂第3版）の安全点検の区分と、異常時の使用中止・記録。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="遊具の点検の流れ。設置直後に製造・施工者が行う初期点検が入口。管理者が日常点検と年1回以上の定期点検を行い、異常があれば直ちに使用を中止する。必要なら専門技術者に精密点検を委託し、補修・改良・更新・撤去から選び、最後に遊具履歴書へ記録する。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }
+      .h { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .n { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .d { font-size: 12px; fill: #1a3a5c; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .r { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .x { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; stroke-dasharray: 5 4; }
+      .a { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+
+  <rect class="x" x="10" y="10" width="380" height="54" rx="8"/>
+  <text class="n" x="24" y="34">初期点検</text>
+  <text class="d" x="24" y="54">設置直後に製造・施工者が行う</text>
+  <path class="a" d="M200,66V80" marker-end="url(#ah)"/>
+
+  <rect class="b" x="10" y="82" width="185" height="68" rx="8"/>
+  <text class="n" x="24" y="108">日常点検</text>
+  <text class="d" x="24" y="130">管理者・日常業務の中で</text>
+  <rect class="b" x="205" y="82" width="185" height="68" rx="8"/>
+  <text class="n" x="219" y="108">定期点検</text>
+  <text class="d" x="219" y="130">管理者・年1回以上</text>
+  <path class="a" d="M200,152V180" marker-end="url(#ah)"/>
+  <text class="h" x="212" y="172">異常があれば</text>
+
+  <rect class="r" x="10" y="182" width="380" height="58" rx="8"/>
+  <text class="n" x="24" y="208">直ちに使用中止</text>
+  <text class="d" x="24" y="228">使えない状態にして掲示する</text>
+  <path class="a" d="M200,242V258" marker-end="url(#ah)"/>
+
+  <rect class="b" x="10" y="260" width="380" height="58" rx="8"/>
+  <text class="n" x="24" y="286">精密点検</text>
+  <text class="d" x="24" y="306">診断が要るときは専門技術者に委託</text>
+  <path class="a" d="M200,320V336" marker-end="url(#ah)"/>
+
+  <rect class="g" x="10" y="338" width="380" height="58" rx="8"/>
+  <text class="n" x="24" y="364">修繕・更新</text>
+  <text class="d" x="24" y="384">補修・改良・更新・撤去から選ぶ</text>
+  <path class="a" d="M200,398V414" marker-end="url(#ah)"/>
+
+  <rect class="b" x="10" y="416" width="380" height="58" rx="8"/>
+  <text class="n" x="24" y="442">遊具履歴書へ記録</text>
+  <text class="d" x="24" y="462">点検の結果と補修などを追記する</text>
+</svg>

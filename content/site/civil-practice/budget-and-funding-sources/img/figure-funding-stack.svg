@@ -1,0 +1,48 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は地方財政法第9条・第10条の2・第16条・第5条と社会資本整備総合交付金の国費。数値のない模式図。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="一つの事業の事業費が財源に積み上がる模式図。国費が付く事業は、国費（負担・補助・交付金）と市の負担分に分かれ、市の負担分は県の補助・分担金など、地方債、一般財源で賄う。国費が付かない単独事業は、全体が市の負担分で、同じく県の補助・分担金など、地方債、一般財源で賄う。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .t { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .tb { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 11px; fill: #555; }
+      .k { font-size: 12px; fill: #222; }
+      .b-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .b-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .b-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .b-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .b-g { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .b-x { fill: #fff; stroke: #8a8a8a; stroke-width: 1.5; stroke-dasharray: 4 3; }
+      .a { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+      .l { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+
+  <text class="tb" x="40" y="54">国費が付く事業の事業費</text>
+  <rect class="b-b" x="40" y="70" width="160" height="90" rx="0"/>
+  <text class="t" x="120" y="113" text-anchor="middle">国費</text>
+  <text class="s" x="120" y="131" text-anchor="middle">負担・補助・交付金</text>
+  <rect class="b-x" x="40" y="160" width="160" height="50" rx="0"/>
+  <text class="k" x="120" y="190" text-anchor="middle">県の補助・分担金など</text>
+  <rect class="b-w" x="40" y="210" width="160" height="65" rx="0"/>
+  <text class="t" x="120" y="247.5" text-anchor="middle">地方債</text>
+  <rect class="b-p" x="40" y="275" width="160" height="65" rx="0"/>
+  <text class="t" x="120" y="312.5" text-anchor="middle">一般財源</text>
+  <path class="l" d="M210,72H218V158H210"/>
+  <text class="t" x="230" y="108">国が持つ分</text>
+  <text class="s" x="230" y="126">問い1で決める</text>
+  <path class="l" d="M210,162H218V338H210"/>
+  <text class="t" x="230" y="242">市の負担分</text>
+  <text class="s" x="230" y="260">問い2で決める</text>
+  <text class="tb" x="40" y="376">国費が付かない単独事業の事業費</text>
+  <rect class="b-x" x="40" y="388" width="110" height="44" rx="0"/>
+  <text class="k" x="95" y="415" text-anchor="middle">県の補助・分担金</text>
+  <rect class="b-w" x="150" y="388" width="110" height="44" rx="0"/>
+  <text class="t" x="205" y="415" text-anchor="middle">地方債</text>
+  <rect class="b-p" x="260" y="388" width="130" height="44" rx="0"/>
+  <text class="t" x="325" y="415" text-anchor="middle">一般財源</text>
+  <path class="l" d="M40,442V450H390V442"/>
+  <text class="t" x="215" y="470" text-anchor="middle">全体が市の負担分</text>
+</svg>

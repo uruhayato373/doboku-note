@@ -1,0 +1,105 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は地方自治法第208条・第211条・第233条・第235条の5、入札契約適正化法第7条、出水期の河川工事の扱い。日程は目安で、市の公開資料で確かめる前提。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="4月から翌年5月までの年間カレンダー。来年度の予算の要求・調整は10月から12月、査定・議決は1月から3月。発注は4月から始まり年間に分散する。出水期は梅雨から秋。河川の点検は出水期前、完成検査・実績報告・繰越しは2月から3月、出納閉鎖は5月末。前年度分の決算の審査・認定と会計検査・監査は夏から秋。仕事を、前年度・今年度・来年度の三つの年度に色分けしている。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .h { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .m { font-size: 11px; fill: #555; }
+      .d { font-size: 11px; fill: #1a3a5c; }
+      .l { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .y { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .bs { stroke-dasharray: 4 3; }
+      .grid { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="m" x="70.0" y="16">N年</text>
+  <text class="m" x="275.2" y="16">N+1年</text>
+  <path class="grid" d="M275.2,6V42"/>
+  <text class="m" x="81.4" y="38" text-anchor="middle">4</text>
+  <text class="m" x="104.2" y="38" text-anchor="middle">5</text>
+  <text class="m" x="127.0" y="38" text-anchor="middle">6</text>
+  <text class="m" x="149.8" y="38" text-anchor="middle">7</text>
+  <text class="m" x="172.6" y="38" text-anchor="middle">8</text>
+  <text class="m" x="195.4" y="38" text-anchor="middle">9</text>
+  <text class="m" x="218.2" y="38" text-anchor="middle">10</text>
+  <text class="m" x="241.0" y="38" text-anchor="middle">11</text>
+  <text class="m" x="263.8" y="38" text-anchor="middle">12</text>
+  <text class="m" x="286.6" y="38" text-anchor="middle">1</text>
+  <text class="m" x="309.4" y="38" text-anchor="middle">2</text>
+  <text class="m" x="332.2" y="38" text-anchor="middle">3</text>
+  <text class="m" x="355.0" y="38" text-anchor="middle">4</text>
+  <text class="m" x="377.8" y="38" text-anchor="middle">5</text>
+  <text class="m" x="10" y="38">月</text>
+  <path class="grid" d="M10,42H394"/>
+  <text class="l" x="10" y="63">予算</text>
+  <path class="grid" d="M10,76H394"/>
+  <text class="l" x="10" y="97">発注</text>
+  <path class="grid" d="M10,110H394"/>
+  <text class="l" x="10" y="131">出水期</text>
+  <path class="grid" d="M10,144H394"/>
+  <text class="l" x="10" y="165">点検</text>
+  <path class="grid" d="M10,178H394"/>
+  <text class="l" x="10" y="199">検査・繰越し</text>
+  <path class="grid" d="M10,212H394"/>
+  <text class="l" x="10" y="233">出納整理</text>
+  <path class="grid" d="M10,246H394"/>
+  <text class="l" x="10" y="267">決算</text>
+  <path class="grid" d="M10,280H394"/>
+  <text class="l" x="10" y="301">会計検査</text>
+  <path class="grid" d="M10,314H394"/>
+  <rect class="g" x="206.8" y="46" width="68.4" height="26" rx="4"/>
+  <text class="d" x="241.0" y="63" text-anchor="middle">要求・調整</text>
+  <rect class="g" x="275.2" y="46" width="68.4" height="26" rx="4"/>
+  <text class="d" x="309.4" y="63" text-anchor="middle">査定・議決</text>
+  <rect class="b" x="70.0" y="80" width="45.6" height="26" rx="4"/>
+  <text class="d" x="92.8" y="97" text-anchor="middle">発注</text>
+  <rect class="b bs" x="115.6" y="80" width="228.0" height="26" rx="4"/>
+  <text class="d" x="229.6" y="97" text-anchor="middle">年間に分散して発注</text>
+  <rect class="b" x="115.6" y="114" width="114.0" height="26" rx="4"/>
+  <text class="d" x="172.6" y="131" text-anchor="middle">出水期</text>
+  <rect class="b" x="70.0" y="148" width="45.6" height="26" rx="4"/>
+  <text class="d" x="92.8" y="165" text-anchor="middle">出水期前</text>
+  <text class="d" x="121.6" y="165">道路の点検は通年</text>
+  <rect class="b" x="298.0" y="182" width="45.6" height="26" rx="4"/>
+  <text class="d" x="293.0" y="199" text-anchor="end">完成検査・実績報告・繰越し</text>
+  <rect class="y" x="70.0" y="216" width="45.6" height="26" rx="4"/>
+  <text class="d" x="120.6" y="233">5月末で閉鎖</text>
+  <rect class="b" x="343.6" y="216" width="45.6" height="26" rx="4"/>
+  <text class="d" x="338.6" y="233" text-anchor="end">5月末で閉鎖</text>
+  <rect class="y" x="115.6" y="250" width="136.8" height="26" rx="4"/>
+  <text class="d" x="184.0" y="267" text-anchor="middle">決算の審査・認定</text>
+  <rect class="y bs" x="115.6" y="284" width="136.8" height="26" rx="4"/>
+  <text class="d" x="184.0" y="301" text-anchor="middle">会計検査・監査</text>
+  <rect class="y" x="10" y="326" width="16" height="12" rx="3"/><text class="d" x="31" y="336">前年度（N-1）</text>
+  <rect class="b" x="118" y="326" width="16" height="12" rx="3"/><text class="d" x="139" y="336">今年度（N）</text>
+  <rect class="g" x="215" y="326" width="16" height="12" rx="3"/><text class="d" x="236" y="336">来年度（N+1）</text>
+  <rect class="b bs" x="318" y="326" width="16" height="12" rx="3"/><text class="d" x="339" y="336">時期は目安</text>
+  <text class="h" x="10" y="356">各章への入口</text>
+  <rect class="g" x="10" y="364" width="185" height="26" rx="6" style="fill:#fff"/>
+  <circle cx="22" cy="377" r="4.5" fill="#3a7d44"/>
+  <text class="d" x="34" y="381" style="font-size:12px">要望から予算化まで</text>
+  <rect class="b" x="205" y="364" width="185" height="26" rx="6" style="fill:#fff"/>
+  <circle cx="217" cy="377" r="4.5" fill="#2e6da4"/>
+  <text class="d" x="229" y="381" style="font-size:12px">公共事業の流れと発注方式</text>
+  <rect class="b" x="10" y="394" width="185" height="26" rx="6" style="fill:#fff"/>
+  <circle cx="22" cy="407" r="4.5" fill="#2e6da4"/>
+  <text class="d" x="34" y="411" style="font-size:12px">公共工事の入札・契約方式</text>
+  <rect class="b" x="205" y="394" width="185" height="26" rx="6" style="fill:#fff"/>
+  <circle cx="217" cy="407" r="4.5" fill="#2e6da4"/>
+  <text class="d" x="229" y="411" style="font-size:12px">出水期の河川工事対応</text>
+  <rect class="b" x="10" y="424" width="185" height="26" rx="6" style="fill:#fff"/>
+  <circle cx="22" cy="437" r="4.5" fill="#2e6da4"/>
+  <text class="d" x="34" y="441" style="font-size:12px">河川管理施設の点検と操作</text>
+  <rect class="b" x="205" y="424" width="185" height="26" rx="6" style="fill:#fff"/>
+  <circle cx="217" cy="437" r="4.5" fill="#2e6da4"/>
+  <text class="d" x="229" y="441" style="font-size:12px">道路の点検と長寿命化計画</text>
+  <rect class="b" x="10" y="454" width="185" height="26" rx="6" style="fill:#fff"/>
+  <circle cx="22" cy="467" r="4.5" fill="#2e6da4"/>
+  <text class="d" x="34" y="471" style="font-size:12px">工事検査の種類と役割</text>
+  <rect class="y" x="205" y="454" width="185" height="26" rx="6" style="fill:#fff"/>
+  <circle cx="217" cy="467" r="4.5" fill="#d4a017"/>
+  <text class="d" x="229" y="471" style="font-size:12px">会計検査の備え方</text>
+</svg>

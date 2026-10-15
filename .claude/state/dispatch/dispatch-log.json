@@ -3925,6 +3925,105 @@
       "commit": "731a8718c895",
       "verification": "develop の Pre-merge check が 0bb521b03 で success（content-series・egov-laws とも緑）",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0739",
+      "at": "2026-10-15",
+      "task": "自治体の土木担当シリーズの第2波（道路・河川の管理 8 章）と第3波（事業を進める 8 章）を書いて公開する",
+      "tier": "high",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "69b4682d7046",
+      "verification": "本番 16 本 HTTP 200・<main あり、図 27 枚 HTTP 200（storage）、check-production-ssr exit 0、check-content-series PASS。写真 5 件は DN-0741 へ",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0717",
+      "at": "2026-10-15",
+      "task": "2級土木「土工の頻出点」の動画（sqkP7vheZ_Q）が YouTube から消え、develop の CI が video-publication で赤い",
+      "tier": "high",
+      "kind": "不具合",
+      "prevention": {
+        "type": "none",
+        "ref": "運営者の YouTube 整理と移行で上げ直された（lNI2f_SjCTk・10/12 公開）。台帳と照合が追従し、検査が働いた結果で再発防止の追加は不要"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "c0aa995ec751",
+      "verification": "content/registry/publications/youtube/civil-construction-2.json の status・platform.id、develop の Pre-merge check 0bb521b03 success",
+      "note": "gakka-2kyu-doko の通常動画は新しい ID lNI2f_SjCTk で公開中（台帳 published）。develop の Pre-merge check（audit・video-publication を含む）は 2026-10-15 に緑"
+    },
+    {
+      "id": "DN-0658",
+      "at": "2026-10-15",
+      "task": "2級YouTubeの通常動画3本・Shorts6本の休止中診断リンクを現行添削へ直す",
+      "tier": "high",
+      "kind": "不具合",
+      "prevention": {
+        "type": "none",
+        "ref": "対象の 3 パック（通常動画 3・Shorts 6）は YouTube 整理（2026-10-13 の 688 本削除）で全て stopped になり、直す対象が無くなった"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "c0aa995ec751",
+      "verification": "content/registry/publications/youtube/*.json の status 集計",
+      "note": "anzen-ippanron-3riyu・keiken-2kyu-level・keiken-genten-kyotsuten は台帳で全 stopped。休止中の診断への案内が出る動画は残っていない"
+    },
+    {
+      "id": "DN-0234",
+      "at": "2026-10-15",
+      "task": "Codex の archived_sessions 1.25 GB を棚卸しして 30 日超を消す",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "b1ea9107934e",
+      "verification": "find ~/.codex/archived_sessions -type f -mtime +7 | wc -l が 0",
+      "note": "保持期間 1 週間（2026-10-15 運営者判断）。運営者が PowerShell で 7 日超の 22 件（約 530MB）を削除し、7 日超は 0 件・残り 10 件 619MB。手順は disk-hygiene.md §5（Mac・Git Bash と PowerShell の両方）"
+    },
+    {
+      "id": "DN-0705",
+      "at": "2026-10-15",
+      "task": "config/（固定的な設定）と data/（動的なデータ）の分け方に沿って、ハードコードを無くし JSON を統合する",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "f5a271407a89",
+      "verification": "npm run check-datasets PASS",
+      "note": "config/・data/ の直書きは check-datasets が止め datasetPath で引く形になっている。残る .claude/config/ は DN-0524（案B）、.claude/state/ の直書きは state-path-literal-baseline のラチェットに任せる（2026-10-15 運営者が推奨案を採用）"
+    },
+    {
+      "id": "DN-0709",
+      "at": "2026-10-15",
+      "task": "過去問を保存するフォルダを教材と分け、管理と同期の方法を決める",
+      "tier": "mid",
+      "kind": "意思決定",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "f5a271407a89",
+      "verification": "content/sources/past-exams/README.md",
+      "note": "すでに分かれている: 原本は content/sources/past-exams（PDF は Drive 原資料PDF/過去問・group past-exam-source-pdf）、第三者の解説は content/sources/textbook/{資格}/過去問解説、在庫の正本は data/pastexams/inventory.json、手順は /past-exam-archive（2026-10-15 運営者が推奨案を採用）"
+    },
+    {
+      "id": "DN-0348",
+      "at": "2026-10-15",
+      "task": "技術士 上下水道部門の商品設計を決める（出題テーマ・競合・書ける範囲）",
+      "tier": "mid",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "f5a271407a89",
+      "verification": "DN-0349・DN-0350 のカードに決定が入っている",
+      "note": "出題テーマ・売り手と価格・書ける範囲と照合の体制・商品の順番と価格を content/note/技術士上下水道部門/出題テーマ_R01-R08.md にまとめ、運営者が推奨案を採用（2026-10-15）。DN-0349（必須I ¥3,480・2027-03 まで）・DN-0350（合格した選択科目から ¥2,980・パック ¥4,980・合格外の II-1 は factcheck 必須）に決定を書いて範囲を確定。どちらの選択科目で合格したかは DN-0350 の確認事項"
     }
   ]
 }

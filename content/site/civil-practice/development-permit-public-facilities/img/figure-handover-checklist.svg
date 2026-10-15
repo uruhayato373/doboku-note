@@ -1,0 +1,63 @@
+<!-- authored 2026-10-15 doboku-note 自作。確認の項目は開発許可制度運用指針と都市計画法第36条・第39条・第40条に基づく。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="引継ぎの日に確かめる書類の確認表。協定書、検査済証と公告の写し、竣工図と完了図書、登記承諾書と印鑑証明書、台帳への登録の五項目を、道路・公園・排水施設・調整池の列ごとに確かめる。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 11px; fill: #555; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .g { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .l { stroke: #d7d7d7; stroke-width: 1; fill: none; }
+      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+  <text class="t" x="14" y="46">確かめる書類</text>
+  <rect class="b" x="156" y="16" width="54" height="42" rx="6"/>
+  <text class="t" x="183" y="42" text-anchor="middle">道路</text>
+  <rect class="b" x="214" y="16" width="54" height="42" rx="6"/>
+  <text class="t" x="241" y="42" text-anchor="middle">公園</text>
+  <rect class="b" x="272" y="16" width="54" height="42" rx="6"/>
+  <text class="t" x="299" y="42" text-anchor="middle">排水施設</text>
+  <rect class="b" x="330" y="16" width="54" height="42" rx="6"/>
+  <text class="t" x="357" y="42" text-anchor="middle">調整池</text>
+  <text class="n" x="14" y="100">協定書</text>
+  <text class="s" x="14" y="120">範囲・時期・方法・費用</text>
+  <path class="l" d="M10,142L390,142"/>
+  <rect x="170" y="92" width="26" height="26" rx="5" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/>
+  <rect x="228" y="92" width="26" height="26" rx="5" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/>
+  <rect x="286" y="92" width="26" height="26" rx="5" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/>
+  <rect x="344" y="92" width="26" height="26" rx="5" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="n" x="14" y="176">検査済証・公告</text>
+  <text class="s" x="14" y="196">写しを受け取る</text>
+  <path class="l" d="M10,218L390,218"/>
+  <rect x="170" y="168" width="26" height="26" rx="5" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/>
+  <rect x="228" y="168" width="26" height="26" rx="5" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/>
+  <rect x="286" y="168" width="26" height="26" rx="5" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/>
+  <rect x="344" y="168" width="26" height="26" rx="5" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="n" x="14" y="262">竣工図・完了図書</text>
+  <path class="l" d="M10,294L390,294"/>
+  <rect x="170" y="244" width="26" height="26" rx="5" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/>
+  <rect x="228" y="244" width="26" height="26" rx="5" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/>
+  <rect x="286" y="244" width="26" height="26" rx="5" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/>
+  <rect x="344" y="244" width="26" height="26" rx="5" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="n" x="14" y="328">登記承諾書</text>
+  <text class="s" x="14" y="348">印鑑証明書</text>
+  <path class="l" d="M10,370L390,370"/>
+  <rect x="170" y="320" width="26" height="26" rx="5" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/>
+  <rect x="228" y="320" width="26" height="26" rx="5" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/>
+  <rect x="286" y="320" width="26" height="26" rx="5" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/>
+  <rect x="344" y="320" width="26" height="26" rx="5" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="n" x="14" y="404">台帳への登録</text>
+  <text class="s" x="14" y="424">図面と調書</text>
+  <path class="l" d="M10,446L390,446"/>
+  <rect x="170" y="396" width="26" height="26" rx="5" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/>
+  <rect x="228" y="396" width="26" height="26" rx="5" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/>
+  <rect x="286" y="396" width="26" height="26" rx="5" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/>
+  <rect x="344" y="396" width="26" height="26" rx="5" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="s" x="14" y="470">引継ぎの日に、列ごとに確かめて印を付ける</text>
+</svg>

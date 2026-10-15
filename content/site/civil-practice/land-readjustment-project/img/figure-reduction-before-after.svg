@@ -1,0 +1,56 @@
+<!-- authored 2026-10-15 doboku-note 自作。減歩の考え方は土地区画整理法の説明（国土交通省）による。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="土地区画整理の前後を並べた模式図。従前の宅地のまま並ぶ区画から、地権者が土地を少しずつ出し合う減歩によって、道路や公園などの公共用地と、売却して事業費に充てる保留地が生まれ、残りが宅地になる。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 11px; fill: #555; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .g { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .l { stroke: #d7d7d7; stroke-width: 1; fill: none; }
+      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+  <text class="t" x="30" y="28">従前の宅地</text>
+  <rect class="g" x="30" y="36" width="340" height="120" rx="6"/>
+  <rect class="g" x="36" y="42" width="77" height="50" rx="3"/>
+  <rect class="g" x="119" y="42" width="77" height="50" rx="3"/>
+  <rect class="g" x="202" y="42" width="77" height="50" rx="3"/>
+  <rect class="g" x="285" y="42" width="77" height="50" rx="3"/>
+  <rect class="g" x="36" y="98" width="77" height="50" rx="3"/>
+  <rect class="g" x="119" y="98" width="77" height="50" rx="3"/>
+  <rect class="g" x="202" y="98" width="77" height="50" rx="3"/>
+  <rect class="g" x="285" y="98" width="77" height="50" rx="3"/>
+  <text class="s" x="74.5" y="72" text-anchor="middle">宅地</text>
+  <path class="a" d="M200,162L200,212" marker-end="url(#ah)"/>
+  <text class="s" x="212" y="192">地権者が少しずつ土地を出し合う</text>
+  <text class="t" x="30" y="232">区画整理後</text>
+  <rect class="g" x="30" y="240" width="340" height="120" rx="6"/>
+  <rect class="b" x="36" y="246" width="77" height="32" rx="3"/>
+  <rect class="b" x="119" y="246" width="77" height="32" rx="3"/>
+  <rect class="b" x="202" y="246" width="77" height="32" rx="3"/>
+  <rect class="b" x="285" y="246" width="77" height="32" rx="3"/>
+  <text class="s" x="74.5" y="266" text-anchor="middle">宅地</text>
+  <rect class="p" x="36" y="282" width="328" height="20" rx="3"/>
+  <text class="t" x="200" y="296" text-anchor="middle">道路</text>
+  <rect class="b" x="36" y="306" width="77" height="48" rx="3"/>
+  <text class="s" x="74.5" y="334" text-anchor="middle">宅地</text>
+  <rect class="b" x="119" y="306" width="77" height="48" rx="3"/>
+  <rect class="p" x="202" y="306" width="77" height="48" rx="3"/>
+  <text class="t" x="240.5" y="334" text-anchor="middle">公園</text>
+  <rect class="w" x="285" y="306" width="79" height="48" rx="3"/>
+  <text class="t" x="324.5" y="334" text-anchor="middle">保留地</text>
+  <rect class="p" x="20" y="376" width="360" height="50" rx="8"/>
+  <rect class="p" x="30" y="388" width="88" height="26" rx="13"/>
+  <text class="t" x="74" y="405" text-anchor="middle">公共減歩</text>
+  <text class="n" x="130" y="405">道路や公園などの公共用地になる</text>
+  <rect class="w" x="20" y="436" width="360" height="50" rx="8"/>
+  <rect class="w" x="30" y="448" width="88" height="26" rx="13"/>
+  <text class="t" x="74" y="465" text-anchor="middle">保留地減歩</text>
+  <text class="n" x="130" y="465">売却して事業費の一部に充てる</text>
+</svg>

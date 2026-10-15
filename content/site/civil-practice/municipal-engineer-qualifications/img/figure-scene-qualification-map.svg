@@ -1,0 +1,63 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は地方自治法第234条の2、建設業法第27条、技術士法第2条・第32条、測量法第48条・第49条と、各資格の確かめ先。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="仕事の場面と資格と確かめ先の対応図。工事の監督・検査は1級土木施工管理技士で、全国建設研修センター、建設業法第27条、地方自治法第234条の2。設計の審査・技術判断は技術士で、日本技術士会、技術士法第2条と第32条。公共測量・用地は測量士・測量士補で、国土地理院、測量法第48条と第49条。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }
+      .m { font-size: 11px; fill: #555; }
+      .h { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .n { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .d { font-size: 12px; fill: #1a3a5c; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .y { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .p { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .s { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .a { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+
+  <rect class="s" x="10" y="10" width="380" height="140" rx="8"/>
+  <rect class="b" x="10" y="10" width="380" height="34" rx="8"/>
+  <text class="m" x="22" y="31">場面</text>
+  <text class="h" x="56" y="33">工事の監督・検査</text>
+  <rect class="p" x="20" y="54" width="150" height="86" rx="6"/>
+  <text class="m" x="30" y="71">資格</text>
+  <text class="n" x="30" y="96">1級土木施工</text>
+  <text class="n" x="30" y="115">管理技士</text>
+  <path class="a" d="M172,97H210" marker-end="url(#ah)"/>
+  <rect class="p" x="214" y="54" width="166" height="86" rx="6"/>
+  <text class="m" x="224" y="71">確かめる先</text>
+  <text class="d" x="224" y="90" style="font-weight:bold">全国建設研修センター</text>
+  <text class="d" x="224" y="109">建設業法第27条</text>
+  <text class="d" x="224" y="127">地方自治法第234条の2</text>
+  <rect class="s" x="10" y="160" width="380" height="140" rx="8"/>
+  <rect class="g" x="10" y="160" width="380" height="34" rx="8"/>
+  <text class="m" x="22" y="181">場面</text>
+  <text class="h" x="56" y="183">設計の審査・技術判断</text>
+  <rect class="p" x="20" y="204" width="150" height="86" rx="6"/>
+  <text class="m" x="30" y="221">資格</text>
+  <text class="n" x="30" y="257">技術士</text>
+  <path class="a" d="M172,247H210" marker-end="url(#ah)"/>
+  <rect class="p" x="214" y="204" width="166" height="86" rx="6"/>
+  <text class="m" x="224" y="221">確かめる先</text>
+  <text class="d" x="224" y="240" style="font-weight:bold">日本技術士会</text>
+  <text class="d" x="224" y="259">技術士法第2条</text>
+  <text class="d" x="224" y="277">技術士法第32条（登録）</text>
+  <rect class="s" x="10" y="310" width="380" height="140" rx="8"/>
+  <rect class="y" x="10" y="310" width="380" height="34" rx="8"/>
+  <text class="m" x="22" y="331">場面</text>
+  <text class="h" x="56" y="333">公共測量・用地</text>
+  <rect class="p" x="20" y="354" width="150" height="86" rx="6"/>
+  <text class="m" x="30" y="371">資格</text>
+  <text class="n" x="30" y="396">測量士・</text>
+  <text class="n" x="30" y="415">測量士補</text>
+  <path class="a" d="M172,397H210" marker-end="url(#ah)"/>
+  <rect class="p" x="214" y="354" width="166" height="86" rx="6"/>
+  <text class="m" x="224" y="371">確かめる先</text>
+  <text class="d" x="224" y="390" style="font-weight:bold">国土地理院</text>
+  <text class="d" x="224" y="409">測量法第48条</text>
+  <text class="d" x="224" y="427">測量法第49条（登録）</text>
+  <rect class="s" x="10" y="460" width="380" height="30" rx="6"/>
+  <text class="d" x="22" y="480">受検資格の年数や業務は、受験する年度の案内で確かめる</text>
+</svg>

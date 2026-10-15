@@ -1,0 +1,75 @@
+<!-- authored 2026-10-15 doboku-note 自作。関与の種類は地方自治法第245条の4から第245条の9の定め。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="自治事務と法定受託事務で、国や県が使える関与を比べた図。助言・勧告、資料の提出の要求、協議は両方に及び、是正の要求は自治事務と市町村の第二号法定受託事務に及ぶ。是正の指示、代執行、処理基準は法定受託事務だけに設けられる。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 11px; fill: #555; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .g { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .l { stroke: #d7d7d7; stroke-width: 1; fill: none; }
+      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+  <rect class="b" x="196" y="10" width="92" height="44" rx="6"/>
+  <text class="n" x="242" y="29" text-anchor="middle">自治事務</text>
+  <text class="s" x="242" y="46" text-anchor="middle">関与は弱め</text>
+  <rect class="w" x="296" y="10" width="94" height="44" rx="6"/>
+  <text class="n" x="343" y="29" text-anchor="middle">法定受託事務</text>
+  <text class="s" x="343" y="46" text-anchor="middle">関与は強め</text>
+  <text class="n" x="40" y="86">助言・勧告</text>
+  <text class="s" x="40" y="102">第245条の4</text>
+  <path class="l" d="M30,114L390,114"/>
+  <rect class="b" x="196" y="70" width="92" height="36" rx="6"/>
+  <text class="t" x="242.0" y="94" text-anchor="middle">使える</text>
+  <rect class="w" x="296" y="70" width="94" height="36" rx="6"/>
+  <text class="t" x="343.0" y="94" text-anchor="middle">使える</text>
+  <text class="n" x="40" y="138">資料の提出の要求</text>
+  <text class="s" x="40" y="154">第245条の4</text>
+  <path class="l" d="M30,166L390,166"/>
+  <rect class="b" x="196" y="122" width="92" height="36" rx="6"/>
+  <text class="t" x="242.0" y="146" text-anchor="middle">使える</text>
+  <rect class="w" x="296" y="122" width="94" height="36" rx="6"/>
+  <text class="t" x="343.0" y="146" text-anchor="middle">使える</text>
+  <text class="n" x="40" y="190">協議</text>
+  <text class="s" x="40" y="206">第245条</text>
+  <path class="l" d="M30,218L390,218"/>
+  <rect class="b" x="196" y="174" width="92" height="36" rx="6"/>
+  <text class="t" x="242.0" y="198" text-anchor="middle">使える</text>
+  <rect class="w" x="296" y="174" width="94" height="36" rx="6"/>
+  <text class="t" x="343.0" y="198" text-anchor="middle">使える</text>
+  <text class="n" x="40" y="242">是正の要求</text>
+  <text class="s" x="40" y="258">第245条の5</text>
+  <path class="l" d="M30,270L390,270"/>
+  <rect class="b" x="196" y="226" width="92" height="36" rx="6"/>
+  <text class="t" x="242.0" y="250" text-anchor="middle">使える</text>
+  <text class="s" x="343.0" y="250" text-anchor="middle">第二号のみ</text>
+  <text class="n" x="40" y="300">是正の指示</text>
+  <text class="s" x="40" y="316">第245条の7</text>
+  <path class="l" d="M30,328L390,328"/>
+  <text class="s" x="242.0" y="308" text-anchor="middle">－</text>
+  <rect class="w" x="296" y="284" width="94" height="36" rx="6"/>
+  <text class="t" x="343.0" y="308" text-anchor="middle">使える</text>
+  <text class="n" x="40" y="352">代執行</text>
+  <text class="s" x="40" y="368">第245条の8</text>
+  <path class="l" d="M30,380L390,380"/>
+  <text class="s" x="242.0" y="360" text-anchor="middle">－</text>
+  <rect class="w" x="296" y="336" width="94" height="36" rx="6"/>
+  <text class="t" x="343.0" y="360" text-anchor="middle">使える</text>
+  <text class="n" x="40" y="404">処理基準</text>
+  <text class="s" x="40" y="420">第245条の9</text>
+  <path class="l" d="M30,432L390,432"/>
+  <text class="s" x="242.0" y="412" text-anchor="middle">－</text>
+  <rect class="w" x="296" y="388" width="94" height="36" rx="6"/>
+  <text class="t" x="343.0" y="412" text-anchor="middle">使える</text>
+  <path class="a" d="M18,66L18,428" marker-end="url(#ah)"/>
+  <text class="t" x="18" y="444" text-anchor="middle">強</text>
+  <text class="t" x="18" y="60" text-anchor="middle">弱</text>
+  <rect class="g" x="30" y="454" width="360" height="26" rx="4"/>
+  <text class="s" x="40" y="471">－ は原則としてない</text>
+</svg>
