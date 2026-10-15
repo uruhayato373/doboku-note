@@ -3925,6 +3925,19 @@
       "commit": "731a8718c895",
       "verification": "develop の Pre-merge check が 0bb521b03 で success（content-series・egov-laws とも緑）",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0739",
+      "at": "2026-10-15",
+      "task": "自治体の土木担当シリーズの第2波（道路・河川の管理 8 章）と第3波（事業を進める 8 章）を書いて公開する",
+      "tier": "high",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "69b4682d7046",
+      "verification": "本番 16 本 HTTP 200・<main あり、図 27 枚 HTTP 200（storage）、check-production-ssr exit 0、check-content-series PASS。写真 5 件は DN-0741 へ",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }
