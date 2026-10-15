@@ -1,0 +1,40 @@
+name: Rerun cancelled scheduled runs
+
+# DN-0750: develop へ書き込むワークフローは concurrency group `develop-git-write` を共有している。
+# cancel-in-progress: false が守るのは実行中の run だけで、GitHub は同じ group の待機中（pending）の run を
+# 1 件しか残さない。新しい run が並ぶと古い待機分はジョブが始まらないまま cancelled になる
+# （2026-10-09 の gsc-auto-review は作成 3 秒後に取り消され、週次の記録が 1 回欠けた）。
+# 2 時間ごとに、共通 group の定期ワークフローで「待機中に取り消され、その後に成功も実行中も無い」run を再実行する。
+# 判定は scripts/lib/cancelled-schedule-runs.mjs。このワークフロー自身は develop へ書き込まないので group に入れない。
+
+on:
+  schedule:
+    - cron: "17 */2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  # gh run list / view / rerun
+  actions: write
+
+jobs:
+  rerun:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout develop
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: develop
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "22"
+
+      # 依存ゼロ（npm ci をしない）。gh は runner に入っている。
+      - name: Rerun scheduled runs cancelled while pending
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node scripts/rerun-cancelled-schedules.mjs --commit
