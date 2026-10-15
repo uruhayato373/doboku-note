@@ -56574,6 +56574,27 @@
         "scripts/check-orphan-ogp.mjs"
       ],
       "srcHash": "ef880e34174ced9c"
+    },
+    "content/site/civil-practice/road-inspection-longevity-plan/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/road-inspection-longevity-plan/ogp.png",
+      "sha256": "aa874a3f06aeedcaf4cf34dd014a8b1aac91c2e59b8228c3fddac73af13fc0bd",
+      "bytes": 66316,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-15T03:14:40.848Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/road-inspection-longevity-plan/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "c66cc67ad2371e85"
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",
