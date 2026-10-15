@@ -1,0 +1,19 @@
+{
+  "kind": "measurement",
+  "qualification": "rccm",
+  "period": {
+    "startDate": "2026-10-05",
+    "endDate": "2026-10-11"
+  },
+  "channel": "GA4",
+  "subject": "aggregate",
+  "coverage": "complete",
+  "source": "GA4 Data API properties/419382901・日本。自然検索人数は期間全体。資格別は正規URL配下、演習は1級土木ツールを含む。",
+  "values": {
+    "organicUsers": 65,
+    "noteCtaClicks": 0
+  },
+  "schemaVersion": 1,
+  "createdAt": "2026-10-15T13:12:41.724Z",
+  "strategyHash": "7da574eadd3ced97551d710fc7d1611f675e276997f4d2fefe1e18aa9a7d42db"
+}
