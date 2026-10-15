@@ -1,0 +1,53 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は土砂災害防止法第4条・第7条・第8条・第27条、災害対策基本法第60条。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="警戒区域に関する流れ。都道府県の基礎調査、知事による警戒区域の指定と図書の送付、市町村の地域防災計画と住民への周知。大雨のときは、知事の警戒情報と警戒区域を重ね、市町村長が警戒区域を単位に避難指示を判断する。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }
+      .h { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .n { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .d { font-size: 12px; fill: #1a3a5c; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .w { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .a { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+
+  <rect class="b" x="10" y="10" width="380" height="70" rx="8"/>
+  <text class="n" x="24" y="34">基礎調査</text>
+  <rect class="w" x="312" y="16" width="66" height="22" rx="11"/><text class="h" x="345" y="31" text-anchor="middle">都道府県</text>
+  <text class="d" x="24" y="54">おおむね5年ごとに調べ、</text>
+  <text class="d" x="24" y="70">結果を市町村長に通知（第4条）</text>
+  <path class="a" d="M200,82V98" marker-end="url(#ah)"/>
+
+  <rect class="b" x="10" y="100" width="380" height="70" rx="8"/>
+  <text class="n" x="24" y="124">警戒区域の指定</text>
+  <rect class="w" x="312" y="106" width="66" height="22" rx="11"/><text class="h" x="345" y="121" text-anchor="middle">知事</text>
+  <text class="d" x="24" y="144">市町村長の意見を聴いて指定・公示し、</text>
+  <text class="d" x="24" y="160">区域の図書を市町村長に送る（第7条）</text>
+  <path class="a" d="M200,172V188" marker-end="url(#ah)"/>
+
+  <rect class="g" x="10" y="190" width="380" height="70" rx="8"/>
+  <text class="n" x="24" y="214">地域防災計画・住民への周知</text>
+  <rect class="w" x="312" y="196" width="66" height="22" rx="11"/><text class="h" x="345" y="211" text-anchor="middle">市町村</text>
+  <text class="d" x="24" y="234">警戒区域ごとに計画へ定め、</text>
+  <text class="d" x="24" y="250">印刷物などで住民に周知（第8条）</text>
+
+  <text class="h" x="200" y="276" text-anchor="middle">大雨のとき</text>
+  <rect class="b" x="10" y="282" width="185" height="64" rx="8"/>
+  <text class="n" x="24" y="308">警戒情報</text>
+  <text class="d" x="24" y="328">知事が通知（第27条）</text>
+  <rect class="g" x="205" y="282" width="185" height="64" rx="8"/>
+  <text class="n" x="219" y="308">警戒区域</text>
+  <text class="d" x="219" y="328">計画・周知で示した区域</text>
+  <path class="a" d="M102,348V366" marker-end="url(#ah)"/>
+  <path class="a" d="M297,348V366" marker-end="url(#ah)"/>
+
+  <rect class="g" x="10" y="368" width="380" height="104" rx="8"/>
+  <text class="n" x="24" y="394">区域を重ねた避難指示</text>
+  <rect class="w" x="312" y="376" width="66" height="22" rx="11"/><text class="h" x="345" y="391" text-anchor="middle">市町村長</text>
+  <text class="d" x="24" y="418">危険度の高い地域と重なる</text>
+  <text class="d" x="24" y="436">警戒区域を単位に発令する</text>
+  <text class="d" x="24" y="454">（災害対策基本法第60条）</text>
+</svg>
