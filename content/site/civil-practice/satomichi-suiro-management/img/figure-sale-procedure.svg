@@ -1,0 +1,63 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は用途廃止の審査から普通財産への変更、評価と契約、登記までの売払いの流れと議会の関わり。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="里道・水路の売払いの流れを縦に並べた図。用途廃止の審査で機能・同意・土地の形を見て、普通財産に変え、売払いを申請して表題登記と保存登記を行い、評価と契約を経て、所有権移転の登記で終わる。議会の議決の要否も確かめる。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }
+      .n { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 11px; fill: #555; }
+      .num { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .box-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .chip { fill: #fff; stroke: #2e6da4; stroke-width: 1; }
+      .ar { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+
+  <!-- 1 用途廃止の審査 -->
+  <rect class="box-brand" x="20" y="12" width="360" height="86" rx="8"/>
+  <circle cx="46" cy="36" r="12" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/><text class="num" x="46" y="41" text-anchor="middle">1</text>
+  <text class="n" x="68" y="41">用途廃止の審査</text>
+  <rect class="chip" x="34" y="54" width="102" height="32" rx="6"/><text class="t" x="85" y="75" text-anchor="middle">機能</text>
+  <rect class="chip" x="149" y="54" width="102" height="32" rx="6"/><text class="t" x="200" y="75" text-anchor="middle">同意</text>
+  <rect class="chip" x="264" y="54" width="102" height="32" rx="6"/><text class="t" x="315" y="75" text-anchor="middle">土地の形</text>
+
+  <path class="ar" d="M200,98V120" marker-end="url(#ah)"/>
+
+  <!-- 2 普通財産へ -->
+  <rect class="box-brand" x="20" y="122" width="360" height="58" rx="8"/>
+  <circle cx="46" cy="151" r="12" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/><text class="num" x="46" y="156" text-anchor="middle">2</text>
+  <text class="n" x="68" y="146">普通財産への変更</text>
+  <text class="s" x="68" y="165">貸付け・売払いができる財産になる</text>
+
+  <path class="ar" d="M200,180V202" marker-end="url(#ah)"/>
+
+  <!-- 3 申請と登記 -->
+  <rect class="box-brand" x="20" y="204" width="360" height="58" rx="8"/>
+  <circle cx="46" cy="233" r="12" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/><text class="num" x="46" y="238" text-anchor="middle">3</text>
+  <text class="n" x="68" y="228">売払いの申請</text>
+  <text class="s" x="68" y="247">表題登記と保存登記を市が嘱託で行う</text>
+
+  <path class="ar" d="M200,262V284" marker-end="url(#ah)"/>
+
+  <!-- 4 評価と契約 -->
+  <rect class="box-brand" x="20" y="286" width="360" height="58" rx="8"/>
+  <circle cx="46" cy="315" r="12" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/><text class="num" x="46" y="320" text-anchor="middle">4</text>
+  <text class="n" x="68" y="310">評価と契約</text>
+  <text class="s" x="68" y="329">売渡額の提示、契約書の提出と代金の納付</text>
+
+  <path class="ar" d="M200,344V366" marker-end="url(#ah)"/>
+
+  <!-- 5 登記 -->
+  <rect class="box-positive" x="20" y="368" width="360" height="58" rx="8"/>
+  <circle cx="46" cy="397" r="12" fill="#fff" stroke="#3a7d44" stroke-width="1.5"/><text class="num" x="46" y="402" text-anchor="middle">5</text>
+  <text class="n" x="68" y="392">所有権移転の登記</text>
+  <text class="s" x="68" y="411">市が行う</text>
+
+  <!-- 議会 -->
+  <rect class="box-warn" x="20" y="440" width="360" height="52" rx="8"/>
+  <text class="t" x="200" y="462" text-anchor="middle">議会の議決の要否も確かめる</text>
+  <text class="s" x="200" y="480" text-anchor="middle">交換や無償に近い処理は、条例・議決の要否を先に確認</text>
+</svg>

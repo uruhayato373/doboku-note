@@ -958,6 +958,47 @@
         "/exam/pe-construction/keywords/shakai-shihon-ronbun-keyword",
         "/standards/chubu/special/part-05"
       ]
+    },
+    {
+      "runId": "2026-10-15T01-30-06Z",
+      "collectedAt": "2026-10-15T01:30:07.002Z",
+      "mode": "commit",
+      "status": "ok",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 13,
+      "accepted": 10,
+      "alreadyIndexed": 1,
+      "unreadable": 0,
+      "slugs": [
+        "/standards/hokkaido/local/part-01",
+        "/exam/concrete-diagnostician/textbook/variation",
+        "/exam/pe-first-stage/primary/r06-aptitude",
+        "/practice/accident-first-response",
+        "/practice/ccus-kentaikyo-site",
+        "/practice/concrete-durability-specification",
+        "/practice/concrete-hydration-basics",
+        "/practice/concrete-labor-saving-technology",
+        "/practice/concrete-quality-and-workforce",
+        "/practice/concrete-roles-overview",
+        "/practice/concrete-standards-history",
+        "/practice/concrete-structure-inspection",
+        "/practice/concrete-work-preparation"
+      ],
+      "acceptedSlugs": [
+        "/exam/concrete-diagnostician/textbook/variation",
+        "/exam/pe-first-stage/primary/r06-aptitude",
+        "/practice/ccus-kentaikyo-site",
+        "/practice/concrete-durability-specification",
+        "/practice/concrete-hydration-basics",
+        "/practice/concrete-labor-saving-technology",
+        "/practice/concrete-quality-and-workforce",
+        "/practice/concrete-roles-overview",
+        "/practice/concrete-structure-inspection",
+        "/practice/concrete-work-preparation"
+      ]
     }
   ]
 }

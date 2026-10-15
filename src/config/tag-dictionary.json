@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generated_at": "2026-10-13T07:11:16.671Z",
+  "generated_at": "2026-10-15T03:59:16.357Z",
   "summary": {
-    "total_mdx_files": 1410,
-    "total_unique_tags": 132,
+    "total_mdx_files": 1423,
+    "total_unique_tags": 133,
     "allowlist_size": 330,
-    "known_count": 132,
+    "known_count": 133,
     "unknown_count": 0,
     "typo_candidates_count": 0
   },
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 234,
+      "count": 247,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1187,6 +1187,7 @@
         "civil-practice-board-of-audit-inspection",
         "civil-practice-cast-in-place-pile-methods",
         "civil-practice-checklist-shoring-buoyancy",
+        "civil-practice-coast-port-administrators",
         "civil-practice-concrete-compaction-numbers",
         "civil-practice-concrete-crack-causes",
         "civil-practice-concrete-durability-specification",
@@ -1227,8 +1228,10 @@
         "civil-practice-pre-construction-process",
         "civil-practice-precast-pile-methods",
         "civil-practice-preventive-maintenance-diagnosis",
+        "civil-practice-public-meeting-consensus",
         "civil-practice-public-works-bidding-methods",
         "civil-practice-public-works-delivery-methods",
+        "civil-practice-public-works-environmental-care",
         "civil-practice-quality-record-site-bcp",
         "civil-practice-ready-mixed-concrete-ordering",
         "civil-practice-rebar-corrosion-handling",
@@ -1236,12 +1239,22 @@
         "civil-practice-rebar-splice-selection",
         "civil-practice-reference-values",
         "civil-practice-risk-assessment-construction-workflow",
+        "civil-practice-river-act-framework",
+        "civil-practice-river-area-permits",
+        "civil-practice-river-crossing-structure-review",
+        "civil-practice-river-facility-inspection-operation",
         "civil-practice-river-park-erosion-control",
+        "civil-practice-road-act-framework",
+        "civil-practice-road-boundary-and-road-ledger",
         "civil-practice-road-fixtures-precast",
+        "civil-practice-road-inspection-longevity-plan",
+        "civil-practice-road-occupancy-permit-review",
+        "civil-practice-road-work-approval-vs-road-use-permit",
         "civil-practice-safety-culture-discipline",
         "civil-practice-safety-document-cross-check",
         "civil-practice-safety-health-education-plan",
         "civil-practice-safety-patrol-corrective-action",
+        "civil-practice-satomichi-suiro-management",
         "civil-practice-schedule-and-road-permit",
         "civil-practice-service-commencement",
         "civil-practice-sheet-pile-snow-coating",
@@ -2577,7 +2590,7 @@
     },
     {
       "name": "環境保全",
-      "count": 90,
+      "count": 91,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-environment-management",
@@ -2590,6 +2603,7 @@
         "civil-practice-environment-neighborhood",
         "civil-practice-environmental-impact-assessment-flow",
         "civil-practice-nature-conservation-mitigation",
+        "civil-practice-public-works-environmental-care",
         "concrete-engineer-textbook-environment",
         "pe-comprehensive-management-acid-rain",
         "pe-comprehensive-management-agenda-21",
@@ -2670,6 +2684,101 @@
         "pe-comprehensive-management-surcharge",
         "pe-comprehensive-management-sustainable-fashion",
         "pe-construction-datsutanso-kankyo-ronbun-keyword"
+      ]
+    },
+    {
+      "name": "関係法規",
+      "count": 88,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-guide-engineer-assignment",
+        "civil-construction-1-guide-law-key-points",
+        "civil-construction-1-textbook-building-standards",
+        "civil-construction-1-textbook-construction-business",
+        "civil-construction-1-textbook-explosives-act",
+        "civil-construction-1-textbook-labor-standards",
+        "civil-construction-1-textbook-law-compliance",
+        "civil-construction-1-textbook-port-regulations",
+        "civil-construction-1-textbook-river-act",
+        "civil-construction-1-textbook-road-act",
+        "civil-construction-1-textbook-standard-contract",
+        "civil-construction-2-guide-law-key-points",
+        "civil-practice-accident-first-response",
+        "civil-practice-ccus-kentaikyo-site",
+        "civil-practice-construction-industry-structure",
+        "civil-practice-environmental-impact-assessment-flow",
+        "civil-practice-foreign-workers-site-check",
+        "civil-practice-keishin-bidder-qualification",
+        "civil-practice-license-scope-judgment",
+        "civil-practice-pre-construction-process",
+        "civil-practice-public-meeting-consensus",
+        "civil-practice-public-works-bidding-methods",
+        "civil-practice-public-works-delivery-methods",
+        "civil-practice-public-works-environmental-care",
+        "civil-practice-safety-document-cross-check",
+        "civil-practice-safety-health-education-plan",
+        "civil-practice-subcontract-fair-dealing",
+        "civil-practice-subcontract-instruction-boundary",
+        "pe-comprehensive-management-air-pollution-control-act",
+        "pe-comprehensive-management-antitrust-compliance",
+        "pe-comprehensive-management-asbestos-issue",
+        "pe-comprehensive-management-basel-convention",
+        "pe-comprehensive-management-bid-rigging",
+        "pe-comprehensive-management-biodiversity-basic-act",
+        "pe-comprehensive-management-chemical-substances-review-act",
+        "pe-comprehensive-management-child-rearing-support-act",
+        "pe-comprehensive-management-child-support-act",
+        "pe-comprehensive-management-childcare-nursing-leave-act",
+        "pe-comprehensive-management-circular-society-basic-act",
+        "pe-comprehensive-management-cites",
+        "pe-comprehensive-management-civil-protection-act",
+        "pe-comprehensive-management-climate-change-adaptation-act",
+        "pe-comprehensive-management-copyright",
+        "pe-comprehensive-management-data-breach-response",
+        "pe-comprehensive-management-dioxin-countermeasures-act",
+        "pe-comprehensive-management-disability-discrimination-act",
+        "pe-comprehensive-management-disability-employment",
+        "pe-comprehensive-management-disability-employment-act",
+        "pe-comprehensive-management-disaster-countermeasures-act",
+        "pe-comprehensive-management-disclosure-request",
+        "pe-comprehensive-management-disclosure-standards",
+        "pe-comprehensive-management-discretionary-work-system",
+        "pe-comprehensive-management-fire-service-act",
+        "pe-comprehensive-management-gender-equality-act",
+        "pe-comprehensive-management-global-warming-countermeasures-act",
+        "pe-comprehensive-management-hazardous-facility-disaster-prevention",
+        "pe-comprehensive-management-high-pressure-gas-act",
+        "pe-comprehensive-management-indefinite-conversion-rule",
+        "pe-comprehensive-management-individual-labor-dispute-act",
+        "pe-comprehensive-management-industrial-property-rights",
+        "pe-comprehensive-management-information-disclosure-act",
+        "pe-comprehensive-management-landscape-act",
+        "pe-comprehensive-management-machinery-safety-guidelines",
+        "pe-comprehensive-management-minimum-wage-act",
+        "pe-comprehensive-management-my-number-act",
+        "pe-comprehensive-management-national-resilience-act",
+        "pe-comprehensive-management-natural-parks-act",
+        "pe-comprehensive-management-nature-conservation-act",
+        "pe-comprehensive-management-nature-restoration-act",
+        "pe-comprehensive-management-nuclear-disaster-act",
+        "pe-comprehensive-management-occupational-safety-act",
+        "pe-comprehensive-management-pollution-control-manager",
+        "pe-comprehensive-management-pops-convention",
+        "pe-comprehensive-management-prior-use-rights",
+        "pe-comprehensive-management-privacy-mark",
+        "pe-comprehensive-management-private-monopoly",
+        "pe-comprehensive-management-product-liability",
+        "pe-comprehensive-management-product-liability-act",
+        "pe-comprehensive-management-product-safety",
+        "pe-comprehensive-management-prtr-act",
+        "pe-comprehensive-management-radioactive-decontamination-act",
+        "pe-comprehensive-management-reach-regulation",
+        "pe-comprehensive-management-renewable-energy-act",
+        "pe-comprehensive-management-right-to-know",
+        "pe-comprehensive-management-soil-contamination-act",
+        "pe-comprehensive-management-species-preservation-act",
+        "pe-comprehensive-management-state-secrets-act",
+        "pe-comprehensive-management-subcontracting-act"
       ]
     },
     {
@@ -2763,99 +2872,6 @@
         "pe-construction-toan-kousei-template",
         "pe-construction-tunnel-ronbun-keyword",
         "pe-construction-urban-planning-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "関係法規",
-      "count": 86,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-guide-engineer-assignment",
-        "civil-construction-1-guide-law-key-points",
-        "civil-construction-1-textbook-building-standards",
-        "civil-construction-1-textbook-construction-business",
-        "civil-construction-1-textbook-explosives-act",
-        "civil-construction-1-textbook-labor-standards",
-        "civil-construction-1-textbook-law-compliance",
-        "civil-construction-1-textbook-port-regulations",
-        "civil-construction-1-textbook-river-act",
-        "civil-construction-1-textbook-road-act",
-        "civil-construction-1-textbook-standard-contract",
-        "civil-construction-2-guide-law-key-points",
-        "civil-practice-accident-first-response",
-        "civil-practice-ccus-kentaikyo-site",
-        "civil-practice-construction-industry-structure",
-        "civil-practice-environmental-impact-assessment-flow",
-        "civil-practice-foreign-workers-site-check",
-        "civil-practice-keishin-bidder-qualification",
-        "civil-practice-license-scope-judgment",
-        "civil-practice-pre-construction-process",
-        "civil-practice-public-works-bidding-methods",
-        "civil-practice-public-works-delivery-methods",
-        "civil-practice-safety-document-cross-check",
-        "civil-practice-safety-health-education-plan",
-        "civil-practice-subcontract-fair-dealing",
-        "civil-practice-subcontract-instruction-boundary",
-        "pe-comprehensive-management-air-pollution-control-act",
-        "pe-comprehensive-management-antitrust-compliance",
-        "pe-comprehensive-management-asbestos-issue",
-        "pe-comprehensive-management-basel-convention",
-        "pe-comprehensive-management-bid-rigging",
-        "pe-comprehensive-management-biodiversity-basic-act",
-        "pe-comprehensive-management-chemical-substances-review-act",
-        "pe-comprehensive-management-child-rearing-support-act",
-        "pe-comprehensive-management-child-support-act",
-        "pe-comprehensive-management-childcare-nursing-leave-act",
-        "pe-comprehensive-management-circular-society-basic-act",
-        "pe-comprehensive-management-cites",
-        "pe-comprehensive-management-civil-protection-act",
-        "pe-comprehensive-management-climate-change-adaptation-act",
-        "pe-comprehensive-management-copyright",
-        "pe-comprehensive-management-data-breach-response",
-        "pe-comprehensive-management-dioxin-countermeasures-act",
-        "pe-comprehensive-management-disability-discrimination-act",
-        "pe-comprehensive-management-disability-employment",
-        "pe-comprehensive-management-disability-employment-act",
-        "pe-comprehensive-management-disaster-countermeasures-act",
-        "pe-comprehensive-management-disclosure-request",
-        "pe-comprehensive-management-disclosure-standards",
-        "pe-comprehensive-management-discretionary-work-system",
-        "pe-comprehensive-management-fire-service-act",
-        "pe-comprehensive-management-gender-equality-act",
-        "pe-comprehensive-management-global-warming-countermeasures-act",
-        "pe-comprehensive-management-hazardous-facility-disaster-prevention",
-        "pe-comprehensive-management-high-pressure-gas-act",
-        "pe-comprehensive-management-indefinite-conversion-rule",
-        "pe-comprehensive-management-individual-labor-dispute-act",
-        "pe-comprehensive-management-industrial-property-rights",
-        "pe-comprehensive-management-information-disclosure-act",
-        "pe-comprehensive-management-landscape-act",
-        "pe-comprehensive-management-machinery-safety-guidelines",
-        "pe-comprehensive-management-minimum-wage-act",
-        "pe-comprehensive-management-my-number-act",
-        "pe-comprehensive-management-national-resilience-act",
-        "pe-comprehensive-management-natural-parks-act",
-        "pe-comprehensive-management-nature-conservation-act",
-        "pe-comprehensive-management-nature-restoration-act",
-        "pe-comprehensive-management-nuclear-disaster-act",
-        "pe-comprehensive-management-occupational-safety-act",
-        "pe-comprehensive-management-pollution-control-manager",
-        "pe-comprehensive-management-pops-convention",
-        "pe-comprehensive-management-prior-use-rights",
-        "pe-comprehensive-management-privacy-mark",
-        "pe-comprehensive-management-private-monopoly",
-        "pe-comprehensive-management-product-liability",
-        "pe-comprehensive-management-product-liability-act",
-        "pe-comprehensive-management-product-safety",
-        "pe-comprehensive-management-prtr-act",
-        "pe-comprehensive-management-radioactive-decontamination-act",
-        "pe-comprehensive-management-reach-regulation",
-        "pe-comprehensive-management-renewable-energy-act",
-        "pe-comprehensive-management-right-to-know",
-        "pe-comprehensive-management-soil-contamination-act",
-        "pe-comprehensive-management-species-preservation-act",
-        "pe-comprehensive-management-state-secrets-act",
-        "pe-comprehensive-management-subcontracting-act"
       ]
     },
     {
@@ -3514,6 +3530,50 @@
       ]
     },
     {
+      "name": "道路",
+      "count": 37,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-2-guide-road-pavement-key-points",
+        "civil-practice-asphalt-materials-types",
+        "civil-practice-asphalt-pavement-control",
+        "civil-practice-reading-civil-drawings",
+        "civil-practice-road-act-framework",
+        "civil-practice-road-boundary-and-road-ledger",
+        "civil-practice-road-fixtures-precast",
+        "civil-practice-road-inspection-longevity-plan",
+        "civil-practice-road-occupancy-permit-review",
+        "civil-practice-road-work-approval-vs-road-use-permit",
+        "civil-practice-schedule-and-road-permit",
+        "civil-practice-seismic-design-levels",
+        "civil-practice-service-commencement",
+        "pe-comprehensive-management-essay-pattern-cross-year-application",
+        "pe-comprehensive-management-h21-essay-road-municipality",
+        "pe-comprehensive-management-h22-essay-road-municipality",
+        "pe-comprehensive-management-h23-essay-road-municipality",
+        "pe-comprehensive-management-h24-essay-road-municipality",
+        "pe-comprehensive-management-h25-essay-road-municipality",
+        "pe-comprehensive-management-h26-essay-road-municipality",
+        "pe-comprehensive-management-h27-essay-road-municipality",
+        "pe-comprehensive-management-pattern-essay-road-municipality",
+        "pe-comprehensive-management-r03-essay-road-municipality",
+        "pe-comprehensive-management-r04-essay-road-municipality",
+        "pe-comprehensive-management-r05-essay-road-municipality",
+        "pe-comprehensive-management-r06-essay-road-municipality",
+        "pe-comprehensive-management-r07-essay-road-municipality",
+        "pe-construction-r01-road",
+        "pe-construction-r02-road",
+        "pe-construction-r03-road",
+        "pe-construction-r04-road",
+        "pe-construction-r05-road",
+        "pe-construction-r06-road",
+        "pe-construction-r07-road",
+        "pe-construction-r08-road",
+        "pe-construction-road-exam-themes",
+        "pe-construction-road-ronbun-keyword"
+      ]
+    },
+    {
       "name": "DX",
       "count": 32,
       "inAllowlist": true,
@@ -3592,45 +3652,6 @@
       ]
     },
     {
-      "name": "道路",
-      "count": 32,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-2-guide-road-pavement-key-points",
-        "civil-practice-asphalt-materials-types",
-        "civil-practice-asphalt-pavement-control",
-        "civil-practice-reading-civil-drawings",
-        "civil-practice-road-fixtures-precast",
-        "civil-practice-schedule-and-road-permit",
-        "civil-practice-seismic-design-levels",
-        "civil-practice-service-commencement",
-        "pe-comprehensive-management-essay-pattern-cross-year-application",
-        "pe-comprehensive-management-h21-essay-road-municipality",
-        "pe-comprehensive-management-h22-essay-road-municipality",
-        "pe-comprehensive-management-h23-essay-road-municipality",
-        "pe-comprehensive-management-h24-essay-road-municipality",
-        "pe-comprehensive-management-h25-essay-road-municipality",
-        "pe-comprehensive-management-h26-essay-road-municipality",
-        "pe-comprehensive-management-h27-essay-road-municipality",
-        "pe-comprehensive-management-pattern-essay-road-municipality",
-        "pe-comprehensive-management-r03-essay-road-municipality",
-        "pe-comprehensive-management-r04-essay-road-municipality",
-        "pe-comprehensive-management-r05-essay-road-municipality",
-        "pe-comprehensive-management-r06-essay-road-municipality",
-        "pe-comprehensive-management-r07-essay-road-municipality",
-        "pe-construction-r01-road",
-        "pe-construction-r02-road",
-        "pe-construction-r03-road",
-        "pe-construction-r04-road",
-        "pe-construction-r05-road",
-        "pe-construction-r06-road",
-        "pe-construction-r07-road",
-        "pe-construction-r08-road",
-        "pe-construction-road-exam-themes",
-        "pe-construction-road-ronbun-keyword"
-      ]
-    },
-    {
       "name": "土工",
       "count": 29,
       "inAllowlist": true,
@@ -3701,6 +3722,40 @@
       ]
     },
     {
+      "name": "河川",
+      "count": 27,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-textbook-river-works",
+        "civil-construction-2-guide-river-sabo-key-points",
+        "civil-practice-flood-control-facilities",
+        "civil-practice-flood-season-river-work",
+        "civil-practice-levee-failure-reinforcement",
+        "civil-practice-nature-conservation-mitigation",
+        "civil-practice-reading-civil-drawings",
+        "civil-practice-river-act-framework",
+        "civil-practice-river-area-permits",
+        "civil-practice-river-crossing-structure-review",
+        "civil-practice-river-facility-inspection-operation",
+        "civil-practice-river-park-erosion-control",
+        "civil-practice-satomichi-suiro-management",
+        "pe-comprehensive-management-h21-essay-river-consultant",
+        "pe-comprehensive-management-h22-essay-river-consultant",
+        "pe-comprehensive-management-h23-essay-river-consultant",
+        "pe-comprehensive-management-h24-essay-river-consultant",
+        "pe-comprehensive-management-h25-essay-river-consultant",
+        "pe-comprehensive-management-h26-essay-river-consultant",
+        "pe-comprehensive-management-h27-essay-river-consultant",
+        "pe-comprehensive-management-pattern-essay-river-consultant",
+        "pe-comprehensive-management-r03-essay-river-consultant",
+        "pe-comprehensive-management-r04-essay-river-consultant",
+        "pe-comprehensive-management-r05-essay-river-consultant",
+        "pe-comprehensive-management-r06-essay-river-consultant",
+        "pe-comprehensive-management-r07-essay-river-consultant",
+        "pe-construction-river-coast-ronbun-keyword"
+      ]
+    },
+    {
       "name": "secondary",
       "count": 26,
       "inAllowlist": true,
@@ -3734,32 +3789,32 @@
       ]
     },
     {
-      "name": "河川",
+      "name": "地方公共団体",
       "count": 22,
       "inAllowlist": true,
       "usedIn": [
-        "civil-construction-1-textbook-river-works",
-        "civil-construction-2-guide-river-sabo-key-points",
-        "civil-practice-flood-control-facilities",
-        "civil-practice-flood-season-river-work",
-        "civil-practice-levee-failure-reinforcement",
-        "civil-practice-nature-conservation-mitigation",
-        "civil-practice-reading-civil-drawings",
-        "civil-practice-river-park-erosion-control",
-        "pe-comprehensive-management-h21-essay-river-consultant",
-        "pe-comprehensive-management-h22-essay-river-consultant",
-        "pe-comprehensive-management-h23-essay-river-consultant",
-        "pe-comprehensive-management-h24-essay-river-consultant",
-        "pe-comprehensive-management-h25-essay-river-consultant",
-        "pe-comprehensive-management-h26-essay-river-consultant",
-        "pe-comprehensive-management-h27-essay-river-consultant",
-        "pe-comprehensive-management-pattern-essay-river-consultant",
-        "pe-comprehensive-management-r03-essay-river-consultant",
-        "pe-comprehensive-management-r04-essay-river-consultant",
-        "pe-comprehensive-management-r05-essay-river-consultant",
-        "pe-comprehensive-management-r06-essay-river-consultant",
-        "pe-comprehensive-management-r07-essay-river-consultant",
-        "pe-construction-river-coast-ronbun-keyword"
+        "civil-practice-board-of-audit-inspection",
+        "civil-practice-coast-port-administrators",
+        "civil-practice-public-meeting-consensus",
+        "civil-practice-river-act-framework",
+        "civil-practice-river-facility-inspection-operation",
+        "civil-practice-road-boundary-and-road-ledger",
+        "civil-practice-road-inspection-longevity-plan",
+        "civil-practice-satomichi-suiro-management",
+        "pe-comprehensive-management-essay-pattern-cross-year-application",
+        "pe-comprehensive-management-h21-essay-road-municipality",
+        "pe-comprehensive-management-h22-essay-road-municipality",
+        "pe-comprehensive-management-h23-essay-road-municipality",
+        "pe-comprehensive-management-h24-essay-road-municipality",
+        "pe-comprehensive-management-h25-essay-road-municipality",
+        "pe-comprehensive-management-h26-essay-road-municipality",
+        "pe-comprehensive-management-h27-essay-road-municipality",
+        "pe-comprehensive-management-pattern-essay-road-municipality",
+        "pe-comprehensive-management-r03-essay-road-municipality",
+        "pe-comprehensive-management-r04-essay-road-municipality",
+        "pe-comprehensive-management-r05-essay-road-municipality",
+        "pe-comprehensive-management-r06-essay-road-municipality",
+        "pe-comprehensive-management-r07-essay-road-municipality"
       ]
     },
     {
@@ -3815,6 +3870,33 @@
         "pe-first-stage-r01-retry-construction",
         "pe-first-stage-r01-retry-water-supply",
         "pe-first-stage-r01-water-supply"
+      ]
+    },
+    {
+      "name": "維持管理",
+      "count": 20,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-guide-concrete-maintenance",
+        "civil-practice-coast-port-administrators",
+        "civil-practice-concrete-standards-history",
+        "civil-practice-large-fill-landslide",
+        "civil-practice-levee-failure-reinforcement",
+        "civil-practice-monitoring-sensor-selection",
+        "civil-practice-river-facility-inspection-operation",
+        "civil-practice-road-inspection-longevity-plan",
+        "civil-practice-seismic-design-levels",
+        "concrete-chief-engineer-textbook-durability",
+        "concrete-diagnostician-textbook-assessment",
+        "concrete-diagnostician-textbook-maintenance",
+        "concrete-diagnostician-textbook-repair",
+        "pe-comprehensive-management-h22-essay-general-contractor",
+        "pe-comprehensive-management-h25-essay-general-contractor",
+        "pe-comprehensive-management-h25-essay-river-consultant",
+        "pe-comprehensive-management-h25-essay-road-municipality",
+        "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance",
+        "pe-construction-iji-kanri-ronbun-keyword",
+        "pe-construction-infra-roukyuuka-iji"
       ]
     },
     {
@@ -4065,30 +4147,6 @@
       ]
     },
     {
-      "name": "維持管理",
-      "count": 17,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-guide-concrete-maintenance",
-        "civil-practice-concrete-standards-history",
-        "civil-practice-large-fill-landslide",
-        "civil-practice-levee-failure-reinforcement",
-        "civil-practice-monitoring-sensor-selection",
-        "civil-practice-seismic-design-levels",
-        "concrete-chief-engineer-textbook-durability",
-        "concrete-diagnostician-textbook-assessment",
-        "concrete-diagnostician-textbook-maintenance",
-        "concrete-diagnostician-textbook-repair",
-        "pe-comprehensive-management-h22-essay-general-contractor",
-        "pe-comprehensive-management-h25-essay-general-contractor",
-        "pe-comprehensive-management-h25-essay-river-consultant",
-        "pe-comprehensive-management-h25-essay-road-municipality",
-        "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance",
-        "pe-construction-iji-kanri-ronbun-keyword",
-        "pe-construction-infra-roukyuuka-iji"
-      ]
-    },
-    {
       "name": "基礎科目",
       "count": 16,
       "inAllowlist": true,
@@ -4222,28 +4280,6 @@
         "pe-construction-steel-concrete-exam-themes",
         "pe-construction-tunnel-exam-themes",
         "pe-construction-urban-planning-exam-themes"
-      ]
-    },
-    {
-      "name": "地方公共団体",
-      "count": 15,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-board-of-audit-inspection",
-        "pe-comprehensive-management-essay-pattern-cross-year-application",
-        "pe-comprehensive-management-h21-essay-road-municipality",
-        "pe-comprehensive-management-h22-essay-road-municipality",
-        "pe-comprehensive-management-h23-essay-road-municipality",
-        "pe-comprehensive-management-h24-essay-road-municipality",
-        "pe-comprehensive-management-h25-essay-road-municipality",
-        "pe-comprehensive-management-h26-essay-road-municipality",
-        "pe-comprehensive-management-h27-essay-road-municipality",
-        "pe-comprehensive-management-pattern-essay-road-municipality",
-        "pe-comprehensive-management-r03-essay-road-municipality",
-        "pe-comprehensive-management-r04-essay-road-municipality",
-        "pe-comprehensive-management-r05-essay-road-municipality",
-        "pe-comprehensive-management-r06-essay-road-municipality",
-        "pe-comprehensive-management-r07-essay-road-municipality"
       ]
     },
     {
@@ -4840,6 +4876,19 @@
       ]
     },
     {
+      "name": "行政手続き",
+      "count": 6,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-ccus-kentaikyo-site",
+        "civil-practice-foreign-workers-site-check",
+        "civil-practice-keishin-bidder-qualification",
+        "civil-practice-license-scope-judgment",
+        "civil-practice-public-meeting-consensus",
+        "civil-practice-public-works-bidding-methods"
+      ]
+    },
+    {
       "name": "pillar",
       "count": 5,
       "inAllowlist": true,
@@ -4873,18 +4922,6 @@
         "pe-comprehensive-management-r8-essay-theme-climate-adaptation",
         "pe-construction-carbon-neutral-kensetsu",
         "pe-construction-datsutanso-kankyo-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "行政手続き",
-      "count": 5,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-ccus-kentaikyo-site",
-        "civil-practice-foreign-workers-site-check",
-        "civil-practice-keishin-bidder-qualification",
-        "civil-practice-license-scope-judgment",
-        "civil-practice-public-works-bidding-methods"
       ]
     },
     {
@@ -5032,6 +5069,17 @@
       ]
     },
     {
+      "name": "河川法",
+      "count": 4,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-river-act-framework",
+        "civil-practice-river-area-permits",
+        "civil-practice-river-crossing-structure-review",
+        "civil-practice-river-facility-inspection-operation"
+      ]
+    },
+    {
       "name": "舗装施工管理技術者",
       "count": 4,
       "inAllowlist": true,
@@ -5120,6 +5168,16 @@
         "building-construction-guide-1kyu-keiken-kijutsu",
         "building-construction-guide-2kyu-keiken-kijutsu",
         "building-construction-guide-niji-kakomon-keikou"
+      ]
+    },
+    {
+      "name": "河川構造物",
+      "count": 3,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-levee-failure-reinforcement",
+        "civil-practice-river-crossing-structure-review",
+        "civil-practice-river-facility-inspection-operation"
       ]
     },
     {
@@ -5225,6 +5283,24 @@
       ]
     },
     {
+      "name": "海岸",
+      "count": 2,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-coast-port-administrators",
+        "pe-construction-river-coast-ronbun-keyword"
+      ]
+    },
+    {
+      "name": "港湾",
+      "count": 2,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-textbook-coast-port",
+        "civil-practice-coast-port-administrators"
+      ]
+    },
+    {
       "name": "解体工事",
       "count": 2,
       "inAllowlist": true,
@@ -5255,30 +5331,6 @@
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-whitepaper-study-map"
-      ]
-    },
-    {
-      "name": "河川構造物",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-levee-failure-reinforcement"
-      ]
-    },
-    {
-      "name": "海岸",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-river-coast-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "港湾",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-textbook-coast-port"
       ]
     },
     {
