@@ -341,6 +341,17 @@
       }
     },
     {
+      "id": "hinshitsu-touan-gutaika",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-2/hinshitsu-touan-gutaika",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "by": "video-content-qa",
+        "at": "2026-10-16"
+      }
+    },
+    {
       "id": "keiken-2kyu-level",
       "kind": "video-pack",
       "definition": "content/sns/video-packs/civil-construction-2/keiken-2kyu-level",

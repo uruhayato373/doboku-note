@@ -843,6 +843,73 @@
       "stopReason": "user-decision"
     },
     {
+      "id": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform",
+      "work": "hinshitsu-touan-gutaika",
+      "account": "youtube:main",
+      "format": "longform",
+      "status": "scheduled",
+      "copy": "content/sns/video-packs/civil-construction-2/hinshitsu-touan-gutaika/youtube.json#longform",
+      "media": {
+        "cover": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/cover",
+        "body-reference": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/body-reference",
+        "cta": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/cta",
+        "scene-001": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-001",
+        "scene-002": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-002",
+        "scene-003": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-003",
+        "scene-004": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-004",
+        "scene-005": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-005",
+        "scene-006": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-006",
+        "scene-007": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-007",
+        "scene-008": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-008",
+        "scene-009": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-009",
+        "scene-010": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-010",
+        "scene-011": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-011",
+        "scene-012": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-012",
+        "scene-013": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-013",
+        "video": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/video",
+        "subtitles": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/subtitles",
+        "preview": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/preview",
+        "preview-metrics": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/preview-metrics",
+        "contact-sheet": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/contact-sheet"
+      },
+      "publishAt": "2026-10-19T20:00:00+09:00",
+      "review": {
+        "visual": {
+          "status": "approved",
+          "by": "user",
+          "at": "2026-10-15T22:09:57.509Z",
+          "digest": "eb4921923e240a496f5859719f0f5a83f79cb5f34eb859774ab206c74009c797"
+        }
+      },
+      "approval": {
+        "by": "user",
+        "at": "2026-10-15T22:09:57.795Z",
+        "contentSha256": "9316033447c3abad7a70f34d5ecbc8e6e54bb6cf72559133bc91fc86313054a5"
+      },
+      "times": {
+        "rendered": "2026-10-15T22:08:32.023Z",
+        "uploaded": "2026-10-15T22:13:45.193Z",
+        "scheduled": "2026-10-15T22:13:45.193Z",
+        "metadataSynced": "2026-10-15T22:13:45.193Z"
+      },
+      "platform": {
+        "id": "7fEJR-WD8Ng",
+        "url": "https://youtu.be/7fEJR-WD8Ng",
+        "privacy": "private",
+        "evidence": {
+          "kind": "youtube-studio",
+          "ref": "https://studio.youtube.com/video/7fEJR-WD8Ng/edit — 2026-10-16確認:「この動画は 2026年10月19日 20:00 に 公開 に設定されます」(GMT+0900)。題名・専用サムネイル・1:51・チェック問題なしを照合。"
+        }
+      },
+      "disclosure": {
+        "syntheticMedia": false
+      },
+      "thumbnail": {
+        "status": "set",
+        "setAt": "2026-10-15T22:13:45.193Z"
+      }
+    },
+    {
       "id": "civil-construction-2/keiken-2kyu-level/youtube.longform",
       "work": "keiken-2kyu-level",
       "account": "youtube:main",

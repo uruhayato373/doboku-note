@@ -4,7 +4,7 @@
 > 真実源: 各 `video-pack.json` ＋ コンテンツ台帳 `content/registry/`（YouTube の状態は台帳が正本）。契約: `.claude/knowledge/reference/video-content-policy.md`
 > 管理画面の企画ボード（資格・段階で絞り込める表）: `/content/video`
 
-パック数: **160**（更新: 2026-10-15）
+パック数: **161**（更新: 2026-10-16）
 
 ## 1級土木施工管理技士（67）
 
@@ -78,19 +78,20 @@
 | `sekokan-shippaidan` | 施工管理の失敗談 — 現場で学んだ教訓 | 失敗事例から学びたいが実名では誰も話してくれない | career | 停止 | 台本/構成 | `links-hub` |
 | `study-plan-1kyu` | 1級土木の勉強計画 — 何をいつまでに | 仕事と両立しながら何をどの順で進めるか計画できない | roadmap | 停止 | 台本/構成 | `links-hub` |
 
-## 2級土木施工管理技士（21）
+## 2級土木施工管理技士（22）
 
 | packId | タイトル | 悩み | intent | 段階 | 台本/構成 | 主CTA |
 |---|---|---|---|---|---|---|
 | `anzen-ippanron-3riyu` | 安全管理の答案が一般論になる3つの原因 | 安全管理の答案がどの現場でも通じる一般論になってしまう | diagnosis | 停止 | 台本/構成 | `coconala-shindan` |
-| `anzen-touan-gutaika` | 安全管理の答案を具体化する — 現場条件から書く | 安全対策を並べた答案になり、自分の現場の条件とつながらない | howto | 予約 | 台本/構成 | `civil-2-experience-essay` |
-| `anzen-touan-gutaika-kaitei` | 安全管理の答案を具体化する — 総監・元発注者の解説（改訂版） | 安全対策を並べた答案になり、自分の現場の条件とつながらない | howto | 未登録 | 台本/構成 | `civil-2-experience-essay` |
+| `anzen-touan-gutaika` | 安全管理の答案を具体化する — 現場条件から書く | 安全対策を並べた答案になり、自分の現場の条件とつながらない | howto | 公開 | 台本/構成 | `civil-2-experience-essay` |
+| `anzen-touan-gutaika-kaitei` | 安全管理の答案を具体化する — 総監・元発注者の解説（改訂版） | 安全対策を並べた答案になり、自分の現場の条件とつながらない | howto | 予約 | 台本/構成 | `civil-2-experience-essay` |
 | `gakka-2kyu-concrete` | 2級土木 コンクリートの頻出点 — 打込み・養生・継目 | 打込みや養生の細かい規定のどれが試験に出るのか分からない | exam-point | 停止 | 台本/構成 | `civil-2-takuitsu-pdf` |
 | `gakka-2kyu-doko` | 2級土木 土工の頻出点 — 最短で押さえる | 土工の範囲が広くどこから覚えれば得点になるか分からない | exam-point | 公開 | 台本/構成 | `civil-2-takuitsu-pdf` |
 | `gakka-2kyu-hoki` | 2級土木 法規の頻出点 — 労基法と安衛法を優先する | 法規の出題範囲が広すぎてどの法律を優先するか決められない | exam-point | 停止 | 台本/構成 | `civil-2-takuitsu-pdf` |
 | `gakka-2kyu-kiso` | 2級土木 基礎工の頻出点 — 杭とケーソンの整理 | 既製杭・場所打ち杭の工法の違いが名前だけで判別できない | exam-point | 停止 | 台本/構成 | `civil-2-takuitsu-pdf` |
 | `gakka-2kyu-sekokeikaku` | 2級土木 施工管理法の頻出点 — 計画・工程・安全・品質 | 施工管理法は範囲が広く分野ごとの頻出点が見えていない | exam-point | 停止 | 台本/構成 | `civil-2-takuitsu-pdf` |
 | `gakka-kijutsu-2kyu` | 2級二次の学科記述 — 出る分野と解答の型 | 経験記述以外の記述問題に何がどの形式で出るか分からない | exam-point | 停止 | 台本/構成 | `civil-2-gakka-kijutsu` |
+| `hinshitsu-touan-gutaika` | 品質管理｜試験をした、だけで終わらせない | 品質管理の答案が「試験をした」で終わり、現場条件に合った管理の内容が伝わらない | howto | 予約 | 台本/構成 | `civil-2-experience-essay` |
 | `keiken-2kyu-level` | 2級で求められる記述レベルはここまで | 特殊工法や高度な内容を書けないと受からないと思っている | exam-point | 停止 | 台本/構成 | `coconala-shindan` |
 | `keiken-anzen-2kyu-kakikata` | 2級 安全管理テーマの書き方 — 現場の数字で具体化する | 安全管理の検討内容をどう具体化すればよいか分からない | howto | 停止 | 台本/構成 | `civil-2-experience-essay` |
 | `keiken-gaiyo-2kyu` | 2級 工事概要の書き方 — 最初の失点を防ぐ | 工事概要に何をどこまで書けば設問と整合するか分からない | howto | 停止 | 台本/構成 | `civil-2-koji-bank` |

@@ -1761,6 +1761,392 @@
       ]
     },
     {
+      "id": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/body-reference",
+      "role": "body-reference",
+      "type": "image/png",
+      "sha256": "b0295ab0d7e3e3577884436150ccc97823e3e16d6f5c450fcf69a3e94538386b",
+      "bytes": 4105633,
+      "width": 1920,
+      "height": 1080,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/body-reference.b0295ab0.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Create one finished Japanese educational BODY graphic for the next 2級土木 quality-management video. Use the attached safety body graphic ONLY as an identity/style reference: same green pop-poster-v3, same mature teacher face, black rectangular glasses, short beard, plain white helmet, navy workwear, red pen. Replace every safety-topic word and example. 16:9 landscape intended 1920×1080. Calm white/mint central reading area, continuous green diagonal illustrated background at all edges. Small teacher max18% width on the right, do not obscure diagram. Large legible Japanese at width360px. Text EXACTLY: top 「2級土木｜品質管理」; main heading 「夏季の施工」; central phrase 「運搬・待機で温度上昇のおそれ」; lower main takeaway 「打込み時の温度を管理」; small badge 「考え方の例」. Render only these five strings, each once. Center diagram: simple illustrative concrete mixer truck icon under hot sun, followed by a clock indicating waiting, followed by a plain concrete placement area with a thermometer icon. Clear left-to-right arrows convey transport/waiting preceding placement; sun and heat emphasize why temperature control matters. Keep machinery symbolic and structurally simple, no technical cutaway, no measurement procedure, no thermometer numerals or thresholds, no people performing unsafe work. Do not imply waiting always raises temperature or temperature alone guarantees concrete strength. This is a hypothetical learning example, not the author's project record. Do not copy old arrows/cards as safety measures. All important text, glyphs and face must be comfortably within6% side margins and ABOVE y=78% of canvas height. Lower22% continuous illustrated background/torso only to reserve subtitles, no words or yellow bands there. No logo, URL, statistics, prices, guarantees, extra labels. One polished full-bleed graphic, no collage.",
+        "promptSha256": "cf93449e18a7863a0923674ac8e6e0491f8102d921dbf79cf103938e2972852b",
+        "generatedAt": "2026-10-15T22:03:17.004Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/contact-sheet",
+      "role": "contact-sheet",
+      "type": "image/jpeg",
+      "sha256": "19330a82f2d63e610068102e16e30920f1b78b638ec3efa1b0bd38203c4bc912",
+      "bytes": 406441,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/contact-sheet.19330a82.jpg"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/civil-construction-2/hinshitsu-touan-gutaika/storyboard.json"
+      },
+      "width": 1920,
+      "height": 1620
+    },
+    {
+      "id": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/cover",
+      "role": "cover",
+      "type": "image/png",
+      "sha256": "6d461a7d29270911cbdeb4202056e9196493c0cfbae69dad97c351c3257c8fe5",
+      "bytes": 4044914,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/cover.6d461a7d.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Edit the supplied finished Japanese YouTube cover into the next episode, keeping the EXACT SAME adult teacher identity, green pop-poster-v3 typography and illustrated background. One 16:9 landscape image intended 1920×1080. Change the topic text 安全管理 to 品質管理. Change main red text 答案を具体化 to 試験だけで終わらない. Keep subtitle 現場条件から書く. Keep top target label 2級土木, and separate yellow two-line credentials badge 総監・元発注者 / 1級・2級土木合格者. These six strings must appear exactly once, correct Japanese, no other text. Main headline 品質管理 in giant bold dark green with white/yellow outline; red second headline 試験だけで終わらない on TWO readable lines if needed. Keep author smaller than topic, same mature male, black short hair, black rectangular glasses, light beard, plain white helmet, navy workwear, natural five-finger hands holding red pen and answer sheet. No guarantees, URL, logo, prices, invented numbers or seals. Bold lettering fully legible at width360px. Recompose rather than cram text. Face and important letters inside6% edge margins. Every text string must be FULLY above y=80% of height; bottom20% only continuous illustrated green background and teacher torso, not a blank stripe. Keep reference's energetic but readable polished composition. This is quality management answer-writing guidance, not a construction test demonstration.",
+        "promptSha256": "35463b56654a9fc07cdd29645a3a2a47661769ba154a2587e9a8c79d8a2c9984",
+        "generatedAt": "2026-10-15T22:03:16.683Z"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/cta",
+      "role": "cta",
+      "type": "image/png",
+      "sha256": "4a2124622b99d35b3396c9d5764e066d5ac0d06891e368b481ca232189f88e2b",
+      "bytes": 4052913,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/cta.4a212462.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Edit the attached finished 16:9 landscape closing card for a Japanese educational video. Maintain the green pop-poster-v3 design and EXACT identity/anatomy of the teacher: plain white helmet, black rectangular glasses, short beard, navy workwear, one hand naturally pointing toward the CTA and the other holding answer sheets. Preserve these six text strings verbatim, once each: 「2級土木」「施工経験記述」「完成答案集」「安全・品質・工程」「自分の経験に置き換えて練習」「概要欄から確認」. Replace the old single line 「総監が制作」 with a TWO-LINE yellow credentials badge near the top: line 1 「総監・元発注者」, line 2 「1級・2級土木合格者」. This badge gives author credentials, clearly subordinate to the biggest target label 「2級土木」, with bold readable typography rather than tiny text. Reflow top heading and badge to avoid collisions; keep main title and CTA readable. Do not claim direct personal review, guaranteed passing, grading authority or teaching results. Add no other words, URL, logo, price or symbols. All important text and the pointing finger stay inside the canvas, all text and yellow CTA strip fully ABOVE 82% height. Bottom 18% only contains continuous illustrated green background and teacher torso, NOT a blank stripe. Preserve exactly five fingers per hand and the existing correct pointing pose. One polished landscape image intended 1920×1080, not a sheet or comparison.",
+        "promptSha256": "d0f695f3592166b72002f33070c7b068124315fa40fb98d0dc9c7468ce8996fe",
+        "generatedAt": "2026-10-15T12:17:20.896Z"
+      },
+      "width": 1920,
+      "height": 1080,
+      "legacyPaths": [
+        ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/cta.4a212462.png"
+      ]
+    },
+    {
+      "id": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/preview",
+      "role": "preview",
+      "type": "video/mp4",
+      "sha256": "a185c03f930138756e18ee00da966de1735bdc06e3d88af7a2e2543caab102d6",
+      "bytes": 2765334,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/preview.a185c03f.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/civil-construction-2/hinshitsu-touan-gutaika/storyboard.json"
+      },
+      "durationSec": 110.677
+    },
+    {
+      "id": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/preview-metrics",
+      "role": "preview-metrics",
+      "type": "application/json",
+      "sha256": "fc12a3353ac0062306e342786d10ac14d7807f3039933b1866babc31338da80a",
+      "bytes": 528,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/preview-metrics.fc12a335.json"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "media-preview",
+        "spec": "content/sns/video-packs/civil-construction-2/hinshitsu-touan-gutaika/storyboard.json"
+      }
+    },
+    {
+      "id": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-001",
+      "role": "scene-001",
+      "type": "image/png",
+      "sha256": "6d461a7d29270911cbdeb4202056e9196493c0cfbae69dad97c351c3257c8fe5",
+      "bytes": 4044914,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-001.6d461a7d.png"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/civil-construction-2/hinshitsu-touan-gutaika/storyboard.json#cover"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-002",
+      "role": "scene-002",
+      "type": "image/png",
+      "sha256": "bb79dee852b24d06469fd89b7259c4300d2f9b7113c412c80d5916100b7eb799",
+      "bytes": 73653,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-002.bb79dee8.png"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/civil-construction-2/hinshitsu-touan-gutaika/storyboard.json#hook"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-003",
+      "role": "scene-003",
+      "type": "image/png",
+      "sha256": "e29c2605cf7529fd4993e27d4fda913106bb4f6001d065003ee256a2c563e350",
+      "bytes": 73828,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-003.e29c2605.png"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/civil-construction-2/hinshitsu-touan-gutaika/storyboard.json#authority"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-004",
+      "role": "scene-004",
+      "type": "image/png",
+      "sha256": "9f30b98fe0403dc798ac7676b1e7ec16ce4744ab4d6eaa4752a5c39f83330091",
+      "bytes": 61796,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-004.9f30b98f.png"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/civil-construction-2/hinshitsu-touan-gutaika/storyboard.json#premise"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-005",
+      "role": "scene-005",
+      "type": "image/png",
+      "sha256": "033d20c06c7a3d8af1dee66e4ec5db08298ff07822eba04e6bc29f87b5c4c97f",
+      "bytes": 70685,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-005.033d20c0.png"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/civil-construction-2/hinshitsu-touan-gutaika/storyboard.json#quality-item"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-006",
+      "role": "scene-006",
+      "type": "image/png",
+      "sha256": "b0295ab0d7e3e3577884436150ccc97823e3e16d6f5c450fcf69a3e94538386b",
+      "bytes": 4105633,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-006.b0295ab0.png"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/civil-construction-2/hinshitsu-touan-gutaika/storyboard.json#condition"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-007",
+      "role": "scene-007",
+      "type": "image/png",
+      "sha256": "c5c4dbd716d846ebd070410c9071b5f12264b52122563f4141091a1991f8fe26",
+      "bytes": 69282,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-007.c5c4dbd7.png"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/civil-construction-2/hinshitsu-touan-gutaika/storyboard.json#measure"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-008",
+      "role": "scene-008",
+      "type": "image/png",
+      "sha256": "c8c35eb86898abc2c9b106ecce62e332a290d58719befbd1432b1c1600f8dc32",
+      "bytes": 68329,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-008.c8c35eb8.png"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/civil-construction-2/hinshitsu-touan-gutaika/storyboard.json#verify-method"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-009",
+      "role": "scene-009",
+      "type": "image/png",
+      "sha256": "c7b777124739414b6d7e82ee792535217689b28a24288d6f6cf9aa5cbbf1c766",
+      "bytes": 64079,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-009.c7b77712.png"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/civil-construction-2/hinshitsu-touan-gutaika/storyboard.json#verify-record"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-010",
+      "role": "scene-010",
+      "type": "image/png",
+      "sha256": "ffa817395bdfb9c29c0178b08ca400e8b3007c90bc28d54e4a076a6b01e66e52",
+      "bytes": 74845,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-010.ffa81739.png"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/civil-construction-2/hinshitsu-touan-gutaika/storyboard.json#compare"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-011",
+      "role": "scene-011",
+      "type": "image/png",
+      "sha256": "d2d747e073d911ce568971b638284aa7fbf2df9c26ad056470cfce40051d3096",
+      "bytes": 58391,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-011.d2d747e0.png"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/civil-construction-2/hinshitsu-touan-gutaika/storyboard.json#own-work"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-012",
+      "role": "scene-012",
+      "type": "image/png",
+      "sha256": "c0f406783e86f3eef8f799f076793d92838cb682330b78ae46e153505936fec7",
+      "bytes": 69970,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-012.c0f40678.png"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/civil-construction-2/hinshitsu-touan-gutaika/storyboard.json#summary"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-013",
+      "role": "scene-013",
+      "type": "image/png",
+      "sha256": "4a2124622b99d35b3396c9d5764e066d5ac0d06891e368b481ca232189f88e2b",
+      "bytes": 4052913,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/scene-013.4a212462.png"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/civil-construction-2/hinshitsu-touan-gutaika/storyboard.json#cta"
+      },
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/subtitles",
+      "role": "subtitles",
+      "type": "text/x-ssa",
+      "sha256": "a6a3200c8d8386f90039004d45e3aa82d227d46b72453bba3901dee258054e7f",
+      "bytes": 4105,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/subtitles.a6a3200c.ass"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/civil-construction-2/hinshitsu-touan-gutaika/storyboard.json"
+      }
+    },
+    {
+      "id": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/video",
+      "role": "video",
+      "type": "video/mp4",
+      "sha256": "160918df48a658f35a34912c3c1555e29c6097b8648aa3296bd30b68c724b01a",
+      "bytes": 11550684,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/video.160918df.mp4"
+      },
+      "provenance": {
+        "kind": "render",
+        "by": "render-longform",
+        "spec": "content/sns/video-packs/civil-construction-2/hinshitsu-touan-gutaika/storyboard.json",
+        "tts": {
+          "engine": "VOICEVOX",
+          "speaker": 13,
+          "credit": "VOICEVOX:青山龍星"
+        }
+      },
+      "durationSec": 110.667
+    },
+    {
       "id": "civil-construction-2/keiken-2kyu-level/youtube.longform/cover",
       "role": "cover",
       "type": "image/png",

@@ -1130,8 +1130,8 @@
     "media:civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/cta": {
       "sha": "4a2124622b99d35b",
       "verdict": "ok",
-      "reason": "1920×1080原寸と幅360pxで指定8文言の正確さ・判読性、自然な指差しと用紙保持、著者資格と完成答案集の商品内容の整合を確認し、下端10%（y972以降）に重要文字はない。",
-      "reviewedAt": "2026-10-15T12:19:46.580Z"
+      "reason": "原寸・幅360pxで指定8文言の正確さと判読性、参照キャラとの同一性、自然な指差しと用紙保持、完成答案集への誘導内容を確認し、下端10%に重要文字はない。",
+      "reviewedAt": "2026-10-15T22:05:32.454Z"
     },
     "media:civil-construction-2/anzen-touan-gutaika/youtube.longform/cover": {
       "sha": "dc301708ac15a33e",
@@ -1276,6 +1276,24 @@
       "verdict": "ok",
       "reason": "今回の全面版を確認し、4テーマとL・Cの表記が指示どおりで、土試料・ダンプ・前鉄輪と後タイヤのローラ・草のある土の斜面、先生の指示棒と手が自然である。",
       "reviewedAt": "2026-10-12T04:15:54.827Z"
+    },
+    "media:civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/body-reference": {
+      "sha": "b0295ab0d7e3e357",
+      "verdict": "ok",
+      "reason": "原寸・幅360pxで指定5文言、参照キャラとの同一性と自然な手指、ミキサ車の車輪・ドラム・車体の接続、運搬・待機から打込み時温度管理へ進む図意を確認し、実績や数値の創作と下端10%の重要文字はないが、下端22%確保の生成目標は未達。",
+      "reviewedAt": "2026-10-15T22:07:39.266Z"
+    },
+    "media:civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/cover": {
+      "sha": "6d461a7d29270911",
+      "verdict": "ok",
+      "reason": "原寸・幅360pxで指定6文言の正確さと判読性、参照キャラの顔・髪・眼鏡・ひげ・服装、赤ペンと用紙を持つ自然な手指を確認し、下端10%に重要文字はないが、下端20%確保の生成目標は未達。",
+      "reviewedAt": "2026-10-15T22:07:39.266Z"
+    },
+    "media:civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/cta": {
+      "sha": "4a2124622b99d35b",
+      "verdict": "ok",
+      "reason": "原寸・幅360pxで指定8文言の正確さと判読性、参照キャラとの同一性、自然な指差しと用紙保持、完成答案集への誘導内容を確認し、下端10%に重要文字はない。",
+      "reviewedAt": "2026-10-15T22:07:39.266Z"
     },
     "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/cover": {
       "sha": "b24e58035b4ad295",
