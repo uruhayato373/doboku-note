@@ -1,11 +1,45 @@
 {
   "schemaVersion": 1,
   "_doc": "docs/marketing/06_動画コンテンツ運用設計.md",
-  "updatedAt": "2026-10-13",
+  "updatedAt": "2026-10-15",
   "cadence": "既存の予約は公開台帳の日程を参照。11月までの追加枠は原則週1本（既存20時連載と重なる日は12時を候補）。12月以降は週1〜2本、火・金20時を基本に季節需要で調整。再案内は公開本数に数えない。",
-  "productionRule": "既存台本は原則公開21日前、新規は原則28日前に着手し、3日前までに確認完了。表紙・図の精査→動画QA→主CTA1本の順。変更のない音声・字幕は再利用。R8予想と年度依存箇所は実質改稿して再QA。予定は公開承認や外部予約を意味しない。",
+  "productionRule": "既存台本は原則公開21日前、新規は原則28日前に着手し、3日前までに確認完了。表紙・図の精査→動画QA→主CTA1本の順。変更のない音声・字幕は再利用。R8予想と年度依存箇所は実質改稿して再QA。予定は公開承認や外部予約を意味しない。 2級土木の答案具体化3テーマは10/15の計画を優先し、安全→品質→工程の順で各2日を仮置きする。制作中1テーマ＋次テーマの原稿準備までとし、初回の実作業時間で見直す。",
   "reviewRule": "毎月最初の営業日に翌2か月の公式試験日・教材・制作余力を再確認。公開28日後の視聴維持・教材クリック・受取・制作時間を記録し、欠測は0にしない。試行2本の結果で拡充を判断。2027年度日程は公式発表後に改訂し、未確認の日付を試験日として確定しない。 優先度はP1＝受験期限が近い主軸の制作、P2＝季節集中・既存資産の再活用、P3＝試行。試験日は既存の試験日程台帳、表示期間は年間ロードマップの設定を参照する。",
   "entries": [
+    {
+      "id": "anzen-touan-gutaika",
+      "exam": "civil-construction-2",
+      "publicationId": "civil-construction-2/anzen-touan-gutaika/youtube.longform",
+      "title": "① 安全管理｜現場条件から答案を具体化する",
+      "action": "revise",
+      "start": "2026-10-15",
+      "ready": "2026-10-16",
+      "target": "2026-10-17",
+      "priority": "P1",
+      "note": "2級土木3テーマの1番目。最初の作業は既存の予約・公開状態を照合し、総監・元発注者・1級／2級土木合格者の訴求を画像・台本・説明欄に反映する。targetは改訂・派生の案内目標であり、既存予約の変更ではない。通常動画→Shorts1本／Reels1本→カルーセル1投稿→X1〜2投稿。送客先 civil-2-experience-essay。素材・QA・公開状態は同じ作品IDのコンテンツ台帳を参照。詳細は noteコンテンツ計画.md §11。"
+    },
+    {
+      "id": "hinshitsu-touan-gutaika",
+      "exam": "civil-construction-2",
+      "title": "② 品質管理｜試験をした、だけで終わらせない",
+      "action": "new",
+      "start": "2026-10-17",
+      "ready": "2026-10-18",
+      "target": "2026-10-19",
+      "priority": "P1",
+      "note": "2級土木3テーマの2番目。企画IDを新しい作品IDとして使う（未着手・公開台帳未登録）。管理項目→現場条件→確認方法を整理した原稿から着手。旧 keiken-hinshitsu-kakikata は参考資料とし、停止済み動画は再公開しない。通常動画→Shorts1本／Reels1本→カルーセル1投稿→X1〜2投稿。送客先 civil-2-experience-essay。作品登録時に publicationId を結ぶ。詳細は noteコンテンツ計画.md §11。"
+    },
+    {
+      "id": "kotei-touan-gutaika",
+      "exam": "civil-construction-2",
+      "title": "③ 工程管理｜増員した、だけで終わらせない",
+      "action": "new",
+      "start": "2026-10-19",
+      "ready": "2026-10-20",
+      "target": "2026-10-21",
+      "priority": "P1",
+      "note": "2級土木3テーマの3番目。企画IDを新しい作品IDとして使う（未着手・公開台帳未登録）。遅延原因→影響工種→検討・処置を整理した原稿から着手。旧 keiken-kotei-kakikata は参考資料とし、停止済み動画は再公開しない。通常動画→Shorts1本／Reels1本→カルーセル1投稿→X1〜2投稿。送客先 civil-2-experience-essay。作品登録時に publicationId を結ぶ。詳細は noteコンテンツ計画.md §11。"
+    },
     {
       "id": "c2-matome-2kyu-chokuzen-finish",
       "exam": "civil-construction-2",
@@ -1009,31 +1043,9 @@
       "priority": "P3"
     },
     {
-      "id": "c2-keiken-hinshitsu-kakikata-finish",
-      "exam": "civil-construction-2",
-      "publicationId": "civil-construction-2/keiken-hinshitsu-kakikata/youtube.longform",
-      "action": "finish",
-      "start": "2026-10-14",
-      "ready": "2026-10-20",
-      "target": "2026-10-23",
-      "note": "develop で追加された通常動画（#967 のマージ時に試験日の直前へ仮配分）。YouTube の一時停止中（#1044）は再開時に日程を見直す。",
-      "priority": "P3"
-    },
-    {
       "id": "c2-keiken-koji-ga-nai-finish",
       "exam": "civil-construction-2",
       "publicationId": "civil-construction-2/keiken-koji-ga-nai/youtube.longform",
-      "action": "finish",
-      "start": "2026-10-14",
-      "ready": "2026-10-20",
-      "target": "2026-10-23",
-      "note": "develop で追加された通常動画（#967 のマージ時に試験日の直前へ仮配分）。YouTube の一時停止中（#1044）は再開時に日程を見直す。",
-      "priority": "P3"
-    },
-    {
-      "id": "c2-keiken-kotei-kakikata-finish",
-      "exam": "civil-construction-2",
-      "publicationId": "civil-construction-2/keiken-kotei-kakikata/youtube.longform",
       "action": "finish",
       "start": "2026-10-14",
       "ready": "2026-10-20",
