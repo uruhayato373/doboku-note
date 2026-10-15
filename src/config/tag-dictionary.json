@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-15T05:37:26.058Z",
+  "generated_at": "2026-10-15T05:38:04.741Z",
   "summary": {
-    "total_mdx_files": 1435,
+    "total_mdx_files": 1436,
     "total_unique_tags": 133,
     "allowlist_size": 330,
     "known_count": 133,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 259,
+      "count": 260,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1223,6 +1223,7 @@
         "civil-practice-how-to-read-laws-and-notices",
         "civil-practice-keishin-bidder-qualification",
         "civil-practice-land-acquisition-compensation",
+        "civil-practice-land-readjustment-project",
         "civil-practice-large-fill-landslide",
         "civil-practice-lifting-equipment-selection",
         "civil-practice-national-prefecture-municipal-roles",
@@ -2603,7 +2604,7 @@
     },
     {
       "name": "関係法規",
-      "count": 95,
+      "count": 96,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-engineer-assignment",
@@ -2629,6 +2630,7 @@
         "civil-practice-how-to-read-laws-and-notices",
         "civil-practice-keishin-bidder-qualification",
         "civil-practice-land-acquisition-compensation",
+        "civil-practice-land-readjustment-project",
         "civil-practice-license-scope-judgment",
         "civil-practice-owner-safety-responsibility",
         "civil-practice-pre-construction-process",
@@ -3598,7 +3600,7 @@
     },
     {
       "name": "地方公共団体",
-      "count": 33,
+      "count": 34,
       "inAllowlist": true,
       "usedIn": [
         "civil-practice-board-of-audit-inspection",
@@ -3609,6 +3611,7 @@
         "civil-practice-development-permit-public-facilities",
         "civil-practice-how-to-read-laws-and-notices",
         "civil-practice-land-acquisition-compensation",
+        "civil-practice-land-readjustment-project",
         "civil-practice-national-prefecture-municipal-roles",
         "civil-practice-owner-safety-responsibility",
         "civil-practice-ppp-pfi-selection",
@@ -4796,6 +4799,20 @@
       ]
     },
     {
+      "name": "地域づくり",
+      "count": 7,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-city-planning-act-framework",
+        "civil-practice-development-permit-public-facilities",
+        "civil-practice-land-readjustment-project",
+        "pe-comprehensive-management-h22-essay-river-consultant",
+        "pe-construction-chiiki-dukuri-ronbun-keyword",
+        "pe-construction-kokudo-keisei-chiiki",
+        "pe-construction-urban-planning-ronbun-keyword"
+      ]
+    },
+    {
       "name": "基礎工",
       "count": 7,
       "inAllowlist": true,
@@ -4888,19 +4905,6 @@
         "concrete-engineer-primary-mix-design",
         "concrete-engineer-primary-production-qc",
         "concrete-engineer-primary-properties-testing"
-      ]
-    },
-    {
-      "name": "地域づくり",
-      "count": 6,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-city-planning-act-framework",
-        "civil-practice-development-permit-public-facilities",
-        "pe-comprehensive-management-h22-essay-river-consultant",
-        "pe-construction-chiiki-dukuri-ronbun-keyword",
-        "pe-construction-kokudo-keisei-chiiki",
-        "pe-construction-urban-planning-ronbun-keyword"
       ]
     },
     {
