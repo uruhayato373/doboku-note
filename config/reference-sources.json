@@ -6124,6 +6124,34 @@
         "kind": "external",
         "url": "https://www8.cao.go.jp/pfi/yuusenkentou/pdf/shishin7.pdf"
       }
+    },
+    {
+      "id": "river-facility-structure-order-rules",
+      "title": "河川管理施設等構造令施行規則",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "河川管理施設等構造令施行規則": "river-facility-structure-order-rules"
+      },
+      "egov": {
+        "lawId": "351M50004000013"
+      }
+    },
+    {
+      "id": "expressway-act",
+      "title": "高速自動車国道法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "高速自動車国道法": "expressway-act"
+      },
+      "egov": {
+        "lawId": "332AC0000000079"
+      }
     }
   ]
 }
