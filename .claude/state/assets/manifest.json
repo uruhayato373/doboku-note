@@ -57204,6 +57204,48 @@
         "scripts/check-orphan-ogp.mjs"
       ],
       "srcHash": "52173ace0f822036"
+    },
+    "content/site/civil-practice/construction-materials-overview/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/construction-materials-overview/ogp.png",
+      "sha256": "d3f68baa69ad460520bcdc03f104a4289906d444368888e836a4d08ca8379337",
+      "bytes": 68612,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-15T09:43:38.431Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/construction-materials-overview/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "a9bae16699eca363"
+    },
+    "content/site/civil-practice/wood-and-stone-materials/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/wood-and-stone-materials/ogp.png",
+      "sha256": "5aae3ae627b4a6ce0bcbd0b2590effe6c8d5fbb3146c8a61b78033ca3e3b1aa5",
+      "bytes": 69168,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-15T09:43:39.007Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/wood-and-stone-materials/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "b7cd735c9ce05279"
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",
