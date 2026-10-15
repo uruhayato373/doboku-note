@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-10-15T06:17:15.578Z",
+  "generated_at": "2026-10-15T07:22:37.696Z",
   "summary": {
     "total_mdx_files": 1445,
     "total_unique_tags": 133,
@@ -2613,7 +2613,7 @@
     },
     {
       "name": "関係法規",
-      "count": 98,
+      "count": 100,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-engineer-assignment",
@@ -2629,9 +2629,11 @@
         "civil-construction-1-textbook-standard-contract",
         "civil-construction-2-guide-law-key-points",
         "civil-practice-accident-first-response",
+        "civil-practice-budget-and-funding-sources",
         "civil-practice-buried-cultural-property-survey",
         "civil-practice-ccus-kentaikyo-site",
         "civil-practice-city-planning-act-framework",
+        "civil-practice-civil-engineer-annual-cycle",
         "civil-practice-construction-industry-structure",
         "civil-practice-development-permit-public-facilities",
         "civil-practice-environmental-impact-assessment-flow",
@@ -3879,7 +3881,7 @@
     },
     {
       "name": "維持管理",
-      "count": 24,
+      "count": 25,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-concrete-maintenance",
@@ -3888,6 +3890,7 @@
         "civil-practice-large-fill-landslide",
         "civil-practice-levee-failure-reinforcement",
         "civil-practice-monitoring-sensor-selection",
+        "civil-practice-municipal-civil-engineer-work",
         "civil-practice-ppp-pfi-selection",
         "civil-practice-river-facility-inspection-operation",
         "civil-practice-road-inspection-longevity-plan",
@@ -4890,6 +4893,20 @@
       ]
     },
     {
+      "name": "担い手確保",
+      "count": 7,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-ccus-kentaikyo-site",
+        "civil-practice-concrete-quality-and-workforce",
+        "civil-practice-construction-industry-structure",
+        "civil-practice-municipal-engineer-qualifications",
+        "civil-practice-public-works-bidding-methods",
+        "pe-construction-ninaite-dx-ronbun-keyword",
+        "pe-construction-ninaite-kakuho-seisansei"
+      ]
+    },
+    {
       "name": "測量",
       "count": 7,
       "inAllowlist": true,
@@ -4953,19 +4970,6 @@
         "pe-comprehensive-management-r07-essay-general-contractor",
         "pe-comprehensive-management-r07-essay-river-consultant",
         "pe-comprehensive-management-r07-essay-road-municipality"
-      ]
-    },
-    {
-      "name": "担い手確保",
-      "count": 6,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-ccus-kentaikyo-site",
-        "civil-practice-concrete-quality-and-workforce",
-        "civil-practice-construction-industry-structure",
-        "civil-practice-public-works-bidding-methods",
-        "pe-construction-ninaite-dx-ronbun-keyword",
-        "pe-construction-ninaite-kakuho-seisansei"
       ]
     },
     {
