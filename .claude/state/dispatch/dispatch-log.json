@@ -4162,6 +4162,23 @@
       "commit": "f9c3bc651182",
       "verification": "node scripts/coconala-orders.mjs（読み取り専用・DM 10227804 は 9月28日のまま未読 0）→ node scripts/check-coconala-orders.mjs で取引はすべて一致・DN-0312 の DM は要対応から外れた",
       "note": "環境対策・施工計画は 9/27 に仕上げ版を返し、9/28 11:43 に 5 テーマと工事概要の記入例をまとめた Word を送付済み（orders.json の memo）。2026-10-15 に DM 一覧を取り直し、以後の新着が無いことを確認して orders.json を closed にした。"
+    },
+    {
+      "id": "DN-0750",
+      "at": "2026-10-16",
+      "task": "develop-git-write の並び順で、待機中の定期ワークフローが黙って取り消される（gsc-auto-review 10/9）",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "rerun-cancelled-schedules"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "9b63af15b2a1",
+      "verification": "node --test tests/cancelled-schedule-runs.test.mjs（3 pass）。下見で 10/9 の gsc-auto-review（run 37913698267）だけを判定。main で workflow_dispatch（run 38811906273）が成功し 13 本を実検査・再実行 0 件。デプロイ後 check-production-ssr exit 0",
+      "note": "PR #1085。共通 group develop-git-write の定期ワークフロー 13 本を 2 時間ごとに見て、待機中に取り消された run（定期・初回・ジョブ 0・30 時間以内・後に成功も実行中も無い）を gh run rerun する rerun-cancelled-schedules.yml を足し、12 本の誤ったコメント（待たせるだけで落とさない）を直した。check-workflow-health は cancelled を失敗に数えないまま、見張り役を workflow-health.json に登録。GITHUB_TOKEN での rerun そのものは、対象が出たときに初めて確かめられる。"
     }
   ]
 }

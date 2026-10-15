@@ -373,14 +373,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
-### [DN-0750] develop-git-write の並び順で、待機中の定期ワークフローが黙って取り消される（gsc-auto-review 10/9）
-タグ: [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-15]
-
-**起点**: 2026-10-15、check-workflow-health が gsc-auto-review.yml を「最後の success が 13 日前」で赤にした。10/9 の定期実行（09:49:06Z 作成）は、ジョブが始まる前の 09:49:09Z に cancelled になっていた。develop へ書き込むワークフローは共通の concurrency group `develop-git-write`（cancel-in-progress: false）を使い、コメントは「待たせるだけで落とさない」としている。ところが GitHub は同じ group の待機中（pending）の実行を 1 件しか残さず、新しい実行が並ぶと古い待機分を取り消す。cancel-in-progress: false は実行中のものを守るだけで、待機中のものは守らない。
-
-**やること**: develop-git-write を使う定期ワークフロー（fetch-metrics・gsc-auto-review など）を洗い出し、待機中に取り消されても週次の取得・記録が欠けないようにする。案は (1) 共通 group をやめ、push の直前に fetch・rebase・再試行する、(2) 取り消された定期実行を検知して再実行する、のどちらか。workflow-health の検査に「cancelled が続く」も数えるかを決める。
-
-**完了条件**: 共通 group による待機中の取り消しで週次の実行が欠けない仕組みが入り、コメントの誤り（落とさない）が直っている。
 
 
 ### [DN-0749] GA4 週次レポートの EXP-019 案別行を細らせ、上限の例外（data/ga4/reports/）を外す
