@@ -56889,6 +56889,48 @@
         "scripts/check-orphan-ogp.mjs"
       ],
       "srcHash": "8f703b65ef57cef5"
+    },
+    "content/site/civil-practice/how-to-read-laws-and-notices/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/how-to-read-laws-and-notices/ogp.png",
+      "sha256": "c3cf8cd0bfac8af3d72ceb011aab778a9b4f7aef0d5bbc4dbb298741dca29341",
+      "bytes": 64241,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-15T05:24:20.463Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/how-to-read-laws-and-notices/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "6fa468f56f11b80f"
+    },
+    "content/site/civil-practice/national-prefecture-municipal-roles/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/national-prefecture-municipal-roles/ogp.png",
+      "sha256": "4fcfae199fe2b05ed6812db6080e2bd0da68d01b8eba90c2da43f66e7c46bc94",
+      "bytes": 68671,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-15T05:24:20.775Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/national-prefecture-municipal-roles/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "1acf4e5c0299c2dd"
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",
