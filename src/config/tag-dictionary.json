@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-15T08:39:35.372Z",
+  "generated_at": "2026-10-15T09:33:57.727Z",
   "summary": {
-    "total_mdx_files": 1445,
+    "total_mdx_files": 1446,
     "total_unique_tags": 133,
     "allowlist_size": 330,
     "known_count": 133,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 269,
+      "count": 270,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1239,6 +1239,7 @@
         "civil-practice-pile-bearing-verification",
         "civil-practice-pile-concrete-head-treatment",
         "civil-practice-pipe-jacking-methods",
+        "civil-practice-polymer-construction-materials",
         "civil-practice-ppp-pfi-selection",
         "civil-practice-pre-construction-process",
         "civil-practice-precast-pile-methods",
@@ -3431,7 +3432,7 @@
     },
     {
       "name": "品質管理",
-      "count": 51,
+      "count": 52,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-four-management",
@@ -3454,6 +3455,7 @@
         "civil-practice-construction-inspection-types",
         "civil-practice-material-selection-receiving",
         "civil-practice-numerical-model-review",
+        "civil-practice-polymer-construction-materials",
         "civil-practice-quality-record-site-bcp",
         "civil-practice-ready-mixed-concrete-ordering",
         "civil-practice-reference-values",
@@ -4927,6 +4929,20 @@
       ]
     },
     {
+      "name": "材料",
+      "count": 7,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-asphalt-materials-types",
+        "civil-practice-concrete-hydration-basics",
+        "civil-practice-polymer-construction-materials",
+        "civil-practice-steel-material-properties",
+        "concrete-chief-engineer-textbook-materials",
+        "concrete-chief-engineer-textbook-properties",
+        "concrete-engineer-textbook-materials"
+      ]
+    },
+    {
       "name": "測量",
       "count": 7,
       "inAllowlist": true,
@@ -4990,19 +5006,6 @@
         "pe-comprehensive-management-r07-essay-general-contractor",
         "pe-comprehensive-management-r07-essay-river-consultant",
         "pe-comprehensive-management-r07-essay-road-municipality"
-      ]
-    },
-    {
-      "name": "材料",
-      "count": 6,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-asphalt-materials-types",
-        "civil-practice-concrete-hydration-basics",
-        "civil-practice-steel-material-properties",
-        "concrete-chief-engineer-textbook-materials",
-        "concrete-chief-engineer-textbook-properties",
-        "concrete-engineer-textbook-materials"
       ]
     },
     {
