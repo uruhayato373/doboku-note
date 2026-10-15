@@ -1,0 +1,54 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は、現場の条件から選ぶ特殊なコンクリートの対応（共通仕様書と土木学会示方書［施工編］の区分に沿う）。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="特殊なコンクリートを現場の条件から選ぶ対応図。先に、水を避ける、配筋を直す、時期を変えるで条件を動かせないかを見る。残った条件に応じて、日平均気温4℃以下は寒中、25℃超は暑中、打込み温度35℃超は35℃を超える暑中、水和熱が問題になる厚い部材はマス、水の中で打つは水中・水中不分離性、配筋が込み締固めが難しいは高流動・流動化、強度・軽さ・収縮補償は高強度・軽量骨材・膨張、型枠なしで面に付けるは吹付け・短繊維補強を選ぶ。条件が重なると対策が逆を向くので、解析か試験で示し承認を得る。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 13px; fill: #222; }
+      .h1 { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .h2 { font-size: 12px; fill: #555; }
+      .lb { font-size: 11px; fill: #555; }
+      .cd { font-size: 13px; fill: #222; }
+      .sl { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .wn { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .card { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .strip { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .sel { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .ar { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+
+  <rect class="strip" x="10" y="10" width="380" height="52" rx="8"/>
+  <text class="h1" x="22" y="32">先に、条件のほうを動かせないか</text>
+  <text class="h2" x="22" y="51">水を避ける・配筋を直す・時期を変える</text>
+  <path class="ar" d="M40,62V82" marker-end="url(#ah)"/>
+  <text class="lb" x="52" y="78">それでも残った条件だけ</text>
+
+  <rect class="card" x="10" y="90" width="190" height="38" rx="8"/><text class="cd" x="20" y="114">日平均気温が4℃以下</text>
+  <path class="ar" d="M203,109H223" marker-end="url(#ah)"/>
+  <rect class="sel" x="226" y="90" width="164" height="38" rx="8"/><text class="sl" x="236" y="114">寒中</text>
+  <rect class="card" x="10" y="134" width="190" height="38" rx="8"/><text class="cd" x="20" y="158">日平均気温が25℃超</text>
+  <path class="ar" d="M203,153H223" marker-end="url(#ah)"/>
+  <rect class="sel" x="226" y="134" width="164" height="38" rx="8"/><text class="sl" x="236" y="158">暑中</text>
+  <rect class="card" x="10" y="178" width="190" height="38" rx="8"/><text class="cd" x="20" y="202">打込み温度が35℃を超える</text>
+  <path class="ar" d="M203,197H223" marker-end="url(#ah)"/>
+  <rect class="sel" x="226" y="178" width="164" height="38" rx="8"/><text class="sl" x="236" y="202">35℃を超える暑中</text>
+  <rect class="card" x="10" y="222" width="190" height="38" rx="8"/><text class="cd" x="20" y="238">水和熱が問題になる</text><text class="cd" x="20" y="254">厚い部材</text>
+  <path class="ar" d="M203,241H223" marker-end="url(#ah)"/>
+  <rect class="sel" x="226" y="222" width="164" height="38" rx="8"/><text class="sl" x="236" y="246">マス</text>
+  <rect class="card" x="10" y="266" width="190" height="38" rx="8"/><text class="cd" x="20" y="290">水の中で打つ</text>
+  <path class="ar" d="M203,285H223" marker-end="url(#ah)"/>
+  <rect class="sel" x="226" y="266" width="164" height="38" rx="8"/><text class="sl" x="236" y="290">水中・水中不分離性</text>
+  <rect class="card" x="10" y="310" width="190" height="38" rx="8"/><text class="cd" x="20" y="326">配筋が込み、</text><text class="cd" x="20" y="342">締固めが難しい</text>
+  <path class="ar" d="M203,329H223" marker-end="url(#ah)"/>
+  <rect class="sel" x="226" y="310" width="164" height="38" rx="8"/><text class="sl" x="236" y="334">高流動・流動化</text>
+  <rect class="card" x="10" y="354" width="190" height="38" rx="8"/><text class="cd" x="20" y="378">強度・軽さ・収縮補償</text>
+  <path class="ar" d="M203,373H223" marker-end="url(#ah)"/>
+  <rect class="sel" x="226" y="354" width="164" height="38" rx="8"/><text class="sl" x="236" y="378">高強度・軽量骨材・膨張</text>
+  <rect class="card" x="10" y="398" width="190" height="38" rx="8"/><text class="cd" x="20" y="422">型枠なしで面に付ける</text>
+  <path class="ar" d="M203,417H223" marker-end="url(#ah)"/>
+  <rect class="sel" x="226" y="398" width="164" height="38" rx="8"/><text class="sl" x="236" y="422">吹付け・短繊維補強</text>
+
+  <rect class="warn" x="10" y="450" width="380" height="40" rx="8"/>
+  <text class="wn" x="22" y="475">条件が重なると、対策が逆を向く</text>
+</svg>
