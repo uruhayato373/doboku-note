@@ -1,0 +1,61 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は補助金等に係る予算の執行の適正化に関する法律第5条・第6条・第14条・第15条と、社会資本整備総合交付金交付要綱の第7〜第9。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="補助金は事業ごとに、交付金は計画ごとに動くことを比べた流れ図。補助金は申請、交付の決定、実績報告、額の確定の順。交付金は事業を計画に位置づけ、社会資本総合整備計画を提出し、毎年度交付を申請し、事業の進み具合で次年度の交付限度額を調整する。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .t { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .tb { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 11px; fill: #555; }
+      .k { font-size: 12px; fill: #222; }
+      .b-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .b-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .b-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .b-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .b-g { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .b-x { fill: #fff; stroke: #8a8a8a; stroke-width: 1.5; stroke-dasharray: 4 3; }
+      .a { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+      .l { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+
+  <rect class="b-b" x="10" y="14" width="185" height="52" rx="8"/>
+  <text class="t" x="102.5" y="38" text-anchor="middle">補助金</text>
+  <text class="s" x="102.5" y="56" text-anchor="middle">事業ごとに動く</text>
+  <path class="a" d="M102.5,67V91" marker-end="url(#ah)"/>
+  <rect class="b-g" x="10" y="92" width="185" height="76" rx="8"/>
+  <text class="t" x="102.5" y="125" text-anchor="middle">申請</text>
+  <text class="s" x="102.5" y="147" text-anchor="middle">補助金適正化法 第5条</text>
+  <path class="a" d="M102.5,169V193" marker-end="url(#ah)"/>
+  <rect class="b-g" x="10" y="194" width="185" height="76" rx="8"/>
+  <text class="t" x="102.5" y="227" text-anchor="middle">交付の決定</text>
+  <text class="s" x="102.5" y="249" text-anchor="middle">第6条</text>
+  <path class="a" d="M102.5,271V295" marker-end="url(#ah)"/>
+  <rect class="b-g" x="10" y="296" width="185" height="76" rx="8"/>
+  <text class="t" x="102.5" y="329" text-anchor="middle">実績報告</text>
+  <text class="s" x="102.5" y="351" text-anchor="middle">第14条（事業の完了後）</text>
+  <path class="a" d="M102.5,373V397" marker-end="url(#ah)"/>
+  <rect class="b-g" x="10" y="398" width="185" height="76" rx="8"/>
+  <text class="t" x="102.5" y="431" text-anchor="middle">額の確定</text>
+  <text class="s" x="102.5" y="453" text-anchor="middle">第15条</text>
+  <rect class="b-p" x="205" y="14" width="185" height="52" rx="8"/>
+  <text class="t" x="297.5" y="38" text-anchor="middle">交付金</text>
+  <text class="s" x="297.5" y="56" text-anchor="middle">計画ごとに動く</text>
+  <path class="a" d="M297.5,67V91" marker-end="url(#ah)"/>
+  <rect class="b-g" x="205" y="92" width="185" height="76" rx="8"/>
+  <text class="t" x="297.5" y="125" text-anchor="middle">事業を位置づける</text>
+  <text class="s" x="297.5" y="147" text-anchor="middle">基幹事業と関連事業</text>
+  <path class="a" d="M297.5,169V193" marker-end="url(#ah)"/>
+  <rect class="b-g" x="205" y="194" width="185" height="76" rx="8"/>
+  <text class="t" x="297.5" y="227" text-anchor="middle">計画の提出</text>
+  <text class="s" x="297.5" y="249" text-anchor="middle">交付要綱 第8</text>
+  <path class="a" d="M297.5,271V295" marker-end="url(#ah)"/>
+  <rect class="b-g" x="205" y="296" width="185" height="76" rx="8"/>
+  <text class="t" x="297.5" y="329" text-anchor="middle">毎年度の交付申請</text>
+  <text class="s" x="297.5" y="351" text-anchor="middle">交付要綱 第9</text>
+  <path class="a" d="M297.5,373V397" marker-end="url(#ah)"/>
+  <rect class="b-g" x="205" y="398" width="185" height="76" rx="8"/>
+  <text class="t" x="297.5" y="431" text-anchor="middle">次年度の限度額の調整</text>
+  <text class="s" x="297.5" y="453" text-anchor="middle">交付要綱 第7第2項・第3項</text>
+</svg>
