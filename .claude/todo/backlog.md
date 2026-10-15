@@ -21,6 +21,16 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-0740] 自治体の土木担当シリーズ A-22・A-25 の公開で develop の audit（content-series）が赤い（法令 ID・カリキュラム未掲載）
+タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-15]
+
+**起点**: 2026-10-15 12:43・12:59 に自治体の土木担当シリーズの章 A-22（civil-practice/public-meeting-consensus）・A-25（civil-practice/public-works-environmental-care）を develop へ入れてから、develop の Pre-merge check（audit の content-series）が赤い（38ce885f7・0f20005b7 が failure、d7505db66 までは緑）。PR #1067・#1068・#1069 も同じ理由で赤い。
+
+**やること**: (1) A-22 の 106・161・168 行が引く法令 ID 326M50004000033 を e-Gov で確かめ、正しい ID へ直すか、新しい法令なら写しを --sync で取り込む。(2) 公開した 2 章を実務記事のカリキュラム（civil-practice）に並べる。第 2・第 3 波を書いている別セッションの作業とぶつからないよう、その進み具合を見てから直す。
+
+**完了条件**: develop の Pre-merge check（audit）が緑に戻る。
+
+
 ### [DN-0739] 自治体の土木担当シリーズの第2波（道路・河川の管理 8 章）と第3波（事業を進める 8 章）を書いて公開する
 タグ: [領域:サイト] [時期:2026-10] [種類:制作] [検証:check-content-series] [起票:2026-10-15] [進行中]
 
