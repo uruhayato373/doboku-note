@@ -675,6 +675,17 @@
           ]
         },
         {
+          "id": "municipal-basics",
+          "label": "自治体の土木担当（入口と仕事の土台）",
+          "slugs": [
+            "civil-engineer-annual-cycle",
+            "social-infrastructure-overview",
+            "how-to-read-laws-and-notices",
+            "national-prefecture-municipal-roles",
+            "budget-and-funding-sources"
+          ]
+        },
+        {
           "id": "municipal",
           "label": "自治体の土木担当（道路・河川・里道と水路の管理）",
           "slugs": [
@@ -703,6 +714,15 @@
             "public-works-environmental-care",
             "ppp-pfi-selection",
             "owner-safety-responsibility"
+          ]
+        },
+        {
+          "id": "municipal-town",
+          "label": "自治体の土木担当（まちをつくる）",
+          "slugs": [
+            "city-planning-act-framework",
+            "development-permit-public-facilities",
+            "land-readjustment-project"
           ]
         }
       ]
