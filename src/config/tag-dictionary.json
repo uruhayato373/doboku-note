@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-15T03:27:30.775Z",
+  "generated_at": "2026-10-15T03:29:13.500Z",
   "summary": {
-    "total_mdx_files": 1420,
+    "total_mdx_files": 1421,
     "total_unique_tags": 133,
     "allowlist_size": 330,
     "known_count": 133,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 244,
+      "count": 245,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1187,6 +1187,7 @@
         "civil-practice-board-of-audit-inspection",
         "civil-practice-cast-in-place-pile-methods",
         "civil-practice-checklist-shoring-buoyancy",
+        "civil-practice-coast-port-administrators",
         "civil-practice-concrete-compaction-numbers",
         "civil-practice-concrete-crack-causes",
         "civil-practice-concrete-durability-specification",
@@ -3783,6 +3784,34 @@
       ]
     },
     {
+      "name": "地方公共団体",
+      "count": 21,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-board-of-audit-inspection",
+        "civil-practice-coast-port-administrators",
+        "civil-practice-river-act-framework",
+        "civil-practice-river-facility-inspection-operation",
+        "civil-practice-road-boundary-and-road-ledger",
+        "civil-practice-road-inspection-longevity-plan",
+        "civil-practice-satomichi-suiro-management",
+        "pe-comprehensive-management-essay-pattern-cross-year-application",
+        "pe-comprehensive-management-h21-essay-road-municipality",
+        "pe-comprehensive-management-h22-essay-road-municipality",
+        "pe-comprehensive-management-h23-essay-road-municipality",
+        "pe-comprehensive-management-h24-essay-road-municipality",
+        "pe-comprehensive-management-h25-essay-road-municipality",
+        "pe-comprehensive-management-h26-essay-road-municipality",
+        "pe-comprehensive-management-h27-essay-road-municipality",
+        "pe-comprehensive-management-pattern-essay-road-municipality",
+        "pe-comprehensive-management-r03-essay-road-municipality",
+        "pe-comprehensive-management-r04-essay-road-municipality",
+        "pe-comprehensive-management-r05-essay-road-municipality",
+        "pe-comprehensive-management-r06-essay-road-municipality",
+        "pe-comprehensive-management-r07-essay-road-municipality"
+      ]
+    },
+    {
       "name": "必須科目",
       "count": 21,
       "inAllowlist": true,
@@ -3838,38 +3867,12 @@
       ]
     },
     {
-      "name": "地方公共団体",
+      "name": "維持管理",
       "count": 20,
       "inAllowlist": true,
       "usedIn": [
-        "civil-practice-board-of-audit-inspection",
-        "civil-practice-river-act-framework",
-        "civil-practice-river-facility-inspection-operation",
-        "civil-practice-road-boundary-and-road-ledger",
-        "civil-practice-road-inspection-longevity-plan",
-        "civil-practice-satomichi-suiro-management",
-        "pe-comprehensive-management-essay-pattern-cross-year-application",
-        "pe-comprehensive-management-h21-essay-road-municipality",
-        "pe-comprehensive-management-h22-essay-road-municipality",
-        "pe-comprehensive-management-h23-essay-road-municipality",
-        "pe-comprehensive-management-h24-essay-road-municipality",
-        "pe-comprehensive-management-h25-essay-road-municipality",
-        "pe-comprehensive-management-h26-essay-road-municipality",
-        "pe-comprehensive-management-h27-essay-road-municipality",
-        "pe-comprehensive-management-pattern-essay-road-municipality",
-        "pe-comprehensive-management-r03-essay-road-municipality",
-        "pe-comprehensive-management-r04-essay-road-municipality",
-        "pe-comprehensive-management-r05-essay-road-municipality",
-        "pe-comprehensive-management-r06-essay-road-municipality",
-        "pe-comprehensive-management-r07-essay-road-municipality"
-      ]
-    },
-    {
-      "name": "維持管理",
-      "count": 19,
-      "inAllowlist": true,
-      "usedIn": [
         "civil-construction-1-guide-concrete-maintenance",
+        "civil-practice-coast-port-administrators",
         "civil-practice-concrete-standards-history",
         "civil-practice-large-fill-landslide",
         "civil-practice-levee-failure-reinforcement",
@@ -5273,6 +5276,24 @@
       ]
     },
     {
+      "name": "海岸",
+      "count": 2,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-coast-port-administrators",
+        "pe-construction-river-coast-ronbun-keyword"
+      ]
+    },
+    {
+      "name": "港湾",
+      "count": 2,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-textbook-coast-port",
+        "civil-practice-coast-port-administrators"
+      ]
+    },
+    {
       "name": "解体工事",
       "count": 2,
       "inAllowlist": true,
@@ -5303,22 +5324,6 @@
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-whitepaper-study-map"
-      ]
-    },
-    {
-      "name": "海岸",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-river-coast-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "港湾",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-textbook-coast-port"
       ]
     },
     {
