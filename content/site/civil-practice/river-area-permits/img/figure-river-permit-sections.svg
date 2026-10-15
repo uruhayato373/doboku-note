@@ -1,0 +1,93 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は河川法第6条（河川区域）・第24・26・27条（許可）・第54・55条（河川保全区域）の効く位置。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="河川の断面に四つの許可が効く位置を重ねた図。堤内地側の河川区域境界から50メートル以内が河川保全区域で、掘さくなどに第55条の許可が要る。河川区域の中では、高水敷で資材を置く占用が第24条、堤防を横断する管などの工作物が第26条、高水敷の掘削が第27条。">
+  <defs>
+  <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .z { font-size: 12px; font-weight: bold; fill: #222; }
+      .r { font-size: 12px; fill: #555; }
+      .b { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .h { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 11px; fill: #555; }
+      .p { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .gr { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .lv { fill: #d7d7d7; stroke: #8a8a8a; stroke-width: 1.5; }
+      .k24 { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .k26 { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .k27 { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; stroke-dasharray: 4 2; }
+      .k55 { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; stroke-dasharray: 4 2; }
+      .bd { stroke: #555; stroke-width: 1.5; fill: none; }
+      .ld { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+  </style>
+  <marker id="at" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+
+  <rect class="p" x="10" y="8" width="380" height="290" rx="8"/>
+
+  <!-- 区域の括り -->
+  <text class="z" x="68" y="26" text-anchor="middle">河川保全区域</text>
+  <text class="r" x="68" y="40" text-anchor="middle">（第54条）</text>
+  <path class="bd" d="M16,52V46H121V52" stroke-dasharray="4 2"/>
+  <text class="z" x="255" y="26" text-anchor="middle">河川区域</text>
+  <text class="r" x="255" y="40" text-anchor="middle">（第6条）</text>
+  <path class="bd" d="M129,52V46H384V52"/>
+  <path class="ld" d="M125,56V276" stroke-dasharray="4 3"/>
+
+  <!-- 断面 -->
+  <polygon class="gr" points="14,160 125,160 160,92 200,92 240,160 310,160 330,205 386,205 386,236 14,236"/>
+  <polygon class="lv" points="125,160 160,92 200,92 240,160"/>
+  <polygon points="321,185 386,185 386,205 330,205" fill="#e8f0fe"/>
+  <path d="M321,185H386" stroke="#2e6da4" stroke-width="1.5" fill="none"/>
+  <text class="b" x="70" y="224" text-anchor="middle">堤内地</text>
+  <text class="b" x="182" y="224" text-anchor="middle">堤防</text>
+  <text class="b" x="275" y="224" text-anchor="middle">高水敷</text>
+  <text class="b" x="357" y="224" text-anchor="middle">低水路</text>
+
+  <!-- 第55条：保全区域内の掘さく -->
+  <rect class="k55" x="58" y="160" width="28" height="14"/>
+  <path class="ld" d="M72,116V158"/>
+  <circle class="k55" cx="72" cy="104" r="11" style="stroke-dasharray:none"/>
+  <text class="b" x="72" y="108" text-anchor="middle">55</text>
+
+  <!-- 第26条：堤防を横断する工作物 -->
+  <circle class="k26" cx="180" cy="138" r="9"/>
+  <path class="ld" d="M180,84V129"/>
+  <circle class="k26" cx="180" cy="72" r="11"/>
+  <text class="b" x="180" y="76" text-anchor="middle">26</text>
+
+  <!-- 第24条：高水敷の占用 -->
+  <rect class="k24" x="244" y="146" width="16" height="14"/>
+  <rect class="k24" x="262" y="146" width="16" height="14"/>
+  <rect class="k24" x="253" y="132" width="16" height="14"/>
+  <path class="ld" d="M261,116V131"/>
+  <circle class="k24" cx="261" cy="104" r="11"/>
+  <text class="b" x="261" y="108" text-anchor="middle">24</text>
+
+  <!-- 第27条：高水敷の掘削 -->
+  <rect class="k27" x="286" y="160" width="20" height="14"/>
+  <path class="ld" d="M296,116V158"/>
+  <circle class="k27" cx="296" cy="104" r="11" style="stroke-dasharray:none"/>
+  <text class="b" x="296" y="108" text-anchor="middle">27</text>
+
+  <!-- 50m・区域境界 -->
+  <path d="M69,252H17" stroke="#555" stroke-width="1.5" fill="none" marker-end="url(#at)"/>
+  <path d="M69,252H123" stroke="#555" stroke-width="1.5" fill="none" marker-end="url(#at)"/>
+  <text x="68" y="270" text-anchor="middle">50m以内が原則</text>
+  <text class="z" x="125" y="290" text-anchor="middle" style="font-size:11px">区域の境界</text>
+
+  <!-- 凡例 -->
+  <rect class="k24" x="10" y="306" width="380" height="40" rx="8"/>
+  <circle cx="34" cy="326" r="12" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/><text class="b" x="34" y="330" text-anchor="middle">24</text>
+  <text class="h" x="56" y="323">占用（第24条）</text><text class="s" x="56" y="338">土地を排他的に使い続ける</text>
+
+  <rect class="k26" x="10" y="352" width="380" height="40" rx="8"/>
+  <circle cx="34" cy="372" r="12" fill="#fff" stroke="#3a7d44" stroke-width="1.5"/><text class="b" x="34" y="376" text-anchor="middle">26</text>
+  <text class="h" x="56" y="369">工作物の新築等（第26条）</text><text class="s" x="56" y="384">新築・改築・除却</text>
+
+  <rect x="10" y="398" width="380" height="40" rx="8" style="fill:#fff3cd;stroke:#d4a017;stroke-width:1.5"/>
+  <circle cx="34" cy="418" r="12" fill="#fff" stroke="#d4a017" stroke-width="1.5"/><text class="b" x="34" y="422" text-anchor="middle">27</text>
+  <text class="h" x="56" y="415">土地の掘削等（第27条）</text><text class="s" x="56" y="430">土地の形を変える・竹木の栽植と伐採</text>
+
+  <rect x="10" y="444" width="380" height="40" rx="8" style="fill:#f8d7da;stroke:#b22234;stroke-width:1.5"/>
+  <circle cx="34" cy="464" r="12" fill="#fff" stroke="#b22234" stroke-width="1.5"/><text class="b" x="34" y="468" text-anchor="middle">55</text>
+  <text class="h" x="56" y="461">保全区域内の行為（第55条）</text><text class="s" x="56" y="476">掘さく・盛土・切土、工作物の新築・改築</text>
+</svg>

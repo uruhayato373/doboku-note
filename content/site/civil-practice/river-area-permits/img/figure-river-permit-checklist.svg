@@ -1,0 +1,44 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は河川法の許可を窓口で受けるときの確認の順番。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="河川区域の許可を窓口で確かめる順番を縦に並べた流れ図。河川法の川と許可者、区域と権原、許可の種類、審査の物差し、申請書の確認、許可後の完成検査・承継・廃止の六段。">
+  <defs>
+  <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .h { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 12px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .bx { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .bp { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .ar { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+  </style>
+  <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+
+  <rect class="bx" x="20" y="14" width="360" height="62" rx="8"/>
+  <circle cx="50" cy="45" r="13" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/><text class="n" x="50" y="50" text-anchor="middle">1</text>
+  <text class="h" x="76" y="41">河川法の川か、許可者は誰か</text><text class="s" x="76" y="61">一級・二級・準用河川</text>
+  <path class="ar" d="M200,77V93" marker-end="url(#ah)"/>
+
+  <rect class="bx" x="20" y="95" width="360" height="62" rx="8"/>
+  <circle cx="50" cy="126" r="13" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/><text class="n" x="50" y="131" text-anchor="middle">2</text>
+  <text class="h" x="76" y="122">区域と権原</text><text class="s" x="76" y="142">台帳図面で区域と土地の帰属を見る</text>
+  <path class="ar" d="M200,158V174" marker-end="url(#ah)"/>
+
+  <rect class="bx" x="20" y="176" width="360" height="62" rx="8"/>
+  <circle cx="50" cy="207" r="13" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/><text class="n" x="50" y="212" text-anchor="middle">3</text>
+  <text class="h" x="76" y="203">許可の種類</text><text class="s" x="76" y="223">占用・工作物・掘削等（第24・26・27条）</text>
+  <path class="ar" d="M200,239V255" marker-end="url(#ah)"/>
+
+  <rect class="bx" x="20" y="257" width="360" height="62" rx="8"/>
+  <circle cx="50" cy="288" r="13" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/><text class="n" x="50" y="293" text-anchor="middle">4</text>
+  <text class="h" x="76" y="284">審査の物差し</text><text class="s" x="76" y="304">準則・設置許可基準・軽易な行為</text>
+  <path class="ar" d="M200,320V336" marker-end="url(#ah)"/>
+
+  <rect class="bx" x="20" y="338" width="360" height="62" rx="8"/>
+  <circle cx="50" cy="369" r="13" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/><text class="n" x="50" y="374" text-anchor="middle">5</text>
+  <text class="h" x="76" y="365">申請書の確認</text><text class="s" x="76" y="385">図面・権原の書面・他法令の書面</text>
+  <path class="ar" d="M200,401V417" marker-end="url(#ah)"/>
+
+  <rect class="bp" x="20" y="419" width="360" height="62" rx="8"/>
+  <circle cx="50" cy="450" r="13" fill="#fff" stroke="#3a7d44" stroke-width="1.5"/><text class="n" x="50" y="455" text-anchor="middle">6</text>
+  <text class="h" x="76" y="446">許可のあと</text><text class="s" x="76" y="466">完成検査・承継・廃止の届出</text>
+</svg>
