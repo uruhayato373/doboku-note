@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-15T05:18:28.346Z",
+  "generated_at": "2026-10-15T05:22:14.904Z",
   "summary": {
-    "total_mdx_files": 1431,
+    "total_mdx_files": 1432,
     "total_unique_tags": 133,
     "allowlist_size": 330,
     "known_count": 133,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 255,
+      "count": 256,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1218,6 +1218,7 @@
         "civil-practice-formwork-material-inspection",
         "civil-practice-formwork-removal-timing",
         "civil-practice-formwork-waterstop-details",
+        "civil-practice-how-to-read-laws-and-notices",
         "civil-practice-keishin-bidder-qualification",
         "civil-practice-land-acquisition-compensation",
         "civil-practice-large-fill-landslide",
@@ -2599,7 +2600,7 @@
     },
     {
       "name": "関係法規",
-      "count": 92,
+      "count": 93,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-engineer-assignment",
@@ -2620,6 +2621,7 @@
         "civil-practice-construction-industry-structure",
         "civil-practice-environmental-impact-assessment-flow",
         "civil-practice-foreign-workers-site-check",
+        "civil-practice-how-to-read-laws-and-notices",
         "civil-practice-keishin-bidder-qualification",
         "civil-practice-land-acquisition-compensation",
         "civil-practice-license-scope-judgment",
@@ -3666,6 +3668,43 @@
       ]
     },
     {
+      "name": "地方公共団体",
+      "count": 30,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-board-of-audit-inspection",
+        "civil-practice-buried-cultural-property-survey",
+        "civil-practice-civil-engineer-annual-cycle",
+        "civil-practice-coast-port-administrators",
+        "civil-practice-how-to-read-laws-and-notices",
+        "civil-practice-land-acquisition-compensation",
+        "civil-practice-owner-safety-responsibility",
+        "civil-practice-ppp-pfi-selection",
+        "civil-practice-project-request-to-budget",
+        "civil-practice-public-meeting-consensus",
+        "civil-practice-public-works-planning-evaluation",
+        "civil-practice-river-act-framework",
+        "civil-practice-river-facility-inspection-operation",
+        "civil-practice-road-boundary-and-road-ledger",
+        "civil-practice-road-inspection-longevity-plan",
+        "civil-practice-satomichi-suiro-management",
+        "pe-comprehensive-management-essay-pattern-cross-year-application",
+        "pe-comprehensive-management-h21-essay-road-municipality",
+        "pe-comprehensive-management-h22-essay-road-municipality",
+        "pe-comprehensive-management-h23-essay-road-municipality",
+        "pe-comprehensive-management-h24-essay-road-municipality",
+        "pe-comprehensive-management-h25-essay-road-municipality",
+        "pe-comprehensive-management-h26-essay-road-municipality",
+        "pe-comprehensive-management-h27-essay-road-municipality",
+        "pe-comprehensive-management-pattern-essay-road-municipality",
+        "pe-comprehensive-management-r03-essay-road-municipality",
+        "pe-comprehensive-management-r04-essay-road-municipality",
+        "pe-comprehensive-management-r05-essay-road-municipality",
+        "pe-comprehensive-management-r06-essay-road-municipality",
+        "pe-comprehensive-management-r07-essay-road-municipality"
+      ]
+    },
+    {
       "name": "土工",
       "count": 29,
       "inAllowlist": true,
@@ -3699,42 +3738,6 @@
         "civil-practice-soil-improvement-sandbag",
         "civil-practice-subbase-subgrade-control",
         "civil-practice-trench-excavation-safety"
-      ]
-    },
-    {
-      "name": "地方公共団体",
-      "count": 29,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-board-of-audit-inspection",
-        "civil-practice-buried-cultural-property-survey",
-        "civil-practice-civil-engineer-annual-cycle",
-        "civil-practice-coast-port-administrators",
-        "civil-practice-land-acquisition-compensation",
-        "civil-practice-owner-safety-responsibility",
-        "civil-practice-ppp-pfi-selection",
-        "civil-practice-project-request-to-budget",
-        "civil-practice-public-meeting-consensus",
-        "civil-practice-public-works-planning-evaluation",
-        "civil-practice-river-act-framework",
-        "civil-practice-river-facility-inspection-operation",
-        "civil-practice-road-boundary-and-road-ledger",
-        "civil-practice-road-inspection-longevity-plan",
-        "civil-practice-satomichi-suiro-management",
-        "pe-comprehensive-management-essay-pattern-cross-year-application",
-        "pe-comprehensive-management-h21-essay-road-municipality",
-        "pe-comprehensive-management-h22-essay-road-municipality",
-        "pe-comprehensive-management-h23-essay-road-municipality",
-        "pe-comprehensive-management-h24-essay-road-municipality",
-        "pe-comprehensive-management-h25-essay-road-municipality",
-        "pe-comprehensive-management-h26-essay-road-municipality",
-        "pe-comprehensive-management-h27-essay-road-municipality",
-        "pe-comprehensive-management-pattern-essay-road-municipality",
-        "pe-comprehensive-management-r03-essay-road-municipality",
-        "pe-comprehensive-management-r04-essay-road-municipality",
-        "pe-comprehensive-management-r05-essay-road-municipality",
-        "pe-comprehensive-management-r06-essay-road-municipality",
-        "pe-comprehensive-management-r07-essay-road-municipality"
       ]
     },
     {
@@ -4705,6 +4708,22 @@
       ]
     },
     {
+      "name": "行政手続き",
+      "count": 9,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-buried-cultural-property-survey",
+        "civil-practice-ccus-kentaikyo-site",
+        "civil-practice-civil-engineer-annual-cycle",
+        "civil-practice-foreign-workers-site-check",
+        "civil-practice-how-to-read-laws-and-notices",
+        "civil-practice-keishin-bidder-qualification",
+        "civil-practice-license-scope-judgment",
+        "civil-practice-public-meeting-consensus",
+        "civil-practice-public-works-bidding-methods"
+      ]
+    },
+    {
       "name": "都市及び地方計画",
       "count": 9,
       "inAllowlist": true,
@@ -4749,21 +4768,6 @@
         "civil-construction-1-textbook-steel-structures",
         "civil-construction-1-textbook-tunnel-natm",
         "civil-construction-1-textbook-water-sewer"
-      ]
-    },
-    {
-      "name": "行政手続き",
-      "count": 8,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-buried-cultural-property-survey",
-        "civil-practice-ccus-kentaikyo-site",
-        "civil-practice-civil-engineer-annual-cycle",
-        "civil-practice-foreign-workers-site-check",
-        "civil-practice-keishin-bidder-qualification",
-        "civil-practice-license-scope-judgment",
-        "civil-practice-public-meeting-consensus",
-        "civil-practice-public-works-bidding-methods"
       ]
     },
     {
