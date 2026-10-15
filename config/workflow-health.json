@@ -46,6 +46,12 @@
       "_note": "1 日 3 回。サイトが落ちていることを最初に掴む経路なので age は最も短く"
     },
     {
+      "workflow": "rerun-cancelled-schedules.yml",
+      "maxAgeDays": 1,
+      "maxConsecutiveFailures": 3,
+      "_note": "2 時間ごと。共通 group で待機中に取り消された定期実行を再実行する見張り（DN-0750）。これが止まると取り消しがまた黙って欠けになる"
+    },
+    {
       "workflow": "ops-audit.yml",
       "maxAgeDays": 3,
       "maxConsecutiveFailures": 2,
