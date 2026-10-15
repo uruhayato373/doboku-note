@@ -1,0 +1,67 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は都市計画法第4条第1項・第15条第1項・第87条の2第1項、同法施行令第9条第2項。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="都市計画の種類と、決める主体を並べた対比図。土地利用の区域区分は都道府県、用途地域などの地域地区は市町村が決める。都市施設は、一般国道・県道が都道府県、市町村道が市町村。市街地開発事業は面的に市街地を整える事業で、主体は計画ごとに確認する。指定都市の区域では区域区分などを指定都市が定め、広域の施設などは都道府県のままである。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }
+      .h { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .d { font-size: 12px; fill: #1a3a5c; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .y { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .p { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .x { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; stroke-dasharray: 5 4; }
+    </style>
+  </defs>
+
+  <text class="h" x="45" y="31" text-anchor="middle">区分</text>
+  <text class="h" x="145" y="31" text-anchor="middle">種類</text>
+  <rect class="b" x="212" y="12" width="88" height="28" rx="6"/>
+  <text class="h" x="256" y="31" text-anchor="middle">都道府県</text>
+  <rect class="g" x="304" y="12" width="86" height="28" rx="6"/>
+  <text class="h" x="347" y="31" text-anchor="middle">市町村</text>
+
+  <rect class="p" x="10" y="48" width="70" height="116" rx="6"/>
+  <text class="n" x="45" y="110" text-anchor="middle">土地利用</text>
+  <rect class="p" x="84" y="48" width="124" height="56" rx="6"/>
+  <text class="n" x="146" y="72" text-anchor="middle">区域区分</text>
+  <text class="d" x="146" y="90" text-anchor="middle">（線引き）</text>
+  <rect class="b" x="212" y="48" width="88" height="56" rx="6"/>
+  <circle cx="256" cy="76" r="10" fill="#2e6da4"/>
+  <rect class="p" x="304" y="48" width="86" height="56" rx="6"/>
+  <rect class="p" x="84" y="108" width="124" height="56" rx="6"/>
+  <text class="n" x="146" y="132" text-anchor="middle">地域地区</text>
+  <text class="d" x="146" y="150" text-anchor="middle">（用途地域など）</text>
+  <rect class="p" x="212" y="108" width="88" height="56" rx="6"/>
+  <rect class="g" x="304" y="108" width="86" height="56" rx="6"/>
+  <circle cx="347" cy="136" r="10" fill="#3a7d44"/>
+
+  <rect class="p" x="10" y="176" width="70" height="116" rx="6"/>
+  <text class="n" x="45" y="238" text-anchor="middle">都市施設</text>
+  <rect class="p" x="84" y="176" width="124" height="56" rx="6"/>
+  <text class="n" x="146" y="200" text-anchor="middle">一般国道</text>
+  <text class="n" x="146" y="218" text-anchor="middle">・都道府県道</text>
+  <rect class="b" x="212" y="176" width="88" height="56" rx="6"/>
+  <circle cx="256" cy="204" r="10" fill="#2e6da4"/>
+  <rect class="p" x="304" y="176" width="86" height="56" rx="6"/>
+  <rect class="p" x="84" y="236" width="124" height="56" rx="6"/>
+  <text class="n" x="146" y="269" text-anchor="middle">市町村道</text>
+  <rect class="p" x="212" y="236" width="88" height="56" rx="6"/>
+  <rect class="g" x="304" y="236" width="86" height="56" rx="6"/>
+  <circle cx="347" cy="264" r="10" fill="#3a7d44"/>
+
+  <rect class="p" x="10" y="304" width="70" height="56" rx="6"/>
+  <text class="n" x="45" y="327" text-anchor="middle">市街地</text>
+  <text class="n" x="45" y="345" text-anchor="middle">開発事業</text>
+  <rect class="x" x="84" y="304" width="306" height="56" rx="6"/>
+  <text class="n" x="104" y="328">土地区画整理事業など</text>
+  <text class="d" x="104" y="346">面的に市街地を整える。主体は計画ごとに確認</text>
+
+  <rect class="y" x="10" y="376" width="380" height="64" rx="8"/>
+  <text class="n" x="24" y="400">指定都市の区域</text>
+  <text class="d" x="24" y="420">区域区分などは指定都市が定める。広域の施設</text>
+  <text class="d" x="24" y="434">などは都道府県のまま（第87条の2第1項）</text>
+
+  <rect class="p" x="10" y="452" width="380" height="38" rx="8"/>
+  <text class="d" x="24" y="476">県が定める都市計画以外は市町村が定める（第15条第1項）</text>
+</svg>

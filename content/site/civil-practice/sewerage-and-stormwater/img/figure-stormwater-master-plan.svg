@@ -1,0 +1,57 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は国土交通省 雨水管理総合計画策定ガイドライン（案）の計画の構成と期間。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="雨水管理総合計画の構成と周期の図。計画は雨水管理方針と段階的対策計画の二本立てで、方針に計画期間・下水道計画区域・計画降雨・段階的対策の方針を、段階的対策計画に計画降雨に対するハード対策と超える降雨へのハード・ソフト対策を置く。目標は当面が概ね5年、中期が概ね10年後、長期が概ね20年後。5年に1回を基本に点検し、実情と大きくずれたら見直す。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .t { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .tb { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 11px; fill: #555; }
+      .k { font-size: 12px; fill: #222; }
+      .b-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .b-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .b-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .b-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .b-g { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .b-x { fill: #fff; stroke: #8a8a8a; stroke-width: 1.5; stroke-dasharray: 4 3; }
+      .a { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+      .l { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+
+  <rect class="b-g" x="10" y="12" width="380" height="34" rx="8"/>
+  <text class="t" x="200" y="35" text-anchor="middle">雨水管理総合計画</text>
+  <path class="l" d="M102,46V56M297,46V56"/>
+  <rect class="b-b" x="10" y="56" width="185" height="146" rx="8"/>
+  <text class="t" x="102" y="80" text-anchor="middle">雨水管理方針</text>
+  <text class="k" x="24" y="108">・計画期間</text>
+  <text class="k" x="24" y="132">・下水道計画区域</text>
+  <text class="k" x="24" y="156">・計画降雨（整備目標）</text>
+  <text class="k" x="24" y="180">・段階的対策の方針</text>
+  <rect class="b-p" x="205" y="56" width="185" height="146" rx="8"/>
+  <text class="t" x="297" y="80" text-anchor="middle">段階的対策計画</text>
+  <text class="k" x="219" y="108">・計画降雨に対する</text>
+  <text class="k" x="219" y="126">　ハード対策</text>
+  <text class="k" x="219" y="152">・計画降雨を超える降雨への</text>
+  <text class="k" x="219" y="170">　ハード・ソフト対策</text>
+  <text class="tb" x="14" y="232">目標の期間（計画期間は概ね20年の範囲）</text>
+  <text class="t" x="14" y="268">当面</text>
+  <rect class="b-w" x="64" y="246" width="62" height="32" rx="4"/>
+  <text class="k" x="72" y="267">概ね5年</text>
+  <text class="t" x="14" y="308">中期</text>
+  <rect class="b-w" x="64" y="286" width="124" height="32" rx="4"/>
+  <text class="k" x="72" y="307">概ね10年後</text>
+  <text class="t" x="14" y="348">長期</text>
+  <rect class="b-w" x="64" y="326" width="248" height="32" rx="4"/>
+  <text class="k" x="72" y="347">概ね20年後</text>
+  <text class="tb" x="14" y="392">点検と見直しの周期</text>
+  <rect class="b-b" x="10" y="404" width="170" height="52" rx="8"/>
+  <text class="t" x="95" y="426" text-anchor="middle">点検</text>
+  <text class="s" x="95" y="444" text-anchor="middle">5年に1回を基本に</text>
+  <rect class="b-p" x="220" y="404" width="170" height="52" rx="8"/>
+  <text class="t" x="305" y="426" text-anchor="middle">計画の見直し</text>
+  <text class="s" x="305" y="444" text-anchor="middle">実情と大きくずれたとき</text>
+  <path class="a" d="M182,430H218" marker-end="url(#ah)"/>
+  <path class="a" d="M305,458V478H95V460" marker-end="url(#ah)"/>
+</svg>

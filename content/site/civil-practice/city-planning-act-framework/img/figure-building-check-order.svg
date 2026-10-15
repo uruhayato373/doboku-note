@@ -1,0 +1,69 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は都市計画法第53条第1項・第3項、第54条、第65条第1項・第2項。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="都市計画道路の区域内で建築の相談が来たときの判断の順。区域内か、事業認可の告示後かを見る。告示前は第53条の許可制で、第54条の許可基準3つのいずれかに合うかを見る。告示後は第65条の許可制で、事業の障害になるおそれがあるかを見て、施行者の意見を聴く。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }
+      .h { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .n { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .d { font-size: 12px; fill: #1a3a5c; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .y { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .p { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .a { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+
+  <rect class="y" x="10" y="10" width="200" height="46" rx="8"/>
+  <text class="n" x="24" y="38">都市計画道路の区域内か</text>
+  <path class="a" d="M210,33H284" marker-end="url(#ah)"/>
+  <text class="h" x="230" y="26">いいえ</text>
+  <rect class="p" x="288" y="10" width="102" height="46" rx="8"/>
+  <text class="d" x="339" y="29" text-anchor="middle">この許可制は</text>
+  <text class="d" x="339" y="45" text-anchor="middle">掛からない</text>
+  <path class="a" d="M135,58V80" marker-end="url(#ah)"/>
+  <text class="h" x="146" y="74">はい</text>
+
+  <rect class="y" x="10" y="82" width="380" height="46" rx="8"/>
+  <text class="n" x="24" y="110">事業認可の告示は出たか</text>
+  <path class="a" d="M102,130V160" marker-end="url(#ah)"/>
+  <text class="h" x="112" y="150">いいえ</text>
+  <path class="a" d="M297,130V160" marker-end="url(#ah)"/>
+  <text class="h" x="307" y="150">はい</text>
+
+  <rect class="b" x="10" y="162" width="185" height="52" rx="8"/>
+  <text class="n" x="24" y="184">第53条第1項</text>
+  <text class="d" x="24" y="202">建築は許可制</text>
+  <rect class="b" x="205" y="162" width="185" height="52" rx="8"/>
+  <text class="n" x="219" y="184">第65条第1項</text>
+  <text class="d" x="219" y="202">形質変更・建築は許可制</text>
+  <path class="a" d="M102,216V232" marker-end="url(#ah)"/>
+  <path class="a" d="M297,216V232" marker-end="url(#ah)"/>
+
+  <rect class="y" x="10" y="234" width="185" height="56" rx="8"/>
+  <text class="n" x="24" y="256">第54条の基準の</text>
+  <text class="n" x="24" y="274">どれかに合うか</text>
+  <rect class="p" x="10" y="298" width="185" height="44" rx="6"/>
+  <text class="d" x="24" y="316">都市計画の建築物の</text>
+  <text class="d" x="24" y="332">定めに適合</text>
+  <rect class="p" x="10" y="348" width="185" height="44" rx="6"/>
+  <text class="d" x="24" y="366">整備する立体的な範囲の</text>
+  <text class="d" x="24" y="382">外で、著しい支障なし</text>
+  <rect class="p" x="10" y="398" width="185" height="44" rx="6"/>
+  <text class="d" x="24" y="416">階数2以下・地階なしで</text>
+  <text class="d" x="24" y="432">容易に移転・除却できる</text>
+  <rect class="g" x="10" y="450" width="185" height="40" rx="8"/>
+  <text class="n" x="24" y="475">いずれかに合えば許可</text>
+
+  <rect class="y" x="205" y="234" width="185" height="76" rx="8"/>
+  <text class="n" x="219" y="256">事業の障害になる</text>
+  <text class="n" x="219" y="274">おそれがあるかで判断</text>
+  <text class="d" x="219" y="298">第54条の基準は置かれない</text>
+  <rect class="p" x="205" y="320" width="185" height="50" rx="8"/>
+  <text class="d" x="219" y="341">許可の前に施行者の</text>
+  <text class="d" x="219" y="357">意見を聴く（第65条第2項）</text>
+  <rect class="p" x="205" y="380" width="185" height="50" rx="8"/>
+  <text class="d" x="219" y="401">事業地に第53条第1項は</text>
+  <text class="d" x="219" y="417">適用されない（同条第3項）</text>
+</svg>

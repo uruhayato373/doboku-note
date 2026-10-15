@@ -1,0 +1,48 @@
+<!-- authored 2026-10-15 doboku-note 自作。手続の順は土地区画整理法第120条と国土交通省の運用指針による。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="公共施設管理者負担金の手続を、協議、事業計画に額と方法を定める、覚書、年度ごとの協定、支出の順に並べた流れ図。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 11px; fill: #555; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .g { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .l { stroke: #d7d7d7; stroke-width: 1; fill: none; }
+      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+  <rect class="b" x="20" y="14" width="360" height="80" rx="8"/>
+  <circle cx="46" cy="54.0" r="12" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="t" x="46" y="59.0" text-anchor="middle">1</text>
+  <text class="n" x="70" y="50.0">協議</text>
+  <text class="s" x="70" y="70.0">施行者と管理者が、負担すべき額と方法を話し合う</text>
+  <path class="a" d="M200.0,96L200.0,110" marker-end="url(#ah)"/>
+  <rect class="b" x="20" y="112" width="360" height="80" rx="8"/>
+  <circle cx="46" cy="152.0" r="12" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="t" x="46" y="157.0" text-anchor="middle">2</text>
+  <text class="n" x="70" y="148.0">事業計画に額と方法を定める</text>
+  <text class="s" x="70" y="168.0">協議した内容を事業計画に載せる（第120条第2項）</text>
+  <path class="a" d="M200.0,194L200.0,208" marker-end="url(#ah)"/>
+  <rect class="b" x="20" y="210" width="360" height="80" rx="8"/>
+  <circle cx="46" cy="250.0" r="12" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="t" x="46" y="255.0" text-anchor="middle">3</text>
+  <text class="n" x="70" y="246.0">覚書を結ぶ</text>
+  <text class="s" x="70" y="266.0">総額・期間・帰属時期・負担の方法</text>
+  <path class="a" d="M200.0,292L200.0,306" marker-end="url(#ah)"/>
+  <rect class="b" x="20" y="308" width="360" height="80" rx="8"/>
+  <circle cx="46" cy="348.0" r="12" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="t" x="46" y="353.0" text-anchor="middle">4</text>
+  <text class="n" x="70" y="344.0">年度ごとの協定を結ぶ</text>
+  <text class="s" x="70" y="364.0">年度ごとの額と、支出の時期</text>
+  <path class="a" d="M200.0,390L200.0,404" marker-end="url(#ah)"/>
+  <rect class="p" x="20" y="406" width="360" height="80" rx="8"/>
+  <circle cx="46" cy="446.0" r="12" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="t" x="46" y="451.0" text-anchor="middle">5</text>
+  <text class="n" x="70" y="442.0">支出</text>
+  <text class="s" x="70" y="462.0">仮換地の指定の日（かその見込みの日）以降が目途</text>
+</svg>

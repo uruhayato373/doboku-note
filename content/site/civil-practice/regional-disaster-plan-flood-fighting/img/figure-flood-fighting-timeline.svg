@@ -1,0 +1,95 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は水防法第9条・第10条・第16条・第17条・第24条の2・第28条と災害対策基本法第60条・第76条の6の時期ごとの受け持ち。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="水防の時期ごとの役割分担の帯図。平時、出水期前、警戒、切迫・発災の順に、河川管理者、水防管理者、土木担当、市町村長の受け持ちを並べる。出水期前は水防管理者が危険箇所を河川管理者へ連絡して合同巡視。警戒では河川管理者が洪水予報と水防警報を出して水防管理者が出動を準備。切迫・発災では氾濫の危険を通報し、土木担当が判断材料を渡して市町村長が避難指示を出す。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .t { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .tb { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 11px; fill: #555; }
+      .k { font-size: 12px; fill: #222; }
+      .b-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .b-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .b-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .b-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .b-g { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .b-x { fill: #fff; stroke: #8a8a8a; stroke-width: 1.5; stroke-dasharray: 4 3; }
+      .a { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+      .l { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+      .s2 { font-size: 11px; fill: #222; }
+      .s3 { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+
+  <rect class="b-g" x="68" y="10" width="78" height="38" rx="6"/>
+  <text class="tb" x="107" y="34" text-anchor="middle">平時</text>
+  <rect class="b-b" x="151" y="10" width="78" height="38" rx="6"/>
+  <text class="tb" x="190" y="34" text-anchor="middle">出水期前</text>
+  <rect class="b-w" x="234" y="10" width="78" height="38" rx="6"/>
+  <text class="tb" x="273" y="34" text-anchor="middle">警戒</text>
+  <rect class="b-d" x="317" y="10" width="78" height="38" rx="6"/>
+  <text class="tb" x="356" y="34" text-anchor="middle">切迫・発災</text>
+  <rect class="b-g" x="4" y="62" width="60" height="80" rx="6"/>
+  <text class="s3" x="34" y="100" text-anchor="middle">河川管理者</text>
+  <text class="s" x="34" y="117" text-anchor="middle">国・県・市</text>
+  <rect x="68" y="62" width="78" height="80" rx="6" fill="none" stroke="#d7d7d7" stroke-width="1.5" stroke-dasharray="3 3"/>
+  <rect class="b-b" x="151" y="62" width="78" height="80" rx="6"/>
+  <text class="s2" x="190" y="89" text-anchor="middle">重要水防箇所</text>
+  <text class="s2" x="190" y="106" text-anchor="middle">を定め</text>
+  <text class="s2" x="190" y="123" text-anchor="middle">合同巡視</text>
+  <rect class="b-w" x="234" y="62" width="78" height="80" rx="6"/>
+  <text class="s2" x="273" y="89" text-anchor="middle">洪水予報</text>
+  <text class="s2" x="273" y="106" text-anchor="middle">水防警報</text>
+  <text class="s2" x="273" y="123" text-anchor="middle">を出す</text>
+  <rect class="b-d" x="317" y="62" width="78" height="80" rx="6"/>
+  <text class="s2" x="356" y="97.5" text-anchor="middle">氾濫の危険</text>
+  <text class="s2" x="356" y="114.5" text-anchor="middle">を通報</text>
+  <rect class="b-g" x="4" y="164" width="60" height="80" rx="6"/>
+  <text class="s3" x="34" y="202" text-anchor="middle">水防管理者</text>
+  <text class="s" x="34" y="219" text-anchor="middle">市町村長</text>
+  <rect x="68" y="164" width="78" height="80" rx="6" fill="none" stroke="#d7d7d7" stroke-width="1.5" stroke-dasharray="3 3"/>
+  <rect class="b-b" x="151" y="164" width="78" height="80" rx="6"/>
+  <text class="s2" x="190" y="191" text-anchor="middle">巡視して</text>
+  <text class="s2" x="190" y="208" text-anchor="middle">危険箇所を</text>
+  <text class="s2" x="190" y="225" text-anchor="middle">連絡</text>
+  <rect class="b-w" x="234" y="164" width="78" height="80" rx="6"/>
+  <text class="s2" x="273" y="191" text-anchor="middle">水防団・消防</text>
+  <text class="s2" x="273" y="208" text-anchor="middle">の出動と</text>
+  <text class="s2" x="273" y="225" text-anchor="middle">準備</text>
+  <rect class="b-d" x="317" y="164" width="78" height="80" rx="6"/>
+  <text class="s2" x="356" y="191" text-anchor="middle">土地・資材</text>
+  <text class="s2" x="356" y="208" text-anchor="middle">の使用</text>
+  <text class="s2" x="356" y="225" text-anchor="middle">（公用負担）</text>
+  <rect class="b-g" x="4" y="266" width="60" height="80" rx="6"/>
+  <text class="s3" x="34" y="310" text-anchor="middle">土木担当</text>
+  <rect class="b-g" x="68" y="266" width="78" height="80" rx="6"/>
+  <text class="s2" x="107" y="301.5" text-anchor="middle">点検・備蓄</text>
+  <text class="s2" x="107" y="318.5" text-anchor="middle">訓練・協定</text>
+  <rect class="b-b" x="151" y="266" width="78" height="80" rx="6"/>
+  <text class="s2" x="190" y="293" text-anchor="middle">重要水防箇所</text>
+  <text class="s2" x="190" y="310" text-anchor="middle">の一覧を入手</text>
+  <text class="s2" x="190" y="327" text-anchor="middle">合同巡視へ</text>
+  <rect class="b-w" x="234" y="266" width="78" height="80" rx="6"/>
+  <text class="s2" x="273" y="293" text-anchor="middle">予報・警報の</text>
+  <text class="s2" x="273" y="310" text-anchor="middle">受信と転送</text>
+  <text class="s2" x="273" y="327" text-anchor="middle">巡視</text>
+  <rect class="b-d" x="317" y="266" width="78" height="80" rx="6"/>
+  <text class="s2" x="356" y="293" text-anchor="middle">判断材料を</text>
+  <text class="s2" x="356" y="310" text-anchor="middle">渡す</text>
+  <text class="s2" x="356" y="327" text-anchor="middle">車両の移動</text>
+  <rect class="b-g" x="4" y="368" width="60" height="60" rx="6"/>
+  <text class="s3" x="34" y="396" text-anchor="middle">市町村長</text>
+  <text class="s" x="34" y="413" text-anchor="middle">避難指示</text>
+  <rect x="68" y="368" width="78" height="60" rx="6" fill="none" stroke="#d7d7d7" stroke-width="1.5" stroke-dasharray="3 3"/>
+  <rect x="151" y="368" width="78" height="60" rx="6" fill="none" stroke="#d7d7d7" stroke-width="1.5" stroke-dasharray="3 3"/>
+  <rect x="234" y="368" width="78" height="60" rx="6" fill="none" stroke="#d7d7d7" stroke-width="1.5" stroke-dasharray="3 3"/>
+  <rect class="b-d" x="317" y="368" width="78" height="60" rx="6"/>
+  <text class="s2" x="356" y="393.5" text-anchor="middle">避難指示</text>
+  <text class="s2" x="356" y="410.5" text-anchor="middle">を出す</text>
+  <path class="a" d="M273,143V162" marker-end="url(#ah)"/>
+  <path class="a" d="M356,143V162" marker-end="url(#ah)"/>
+  <path class="a" d="M190,163V144" marker-end="url(#ah)"/>
+  <path class="a" d="M356,347V366" marker-end="url(#ah)"/>
+  <path class="a" d="M10,462H34" marker-end="url(#ah)"/>
+  <text class="s" x="42" y="466">矢印は情報と通報の向き</text>
+</svg>
