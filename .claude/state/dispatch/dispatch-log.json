@@ -4080,6 +4080,19 @@
       "commit": "9074d9eee027",
       "verification": "content/note/1級・2級土木/土木もくじ/article.md が残す版を指す",
       "note": "note API v3 で 2 本ずつの二重公開を実測。原稿と同期の台帳が指す 10/12 の版（n1edc95f39203・naa0821a3d631）を残すと決め（2026-10-15 運営者）、土木もくじを付け替えた（PR #1076）。10/10 の版の非公開化とライブ反映は DN-0743（browser-use）"
+    },
+    {
+      "id": "DN-0733",
+      "at": "2026-10-15",
+      "task": "コンクリートの実務シリーズの補強待ち 5 章（セメント・鋼材・強度・生コン工場・打込み）を本の項目で書き足す",
+      "tier": "low",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "db6495ac179e",
+      "verification": "5 章の追記をコミット・push（textbook-materials・textbook-mix-design・textbook-production-qc・steel-material-properties・concrete-placement-order・concrete-compaction-numbers）、台帳を existing に変更、check-content-series PASS、check-reference-sources --deep の逐語一致 0",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }

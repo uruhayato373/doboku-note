@@ -1108,7 +1108,7 @@
       "audience": "コンクリートに関わるすべての人（発注者・設計者・生コン工場・施工者・維持管理者）。初めて担当する人から受験者まで",
       "area": "practice",
       "policy": "docs/strategy/18_自治体土木担当・コンクリートシリーズ方針2026-10.md",
-      "gate": "2026-10-15 の運営者判断で、EXP-012 の判定を待たずに補強 5 章を書き足してシリーズを完結させる（DN-0733）。図・写真は DN-0727。判定と公開 28 日の計測はシリーズの改善に使う（DN-0719）",
+      "gate": "2026-10-15 の運営者判断で、EXP-012 の判定を待たずに補強 5 章を書き足し、同日にシリーズを完結させた。図・写真は DN-0727。判定と公開 28 日の計測はシリーズの改善に使う（DN-0719）",
       "entry": {
         "hubItem": "C-00",
         "curriculum": "civil-practice:concrete"
@@ -1161,14 +1161,14 @@
             {
               "id": "C-02",
               "title": "セメント — 種類・選び方・つくり方・歴史",
-              "plan": "strengthen",
+              "plan": "existing",
               "paths": [
                 "content/site/concrete-engineer/textbook-materials/article.mdx"
               ],
               "links": [
                 "content/site/concrete-chief-engineer/textbook-materials/article.mdx"
               ],
-              "note": "つくり方と歴史を補う"
+              "note": "つくり方と歴史を補う。2026-10-15 に本の項目から足りない側面を書き足して補強した（DN-0733）"
             },
             {
               "id": "C-03",
@@ -1217,14 +1217,14 @@
             {
               "id": "C-07",
               "title": "鉄筋と PC 鋼材",
-              "plan": "strengthen",
+              "plan": "existing",
               "paths": [
                 "content/site/civil-practice/steel-material-properties/article.mdx"
               ],
               "links": [
                 "content/site/concrete-chief-engineer/textbook-structural-design/article.mdx"
               ],
-              "note": "鉄筋・PC 鋼材の種類と扱いを補う"
+              "note": "鉄筋・PC 鋼材の種類と扱いを補う。2026-10-15 に本の項目から足りない側面を書き足して補強した（DN-0733）"
             }
           ]
         },
@@ -1234,11 +1234,11 @@
             {
               "id": "C-08",
               "title": "強度の決め方 — 設計基準強度・呼び強度・配合強度",
-              "plan": "strengthen",
+              "plan": "existing",
               "paths": [
                 "content/site/concrete-engineer/textbook-mix-design/article.mdx"
               ],
-              "note": "発注者・設計者が何を根拠に決めるかを補う"
+              "note": "発注者・設計者が何を根拠に決めるかを補う。2026-10-15 に本の項目から足りない側面を書き足して補強した（DN-0733）"
             },
             {
               "id": "C-09",
@@ -1323,11 +1323,11 @@
             {
               "id": "C-14",
               "title": "生コン工場の仕事 — 設備・製造・出荷・試験室・経営",
-              "plan": "strengthen",
+              "plan": "existing",
               "paths": [
                 "content/site/concrete-engineer/textbook-production-qc/article.mdx"
               ],
-              "note": "出荷・試験室・経営を補う"
+              "note": "出荷・試験室・経営を補う。2026-10-15 に本の項目から足りない側面を書き足して補強した（DN-0733）"
             },
             {
               "id": "C-15",
@@ -1406,12 +1406,12 @@
             {
               "id": "C-21",
               "title": "打込み・締固め・打継ぎ — 打ちにくい箇所と床面を含む",
-              "plan": "strengthen",
+              "plan": "existing",
               "paths": [
                 "content/site/civil-practice/concrete-compaction-numbers/article.mdx",
                 "content/site/civil-practice/concrete-placement-order/article.mdx"
               ],
-              "note": "打ちにくい箇所・床面の打込みを補う"
+              "note": "打ちにくい箇所・床面の打込みを補う。2026-10-15 に本の項目から足りない側面を書き足して補強した（DN-0733）"
             },
             {
               "id": "C-22",

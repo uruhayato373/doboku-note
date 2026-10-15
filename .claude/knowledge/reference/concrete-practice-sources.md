@@ -68,3 +68,10 @@ title: コンクリートの実務シリーズで確かめた一次資料（執�
 | 建設業法 19 条の 5（著しく短い工期の禁止） | [国土交通省](https://www.mlit.go.jp/totikensangyo/const/totikensangyo_const_tk1_000175.html)。令和元年の新・担い手 3 法。条文の原文は未照合 |
 | 山陽新幹線のトンネル剥落（平成11年） | [国土交通省](https://www1.mlit.go.jp/common/001092218.pdf) p.1。福岡・北九州トンネルの剥落のあと、全般検査（目視・打音）と変状展開図による維持管理へ |
 | 阪神・淡路大震災の橋脚 | [内閣府防災](https://www.bousai.go.jp/kyoiku/kyokun/hanshin_awaji/data/detail/1-1-5.html)。昭和55年の道路橋示方書の耐震設計編より前の橋脚は帯鉄筋が少なく破壊・崩壊、昭和55年基準のものは概ね良好 |
+
+## 補強 5 章（C-02・C-07・C-08・C-14・C-21）で確かめた値（2026-10-15）
+- C-02: JIS R 5210 は 2026-03-23 に改正され、少量混合成分の上限が 5 % から 10 % に上がった — https://www.mlit.go.jp/jutakukentiku/build/content/001990192.pdf（国住指第 473 号）。2009 年改正で SO₃ と強熱減量の上限を上げた理由（廃棄物利用で C₃A が増える・石灰石の混合）— https://kikakurui.com/r5/R5210-2019-01.html。焼成約 1,450℃・石灰石 70〜80 %・普通ポルトランドセメントのシェア 72.1 %（2024 年度）— https://www.jcassoc.or.jp/cement/1jpn/jd1.html
+- C-07: JIS G 3112 は 2020-04-20 改正（SD295A→SD295・SD295B 廃止）と 2025-04-21 改正。炭素当量の上限 SD345 0.60 %・SD390 0.65 %・SD490 0.70 %、降伏比 80 % 以下、圧延マーク SD345 突起 1・SD390 2・SD490 3 — https://kikakurui.com/g3/G3112-2020-01.html。JIS G 3536:2014 のリラクセーション値 N 8.0 % 以下・L 2.5 % 以下 — https://kikakurui.com/g3/G3536-2014-01.html。共通仕様書 令和8年3月 3-2-3-12・13（PC 鋼材は機械的に切断、グラウトの水セメント比 45 % 以下・ブリーディング率 0.0 %）
+- C-08: 北陸地方整備局 設計要領 共通編 第4章（令和3年10月）の標準配合（無筋 18・RC 24・PC 横桁 30・PC T桁 40、場所打ち杭は呼び強度 30・設計基準強度 24）— https://www.hrr.mlit.go.jp/gijyutu/kaitei/sekkei/R0310_04_sekkeiyouryou.pdf。施工管理基準（案）令和8年3月: 圧縮強度は 1 回が呼び強度の 85 % 以上・3 回平均が呼び強度以上、テストハンマー・コアは設計基準強度が基準 — https://www.qsr.mlit.go.jp/content/900005865.pdf
+- C-14: JIS A 5308 の運搬時間は練混ぜ開始から荷卸し地点に到着するまで原則 1.5 時間以内。2024 年改正で、戻りコンクリートの再出荷の禁止、納入書の電磁的記録、高強度コンクリートの強度の検査も 150 m³ に 1 回 — https://www.pref.yamaguchi.lg.jp/uploaded/attachment/193627.pdf。JIS Q 1011:2019 の計量器の静荷重検査 6 か月・運搬車の性能検査 3 年 — https://kikakurui.com/q/Q1011-2019-01.html。全国統一品質管理監査基準（令和8年度版）— http://hinkankaigi.jp/pdf/r8-kijun.pdf
+- C-21: 再振動は打終わりから 15〜60 分・練混ぜから 120 分以内（25℃超は 90 分）、振動 5〜15 秒、挿入深さ 40〜50 cm、挿入間隔はバイブレータ径の 10 倍以下 — https://www.cgr.mlit.go.jp/ctc/pdf/technology/concrete/a4-06.pdf（p.27）。打重ね間隔は外気温 25℃以下で 150 分以内・超で 120 分以内 — https://www.cgr.mlit.go.jp/ctc/pdf/technology/concrete/r4_check.pdf（p.38）
