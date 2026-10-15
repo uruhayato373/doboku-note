@@ -1,0 +1,300 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 2,
+      "visual": {
+        "kind": "cover",
+        "heading": "考えたことと実施したことを分ける",
+        "items": [
+          "2級土木｜検討と対応",
+          "現場条件から、メモを整理"
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/経験記述を自分の現場に置換/article.md",
+      "narration": "検討と対応を書き分ける。",
+      "caption": "検討と対応を書き分ける。"
+    },
+    {
+      "sceneId": "hook",
+      "start": 2,
+      "end": 12,
+      "visual": {
+        "kind": "points",
+        "heading": "検討も対応も、同じ文になるとき",
+        "items": [
+          "条件：どんな制約があったか",
+          "検討：何を考えて選んだか",
+          "対応：何を実施したか"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx",
+      "narration": "検討も対応も、同じ文章になっていませんか。考えた理由と実施した内容を、工事の条件から分けて整理します。",
+      "caption": "検討も対応も、同じ文章になっていませんか。考えた理由と実施した内容を、工事の条件から分けて整理します。"
+    },
+    {
+      "sceneId": "authority",
+      "start": 12,
+      "end": 22,
+      "visual": {
+        "kind": "points",
+        "heading": "解説：架（かける）",
+        "items": [
+          "技術士（総合技術監理部門）",
+          "元・地方自治体の土木職（発注者）",
+          "1級・2級土木施工管理技士 合格"
+        ]
+      },
+      "sourceRef": "src/config/author.ts",
+      "narration": "総合技術監理部門の技術士で、1級・2級土木に合格した元発注者が、経験を文章にする視点を解説します。",
+      "caption": "総合技術監理部門の技術士で、1級・2級土木に合格した元発注者が、経験を文章にする視点を解説します。"
+    },
+    {
+      "sceneId": "premise",
+      "start": 22,
+      "end": 33,
+      "visual": {
+        "kind": "sheet",
+        "heading": "準備用メモで、役割を分ける",
+        "sheetTitle": "考えた内容と実施した内容",
+        "rows": [
+          {
+            "label": "検討のメモ",
+            "value": "何を考えて選んだか"
+          },
+          {
+            "label": "対応のメモ",
+            "value": "現場で何を実施したか"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx",
+      "narration": "ここで分けるのは、準備用メモの役割です。検討は何を考えて選んだか、対応は現場で何を実施したかを整理します。",
+      "caption": "ここで分けるのは、準備用メモの役割です。検討は何を考えて選んだか、対応は現場で何を実施したかを整理します。"
+    },
+    {
+      "sceneId": "condition",
+      "start": 33,
+      "end": 44,
+      "visual": {
+        "kind": "sheet",
+        "heading": "仮例：道路工事の資材置場",
+        "sheetTitle": "考え方の整理メモ",
+        "rows": [
+          {
+            "label": "現場条件",
+            "value": "資材置場が狭い",
+            "state": "focus"
+          },
+          {
+            "label": "制約",
+            "value": "一度に保管できる量が限られる"
+          }
+        ]
+      },
+      "sourceRef": "content/sns/video-packs/civil-construction-2/kento-taio-kakiwake/script.md",
+      "narration": "道路工事の資材置場が狭い、という仮の例です。まず、一度に保管できる量が限られることを、現場条件に置きます。",
+      "caption": "道路工事の資材置場が狭い、という仮の例です。まず、一度に保管できる量が限られることを、現場条件に置きます。"
+    },
+    {
+      "sceneId": "options",
+      "start": 44,
+      "end": 55,
+      "visual": {
+        "kind": "sheet",
+        "heading": "何を比べて、搬入方法を選ぶか",
+        "sheetTitle": "仮例：検討のメモ",
+        "rows": [
+          {
+            "label": "候補",
+            "value": "一括搬入／分割搬入"
+          },
+          {
+            "label": "判断の材料",
+            "value": "保管できる量／日々の使用予定",
+            "state": "focus"
+          }
+        ]
+      },
+      "sourceRef": "content/sns/video-packs/civil-construction-2/kento-taio-kakiwake/script.md",
+      "narration": "検討では、一括で搬入する案と、分けて搬入する案を比べます。保管できる量と、日々の使用予定を照合します。",
+      "caption": "検討では、一括で搬入する案と、分けて搬入する案を比べます。保管できる量と、日々の使用予定を照合します。"
+    },
+    {
+      "sceneId": "reason",
+      "start": 55,
+      "end": 66,
+      "visual": {
+        "kind": "points",
+        "heading": "置場に入ることと、供給の両立",
+        "items": [
+          "分割搬入：一度に置く量を抑える",
+          "確認点：使用日に必要量が届くか",
+          "両方を満たせるか検討する"
+        ]
+      },
+      "sourceRef": "content/sns/video-packs/civil-construction-2/kento-taio-kakiwake/script.md",
+      "narration": "分けて搬入する案なら、置場にためる量を抑えられます。ただし、使用日に必要な材料が届くかも確かめます。",
+      "caption": "分けて搬入する案なら、置場にためる量を抑えられます。ただし、使用日に必要な材料が届くかも確かめます。"
+    },
+    {
+      "sceneId": "feasibility",
+      "start": 66,
+      "end": 77,
+      "visual": {
+        "kind": "sheet",
+        "heading": "選ぶ前に、納入条件を確かめる",
+        "sheetTitle": "仮例：検討のために集める情報",
+        "rows": [
+          {
+            "label": "業者に確認",
+            "value": "納入できる日・数量"
+          },
+          {
+            "label": "作業予定",
+            "value": "必要な日・必要量"
+          },
+          {
+            "label": "判断",
+            "value": "置場と供給の両方に合うか",
+            "state": "focus"
+          }
+        ]
+      },
+      "sourceRef": "content/sns/video-packs/civil-construction-2/kento-taio-kakiwake/script.md",
+      "narration": "そこで、納入できる日と数量を業者に確認し、作業予定と合わせます。置場と供給の両方から選ぶ理由を整理します。",
+      "caption": "そこで、納入できる日と数量を業者に確認し、作業予定と合わせます。置場と供給の両方から選ぶ理由を整理します。"
+    },
+    {
+      "sceneId": "action",
+      "start": 77,
+      "end": 88,
+      "visual": {
+        "kind": "sheet",
+        "heading": "対応は、実際に動いた内容",
+        "sheetTitle": "仮例：対応のメモ",
+        "rows": [
+          {
+            "label": "決めたこと",
+            "value": "搬入日と、その日の数量"
+          },
+          {
+            "label": "手配",
+            "value": "分割搬入を手配"
+          },
+          {
+            "label": "共有",
+            "value": "搬入予定を現場に共有",
+            "state": "focus"
+          }
+        ]
+      },
+      "sourceRef": "content/sns/video-packs/civil-construction-2/kento-taio-kakiwake/script.md",
+      "narration": "この例で実施した対応は、搬入日と数量を決めて分割搬入を手配したことです。現場に共有した内容も具体化します。",
+      "caption": "この例で実施した対応は、搬入日と数量を決めて分割搬入を手配したことです。現場に共有した内容も具体化します。"
+    },
+    {
+      "sceneId": "wording",
+      "start": 88,
+      "end": 99,
+      "visual": {
+        "kind": "sheet",
+        "heading": "語尾の違いから、内容の違いへ",
+        "sheetTitle": "それぞれのメモに足す内容",
+        "rows": [
+          {
+            "label": "検討した",
+            "value": "比較した条件と選択理由"
+          },
+          {
+            "label": "実施した",
+            "value": "決めた日・数量と実際の手配"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx",
+      "narration": "「分割搬入を検討した」と「分割搬入を実施した」だけでは、語尾の違いです。比較した条件と、実際の手配を足します。",
+      "caption": "「分割搬入を検討した」と「分割搬入を実施した」だけでは、語尾の違いです。比較した条件と、実際の手配を足します。"
+    },
+    {
+      "sceneId": "records",
+      "start": 99,
+      "end": 110,
+      "visual": {
+        "kind": "points",
+        "heading": "案と実施を、記録で区別する",
+        "items": [
+          "検討記録：候補と選んだ理由",
+          "納入記録：実際の日・数量",
+          "自分が担当した行動を確認"
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/経験記述を自分の現場に置換/article.md",
+      "narration": "選ばなかった案を、実施したように書かないこと。検討の記録と納入の記録を見直し、自分が担当した行動に戻します。",
+      "caption": "選ばなかった案を、実施したように書かないこと。検討の記録と納入の記録を見直し、自分が担当した行動に戻します。"
+    },
+    {
+      "sceneId": "question",
+      "start": 110,
+      "end": 121,
+      "visual": {
+        "kind": "points",
+        "heading": "メモを、その設問の答えに組み直す",
+        "items": [
+          "問われた管理項目を確認",
+          "必要な検討・対応を選ぶ",
+          "メモの区分を解答欄と決めつけない"
+        ]
+      },
+      "sourceRef": "content/sns/video-packs/civil-construction-2/kento-taio-kakiwake/script.md",
+      "narration": "当日の答案は、その設問で求められた内容に合わせます。整理したメモを、決まった欄や順番に無理に当てはめません。",
+      "caption": "当日の答案は、その設問で求められた内容に合わせます。整理したメモを、決まった欄や順番に無理に当てはめません。"
+    },
+    {
+      "sceneId": "summary",
+      "start": 121,
+      "end": 132,
+      "visual": {
+        "kind": "sheet",
+        "heading": "同じ工事で、3つをつなぐ",
+        "sheetTitle": "重複した文を見直す順序",
+        "rows": [
+          {
+            "label": "現場条件",
+            "value": "何が制約になったか"
+          },
+          {
+            "label": "検討",
+            "value": "何を考えて選んだか"
+          },
+          {
+            "label": "対応",
+            "value": "何を実施したか"
+          }
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/経験記述を自分の現場に置換/article.md",
+      "narration": "まとめです。現場条件、何を考えて選んだか、何を実施したか。同じ工事の流れで分けると、重複した文を見直せます。",
+      "caption": "まとめです。現場条件、何を考えて選んだか、何を実施したか。同じ工事の流れで分けると、重複した文を見直せます。"
+    },
+    {
+      "sceneId": "cta",
+      "start": 132,
+      "end": 144,
+      "visual": {
+        "kind": "points",
+        "heading": "検討と対応のつなぎ方を学ぶ",
+        "items": [
+          "2級土木 施工経験記述 完成答案集",
+          "安全・品質・工程の答案＋置換ガイド",
+          "概要欄のnoteマガジンへ"
+        ]
+      },
+      "sourceRef": "config/products.json",
+      "narration": "検討と対応のつなぎ方を、完成答案で学べます。安全・品質・工程の答案と、自分の現場への置換ガイドは概要欄へ。",
+      "caption": "検討と対応のつなぎ方を、完成答案で学べます。安全・品質・工程の答案と、自分の現場への置換ガイドは概要欄へ。"
+    }
+  ]
+}
