@@ -53,12 +53,6 @@
 
 
 
-### [DN-0717] 2級土木「土工の頻出点」の動画（sqkP7vheZ_Q）が YouTube から消え、develop の CI が video-publication で赤い
-タグ: [領域:SNS] [時期:2026-10] [種類:不具合] [起票:2026-10-13]
-
-**起点**: 2026-10-12T22:35Z の registry-reconcile が gakka-2kyu-doko/longform を gone と記録し（.claude/state/video-publication-verify.json）、以後 develop の quality audit（video-publication V05）が赤い。前回 10-11T19:42Z の照合では見えていた。oEmbed は 404（非公開なら 401/403）なので削除の可能性が高い。10-12T21:56Z の予約取り消し（youtube-unschedule・未来の予約 38 本）は公開済みのこの動画を対象にしていない。
-**やること**: 運営者が消したのか（YouTube 側の削除・違反措置か）を YouTube Studio で確かめる。意図どおりなら運営者が `npm run registry -- stop --pub civil-construction-2/gakka-2kyu-doko/youtube.longform --reason gone` を実行し、registry-reconcile を回し直して照合記録から外す。意図しない削除・違反措置なら原因を記録して再アップロードを判断する。
-**完了条件**: develop の CI（audit の video-publication）が緑。
 
 
 
@@ -72,15 +66,9 @@
 
 gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2kyu の画像/台本を、締固め度の現場乾燥密度、配合とスランプ、原因別ひび割れ対策、工事選定条件の断定回避へ修正した。総まとめ動画への反映と別に、元4本の外部公開状態を照合し、必要な動画再生成・画像確認・訂正説明または差替えを行う。
 
+**対象の絞り込み（2026-10-15）**: YouTube 整理で gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2kyu は台帳で全 stopped。残るのは gakka-2kyu-doko の通常動画（lNI2f_SjCTk・10/12 公開）と非公開の Shorts 2 本だけ。この 3 本が 10/11 の訂正後に作られたものかを確かめ、古ければ差し替える。
 
-### [DN-0658] 2級YouTubeの通常動画3本・Shorts6本の休止中診断リンクを現行添削へ直す
-タグ: [領域:SNS] [時期:2026-10] [種類:不具合] [起票:2026-10-10] [期日:2026-10-13]
 
-**起点**: 2026-10-10 にブラウザで公開動画 `https://www.youtube.com/watch?v=OcLmhVP5fho` の概要欄を確認し、休止中の診断 `https://coconala.com/services/4317349` への誘導を確認した。2級の `anzen-ippanron-3riyu`・`keiken-2kyu-level`・`keiken-genten-kyotsuten` の primaryCta は `coconala-shindan`、通常動画3本とShorts6本の youtube.json に同じリンクがある。サービスの正本では診断は paused、現行の全3テーマ添削 `coconala-2kyu-tensaku-3theme`（4418778）は listed。
-
-**やること**: 3パックの主CTAと概要欄を、現行の2級全3テーマ添削（4418778、24時間）へ合わせる。kind・対象資格・サービスIDと受付状態を正本・ブラウザで確認し、各動画の utm_campaign と形式別 utm_content を保持する。題名・予約時刻・動画IDは維持する。動画内の末尾の案内との一致も確認する。DN-0278 の冒頭リンク・著者表記改修と重複する箇所はまとめ、DN-0110 の進行中の移行計画 desiredSnippet／planSha256 を壊さない順序で同期する（移行完了後か、私有の計画・受領記録を整合させられる工程）。ブラウザは @doboku-note 管理アカウントへのログインが必要。概要欄を書き換えただけで外部反映済みにはしない。
-
-**完了条件**: 通常動画3本・Shorts6本をそれぞれ実査し、9本すべてで現行の2級サービスへ到達でき、休止中診断への案内が残っていない。原稿・台帳・YouTube実体・移行計画の一致を記録する。
 
 ### [DN-0440] コンクリート主任技士の小論文添削を、直前期（11月）の受注に応えられる状態にする
 タグ: [収益化] [領域:商品] [時期:2026-10..2026-11] [種類:改善] [起票:2026-09-29] [期日:2026-10-31]
@@ -168,6 +156,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 3. 公開画面の概要欄でクレジットが出ていることを数本で確かめる
 **完了条件**: 予約・公開済みの全通常動画と Shorts の概要欄に「VOICEVOX:青山龍星」があり、`youtube.json` と YouTube の実体が一致する。
 
+**対象の絞り込み（2026-10-15）**: YouTube 整理で公開・非公開が残るのは gakka-2kyu-doko の 3 本（通常動画 lNI2f_SjCTk・Shorts 2 本）だけで、3 本とも youtube.json の概要欄にクレジットが無い。これから上げる qa_passed の 43 本は youtube.json がまだ無く、10/08 以降の生成器が入れる。残りはこの 3 本の概要欄へのクレジットの追加と同期（承認の内容ハッシュと CI の metadata 同期の手順に沿う）。
 
 ### [DN-0567] Mac の週次 note 同期で、配布 PDF を Drive から取り寄せられない原因を突き止めて直す
 タグ: [収益化] [領域:商品] [時期:2026-10] [種類:不具合] [起票:2026-10-07] [期日:2026-10-12]

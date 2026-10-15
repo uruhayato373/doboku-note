@@ -3938,6 +3938,40 @@
       "commit": "69b4682d7046",
       "verification": "本番 16 本 HTTP 200・<main あり、図 27 枚 HTTP 200（storage）、check-production-ssr exit 0、check-content-series PASS。写真 5 件は DN-0741 へ",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0717",
+      "at": "2026-10-15",
+      "task": "2級土木「土工の頻出点」の動画（sqkP7vheZ_Q）が YouTube から消え、develop の CI が video-publication で赤い",
+      "tier": "high",
+      "kind": "不具合",
+      "prevention": {
+        "type": "none",
+        "ref": "運営者の YouTube 整理と移行で上げ直された（lNI2f_SjCTk・10/12 公開）。台帳と照合が追従し、検査が働いた結果で再発防止の追加は不要"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "c0aa995ec751",
+      "verification": "content/registry/publications/youtube/civil-construction-2.json の status・platform.id、develop の Pre-merge check 0bb521b03 success",
+      "note": "gakka-2kyu-doko の通常動画は新しい ID lNI2f_SjCTk で公開中（台帳 published）。develop の Pre-merge check（audit・video-publication を含む）は 2026-10-15 に緑"
+    },
+    {
+      "id": "DN-0658",
+      "at": "2026-10-15",
+      "task": "2級YouTubeの通常動画3本・Shorts6本の休止中診断リンクを現行添削へ直す",
+      "tier": "high",
+      "kind": "不具合",
+      "prevention": {
+        "type": "none",
+        "ref": "対象の 3 パック（通常動画 3・Shorts 6）は YouTube 整理（2026-10-13 の 688 本削除）で全て stopped になり、直す対象が無くなった"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "c0aa995ec751",
+      "verification": "content/registry/publications/youtube/*.json の status 集計",
+      "note": "anzen-ippanron-3riyu・keiken-2kyu-level・keiken-genten-kyotsuten は台帳で全 stopped。休止中の診断への案内が出る動画は残っていない"
     }
   ]
 }
