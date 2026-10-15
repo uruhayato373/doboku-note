@@ -69,7 +69,9 @@ test('Ga4Reports: 実データの全日が通り、枠・日付・行・分け�
 test('GscReports: 実データの全日が通り、keys・行数・クリックの誤りが落ちる', () => {
   const S = SCHEMAS.GscReports;
   assertAllOk(S, 'gsc.reports');
-  const day = latest('gsc.reports');
+  // 壊し方の見本は 4 種類の集計がそろった最新日から取る（インデックス監査は page だけの日を書く・2026-10-14）
+  const day = all('gsc.reports').find(({ value }) => ['date', 'page', 'page-query', 'query'].every((k) => value.reports?.[k]))?.value;
+  assert.ok(day, '4 種類の集計がそろった日が 1 つも無い（検査不成立）');
   assertFails(S, broken(day, (d) => { delete d.reports.page.rows[0].keys; }), /keys/);
   assertFails(S, broken(day, (d) => { d.reports.page.rows[0].keys = []; }), /keys/);
   assertFails(S, broken(day, (d) => { d.reports['page-query'].rows[0].keys = ['https://doboku-note.com/']; }), /keys が 1 個/);
@@ -180,7 +182,7 @@ test('GscIndexingPriority: 実データが通り、件数の不整合・分類�
   assertFails(S, broken(p, (x) => { x.items[0].status = 'indexed'; }), /status/);
   assertFails(S, broken(p, (x) => { x.items[0].path = 'exam/x'; }), /path/);
   assertFails(S, broken(p, (x) => { x.items[1].path = x.items[0].path; }), /重複/);
-  assertFails(S, broken(p, (x) => { x.items.pop(); }), /items 199 件/);
+  assertFails(S, broken(p, (x) => { x.items.pop(); }), /items \d+ 件/);
   assertFails(S, broken(p, (x) => { x.itemsTruncated = !x.itemsTruncated; }), /itemsTruncated/);
   assertFails(S, broken(p, (x) => { x.generatedAt = '2026-09-30'; }), /generatedAt/);
   assertFails(S, broken(p, (x) => { x.items[0].impressions = 1.5; }), /impressions/);

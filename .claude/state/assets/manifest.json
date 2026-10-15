@@ -56448,6 +56448,69 @@
         "scripts/check-orphan-ogp.mjs"
       ],
       "srcHash": "e83a73b7437c6b41"
+    },
+    "content/site/civil-practice/road-occupancy-permit-review/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/road-occupancy-permit-review/ogp.png",
+      "sha256": "ea06fe593a68164530c34dd0a8b5ad7d40ad845e0b531b893006c27cd67cf77f",
+      "bytes": 62047,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-15T02:21:32.815Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/road-occupancy-permit-review/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "0bcf77582dbba91b"
+    },
+    "content/site/civil-practice/satomichi-suiro-management/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/satomichi-suiro-management/ogp.png",
+      "sha256": "180ecfcad0f5f8a95b81b265ed37fd58b33c5390779bff3720d3ed089a385efc",
+      "bytes": 62445,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-15T02:24:41.116Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/satomichi-suiro-management/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "81390411a8099a2b"
+    },
+    "content/site/civil-practice/river-area-permits/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/river-area-permits/ogp.png",
+      "sha256": "c961a8f962a5f452b509945a4e4177cf656e641c89ea3f4f5765d146a32c05a9",
+      "bytes": 74134,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-15T02:24:41.377Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/river-area-permits/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "acb8f5786be57b62"
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",

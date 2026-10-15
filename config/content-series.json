@@ -8,7 +8,7 @@
       "audience": "自治体に土木職で入った人・異動した人",
       "area": "practice",
       "policy": "docs/strategy/18_自治体土木担当・コンクリートシリーズ方針2026-10.md",
-      "gate": "EXP-012（記事末の資格カード）の判定（事後窓の終わり 2026-11-26）で継続になるまで、新規記事は書かない（2026-10-13 運営者判断）",
+      "gate": "第 1 波（A-08・A-14・A-19）は 2026-10-15 の運営者判断で EXP-012 の判定を待たずに書いて公開する（DN-0738）。第 2 波以降は EXP-012 の判定（事後窓の終わり 2026-11-26）と第 1 波の公開 28 日の計測で決める（DN-0719）",
       "entry": {
         "hubItem": "A-00",
         "curriculum": "civil-practice:municipal"
@@ -108,11 +108,21 @@
               "id": "A-08",
               "title": "道路占用許可の審査 — 占用物件・期間・占用料・掘削後の復旧",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/road-occupancy-permit-review/article.mdx"
+              ],
               "sources": [
                 "road-act",
                 "road-act-order"
               ],
-              "wave": 1
+              "wave": 1,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "申請書の受付 → 協議（警察署長・他の占用者・埋設物管理者）→ 基準への当てはめと許可・条件 → 工事 → 復旧の確認 → 更新または廃止と原状回復 の流れ図（自作 SVG・400x500）。各段の当てはめ先（法第33条・施行令第9〜15条・第87条・第40条）を小さく添える",
+                  "figKey": "civil-practice/road-occupancy-permit-review/img/figure-review-flow"
+                }
+              ]
             },
             {
               "id": "A-09",
@@ -179,11 +189,26 @@
               "id": "A-14",
               "title": "河川区域の許可 — 占用（24 条）・工作物の新築（26 条）・土地の掘削（27 条）",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/river-area-permits/article.mdx"
+              ],
               "sources": [
                 "river-act",
                 "river-structure-permit-standard"
               ],
-              "wave": 1
+              "wave": 1,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "河川の断面（堤内地・堤防・高水敷・低水路）に、占用（24条）・工作物（26条）・掘削等（27条）・保全区域（55条）がどこに効くかを重ねた図（自作 SVG・viewBox 0 0 400 500）",
+                  "figKey": "civil-practice/river-area-permits/img/figure-river-permit-sections"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "相談 → 区域と権原の確認 → 許可の種類の判断 → 申請書の審査 → 許可と条件 → 完成検査・届出 の流れ図（自作 SVG）",
+                  "figKey": "civil-practice/river-area-permits/img/figure-river-permit-checklist"
+                }
+              ]
             },
             {
               "id": "A-15",
@@ -241,11 +266,31 @@
               "id": "A-19",
               "title": "里道・水路の管理 — 国からの譲与・境界・占用",
               "plan": "new",
+              "paths": [
+                "content/site/civil-practice/satomichi-suiro-management/article.mdx"
+              ],
               "sources": [
                 "state-property-special-measures-act",
                 "local-autonomy-act"
               ],
-              "wave": 1
+              "wave": 1,
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "里道・水路が道路法・河川法・下水道法の外にあることと、国から市町村への譲与（平成17年3月31日まで）で物件が『市町村有』と『国に残る（財務局が管理）』に分かれたことを示す図（自作の SVG・viewBox 0 0 400 500）",
+                  "figKey": "civil-practice/satomichi-suiro-management/img/figure-transfer-to-municipality"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "公図上の里道・水路（地番のない長狭物）と、申請地・隣接地・対面地の位置関係、境界確定で立会いを求める範囲を示す図（自作の SVG）",
+                  "figKey": "civil-practice/satomichi-suiro-management/img/figure-boundary-witnesses"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "用途廃止の審査（機能・同意・土地の形）→ 普通財産への変更 → 評価と契約 → 登記 の流れ図（自作の SVG）",
+                  "figKey": "civil-practice/satomichi-suiro-management/img/figure-sale-procedure"
+                }
+              ]
             }
           ]
         },

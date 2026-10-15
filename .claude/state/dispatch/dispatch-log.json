@@ -3865,6 +3865,19 @@
       "commit": "e23b0b9c81e8",
       "verification": "会社 PC で node scripts/fetch-pe-first-stage-historical.mjs が 49/49 検証済み（取得失敗 0・不一致 0・ページ数未検査 0）、check-pe-first-stage-historical PASS 40 ページ / 1190 問",
       "note": "取得を curl --ssl-no-revoke に替え、取得失敗・中身の不一致・ページ数未検査を分けて数える（失敗が支配的なら exit 2）。上下水道の問題 16 本と令和の正答 8 本の SHA-256・ページ数を在庫台帳に足した（問題はスキャン画像なので表紙を目視で年度・部門・再試験を確認）。令和・再試験・年度ごとの正答の名前の付け方を足し、テストで重複しないことを固定。quality-audit の note を 40 ページ・1,190 問に直した"
+    },
+    {
+      "id": "DN-0729",
+      "at": "2026-10-15",
+      "task": "自治体の土木担当シリーズの 39 章（新規 35・補強 4）の骨子と根拠を作り、運営者の確認を受ける",
+      "tier": "mid",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "63c206d4bc5e",
+      "verification": "npm run check-content-series（確認済み 39・下書き 0・一次資料あり 655/655・PASS）",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }

@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generated_at": "2026-10-13T07:11:16.671Z",
+  "generated_at": "2026-10-15T02:22:32.492Z",
   "summary": {
-    "total_mdx_files": 1410,
-    "total_unique_tags": 132,
+    "total_mdx_files": 1413,
+    "total_unique_tags": 133,
     "allowlist_size": 330,
-    "known_count": 132,
+    "known_count": 133,
     "unknown_count": 0,
     "typo_candidates_count": 0
   },
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 234,
+      "count": 237,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1236,12 +1236,15 @@
         "civil-practice-rebar-splice-selection",
         "civil-practice-reference-values",
         "civil-practice-risk-assessment-construction-workflow",
+        "civil-practice-river-area-permits",
         "civil-practice-river-park-erosion-control",
         "civil-practice-road-fixtures-precast",
+        "civil-practice-road-occupancy-permit-review",
         "civil-practice-safety-culture-discipline",
         "civil-practice-safety-document-cross-check",
         "civil-practice-safety-health-education-plan",
         "civil-practice-safety-patrol-corrective-action",
+        "civil-practice-satomichi-suiro-management",
         "civil-practice-schedule-and-road-permit",
         "civil-practice-service-commencement",
         "civil-practice-sheet-pile-snow-coating",
@@ -3514,6 +3517,46 @@
       ]
     },
     {
+      "name": "道路",
+      "count": 33,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-2-guide-road-pavement-key-points",
+        "civil-practice-asphalt-materials-types",
+        "civil-practice-asphalt-pavement-control",
+        "civil-practice-reading-civil-drawings",
+        "civil-practice-road-fixtures-precast",
+        "civil-practice-road-occupancy-permit-review",
+        "civil-practice-schedule-and-road-permit",
+        "civil-practice-seismic-design-levels",
+        "civil-practice-service-commencement",
+        "pe-comprehensive-management-essay-pattern-cross-year-application",
+        "pe-comprehensive-management-h21-essay-road-municipality",
+        "pe-comprehensive-management-h22-essay-road-municipality",
+        "pe-comprehensive-management-h23-essay-road-municipality",
+        "pe-comprehensive-management-h24-essay-road-municipality",
+        "pe-comprehensive-management-h25-essay-road-municipality",
+        "pe-comprehensive-management-h26-essay-road-municipality",
+        "pe-comprehensive-management-h27-essay-road-municipality",
+        "pe-comprehensive-management-pattern-essay-road-municipality",
+        "pe-comprehensive-management-r03-essay-road-municipality",
+        "pe-comprehensive-management-r04-essay-road-municipality",
+        "pe-comprehensive-management-r05-essay-road-municipality",
+        "pe-comprehensive-management-r06-essay-road-municipality",
+        "pe-comprehensive-management-r07-essay-road-municipality",
+        "pe-construction-r01-road",
+        "pe-construction-r02-road",
+        "pe-construction-r03-road",
+        "pe-construction-r04-road",
+        "pe-construction-r05-road",
+        "pe-construction-r06-road",
+        "pe-construction-r07-road",
+        "pe-construction-r08-road",
+        "pe-construction-road-exam-themes",
+        "pe-construction-road-ronbun-keyword"
+      ]
+    },
+    {
       "name": "DX",
       "count": 32,
       "inAllowlist": true,
@@ -3589,45 +3632,6 @@
         "pe-comprehensive-management-method-planning",
         "pe-comprehensive-management-process-planning-construction",
         "pe-construction-construction-planning-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "道路",
-      "count": 32,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-2-guide-road-pavement-key-points",
-        "civil-practice-asphalt-materials-types",
-        "civil-practice-asphalt-pavement-control",
-        "civil-practice-reading-civil-drawings",
-        "civil-practice-road-fixtures-precast",
-        "civil-practice-schedule-and-road-permit",
-        "civil-practice-seismic-design-levels",
-        "civil-practice-service-commencement",
-        "pe-comprehensive-management-essay-pattern-cross-year-application",
-        "pe-comprehensive-management-h21-essay-road-municipality",
-        "pe-comprehensive-management-h22-essay-road-municipality",
-        "pe-comprehensive-management-h23-essay-road-municipality",
-        "pe-comprehensive-management-h24-essay-road-municipality",
-        "pe-comprehensive-management-h25-essay-road-municipality",
-        "pe-comprehensive-management-h26-essay-road-municipality",
-        "pe-comprehensive-management-h27-essay-road-municipality",
-        "pe-comprehensive-management-pattern-essay-road-municipality",
-        "pe-comprehensive-management-r03-essay-road-municipality",
-        "pe-comprehensive-management-r04-essay-road-municipality",
-        "pe-comprehensive-management-r05-essay-road-municipality",
-        "pe-comprehensive-management-r06-essay-road-municipality",
-        "pe-comprehensive-management-r07-essay-road-municipality",
-        "pe-construction-r01-road",
-        "pe-construction-r02-road",
-        "pe-construction-r03-road",
-        "pe-construction-r04-road",
-        "pe-construction-r05-road",
-        "pe-construction-r06-road",
-        "pe-construction-r07-road",
-        "pe-construction-r08-road",
-        "pe-construction-road-exam-themes",
-        "pe-construction-road-ronbun-keyword"
       ]
     },
     {
@@ -3735,7 +3739,7 @@
     },
     {
       "name": "河川",
-      "count": 22,
+      "count": 24,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-textbook-river-works",
@@ -3745,7 +3749,9 @@
         "civil-practice-levee-failure-reinforcement",
         "civil-practice-nature-conservation-mitigation",
         "civil-practice-reading-civil-drawings",
+        "civil-practice-river-area-permits",
         "civil-practice-river-park-erosion-control",
+        "civil-practice-satomichi-suiro-management",
         "pe-comprehensive-management-h21-essay-river-consultant",
         "pe-comprehensive-management-h22-essay-river-consultant",
         "pe-comprehensive-management-h23-essay-river-consultant",
@@ -4089,6 +4095,29 @@
       ]
     },
     {
+      "name": "地方公共団体",
+      "count": 16,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-board-of-audit-inspection",
+        "civil-practice-satomichi-suiro-management",
+        "pe-comprehensive-management-essay-pattern-cross-year-application",
+        "pe-comprehensive-management-h21-essay-road-municipality",
+        "pe-comprehensive-management-h22-essay-road-municipality",
+        "pe-comprehensive-management-h23-essay-road-municipality",
+        "pe-comprehensive-management-h24-essay-road-municipality",
+        "pe-comprehensive-management-h25-essay-road-municipality",
+        "pe-comprehensive-management-h26-essay-road-municipality",
+        "pe-comprehensive-management-h27-essay-road-municipality",
+        "pe-comprehensive-management-pattern-essay-road-municipality",
+        "pe-comprehensive-management-r03-essay-road-municipality",
+        "pe-comprehensive-management-r04-essay-road-municipality",
+        "pe-comprehensive-management-r05-essay-road-municipality",
+        "pe-comprehensive-management-r06-essay-road-municipality",
+        "pe-comprehensive-management-r07-essay-road-municipality"
+      ]
+    },
+    {
       "name": "基礎科目",
       "count": 16,
       "inAllowlist": true,
@@ -4222,28 +4251,6 @@
         "pe-construction-steel-concrete-exam-themes",
         "pe-construction-tunnel-exam-themes",
         "pe-construction-urban-planning-exam-themes"
-      ]
-    },
-    {
-      "name": "地方公共団体",
-      "count": 15,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-board-of-audit-inspection",
-        "pe-comprehensive-management-essay-pattern-cross-year-application",
-        "pe-comprehensive-management-h21-essay-road-municipality",
-        "pe-comprehensive-management-h22-essay-road-municipality",
-        "pe-comprehensive-management-h23-essay-road-municipality",
-        "pe-comprehensive-management-h24-essay-road-municipality",
-        "pe-comprehensive-management-h25-essay-road-municipality",
-        "pe-comprehensive-management-h26-essay-road-municipality",
-        "pe-comprehensive-management-h27-essay-road-municipality",
-        "pe-comprehensive-management-pattern-essay-road-municipality",
-        "pe-comprehensive-management-r03-essay-road-municipality",
-        "pe-comprehensive-management-r04-essay-road-municipality",
-        "pe-comprehensive-management-r05-essay-road-municipality",
-        "pe-comprehensive-management-r06-essay-road-municipality",
-        "pe-comprehensive-management-r07-essay-road-municipality"
       ]
     },
     {
@@ -5263,6 +5270,14 @@
       "inAllowlist": true,
       "usedIn": [
         "civil-practice-levee-failure-reinforcement"
+      ]
+    },
+    {
+      "name": "河川法",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-river-area-permits"
       ]
     },
     {

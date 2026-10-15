@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-10-07T08:26:03.270Z",
+  "updated_at": "2026-10-14T07:35:42.817Z",
   "entries": [
     {
       "date": "2026-04-27",
@@ -339,6 +339,84 @@
         }
       },
       "batch_file": "2026-10-07T07-52-24.json",
+      "notes": "weekly cron (index-coverage.yml)"
+    },
+    {
+      "date": "2026-10-14",
+      "run_at": "2026-10-14T07:35:42.817Z",
+      "sitemap_urls": 1689,
+      "inspected": 1689,
+      "indexed": 1528,
+      "discovered_not_indexed": 94,
+      "crawled_not_indexed": 3,
+      "redirect": 0,
+      "not_found": 0,
+      "excluded_noindex": 0,
+      "other": 64,
+      "indexed_ratio": 0.905,
+      "by_qualification": {
+        "building-construction": {
+          "inspected": 3,
+          "indexed": 3,
+          "ratio": 1
+        },
+        "civil-construction-1": {
+          "inspected": 180,
+          "indexed": 172,
+          "ratio": 0.9555555555555556
+        },
+        "civil-construction-2": {
+          "inspected": 56,
+          "indexed": 49,
+          "ratio": 0.875
+        },
+        "concrete-chief-engineer": {
+          "inspected": 19,
+          "indexed": 18,
+          "ratio": 0.9473684210526315
+        },
+        "concrete-diagnostician": {
+          "inspected": 18,
+          "indexed": 17,
+          "ratio": 0.9444444444444444
+        },
+        "concrete-engineer": {
+          "inspected": 17,
+          "indexed": 16,
+          "ratio": 0.9411764705882353
+        },
+        "pavement": {
+          "inspected": 4,
+          "indexed": 4,
+          "ratio": 1
+        },
+        "pe-comprehensive-management": {
+          "inspected": 730,
+          "indexed": 714,
+          "ratio": 0.9780821917808219
+        },
+        "pe-construction": {
+          "inspected": 152,
+          "indexed": 140,
+          "ratio": 0.9210526315789473
+        },
+        "pe-first-stage": {
+          "inspected": 75,
+          "indexed": 56,
+          "ratio": 0.7466666666666667
+        },
+        "rccm": {
+          "inspected": 8,
+          "indexed": 4,
+          "ratio": 0.5
+        },
+        "surveyor": {
+          "inspected": 9,
+          "indexed": 5,
+          "ratio": 0.5555555555555556
+        }
+      },
+      "batch_file": "2026-10-14T06-52-54.json",
       "notes": "weekly cron (index-coverage.yml)"
     }
   ]
