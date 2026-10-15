@@ -21,16 +21,6 @@
 
 ## 🔴 高 — 重要度が高い
 
-### [DN-0747] 建設材料シリーズの新規 3 章を書いて公開し、コンクリートと建設材料のシリーズの回遊をそろえて完結させる
-タグ: [領域:サイト] [時期:2026-10] [種類:制作] [検証:check-content-series] [起票:2026-10-15] [進行中]
-
-**起点**: 2026-10-15、運営者の判断で、コンクリートの実務（`concrete-practice`）と建設材料（`construction-materials`）のシリーズも EXP-012 の判定（11/26）を待たずに完結させる（docs/strategy/18「着手の条件」）。コンクリートの補強 5 章は DN-0733、図・写真の既存の計画 10 件は DN-0727（別セッション）が受け持つ。
-**やること**:
-1. 建設材料の新規 3 章（M-01 全体像〈シリーズの入口〉・M-04 高分子材料・M-05 木材と石材）を、本の項目（construction-materials-basics）から workflow series-chapter で書く。事実ファイル `.claude/knowledge/reference/construction-materials-sources.md` を起こす
-2. 図を作って入れ、カリキュラムに「建設材料」の区分を足す
-3. 両シリーズの回遊をそろえる: ハブ（C-00 コンクリートの全体像・M-01）から全章へ案内し、全章からハブへ戻れるようにする（自治体の土木担当と同じ形・content-taxonomy.md §4）
-4. CI が緑の develop を本番へ出し、各記事・図の URL を確かめる
-**完了条件**: 建設材料の新規 3 章が本番で HTTP 200、両シリーズの全章がハブへ戻れる、`check-content-series` が緑。
 
 
 ### [DN-0744] 技術士 口頭試験対策に自治体職員（発注者）版の節を足し、建設部門・上下水道部門の無料入口 2 本を作る
@@ -479,18 +469,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 
 
-### [DN-0727] コンクリートの実務シリーズの図・写真を、本の頁の切り出しと AI の描き直しで入れる（image-policy の改定から）
-タグ: [領域:サイト] [時期:2026-10] [種類:制作] [起票:2026-10-13]
-
-**起点**: 2026-10-13、コンクリートの実務シリーズ（concrete-practice）の新規 10 章を書き終えた（DN-0724）。記事は図・写真なしで公開の状態。運営者の決定（2026-10-13）は「画像は本の頁から切り出す（クロップ）」「本の写真を元に AI で描き直すことはやる」。後者は image-policy（2026-10-07）と食い違う。
-
-**やること**:
-1. image-policy（.claude/knowledge/reference/image-policy.md）と docs/strategy/18 の「図と写真」を、本の写真を元に AI で描き直す場合の条件（構図をなぞらない・文字を入れない・ai-image-fidelity-auditor の監査・出所の記録）で改める。運営者の確認を取る。
-2. 各章の brief（.tmp/book-coverage/series/<slug>.brief.md の「図・写真の候補」・頁 id つき）と、執筆担当が返した図の位置を、台帳 config/content-series.json の項目の visuals に入れる。執筆担当の案: C-32 は工場数と出荷量の推移・不具合の段階と止める仕組み・就業者の年齢構成の 3 図、C-09 は環境条件ごとに動かす項目の対応図、C-00 は五つの立場と書類の受け渡しの関係図（各章の見出しは workflow の結果。章ごとに 1〜3 枚）。
-3. `npm run check-content-series -- --crop-jobs --series concrete-practice` で切り出し（Codex）→ `--visual-jobs` で図は自作 SVG、写真は AI で描き直し → 監査 → 記事へ配置。
-**完了条件**: 新規 10 章の visuals が台帳に入り、`check-content-series` の図・写真の未完了が 0（使わないものは skipped と理由）。
-
-**進捗（2026-10-15）**: 手順 1 は済み。運営者は「本の写真を AI に渡して描き直す」を選んだ（翻案の危険は承知のうえ）。条件（構図をなぞらない・元の文字を写さない・出所を basedOn に記録・元と見比べる監査）を image-policy「本の写真を元に描き直す」と 18 に書き、gen-article-photo --based-on・aiPhoto.redraw・監査の描き直しの軸・record-ai の検査を実装した（PR feat/ai-photo-redraw-from-book）。**残り**: 手順 2（visuals を台帳へ）と 3（切り出し → 作成 → 監査 → 配置。Drive vault の見える Mac か Codex）。
 
 
 ### [DN-0722] 2級模試の原稿（C9 解答解説）の解答欄の字数・行数の案内を Drive の原本と配布 PDF に反映する

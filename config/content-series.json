@@ -1108,7 +1108,7 @@
       "audience": "コンクリートに関わるすべての人（発注者・設計者・生コン工場・施工者・維持管理者）。初めて担当する人から受験者まで",
       "area": "practice",
       "policy": "docs/strategy/18_自治体土木担当・コンクリートシリーズ方針2026-10.md",
-      "gate": "2026-10-15 の運営者判断で、EXP-012 の判定を待たずに補強 5 章を書き足し、同日にシリーズを完結させた。図・写真は DN-0727。判定と公開 28 日の計測はシリーズの改善に使う（DN-0719）",
+      "gate": "2026-10-15 の運営者判断で、EXP-012 の判定を待たずに補強 5 章を書き足し、同日にシリーズを完結させた。図・写真（自作 SVG 11 枚・AI 写真 2 枚）も同日に入れた（DN-0727）。判定と公開 28 日の計測はシリーズの改善に使う（DN-0719）",
       "entry": {
         "hubItem": "C-00",
         "curriculum": "civil-practice:concrete"
@@ -1128,7 +1128,8 @@
               "visuals": [
                 {
                   "kind": "figure",
-                  "subject": "発注者・設計者・生コン工場・施工者・維持管理者が、それぞれ何を決めるかの関係図"
+                  "subject": "発注者・設計者・生コン工場・施工者・維持管理者が、それぞれ何を決めるかの関係図",
+                  "figKey": "civil-practice/concrete-roles-overview/img/figure-stakeholder-decisions"
                 }
               ]
             }
@@ -1154,7 +1155,8 @@
               "visuals": [
                 {
                   "kind": "figure",
-                  "subject": "水和が進む様子と、温度・水分で強度の伸びが変わる関係の概念図"
+                  "subject": "水和が進む様子と、温度・水分で強度の伸びが変わる関係の概念図",
+                  "figKey": "civil-practice/concrete-hydration-basics/img/figure-hydration-strength-growth"
                 }
               ]
             },
@@ -1256,7 +1258,8 @@
               "visuals": [
                 {
                   "kind": "figure",
-                  "subject": "環境条件（塩害・凍害・中性化）ごとに、かぶりと水セメント比をどう決めるかの対応図"
+                  "subject": "環境条件（一般・塩分の供給・凍結融解・凍結防止剤・化学的な作用・アルカリシリカ反応）ごとに主に動かす項目（かぶり・水セメント比・セメントの種類・空気量・追加の対策）の対応図。本文の表に合わせ、塩害で水セメント比・凍害でかぶりを動かすとは描かない（自作 SVG）",
+                  "figKey": "civil-practice/concrete-durability-specification/img/figure-environment-to-items"
                 }
               ]
             },
@@ -1274,7 +1277,8 @@
               "visuals": [
                 {
                   "kind": "figure",
-                  "subject": "生コンの呼び方（種類・呼び強度・スランプ・粗骨材の最大寸法・セメント）の読み方の図解"
+                  "subject": "生コンの呼び方（種類・呼び強度・スランプ・粗骨材の最大寸法・セメント）の読み方の図解",
+                  "figKey": "civil-practice/ready-mixed-concrete-ordering/img/figure-ordering-code-reading"
                 }
               ]
             },
@@ -1303,7 +1307,8 @@
               "visuals": [
                 {
                   "kind": "figure",
-                  "subject": "施工の条件（気温・部材の厚さ・水中・狭い所）から特殊なコンクリートを選ぶ対応図"
+                  "subject": "施工の条件（気温・部材の厚さ・水中・配筋が込む・型枠なし）から特殊なコンクリートを選ぶ対応図。先に条件を動かせないかを置く（自作 SVG）",
+                  "figKey": "civil-practice/special-concrete-selection/img/figure-condition-to-special-concrete"
                 }
               ]
             },
@@ -1369,7 +1374,8 @@
               "visuals": [
                 {
                   "kind": "figure",
-                  "subject": "発注から打設当日・振り返りまでの段取りの流れ図"
+                  "subject": "段取りの五つの場（受発注者間の調整・方針説明・事前検討会・周知会・反省会）を時系列に並べ、反省の記録が次の事前検討会へ戻る流れ図（自作 SVG）",
+                  "figKey": "civil-practice/concrete-work-preparation/img/figure-five-meetings-flow"
                 }
               ]
             },
@@ -1444,7 +1450,8 @@
               "visuals": [
                 {
                   "kind": "figure",
-                  "subject": "検査方法（コア・小径コア・反発度・超音波・電磁波レーダ）の選び方の比較図"
+                  "subject": "検査方法（コア・小径コア・反発度・超音波・電磁波レーダ）の選び方の比較図",
+                  "figKey": "civil-practice/concrete-structure-inspection/img/figure-inspection-method-choice"
                 },
                 {
                   "kind": "photo",
@@ -1452,7 +1459,8 @@
                   "crop": {
                     "book": "concrete-basics-5th",
                     "id": "photo-core-sizes"
-                  }
+                  },
+                  "figKey": "civil-practice/concrete-structure-inspection/img/photo-core-diameters"
                 }
               ]
             }
@@ -1525,7 +1533,8 @@
               "visuals": [
                 {
                   "kind": "figure",
-                  "subject": "主な基準の改定（塩化物の規制・ASR 対策・かぶり）を年表に並べ、建設年代から構造物の弱点を読む図"
+                  "subject": "主な基準の改定（塩化物の規制・ASR 対策・かぶり）を年表に並べ、建設年代から構造物の弱点を読む図",
+                  "figKey": "civil-practice/concrete-standards-history/img/figure-standards-timeline"
                 }
               ]
             }
@@ -1555,7 +1564,8 @@
               "visuals": [
                 {
                   "kind": "photo",
-                  "subject": "プレキャストの部材をクレーンで据え付けている現場"
+                  "subject": "プレキャストの部材をクレーンで据え付けている現場",
+                  "figKey": "civil-practice/concrete-labor-saving-technology/img/photo-precast-installation-crane"
                 }
               ]
             },
@@ -1566,7 +1576,24 @@
               "paths": [
                 "content/site/civil-practice/concrete-quality-and-workforce/article.mdx"
               ],
-              "note": "著者の意見はなぞらず、統計・白書など別の資料で書く"
+              "note": "著者の意見はなぞらず、統計・白書など別の資料で書く",
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "不具合が生まれる三つの段階（製造・施工・条件設定）と、段階ごとに止める仕組みの対応図（自作 SVG）",
+                  "figKey": "civil-practice/concrete-quality-and-workforce/img/figure-defect-stages"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "生コン工場の数（平成14年・30年）と出荷量（平成2年度・30年度）の2点比較の棒グラフ。本文の数値だけを使う（自作 SVG）",
+                  "figKey": "civil-practice/concrete-quality-and-workforce/img/figure-plants-shipments"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "2024年の就業者に占める55歳以上・29歳以下の割合を建設業と全産業で比べた棒グラフ。本文の数値だけを使う（自作 SVG）",
+                  "figKey": "civil-practice/concrete-quality-and-workforce/img/figure-age-composition"
+                }
+              ]
             }
           ]
         }
@@ -1578,7 +1605,7 @@
       "audience": "土木の材料を選ぶ・受け入れる人（コンクリート以外の材料）",
       "area": "practice",
       "policy": "docs/strategy/18_自治体土木担当・コンクリートシリーズ方針2026-10.md",
-      "gate": "2026-10-15 の運営者判断で、EXP-012 の判定を待たずに新規 3 章を書いて公開し、シリーズを完結させる（DN-0747）。判定と計測はシリーズの改善に使う（DN-0719）",
+      "gate": "2026-10-15 の運営者判断で、EXP-012 の判定を待たずに新規 3 章を書いて公開し、同日にシリーズを完結させた。判定と計測はシリーズの改善に使う（DN-0719）",
       "entry": {
         "hubItem": "M-01",
         "curriculum": "civil-practice:construction-materials"

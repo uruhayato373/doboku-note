@@ -1,0 +1,72 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点はコンクリート工事の段取りを五つの場（受発注者間の調整・方針説明・事前検討会・周知会・反省会）に分け、時期と役割を並べる整理。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="コンクリート工事の段取りの五つの場を時系列に並べた図。着工前の受発注者間の調整で要求を契約の言葉にそろえ、着工後の方針説明で目的を伝え、打設の前の事前検討会で段取りを決めて打設計画書へ書き戻し、打設の直前の周知会で現場へ伝え、打設のあとの反省会で計画との差を残す。反省の記録は次の事前検討会へ戻る。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .v { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .o { font-size: 12px; fill: #222; }
+      .card { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .when { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1; }
+      .vb { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; } /* brand-fill / brand */
+      .vp { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; } /* positive-fill / positive */
+      .vw { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; } /* warn-fill / warn */
+      .vs { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; } /* surface / ink-muted */
+      .ar { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .lp { stroke: #2e6da4; stroke-width: 2; fill: none; stroke-dasharray: 5 4; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+
+  <!-- 1 受発注者間の調整 -->
+  <rect class="card" x="16" y="14" width="350" height="72" rx="8"/>
+  <rect class="when" x="28" y="24" width="72" height="20" rx="10"/><text class="t" x="64" y="38" text-anchor="middle">着工前</text>
+  <text class="n" x="112" y="39">受発注者間の調整</text>
+  <rect class="vs" x="276" y="23" width="78" height="22" rx="11"/><text class="v" x="315" y="38" text-anchor="middle">そろえる</text>
+  <text x="28" y="60">発注者・設計者・受注者</text>
+  <text class="o" x="28" y="77">要求・予算・工期を契約の言葉に</text>
+  <path class="ar" d="M191,88V102" marker-end="url(#ah)"/>
+
+  <!-- 2 方針説明 -->
+  <rect class="card" x="16" y="104" width="350" height="72" rx="8"/>
+  <rect class="when" x="28" y="114" width="72" height="20" rx="10"/><text class="t" x="64" y="128" text-anchor="middle">着工後</text>
+  <text class="n" x="112" y="129">方針説明</text>
+  <rect class="vp" x="276" y="113" width="78" height="22" rx="11"/><text class="v" x="315" y="128" text-anchor="middle">伝える</text>
+  <text x="28" y="150">受注者から職長・作業員へ</text>
+  <text class="o" x="28" y="167">工事の目的と品質の考え方</text>
+  <path class="ar" d="M191,178V192" marker-end="url(#ah)"/>
+
+  <!-- 3 事前検討会 -->
+  <rect class="card" x="16" y="194" width="350" height="72" rx="8"/>
+  <rect class="when" x="28" y="204" width="72" height="20" rx="10"/><text class="t" x="64" y="218" text-anchor="middle">打設の前</text>
+  <text class="n" x="112" y="219">事前検討会</text>
+  <rect class="vb" x="276" y="203" width="78" height="22" rx="11"/><text class="v" x="315" y="218" text-anchor="middle">決める</text>
+  <text x="28" y="240">打設班・関係業者</text>
+  <text class="o" x="28" y="257">結論を打設計画書へ書き戻す</text>
+  <path class="ar" d="M191,268V282" marker-end="url(#ah)"/>
+
+  <!-- 4 周知会 -->
+  <rect class="card" x="16" y="284" width="350" height="72" rx="8"/>
+  <rect class="when" x="28" y="294" width="72" height="20" rx="10"/><text class="t" x="64" y="308" text-anchor="middle">打設の直前</text>
+  <text class="n" x="112" y="309">周知会</text>
+  <rect class="vp" x="276" y="293" width="78" height="22" rx="11"/><text class="v" x="315" y="308" text-anchor="middle">伝える</text>
+  <text x="28" y="330">現場の全員</text>
+  <text class="o" x="28" y="347">掲示は計画書と同じ版にする</text>
+  <path class="ar" d="M191,358V372" marker-end="url(#ah)"/>
+
+  <!-- 5 反省会 -->
+  <rect class="card" x="16" y="374" width="350" height="72" rx="8"/>
+  <rect class="when" x="28" y="384" width="72" height="20" rx="10"/><text class="t" x="64" y="398" text-anchor="middle">打設のあと</text>
+  <text class="n" x="112" y="399">反省会</text>
+  <rect class="vw" x="276" y="383" width="78" height="22" rx="11"/><text class="v" x="315" y="398" text-anchor="middle">残す</text>
+  <text x="28" y="420">打設班・前工程の職長</text>
+  <text class="o" x="28" y="437">時刻・区画・原因・次回の手当て</text>
+
+  <!-- 反省会 → 次の事前検討会 -->
+  <path class="lp" d="M366,410H384V230H368" marker-end="url(#ah)"/>
+
+  <!-- 凡例 -->
+  <path class="lp" d="M28,476H66" marker-end="url(#ah)"/>
+  <text x="76" y="480">反省の記録は次の事前検討会の議題へ</text>
+</svg>

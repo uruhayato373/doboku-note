@@ -4093,6 +4093,32 @@
       "commit": "db6495ac179e",
       "verification": "5 章の追記をコミット・push（textbook-materials・textbook-mix-design・textbook-production-qc・steel-material-properties・concrete-placement-order・concrete-compaction-numbers）、台帳を existing に変更、check-content-series PASS、check-reference-sources --deep の逐語一致 0",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0747",
+      "at": "2026-10-15",
+      "task": "建設材料シリーズの新規 3 章を書いて公開し、コンクリートと建設材料のシリーズの回遊をそろえて完結させる",
+      "tier": "high",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "805264cd044e",
+      "verification": "本番で建設材料 3 本・鋼材・アスファルト・コンクリートのハブと補強記事が HTTP 200・<main あり、図と写真 60 枚 HTTP 200、check-production-ssr exit 0、check-content-series PASS、両シリーズの全章がハブへ戻れる",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0727",
+      "at": "2026-10-15",
+      "task": "コンクリートの実務シリーズの図・写真を、本の頁の切り出しと AI の描き直しで入れる（image-policy の改定から）",
+      "tier": "mid",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "069ee018a94d",
+      "verification": "npm run check-content-series → 図・写真の計画 106 件 / 未完了 0 件・PASS。本番（main 1a165644e）で 10 記事・13 枚（自作 SVG 11・AI 写真 2、写真は ai-image-fidelity-auditor ok・コアは描き直しの軸も ok）が記事に載り、画像が HTTP 200 で配信。check-production-ssr exit 0",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }

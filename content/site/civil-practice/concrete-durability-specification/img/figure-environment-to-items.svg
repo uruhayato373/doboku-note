@@ -1,0 +1,54 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は、環境条件ごとに設計者が主に動かす耐久性の項目（かぶり・水セメント比・セメントの種類・空気量など）。数値は書かず、特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="環境条件ごとに主に動かす耐久性の項目を並べた図。一般の環境は、かぶりと水セメント比。塩分の供給がある環境は、かぶり、セメントの種類、追加の対策。凍結融解の繰返しは、水セメント比と空気量。凍結防止剤が重なる環境は、かぶり、空気量、追加の対策。化学的な作用は、セメントの種類と被覆。アルカリシリカ反応の懸念は、骨材の指定と抑制対策の方式。環境が厳しいほど、かぶりは厚く、水セメント比の上限は下がる。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 13px; fill: #222; }
+      .nm { font-size: 13px; font-weight: bold; fill: #222; }
+      .cs { font-size: 11px; fill: #555; }
+      .mv { font-size: 11px; font-weight: bold; fill: #2e6da4; }
+      .tk { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .to { font-size: 13px; fill: #555; }
+      .sm { font-size: 13px; fill: #222; }
+      .card { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .strip { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .ck { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .co { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <rect class="card" x="10" y="10" width="380" height="60" rx="8"/>
+  <text class="nm" x="22" y="32">一般の環境</text><text class="cs" x="378" y="32" text-anchor="end">中性化</text>
+  <text class="mv" x="22" y="55">動かす</text>
+  <rect class="ck" x="62" y="40" width="59" height="22" rx="11"/><text class="tk" x="91.5" y="55" text-anchor="middle">かぶり</text>
+  <rect class="ck" x="129" y="40" width="98" height="22" rx="11"/><text class="tk" x="178" y="55" text-anchor="middle">水セメント比</text>
+  <rect class="card" x="10" y="78" width="380" height="60" rx="8"/>
+  <text class="nm" x="22" y="100">塩分の供給がある環境</text><text class="cs" x="378" y="100" text-anchor="end">塩害</text>
+  <text class="mv" x="22" y="123">動かす</text>
+  <rect class="ck" x="62" y="108" width="59" height="22" rx="11"/><text class="tk" x="91.5" y="123" text-anchor="middle">かぶり</text>
+  <rect class="co" x="129" y="108" width="111" height="22" rx="11"/><text class="to" x="184.5" y="123" text-anchor="middle">セメントの種類</text>
+  <rect class="co" x="248" y="108" width="85" height="22" rx="11"/><text class="to" x="290.5" y="123" text-anchor="middle">追加の対策</text>
+  <rect class="card" x="10" y="146" width="380" height="60" rx="8"/>
+  <text class="nm" x="22" y="168">凍結融解の繰返し</text><text class="cs" x="378" y="168" text-anchor="end">凍害</text>
+  <text class="mv" x="22" y="191">動かす</text>
+  <rect class="ck" x="62" y="176" width="98" height="22" rx="11"/><text class="tk" x="111" y="191" text-anchor="middle">水セメント比</text>
+  <rect class="co" x="168" y="176" width="59" height="22" rx="11"/><text class="to" x="197.5" y="191" text-anchor="middle">空気量</text>
+  <rect class="card" x="10" y="214" width="380" height="60" rx="8"/>
+  <text class="nm" x="22" y="236">凍結防止剤が重なる環境</text><text class="cs" x="378" y="236" text-anchor="end">塩害と凍害</text>
+  <text class="mv" x="22" y="259">動かす</text>
+  <rect class="ck" x="62" y="244" width="59" height="22" rx="11"/><text class="tk" x="91.5" y="259" text-anchor="middle">かぶり</text>
+  <rect class="co" x="129" y="244" width="59" height="22" rx="11"/><text class="to" x="158.5" y="259" text-anchor="middle">空気量</text>
+  <rect class="co" x="196" y="244" width="85" height="22" rx="11"/><text class="to" x="238.5" y="259" text-anchor="middle">追加の対策</text>
+  <rect class="card" x="10" y="282" width="380" height="60" rx="8"/>
+  <text class="nm" x="22" y="304">化学的な作用</text><text class="cs" x="378" y="304" text-anchor="end">温泉・下水・硫酸塩</text>
+  <text class="mv" x="22" y="327">動かす</text>
+  <rect class="co" x="62" y="312" width="111" height="22" rx="11"/><text class="to" x="117.5" y="327" text-anchor="middle">セメントの種類</text>
+  <rect class="co" x="181" y="312" width="46" height="22" rx="11"/><text class="to" x="204" y="327" text-anchor="middle">被覆</text>
+  <rect class="card" x="10" y="350" width="380" height="60" rx="8"/>
+  <text class="nm" x="22" y="372">アルカリシリカ反応の懸念</text><text class="cs" x="378" y="372" text-anchor="end">反応性骨材と水</text>
+  <text class="mv" x="22" y="395">動かす</text>
+  <rect class="co" x="62" y="380" width="85" height="22" rx="11"/><text class="to" x="104.5" y="395" text-anchor="middle">骨材の指定</text>
+  <rect class="co" x="155" y="380" width="111" height="22" rx="11"/><text class="to" x="210.5" y="395" text-anchor="middle">抑制対策の方式</text>
+  <rect class="strip" x="10" y="420" width="380" height="70" rx="8"/>
+  <rect class="ck" x="22" y="429" width="59" height="22" rx="11"/><text class="tk" x="51.5" y="444" text-anchor="middle">かぶり</text><text class="sm" x="93" y="444">環境が厳しいほど、厚くなる</text>
+  <rect class="ck" x="22" y="457" width="98" height="22" rx="11"/><text class="tk" x="71" y="472" text-anchor="middle">水セメント比</text><text class="sm" x="132" y="472">環境が厳しいほど、上限が下がる</text>
+</svg>
