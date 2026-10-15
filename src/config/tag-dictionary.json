@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-15T06:11:41.937Z",
+  "generated_at": "2026-10-15T06:12:42.298Z",
   "summary": {
-    "total_mdx_files": 1443,
+    "total_mdx_files": 1444,
     "total_unique_tags": 133,
     "allowlist_size": 330,
     "known_count": 133,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 267,
+      "count": 268,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1229,6 +1229,7 @@
         "civil-practice-land-readjustment-project",
         "civil-practice-large-fill-landslide",
         "civil-practice-lifting-equipment-selection",
+        "civil-practice-municipal-engineer-qualifications",
         "civil-practice-national-prefecture-municipal-roles",
         "civil-practice-nature-conservation-mitigation",
         "civil-practice-netis-new-technology-use",
@@ -3467,7 +3468,7 @@
     },
     {
       "name": "地方公共団体",
-      "count": 41,
+      "count": 42,
       "inAllowlist": true,
       "usedIn": [
         "civil-practice-board-of-audit-inspection",
@@ -3482,6 +3483,7 @@
         "civil-practice-how-to-read-laws-and-notices",
         "civil-practice-land-acquisition-compensation",
         "civil-practice-land-readjustment-project",
+        "civil-practice-municipal-engineer-qualifications",
         "civil-practice-national-prefecture-municipal-roles",
         "civil-practice-owner-safety-responsibility",
         "civil-practice-ppp-pfi-selection",
@@ -4389,7 +4391,7 @@
     },
     {
       "name": "行政手続き",
-      "count": 14,
+      "count": 15,
       "inAllowlist": true,
       "usedIn": [
         "civil-practice-budget-and-funding-sources",
@@ -4402,6 +4404,7 @@
         "civil-practice-how-to-read-laws-and-notices",
         "civil-practice-keishin-bidder-qualification",
         "civil-practice-license-scope-judgment",
+        "civil-practice-municipal-engineer-qualifications",
         "civil-practice-public-meeting-consensus",
         "civil-practice-public-works-bidding-methods",
         "civil-practice-regional-disaster-plan-flood-fighting",
