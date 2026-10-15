@@ -10,12 +10,12 @@
       "end": "2026-10-14"
     },
     "labelSalesWindow": {
-      "start": "2026-09-01",
-      "end": "2026-09-30"
+      "start": "2026-09-17",
+      "end": "2026-10-14"
     },
     "minUsers": 15,
-    "pageFile": "2026-10-15.json#page",
-    "clickFile": "2026-10-15.json#cta-clicks"
+    "pageFile": "2026-10-16.json#page",
+    "clickFile": "2026-10-16.json#cta-clicks"
   },
   "summary": {
     "trafficked": 957,
@@ -25373,132 +25373,146 @@
     {
       "magazineId": "civil-2-pastexam-essay",
       "utmContent": "secondary-r07-q1",
-      "clicks": 57,
-      "salesCount": 1,
-      "revenue": 2480
+      "clicks": 50,
+      "salesCount": 0,
+      "revenue": 0
     },
     {
       "magazineId": "civil-1-pastexam-essay",
       "utmContent": "secondary-r07-q1",
-      "clicks": 55,
+      "clicks": 40,
       "salesCount": 0,
       "revenue": 0
     },
     {
       "magazineId": "civil-2-experience-essay",
       "utmContent": "secondary-experience-examples",
-      "clicks": 38,
+      "clicks": 35,
+      "salesCount": 3,
+      "revenue": 6940
+    },
+    {
+      "magazineId": "civil-2-experience-essay",
+      "utmContent": "secondary-experience-guide",
+      "clicks": 23,
+      "salesCount": 3,
+      "revenue": 6940
+    },
+    {
+      "magazineId": "civil-1-experience-essay",
+      "utmContent": "secondary-experience-writing-guide-inline-1-mid",
+      "clicks": 18,
+      "salesCount": 1,
+      "revenue": 2480
+    },
+    {
+      "magazineId": "civil-2-r8-mock3-pdf",
+      "utmContent": "c2-secondary-start-mock3",
+      "clicks": 11,
+      "salesCount": 0,
+      "revenue": 0
+    },
+    {
+      "magazineId": "civil-2-experience-essay",
+      "utmContent": "tools-keiken-charcount",
+      "clicks": 9,
+      "salesCount": 3,
+      "revenue": 6940
+    },
+    {
+      "magazineId": "civil-2-pastexam-essay",
+      "utmContent": "secondary-experience-examples",
+      "clicks": 9,
       "salesCount": 0,
       "revenue": 0
     },
     {
       "magazineId": "civil-1-experience-essay",
-      "utmContent": "secondary-experience-writing-guide-inline-1-mid",
-      "clicks": 29,
+      "utmContent": "tools-keiken-charcount",
+      "clicks": 8,
       "salesCount": 1,
       "revenue": 2480
     },
     {
-      "magazineId": "civil-2-experience-essay",
-      "utmContent": "secondary-experience-guide",
-      "clicks": 26,
-      "salesCount": 0,
-      "revenue": 0
-    },
-    {
-      "magazineId": "civil-2-r8-mock3-pdf",
-      "utmContent": "c2-secondary-start-mock3",
-      "clicks": 19,
-      "salesCount": 0,
-      "revenue": 0
-    },
-    {
       "magazineId": "civil-1-combo-essay",
       "utmContent": "secondary-experience-guide-combo",
-      "clicks": 10,
+      "clicks": 6,
       "salesCount": 0,
       "revenue": 0
     },
     {
-      "magazineId": "civil-2-anki-note",
-      "utmContent": "c2-secondary-start",
-      "clicks": 7,
+      "magazineId": "civil-2-pastexam-essay",
+      "utmContent": "secondary-experience-guide",
+      "clicks": 6,
       "salesCount": 0,
       "revenue": 0
     },
     {
       "magazineId": "civil-2-pastexam-essay",
       "utmContent": "secondary-r04-q1",
-      "clicks": 7,
-      "salesCount": 1,
-      "revenue": 2480
+      "clicks": 6,
+      "salesCount": 0,
+      "revenue": 0
     },
     {
       "magazineId": "civil-1-pastexam-essay",
       "utmContent": "secondary-r06-q1",
-      "clicks": 6,
+      "clicks": 5,
       "salesCount": 0,
       "revenue": 0
     },
     {
       "magazineId": "civil-2-experience-essay",
       "utmContent": "c2-secondary-by-theme",
-      "clicks": 6,
-      "salesCount": 0,
-      "revenue": 0
+      "clicks": 5,
+      "salesCount": 3,
+      "revenue": 6940
     },
     {
-      "magazineId": "civil-2-pastexam-essay",
-      "utmContent": "secondary-r06-q1",
-      "clicks": 6,
-      "salesCount": 1,
-      "revenue": 2480
+      "magazineId": "civil-2-experience-essay",
+      "utmContent": "secondary-experience-writing-examples-top",
+      "clicks": 5,
+      "salesCount": 3,
+      "revenue": 6940
+    },
+    {
+      "magazineId": "cce-reiwa-namacon-pack",
+      "utmContent": "guide-essay-persona-pack",
+      "clicks": 4,
+      "salesCount": 0,
+      "revenue": 0
     },
     {
       "magazineId": "civil-1-experience-essay",
-      "utmContent": "secondary-experience-examples",
-      "clicks": 5,
-      "salesCount": 1,
-      "revenue": 2480
-    },
-    {
-      "magazineId": "civil-1-experience-essay",
-      "utmContent": "tools-keiken-charcount",
-      "clicks": 5,
-      "salesCount": 1,
-      "revenue": 2480
-    },
-    {
-      "magazineId": "civil-1-ichiji-ronten",
-      "utmContent": "c1-exam-overview",
-      "clicks": 5,
-      "salesCount": 0,
-      "revenue": 0
-    },
-    {
-      "magazineId": "tankan-takuitsu-reiwa-pdf",
-      "utmContent": "r08-primary-top",
-      "clicks": 5,
-      "salesCount": 0,
-      "revenue": 0
-    },
-    {
-      "magazineId": "civil-2-pastexam-essay",
       "utmContent": "secondary-experience-examples",
       "clicks": 4,
       "salesCount": 1,
       "revenue": 2480
     },
     {
-      "magazineId": "civil-2-pastexam-essay",
-      "utmContent": "secondary-experience-guide",
+      "magazineId": "civil-2-anki-note",
+      "utmContent": "c2-secondary-start",
       "clicks": 4,
-      "salesCount": 1,
-      "revenue": 2480
+      "salesCount": 0,
+      "revenue": 0
     },
     {
-      "magazineId": "civil-membership-lab",
-      "utmContent": "secondary-experience-writing-guide-inline-1-mid",
+      "magazineId": "civil-2-takuitsu-pdf",
+      "utmContent": "c2-exam-overview",
+      "clicks": 4,
+      "salesCount": 0,
+      "revenue": 0
+    },
+    {
+      "magazineId": "pe-construction-required-magazine",
+      "utmContent": "nanido-goukakuritsu-mid",
+      "clicks": 4,
+      "salesCount": 0,
+      "revenue": 0
+    },
+    {
+      "magazineId": "pe1-takuitsu-pdf",
+      "utmContent": "guide-overview",
       "clicks": 4,
       "salesCount": 0,
       "revenue": 0
@@ -25511,9 +25525,9 @@
       "revenue": 0
     },
     {
-      "magazineId": "cce-essay-magazine",
-      "utmContent": "concrete-chief-engineer-guide-essay-top",
-      "clicks": 3,
+      "magazineId": "pe1-takuitsu-pdf",
+      "utmContent": "tools-kakomon-quiz-pe-first-stage",
+      "clicks": 4,
       "salesCount": 0,
       "revenue": 0
     },
@@ -25525,64 +25539,141 @@
       "revenue": 0
     },
     {
-      "magazineId": "civil-2-pastexam-essay",
-      "utmContent": "secondary-r05-q1",
-      "clicks": 3,
-      "salesCount": 1,
-      "revenue": 2480
-    },
-    {
-      "magazineId": "civil-2-takuitsu-pdf",
-      "utmContent": "c2-exam-overview",
-      "clicks": 3,
-      "salesCount": 0,
-      "revenue": 0
-    },
-    {
-      "magazineId": "civil-membership-lab",
-      "utmContent": "secondary-r07-inline-1-mid",
-      "clicks": 3,
-      "salesCount": 0,
-      "revenue": 0
-    },
-    {
-      "magazineId": "civil-1-niji-marugoto-pack",
-      "utmContent": "secondary-r07-top",
-      "clicks": 2,
-      "salesCount": 1,
-      "revenue": 11800
-    },
-    {
       "magazineId": "civil-1-r8-bunseki",
       "utmContent": "c1-last-minute",
-      "clicks": 2,
+      "clicks": 3,
       "salesCount": 0,
       "revenue": 0
     },
     {
       "magazineId": "civil-2-experience-essay",
-      "utmContent": "tools-keiken-charcount",
+      "utmContent": "secondary-experience-writing-guide-top",
+      "clicks": 3,
+      "salesCount": 3,
+      "revenue": 6940
+    },
+    {
+      "magazineId": "civil-2-gakka-kijutsu",
+      "utmContent": "c2-gakka-kijutsu",
+      "clicks": 3,
+      "salesCount": 0,
+      "revenue": 0
+    },
+    {
+      "magazineId": "civil-2-pastexam-essay",
+      "utmContent": "c2-secondary-by-theme",
+      "clicks": 3,
+      "salesCount": 0,
+      "revenue": 0
+    },
+    {
+      "magazineId": "pe-construction-required-magazine",
+      "utmContent": "nanido-goukakuritsu-tail",
+      "clicks": 3,
+      "salesCount": 0,
+      "revenue": 0
+    },
+    {
+      "magazineId": "pe1-anki-note",
+      "utmContent": "pe-first-stage-guide-basic-subject-top",
+      "clicks": 3,
+      "salesCount": 0,
+      "revenue": 0
+    },
+    {
+      "magazineId": "pe1-anki-note",
+      "utmContent": "pe-first-stage-guide-construction-subject-top",
+      "clicks": 3,
+      "salesCount": 0,
+      "revenue": 0
+    },
+    {
+      "magazineId": "rccm-mondai1-steel-concrete",
+      "utmContent": "persona-expansion-guide",
+      "clicks": 3,
+      "salesCount": 0,
+      "revenue": 0
+    },
+    {
+      "magazineId": "cce-r8-mc-50",
+      "utmContent": "concrete-chief-engineer-primary-materials-top",
       "clicks": 2,
       "salesCount": 0,
       "revenue": 0
     },
     {
-      "magazineId": "civil-2-koji-bank",
-      "utmContent": "secondary-experience-writing-examples-top",
+      "magazineId": "cce-r8-mc-50",
+      "utmContent": "concrete-chief-engineer-primary-properties-top",
       "clicks": 2,
-      "salesCount": 1,
-      "revenue": 5480
+      "salesCount": 0,
+      "revenue": 0
     },
     {
-      "magazineId": "civil-2-koji-bank",
-      "utmContent": "secondary-experience-writing-guide-top",
+      "magazineId": "cce-reiwa-precast-pack",
+      "utmContent": "guide-essay-persona-pack",
+      "clicks": 2,
+      "salesCount": 0,
+      "revenue": 0
+    },
+    {
+      "magazineId": "civil-1-gakka-kijutsu",
+      "utmContent": "secondary-quality-management-past-problems-top",
       "clicks": 2,
       "salesCount": 1,
-      "revenue": 5480
+      "revenue": 2480
+    },
+    {
+      "magazineId": "civil-2-anki-note",
+      "utmContent": "c2-written-guide-anki",
+      "clicks": 2,
+      "salesCount": 0,
+      "revenue": 0
+    },
+    {
+      "magazineId": "civil-2-chokuzen-pack",
+      "utmContent": "secondary-r07-top",
+      "clicks": 2,
+      "salesCount": 2,
+      "revenue": 4960
+    },
+    {
+      "magazineId": "civil-2-keiken-concrete-foundation-pack",
+      "utmContent": "keiken-persona-pack",
+      "clicks": 2,
+      "salesCount": 0,
+      "revenue": 0
+    },
+    {
+      "magazineId": "civil-2-keiken-earthwork-slope-pack",
+      "utmContent": "keiken-persona-pack",
+      "clicks": 2,
+      "salesCount": 0,
+      "revenue": 0
+    },
+    {
+      "magazineId": "civil-2-keiken-local-road-pack",
+      "utmContent": "keiken-persona-pack",
+      "clicks": 2,
+      "salesCount": 0,
+      "revenue": 0
     },
     {
       "magazineId": "civil-2-niji-marugoto-pack",
       "utmContent": "secondary-experience-writing-guide-top",
+      "clicks": 2,
+      "salesCount": 1,
+      "revenue": 8800
+    },
+    {
+      "magazineId": "civil-2-pastexam-essay",
+      "utmContent": "c2-grading-partial-credit",
+      "clicks": 2,
+      "salesCount": 0,
+      "revenue": 0
+    },
+    {
+      "magazineId": "civil-2-pastexam-essay",
+      "utmContent": "secondary-r05-q1",
       "clicks": 2,
       "salesCount": 0,
       "revenue": 0
@@ -25595,29 +25686,71 @@
       "revenue": 0
     },
     {
-      "magazineId": "pe1-takuitsu-pdf",
-      "utmContent": "guide-overview",
+      "magazineId": "civil-membership-lab",
+      "utmContent": "secondary-r07-inline-1-mid",
       "clicks": 2,
       "salesCount": 0,
       "revenue": 0
     },
     {
-      "magazineId": "pe1-takuitsu-pdf",
-      "utmContent": "pe-first-stage-r07-basic-top",
+      "magazineId": "pe-construction-required-magazine",
+      "utmContent": "secondary-study-method-mid",
       "clicks": 2,
       "salesCount": 0,
       "revenue": 0
     },
     {
-      "magazineId": "rccm-mondai1-steel-concrete",
-      "utmContent": "persona-expansion-guide",
+      "magazineId": "pe1-anki-note",
+      "utmContent": "pe-first-stage-r04-water-supply-top",
       "clicks": 2,
       "salesCount": 0,
       "revenue": 0
     },
     {
-      "magazineId": "cce-mix-calculation-practice",
-      "utmContent": "concrete-chief-engineer-textbook-mix-design-top",
+      "magazineId": "tankan-reading-guide",
+      "utmContent": "keyword-2026-inline-1",
+      "clicks": 2,
+      "salesCount": 0,
+      "revenue": 0
+    },
+    {
+      "magazineId": "tankan-reading-guide",
+      "utmContent": "public-servant-comprehensive-merit-top",
+      "clicks": 2,
+      "salesCount": 0,
+      "revenue": 0
+    },
+    {
+      "magazineId": "tankan-takuitsu-reiwa-pdf",
+      "utmContent": "r06-primary-top",
+      "clicks": 2,
+      "salesCount": 0,
+      "revenue": 0
+    },
+    {
+      "magazineId": "tankan-takuitsu-reiwa-pdf",
+      "utmContent": "r08-primary-lead",
+      "clicks": 2,
+      "salesCount": 0,
+      "revenue": 0
+    },
+    {
+      "magazineId": "cce-essay-reiwa-pack",
+      "utmContent": "guide-essay-themes",
+      "clicks": 1,
+      "salesCount": 0,
+      "revenue": 0
+    },
+    {
+      "magazineId": "cce-goukaku-maintenance-pack",
+      "utmContent": "guide-essay-goukaku-pack",
+      "clicks": 1,
+      "salesCount": 0,
+      "revenue": 0
+    },
+    {
+      "magazineId": "cce-marugoto-pack",
+      "utmContent": "concrete-chief-engineer-guide-essay-inline-1-mid",
       "clicks": 1,
       "salesCount": 0,
       "revenue": 0
@@ -25625,34 +25758,6 @@
     {
       "magazineId": "cce-persona-civil-contractor-pack",
       "utmContent": "persona-expansion-guide",
-      "clicks": 1,
-      "salesCount": 0,
-      "revenue": 0
-    },
-    {
-      "magazineId": "cce-r8-mc-50",
-      "utmContent": "concrete-chief-engineer-primary-materials-top",
-      "clicks": 1,
-      "salesCount": 0,
-      "revenue": 0
-    },
-    {
-      "magazineId": "cce-r8-mc-50",
-      "utmContent": "concrete-chief-engineer-primary-production-qc-top",
-      "clicks": 1,
-      "salesCount": 0,
-      "revenue": 0
-    },
-    {
-      "magazineId": "cce-r8-mc-50",
-      "utmContent": "concrete-chief-engineer-primary-products-top",
-      "clicks": 1,
-      "salesCount": 0,
-      "revenue": 0
-    },
-    {
-      "magazineId": "cce-r8-mc-50",
-      "utmContent": "concrete-chief-engineer-primary-properties-top",
       "clicks": 1,
       "salesCount": 0,
       "revenue": 0
@@ -25672,11 +25777,39 @@
       "revenue": 0
     },
     {
-      "magazineId": "cd-essay-magazine",
-      "utmContent": "concrete-diagnostician-guide-essay-top",
+      "magazineId": "cd-essay-complete-pack",
+      "utmContent": "guide-essay-complete-pack",
       "clicks": 1,
       "salesCount": 0,
       "revenue": 0
+    },
+    {
+      "magazineId": "cd-problem-a-pack",
+      "utmContent": "guide-essay-problem-pack",
+      "clicks": 1,
+      "salesCount": 0,
+      "revenue": 0
+    },
+    {
+      "magazineId": "cd-problem-b-pack",
+      "utmContent": "guide-essay-problem-pack",
+      "clicks": 1,
+      "salesCount": 0,
+      "revenue": 0
+    },
+    {
+      "magazineId": "civil-1-experience-essay",
+      "utmContent": "guide-construction-plan-inline-2-mid",
+      "clicks": 1,
+      "salesCount": 1,
+      "revenue": 2480
+    },
+    {
+      "magazineId": "civil-1-experience-essay",
+      "utmContent": "textbook-network-schedule-inline-3-mid",
+      "clicks": 1,
+      "salesCount": 1,
+      "revenue": 2480
     },
     {
       "magazineId": "civil-1-gakka-kijutsu",
@@ -25693,25 +25826,11 @@
       "revenue": 2480
     },
     {
-      "magazineId": "civil-1-gakka-kijutsu",
-      "utmContent": "secondary-quality-management-past-problems-top",
+      "magazineId": "civil-1-ichiji-ronten",
+      "utmContent": "c1-exam-overview",
       "clicks": 1,
-      "salesCount": 1,
-      "revenue": 2480
-    },
-    {
-      "magazineId": "civil-1-keiken-complete-pack",
-      "utmContent": "secondary-experience-writing-examples-top",
-      "clicks": 1,
-      "salesCount": 3,
-      "revenue": 29400
-    },
-    {
-      "magazineId": "civil-1-keiken-complete-pack",
-      "utmContent": "secondary-experience-writing-guide-top",
-      "clicks": 1,
-      "salesCount": 3,
-      "revenue": 29400
+      "salesCount": 0,
+      "revenue": 0
     },
     {
       "magazineId": "civil-1-keiken-river-disaster-pack",
@@ -25742,8 +25861,43 @@
       "revenue": 0
     },
     {
+      "magazineId": "civil-1-reading-guide",
+      "utmContent": "guide-four-management-top",
+      "clicks": 1,
+      "salesCount": 0,
+      "revenue": 0
+    },
+    {
+      "magazineId": "civil-1-reading-guide",
+      "utmContent": "guide-quality-management-top",
+      "clicks": 1,
+      "salesCount": 0,
+      "revenue": 0
+    },
+    {
+      "magazineId": "civil-1-reading-guide",
+      "utmContent": "guide-quality-management-top-end",
+      "clicks": 1,
+      "salesCount": 0,
+      "revenue": 0
+    },
+    {
+      "magazineId": "civil-2-chokuzen-pack",
+      "utmContent": "secondary-r03-top",
+      "clicks": 1,
+      "salesCount": 2,
+      "revenue": 4960
+    },
+    {
       "magazineId": "civil-2-gakka-kijutsu",
-      "utmContent": "c2-gakka-kijutsu",
+      "utmContent": "c2-grading-partial-credit",
+      "clicks": 1,
+      "salesCount": 0,
+      "revenue": 0
+    },
+    {
+      "magazineId": "civil-2-keiken-bridge-repair-pack",
+      "utmContent": "keiken-persona-pack",
       "clicks": 1,
       "salesCount": 0,
       "revenue": 0
@@ -25756,57 +25910,106 @@
       "revenue": 0
     },
     {
-      "magazineId": "civil-2-niji-marugoto-pack",
+      "magazineId": "civil-2-keiken-park-private-pack",
+      "utmContent": "keiken-persona-pack",
+      "clicks": 1,
+      "salesCount": 1,
+      "revenue": 2480
+    },
+    {
+      "magazineId": "civil-2-koji-bank",
       "utmContent": "secondary-experience-writing-examples-top",
       "clicks": 1,
       "salesCount": 0,
       "revenue": 0
     },
     {
+      "magazineId": "civil-2-koji-bank",
+      "utmContent": "secondary-experience-writing-guide-inline-2-mid",
+      "clicks": 1,
+      "salesCount": 0,
+      "revenue": 0
+    },
+    {
+      "magazineId": "civil-2-niji-marugoto-pack",
+      "utmContent": "secondary-experience-writing-examples-top",
+      "clicks": 1,
+      "salesCount": 1,
+      "revenue": 8800
+    },
+    {
       "magazineId": "civil-2-pastexam-essay",
-      "utmContent": "c2-secondary-by-theme",
+      "utmContent": "secondary-r06-q1",
       "clicks": 1,
-      "salesCount": 1,
-      "revenue": 2480
+      "salesCount": 0,
+      "revenue": 0
     },
     {
-      "magazineId": "civil-membership-lab",
-      "utmContent": "secondary-concrete-past-problems-inline-1-mid",
+      "magazineId": "civil-2-r8-bunseki",
+      "utmContent": "secondary-grading-and-partial-credit-top",
+      "clicks": 1,
+      "salesCount": 0,
+      "revenue": 0
+    },
+    {
+      "magazineId": "civil-2-reading-guide",
+      "utmContent": "guide-study-method-top-end",
+      "clicks": 1,
+      "salesCount": 0,
+      "revenue": 0
+    },
+    {
+      "magazineId": "civil-2-small-infra-4",
+      "utmContent": "keiken-persona-pack",
+      "clicks": 1,
+      "salesCount": 0,
+      "revenue": 0
+    },
+    {
+      "magazineId": "civil-2-takuitsu-pdf",
+      "utmContent": "primary-r06-zenki-top-mid",
+      "clicks": 1,
+      "salesCount": 0,
+      "revenue": 0
+    },
+    {
+      "magazineId": "civil-2-takuitsu-pdf",
+      "utmContent": "primary-r07-zenki-top",
       "clicks": 1,
       "salesCount": 0,
       "revenue": 0
     },
     {
       "magazineId": "civil-membership-lab",
-      "utmContent": "secondary-r06-inline-1-mid",
+      "utmContent": "secondary-experience-writing-guide-inline-1-mid",
       "clicks": 1,
       "salesCount": 0,
       "revenue": 0
     },
     {
       "magazineId": "essay-complete-pack",
-      "utmContent": "essay-exam-strategy-inline-1-mid",
+      "utmContent": "essay-exam-strategy-inline-1",
       "clicks": 1,
-      "salesCount": 1,
-      "revenue": 9800
+      "salesCount": 0,
+      "revenue": 0
     },
     {
       "magazineId": "essay-complete-pack",
-      "utmContent": "exam-index-inline-1-mid",
+      "utmContent": "keyword-2026-inline-2-mid",
       "clicks": 1,
-      "salesCount": 1,
-      "revenue": 9800
+      "salesCount": 0,
+      "revenue": 0
+    },
+    {
+      "magazineId": "essay-complete-pack",
+      "utmContent": "last-minute-2026-inline-1-end",
+      "clicks": 1,
+      "salesCount": 0,
+      "revenue": 0
     },
     {
       "magazineId": "essay-complete-pack",
       "utmContent": "persona-guide-complete-pack",
-      "clicks": 1,
-      "salesCount": 1,
-      "revenue": 9800
-    },
-    {
-      "magazineId": "essay-general-contractor-magazine",
-      "utmContent": "pattern-essay-general-contractor-body",
       "clicks": 1,
       "salesCount": 0,
       "revenue": 0
@@ -25814,6 +26017,27 @@
     {
       "magazineId": "essay-port-municipality-magazine",
       "utmContent": "persona-guide-port-municipality",
+      "clicks": 1,
+      "salesCount": 0,
+      "revenue": 0
+    },
+    {
+      "magazineId": "essay-river-consultant-magazine",
+      "utmContent": "persona-guide-river-consultant",
+      "clicks": 1,
+      "salesCount": 0,
+      "revenue": 0
+    },
+    {
+      "magazineId": "essay-road-consultant-magazine",
+      "utmContent": "persona-guide-road-consultant",
+      "clicks": 1,
+      "salesCount": 0,
+      "revenue": 0
+    },
+    {
+      "magazineId": "essay-road-municipality-magazine",
+      "utmContent": "management-tradeoffs-economy-safety",
       "clicks": 1,
       "salesCount": 0,
       "revenue": 0
@@ -25827,7 +26051,7 @@
     },
     {
       "magazineId": "essay-road-municipality-magazine",
-      "utmContent": "pattern-essay-road-municipality-inline-1-mid",
+      "utmContent": "persona-guide-road-municipality",
       "clicks": 1,
       "salesCount": 0,
       "revenue": 0
@@ -25835,13 +26059,6 @@
     {
       "magazineId": "essay-standards-municipality-magazine",
       "utmContent": "persona-guide-standards-municipality",
-      "clicks": 1,
-      "salesCount": 0,
-      "revenue": 0
-    },
-    {
-      "magazineId": "essay-water-municipality-magazine",
-      "utmContent": "persona-guide-water-municipality",
       "clicks": 1,
       "salesCount": 0,
       "revenue": 0
@@ -25869,20 +26086,6 @@
     },
     {
       "magazineId": "pe-construction-required-magazine",
-      "utmContent": "gakushuu-jikan-schedule-foot",
-      "clicks": 1,
-      "salesCount": 0,
-      "revenue": 0
-    },
-    {
-      "magazineId": "pe-construction-required-magazine",
-      "utmContent": "gakushuu-jikan-schedule-mid",
-      "clicks": 1,
-      "salesCount": 0,
-      "revenue": 0
-    },
-    {
-      "magazineId": "pe-construction-required-magazine",
       "utmContent": "hissu-kamoku-kaitourei-foot",
       "clicks": 1,
       "salesCount": 0,
@@ -25890,49 +26093,28 @@
     },
     {
       "magazineId": "pe-construction-required-magazine",
-      "utmContent": "nanido-goukakuritsu-mid",
+      "utmContent": "hissu-kamoku-kaitourei-mid",
       "clicks": 1,
       "salesCount": 0,
       "revenue": 0
     },
     {
       "magazineId": "pe-construction-required-magazine",
-      "utmContent": "nanido-goukakuritsu-tail",
+      "utmContent": "kensetsu-dx-end",
       "clicks": 1,
       "salesCount": 0,
       "revenue": 0
     },
     {
       "magazineId": "pe-construction-required-magazine",
-      "utmContent": "secondary-study-method-mid",
-      "clicks": 1,
-      "salesCount": 0,
-      "revenue": 0
-    },
-    {
-      "magazineId": "pe-construction-required-magazine",
-      "utmContent": "toan-kousei-template-mid",
-      "clicks": 1,
-      "salesCount": 0,
-      "revenue": 0
-    },
-    {
-      "magazineId": "pe-construction-river-coast-magazine",
-      "utmContent": "river-coast-exam-themes",
+      "utmContent": "secondary-study-method-end",
       "clicks": 1,
       "salesCount": 0,
       "revenue": 0
     },
     {
       "magazineId": "pe-construction-urban-planning-magazine",
-      "utmContent": "urban-planning-exam-themes",
-      "clicks": 1,
-      "salesCount": 0,
-      "revenue": 0
-    },
-    {
-      "magazineId": "pe1-anki-note",
-      "utmContent": "pe-first-stage-guide-basic-subject-top",
+      "utmContent": "pe-construction-r05-urban-planning-inline-1-end",
       "clicks": 1,
       "salesCount": 0,
       "revenue": 0
@@ -25940,6 +26122,20 @@
     {
       "magazineId": "pe1-anki-note",
       "utmContent": "pe-first-stage-guide-calculus-numerical-calculation-top",
+      "clicks": 1,
+      "salesCount": 0,
+      "revenue": 0
+    },
+    {
+      "magazineId": "pe1-chokuzen-pack",
+      "utmContent": "pe-first-stage-guide-study-plan-top",
+      "clicks": 1,
+      "salesCount": 0,
+      "revenue": 0
+    },
+    {
+      "magazineId": "pe1-chokuzen-pack",
+      "utmContent": "tools-kakomon-quiz-pe-first-stage",
       "clicks": 1,
       "salesCount": 0,
       "revenue": 0
@@ -25960,14 +26156,14 @@
     },
     {
       "magazineId": "pe1-takuitsu-pdf",
-      "utmContent": "guide-study-plan",
+      "utmContent": "pe-first-stage-r02-construction-top",
       "clicks": 1,
       "salesCount": 0,
       "revenue": 0
     },
     {
       "magazineId": "pe1-takuitsu-pdf",
-      "utmContent": "pe-first-stage-r02-construction-top",
+      "utmContent": "pe-first-stage-r07-basic-top",
       "clicks": 1,
       "salesCount": 0,
       "revenue": 0
@@ -25980,8 +26176,8 @@
       "revenue": 0
     },
     {
-      "magazineId": "r8-essay-forecast",
-      "utmContent": "essay-strategy-kyotsu",
+      "magazineId": "pe1-takuitsu-pdf",
+      "utmContent": "pe1-r07-basic-mid",
       "clicks": 1,
       "salesCount": 0,
       "revenue": 0
@@ -26002,7 +26198,14 @@
     },
     {
       "magazineId": "tankan-reading-guide",
-      "utmContent": "keyword-2026-inline-1-mid",
+      "utmContent": "digital-twin-cps-top",
+      "clicks": 1,
+      "salesCount": 0,
+      "revenue": 0
+    },
+    {
+      "magazineId": "tankan-reading-guide",
+      "utmContent": "tnfd-top",
       "clicks": 1,
       "salesCount": 0,
       "revenue": 0
@@ -26015,8 +26218,15 @@
       "revenue": 0
     },
     {
-      "magazineId": "tankan-takuitsu-heisei-pdf",
-      "utmContent": "tankan-h21-primary",
+      "magazineId": "tankan-reading-guide",
+      "utmContent": "unsafe-conditions-behavior-top-end",
+      "clicks": 1,
+      "salesCount": 0,
+      "revenue": 0
+    },
+    {
+      "magazineId": "tankan-reading-guide",
+      "utmContent": "workers-compensation-insurance-top",
       "clicks": 1,
       "salesCount": 0,
       "revenue": 0
@@ -26027,18 +26237,11 @@
       "clicks": 1,
       "salesCount": 0,
       "revenue": 0
-    },
-    {
-      "magazineId": "tankan-takuitsu-reiwa-pdf",
-      "utmContent": "r06-primary-top",
-      "clicks": 1,
-      "salesCount": 0,
-      "revenue": 0
     }
   ],
   "idClickCoverage": {
-    "idClicks": 397,
-    "totalClicks": 440,
-    "pct": 90.2
+    "idClicks": 407,
+    "totalClicks": 469,
+    "pct": 86.8
   }
 }

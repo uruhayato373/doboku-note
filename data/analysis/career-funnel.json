@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-15T13:13:41.229Z",
+  "generatedAt": "2026-10-15T23:27:09.265Z",
   "windows": {
     "ga4": {
       "start": "2026-09-17",
@@ -14,12 +14,12 @@
     "usable": true
   },
   "inputs": {
-    "ga4Label": "data/ga4/reports/2026-10-15.json#cta-clicks-by-label",
-    "ga4Placement": "data/ga4/reports/2026-10-15.json#cta-clicks-by-placement",
-    "ga4ByPage": "data/ga4/reports/2026-10-15.json#affiliate-by-page",
-    "ga4Device": "data/ga4/reports/2026-10-15.json#cta-clicks-by-device",
-    "ga4Page": "data/ga4/reports/2026-10-15.json#page",
-    "gscPageQuery": "data/gsc/reports/2026-10-15.json#page-query",
+    "ga4Label": "data/ga4/reports/2026-10-16.json#cta-clicks-by-label",
+    "ga4Placement": "data/ga4/reports/2026-10-16.json#cta-clicks-by-placement",
+    "ga4ByPage": "data/ga4/reports/2026-10-16.json#affiliate-by-page",
+    "ga4Device": "data/ga4/reports/2026-10-16.json#cta-clicks-by-device",
+    "ga4Page": "data/ga4/reports/2026-10-16.json#page",
+    "gscPageQuery": "data/gsc/reports/2026-10-16.json#page-query",
     "a8": "data/a8/report-log.json",
     "afb": null
   },
