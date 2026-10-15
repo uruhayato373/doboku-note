@@ -1,0 +1,52 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は道路法施行令第35条の2、道路法施行規則第4条の5の6、道路法第17条第6項、国土交通省の道路メンテナンス事業補助制度の資料。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="点検から補助申請までの事務の流れ。巡視、点検、診断（Ⅰ〜Ⅳ）、措置、記録、長寿命化修繕計画、補助の申請の順に進む。Ⅲ・Ⅳは次回点検まで5年以内に措置し、それまで監視や通行規制を行う。措置から、市町村の要請による国の代行が破線で分岐する。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }  /* ink-body */
+      .n { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .b { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 11px; fill: #555; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }  /* brand-fill / brand */
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }  /* warn-fill / warn */
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }  /* positive-fill / positive */
+      .sf { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; stroke-dasharray: 4 3; }  /* surface */
+      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ad { stroke: #8a8a8a; stroke-width: 1.5; fill: none; stroke-dasharray: 4 3; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+    <marker id="am" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#8a8a8a"/></marker>
+  </defs>
+  <rect class="brand" x="10" y="10" width="240" height="52" rx="8"/>
+  <text class="n" x="22" y="32">巡視</text>
+  <text x="22" y="52">異状を早く見つける</text>
+  <path class="a" d="M130,62V77" marker-end="url(#ah)"/>
+  <rect class="brand" x="10" y="77" width="240" height="52" rx="8"/>
+  <text class="n" x="22" y="99">点検</text>
+  <text x="22" y="119">（橋）5年に1回・近接目視が基本</text>
+  <path class="a" d="M130,129V144" marker-end="url(#ah)"/>
+  <rect class="brand" x="10" y="144" width="240" height="52" rx="8"/>
+  <text class="n" x="22" y="166">診断（Ⅰ〜Ⅳ）</text>
+  <text x="22" y="186">次の点検までに何をするかで決める</text>
+  <path class="a" d="M130,196V211" marker-end="url(#ah)"/>
+  <rect class="warn" x="10" y="211" width="240" height="70" rx="8"/>
+  <text class="n" x="22" y="233">措置</text>
+  <text x="22" y="253">Ⅲ・Ⅳは次の点検まで（5年以内）</text>
+  <text x="22" y="270">それまでは監視・通行規制</text>
+  <path class="a" d="M130,281V296" marker-end="url(#ah)"/>
+  <path class="ad" d="M250,246H270" marker-end="url(#am)"/>
+  <rect class="sf" x="272" y="216" width="118" height="60" rx="8"/>
+  <text class="b" x="282" y="237">国の代行</text>
+  <text class="s" x="282" y="254">市町村の要請で</text>
+  <text class="s" x="282" y="269">（第17条第6項）</text>
+  <rect class="brand" x="10" y="296" width="240" height="52" rx="8"/>
+  <text class="n" x="22" y="318">記録</text>
+  <text x="22" y="338">施設が利用されている期間中は保存</text>
+  <path class="a" d="M130,348V363" marker-end="url(#ah)"/>
+  <rect class="brand" x="10" y="363" width="240" height="52" rx="8"/>
+  <text class="n" x="22" y="385">長寿命化修繕計画</text>
+  <text x="22" y="405">点検結果を個別施設計画にまとめる</text>
+  <path class="a" d="M130,415V430" marker-end="url(#ah)"/>
+  <rect class="pos" x="10" y="430" width="240" height="52" rx="8"/>
+  <text class="n" x="22" y="452">補助の申請</text>
+  <text x="22" y="472">短期の数値目標・コスト縮減効果</text>
+</svg>
