@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-15T06:12:42.298Z",
+  "generated_at": "2026-10-15T06:17:15.578Z",
   "summary": {
-    "total_mdx_files": 1444,
+    "total_mdx_files": 1445,
     "total_unique_tags": 133,
     "allowlist_size": 330,
     "known_count": 133,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 268,
+      "count": 269,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1229,6 +1229,7 @@
         "civil-practice-land-readjustment-project",
         "civil-practice-large-fill-landslide",
         "civil-practice-lifting-equipment-selection",
+        "civil-practice-municipal-civil-engineer-work",
         "civil-practice-municipal-engineer-qualifications",
         "civil-practice-national-prefecture-municipal-roles",
         "civil-practice-nature-conservation-mitigation",
@@ -3468,7 +3469,7 @@
     },
     {
       "name": "地方公共団体",
-      "count": 42,
+      "count": 43,
       "inAllowlist": true,
       "usedIn": [
         "civil-practice-board-of-audit-inspection",
@@ -3483,6 +3484,7 @@
         "civil-practice-how-to-read-laws-and-notices",
         "civil-practice-land-acquisition-compensation",
         "civil-practice-land-readjustment-project",
+        "civil-practice-municipal-civil-engineer-work",
         "civil-practice-municipal-engineer-qualifications",
         "civil-practice-national-prefecture-municipal-roles",
         "civil-practice-owner-safety-responsibility",
@@ -4279,6 +4281,29 @@
       ]
     },
     {
+      "name": "行政手続き",
+      "count": 16,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-budget-and-funding-sources",
+        "civil-practice-buried-cultural-property-survey",
+        "civil-practice-ccus-kentaikyo-site",
+        "civil-practice-civil-engineer-annual-cycle",
+        "civil-practice-disaster-recovery-assessment",
+        "civil-practice-explaining-to-residents-and-council",
+        "civil-practice-foreign-workers-site-check",
+        "civil-practice-how-to-read-laws-and-notices",
+        "civil-practice-keishin-bidder-qualification",
+        "civil-practice-license-scope-judgment",
+        "civil-practice-municipal-civil-engineer-work",
+        "civil-practice-municipal-engineer-qualifications",
+        "civil-practice-public-meeting-consensus",
+        "civil-practice-public-works-bidding-methods",
+        "civil-practice-regional-disaster-plan-flood-fighting",
+        "civil-practice-sediment-disaster-erosion-control"
+      ]
+    },
+    {
       "name": "適性科目",
       "count": 16,
       "inAllowlist": true,
@@ -4387,28 +4412,6 @@
         "pe-comprehensive-management-r05-essay-general-contractor",
         "pe-comprehensive-management-r06-essay-general-contractor",
         "pe-comprehensive-management-r07-essay-general-contractor"
-      ]
-    },
-    {
-      "name": "行政手続き",
-      "count": 15,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-budget-and-funding-sources",
-        "civil-practice-buried-cultural-property-survey",
-        "civil-practice-ccus-kentaikyo-site",
-        "civil-practice-civil-engineer-annual-cycle",
-        "civil-practice-disaster-recovery-assessment",
-        "civil-practice-explaining-to-residents-and-council",
-        "civil-practice-foreign-workers-site-check",
-        "civil-practice-how-to-read-laws-and-notices",
-        "civil-practice-keishin-bidder-qualification",
-        "civil-practice-license-scope-judgment",
-        "civil-practice-municipal-engineer-qualifications",
-        "civil-practice-public-meeting-consensus",
-        "civil-practice-public-works-bidding-methods",
-        "civil-practice-regional-disaster-plan-flood-fighting",
-        "civil-practice-sediment-disaster-erosion-control"
       ]
     },
     {
