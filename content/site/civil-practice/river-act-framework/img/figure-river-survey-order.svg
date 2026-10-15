@@ -1,0 +1,55 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は河川法第3条・第9条・第12条・第100条、河川法施行令第55条と、準用河川・普通河川の扱い。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="管内の川を調べる順番。川の名前と地点を特定し、一級・二級の指定と指定区間の内外を確かめ、準用河川の公示を確かめ、普通河川の条例の有無を確かめ、台帳で区域を確認する。一級・二級に当たれば国か県に照会し、準用河川に当たれば市町村長が管理し、条例がなければ財産管理の視点で整理する。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }  /* ink-body */
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .b { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 11px; fill: #555; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }  /* brand-fill / brand */
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }  /* warn-fill / warn */
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }  /* positive-fill / positive */
+      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ad { stroke: #8a8a8a; stroke-width: 1.5; fill: none; stroke-dasharray: 4 3; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+    <marker id="am" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#8a8a8a"/></marker>
+  </defs>
+  <rect class="brand" x="10" y="10" width="236" height="56" rx="8"/>
+  <text class="n" x="22" y="33">川の名前と地点を特定</text>
+  <text x="22" y="53">川の名前だけでなく地点で決める</text>
+  <path class="a" d="M128,66V92" marker-end="url(#ah)"/>
+  <rect class="brand" x="10" y="92" width="236" height="56" rx="8"/>
+  <text class="n" x="22" y="115">一級・二級の指定か</text>
+  <text x="22" y="135">一級なら指定区間の内か外か</text>
+  <path class="ad" d="M246,120H264" marker-end="url(#am)"/>
+  <rect class="warn" x="266" y="92" width="124" height="56" rx="8"/>
+  <text class="b" x="276" y="115">当たれば</text>
+  <text x="276" y="135">国か県に照会</text>
+  <path class="a" d="M128,148V174" marker-end="url(#ah)"/>
+  <text class="s" x="140" y="165">当たらなければ</text>
+  <rect class="brand" x="10" y="174" width="236" height="56" rx="8"/>
+  <text class="n" x="22" y="197">準用河川の公示があるか</text>
+  <text x="22" y="217">自市の指定の公示を確かめる</text>
+  <path class="ad" d="M246,202H264" marker-end="url(#am)"/>
+  <rect class="warn" x="266" y="174" width="124" height="56" rx="8"/>
+  <text class="b" x="276" y="197">当たれば</text>
+  <text x="276" y="217">市町村長が管理</text>
+  <path class="a" d="M128,230V256" marker-end="url(#ah)"/>
+  <text class="s" x="140" y="247">当たらなければ</text>
+  <rect class="brand" x="10" y="256" width="236" height="56" rx="8"/>
+  <text class="n" x="22" y="279">普通河川の条例があるか</text>
+  <text x="22" y="299">自市の例規集で確かめる</text>
+  <path class="ad" d="M246,284H264" marker-end="url(#am)"/>
+  <rect class="warn" x="266" y="256" width="124" height="56" rx="8"/>
+  <text class="b" x="276" y="279">条例がなければ</text>
+  <text x="276" y="299">財産管理で整理</text>
+  <path class="a" d="M128,312V338" marker-end="url(#ah)"/>
+  <rect class="brand" x="10" y="338" width="236" height="56" rx="8"/>
+  <text class="n" x="22" y="361">台帳で区域を確認</text>
+  <text x="22" y="381">境界と施設の現況を見る</text>
+  <path class="a" d="M128,394V422" marker-end="url(#ah)"/>
+  <rect class="pos" x="10" y="422" width="380" height="66" rx="8"/>
+  <text class="n" x="200" y="450" text-anchor="middle">根拠の条文と公示が見つかってから</text>
+  <text class="n" x="200" y="470" text-anchor="middle">「誰の川か」を答える</text>
+</svg>
