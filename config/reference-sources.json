@@ -4479,7 +4479,8 @@
       "title": "工作物設置許可基準（国土交通省）",
       "class": "external-primary",
       "origin": {
-        "kind": "none"
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/river/shishin_guideline/kasen/pdf/kouisakubutsu_secchi_kijun.pdf"
       },
       "aliases": {
         "工作物設置許可基準（国土交通省）": "river-structure-permit-standard"
@@ -5429,6 +5430,132 @@
       "origin": {
         "kind": "external",
         "url": "https://www.mlit.go.jp/common/001260872.pdf"
+      }
+    },
+    {
+      "id": "mlit-road-occupancy",
+      "title": "道路占用・承認工事（国土交通省 道路局）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/road/senyo/index.html"
+      }
+    },
+    {
+      "id": "sewerage-act-amendment-2026-outline",
+      "title": "下水道法等の一部を改正する法律 要綱（令和8年法律第65号・国土交通省）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/report/press/content/002014980.pdf"
+      }
+    },
+    {
+      "id": "mlit-press-2026-08-04-sewerage-amendment",
+      "title": "「下水道法等の一部を改正する法律の一部の施行期日を定める政令」等を閣議決定（国土交通省 報道発表、令和8年8月4日）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/report/press/mizukokudo13_hh_000748.html"
+      }
+    },
+    {
+      "id": "river-land-occupancy-rule-summary",
+      "title": "河川敷地占用許可準則の概要（国土交通省）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/river/riyou/main/kasenshikichi/pdf/junsoku_gaiyou.pdf"
+      }
+    },
+    {
+      "id": "mlit-river-land-occupancy",
+      "title": "河川敷地占用について（国土交通省 水管理・国土保全局）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/river/riyou/main/kasenshikichi/index.html"
+      }
+    },
+    {
+      "id": "yokohama-totsuka-river-occupancy",
+      "title": "河川占用申請について（横浜市戸塚区）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.city.yokohama.lg.jp/totsuka/kurashi/machizukuri_kankyo/jimusho/kasen/kasennsennyou.html"
+      }
+    },
+    {
+      "id": "mlit-river-qa",
+      "title": "川と水の質問箱（国土交通省 水管理・国土保全局）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/river/basic_info/iken/question/"
+      }
+    },
+    {
+      "id": "kagoshima-statutory-external-property-guide",
+      "title": "法定外公共物（里道・水路）のしおり（鹿児島市、平成21年4月）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.city.kagoshima.lg.jp/nouchiseibi/machizukuri/kotsu/doro/hotegai/documents/houteigaikoukyobutunosiori.pdf"
+      }
+    },
+    {
+      "id": "mof-statutory-external-property-notice",
+      "title": "法定外公共物に係る国有財産の取扱いについて（平成11年7月16日蔵理第2592号・財務省）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mof.go.jp/about_mof/act/kokuji_tsuutatsu/tsuutatsu/TU-19990716-2592-14.html"
+      }
+    },
+    {
+      "id": "mof-chugoku-former-statutory-external-property",
+      "title": "旧法定外公共物（旧里道・旧水路等）の境界確定・購入手続き（財務省 中国財務局）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://lfb.mof.go.jp/chugoku/kanzai/kyuuhouteigai.html"
+      }
+    },
+    {
+      "id": "tochigi-public-property-abolition-consultation",
+      "title": "市有公共用財産（道路・水路等）用途廃止兼売払事前協議（栃木市、令和5年4月）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.city.tochigi.lg.jp/uploaded/attachment/48069.pdf"
+      }
+    },
+    {
+      "id": "oita-statutory-external-property-disposal",
+      "title": "法定外公共物用途廃止後の払下げ事務について（大分市）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.city.oita.oita.jp/o162/machizukuri/kotsu/documents/f400.pdf"
+      }
+    },
+    {
+      "id": "supreme-court-1977-04-28-implied-abolition",
+      "title": "最高裁判所第一小法廷 昭和52年4月28日判決（昭和52(オ)135・黙示の公用廃止と取得時効）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.courts.go.jp/hanrei/74531/detail2/index.html"
+      }
+    },
+    {
+      "id": "mlit-quasi-river-system-notice-1972",
+      "title": "準用河川制度の改正について（昭和47年9月7日河政発第78号・建設省河川局長通達）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/notice/noticedata/sgml/050/78000020/78000020.html"
       }
     }
   ]
