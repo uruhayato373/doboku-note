@@ -30,7 +30,9 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { checkPauseReasons, findOverdueResume, resolveThumb } from './lib/coconala-guards.mjs';
+import { checkPauseReasons, findOverdueResume, findPausedServiceLinks, resolveThumb } from './lib/coconala-guards.mjs';
+import { listFiles } from './lib/fs-walk.mjs';
+import { NOTE_CONTENT_ROOT, SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 import { todayJst } from './lib/jst-date.mjs';
 import { loadManifest as loadAssetManifest } from './lib/asset-storage.mjs';
 import { loadDriveManifest } from './lib/drive-vault.mjs';
@@ -163,6 +165,19 @@ for (const o of findOverdueResume(catalog, today)) {
       '（復帰: npm run coconala-pause -- --resume --absence --commit）'
   );
 }
+
+// 10. 記事（note・サイト）が受付していない出品へ送っていないか（2026-10-15）。
+//     1級の添削を休止したあとも note の 1級記事 194 本が休止中の出品へ送り続けていた。下書きも公開されうるので含める。
+//     SNS の投稿原稿（投稿済みの履歴）は直せないので見ない。
+const articleFiles = [
+  ...listFiles(NOTE_CONTENT_ROOT, { match: (_path, name) => /^article(-[^/\\]+)?\.md$/.test(name) || name === 'magnet-pdf.md' }),
+  ...listFiles(SITE_CONTENT_ROOT, { ext: '.mdx' }),
+].map((path) => ({ path, text: readFileSync(path, 'utf8') }));
+const pausedLinks = findPausedServiceLinks(articleFiles, catalog);
+for (const l of pausedLinks) {
+  violations.push(`${l.path.slice(ROOT.length + 1).replace(/\\/g, '/')}:${l.line} が受付していないココナラ出品へ送っている（${l.serviceId}・${l.id ?? 'カタログ外'}・${l.status}）`);
+}
+console.log(`[check-coconala-wiring] 記事 ${articleFiles.length} 本のココナラ出品へのリンクを検査（受付していない出品へのリンク ${pausedLinks.length} 件）`);
 
 // 5. listed があるなら account SSOT が埋まっていること
 const account = readJsonLenient(ACCOUNT_PATH);

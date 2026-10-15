@@ -448,7 +448,7 @@ const introVariant = z
     include: strList.min(1).optional().describe('root 直下のうち対象にする記事（無ければ root 配下すべて）'),
     coconala: z
       .object({
-        urls: z.array(url).min(1).describe('冒頭に並べるココナラのサービス'),
+        urls: z.array(url).describe('冒頭に並べるココナラのサービス。空なら案内そのものを出さない（休止中・2026-10-15 に 1級の添削・骨子を外した）'),
         lead: z.object({ default: text, ichiji: text.optional() }).strict().describe('案内文。ichiji は一次の記事向け'),
       })
       .strict(),
