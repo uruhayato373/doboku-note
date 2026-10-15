@@ -401,7 +401,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 ## 🟡 中 — 重要度が中くらい
 
 ### [DN-0748] コンクリートの記事の JIS R 5210（2026 年改正）と JIS A 5308（2024 年改正）の値を洗い出して直す
-タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-15]
+タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-15] [進行中]
 
 **起点**: 2026-10-15、コンクリートの実務シリーズの補強（DN-0733）で、規格の改正に追いついていない記述が見つかった。(1) JIS R 5210（ポルトランドセメント）が 2026-03-23 に改正され、少量混合成分の上限が 5 % から 10 % に上がった（国土交通省 国住指第 473 号 https://www.mlit.go.jp/jutakukentiku/build/content/001990192.pdf ）。(2) JIS A 5308 の 2024 年改正で、高強度コンクリートの強度の検査の頻度が他と同じ 150 m³ に 1 回になった。concrete-chief-engineer/textbook-materials と concrete-engineer/textbook-production-qc は直した。
 **やること**: コンクリート 3 資格（技士・主任技士・診断士）の教科書・ガイド記事と civil-practice のコンクリート記事で、JIS R 5210:2019 と JIS A 5308:2019 の値を書いた箇所を洗い出し、改正後の値と版を書き足す（強熱減量・少量混合成分・検査の頻度・納入書・戻りコンクリートなど）。2026 年版の規格票の表（附属書）で確かめられない値は「改正で変わった可能性」として断る。過去問（primary）は出題年の版が正なので本文は変えず、解説に改正を添えるかを決める。
@@ -469,18 +469,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 
 
-### [DN-0727] コンクリートの実務シリーズの図・写真を、本の頁の切り出しと AI の描き直しで入れる（image-policy の改定から）
-タグ: [領域:サイト] [時期:2026-10] [種類:制作] [起票:2026-10-13] [進行中]
-
-**起点**: 2026-10-13、コンクリートの実務シリーズ（concrete-practice）の新規 10 章を書き終えた（DN-0724）。記事は図・写真なしで公開の状態。運営者の決定（2026-10-13）は「画像は本の頁から切り出す（クロップ）」「本の写真を元に AI で描き直すことはやる」。後者は image-policy（2026-10-07）と食い違う。
-
-**やること**:
-1. image-policy（.claude/knowledge/reference/image-policy.md）と docs/strategy/18 の「図と写真」を、本の写真を元に AI で描き直す場合の条件（構図をなぞらない・文字を入れない・ai-image-fidelity-auditor の監査・出所の記録）で改める。運営者の確認を取る。
-2. 各章の brief（.tmp/book-coverage/series/<slug>.brief.md の「図・写真の候補」・頁 id つき）と、執筆担当が返した図の位置を、台帳 config/content-series.json の項目の visuals に入れる。執筆担当の案: C-32 は工場数と出荷量の推移・不具合の段階と止める仕組み・就業者の年齢構成の 3 図、C-09 は環境条件ごとに動かす項目の対応図、C-00 は五つの立場と書類の受け渡しの関係図（各章の見出しは workflow の結果。章ごとに 1〜3 枚）。
-3. `npm run check-content-series -- --crop-jobs --series concrete-practice` で切り出し（Codex）→ `--visual-jobs` で図は自作 SVG、写真は AI で描き直し → 監査 → 記事へ配置。
-**完了条件**: 新規 10 章の visuals が台帳に入り、`check-content-series` の図・写真の未完了が 0（使わないものは skipped と理由）。
-
-**進捗（2026-10-15）**: 手順 1 は済み。運営者は「本の写真を AI に渡して描き直す」を選んだ（翻案の危険は承知のうえ）。条件（構図をなぞらない・元の文字を写さない・出所を basedOn に記録・元と見比べる監査）を image-policy「本の写真を元に描き直す」と 18 に書き、gen-article-photo --based-on・aiPhoto.redraw・監査の描き直しの軸・record-ai の検査を実装した（PR feat/ai-photo-redraw-from-book）。**残り**: 手順 2（visuals を台帳へ）と 3（切り出し → 作成 → 監査 → 配置。Drive vault の見える Mac か Codex）。
 
 
 ### [DN-0722] 2級模試の原稿（C9 解答解説）の解答欄の字数・行数の案内を Drive の原本と配布 PDF に反映する
