@@ -29,6 +29,8 @@ import { execFileSync, spawnSync } from 'node:child_process';
 import { createReadStream, createWriteStream, existsSync, mkdirSync, readdirSync, renameSync, unlinkSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { pipeline } from 'node:stream/promises';
+import { setTimeout as sleep } from 'node:timers/promises';
+import { isTransientReadError } from './lib/transient-read-error.mjs';
 import {
   loadDriveConfig, resolveVaultRoot, driveGroupFor, vaultRelFor, vaultAbsFor,
   realBytesAndHashes, loadDriveManifest, writeDriveManifestAtomic, sanitizeDriveEntry, toVaultRel, repoRelForVault, immutableConflict } from './lib/drive-vault.mjs';
@@ -444,6 +446,10 @@ async function verify(cfg, group, mount, manifest) {
 
 // ------------------------------------------------------------------ pull（vault → repo）
 
+// 一時的な読み出し失敗（errno -11・ETIMEDOUT など）は、間をあけて読み直す（DN-0567・判定は lib/transient-read-error.mjs）。
+const PULL_READ_ATTEMPTS = 3;
+const PULL_RETRY_WAIT_MS = 20000;
+
 async function pull(cfg, group, mount, manifest) {
   let entries = Object.entries(manifest.entries || {});
   if (group) entries = entries.filter(([, e]) => e.group === group.id);
@@ -467,8 +473,18 @@ async function pull(cfg, group, mount, manifest) {
     if (!existsSync(src)) { failures.push([rel, 'vault に無い: ' + e.vaultPath]); continue; }
     mkdirSync(dirname(dst), { recursive: true });
     const tmp = dst + '.tmp';
-    try { await pipeline(createReadStream(src), createWriteStream(tmp)); }
-    catch (err) { try { unlinkSync(tmp); } catch { /* */ } failures.push([rel, 'コピー失敗: ' + String(err.message).slice(0, 80)]); continue; }
+    let copyErr = null;
+    for (let attempt = 1; attempt <= PULL_READ_ATTEMPTS; attempt++) {
+      try { await pipeline(createReadStream(src), createWriteStream(tmp)); copyErr = null; break; }
+      catch (err) {
+        copyErr = err;
+        try { unlinkSync(tmp); } catch { /* */ }
+        if (!isTransientReadError(err) || attempt === PULL_READ_ATTEMPTS) break;
+        console.log('  読み直し ' + attempt + '/' + (PULL_READ_ATTEMPTS - 1) + ' ' + rel + '（' + String(err.message).slice(0, 60) + '）');
+        await sleep(PULL_RETRY_WAIT_MS * attempt);
+      }
+    }
+    if (copyErr) { failures.push([rel, 'コピー失敗: ' + String(copyErr.message).slice(0, 80)]); continue; }
     const h = await realBytesAndHashes(tmp);
     if (h.sha256 !== e.sha256 || h.bytes !== e.bytes) { unlinkSync(tmp); failures.push([rel, 'vault の実体が台帳と違う（破損 or 差し替え）']); continue; }
     renameSync(tmp, dst);
