@@ -1,0 +1,95 @@
+<!-- authored 2026-10-15 doboku-note 自作。論点は配属先ごとの読む順番。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="配属先ごとの読む順番の経路図。全員が最初に法令の読み方と国・県・市町村の役割分担を読み、そこから配属先ごとに三本ずつ読む。道路の窓口は道路法の骨格、道路占用許可の審査、承認工事と道路使用許可。河川の窓口は河川法の骨格、河川区域の許可、河川の工作物の技術審査。工事の発注は公共事業の流れと発注方式、工事検査の種類と役割、原価と設計変更。まちづくりは都市計画法の骨格、開発許可と公共施設の帰属、土地区画整理事業。災害対応は地域防災計画と水防、災害復旧と災害査定の二本。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .t { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .tb { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 11px; fill: #555; }
+      .k { font-size: 12px; fill: #222; }
+      .b-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .b-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .b-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .b-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .b-g { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .b-x { fill: #fff; stroke: #8a8a8a; stroke-width: 1.5; stroke-dasharray: 4 3; }
+      .a { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+      .l { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+      .s2 { font-size: 11px; fill: #222; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+
+  <text class="tb" x="14" y="26">全員が最初に読む</text>
+  <rect class="b-p" x="8" y="36" width="174" height="46" rx="8"/>
+  <text class="t" x="95" y="64" text-anchor="middle">法令の読み方</text>
+  <path class="a" d="M184,59H216" marker-end="url(#ah)"/>
+  <rect class="b-p" x="218" y="36" width="174" height="46" rx="8"/>
+  <text class="tb" x="305" y="64" text-anchor="middle">国・県・市町村の役割分担</text>
+  <path d="M200,83V428" stroke="#2e6da4" stroke-width="2.5" fill="none"/>
+  <rect class="b-b" x="8" y="126" width="176" height="108" rx="8"/>
+  <text class="t" x="20" y="152">道路の窓口</text>
+  <circle cx="24" cy="174" r="8" fill="#fff" stroke="#8a8a8a" stroke-width="1.5"/>
+  <text class="s" x="24" y="178" text-anchor="middle">1</text>
+  <text class="s2" x="36" y="178">道路法の骨格</text>
+  <circle cx="24" cy="196" r="8" fill="#fff" stroke="#8a8a8a" stroke-width="1.5"/>
+  <text class="s" x="24" y="200" text-anchor="middle">2</text>
+  <text class="s2" x="36" y="200">道路占用許可の審査</text>
+  <circle cx="24" cy="218" r="8" fill="#fff" stroke="#8a8a8a" stroke-width="1.5"/>
+  <text class="s" x="24" y="222" text-anchor="middle">3</text>
+  <text class="s2" x="36" y="222">承認工事と道路使用許可</text>
+  <path class="a" d="M200,180H186" marker-end="url(#ah)"/>
+  <rect class="b-b" x="216" y="126" width="176" height="108" rx="8"/>
+  <text class="t" x="228" y="152">河川の窓口</text>
+  <circle cx="232" cy="174" r="8" fill="#fff" stroke="#8a8a8a" stroke-width="1.5"/>
+  <text class="s" x="232" y="178" text-anchor="middle">1</text>
+  <text class="s2" x="244" y="178">河川法の骨格</text>
+  <circle cx="232" cy="196" r="8" fill="#fff" stroke="#8a8a8a" stroke-width="1.5"/>
+  <text class="s" x="232" y="200" text-anchor="middle">2</text>
+  <text class="s2" x="244" y="200">河川区域の許可</text>
+  <circle cx="232" cy="218" r="8" fill="#fff" stroke="#8a8a8a" stroke-width="1.5"/>
+  <text class="s" x="232" y="222" text-anchor="middle">3</text>
+  <text class="s2" x="244" y="222">河川の工作物の技術審査</text>
+  <path class="a" d="M200,180H214" marker-end="url(#ah)"/>
+  <rect class="b-b" x="8" y="250" width="176" height="108" rx="8"/>
+  <text class="t" x="20" y="276">工事の発注</text>
+  <circle cx="24" cy="298" r="8" fill="#fff" stroke="#8a8a8a" stroke-width="1.5"/>
+  <text class="s" x="24" y="302" text-anchor="middle">1</text>
+  <text class="s2" x="36" y="302">公共事業の流れと発注方式</text>
+  <circle cx="24" cy="320" r="8" fill="#fff" stroke="#8a8a8a" stroke-width="1.5"/>
+  <text class="s" x="24" y="324" text-anchor="middle">2</text>
+  <text class="s2" x="36" y="324">工事検査の種類と役割</text>
+  <circle cx="24" cy="342" r="8" fill="#fff" stroke="#8a8a8a" stroke-width="1.5"/>
+  <text class="s" x="24" y="346" text-anchor="middle">3</text>
+  <text class="s2" x="36" y="346">原価と設計変更</text>
+  <path class="a" d="M200,304H186" marker-end="url(#ah)"/>
+  <rect class="b-b" x="216" y="250" width="176" height="108" rx="8"/>
+  <text class="t" x="228" y="276">まちづくり</text>
+  <circle cx="232" cy="298" r="8" fill="#fff" stroke="#8a8a8a" stroke-width="1.5"/>
+  <text class="s" x="232" y="302" text-anchor="middle">1</text>
+  <text class="s2" x="244" y="302">都市計画法の骨格</text>
+  <circle cx="232" cy="320" r="8" fill="#fff" stroke="#8a8a8a" stroke-width="1.5"/>
+  <text class="s" x="232" y="324" text-anchor="middle">2</text>
+  <text class="s2" x="244" y="324">開発許可と公共施設の帰属</text>
+  <circle cx="232" cy="342" r="8" fill="#fff" stroke="#8a8a8a" stroke-width="1.5"/>
+  <text class="s" x="232" y="346" text-anchor="middle">3</text>
+  <text class="s2" x="244" y="346">土地区画整理事業</text>
+  <path class="a" d="M200,304H214" marker-end="url(#ah)"/>
+  <rect class="b-b" x="8" y="374" width="176" height="108" rx="8"/>
+  <text class="t" x="20" y="400">災害対応</text>
+  <circle cx="24" cy="422" r="8" fill="#fff" stroke="#8a8a8a" stroke-width="1.5"/>
+  <text class="s" x="24" y="426" text-anchor="middle">1</text>
+  <text class="s2" x="36" y="426">地域防災計画と水防</text>
+  <circle cx="24" cy="444" r="8" fill="#fff" stroke="#8a8a8a" stroke-width="1.5"/>
+  <text class="s" x="24" y="448" text-anchor="middle">2</text>
+  <text class="s2" x="36" y="448">災害復旧と災害査定</text>
+  <path class="a" d="M200,428H186" marker-end="url(#ah)"/>
+  <rect class="b-g" x="216" y="374" width="176" height="108" rx="8"/>
+  <text class="t" x="228" y="400">全体を急いで見たいとき</text>
+  <circle cx="232" cy="422" r="8" fill="#fff" stroke="#8a8a8a" stroke-width="1.5"/>
+  <text class="s" x="232" y="426" text-anchor="middle">1</text>
+  <text class="s2" x="244" y="426">土木担当の1年</text>
+  <circle cx="232" cy="444" r="8" fill="#fff" stroke="#8a8a8a" stroke-width="1.5"/>
+  <text class="s" x="232" y="448" text-anchor="middle">2</text>
+  <text class="s2" x="244" y="448">社会資本の全体像</text>
+</svg>
