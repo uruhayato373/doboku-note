@@ -71,7 +71,7 @@ pid で ps のフルコマンドと lsof の cwd を突き合わせ、「その�
 Codex の会話履歴・アーカイブ・生成画像、Claude の `.jsonl`、stats47 のキャッシュ。
 `reportOnly` に並べてあり、容量だけを表に出す。棚卸しは人が判断する。
 
-Codex の `~/.codex/archived_sessions` は四半期に 1 回、`find ~/.codex/archived_sessions -type f -mtime +30` で 30 日を超えた件数と容量を出し、残すものが無ければ人が消す（エージェントは消さない）。2026-10-14 の Windows 実測は 32 件・1.2GB で、30 日超は 0 件（1 件約 36MB の大きな会話が直近に集中していたため）。
+Codex の `~/.codex/archived_sessions` は保持期間 1 週間（2026-10-15 運営者判断）。月に 1 回、`find ~/.codex/archived_sessions -type f -mtime +7` で 7 日を超えた件数と容量を出し、人が `find ~/.codex/archived_sessions -type f -mtime +7 -delete` で消す（エージェントは消さない）。1 件 30〜40MB の大きな会話があるので、直近 1 週間分だけで数百 MB 残るのは正常。2026-10-15 の Windows 実測は 32 件・1.2GB で、7 日超は 22 件・約 530MB。
 
 `warnBytes` を持つ項目は、超えたときだけ WARN にする（削除 action は付けない）。2026-09-17 に Claude デスクトップアプリの `vm_bundles`（Cowork のフル VM サンドボックス。`rootfs.img.zst` 1.1GB を展開すると 10GB）が 12GB に膨らんで空きを 26→5.5GB に落としたのに「報告のみ」で埋もれた再発防止。vm_bundles は 3GB。
 Drive vault と R2 は「台帳で管理する制作物・原本」の置き場なので、**会話履歴やキャッシュを入れない**
