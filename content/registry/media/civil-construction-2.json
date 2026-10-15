@@ -184,6 +184,46 @@
       }
     },
     {
+      "id": "civil-construction-2/anzen-touan-gutaika/youtube.longform/revision-cover",
+      "role": "revision-cover",
+      "type": "image/png",
+      "sha256": "054dd9e00516038877c7f9b501c448953e0d0113abd54edc886d713b9bb1b622",
+      "bytes": 2201861,
+      "width": 1672,
+      "height": 941,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/revision-cover.054dd9e0.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Edit the attached 16:9 landscape YouTube cover. Keep the same teacher identity, natural hands holding red pen and answer sheet, plain white helmet, black glasses, beard, navy workwear and green pop-poster-v3 visual style. Preserve these four Japanese text strings exactly: 「2級土木」「安全管理」「答案を具体化」「現場条件から書く」. Replace 「総監が解説」 with a clearly separated TWO-LINE yellow author-credentials badge: first line 「総監・元発注者」, second line 「1級・2級土木合格者」. These are the author's real credentials, not the target qualification: the largest target label must remain 「2級土木」. Recompose the top-left and top-center areas enough that both credential lines are legible; do not squeeze the new text into a one-line tiny band. The main topic remains the visual priority and the teacher stays on the right. All six specified text strings occur exactly once with correct Japanese glyphs; remove the old 「総監が解説」. No added words, logo, URL, numbers, price, guarantee or certification seals. Use generous bold glyphs without colliding strokes. Important letters and face entirely inside margins, all text above 82% image height; bottom 18% contains only continuous illustrated green background/teacher torso, not a blank stripe. Deliver one polished landscape image, intended 1920×1080, same visual density and character as reference.",
+        "promptSha256": "0cb866db21659e7413340de65a66adf723421e5d4af3a5f15dc916a90a4dcc04",
+        "generatedAt": "2026-10-15T10:57:02.984Z"
+      }
+    },
+    {
+      "id": "civil-construction-2/anzen-touan-gutaika/youtube.longform/revision-cta",
+      "role": "revision-cta",
+      "type": "image/png",
+      "sha256": "89748909f7120f8767b4016283df208deb207ff525af3b5b35c4394558c46e06",
+      "bytes": 2155865,
+      "width": 1672,
+      "height": 941,
+      "store": {
+        "tier": "drive",
+        "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/revision-cta.89748909.png"
+      },
+      "provenance": {
+        "kind": "ai-generated",
+        "tool": "codex",
+        "prompt": "Edit the attached finished 16:9 landscape closing card for a Japanese educational video. Maintain the green pop-poster-v3 design and EXACT identity/anatomy of the teacher: plain white helmet, black rectangular glasses, short beard, navy workwear, one hand naturally pointing toward the CTA and the other holding answer sheets. Preserve these six text strings verbatim, once each: 「2級土木」「施工経験記述」「完成答案集」「安全・品質・工程」「自分の経験に置き換えて練習」「概要欄から確認」. Replace the old single line 「総監が制作」 with a TWO-LINE yellow credentials badge near the top: line 1 「総監・元発注者」, line 2 「1級・2級土木合格者」. This badge gives author credentials, clearly subordinate to the biggest target label 「2級土木」, with bold readable typography rather than tiny text. Reflow top heading and badge to avoid collisions; keep main title and CTA readable. Do not claim direct personal review, guaranteed passing, grading authority or teaching results. Add no other words, URL, logo, price or symbols. All important text and the pointing finger stay inside the canvas, all text and yellow CTA strip fully ABOVE 82% height. Bottom 18% only contains continuous illustrated green background and teacher torso, NOT a blank stripe. Preserve exactly five fingers per hand and the existing correct pointing pose. One polished landscape image intended 1920×1080, not a sheet or comparison.",
+        "promptSha256": "d0f695f3592166b72002f33070c7b068124315fa40fb98d0dc9c7468ce8996fe",
+        "generatedAt": "2026-10-15T10:57:03.382Z"
+      }
+    },
+    {
       "id": "civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-001",
       "role": "scene-001",
       "type": "image/png",

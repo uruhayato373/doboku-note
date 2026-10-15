@@ -1115,6 +1115,18 @@
       "reason": "1920×1080原寸と幅360pxで人物同一性、自然な指差しと答案用紙を持つ手、商品内容に一致する指定7文言の正確さと判読性を確認し、下端10%（y=972以降）に重要文字はない。",
       "reviewedAt": "2026-10-14T22:24:51.994Z"
     },
+    "media:civil-construction-2/anzen-touan-gutaika/youtube.longform/revision-cover": {
+      "sha": "054dd9e005160388",
+      "verdict": "ok",
+      "reason": "原寸・幅360pxで指定6文言、人物同一性、自然な手指、対象資格と著者肩書きの区別、author.tsとの整合を確認。文字下端約80.6%・赤い下線約84.1%で、必須の下端10%安全域を満たす。",
+      "reviewedAt": "2026-10-15T11:01:38.950Z"
+    },
+    "media:civil-construction-2/anzen-touan-gutaika/youtube.longform/revision-cta": {
+      "sha": "89748909f7120f87",
+      "verdict": "ok",
+      "reason": "原寸・幅360pxで指定8文言、人物同一性、自然な指差しと用紙保持、対象資格と著者肩書きの区別、author.tsとの整合を確認。文字下端約82.3%・黄色帯下端約83.5%で、必須の下端10%安全域を満たす。",
+      "reviewedAt": "2026-10-15T11:01:38.950Z"
+    },
     "media:civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-001": {
       "sha": "d6f17a6dc6ffe483",
       "verdict": "ok",
