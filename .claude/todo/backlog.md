@@ -21,6 +21,18 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-0738] 自治体の土木担当シリーズの第1波（A-08 占用・A-14 河川区域の許可・A-19 里道と水路）を書いて公開する
+タグ: [領域:サイト] [時期:2026-10] [種類:制作] [検証:check-content-series] [起票:2026-10-15]
+
+**起点**: 2026-10-15、運営者の判断で、自治体の土木担当シリーズ（`municipal-civil-engineer`）の第 1 波は EXP-012 の判定（11/26）を待たずに書いて公開する（docs/strategy/18「着手の条件」）。39 章の骨子は確認済み（DN-0729）。
+**やること**:
+1. A-08 占用（`content/site/civil-practice/road-occupancy-permit-review/article.mdx`）・A-14 河川区域の許可（`river-area-permits`）・A-19 里道と水路（`satomichi-suiro-management`）を、確認済みの骨子から workflow series-chapter（`brief: "outline"`）で書く
+2. 返答の factsVerified を事実ファイルへ、inboundLinks を既存記事へ、curriculumHint を `src/config/category-curriculum.json` へ、visuals を台帳へ入れる
+3. 道路法の占用関係の改正（令和8年法律第65号）の施行期日の政令が出ていないか、公開前に確かめる（10/15 時点で未公布）
+4. 第 2 波以降の骨子の URL だけの根拠（257 件）は、その章を書く前に参考文献の台帳へ入れる（第 1 波は 0 件）
+**完了条件**: 3 本が公開（published: true）で `check-content-series` が緑、台帳の項目に記事のパスが入っている。公開から 28 日の計測は DN-0719 が見る。
+
+
 ### [DN-0736] 2級土木 令和8年度 第2次検定の問題と解答例を、10/26 の問題公表から 1 週間以内に入れる
 タグ: [領域:サイト] [時期:2026-10..2026-11] [種類:制作] [起票:2026-10-14] [期日:2026-11-02]
 
