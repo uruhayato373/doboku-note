@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-15T03:13:26.943Z",
+  "generated_at": "2026-10-15T03:20:56.291Z",
   "summary": {
-    "total_mdx_files": 1417,
+    "total_mdx_files": 1418,
     "total_unique_tags": 133,
     "allowlist_size": 330,
     "known_count": 133,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 241,
+      "count": 242,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1236,6 +1236,7 @@
         "civil-practice-rebar-splice-selection",
         "civil-practice-reference-values",
         "civil-practice-risk-assessment-construction-workflow",
+        "civil-practice-river-act-framework",
         "civil-practice-river-area-permits",
         "civil-practice-river-park-erosion-control",
         "civil-practice-road-act-framework",
@@ -3747,7 +3748,7 @@
     },
     {
       "name": "河川",
-      "count": 24,
+      "count": 25,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-textbook-river-works",
@@ -3757,6 +3758,7 @@
         "civil-practice-levee-failure-reinforcement",
         "civil-practice-nature-conservation-mitigation",
         "civil-practice-reading-civil-drawings",
+        "civil-practice-river-act-framework",
         "civil-practice-river-area-permits",
         "civil-practice-river-park-erosion-control",
         "civil-practice-satomichi-suiro-management",
@@ -3829,6 +3831,32 @@
         "pe-first-stage-r01-retry-construction",
         "pe-first-stage-r01-retry-water-supply",
         "pe-first-stage-r01-water-supply"
+      ]
+    },
+    {
+      "name": "地方公共団体",
+      "count": 19,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-board-of-audit-inspection",
+        "civil-practice-river-act-framework",
+        "civil-practice-road-boundary-and-road-ledger",
+        "civil-practice-road-inspection-longevity-plan",
+        "civil-practice-satomichi-suiro-management",
+        "pe-comprehensive-management-essay-pattern-cross-year-application",
+        "pe-comprehensive-management-h21-essay-road-municipality",
+        "pe-comprehensive-management-h22-essay-road-municipality",
+        "pe-comprehensive-management-h23-essay-road-municipality",
+        "pe-comprehensive-management-h24-essay-road-municipality",
+        "pe-comprehensive-management-h25-essay-road-municipality",
+        "pe-comprehensive-management-h26-essay-road-municipality",
+        "pe-comprehensive-management-h27-essay-road-municipality",
+        "pe-comprehensive-management-pattern-essay-road-municipality",
+        "pe-comprehensive-management-r03-essay-road-municipality",
+        "pe-comprehensive-management-r04-essay-road-municipality",
+        "pe-comprehensive-management-r05-essay-road-municipality",
+        "pe-comprehensive-management-r06-essay-road-municipality",
+        "pe-comprehensive-management-r07-essay-road-municipality"
       ]
     },
     {
@@ -3979,31 +4007,6 @@
         "pe-comprehensive-management-side-jobs",
         "pe-comprehensive-management-stress-check-system",
         "pe-construction-ninaite-kakuho-seisansei"
-      ]
-    },
-    {
-      "name": "地方公共団体",
-      "count": 18,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-board-of-audit-inspection",
-        "civil-practice-road-boundary-and-road-ledger",
-        "civil-practice-road-inspection-longevity-plan",
-        "civil-practice-satomichi-suiro-management",
-        "pe-comprehensive-management-essay-pattern-cross-year-application",
-        "pe-comprehensive-management-h21-essay-road-municipality",
-        "pe-comprehensive-management-h22-essay-road-municipality",
-        "pe-comprehensive-management-h23-essay-road-municipality",
-        "pe-comprehensive-management-h24-essay-road-municipality",
-        "pe-comprehensive-management-h25-essay-road-municipality",
-        "pe-comprehensive-management-h26-essay-road-municipality",
-        "pe-comprehensive-management-h27-essay-road-municipality",
-        "pe-comprehensive-management-pattern-essay-road-municipality",
-        "pe-comprehensive-management-r03-essay-road-municipality",
-        "pe-comprehensive-management-r04-essay-road-municipality",
-        "pe-comprehensive-management-r05-essay-road-municipality",
-        "pe-comprehensive-management-r06-essay-road-municipality",
-        "pe-comprehensive-management-r07-essay-road-municipality"
       ]
     },
     {
@@ -5243,6 +5246,15 @@
       ]
     },
     {
+      "name": "河川法",
+      "count": 2,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-river-act-framework",
+        "civil-practice-river-area-permits"
+      ]
+    },
+    {
       "name": "解体工事",
       "count": 2,
       "inAllowlist": true,
@@ -5281,14 +5293,6 @@
       "inAllowlist": true,
       "usedIn": [
         "civil-practice-levee-failure-reinforcement"
-      ]
-    },
-    {
-      "name": "河川法",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-river-area-permits"
       ]
     },
     {
