@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-15T09:33:57.727Z",
+  "generated_at": "2026-10-15T09:37:46.962Z",
   "summary": {
-    "total_mdx_files": 1446,
+    "total_mdx_files": 1447,
     "total_unique_tags": 133,
     "allowlist_size": 330,
     "known_count": 133,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 270,
+      "count": 271,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1289,6 +1289,7 @@
         "civil-practice-subbase-subgrade-control",
         "civil-practice-trench-excavation-safety",
         "civil-practice-urban-park-management",
+        "civil-practice-wood-and-stone-materials",
         "concrete-chief-engineer-guide-essay",
         "concrete-chief-engineer-guide-overview",
         "concrete-chief-engineer-guide-trends",
@@ -3432,7 +3433,7 @@
     },
     {
       "name": "品質管理",
-      "count": 52,
+      "count": 53,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-four-management",
@@ -3462,6 +3463,7 @@
         "civil-practice-safety-patrol-corrective-action",
         "civil-practice-special-concrete-selection",
         "civil-practice-steel-material-properties",
+        "civil-practice-wood-and-stone-materials",
         "concrete-chief-engineer-textbook-production-qc",
         "concrete-chief-engineer-textbook-products",
         "concrete-engineer-textbook-production-qc",
@@ -4844,6 +4846,21 @@
       ]
     },
     {
+      "name": "材料",
+      "count": 8,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-asphalt-materials-types",
+        "civil-practice-concrete-hydration-basics",
+        "civil-practice-polymer-construction-materials",
+        "civil-practice-steel-material-properties",
+        "civil-practice-wood-and-stone-materials",
+        "concrete-chief-engineer-textbook-materials",
+        "concrete-chief-engineer-textbook-properties",
+        "concrete-engineer-textbook-materials"
+      ]
+    },
+    {
       "name": "流域治水",
       "count": 8,
       "inAllowlist": true,
@@ -4926,20 +4943,6 @@
         "civil-practice-public-works-bidding-methods",
         "pe-construction-ninaite-dx-ronbun-keyword",
         "pe-construction-ninaite-kakuho-seisansei"
-      ]
-    },
-    {
-      "name": "材料",
-      "count": 7,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-asphalt-materials-types",
-        "civil-practice-concrete-hydration-basics",
-        "civil-practice-polymer-construction-materials",
-        "civil-practice-steel-material-properties",
-        "concrete-chief-engineer-textbook-materials",
-        "concrete-chief-engineer-textbook-properties",
-        "concrete-engineer-textbook-materials"
       ]
     },
     {
