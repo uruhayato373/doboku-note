@@ -24,6 +24,7 @@
 | EXP-019 / EXP-008（check-experiment-due） | EXP-019 の案別計測を 10/15 に見る（表示は A379・B424・C402でクリック0が初回）。EXP-008 の 28 日判定は 10/20（A8 成果取込と `report-career-funnel` が要人手。ログイン済みの Mac で実施）。10/17 の週次で試験後の 1級の落ち方と 2級の伸びを分けて読む |
 | check-note-republish | 10/11 日曜の Mac note-sync の結果（sync-log.json の problems）を月曜に確認。止まった 3 本（BK-10 鉄道 R07・R08-yosou、BK-11 トンネル R03）は `--force-retry` で反映 |
 | check-membership-drip | 配信表 16 行は全て公開済み・WARN 0。今週は実行なし |
+| check-video-content | [2級土木の制作順（§11）](../../content/note/1級・2級土木/noteコンテンツ計画.md#11-2級土木の動画sns制作順2026-10-15)に沿い、10/15〜18は安全管理の訴求修正→安全の Shorts・Reels・カルーセル・X→品質の通常動画・派生まで仕上げる |
 | x-queue-surfacer | 期限が近いキューを実走して `x-schedule-guard` 緑 → `publish-x` → `x-sync-status`（X セッションのある端末） |
 | check-coconala-orders / check-note-delivery-due / verify-ig-status | ログイン済みの Mac で最新の取得結果を確認し、必要な分を取り直す |
 
