@@ -35,18 +35,19 @@
     "removedPrintPageNumbers": 583,
     "removedChapterFront": 49,
     "dedentedPages": 145,
-    "tables": 192,
-    "tablesGfm": 8,
+    "tables": 185,
+    "tablesGfm": 7,
     "tablesList": 33,
-    "tablesVerbatim": 151
+    "tablesOverride": 0,
+    "tablesVerbatim": 145
   },
   "tableOutcomes": {
-    "columns-out-of-range": 60,
-    "lossy": 39,
-    "ragged-rows": 36,
+    "columns-out-of-range": 61,
+    "lossy": 36,
+    "ragged-rows": 37,
     "restored-standards-list": 33,
-    "restored": 8,
-    "too-few-rows": 16
+    "restored": 7,
+    "too-few-rows": 11
   },
   "removedSamples": {
     "runningHeaders": [
@@ -508,6 +509,7 @@
         "captions": 2,
         "tablesGfm": 0,
         "tablesList": 0,
+        "tablesOverride": 0,
         "tablesVerbatim": 6
       },
       "tableOutcomes": {
@@ -552,8 +554,8 @@
         141
       ],
       "sourceSha256": "869ecc879ecee3305c41a4572bb6b36a9b1ac0db36cd3cb0fb4ce04eaadbb18c",
-      "outputSha256": "8e30ab3166ceb6ac2a73a9c56dc3585557cd1e7e41cfde974d37fa6b9d5783a1",
-      "outputBytes": 45637,
+      "outputSha256": "21df5e864386135b0ec139d8943e6b94fba2de710816d7c283b0d00c1e93786b",
+      "outputBytes": 45657,
       "splitBySection": false,
       "sections": [
         {
@@ -685,13 +687,14 @@
         "sections": 4,
         "articles": 15,
         "clauses": 125,
-        "paragraphs": 165,
+        "paragraphs": 164,
         "items": 6,
         "notes": 0,
         "tables": 7,
         "captions": 3,
         "tablesGfm": 0,
         "tablesList": 1,
+        "tablesOverride": 0,
         "tablesVerbatim": 6
       },
       "tableOutcomes": {
@@ -1191,6 +1194,7 @@
         "captions": 1,
         "tablesGfm": 0,
         "tablesList": 1,
+        "tablesOverride": 0,
         "tablesVerbatim": 6
       },
       "tableOutcomes": {
@@ -1254,6 +1258,7 @@
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
+        "tablesOverride": 0,
         "tablesVerbatim": 1
       },
       "tableOutcomes": {
@@ -1307,8 +1312,8 @@
         200
       ],
       "sourceSha256": "23d1b9acb0fb9c16ce967333a40900612ad9ea93460a4ce568c28770b6692a92",
-      "outputSha256": "31b5f77b1bf00aea3c70f0ce7ae4449e2095a06ab26a5dddf19aaeb787903325",
-      "outputBytes": 81080,
+      "outputSha256": "1583dd46859a9575f3205986febd4de0830a4152be12e44acbc40856944b041d",
+      "outputBytes": 81151,
       "splitBySection": false,
       "sections": [
         {
@@ -1817,18 +1822,19 @@
         "sections": 13,
         "articles": 64,
         "clauses": 81,
-        "paragraphs": 303,
+        "paragraphs": 300,
         "items": 23,
         "notes": 8,
-        "tables": 26,
+        "tables": 25,
         "captions": 2,
         "tablesGfm": 1,
         "tablesList": 0,
-        "tablesVerbatim": 25
+        "tablesOverride": 0,
+        "tablesVerbatim": 24
       },
       "tableOutcomes": {
         "columns-out-of-range": 13,
-        "lossy": 8,
+        "lossy": 7,
         "ragged-rows": 4,
         "restored": 1
       },
@@ -1861,8 +1867,8 @@
         209
       ],
       "sourceSha256": "3e99e6015005523d5ac935ca4f819302463bb153cf3268feb534051e74892071",
-      "outputSha256": "adc12f85c0dfb428cfe9696b3ee64ecd905875dccfcafbae5f8680469d833878",
-      "outputBytes": 26271,
+      "outputSha256": "2efb74f9ee95475cbb554b898b0fec5851a475a491859e182819219f3a8fb15d",
+      "outputBytes": 26250,
       "splitBySection": false,
       "sections": [
         {
@@ -1945,18 +1951,19 @@
         "sections": 1,
         "articles": 11,
         "clauses": 34,
-        "paragraphs": 98,
+        "paragraphs": 94,
         "items": 15,
         "notes": 0,
-        "tables": 8,
+        "tables": 5,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
-        "tablesVerbatim": 8
+        "tablesOverride": 0,
+        "tablesVerbatim": 5
       },
       "tableOutcomes": {
-        "too-few-rows": 3,
-        "lossy": 3,
+        "too-few-rows": 2,
+        "lossy": 1,
         "columns-out-of-range": 2
       },
       "indexable": false,
@@ -2149,8 +2156,8 @@
         376
       ],
       "sourceSha256": "097eecc7dc7a6bd3827f2d9b9ffc6903b98dac9fcec6d8ef2148aa4b3497e4db",
-      "outputSha256": "a0a5911b96a80d9923d57e660f7b6e9f891823ee77e57b1635dfd0448936ded8",
-      "outputBytes": 485617,
+      "outputSha256": "ef4684e562f1ae78a70e25480ab90bd1d42572c1bbbd44f7dff9fe4550eac799",
+      "outputBytes": 485681,
       "splitBySection": true,
       "sections": [
         {
@@ -3248,22 +3255,23 @@
         "sections": 18,
         "articles": 155,
         "clauses": 940,
-        "paragraphs": 2242,
+        "paragraphs": 2234,
         "items": 477,
-        "notes": 17,
-        "tables": 77,
+        "notes": 16,
+        "tables": 74,
         "captions": 13,
-        "tablesGfm": 5,
+        "tablesGfm": 4,
         "tablesList": 1,
-        "tablesVerbatim": 71
+        "tablesOverride": 0,
+        "tablesVerbatim": 69
       },
       "tableOutcomes": {
         "restored-standards-list": 1,
-        "too-few-rows": 12,
-        "columns-out-of-range": 25,
-        "restored": 5,
+        "too-few-rows": 8,
+        "columns-out-of-range": 26,
+        "restored": 4,
         "lossy": 18,
-        "ragged-rows": 16
+        "ragged-rows": 17
       },
       "indexable": false,
       "duplicateOf": null,
@@ -3854,6 +3862,7 @@
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 1,
+        "tablesOverride": 0,
         "tablesVerbatim": 2
       },
       "tableOutcomes": {
@@ -4036,6 +4045,7 @@
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
+        "tablesOverride": 0,
         "tablesVerbatim": 0
       },
       "tableOutcomes": {},
@@ -4378,6 +4388,7 @@
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 1,
+        "tablesOverride": 0,
         "tablesVerbatim": 0
       },
       "tableOutcomes": {
@@ -5248,6 +5259,7 @@
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 1,
+        "tablesOverride": 0,
         "tablesVerbatim": 0
       },
       "tableOutcomes": {
@@ -6182,6 +6194,7 @@
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 1,
+        "tablesOverride": 0,
         "tablesVerbatim": 0
       },
       "tableOutcomes": {
@@ -6426,6 +6439,7 @@
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 1,
+        "tablesOverride": 0,
         "tablesVerbatim": 0
       },
       "tableOutcomes": {
@@ -6663,6 +6677,7 @@
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 1,
+        "tablesOverride": 0,
         "tablesVerbatim": 0
       },
       "tableOutcomes": {
@@ -7087,6 +7102,7 @@
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 1,
+        "tablesOverride": 0,
         "tablesVerbatim": 0
       },
       "tableOutcomes": {
@@ -7348,6 +7364,7 @@
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 1,
+        "tablesOverride": 0,
         "tablesVerbatim": 1
       },
       "tableOutcomes": {
@@ -7926,6 +7943,7 @@
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 1,
+        "tablesOverride": 0,
         "tablesVerbatim": 1
       },
       "tableOutcomes": {
@@ -8187,6 +8205,7 @@
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 1,
+        "tablesOverride": 0,
         "tablesVerbatim": 0
       },
       "tableOutcomes": {
@@ -8325,6 +8344,7 @@
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 1,
+        "tablesOverride": 0,
         "tablesVerbatim": 0
       },
       "tableOutcomes": {
@@ -8472,6 +8492,7 @@
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
+        "tablesOverride": 0,
         "tablesVerbatim": 0
       },
       "tableOutcomes": {},
@@ -8571,6 +8592,7 @@
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
+        "tablesOverride": 0,
         "tablesVerbatim": 0
       },
       "tableOutcomes": {},
@@ -9131,6 +9153,7 @@
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 1,
+        "tablesOverride": 0,
         "tablesVerbatim": 0
       },
       "tableOutcomes": {
@@ -9422,6 +9445,7 @@
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 1,
+        "tablesOverride": 0,
         "tablesVerbatim": 0
       },
       "tableOutcomes": {
@@ -9812,6 +9836,7 @@
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 1,
+        "tablesOverride": 0,
         "tablesVerbatim": 0
       },
       "tableOutcomes": {
@@ -10265,6 +10290,7 @@
         "captions": 0,
         "tablesGfm": 1,
         "tablesList": 0,
+        "tablesOverride": 0,
         "tablesVerbatim": 0
       },
       "tableOutcomes": {
@@ -10456,6 +10482,7 @@
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
+        "tablesOverride": 0,
         "tablesVerbatim": 0
       },
       "tableOutcomes": {},
@@ -10611,6 +10638,7 @@
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
+        "tablesOverride": 0,
         "tablesVerbatim": 0
       },
       "tableOutcomes": {},
@@ -11127,6 +11155,7 @@
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 1,
+        "tablesOverride": 0,
         "tablesVerbatim": 1
       },
       "tableOutcomes": {
@@ -11650,6 +11679,7 @@
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 1,
+        "tablesOverride": 0,
         "tablesVerbatim": 1
       },
       "tableOutcomes": {
@@ -12204,6 +12234,7 @@
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 1,
+        "tablesOverride": 0,
         "tablesVerbatim": 2
       },
       "tableOutcomes": {
@@ -12647,6 +12678,7 @@
         "captions": 0,
         "tablesGfm": 1,
         "tablesList": 1,
+        "tablesOverride": 0,
         "tablesVerbatim": 0
       },
       "tableOutcomes": {
@@ -13212,6 +13244,7 @@
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 1,
+        "tablesOverride": 0,
         "tablesVerbatim": 7
       },
       "tableOutcomes": {
@@ -13542,6 +13575,7 @@
         "captions": 1,
         "tablesGfm": 0,
         "tablesList": 1,
+        "tablesOverride": 0,
         "tablesVerbatim": 0
       },
       "tableOutcomes": {
@@ -13797,6 +13831,7 @@
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 1,
+        "tablesOverride": 0,
         "tablesVerbatim": 2
       },
       "tableOutcomes": {
@@ -14068,6 +14103,7 @@
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 1,
+        "tablesOverride": 0,
         "tablesVerbatim": 1
       },
       "tableOutcomes": {
@@ -14252,6 +14288,7 @@
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 1,
+        "tablesOverride": 0,
         "tablesVerbatim": 0
       },
       "tableOutcomes": {
@@ -14453,6 +14490,7 @@
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 1,
+        "tablesOverride": 0,
         "tablesVerbatim": 0
       },
       "tableOutcomes": {
@@ -14706,6 +14744,7 @@
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 1,
+        "tablesOverride": 0,
         "tablesVerbatim": 0
       },
       "tableOutcomes": {
@@ -14880,6 +14919,7 @@
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 1,
+        "tablesOverride": 0,
         "tablesVerbatim": 0
       },
       "tableOutcomes": {
@@ -14993,6 +15033,7 @@
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 1,
+        "tablesOverride": 0,
         "tablesVerbatim": 0
       },
       "tableOutcomes": {
@@ -15927,6 +15968,7 @@
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 1,
+        "tablesOverride": 0,
         "tablesVerbatim": 4
       },
       "tableOutcomes": {
@@ -16067,6 +16109,7 @@
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 1,
+        "tablesOverride": 0,
         "tablesVerbatim": 0
       },
       "tableOutcomes": {
@@ -17096,6 +17139,7 @@
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 1,
+        "tablesOverride": 0,
         "tablesVerbatim": 6
       },
       "tableOutcomes": {

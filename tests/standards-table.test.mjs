@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { tryGfmTable, tryStandardsList, thresholds } from '../scripts/lib/standards-table.mjs';
+import { applyTableOverride, tableKey, tryGfmTable, tryStandardsList, thresholds } from '../scripts/lib/standards-table.mjs';
 
 // 固定レイアウト（pdftotext -layout）の表を GFM へ戻す関数の契約を固定する。
 // 誤った GFM 化＝データ破壊なので、テストの主眼は「通ること」より「通さないこと」にある。
@@ -234,4 +234,62 @@ test('基準類の一覧: 年月で終わらない行が残る一覧は採用し
   ]);
   assert.equal(result.ok, false);
   assert.equal(result.reason, 'list-unterminated');
+});
+
+// ---- 原本と照合して組み直した表（applyTableOverride） ------------------------
+// 組み直しは承認済みで、版面の文字と多重集合で一致するものだけを採用する（並べ替えは許し、過不足は許さない）。
+
+const LAYOUT = ['           早強      普通', '15℃以上     3日       5日', '10℃以上     4日       7日'];
+const approved = (extra) => ({ key: tableKey(LAYOUT), layout: LAYOUT, review: { status: 'approved' }, ...extra });
+
+test('組み直し: 承認済みで文字が一致すれば表の部品になり、結合セルの繰り返しは元の文字を写す', () => {
+  const result = applyTableOverride(LAYOUT, approved({
+    kind: 'table',
+    header: [['日平均気温', '早強', '普通']],
+    rows: [['15℃以上', '3日', '5日'], ['10℃以上', '4日', '7日']],
+  }));
+  // 「日平均気温」は版面に無いので足すと照合に落ちる
+  assert.equal(result.ok, false);
+  assert.equal(result.reason, 'override-lossy');
+
+  const ok = applyTableOverride(LAYOUT, approved({
+    kind: 'table',
+    header: [['', '早強', '普通']],
+    rows: [['15℃以上', '3日', '5日'], ['10℃以上', '4日', '7日'], [{ same: 'above' }, '', '']],
+  }));
+  assert.equal(ok.ok, true);
+  assert.equal(ok.kind, 'parts');
+  assert.deepEqual(ok.parts[0].rows[2], ['10℃以上', '', '']);
+});
+
+test('組み直し: 下書き（未承認）は使わない', () => {
+  const draft = { ...approved({ kind: 'table', header: [['', '早強', '普通']], rows: [] }), review: { status: 'draft' } };
+  assert.equal(applyTableOverride(LAYOUT, draft).reason, 'override-unreviewed');
+});
+
+test('組み直し: 1 文字でも落とすと採用しない', () => {
+  const result = applyTableOverride(LAYOUT, approved({
+    kind: 'table',
+    header: [['', '早強', '普通']],
+    rows: [['15℃以上', '3日', '5日'], ['10℃以上', '4日', '']],
+  }));
+  assert.equal(result.ok, false);
+  assert.match(result.detail, /不足 .*7×1/);
+});
+
+test('組み直し: 前の版面を取り込む表は、取り込んだ版面の文字も合わせて照合する', () => {
+  const head = ['  ふるいの呼び寸法(㎜)    質量百分率(％)'];
+  const body = ['    2.5       100', '    1.2     90～100'];
+  const absorbing = {
+    key: tableKey(body), layout: body, review: { status: 'approved' }, kind: 'parts', absorbs: [tableKey(head)],
+    parts: [{ kind: 'table', header: [['ふるいの呼び寸法(㎜)', '質量百分率(％)']], rows: [['2.5', '100'], ['1.2', '90～100']] }],
+  };
+  const absorbed = { key: tableKey(head), layout: head, review: { status: 'approved' }, kind: 'absorbed', into: absorbing.key };
+  const lookup = (key) => ({ [absorbing.key]: absorbing, [absorbed.key]: absorbed })[key];
+
+  assert.equal(applyTableOverride(head, absorbed, { lookup }).kind, 'absorbed');
+  const ok = applyTableOverride(body, absorbing, { lookup, absorbedBodies: new Map([[absorbed.key, head]]) });
+  assert.equal(ok.ok, true);
+  // 取り込む版面が前に無ければ止める（本文が消えるため）
+  assert.equal(applyTableOverride(body, absorbing, { lookup }).reason, 'override-absorb-missing');
 });

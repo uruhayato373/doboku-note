@@ -18,14 +18,28 @@
  * 例外補正はコードへの場当たり的条件追加ではなく config/standards-structure.json へ集約する。
  */
 
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { datasetPath } from './datasets.mjs';
-import { REPO_ROOT, SITE_CONTENT_ROOT } from './repository-paths.mjs';
+import { CONTENT_SOURCES_ROOT, REPO_ROOT, SITE_CONTENT_ROOT } from './repository-paths.mjs';
 
 // リポジトリのルートは module の場所から決める（import 時の process.cwd() で固定しない。どの cwd から呼んでも同じ実体を指す）
 export const LIBRARY_ROOT = join(SITE_CONTENT_ROOT, 'standards-library');
 export const ARTICLES_ROOT = join(SITE_CONTENT_ROOT, 'standards-articles');
+/** 原本と照合して組み直した表（人とエージェントが書く入力。生成器が読み、検査が照合する） */
+export const TABLE_OVERRIDES_ROOT = join(CONTENT_SOURCES_ROOT, 'standards', 'tables');
+
+/** 組み直した表を key → 中身の Map で読む（無ければ空）。 */
+export function loadTableOverrides() {
+  const map = new Map();
+  if (!existsSync(TABLE_OVERRIDES_ROOT)) return map;
+  for (const name of readdirSync(TABLE_OVERRIDES_ROOT).filter((file) => file.endsWith('.json'))) {
+    const entry = JSON.parse(readFileSync(join(TABLE_OVERRIDES_ROOT, name), 'utf8'));
+    if (`${entry.key}.json` !== name) throw new Error(`${name}: ファイル名と key（${entry.key}）が違う`);
+    map.set(entry.key, entry);
+  }
+  return map;
+}
 const OVERRIDES_PATH = join(REPO_ROOT, datasetPath('config.standards-structure'));
 
 // ---- 行パターン ---------------------------------------------------------
@@ -337,8 +351,14 @@ function segmentToBlocks(segment) {
     // 多列の表は 1 行で判る（dense）。2 列組の一覧は 1 行では散文と区別できないので、
     // 「広い隙間を持つ行が 2 本以上、かつ chunk の 4 割以上」を要求する。散文の誤検出は
     // 1 行あたり 0.88% なので、この密度条件を通ることはまず無い。
+    // 表の行が空行で 1 行ずつ離れて組まれた紙面（近畿版 p167 表2-2-1 の `10   100` `5   90～100` …）は、
+    // 1 行の chunk だけ見ると散文と区別できず段落に化けていた。直前が表の領域で、広い空白を持ち、
+    // 句点で終わらない 1 行は表の続きとみなす。
+    const previous = classified[classified.length - 1];
+    const tableRowAfterTable =
+      chunk.length === 1 && !captionOnly && previous?.isTable && hasWideGap(chunk[0].text) && !trimBoth(chunk[0].text).endsWith('。');
     const isTable =
-      !captionOnly && !isWrappedProse(chunk) && (dense || (wide >= 2 && wide / chunk.length >= 0.4));
+      tableRowAfterTable || (!captionOnly && !isWrappedProse(chunk) && (dense || (wide >= 2 && wide / chunk.length >= 0.4)));
     if (!isTable) {
       classified.push({ chunk, isTable, captionOnly });
       continue;

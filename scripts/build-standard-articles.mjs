@@ -21,10 +21,10 @@
  */
 
 import { createHash } from 'node:crypto';
-import { mkdirSync, rmSync, existsSync } from 'node:fs';
+import { mkdirSync, rmSync, existsSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { writeMdxFile } from '../.claude/scripts/lib/mdx-io.mjs';
-import { tryGfmTable, tryStandardsList } from './lib/standards-table.mjs';
+import { applyTableOverride, tableKey, tryGfmTable, tryStandardsList } from './lib/standards-table.mjs';
 import { pathToFileURL } from 'node:url';
 import { datasetPath } from './lib/datasets.mjs';
 import {
@@ -33,6 +33,7 @@ import {
   getCatalog,
   loadDocumentPages,
   loadOverrides,
+  loadTableOverrides,
   patterns,
 } from './lib/standards-structure.mjs';
 
@@ -78,10 +79,26 @@ function escapeBlockStart(text) {
     .replace(/^([#>+|-])/, '\\$1');
 }
 
+/** 組み直した表の部品 1 つを Markdown にする（部品の種類は applyTableOverride のコメント）。 */
+function renderOverridePart(part) {
+  if (part.kind === 'caption') return `**${escapeInline(part.text)}**`;
+  if (part.kind === 'text' || part.kind === 'note') return escapeBlockStart(escapeInline(part.text));
+  if (part.kind === 'list') return part.items.map((item) => `- ${escapeBlockStart(escapeInline(item))}`).join('\n');
+  const row = (cells, bold = false) =>
+    `| ${cells.map((cell) => (cell && bold ? `**${escapeInline(cell)}**` : escapeInline(cell))).join(' | ')} |`;
+  return [
+    row(part.header[0]),
+    `| ${part.header[0].map(() => '---').join(' | ')} |`,
+    // 2 段目以降の見出し行は GFM の見出しにできないので太字の行にする
+    ...part.header.slice(1).map((cells) => row(cells, true)),
+    ...part.rows.map((cells) => row(cells)),
+  ].join('\n');
+}
+
 const formatPages = (pages) =>
   pages.length === 0 ? '' : pages.length === 1 ? `${pages[0]}` : `${pages[0]}-${pages[pages.length - 1]}`;
 
-function renderChapter(chapter, tableOutcomes = []) {
+function renderChapter(chapter, tableOutcomes = [], tableOverrides = new Map(), verbatimTables = []) {
   // 章記事は next-mdx-remote で MDX としてコンパイルする（<SourceRef> を解決するため）。
   // MDX は HTML コメントを受け付けないので、注記は MDX コメント {/* */} で書く。
   const lines = [
@@ -95,9 +112,15 @@ function renderChapter(chapter, tableOutcomes = []) {
   let sectionHasArticle = false;
   // 「適用すべき諸基準」の節・条の中の表領域は基準類の一覧なので、専用の組み直しを先に試す
   let inStandardsList = false;
+  // 版面のまま残った表の台帳（--table-inventory）に、どの見出しの下の表かを残す
+  let lastHeading = '';
+  // 組み直しの absorbs（直前の版面の取り込み）のために、この章で出た版面を key で覚える
+  const seenBodies = new Map();
+  const pendingAbsorbed = new Map();
 
   for (const node of chapter.nodes) {
     if (node.role === 'heading') {
+      lastHeading = node.raw;
       if (node.kind === 'section') {
         sectionHasArticle = false;
         inStandardsList = STANDARDS_LIST_SCOPE.test(node.title);
@@ -132,9 +155,43 @@ function renderChapter(chapter, tableOutcomes = []) {
         push(`<SourceRef pages="${pages}" kind="table" />`);
         continue;
       }
+      if (caption.length) push(`**${escapeInline(caption.map((l) => l.trim()).join(' '))}**`);
+
+      // 原本と照合して組み直した表（content/sources/standards/tables）。検証済みで文字の過不足が
+      // ゼロのものだけ使う。検証済みなのに文字が合わないのは組み直しの誤りなので生成を止める。
+      const key = body.length ? tableKey(body) : null;
+      const override = key ? tableOverrides.get(key) : undefined;
+      const applied = override
+        ? applyTableOverride(body, override, { lookup: (ref) => tableOverrides.get(ref), absorbedBodies: seenBodies })
+        : null;
+      if (key) seenBodies.set(key, body);
+      if (override && !applied.ok && applied.reason !== 'override-unreviewed') {
+        throw new Error(`組み直した表 ${key}（章 ${chapter.chapterId}）を適用できない: ${applied.reason} ${applied.detail ?? ''}`);
+      }
+      if (applied?.ok) {
+        tableOutcomes.push(applied.reason);
+        if (applied.kind === 'absorbed') {
+          // 後ろの版面が文字ごと取り込んで出す。取り込まれずに章が終わったら下で止める
+          pendingAbsorbed.set(key, applied.into);
+          push(`{/* table-override: ${key} absorbed-into ${applied.into} */}`);
+          continue;
+        }
+        push(`{/* table-override: ${key} */}`);
+        for (const absorbed of override.absorbs ?? []) pendingAbsorbed.delete(absorbed);
+        if (applied.kind === 'verbatim') {
+          push(['```text', ...body, '```'].join('\n'));
+        } else {
+          for (const part of applied.parts) push(renderOverridePart(part));
+        }
+        push(`<SourceRef pages="${pages}" kind="table" />`);
+        continue;
+      }
+
       const restored = body.length ? tryGfmTable(body) : { ok: false, reason: 'empty-layout' };
       tableOutcomes.push(restored.reason);
-      if (caption.length) push(`**${escapeInline(caption.map((l) => l.trim()).join(' '))}**`);
+      if (!restored.ok && key) {
+        verbatimTables.push({ key, chapterId: chapter.chapterId, pages: node.pages, caption, context: lastHeading, body, draft: Boolean(override) });
+      }
 
       if (restored.ok) {
         const row = (cells) => `| ${cells.map((cell) => escapeInline(cell)).join(' | ')} |`;
@@ -161,6 +218,10 @@ function renderChapter(chapter, tableOutcomes = []) {
       continue;
     }
     push(escapeBlockStart(escapeInline(joinWrapped(node.lines))));
+  }
+  const [leftover] = pendingAbsorbed;
+  if (leftover) {
+    throw new Error(`組み直した表 ${leftover[0]}（章 ${chapter.chapterId}）は ${leftover[1]} に取り込まれる宣言だが、${leftover[1]} が後ろに出てこない（本文が消える）`);
   }
 
   // 末尾の余分な空行を 1 本に畳む
@@ -211,6 +272,8 @@ function tallyTables(outcomes) {
   return {
     tablesGfm: outcomes.filter((reason) => reason === 'restored').length,
     tablesList: outcomes.filter((reason) => reason === 'restored-standards-list').length,
+    // 原本と照合して組み直した表・一覧（content/sources/standards/tables）
+    tablesOverride: outcomes.filter((reason) => reason === 'restored-override').length,
     tablesVerbatim: outcomes.filter((reason) => !reason.startsWith('restored')).length,
   };
 }
@@ -242,7 +305,7 @@ function countNodes(chapter) {
 
 // ---- 本体 ---------------------------------------------------------------
 
-export function buildDocument(document, overrides, { write = true } = {}) {
+export function buildDocument(document, overrides, { write = true, verbatimTables = [] } = {}) {
   const analysis = analyzeDocument(document, overrides);
   const pages = loadDocumentPages(document);
   const pageText = new Map(pages.map((p) => [p.page, p.lines.join('\n')]));
@@ -270,10 +333,13 @@ export function buildDocument(document, overrides, { write = true } = {}) {
   // 大きすぎる章は節ページに分ける（基準は設定・切り出しは src/lib/standards-section-split.mjs）。
   // 判定はここだけで行い、サイトは manifest の splitBySection を読む。
   const splitThreshold = overrides.sectionPages?.minOutputBytes ?? Infinity;
+  const tableOverrides = loadTableOverrides();
 
   const chapters = analysis.chapters.map((chapter) => {
     const tableOutcomes = [];
-    const markdown = renderChapter(chapter, tableOutcomes);
+    const chapterTables = [];
+    const markdown = renderChapter(chapter, tableOutcomes, tableOverrides, chapterTables);
+    verbatimTables.push(...chapterTables.map((table) => ({ ...table, document: `${document.agencyId}/${document.documentId}` })));
     const file = `chapters/${chapter.chapterId}.md`;
     if (write) writeMdxFile(join(outDir, file), markdown);
     const sourceText = chapter.sourcePages.map((page) => pageText.get(page)).join('\n');
@@ -339,6 +405,7 @@ export function buildDocument(document, overrides, { write = true } = {}) {
       tables: chapters.reduce((sum, c) => sum + c.stats.tables, 0),
       tablesGfm: chapters.reduce((sum, c) => sum + c.stats.tablesGfm, 0),
       tablesList: chapters.reduce((sum, c) => sum + c.stats.tablesList, 0),
+      tablesOverride: chapters.reduce((sum, c) => sum + c.stats.tablesOverride, 0),
       tablesVerbatim: chapters.reduce((sum, c) => sum + c.stats.tablesVerbatim, 0),
     },
     tableOutcomes: chapters.reduce((tally, c) => {
@@ -367,6 +434,9 @@ export function buildDocument(document, overrides, { write = true } = {}) {
 function main() {
   const args = process.argv.slice(2);
   const check = args.includes('--check');
+  // --table-inventory=<path>: 版面のまま残った表を key ごとに束ねて書き出す（原本照合の作業台帳）
+  const inventoryPath = args.find((a) => a.startsWith('--table-inventory='))?.split('=')[1] ?? null;
+  const verbatimTables = [];
   const explicit = args.filter((a) => !a.startsWith('--'));
   const overrides = loadOverrides();
   const catalog = getCatalog();
@@ -389,15 +459,27 @@ function main() {
       failed += 1;
       continue;
     }
-    const manifest = buildDocument(document, overrides, { write: !check });
+    const manifest = buildDocument(document, overrides, { write: !check, verbatimTables });
     const a = manifest.audit;
     console.log(
       `${check ? '(check) ' : ''}${target}: 章 ${a.chapters} / 本文 ${a.bodyPages}p ` +
         `(前付け ${a.frontMatterPages}p) / 行 割当 ${a.assignedLines} + 除去 ${a.removedLines} ` +
-        `= ${a.bodyLineTotal}（未割当 ${a.unassignedLines}） / 表 ${a.tables}（GFM ${a.tablesGfm} / 基準類の一覧 ${a.tablesList} / 版面保持 ${a.tablesVerbatim}） / rejects ${manifest.rejects.length} ` +
+        `= ${a.bodyLineTotal}（未割当 ${a.unassignedLines}） / 表 ${a.tables}（GFM ${a.tablesGfm} / 基準類の一覧 ${a.tablesList} / 原本照合 ${a.tablesOverride} / 版面保持 ${a.tablesVerbatim}） / rejects ${manifest.rejects.length} ` +
         `/ review ${manifest.reviewQueue.length} / indexable ${manifest.indexable}（${manifest.indexableReason}）`,
     );
     if (a.unassignedLines !== 0 || manifest.rejects.length > 0) failed += 1;
+  }
+  if (inventoryPath) {
+    // 同じ表（key が同じ）を持つ文書・章を seenIn に束ねる。先頭の出現を代表にする
+    const byKey = new Map();
+    for (const table of verbatimTables) {
+      const entry = byKey.get(table.key);
+      const seen = `${table.document} ${table.chapterId} p${table.pages.join(',')}`;
+      if (entry) entry.seenIn.push(seen);
+      else byKey.set(table.key, { ...table, seenIn: [seen] });
+    }
+    writeFileSync(inventoryPath, `${JSON.stringify([...byKey.values()], null, 2)}\n`);
+    console.log(`版面のまま残った表: ${verbatimTables.length} 件（key ${byKey.size} 種類）→ ${inventoryPath}`);
   }
   if (failed > 0) process.exitCode = 1;
 }

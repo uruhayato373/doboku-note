@@ -27,6 +27,7 @@ import {
   getCatalog,
   loadDocumentPages,
   loadOverrides,
+  loadTableOverrides,
   patterns,
 } from './lib/standards-structure.mjs';
 import { loadManifest as loadAssetManifest } from './lib/asset-storage.mjs';
@@ -592,8 +593,8 @@ function checkRejects(def, { manifest, analysis }) {
  */
 /** GFM の許容理由コード。標準以外の値が manifest に出たら生成器の変更を見落としている。 */
 const TABLE_REASONS = new Set([
-  'restored', 'restored-standards-list', 'too-few-rows', 'tab-character', 'empty-layout', 'columns-out-of-range',
-  'lossy', 'ragged-rows', 'empty-cell', 'pipe-in-cell',
+  'restored', 'restored-standards-list', 'restored-override', 'override-verbatim', 'too-few-rows', 'tab-character',
+  'empty-layout', 'columns-out-of-range', 'lossy', 'ragged-rows', 'empty-cell', 'pipe-in-cell',
 ]);
 
 /**
@@ -609,8 +610,50 @@ function checkTables(def, { manifest, agencyId, documentId, document }) {
   const notes = [];
   let gfmFound = 0;
   let listFound = 0;
+  let overrideFound = 0;
   let verbatimFound = 0;
   let verified = 0;
+  const tableOverrides = loadTableOverrides();
+
+  /**
+   * 組み直した表 1 件の照合。生成器の applyTableOverride とは別に書く（同じ関数で照合すると、その関数の
+   * 誤りは永久に見つからない）。見るのは: 承認済み・layout のハッシュが key・layout が原典にある・
+   * 部品の文字と版面（取り込んだ版面を含む）の文字が多重集合で一致（結合セルの繰り返し {same} は数えない）。
+   */
+  const verifyTableOverride = (key, absorbedInto, existsInSource) => {
+    const entry = tableOverrides.get(key);
+    if (!entry) return '組み直しのファイルが無い';
+    if (entry.review?.status !== 'approved') return `承認されていない（${entry.review?.status ?? 'review なし'}）`;
+    const hash = createHash('sha256').update((entry.layout ?? []).join('').replace(/[\s　]/g, ''), 'utf8').digest('hex').slice(0, 16);
+    if (hash !== key) return `layout のハッシュ ${hash} が key と違う`;
+    if (!existsInSource(entry.layout)) return 'layout が原典の出所ページに見つからない';
+    if (absorbedInto) {
+      const target = tableOverrides.get(absorbedInto);
+      return target && (target.absorbs ?? []).includes(key) ? null : `取り込み先 ${absorbedInto} が absorbs に持っていない`;
+    }
+    if (entry.kind === 'verbatim') return null;
+    const bag = (texts) => {
+      const counts = new Map();
+      for (const ch of texts.join('').replace(/[\s　]/g, '')) counts.set(ch, (counts.get(ch) ?? 0) + 1);
+      return counts;
+    };
+    const strings = [];
+    const collect = (value) => {
+      if (typeof value === 'string') strings.push(value);
+      else if (Array.isArray(value)) value.forEach(collect);
+      else if (value && typeof value === 'object' && !('same' in value)) {
+        for (const field of ['header', 'rows', 'items', 'text', 'notes', 'parts']) if (field in value) collect(value[field]);
+      }
+    };
+    collect({ header: entry.header, rows: entry.rows, items: entry.items, notes: entry.notes, parts: entry.parts });
+    const expected = [...entry.layout];
+    for (const absorbed of entry.absorbs ?? []) expected.push(...(tableOverrides.get(absorbed)?.layout ?? []));
+    const want = bag(expected);
+    const got = bag(strings);
+    const keys = new Set([...want.keys(), ...got.keys()]);
+    const diff = [...keys].filter((ch) => (want.get(ch) ?? 0) !== (got.get(ch) ?? 0));
+    return diff.length ? `部品の文字が版面と合わない（${diff.slice(0, 8).map((ch) => `${ch} 版面${want.get(ch) ?? 0}/部品${got.get(ch) ?? 0}`).join('、')}）` : null;
+  };
 
   // 原典ページの本文（空白除去）をページ単位で用意し、GFM セルの実在確認に使う。
   // pageBody は最初と最後の非空行（柱・印刷ページ番号）を除いたもので、ページをまたぐ表の照合に使う。
@@ -636,10 +679,10 @@ function checkTables(def, { manifest, agencyId, documentId, document }) {
         violations.push(`${chapter.chapterId}: 未知の表理由コード ${reason}（${count} 件）`);
       }
     }
-    const declared = (chapter.stats.tablesGfm ?? 0) + (chapter.stats.tablesList ?? 0) + (chapter.stats.tablesVerbatim ?? 0);
+    const declared = (chapter.stats.tablesGfm ?? 0) + (chapter.stats.tablesList ?? 0) + (chapter.stats.tablesOverride ?? 0) + (chapter.stats.tablesVerbatim ?? 0);
     if (declared !== chapter.stats.tables) {
       violations.push(
-        `${chapter.chapterId}: 表 ${chapter.stats.tables} 件に対し内訳が ${declared} 件（GFM ${chapter.stats.tablesGfm} + 一覧 ${chapter.stats.tablesList ?? 0} + 版面 ${chapter.stats.tablesVerbatim}）`,
+        `${chapter.chapterId}: 表 ${chapter.stats.tables} 件に対し内訳が ${declared} 件（GFM ${chapter.stats.tablesGfm} + 一覧 ${chapter.stats.tablesList ?? 0} + 組み直し ${chapter.stats.tablesOverride ?? 0} + 版面 ${chapter.stats.tablesVerbatim}）`,
       );
     }
 
@@ -660,6 +703,21 @@ function checkTables(def, { manifest, agencyId, documentId, document }) {
     for (let i = 0; i < lines.length; i += 1) {
       if (/^```/.test(lines[i])) { if (!inCode) verbatimFound += 1; inCode = !inCode; continue; }
       if (inCode) continue;
+      // 原本と照合して組み直した表（生成器が `{/* table-override: KEY */}` を前に置く）
+      const marker = lines[i].match(/^\{\/\* table-override: ([0-9a-f]{16})(?: absorbed-into ([0-9a-f]{16}))? \*\/\}$/);
+      if (marker) {
+        const problem = verifyTableOverride(marker[1], marker[2] ?? null, existsInSource);
+        if (problem) violations.push(`${chapter.chapterId}: 組み直した表 ${marker[1]}: ${problem}`);
+        else verified += 1;
+        const entry = tableOverrides.get(marker[1]);
+        if (marker[2]) { overrideFound += 1; continue; }
+        if (entry?.kind === 'verbatim') continue; // 版面のまま残すと判断した表。次のコードブロックは版面保持として数える
+        overrideFound += 1;
+        let end = i + 1;
+        while (end < lines.length && !/^<SourceRef [^>]*kind="table"/.test(lines[end])) end += 1;
+        i = end;
+        continue;
+      }
       // 基準類の一覧（`- ` の箇条書き）。章記事で行頭が `- ` になるのは生成器の一覧だけ
       // （散文の行頭の `-` は escapeBlockStart が `\-` にする）
       if (/^- /.test(lines[i])) {
@@ -691,9 +749,13 @@ function checkTables(def, { manifest, agencyId, documentId, document }) {
 
   const declaredGfm = manifest.audit.tablesGfm ?? 0;
   const declaredList = manifest.audit.tablesList ?? 0;
+  const declaredOverride = manifest.audit.tablesOverride ?? 0;
   const declaredVerbatim = manifest.audit.tablesVerbatim ?? 0;
   if (gfmFound !== declaredGfm) {
     violations.push(`GFM 表の実数 ${gfmFound} 件 ≠ 台帳 ${declaredGfm} 件`);
+  }
+  if (overrideFound !== declaredOverride) {
+    violations.push(`組み直した表の実数 ${overrideFound} 件 ≠ 台帳 ${declaredOverride} 件`);
   }
   if (listFound !== declaredList) {
     violations.push(`基準類の一覧の実数 ${listFound} 件 ≠ 台帳 ${declaredList} 件`);
@@ -701,12 +763,12 @@ function checkTables(def, { manifest, agencyId, documentId, document }) {
   if (verbatimFound !== declaredVerbatim) {
     violations.push(`コードブロックの実数 ${verbatimFound} 件 ≠ 台帳 ${declaredVerbatim} 件`);
   }
-  const total = gfmFound + listFound + verbatimFound;
+  const total = gfmFound + listFound + overrideFound + verbatimFound;
   if (total === 0) {
     return result(def, { status: INCONCLUSIVE, checked: 0, unit: '表', violations: ['表が 1 件も無い。検査が成立しない'] });
   }
   notes.push(
-    `GFM ${gfmFound} 件・基準類の一覧 ${listFound} 件（うち原典との一致確認 ${verified} 件） / 版面保持 ${verbatimFound} 件・理由内訳 ${Object.entries(manifest.tableOutcomes ?? {}).filter(([r]) => !r.startsWith('restored')).map(([r, c]) => `${r} ${c}`).join(' / ') || 'なし'}`,
+    `GFM ${gfmFound} 件・基準類の一覧 ${listFound} 件・原本照合の組み直し ${overrideFound} 件（うち原典との一致確認 ${verified} 件） / 版面保持 ${verbatimFound} 件・理由内訳 ${Object.entries(manifest.tableOutcomes ?? {}).filter(([r]) => !r.startsWith('restored')).map(([r, c]) => `${r} ${c}`).join(' / ') || 'なし'}`,
   );
   return result(def, { status: verdict(violations, []), checked: total, unit: '表', violations, notes });
 }
