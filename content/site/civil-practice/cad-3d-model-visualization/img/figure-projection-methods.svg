@@ -1,0 +1,48 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は本文の記述に基づく。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="同じ直方体を平行投影と透視投影で見たときの違い。平行投影は平行な辺が平行のままで、投影面に平行な辺は実長で表れるので寸法を読める。透視投影は遠い辺が近い辺より小さく、平行な辺は先へ向けて寄るので、画面上の長さは寸法として読めない。">
+  <defs>
+  <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 11px; fill: #555; }
+      .k { font-size: 12px; fill: #222; }
+      .p { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .bb { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .bp { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .bw { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .bd { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .bs { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .ln { stroke: #2e6da4; stroke-width: 1.5; fill: none; stroke-linejoin: round; }
+      .hd { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 4 3; fill: none; }
+      .ar { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .gy { stroke: #555; stroke-width: 1.5; fill: none; }
+  </style>
+  <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="ag" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  <marker id="ags" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+  <rect class="p" x="10" y="8" width="380" height="236" rx="8"/>
+  <text class="n" x="24" y="34">平行投影</text>
+  <path class="hd" d="M150,52V122M150,122H260M120,144L150,122"/>
+  <polygon class="ln" style="fill:#f5f5f5" points="230,74 260,52 260,122 230,144"/>
+  <polygon class="ln" style="fill:#fff" points="120,74 150,52 260,52 230,74"/>
+  <polygon class="ln" style="fill:#e8f0fe" points="120,74 230,74 230,144 120,144"/>
+  <path class="gy" d="M175,164H120" marker-end="url(#ag)"/><path class="gy" d="M175,164H230" marker-end="url(#ag)"/>
+  <text class="s" x="238" y="168">実長</text>
+  <text class="k" x="24" y="192">平行な辺は、平行なまま描かれる</text>
+  <text class="k" x="24" y="210">投影面に平行な辺は、実長で表れる</text>
+  <rect class="bp" x="250" y="194" width="126" height="26" rx="13"/><text class="t" x="313" y="211" text-anchor="middle">寸法を読める</text>
+  <rect class="p" x="10" y="254" width="380" height="236" rx="8"/>
+  <text class="n" x="24" y="280">透視投影</text>
+  <path class="hd" d="M196,296V346M196,346H270M120,396L196,346"/>
+  <polygon class="ln" style="fill:#f5f5f5" points="240,316 270,296 270,346 240,396"/>
+  <polygon class="ln" style="fill:#fff" points="120,316 196,296 270,296 240,316"/>
+  <polygon class="ln" style="fill:#e8f0fe" points="120,316 240,316 240,396 120,396"/>
+  <text class="s" x="180" y="412" text-anchor="middle">近い辺</text>
+  <text class="s" x="233" y="290" text-anchor="middle">遠い辺</text>
+  <text class="k" x="24" y="438">遠い辺は、近い辺より小さい</text>
+  <text class="k" x="24" y="456">平行な辺は、先へ向けて寄っていく</text>
+  <rect class="bw" x="250" y="440" width="126" height="26" rx="13"/><text class="t" x="313" y="457" text-anchor="middle">寸法は読めない</text>
+
+</svg>
