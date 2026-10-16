@@ -1,0 +1,70 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="国土地理院の地図を使うときの手続の判断の流れ。基本測量成果でなければ一覧の区分の条件に従い出典を書く。基本測量成果なら使い方で分け、Webやアプリでタイルをリアルタイムに読み込む場合と内部利用や書籍の挿入図などは出典の明示のみ、複製は測量法第29条、別種の地図や主題図の作成は第30条で国土地理院長の承認が要る。迷ったら地図の利用手続ナビで確かめる。">
+  <defs>
+  <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 11px; fill: #555; }
+      .m { font-size: 11px; fill: #8a8a8a; }
+      .p { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .bb { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .bp { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .bw { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .bd { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .bs { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ln { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+  </style>
+  <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="at" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+<rect class="bb" x="10" y="10" width="380" height="48" rx="8"/>
+  <text class="n" x="200" y="31" text-anchor="middle">使う地図は基本測量成果か</text>
+  <text class="s" x="200" y="48" text-anchor="middle">タイル一覧やデータの説明の区分で確かめる</text>
+  <path class="ln" d="M18,58V158" style="stroke:#2e6da4;stroke-width:2"/>
+  <path class="a" d="M18,97H58" marker-end="url(#ah)"/>
+  <path class="a" d="M18,158H58" marker-end="url(#ah)"/>
+  <text class="t" x="22" y="90">いいえ</text>
+  <text class="t" x="22" y="151">はい</text>
+  <rect class="bs" x="62" y="70" width="328" height="54" rx="8"/>
+  <text class="n" x="74" y="93">出典の明示のみ・他機関の条件</text>
+  <text class="s" x="74" y="111">一覧の区分の条件に従い、出典を書く</text>
+  <rect class="bb" x="62" y="136" width="328" height="44" rx="8"/>
+  <text class="n" x="74" y="163">使い方で手続を分ける</text>
+  <path class="ln" d="M76,180V406" style="stroke:#8a8a8a"/>
+  <path class="ln" d="M76,220H90" style="stroke:#8a8a8a"/>
+  <rect class="p" x="90" y="194" width="152" height="52" rx="8"/>
+  <text class="s" x="98" y="216" style="fill:#222">Webやアプリで、タイルを</text>
+  <text class="s" x="98" y="233" style="fill:#222">リアルタイムに読み込む</text>
+  <path class="a" d="M244,220H256" marker-end="url(#ah)"/>
+  <rect class="bp" x="258" y="194" width="132" height="52" rx="8"/>
+  <text class="t" x="266" y="216">出典の明示のみ</text>
+  <text class="s" x="266" y="233">申請は要らない</text>
+  <path class="ln" d="M76,282H90" style="stroke:#8a8a8a"/>
+  <rect class="p" x="90" y="256" width="152" height="52" rx="8"/>
+  <text class="s" x="98" y="278" style="fill:#222">内部での利用、</text>
+  <text class="s" x="98" y="295" style="fill:#222">書籍の挿入図など</text>
+  <path class="a" d="M244,282H256" marker-end="url(#ah)"/>
+  <rect class="bp" x="258" y="256" width="132" height="52" rx="8"/>
+  <text class="t" x="266" y="278">出典の明示のみ</text>
+  <text class="s" x="266" y="295">承認は要らない</text>
+  <path class="ln" d="M76,344H90" style="stroke:#8a8a8a"/>
+  <rect class="p" x="90" y="318" width="152" height="52" rx="8"/>
+  <text class="s" x="98" y="340" style="fill:#222">コピーやスキャンで</text>
+  <text class="s" x="98" y="357" style="fill:#222">複製して背景に使う</text>
+  <path class="a" d="M244,344H256" marker-end="url(#ah)"/>
+  <rect class="bw" x="258" y="318" width="132" height="52" rx="8"/>
+  <text class="t" x="266" y="340">複製（第29条）</text>
+  <text class="s" x="266" y="357">国土地理院長の承認</text>
+  <path class="ln" d="M76,406H90" style="stroke:#8a8a8a"/>
+  <rect class="p" x="90" y="380" width="152" height="52" rx="8"/>
+  <text class="s" x="98" y="402" style="fill:#222">手を加えて別種の地図、</text>
+  <text class="s" x="98" y="419" style="fill:#222">主題図を作る</text>
+  <path class="a" d="M244,406H256" marker-end="url(#ah)"/>
+  <rect class="bw" x="258" y="380" width="132" height="52" rx="8"/>
+  <text class="t" x="266" y="402">使用（第30条）</text>
+  <text class="s" x="266" y="419">国土地理院長の承認</text>
+  <rect class="bw" x="10" y="446" width="380" height="50" rx="8"/>
+  <text class="n" x="200" y="468" text-anchor="middle">迷ったら「地図の利用手続ナビ」で確かめる</text>
+  <text class="s" x="200" y="485" text-anchor="middle">国土地理院の測量成果の利用手続のページが案内</text>
+</svg>
