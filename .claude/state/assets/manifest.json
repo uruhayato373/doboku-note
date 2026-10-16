@@ -57257,7 +57257,15 @@
       "group": "site-ogp-png",
       "verifiedAt": "2026-10-16T01:16:19.500Z",
       "width": 1200,
-      "height": 630
+      "height": 630,
+      "logicalPath": "content/site/standards-articles/hokkaido/common/chapters/10-13/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/common/chapters/10-12/ogp.png": {
       "bucket": "public",
@@ -57269,7 +57277,15 @@
       "group": "site-ogp-png",
       "verifiedAt": "2026-10-16T01:16:19.512Z",
       "width": 1200,
-      "height": 630
+      "height": 630,
+      "logicalPath": "content/site/standards-articles/hokkaido/common/chapters/10-12/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/common/chapters/10-10/ogp.png": {
       "bucket": "public",
@@ -57281,7 +57297,15 @@
       "group": "site-ogp-png",
       "verifiedAt": "2026-10-16T01:16:19.512Z",
       "width": 1200,
-      "height": 630
+      "height": 630,
+      "logicalPath": "content/site/standards-articles/hokkaido/common/chapters/10-10/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/common/chapters/10-1/ogp.png": {
       "bucket": "public",
@@ -57293,7 +57317,15 @@
       "group": "site-ogp-png",
       "verifiedAt": "2026-10-16T01:16:19.671Z",
       "width": 1200,
-      "height": 630
+      "height": 630,
+      "logicalPath": "content/site/standards-articles/hokkaido/common/chapters/10-1/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/common/chapters/10-11/ogp.png": {
       "bucket": "public",
@@ -57305,7 +57337,15 @@
       "group": "site-ogp-png",
       "verifiedAt": "2026-10-16T01:16:19.695Z",
       "width": 1200,
-      "height": 630
+      "height": 630,
+      "logicalPath": "content/site/standards-articles/hokkaido/common/chapters/10-11/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/common/chapters/1-3/ogp.png": {
       "bucket": "public",
@@ -57317,7 +57357,15 @@
       "group": "site-ogp-png",
       "verifiedAt": "2026-10-16T01:16:19.716Z",
       "width": 1200,
-      "height": 630
+      "height": 630,
+      "logicalPath": "content/site/standards-articles/hokkaido/common/chapters/1-3/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/common/chapters/1-1/ogp.png": {
       "bucket": "public",
@@ -57329,7 +57377,15 @@
       "group": "site-ogp-png",
       "verifiedAt": "2026-10-16T01:16:19.811Z",
       "width": 1200,
-      "height": 630
+      "height": 630,
+      "logicalPath": "content/site/standards-articles/hokkaido/common/chapters/1-1/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/common/chapters/1-2/ogp.png": {
       "bucket": "public",
@@ -57341,7 +57397,15 @@
       "group": "site-ogp-png",
       "verifiedAt": "2026-10-16T01:16:19.983Z",
       "width": 1200,
-      "height": 630
+      "height": 630,
+      "logicalPath": "content/site/standards-articles/hokkaido/common/chapters/1-2/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/common/chapters/10-14/ogp.png": {
       "bucket": "public",
@@ -57353,7 +57417,15 @@
       "group": "site-ogp-png",
       "verifiedAt": "2026-10-16T01:16:20.672Z",
       "width": 1200,
-      "height": 630
+      "height": 630,
+      "logicalPath": "content/site/standards-articles/hokkaido/common/chapters/10-14/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/common/chapters/10-15/ogp.png": {
       "bucket": "public",
@@ -57365,7 +57437,15 @@
       "group": "site-ogp-png",
       "verifiedAt": "2026-10-16T01:16:20.743Z",
       "width": 1200,
-      "height": 630
+      "height": 630,
+      "logicalPath": "content/site/standards-articles/hokkaido/common/chapters/10-15/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/common/chapters/10-16/ogp.png": {
       "bucket": "public",
@@ -57377,7 +57457,15 @@
       "group": "site-ogp-png",
       "verifiedAt": "2026-10-16T01:16:20.789Z",
       "width": 1200,
-      "height": 630
+      "height": 630,
+      "logicalPath": "content/site/standards-articles/hokkaido/common/chapters/10-16/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/common/chapters/10-2/ogp.png": {
       "bucket": "public",
@@ -57389,7 +57477,15 @@
       "group": "site-ogp-png",
       "verifiedAt": "2026-10-16T01:16:21.027Z",
       "width": 1200,
-      "height": 630
+      "height": 630,
+      "logicalPath": "content/site/standards-articles/hokkaido/common/chapters/10-2/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/common/chapters/10-5/ogp.png": {
       "bucket": "public",
@@ -57401,7 +57497,15 @@
       "group": "site-ogp-png",
       "verifiedAt": "2026-10-16T01:16:21.055Z",
       "width": 1200,
-      "height": 630
+      "height": 630,
+      "logicalPath": "content/site/standards-articles/hokkaido/common/chapters/10-5/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/common/chapters/10-4/ogp.png": {
       "bucket": "public",
@@ -57413,7 +57517,15 @@
       "group": "site-ogp-png",
       "verifiedAt": "2026-10-16T01:16:21.152Z",
       "width": 1200,
-      "height": 630
+      "height": 630,
+      "logicalPath": "content/site/standards-articles/hokkaido/common/chapters/10-4/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/common/chapters/10-3/ogp.png": {
       "bucket": "public",
@@ -57425,7 +57537,15 @@
       "group": "site-ogp-png",
       "verifiedAt": "2026-10-16T01:16:21.183Z",
       "width": 1200,
-      "height": 630
+      "height": 630,
+      "logicalPath": "content/site/standards-articles/hokkaido/common/chapters/10-3/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/common/chapters/10-6/ogp.png": {
       "bucket": "public",
@@ -57437,7 +57557,15 @@
       "group": "site-ogp-png",
       "verifiedAt": "2026-10-16T01:16:21.344Z",
       "width": 1200,
-      "height": 630
+      "height": 630,
+      "logicalPath": "content/site/standards-articles/hokkaido/common/chapters/10-6/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/common/chapters/10-7/ogp.png": {
       "bucket": "public",
@@ -57449,7 +57577,15 @@
       "group": "site-ogp-png",
       "verifiedAt": "2026-10-16T01:16:21.779Z",
       "width": 1200,
-      "height": 630
+      "height": 630,
+      "logicalPath": "content/site/standards-articles/hokkaido/common/chapters/10-7/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/common/chapters/10-9/ogp.png": {
       "bucket": "public",
@@ -57461,7 +57597,15 @@
       "group": "site-ogp-png",
       "verifiedAt": "2026-10-16T01:16:21.898Z",
       "width": 1200,
-      "height": 630
+      "height": 630,
+      "logicalPath": "content/site/standards-articles/hokkaido/common/chapters/10-9/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/common/chapters/10-8/ogp.png": {
       "bucket": "public",
@@ -57473,7 +57617,15 @@
       "group": "site-ogp-png",
       "verifiedAt": "2026-10-16T01:16:22.049Z",
       "width": 1200,
-      "height": 630
+      "height": 630,
+      "logicalPath": "content/site/standards-articles/hokkaido/common/chapters/10-8/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/common/chapters/2-1/ogp.png": {
       "bucket": "public",
@@ -57485,7 +57637,15 @@
       "group": "site-ogp-png",
       "verifiedAt": "2026-10-16T01:16:22.266Z",
       "width": 1200,
-      "height": 630
+      "height": 630,
+      "logicalPath": "content/site/standards-articles/hokkaido/common/chapters/2-1/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/common/chapters/2-2/ogp.png": {
       "bucket": "public",
@@ -57497,7 +57657,15 @@
       "group": "site-ogp-png",
       "verifiedAt": "2026-10-16T01:16:22.342Z",
       "width": 1200,
-      "height": 630
+      "height": 630,
+      "logicalPath": "content/site/standards-articles/hokkaido/common/chapters/2-2/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/common/chapters/3-1/ogp.png": {
       "bucket": "public",
@@ -57509,7 +57677,15 @@
       "group": "site-ogp-png",
       "verifiedAt": "2026-10-16T01:16:22.470Z",
       "width": 1200,
-      "height": 630
+      "height": 630,
+      "logicalPath": "content/site/standards-articles/hokkaido/common/chapters/3-1/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/common/chapters/3-2/ogp.png": {
       "bucket": "public",
@@ -57521,7 +57697,15 @@
       "group": "site-ogp-png",
       "verifiedAt": "2026-10-16T01:16:22.651Z",
       "width": 1200,
-      "height": 630
+      "height": 630,
+      "logicalPath": "content/site/standards-articles/hokkaido/common/chapters/3-2/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/common/chapters/6-1/ogp.png": {
       "bucket": "public",
@@ -57533,7 +57717,15 @@
       "group": "site-ogp-png",
       "verifiedAt": "2026-10-16T01:16:22.824Z",
       "width": 1200,
-      "height": 630
+      "height": 630,
+      "logicalPath": "content/site/standards-articles/hokkaido/common/chapters/6-1/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/common/chapters/6-2/ogp.png": {
       "bucket": "public",
@@ -57545,7 +57737,15 @@
       "group": "site-ogp-png",
       "verifiedAt": "2026-10-16T01:16:22.867Z",
       "width": 1200,
-      "height": 630
+      "height": 630,
+      "logicalPath": "content/site/standards-articles/hokkaido/common/chapters/6-2/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/common/chapters/6-3/ogp.png": {
       "bucket": "public",
@@ -57557,7 +57757,15 @@
       "group": "site-ogp-png",
       "verifiedAt": "2026-10-16T01:16:23.057Z",
       "width": 1200,
-      "height": 630
+      "height": 630,
+      "logicalPath": "content/site/standards-articles/hokkaido/common/chapters/6-3/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/common/chapters/6-4/ogp.png": {
       "bucket": "public",
@@ -57569,7 +57777,15 @@
       "group": "site-ogp-png",
       "verifiedAt": "2026-10-16T01:16:23.309Z",
       "width": 1200,
-      "height": 630
+      "height": 630,
+      "logicalPath": "content/site/standards-articles/hokkaido/common/chapters/6-4/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/common/chapters/6-5/ogp.png": {
       "bucket": "public",
@@ -57581,7 +57797,15 @@
       "group": "site-ogp-png",
       "verifiedAt": "2026-10-16T01:16:23.480Z",
       "width": 1200,
-      "height": 630
+      "height": 630,
+      "logicalPath": "content/site/standards-articles/hokkaido/common/chapters/6-5/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/common/chapters/6-6/ogp.png": {
       "bucket": "public",
@@ -57593,7 +57817,15 @@
       "group": "site-ogp-png",
       "verifiedAt": "2026-10-16T01:16:23.640Z",
       "width": 1200,
-      "height": 630
+      "height": 630,
+      "logicalPath": "content/site/standards-articles/hokkaido/common/chapters/6-6/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/common/chapters/6-7/ogp.png": {
       "bucket": "public",
@@ -57605,7 +57837,15 @@
       "group": "site-ogp-png",
       "verifiedAt": "2026-10-16T01:16:23.691Z",
       "width": 1200,
-      "height": 630
+      "height": 630,
+      "logicalPath": "content/site/standards-articles/hokkaido/common/chapters/6-7/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/common/chapters/6-8/ogp.png": {
       "bucket": "public",
@@ -57617,7 +57857,15 @@
       "group": "site-ogp-png",
       "verifiedAt": "2026-10-16T01:16:23.893Z",
       "width": 1200,
-      "height": 630
+      "height": 630,
+      "logicalPath": "content/site/standards-articles/hokkaido/common/chapters/6-8/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/common/chapters/7-1/ogp.png": {
       "bucket": "public",
@@ -57629,7 +57877,15 @@
       "group": "site-ogp-png",
       "verifiedAt": "2026-10-16T01:16:23.937Z",
       "width": 1200,
-      "height": 630
+      "height": 630,
+      "logicalPath": "content/site/standards-articles/hokkaido/common/chapters/7-1/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/common/chapters/7-2/ogp.png": {
       "bucket": "public",
@@ -57641,7 +57897,15 @@
       "group": "site-ogp-png",
       "verifiedAt": "2026-10-16T01:16:24.233Z",
       "width": 1200,
-      "height": 630
+      "height": 630,
+      "logicalPath": "content/site/standards-articles/hokkaido/common/chapters/7-2/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/common/chapters/6-9/ogp.png": {
       "bucket": "public",
@@ -57653,7 +57917,15 @@
       "group": "site-ogp-png",
       "verifiedAt": "2026-10-16T01:16:24.299Z",
       "width": 1200,
-      "height": 630
+      "height": 630,
+      "logicalPath": "content/site/standards-articles/hokkaido/common/chapters/6-9/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/common/chapters/7-3/ogp.png": {
       "bucket": "public",
@@ -57665,7 +57937,15 @@
       "group": "site-ogp-png",
       "verifiedAt": "2026-10-16T01:16:24.527Z",
       "width": 1200,
-      "height": 630
+      "height": 630,
+      "logicalPath": "content/site/standards-articles/hokkaido/common/chapters/7-3/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/common/chapters/7-4/ogp.png": {
       "bucket": "public",
@@ -57677,7 +57957,15 @@
       "group": "site-ogp-png",
       "verifiedAt": "2026-10-16T01:16:24.682Z",
       "width": 1200,
-      "height": 630
+      "height": 630,
+      "logicalPath": "content/site/standards-articles/hokkaido/common/chapters/7-4/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/common/chapters/8-1/ogp.png": {
       "bucket": "public",
@@ -57689,7 +57977,15 @@
       "group": "site-ogp-png",
       "verifiedAt": "2026-10-16T01:16:24.974Z",
       "width": 1200,
-      "height": 630
+      "height": 630,
+      "logicalPath": "content/site/standards-articles/hokkaido/common/chapters/8-1/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/common/chapters/8-3/ogp.png": {
       "bucket": "public",
@@ -57701,7 +57997,15 @@
       "group": "site-ogp-png",
       "verifiedAt": "2026-10-16T01:16:25.023Z",
       "width": 1200,
-      "height": 630
+      "height": 630,
+      "logicalPath": "content/site/standards-articles/hokkaido/common/chapters/8-3/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/common/chapters/7-5/ogp.png": {
       "bucket": "public",
@@ -57713,7 +58017,15 @@
       "group": "site-ogp-png",
       "verifiedAt": "2026-10-16T01:16:25.088Z",
       "width": 1200,
-      "height": 630
+      "height": 630,
+      "logicalPath": "content/site/standards-articles/hokkaido/common/chapters/7-5/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/common/chapters/8-2/ogp.png": {
       "bucket": "public",
@@ -57725,7 +58037,15 @@
       "group": "site-ogp-png",
       "verifiedAt": "2026-10-16T01:16:25.331Z",
       "width": 1200,
-      "height": 630
+      "height": 630,
+      "logicalPath": "content/site/standards-articles/hokkaido/common/chapters/8-2/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/common/chapters/9-1/ogp.png": {
       "bucket": "public",
@@ -57737,7 +58057,15 @@
       "group": "site-ogp-png",
       "verifiedAt": "2026-10-16T01:16:25.569Z",
       "width": 1200,
-      "height": 630
+      "height": 630,
+      "logicalPath": "content/site/standards-articles/hokkaido/common/chapters/9-1/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/common/chapters/9-2/ogp.png": {
       "bucket": "public",
@@ -57749,7 +58077,15 @@
       "group": "site-ogp-png",
       "verifiedAt": "2026-10-16T01:16:25.749Z",
       "width": 1200,
-      "height": 630
+      "height": 630,
+      "logicalPath": "content/site/standards-articles/hokkaido/common/chapters/9-2/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
     },
     "content/site/standards-articles/hokkaido/common/chapters/9-3/ogp.png": {
       "bucket": "public",
@@ -57761,7 +58097,36 @@
       "group": "site-ogp-png",
       "verifiedAt": "2026-10-16T01:16:25.753Z",
       "width": 1200,
-      "height": 630
+      "height": 630,
+      "logicalPath": "content/site/standards-articles/hokkaido/common/chapters/9-3/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ]
+    },
+    "content/site/civil-practice/open-geospatial-data/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/open-geospatial-data/ogp.png",
+      "sha256": "0609c7c61fe6c9273110336b12091a096d1c2cc427cfd524bf1bec9c24a585fb",
+      "bytes": 73383,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-16T01:36:49.477Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/open-geospatial-data/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "206a919a9ac83b5a"
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",
