@@ -58127,6 +58127,69 @@
         "scripts/check-orphan-ogp.mjs"
       ],
       "srcHash": "206a919a9ac83b5a"
+    },
+    "content/site/civil-practice/coordinate-systems-geodetic-datum/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/coordinate-systems-geodetic-datum/ogp.png",
+      "sha256": "c90df8607dddeb7c018e72ff47a0646eb13f737f175cb7be93752c4ed787a987",
+      "bytes": 71875,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-16T01:44:05.754Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/coordinate-systems-geodetic-datum/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "f7d9ec7eff2ea35e"
+    },
+    "content/site/civil-practice/survey-informatics-overview/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/survey-informatics-overview/ogp.png",
+      "sha256": "011a9961f4089916deee373a87a52955be76fdb1ee1d5876820ce7bc70e3f7dd",
+      "bytes": 60361,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-16T01:44:05.847Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/survey-informatics-overview/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "a2c71fc8861266b5"
+    },
+    "content/site/civil-practice/municipal-gis/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/municipal-gis/ogp.png",
+      "sha256": "8ee4cbafd2efcb3627a05d758bef42c8ac3da86b82fd724e9adc979d71106881",
+      "bytes": 63072,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-16T01:44:05.904Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/municipal-gis/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "6156cc3869abb4c2"
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",
