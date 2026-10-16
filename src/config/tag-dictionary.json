@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-16T01:35:36.315Z",
+  "generated_at": "2026-10-16T01:36:31.330Z",
   "summary": {
-    "total_mdx_files": 1449,
+    "total_mdx_files": 1450,
     "total_unique_tags": 133,
     "allowlist_size": 330,
     "known_count": 133,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 272,
+      "count": 273,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1288,6 +1288,7 @@
         "civil-practice-special-concrete-selection",
         "civil-practice-stacking-heat-machine-safety",
         "civil-practice-subbase-subgrade-control",
+        "civil-practice-survey-informatics-overview",
         "civil-practice-trench-excavation-safety",
         "civil-practice-urban-park-management",
         "civil-practice-wood-and-stone-materials",
@@ -4802,6 +4803,22 @@
       ]
     },
     {
+      "name": "測量",
+      "count": 9,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-guide-surveying",
+        "civil-construction-1-textbook-distance-angle",
+        "civil-construction-1-textbook-leveling",
+        "civil-construction-1-textbook-surveying-basics",
+        "civil-practice-gis-layer-validation",
+        "civil-practice-gnss-positioning-basics",
+        "civil-practice-open-geospatial-data",
+        "civil-practice-reading-civil-drawings",
+        "civil-practice-survey-informatics-overview"
+      ]
+    },
+    {
       "name": "測量士",
       "count": 9,
       "inAllowlist": true,
@@ -4850,6 +4867,21 @@
       ]
     },
     {
+      "name": "i-Construction",
+      "count": 8,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-gis-layer-validation",
+        "civil-practice-gnss-positioning-basics",
+        "civil-practice-ict-construction-workflow",
+        "civil-practice-open-geospatial-data",
+        "civil-practice-site-wireless-communication",
+        "civil-practice-survey-informatics-overview",
+        "pe-construction-kensetsu-dx",
+        "pe-construction-ninaite-dx-ronbun-keyword"
+      ]
+    },
+    {
       "name": "専門土木",
       "count": 8,
       "inAllowlist": true,
@@ -4865,6 +4897,21 @@
       ]
     },
     {
+      "name": "建設DX",
+      "count": 8,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-bim-cim-site-practice",
+        "civil-practice-ledger-data-design",
+        "civil-practice-monitoring-sensor-selection",
+        "civil-practice-site-wireless-communication",
+        "civil-practice-survey-informatics-overview",
+        "pe-comprehensive-management-r04-essay-road-municipality",
+        "pe-construction-kensetsu-dx",
+        "pe-construction-ninaite-dx-ronbun-keyword"
+      ]
+    },
+    {
       "name": "流域治水",
       "count": 8,
       "inAllowlist": true,
@@ -4877,35 +4924,6 @@
         "pe-construction-bosai-kokudo-kyoujinka",
         "pe-construction-bousai-genseigai-ronbun-keyword",
         "pe-construction-river-coast-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "測量",
-      "count": 8,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-guide-surveying",
-        "civil-construction-1-textbook-distance-angle",
-        "civil-construction-1-textbook-leveling",
-        "civil-construction-1-textbook-surveying-basics",
-        "civil-practice-gis-layer-validation",
-        "civil-practice-gnss-positioning-basics",
-        "civil-practice-open-geospatial-data",
-        "civil-practice-reading-civil-drawings"
-      ]
-    },
-    {
-      "name": "i-Construction",
-      "count": 7,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-gis-layer-validation",
-        "civil-practice-gnss-positioning-basics",
-        "civil-practice-ict-construction-workflow",
-        "civil-practice-open-geospatial-data",
-        "civil-practice-site-wireless-communication",
-        "pe-construction-kensetsu-dx",
-        "pe-construction-ninaite-dx-ronbun-keyword"
       ]
     },
     {
@@ -4948,20 +4966,6 @@
         "civil-construction-1-textbook-pile-foundation-precast",
         "civil-construction-1-textbook-safety-foundation-bridge",
         "civil-construction-2-guide-foundation-key-points"
-      ]
-    },
-    {
-      "name": "建設DX",
-      "count": 7,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-bim-cim-site-practice",
-        "civil-practice-ledger-data-design",
-        "civil-practice-monitoring-sensor-selection",
-        "civil-practice-site-wireless-communication",
-        "pe-comprehensive-management-r04-essay-road-municipality",
-        "pe-construction-kensetsu-dx",
-        "pe-construction-ninaite-dx-ronbun-keyword"
       ]
     },
     {
