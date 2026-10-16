@@ -1,0 +1,195 @@
+---
+title: コンクリート主任技士 小論文｜8つの立場から選ぶ模範答案一覧
+notePricing: free
+noteSeries: 総合案内
+noteContentType: index
+utmCampaign: cce-essay-index
+notePublishedAt: "2026-10-17"
+noteId: "n3ced0cbfbb42"
+noteUrl: "https://note.com/dobokunote/n/n3ced0cbfbb42"
+noteStatus: published
+coverTitle:
+  - コンクリート主任技士
+  - 小論文もくじ
+cover:
+  variant: crop-safe-v4
+  leadIn: コンクリート主任技士
+  headline: 小論文もくじ
+  hi: 8つの立場
+  hiSuffix: 40答案
+  benefit: 自分の仕事に近い答案を選ぶ
+---
+# コンクリート主任技士 小論文｜8つの立場から選ぶ模範答案一覧
+
+「自分の仕事に近い小論文の例が見つからない」「知識はあるのに、業務との関係をどう書けばよいか迷う」。この一覧は、そんな方が**自分の立場と、練習したいテーマから答案を選ぶための無料案内**です。
+
+生コン工場だけでなく、プレキャスト、土木施工、維持管理・補修、発注者、建築施工、設計、試験・検査の8つの立場を扱います。各立場5テーマ、合計40答案を下に並べました。
+
+制作は、コンクリート主任技士・コンクリート診断士に合格した元・地方自治体の土木職（技術士・総合技術監理部門）です。答案は立場別の仮想実務モデルであり、著者が8つの職種を経験したという意味ではありません。自分が経験していない業務や数値を写さず、担当した仕事・判断・工夫に置き換えて使ってください。
+
+## 最初に、自分に近い立場を選ぶ
+
+勤務先の名前よりも、**自分が何を担当し、何を判断できる立場か**で選びます。複数にまたがる場合も、まず最も経験を説明しやすい1つから始められます。
+
+- **生コン工場**：材料の受入れ・配合・製造・出荷を担当し、品質のばらつきと環境負荷をどう減らすかを書きたい方。
+- **プレキャスト工場**：製品の製造・養生・検査を担当し、工場の品質管理と生産性向上を自分の業務として書きたい方。
+- **ゼネコン土木施工**：土木構造物の施工を担当し、打込み・締固め・養生や施工計画の改善を答案にしたい方。
+- **維持管理・補修**：既設構造物の調査・補修を担当し、劣化原因の把握から対策と再劣化の防止までをつなげたい方。
+- **発注者・監督員**：要求性能・監督・検査・協議を担い、施工者の作業と自分の判断・確認を区別して書きたい方。
+- **ゼネコン建築施工**：建築工事のコンクリート施工を担当し、配筋の密な部材や工程制約の中で品質を確保する経験を整理したい方。
+- **設計コンサルタント**：設計・照査を担当し、要求性能・材料や構造の選定・施工や維持管理への配慮を論じたい方。
+- **試験・検査機関**：試験・検査を担当し、測定の信頼性、結果の評価・報告、検査品質の維持を自分の役割から書きたい方。
+
+## 単品・5テーマ集・合格パックの選び方
+
+必要な範囲だけを選べます。各記事の無料部分で、対象の立場と収録内容を確かめてから購入してください。
+
+- **1つのテーマを練習したい**：下のテーマ名から単品記事へ。1記事は1立場×1テーマの模範答案です。
+- **自分の立場で複数テーマを準備したい**：その立場の「小論文5テーマ集」へ。環境・耐久性・DX・気候変動・担い手不足をまとめて練習できます。
+- **小論文に加え、択一も準備したい**：その立場の「合格パック」へ。小論文5テーマ集と、直前暗記・配合計算・択一問題を収録しています。
+
+**重複購入にご注意ください。** 単品は5テーマ集に、その5テーマ集は同じ立場の合格パックに含まれます。全40答案集・まるごとパックにも同じ小論文を収録しています。すでに購入した記事は再購入せず、noteの購入済み表示と各マガジンの収録記事を確認してください。価格は各販売ページに表示される金額を確認してください。
+
+## 無料で書き方と出題傾向を確かめる
+
+一覧は教材を選ぶためのものです。構成や出題傾向から確認したい方は、先に次の記事を読めます。
+
+- [小論文の出題傾向分析](https://note.com/dobokunote/n/n39ce3c33eaa8)
+- [小論文の書き方・構成・実務との結び付け方](https://doboku-note.com/exam/concrete-chief-engineer/guide/essay?utm_source=note&utm_medium=referral&utm_campaign=cce-essay-index&utm_content=guide-essay)
+
+有料教材では、説明だけではつかみにくい「業務との関係」や「今後の対策」を、立場ごとの完成した文章で確認できます。読んだ後は、同じテーマで自分の経験を使って書き、役割や判断の具体性を比べてみてください。
+
+## 生コン工場の小論文
+
+材料の受入れ・配合・製造・出荷を担当し、品質のばらつきと環境負荷をどう減らすかを書きたい方。
+
+次の5テーマから、いま練習したいものを選べます。
+
+- [環境負荷低減](https://note.com/dobokunote/n/n99f0e9f86c22)
+- [耐久性の向上・維持管理](https://note.com/dobokunote/n/nabd35b3a3ea6)
+- [生産性向上・DX](https://note.com/dobokunote/n/n0a5828644cf4)
+- [気候変動と品質確保](https://note.com/dobokunote/n/n4e6f6afb458f)
+- [担い手不足と品質確保](https://note.com/dobokunote/n/n132a222b6165)
+
+[生コン工場の小論文5テーマ集](https://note.com/dobokunote/m/m02a55d302f25)
+
+択一も併せて準備する方は、[生コン工場の合格パック](https://note.com/dobokunote/m/mcb9747146a71)で収録内容を確認できます。
+
+## プレキャスト工場の小論文
+
+製品の製造・養生・検査を担当し、工場の品質管理と生産性向上を自分の業務として書きたい方。
+
+次の5テーマから、いま練習したいものを選べます。
+
+- [環境負荷低減](https://note.com/dobokunote/n/n178d81567130)
+- [耐久性の向上・維持管理](https://note.com/dobokunote/n/nfa847133fbd4)
+- [生産性向上・DX](https://note.com/dobokunote/n/nd7b4b28d9eb0)
+- [気候変動と品質確保](https://note.com/dobokunote/n/nc0d8143cc931)
+- [担い手不足と品質確保](https://note.com/dobokunote/n/n6a2786ace30d)
+
+[プレキャスト工場の小論文5テーマ集](https://note.com/dobokunote/m/m7937821e86a7)
+
+択一も併せて準備する方は、[プレキャスト工場の合格パック](https://note.com/dobokunote/m/m3daa98f03bef)で収録内容を確認できます。
+
+## ゼネコン土木施工の小論文
+
+土木構造物の施工を担当し、打込み・締固め・養生や施工計画の改善を答案にしたい方。
+
+次の5テーマから、いま練習したいものを選べます。
+
+- [環境負荷低減](https://note.com/dobokunote/n/n1e9532d38e0f)
+- [耐久性の向上・維持管理](https://note.com/dobokunote/n/n02f4a96e736a)
+- [生産性向上・DX](https://note.com/dobokunote/n/n727ee9f7b79e)
+- [気候変動と品質確保](https://note.com/dobokunote/n/n74ef04a0d19f)
+- [担い手不足と品質確保](https://note.com/dobokunote/n/nc4a10d6a8186)
+
+[ゼネコン土木施工の小論文5テーマ集](https://note.com/dobokunote/m/m1b555fe40131)
+
+択一も併せて準備する方は、[ゼネコン土木施工の合格パック](https://note.com/dobokunote/m/ma8f11487f4cc)で収録内容を確認できます。
+
+## 維持管理・補修の小論文
+
+既設構造物の調査・補修を担当し、劣化原因の把握から対策と再劣化の防止までをつなげたい方。
+
+次の5テーマから、いま練習したいものを選べます。
+
+- [環境負荷低減](https://note.com/dobokunote/n/nc535117e1e0d)
+- [耐久性の向上・維持管理](https://note.com/dobokunote/n/n83cc78cb4d99)
+- [生産性向上・DX](https://note.com/dobokunote/n/nb6ddd9a0d066)
+- [気候変動と品質確保](https://note.com/dobokunote/n/n988fb682bde9)
+- [担い手不足と品質確保](https://note.com/dobokunote/n/n0bf515c197a0)
+
+[維持管理・補修の小論文5テーマ集](https://note.com/dobokunote/m/m155421580ea3)
+
+択一も併せて準備する方は、[維持管理・補修の合格パック](https://note.com/dobokunote/m/mc91d56e58449)で収録内容を確認できます。
+
+## 発注者・監督員の小論文
+
+要求性能・監督・検査・協議を担い、施工者の作業と自分の判断・確認を区別して書きたい方。
+
+次の5テーマから、いま練習したいものを選べます。
+
+- [環境負荷低減](https://note.com/dobokunote/n/nb4c971781445)
+- [耐久性の向上・維持管理](https://note.com/dobokunote/n/nee43d106727d)
+- [生産性向上・DX](https://note.com/dobokunote/n/n3fe06d94e604)
+- [気候変動と品質確保](https://note.com/dobokunote/n/nd4bdcb67bc22)
+- [担い手不足と品質確保](https://note.com/dobokunote/n/na96caae87a0b)
+
+[発注者・監督員の小論文5テーマ集](https://note.com/dobokunote/m/ma1d6fcf577bc)
+
+択一も併せて準備する方は、[発注者・監督員の合格パック](https://note.com/dobokunote/m/mb6f1286cfb21)で収録内容を確認できます。
+
+## ゼネコン建築施工の小論文
+
+建築工事のコンクリート施工を担当し、配筋の密な部材や工程制約の中で品質を確保する経験を整理したい方。
+
+次の5テーマから、いま練習したいものを選べます。
+
+- [環境負荷低減](https://note.com/dobokunote/n/nfe75c08fbcf0)
+- [耐久性の向上・維持管理](https://note.com/dobokunote/n/na0a09cbf3992)
+- [生産性向上・DX](https://note.com/dobokunote/n/nee8585d46630)
+- [気候変動と品質確保](https://note.com/dobokunote/n/nfda4a31df8ad)
+- [担い手不足と品質確保](https://note.com/dobokunote/n/n0c0ea143e9c9)
+
+[ゼネコン建築施工の小論文5テーマ集](https://note.com/dobokunote/m/m0595b4b179e0)
+
+択一も併せて準備する方は、[ゼネコン建築施工の合格パック](https://note.com/dobokunote/m/m8cc3e86d9862)で収録内容を確認できます。
+
+## 設計コンサルタントの小論文
+
+設計・照査を担当し、要求性能・材料や構造の選定・施工や維持管理への配慮を論じたい方。
+
+次の5テーマから、いま練習したいものを選べます。
+
+- [環境負荷低減](https://note.com/dobokunote/n/n33cbd2c05d3f)
+- [耐久性の向上・維持管理](https://note.com/dobokunote/n/n8da7d24954da)
+- [生産性向上・DX](https://note.com/dobokunote/n/nfb3459731640)
+- [気候変動と品質確保](https://note.com/dobokunote/n/nfa4c4249dc4c)
+- [担い手不足と品質確保](https://note.com/dobokunote/n/n1c80be3a4d83)
+
+[設計コンサルタントの小論文5テーマ集](https://note.com/dobokunote/m/m0dff629807db)
+
+択一も併せて準備する方は、[設計コンサルタントの合格パック](https://note.com/dobokunote/m/m4452b47516ca)で収録内容を確認できます。
+
+## 試験・検査機関の小論文
+
+試験・検査を担当し、測定の信頼性、結果の評価・報告、検査品質の維持を自分の役割から書きたい方。
+
+次の5テーマから、いま練習したいものを選べます。
+
+- [環境負荷低減](https://note.com/dobokunote/n/n5255c9fd74ed)
+- [耐久性の向上・維持管理](https://note.com/dobokunote/n/n48af15b98de1)
+- [生産性向上・DX](https://note.com/dobokunote/n/n3f25479cd052)
+- [気候変動と品質確保](https://note.com/dobokunote/n/n454587eaf246)
+- [担い手不足と品質確保](https://note.com/dobokunote/n/n5048a0531415)
+
+[試験・検査機関の小論文5テーマ集](https://note.com/dobokunote/m/m43992b2f5503)
+
+択一も併せて準備する方は、[試験・検査機関の合格パック](https://note.com/dobokunote/m/m9f64a8b08855)で収録内容を確認できます。
+
+## 別の立場も比較したいとき
+
+複数の役割を担当している方や、立場による書き分けを比較したい方には[令和形式・全40答案集](https://note.com/dobokunote/m/m97a0049a10de)があります。択一教材もまとめて使う場合は[主任技士まるごとパック](https://note.com/dobokunote/m/m09d20bfd9738)の収録内容を確認できます。必要な立場が1つなら、その立場の5テーマ集から選べます。
+
+<!-- cta:concrete-mokuji -->
+技士・主任技士・診断士の教材全体は、[コンクリート資格もくじ](https://note.com/dobokunote/n/nd59f471c9214)へ戻って確認してください。
