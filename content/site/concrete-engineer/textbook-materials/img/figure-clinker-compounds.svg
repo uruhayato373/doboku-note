@@ -1,0 +1,57 @@
+<!-- authored 2026-10-16 doboku-note 自作。題材はコンクリート技士教材のクリンカー化合物。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="クリンカーの4化合物の比較。C3Sは比較的速く初期から28日程度の強度、C2Sは遅く長期強度で水和熱が小さい、C3Aは速く発熱が大きくせっこうで調整、C4AFは強度への寄与が小さい。早強はC3S、中庸熱・低熱・耐硫酸塩はC3Aに結びつく">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-title { font-size: 14px; font-weight: bold; fill: #222; }
+      .t-head  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-label { font-size: 12px; fill: #1a3a5c; }
+      .t-desc  { font-size: 12px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #555; }
+      .t-warn  { font-size: 12px; fill: #b22234; font-weight: bold; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .ln { stroke: #555; stroke-width: 1; fill: none; }
+      .arr { stroke: #2e6da4; stroke-width: 1.5; fill: none; marker-end: url(#ah); }
+      .arr-d { stroke: #b22234; stroke-width: 1.5; fill: none; marker-end: url(#ahd); }
+    </style>
+    <marker id="ah" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ahd" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+  </defs>
+  <text class="t-lead" x="200" y="18" text-anchor="middle">クリンカーの4化合物は、反応の速さと役割が違う</text>
+  <rect class="box-b" x="20" y="28" width="360" height="72" rx="6"/>
+  <text class="t-title" x="34" y="58">C₃S</text>
+  <text class="t-axis" x="34" y="78">けい酸三カルシウム</text>
+  <text class="t-label" x="172" y="52">反応：比較的速い</text>
+  <text class="t-label" x="172" y="72">強度：初期〜28日程度に大きく寄与</text>
+  <text class="t-label" x="172" y="92">早強セメントは含有量を高める</text>
+  <rect class="box-p" x="20" y="108" width="360" height="72" rx="6"/>
+  <text class="t-title" x="34" y="138">C₂S</text>
+  <text class="t-axis" x="34" y="158">けい酸二カルシウム</text>
+  <text class="t-label" x="172" y="132">反応：遅い</text>
+  <text class="t-label" x="172" y="152">強度：長期強度への寄与が中心</text>
+  <text class="t-label" x="172" y="172">水和熱：小さい傾向</text>
+  <rect class="box-w" x="20" y="188" width="360" height="72" rx="6"/>
+  <text class="t-title" x="34" y="218">C₃A</text>
+  <text class="t-axis" x="34" y="238">アルミン酸三カルシウム</text>
+  <text class="t-label" x="172" y="212">反応：速い</text>
+  <text class="t-label" x="172" y="232">発熱：大きい</text>
+  <text class="t-label" x="172" y="252">せっこうで反応速度を調整</text>
+  <rect class="box" x="20" y="268" width="360" height="72" rx="6"/>
+  <text class="t-title" x="34" y="298">C₄AF</text>
+  <text class="t-axis" x="34" y="318">鉄アルミン酸四カルシウム</text>
+  <text class="t-label" x="172" y="292">強度への寄与は大きくない</text>
+  <rect class="box" x="20" y="356" width="360" height="132" rx="6"/>
+  <text class="t-head" x="34" y="378">セメントの種類との結びつき</text>
+  <text class="t-desc" x="34" y="402">早強：C₃Sの含有量や粉末度を高める</text>
+  <text class="t-desc" x="34" y="424">中庸熱・低熱：C₃Aを抑えて水和熱を抑える</text>
+  <text class="t-desc" x="34" y="446">耐硫酸塩：C₃Aを少なくして硫酸塩への抵抗性を高める</text>
+  <text class="t-warn" x="34" y="472">早強は長期だけ強い、は誤り</text>
+</svg>

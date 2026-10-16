@@ -1,44 +1,57 @@
-<!-- authored 2026-09-12 doboku-note 自作。題材はコンクリート技士テキスト「コンクリート用材料」の論点。特定の書籍図の複製・トレースではない -->
+<!-- authored 2026-10-16 doboku-note 自作。題材はコンクリート技士教材のセメント製造。書籍図の複製・トレースではない -->
 <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
   style="max-width:400px;width:100%"
   role="img"
-  aria-label="セメント製造の3工程。原料工程で原料を粉砕・混合し、焼成工程で高温加熱してクリンカーを生成し、仕上工程でせっこうを加え微粉砕する">
+  aria-label="セメント製造の3工程。原料工程で粉砕混合、焼成工程は低い温度から石灰石の分解、C2S、C3AとC4AF、最後に最高温域でC3Sが生じ、仕上工程でせっこうを加え粉砕する">
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
-      .t-lead  { font-size: 11px; fill: #555; }               /* ink-body */
-      .t-title { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
-      .t-desc  { font-size: 12px; fill: #222; }                /* ink-strong */
-      .t-sum   { font-size: 12px; fill: #222; }
-      .box-b   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }  /* brand */
-      .box-s   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }  /* surface */
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-title { font-size: 14px; font-weight: bold; fill: #222; }
+      .t-head  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-label { font-size: 12px; fill: #1a3a5c; }
+      .t-desc  { font-size: 12px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #555; }
+      .t-warn  { font-size: 12px; fill: #b22234; font-weight: bold; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .ln { stroke: #555; stroke-width: 1; fill: none; }
+      .arr { stroke: #2e6da4; stroke-width: 1.5; fill: none; marker-end: url(#ah); }
+      .arr-d { stroke: #b22234; stroke-width: 1.5; fill: none; marker-end: url(#ahd); }
     </style>
-    <marker id="arrowB" markerWidth="9" markerHeight="7" refX="9" refY="3.5" orient="auto">
-      <polygon points="0,0 9,3.5 0,7" fill="#2e6da4"/>
-    </marker>
+    <marker id="ah" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ahd" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
   </defs>
-
-  <text class="t-lead" x="200" y="16" text-anchor="middle">原料工程→焼成工程→仕上工程の3段階でセメントができる</text>
-
-  <rect class="box-b" x="20" y="28" width="360" height="92" rx="6"/>
-  <text class="t-title" x="40" y="54">① 原料工程</text>
-  <text class="t-desc" x="40" y="78">石灰石・粘土・けい石・鉄原料を粉砕して混合する</text>
-
-  <line x1="200" y1="120" x2="200" y2="145" stroke="#2e6da4" stroke-width="2" marker-end="url(#arrowB)"/>
-
-  <rect class="box-b" x="20" y="148" width="360" height="92" rx="6"/>
-  <text class="t-title" x="40" y="174">② 焼成工程</text>
-  <text class="t-desc" x="40" y="198">ロータリーキルンで約1,450℃に加熱する</text>
-
-  <line x1="200" y1="240" x2="200" y2="265" stroke="#2e6da4" stroke-width="2" marker-end="url(#arrowB)"/>
-
-  <rect class="box-b" x="20" y="268" width="360" height="92" rx="6"/>
-  <text class="t-title" x="40" y="294">③ 仕上工程</text>
-  <text class="t-desc" x="40" y="318">冷却したクリンカーにせっこうを加え粉砕する</text>
-
-  <rect class="box-s" x="20" y="390" width="360" height="96" rx="6"/>
-  <text class="t-title" x="40" y="412" style="font-size:13px">3工程を通してみるポイント</text>
-  <text class="t-sum" x="40" y="432">配合比が、生成する化合物の量を決める</text>
-  <text class="t-sum" x="40" y="450">焼成が不十分だと、化合物の生成量が不足する</text>
-  <text class="t-sum" x="40" y="468">せっこうは、C3Aの急結を防ぐ役割を持つ</text>
+  <text class="t-lead" x="200" y="18" text-anchor="middle">原料→焼成→仕上げ。焼成は低い温度から順に化合物ができる</text>
+  <rect class="box-b" x="20" y="28" width="360" height="56" rx="6"/>
+  <text class="t-title" x="34" y="52">① 原料工程</text>
+  <text class="t-desc" x="34" y="72">石灰石・粘土・けい石・鉄原料を粉砕して混合</text>
+  <line x1="200" y1="84" x2="200" y2="102" class="arr"/>
+  <rect class="box-b" x="20" y="104" width="360" height="210" rx="6"/>
+  <text class="t-title" x="34" y="128">② 焼成工程（回転窯で最高1,450℃）</text>
+  <rect class="box" x="34" y="140" width="266" height="30" rx="4"/>
+  <text class="t-label" x="42" y="160">750〜900℃</text>
+  <text class="t-desc" x="142" y="160">石灰石の分解（脱炭酸）</text>
+  <rect class="box" x="56" y="176" width="266" height="30" rx="4"/>
+  <text class="t-label" x="64" y="196">950〜1,200℃</text>
+  <text class="t-desc" x="164" y="196">C₂Sが生じる</text>
+  <rect class="box" x="78" y="212" width="266" height="30" rx="4"/>
+  <text class="t-label" x="86" y="232">1,200〜1,300℃</text>
+  <text class="t-desc" x="186" y="232">C₃AとC₄AFが生じる</text>
+  <rect class="box-w" x="100" y="248" width="266" height="30" rx="4"/>
+  <text class="t-label" x="108" y="268">1,350〜1,450℃</text>
+  <text class="t-desc" x="208" y="268">C₃Sが生じる（最後）</text>
+  <text class="t-desc" x="34" y="296">窯を出たクリンカーは急冷する</text>
+  <line x1="200" y1="314" x2="200" y2="330" class="arr"/>
+  <rect class="box-b" x="20" y="332" width="360" height="56" rx="6"/>
+  <text class="t-title" x="34" y="356">③ 仕上工程</text>
+  <text class="t-desc" x="34" y="376">冷却したクリンカーにせっこうを加え微粉砕する</text>
+  <rect class="box" x="20" y="400" width="360" height="88" rx="6"/>
+  <text class="t-head" x="34" y="420">3工程を通してみるポイント</text>
+  <text class="t-desc" x="34" y="440">C₃Sは最も高い温度域で最後にできる</text>
+  <text class="t-desc" x="34" y="458">焼成が不十分だと化合物の生成量が不足する</text>
+  <text class="t-desc" x="34" y="476">せっこうはC₃Aの急結を防ぐ</text>
 </svg>
