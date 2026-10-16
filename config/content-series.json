@@ -509,6 +509,15 @@
                   "figKey": "civil-practice/coast-port-administrators/img/figure-permit-matrix-by-zone"
                 }
               ]
+            },
+            {
+              "id": "A-46",
+              "title": "多自然川づくりと水辺空間 — 河川環境の目標・生息空間・水辺の整備",
+              "paths": [
+                "content/site/civil-practice/nature-oriented-river-works/article.mdx"
+              ],
+              "plan": "new",
+              "note": "2026-10-16 の運営者指示（展開するものはすべて展開する）で、教材の判定し直す候補から足した（DN-0753）"
             }
           ]
         },
@@ -964,6 +973,42 @@
                   "figKey": "civil-practice/sewerage-and-stormwater/img/figure-special-survey-flow"
                 }
               ]
+            },
+            {
+              "id": "A-42",
+              "title": "景観計画と公共事業の景観検討 — 景観法の届出・景観協議・歴史的な構造物",
+              "paths": [
+                "content/site/civil-practice/landscape-planning-public-works/article.mdx"
+              ],
+              "plan": "new",
+              "note": "2026-10-16 の運営者指示（展開するものはすべて展開する）で、教材の判定し直す候補から足した（DN-0753）"
+            },
+            {
+              "id": "A-43",
+              "title": "道路と駅前のバリアフリー — 基本構想と移動等円滑化の基準",
+              "paths": [
+                "content/site/civil-practice/barrier-free-roads-stations/article.mdx"
+              ],
+              "plan": "new",
+              "note": "2026-10-16 の運営者指示（展開するものはすべて展開する）で、教材の判定し直す候補から足した（DN-0753）"
+            },
+            {
+              "id": "A-44",
+              "title": "都市の緑化 — 緑の基本計画・緑化地域・屋上と壁面の緑化",
+              "paths": [
+                "content/site/civil-practice/urban-greening/article.mdx"
+              ],
+              "plan": "new",
+              "note": "2026-10-16 の運営者指示（展開するものはすべて展開する）で、教材の判定し直す候補から足した（DN-0753）"
+            },
+            {
+              "id": "A-45",
+              "title": "水道事業の区分と土木担当 — 水道法の事業・施設・管路の更新",
+              "paths": [
+                "content/site/civil-practice/waterworks-business/article.mdx"
+              ],
+              "plan": "new",
+              "note": "2026-10-16 の運営者指示（展開するものはすべて展開する）で、教材の判定し直す候補から足した（DN-0753）"
             }
           ]
         },
@@ -1048,6 +1093,15 @@
                   "figKey": "civil-practice/sediment-disaster-erosion-control/img/figure-warning-zone-flow"
                 }
               ]
+            },
+            {
+              "id": "A-47",
+              "title": "気象情報の読み方 — 警報と注意報、解析雨量、気象衛星、アメダス",
+              "paths": [
+                "content/site/civil-practice/weather-information-reading/article.mdx"
+              ],
+              "plan": "new",
+              "note": "2026-10-16 の運営者指示（展開するものはすべて展開する）で、教材の判定し直す候補から足した（DN-0753）"
             }
           ]
         },
@@ -2102,6 +2156,162 @@
                   "subject": "庁舎の情報システム室で、サーバラックの前に職員が 2 人立ち、システムの構成図を見ながら打ち合わせている様子（AI 写真）（差し込む見出し: 標準化の対象かどうかは、事務の名前で確かめる）",
                   "figKey": "civil-practice/information-system-procurement/img/photo-server-room-meeting"
                 }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "construction-business",
+      "title": "建設業の経営と法務",
+      "audience": "建設会社の経営者・管理部門・現場の責任者。許可・経審・下請・担い手・紛争と監督の実務を、建設業法と通知から確かめたい人",
+      "area": "practice",
+      "policy": "docs/strategy/20_建設業の経営と法務シリーズと教材の判定し直し2026-10.md",
+      "gate": "2026-10-16 の運営者指示（展開するものはすべて展開する）で作る。教材（建設業法のツボとコツ・建設業界の動向・建設業AI経営ほか）は論点を拾う材料にだけ使い、制度と数値は建設業法と国土交通省の通知で確かめる",
+      "entry": {
+        "hubItem": "B-00",
+        "curriculum": "civil-practice:construction-business"
+      },
+      "sections": [
+        {
+          "title": "入口",
+          "items": [
+            {
+              "id": "B-00",
+              "title": "建設業の経営と法務の全体像 — 許可・経審・下請・担い手・紛争のつながり",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/construction-business-overview/article.mdx"
+              ]
+            },
+            {
+              "id": "B-01",
+              "title": "建設産業の構造 — 契約の線と責任の線で、現場の関係者を読む",
+              "plan": "existing",
+              "paths": [
+                "content/site/civil-practice/construction-industry-structure/article.mdx"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "許可を取り、保つ",
+          "items": [
+            {
+              "id": "B-02",
+              "title": "建設業許可が要る工事かの判断 — 建設工事か、どの業種か、500万円未満で足りるか",
+              "plan": "existing",
+              "paths": [
+                "content/site/civil-practice/license-scope-judgment/article.mdx"
+              ]
+            },
+            {
+              "id": "B-03",
+              "title": "建設業許可の要件 — 経営業務の管理体制・営業所技術者・財産的基礎・営業所",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/license-requirements/article.mdx"
+              ]
+            },
+            {
+              "id": "B-04",
+              "title": "建設業許可の手続き — 更新・変更の届出・承継・廃業・電子申請",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/license-procedures/article.mdx"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "経審と入札",
+          "items": [
+            {
+              "id": "B-05",
+              "title": "経営事項審査と入札参加資格 — 点数が等級に変わり、出られる入札が決まるまで",
+              "plan": "existing",
+              "paths": [
+                "content/site/civil-practice/keishin-bidder-qualification/article.mdx"
+              ]
+            },
+            {
+              "id": "B-06",
+              "title": "経審の結果を読み、受け直す — 結果通知書・再審査・合併や承継のときの審査",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/keishin-review-merger/article.mdx"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "下請と現場の人",
+          "items": [
+            {
+              "id": "B-07",
+              "title": "下請取引のルール — 意見聴取・資材の指定・引渡し・やり直し費用の線引き",
+              "plan": "existing",
+              "paths": [
+                "content/site/civil-practice/subcontract-fair-dealing/article.mdx"
+              ]
+            },
+            {
+              "id": "B-08",
+              "title": "下請への指示と偽装請負 — 作業員への指示と人工精算の線引き",
+              "plan": "existing",
+              "paths": [
+                "content/site/civil-practice/subcontract-instruction-boundary/article.mdx"
+              ]
+            },
+            {
+              "id": "B-09",
+              "title": "建設キャリアアップシステムと建退共 — 就業の記録と掛金の納付を、現場でどう回すか",
+              "plan": "existing",
+              "paths": [
+                "content/site/civil-practice/ccus-kentaikyo-site/article.mdx"
+              ]
+            },
+            {
+              "id": "B-10",
+              "title": "外国人材を現場に受け入れる前の確認 — 働かせてよい人か、どの制度の人か、会社の条件は足りるか",
+              "plan": "existing",
+              "paths": [
+                "content/site/civil-practice/foreign-workers-site-check/article.mdx"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "紛争と監督",
+          "items": [
+            {
+              "id": "B-11",
+              "title": "建設工事の紛争を解く — 建設工事紛争審査会のあっせん・調停・仲裁",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/construction-dispute-resolution/article.mdx"
+              ]
+            },
+            {
+              "id": "B-12",
+              "title": "監督処分と実態調査 — 立入検査・指示・営業停止を避ける社内の備え",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/supervision-compliance-surveys/article.mdx"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "これから",
+          "items": [
+            {
+              "id": "B-13",
+              "title": "建設会社の生成AI導入 — 試す業務の選び方・社内ルール・教育・評価",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/generative-ai-adoption/article.mdx"
               ]
             }
           ]

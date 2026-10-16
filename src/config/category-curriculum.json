@@ -634,14 +634,7 @@
           "label": "施工計画・工程・品質・建設機械・環境",
           "slugs": [
             "pre-construction-process",
-            "license-scope-judgment",
-            "subcontract-instruction-boundary",
-            "subcontract-fair-dealing",
-            "construction-industry-structure",
-            "keishin-bidder-qualification",
             "netis-new-technology-use",
-            "foreign-workers-site-check",
-            "ccus-kentaikyo-site",
             "reading-civil-drawings",
             "construction-plan-document",
             "reference-values",
@@ -675,6 +668,19 @@
             "quality-record-site-bcp",
             "numerical-model-review",
             "information-system-procurement"
+          ]
+        },
+        {
+          "id": "construction-business",
+          "label": "建設業の経営と法務（許可・経審・下請・担い手・紛争）",
+          "slugs": [
+            "construction-industry-structure",
+            "license-scope-judgment",
+            "keishin-bidder-qualification",
+            "subcontract-fair-dealing",
+            "subcontract-instruction-boundary",
+            "ccus-kentaikyo-site",
+            "foreign-workers-site-check"
           ]
         },
         {
