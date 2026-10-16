@@ -1,0 +1,37 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は、弾性係数を鋼・コンクリート・製材で桁を並べて比べること。数値は記事本文の表のみ（棒の長さは値に比例）。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="弾性係数の目安を、棒の長さを値に比例させて並べた図。鋼は200、設計基準強度30のコンクリートは28、製材は5から15。単位はキロニュートン毎平方ミリメートル。樹脂とゴムは製品の試験成績で確かめる。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 13px; fill: #222; }
+      .hd { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 12px; fill: #222; }
+      .in { font-size: 12px; font-weight: bold; fill: #1a3a5c; text-anchor: middle; }
+      .lb { font-size: 12px; fill: #555; }
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .brd { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .wrn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .dng { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .sf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .row { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+          .vb { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .db { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; stroke-dasharray: 5 4; }
+    </style>
+  </defs>
+
+  <text class="lb" x="24" y="26">弾性係数の目安（kN/mm²）。棒の長さは値に比例</text>
+  <text class="hd" x="24" y="62">鋼</text>
+  <rect class="brd" x="24" y="70" width="300" height="30"/><text class="vb" x="332" y="91">200</text>
+  <text class="hd" x="24" y="132">コンクリート（設計基準強度30）</text>
+  <rect class="pos" x="24" y="140" width="42" height="30"/><text class="vb" x="74" y="161">28</text>
+  <text class="hd" x="24" y="202">製材（機械等級E50〜E150の平均値）</text>
+  <rect class="wrn" x="24" y="210" width="7.5" height="30"/><rect class="wrn" x="31.5" y="210" width="15" height="30" style="fill:#fff;stroke-dasharray:3 3"/><text class="vb" x="56" y="231">5〜15</text>
+  <text class="hd" x="24" y="272">樹脂・ゴム</text>
+  <rect class="db" x="24" y="280" width="352" height="30" rx="6"/><text class="t" x="200" y="300" text-anchor="middle" style="font-size:13px">製品の幅が広い。試験成績で確かめる</text>
+
+  <rect class="sf" x="24" y="338" width="352" height="144" rx="8"/>
+  <text class="hd" x="38" y="364">桁で並べて、変形の見当をつける</text>
+  <text class="t" x="38" y="390" style="font-size:13px">同じ形・同じ荷重なら、変形は弾性係数に反比例</text>
+  <text class="t" x="38" y="414" style="font-size:13px">鋼はコンクリートの約7倍</text>
+  <text class="t" x="38" y="438" style="font-size:13px">強度の高い鋼に替えても、弾性係数はほぼ同じ</text>
+  <text class="t" x="38" y="462" style="font-size:13px">同じ断面なら、たわみは減らない</text>
+</svg>
