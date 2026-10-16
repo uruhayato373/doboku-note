@@ -63,8 +63,13 @@
   <rect class="pill" x="222" y="288" width="84" height="22" rx="11"/><text class="h" x="264" y="303" text-anchor="middle">地際・水際</text>
   <text class="t" x="222" y="328">防腐処理（K4以上）か、</text><text class="t" x="222" y="344">水中・地中で使う</text>
 
+  <!-- 勾配の例 -->
+  <polygon points="322,150 378,162 378,174 322,174" class="wood"/>
+  <path d="M330,142L368,153" class="wa" marker-end="url(#ah)"/>
+  <text x="322" y="134">勾配</text>
+  <text x="222" y="362">乾湿を繰り返し、</text><text x="222" y="376">栄養分も多い</text>
+
   <!-- 全体 -->
-  <rect x="10" y="408" width="380" height="82" rx="8" style="fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5"/>
   <text class="n" x="22" y="432">全体</text>
   <text class="t" x="22" y="454">屋根で覆う</text>
   <text class="t" x="22" y="474">傷んだ部材だけ交換できる構造にする</text>
