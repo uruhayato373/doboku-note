@@ -1,0 +1,55 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は気象庁の整理（早期注意情報・時系列情報は事前の体制確保、キキクルと気象防災速報は避難の判断や後押し）。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="情報を使う時期の図。早期注意情報（5日先までの警報級の可能性）と時系列情報（翌日までの見通し、毎日4回）は事前の体制確保に使う。警報・注意報の発表を経て、キキクルと気象防災速報は避難の判断や後押しに使う。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .x { font-size: 12px; fill: #222; }
+      .s { font-size: 11px; fill: #555; }
+      .sb { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .g { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .wh { fill: #fff; stroke: #8a8a8a; stroke-width: 1.5; }
+      .dz { fill: #fff; stroke: #2e6da4; stroke-width: 1.5; stroke-dasharray: 4 3; }
+      .l { stroke: #d7d7d7; stroke-width: 1; fill: none; }
+      .ln { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .ld { stroke: #8a8a8a; stroke-width: 1; fill: none; stroke-dasharray: 3 3; }
+      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ar { stroke: #b22234; stroke-width: 2; fill: none; }
+      .ag { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .ax { stroke: #8a8a8a; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+    <marker id="ahr" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#b22234"/></marker>
+    <marker id="ahg" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#3a7d44"/></marker>
+    <marker id="ahk" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#8a8a8a"/></marker>
+  </defs>
+  <rect class="b" x="10" y="10" width="380" height="172" rx="8"/>
+  <text class="t" x="20" y="30" text-anchor="start">事前の体制確保に使う（心構えを高める）</text>
+  <rect class="wh" x="20" y="42" width="360" height="62" rx="8"/>
+  <text class="t" x="200.0" y="68.0" text-anchor="middle">早期注意情報（レベル1）</text>
+  <text class="s" x="200.0" y="86.0" text-anchor="middle">5日先までの警報級の可能性を［高］［中］で示す</text>
+  <rect class="wh" x="20" y="114" width="360" height="60" rx="8"/>
+  <text class="t" x="200.0" y="139.0" text-anchor="middle">時系列情報</text>
+  <text class="s" x="200.0" y="157.0" text-anchor="middle">警報・注意報に先立つ、翌日までの見通し（毎日4回）</text>
+  <path class="a" d="M200,182V206" marker-end="url(#ah)"/>
+  <text class="s" x="212" y="198" text-anchor="start">時間が進む</text>
+  <rect class="g" x="10" y="208" width="380" height="44" rx="8"/>
+  <text class="n" x="200.0" y="234.0" text-anchor="middle">警報・注意報の発表</text>
+  <path class="a" d="M200,252V274" marker-end="url(#ah)"/>
+  <rect class="p" x="10" y="276" width="380" height="128" rx="8"/>
+  <text class="t" x="20" y="296" text-anchor="start">避難の判断や後押しに使う</text>
+  <rect class="wh" x="20" y="308" width="360" height="40" rx="8"/>
+  <text class="t" x="200.0" y="323.5" text-anchor="middle">キキクル</text>
+  <text class="s" x="200.0" y="340.5" text-anchor="middle">市内の地区を絞って危険度を見る</text>
+  <rect class="wh" x="20" y="356" width="360" height="40" rx="8"/>
+  <text class="t" x="200.0" y="371.5" text-anchor="middle">気象防災速報</text>
+  <text class="s" x="200.0" y="388.5" text-anchor="middle">府県単位。極端な現象を速報する</text>
+  <rect class="w" x="10" y="416" width="380" height="74" rx="8"/>
+  <text class="s" x="200.0" y="447.0" text-anchor="middle">土木の担当は、早期注意情報で［高］が見えた日の前に、</text>
+  <text class="s" x="200.0" y="467.0" text-anchor="middle">人員・巡視の割り振り・資材・委託先との連絡を決めておく</text>
+</svg>

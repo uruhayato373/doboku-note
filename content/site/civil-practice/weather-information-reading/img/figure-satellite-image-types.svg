@@ -1,0 +1,58 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は気象庁「衛星画像の見方」による可視・赤外・水蒸気・雲頂強調画像の読める範囲。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="気象衛星ひまわりの画像4種類の読める範囲の比較図。可視画像は昼間だけ、赤外画像は昼夜とも使えるが白い雲が雨を降らせるとは限らない、水蒸気画像は雲のない場所の湿り気も分かる、雲頂強調画像は降水の強さではない。雲の画像から雨の強さは読めない。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .x { font-size: 12px; fill: #222; }
+      .s { font-size: 11px; fill: #555; }
+      .sb { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .g { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .wh { fill: #fff; stroke: #8a8a8a; stroke-width: 1.5; }
+      .dz { fill: #fff; stroke: #2e6da4; stroke-width: 1.5; stroke-dasharray: 4 3; }
+      .l { stroke: #d7d7d7; stroke-width: 1; fill: none; }
+      .ln { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .ld { stroke: #8a8a8a; stroke-width: 1; fill: none; stroke-dasharray: 3 3; }
+      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ar { stroke: #b22234; stroke-width: 2; fill: none; }
+      .ag { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .ax { stroke: #8a8a8a; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+    <marker id="ahr" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#b22234"/></marker>
+    <marker id="ahg" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#3a7d44"/></marker>
+    <marker id="ahk" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#8a8a8a"/></marker>
+  </defs>
+  <rect class="g" x="10" y="10" width="380" height="88" rx="8"/>
+  <text class="n" x="20" y="34" text-anchor="start">可視画像</text>
+  <rect class="w" x="290" y="18" width="90" height="24" rx="12"/>
+  <text class="t" x="335" y="35" text-anchor="middle">昼間だけ</text>
+  <text class="x" x="20" y="60" text-anchor="start">読めること：太陽光の反射を見る</text>
+  <text class="x" x="20" y="82" text-anchor="start">注意：夜は使えない</text>
+  <rect class="g" x="10" y="106" width="380" height="88" rx="8"/>
+  <text class="n" x="20" y="130" text-anchor="start">赤外画像</text>
+  <rect class="p" x="290" y="114" width="90" height="24" rx="12"/>
+  <text class="t" x="335" y="131" text-anchor="middle">昼夜とも</text>
+  <text class="x" x="20" y="156" text-anchor="start">読めること：白く写る雲を見る</text>
+  <text class="s" x="20" y="178" text-anchor="start">注意：白い雲が雨を降らせるとは限らない。薄い巻雲も白く写る</text>
+  <rect class="g" x="10" y="202" width="380" height="88" rx="8"/>
+  <text class="n" x="20" y="226" text-anchor="start">水蒸気画像</text>
+  <rect class="p" x="290" y="210" width="90" height="24" rx="12"/>
+  <text class="t" x="335" y="227" text-anchor="middle">昼夜とも</text>
+  <text class="x" x="20" y="252" text-anchor="start">読めること：上・中層の水蒸気の多さを見る</text>
+  <text class="x" x="20" y="274" text-anchor="start">ほかに：雲のない場所の湿り気も分かる</text>
+  <rect class="g" x="10" y="298" width="380" height="88" rx="8"/>
+  <text class="n" x="20" y="322" text-anchor="start">雲頂強調画像</text>
+  <text class="x" x="20" y="348" text-anchor="start">読めること：雲頂高度の高い雲を色付けしたもの</text>
+  <text class="x" x="20" y="370" text-anchor="start">注意：降水の強さではない</text>
+  <rect class="d" x="10" y="398" width="380" height="92" rx="8"/>
+  <text class="t" x="20" y="420" text-anchor="start">雲の画像から、雨の強さは読めない</text>
+  <text class="x" x="20" y="440" text-anchor="start">雨の強さと範囲は、解析雨量やレーダーで確かめる</text>
+  <text class="s" x="20" y="460" text-anchor="start">観測は、全球を10分ごと、日本域を約2.5分ごと</text>
+  <text class="s" x="20" y="478" text-anchor="start">出典：気象庁「衛星画像の見方」</text>
+</svg>
