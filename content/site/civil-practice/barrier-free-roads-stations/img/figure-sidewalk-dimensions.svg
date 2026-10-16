@@ -1,0 +1,76 @@
+<!-- authored 2026-10-16 doboku-note 自作。数値は道路移動等円滑化基準と道路構造令第11条第3項の本文記載どおり。断面は高さを強調した略図 -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="歩道の断面と平面を寸法つきで示した図。断面は、有効幅員が歩行者の交通量が多い道路で3.5m以上、その他は2m以上、縁石の高さ15cm以上、歩道の高さ5cm標準、横断勾配1%以下。平面は、横断歩道に接続する部分の段差2cm標準、縦断勾配5%以下、乗入れ部の平らな部分の有効幅員2m以上。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #222; }
+      .tt { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .tb { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .tx { font-size: 12px; fill: #222; }
+      .ts { font-size: 11px; fill: #555; }
+      .tn { font-size: 13px; font-weight: bold; fill: #222; }
+      .b-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .b-pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .b-warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .b-dan { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .b-sur { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .b-wh { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ln { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .ld { stroke: #8a8a8a; stroke-width: 1; fill: none; stroke-dasharray: 3 3; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+  <rect class="b-wh" x="10" y="10" width="380" height="222" rx="8"/>
+  <text class="ts" x="18" y="27">断面</text>
+  <text class="tb" x="237" y="42" text-anchor="middle">有効幅員（第4条）</text>
+  <text class="ts" x="237" y="56" text-anchor="middle">3.5m以上：歩行者の交通量が多い道路</text>
+  <text class="ts" x="237" y="69" text-anchor="middle">2m以上：その他</text>
+  <line class="a" x1="237" y1="82" x2="112" y2="82" marker-end="url(#ah)"/>
+  <line class="a" x1="237" y1="82" x2="366" y2="82" marker-end="url(#ah)"/>
+  <line class="ld" x1="108" y1="76" x2="108" y2="150"/>
+  <line class="ld" x1="370" y1="76" x2="370" y2="175"/>
+  <rect class="b-sur" x="14" y="190" width="82" height="32"/>
+  <rect x="96" y="145" width="12" height="77" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1.5"/>
+  <rect class="b-brand" x="108" y="175" width="262" height="47"/>
+  <text class="tb" x="55" y="211" text-anchor="middle">車道</text>
+  <text class="tb" x="239" y="194" text-anchor="middle">歩道</text>
+  <text class="ts" x="239" y="213" text-anchor="middle">横断勾配 1%以下（やむを得ない場合2%）</text>
+  <text class="ts" x="14" y="150">縁石の高さ</text>
+  <text class="tx" x="14" y="163">15cm以上</text>
+  <text class="ts" x="14" y="176">（第7条）</text>
+  <line class="a" x1="84" y1="145" x2="84" y2="190"/>
+  <line class="ln" x1="79" y1="145" x2="89" y2="145"/>
+  <line class="ln" x1="79" y1="190" x2="89" y2="190"/>
+  <line class="ld" x1="112" y1="190" x2="160" y2="190"/>
+  <line class="a" x1="150" y1="175" x2="150" y2="190"/>
+  <line class="ln" x1="145" y1="175" x2="155" y2="175"/>
+  <text class="ts" x="160" y="170">歩道の高さ 5cm標準（第8条）</text>
+  <rect class="b-wh" x="10" y="244" width="380" height="176" rx="8"/>
+  <text class="ts" x="18" y="261">平面</text>
+  <rect class="b-sur" x="14" y="266" width="372" height="30"/>
+  <rect x="40" y="268" width="8" height="26" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+  <rect x="54" y="268" width="8" height="26" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+  <rect x="68" y="268" width="8" height="26" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+  <rect x="82" y="268" width="8" height="26" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+  <rect x="96" y="268" width="8" height="26" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+  <rect x="110" y="268" width="8" height="26" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="ts" x="134" y="286">横断歩道</text>
+  <text class="ts" x="340" y="286" text-anchor="middle">車道</text>
+  <rect class="b-brand" x="14" y="296" width="372" height="80"/>
+  <rect x="226" y="296" width="80" height="34" fill="#d7d7d7"/>
+  <rect class="b-pos" x="226" y="330" width="80" height="46"/>
+  <text class="ts" x="266" y="317" text-anchor="middle">切り下げ</text>
+  <text class="ts" x="266" y="357" text-anchor="middle">平らな部分</text>
+  <line class="a" x1="322" y1="353" x2="322" y2="332" marker-end="url(#ah)"/>
+  <line class="a" x1="322" y1="353" x2="322" y2="374" marker-end="url(#ah)"/>
+  <text class="ts" x="330" y="357">2m以上</text>
+  <text class="ts" x="22" y="318">接続部の段差 2cm標準（第9条）</text>
+  <text class="tx" x="22" y="340">縦断勾配 5%以下（第6条）</text>
+  <text class="ts" x="22" y="355">やむを得ない場合は8%</text>
+  <line class="a" x1="22" y1="366" x2="200" y2="366" marker-end="url(#ah)"/>
+  <text class="ts" x="386" y="396" text-anchor="end">乗入れ部の平らな部分の有効幅員（第10条）</text>
+  <text class="ts" x="386" y="410" text-anchor="end">横断勾配の基準を満たす部分で2m以上</text>
+  <rect class="b-sur" x="10" y="430" width="380" height="60" rx="6"/>
+  <text class="ts" x="200.0" y="456.2" text-anchor="middle">数値は国の省令（道路移動等円滑化基準）の値</text>
+  <text class="ts" x="200.0" y="471.6" text-anchor="middle">市町村道は、自団体の条例で省令との差を読む（第10条）</text>
+</svg>
