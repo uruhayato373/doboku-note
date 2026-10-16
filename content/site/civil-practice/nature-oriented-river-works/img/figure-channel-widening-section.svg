@@ -19,13 +19,13 @@
   <rect class="g" x="14" y="90" width="372" height="230"/>
 
   <!-- 拡幅を基本にした断面（水面側を塗る） -->
-  <polygon class="w" points="40,90 90,190 260,190 310,90"/>
+  <polygon class="w" points="40,90 90,188 150,188 175,198 215,198 245,190 260,190 310,90"/>
   <!-- 現況の右のり（拡幅前） -->
-  <path d="M240,90L190,190" style="stroke:#8a8a8a;stroke-width:1.5;stroke-dasharray:4 3" fill="none"/>
+  <path d="M240,90L190,190" style="stroke:#8a8a8a;stroke-width:1;stroke-dasharray:1 3" fill="none"/>
   <!-- 河床を深く掘る案 -->
   <path d="M90,190L125,260H155L190,190" style="stroke:#b22234;stroke-width:1.5;stroke-dasharray:4 3" fill="none"/>
   <!-- 拡幅断面の輪郭 -->
-  <path d="M14,90H40L90,190H260L310,90H386" style="stroke:#2e6da4;stroke-width:2.5;stroke-linejoin:round" fill="none"/>
+  <path d="M14,90H40L90,188H150L175,198H215L245,190H260L310,90H386" style="stroke:#2e6da4;stroke-width:2.5;stroke-linejoin:round" fill="none"/>
   <!-- 保全する左岸 -->
   <path d="M40,90L90,190" style="stroke:#3a7d44;stroke-width:5" fill="none"/>
   <!-- 護岸 -->
@@ -46,15 +46,23 @@
   <!-- 注記 -->
   <text class="t" x="300" y="118">のり勾配</text>
   <text class="t" x="300" y="132">五分</text>
-  <text x="296" y="178">護岸</text>
-  <path d="M294,174L281,160" stroke="#8a8a8a" fill="none"/>
+  <text class="t" x="296" y="170">護岸</text>
+  <text x="296" y="184">のり肩・水際に</text>
+  <text x="296" y="198">植生を持たせる</text>
+  <path d="M294,166L281,152" stroke="#8a8a8a" fill="none"/>
   <text x="14" y="216">自然河岸を保全</text>
+  <text x="14" y="232">河床はみお筋を平行移動</text>
+  <text x="14" y="246">し、平坦な台形にしない</text>
   <text x="140" y="290" text-anchor="middle">深く掘る案</text>
+  <path class="dim" d="M168,198V260" marker-start="url(#at)" marker-end="url(#at)"/>
+  <text class="t" x="176" y="226">掘削深</text>
+  <text x="176" y="240">平均は60cmが上限</text>
+  <text x="176" y="254">（縮尺は示さない）</text>
 
   <!-- 凡例 -->
   <path d="M20,344H48" style="stroke:#2e6da4;stroke-width:2.5"/><text x="58" y="348">拡幅を基本にした断面</text>
   <path d="M20,362H48" style="stroke:#b22234;stroke-width:1.5;stroke-dasharray:4 3"/><text x="58" y="366">河床を深く掘る断面</text>
-  <path d="M20,380H48" style="stroke:#8a8a8a;stroke-width:1.5;stroke-dasharray:4 3"/><text x="58" y="384">現況のり面（拡幅前の右岸）</text>
+  <path d="M20,380H48" style="stroke:#8a8a8a;stroke-width:1;stroke-dasharray:1 3"/><text x="58" y="384">現況のり面（拡幅前の右岸）</text>
   <path d="M20,398H48" style="stroke:#555;stroke-width:5"/><text x="58" y="402">護岸（必要と判定した範囲だけ）</text>
   <path d="M20,416H48" style="stroke:#3a7d44;stroke-width:5"/><text x="58" y="420">保全する自然河岸</text>
 
