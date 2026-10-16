@@ -365,6 +365,16 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0751] 測量・情報化シリーズの新規 9 章を骨子の確認後に書いて公開する
+タグ: [領域:サイト] [時期:2026-10] [種類:制作] [起票:2026-10-16]
+
+**起点**: 2026-10-16、4 本目のシリーズ「測量・情報化」（survey-informatics・方針 docs/strategy/19）を台帳に登録し、既存 9 本を工種別ノートの「測量・情報化」の区分へ移した。新規 9 章（G-00 全体像・G-01 座標系と測地系・G-04 公開データ・G-05 自治体の GIS・G-06 3 次元計測・G-07 写真と画像・G-08 CAD と 3 次元モデル・G-13 制御と自動化施工・G-17 情報システムの調達と運用）は骨子を下書きで置いた（content/sources/series/survey-informatics/、各 15 論点・根拠はすべて参考文献の台帳の id）。
+
+**やること**: (1) 運営者が骨子を確かめ、approved にする。(2) Workflow series-chapter（brief: "outline"）で 9 章を書く。事実ファイル survey-informatics-sources.md を先に読ませる。(3) 図は自作 SVG（本の頁の切り出しは Codex が check-content-series -- --crop-jobs で作り、構図の参考だけに使う）、写真は AI 生成と監査。(4) 公開した章をカリキュラムの survey-informatics の区分へ並べる。(5) 既存の G-09（ict-construction-workflow）の SXF の節が 2007 年の国総研資料に拠っていて、現行の CAD 製図基準（令和7年12月・P21/P2Z）と食い違う可能性があるので、G-08 を書くときに直す。(6) 骨子で「書く前に確かめる」とした点（PLATEAU の LOD・縮尺係数の式・JIS Z 8116 の用語）を一次資料で確かめる。
+
+**完了条件**: check-content-series で survey-informatics の新規 9 章が公開・図と写真の未完了 0、本番で 18 章が「測量・情報化」の区分に並ぶ。
+
+
 
 
 ### [DN-0749] GA4 週次レポートの EXP-019 案別行を細らせ、上限の例外（data/ga4/reports/）を外す
