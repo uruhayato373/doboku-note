@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-16T04:38:45.218Z",
+  "generated_at": "2026-10-16T04:39:36.736Z",
   "summary": {
-    "total_mdx_files": 1464,
+    "total_mdx_files": 1465,
     "total_unique_tags": 133,
     "allowlist_size": 330,
     "known_count": 133,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 286,
+      "count": 287,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1233,6 +1233,7 @@
         "civil-practice-image-photogrammetry-analysis",
         "civil-practice-information-system-procurement",
         "civil-practice-keishin-bidder-qualification",
+        "civil-practice-keishin-review-merger",
         "civil-practice-land-acquisition-compensation",
         "civil-practice-land-readjustment-project",
         "civil-practice-landscape-planning-public-works",
@@ -2632,7 +2633,7 @@
     },
     {
       "name": "関係法規",
-      "count": 106,
+      "count": 107,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-engineer-assignment",
@@ -2662,6 +2663,7 @@
         "civil-practice-foreign-workers-site-check",
         "civil-practice-how-to-read-laws-and-notices",
         "civil-practice-keishin-bidder-qualification",
+        "civil-practice-keishin-review-merger",
         "civil-practice-land-acquisition-compensation",
         "civil-practice-land-readjustment-project",
         "civil-practice-landscape-planning-public-works",
@@ -4026,7 +4028,7 @@
     },
     {
       "name": "行政手続き",
-      "count": 19,
+      "count": 20,
       "inAllowlist": true,
       "usedIn": [
         "civil-practice-budget-and-funding-sources",
@@ -4038,6 +4040,7 @@
         "civil-practice-foreign-workers-site-check",
         "civil-practice-how-to-read-laws-and-notices",
         "civil-practice-keishin-bidder-qualification",
+        "civil-practice-keishin-review-merger",
         "civil-practice-landscape-planning-public-works",
         "civil-practice-license-procedures",
         "civil-practice-license-requirements",
