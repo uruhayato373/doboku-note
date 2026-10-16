@@ -1,5 +1,5 @@
 <!-- authored 2026-10-16 doboku-note 自作。論点は建設業法施行規則第7条第1号の経営体制の型と、建設業許可事務ガイドライン【第7条関係】の経験年数の数え方。特定の書籍図の複製ではない -->
-<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="経営体制の経験年数の図。イ型は、経営業務の管理責任者として5年以上、準ずる地位で権限の委任を受けた者として5年以上、準ずる地位で補佐した者として6年以上。立場をまたいだ通算も可能。ロ型は、役員等の経験を持つ常勤役員等に、財務管理・労務管理・業務運営の補佐者を付ける。">
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="経営体制の経験年数の図。イ型は、経営業務の管理責任者として5年以上、準ずる地位で権限の委任を受けた者として5年以上、準ずる地位で補佐した者として6年以上。立場をまたいだ通算も可能。ロ型は、財務管理・労務管理・業務運営の補佐者を付ける。前提は現在の地位が常勤役員等であること。">
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #222; }
@@ -14,6 +14,9 @@
     </style>
   </defs>
 
+  <rect class="bw" x="10" y="8" width="380" height="34" rx="8"/>
+  <text class="n" x="200" y="30" text-anchor="middle">前提 現在の地位は、常勤役員等</text>
+  <g transform="translate(0,44)">
   <rect class="card" x="10" y="8" width="380" height="214" rx="8"/>
   <text class="n" x="22" y="30">イ型 立場ごとの必要年数</text>
   <path class="grid" d="M60,44V200M112,44V200M164,44V200M216,44V200M268,44V200M320,44V200"/>
@@ -43,21 +46,17 @@
   <rect class="bw" x="260" y="262" width="118" height="28" rx="5"/>
   <text x="319" y="281" text-anchor="middle">補佐</text>
   <path class="br" d="M24,298V306H257V298"/>
-  <text class="n" x="140" y="322" text-anchor="middle">通算5年以上</text>
+  <text class="n" x="140" y="322" text-anchor="middle">通算5年以上（2番目の型）</text>
   <path class="br" d="M24,330V338H376V330"/>
-  <text class="n" x="200" y="350" text-anchor="middle">補佐まで加えて通算6年以上</text>
+  <text class="n" x="200" y="350" text-anchor="middle">補佐まで加えて通算6年以上（3番目の型）</text>
 
-  <g transform="translate(0,6)">
-  <rect class="card" x="10" y="362" width="380" height="124" rx="8"/>
-  <text class="n" x="22" y="384">ロ型 補佐者を付ける</text>
-  <text class="s" x="22" y="402">役員等の経験を持つ常勤役員等に、直接補佐する人を付ける</text>
-  <rect class="bp" x="22" y="412" width="115" height="30" rx="5"/>
-  <text x="79" y="431" text-anchor="middle">財務管理</text>
-  <rect class="bp" x="142" y="412" width="115" height="30" rx="5"/>
-  <text x="199" y="431" text-anchor="middle">労務管理</text>
-  <rect class="bp" x="262" y="412" width="115" height="30" rx="5"/>
-  <text x="319" y="431" text-anchor="middle">業務運営</text>
-  <text class="n" x="200" y="458" text-anchor="middle">それぞれ5年以上の建設業の業務経験</text>
-  <text class="s" x="200" y="476" text-anchor="middle">申請する会社での経験。1人が兼ねてもよい</text>
   </g>
+  <rect class="card" x="10" y="412" width="380" height="76" rx="8"/>
+  <text class="n" x="22" y="434">ロ型 補佐者を付ける（各5年以上）</text>
+  <rect class="bp" x="22" y="446" width="115" height="30" rx="5"/>
+  <text x="79" y="465" text-anchor="middle">財務管理</text>
+  <rect class="bp" x="142" y="446" width="115" height="30" rx="5"/>
+  <text x="199" y="465" text-anchor="middle">労務管理</text>
+  <rect class="bp" x="262" y="446" width="115" height="30" rx="5"/>
+  <text x="319" y="465" text-anchor="middle">業務運営</text>
 </svg>

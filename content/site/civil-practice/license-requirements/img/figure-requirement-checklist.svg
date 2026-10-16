@@ -1,5 +1,5 @@
 <!-- authored 2026-10-16 doboku-note 自作。論点は建設業法第7条・第15条と建設業許可事務ガイドラインの要件の点検の順。特定の書籍図の複製ではない -->
-<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="建設業許可の要件の点検表。営業所、経営体制、営業所技術者、誠実性と令3条使用人、財産的基礎、社会保険の六つについて、誰を見るか、どの営業所や時点で見るか、確認する資料を並べた図。法令は令和8年10月時点、ガイドラインは令和7年2月1日改正。">
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="建設業許可の要件の点検表。営業所、経営体制、営業所技術者、誠実性と令3条使用人、財産的基礎、社会保険の六つについて、誰を見るか、どこで見るか、確認する資料を表に並べた図。営業所ごとに見る要件と、会社で見る財産的基礎を色で区別する。法令は令和8年10月時点、ガイドラインは令和7年2月1日改正。">
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #222; }
@@ -7,46 +7,87 @@
       .l { font-size: 11px; font-weight: bold; fill: #2e6da4; }
       .s { font-size: 11px; fill: #555; }
       .card { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
-      .tag { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .tag { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .h { font-size: 12px; font-weight: bold; fill: #2e6da4; }
     </style>
   </defs>
-  <rect class="card" x="10" y="8" width="380" height="68" rx="8"/>
-  <rect class="tag" x="18" y="16" width="84" height="52" rx="6"/>
-  <text class="n" x="60" y="47" text-anchor="middle">営業所</text>
-  <text class="l" x="112" y="28">誰を</text><text x="153" y="28">本店・支店・常時契約を結ぶ事務所</text>
-  <text class="l" x="112" y="46">どこで</text><text x="153" y="46">先に営業所の数を確定する</text>
-  <text class="l" x="112" y="64">確認</text><text x="153" y="64">外観・内部・標識の写真と所有の別</text>
-  <rect class="card" x="10" y="82" width="380" height="68" rx="8"/>
-  <rect class="tag" x="18" y="90" width="84" height="52" rx="6"/>
-  <text class="n" x="60" y="121" text-anchor="middle">経営体制</text>
-  <text class="l" x="112" y="102">誰を</text><text x="153" y="102">常勤役員等（イ・ロ・ハの型）</text>
-  <text class="l" x="112" y="120">どこで</text><text x="153" y="120">本社や本店などで毎日所定の時間</text>
-  <text class="l" x="112" y="138">確認</text><text x="153" y="138">標準報酬決定通知書、商業登記簿謄本</text>
-  <rect class="card" x="10" y="156" width="380" height="68" rx="8"/>
-  <rect class="tag" x="18" y="164" width="84" height="52" rx="6"/>
-  <text class="n" x="60" y="195" text-anchor="middle">営業所技術者</text>
-  <text class="l" x="112" y="176">誰を</text><text x="153" y="176">許可を受ける業種ごとの技術者</text>
-  <text class="l" x="112" y="194">どこで</text><text x="153" y="194">営業所ごとに専任で置く</text>
-  <text class="l" x="112" y="212">確認</text><text x="153" y="212">標準報酬決定通知書、雇用証明書の写し</text>
-  <rect class="card" x="10" y="230" width="380" height="68" rx="8"/>
-  <rect class="tag" x="18" y="238" width="84" height="52" rx="6"/>
-  <text class="n" x="60" y="260" text-anchor="middle">誠実性と</text>
-  <text class="n" x="60" y="274" text-anchor="middle">令3条使用人</text>
-  <text class="l" x="112" y="250">誰を</text><text x="153" y="250">法人、役員等、令3条使用人</text>
-  <text class="l" x="112" y="268">どこで</text><text x="153" y="268">支店・営業所の代表者の勤務の実態</text>
-  <text class="l" x="112" y="286">確認</text><text x="153" y="286">取消処分から5年か、毎日の勤務</text>
-  <rect class="card" x="10" y="304" width="380" height="68" rx="8"/>
-  <rect class="tag" x="18" y="312" width="84" height="52" rx="6"/>
-  <text class="n" x="60" y="343" text-anchor="middle">財産的基礎</text>
-  <text class="l" x="112" y="324">誰を</text><text x="153" y="324">会社（一般と特定で基準が違う）</text>
-  <text class="l" x="112" y="342">どこで</text><text x="153" y="342">申請直前の決算期の財務諸表</text>
-  <text class="l" x="112" y="360">確認</text><text x="153" y="360">融資証明書、預金残高証明書</text>
-  <rect class="card" x="10" y="378" width="380" height="68" rx="8"/>
-  <rect class="tag" x="18" y="386" width="84" height="52" rx="6"/>
-  <text class="n" x="60" y="417" text-anchor="middle">社会保険</text>
-  <text class="l" x="112" y="398">誰を</text><text x="153" y="398">健康保険・厚生年金・雇用保険</text>
-  <text class="l" x="112" y="416">どこで</text><text x="153" y="416">適用事業所の営業所ごと</text>
-  <text class="l" x="112" y="434">確認</text><text x="153" y="434">届書の提出、非該当承認通知書の写し</text>
-  <text class="s" x="200" y="468" text-anchor="middle">法令は令和8年（2026年）10月時点の条文</text>
-  <text class="s" x="200" y="484" text-anchor="middle">運用は建設業許可事務ガイドライン（令和7年2月1日改正）</text>
+    <text class="h" x="100" y="28">誰を</text><text class="h" x="198" y="28">どこで</text><text class="h" x="296" y="28">確認</text>
+  <rect class="card" x="10" y="40" width="380" height="56" rx="8"/>
+  <rect class="tag" x="18" y="48" width="76" height="40" rx="6"/>
+  <text class="n" x="56" y="72" text-anchor="middle" style="font-size:12px">営業所</text>
+  <text class="s" x="100" y="56" style="fill:#222">本店・支店・</text>
+  <text class="s" x="100" y="70" style="fill:#222">常時契約を</text>
+  <text class="s" x="100" y="84" style="fill:#222">結ぶ事務所</text>
+  <text class="s" x="198" y="56" style="fill:#222">先に営業所の</text>
+  <text class="s" x="198" y="70" style="fill:#222">数を確定する</text>
+  <text class="s" x="296" y="56" style="fill:#222">外観・内部・</text>
+  <text class="s" x="296" y="70" style="fill:#222">標識の写真と</text>
+  <text class="s" x="296" y="84" style="fill:#222">所有の別</text>
+  <rect class="card" x="10" y="100" width="380" height="56" rx="8"/>
+  <rect class="tag" x="18" y="108" width="76" height="40" rx="6"/>
+  <text class="n" x="56" y="132" text-anchor="middle" style="font-size:12px">経営体制</text>
+  <text class="s" x="100" y="116" style="fill:#222">常勤役員等</text>
+  <text class="s" x="100" y="130" style="fill:#222">（イ・ロ・ハ</text>
+  <text class="s" x="100" y="144" style="fill:#222">の型）</text>
+  <text class="s" x="198" y="116" style="fill:#222">本社や本店</text>
+  <text class="s" x="198" y="130" style="fill:#222">などで毎日</text>
+  <text class="s" x="198" y="144" style="fill:#222">所定の時間</text>
+  <text class="s" x="296" y="116" style="fill:#222">標準報酬決定</text>
+  <text class="s" x="296" y="130" style="fill:#222">通知書、商業</text>
+  <text class="s" x="296" y="144" style="fill:#222">登記簿謄本</text>
+  <rect class="card" x="10" y="160" width="380" height="56" rx="8"/>
+  <rect class="tag" x="18" y="168" width="76" height="40" rx="6"/>
+  <rect x="10" y="160" width="6" height="56" rx="3" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="n" x="56" y="192" text-anchor="middle" style="font-size:12px">営業所技術者</text>
+  <text class="s" x="100" y="176" style="fill:#222">許可を受ける</text>
+  <text class="s" x="100" y="190" style="fill:#222">業種ごとの</text>
+  <text class="s" x="100" y="204" style="fill:#222">技術者</text>
+  <text class="s" x="198" y="176" style="fill:#222">営業所ごとに</text>
+  <text class="s" x="198" y="190" style="fill:#222">専任で置く</text>
+  <text class="s" x="296" y="176" style="fill:#222">標準報酬決定</text>
+  <text class="s" x="296" y="190" style="fill:#222">通知書、雇用</text>
+  <text class="s" x="296" y="204" style="fill:#222">証明書の写し</text>
+  <rect class="card" x="10" y="220" width="380" height="56" rx="8"/>
+  <rect class="tag" x="18" y="228" width="76" height="40" rx="6"/>
+  <rect x="10" y="220" width="6" height="56" rx="3" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="n" x="56" y="246" text-anchor="middle" style="font-size:12px">誠実性と</text><text class="n" x="56" y="260" text-anchor="middle" style="font-size:12px">令3条使用人</text>
+  <text class="s" x="100" y="236" style="fill:#222">法人、役員等、</text>
+  <text class="s" x="100" y="250" style="fill:#222">令3条使用人</text>
+  <text class="s" x="198" y="236" style="fill:#222">支店・営業所</text>
+  <text class="s" x="198" y="250" style="fill:#222">の代表者の</text>
+  <text class="s" x="198" y="264" style="fill:#222">勤務の実態</text>
+  <text class="s" x="296" y="236" style="fill:#222">取消処分から</text>
+  <text class="s" x="296" y="250" style="fill:#222">5年か、毎日</text>
+  <text class="s" x="296" y="264" style="fill:#222">の勤務</text>
+  <rect class="card" x="10" y="280" width="380" height="56" rx="8"/>
+  <rect class="tag" x="18" y="288" width="76" height="40" rx="6"/>
+  <rect x="10" y="280" width="6" height="56" rx="3" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+  <text class="n" x="56" y="312" text-anchor="middle" style="font-size:12px">財産的基礎</text>
+  <text class="s" x="100" y="296" style="fill:#222">会社（一般と</text>
+  <text class="s" x="100" y="310" style="fill:#222">特定で基準</text>
+  <text class="s" x="100" y="324" style="fill:#222">が違う）</text>
+  <text class="s" x="198" y="296" style="fill:#222">申請直前の</text>
+  <text class="s" x="198" y="310" style="fill:#222">決算期の</text>
+  <text class="s" x="198" y="324" style="fill:#222">財務諸表</text>
+  <text class="s" x="296" y="296" style="fill:#222">融資証明書、</text>
+  <text class="s" x="296" y="310" style="fill:#222">預金残高</text>
+  <text class="s" x="296" y="324" style="fill:#222">証明書</text>
+  <rect class="card" x="10" y="340" width="380" height="56" rx="8"/>
+  <rect class="tag" x="18" y="348" width="76" height="40" rx="6"/>
+  <rect x="10" y="340" width="6" height="56" rx="3" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="n" x="56" y="372" text-anchor="middle" style="font-size:12px">社会保険</text>
+  <text class="s" x="100" y="356" style="fill:#222">健康保険・</text>
+  <text class="s" x="100" y="370" style="fill:#222">厚生年金・</text>
+  <text class="s" x="100" y="384" style="fill:#222">雇用保険</text>
+  <text class="s" x="198" y="356" style="fill:#222">適用事業所の</text>
+  <text class="s" x="198" y="370" style="fill:#222">営業所ごと</text>
+  <text class="s" x="296" y="356" style="fill:#222">届書の提出、</text>
+  <text class="s" x="296" y="370" style="fill:#222">非該当承認</text>
+  <text class="s" x="296" y="384" style="fill:#222">通知書の写し</text>
+  <rect x="14" y="408" width="14" height="14" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="s" x="34" y="420">営業所ごとに見る</text>
+  <rect x="170" y="408" width="14" height="14" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+  <text class="s" x="190" y="420">会社で見る（財産的基礎）</text>
+  <text class="s" x="200" y="452" text-anchor="middle">法令は令和8年（2026年）10月時点の条文</text>
+  <text class="s" x="200" y="470" text-anchor="middle">運用は建設業許可事務ガイドライン（令和7年2月1日改正）</text>
 </svg>
