@@ -111,7 +111,7 @@ function getStandardArticlesManifest(
   return manifest;
 }
 
-/** 構造化済みかどうか。共通仕様書 8 文書だけが true で、未生成の文書は従来どおり分冊が主導線になる。 */
+/** 構造化済みかどうか。構造化した 9 文書（共通仕様書 8 文書と北海道開発局の道路・河川工事仕様書）だけが true で、未生成の文書は従来どおり分冊が主導線になる。 */
 export function hasStandardChapters(agencyId: string, documentId: string): boolean {
   return (getStandardArticlesManifest(agencyId, documentId)?.chapters.length ?? 0) > 0;
 }

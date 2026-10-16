@@ -642,7 +642,7 @@ function checkTables(def, { manifest, agencyId, documentId, document }) {
       if (typeof value === 'string') strings.push(value);
       else if (Array.isArray(value)) value.forEach(collect);
       else if (value && typeof value === 'object' && !('same' in value)) {
-        for (const field of ['header', 'rows', 'items', 'text', 'notes', 'parts']) if (field in value) collect(value[field]);
+        for (const field of ['header', 'rows', 'items', 'text', 'lines', 'notes', 'parts']) if (field in value) collect(value[field]);
       }
     };
     collect({ header: entry.header, rows: entry.rows, items: entry.items, notes: entry.notes, parts: entry.parts });

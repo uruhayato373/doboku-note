@@ -19,6 +19,7 @@ import QualificationBridge from '@/components/ui/QualificationBridge/Qualificati
 import AffiliateSlot from '@/components/ui/AffiliateSlot/AffiliateSlot';
 import rehypeHeadingIds from '@/lib/rehype-heading-ids';
 import rehypeScrollableFocus from '@/lib/rehype-scrollable-focus';
+import rehypeShortTableCells from '@/lib/rehype-short-table-cells';
 import { buildPageMetadata } from '@/lib/metadata';
 import { getReferencedStandardDocuments, getStandardDocuments, standardDocumentPath, standardPartPath } from '@/lib/standards';
 import {
@@ -102,7 +103,7 @@ export default async function StandardChapterPage({ params }: { params: Promise<
   const mdxOptions = {
     blockJS: false as const,
     blockDangerousJS: true as const,
-    mdxOptions: { remarkPlugins: [remarkGfm], rehypePlugins: [rehypeHeadingIds, rehypeScrollableFocus] },
+    mdxOptions: { remarkPlugins: [remarkGfm], rehypePlugins: [rehypeHeadingIds, rehypeScrollableFocus, rehypeShortTableCells] },
   };
   const components = {
     pre: StandardVerbatimTable,

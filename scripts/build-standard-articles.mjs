@@ -84,13 +84,19 @@ function renderOverridePart(part) {
   if (part.kind === 'caption') return `**${escapeInline(part.text)}**`;
   if (part.kind === 'text' || part.kind === 'note') return escapeBlockStart(escapeInline(part.text));
   if (part.kind === 'list') return part.items.map((item) => `- ${escapeBlockStart(escapeInline(item))}`).join('\n');
+  if (part.kind === 'verbatim') return ['```text', ...part.lines, '```'].join('\n');
   const row = (cells, bold = false) =>
     `| ${cells.map((cell) => (cell && bold ? `**${escapeInline(cell)}**` : escapeInline(cell))).join(' | ')} |`;
+  // 見出しの結合セル（横に結合した上段の見出し・縦に結合した列名）は GFM で表せないので、
+  // 左隣・上の段と同じ文字の 2 つ目以降は空欄で出す。繰り返すと列幅が膨らみスマホで読めない
+  const header = part.header.map((cells, r) =>
+    cells.map((cell, c) => (cell && (cell === cells[c - 1] || cell === part.header[r - 1]?.[c]) ? '' : cell)),
+  );
   return [
-    row(part.header[0]),
-    `| ${part.header[0].map(() => '---').join(' | ')} |`,
+    row(header[0]),
+    `| ${header[0].map(() => '---').join(' | ')} |`,
     // 2 段目以降の見出し行は GFM の見出しにできないので太字の行にする
-    ...part.header.slice(1).map((cells) => row(cells, true)),
+    ...header.slice(1).map((cells) => row(cells, true)),
     ...part.rows.map((cells) => row(cells)),
   ].join('\n');
 }

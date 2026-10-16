@@ -275,7 +275,16 @@ export function overrideParts(override) {
   const notes = (override.notes ?? []).map((text) => ({ kind: 'note', text }));
   if (override.kind === 'list') return [{ kind: 'list', items: override.items ?? [] }, ...notes];
   if (override.kind === 'table') {
-    return [{ kind: 'table', header: override.header ?? [], rows: override.rows ?? [], headerFrom: override.headerFrom ?? null }, ...notes];
+    return [
+      {
+        kind: 'table',
+        header: override.header ?? [],
+        rows: override.rows ?? [],
+        headerFrom: override.headerFrom ?? null,
+        headerless: override.headerless === true,
+      },
+      ...notes,
+    ];
   }
   return [];
 }
@@ -288,6 +297,8 @@ export function overrideTexts(parts) {
       for (const cell of [...(part.header ?? []), ...(part.rows ?? [])].flat()) if (!isSameRef(cell)) texts.push(String(cell));
     } else if (part.kind === 'list') {
       texts.push(...(part.items ?? []).map(String));
+    } else if (part.kind === 'verbatim') {
+      texts.push(...(part.lines ?? []).map(String));
     } else {
       texts.push(String(part.text ?? ''));
     }
@@ -323,6 +334,9 @@ function resolveTablePart(part, lookup) {
     if (!fromTable || fromTable.header[0].length !== width) return { error: 'override-bad-header-from' };
     header = fromTable.header.map((row) => row.map((cell) => (isSameRef(cell) ? '' : String(cell))));
   }
+  // 原本の表にもともと見出し行が無いもの（近畿版 表3-2-13(2) の飼育試験の表など）は、
+  // headerless: true と明示したときだけ空の見出しで出す（GFM は見出し行を省けない）
+  if (header.length === 0 && part.headerless === true) header = [new Array(width).fill('')];
   if (header.length === 0) return { error: 'override-no-header' };
   return { kind: 'table', header, rows: resolved.slice(headerRows) };
 }
@@ -378,6 +392,9 @@ export function applyTableOverride(lines, override, { lookup = () => undefined, 
       resolved.push(table);
     } else if (part.kind === 'list') {
       resolved.push({ kind: 'list', items: (part.items ?? []).map(String) });
+    } else if (part.kind === 'verbatim') {
+      // 分数の式・図の中の文字など、表にも段落にもできない部分は版面の行のまま出す
+      resolved.push({ kind: 'verbatim', lines: (part.lines ?? []).map(String) });
     } else if (['caption', 'text', 'note'].includes(part.kind)) {
       resolved.push({ kind: part.kind, text: String(part.text ?? '') });
     } else {

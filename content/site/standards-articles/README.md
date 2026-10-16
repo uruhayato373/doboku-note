@@ -9,7 +9,15 @@
   連結して空白を除いた文字列が元行と完全一致しなければ採用せず、原文レイアウトのコードブロック＋
   原本ページリンクで出します。**採用しなかった理由は manifest の `tableOutcomes` に残す**ので、
   「試したが落ちた表」と「そもそも表を見ていない状態」を後から区別できます
-  （実測では 166 件中 6 件が GFM。`pdftotext -layout` の版面はセル境界を持たないため大半は復元できません）。
+  （`pdftotext -layout` の版面はセル境界を持たないため、機械で復元できるのは近畿版 164 件中 5 件だけです）。
+- 「適用すべき諸基準」の基準類一覧は 1 項目 1 行の箇条書きにします（理由コード `restored-standards-list`。
+  項目は必ず（年月）で終わるので、版面の行の帰属が一意に決まります）。
+- 残りの表は、原本のページ画像と照合して組み直した `content/sources/standards/tables/{key}.json`（承認済みのみ）で
+  置き換えます（理由コード `restored-override`。形と照合の規則は同ディレクトリの README）。2026-10-16 時点で
+  近畿版は GFM 5・一覧 33・組み直し 95・版面のまま 4（図の中の文字）です。
+- 本文が 200KB 以上の章（現状は第3編第2章 一般施工）は、章ページを節の一覧にし、本文を
+  `/chapters/{章}/sections/{節}` の節ページで出します（設定 `sectionPages.minOutputBytes`、切り出しは
+  `src/lib/standards-section-split.mjs`）。
 - OGP 画像は章ごとに `chapters/{chapterId}/ogp.png` へ生成します（機関名 + 第N編 + 第M章）。
   このパスは asset-storage の `site-ogp-png` グループに一致するので、R2 供給と公開 URL の導出は
   記事の OGP と同じ仕組みに乗ります。git には追跡されません（`.gitignore` の `content/site/**/ogp.png`）。
