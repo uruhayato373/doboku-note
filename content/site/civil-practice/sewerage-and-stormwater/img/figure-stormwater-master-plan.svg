@@ -45,13 +45,18 @@
   <text class="t" x="14" y="348">長期</text>
   <rect class="b-w" x="64" y="326" width="248" height="32" rx="4"/>
   <text class="k" x="72" y="347">概ね20年後</text>
-  <text class="tb" x="14" y="392">点検と見直しの周期</text>
-  <rect class="b-b" x="10" y="404" width="170" height="52" rx="8"/>
-  <text class="t" x="95" y="426" text-anchor="middle">点検</text>
-  <text class="s" x="95" y="444" text-anchor="middle">5年に1回を基本に</text>
-  <rect class="b-p" x="220" y="404" width="170" height="52" rx="8"/>
-  <text class="t" x="305" y="426" text-anchor="middle">計画の見直し</text>
-  <text class="s" x="305" y="444" text-anchor="middle">実情と大きくずれたとき</text>
-  <path class="a" d="M182,430H218" marker-end="url(#ah)"/>
-  <path class="a" d="M305,458V478H95V460" marker-end="url(#ah)"/>
+  <text class="s" x="14" y="384">事業計画</text>
+  <rect class="b-g" x="64" y="366" width="62" height="24" rx="4"/>
+  <rect class="b-g" x="126" y="366" width="25" height="24" rx="4" style="stroke-dasharray:3 2"/>
+  <text class="k" x="72" y="383">5〜7年</text>
+  <text class="s" x="160" y="383">実施する事業を定める（比較用）</text>
+  <text class="tb" x="14" y="414">点検と見直しの周期</text>
+  <rect class="b-b" x="10" y="422" width="170" height="52" rx="8"/>
+  <text class="t" x="95" y="444" text-anchor="middle">点検</text>
+  <text class="s" x="95" y="462" text-anchor="middle">5年に1回を基本に</text>
+  <rect class="b-p" x="220" y="422" width="170" height="52" rx="8"/>
+  <text class="t" x="305" y="444" text-anchor="middle">計画の見直し</text>
+  <text class="s" x="305" y="462" text-anchor="middle">実情と大きくずれたとき</text>
+  <path class="a" d="M182,448H218" marker-end="url(#ah)"/>
+  <path class="a" d="M305,476V490H95V478" marker-end="url(#ah)"/>
 </svg>
