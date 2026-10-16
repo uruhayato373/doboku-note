@@ -1,5 +1,5 @@
 <!-- authored 2026-10-15 doboku-note 自作。論点は、セメントと水の水和反応の進み方と、温度・水分による強度の伸びの違い（傾向を示す概念図で、縦軸・横軸に数値の目盛りは付けない）。特定の書籍図の複製ではない -->
-<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="コンクリートが固まる仕組みの概念図。上段は、練り混ぜ直後のセメント粒子から表面に水和物が育ち、つながって固まる三段階。下段は、材齢と強度の関係を示す模式図で、温度が高いと初期は速いが伸びが小さく、温度が低いと遅れるが伸び、水が切れると反応が進まず伸びが止まる。">
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="コンクリートが固まる仕組みの概念図。上段は、練り混ぜ直後のセメント粒子から表面に水和物が育ち、つながって固まる三段階。下段は、材齢と強度の関係を示す模式図で、温度が高いと初期は速いが伸びが小さく、温度が低いと遅れるが伸び、水が切れると反応が進まず伸びが止まる。凍結すると損傷し戻らない。28日は検査の区切りで、その後も伸びる。">
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 13px; fill: #222; }
@@ -17,6 +17,9 @@
       .c-hot { stroke: #b22234; stroke-width: 3; fill: none; stroke-linecap: round; }
       .c-low { stroke: #2e6da4; stroke-width: 3; fill: none; stroke-linecap: round; }
       .c-dry { stroke: #d4a017; stroke-width: 3; fill: none; stroke-linecap: round; }
+      .c-frz { stroke: #555; stroke-width: 3; fill: none; stroke-linecap: round; stroke-dasharray: 6 5; }
+      .md { stroke: #8a8a8a; stroke-width: 1.5; stroke-dasharray: 4 4; fill: none; }
+      .nt { font-size: 12px; fill: #555; }
     </style>
     <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
     <marker id="ak" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
@@ -43,16 +46,23 @@
   <rect x="234" y="153" width="10" height="10" rx="2" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/><text class="lg" x="250" y="162">水</text>
 
   <!-- 下段：材齢と強度（概念図・目盛りなし） -->
-  <rect class="card" x="10" y="180" width="380" height="312" rx="8"/>
+  <rect class="card" x="10" y="180" width="380" height="314" rx="8"/>
   <path class="axis" d="M50,392V204" marker-end="url(#ak)"/>
   <path class="axis" d="M50,392H372" marker-end="url(#ak)"/>
   <text class="ax" x="58" y="224">強度</text>
-  <text class="ax" x="372" y="412" text-anchor="end">材齢（時間）</text>
+  <text class="ax" x="372" y="410" text-anchor="end">材齢（時間）</text>
   <path class="c-dry" d="M54,392C84,351 112,327 148,316C170,311 200,308 366,308"/>
   <path class="c-hot" d="M54,392C68,329 98,280 158,262C228,247 298,245 366,245"/>
   <path class="c-low" d="M54,392C100,388 130,342 190,297C250,252 310,221 366,213"/>
 
-  <path class="c-hot" d="M22,430H46"/><text class="lt" x="56" y="434">温度が高い：初期は速いが、伸びは小さい</text>
-  <path class="c-low" d="M22,452H46"/><text class="lt" x="56" y="456">温度が低い（凍らない）：遅れるが、伸びる</text>
-  <path class="c-dry" d="M22,474H46"/><text class="lt" x="56" y="478">水が切れる：反応が進まず、伸びが止まる</text>
+  <path class="c-frz" d="M104,370L120,380H366"/>
+  <text class="nt" x="130" y="372">凍結：損傷。後の養生で戻らない</text>
+  <path class="md" d="M250,204V392"/>
+  <text class="nt" x="244" y="219" text-anchor="end">28日：検査の区切り</text>
+  <text class="nt" x="244" y="235" text-anchor="end">区切りの後も伸びる</text>
+
+  <path class="c-hot" d="M22,428H46"/><text class="lt" x="56" y="432">温度が高い：初期は速いが、伸びは小さい</text>
+  <path class="c-low" d="M22,446H46"/><text class="lt" x="56" y="450">温度が低い（凍らない）：遅れるが、伸びる</text>
+  <path class="c-dry" d="M22,464H46"/><text class="lt" x="56" y="468">水が切れる：反応が進まず、伸びが止まる</text>
+  <path class="c-frz" d="M22,482H46"/><text class="lt" x="56" y="486">凍結：遅れではなく組織の損傷</text>
 </svg>

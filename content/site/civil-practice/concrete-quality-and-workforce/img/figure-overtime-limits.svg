@@ -1,0 +1,28 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は、時間外労働の上限（原則・特別な事情・月と複数月平均）の入れ子の関係。数値は記事本文のみ。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="時間外労働の上限の入れ子の図。原則は月45時間・年360時間。特別な事情があっても年720時間以内。月は休日労働を含めて100時間未満、複数月の平均は80時間以内。災害の復旧・復興の事業は月100時間未満と複数月平均80時間以内だけ適用が除かれる。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }
+      .hd { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .in { font-size: 13px; font-weight: bold; fill: #1a3a5c; text-anchor: middle; }
+      .t { font-size: 13px; fill: #222; }
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .wrn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .dng { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .sf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <rect class="wrn" x="16" y="12" width="368" height="196" rx="8"/>
+  <text class="hd" x="30" y="38">特別な事情があっても　年720時間以内</text>
+  <rect class="pos" x="44" y="58" width="312" height="132" rx="8"/>
+  <text class="hd" x="58" y="84">原則</text>
+  <text class="t" x="58" y="116">月45時間</text><text class="t" x="58" y="144">年360時間</text>
+  <rect class="sf" x="16" y="224" width="368" height="116" rx="8"/>
+  <text class="hd" x="30" y="250">どちらの場合も守る</text>
+  <text class="t" x="30" y="280">月は休日労働を含めて100時間未満</text>
+  <text class="t" x="30" y="308">複数月の平均は80時間以内</text>
+  <rect class="dng" x="16" y="356" width="368" height="76" rx="8"/>
+  <text class="hd" x="30" y="382">災害の復旧・復興の事業</text><text class="t" x="30" y="404">月100時間未満と複数月平均80時間以内の</text><text class="t" x="30" y="422">二つだけ、適用が除かれる</text>
+  <text x="30" y="452">令和6年の年間総実労働時間</text>
+  <text x="30" y="472">建設業 1,938時間／全産業 1,643時間</text>
+</svg>

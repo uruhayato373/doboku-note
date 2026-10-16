@@ -2,7 +2,7 @@
 <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
   style="max-width:400px;width:100%"
   role="img"
-  aria-label="気温が10度付近では水ミチの水は液体のままだが、0度付近に下がると骨材側の水ミチは凍結して膨張し組織を壊す。独立気泡は圧力の高まった水の逃げ場になり凍害を緩和する">
+  aria-label="気温が10度付近では組織内の水は液体のままだが、0度付近に下がると凍結して膨張し組織を傷める。微細な独立気泡が耐凍害性を改善する">
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
@@ -28,8 +28,8 @@
     <marker id="ahd" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
     <marker id="ahg" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/></marker>
   </defs>
-<text class="t-lead" x="200" y="18" text-anchor="middle">気温が下がったとき、独立気泡が水の逃げ場になる</text>
-<text class="t-head" x="20" y="44">外気温 10℃付近：水ミチの水は液体</text>
+<text class="t-lead" x="200" y="18" text-anchor="middle">気温が下がったとき、微細な独立気泡が耐凍害性を改善する</text>
+<text class="t-head" x="20" y="44">外気温 10℃付近：組織内の水は液体</text>
 <rect class="box" x="20" y="58" width="360" height="172" rx="6"/>
 <line class="line-main" x1="20" y1="82" x2="380" y2="82"/>
 <rect class="box-b" x="100" y="82" width="14" height="60"/>
@@ -38,8 +38,8 @@
 <text class="t-label" x="107" y="172" text-anchor="middle">骨材</text>
 <circle cx="287" cy="148" r="30" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/>
 <text class="t-label" x="287" y="152" text-anchor="middle">気泡</text>
-<text class="t-desc" x="150" y="106">水ミチ</text><line class="line-ax" x1="148" y1="102" x2="116" y2="102"/>
-<text class="t-head" x="20" y="254">外気温 0℃付近：水ミチの水が凍結</text>
+<text class="t-desc" x="150" y="106">組織内の水</text><line class="line-ax" x1="148" y1="102" x2="116" y2="102"/>
+<text class="t-head" x="20" y="254">外気温 0℃付近：組織内の水が凍結</text>
 <rect class="box" x="20" y="268" width="360" height="172" rx="6"/>
 <line class="line-main" x1="20" y1="292" x2="380" y2="292"/>
 <rect class="box-d" x="100" y="292" width="14" height="60"/>
@@ -48,10 +48,10 @@
 <text class="t-label" x="107" y="382" text-anchor="middle">骨材</text>
 <circle cx="287" cy="358" r="30" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/>
 <text class="t-label" x="287" y="362" text-anchor="middle">気泡</text>
-<text class="t-desc" x="150" y="316">水ミチ</text><line class="line-ax" x1="148" y1="312" x2="116" y2="312"/>
+<text class="t-desc" x="150" y="316">組織内の水</text><line class="line-ax" x1="148" y1="312" x2="116" y2="312"/>
 <line class="arr-d" x1="107" y1="352" x2="107" y2="298"/>
-<text class="t-warn" x="124" y="340">凍結膨張で</text><text class="t-warn" x="124" y="356">組織が壊れる</text>
+<text class="t-warn" x="124" y="340">凍結を繰り返すと</text><text class="t-warn" x="124" y="356">組織が損傷する</text>
 <line class="arr-g" x1="287" y1="330" x2="287" y2="350"/>
-<text class="t-label" x="287" y="408" text-anchor="middle" style="fill:#3a7d44">水の逃げ場</text>
-<text class="t-desc" x="200" y="478" text-anchor="middle">気泡が圧力の高まった水を受け入れ、凍害を緩和する</text>
+<text class="t-label" x="287" y="408" text-anchor="middle" style="fill:#3a7d44">気泡が緩和する</text>
+<text class="t-desc" x="200" y="478" text-anchor="middle">微細な独立気泡が耐凍害性を改善する</text>
 </svg>

@@ -1,5 +1,5 @@
 <!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士教材の凍結融解試験と水セメント比。書籍図の複製・トレースではない -->
-<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="凍結融解サイクル数と相対動弾性係数の関係の概念図。水セメント比が小さい配合ほど低下しにくく、大きい配合ほど少ないサイクル数から低下する">
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="同程度の気泡組織で比較した凍結融解サイクル数と相対動弾性係数の関係の概念図。水セメント比が小さい配合ほど低下しにくく、大きい配合ほど少ないサイクル数から低下する">
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
@@ -37,7 +37,7 @@
   <text class="t-label" x="314" y="212" text-anchor="end">W/C やや小</text>
   <text class="t-label" x="248" y="236">W/C やや大</text>
   <text class="t-label" x="128" y="266">W/C 大</text>
-  <text class="t-lead" x="20" y="340">読み取り</text>
+  <text class="t-lead" x="20" y="340">前提：同程度の気泡組織</text>
   <rect class="box" x="20" y="346" width="360" height="140" rx="6" />
   <rect class="box-g" x="34" y="360" width="14" height="14" />
   <text class="t-desc" x="54" y="372">W/Cが小さい：組織が緻密で、ほとんど低下しない</text>

@@ -1,0 +1,45 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は出来形管理の要領（令和7年3月版）が工程ごとに求める地上移動体搭載型レーザースキャナーの要求精度。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="地上移動体搭載型レーザースキャナーの要求精度を工程ごとに比べた棒の図。起工測量・岩線計測は±100mm、部分払いの出来高計測は±200mm、出来形計測は±50mm。準則の0.1m（RMS誤差）をそのまま出来形の基準にはできない。">
+  <defs>
+  <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #222; }
+      .b { font-weight: bold; fill: #1a3a5c; }
+      .m { fill: #555; }
+      .t12 { font-size: 12px; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .dng { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .sf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .wh { fill: #fff; stroke: #2e6da4; stroke-width: 1.5; }
+      .dash { fill: #fff; stroke: #555; stroke-width: 1.5; stroke-dasharray: 4 3; }
+      .grid { stroke: #d7d7d7; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .ax { stroke: #555; stroke-width: 1.5; fill: none; }
+      .ar { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ark { stroke: #555; stroke-width: 2; fill: none; }
+  </style>
+  <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="ak" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  <marker id="as" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="asg" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+  <text class="m" x="12" y="22">要求精度（地上移動体搭載型レーザースキャナー）</text>
+  <text class="m" x="12" y="38">出典: 出来形管理の監督・検査要領（土工編）令和7年3月版</text>
+  <text class="t12 b" x="12" y="74">起工測量・岩線計測</text>
+  <rect class="brand" x="12" y="84" width="150.0" height="34" rx="4"/>
+  <text class="n" x="170.0" y="107">±100mm</text>
+  <text class="t12 b" x="12" y="156">部分払いの出来高計測</text>
+  <rect class="warn" x="12" y="166" width="300.0" height="34" rx="4"/>
+  <text class="n" x="320.0" y="189">±200mm</text>
+  <text class="t12 b" x="12" y="238">出来形計測</text>
+  <rect class="pos" x="12" y="248" width="75.0" height="34" rx="4"/>
+  <text class="n" x="95.0" y="271">±50mm</text>
+  <rect class="dng" x="12" y="312" width="376" height="86" rx="8"/>
+  <text class="t12 b" x="200.0" y="341.0" text-anchor="middle">準則の0.1m（RMS誤差）を</text>
+  <text class="t12" x="200.0" y="359.0" text-anchor="middle">そのまま出来形の基準として</text>
+  <text class="t12" x="200.0" y="377.0" text-anchor="middle">使うことはできない</text>
+  <rect class="sf" x="12" y="412" width="376" height="62" rx="8"/>
+  <text class="t12" x="200.0" y="438.0" text-anchor="middle">同じ車両搭載の機器でも</text>
+  <text class="t12" x="200.0" y="456.0" text-anchor="middle">起工測量は±100mmで足り、出来形は±50mmが要る</text>
+</svg>

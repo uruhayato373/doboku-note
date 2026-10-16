@@ -30,7 +30,8 @@
   <text class="t-name" x="200" y="50" text-anchor="middle">3回の試験結果</text>
   <text class="t-desc" x="200" y="68" text-anchor="middle">1回＝3供試体の平均値</text>
 
-  <line class="arrow-line" x1="200" y1="80" x2="200" y2="100" marker-end="url(#arrowS)"/>
+  <line class="arrow-line" x1="140" y1="80" x2="110" y2="100" marker-end="url(#arrowS)"/>
+  <line class="arrow-line" x1="260" y1="80" x2="290" y2="100" marker-end="url(#arrowS)"/>
 
   <rect class="box-b" x="20" y="102" width="170" height="70" rx="6"/>
   <text class="t-strong" x="105" y="124" text-anchor="middle">条件①</text>
@@ -63,7 +64,7 @@
 
   <rect class="box-sur" x="20" y="344" width="360" height="66" rx="6"/>
   <text class="t-name" x="200" y="368" text-anchor="middle">試験頻度</text>
-  <text class="t-desc" x="200" y="388" text-anchor="middle">150 m³に1回（高強度は100 m³に1回）</text>
+  <text class="t-desc" x="200" y="388" text-anchor="middle" style="font-size:11px">150 m³に1回（2019年版までは高強度だけ100 m³）</text>
 
   <rect x="40" y="430" width="14" height="14" class="box-pos"/>
   <text class="t-desc" x="60" y="441">合格</text>

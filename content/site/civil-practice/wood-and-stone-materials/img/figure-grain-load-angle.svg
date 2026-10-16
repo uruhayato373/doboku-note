@@ -1,5 +1,5 @@
 <!-- authored 2026-10-15 doboku-note 自作。論点は荷重の向きが繊維から傾くと強さが直角方向の値に向かって下がること（記事本文の Hankinson 式）。曲線は P と Q の比を10、定数 n を2とした形の概念図で、数値は読み取れない -->
-<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="木材のボルト接合で、荷重の向きと繊維の向きが合う置き方とずれる置き方を並べ、荷重と繊維のなす角θが大きくなるほど強さが、繊維方向の強さPから直角方向の強さQへ向かって下がることを示した図。">
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="木材のボルト接合で、荷重の向きと繊維の向きが合う置き方とずれる置き方を並べ、荷重と繊維のなす角θが大きくなるほど強さが、引張も圧縮も繊維方向の強さPから直角方向の強さQへ向かって下がることを示した図。">
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
@@ -24,6 +24,8 @@
   <path class="fib" d="M22,70H146M22,84H146M22,98H146M22,112H146M22,126H146"/>
   <circle class="hole" cx="62" cy="99" r="9"/>
   <path d="M62,99H182" fill="none" stroke="#3a7d44" stroke-width="3" marker-end="url(#ag)"/>
+  <text x="40" y="132" font-size="11" style="fill:#1a3a5c;stroke:#fff3cd;stroke-width:3;paint-order:stroke">ボルト孔</text>
+  <text x="150" y="93" font-size="11" style="fill:#3a7d44;font-weight:bold">荷重</text>
   <text class="n" x="22" y="164">荷重と繊維が同じ向き</text>
   <text class="t" x="22" y="184">θ = 0°</text><text class="t" x="22" y="202">強さは P</text>
 
@@ -37,6 +39,9 @@
   <path d="M257,84L316,118" fill="none" stroke="#b22234" stroke-width="3" marker-end="url(#ar)"/>
   <path d="M291,84A34,34 0 0 1 286.4,101" fill="none" stroke="#555" stroke-width="1.5"/>
   <text class="h" x="296" y="99">θ</text>
+  <text x="235" y="132" font-size="11" style="fill:#1a3a5c;stroke:#fff3cd;stroke-width:3;paint-order:stroke">ボルト孔</text>
+  <text x="310" y="134" font-size="11" style="fill:#b22234;stroke:#fff3cd;stroke-width:3;paint-order:stroke">荷重</text>
+  <text x="268" y="77" font-size="11" style="fill:#1a3a5c;stroke:#fff3cd;stroke-width:3;paint-order:stroke">繊維の向き</text>
   <text class="n" x="217" y="164">荷重が繊維から傾く</text>
   <text class="t" x="217" y="184">θ が大きいほど</text><text class="t" x="217" y="202">強さは Q に近づく</text>
 
@@ -48,14 +53,16 @@
   <text class="h" x="42" y="280" text-anchor="end">P</text>
   <text class="h" x="42" y="440" text-anchor="end">Q</text>
   <path d="M50,276H62M50,436H62" stroke="#8a8a8a" stroke-width="1.5" fill="none"/>
-  <path d="M50.0,276.0 L55.0,277.1 L60.0,280.3 L65.0,285.3 L70.0,291.9 L75.0,299.6 L80.0,308.1 L85.0,316.9 L90.0,325.8 L95.0,334.5 L100.0,342.9 L105.0,350.8 L110.0,358.2 L115.0,365.0 L120.0,371.3 L125.0,377.1 L130.0,382.3 L135.0,387.1 L140.0,391.5 L145.0,395.5 L150.0,399.1 L155.0,402.4 L160.0,405.3 L165.0,408.0 L170.0,410.5 L175.0,412.8 L180.0,414.8 L185.0,416.7 L190.0,418.4 L195.0,420.0 L200.0,421.5 L205.0,422.8 L210.0,424.0 L215.0,425.1 L220.0,426.2 L225.0,427.1 L230.0,428.0 L235.0,428.8 L240.0,429.5 L245.0,430.2 L250.0,430.8 L255.0,431.4 L260.0,432.0 L265.0,432.4 L270.0,432.9 L275.0,433.3 L280.0,433.7 L285.0,434.0 L290.0,434.3 L295.0,434.6 L300.0,434.9 L305.0,435.1 L310.0,435.3 L315.0,435.5 L320.0,435.6 L325.0,435.7 L330.0,435.8 L335.0,435.9 L340.0,436.0 L345.0,436.0 L350.0,436.0" fill="none" stroke="#2e6da4" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M50.0,276.0 L54.3,276.2 L58.6,277.2 L62.9,279.1 L67.1,282.0 L71.4,285.8 L75.7,290.5 L80.0,296.0 L84.3,302.0 L88.6,308.5 L92.9,315.4 L97.1,322.4 L101.4,329.4 L105.7,336.3 L110.0,343.0 L114.3,349.5 L118.6,355.7 L122.9,361.6 L127.1,367.1 L131.4,372.3 L135.7,377.1 L140.0,381.6 L144.3,385.8 L148.6,389.6 L152.9,393.2 L157.1,396.5 L161.4,399.6 L165.7,402.4 L170.0,405.0 L174.3,407.4 L178.6,409.7 L182.9,411.7 L187.1,413.6 L191.4,415.4 L195.7,417.0 L200.0,418.5 L204.3,419.9 L208.6,421.2 L212.9,422.4 L217.1,423.6 L221.4,424.6 L225.7,425.6 L230.0,426.5 L234.3,427.3 L238.6,428.1 L242.9,428.8 L247.1,429.5 L251.4,430.1 L255.7,430.7 L260.0,431.2 L264.3,431.7 L268.6,432.2 L272.9,432.6 L277.1,433.0 L281.4,433.4 L285.7,433.7 L290.0,434.0 L294.3,434.3 L298.6,434.6 L302.9,434.8 L307.1,435.0 L311.4,435.2 L315.7,435.4 L320.0,435.5 L324.3,435.7 L328.6,435.8 L332.9,435.8 L337.1,435.9 L341.4,436.0 L345.7,436.0 L350.0,436.0" fill="none" stroke="#2e6da4" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M50.0,276.0 L54.3,278.2 L58.6,283.2 L62.9,289.9 L67.1,297.8 L71.4,306.3 L75.7,315.1 L80.0,323.8 L84.3,332.2 L88.6,340.2 L92.9,347.8 L97.1,354.8 L101.4,361.3 L105.7,367.3 L110.0,372.8 L114.3,377.9 L118.6,382.5 L122.9,386.7 L127.1,390.6 L131.4,394.1 L135.7,397.4 L140.0,400.4 L144.3,403.1 L148.6,405.6 L152.9,407.9 L157.1,410.0 L161.4,412.0 L165.7,413.8 L170.0,415.4 L174.3,417.0 L178.6,418.4 L182.9,419.7 L187.1,420.9 L191.4,422.1 L195.7,423.2 L200.0,424.1 L204.3,425.1 L208.6,425.9 L212.9,426.7 L217.1,427.5 L221.4,428.2 L225.7,428.8 L230.0,429.4 L234.3,430.0 L238.6,430.5 L242.9,431.0 L247.1,431.5 L251.4,431.9 L255.7,432.3 L260.0,432.7 L264.3,433.0 L268.6,433.3 L272.9,433.6 L277.1,433.9 L281.4,434.2 L285.7,434.4 L290.0,434.6 L294.3,434.8 L298.6,435.0 L302.9,435.2 L307.1,435.3 L311.4,435.5 L315.7,435.6 L320.0,435.7 L324.3,435.8 L328.6,435.8 L332.9,435.9 L337.1,435.9 L341.4,436.0 L345.7,436.0 L350.0,436.0" fill="none" stroke="#b22234" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
   <circle cx="50" cy="276" r="5" style="fill:#d0e8d0;stroke:#3a7d44;stroke-width:2"/>
-  <circle cx="150.0" cy="399.1" r="5" style="fill:#f8d7da;stroke:#b22234;stroke-width:2"/>
   <text class="t" x="68" y="268">合う</text>
-  <text class="t" x="160.0" y="391.1">ずれる</text>
   <text x="50" y="462" text-anchor="middle">0°</text>
   <text x="350" y="462" text-anchor="middle">90°</text>
   <text class="h" x="200" y="480" text-anchor="middle">荷重と繊維のなす角 θ</text>
   <text class="t" x="214" y="298">P：繊維方向の強さ</text>
   <text class="t" x="214" y="316">Q：直角方向の強さ</text>
+  <path d="M214,340H238" fill="none" stroke="#b22234" stroke-width="3"/><text class="t" x="246" y="344">引張（n＝1.5〜2）</text>
+  <path d="M214,362H238" fill="none" stroke="#2e6da4" stroke-width="3"/><text class="t" x="246" y="366">圧縮（n＝2〜2.5）</text>
+  <text x="214" y="386">引張のほうが先に下がる</text>
 </svg>

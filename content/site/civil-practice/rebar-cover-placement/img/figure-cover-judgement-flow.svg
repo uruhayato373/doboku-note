@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="かぶり不足の対応の仕分け。許容誤差内かつ最小かぶり以上なら現場で是正し、部材の寸法や鉄筋量が動くなら設計変更協議にする流れ図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 12px; fill: #1a3a5c; }
+      .h { font-size: 13px; font-weight: bold; }
+      .s { font-size: 12px; fill: #222; }
+      .n { font-size: 11px; fill: #555; }
+      .lb { font-size: 11px; font-weight: bold; fill: #2e6da4; }
+      .m { text-anchor: middle; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .danger { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .ar { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+    </style>
+    <!-- brand / positive / warn / danger / surface tokens -->
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+  <rect width="400" height="500" fill="#ffffff" />
+  <rect class="surface" x="10" y="14" width="210" height="34" rx="8"/>
+  <text class="h m" x="115" y="36">かぶり不足の指摘</text>
+  <path class="ar" d="M115,48 L115,60" marker-end="url(#ah)"/>
+  <rect class="brand" x="10" y="62" width="210" height="48" rx="8"/>
+  <text class="h" x="22" y="82">① 設計値との差が</text>
+  <text class="h" x="22" y="100">許容誤差内か</text>
+  <path class="ar" d="M115,110 L115,122" marker-end="url(#ah)"/>
+  <rect class="brand" x="10" y="124" width="210" height="48" rx="8"/>
+  <text class="h" x="22" y="144">② 最小かぶりを</text>
+  <text class="h" x="22" y="162">下回っていないか</text>
+  <path class="ar" d="M115,172 L115,192" marker-end="url(#ah)"/>
+  <text class="n" x="124" y="186">どちらも はい</text>
+  <rect class="positive" x="10" y="194" width="210" height="86" rx="8"/>
+  <text class="h" x="22" y="214">現場で是正できる</text>
+  <text class="s" x="22" y="234">鉄筋を数カ所引き直す</text>
+  <text class="s" x="22" y="252">スペーサーを追加して</text>
+  <text class="s" x="22" y="268">間隔を作り直す</text>
+  <path class="ar" d="M220,86 L262,86" marker-end="url(#ah)"/>
+  <text class="n" x="228" y="78">いいえ</text>
+  <path class="ar" d="M220,148 L262,148" marker-end="url(#ah)"/>
+  <text class="n" x="228" y="140">いいえ</text>
+  <rect class="danger" x="264" y="62" width="126" height="110" rx="8"/>
+  <text class="h" x="274" y="82">どちらか</text>
+  <text class="h" x="274" y="100">「いいえ」</text>
+  <text class="s" x="274" y="120">現場だけで</text>
+  <text class="s" x="274" y="138">通さず、原因</text>
+  <text class="s" x="274" y="156">と是正案を整理</text>
+  <rect class="warn" x="10" y="292" width="380" height="86" rx="8"/>
+  <text class="h" x="22" y="314">寸法・鉄筋量が動くなら設計変更協議</text>
+  <text class="s" x="22" y="334">断面の拡大、鉄筋径・本数・間隔の変更など</text>
+  <text class="s" x="22" y="352">押し込んでも戻らない場合も、現場の一存では</text>
+  <text class="s" x="22" y="368">決めない</text>
+  <rect class="positive" x="10" y="390" width="380" height="98" rx="8"/>
+  <text class="h" x="22" y="412">協議には、ひとまとめにして持っていく</text>
+  <text class="s" x="22" y="432">測定値、設計値との差、想定される原因</text>
+  <text class="s" x="22" y="450">現場として提案できる是正案</text>
+  <text class="s" x="22" y="468">協議の記録（測定値・写真・回答）は必ず残す</text>
+</svg>

@@ -898,7 +898,7 @@
       "image": "pages/p0034.jpg",
       "repoPath": "content/sources/books/construction-industry-trends-5th__最新建設業界の動向とカラクリ第5版/pages/p0034.jpg",
       "ocrStatus": "complete",
-      "cropStatus": "pending",
+      "cropStatus": "not-needed",
       "sha256": "221aeaeffbfdb258fa6e46303a03542d8c874a4670a3e497c1da262768d51bf8",
       "md5": "ef895af3bd3ef243f275ca453dafeb7b",
       "bytes": 656775,
@@ -5198,7 +5198,7 @@
       "image": "pages/p0206.jpg",
       "repoPath": "content/sources/books/construction-industry-trends-5th__最新建設業界の動向とカラクリ第5版/pages/p0206.jpg",
       "ocrStatus": "complete",
-      "cropStatus": "pending",
+      "cropStatus": "not-needed",
       "sha256": "684289756f126ce6150f8d38ca325478b4a4a6d47a6b3667351f1a7ceef36ecd",
       "md5": "ba693bc00a24e071d7979ea2259054c6",
       "bytes": 666086,
@@ -5223,7 +5223,7 @@
       "image": "pages/p0207.jpg",
       "repoPath": "content/sources/books/construction-industry-trends-5th__最新建設業界の動向とカラクリ第5版/pages/p0207.jpg",
       "ocrStatus": "complete",
-      "cropStatus": "pending",
+      "cropStatus": "complete",
       "sha256": "658ea33d266d7281e4e50fdfb2a99f7fc15f9a9b862e2e944429d69df35965cc",
       "md5": "d7246ce9948cbef003302fe6832984d0",
       "bytes": 628350,
@@ -5898,7 +5898,7 @@
       "image": "pages/p0234.jpg",
       "repoPath": "content/sources/books/construction-industry-trends-5th__最新建設業界の動向とカラクリ第5版/pages/p0234.jpg",
       "ocrStatus": "complete",
-      "cropStatus": "pending",
+      "cropStatus": "not-needed",
       "sha256": "c49c84b64a44402a6f99f3c71f59fac8cd8b54cdbaad4e5f159f9db04508365b",
       "md5": "a0cd6132d3fb5628e236b609f6252923",
       "bytes": 673008,
@@ -6988,8 +6988,38 @@
       "recordedAt": "2026-09-09T00:58:34.874Z"
     }
   ],
-  "crops": [],
-  "updatedAt": "2026-09-09T00:58:34.874Z",
+  "crops": [
+    {
+      "id": "fig-gis-layer-overlay",
+      "pageId": "p0207",
+      "sourceImage": "pages/p0207.jpg",
+      "path": "crops/p0207_fig-gis-layer-overlay.png",
+      "repoPath": "content/sources/books/construction-industry-trends-5th__最新建設業界の動向とカラクリ第5版/crops/p0207_fig-gis-layer-overlay.png",
+      "caption": "GISの利用例（災害対策における地理情報の重ね合わせ例）",
+      "bbox": {
+        "x": 338,
+        "y": 1270,
+        "w": 1504,
+        "h": 1035
+      },
+      "sha256": "ec5622eb9c68eb6522e02a166c341cc1f072b34e9fcb61da1b0ee5efe852156b",
+      "md5": "6f60e17f81926c39cb25cec5291cc69b",
+      "bytes": 884446,
+      "width": 1504,
+      "height": 1035,
+      "audit": {
+        "status": "pass",
+        "scores": {
+          "clipPurity": 3,
+          "completeness": 3,
+          "correctFigure": 3,
+          "altIdentifiability": 3
+        },
+        "reviewedAt": "2026-10-16T06:54:47.652Z"
+      }
+    }
+  ],
+  "updatedAt": "2026-10-16T06:54:47.652Z",
   "migration": {
     "strategy": "copy-verify-switch-then-delete-separately",
     "legacyKept": true,

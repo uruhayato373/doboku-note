@@ -1,0 +1,41 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は、圧送ルートの水平換算長（125A）の足し算と、目安100mとの比較。数値は記事本文の例のみ。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="水平60m、垂直8m、ベント管2箇所、フレキシブルホース1本の圧送ルートを水平換算長に直すと、60+32+12+20で124mとなり、目安の100mを超えることを示した図。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 13px; fill: #222; }
+      .hd { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .in { font-size: 13px; font-weight: bold; fill: #1a3a5c; text-anchor: middle; }
+      .lb { font-size: 12px; fill: #555; }
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .brd { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .wrn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .dng { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .sf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .ar { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+  <text class="hd" x="24" y="28">水平換算長（125A）</text>
+  <text class="lb" x="314" y="50" text-anchor="middle">目安 100m</text>
+  <rect class="brd" x="40" y="60" width="164" height="48"/>
+  <rect class="wrn" x="204" y="60" width="88" height="48"/>
+  <rect class="pos" x="292" y="60" width="33" height="48"/>
+  <rect class="sf" x="325" y="60" width="55" height="48"/>
+  <path d="M314,54V114" stroke="#b22234" stroke-width="2.5" stroke-dasharray="5 4" fill="none"/>
+  <text class="in" x="122" y="89">水平 60</text><text class="in" x="248" y="89">垂直 32</text>
+
+  <rect class="brd" x="24" y="144" width="16" height="16"/><text x="48" y="157">水平距離　60m</text><text class="in" x="376" y="157" text-anchor="end">60m</text>
+  <rect class="wrn" x="24" y="176" width="16" height="16"/><text x="48" y="189">垂直 8m × 4</text><text class="in" x="376" y="189" text-anchor="end">32m</text>
+  <rect class="pos" x="24" y="208" width="16" height="16"/><text x="48" y="221">ベント管 2箇所 × 6</text><text class="in" x="376" y="221" text-anchor="end">12m</text>
+  <rect class="sf" x="24" y="240" width="16" height="16"/><text x="48" y="253">フレキシブルホース 1本</text><text class="in" x="376" y="253" text-anchor="end">20m</text>
+
+  <rect class="dng" x="24" y="276" width="352" height="48" rx="8"/>
+  <text class="in" x="200" y="306">合計 124m　目安の100mを超える</text>
+
+  <rect class="sf" x="24" y="344" width="352" height="136" rx="8"/>
+  <text class="hd" x="38" y="368">超えたときの選択</text>
+  <text x="38" y="392">・ベント管の数を減らせるルートにする</text>
+  <text x="38" y="414">・ホースの本数を絞る</text>
+  <text x="38" y="436">・ポンプ車の設置位置を近づける</text>
+  <text x="38" y="458">・圧送能力の高い機種に変える</text>
+</svg>

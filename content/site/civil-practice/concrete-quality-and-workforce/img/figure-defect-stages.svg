@@ -1,43 +1,47 @@
-<!-- authored 2026-10-15 doboku-note 自作。論点はコンクリートの不具合が生まれる三つの段階（製造・施工・条件設定）と、段階ごとに働く制度・記録の対応。特定の書籍図の複製ではない -->
-<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="コンクリートの不具合が生まれる三つの段階と、段階ごとに止める仕組みの対応図。製造は認証工場の選定、配合計画書、納入書。施工は荷卸し時の試験、単位水量の測定、施工計画書、段階確認、施工記録。条件設定は設計図書、工期、指示・協議の記録。">
+<!-- authored 2026-10-15 doboku-note 自作（2026-10-16 改訂）。論点はコンクリートの不具合が生まれる三つの段階（条件設定・製造・施工）の上流から下流の順と、止める仕組みの種類（制度・記録・確かめる行為）。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="コンクリートの不具合が生まれる三つの段階を、上流の条件設定から製造、施工の順に並べ、止める仕組みを制度・記録・確かめる行為に分けた図。条件設定は設計図書、工期、指示・協議の記録。製造は認証工場の選定、配合計画書、納入書。施工は荷卸し時の試験、単位水量の測定、施工計画書、段階確認、施工記録。">
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }
       .v { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
       .o { font-size: 12px; fill: #222; }
-      .s { font-size: 11px; font-weight: bold; fill: #555; }
       .c { font-size: 13px; fill: #222; }
+      .k { font-size: 11px; font-weight: bold; fill: #555; text-anchor: end; }
       .zone { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
-      .cb { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; } /* brand-fill / brand */
-      .cp { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; } /* positive-fill / positive */
-      .cw { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; } /* warn-fill / warn */
+      .cb { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .cp { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .cw { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
       .pb { fill: #fff; stroke: #2e6da4; stroke-width: 1.5; }
       .pp { fill: #fff; stroke: #3a7d44; stroke-width: 1.5; }
       .pw { fill: #fff; stroke: #d4a017; stroke-width: 1.5; }
+      .sf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .ar { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
     </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
   </defs>
-
-  <rect class="zone" x="16" y="12" width="368" height="132" rx="8"/>
-  <rect class="cb" x="28" y="22" width="56" height="24" rx="12"/><text class="v" x="56" y="38" text-anchor="middle">製造</text>
-  <text class="o" x="94" y="38">工場で配合どおりに造る</text>
-  <text class="s" x="28" y="64">止める仕組み</text>
-  <rect class="pb" x="28" y="72" width="168" height="28" rx="6"/><text class="c" x="112" y="90" text-anchor="middle">認証工場の選定</text>
-  <rect class="pb" x="204" y="72" width="168" height="28" rx="6"/><text class="c" x="288" y="90" text-anchor="middle">配合計画書</text>
-  <rect class="pb" x="28" y="108" width="168" height="28" rx="6"/><text class="c" x="112" y="126" text-anchor="middle">納入書</text>
-  <rect class="zone" x="16" y="158" width="368" height="168" rx="8"/>
-  <rect class="cp" x="28" y="168" width="56" height="24" rx="12"/><text class="v" x="56" y="184" text-anchor="middle">施工</text>
-  <text class="o" x="94" y="184">現場へ運び、打込み・締固め・養生</text>
-  <text class="s" x="28" y="210">止める仕組み</text>
-  <rect class="pp" x="28" y="218" width="168" height="28" rx="6"/><text class="c" x="112" y="236" text-anchor="middle">荷卸し時の試験</text>
-  <rect class="pp" x="204" y="218" width="168" height="28" rx="6"/><text class="c" x="288" y="236" text-anchor="middle">単位水量の測定</text>
-  <rect class="pp" x="28" y="254" width="168" height="28" rx="6"/><text class="c" x="112" y="272" text-anchor="middle">施工計画書</text>
-  <rect class="pp" x="204" y="254" width="168" height="28" rx="6"/><text class="c" x="288" y="272" text-anchor="middle">段階確認</text>
-  <rect class="pp" x="28" y="290" width="168" height="28" rx="6"/><text class="c" x="112" y="308" text-anchor="middle">施工記録</text>
-  <rect class="zone" x="16" y="340" width="368" height="132" rx="8"/>
-  <rect class="cw" x="28" y="350" width="84" height="24" rx="12"/><text class="v" x="70" y="366" text-anchor="middle">条件設定</text>
-  <text class="o" x="122" y="366">何を・いつまでに・どの条件で造るか決める</text>
-  <text class="s" x="28" y="392">止める仕組み</text>
-  <rect class="pw" x="28" y="400" width="168" height="28" rx="6"/><text class="c" x="112" y="418" text-anchor="middle">設計図書</text>
-  <rect class="pw" x="204" y="400" width="168" height="28" rx="6"/><text class="c" x="288" y="418" text-anchor="middle">工期</text>
-  <rect class="pw" x="28" y="436" width="168" height="28" rx="6"/><text class="c" x="112" y="454" text-anchor="middle">指示・協議の記録</text>
+  <rect class="zone" x="16" y="8" width="368" height="100" rx="8"/>
+  <rect class="cw" x="28" y="16" width="84" height="22" rx="11"/><text class="v" x="70" y="31" text-anchor="middle">条件設定</text>
+  <text class="o" x="122" y="31">何を・いつまでに・どの条件で造るか決める</text>
+  <rect class="pw" x="28" y="48" width="168" height="26" rx="6"/><text class="c" x="36" y="66">設計図書</text><text class="k" x="188" y="65">記録</text>
+  <rect class="pw" x="204" y="48" width="168" height="26" rx="6"/><text class="c" x="212" y="66">工期</text>
+  <rect class="pw" x="28" y="78" width="168" height="26" rx="6"/><text class="c" x="36" y="96">指示・協議の記録</text><text class="k" x="188" y="95">記録</text>
+  <path class="ar" d="M200,109V128" marker-end="url(#ah)"/>
+  <rect class="zone" x="16" y="130" width="368" height="100" rx="8"/>
+  <rect class="cb" x="28" y="138" width="56" height="22" rx="11"/><text class="v" x="56" y="153" text-anchor="middle">製造</text>
+  <text class="o" x="94" y="153">工場で配合どおりに造る</text>
+  <rect class="pb" x="28" y="170" width="168" height="26" rx="6"/><text class="c" x="36" y="188">認証工場の選定</text><text class="k" x="188" y="187">制度</text>
+  <rect class="pb" x="204" y="170" width="168" height="26" rx="6"/><text class="c" x="212" y="188">配合計画書</text><text class="k" x="364" y="187">記録</text>
+  <rect class="pb" x="28" y="200" width="168" height="26" rx="6"/><text class="c" x="36" y="218">納入書</text><text class="k" x="188" y="217">記録</text>
+  <path class="ar" d="M200,231V250" marker-end="url(#ah)"/>
+  <rect class="zone" x="16" y="252" width="368" height="132" rx="8"/>
+  <rect class="cp" x="28" y="260" width="56" height="22" rx="11"/><text class="v" x="56" y="275" text-anchor="middle">施工</text>
+  <text class="o" x="94" y="275">現場へ運び、打込み・締固め・養生</text>
+  <rect class="pp" x="28" y="292" width="168" height="26" rx="6"/><text class="c" x="36" y="310">荷卸し時の試験</text><text class="k" x="188" y="309">確かめる</text>
+  <rect class="pp" x="204" y="292" width="168" height="26" rx="6"/><text class="c" x="212" y="310">単位水量の測定</text><text class="k" x="364" y="309">確かめる</text>
+  <rect class="pp" x="28" y="322" width="168" height="26" rx="6"/><text class="c" x="36" y="340">施工計画書</text><text class="k" x="188" y="339">記録</text>
+  <rect class="pp" x="204" y="322" width="168" height="26" rx="6"/><text class="c" x="212" y="340">段階確認</text><text class="k" x="364" y="339">確かめる</text>
+  <rect class="pp" x="28" y="352" width="168" height="26" rx="6"/><text class="c" x="36" y="370">施工記録</text><text class="k" x="188" y="369">記録</text>
+  <path class="ar" d="M200,385V404" marker-end="url(#ah)"/>
+  <rect class="sf" x="16" y="408" width="368" height="32" rx="8"/><text class="v" x="200" y="429" text-anchor="middle">確かめる人手（担い手の章へ）</text>
+  <text x="200" y="462" text-anchor="middle">右端の語：仕組みの種類（制度・記録・確かめる行為）</text>
 </svg>

@@ -1,0 +1,35 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は、呼び方に出ない指定事項を、指定しないときの扱いで三群に分けたもの。数値は記事本文の表の値のみ。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="呼び方に出ない指定事項を、指定しないときの扱いで三つに分けた図。書かなくても規格の値が適用される項目、書かなければ工場が決める項目、現場条件で書く項目。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 13px; fill: #222; }
+      .hd { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .it { font-size: 13px; fill: #222; }
+      .vl { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .nt { font-size: 12px; fill: #555; }
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .brd { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .wrn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <rect class="pos" x="10" y="12" width="380" height="156" rx="8"/>
+  <text class="hd" x="24" y="38">書かなくても、規格の値が適用される</text>
+  <text class="it" x="24" y="66">保証材齢</text><text class="vl" x="190" y="66">28日</text>
+  <text class="it" x="24" y="94">塩化物含有量の上限</text><text class="vl" x="190" y="94">0.30kg/m³以下</text>
+  <text class="it" x="24" y="122">空気量（普通）</text><text class="vl" x="190" y="122">4.5%、許容差±1.5%</text>
+  <text class="it" x="24" y="150">運搬時間の限度</text><text class="vl" x="190" y="150">1.5時間以内</text>
+
+  <rect class="brd" x="10" y="186" width="380" height="104" rx="8"/>
+  <text class="hd" x="24" y="212">書かなければ、工場が決める</text>
+  <text class="it" x="24" y="244">水セメント比</text>
+  <text class="it" x="24" y="266">単位水量・単位セメント量</text><text class="nt" x="210" y="266">規格に数値はない</text>
+
+  <rect class="wrn" x="10" y="308" width="380" height="104" rx="8"/>
+  <text class="hd" x="24" y="334">現場条件で書く</text>
+  <text class="it" x="24" y="364">コンクリートの温度</text><text class="nt" x="190" y="364">指定して初めて条件になる</text>
+  <text class="it" x="24" y="390">運搬時間の変更</text><text class="nt" x="190" y="390">協議で変えられる</text>
+
+  <text class="nt" x="200" y="446" text-anchor="middle">書いた条件は、荷卸し地点の検査で</text>
+  <text class="nt" x="200" y="466" text-anchor="middle">「指定どおりか」を測る物差しになる</text>
+</svg>

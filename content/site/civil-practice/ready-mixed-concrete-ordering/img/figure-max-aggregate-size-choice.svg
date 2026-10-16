@@ -1,0 +1,41 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は、粗骨材の最大寸法を 40mm にするか 20〜25mm にするかの判断（記事本文の条件のみ）。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="粗骨材の最大寸法の選び方。最小断面寸法が500mm程度以上、かつ鋼材の最小のあきとかぶりの3/4が40mm以上なら40mm。それ以外は20mmまたは25mm。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 13px; fill: #222; }
+      .q { font-size: 13px; font-weight: bold; fill: #1a3a5c; text-anchor: middle; }
+      .rs { font-size: 15px; font-weight: bold; fill: #1a3a5c; text-anchor: middle; }
+      .rn { font-size: 12px; fill: #555; text-anchor: middle; }
+      .yn { font-size: 12px; font-weight: bold; fill: #2e6da4; }
+      .nt { font-size: 12px; fill: #555; }
+      .brd { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .wrn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .panel { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .ar { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+
+  <rect class="brd" x="10" y="14" width="230" height="70" rx="8"/>
+  <text class="q" x="125" y="44">最小断面寸法が</text><text class="q" x="125" y="64">500mm 程度以上か</text>
+  <path class="ar" d="M125,84V128" marker-end="url(#ah)"/><text class="yn" x="135" y="112">はい</text>
+  <path class="ar" d="M240,49H339V126" marker-end="url(#ah)"/><text class="yn" x="248" y="42">いいえ</text>
+
+  <rect class="brd" x="10" y="132" width="230" height="84" rx="8"/>
+  <text class="q" x="125" y="158">鋼材の最小のあきと</text><text class="q" x="125" y="178">かぶりの3/4が</text><text class="q" x="125" y="198">40mm 以上か</text>
+  <path class="ar" d="M125,216V260" marker-end="url(#ah)"/><text class="yn" x="135" y="244">はい</text>
+  <path class="ar" d="M240,174H284" marker-end="url(#ah)"/><text class="yn" x="244" y="164">いいえ</text>
+
+  <rect class="wrn" x="288" y="132" width="102" height="84" rx="8"/>
+  <text class="rs" x="339" y="168">20mm</text><text class="rn" x="339" y="186">または</text><text class="rs" x="339" y="206">25mm</text>
+
+  <rect class="pos" x="10" y="264" width="230" height="64" rx="8"/>
+  <text class="rs" x="125" y="302">40mm</text>
+
+  <rect class="panel" x="10" y="352" width="380" height="128" rx="8"/>
+  <text class="q" x="200" y="380">配筋図で見るのは三つ</text>
+  <text class="nt" x="200" y="404" text-anchor="middle">最小のあき・かぶり・部材の厚さ</text>
+  <text class="nt" x="200" y="436" text-anchor="middle">寸法を決める前に、現行版の条文で</text>
+  <text class="nt" x="200" y="456" text-anchor="middle">確かめる</text>
+</svg>

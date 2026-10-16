@@ -1,47 +1,59 @@
-<!-- authored 2026-09-30 doboku-note 自作。題材は主任技士教材のクリープ破壊（応力レベル別のクリープひずみ）。書籍図の複製・トレースではない -->
+<!-- authored 2026-10-16 doboku-note 自作。題材は主任技士教材のクリープ（比例限度とクリープ限度）。書籍図の複製・トレースではない -->
 <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
   style="max-width:400px;width:100%"
   role="img"
-  aria-label="持続応力レベル別のクリープひずみの時間推移の模式図。圧縮強度の30％と50％では時間とともに増加が頭打ちになり、85％と95％では増加が続いて破壊（×）に至る">
+  aria-label="クリープひずみと持続応力の関係の模式図。強度の40〜50％程度までは載荷応力にほぼ比例し、超えると非線形に増え、75〜85％程度のクリープ限度を超えると破壊に至る">
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
       .t-lead  { font-size: 11px; fill: #555; }
       .t-axis  { font-size: 11px; fill: #8a8a8a; }
-      .t-label { font-size: 11px; fill: #1a3a5c; }
-      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
-      .line-sub { stroke: #8a8a8a; stroke-width: 2; fill: none; }
+      .t-label { font-size: 12px; fill: #1a3a5c; }
+      .t-desc  { font-size: 12px; fill: #555; }
+      .line-ok { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+      .line-up { stroke: #d4a017; stroke-width: 2.5; fill: none; }
+      .line-ng { stroke: #b22234; stroke-width: 2.5; fill: none; }
       .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .zone-ok { fill: #e8f0fe; }
+      .zone-warn { fill: #fff3cd; }
+      .zone-ng { fill: #f8d7da; }
       .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
     </style>
   </defs>
-<g transform="translate(0.0 90.0) scale(1.0000)">
 
-  <text class="t-lead" x="200" y="14" text-anchor="middle">曲線の脇の％は持続応力／圧縮強度（模式図・数値目盛なし）</text>
+  <text class="t-lead" x="200" y="24" text-anchor="middle">持続応力が上がると、クリープひずみは比例から非線形へ</text>
+
+  <!-- zones: x 50..370 ; 40-50% -> 175, 75-85% -> 290 -->
+  <rect class="zone-ok" x="50" y="50" width="130" height="300" />
+  <rect class="zone-warn" x="180" y="50" width="110" height="300" />
+  <rect class="zone-ng" x="290" y="50" width="80" height="300" />
 
   <!-- axes -->
-  <line class="line-dash" x1="50" y1="250" x2="370" y2="250" />
-  <line class="line-dash" x1="50" y1="30" x2="50" y2="250" />
-  <text class="t-axis" x="210" y="270" text-anchor="middle">荷重持続時間</text>
-  <text class="t-axis" x="56" y="40">クリープひずみ</text>
+  <line class="line-dash" x1="50" y1="350" x2="370" y2="350" />
+  <line class="line-dash" x1="50" y1="50" x2="50" y2="350" />
+  <text class="t-axis" x="370" y="372" text-anchor="end">持続応力／圧縮強度</text>
+  <text class="t-axis" x="56" y="66">クリープひずみ</text>
 
-  <!-- curves -->
-  <path class="line-sub" d="M50,250 C 65,215 100,203 340,198" />
-  <path class="line-sub" d="M50,250 C 65,190 100,165 340,158" />
-  <path class="line-main" d="M50,250 C 75,170 130,130 220,100 C 260,85 300,68 330,52" />
-  <path class="line-main" d="M50,250 C 60,150 95,80 150,42" />
+  <!-- curve: line then bending up -->
+  <path class="line-ok" d="M50,350 L180,300" />
+  <path class="line-up" d="M180,300 C 220,282 260,250 290,215" />
+  <path class="line-ng" d="M290,215 C 315,175 335,120 350,66" />
+  <text class="t-label" x="350" y="58" text-anchor="middle">×</text>
 
-  <!-- failure markers -->
-  <text class="t-label" x="150" y="42" text-anchor="middle" dy="-4">×</text>
-  <text class="t-label" x="330" y="52" text-anchor="middle" dy="-4">×</text>
+  <!-- boundaries -->
+  <line class="line-dash" x1="180" y1="300" x2="180" y2="350" />
+  <line class="line-dash" x1="290" y1="215" x2="290" y2="350" />
 
-  <!-- labels -->
-  <text class="t-label" x="112" y="104">95％</text>
-  <text class="t-label" x="236" y="76">85％</text>
-  <text class="t-label" x="345" y="162">50％</text>
-  <text class="t-label" x="345" y="202">30％</text>
+  <!-- zone labels -->
+  <text class="t-label" x="115" y="130" text-anchor="middle">載荷応力に</text>
+  <text class="t-label" x="115" y="148" text-anchor="middle">ほぼ比例</text>
+  <text class="t-label" x="235" y="130" text-anchor="middle">比例が崩れ</text>
+  <text class="t-label" x="235" y="148" text-anchor="middle">非線形に増加</text>
+  <text class="t-label" x="330" y="244" text-anchor="middle">急速に進み</text>
+  <text class="t-label" x="330" y="262" text-anchor="middle">破壊へ</text>
 
-  <rect class="box" x="20" y="284" width="360" height="30" rx="6" />
-  <text class="t-lead" x="200" y="303" text-anchor="middle">×＝クリープ破壊　高応力ほどひずみは大きく、増加が止まらなくなる</text>
-</g>
+  <rect class="box" x="20" y="396" width="360" height="82" rx="6" />
+  <text class="t-desc" x="34" y="418">比例限度：強度の40〜50％程度</text>
+  <text class="t-desc" x="34" y="440">クリープ限度：強度の75〜85％程度</text>
+  <text class="t-desc" x="34" y="462">両者は別の閾値。×＝クリープ破壊</text>
 </svg>

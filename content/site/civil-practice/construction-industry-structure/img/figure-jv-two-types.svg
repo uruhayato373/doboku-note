@@ -56,10 +56,25 @@
 <text x="220" y="304">残る構成員が、その</text>
 <text x="220" y="318">分担工事を完成する</text>
 </g>
+<g stroke-width="1.5">
+<rect x="28" y="382" width="84" height="26" rx="6" fill="#d0e8d0" stroke="#3a7d44"/>
+<rect x="28" y="418" width="84" height="26" rx="6" fill="#fff3cd" stroke="#d4a017"/>
+<rect x="288" y="400" width="84" height="30" rx="6" fill="#e8f0fe" stroke="#2e6da4"/>
+</g>
+<defs><marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker></defs>
+<g stroke="#2e6da4" stroke-width="1.5">
+<line x1="112" y1="395" x2="286" y2="410" marker-end="url(#ar)"/>
+<line x1="112" y1="431" x2="286" y2="420" marker-end="url(#ar)"/>
+</g>
+<g fill="#222" text-anchor="middle" font-size="12" font-weight="700">
+<text x="70" y="400">A社</text>
+<text x="70" y="436">B社</text>
+<text x="330" y="420">発注者</text>
+</g>
+<g fill="#555" text-anchor="middle" font-size="11">
+<text x="200" y="418">連帯して責任</text>
+</g>
 <g fill="#222" font-size="12">
-<text x="26" y="396">構成員は発注者に対して連帯して責任を負う</text>
-<text x="26" y="416">解散した後の契約不適合も共同連帯の責任</text>
-<text x="26" y="436">代表者は発注者との折衝、請負代金の請求と</text>
-<text x="26" y="456">受領、企業体の財産の管理を行う権限を持つ</text>
+<text x="26" y="462">解散した後の契約不適合も共同連帯の責任</text>
 </g>
 </svg>

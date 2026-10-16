@@ -1,0 +1,68 @@
+<!-- authored 2026-10-16 doboku-note 自作。題材はコンクリート技士教材の配合設計の基本順序。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="配合設計の手順の流れ図。要求性能の設定から水セメント比、単位水量、単位セメント量、絶対容積での骨材量、試し練りの順に進み、目標とずれたら原因の諸量だけ補正して再度試し練りに戻る">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-title { font-size: 14px; font-weight: bold; fill: #222; }
+      .t-head  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-label { font-size: 12px; fill: #1a3a5c; }
+      .t-desc  { font-size: 12px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #555; }
+      .t-warn  { font-size: 12px; fill: #b22234; font-weight: bold; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .ln { stroke: #555; stroke-width: 1; fill: none; }
+      .arr { stroke: #2e6da4; stroke-width: 1.5; fill: none; marker-end: url(#ah); }
+      .arr-d { stroke: #b22234; stroke-width: 1.5; fill: none; marker-end: url(#ahd); }
+    </style>
+    <marker id="ah" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ahd" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+  </defs>
+  <text class="t-lead" x="200" y="18" text-anchor="middle">配合設計の手順と、試し練りからの戻り</text>
+  <rect class="box-b" x="20" y="28" width="340" height="40" rx="6"/>
+  <text class="t-head" x="34" y="53">1</text>
+  <text class="t-label" x="54" y="53">強度・耐久性・スランプ・空気量を設定</text>
+  <line x1="190" y1="68" x2="190" y2="80" class="arr"/>
+  <rect class="box-b" x="20" y="80" width="340" height="40" rx="6"/>
+  <text class="t-head" x="34" y="105">2</text>
+  <text class="t-label" x="54" y="105">水セメント比を決める（強度と耐久性の厳しい方）</text>
+  <line x1="190" y1="120" x2="190" y2="132" class="arr"/>
+  <rect class="box-b" x="20" y="132" width="340" height="40" rx="6"/>
+  <text class="t-head" x="34" y="157">3</text>
+  <text class="t-label" x="54" y="157">施工性と材料条件から単位水量を決める</text>
+  <line x1="190" y1="172" x2="190" y2="184" class="arr"/>
+  <rect class="box-b" x="20" y="184" width="340" height="40" rx="6"/>
+  <text class="t-head" x="34" y="209">4</text>
+  <text class="t-label" x="54" y="209">水セメント比から単位セメント量を計算する</text>
+  <line x1="190" y1="224" x2="190" y2="236" class="arr"/>
+  <rect class="box-b" x="20" y="236" width="340" height="40" rx="6"/>
+  <text class="t-head" x="34" y="261">5</text>
+  <text class="t-label" x="54" y="261">絶対容積で骨材量を配分する（合計1,000 L）</text>
+  <line x1="190" y1="276" x2="190" y2="288" class="arr"/>
+  <rect class="box-w" x="20" y="288" width="340" height="40" rx="6"/>
+  <text class="t-head" x="34" y="313">6</text>
+  <text class="t-label" x="54" y="313">試し練りで確認する</text>
+  <line x1="190" y1="328" x2="190" y2="340" class="arr"/>
+  <text class="t-head" x="200" y="358" text-anchor="middle">結果は目標どおりか</text>
+  <line x1="105" y1="364" x2="105" y2="376" class="arr"/>
+  <line x1="280" y1="364" x2="280" y2="376" class="arr"/>
+  <rect class="box-p" x="20" y="378" width="170" height="84" rx="6"/>
+  <text class="t-head" x="34" y="400">目標どおり</text>
+  <text class="t-desc" x="34" y="420">配合を確定する</text>
+  <text class="t-desc" x="34" y="438">現場では骨材の</text>
+  <text class="t-desc" x="34" y="454">含水状態を補正</text>
+  <rect class="box-d" x="200" y="378" width="160" height="84" rx="6"/>
+  <text class="t-head" x="212" y="400">ずれた</text>
+  <text class="t-desc" x="212" y="420">原因の諸量だけ補正</text>
+  <text class="t-desc" x="212" y="438">（単位水量・細骨材率</text>
+  <text class="t-desc" x="212" y="454">・AE剤量など）</text>
+  <path d="M360,420 L378,420 L378,152 L362,152" fill="none" stroke="#b22234" stroke-width="1.5" marker-end="url(#ahd)"/>
+  <text class="t-warn" x="200" y="484" text-anchor="middle">水だけを足して帳尻を合わせない</text>
+</svg>

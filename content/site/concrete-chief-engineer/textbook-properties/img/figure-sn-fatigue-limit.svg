@@ -16,37 +16,22 @@
       .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
     </style>
   </defs>
-<g transform="translate(0.0 80.0) scale(1.0000)">
-
-  <text class="t-lead" x="200" y="16" text-anchor="middle">横軸＝繰返し数N（対数）、縦軸＝上限応力S（数値なし）</text>
-
-  <!-- axes -->
-  <line class="line-dash" x1="50" y1="240" x2="370" y2="240" />
-  <line class="line-dash" x1="50" y1="36" x2="50" y2="240" />
-  <text class="t-axis" x="372" y="274" text-anchor="end">繰返し数 N（対数目盛）</text>
-  <text class="t-axis" x="56" y="34">上限応力 S</text>
-
-  <!-- static strength level -->
-  <line class="line-dash" x1="50" y1="60" x2="120" y2="60" />
-  <text class="t-axis" x="124" y="64">静的強度</text>
-
-  <!-- metal: descends then flat -->
-  <path class="line-sub" d="M70,70 C 130,110 180,140 230,150 L 360,150" />
-  <text class="t-desc" x="366" y="138" text-anchor="end">金属：疲労限度あり</text>
-
-  <!-- concrete: straight line down-right -->
-  <line class="line-main" x1="70" y1="66" x2="360" y2="200" />
-  <text class="t-label" x="366" y="216" text-anchor="end">コンクリート：</text>
-  <text class="t-label" x="366" y="230" text-anchor="end">限度なし</text>
-
-  <!-- 2 million cycles -->
-  <line class="line-dash" x1="250" y1="40" x2="250" y2="240" />
-  <text class="t-axis" x="250" y="258" text-anchor="middle">200万回</text>
-  <circle cx="250" cy="158" r="3" fill="#2e6da4" />
-  <text class="t-label" x="204" y="180" text-anchor="end">200万回疲労強度</text>
-
-  <text class="t-lead" x="20" y="298">押さえる点</text>
-  <rect class="box" x="20" y="304" width="360" height="30" rx="6" />
-  <text class="t-desc" x="34" y="323">疲労強度は有限の回数（200万回）での強度で表す</text>
-</g>
+<text class="t-lead" x="200" y="24" text-anchor="middle">繰返し回数が増えるほど疲労強度は低下する</text>
+<path class="line-dash" d="M50 58V350H370"/>
+<text class="t-axis" x="56" y="55">上限応力 S</text>
+<text class="t-axis" x="370" y="398" text-anchor="end">繰返し数 N（対数目盛）</text>
+<line class="line-dash" x1="50" y1="85" x2="123" y2="85"/>
+<text class="t-axis" x="130" y="88">静的強度</text>
+<path class="line-sub" d="M70 95C140 115 250 170 310 190H360"/>
+<text class="t-desc" x="365" y="154" text-anchor="end">金属：疲労限度あり</text>
+<line class="line-main" x1="70" y1="95" x2="360" y2="295"/>
+<text class="t-label" x="365" y="319" text-anchor="end">コンクリート：</text>
+<text class="t-label" x="365" y="335" text-anchor="end">明確な疲労限度なし</text>
+<path class="line-dash" d="M250 60V350M50 219.14H250"/>
+<circle cx="250" cy="219.14" r="3.5" fill="#2e6da4"/>
+<text class="t-label" x="58" y="210">200万回疲労強度</text>
+<text class="t-axis" x="250" y="375" text-anchor="middle">200万回</text>
+<rect class="box" x="20" y="416" width="360" height="64" rx="6"/>
+<text class="t-desc" x="34" y="442">気乾状態の200万回疲労強度は</text>
+<text class="t-desc" x="34" y="466">静的圧縮強度の55〜65 %程度</text>
 </svg>

@@ -67,6 +67,7 @@ npm run build-reference-book-pages -- --source-id <referenceId>
 npm run build-reference-book-pages -- --source-id <referenceId> --commit
 npm run build-reference-book-pages -- --source-id <referenceId> --commit --replace-derived # 描画条件を変えた派生画像の安全置換
 npm run record-reference-book-artifacts -- --source-id <referenceId> ... # dry-run後に --commit
+npm run record-reference-book-crops -- --batch <batch.json> --preview <dir> # 1冊ぶんの図の切り出し（図なしの頁も）を下見 → 監査 → --commit で登録
 npm run check-reference-book-pages -- --source-id <referenceId> --deep
 npm run drive-vault-sync -- --group reference-book-source-pdf --verify --deep --cloud
 npm run drive-vault-sync -- --group reference-book-page-image --verify --deep --cloud

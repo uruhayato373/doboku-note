@@ -44,7 +44,7 @@ sources:
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/civil-practice/3d-measurement-selection/img/figure-point-cloud-products.svg"
-  alt="斜面の断面で、点群から建物や樹木を除いてグラウンドデータを残し、グリッド・等高線・断面を作る流れを示した図"
+  alt="斜面の断面で、点群から建物や樹木を除いてグラウンドデータを残し、使い道ごとの成果を作る流れを示した図"
   width={400}
   height={500}
 />
@@ -65,7 +65,7 @@ sources:
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/civil-practice/3d-measurement-selection/img/figure-six-methods.svg"
-  alt="準則の六つの3次元計測の方式を、空・地上・車両・水域の計測する場所で並べ、標準の点密度と精度を添えた図"
+  alt="準則の六つの3次元計測の方式を、空・地上・車両・水域の計測する場所で並べ、向く場面と注意する場面を添えた図"
   width={400}
   height={500}
 />
@@ -88,6 +88,14 @@ sources:
 ### 水域を含むなら、航空レーザ測深を候補にする
 
 河川などの水域と周辺の陸域を一度に計測したいときの候補が、航空レーザ測深測量です（第583条）。精度は陸部・水底の標高とも標準偏差0.3m以内が標準で、水質の影響で測深できない場合、水底の標高にはこの精度を適用しません（第586条）。濁りが強い時期には水底が測れない可能性があるため、準則は事前に水質を調べる工程を置いています（第588条）。
+
+{/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
+<ArticleImage
+  src="/posts/civil-practice/3d-measurement-selection/img/figure-bathymetry-water-quality.svg"
+  alt="航空レーザ測深で、水が澄んでいれば水底も測れ、濁りが強いと水底が測れないことを示す断面図"
+  width={400}
+  height={500}
+/>
 
 ## 精度と点密度は、別の欄で決める
 
@@ -145,7 +153,7 @@ UAVレーザと航空レーザの固定局は、機体の位置をキネマテ�
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/civil-practice/3d-measurement-selection/img/figure-control-check-points.svg"
-  alt="UAV写真点群測量の標定点と検証点の配置の模式図。外側標定点3点以上、内側1点以上、検証点は標定点の半数以上"
+  alt="標定点と検証点の役目の違いと配置の模式図、および残差と較差の判定から再計算・再撮影までの流れ"
   width={400}
   height={500}
 />
@@ -172,6 +180,14 @@ UAVレーザと航空レーザの固定局は、機体の位置をキネマテ�
 
 同じ場所を複数回測り、変位を比べる用途では、許容できる較差を先に決め、そこから計測条件を逆算します。地上レーザ測量の準則は、水平面で較差の許容が5mm（標準偏差）なら放射方向の点間隔250mm・最小入射角4度、10mmなら500mm・2度という標準を示しています（第368条第1項）。斜面では、較差の許容20mmに対して点間隔1,000mmです。
 
+{/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
+<ArticleImage
+  src="/posts/civil-practice/3d-measurement-selection/img/figure-tolerance-to-spacing.svg"
+  alt="較差の許容5mm・10mm・20mmに対する地上レーザの点間隔を棒で比べ、許容が小さいほど細かい間隔が要ることを示す図"
+  width={400}
+  height={500}
+/>
+
 <Callout type="note" title="較差を後から決めると、条件が足りないことがある">
 変位の検出には、ずれの大きさに対して十分に細かい点間隔が要ります。計測が済んでから許容値を決めても、細かさが足りなければ、比較はやり直せません。
 </Callout>
@@ -179,6 +195,14 @@ UAVレーザと航空レーザの固定局は、機体の位置をキネマテ�
 ## 工事の出来形に使うなら、要領の精度に従う
 
 工事の出来形管理に使う計測は、準則ではなく「3次元計測技術を用いた出来形管理の監督・検査要領（土工編）（案）」の精度が基準です。令和7年3月版は、地上移動体搭載型のレーザースキャナーの要求精度を、起工測量・岩線計測で±100mm、部分払いの出来高計測で±200mm、出来形計測で±50mmとしています（[同要領](https://www.mlit.go.jp/tec/constplan/content/001880032.pdf) p.5）。
+
+{/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
+<ArticleImage
+  src="/posts/civil-practice/3d-measurement-selection/img/figure-accuracy-by-process.svg"
+  alt="地上移動体搭載型レーザースキャナーの要求精度を、起工測量・部分払い・出来形の工程ごとに比べた棒の図"
+  width={400}
+  height={500}
+/>
 
 同じ車両搭載の機器でも、起工測量では±100mmで足り、出来形では±50mmが要るということです。準則の0.1m（RMS誤差）を、そのまま出来形の基準として使うことはできません。工程ごとの使い分けは[ICT施工の実務ワークフロー](/practice/ict-construction-workflow)にまとめています。
 

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="アスファルトの分類と使い道。石油系のストレートとブローン、改質、天然のTLAを使い道の一言で整理した材料マップ" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+  <rect x="20" y="14" width="360" height="30" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/> <!-- brand-fill / brand -->
+  <text x="34" y="34" font-size="14" font-weight="700" fill="#222">石油アスファルト（原油を蒸留した残り）</text>
+  <path d="M30 44V135" fill="none" stroke="#555" stroke-width="1"/>
+  <path d="M30 77H44" fill="none" stroke="#555" stroke-width="1"/>
+  <rect x="44" y="52" width="336" height="50" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/> <!-- brand-fill / brand -->
+  <text x="56" y="72" font-size="13" font-weight="700" fill="#222">ストレートアスファルト</text>
+  <text x="56" y="91" font-size="11" fill="#555">規格化した舗装用石油アスファルト。基層・表層に使う</text>
+  <path d="M30 135H44" fill="none" stroke="#555" stroke-width="1"/>
+  <rect x="44" y="110" width="336" height="50" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/> <!-- brand-fill / brand -->
+  <text x="56" y="130" font-size="13" font-weight="700" fill="#222">ブローンアスファルト</text>
+  <text x="56" y="149" font-size="11" fill="#555">空気を吹き込んで性状を変えたもの。防水・接着に使う</text>
+  <rect x="20" y="184" width="360" height="30" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/> <!-- surface -->
+  <text x="34" y="204" font-size="14" font-weight="700" fill="#222">改質アスファルト</text>
+  <path d="M30 214V305" fill="none" stroke="#555" stroke-width="1"/>
+  <path d="M30 247H44" fill="none" stroke="#555" stroke-width="1"/>
+  <rect x="44" y="222" width="336" height="50" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/> <!-- surface -->
+  <text x="56" y="242" font-size="13" font-weight="700" fill="#222">ポリマー改質 Ⅰ〜Ⅲ型・H型</text>
+  <text x="56" y="261" font-size="11" fill="#555">H型は排水性舗装のバインダ</text>
+  <path d="M30 305H44" fill="none" stroke="#555" stroke-width="1"/>
+  <rect x="44" y="280" width="336" height="50" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/> <!-- surface -->
+  <text x="56" y="300" font-size="13" font-weight="700" fill="#222">セミブローン（AC-100）</text>
+  <text x="56" y="319" font-size="11" fill="#555">半たわみ性舗装で流動対策に使う</text>
+  <rect x="20" y="354" width="360" height="30" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/> <!-- warn -->
+  <text x="34" y="374" font-size="14" font-weight="700" fill="#222">天然アスファルト</text>
+  <path d="M30 384V417" fill="none" stroke="#555" stroke-width="1"/>
+  <path d="M30 417H44" fill="none" stroke="#555" stroke-width="1"/>
+  <rect x="44" y="392" width="336" height="50" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/> <!-- warn -->
+  <text x="56" y="412" font-size="13" font-weight="700" fill="#222">トリニダッドレイクアスファルト（TLA）</text>
+  <text x="56" y="431" font-size="11" fill="#555">グースアスファルトの硬質材になる</text>
+  <text x="20" y="490" font-size="11" fill="#555">どの材料を使うかは設計図書による</text>
+</svg>

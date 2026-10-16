@@ -2,7 +2,7 @@
 <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
   style="max-width:400px;width:100%"
   role="img"
-  aria-label="セメントペースト、モルタル、コンクリートの材料構成を構成の相対的な目安（定性表示）で3本の積み上げ帯にして比較した図。ペーストはセメントと水、モルタルは細骨材を加え、コンクリートはさらに粗骨材を加える">
+  aria-label="セメントペースト、モルタル、コンクリートの材料構成を容積の目安（定性表示）で3本の積み上げ帯にして比較した図。ペーストはセメントと水、モルタルは細骨材を加え、コンクリートはさらに粗骨材を加える">
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
@@ -23,7 +23,7 @@
     </style>
     <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
   </defs>
-  <text class="t-lead" x="200" y="16" text-anchor="middle">帯の高さは構成の相対的な目安（定性表示・配合により変わる）</text>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">帯の高さは容積の目安（定性表示・配合により変わる）</text>
   <rect class="box-b" x="30" y="132.4" width="100" height="187.6" />
   <text class="t-label" x="80" y="230.2" text-anchor="middle">セメント</text>
   <rect class="box-p" x="30" y="40.0" width="100" height="92.4" />
@@ -38,19 +38,21 @@
   <text class="t-label" x="200" y="60.8" text-anchor="middle">水</text>
   <text class="t-head" x="200" y="350" text-anchor="middle">モルタル</text>
   <text class="t-desc" x="200" y="368" text-anchor="middle">＋細骨材（砂）</text>
-  <rect class="box" x="270" y="199.6" width="100" height="120.4" />
-  <text class="t-label" x="320" y="263.8" text-anchor="middle">粗骨材</text>
-  <rect class="box-w" x="270" y="101.6" width="100" height="98.0" />
-  <text class="t-label" x="320" y="154.6" text-anchor="middle">細骨材</text>
-  <rect class="box-b" x="270" y="59.6" width="100" height="42.0" />
-  <text class="t-label" x="320" y="84.6" text-anchor="middle">セメント</text>
-  <rect class="box-p" x="270" y="40.0" width="100" height="19.6" />
-  <text class="t-label" x="320" y="53.8" text-anchor="middle">水</text>
+  <rect class="box" x="270" y="205.6" width="100" height="114.4" />
+  <text class="t-label" x="320" y="266.8" text-anchor="middle">粗骨材</text>
+  <rect class="box-w" x="270" y="112.5" width="100" height="93.1" />
+  <text class="t-label" x="320" y="163.1" text-anchor="middle">細骨材</text>
+  <rect class="box-b" x="270" y="72.6" width="100" height="39.9" />
+  <text class="t-label" x="320" y="96.6" text-anchor="middle">セメント</text>
+  <rect class="box-p" x="270" y="54.0" width="100" height="18.6" />
+  <text class="t-label" x="320" y="67.3" text-anchor="middle">水</text>
+  <rect x="270" y="40" width="100" height="14" fill="#ffffff" stroke="#555" stroke-width="1.5" />
+  <text class="t-label" x="320" y="51" text-anchor="middle">空気</text>
   <text class="t-head" x="320" y="350" text-anchor="middle">コンクリート</text>
   <text class="t-desc" x="320" y="368" text-anchor="middle">＋粗骨材（砂利）</text>
   <rect class="box" x="20" y="395" width="360" height="70" rx="6" />
   <text class="t-label" x="200" y="418" text-anchor="middle">細骨材と粗骨材をまとめて「骨材」と呼ぶ</text>
-  <text class="t-desc" x="200" y="438" text-anchor="middle">実際のコンクリートには混和材料や空気も含まれる</text>
+  <text class="t-desc" x="200" y="438" text-anchor="middle">コンクリートの帯の最上段は空気（混和材料も含まれる）</text>
   <text class="t-desc" x="200" y="456" text-anchor="middle">ペースト → モルタル → コンクリートの順に材料が加わる</text>
 
 </svg>

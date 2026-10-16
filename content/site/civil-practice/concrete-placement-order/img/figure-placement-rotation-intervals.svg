@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="18区画を3層に分けて20分ごとに1区画ずつ打つ例の比較。層ごとに全区画を回ると打重ね間隔は120分、斜めに階段状に進めると最大100分">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 12px; fill: #1a3a5c; }
+      .h { font-size: 13px; font-weight: bold; }
+      .s { font-size: 12px; fill: #222; }
+      .n { font-size: 11px; fill: #555; }
+      .lb { font-size: 11px; font-weight: bold; fill: #2e6da4; }
+      .m { text-anchor: middle; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .danger { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .ar { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+    </style>
+    <!-- brand / positive / warn / danger / surface tokens -->
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+  <rect width="400" height="500" fill="#ffffff" />
+  <text class="h" x="20" y="24">A　層ごとに全区画を回る</text>
+  <text class="n m" x="38" y="56">3層目</text>
+  <rect class="danger" x="64" y="34" width="48" height="34" rx="6"/>
+  <text class="h m" x="88" y="56">13</text>
+  <rect class="danger" x="116" y="34" width="48" height="34" rx="6"/>
+  <text class="h m" x="140" y="56">14</text>
+  <rect class="danger" x="168" y="34" width="48" height="34" rx="6"/>
+  <text class="h m" x="192" y="56">15</text>
+  <rect class="danger" x="220" y="34" width="48" height="34" rx="6"/>
+  <text class="h m" x="244" y="56">16</text>
+  <rect class="danger" x="272" y="34" width="48" height="34" rx="6"/>
+  <text class="h m" x="296" y="56">17</text>
+  <rect class="danger" x="324" y="34" width="48" height="34" rx="6"/>
+  <text class="h m" x="348" y="56">18</text>
+  <text class="n m" x="38" y="94">2層目</text>
+  <rect class="danger" x="64" y="72" width="48" height="34" rx="6"/>
+  <text class="h m" x="88" y="94">7</text>
+  <rect class="danger" x="116" y="72" width="48" height="34" rx="6"/>
+  <text class="h m" x="140" y="94">8</text>
+  <rect class="danger" x="168" y="72" width="48" height="34" rx="6"/>
+  <text class="h m" x="192" y="94">9</text>
+  <rect class="danger" x="220" y="72" width="48" height="34" rx="6"/>
+  <text class="h m" x="244" y="94">10</text>
+  <rect class="danger" x="272" y="72" width="48" height="34" rx="6"/>
+  <text class="h m" x="296" y="94">11</text>
+  <rect class="danger" x="324" y="72" width="48" height="34" rx="6"/>
+  <text class="h m" x="348" y="94">12</text>
+  <text class="n m" x="38" y="132">1層目</text>
+  <rect class="brand" x="64" y="110" width="48" height="34" rx="6"/>
+  <text class="h m" x="88" y="132">1</text>
+  <rect class="brand" x="116" y="110" width="48" height="34" rx="6"/>
+  <text class="h m" x="140" y="132">2</text>
+  <rect class="brand" x="168" y="110" width="48" height="34" rx="6"/>
+  <text class="h m" x="192" y="132">3</text>
+  <rect class="brand" x="220" y="110" width="48" height="34" rx="6"/>
+  <text class="h m" x="244" y="132">4</text>
+  <rect class="brand" x="272" y="110" width="48" height="34" rx="6"/>
+  <text class="h m" x="296" y="132">5</text>
+  <rect class="brand" x="324" y="110" width="48" height="34" rx="6"/>
+  <text class="h m" x="348" y="132">6</text>
+  <text class="h" x="20" y="172">どの区画も、下層から120分</text>
+  <text class="h" x="20" y="206">B　斜めに階段状に進める</text>
+  <text class="n m" x="38" y="238">3層目</text>
+  <rect class="positive" x="64" y="216" width="48" height="34" rx="6"/>
+  <text class="h m" x="88" y="238">7</text>
+  <rect class="warn" x="116" y="216" width="48" height="34" rx="6"/>
+  <text class="h m" x="140" y="238">10</text>
+  <rect class="warn" x="168" y="216" width="48" height="34" rx="6"/>
+  <text class="h m" x="192" y="238">13</text>
+  <rect class="positive" x="220" y="216" width="48" height="34" rx="6"/>
+  <text class="h m" x="244" y="238">15</text>
+  <rect class="positive" x="272" y="216" width="48" height="34" rx="6"/>
+  <text class="h m" x="296" y="238">17</text>
+  <rect class="positive" x="324" y="216" width="48" height="34" rx="6"/>
+  <text class="h m" x="348" y="238">18</text>
+  <text class="n m" x="38" y="276">2層目</text>
+  <rect class="positive" x="64" y="254" width="48" height="34" rx="6"/>
+  <text class="h m" x="88" y="276">3</text>
+  <rect class="positive" x="116" y="254" width="48" height="34" rx="6"/>
+  <text class="h m" x="140" y="276">5</text>
+  <rect class="positive" x="168" y="254" width="48" height="34" rx="6"/>
+  <text class="h m" x="192" y="276">8</text>
+  <rect class="warn" x="220" y="254" width="48" height="34" rx="6"/>
+  <text class="h m" x="244" y="276">11</text>
+  <rect class="warn" x="272" y="254" width="48" height="34" rx="6"/>
+  <text class="h m" x="296" y="276">14</text>
+  <rect class="positive" x="324" y="254" width="48" height="34" rx="6"/>
+  <text class="h m" x="348" y="276">16</text>
+  <text class="n m" x="38" y="314">1層目</text>
+  <rect class="brand" x="64" y="292" width="48" height="34" rx="6"/>
+  <text class="h m" x="88" y="314">1</text>
+  <rect class="brand" x="116" y="292" width="48" height="34" rx="6"/>
+  <text class="h m" x="140" y="314">2</text>
+  <rect class="brand" x="168" y="292" width="48" height="34" rx="6"/>
+  <text class="h m" x="192" y="314">4</text>
+  <rect class="brand" x="220" y="292" width="48" height="34" rx="6"/>
+  <text class="h m" x="244" y="314">6</text>
+  <rect class="brand" x="272" y="292" width="48" height="34" rx="6"/>
+  <text class="h m" x="296" y="314">9</text>
+  <rect class="brand" x="324" y="292" width="48" height="34" rx="6"/>
+  <text class="h m" x="348" y="314">12</text>
+  <text class="h" x="20" y="354">下層から最大100分に収まる</text>
+  <rect class="surface" x="10" y="372" width="380" height="116" rx="8"/>
+  <text class="h" x="22" y="394">番号は打つ順（1区画20分）の一例</text>
+  <text class="s" x="22" y="414">18区画を3層に分け、各層6区画とした</text>
+  <text class="s" x="22" y="432">Bは筒先の移動が増える代わりに、</text>
+  <text class="s" x="22" y="450">待たせる時間を減らす選択</text>
+  <text class="n" x="22" y="472">赤＝120分、黄＝100分（Bの最大）、緑＝それより短い</text>
+</svg>

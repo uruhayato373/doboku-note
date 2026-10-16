@@ -48,7 +48,7 @@
   <path class="l" d="M30,270L390,270"/>
   <rect class="b" x="196" y="226" width="92" height="36" rx="6"/>
   <text class="t" x="242.0" y="250" text-anchor="middle">使える</text>
-  <text class="s" x="343.0" y="250" text-anchor="middle">第二号のみ</text>
+  <text class="s" x="343.0" y="241" text-anchor="middle">第二号のみ</text><text class="s" x="343.0" y="256" text-anchor="middle">都道府県の役割</text>
   <text class="n" x="40" y="300">是正の指示</text>
   <text class="s" x="40" y="316">第245条の7</text>
   <path class="l" d="M30,328L390,328"/>
@@ -71,5 +71,5 @@
   <text class="t" x="18" y="444" text-anchor="middle">強</text>
   <text class="t" x="18" y="60" text-anchor="middle">弱</text>
   <rect class="g" x="30" y="454" width="360" height="26" rx="4"/>
-  <text class="s" x="40" y="471">－ は原則としてない</text>
+  <text class="s" x="40" y="471">－ は、できる限り設けない</text>
 </svg>

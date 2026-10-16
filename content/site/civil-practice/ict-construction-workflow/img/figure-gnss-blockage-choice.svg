@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="基準局の電波が届かないときの切り替えの判断。遮蔽が一時的ならTSのノンプリズム方式へ、区間全体なら走行距離計と慣性計測装置で補完する機器を選ぶ">
+<defs><style>
+text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN","Hiragino Sans",sans-serif;font-size:13px;fill:#222}
+.h{font-size:14px;font-weight:bold;fill:#1a3a5c}
+.k{font-size:13px;font-weight:bold;fill:#222}
+.s{font-size:12px;fill:#555}
+.c{text-anchor:middle}
+.r{stroke-width:1.5}
+.n{fill:#e8f0fe;stroke:#2e6da4}
+.p{fill:#d0e8d0;stroke:#3a7d44}
+.w{fill:#fff3cd;stroke:#d4a017}
+.d{fill:#f8d7da;stroke:#b22234}
+.g{fill:#f5f5f5;stroke:#d7d7d7}
+.a{fill:#2e6da4}
+</style></defs>
+<rect class="r d" x="15" y="14" width="370" height="70" rx="8"/>
+<text class="h" x="27" y="40">基準局の電波が届かない</text>
+<text x="27" y="64">山間部や構造物の陰に入る</text>
+<path class="a" d="M194 88 h12 l-6 12 z"/>
+<rect class="r g" x="15" y="104" width="370" height="64" rx="8"/>
+<text class="k c" x="200" y="132">遮蔽は一時的か、区間全体か</text>
+<text class="s c" x="200" y="152">この違いで切り替え先が決まる</text>
+<path class="a" d="M98 172 h12 l-6 12 z"/>
+<path class="a" d="M290 172 h12 l-6 12 z"/>
+<rect class="r p" x="15" y="188" width="178" height="130" rx="8"/>
+<text class="h" x="27" y="214">一時的</text>
+<text x="27" y="240">TS（ノンプリズム</text>
+<text x="27" y="260">方式）へ切り替えて</text>
+<text x="27" y="280">計測を継続する</text>
+<rect class="r n" x="207" y="188" width="178" height="130" rx="8"/>
+<text class="h" x="219" y="214">区間全体</text>
+<text x="219" y="240">GNSSに加えて走行</text>
+<text x="219" y="260">距離計や慣性計測</text>
+<text x="219" y="280">装置で位置と姿勢を</text>
+<text x="219" y="300">補完する機器を使う</text>
+<rect class="r w" x="15" y="334" width="370" height="156" rx="8"/>
+<text class="h" x="27" y="364">補完する機器の例</text>
+<text x="27" y="396">地上移動体搭載型の</text>
+<text x="27" y="420">レーザースキャナー</text>
+<text class="s" x="27" y="456">GNSSだけに頼らず位置を保つ</text>
+</svg>

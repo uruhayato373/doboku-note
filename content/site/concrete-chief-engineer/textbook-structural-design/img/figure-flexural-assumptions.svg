@@ -1,0 +1,36 @@
+<!-- authored 2026-10-16 doboku-note 自作。本文の論点を再構成。書籍図の複製・トレースではない -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="曲げ耐力算定の4つの仮定。上段は断面と直線のひずみ分布、下段は等価応力ブロックと引張を負担する鉄筋"><defs><style>
+text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;fill:#555;font-size:13px} /* ink-body */
+.label{font-size:13px;font-weight:bold;fill:#1a3a5c} /* brand-ink */
+.note{font-size:11px;fill:#555} /* ink-body */
+.b{fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5} /* brand-fill / brand */
+.p{fill:#d0e8d0;stroke:#3a7d44;stroke-width:1.5} /* positive-fill / positive */
+.d{fill:#f8d7da;stroke:#b22234;stroke-width:1.5} /* danger-fill / danger */
+.w{fill:#fff3cd;stroke:#d4a017;stroke-width:1.5} /* warn-fill / warn */
+.axis{stroke:#555;stroke-width:1.5;fill:none} /* ink-body */
+.line{stroke:#2e6da4;stroke-width:2.5;fill:none} /* brand */
+.dash{stroke:#b22234;stroke-width:2;stroke-dasharray:5 4;fill:none} /* danger */
+</style><marker id="arrow" markerWidth="7" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0 0L7 3L0 6" fill="#555"/></marker></defs>
+
+<text class="label" x="95" y="27" text-anchor="middle">断面</text><text class="label" x="280" y="27" text-anchor="middle">ひずみ分布</text>
+<rect class="b" x="50" y="45" width="90" height="170"/>
+<circle cx="74" cy="195" r="5" fill="#b22234"/><circle cx="116" cy="195" r="5" fill="#b22234"/>
+<line class="axis" x1="280" y1="45" x2="280" y2="215"/>
+<line class="line" x1="310" y1="45" x2="230" y2="205"/>
+<circle cx="235" cy="195" r="4" fill="#b22234"/>
+<path d="M25 105H365M50 195H235" stroke="#8a8a8a" stroke-dasharray="4 3" fill="none"/>
+<text class="note" x="147" y="98">中立軸</text><text class="note" x="320" y="57">圧縮</text>
+<text class="note" x="211" y="222">引張</text><text class="note" x="75" y="232">鉄筋</text>
+<text x="20" y="259">① 完全付着：同じ高さのひずみは等しい</text>
+<text x="20" y="283">② 平面保持：ひずみ分布は直線</text>
+<text class="label" x="45" y="311">応力分布</text>
+<line class="axis" x1="80" y1="325" x2="80" y2="443"/>
+<rect class="b" x="80" y="325" width="70" height="38"/>
+<line x1="35" y1="380" x2="155" y2="380" stroke="#8a8a8a" stroke-dasharray="4 3"/>
+<text class="note" x="35" y="373">中立軸</text>
+<path d="M80 430H40" stroke="#b22234" stroke-width="3" marker-end="url(#arrow)"/>
+<text class="note" x="90" y="434">鉄筋の引張</text>
+<text x="170" y="340">④ 圧縮側は</text><text x="190" y="360">等価応力ブロック</text>
+<text x="170" y="397">③ コンクリートの</text><text x="190" y="418">引張応力は無視</text>
+<text class="note" x="200" y="480" text-anchor="middle">圧縮力と引張力がつり合う中立軸位置を求める</text>
+</svg>

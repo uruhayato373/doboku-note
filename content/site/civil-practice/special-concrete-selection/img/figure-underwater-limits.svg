@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="通常の水中コンクリートと水中不分離性コンクリートの打込み条件の比較。水の流れ、落とし方、先端と流動距離、打込み方法で別々の限度がある">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; fill: #1a3a5c; font-size: 12px; }
+      .h { font-size: 13px; font-weight: bold; }
+      .s { font-size: 12px; fill: #222; }
+      .lb { font-size: 11px; font-weight: bold; fill: #2e6da4; }
+      .m { text-anchor: middle; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .danger { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .ar { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+    </style>
+    <!-- brand / positive / warn / danger / surface tokens -->
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+  <rect width="400" height="500" fill="#ffffff" />
+  <rect class="brand" x="10" y="12" width="185" height="40" rx="8"/><text class="h m" x="102" y="37">通常の水中コンクリート</text>
+  <rect class="positive" x="205" y="12" width="185" height="40" rx="8"/><text class="h m" x="297" y="37">水中不分離性</text>
+  <text class="lb" x="12" y="76">水の流れ</text>
+  <rect class="brand" x="10" y="82" width="185" height="46" rx="8"/><text class="s" x="20" y="101">静水中。それ以外は</text><text class="s" x="20" y="118">流速0.05m/s以下</text>
+  <rect class="positive" x="205" y="82" width="185" height="46" rx="8"/><text class="s" x="215" y="101">静水中。流水中は品質</text><text class="s" x="215" y="118">確認と協議が要る</text>
+  <text class="lb" x="12" y="146">落とし方</text>
+  <rect class="brand" x="10" y="152" width="185" height="46" rx="8"/><text class="s" x="20" y="171">水中を落下させない</text><text class="s" x="20" y="188">水と直接触れさせない</text>
+  <rect class="positive" x="205" y="152" width="185" height="46" rx="8"/><text class="s" x="215" y="171">水中落下高さ</text><text class="s" x="215" y="188">50cm以下</text>
+  <text class="lb" x="12" y="216">先端と距離</text>
+  <rect class="brand" x="10" y="222" width="185" height="46" rx="8"/><text class="s" x="20" y="241">先端は打ち込んだ</text><text class="s" x="20" y="258">コンクリート中に挿入</text>
+  <rect class="positive" x="205" y="222" width="185" height="46" rx="8"/><text class="s" x="215" y="241">水中流動距離は</text><text class="s" x="215" y="258">5m以下</text>
+  <text class="lb" x="12" y="286">打込み方法</text>
+  <rect class="brand" x="10" y="292" width="185" height="46" rx="8"/><text class="s" x="20" y="311">ケーシング併用、トレミー、</text><text class="s" x="20" y="328">ポンプ、底開き箱または袋</text>
+  <rect class="positive" x="205" y="292" width="185" height="46" rx="8"/><text class="s" x="215" y="311">ポンプまたは</text><text class="s" x="215" y="328">トレミーで連続して打つ</text>
+  <rect class="warn" x="10" y="352" width="380" height="76" rx="8"/>
+  <text class="h" x="22" y="374">二つの限度は別々に守る</text>
+  <text class="s" x="22" y="394">不分離性にも、落下高さ50cmと流動距離5m</text>
+  <text class="s" x="22" y="412">という限度が残る。流水中や50cm超は協議</text>
+  <rect class="surface" x="10" y="438" width="380" height="50" rx="8"/>
+  <text class="h" x="22" y="459">水中打込みは、承諾が前提</text>
+  <text class="s" x="22" y="477">まず、水を避けられないかを確かめる</text>
+</svg>

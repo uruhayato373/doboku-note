@@ -1,0 +1,66 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は補正情報の受け取り方の二つの経路（自設の基準局・ネットワーク型RTK）と、それぞれが使えなくなる条件。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="補正情報の受け取り方の比較図。左は自設の基準局で、座標既知点のアンテナと受信機から無線送信機を通じて移動局へ。右はネットワーク型RTKで、複数の電子基準点から補正情報を作り、通信回線で移動局へ。使えない条件は自設が低い高圧線・空港や航空基地が近い・無線が届かない範囲、ネットワーク型が携帯電話の圏外。">
+  <defs>
+  <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #222; }
+      .b { font-weight: bold; fill: #1a3a5c; }
+      .m { fill: #555; }
+      .t12 { font-size: 12px; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .dng { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .sf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .wh { fill: #fff; stroke: #2e6da4; stroke-width: 1.5; }
+      .dash { fill: #fff; stroke: #555; stroke-width: 1.5; stroke-dasharray: 4 3; }
+      .grid { stroke: #d7d7d7; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .ax { stroke: #555; stroke-width: 1.5; fill: none; }
+      .ar { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ark { stroke: #555; stroke-width: 2; fill: none; }
+  </style>
+  <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="ak" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  <marker id="as" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="asg" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+  <rect class="sf" x="10" y="8" width="182" height="30" rx="8"/>
+  <text class="n" x="101.0" y="27.0" text-anchor="middle">自設の基準局</text>
+  <rect class="sf" x="208" y="8" width="182" height="30" rx="8"/>
+  <text class="n" x="299.0" y="27.0" text-anchor="middle">ネットワーク型RTK</text>
+  <rect class="wh" x="10" y="56" width="182" height="50" rx="8"/>
+  <text class="t12" x="101.0" y="77.0" text-anchor="middle">座標既知点に</text>
+  <text class="t12" x="101.0" y="93.0" text-anchor="middle">アンテナ・受信機を置く</text>
+  <path class="ar" d="M101.0,106V130" marker-end="url(#ah)"/>
+  <rect class="wh" x="10" y="132" width="182" height="50" rx="8"/>
+  <text class="t12" x="101.0" y="153.0" text-anchor="middle">無線送信機から</text>
+  <text class="t12" x="101.0" y="169.0" text-anchor="middle">無線で補正情報を送る</text>
+  <path class="ar" d="M101.0,182V206" marker-end="url(#ah)"/>
+  <rect class="wh" x="208" y="56" width="182" height="50" rx="8"/>
+  <text class="t12" x="299.0" y="77.0" text-anchor="middle">複数の電子基準点の</text>
+  <text class="t12" x="299.0" y="93.0" text-anchor="middle">観測データ</text>
+  <path class="ar" d="M299.0,106V130" marker-end="url(#ah)"/>
+  <rect class="wh" x="208" y="132" width="182" height="50" rx="8"/>
+  <text class="t12" x="299.0" y="153.0" text-anchor="middle">補正情報を作り、</text>
+  <text class="t12" x="299.0" y="169.0" text-anchor="middle">通信回線で届ける</text>
+  <path class="ar" d="M299.0,182V206" marker-end="url(#ah)"/>
+  <rect class="pos" x="10" y="208" width="182" height="50" rx="8"/>
+  <text class="t12 b" x="101.0" y="229.0" text-anchor="middle">移動局</text>
+  <text class="t12" x="101.0" y="245.0" text-anchor="middle">（無線の届く範囲）</text>
+  <rect class="pos" x="208" y="208" width="182" height="50" rx="8"/>
+  <text class="t12 b" x="299.0" y="229.0" text-anchor="middle">移動局</text>
+  <text class="t12" x="299.0" y="245.0" text-anchor="middle">（携帯電話のエリア内）</text>
+  <path class="grid" d="M8,284H392"/>
+  <text class="t12 b" x="200" y="306" text-anchor="middle">使えなくなる条件</text>
+  <rect class="dng" x="10" y="320" width="182" height="150" rx="8"/>
+  <text class="t12" x="101.0" y="351.0" text-anchor="middle">低い高圧線が</text>
+  <text class="t12" x="101.0" y="367.0" text-anchor="middle">架設位置にある</text>
+  <text class="t12" x="101.0" y="383.0" text-anchor="middle"></text>
+  <text class="t12" x="101.0" y="399.0" text-anchor="middle">空港・航空基地が</text>
+  <text class="t12" x="101.0" y="415.0" text-anchor="middle">近い</text>
+  <text class="t12" x="101.0" y="431.0" text-anchor="middle"></text>
+  <text class="t12" x="101.0" y="447.0" text-anchor="middle">無線が届かない範囲</text>
+  <rect class="dng" x="208" y="320" width="182" height="150" rx="8"/>
+  <text class="t12" x="299.0" y="391.0" text-anchor="middle">携帯電話が圏外</text>
+  <text class="t12" x="299.0" y="407.0" text-anchor="middle">（山間部など）</text>
+</svg>

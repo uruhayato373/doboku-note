@@ -1,51 +1,68 @@
-<!-- authored 2026-09-12 doboku-note 自作。題材はコンクリート技士テキスト「製造・品質管理と検査」の論点。特定の書籍図の複製・トレースではない -->
+<!-- authored 2026-10-16 doboku-note 自作。題材はコンクリート技士教材の生コン工場の設備。書籍図の複製・トレースではない -->
 <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
   style="max-width:400px;width:100%"
   role="img"
-  aria-label="生コン工場の設備配置を骨材ヤード・セメントサイロから計量器・ミキサ・トラックアジテータを経て現場へ至る流れで示す図">
+  aria-label="生コン工場の設備の流れ。貯蔵、搬送、計量、練混ぜ、運搬を経て現場へ。運搬車の洗車で出る排水は処理し、回収骨材と回収水は材料へ戻す">
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
-      .t-lead { font-size: 11px; fill: #555; }
-      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
-      .t-desc { font-size: 11px; fill: #555; }
-      .box-s { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-title { font-size: 14px; font-weight: bold; fill: #222; }
+      .t-head  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-label { font-size: 12px; fill: #1a3a5c; }
+      .t-desc  { font-size: 12px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #555; }
+      .t-warn  { font-size: 12px; fill: #b22234; font-weight: bold; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
       .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
       .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
       .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .ln { stroke: #555; stroke-width: 1; fill: none; }
+      .arr { stroke: #2e6da4; stroke-width: 1.5; fill: none; marker-end: url(#ah); }
+      .arr-d { stroke: #b22234; stroke-width: 1.5; fill: none; marker-end: url(#ahd); }
     </style>
-    <marker id="pl-arrow" markerWidth="9" markerHeight="7" refX="9" refY="3.5" orient="auto">
-      <polygon points="0,0 9,3.5 0,7" fill="#555"/>
-    </marker>
+    <marker id="ah" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ahd" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
   </defs>
-
-  <text class="t-lead" x="200" y="16" text-anchor="middle">骨材・セメントの受入れから現場到着までの5段階</text>
-
-  <rect class="box-s" x="20" y="40" width="360" height="70" rx="6"/>
-  <text class="t-name" x="40" y="66">骨材ヤード・セメントサイロ</text>
-  <text class="t-desc" x="40" y="86">材料を種類別に受け入れ貯蔵する</text>
-
-  <line x1="200" y1="110" x2="200" y2="128" stroke="#555" stroke-width="1.5" marker-end="url(#pl-arrow)"/>
-
-  <rect class="box-b" x="20" y="130" width="360" height="70" rx="6"/>
-  <text class="t-name" x="40" y="156">計量器（ロードセル）</text>
-  <text class="t-desc" x="40" y="176">各材料を質量で正確に計量する</text>
-
-  <line x1="200" y1="200" x2="200" y2="218" stroke="#555" stroke-width="1.5" marker-end="url(#pl-arrow)"/>
-
-  <rect class="box-w" x="20" y="220" width="360" height="70" rx="6"/>
-  <text class="t-name" x="40" y="246">ミキサ</text>
-  <text class="t-desc" x="40" y="266">材料を均一に練り混ぜる</text>
-
-  <line x1="200" y1="290" x2="200" y2="308" stroke="#555" stroke-width="1.5" marker-end="url(#pl-arrow)"/>
-
-  <rect class="box-b" x="20" y="310" width="360" height="70" rx="6"/>
-  <text class="t-name" x="40" y="336">トラックアジテータ</text>
-  <text class="t-desc" x="40" y="356">撹拌しながら現場まで運搬する</text>
-
-  <line x1="200" y1="380" x2="200" y2="398" stroke="#555" stroke-width="1.5" marker-end="url(#pl-arrow)"/>
-
-  <rect class="box-p" x="20" y="400" width="360" height="70" rx="6"/>
-  <text class="t-name" x="40" y="426">現場</text>
-  <text class="t-desc" x="40" y="446">荷卸しし、打込み・締固めへ進む</text>
+  <text class="t-lead" x="200" y="18" text-anchor="middle">材料は設備を順に通り、戻りは材料へ返る</text>
+  <rect class="box" x="20" y="28" width="240" height="58" rx="6"/>
+  <text class="t-title" x="32" y="50">貯蔵</text>
+  <text class="t-desc" x="32" y="68">骨材ヤード・セメントサイロ</text>
+  <text class="t-axis" x="32" y="82">種類・粒径別に貯蔵</text>
+  <line x1="140" y1="86" x2="140" y2="98" class="arr"/>
+  <rect class="box-b" x="20" y="98" width="240" height="58" rx="6"/>
+  <text class="t-title" x="32" y="120">搬送</text>
+  <text class="t-desc" x="32" y="138">ベルトコンベアなど</text>
+  <text class="t-axis" x="32" y="152">止まれば出荷が止まる</text>
+  <line x1="140" y1="156" x2="140" y2="168" class="arr"/>
+  <rect class="box-b" x="20" y="168" width="240" height="58" rx="6"/>
+  <text class="t-title" x="32" y="190">計量</text>
+  <text class="t-desc" x="32" y="208">ロードセル式の計量器</text>
+  <text class="t-axis" x="32" y="222">許容差：セメント・水±1％、骨材±3％ほか</text>
+  <line x1="140" y1="226" x2="140" y2="238" class="arr"/>
+  <rect class="box-w" x="20" y="238" width="240" height="58" rx="6"/>
+  <text class="t-title" x="32" y="260">練混ぜ</text>
+  <text class="t-desc" x="32" y="278">ミキサ</text>
+  <text class="t-axis" x="32" y="292">均一性を性能試験で確認</text>
+  <line x1="140" y1="296" x2="140" y2="308" class="arr"/>
+  <rect class="box-b" x="20" y="308" width="240" height="58" rx="6"/>
+  <text class="t-title" x="32" y="330">運搬</text>
+  <text class="t-desc" x="32" y="348">トラックアジテータ</text>
+  <text class="t-axis" x="32" y="362">撹拌しながら運搬する</text>
+  <line x1="140" y1="366" x2="140" y2="378" class="arr"/>
+  <rect class="box-p" x="20" y="378" width="240" height="46" rx="6"/>
+  <text class="t-title" x="32" y="406">現場（荷卸し）</text>
+  <rect class="box-d" x="282" y="308" width="98" height="58" rx="6"/>
+  <text class="t-title" x="331" y="332" text-anchor="middle">洗車・</text>
+  <text class="t-title" x="331" y="350" text-anchor="middle">排水処理</text>
+  <line x1="260" y1="337" x2="280" y2="337" class="arr"/>
+  <path d="M331,308 L331,57 L262,57" fill="none" stroke="#3a7d44" stroke-width="2" marker-end="url(#ah)"/>
+  <text class="t-axis" x="268" y="150">回収骨材・</text>
+  <text class="t-axis" x="268" y="166">回収水を</text>
+  <text class="t-axis" x="268" y="182">材料へ戻す</text>
+  <text class="t-axis" x="331" y="384" text-anchor="middle">中和・pH測定</text>
+  <rect class="box" x="20" y="436" width="360" height="54" rx="6"/>
+  <text class="t-head" x="34" y="458">洗車の水と戻りコンクリート</text>
+  <text class="t-desc" x="34" y="478">捨てる前に、まず材料へ戻せるかを考える</text>
 </svg>

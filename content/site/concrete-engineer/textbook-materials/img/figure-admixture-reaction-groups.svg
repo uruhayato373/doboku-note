@@ -1,0 +1,51 @@
+<!-- authored 2026-10-16 doboku-note 自作。題材はコンクリート技士教材の混和材の作用機構。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="混和材と混和剤の区分と、混和材を反応で分ける3群。高炉スラグ微粉末は潜在水硬性、フライアッシュとシリカフュームはポゾラン反応、膨張材は結晶生成による膨張">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-title { font-size: 14px; font-weight: bold; fill: #222; }
+      .t-head  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-label { font-size: 12px; fill: #1a3a5c; }
+      .t-desc  { font-size: 12px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #555; }
+      .t-warn  { font-size: 12px; fill: #b22234; font-weight: bold; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .ln { stroke: #555; stroke-width: 1; fill: none; }
+      .arr { stroke: #2e6da4; stroke-width: 1.5; fill: none; marker-end: url(#ah); }
+      .arr-d { stroke: #b22234; stroke-width: 1.5; fill: none; marker-end: url(#ahd); }
+    </style>
+    <marker id="ah" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ahd" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+  </defs>
+  <text class="t-lead" x="200" y="18" text-anchor="middle">混和材は配合計算に組み込み、働き方で3群に分かれる</text>
+  <rect class="box-b" x="20" y="28" width="360" height="84" rx="6"/>
+  <text class="t-title" x="34" y="52">混和材：質量・容積を配合計算に組み込む</text>
+  <text class="t-desc" x="34" y="74">フライアッシュ・高炉スラグ微粉末</text>
+  <text class="t-desc" x="34" y="94">シリカフューム・膨張材</text>
+  <rect class="box" x="20" y="120" width="360" height="44" rx="6"/>
+  <text class="t-label" x="34" y="147">混和剤：少量で機能する（AE剤・減水剤など）</text>
+  <text class="t-head" x="34" y="188">混和材を反応の呼び方で分ける</text>
+  <rect class="box-b" x="20" y="198" width="360" height="68" rx="6"/>
+  <text class="t-head" x="34" y="220">潜在水硬性</text>
+  <text class="t-label" x="150" y="220">高炉スラグ微粉末</text>
+  <text class="t-desc" x="34" y="244">水酸化カルシウムなどの刺激で水和する</text>
+  <rect class="box-w" x="20" y="274" width="360" height="68" rx="6"/>
+  <text class="t-head" x="34" y="296">ポゾラン反応</text>
+  <text class="t-label" x="150" y="296">フライアッシュ・シリカフューム</text>
+  <text class="t-desc" x="34" y="320">セメントの水和で生じる水酸化カルシウムと反応</text>
+  <rect class="box-p" x="20" y="350" width="360" height="68" rx="6"/>
+  <text class="t-head" x="34" y="372">膨張</text>
+  <text class="t-label" x="150" y="372">膨張材</text>
+  <text class="t-desc" x="34" y="396">結晶を生成して膨張し、収縮ひび割れを抑える</text>
+  <rect class="box-d" x="20" y="432" width="360" height="56" rx="6"/>
+  <text class="t-warn" x="200" y="456" text-anchor="middle">潜在水硬性とポゾラン反応は入れ替えない</text>
+  <text class="t-desc" x="200" y="476" text-anchor="middle">呼び方を入れ替えた選択肢に注意</text>
+</svg>

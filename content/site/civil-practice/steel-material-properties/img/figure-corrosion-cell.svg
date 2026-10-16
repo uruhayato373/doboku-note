@@ -25,9 +25,9 @@
   <text x="200" y="58" class="h m">水膜＋塩分（電解質）</text>
   <path class="arrow" d="M170,146 V84" />
   <text x="162" y="100" class="e">Fe<tspan dy="-5" font-size="11">2+</tspan><tspan dy="5">が溶け出す</tspan></text>
-  <path class="arrow" d="M300,70 V118" />
-  <text x="312" y="86" class="">酸素</text>
-  <text x="312" y="104" class="s">（空気から）</text>
+  <path class="arrow" d="M290,70 V118" />
+  <text x="300" y="86" class="">酸素</text>
+  <text x="300" y="104" class="s">（空気から）</text>
   <text x="26" y="134" class="s">Fe → Fe<tspan dy="-5" font-size="11">2+</tspan><tspan dy="5"> + 2e</tspan><tspan dy="-5" font-size="11">−</tspan></text>
   <text x="214" y="134" class="s">O<tspan dy="3" font-size="11">2</tspan><tspan dy="-3"> + 2H</tspan><tspan dy="3" font-size="11">2</tspan><tspan dy="-3">O + 4e</tspan><tspan dy="-5" font-size="11">−</tspan><tspan dy="5"> → 4OH</tspan><tspan dy="-5" font-size="11">−</tspan></text>
   <rect class="danger" x="20" y="140" width="180" height="68" rx="3" />
@@ -35,27 +35,30 @@
   <text x="110" y="158" class="h m">アノード部（錆びる）</text>
   <text x="290" y="158" class="h m">カソード部</text>
   <path class="arrow" d="M70,180 H330" />
-  <rect x="126" y="188" width="148" height="16" fill="#ffffff" />
-  <text x="200" y="200" class="s m">電子が鋼の中を移動</text>
+  <text x="290" y="200" class="s m">電子が鋼の中を移動</text>
   <text x="20" y="236" class="h">防食は、この電池のどこかを断つ</text>
   <rect class="brand" x="20" y="246" width="174" height="108" rx="6" />
-  <text x="32" y="270" class="h">塗装</text>
-  <text x="32" y="294" class="s">水と酸素を遮る膜。</text>
-  <text x="32" y="314" class="s">傷や端部から劣化し</text>
-  <text x="32" y="334" class="s">塗り替えで維持</text>
+  <text x="32" y="268" class="h">塗装</text>
+  <text x="32" y="288" class="s h">断つもの：水と酸素</text>
+  <text x="32" y="312" class="s">水と酸素を遮る膜。</text>
+  <text x="32" y="330" class="s">傷や端部から劣化し</text>
+  <text x="32" y="348" class="s">塗り替えで維持</text>
   <rect class="positive" x="206" y="246" width="174" height="108" rx="6" />
-  <text x="218" y="270" class="h">めっき</text>
-  <text x="218" y="294" class="s">亜鉛が先に溶けて</text>
-  <text x="218" y="314" class="s">鋼を守る（犠牲防食）</text>
-  <text x="218" y="334" class="s">亜鉛の消耗が寿命</text>
+  <text x="218" y="268" class="h">めっき</text>
+  <text x="218" y="288" class="s h">断つもの：鋼の溶出</text>
+  <text x="218" y="312" class="s">亜鉛が先に溶けて</text>
+  <text x="218" y="330" class="s">鋼を守る（犠牲防食）</text>
+  <text x="218" y="348" class="s">亜鉛の消耗が寿命</text>
   <rect class="warn" x="20" y="366" width="174" height="108" rx="6" />
-  <text x="32" y="390" class="h">電気防食</text>
-  <text x="32" y="414" class="s">外から電子を送り</text>
-  <text x="32" y="434" class="s">鋼全体をカソードに</text>
-  <text x="32" y="454" class="s">電位で効きを確認</text>
+  <text x="32" y="388" class="h">電気防食</text>
+  <text x="32" y="408" class="s h">断つもの：鋼の溶出</text>
+  <text x="32" y="432" class="s">外から電子を送り</text>
+  <text x="32" y="450" class="s">鋼全体をカソードに</text>
+  <text x="32" y="468" class="s">電位で効きを確認</text>
   <rect class="surface" x="206" y="366" width="174" height="108" rx="6" />
-  <text x="218" y="390" class="h">耐候性鋼</text>
-  <text x="218" y="414" class="s">緻密なさびが保護</text>
-  <text x="218" y="434" class="s">乾湿の繰返しと</text>
-  <text x="218" y="454" class="s">少ない塩分が前提</text>
+  <text x="218" y="388" class="h">耐候性鋼</text>
+  <text x="218" y="408" class="s h">断つもの：水と酸素</text>
+  <text x="218" y="432" class="s">緻密なさびが遮る</text>
+  <text x="218" y="450" class="s">乾湿の繰返しと</text>
+  <text x="218" y="468" class="s">少ない塩分が前提</text>
 </svg>

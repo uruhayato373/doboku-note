@@ -14,19 +14,19 @@ text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN","Hiragino Sans
 .a{fill:#2e6da4}
 </style></defs>
 <rect class="r n" x="15" y="16" width="170" height="60" rx="8"/>
-<text class="h" x="27" y="40">目標の高さ</text><text x="27" y="60">3次元設計データ</text>
+<text class="h" x="27" y="40">① 目標の高さ</text><text x="27" y="60">3次元設計データ</text>
 <path class="a" d="M94 84 h12 l-6 12 z"/>
 <rect class="r g" x="15" y="104" width="170" height="64" rx="8"/>
-<text class="h" x="27" y="128">差を求める</text><text x="27" y="148">目標と実測の差</text>
+<text class="h" x="27" y="128">② 差を求める</text><text x="27" y="148">目標と実測の差</text>
 <path class="a" d="M191 130 v12 l12 -6 z"/>
 <rect class="r d" x="215" y="104" width="170" height="64" rx="8"/>
-<text class="h" x="227" y="128">油圧で動かす</text><text x="227" y="148">差を小さくする向きへ</text>
+<text class="h" x="227" y="128">③ 油圧で動かす</text><text x="227" y="148">差を小さくする向きへ</text>
 <path class="a" d="M294 174 h12 l-6 12 z"/>
 <rect class="r w" x="15" y="198" width="170" height="64" rx="8"/>
-<text class="h" x="27" y="222">位置を測る</text><text x="27" y="242">GNSS・センサー</text>
+<text class="h" x="27" y="222">⑤ 位置を測る</text><text x="27" y="242">GNSS・センサー</text>
 <path class="a" d="M209 224 v12 l-12 -6 z"/>
 <rect class="r d" x="215" y="198" width="170" height="64" rx="8"/>
-<text class="h" x="227" y="222">刃先が動く</text><text x="227" y="242">ブレード・バケット</text>
+<text class="h" x="227" y="222">④ 刃先が動く</text><text x="227" y="242">ブレード・バケット</text>
 <path class="a" d="M94 194 h12 l-6 -12 z"/>
 <rect class="r g" x="215" y="16" width="170" height="60" rx="8"/>
 <text class="s" x="227" y="34">MG：差を画面に表示</text>

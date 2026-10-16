@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="異形棒鋼の圧延マークの突起の数で種類を見分ける図。SD345は1個、SD390は2個、SD490は3個、SD295はマークなし">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; fill: #1a3a5c; font-size: 12px; }
+      .h { font-size: 13px; font-weight: bold; }
+      .big { font-size: 18px; font-weight: bold; }
+      .s { font-size: 12px; fill: #555; }
+      .m { text-anchor: middle; }
+      .e { text-anchor: end; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .danger { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <!-- brand / positive / warn / danger / surface tokens -->
+  </defs>
+  <rect width="400" height="500" fill="#ffffff" />
+  <text x="20" y="28" class="h">圧延マークの突起の数で種類を見分ける</text>
+  <rect class="surface" x="20" y="44" width="360" height="62" rx="6" />
+  <text x="34" y="81" class="big">SD295</text>
+  <rect class="brand" x="140" y="62" width="220" height="26" rx="13" />
+  <text x="250" y="80" class="s m">圧延マークなし</text>
+  <rect class="surface" x="20" y="114" width="360" height="62" rx="6" />
+  <text x="34" y="151" class="big">SD345</text>
+  <rect class="brand" x="140" y="132" width="220" height="26" rx="13" />
+  <circle cx="200" cy="145" r="6" class="danger" />
+  <text x="350" y="150" class="s e">1個</text>
+  <rect class="surface" x="20" y="184" width="360" height="62" rx="6" />
+  <text x="34" y="221" class="big">SD390</text>
+  <rect class="brand" x="140" y="202" width="220" height="26" rx="13" />
+  <circle cx="188" cy="215" r="6" class="danger" />
+  <circle cx="212" cy="215" r="6" class="danger" />
+  <text x="350" y="220" class="s e">2個</text>
+  <rect class="surface" x="20" y="254" width="360" height="62" rx="6" />
+  <text x="34" y="291" class="big">SD490</text>
+  <rect class="brand" x="140" y="272" width="220" height="26" rx="13" />
+  <circle cx="176" cy="285" r="6" class="danger" />
+  <circle cx="200" cy="285" r="6" class="danger" />
+  <circle cx="224" cy="285" r="6" class="danger" />
+  <text x="350" y="290" class="s e">3個</text>
+  <rect class="warn" x="20" y="332" width="360" height="72" rx="6" />
+  <text x="34" y="354" class="h">色別塗色は省いてよい（SD345・390・490）</text>
+  <text x="34" y="374" class="s">断面に色が付いていないだけでは、</text>
+  <text x="34" y="390" class="s">取り違えを疑う理由にならない</text>
+  <rect class="positive" x="20" y="414" width="360" height="72" rx="6" />
+  <text x="34" y="436" class="h">束のラベルで成績表と突き合わせる</text>
+  <text x="34" y="456" class="s">種類の記号、溶鋼番号などの製造番号、</text>
+  <text x="34" y="472" class="s">呼び名、製造業者名が付く</text>
+</svg>

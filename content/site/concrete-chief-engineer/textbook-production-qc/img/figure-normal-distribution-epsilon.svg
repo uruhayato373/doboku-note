@@ -1,0 +1,41 @@
+<!-- authored 2026-10-16 doboku-note 自作。題材は主任技士教材の正規分布表を用いた確率計算（本文の数値例）。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="正規分布の曲線に平均μ、下限SL（μ−kσ）を示し、下限を下回る下側の面積εを塗った図。平均44.0、標準偏差4.00、下限36.0のときk=2.00でε=0.0228">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-label { font-size: 12px; fill: #1a3a5c; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-desc  { font-size: 12px; fill: #555; }
+      .curve { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+      .area { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .axis { stroke: #555; stroke-width: 1.5; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <line class="axis" x1="30" y1="300" x2="370" y2="300" />
+  <path class="area" d="M56.0,300.0 L56.0,299.8 L59.6,299.8 L63.2,299.8 L66.8,299.7 L70.4,299.7 L74.0,299.5 L77.6,299.3 L81.2,299.1 L84.8,298.7 L88.4,298.2 L92.0,297.5 L95.6,296.7 L99.2,295.5 L102.8,294.2 L106.4,292.3 L110.0,290.1 L113.6,287.4 L117.2,284.0 L120.8,280.0 L124.4,275.3 L128.0,269.5 L128.0,300.0 Z" />
+  <path class="curve" d="M56.0,299.8 L59.6,299.8 L63.2,299.8 L66.8,299.7 L70.4,299.7 L74.0,299.5 L77.6,299.3 L81.2,299.1 L84.8,298.7 L88.4,298.2 L92.0,297.5 L95.6,296.7 L99.2,295.5 L102.8,294.2 L106.4,292.3 L110.0,290.1 L113.6,287.4 L117.2,284.0 L120.8,280.0 L124.4,275.3 L128.0,269.5 L131.6,263.0 L135.2,255.5 L138.8,246.9 L142.4,237.5 L146.0,227.0 L149.6,215.5 L153.2,203.4 L156.8,190.5 L160.4,177.1 L164.0,163.5 L167.6,150.0 L171.2,136.6 L174.8,123.9 L178.4,112.0 L182.0,101.4 L185.6,92.3 L189.2,84.9 L192.8,79.5 L196.4,76.0 L200.0,75.0 L203.6,76.0 L207.2,79.5 L210.8,84.9 L214.4,92.3 L218.0,101.4 L221.6,112.0 L225.2,123.9 L228.8,136.6 L232.4,150.0 L236.0,163.5 L239.6,177.1 L243.2,190.5 L246.8,203.4 L250.4,215.5 L254.0,227.0 L257.6,237.5 L261.2,246.9 L264.8,255.5 L268.4,263.0 L272.0,269.5 L275.6,275.3 L279.2,280.0 L282.8,284.0 L286.4,287.4 L290.0,290.1 L293.6,292.3 L297.2,294.2 L300.8,295.5 L304.4,296.7 L308.0,297.5 L311.6,298.2 L315.2,298.7 L318.8,299.1 L322.4,299.3 L326.0,299.5 L329.6,299.7 L333.2,299.7 L336.8,299.8 L340.4,299.8 L344.0,299.8" />
+
+  <line class="line-dash" x1="200" y1="69" x2="200" y2="306" />
+  <text class="t-label" x="200" y="56" text-anchor="middle">平均 μ</text>
+  <line class="line-dash" x1="128.0" y1="220" x2="128.0" y2="306" />
+  <text class="t-label" x="128.0" y="326" text-anchor="middle">SL（= μ−kσ）</text>
+
+  <text class="t-label" x="112.0" y="225" text-anchor="end">ε</text>
+  <text class="t-axis" x="112.0" y="245" text-anchor="end">下限を</text>
+  <text class="t-axis" x="112.0" y="262" text-anchor="end">下回る確率</text>
+
+  <rect class="box-b" x="20" y="344" width="360" height="62" rx="6" />
+  <text class="t-desc" x="34" y="368">μ = 44.0　σ = 4.00　SL = 36.0（N/mm²）</text>
+  <text class="t-label" x="34" y="394" style="font-weight:bold">k = (44.0 − 36.0) ÷ 4.00 = 2.00</text>
+
+  <rect class="box" x="20" y="420" width="360" height="56" rx="6" />
+  <text class="t-desc" x="34" y="444">正規分布表で k = 2.00 → ε = 0.0228</text>
+  <text class="t-desc" x="34" y="464">下限を下回る確率は約 2.28 %</text>
+</svg>

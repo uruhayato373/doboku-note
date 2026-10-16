@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="継手方式の選び方。径が細くコストを抑えるなら重ね継手、太径でラップを減らすならガス圧接、天候や有資格者に不安があるなら機械式を選ぶ対応図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 12px; fill: #1a3a5c; }
+      .h { font-size: 13px; font-weight: bold; }
+      .s { font-size: 12px; fill: #222; }
+      .n { font-size: 11px; fill: #555; }
+      .lb { font-size: 11px; font-weight: bold; fill: #2e6da4; }
+      .m { text-anchor: middle; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .danger { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .ar { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+    </style>
+    <!-- brand / positive / warn / danger / surface tokens -->
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+  <rect width="400" height="500" fill="#ffffff" />
+  <rect class="surface" x="10" y="14" width="214" height="60" rx="8"/>
+  <text class="s" x="22" y="38">径が細く、</text>
+  <text class="s" x="22" y="58">コストを抑えたい</text>
+  <path class="ar" d="M228,44 L250,44" marker-end="url(#ah)"/>
+  <rect class="brand" x="252" y="14" width="138" height="60" rx="8"/>
+  <text class="h m" x="321" y="42">重ね継手</text>
+  <text class="n m" x="321" y="60">細径が第一候補</text>
+  <rect class="surface" x="10" y="88" width="214" height="60" rx="8"/>
+  <text class="s" x="22" y="112">太径で、ラップ分の</text>
+  <text class="s" x="22" y="132">鉄筋を減らしたい</text>
+  <path class="ar" d="M228,118 L250,118" marker-end="url(#ah)"/>
+  <rect class="positive" x="252" y="88" width="138" height="60" rx="8"/>
+  <text class="h m" x="321" y="116">ガス圧接</text>
+  <text class="n m" x="321" y="134">天候リスクは許容</text>
+  <rect class="surface" x="10" y="162" width="214" height="60" rx="8"/>
+  <text class="s" x="22" y="186">天候に左右されず</text>
+  <text class="s" x="22" y="206">工程を止めたくない</text>
+  <path class="ar" d="M228,192 L250,192" marker-end="url(#ah)"/>
+  <rect class="warn" x="252" y="162" width="138" height="60" rx="8"/>
+  <text class="h m" x="321" y="190">機械式</text>
+  <text class="n m" x="321" y="208">加熱も加圧もない</text>
+  <rect class="surface" x="10" y="236" width="214" height="60" rx="8"/>
+  <text class="s" x="22" y="260">圧接の有資格者の</text>
+  <text class="s" x="22" y="280">手配に不安がある</text>
+  <path class="ar" d="M228,266 L250,266" marker-end="url(#ah)"/>
+  <rect class="warn" x="252" y="236" width="138" height="60" rx="8"/>
+  <text class="h m" x="321" y="264">機械式</text>
+  <text class="n m" x="321" y="282">資格者に頼らない</text>
+  <rect class="positive" x="10" y="318" width="380" height="92" rx="8"/>
+  <text class="h" x="22" y="340">同じ構造物でも、部材ごとに使い分ける</text>
+  <text class="s" x="22" y="360">梁の主筋は太径なのでガス圧接</text>
+  <text class="s" x="22" y="378">スターラップは細径なので重ね継手</text>
+  <text class="s" x="22" y="396">1つの現場で1方式に固定しない</text>
+  <rect class="warn" x="10" y="422" width="380" height="66" rx="8"/>
+  <text class="h" x="22" y="444">選んだ理由と施工の記録を残す</text>
+  <text class="s" x="22" y="464">どの継手を、どの部材に、誰がいつ施工したか</text>
+</svg>

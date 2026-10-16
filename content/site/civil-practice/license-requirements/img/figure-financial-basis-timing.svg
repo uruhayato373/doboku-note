@@ -1,5 +1,5 @@
 <!-- authored 2026-10-16 doboku-note 自作。論点は建設業許可事務ガイドライン【第7条関係】4・【第15条関係】2の財産的基礎を見る時点と基準。特定の書籍図の複製ではない -->
-<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="財産的基礎を見る時点の時間軸。直前の決算期末の財務諸表で判断し、申請日までの増資は資本金の基準にだけ効く。許可の後に基準を下回っても直ちに効力に影響しない。一般建設業は三つの基準のうち一つ、特定建設業はすべてを満たす。">
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="財産的基礎を見る時点の時間軸。決算を並べ、直前の決算期末の財務諸表で判断し、申請日までの増資は資本金の基準にだけ効く。許可の後に基準を下回っても直ちに効力に影響しない。一般建設業は三つの基準のうち一つ、特定建設業はすべてを満たす。">
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #222; }
@@ -11,54 +11,57 @@
       .bp { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
       .bd { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
       .line { stroke: #8a8a8a; stroke-width: 2; fill: none; }
+      .tk { stroke: #8a8a8a; stroke-width: 2; }
       .dot { fill: #2e6da4; stroke: #fff; stroke-width: 2; }
     </style>
     <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#8a8a8a"/></marker>
   </defs>
 
-  <path class="line" d="M30,22V292" marker-end="url(#ah)"/>
+  <path class="line" d="M20,70H390" marker-end="url(#ah)"/>
+  <rect x="290" y="64" width="96" height="12" rx="3" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+  <path class="tk" d="M50,62V78M110,62V78"/>
+  <circle class="dot" cx="170" cy="70" r="8"/>
+  <circle cx="225" cy="70" r="7" fill="#fff3cd" stroke="#d4a017" stroke-width="2"/>
+  <circle class="dot" cx="290" cy="70" r="8"/>
+  <text class="s" x="50" y="52" text-anchor="middle">決算</text>
+  <text class="s" x="110" y="52" text-anchor="middle">決算</text>
+  <text class="n" x="170" y="52" text-anchor="middle">直前の決算</text>
+  <text class="n" x="290" y="52" text-anchor="middle">申請日</text>
+  <text class="n" x="338" y="100" text-anchor="middle">許可後</text>
+  <text class="n" x="225" y="100" text-anchor="middle">増資</text>
+  <path d="M248,95H282" stroke="#d4a017" stroke-width="1.5" fill="none" marker-end="url(#ah)"/>
 
-  <circle class="dot" cx="30" cy="38" r="6"/>
-  <rect class="b" x="50" y="10" width="340" height="56" rx="6"/>
-  <text class="n" x="62" y="30">直前の決算期末</text>
-  <text x="62" y="49">財務諸表で判断する。新設の会社は創業時</text>
+  <rect class="b" x="10" y="116" width="380" height="44" rx="6"/>
+  <text class="n" x="22" y="134">直前の決算期末</text>
+  <text x="22" y="151">財務諸表で判断する。新設の会社は創業時</text>
+  <rect class="bw" x="10" y="166" width="380" height="44" rx="6"/>
+  <text class="n" x="22" y="184">増資</text>
+  <text x="22" y="201">効くのは資本金の基準だけ。申請日までに行えば数えられる</text>
+  <rect class="bp" x="10" y="216" width="380" height="44" rx="6"/>
+  <text class="n" x="22" y="234">許可後</text>
+  <text x="22" y="251">下回っても、直ちに効力に影響しない</text>
 
-  <circle class="dot" cx="30" cy="108" r="6"/>
-  <rect class="bw" x="50" y="74" width="340" height="68" rx="6"/>
-  <text class="n" x="62" y="94">増資</text>
-  <text x="62" y="113">効くのは資本金の基準だけ</text>
-  <text class="s" x="62" y="131">欠損・流動比率・自己資本は、決算で見ておく</text>
+  <rect class="card" x="10" y="274" width="185" height="216" rx="8"/>
+  <text class="n" x="22" y="296">一般建設業</text>
+  <rect class="b" x="22" y="304" width="161" height="26" rx="13"/>
+  <text class="n" x="102" y="322" text-anchor="middle">三つのうち一つ</text>
+  <text x="22" y="356">自己資本</text>
+  <text x="22" y="372">500万円以上</text>
+  <text x="22" y="396">資金調達能力</text>
+  <text x="22" y="412">500万円以上</text>
+  <text x="22" y="436">直前5年間、許可を</text>
+  <text x="22" y="452">受けて継続して営業</text>
 
-  <circle class="dot" cx="30" cy="178" r="6"/>
-  <rect class="b" x="50" y="150" width="340" height="56" rx="6"/>
-  <text class="n" x="62" y="170">申請日</text>
-  <text x="62" y="189">増資は、この日までに行えば数えられる</text>
-
-  <circle class="dot" cx="30" cy="248" r="6"/>
-  <rect class="bp" x="50" y="214" width="340" height="68" rx="6"/>
-  <text class="n" x="62" y="234">許可後</text>
-  <text x="62" y="252">下回っても、直ちに効力に影響しない</text>
-  <text class="s" x="62" y="270">業種追加、特定の新規取得・更新は直前の決算で再び見る</text>
-
-  <rect class="card" x="10" y="296" width="185" height="196" rx="8"/>
-  <text class="n" x="22" y="318">一般建設業</text>
-  <rect class="b" x="22" y="326" width="161" height="26" rx="13"/>
-  <text class="n" x="102" y="344" text-anchor="middle">三つのうち一つ</text>
-  <text x="22" y="378">自己資本</text>
-  <text x="22" y="394">500万円以上</text>
-  <text x="22" y="418">資金調達能力</text>
-  <text x="22" y="434">500万円以上</text>
-  <text x="22" y="458">直前5年間、許可を</text>
-  <text x="22" y="474">受けて継続して営業</text>
-
-  <rect class="card" x="205" y="296" width="185" height="196" rx="8"/>
-  <text class="n" x="217" y="318">特定建設業</text>
-  <rect class="bd" x="217" y="326" width="161" height="26" rx="13"/>
-  <text class="n" x="297" y="344" text-anchor="middle">すべてを満たす</text>
-  <text x="217" y="378">欠損の額が資本金の</text>
-  <text x="217" y="394">20%を超えない</text>
-  <text x="217" y="418">流動比率75%以上</text>
-  <text x="217" y="442">資本金2,000万円以上</text>
-  <text x="217" y="458">かつ自己資本</text>
-  <text x="217" y="474">4,000万円以上</text>
+  <rect class="card" x="205" y="274" width="185" height="216" rx="8"/>
+  <text class="n" x="217" y="296">特定建設業</text>
+  <rect class="bd" x="217" y="304" width="161" height="26" rx="13"/>
+  <text class="n" x="297" y="322" text-anchor="middle">すべてを満たす</text>
+  <text x="217" y="356">欠損の額が資本金の</text>
+  <text x="217" y="372">20%を超えない</text>
+  <text x="217" y="396">流動比率75%以上</text>
+  <rect class="bw" x="217" y="406" width="161" height="20" rx="10"/>
+  <text class="s" x="297" y="420" text-anchor="middle" style="font-weight:bold;fill:#1a3a5c">資本金だけ、増資で届く</text>
+  <text x="217" y="446">資本金2,000万円以上</text>
+  <text x="217" y="462">かつ自己資本</text>
+  <text x="217" y="478">4,000万円以上</text>
 </svg>

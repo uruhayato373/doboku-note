@@ -1,0 +1,42 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は、品目ごとに指標の定義が違う再資源化率等（平成30年度）を、指標の名前と並べて読むこと。数値は記事本文の表のみ（棒の長さは値に比例）。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="平成30年度の建設副産物の率を、指標の名前ごとに色分けして並べた図。アスファルト・コンクリート塊99.5と、コンクリート塊99.3は再資源化率。建設発生木材96.2、建設汚泥94.6、建設廃棄物全体97.2は再資源化・縮減率。建設発生土79.8は有効利用率。建設混合廃棄物3.1は排出率。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 13px; fill: #222; }
+      .hd { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 12px; fill: #222; }
+      .in { font-size: 12px; font-weight: bold; fill: #1a3a5c; text-anchor: middle; }
+      .lb { font-size: 12px; fill: #555; }
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .brd { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .wrn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .dng { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .sf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .row { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+          .vb { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .db { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; stroke-dasharray: 5 4; }
+    </style>
+  </defs>
+
+  <text class="hd" x="24" y="28">アスファルト・コンクリート塊</text>
+  <rect class="brd" x="24" y="34" width="298.5" height="18"/><text class="vb" x="330.5" y="48">99.5%</text>
+  <text class="hd" x="24" y="74">コンクリート塊</text>
+  <rect class="brd" x="24" y="80" width="297.9" height="18"/><text class="vb" x="329.9" y="94">99.3%</text>
+  <text class="hd" x="24" y="120">建設発生木材</text>
+  <rect class="pos" x="24" y="126" width="288.6" height="18"/><text class="vb" x="320.6" y="140">96.2%</text>
+  <text class="hd" x="24" y="166">建設汚泥</text>
+  <rect class="pos" x="24" y="172" width="283.8" height="18"/><text class="vb" x="315.8" y="186">94.6%</text>
+  <text class="hd" x="24" y="212">建設廃棄物全体</text>
+  <rect class="pos" x="24" y="218" width="291.6" height="18"/><text class="vb" x="323.6" y="232">97.2%</text>
+  <text class="hd" x="24" y="258">建設発生土</text>
+  <rect class="wrn" x="24" y="264" width="239.4" height="18"/><text class="vb" x="271.4" y="278">79.8%</text>
+  <text class="hd" x="24" y="304">建設混合廃棄物</text>
+  <rect class="dng" x="24" y="310" width="9.3" height="18"/><text class="vb" x="41.3" y="324">3.1%</text>
+  <text class="lb" x="24" y="352">色は指標の名前（品目ごとに違う）。平成30年度</text>
+  <rect class="brd" x="24" y="366" width="22" height="18"/><text class="t" x="54" y="380" style="font-size:13px">再資源化率</text>
+  <rect class="pos" x="204" y="366" width="22" height="18"/><text class="t" x="234" y="380" style="font-size:13px">再資源化・縮減率</text>
+  <rect class="wrn" x="24" y="396" width="22" height="18"/><text class="t" x="54" y="410" style="font-size:13px">有効利用率</text>
+  <rect class="dng" x="204" y="396" width="22" height="18"/><text class="t" x="234" y="410" style="font-size:13px">排出率</text>
+  <rect class="sf" x="24" y="436" width="352" height="50" rx="8"/>
+  <text class="hd" x="38" y="458">率を引くときは、指標の名前も書く</text><text class="lb" x="38" y="476">品目・指標の名前・調査年度の三つを並べる</text>
+</svg>

@@ -67,7 +67,7 @@ GNSSの測位方式や、楕円体高とジオイド高の換算式は[GNSS測�
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/civil-practice/coordinate-systems-geodetic-datum/img/figure-datum-timeline.svg"
-  alt="旧日本測地系から日本測地系2000、2011、2024への移行ごとに、変わったものと引き継がれたものを並べた年表"
+  alt="旧日本測地系から日本測地系2000、2011、2024への移行ごとに、変わったもの・引き継がれたもの・水平位置の換算の要否を並べた年表"
   width={400}
   height={500}
 />
@@ -119,6 +119,14 @@ GNSSの測位方式や、楕円体高とジオイド高の換算式は[GNSS測�
 
 大きな地震のあとは、基準点の座標が現況に合わなくなります。国土地理院は、地震や火山活動に伴う座標・標高の補正パラメータを提供しています。約1km間隔の格子点上の地殻変動量で、電子基準点と三角点の変動量から求めたものです。
 
+{/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
+<ArticleImage
+  src="/posts/civil-practice/coordinate-systems-geodetic-datum/img/figure-quake-correction-flow.svg"
+  alt="提供地域・局所的な変動・補正後の精度の三つの問いで、補正と再測量を分ける分岐図"
+  width={400}
+  height={500}
+/>
+
 ただし、国土地理院は再測量を行うことが最良としています。液状化・地すべり・地割れなど局地的な地盤の変動があるところでは、提供地域でも正しい補正ができないことがあります。変動が複雑で推定できない地域には、パラメータが提供されません（[非定常の地殻変動の補正](https://www.gsi.go.jp/sokuchikijun/sokuchikijun40037.html)）。
 
 判断の順序は、次のとおりです。
@@ -146,7 +154,7 @@ GNSSの測位方式や、楕円体高とジオイド高の換算式は[GNSS測�
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/civil-practice/coordinate-systems-geodetic-datum/img/figure-plane-zones.svg"
-  alt="平面直角座標系19系の原点を経度・緯度の格子に点で示した模式図。北海道、東京都、沖縄県の系を色分けしている"
+  alt="平面直角座標系19系の原点を経緯度の格子に示した模式図。北海道・東京都・沖縄県・鹿児島県の系を色分けしている"
   width={400}
   height={500}
 />
@@ -173,7 +181,7 @@ GNSSの測位方式や、楕円体高とジオイド高の換算式は[GNSS測�
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/civil-practice/coordinate-systems-geodetic-datum/img/figure-scale-factor.svg"
-  alt="平面直角座標系の原点からの東西距離と縮尺係数の関係を示す概念図。原点で0.9999、東西に離れるほど大きくなり、適用範囲は東西約130km以内"
+  alt="原点からの東西距離と縮尺係数の関係を示す図。原点で0.9999、東西約130kmの端で約1.0001に達する"
   width={400}
   height={500}
 />

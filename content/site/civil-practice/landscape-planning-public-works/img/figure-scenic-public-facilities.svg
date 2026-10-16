@@ -1,0 +1,71 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は景観法第9条第4項・第47条から第51条の、景観重要公共施設に定めたときの整備と占用・許可の効き方。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="景観重要公共施設に定めたときの効き方を施設ごとに比べた図。整備は計画に即して行う。道路は占用許可の基準に景観計画の基準が加わる。河川と都市公園は基準に適合しなければ許可しない。定めるには管理者の同意が前提。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .x { font-size: 12px; fill: #222; }
+      .s { font-size: 11px; fill: #555; }
+      .sb { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .g { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .wh { fill: #fff; stroke: #8a8a8a; stroke-width: 1.5; }
+      .dz { fill: #fff; stroke: #2e6da4; stroke-width: 1.5; stroke-dasharray: 4 3; }
+      .l { stroke: #d7d7d7; stroke-width: 1; fill: none; }
+      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ar { stroke: #b22234; stroke-width: 2; fill: none; }
+      .ag { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .ax { stroke: #8a8a8a; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+    <marker id="ahr" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#b22234"/></marker>
+    <marker id="ahg" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#3a7d44"/></marker>
+    <marker id="ahk" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#8a8a8a"/></marker>
+  </defs>
+  <rect class="w" x="10" y="8" width="380" height="48" rx="8"/>
+  <text class="t" x="200.0" y="27.5" text-anchor="middle">前提：計画に定めるとき、管理者の同意を得る</text>
+  <text class="s" x="200.0" y="44.5" text-anchor="middle">（景観法第9条第4項）</text>
+  <text class="s" x="14" y="76" text-anchor="start">施設</text>
+  <text class="s" x="104" y="76" text-anchor="start">整備</text>
+  <text class="s" x="192" y="76" text-anchor="start">占用・許可</text>
+  <rect class="g" x="10" y="84" width="86" height="92" rx="8"/>
+  <text class="n" x="53.0" y="134.0" text-anchor="middle">道路</text>
+  <rect class="b" x="188" y="84" width="202" height="92" rx="6"/>
+  <text class="t" x="198" y="104" text-anchor="start">基準が加わる</text>
+  <text class="x" x="198" y="120" text-anchor="start">占用許可などの基準に、</text>
+  <text class="x" x="198" y="136" text-anchor="start">政令の基準に加えて</text>
+  <text class="x" x="198" y="152" text-anchor="start">景観計画の基準が加わる</text>
+  <text class="x" x="198" y="168" text-anchor="start">（第49条）</text>
+  <rect class="g" x="10" y="184" width="86" height="92" rx="8"/>
+  <text class="n" x="53.0" y="234.0" text-anchor="middle">河川</text>
+  <rect class="w" x="188" y="184" width="202" height="92" rx="6"/>
+  <text class="t" x="198" y="204" text-anchor="start">適合しなければ許可しない</text>
+  <text class="x" x="198" y="220" text-anchor="start">河川法の許可を要する行為が</text>
+  <text class="x" x="198" y="236" text-anchor="start">計画の基準に適合しないとき</text>
+  <text class="x" x="198" y="252" text-anchor="start">は許可をしてはならない</text>
+  <text class="x" x="198" y="268" text-anchor="start">（第50条）</text>
+  <rect class="g" x="10" y="284" width="86" height="92" rx="8"/>
+  <text class="n" x="53.0" y="334.0" text-anchor="middle">都市公園</text>
+  <rect class="w" x="188" y="284" width="202" height="92" rx="6"/>
+  <text class="t" x="198" y="304" text-anchor="start">適合しなければ許可しない</text>
+  <text class="x" x="198" y="320" text-anchor="start">設置管理許可が基準に適合</text>
+  <text class="x" x="198" y="336" text-anchor="start">しないときは許可しない</text>
+  <text class="x" x="198" y="352" text-anchor="start">占用許可の技術的基準にも</text>
+  <text class="x" x="198" y="368" text-anchor="start">計画の基準が加わる（第51条）</text>
+  <rect class="b" x="100" y="84" width="80" height="292" rx="6"/>
+  <text class="x" x="140" y="190" text-anchor="middle">計画に</text>
+  <text class="x" x="140" y="207" text-anchor="middle">整備の事項</text>
+  <text class="x" x="140" y="224" text-anchor="middle">があれば、</text>
+  <text class="x" x="140" y="241" text-anchor="middle">その計画に</text>
+  <text class="x" x="140" y="258" text-anchor="middle">即して行う</text>
+  <text class="x" x="140" y="275" text-anchor="middle"></text>
+  <text class="x" x="140" y="292" text-anchor="middle">（第47条）</text>
+  <rect class="p" x="10" y="388" width="380" height="52" rx="8"/>
+  <text class="t" x="200.0" y="409.0" text-anchor="middle">自団体が管理者で許可権者なら、</text>
+  <text class="t" x="200.0" y="427.0" text-anchor="middle">申請者に求める基準が一つ増える</text>
+  <text class="s" x="14" y="462" text-anchor="start">整備の事項と占用の基準は、景観計画に定める</text>
+</svg>

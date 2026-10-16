@@ -1,57 +1,66 @@
 <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
      style="max-width:400px;width:100%"
      role="img"
-     aria-label="純かぶり（鉄筋表面からコンクリート表面まで）と芯かぶり（鉄筋中心からコンクリート表面まで）の測り方の違いを示す断面図">
+     aria-label="純かぶりは鉄筋の最外縁、芯かぶりは鉄筋の中心からコンクリート表面までの距離で、差は径の半分。規格値は設計値との差が許容誤差内かつ最小かぶり以上で、薄い側は原則不可">
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
-      .t-title { font-size: 14px; font-weight: bold; fill: #222; }
+      .t-title { font-size: 13px; font-weight: bold; fill: #222; }
       .t-label { font-size: 12px; fill: #555; }
-      .t-num   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
-      .box-surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .t-small { font-size: 11px; fill: #555; }
+      .t-num   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
     </style>
-    <marker id="arrow3" markerWidth="8" markerHeight="6" refX="4" refY="3" orient="auto">
-      <polygon points="0,0 8,3 0,6" fill="#2e6da4"/>
+    <marker id="arrow3" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0,0 9,4 0,8" fill="#2e6da4"/>
+    </marker>
+    <marker id="arrow3r" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0,0 9,4 0,8" fill="#b22234"/>
     </marker>
   </defs>
 
-  <text class="t-label" x="200" y="26" text-anchor="middle">コンクリート断面（部材端部）</text>
+  <text class="t-label" x="200" y="22" text-anchor="middle">コンクリート断面（部材端部）</text>
 
-  <!-- コンクリート部材 -->
-  <rect class="box-surface" x="20" y="40" width="360" height="200" rx="4"/>
-  <!-- 表面のライン（部材の外縁） -->
-  <line x1="20" y1="40" x2="20" y2="240" stroke="#222" stroke-width="2.5"/>
+  <!-- コンクリート部材（surface） -->
+  <rect fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5" x="20" y="30" width="360" height="160" rx="4"/>
+  <line x1="20" y1="30" x2="20" y2="190" stroke="#222" stroke-width="2.5"/>
 
-  <!-- 鉄筋（円） -->
-  <circle cx="90" cy="140" r="12" fill="#8a8a8a" stroke="#555" stroke-width="1"/>
-  <text class="t-label" x="90" y="175" text-anchor="middle">鉄筋</text>
+  <!-- 鉄筋（円）: 中心 x=150、最外縁 x=122 -->
+  <circle cx="150" cy="110" r="28" fill="#ffffff" stroke="#555" stroke-width="2"/>
+  <text class="t-label" x="150" y="114" text-anchor="middle">鉄筋</text>
+  <path d="M122,52 V170" fill="none" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="3 3"/>
+  <path d="M150,110 V168" fill="none" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="3 3"/>
 
-  <!-- 純かぶり: コンクリート表面(x=20) 〜 鉄筋表面(x=78) -->
-  <line x1="20" y1="95" x2="78" y2="95" stroke="#2e6da4" stroke-width="2" marker-end="url(#arrow3)"/>
-  <line x1="78" y1="80" x2="78" y2="110" stroke="#2e6da4" stroke-width="1"/>
-  <text class="t-num" x="49" y="85" text-anchor="middle" font-size="12">純かぶり</text>
+  <!-- 純かぶり: 表面 x=20 〜 最外縁 x=122 -->
+  <line x1="20" y1="60" x2="122" y2="60" stroke="#2e6da4" stroke-width="2.5" marker-end="url(#arrow3)"/>
+  <text class="t-num" x="71" y="52" text-anchor="middle">純かぶり</text>
 
-  <!-- 芯かぶり: コンクリート表面(x=20) 〜 鉄筋中心(x=90) -->
-  <line x1="20" y1="220" x2="90" y2="220" stroke="#b22234" stroke-width="2" marker-end="url(#arrow3)"/>
-  <line x1="90" y1="205" x2="90" y2="235" stroke="#b22234" stroke-width="1"/>
-  <text class="t-num" x="55" y="234" text-anchor="middle" font-size="12" fill="#b22234">芯かぶり</text>
+  <!-- 芯かぶり: 表面 x=20 〜 中心 x=150（最後の 122〜150 が径の半分） -->
+  <line x1="20" y1="154" x2="122" y2="154" stroke="#b22234" stroke-width="2.5"/>
+  <line x1="122" y1="154" x2="150" y2="154" stroke="#d4a017" stroke-width="5" marker-end="url(#arrow3r)"/>
+  <text class="t-num" x="71" y="146" text-anchor="middle" fill="#b22234">芯かぶり</text>
+  <text class="t-small" x="136" y="182" text-anchor="middle">径の半分</text>
 
-  <!-- 鉄筋径半分の注記 -->
-  <line x1="78" y1="140" x2="90" y2="140" stroke="#555" stroke-width="1"/>
-  <text class="t-label" x="130" y="144">両者の差 ＝ 鉄筋径の半分</text>
+  <!-- 規格値: 数直線 -->
+  <text class="t-title" x="20" y="218">規格値は、次の二つを同時に満たす</text>
+  <text class="t-small" x="210" y="240" text-anchor="middle">設計値との差が許容誤差内</text>
+  <rect fill="#f8d7da" stroke="#b22234" stroke-width="1.5" x="120" y="246" width="90" height="26"/>
+  <rect fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5" x="210" y="246" width="90" height="26"/>
+  <text class="t-num" x="165" y="264" text-anchor="middle">不可</text>
+  <text class="t-num" x="255" y="264" text-anchor="middle">可</text>
+  <line x1="210" y1="242" x2="210" y2="278" stroke="#b22234" stroke-width="2" stroke-dasharray="4 3"/>
+  <text class="t-small" x="24" y="294">薄い</text>
+  <text class="t-small" x="210" y="294" text-anchor="middle">最小かぶり以上</text>
+  <text class="t-small" x="376" y="294" text-anchor="end">厚い</text>
+  <text class="t-label" x="200" y="316" text-anchor="middle">許容誤差内でも、最小かぶり未満は原則不可</text>
 
-  <!-- 比較テーブル -->
-  <line x1="15" y1="265" x2="385" y2="265" stroke="#d7d7d7" stroke-width="1"/>
+  <rect fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" x="15" y="332" width="370" height="45" rx="6"/>
+  <text class="t-title" x="35" y="350">純かぶり</text>
+  <text class="t-label" x="35" y="368">基準＝鉄筋の表面／設計かぶりはこちら</text>
 
-  <rect fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" x="15" y="285" width="370" height="45" rx="6"/>
-  <text class="t-title" x="35" y="303">純かぶり</text>
-  <text class="t-label" x="35" y="321">基準＝鉄筋の表面／設計かぶりはこちら</text>
+  <rect fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5" x="15" y="385" width="370" height="45" rx="6"/>
+  <text class="t-title" x="35" y="403">芯かぶり</text>
+  <text class="t-label" x="35" y="421">基準＝鉄筋の中心／参考値として使う場面がある</text>
 
-  <rect fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5" x="15" y="340" width="370" height="45" rx="6"/>
-  <text class="t-title" x="35" y="358">芯かぶり</text>
-  <text class="t-label" x="35" y="376">基準＝鉄筋の中心／参考値として使う場面がある</text>
-
-  <line x1="15" y1="400" x2="385" y2="400" stroke="#d7d7d7" stroke-width="1"/>
-  <text class="t-label" x="200" y="422" text-anchor="middle">現場では純かぶりで測る（芯かぶりで測ると</text>
-  <text class="t-label" x="200" y="440" text-anchor="middle">実際より大きい値が出て誤判定しやすい）</text>
+  <text class="t-label" x="200" y="454" text-anchor="middle">現場では純かぶりで測る（芯かぶりで測ると</text>
+  <text class="t-label" x="200" y="472" text-anchor="middle">実際より大きい値が出て誤判定しやすい）</text>
 </svg>

@@ -48,15 +48,15 @@
   <circle class="void" cx="330" cy="95" r="9"/>
   <circle class="void" cx="270" cy="145" r="9"/>
   <circle class="void" cx="320" cy="140" r="9"/>
-  <line x1="280" y1="98" x2="262" y2="94" stroke="#3a7d44" stroke-width="1.5" marker-end="url(#arrP2)"/>
-  <line x1="308" y1="98" x2="323" y2="97" stroke="#3a7d44" stroke-width="1.5" marker-end="url(#arrP2)"/>
-  <line x1="284" y1="128" x2="273" y2="140" stroke="#3a7d44" stroke-width="1.5" marker-end="url(#arrP2)"/>
-  <text class="t-positive" x="292" y="178" text-anchor="middle">圧力が気泡へ逃げる</text>
+  <line x1="273" y1="97" x2="262" y2="94" stroke="#3a7d44" stroke-width="1.5" marker-end="url(#arrP2)"/>
+  <line x1="314" y1="97" x2="323" y2="97" stroke="#3a7d44" stroke-width="1.5" marker-end="url(#arrP2)"/>
+  <line x1="280" y1="133" x2="273" y2="140" stroke="#3a7d44" stroke-width="1.5" marker-end="url(#arrP2)"/>
+  <text class="t-positive" x="292" y="178" text-anchor="middle">未凍結水が気泡へ移動</text>
   <text class="t-desc" x="220" y="200">気泡が緩衝材になり</text>
   <text class="t-desc" x="220" y="216">組織の破壊を防ぐ</text>
   <text class="t-desc" x="220" y="238">気泡間隔＝狭い</text>
 
-  <text class="t-desc" x="20" y="288">気泡間隔係数（気泡どうしの平均距離）は</text>
+  <text class="t-desc" x="20" y="288">気泡間隔係数は</text>
   <text class="t-desc" x="20" y="306">おおむね250μm以下が耐凍害性確保の目安</text>
 
   <rect x="20" y="330" width="360" height="150" rx="8" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
@@ -72,5 +72,5 @@
   <text class="t-desc" x="68" y="434">行き場のない膨張圧</text>
 
   <line x1="42" y1="458" x2="62" y2="458" stroke="#3a7d44" stroke-width="1.5" marker-end="url(#arrP2)"/>
-  <text class="t-desc" x="68" y="462">気泡へ逃げる圧力</text>
+  <text class="t-desc" x="68" y="462">未凍結水の気泡への移動</text>
 </svg>

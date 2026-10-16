@@ -23,14 +23,14 @@
   <marker id="ags" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
   </defs>
   <rect x="14" y="14" width="372" height="300" rx="8" style="fill:#d0e8d0;stroke:#3a7d44;stroke-width:1.5"/>
-  <text class="n" x="26" y="38">有人エリア</text><text class="s" x="106" y="38">有人の機械による施工</text>
+  <text class="n" x="26" y="38">有人エリア</text><text class="s" x="106" y="38">有人の機械による施工</text><text class="s" x="26" y="52">人○ 有人機○ 自動機×</text>
   <rect x="54" y="56" width="292" height="214" style="fill:#fff3cd;stroke:none"/>
-  <text class="n" x="66" y="82">立入制限エリア</text>
+  <text class="n" x="66" y="82">立入制限エリア</text><text class="s" x="170" y="82">人× 有人機×</text>
   <rect x="94" y="96" width="212" height="132" rx="4" style="fill:#f8d7da;stroke:#b22234;stroke-width:1.5"/>
-  <text class="n" x="108" y="122">無人エリア</text><text class="s" x="108" y="144">人は立ち入らない</text><text class="s" x="108" y="160">自動建設機械が施工する</text>
+  <text class="n" x="108" y="122">無人エリア</text><text class="s" x="108" y="144">人は立ち入らない</text><text class="s" x="108" y="160">自動建設機械が施工する</text><text class="k" x="108" y="196">人× 有人機× 自動機○</text>
   <path d="M110,270H54V56H346V270H160" style="stroke:#555;stroke-width:3;stroke-dasharray:7 3;fill:none"/>
-  <rect x="326" y="136" width="52" height="64" rx="4" class="bb" style="fill:#fff"/><text class="t" x="352" y="164" text-anchor="middle">中継</text><text class="t" x="352" y="182" text-anchor="middle">区域</text>
-  <path class="ar" d="M135,302V252" marker-end="url(#ah)"/><text class="t" x="146" y="296">出入口</text>
+  <rect x="314" y="128" width="68" height="84" rx="4" class="bb" style="fill:#fff"/><text class="t" x="348" y="152" text-anchor="middle">中継区域</text><text class="s" x="348" y="174" text-anchor="middle">有人ダンプ</text><text class="s" x="348" y="190" text-anchor="middle">積み下ろし</text>
+  <path class="ar" d="M135,302V252" marker-end="url(#ah)"/><text class="t" x="146" y="296">運搬機械の出入口</text><text class="s" x="378" y="310" text-anchor="end">○×は入ってよいか（原則）</text>
   <rect class="p" x="10" y="328" width="380" height="162" rx="8"/>
   <text class="n" x="24" y="354">境界で、逸脱と侵入を防ぐ</text>
   <rect class="bb" x="24" y="372" width="84" height="26" rx="13"/><text class="t" x="66" y="389" text-anchor="middle">物理的に</text><text class="k" x="120" y="389">防護柵・障害物・地形で防ぐ</text>

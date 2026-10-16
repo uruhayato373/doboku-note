@@ -1,52 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="ひび割れ注入・充填・表面処理の断面模式図と、ひび割れ幅および活動性による工法の選び分け">
-  <text x="200" y="16" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">選定軸は「ひび割れ幅」と「動いているかどうか」</text>
-
-  <g transform="translate(124 0)">
-  <rect x="20" y="30" width="112" height="96" fill="#f5f5f5" stroke="#555" stroke-width="1.5"/>
-  <path d="M76 30 l-5 30 l4 30 l-3 36" fill="none" stroke="#b22234" stroke-width="2"/>
-  <path d="M76 30 l-5 30 l4 30 l-3 36" fill="none" stroke="#2e6da4" stroke-width="5" opacity="0.55"/>
-  <rect x="66" y="22" width="20" height="10" fill="#2e6da4"/>
-  <text x="76" y="146" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">注入</text>
-
-  </g>
-  <g transform="translate(124 0)">
-  <rect x="144" y="30" width="112" height="96" fill="#f5f5f5" stroke="#555" stroke-width="1.5"/>
-  <path d="M180 30 L212 30 L202 56 L190 56 Z" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
-  <path d="M196 56 l-4 28 l5 24 l-3 18" fill="none" stroke="#b22234" stroke-width="2"/>
-  <text x="200" y="146" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">充填</text>
-
-  </g>
-  <g transform="translate(-248 0)">
-  <rect x="268" y="30" width="112" height="96" fill="#f5f5f5" stroke="#555" stroke-width="1.5"/>
-  <rect x="268" y="30" width="112" height="10" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
-  <path d="M324 40 l-3 24 l4 20 l-2 22" fill="none" stroke="#b22234" stroke-width="1.5"/>
-  <text x="324" y="146" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">表面処理</text>
-
-  </g>
-
-  <rect x="20" y="160" width="360" height="150" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
-  <text x="200" y="180" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#222">幅で決まる適用範囲</text>
-
-  <rect x="30" y="190" width="340" height="36" rx="3" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
-  <text x="42" y="212" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">0.2 mm 未満</text>
-  <text x="170" y="212" font-family="sans-serif" font-size="11" fill="#555">表面処理（止水が目的）</text>
-
-  <rect x="30" y="230" width="340" height="36" rx="3" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
-  <text x="42" y="252" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">0.2〜1.0 mm</text>
-  <text x="170" y="252" font-family="sans-serif" font-size="11" fill="#555">注入（樹脂を内部まで）</text>
-
-  <rect x="30" y="270" width="340" height="30" rx="3" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
-  <text x="42" y="290" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">1.0 mm 以上</text>
-  <text x="170" y="290" font-family="sans-serif" font-size="11" fill="#555">充填（V・U カット）</text>
-
-  <rect x="20" y="326" width="360" height="156" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
-  <text x="200" y="346" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#222">活動性で材料が変わる</text>
-
-  <rect x="30" y="356" width="340" height="56" rx="3" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
-  <text x="42" y="376" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">活動ひび割れ（幅が動く）</text>
-  <text x="42" y="396" font-family="sans-serif" font-size="11" fill="#555">弾性のあるシーリング材で追従させる</text>
-
-  <rect x="30" y="418" width="340" height="56" rx="3" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
-  <text x="42" y="438" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">非活動ひび割れ（安定）</text>
-  <text x="42" y="458" font-family="sans-serif" font-size="11" fill="#555">固化型の樹脂で一体化できる</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="表面処理・注入・充填の断面と幅の目安。ひび割れの活動性によって材料を選ぶ">
+<defs><style>
+text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;fill:#555}.body{font-size:13px}.head{font-size:15px;font-weight:bold;fill:#1a3a5c}.small{font-size:12px}.strong{font-size:13px;font-weight:bold;fill:#1a3a5c}
+/* ink-body / ink-strong / brand-fill / brand / positive-fill / positive / warn-fill / warn / danger-fill / danger / surface / token-border */
+.surface{fill:#f5f5f5;stroke:#d7d7d7;stroke-width:1.5}.brand{fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5}.positive{fill:#d0e8d0;stroke:#3a7d44;stroke-width:1.5}.warn{fill:#fff3cd;stroke:#d4a017;stroke-width:1.5}.danger{fill:#f8d7da;stroke:#b22234;stroke-width:1.5}.line{stroke:#555;stroke-width:1.5;fill:none}.blue{stroke:#2e6da4;stroke-width:2;fill:none}.red{stroke:#b22234;stroke-width:2;fill:none}.green{stroke:#3a7d44;stroke-width:3;fill:none}
+</style><marker id="a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0 0L8 3L0 6Z" fill="#2e6da4"/></marker><marker id="g" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0 0L8 3L0 6Z" fill="#3a7d44"/></marker></defs>
+<text class="head" x="200" y="29" text-anchor="middle">幅の目安に、活動性の判断を加える</text><rect class="surface" x="20" y="52" width="360" height="98" rx="6"/><rect class="surface" x="34" y="68" width="96" height="66" rx="0"/><path class="red" d="M82 69L76 89L84 104L79 131"/><rect class="brand" x="34" y="64" width="96" height="8" rx="0"/><text class="head" x="151" y="83" text-anchor="start">表面処理</text><text class="strong" x="151" y="107" text-anchor="start">0.2 mm 未満</text><text class="small" x="151" y="130" text-anchor="start">表面を覆い、止水する</text><rect class="surface" x="20" y="167" width="360" height="98" rx="6"/><rect class="surface" x="34" y="183" width="96" height="66" rx="0"/><path class="red" d="M82 184L76 204L84 219L79 246"/><path class="blue" stroke-width="6" d="M82 184L76 204L84 219L79 246"/><rect class="brand" x="72" y="173" width="20" height="10" rx="0"/><text class="head" x="151" y="198" text-anchor="start">注入</text><text class="strong" x="151" y="222" text-anchor="start">0.2〜1.0 mm</text><text class="small" x="151" y="245" text-anchor="start">内部へ材料を送り込む</text><rect class="surface" x="20" y="282" width="360" height="98" rx="6"/><rect class="surface" x="34" y="298" width="96" height="66" rx="0"/><path class="red" d="M82 299L76 319L84 334L79 361"/><path class="positive" d="M63 298V321Q82 339 101 321V298Z"/><text class="head" x="151" y="313" text-anchor="start">充填</text><text class="strong" x="151" y="337" text-anchor="start">1.0 mm 以上</text><text class="small" x="151" y="360" text-anchor="start">カットした溝へ埋める</text><rect class="warn" x="20" y="412" width="360" height="69" rx="6"/><text class="strong" x="35" y="437" text-anchor="start">幅が動く → 変形に追従する材料</text><text class="body" x="35" y="459" text-anchor="start">幅が安定 → 固化型材料も選べる</text><text class="small" x="200" y="396" text-anchor="middle">幅だけで機械的に決めない</text>
 </svg>

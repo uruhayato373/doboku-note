@@ -1,0 +1,52 @@
+<!-- authored 2026-10-16 doboku-note 自作。題材はコンクリート技士教材の耐久性の劣化機構。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="中性化、塩害、凍害、アルカリシリカ反応の整理。それぞれの作用、確かめる試験、基準値や抑制策を並べて比べる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-title { font-size: 14px; font-weight: bold; fill: #222; }
+      .t-head  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-label { font-size: 12px; fill: #1a3a5c; }
+      .t-desc  { font-size: 12px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #555; }
+      .t-warn  { font-size: 12px; fill: #b22234; font-weight: bold; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .ln { stroke: #555; stroke-width: 1; fill: none; }
+      .arr { stroke: #2e6da4; stroke-width: 1.5; fill: none; marker-end: url(#ah); }
+      .arr-d { stroke: #b22234; stroke-width: 1.5; fill: none; marker-end: url(#ahd); }
+    </style>
+    <marker id="ah" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ahd" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+  </defs>
+  <text class="t-lead" x="200" y="18" text-anchor="middle">劣化機構を、作用・試験・基準で並べて比べる</text>
+  <rect class="box-b" x="20" y="28" width="360" height="88" rx="6"/>
+  <text class="t-title" x="34" y="50">中性化</text>
+  <text class="t-desc" x="34" y="70">作用：二酸化炭素でアルカリ性が低下</text>
+  <text class="t-desc" x="34" y="88">変状：不動態皮膜が失われやすい</text>
+  <text class="t-desc" x="34" y="106">試験：赤紫に変色しない深さを測る</text>
+  <rect class="box-w" x="20" y="124" width="360" height="76" rx="6"/>
+  <text class="t-title" x="34" y="146">塩害</text>
+  <text class="t-desc" x="34" y="166">作用：塩化物イオンが鉄筋位置へ届き、腐食</text>
+  <text class="t-desc" x="34" y="184">基準：フレッシュ中の塩化物イオン量 0.30 kg/m³以下</text>
+  <rect class="box-p" x="20" y="208" width="360" height="94" rx="6"/>
+  <text class="t-title" x="34" y="230">凍害</text>
+  <text class="t-desc" x="34" y="250">作用：凍結融解の繰返しで組織が損傷</text>
+  <text class="t-desc" x="34" y="268">試験：凍結融解試験（JIS A 1148）</text>
+  <text class="t-desc" x="34" y="286">目安：相対動弾性係数 60 %以上</text>
+  <rect class="box-d" x="20" y="310" width="360" height="112" rx="6"/>
+  <text class="t-title" x="34" y="332">ASR</text>
+  <text class="t-desc" x="34" y="352">作用：反応性シリカとアルカリが膨張性ゲルをつくる</text>
+  <text class="t-desc" x="34" y="369">判定：化学法・モルタルバー法で「無害」か</text>
+  <text class="t-desc" x="34" y="386">抑制：低反応性骨材・低アルカリ形・混合セメント</text>
+  <text class="t-desc" x="34" y="403">抑制：コンクリート中のアルカリ総量 3.0 kg/m³以下</text>
+  <rect class="box" x="20" y="430" width="360" height="56" rx="6"/>
+  <text class="t-label" x="200" y="456" text-anchor="middle">作用 → 変状 → 試験・基準の順に因果をたどる</text>
+  <text class="t-desc" x="200" y="478" text-anchor="middle">名称だけの暗記より選択肢を判定しやすい</text>
+</svg>

@@ -1,38 +1,70 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="写真測量の流れ。重なる写真から特徴点を探し、カメラの位置と形を計算し、標定点で座標を与え、検証点で確かめる。区域の周りに外側標定点、内側に内側標定点、別に検証点を置く">
-<defs><marker id="a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker></defs>
-<style>text{font-family:Inter,'Noto Sans JP','Hiragino Kaku Gothic ProN','Hiragino Sans',sans-serif;font-size:13px;fill:#1a3a5c}.s{font-size:11px;fill:#555}.b{font-weight:bold}.m{text-anchor:middle}</style>
-<rect width="400" height="500" fill="#fff"/>
-<text x="20" y="24" class="b">1 重なる写真から、共通の点を探す</text>
-<rect x="65" y="34" width="100" height="58" fill="none" stroke="#2e6da4" stroke-width="1.5"/>
-<rect x="135" y="34" width="100" height="58" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
-<rect x="205" y="34" width="100" height="58" fill="none" stroke="#d4a017" stroke-width="1.5"/>
-<circle cx="150" cy="48" r="3" fill="#f8d7da" stroke="#b22234"/>
-<circle cx="150" cy="66" r="3" fill="#f8d7da" stroke="#b22234"/>
-<circle cx="150" cy="82" r="3" fill="#f8d7da" stroke="#b22234"/>
-<circle cx="220" cy="50" r="3" fill="#f8d7da" stroke="#b22234"/>
-<circle cx="220" cy="70" r="3" fill="#f8d7da" stroke="#b22234"/>
-<circle cx="220" cy="84" r="3" fill="#f8d7da" stroke="#b22234"/>
-<text x="200" y="108" class="s m">赤い点が、複数の写真に写る特徴点</text>
-<line x1="200" y1="114" x2="200" y2="132" stroke="#555" stroke-width="2" marker-end="url(#a)"/>
-<rect x="20" y="136" width="360" height="54" rx="6" fill="#e8f0fe" stroke="#2e6da4"/>
-<text x="32" y="158" class="b">2 カメラの位置と、点の3次元位置を計算</text>
-<text x="32" y="178" class="s">形は復元できるが、大きさ・位置・向きは決まらない。</text>
-<line x1="200" y1="194" x2="200" y2="212" stroke="#555" stroke-width="2" marker-end="url(#a)"/>
-<text x="20" y="232" class="b">3 標定点で座標を与え、4 検証点で確かめる</text>
-<rect x="60" y="242" width="280" height="124" fill="#f5f5f5" stroke="#d7d7d7"/>
-<polygon points="78,254 86,268 70,268" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
-<polygon points="322,254 330,268 314,268" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
-<polygon points="78,338 86,352 70,352" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
-<polygon points="322,338 330,352 314,352" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
-<polygon points="200,296 208,310 192,310" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
-<circle cx="140" cy="278" r="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
-<circle cx="262" cy="330" r="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
-<circle cx="140" cy="330" r="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
-<rect x="20" y="380" width="360" height="104" rx="6" fill="#fff" stroke="#d7d7d7"/>
-<polygon points="40,392 46,402 34,402" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
-<text x="56" y="402" class="s">外側標定点　区域の外周に置く。3点以上</text>
-<polygon points="40,414 46,424 34,424" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
-<text x="56" y="424" class="s">内側標定点　区域の内部に置く。1点以上</text>
-<circle cx="40" cy="442" r="5" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/><text x="56" y="446" class="s">検証点　計算に使わない。標定点の半数以上</text>
-<text x="32" y="470" class="s">標定点の残差と検証点の較差が位置精度以内なら基準を満たす。</text>
+<!-- authored 2026-10-16 doboku-note 自作。論点は写真から形を復元する流れ（特徴点・標定点・検証点）。標定点と検証点の記号と色は3次元計測の記事（標定点・検証点の図）にそろえる。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="写真測量の流れ。重なる写真から特徴点を探し、カメラの位置と点の3次元位置を計算し、標定点で座標を与え、検証点で確かめる。標定点は計算に使うので残差は小さく出やすく、検証点は計算に使わないので較差で外の点でも合うか確かめる。外側標定点は青の三角、内側標定点は緑の四角、検証点は黄の丸。X・Y・Zのすべてで位置精度以内かを見る。">
+  <defs>
+  <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #222; }
+      .b { font-weight: bold; fill: #1a3a5c; }
+      .m { fill: #555; }
+      .t12 { font-size: 12px; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .dng { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .sf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .wh { fill: #fff; stroke: #2e6da4; stroke-width: 1.5; }
+      .dash { fill: #fff; stroke: #555; stroke-width: 1.5; stroke-dasharray: 4 3; }
+      .grid { stroke: #d7d7d7; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .ax { stroke: #555; stroke-width: 1.5; fill: none; }
+      .ar { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ark { stroke: #555; stroke-width: 2; fill: none; }
+  </style>
+  <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="ak" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  <marker id="as" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="asg" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+  <text class="t12 b" x="12" y="20">1 重なる写真から、共通の点を探す</text>
+  <rect x="50" y="30" width="110" height="50" fill="none" stroke="#2e6da4" stroke-width="1.5"/>
+  <rect x="120" y="34" width="110" height="50" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <rect x="190" y="38" width="110" height="50" fill="none" stroke="#d4a017" stroke-width="1.5"/>
+  <rect x="120" y="38" width="40" height="42" fill="#e8f0fe" fill-opacity="0.8"/><rect x="190" y="42" width="40" height="42" fill="#e8f0fe" fill-opacity="0.8"/>
+  <circle cx="135" cy="50" r="3" fill="#f8d7da" stroke="#b22234"/>
+  <circle cx="142" cy="66" r="3" fill="#f8d7da" stroke="#b22234"/>
+  <circle cx="205" cy="56" r="3" fill="#f8d7da" stroke="#b22234"/>
+  <circle cx="214" cy="72" r="3" fill="#f8d7da" stroke="#b22234"/>
+  <text class="m" x="200" y="102" text-anchor="middle">重なる範囲に写る点が特徴点（飛行の向き →）</text>
+  <rect class="brand" x="12" y="112" width="376" height="40" rx="8"/>
+  <text class="t12 b" x="200.0" y="128.0" text-anchor="middle">2 カメラの位置と点の3次元位置を計算</text>
+  <text class="t12" x="200.0" y="144.0" text-anchor="middle">形は復元できるが、大きさ・位置・向きは決まらない</text>
+  <text class="t12 b" x="12" y="174">3 標定点で座標を与え、4 検証点で確かめる</text>
+  <rect class="sf" x="12" y="184" width="376" height="112" rx="8"/>
+  <polygon points="50,196 42,210 58,210" fill="#2e6da4" stroke="#1a3a5c" stroke-width="1"/>
+  <polygon points="200,196 192,210 208,210" fill="#2e6da4" stroke="#1a3a5c" stroke-width="1"/>
+  <polygon points="350,196 342,210 358,210" fill="#2e6da4" stroke="#1a3a5c" stroke-width="1"/>
+  <polygon points="50,270 42,284 58,284" fill="#2e6da4" stroke="#1a3a5c" stroke-width="1"/>
+  <polygon points="200,270 192,284 208,284" fill="#2e6da4" stroke="#1a3a5c" stroke-width="1"/>
+  <polygon points="350,270 342,284 358,284" fill="#2e6da4" stroke="#1a3a5c" stroke-width="1"/>
+  <rect x="193" y="233" width="14" height="14" fill="#3a7d44" stroke="#1a3a5c" stroke-width="1"/>
+  <circle cx="120" cy="226" r="7" fill="#d4a017" stroke="#1a3a5c" stroke-width="1"/>
+  <circle cx="280" cy="226" r="7" fill="#d4a017" stroke="#1a3a5c" stroke-width="1"/>
+  <circle cx="120" cy="256" r="7" fill="#d4a017" stroke="#1a3a5c" stroke-width="1"/>
+  <circle cx="280" cy="256" r="7" fill="#d4a017" stroke="#1a3a5c" stroke-width="1"/>
+  <rect class="pos" x="12" y="306" width="184" height="60" rx="8"/>
+  <text class="t12 b" x="104.0" y="324.0" text-anchor="middle">標定点</text>
+  <text class="t12" x="104.0" y="340.0" text-anchor="middle">計算に使う</text>
+  <text class="t12" x="104.0" y="356.0" text-anchor="middle">残差は小さく出やすい</text>
+  <rect class="warn" x="204" y="306" width="184" height="60" rx="8"/>
+  <text class="t12 b" x="296.0" y="324.0" text-anchor="middle">検証点</text>
+  <text class="t12" x="296.0" y="340.0" text-anchor="middle">計算に使わない</text>
+  <text class="t12" x="296.0" y="356.0" text-anchor="middle">較差で外の点でも確かめる</text>
+  <rect class="dng" x="12" y="378" width="376" height="56" rx="8"/>
+  <text class="t12 b" x="200.0" y="401.0" text-anchor="middle">判定: X・Y・Zのすべてで</text>
+  <text class="t12 b" x="200.0" y="419.0" text-anchor="middle">位置精度以内</text>
+  <polygon points="24,454 16,468 32,468" fill="#2e6da4" stroke="#1a3a5c" stroke-width="1"/>
+  <text class="m" x="38" y="466">外側標定点 3点以上</text>
+  <rect x="156" y="456" width="12" height="12" fill="#3a7d44" stroke="#1a3a5c"/>
+  <text class="m" x="174" y="466">内側 1点以上</text>
+  <circle cx="272" cy="462" r="6" fill="#d4a017" stroke="#1a3a5c"/>
+  <text class="m" x="284" y="466">検証点 半数以上</text>
 </svg>

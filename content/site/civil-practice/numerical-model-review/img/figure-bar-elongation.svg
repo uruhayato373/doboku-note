@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="独自例題の棒の伸び。左を固定した棒に100,000 Nを軸方向に加えると伸びは1 mm。両端を固定すると伸びは出ず、条件の違いが結果の違いになる" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+<defs><marker id="m" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#2e6da4"/></marker></defs>
+<rect width="400" height="500" fill="#ffffff"/>
+<rect x="15" y="12" width="370" height="170" rx="8" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+<text x="27" y="36" font-size="13" font-weight="700" fill="#1a3a5c">左だけを固定した棒</text>
+<rect x="36" y="62" width="8" height="60" fill="#f5f5f5" stroke="#555"/><path d="M36 74L44 66M36 86L44 78M36 98L44 90M36 110L44 102M36 122L44 114" stroke="#555" stroke-width="1" fill="none"/>
+<rect x="44" y="82" width="230" height="20" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<rect x="274" y="82" width="14" height="20" fill="none" stroke="#b22234" stroke-width="1.5" stroke-dasharray="3 2"/>
+<path d="M288 92H336" stroke="#2e6da4" stroke-width="2" fill="none" marker-end="url(#m)"/>
+<text x="340" y="88" font-size="12" fill="#222">F</text>
+<text x="262" y="74" font-size="12" fill="#b22234" text-anchor="middle">伸び1 mm</text>
+<path d="M44 118H274" stroke="#555" stroke-width="1" fill="none"/><text x="159" y="136" font-size="12" fill="#555" text-anchor="middle">L＝2,000 mm</text>
+<text x="27" y="162" font-size="12" fill="#222">F＝100,000 N　A＝1,000 mm²　E＝200,000 N/mm²</text>
+<text x="27" y="178" font-size="11" fill="#555">伸びは図で大きく描いている</text>
+<rect x="15" y="196" width="370" height="132" rx="8" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/>
+<text x="27" y="220" font-size="13" font-weight="700" fill="#1a3a5c">両端を固定して荷重を与えた</text>
+<rect x="36" y="246" width="8" height="60" fill="#f5f5f5" stroke="#555"/><path d="M36 258L44 250M36 270L44 262M36 282L44 274M36 294L44 286M36 306L44 298" stroke="#555" stroke-width="1" fill="none"/>
+<rect x="44" y="266" width="230" height="20" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<rect x="274" y="246" width="8" height="60" fill="#f5f5f5" stroke="#555"/><path d="M274 258L282 250M274 270L282 262M274 282L282 274M274 294L282 286M274 306L282 298" stroke="#555" stroke-width="1" fill="none"/>
+<path d="M110 256H170" stroke="#2e6da4" stroke-width="2" fill="none" marker-end="url(#m)"/>
+<text x="180" y="260" font-size="12" fill="#222">F（軸方向の荷重）</text>
+<text x="27" y="322" font-size="12" fill="#222">伸びは1 mmにならない。想定と条件が違う</text>
+<rect x="15" y="342" width="370" height="146" rx="8" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+<text x="27" y="368" font-size="13" font-weight="700" fill="#1a3a5c">解析で10 mmと出たとき</text>
+<text x="27" y="392" font-size="13" fill="#222">定数を調整する前に確かめる</text>
+<text x="27" y="416" font-size="13" fill="#222">入力と出力の単位・断面積・荷重</text>
+<text x="27" y="438" font-size="13" fill="#222">支持条件・読み取った変位成分</text>
+<text x="27" y="466" font-size="12" fill="#555">δ＝FL/AE＝1 mm の計算と見比べる</text>
+</svg>

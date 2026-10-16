@@ -1,70 +1,66 @@
-<!-- authored 2026-09-12 doboku-note 自作。題材はコンクリート技士テキスト「配合設計」の論点。特定の書籍図の複製・トレースではない -->
+<!-- authored 2026-10-16 doboku-note 自作。題材はコンクリート技士教材の要求性能と配合の目標項目。書籍図の複製・トレースではない -->
 <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
   style="max-width:400px;width:100%"
   role="img"
-  aria-label="要求性能の安全性・使用性・耐久性を配合の目標である強度・耐久性へ結び、施工性と経済性はその実現条件として位置づける対応関係を示す図">
+  aria-label="要求性能の安全性・使用性・耐久性を、配合の目標項目である強度・耐久性・施工性・経済性の4つへ落とし込む対応図。施工性と経済性は強度・耐久性を満たすための条件">
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
-      .t-lead { font-size: 11px; fill: #555; }
-      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
-      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
-      .t-desc { font-size: 11px; fill: #555; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-title { font-size: 14px; font-weight: bold; fill: #222; }
+      .t-head  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-label { font-size: 12px; fill: #1a3a5c; }
+      .t-desc  { font-size: 12px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #555; }
+      .t-warn  { font-size: 12px; fill: #b22234; font-weight: bold; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
       .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
-      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
       .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
-      .box-s { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .ln { stroke: #555; stroke-width: 1; fill: none; }
+      .arr { stroke: #2e6da4; stroke-width: 1.5; fill: none; marker-end: url(#ah); }
+      .arr-d { stroke: #b22234; stroke-width: 1.5; fill: none; marker-end: url(#ahd); }
     </style>
-    <marker id="pm-arrow" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
-      <polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/>
-    </marker>
+    <marker id="ah" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ahd" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
   </defs>
-
-  <text class="t-lead" x="200" y="16" text-anchor="middle">3つの要求性能を4つの目標項目に落とし込んで配合を決める</text>
-
-  <text class="t-sec" x="90" y="38" text-anchor="middle">要求性能（3分類）</text>
-  <text class="t-sec" x="310" y="38" text-anchor="middle">配合の4目標</text>
-
-  <!-- 左列：要求性能 -->
-  <rect class="box-p" x="20" y="46" width="140" height="62" rx="6"/>
-  <text class="t-name" x="90" y="70" text-anchor="middle">安全性</text>
-  <text class="t-desc" x="90" y="88" text-anchor="middle">壊れずに機能を保つ</text>
-
-  <rect class="box-p" x="20" y="122" width="140" height="62" rx="6"/>
-  <text class="t-name" x="90" y="146" text-anchor="middle">使用性</text>
-  <text class="t-desc" x="90" y="164" text-anchor="middle">ひび割れ変形を抑える</text>
-
-  <rect class="box-p" x="20" y="198" width="140" height="62" rx="6"/>
-  <text class="t-name" x="90" y="222" text-anchor="middle">耐久性</text>
-  <text class="t-desc" x="90" y="240" text-anchor="middle">劣化に耐え性能を保つ</text>
-
-  <!-- 右列：配合の目標（強度・耐久性） -->
-  <rect class="box-b" x="240" y="70" width="140" height="62" rx="6"/>
-  <text class="t-name" x="310" y="94" text-anchor="middle">強度</text>
-  <text class="t-desc" x="310" y="112" text-anchor="middle">安全性の主な担い手</text>
-
-  <rect class="box-b" x="240" y="178" width="140" height="62" rx="6"/>
-  <text class="t-name" x="310" y="202" text-anchor="middle">耐久性</text>
-  <text class="t-desc" x="310" y="220" text-anchor="middle">劣化要因への抵抗力</text>
-
-  <!-- 結線 -->
-  <line x1="160" y1="77" x2="240" y2="101" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#pm-arrow)"/>
-  <line x1="160" y1="153" x2="240" y2="101" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#pm-arrow)"/>
-  <line x1="160" y1="153" x2="240" y2="209" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#pm-arrow)"/>
-  <line x1="160" y1="229" x2="240" y2="209" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#pm-arrow)"/>
-
-  <text class="t-sec" x="200" y="282" text-anchor="middle">強度・耐久性を無理なく満たす条件</text>
-
-  <rect class="box-w" x="20" y="290" width="170" height="70" rx="6"/>
-  <text class="t-name" x="105" y="317" text-anchor="middle">ワーカビリティー</text>
-  <text class="t-desc" x="105" y="339" text-anchor="middle">打込み締固めのしやすさ</text>
-
-  <rect class="box-w" x="210" y="290" width="170" height="70" rx="6"/>
-  <text class="t-name" x="295" y="317" text-anchor="middle">経済性</text>
-  <text class="t-desc" x="295" y="339" text-anchor="middle">材料費・工程費を抑える</text>
-
-  <rect class="box-s" x="20" y="380" width="360" height="90" rx="6"/>
-  <text class="t-name" x="200" y="404" text-anchor="middle">どちらかに寄せすぎると起こること</text>
-  <text class="t-desc" x="40" y="428">強度を追いすぎると粘性が増し施工しにくい</text>
-  <text class="t-desc" x="40" y="448">施工性を追いすぎると強度・耐久性が下がる</text>
+  <text class="t-lead" x="200" y="18" text-anchor="middle">3つの要求性能を、配合の4つの目標項目へ落とし込む</text>
+  <text class="t-head" x="90" y="40" text-anchor="middle">要求性能（3分類）</text>
+  <text class="t-head" x="310" y="40" text-anchor="middle">配合の目標項目</text>
+  <rect class="box-p" x="20" y="52" width="140" height="56" rx="6"/>
+  <text class="t-title" x="90" y="76" text-anchor="middle">安全性</text>
+  <text class="t-desc" x="90" y="96" text-anchor="middle">壊れずに機能を保つ</text>
+  <rect class="box-p" x="20" y="118" width="140" height="56" rx="6"/>
+  <text class="t-title" x="90" y="142" text-anchor="middle">使用性</text>
+  <text class="t-desc" x="90" y="162" text-anchor="middle">ひび割れ・変形を抑える</text>
+  <rect class="box-p" x="20" y="184" width="140" height="56" rx="6"/>
+  <text class="t-title" x="90" y="208" text-anchor="middle">耐久性</text>
+  <text class="t-desc" x="90" y="228" text-anchor="middle">劣化に耐え性能を保つ</text>
+  <rect class="box-b" x="240" y="60" width="140" height="54" rx="6"/>
+  <text class="t-title" x="310" y="82" text-anchor="middle">強度</text>
+  <text class="t-desc" x="310" y="102" text-anchor="middle">安全性の主な担い手</text>
+  <rect class="box-b" x="240" y="124" width="140" height="54" rx="6"/>
+  <text class="t-title" x="310" y="146" text-anchor="middle">耐久性</text>
+  <text class="t-desc" x="310" y="166" text-anchor="middle">劣化要因への抵抗力</text>
+  <line x1="160" y1="80" x2="238" y2="86" class="arr"/>
+  <line x1="160" y1="146" x2="238" y2="92" class="arr" stroke-dasharray="4 3"/>
+  <line x1="160" y1="146" x2="238" y2="148" class="arr" stroke-dasharray="4 3"/>
+  <line x1="160" y1="212" x2="238" y2="156" class="arr"/>
+  <text class="t-head" x="310" y="200" text-anchor="middle">満たすための条件</text>
+  <rect class="box-w" x="240" y="208" width="140" height="46" rx="6"/>
+  <text class="t-title" x="310" y="228" text-anchor="middle">施工性</text>
+  <text class="t-desc" x="310" y="246" text-anchor="middle">ワーカビリティー</text>
+  <rect class="box-w" x="240" y="262" width="140" height="46" rx="6"/>
+  <text class="t-title" x="310" y="282" text-anchor="middle">経済性</text>
+  <text class="t-desc" x="310" y="300" text-anchor="middle">材料費・工程費を抑える</text>
+  <text class="t-desc" x="20" y="272">使用性（破線）は剛性・ひび割れ</text>
+  <text class="t-desc" x="20" y="290">抵抗性として強度と耐久性に</text>
+  <text class="t-desc" x="20" y="308">またがる</text>
+  <rect class="box" x="20" y="336" width="360" height="128" rx="6"/>
+  <text class="t-head" x="200" y="360" text-anchor="middle">どれか1つだけを追うと、他が崩れる</text>
+  <text class="t-desc" x="34" y="386">強度を追いすぎる → 粘性が増し施工しにくい</text>
+  <text class="t-desc" x="34" y="408">施工性を追いすぎる → 強度・耐久性が下がり</text>
+  <text class="t-desc" x="34" y="426">　収縮も増える</text>
+  <text class="t-desc" x="34" y="448">強度・耐久性・施工性・経済性のバランスで決める</text>
 </svg>

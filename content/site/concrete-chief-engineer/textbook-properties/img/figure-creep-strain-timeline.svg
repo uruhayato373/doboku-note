@@ -2,7 +2,7 @@
 <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
   style="max-width:400px;width:100%"
   role="img"
-  aria-label="持続荷重下のひずみの時間推移。載荷時弾性ひずみ→クリープひずみの増加→除荷時の弾性回復→クリープ回復→非回復ひずみの順を折れ線で示す">
+  aria-label="持続荷重下のひずみの時間推移。載荷時弾性ひずみ→クリープひずみの増加→除荷時の弾性回復→回復クリープ（弾性クリープ）→非回復ひずみの順を折れ線で示す">
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
@@ -17,7 +17,7 @@
     </style>
   </defs>
 
-  <text class="t-lead" x="200" y="16" text-anchor="middle">横軸＝時間、縦軸＝ひずみ（数値なし・挙動の形を示す）</text>
+  <text class="t-lead" x="200" y="16" text-anchor="middle">載荷で増加し、除荷後も一部のひずみが残る</text>
 
   <!-- axes -->
   <line class="line-dash" x1="40" y1="290" x2="370" y2="290" />
@@ -38,32 +38,21 @@
   <circle cx="200" cy="220" r="3" fill="#2e6da4" />
   <circle cx="280" cy="250" r="3" fill="#2e6da4" />
 
-  <!-- labels along curve -->
-  <text class="t-label" x="46" y="258">載荷時弾性ひずみ</text>
-  <text class="t-label" x="60" y="192">クリープひずみの増加</text>
-  <text class="t-label" x="207" y="185">除荷時の弾性回復</text>
-  <text class="t-label" x="207" y="215">クリープ回復</text>
-  <text class="t-label" x="325" y="270" text-anchor="middle">非回復ひずみ（残留）</text>
+  <!-- numbered markers along curve -->
+  <text class="t-label" x="52" y="258">①</text>
+  <text class="t-label" x="110" y="190">②</text>
+  <text class="t-label" x="207" y="190">③</text>
+  <text class="t-label" x="236" y="226">④</text>
+  <text class="t-label" x="325" y="270" text-anchor="middle">⑤</text>
 
   <line class="line-dash" x1="200" y1="40" x2="200" y2="290" />
   <text class="t-axis" x="200" y="304" text-anchor="middle">除荷</text>
 
-  <text class="t-lead" x="20" y="330">区間の対応</text>
-  <rect class="box" x="20" y="336" width="360" height="150" rx="6" />
-
-  <rect class="box-b" x="34" y="348" width="14" height="14" />
-  <text class="t-desc" x="54" y="360">載荷の瞬間：弾性ひずみが即座に生じる</text>
-
-  <rect class="box-b" x="34" y="372" width="14" height="14" />
-  <text class="t-desc" x="54" y="384">載荷中：時間とともにクリープひずみが増加</text>
-
-  <rect class="box-b" x="34" y="396" width="14" height="14" />
-  <text class="t-desc" x="54" y="408">除荷の瞬間：弾性ひずみ分が即座に回復</text>
-
-  <rect class="box-b" x="34" y="420" width="14" height="14" />
-  <text class="t-desc" x="54" y="432">除荷後：時間をかけて緩やかに回復</text>
-  <text class="t-desc" x="54" y="448">（クリープ回復）</text>
-
-  <rect class="box-b" x="34" y="460" width="14" height="14" />
-  <text class="t-desc" x="54" y="472">最終的に回復せず残る非回復ひずみがある</text>
+  <text class="t-lead" x="20" y="334">番号の対応</text>
+  <rect class="box" x="20" y="340" width="360" height="146" rx="6" />
+  <text class="t-desc" x="34" y="364">① 載荷時弾性ひずみ（載荷の瞬間）</text>
+  <text class="t-desc" x="34" y="386">② クリープひずみ（載荷中に増加）</text>
+  <text class="t-desc" x="34" y="408">③ 弾性ひずみ（除荷の瞬間に回復）</text>
+  <text class="t-desc" x="34" y="430">④ 回復クリープひずみ（弾性クリープ）</text>
+  <text class="t-desc" x="34" y="452">⑤ 非回復クリープひずみ（残留）</text>
 </svg>

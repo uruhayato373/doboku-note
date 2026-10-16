@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="肩代わりさせる仕事から、先に確かめることを引く対応図。引張、土や水の仕切り、ゴムの変形追従、樹脂の接着充填、セメントの補いの五つ" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+  <defs><marker id="ar" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#2e6da4"/></marker></defs>
+  <text x="105" y="34" font-size="13" font-weight="700" fill="#222" text-anchor="middle">肩代わりさせる仕事</text>
+  <text x="297" y="34" font-size="13" font-weight="700" fill="#222" text-anchor="middle">先に確かめること</text>
+  <rect x="20" y="44" width="170" height="80" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/> <!-- brand-fill / brand -->
+  <text x="32" y="68" font-size="13" font-weight="700" fill="#222">引張を受け持つ</text>
+  <text x="32" y="88" font-size="11" fill="#555">補強材・シート</text>
+  <path d="M192 84H213" fill="none" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#ar)"/>
+  <rect x="215" y="44" width="165" height="80" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/> <!-- warn -->
+  <text x="227" y="78" font-size="12" fill="#1a3a5c">繊維の種類と、</text>
+  <text x="227" y="98" font-size="12" fill="#1a3a5c">樹脂で固めた状態の値</text>
+  <rect x="20" y="132" width="170" height="80" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/> <!-- brand-fill / brand -->
+  <text x="32" y="156" font-size="13" font-weight="700" fill="#222">土や水を仕切り、通す</text>
+  <text x="32" y="176" font-size="11" fill="#555">地盤用シート・管</text>
+  <path d="M192 172H213" fill="none" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#ar)"/>
+  <rect x="215" y="132" width="165" height="80" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/> <!-- warn -->
+  <text x="227" y="166" font-size="12" fill="#1a3a5c">機能に合う種類と、</text>
+  <text x="227" y="186" font-size="12" fill="#1a3a5c">長期の通水・たわみ</text>
+  <rect x="20" y="220" width="170" height="80" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/> <!-- brand-fill / brand -->
+  <text x="32" y="244" font-size="13" font-weight="700" fill="#222">変形に追従し、</text>
+  <text x="32" y="263" font-size="13" font-weight="700" fill="#222">力を伝え、吸収する</text>
+  <text x="32" y="283" font-size="11" fill="#555">ゴム</text>
+  <path d="M192 260H213" fill="none" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#ar)"/>
+  <rect x="215" y="220" width="165" height="80" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/> <!-- warn -->
+  <text x="227" y="254" font-size="12" fill="#1a3a5c">ゴムの種類と、</text>
+  <text x="227" y="274" font-size="12" fill="#1a3a5c">老化・オゾンへの強さ</text>
+  <rect x="20" y="308" width="170" height="80" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/> <!-- brand-fill / brand -->
+  <text x="32" y="332" font-size="13" font-weight="700" fill="#222">接着し、隙間を埋める</text>
+  <text x="32" y="352" font-size="11" fill="#555">樹脂</text>
+  <path d="M192 348H213" fill="none" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#ar)"/>
+  <rect x="215" y="308" width="165" height="80" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/> <!-- warn -->
+  <text x="227" y="342" font-size="12" fill="#1a3a5c">施工温度での硬化と、</text>
+  <text x="227" y="362" font-size="12" fill="#1a3a5c">充填の確認</text>
+  <rect x="20" y="396" width="170" height="80" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/> <!-- brand-fill / brand -->
+  <text x="32" y="420" font-size="13" font-weight="700" fill="#222">セメントを補う・</text>
+  <text x="32" y="439" font-size="13" font-weight="700" fill="#222">置き換える</text>
+  <text x="32" y="459" font-size="11" fill="#555">ポリマー系</text>
+  <path d="M192 436H213" fill="none" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#ar)"/>
+  <rect x="215" y="396" width="165" height="80" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/> <!-- warn -->
+  <text x="227" y="430" font-size="12" fill="#1a3a5c">結合材の中身と、</text>
+  <text x="227" y="450" font-size="12" fill="#1a3a5c">初期の養生</text>
+</svg>

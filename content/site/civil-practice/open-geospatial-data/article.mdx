@@ -48,7 +48,7 @@ sources:
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/civil-practice/open-geospatial-data/img/figure-question-to-data.svg"
-  alt="知りたいことごとに見る公開データを並べた図。位置、高低、属性、危険な場所、建物、国道の六つの問い"
+  alt="知りたいことごとに見る公開データと、基本測量成果・有償などの条件の印を並べた図"
   width={400}
   height={500}
 />
@@ -84,6 +84,14 @@ sources:
 | DEM10B（10m） | 1/25,000地形図の等高線など。5.0m以内 |
 
 整備されている種別は場所によって違い、DEM1Aと5Aでも、建物の下など計測点のないメッシュは周囲から補間されて、精度は2.0m以内にとどまります。切土や盛土の土量を求めたい場面で、10mメッシュの値をそのまま使うのは危険です。概略の検討と、数量算出では、使うDEMの種別を分けて考えましょう。
+
+{/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
+<ArticleImage
+  src="/posts/civil-practice/open-geospatial-data/img/figure-dem-accuracy.svg"
+  alt="数値標高モデルの種別ごとの標高精度（0.3m〜5.0m）を横棒で比べた図。10mメッシュは土量に使えない"
+  width={400}
+  height={500}
+/>
 
 ## 地理院タイルは、種類ごとに利用条件が違う
 
@@ -127,6 +135,14 @@ sources:
 
 国土数値情報の洪水浸水想定区域（河川単位）は、位置精度が約25mです。区域の境界線は、敷地の単位で浸水の有無を判定できる精度ではありません。また、支川の氾濫、想定を超える降雨、高潮、内水は含まれません。[データの説明](https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-A31a-2025.html)にも、指定区域の外で浸水が起きる場合や、浸水深が想定を上回る場合があると書かれています。
 
+{/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
+<ArticleImage
+  src="/posts/civil-practice/open-geospatial-data/img/figure-flood-boundary-limits.svg"
+  alt="洪水浸水想定区域の境界線の位置精度（約25m）と、区域に含まれないものを示す図"
+  width={400}
+  height={500}
+/>
+
 ポータルの内水浸水の想定も、河川氾濫や高潮の浸水を考慮しておらず、浸水深0〜0.1mの範囲は表示されません。境界に近い現場は、線の内か外かで判断せず、現地の高さや過去の浸水記録と合わせて読みます。
 
 ## PLATEAUは、建物をLODで段階的に表す3D都市モデル
@@ -136,7 +152,7 @@ PLATEAUは、国土交通省が進める3D都市モデルの整備・活用の�
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/civil-practice/open-geospatial-data/img/figure-plateau-lod.svg"
-  alt="同じ建物のLOD1とLOD2の比較。LOD1は中央値の高さの箱型で、低層部と高層部のある建物では実際の形と合わない。LOD2は屋根や壁の形状まで表す"
+  alt="同じ建物のLOD1とLOD2の比較。形、提供地域、向く検討の違いと、どちらも設計の寸法には使えないこと"
   width={400}
   height={500}
 />

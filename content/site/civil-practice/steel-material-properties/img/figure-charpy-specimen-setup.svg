@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="シャルピー試験の配置。両端を支えたV字切欠き付き試験片の切欠きの反対側をハンマーで打ち、破断までの吸収エネルギーを測る図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; fill: #1a3a5c; font-size: 12px; }
+      .h { font-size: 13px; font-weight: bold; }
+      .s { font-size: 12px; fill: #555; }
+      .m { text-anchor: middle; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .danger { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .arrow { fill: none; stroke: #b22234; stroke-width: 2.5; marker-end: url(#arrow); }
+    </style>
+    <!-- brand / positive / warn / danger / surface tokens -->
+    <marker id="arrow" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234" /></marker>
+  </defs>
+  <rect width="400" height="500" fill="#ffffff" />
+  <circle cx="200" cy="24" r="5" fill="#555" />
+  <path d="M200,29 V70" fill="none" stroke="#555" stroke-width="3" />
+  <rect class="danger" x="165" y="70" width="70" height="44" rx="6" />
+  <text x="200" y="97" class="h m">ハンマー</text>
+  <path class="arrow" d="M200,118 V176" />
+  <text x="212" y="152" class="s">打つ</text>
+  <rect class="brand" x="90" y="184" width="220" height="40" />
+  <polygon points="192,224 208,224 200,208" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5" />
+  <text x="200" y="199" class="s m">試験片</text>
+  <rect class="surface" x="98" y="224" width="30" height="20" />
+  <rect class="surface" x="272" y="224" width="30" height="20" />
+  <text x="200" y="244" class="s m">V字切欠き</text>
+  <text x="113" y="260" class="s m">支え</text>
+  <text x="287" y="260" class="s m">支え</text>
+  <path d="M90,272 H310 M90,266 V278 M310,266 V278" fill="none" stroke="#555" stroke-width="1" />
+  <text x="200" y="290" class="s m">長さ55mm</text>
+  <path d="M322,184 V224 M316,184 H328 M316,224 H328" fill="none" stroke="#555" stroke-width="1" />
+  <text x="334" y="208" class="s">10mm角</text>
+  <rect class="brand" x="20" y="308" width="360" height="52" rx="6" />
+  <text x="34" y="330" class="h">試験片：10mm角、長さ55mm</text>
+  <text x="34" y="348" class="s">中央にV字の切欠きを入れた角棒が標準</text>
+  <rect class="positive" x="20" y="368" width="360" height="52" rx="6" />
+  <text x="34" y="390" class="h">両端を支え、切欠きの反対側を打つ</text>
+  <text x="34" y="408" class="s">ハンマーで破断させる</text>
+  <rect class="warn" x="20" y="428" width="360" height="52" rx="6" />
+  <text x="34" y="450" class="h">破断までの吸収エネルギー（J）を測る</text>
+  <text x="34" y="468" class="s">3個の試験片の平均値で評価する</text>
+</svg>

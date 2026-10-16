@@ -1,66 +1,61 @@
-<!-- authored 2026-09-12 doboku-note 自作。題材はコンクリート技士テキスト「配合設計」の論点。特定の書籍図の複製・トレースではない -->
+<!-- authored 2026-10-16 doboku-note 自作。題材はコンクリート技士教材の絶対容積法。書籍図の複製・トレースではない -->
 <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
   style="max-width:400px;width:100%"
   role="img"
-  aria-label="5要素の絶対容積を1m³へ積み上げ、量の増減が性質に跳ね返る配合の基本形を、水・セメント・空気を増やしたときの変化とあわせて示す図">
+  aria-label="絶対容積の計算例。空気45 L、水170 L、セメント約108 L、細骨材317 L、粗骨材360 Lで合計1,000 L。空気・水・セメントを増やしたときの変化を同じ色の枠で示す">
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
-      .t-lead { font-size: 11px; fill: #555; }
-      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
-      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
-      .t-desc { font-size: 11px; fill: #555; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-title { font-size: 14px; font-weight: bold; fill: #222; }
+      .t-head  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-label { font-size: 12px; fill: #1a3a5c; }
+      .t-desc  { font-size: 12px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #555; }
+      .t-warn  { font-size: 12px; fill: #b22234; font-weight: bold; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
       .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
-      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
       .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
       .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
-      .box-s { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .ln { stroke: #555; stroke-width: 1; fill: none; }
+      .arr { stroke: #2e6da4; stroke-width: 1.5; fill: none; marker-end: url(#ah); }
+      .arr-d { stroke: #b22234; stroke-width: 1.5; fill: none; marker-end: url(#ahd); }
     </style>
-    <marker id="vc-arrow" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
-      <polygon points="0,0 8,3.5 0,7" fill="#d4a017"/>
-    </marker>
+    <marker id="ah" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ahd" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
   </defs>
-
-  <text class="t-lead" x="200" y="16" text-anchor="middle">5要素の絶対容積を1m³へ積み上げ、量を変えると性質が動く</text>
-
-  <rect class="box-s" x="20" y="24" width="360" height="24" rx="4"/>
-  <text class="t-desc" x="200" y="40" text-anchor="middle">質量(kg) ÷ 密度(kg/L) ＝ 絶対容積(L)</text>
-
-  <text class="t-sec" x="95" y="66" text-anchor="middle">内訳（5要素）</text>
-  <text class="t-sec" x="282" y="66" text-anchor="middle">量を変えると起こること</text>
-
-  <!-- 左：5要素の積み上げ　y=78-468 -->
-  <rect class="box-d" x="20" y="78" width="150" height="25"/>
-  <text class="t-name" x="95" y="95" text-anchor="middle">空気</text>
-
-  <rect class="box-b" x="20" y="103" width="150" height="70"/>
-  <text class="t-name" x="95" y="142" text-anchor="middle">水</text>
-
-  <rect class="box-w" x="20" y="173" width="150" height="50"/>
-  <text class="t-name" x="95" y="202" text-anchor="middle">セメント</text>
-
-  <rect class="box-p" x="20" y="223" width="150" height="110"/>
-  <text class="t-name" x="95" y="282" text-anchor="middle">細骨材</text>
-
-  <rect class="box-s" x="20" y="333" width="150" height="135"/>
-  <text class="t-name" x="95" y="404" text-anchor="middle">粗骨材</text>
-
-  <!-- 右：3つの関係　y=78-468、3ボックス（高さ120・間隔15） -->
-  <rect class="box-w" x="185" y="78" width="195" height="120" rx="6"/>
-  <text class="t-name" x="200" y="102">水を増やすと</text>
-  <line x1="200" y1="110" x2="200" y2="130" stroke="#d4a017" stroke-width="1.5" marker-end="url(#vc-arrow)"/>
-  <text class="t-desc" x="200" y="152">スランプ↑</text>
-  <text class="t-desc" x="200" y="170">強度↓</text>
-
-  <rect class="box-w" x="185" y="213" width="195" height="120" rx="6"/>
-  <text class="t-name" x="200" y="237">セメントを増やすと</text>
-  <line x1="200" y1="245" x2="200" y2="265" stroke="#d4a017" stroke-width="1.5" marker-end="url(#vc-arrow)"/>
-  <text class="t-desc" x="200" y="287">強度↑</text>
-  <text class="t-desc" x="200" y="305">発熱↑</text>
-
+  <text class="t-lead" x="200" y="16" text-anchor="middle">5要素の絶対容積の合計が1,000 L（1 m³）</text>
+  <rect class="box" x="20" y="24" width="360" height="24" rx="4"/>
+  <text class="t-desc" x="200" y="41" text-anchor="middle">質量(kg) ÷ 密度(kg/L) ＝ 絶対容積(L)</text>
+  <text class="t-head" x="108" y="66" text-anchor="middle">計算例の内訳</text>
+  <text class="t-head" x="282" y="66" text-anchor="middle">量を変えると起こること</text>
+  <rect class="box-d" x="46" y="78.0" width="124" height="17.6"/>
+  <text class="t-axis" x="108" y="90.8" text-anchor="middle">空気 45 L</text>
+  <rect class="box-b" x="46" y="95.5" width="124" height="66.3"/>
+  <text class="t-label" x="108" y="132.7" text-anchor="middle">水 170 L</text>
+  <rect class="box-w" x="46" y="161.8" width="124" height="42.1"/>
+  <text class="t-label" x="108" y="186.9" text-anchor="middle">セメント 約108 L</text>
+  <rect class="box-p" x="46" y="204.0" width="124" height="123.6"/>
+  <text class="t-label" x="108" y="263.8" text-anchor="middle">細骨材 317 L</text>
+  <text class="t-axis" x="108" y="281.8" text-anchor="middle">（差し引いた残り）</text>
+  <rect class="box" x="46" y="327.6" width="124" height="140.4"/>
+  <text class="t-label" x="108" y="401.8" text-anchor="middle">粗骨材 360 L</text>
+  <line x1="34" y1="78" x2="34" y2="468" stroke="#222" stroke-width="1.5"/>
+  <line x1="30" y1="78" x2="38" y2="78" stroke="#222" stroke-width="1.5"/>
+  <line x1="30" y1="468" x2="38" y2="468" stroke="#222" stroke-width="1.5"/>
+  <text class="t-label" transform="rotate(-90 26 273)" x="26" y="273" text-anchor="middle">合計 1,000 L</text>
+  <rect class="box-d" x="185" y="78" width="195" height="120" rx="6"/>
+  <text class="t-title" x="200" y="106">空気を増やすと</text>
+  <text class="t-label" x="200" y="140">耐凍害性↑</text>
+  <text class="t-label" x="200" y="166">強度↓</text>
+  <rect class="box-b" x="185" y="213" width="195" height="120" rx="6"/>
+  <text class="t-title" x="200" y="241">水を増やすと</text>
+  <text class="t-label" x="200" y="275">スランプ↑</text>
+  <text class="t-label" x="200" y="301">強度↓</text>
   <rect class="box-w" x="185" y="348" width="195" height="120" rx="6"/>
-  <text class="t-name" x="200" y="372">空気を増やすと</text>
-  <line x1="200" y1="380" x2="200" y2="400" stroke="#d4a017" stroke-width="1.5" marker-end="url(#vc-arrow)"/>
-  <text class="t-desc" x="200" y="422">耐凍害性↑</text>
-  <text class="t-desc" x="200" y="440">強度↓</text>
+  <text class="t-title" x="200" y="376">セメントを増やすと</text>
+  <text class="t-label" x="200" y="410">強度↑</text>
+  <text class="t-label" x="200" y="436">発熱↑</text>
+  <text class="t-axis" x="282" y="490" text-anchor="middle">右の枠の色は、左の同じ色の帯に対応</text>
 </svg>

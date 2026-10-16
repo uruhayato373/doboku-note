@@ -1,0 +1,63 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は総務省の資料（令和6年10月）の雨水公費・汚水私費の整理、下水道法第20条の使用料の原則、総務省の経費区分の基準。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="下水道の費用の持ち方を汚水と雨水で並べた図。汚水は使用料が基本で、分流式の汚水は一部を公費で負担する。雨水は公費が原則。合流式の共用施設は施設ごとの根拠で按分する。使用料は下水道法第20条の4原則で条例に定める。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .x { font-size: 12px; fill: #222; }
+      .s { font-size: 11px; fill: #555; }
+      .sb { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .g { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .wh { fill: #fff; stroke: #8a8a8a; stroke-width: 1.5; }
+      .dz { fill: #fff; stroke: #2e6da4; stroke-width: 1.5; stroke-dasharray: 4 3; }
+      .l { stroke: #d7d7d7; stroke-width: 1; fill: none; }
+      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ar { stroke: #b22234; stroke-width: 2; fill: none; }
+      .ag { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .ax { stroke: #8a8a8a; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+    <marker id="ahr" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#b22234"/></marker>
+    <marker id="ahg" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#3a7d44"/></marker>
+    <marker id="ahk" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#8a8a8a"/></marker>
+  </defs>
+  <rect class="w" x="10" y="10" width="185" height="30" rx="8"/>
+  <text class="n" x="102.5" y="29.0" text-anchor="middle">汚水</text>
+  <rect class="b" x="205" y="10" width="185" height="30" rx="8"/>
+  <text class="n" x="297.5" y="29.0" text-anchor="middle">雨水</text>
+  <text class="s" x="14" y="56" text-anchor="start">費用の持ち方</text>
+  <text class="s" x="209" y="56" text-anchor="start">費用の持ち方</text>
+  <rect class="w" x="10" y="62" width="185" height="44" rx="8"/>
+  <text class="t" x="102.5" y="88.0" text-anchor="middle">使用料が基本（私費）</text>
+  <rect class="b" x="205" y="62" width="185" height="44" rx="8"/>
+  <text class="t" x="297.5" y="88.0" text-anchor="middle">公費が原則</text>
+  <text class="s" x="14" y="124" text-anchor="start">理由</text>
+  <text class="s" x="209" y="124" text-anchor="start">理由</text>
+  <rect class="w" x="10" y="130" width="185" height="60" rx="8"/>
+  <text class="x" x="102.5" y="155.0" text-anchor="middle">原因者・受益者が</text>
+  <text class="x" x="102.5" y="173.0" text-anchor="middle">明らか</text>
+  <rect class="b" x="205" y="130" width="185" height="60" rx="8"/>
+  <text class="x" x="297.5" y="155.0" text-anchor="middle">自然現象に起因し、</text>
+  <text class="x" x="297.5" y="173.0" text-anchor="middle">排除による受益が広く及ぶ</text>
+  <text class="s" x="14" y="208" text-anchor="start">例外</text>
+  <rect class="w" x="10" y="214" width="185" height="60" rx="8"/>
+  <text class="x" x="102.5" y="239.0" text-anchor="middle">分流式の汚水は環境改善</text>
+  <text class="x" x="102.5" y="257.0" text-anchor="middle">効果が高く、一部を公費で負担</text>
+  <rect class="g" x="205" y="214" width="185" height="60" rx="8"/>
+  <text class="x" x="297.5" y="239.0" text-anchor="middle">総務省の整理（令和6年10月）</text>
+  <text class="x" x="297.5" y="257.0" text-anchor="middle">「雨水公費・汚水私費」</text>
+  <rect class="g" x="10" y="290" width="380" height="100" rx="8"/>
+  <text class="t" x="200" y="310" text-anchor="middle">合流式の共用施設は、雨水と汚水に按分する</text>
+  <text class="x" x="22" y="334" text-anchor="start">管渠：分流式で建設した場合の建設費の割合</text>
+  <text class="x" x="22" y="354" text-anchor="start">ポンプ・処理場：計画揚水量・計画処理水量の割合</text>
+  <text class="s" x="22" y="380" text-anchor="start">按分の根拠は、台帳で説明できるようにしておく</text>
+  <rect class="b" x="10" y="402" width="380" height="90" rx="8"/>
+  <text class="t" x="200" y="422" text-anchor="middle">使用料の4原則（下水道法第20条・条例で定める）</text>
+  <text class="x" x="22" y="442" text-anchor="start">使用の態様に応じて妥当　／　適正な原価をこえない</text>
+  <text class="x" x="22" y="462" text-anchor="start">定率または定額で明確　／　特定の使用者を不当に差別しない</text>
+</svg>

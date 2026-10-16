@@ -17,7 +17,7 @@ sources:
 published: true
 publishedAt: '2026-09-01'
 created: 2026-09-01
-dateModified: 2026-10-15
+dateModified: 2026-10-16
 ogp:
   title: "性質・試験"
 ---
@@ -84,6 +84,14 @@ JIS A 5308 は、練混ぜ開始から荷卸し地点に到着するまでの運
 
 国土交通省の土木工事共通仕様書では、練混ぜから打ち終わるまでの時間が、日平均気温 25 ℃超で 1.5 時間、25 ℃以下で 2 時間以内です。温度の影響を問う問題は[技士の過去問（性質と試験）](/exam/concrete-engineer/primary/properties-testing)で確認できます。
 
+{/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
+<ArticleImage
+  src="/posts/concrete-engineer/textbook-properties-testing/img/figure-slump-variation-factors.svg"
+  alt="スランプを動かす要因。表面水率・粒度・洗浄水・付着でばらつき、高温・少水量・時間経過で低下する"
+  width={400}
+  height={500}
+/>
+
 ## 空気量とエントレインドエア（耐凍害性と強度のトレードオフ）
 
 コンクリート中の気泡には、性質の異なる 2 種類が存在するのが特徴です。練混ぜ中に自然に巻き込まれる比較的大きく不規則な形の気泡をエントラップトエアと呼び、AE剤によって意図的に連行される微細で独立した球形に近い気泡をエントレインドエアと呼びます。耐凍害性を改善する働きを持つのは、後者のエントレインドエアです。
@@ -93,7 +101,7 @@ AEコンクリートでは、この微細な独立気泡がワーカビリティ
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/concrete-engineer/textbook-properties-testing/img/figure-ae-bubble-freeze-relief.svg"
-  alt="外気温10℃付近と0℃付近の上下2段で、水ミチの凍結膨張と、独立気泡が水の逃げ場になる様子"
+  alt="外気温10℃付近と0℃付近の上下2段で、組織内の水が凍結して組織が損傷する様子と、微細な独立気泡が耐凍害性を改善することを示す"
   width={400}
   height={500}
 />
@@ -104,7 +112,7 @@ AEコンクリートでは、この微細な独立気泡がワーカビリティ
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/concrete-engineer/textbook-properties-testing/img/figure-air-content-durability-index.svg"
-  alt="空気量と耐久性指数の傾向図。空気量約2〜3％の推移域を境に、耐久性小（20％以下）から耐久性大（80％以上）へ急上昇する。標準範囲4.5±1.5％を帯で併記"
+  alt="空気量の3区間。少なすぎると凍結融解への抵抗性が不足、標準は4.5±1.5％で相対動弾性係数60％以上が目安、多すぎると圧縮強度の低下が大きい"
   width={400}
   height={500}
 />
@@ -201,7 +209,7 @@ $P$ は最大荷重、$A$ は載荷面積で、強度の単位は N/mm² です�
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/concrete-engineer/textbook-properties-testing/img/figure-strength-comparison-materials.svg"
-  alt="鋼材、花崗岩、大理石、コンクリート、ブナ、スギの引張強度と圧縮強度を横棒グラフで比較した図。コンクリートは引張強度が圧縮強度の約10分の1と小さい"
+  alt="コンクリートの強度は圧縮、曲げ、引張の順に小さい。圧縮強度÷引張強度の脆性係数はコンクリートで大きく、鋼材で小さい"
   width={400}
   height={500}
 />
@@ -242,7 +250,7 @@ $P$ は最大荷重、$A$ は載荷面積で、強度の単位は N/mm² です�
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/concrete-engineer/textbook-properties-testing/img/figure-ndt-methods-wall-section.svg"
-  alt="非破壊試験が壁のどこを見るかの断面図と、反発度の測定位置（縁から50mm以上内側の9点）"
+  alt="非破壊試験が壁のどこを見るかの断面図（反発度法・電磁誘導法・レーダ法・打音法・超音波法）と、反発度の測定位置（縁から50mm以上内側の9点）"
   width={400}
   height={500}
 />
@@ -291,7 +299,7 @@ $P$ は最大荷重、$A$ は載荷面積で、強度の単位は N/mm² です�
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/concrete-engineer/textbook-properties-testing/img/figure-creep-load-levels.svg"
-  alt="荷重持続時間と変形量の関係を4本の曲線で示した定性図。破壊荷重の95%と85%は変形が増え続けて破壊に至り、50%と30%は頭打ちになり破壊に至らない"
+  alt="クリープの定性図。載荷で弾性ひずみが生じ、時間とともにひずみが増える。除荷で一部は瞬時に、残りはゆっくり回復し、元に戻らない成分が残る"
   width={400}
   height={500}
 />
@@ -304,7 +312,7 @@ $P$ は最大荷重、$A$ は載荷面積で、強度の単位は N/mm² です�
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/concrete-engineer/textbook-properties-testing/img/figure-drying-shrinkage-unit-cement.svg"
-  alt="単位セメント量（200〜450kg/m³）と乾燥収縮の傾向図。単位水量120・150・180・200kg/m³の実線は水量が大きいほど上にあり、水セメント比40〜70%の破線が交差する"
+  alt="単位セメント量と乾燥収縮の傾向図。単位水量が大きい線ほど上にあり、乾燥収縮が大きい。数値なしの定性図"
   width={400}
   height={500}
 />
@@ -319,7 +327,7 @@ $P$ は最大荷重、$A$ は載荷面積で、強度の単位は N/mm² です�
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/concrete-engineer/textbook-properties-testing/img/figure-wc-carbonation-rate.svg"
-  alt="水セメント比が大きいほど中性化速度比が大きくなる右上がりの傾向（定性）"
+  alt="水セメント比が大きいほど中性化速度比が大きくなる右上がりの傾向（定性）。水セメント比を小さくすると中性化に有利"
   width={400}
   height={500}
 />
@@ -345,13 +353,21 @@ $P$ は最大荷重、$A$ は載荷面積で、強度の単位は N/mm² です�
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/concrete-engineer/textbook-properties-testing/img/figure-asr-crack-patterns.svg"
-  alt="アルカリシリカ反応によるひび割れの模式図。強く拘束される柱・梁では軸方向の太いひび割れと亀甲状の細かいひび割れが併存し、拘束の小さい壁では亀甲状のひび割れが主体となる"
+  alt="ASRのひび割れの模式図。拘束が強い柱・梁は軸方向の太いひび割れと亀甲状が併存し、拘束が小さい壁は亀甲状が主体"
   width={400}
   height={500}
 />
 
 
 劣化機構ごとに、侵入物質または作用、進行条件、現れる変状、材料・配合・施工による抑制策を一列に整理するのが効果的です。名称だけの暗記より、選択肢の因果関係を判定しやすくなります。
+
+{/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
+<ArticleImage
+  src="/posts/concrete-engineer/textbook-properties-testing/img/figure-durability-mechanisms-compare.svg"
+  alt="中性化・塩害・凍害・アルカリシリカ反応の作用、試験、基準値や抑制策を並べて比べた整理図"
+  width={400}
+  height={500}
+/>
 
 ## 試験問題を解くときの確認順
 

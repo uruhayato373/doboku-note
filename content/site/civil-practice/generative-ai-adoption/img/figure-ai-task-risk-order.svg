@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="試す業務を、間違えたときの影響が小さい順に並べた図。社内の文章整理から始め、検索補助、発注者へ出す書類と進み、個人情報や機密を含む業務は整うまで対象にしない" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+  <defs><marker id="ar" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#2e6da4"/></marker></defs>
+  <text x="20" y="28" font-size="12" font-weight="700" fill="#222">間違えたときの大きさ：上が小さく、下が大きい</text>
+  <path d="M40 44V484" fill="none" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#ar)"/>
+  <rect x="60" y="44" width="330" height="98" rx="6" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/> <!-- positive -->
+  <text x="72" y="68" font-size="13" font-weight="700" fill="#222">社内だけで使う文章の整理</text>
+  <text x="72" y="88" font-size="11" fill="#555">議事メモ、社内向けの連絡文の下書き</text>
+  <text x="72" y="110" font-size="12" fill="#1a3a5c">最初の候補に向く</text>
+  <path d="M34 93H46" fill="none" stroke="#2e6da4" stroke-width="1.5"/>
+  <rect x="60" y="154" width="330" height="98" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/> <!-- brand-fill / brand -->
+  <text x="72" y="178" font-size="13" font-weight="700" fill="#222">検索の補助、検討資料のたたき台</text>
+  <text x="72" y="198" font-size="11" fill="#555">法令・基準・文献の検索など</text>
+  <text x="72" y="220" font-size="12" fill="#1a3a5c">一次資料で確かめる前提で始め、</text>
+  <text x="72" y="238" font-size="12" fill="#1a3a5c">確認の手順を先に決める</text>
+  <path d="M34 203H46" fill="none" stroke="#2e6da4" stroke-width="1.5"/>
+  <rect x="60" y="264" width="330" height="98" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/> <!-- warn -->
+  <text x="72" y="288" font-size="13" font-weight="700" fill="#222">発注者へ出す書類、数量や品質の記載</text>
+  <text x="72" y="308" font-size="11" fill="#555">誤りが契約や検査に響く</text>
+  <text x="72" y="330" font-size="12" fill="#1a3a5c">確認者と手順が固まってから広げる</text>
+  <path d="M34 313H46" fill="none" stroke="#2e6da4" stroke-width="1.5"/>
+  <rect x="60" y="374" width="330" height="98" rx="6" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/> <!-- danger -->
+  <text x="72" y="398" font-size="13" font-weight="700" fill="#222">個人情報、発注者の機密を含む業務</text>
+  <text x="72" y="420" font-size="12" fill="#1a3a5c">規約と社内ルールが整うまで対象にしない</text>
+  <path d="M34 423H46" fill="none" stroke="#2e6da4" stroke-width="1.5"/>
+</svg>

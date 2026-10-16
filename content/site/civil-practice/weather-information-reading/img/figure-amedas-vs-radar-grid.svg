@@ -15,7 +15,7 @@
   </defs>
 
   <!-- 降水量の観測所 -->
-  <text class="n" x="14" y="28">降水量：約17km間隔</text>
+  <text class="n" x="14" y="28">降水量：約17km間隔（例）</text>
   <rect class="area" x="14" y="36" width="180" height="180"/>
   <rect class="city" x="38.75" y="60.75" width="54" height="54"/><text class="t" x="65.75" y="92" text-anchor="middle">市</text>
   <g fill="#2e6da4">
@@ -27,9 +27,14 @@
   <text x="14" y="232">全国で約1,300箇所</text>
 
   <!-- 四要素の観測所 -->
-  <text class="n" x="206" y="28">四要素：約21km間隔</text>
+  <text class="n" x="206" y="28">四要素：約21km間隔（例）</text>
   <rect class="area" x="206" y="36" width="180" height="180"/>
   <rect class="city" x="230.75" y="60.75" width="54" height="54"/><text class="t" x="257.75" y="92" text-anchor="middle">市</text>
+  <g fill="#d7d7d7">
+    <circle cx="219.5" cy="49.5" r="4.5"/><circle cx="296" cy="49.5" r="4.5"/><circle cx="372.5" cy="49.5" r="4.5"/>
+    <circle cx="219.5" cy="126" r="4.5"/><circle cx="296" cy="126" r="4.5"/><circle cx="372.5" cy="126" r="4.5"/>
+    <circle cx="219.5" cy="202.5" r="4.5"/><circle cx="296" cy="202.5" r="4.5"/><circle cx="372.5" cy="202.5" r="4.5"/>
+  </g>
   <g fill="#3a7d44">
     <rect x="215.5" y="45.5" width="8" height="8"/><rect x="310" y="45.5" width="8" height="8"/>
     <rect x="215.5" y="140" width="8" height="8"/><rect x="310" y="140" width="8" height="8"/>
@@ -38,7 +43,7 @@
   <text x="206" y="232">風・気温・湿度も。約840箇所</text>
 
   <!-- 解析雨量 -->
-  <text class="n" x="14" y="250">解析雨量：1km四方</text>
+  <text class="n" x="14" y="250">解析雨量：1km四方（例）</text>
   <rect x="14" y="256" width="180" height="180" fill="#e8f0fe"/>
   <rect x="14" y="256" width="180" height="180" fill="url(#mesh)" stroke="#2e6da4" stroke-width="1.5"/>
   <rect x="38.75" y="280.75" width="54" height="54" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5" stroke-dasharray="4 3"/><text class="t" x="65.75" y="312" text-anchor="middle">市</text>
@@ -57,6 +62,6 @@
   <text class="n" x="220" y="414" text-anchor="middle">3</text>
   <text class="c" x="236" y="406">雨量計がある地区は</text><text class="c" x="236" y="422">実測値と見比べる</text>
 
-  <text x="14" y="474">模式図。観測所の位置と市域は例</text>
+  <text x="14" y="474">模式図：観測所の位置と市域は例。右の灰の点は降水量のみ</text>
   <text x="14" y="490">出典：気象庁（アメダスは令和8年4月1日現在）</text>
 </svg>

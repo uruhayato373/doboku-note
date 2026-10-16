@@ -1,0 +1,92 @@
+<!-- authored 2026-10-16 doboku-note 自作。題材はコンクリート技士教材の管理図の読み方。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="管理図の4つの異常パターン。点が管理限界を超える、中心線の片側に連続する、上昇または下降が続く、周期的に変動する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-title { font-size: 14px; font-weight: bold; fill: #222; }
+      .t-head  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-label { font-size: 12px; fill: #1a3a5c; }
+      .t-desc  { font-size: 12px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #555; }
+      .t-warn  { font-size: 12px; fill: #b22234; font-weight: bold; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .ln { stroke: #555; stroke-width: 1; fill: none; }
+      .arr { stroke: #2e6da4; stroke-width: 1.5; fill: none; marker-end: url(#ah); }
+      .arr-d { stroke: #b22234; stroke-width: 1.5; fill: none; marker-end: url(#ahd); }
+    </style>
+    <marker id="ah" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ahd" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+  </defs>
+  <text class="t-lead" x="200" y="18" text-anchor="middle">管理図は点の並び方も読む（破線＝管理限界、実線＝中心線）</text>
+  <rect class="box-d" x="20" y="28" width="172" height="138" rx="6"/>
+  <text class="t-head" x="30" y="50">管理限界を超える</text>
+  <line x1="30" y1="80" x2="182" y2="80" stroke="#b22234" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="30" y1="140" x2="182" y2="140" stroke="#b22234" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="30" y1="110" x2="182" y2="110" stroke="#555" stroke-width="1.5"/>
+  <polyline points="40,113 59,104 78,115 97,107 116,68 135,114 154,105 173,112" fill="none" stroke="#2e6da4" stroke-width="2"/>
+  <circle cx="40" cy="113" r="3" fill="#2e6da4"/>
+  <circle cx="59" cy="104" r="3" fill="#2e6da4"/>
+  <circle cx="78" cy="115" r="3" fill="#2e6da4"/>
+  <circle cx="97" cy="107" r="3" fill="#2e6da4"/>
+  <circle cx="116" cy="68" r="3" fill="#2e6da4"/>
+  <circle cx="135" cy="114" r="3" fill="#2e6da4"/>
+  <circle cx="154" cy="105" r="3" fill="#2e6da4"/>
+  <circle cx="173" cy="112" r="3" fill="#2e6da4"/>
+  <rect class="box-w" x="208" y="28" width="172" height="138" rx="6"/>
+  <text class="t-head" x="218" y="50">中心線の片側に連続</text>
+  <line x1="218" y1="80" x2="370" y2="80" stroke="#b22234" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="218" y1="140" x2="370" y2="140" stroke="#b22234" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="218" y1="110" x2="370" y2="110" stroke="#555" stroke-width="1.5"/>
+  <polyline points="228,102 247,98 266,104 285,96 304,101 323,98 342,103 361,100" fill="none" stroke="#2e6da4" stroke-width="2"/>
+  <circle cx="228" cy="102" r="3" fill="#2e6da4"/>
+  <circle cx="247" cy="98" r="3" fill="#2e6da4"/>
+  <circle cx="266" cy="104" r="3" fill="#2e6da4"/>
+  <circle cx="285" cy="96" r="3" fill="#2e6da4"/>
+  <circle cx="304" cy="101" r="3" fill="#2e6da4"/>
+  <circle cx="323" cy="98" r="3" fill="#2e6da4"/>
+  <circle cx="342" cy="103" r="3" fill="#2e6da4"/>
+  <circle cx="361" cy="100" r="3" fill="#2e6da4"/>
+  <rect class="box-w" x="20" y="178" width="172" height="138" rx="6"/>
+  <text class="t-head" x="30" y="200">上昇・下降が続く</text>
+  <line x1="30" y1="230" x2="182" y2="230" stroke="#b22234" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="30" y1="290" x2="182" y2="290" stroke="#b22234" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="30" y1="260" x2="182" y2="260" stroke="#555" stroke-width="1.5"/>
+  <polyline points="40,282 59,276 78,269 97,263 116,256 135,249 154,243 173,237" fill="none" stroke="#2e6da4" stroke-width="2"/>
+  <circle cx="40" cy="282" r="3" fill="#2e6da4"/>
+  <circle cx="59" cy="276" r="3" fill="#2e6da4"/>
+  <circle cx="78" cy="269" r="3" fill="#2e6da4"/>
+  <circle cx="97" cy="263" r="3" fill="#2e6da4"/>
+  <circle cx="116" cy="256" r="3" fill="#2e6da4"/>
+  <circle cx="135" cy="249" r="3" fill="#2e6da4"/>
+  <circle cx="154" cy="243" r="3" fill="#2e6da4"/>
+  <circle cx="173" cy="237" r="3" fill="#2e6da4"/>
+  <rect class="box-w" x="208" y="178" width="172" height="138" rx="6"/>
+  <text class="t-head" x="218" y="200">周期的に変動する</text>
+  <line x1="218" y1="230" x2="370" y2="230" stroke="#b22234" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="218" y1="290" x2="370" y2="290" stroke="#b22234" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="218" y1="260" x2="370" y2="260" stroke="#555" stroke-width="1.5"/>
+  <polyline points="228,260 247,242 266,234 285,242 304,260 323,278 342,286 361,278" fill="none" stroke="#2e6da4" stroke-width="2"/>
+  <circle cx="228" cy="260" r="3" fill="#2e6da4"/>
+  <circle cx="247" cy="242" r="3" fill="#2e6da4"/>
+  <circle cx="266" cy="234" r="3" fill="#2e6da4"/>
+  <circle cx="285" cy="242" r="3" fill="#2e6da4"/>
+  <circle cx="304" cy="260" r="3" fill="#2e6da4"/>
+  <circle cx="323" cy="278" r="3" fill="#2e6da4"/>
+  <circle cx="342" cy="286" r="3" fill="#2e6da4"/>
+  <circle cx="361" cy="278" r="3" fill="#2e6da4"/>
+  <rect class="box" x="20" y="336" width="360" height="76" rx="6"/>
+  <text class="t-head" x="34" y="360">点が限界内でも、並び方で異常が分かる</text>
+  <text class="t-desc" x="34" y="382">異常が疑われたら、材料・設備・製造・運搬・</text>
+  <text class="t-desc" x="34" y="400">試験の順に原因を確認する</text>
+  <rect class="box-p" x="20" y="424" width="360" height="62" rx="6"/>
+  <text class="t-label" x="200" y="448" text-anchor="middle">安定している ≠ 規格に適合している</text>
+  <text class="t-desc" x="200" y="470" text-anchor="middle">平均値が規格を満たす位置かも別に確かめる</text>
+</svg>

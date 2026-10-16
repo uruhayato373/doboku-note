@@ -1,0 +1,46 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は、圧縮強度の合否の二条件（呼び強度に対する85%と100%）と、供試体の養生方法の使い分け（記事本文のみ）。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="圧縮強度の合否は二つの条件をどちらも満たす。1回の試験結果が呼び強度の85%以上、3回の試験結果の平均が呼び強度以上。受入れ判定には標準養生の供試体、型枠の取外し判断には現場封かん養生などの供試体を使う。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 13px; fill: #222; }
+      .hd { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .in { font-size: 13px; font-weight: bold; fill: #1a3a5c; text-anchor: middle; }
+      .lb { font-size: 12px; fill: #555; }
+      .yn { font-size: 12px; font-weight: bold; fill: #2e6da4; }
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .brd { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .wrn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .dng { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .sf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .ar { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+  <text class="hd" x="24" y="28">呼び強度を100%としたときの合格の位置</text>
+
+  <text class="hd" x="24" y="62">条件1　1回の試験結果（3個の平均）</text>
+  <rect class="sf" x="24" y="72" width="352" height="30"/>
+  <rect class="pos" x="296" y="72" width="80" height="30"/>
+  <path d="M296,66V108" stroke="#3a7d44" stroke-width="2.5"/>
+  <text class="lb" x="24" y="124">0%</text>
+  <text class="in" x="296" y="124">85%</text>
+  <text class="lb" x="344" y="124" text-anchor="middle">100%</text>
+  <text class="in" x="336" y="92">以上で合格</text>
+
+  <text class="hd" x="24" y="162">条件2　3回の試験結果の平均</text>
+  <rect class="sf" x="24" y="172" width="352" height="30"/>
+  <rect class="pos" x="344" y="172" width="32" height="30"/>
+  <path d="M344,166V208" stroke="#3a7d44" stroke-width="2.5"/>
+  <text class="lb" x="24" y="224">0%</text>
+  <text class="in" x="344" y="224">100%</text>
+  <text class="lb" x="284" y="192" text-anchor="end">100%以上で合格</text>
+
+  <rect class="wrn" x="24" y="248" width="352" height="40" rx="8"/>
+  <text class="in" x="200" y="273">二つの条件を、どちらも満たす</text>
+
+  <text class="hd" x="24" y="324">供試体の養生は、目的で使い分ける</text>
+  <rect class="brd" x="24" y="336" width="352" height="64" rx="8"/>
+  <text class="in" x="200" y="360">標準養生（20℃の水中）</text><text class="lb" x="200" y="382" text-anchor="middle">受入れ検査の合否判定に使う</text>
+  <rect class="pos" x="24" y="412" width="352" height="64" rx="8"/>
+  <text class="in" x="200" y="436">現場封かん養生など</text><text class="lb" x="200" y="458" text-anchor="middle">躯体に近い状態。型枠取外しの判断に使う</text>
+</svg>

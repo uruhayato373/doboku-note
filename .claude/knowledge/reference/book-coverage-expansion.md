@@ -65,6 +65,7 @@ title: 書籍の網羅をサイトへ展開する（Writer・QA・写真の手�
 - `.claude/skills/authoring/create-svg/SKILL.md` と `.claude/knowledge/reference/figure-canvas-policy.md` を読んでから描く。
 - viewBox は `0 0 400 500` 固定。色は `.claude/knowledge/design-system/svg-tokens.json` の allowlist だけ、最小フォントは 11。図の中に概念名のタイトルや「試験ポイント」枠を入れない。右端のラベルは x=366 以下にする（P1-text-clip）。
 - ファイル名は `img/figure-<英語のスラッグ>.svg`。本の図の構図を再現しない。
+- 本の頁の図は、`check-content-series -- --crop-jobs` の頁を `npm run record-reference-book-crops` で切り出して Drive に置いてある（1冊ぶんまとめて下見 → 監査 → 登録）。描く前・描いた後に、章の頁の切り出しと見比べ、本が伝えている要素の抜けと誤りを直す。構図は写さない。
 - 埋め込みは既存の形式に合わせる（`{/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}` と `<ArticleImage src="/posts/<資格>/<slug>/img/figure-….svg" alt="…" width={400} height={500} />`）。
 
 ### 写真

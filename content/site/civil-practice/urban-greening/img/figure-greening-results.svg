@@ -1,52 +1,61 @@
-<!-- authored 2026-10-16 doboku-note 自作。数値は記事本文に引いた国土交通省「全国屋上・壁面緑化施工実績調査」（令和7年12月12日発表）の値だけを使用。特定の書籍図の複製ではない -->
-<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="全国屋上・壁面緑化施工実績調査の数字の読み方。令和6年の新規創出面積は屋上緑化が約14.5ヘクタール、壁面緑化が約4.6ヘクタールで暫定値。平成12年から令和6年の25年間の累計は屋上緑化が約633ヘクタール、壁面緑化が約131ヘクタール。令和4年の屋上緑化は暫定値156,762平方メートルが確定値181,595平方メートルへ約16パーセント増えた。">
+<!-- authored 2026-10-16 doboku-note 自作。数値は記事本文に引いた国土交通省「全国屋上・壁面緑化施工実績調査」（令和7年12月12日発表）の値だけを使用。令和4年の屋上緑化は本文の平方メートルをヘクタールへ換算。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="全国屋上・壁面緑化施工実績調査の数字の読み方。令和6年の新規は屋上緑化約14.5ヘクタール、壁面緑化約4.6ヘクタールで暫定値。令和4年の屋上緑化は暫定値約15.7ヘクタールが確定値約18.2ヘクタールへ増えた。25年間の累計は屋上約633、壁面約131ヘクタール。">
   <defs>
     <style>
-      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
-      .n { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
-      .l { font-size: 12px; fill: #1a3a5c; }
-      .p { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .x { font-size: 12px; fill: #222; }
+      .s { font-size: 11px; fill: #555; }
+      .sb { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .g { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .wh { fill: #fff; stroke: #8a8a8a; stroke-width: 1.5; }
+      .dz { fill: #fff; stroke: #2e6da4; stroke-width: 1.5; stroke-dasharray: 4 3; }
+      .l { stroke: #d7d7d7; stroke-width: 1; fill: none; }
+      .ln { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .ld { stroke: #8a8a8a; stroke-width: 1; fill: none; stroke-dasharray: 3 3; }
+      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ar { stroke: #b22234; stroke-width: 2; fill: none; }
+      .ag { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .ax { stroke: #8a8a8a; stroke-width: 2; fill: none; }
     </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+    <marker id="ahr" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#b22234"/></marker>
+    <marker id="ahg" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#3a7d44"/></marker>
+    <marker id="ahk" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#8a8a8a"/></marker>
   </defs>
-
-  <text x="14" y="24">国土交通省の全国調査（令和7年12月12日発表）</text>
-
-  <!-- 令和6年 -->
-  <rect class="p" x="10" y="34" width="380" height="102" rx="8"/>
-  <text class="n" x="20" y="54">令和6年に新たに創出された面積（ヘクタール）</text>
-  <text class="l" x="20" y="83">屋上緑化</text>
-  <rect x="92" y="66" width="220" height="24" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" stroke-dasharray="4 3"/>
-  <text class="n" x="320" y="83">約14.5</text>
-  <text class="l" x="20" y="115">壁面緑化</text>
-  <rect x="92" y="98" width="70" height="24" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5" stroke-dasharray="4 3"/>
-  <text class="n" x="170" y="115">約4.6</text>
-  <text x="224" y="115">暫定値</text>
-
-  <!-- 25年間の累計 -->
-  <rect class="p" x="10" y="148" width="380" height="102" rx="8"/>
-  <text class="n" x="20" y="168">平成12年〜令和6年の25年間の累計（ヘクタール）</text>
-  <text class="l" x="20" y="197">屋上緑化</text>
-  <rect x="92" y="180" width="220" height="24" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
-  <text class="n" x="320" y="197">約633</text>
-  <text class="l" x="20" y="229">壁面緑化</text>
-  <rect x="92" y="212" width="45" height="24" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
-  <text class="n" x="145" y="229">約131</text>
-
-  <!-- 暫定値と確定値 -->
-  <rect class="p" x="10" y="262" width="380" height="126" rx="8"/>
-  <text class="n" x="20" y="282">令和4年の屋上緑化（平方メートル）</text>
-  <text class="l" x="20" y="311">暫定値</text>
-  <rect x="72" y="294" width="205" height="24" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" stroke-dasharray="4 3"/>
-  <text class="n" x="285" y="311">156,762</text>
-  <text class="l" x="20" y="343">確定値</text>
-  <rect x="72" y="326" width="238" height="24" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
-  <text class="n" x="318" y="343">181,595</text>
-  <text class="n" x="72" y="376">約16パーセント増えた</text>
-
-  <!-- 引き方 -->
-  <rect x="10" y="400" width="380" height="90" rx="8" style="fill:#fff3cd;stroke:#d4a017;stroke-width:1.5"/>
-  <text class="n" x="20" y="422">令和5年・令和6年のデータは暫定値</text>
-  <text x="20" y="440">年次と、暫定値かどうかを添えて引く</text>
-  <text x="20" y="458">破線の棒は暫定値、棒の目盛りは枠ごとに違う</text>
-  <text x="20" y="476">出典：国土交通省 全国屋上・壁面緑化施工実績調査</text>
+  <text class="s" x="14" y="20" text-anchor="start">国土交通省の全国調査（令和7年12月12日発表）</text>
+  <rect class="g" x="10" y="28" width="380" height="110" rx="8"/>
+  <text class="n" x="20" y="48" text-anchor="start">令和6年に新たに創出された面積（ヘクタール）</text>
+  <text class="s" x="20" y="80" text-anchor="start">屋上緑化</text>
+  <rect x="92" y="63" width="174.0" height="24" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text class="n" x="274.0" y="80" text-anchor="start">約14.5</text>
+  <text class="s" x="20" y="114" text-anchor="start">壁面緑化</text>
+  <rect x="92" y="97" width="55.199999999999996" height="24" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text class="n" x="155.2" y="114" text-anchor="start">約4.6</text>
+  <text class="s" x="203.2" y="114" text-anchor="start">暫定値</text>
+  <rect class="g" x="10" y="148" width="380" height="130" rx="8"/>
+  <text class="n" x="20" y="168" text-anchor="start">令和4年の屋上緑化（ヘクタール・上と同じ目盛り）</text>
+  <text class="s" x="20" y="200" text-anchor="start">暫定値</text>
+  <rect x="92" y="183" width="188.39999999999998" height="24" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text class="n" x="288.4" y="200" text-anchor="start">約15.7</text>
+  <text class="s" x="20" y="234" text-anchor="start">確定値</text>
+  <rect x="92" y="217" width="218.39999999999998" height="24" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="n" x="318.4" y="234" text-anchor="start">約18.2</text>
+  <text class="x" x="92" y="266" text-anchor="start">約16パーセント増えた（破線の棒は暫定値）</text>
+  <rect class="g" x="10" y="288" width="380" height="88" rx="8"/>
+  <text class="n" x="20" y="308" text-anchor="start">平成12年〜令和6年の25年間の累計</text>
+  <text class="s" x="20" y="340" text-anchor="start">屋上緑化</text>
+  <text class="n" x="92" y="344" text-anchor="start" style="font-size:18px">約633ヘクタール</text>
+  <text class="s" x="20" y="366" text-anchor="start">壁面緑化</text>
+  <text class="n" x="92" y="368" text-anchor="start">約131ヘクタール</text>
+  <rect class="w" x="10" y="388" width="380" height="102" rx="8"/>
+  <text class="n" x="20" y="410" text-anchor="start">令和5年・令和6年のデータは、これから増える暫定値</text>
+  <text class="x" x="20" y="430" text-anchor="start">年次と、暫定値かどうかを添えて引く</text>
+  <text class="s" x="20" y="448" text-anchor="start">累計は桁が違うため、棒にせず数字で示した</text>
+  <text class="s" x="20" y="466" text-anchor="start">出典：国土交通省 全国屋上・壁面緑化施工実績調査</text>
 </svg>

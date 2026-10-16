@@ -1,10 +1,11 @@
-<!-- authored 2026-10-15 doboku-note 自作。論点は、コンクリート構造物に関わる五つの立場が決める内容と、渡す書類。特定の書籍図の複製ではない -->
-<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="コンクリート構造物に関わる五つの立場が、何を決めて何の書類を渡すかを順に示した図。発注者は造るものと確かめる基準を決め、設計者は強度・耐久性・形を決め、生コン工場は実際の配合を決め、施工者は運ぶ・打つ・守る手順を決め、維持管理者は点検と手当ての時期を決める。">
+<!-- authored 2026-10-15 doboku-note 自作。論点は、コンクリート構造物に関わる五つの立場が決める内容・確かめる内容と、渡す書類。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="コンクリート構造物に関わる五つの立場が、何を決め、何を確かめ、どの書類を渡すかを順に示した図。決める立場と確かめる立場が分かれている。">
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 13px; fill: #222; }
       .role { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
       .tk { font-size: 11px; font-weight: bold; fill: #2e6da4; }
+      .tc { font-size: 11px; font-weight: bold; fill: #b22234; }
       .td { font-size: 11px; font-weight: bold; fill: #3a7d44; }
       .v { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
       .d { font-size: 13px; fill: #555; }
@@ -17,45 +18,50 @@
   </defs>
 
   <!-- 発注者 -->
-  <rect class="card" x="10" y="12" width="380" height="74" rx="8"/>
-  <path class="rb" d="M18,12H114V86H18A8,8 0 0 1 10,78V20A8,8 0 0 1 18,12Z"/>
-  <text class="role" x="62" y="54" text-anchor="middle">発注者</text>
-  <text class="tk" x="126" y="42">決める</text><text class="v" x="166" y="42">造るものと確かめる基準</text>
-  <text class="td" x="126" y="68">書類</text><text class="d" x="166" y="68">共通仕様書・契約約款</text>
-  <path class="ar" d="M62,86V102" marker-end="url(#ah)"/>
+  <rect class="card" x="10" y="8" width="380" height="80" rx="8"/>
+  <path class="rb" d="M18,8H114V88H18A8,8 0 0 1 10,80V16A8,8 0 0 1 18,8Z"/>
+  <text class="role" x="62" y="53" text-anchor="middle">発注者</text>
+  <text class="tk" x="124" y="30">決める</text><text class="v" x="172" y="30">造るものと確かめる基準</text>
+  <text class="tc" x="124" y="52">確かめる</text><text class="v" x="172" y="52">完成の検査</text>
+  <text class="td" x="124" y="74">書類</text><text class="d" x="172" y="74">共通仕様書・契約約款</text>
+  <path class="ar" d="M62,88V96" marker-end="url(#ah)"/>
 
   <!-- 設計者 -->
-  <rect class="card" x="10" y="104" width="380" height="74" rx="8"/>
-  <path class="rb" d="M18,104H114V178H18A8,8 0 0 1 10,170V112A8,8 0 0 1 18,104Z"/>
-  <text class="role" x="62" y="146" text-anchor="middle">設計者</text>
-  <text class="tk" x="126" y="134">決める</text><text class="v" x="166" y="134">強度・耐久性・形</text>
-  <text class="td" x="126" y="160">書類</text><text class="d" x="166" y="160">設計図書</text>
-  <path class="ar" d="M62,178V194" marker-end="url(#ah)"/>
+  <rect class="card" x="10" y="98" width="380" height="80" rx="8"/>
+  <path class="rb" d="M18,98H114V178H18A8,8 0 0 1 10,170V106A8,8 0 0 1 18,98Z"/>
+  <text class="role" x="62" y="143" text-anchor="middle">設計者</text>
+  <text class="tk" x="124" y="120">決める</text><text class="v" x="172" y="120">強度・耐久性・形</text>
+  <text class="tc" x="124" y="142">確かめる</text><text class="v" x="172" y="142">図面が施工・検査で読めること</text>
+  <text class="td" x="124" y="164">書類</text><text class="d" x="172" y="164">設計図書</text>
+  <path class="ar" d="M62,178V186" marker-end="url(#ah)"/>
 
   <!-- 生コン工場 -->
-  <rect class="card" x="10" y="196" width="380" height="74" rx="8"/>
-  <path class="rb" d="M18,196H114V270H18A8,8 0 0 1 10,262V204A8,8 0 0 1 18,196Z"/>
-  <text class="role" x="62" y="238" text-anchor="middle">生コン工場</text>
-  <text class="tk" x="126" y="226">決める</text><text class="v" x="166" y="226">実際の配合</text>
-  <text class="td" x="126" y="252">書類</text><text class="d" x="166" y="252">配合計画書・納入書</text>
-  <path class="ar" d="M62,270V286" marker-end="url(#ah)"/>
+  <rect class="card" x="10" y="188" width="380" height="80" rx="8"/>
+  <path class="rb" d="M18,188H114V268H18A8,8 0 0 1 10,260V196A8,8 0 0 1 18,188Z"/>
+  <text class="role" x="62" y="233" text-anchor="middle">生コン工場</text>
+  <text class="tk" x="124" y="210">決める</text><text class="v" x="172" y="210">実際の配合</text>
+  <text class="tc" x="124" y="232">確かめる</text><text class="v" x="172" y="232">配合どおりの出荷品質</text>
+  <text class="td" x="124" y="254">書類</text><text class="d" x="172" y="254">配合計画書・納入書</text>
+  <path class="ar" d="M62,268V276" marker-end="url(#ah)"/>
 
   <!-- 施工者 -->
-  <rect class="card" x="10" y="288" width="380" height="74" rx="8"/>
-  <path class="rb" d="M18,288H114V362H18A8,8 0 0 1 10,354V296A8,8 0 0 1 18,288Z"/>
-  <text class="role" x="62" y="330" text-anchor="middle">施工者</text>
-  <text class="tk" x="126" y="318">決める</text><text class="v" x="166" y="318">運ぶ・打つ・守る手順</text>
-  <text class="td" x="126" y="344">書類</text><text class="d" x="166" y="344">施工計画書・施工記録・完成図書</text>
-  <path class="ar" d="M62,362V378" marker-end="url(#ah)"/>
+  <rect class="card" x="10" y="278" width="380" height="80" rx="8"/>
+  <path class="rb" d="M18,278H114V358H18A8,8 0 0 1 10,350V286A8,8 0 0 1 18,278Z"/>
+  <text class="role" x="62" y="323" text-anchor="middle">施工者</text>
+  <text class="tk" x="124" y="300">決める</text><text class="v" x="172" y="300">運ぶ・打つ・守る手順</text>
+  <text class="tc" x="124" y="322">確かめる</text><text class="v" x="172" y="322">受入れ検査・かぶりの確認</text>
+  <text class="td" x="124" y="344">書類</text><text class="d" x="172" y="344">施工計画書・施工記録・完成図書</text>
+  <path class="ar" d="M62,358V366" marker-end="url(#ah)"/>
 
   <!-- 維持管理者 -->
-  <rect class="card" x="10" y="380" width="380" height="74" rx="8"/>
-  <path class="rb" d="M18,380H114V454H18A8,8 0 0 1 10,446V388A8,8 0 0 1 18,380Z"/>
-  <text class="role" x="62" y="422" text-anchor="middle">維持管理者</text>
-  <text class="tk" x="126" y="410">決める</text><text class="v" x="166" y="410">点検と手当ての時期</text>
-  <text class="td" x="126" y="436">書類</text><text class="d" x="166" y="436">点検記録</text>
+  <rect class="card" x="10" y="368" width="380" height="80" rx="8"/>
+  <path class="rb" d="M18,368H114V448H18A8,8 0 0 1 10,440V376A8,8 0 0 1 18,368Z"/>
+  <text class="role" x="62" y="413" text-anchor="middle">維持管理者</text>
+  <text class="tk" x="124" y="390">決める</text><text class="v" x="172" y="390">点検と手当ての時期</text>
+  <text class="tc" x="124" y="412">確かめる</text><text class="v" x="172" y="412">定期点検</text>
+  <text class="td" x="124" y="434">書類</text><text class="d" x="172" y="434">点検記録</text>
 
   <!-- 凡例 -->
-  <path class="ar" d="M22,470V490" marker-end="url(#ah)"/>
-  <text class="lg" x="36" y="485">矢印は、決めた値を次の立場へ渡す向き</text>
+  <path class="ar" d="M22,466V488" marker-end="url(#ah)"/>
+  <text class="lg" x="36" y="482">矢印は、決めた値を次の立場へ渡す向き</text>
 </svg>

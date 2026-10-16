@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="結束線の端末の向きを断面で比べた図。かぶり側へ残すと型枠に接して露出し錆の入口になり、部材の内側へ折り込むのが正しい">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 12px; fill: #1a3a5c; }
+      .h { font-size: 13px; font-weight: bold; }
+      .s { font-size: 12px; fill: #222; }
+      .n { font-size: 11px; fill: #555; }
+      .lb { font-size: 11px; font-weight: bold; fill: #2e6da4; }
+      .m { text-anchor: middle; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .danger { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .ar { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+    </style>
+    <!-- brand / positive / warn / danger / surface tokens -->
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+  <rect width="400" height="500" fill="#ffffff" />
+  <rect class="danger" x="10" y="14" width="185" height="262" rx="8"/>
+  <rect class="positive" x="205" y="14" width="185" height="262" rx="8"/>
+  <text class="h m" x="102" y="36">× かぶり側へ残す</text>
+  <text class="h m" x="297" y="36">○ 内側へ折り込む</text>
+  <path d="M24,52 V196" stroke="#555" stroke-width="5" fill="none"/>
+  <text class="n" x="30" y="66">型枠</text>
+  <circle cx="110" cy="124" r="14" fill="#ffffff" stroke="#555" stroke-width="2"/>
+  <circle cx="110" cy="124" r="21" fill="none" stroke="#b22234" stroke-width="2"/>
+  <path d="M89,124 H26" stroke="#b22234" stroke-width="2.5" fill="none"/>
+  <circle cx="26" cy="124" r="5" fill="#b22234"/>
+  <text class="s" x="20" y="214">先端が型枠に接し、</text>
+  <text class="s" x="20" y="232">表面近くに露出した</text>
+  <text class="s" x="20" y="250">まま硬化する</text>
+  <text class="s" x="20" y="268">→ 錆の入口になる</text>
+  <path d="M219,52 V196" stroke="#555" stroke-width="5" fill="none"/>
+  <text class="n" x="225" y="66">型枠</text>
+  <circle cx="290" cy="124" r="14" fill="#ffffff" stroke="#555" stroke-width="2"/>
+  <circle cx="290" cy="124" r="21" fill="none" stroke="#3a7d44" stroke-width="2"/>
+  <path d="M308,118 L350,96" stroke="#3a7d44" stroke-width="2.5" fill="none"/>
+  <circle cx="350" cy="96" r="3.5" fill="#3a7d44"/>
+  <text class="s" x="215" y="214">余長は部材の内側へ</text>
+  <text class="s" x="215" y="232">折り込む</text>
+  <text class="s" x="215" y="250">組み立て直後に</text>
+  <text class="s" x="215" y="268">向きを点検する</text>
+  <rect class="brand" x="10" y="290" width="380" height="88" rx="8"/>
+  <text class="h" x="22" y="312">結束線は、打込みまでの仮固定</text>
+  <text class="s" x="22" y="332">鉄筋の位置を最終的に支えるのはコンクリート</text>
+  <text class="s" x="22" y="350">材質は直径0.8mm以上のなまし鉄線が標準</text>
+  <text class="s" x="22" y="368">交点ごとにひとつ飛ばしの千鳥で結束する</text>
+  <rect class="warn" x="10" y="390" width="380" height="98" rx="8"/>
+  <text class="h" x="22" y="412">型枠を組む前が最後の確認機会</text>
+  <text class="s" x="22" y="432">型枠を組んでからでは向きの修正が難しい</text>
+  <text class="s" x="22" y="450">鉄筋工への指導と元請の点検は、</text>
+  <text class="s" x="22" y="468">打込み直前でなく組み立て直後に行う</text>
+</svg>

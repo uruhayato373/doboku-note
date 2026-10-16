@@ -1,0 +1,32 @@
+<!-- authored 2026-10-16 doboku-note 自作。本文の論点を再構成。書籍図の複製・トレースではない -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="300℃と500℃加熱後の残存圧縮強度は常温の80〜90%と50〜60%。弾性係数の残存率は同じ温度でさらに低い">
+<defs><style>
+text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;fill:#555;font-size:13px} /* ink-body */
+.label{font-size:13px;font-weight:bold;fill:#1a3a5c} /* brand-ink */
+.note{font-size:11px;fill:#555} /* ink-body */
+.b{fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5} /* brand-fill / brand */
+.p{fill:#d0e8d0;stroke:#3a7d44;stroke-width:1.5} /* positive-fill / positive */
+.d{fill:#f8d7da;stroke:#b22234;stroke-width:1.5} /* danger-fill / danger */
+.w{fill:#fff3cd;stroke:#d4a017;stroke-width:1.5} /* warn-fill / warn */
+.axis{stroke:#555;stroke-width:1.5;fill:none} /* ink-body */
+.line{stroke:#2e6da4;stroke-width:2.5;fill:none} /* brand */
+.dash{stroke:#b22234;stroke-width:2;stroke-dasharray:5 4;fill:none} /* danger */
+</style><marker id="arrow" markerWidth="7" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0 0L7 3L0 6" fill="#555"/></marker></defs>
+
+<text class="note" x="20" y="24">残存圧縮強度：常温を100 %とした割合</text>
+<path class="axis" d="M45 58H355"/>
+<text class="note" x="45" y="49" text-anchor="middle">0</text><text class="note" x="355" y="49" text-anchor="middle">100 %</text>
+<text class="label" x="25" y="100">300 ℃ 加熱後</text>
+<rect class="b" x="45" y="120" width="248" height="40"/><rect class="w" x="293" y="120" width="31" height="40"/>
+<text class="label" x="60" y="146">残存圧縮強度 80〜90 %</text>
+<text class="label" x="25" y="210">500 ℃ 加熱後</text>
+<rect class="b" x="45" y="230" width="155" height="40"/><rect class="w" x="200" y="230" width="31" height="40"/>
+<text class="label" x="60" y="256">50〜60 %</text>
+<rect class="w" x="259" y="238" width="12" height="12"/><text class="note" x="278" y="249">目安の幅</text>
+<rect class="d" x="20" y="317" width="360" height="83" rx="8"/>
+<text class="label" x="36" y="342">同じ温度で比べると</text>
+<text x="36" y="372">弾性係数の残存率 ＜ 圧縮強度の残存率</text>
+<rect class="b" x="20" y="418" width="360" height="62" rx="8"/>
+<text x="36" y="443">強度よりも剛性の低下が速い</text>
+<text x="36" y="466">冷却しても元の水準には戻らない</text>
+</svg>

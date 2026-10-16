@@ -50,11 +50,11 @@
   <line class="line-arr" x1="295" y1="206" x2="295" y2="218" marker-end="url(#arr)" />
   <rect class="box-g" x="210" y="218" width="170" height="30" rx="4" />
   <text class="t-label" x="295" y="237" text-anchor="middle">質量減少率を求める</text>
-  <text class="t-desc" x="295" y="270" text-anchor="middle">除錆の前後の質量差から求める</text>
+  <text class="t-desc" x="295" y="270" text-anchor="middle">腐食前と除錆後の質量差を使う</text>
   <rect class="box" x="20" y="316" width="360" height="110" rx="6" />
   <text class="t-b" x="34" y="338">2つの指標の求め方</text>
   <text class="t-desc" x="34" y="360">腐食面積率＝腐食面積／鋼材表面積×100</text>
   <text class="t-desc" x="34" y="380">質量減少率＝（腐食前質量－除錆後質量）</text>
   <text class="t-desc" x="34" y="400">　　／腐食前質量×100</text>
-  <text class="t-desc" x="34" y="418">（緑の2つが、腐食の程度を表す指標になる）</text>
+  <text class="t-desc" x="34" y="418">未腐食の鉄筋も処理し、母材の溶け分を補正</text>
 </svg>

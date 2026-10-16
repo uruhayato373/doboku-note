@@ -16,7 +16,7 @@
     </style>
   </defs>
 
-  <rect class="band" x="292" y="10" width="98" height="406" rx="6"/>
+  <rect class="band" x="292" y="10" width="98" height="352" rx="6"/>
   <text class="h" x="148" y="44" text-anchor="middle">国</text>
   <text class="h" x="244" y="44" text-anchor="middle">都道府県</text>
   <text class="h" x="341" y="44" text-anchor="middle">市町村</text>
@@ -30,7 +30,7 @@
   <path class="sep" d="M10,162H390"/>
   <text class="r" x="14" y="192">一級河川</text>
   <rect class="pill-g" x="104" y="171" width="88" height="32" rx="6"/><text class="c" x="148" y="191" text-anchor="middle">国土交通大臣</text>
-  <rect class="pill-g" x="200" y="171" width="88" height="32" rx="6"/><text class="c" x="244" y="191" text-anchor="middle">指定区間の事務</text>
+  <rect class="pill-g" x="200" y="171" width="88" height="32" rx="6"/><text class="c" x="244" y="185" text-anchor="middle" style="font-size:11px">指定区間の</text><text class="c" x="244" y="198" text-anchor="middle" style="font-size:11px">事務は知事</text>
   <path class="sep" d="M10,212H390"/>
   <text class="r" x="14" y="242">二級河川</text>
   <rect class="pill-g" x="200" y="221" width="88" height="32" rx="6"/><text class="c" x="244" y="241" text-anchor="middle">都道府県知事</text>
@@ -43,8 +43,9 @@
   <rect class="pill-m" x="296" y="321" width="90" height="32" rx="6"/><text class="c" x="341" y="341" text-anchor="middle">原則は市町村</text>
   <path class="sep" d="M10,362H390"/>
   <text class="r" x="14" y="392">港湾</text>
-  <rect class="pill-x" x="200" y="371" width="186" height="32" rx="6"/><text class="c" x="293" y="391" text-anchor="middle">港務局または地方公共団体</text>
+  <rect class="pill-x" x="104" y="371" width="282" height="32" rx="6"/><text class="c" x="245" y="391" text-anchor="middle">港務局または地方公共団体</text>
   <path class="sep" d="M10,412H390"/>
-  <rect class="pill-m" x="14" y="436" width="22" height="14" rx="3"/><text class="l" x="44" y="448">市町村が管理する範囲</text>
-  <rect class="pill-d" x="14" y="460" width="22" height="14" rx="3"/><text class="l" x="44" y="472">法律が置く例外</text>
+  <rect class="pill-m" x="14" y="430" width="22" height="14" rx="3"/><text class="l" x="44" y="442">市町村が管理する範囲</text>
+  <rect class="pill-d" x="14" y="452" width="22" height="14" rx="3"/><text class="l" x="44" y="464">法律が置く例外</text>
+  <text class="l" x="14" y="494" style="font-size:11px">道路の実延長のうち市町村道は約84.1%（令和5年3月31日現在）</text>
 </svg>

@@ -35,7 +35,7 @@
   <path class="line-red" d="M40,170 C 55,150 70,142 82,145 C 110,170 160,240 205,248 C 260,240 320,200 356,170" />
   <text class="t-label" x="60" y="130">骨材（膨張）</text>
   <text class="t-label" x="215" y="276" text-anchor="middle">セメントペースト（収縮）</text>
-  <text class="t-axis" x="287" y="80" text-anchor="middle">600℃付近で急膨張</text>
+  <text class="t-axis" x="287" y="80" text-anchor="middle">石英：573℃で相転移</text>
   <line class="line-gray" x1="252" y1="182" x2="252" y2="134" marker-end="url(#arr)" />
   <line class="line-gray" x1="252" y1="182" x2="252" y2="228" marker-end="url(#arr)" />
   <text class="t-label" x="244" y="200" text-anchor="end">膨張量の差</text>

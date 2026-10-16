@@ -9,5 +9,5 @@
 <path d="M200 296 V316" fill="none" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#ar)"/>
 <rect x="20" y="316" width="360" height="84" rx="6" fill="#e8f0fe" stroke="#2e6da4"/><text x="32" y="338" font-size="12" font-weight="700" fill="#1a3a5c">③ キー以外の列で決まる列を出す</text><text x="364" y="338" font-size="11" text-anchor="end" fill="#555">第3正規形</text><g font-size="11" fill="#555"><text x="32" y="358">問い：社名や電話は、業者コードで決まらないか</text></g><g font-size="11" font-weight="700" fill="#1a3a5c"><text x="32" y="378">→ 協力会社の表へ出す</text></g>
 <path d="M200 400 V420" fill="none" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#ar)"/>
-<rect x="20" y="420" width="360" height="66" rx="6" fill="#d0e8d0" stroke="#3a7d44"/><text x="32" y="442" font-size="12" font-weight="700" fill="#222">4つの表：協力会社・材料・搬入・受入検査</text><text x="32" y="466" font-size="12" fill="#222">同じ情報は一箇所だけに持つ</text>
+<rect x="20" y="420" width="360" height="66" rx="6" fill="#d0e8d0" stroke="#3a7d44"/><text x="32" y="439" font-size="12" font-weight="700" fill="#222">4つの表と主キー（同じ情報は一箇所だけ）</text><g font-size="11" fill="#222"><text x="32" y="458">協力会社：業者コード　材料：材料コード</text><text x="32" y="475">搬入：搬入番号　受入検査：搬入番号＋材料コード</text></g>
 </svg>

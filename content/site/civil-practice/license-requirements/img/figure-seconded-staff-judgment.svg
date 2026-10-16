@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="出向社員を営業所技術者に置けるかの判断。勤務状況、給与の支払状況、人事権の状況などから専任と認められれば置ける。出向元との契約だけでは足りず、雇用証明書の写しなどの書類で説明する" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+<defs>
+<style>
+  text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; fill: #222; font-size: 12px; }
+  .t { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+  .s { font-size: 11px; fill: #555; }
+  .box-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+  .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+  .box-warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+  .box-danger { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+  .box-surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+</style>
+<marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+</defs>
+<rect width="400" height="500" fill="#ffffff"/>
+<rect class="box-brand" x="14" y="14" width="372" height="44" rx="8"/>
+<text class="t" x="200" y="42" text-anchor="middle">出向社員を、営業所技術者に置けるか</text>
+<line x1="200" y1="58" x2="200" y2="80" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#ar)"/>
+<text class="s" x="14" y="98">専任かどうかを、次などから判断する</text>
+<rect class="box-warn" x="14" y="108" width="118" height="52" rx="6"/>
+<rect class="box-warn" x="141" y="108" width="118" height="52" rx="6"/>
+<rect class="box-warn" x="268" y="108" width="118" height="52" rx="6"/>
+<text x="73" y="139" text-anchor="middle">勤務状況</text>
+<text x="200" y="139" text-anchor="middle">給与の支払状況</text>
+<text x="327" y="139" text-anchor="middle">人事権の状況</text>
+<line x1="200" y1="160" x2="200" y2="184" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#ar)"/>
+<rect class="box-positive" x="14" y="188" width="372" height="56" rx="8"/>
+<text class="t" x="200" y="213" text-anchor="middle">専任と認められれば</text>
+<text x="200" y="233" text-anchor="middle">出向社員でも置ける</text>
+<rect class="box-danger" x="14" y="264" width="372" height="64" rx="8"/>
+<text class="t" x="26" y="289">出向元との契約だけでは足りない</text>
+<text x="26" y="311">誰が給与を払い、人事権がどちらにあるか</text>
+<rect class="box-surface" x="14" y="348" width="372" height="124" rx="8"/>
+<text class="t" x="26" y="374">書類で説明できるようにする</text>
+<text class="s" x="26" y="394">常勤性の確認に例が挙がっている書類</text>
+<text x="26" y="418">・標準報酬決定通知書の写し</text>
+<text x="26" y="438">・住民税特別徴収税額通知書の写し</text>
+<text x="26" y="458">・所属企業の雇用証明書の写し</text>
+</svg>

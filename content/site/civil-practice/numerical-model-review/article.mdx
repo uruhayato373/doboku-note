@@ -11,7 +11,7 @@ tags:
   - 品質管理
 published: true
 created: 2026-09-13
-dateModified: 2026-10-09
+dateModified: 2026-10-16
 sources:
   - civil-informatics
   - nasa-model-verification-validation
@@ -39,6 +39,14 @@ sources:
 
 解析の対象は構造や地盤だけではありません。搬入計画や設備配置にも数理モデルを使いますが、何を求める方法なのかを区別する必要があります。回帰はデータ間の関係から量を推定し、最適化は目的関数と制約の下で採用する案を探します。予測がよく当たるモデルが、自動的に最適な施工順序を決めるわけではありません。
 
+{/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
+<ArticleImage
+  src="/posts/civil-practice/numerical-model-review/img/figure-inference-methods.svg"
+  alt="回帰・最適化・ニューラルネットワーク・ファジィ推論・遺伝的アルゴリズムについて、何を求める方法かと確かめる点を並べた比較"
+  width={400}
+  height={500}
+/>
+
 ニューラルネットワークでは、データを使って重みなどを調整する学習と、得たモデルから結果を出す推論を分けます。入力データの範囲や評価用データを確認する考え方は、[機械学習の基本](/exam/pe-comprehensive-management/keywords/machine-learning)で整理しています。
 
 ファジィ推論は「大きい」「小さい」などの概念への当てはまりを数値で表し、設定したルールから出力を求める方法です。[MathWorksの解説](https://www.mathworks.com/help/fuzzy/foundations-of-fuzzy-logic.html)に示されるように、使う言葉の意味と範囲を先に定義します。当てはまりの度合いを、その事象が起こる確率と同一視しないことが確認点です。
@@ -54,7 +62,7 @@ sources:
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/civil-practice/numerical-model-review/img/figure-agent-feedback.svg"
-  alt="個々のエージェントの行動ルールが相互作用を通じて全体の動きを作り、混み具合が次の判断を変える往復の関係"
+  alt="避難や車両の出入りで、個々のエージェントのルールが相互作用を通じて混雑などの全体の動きを作り、混み具合が次の判断を変える往復の関係"
   width={400}
   height={500}
 />
@@ -101,6 +109,14 @@ $$
 $$
 
 値を代入すると、伸びは $100{,}000\times2{,}000/(1{,}000\times200{,}000)=1$ mmです。力の単位をN、長さをmmにそろえているため、結果もmmになります。
+
+{/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
+<ArticleImage
+  src="/posts/civil-practice/numerical-model-review/img/figure-bar-elongation.svg"
+  alt="独自例題の棒の伸び。左を固定した棒は伸びが1 mm、両端を固定すると1 mmにならない。解析で10 mmと出たときは条件を確かめる"
+  width={400}
+  height={500}
+/>
 
 解析で10 mmと出たときは、結果を1 mmに近づけるよう定数を調整する前に、入力と出力の単位、断面積、荷重、支持条件、読み取った変位成分を確認します。両端を固定して荷重を与えたなど、想定した問題と条件が違っていないかも確認点です。
 
@@ -161,7 +177,7 @@ $$
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/civil-practice/numerical-model-review/img/figure-time-step-behavior.svg"
-  alt="刻み0.25 sで減衰する解を解くと、陽解法は符号を変えながら増大し、台形法は増大せず減衰する折れ線の比較"
+  alt="刻み0.25 sで減衰する解を解くと、陽解法は−1.5、2.25のように符号を変えながら増大し、台形法は増大せず減衰する折れ線の比較"
   width={400}
   height={500}
 />
@@ -215,7 +231,7 @@ $$
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/civil-practice/numerical-model-review/img/figure-result-display-types.svg"
-  alt="色分布図・断面図・等値面・ベクトル図の四つの表示方法について、分かることと注意点を並べた比較"
+  alt="同じ数値の分布を色の上下限だけ変えた二枚の比較と、色分布図・断面図・等値面・ベクトル図の分かることと注意点"
   width={400}
   height={500}
 />

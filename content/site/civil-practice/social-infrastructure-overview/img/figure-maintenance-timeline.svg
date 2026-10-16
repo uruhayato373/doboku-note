@@ -11,39 +11,48 @@
       .dot-g { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 2; }
       .dot-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }
       .dot-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }
+      .lg { font-size: 11px; fill: #555; }
+      .tg { font-size: 11px; fill: #555; }
       .ln { stroke: #8a8a8a; stroke-width: 2; fill: none; }
     </style>
   </defs>
 
-  <path class="ln" d="M30,48V448"/>
-  <rect class="b-g" x="50" y="14" width="336" height="68" rx="8"/>
-  <circle class="dot-g" cx="30" cy="48" r="7"/>
-  <text class="d" x="62" y="34">高度経済成長期以降</text>
-  <text class="t" x="62" y="54">施設の集中整備</text>
-  <text x="62" y="72">いま古くなる側に入っている</text>
-  <rect class="b-b" x="50" y="94" width="336" height="68" rx="8"/>
-  <circle class="dot-b" cx="30" cy="128" r="7"/>
-  <text class="d" x="62" y="114">平成25年</text>
-  <text class="t" x="62" y="134">社会資本メンテナンス元年</text>
-  <text x="62" y="152">インフラ長寿命化基本計画（11月）</text>
-  <rect class="b-b" x="50" y="174" width="336" height="68" rx="8"/>
-  <circle class="dot-b" cx="30" cy="208" r="7"/>
-  <text class="d" x="62" y="194">平成26年5月</text>
-  <text class="t" x="62" y="214">インフラ長寿命化計画（行動計画）</text>
-  <text x="62" y="232">国土交通省が策定</text>
-  <rect class="b-b" x="50" y="254" width="336" height="68" rx="8"/>
-  <circle class="dot-b" cx="30" cy="288" r="7"/>
-  <text class="d" x="62" y="274">令和3年6月</text>
-  <text class="t" x="62" y="294">第2次の行動計画</text>
-  <text x="62" y="312">国土交通省が策定</text>
-  <rect class="b-b" x="50" y="334" width="336" height="68" rx="8"/>
-  <circle class="dot-b" cx="30" cy="368" r="7"/>
-  <text class="d" x="62" y="354">令和7年10月</text>
-  <text class="t" x="62" y="374">群マネの手引き Ver.1</text>
-  <text x="62" y="392">地域インフラ群再生戦略マネジメント</text>
-  <rect class="b-p" x="50" y="414" width="336" height="68" rx="8"/>
-  <circle class="dot-p" cx="30" cy="448" r="7"/>
-  <text class="d" x="62" y="434">令和8年1月</text>
-  <text class="t" x="62" y="454">第6次社会資本整備重点計画</text>
-  <text x="62" y="472">閣議決定・計画期間は令和12年度まで</text>
+    <path class="ln" d="M30,44V400"/>
+  <rect class="b-g" x="50" y="12" width="336" height="58" rx="8"/>
+  <circle class="dot-g" cx="30" cy="41" r="7"/>
+  <text class="d" x="62" y="28">高度経済成長期以降</text>
+  <text class="t" x="62" y="46">施設の集中整備</text>
+  <text x="62" y="62">いま古くなる側に入っている</text>
+  <rect class="b-b" x="50" y="78" width="336" height="58" rx="8"/>
+  <circle class="dot-b" cx="30" cy="107" r="7"/>
+  <text class="d" x="62" y="94">平成25年</text>
+  <text class="tg" x="376" y="94" text-anchor="end">政府全体</text>
+  <text class="t" x="62" y="112">社会資本メンテナンス元年</text>
+  <text x="62" y="128">政府全体の基本計画（11月）</text>
+  <rect class="b-b" x="50" y="144" width="336" height="58" rx="8"/>
+  <circle class="dot-b" cx="30" cy="173" r="7"/>
+  <text class="d" x="62" y="160">平成26年5月</text>
+  <text class="tg" x="376" y="160" text-anchor="end">国土交通省</text>
+  <text class="t" x="62" y="178">インフラ長寿命化計画（行動計画）</text>
+  <text x="62" y="194">国土交通省が策定</text>
+  <rect class="b-b" x="50" y="210" width="336" height="58" rx="8"/>
+  <circle class="dot-b" cx="30" cy="239" r="7"/>
+  <text class="d" x="62" y="226">令和3年6月</text>
+  <text class="tg" x="376" y="226" text-anchor="end">国土交通省</text>
+  <text class="t" x="62" y="244">第2次の行動計画</text>
+  <text x="62" y="260">国土交通省が策定</text>
+  <rect class="b-b" x="50" y="276" width="336" height="58" rx="8"/>
+  <circle class="dot-b" cx="30" cy="305" r="7"/>
+  <text class="d" x="62" y="292">令和7年10月</text>
+  <text class="t" x="62" y="310">群マネの手引き Ver.1</text>
+  <text x="62" y="326">地域インフラ群再生戦略マネジメント</text>
+  <rect class="b-p" x="50" y="342" width="336" height="58" rx="8"/>
+  <circle class="dot-p" cx="30" cy="371" r="7"/>
+  <text class="d" x="62" y="358">令和8年1月</text>
+  <text class="tg" x="376" y="358" text-anchor="end">整備の計画</text>
+  <text class="t" x="62" y="376">第6次社会資本整備重点計画</text>
+  <text x="62" y="392">閣議決定・計画期間は令和12年度まで</text>
+  <rect class="b-b" x="14" y="420" width="16" height="12" rx="2"/><text class="lg" x="38" y="430">維持更新の流れ（国土交通省・政府全体の計画）</text>
+  <rect class="b-p" x="14" y="442" width="16" height="12" rx="2"/><text class="lg" x="38" y="452">整備の計画（維持更新と並行して更新）</text>
+  <text class="lg" x="14" y="478">年の間隔は一定ではなく、年表の縦幅は期間に比例しない</text>
 </svg>

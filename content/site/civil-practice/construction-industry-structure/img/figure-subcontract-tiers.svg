@@ -2,59 +2,74 @@
 <defs><marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker></defs>
 <rect width="400" height="500" fill="#ffffff"/>
 <g stroke-width="1.5">
-<rect x="14" y="14" width="372" height="72" rx="8" fill="#d0e8d0" stroke="#3a7d44"/>
-<rect x="14" y="118" width="372" height="72" rx="8" fill="#e8f0fe" stroke="#2e6da4"/>
-<line x1="200" y1="86" x2="200" y2="116" stroke="#2e6da4" marker-end="url(#ar)"/>
+<rect x="14" y="14" width="372" height="52" rx="8" fill="#d0e8d0" stroke="#3a7d44"/>
+<rect x="14" y="94" width="372" height="52" rx="8" fill="#e8f0fe" stroke="#2e6da4"/>
+<line x1="200" y1="66" x2="200" y2="92" stroke="#2e6da4" marker-end="url(#ar)"/>
 </g>
 <g fill="#222" font-size="13" font-weight="700">
-<text x="28" y="42">元請</text>
-<text x="28" y="146">一次以下の下請</text>
+<text x="28" y="36">元請</text>
+<text x="28" y="116">一次以下の下請</text>
 </g>
 <g fill="#555" font-size="11">
-<text x="28" y="64">工事全体の総合的な管理監督と完成責任</text>
-<text x="28" y="168">中間的な施工管理・労務の提供・その他の直接施工</text>
+<text x="28" y="55">工事全体の総合的な管理監督と完成責任</text>
+<text x="28" y="135">中間的な施工管理・労務の提供・その他の直接施工</text>
 </g>
 <g fill="#222" font-size="12" font-weight="700">
-<text x="20" y="230">現場単位の下請次数（調査時点・108現場）</text>
+<text x="20" y="178">現場単位の下請次数（調査時点・108現場）</text>
+</g>
+<!-- 元請からの距離の目盛り -->
+<g stroke="#2e6da4" stroke-width="1.5">
+<line x1="20" y1="198" x2="380" y2="198" marker-end="url(#ar)"/>
+</g>
+<g stroke="#2e6da4" stroke-width="1">
+<line x1="20" y1="193" x2="20" y2="203"/>
+<line x1="80.5" y1="193" x2="80.5" y2="203"/>
+<line x1="191.5" y1="193" x2="191.5" y2="203"/>
+<line x1="329.4" y1="193" x2="329.4" y2="203"/>
+<line x1="373.1" y1="193" x2="373.1" y2="203"/>
+</g>
+<g fill="#555" font-size="11">
+<text x="20" y="190">元請に近い</text>
+<text x="380" y="190" text-anchor="end">元請から遠い</text>
 </g>
 <g stroke-width="1.5">
-<rect x="20" y="242" width="60.5" height="36" fill="#e8f0fe" stroke="#2e6da4"/>
-<rect x="80.5" y="242" width="111" height="36" fill="#d0e8d0" stroke="#3a7d44"/>
-<rect x="191.5" y="242" width="137.9" height="36" fill="#fff3cd" stroke="#d4a017"/>
-<rect x="329.4" y="242" width="43.7" height="36" fill="#f8d7da" stroke="#b22234"/>
-<rect x="373.1" y="242" width="6.9" height="36" fill="#f8d7da" stroke="#b22234"/>
+<rect x="20" y="210" width="60.5" height="52" fill="#e8f0fe" stroke="#2e6da4"/>
+<rect x="80.5" y="210" width="111" height="52" fill="#d0e8d0" stroke="#3a7d44"/>
+<rect x="191.5" y="210" width="137.9" height="52" fill="#fff3cd" stroke="#d4a017"/>
+<rect x="329.4" y="210" width="43.7" height="52" fill="#f8d7da" stroke="#b22234"/>
+<rect x="373.1" y="210" width="6.9" height="52" fill="#f8d7da" stroke="#b22234"/>
 </g>
 <g fill="#222" text-anchor="middle" font-size="12" font-weight="700">
-<text x="50" y="265">1次</text>
-<text x="136" y="265">2次</text>
-<text x="260" y="265">3次</text>
-<text x="351" y="265">4次</text>
+<text x="50" y="240">1次</text>
+<text x="136" y="240">2次</text>
+<text x="260" y="240">3次</text>
+<text x="351" y="240">4次</text>
 </g>
 <g fill="#555" text-anchor="middle" font-size="11">
-<text x="50" y="296">16.8%</text>
-<text x="136" y="296">30.8%</text>
-<text x="260" y="296">38.3%</text>
-<text x="351" y="296">12.1%</text>
+<text x="50" y="282">16.8%</text>
+<text x="136" y="282">30.8%</text>
+<text x="260" y="282">38.3%</text>
+<text x="351" y="282">12.1%</text>
 </g>
 <g stroke="#b22234" stroke-width="1">
-<line x1="377" y1="278" x2="377" y2="310"/>
-<line x1="377" y1="310" x2="369" y2="310"/>
+<line x1="377" y1="262" x2="377" y2="296"/>
+<line x1="377" y1="296" x2="369" y2="296"/>
 </g>
 <g fill="#555" text-anchor="end" font-size="11">
-<text x="366" y="314">5次 1.9%</text>
+<text x="366" y="300">5次 1.9%</text>
 </g>
 <g stroke="#3a7d44" stroke-width="1.5">
-<line x1="20" y1="334" x2="329" y2="334"/>
-<line x1="20" y1="328" x2="20" y2="334"/>
-<line x1="329" y1="328" x2="329" y2="334"/>
+<line x1="20" y1="324" x2="329" y2="324"/>
+<line x1="20" y1="318" x2="20" y2="324"/>
+<line x1="329" y1="318" x2="329" y2="324"/>
 </g>
 <g fill="#222" text-anchor="middle" font-size="13" font-weight="700">
-<text x="175" y="356">3次までで完結する現場 86.0%</text>
+<text x="175" y="346">3次までで完結する現場 86.0%</text>
 </g>
-<rect x="14" y="382" width="372" height="88" rx="8" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+<rect x="14" y="376" width="372" height="96" rx="8" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
 <g fill="#222" font-size="12">
-<text x="26" y="408">最も重層した現場は5次まで。</text>
+<text x="26" y="404">最も重層した現場は5次まで。</text>
 <text x="26" y="428">金額の大小と次数に傾向はなく、</text>
-<text x="26" y="448">工期が長い現場に4次・5次が現れた。</text>
+<text x="26" y="452">工期が長い現場に4次・5次が現れた。</text>
 </g>
 </svg>

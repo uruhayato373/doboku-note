@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="経理の知識を持つ職員が評価される期間の例。審査基準日が令和8年3月31日なら、令和2年4月1日から令和8年3月31日までに合格または講習修了した人が対象。合格した年度の翌年度の4月1日から5年なので、実際は最長で6年近くになる" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+<defs>
+<style>
+  text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #222; }
+  .t { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+  .s { font-size: 11px; fill: #555; }
+  .box-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+  .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+  .box-warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+  .box-surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+</style>
+<marker id="ah" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#8a8a8a"/></marker>
+</defs>
+<rect width="400" height="500" fill="#ffffff"/>
+<rect class="box-brand" x="14" y="14" width="372" height="40" rx="8"/>
+<text class="t" x="200" y="39" text-anchor="middle">審査基準日が令和8年3月31日の例</text>
+<text class="s" x="50" y="96" text-anchor="middle">令和2年4月1日</text>
+<text class="t" x="340" y="80" text-anchor="middle">審査基準日</text>
+<text class="s" x="340" y="96" text-anchor="middle">令和8年3月31日</text>
+<path d="M24,112H378" stroke="#8a8a8a" stroke-width="2" fill="none" marker-end="url(#ah)"/>
+<circle cx="50" cy="112" r="7" fill="#2e6da4" stroke="#fff" stroke-width="2"/>
+<circle cx="340" cy="112" r="7" fill="#2e6da4" stroke="#fff" stroke-width="2"/>
+<rect class="box-positive" x="50" y="128" width="290" height="32" rx="6"/>
+<text x="195" y="149" text-anchor="middle">合格・講習修了の日が、この間なら対象</text>
+<rect class="box-surface" x="50" y="172" width="54" height="32" rx="6"/>
+<text class="s" x="77" y="192" text-anchor="middle">合格年度</text>
+<rect class="box-brand" x="104" y="172" width="236" height="32" rx="6"/>
+<text x="222" y="192" text-anchor="middle">翌年度の4月1日から5年</text>
+<rect class="box-warn" x="14" y="228" width="372" height="92" rx="8"/>
+<text class="t" x="26" y="254">実際の期間は、5年より長い</text>
+<text x="26" y="278">合格から5年より長く、最長で6年近くになる</text>
+<text class="s" x="26" y="302">切れるのは資格ではなく、評価に使える期間</text>
+<rect class="box-surface" x="14" y="344" width="372" height="100" rx="8"/>
+<text class="t" x="26" y="370">評価される職員</text>
+<text x="26" y="394">登録経理試験の合格者、または</text>
+<text x="26" y="414">登録経理講習を受けた者</text>
+<text class="s" x="26" y="434">この項目の職員は、常勤であることが必須</text>
+</svg>

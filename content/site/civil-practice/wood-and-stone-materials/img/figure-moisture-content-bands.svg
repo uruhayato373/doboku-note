@@ -39,4 +39,18 @@
   <text class="t" x="172" y="178">これより乾くと</text><text class="t" x="172" y="194">収縮が始まり、強さが増す</text>
   <text class="n" x="172" y="298">腐朽菌の活動が抑えられる</text><text class="t" x="172" y="316">水が戻れば再開する</text>
   <text class="n" x="172" y="400">空気中に長く置いた</text><text class="n" x="172" y="418">ときに落ち着く</text>
+  <!-- 100〜200%側は尺度を圧縮（省略記号） -->
+  <rect x="106" y="104" width="52" height="10" style="fill:#fff;stroke:none"/>
+  <path d="M104,114L160,104M104,104L160,114" fill="none" stroke="#555" stroke-width="1.5"/>
+  <text x="172" y="152">※100〜200%側は尺度を圧縮</text>
+  <!-- 気乾の文字 -->
+  <text x="132" y="406" text-anchor="middle" style="font-size:11px;font-weight:bold;fill:#1a3a5c">気乾</text>
+  <!-- 強さの向き -->
+  <path d="M380,440V240" fill="none" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#ah)"/>
+  <text x="380" y="230" text-anchor="end" style="font-weight:bold;fill:#1a3a5c">強さ↑</text>
+  <!-- 腐朽の三条件 -->
+  <text x="172" y="448">腐朽は水・酸素・温度の</text>
+  <text x="172" y="463">三つがそろうとき。</text>
+  <text x="172" y="478">ここで見るのは水分</text>
 </svg>
+

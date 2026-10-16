@@ -2,7 +2,7 @@
 <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
   style="max-width:400px;width:100%"
   role="img"
-  aria-label="水セメント比が大きいほど中性化速度比が大きくなる右上がりの傾向（定性）。普通・早強ポルトランド、高炉A種・B種、フライアッシュA種のいずれも同様の傾向を示す">
+  aria-label="水セメント比が大きいほど中性化速度比が大きくなる右上がりの傾向（定性）。水セメント比を小さくすると中性化に有利">
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
@@ -45,11 +45,7 @@
 <text class="t-label" x="198" y="186">基準（W/C60%＝1.0）</text>
 <text class="t-warn" x="330" y="104" text-anchor="end">中性化が進みやすい</text>
 <text class="t-label" x="100" y="272">中性化が遅い</text>
-<rect class="box" x="20" y="348" width="360" height="136" rx="6"/>
-<text class="t-head" x="32" y="370">原典で比較されたセメント（図は傾向のみ）</text>
-<text class="t-desc" x="32" y="392">普通ポルトランド・早強ポルトランド</text>
-<text class="t-desc" x="32" y="410">高炉セメントA種・B種</text>
-<text class="t-desc" x="32" y="428">フライアッシュセメントA種</text>
-<text class="t-desc" x="32" y="452">基準：普通ポルトランド・水セメント比60%を1.0とする</text>
-<text class="t-desc" x="32" y="472">水セメント比を小さくすると中性化に対して有利</text>
+<rect class="box-w" x="20" y="348" width="360" height="80" rx="6"/>
+<text class="t-head" x="32" y="376">水セメント比を小さくすると</text>
+<text class="t-head" x="32" y="400">中性化に対して有利</text>
 </svg>

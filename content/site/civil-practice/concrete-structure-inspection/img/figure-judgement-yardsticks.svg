@@ -1,0 +1,40 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は、85%や100%が何に対する割合か（呼び強度か設計基準強度か）を検査ごとに比べたもの（記事本文の表のみ）。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="受入れの供試体は呼び強度、テストハンマー調査・強度測定要領・コアは設計基準強度を相手に、85%や100%の判定をすることを比べた図。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 13px; fill: #222; }
+      .hd { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .in { font-size: 12px; font-weight: bold; fill: #1a3a5c; text-anchor: middle; }
+      .lb { font-size: 12px; fill: #555; }
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .brd { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .wrn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .dng { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .sf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .row { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <rect class="row" x="10" y="8" width="380" height="96" rx="8"/>
+  <text class="hd" x="22" y="34">受入れの供試体</text>
+  <rect class="wrn" x="270" y="18" width="108" height="22" rx="11"/><text class="in" x="324" y="33">相手：呼び強度</text>
+  <text x="22" y="64">1回（3個の平均）が85%以上</text>
+  <text x="22" y="86">3回の平均が100%以上</text>
+  <rect class="row" x="10" y="112" width="380" height="96" rx="8"/>
+  <text class="hd" x="22" y="138">テストハンマー調査</text>
+  <rect class="brd" x="254" y="122" width="124" height="22" rx="11"/><text class="in" x="316" y="137">相手：設計基準強度</text>
+  <text x="22" y="168">3カ所の平均が下回る、または</text>
+  <text x="22" y="190">1回が85%以下 → 再調査</text>
+  <rect class="row" x="10" y="216" width="380" height="96" rx="8"/>
+  <text class="hd" x="22" y="242">強度測定要領（非破壊）</text>
+  <rect class="brd" x="254" y="226" width="124" height="22" rx="11"/><text class="in" x="316" y="241">相手：設計基準強度</text>
+  <text x="22" y="272">3測線の平均が100%以上</text>
+  <text x="22" y="294">個々の推定値が85%以上</text>
+  <rect class="row" x="10" y="320" width="380" height="96" rx="8"/>
+  <text class="hd" x="22" y="346">コア・外部供試体</text>
+  <rect class="brd" x="254" y="330" width="124" height="22" rx="11"/><text class="in" x="316" y="345">相手：設計基準強度</text>
+  <text x="22" y="376">部位ごとの平均が100%以上</text>
+  <text x="22" y="398">個々の値が85%以上</text>
+
+  <text class="lb" x="200" y="450" text-anchor="middle">85%の対象（平均か個々か）と、基準の値が違う</text>
+  <text class="lb" x="200" y="470" text-anchor="middle">呼び強度は設計基準強度と同じとは限らない</text>
+</svg>

@@ -665,3 +665,35 @@ EXP-006 の本判定は予定どおり next_check 2026-08-27 に、カバレッ�
   5. 本文からのリンクが 0 本の 8 ページへ 23 記事から内部リンク。2級 R8 二次の解答例ページの枠を 10/25 前に公開（DN-0678）
 - 見送り・判断待ち: 削除済み /standards/guides の 404（表示 85）・数字付き 404 24 件・/standards/<機関>/common の重複 → DN-0677。順位表の期待値順と分類器 → DN-0674。_redirects の上限 → DN-0675。check-seo-build の warn の置き場 → DN-0676。check-google-ui-ssot の不具合 → DN-0669
 - 次に見るもの: 10-14 の batch で legacy 除外後の discovered と canonical 不一致 13 件、10-18 以降に concrete-engineer textbook 3 本の再リクエスト、EXP-020/021 は本番反映（10-11）の 28 日後
+
+### 2026-10-16（週次・自動レビュー）
+
+- 観測（GSC 日別 10/06〜10/12・page/query 28 日・GA4 28 日）: clicks 354（前週 422・−16%）/ impressions 7,746（−24%）/ 順位 8.79 ほぼ横ばい。パターン別: High-Impr-Low-CTR 4（OPP 引用）/ Rank-Stuck・Traffic-Drop・Cannibalization・Decay 0（ダイジェスト該当なし）/ Hidden-Winner 113 件（自前）/ Orphan-Query 2 群（自前）/ SNS-Shift 1（自前）。10/11 施策反映直後の窓＝表示減の断定不可
+- 上位候補と推奨:
+  1. x / social 急落: sessions 57 → 4（−93%・10/08〜10/14 vs 前週）。X 投稿状況・UTM の現物照合を推奨（前週が単発拡散の可能性あり）
+  2. `/exam/civil-construction-1/textbook/scraper`: 「スクレーパとは」表示 389・クリック 0・7.9 位・期待増 +2.3 クリック/週。題名実験候補（5 URL 以内・14〜28 日・OPP-e15816beb4）
+  3. Hidden-Winner: 主戦場外 sessions ≥15 が 113 件。2 級二次 r07 1,413 / experience-writing-guide 980・実務記事 formwork-removal-timing 244 等。重点資格・実験枠配分の戦略判断を推奨
+- 他 6 件 → improvements/2026-10-16.md（工法規定方式・供用開始の同実験束ね、cost-driver は backlog 級、Orphan-Query 2 群、sidebar CTA 0.11% 等）
+- トリアージ待ち（処分は土曜の週次レビューの growth-triage が決める）:
+  - OPP-e15816beb4 → 題名実験ルート（EXP 起票・OPP-449e728bf7 / OPP-2a888b85f4 と束ねて 3 URL）
+  - OPP-7382125a0a → backlog ルート（期待増 +0.3/週と小）
+  - OPP-927fd9bd18 → sidebar CTA 配置確認ルート（クリック率 0.11%・中央値 0.25%）
+  - OPP-a46bb7473d / OPP-4d24176d60 → EXP-020 対象の可能性あり・CTA 配置確認に限定するルート
+  - x/social 急落・Hidden-Winner 需要シフトはダイジェスト外（自前抽出・OPP なし）→ 戦略判断枠ルート
+- 注記（自動生成・人間の上書き歓迎）: ダイジェスト W41 の clicks 23 と GSC 日別合計 354 が桁違い＝集計定義の確認が必要。Pattern 2/3/7/8 は「該当なし」と「検出器未稼働」を区別できず。EXP-020/021 対象 URL へのメタ提案なし・canonical 13 件 / standards 権威性の再提案なし
+
+### 2026-10-16（coverage・自動レビュー）
+
+- 観測（batch 2026-10-14・history 該当エントリと完全一致・再集計でも一致確認済み）: inspected 1,689 / sitemap 1,689（差分 0）・indexed 1,528・ratio **90.5%**（前回 10-07 81.6% → **+8.9pt**）・discovered-not-indexed 94（5.6%）・crawled-not-indexed 3・hygiene（404+redirect）0・other 64（未認識 51＋canonical 不一致 10＋検査エラー 3）
+- 改善の中身: discovered → indexed の遷移が約 175 件（/standards/kyushu 30・/exam/pe-construction 28・/standards/kinki 18 など地域 standards と pe-construction で過半）。分母 +68（新規は /practice 36・civil-construction-1 14 等、うち indexed 31・未登録 37）
+- 原因バケット:
+  - 権威性: discovered 94 + crawled 3 + 未認識 51 ＝計 148 件（8.8%・前回観測 311 件から半減）。偏在は /practice 30・pe-first-stage 19・/standards/ 約 50
+  - 技術: FAILED/ROBOTS_DENIED/5xx 0 件。検査エラー（API Internal error）3 件のみ＝ /standards/hokkaido 配下・うち 2 件は前回 indexed・一時エラーの可能性が高く次回再現を観測
+  - hygiene: 404・redirect 0 件。canonical 不一致 **13 → 10 件**（解消 3・新規 0。残り 10 件は全件 google 正規が旧 /docs/・うち 9 件が pe-comprehensive-management/keywords 配下）。代表: /exam/concrete-chief-engineer/textbook/products・/exam/pe-comprehensive-management/keywords/authenticity・同 competency-hr
+- 前回の答え合わせ: (1) canonical 不一致は縮小継続 → 「様子見」裁定を維持 (2) 未認識 59 → 51（pe-construction 13→7・kyushu 9→6 と旧偏在は解消方向だが、新規 URL 由来で /standards/mlit 8・/practice 8 が入れ替わり純減は小） (3) legacy 除外の効果は出ていると読めるが、同日の favicon・内部リンク 23 記事と分離できず因果は断定しない
+- 推奨アクション（判断マトリクスに沿う）:
+  1. 異常なし・改善基調。canonical 不一致 10 件は「様子見」継続、残存が pe-comprehensive-management/keywords に集中しているため次回も同セグメントの推移だけ見る
+  2. /standards/ 権威性枠は 311 → 148 件へ半減。裁定待ちの戦略判断（被リンク獲得 vs 統合）は材料が変わったため週次/月次レビューで再評価を推奨
+  3. /standards/hokkaido の検査エラー 3 件（common・local/part-01・part-02）は次回 batch で再現したときだけ技術調査に起票
+- 異常フラグ: なし（ratio 90.5%≥60% / 前回比 +8.9pt / discovered 5.6%<20% / hygiene 0 / inspected=sitemap / results 1,689 件・前回比 +4.2%）
+- 注記: 自動生成・最終決定は人間。batch 実体は `data/gsc/url-inspection/2026-10-14T06-52-54.json`。新規 68 件中 37 件が未登録/未認識のため、今後も分母増が ratio を押し下げる局面はあり得る

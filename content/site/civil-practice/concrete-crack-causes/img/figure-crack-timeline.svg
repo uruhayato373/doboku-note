@@ -1,7 +1,7 @@
 <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
      style="max-width:400px;width:100%"
      role="img"
-     aria-label="コンクリートのひび割れを発生時期、主な原因、典型的な位置で切り分け、時間が上から下へ連続して進むことを示す図">
+     aria-label="コンクリートのひび割れを発生時期、主な原因、典型的な位置、処置の窓で切り分けた図。上は数時間で進行が止まり、下は年単位で進行する。時間の目盛りは対数風">
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
@@ -25,48 +25,59 @@
     </marker>
   </defs>
 
-  <text class="t-summary" x="20" y="18">上から下へ時間が進む。4区分の境界は連続的な目安</text>
-
-  <rect class="axis-band" x="20" y="31" width="64" height="416" rx="8"/>
-  <text class="t-axis" x="52" y="49" text-anchor="middle">時間</text>
-  <line class="axis-line" x1="52" y1="57" x2="52" y2="441" marker-end="url(#time-arrow)"/>
-
-  <rect class="box-brand" x="85" y="31" width="295" height="93" rx="8"/>
-  <circle class="dot-brand" cx="52" cy="77" r="8"/>
+  <text class="t-summary" x="20" y="18">上は数時間で進行が止まり、下は年単位で進行する</text>
+  <rect class="axis-band" x="20" y="28" width="64" height="400" rx="8"/>
+  <text class="t-axis" x="52" y="46" text-anchor="middle">時間</text>
+  <line class="axis-line" x1="52" y1="54" x2="52" y2="420" marker-end="url(#time-arrow)"/>
+  <rect class="box-brand" x="85" y="34" width="295" height="90" rx="8"/>
+  <circle class="dot-brand" cx="52" cy="74" r="8"/>
+  <rect x="24" y="87" width="56" height="17" fill="#f5f5f5"/>
+  <text class="t-field" x="52" y="100" text-anchor="middle">数時間</text>
   <text class="t-field" x="100" y="54">発生時期</text>
-  <text class="t-value" x="170" y="54">打込み後数時間</text>
-  <text class="t-field" x="100" y="84">主な原因</text>
-  <text class="t-value" x="170" y="84">沈下</text>
-  <text class="t-field" x="100" y="108">典型的な位置</text>
-  <text class="t-value" x="190" y="108">鉄筋・型枠沿い</text>
-
-  <rect class="box-brand" x="85" y="136" width="295" height="93" rx="8"/>
-  <circle class="dot-brand" cx="52" cy="182" r="8"/>
-  <text class="t-field" x="100" y="159">発生時期</text>
-  <text class="t-value" x="170" y="159">数日〜2週間</text>
-  <text class="t-field" x="100" y="189">主な原因</text>
-  <text class="t-value" x="170" y="189">温度応力</text>
-  <text class="t-field" x="100" y="213">典型的な位置</text>
-  <text class="t-value" x="190" y="213">部材中央・等間隔</text>
-
-  <rect class="box-warn" x="85" y="241" width="295" height="93" rx="8"/>
-  <circle class="dot-warn" cx="52" cy="287" r="8"/>
-  <text class="t-field" x="100" y="264">発生時期</text>
-  <text class="t-value" x="170" y="264">数週間〜数か月</text>
-  <text class="t-field" x="100" y="294">主な原因</text>
-  <text class="t-value" x="170" y="294">乾燥収縮</text>
-  <text class="t-field" x="100" y="318">典型的な位置</text>
-  <text class="t-value" x="190" y="318">開口部・隅角部</text>
-
-  <rect class="box-danger" x="85" y="346" width="295" height="93" rx="8"/>
-  <circle class="dot-danger" cx="52" cy="392" r="8"/>
-  <text class="t-field" x="100" y="369">発生時期</text>
-  <text class="t-value" x="170" y="369">数年〜数十年</text>
-  <text class="t-field" x="100" y="399">主な原因</text>
-  <text class="t-value" x="170" y="399">劣化（塩害等）</text>
-  <text class="t-field" x="100" y="423">典型的な位置</text>
-  <text class="t-value" x="190" y="423">鉄筋沿い・錆汁</text>
-
-  <rect class="box-surface" x="20" y="448" width="360" height="39" rx="6"/>
-  <text class="t-summary" x="200" y="472" text-anchor="middle">厳密な境界はなく、部材厚・養生条件で前後する</text>
+  <text class="t-value" x="190" y="54">打込み後数時間</text>
+  <text class="t-field" x="100" y="74">主な原因</text>
+  <text class="t-value" x="190" y="74">沈下</text>
+  <text class="t-field" x="100" y="94">典型的な位置</text>
+  <text class="t-value" x="190" y="94">鉄筋・型枠沿い</text>
+  <text class="t-field" x="100" y="114">処置の窓</text>
+  <text class="t-value" x="190" y="114">凝結が終わる前にタンピング</text>
+  <rect class="box-brand" x="85" y="132" width="295" height="90" rx="8"/>
+  <circle class="dot-brand" cx="52" cy="172" r="8"/>
+  <rect x="24" y="185" width="56" height="17" fill="#f5f5f5"/>
+  <text class="t-field" x="52" y="198" text-anchor="middle">数日</text>
+  <text class="t-field" x="100" y="152">発生時期</text>
+  <text class="t-value" x="190" y="152">数日〜2週間</text>
+  <text class="t-field" x="100" y="172">主な原因</text>
+  <text class="t-value" x="190" y="172">温度応力</text>
+  <text class="t-field" x="100" y="192">典型的な位置</text>
+  <text class="t-value" x="190" y="192">部材中央・等間隔</text>
+  <text class="t-field" x="100" y="212">処置の窓</text>
+  <text class="t-value" x="190" y="212">貫通の有無を確認する</text>
+  <rect class="box-warn" x="85" y="230" width="295" height="90" rx="8"/>
+  <circle class="dot-warn" cx="52" cy="270" r="8"/>
+  <rect x="24" y="283" width="56" height="17" fill="#f5f5f5"/>
+  <text class="t-field" x="52" y="296" text-anchor="middle">数か月</text>
+  <text class="t-field" x="100" y="250">発生時期</text>
+  <text class="t-value" x="190" y="250">数週間〜数か月</text>
+  <text class="t-field" x="100" y="270">主な原因</text>
+  <text class="t-value" x="190" y="270">乾燥収縮</text>
+  <text class="t-field" x="100" y="290">典型的な位置</text>
+  <text class="t-value" x="190" y="290">開口部・隅角部</text>
+  <text class="t-field" x="100" y="310">処置の窓</text>
+  <text class="t-value" x="190" y="310">幅が安定してから塗布・注入</text>
+  <rect class="box-danger" x="85" y="328" width="295" height="90" rx="8"/>
+  <circle class="dot-danger" cx="52" cy="368" r="8"/>
+  <rect x="24" y="381" width="56" height="17" fill="#f5f5f5"/>
+  <text class="t-field" x="52" y="394" text-anchor="middle">数年</text>
+  <text class="t-field" x="100" y="348">発生時期</text>
+  <text class="t-value" x="190" y="348">数年〜数十年</text>
+  <text class="t-field" x="100" y="368">主な原因</text>
+  <text class="t-value" x="190" y="368">劣化（塩害等）</text>
+  <text class="t-field" x="100" y="388">典型的な位置</text>
+  <text class="t-value" x="190" y="388">鉄筋沿い・錆汁</text>
+  <text class="t-field" x="100" y="408">処置の窓</text>
+  <text class="t-value" x="190" y="408">記録して専門調査へ</text>
+  <rect class="box-surface" x="20" y="436" width="360" height="52" rx="6"/>
+  <text class="t-summary" x="200" y="456" text-anchor="middle">時間の目盛りは対数風（時間→日→月→年）</text>
+  <text class="t-summary" x="200" y="474" text-anchor="middle">境界は目安で、部材厚・養生条件で前後する</text>
 </svg>

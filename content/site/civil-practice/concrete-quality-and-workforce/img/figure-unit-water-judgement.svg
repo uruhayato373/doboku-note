@@ -1,0 +1,29 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は、単位水量の測定結果の三段の判定（配合設計との差）。数値は記事本文のみ。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="単位水量の測定結果を、配合設計の単位水量との差で三段に判定する図。差が15キロ以内ならそのまま施工。15を超え20キロ以内は原因を調べて工場に改善を指示し、その運搬車の分は打設。20キロを超えたら打ち込まずに持ち帰らせる。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }
+      .hd { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .lb { font-size: 12px; fill: #555; }
+      .in { font-size: 13px; font-weight: bold; fill: #1a3a5c; text-anchor: middle; }
+      .t { font-size: 13px; fill: #222; }
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .wrn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .dng { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .brd { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .ar { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+  <rect class="brd" x="24" y="12" width="352" height="64" rx="8"/>
+  <text class="in" x="200" y="38">単位水量を測る</text><text class="lb" x="200" y="60" text-anchor="middle">1日100m³以上の施工なら、1日2回以上</text>
+  <path class="ar" d="M200,76V100" marker-end="url(#ah)"/><text class="lb" x="212" y="94">配合設計との差</text>
+  <rect class="pos" x="24" y="104" width="352" height="84" rx="8"/>
+  <text class="hd" x="38" y="130">差が ±15kg/m³ 以内</text><text class="t" x="38" y="156">そのまま施工してかまわない</text>
+  <rect class="wrn" x="24" y="200" width="352" height="96" rx="8"/>
+  <text class="hd" x="38" y="226">±15 を超え ±20kg/m³ の範囲</text><text class="t" x="38" y="252">原因を調べて、工場に改善を指示する</text><text class="t" x="38" y="276">その運搬車の分は打設する</text>
+  <rect class="dng" x="24" y="308" width="352" height="84" rx="8"/>
+  <text class="hd" x="38" y="334">±20kg/m³ を超える</text><text class="t" x="38" y="360">打ち込まずに持ち帰らせる</text>
+  <rect class="brd" x="24" y="408" width="352" height="76" rx="8"/>
+  <text class="hd" x="38" y="434">測るだけで終わらない</text><text class="t" x="38" y="458">範囲を外れたら、工場への改善指示と、</text><text class="t" x="38" y="476">安定するまでの追加の測定が続く</text>
+</svg>

@@ -7,6 +7,9 @@
       .h2 { font-size: 12px; fill: #555; }
       .lb { font-size: 11px; fill: #555; }
       .cd { font-size: 13px; fill: #222; }
+      .cs { font-size: 12px; fill: #222; }
+      .tg { font-size: 11px; font-weight: bold; fill: #2e6da4; }
+      .nt { font-size: 11px; fill: #555; }
       .sl { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
       .wn { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
       .card { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
@@ -20,35 +23,49 @@
 
   <rect class="strip" x="10" y="10" width="380" height="52" rx="8"/>
   <text class="h1" x="22" y="32">先に、条件のほうを動かせないか</text>
-  <text class="h2" x="22" y="51">水を避ける・配筋を直す・時期を変える</text>
-  <path class="ar" d="M40,62V82" marker-end="url(#ah)"/>
-  <text class="lb" x="52" y="78">それでも残った条件だけ</text>
-
-  <rect class="card" x="10" y="90" width="190" height="38" rx="8"/><text class="cd" x="20" y="114">日平均気温が4℃以下</text>
-  <path class="ar" d="M203,109H223" marker-end="url(#ah)"/>
-  <rect class="sel" x="226" y="90" width="164" height="38" rx="8"/><text class="sl" x="236" y="114">寒中</text>
-  <rect class="card" x="10" y="134" width="190" height="38" rx="8"/><text class="cd" x="20" y="158">日平均気温が25℃超</text>
-  <path class="ar" d="M203,153H223" marker-end="url(#ah)"/>
-  <rect class="sel" x="226" y="134" width="164" height="38" rx="8"/><text class="sl" x="236" y="158">暑中</text>
-  <rect class="card" x="10" y="178" width="190" height="38" rx="8"/><text class="cd" x="20" y="202">打込み温度が35℃を超える</text>
-  <path class="ar" d="M203,197H223" marker-end="url(#ah)"/>
-  <rect class="sel" x="226" y="178" width="164" height="38" rx="8"/><text class="sl" x="236" y="202">35℃を超える暑中</text>
-  <rect class="card" x="10" y="222" width="190" height="38" rx="8"/><text class="cd" x="20" y="238">水和熱が問題になる</text><text class="cd" x="20" y="254">厚い部材</text>
-  <path class="ar" d="M203,241H223" marker-end="url(#ah)"/>
-  <rect class="sel" x="226" y="222" width="164" height="38" rx="8"/><text class="sl" x="236" y="246">マス</text>
-  <rect class="card" x="10" y="266" width="190" height="38" rx="8"/><text class="cd" x="20" y="290">水の中で打つ</text>
-  <path class="ar" d="M203,285H223" marker-end="url(#ah)"/>
-  <rect class="sel" x="226" y="266" width="164" height="38" rx="8"/><text class="sl" x="236" y="290">水中・水中不分離性</text>
-  <rect class="card" x="10" y="310" width="190" height="38" rx="8"/><text class="cd" x="20" y="326">配筋が込み、</text><text class="cd" x="20" y="342">締固めが難しい</text>
-  <path class="ar" d="M203,329H223" marker-end="url(#ah)"/>
-  <rect class="sel" x="226" y="310" width="164" height="38" rx="8"/><text class="sl" x="236" y="334">高流動・流動化</text>
-  <rect class="card" x="10" y="354" width="190" height="38" rx="8"/><text class="cd" x="20" y="378">強度・軽さ・収縮補償</text>
-  <path class="ar" d="M203,373H223" marker-end="url(#ah)"/>
-  <rect class="sel" x="226" y="354" width="164" height="38" rx="8"/><text class="sl" x="236" y="378">高強度・軽量骨材・膨張</text>
-  <rect class="card" x="10" y="398" width="190" height="38" rx="8"/><text class="cd" x="20" y="422">型枠なしで面に付ける</text>
-  <path class="ar" d="M203,417H223" marker-end="url(#ah)"/>
-  <rect class="sel" x="226" y="398" width="164" height="38" rx="8"/><text class="sl" x="236" y="422">吹付け・短繊維補強</text>
-
-  <rect class="warn" x="10" y="450" width="380" height="40" rx="8"/>
-  <text class="wn" x="22" y="475">条件が重なると、対策が逆を向く</text>
+  <text class="h2" x="22" y="51">行ごとに、先に動かせないか見る</text>
+  <path class="ar" d="M40,62V80" marker-end="url(#ah)"/>
+  <text class="lb" x="52" y="76">それでも残った条件だけ</text>
+  <rect class="card" x="10" y="90" width="190" height="34" rx="8"/>
+  <text class="tg" x="20" y="103">先に：打設時期を変える</text>
+  <text class="cd" x="20" y="118">日平均気温が4℃以下</text>
+  <path class="ar" d="M203,107H223" marker-end="url(#ah)"/>
+  <rect class="sel" x="226" y="90" width="164" height="34" rx="8"/><text class="sl" x="236" y="112">寒中</text>
+  <rect class="card" x="10" y="130" width="190" height="34" rx="8"/>
+  <text class="tg" x="20" y="143">先に：打設時期を変える</text>
+  <text class="cd" x="20" y="158">日平均気温が25℃超</text>
+  <path class="ar" d="M203,147H223" marker-end="url(#ah)"/>
+  <rect class="sel" x="226" y="130" width="164" height="34" rx="8"/><text class="sl" x="236" y="152">暑中</text>
+  <rect class="card" x="28" y="170" width="172" height="34" rx="8"/>
+  <text class="cd" x="38" y="192">打込み温度が35℃を超える</text>
+  <path class="ar" d="M203,187H223" marker-end="url(#ah)"/>
+  <rect class="sel" x="226" y="170" width="164" height="34" rx="8"/><text class="sl" x="236" y="192">35℃超の暑中（別章）</text>
+  <rect class="card" x="10" y="210" width="190" height="34" rx="8"/>
+  <text class="cs" x="20" y="232">水和熱が問題になる厚い部材</text>
+  <path class="ar" d="M203,227H223" marker-end="url(#ah)"/>
+  <rect class="sel" x="226" y="210" width="164" height="34" rx="8"/><text class="sl" x="236" y="232">マス</text>
+  <rect class="card" x="10" y="250" width="190" height="34" rx="8"/>
+  <text class="tg" x="20" y="263">先に：水を避ける</text>
+  <text class="cd" x="20" y="278">水の中で打つ</text>
+  <path class="ar" d="M203,267H223" marker-end="url(#ah)"/>
+  <rect class="sel" x="226" y="250" width="164" height="34" rx="8"/><text class="sl" x="236" y="272">水中・水中不分離性</text>
+  <rect class="card" x="10" y="290" width="190" height="34" rx="8"/>
+  <text class="tg" x="20" y="303">先に：配筋を直す</text>
+  <text class="cs" x="20" y="318">配筋が込み、締固めが難しい</text>
+  <path class="ar" d="M203,307H223" marker-end="url(#ah)"/>
+  <rect class="sel" x="226" y="290" width="164" height="34" rx="8"/><text class="sl" x="236" y="312">高流動・流動化</text>
+  <rect class="card" x="10" y="330" width="190" height="34" rx="8"/>
+  <text class="cd" x="20" y="352">強度・軽さ・収縮補償</text>
+  <path class="ar" d="M203,347H223" marker-end="url(#ah)"/>
+  <rect class="sel" x="226" y="330" width="164" height="34" rx="8"/><text class="sl" x="236" y="352">高強度・軽量骨材・膨張</text>
+  <rect class="card" x="10" y="370" width="190" height="34" rx="8"/>
+  <text class="cd" x="20" y="392">型枠なしで面に付ける</text>
+  <path class="ar" d="M203,387H223" marker-end="url(#ah)"/>
+  <rect class="sel" x="226" y="370" width="164" height="34" rx="8"/><text class="sl" x="236" y="392">吹付け・短繊維補強</text>
+  <path d="M18,164 V187 H27" fill="none" stroke="#2e6da4" stroke-width="1.5"/>
+  <rect class="warn" x="10" y="414" width="380" height="78" rx="8"/>
+  <text class="wn" x="22" y="434">条件が重なると、対策が逆を向く</text>
+  <text class="nt" x="22" y="452">冬×厚い部材：給熱・早強が最高温度を上げる</text>
+  <text class="nt" x="22" y="468">厚い部材×高強度・高流動：結合材増で水和熱が増える</text>
+  <text class="nt" x="22" y="484">寒冷地×軽量骨材：吸水が圧送と凍結融解に響く</text>
 </svg>

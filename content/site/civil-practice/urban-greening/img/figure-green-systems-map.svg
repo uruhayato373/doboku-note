@@ -1,61 +1,66 @@
 <!-- authored 2026-10-16 doboku-note 自作。論点は都市緑地法・都市公園法の緑の制度の切り分け（計画・守る緑・つくる緑・民有地の緑）。特定の書籍図の複製ではない -->
-<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="緑の制度の関係図。緑の基本計画を中心に、守る緑（特別緑地保全地区）、つくる緑（都市公園・公共施設の緑化）、民有地の緑（緑化地域・市民緑地）の三つに分け、それぞれの根拠と手続を添えている。土木担当が直接かかわるのは公共空間の緑と自団体の建物の緑化の条件。">
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="緑の制度の関係図。緑の基本計画は任意で、守る緑、つくる緑、民有地の緑を束ねる。公共施設の緑化は法律の制度ではなく、工事の仕様書と手引の話で、計画の枠の外に置く。土木担当は公共空間の緑と自団体の建物の緑化の条件に直接かかわる。">
   <defs>
     <style>
-      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
-      .n { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
       .t { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
-      .wn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
-      .cp { fill: #fff; stroke: #2e6da4; stroke-width: 1.5; }
-      .cg { fill: #fff; stroke: #3a7d44; stroke-width: 1.5; }
-      .cs { fill: #fff; stroke: #8a8a8a; stroke-width: 1.5; }
-      .pp { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1; }
-      .pb { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1; }
-      .ps { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1; }
+      .x { font-size: 12px; fill: #222; }
+      .s { font-size: 11px; fill: #555; }
+      .sb { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .g { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .wh { fill: #fff; stroke: #8a8a8a; stroke-width: 1.5; }
+      .dz { fill: #fff; stroke: #2e6da4; stroke-width: 1.5; stroke-dasharray: 4 3; }
+      .l { stroke: #d7d7d7; stroke-width: 1; fill: none; }
+      .ln { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .ld { stroke: #8a8a8a; stroke-width: 1; fill: none; stroke-dasharray: 3 3; }
       .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ar { stroke: #b22234; stroke-width: 2; fill: none; }
+      .ag { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .ax { stroke: #8a8a8a; stroke-width: 2; fill: none; }
     </style>
     <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+    <marker id="ahr" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#b22234"/></marker>
+    <marker id="ahg" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#3a7d44"/></marker>
+    <marker id="ahk" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#8a8a8a"/></marker>
   </defs>
-
-  <!-- 計画 -->
-  <rect class="wn" x="14" y="14" width="372" height="62" rx="8"/>
-  <text class="n" x="200" y="38" text-anchor="middle">緑の基本計画</text>
-  <text x="200" y="56" text-anchor="middle">市町村が任意で定める（都市緑地法第4条）</text>
-  <text x="200" y="69" text-anchor="middle">公園・守る緑・民有地の緑を一つにそろえる</text>
-
-  <!-- 計画から三つへ -->
-  <path class="a" d="M14,45H7V148H20" marker-end="url(#ah)"/>
-  <path class="a" d="M7,148V254H20" marker-end="url(#ah)"/>
-  <path class="a" d="M7,254V360H20" marker-end="url(#ah)"/>
-
-  <!-- 守る緑 -->
-  <rect class="cg" x="22" y="100" width="364" height="100" rx="8"/>
-  <rect class="pp" x="30" y="108" width="84" height="22" rx="11"/><text class="t" x="72" y="123" text-anchor="middle">守る緑</text>
-  <text class="t" x="34" y="148">特別緑地保全地区</text>
-  <text x="34" y="164">都市計画に定める（第12条）</text>
-  <text x="34" y="179">許可は都道府県知事等（第14条）</text>
-  <text x="34" y="193">国・自治体の行為は許可でなく事前の協議</text>
-
-  <!-- つくる緑 -->
-  <rect class="cp" x="22" y="208" width="364" height="100" rx="8"/>
-  <rect class="pb" x="30" y="216" width="84" height="22" rx="11"/><text class="t" x="72" y="231" text-anchor="middle">つくる緑</text>
-  <rect class="wn" x="268" y="216" width="110" height="22" rx="11"/><text class="t" x="323" y="231" text-anchor="middle">土木担当が直接</text>
-  <text class="t" x="34" y="256">都市公園（都市公園法第3条）</text>
-  <text x="34" y="271">市町村は基本計画に即して設置するよう努める</text>
-  <text class="t" x="34" y="289">公共施設の緑化</text>
-  <text x="34" y="303">工事の発注と維持管理の話（仕様書・手引）</text>
-
-  <!-- 民有地の緑 -->
-  <rect class="cs" x="22" y="316" width="364" height="100" rx="8"/>
-  <rect class="ps" x="30" y="324" width="84" height="22" rx="11"/><text class="t" x="72" y="339" text-anchor="middle">民有地の緑</text>
-  <text class="t" x="34" y="364">緑化地域（第34条・第35条）</text>
-  <text x="34" y="379">都市計画で緑化率の最低限度を定める</text>
-  <text class="t" x="34" y="397">市民緑地（第55条・第60条）</text>
-  <text x="34" y="411">契約、または市町村長の認定</text>
-
-  <!-- 切り分けの結論 -->
-  <rect class="wn" x="10" y="428" width="380" height="64" rx="8"/>
-  <text class="t" x="20" y="448">土木担当が直接かかわるのは二つ</text>
-  <text x="20" y="466">公共空間の緑と、自団体の建物の緑化の条件</text>
-  <text x="20" y="481">民有地の義務づけは、知っておくと協議が速い</text>
+  <rect class="w" x="10" y="10" width="380" height="64" rx="8"/>
+  <text class="n" x="200" y="32" text-anchor="middle">緑の基本計画</text>
+  <text class="x" x="200" y="50" text-anchor="middle">市町村が任意で定める（都市緑地法第4条）</text>
+  <text class="s" x="200" y="66" text-anchor="middle">策定済みは約半数（令和7年3月31日現在50.9%）</text>
+  <path d="M28,88H12V330H28" fill="none" stroke="#8a8a8a" stroke-width="2"/>
+  <rect class="g" x="28" y="84" width="362" height="92" rx="8"/>
+  <rect class="p" x="36" y="92" width="84" height="22" rx="11"/>
+  <text class="t" x="78.0" y="107" text-anchor="middle">守る緑</text>
+  <rect class="w" x="250" y="92" width="132" height="22" rx="11"/>
+  <text class="t" x="316.0" y="107" text-anchor="middle">土木担当は協議</text>
+  <text class="t" x="36" y="134" text-anchor="start">特別緑地保全地区</text>
+  <text class="s" x="36" y="150" text-anchor="start">都市計画に定める（第12条）・許可は都道府県知事等（第14条）</text>
+  <text class="s" x="36" y="166" text-anchor="start">国・自治体の行為は、許可でなく事前の協議</text>
+  <rect class="g" x="28" y="184" width="362" height="70" rx="8"/>
+  <rect class="b" x="36" y="192" width="84" height="22" rx="11"/>
+  <text class="t" x="78.0" y="207" text-anchor="middle">つくる緑</text>
+  <rect class="w" x="250" y="192" width="132" height="22" rx="11"/>
+  <text class="t" x="316.0" y="207" text-anchor="middle">土木担当が直接</text>
+  <text class="t" x="36" y="232" text-anchor="start">都市公園（都市公園法第3条）</text>
+  <text class="s" x="36" y="248" text-anchor="start">市町村は基本計画に即して設置するよう努める</text>
+  <rect class="g" x="28" y="262" width="362" height="76" rx="8"/>
+  <rect class="p" x="36" y="270" width="84" height="22" rx="11"/>
+  <text class="t" x="78.0" y="285" text-anchor="middle">民有地の緑</text>
+  <rect class="w" x="230" y="270" width="152" height="22" rx="11"/>
+  <text class="t" x="306.0" y="285" text-anchor="middle">自団体の建物も対象</text>
+  <text class="t" x="36" y="312" text-anchor="start">緑化地域（第34条・第35条）：緑化率の最低限度</text>
+  <text class="s" x="36" y="328" text-anchor="start">市民緑地（第55条・第60条）：契約、または市町村長の認定</text>
+  <rect class="b" x="10" y="350" width="380" height="66" rx="8" style="fill:#fff;stroke-dasharray:5 4"/>
+  <text class="t" x="20" y="372" text-anchor="start">公共施設の緑化（基本計画の枠の外）</text>
+  <text class="x" x="20" y="390" text-anchor="start">法律の制度ではなく、工事の仕様書と自治体の手引</text>
+  <text class="s" x="20" y="406" text-anchor="start">屋上・壁面の緑化は、発注と維持管理の話</text>
+  <rect class="w" x="10" y="428" width="380" height="64" rx="8"/>
+  <text class="t" x="20" y="448" text-anchor="start">土木担当が直接かかわるのは二つ</text>
+  <text class="x" x="20" y="466" text-anchor="start">公共空間の緑と、自団体の建物の緑化の条件</text>
+  <text class="s" x="20" y="482" text-anchor="start">民有地の義務づけは、知っておくと協議が速い</text>
 </svg>

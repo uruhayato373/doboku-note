@@ -53,10 +53,11 @@
   <text class="tn" x="102.5" y="367.8" text-anchor="middle">受理から30日は</text>
   <text class="tn" x="102.5" y="386.0" text-anchor="middle">着手できない</text>
   <text class="ts" x="102.5" y="402.1" text-anchor="middle">（第18条第1項）</text>
-  <rect class="b-wh" x="205" y="334" width="185" height="92" rx="6"/>
-  <text class="tx" x="297.5" y="367.4" text-anchor="middle">通知の日数・様式は</text>
-  <text class="tx" x="297.5" y="384.2" text-anchor="middle">景観行政団体の</text>
-  <text class="tx" x="297.5" y="401.0" text-anchor="middle">条例や要綱で決まる</text>
+  <rect class="b-wh" x="205" y="334" width="185" height="92" rx="6" style="stroke-dasharray:4 3"/>
+  <text class="tn" x="297.5" y="361" text-anchor="middle">法に日数の定めなし</text>
+  <text class="tx" x="297.5" y="381" text-anchor="middle">通知の日数・様式は</text>
+  <text class="tx" x="297.5" y="397" text-anchor="middle">景観行政団体の</text>
+  <text class="tx" x="297.5" y="413" text-anchor="middle">条例や要綱で決まる</text>
   <rect class="b-sur" x="10" y="438" width="380" height="52" rx="6"/>
   <text class="ts" x="200.0" y="460.2" text-anchor="middle">通常の管理行為・軽易な行為、</text>
   <text class="ts" x="200.0" y="475.6" text-anchor="middle">非常災害の応急措置は通知の対象外（第16条第7項）</text>

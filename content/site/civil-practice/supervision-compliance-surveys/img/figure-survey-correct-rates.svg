@@ -34,9 +34,11 @@
   <rect class="b-sur" x="10" y="206" width="380" height="22" rx="4"/>
   <text class="tb" x="18" y="221.5">適正回答率が低い4項目</text>
   <text class="tx" x="14" y="248">契約締結方法</text>
+  <text class="ts" x="94" y="248">請負契約書の相互交付か、約款の添付か</text>
   <rect class="b-warn" x="14" y="256" width="206.91" height="18" rx="3"/>
   <text class="tn" x="226.91" y="270">62.7％</text>
   <text class="tx" x="14" y="302">施工体制台帳の添付書類</text>
+  <text class="ts" x="168" y="302">民間工事の台帳に必要書類を付けたか</text>
   <rect class="b-warn" x="14" y="310" width="160.71" height="18" rx="3"/>
   <text class="tn" x="180.71" y="324">48.7％</text>
   <text class="tx" x="14" y="356">契約条項</text>
@@ -47,5 +49,6 @@
   <text class="ts" x="94" y="410">見積条件14項目のすべてを示したか</text>
   <rect class="b-warn" x="14" y="418" width="59.06999999999999" height="18" rx="3"/>
   <text class="tn" x="79.07" y="432">17.9％</text>
+  <text class="ts" x="14" y="466">集計対象は17,756者（事業終了・請負実績なしを除く）</text>
   <text class="ts" x="14" y="488">出典：国土交通省 令和7年度下請取引等実態調査 結果概要</text>
 </svg>

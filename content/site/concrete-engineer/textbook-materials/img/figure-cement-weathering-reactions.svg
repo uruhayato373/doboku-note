@@ -2,7 +2,7 @@
 <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
   style="max-width:400px;width:100%"
   role="img"
-  aria-label="セメントの風化を示す2段階の化学反応。酸化カルシウムと水から水酸化カルシウム、続いて水酸化カルシウムと二酸化炭素から炭酸カルシウムと水が生じる">
+  aria-label="セメントの風化を示す2段階の化学反応。セメント中のCaO分と水から水酸化カルシウム、続いて水酸化カルシウムと二酸化炭素から炭酸カルシウムと水が生じる">
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
@@ -29,7 +29,7 @@
   <text class="t-lead" x="200" y="18" text-anchor="middle">貯蔵中のセメントに起こる風化の2段階</text>
   <rect class="box" x="40" y="34" width="140" height="46" rx="6" />
   <text class="t-form" x="110.0" y="56" text-anchor="middle"><tspan>CaO</tspan></text>
-  <text class="t-desc" x="110.0" y="73" text-anchor="middle">酸化カルシウム</text>
+  <text class="t-desc" x="110.0" y="73" text-anchor="middle">セメント中のCaO分</text>
   <rect class="box-b" x="220" y="34" width="140" height="46" rx="6" />
   <text class="t-form" x="290.0" y="56" text-anchor="middle"><tspan>H</tspan><tspan dy="3" font-size="11">2</tspan><tspan dy="-3">O</tspan></text>
   <text class="t-desc" x="290.0" y="73" text-anchor="middle">水（湿気）</text>
@@ -53,9 +53,11 @@
   <text class="t-desc" x="290.0" y="265" text-anchor="middle">水</text>
   <text class="t-form" x="200" y="254" text-anchor="middle">＋</text>
   <text class="t-label" x="200" y="296" text-anchor="middle">上段の生成物が中段の反応物になる</text>
-  <rect class="box" x="20" y="318" width="360" height="80" rx="6" />
+  <rect class="box" x="20" y="318" width="360" height="110" rx="6" />
   <text class="t-desc" x="34" y="342">風化＝貯蔵中に空気中の水分・CO₂と反応して変質</text>
   <text class="t-desc" x="34" y="364">水和に有効な成分が減り、強度発現が鈍くなる</text>
-  <text class="t-desc" x="34" y="386">風化が進むほど強熱減量は増える（品質判定の目安）</text>
+  <text class="t-label" x="34" y="386" style="font-weight:bold">風化の確かめ方</text>
+  <text class="t-desc" x="34" y="406">固まりの有無を見る／凝結や圧縮強さの試験</text>
+  <text class="t-desc" x="34" y="424">強熱減量は石灰石の混合でも増えるため単独では指標にならない</text>
 
 </svg>

@@ -18,7 +18,7 @@ sources:
 published: true
 publishedAt: '2026-09-01'
 created: 2026-09-01
-dateModified: 2026-10-15
+dateModified: 2026-10-16
 ogp:
   title: "コンクリート用材料"
 ---
@@ -37,7 +37,7 @@ ogp:
 
 <ArticleImage
   src="/posts/concrete-engineer/textbook-materials/img/figure-cement-manufacturing.svg"
-  alt="セメント製造の3工程。原料工程で粉砕・混合し、焼成工程で加熱してクリンカーを生成し、仕上工程でせっこうを加え粉砕する"
+  alt="セメント製造の3工程。原料を粉砕・混合し、焼成は低い温度から順にC₂S、C₃AとC₄AF、最後にC₃Sが生じ、仕上げでせっこうを加える"
   width={400}
   height={500}
 />
@@ -50,12 +50,20 @@ ogp:
 早強は「長期だけ強い」、低熱は「初期強度が大きい」といった反対の表現に注意します。セメント名から、反応速度、水和熱、初期・長期強度、主な用途を一続きで説明できるようにしておきましょう。
 </Callout>
 
+{/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
+<ArticleImage
+  src="/posts/concrete-engineer/textbook-materials/img/figure-clinker-compounds.svg"
+  alt="クリンカーの4化合物の比較。C₃Sは初期から28日程度、C₂Sは長期強度、C₃Aは速く発熱が大きい、C₄AFは寄与が小さい"
+  width={400}
+  height={500}
+/>
+
 セメントは、貯蔵中に空気中の水分や二酸化炭素と反応して少しずつ変質します。これは風化と呼ばれる現象です。水分と反応した部分は水酸化カルシウムなどに変わり、二酸化炭素と反応した部分は炭酸カルシウムに変わるため、風化が進むほど水和に有効な成分が減り、強度発現が鈍くなります。
 
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/concrete-engineer/textbook-materials/img/figure-cement-weathering-reactions.svg"
-  alt="セメントの風化の2段階反応。CaOとH₂OからCa(OH)₂、続いてCa(OH)₂とCO₂からCaCO₃とH₂Oが生じ、強熱減量の増加につながる"
+  alt="セメントの風化の2段階反応。CaO分とH₂OからCa(OH)₂、続いてCO₂と反応してCaCO₃が生じる。確かめ方は固まりの有無や凝結・圧縮強さ"
   width={400}
   height={500}
 />
@@ -176,7 +184,7 @@ JIS R5210は、ポルトランドセメントの品質を密度・比表面積�
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/concrete-engineer/textbook-materials/img/figure-aggregate-by-origin.svg"
-  alt="川の流れに沿った骨材の産地（山・上流・中下流・河口・火山・工場・平地・都市）と、天然・人工・再生の3区分の対応図"
+  alt="骨材の天然・人工・再生の3区分と例、出どころ。軽量骨材は人工と天然があり火山れきは天然。密度では軽量・普通・重量に分ける"
   width={400}
   height={500}
 />
@@ -232,7 +240,7 @@ $$
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/concrete-engineer/textbook-materials/img/figure-solid-volume-ratio.svg"
-  alt="1m³の容器に骨材粒を詰めた断面図。骨材粒と空隙を色分けし、実積率が骨材の実積を容器の容積で割った割合であることを示す"
+  alt="同じ容器に骨材を詰めた断面の比較。かみ合いが悪いと空隙が大きく実積率は小さく、良いと空隙が小さく実積率は大きい"
   width={400}
   height={500}
 />
@@ -325,6 +333,14 @@ JIS A 5308附属書Aの限度は、砂利が粘土塊量0.25％以下・微粒�
 高炉スラグ微粉末が緻密化するのは潜在水硬性によるもので、フライアッシュやシリカフュームのポゾラン反応とは機構が異なります。呼び方を入れ替えた選択肢に注意しましょう。
 </Callout>
 
+{/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
+<ArticleImage
+  src="/posts/concrete-engineer/textbook-materials/img/figure-admixture-reaction-groups.svg"
+  alt="混和材と混和剤の区分、混和材の3群。高炉スラグ微粉末は潜在水硬性、フライアッシュとシリカフュームはポゾラン反応、膨張材は膨張"
+  width={400}
+  height={500}
+/>
+
 <SpecSheetList
   title="材料変更を判断する4つの視点"
   items={[
@@ -357,7 +373,7 @@ AE剤は微細な独立気泡を連行し、ワーカビリティーと耐凍害
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/concrete-engineer/textbook-materials/img/figure-water-reducer-dispersion.svg"
-  alt="密集、減水剤の吸着、反発による分散の3段階と減水率の下限"
+  alt="密集、減水剤の吸着、分散の3段階と減水率の下限"
   width={400}
   height={500}
 />
@@ -378,7 +394,7 @@ AE剤は微細な独立気泡を連行し、ワーカビリティーと耐凍害
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/concrete-engineer/textbook-materials/img/figure-water-density-temperature.svg"
-  alt="水温0〜100℃と水の密度の折れ線グラフ。1.000から0.958g/cm³まで右下がりに低下する"
+  alt="水温0〜100℃と水の密度の折れ線グラフ。縦軸は0.96付近から。20℃から80℃で体積は約2.7％増える"
   width={400}
   height={500}
 />
@@ -389,7 +405,7 @@ AE剤は微細な独立気泡を連行し、ワーカビリティーと耐凍害
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/concrete-engineer/textbook-materials/img/figure-rebar-role-beam.svg"
-  alt="鉄筋なしの梁は荷重で割れて一気に破断し、鉄筋入りの梁は引張側の鉄筋が力を負担してひび割れても直ちには壊れないことを上下2段で対比した図"
+  alt="鉄筋なしの梁は引張側が割れて破断し、鉄筋ありの梁は引張側の鉄筋が力を負担する。熱膨張係数が近く付着で一体になる"
   width={400}
   height={500}
 />
