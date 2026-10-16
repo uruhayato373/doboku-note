@@ -21,7 +21,8 @@ test('多問の過去問は折りたたみ番号一覧と問1への直行で読�
 test('仕様書の表は横に続くときだけ案内を出し、キーボードでも読める', async ({ page }) => {
   await page.goto('/standards/kinki/common/chapters/1-3');
   await expect(page.locator('main article header')).toContainText('原本PDF');
-  const table = page.locator('.standard-verbatim').first();
+  // 表は原本と照合して組み直した表（横にはみ出すときだけフォーカスでき、案内が付く）
+  const table = page.locator('.standard-scroll-table').first();
   await expect(table).toBeVisible();
   const overflows = await table.evaluate(el => el.scrollWidth > el.clientWidth + 1);
   if (overflows) {

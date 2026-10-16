@@ -8,6 +8,7 @@ import SafeMdx from '@/components/mdx/SafeMdx';
 import SectionCard from '@/components/ui/SectionCard/SectionCard';
 import StandardsArticleHeader from '@/components/standards/StandardsArticleHeader';
 import StandardVerbatimTable from '@/components/standards/StandardVerbatimTable';
+import StandardScrollTable from '@/components/standards/StandardScrollTable';
 import StandardsAttribution from '@/components/standards/StandardsAttribution';
 import StandardsNavigation from '@/components/standards/StandardsNavigation';
 import StandardTopicLinks from '@/components/standards/StandardTopicLinks';
@@ -30,7 +31,6 @@ import {
 import { standardSectionPath } from '@/lib/standards-section-split.mjs';
 import { getTopicsForStandardText } from '@/lib/topics';
 import { buildStandardSectionStructuredData } from '@/lib/standards-structured-data';
-import type React from 'react';
 
 type Params = { agency: string; document: string; chapter: string; section: string };
 
@@ -110,11 +110,8 @@ export default async function StandardSectionPage({ params }: { params: Promise<
     SourceRef: (props: { pages: string; kind?: 'section' | 'table' | 'figure' }) => (
       <SourceRef {...props} document={entry} />
     ),
-    table: (props: React.ComponentProps<'table'>) => (
-      <div className="table-scroll">
-        <table {...props} />
-      </div>
-    ),
+    // はみ出すときだけキーボードで操作でき、案内を出す（scrollable-region-focusable）
+    table: StandardScrollTable,
   };
 
   return (

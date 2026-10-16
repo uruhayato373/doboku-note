@@ -9,6 +9,7 @@ import SectionCard from '@/components/ui/SectionCard/SectionCard';
 import StandardsArticleHeader from '@/components/standards/StandardsArticleHeader';
 import StandardSectionIndex from '@/components/standards/StandardSectionIndex';
 import StandardVerbatimTable from '@/components/standards/StandardVerbatimTable';
+import StandardScrollTable from '@/components/standards/StandardScrollTable';
 import StandardsAttribution from '@/components/standards/StandardsAttribution';
 import StandardDataLinks from '@/components/standards/StandardDataLinks';
 import StandardsNavigation from '@/components/standards/StandardsNavigation';
@@ -34,7 +35,6 @@ import {
   buildStandardChapterStructuredData,
   standardsDataPath,
 } from '@/lib/standards-structured-data';
-import type React from 'react';
 
 type Params = { agency: string; document: string; chapter: string };
 
@@ -111,11 +111,8 @@ export default async function StandardChapterPage({ params }: { params: Promise<
     SourceRef: (props: { pages: string; kind?: 'section' | 'table' | 'figure' }) => (
       <SourceRef {...props} document={entry} />
     ),
-    table: (props: React.ComponentProps<'table'>) => (
-      <div className="table-scroll">
-        <table {...props} />
-      </div>
-    ),
+    // はみ出すときだけキーボードで操作でき、案内を出す（scrollable-region-focusable）
+    table: StandardScrollTable,
   };
 
   return (
