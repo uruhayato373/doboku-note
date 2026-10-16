@@ -19,7 +19,7 @@ sources:
 published: true
 publishedAt: '2026-09-01'
 created: 2026-09-01
-dateModified: 2026-10-15
+dateModified: 2026-10-16
 ogp:
   title: "製造・品質管理"
 ---
@@ -124,7 +124,7 @@ JIS Q 1011（2019年版の公開本文）の附属書Aは、材料ごとの確�
 
 <ArticleImage
   src="/posts/concrete-engineer/textbook-production-qc/img/figure-plant-layout.svg"
-  alt="生コン工場の設備配置を骨材ヤード・セメントサイロから計量器・ミキサ・トラックアジテータを経て現場へ至る流れで示す図"
+  alt="生コン工場の設備の流れ。貯蔵、搬送、計量、練混ぜ、運搬を経て現場へ。洗車の排水は処理し、回収骨材・回収水は材料へ戻す"
   width={400}
   height={500}
 />
@@ -272,7 +272,7 @@ JIS A 5308 では、練混ぜを開始してから運搬車が荷卸し地点に
 
 <ArticleImage
   src="/posts/concrete-engineer/textbook-production-qc/img/figure-three-inspections.svg"
-  alt="生コン工場の3つの検査（原材料受入検査・工程検査・製品検査）を製造フロー上に並べ、誰が何をどの頻度で確認するかを示す図"
+  alt="3つの検査を製造の流れに重ねた図。原材料受入検査と工程検査は工場、製品検査は購入者。強度は150 m³に1回を標準とする"
   width={400}
   height={500}
 />
@@ -319,6 +319,14 @@ JIS A 5308は、出荷時のコンクリート温度や運搬時間が標準か�
   ]}
 />
 
+{/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
+<ArticleImage
+  src="/posts/concrete-engineer/textbook-production-qc/img/figure-acceptance-judgement-forms.svg"
+  alt="受入試験の判定の形。スランプと空気量は範囲、塩化物は上限、強度は1回85％以上かつ3回平均が呼び強度以上"
+  width={400}
+  height={500}
+/>
+
 スランプと空気量は、指定値に対する許容範囲で判定する項目であり、どちらかが範囲を外れた場合は、同一バッチの別の試料でスランプと空気量の両方を再試験します。片方だけを再試験して合否を決めることはできません。塩化物含有量は、個々の測定値をそのまま上限と比較する個別判定であり、複数回の平均値をとって判定してはなりません。圧縮強度は、1回の試験結果が呼び強度の85 %以上であることと、3回の試験結果の平均値が呼び強度以上であることの二条件を同時に満たして初めて合格となります。
 
 受入試験でよくある誤りは、一部の運搬車だけから試料を採取して代表試料とみなすこと、3回の平均が基準を満たしているからと1回ごとの条件を確認しないこと、塩化物量を複数回の平均で判断することです。いずれも、判定の単位を個別の測定値からロット全体の傾向へすり替えてしまう点で共通します。
@@ -342,7 +350,7 @@ JIS A 5308は、出荷時のコンクリート温度や運搬時間が標準か�
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/concrete-engineer/textbook-production-qc/img/figure-normal-distribution-variation.svg"
-  alt="同じ平均でばらつき小（高く鋭い）とばらつき大（低くなだらか）の2つの正規分布と変動係数"
+  alt="同じ平均でばらつき小とばらつき大の2つの正規分布。規格の下限より下の裾はばらつき大のほうが広い"
   width={400}
   height={500}
 />
@@ -361,6 +369,14 @@ $$
 平均強度が異なる配合の安定性を比べる場合、標準偏差だけより変動係数が有効です。変動係数が大きいほど、同じ不良率を抑えるために配合強度を高く設定する必要があります。
 
 管理図では、点が管理限界内にあるかだけでなく、中心線の片側へ連続する、上昇・下降が続く、周期的に変動するといった並び方の確認も重要です。異常が疑われたら、材料、表面水、計量、練混ぜ、試験操作など工程別に原因を確認します。
+
+{/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
+<ArticleImage
+  src="/posts/concrete-engineer/textbook-production-qc/img/figure-control-chart-patterns.svg"
+  alt="管理図の4つの異常パターン。限界超え、中心線の片側に連続、上昇・下降が続く、周期的に変動する"
+  width={400}
+  height={500}
+/>
 
 <SpecSheetList
   title="異常時の確認順"

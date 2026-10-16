@@ -1,47 +1,61 @@
-<!-- authored 2026-09-12 doboku-note 自作。題材はコンクリート技士テキスト「製造・品質管理と検査」の論点。特定の書籍図の複製・トレースではない -->
+<!-- authored 2026-10-16 doboku-note 自作。題材はコンクリート技士教材の3つの検査。書籍図の複製・トレースではない -->
 <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
   style="max-width:400px;width:100%"
   role="img"
-  aria-label="生コン工場の3つの検査（原材料受入検査・工程検査・製品検査）を製造フロー上に並べ、誰が何をどの頻度で確認するかを示す図">
+  aria-label="3つの検査を製造の流れに重ねた図。原材料受入検査は貯蔵・受入れで工場、工程検査は計量・練混ぜ・運搬で工場が表面水率・粗粒率・圧縮強度を確認、製品検査は荷卸し地点で購入者が強度は150 m³に1回を標準に判定する">
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
-      .t-lead { font-size: 11px; fill: #555; }
-      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
-      .t-desc { font-size: 11px; fill: #555; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-title { font-size: 14px; font-weight: bold; fill: #222; }
+      .t-head  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-label { font-size: 12px; fill: #1a3a5c; }
+      .t-desc  { font-size: 12px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #555; }
+      .t-warn  { font-size: 12px; fill: #b22234; font-weight: bold; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
       .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
       .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
       .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .ln { stroke: #555; stroke-width: 1; fill: none; }
+      .arr { stroke: #2e6da4; stroke-width: 1.5; fill: none; marker-end: url(#ah); }
+      .arr-d { stroke: #b22234; stroke-width: 1.5; fill: none; marker-end: url(#ahd); }
     </style>
-    <marker id="ti-arrow" markerWidth="9" markerHeight="7" refX="9" refY="3.5" orient="auto">
-      <polygon points="0,0 9,3.5 0,7" fill="#555"/>
-    </marker>
+    <marker id="ah" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ahd" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
   </defs>
-
-  <text class="t-lead" x="200" y="16" text-anchor="middle">製造の流れに沿って3つの検査の主体と頻度が変わる</text>
-
-  <rect class="box-b" x="20" y="45" width="360" height="130" rx="6"/>
-  <text class="t-name" x="40" y="70">原材料受入検査</text>
-  <text class="t-desc" x="40" y="92">誰が：工場（受入れ担当）</text>
-  <text class="t-desc" x="40" y="112">何を：セメント・骨材・混和材料・水の規格適合</text>
-  <text class="t-desc" x="40" y="132">頻度：搬入の都度確認</text>
-  <text class="t-desc" x="40" y="156">↓ 貯蔵・計量・練混ぜへ</text>
-
-  <line x1="200" y1="175" x2="200" y2="193" stroke="#555" stroke-width="1.5" marker-end="url(#ti-arrow)"/>
-
-  <rect class="box-w" x="20" y="195" width="360" height="130" rx="6"/>
-  <text class="t-name" x="40" y="220">工程検査</text>
-  <text class="t-desc" x="40" y="242">誰が：工場（製造担当）</text>
-  <text class="t-desc" x="40" y="262">何を：計量・練混ぜ・運搬の進み具合</text>
-  <text class="t-desc" x="40" y="282">頻度：製造工程の中で随時確認</text>
-  <text class="t-desc" x="40" y="306">↓ 荷卸し地点へ運搬</text>
-
-  <line x1="200" y1="325" x2="200" y2="343" stroke="#555" stroke-width="1.5" marker-end="url(#ti-arrow)"/>
-
-  <rect class="box-p" x="20" y="345" width="360" height="130" rx="6"/>
-  <text class="t-name" x="40" y="370">製品検査</text>
-  <text class="t-desc" x="40" y="392">誰が：購入者（荷卸し地点）</text>
-  <text class="t-desc" x="40" y="412">何を：スランプ・空気量・強度など</text>
-  <text class="t-desc" x="40" y="432">頻度：普通コンクリートは150 m³に1回</text>
-  <text class="t-desc" x="40" y="456">不合格なら協議・再手配へ</text>
+  <text class="t-lead" x="200" y="18" text-anchor="middle">製造の流れのどこを、誰が、どの頻度で検査するか</text>
+  <rect class="box" x="20" y="28" width="150" height="84" rx="6"/>
+  <text class="t-title" x="95" y="75" text-anchor="middle">貯蔵・受入れ</text>
+  <rect class="box-b" x="20" y="120" width="150" height="58" rx="6"/>
+  <text class="t-title" x="95" y="154" text-anchor="middle">計量</text>
+  <rect class="box-b" x="20" y="186" width="150" height="58" rx="6"/>
+  <text class="t-title" x="95" y="220" text-anchor="middle">練混ぜ</text>
+  <rect class="box-b" x="20" y="252" width="150" height="58" rx="6"/>
+  <text class="t-title" x="95" y="286" text-anchor="middle">運搬</text>
+  <rect class="box-p" x="20" y="318" width="150" height="96" rx="6"/>
+  <text class="t-title" x="95" y="371" text-anchor="middle">荷卸し地点</text>
+  <line x1="95" y1="178" x2="95" y2="186" class="arr"/>
+  <line x1="95" y1="244" x2="95" y2="252" class="arr"/>
+  <rect class="box-b" x="186" y="28" width="194" height="84" rx="6"/>
+  <text class="t-head" x="198" y="50">原材料受入検査（工場）</text>
+  <text class="t-desc" x="198" y="72">セメント・骨材・混和材料・</text>
+  <text class="t-desc" x="198" y="90">水の規格適合を確認</text>
+  <rect class="box-w" x="186" y="120" width="194" height="190" rx="6"/>
+  <text class="t-head" x="198" y="142">工程検査（工場）</text>
+  <text class="t-desc" x="198" y="166">表面水率</text>
+  <text class="t-label" x="198" y="184">午前・午後に各1回以上</text>
+  <text class="t-desc" x="198" y="208">粗粒率</text>
+  <text class="t-label" x="198" y="226">週1回以上</text>
+  <text class="t-desc" x="198" y="250">圧縮強度</text>
+  <text class="t-label" x="198" y="268">代表的な配合を毎日1回以上</text>
+  <rect class="box-p" x="186" y="318" width="194" height="96" rx="6"/>
+  <text class="t-head" x="198" y="340">製品検査（購入者）</text>
+  <text class="t-desc" x="198" y="362">荷卸し地点で受入れを判定</text>
+  <text class="t-label" x="198" y="384">強度は150 m³に1回を標準</text>
+  <text class="t-axis" x="198" y="402">（2024年の改正で高強度も同じ）</text>
+  <rect class="box" x="20" y="428" width="360" height="60" rx="6"/>
+  <text class="t-label" x="200" y="452" text-anchor="middle">「検査に合格」と一言でまとめず、</text>
+  <text class="t-label" x="200" y="472" text-anchor="middle">どの段階の、誰のための検査かを確かめる</text>
 </svg>
