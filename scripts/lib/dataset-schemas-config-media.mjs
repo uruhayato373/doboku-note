@@ -299,6 +299,16 @@ export const ConfigStandardsStructure = z
       .strict()
       .optional()
       .describe('大きすぎる章を節ページに分ける基準'),
+    comparison: z
+      .object({
+        _comment: doc().optional(),
+        separateDocuments: z
+          .array(z.object({ document: agencyDoc, reason: z.string().min(1) }).strict())
+          .describe('地域差分の行比較から外す文書（章立てはあるが別の仕様書）'),
+      })
+      .strict()
+      .optional()
+      .describe('地域差分（build-standards-comparison）の設定'),
     skipped: z
       .object({
         _comment: doc().optional(),
@@ -311,7 +321,40 @@ export const ConfigStandardsStructure = z
       })
       .strict(),
     documents: z
-      .record(agencyDoc, z.object({ _comment: doc().optional(), bodyStartPage: z.number().int().positive().optional().describe('本文の開始ページ（自動検出を上書きする）') }).strict())
+      .record(
+        agencyDoc,
+        z
+          .object({
+            _comment: doc().optional(),
+            bodyStartPage: z.number().int().positive().optional().describe('本文の開始ページ（自動検出を上書きする）'),
+            runningHeaderCorrections: z
+              .array(
+                z
+                  .object({
+                    page: z.number().int().positive(),
+                    chapterId: z.string().regex(/^\d+-\d+$/, '編-章（10-13 など）'),
+                    reason: z.string().min(1),
+                  })
+                  .strict(),
+              )
+              .optional()
+              .describe('原本の柱の誤植の補正（そのページを指定の章に帰属させる）'),
+            acceptedReview: z
+              .array(
+                z
+                  .object({
+                    page: z.number().int().positive(),
+                    kind: z.string().min(1),
+                    match: z.string().min(1).describe('review の detail に含まれる文字列'),
+                    reason: z.string().min(1).describe('原本どおりと判断した根拠'),
+                  })
+                  .strict(),
+              )
+              .optional()
+              .describe('原本どおりと確かめて受け入れる review（当たらなくなったら reject される）'),
+          })
+          .strict(),
+      )
       .describe('文書ごとの例外補正'),
   })
   .strict()

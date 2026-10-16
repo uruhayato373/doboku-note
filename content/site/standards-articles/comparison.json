@@ -6,7 +6,7 @@
   "method": "章Markdownから生成器コメント・SourceRef・空白差を除外し、Myers差分で行単位比較",
   "summary": {
     "commonDocuments": 10,
-    "structuredDocuments": 8,
+    "structuredDocuments": 9,
     "identicalDocuments": 5,
     "differentDocuments": 2,
     "changedChapters": 12,
@@ -54,7 +54,7 @@
       "title": "令和8年度版 道路・河川工事仕様書 1 工事仕様書（令和8年5月版）",
       "pages": 669,
       "sourceSha256": "afae4cdeb088ac991684c03e1b324aab77c7adc97db009d473706b1d4249aaac",
-      "structured": false,
+      "structured": true,
       "indexable": false,
       "status": "different-document-structure",
       "duplicateOf": null,
@@ -340,8 +340,8 @@
       "hunks": [
         {
           "context": "2. 材料の計量",
-          "beforeLine": 145,
-          "afterLine": 145,
+          "beforeLine": 139,
+          "afterLine": 139,
           "before": [
             "方法」、JIS A 1803「コンクリート生産工程管理用試験方法－粗骨材の表面水率",
             "試験方法」または連続測定が可能な簡易試験方法または監督職員の承諾を得た方法",
@@ -357,8 +357,8 @@
         },
         {
           "context": "4. 練混ぜ",
-          "beforeLine": 654,
-          "afterLine": 654,
+          "beforeLine": 648,
+          "afterLine": 648,
           "before": [
             "（1）受注者は、レディーミクストコンクリートを用いる場合、本節によるほか、JIS",
             "A 5308（レディーミクストコンクリート）に準じるものとする。"

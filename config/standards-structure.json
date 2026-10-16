@@ -6,10 +6,11 @@
     "commonAgencyId": "kinki"
   },
   "build": {
-    "_comment": "生成対象。catalog の 72 文書のうち、編・章の柱（running header）を持つ共通仕様書 8 文書だけが構造化できる。okinawa/common は chugoku/common と原本 SHA-256 が完全一致する重複なので生成しない（文書ページが chugoku へ誘導する）。除外理由は skipped に機械可読で持ち、check-standard-articles が「未対象を黙って緑にしていないか」を検査する。",
+    "_comment": "生成対象。catalog の 72 文書のうち、編・章の柱（running header）を持つ共通仕様書 8 文書と北海道開発局の道路・河川工事仕様書（共通仕様書に当たる 1 工事仕様書）の 9 文書が構造化できる。okinawa/common は chugoku/common と原本 SHA-256 が完全一致する重複なので生成しない（文書ページが chugoku へ誘導する）。除外理由は skipped に機械可読で持ち、check-standard-articles が「未対象を黙って緑にしていないか」を検査する。",
     "documents": [
       "chubu/common",
       "chugoku/common",
+      "hokkaido/common",
       "hokuriku/common",
       "kanto/common",
       "kinki/common",
@@ -22,6 +23,15 @@
     "_comment": "章の Markdown がこのバイト数以上なら、章ページを節の一覧にして本文を節ページ（/chapters/{章}/sections/{節}）で出す。実測（2026-10-16）で 200KB を超えるのは第3編第2章 一般施工（約 488KB・原本 167 ページ）だけで、次に大きい第1編第1章 総則は 110KB。切り出しの規則は src/lib/standards-section-split.mjs。",
     "minOutputBytes": 200000
   },
+  "comparison": {
+    "_comment": "地域差分（build-standards-comparison・/standards/compare）から外す文書。章立てはあるが近畿版の地域版ではない別の仕様書で、行差分を取ると表記の揺れ（／と/、表の折返し）が大半を占めて実差分が埋もれる。",
+    "separateDocuments": [
+      {
+        "document": "hokkaido/common",
+        "reason": "北海道開発局の道路・河川工事仕様書（共通仕様書に当たる 1 工事仕様書）。2026-10-16 に試算すると全 43 章・1,586 箇所が差分になり、標本の大半は表記の揺れだった。"
+      }
+    ]
+  },
   "skipped": {
     "_comment": "構造化しない文書と理由。空欄・未記載を許さず、catalog の全 72 文書が build.documents か skipped のどちらかへ必ず入る（check-standard-articles の被覆検査）。",
     "reasons": {
@@ -30,7 +40,7 @@
         "documents": ["okinawa/common"]
       },
       "no-book-chapter-structure": {
-        "label": "編・章の柱を持たず、共通仕様書と構造が異なる（工事必携・地方版・マニュアル・北海道の道路河川工事仕様書など）。逐語分冊での提供を継続する。",
+        "label": "編・章の柱を持たず、共通仕様書と構造が異なる（工事必携・地方版・マニュアルなど）。逐語分冊での提供を継続する。",
         "documents": "*"
       }
     }
@@ -38,6 +48,37 @@
   "documents": {
     "chubu/common": {
       "_comment": "bodyStartPage は印刷ページ番号の巻き戻り＋目次ドットリーダーの消失で自動検出できている（p79）。override は不要。"
+    },
+    "hokkaido/common": {
+      "_comment": "目次（p2-84）に印刷ページ番号が無いので巻き戻りで判定できない。p85 は白紙、p86 は第1編の扉（柱なし）、p87 から全ページが柱 `第１編 共通編 第１章 総則` を持つ（2026-10-16 実測・p87-669 の 583 ページ全て）。",
+      "bodyStartPage": 87,
+      "runningHeaderCorrections": [
+        {
+          "page": 622,
+          "chapterId": "10-13",
+          "reason": "原本 p622 の柱は「第10編 道路編 第12章 電線共同溝」だが、ページ冒頭に第13章 情報ボックス工の章扉があり、本文（10-13-3-1〜10-13-4-1）も全て第13章。第12章は p621 で終わっている（印刷ページ 1-536・2026-10-16 確認）。"
+        }
+      ],
+      "acceptedReview": [
+        {
+          "page": 192,
+          "kind": "clause-sequence",
+          "match": "4.原材料、製造方法、検査等の規定",
+          "reason": "2-2-6-2 セメントは原本の文字起こしで「1.適用規格」→表2-2-18・表2-2-19→「4.原材料、製造方法、検査等の規定」と続き、2.・3. の項見出しの行が無い（近畿版にある「2.普通ポルトランドセメントの規定」「3.…の品質」に当たる行。2 抽出器一致の逐語）。"
+        },
+        {
+          "page": 593,
+          "kind": "clause-sequence",
+          "match": "3．開発局独自参照",
+          "reason": "10-6-5-1 一般事項は原本で 1.〜4. の後に「3．開発局独自参照」「4．…」「5．…」が続く北海道版独自の採番（独自規定の参照先を示す行）。"
+        },
+        {
+          "page": 608,
+          "kind": "clause-sequence",
+          "match": "3.目地材の施工",
+          "reason": "10-8-6-6 屋根コンクリート工の 2 項目は原本の文字起こしで「.適用規定」と項番号の数字が無い（2 抽出器一致）。番号は 1.→3. と続くので 2. の数字だけがテキスト層に無いと判断。"
+        }
+      ]
     }
   }
 }

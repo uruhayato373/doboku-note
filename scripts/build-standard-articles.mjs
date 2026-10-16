@@ -338,6 +338,9 @@ export function buildDocument(document, overrides, { write = true } = {}) {
     },
     rejects: analysis.rejects,
     reviewQueue: analysis.reviewQueue,
+    // 原本どおりと確かめて設定で受け入れた review と、柱の誤植の補正（どちらも設定 documents.* が理由を持つ）
+    acceptedReview: analysis.acceptedReview,
+    headerCorrections: analysis.removed.headerCorrections,
     chapters,
   };
 
