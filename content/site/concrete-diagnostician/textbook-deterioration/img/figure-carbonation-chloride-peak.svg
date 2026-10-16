@@ -1,0 +1,21 @@
+<!-- doboku-note 自作。本文の論点を再構成した概念図。書籍図の複製・トレースではない。 -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="中性化で遊離した塩化物が中性化前線のすぐ内側へ移動して濃縮する様子を、深さ方向の断面と濃度分布で示す概念図。">
+<defs><style>
+text{font-family:Inter,"Noto Sans JP","Hiragino Sans",sans-serif;fill:#555}
+.title{font-size:16px;font-weight:bold;fill:#1a3a5c}.body{font-size:13px}.small{font-size:11px}.label{font-size:13px;font-weight:bold;fill:#1a3a5c}.red{font-size:13px;fill:#b22234}.blue{font-size:13px;fill:#2e6da4}
+.axis{stroke:#555;stroke-width:1.5;fill:none}.dash{stroke:#8a8a8a;stroke-dasharray:4 4;fill:none}.line{stroke:#2e6da4;stroke-width:3;fill:none}
+/* brand #e8f0fe/#2e6da4; danger #f8d7da/#b22234; warn #fff3cd; surface #f5f5f5 */
+</style><marker id="arr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#2e6da4"/></marker></defs>
+
+<text x="200" y="30" class="title" text-anchor="middle">中性化前線の内側で塩化物が濃縮</text>
+<text x="30" y="70" class="small" text-anchor="start">表面</text><text x="365" y="70" class="small" text-anchor="end">内部</text>
+<rect x="30" y="83" width="160" height="110" fill="#fff3cd" stroke="#d4a017"/><rect x="190" y="83" width="175" height="110" fill="#e8f0fe" stroke="#2e6da4"/>
+<text x="110" y="110" class="label" text-anchor="middle">中性化領域</text><text x="278" y="110" class="label" text-anchor="middle">未中性化領域</text>
+<text x="110" y="140" class="small" text-anchor="middle">固定塩化物が遊離</text><path d="M120 161H231" stroke="#2e6da4" stroke-width="2" marker-end="url(#arr)"/>
+<text x="255" y="180" class="blue" text-anchor="middle">塩化物が蓄積</text>
+<line class="dash" x1="190" y1="193" x2="190" y2="366"/>
+<text x="30" y="241" class="label" text-anchor="start">塩化物濃度（概念）</text><path class="axis" d="M30 257V366H365"/>
+<path class="line" d="M30 349C110 349 167 346 185 305C198 271 211 267 221 280C238 305 257 331 365 338"/>
+<text x="190" y="389" class="small" text-anchor="middle">中性化前線</text><text x="365" y="408" class="small" text-anchor="end">表面からの深さ →</text>
+<rect x="22" y="428" width="356" height="48" rx="8" fill="#f5f5f5" stroke="#d7d7d7"/><text x="200" y="458" class="body" text-anchor="middle">中性化深さと塩化物の分布を併せて確認</text>
+</svg>

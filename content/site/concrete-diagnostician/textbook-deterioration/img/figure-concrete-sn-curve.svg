@@ -1,5 +1,5 @@
 <!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士教材のコンクリートの疲労とS-N曲線。書籍図の複製・トレースではない -->
-<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="コンクリートのS-N曲線の概念図。横軸は破壊までの繰返し回数（対数）、縦軸は応力比で、応力比が高いほど少ない回数で破壊し、グラフは右下がりとなる。一部は破壊せず打切りとなる">
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="コンクリートのS-N曲線の概念図。横軸は破壊までの繰返し回数（対数）、縦軸は応力比で、応力比が高いほど少ない回数で破壊し、グラフは右下がりとなる">
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
@@ -29,20 +29,8 @@
   <line class="line-dash" x1="40" y1="60" x2="370" y2="60" />
   <text class="t-axis" x="366" y="54" text-anchor="end">静的強度</text>
   <line class="line-main" x1="60" y1="96" x2="340" y2="212" />
-  <circle cx="68" cy="92" r="3" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5" />
-  <circle cx="84" cy="100" r="3" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5" />
-  <circle cx="110" cy="110" r="3" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5" />
-  <circle cx="140" cy="132" r="3" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5" />
-  <circle cx="172" cy="140" r="3" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5" />
-  <circle cx="214" cy="158" r="3" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5" />
-  <circle cx="250" cy="182" r="3" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5" />
-  <circle cx="286" cy="190" r="3" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5" />
-  <circle cx="318" cy="216" r="3" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5" />
-  <circle cx="326" cy="250" r="3" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5" />
-  <line class="line-gray" x1="332" y1="216" x2="360" y2="216" marker-end="url(#arr)" />
-  <line class="line-gray" x1="332" y1="250" x2="360" y2="250" marker-end="url(#arr)" />
   <text class="t-label" x="60" y="196">応力比が高い→少ない回数で破壊</text>
-  <text class="t-label" x="366" y="276" text-anchor="end">矢印＝破壊せず（打切り）</text>
+  <text class="t-label" x="366" y="276" text-anchor="end">傾向を示す概念線（実験値ではない）</text>
   <text class="t-lead" x="20" y="340">読み取り</text>
   <rect class="box" x="20" y="346" width="360" height="140" rx="6" />
   <line class="line-main" x1="34" y1="368" x2="48" y2="368" />
