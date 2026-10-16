@@ -72,6 +72,14 @@ sources:
 
 レイヤ名は、責任主体（S・D・C・M）、図面オブジェクト（半角英大文字3文字）、ユーザ定義領域を、ハイフンでつなぎます。全体で半角256文字以内です（1-5-7 p.8）。例は「D-STR-A1橋台」で、設計段階の主構造物のうち、A1橋台の図形が入っていることを示します。ユーザ定義領域は省略でき、「D-STR」だけでも構いません。
 
+{/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
+<ArticleImage
+  src="/posts/civil-practice/cad-3d-model-visualization/img/figure-file-layer-names.svg"
+  alt="ファイル名とレイヤ名の例を、図面番号・ライフサイクル・図面種類などの区切りで色分けして読み方を示す図"
+  width={400}
+  height={500}
+/>
+
 図面オブジェクトは、図面に描く内容の分類です（表1-4 p.9）。
 
 | 図面オブジェクト | 入る内容 |
@@ -168,7 +176,7 @@ sources:
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/civil-practice/cad-3d-model-visualization/img/figure-model-types.svg"
-  alt="同じ橋脚をワイヤーフレーム・サーフェス・ソリッドで描き分け、体積が出せるかどうかの違いを示した図"
+  alt="同じ橋脚をワイヤーフレーム・サーフェス・ソリッドで描き分け、面が欠けると体積が定まらないことを示した図"
   width={400}
   height={500}
 />
@@ -194,7 +202,7 @@ sources:
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/civil-practice/cad-3d-model-visualization/img/figure-projection-methods.svg"
-  alt="同じ直方体を平行投影と透視投影で見た図。平行投影は平行な辺が平行のままで寸法を読め、透視投影は遠い辺が小さく寄って見えるので画面上の長さを寸法にできない"
+  alt="直方体を、正対した平行投影・斜めの平行投影・透視投影で見た違い。寸法を読めるのは正対した平行投影だけ"
   width={400}
   height={500}
 />
@@ -219,6 +227,14 @@ sources:
 
 設定できるビューの種類は、従来の正面図・側面図に当たる正投影ビュー、各断面図に当たる断面ビュー、斜め上から見る3次元投影ビュー、回しても正対して表示される固定ビューです。作成者以外の人が成果を確認するとき、注記が見やすい位置に置かれ、読めるように設定するのが保存ビューの趣旨です。断面ビューを設けるなら、視線の位置と向きの明示も求められます。
 
+{/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
+<ArticleImage
+  src="/posts/civil-practice/cad-3d-model-visualization/img/figure-saved-views.svg"
+  alt="保存ビューが保存する三つの要素と四つのビューの種類、同じ橋脚の正面・断面・斜めの保存ビューを示す図"
+  width={400}
+  height={500}
+/>
+
 発注者の立場なら、保存ビューの一覧がモデルに付いているかを見ましょう。一覧があれば、誰が開いても同じ向きで同じ表示を確かめられて、図面との見比べもしやすくなります。
 
 ## 色・陰影・テクスチャは見た目の道具で、寸法の根拠にしない
@@ -232,6 +248,14 @@ BIM/CIM取扱要領は、可視化の目的を、全体のイメージの共有�
 <Callout type="warn" title="貼った写真は、形ではない">
 テクスチャは、面の上に貼る画像です。石積みの写真を貼った壁面は、石積みに見えても、凹凸や目地の深さをモデルが持っているとは限りません。仕上げや材質は、属性と図面で確かめます。
 </Callout>
+
+{/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
+<ArticleImage
+  src="/posts/civil-practice/cad-3d-model-visualization/img/figure-texture-not-shape.svg"
+  alt="貼る前の壁面、石積みの写真を貼った見た目、横から切った断面を並べ、貼った写真は形ではないことを示す図"
+  width={400}
+  height={500}
+/>
 
 ### テクスチャ画像は、大きさと解像度で表示が重くなる
 

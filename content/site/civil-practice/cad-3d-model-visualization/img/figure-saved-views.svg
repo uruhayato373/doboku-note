@@ -1,0 +1,70 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は保存ビューが保存する要素と、ビューの種類、断面ビューの視線の位置と向きの明示。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="保存ビューの図。保存するのは、見る向きと倍率、情報の表示と非表示、表示の状態の三つ。ビューの種類は正投影ビュー、断面ビュー、3次元投影ビュー、固定ビューの四つ。同じ橋脚を正面、断面、斜めの三つの保存ビューで並べ、断面ビューは視線の位置と向きの明示が要る。">
+  <defs>
+  <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #222; }
+      .b { font-weight: bold; fill: #1a3a5c; }
+      .m { fill: #555; }
+      .t12 { font-size: 12px; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .dng { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .sf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .wh { fill: #fff; stroke: #2e6da4; stroke-width: 1.5; }
+      .dash { fill: #fff; stroke: #555; stroke-width: 1.5; stroke-dasharray: 4 3; }
+      .grid { stroke: #d7d7d7; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .ax { stroke: #555; stroke-width: 1.5; fill: none; }
+      .ar { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ark { stroke: #555; stroke-width: 2; fill: none; }
+  </style>
+  <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="ak" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  <marker id="as" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="asg" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+  <text class="t12 b" x="12" y="16">保存ビューが保存する三つ</text>
+  <rect class="brand" x="12" y="24" width="120" height="60" rx="8"/>
+  <text class="t12" x="72.0" y="50.0" text-anchor="middle">見る向きと</text>
+  <text class="t12" x="72.0" y="66.0" text-anchor="middle">倍率</text>
+  <rect class="brand" x="140" y="24" width="120" height="60" rx="8"/>
+  <text class="t12" x="200.0" y="50.0" text-anchor="middle">情報の表示と</text>
+  <text class="t12" x="200.0" y="66.0" text-anchor="middle">非表示</text>
+  <rect class="brand" x="268" y="24" width="120" height="60" rx="8"/>
+  <text class="t12" x="328.0" y="42.0" text-anchor="middle">表示の状態</text>
+  <text class="t12" x="328.0" y="58.0" text-anchor="middle">ソリッド・ワイヤー</text>
+  <text class="t12" x="328.0" y="74.0" text-anchor="middle">フレーム・断面など</text>
+  <text class="t12 b" x="12" y="106">ビューの種類</text>
+  <rect class="wh" x="12" y="114" width="184" height="44" rx="8"/>
+  <text class="t12 b" x="22" y="133">正投影ビュー</text>
+  <text class="m" x="22" y="150">正面図・側面図に当たる</text>
+  <rect class="wh" x="204" y="114" width="184" height="44" rx="8"/>
+  <text class="t12 b" x="214" y="133">断面ビュー</text>
+  <text class="m" x="214" y="150">断面図に当たる</text>
+  <rect class="wh" x="12" y="164" width="184" height="44" rx="8"/>
+  <text class="t12 b" x="22" y="183">3次元投影ビュー</text>
+  <text class="m" x="22" y="200">斜め上から見る</text>
+  <rect class="wh" x="204" y="164" width="184" height="44" rx="8"/>
+  <text class="t12 b" x="214" y="183">固定ビュー</text>
+  <text class="m" x="214" y="200">回しても正対して表示</text>
+  <text class="t12 b" x="12" y="232">同じ橋脚を、三つの保存ビューで</text>
+  <rect class="sf" x="12" y="242" width="120" height="100" rx="8"/>
+  <rect x="36" y="258" width="60" height="12" fill="#e8f0fe" stroke="#555" stroke-width="1.5"/><rect x="56" y="270" width="20" height="44" fill="#e8f0fe" stroke="#555" stroke-width="1.5"/><rect x="42" y="314" width="48" height="12" fill="#e8f0fe" stroke="#555" stroke-width="1.5"/>
+  <text class="t12 b" x="72" y="358" text-anchor="middle">正面（正投影）</text>
+  <rect class="sf" x="140" y="242" width="120" height="100" rx="8"/>
+  <rect x="164" y="258" width="60" height="12" fill="#e8f0fe" stroke="#555" stroke-width="1.5"/><rect x="184" y="270" width="20" height="44" fill="#e8f0fe" stroke="#555" stroke-width="1.5"/><rect x="170" y="314" width="48" height="12" fill="#e8f0fe" stroke="#555" stroke-width="1.5"/>
+  <path d="M150,296H250" stroke="#b22234" stroke-width="2" stroke-dasharray="5 3" fill="none"/><circle cx="240" cy="320" r="6" fill="#fff" stroke="#b22234" stroke-width="2"/><path d="M240,314V300" stroke="#b22234" stroke-width="2" fill="none" marker-end="url(#ak)"/>
+  <text class="t12 b" x="200" y="358" text-anchor="middle">断面</text>
+  <rect class="sf" x="268" y="242" width="120" height="100" rx="8"/>
+  <polygon points="302,278 338,278 338,326 302,326" fill="#e8f0fe" stroke="#555" stroke-width="1.5"/>
+  <polygon points="302,278 338,278 360,262 324,262" fill="#fff" stroke="#555" stroke-width="1.5"/>
+  <polygon points="338,278 360,262 360,310 338,326" fill="#f5f5f5" stroke="#555" stroke-width="1.5"/>
+  <text class="t12 b" x="328" y="358" text-anchor="middle">斜め（3次元投影）</text>
+  <rect class="brand" x="12" y="372" width="376" height="54" rx="8"/>
+  <text class="t12 b" x="200.0" y="394.0" text-anchor="middle">断面ビューを設けるなら</text>
+  <text class="t12" x="200.0" y="412.0" text-anchor="middle">視線の位置と向きの明示も求められる</text>
+  <rect class="warn" x="12" y="436" width="376" height="52" rx="8"/>
+  <text class="t12 b" x="200.0" y="457.0" text-anchor="middle">発注者は、保存ビューの一覧が</text>
+  <text class="t12" x="200.0" y="475.0" text-anchor="middle">モデルに付いているかを見る</text>
+</svg>
