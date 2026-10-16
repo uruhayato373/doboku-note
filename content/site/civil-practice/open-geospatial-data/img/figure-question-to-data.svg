@@ -1,66 +1,82 @@
-<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="知りたいことごとに、どの公開データを見るかを並べた図。道路・建物・境界の位置は基盤地図情報と地理院タイル、地形の高低は数値標高モデル、属性は国土数値情報、危険な場所はハザードマップポータルと国土数値情報、建物の形と高さはPLATEAU、国道の位置は全国道路基盤地図。出す機関と更新・版・条件を添える。">
+<!-- authored 2026-10-16 doboku-note 自作。論点は知りたいことごとに見る公開データと、基本測量成果か・有償かなど条件の印。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="知りたいことごとに見る公開データを並べた図。位置は基盤地図情報と地理院タイル、地形の高低は数値標高モデル（精度0.3〜5.0m）、属性は国土数値情報、危険な場所はハザードマップポータルと洪水浸水想定区域（位置精度約25m）、建物はPLATEAU、国道は全国道路基盤地図（提供は有償）。基本測量成果の印は申請が要る場合がある。">
   <defs>
   <style>
-      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #222; }
+      .b { font-weight: bold; fill: #1a3a5c; }
+      .m { fill: #555; }
+      .t12 { font-size: 12px; }
       .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
-      .t { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
-      .s { font-size: 11px; fill: #555; }
-      .m { font-size: 11px; fill: #8a8a8a; }
-      .p { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
-      .bb { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
-      .bp { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
-      .bw { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
-      .bd { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
-      .bs { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
-      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
-      .ln { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .dng { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .sf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .wh { fill: #fff; stroke: #2e6da4; stroke-width: 1.5; }
+      .dash { fill: #fff; stroke: #555; stroke-width: 1.5; stroke-dasharray: 4 3; }
+      .grid { stroke: #d7d7d7; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .ax { stroke: #555; stroke-width: 1.5; fill: none; }
+      .ar { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ark { stroke: #555; stroke-width: 2; fill: none; }
   </style>
   <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
-  <marker id="at" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  <marker id="ak" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  <marker id="as" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="asg" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
   </defs>
-<text class="m" x="20" y="22">知りたいこと</text><text class="m" x="144" y="22">見るデータ（出す機関｜更新・版・条件）</text>
-  <rect class="bb" x="10" y="34" width="120" height="98" rx="8"/>
-  <text class="t" x="70" y="79" text-anchor="middle">道路・建物・</text>
-  <text class="t" x="70" y="95" text-anchor="middle">境界の位置</text>
-  <path class="a" d="M132,83H146" marker-end="url(#ah)"/>
-  <rect class="p" x="148" y="34" width="242" height="98" rx="8"/>
-  <text class="n" x="158" y="56">基盤地図情報</text>
-  <text class="s" x="158" y="72">国土地理院｜年4回更新（1・4・7・10月）</text>
-  <text class="n" x="158" y="104">地理院タイル</text>
-  <text class="s" x="158" y="120">国土地理院｜種類ごとに利用条件が違う</text>
-  <path class="ln" d="M158,83H380" style="stroke:#d7d7d7"/>
-  <rect class="bb" x="10" y="140" width="120" height="54" rx="8"/>
-  <text class="t" x="70" y="171" text-anchor="middle">地形の高低</text>
-  <path class="a" d="M132,167H146" marker-end="url(#ah)"/>
-  <rect class="p" x="148" y="140" width="242" height="54" rx="8"/>
-  <text class="n" x="158" y="164">数値標高モデル（DEM）</text>
-  <text class="s" x="158" y="180">国土地理院｜種別ごとに精度が違う</text>
-  <rect class="bb" x="10" y="202" width="120" height="54" rx="8"/>
-  <text class="t" x="70" y="225" text-anchor="middle">土地利用・行政</text>
-  <text class="t" x="70" y="241" text-anchor="middle">区域などの属性</text>
-  <path class="a" d="M132,229H146" marker-end="url(#ah)"/>
-  <rect class="p" x="148" y="202" width="242" height="54" rx="8"/>
-  <text class="n" x="158" y="226">国土数値情報</text>
-  <text class="s" x="158" y="242">国土交通省｜データごとに年度版</text>
-  <rect class="bb" x="10" y="264" width="120" height="98" rx="8"/>
-  <text class="t" x="70" y="317" text-anchor="middle">どこが危ないか</text>
-  <path class="a" d="M132,313H146" marker-end="url(#ah)"/>
-  <rect class="p" x="148" y="264" width="242" height="98" rx="8"/>
-  <text class="n" x="158" y="286">ハザードマップポータル</text>
-  <text class="s" x="158" y="302">国土地理院｜内容は作成機関で確かめる</text>
-  <text class="n" x="158" y="334">国土数値情報（洪水浸水想定区域）</text>
-  <text class="s" x="158" y="350">国土交通省｜位置精度は約25m</text>
-  <path class="ln" d="M158,313H380" style="stroke:#d7d7d7"/>
-  <rect class="bb" x="10" y="370" width="120" height="54" rx="8"/>
-  <text class="t" x="70" y="401" text-anchor="middle">建物の形と高さ</text>
-  <path class="a" d="M132,397H146" marker-end="url(#ah)"/>
-  <rect class="p" x="148" y="370" width="242" height="54" rx="8"/>
-  <text class="n" x="158" y="394">PLATEAU（3D都市モデル）</text>
-  <text class="s" x="158" y="410">国土交通省｜標準製品仕様書は第5.1版</text>
-  <rect class="bb" x="10" y="432" width="120" height="54" rx="8"/>
-  <text class="t" x="70" y="463" text-anchor="middle">国道の道路の位置</text>
-  <path class="a" d="M132,459H146" marker-end="url(#ah)"/>
-  <rect class="p" x="148" y="432" width="242" height="54" rx="8"/>
-  <text class="n" x="158" y="456">全国道路基盤地図</text>
-  <text class="s" x="158" y="472">国土交通省｜令和6年5月31日に公開</text>
+  <text class="m" x="12" y="22">知りたいこと</text>
+  <text class="m" x="118" y="22">印の基本測量成果は、申請が要る場合あり</text>
+  <rect class="brand" x="10" y="34" width="94" height="98" rx="8"/>
+  <text class="t12" x="57.0" y="79.0" text-anchor="middle">道路・建物・</text>
+  <text class="t12" x="57.0" y="95.0" text-anchor="middle">境界の位置</text>
+  <path class="ar" d="M106,83.0H116" marker-end="url(#ah)"/>
+  <rect class="wh" x="118" y="34" width="272" height="98" rx="8"/>
+  <text class="n" x="128" y="56">基盤地図情報</text>
+  <text class="m" x="128" y="72">国土地理院｜年4回更新（1・4・7・10月）</text>
+  <rect class="brand" x="296" y="42" width="88" height="18" rx="9"/>
+  <text class="b" x="340.0" y="55" text-anchor="middle">基本測量成果</text>
+  <text class="n" x="128" y="104">地理院タイル</text>
+  <text class="m" x="128" y="120">国土地理院｜日本域は基本測量成果</text>
+  <rect class="brand" x="296" y="92" width="88" height="18" rx="9"/>
+  <text class="b" x="340.0" y="105" text-anchor="middle">基本測量成果</text>
+  <path class="grid" d="M128,83H380"/>
+  <rect class="brand" x="10" y="140" width="94" height="54" rx="8"/>
+  <text class="t12" x="57.0" y="171.0" text-anchor="middle">地形の高低</text>
+  <path class="ar" d="M106,167.0H116" marker-end="url(#ah)"/>
+  <rect class="wh" x="118" y="140" width="272" height="54" rx="8"/>
+  <text class="n" x="128" y="164">数値標高モデル（DEM）</text>
+  <text class="m" x="128" y="180">国土地理院｜精度0.3〜5.0m、種別で差</text>
+  <rect class="brand" x="296" y="150" width="88" height="18" rx="9"/>
+  <text class="b" x="340.0" y="163" text-anchor="middle">基本測量成果</text>
+  <rect class="brand" x="10" y="202" width="94" height="54" rx="8"/>
+  <text class="t12" x="57.0" y="225.0" text-anchor="middle">土地利用・行政</text>
+  <text class="t12" x="57.0" y="241.0" text-anchor="middle">区域などの属性</text>
+  <path class="ar" d="M106,229.0H116" marker-end="url(#ah)"/>
+  <rect class="wh" x="118" y="202" width="272" height="54" rx="8"/>
+  <text class="n" x="128" y="226">国土数値情報</text>
+  <text class="m" x="128" y="242">国土交通省｜データごとに年度版・条件</text>
+  <rect class="brand" x="10" y="264" width="94" height="98" rx="8"/>
+  <text class="t12" x="57.0" y="317.0" text-anchor="middle">どこが危ないか</text>
+  <path class="ar" d="M106,313.0H116" marker-end="url(#ah)"/>
+  <rect class="wh" x="118" y="264" width="272" height="98" rx="8"/>
+  <text class="n" x="128" y="286">ハザードマップポータル</text>
+  <text class="m" x="128" y="302">国土地理院｜内容は作成機関で確かめる</text>
+  <text class="n" x="128" y="334">国土数値情報（洪水浸水想定区域）</text>
+  <text class="m" x="128" y="350">国土交通省｜位置精度は約25m</text>
+  <path class="grid" d="M128,313H380"/>
+  <rect class="brand" x="10" y="370" width="94" height="54" rx="8"/>
+  <text class="t12" x="57.0" y="401.0" text-anchor="middle">建物の形と高さ</text>
+  <path class="ar" d="M106,397.0H116" marker-end="url(#ah)"/>
+  <rect class="wh" x="118" y="370" width="272" height="54" rx="8"/>
+  <text class="n" x="128" y="394">PLATEAU</text>
+  <text class="m" x="128" y="410">3D都市モデル｜出典の明示が条件</text>
+  <rect class="brand" x="10" y="432" width="94" height="54" rx="8"/>
+  <text class="t12" x="57.0" y="455.0" text-anchor="middle">国道の道路</text>
+  <text class="t12" x="57.0" y="471.0" text-anchor="middle">の位置</text>
+  <path class="ar" d="M106,459.0H116" marker-end="url(#ah)"/>
+  <rect class="wh" x="118" y="432" width="272" height="54" rx="8"/>
+  <text class="n" x="128" y="456">全国道路基盤地図</text>
+  <text class="m" x="128" y="472">国土交通省｜閲覧は無料・提供は有償</text>
+  <rect class="dng" x="296" y="442" width="88" height="18" rx="9"/>
+  <text class="b" x="340.0" y="455" text-anchor="middle">提供は有償</text>
 </svg>
