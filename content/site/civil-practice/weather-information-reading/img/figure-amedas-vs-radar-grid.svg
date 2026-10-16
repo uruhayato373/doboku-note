@@ -1,0 +1,62 @@
+<!-- authored 2026-10-16 doboku-note 自作。数値は記事本文に引いたアメダスの観測所の間隔（約17km・約21km）と解析雨量の1km四方・30分ごと・速報版10分ごと。観測所の位置と市域は模式で、特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="アメダスの観測所の間隔と解析雨量の細かさを、同じ縮尺の40km四方で見比べた模式図。降水量の観測所は約17km間隔、風・気温・湿度も観測する四要素の観測所は約21km間隔で、観測所のない市が生じる。解析雨量は1km四方の格子で面を埋める。観測所のない市では、近隣のアメダス、解析雨量の1kmメッシュ、雨量計の実測値の順に読む。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .n { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .c { font-size: 11px; fill: #1a3a5c; }
+      .area { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .city { fill: none; stroke: #3a7d44; stroke-width: 1.5; stroke-dasharray: 4 3; }
+      .sb { stroke: #555; stroke-width: 1.5; fill: none; }
+      .bd { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+    <pattern id="mesh" patternUnits="userSpaceOnUse" width="4.5" height="4.5"><path d="M4.5,0V4.5H0" fill="none" stroke="#8a8a8a" stroke-width="0.4"/></pattern>
+  </defs>
+
+  <!-- 降水量の観測所 -->
+  <text class="n" x="14" y="28">降水量：約17km間隔</text>
+  <rect class="area" x="14" y="36" width="180" height="180"/>
+  <rect class="city" x="38.75" y="60.75" width="54" height="54"/><text class="t" x="65.75" y="92" text-anchor="middle">市</text>
+  <g fill="#2e6da4">
+    <circle cx="27.5" cy="49.5" r="4.5"/><circle cx="104" cy="49.5" r="4.5"/><circle cx="180.5" cy="49.5" r="4.5"/>
+    <circle cx="27.5" cy="126" r="4.5"/><circle cx="104" cy="126" r="4.5"/><circle cx="180.5" cy="126" r="4.5"/>
+    <circle cx="27.5" cy="202.5" r="4.5"/><circle cx="104" cy="202.5" r="4.5"/><circle cx="180.5" cy="202.5" r="4.5"/>
+  </g>
+  <path class="sb" d="M130,170H175M130,166V174M175,166V174"/><text class="c" x="152" y="162" text-anchor="middle">10km</text>
+  <text x="14" y="232">全国で約1,300箇所</text>
+
+  <!-- 四要素の観測所 -->
+  <text class="n" x="206" y="28">四要素：約21km間隔</text>
+  <rect class="area" x="206" y="36" width="180" height="180"/>
+  <rect class="city" x="230.75" y="60.75" width="54" height="54"/><text class="t" x="257.75" y="92" text-anchor="middle">市</text>
+  <g fill="#3a7d44">
+    <rect x="215.5" y="45.5" width="8" height="8"/><rect x="310" y="45.5" width="8" height="8"/>
+    <rect x="215.5" y="140" width="8" height="8"/><rect x="310" y="140" width="8" height="8"/>
+  </g>
+  <path class="sb" d="M322,198H367M322,194V202M367,194V202"/><text class="c" x="344" y="190" text-anchor="middle">10km</text>
+  <text x="206" y="232">風・気温・湿度も。約840箇所</text>
+
+  <!-- 解析雨量 -->
+  <text class="n" x="14" y="250">解析雨量：1km四方</text>
+  <rect x="14" y="256" width="180" height="180" fill="#e8f0fe"/>
+  <rect x="14" y="256" width="180" height="180" fill="url(#mesh)" stroke="#2e6da4" stroke-width="1.5"/>
+  <rect x="38.75" y="280.75" width="54" height="54" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5" stroke-dasharray="4 3"/><text class="t" x="65.75" y="312" text-anchor="middle">市</text>
+  <path class="sb" d="M130,418H175M130,414V422M175,414V422"/><text class="c" x="152" y="410" text-anchor="middle">10km</text>
+  <text x="14" y="452">30分ごと、速報版は10分ごと</text>
+
+  <!-- 観測所のない市の読み方 -->
+  <text class="n" x="206" y="250">観測所のない市の読み方</text>
+  <rect class="bd" x="206" y="256" width="180" height="54" rx="8"/>
+  <text class="n" x="220" y="288" text-anchor="middle">1</text>
+  <text class="c" x="236" y="280">近隣のアメダスで</text><text class="c" x="236" y="296">周辺の雨をつかむ</text>
+  <rect class="bd" x="206" y="319" width="180" height="54" rx="8"/>
+  <text class="n" x="220" y="351" text-anchor="middle">2</text>
+  <text class="c" x="236" y="343">解析雨量で自分の地区</text><text class="c" x="236" y="359">の1kmメッシュを読む</text>
+  <rect class="bd" x="206" y="382" width="180" height="54" rx="8"/>
+  <text class="n" x="220" y="414" text-anchor="middle">3</text>
+  <text class="c" x="236" y="406">雨量計がある地区は</text><text class="c" x="236" y="422">実測値と見比べる</text>
+
+  <text x="14" y="474">模式図。観測所の位置と市域は例</text>
+  <text x="14" y="490">出典：気象庁（アメダスは令和8年4月1日現在）</text>
+</svg>

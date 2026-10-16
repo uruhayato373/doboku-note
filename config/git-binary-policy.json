@@ -115,8 +115,8 @@
   "budgets": {
     "_comment": "ディレクトリ別の追跡総量上限（MiB）。個別ファイルが小さくても件数で膨らむ経路を止める。狙いは通常の執筆ペースを妨げず『まとまった投入』を止めること。2026-08-29 の全ストレージ最適化（ogp.png/webp・note magazine cover・coconala/repo-archive・kindle-dist backup を R2 へ退避）で実測が content/note 99.2 / content/site 69.0 / content/sns 28.3 / content/sources 0.0 / scripts 82.2 MiB まで下がったため締め直した。次に大きく下がる移行があればそのたびに再度締める。",
     "content/note": 150,
-    "_content_site_note": "2026-10-14: 135→140。国交省 本省版 施工管理基準の全文文字起こし（standards-library の .md 1.5 MiB・DN-0393）で 135.2 MiB に達した（09-18 と同じく散文の成長なので上げる）。2026-09-18: 120→135。08-29 の 69 MiB から標準仕様書の章記事化（standards-library 31 / standards-articles 17 MiB・.md 41.5 MiB）で 120.05 MiB に達し、RCCM ガイド等の散文 659 行の着地で 0.05 MiB 超過した。散文の成長は止める対象ではない。次の締め直しは content/site の .png 25.6 MiB（405 件）を R2 へ退避したとき（DN-0111 Phase 4）",
-    "content/site": 140,
+    "_content_site_note": "2026-10-16: 140→150。測量・情報化・自治体・建設業の経営と法務の新しい章（3シリーズ 22 章・自作 SVG 約 64 枚と AI 写真 18 枚の webp）で 141.5 MiB に達した（記事の成長なので上げる・DN-0753）。2026-10-14: 135→140。国交省 本省版 施工管理基準の全文文字起こし（standards-library の .md 1.5 MiB・DN-0393）で 135.2 MiB に達した（09-18 と同じく散文の成長なので上げる）。2026-09-18: 120→135。08-29 の 69 MiB から標準仕様書の章記事化（standards-library 31 / standards-articles 17 MiB・.md 41.5 MiB）で 120.05 MiB に達し、RCCM ガイド等の散文 659 行の着地で 0.05 MiB 超過した。散文の成長は止める対象ではない。次の締め直しは content/site の .png 25.6 MiB（405 件）を R2 へ退避したとき（DN-0111 Phase 4）",
+    "content/site": 150,
     "content/sns": 60,
     "content/sources": 20,
     "_scripts_note": "2026-09-23: 100→130。I・J系 Kindle 26冊の配布物（表紙 jpg 21 MiB・EPUB 1.7 MiB）で 107.4 MiB に達した。kindle-dist は allowlist で Git 正本と決めている（DN-0151(3)）ため退避せず上限を上げる。表紙は spec と背景から決定的に再生成できるので、次に超えるときは表紙 jpg の追跡をやめて提出時に sync-kindle-dist で作る案を先に検討する",

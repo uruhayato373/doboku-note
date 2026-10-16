@@ -1,0 +1,76 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は建設工事紛争審査会の申請から終了までの流れと、打切り後の期限。国土交通省の手引の流れ図の構図は写していない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="紛争の時間の流れを、あっせん・調停と仲裁の2本の線で示した図。契約書の紛争解決の定めから審査会へ申請し、答弁書の提出まで約1か月。第1回審理まであっせん・調停は約2〜3か月、仲裁は約3〜4か月。あっせん・調停が打切りになると、通知から1か月以内の提訴で時効の完成猶予、2週間以内の仲裁申請で手数料を差し引く。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #222; }
+      .tt { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .tb { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .tx { font-size: 12px; fill: #222; }
+      .ts { font-size: 11px; fill: #555; }
+      .tn { font-size: 13px; font-weight: bold; fill: #222; }
+      .b-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .b-pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .b-warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .b-dan { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .b-sur { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .b-wh { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ln { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .ld { stroke: #8a8a8a; stroke-width: 1; fill: none; stroke-dasharray: 3 3; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+  <rect class="b-sur" x="60" y="10" width="280" height="44" rx="6"/>
+  <text class="tb" x="200.0" y="28.5" text-anchor="middle">契約書の紛争解決の定め</text>
+  <text class="ts" x="200.0" y="44.3" text-anchor="middle">建設業法第19条第1項第15号</text>
+  <line class="a" x1="200" y1="54" x2="200" y2="70" marker-end="url(#ah)"/>
+  <rect class="b-brand" x="60" y="70" width="280" height="40" rx="6"/>
+  <text class="tb" x="200.0" y="86.5" text-anchor="middle">審査会へ申請</text>
+  <text class="ts" x="200.0" y="102.3" text-anchor="middle">被申請人へ通知</text>
+  <line class="a" x1="200" y1="110" x2="200" y2="126" marker-end="url(#ah)"/>
+  <rect class="b-brand" x="60" y="126" width="280" height="40" rx="6"/>
+  <text class="tb" x="200.0" y="142.5" text-anchor="middle">答弁書の提出</text>
+  <text class="ts" x="200.0" y="158.2" text-anchor="middle">提出まで約1か月</text>
+  <line class="a" x1="200" y1="166" x2="200" y2="180"/>
+  <line class="a" x1="105" y1="180" x2="295" y2="180"/>
+  <line class="a" x1="105" y1="180" x2="105" y2="194" marker-end="url(#ah)"/>
+  <line class="a" x1="295" y1="180" x2="295" y2="194" marker-end="url(#ah)"/>
+  <rect class="b-brand" x="15" y="194" width="180" height="30" rx="6"/>
+  <text class="tb" x="105.0" y="213.2" text-anchor="middle">あっせん・調停</text>
+  <rect class="b-warn" x="205" y="194" width="180" height="30" rx="6"/>
+  <text class="tb" x="295.0" y="213.2" text-anchor="middle">仲裁</text>
+  <line class="a" x1="105" y1="224" x2="105" y2="236" marker-end="url(#ah)"/>
+  <line class="a" x1="295" y1="224" x2="295" y2="236" marker-end="url(#ah)"/>
+  <rect class="b-wh" x="15" y="236" width="180" height="46" rx="6"/>
+  <text class="ts" x="105.0" y="253.7" text-anchor="middle">第1回審理まで</text>
+  <text class="tn" x="105.0" y="271.3" text-anchor="middle">約2〜3か月</text>
+  <rect class="b-wh" x="205" y="236" width="180" height="46" rx="6"/>
+  <text class="ts" x="295.0" y="253.7" text-anchor="middle">第1回審理まで</text>
+  <text class="tn" x="295.0" y="271.3" text-anchor="middle">約3〜4か月</text>
+  <line class="a" x1="105" y1="282" x2="105" y2="294" marker-end="url(#ah)"/>
+  <line class="a" x1="295" y1="282" x2="295" y2="294" marker-end="url(#ah)"/>
+  <rect class="b-wh" x="15" y="294" width="180" height="46" rx="6"/>
+  <text class="ts" x="105.0" y="312.4" text-anchor="middle">審理のペース</text>
+  <text class="tx" x="105.0" y="328.9" text-anchor="middle">1〜2か月に1回程度</text>
+  <rect class="b-wh" x="205" y="294" width="180" height="46" rx="6"/>
+  <text class="ts" x="295.0" y="312.4" text-anchor="middle">審理のペース</text>
+  <text class="tx" x="295.0" y="328.9" text-anchor="middle">2か月に1回程度</text>
+  <line class="a" x1="105" y1="340" x2="105" y2="352" marker-end="url(#ah)"/>
+  <line class="a" x1="295" y1="340" x2="295" y2="352" marker-end="url(#ah)"/>
+  <rect class="b-sur" x="15" y="352" width="180" height="46" rx="6"/>
+  <text class="tb" x="105.0" y="379.2" text-anchor="middle">成立・打切り・取下げ</text>
+  <rect class="b-sur" x="205" y="352" width="180" height="46" rx="6"/>
+  <text class="tb" x="295.0" y="379.2" text-anchor="middle">仲裁判断・和解</text>
+  <line class="a" x1="105" y1="398" x2="105" y2="410"/>
+  <line class="a" x1="105" y1="410" x2="295" y2="410"/>
+  <line class="a" x1="105" y1="410" x2="105" y2="422" marker-end="url(#ah)"/>
+  <line class="a" x1="295" y1="410" x2="295" y2="422" marker-end="url(#ah)"/>
+  <rect class="b-warn" x="15" y="422" width="180" height="68" rx="6"/>
+  <text class="ts" x="105.0" y="443.8" text-anchor="middle">打切りの通知から</text>
+  <text class="tb" x="105.0" y="460.2" text-anchor="middle">1か月以内に提訴</text>
+  <text class="ts" x="105.0" y="475.9" text-anchor="middle">時効の完成猶予（第25条の16）</text>
+  <rect class="b-warn" x="205" y="422" width="180" height="68" rx="6"/>
+  <text class="ts" x="295.0" y="443.8" text-anchor="middle">打切りの通知から</text>
+  <text class="tb" x="295.0" y="460.2" text-anchor="middle">2週間以内に仲裁を申請</text>
+  <text class="ts" x="295.0" y="475.9" text-anchor="middle">先に納めた手数料を差し引く</text>
+</svg>

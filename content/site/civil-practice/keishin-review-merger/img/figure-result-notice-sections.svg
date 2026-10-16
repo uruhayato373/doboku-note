@@ -1,0 +1,49 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は経営事項審査の結果通知書の区画と、区画を決める申請資料の対応（建設業法第27条の25・第27条の27・第27条の29）。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="経営事項審査の結果通知書の読み方。X1と、Zの元請完成工事高は工事ごとの完成工事高、X2とYは決算書、Zの技術職員は技術職員名簿、Wは社会性等の申請から決まり、Pはそれらを告示の算式で合わせた総合評定値。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #222; }
+      .n { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .src { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .card { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .p { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .arr { stroke: #8a8a8a; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#8a8a8a"/></marker>
+  </defs>
+  <rect class="src" x="10" y="8" width="172" height="66" rx="8"/>
+  <text class="n" x="22" y="37">工事ごとの完成工事高</text>
+  <text class="n" x="22" y="55">（業種ごと）</text>
+  <path class="arr" d="M186,41H210" marker-end="url(#ah)"/>
+  <rect x="216" y="16" width="174" height="24" rx="12" style="fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5"/>
+  <text class="n" x="303" y="32" text-anchor="middle">X1</text>
+  <rect x="216" y="45" width="174" height="24" rx="12" style="fill:#fff3cd;stroke:#d4a017;stroke-width:1.5"/>
+  <text class="n" x="303" y="61" text-anchor="middle">Z 元請完成工事高</text>
+  <rect class="src" x="10" y="84" width="172" height="66" rx="8"/>
+  <text class="n" x="22" y="122">決算書の数字</text>
+  <path class="arr" d="M186,117H210" marker-end="url(#ah)"/>
+  <rect x="216" y="92" width="174" height="24" rx="12" style="fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5"/>
+  <text class="n" x="303" y="108" text-anchor="middle">X2</text>
+  <rect x="216" y="121" width="174" height="24" rx="12" style="fill:#d0e8d0;stroke:#3a7d44;stroke-width:1.5"/>
+  <text class="n" x="303" y="137" text-anchor="middle">Y 分析機関が計算</text>
+  <rect class="src" x="10" y="160" width="172" height="66" rx="8"/>
+  <text class="n" x="22" y="189">技術職員名簿と</text>
+  <text class="n" x="22" y="207">確認書類（業種ごと）</text>
+  <path class="arr" d="M186,193H210" marker-end="url(#ah)"/>
+  <rect x="216" y="181" width="174" height="24" rx="12" style="fill:#fff3cd;stroke:#d4a017;stroke-width:1.5"/>
+  <text class="n" x="303" y="197" text-anchor="middle">Z 技術職員</text>
+  <rect class="src" x="10" y="236" width="172" height="66" rx="8"/>
+  <text class="n" x="22" y="265">社会性等の項目ごとの</text>
+  <text class="n" x="22" y="283">申請と確認書類</text>
+  <path class="arr" d="M186,269H210" marker-end="url(#ah)"/>
+  <rect x="216" y="257" width="174" height="24" rx="12" style="fill:#f5f5f5;stroke:#8a8a8a;stroke-width:1.5"/>
+  <text class="n" x="303" y="273" text-anchor="middle">W 社会性等</text>
+  <path class="arr" d="M303,310V332" marker-end="url(#ah)"/>
+  <rect class="p" x="10" y="336" width="380" height="62" rx="8"/>
+  <text class="n" x="22" y="360">P 総合評定値</text>
+  <text x="22" y="380">X1・X2・Y・Z・W を、告示の算式で合わせる</text>
+  <rect class="card" x="10" y="412" width="380" height="80" rx="8"/>
+  <text class="n" x="22" y="436">手元に残る通知書は二通</text>
+  <text x="22" y="456">Yの分析結果 … 様式第25号の13</text>
+  <text x="22" y="474">評価と総合評定値 … 様式第25号の15</text>
+</svg>

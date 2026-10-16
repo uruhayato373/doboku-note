@@ -1,0 +1,53 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は建設業法第17条の2の承継の認可と、認可を受けない場合の違い。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="事業を引き継ぐ時間軸の比較。上段は事前に認可を受けた場合で、認可申請のあと承継日から許可が継続し、監督処分と経営事項審査の結果が承継人に付いてくる。下段は認可を受けない場合で、譲渡側が廃業し、譲受側が新規許可を取るまで許可のない期間が生じる。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #222; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 11px; fill: #555; }
+      .card { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .bp { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .bd { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .bw { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .axis { stroke: #8a8a8a; stroke-width: 2; fill: none; }
+      .dot { fill: #2e6da4; stroke: #fff; stroke-width: 2; }
+      .arr { stroke: #d4a017; stroke-width: 2.5; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#8a8a8a"/></marker>
+    <marker id="aw" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#d4a017"/></marker>
+  </defs>
+
+  <rect class="card" x="10" y="8" width="380" height="238" rx="8"/>
+  <text class="n" x="22" y="30">事前に認可を受けた場合</text>
+  <text class="s" x="22" y="46">法第17条の2</text>
+  <path class="axis" d="M24,92H372" marker-end="url(#ah)"/>
+  <text x="70" y="76" text-anchor="middle">認可申請</text>
+  <circle class="dot" cx="70" cy="92" r="7"/>
+  <text x="190" y="76" text-anchor="middle">承継日</text>
+  <circle class="dot" cx="190" cy="92" r="7"/>
+  <rect class="bp" x="190" y="102" width="180" height="24" rx="5"/>
+  <text class="n" x="280" y="119" text-anchor="middle">許可が継続・空白なし</text>
+  <path class="arr" d="M190,132V156" marker-end="url(#aw)"/>
+  <rect class="bw" x="22" y="160" width="356" height="76" rx="6"/>
+  <text class="n" x="34" y="181">承継人に付いてくるもの</text>
+  <text x="34" y="199">監督処分・経営事項審査の結果</text>
+  <text class="s" x="34" y="220">有効期間は承継日の翌日から5年</text>
+
+  <rect class="card" x="10" y="256" width="380" height="236" rx="8"/>
+  <text class="n" x="22" y="278">認可を受けない場合</text>
+  <text class="s" x="22" y="294">譲受側が新規に許可を取る</text>
+  <path class="axis" d="M24,340H372" marker-end="url(#ah)"/>
+  <text x="70" y="324" text-anchor="middle">譲渡側が廃業</text>
+  <circle class="dot" cx="70" cy="340" r="7"/>
+  <text x="290" y="324" text-anchor="middle">譲受側が新規許可</text>
+  <circle class="dot" cx="290" cy="340" r="7"/>
+  <rect class="bd" x="70" y="350" width="220" height="24" rx="5"/>
+  <text class="n" x="180" y="367" text-anchor="middle">許可のない期間</text>
+  <rect class="bp" x="290" y="350" width="80" height="24" rx="5"/>
+  <text class="n" x="330" y="367" text-anchor="middle">許可あり</text>
+  <path class="arr" d="M180,380V404" marker-end="url(#aw)" style="stroke-dasharray:5 3"/>
+  <rect class="bw" x="22" y="408" width="356" height="76" rx="6"/>
+  <text class="n" x="34" y="429">処分の追及は止まらない</text>
+  <text x="34" y="447">営業の継続性と同一性が認められれば</text>
+  <text class="s" x="34" y="468">有効期間は新たな許可の日から5年</text>
+</svg>

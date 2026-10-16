@@ -1,0 +1,59 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は国土交通省「建設コンサルタント業務等における生成AI利活用等について（依頼）」の特記仕様書・協議・利活用計画書・確認・明示の流れ。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="国の生成AI利活用の通知の流れ。対象は建設コンサルタント業務等。特記仕様書で明記し、受発注者の協議で利用範囲を決める。成果のとりまとめに使うなら、業務計画書の提出時に利活用計画書を出し、発注者が確認し、成果物に明示する。調査の補助だけなら計画書は要らず、業務計画書にリスク対策を書く。工事の契約には通知の記載がない。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #222; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 11px; fill: #555; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .bp { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .bw { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .card { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .arr { stroke: #8a8a8a; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#8a8a8a"/></marker>
+  </defs>
+
+  <rect class="bw" x="10" y="8" width="380" height="46" rx="8"/>
+  <text class="n" x="200" y="29" text-anchor="middle">対象は建設コンサルタント業務等</text>
+  <text class="s" x="200" y="46" text-anchor="middle">国土交通省の通知（令和8年7月29日）</text>
+
+  <rect class="b" x="10" y="66" width="380" height="40" rx="8"/>
+  <text class="n" x="200" y="91" text-anchor="middle">特記仕様書で明記する</text>
+  <path class="arr" d="M200,108V116" marker-end="url(#ah)"/>
+  <rect class="b" x="10" y="118" width="380" height="40" rx="8"/>
+  <text class="n" x="200" y="143" text-anchor="middle">受発注者の協議で利用範囲を決める</text>
+
+  <path class="arr" d="M200,160V170M102,170H298"/>
+  <path class="arr" d="M102,170V184" marker-end="url(#ah)"/>
+  <path class="arr" d="M298,170V184" marker-end="url(#ah)"/>
+  <rect class="card" x="10" y="186" width="185" height="28" rx="14"/>
+  <text class="n" x="102" y="205" text-anchor="middle">成果のとりまとめに使う</text>
+  <rect class="card" x="205" y="186" width="185" height="28" rx="14"/>
+  <text class="n" x="298" y="205" text-anchor="middle">調査の補助だけに使う</text>
+
+  <rect class="b" x="10" y="226" width="185" height="54" rx="8"/>
+  <text class="n" x="102" y="248" text-anchor="middle">利活用計画書を出す</text>
+  <text class="s" x="102" y="266" text-anchor="middle">業務計画書の提出時</text>
+  <path class="arr" d="M102,282V294" marker-end="url(#ah)"/>
+  <rect class="b" x="10" y="296" width="185" height="54" rx="8"/>
+  <text class="n" x="102" y="318" text-anchor="middle">発注者が確認する</text>
+  <text class="s" x="102" y="336" text-anchor="middle">確認チェックリスト</text>
+  <path class="arr" d="M102,352V364" marker-end="url(#ah)"/>
+  <rect class="b" x="10" y="366" width="185" height="54" rx="8"/>
+  <text class="n" x="102" y="388" text-anchor="middle">成果物に明示する</text>
+  <text class="s" x="102" y="406" text-anchor="middle">寄与した箇所を示す</text>
+
+  <rect class="bp" x="205" y="226" width="185" height="54" rx="8"/>
+  <text class="n" x="298" y="248" text-anchor="middle">利活用計画書は不要</text>
+  <text class="s" x="298" y="266" text-anchor="middle">検索の補助、たたき台</text>
+  <path class="arr" d="M298,282V294" marker-end="url(#ah)"/>
+  <rect class="bp" x="205" y="296" width="185" height="72" rx="8"/>
+  <text x="298" y="318" text-anchor="middle">業務計画書の行政情報</text>
+  <text x="298" y="336" text-anchor="middle">流出防止対策に、</text>
+  <text class="n" x="298" y="354" text-anchor="middle">リスク対策を書く</text>
+
+  <rect class="card" x="10" y="436" width="380" height="56" rx="8"/>
+  <text class="n" x="22" y="459">工事を対象にした記載は、通知にない</text>
+  <text class="s" x="22" y="478">自社の契約の特記仕様書と、発注者の指示で確かめる</text>
+</svg>

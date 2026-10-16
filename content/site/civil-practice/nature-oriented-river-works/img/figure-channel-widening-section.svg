@@ -1,0 +1,66 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は中小河川の河道計画の技術基準（国河環第30号ほか）の拡幅優先・のり勾配五分・護岸の要否。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="中小河川の横断面を同じ縮尺で重ねた比較図。河床を深く掘る案は河床幅が狭くなる。拡幅を基本にした案は片岸を広げ、のり勾配を五分に立てて河床幅を広く残し、良好な河岸は保全し、護岸は必要と判定した範囲だけに置く。通知の値は、のり勾配五分、平均の掘削深は60cmが上限。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .n { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .p { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .g { fill: #f5f5f5; }
+      .w { fill: #e8f0fe; }
+      .dim { stroke: #555; stroke-width: 1; fill: none; }
+    </style>
+    <marker id="at" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="7" refX="1" refY="3.5" orient="auto-start-reverse"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+  </defs>
+
+  <text x="14" y="24">横断面の比較（片岸を拡幅する場合）</text>
+
+  <rect class="p" x="10" y="32" width="380" height="292" rx="8"/>
+  <rect class="g" x="14" y="90" width="372" height="230"/>
+
+  <!-- 拡幅を基本にした断面（水面側を塗る） -->
+  <polygon class="w" points="40,90 90,190 260,190 310,90"/>
+  <!-- 現況の右のり（拡幅前） -->
+  <path d="M240,90L190,190" style="stroke:#8a8a8a;stroke-width:1.5;stroke-dasharray:4 3" fill="none"/>
+  <!-- 河床を深く掘る案 -->
+  <path d="M90,190L125,260H155L190,190" style="stroke:#b22234;stroke-width:1.5;stroke-dasharray:4 3" fill="none"/>
+  <!-- 拡幅断面の輪郭 -->
+  <path d="M14,90H40L90,190H260L310,90H386" style="stroke:#2e6da4;stroke-width:2.5;stroke-linejoin:round" fill="none"/>
+  <!-- 保全する左岸 -->
+  <path d="M40,90L90,190" style="stroke:#3a7d44;stroke-width:5" fill="none"/>
+  <!-- 護岸 -->
+  <path d="M260,190L285,140" style="stroke:#555;stroke-width:5" fill="none"/>
+
+  <!-- 川幅 -->
+  <path class="dim" d="M40,58H310" marker-start="url(#at)" marker-end="url(#at)"/>
+  <path class="dim" d="M40,52V90M310,52V90" style="stroke-dasharray:2 2"/>
+  <text class="n" x="175" y="52" text-anchor="middle">拡幅後の川幅</text>
+  <path class="dim" d="M40,80H240" marker-start="url(#at)" marker-end="url(#at)"/>
+  <path class="dim" d="M240,76V90" style="stroke-dasharray:2 2"/>
+  <text x="140" y="76" text-anchor="middle">現況の川幅</text>
+
+  <!-- 河床幅 -->
+  <path class="dim" d="M96,176H254" marker-start="url(#at)" marker-end="url(#at)"/>
+  <text class="n" x="175" y="170" text-anchor="middle">河床幅を広く残す</text>
+
+  <!-- 注記 -->
+  <text class="t" x="300" y="118">のり勾配</text>
+  <text class="t" x="300" y="132">五分</text>
+  <text x="296" y="178">護岸</text>
+  <path d="M294,174L281,160" stroke="#8a8a8a" fill="none"/>
+  <text x="14" y="216">自然河岸を保全</text>
+  <text x="140" y="290" text-anchor="middle">深く掘る案</text>
+
+  <!-- 凡例 -->
+  <path d="M20,344H48" style="stroke:#2e6da4;stroke-width:2.5"/><text x="58" y="348">拡幅を基本にした断面</text>
+  <path d="M20,362H48" style="stroke:#b22234;stroke-width:1.5;stroke-dasharray:4 3"/><text x="58" y="366">河床を深く掘る断面</text>
+  <path d="M20,380H48" style="stroke:#8a8a8a;stroke-width:1.5;stroke-dasharray:4 3"/><text x="58" y="384">現況のり面（拡幅前の右岸）</text>
+  <path d="M20,398H48" style="stroke:#555;stroke-width:5"/><text x="58" y="402">護岸（必要と判定した範囲だけ）</text>
+  <path d="M20,416H48" style="stroke:#3a7d44;stroke-width:5"/><text x="58" y="420">保全する自然河岸</text>
+
+  <!-- 通知の値 -->
+  <rect x="10" y="434" width="380" height="58" rx="8" style="fill:#fff3cd;stroke:#d4a017;stroke-width:1.5"/>
+  <text class="n" x="20" y="454">通知の値：のり勾配は五分、平均の掘削深は60cmが上限</text>
+  <text x="20" y="471">対象：流域面積おおむね200km²未満、C級以下の河川</text>
+  <text x="20" y="485">出典：国河環第30号ほか（平成22年8月9日）</text>
+</svg>

@@ -58295,6 +58295,279 @@
         "scripts/check-orphan-ogp.mjs"
       ],
       "srcHash": "e951c0f051d55c9f"
+    },
+    "content/site/civil-practice/landscape-planning-public-works/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/landscape-planning-public-works/ogp.png",
+      "sha256": "1ca35a03270f607b78c371b1303ec8741375384ba64a7b1181d50b0a73e9b1cd",
+      "bytes": 68842,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-16T04:17:08.650Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/landscape-planning-public-works/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "bd224d473e7f43c7"
+    },
+    "content/site/civil-practice/license-requirements/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/license-requirements/ogp.png",
+      "sha256": "850bd641ebb97abd2babdc63b4dbbd0eb15ed35e1cc0940f64213ae6be7218cd",
+      "bytes": 59698,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-16T04:20:25.383Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/license-requirements/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "1edcd5f850a3a7a7"
+    },
+    "content/site/civil-practice/nature-oriented-river-works/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/nature-oriented-river-works/ogp.png",
+      "sha256": "79a1a8442ba0b59ed4ca524dee34c789ffed77e588e8f6df3ddbe6fe27a6361c",
+      "bytes": 69506,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-16T04:24:36.078Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/nature-oriented-river-works/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "3cb0060653046c42"
+    },
+    "content/site/civil-practice/license-procedures/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/license-procedures/ogp.png",
+      "sha256": "fbcc9dd4de96948528c4e2d79ce559c3e7470f96e58ce39bf76be6b60a7cf646",
+      "bytes": 64533,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-16T04:27:47.379Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/license-procedures/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "f27fa67a92af64b6"
+    },
+    "content/site/civil-practice/barrier-free-roads-stations/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/barrier-free-roads-stations/ogp.png",
+      "sha256": "0e1770639d2e55c17668130bd2a37aa1798f85c308310ffb40369820d137031d",
+      "bytes": 67894,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-16T04:32:57.492Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/barrier-free-roads-stations/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "bd30dd212b141ff8"
+    },
+    "content/site/civil-practice/construction-dispute-resolution/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/construction-dispute-resolution/ogp.png",
+      "sha256": "312699e71aef07b6df854892735a575fb5d28e1a5f614c0a21b35a68b54fffd3",
+      "bytes": 66888,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-16T04:38:52.040Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/construction-dispute-resolution/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "0f392f83a5be0ef4"
+    },
+    "content/site/civil-practice/urban-greening/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/urban-greening/ogp.png",
+      "sha256": "853edfafd7c9b99ea4c521c027a9e0d75b045bef1c3a64091fb115a129a310db",
+      "bytes": 63762,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-16T04:42:14.454Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/urban-greening/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "76b56da1513eef5a"
+    },
+    "content/site/civil-practice/keishin-review-merger/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/keishin-review-merger/ogp.png",
+      "sha256": "ca745a9d54423a28d7a5ac3d09a403878d98d8c658bb33f048401fc8d7e3254e",
+      "bytes": 68968,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-16T04:42:14.513Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/keishin-review-merger/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "32f6978ecb624a16"
+    },
+    "content/site/civil-practice/weather-information-reading/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/weather-information-reading/ogp.png",
+      "sha256": "ffea74a5ff321f3974b026dfef3ddabb98fe92aa27ae52cc0d9186a74ae928ce",
+      "bytes": 64923,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-16T04:53:47.539Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/weather-information-reading/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "edec151e79bec649"
+    },
+    "content/site/civil-practice/supervision-compliance-surveys/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/supervision-compliance-surveys/ogp.png",
+      "sha256": "2e65b4201fc575069db68a15ad46298d16b6b1fae6b5e966f9d99d9014a8ccb8",
+      "bytes": 67089,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-16T04:56:59.230Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/supervision-compliance-surveys/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "0c87701253f6403b"
+    },
+    "content/site/civil-practice/waterworks-business/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/waterworks-business/ogp.png",
+      "sha256": "d6cde287b88161e932509f2fc86440663040f64d043297a8068a572ff721092f",
+      "bytes": 69094,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-16T04:56:59.345Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/waterworks-business/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "7d44fd9323da1c3a"
+    },
+    "content/site/civil-practice/generative-ai-adoption/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/generative-ai-adoption/ogp.png",
+      "sha256": "e078a77bf17c7e61692125416eaabda4eb347f09efeb00ef58036972bd7d78ce",
+      "bytes": 62051,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-16T05:05:16.589Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/generative-ai-adoption/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "b98a68a1f29b122a"
+    },
+    "content/site/civil-practice/construction-business-overview/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/construction-business-overview/ogp.png",
+      "sha256": "3ae26e695840fcc28eac69fb9c43550bad4d51f2dd6da1f63ea95d9009b75079",
+      "bytes": 71099,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-16T05:05:17.549Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/construction-business-overview/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "0723a68fce81c203"
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",

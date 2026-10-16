@@ -1,0 +1,50 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は建設業者の合併に係る経営事項審査の事務取扱い（国総建第309号）の審査基準日と合併直前の経審との関係。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="合併時の審査基準日の時間軸。合併直前の決算日の経審、吸収合併は合併期日・新設合併は合併登記の日が審査基準日になる合併時経審、合併後最初の決算日を基準日とする経審の順。合併直前の経審があれば合併時経審は義務ではない。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #222; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 11px; fill: #555; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .bp { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .bw { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .card { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .axis { stroke: #8a8a8a; stroke-width: 2; fill: none; }
+      .dot { fill: #2e6da4; stroke: #fff; stroke-width: 2; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#8a8a8a"/></marker>
+  </defs>
+
+  <path class="axis" d="M26,16V380" marker-end="url(#ah)"/>
+
+  <circle class="dot" cx="26" cy="32" r="7"/>
+  <rect class="card" x="44" y="10" width="346" height="90" rx="8"/>
+  <text class="n" x="56" y="34">合併直前の決算日</text>
+  <text x="56" y="54">存続会社が直前の経審を受けていれば</text>
+  <text x="56" y="72">合併時経審は義務ではない</text>
+  <text class="s" x="56" y="90">合併後の状態が評価されるまで使える</text>
+
+  <circle class="dot" cx="26" cy="138" r="7"/>
+  <rect class="b" x="44" y="114" width="346" height="158" rx="8"/>
+  <text class="n" x="56" y="138">合併の日が審査基準日になる</text>
+  <rect class="card" x="56" y="148" width="322" height="26" rx="5"/>
+  <text class="n" x="66" y="166">吸収合併</text>
+  <text x="140" y="166">合併期日</text>
+  <rect class="card" x="56" y="180" width="322" height="26" rx="5"/>
+  <text class="n" x="66" y="198">新設合併</text>
+  <text x="140" y="198">合併登記の日（設立の日）</text>
+  <text x="56" y="228">決算日を待たず、合併時経審を受けられる</text>
+  <text class="s" x="56" y="250">受けるなら、全業種で受ける</text>
+
+  <circle class="dot" cx="26" cy="308" r="7"/>
+  <rect class="card" x="44" y="286" width="346" height="90" rx="8"/>
+  <text class="n" x="56" y="310">合併後最初の決算日</text>
+  <text x="56" y="330">この日を審査基準日とする経審</text>
+  <text class="s" x="56" y="350">合併の影響を引き継ぐ項目が五つ残る</text>
+
+  <rect class="bw" x="10" y="392" width="380" height="100" rx="8"/>
+  <text class="n" x="22" y="416">合併時経審と、合併直前の経審</text>
+  <text x="22" y="438">合併時経審だけを受けてもよい</text>
+  <text x="22" y="458">両方を受けたときは、通知済みの発注者へ</text>
+  <text x="22" y="476">合併時経審の結果が通知される</text>
+</svg>

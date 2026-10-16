@@ -1,0 +1,51 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は建設業法の章立てを、会社の動く順に読み替えた五つの段階と、対応するシリーズの記事。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="会社の動く順と建設業法の章の地図。許可を取り保つは第2章、経審を受け入札に出るは第4章の2、下請と結び現場に人を置くは第3章と第4章、争いを解き監督に備えるは第3章の2と第5章、これからの仕事を整えるは法の章に収まらない課題。それぞれに対応する記事を並べた図。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #222; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 11px; fill: #555; }
+    </style>
+  </defs>
+  <rect x="10" y="10" width="380" height="96" rx="8" style="fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5"/>
+  <path d="M184,20V96" style="stroke:#2e6da4;stroke-width:1;stroke-dasharray:3 3;fill:none"/>
+  <text class="n" x="22" y="54">許可を取り、保つ</text>
+  <text class="s" x="22" y="72">第2章 建設業の許可</text>
+  <text x="196" y="41">許可が要る工事かの判断</text>
+  <text x="196" y="63">許可の要件</text>
+  <text x="196" y="85">許可の手続き</text>
+  <polygon points="193,108 207,108 200,116" fill="#8a8a8a"/>
+  <rect x="10" y="118" width="380" height="76" rx="8" style="fill:#d0e8d0;stroke:#3a7d44;stroke-width:1.5"/>
+  <path d="M184,128V184" style="stroke:#3a7d44;stroke-width:1;stroke-dasharray:3 3;fill:none"/>
+  <text class="n" x="22" y="152">経審を受け、入札に出る</text>
+  <text class="s" x="22" y="170">第4章の2 経営事項審査等</text>
+  <text x="196" y="150">経営事項審査と入札参加資格</text>
+  <text x="196" y="172">経審の結果と受け直し</text>
+  <polygon points="193,196 207,196 200,204" fill="#8a8a8a"/>
+  <rect x="10" y="206" width="380" height="112" rx="8" style="fill:#fff3cd;stroke:#d4a017;stroke-width:1.5"/>
+  <path d="M184,216V308" style="stroke:#d4a017;stroke-width:1;stroke-dasharray:3 3;fill:none"/>
+  <text class="n" x="22" y="241">下請と結び、</text>
+  <text class="n" x="22" y="259">現場に人を置く</text>
+  <text class="s" x="22" y="277">第3章 請負契約</text>
+  <text class="s" x="22" y="293">第4章 施工技術の確保</text>
+  <text x="196" y="234">下請取引のルール</text>
+  <text x="196" y="256">下請への指示と偽装請負</text>
+  <text x="196" y="278">CCUSと建退共</text>
+  <text x="196" y="300">外国人材の受入れ前の確認</text>
+  <polygon points="193,320 207,320 200,328" fill="#8a8a8a"/>
+  <rect x="10" y="330" width="380" height="80" rx="8" style="fill:#f8d7da;stroke:#b22234;stroke-width:1.5"/>
+  <path d="M184,340V400" style="stroke:#b22234;stroke-width:1;stroke-dasharray:3 3;fill:none"/>
+  <text class="n" x="22" y="349">争いを解き、</text>
+  <text class="n" x="22" y="367">監督に備える</text>
+  <text class="s" x="22" y="385">第3章の2 紛争の処理</text>
+  <text class="s" x="22" y="401">第5章 監督</text>
+  <text x="196" y="364">建設工事の紛争を解く</text>
+  <text x="196" y="386">監督処分と実態調査</text>
+  <polygon points="193,412 207,412 200,420" fill="#8a8a8a"/>
+  <rect x="10" y="422" width="380" height="64" rx="8" style="fill:#f5f5f5;stroke:#8a8a8a;stroke-width:1.5"/>
+  <path d="M184,432V476" style="stroke:#8a8a8a;stroke-width:1;stroke-dasharray:3 3;fill:none"/>
+  <text class="n" x="22" y="442">これからの仕事を整える</text>
+  <text class="s" x="22" y="460">法の章に収まらない</text>
+  <text class="s" x="22" y="476">新しい課題（生成AIなど）</text>
+  <text x="196" y="459">建設会社の生成AI導入</text>
+</svg>

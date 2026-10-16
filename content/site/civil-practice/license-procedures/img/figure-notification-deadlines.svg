@@ -1,0 +1,51 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は建設業法第11条・第12条と施行規則第7条の2・第8条の届出の期限。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="届出の期限の早見表。役員の就任・退任は30日以内、ただし常勤役員等の後任は2週間以内。営業所技術者の交代は2週間以内。営業所の新設と廃業は30日以内。決算は事業年度終了後4か月以内。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #222; }
+      .n { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 11px; fill: #555; }
+      .card { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .sep { stroke: #d7d7d7; stroke-width: 1; fill: none; }
+    </style>
+  </defs>
+  <rect class="card" x="10" y="8" width="380" height="424" rx="8"/>
+  <rect x="118" y="16" width="82" height="40" rx="5" style="fill:#f8d7da;stroke:#b22234;stroke-width:1.5"/>
+  <text class="n" x="159" y="33" text-anchor="middle">2週間</text>
+  <text class="n" x="159" y="49" text-anchor="middle">以内</text>
+  <rect x="202" y="16" width="82" height="40" rx="5" style="fill:#fff3cd;stroke:#d4a017;stroke-width:1.5"/>
+  <text class="n" x="243" y="33" text-anchor="middle">30日</text>
+  <text class="n" x="243" y="49" text-anchor="middle">以内</text>
+  <rect x="286" y="16" width="98" height="40" rx="5" style="fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5"/>
+  <text class="n" x="335" y="33" text-anchor="middle">事業年度終了後</text>
+  <text class="n" x="335" y="49" text-anchor="middle">4か月以内</text>
+  <path class="sep" d="M20,64H380"/>
+  <text class="n" x="22" y="92">役員の就任・退任</text>
+  <text class="s" x="22" y="110">役員等の変更</text>
+  <circle cx="243" cy="95" r="13" style="fill:#d4a017;stroke:#fff;stroke-width:2"/>
+  <circle cx="159" cy="95" r="12" style="fill:#fff;stroke:#b22234;stroke-width:2.5;stroke-dasharray:4 2.5"/>
+  <path class="sep" d="M20,126H380"/>
+  <text class="n" x="22" y="154">営業所技術者の交代</text>
+  <text class="s" x="22" y="172">氏名の変更を含む</text>
+  <circle cx="159" cy="157" r="13" style="fill:#b22234;stroke:#fff;stroke-width:2"/>
+  <path class="sep" d="M20,188H380"/>
+  <text class="n" x="22" y="216">営業所の新設</text>
+  <text class="s" x="22" y="234">従たる営業所</text>
+  <circle cx="243" cy="219" r="13" style="fill:#d4a017;stroke:#fff;stroke-width:2"/>
+  <path class="sep" d="M20,250H380"/>
+  <text class="n" x="22" y="278">決算</text>
+  <text class="s" x="22" y="296">決算変更届</text>
+  <circle cx="335" cy="281" r="13" style="fill:#2e6da4;stroke:#fff;stroke-width:2"/>
+  <path class="sep" d="M20,312H380"/>
+  <text class="n" x="22" y="340">廃業</text>
+  <text class="s" x="22" y="358">廃業等の届出</text>
+  <circle cx="243" cy="343" r="13" style="fill:#d4a017;stroke:#fff;stroke-width:2"/>
+  <path class="sep" d="M20,374H380"/>
+  <circle cx="30" cy="392" r="7" style="fill:#555"/>
+  <text class="s" x="44" y="396">その出来事の届出の期限</text>
+  <circle cx="30" cy="414" r="6.5" style="fill:#fff;stroke:#555;stroke-width:2;stroke-dasharray:3 2"/>
+  <text class="s" x="44" y="418">常勤役員等だった人の後任の届出は2週間</text>
+  <text class="s" x="200" y="446" text-anchor="middle">根拠は法第11条・第12条、施行規則第7条の2・第8条</text>
+  <text class="s" x="200" y="464" text-anchor="middle">運用は四国地方整備局の建設業許可の手引（令和7年12月版）</text>
+  <text class="s" x="200" y="482" text-anchor="middle">法令は令和8年（2026年）10月時点の条文</text>
+</svg>

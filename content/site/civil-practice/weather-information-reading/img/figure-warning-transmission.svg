@@ -1,0 +1,58 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は気象業務法第13条・第15条・第15条の2・第23条の警報の伝達の道すじと、特別警報での義務化。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="警報の伝達の流れ。警報を出せるのは気象庁だけで、警察庁、消防庁、国土交通省、都道府県、NTT東日本・西日本、NHKなどへ直ちに通知する。都道府県などは市町村長へ、警報では通知に努め、特別警報では通知する義務がある。市町村長は住民や官公署へ、警報では周知に努め、特別警報では周知の措置が義務。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .c { font-size: 12px; fill: #1a3a5c; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .dg { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+
+  <!-- 気象庁 -->
+  <rect class="b" x="14" y="14" width="372" height="44" rx="8"/>
+  <text class="n" x="200" y="33" text-anchor="middle">気象庁</text>
+  <text x="200" y="49" text-anchor="middle">警報を出せるのは気象庁だけ（第13条・第23条）</text>
+  <path class="a" d="M200,58V74" marker-end="url(#ah)"/>
+
+  <!-- 通知先 -->
+  <rect x="14" y="76" width="372" height="112" rx="8" fill="#fff" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="t" x="24" y="94">直ちに通知する先</text>
+  <rect class="b" x="24" y="100" width="168" height="24" rx="6"/><text class="c" x="108" y="117" text-anchor="middle">警察庁</text>
+  <rect class="b" x="208" y="100" width="168" height="24" rx="6"/><text class="c" x="292" y="117" text-anchor="middle">消防庁</text>
+  <rect class="b" x="24" y="128" width="168" height="24" rx="6"/><text class="c" x="108" y="145" text-anchor="middle">国土交通省</text>
+  <rect class="pos" x="208" y="128" width="168" height="24" rx="6"/><text class="t" x="292" y="145" text-anchor="middle">都道府県</text>
+  <rect class="b" x="24" y="156" width="168" height="24" rx="6"/><text class="c" x="108" y="173" text-anchor="middle">NTT東日本・西日本</text>
+  <rect class="b" x="208" y="156" width="168" height="24" rx="6"/><text class="c" x="292" y="173" text-anchor="middle">NHKなど</text>
+
+  <!-- 都道府県などから市町村長へ -->
+  <path class="a" d="M24,188V236" marker-end="url(#ah)"/>
+  <path class="a" d="M216,188V236" marker-end="url(#ah)"/>
+  <rect class="b" x="34" y="200" width="150" height="22" rx="11"/><text class="t" x="109" y="215" text-anchor="middle">警報：通知に努める</text>
+  <rect class="dg" x="226" y="200" width="160" height="22" rx="11"/><text class="t" x="306" y="215" text-anchor="middle">特別警報：通知する義務</text>
+
+  <!-- 市町村長 -->
+  <rect class="pos" x="14" y="238" width="372" height="44" rx="8"/>
+  <text class="n" x="200" y="257" text-anchor="middle">市町村長</text>
+  <text x="200" y="273" text-anchor="middle">受け取って広める側</text>
+
+  <!-- 住民・官公署へ -->
+  <path class="a" d="M24,282V330" marker-end="url(#ah)"/>
+  <path class="a" d="M216,282V330" marker-end="url(#ah)"/>
+  <rect class="b" x="34" y="294" width="150" height="22" rx="11"/><text class="t" x="109" y="309" text-anchor="middle">警報：周知に努める</text>
+  <rect class="dg" x="226" y="294" width="160" height="22" rx="11"/><text class="t" x="306" y="309" text-anchor="middle">特別警報：措置をとる義務</text>
+  <rect class="b" x="14" y="332" width="372" height="44" rx="8"/>
+  <text class="n" x="200" y="359" text-anchor="middle">住民・官公署</text>
+
+  <!-- 要点 -->
+  <rect x="10" y="390" width="380" height="98" rx="8" style="fill:#fff3cd;stroke:#d4a017;stroke-width:1.5"/>
+  <text class="t" x="20" y="410">市の独自の判断で「大雨警報」は名乗れない</text>
+  <text x="20" y="428">気象庁以外の者は、政令で定める場合を除いて</text>
+  <text x="20" y="444">警報をしてはならない（第23条）</text>
+  <text x="20" y="462">特別警報では、努力が義務に変わる（第15条の2）</text>
+</svg>

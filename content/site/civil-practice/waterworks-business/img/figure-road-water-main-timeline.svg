@@ -1,0 +1,62 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は道路法第32条・第34条・第36条の水管の工事の手順（計画書の提出・占用の許可・調整の条件）。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="道路の下の水道管の工事の時間軸。水道事業者は工事を実施する日の1か月前までに計画書を道路管理者へ出し、占用の許可を申請する。道路管理者は政令の基準に適合すれば許可し、他の工事との調整のために条件を付けられる。その後、水道事業者が工事を行い、復旧する。緊急を要する復旧工事と軽易な工事は計画書の対象外。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .wb { fill: #fff; stroke: #2e6da4; stroke-width: 1.5; }
+      .wp { fill: #fff; stroke: #3a7d44; stroke-width: 1.5; }
+      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+
+  <!-- 担い手 -->
+  <rect class="b" x="14" y="14" width="172" height="28" rx="8"/><text class="n" x="100" y="33" text-anchor="middle">水道事業者</text>
+  <rect class="pos" x="214" y="14" width="172" height="28" rx="8"/><text class="n" x="300" y="33" text-anchor="middle">道路管理者</text>
+
+  <!-- 1か月前まで -->
+  <rect class="wb" x="14" y="54" width="172" height="52" rx="8"/>
+  <text class="t" x="24" y="72">工事の計画書を出す</text>
+  <text x="24" y="88">実施日の1か月前まで</text>
+  <text x="24" y="100">（道路法第36条）</text>
+  <path class="a" d="M100,106V120" marker-end="url(#ah)"/>
+
+  <!-- 占用の許可 -->
+  <rect class="wb" x="14" y="122" width="172" height="52" rx="8"/>
+  <text class="t" x="24" y="140">占用の許可を申請</text>
+  <text x="24" y="156">水管は占用物件で</text>
+  <text x="24" y="168">許可が要る（第32条）</text>
+  <path class="a" d="M186,148H212" marker-end="url(#ah)"/>
+  <rect class="wp" x="214" y="122" width="172" height="52" rx="8"/>
+  <text class="t" x="224" y="140">基準に適合すれば許可</text>
+  <text x="224" y="156">許可しなければならない</text>
+  <text x="224" y="168">（第36条第2項）</text>
+  <path class="a" d="M300,174V188" marker-end="url(#ah)"/>
+
+  <!-- 調整の条件 -->
+  <rect class="wp" x="214" y="190" width="172" height="70" rx="8"/>
+  <text class="t" x="224" y="208">許可に条件を付ける</text>
+  <text x="224" y="224">他の占用工事・道路工事</text>
+  <text x="224" y="236">との調整（第34条）</text>
+  <text x="224" y="248">事前に意見を聞く</text>
+
+  <!-- 工事と復旧 -->
+  <path class="a" d="M300,260V270H100V281" marker-end="url(#ah)"/>
+  <rect class="wb" x="14" y="282" width="172" height="46" rx="8"/>
+  <text class="t" x="24" y="302">工事を実施</text>
+  <text x="24" y="318">許可の条件のもとで</text>
+  <path class="a" d="M100,328V342" marker-end="url(#ah)"/>
+  <rect class="wb" x="14" y="344" width="172" height="46" rx="8"/>
+  <text class="t" x="24" y="372">復旧</text>
+
+  <!-- 例外 -->
+  <rect x="10" y="400" width="380" height="88" rx="8" style="fill:#fff3cd;stroke:#d4a017;stroke-width:1.5"/>
+  <text class="t" x="20" y="420">1か月前の計画書の対象外</text>
+  <text x="20" y="438">災害による復旧工事などの緊急を要する工事</text>
+  <text x="20" y="454">政令で定める軽易な工事</text>
+  <text x="20" y="472">専用水道の水管は、この特例に含まれない</text>
+</svg>
