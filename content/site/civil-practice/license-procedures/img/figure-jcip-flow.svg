@@ -1,0 +1,53 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は国土交通省の建設業許可・経営事項審査電子申請システム（JCIP）の概要資料と操作マニュアルの流れ。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="電子申請（JCIP）の流れ。gBizID を取得し、書類を作成して申請し、手数料を納付し、行政庁が審査し、通知書を受け取る。手数料の電子納付と通知書の電子交付に未対応の行政庁があるので、申請の前に確かめる。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #222; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 11px; fill: #555; }
+      .t { font-size: 11px; font-weight: bold; fill: #b22234; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .bw { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .bd { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .arr { stroke: #8a8a8a; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#8a8a8a"/></marker>
+  </defs>
+  <rect class="b" x="10" y="10" width="380" height="58" rx="8"/>
+  <circle cx="36" cy="39" r="13" style="fill:#fff;stroke:#2e6da4;stroke-width:1.5"/>
+  <text class="n" x="36" y="44" text-anchor="middle">1</text>
+  <text class="n" x="62" y="33">gBizID を取得する</text>
+  <text class="s" x="62" y="53">法人代表者か個人事業主のプライムアカウント</text>
+  <path class="arr" d="M200,70V89" marker-end="url(#ah)"/>
+  <rect class="b" x="10" y="92" width="380" height="58" rx="8"/>
+  <circle cx="36" cy="121" r="13" style="fill:#fff;stroke:#2e6da4;stroke-width:1.5"/>
+  <text class="n" x="36" y="126" text-anchor="middle">2</text>
+  <text class="n" x="62" y="115">書類を作成して申請する</text>
+  <text class="s" x="62" y="135">代理人に頼むなら、gBizID で委任を設定</text>
+  <path class="arr" d="M200,152V171" marker-end="url(#ah)"/>
+  <rect class="bw" x="10" y="174" width="380" height="58" rx="8"/>
+  <circle cx="36" cy="203" r="13" style="fill:#fff;stroke:#d4a017;stroke-width:1.5"/>
+  <text class="n" x="36" y="208" text-anchor="middle">3</text>
+  <text class="n" x="62" y="197">手数料を納付する</text>
+  <text class="s" x="62" y="217">四国地方整備局は Pay-easy を推奨</text>
+  <rect x="268" y="182" width="112" height="20" rx="10" style="fill:#fff;stroke:#b22234;stroke-width:1.5"/>
+  <text class="t" x="324" y="196" text-anchor="middle">未対応の行政庁あり</text>
+  <path class="arr" d="M200,234V253" marker-end="url(#ah)"/>
+  <rect class="b" x="10" y="256" width="380" height="58" rx="8"/>
+  <circle cx="36" cy="285" r="13" style="fill:#fff;stroke:#2e6da4;stroke-width:1.5"/>
+  <text class="n" x="36" y="290" text-anchor="middle">4</text>
+  <text class="n" x="62" y="279">行政庁が審査する</text>
+  <text class="s" x="62" y="299">受付履歴がシステムに残る</text>
+  <path class="arr" d="M200,316V335" marker-end="url(#ah)"/>
+  <rect class="bw" x="10" y="338" width="380" height="58" rx="8"/>
+  <circle cx="36" cy="367" r="13" style="fill:#fff;stroke:#d4a017;stroke-width:1.5"/>
+  <text class="n" x="36" y="372" text-anchor="middle">5</text>
+  <text class="n" x="62" y="361">通知書を受け取る</text>
+  <text class="s" x="62" y="381">電子ファイルか紙のどちらか一方</text>
+  <rect x="268" y="346" width="112" height="20" rx="10" style="fill:#fff;stroke:#b22234;stroke-width:1.5"/>
+  <text class="t" x="324" y="360" text-anchor="middle">未対応の行政庁あり</text>
+  <rect class="bd" x="10" y="410" width="380" height="82" rx="8"/>
+  <text class="n" x="22" y="432">申請の前に、提出先の対応を確かめる</text>
+  <text x="22" y="452">通知書の電子交付と、手数料の電子納付</text>
+  <text class="s" x="22" y="472">承継・相続の認可の申請は、システムの対象の一覧にない</text>
+</svg>
