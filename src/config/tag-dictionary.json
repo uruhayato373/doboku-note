@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-16T04:52:47.705Z",
+  "generated_at": "2026-10-16T04:53:26.029Z",
   "summary": {
-    "total_mdx_files": 1466,
+    "total_mdx_files": 1467,
     "total_unique_tags": 133,
     "allowlist_size": 330,
     "known_count": 133,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 288,
+      "count": 289,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1301,6 +1301,7 @@
         "civil-practice-special-concrete-selection",
         "civil-practice-stacking-heat-machine-safety",
         "civil-practice-subbase-subgrade-control",
+        "civil-practice-supervision-compliance-surveys",
         "civil-practice-survey-informatics-overview",
         "civil-practice-trench-excavation-safety",
         "civil-practice-urban-greening",
@@ -2634,7 +2635,7 @@
     },
     {
       "name": "関係法規",
-      "count": 107,
+      "count": 108,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-engineer-assignment",
@@ -2682,6 +2683,7 @@
         "civil-practice-safety-health-education-plan",
         "civil-practice-subcontract-fair-dealing",
         "civil-practice-subcontract-instruction-boundary",
+        "civil-practice-supervision-compliance-surveys",
         "civil-practice-urban-greening",
         "civil-practice-urban-park-management",
         "pe-comprehensive-management-air-pollution-control-act",
