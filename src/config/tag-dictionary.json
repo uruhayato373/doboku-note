@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-16T04:23:40.130Z",
+  "generated_at": "2026-10-16T04:24:31.209Z",
   "summary": {
-    "total_mdx_files": 1460,
+    "total_mdx_files": 1461,
     "total_unique_tags": 133,
     "allowlist_size": 330,
     "known_count": 133,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 282,
+      "count": 283,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1235,6 +1235,7 @@
         "civil-practice-land-readjustment-project",
         "civil-practice-landscape-planning-public-works",
         "civil-practice-large-fill-landslide",
+        "civil-practice-license-procedures",
         "civil-practice-license-requirements",
         "civil-practice-lifting-equipment-selection",
         "civil-practice-municipal-civil-engineer-work",
@@ -2628,7 +2629,7 @@
     },
     {
       "name": "関係法規",
-      "count": 102,
+      "count": 103,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-engineer-assignment",
@@ -2659,6 +2660,7 @@
         "civil-practice-land-acquisition-compensation",
         "civil-practice-land-readjustment-project",
         "civil-practice-landscape-planning-public-works",
+        "civil-practice-license-procedures",
         "civil-practice-license-requirements",
         "civil-practice-license-scope-judgment",
         "civil-practice-owner-safety-responsibility",
@@ -4014,6 +4016,32 @@
       ]
     },
     {
+      "name": "行政手続き",
+      "count": 19,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-budget-and-funding-sources",
+        "civil-practice-buried-cultural-property-survey",
+        "civil-practice-ccus-kentaikyo-site",
+        "civil-practice-civil-engineer-annual-cycle",
+        "civil-practice-disaster-recovery-assessment",
+        "civil-practice-explaining-to-residents-and-council",
+        "civil-practice-foreign-workers-site-check",
+        "civil-practice-how-to-read-laws-and-notices",
+        "civil-practice-keishin-bidder-qualification",
+        "civil-practice-landscape-planning-public-works",
+        "civil-practice-license-procedures",
+        "civil-practice-license-requirements",
+        "civil-practice-license-scope-judgment",
+        "civil-practice-municipal-civil-engineer-work",
+        "civil-practice-municipal-engineer-qualifications",
+        "civil-practice-public-meeting-consensus",
+        "civil-practice-public-works-bidding-methods",
+        "civil-practice-regional-disaster-plan-flood-fighting",
+        "civil-practice-sediment-disaster-erosion-control"
+      ]
+    },
+    {
       "name": "コンクリート診断士",
       "count": 18,
       "inAllowlist": true,
@@ -4186,31 +4214,6 @@
         "pe-comprehensive-management-pert-cpm",
         "pe-comprehensive-management-process-planning-construction",
         "pe-comprehensive-management-progress-management"
-      ]
-    },
-    {
-      "name": "行政手続き",
-      "count": 18,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-budget-and-funding-sources",
-        "civil-practice-buried-cultural-property-survey",
-        "civil-practice-ccus-kentaikyo-site",
-        "civil-practice-civil-engineer-annual-cycle",
-        "civil-practice-disaster-recovery-assessment",
-        "civil-practice-explaining-to-residents-and-council",
-        "civil-practice-foreign-workers-site-check",
-        "civil-practice-how-to-read-laws-and-notices",
-        "civil-practice-keishin-bidder-qualification",
-        "civil-practice-landscape-planning-public-works",
-        "civil-practice-license-requirements",
-        "civil-practice-license-scope-judgment",
-        "civil-practice-municipal-civil-engineer-work",
-        "civil-practice-municipal-engineer-qualifications",
-        "civil-practice-public-meeting-consensus",
-        "civil-practice-public-works-bidding-methods",
-        "civil-practice-regional-disaster-plan-flood-fighting",
-        "civil-practice-sediment-disaster-erosion-control"
       ]
     },
     {
