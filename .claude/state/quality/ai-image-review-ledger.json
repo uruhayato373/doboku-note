@@ -398,6 +398,15 @@
       "reason": "種別・構造: 路面端のコンクリート側溝の上に、亜鉛めっき調の鋼製グレーチング蓋（平鋼の格子）が舗装面と面一で連続して並び、路肩側は砕石と草。本文（路面の水は横断勾配で路肩の側溝へ寄る）と一致し、濡れた舗装面が縁へ向かう様子も見える。破綻: 格子の平鋼の交差は整い、蓋の継ぎ目も連続していて、溶けた部品や二重化は無い。文字・ロゴ・人物も無い。遠景の車と外側線は自然。",
       "reviewedAt": "2026-10-09T09:11:07.208Z"
     },
+    "civil-practice/3d-measurement-selection/img/photo-terrestrial-laser-scanner": {
+      "sha": "f220b75a2864c2bc",
+      "promptSha": "8123a22336d961f0",
+      "tool": "Codex",
+      "generatedAt": "2026-10-16T02:18:55.724Z",
+      "verdict": "ok",
+      "reason": "アルミ三脚（3脚・石突き・脚固定金具・三脚頭）の上に整準台を介して、箱形本体と上部の回転ヘッド（側面の黒い鏡の部分）を持つ地上型レーザスキャナが据えられ、一般的なフェーズ差・TOF型スキャナの形に合う。背景は切土法面と小段で本文の方式と整合。ロゴ・文字なし、部位の二重化や溶けなし",
+      "reviewedAt": "2026-10-16T02:22:39.182Z"
+    },
     "civil-practice/accident-first-response/img/photo-confined-space-rescue-gear": {
       "sha": "695df838089dc6e3",
       "promptSha": "c6831b7d48cc72b9",
@@ -443,6 +452,15 @@
       "reason": "種別・構造: 重機で表土を除いた矩形の試掘坑で、壁面に暗色の表土、褐色の下層、黄色の地山が水平に重なる。右上のバケットは爪・アーム・油圧ホースが揃い、浮いた部位は無い。底は平らに清掃され、淡い暗色の円形の土色変化（遺構面の検出）が見える。脇に排土の山、赤白の標尺（読める数字なし）が壁に立て掛けてある。本文の「範囲・遺構面の数と深さ」と alt の説明に矛盾しない。破綻: 文字・看板・人物・崩れた部品は無い。トレンチは細長でなく方形に近いが、教材として誤解を招く差ではない。",
       "reviewedAt": "2026-10-15T06:58:18.360Z"
     },
+    "civil-practice/cad-3d-model-visualization/img/photo-model-review-desk": {
+      "sha": "ae75d02a0ebf0083",
+      "promptSha": "2915fa5008c81116",
+      "tool": "Codex",
+      "generatedAt": "2026-10-16T02:13:41.318Z",
+      "verdict": "ok",
+      "reason": "左モニターの3Dモデル（フーチング・角柱の柱・台形の張出しを持つ上部のT形橋脚）と、右モニターの正面図・断面図（フーチング・柱・斜めの面取り付き梁部・梁上の台座）が同じ橋脚の構成で、部位の比率と数も一致。画面の文字は判読不能で偽の文字なし。窓外は橋脚の建設現場で整合。断面図の柱の中心部の線は細かく、記事サイズでは誤解を生まない",
+      "reviewedAt": "2026-10-16T02:22:39.182Z"
+    },
     "civil-practice/concrete-labor-saving-technology/img/photo-precast-installation-crane": {
       "sha": "7580d5f6a3401110",
       "promptSha": "9ff8b16301f245e7",
@@ -461,6 +479,24 @@
       "reason": "直径がほぼ100・75・50mmの比（幅は約260・195・130px）の3本が並ぶ。切断面には灰色のセメントペーストに砕石が埋まっている。直径100mmのコアは骨材の粒がコア幅の約1/4で、骨材が多く入っている。50mmの小径コアは大きな砕石がコア幅の4〜6割を占め、縁に届くものもあるので、本文の「骨材の最大寸法と径の関係」が見て取れる。高さと径の比は約1.9〜2.4とややばらつくが、教材の主旨は崩れない。文字・目盛・数字は無い。描き直しの軸は、元の写真と比べると、元はモノクロで正面から撮り、大・中・小を左から順に並べ、下にスケールが写っている。この画像はカラーで、斜め上からの視点、並びは75・50・100mm、スケールは無く、背景も別なので、構図をなぞっていない",
       "reviewedAt": "2026-10-15T11:43:10.591Z"
     },
+    "civil-practice/construction-automation-control/img/photo-machine-indicator-lamp": {
+      "sha": "f7eeae5f66d921ec",
+      "promptSha": "969703000b102c40",
+      "tool": "Codex",
+      "generatedAt": "2026-10-16T02:17:35.128Z",
+      "verdict": "ok",
+      "reason": "油圧ショベルのキャブ上面に、ボルト止めのブラケットと支柱で取り付けた三段積層信号灯（上から赤・黄・緑）で、緑のみ点灯し赤・黄は消灯の見え方。左に黄色いブームとホース、背景は空と土砂の斜面で指示どおり。ロゴ・文字なし、レンズの溶けや二重の部位なし。積層信号灯の標準的な並び（赤が最上段）にも合う",
+      "reviewedAt": "2026-10-16T02:22:39.182Z"
+    },
+    "civil-practice/construction-automation-control/img/photo-unmanned-area-barrier": {
+      "sha": "263c729f360c7acd",
+      "promptSha": "2a5ab16026b6d8ae",
+      "tool": "Codex",
+      "generatedAt": "2026-10-16T02:16:15.336Z",
+      "verdict": "ok",
+      "reason": "手前に黄黒のバーと黄色のA形脚の立入制限柵と赤白のカラーコーン、奥の締固め地盤上に単胴の振動ローラ（平滑な鉄輪ドラム＋後輪ゴムタイヤ、ROPS屋根、運転席は無人）が写り、指示と本文に一致。ロゴ・文字なし。ドラム前面を横切る黄色い横梁はやや特異だが、種別・台数の誤解は生じない",
+      "reviewedAt": "2026-10-16T02:22:39.182Z"
+    },
     "civil-practice/construction-inspection-types/img/photo-remote-rebar-check": {
       "sha": "4d6cc39631e31cbe",
       "promptSha": "3db4324530a6e0b1",
@@ -478,6 +514,15 @@
       "verdict": "ok",
       "reason": "全体と近景の拡大で確認した。二本の平行な鋼レールが、等間隔の灰色コンクリートまくらぎ（PC まくらぎの形）に載っている。各まくらぎのレール座に、ばね状のループ形クリップと座金の締結装置が付き、レール・まくらぎ・砕石道床の順の構成が本文と一致する。角張った灰色の砕石がまくらぎ間とその外側に、まくらぎ上面のすぐ下まで詰まり、右側にはのり肩の傾斜がある。レールは無地で、文字・ロゴ・人物・列車は無い。クリップの形や数が崩れたり、部品が二重になったりした所は見当たらない。背景の電柱と山並みは教材の誤解につながらない。",
       "reviewedAt": "2026-10-15T10:40:46.724Z"
+    },
+    "civil-practice/coordinate-systems-geodetic-datum/img/photo-benchmark-monument": {
+      "sha": "c45425fc06273e81",
+      "promptSha": "934bb8cd7622f3cd",
+      "tool": "Codex",
+      "generatedAt": "2026-10-16T02:18:55.181Z",
+      "verdict": "ok",
+      "reason": "植え込み脇の花崗岩の角形標石の頭部上面中央に小さな半球状の突起があり、周囲を4本の花崗岩の保護石が囲む。国土地理院の水準点標石（柱石の頂部の半球状突起）の特徴に合う。文字・銘板なし、本文の「永久標識」の説明と矛盾せず、石の質感の破綻もない",
+      "reviewedAt": "2026-10-16T02:22:39.182Z"
     },
     "civil-practice/development-permit-public-facilities/img/photo-detention-pond": {
       "sha": "b7a83eb89e2b174c",
@@ -559,6 +604,24 @@
       "verdict": "ok",
       "reason": "アルミ製の小型測量船で、キャビン屋根に短いマスト付きの GNSS アンテナドーム、舷側ガンネルに取り付けた縦ポールと、その下端の水面直下に入る青い送受波器ヘッド、ポール中ほどのセンサ箱とケーブルが見える。alt と本文（水域の音響測深・マルチビーム）に合っている。船外機・窓・手すり・防舷材の数と配置は成り立ち、文字・ロゴ・人物・溶けた部品も無い。",
       "reviewedAt": "2026-10-09T10:32:33.760Z"
+    },
+    "civil-practice/image-photogrammetry-analysis/img/photo-crack-closeup": {
+      "sha": "4e771cf9592ec205",
+      "promptSha": "df41356e57f35d73",
+      "tool": "Codex",
+      "generatedAt": "2026-10-16T02:23:59.356Z",
+      "verdict": "ok",
+      "reason": "桁下面の細いひび割れ1本が斜めに走り、透明なクラックスケールのカードがその真上に重ねて当たっている。ひび割れはカードの太さの異なる線の列を端から端まで横切り、カードの前後にも続いて見えるため、線の太さと並べて幅を読める位置になっている。カードの線はひび割れの向きにほぼ直交（約70度）で、片側のテープ留めも自然。数字・文字・ロゴなし、カードやひび割れの溶け・二重化なし。前回の離れて貼られていた不備は解消",
+      "reviewedAt": "2026-10-16T02:24:31.878Z"
+    },
+    "civil-practice/information-system-procurement/img/photo-server-room-meeting": {
+      "sha": "728ca5c032e51b86",
+      "promptSha": "d6e360934a712613",
+      "tool": "Codex",
+      "generatedAt": "2026-10-16T02:18:48.362Z",
+      "verdict": "ok",
+      "reason": "通路の両側にサーバラック（メッシュ扉・ラック内の機器・青いケーブル・穴あきフロアタイル）が並び、事務服（白シャツ＋スラックス・黒の上着とスカート）の職員2人が後ろ向きに立って印刷した図面を一緒に見ている。顔は判別できず、紙面は判読不能な線で偽の文字なし。手・腕・足の破綻なし",
+      "reviewedAt": "2026-10-16T02:22:39.182Z"
     },
     "civil-practice/land-readjustment-project/img/photo-road-drain-construction-site": {
       "sha": "821e5df7d9a3794d",
@@ -820,6 +883,15 @@
       "verdict": "ok",
       "reason": "柱頭部の軸から伸びる振り子アームが斜め上に持ち上がり、軸から台座の試験片支持台までの距離とアーム長がほぼ等しく、下ろせばハンマーが試験片位置に届く。支持台・ダイヤル・V ノッチ角棒 3 本と破断片 2 本が本文と一致し、読める文字や崩れた部位も無い",
       "reviewedAt": "2026-10-07T23:50:42.581Z"
+    },
+    "civil-practice/survey-informatics-overview/img/photo-site-survey-instruments": {
+      "sha": "24853c5ed5977ae8",
+      "promptSha": "02ba2ab025f925f6",
+      "tool": "Codex",
+      "generatedAt": "2026-10-16T02:09:07.654Z",
+      "verdict": "ok",
+      "reason": "黄色の三脚（各脚が二本材）に据えたロボティック型トータルステーション（望遠鏡・ハンドル・整準台あり）、ポール先端の平らな円盤形GNSSアンテナ（ポール下端に手持ち端末と脚）、黒いマット上のクアッドコプター型ドローン（カメラ付きジンバル・4本のアーム）がそろい、指示と本文に一致。ロゴ・文字なし、奥に重機と盛土があり破綻なし。ドローンの右手前アームのプロペラが少し流れて見えるが誤解は生じない",
+      "reviewedAt": "2026-10-16T02:22:39.181Z"
     },
     "civil-practice/urban-park-management/img/photo-swing-support-base-inspection": {
       "sha": "7ebcc72951f8335c",
