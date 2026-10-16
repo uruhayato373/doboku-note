@@ -8112,6 +8112,15 @@
         "kind": "external",
         "url": "https://www.mlit.go.jp/totikensangyo/const/content/002004333.pdf"
       }
+    },
+    {
+      "id": "fhwa-half-cell-potential",
+      "title": "Half-Cell Potential",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://infotechnology.fhwa.dot.gov/half-cell-potential-hcp/"
+      }
     }
   ]
 }

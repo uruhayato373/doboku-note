@@ -10,10 +10,11 @@ tags:
 section: 3
 sources:
   - concrete-diagnostician-textbook
+  - fhwa-half-cell-potential
 published: true
 publishedAt: '2026-05-30'
 created: 2026-05-30
-dateModified: 2026-10-15
+dateModified: 2026-10-16
 ogp:
   title: "調査・試験方法"
 ---
@@ -458,7 +459,7 @@ X線をコンクリートに透過させ、内部の鉄筋・空洞・異物を�
 {/* source: doboku-note による自作 SVG（コア採取と試験項目の分岐） */}
 <ArticleImage
   src="/posts/concrete-diagnostician/textbook-investigation/img/figure-02.svg"
-  alt="鉄筋を避けた位置にコアドリルで φ50〜100 mm の円柱供試体を採取する断面模式図と、コアから圧縮強度・中性化深さ・塩化物イオン量の各試験へ分岐する流れ"
+  alt="鉄筋の間でコアを採取する断面模式と、圧縮強度・中性化深さ・塩化物量の試験への分岐"
   width={400}
   height={500}
 />
@@ -539,7 +540,7 @@ ICP法は、試料を酸で溶かし、誘導結合プラズマ発光分光分�
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/concrete-diagnostician/textbook-investigation/img/figure-mercury-intrusion.svg"
-  alt="水銀圧入法の原理図。圧力Pで水銀を細孔へ押し込み、表面張力σと接触角θから細孔半径r=2σcosθ/Pを求め、圧入量から細孔径分布を得る"
+  alt="水銀を細孔へ押し込み、圧力と侵入量から細孔径分布を求める原理。狭い入口の影響を受ける"
   width={400}
   height={500}
 />
@@ -679,7 +680,7 @@ $$
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/concrete-diagnostician/textbook-investigation/img/figure-reference-electrode-conversion.svg"
-  alt="照合電極の電位の換算例。Ag/AgCl電極の−280 mVをCSE基準の−400 mVへ換算し、−350 mVより卑なので腐食の可能性大と判定する"
+  alt="照合電極の仕様を確認し、電位をCSE基準へ換算してから腐食の可能性を評価する流れ"
   width={400}
   height={500}
 />
@@ -695,14 +696,14 @@ $$
 
 ASTM C 876 では CSE を基準として、次のような腐食確率の目安が示されている。
 
-| 電位（CSE基準） | 腐食確率の目安 |
+| 電位（CSE基準） | 腐食の有無の確率の目安 |
 |---|---|
-| $-200$ mV より貴 | 腐食する確率 90% 未満 |
+| $-200$ mV より貴 | 90%以上の確率で腐食なし |
 | $-200$ 〜 $-350$ mV | 不確定域 |
-| $-350$ mV より卑 | 腐食する確率 90% 以上 |
+| $-350$ mV より卑 | 90%以上の確率で腐食あり |
 
 <Callout type="reference" title="出典">
-[ASTM C876 Standard Test Method for Corrosion Potentials of Uncoated Reinforcing Steel in Concrete（ASTM International）](https://www.astm.org/c0876-15.html)
+[ASTM C876 Standard Test Method for Corrosion Potentials of Uncoated Reinforcing Steel in Concrete（ASTM International）](https://www.astm.org/c0876-15.html)。判定区分は [FHWA「Half-Cell Potential」Data Interpretation](https://infotechnology.fhwa.dot.gov/half-cell-potential-hcp/) でも確認できる。
 </Callout>
 
 自然電位は腐食の**活動度**を示すが、腐食速度（実際にどれだけ断面が失われているか）は表さない。また測定値はコンクリートの含水状態・酸素供給量・温度に大きく依存するため、単独での解釈には注意が必要である。
@@ -733,7 +734,7 @@ ASTM C 876 では CSE を基準として、次のような腐食確率の目安�
 
 一方、測定できない条件もある。表面が乾燥していると、電流が通じず電位が測れない。水に浸かった部位も、同じ手順では測れない。表面がエポキシ樹脂塗装や防水層のような絶縁被覆で覆われている場合も、照合電極と鉄筋の間の回路ができず測れない。被覆をはがした範囲で測るか、はつり調査に切り替える。
 
-最後に、電位は照合電極の種類で基準点が違う。−350 mV という目安は CSE 基準なので、銀/塩化銀電極などで測った値は換算してから当てはめる（換算の例は前掲の図）。
+最後に、電位は照合電極の種類で基準点が違う。−350 mV という目安は CSE 基準なので、銀/塩化銀電極などで測った値は換算してから当てはめる（換算の流れは前掲の図）。
 
 ### 分極抵抗法（Stern-Geary 式）
 
@@ -768,6 +769,14 @@ $$
 直流法は、鉄筋に微小な電流を流して電位の変化を直接読む。簡便だが、読んだ抵抗にはコンクリート自体の抵抗が上乗せされる。乾燥したコンクリートほど、この上乗せが大きい。
 
 交流インピーダンス法は、周波数を変えながら交流を流し、鉄筋表面の反応抵抗 $R_{ct}$ と溶液抵抗（コンクリートの抵抗）$R_s$ を分けて求める。等価回路は、$R_s$ に、$R_{ct}$ と電気二重層容量が並列につながった形である。装置と解析は手間がかかるが、コンクリート抵抗の影響を除いた $R_{ct}$ を分極抵抗として使える。
+
+{/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
+<ArticleImage
+  src="/posts/concrete-diagnostician/textbook-investigation/img/figure-polarization-resistance-components.svg"
+  alt="直流法に重なるコンクリート抵抗と、交流法で分離する反応抵抗・電気二重層容量の関係"
+  width={400}
+  height={500}
+/>
 
 腐食速度は、Stern-Geary 式で得た腐食電流密度 $i_\text{corr}$ を、次のように4段階で判定する。値は CEB の腐食速度の判定基準として、JCI の年次論文集などで引用される目安であり、規格化された判定基準ではない。不動態の下限を0.1 μA/cm²とする文献もあるので、調書には採用した出典の区分を書く。
 
@@ -819,7 +828,7 @@ $$
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/concrete-diagnostician/textbook-investigation/img/figure-rebar-corrosion-survey-flow.svg"
-  alt="鋼材腐食量の調査フロー。取り出し位置の選定、質量測定、錆の除去、展開図作成、腐食部分の面積測定、腐食面積率の算出、除錆後の質量測定、質量減少率の算出の順"
+  alt="鉄筋を採取して腐食面積率と質量減少率を求める流れ。質量減少率は腐食前と除錆後の質量を比較する"
   width={400}
   height={500}
 />
@@ -854,7 +863,7 @@ ASRの調査は、現地で手早く確かめられるものから、コアを�
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/concrete-diagnostician/textbook-investigation/img/figure-aggregate-harmfulness-chart.svg"
-  alt="化学法の判定図。横軸は溶解シリカ量Sc、縦軸はアルカリ濃度減少量Rc。境界線の上側が無害、下側が無害でない"
+  alt="化学法の判定順序。Rcが700以上は判定せず、700未満ではScの大きさとRcとの比較で判定する"
   width={400}
   height={500}
 />
@@ -864,7 +873,7 @@ ASRの調査は、現地で手早く確かめられるものから、コアを�
 
 両試験は骨材そのものの反応性を見る試験で、構造物が今どうなっているかは教えてくれない。条件と、判定できない場合を押さえておく。
 
-化学法は、溶解シリカ量 $S_c$ とアルカリ濃度減少量 $R_c$ の2つの値で判定する。上の判定図は、JIS A 1145:2017 の判定条件を図にしたものである。
+化学法は、溶解シリカ量 $S_c$ とアルカリ濃度減少量 $R_c$ の2つの値で判定する。上の図は、JIS A 1145:2017 の判定条件を順に確認する流れを示している。
 
 - $R_c \ge 700$ mmol/L の場合は、判定しない。
 - $R_c < 700$ mmol/L で $S_c < 10$ mmol/L の場合は、無害とする。
@@ -990,24 +999,22 @@ ASRの診断で核心になるのは、ゲルが「ひび割れを生じさせ�
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/concrete-diagnostician/textbook-investigation/img/figure-epma-signals.svg"
-  alt="EPMAで電子線を試料表面に照射したときに生じる特性X線・反射電子・二次電子・吸収電子と、得られる情報の違い"
+  alt="EPMAは電子線で生じる特性X線から元素を調べ、点・線・面の分布として劣化反応の範囲を把握する"
   width={400}
   height={500}
 />
-
-
-{/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
-<ArticleImage
-  src="/posts/concrete-diagnostician/textbook-investigation/img/figure-sem-imaging.svg"
-  alt="SEMの結像原理。走査コイルで電子ビームを試料上に走査し、信号電子を検出器で捉え増幅してCRTの輝度に表示する。走査コイル電源が走査と表示を同期させる"
-  width={400}
-  height={500}
-/>
-
 
 ### SEM（走査型電子顕微鏡）
 
 試料表面に電子線を走査して反射・二次電子を検出し、微細な表面形態を高倍率で観察する。コンクリートの劣化形態（ひびわれの形状・骨材界面の状態・反応生成物の結晶形態）を直接観察でき、EPMA との複合分析で「場所・組成・形態」を一体的に把握できる。
+
+{/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
+<ArticleImage
+  src="/posts/concrete-diagnostician/textbook-investigation/img/figure-sem-imaging.svg"
+  alt="SEMで電子線を走査し、反射電子・二次電子から表面形態を観察する流れ。EPMAの組成分析と組み合わせる"
+  width={400}
+  height={500}
+/>
 
 {/* source: AI 生成画像（Codex）／実写の観察像ではない */}
 <ArticleImage
@@ -1028,7 +1035,7 @@ ASRの診断で核心になるのは、ゲルが「ひび割れを生じさせ�
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/concrete-diagnostician/textbook-investigation/img/figure-tg-dta-curve.svg"
-  alt="熱分析結果の例。温度に対しTGの質量が減少し高温側で急減、DTAは低温側と高温側に吸熱ピークを示し、水酸化カルシウムの脱水や炭酸カルシウムの脱炭酸に対応する"
+  alt="TGの質量減少とDTAの吸熱ピークを分け、本文の水酸化カルシウム・炭酸カルシウムの反応温度帯を示した模式図"
   width={400}
   height={500}
 />

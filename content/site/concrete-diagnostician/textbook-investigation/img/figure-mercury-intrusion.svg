@@ -2,7 +2,7 @@
 <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
   style="max-width:400px;width:100%"
   role="img"
-  aria-label="水銀圧入法の原理図。コンクリートの細孔の上に水銀があり、圧入圧力Pで押し込むと水銀の表面張力σと接触角θに応じて細孔直径が決まり、圧力と圧入量の関係から細孔径分布を求める">
+  aria-label="圧力で水銀を細孔へ押し込み、圧力と侵入量の関係から細孔径分布を求める原理">
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
@@ -38,16 +38,12 @@
   <line class="line-arr" x1="172" y1="236" x2="228" y2="236" marker-end="url(#arr)" />
   <line class="line-arr" x1="228" y1="236" x2="172" y2="236" marker-end="url(#arr)" />
   <text class="t-label" x="200" y="230" text-anchor="middle">細孔直径</text>
-  <text class="t-label" x="240" y="160">接触角 θ</text>
-  <line class="line-dash" x1="236" y1="157" x2="222" y2="182" />
-  <text class="t-label" x="240" y="200">表面張力 σ</text>
-  <line class="line-dash" x1="236" y1="197" x2="222" y2="194" />
   <rect class="box" x="20" y="318" width="360" height="168" rx="6" />
   <text class="t-b" x="34" y="338">水銀圧入法の考え方</text>
   <text class="t-desc" x="34" y="360">圧力を上げるほど、より小さい細孔まで</text>
   <text class="t-desc" x="34" y="380">水銀が入る（大きい孔から順に小さい孔へ）</text>
-  <text class="t-desc" x="34" y="400">細孔半径 r ＝ −2σ・cos θ ／ P</text>
+  <text class="t-desc" x="34" y="400">細孔の入口の径が測定値に影響する</text>
   <text class="t-desc" x="34" y="420">圧入圧力 P と圧入量の関係から</text>
   <text class="t-desc" x="34" y="440">細孔径分布を求める</text>
-  <text class="t-desc" x="34" y="460">（水銀は θ が 90°超で cos θ が負のため符号を付ける）</text>
+  <text class="t-desc" x="34" y="460">入口が狭い空隙は、小さく見積もられる</text>
 </svg>
