@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="やり直しの原因から費用の持ち方への振り分け。契約書面と異なる施工と施工の瑕疵は下請が負担できる。下請が明確化を求めたのに元請が応じなかった場合、下請が確認を求め元請が了承した内容で施工した場合、設計変更や追加の指示で生じた手戻りは元請が負担する" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+<defs>
+<style>
+  text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #222; }
+  .t { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+  .s { font-size: 11px; fill: #555; }
+  .sb { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+  .box-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+  .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+  .box-warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+  .box-danger { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+  .box-surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+  .arr { stroke: #555; stroke-width: 1.5; fill: none; }
+</style>
+<marker id="a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker>
+</defs>
+<rect width="400" height="500" fill="#ffffff"/>
+<text class="t" x="14" y="38">やり直しの原因</text>
+<text class="t" x="270" y="38">費用の持ち方</text>
+<rect class="box-surface" x="14" y="52" width="220" height="60" rx="8"/>
+<text x="26" y="78">契約書面と異なる施工、</text>
+<text x="26" y="96">施工の瑕疵</text>
+<rect class="box-surface" x="14" y="124" width="220" height="60" rx="8"/>
+<text x="26" y="150">下請が明確化を求めたのに、</text>
+<text x="26" y="168">元請が応じなかった</text>
+<rect class="box-surface" x="14" y="196" width="220" height="60" rx="8"/>
+<text x="26" y="222">下請が確認を求め、元請が</text>
+<text x="26" y="240">了承した内容で施工した</text>
+<rect class="box-surface" x="14" y="268" width="220" height="60" rx="8"/>
+<text x="26" y="294">設計変更や追加の指示で</text>
+<text x="26" y="312">生じた手戻り</text>
+<rect class="box-warn" x="270" y="52" width="116" height="60" rx="8"/>
+<text class="t" x="328" y="78" text-anchor="middle">下請が</text>
+<text class="t" x="328" y="96" text-anchor="middle">負担できる</text>
+<rect class="box-brand" x="270" y="124" width="116" height="216" rx="8"/>
+<text class="t" x="328" y="222" text-anchor="middle">元請が負担</text>
+<text class="s" x="328" y="244" text-anchor="middle">手戻りの契約は</text>
+<text class="s" x="328" y="258" text-anchor="middle">変更する</text>
+<line class="arr" x1="234" y1="82" x2="268" y2="82" marker-end="url(#a)"/>
+<line class="arr" x1="234" y1="154" x2="268" y2="154" marker-end="url(#a)"/>
+<line class="arr" x1="234" y1="226" x2="268" y2="226" marker-end="url(#a)"/>
+<line class="arr" x1="234" y1="298" x2="268" y2="298" marker-end="url(#a)"/>
+<rect class="box-warn" x="14" y="356" width="372" height="124" rx="8"/>
+<text class="t" x="26" y="380">原則は、費用を元請が持つ</text>
+<text x="26" y="402">下請の責めに帰す理由がなければ、</text>
+<text x="26" y="422">必要な費用を協議して契約を変更する</text>
+<text x="26" y="446">下請に持たせるなら、書面との食い違いを</text>
+<text x="26" y="466">日付つきの記録で示せるようにする</text>
+</svg>
