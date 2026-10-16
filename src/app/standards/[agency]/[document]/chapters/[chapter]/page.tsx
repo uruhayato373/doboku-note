@@ -7,7 +7,9 @@ import TwoColumnShell from '@/components/layout/TwoColumnShell';
 import SafeMdx from '@/components/mdx/SafeMdx';
 import SectionCard from '@/components/ui/SectionCard/SectionCard';
 import StandardsArticleHeader from '@/components/standards/StandardsArticleHeader';
+import StandardSectionIndex from '@/components/standards/StandardSectionIndex';
 import StandardVerbatimTable from '@/components/standards/StandardVerbatimTable';
+import StandardScrollTable from '@/components/standards/StandardScrollTable';
 import StandardsAttribution from '@/components/standards/StandardsAttribution';
 import StandardDataLinks from '@/components/standards/StandardDataLinks';
 import StandardsNavigation from '@/components/standards/StandardsNavigation';
@@ -18,6 +20,7 @@ import QualificationBridge from '@/components/ui/QualificationBridge/Qualificati
 import AffiliateSlot from '@/components/ui/AffiliateSlot/AffiliateSlot';
 import rehypeHeadingIds from '@/lib/rehype-heading-ids';
 import rehypeScrollableFocus from '@/lib/rehype-scrollable-focus';
+import rehypeShortTableCells from '@/lib/rehype-short-table-cells';
 import { buildPageMetadata } from '@/lib/metadata';
 import { getReferencedStandardDocuments, getStandardDocuments, standardDocumentPath, standardPartPath } from '@/lib/standards';
 import {
@@ -32,7 +35,6 @@ import {
   buildStandardChapterStructuredData,
   standardsDataPath,
 } from '@/lib/standards-structured-data';
-import type React from 'react';
 
 type Params = { agency: string; document: string; chapter: string };
 
@@ -101,7 +103,7 @@ export default async function StandardChapterPage({ params }: { params: Promise<
   const mdxOptions = {
     blockJS: false as const,
     blockDangerousJS: true as const,
-    mdxOptions: { remarkPlugins: [remarkGfm], rehypePlugins: [rehypeHeadingIds, rehypeScrollableFocus] },
+    mdxOptions: { remarkPlugins: [remarkGfm], rehypePlugins: [rehypeHeadingIds, rehypeScrollableFocus, rehypeShortTableCells] },
   };
   const components = {
     pre: StandardVerbatimTable,
@@ -109,11 +111,8 @@ export default async function StandardChapterPage({ params }: { params: Promise<
     SourceRef: (props: { pages: string; kind?: 'section' | 'table' | 'figure' }) => (
       <SourceRef {...props} document={entry} />
     ),
-    table: (props: React.ComponentProps<'table'>) => (
-      <div className="table-scroll">
-        <table {...props} />
-      </div>
-    ),
+    // はみ出すときだけキーボードで操作でき、案内を出す（scrollable-region-focusable）
+    table: StandardScrollTable,
   };
 
   return (
@@ -157,13 +156,20 @@ export default async function StandardChapterPage({ params }: { params: Promise<
           </div>
 
           {/* 節移動は PC の右ナビ／モバイルの「資料内を移動」に集約し、
-              同じ一覧が本文前に重複して読書開始を押し下げないようにする。 */}
-          <div
-            className="prose-blog mt-7 [&>h2:first-child]:mt-0"
-            data-standards-chapter={target.chapterId}
-          >
-            <SafeMdx source={markdown} components={components} options={mdxOptions} />
-          </div>
+              同じ一覧が本文前に重複して読書開始を押し下げないようにする。
+              節ページに分けた章（splitBySection）だけは、章ページの本文が節の一覧になる。 */}
+          {target.splitBySection ? (
+            <div className="mt-7">
+              <StandardSectionIndex document={entry} chapter={target} />
+            </div>
+          ) : (
+            <div
+              className="prose-blog mt-7 [&>h2:first-child]:mt-0"
+              data-standards-chapter={target.chapterId}
+            >
+              <SafeMdx source={markdown} components={components} options={mdxOptions} />
+            </div>
+          )}
 
           <section
             aria-labelledby="chapter-source"

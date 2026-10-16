@@ -1187,3 +1187,17 @@
   margin: 1.5em 0;
   overflow-x: auto;
 }
+
+/* 公的基準の章・節ページの表（原本と照合して組み直した規格表）。17 列の粒度表などはセルが細り、
+   「85～100」「S－80(1号)」が 1〜2 文字ずつ縦に折れて読めなかった。表の自動レイアウトでは
+   セルの min-width が効かないので、短いセル（src/lib/rehype-short-table-cells.ts が印を付ける）だけ
+   折り返しを止めて列幅を確保し、横スクロールで読ませる。長い説明文のセルは従来どおり折り返す。 */
+[data-standards-chapter] .standards-cell-short {
+  white-space: nowrap;
+}
+
+/* 短いセルの折り返しを止めると、残りの長い文のセル（「必要重量の中詰め材料を充填し…」）に幅が回らず
+   1〜2 文字幅に押しつぶされた（近畿版 表3-2-13(1)）。長いセルには最小幅を持たせて文として読める幅を確保する。 */
+[data-standards-chapter] .table-scroll :is(td, th):not(.standards-cell-short) {
+  min-width: 10em;
+}

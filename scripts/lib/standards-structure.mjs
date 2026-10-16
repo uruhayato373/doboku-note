@@ -18,30 +18,44 @@
  * 例外補正はコードへの場当たり的条件追加ではなく config/standards-structure.json へ集約する。
  */
 
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { datasetPath } from './datasets.mjs';
-import { REPO_ROOT, SITE_CONTENT_ROOT } from './repository-paths.mjs';
+import { CONTENT_SOURCES_ROOT, REPO_ROOT, SITE_CONTENT_ROOT } from './repository-paths.mjs';
 
 // リポジトリのルートは module の場所から決める（import 時の process.cwd() で固定しない。どの cwd から呼んでも同じ実体を指す）
 export const LIBRARY_ROOT = join(SITE_CONTENT_ROOT, 'standards-library');
 export const ARTICLES_ROOT = join(SITE_CONTENT_ROOT, 'standards-articles');
+/** 原本と照合して組み直した表（人とエージェントが書く入力。生成器が読み、検査が照合する） */
+export const TABLE_OVERRIDES_ROOT = join(CONTENT_SOURCES_ROOT, 'standards', 'tables');
+
+/** 組み直した表を key → 中身の Map で読む（無ければ空）。 */
+export function loadTableOverrides() {
+  const map = new Map();
+  if (!existsSync(TABLE_OVERRIDES_ROOT)) return map;
+  for (const name of readdirSync(TABLE_OVERRIDES_ROOT).filter((file) => file.endsWith('.json'))) {
+    const entry = JSON.parse(readFileSync(join(TABLE_OVERRIDES_ROOT, name), 'utf8'));
+    if (`${entry.key}.json` !== name) throw new Error(`${name}: ファイル名と key（${entry.key}）が違う`);
+    map.set(entry.key, entry);
+  }
+  return map;
+}
 const OVERRIDES_PATH = join(REPO_ROOT, datasetPath('config.standards-structure'));
 
 // ---- 行パターン ---------------------------------------------------------
 // インデント上限は中部 common の実測分布から決めている（コメントの数値は実測件数）。
 /** 柱: `第1編   共通編     第3章 無筋・鉄筋コンクリート`（本文 582/582 ページ） */
-const RE_RUNNING_HEADER = /^[\s　]*第\s*(\d+)\s*編\s+(\S+?)\s+第\s*(\d+)\s*章\s+(\S.*?)\s*$/;
+const RE_RUNNING_HEADER = /^[\s　]*第\s*([0-9０-９]+)\s*編\s+(\S+?)\s+第\s*([0-9０-９]+)\s*章\s+(\S.*?)\s*$/;
 /** 印刷ページ番号: `1-73`（本文 582/582 ページの最終行） */
-const RE_PRINT_PAGE = /^[\s　]*(\d+)[-－](\d+)[\s　]*$/;
+const RE_PRINT_PAGE = /^[\s　]*([0-9０-９]+)[\s　]*[-－][\s　]*([0-9０-９]+)[\s　]*$/;
 /** 編扉: `第1編 共通編`（章冒頭のみ 8 件） */
-const RE_BOOK_TITLE = /^[\s　]*第\s*(\d+)\s*編\s+(\S+?編)[\s　]*$/;
+const RE_BOOK_TITLE = /^[\s　]*第\s*([0-9０-９]+)\s*編\s+(\S.*?編)[\s　]*$/;
 /** 章扉: `第3章     無筋・鉄筋コンクリート`（章冒頭。本文中の参照列挙にも一致しうるので章冒頭でのみ使う） */
-const RE_CHAPTER_TITLE = /^[\s　]*第\s*(\d+)\s*章\s+(\S.*?)[\s　]*$/;
+const RE_CHAPTER_TITLE = /^[\s　]*第\s*([0-9０-９]+)\s*章\s+(\S.*?)[\s　]*$/;
 /** 節: `第9節   暑中コンクリート`。実測 404/404 が indent 0（本文中の「第4節コンクリートミキサー船」は行頭でないので当たらない） */
-const RE_SECTION = /^[\s　]{0,2}第\s*(\d+)\s*節\s+(\S.*?)[\s　]*$/;
+const RE_SECTION = /^[\s　]{0,2}第\s*([0-9０-９]+)\s*節\s+(\S.*?)[\s　]*$/;
 /** 条: `1-3-9-1   一般事項`。indent は 0-1 が 1800/1804、残り 4 件が 3-9（条番号整合で本物と確認済み） */
-const RE_ARTICLE = /^[\s　]{0,9}(\d+)-(\d+)-(\d+)-(\d+)\s+(\S.*?)[\s　]*$/;
+const RE_ARTICLE = /^[\s　]{0,9}([0-9０-９]+)-([0-9０-９]+)-([0-9０-９]+)-([0-9０-９]+)\s+(\S.*?)[\s　]*$/;
 /**
  * 項: `1.一般事項`。
  *
@@ -62,6 +76,15 @@ const RE_CLAUSE_LOOSE = /^[\s　]{0,16}(\d+)[.．][\s　]*(\S.*?)[\s　]*$/;
 const CLAUSE_INDENT_TOLERANCE = 6;
 /** 号: `（1）工事概要` */
 const RE_ITEM = /^[\s　]{0,4}[（(](\d+)[）)][\s　]*(.*?)[\s　]*$/;
+/** 丸数字の細目: `① 振動数の多い振動機を用いて…`（段落の始まり。折り返しの続きとしてつながない） */
+const RE_CIRCLED_ITEM = /^[\s　]{0,6}(?:[①-⑳]|[0-9０-９]{1,2}[）)])/;
+/** 規格番号を 1 行ずつ並べた一覧の項目: `JIS A 5011-1（コンクリート用スラグ骨材…）`（折り返しの続きとしてつながない） */
+const RE_STANDARD_ENTRY = /^[\s　]*(?:JIS|JSCE|JHS|JPI|JASS|ISO|ASTM)[\s　]+[A-Z0-9]/;
+/** 文の終わり（段落をここで閉じてよい字）と、文頭に来ない字（前の段落の続きである印） */
+const RE_SENTENCE_END = /[。）」』：]$/;
+const RE_NOT_SENTENCE_START = /^[ぁ-ゖ、。ー）」』】〕］]/;
+/** 表示幅（全角 2・半角 1）。行が紙面の右端まで詰まっているかを見るのに使う */
+const displayWidth = (text) => [...text].reduce((sum, ch) => sum + (ch.codePointAt(0) > 0xff ? 2 : 1), 0);
 /** 表・図キャプション: `表1-3-4   養生期間` */
 const RE_TABLE_CAPTION = /^[\s　]*表\s*(\d+)[-－](\d+)(?:[-－](\d+))?\s*(.*?)[\s　]*$/;
 const RE_FIGURE_CAPTION = /^[\s　]*図\s*(\d+)[-－](\d+)(?:[-－](\d+))?\s*(.*?)[\s　]*$/;
@@ -71,6 +94,16 @@ const RE_NOTE = /^[\s　]{0,6}[［\[]\s*注/;
 const RE_DOT_LEADER = /\.{5,}/;
 
 const indentOf = (line) => line.length - line.replace(/^[\s　]+/, '').length;
+/** 全角数字を含む番号を数値にする（北海道版は柱・章扉が `第１編` `第１章`）。 */
+const toInt = (value) => Number(String(value).replace(/[０-９]/g, (c) => String.fromCharCode(c.charCodeAt(0) - 0xfee0)));
+/**
+ * 見出しの題名を整える。連続空白は 1 個に畳み、1 文字どうしの間の空白（字間を空けた組み）だけ詰める。
+ * 北海道版は短い語を字間を空けて組む（`総    則` `し ゃ 断 層   開発局独自参照`）ので、
+ * そのままだと「総 則」「し ゃ 断 層」になる。語の区切りの空白（近畿版 7-1 の
+ * `コンクリート管 コルゲートパイプ管の施工`）は両側が 1 文字ではないので残る。
+ */
+const normalizeTitle = (text) =>
+  text.replace(/[\s　]+/g, ' ').trim().replace(/(?<=(?:^| )\S) (?=\S(?: |$))/g, '');
 const trimBoth = (line) => line.replace(/^[\s　]+/, '').replace(/[\s　]+$/, '');
 /**
  * 版面（表・2 列組の一覧）の署名。
@@ -105,7 +138,9 @@ export function getCatalog() {
 export function loadDocumentPages(document) {
   const pages = [];
   for (const part of document.parts) {
-    const source = readFileSync(join(LIBRARY_ROOT, part.file), 'utf8');
+    // Windows の作業ツリーは autocrlf で CRLF になる。行末の \r を残すと章の sourceSha256 が
+    // OS ごとに変わる（Linux の CI と Windows で別の値を書く）ので、読んだ時点で LF にそろえる。
+    const source = readFileSync(join(LIBRARY_ROOT, part.file), 'utf8').replace(/\r\n/g, '\n');
     const heads = [...source.matchAll(/^## PDF page (\d+)\s*$/gm)];
     if (heads.length !== part.pageCount) {
       throw new Error(`${part.file}: PDF page 見出し ${heads.length} 件 ≠ catalog pageCount ${part.pageCount}`);
@@ -148,7 +183,7 @@ export function detectBodyStart(pages, override) {
       const line = p.lines[i];
       if (!line.trim()) continue;
       const m = line.match(RE_PRINT_PAGE);
-      return m ? { book: Number(m[1]), no: Number(m[2]) } : null;
+      return m ? { book: toInt(m[1]), no: toInt(m[2]) } : null;
     }
     return null;
   };
@@ -173,9 +208,9 @@ function readRunningHeader(page) {
     return m
       ? {
           line,
-          bookNumber: Number(m[1]),
+          bookNumber: toInt(m[1]),
           bookTitle: m[2].replace(/[\s　]+/g, ''),
-          chapterNumber: Number(m[3]),
+          chapterNumber: toInt(m[3]),
           chapterTitle: m[4].replace(/[\s　]+/g, ''),
         }
       : null;
@@ -236,12 +271,12 @@ function stripChapterFront(lines, chapter, removed) {
     const line = out[cursor].text;
     if (!line.trim()) { cursor += 1; continue; }
     const book = line.match(RE_BOOK_TITLE);
-    if (book && Number(book[1]) === chapter.bookNumber) {
+    if (book && toInt(book[1]) === chapter.bookNumber) {
       removed.chapterFront.push({ page: out[cursor].page, text: trimBoth(line) });
       out.splice(cursor, 1); dropped += 1; continue;
     }
     const chap = line.match(RE_CHAPTER_TITLE);
-    if (chap && Number(chap[1]) === chapter.chapterNumber
+    if (chap && toInt(chap[1]) === chapter.chapterNumber
       && chap[2].replace(/[\s　]+/g, '') === chapter.chapterTitle) {
       removed.chapterFront.push({ page: out[cursor].page, text: trimBoth(line) });
       out.splice(cursor, 1); dropped += 1; continue;
@@ -260,28 +295,28 @@ function stripChapterFront(lines, chapter, removed) {
 function classifyHeading(line, context) {
   const section = line.match(RE_SECTION);
   if (section && indentOf(line) === 0) {
-    return { kind: 'section', number: Number(section[1]), title: section[2].replace(/[\s　]+/g, ' ').trim() };
+    return { kind: 'section', number: toInt(section[1]), title: normalizeTitle(section[2]) };
   }
   const article = line.match(RE_ARTICLE);
   if (article) {
-    const [, b, c, s, a, title] = article;
+    const [b, c, s, a] = article.slice(1, 5).map(toInt);
     const consistent =
-      Number(b) === context.bookNumber &&
-      Number(c) === context.chapterNumber &&
-      (context.sectionNumber === null || Number(s) === context.sectionNumber);
+      b === context.bookNumber &&
+      c === context.chapterNumber &&
+      (context.sectionNumber === null || s === context.sectionNumber);
     return {
       kind: 'article',
       consistent,
       number: `${b}-${c}-${s}-${a}`,
-      sectionNumber: Number(s),
-      articleNumber: Number(a),
-      title: title.replace(/[\s　]+/g, ' ').trim(),
+      sectionNumber: s,
+      articleNumber: a,
+      title: normalizeTitle(article[5]),
     };
   }
   const withinClauseIndent = indentOf(line) <= context.headingIndent + CLAUSE_INDENT_TOLERANCE;
   const clause = withinClauseIndent ? line.match(RE_CLAUSE) : null;
   if (clause) {
-    return { kind: 'clause', number: Number(clause[1]), title: clause[2].replace(/[\s　]+/g, ' ').trim() };
+    return { kind: 'clause', number: Number(clause[1]), title: normalizeTitle(clause[2]) };
   }
   // 小数と紛らわしい項（`8.2枚以上の…`）は、文書自身の連番に一致するときだけ採用する。
   const loose = withinClauseIndent ? line.match(RE_CLAUSE_LOOSE) : null;
@@ -289,7 +324,7 @@ function classifyHeading(line, context) {
     return {
       kind: 'clause',
       number: Number(loose[1]),
-      title: loose[2].replace(/[\s　]+/g, ' ').trim(),
+      title: normalizeTitle(loose[2]),
       resolvedBySequence: true,
     };
   }
@@ -325,8 +360,14 @@ function segmentToBlocks(segment) {
     // 多列の表は 1 行で判る（dense）。2 列組の一覧は 1 行では散文と区別できないので、
     // 「広い隙間を持つ行が 2 本以上、かつ chunk の 4 割以上」を要求する。散文の誤検出は
     // 1 行あたり 0.88% なので、この密度条件を通ることはまず無い。
+    // 表の行が空行で 1 行ずつ離れて組まれた紙面（近畿版 p167 表2-2-1 の `10   100` `5   90～100` …）は、
+    // 1 行の chunk だけ見ると散文と区別できず段落に化けていた。直前が表の領域で、広い空白を持ち、
+    // 句点で終わらない 1 行は表の続きとみなす。
+    const previous = classified[classified.length - 1];
+    const tableRowAfterTable =
+      chunk.length === 1 && !captionOnly && previous?.isTable && hasWideGap(chunk[0].text) && !trimBoth(chunk[0].text).endsWith('。');
     const isTable =
-      !captionOnly && !isWrappedProse(chunk) && (dense || (wide >= 2 && wide / chunk.length >= 0.4));
+      tableRowAfterTable || (!captionOnly && !isWrappedProse(chunk) && (dense || (wide >= 2 && wide / chunk.length >= 0.4)));
     if (!isTable) {
       classified.push({ chunk, isTable, captionOnly });
       continue;
@@ -343,6 +384,25 @@ function segmentToBlocks(segment) {
     );
     if (start > 0) classified.push({ chunk: chunk.slice(0, start), isTable: false, captionOnly: false });
     classified.push({ chunk: chunk.slice(Math.max(start, 0)), isTable: true, captionOnly: false });
+  }
+
+  // 表と表に挟まれた短い chunk（1 列目のラベルだけの行・縦書きの見出しの断片。近畿版 3-1 p198 の
+  // `重要構造物`・2-2 p177 の `均等であ`）は、広い空白を持たないので段落に化け、表の行が抜け落ちていた。
+  // 前後がともに表で、句点で終わる行を含まない並びは表の一部とみなす（散文の文は句点で終わる）。
+  for (let i = 0; i < classified.length; i += 1) {
+    if (classified[i].isTable || classified[i].captionOnly) continue;
+    let j = i;
+    while (j < classified.length && !classified[j].isTable && !classified[j].captionOnly) j += 1;
+    // 表のキャプションで始まり表の直前まで続く並び（近畿版 p244 表3-2-13(1) の縦書きの見出し
+    // `確認方法場` `項目 要求性能所` …）も、見出しの行が段落に化けていたので表の一部とみなす
+    // 並びの途中から始まるキャプション（前に散文の段落がある）も見る。表に含めるのはキャプションから後ろ
+    const captionAt = classified.slice(i, j).findIndex((e) => RE_TABLE_CAPTION.test(e.chunk[0].text));
+    const from = classified[i - 1]?.isTable ? i : captionAt >= 0 ? i + captionAt : -1;
+    const sandwiched = from >= 0 && classified[j]?.isTable;
+    if (sandwiched && classified.slice(from, j).every((e) => e.chunk.every((line) => !trimBoth(line.text).endsWith('。')))) {
+      for (let k = from; k < j; k += 1) classified[k].isTable = true;
+    }
+    i = j - 1;
   }
 
   // 表領域は空行をまたいで複数 chunk に割れる（キャプション / 見出し行 / データ行）。
@@ -378,7 +438,22 @@ function segmentToBlocks(segment) {
     }
     blocks.push(...proseBlocks(entry.chunk));
   }
-  return blocks;
+  // 空行をはさんで文が続く紙面（ページの変わり目・版面の余白）で、段落が文の途中で切れていた
+  // （近畿版 1-1「…監督職員を通じ」⏎「て発注者に通知しなければならない。」）。前の段落が句点で終わらず、
+  // 次の段落が文頭に来ない字（ひらがな・読点・閉じ括弧）で始まるなら、1 つの段落につなぐ。
+  const joined = [];
+  for (const block of blocks) {
+    const prev = joined[joined.length - 1];
+    const prevText = prev && ['paragraph', 'item', 'note'].includes(prev.type) ? trimBoth(prev.lines[prev.lines.length - 1].text) : '';
+    const firstText = block.type === 'paragraph' ? trimBoth(block.lines[0].text) : '';
+    if (prevText && firstText && !RE_SENTENCE_END.test(prevText) && RE_NOT_SENTENCE_START.test(firstText)) {
+      prev.lines.push(...block.lines);
+      prev.pages = uniquePages(prev.lines);
+      continue;
+    }
+    joined.push(block);
+  }
+  return joined;
 }
 
 /**
@@ -409,12 +484,24 @@ function uniquePages(entries) {
  */
 function proseBlocks(chunk) {
   const base = Math.min(...chunk.map((e) => indentOf(e.text)));
+  // 行が版面の右端まで詰まっているか（＝紙面の幅で折り返した行か）を見るための chunk 内の最大の表示幅
+  const maxWidth = Math.max(...chunk.map((e) => displayWidth(e.text.replace(/[\s　]+$/, ''))));
   const blocks = [];
   let current = null;
+  let previous = null;
   for (const entry of chunk) {
     const note = RE_NOTE.test(entry.text);
     const item = entry.text.match(RE_ITEM);
-    const startsNew = indentOf(entry.text) > base || note || item;
+    const circled = RE_CIRCLED_ITEM.test(entry.text) || RE_STANDARD_ENTRY.test(entry.text);
+    // 項目のぶら下げ字下げ（`（1）…おそれのあるも` の次行を字下げして `のを除去し…`）は、字下げが深くても
+    // 文の続き。前の行が右端まで詰まっていて句点で終わっていなければ折り返しとみなす（近畿版 3-2-3-12 で
+    // 文の途中に段落が入っていた）。字下げした段落の始まり（前の行が句点で終わる）はこれまでどおり分ける。
+    const wrapped =
+      previous !== null &&
+      displayWidth(previous.text.replace(/[\s　]+$/, '')) >= maxWidth * 0.85 &&
+      !trimBoth(previous.text).endsWith('。');
+    const startsNew = (!wrapped && indentOf(entry.text) > base) || note || item || circled;
+    previous = entry;
     if (!current || startsNew) {
       if (current) blocks.push(current);
       current = {
@@ -451,11 +538,32 @@ export function analyzeDocument(document, overrides = {}) {
   const frontPages = pages.filter((p) => p.page < bodyStart.page);
   const bodyPages = pages.filter((p) => p.page >= bodyStart.page);
 
+  // 原本の柱の誤植の補正（設定 runningHeaderCorrections）。柱の行は除去するが、章の帰属は設定の章にする。
+  // 補正先の章の題名は、その章の柱を正しく持つ他のページから取る（設定に題名を書き写さない）。
+  const headerCorrections = new Map((override.runningHeaderCorrections ?? []).map((entry) => [entry.page, entry.chapterId]));
+  const headersByChapter = new Map();
+  for (const page of bodyPages) {
+    if (headerCorrections.has(page.page)) continue;
+    const header = readRunningHeader(page);
+    if (header) headersByChapter.set(`${header.bookNumber}-${header.chapterNumber}`, header);
+  }
+  removed.headerCorrections = [];
+
   // --- 柱で章へ束ねる ---
   const chapters = [];
   let currentChapter = null;
   for (const page of bodyPages) {
-    const header = readRunningHeader(page);
+    let header = readRunningHeader(page);
+    const correctedId = headerCorrections.get(page.page);
+    if (correctedId) {
+      const target = headersByChapter.get(correctedId);
+      const printed = header ? `${header.bookNumber}-${header.chapterNumber}` : null;
+      if (!header || !target || printed === correctedId) {
+        throw new Error(`${document.agencyId}/${document.documentId}: p${page.page} の柱の補正（→${correctedId}）が実体と合わない（柱 ${printed ?? 'なし'}・補正先の章 ${target ? 'あり' : 'なし'}）。設定を見直す`);
+      }
+      removed.headerCorrections.push({ page: page.page, printed, corrected: correctedId });
+      header = { ...target, line: header.line };
+    }
     if (!header) {
       rejects.push({ page: page.page, kind: 'missing-running-header', detail: '柱を検出できないページ' });
       if (currentChapter) currentChapter.pages.push({ page, header: null });
@@ -547,7 +655,9 @@ export function analyzeDocument(document, overrides = {}) {
               detail: `「${trimBoth(entry.text)}」は ${context.expectedClause}. を期待（直近の見出し: ${context.scope ?? '章冒頭'}）`,
             });
           }
-          context.expectedClause = heading.number + 1;
+          // 範囲で書かれた項（北海道版 `2．～4．開発局独自参照`）は範囲の終わりの次を期待する
+          const range = heading.title.match(/^[～〜]\s*([0-9０-９]+)\s*[.．]/);
+          context.expectedClause = (range ? toInt(range[1]) : heading.number) + 1;
         }
         nodes.push({ ...heading, role: 'heading', page: entry.page, raw: trimBoth(entry.text) });
         continue;
@@ -569,6 +679,26 @@ export function analyzeDocument(document, overrides = {}) {
   const removedCount =
     removed.runningHeaders.length + removed.printPageNumbers.length + removed.chapterFront.length;
 
+  // 原本どおりと確かめた review は設定（acceptedReview）で理由付きで受け入れる。消さずに
+  // acceptedReview として台帳に残し、設定にあるのに当たらない受け入れは古い設定として reject する。
+  const acceptances = override.acceptedReview ?? [];
+  const acceptedReview = [];
+  const used = new Set();
+  const pending = reviewQueue.filter((entry) => {
+    const index = acceptances.findIndex(
+      (rule, i) => !used.has(i) && rule.page === entry.page && rule.kind === entry.kind && entry.detail.includes(rule.match),
+    );
+    if (index < 0) return true;
+    used.add(index);
+    acceptedReview.push({ ...entry, reason: acceptances[index].reason });
+    return false;
+  });
+  acceptances.forEach((rule, i) => {
+    if (!used.has(i)) {
+      rejects.push({ page: rule.page, kind: 'stale-acceptance', detail: `acceptedReview「${rule.match}」（${rule.kind}）が再解析の review に当たらない` });
+    }
+  });
+
   return {
     document: { agencyId: document.agencyId, documentId: document.documentId },
     bodyStart,
@@ -580,7 +710,8 @@ export function analyzeDocument(document, overrides = {}) {
     chapters,
     removed,
     rejects,
-    reviewQueue,
+    reviewQueue: pending,
+    acceptedReview,
     audit: {
       totalPages: pages.length,
       frontMatterPages: frontPages.length,

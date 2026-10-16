@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * check-standard-articles.mjs — 構造化章記事（レイヤー2）の生成物を 12 検査で検証する。
+ * check-standard-articles.mjs — 構造化章記事（レイヤー2）の生成物を 19 検査で検証する。
  *
  *   node scripts/check-standard-articles.mjs                # 設定 build.documents を検査
  *   node scripts/check-standard-articles.mjs chubu/common   # 対象を明示
@@ -27,11 +27,13 @@ import {
   getCatalog,
   loadDocumentPages,
   loadOverrides,
+  loadTableOverrides,
   patterns,
 } from './lib/standards-structure.mjs';
 import { loadManifest as loadAssetManifest } from './lib/asset-storage.mjs';
 import { pathToFileURL } from 'node:url';
 import { datasetPath } from './lib/datasets.mjs';
+import { sectionPageMarkdown, splitChapterBySection } from '../src/lib/standards-section-split.mjs';
 
 const sha256 = (value) => createHash('sha256').update(value).digest('hex');
 
@@ -60,6 +62,10 @@ const CHECK_DEFS = [
   { id: 13, name: 'catalog 全文書の被覆と除外理由の実証（全文書横断）' },
   { id: 14, name: '表の復元が台帳と一致し GFM が可逆' },
   { id: 15, name: '章ごとの OGP 画像がそろっている' },
+  { id: 16, name: '節ページの切り出しが台帳と一致' },
+  { id: 17, name: '文の途中で段落が切れていない（基準以下）' },
+  { id: 18, name: '表から外れた断片が増えていない（基準以下）' },
+  { id: 19, name: '壊れた表（見出しも中身も空・全行が空の列）が無い' },
 ];
 
 const PASS = 'PASS';
@@ -590,8 +596,8 @@ function checkRejects(def, { manifest, analysis }) {
  */
 /** GFM の許容理由コード。標準以外の値が manifest に出たら生成器の変更を見落としている。 */
 const TABLE_REASONS = new Set([
-  'restored', 'too-few-rows', 'tab-character', 'empty-layout', 'columns-out-of-range',
-  'lossy', 'ragged-rows', 'empty-cell', 'pipe-in-cell',
+  'restored', 'restored-standards-list', 'restored-override', 'override-verbatim', 'too-few-rows', 'tab-character',
+  'empty-layout', 'columns-out-of-range', 'lossy', 'ragged-rows', 'empty-cell', 'pipe-in-cell',
 ]);
 
 /**
@@ -606,11 +612,56 @@ function checkTables(def, { manifest, agencyId, documentId, document }) {
   const violations = [];
   const notes = [];
   let gfmFound = 0;
+  let listFound = 0;
+  let overrideFound = 0;
   let verbatimFound = 0;
   let verified = 0;
+  const tableOverrides = loadTableOverrides();
 
-  // 原典ページの本文（空白除去）をページ単位で用意し、GFM セルの実在確認に使う
+  /**
+   * 組み直した表 1 件の照合。生成器の applyTableOverride とは別に書く（同じ関数で照合すると、その関数の
+   * 誤りは永久に見つからない）。見るのは: 承認済み・layout のハッシュが key・layout が原典にある・
+   * 部品の文字と版面（取り込んだ版面を含む）の文字が多重集合で一致（結合セルの繰り返し {same} は数えない）。
+   */
+  const verifyTableOverride = (key, absorbedInto, existsInSource) => {
+    const entry = tableOverrides.get(key);
+    if (!entry) return '組み直しのファイルが無い';
+    if (entry.review?.status !== 'approved') return `承認されていない（${entry.review?.status ?? 'review なし'}）`;
+    const hash = createHash('sha256').update((entry.layout ?? []).join('').replace(/[\s　]/g, ''), 'utf8').digest('hex').slice(0, 16);
+    if (hash !== key) return `layout のハッシュ ${hash} が key と違う`;
+    if (!existsInSource(entry.layout)) return 'layout が原典の出所ページに見つからない';
+    if (absorbedInto) {
+      const target = tableOverrides.get(absorbedInto);
+      return target && (target.absorbs ?? []).includes(key) ? null : `取り込み先 ${absorbedInto} が absorbs に持っていない`;
+    }
+    if (entry.kind === 'verbatim') return null;
+    const bag = (texts) => {
+      const counts = new Map();
+      for (const ch of texts.join('').replace(/[\s　]/g, '')) counts.set(ch, (counts.get(ch) ?? 0) + 1);
+      return counts;
+    };
+    const strings = [];
+    const collect = (value) => {
+      if (typeof value === 'string') strings.push(value);
+      else if (Array.isArray(value)) value.forEach(collect);
+      else if (value && typeof value === 'object' && !('same' in value)) {
+        for (const field of ['header', 'rows', 'items', 'text', 'lines', 'notes', 'parts']) if (field in value) collect(value[field]);
+      }
+    };
+    collect({ header: entry.header, rows: entry.rows, items: entry.items, notes: entry.notes, parts: entry.parts });
+    const expected = [...entry.layout];
+    for (const absorbed of entry.absorbs ?? []) expected.push(...(tableOverrides.get(absorbed)?.layout ?? []));
+    const want = bag(expected);
+    const got = bag(strings);
+    const keys = new Set([...want.keys(), ...got.keys()]);
+    const diff = [...keys].filter((ch) => (want.get(ch) ?? 0) !== (got.get(ch) ?? 0));
+    return diff.length ? `部品の文字が版面と合わない（${diff.slice(0, 8).map((ch) => `${ch} 版面${want.get(ch) ?? 0}/部品${got.get(ch) ?? 0}`).join('、')}）` : null;
+  };
+
+  // 原典ページの本文（空白除去）をページ単位で用意し、GFM セルの実在確認に使う。
+  // pageBody は最初と最後の非空行（柱・印刷ページ番号）を除いたもので、ページをまたぐ表の照合に使う。
   const pageText = new Map();
+  const pageBody = new Map();
   for (const part of document.parts) {
     const source = toLf(readFileSync(join(LIBRARY_ROOT, part.file), 'utf8')).toString('utf8');
     const heads = [...source.matchAll(/^## PDF page (\d+)\s*$/gm)];
@@ -618,7 +669,10 @@ function checkTables(def, { manifest, agencyId, documentId, document }) {
       const start = (match.index ?? 0) + match[0].length;
       const end = heads[index + 1]?.index ?? source.length;
       const body = source.slice(start, end).match(/`{3,4}text\s*\r?\n([\s\S]*?)\r?\n`{3,4}/);
-      if (body) pageText.set(Number(match[1]), body[1].replace(/[\s　]/g, ''));
+      if (!body) return;
+      pageText.set(Number(match[1]), body[1].replace(/[\s　]/g, ''));
+      const content = body[1].split('\n').filter((line) => line.trim() !== '');
+      pageBody.set(Number(match[1]), content.slice(1, -1).join('').replace(/[\s　]/g, ''));
     });
   }
 
@@ -628,10 +682,10 @@ function checkTables(def, { manifest, agencyId, documentId, document }) {
         violations.push(`${chapter.chapterId}: 未知の表理由コード ${reason}（${count} 件）`);
       }
     }
-    const declared = (chapter.stats.tablesGfm ?? 0) + (chapter.stats.tablesVerbatim ?? 0);
+    const declared = (chapter.stats.tablesGfm ?? 0) + (chapter.stats.tablesList ?? 0) + (chapter.stats.tablesOverride ?? 0) + (chapter.stats.tablesVerbatim ?? 0);
     if (declared !== chapter.stats.tables) {
       violations.push(
-        `${chapter.chapterId}: 表 ${chapter.stats.tables} 件に対し内訳が ${declared} 件（GFM ${chapter.stats.tablesGfm} + 版面 ${chapter.stats.tablesVerbatim}）`,
+        `${chapter.chapterId}: 表 ${chapter.stats.tables} 件に対し内訳が ${declared} 件（GFM ${chapter.stats.tablesGfm} + 一覧 ${chapter.stats.tablesList ?? 0} + 組み直し ${chapter.stats.tablesOverride ?? 0} + 版面 ${chapter.stats.tablesVerbatim}）`,
       );
     }
 
@@ -641,10 +695,43 @@ function checkTables(def, { manifest, agencyId, documentId, document }) {
       continue;
     }
     const lines = text.split('\n');
+    // 復元した文字列が原典のどこかのページに実在するか（章の出所ページ内で探す）。
+    // ページをまたぐ表・一覧は、柱と印刷ページ番号を除いて出所ページをつないだ本文でも探す。
+    const existsInSource = (pieces) => {
+      const joined = pieces.join('').replace(/[\s　]/g, '').replace(/\\([\\`*_[\]<>{}|.#>+-])/g, '$1');
+      return chapter.sourcePages.some((page) => (pageText.get(page) ?? '').includes(joined))
+        || chapter.sourcePages.map((page) => pageBody.get(page) ?? '').join('').includes(joined);
+    };
     let inCode = false;
     for (let i = 0; i < lines.length; i += 1) {
       if (/^```/.test(lines[i])) { if (!inCode) verbatimFound += 1; inCode = !inCode; continue; }
       if (inCode) continue;
+      // 原本と照合して組み直した表（生成器が `{/* table-override: KEY */}` を前に置く）
+      const marker = lines[i].match(/^\{\/\* table-override: ([0-9a-f]{16})(?: absorbed-into ([0-9a-f]{16}))? \*\/\}$/);
+      if (marker) {
+        const problem = verifyTableOverride(marker[1], marker[2] ?? null, existsInSource);
+        if (problem) violations.push(`${chapter.chapterId}: 組み直した表 ${marker[1]}: ${problem}`);
+        else verified += 1;
+        const entry = tableOverrides.get(marker[1]);
+        if (marker[2]) { overrideFound += 1; continue; }
+        if (entry?.kind === 'verbatim') continue; // 版面のまま残すと判断した表。次のコードブロックは版面保持として数える
+        overrideFound += 1;
+        let end = i + 1;
+        while (end < lines.length && !/^<SourceRef [^>]*kind="table"/.test(lines[end])) end += 1;
+        i = end;
+        continue;
+      }
+      // 基準類の一覧（`- ` の箇条書き）。章記事で行頭が `- ` になるのは生成器の一覧だけ
+      // （散文の行頭の `-` は escapeBlockStart が `\-` にする）
+      if (/^- /.test(lines[i])) {
+        listFound += 1;
+        let end = i;
+        while (end < lines.length && /^- /.test(lines[end])) end += 1;
+        if (existsInSource(lines.slice(i, end).map((line) => line.slice(2)))) verified += 1;
+        else violations.push(`${chapter.chapterId}: 基準類の一覧の内容が原典 p.${chapter.firstPage}-${chapter.lastPage} に見つからない（組み直しで文字が変わった疑い）`);
+        i = end - 1;
+        continue;
+      }
       if (!/^\|.*\|$/.test(lines[i]) || !/^\|( *-{3,} *\|)+$/.test(lines[i + 1] ?? '')) continue;
       gfmFound += 1;
       let end = i + 2;
@@ -654,10 +741,7 @@ function checkTables(def, { manifest, agencyId, documentId, document }) {
         cells.push(row.replace(/^\||\|$/g, '').split('|').join(''));
       }
       while (end < lines.length && /^\|/.test(lines[end])) end += 1;
-      // 復元セルの連結が原典のどこかのページに実在するか（章の出所ページ内で探す）
-      const joined = cells.join('').replace(/[\s　]/g, '').replace(/\\([\\`*_[\]<>{}|])/g, '$1');
-      const found = chapter.sourcePages.some((page) => (pageText.get(page) ?? '').includes(joined));
-      if (!found) {
+      if (!existsInSource(cells)) {
         violations.push(`${chapter.chapterId}: GFM 表のセル内容が原典 p.${chapter.firstPage}-${chapter.lastPage} に見つからない（GFM 化で文字が変わった疑い）`);
       } else {
         verified += 1;
@@ -667,19 +751,27 @@ function checkTables(def, { manifest, agencyId, documentId, document }) {
   }
 
   const declaredGfm = manifest.audit.tablesGfm ?? 0;
+  const declaredList = manifest.audit.tablesList ?? 0;
+  const declaredOverride = manifest.audit.tablesOverride ?? 0;
   const declaredVerbatim = manifest.audit.tablesVerbatim ?? 0;
   if (gfmFound !== declaredGfm) {
     violations.push(`GFM 表の実数 ${gfmFound} 件 ≠ 台帳 ${declaredGfm} 件`);
   }
+  if (overrideFound !== declaredOverride) {
+    violations.push(`組み直した表の実数 ${overrideFound} 件 ≠ 台帳 ${declaredOverride} 件`);
+  }
+  if (listFound !== declaredList) {
+    violations.push(`基準類の一覧の実数 ${listFound} 件 ≠ 台帳 ${declaredList} 件`);
+  }
   if (verbatimFound !== declaredVerbatim) {
     violations.push(`コードブロックの実数 ${verbatimFound} 件 ≠ 台帳 ${declaredVerbatim} 件`);
   }
-  const total = gfmFound + verbatimFound;
+  const total = gfmFound + listFound + overrideFound + verbatimFound;
   if (total === 0) {
     return result(def, { status: INCONCLUSIVE, checked: 0, unit: '表', violations: ['表が 1 件も無い。検査が成立しない'] });
   }
   notes.push(
-    `GFM ${gfmFound} 件（うち原典との一致確認 ${verified} 件） / 版面保持 ${verbatimFound} 件・理由内訳 ${Object.entries(manifest.tableOutcomes ?? {}).filter(([r]) => r !== 'restored').map(([r, c]) => `${r} ${c}`).join(' / ') || 'なし'}`,
+    `GFM ${gfmFound} 件・基準類の一覧 ${listFound} 件・原本照合の組み直し ${overrideFound} 件（うち原典との一致確認 ${verified} 件） / 版面保持 ${verbatimFound} 件・理由内訳 ${Object.entries(manifest.tableOutcomes ?? {}).filter(([r]) => !r.startsWith('restored')).map(([r, c]) => `${r} ${c}`).join(' / ') || 'なし'}`,
   );
   return result(def, { status: verdict(violations, []), checked: total, unit: '表', violations, notes });
 }
@@ -854,6 +946,138 @@ function checkCatalogCoverage(def, catalog, overrides) {
   });
 }
 
+/**
+ * 16. 節ページの切り出しが台帳と一致。
+ * 長い章は章ページが節の一覧になり、本文は節ページにしか出ない。切り出しで行が落ちる・
+ * 節の並びが manifest と食い違う・最初の節より前に本文が残る（どのページにも出ない）と、
+ * 章ページの検査が全部緑でも読者には本文が欠ける。切り出しはサイトと同じ関数で行う。
+ * あわせて splitBySection の立ち方が設定の基準（sectionPages.minOutputBytes）と合っているかを見る。
+ */
+function checkSectionPages(def, { manifest, agencyId, documentId, overrides }) {
+  const violations = [];
+  const threshold = overrides.sectionPages?.minOutputBytes ?? Infinity;
+  let checked = 0;
+  let splitChapters = 0;
+  let sectionPages = 0;
+  for (const chapter of manifest.chapters) {
+    checked += 1;
+    const expected = chapter.sections.length >= 2 && chapter.outputBytes >= threshold;
+    if (Boolean(chapter.splitBySection) !== expected) {
+      violations.push(`${chapter.chapterId}: splitBySection=${Boolean(chapter.splitBySection)} だが基準では ${expected}（build-standard-articles.mjs を回し直す）`);
+    }
+    if (!chapter.splitBySection) continue;
+    splitChapters += 1;
+    const { path, text } = readChapterFile(agencyId, documentId, chapter.file);
+    if (text === null) {
+      violations.push(`${chapter.file}: ファイルが無い（${path}）`);
+      continue;
+    }
+    const split = splitChapterBySection(text);
+    const rejoined = [...split.preamble, ...split.sections.flatMap((section) => section.lines)].join('\n');
+    if (rejoined !== text) violations.push(`${chapter.file}: 節への切り出しで行が変わる（復元が元と一致しない）`);
+    const leftover = split.preamble.join('\n').replace(/\{\/\*[\s\S]*?\*\/\}/g, '').trim();
+    if (leftover) violations.push(`${chapter.file}: 最初の節より前に本文がある（節ページに出ない）: ${leftover.slice(0, 60)}`);
+    const found = split.sections.map((section) => section.number).join(',');
+    const recorded = chapter.sections.map((section) => section.number).join(',');
+    if (found !== recorded) violations.push(`${chapter.file}: 節の並びが manifest と違う（本文 ${found} / manifest ${recorded}）`);
+    for (const section of split.sections) {
+      sectionPages += 1;
+      if (!sectionPageMarkdown(section.lines).trim()) violations.push(`${chapter.file}: 第${section.number}節の本文が空`);
+    }
+  }
+  if (checked === 0) {
+    return result(def, { status: INCONCLUSIVE, checked: 0, unit: '章', violations: ['章が 0 件。節ページの照合が成立しない'] });
+  }
+  return result(def, {
+    status: verdict(violations, []),
+    checked,
+    unit: '章',
+    violations,
+    notes: [`節ページに分けた章 ${splitChapters} 件・節ページ ${sectionPages} 件（基準 ${threshold === Infinity ? '未設定' : `${threshold} バイト以上`}）`],
+  });
+}
+
+/**
+ * 17〜19. 読める形になっているか（見た目の崩れを生成物の Markdown から数える）。
+ *
+ * 2026-10-16、文の途中で段落が切れる（ぶら下げ字下げ・ページの変わり目）・表の見出しが段落に化ける・
+ * 長い文のセルが押しつぶされる、を利用者が画面で見つけた。文字の取りこぼし・ハッシュ・件数の検査は
+ * すべて合格していた（中身が正しくても読めない形は捕まえていなかった）。ここでは生成器とは別の実装で、
+ *   17: 句点で終わらない段落の次に、文頭に来ない字（ひらがな・読点・閉じ括弧）で始まる段落が続く箇所
+ *   18: 表（とその SourceRef）の前後にある、句点の無い短い段落（見出し・行が表から外れた疑い）
+ *   19: 見出しも中身も空の表・全行が空の列を持つ表
+ * を数える。17・18 は原本の書き方で正しく分かれる箇所（「東北地方──30㎝」の一覧・表の上の小見出し）も
+ * 含むので、設定 readabilityBaselines の件数を超えたら失敗にする（増やさない）。19 は 0 件を要求する。
+ */
+function checkReadability([midDef, strayDef, brokenDef], { manifest, agencyId, documentId, overrides }) {
+  const baseline = overrides.readabilityBaselines?.[`${agencyId}/${documentId}`] ?? {};
+  const kindOf = (block) => {
+    if (block === undefined) return 'none';
+    if (block.startsWith('|')) return 'table';
+    if (block.startsWith('```')) return 'code';
+    if (block.startsWith('#')) return 'heading';
+    if (block.startsWith('<') || block.startsWith('{/*')) return 'meta';
+    if (block.startsWith('- ')) return 'list';
+    if (block.startsWith('**')) return 'caption';
+    return 'para';
+  };
+  const notStart = /^[ぁ-ゖ、。ー）」』】〕］]/;
+  const sentenceEnd = /[。）」』：]$/;
+  const mid = [];
+  const stray = [];
+  const broken = [];
+  let chaptersChecked = 0;
+  for (const chapter of manifest.chapters) {
+    const { text } = readChapterFile(agencyId, documentId, chapter.file);
+    if (text === null) continue;
+    chaptersChecked += 1;
+    const blocks = text.split(/\n\n+/);
+    blocks.forEach((block, i) => {
+      const kind = kindOf(block);
+      const body = block.replace(/^> /, '').trim();
+      if (kind === 'para') {
+        let p = i - 1;
+        while (p >= 0 && kindOf(blocks[p]) === 'meta') p -= 1;
+        const prev = (blocks[p] ?? '').replace(/^> /, '').trim();
+        if (kindOf(blocks[p]) === 'para' && !sentenceEnd.test(prev) && notStart.test(body)) {
+          mid.push(`${chapter.chapterId}: …${prev.slice(-12)} ⏎ ${body.slice(0, 16)}`);
+        }
+        const nearTable = [blocks[i - 2], blocks[i - 1], blocks[i + 1], blocks[i + 2]].some(
+          (x) => x !== undefined && (kindOf(x) === 'table' || /kind="table"/.test(x)),
+        );
+        if (body.length <= 25 && !body.includes('。') && nearTable) stray.push(`${chapter.chapterId}: ${body}`);
+      }
+      if (kind === 'table') {
+        const rows = block
+          .split('\n')
+          .filter((line) => line.startsWith('|') && !/^\|( *-{3,} *\|)+$/.test(line))
+          .map((line) => line.replace(/^\||\|$/g, '').split('|').map((cell) => cell.trim()));
+        const header = rows[0] ?? [];
+        const emptyColumns = header.filter((_, c) => rows.every((row) => !row[c])).length;
+        if (emptyColumns > 0 || (rows.length <= 1 && header.every((cell) => !cell))) {
+          broken.push(`${chapter.chapterId}: 列 ${header.length}・全行が空の列 ${emptyColumns}・本体 ${rows.length - 1} 行`);
+        }
+      }
+    });
+  }
+  if (chaptersChecked === 0) {
+    return [midDef, strayDef, brokenDef].map((def) => result(def, { status: INCONCLUSIVE, checked: 0, unit: '章', violations: ['章ファイルが 0 件'] }));
+  }
+  const ratchet = (def, found, limit, label) => {
+    const violations = [];
+    const notes = [`${label} ${found.length} 件（基準 ${limit ?? '未設定'}）`];
+    if (limit === undefined) violations.push(`設定 readabilityBaselines に ${agencyId}/${documentId} の基準が無い（件数 ${found.length}）`);
+    else if (found.length > limit) violations.push(`${found.length - limit} 件増えた（${found.length} > 基準 ${limit}）`, ...found.slice(0, 12).map((s) => `  ${s}`));
+    else if (found.length < limit) notes.push(`基準を ${found.length} に下げられる（${datasetPath('config.standards-structure')} の readabilityBaselines）`);
+    return result(def, { status: verdict(violations, []), checked: chaptersChecked, unit: '章', violations, notes });
+  };
+  return [
+    ratchet(midDef, mid, baseline.midSentenceBreaks, '文の途中の改行の候補'),
+    ratchet(strayDef, stray, baseline.strayTableFragments, '表の前後の短い段落'),
+    result(brokenDef, { status: verdict(broken, []), checked: chaptersChecked, unit: '章', violations: broken }),
+  ];
+}
+
 // ---- 文書単位の実行 -------------------------------------------------------
 
 function inspectDocument(target, catalog, overrides) {
@@ -986,6 +1210,8 @@ function main() {
         coverageCheck,
         checkTables(CHECK_DEFS[13], context),
         checkChapterOgp(CHECK_DEFS[14], { ...context, assetManifest }),
+        checkSectionPages(CHECK_DEFS[15], { ...context, overrides }),
+        ...checkReadability([CHECK_DEFS[16], CHECK_DEFS[17], CHECK_DEFS[18]], { ...context, overrides }),
       ],
     });
   }

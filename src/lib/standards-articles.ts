@@ -4,6 +4,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { getStandardDocument, type StandardDocument, type StandardPart } from '@/lib/standards';
 import { getSiteAssetR2Url } from '@/lib/r2-image-loader';
+import { sectionPageMarkdown, splitChapterBySection } from '@/lib/standards-section-split.mjs';
 
 /**
  * 構造化章記事（レイヤー2）の読み出し。
@@ -25,7 +26,7 @@ type StandardChapterArticle = {
   page: number;
 };
 
-type StandardChapterSection = {
+export type StandardChapterSection = {
   number: number;
   title: string;
   headingText: string;
@@ -49,6 +50,8 @@ export type StandardChapter = {
   sourceSha256: string;
   outputSha256: string;
   outputBytes: number;
+  /** 章ページを節の一覧にして本文を節ページで出す章（判定は build-standard-articles.mjs） */
+  splitBySection?: boolean;
   sections: StandardChapterSection[];
   stats: Record<string, number>;
   indexable: boolean;
@@ -108,7 +111,7 @@ function getStandardArticlesManifest(
   return manifest;
 }
 
-/** 構造化済みかどうか。共通仕様書 8 文書だけが true で、未生成の文書は従来どおり分冊が主導線になる。 */
+/** 構造化済みかどうか。構造化した 9 文書（共通仕様書 8 文書と北海道開発局の道路・河川工事仕様書）だけが true で、未生成の文書は従来どおり分冊が主導線になる。 */
 export function hasStandardChapters(agencyId: string, documentId: string): boolean {
   return (getStandardArticlesManifest(agencyId, documentId)?.chapters.length ?? 0) > 0;
 }
@@ -148,6 +151,44 @@ export function readStandardChapterMarkdown(
   chapter: Pick<StandardChapter, 'file'>,
 ): string {
   return readFileSync(join(ARTICLES_ROOT, agencyId, documentId, chapter.file), 'utf8');
+}
+
+/**
+ * 節ページの解決。章が splitBySection でない、または節が無いときは null。
+ * 本文は章の Markdown から src/lib/standards-section-split.mjs の規則で切り出す（章の .md は 1 本のまま）。
+ */
+export function getStandardChapterSection(
+  agencyId: string,
+  documentId: string,
+  chapterId: string,
+  sectionNumber: number,
+): {
+  document: StandardDocument;
+  chapter: StandardChapter;
+  section: StandardChapterSection;
+  index: number;
+  markdown: string;
+} | null {
+  const resolved = getStandardChapter(agencyId, documentId, chapterId);
+  if (!resolved?.chapter.splitBySection) return null;
+  const { document, chapter } = resolved;
+  const index = chapter.sections.findIndex((section) => section.number === sectionNumber);
+  const section = chapter.sections[index];
+  if (!section) return null;
+  const split = splitChapterBySection(readStandardChapterMarkdown(agencyId, documentId, chapter));
+  const lines = split.sections.find((entry) => entry.number === sectionNumber)?.lines;
+  if (!lines) return null;
+  return { document, chapter, section, index, markdown: sectionPageMarkdown(lines) };
+}
+
+/**
+ * 節が原本の何ページにわたるか。manifest の lastPage は最後の見出しのページなので、
+ * 表示は「次の節の始まるページ」（同じページで切り替わることがある）か章の最終ページまでとする。
+ */
+export function standardSectionPageRange(chapter: StandardChapter, index: number): { first: number; last: number } {
+  const first = chapter.sections[index]?.firstPage ?? chapter.firstPage;
+  const next = chapter.sections[index + 1];
+  return { first, last: next ? next.firstPage : chapter.lastPage };
 }
 
 export function standardChapterPath(
