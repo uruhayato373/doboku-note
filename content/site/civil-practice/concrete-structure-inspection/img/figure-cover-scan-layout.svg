@@ -1,0 +1,36 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は、かぶり測定の範囲（60cm×60cm以上）・走査線3ライン・測点10点程度と、不良の測点の再測定（記事本文のみ）。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="かぶり測定の範囲は60cm×60cm以上で、走査線を3ライン引き、かぶりを10点程度測る。不良の測点は鉄筋間隔程度離して両側に走査線を引き直して再測定する。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 13px; fill: #222; }
+      .hd { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .in { font-size: 12px; font-weight: bold; fill: #1a3a5c; text-anchor: middle; }
+      .lb { font-size: 12px; fill: #555; }
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .brd { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .wrn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .dng { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .sf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .row { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <rect class="sf" x="40" y="44" width="320" height="260"/>
+  <text class="lb" x="200" y="30" text-anchor="middle">測る範囲　60cm × 60cm 以上</text>
+  <path d="M40,314H360" stroke="#555" stroke-width="1.5"/>
+  <path d="M40,309V319M360,309V319" stroke="#555" stroke-width="1.5"/>
+  <path d="M60,100H340M60,174H340M60,248H340" stroke="#2e6da4" stroke-width="2.5"/>
+  <g fill="#2e6da4"><circle cx="100" cy="100" r="5"/><circle cx="200" cy="100" r="5"/><circle cx="300" cy="100" r="5"/>
+  <circle cx="90" cy="174" r="5"/><circle cx="150" cy="174" r="5"/><circle cx="250" cy="174" r="5"/><circle cx="310" cy="174" r="5"/>
+  <circle cx="100" cy="248" r="5"/><circle cx="200" cy="248" r="5"/><circle cx="300" cy="248" r="5"/></g>
+  <circle cx="200" cy="174" r="6" fill="#b22234"/>
+  <path d="M150,144H250M150,204H250" stroke="#b22234" stroke-width="2" stroke-dasharray="6 4"/>
+  <text class="lb" x="256" y="148">再測定の走査線</text>
+  <text class="lb" x="256" y="208">再測定の走査線</text>
+  <text class="in" x="200" y="338">走査線 3ライン、測点は10点程度</text>
+
+  <rect class="brd" x="24" y="356" width="352" height="60" rx="8"/>
+  <text class="hd" x="38" y="380">走査線の長さ</text><text x="38" y="402">かぶり10点程度を測れる長さにする</text>
+  <rect class="dng" x="24" y="428" width="352" height="60" rx="8"/>
+  <circle cx="44" cy="450" r="6" fill="#b22234"/><text class="hd" x="58" y="454">不良の測点</text>
+  <text x="38" y="476">鉄筋間隔程度離して両側に走査線を引き直し、再測定</text>
+</svg>
