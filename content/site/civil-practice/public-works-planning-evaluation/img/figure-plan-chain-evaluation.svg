@@ -1,62 +1,74 @@
-<!-- authored 2026-10-15 doboku-note 自作。論点は国土形成計画・社会資本整備重点計画から市の個別施設計画までの計画の鎖と、国土交通省の事業評価（計画段階・新規採択時・再評価・事後）の段階。特定の書籍図の複製ではない -->
-<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="計画の鎖と評価の段階を並べた図。左は上から社会資本整備重点計画、国土形成計画、県の計画、市のマスタープランと市町村計画、個別施設計画、事業の順で、位置づけは事業から上へたどる。右は事業の評価で、計画段階評価、新規事業採択時評価、再評価、事後評価の順。計画段階評価は直轄等が対象で、評価は重点目標に照らす。">
+<!-- authored 2026-10-15 doboku-note 自作。論点は国土形成計画・社会資本整備重点計画から市の個別施設計画までの計画の鎖と、国土交通省の事業評価の段階。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="計画の鎖と評価の段階の図。左は事業から上へ、個別施設計画、市の計画、県の計画、国の計画（社会資本整備重点計画と国土形成計画）の順で位置づけをたどる。右は計画段階評価、新規事業採択時評価、再評価、事後評価の順で、事後評価は重点目標に照らす。">
   <defs>
-  <style>
-      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }
       .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
-      .t { font-size: 11px; fill: #1a3a5c; }
+      .t { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .x { font-size: 12px; fill: #222; }
+      .s { font-size: 11px; fill: #555; }
+      .sb { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
       .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
-      .ok { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
-      .wn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
-      .sf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .g { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .wh { fill: #fff; stroke: #8a8a8a; stroke-width: 1.5; }
+      .dz { fill: #fff; stroke: #2e6da4; stroke-width: 1.5; stroke-dasharray: 4 3; }
+      .l { stroke: #d7d7d7; stroke-width: 1; fill: none; }
       .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
-  </style>
-  <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+      .ar { stroke: #b22234; stroke-width: 2; fill: none; }
+      .ag { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .ax { stroke: #8a8a8a; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+    <marker id="ahr" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#b22234"/></marker>
+    <marker id="ahg" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#3a7d44"/></marker>
+    <marker id="ahk" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#8a8a8a"/></marker>
   </defs>
-
-  <rect class="b" x="14" y="16" width="192" height="56" rx="8"/>
-  <text class="n" x="110" y="40" text-anchor="middle">社会資本整備重点計画</text>
-  <text class="t" x="110" y="59" text-anchor="middle">重点目標</text>
-  <rect class="b" x="14" y="88" width="192" height="56" rx="8"/>
-  <text class="n" x="110" y="112" text-anchor="middle">国土形成計画</text>
-  <text class="t" x="110" y="131" text-anchor="middle">全国計画・広域地方計画</text>
-  <rect class="b" x="14" y="160" width="192" height="56" rx="8"/>
-  <text class="n" x="110" y="184" text-anchor="middle">県の計画</text>
-  <text class="t" x="110" y="203" text-anchor="middle">都道府県計画</text>
-  <rect class="b" x="14" y="232" width="192" height="56" rx="8"/>
-  <text class="n" x="110" y="256" text-anchor="middle">市の計画</text>
-  <text class="t" x="110" y="275" text-anchor="middle">マスタープラン・市町村計画</text>
-  <rect class="b" x="14" y="304" width="192" height="56" rx="8"/>
-  <text class="n" x="110" y="328" text-anchor="middle">個別施設計画</text>
-  <text class="t" x="110" y="347" text-anchor="middle">事業の直接の根拠</text>
-  <rect class="ok" x="14" y="376" width="192" height="56" rx="8"/>
-  <text class="n" x="110" y="400" text-anchor="middle">事業</text>
-  <text class="t" x="110" y="419" text-anchor="middle">補助事業</text>
-
-  <path class="a" d="M110,376V361" marker-end="url(#ah)"/>
-  <path class="a" d="M110,304V289" marker-end="url(#ah)"/>
-  <path class="a" d="M110,232V217" marker-end="url(#ah)"/>
-  <path class="a" d="M110,160V145" marker-end="url(#ah)"/>
-  <path class="a" d="M110,88V73" marker-end="url(#ah)"/>
-
-  <text class="n" x="309" y="182" text-anchor="middle">事業の評価</text>
-  <rect class="sf" x="232" y="190" width="154" height="50" rx="8"/>
-  <text class="n" x="309" y="212" text-anchor="middle">計画段階評価</text>
-  <text class="t" x="309" y="229" text-anchor="middle">直轄等が対象</text>
-  <rect class="b" x="232" y="254" width="154" height="50" rx="8"/>
-  <text class="n" x="309" y="284" text-anchor="middle">新規事業採択時評価</text>
-  <rect class="b" x="232" y="318" width="154" height="50" rx="8"/>
-  <text class="n" x="309" y="348" text-anchor="middle">再評価</text>
-  <rect class="b" x="232" y="382" width="154" height="50" rx="8"/>
-  <text class="n" x="309" y="412" text-anchor="middle">事後評価</text>
-  <path class="a" d="M309,240V253" marker-end="url(#ah)"/>
-  <path class="a" d="M309,304V317" marker-end="url(#ah)"/>
-  <path class="a" d="M309,368V381" marker-end="url(#ah)"/>
-
-  <path d="M309,166V44H208" fill="none" style="stroke:#2e6da4;stroke-width:1.5;stroke-dasharray:4 3" marker-end="url(#ah)"/>
-  <text x="318" y="106">重点目標に</text>
-  <text x="318" y="120">照らす</text>
-
-  <rect class="sf" x="14" y="450" width="372" height="40" rx="8"/>
-  <text class="n" x="200" y="475" text-anchor="middle">位置づけの欄は、事業から上へたどる</text>
+  <rect class="g" x="10" y="10" width="196" height="128" rx="8"/>
+  <text class="t" x="108" y="28" text-anchor="middle">国の計画（方向と目標）</text>
+  <rect class="b" x="20" y="36" width="176" height="44" rx="8"/>
+  <text class="n" x="108.0" y="53.5" text-anchor="middle">社会資本整備重点計画</text>
+  <text class="s" x="108.0" y="70.5" text-anchor="middle">重点目標</text>
+  <rect class="b" x="20" y="86" width="176" height="44" rx="8"/>
+  <text class="n" x="108.0" y="103.5" text-anchor="middle">国土形成計画</text>
+  <text class="s" x="108.0" y="120.5" text-anchor="middle">全国計画・広域地方計画</text>
+  <rect class="b" x="14" y="150" width="192" height="56" rx="8"/>
+  <text class="n" x="110.0" y="167.0" text-anchor="middle">県の計画</text>
+  <text class="s" x="110.0" y="182.0" text-anchor="middle">都道府県計画</text>
+  <text class="s" x="110.0" y="197.0" text-anchor="middle">国土利用計画の都道府県計画</text>
+  <rect class="b" x="14" y="222" width="192" height="58" rx="8"/>
+  <text class="n" x="110.0" y="240.0" text-anchor="middle">市の計画</text>
+  <text class="s" x="110.0" y="255.0" text-anchor="middle">都市計画マスタープラン</text>
+  <text class="s" x="110.0" y="270.0" text-anchor="middle">国土利用計画の市町村計画</text>
+  <rect class="b" x="14" y="296" width="192" height="50" rx="8"/>
+  <text class="n" x="110.0" y="317.0" text-anchor="middle">個別施設計画</text>
+  <text class="s" x="110.0" y="333.0" text-anchor="middle">事業の直接の根拠</text>
+  <rect class="p" x="14" y="362" width="192" height="50" rx="8"/>
+  <text class="n" x="110.0" y="383.0" text-anchor="middle">事業</text>
+  <text class="s" x="110.0" y="399.0" text-anchor="middle">補助事業</text>
+  <path class="a" d="M110,362V347" marker-end="url(#ah)"/>
+  <path class="a" d="M110,296V281" marker-end="url(#ah)"/>
+  <path class="a" d="M110,222V207" marker-end="url(#ah)"/>
+  <path class="a" d="M110,154V139" marker-end="url(#ah)"/>
+  <text class="n" x="309" y="150" text-anchor="middle">事業の評価</text>
+  <rect class="g" x="232" y="158" width="154" height="62" rx="8"/>
+  <text class="n" x="309.0" y="177.0" text-anchor="middle">計画段階評価</text>
+  <text class="s" x="309.0" y="193.0" text-anchor="middle">直轄等が対象</text>
+  <text class="s" x="309.0" y="209.0" text-anchor="middle">補助事業は対象外</text>
+  <rect class="b" x="232" y="236" width="154" height="50" rx="8"/>
+  <text class="n" x="309.0" y="265.0" text-anchor="middle">新規事業採択時評価</text>
+  <rect class="b" x="232" y="302" width="154" height="50" rx="8"/>
+  <text class="n" x="309.0" y="331.0" text-anchor="middle">再評価</text>
+  <rect class="b" x="232" y="368" width="154" height="44" rx="8"/>
+  <text class="n" x="309.0" y="394.0" text-anchor="middle">事後評価</text>
+  <path class="a" d="M309,220V235" marker-end="url(#ah)"/>
+  <path class="a" d="M309,286V301" marker-end="url(#ah)"/>
+  <path class="a" d="M309,352V367" marker-end="url(#ah)"/>
+  <path d="M386,390H394V44H208" fill="none" style="stroke:#2e6da4;stroke-width:1.5;stroke-dasharray:4 3" marker-end="url(#ah)"/>
+  <text class="s" x="232" y="62" text-anchor="start">事後評価は、重点目標に</text>
+  <text class="s" x="232" y="77" text-anchor="start">照らして行う</text>
+  <rect class="g" x="14" y="440" width="372" height="44" rx="8"/>
+  <text class="n" x="200.0" y="466.0" text-anchor="middle">位置づけの欄は、事業から上へたどる</text>
 </svg>

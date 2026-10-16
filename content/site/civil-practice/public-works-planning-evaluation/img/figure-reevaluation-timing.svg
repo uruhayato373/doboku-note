@@ -1,0 +1,60 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は再評価実施要領（令和7年9月18日施行）の第3・第4の1(2)・別紙-1が定める再評価の時期と年数の起点。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="補助事業の再評価の時期を年数で示した図。事業採択から5年が過ぎても未着工か継続中なら再評価、その後は5年ごと。事業費や計画の抜本的な見直しは随時。水道の継続中は10年。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .x { font-size: 12px; fill: #222; }
+      .s { font-size: 11px; fill: #555; }
+      .sb { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .g { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .wh { fill: #fff; stroke: #8a8a8a; stroke-width: 1.5; }
+      .dz { fill: #fff; stroke: #2e6da4; stroke-width: 1.5; stroke-dasharray: 4 3; }
+      .l { stroke: #d7d7d7; stroke-width: 1; fill: none; }
+      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ar { stroke: #b22234; stroke-width: 2; fill: none; }
+      .ag { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .ax { stroke: #8a8a8a; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+    <marker id="ahr" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#b22234"/></marker>
+    <marker id="ahg" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#3a7d44"/></marker>
+    <marker id="ahk" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#8a8a8a"/></marker>
+  </defs>
+  <path class="ax" d="M60,34V296"/>
+  <circle class="b" cx="60" cy="52" r="7"/>
+  <text class="n" x="46" y="56" text-anchor="end">0年</text>
+  <circle class="b" cx="60" cy="152" r="7"/>
+  <text class="n" x="46" y="156" text-anchor="end">5年</text>
+  <circle class="b" cx="60" cy="252" r="7"/>
+  <text class="n" x="46" y="256" text-anchor="end">10年</text>
+  <rect class="p" x="80" y="28" width="310" height="48" rx="8"/>
+  <text class="t" x="235.0" y="47.5" text-anchor="middle">事業採択（事業費の予算化）</text>
+  <text class="s" x="235.0" y="64.5" text-anchor="middle">年数を数える起点</text>
+  <rect class="b" x="80" y="116" width="310" height="72" rx="8"/>
+  <text class="t" x="235.0" y="139.0" text-anchor="middle">5年が過ぎても</text>
+  <text class="s" x="235.0" y="156.0" text-anchor="middle">未着工、または継続中のとき</text>
+  <text class="s" x="235.0" y="173.0" text-anchor="middle">再評価（5年目の年度末まで）</text>
+  <rect class="w" x="80" y="198" width="310" height="26" rx="8"/>
+  <text class="s" x="235.0" y="215.0" text-anchor="middle">水道に係る事業だけは、継続中が10年</text>
+  <rect class="b" x="80" y="230" width="310" height="48" rx="8"/>
+  <text class="t" x="235.0" y="249.5" text-anchor="middle">再評価の後、5年が過ぎても</text>
+  <text class="s" x="235.0" y="266.5" text-anchor="middle">継続中・未着工なら、また再評価</text>
+  <path class="ax" d="M60,296V310"/>
+  <circle cx="60" cy="318" r="2" fill="#8a8a8a"/><circle cx="60" cy="326" r="2" fill="#8a8a8a"/>
+  <text class="s" x="76" y="322" text-anchor="start">以後も5年ごとに繰り返す</text>
+  <rect class="w" x="14" y="340" width="372" height="34" rx="8"/>
+  <text class="t" x="200.0" y="361.0" text-anchor="middle">随時：事業費や事業計画の抜本的な見直しが生じたとき</text>
+  <rect class="d" x="14" y="386" width="372" height="52" rx="8"/>
+  <text class="t" x="200.0" y="401.0" text-anchor="middle">起点の読み替え</text>
+  <text class="s" x="200.0" y="416.0" text-anchor="middle">都市計画の決定・変更があれば</text>
+  <text class="s" x="200.0" y="431.0" text-anchor="middle">（河川は整備計画の策定・変更も）起点を読み替える</text>
+  <rect class="g" x="14" y="446" width="372" height="44" rx="8"/>
+  <text class="s" x="200.0" y="463.5" text-anchor="middle">未着工：用地買収手続と工事の両方が未着手</text>
+  <text class="s" x="200.0" y="480.5" text-anchor="middle">（道路・街路・河川の事業）</text>
+</svg>
