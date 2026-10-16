@@ -51,6 +51,11 @@ https://note.com/dobokunote/m/ma1d6fcf577bc
 
 https://coconala.com/services/4425046
 
+<!-- cta:cce-essay-index -->
+自分の仕事に近い小論文を探す方へ。8つの立場・40答案を、テーマと収録範囲から選べる無料一覧にまとめました。
+
+[主任技士 小論文｜8つの立場から選ぶ模範答案一覧](https://note.com/dobokunote/n/n3ced0cbfbb42)
+
 ## このテーマの出題実績
 
 環境負荷低減は、小論文で最も繰り返し出るテーマの一つです。出題履歴は次のとおりです（選択肢名は整理用の呼称で、問題文そのものではありません）。
