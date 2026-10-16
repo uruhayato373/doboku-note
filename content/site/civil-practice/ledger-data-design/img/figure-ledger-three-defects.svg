@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="一枚の搬入台帳で起きる三つの食い違い。同じ会社の社名と電話が行ごとに違う二重持ち、搬入のない協力会社を書けない同居、材料の列が横に増える項目" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+<rect width="400" height="500" fill="#ffffff"/>
+<g fill="#ffffff" stroke="#d7d7d7">
+<rect x="20" y="40" width="36" height="26"/><rect x="56" y="40" width="104" height="26"/><rect x="160" y="40" width="58" height="26"/><rect x="218" y="40" width="46" height="26"/><rect x="264" y="40" width="46" height="26"/><rect x="310" y="40" width="46" height="26"/>
+<rect x="20" y="66" width="36" height="26"/><rect x="56" y="66" width="104" height="26"/><rect x="160" y="66" width="58" height="26"/><rect x="218" y="66" width="46" height="26"/><rect x="264" y="66" width="46" height="26"/><rect x="310" y="66" width="46" height="26"/>
+<rect x="20" y="92" width="36" height="26"/><rect x="56" y="92" width="104" height="26"/><rect x="160" y="92" width="58" height="26"/><rect x="218" y="92" width="46" height="26"/><rect x="264" y="92" width="46" height="26"/><rect x="310" y="92" width="46" height="26"/>
+</g>
+<g fill="#e8f0fe" stroke="#2e6da4"><rect x="20" y="14" width="36" height="26"/><rect x="56" y="14" width="104" height="26"/><rect x="160" y="14" width="58" height="26"/></g>
+<g fill="#fff3cd" stroke="#d4a017"><rect x="218" y="14" width="46" height="26"/><rect x="264" y="14" width="46" height="26"/><rect x="310" y="14" width="46" height="26"/></g>
+<rect x="56" y="40" width="162" height="52" fill="#f8d7da" fill-opacity="0.7" stroke="#b22234" stroke-width="1.5"/>
+<rect x="20" y="118" width="336" height="26" fill="#ffffff" stroke="#b22234" stroke-width="1.5" stroke-dasharray="4 3"/>
+<g font-size="11" font-weight="700" fill="#1a3a5c"><text x="26" y="31">日付</text><text x="62" y="31">社名</text><text x="166" y="31">電話</text><text x="224" y="31">材料1</text><text x="270" y="31">材料2</text><text x="316" y="31">材料3</text></g>
+<g font-size="11" fill="#222">
+<text x="26" y="57">4/1</text><text x="62" y="57">(株)A建材</text><text x="166" y="57">03-1111</text><text x="224" y="57">鉄筋</text><text x="270" y="57">砕石</text>
+<text x="26" y="83">4/8</text><text x="62" y="83">A建材株式会社</text><text x="166" y="83">03-2222</text><text x="224" y="83">鉄筋</text>
+<text x="26" y="109">4/9</text><text x="62" y="109">B骨材</text><text x="166" y="109">03-3333</text><text x="224" y="109">砕石</text><text x="270" y="109">鉄筋</text><text x="316" y="109">骨材</text>
+<text x="62" y="135">D鋼材</text><text x="166" y="135">03-4444</text></g>
+<text x="224" y="135" font-size="11" fill="#b22234">搬入が無く書けない</text>
+<g font-size="11" font-weight="700" text-anchor="middle" fill="#222">
+<circle cx="372" cy="27" r="9" fill="#fff3cd" stroke="#d4a017"/><text x="372" y="31">③</text>
+<circle cx="372" cy="66" r="9" fill="#f8d7da" stroke="#b22234"/><text x="372" y="70">①</text>
+<circle cx="372" cy="131" r="9" fill="#f8d7da" stroke="#b22234"/><text x="372" y="135">②</text></g>
+<rect x="20" y="162" width="360" height="70" rx="6" fill="#f8d7da" stroke="#b22234"/>
+<g font-size="12" fill="#222"><text x="32" y="184" font-weight="700">① 二重持ち</text><text x="32" y="204">同じ会社の社名・電話が行ごとに違う</text><text x="32" y="222">直し漏れが残り、絞り込みで一部の行が落ちる</text></g>
+<rect x="20" y="242" width="360" height="70" rx="6" fill="#f8d7da" stroke="#b22234"/>
+<g font-size="12" fill="#222"><text x="32" y="264" font-weight="700">② 同居</text><text x="32" y="284">搬入のない新しい協力会社は、書く行がない</text><text x="32" y="302">搬入の行を消すと、その会社の連絡先も消える</text></g>
+<rect x="20" y="322" width="360" height="70" rx="6" fill="#fff3cd" stroke="#d4a017"/>
+<g font-size="12" fill="#222"><text x="32" y="344" font-weight="700">③ 横に増える項目</text><text x="32" y="364">四つ目の材料が来るたびに列を足す</text><text x="32" y="382">列を足すたびに、集計の式も直す</text></g>
+<rect x="20" y="406" width="360" height="82" rx="6" fill="#e8f0fe" stroke="#2e6da4"/>
+<g font-size="12" fill="#222"><text x="32" y="430" font-weight="700" fill="#1a3a5c">原因は同じ</text><text x="32" y="452">決まる対象の違う値が、</text><text x="32" y="472">一つの表に混ざっている</text></g>
+</svg>
