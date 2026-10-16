@@ -35,21 +35,21 @@
   <rect class="surface" x="20" y="150" width="360" height="48" rx="6" />
   <rect class="positive" x="20" y="150" width="8" height="48" rx="3" />
   <text x="40" y="170" class="h">490　引張強さの下限</text>
-  <text x="40" y="188" class="s">490〜610 N/mm²の範囲で保証</text>
+  <text x="40" y="188" class="s">SM490の490は引張強さの区分（N/mm²）</text>
   <rect class="surface" x="20" y="204" width="360" height="48" rx="6" />
   <rect class="warn" x="20" y="204" width="8" height="48" rx="3" />
   <text x="40" y="224" class="h">Y　降伏点を高めた系列</text>
-  <text x="40" y="242" class="s">SM490Yは厚さ16mm以下で365 N/mm²以上</text>
+  <text x="40" y="242" class="s">Yが付くと降伏点の保証値が変わる</text>
   <rect class="surface" x="20" y="258" width="360" height="62" rx="6" />
   <rect class="danger" x="20" y="258" width="8" height="62" rx="3" />
   <text x="40" y="278" class="h">B　衝撃値の区分（A・B・C）</text>
-  <text x="40" y="296" class="s">A は規定なし、B は0℃で27J以上</text>
-  <text x="40" y="313" class="s">C は0℃で47J以上（厚さ12mm超）</text>
+  <text x="40" y="296" class="s">A は規定なし／B は0℃で27J以上</text>
+  <text x="40" y="313" class="s">C は0℃で47J以上（いずれも厚さ12mm超が対象）</text>
   <text x="20" y="352" class="h">数字の意味は規格ごとに違う</text>
   <rect class="brand" x="20" y="364" width="360" height="56" rx="6" />
   <text x="34" y="389" class="h">SM490・SKK400</text>
   <text x="34" y="409" class="s">数字は引張強さの下限（N/mm²）</text>
   <rect class="warn" x="20" y="432" width="360" height="56" rx="6" />
-  <text x="34" y="457" class="h">SY295・SYW295</text>
+  <text x="34" y="457" class="h">SY295・SYW295・SD345（鉄筋）</text>
   <text x="34" y="477" class="s">数字は降伏点の下限（N/mm²）</text>
 </svg>

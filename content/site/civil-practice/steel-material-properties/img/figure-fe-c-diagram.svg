@@ -28,7 +28,11 @@
   <circle cx="172" cy="239" r="4" fill="#b22234" />
   <text x="70" y="88" class="h">オーステナイト（γ・fcc）</text>
   <text x="70" y="106" class="s">炭素を約2.1%まで固溶</text>
-  <text x="92" y="229" class="s m">α+γ</text>
+  <text x="70" y="126" class="s h">冷える速さで組織が決まる</text>
+  <text x="70" y="143" class="s">ゆっくり冷却 → パーライト</text>
+  <text x="70" y="160" class="s">急冷 → マルテンサイト（硬い）</text>
+  <path d="M88,186 V280" fill="none" stroke="#2e6da4" stroke-width="1.5" stroke-dasharray="4 3" />
+  <text x="120" y="229" class="s m">α+γ</text>
   <text x="278" y="204" class="s m">γ+セメンタイト</text>
   <text x="207" y="269" class="m">フェライト+セメンタイト</text>
   <text x="142" y="203" class="s h">A3</text>
@@ -41,6 +45,7 @@
   <text x="354" y="312" class="s m">2.1</text>
   <text x="207" y="330" class="s m">炭素量（質量%）</text>
   <text x="20" y="330" class="s">α＝フェライト（bcc）</text>
+  <text x="380" y="330" class="s e">2.1%超は鋳鉄</text>
   <circle class="num" cx="88" cy="290" r="9" />
   <circle class="num" cx="172" cy="290" r="9" />
   <circle class="num" cx="270" cy="290" r="9" />
