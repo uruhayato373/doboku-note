@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="湿潤養生期間の標準を棒で比べた図。日平均気温15℃以上・10℃以上・5℃以上で、普通ポルトランド、早強、混合B種の日数が気温が低いほど、セメントが緩やかなほど長くなる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 12px; fill: #1a3a5c; }
+      .h { font-size: 13px; font-weight: bold; }
+      .s { font-size: 12px; fill: #222; }
+      .n { font-size: 11px; fill: #555; }
+      .lb { font-size: 11px; font-weight: bold; fill: #2e6da4; }
+      .m { text-anchor: middle; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .danger { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .ar { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+    </style>
+    <!-- brand / positive / warn / danger / surface tokens -->
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+  <rect width="400" height="500" fill="#ffffff" />
+  <rect class="brand" x="14" y="14" width="14" height="14" rx="3"/>
+  <text class="s" x="34" y="26">普通ポルトランド</text>
+  <rect class="positive" x="146" y="14" width="14" height="14" rx="3"/>
+  <text class="s" x="166" y="26">早強</text>
+  <rect class="warn" x="206" y="14" width="14" height="14" rx="3"/>
+  <text class="s" x="226" y="26">混合B種</text>
+  <text class="h" x="20" y="60">日平均気温 15℃以上</text>
+  <rect class="brand" x="20" y="70" width="120" height="24" rx="4"/>
+  <text class="h" x="28" y="87">5日</text>
+  <rect class="positive" x="20" y="98" width="72" height="24" rx="4"/>
+  <text class="h" x="28" y="115">3日</text>
+  <rect class="warn" x="20" y="126" width="168" height="24" rx="4"/>
+  <text class="h" x="28" y="143">7日</text>
+  <text class="h" x="20" y="172">日平均気温 10℃以上</text>
+  <rect class="brand" x="20" y="182" width="168" height="24" rx="4"/>
+  <text class="h" x="28" y="199">7日</text>
+  <rect class="positive" x="20" y="210" width="96" height="24" rx="4"/>
+  <text class="h" x="28" y="227">4日</text>
+  <rect class="warn" x="20" y="238" width="216" height="24" rx="4"/>
+  <text class="h" x="28" y="255">9日</text>
+  <text class="h" x="20" y="284">日平均気温 5℃以上</text>
+  <rect class="brand" x="20" y="294" width="216" height="24" rx="4"/>
+  <text class="h" x="28" y="311">9日</text>
+  <rect class="positive" x="20" y="322" width="120" height="24" rx="4"/>
+  <text class="h" x="28" y="339">5日</text>
+  <rect class="warn" x="20" y="350" width="288" height="24" rx="4"/>
+  <text class="h" x="28" y="367">12日</text>
+  <text class="h" x="20" y="396">気温が低いほど、セメントが緩やかなほど長い</text>
+  <rect class="warn" x="10" y="408" width="380" height="82" rx="8"/>
+  <text class="h" x="22" y="430">標準値は「最低限これだけ」のライン</text>
+  <text class="s" x="22" y="450">厚い部材や乾燥収縮が心配な部位は長めに</text>
+  <text class="s" x="22" y="468">脱型できる強度に達しても、日数が残れば養生を続ける</text>
+</svg>
