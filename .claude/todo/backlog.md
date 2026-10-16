@@ -355,6 +355,18 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0757] DX 広告が stats47 の A8 mat を使う疑いを確かめて直し、crossCheck の超過が消えるか確かめる
+タグ: [領域:アフィリエイト] [時期:2026-10] [種類:不具合] [起票:2026-10-17]
+
+2026-10-17、stats47 で doboku-note のサイト（wid=002）の mat を使っていた3本（ビルドジョブのバナー・建設JOBs・GKS）を止め、R2 に公開した（stats47 のコミット 010edf8de）。
+
+残っていること:
+- doboku-note の DX 広告（src/config/affiliate-creatives.ts:66-69）は、画像が wid=001 になっている。stats47 のサイトの mat `4B5OO5+NTCZ6+4SXU+NUES1` を使っている疑いがある。A8 で doboku-note（002）として DX と提携しているかを読むだけで確かめ、提携していれば差し替える。していなければ、外すか申請するかを運営者が判断する。
+- 10月の crossCheck の超過（取り出した側 29件、サイト別 26件）が、次の a8-ui:fetch → a8-ui:normalize で解消するかを確かめる。
+
+完了条件: DX の mat がサイト 002 のものか、DX が配置されていない。次の取り込みで crossCheck.exceeded=false になる（なお超過が残る場合は、stats47 側の自分の提携のビルドジョブのテキスト広告・ココナラのクリックとして説明できる）。
+
+
 ### [DN-0756] R2画像の更新後も同じURLのCDNキャッシュが旧版を返す
 タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-16]
 
