@@ -1,0 +1,51 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は本文の表「知りたいこと／引く資料」と、実施中期計画の事業規模は決算ではないという注記。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="知りたいことと引く資料の対応図。自治体の使った額は地方財政白書の決算、建設投資の長い推移は国土交通白書の関連データ集、施設の古さは50年以上経過する社会資本の割合、計画の事業規模は国土強靱化実施中期計画。計画の事業規模は決算と並べて比べない。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #222; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .l { font-size: 11px; fill: #555; }
+      .v { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .a { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1; }
+      .b { fill: #fff3cd; stroke: #d4a017; stroke-width: 1; }
+      .c { fill: #f8d7da; stroke: #b22234; stroke-width: 1; }
+      .bx-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .bx-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .bx-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .ax { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+    </style>
+  </defs>
+  <text class="l" x="14" y="22">知りたいこと</text><text class="l" x="228" y="22">引く資料</text>
+  <rect class="bx-b" x="10" y="34" width="170" height="64" rx="8"/>
+  <text class="n" x="22" y="62">市町村・都道府県が</text>
+  <text class="n" x="22" y="80">使った額</text>
+  <path class="ax" d="M184,66H220"/><polygon points="226,66 218,61 218,71" fill="#8a8a8a"/>
+  <rect class="bx-p" x="230" y="34" width="160" height="64" rx="8"/>
+  <text x="240" y="62" style="font-size:12px">地方財政白書の決算</text>
+  <text x="240" y="80" style="font-size:12px">（普通建設事業費）</text>
+  <rect class="bx-b" x="10" y="114" width="170" height="64" rx="8"/>
+  <text class="n" x="22" y="142">国全体の建設投資の</text>
+  <text class="n" x="22" y="160">長い推移</text>
+  <path class="ax" d="M184,146H220"/><polygon points="226,146 218,141 218,151" fill="#8a8a8a"/>
+  <rect class="bx-p" x="230" y="114" width="160" height="64" rx="8"/>
+  <text x="240" y="134" style="font-size:12px">国土交通白書の</text>
+  <text x="240" y="152" style="font-size:12px">関連データ集</text><text x="240" y="170" style="font-size:12px">（建設投資）</text>
+  <rect class="bx-b" x="10" y="194" width="170" height="64" rx="8"/>
+  <text class="n" x="22" y="232">施設の古さ</text>
+  <path class="ax" d="M184,226H220"/><polygon points="226,226 218,221 218,231" fill="#8a8a8a"/>
+  <rect class="bx-p" x="230" y="194" width="160" height="64" rx="8"/>
+  <text x="240" y="222" style="font-size:12px">建設後50年以上経過する</text>
+  <text x="240" y="240" style="font-size:12px">社会資本の割合</text>
+  <rect class="bx-b" x="10" y="274" width="170" height="64" rx="8"/>
+  <text class="n" x="22" y="312">計画の事業規模</text>
+  <path class="ax" d="M184,306H220"/><polygon points="226,306 218,301 218,311" fill="#8a8a8a"/>
+  <rect class="bx-d" x="230" y="274" width="160" height="64" rx="8"/>
+  <text x="240" y="302" style="font-size:12px">国土強靱化実施中期計画</text>
+  <text x="240" y="320" style="font-size:12px">（国の計画の目途）</text>
+  <rect class="bx-d" x="10" y="366" width="380" height="118" rx="8"/>
+  <text class="n" x="22" y="390">混ぜずに、出どころを分ける</text>
+  <text x="22" y="412">決算の額と、国の計画の事業規模は並べて比べない。</text>
+  <text x="22" y="432">「20兆円強程度」は国の計画が目途とする規模で、</text>
+  <text x="22" y="450">国費の予算額でも自治体の決算額でもない。</text>
+  <text x="22" y="470">市町村の値と都道府県の値も混ぜない。</text>
+</svg>

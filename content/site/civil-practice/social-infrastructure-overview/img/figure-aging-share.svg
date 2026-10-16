@@ -1,0 +1,50 @@
+<!-- authored 2026-10-16 doboku-note 自作。数値は国土交通省「建設後50年以上経過する社会資本の割合」（本文の表）。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="建設後50年以上経過する社会資本の割合を、道路橋、トンネル、河川管理施設、水道管路、下水道管渠、港湾施設ごとに2025年3月、2030年3月、2040年3月の3時点で比べた横棒図。道路橋は約42%から約75%、水道管路は約10%から約40%へ増える。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #222; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .l { font-size: 11px; fill: #555; }
+      .v { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .a { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1; }
+      .b { fill: #fff3cd; stroke: #d4a017; stroke-width: 1; }
+      .c { fill: #f8d7da; stroke: #b22234; stroke-width: 1; }
+      .bx-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .bx-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .bx-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .ax { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+    </style>
+  </defs>
+  <rect class="a" x="14" y="10" width="12" height="12" rx="2"/><text class="l" x="31" y="20">2025年3月</text>
+  <rect class="b" x="118" y="10" width="12" height="12" rx="2"/><text class="l" x="135" y="20">2030年3月</text>
+  <rect class="c" x="222" y="10" width="12" height="12" rx="2"/><text class="l" x="239" y="20">2040年3月</text>
+  <path class="ax" d="M58,34V430"/>
+  <text class="n" x="14" y="46">道路橋</text>
+  <rect class="a" x="58" y="52" width="151.2" height="13"/><text class="v" x="214.2" y="63">約42%</text>
+  <rect class="b" x="58" y="67" width="194.4" height="13"/><text class="v" x="257.4" y="78">約54%</text>
+  <rect class="c" x="58" y="82" width="270.0" height="13"/><text class="v" x="333.0" y="93">約75%</text>
+  <text class="n" x="14" y="112">トンネル</text>
+  <rect class="a" x="58" y="118" width="100.8" height="13"/><text class="v" x="163.8" y="129">約28%</text>
+  <rect class="b" x="58" y="133" width="126.0" height="13"/><text class="v" x="189.0" y="144">約35%</text>
+  <rect class="c" x="58" y="148" width="187.2" height="13"/><text class="v" x="250.2" y="159">約52%</text>
+  <text class="n" x="14" y="178">河川管理施設</text>
+  <rect class="a" x="58" y="184" width="93.6" height="13"/><text class="v" x="156.6" y="195">約26%</text>
+  <rect class="b" x="58" y="199" width="147.6" height="13"/><text class="v" x="210.6" y="210">約41%</text>
+  <rect class="c" x="58" y="214" width="230.4" height="13"/><text class="v" x="293.4" y="225">約64%</text>
+  <text class="n" x="14" y="244">水道管路</text>
+  <rect class="a" x="58" y="250" width="36.0" height="13"/><text class="v" x="99.0" y="261">約10%</text>
+  <rect class="b" x="58" y="265" width="72.0" height="13"/><text class="v" x="135.0" y="276">約20%</text>
+  <rect class="c" x="58" y="280" width="144.0" height="13"/><text class="v" x="207.0" y="291">約40%</text>
+  <text class="n" x="14" y="310">下水道管渠</text>
+  <rect class="a" x="58" y="316" width="25.2" height="13"/><text class="v" x="88.2" y="327">約7%</text>
+  <rect class="b" x="58" y="331" width="54.0" height="13"/><text class="v" x="117.0" y="342">約15%</text>
+  <rect class="c" x="58" y="346" width="122.4" height="13"/><text class="v" x="185.4" y="357">約34%</text>
+  <text class="n" x="14" y="376">港湾施設</text>
+  <rect class="a" x="58" y="382" width="104.4" height="13"/><text class="v" x="167.4" y="393">約29%</text>
+  <rect class="b" x="58" y="397" width="144.0" height="13"/><text class="v" x="207.0" y="408">約40%</text>
+  <rect class="c" x="58" y="412" width="230.4" height="13"/><text class="v" x="293.4" y="423">約64%</text>
+  <text class="l" x="14" y="448">水道管路・下水道管渠の2025年3月は2024年3月時点の値</text>
+  <text class="l" x="14" y="462">道路橋・トンネル・河川管理施設・港湾施設は建設年度不明を除く</text>
+  <text class="l" x="14" y="476">河川管理施設は市町村が管理する施設の数字ではない</text>
+  <text class="l" x="14" y="490">50年は便宜的な区切りで、使えなくなる年数ではない</text>
+</svg>
