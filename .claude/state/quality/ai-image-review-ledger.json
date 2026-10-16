@@ -1056,13 +1056,13 @@
       "reviewedAt": "2026-10-07T23:41:24.071Z"
     },
     "concrete-chief-engineer/textbook-production-qc/img/photo-core-drilling": {
-      "sha": "190920508bb72171",
-      "promptSha": "46257ab8893af1e7",
-      "tool": "Codex",
-      "generatedAt": "2026-10-08T00:41:02.777Z",
+      "sha": "bbdffb99b2239833",
+      "promptSha": "afbf05a3042f4477",
+      "tool": "Codex imagegen",
+      "generatedAt": "2026-10-16T11:31:43.432Z",
       "verdict": "ok",
-      "reason": "ベースプレートを壁面へアンカーボルト固定し、壁に直角な水平ガイドレール沿いにモータ・コアビットが壁へ向かって送られる構造で、送りハンドル・給水ホース・足元のコアも成り立ち、本文と矛盾せず破綻も無い",
-      "reviewedAt": "2026-10-08T00:42:07.334Z"
+      "reason": "壁上端全体と基部が写り、孔が壁の中間高さにあること、壁面固定ベース・水平ガイド・送りハンドル・モーターとバレルの接続・給水ホース、および採取コアの円筒形と骨材断面を確認でき、前回の文字状銘板も除去されている。",
+      "reviewedAt": "2026-10-16T11:32:26.347Z"
     },
     "concrete-diagnostician/primary-exercise-01/img/q4-fig": {
       "sha": "85e632d3d029d318",
