@@ -958,7 +958,10 @@ const ContentSeries = z
 const basisValue = z.union([
   z.string().regex(/^[a-z0-9-]+\/[A-Za-z0-9-]+$/).describe('シリーズ id/項目 id'),
   z.object({ article: seriesArticlePath.describe('シリーズの外の記事で使う') }).strict(),
-  z.object({ excluded: z.string().min(1).describe('使わない理由') }).strict(),
+  z.object({
+    excluded: z.string().min(1).describe('使わない理由'),
+    revisit: z.literal(true).optional().describe('当時のサイトの範囲の外として使わなかった項目。シリーズを作るときに判定し直す候補（目次・索引・重複・過去問など記事にしないものには付けない）'),
+  }).strict(),
 ]);
 
 /** 書籍の全項目の割り当て（config/content-series-basis.json）。項目 id は Drive の候補表の id で、見出しは持たない */

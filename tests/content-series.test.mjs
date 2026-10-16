@@ -61,7 +61,9 @@ test('validateBasis: 書籍の項目数・割り当て先の項目と記事・�
   };
   const ok = { books: { book: { units: { u0001: 's/X-1', u0002: { article: A }, u0003: { excluded: '索引' } }, pages: { u0001: ['p0001'], u0002: ['p0002'], u0003: [] } } } };
   assert.deepEqual(validateBasis(ok, config, ctx), []);
-  assert.deepEqual(basisView(ok).byBook.book, { units: 3, series: 1, article: 1, excluded: 1 });
+  assert.deepEqual(basisView(ok).byBook.book, { units: 3, series: 1, article: 1, excluded: 1, revisit: 0 });
+  const withRevisit = { books: { book: { units: { u0001: { excluded: '画像処理の基礎理論', revisit: true } }, pages: {} } } };
+  assert.equal(basisView(withRevisit).byBook.book.revisit, 1);
   assert.deepEqual(basisView(ok).byItem.get('s/X-1'), { book: 1 });
 
   const bad = { books: {
