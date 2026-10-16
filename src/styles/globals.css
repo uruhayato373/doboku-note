@@ -1195,3 +1195,9 @@
 [data-standards-chapter] .standards-cell-short {
   white-space: nowrap;
 }
+
+/* 短いセルの折り返しを止めると、残りの長い文のセル（「必要重量の中詰め材料を充填し…」）に幅が回らず
+   1〜2 文字幅に押しつぶされた（近畿版 表3-2-13(1)）。長いセルには最小幅を持たせて文として読める幅を確保する。 */
+[data-standards-chapter] .table-scroll :is(td, th):not(.standards-cell-short) {
+  min-width: 10em;
+}

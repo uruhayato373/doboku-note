@@ -76,6 +76,12 @@ const RE_CLAUSE_LOOSE = /^[\s　]{0,16}(\d+)[.．][\s　]*(\S.*?)[\s　]*$/;
 const CLAUSE_INDENT_TOLERANCE = 6;
 /** 号: `（1）工事概要` */
 const RE_ITEM = /^[\s　]{0,4}[（(](\d+)[）)][\s　]*(.*?)[\s　]*$/;
+/** 丸数字の細目: `① 振動数の多い振動機を用いて…`（段落の始まり。折り返しの続きとしてつながない） */
+const RE_CIRCLED_ITEM = /^[\s　]{0,6}(?:[①-⑳]|[0-9０-９]{1,2}[）)])/;
+/** 規格番号を 1 行ずつ並べた一覧の項目: `JIS A 5011-1（コンクリート用スラグ骨材…）`（折り返しの続きとしてつながない） */
+const RE_STANDARD_ENTRY = /^[\s　]*(?:JIS|JSCE|JHS|JPI|JASS|ISO|ASTM)[\s　]+[A-Z0-9]/;
+/** 表示幅（全角 2・半角 1）。行が紙面の右端まで詰まっているかを見るのに使う */
+const displayWidth = (text) => [...text].reduce((sum, ch) => sum + (ch.codePointAt(0) > 0xff ? 2 : 1), 0);
 /** 表・図キャプション: `表1-3-4   養生期間` */
 const RE_TABLE_CAPTION = /^[\s　]*表\s*(\d+)[-－](\d+)(?:[-－](\d+))?\s*(.*?)[\s　]*$/;
 const RE_FIGURE_CAPTION = /^[\s　]*図\s*(\d+)[-－](\d+)(?:[-－](\d+))?\s*(.*?)[\s　]*$/;
@@ -384,9 +390,14 @@ function segmentToBlocks(segment) {
     if (classified[i].isTable || classified[i].captionOnly) continue;
     let j = i;
     while (j < classified.length && !classified[j].isTable && !classified[j].captionOnly) j += 1;
-    const sandwiched = classified[i - 1]?.isTable && classified[j]?.isTable;
-    if (sandwiched && classified.slice(i, j).every((e) => e.chunk.every((line) => !trimBoth(line.text).endsWith('。')))) {
-      for (let k = i; k < j; k += 1) classified[k].isTable = true;
+    // 表のキャプションで始まり表の直前まで続く並び（近畿版 p244 表3-2-13(1) の縦書きの見出し
+    // `確認方法場` `項目 要求性能所` …）も、見出しの行が段落に化けていたので表の一部とみなす
+    // 並びの途中から始まるキャプション（前に散文の段落がある）も見る。表に含めるのはキャプションから後ろ
+    const captionAt = classified.slice(i, j).findIndex((e) => RE_TABLE_CAPTION.test(e.chunk[0].text));
+    const from = classified[i - 1]?.isTable ? i : captionAt >= 0 ? i + captionAt : -1;
+    const sandwiched = from >= 0 && classified[j]?.isTable;
+    if (sandwiched && classified.slice(from, j).every((e) => e.chunk.every((line) => !trimBoth(line.text).endsWith('。')))) {
+      for (let k = from; k < j; k += 1) classified[k].isTable = true;
     }
     i = j - 1;
   }
@@ -455,12 +466,24 @@ function uniquePages(entries) {
  */
 function proseBlocks(chunk) {
   const base = Math.min(...chunk.map((e) => indentOf(e.text)));
+  // 行が版面の右端まで詰まっているか（＝紙面の幅で折り返した行か）を見るための chunk 内の最大の表示幅
+  const maxWidth = Math.max(...chunk.map((e) => displayWidth(e.text.replace(/[\s　]+$/, ''))));
   const blocks = [];
   let current = null;
+  let previous = null;
   for (const entry of chunk) {
     const note = RE_NOTE.test(entry.text);
     const item = entry.text.match(RE_ITEM);
-    const startsNew = indentOf(entry.text) > base || note || item;
+    const circled = RE_CIRCLED_ITEM.test(entry.text) || RE_STANDARD_ENTRY.test(entry.text);
+    // 項目のぶら下げ字下げ（`（1）…おそれのあるも` の次行を字下げして `のを除去し…`）は、字下げが深くても
+    // 文の続き。前の行が右端まで詰まっていて句点で終わっていなければ折り返しとみなす（近畿版 3-2-3-12 で
+    // 文の途中に段落が入っていた）。字下げした段落の始まり（前の行が句点で終わる）はこれまでどおり分ける。
+    const wrapped =
+      previous !== null &&
+      displayWidth(previous.text.replace(/[\s　]+$/, '')) >= maxWidth * 0.85 &&
+      !trimBoth(previous.text).endsWith('。');
+    const startsNew = (!wrapped && indentOf(entry.text) > base) || note || item || circled;
+    previous = entry;
     if (!current || startsNew) {
       if (current) blocks.push(current);
       current = {

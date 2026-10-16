@@ -188,8 +188,8 @@
         124
       ],
       "sourceSha256": "62159b237d2161129dbf5cbebb8daa3c64aadd06917ee503b9e588c0db3c140f",
-      "outputSha256": "541a9a10175e59853eb2ae63a7c5d7e5080e57b6d6b90a5e6c991e63e8af3a38",
-      "outputBytes": 118590,
+      "outputSha256": "ffbc2ce2ab5991286b83e0953352f538f9bdeac03fe5ee3d8a86e10ea0b346dd",
+      "outputBytes": 118372,
       "splitBySection": false,
       "sections": [
         {
@@ -500,7 +500,7 @@
         "sections": 1,
         "articles": 49,
         "clauses": 243,
-        "paragraphs": 457,
+        "paragraphs": 348,
         "items": 93,
         "notes": 0,
         "tables": 6,
@@ -551,8 +551,8 @@
         141
       ],
       "sourceSha256": "869ecc879ecee3305c41a4572bb6b36a9b1ac0db36cd3cb0fb4ce04eaadbb18c",
-      "outputSha256": "620ea96e678b4928b29b45627fbeb6464b74bda75f846ca0db243e734d51dc40",
-      "outputBytes": 45750,
+      "outputSha256": "b354714d9db8e72f04041ade2136c7cb0bf34ce2e59da84d012e2c10da9b3147",
+      "outputBytes": 45730,
       "splitBySection": false,
       "sections": [
         {
@@ -684,7 +684,7 @@
         "sections": 4,
         "articles": 15,
         "clauses": 125,
-        "paragraphs": 163,
+        "paragraphs": 153,
         "items": 6,
         "notes": 0,
         "tables": 6,
@@ -748,8 +748,8 @@
         169
       ],
       "sourceSha256": "74d37a4d7908c699c1ff686690f6d191cb0c9f32685b08c668463bda1626abeb",
-      "outputSha256": "0abec6e35d25bd9f3176a0d5c0ad3aca1bab98534f8115fd260bc6376365781d",
-      "outputBytes": 83693,
+      "outputSha256": "86654f3feb6c42cca220a037522db431b0b2823a898d96160a325d9d90ad821b",
+      "outputBytes": 83449,
       "splitBySection": false,
       "sections": [
         {
@@ -1184,7 +1184,7 @@
         "sections": 15,
         "articles": 49,
         "clauses": 181,
-        "paragraphs": 359,
+        "paragraphs": 236,
         "items": 84,
         "notes": 0,
         "tables": 7,
@@ -1307,8 +1307,8 @@
         200
       ],
       "sourceSha256": "23d1b9acb0fb9c16ce967333a40900612ad9ea93460a4ce568c28770b6692a92",
-      "outputSha256": "f9a04b9ccc685182eaea19779dcf21d0744f08e1918d3c18bc440ca236554586",
-      "outputBytes": 68203,
+      "outputSha256": "e1bb30abaf83fccf2b306f0b6222d622b66b664e799f12ad4b04e5f852d7330b",
+      "outputBytes": 68155,
       "splitBySection": false,
       "sections": [
         {
@@ -1817,7 +1817,7 @@
         "sections": 13,
         "articles": 64,
         "clauses": 81,
-        "paragraphs": 297,
+        "paragraphs": 273,
         "items": 23,
         "notes": 8,
         "tables": 22,
@@ -1860,8 +1860,8 @@
         209
       ],
       "sourceSha256": "3e99e6015005523d5ac935ca4f819302463bb153cf3268feb534051e74892071",
-      "outputSha256": "5eb7a28d37b37759ea1413d8ec026103776d0df71f28f2622c738991c91fbf4d",
-      "outputBytes": 24220,
+      "outputSha256": "05a78af108dc576f5d78a845e1a4e0219a5d66369369f523532f0ede9014b75c",
+      "outputBytes": 24144,
       "splitBySection": false,
       "sections": [
         {
@@ -1944,7 +1944,7 @@
         "sections": 1,
         "articles": 11,
         "clauses": 34,
-        "paragraphs": 90,
+        "paragraphs": 52,
         "items": 15,
         "notes": 0,
         "tables": 4,
@@ -2147,8 +2147,8 @@
         376
       ],
       "sourceSha256": "097eecc7dc7a6bd3827f2d9b9ffc6903b98dac9fcec6d8ef2148aa4b3497e4db",
-      "outputSha256": "9ea8656603f1f28b5005843c402b6fb226f3977b034b979e118b435a667cb92d",
-      "outputBytes": 469089,
+      "outputSha256": "5a7bd4381159dd561b093491e84a8a5709728dba4f68a0652ddf50143d9d9af8",
+      "outputBytes": 467378,
       "splitBySection": true,
       "sections": [
         {
@@ -3246,7 +3246,7 @@
         "sections": 18,
         "articles": 155,
         "clauses": 940,
-        "paragraphs": 2217,
+        "paragraphs": 1341,
         "items": 476,
         "notes": 16,
         "tables": 59,
@@ -3294,8 +3294,8 @@
         388
       ],
       "sourceSha256": "bd672107292ba6224f0fd7e87c285afc001f0355f507a7b08734034948ffef14",
-      "outputSha256": "33aff1914d3d0081f3bf777fb27ced54f632276a7626f3ab777361f5db8b55e9",
-      "outputBytes": 24274,
+      "outputSha256": "684f675f49147ee24a6bf96ad760b7cbd7f3b0690f7c3e38170b760ee2e07299",
+      "outputBytes": 24250,
       "splitBySection": false,
       "sections": [
         {
@@ -3844,7 +3844,7 @@
         "sections": 13,
         "articles": 71,
         "clauses": 37,
-        "paragraphs": 127,
+        "paragraphs": 115,
         "items": 3,
         "notes": 0,
         "tables": 3,
@@ -4066,8 +4066,8 @@
         400
       ],
       "sourceSha256": "6d38c2bdbbd3c4590d82d1c6e34fdd46b0c596bffb97935232d1b4c009a4d554",
-      "outputSha256": "5a2cc3133851d43c611b1aba231150bf664b514c54d4bf005284adb8be0b0198",
-      "outputBytes": 21244,
+      "outputSha256": "b2f94aca28c84c05f0be3b3e91168ea1afd9dc927f32aa8feb003c0d59d1fdde",
+      "outputBytes": 21164,
       "splitBySection": false,
       "sections": [
         {
@@ -4370,7 +4370,7 @@
         "sections": 9,
         "articles": 36,
         "clauses": 42,
-        "paragraphs": 119,
+        "paragraphs": 79,
         "items": 34,
         "notes": 0,
         "tables": 1,
@@ -4418,8 +4418,8 @@
         415
       ],
       "sourceSha256": "b5ba03e50eab22e93692c349a5d169265ab4e3db4dbd6ad036807e28c16e0d5c",
-      "outputSha256": "efb796921c92056b0c3ccf154ce5cac28df41aaf2ebff250c5d39d2c0c4a1119",
-      "outputBytes": 31940,
+      "outputSha256": "03e119a5e86f6a1e6e899d1f313bb79360d3b12e21dd594ba5bfa854edbceea9",
+      "outputBytes": 31924,
       "splitBySection": false,
       "sections": [
         {
@@ -5241,7 +5241,7 @@
         "sections": 18,
         "articles": 109,
         "clauses": 49,
-        "paragraphs": 162,
+        "paragraphs": 154,
         "items": 13,
         "notes": 0,
         "tables": 1,
@@ -5287,8 +5287,8 @@
         428
       ],
       "sourceSha256": "cbc1b6d68f30686fd173af5888c08398e9da220683e3b699ff38bea32ccfeb76",
-      "outputSha256": "17f331c64aaaa3a93b7b7a060a17b1d1e5351b50b50605e817e5486d1615b729",
-      "outputBytes": 31411,
+      "outputSha256": "7dfda42f64c4db8a810948f2a6e113133fcdc0bcb0dff9a48f8e9f542027afd1",
+      "outputBytes": 31405,
       "splitBySection": false,
       "sections": [
         {
@@ -6176,7 +6176,7 @@
         "sections": 20,
         "articles": 117,
         "clauses": 40,
-        "paragraphs": 156,
+        "paragraphs": 153,
         "items": 12,
         "notes": 0,
         "tables": 1,
@@ -7393,8 +7393,8 @@
         466
       ],
       "sourceSha256": "6feb16e5112206bbc83bd8a046ae1b73bf06b04efd590a221041d83b423d3ee2",
-      "outputSha256": "bd6b5628675cd086e260d79a47bec541daee91ae04e38f5bc0caa781538dc629",
-      "outputBytes": 33773,
+      "outputSha256": "9885f77150834610a57d01938c193c2a3584514c86030ef29fc086ee54645e1e",
+      "outputBytes": 33743,
       "splitBySection": false,
       "sections": [
         {
@@ -7925,7 +7925,7 @@
         "sections": 15,
         "articles": 65,
         "clauses": 97,
-        "paragraphs": 166,
+        "paragraphs": 151,
         "items": 16,
         "notes": 0,
         "tables": 2,
@@ -8615,8 +8615,8 @@
         492
       ],
       "sourceSha256": "81536271da366e69b90782022cf86fb3e5d69501713f32fe8b4e4da73e99a060",
-      "outputSha256": "fdf2b4e99685e40ffd67e1066f6c7b781923028cc0727d2af66e801864c2a29d",
-      "outputBytes": 23594,
+      "outputSha256": "891f08ac851eaead33355bca36e9114575dcfce65c513e5f229b4d3c02ad90b4",
+      "outputBytes": 23588,
       "splitBySection": false,
       "sections": [
         {
@@ -9135,7 +9135,7 @@
         "sections": 13,
         "articles": 66,
         "clauses": 55,
-        "paragraphs": 123,
+        "paragraphs": 120,
         "items": 3,
         "notes": 0,
         "tables": 1,
@@ -9867,8 +9867,8 @@
         519
       ],
       "sourceSha256": "ebdfd1fb977d304bf509a8fb2c349ca9f9b04fd6336ef2f3242e19bca937ef02",
-      "outputSha256": "f819e32efb6df0edd749485830809aa54d268b0f68bbc7bf4594ca7d24548d0c",
-      "outputBytes": 42136,
+      "outputSha256": "d8ce410f5f0228814d1f1c94b24d85a546a08a586da92e14784aad4b4682b9ea",
+      "outputBytes": 42039,
       "splitBySection": false,
       "sections": [
         {
@@ -10272,7 +10272,7 @@
         "sections": 13,
         "articles": 47,
         "clauses": 132,
-        "paragraphs": 207,
+        "paragraphs": 159,
         "items": 59,
         "notes": 0,
         "tables": 1,
@@ -10311,8 +10311,8 @@
         525
       ],
       "sourceSha256": "1db46536040a75c1b22106dedfcd8ba3b40371091cc003a37331dc9164bd6fbf",
-      "outputSha256": "0d8e637cc6442179431f77e61f140fe73703756ea3d200628e6671f82233f552",
-      "outputBytes": 14186,
+      "outputSha256": "fd4b6ead14baee8ac4f87f0a9120e0a22d6ad1cea01b17900a431ed2979800bf",
+      "outputBytes": 14160,
       "splitBySection": false,
       "sections": [
         {
@@ -10464,7 +10464,7 @@
         "sections": 5,
         "articles": 17,
         "clauses": 50,
-        "paragraphs": 72,
+        "paragraphs": 59,
         "items": 16,
         "notes": 0,
         "tables": 0,
@@ -10662,8 +10662,8 @@
         540
       ],
       "sourceSha256": "2a3edb3295f2bfcf98ff49daa22a323ea4988f8d432ef2802822eff8f90a5780",
-      "outputSha256": "bed0c0a02b98ed6d714856ab93e8777a39c2f3dff6259d9b72db6b55a195a146",
-      "outputBytes": 28677,
+      "outputSha256": "d1aa068d545f66bca5efba0f7cef503e5610a634ccc720ccf13655bbd291b1e7",
+      "outputBytes": 28669,
       "splitBySection": false,
       "sections": [
         {
@@ -11137,7 +11137,7 @@
         "sections": 12,
         "articles": 60,
         "clauses": 76,
-        "paragraphs": 119,
+        "paragraphs": 115,
         "items": 4,
         "notes": 0,
         "tables": 2,
@@ -11187,8 +11187,8 @@
         555
       ],
       "sourceSha256": "cc3cf3653c13fb7be6c92f45b7782ab652442c0acb85551e5486cce47ce753c1",
-      "outputSha256": "30681800d2f0f58da3674474339d0f19ab1e86dc522395c7000d64016497f0a5",
-      "outputBytes": 39752,
+      "outputSha256": "fe3c36476b243411d94920e4ced9b82886510d8a8e71f5cd38d807771364c062",
+      "outputBytes": 39726,
       "splitBySection": false,
       "sections": [
         {
@@ -11661,7 +11661,7 @@
         "sections": 14,
         "articles": 57,
         "clauses": 133,
-        "paragraphs": 165,
+        "paragraphs": 152,
         "items": 9,
         "notes": 0,
         "tables": 2,
@@ -11705,8 +11705,8 @@
         565
       ],
       "sourceSha256": "ee1be680d84dd3f2d0901f7d40db2c7f00e1de2562a927dceef69b6b9410695b",
-      "outputSha256": "cbd3b1772e39a725e99f0d2230dea718a86daa377e4ea4123bb2880d55b116d9",
-      "outputBytes": 25260,
+      "outputSha256": "4cd140d9b4573fa8a8b645851b98972182964034f4d2f130563c6343fa4a3ec6",
+      "outputBytes": 25238,
       "splitBySection": false,
       "sections": [
         {
@@ -12216,7 +12216,7 @@
         "sections": 12,
         "articles": 66,
         "clauses": 51,
-        "paragraphs": 126,
+        "paragraphs": 115,
         "items": 8,
         "notes": 0,
         "tables": 3,
@@ -12257,8 +12257,8 @@
         572
       ],
       "sourceSha256": "ab32cab5ce7727002c8df99d95dc14d542c35258e562b20c698c4e7ea59690f0",
-      "outputSha256": "2489a6fe8fe0f2919eef477b310342c4012eee554020205854f3d1b17cce6e2e",
-      "outputBytes": 17045,
+      "outputSha256": "fc74621afdb7c6fdfd6c806039e9642eec2701a0bf2063b22145bcc75b0156d4",
+      "outputBytes": 17041,
       "splitBySection": false,
       "sections": [
         {
@@ -12660,7 +12660,7 @@
         "sections": 10,
         "articles": 51,
         "clauses": 26,
-        "paragraphs": 77,
+        "paragraphs": 75,
         "items": 5,
         "notes": 0,
         "tables": 2,
@@ -12709,8 +12709,8 @@
         587
       ],
       "sourceSha256": "802980bbd3221207e581813166b06a5f7468a4d17a7a3c2876095060ef14dc84",
-      "outputSha256": "265ea02bf958c13c58318b4bee82c7546aeb6ff76bdebd5e96c52b29d499e464",
-      "outputBytes": 40155,
+      "outputSha256": "8f85050c69b78b840fd25956e2fb0ed453fcba56217eb2b3708494306d758966",
+      "outputBytes": 40081,
       "splitBySection": false,
       "sections": [
         {
@@ -13226,7 +13226,7 @@
         "sections": 14,
         "articles": 64,
         "clauses": 88,
-        "paragraphs": 182,
+        "paragraphs": 145,
         "items": 51,
         "notes": 0,
         "tables": 8,
@@ -13852,8 +13852,8 @@
         608
       ],
       "sourceSha256": "942dd28c2bdec7629a3ede355cf33e738193814f175a5d609df337c4f0d263a5",
-      "outputSha256": "d867ffb0ec116f23b38bb33332e01b36e008435909da0c640fe3f895784c7eb0",
-      "outputBytes": 11661,
+      "outputSha256": "4bc728ec8d56fd11878b76738ff59bbfdbf1391c71caac0df6af25237abcf4c5",
+      "outputBytes": 11659,
       "splitBySection": false,
       "sections": [
         {
@@ -14084,7 +14084,7 @@
         "sections": 7,
         "articles": 27,
         "clauses": 24,
-        "paragraphs": 54,
+        "paragraphs": 53,
         "items": 3,
         "notes": 0,
         "tables": 2,
@@ -15070,8 +15070,8 @@
         646
       ],
       "sourceSha256": "380a12f1ecebd00bd0182e84f09cfc92dcf489126b68dd1d2381336b94a95982",
-      "outputSha256": "529b0f49b4f9df460d782394466fdcfb37b2a08dd75c572a6fc393dc54068ff7",
-      "outputBytes": 57119,
+      "outputSha256": "2e5dda06e1f424b94dfc2384d22831d0c586468af62b65631e097d4cdc2e6cae",
+      "outputBytes": 57031,
       "splitBySection": false,
       "sections": [
         {
@@ -15949,7 +15949,7 @@
         "sections": 25,
         "articles": 108,
         "clauses": 156,
-        "paragraphs": 312,
+        "paragraphs": 268,
         "items": 19,
         "notes": 0,
         "tables": 4,
@@ -15989,8 +15989,8 @@
         651
       ],
       "sourceSha256": "8b5df9da94b92dfd9e66faf1deebf31c2e823a55a17b3c74df8ea3f0d9c5a759",
-      "outputSha256": "68037e5d14272454be78fe65fd51b6e886c2eee2abb1062d90fd97142f84345b",
-      "outputBytes": 12043,
+      "outputSha256": "8bf0a4d97fb2fed9080aafdc341a1791931011964af26e4336588d2ed93a156f",
+      "outputBytes": 12035,
       "splitBySection": false,
       "sections": [
         {
@@ -16089,7 +16089,7 @@
         "sections": 3,
         "articles": 11,
         "clauses": 39,
-        "paragraphs": 56,
+        "paragraphs": 52,
         "items": 8,
         "notes": 0,
         "tables": 1,
@@ -16140,8 +16140,8 @@
         669
       ],
       "sourceSha256": "079c32299ecd825eedc8d720ac71091c1127803419343a76ee6f6ca9b43bea20",
-      "outputSha256": "322e5a3dc6b833a3efc794db25c1e027289435b3639ddf6852bbc6f705692cc9",
-      "outputBytes": 45314,
+      "outputSha256": "7652f31239178ba0ee47b44bbf00d33ba7eb6c525ed4c2ce41c12cb17855f19b",
+      "outputBytes": 45306,
       "splitBySection": false,
       "sections": [
         {
@@ -17119,7 +17119,7 @@
         "sections": 26,
         "articles": 123,
         "clauses": 96,
-        "paragraphs": 213,
+        "paragraphs": 209,
         "items": 7,
         "notes": 2,
         "tables": 6,

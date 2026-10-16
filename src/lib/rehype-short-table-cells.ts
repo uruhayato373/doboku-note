@@ -33,7 +33,7 @@ export default function rehypeShortTableCells() {
       const element = node as HastNode;
       if (element.tagName !== 'td' && element.tagName !== 'th') return;
       const length = textLength(element.children);
-      if (length === 0 || length > SHORT_CELL_CHARS) return;
+      if (length > SHORT_CELL_CHARS) return; // 空欄も短いセル（長いセル用の最小幅を付けない）
       element.properties = element.properties || {};
       const className = element.properties.className;
       const classes = Array.isArray(className) ? className.map(String) : typeof className === 'string' ? className.split(/\s+/) : [];
