@@ -116,6 +116,10 @@ Writer は写真を作らない。返答に「写真を入れたい位置（直�
 
 シリーズの台帳（`config/content-series.json`・[todo-standards](./todo-standards.md) §1-2）の新規の章を、1 章 = 1 本の新しい記事として書く。§0〜3 との違いは、本の項目をまず論点だけの brief に直し、執筆担当は本を読まないこと。2026-10-13 にコンクリートの実務シリーズの 7 章を手で回した流れを固めた（1 章 80〜110 万トークン → 目安 50〜60 万）。
 
+### 本の全項目の割り当て（シリーズと本をつなぐ台帳）
+
+`config/content-series-basis.json` は、本の全項目を「シリーズの章（`<シリーズ id>/<項目 id>`）」「ほかの記事（`{ article }`）」「使わない（`{ excluded: 理由 }`）」のどれかに置く台帳で、`check-content-series` が欠け・古い割り当て・無い記事を止める。判定（§0）を済ませた本は `npm run build-series-basis -- --commit` で判定と展開計画から割り当てを作る（候補表は `node scripts/drive-vault-sync.mjs --pull --group reference-book-coverage --commit` で手元に取り戻しておく）。「当時のサイトの範囲の外」として使わなかった項目には `revisit: true` が付き、`check-content-series` が本ごとに「判定し直す候補」の数を出す。**シリーズを作るときは、根拠にする本の `revisit` の項目を先に判定し直し**、使うものは章の値へ、使わないものは理由を直して `revisit` を外す。目次・索引・本の中の重複・過去問・答案例には付けない。
+
 ### 親が先にすること
 
 1. 章の記事の置き場（`content/site/<区分>/<slug>/article.mdx`）を決め、台帳の項目の `paths` に入れる（書けた記事を台帳が追えるように）。

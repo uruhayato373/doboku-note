@@ -4166,6 +4166,15 @@
       }
     },
     {
+      "id": "ai-business-guideline-v1-1",
+      "title": "AI事業者ガイドライン（第1.1版）（総務省・経済産業省、令和7年3月28日）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.soumu.go.jp/main_content/001002576.pdf"
+      }
+    },
+    {
       "id": "asphalt-test-basics",
       "title": "日本アスファルト協会 アスファルトの試験方法",
       "class": "external-primary",
@@ -6649,6 +6658,552 @@
       },
       "egov": {
         "lawId": "416CO0000000168"
+      }
+    },
+    {
+      "id": "sewage-treatment-start-notice-ordinance",
+      "title": "下水の処理開始の公示事項等に関する省令",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "下水の処理開始の公示事項等に関する省令": "sewage-treatment-start-notice-ordinance"
+      },
+      "egov": {
+        "lawId": "342M50004100001"
+      }
+    },
+    {
+      "id": "geospatial-information-act",
+      "title": "地理空間情報活用推進基本法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "地理空間情報活用推進基本法": "geospatial-information-act"
+      },
+      "egov": {
+        "lawId": "419AC1000000063"
+      }
+    },
+    {
+      "id": "local-government-system-standardization-act",
+      "title": "地方公共団体情報システムの標準化に関する法律",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "地方公共団体情報システムの標準化に関する法律": "local-government-system-standardization-act"
+      },
+      "egov": {
+        "lawId": "503AC0000000040"
+      }
+    },
+    {
+      "id": "gsi-disaportal",
+      "title": "ハザードマップポータルサイト（国土交通省）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://disaportal.gsi.go.jp/"
+      }
+    },
+    {
+      "id": "gsi-disaportal-opendata",
+      "title": "ハザードマップポータルサイト オープンデータ配信（国土交通省）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://disaportal.gsi.go.jp/hazardmap/copyright/opendata.html"
+      }
+    },
+    {
+      "id": "plateau-portal-gspatial-center",
+      "title": "G空間情報センター 3D都市モデル(Project PLATEAU)ポータルサイト（国土交通省 Project PLATEAU）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://front.geospatial.jp/plateau_portal_site/"
+      }
+    },
+    {
+      "id": "jswa-sewer-ledger-system-standard-v5-summary",
+      "title": "下水道台帳管理システム標準仕様（案）・導入の手引き Ver.5 概要版 ～改定のポイント～（公益社団法人日本下水道協会・令和3年4月）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.jswa.jp/wp2/wp-content/uploads/2021/04/210428gesuidaityougaiyou.pdf"
+      }
+    },
+    {
+      "id": "gsi-tile-list",
+      "title": "地理院タイル一覧（地理院地図・国土地理院）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://maps.gsi.go.jp/development/ichiran.html"
+      }
+    },
+    {
+      "id": "gsi-tile-about",
+      "title": "地理院タイルについて（地理院地図・国土地理院）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://maps.gsi.go.jp/development/siyou.html"
+      }
+    },
+    {
+      "id": "ksj-flood-inundation-a31a",
+      "title": "国土数値情報 洪水浸水想定区域データ（河川単位）（国土交通省・2025年度（令和7年度）版）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-A31a-2025.html"
+      }
+    },
+    {
+      "id": "ksj-download-site",
+      "title": "国土数値情報ダウンロードサイト（国土交通省）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://nlftp.mlit.go.jp/ksj/index.html"
+      }
+    },
+    {
+      "id": "ksj-terms",
+      "title": "国土数値情報ダウンロードサイト 利用規約（国土交通省）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://nlftp.mlit.go.jp/ksj/other/agreement.html"
+      }
+    },
+    {
+      "id": "nist-sp-800-145",
+      "title": "The NIST Definition of Cloud Computing（NIST Special Publication 800-145・Peter Mell, Timothy Grance・2011年9月）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-145.pdf"
+      }
+    },
+    {
+      "id": "gsi-survey-calc-site",
+      "title": "測量計算サイト（国土地理院）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://vldb.gsi.go.jp/sokuchi/surveycalc/main.html"
+      }
+    },
+    {
+      "id": "mlit-cad-drawing-standard-2025-12",
+      "title": "CAD製図基準（国土交通省・令和7年12月）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.cals-ed.go.jp/mg/wp-content/uploads/cad8.pdf"
+      }
+    },
+    {
+      "id": "cas-geospatial-promotion-meeting-21",
+      "title": "地理空間情報活用推進会議（第２１回）議事次第（内閣官房・令和8年6月5日）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.cas.go.jp/jp/seisaku/sokuitiri/20260605/index.html"
+      }
+    },
+    {
+      "id": "cas-g-space-action-plan-2026-doc-2-5",
+      "title": "地理空間情報の活用推進に関する行動計画（G空間行動プラン）2026（案）資料２の５「２．産業・経済の活性化」令和８年度版の施策票（内閣官房 地理空間情報活用推進会議 第21回・令和8年6月5日）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.cas.go.jp/jp/seisaku/sokuitiri/20260605/siryou2-5.pdf"
+      }
+    },
+    {
+      "id": "cas-geospatial-promotion-office",
+      "title": "地理空間情報活用推進会議／地理空間情報活用推進室（内閣官房）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.cas.go.jp/jp/seisaku/sokuitiri/index.html"
+      }
+    },
+    {
+      "id": "digital-agency-local-gov-standardization",
+      "title": "地方公共団体の基幹業務システムの統一・標準化（デジタル庁）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.digital.go.jp/policies/local_governments"
+      }
+    },
+    {
+      "id": "gsi-survey-result-use-procedure",
+      "title": "国土地理院の測量成果の利用手続（国土地理院）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.gsi.go.jp/LAW/2930-index.html"
+      }
+    },
+    {
+      "id": "gsi-plane-rectangular-coordinate-notice",
+      "title": "平面直角座標系（平成十四年国土交通省告示第九号）（国土地理院掲載）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.gsi.go.jp/LAW/heimencho.html"
+      }
+    },
+    {
+      "id": "gsi-personal-info-guideline-survey-results",
+      "title": "地理空間情報の活用における個人情報の取扱いに関するガイドライン（測量成果等編）（国土地理院・平成23年9月・令和6年3月一部改正）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.gsi.go.jp/common/000255987.pdf"
+      }
+    },
+    {
+      "id": "mlit-survey-work-regulation-standard",
+      "title": "作業規程の準則（平成20年国土交通省告示第413号・令和7年3月31日一部改正）（国土地理院掲載）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.gsi.go.jp/common/000258734.pdf"
+      }
+    },
+    {
+      "id": "gsi-secondary-use-guideline-survey-results",
+      "title": "地理空間情報の二次利用促進に関するガイドライン（測量成果等編）（国土地理院・平成23年9月・令和7年6月一部改正）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.gsi.go.jp/common/000270912.pdf"
+      }
+    },
+    {
+      "id": "gsi-content-terms",
+      "title": "国土地理院コンテンツ利用規約（国土地理院・令和7年11月20日改正）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.gsi.go.jp/kikakuchousei/kikakuchousei40182.html"
+      }
+    },
+    {
+      "id": "gsi-public-survey-result-revision-manual",
+      "title": "公共測量成果改定マニュアル（国土地理院技術資料 A1-No.337・令和7年4月）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.gsi.go.jp/shidou/data/seikakaiteimanual.pdf"
+      }
+    },
+    {
+      "id": "gsi-japan-geodetic-datum",
+      "title": "日本の測地系（国土地理院）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.gsi.go.jp/sokuchikijun/datum-main.html"
+      }
+    },
+    {
+      "id": "gsi-semi-dynamic-correction",
+      "title": "プレート運動による地殻変動の補正（定常）（国土地理院）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.gsi.go.jp/sokuchikijun/semidyna.html"
+      }
+    },
+    {
+      "id": "gsi-non-steady-crustal-correction",
+      "title": "地震や火山活動に伴う座標・標高補正（非定常）（国土地理院）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.gsi.go.jp/sokuchikijun/sokuchikijun40037.html"
+      }
+    },
+    {
+      "id": "gsi-tky2jgd",
+      "title": "座標変換ソフトウェアTKY2JGD（国土地理院）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.gsi.go.jp/sokuchikijun/tky2jgd.html"
+      }
+    },
+    {
+      "id": "ipa-model-transaction-contract-v2",
+      "title": "情報システム・モデル取引・契約書（第二版）（独立行政法人情報処理推進機構・2020年12月22日）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.ipa.go.jp/digital/model/model20201222.html"
+      }
+    },
+    {
+      "id": "ipa-nonfunctional-requirements-grade-2018-revision",
+      "title": "非機能要求グレード2018 改訂情報 ～初版との差異～（独立行政法人情報処理推進機構・2018年4月25日）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.ipa.go.jp/archive/digital/iot-en-ci/jyouryuu/hikinou/ps6vr700000077he-att/000066170.pdf"
+      }
+    },
+    {
+      "id": "ipa-sme-security-guideline",
+      "title": "中小企業の情報セキュリティ対策ガイドライン（独立行政法人情報処理推進機構・第4.0版）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.ipa.go.jp/security/guide/sme/about.html"
+      }
+    },
+    {
+      "id": "mhlw-functional-safety-guideline",
+      "title": "機能安全による機械等に係る安全確保に関する技術上の指針（平成28年厚生労働省告示第353号）（厚生労働省）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mhlw.go.jp/file/06-Seisakujouhou-11300000-Roudoukijunkyokuanzeneiseibu/0000140170.pdf"
+      }
+    },
+    {
+      "id": "mlit-3d-model-notation-standard-2019",
+      "title": "3次元モデル表記標準（案）（国土交通省・令和元年5月）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/common/001289109.pdf"
+      }
+    },
+    {
+      "id": "mlit-sewer-platform-model-demo-call-2021",
+      "title": "下水道管路情報の共通プラットフォーム構築に向けたモデル実証事業を公募 ～下水道台帳情報等の電子化促進を支援します～（国土交通省・令和3年7月1日から公募）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/mizukokudo/sewerage/mizukokudo_sewerage_tk_000718.html"
+      }
+    },
+    {
+      "id": "mlit-plateau-standard-spec-5-0",
+      "title": "3D都市モデル標準製品仕様書 第5.0版（国土交通省 Project PLATEAU・2025年3月21日）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/plateau/file/libraries/doc/plateau_doc_0001_ver05.pdf"
+      }
+    },
+    {
+      "id": "mlit-plateau-libraries",
+      "title": "資料ライブラリー Libraries（Project PLATEAU・国土交通省）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/plateau/libraries/"
+      }
+    },
+    {
+      "id": "mlit-plateau-open-data",
+      "title": "3D都市モデルオープンデータ Open Data（Project PLATEAU・国土交通省）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/plateau/open-data/"
+      }
+    },
+    {
+      "id": "mlit-plateau-site-policy",
+      "title": "サイトポリシー Site Policy（Project PLATEAU・国土交通省）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/plateau/site-policy/"
+      }
+    },
+    {
+      "id": "mlit-press-2023-08-08-infra-dx-action-plan-v2",
+      "title": "インフラ分野のDXアクションプラン（第2版）の策定（令和5年8月8日・国土交通省 報道発表）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/report/press/kanbo08_hh_001004.html"
+      }
+    },
+    {
+      "id": "mlit-press-2026-04-01-inspection-support-catalog-expansion",
+      "title": "点検支援技術性能カタログを拡充 ～橋梁・トンネル・土工・舗装・道路巡視の点検支援技術を追加～（令和8年4月1日・国土交通省 報道発表）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/report/press/road01_hh_002079.html"
+      }
+    },
+    {
+      "id": "mlit-road-new-technology-guideline-2019",
+      "title": "新技術利用のガイドライン（案）（国土交通省・平成31年2月）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/road/sisaku/yobohozen/tenken/yobo5_1.pdf"
+      }
+    },
+    {
+      "id": "mlit-road-monitoring-inspection-support-2020",
+      "title": "モニタリング技術も含めた定期点検の支援技術の使用について（参考資料）（国土交通省 道路局 国道・技術課・令和2年6月）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/road/sisaku/yobohozen/tenken/yobo7_1-2.pdf"
+      }
+    },
+    {
+      "id": "mlit-road-inspection-support-catalog-overview",
+      "title": "点検支援技術性能カタログ 概要版（国土交通省 道路局・令和8年3月）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/road/tech/pdf/catalog_gaiyouban001.pdf"
+      }
+    },
+    {
+      "id": "mlit-i-construction-2-0",
+      "title": "i-Construction 2.0 ～建設現場のオートメーション化～（国土交通省・令和6年4月）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/tec/constplan/content/001738240.pdf"
+      }
+    },
+    {
+      "id": "mlit-3d-measurement-earthwork-inspection-guideline-2025",
+      "title": "３次元計測技術を用いた出来形管理の監督・検査要領（土工編）（案）（国土交通省・令和7年3月）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/tec/constplan/content/001880032.pdf"
+      }
+    },
+    {
+      "id": "mlit-auto-construction-roadmap-doc-1-1",
+      "title": "自動施工に関するロードマップ（案）資料１－１ 本年度の取り組みについて（国土交通省・第５回 自動化・自律化協議会 資料再掲（一部追記））",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/tec/constplan/content/001885727.pdf"
+      }
+    },
+    {
+      "id": "mlit-auto-construction-roadmap-doc-2",
+      "title": "自動施工に関するロードマップ 資料２ 来年度の取り組み方針について（国土交通省・第５回 自動化・自律化協議会 資料再掲（一部追記））",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/tec/constplan/content/001885739.pdf"
+      }
+    },
+    {
+      "id": "mlit-auto-construction-safety-rule-2025",
+      "title": "自動施工における安全ルール（国土交通省 大臣官房参事官（イノベーション）グループ・令和7年3月）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/tec/constplan/content/001885762.pdf"
+      }
+    },
+    {
+      "id": "mlit-construction-machine-automation-remote-page",
+      "title": "建設機械施工の自動化・遠隔化技術（国土交通省 技術調査・建設施工・建設機械）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/tec/constplan/sosei_constplan_tk_000049.html"
+      }
+    },
+    {
+      "id": "mlit-bim-cim-handling-guideline-2026",
+      "title": "BIM/CIM取扱要領（国土交通省 大臣官房参事官（イノベーション）グループ・令和8年3月）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/tec/content/001990086.pdf"
+      }
+    },
+    {
+      "id": "mlit-bim-cim-annex-2-3d-2d-consistency",
+      "title": "附属資料2 設計段階における３次元モデルと２次元図面の整合確認方法（案）（国土交通省）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/tec/content/001990089.pdf"
+      }
+    },
+    {
+      "id": "mlit-infra-dx-page",
+      "title": "インフラ分野のDX（国土交通省 技術調査）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/tec/tec_tk_000073.html"
+      }
+    },
+    {
+      "id": "mlit-city-planning-gis-data-download",
+      "title": "都市計画決定GISデータ 全国データダウンロードページ（国土交通省 都市交通調査・都市計画調査）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/toshi/tosiko/toshi_tosiko_tk_000087.html"
+      }
+    },
+    {
+      "id": "ietf-rfc-1122",
+      "title": "RFC 1122: Requirements for Internet Hosts - Communication Layers（IETF・STD 3・R. Braden 編・1989年10月）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.rfc-editor.org/info/rfc1122/"
+      }
+    },
+    {
+      "id": "soumu-geospatial-joint-development-guideline-2009",
+      "title": "地理空間情報に関する地域共同整備推進ガイドライン（総務省自治行政局地域政策課地域情報政策室ほか・平成21年5月）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.soumu.go.jp/main_content/000026469.pdf"
+      }
+    },
+    {
+      "id": "soumu-local-gov-infosec-policy-guideline-2025",
+      "title": "地方公共団体における情報セキュリティポリシーに関するガイドライン（総務省・令和7年3月版・令和7年3月28日改定）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.soumu.go.jp/main_content/001000932.pdf"
+      }
+    },
+    {
+      "id": "soumu-jichitai-dx-promotion-overview-2025",
+      "title": "自治体DX・情報化推進概要 ～令和６年度地方公共団体における行政情報化の推進状況調査の取りまとめ結果～（総務省自治行政局行政経営支援室・令和7年12月）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.soumu.go.jp/main_content/001048571.pdf"
       }
     }
   ]

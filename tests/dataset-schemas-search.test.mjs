@@ -41,7 +41,11 @@ test('Ga4Reports: 実データの全日が通り、枠・日付・行・分け�
   const S = SCHEMAS.Ga4Reports;
   assertAllOk(S, 'ga4.reports');
   const day = latest('ga4.reports');
-  for (const section of ['page', 'cta-clicks-by-label:month', 'key-events-by-page', 'quiz-funnel', 'bot-audit']) assert.ok(day.reports[section], `最新の日に ${section} が無い（テストの前提）`);
+  for (const section of ['page', 'key-events-by-page', 'quiz-funnel', 'bot-audit']) assert.ok(day.reports[section], `最新の日に ${section} が無い（テストの前提）`);
+  // 暦月の by-label は月初 7 日以内の金曜にだけ取る（fetch-metrics.yml）。最新の日に無いのが普通なので、どれかの日にあることを見る
+  // （2026-10-16 の定期取得で最新の日から消え、develop の CI が落ちた）
+  const monthDay = all('ga4.reports').find((f) => f.value.reports['cta-clicks-by-label:month'])?.value;
+  assert.ok(monthDay, 'どの日にも cta-clicks-by-label:month が無い（テストの前提）');
   assertFails(S, broken(day, (d) => { delete d.reports.page.meta.startDate; }), /reports\.page\.meta\.startDate/);
   assertFails(S, broken(day, (d) => { d.source = 'gsc'; }), /source/);
   assertFails(S, broken(day, (d) => { d.schemaVersion = 2; }), /schemaVersion/);
@@ -58,7 +62,7 @@ test('Ga4Reports: 実データの全日が通り、枠・日付・行・分け�
   assertFails(S, broken(day, (d) => { d.reports.channel.meta.dimension = 'page'; }), /dimension/);
   assertFails(S, broken(day, (d) => { d.reports['cta-clicks'].rows[0].eventCount = -1; }), /eventCount/);
   assertFails(S, broken(day, (d) => { d.reports['cta-clicks-by-label'].meta.byLabel = false; }), /byLabel/);
-  assertFails(S, broken(day, (d) => { d.reports['cta-clicks-by-label:month'].meta.windowKind = 'days'; }), /windowKind/);
+  assertFails(S, broken(monthDay, (d) => { d.reports['cta-clicks-by-label:month'].meta.windowKind = 'days'; }), /windowKind/);
   assertFails(S, broken(day, (d) => { d.reports['cta-clicks-by-label'].meta.windowKind = 'month'; }), /windowKind/);
   assertFails(S, broken(day, (d) => { d.reports['key-events-by-page'].meta.mode = 'other'; }), /mode/);
   assertFails(S, broken(day, (d) => { d.reports['quiz-funnel'].meta.placementStatus = 'request_failed'; d.reports['quiz-funnel'].placementRows = [{ eventName: 'quiz_start', placement: 'x', eventCount: 1 }]; }), /placementStatus/);

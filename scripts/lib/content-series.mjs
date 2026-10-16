@@ -311,7 +311,7 @@ export function basisView(basis) {
   const byItem = new Map();
   const byBook = {};
   for (const [bookId, book] of Object.entries(basis.books ?? {})) {
-    const t = { units: 0, series: 0, article: 0, excluded: 0 };
+    const t = { units: 0, series: 0, article: 0, excluded: 0, revisit: 0 };
     for (const v of Object.values(book.units ?? {})) {
       t.units += 1;
       if (typeof v === 'string') {
@@ -320,7 +320,7 @@ export function basisView(basis) {
         m[bookId] = (m[bookId] ?? 0) + 1;
         byItem.set(v, m);
       } else if (v.article) t.article += 1;
-      else t.excluded += 1;
+      else { t.excluded += 1; if (v.revisit) t.revisit += 1; }
     }
     byBook[bookId] = t;
   }
