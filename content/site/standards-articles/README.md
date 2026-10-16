@@ -9,7 +9,15 @@
   連結して空白を除いた文字列が元行と完全一致しなければ採用せず、原文レイアウトのコードブロック＋
   原本ページリンクで出します。**採用しなかった理由は manifest の `tableOutcomes` に残す**ので、
   「試したが落ちた表」と「そもそも表を見ていない状態」を後から区別できます
-  （実測では 166 件中 6 件が GFM。`pdftotext -layout` の版面はセル境界を持たないため大半は復元できません）。
+  （`pdftotext -layout` の版面はセル境界を持たないため、機械で復元できるのは近畿版 164 件中 5 件だけです）。
+- 「適用すべき諸基準」の基準類一覧は 1 項目 1 行の箇条書きにします（理由コード `restored-standards-list`。
+  項目は必ず（年月）で終わるので、版面の行の帰属が一意に決まります）。
+- 残りの表は、原本のページ画像と照合して組み直した `content/sources/standards/tables/{key}.json`（承認済みのみ）で
+  置き換えます（理由コード `restored-override`。形と照合の規則は同ディレクトリの README）。2026-10-16 時点で
+  近畿版は GFM 5・一覧 33・組み直し 95・版面のまま 4（図の中の文字）です。
+- 本文が 200KB 以上の章（現状は第3編第2章 一般施工）は、章ページを節の一覧にし、本文を
+  `/chapters/{章}/sections/{節}` の節ページで出します（設定 `sectionPages.minOutputBytes`、切り出しは
+  `src/lib/standards-section-split.mjs`）。
 - OGP 画像は章ごとに `chapters/{chapterId}/ogp.png` へ生成します（機関名 + 第N編 + 第M章）。
   このパスは asset-storage の `site-ogp-png` グループに一致するので、R2 供給と公開 URL の導出は
   記事の OGP と同じ仕組みに乗ります。git には追跡されません（`.gitignore` の `content/site/**/ogp.png`）。
@@ -26,7 +34,8 @@ npm run build-standards-comparison  # 近畿版を基準に地域別の実差分
 npm run build-standards-data        # HTMLと同じ章構造から公開用 Markdown / JSON-LD / 索引JSONを生成
 npm run check-standards-data        # 全章の形式・条数・出典/加工主体分離・公開ヘッダーを検査
 npm run build-standards-ogp         # 章ごとの OGP 画像（未生成のみ。--force で再生成）
-npm run check-standard-articles     # 15 検査（本文の取りこぼし・条番号整合・SHA-256 一致・catalog 全 72 文書の被覆・表の可逆性 ほか）
+npm run check-standard-articles     # 19 検査（本文の取りこぼし・条番号整合・SHA-256 一致・catalog 全 72 文書の被覆・表の可逆性・節ページの切り出し・読める形 ほか）
+npm run standards-table-gallery     # 表を撮って 1 枚の HTML に並べる（目視用）。描画の検査は e2e/standards-render.spec.ts
 ```
 
 機械可読データは `public/standards-data/` へ生成され、本番ビルドごとに作り直します。このディレクトリは派生物なので Git では追跡しません。地域差分の `comparison.json` は判定結果をレビューできるよう本ディレクトリで追跡します。

@@ -48,13 +48,15 @@ title: スキル ガバナンス記録
 
 > 2026-10-06 新設: `quality/figure-quality-loop`（記事図クロップを「判定待ち→目視判定・切り直し／元PDFから切り出し直し→判定台帳に記録」で 1 周ずつ回し、`/loop` で判定待ち 0 まで自走する）。背景＝画素検査の EDGE_CUT が 212 枚・337 件「情報のみ」で誰にも読まれず、上位 4 枚中 3 枚は図が縁で切れていたのに provenance は needs:ok。目視の判定も残らず、回しても同じ図が上がり続けていた。判定待ちと台帳は決定的スクリプト `scripts/figure-review-queue.mjs`（画像の sha256 で記録を結び、差し替えると再判定）。**新エージェントは作らず** `figure-crop-worker` に元 PDF からの切り出し直し（stage=reextract）を足した。合計 `108→109`、quality `16→17`。
 
+> 2026-10-16 新設: `conversion/standards-table-rebuild`（共通仕様書の章記事で版面のまま残った表を、原本のページ画像と照合して `content/sources/standards/tables/{key}.json` に組み直す流れ）。背景＝初回の組み直し（217 件）の手順書・照合スクリプト・ページ画像が 1 台の PC の `.tmp/` にしか無く、別の PC で原本の改訂や表の断片（DN-0755）を直せなかった。道具は決定的スクリプト `scripts/standards-tables.mjs`（台帳・ページ画像・作業票・文字の過不足ゼロの照合・承認の記録）、ページ画像は既存の Drive vault（`build-standards-page-images`）、見えない PC は原本から render。**新エージェント 2 体**＝`standards-table-writer`（Generator）と `standards-table-qa`（Evaluator・audit-only）。合計 `110→111`、conversion `8→9`、agents `88→90`。
+
 > このツリーがスキル件数の**唯一の真実源（SSOT）**。CLAUDE.md など他 doc は件数を重複記載せずここを指す。スキルを追加/削除したら同一 commit でここを更新する（`/doc-declutter` → `doc-curator` でドリフトを棚卸し）。
 
 ```
 .claude/skills/
 ├── ads/             # 4 — A8 開拓/成果取込 ＋ 3 ASP（A8/もしも/afb）横断の提携状態照合・提携申請
 ├── authoring/       # 12 — 記事を作る
-├── conversion/      # 8 — 形式変換（MDX / OGP 画像 / 紙用 PDF / Kindle EPUB）＋ KDP 入稿・出版 ＋ OGP 意匠の素案試作 ＋ 公式過去問原本の取得・退避
+├── conversion/      # 9 — 形式変換（MDX / OGP 画像 / 紙用 PDF / Kindle EPUB）＋ KDP 入稿・出版 ＋ OGP 意匠の素案試作 ＋ 公式過去問原本の取得・退避 ＋ 公的基準の表の組み直し
 ├── quality/         # 17 — MDX・note 公開前品質検査・記事図クロップの品質ループ
 ├── management/      # 24 — 計画・分析・戦略
 ├── dev/             # 15 — 開発・CI/CD・ローカルPlaywright認証運用・アセット置き場の判定
@@ -64,7 +66,7 @@ title: スキル ガバナンス記録
 └── ui/              # 1 — UI/UX デザイン
 ```
 
-合計 **110 スキル**（10 カテゴリ・SKILL.md 実数）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
+合計 **111 スキル**（10 カテゴリ・SKILL.md 実数）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
 
 > 2026-09-05 新設: `dev/asset-route`（Git の外に置くアセットの置き場を **誰が使うか** で決める決定木＋コマンド。サイトが配信→public R2 / GitHub Actions が読み書き→private R2 / 人か手元のスクリプトだけ→Google Drive vault）。背景＝同日、共通仕様書のページ画像 3.4GB を「教材ページ画像→private R2」の行に従って private R2 へ上げかけた。その行はスキャン書籍の著作権のために書かれたもので、資産の種類で列挙する旧ルールには判断軸が無かった。`asset-storage.json` の全 group に `audience` を必須化し（`loadConfig`・`tests/asset-storage.test.mjs`・新 `check-drive-vault` の 3 か所で止める）、Drive 側は独立した系 `drive-vault.json` / `drive-vault-sync` / `drive-manifest.json` にした（R2 の fail-closed なコードに第 3 バケットの分岐を足さない）。**新エージェントは作らない**（検査は決定的スクリプトで足りる・CLAUDE.md §9）。合計 `104→105`、dev `14→15`。
 

@@ -24,7 +24,7 @@
 
 
 ### [DN-0752] 北海道開発局の章の OGP が章の本体より先に R2 の台帳へ入り、develop の audit が赤い
-タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-16]
+タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-16] [進行中]
 
 **起点**: 2026-10-16 01:16 の asset-inbox 取り込み（741914fe2・github-actions）で、standards-articles/hokkaido の章 OGP 86 件が .claude/state/assets/manifest.json に入った。章の本体（de826a0c1 ほか）は feat/standards-common-finish にあり develop に無いため、develop の Pre-merge の audit が orphan-ogp と tests/standards-ogp-guards.test.mjs（台帳の章 OGP 387 件 ≠ 章数 344 件）で赤い（3442618eb・7dba9e728 で確認、ビルドは成功）。
 
@@ -382,7 +382,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 ### [DN-0756] R2画像の更新後も同じURLのCDNキャッシュが旧版を返す
 タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-16]
 
-**起点**: DN-0754の本番反映後、R2 Sync Imagesは成功したが、変更画像140点の通常URLを照合すると22点が旧SVGのままだった。CDNはHIT・max-age=14400、キャッシュバスター付きでは22点すべてが確定版のSHA-256と一致した。現行Wrangler OAuthはCache Purge権限がなく、purge_cacheは401/10000。DN-0754分は図の内容ハッシュをファイル名へ付け、記事の参照を更新して解消する。
+**起点**: DN-0754の本番反映後、R2 Sync Imagesは成功したが、変更画像140点の通常URLを照合すると22点が旧SVGのままだった。CDNはHIT・max-age=14400、キャッシュバスター付きでは22点すべてが確定版のSHA-256と一致した。現行Wrangler OAuthはCache Purge権限がなく、purge_cacheは401/10000。DN-0754分は22点に内容ハッシュ付きファイル名を採用して解消済み。29記事・140画像の本番照合で不一致0を確認した。
 
 **やること**: 同じURLへのR2上書きだけで公開完了にしないよう、既存の画像配信・デプロイ経路にURL更新または対象キャッシュ更新を組み込む。手段を選ぶ前にArticleImageのSVG判定と画像検査のパス解決を確認する。資格教材の内容変更は対象外。
 
@@ -401,14 +401,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 **完了条件**: 本物の断片 0 件、`npm run check-standard-articles` が全 PASS、基準を実数まで下げた。
 
 
-### [DN-0754] シリーズの章に使う本の頁1,252頁の図を切り出し、自作の図と見比べて図を直す
-タグ: [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-10-16] [進行中]
-
-**起点**: 2026-10-16、運営者が「図のクロップはやって。本文からの自作と図のクロップを見ながら、何がよいのか、品質を高めていきたい」と指示。check-content-series の --crop-jobs で切り出し待ちが 1,252 頁（13 冊・5 シリーズ）あった。
-
-**やること**: (1) 1冊ぶんまとめて登録する record-reference-book-crops を足す（PR #1093）。(2) 頁ごとに図なし（理由つき）か図の範囲で判定し、下見 → 監査 → 登録する。(3) 章ごとに、自作の SVG と本の切り出しを見比べ、本が伝えている要素の抜け・誤り・分かりにくさを洗い出す。(4) 見比べで分かった直しを図に入れ、本番へ出す。本の図はサイトに載せない（構図を写さない）。
-
-**完了条件**: check-content-series の切り出し待ち 0、見比べの結果で直した図が本番に出ている。
 
 
 

@@ -294,6 +294,33 @@ export const ConfigStandardsStructure = z
     _comment: doc(),
     canonical: z.object({ _comment: doc().optional(), commonAgencyId: z.string().min(1).describe('共通仕様書のうち検索インデックス対象にする機関の id') }).strict(),
     build: z.object({ _comment: doc().optional(), documents: z.array(agencyDoc).min(1).superRefine(uniqueBy((d) => d, '文書')).describe('構造化して章記事を作る文書') }).strict(),
+    sectionPages: z
+      .object({ _comment: doc().optional(), minOutputBytes: z.number().int().positive().describe('章の Markdown がこのバイト数以上なら節ページに分ける') })
+      .strict()
+      .optional()
+      .describe('大きすぎる章を節ページに分ける基準'),
+    readabilityBaselines: z
+      .object({ _comment: doc().optional() })
+      .catchall(
+        z
+          .object({
+            midSentenceBreaks: z.number().int().nonnegative().describe('文の途中の改行の候補の基準（増やさない）'),
+            strayTableFragments: z.number().int().nonnegative().describe('表の前後の短い段落の基準（増やさない）'),
+          })
+          .strict(),
+      )
+      .optional()
+      .describe('check-standard-articles 17・18 の基準（文書ごと）'),
+    comparison: z
+      .object({
+        _comment: doc().optional(),
+        separateDocuments: z
+          .array(z.object({ document: agencyDoc, reason: z.string().min(1) }).strict())
+          .describe('地域差分の行比較から外す文書（章立てはあるが別の仕様書）'),
+      })
+      .strict()
+      .optional()
+      .describe('地域差分（build-standards-comparison）の設定'),
     skipped: z
       .object({
         _comment: doc().optional(),
@@ -306,7 +333,40 @@ export const ConfigStandardsStructure = z
       })
       .strict(),
     documents: z
-      .record(agencyDoc, z.object({ _comment: doc().optional(), bodyStartPage: z.number().int().positive().optional().describe('本文の開始ページ（自動検出を上書きする）') }).strict())
+      .record(
+        agencyDoc,
+        z
+          .object({
+            _comment: doc().optional(),
+            bodyStartPage: z.number().int().positive().optional().describe('本文の開始ページ（自動検出を上書きする）'),
+            runningHeaderCorrections: z
+              .array(
+                z
+                  .object({
+                    page: z.number().int().positive(),
+                    chapterId: z.string().regex(/^\d+-\d+$/, '編-章（10-13 など）'),
+                    reason: z.string().min(1),
+                  })
+                  .strict(),
+              )
+              .optional()
+              .describe('原本の柱の誤植の補正（そのページを指定の章に帰属させる）'),
+            acceptedReview: z
+              .array(
+                z
+                  .object({
+                    page: z.number().int().positive(),
+                    kind: z.string().min(1),
+                    match: z.string().min(1).describe('review の detail に含まれる文字列'),
+                    reason: z.string().min(1).describe('原本どおりと判断した根拠'),
+                  })
+                  .strict(),
+              )
+              .optional()
+              .describe('原本どおりと確かめて受け入れる review（当たらなくなったら reject される）'),
+          })
+          .strict(),
+      )
       .describe('文書ごとの例外補正'),
   })
   .strict()
