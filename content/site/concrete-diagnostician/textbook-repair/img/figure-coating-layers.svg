@@ -1,57 +1,8 @@
-<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士教材の表面被覆の塗膜構成。書籍図の複製・トレースではない -->
-<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="表面被覆の標準的な塗膜構成を断面で示す。コンクリート下地の上に、下地処理・素地調整、プライマー、パテ、中塗り（主材）、上塗りの順に積層する">
-  <defs>
-    <style>
-      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
-      .t-lead  { font-size: 11px; fill: #555; }
-      .t-axis  { font-size: 11px; fill: #8a8a8a; }
-      .t-label { font-size: 11px; fill: #1a3a5c; }
-      .t-desc  { font-size: 11px; fill: #555; }
-      .t-head  { font-size: 12px; fill: #222; font-weight: 700; }
-      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
-      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
-      .line-red { stroke: #b22234; stroke-width: 2; fill: none; }
-      .conc { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
-      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
-      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
-      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
-      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
-      .box-r { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
-    </style>
-    <marker id="ah" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><polygon points="0,0 8,4 0,8" fill="#555"/></marker>
-  </defs>
-  <text class="t-lead" x="200" y="16" text-anchor="middle">断面の模式図（厚さは強調・数値なし）</text>
-  <text class="t-label" x="150" y="42" text-anchor="middle">水・酸素・塩化物イオン・CO<tspan dy="3" font-size="11">2</tspan></text>
-  <line class="line-main" x1="80" y1="52" x2="80" y2="72" marker-end="url(#ah)" />
-  <line class="line-main" x1="150" y1="52" x2="150" y2="72" marker-end="url(#ah)" />
-  <line class="line-main" x1="220" y1="52" x2="220" y2="72" marker-end="url(#ah)" />
-
-  <rect class="box-b" x="50" y="76" width="200" height="40" />
-  <rect class="box" x="50" y="116" width="200" height="40" />
-  <rect class="box-w" x="50" y="156" width="200" height="30" />
-  <rect class="box-g" x="50" y="186" width="200" height="30" />
-  <rect class="conc" x="50" y="216" width="200" height="90" />
-  <text class="t-axis" x="150" y="264" text-anchor="middle">コンクリート下地</text>
-
-  <text class="t-label" x="262" y="100">上塗り</text>
-  <text class="t-label" x="262" y="140">中塗り（主材）</text>
-  <text class="t-label" x="262" y="175">パテ</text>
-  <text class="t-label" x="262" y="205">プライマー</text>
-  <text class="t-label" x="262" y="240">下地処理・素地調整</text>
-  <line class="line-dash" x1="250" y1="96" x2="258" y2="96" />
-  <line class="line-dash" x1="250" y1="136" x2="258" y2="136" />
-  <line class="line-dash" x1="250" y1="171" x2="258" y2="171" />
-  <line class="line-dash" x1="250" y1="201" x2="258" y2="201" />
-  <line class="line-dash" x1="250" y1="236" x2="258" y2="236" />
-  <text class="t-axis" x="50" y="330">塗り重ねは下から上へ：下地処理が最初、上塗りが最後</text>
-
-  <rect class="box" x="20" y="350" width="360" height="130" rx="6" />
-  <text class="t-lead" x="34" y="372">塗膜で問われる性能</text>
-  <rect class="box-b" x="34" y="384" width="14" height="14" />
-  <text class="t-desc" x="54" y="396">透水性・遮塩性：水と塩化物イオンを通さない</text>
-  <rect class="box-b" x="34" y="408" width="14" height="14" />
-  <text class="t-desc" x="54" y="420">中性化抑制性：二酸化炭素を通さない</text>
-  <rect class="box-b" x="34" y="432" width="14" height="14" />
-  <text class="t-desc" x="54" y="444">ひび割れ追従性：ひび割れが動いても切れない</text>
-  <text class="t-desc" x="34" y="468">塗膜で劣化因子の侵入を遮断する</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="表面被覆は表面に塗膜を形成し、表面含浸は表層内部の細孔を充填・疎水化する">
+<defs><style>
+text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;fill:#555}.body{font-size:13px}.head{font-size:15px;font-weight:bold;fill:#1a3a5c}.small{font-size:12px}.strong{font-size:13px;font-weight:bold;fill:#1a3a5c}
+/* ink-body / ink-strong / brand-fill / brand / positive-fill / positive / warn-fill / warn / danger-fill / danger / surface / token-border */
+.surface{fill:#f5f5f5;stroke:#d7d7d7;stroke-width:1.5}.brand{fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5}.positive{fill:#d0e8d0;stroke:#3a7d44;stroke-width:1.5}.warn{fill:#fff3cd;stroke:#d4a017;stroke-width:1.5}.danger{fill:#f8d7da;stroke:#b22234;stroke-width:1.5}.line{stroke:#555;stroke-width:1.5;fill:none}.blue{stroke:#2e6da4;stroke-width:2;fill:none}.red{stroke:#b22234;stroke-width:2;fill:none}.green{stroke:#3a7d44;stroke-width:3;fill:none}
+</style><marker id="a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0 0L8 3L0 6Z" fill="#2e6da4"/></marker><marker id="g" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0 0L8 3L0 6Z" fill="#3a7d44"/></marker></defs>
+<text class="head" x="200" y="29" text-anchor="middle">材料を置く場所が違う</text><rect class="brand" x="20" y="53" width="360" height="178" rx="6"/><text class="head" x="38" y="81" text-anchor="start">表面被覆：表面に塗膜</text><rect class="surface" x="42" y="126" width="151" height="71" rx="0"/><rect class="brand" x="42" y="118" width="151" height="9" rx="0"/><text class="strong" x="213" y="141" text-anchor="start">劣化因子を</text><text class="strong" x="213" y="164" text-anchor="start">表面で遮断</text><text class="small" x="200" y="215" text-anchor="middle">下地・塗り重ね・ピンホールを管理</text><rect class="positive" x="20" y="258" width="360" height="178" rx="6"/><text class="head" x="38" y="286" text-anchor="start">表面含浸：表層の中へ</text><rect class="surface" x="42" y="331" width="151" height="71" rx="0"/><rect class="positive" x="42" y="331" width="151" height="29" rx="0"/><line class="blue" x1="64" y1="319" x2="64" y2="354" marker-end="url(#a)"/><line class="blue" x1="116" y1="319" x2="116" y2="354" marker-end="url(#a)"/><line class="blue" x1="170" y1="319" x2="170" y2="354" marker-end="url(#a)"/><text class="strong" x="213" y="346" text-anchor="start">細孔の充填</text><text class="strong" x="213" y="369" text-anchor="start">・疎水化</text><text class="small" x="200" y="420" text-anchor="middle">外観を変えずに表層を保護</text><text class="small" x="200" y="478" text-anchor="middle">水を防ぐ性能と、水蒸気を逃がす性能を選び分ける</text>
 </svg>

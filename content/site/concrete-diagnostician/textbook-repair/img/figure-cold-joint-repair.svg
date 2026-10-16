@@ -1,55 +1,8 @@
-<!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士教材の補修（コールドジョイント）。書籍図の複製・トレースではない -->
-<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="コールドジョイントの補修を断面で比較。小さい場合は清掃・水湿しのうえ両側各75mmにポリマーセメントペーストを塗布、大きい場合は幅3〜4mmの継目の上下各10〜20mmにポリマーセメントモルタルを充填しシーリング材とけい砂散布で仕上げる">
-  <defs>
-    <style>
-      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
-      .t-lead  { font-size: 11px; fill: #555; }
-      .t-axis  { font-size: 11px; fill: #8a8a8a; }
-      .t-label { font-size: 11px; fill: #1a3a5c; }
-      .t-desc  { font-size: 11px; fill: #555; }
-      .t-head  { font-size: 12px; fill: #222; font-weight: 700; }
-      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
-      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
-      .line-red { stroke: #b22234; stroke-width: 2; fill: none; }
-      .conc { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
-      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
-      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
-      .box-g { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
-      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
-      .box-r { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
-    </style>
-  </defs>
-  <text class="t-head" x="20" y="22">小さなコールドジョイント</text>
-  <rect class="conc" x="40" y="36" width="320" height="110" />
-  <line class="line-red" x1="40" y1="91" x2="360" y2="91" />
-  <rect class="box-b" x="120" y="86" width="160" height="10" />
-  <text class="t-label" x="200" y="62" text-anchor="middle">清掃・水湿しのうえペースト塗布</text>
-  <line class="line-dash" x1="120" y1="104" x2="120" y2="172" />
-  <line class="line-dash" x1="200" y1="104" x2="200" y2="172" />
-  <line class="line-dash" x1="280" y1="104" x2="280" y2="172" />
-  <line class="line-main" x1="120" y1="166" x2="200" y2="166" />
-  <line class="line-main" x1="200" y1="166" x2="280" y2="166" />
-  <text class="t-desc" x="160" y="160" text-anchor="middle">75mm</text>
-  <text class="t-desc" x="240" y="160" text-anchor="middle">75mm</text>
-  <text class="t-desc" x="200" y="188" text-anchor="middle">ポリマーセメントペースト（継目の両側）</text>
-
-  <text class="t-head" x="20" y="232">大きなコールドジョイント</text>
-  <rect class="conc" x="40" y="246" width="320" height="130" />
-  <line class="line-red" x1="40" y1="311" x2="360" y2="311" />
-  <rect class="box-b" x="140" y="291" width="120" height="40" />
-  <rect class="box-w" x="140" y="307" width="120" height="8" />
-  <text class="t-label" x="200" y="277" text-anchor="middle">継目の上下を充填</text>
-  <line class="line-dash" x1="270" y1="291" x2="300" y2="291" />
-  <line class="line-dash" x1="270" y1="311" x2="300" y2="311" />
-  <line class="line-dash" x1="270" y1="331" x2="300" y2="331" />
-  <text class="t-desc" x="306" y="305">10〜20mm</text>
-  <text class="t-desc" x="306" y="327">10〜20mm</text>
-  <text class="t-desc" x="66" y="306">継目の幅</text>
-  <text class="t-desc" x="66" y="324">3〜4mm</text>
-
-  <rect class="box-b" x="34" y="398" width="14" height="14" />
-  <text class="t-desc" x="54" y="410">ポリマーセメントモルタル（上下に充填）</text>
-  <rect class="box-w" x="34" y="422" width="14" height="14" />
-  <text class="t-desc" x="54" y="434">シーリング材（継目部）＋けい砂散布</text>
-  <text class="t-lead" x="20" y="470">継目の大きさで補修の厚みと材料が変わる</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="コールドジョイントは軽微で漏水がない場合に表面処理、開きや通水がある場合に充填を選ぶ">
+<defs><style>
+text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;fill:#555}.body{font-size:13px}.head{font-size:15px;font-weight:bold;fill:#1a3a5c}.small{font-size:12px}.strong{font-size:13px;font-weight:bold;fill:#1a3a5c}
+/* ink-body / ink-strong / brand-fill / brand / positive-fill / positive / warn-fill / warn / danger-fill / danger / surface / token-border */
+.surface{fill:#f5f5f5;stroke:#d7d7d7;stroke-width:1.5}.brand{fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5}.positive{fill:#d0e8d0;stroke:#3a7d44;stroke-width:1.5}.warn{fill:#fff3cd;stroke:#d4a017;stroke-width:1.5}.danger{fill:#f8d7da;stroke:#b22234;stroke-width:1.5}.line{stroke:#555;stroke-width:1.5;fill:none}.blue{stroke:#2e6da4;stroke-width:2;fill:none}.red{stroke:#b22234;stroke-width:2;fill:none}.green{stroke:#3a7d44;stroke-width:3;fill:none}
+</style><marker id="a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0 0L8 3L0 6Z" fill="#2e6da4"/></marker><marker id="g" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0 0L8 3L0 6Z" fill="#3a7d44"/></marker></defs>
+<text class="head" x="200" y="29" text-anchor="middle">継目の開きと通水を見て処置を選ぶ</text><rect class="brand" x="20" y="51" width="360" height="183" rx="6"/><text class="head" x="38" y="79" text-anchor="start">軽微で、漏水を伴わない</text><rect class="surface" x="40" y="104" width="135" height="88" rx="0"/><path class="red" d="M40 146L80 149L123 143L175 147"/><rect class="positive" x="35" y="129" width="10" height="36" rx="0"/><text class="strong" x="199" y="131" text-anchor="start">表面を処理</text><text class="small" x="199" y="155" text-anchor="start">両側へペースト</text><text class="body" x="200" y="214" text-anchor="middle">表面からの侵入を抑える</text><rect class="warn" x="20" y="256" width="360" height="183" rx="6"/><text class="head" x="38" y="284" text-anchor="start">開きがある・通水する</text><rect class="surface" x="40" y="309" width="135" height="88" rx="0"/><path class="red" d="M40 351L80 354L123 348L175 352"/><path class="positive" d="M40 325H77Q93 352 77 378H40Z"/><text class="strong" x="199" y="336" text-anchor="start">継目をはつる</text><text class="small" x="199" y="360" text-anchor="start">止水材を充填</text><text class="body" x="200" y="419" text-anchor="middle">水みちを断ち、開きを埋める</text><text class="small" x="200" y="478" text-anchor="middle">通水の有無を、外観と併せて確認する</text>
 </svg>
