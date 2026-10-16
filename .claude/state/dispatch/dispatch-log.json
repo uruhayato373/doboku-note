@@ -4252,6 +4252,23 @@
       "commit": "45e98d00a06d",
       "verification": "crop-jobs=[]。診断士05の37頁53クロップを登録・監査、対象書籍の364クロップ実体照合PASS。29記事・SVG139点・写真1点を本番反映。main=231edd9aa、deploy=38898576642成功、E2E=38897799624で136成功/22skip、build成功、auditは既存DN-0752のみ。check-production-ssr exit 0（2URL）、本番29記事+140画像の169件照合で不一致0。旧キャッシュ22点は新URLで解消、再発防止はDN-0756。",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0752",
+      "at": "2026-10-16",
+      "task": "北海道開発局の章の OGP が章の本体より先に R2 の台帳へ入り、develop の audit が赤い",
+      "tier": "high",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-orphan-ogp"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "0c3f9726e9ab",
+      "verification": "PR #1092を合流。章本体387章とOGP台帳387件を整合、章OGPテスト9/9・check-standard-articles 171検査成功。doc-sync候補5件/指摘0。develop CI 38904488187でbuild・audit成功（監査143/143）、PR E2E 38903090637で474成功/22skip。main=c58547fd2、deploy38905329014成功。check-production-ssr exit0（2URL）。本番168ページ+OGP43点の211件照合で失敗0。残る表の断片は既存DN-0755。",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }

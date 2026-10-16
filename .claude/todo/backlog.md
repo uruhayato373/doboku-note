@@ -23,16 +23,6 @@
 
 
 
-### [DN-0752] 北海道開発局の章の OGP が章の本体より先に R2 の台帳へ入り、develop の audit が赤い
-タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-16] [進行中]
-
-**起点**: 2026-10-16 01:16 の asset-inbox 取り込み（741914fe2・github-actions）で、standards-articles/hokkaido の章 OGP 86 件が .claude/state/assets/manifest.json に入った。章の本体（de826a0c1 ほか）は feat/standards-common-finish にあり develop に無いため、develop の Pre-merge の audit が orphan-ogp と tests/standards-ogp-guards.test.mjs（台帳の章 OGP 387 件 ≠ 章数 344 件）で赤い（3442618eb・7dba9e728 で確認、ビルドは成功）。
-
-**やること**: feat/standards-common-finish を develop へ合流すれば解消する見込み。合流が先に延びるなら、asset-inbox で取り込む前に章の本体が develop にあることを確かめる手順か検査を足す（本体より先に台帳だけ入る経路を塞ぐ）。
-
-**進み具合（2026-10-16）**: 本体は PR #1092（feat/standards-common-finish・別の作業が進行中）にある。develop との衝突は config/git-binary-policy.json の content/site の上限だけで、develop 側を 150 MiB に一本化し PR #1092 の分も記録した（12f7d5ee4）。PR #1092 は develop を取り込むとき develop 側の値を採れば解ける。合流後に develop の audit が緑になるかを見る。
-
-**完了条件**: develop の Pre-merge check の audit が緑。
 
 
 
