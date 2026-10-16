@@ -2,56 +2,58 @@
 <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
   style="max-width:400px;width:100%"
   role="img"
-  aria-label="一定荷重を載荷し続けたときのひずみの時間変化。載荷の瞬間に載荷時弾性ひずみが生じ、その後クリープひずみが時間とともに増える。クリープ係数はクリープひずみを載荷時弾性ひずみで割った値">
+  aria-label="載荷供試体と無載荷供試体のひずみの時間変化。載荷供試体の全ひずみから、載荷時弾性ひずみと無載荷供試体のひずみ（自己収縮・乾燥収縮）を引いた差がクリープひずみで、クリープ係数はこれを載荷時弾性ひずみで割った値">
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
       .t-lead  { font-size: 11px; fill: #555; }
       .t-axis  { font-size: 11px; fill: #8a8a8a; }
       .t-label { font-size: 11px; fill: #1a3a5c; }
-      .t-desc  { font-size: 11px; fill: #555; }
+      .t-desc  { font-size: 12px; fill: #555; }
       .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .line-sub { stroke: #8a8a8a; stroke-width: 2; stroke-dasharray: 5 3; fill: none; }
       .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
       .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
       .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
     </style>
   </defs>
 
-  <text class="t-lead" x="200" y="16" text-anchor="middle">一定荷重の載荷中のひずみ（数値なし・形を示す）</text>
+  <text class="t-lead" x="200" y="22" text-anchor="middle">全ひずみから弾性ひずみ・無載荷ひずみを差し引く</text>
 
   <!-- axes -->
-  <line class="line-dash" x1="40" y1="290" x2="370" y2="290" />
-  <line class="line-dash" x1="40" y1="40" x2="40" y2="290" />
-  <text class="t-axis" x="375" y="294">時間</text>
-  <text class="t-axis" x="44" y="36">ひずみ</text>
+  <line class="line-dash" x1="40" y1="330" x2="370" y2="330" />
+  <line class="line-dash" x1="40" y1="44" x2="40" y2="330" />
+  <text class="t-axis" x="372" y="348" text-anchor="end">時間</text>
+  <text class="t-axis" x="46" y="58">ひずみ</text>
 
   <!-- load start -->
-  <line class="line-dash" x1="70" y1="40" x2="70" y2="290" />
-  <text class="t-axis" x="70" y="306" text-anchor="middle">載荷</text>
+  <line class="line-dash" x1="80" y1="44" x2="80" y2="330" />
+  <text class="t-axis" x="80" y="346" text-anchor="middle">載荷</text>
 
-  <!-- curve -->
-  <line class="line-main" x1="70" y1="290" x2="70" y2="220" />
-  <path class="line-main" d="M70,220 C 110,170 190,140 350,120" />
-  <circle cx="70" cy="220" r="3" fill="#2e6da4" />
-  <circle cx="350" cy="120" r="3" fill="#2e6da4" />
+  <!-- unloaded specimen (shrinkage only) -->
+  <path class="line-sub" d="M40,330 C 100,300 180,282 340,272" />
+  <text class="t-label" x="344" y="290" text-anchor="end">無載荷供試体</text>
+  <text class="t-label" x="344" y="304" text-anchor="end">（自己収縮・乾燥収縮）</text>
 
-  <!-- brackets -->
-  <line class="line-dash" x1="70" y1="220" x2="350" y2="220" />
-  <line class="line-main" x1="56" y1="290" x2="56" y2="220" />
-  <text class="t-label" x="50" y="248" text-anchor="end">載荷時</text>
-  <text class="t-label" x="50" y="262" text-anchor="end">弾性</text>
-  <text class="t-label" x="50" y="276" text-anchor="end">ひずみ</text>
-  <line class="line-main" x1="360" y1="220" x2="360" y2="120" />
-  <text class="t-label" x="352" y="178" text-anchor="end">クリープ</text>
-  <text class="t-label" x="352" y="192" text-anchor="end">ひずみ</text>
+  <!-- loaded specimen total strain -->
+  <path class="line-main" d="M40,330 L42,329 L44,328 L45,327 L47,326 L49,326 L51,325 L53,324 L55,323 L57,322 L59,321 L61,321 L63,320 L65,319 L67,318 L69,317 L71,317 L73,316 L75,315 L77,314 L79,313 L80,229 C 120,169 200,129 340,112" />
+  <text class="t-label" x="344" y="100" text-anchor="end">載荷供試体の全ひずみ</text>
 
-  <text class="t-lead" x="20" y="336">クリープ係数の考え方</text>
-  <rect class="box-b" x="20" y="344" width="360" height="40" rx="6" />
-  <text class="t-label" x="200" y="369" text-anchor="middle">φ ＝ クリープひずみ ÷ 載荷時弾性ひずみ</text>
+  <!-- elastic level: unloaded curve shifted up by the elastic strain -->
+  <path class="line-dash" d="M81,229 L83,228 L85,227 L87,226 L90,226 L92,225 L94,224 L96,224 L99,223 L101,222 L103,221 L106,221 L108,220 L110,219 L113,219 L115,218 L118,217 L120,217 L123,216 L125,216 L128,215 L131,214 L133,214 L136,213 L139,212 L141,212 L144,211 L147,211 L150,210 L152,210 L155,209 L158,208 L161,208 L164,207 L167,207 L170,206 L173,206 L176,205 L179,205 L183,204 L186,204 L189,203 L192,203 L196,202 L199,202 L202,201 L206,201 L209,200 L212,200 L216,199 L220,199 L223,198 L227,198 L230,197 L234,197 L238,197 L242,196 L245,196 L249,195 L253,195 L257,195 L261,194 L265,194 L269,193 L273,193 L277,193 L282,192 L286,192 L290,192 L294,191 L299,191 L303,191 L308,190 L312,190 L317,190 L321,189 L326,189 L330,189 L335,188 L340,188" />
+  <text class="t-label" x="88" y="249">載荷時弾性ひずみ</text>
+  <line class="line-main" x1="80" y1="313" x2="80" y2="229" stroke-width="4" />
 
-  <rect class="box" x="20" y="396" width="360" height="90" rx="6" />
-  <text class="t-desc" x="34" y="418">載荷の瞬間に弾性ひずみが即座に生じる</text>
-  <text class="t-desc" x="34" y="440">載荷を続けるとクリープひずみが増える</text>
-  <text class="t-desc" x="34" y="462">増加は初期に速く、次第に緩やかになる</text>
-  <text class="t-desc" x="34" y="480">（完全には止まらない）</text>
+  <text class="t-label" x="195" y="223">無載荷＋載荷時弾性ひずみ</text>
+  <!-- creep strain = loaded total minus (unloaded + elastic) -->
+  <line class="line-main" x1="340" y1="188" x2="340" y2="112" />
+  <text class="t-label" x="312" y="148" text-anchor="end">クリープ</text>
+  <text class="t-label" x="312" y="162" text-anchor="end">ひずみ</text>
+
+  <rect class="box-b" x="20" y="372" width="360" height="40" rx="6" />
+  <text class="t-label" x="200" y="397" text-anchor="middle" style="font-size:13px">φ ＝ クリープひずみ ÷ 載荷時弾性ひずみ</text>
+
+  <rect class="box" x="20" y="424" width="360" height="56" rx="6" />
+  <text class="t-desc" x="34" y="446">全ひずみ＝弾性＋クリープ＋無載荷ひずみ</text>
+  <text class="t-desc" x="34" y="468">無載荷ひずみは自己収縮・乾燥収縮による成分</text>
 </svg>

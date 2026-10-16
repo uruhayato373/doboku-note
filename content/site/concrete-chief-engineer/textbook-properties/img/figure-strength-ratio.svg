@@ -1,0 +1,50 @@
+<!-- authored 2026-10-16 doboku-note 自作。題材は主任技士教材の強度どうしの関係（圧縮を基準にした比）。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="圧縮強度を1としたときの引張強度は約1/10から1/13、曲げ強度は約1/5から1/8の横棒グラフ。高強度ほど比は小さくなる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 11px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-label { font-size: 12px; fill: #1a3a5c; }
+      .t-desc  { font-size: 12px; fill: #555; }
+      .line-main { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+      .line-sub { stroke: #8a8a8a; stroke-width: 2; fill: none; }
+      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <text class="t-lead" x="200" y="24" text-anchor="middle">圧縮強度を1としたときの強度比</text>
+
+  <!-- compression -->
+  <text class="t-label" x="20" y="64">圧縮強度</text>
+  <rect class="box-b" x="20" y="72" width="330" height="30" rx="4" />
+  <text class="t-label" x="185" y="92" text-anchor="middle">1</text>
+
+  <!-- bending: 1/8 .. 1/5 -->
+  <text class="t-label" x="20" y="148">曲げ強度</text>
+  <rect class="box-w" x="20" y="156" width="41.25" height="30" rx="4" />
+  <rect x="61.25" y="156" width="24.75" height="30" fill="#fff3cd" stroke="#d4a017" stroke-dasharray="3 2"/>
+  <text class="t-label" x="96" y="176">約 1/5 〜 1/8</text>
+
+  <!-- tension: 1/13 .. 1/10 -->
+  <text class="t-label" x="20" y="244">引張強度</text>
+  <rect class="box-d" x="20" y="252" width="25.38" height="30" rx="4" />
+  <rect x="45.38" y="252" width="7.62" height="30" fill="#f8d7da" stroke="#b22234" stroke-dasharray="3 2"/>
+  <text class="t-label" x="64" y="272">約 1/10 〜 1/13</text>
+
+  <!-- trend -->
+  <rect class="box" x="20" y="344" width="360" height="62" rx="6" />
+  <text class="t-desc" x="34" y="368">高強度ほど、引張・曲げ強度の</text>
+  <text class="t-desc" x="34" y="390">圧縮強度に対する比は小さくなる</text>
+
+  <rect class="box" x="20" y="420" width="360" height="56" rx="6" />
+  <text class="t-desc" x="34" y="444">破線の区間＝本文に示した比率の幅</text>
+  <text class="t-desc" x="34" y="464">高強度化 → 引張・曲げの相対比は低下</text>
+</svg>
