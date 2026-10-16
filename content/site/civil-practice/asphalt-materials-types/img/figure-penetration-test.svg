@@ -19,7 +19,8 @@
     <polygon points="140,178 137,171 143,171"/>
   </g>
   <g font-size="11" fill="#555">
-    <text x="96" y="68">おもり付きの針</text>
+    <text x="96" y="68">おもり</text>
+    <text x="90" y="118">針</text>
     <text x="30" y="214">アスファルト</text>
   </g>
   <text x="150" y="168">貫入深さ</text>
@@ -39,9 +40,10 @@
   <rect x="214" y="184" width="150" height="52" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
   <text x="226" y="206" font-size="13" font-weight="700" fill="#1a3a5c">沈んだ深さを読む</text>
   <text x="226" y="226" fill="#1a3a5c">0.1mm ＝ 針入度1</text>
+  <g transform="translate(0,-8)">
   <!-- 下段の枠 : surface -->
   <g stroke-width="1.5">
-    <rect x="20" y="264" width="360" height="210" rx="6" fill="#f5f5f5" stroke="#d7d7d7"/>
+    <rect x="20" y="264" width="360" height="190" rx="6" fill="#f5f5f5" stroke="#d7d7d7"/>
     <path d="M36 322V410H126V322M220 322V410H310V322" fill="none" stroke="#555"/>
     <rect x="37" y="336" width="88" height="73" fill="#d7d7d7"/>
     <rect x="221" y="336" width="88" height="73" fill="#d7d7d7"/>
@@ -70,5 +72,8 @@
   </g>
   <text x="36" y="452">沈む深さ 4〜6mm</text>
   <text x="220" y="452">沈む深さ 10〜12mm</text>
-  <text x="20" y="494" font-size="11" fill="#555">針入度は25℃の一点の硬さ。軟化点・伸度とあわせて読む</text>
+  </g>
+  <rect x="20" y="458" width="360" height="36" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/> <!-- warn -->
+  <text x="34" y="473" font-size="11" fill="#555">針入度は25℃の一点の硬さ</text>
+  <text x="34" y="489" font-size="13" font-weight="700" fill="#1a3a5c">高温側は軟化点、低温側は15℃の伸度で見る</text>
 </svg>

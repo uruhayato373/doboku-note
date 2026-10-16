@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="針入度・軟化点・伸度の三試験を温度の軸に並べた図。軟化点は高温側、針入度は25℃の硬さ、伸度は15℃で低温側の手がかり" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+  <defs><marker id="ar" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#2e6da4"/></marker></defs>
+  <path d="M84 436V40" fill="none" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#ar)"/>
+  <text x="20" y="34" font-size="11" fill="#555">高温</text>
+  <text x="20" y="428" font-size="11" fill="#555">低温</text>
+  <path d="M78 100H90" fill="none" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="20" y="104" font-size="12" font-weight="700" fill="#222">40〜55℃</text>
+  <path d="M78 240H90" fill="none" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="20" y="244" font-size="12" font-weight="700" fill="#222">25℃</text>
+  <path d="M78 380H90" fill="none" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="20" y="384" font-size="12" font-weight="700" fill="#222">15℃</text>
+  <rect x="100" y="50" width="280" height="100" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/> <!-- warn -->
+  <text x="114" y="76" font-size="14" font-weight="700" fill="#222">軟化点</text>
+  <text x="114" y="98" font-size="13" fill="#1a3a5c">高温側の手がかり</text>
+  <text x="114" y="118" font-size="11" fill="#555">区分ごとに範囲がある</text>
+  <text x="114" y="136" font-size="11" fill="#555">（60〜80は44.0〜52.0℃）</text>
+  <rect x="100" y="190" width="280" height="100" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/> <!-- brand-fill / brand -->
+  <text x="114" y="216" font-size="14" font-weight="700" fill="#222">針入度</text>
+  <text x="114" y="238" font-size="13" fill="#1a3a5c">25℃という一点の硬さ</text>
+  <text x="114" y="258" font-size="11" fill="#555">沈んだ深さ0.1mm＝針入度1</text>
+  <text x="114" y="276" font-size="11" fill="#555">大きいほど軟らかい</text>
+  <rect x="100" y="330" width="280" height="100" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/> <!-- brand-fill / brand -->
+  <text x="114" y="356" font-size="14" font-weight="700" fill="#222">伸度</text>
+  <text x="114" y="378" font-size="13" fill="#1a3a5c">15℃で見る、低温側の手がかり</text>
+  <text x="114" y="398" font-size="11" fill="#555">40〜60は10cm以上</text>
+  <text x="114" y="416" font-size="11" fill="#555">60〜80以降は100cm以上</text>
+  <rect x="20" y="446" width="360" height="44" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/> <!-- warn -->
+  <text x="34" y="466" font-size="13" font-weight="700" fill="#222">区分の確認は入口</text>
+  <text x="34" y="483" font-size="11" fill="#555">軟化点と伸度の確認まで進める</text>
+</svg>
