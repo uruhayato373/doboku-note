@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="マスコンクリートの温度ひび割れ対策の四つの手段。温度上昇を抑える、収縮ひずみを減らす、拘束を減らす、ひび割れ幅を制御するを、水和熱から拘束、ひび割れへ至る流れのどこに効くかで整理した図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; fill: #1a3a5c; font-size: 12px; }
+      .h { font-size: 13px; font-weight: bold; }
+      .s { font-size: 12px; fill: #222; }
+      .lb { font-size: 11px; font-weight: bold; fill: #2e6da4; }
+      .m { text-anchor: middle; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .danger { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .ar { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+    </style>
+    <!-- brand / positive / warn / danger / surface tokens -->
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+  <rect width="400" height="500" fill="#ffffff" />
+  <rect class="danger" x="10" y="20" width="128" height="80" rx="8"/><text class="h m" x="74" y="56">水和熱で</text><text class="h m" x="74" y="76">温度が上がる</text>
+  <path class="ar" d="M74,100 V120" marker-end="url(#ah)"/>
+  <rect class="danger" x="10" y="124" width="128" height="156" rx="8"/><text class="h m" x="74" y="190">冷えるとき、</text><text class="h m" x="74" y="210">ひずみが拘束</text><text class="h m" x="74" y="230">される</text>
+  <path class="ar" d="M74,280 V300" marker-end="url(#ah)"/>
+  <rect class="danger" x="10" y="304" width="128" height="62" rx="8"/><text class="h m" x="74" y="340">ひび割れ</text>
+  <rect class="brand" x="150" y="20" width="240" height="80" rx="8"/>
+  <text class="h" x="162" y="40">温度上昇を抑える</text>
+  <text class="s" x="162" y="58">低発熱のセメントや混和材</text>
+  <text class="s" x="162" y="74">単位水量の低減、プレクーリング</text>
+  <text class="s" x="162" y="90">パイプクーリング</text>
+  <rect class="brand" x="150" y="124" width="240" height="68" rx="8"/>
+  <text class="h" x="162" y="144">収縮ひずみを減らす</text>
+  <text class="s" x="162" y="162">単位水量の低減</text>
+  <text class="s" x="162" y="178">膨張材など収縮を補う混和材料</text>
+  <rect class="brand" x="150" y="200" width="240" height="80" rx="8"/>
+  <text class="h" x="162" y="220">拘束を減らす</text>
+  <text class="s" x="162" y="238">打込み区画の大きさ、リフト高さ</text>
+  <text class="s" x="162" y="254">継目の位置、打込み時間間隔</text>
+  <text class="s" x="162" y="270">を検討結果に基づいて設定</text>
+  <rect class="brand" x="150" y="304" width="240" height="62" rx="8"/>
+  <text class="h" x="162" y="324">ひび割れ幅を制御する</text>
+  <text class="s" x="162" y="342">ひび割れ誘発目地</text>
+  <text class="s" x="162" y="358">幅を抑える鉄筋</text>
+  <rect class="positive" x="10" y="382" width="380" height="106" rx="8"/>
+  <text class="h" x="22" y="404">保温と冷却の向きも決める</text>
+  <text class="s" x="22" y="424">断熱材で覆い、内外の温度差と降温速度を抑える</text>
+  <text class="s" x="22" y="442">必要以上の散水は、ひび割れを助長する</text>
+  <text class="s" x="22" y="460">型枠は、照査で想定した期間のまま存置する</text>
+  <text class="s" x="22" y="478">どちらを防ぐかは、ひび割れの切り分けで確かめる</text>
+</svg>
