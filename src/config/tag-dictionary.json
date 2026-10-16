@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-16T04:54:15.302Z",
+  "generated_at": "2026-10-16T04:58:22.650Z",
   "summary": {
-    "total_mdx_files": 1468,
+    "total_mdx_files": 1469,
     "total_unique_tags": 133,
     "allowlist_size": 330,
     "known_count": 133,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 290,
+      "count": 291,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1229,6 +1229,7 @@
         "civil-practice-formwork-material-inspection",
         "civil-practice-formwork-removal-timing",
         "civil-practice-formwork-waterstop-details",
+        "civil-practice-generative-ai-adoption",
         "civil-practice-how-to-read-laws-and-notices",
         "civil-practice-image-photogrammetry-analysis",
         "civil-practice-information-system-procurement",
@@ -2217,10 +2218,11 @@
     },
     {
       "name": "情報管理",
-      "count": 146,
+      "count": 147,
       "inAllowlist": true,
       "usedIn": [
         "civil-practice-ai-document-verification",
+        "civil-practice-generative-ai-adoption",
         "civil-practice-information-system-procurement",
         "civil-practice-ledger-data-design",
         "pe-comprehensive-management-access-control",
@@ -5296,6 +5298,16 @@
       ]
     },
     {
+      "name": "AI ガバナンス",
+      "count": 3,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-ai-document-verification",
+        "civil-practice-generative-ai-adoption",
+        "pe-comprehensive-management-r8-essay-theme-ai-governance"
+      ]
+    },
+    {
       "name": "SWOT分析",
       "count": 3,
       "inAllowlist": true,
@@ -5423,15 +5435,6 @@
         "civil-construction-1-textbook-steel-structures",
         "civil-construction-2-guide-structures-key-points",
         "civil-practice-steel-material-properties"
-      ]
-    },
-    {
-      "name": "AI ガバナンス",
-      "count": 2,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-ai-document-verification",
-        "pe-comprehensive-management-r8-essay-theme-ai-governance"
       ]
     },
     {
