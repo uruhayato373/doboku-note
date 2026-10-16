@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-16T01:41:55.524Z",
+  "generated_at": "2026-10-16T01:42:50.857Z",
   "summary": {
-    "total_mdx_files": 1451,
+    "total_mdx_files": 1452,
     "total_unique_tags": 133,
     "allowlist_size": 330,
     "known_count": 133,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 274,
+      "count": 275,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1211,6 +1211,7 @@
         "civil-practice-construction-inspection-types",
         "civil-practice-construction-materials-overview",
         "civil-practice-construction-plan-document",
+        "civil-practice-coordinate-systems-geodetic-datum",
         "civil-practice-cost-and-design-change",
         "civil-practice-development-permit-public-facilities",
         "civil-practice-disaster-recovery-assessment",
@@ -4602,6 +4603,24 @@
       ]
     },
     {
+      "name": "測量",
+      "count": 11,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-guide-surveying",
+        "civil-construction-1-textbook-distance-angle",
+        "civil-construction-1-textbook-leveling",
+        "civil-construction-1-textbook-surveying-basics",
+        "civil-practice-coordinate-systems-geodetic-datum",
+        "civil-practice-gis-layer-validation",
+        "civil-practice-gnss-positioning-basics",
+        "civil-practice-municipal-gis",
+        "civil-practice-open-geospatial-data",
+        "civil-practice-reading-civil-drawings",
+        "civil-practice-survey-informatics-overview"
+      ]
+    },
+    {
       "name": "経験記述",
       "count": 11,
       "inAllowlist": true,
@@ -4687,23 +4706,6 @@
         "pe-construction-r06-environment",
         "pe-construction-r07-environment",
         "pe-construction-r08-environment"
-      ]
-    },
-    {
-      "name": "測量",
-      "count": 10,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-guide-surveying",
-        "civil-construction-1-textbook-distance-angle",
-        "civil-construction-1-textbook-leveling",
-        "civil-construction-1-textbook-surveying-basics",
-        "civil-practice-gis-layer-validation",
-        "civil-practice-gnss-positioning-basics",
-        "civil-practice-municipal-gis",
-        "civil-practice-open-geospatial-data",
-        "civil-practice-reading-civil-drawings",
-        "civil-practice-survey-informatics-overview"
       ]
     },
     {
