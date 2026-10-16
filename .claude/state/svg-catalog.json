@@ -2,20 +2,20 @@
   "description": "サイト図版SVGの派生カタログ（SSOT）。build-svg-catalog.mjs が生成。手動編集しない。",
   "source": "content/site/**/img/*.svg",
   "summary": {
-    "total": 1563,
-    "embedded": 1563,
+    "total": 1578,
+    "embedded": 1578,
     "orphan": 0,
     "missingConcept": 4,
     "withHighAudit": 0,
     "figures": {
-      "total": 1448,
-      "conforming": 1448,
+      "total": 1463,
+      "conforming": 1463,
       "needsRework": 0
     },
     "byCategory": {
       "civil-construction-1": 495,
       "civil-construction-2": 25,
-      "civil-practice": 374,
+      "civil-practice": 389,
       "concrete-chief-engineer": 133,
       "concrete-diagnostician": 138,
       "concrete-engineer": 63,
@@ -10268,11 +10268,47 @@
       }
     },
     {
+      "file": "content/site/civil-practice/concrete-hydration-basics/img/figure-cement-type-strength.svg",
+      "category": "civil-practice",
+      "slug": "concrete-hydration-basics",
+      "name": "figure-cement-type-strength.svg",
+      "concept": "セメントの種類による強度の立ち上がりを比べた概念図。早強ポルトランドセメントは早期に強度が出る。中庸熱・低熱ポルトランドセメントと高炉セメントB種は初期強度は小さく、長期強度が大きい。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-practice/concrete-hydration-basics/img/figure-hydration-strength-growth.svg",
       "category": "civil-practice",
       "slug": "concrete-hydration-basics",
       "name": "figure-hydration-strength-growth.svg",
-      "concept": "コンクリートが固まる仕組みの概念図。上段は、練り混ぜ直後のセメント粒子から表面に水和物が育ち、つながって固まる三段階。下段は、材齢と強度の関係を示す模式図で、温度が高いと初期は速いが伸びが小さく、温度が低いと遅れるが伸び、水が切れると反応が進まず伸びが止まる。",
+      "concept": "コンクリートが固まる仕組みの概念図。上段は、練り混ぜ直後のセメント粒子から表面に水和物が育ち、つながって固まる三段階。下段は、材齢と強度の関係を示す模式図で、温度が高いと初期は速いが伸びが小さく、温度が低いと遅れるが伸び、水が切れると反応が進まず伸びが止まる。凍結すると損傷し戻らない。28日は検査の区切りで、その後も伸びる。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/concrete-hydration-basics/img/figure-mixing-water-split.svg",
+      "category": "civil-practice",
+      "slug": "concrete-hydration-basics",
+      "name": "figure-mixing-water-split.svg",
+      "concept": "水セメント比55%の練混ぜ水を、結合水約23、ゲル空隙の水約21、余り水約11に分けた帯と、余った水が空隙になり強度や水密性を落とす流れを示した図。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -10290,7 +10326,43 @@
       "category": "civil-practice",
       "slug": "concrete-mix-acceptance",
       "name": "figure-acceptance-cards.svg",
-      "concept": "生コン受入れ検査4項目（スランプ・空気量・塩化物イオン量・圧縮強度）の確認タイミングと合否基準",
+      "concept": "生コン受入れ検査の流れ。納入書を指定と突合したあと、スランプ・空気量・塩化物イオン量を荷卸し地点で試験し、圧縮強度は供試体を採取して後日の結果を待つ。外れたときの扱いも示す。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/concrete-mix-acceptance/img/figure-slump-retest-flow.svg",
+      "category": "civil-practice",
+      "slug": "concrete-mix-acceptance",
+      "name": "figure-slump-retest-flow.svg",
+      "concept": "スランプ試験の判定の流れ。許容差内なら受入れ。外れたらその場で1回に限り再試験し、内なら受入れ、再び外れたら受入れを拒否してそのアジテータ車は使わない。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/concrete-mix-acceptance/img/figure-strength-judgement.svg",
+      "category": "civil-practice",
+      "slug": "concrete-mix-acceptance",
+      "name": "figure-strength-judgement.svg",
+      "concept": "圧縮強度の合否は二つの条件をどちらも満たす。1回の試験結果が呼び強度の85%以上、3回の試験結果の平均が呼び強度以上。受入れ判定には標準養生の供試体、型枠の取外し判断には現場封かん養生などの供試体を使う。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -10308,7 +10380,43 @@
       "category": "civil-practice",
       "slug": "concrete-placement-timing",
       "name": "figure-timeline.svg",
-      "concept": "外気温25℃を境に変わる練混ぜから荷卸し・打込み終了・許容打重ね時間間隔までの限度時間と、凝結の始発・終結の目安",
+      "concept": "三つの限度時間は起点が違う。練混ぜ完了を起点に、荷卸しまで1.5時間、打込み終了まで25℃以下で2.0時間・25℃超で1.5時間。別に、下層を打った時刻を起点に、許容打重ね時間間隔が25℃以下で2.5時間・25℃超で2.0時間。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/concrete-pump-capacity/img/figure-agitator-cycle.svg",
+      "category": "civil-practice",
+      "slug": "concrete-pump-capacity",
+      "name": "figure-agitator-cycle.svg",
+      "concept": "アジテータ車が積込み、走行、荷卸し、返送の順に一周する循環と、必要台数N=Q×T÷Vの各文字の意味を示した図。例は50×0.75÷4で9.375、切り上げて10台。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/concrete-pump-capacity/img/figure-horizontal-equivalent-length.svg",
+      "category": "civil-practice",
+      "slug": "concrete-pump-capacity",
+      "name": "figure-horizontal-equivalent-length.svg",
+      "concept": "水平60m、垂直8m、ベント管2箇所、フレキシブルホース1本の圧送ルートを水平換算長に直すと、60+32+12+20で124mとなり、目安の100mを超えることを示した図。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -10344,7 +10452,25 @@
       "category": "civil-practice",
       "slug": "concrete-quality-and-workforce",
       "name": "figure-defect-stages.svg",
-      "concept": "コンクリートの不具合が生まれる三つの段階と、段階ごとに止める仕組みの対応図。製造は認証工場の選定、配合計画書、納入書。施工は荷卸し時の試験、単位水量の測定、施工計画書、段階確認、施工記録。条件設定は設計図書、工期、指示・協議の記録。",
+      "concept": "コンクリートの不具合が生まれる三つの段階を、上流の条件設定から製造、施工の順に並べ、止める仕組みを制度・記録・確かめる行為に分けた図。条件設定は設計図書、工期、指示・協議の記録。製造は認証工場の選定、配合計画書、納入書。施工は荷卸し時の試験、単位水量の測定、施工計画書、段階確認、施工記録。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/concrete-quality-and-workforce/img/figure-overtime-limits.svg",
+      "category": "civil-practice",
+      "slug": "concrete-quality-and-workforce",
+      "name": "figure-overtime-limits.svg",
+      "concept": "時間外労働の上限の入れ子の図。原則は月45時間・年360時間。特別な事情があっても年720時間以内。月は休日労働を含めて100時間未満、複数月の平均は80時間以内。災害の復旧・復興の事業は月100時間未満と複数月平均80時間以内だけ適用が除かれる。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -10362,7 +10488,25 @@
       "category": "civil-practice",
       "slug": "concrete-quality-and-workforce",
       "name": "figure-plants-shipments.svg",
-      "concept": "レディーミクストコンクリートの工場数と出荷量の変化を示す棒グラフ。工場数は平成14年の4,449工場から平成30年の3,298工場へ減った。出荷量は平成2年度のピーク1億9,800万立方メートルから平成30年度の8,550万立方メートルへ減った。",
+      "concept": "レディーミクストコンクリートの工場数は平成14年の4,449から平成30年の3,298へ、出荷量は平成2年度のピーク1億9,800万立方メートルから平成30年度の8,550万立方メートルへ減った。別の時点として、昭和62年末は製造企業4,640社のうち3,339社が約7割でJISマークの表示許可を受けていた。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/concrete-quality-and-workforce/img/figure-unit-water-judgement.svg",
+      "category": "civil-practice",
+      "slug": "concrete-quality-and-workforce",
+      "name": "figure-unit-water-judgement.svg",
+      "concept": "単位水量の測定結果を、配合設計の単位水量との差で三段に判定する図。差が15キロ以内ならそのまま施工。15を超え20キロ以内は原因を調べて工場に改善を指示し、その運搬車の分は打設。20キロを超えたら打ち込まずに持ち帰らせる。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -10394,11 +10538,29 @@
       }
     },
     {
+      "file": "content/site/civil-practice/concrete-roles-overview/img/figure-ready-mixed-vs-precast.svg",
+      "category": "civil-practice",
+      "slug": "concrete-roles-overview",
+      "name": "figure-ready-mixed-vs-precast.svg",
+      "concept": "生コンと工場製品で、打込み・締固め・養生、運搬、据付けと接合部、検査が現場と工場のどちら側の持ち場かを比べた図。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-practice/concrete-roles-overview/img/figure-stakeholder-decisions.svg",
       "category": "civil-practice",
       "slug": "concrete-roles-overview",
       "name": "figure-stakeholder-decisions.svg",
-      "concept": "コンクリート構造物に関わる五つの立場が、何を決めて何の書類を渡すかを順に示した図。発注者は造るものと確かめる基準を決め、設計者は強度・耐久性・形を決め、生コン工場は実際の配合を決め、施工者は運ぶ・打つ・守る手順を決め、維持管理者は点検と手当ての時期を決める。",
+      "concept": "コンクリート構造物に関わる五つの立場が、何を決め、何を確かめ、どの書類を渡すかを順に示した図。決める立場と確かめる立場が分かれている。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -10430,11 +10592,47 @@
       }
     },
     {
+      "file": "content/site/civil-practice/concrete-structure-inspection/img/figure-cover-scan-layout.svg",
+      "category": "civil-practice",
+      "slug": "concrete-structure-inspection",
+      "name": "figure-cover-scan-layout.svg",
+      "concept": "かぶり測定の範囲は60cm×60cm以上で、走査線を3ライン引き、かぶりを10点程度測る。不良の測点は鉄筋間隔程度離して両側に走査線を引き直して再測定する。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-practice/concrete-structure-inspection/img/figure-inspection-method-choice.svg",
       "category": "civil-practice",
       "slug": "concrete-structure-inspection",
       "name": "figure-inspection-method-choice.svg",
-      "concept": "構造物の検査方法を、穴が残るかどうかと、何が分かるかで分けた図。強度は、穴が残らない非破壊のテストハンマーの反発度と超音波法で広く浅く推定し、届かなければ穴が残る小径コアとコアで深く確かめ、コアでも届かなければ対策を協議する。配筋とかぶりは、強度とは別に電磁波レーダ法や電磁誘導法で非破壊で測る。",
+      "concept": "強度の確認は二つの流れに分かれる。国官技第61号の系統はテストハンマー、周辺5カ所の再調査、コア、協議の順。強度測定要領の系統は超音波法または衝撃弾性波法、近傍の再試験、小径コア、協議の順。配筋とかぶりは強度とは別に電磁波レーダ法や電磁誘導法で測る。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/concrete-structure-inspection/img/figure-judgement-yardsticks.svg",
+      "category": "civil-practice",
+      "slug": "concrete-structure-inspection",
+      "name": "figure-judgement-yardsticks.svg",
+      "concept": "受入れの供試体は呼び強度、テストハンマー調査・強度測定要領・コアは設計基準強度を相手に、85%や100%の判定をすることを比べた図。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -10754,11 +10952,47 @@
       }
     },
     {
+      "file": "content/site/civil-practice/construction-materials-overview/img/figure-elastic-modulus-scale.svg",
+      "category": "civil-practice",
+      "slug": "construction-materials-overview",
+      "name": "figure-elastic-modulus-scale.svg",
+      "concept": "弾性係数の目安を、棒の長さを値に比例させて並べた図。鋼は200、設計基準強度30のコンクリートは28、製材は5から15。単位はキロニュートン毎平方ミリメートル。樹脂とゴムは製品の試験成績で確かめる。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-practice/construction-materials-overview/img/figure-materials-by-role.svg",
       "category": "civil-practice",
       "slug": "construction-materials-overview",
       "name": "figure-materials-by-role.svg",
-      "concept": "道路と鉄道の断面を、構造物の四つの役割に対応づけた図。役割は、支える土、荷重を渡す、走行面、守りの四つで、荷重を渡すのは橋。道路の断面では、盛土と路床は土、路盤は砕石、表層と基層はアスファルト混合物、のり面保護は植生やブロック、防護柵は附属物や二次製品。鉄道の断面では、レール、まくらぎ、砕石の道床が走行面で、その下の路盤が支える土。荷重は層を通って広がりながら下へ伝わる。",
+      "concept": "道路・鉄道・橋と港湾を、構造物の四つの役割と材料に対応づけた図。道路は盛土と路床が土、路盤が砕石、表層と基層がアスファルト混合物、のり面保護が植生やブロック、防護柵が附属物や二次製品。鉄道はレールが鋼、まくらぎがコンクリート、砕石の道床が走行面で、路盤が砕石。荷重を渡す橋の主桁は鋼、橋脚はコンクリート、港湾のケーソンはコンクリート、鋼管杭は鋼。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/construction-materials-overview/img/figure-recycling-rates.svg",
+      "category": "civil-practice",
+      "slug": "construction-materials-overview",
+      "name": "figure-recycling-rates.svg",
+      "concept": "平成30年度の建設副産物の率を、指標の名前ごとに色分けして並べた図。アスファルト・コンクリート塊99.5と、コンクリート塊99.3は再資源化率。建設発生木材96.2、建設汚泥94.6、建設廃棄物全体97.2は再資源化・縮減率。建設発生土79.8は有効利用率。建設混合廃棄物3.1は排出率。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -14120,11 +14354,47 @@
       }
     },
     {
+      "file": "content/site/civil-practice/ready-mixed-concrete-ordering/img/figure-max-aggregate-size-choice.svg",
+      "category": "civil-practice",
+      "slug": "ready-mixed-concrete-ordering",
+      "name": "figure-max-aggregate-size-choice.svg",
+      "concept": "粗骨材の最大寸法の選び方。最小断面寸法が500mm程度以上、かつ鋼材の最小のあきとかぶりの3/4が40mm以上なら40mm。それ以外は20mmまたは25mm。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-practice/ready-mixed-concrete-ordering/img/figure-ordering-code-reading.svg",
       "category": "civil-practice",
       "slug": "ready-mixed-concrete-ordering",
       "name": "figure-ordering-code-reading.svg",
-      "concept": "生コンの呼び方「普通 24 12 20 N」の読み方を、引き出し線で示した図。普通はコンクリートの種類で普通コンクリート、24は呼び強度、12はスランプ12cm、20は粗骨材の最大寸法20mm、Nはセメントの種類で普通ポルトランドセメント。下段に、セメントの記号の例と、呼び方に出ないので別に書いて注文する骨材の種類とアルカリシリカ反応の抑制対策を示す。",
+      "concept": "生コンの呼び方「普通 24 12 20 N」の読み方を引き出し線で示した図。規格が購入者に必ず指定を求める四事項のうち、セメントの種類Nと粗骨材の最大寸法20は呼び方に出るが、骨材の種類とアルカリシリカ反応の抑制対策は呼び方に出ないので別に書いて注文する。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/ready-mixed-concrete-ordering/img/figure-unspecified-defaults.svg",
+      "category": "civil-practice",
+      "slug": "ready-mixed-concrete-ordering",
+      "name": "figure-unspecified-defaults.svg",
+      "concept": "呼び方に出ない指定事項を、指定しないときの扱いで三つに分けた図。書かなくても規格の値が適用される項目、書かなければ工場が決める項目、現場条件で書く項目。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
