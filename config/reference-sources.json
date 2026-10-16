@@ -7835,11 +7835,11 @@
     },
     {
       "id": "mlit-keishin-administration-notice",
-      "title": "経営事項審査の事務取扱いについて（通知）（国土交通省・平成20年1月31日国総建第269号・最終改正 令和6年12月17日国不建第126号の掲載版）",
+      "title": "経営事項審査の事務取扱いについて（通知）（国土交通省・平成20年1月31日国総建第269号・令和8年2月6日国不建第177号による改正後 令和8年7月1日施行の全文版）",
       "class": "external-primary",
       "origin": {
         "kind": "external",
-        "url": "https://www.mlit.go.jp/totikensangyo/const/content/001852368.pdf"
+        "url": "https://www.mlit.go.jp/tochi_fudousan_kensetsugyo/const/content/001982607.pdf"
       }
     },
     {
@@ -7848,7 +7848,7 @@
       "class": "government-publication",
       "origin": {
         "kind": "external",
-        "url": "https://www.mlit.go.jp/common/000142143.pdf"
+        "url": "https://www.mlit.go.jp/common/000011839.pdf"
       }
     },
     {
@@ -7857,7 +7857,7 @@
       "class": "government-publication",
       "origin": {
         "kind": "external",
-        "url": "https://www.mlit.go.jp/common/000142144.pdf"
+        "url": "https://www.mlit.go.jp/common/000011840.pdf"
       }
     },
     {
@@ -7866,7 +7866,7 @@
       "class": "government-publication",
       "origin": {
         "kind": "external",
-        "url": "https://www.mlit.go.jp/common/000142141.pdf"
+        "url": "https://www.mlit.go.jp/common/000011841.pdf"
       }
     },
     {
@@ -8093,6 +8093,24 @@
       "origin": {
         "kind": "external",
         "url": "https://www.mlit.go.jp/plateau/file/libraries/doc/plateau_doc_0001_ver051.pdf"
+      }
+    },
+    {
+      "id": "ktr-construction-license-handbook",
+      "title": "建設業許可申請・変更の手引き（国土交通省 関東地方整備局・令和7年12月更新）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.ktr.mlit.go.jp/ktr_content/content/000827696.pdf"
+      }
+    },
+    {
+      "id": "mlit-compliance-headquarters-activity-2026-05-reference",
+      "title": "令和7年度「建設業法令遵守推進本部」の活動結果 参考資料（国土交通省・令和8年5月）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/totikensangyo/const/content/002004333.pdf"
       }
     }
   ]
