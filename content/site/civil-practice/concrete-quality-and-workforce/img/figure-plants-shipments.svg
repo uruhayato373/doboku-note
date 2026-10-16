@@ -1,35 +1,34 @@
-<!-- authored 2026-10-15 doboku-note 自作。数値は本文に書いたレディーミクストコンクリートの工場数（平成14年・平成30年）と出荷量（平成2年度・平成30年度）だけ。棒の高さは各グラフの0からの比で、工場数と出荷量は別の目盛り。特定の書籍図の複製ではない -->
-<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="レディーミクストコンクリートの工場数と出荷量の変化を示す棒グラフ。工場数は平成14年の4,449工場から平成30年の3,298工場へ減った。出荷量は平成2年度のピーク1億9,800万立方メートルから平成30年度の8,550万立方メートルへ減った。">
+<!-- authored 2026-10-15 doboku-note 自作（2026-10-16 改訂）。数値は本文に書いた工場数（平成14年・平成30年）、出荷量（平成2年度・平成30年度）、昭和62年末のJISマーク許可（製造企業4,640社のうち3,339社）だけ。棒の高さは各帯の0からの比で、工場数と出荷量は別の目盛り。工場数・出荷量と企業数は基準年が違い、並べて増減は言えない。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="レディーミクストコンクリートの工場数は平成14年の4,449から平成30年の3,298へ、出荷量は平成2年度のピーク1億9,800万立方メートルから平成30年度の8,550万立方メートルへ減った。別の時点として、昭和62年末は製造企業4,640社のうち3,339社が約7割でJISマークの表示許可を受けていた。">
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }
       .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
-      .val { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .val { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
       .yr { font-size: 12px; fill: #222; }
       .zone { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
       .ax { stroke: #8a8a8a; stroke-width: 1; fill: none; }
-      .ba { fill: #fff; stroke: #8a8a8a; stroke-width: 1.5; } /* surface / ink-muted */
-      .bb { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; } /* brand-fill / brand */
+      .ba { fill: #fff; stroke: #8a8a8a; stroke-width: 1.5; }
+      .bb { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .bp { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
     </style>
   </defs>
 
-  <rect class="zone" x="16" y="10" width="368" height="226" rx="8"/>
-  <text class="n" x="28" y="36">工場数</text>
-  <path class="ax" d="M40,200H360"/>
-  <rect class="ba" x="80" y="70.0" width="80" height="130.0"/>
-  <text class="val" x="120" y="62.0" text-anchor="middle">4,449工場</text>
-  <text class="yr" x="120" y="220" text-anchor="middle">平成14年</text>
-  <rect class="bb" x="240" y="103.6" width="80" height="96.4"/>
-  <text class="val" x="280" y="95.6" text-anchor="middle">3,298工場</text>
-  <text class="yr" x="280" y="220" text-anchor="middle">平成30年</text>
-
-  <rect class="zone" x="16" y="252" width="368" height="226" rx="8"/>
-  <text class="n" x="28" y="278">出荷量</text>
-  <path class="ax" d="M40,442H360"/>
-  <rect class="ba" x="80" y="312.0" width="80" height="130.0"/>
-  <text class="val" x="120" y="304.0" text-anchor="middle">1億9,800万m³</text>
-  <text class="yr" x="120" y="462" text-anchor="middle">平成2年度（ピーク）</text>
-  <rect class="bb" x="240" y="385.9" width="80" height="56.1"/>
-  <text class="val" x="280" y="377.9" text-anchor="middle">8,550万m³</text>
-  <text class="yr" x="280" y="462" text-anchor="middle">平成30年度</text>
+  <rect class="zone" x="16" y="8" width="368" height="146" rx="8"/>
+  <text class="n" x="28" y="32">工場数（平成14年 → 平成30年）</text>
+  <path class="ax" d="M40,126H360"/>
+  <rect class="ba" x="80" y="64" width="80" height="62"/><text class="val" x="120" y="56" text-anchor="middle">4,449工場</text><text class="yr" x="120" y="144" text-anchor="middle">平成14年</text>
+  <rect class="bb" x="240" y="80" width="80" height="46"/><text class="val" x="280" y="72" text-anchor="middle">3,298工場</text><text class="yr" x="280" y="144" text-anchor="middle">平成30年</text>
+  <rect class="zone" x="16" y="162" width="368" height="146" rx="8"/>
+  <text class="n" x="28" y="186">出荷量（平成2年度のピーク → 平成30年度）</text>
+  <path class="ax" d="M40,280H360"/>
+  <rect class="ba" x="80" y="218" width="80" height="62"/><text class="val" x="120" y="210" text-anchor="middle">1億9,800万m³</text><text class="yr" x="120" y="298" text-anchor="middle">平成2年度</text>
+  <rect class="bb" x="240" y="253" width="80" height="27"/><text class="val" x="280" y="245" text-anchor="middle">8,550万m³</text><text class="yr" x="280" y="298" text-anchor="middle">平成30年度</text>
+  <rect class="zone" x="16" y="316" width="368" height="146" rx="8"/>
+  <text class="n" x="28" y="340">JISマーク許可（昭和62年末・企業数）</text>
+  <rect class="bp" x="30" y="354" width="245" height="40"/><rect class="ba" x="275" y="354" width="95" height="40"/>
+  <text class="val" x="152" y="379" text-anchor="middle">許可 3,339社（約7割）</text>
+  <text class="yr" x="322" y="379" text-anchor="middle">残り</text>
+  <text x="30" y="414">製造企業 4,640社のうち</text>
+  <text x="30" y="434">上の工場数とは、時点も単位も違う</text>
 </svg>
