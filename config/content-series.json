@@ -1736,6 +1736,184 @@
           ]
         }
       ]
+    },
+    {
+      "id": "survey-informatics",
+      "title": "測量・情報化",
+      "audience": "地図・測量・3次元・台帳・センサのデータを扱い始めた技術者（自治体・コンサル・施工会社）。測量士の受験者の入口にもなる",
+      "area": "practice",
+      "policy": "docs/strategy/19_測量・情報化シリーズと教材の配線2026-10.md",
+      "gate": "2026-10-16 の運営者判断で、教材（土木情報学）の配線と骨子を先に作る。新規 9 章は骨子を運営者が確かめてから書く",
+      "entry": {
+        "hubItem": "G-00",
+        "curriculum": "civil-practice:survey-informatics"
+      },
+      "sections": [
+        {
+          "title": "位置と地図",
+          "items": [
+            {
+              "id": "G-00",
+              "title": "測量・情報化の全体像 — 位置・地図・3次元・センサ・データのつながり",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/survey-informatics-overview/article.mdx"
+              ]
+            },
+            {
+              "id": "G-01",
+              "title": "座標系と測地系 — 緯度経度・平面直角座標系・標高とジオイド",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/coordinate-systems-geodetic-datum/article.mdx"
+              ]
+            },
+            {
+              "id": "G-02",
+              "title": "GNSS 測位の基礎",
+              "plan": "existing",
+              "paths": [
+                "content/site/civil-practice/gnss-positioning-basics/article.mdx"
+              ]
+            },
+            {
+              "id": "G-03",
+              "title": "GIS の重ね合わせと空間解析",
+              "plan": "existing",
+              "paths": [
+                "content/site/civil-practice/gis-layer-validation/article.mdx"
+              ]
+            },
+            {
+              "id": "G-04",
+              "title": "公開されている地理空間データの使い方 — 地理院地図・国土数値情報・3D都市モデル・ハザードマップ",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/open-geospatial-data/article.mdx"
+              ]
+            },
+            {
+              "id": "G-05",
+              "title": "自治体の GIS — 統合型・公開型と台帳のデジタル化",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/municipal-gis/article.mdx"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "3次元で測る・つくる",
+          "items": [
+            {
+              "id": "G-06",
+              "title": "3次元計測の選び方 — 航空レーザ・UAV・MMS・地上レーザと点群",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/3d-measurement-selection/article.mdx"
+              ]
+            },
+            {
+              "id": "G-07",
+              "title": "写真と画像から読み取る — 画像のデジタル化・処理・写真測量・点検画像",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/image-photogrammetry-analysis/article.mdx"
+              ]
+            },
+            {
+              "id": "G-08",
+              "title": "CAD と3次元モデルの見せ方 — 2次元・3次元 CAD・CG・VR/AR",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/cad-3d-model-visualization/article.mdx"
+              ]
+            },
+            {
+              "id": "G-09",
+              "title": "ICT 施工の実務ワークフロー",
+              "plan": "existing",
+              "paths": [
+                "content/site/civil-practice/ict-construction-workflow/article.mdx"
+              ]
+            },
+            {
+              "id": "G-10",
+              "title": "BIM/CIM の現場実務",
+              "plan": "existing",
+              "paths": [
+                "content/site/civil-practice/bim-cim-site-practice/article.mdx"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "現場のデータをつなぐ",
+          "items": [
+            {
+              "id": "G-11",
+              "title": "計測とセンサの選び方",
+              "plan": "existing",
+              "paths": [
+                "content/site/civil-practice/monitoring-sensor-selection/article.mdx"
+              ]
+            },
+            {
+              "id": "G-12",
+              "title": "現場の無線通信",
+              "plan": "existing",
+              "paths": [
+                "content/site/civil-practice/site-wireless-communication/article.mdx"
+              ]
+            },
+            {
+              "id": "G-13",
+              "title": "制御と自動化施工 — フィードバック制御から建設機械の自動化まで",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/construction-automation-control/article.mdx"
+              ]
+            },
+            {
+              "id": "G-14",
+              "title": "台帳データの設計",
+              "plan": "existing",
+              "paths": [
+                "content/site/civil-practice/ledger-data-design/article.mdx"
+              ]
+            },
+            {
+              "id": "G-15",
+              "title": "品質記録の保全と BCP",
+              "plan": "existing",
+              "paths": [
+                "content/site/civil-practice/quality-record-site-bcp/article.mdx"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "計算と情報システム",
+          "items": [
+            {
+              "id": "G-16",
+              "title": "数値解析モデルの確かめ方",
+              "plan": "existing",
+              "paths": [
+                "content/site/civil-practice/numerical-model-review/article.mdx"
+              ]
+            },
+            {
+              "id": "G-17",
+              "title": "情報システムの調達と運用 — ハードウェア・ネットワーク・クラウド・運用管理",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/information-system-procurement/article.mdx"
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }

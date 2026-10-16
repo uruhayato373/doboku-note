@@ -644,22 +644,28 @@
             "ccus-kentaikyo-site",
             "reading-civil-drawings",
             "construction-plan-document",
-            "quality-record-site-bcp",
             "reference-values",
             "schedule-and-road-permit",
             "typhoon-forecast-work-planning",
             "environment-neighborhood",
             "environmental-impact-assessment-flow",
             "nature-conservation-mitigation",
-            "ict-construction-workflow",
-            "gnss-positioning-basics",
-            "site-wireless-communication",
-            "monitoring-sensor-selection",
-            "bim-cim-site-practice",
-            "gis-layer-validation",
-            "ledger-data-design",
-            "numerical-model-review",
             "ai-document-verification"
+          ]
+        },
+        {
+          "id": "survey-informatics",
+          "label": "測量・情報化（座標・GIS・3次元計測・ICT施工・現場のデータ）",
+          "slugs": [
+            "gnss-positioning-basics",
+            "gis-layer-validation",
+            "ict-construction-workflow",
+            "bim-cim-site-practice",
+            "monitoring-sensor-selection",
+            "site-wireless-communication",
+            "ledger-data-design",
+            "quality-record-site-bcp",
+            "numerical-model-review"
           ]
         },
         {

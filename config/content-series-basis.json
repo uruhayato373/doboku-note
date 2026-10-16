@@ -15754,227 +15754,96 @@
         "u0005": {
           "excluded": "前付け"
         },
-        "u0007": {
-          "excluded": "導入の概説",
-          "revisit": true
-        },
-        "u0008": {
-          "excluded": "導入の概説",
-          "revisit": true
-        },
-        "u0009": {
-          "excluded": "導入の概説",
-          "revisit": true
-        },
+        "u0007": "survey-informatics/G-00",
+        "u0008": "survey-informatics/G-00",
+        "u0009": "survey-informatics/G-00",
         "u0010": {
           "excluded": "参考文献"
         },
-        "u0011": {
-          "excluded": "導入の概説",
-          "revisit": true
-        },
+        "u0011": "survey-informatics/G-00",
         "u0012": {
           "article": "content/site/civil-practice/earth-retaining-displacement/article.mdx"
         },
-        "u0013": {
-          "article": "content/site/civil-practice/gnss-positioning-basics/article.mdx"
-        },
-        "u0014": {
-          "article": "content/site/civil-practice/ict-construction-workflow/article.mdx"
-        },
-        "u0015": {
-          "article": "content/site/civil-practice/gis-layer-validation/article.mdx"
-        },
-        "u0016": {
-          "article": "content/site/civil-practice/ict-construction-workflow/article.mdx"
-        },
-        "u0017": {
-          "article": "content/site/civil-practice/ict-construction-workflow/article.mdx"
-        },
-        "u0018": {
-          "article": "content/site/civil-practice/ict-construction-workflow/article.mdx"
-        },
-        "u0019": {
-          "excluded": "測位計算の導出",
-          "revisit": true
-        },
-        "u0020": {
-          "article": "content/site/civil-practice/ict-construction-workflow/article.mdx"
-        },
-        "u0021": {
-          "article": "content/site/civil-practice/ict-construction-workflow/article.mdx"
-        },
-        "u0022": {
-          "article": "content/site/civil-practice/ict-construction-workflow/article.mdx"
-        },
-        "u0023": {
-          "article": "content/site/civil-practice/ict-construction-workflow/article.mdx"
-        },
-        "u0024": {
-          "article": "content/site/civil-practice/ict-construction-workflow/article.mdx"
-        },
-        "u0025": {
-          "article": "content/site/civil-practice/ict-construction-workflow/article.mdx"
-        },
-        "u0026": {
-          "article": "content/site/civil-practice/ict-construction-workflow/article.mdx"
-        },
-        "u0027": {
-          "article": "content/site/civil-practice/ict-construction-workflow/article.mdx"
-        },
-        "u0029": {
-          "article": "content/site/civil-practice/site-wireless-communication/article.mdx"
-        },
+        "u0013": "survey-informatics/G-02",
+        "u0014": "survey-informatics/G-09",
+        "u0015": "survey-informatics/G-01",
+        "u0016": "survey-informatics/G-09",
+        "u0017": "survey-informatics/G-09",
+        "u0018": "survey-informatics/G-09",
+        "u0019": "survey-informatics/G-01",
+        "u0020": "survey-informatics/G-09",
+        "u0021": "survey-informatics/G-06",
+        "u0022": "survey-informatics/G-06",
+        "u0023": "survey-informatics/G-06",
+        "u0024": "survey-informatics/G-06",
+        "u0025": "survey-informatics/G-06",
+        "u0026": "survey-informatics/G-06",
+        "u0027": "survey-informatics/G-06",
+        "u0029": "survey-informatics/G-12",
         "u0030": {
           "article": "content/site/pe-comprehensive-management/iot/article.mdx"
         },
-        "u0031": {
-          "excluded": "規格の羅列",
-          "revisit": true
-        },
-        "u0032": {
-          "article": "content/site/civil-practice/site-wireless-communication/article.mdx"
-        },
-        "u0033": {
-          "article": "content/site/civil-practice/site-wireless-communication/article.mdx"
-        },
+        "u0031": "survey-informatics/G-12",
+        "u0032": "survey-informatics/G-12",
+        "u0033": "survey-informatics/G-12",
         "u0034": {
           "article": "content/site/pe-comprehensive-management/inventory-control/article.mdx"
         },
-        "u0035": {
-          "article": "content/site/civil-practice/ict-construction-workflow/article.mdx"
-        },
-        "u0036": {
-          "excluded": "制御理論の歴史",
-          "revisit": true
-        },
-        "u0037": {
-          "article": "content/site/civil-practice/ict-construction-workflow/article.mdx"
-        },
-        "u0038": {
-          "excluded": "制御理論の数理",
-          "revisit": true
-        },
+        "u0035": "survey-informatics/G-13",
+        "u0036": "survey-informatics/G-13",
+        "u0037": "survey-informatics/G-13",
+        "u0038": "survey-informatics/G-13",
         "u0039": {
           "excluded": "参考文献"
         },
-        "u0042": {
-          "excluded": "CADの概説",
-          "revisit": true
-        },
-        "u0043": {
-          "article": "content/site/civil-practice/ict-construction-workflow/article.mdx"
-        },
-        "u0044": {
-          "article": "content/site/civil-practice/ict-construction-workflow/article.mdx"
-        },
-        "u0045": {
-          "excluded": "図形処理の数理",
-          "revisit": true
-        },
-        "u0046": {
-          "article": "content/site/civil-practice/gis-layer-validation/article.mdx"
-        },
-        "u0047": {
-          "article": "content/site/civil-practice/gis-layer-validation/article.mdx"
-        },
-        "u0048": {
-          "article": "content/site/civil-practice/gis-layer-validation/article.mdx"
-        },
-        "u0049": {
-          "excluded": "幾何アルゴリズムの理論",
-          "revisit": true
-        },
+        "u0042": "survey-informatics/G-08",
+        "u0043": "survey-informatics/G-08",
+        "u0044": "survey-informatics/G-08",
+        "u0045": "survey-informatics/G-08",
+        "u0046": "survey-informatics/G-03",
+        "u0047": "survey-informatics/G-03",
+        "u0048": "survey-informatics/G-03",
+        "u0049": "survey-informatics/G-03",
         "u0050": {
           "excluded": "本の中で重複"
         },
-        "u0051": {
-          "article": "content/site/civil-practice/bim-cim-site-practice/article.mdx"
-        },
-        "u0054": {
-          "excluded": "画像処理の基礎理論",
-          "revisit": true
-        },
-        "u0055": {
-          "article": "content/site/civil-practice/quality-record-site-bcp/article.mdx"
-        },
-        "u0056": {
-          "excluded": "画像処理の基礎理論",
-          "revisit": true
-        },
-        "u0057": {
-          "excluded": "画像処理の基礎理論",
-          "revisit": true
-        },
-        "u0058": {
-          "excluded": "画像処理の基礎理論",
-          "revisit": true
-        },
-        "u0060": {
-          "excluded": "CG描画理論",
-          "revisit": true
-        },
-        "u0061": {
-          "excluded": "CG描画理論",
-          "revisit": true
-        },
-        "u0062": {
-          "excluded": "CG描画理論",
-          "revisit": true
-        },
-        "u0063": {
-          "excluded": "CG描画理論",
-          "revisit": true
-        },
-        "u0065": {
-          "article": "content/site/pe-comprehensive-management/vr-ar-metaverse/article.mdx"
-        },
-        "u0066": {
-          "article": "content/site/pe-comprehensive-management/vr-ar-metaverse/article.mdx"
-        },
-        "u0068": {
-          "article": "content/site/civil-practice/numerical-model-review/article.mdx"
-        },
-        "u0070": {
-          "article": "content/site/civil-practice/numerical-model-review/article.mdx"
-        },
-        "u0071": {
-          "article": "content/site/civil-practice/numerical-model-review/article.mdx"
-        },
-        "u0072": {
-          "article": "content/site/civil-practice/numerical-model-review/article.mdx"
-        },
+        "u0051": "survey-informatics/G-10",
+        "u0054": "survey-informatics/G-07",
+        "u0055": "survey-informatics/G-07",
+        "u0056": "survey-informatics/G-07",
+        "u0057": "survey-informatics/G-07",
+        "u0058": "survey-informatics/G-07",
+        "u0060": "survey-informatics/G-08",
+        "u0061": "survey-informatics/G-08",
+        "u0062": "survey-informatics/G-08",
+        "u0063": "survey-informatics/G-08",
+        "u0065": "survey-informatics/G-08",
+        "u0066": "survey-informatics/G-08",
+        "u0068": "survey-informatics/G-16",
+        "u0070": "survey-informatics/G-16",
+        "u0071": "survey-informatics/G-16",
+        "u0072": "survey-informatics/G-16",
         "u0073": {
           "excluded": "本の中で重複"
         },
         "u0075": {
           "article": "content/site/pe-first-stage/guide-calculus-numerical-calculation/article.mdx"
         },
-        "u0076": {
-          "article": "content/site/civil-practice/numerical-model-review/article.mdx"
-        },
+        "u0076": "survey-informatics/G-16",
         "u0077": {
-          "excluded": "数値計算アルゴリズムの導出",
-          "revisit": true
+          "excluded": "数値計算アルゴリズムの導出（連立方程式の解法。実務の判断に使わない）"
         },
-        "u0078": {
-          "article": "content/site/civil-practice/numerical-model-review/article.mdx"
-        },
+        "u0078": "survey-informatics/G-16",
         "u0079": {
-          "excluded": "計算機の高速化技術",
-          "revisit": true
+          "excluded": "計算機の高速化技術（実務の判断に使わない）"
         },
         "u0080": {
-          "excluded": "計算機の高速化技術",
-          "revisit": true
+          "excluded": "計算機の高速化技術（実務の判断に使わない）"
         },
         "u0081": {
-          "excluded": "計算機の高速化技術",
-          "revisit": true
+          "excluded": "計算機の高速化技術（実務の判断に使わない）"
         },
-        "u0082": {
-          "article": "content/site/civil-practice/numerical-model-review/article.mdx"
-        },
+        "u0082": "survey-informatics/G-16",
         "u0085": {
           "article": "content/site/pe-comprehensive-management/descriptive-statistics/article.mdx"
         },
@@ -15982,130 +15851,59 @@
           "article": "content/site/pe-comprehensive-management/linear-regression/article.mdx"
         },
         "u0087": {
-          "excluded": "統計手法の理論",
-          "revisit": true
+          "excluded": "統計手法の理論（数量化 I 類の導出。総監のキーワード記事で足りる）"
         },
-        "u0089": {
-          "article": "content/site/civil-practice/numerical-model-review/article.mdx"
-        },
-        "u0090": {
-          "article": "content/site/civil-practice/numerical-model-review/article.mdx"
-        },
-        "u0091": {
-          "article": "content/site/civil-practice/numerical-model-review/article.mdx"
-        },
-        "u0093": {
-          "article": "content/site/civil-practice/numerical-model-review/article.mdx"
-        },
+        "u0089": "survey-informatics/G-16",
+        "u0090": "survey-informatics/G-16",
+        "u0091": "survey-informatics/G-16",
+        "u0093": "survey-informatics/G-16",
         "u0094": {
           "article": "content/site/pe-comprehensive-management/linear-programming/article.mdx"
         },
-        "u0096": {
-          "excluded": "アルゴリズム理論",
-          "revisit": true
-        },
-        "u0097": {
-          "excluded": "アルゴリズム理論",
-          "revisit": true
-        },
+        "u0096": "survey-informatics/G-03",
+        "u0097": "survey-informatics/G-03",
         "u0098": {
           "article": "content/site/pe-comprehensive-management/pert-cpm/article.mdx"
         },
-        "u0100": {
-          "article": "content/site/civil-practice/numerical-model-review/article.mdx"
-        },
-        "u0101": {
-          "article": "content/site/civil-practice/numerical-model-review/article.mdx"
-        },
-        "u0103": {
-          "article": "content/site/civil-practice/numerical-model-review/article.mdx"
-        },
-        "u0104": {
-          "article": "content/site/civil-practice/numerical-model-review/article.mdx"
-        },
+        "u0100": "survey-informatics/G-16",
+        "u0101": "survey-informatics/G-16",
+        "u0103": "survey-informatics/G-16",
+        "u0104": "survey-informatics/G-16",
         "u0105": {
-          "excluded": "実装の詳細",
-          "revisit": true
+          "excluded": "遺伝的アルゴリズムの実装の詳細（実務の判断に使わない）"
         },
-        "u0106": {
-          "article": "content/site/civil-practice/numerical-model-review/article.mdx"
-        },
-        "u0107": {
-          "article": "content/site/civil-practice/numerical-model-review/article.mdx"
-        },
-        "u0109": {
-          "article": "content/site/civil-practice/numerical-model-review/article.mdx"
-        },
-        "u0110": {
-          "article": "content/site/civil-practice/numerical-model-review/article.mdx"
-        },
-        "u0111": {
-          "article": "content/site/civil-practice/numerical-model-review/article.mdx"
-        },
+        "u0106": "survey-informatics/G-16",
+        "u0107": "survey-informatics/G-16",
+        "u0109": "survey-informatics/G-16",
+        "u0110": "survey-informatics/G-16",
+        "u0111": "survey-informatics/G-16",
         "u0113": {
           "article": "content/site/pe-comprehensive-management/machine-learning/article.mdx"
         },
-        "u0114": {
-          "article": "content/site/civil-practice/numerical-model-review/article.mdx"
-        },
+        "u0114": "survey-informatics/G-16",
         "u0115": {
-          "excluded": "数式の導出",
-          "revisit": true
+          "excluded": "ニューラルネットワークの数式の導出（概念は総監の機械学習の記事で足りる）"
         },
         "u0116": {
-          "excluded": "数式の導出",
-          "revisit": true
+          "excluded": "ニューラルネットワークの数式の導出（概念は総監の機械学習の記事で足りる）"
         },
         "u0117": {
           "article": "content/site/pe-comprehensive-management/machine-learning/article.mdx"
         },
-        "u0118": {
-          "excluded": "ソフトウェア工学の概説",
-          "revisit": true
-        },
-        "u0119": {
-          "article": "content/site/civil-practice/ledger-data-design/article.mdx"
-        },
-        "u0120": {
-          "excluded": "ソフトウェア開発手法",
-          "revisit": true
-        },
-        "u0121": {
-          "excluded": "ソフトウェア開発の記法",
-          "revisit": true
-        },
-        "u0122": {
-          "article": "content/site/civil-practice/ledger-data-design/article.mdx"
-        },
-        "u0123": {
-          "article": "content/site/civil-practice/ledger-data-design/article.mdx"
-        },
-        "u0124": {
-          "article": "content/site/civil-practice/ledger-data-design/article.mdx"
-        },
-        "u0125": {
-          "article": "content/site/civil-practice/ledger-data-design/article.mdx"
-        },
-        "u0126": {
-          "article": "content/site/civil-practice/ledger-data-design/article.mdx"
-        },
-        "u0127": {
-          "article": "content/site/civil-practice/ledger-data-design/article.mdx"
-        },
-        "u0128": {
-          "article": "content/site/civil-practice/ledger-data-design/article.mdx"
-        },
-        "u0130": {
-          "excluded": "用語定義の導入"
-        },
-        "u0131": {
-          "excluded": "コンピュータの基礎",
-          "revisit": true
-        },
-        "u0132": {
-          "excluded": "コンピュータの基礎",
-          "revisit": true
-        },
+        "u0118": "survey-informatics/G-14",
+        "u0119": "survey-informatics/G-14",
+        "u0120": "survey-informatics/G-14",
+        "u0121": "survey-informatics/G-14",
+        "u0122": "survey-informatics/G-14",
+        "u0123": "survey-informatics/G-14",
+        "u0124": "survey-informatics/G-14",
+        "u0125": "survey-informatics/G-14",
+        "u0126": "survey-informatics/G-14",
+        "u0127": "survey-informatics/G-14",
+        "u0128": "survey-informatics/G-14",
+        "u0130": "survey-informatics/G-17",
+        "u0131": "survey-informatics/G-17",
+        "u0132": "survey-informatics/G-17",
         "u0133": {
           "excluded": "本の中で重複"
         },
@@ -16115,25 +15913,13 @@
         "u0136": {
           "article": "content/site/pe-comprehensive-management/internet/article.mdx"
         },
-        "u0137": {
-          "excluded": "通信プロトコルの詳細",
-          "revisit": true
-        },
+        "u0137": "survey-informatics/G-17",
         "u0138": {
           "article": "content/site/pe-comprehensive-management/internet/article.mdx"
         },
-        "u0139": {
-          "excluded": "通信プロトコルの詳細",
-          "revisit": true
-        },
-        "u0140": {
-          "excluded": "通信プロトコルの詳細",
-          "revisit": true
-        },
-        "u0142": {
-          "excluded": "IT基盤技術",
-          "revisit": true
-        },
+        "u0139": "survey-informatics/G-17",
+        "u0140": "survey-informatics/G-17",
+        "u0142": "survey-informatics/G-17",
         "u0143": {
           "article": "content/site/pe-comprehensive-management/cloud-on-premises/article.mdx"
         },
@@ -16143,10 +15929,7 @@
         "u0146": {
           "article": "content/site/pe-comprehensive-management/api/article.mdx"
         },
-        "u0147": {
-          "excluded": "IT運用管理",
-          "revisit": true
-        },
+        "u0147": "survey-informatics/G-17",
         "u0149": {
           "article": "content/site/pe-comprehensive-management/confidentiality/article.mdx"
         },
@@ -16162,22 +15945,11 @@
         "u0153": {
           "article": "content/site/pe-comprehensive-management/vulnerability/article.mdx"
         },
-        "u0155": {
-          "excluded": "導入の概説",
-          "revisit": true
-        },
-        "u0156": {
-          "article": "content/site/civil-practice/bim-cim-site-practice/article.mdx"
-        },
-        "u0157": {
-          "article": "content/site/civil-practice/bim-cim-site-practice/article.mdx"
-        },
-        "u0158": {
-          "article": "content/site/civil-practice/ict-construction-workflow/article.mdx"
-        },
-        "u0159": {
-          "article": "content/site/civil-practice/bim-cim-site-practice/article.mdx"
-        },
+        "u0155": "survey-informatics/G-00",
+        "u0156": "survey-informatics/G-00",
+        "u0157": "survey-informatics/G-00",
+        "u0158": "survey-informatics/G-00",
+        "u0159": "survey-informatics/G-00",
         "u0160": {
           "excluded": "章末の総括と索引"
         },
