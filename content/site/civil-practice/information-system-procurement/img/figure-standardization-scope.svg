@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="標準化の対象かどうかを事務の名前で分ける図。政令の20事務に載れば標準化基準に適合する義務を負い、道路台帳などは直接は負わないが、庁内の共通基盤の更新時期の影響は受ける">
+<defs><style>
+text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 13px; fill: #222; }
+.h { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+.s { font-size: 12px; fill: #555; }
+.b { font-weight: bold; }
+.a { fill: #2e6da4; }
+</style></defs>
+<rect width="400" height="500" fill="#ffffff"/>
+<rect x="15" y="14" width="370" height="64" rx="8" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+<text class="h" x="200" y="42" text-anchor="middle">その事務の名前は、政令の対象に載るか</text>
+<text class="s" x="200" y="64" text-anchor="middle">現時点で20事務（デジタル庁の頁で確かめる）</text>
+<path class="a" d="M98 82h12l-6 12z"/><path class="a" d="M290 82h12l-6 12z"/>
+<rect x="15" y="98" width="178" height="236" rx="8" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+<text class="h" x="27" y="122">載る：標準化の対象</text>
+<text x="27" y="148">住民基本台帳</text><text x="27" y="170">戸籍</text><text x="27" y="192">固定資産税</text><text x="27" y="214">個人住民税</text><text x="27" y="236">介護保険</text><text x="27" y="258">国民年金など</text>
+<text class="b" x="27" y="292">標準化基準に適合</text><text class="b" x="27" y="312">する義務を負う</text>
+<rect x="207" y="98" width="178" height="236" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text class="h" x="219" y="122">載らない：対象外</text>
+<text x="219" y="148">道路・河川・下水道</text><text x="219" y="170">都市計画・GIS</text><text x="219" y="192">に関する事務</text>
+<text class="s" x="219" y="228">例：道路台帳のシステム</text>
+<text class="b" x="219" y="292">標準準拠の義務は</text><text class="b" x="219" y="312">直接は負わない</text>
+<rect x="15" y="348" width="370" height="140" rx="8" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+<text class="h" x="27" y="374">対象外でも、影響は受ける</text>
+<text x="27" y="400">庁内の共通基盤・ネットワークの更新</text>
+<text x="27" y="422">移行作業の時期は、情報部門の計画が基準</text>
+<text class="b" x="27" y="452">標準準拠システムとの連携と</text>
+<text class="b" x="27" y="472">移行時期を、早めに確かめる</text>
+</svg>
