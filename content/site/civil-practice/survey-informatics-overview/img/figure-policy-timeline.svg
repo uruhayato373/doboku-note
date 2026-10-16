@@ -1,0 +1,55 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は地理空間情報活用推進基本法と基本計画、インフラ分野のDXアクションプラン、i-Construction 2.0 の関係と版・日付（内閣官房・国土交通省の公表資料）。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="国の方針を年表に置いた図。地理空間情報活用推進基本法に基づく基本計画は第4期が令和4年3月18日に閣議決定され、G空間行動プラン2026は令和8年6月5日付。インフラ分野のDXアクションプランは第1版が令和4年3月30日、第2版が令和5年8月8日。i-Construction 2.0 は令和6年4月で、インフラDXのうち建設現場の取組。">
+  <defs>
+  <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #222; }
+      .b { font-weight: bold; fill: #1a3a5c; }
+      .m { fill: #555; }
+      .t12 { font-size: 12px; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .sf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .wh { fill: #fff; stroke: #2e6da4; stroke-width: 1.5; }
+      .grid { stroke: #d7d7d7; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .ax { stroke: #555; stroke-width: 1.5; fill: none; }
+      .ar { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+  </style>
+  <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="ak" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  <marker id="as" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+  <text class="b" x="167" y="22" text-anchor="middle">地理空間情報</text><text class="m" x="167" y="36" text-anchor="middle">内閣官房</text>
+  <text class="b" x="321" y="22" text-anchor="middle">インフラ分野のDX</text><text class="m" x="321" y="36" text-anchor="middle">国土交通省</text>
+  <rect class="brand" x="243" y="118" width="154" height="260" rx="10" style="fill:#e8f0fe;stroke:#2e6da4"/>
+  <path class="grid" d="M10,116H392"/>
+  <text class="b" x="10" y="164">令和4年3月</text>
+  <path class="grid" d="M10,204H392"/>
+  <text class="b" x="10" y="252">令和5年8月</text>
+  <path class="grid" d="M10,292H392"/>
+  <text class="b" x="10" y="340">令和6年4月</text>
+  <path class="grid" d="M10,380H392"/>
+  <text class="b" x="10" y="428">令和8年6月</text>
+  <rect class="sf" x="94" y="46" width="146" height="44" rx="8"/><text class="b" x="167" y="65" text-anchor="middle">地理空間情報活用</text><text class="b" x="167" y="80" text-anchor="middle">推進基本法</text>
+  <path class="ar" d="M167,90V122" marker-end="url(#ah)"/><text class="m" x="175" y="110">第9条に基づく</text>
+  <rect class="wh" x="94" y="124" width="146" height="72" rx="8"/>
+  <text class="b" x="167" y="156" text-anchor="middle">基本計画 第4期</text>
+  <text x="167" y="172" text-anchor="middle">3月18日 閣議決定</text>
+  <rect class="wh" x="94" y="388" width="146" height="72" rx="8"/>
+  <text class="b" x="167" y="412" text-anchor="middle">G空間行動プラン</text>
+  <text class="b" x="167" y="428" text-anchor="middle">2026</text>
+  <text x="167" y="444" text-anchor="middle">6月5日付</text>
+  <rect class="wh" x="248" y="124" width="146" height="72" rx="8"/>
+  <text class="b" x="321" y="148" text-anchor="middle">アクションプラン</text>
+  <text class="b" x="321" y="164" text-anchor="middle">第1版</text>
+  <text x="321" y="180" text-anchor="middle">3月30日</text>
+  <rect class="wh" x="248" y="212" width="146" height="72" rx="8"/>
+  <text class="b" x="321" y="236" text-anchor="middle">アクションプラン</text>
+  <text class="b" x="321" y="252" text-anchor="middle">第2版</text>
+  <text x="321" y="268" text-anchor="middle">8月8日 公表</text>
+  <rect class="warn" x="248" y="300" width="146" height="72" rx="8"/>
+  <text class="b" x="321" y="324" text-anchor="middle">i-Construction 2.0</text>
+  <text class="m" x="321" y="340" text-anchor="middle">インフラDXのうち</text>
+  <text class="m" x="321" y="356" text-anchor="middle">建設現場の取組</text>
+</svg>

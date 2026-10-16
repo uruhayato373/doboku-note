@@ -7205,6 +7205,886 @@
         "kind": "external",
         "url": "https://www.soumu.go.jp/main_content/001048571.pdf"
       }
+    },
+    {
+      "id": "landscape-act",
+      "title": "景観法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "景観法": "landscape-act"
+      },
+      "egov": {
+        "lawId": "416AC0000000110"
+      }
+    },
+    {
+      "id": "historic-townscape-act",
+      "title": "地域における歴史的風致の維持及び向上に関する法律",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "地域における歴史的風致の維持及び向上に関する法律": "historic-townscape-act"
+      },
+      "egov": {
+        "lawId": "420AC0000000040"
+      }
+    },
+    {
+      "id": "barrier-free-act",
+      "title": "高齢者、障害者等の移動等の円滑化の促進に関する法律",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "高齢者、障害者等の移動等の円滑化の促進に関する法律": "barrier-free-act"
+      },
+      "egov": {
+        "lawId": "418AC0000000091"
+      }
+    },
+    {
+      "id": "barrier-free-road-structure-ordinance",
+      "title": "移動等円滑化のために必要な道路の構造及び旅客特定車両停留施設を使用した役務の提供の方法に関する基準を定める省令",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "移動等円滑化のために必要な道路の構造及び旅客特定車両停留施設を使用した役務の提供の方法に関する基準を定める省令": "barrier-free-road-structure-ordinance"
+      },
+      "egov": {
+        "lawId": "418M60000800116"
+      }
+    },
+    {
+      "id": "urban-green-space-act",
+      "title": "都市緑地法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "都市緑地法": "urban-green-space-act"
+      },
+      "egov": {
+        "lawId": "348AC0000000072"
+      }
+    },
+    {
+      "id": "urban-green-space-act-order",
+      "title": "都市緑地法施行令",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "都市緑地法施行令": "urban-green-space-act-order"
+      },
+      "egov": {
+        "lawId": "349CO0000000003"
+      }
+    },
+    {
+      "id": "mlit-landscape-act-operation-guideline-2026-03",
+      "title": "景観法運用指針（国土交通省・農林水産省・環境省・令和8年3月）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/toshi/townscape/content/001993436.pdf"
+      }
+    },
+    {
+      "id": "mlit-landscape-act-status-2026-03",
+      "title": "景観法の施行状況（国土交通省 都市局・令和8年3月31日時点）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/toshi/townscape/content/002004295.pdf"
+      }
+    },
+    {
+      "id": "mlit-public-works-landscape-basic-policy-2009",
+      "title": "国土交通省所管公共事業における景観検討の基本方針（案）（国土交通省・平成19年4月1日策定・平成21年4月1日最終改定）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/tec/content/H21-keikan-kihonhousin-kaitei.pdf"
+      }
+    },
+    {
+      "id": "mlit-landscape-guideline-urban-development-2011",
+      "title": "景観形成ガイドライン「都市整備に関する事業」（国土交通省・平成23年6月）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/common/000234676.pdf"
+      }
+    },
+    {
+      "id": "mlit-press-2017-10-11-road-design-guideline",
+      "title": "「道路デザイン指針（案）」の改定及び「景観に配慮した道路附属物等ガイドライン」の策定について（国土交通省 道路局・平成29年10月11日）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/report/press/road01_hh_000896.html"
+      }
+    },
+    {
+      "id": "bunka-registered-tangible-cultural-property-criteria",
+      "title": "登録有形文化財登録基準（文化庁・平成8年文部省告示第152号（平成17年文部科学省告示第44号改正））",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.bunka.go.jp/seisaku/bunkazai/shokai/yukei_kenzobutsu/toroku_yukei_kijun.html"
+      }
+    },
+    {
+      "id": "mlit-road-barrier-free-guideline-2024-01",
+      "title": "道路の移動等円滑化に関するガイドライン（国土交通省 道路局・令和6年1月）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/road/road/traffic/bf/kijun/pdf/all.pdf"
+      }
+    },
+    {
+      "id": "mlit-barrier-free-basic-concept-guideline-2026-04",
+      "title": "移動等円滑化促進方針及びバリアフリー基本構想作成に関するガイドライン（国土交通省 総合政策局・令和8年4月）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/sogoseisaku/barrierfree/content/001996585.pdf"
+      }
+    },
+    {
+      "id": "barrier-free-basic-policy-2025-12",
+      "title": "移動等円滑化の促進に関する基本方針（国家公安委員会・総務省・文部科学省・国土交通省・令和2年6月18日告示第1号・令和7年12月26日改正）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/sogoseisaku/barrierfree/content/001977637.pdf"
+      }
+    },
+    {
+      "id": "mlit-barrier-free-4th-target-final-report-2025-06",
+      "title": "主要課題の対応方針及びバリアフリー法に基づく基本方針における第4次目標について（最終とりまとめ）（国土交通省 バリアフリー法及び関連施策のあり方に関する検討会・令和7年6月）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/report/press/content/001896997.pdf"
+      }
+    },
+    {
+      "id": "mlit-urban-green-space-act-operation-guideline-2026-04",
+      "title": "都市緑地法運用指針（国土交通省 都市局・令和8年4月改正）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/toshi/park/content/001442601.pdf"
+      }
+    },
+    {
+      "id": "mlit-green-basic-policy-2024-12",
+      "title": "都市における緑地の保全及び緑化の推進に関する基本的な方針（国土交通省・令和6年12月20日 国土交通省告示第1367号）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/toshi/kankyo/content/001853287.pdf"
+      }
+    },
+    {
+      "id": "mlit-green-master-plan-status-2025-03",
+      "title": "緑の基本計画（策定状況）（国土交通省 都市局・令和7年3月31日現在）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/toshi/park/content/001476678.pdf"
+      }
+    },
+    {
+      "id": "mlit-citizen-green-space-guide-2025-04",
+      "title": "市民緑地認定制度 活用の手引き（国土交通省 都市局・2025年4月 改定第4版）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/toshi/park/content/001419266.pdf"
+      }
+    },
+    {
+      "id": "mlit-park-green-common-spec-2026-06",
+      "title": "公園緑地工事共通仕様書（国土交通省 都市局・令和8年6月）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/toshi/park/content/001743004.pdf"
+      }
+    },
+    {
+      "id": "mlit-rooftop-wall-greening-survey-2025-12",
+      "title": "全国屋上・壁面緑化施工実績調査（国土交通省 都市局・令和7年12月12日発表）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/report/press/content/001972496.pdf"
+      }
+    },
+    {
+      "id": "tokyo-greening-plan-guide-2025-03",
+      "title": "緑化計画の手引（東京都環境局・令和7年3月）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.kankyo.metro.tokyo.lg.jp/documents/d/kankyo/plan_system-guide-files-r07midori_tebiki_all"
+      }
+    },
+    {
+      "id": "jma-heat-island-faq-causes",
+      "title": "ヒートアイランド現象に関する知識・解説 Q&A（要因）（気象庁・取得日 2026-10-16）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.jma.go.jp/jma/kishou/know/cpdinfo/himr_faq/02/qa.html"
+      }
+    },
+    {
+      "id": "waterworks-act",
+      "title": "水道法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "水道法": "waterworks-act"
+      },
+      "egov": {
+        "lawId": "332AC0000000177"
+      }
+    },
+    {
+      "id": "waterworks-act-order",
+      "title": "水道法施行令",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "水道法施行令": "waterworks-act-order"
+      },
+      "egov": {
+        "lawId": "332CO0000000336"
+      }
+    },
+    {
+      "id": "waterworks-act-rule",
+      "title": "水道法施行規則",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "水道法施行規則": "waterworks-act-rule"
+      },
+      "egov": {
+        "lawId": "332M50000100045"
+      }
+    },
+    {
+      "id": "meteorological-service-act",
+      "title": "気象業務法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "気象業務法": "meteorological-service-act"
+      },
+      "egov": {
+        "lawId": "327AC0000000165"
+      }
+    },
+    {
+      "id": "mlit-waterworks-director-meeting-2024-04",
+      "title": "令和6年度 全国水道主管課長会議（国土交通省 上下水道審議官グループ・令和6年4月22日）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/mizukokudo/watersupply/content/001741375.pdf"
+      }
+    },
+    {
+      "id": "mlit-waterworks-director-meeting-2025-04",
+      "title": "令和7年度 全国水道主管課長会議（資料）（国土交通省 上下水道審議官グループ・令和7年4月22日）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/mizukokudo/watersupply/content/001997680.pdf"
+      }
+    },
+    {
+      "id": "mlit-waterworks-director-meeting-2025-04-slides",
+      "title": "令和7年度 全国水道主管課長会議（説明スライド）（国土交通省 上下水道審議官グループ・令和7年4月22日）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/mizukokudo/watersupply/content/001997679.pdf"
+      }
+    },
+    {
+      "id": "mlit-whitepaper-2024-waterworks-transfer-column",
+      "title": "国土交通白書2024 コラム「水道整備・管理行政の移管について」（国土交通省・2024）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/statistics/file000004/html/n2745c01.html"
+      }
+    },
+    {
+      "id": "mlit-nature-oriented-river-basic-guideline-2024-06",
+      "title": "多自然川づくり基本指針（国土交通省 水管理・国土保全局・平成18年10月13日策定・令和6年6月改定）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/kisha/kisha06/05/051013/02.pdf"
+      }
+    },
+    {
+      "id": "mlit-press-2006-10-13-nature-oriented-river",
+      "title": "「多自然川づくり基本指針」の策定について（国土交通省 河川局・平成18年10月13日）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/kisha/kisha06/05/051013_.html"
+      }
+    },
+    {
+      "id": "mlit-small-river-channel-planning-standard-2010",
+      "title": "中小河川に関する河道計画の技術基準について（国土交通省 河川局・平成22年8月9日 国河環第30号ほか）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/river/shishin_guideline/kankyo/tashizen/pdf/gijyutsukijyun.pdf"
+      }
+    },
+    {
+      "id": "mlit-beautiful-river-disaster-recovery-policy",
+      "title": "「美しい山河を守る災害復旧基本方針」（ガイドライン）の策定について（国土交通省 水管理・国土保全局 防災課・平成10年6月4日策定・平成30年6月26日最終改正）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/river/shishin_guideline/bousai/saigai/measures-saigai/index.html"
+      }
+    },
+    {
+      "id": "mlit-kawamachi-support-guideline-2026-04",
+      "title": "「かわまちづくり」支援制度実施要綱（国土交通省 水管理・国土保全局 河川環境課・令和8年4月28日 別紙2）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/report/press/content/001998710.pdf"
+      }
+    },
+    {
+      "id": "mlit-kawamachi-support-overview-2026-04",
+      "title": "かわまちづくり支援制度の概要（国土交通省 水管理・国土保全局 河川環境課・令和8年4月28日 別紙1-1）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/report/press/content/001998709.pdf"
+      }
+    },
+    {
+      "id": "mlit-press-2026-08-07-kawamachi",
+      "title": "全国11か所の「かわまちづくり」計画を新規登録（国土交通省 報道発表・令和8年8月7日）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/report/press/mizukokudo04_hh_000312.html"
+      }
+    },
+    {
+      "id": "jma-warning-areas",
+      "title": "気象警報・注意報や天気予報の発表区域（気象庁・取得日 2026-10-16）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.jma.go.jp/jma/kishou/know/saibun/"
+      }
+    },
+    {
+      "id": "jma-warning-area-change-notice-2025-12",
+      "title": "配信資料に関するお知らせ（気象警報等の発表区域の警戒対象地域の変更）（気象庁大気海洋部・令和7年12月22日）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.data.jma.go.jp/suishin/oshirase/pdf/20251222b.pdf"
+      }
+    },
+    {
+      "id": "jma-press-2026-04-14-new-disaster-info",
+      "title": "5月29日から新たな防災気象情報の運用を開始します（気象庁・国土交通省 水管理・国土保全局・令和8年4月14日）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.jma.go.jp/jma/press/2604/14b/20260414_taikeiseiri.html"
+      }
+    },
+    {
+      "id": "jma-press-2026-04-14-enforcement-order",
+      "title": "気象業務法及び水防法の一部を改正する法律の施行期日を定める政令案等を閣議決定（気象庁 報道発表・令和8年4月14日）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.jma.go.jp/jma/press/2604/14a/20240414_seirei.html"
+      }
+    },
+    {
+      "id": "jma-new-disaster-weather-info-2026",
+      "title": "新たな防災気象情報について（令和8年～）（気象庁・取得日 2026-10-16）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.jma.go.jp/jma/kishou/know/bosai/keiho-update2026/index.html"
+      }
+    },
+    {
+      "id": "jma-disaster-weather-info-improvement-2026-04",
+      "title": "防災気象情報の改善について（国土交通省 水管理・国土保全局・気象庁・令和7年12月（令和8年4月更新））",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.jma.go.jp/jma/kishou/know/bosai/keiho-update2026/pdf/outline_info2026.pdf"
+      }
+    },
+    {
+      "id": "jma-press-2026-04-30-issuance-criteria",
+      "title": "新たな防災気象情報の発表基準等を公表します（気象庁 報道発表・令和8年4月30日）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.jma.go.jp/jma/press/2604/30a/happyo_kijun_20260430_1.pdf"
+      }
+    },
+    {
+      "id": "jma-spec-11601-analyzed-precipitation",
+      "title": "配信資料に関する仕様 No.11601 解析雨量・速報版解析雨量（気象庁予報部・令和2年3月31日）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.data.jma.go.jp/suishin/shiyou/pdf/no11601"
+      }
+    },
+    {
+      "id": "jma-amedas",
+      "title": "アメダス（気象庁・取得日 2026-10-16）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.jma.go.jp/jma/kishou/know/amedas/kaisetsu.html"
+      }
+    },
+    {
+      "id": "jma-satellite-image-guide",
+      "title": "衛星画像の見方（気象庁・取得日 2026-10-16）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.data.jma.go.jp/sat_info/data/web/satobs.html"
+      }
+    },
+    {
+      "id": "jma-msc-himawari-observation",
+      "title": "観測の概要（ひまわり）（気象庁 気象衛星センター・取得日 2026-10-16）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.data.jma.go.jp/mscweb/ja/info/observation.html"
+      }
+    },
+    {
+      "id": "jma-estimated-weather-distribution",
+      "title": "推計気象分布（気象庁・取得日 2026-10-16）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.jma.go.jp/jma/kishou/know/suikei_kishou/kaisetsu.html"
+      }
+    },
+    {
+      "id": "construction-business-act-order",
+      "title": "建設業法施行令",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "建設業法施行令": "construction-business-act-order"
+      },
+      "egov": {
+        "lawId": "331CO0000000273"
+      }
+    },
+    {
+      "id": "construction-business-act-rule",
+      "title": "建設業法施行規則",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "建設業法施行規則": "construction-business-act-rule"
+      },
+      "egov": {
+        "lawId": "324M50004000014"
+      }
+    },
+    {
+      "id": "mlit-construction-license-guideline-2025-02",
+      "title": "建設業許可事務ガイドライン（国土交通省・最終改正 令和7年2月1日国不建第161号）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/totikensangyo/const/content/001860019.pdf"
+      }
+    },
+    {
+      "id": "mlit-foreign-experience-minister-recognition",
+      "title": "建設業に関する外国での経験等を有する者の認定について（大臣認定）（国土交通省・取得日 2026-10-16）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/totikensangyo/const/totikensangyo_const_tk1_000115.html"
+      }
+    },
+    {
+      "id": "mlit-press-2023-05-12-engineer-experience-rule",
+      "title": "「施工技術検定規則及び建設業法施行規則の一部を改正する省令」等の公布（国土交通省 報道発表・令和5年5月12日）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/report/press/tochi_fudousan_kensetsugyo13_hh_000001_00176.html"
+      }
+    },
+    {
+      "id": "mlit-engineer-experience-requirement-review-2023-05",
+      "title": "実務経験による技術者資格要件の見直し（国土交通省・令和5年5月12日 報道発表資料）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/report/press/content/001609320.pdf"
+      }
+    },
+    {
+      "id": "skr-construction-license-handbook-2025-12",
+      "title": "建設業許可の手引（国土交通省 四国地方整備局・令和7年12月版）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.skr.mlit.go.jp/kensei/sangyou/01_kensetu/02-ukeruuketaato/2512_kyokatebiki.pdf"
+      }
+    },
+    {
+      "id": "mlit-license-certificate-handling-2019-11",
+      "title": "国土交通大臣許可に係る許可証明書の取扱いについて（事務連絡）（国土交通省 土地・建設産業局 建設業課・令和元年11月1日）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/common/001315613.pdf"
+      }
+    },
+    {
+      "id": "mlit-supervisory-disposition-criteria-2026-10",
+      "title": "建設業者の不正行為等に対する監督処分の基準（国土交通省・最終改正 令和8年10月1日国不建第95号）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/totikensangyo/const/content/kantokusyobunnkijun20261001.pdf"
+      }
+    },
+    {
+      "id": "mlit-jcip-page",
+      "title": "建設業許可・経営事項審査電子申請システム（JCIP）（国土交通省・取得日 2026-10-16）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/tochi_fudousan_kensetsugyo/const/tochi_fudousan_kensetsugyo_const_tk1_000001_00019.html"
+      }
+    },
+    {
+      "id": "mlit-jcip-overview-2025-09",
+      "title": "建設業許可・経営事項審査電子申請システム（概要）（国土交通省 不動産・建設経済局 建設業課・令和7年9月）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/tochi_fudousan_kensetsugyo/const/content/001907775.pdf"
+      }
+    },
+    {
+      "id": "mlit-jcip-manual-2-8",
+      "title": "建設業許可・経営事項審査電子申請システム（JCIP）操作マニュアル（国土交通省・2.8版 令和8年7月）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/tochi_fudousan_kensetsugyo/const/content/001984284.pdf"
+      }
+    },
+    {
+      "id": "mlit-keishin-administration-notice",
+      "title": "経営事項審査の事務取扱いについて（通知）（国土交通省・平成20年1月31日国総建第269号・最終改正 令和6年12月17日国不建第126号の掲載版）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/totikensangyo/const/content/001852368.pdf"
+      }
+    },
+    {
+      "id": "mlit-merger-administration-notice-2008",
+      "title": "建設業者の合併に係る建設業法上の事務取扱いの円滑化等について（国土交通省 総合政策局 建設業課・平成20年3月10日国総建第309号）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/common/000142143.pdf"
+      }
+    },
+    {
+      "id": "mlit-transfer-administration-notice-2008",
+      "title": "建設業の譲渡に係る建設業法上の事務取扱いの円滑化等について（国土交通省 総合政策局 建設業課・平成20年3月10日国総建第311号）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/common/000142144.pdf"
+      }
+    },
+    {
+      "id": "mlit-split-administration-notice-2008",
+      "title": "建設業者の会社分割に係る建設業法上の事務取扱いの円滑化等について（国土交通省 総合政策局 建設業課・平成20年3月10日国総建第313号）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/common/000142141.pdf"
+      }
+    },
+    {
+      "id": "kkr-keishin-handbook-2026-07",
+      "title": "経営規模等評価申請・総合評定値請求（経営事項審査）の手引き【本編】（国土交通省 近畿地方整備局・令和8年7月改訂版）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.kkr.mlit.go.jp/kensei/kensetsu/daizinkyoka_sinsa/ol9a8v000001eiba-att/manual-main_R0807.pdf"
+      }
+    },
+    {
+      "id": "kkr-keishin-reexam-2026-07",
+      "title": "令和8年7月1日施行の制度改正に伴う再審査の申立について（国土交通省 近畿地方整備局・令和8年6月30日）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.kkr.mlit.go.jp/kensei/kensetsu/daizinkyoka_sinsa/rjb68j000000dzdw-att/20260701reexam.pdf"
+      }
+    },
+    {
+      "id": "mlit-compliance-headquarters-activity-2026-05",
+      "title": "令和7年度「建設業法令遵守推進本部」の活動結果及び令和8年度の活動方針（国土交通省 不動産・建設経済局建設業課・令和8年5月）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/totikensangyo/const/content/002003567.pdf"
+      }
+    },
+    {
+      "id": "mlit-subcontract-survey-results-2025",
+      "title": "令和7年度下請取引等実態調査の結果概要（国土交通省・令和7年度調査）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/totikensangyo/const/content/001899673.pdf"
+      }
+    },
+    {
+      "id": "mlit-subcontract-survey-request-2026",
+      "title": "令和8年度下請取引等実態調査への回答のお願い（国土交通省・令和8年度）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/totikensangyo/const/1_6_bt_000190.html"
+      }
+    },
+    {
+      "id": "mlit-construction-business-act-compliance-guideline-12",
+      "title": "建設業法令遵守ガイドライン（第12版）（国土交通省・令和8年1月最終改訂）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/totikensangyo/const/content/001979927.pdf"
+      }
+    },
+    {
+      "id": "mlit-dispute-procedure-handbook-2026-04",
+      "title": "中央建設工事紛争審査会における建設工事紛争処理手続の手引（中央建設工事紛争審査会事務局・令和8年4月）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/totikensangyo/const/content/001743843.pdf"
+      }
+    },
+    {
+      "id": "mlit-dispute-fees",
+      "title": "紛争処理に要する費用（国土交通省・取得日 2026-10-16）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/totikensangyo/const/totikensangyo_const_tk1_000076.html"
+      }
+    },
+    {
+      "id": "mlit-dispute-application",
+      "title": "紛争処理の申請方法（国土交通省・取得日 2026-10-16）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/totikensangyo/const/totikensangyo_const_tk1_000078.html"
+      }
+    },
+    {
+      "id": "mlit-dispute-board-list",
+      "title": "全国の建設工事紛争審査会（事務局）一覧（国土交通省・取得日 2026-10-16）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/totikensangyo/const/totikensangyo_const_tk1_000084.html"
+      }
+    },
+    {
+      "id": "mlit-dispute-statistics-2025",
+      "title": "建設工事紛争取扱状況（令和7年度）（中央建設工事紛争審査会・令和8年7月15日）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/report/press/content/002011832.pdf"
+      }
+    },
+    {
+      "id": "arbitration-act",
+      "title": "仲裁法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "仲裁法": "arbitration-act"
+      },
+      "egov": {
+        "lawId": "415AC0000000138"
+      }
+    },
+    {
+      "id": "ai-promotion-act",
+      "title": "人工知能関連技術の研究開発及び活用の推進に関する法律",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "人工知能関連技術の研究開発及び活用の推進に関する法律": "ai-promotion-act"
+      },
+      "egov": {
+        "lawId": "507AC0000000053"
+      }
+    },
+    {
+      "id": "cbr-keishin-handbook-2026-07",
+      "title": "経営規模等評価申請・総合評定値請求の手引き（経営事項審査の手引き）（国土交通省 中部地方整備局・令和8年7月1日）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.cbr.mlit.go.jp/kensei/info/kensetsu/pdf/R080701tebiki.pdf"
+      }
+    },
+    {
+      "id": "mlit-negative-info-site",
+      "title": "国土交通省ネガティブ情報等検索サイト 本サイトについて（国土交通省・取得日 2026-10-16）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/nega-inf/about.html"
+      }
+    },
+    {
+      "id": "mlit-construction-license-about",
+      "title": "建設業の許可とは（国土交通省・取得日 2026-10-16）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/totikensangyo/const/1_6_bt_000080.html"
+      }
+    },
+    {
+      "id": "mlit-keishin-about",
+      "title": "経営事項審査及び総合評定値の請求について（国土交通省・取得日 2026-10-16）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/totikensangyo/const/1_6_bt_000153.html"
+      }
+    },
+    {
+      "id": "mlit-ccus-portal",
+      "title": "建設キャリアアップシステムポータル（国土交通省・取得日 2026-10-16）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/totikensangyo/const/totikensangyo_const_fr2_000033.html"
+      }
+    },
+    {
+      "id": "ai-business-guideline-v1-2",
+      "title": "AI事業者ガイドライン（第1.2版）本編（総務省・経済産業省・令和8年3月31日）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.soumu.go.jp/main_content/001064279.pdf"
+      }
+    },
+    {
+      "id": "ppc-generative-ai-alert-2023-06",
+      "title": "生成AIサービスの利用に関する注意喚起等（別添1）（個人情報保護委員会・令和5年6月2日）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.ppc.go.jp/files/pdf/230602_alert_generative_AI_service.pdf"
+      }
+    },
+    {
+      "id": "mlit-generative-ai-consultant-notice-2026-07",
+      "title": "建設コンサルタント業務等における生成AI利活用等について（依頼）国技建管第3号・国技建調第2号（国土交通省 大臣官房技術調査課・令和8年7月29日）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.ktr.mlit.go.jp/ktr_content/content/000955100.pdf"
+      }
+    },
+    {
+      "id": "bunka-ai-copyright-views-2024-03",
+      "title": "AIと著作権に関する考え方について（文化審議会著作権分科会法制度小委員会・令和6年3月15日）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.bunka.go.jp/seisaku/bunkashingikai/chosakuken/pdf/94037901_01.pdf"
+      }
+    },
+    {
+      "id": "meti-ai-business-guideline-study-group",
+      "title": "AI事業者ガイドライン検討会（経済産業省・取得日 2026-10-16）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.meti.go.jp/shingikai/mono_info_service/ai_shakai_jisso/index.html"
+      }
     }
   ]
 }

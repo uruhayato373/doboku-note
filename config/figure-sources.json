@@ -1741,6 +1741,11 @@
       "page": 21,
       "dpi": 300
     },
+    "civil-practice/3d-measurement-selection/img/photo-terrestrial-laser-scanner": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "道路の切土法面の前の平らな場所に、三脚に据えた地上型レーザスキャナ（箱形の本体の上部が回転し、側面に鏡のある一般的な形）が置かれている。奥に土と草の法面と小段。人は写さない。ブランド名・ロゴ・文字なし。晴れの自然光。"
+    },
     "civil-practice/accident-first-response/img/photo-confined-space-rescue-gear": {
       "kind": "ai-generated",
       "tool": "Codex",
@@ -1766,6 +1771,11 @@
       "tool": "Codex",
       "prompt": "Archaeological test trench on a rural road planning site in Japan: a narrow rectangular trench about 1.5 m deep and 2 m wide, topsoil stripped by an excavator whose bucket and arm are visible at the edge of the frame, the trench wall shows distinct horizontal soil layers (dark topsoil, brown subsoil, yellowish natural ground), and a flat cleaned excavation floor shows a faint dark circular soil stain as a feature surface. Spoil pile beside the trench, a plain measuring staff leaning in the trench with no readable numbers. No people, no text, no signs. Shallow depth of field, overcast daylight."
     },
+    "civil-practice/cad-3d-model-visualization/img/photo-model-review-desk": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "設計事務所の机の上の2台のモニター。左の画面に灰色の橋脚の3次元モデルを斜めから見た表示、右の画面に同じ橋脚の2次元図面（白地に黒い線の正面図と断面図）。手前にキーボードとマウス。人の顔は写さない。画面の文字は判読できない。"
+    },
     "civil-practice/concrete-labor-saving-technology/img/photo-precast-installation-crane": {
       "kind": "ai-generated",
       "tool": "Codex",
@@ -1777,6 +1787,16 @@
       "prompt": "Three drilled concrete core specimens of clearly different diameters (about 100 mm, about 75 mm and about 50 mm) standing upright side by side on a light grey laboratory bench, each core roughly twice as tall as its diameter, cut surfaces showing grey cement paste with embedded crushed-stone coarse aggregate of up to about 20 mm; in the 50 mm core the aggregate pieces are almost as wide as the core. Seen from a three-quarter elevated angle in soft daylight, in colour, with a plain wall behind. No ruler, no tape measure, no labels, no numbers, no writing.",
       "basedOn": "vault:原資料PDF/書籍/concrete-basics-5th__最新コンクリートの基本と仕組み第5版/crops/p0201_photo-core-sizes.png"
     },
+    "civil-practice/construction-automation-control/img/photo-machine-indicator-lamp": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "油圧ショベルの運転席の屋根に取り付けた、緑・黄・赤の三段の表示灯（積層信号灯）を斜め下から見上げた近景。緑が点灯している。背景は工事現場の空と土。ロゴ・文字なし。"
+    },
+    "civil-practice/construction-automation-control/img/photo-unmanned-area-barrier": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "造成地の土工の現場。手前に黄色と黒の立入制限のバリケードと赤白のカラーコーンが並び、その奥の締め固め中の盛土の上を、運転席に人が乗っていない振動ローラが走っている。人は写さない。ロゴ・文字なし。晴れの自然光。"
+    },
     "civil-practice/construction-inspection-types/img/photo-remote-rebar-check": {
       "kind": "ai-generated",
       "tool": "Codex",
@@ -1786,6 +1806,11 @@
       "kind": "ai-generated",
       "tool": "Codex",
       "prompt": "Low-angle close-up photograph of a ballasted railway track in daylight, looking along the line. Two parallel steel rails (plain, no markings) rest on evenly spaced gray prestressed concrete sleepers, each rail fixed to the sleeper with a steel spring clip fastener. Angular crushed gray granite ballast stones, about 30 to 60 mm, are packed between and beside the sleepers up to just below the sleeper top, with a sloped ballast shoulder at the edge. Foreground sleepers and ballast in sharp focus, track receding into soft blur. Overcast natural light. No train, no people, no signs, no text."
+    },
+    "civil-practice/coordinate-systems-geodetic-datum/img/photo-benchmark-monument": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "歩道脇の植え込みに埋設された水準点の石の標石。角柱の花崗岩の頭部だけが地表から少し出ていて、上面の中央に小さな半球状の突起がある。周囲は四角い保護石で囲まれている。文字は写さない。斜め上からの近接、昼の自然光。"
     },
     "civil-practice/development-permit-public-facilities/img/photo-detention-pond": {
       "kind": "ai-generated",
@@ -1831,6 +1856,16 @@
       "kind": "ai-generated",
       "tool": "Codex",
       "prompt": "A small aluminum survey boat on a calm river near a harbor quay, side three-quarter view. A GNSS antenna dome on a short mast on the cabin roof, and a vertical side-mount pole bolted to the gunwale carrying a compact multibeam echosounder transducer head partly submerged just below the water surface, with a small motion sensor box on the pole. Neat cables run along the rail. Realistic photograph, shallow depth of field, soft overcast daylight, no text, no logos, no people visible."
+    },
+    "civil-practice/image-photogrammetry-analysis/img/photo-crack-closeup": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "コンクリート橋の桁の下面を近くから撮ったひび割れ。細いひび割れが1本斜めに走り、透明なクラックスケールのカード（線の太さの見本が並んだもの）を、ひび割れの真上に重ねて当てている。ひび割れがカードの線の列を横切り、線の太さと並べて幅を見比べられる。カードの線の向きはひび割れの走る向きとほぼ直交させる。カードはひび割れの一部だけを覆い、ひび割れがカードの前後に続いて見える。数字や文字は写さない。点検用ライトで照らした光。"
+    },
+    "civil-practice/information-system-procurement/img/photo-server-room-meeting": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "役所の情報システム室。サーバラックが並ぶ通路で、作業着ではない事務服の職員2人が横向き・後ろ姿で立ち、印刷したシステム構成図を一緒に見ている。顔は判別できない。画面や紙の文字は判読できない。蛍光灯の室内光。"
     },
     "civil-practice/land-readjustment-project/img/photo-road-drain-construction-site": {
       "kind": "ai-generated",
@@ -1976,6 +2011,11 @@
       "kind": "ai-generated",
       "tool": "Codex",
       "prompt": "A pendulum-type Charpy impact testing machine in a steel materials testing laboratory, side view. A tall rigid steel frame with a pivot near the top; a long pendulum arm hangs from the pivot down to the base, so that the heavy hammer at the end of the arm would strike a specimen resting on the anvil supports at the very bottom of the machine. In this photo the pendulum is raised and latched at its starting angle to one side (about 140 degrees from the hanging position), the arm length clearly reaching from the pivot to the anvil level. A notched square steel test specimen lies on the two anvil supports at the bottom centre inside a transparent safety guard. An analogue dial gauge near the pivot without readable numbers. On a small bench in the foreground lie three square-section steel specimens (10 x 10 x 55 mm) with a V notch at mid-length and two broken halves, one with a bright crystalline flat fracture surface and one with a dull fibrous torn surface. Even indoor lighting, no people, no text, no logos."
+    },
+    "civil-practice/survey-informatics-overview/img/photo-site-survey-instruments": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "造成工事の起工測量の現場。手前に三脚に据えたトータルステーション、少し離れて測量用ポールの先に付けたGNSS受信機（ローバー）、地面のマットの上に小型のマルチコプター型ドローンが置かれている。奥に重機と盛土。作業者は遠景で小さく、顔は写さない。機器にロゴ・文字は入れない。曇りの自然光。"
     },
     "civil-practice/urban-park-management/img/photo-swing-support-base-inspection": {
       "kind": "ai-generated",

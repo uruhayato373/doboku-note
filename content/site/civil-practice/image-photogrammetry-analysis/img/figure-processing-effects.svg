@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="濃度変換とフィルタの前後。濃度変換では偏った明るさの分布が広がるが段階の間は空いたまま、フィルタではノイズが減る代わりに明暗の境目がなだらかになる">
+<defs><marker id="a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#555"/></marker></defs>
+<style>text{font-family:Inter,'Noto Sans JP','Hiragino Kaku Gothic ProN','Hiragino Sans',sans-serif;font-size:13px;fill:#1a3a5c}.s{font-size:11px;fill:#555}.b{font-weight:bold}.m{text-anchor:middle}</style>
+<rect width="400" height="500" fill="#fff"/>
+<text x="20" y="28" class="b">濃度変換 — 明るさの分布</text>
+<text x="20" y="48" class="s">変換前（暗い側に偏る）</text><text x="230" y="48" class="s">変換後（全体へ広がる）</text>
+<rect x="24" y="132" width="9" height="18" fill="#e8f0fe" stroke="#2e6da4"/><rect x="36" y="104" width="9" height="46" fill="#e8f0fe" stroke="#2e6da4"/><rect x="48" y="88" width="9" height="62" fill="#e8f0fe" stroke="#2e6da4"/><rect x="60" y="110" width="9" height="40" fill="#e8f0fe" stroke="#2e6da4"/><rect x="72" y="128" width="9" height="22" fill="#e8f0fe" stroke="#2e6da4"/><rect x="84" y="140" width="9" height="10" fill="#e8f0fe" stroke="#2e6da4"/><rect x="96" y="145" width="9" height="5" fill="#e8f0fe" stroke="#2e6da4"/>
+<line x1="20" y1="150" x2="160" y2="150" stroke="#8a8a8a"/><text x="20" y="166" class="s">暗</text><text x="146" y="166" class="s">明</text>
+<line x1="172" y1="105" x2="216" y2="105" stroke="#555" stroke-width="2" marker-end="url(#a)"/>
+<rect x="234" y="132" width="10" height="18" fill="#e8f0fe" stroke="#2e6da4"/><rect x="255" y="104" width="10" height="46" fill="#e8f0fe" stroke="#2e6da4"/><rect x="276" y="88" width="10" height="62" fill="#e8f0fe" stroke="#2e6da4"/><rect x="297" y="110" width="10" height="40" fill="#e8f0fe" stroke="#2e6da4"/><rect x="318" y="128" width="10" height="22" fill="#e8f0fe" stroke="#2e6da4"/><rect x="339" y="140" width="10" height="10" fill="#e8f0fe" stroke="#2e6da4"/><rect x="360" y="145" width="10" height="5" fill="#e8f0fe" stroke="#2e6da4"/>
+<line x1="230" y1="150" x2="380" y2="150" stroke="#8a8a8a"/><text x="230" y="166" class="s">暗</text><text x="366" y="166" class="s">明</text>
+<text x="20" y="188" class="s">棒の高さは同じ。位置が広がるだけで、棒の間は空いたまま。</text>
+<line x1="20" y1="204" x2="380" y2="204" stroke="#d7d7d7"/>
+<text x="20" y="228" class="b">フィルタ — 明暗の境目を横切る1行</text>
+<text x="20" y="248" class="s">フィルタ前（ノイズあり）</text><text x="230" y="248" class="s">平滑化後</text>
+<polyline points="20,260 30,252 40,264 50,254 60,262 70,256 80,226 90,220 100,230 110,218 120,228 130,220 140,226 150,222" fill="none" stroke="#b22234" stroke-width="1.5" transform="translate(0,72)"/>
+<polyline points="230,258 240,258 250,258 260,258 270,258 280,256 290,242 300,230 310,224 320,223 330,223 340,223 350,223 360,223" fill="none" stroke="#3a7d44" stroke-width="2" transform="translate(0,72)"/>
+<line x1="172" y1="300" x2="216" y2="300" stroke="#555" stroke-width="2" marker-end="url(#a)"/>
+<text x="20" y="352" class="s">細かい凹凸は消えるが、境目もなだらかになる。</text>
+<rect x="20" y="376" width="360" height="104" rx="6" fill="#fff3cd" stroke="#d4a017"/>
+<text x="32" y="400" class="b">どちらも、元の画素値を計算し直しただけ</text>
+<text x="32" y="422" class="s">見やすくはなるが、撮影で得られなかった情報は増えない。</text>
+<text x="32" y="440" class="s">測る写真は、加工前の元画像を残しておく。</text>
+<text x="32" y="458" class="s">境目や細い線が、加工で動いていないかも確かめる。</text>
+</svg>

@@ -1,0 +1,40 @@
+<!-- authored 2026-10-16 doboku-note 自作の概念図。論点は平面直角座標系の縮尺係数（原点の子午線で0.9999・東西約130km以内が適用範囲）。曲線の形は「原点から離れるほど大きくなる」ことを示す模式で、目盛りの数値は描いていない。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="平面直角座標系の一つの系について、原点からの東西距離と縮尺係数の関係を示す概念図。原点を通る子午線で縮尺係数は0.9999で、東西に離れるほど大きくなる。適用範囲は原点から東西約130km以内。座標上の距離sは、縮尺係数kと楕円体面上の距離Sの積。">
+  <defs>
+  <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #222; }
+      .b { font-weight: bold; fill: #1a3a5c; }
+      .m { fill: #555; }
+      .t12 { font-size: 12px; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .sf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .wh { fill: #fff; stroke: #2e6da4; stroke-width: 1.5; }
+      .grid { stroke: #d7d7d7; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .ax { stroke: #555; stroke-width: 1.5; fill: none; }
+      .ar { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+  </style>
+  <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="ak" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  <marker id="as" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+  <path class="ax" d="M28,292V30" marker-end="url(#ak)"/><text class="m" x="36" y="36">縮尺係数 k</text>
+  <path class="ax" d="M28,292H388" marker-end="url(#ak)"/>
+  <path class="grid" d="M45,130V330M375,130V330M210,250V330"/>
+  <path class="grid" d="M28,250H210"/>
+  <path d="M45,130Q210,370 375,130" fill="none" stroke="#2e6da4" stroke-width="3"/>
+  <circle cx="210" cy="250" r="5" fill="#fff3cd" stroke="#d4a017" stroke-width="2"/>
+  <text class="b" x="34" y="244">0.9999</text>
+  <text class="m" x="210" y="168" text-anchor="middle">原点から離れるほど</text><text class="m" x="210" y="183" text-anchor="middle">k は大きくなる</text>
+  <text class="b" x="210" y="310" text-anchor="middle">原点（子午線）</text><text class="m" x="34" y="310">西</text><text class="m" x="386" y="310" text-anchor="end">東</text>
+  <path d="M46,336H374" stroke="#555" stroke-width="1.5" fill="none" marker-start="url(#as)" marker-end="url(#ak)"/>
+  <text class="b" x="210" y="354" text-anchor="middle">適用範囲: 原点から東西約130km以内</text>
+  <rect class="brand" x="12" y="372" width="376" height="80" rx="8"/>
+  <text class="b" x="24" y="394">座標上の距離 s ＝ k × 楕円体面上の距離 S</text>
+  <text x="24" y="414">原点の近く（k＝0.9999）で S が1,000m なら、</text>
+  <text x="24" y="432">s は999.9m（例示のための値）</text>
+  <text class="m" x="12" y="472">出典: 平成14年国土交通省告示第9号、</text>
+  <text class="m" x="12" y="487">国土地理院「日本の測地系」</text>
+</svg>

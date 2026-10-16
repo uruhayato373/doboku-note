@@ -634,14 +634,7 @@
           "label": "施工計画・工程・品質・建設機械・環境",
           "slugs": [
             "pre-construction-process",
-            "license-scope-judgment",
-            "subcontract-instruction-boundary",
-            "subcontract-fair-dealing",
-            "construction-industry-structure",
-            "keishin-bidder-qualification",
             "netis-new-technology-use",
-            "foreign-workers-site-check",
-            "ccus-kentaikyo-site",
             "reading-civil-drawings",
             "construction-plan-document",
             "reference-values",
@@ -657,15 +650,37 @@
           "id": "survey-informatics",
           "label": "測量・情報化（座標・GIS・3次元計測・ICT施工・現場のデータ）",
           "slugs": [
+            "survey-informatics-overview",
+            "coordinate-systems-geodetic-datum",
             "gnss-positioning-basics",
             "gis-layer-validation",
+            "open-geospatial-data",
+            "municipal-gis",
+            "3d-measurement-selection",
+            "image-photogrammetry-analysis",
+            "cad-3d-model-visualization",
             "ict-construction-workflow",
             "bim-cim-site-practice",
             "monitoring-sensor-selection",
             "site-wireless-communication",
+            "construction-automation-control",
             "ledger-data-design",
             "quality-record-site-bcp",
-            "numerical-model-review"
+            "numerical-model-review",
+            "information-system-procurement"
+          ]
+        },
+        {
+          "id": "construction-business",
+          "label": "建設業の経営と法務（許可・経審・下請・担い手・紛争）",
+          "slugs": [
+            "construction-industry-structure",
+            "license-scope-judgment",
+            "keishin-bidder-qualification",
+            "subcontract-fair-dealing",
+            "subcontract-instruction-boundary",
+            "ccus-kentaikyo-site",
+            "foreign-workers-site-check"
           ]
         },
         {

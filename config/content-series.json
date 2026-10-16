@@ -509,6 +509,15 @@
                   "figKey": "civil-practice/coast-port-administrators/img/figure-permit-matrix-by-zone"
                 }
               ]
+            },
+            {
+              "id": "A-46",
+              "title": "多自然川づくりと水辺空間 — 河川環境の目標・生息空間・水辺の整備",
+              "paths": [
+                "content/site/civil-practice/nature-oriented-river-works/article.mdx"
+              ],
+              "plan": "new",
+              "note": "2026-10-16 の運営者指示（展開するものはすべて展開する）で、教材の判定し直す候補から足した（DN-0753）"
             }
           ]
         },
@@ -964,6 +973,42 @@
                   "figKey": "civil-practice/sewerage-and-stormwater/img/figure-special-survey-flow"
                 }
               ]
+            },
+            {
+              "id": "A-42",
+              "title": "景観計画と公共事業の景観検討 — 景観法の届出・景観協議・歴史的な構造物",
+              "paths": [
+                "content/site/civil-practice/landscape-planning-public-works/article.mdx"
+              ],
+              "plan": "new",
+              "note": "2026-10-16 の運営者指示（展開するものはすべて展開する）で、教材の判定し直す候補から足した（DN-0753）"
+            },
+            {
+              "id": "A-43",
+              "title": "道路と駅前のバリアフリー — 基本構想と移動等円滑化の基準",
+              "paths": [
+                "content/site/civil-practice/barrier-free-roads-stations/article.mdx"
+              ],
+              "plan": "new",
+              "note": "2026-10-16 の運営者指示（展開するものはすべて展開する）で、教材の判定し直す候補から足した（DN-0753）"
+            },
+            {
+              "id": "A-44",
+              "title": "都市の緑化 — 緑の基本計画・緑化地域・屋上と壁面の緑化",
+              "paths": [
+                "content/site/civil-practice/urban-greening/article.mdx"
+              ],
+              "plan": "new",
+              "note": "2026-10-16 の運営者指示（展開するものはすべて展開する）で、教材の判定し直す候補から足した（DN-0753）"
+            },
+            {
+              "id": "A-45",
+              "title": "水道事業の区分と土木担当 — 水道法の事業・施設・管路の更新",
+              "paths": [
+                "content/site/civil-practice/waterworks-business/article.mdx"
+              ],
+              "plan": "new",
+              "note": "2026-10-16 の運営者指示（展開するものはすべて展開する）で、教材の判定し直す候補から足した（DN-0753）"
             }
           ]
         },
@@ -1048,6 +1093,15 @@
                   "figKey": "civil-practice/sediment-disaster-erosion-control/img/figure-warning-zone-flow"
                 }
               ]
+            },
+            {
+              "id": "A-47",
+              "title": "気象情報の読み方 — 警報と注意報、解析雨量、気象衛星、アメダス",
+              "paths": [
+                "content/site/civil-practice/weather-information-reading/article.mdx"
+              ],
+              "plan": "new",
+              "note": "2026-10-16 の運営者指示（展開するものはすべて展開する）で、教材の判定し直す候補から足した（DN-0753）"
             }
           ]
         },
@@ -1758,6 +1812,28 @@
               "plan": "new",
               "paths": [
                 "content/site/civil-practice/survey-informatics-overview/article.mdx"
+              ],
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "仕事の流れ（測る→地図や台帳にする→設計・施工に使う→維持管理で記録を積む）を横軸、位置・地図・3次元・センサ・データの5層を縦軸にして、G-01〜G-17の各章の位置を置いた見取り図（自作SVG・章idは図中に入れる）（差し込む見出し: 仕事の流れに置くと、各記事はどこにあたるか）",
+                  "figKey": "civil-practice/survey-informatics-overview/img/figure-series-map"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "基本測量・公共測量・それ以外の測量を、誰が行うか・基準の適用と手続きの2軸で比べた図（自作SVG）（差し込む見出し: 測量法でいう「測量」と三つの種類）",
+                  "figKey": "civil-practice/survey-informatics-overview/img/figure-survey-types"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "地理空間情報活用推進基本法から基本計画・行動プラン、インフラDXアクションプラン、i-Construction 2.0 への関係を、令和4年3月・令和5年8月・令和6年4月・令和8年6月の年表に置いた図（版と日付を明記・自作SVG）（差し込む見出し: 国の方針は三つ — 版と日付をそろえて引く）",
+                  "figKey": "civil-practice/survey-informatics-overview/img/figure-policy-timeline"
+                },
+                {
+                  "kind": "photo",
+                  "subject": "起工測量の現場で、トータルステーション、GNSS受信機、ドローンが並ぶ場面（AI写真。機器の形が実物どおりかを監査で確かめる）（差し込む見出し: i-Construction 2.0 の中で、測量とデータはどこにあたるか）",
+                  "figKey": "civil-practice/survey-informatics-overview/img/photo-site-survey-instruments"
+                }
               ]
             },
             {
@@ -1766,6 +1842,28 @@
               "plan": "new",
               "paths": [
                 "content/site/civil-practice/coordinate-systems-geodetic-datum/article.mdx"
+              ],
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "日本の測地系の変遷の年表。旧日本測地系（ベッセル楕円体・2001年以前）→JGD2000→JGD2011→JGD2024を並べ、各節目で変わったもの（名称・標高）と引き継がれたもの（水平位置の数値・定義）を2軸で示す。出典と確認日を図に明記（差し込む見出し: 測地系は更新されても、定義は動かない）",
+                  "figKey": "civil-practice/coordinate-systems-geodetic-datum/img/figure-datum-timeline"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "平面直角座標系の1つの系の断面。横軸は原点からの東西距離、縦軸は縮尺係数。原点の子午線で0.9999、東西約130kmの適用範囲。曲線は準則の式から計算し式の出典を明記（書く前に式を開いて確かめる）（差し込む見出し: 縮尺係数0.9999 — 座標上の距離と地上の距離は少し違う）",
+                  "figKey": "civil-practice/coordinate-systems-geodetic-datum/img/figure-scale-factor"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "19系の原点位置を経度・緯度の格子に点で示した模式図。北海道（XI〜XIII）・東京都（IX・XIV・XVIII・XIX）・沖縄県（XV〜XVII）の細分を色分け。原点値は告示から写す（差し込む見出し: 系の割り当ては、都道府県が基本）",
+                  "figKey": "civil-practice/coordinate-systems-geodetic-datum/img/figure-plane-zones"
+                },
+                {
+                  "kind": "photo",
+                  "subject": "水準点標石（永久標識）の外観。地面に埋設された標石の頭部。測量法第10条の永久標識の形が実物どおりかを監査で確かめる（差し込む見出し: 標高は、東京湾平均海面からの高さ）",
+                  "figKey": "civil-practice/coordinate-systems-geodetic-datum/img/photo-benchmark-monument"
+                }
               ]
             },
             {
@@ -1790,6 +1888,23 @@
               "plan": "new",
               "paths": [
                 "content/site/civil-practice/open-geospatial-data/article.mdx"
+              ],
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "問いからデータを選ぶ 2 軸図（縦に問い: どこが危ない・地形の高低・建物の形と高さ・道路の位置、横にデータ名・出す機関・更新）。自作 SVG。本文の表と重複しないよう機関と更新の頻度を載せる（差し込む見出し: 知りたいことから、どの公開データを見るかを決める）",
+                  "figKey": "civil-practice/open-geospatial-data/img/figure-question-to-data"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "利用手続の判断フロー（その地図は基本測量成果か → 複製（第29条）・使用（第30条）の承認／出典の明示のみ → 地図の利用手続ナビで確かめる。Web でのタイルのリアルタイム読込は出典のみの分岐を含む）。自作 SVG（差し込む見出し: 申請が要るかは、使い方で決まる）",
+                  "figKey": "civil-practice/open-geospatial-data/img/figure-usage-procedure"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "同じ建物の LOD1（箱型・高さは中央値）と LOD2（屋根形状）の比較概念図。自作 SVG（差し込む見出し: PLATEAUは、建物をLODで段階的に表す3D都市モデル）",
+                  "figKey": "civil-practice/open-geospatial-data/img/figure-plateau-lod"
+                }
               ]
             },
             {
@@ -1798,6 +1913,23 @@
               "plan": "new",
               "paths": [
                 "content/site/civil-practice/municipal-gis/article.mdx"
+              ],
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "統合型GISの構成。背景の地図（共用空間データ）を核に、道路・下水道・都市計画・防災などの業務が主題データを重ね、庁内共用の層と住民向けの公開の層に分けて見せる（軸は誰が見るか×更新の頻度）。自作SVG。（差し込む見出し: 統合型GISは庁内で共用し、公開型は住民に見せる）",
+                  "figKey": "civil-practice/municipal-gis/img/figure-integrated-gis"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "統合型GISの導入率（都道府県25団体・53.2％、市区町村1,126団体・64.7％）と導入団体の利用業務の上位（市区町村は道路936団体・83.1％、都道府県は消防防災23団体・92.0％）の棒グラフ。出典と基準日（令和6年4月1日現在・総務省令和7年12月）を図に明記。自作SVG。（差し込む見出し: 導入は市区町村で6割台半ば、最も使われるのは道路）",
+                  "figKey": "civil-practice/municipal-gis/img/figure-adoption-rate"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "法定の縮尺の比べ方。下水道の施設平面図1/500、道路台帳の図面1/1,000以上、都市計画の計画図1/2,500以上、総括図1/25,000以上（対応する地図情報レベルなし）を、地図情報レベル250〜10000の目盛りと水平位置の標準偏差（0.12〜7.00m）と並べる。自作SVG。（差し込む見出し: 縮尺は地図情報レベルに置き換えて、精度の目安を読む）",
+                  "figKey": "civil-practice/municipal-gis/img/figure-map-level-scale"
+                }
               ]
             }
           ]
@@ -1811,6 +1943,28 @@
               "plan": "new",
               "paths": [
                 "content/site/civil-practice/3d-measurement-selection/article.mdx"
+              ],
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "準則の六方式を計測する場所（空・地上・車両・水域）で並べ、各方式の標準の点密度と精度を添える模式図。数値は準則の標準値だけを使う（自作SVG）（差し込む見出し: 六つの方式を、計測する場所で絞る）",
+                  "figKey": "civil-practice/3d-measurement-selection/img/figure-six-methods"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "点群から成果品への流れ。オリジナルデータ、フィルタリング、グラウンドデータ、グリッド・等高線・断面・数値地形図の順に、樹木と建物のある斜面断面で何が除かれ何が残るかを見せる（自作SVG）（差し込む見出し: 方式を選ぶ前に、成果の使い道を決める）",
+                  "figKey": "civil-practice/3d-measurement-selection/img/figure-point-cloud-products"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "UAV写真点群の外側標定点・内側標定点・検証点を作業地域の平面図に配置し、位置精度0.05m・0.10m・0.20mごとの配置間隔を示す（自作SVG・値は準則第415条）。本文に差し込み位置のJSXコメントを残してある（差し込む見出し: 検証点と調整点で、納品された点群を確かめる）",
+                  "figKey": "civil-practice/3d-measurement-selection/img/figure-control-check-points"
+                },
+                {
+                  "kind": "photo",
+                  "subject": "地上レーザスキャナを三脚に据えて法面を計測する場面（機器の形が実物どおりかの監査を通す。UAVレーザの機体は機種が特定できるため使わない）（差し込む見出し: 六つの方式を、計測する場所で絞る）",
+                  "figKey": "civil-practice/3d-measurement-selection/img/photo-terrestrial-laser-scanner"
+                }
               ]
             },
             {
@@ -1819,6 +1973,28 @@
               "plan": "new",
               "paths": [
                 "content/site/civil-practice/image-photogrammetry-analysis/article.mdx"
+              ],
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "同じ幅8mmのひびを、1画素20mm・5mm と階調2段階・多段階で撮り分けた見え方（img/figure-pixel-gradation.svg・作成済み）（差し込む見出し: 明暗と色は階調で表す — 撮影の時点で上限が決まる）",
+                  "figKey": "civil-practice/image-photogrammetry-analysis/img/figure-pixel-gradation"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "濃度変換前後のヒストグラム（段階の間は空いたまま）とフィルタ前後の境目（img/figure-processing-effects.svg・作成済み）（差し込む見出し: 加工は見やすくするためのもの — 情報は増えない）",
+                  "figKey": "civil-practice/image-photogrammetry-analysis/img/figure-processing-effects"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "重なる写真から特徴点→復元→標定点→検証点の流れと標定点・検証点の置き方（img/figure-sfm-control-points.svg・作成済み）（差し込む見出し: 写真から形を復元する — SfMと標定点・検証点）",
+                  "figKey": "civil-practice/image-photogrammetry-analysis/img/figure-sfm-control-points"
+                },
+                {
+                  "kind": "photo",
+                  "subject": "橋の下面を接写したコンクリートのひび割れと、幅を読むためのスケール。製品の画面は使わず、AI写真にする場合はひび割れの形の監査を通す（差し込む見出し: 点検画像の性能は、幅・位置・色で読む）",
+                  "figKey": "civil-practice/image-photogrammetry-analysis/img/photo-crack-closeup"
+                }
               ]
             },
             {
@@ -1827,6 +2003,28 @@
               "plan": "new",
               "paths": [
                 "content/site/civil-practice/cad-3d-model-visualization/article.mdx"
+              ],
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "2次元図面と3次元モデルの整合を取る三つの道（3次元から切り出す／同一入力から同時生成／別々に作って外形線を重ねて照合）と、それぞれで整合確認が要るか要らないか（軸は作り方と確認の要否。出典は取扱要領と附属資料2）（差し込む見出し: 3次元モデルは、2次元図面と整合させるのが原則）",
+                  "figKey": "civil-practice/cad-3d-model-visualization/img/figure-2d-3d-consistency"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "同じ橋脚をワイヤーフレーム・サーフェス・ソリッドで描き分け、体積と隠れ線の扱いがどう変わるかを並べる（軸はモデルの種類と持つ情報）（差し込む見出し: ワイヤ・面・立体で、モデルが持つ情報が違う）",
+                  "figKey": "civil-practice/cad-3d-model-visualization/img/figure-model-types"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "同じ直方体を平行投影と透視投影で見たときの辺の見え方（平行のまま／遠近で縮む）と、寸法を読めるのはどちらか（軸は投影法と寸法の読みやすさ）（差し込む見出し: 寸法を読む図は、平行投影で切り出す）",
+                  "figKey": "civil-practice/cad-3d-model-visualization/img/figure-projection-methods"
+                },
+                {
+                  "kind": "photo",
+                  "subject": "設計事務所の机で、モニターに橋脚の3次元モデル（斜め・正面・断面の保存ビュー）と2次元図面を並べ、外形線を見比べている様子（文字・人の顔なし）（差し込む見出し: 見る向きと表示状態は、保存ビューで固定して渡す）",
+                  "figKey": "civil-practice/cad-3d-model-visualization/img/photo-model-review-desk"
+                }
               ]
             },
             {
@@ -1872,6 +2070,33 @@
               "plan": "new",
               "paths": [
                 "content/site/civil-practice/construction-automation-control/article.mdx"
+              ],
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "目標へ向かう応答の三つの形（強さ不足で遅い／ほどよい／強すぎて行き過ぎて振れる）を、時間と制御量の軸に重ねた自作 SVG。G-09 の制御の輪の図とは別の見方（差し込む見出し: 応答の遅れと強さの調整で、行き過ぎや振れが出る）",
+                  "figKey": "civil-practice/construction-automation-control/img/figure-control-response"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "製造者等→販売者等→施工者等→使用者の四者と、使用上の情報・リスクアセスメントが渡る向きを示す自作 SVG（軸は役割と情報の流れ）（差し込む見出し: 安全の責任は施工会社が第一に負い、役割は四つに分かれる）",
+                  "figKey": "civil-practice/construction-automation-control/img/figure-safety-roles"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "無人エリアを立入制限エリアが囲み、境界に中継区域、外側に有人エリアと出入口を置く平面配置と、境界での逸脱・侵入防止手段の自作 SVG（差し込む見出し: 区域は、無人・立入制限・有人に分けて囲う）",
+                  "figKey": "civil-practice/construction-automation-control/img/figure-area-zoning"
+                },
+                {
+                  "kind": "photo",
+                  "subject": "無人エリアの外周に立入制限のバリケードとコーンを置き、奥で自動の振動ローラが走る土工現場（AI 写真）（差し込む見出し: 逸脱と侵入は、複数の手段で重ねて防ぐ）",
+                  "figKey": "civil-practice/construction-automation-control/img/photo-unmanned-area-barrier"
+                },
+                {
+                  "kind": "photo",
+                  "subject": "表示灯が付いた建設機械の外観（AI 写真）（差し込む見出し: 非常停止などの安全機能は、運転の制御から切り離す）",
+                  "figKey": "civil-practice/construction-automation-control/img/photo-machine-indicator-lamp"
+                }
               ]
             },
             {
@@ -1909,6 +2134,184 @@
               "plan": "new",
               "paths": [
                 "content/site/civil-practice/information-system-procurement/article.mdx"
+              ],
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "通信の層（アプリケーション・トランスポート・インターネット・リンク）に、障害の切り分けの問い（画面が開かない／繋がるが遅い／一部の宛先だけ届かない）を当てて、どの層を疑うかを示す自作 SVG（軸は層と症状）（差し込む見出し: 障害の切り分けは、通信の層を下から順に疑う）",
+                  "figKey": "civil-practice/information-system-procurement/img/figure-network-layers"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "IaaS・PaaS・SaaS で利用者側が管理する範囲（データ・アプリ・OS・仮想化基盤・機器）と事業者側の範囲を積み上げて比べる自作 SVG（NIST SP 800-145 の構図を自作で描き直す）（差し込む見出し: クラウドは、借りる範囲で責任の分かれ目が変わる）",
+                  "figKey": "civil-practice/information-system-procurement/img/figure-cloud-responsibility"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "自治体の網を用途別に分ける三つの系（マイナンバー利用事務系・LGWAN 接続系・インターネット接続系）と、間の通信の制限を示す自作 SVG（ガイドラインの図の構図を自作で描き直す）（差し込む見出し: 自治体の網は、用途別に分けてからつなぐ）",
+                  "figKey": "civil-practice/information-system-procurement/img/figure-municipal-network-split"
+                },
+                {
+                  "kind": "photo",
+                  "subject": "庁舎の情報システム室で、サーバラックの前に職員が 2 人立ち、システムの構成図を見ながら打ち合わせている様子（AI 写真）（差し込む見出し: 標準化の対象かどうかは、事務の名前で確かめる）",
+                  "figKey": "civil-practice/information-system-procurement/img/photo-server-room-meeting"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "construction-business",
+      "title": "建設業の経営と法務",
+      "audience": "建設会社の経営者・管理部門・現場の責任者。許可・経審・下請・担い手・紛争と監督の実務を、建設業法と通知から確かめたい人",
+      "area": "practice",
+      "policy": "docs/strategy/20_建設業の経営と法務シリーズと教材の判定し直し2026-10.md",
+      "gate": "2026-10-16 の運営者指示（展開するものはすべて展開する）で作る。教材（建設業法のツボとコツ・建設業界の動向・建設業AI経営ほか）は論点を拾う材料にだけ使い、制度と数値は建設業法と国土交通省の通知で確かめる",
+      "entry": {
+        "hubItem": "B-00",
+        "curriculum": "civil-practice:construction-business"
+      },
+      "sections": [
+        {
+          "title": "入口",
+          "items": [
+            {
+              "id": "B-00",
+              "title": "建設業の経営と法務の全体像 — 許可・経審・下請・担い手・紛争のつながり",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/construction-business-overview/article.mdx"
+              ]
+            },
+            {
+              "id": "B-01",
+              "title": "建設産業の構造 — 契約の線と責任の線で、現場の関係者を読む",
+              "plan": "existing",
+              "paths": [
+                "content/site/civil-practice/construction-industry-structure/article.mdx"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "許可を取り、保つ",
+          "items": [
+            {
+              "id": "B-02",
+              "title": "建設業許可が要る工事かの判断 — 建設工事か、どの業種か、500万円未満で足りるか",
+              "plan": "existing",
+              "paths": [
+                "content/site/civil-practice/license-scope-judgment/article.mdx"
+              ]
+            },
+            {
+              "id": "B-03",
+              "title": "建設業許可の要件 — 経営業務の管理体制・営業所技術者・財産的基礎・営業所",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/license-requirements/article.mdx"
+              ]
+            },
+            {
+              "id": "B-04",
+              "title": "建設業許可の手続き — 更新・変更の届出・承継・廃業・電子申請",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/license-procedures/article.mdx"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "経審と入札",
+          "items": [
+            {
+              "id": "B-05",
+              "title": "経営事項審査と入札参加資格 — 点数が等級に変わり、出られる入札が決まるまで",
+              "plan": "existing",
+              "paths": [
+                "content/site/civil-practice/keishin-bidder-qualification/article.mdx"
+              ]
+            },
+            {
+              "id": "B-06",
+              "title": "経審の結果を読み、受け直す — 結果通知書・再審査・合併や承継のときの審査",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/keishin-review-merger/article.mdx"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "下請と現場の人",
+          "items": [
+            {
+              "id": "B-07",
+              "title": "下請取引のルール — 意見聴取・資材の指定・引渡し・やり直し費用の線引き",
+              "plan": "existing",
+              "paths": [
+                "content/site/civil-practice/subcontract-fair-dealing/article.mdx"
+              ]
+            },
+            {
+              "id": "B-08",
+              "title": "下請への指示と偽装請負 — 作業員への指示と人工精算の線引き",
+              "plan": "existing",
+              "paths": [
+                "content/site/civil-practice/subcontract-instruction-boundary/article.mdx"
+              ]
+            },
+            {
+              "id": "B-09",
+              "title": "建設キャリアアップシステムと建退共 — 就業の記録と掛金の納付を、現場でどう回すか",
+              "plan": "existing",
+              "paths": [
+                "content/site/civil-practice/ccus-kentaikyo-site/article.mdx"
+              ]
+            },
+            {
+              "id": "B-10",
+              "title": "外国人材を現場に受け入れる前の確認 — 働かせてよい人か、どの制度の人か、会社の条件は足りるか",
+              "plan": "existing",
+              "paths": [
+                "content/site/civil-practice/foreign-workers-site-check/article.mdx"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "紛争と監督",
+          "items": [
+            {
+              "id": "B-11",
+              "title": "建設工事の紛争を解く — 建設工事紛争審査会のあっせん・調停・仲裁",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/construction-dispute-resolution/article.mdx"
+              ]
+            },
+            {
+              "id": "B-12",
+              "title": "監督処分と実態調査 — 立入検査・指示・営業停止を避ける社内の備え",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/supervision-compliance-surveys/article.mdx"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "これから",
+          "items": [
+            {
+              "id": "B-13",
+              "title": "建設会社の生成AI導入 — 試す業務の選び方・社内ルール・教育・評価",
+              "plan": "new",
+              "paths": [
+                "content/site/civil-practice/generative-ai-adoption/article.mdx"
               ]
             }
           ]

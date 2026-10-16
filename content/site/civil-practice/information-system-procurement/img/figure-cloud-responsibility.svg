@@ -1,0 +1,69 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は NIST SP 800-145 の三つのサービスモデルの説明（本文の記述）。特定の図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="IaaS、PaaS、SaaSで、利用者が管理する範囲と事業者が管理する範囲を積み上げて比べた図。IaaSは利用者がデータ、アプリ、OSを管理する。PaaSはデータとアプリを管理する。SaaSは利用者がデータを管理し、アプリの設定は一部だけ。借りる範囲が広いほど責任の分かれ目は上へ移る。">
+  <defs>
+  <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 11px; fill: #555; }
+      .k { font-size: 12px; fill: #222; }
+      .p { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .bb { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .bp { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .bw { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .bd { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .bs { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .ln { stroke: #2e6da4; stroke-width: 1.5; fill: none; stroke-linejoin: round; }
+      .hd { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 4 3; fill: none; }
+      .ar { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .gy { stroke: #555; stroke-width: 1.5; fill: none; }
+  </style>
+  <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="ag" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  <marker id="ags" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+  <rect class="bb" x="14" y="14" width="120" height="50" rx="6"/>
+  <text class="n" x="74" y="36" text-anchor="middle">IaaS</text><text class="s" x="74" y="54" text-anchor="middle">基盤を借りる</text>
+  <rect x="14" y="72" width="120" height="60" rx="4" style="fill:#fff3cd;stroke:#d4a017;stroke-width:1.5"/>
+  <text class="n" x="74" y="108" text-anchor="middle">データ</text>
+  <rect x="14" y="136" width="120" height="60" rx="4" style="fill:#fff3cd;stroke:#d4a017;stroke-width:1.5"/>
+  <text class="n" x="74" y="172" text-anchor="middle">アプリ</text>
+  <rect x="14" y="200" width="120" height="60" rx="4" style="fill:#fff3cd;stroke:#d4a017;stroke-width:1.5"/>
+  <text class="n" x="74" y="236" text-anchor="middle">OS</text>
+  <rect x="14" y="264" width="120" height="60" rx="4" style="fill:#f5f5f5;stroke:#d7d7d7;stroke-width:1.5"/>
+  <text class="n" x="74" y="300" text-anchor="middle">仮想化基盤</text>
+  <rect x="14" y="328" width="120" height="60" rx="4" style="fill:#f5f5f5;stroke:#d7d7d7;stroke-width:1.5"/>
+  <text class="n" x="74" y="364" text-anchor="middle">機器</text>
+  <path d="M10,262H138" style="stroke:#2e6da4;stroke-width:4;fill:none"/>
+  <rect class="bb" x="140" y="14" width="120" height="50" rx="6"/>
+  <text class="n" x="200" y="36" text-anchor="middle">PaaS</text><text class="s" x="200" y="54" text-anchor="middle">実行環境を借りる</text>
+  <rect x="140" y="72" width="120" height="60" rx="4" style="fill:#fff3cd;stroke:#d4a017;stroke-width:1.5"/>
+  <text class="n" x="200" y="108" text-anchor="middle">データ</text>
+  <rect x="140" y="136" width="120" height="60" rx="4" style="fill:#fff3cd;stroke:#d4a017;stroke-width:1.5"/>
+  <text class="n" x="200" y="164" text-anchor="middle">アプリ</text><text class="s" x="200" y="182" text-anchor="middle">設定を含む</text>
+  <rect x="140" y="200" width="120" height="60" rx="4" style="fill:#f5f5f5;stroke:#d7d7d7;stroke-width:1.5"/>
+  <text class="n" x="200" y="236" text-anchor="middle">OS</text>
+  <rect x="140" y="264" width="120" height="60" rx="4" style="fill:#f5f5f5;stroke:#d7d7d7;stroke-width:1.5"/>
+  <text class="n" x="200" y="300" text-anchor="middle">仮想化基盤</text>
+  <rect x="140" y="328" width="120" height="60" rx="4" style="fill:#f5f5f5;stroke:#d7d7d7;stroke-width:1.5"/>
+  <text class="n" x="200" y="364" text-anchor="middle">機器</text>
+  <path d="M136,198H264" style="stroke:#2e6da4;stroke-width:4;fill:none"/>
+  <rect class="bb" x="266" y="14" width="120" height="50" rx="6"/>
+  <text class="n" x="326" y="36" text-anchor="middle">SaaS</text><text class="s" x="326" y="54" text-anchor="middle">アプリを借りる</text>
+  <rect x="266" y="72" width="120" height="60" rx="4" style="fill:#fff3cd;stroke:#d4a017;stroke-width:1.5"/>
+  <text class="n" x="326" y="108" text-anchor="middle">データ</text>
+  <rect x="266" y="136" width="120" height="60" rx="4" style="fill:#f5f5f5;stroke:#d7d7d7;stroke-width:1.5"/>
+  <text class="n" x="326" y="164" text-anchor="middle">アプリ</text><text class="s" x="326" y="182" text-anchor="middle">利用者は設定の一部</text>
+  <rect x="266" y="200" width="120" height="60" rx="4" style="fill:#f5f5f5;stroke:#d7d7d7;stroke-width:1.5"/>
+  <text class="n" x="326" y="236" text-anchor="middle">OS</text>
+  <rect x="266" y="264" width="120" height="60" rx="4" style="fill:#f5f5f5;stroke:#d7d7d7;stroke-width:1.5"/>
+  <text class="n" x="326" y="300" text-anchor="middle">仮想化基盤</text>
+  <rect x="266" y="328" width="120" height="60" rx="4" style="fill:#f5f5f5;stroke:#d7d7d7;stroke-width:1.5"/>
+  <text class="n" x="326" y="364" text-anchor="middle">機器</text>
+  <path d="M262,134H390" style="stroke:#2e6da4;stroke-width:4;fill:none"/>
+  <rect class="p" x="10" y="402" width="380" height="88" rx="8"/>
+  <rect x="26" y="414" width="24" height="16" rx="3" style="fill:#fff3cd;stroke:#d4a017;stroke-width:1.5"/><text class="k" x="62" y="427">利用者が管理する範囲</text>
+  <rect x="26" y="440" width="24" height="16" rx="3" style="fill:#f5f5f5;stroke:#d7d7d7;stroke-width:1.5"/><text class="k" x="62" y="453">事業者が管理する範囲</text>
+  <path d="M26,474H50" style="stroke:#2e6da4;stroke-width:4;fill:none"/><text class="k" x="62" y="478">責任の分かれ目</text>
+
+</svg>
