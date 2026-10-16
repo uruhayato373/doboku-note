@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="承継の認可を受けると、承継の対象の許可も、承継人が元から持つ許可も、満了日が承継日の翌日から5年にそろう。残りが短い許可は満了日が後ろにずれ、長い許可は前倒しになる" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+<defs>
+<style>
+  text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #222; }
+  .t { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+  .s { font-size: 11px; fill: #555; }
+  .box-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+  .box-warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+  .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+</style>
+<marker id="aw" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#d4a017"/></marker>
+<marker id="ah" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#8a8a8a"/></marker>
+</defs>
+<rect width="400" height="500" fill="#ffffff"/>
+<rect class="box-brand" x="14" y="14" width="372" height="40" rx="8"/>
+<text class="t" x="200" y="39" text-anchor="middle">承継の認可を受けたとき</text>
+<path d="M24,120H378" stroke="#8a8a8a" stroke-width="2" fill="none" marker-end="url(#ah)"/>
+<text class="t" x="90" y="100" text-anchor="middle">承継日</text>
+<text class="t" x="300" y="100" text-anchor="middle">承継日の翌日から5年</text>
+<line x1="300" y1="128" x2="300" y2="332" stroke="#d4a017" stroke-width="2" stroke-dasharray="5 3"/>
+<circle cx="90" cy="120" r="8" fill="#2e6da4" stroke="#fff" stroke-width="2"/>
+<circle cx="300" cy="120" r="8" fill="#d4a017" stroke="#fff" stroke-width="2"/>
+<text class="t" x="24" y="168">承継の対象の許可</text>
+<rect class="box-brand" x="90" y="178" width="130" height="26" rx="5"/>
+<text x="155" y="196" text-anchor="middle">承継前の残り期間</text>
+<path d="M226,191H294" stroke="#d4a017" stroke-width="2.5" fill="none" marker-end="url(#aw)"/>
+<text class="s" x="292" y="226" text-anchor="end">満了日が後ろにずれる</text>
+<text class="t" x="24" y="262">承継人が承継前から持つ許可</text>
+<rect class="box-brand" x="90" y="272" width="270" height="26" rx="5"/>
+<text x="225" y="290" text-anchor="middle">承継前の残り期間</text>
+<path d="M366,285H306" stroke="#d4a017" stroke-width="2.5" fill="none" marker-end="url(#aw)"/>
+<text class="s" x="308" y="320">満了日が</text><text class="s" x="308" y="334">前倒しになる</text>
+<rect class="box-warn" x="14" y="356" width="372" height="100" rx="8"/>
+<text class="t" x="26" y="382">どちらの許可も、満了日がそろう</text>
+<text x="26" y="406">承継の日の残りの期間にかかわらず、</text>
+<text x="26" y="426">承継の日の翌日から5年になる</text>
+<text class="s" x="26" y="446">承継した日に、期限の台帳を引き直す</text>
+</svg>
