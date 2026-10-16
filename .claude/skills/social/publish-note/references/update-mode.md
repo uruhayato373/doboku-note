@@ -159,7 +159,7 @@ browser-use --headed --profile "$NOTE_PROFILE" eval "String(document.querySelect
 
 既存の特定テキスト（intro 段落・価格表記・1 セクション）を**別テキストへ差し替える**手段。paste は edit 画面で死んでいる（冒頭 danger）ので、**Selection で対象範囲を限定削除 → type で再入力**する。append（U-A）でも全面差し替え（/new）でもない中間ケース。2026-06-19 に個別スクリプトで実証し、2026-09-06 に共通 CLI `npm run note-update-partial -- --spec <json> [--commit]` へ昇格した。
 
-共通 CLI の既定は **DRY-READONLY**。spec の全 operation が期待件数と一致してからだけ編集し、select-all と全文 paste は使わない。PDF 添付カードは更新前・編集直後・公開後再読の3点で URL/ファイル名が完全一致しなければ失敗とする。有料記事は既存の有料境界 line を確認し、動かさずに更新する。複数記事は spec パスを1行1件で並べた `--list` を使うと、同じ Chrome セッションで直列処理できる。途中1件でも検証に失敗すれば、そこでバッチを停止する。
+共通 CLI の既定は **DRY-READONLY**。spec の全 operation が期待件数と一致してからだけ編集し、select-all と全文 paste は使わない。PDF 添付カードは更新前・編集直後・公開後再読の3点で URL/ファイル名が完全一致しなければ失敗とする。有料記事は既存の有料境界 line を確認し、動かさずに更新する。複数記事は spec パスを1行1件で並べた `--list` を使うと、同じ Chrome セッションで直列処理できる。途中1件でも検証に失敗すれば、そこでバッチを停止する。 会員記事のほぼ全文プレビューは原稿の `memberTrial: bottom`、または明示指定 `--trial-line-bottom` で保持する。全文を会員限定にする `--keep-member-lock` と取り違えない。
 
 ```bash
 # 同一文言の一括更新 spec を原稿から生成（生成物は .tmp のみ）
@@ -222,7 +222,7 @@ await page.keyboard.press('Delete');
 その後の保存は U-6（「公開に進む」→「更新する」）と同じ。**通知ダイアログは必ず「いいえ」**（U-6 上の important 参照）。
 
 **3) 有料領域の embed マガジンカードを含むブロック置換**（2026-06-20 R8予想6本で実証・`.tmp/fix-r8-funnel.mjs`）— 末尾有料領域の「旧導線ブロック（段落＋埋め込みカード複数）」を別ブロックへ差し替える最難ケース。3 つの落とし穴に注意:
-> - **embed マガジン/記事カードは block レベルの `<FIGURE>`（`<A href>` 内包）**。`setStartBefore(start)`〜`setEndAfter(end)` で**複数ブロックをまたぐ Range を作って 1 回 Delete しても ProseMirror は綺麗に消さず、末尾の FIGURE が残る**。→ **旧ブロック固有のシグネチャ（本文に出現しない語句＋旧マガジン ID）に一致する子要素を 1 個ずつ Range 選択 → Delete するループ**にする（単一ブロック削除は確実・固有語のみ対象なので本文を巻き込めない自己限定）。削除後に旧マガジン ID が全消失したことを必ず検証してから type へ。
+> - **embed マガジン/記事カードは block レベルの `<FIGURE>`（`<A href>` 内包）**。`setStartBefore(start)`〜`setEndAfter(end)` で**複数ブロックをまたぐ Range を作って 1 回 Delete しても ProseMirror は綺麗に消さず、末尾の FIGURE が残る**。→ **旧ブロック固有のシグネチャ（本文に出現しない語句＋旧マガジン ID）に一致する子要素を 1 個ずつ Range 選択 → Delete するループ**にする。対象の固有語に一致する `.ProseMirror-selectednode` が残った場合だけ追加 Delete する（カードは選択と削除が二段階になることがある。別の要素へ追加 Delete しない）。削除後に旧マガジン ID が全消失したことを必ず検証してから type へ。
 > - **note は公開済み記事でも編集をドラフト auto-save する**。途中 abort 後に編集画面を再度開くと**前回の未保存編集が残っている**ことがある。→ 冒頭の冪等チェックで「新内容が既に揃っていれば削除/挿入を skip して保存だけ実行」する分岐を必ず入れる（さもないと「already→skip」でライブへ永久に保存されない）。
 > - **保存は append と同じ有料フロー**: 「公開に進む」は**保存中が navigation を奪う**ので polling リトライ（3回×8 poll）。有料エリア設定で境界を `予想問題|試験問題` H2 直前へ再設定し `boundaryBeforeExam`（line と H2 の間に要素ゼロ）を検証してからのみ「更新する」。差し替え対象が境界より十分後（有料領域奥）なら境界は動かないが、検証ゲートは必ず通す。API（price/can_read/remained_char_num）＋編集 DOM 再読（新カード反映・旧 ID 消失）で実体検証。
 

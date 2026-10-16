@@ -30,6 +30,7 @@ import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
  * npm run note-update-partial -- --spec .tmp/note-partial/example.json --commit
  * npm run note-update-partial -- --list .tmp/note-partial/specs.list.txt --commit
  * npm run note-update-partial -- --spec <spec> --commit --paid-line-bottom   # 有料記事の境界 line を末尾の直前へ置き直して公開（末尾だけ有料の記事用）
+ * npm run note-update-partial -- --spec <spec> --commit --trial-line-bottom # 会員記事のほぼ全文プレビューを保持（memberTrial: bottom でも有効）
  */
 
 const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
@@ -411,17 +412,36 @@ async function applyOperation(page, op) {
     }, op);
   }
   if (op.type === 'removeBlock') {
-    return page.evaluate((operation) => {
-      const ed = document.querySelector('[contenteditable=true]');
-      const candidates = [...ed.children].filter((child) =>
-        (!operation.selector || child.matches(operation.selector))
-        && ((child.innerText || '').includes(operation.needle) || (child.innerHTML || '').includes(operation.needle)));
-      if (candidates.length !== (operation.expected ?? 1)) return false;
-      if (candidates.some((child) => child.querySelector?.('a[href*="api/v2/attachments/download"]'))) return false;
-      for (const child of candidates) child.remove();
-      ed.dispatchEvent(new InputEvent('input', { bubbles: true, inputType: 'deleteContentForward' }));
-      return true;
-    }, op);
+    for (let index = 0; index < expected(op); index++) {
+      const selected = await page.evaluate(({ operation, remaining }) => {
+        const ed = document.querySelector('[contenteditable=true]');
+        const candidates = [...ed.children].filter((child) =>
+          (!operation.selector || child.matches(operation.selector))
+          && ((child.innerText || '').includes(operation.needle) || (child.innerHTML || '').includes(operation.needle)));
+        if (candidates.length !== remaining) return false;
+        if (candidates.some((child) => child.querySelector?.('a[href*="api/v2/attachments/download"]'))) return false;
+        // DOM removal can be restored by note's paid editor. Delete a selected
+        // block through the editor so its document and autosave agree.
+        ed.focus();
+        candidates[0].scrollIntoView({ block: 'center' });
+        const range = document.createRange();
+        range.selectNode(candidates[0]);
+        const selection = getSelection(); selection.removeAllRanges(); selection.addRange(range);
+        return true;
+      }, { operation: op, remaining: expected(op) - index });
+      if (!selected) return false;
+      await sleep(100);
+      await page.keyboard.press('Delete');
+      await sleep(200);
+      const nodeSelected = await page.evaluate((operation) => {
+        const node = document.querySelector('[contenteditable=true] > .ProseMirror-selectednode');
+        return Boolean(node && ((node.innerText || '').includes(operation.needle) || (node.innerHTML || '').includes(operation.needle)));
+      }, op);
+      // Atomic cards may require selection first, then a second Delete. Never
+      // send it unless the still-selected node is the intended removal target.
+      if (nodeSelected) { await page.keyboard.press('Delete'); await sleep(150); }
+    }
+    return true;
   }
   if (op.type === 'insertAfter') {
     const placed = await page.evaluate((operation) => {
@@ -850,6 +870,7 @@ async function runSpec(page, specArg) {
   const published = await publishLive(page, noteId, article.paidBoundary || '試験問題|予想問題', article.isPaid || PAID_LINE_BOTTOM, {
     keepBoundary: true,
     paidLineBottom: PAID_LINE_BOTTOM,
+    trialLineBottom: article.data.memberTrial === 'bottom' || process.argv.includes('--trial-line-bottom'),
     // 無料記事がメンバーシップ特典マガジンに入っていると、ラインなしの更新で全文が会員限定になる。
     // 意図して全文ロックしている記事だけ --keep-member-lock で通す（無ければ publishLive が中断する）
     membershipLock: article.notePricing === 'membership' || process.argv.includes('--keep-member-lock'),
