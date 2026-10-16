@@ -45,7 +45,7 @@ for (const src of targets) {
   if (basis.books[src.id] && !args.replace) { console.log(`${TAG} ${src.id}: 台帳にある（作り直すなら --replace）`); skipped++; continue; }
   const dir = join(ROOT, 'content', 'sources', 'books', src.bookBundle.directory, 'coverage');
   const candFile = join(dir, 'candidates.json'), verdictFile = join(dir, 'verdict.json');
-  if (!existsSync(candFile)) { console.log(`${TAG} ${src.id}: 候補表が手元に無い（未判定の本か、drive-vault-sync --pull が要る）`); skipped++; continue; }
+  if (!existsSync(candFile)) { console.log(`${TAG} ${src.id}: 候補表が手元に無い（未判定の本か、node scripts/drive-vault-sync.mjs --pull --group reference-book-coverage --commit が要る）`); skipped++; continue; }
   const candidates = JSON.parse(readFileSync(candFile, 'utf8'));
   const verdict = existsSync(verdictFile) ? JSON.parse(readFileSync(verdictFile, 'utf8')) : { units: [], plan: [] };
   const r = buildBookBasis(candidates, verdict, resolveArticle);
