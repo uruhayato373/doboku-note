@@ -51,7 +51,7 @@ sources:
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/civil-practice/image-photogrammetry-analysis/img/figure-pixel-gradation.svg"
-  alt="同じ幅8mmのひびを、1画素20mmと5mm、階調2段階と濃淡の段階が多い場合で撮り分けた見え方の比較"
+  alt="幅8mmのひびを、画素20mmと5mm、階調2段階と多段階で撮り分けた見え方と、画素に対するひび幅の比"
   width={400}
   height={500}
 />
@@ -77,7 +77,7 @@ sources:
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/civil-practice/image-photogrammetry-analysis/img/figure-processing-effects.svg"
-  alt="濃度変換では明るさの分布が広がるが段階の間は空いたまま、フィルタではノイズが減る代わりに明暗の境目がなだらかになる様子"
+  alt="濃度変換の明るさの分布と入力・出力の対応、フィルタの平滑化と鮮鋭化で明暗の境目がどう変わるかを示す図"
   width={400}
   height={500}
 />
@@ -92,9 +92,25 @@ sources:
 加工後の画像は見やすい反面、ひびの輪郭や境目の位置が動いていることがあります。幅や位置を数字として読むときは、加工前の元画像を残しておき、両方で同じ値になるかを照らします。
 </Callout>
 
+{/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
+<ArticleImage
+  src="/posts/civil-practice/image-photogrammetry-analysis/img/figure-profile-shift.svg"
+  alt="ひびの断面の明るさを加工前・平滑化後・鮮鋭化後で並べ、読める幅が加工で変わることを示す模式図"
+  width={400}
+  height={500}
+/>
+
 ### 前回と比べるには、位置を合わせてから引く
 
 前回と今回の画像を重ねて差を見る場合は、先に二枚の位置を合わせます。位置のずれが残ったまま差を取ると、輪郭が全部「変わった部分」として現れます。残るずれが変状の幅より大きいと、撮影位置の違いと変状の進行を区別できません。
+
+{/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
+<ArticleImage
+  src="/posts/civil-practice/image-photogrammetry-analysis/img/figure-difference-alignment.svg"
+  alt="位置がずれたまま差を取る場合と、位置を合わせてから差を取る場合の違いと、ずれが変状の幅より大きいときの注意を示す図"
+  width={400}
+  height={500}
+/>
 
 点検画像の性能として位置精度が示されるのは、このためでもあります。ガイドライン（案）は、損傷位置の座標の誤差を、座標成分ごとの絶対誤差（mm）で示すとしています（p.9）。
 
@@ -107,7 +123,7 @@ sources:
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/civil-practice/image-photogrammetry-analysis/img/figure-sfm-control-points.svg"
-  alt="重なる写真から特徴点を探し、標定点で座標を与え、検証点で確かめる流れと、外側標定点・内側標定点・検証点の置き方"
+  alt="写真から形を復元する流れと、計算に使う標定点・計算に使わない検証点の役目、X・Y・Zの判定を示す図"
   width={400}
   height={500}
 />
@@ -148,6 +164,14 @@ sources:
 ### 見える下限は、撮影距離とセットで読む
 
 ガイドライン（案）は、性能を撮影速度・被写体との距離などの動作条件と、環境条件を付けて示すとしています（p.9）。同じ技術でも、距離が違えば見える下限が変わります。
+
+{/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
+<ArticleImage
+  src="/posts/civil-practice/image-photogrammetry-analysis/img/figure-crack-width-pixel.svg"
+  alt="1画素1mmの格子に幅0.2mmのひびを重ねた仮の例と、検出できるかを決める撮影距離・照明・検出の手法を示す図"
+  width={400}
+  height={500}
+/>
 
 仮の例で考えます。1画素が1mmにあたる画像で、幅0.2mmのひびは画素より細い値です。検出できるかどうかは、画素分解能だけでは決まらず、撮影距離や照明、検出の手法まで含めた条件つきの性能値で判断します。国土交通省 道路局の点検支援技術性能カタログ（[概要版](https://www.mlit.go.jp/road/tech/pdf/catalog_gaiyouban001.pdf)令和8年3月）が、橋梁の画像計測の技術ごとに、撮影距離と検出できるひびわれ幅の組を載せているのは、そのためです。
 

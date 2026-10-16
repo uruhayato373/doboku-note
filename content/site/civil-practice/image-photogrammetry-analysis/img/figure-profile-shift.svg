@@ -1,0 +1,56 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は加工でひびの輪郭の位置と読める幅が動くこと（模式図）。幅や位置を読むときは加工前の元画像と加工後の画像で同じ値になるかを照らす。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="ひびの断面の明るさを、加工前、平滑化後、鮮鋭化後で並べた模式図。半分の深さで読めるひびの幅が、加工ごとに変わる。幅や位置を読むときは、加工前の元画像と加工後の画像で同じ値になるかを照らす。">
+  <defs>
+  <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #222; }
+      .b { font-weight: bold; fill: #1a3a5c; }
+      .m { fill: #555; }
+      .t12 { font-size: 12px; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .dng { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .sf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .wh { fill: #fff; stroke: #2e6da4; stroke-width: 1.5; }
+      .dash { fill: #fff; stroke: #555; stroke-width: 1.5; stroke-dasharray: 4 3; }
+      .grid { stroke: #d7d7d7; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .ax { stroke: #555; stroke-width: 1.5; fill: none; }
+      .ar { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ark { stroke: #555; stroke-width: 2; fill: none; }
+  </style>
+  <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="ak" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  <marker id="as" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="asg" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+  <text class="t12 b" x="12" y="20">ひびの断面（明るさの落ち込み）の模式図</text>
+  <rect class="wh" x="12" y="40" width="376" height="104" rx="8"/>
+  <text class="t12 b" x="22" y="62">加工前</text>
+  <polyline points="110,80.0 113,80.0 116,80.0 119,80.0 122,80.0 125,80.0 128,80.0 131,80.0 134,80.0 137,80.0 140,80.0 143,80.0 146,80.0 149,80.0 152,80.0 155,80.0 158,80.0 161,80.0 164,80.0 167,80.0 170,80.0 173,80.0 176,80.0 179,80.0 182,80.0 185,80.0 188,80.0 191,80.0 194,80.0 197,80.0 200,80.0 203,80.0 206,80.0 209,80.0 212,80.0 215,80.1 218,80.3 221,80.7 224,81.6 227,83.4 230,86.5 233,91.4 236,98.4 239,107.0 242,116.1 245,124.0 248,129.0 251,129.7 254,126.1 257,118.9 260,110.0 263,101.1 266,93.5 269,87.9 272,84.2 275,82.1 278,80.9 281,80.4 284,80.1 287,80.0 290,80.0 293,80.0 296,80.0 299,80.0 302,80.0 305,80.0 308,80.0 311,80.0 314,80.0 317,80.0 320,80.0 323,80.0 326,80.0 329,80.0 332,80.0 335,80.0 338,80.0 341,80.0 344,80.0 347,80.0 350,80.0 353,80.0 356,80.0 359,80.0 362,80.0 365,80.0 368,80.0 371,80.0 374,80.0 377,80.0 380,80.0" fill="none" stroke="#2e6da4" stroke-width="2.5"/>
+  <path d="M110,105H380" stroke="#d7d7d7" stroke-width="1" stroke-dasharray="3 3" fill="none"/>
+  <path d="M238.3,99V135M261.7,99V135" stroke="#555" stroke-width="1" fill="none"/>
+  <path d="M250,105H238.3" stroke="#555" stroke-width="1.5" fill="none" marker-end="url(#ak)"/><path d="M250,105H261.7" stroke="#555" stroke-width="1.5" fill="none" marker-end="url(#ak)"/>
+  <text class="m" x="22" y="84">読める幅</text>
+  <text class="m" x="22" y="100">基準</text>
+  <rect class="wh" x="12" y="152" width="376" height="104" rx="8"/>
+  <text class="t12 b" x="22" y="174">平滑化後</text>
+  <polyline points="110,192.0 113,192.0 116,192.0 119,192.0 122,192.0 125,192.0 128,192.0 131,192.0 134,192.0 137,192.0 140,192.0 143,192.0 146,192.0 149,192.0 152,192.0 155,192.0 158,192.0 161,192.0 164,192.0 167,192.0 170,192.0 173,192.0 176,192.0 179,192.0 182,192.0 185,192.0 188,192.0 191,192.0 194,192.1 197,192.2 200,192.3 203,192.5 206,192.9 209,193.6 212,194.5 215,196.0 218,198.0 221,200.8 224,204.4 227,208.8 230,213.9 233,219.5 236,225.4 239,230.9 242,235.8 245,239.5 248,241.6 251,241.9 254,240.4 257,237.2 260,232.7 263,227.3 266,221.5 269,215.7 272,210.4 275,205.7 278,201.9 281,198.9 284,196.6 287,195.0 290,193.8 293,193.1 296,192.6 299,192.4 302,192.2 305,192.1 308,192.0 311,192.0 314,192.0 317,192.0 320,192.0 323,192.0 326,192.0 329,192.0 332,192.0 335,192.0 338,192.0 341,192.0 344,192.0 347,192.0 350,192.0 353,192.0 356,192.0 359,192.0 362,192.0 365,192.0 368,192.0 371,192.0 374,192.0 377,192.0 380,192.0" fill="none" stroke="#3a7d44" stroke-width="2.5"/>
+  <path d="M110,217H380" stroke="#d7d7d7" stroke-width="1" stroke-dasharray="3 3" fill="none"/>
+  <path d="M231.7,211V247M268.3,211V247" stroke="#555" stroke-width="1" fill="none"/>
+  <path d="M250,217H231.7" stroke="#555" stroke-width="1.5" fill="none" marker-end="url(#ak)"/><path d="M250,217H268.3" stroke="#555" stroke-width="1.5" fill="none" marker-end="url(#ak)"/>
+  <text class="m" x="22" y="196">読める幅</text>
+  <text class="m" x="22" y="212">広く見える</text>
+  <rect class="wh" x="12" y="264" width="376" height="104" rx="8"/>
+  <text class="t12 b" x="22" y="286">鮮鋭化後</text>
+  <polyline points="110,304.0 113,304.0 116,304.0 119,304.0 122,304.0 125,304.0 128,304.0 131,304.0 134,304.0 137,304.0 140,304.0 143,304.0 146,304.0 149,304.0 152,304.0 155,304.0 158,304.0 161,304.0 164,304.0 167,304.0 170,304.0 173,304.0 176,304.0 179,304.0 182,304.0 185,304.0 188,304.0 191,304.0 194,304.0 197,304.0 200,304.0 203,304.0 206,304.0 209,304.0 212,304.0 215,304.0 218,304.0 221,304.0 224,304.2 227,304.6 230,305.8 233,308.6 236,313.9 239,322.4 242,333.5 245,344.7 248,352.4 251,353.6 254,347.8 257,337.4 260,325.9 263,316.4 266,310.0 269,306.5 272,304.9 275,304.3 278,304.1 281,304.0 284,304.0 287,304.0 290,304.0 293,304.0 296,304.0 299,304.0 302,304.0 305,304.0 308,304.0 311,304.0 314,304.0 317,304.0 320,304.0 323,304.0 326,304.0 329,304.0 332,304.0 335,304.0 338,304.0 341,304.0 344,304.0 347,304.0 350,304.0 353,304.0 356,304.0 359,304.0 362,304.0 365,304.0 368,304.0 371,304.0 374,304.0 377,304.0 380,304.0" fill="none" stroke="#d4a017" stroke-width="2.5"/>
+  <path d="M110,329H380" stroke="#d7d7d7" stroke-width="1" stroke-dasharray="3 3" fill="none"/>
+  <path d="M240.8,323V359M259.2,323V359" stroke="#555" stroke-width="1" fill="none"/>
+  <path d="M250,329H240.8" stroke="#555" stroke-width="1.5" fill="none" marker-end="url(#ak)"/><path d="M250,329H259.2" stroke="#555" stroke-width="1.5" fill="none" marker-end="url(#ak)"/>
+  <text class="m" x="22" y="308">読める幅</text>
+  <text class="m" x="22" y="324">狭く見える</text>
+  <rect class="warn" x="12" y="380" width="376" height="98" rx="8"/>
+  <text class="t12 b" x="200.0" y="413.0" text-anchor="middle">幅や位置を読むときは</text>
+  <text class="t12" x="200.0" y="433.0" text-anchor="middle">加工前の元画像を残し</text>
+  <text class="t12" x="200.0" y="453.0" text-anchor="middle">加工後と同じ値になるかを照らす</text>
+</svg>
