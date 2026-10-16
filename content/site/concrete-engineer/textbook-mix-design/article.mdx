@@ -20,7 +20,7 @@ sources:
 published: true
 publishedAt: '2026-09-01'
 created: 2026-09-01
-dateModified: 2026-10-15
+dateModified: 2026-10-16
 ogp:
   title: "配合設計"
 ---
@@ -36,7 +36,7 @@ ogp:
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/concrete-engineer/textbook-mix-design/img/figure-paste-mortar-concrete.svg"
-  alt="セメントペースト、モルタル、コンクリートの材料構成を質量比の目安で3本の積み上げ帯にして比較した図。ペーストはセメントと水、モルタルは細骨材を加え、コンクリートはさらに粗骨材を加える"
+  alt="セメントペースト、モルタル、コンクリートの材料構成を容積の目安で3本の帯にして比較した図。細骨材、粗骨材、空気が順に加わる"
   width={400}
   height={500}
 />
@@ -48,7 +48,7 @@ ogp:
 
 <ArticleImage
   src="/posts/concrete-engineer/textbook-mix-design/img/figure-performance-to-mix.svg"
-  alt="要求性能の安全性・使用性・耐久性を配合の目標である強度・耐久性へ結び、施工性と経済性はその実現条件として位置づける対応関係の図"
+  alt="要求性能3分類を、強度・耐久性・施工性・経済性の4つの目標項目へ落とし込む対応図。施工性と経済性は強度・耐久性を満たすための条件"
   width={400}
   height={500}
 />
@@ -67,6 +67,14 @@ ogp:
     "5. 空気・水・セメント・骨材の絶対容積を1m³へ配分",
     "6. 試し練りで確認し、現場では骨材の含水状態を補正",
   ]}
+/>
+
+{/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
+<ArticleImage
+  src="/posts/concrete-engineer/textbook-mix-design/img/figure-mix-design-flow.svg"
+  alt="配合設計の手順の流れ図。試し練りが目標とずれたら、原因の諸量だけ補正して再度試し練りに戻る"
+  width={400}
+  height={500}
 />
 
 ### 土木と建築で配合が違う理由
@@ -104,7 +112,7 @@ ogp:
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/concrete-engineer/textbook-mix-design/img/figure-mix-strength-margin.svg"
-  alt="呼び強度を中心とした強度の分布（破線）と、割増しだけ右へずらした配合強度の分布（実線）。呼び強度を下回る裾の確率は約0.6％に抑えられ、配合強度は呼び強度に割増しを加えた値になることを示す"
+  alt="呼び強度を中心とした分布（破線）を、割増しの分だけ同じ形で右へずらした配合強度の分布（実線）。下回る範囲が小さくなる"
   width={400}
   height={500}
 />
@@ -179,6 +187,14 @@ ogp:
   ]}
 />
 
+{/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
+<ArticleImage
+  src="/posts/concrete-engineer/textbook-mix-design/img/figure-strength-terms-flow.svg"
+  alt="土木の強度の語の流れ。設計基準強度、呼び強度、配合強度、受入れ検査の合否の条件、構造物の確認"
+  width={400}
+  height={500}
+/>
+
 2023年制定のコンクリート標準示方書［施工編］は、発注者が行う検査を［検査標準］に分けて記述しました。あわせて、レディーミクストコンクリートの呼び強度の強度値は、計量抜取検査の合格判定基準値に基づいて指定する必要があると示しています（土木学会のニュースリリース）。設計で使う特性値と、検査で使う合格判定基準値は別の考え方の値です。どの値を呼び強度として注文するかは、設計図書と準拠する示方書の版で決まります。
 
 強度を保証する材齢は、購入者が指定しなければ28日です。設計で別の材齢を使うなら、注文でも材齢を指定してください。注文の書き方は[生コンクリートの注文内容を決める](/practice/ready-mixed-concrete-ordering)にまとめました。
@@ -198,7 +214,7 @@ $$
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/concrete-engineer/textbook-mix-design/img/figure-cw-strength-line.svg"
-  alt="セメント水比C/W（1.5〜3.0、対応するW/Cは70〜30％）を横軸、圧縮強度を縦軸にとり、C/Wが大きいほど強度が右上がりに高くなる傾向を示すグラフ"
+  alt="水セメント比W/Cを横軸、圧縮強度を縦軸にとった定性のグラフ。W/Cが小さいほど強度が高い。水を減らすかセメントを増やすとW/Cは小さくなる"
   width={400}
   height={500}
 />
@@ -269,7 +285,7 @@ $$
 
 <ArticleImage
   src="/posts/concrete-engineer/textbook-mix-design/img/figure-volume-composition.svg"
-  alt="5要素の絶対容積を1m³へ積み上げ、量の増減が性質に跳ね返る配合の基本形を、水・セメント・空気を増やしたときの変化とあわせて示す図"
+  alt="絶対容積の計算例。空気45 L、水170 L、セメント約108 L、細骨材317 L、粗骨材360 Lで合計1,000 L。増減の影響も示す"
   width={400}
   height={500}
 />
@@ -344,7 +360,7 @@ $V_S$ は細骨材、$V_G$ は粗骨材の絶対容積です。細骨材率を�
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/concrete-engineer/textbook-mix-design/img/figure-sand-ratio-slump-wc.svg"
-  alt="砕石コンクリートの細骨材率とスランプの傾向図。水セメント比40〜65％の6本の折れ線が、スランプが大きいほど、またW/Cが大きいほど細骨材率が高い側に並ぶ"
+  alt="細骨材率の傾向図。スランプが大きいほど、また水セメント比が大きいほど細骨材率が高い側に並ぶ。数値なしの定性図"
   width={400}
   height={500}
 />
