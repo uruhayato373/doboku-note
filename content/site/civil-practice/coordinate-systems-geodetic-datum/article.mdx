@@ -64,6 +64,14 @@ GNSSの測位方式や、楕円体高とジオイド高の換算式は[GNSS測�
 
 座標のずれで一番多い原因は、基準の違う成果が混ざることです。日本の測地系は、大きく二つの時代に分かれます。
 
+{/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
+<ArticleImage
+  src="/posts/civil-practice/coordinate-systems-geodetic-datum/img/figure-datum-timeline.svg"
+  alt="旧日本測地系から日本測地系2000、2011、2024への移行ごとに、変わったものと引き継がれたものを並べた年表"
+  width={400}
+  height={500}
+/>
+
 ### 旧日本測地系の図面は、そのままでは重ならない
 
 2001年以前の測量成果は、ベッセル楕円体の面に、経緯度原点の座標を天文観測で定めた旧日本測地系で表されていました。2002年の測量法改正で世界測地系へ移り、現在の成果は宇宙測地技術で定めた世界測地系に基づきます（[日本の測地系](https://www.gsi.go.jp/sokuchikijun/datum-main.html)）。
@@ -135,6 +143,14 @@ GNSSの測位方式や、楕円体高とジオイド高の換算式は[GNSS測�
 
 系は、都道府県単位で割り当てるのが基本です。ただし、広い地域や離島は、複数の系に分かれます。
 
+{/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
+<ArticleImage
+  src="/posts/civil-practice/coordinate-systems-geodetic-datum/img/figure-plane-zones.svg"
+  alt="平面直角座標系19系の原点を経度・緯度の格子に点で示した模式図。北海道、東京都、沖縄県の系を色分けしている"
+  width={400}
+  height={500}
+/>
+
 | 地域 | 割り当てられた系 |
 |---|---|
 | 北海道 | XI系、XII系、XIII系 |
@@ -153,6 +169,14 @@ GNSSの測位方式や、楕円体高とジオイド高の換算式は[GNSS測�
 ### 縮尺係数0.9999 — 座標上の距離と地上の距離は少し違う
 
 平面直角座標系では、原点を通るX軸上の縮尺係数を0.9999としています。投影による距離の誤差を、相対的に1万分の1以内に収めるための設計で、原点から東西約130km以内が適用範囲です（[日本の測地系](https://www.gsi.go.jp/sokuchikijun/datum-main.html)）。
+
+{/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
+<ArticleImage
+  src="/posts/civil-practice/coordinate-systems-geodetic-datum/img/figure-scale-factor.svg"
+  alt="平面直角座標系の原点からの東西距離と縮尺係数の関係を示す概念図。原点で0.9999、東西に離れるほど大きくなり、適用範囲は東西約130km以内"
+  width={400}
+  height={500}
+/>
 
 座標から計算した距離を $s$、楕円体面上の距離を $S$、縮尺係数を $k$ とすると、次の関係になります。
 
