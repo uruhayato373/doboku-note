@@ -1,0 +1,40 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は、アジテータ車の一周（積込み・走行・荷卸し・返送）と必要台数 N = Q×T÷V の各文字の意味。数値は記事本文の例のみ。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="アジテータ車が積込み、走行、荷卸し、返送の順に一周する循環と、必要台数N=Q×T÷Vの各文字の意味を示した図。例は50×0.75÷4で9.375、切り上げて10台。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 13px; fill: #222; }
+      .hd { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .in { font-size: 13px; font-weight: bold; fill: #1a3a5c; text-anchor: middle; }
+      .lb { font-size: 12px; fill: #555; }
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .brd { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .wrn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .dng { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .sf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .ar { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+  <rect class="brd" x="24" y="24" width="150" height="56" rx="8"/><text class="in" x="99" y="58">積込み</text>
+  <rect class="brd" x="226" y="24" width="150" height="56" rx="8"/><text class="in" x="301" y="58">走行</text>
+  <rect class="wrn" x="226" y="134" width="150" height="56" rx="8"/><text class="in" x="301" y="168">荷卸し</text>
+  <rect class="brd" x="24" y="134" width="150" height="56" rx="8"/><text class="in" x="99" y="168">返送</text>
+  <path class="ar" d="M174,52H224" marker-end="url(#ah)"/>
+  <path class="ar" d="M301,80V132" marker-end="url(#ah)"/>
+  <path class="ar" d="M226,162H176" marker-end="url(#ah)"/>
+  <path class="ar" d="M99,134V82" marker-end="url(#ah)"/>
+  <text class="in" x="200" y="106">一周が T</text>
+  <text class="lb" x="200" y="124" text-anchor="middle">荷卸し待ちで変わる</text>
+
+  <rect class="sf" x="24" y="214" width="352" height="148" rx="8"/>
+  <text class="hd" x="38" y="238">N = Q × T ÷ V</text>
+  <text x="38" y="264">N　必要台数</text>
+  <text x="38" y="288">Q　目標の時間当たり打込み量</text>
+  <text x="38" y="312">V　1台の積載量</text>
+  <text x="38" y="336">T　一周のサイクルタイム（その日に実測）</text>
+
+  <rect class="pos" x="24" y="382" width="352" height="98" rx="8"/>
+  <text class="hd" x="38" y="406">例</text>
+  <text x="38" y="430">Q 50m³/h、V 4m³、T 0.75h</text>
+  <text class="in" x="200" y="462">50 × 0.75 ÷ 4 = 9.375　→　10台</text>
+</svg>
