@@ -1,37 +1,43 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="能力評価のレベル1から4。レベル1は登録のみ、レベル2は一人前の資格と就業日数、レベル3は職長・班長としての就業日数、レベル4は登録基幹技能者と3年以上の職長経験を基準にする" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="能力評価のレベル1から4。レベル2は就業日数と一人前の資格、レベル3は職長班長の就業日数が必ず加わり、レベル4は登録基幹技能者と3年以上の職長の日数を基準にする。判定件数はレベル4が68,952件、レベル3が48,724件、レベル2が55,251件で、レベル1は件数に載らない" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
 <defs><marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker></defs>
 <rect width="400" height="500" fill="#ffffff"/>
-<g stroke-width="1.5">
-<rect x="18" y="14" width="364" height="80" rx="8" fill="#fff3cd" stroke="#d4a017"/>
-<rect x="18" y="116" width="364" height="80" rx="8" fill="#d0e8d0" stroke="#3a7d44"/>
-<rect x="18" y="218" width="364" height="80" rx="8" fill="#e8f0fe" stroke="#2e6da4"/>
-<rect x="18" y="320" width="364" height="80" rx="8" fill="#f5f5f5" stroke="#d7d7d7"/>
-<g stroke="#2e6da4">
-<line x1="200" y1="320" x2="200" y2="300" marker-end="url(#ar)"/>
-<line x1="200" y1="218" x2="200" y2="198" marker-end="url(#ar)"/>
-<line x1="200" y1="116" x2="200" y2="96" marker-end="url(#ar)"/>
+<rect x="18" y="14" width="364" height="84" rx="8" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+<text x="30" y="36" font-size="13" font-weight="700" fill="#222">レベル4　高度なマネジメント能力</text>
+<rect x="30" y="46" width="150" height="22" rx="11" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+<text x="105" y="61" font-size="11" font-weight="700" fill="#1a3a5c" text-anchor="middle">資格　登録基幹技能者</text>
+<rect x="188" y="46" width="124" height="22" rx="11" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/>
+<text x="250" y="61" font-size="11" font-weight="700" fill="#1a3a5c" text-anchor="middle">職長日数　3年以上</text>
+<rect x="30" y="76" width="200" height="14" rx="3" fill="#ffffff" stroke="#d4a017" stroke-width="1.5"/>
+<text x="238" y="88" font-size="11" fill="#555">68,952件</text>
+<rect x="18" y="110" width="364" height="100" rx="8" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+<text x="30" y="132" font-size="13" font-weight="700" fill="#222">レベル3　職長として現場に従事できる</text>
+<rect x="30" y="142" width="66" height="22" rx="11" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="63" y="157" font-size="11" font-weight="700" fill="#1a3a5c" text-anchor="middle">就業日数</text>
+<rect x="104" y="142" width="138" height="22" rx="11" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+<text x="173" y="157" font-size="11" font-weight="700" fill="#1a3a5c" text-anchor="middle">資格　1級技能士が基本</text>
+<rect x="250" y="142" width="116" height="22" rx="11" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/>
+<text x="308" y="157" font-size="11" font-weight="700" fill="#1a3a5c" text-anchor="middle">職長班長日数　必須</text>
+<text x="30" y="184" font-size="11" fill="#555">立場が「作業員」のままだと、職長の日数は貯まらない</text>
+<rect x="30" y="192" width="141" height="10" rx="3" fill="#ffffff" stroke="#3a7d44" stroke-width="1.5"/>
+<text x="178" y="201" font-size="11" fill="#555">48,724件</text>
+<rect x="18" y="222" width="364" height="84" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="30" y="244" font-size="13" font-weight="700" fill="#222">レベル2　中堅（一人前）の技能者</text>
+<rect x="30" y="254" width="66" height="22" rx="11" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="63" y="269" font-size="11" font-weight="700" fill="#1a3a5c" text-anchor="middle">就業日数</text>
+<rect x="104" y="254" width="160" height="22" rx="11" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+<text x="184" y="269" font-size="11" font-weight="700" fill="#1a3a5c" text-anchor="middle">資格　一人前に要る資格</text>
+<rect x="30" y="284" width="160" height="14" rx="3" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="198" y="296" font-size="11" fill="#555">55,251件</text>
+<rect x="18" y="318" width="364" height="62" rx="8" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+<text x="30" y="340" font-size="13" font-weight="700" fill="#222">レベル1　初級（見習い）の技能者</text>
+<text x="30" y="362" font-size="11" fill="#555">技能者登録のみ。レベル2〜4の評価は、まだ受けていない</text>
+<g stroke="#2e6da4" stroke-width="1.5">
+<line x1="200" y1="318" x2="200" y2="308" marker-end="url(#ar)"/>
+<line x1="200" y1="222" x2="200" y2="212" marker-end="url(#ar)"/>
+<line x1="200" y1="110" x2="200" y2="100" marker-end="url(#ar)"/>
 </g>
-</g>
-<g fill="#222" font-size="13" font-weight="700">
-<text x="30" y="36">レベル4　高度なマネジメント能力</text>
-<text x="30" y="138">レベル3　職長として現場に従事できる</text>
-<text x="30" y="240">レベル2　中堅（一人前）の技能者</text>
-<text x="30" y="342">レベル1　初級（見習い）の技能者</text>
-</g>
-<g fill="#555" font-size="11">
-<text x="30" y="58">登録基幹技能者を、保有資格の基準に必ず置く</text>
-<text x="30" y="75">職長としての就業日数が3年分以上、必要になる</text>
-<text x="30" y="160">職長・班長としての就業日数を、必ず基準に置く</text>
-<text x="30" y="177">技能検定がある職種は、1級技能士が資格の基本</text>
-<text x="30" y="262">必要な就業日数と、一人前に要る資格を満たす</text>
-<text x="30" y="279">上位の資格を持てば、下位の資格も持つ扱い</text>
-<text x="30" y="364">CCUSに技能者登録をしている</text>
-<text x="30" y="381">レベル2〜4の評価を、まだ受けていない</text>
-</g>
-<g fill="#555" font-size="11">
-<text x="20" y="428">評価の材料は、就業日数・保有資格・職長班長の日数の三つ</text>
-<text x="20" y="445">就業日数は215日を1年として換算する</text>
-<text x="20" y="462">日数や資格の具体的な値は、分野ごとの基準で決まる</text>
-<text x="20" y="479">判定は、基準を作った能力評価実施団体が行う</text>
-</g>
+<text x="20" y="408" font-size="11" fill="#555">評価の材料は、就業日数・保有資格・職長班長の日数の三つ</text>
+<text x="20" y="426" font-size="11" fill="#555">就業日数は215日を1年として換算する</text>
+<text x="20" y="444" font-size="11" fill="#555">日数や資格の具体的な値は、分野ごとの基準で決まる</text>
+<text x="20" y="462" font-size="11" fill="#555">件数は令和8年6月30日現在の判定件数</text>
 </svg>
