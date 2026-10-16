@@ -1,0 +1,72 @@
+<!-- authored 2026-10-16 doboku-note 自作。数値は中央建設工事紛争審査会の取扱状況（令和7年度）の本文記載どおり。帯の長さは件数に比例 -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="令和7年度に全国の審査会へ出された申請116件の内訳を2本の帯で示した図。紛争の類型は工事瑕疵41、工事代金28、契約解除17、下請代金14、工事遅延9、その他7。工事の種類は建築84、土木15、設備11、電気2、その他4で、土木工事は13％。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #222; }
+      .tt { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .tb { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .tx { font-size: 12px; fill: #222; }
+      .ts { font-size: 11px; fill: #555; }
+      .tn { font-size: 13px; font-weight: bold; fill: #222; }
+      .b-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .b-pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .b-warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .b-dan { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .b-sur { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .b-wh { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ln { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .ld { stroke: #8a8a8a; stroke-width: 1; fill: none; stroke-dasharray: 3 3; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+  <text class="tt" x="14" y="28">令和7年度 全国の申請 116件</text>
+  <text class="tb" x="14" y="62">紛争の類型</text>
+  <rect class="b-brand" x="14.0" y="70" width="131.5" height="36"/>
+  <text class="tn" x="79.74137931034483" y="93" text-anchor="middle">41</text>
+  <rect class="b-pos" x="145.5" y="70" width="89.8" height="36"/>
+  <text class="tn" x="190.3793103448276" y="93" text-anchor="middle">28</text>
+  <rect class="b-warn" x="235.3" y="70" width="54.5" height="36"/>
+  <text class="tn" x="262.5344827586207" y="93" text-anchor="middle">17</text>
+  <rect class="b-sur" x="289.8" y="70" width="44.9" height="36"/>
+  <text class="tn" x="312.2413793103448" y="93" text-anchor="middle">14</text>
+  <rect class="b-wh" x="334.7" y="70" width="28.9" height="36"/>
+  <text class="tn" x="349.1206896551724" y="93" text-anchor="middle">9</text>
+  <rect class="b-dan" x="363.6" y="70" width="22.4" height="36"/>
+  <text class="tn" x="374.7758620689655" y="93" text-anchor="middle">7</text>
+  <rect class="b-brand" x="14" y="113" width="13" height="13" rx="2"/>
+  <text class="tx" x="34" y="124">工事瑕疵　41件</text>
+  <rect class="b-pos" x="204" y="113" width="13" height="13" rx="2"/>
+  <text class="tx" x="224" y="124">工事代金　28件</text>
+  <rect class="b-warn" x="14" y="135" width="13" height="13" rx="2"/>
+  <text class="tx" x="34" y="146">契約解除　17件</text>
+  <rect class="b-sur" x="204" y="135" width="13" height="13" rx="2"/>
+  <text class="tx" x="224" y="146">下請代金　14件</text>
+  <rect class="b-wh" x="14" y="157" width="13" height="13" rx="2"/>
+  <text class="tx" x="34" y="168">工事遅延　9件</text>
+  <rect class="b-dan" x="204" y="157" width="13" height="13" rx="2"/>
+  <text class="tx" x="224" y="168">その他　7件</text>
+  <text class="tb" x="14" y="220">工事の種類</text>
+  <rect class="b-brand" x="14.0" y="228" width="269.4" height="36"/>
+  <text class="tn" x="148.68965517241378" y="251" text-anchor="middle">84</text>
+  <rect class="b-warn" x="283.4" y="228" width="48.1" height="36"/>
+  <text class="tn" x="307.4310344827586" y="251" text-anchor="middle">15</text>
+  <rect class="b-pos" x="331.5" y="228" width="35.3" height="36"/>
+  <text class="tn" x="349.1206896551724" y="251" text-anchor="middle">11</text>
+  <rect class="b-sur" x="366.8" y="228" width="6.4" height="36"/>
+  <rect class="b-wh" x="373.2" y="228" width="12.8" height="36"/>
+  <rect class="b-brand" x="14" y="271" width="13" height="13" rx="2"/>
+  <text class="tx" x="34" y="282">建築　84件</text>
+  <rect class="b-warn" x="204" y="271" width="13" height="13" rx="2"/>
+  <text class="tx" x="224" y="282">土木　15件</text>
+  <rect class="b-pos" x="14" y="293" width="13" height="13" rx="2"/>
+  <text class="tx" x="34" y="304">設備　11件</text>
+  <rect class="b-sur" x="204" y="293" width="13" height="13" rx="2"/>
+  <text class="tx" x="224" y="304">電気　2件</text>
+  <rect class="b-wh" x="14" y="315" width="13" height="13" rx="2"/>
+  <text class="tx" x="34" y="326">その他　4件</text>
+  <rect class="b-warn" x="14" y="372" width="372" height="74" rx="6"/>
+  <text class="tt" x="200.0" y="405.9" text-anchor="middle">土木工事は 15件 ÷ 116件 ＝ 13％</text>
+  <text class="ts" x="200.0" y="421.9" text-anchor="middle">全国の申請116件のうち、土木工事の割合</text>
+  <text class="ts" x="14" y="478">出典：中央建設工事紛争審査会の取扱状況（令和7年度）</text>
+</svg>
