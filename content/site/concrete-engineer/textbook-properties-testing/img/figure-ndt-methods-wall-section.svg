@@ -2,7 +2,7 @@
 <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
   style="max-width:400px;width:100%"
   role="img"
-  aria-label="非破壊試験が壁のどこを見るかの断面図と、反発度の測定位置。反発度法は表層の硬さ、打音法は表層近くの浮き、電磁誘導法とレーダ法は鉄筋位置とかぶり、超音波法は壁を通過する伝播時間から空洞を見る。下段は壁の正面で、縁から50mm以上内側に、25から50mm間隔で9点を測る配置例">
+  aria-label="非破壊試験が壁のどこを見るかの断面図と、反発度の測定位置。反発度法は表層の硬さ、打音法は表層近くの浮き、電磁誘導法は磁性体の鉄筋の位置とかぶり、レーダ法は含水の影響を受けながら鉄筋や空洞の位置、超音波法は壁を通過する伝播時間から空洞を見る。下段は壁の正面で、縁から50mm以上内側に、25から50mm間隔で9点を測る配置例">
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
@@ -36,34 +36,38 @@
   <!-- 空洞 -->
   <ellipse cx="222" cy="242" rx="12" ry="9" class="box-d" />
 
-  <!-- 反発度法 -->
-  <rect x="8" y="40" width="114" height="52" rx="6" class="box-b" />
-  <text class="t-h" x="16" y="58">反発度法</text>
-  <text class="t-d" x="16" y="73">表層の硬さ</text>
-  <text class="t-d" x="16" y="86">→強度の目安</text>
-  <line class="ln-g" x1="122" y1="54" x2="146" y2="54" />
-  <rect x="146" y="46" width="20" height="16" rx="3" class="box-b" />
-  <line class="ln-b" x1="166" y1="54" x2="177" y2="54" />
-
-  <!-- 電磁誘導・レーダ -->
-  <rect x="8" y="104" width="114" height="52" rx="6" class="box-b" />
-  <text class="t-h" x="16" y="122">電磁誘導・レーダ</text>
-  <text class="t-d" x="16" y="137">鉄筋の位置</text>
-  <text class="t-d" x="16" y="150">かぶり厚さ</text>
-  <line class="ln-g" x1="122" y1="130" x2="146" y2="130" />
-  <rect x="146" y="120" width="30" height="20" rx="3" class="box-b" />
-  <path class="ln-bd" d="M178 124 C190 120 198 120 204 124" />
-  <path class="ln-bd" d="M178 130 L204 130" />
-  <path class="ln-bd" d="M178 136 C190 140 198 140 204 136" />
-
-  <!-- 打音法 -->
-  <rect x="8" y="168" width="114" height="52" rx="6" class="box-b" />
-  <text class="t-h" x="16" y="186">打音法</text>
-  <text class="t-d" x="16" y="201">音の違い</text>
-  <text class="t-d" x="16" y="214">→浮き・剥離</text>
-  <line class="ln-g" x1="122" y1="197" x2="146" y2="197" />
-  <rect x="146" y="189" width="20" height="16" rx="3" class="box-b" />
-  <line class="ln-b" x1="166" y1="197" x2="177" y2="197" />
+  <rect x="8" y="30" width="114" height="46" rx="6" class="box-b" />
+  <text class="t-h" x="16" y="46">反発度法</text>
+  <text class="t-d" x="16" y="60">表層の硬さ</text>
+  <text class="t-d" x="16" y="72">→強度の目安</text>
+  <line class="ln-g" x1="122" y1="53" x2="146" y2="53" />
+  <rect x="146" y="45" width="20" height="16" rx="3" class="box-b" />
+  <line class="ln-b" x1="166" y1="53" x2="177" y2="53" />
+  <rect x="8" y="80" width="114" height="46" rx="6" class="box-b" />
+  <text class="t-h" x="16" y="96">電磁誘導法</text>
+  <text class="t-d" x="16" y="110">磁性体の鉄筋のみ</text>
+  <text class="t-d" x="16" y="122">→位置・かぶり</text>
+  <line class="ln-g" x1="122" y1="103" x2="146" y2="103" />
+  <rect x="146" y="93" width="30" height="20" rx="3" class="box-b" />
+  <path class="ln-bd" d="M178 97 C190 93 198 93 204 97" />
+  <path class="ln-bd" d="M178 103 L204 103" />
+  <path class="ln-bd" d="M178 109 C190 113 198 113 204 109" />
+  <rect x="8" y="130" width="114" height="46" rx="6" class="box-b" />
+  <text class="t-h" x="16" y="146">電磁波レーダ法</text>
+  <text class="t-d" x="16" y="160">含水の影響を受ける</text>
+  <text class="t-d" x="16" y="172">→鉄筋・空洞の位置</text>
+  <line class="ln-g" x1="122" y1="153" x2="146" y2="153" />
+  <rect x="146" y="143" width="30" height="20" rx="3" class="box-b" />
+  <path class="ln-bd" d="M178 147 C190 143 198 143 204 147" />
+  <path class="ln-bd" d="M178 153 L204 153" />
+  <path class="ln-bd" d="M178 159 C190 163 198 163 204 159" />
+  <rect x="8" y="180" width="114" height="46" rx="6" class="box-b" />
+  <text class="t-h" x="16" y="196">打音法</text>
+  <text class="t-d" x="16" y="210">音の違い</text>
+  <text class="t-d" x="16" y="222">→浮き・剥離</text>
+  <line class="ln-g" x1="122" y1="203" x2="146" y2="203" />
+  <rect x="146" y="195" width="20" height="16" rx="3" class="box-b" />
+  <line class="ln-b" x1="166" y1="203" x2="177" y2="203" />
 
   <!-- 超音波法 -->
   <text class="t-m" x="163" y="226" text-anchor="middle">発信</text>
@@ -95,12 +99,10 @@
   <circle cx="127" cy="424" r="3.5" fill="#2e6da4" />
   <text class="t-s" x="105" y="460" text-anchor="middle">破線の内側＝縁から50 mm以上</text>
 
-  <text class="t-d" x="204" y="348">・1か所で9点を測る</text>
-  <text class="t-d" x="204" y="366">・点の間隔は25〜50 mm</text>
-  <text class="t-d" x="204" y="384">・縁から50 mm以上内側の</text>
-  <text class="t-d" x="204" y="400">　平滑で均一な面を選ぶ</text>
-  <text class="t-d" x="204" y="418">・平均から20%以上離れた</text>
-  <text class="t-d" x="204" y="434">　値は採らず別の点で補う</text>
-  <text class="t-d" x="204" y="452">・打撃は面に垂直に行う</text>
-  <text class="t-d" x="204" y="470">・乾湿や仕上げの状態を記録</text>
+  <text class="t-d" x="204" y="360">・1か所で9点を測る</text>
+  <text class="t-d" x="204" y="378">　（間隔は25〜50 mm）</text>
+  <text class="t-d" x="204" y="406">・縁から50 mm以上内側の</text>
+  <text class="t-d" x="204" y="422">　平滑で均一な面を選ぶ</text>
+  <text class="t-d" x="204" y="450">・平均から20%以上離れた値は</text>
+  <text class="t-d" x="204" y="466">　採らず別の点で補う</text>
 </svg>

@@ -1,0 +1,60 @@
+<!-- authored 2026-10-16 doboku-note 自作。題材はコンクリート技士教材のスランプのばらつきとスランプロス。書籍図の複製・トレースではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="スランプを動かす要因。同じ配合でも細骨材の表面水率、骨材の粒度、ミキサ車の洗浄水、ドラム内壁の付着でばらつく。気温が高い、単位水量が少ない、時間が経つと低下する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead  { font-size: 12px; fill: #555; }
+      .t-title { font-size: 14px; font-weight: bold; fill: #222; }
+      .t-head  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-label { font-size: 12px; fill: #1a3a5c; }
+      .t-desc  { font-size: 12px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #555; }
+      .t-warn  { font-size: 12px; fill: #b22234; font-weight: bold; }
+      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .ln { stroke: #555; stroke-width: 1; fill: none; }
+      .arr { stroke: #2e6da4; stroke-width: 1.5; fill: none; marker-end: url(#ah); }
+      .arr-d { stroke: #b22234; stroke-width: 1.5; fill: none; marker-end: url(#ahd); }
+    </style>
+    <marker id="ah" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4"/></marker>
+    <marker id="ahd" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234"/></marker>
+  </defs>
+  <text class="t-lead" x="200" y="18" text-anchor="middle">スランプを動かす要因</text>
+  <text class="t-head" x="20" y="44">同じ配合でもばらつく</text>
+  <text class="t-head" x="210" y="44">時間とともに下がる</text>
+  <rect class="box-b" x="20" y="54" width="172" height="60" rx="6"/>
+  <text class="t-label" x="30" y="78">細骨材の表面水率</text>
+  <text class="t-desc" x="30" y="100">→実際の練混ぜ水量が変わる</text>
+  <rect class="box-b" x="20" y="120" width="172" height="60" rx="6"/>
+  <text class="t-label" x="30" y="144">骨材の粒度（ロット差）</text>
+  <text class="t-desc" x="30" y="166">→ペースト量が変わる</text>
+  <rect class="box-b" x="20" y="186" width="172" height="60" rx="6"/>
+  <text class="t-label" x="30" y="210">ミキサ車の洗浄水の残り</text>
+  <text class="t-desc" x="30" y="232">→スランプが安定しない</text>
+  <rect class="box-b" x="20" y="252" width="172" height="60" rx="6"/>
+  <text class="t-label" x="30" y="276">ドラム内壁の付着</text>
+  <text class="t-desc" x="30" y="298">→有効な練混ぜ容積が変わる</text>
+  <rect class="box-w" x="208" y="54" width="172" height="60" rx="6"/>
+  <text class="t-label" x="218" y="78">気温・温度が高い</text>
+  <text class="t-desc" x="218" y="100">→低下が大きい</text>
+  <rect class="box-w" x="208" y="120" width="172" height="60" rx="6"/>
+  <text class="t-label" x="218" y="144">単位水量が少ない配合</text>
+  <text class="t-desc" x="218" y="166">→低下が大きく出やすい</text>
+  <rect class="box-w" x="208" y="186" width="172" height="60" rx="6"/>
+  <text class="t-label" x="218" y="210">練混ぜからの経過時間</text>
+  <text class="t-desc" x="218" y="232">→長いほど小さくなる</text>
+  <line x1="106" y1="318" x2="106" y2="340" class="arr"/>
+  <line x1="294" y1="252" x2="294" y2="340" class="arr"/>
+  <rect class="box" x="20" y="342" width="360" height="44" rx="6"/>
+  <text class="t-title" x="200" y="370" text-anchor="middle">スランプの値が変わる</text>
+  <rect class="box-d" x="20" y="400" width="360" height="84" rx="6"/>
+  <text class="t-warn" x="34" y="424">水を足して戻さない</text>
+  <text class="t-desc" x="34" y="446">所要の流動性は配合と混和剤の調整で確保する</text>
+  <text class="t-desc" x="34" y="466">値は練混ぜからの経過時間とあわせて管理する</text>
+</svg>

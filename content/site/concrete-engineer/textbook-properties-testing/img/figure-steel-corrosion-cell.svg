@@ -6,10 +6,10 @@
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
-      .t-lead  { font-size: 11px; fill: #555; }
+      .t-lead  { font-size: 12px; fill: #555; }
       .t-label { font-size: 12px; fill: #1a3a5c; }
-      .t-desc  { font-size: 11px; fill: #555; }
-      .t-axis  { font-size: 11px; fill: #8a8a8a; }
+      .t-desc  { font-size: 12px; fill: #555; }
+      .t-axis  { font-size: 11px; fill: #555; }
       .steel { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
       .film { stroke: #3a7d44; stroke-width: 4; }
       .rust { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
@@ -63,9 +63,7 @@
   <text class="t-red" x="34" y="314">アノード：Fe → Fe²⁺ + 2e⁻</text>
   <text class="t-grn" x="34" y="346">カソード：½O₂ + H₂O + 2e⁻ → 2OH⁻</text>
 
-  <rect class="box" x="20" y="378" width="360" height="100" rx="6" />
+  <rect class="box" x="20" y="378" width="360" height="72" rx="6" />
   <text class="t-desc" x="34" y="402">鉄筋の陽極になった箇所で腐食が進む。</text>
-  <text class="t-desc" x="34" y="424">電気化学的補修では、鉄筋が陰極になるよう</text>
-  <text class="t-desc" x="34" y="446">に電流を流して、腐食の進行を抑える。</text>
-  <text class="t-desc" x="34" y="468">塩化物イオン（Cl⁻）は不動態皮膜を壊し、陽極を生じさせる。</text>
+  <text class="t-desc" x="34" y="428">塩化物イオン（Cl⁻）が鉄筋位置に届くと腐食が始まる。</text>
 </svg>
