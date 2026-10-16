@@ -48,3 +48,11 @@ test('crops: 反映で図なしは not-needed、切り出しは complete と cro
   assert.equal(next.crops[0].audit.scores.correctFigure, 2);
   assert.equal(manifest.pages[0].cropStatus, 'pending'); // 元は変えない
 });
+
+test('crops: 同じ本のほかの頁の切り出しと id が重なると止める（同じ頁の撮り直しは通す）', () => {
+  const withCrop = { ...manifest, crops: [{ id: 'fig-flow', pageId: 'p0001' }] };
+  const other = { sourceId: 'book-a', pages: [{ page: 'p0002', crops: [crop] }] };
+  assert.ok(validateCropBatch(other, withCrop).some((e) => e.includes('重なる')));
+  const same = { sourceId: 'book-a', pages: [{ page: 'p0001', crops: [crop] }] };
+  assert.deepEqual(validateCropBatch(same, withCrop), []);
+});
