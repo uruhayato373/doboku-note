@@ -9,6 +9,7 @@
 <path class="r" d="M200 36V81H170V186M290 36V81H260V186"/>
 <rect x="26" y="42" width="40" height="17" fill="#f5f5f5"/><text class="s" x="30" y="55">高い面</text>
 <rect x="326" y="42" width="40" height="17" fill="#f5f5f5"/><text class="s" x="362" y="55" text-anchor="end">低い面</text>
+<rect x="26" y="102" width="124" height="78" fill="#fff" stroke="#d7d7d7"/><text class="s" x="32" y="117">断面</text><path class="e" d="M32 130H64L94 168H144"/><path class="r" d="M32 130H80V168H144"/>
 <text class="s" x="20" y="206">等間隔の点。折れ線は近い格子点へ寄り、階段状になる</text>
 <text class="h" x="20" y="238">三角網（TIN）</text>
 <rect x="20" y="250" width="360" height="150" fill="#f5f5f5" stroke="#d7d7d7"/>
