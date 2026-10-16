@@ -657,15 +657,24 @@
           "id": "survey-informatics",
           "label": "測量・情報化（座標・GIS・3次元計測・ICT施工・現場のデータ）",
           "slugs": [
+            "survey-informatics-overview",
+            "coordinate-systems-geodetic-datum",
             "gnss-positioning-basics",
             "gis-layer-validation",
+            "open-geospatial-data",
+            "municipal-gis",
+            "3d-measurement-selection",
+            "image-photogrammetry-analysis",
+            "cad-3d-model-visualization",
             "ict-construction-workflow",
             "bim-cim-site-practice",
             "monitoring-sensor-selection",
             "site-wireless-communication",
+            "construction-automation-control",
             "ledger-data-design",
             "quality-record-site-bcp",
-            "numerical-model-review"
+            "numerical-model-review",
+            "information-system-procurement"
           ]
         },
         {
