@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-16T01:36:31.330Z",
+  "generated_at": "2026-10-16T01:41:55.524Z",
   "summary": {
-    "total_mdx_files": 1450,
+    "total_mdx_files": 1451,
     "total_unique_tags": 133,
     "allowlist_size": 330,
     "known_count": 133,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 273,
+      "count": 274,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1232,6 +1232,7 @@
         "civil-practice-lifting-equipment-selection",
         "civil-practice-municipal-civil-engineer-work",
         "civil-practice-municipal-engineer-qualifications",
+        "civil-practice-municipal-gis",
         "civil-practice-national-prefecture-municipal-roles",
         "civil-practice-nature-conservation-mitigation",
         "civil-practice-netis-new-technology-use",
@@ -3372,7 +3373,7 @@
     },
     {
       "name": "地方公共団体",
-      "count": 56,
+      "count": 57,
       "inAllowlist": true,
       "usedIn": [
         "civil-practice-board-of-audit-inspection",
@@ -3392,6 +3393,7 @@
         "civil-practice-land-readjustment-project",
         "civil-practice-municipal-civil-engineer-work",
         "civil-practice-municipal-engineer-qualifications",
+        "civil-practice-municipal-gis",
         "civil-practice-national-prefecture-municipal-roles",
         "civil-practice-owner-safety-responsibility",
         "civil-practice-ppp-pfi-selection",
@@ -4688,6 +4690,23 @@
       ]
     },
     {
+      "name": "測量",
+      "count": 10,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-guide-surveying",
+        "civil-construction-1-textbook-distance-angle",
+        "civil-construction-1-textbook-leveling",
+        "civil-construction-1-textbook-surveying-basics",
+        "civil-practice-gis-layer-validation",
+        "civil-practice-gnss-positioning-basics",
+        "civil-practice-municipal-gis",
+        "civil-practice-open-geospatial-data",
+        "civil-practice-reading-civil-drawings",
+        "civil-practice-survey-informatics-overview"
+      ]
+    },
+    {
       "name": "港湾及び空港",
       "count": 10,
       "inAllowlist": true,
@@ -4755,6 +4774,22 @@
       ]
     },
     {
+      "name": "建設DX",
+      "count": 9,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-bim-cim-site-practice",
+        "civil-practice-ledger-data-design",
+        "civil-practice-monitoring-sensor-selection",
+        "civil-practice-municipal-gis",
+        "civil-practice-site-wireless-communication",
+        "civil-practice-survey-informatics-overview",
+        "pe-comprehensive-management-r04-essay-road-municipality",
+        "pe-construction-kensetsu-dx",
+        "pe-construction-ninaite-dx-ronbun-keyword"
+      ]
+    },
+    {
       "name": "施工計画、施工設備及び積算",
       "count": 9,
       "inAllowlist": true,
@@ -4800,22 +4835,6 @@
         "pe-construction-r07-river-coast",
         "pe-construction-r08-river-coast",
         "pe-construction-river-coast-exam-themes"
-      ]
-    },
-    {
-      "name": "測量",
-      "count": 9,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-guide-surveying",
-        "civil-construction-1-textbook-distance-angle",
-        "civil-construction-1-textbook-leveling",
-        "civil-construction-1-textbook-surveying-basics",
-        "civil-practice-gis-layer-validation",
-        "civil-practice-gnss-positioning-basics",
-        "civil-practice-open-geospatial-data",
-        "civil-practice-reading-civil-drawings",
-        "civil-practice-survey-informatics-overview"
       ]
     },
     {
@@ -4894,21 +4913,6 @@
         "civil-construction-1-textbook-steel-structures",
         "civil-construction-1-textbook-tunnel-natm",
         "civil-construction-1-textbook-water-sewer"
-      ]
-    },
-    {
-      "name": "建設DX",
-      "count": 8,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-bim-cim-site-practice",
-        "civil-practice-ledger-data-design",
-        "civil-practice-monitoring-sensor-selection",
-        "civil-practice-site-wireless-communication",
-        "civil-practice-survey-informatics-overview",
-        "pe-comprehensive-management-r04-essay-road-municipality",
-        "pe-construction-kensetsu-dx",
-        "pe-construction-ninaite-dx-ronbun-keyword"
       ]
     },
     {
