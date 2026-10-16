@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="打込み中の型枠に働く側圧が、打込み速度とスランプで大きくなりコンクリート温度で小さくなることを整理した図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 12px; fill: #1a3a5c; }
+      .h { font-size: 13px; font-weight: bold; }
+      .s { font-size: 12px; fill: #222; }
+      .n { font-size: 11px; fill: #555; }
+      .lb { font-size: 11px; font-weight: bold; fill: #2e6da4; }
+      .m { text-anchor: middle; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .danger { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .ar { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+    </style>
+    <!-- brand / positive / warn / danger / surface tokens -->
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+  <rect width="400" height="500" fill="#ffffff" />
+  <rect class="surface" x="10" y="14" width="380" height="60" rx="8"/>
+  <rect class="danger" x="22" y="26" width="80" height="36" rx="6"/>
+  <text class="h m" x="62" y="49">側圧 大</text>
+  <text class="s" x="116" y="49">打込み速度が速い</text>
+  <rect class="surface" x="10" y="84" width="380" height="60" rx="8"/>
+  <rect class="danger" x="22" y="96" width="80" height="36" rx="6"/>
+  <text class="h m" x="62" y="119">側圧 大</text>
+  <text class="s" x="116" y="111">スランプが大きく</text>
+  <text class="s" x="116" y="130">流動性の高い配合</text>
+  <rect class="surface" x="10" y="154" width="380" height="60" rx="8"/>
+  <rect class="positive" x="22" y="166" width="80" height="36" rx="6"/>
+  <text class="h m" x="62" y="189">側圧 小</text>
+  <text class="s" x="116" y="189">コンクリートの温度が高い</text>
+  <rect class="warn" x="10" y="232" width="380" height="80" rx="8"/>
+  <text class="h" x="22" y="254">急速な打込み・流動性の高い配合ほど余裕を</text>
+  <text class="s" x="22" y="274">型枠と支保工に、余裕を持たせておく</text>
+  <text class="s" x="22" y="294">側圧は条件次第で変わり、打込み中は働き続ける</text>
+  <rect class="brand" x="10" y="324" width="380" height="94" rx="8"/>
+  <text class="h" x="22" y="346">打込み中は、はらみを見続ける</text>
+  <text class="s" x="22" y="366">通り・タチに加え、面が外側に膨らむ変形を確認</text>
+  <text class="s" x="22" y="384">異常があればワイヤーやサポートを増し締めする</text>
+  <text class="s" x="22" y="402">異常を認めたら作業を中止する</text>
+  <rect class="positive" x="10" y="430" width="380" height="46" rx="8"/>
+  <text class="h" x="22" y="458">組立後、打込み前に点検・補修する</text>
+</svg>
