@@ -1,51 +1,114 @@
-<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="点群から成果品ができるまでの流れを、樹木と建物のある斜面の断面で示した図。オリジナルデータは地表と樹木と建物の点を含む。フィルタリングで建物・橋・車両・樹木を除くと、地表面の点だけのグラウンドデータが残る。グリッドデータ・等高線データ・断面図データはグラウンドデータから、数値地形図データは点群から地物を数値図化して作る。">
+<!-- authored 2026-10-16 doboku-note 自作。論点は点群の成果品（オリジナル・グラウンド・グリッド・等高線・断面・数値地形図）と使い道の対応。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="点群から成果品ができるまでの流れを、樹木と建物のある斜面の断面で示した図。オリジナルデータは既存構造物の形状を記録するときに使う。フィルタリングで建物・橋・車両・樹木を除くとグラウンドデータが残り、斜面の土量にはグリッドデータ、ほかに等高線・断面図データを作る。数値地形図データは点群から地物を図化する。">
   <defs>
   <style>
-      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #222; }
+      .b { font-weight: bold; fill: #1a3a5c; }
+      .m { fill: #555; }
+      .t12 { font-size: 12px; }
       .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
-      .t { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
-      .s { font-size: 11px; fill: #555; }
-      .m { font-size: 11px; fill: #8a8a8a; }
-      .p { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
-      .bb { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
-      .bp { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
-      .bw { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
-      .bd { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
-      .bs { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
-      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
-      .ln { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .dng { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .sf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .wh { fill: #fff; stroke: #2e6da4; stroke-width: 1.5; }
+      .dash { fill: #fff; stroke: #555; stroke-width: 1.5; stroke-dasharray: 4 3; }
+      .grid { stroke: #d7d7d7; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .ax { stroke: #555; stroke-width: 1.5; fill: none; }
+      .ar { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ark { stroke: #555; stroke-width: 2; fill: none; }
   </style>
   <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
-  <marker id="at" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  <marker id="ak" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  <marker id="as" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="asg" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
   </defs>
-<rect class="p" x="10" y="8" width="380" height="140" rx="8"/>
-  <text class="n" x="22" y="28">オリジナルデータ</text><text class="s" x="140" y="28">計測したままの点群</text>
-  <path d="M20,146L370,80" style="stroke:#8a8a8a;stroke-width:1.2" fill="none"/>
-  <rect x="196" y="63" width="60" height="44" class="bs" style="stroke-width:1"/>
-  <path d="M110,129V105" style="stroke:#8a8a8a;stroke-width:2" fill="none"/>
-  <circle cx="110" cy="85" r="18" class="bp" style="stroke-width:1"/>
-  <path d="M312,91V67" style="stroke:#8a8a8a;stroke-width:2" fill="none"/>
-  <circle cx="312" cy="47" r="18" class="bp" style="stroke-width:1"/>
-  <circle cx="26" cy="145" r="2" fill="#2e6da4"/><circle cx="40" cy="142" r="2" fill="#2e6da4"/><circle cx="54" cy="140" r="2" fill="#2e6da4"/><circle cx="68" cy="137" r="2" fill="#2e6da4"/><circle cx="82" cy="134" r="2" fill="#2e6da4"/><circle cx="96" cy="132" r="2" fill="#2e6da4"/><circle cx="110" cy="129" r="2" fill="#2e6da4"/><circle cx="124" cy="126" r="2" fill="#2e6da4"/><circle cx="138" cy="124" r="2" fill="#2e6da4"/><circle cx="152" cy="121" r="2" fill="#2e6da4"/><circle cx="166" cy="118" r="2" fill="#2e6da4"/><circle cx="180" cy="116" r="2" fill="#2e6da4"/><circle cx="264" cy="100" r="2" fill="#2e6da4"/><circle cx="278" cy="97" r="2" fill="#2e6da4"/><circle cx="292" cy="95" r="2" fill="#2e6da4"/><circle cx="306" cy="92" r="2" fill="#2e6da4"/><circle cx="320" cy="89" r="2" fill="#2e6da4"/><circle cx="334" cy="87" r="2" fill="#2e6da4"/><circle cx="348" cy="84" r="2" fill="#2e6da4"/><circle cx="362" cy="82" r="2" fill="#2e6da4"/><circle cx="200" cy="63" r="2" fill="#2e6da4"/><circle cx="212" cy="63" r="2" fill="#2e6da4"/><circle cx="224" cy="63" r="2" fill="#2e6da4"/><circle cx="236" cy="63" r="2" fill="#2e6da4"/><circle cx="248" cy="63" r="2" fill="#2e6da4"/><circle cx="196" cy="73" r="2" fill="#2e6da4"/><circle cx="196" cy="85" r="2" fill="#2e6da4"/><circle cx="196" cy="97" r="2" fill="#2e6da4"/><circle cx="128" cy="85" r="2" fill="#2e6da4"/><circle cx="123" cy="98" r="2" fill="#2e6da4"/><circle cx="110" cy="103" r="2" fill="#2e6da4"/><circle cx="97" cy="98" r="2" fill="#2e6da4"/><circle cx="92" cy="85" r="2" fill="#2e6da4"/><circle cx="97" cy="72" r="2" fill="#2e6da4"/><circle cx="110" cy="67" r="2" fill="#2e6da4"/><circle cx="123" cy="72" r="2" fill="#2e6da4"/><circle cx="330" cy="47" r="2" fill="#2e6da4"/><circle cx="325" cy="60" r="2" fill="#2e6da4"/><circle cx="312" cy="65" r="2" fill="#2e6da4"/><circle cx="299" cy="60" r="2" fill="#2e6da4"/><circle cx="294" cy="47" r="2" fill="#2e6da4"/><circle cx="299" cy="34" r="2" fill="#2e6da4"/><circle cx="312" cy="29" r="2" fill="#2e6da4"/><circle cx="325" cy="34" r="2" fill="#2e6da4"/>
-  <path class="a" d="M60,150V184" marker-end="url(#ah)" style="stroke-width:2.5"/>
-  <text class="t" x="72" y="170">フィルタリング</text><text class="s" x="170" y="170">建物・橋・車両・樹木を除く</text>
-  <rect class="p" x="10" y="190" width="380" height="140" rx="8"/>
-  <text class="n" x="22" y="210">グラウンドデータ</text><text class="s" x="140" y="210">地表面の点だけが残る</text>
-  <path d="M20,328L370,262" style="stroke:#8a8a8a;stroke-width:1.2" fill="none"/>
-  <rect x="196" y="245" width="60" height="44" fill="none" style="stroke:#8a8a8a;stroke-width:1;stroke-dasharray:3 3"/>
-  <circle cx="110" cy="267" r="18" fill="none" style="stroke:#8a8a8a;stroke-width:1;stroke-dasharray:3 3"/>
-  <path d="M110,311V287" style="stroke:#8a8a8a;stroke-width:1;stroke-dasharray:3 3" fill="none"/>
-  <circle cx="312" cy="229" r="18" fill="none" style="stroke:#8a8a8a;stroke-width:1;stroke-dasharray:3 3"/>
-  <path d="M312,273V249" style="stroke:#8a8a8a;stroke-width:1;stroke-dasharray:3 3" fill="none"/>
-  <circle cx="26" cy="327" r="2" fill="#2e6da4"/><circle cx="40" cy="324" r="2" fill="#2e6da4"/><circle cx="54" cy="322" r="2" fill="#2e6da4"/><circle cx="68" cy="319" r="2" fill="#2e6da4"/><circle cx="82" cy="316" r="2" fill="#2e6da4"/><circle cx="96" cy="314" r="2" fill="#2e6da4"/><circle cx="110" cy="311" r="2" fill="#2e6da4"/><circle cx="124" cy="308" r="2" fill="#2e6da4"/><circle cx="138" cy="306" r="2" fill="#2e6da4"/><circle cx="152" cy="303" r="2" fill="#2e6da4"/><circle cx="166" cy="300" r="2" fill="#2e6da4"/><circle cx="180" cy="298" r="2" fill="#2e6da4"/><circle cx="264" cy="282" r="2" fill="#2e6da4"/><circle cx="278" cy="279" r="2" fill="#2e6da4"/><circle cx="292" cy="277" r="2" fill="#2e6da4"/><circle cx="306" cy="274" r="2" fill="#2e6da4"/><circle cx="320" cy="271" r="2" fill="#2e6da4"/><circle cx="334" cy="269" r="2" fill="#2e6da4"/><circle cx="348" cy="266" r="2" fill="#2e6da4"/><circle cx="362" cy="264" r="2" fill="#2e6da4"/>
-  <path class="a" d="M60,332V366" marker-end="url(#ah)" style="stroke-width:2.5"/>
-  <text class="t" x="72" y="352">データを作る</text>
-  <rect class="bb" x="22" y="372" width="174" height="50" rx="6"/>
-  <text class="t" x="32" y="393">グリッドデータ</text><text class="s" x="32" y="410">グラウンドデータから</text>
-  <rect class="bb" x="204" y="372" width="174" height="50" rx="6"/>
-  <text class="t" x="214" y="393">等高線データ</text><text class="s" x="214" y="410">グラウンドデータから</text>
-  <rect class="bb" x="22" y="430" width="174" height="50" rx="6"/>
-  <text class="t" x="32" y="451">断面図データ</text><text class="s" x="32" y="468">グラウンドデータから</text>
-  <rect class="bw" x="204" y="430" width="174" height="50" rx="6"/>
-  <text class="t" x="214" y="451">数値地形図データ</text><text class="s" x="214" y="468">点群から地物を数値図化</text>
+  <rect class="wh" x="10" y="8" width="380" height="140" rx="8"/>
+  <path d="M20,146L370,80" stroke="#8a8a8a" stroke-width="1.2" fill="none" stroke-dasharray=""/>
+  <circle cx="26" cy="145" r="2" fill="#2e6da4"/>
+  <circle cx="40" cy="142" r="2" fill="#2e6da4"/>
+  <circle cx="54" cy="140" r="2" fill="#2e6da4"/>
+  <circle cx="68" cy="137" r="2" fill="#2e6da4"/>
+  <circle cx="82" cy="134" r="2" fill="#2e6da4"/>
+  <circle cx="96" cy="132" r="2" fill="#2e6da4"/>
+  <circle cx="110" cy="129" r="2" fill="#2e6da4"/>
+  <circle cx="124" cy="126" r="2" fill="#2e6da4"/>
+  <circle cx="138" cy="124" r="2" fill="#2e6da4"/>
+  <circle cx="152" cy="121" r="2" fill="#2e6da4"/>
+  <circle cx="166" cy="118" r="2" fill="#2e6da4"/>
+  <circle cx="180" cy="116" r="2" fill="#2e6da4"/>
+  <circle cx="194" cy="113" r="2" fill="#2e6da4"/>
+  <circle cx="208" cy="111" r="2" fill="#2e6da4"/>
+  <circle cx="222" cy="108" r="2" fill="#2e6da4"/>
+  <circle cx="236" cy="105" r="2" fill="#2e6da4"/>
+  <circle cx="250" cy="103" r="2" fill="#2e6da4"/>
+  <circle cx="264" cy="100" r="2" fill="#2e6da4"/>
+  <circle cx="278" cy="97" r="2" fill="#2e6da4"/>
+  <circle cx="292" cy="95" r="2" fill="#2e6da4"/>
+  <circle cx="306" cy="92" r="2" fill="#2e6da4"/>
+  <circle cx="320" cy="89" r="2" fill="#2e6da4"/>
+  <circle cx="334" cy="87" r="2" fill="#2e6da4"/>
+  <circle cx="348" cy="84" r="2" fill="#2e6da4"/>
+  <circle cx="362" cy="82" r="2" fill="#2e6da4"/>
+  <rect x="196" y="63" width="60" height="44" fill="#f5f5f5" stroke="#555" stroke-width="1"/>
+  <circle cx="200" cy="63" r="2" fill="#2e6da4"/>
+  <circle cx="214" cy="63" r="2" fill="#2e6da4"/>
+  <circle cx="228" cy="63" r="2" fill="#2e6da4"/>
+  <circle cx="242" cy="63" r="2" fill="#2e6da4"/>
+  <circle cx="252" cy="63" r="2" fill="#2e6da4"/>
+  <path d="M110,129V105" stroke="#8a8a8a" stroke-width="2" fill="none"/><circle cx="110" cy="85" r="18" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1"/>
+  <circle cx="102" cy="81" r="2" fill="#2e6da4"/>
+  <circle cx="116" cy="77" r="2" fill="#2e6da4"/>
+  <circle cx="110" cy="91" r="2" fill="#2e6da4"/>
+  <circle cx="120" cy="89" r="2" fill="#2e6da4"/>
+  <path d="M312,91V67" stroke="#8a8a8a" stroke-width="2" fill="none"/><circle cx="312" cy="47" r="18" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1"/>
+  <circle cx="304" cy="43" r="2" fill="#2e6da4"/>
+  <circle cx="318" cy="39" r="2" fill="#2e6da4"/>
+  <circle cx="312" cy="53" r="2" fill="#2e6da4"/>
+  <circle cx="322" cy="51" r="2" fill="#2e6da4"/>
+  <rect class="wh" x="10" y="190" width="380" height="140" rx="8"/>
+  <path d="M20,328L370,262" stroke="#8a8a8a" stroke-width="1.2" fill="none" stroke-dasharray="0"/>
+  <circle cx="26" cy="327" r="2" fill="#2e6da4"/>
+  <circle cx="40" cy="324" r="2" fill="#2e6da4"/>
+  <circle cx="54" cy="322" r="2" fill="#2e6da4"/>
+  <circle cx="68" cy="319" r="2" fill="#2e6da4"/>
+  <circle cx="82" cy="316" r="2" fill="#2e6da4"/>
+  <circle cx="96" cy="314" r="2" fill="#2e6da4"/>
+  <circle cx="110" cy="311" r="2" fill="#2e6da4"/>
+  <circle cx="124" cy="308" r="2" fill="#2e6da4"/>
+  <circle cx="138" cy="306" r="2" fill="#2e6da4"/>
+  <circle cx="152" cy="303" r="2" fill="#2e6da4"/>
+  <circle cx="166" cy="300" r="2" fill="#2e6da4"/>
+  <circle cx="180" cy="298" r="2" fill="#2e6da4"/>
+  <circle cx="278" cy="279" r="2" fill="#2e6da4"/>
+  <circle cx="292" cy="277" r="2" fill="#2e6da4"/>
+  <circle cx="306" cy="274" r="2" fill="#2e6da4"/>
+  <circle cx="320" cy="271" r="2" fill="#2e6da4"/>
+  <circle cx="334" cy="269" r="2" fill="#2e6da4"/>
+  <circle cx="348" cy="266" r="2" fill="#2e6da4"/>
+  <circle cx="362" cy="264" r="2" fill="#2e6da4"/>
+  <path d="M186,297L266,282" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="4 3" fill="none"/>
+  <rect x="196" y="245" width="60" height="44" fill="none" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="3 3"/>
+  <circle cx="110" cy="267" r="18" fill="none" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="3 3"/><path d="M110,311V287" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="3 3" fill="none"/>
+  <circle cx="312" cy="229" r="18" fill="none" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="3 3"/><path d="M312,273V249" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="3 3" fill="none"/>
+  <text class="n" x="22" y="28">オリジナルデータ</text>
+  <text class="m" x="140" y="28">計測したままの点群</text>
+  <text class="t12" x="22" y="46">既存構造物の形状を記録するならこちら</text>
+  <text class="n" x="22" y="210">グラウンドデータ</text>
+  <text class="m" x="140" y="210">地表面の点だけが残る</text>
+  <path class="ar" d="M60,150V184" marker-end="url(#ah)"/>
+  <text class="t12 b" x="72" y="170">フィルタリング</text>
+  <text class="m" x="172" y="170">建物・橋・車両・樹木を除く</text>
+  <path class="ar" d="M60,332V366" marker-end="url(#ah)"/>
+  <text class="t12 b" x="72" y="352">成果を作る</text>
+  <rect class="brand" x="22" y="372" width="174" height="50" rx="8"/>
+  <text class="t12 b" x="109.0" y="393.0" text-anchor="middle">グリッドデータ</text>
+  <text class="t12" x="109.0" y="409.0" text-anchor="middle">斜面の土量を求める</text>
+  <rect class="brand" x="204" y="372" width="174" height="50" rx="8"/>
+  <text class="t12 b" x="291.0" y="393.0" text-anchor="middle">等高線・断面図データ</text>
+  <text class="t12" x="291.0" y="409.0" text-anchor="middle">グラウンドデータから作る</text>
+  <rect class="wh" x="22" y="430" width="356" height="50" rx="8"/>
+  <text class="t12 b" x="200.0" y="451.0" text-anchor="middle">数値地形図データ</text>
+  <text class="t12" x="200.0" y="467.0" text-anchor="middle">点群から地物を数値図化</text>
 </svg>

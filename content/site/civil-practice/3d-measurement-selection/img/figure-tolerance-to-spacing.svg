@@ -1,0 +1,45 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は較差の許容から点間隔を逆算する地上レーザ測量の準則の標準（第368条第1項）。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="許容する較差から地上レーザの点間隔を決める図。水平面で較差の許容5mmなら放射方向の点間隔250mm・最小入射角4度、10mmなら500mm・2度、斜面で較差の許容20mmなら点間隔1,000mm。較差の許容が小さいほど細かい点間隔が要る。">
+  <defs>
+  <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #222; }
+      .b { font-weight: bold; fill: #1a3a5c; }
+      .m { fill: #555; }
+      .t12 { font-size: 12px; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .dng { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .sf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .wh { fill: #fff; stroke: #2e6da4; stroke-width: 1.5; }
+      .dash { fill: #fff; stroke: #555; stroke-width: 1.5; stroke-dasharray: 4 3; }
+      .grid { stroke: #d7d7d7; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .ax { stroke: #555; stroke-width: 1.5; fill: none; }
+      .ar { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ark { stroke: #555; stroke-width: 2; fill: none; }
+  </style>
+  <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="ak" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  <marker id="as" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="asg" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+  <text class="t12 b" x="12" y="22">許容する較差から、必要な点間隔を逆算する</text>
+  <text class="m" x="12" y="38">棒の長さ＝必要な点間隔（放射方向）。短いほど細かい</text>
+  <text class="t12 b" x="12" y="72">水平面　較差の許容 5mm（標準偏差）</text>
+  <rect class="pos" x="12" y="82" width="75.0" height="32" rx="4"/>
+  <text class="t12" x="12" y="126">点間隔 250mm・最小入射角4度</text>
+  <text class="t12 b" x="12" y="160">水平面　較差の許容 10mm</text>
+  <rect class="brand" x="12" y="170" width="150.0" height="32" rx="4"/>
+  <text class="t12" x="12" y="214">点間隔 500mm・最小入射角2度</text>
+  <text class="t12 b" x="12" y="248">斜面　較差の許容 20mm</text>
+  <rect class="warn" x="12" y="258" width="300.0" height="32" rx="4"/>
+  <text class="t12" x="12" y="302">点間隔 1,000mm</text>
+  <rect class="dng" x="12" y="330" width="376" height="60" rx="8"/>
+  <text class="t12 b" x="200.0" y="355.0" text-anchor="middle">較差の許容が小さいほど</text>
+  <text class="t12 b" x="200.0" y="373.0" text-anchor="middle">細かい点間隔が要る</text>
+  <rect class="warn" x="12" y="402" width="376" height="74" rx="8"/>
+  <text class="t12 b" x="200.0" y="425.0" text-anchor="middle">較差の許容は、計測の前に決める</text>
+  <text class="t12" x="200.0" y="443.0" text-anchor="middle">後から決めると、細かさが足りず</text>
+  <text class="t12" x="200.0" y="461.0" text-anchor="middle">比較をやり直せない</text>
+</svg>

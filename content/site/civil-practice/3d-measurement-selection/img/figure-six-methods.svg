@@ -1,53 +1,62 @@
-<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="準則の六つの3次元計測の方式を、計測する場所で並べた図。空からは航空レーザ測量、UAVレーザ測量、UAV写真点群測量。地上からは地上レーザ測量。車両からは車載写真レーザ測量。水域は航空レーザ測深測量。各方式の標準の点密度と精度を添える。">
+<!-- authored 2026-10-16 doboku-note 自作。論点は準則の六つの方式を計測する場所で並べ、方式ごとの向く場面と注意する場面を示す。数値は本文の表に任せる。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="準則の六つの3次元計測の方式を、計測する場所で並べた図。空からは航空レーザ測量、UAVレーザ測量、UAV写真点群測量。地上からは地上レーザ測量。車両からは車載写真レーザ測量。水域は航空レーザ測深測量。方式ごとに向く場面と注意する場面を一行ずつ書く。">
   <defs>
   <style>
-      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #222; }
+      .b { font-weight: bold; fill: #1a3a5c; }
+      .m { fill: #555; }
+      .t12 { font-size: 12px; }
       .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
-      .t { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
-      .s { font-size: 11px; fill: #555; }
-      .m { font-size: 11px; fill: #8a8a8a; }
-      .p { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
-      .bb { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
-      .bp { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
-      .bw { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
-      .bd { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
-      .bs { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
-      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
-      .ln { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .dng { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .sf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .wh { fill: #fff; stroke: #2e6da4; stroke-width: 1.5; }
+      .dash { fill: #fff; stroke: #555; stroke-width: 1.5; stroke-dasharray: 4 3; }
+      .grid { stroke: #d7d7d7; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .ax { stroke: #555; stroke-width: 1.5; fill: none; }
+      .ar { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ark { stroke: #555; stroke-width: 2; fill: none; }
   </style>
   <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
-  <marker id="at" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  <marker id="ak" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  <marker id="as" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="asg" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
   </defs>
-<rect class="bb" x="10" y="8" width="380" height="22" rx="6"/>
-  <text class="t" x="20" y="24">空から（航空機・UAV）</text>
-  <rect class="p" x="10" y="34" width="380" height="56" rx="6"/>
-  <text class="n" x="20" y="52">航空レーザ測量</text>
-  <text class="s" x="20" y="68" style="fill:#222">地図情報レベル500〜5000</text>
-  <text class="s" x="20" y="83" style="fill:#222">点密度は1点/0.25㎡以上から1点/25㎡以上まで</text>
-  <rect class="p" x="10" y="94" width="380" height="56" rx="6"/>
-  <text class="n" x="20" y="112">UAVレーザ測量</text>
-  <text class="s" x="20" y="128" style="fill:#222">レベル500：400点/㎡以上、水平0.15m・標高0.2m以内</text>
-  <text class="s" x="20" y="143" style="fill:#222">レベル1000：100点/㎡以上、水平0.3m・標高0.3m以内</text>
-  <rect class="p" x="10" y="154" width="380" height="42" rx="6"/>
-  <text class="n" x="20" y="172">UAV写真点群測量</text>
-  <text class="s" x="20" y="188" style="fill:#222">位置精度は0.05m・0.10m・0.20m以内</text>
-  <rect class="bp" x="10" y="206" width="380" height="22" rx="6"/>
-  <text class="t" x="20" y="222">地上から（据え置き）</text>
-  <rect class="p" x="10" y="232" width="380" height="56" rx="6"/>
-  <text class="n" x="20" y="250">地上レーザ測量</text>
-  <text class="s" x="20" y="266" style="fill:#222">変位の比較では、較差の許容5mmで点間隔250mm、</text>
-  <text class="s" x="20" y="281" style="fill:#222">10mmで500mm（放射方向）</text>
-  <rect class="bw" x="10" y="298" width="380" height="22" rx="6"/>
-  <text class="t" x="20" y="314">車両から（道路とその周辺）</text>
-  <rect class="p" x="10" y="324" width="380" height="56" rx="6"/>
-  <text class="n" x="20" y="342">車載写真レーザ測量（MMS）</text>
-  <text class="s" x="20" y="358" style="fill:#222">UAVレーザ測量と同じ値</text>
-  <text class="s" x="20" y="373" style="fill:#222">レベル500：400点/㎡以上、レベル1000：100点/㎡以上</text>
-  <rect class="bb" x="10" y="390" width="380" height="22" rx="6"/>
-  <text class="t" x="20" y="406">水域（河川とその周辺の陸域）</text>
-  <rect class="p" x="10" y="416" width="380" height="56" rx="6"/>
-  <text class="n" x="20" y="434">航空レーザ測深測量</text>
-  <text class="s" x="20" y="450" style="fill:#222">陸部・水底の標高とも標準偏差0.3m以内</text>
-  <text class="s" x="20" y="465" style="fill:#222">水質で測深できない場合、水底には適用しない</text>
-  <text class="m" x="20" y="490">数値は準則の標準値。成果が違う数値は並べて比べない</text>
+  <rect class="brand" x="10" y="8" width="380" height="20" rx="6"/>
+  <text class="t12 b" x="20" y="23">空から（航空機・UAV）</text>
+  <rect class="wh" x="10" y="30" width="380" height="52" rx="6"/>
+  <text class="t12 b" x="20" y="47">航空レーザ測量</text>
+  <text class="t12" x="20" y="63">向く: 広い範囲</text>
+  <text class="m" x="20" y="77">注意: 格子の標高データを作る前提の点密度</text>
+  <rect class="wh" x="10" y="84" width="380" height="52" rx="6"/>
+  <text class="t12 b" x="20" y="101">UAVレーザ測量</text>
+  <text class="t12" x="20" y="117">向く: 植生の下の地表も狙う</text>
+  <text class="m" x="20" y="131">注意: 植生の影響が大きいと点密度を2倍にする</text>
+  <rect class="wh" x="10" y="138" width="380" height="52" rx="6"/>
+  <text class="t12 b" x="20" y="155">UAV写真点群測量</text>
+  <text class="t12" x="20" y="171">向く: 裸地など対象物が写る区域</text>
+  <text class="m" x="20" y="185">注意: 写らない草木の下の地面は復元できない</text>
+  <rect class="pos" x="10" y="192" width="380" height="20" rx="6"/>
+  <text class="t12 b" x="20" y="207">地上から（据え置き）</text>
+  <rect class="wh" x="10" y="214" width="380" height="52" rx="6"/>
+  <text class="t12 b" x="20" y="231">地上レーザ測量</text>
+  <text class="t12" x="20" y="247">向く: 狭い範囲を高密度に</text>
+  <text class="m" x="20" y="261">注意: 変位の比較は較差の許容を先に決める</text>
+  <rect class="sf" x="10" y="268" width="380" height="20" rx="6"/>
+  <text class="t12 b" x="20" y="283">車両から（道路とその周辺）</text>
+  <rect class="wh" x="10" y="290" width="380" height="52" rx="6"/>
+  <text class="t12 b" x="20" y="307">車載写真レーザ測量（MMS）</text>
+  <text class="t12" x="20" y="323">向く: 道路とその周辺</text>
+  <text class="m" x="20" y="337">注意: 所定の精度が得られる範囲にとどめる</text>
+  <rect class="brand" x="10" y="344" width="380" height="20" rx="6"/>
+  <text class="t12 b" x="20" y="359">水域（河川とその周辺の陸域）</text>
+  <rect class="wh" x="10" y="366" width="380" height="52" rx="6"/>
+  <text class="t12 b" x="20" y="383">航空レーザ測深測量</text>
+  <text class="t12" x="20" y="399">向く: 水域と、その周辺の陸域</text>
+  <text class="m" x="20" y="413">注意: 濁りで水底が測れない場合がある</text>
+  <rect class="warn" x="10" y="430" width="380" height="50" rx="8"/>
+  <text class="t12 b" x="200.0" y="450.0" text-anchor="middle">数値は本文の表に任せる</text>
+  <text class="t12" x="200.0" y="468.0" text-anchor="middle">数値の大小だけで方式を比べない</text>
 </svg>
