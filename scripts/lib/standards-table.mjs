@@ -179,6 +179,63 @@ export function tryGfmTable(lines) {
   return { ok: true, header: table[0], rows: table.slice(1), columns, reason: 'restored' };
 }
 
+/**
+ * 一覧の 1 項目の終わり＝行末の（年月）。`（令和6年3月一部改正）` `（平成14年7月31日）` など。
+ * 年を含み、空白の後か行頭に置かれたものに限る。名称の中の括弧
+ * （`道路橋示方書・同解説（Ⅲコンクリート部材・コンクリート上部構造編）` で行が折り返す）で切らないため。
+ * 空白は 1 個でもよい（北海道版 7-1 の `…基準について （令和3年7月）`）。
+ */
+const LIST_ENTRY_END = /(?:^|[ 　])（[^（）]*(?:元|[0-9０-９]+)年[^（）]*）[\s　]*$/;
+const DATE_ONLY_LINE = /^[\s　]*（[^（）]*）[\s　]*$/;
+
+/**
+ * 「適用すべき諸基準」の基準類一覧を、1 項目 1 行の箇条書きへ組み直す。
+ *
+ * 版面は `発行者 + 空白 + 名称 + 空白 + （年月）` の 1 項目が 1〜3 行に折り返される形
+ * （名称の途中・年月だけが次行へ落ちる）。列の桁が項目ごとに揃わないので tryGfmTable では
+ * 復元できない（近畿版の実測 32 件とも columns-out-of-range / ragged-rows など）。
+ * 発行者と名称の境目は 1 空白のことも、発行者自体が 2 語（`建設省 土木研究所`）のこともあり、
+ * 列へ分けると振り分けを誤る。項目は必ず（年月）で終わるので、そこで区切って 1 項目を 1 行にし、
+ * 列には分けない（判断の要る箇所を作らない）。
+ *
+ * 可逆性の砦は tryGfmTable と同じ: 項目の文字列から空白を除いたものが、その項目の版面の行を
+ * 連結して空白を除いたものと完全一致しなければ採用しない。（年月）で終わらない行が残る一覧は丸ごと不採用。
+ *
+ * @param {string[]} lines 表領域の生の行
+ * @returns {{ ok: true, items: string[], reason: string } | { ok: false, reason: string }}
+ */
+export function tryStandardsList(lines) {
+  const source = (lines ?? []).filter((line) => typeof line === 'string' && line.trim() !== '');
+  if (source.length === 0) return { ok: false, reason: 'empty-layout' };
+  if (source.some((line) => line.includes('\t'))) return { ok: false, reason: 'tab-character' };
+
+  const entries = [];
+  let current = [];
+  for (const line of source) {
+    current.push(line);
+    if (LIST_ENTRY_END.test(line)) {
+      entries.push(current);
+      current = [];
+    }
+  }
+  if (current.length > 0 || entries.length === 0) return { ok: false, reason: 'list-unterminated' };
+
+  const items = [];
+  for (const entry of entries) {
+    // 折り返しの続き（名称の途中）は空白なしでつなぎ、年月だけの行は 1 空白を挟む。
+    // 版面の桁揃えの広い空白（発行者・名称・年月の間）は 1 個に畳む。
+    let item = '';
+    for (const line of entry) {
+      const piece = line.replace(/^[\s　]+/, '').replace(/[\s　]+$/, '');
+      item += item && DATE_ONLY_LINE.test(line) ? ` ${piece}` : piece;
+    }
+    item = item.replace(/[ 　]{2,}/g, ' ');
+    if (stripSpaces(item) !== stripSpaces(entry.join(''))) return { ok: false, reason: 'lossy' };
+    items.push(item);
+  }
+  return { ok: true, items, reason: 'restored-standards-list' };
+}
+
 export const thresholds = {
   SEPARATOR_BLANK_RATIO,
   MIN_SEPARATOR_WIDTH,

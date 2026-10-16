@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { tryGfmTable, thresholds } from '../scripts/lib/standards-table.mjs';
+import { tryGfmTable, tryStandardsList, thresholds } from '../scripts/lib/standards-table.mjs';
 
 // 固定レイアウト（pdftotext -layout）の表を GFM へ戻す関数の契約を固定する。
 // 誤った GFM 化＝データ破壊なので、テストの主眼は「通ること」より「通さないこと」にある。
@@ -197,4 +197,41 @@ test('閾値は保守側に固定されている', () => {
   assert.equal(thresholds.MIN_DATA_ROWS, 2);
   // 90% を下回ると列境界が広がりすぎて、実データで復元できる表が減る（実測: 0.8 で 5 件 → 3 件）
   assert.ok(thresholds.SEPARATOR_BLANK_RATIO >= 0.9);
+});
+
+// ---- 基準類の一覧（tryStandardsList） ------------------------------------
+// 「適用すべき諸基準」の一覧は列に分けず 1 項目 1 行にする。ここでも主眼は「文字を変えない」こと。
+
+test('基準類の一覧: 折り返した名称と年月だけの行を 1 項目にまとめる', () => {
+  const result = tryStandardsList([
+    ' 土木学会      コンクリート標準示方書（施工編）［2023年制定］            （2023年9月）',
+    ' 国土交通省      「アルカリ骨材反応抑制対策について」の運用について',
+    '                                             （平成14年7月31日）',
+    ' 流動性を高めたコンクリートの活用検討委員会             流動性を高めた現場打ちコンクリート',
+    ' の活用に関するガイドライン                                 （平成29年3月）',
+  ]);
+  assert.equal(result.ok, true);
+  assert.deepEqual(result.items, [
+    '土木学会 コンクリート標準示方書（施工編）［2023年制定］ （2023年9月）',
+    '国土交通省 「アルカリ骨材反応抑制対策について」の運用について （平成14年7月31日）',
+    '流動性を高めたコンクリートの活用検討委員会 流動性を高めた現場打ちコンクリートの活用に関するガイドライン （平成29年3月）',
+  ]);
+});
+
+test('基準類の一覧: 名称の中の年を含まない括弧で行が終わっても項目を切らない', () => {
+  const result = tryStandardsList([
+    ' 日本道路協会        道路橋示方書・同解説（Ⅲコンクリート部材・コンクリート上部構造編）',
+    '                                             （令和7年10月）',
+  ]);
+  assert.equal(result.ok, true);
+  assert.deepEqual(result.items, ['日本道路協会 道路橋示方書・同解説（Ⅲコンクリート部材・コンクリート上部構造編） （令和7年10月）']);
+});
+
+test('基準類の一覧: 年月で終わらない行が残る一覧は採用しない（版面のまま残す）', () => {
+  const result = tryStandardsList([
+    ' 日本道路協会        道路維持修繕要綱               （昭和53年7月）',
+    ' 日本みち研究所        補訂版 道路のデザイン-道路デザイン指針（案）とその解説-',
+  ]);
+  assert.equal(result.ok, false);
+  assert.equal(result.reason, 'list-unterminated');
 });

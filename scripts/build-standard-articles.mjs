@@ -24,7 +24,7 @@ import { createHash } from 'node:crypto';
 import { mkdirSync, rmSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { writeMdxFile } from '../.claude/scripts/lib/mdx-io.mjs';
-import { tryGfmTable } from './lib/standards-table.mjs';
+import { tryGfmTable, tryStandardsList } from './lib/standards-table.mjs';
 import { pathToFileURL } from 'node:url';
 import { datasetPath } from './lib/datasets.mjs';
 import {
@@ -37,6 +37,8 @@ import {
 } from './lib/standards-structure.mjs';
 
 const { RE_TABLE_CAPTION, RE_FIGURE_CAPTION } = patterns;
+/** 基準類の一覧を持つ節・条の題名（`第2節 適用すべき諸基準`・`1-3-2-1 適用すべき諸基準`） */
+const STANDARDS_LIST_SCOPE = /適用すべき諸基準/;
 
 const sha256 = (value) => createHash('sha256').update(value, 'utf8').digest('hex');
 
@@ -91,14 +93,18 @@ function renderChapter(chapter, tableOutcomes = []) {
   // 原典には条を持たない節がある（第1編第3章第1節 適用は項が節へ直付け）。そのまま H2→H4 に
   // すると見出しレベルが飛ぶので、条が無い節の項は H3 へ繰り上げる。入れ子の深さは変わらない。
   let sectionHasArticle = false;
+  // 「適用すべき諸基準」の節・条の中の表領域は基準類の一覧なので、専用の組み直しを先に試す
+  let inStandardsList = false;
 
   for (const node of chapter.nodes) {
     if (node.role === 'heading') {
       if (node.kind === 'section') {
         sectionHasArticle = false;
+        inStandardsList = STANDARDS_LIST_SCOPE.test(node.title);
         push(`## 第${node.number}節 ${escapeInline(node.title)}`);
       } else if (node.kind === 'article') {
         sectionHasArticle = true;
+        inStandardsList = STANDARDS_LIST_SCOPE.test(node.title);
         push(`### ${node.number} ${escapeInline(node.title)}`);
       } else {
         push(`${sectionHasArticle ? '####' : '###'} ${node.number}. ${escapeInline(node.title)}`);
@@ -118,6 +124,14 @@ function renderChapter(chapter, tableOutcomes = []) {
       }
       while (body.length && !body[0].trim()) body.shift();
 
+      const listed = inStandardsList && caption.length === 0 && body.length ? tryStandardsList(body) : null;
+      if (listed?.ok) {
+        // 基準類の一覧は 1 項目 1 行の箇条書き（列に分けない理由は tryStandardsList のコメント）
+        tableOutcomes.push(listed.reason);
+        push(listed.items.map((item) => `- ${escapeBlockStart(escapeInline(item))}`).join('\n'));
+        push(`<SourceRef pages="${pages}" kind="table" />`);
+        continue;
+      }
       const restored = body.length ? tryGfmTable(body) : { ok: false, reason: 'empty-layout' };
       tableOutcomes.push(restored.reason);
       if (caption.length) push(`**${escapeInline(caption.map((l) => l.trim()).join(' '))}**`);
@@ -196,7 +210,8 @@ function summarizeChapter(chapter) {
 function tallyTables(outcomes) {
   return {
     tablesGfm: outcomes.filter((reason) => reason === 'restored').length,
-    tablesVerbatim: outcomes.filter((reason) => reason !== 'restored').length,
+    tablesList: outcomes.filter((reason) => reason === 'restored-standards-list').length,
+    tablesVerbatim: outcomes.filter((reason) => !reason.startsWith('restored')).length,
   };
 }
 
@@ -323,6 +338,7 @@ export function buildDocument(document, overrides, { write = true } = {}) {
       dedentedPages: analysis.removed.dedents.length,
       tables: chapters.reduce((sum, c) => sum + c.stats.tables, 0),
       tablesGfm: chapters.reduce((sum, c) => sum + c.stats.tablesGfm, 0),
+      tablesList: chapters.reduce((sum, c) => sum + c.stats.tablesList, 0),
       tablesVerbatim: chapters.reduce((sum, c) => sum + c.stats.tablesVerbatim, 0),
     },
     tableOutcomes: chapters.reduce((tally, c) => {
@@ -378,7 +394,7 @@ function main() {
     console.log(
       `${check ? '(check) ' : ''}${target}: 章 ${a.chapters} / 本文 ${a.bodyPages}p ` +
         `(前付け ${a.frontMatterPages}p) / 行 割当 ${a.assignedLines} + 除去 ${a.removedLines} ` +
-        `= ${a.bodyLineTotal}（未割当 ${a.unassignedLines}） / 表 ${a.tables}（GFM ${a.tablesGfm} / 版面保持 ${a.tablesVerbatim}） / rejects ${manifest.rejects.length} ` +
+        `= ${a.bodyLineTotal}（未割当 ${a.unassignedLines}） / 表 ${a.tables}（GFM ${a.tablesGfm} / 基準類の一覧 ${a.tablesList} / 版面保持 ${a.tablesVerbatim}） / rejects ${manifest.rejects.length} ` +
         `/ review ${manifest.reviewQueue.length} / indexable ${manifest.indexable}（${manifest.indexableReason}）`,
     );
     if (a.unassignedLines !== 0 || manifest.rejects.length > 0) failed += 1;

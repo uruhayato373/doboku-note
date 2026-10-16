@@ -36,15 +36,17 @@
     "removedChapterFront": 49,
     "dedentedPages": 145,
     "tables": 192,
-    "tablesGfm": 9,
-    "tablesVerbatim": 183
+    "tablesGfm": 8,
+    "tablesList": 33,
+    "tablesVerbatim": 151
   },
   "tableOutcomes": {
-    "columns-out-of-range": 76,
-    "lossy": 42,
-    "ragged-rows": 45,
-    "restored": 9,
-    "too-few-rows": 20
+    "columns-out-of-range": 60,
+    "lossy": 39,
+    "ragged-rows": 36,
+    "restored-standards-list": 33,
+    "restored": 8,
+    "too-few-rows": 16
   },
   "removedSamples": {
     "runningHeaders": [
@@ -505,6 +507,7 @@
         "tables": 6,
         "captions": 2,
         "tablesGfm": 0,
+        "tablesList": 0,
         "tablesVerbatim": 6
       },
       "tableOutcomes": {
@@ -549,8 +552,8 @@
         141
       ],
       "sourceSha256": "869ecc879ecee3305c41a4572bb6b36a9b1ac0db36cd3cb0fb4ce04eaadbb18c",
-      "outputSha256": "d9792ce5bc83ded51ca67d0bc56822d9a4b1e650212c4cddddfe17f4710940ac",
-      "outputBytes": 46091,
+      "outputSha256": "8e30ab3166ceb6ac2a73a9c56dc3585557cd1e7e41cfde974d37fa6b9d5783a1",
+      "outputBytes": 45637,
       "splitBySection": false,
       "sections": [
         {
@@ -688,10 +691,11 @@
         "tables": 7,
         "captions": 3,
         "tablesGfm": 0,
-        "tablesVerbatim": 7
+        "tablesList": 1,
+        "tablesVerbatim": 6
       },
       "tableOutcomes": {
-        "columns-out-of-range": 1,
+        "restored-standards-list": 1,
         "lossy": 2,
         "ragged-rows": 4
       },
@@ -744,8 +748,8 @@
         169
       ],
       "sourceSha256": "74d37a4d7908c699c1ff686690f6d191cb0c9f32685b08c668463bda1626abeb",
-      "outputSha256": "3ac8d0ec60185634b7ce4dcb43995728a9ec4e218c7f238afe0ab4bd31cb8b22",
-      "outputBytes": 85422,
+      "outputSha256": "9d9375704c8df6a0f5b2092539eef7c4f1808c92d83a0eab544baa28d1b1e58c",
+      "outputBytes": 85121,
       "splitBySection": false,
       "sections": [
         {
@@ -1186,11 +1190,13 @@
         "tables": 7,
         "captions": 1,
         "tablesGfm": 0,
-        "tablesVerbatim": 7
+        "tablesList": 1,
+        "tablesVerbatim": 6
       },
       "tableOutcomes": {
-        "columns-out-of-range": 3,
+        "restored-standards-list": 1,
         "ragged-rows": 3,
+        "columns-out-of-range": 2,
         "lossy": 1
       },
       "indexable": false,
@@ -1247,6 +1253,7 @@
         "tables": 1,
         "captions": 0,
         "tablesGfm": 0,
+        "tablesList": 0,
         "tablesVerbatim": 1
       },
       "tableOutcomes": {
@@ -1816,6 +1823,7 @@
         "tables": 26,
         "captions": 2,
         "tablesGfm": 1,
+        "tablesList": 0,
         "tablesVerbatim": 25
       },
       "tableOutcomes": {
@@ -1943,6 +1951,7 @@
         "tables": 8,
         "captions": 0,
         "tablesGfm": 0,
+        "tablesList": 0,
         "tablesVerbatim": 8
       },
       "tableOutcomes": {
@@ -2140,8 +2149,8 @@
         376
       ],
       "sourceSha256": "097eecc7dc7a6bd3827f2d9b9ffc6903b98dac9fcec6d8ef2148aa4b3497e4db",
-      "outputSha256": "64d0f0aa0d743622344b60c423197ca43324709599e83561dff6a6450049b3ff",
-      "outputBytes": 486553,
+      "outputSha256": "a0a5911b96a80d9923d57e660f7b6e9f891823ee77e57b1635dfd0448936ded8",
+      "outputBytes": 485617,
       "splitBySection": true,
       "sections": [
         {
@@ -3245,11 +3254,13 @@
         "tables": 77,
         "captions": 13,
         "tablesGfm": 5,
-        "tablesVerbatim": 72
+        "tablesList": 1,
+        "tablesVerbatim": 71
       },
       "tableOutcomes": {
-        "columns-out-of-range": 26,
+        "restored-standards-list": 1,
         "too-few-rows": 12,
+        "columns-out-of-range": 25,
         "restored": 5,
         "lossy": 18,
         "ragged-rows": 16
@@ -3286,8 +3297,8 @@
         388
       ],
       "sourceSha256": "bd672107292ba6224f0fd7e87c285afc001f0355f507a7b08734034948ffef14",
-      "outputSha256": "e83f5d3db70c2fefdcc52e7938770e5bb867a9b5fa9d25df4a8fe815a5442652",
-      "outputBytes": 25573,
+      "outputSha256": "1cba003be4ed174e5186ce469332c9dece561b9bc7889ed45bb9749bb76e2b35",
+      "outputBytes": 25538,
       "splitBySection": false,
       "sections": [
         {
@@ -3842,10 +3853,11 @@
         "tables": 3,
         "captions": 0,
         "tablesGfm": 0,
-        "tablesVerbatim": 3
+        "tablesList": 1,
+        "tablesVerbatim": 2
       },
       "tableOutcomes": {
-        "too-few-rows": 1,
+        "restored-standards-list": 1,
         "lossy": 2
       },
       "indexable": false,
@@ -4023,6 +4035,7 @@
         "tables": 0,
         "captions": 0,
         "tablesGfm": 0,
+        "tablesList": 0,
         "tablesVerbatim": 0
       },
       "tableOutcomes": {},
@@ -4054,8 +4067,8 @@
         400
       ],
       "sourceSha256": "6d38c2bdbbd3c4590d82d1c6e34fdd46b0c596bffb97935232d1b4c009a4d554",
-      "outputSha256": "17f3f239295a86cb06afc0182376ef3a1d9f1aaaae92773b2f0eb57a4523cb4c",
-      "outputBytes": 21385,
+      "outputSha256": "5a2cc3133851d43c611b1aba231150bf664b514c54d4bf005284adb8be0b0198",
+      "outputBytes": 21244,
       "splitBySection": false,
       "sections": [
         {
@@ -4364,10 +4377,11 @@
         "tables": 1,
         "captions": 0,
         "tablesGfm": 0,
-        "tablesVerbatim": 1
+        "tablesList": 1,
+        "tablesVerbatim": 0
       },
       "tableOutcomes": {
-        "ragged-rows": 1
+        "restored-standards-list": 1
       },
       "indexable": false,
       "duplicateOf": null,
@@ -4404,8 +4418,8 @@
         415
       ],
       "sourceSha256": "b5ba03e50eab22e93692c349a5d169265ab4e3db4dbd6ad036807e28c16e0d5c",
-      "outputSha256": "718b11966446f0682f071e269c2ace25dcdf800b2975193212af46e21c2dcada",
-      "outputBytes": 32230,
+      "outputSha256": "efb796921c92056b0c3ccf154ce5cac28df41aaf2ebff250c5d39d2c0c4a1119",
+      "outputBytes": 31940,
       "splitBySection": false,
       "sections": [
         {
@@ -5233,10 +5247,11 @@
         "tables": 1,
         "captions": 0,
         "tablesGfm": 0,
-        "tablesVerbatim": 1
+        "tablesList": 1,
+        "tablesVerbatim": 0
       },
       "tableOutcomes": {
-        "lossy": 1
+        "restored-standards-list": 1
       },
       "indexable": false,
       "duplicateOf": null,
@@ -5271,8 +5286,8 @@
         428
       ],
       "sourceSha256": "cbc1b6d68f30686fd173af5888c08398e9da220683e3b699ff38bea32ccfeb76",
-      "outputSha256": "43e462b931d7094a947d6f260c4211d769933541607ed733291357608daafac1",
-      "outputBytes": 31641,
+      "outputSha256": "17f331c64aaaa3a93b7b7a060a17b1d1e5351b50b50605e817e5486d1615b729",
+      "outputBytes": 31411,
       "splitBySection": false,
       "sections": [
         {
@@ -6166,10 +6181,11 @@
         "tables": 1,
         "captions": 0,
         "tablesGfm": 0,
-        "tablesVerbatim": 1
+        "tablesList": 1,
+        "tablesVerbatim": 0
       },
       "tableOutcomes": {
-        "columns-out-of-range": 1
+        "restored-standards-list": 1
       },
       "indexable": false,
       "duplicateOf": null,
@@ -6198,8 +6214,8 @@
         435
       ],
       "sourceSha256": "3527d332550567a062338bef9032ee92e6ac971b73e6beff819052b45f555657",
-      "outputSha256": "7006a0cc894f63efe6c9ef23b1e14d6d5f84bbd73877074f2889b7d7aa76ecd5",
-      "outputBytes": 15851,
+      "outputSha256": "885a10768cb2f86868ceee60d31d38812c96ced4a1f56907e8cb81c0c8eb1ff7",
+      "outputBytes": 15727,
       "splitBySection": false,
       "sections": [
         {
@@ -6409,10 +6425,11 @@
         "tables": 1,
         "captions": 0,
         "tablesGfm": 0,
-        "tablesVerbatim": 1
+        "tablesList": 1,
+        "tablesVerbatim": 0
       },
       "tableOutcomes": {
-        "columns-out-of-range": 1
+        "restored-standards-list": 1
       },
       "indexable": false,
       "duplicateOf": null,
@@ -6440,8 +6457,8 @@
         441
       ],
       "sourceSha256": "d9b31ea40fec8b96989af951436c3fd9d48606aeb5d596293c271b5194962df8",
-      "outputSha256": "e4079d8d6222d4af04e8026da5f11b12fe39bcb72b65de192d7edaee6ed08fcd",
-      "outputBytes": 15081,
+      "outputSha256": "0ffaa65c36be3c535efdbe964c6cbea112b4025a02d8d0873436105080c9b049",
+      "outputBytes": 15054,
       "splitBySection": false,
       "sections": [
         {
@@ -6645,10 +6662,11 @@
         "tables": 1,
         "captions": 0,
         "tablesGfm": 0,
-        "tablesVerbatim": 1
+        "tablesList": 1,
+        "tablesVerbatim": 0
       },
       "tableOutcomes": {
-        "too-few-rows": 1
+        "restored-standards-list": 1
       },
       "indexable": false,
       "duplicateOf": null,
@@ -6677,8 +6695,8 @@
         448
       ],
       "sourceSha256": "299e0cce6bfda843ab4b147e906291e9014eb3ce9e633e5bda310673df6e0bc6",
-      "outputSha256": "d83b6244a2334e3e6a03324e61e2302dc4397754d70bea763bcec77ade3cbc7b",
-      "outputBytes": 17148,
+      "outputSha256": "72f0da9271d680c949b62d0515658ee7d7fda9d6c9c07bdb896fb75a776479dc",
+      "outputBytes": 17117,
       "splitBySection": false,
       "sections": [
         {
@@ -7068,10 +7086,11 @@
         "tables": 1,
         "captions": 0,
         "tablesGfm": 0,
-        "tablesVerbatim": 1
+        "tablesList": 1,
+        "tablesVerbatim": 0
       },
       "tableOutcomes": {
-        "too-few-rows": 1
+        "restored-standards-list": 1
       },
       "indexable": false,
       "duplicateOf": null,
@@ -7099,8 +7118,8 @@
         453
       ],
       "sourceSha256": "9cff3661540dc7f119696312f98b5ef5f3c90264b75038e0dab428464b96b6fb",
-      "outputSha256": "ee3e24b7e0e6481384ac6a752f4b23e768404dc51dc4827488883007a83aa32c",
-      "outputBytes": 10745,
+      "outputSha256": "c327472668c13f8d35e0a11f6f2ea1dc12f43f2948e5a363b8d887e4d3588c1a",
+      "outputBytes": 10640,
       "splitBySection": false,
       "sections": [
         {
@@ -7328,10 +7347,11 @@
         "tables": 2,
         "captions": 0,
         "tablesGfm": 0,
-        "tablesVerbatim": 2
+        "tablesList": 1,
+        "tablesVerbatim": 1
       },
       "tableOutcomes": {
-        "columns-out-of-range": 1,
+        "restored-standards-list": 1,
         "lossy": 1
       },
       "indexable": false,
@@ -7367,8 +7387,8 @@
         466
       ],
       "sourceSha256": "6feb16e5112206bbc83bd8a046ae1b73bf06b04efd590a221041d83b423d3ee2",
-      "outputSha256": "0cf1aac0c32a3ef13b81e78044c8db40191036672f17e7cb45356ce489fe7415",
-      "outputBytes": 33801,
+      "outputSha256": "6ac29c6e52f86d284b21a38cd1a631a227347c3f66a63febb7c817021ca5c369",
+      "outputBytes": 33765,
       "splitBySection": false,
       "sections": [
         {
@@ -7905,10 +7925,12 @@
         "tables": 2,
         "captions": 0,
         "tablesGfm": 0,
-        "tablesVerbatim": 2
+        "tablesList": 1,
+        "tablesVerbatim": 1
       },
       "tableOutcomes": {
-        "columns-out-of-range": 2
+        "restored-standards-list": 1,
+        "columns-out-of-range": 1
       },
       "indexable": false,
       "duplicateOf": null,
@@ -7938,8 +7960,8 @@
         474
       ],
       "sourceSha256": "3ea8698be48ac5194645acf858fc8e6ffe82750e78694e102033a209b18d669a",
-      "outputSha256": "e5ae902c848a63963909b7db2504ea0e140d7d6c3f41c54f235f6aed3ad15ba2",
-      "outputBytes": 19280,
+      "outputSha256": "c554ebaf67ee82705ba43e0ba6d754eb03eee296d6cae5d292247758069f904a",
+      "outputBytes": 19234,
       "splitBySection": false,
       "sections": [
         {
@@ -8164,10 +8186,11 @@
         "tables": 1,
         "captions": 0,
         "tablesGfm": 0,
-        "tablesVerbatim": 1
+        "tablesList": 1,
+        "tablesVerbatim": 0
       },
       "tableOutcomes": {
-        "columns-out-of-range": 1
+        "restored-standards-list": 1
       },
       "indexable": false,
       "duplicateOf": null,
@@ -8192,8 +8215,8 @@
         477
       ],
       "sourceSha256": "85048e21881fd1b51124721c453282a9814818910155b4e256c228aa0c0cc0bc",
-      "outputSha256": "1328524f09aa5fdc517b186b6c9204e83b8c15f9b92613c1558c3868c36634a2",
-      "outputBytes": 5220,
+      "outputSha256": "21ef23a45b3b5db5e3a10d7477e5457bef5c878f64189b44186ac918e46f537b",
+      "outputBytes": 5166,
       "splitBySection": false,
       "sections": [
         {
@@ -8301,10 +8324,11 @@
         "tables": 1,
         "captions": 0,
         "tablesGfm": 0,
-        "tablesVerbatim": 1
+        "tablesList": 1,
+        "tablesVerbatim": 0
       },
       "tableOutcomes": {
-        "columns-out-of-range": 1
+        "restored-standards-list": 1
       },
       "indexable": false,
       "duplicateOf": null,
@@ -8447,6 +8471,7 @@
         "tables": 0,
         "captions": 0,
         "tablesGfm": 0,
+        "tablesList": 0,
         "tablesVerbatim": 0
       },
       "tableOutcomes": {},
@@ -8545,6 +8570,7 @@
         "tables": 0,
         "captions": 0,
         "tablesGfm": 0,
+        "tablesList": 0,
         "tablesVerbatim": 0
       },
       "tableOutcomes": {},
@@ -8578,8 +8604,8 @@
         492
       ],
       "sourceSha256": "81536271da366e69b90782022cf86fb3e5d69501713f32fe8b4e4da73e99a060",
-      "outputSha256": "a5ae55e31989442a024e033738bc8b16c2b33779fa9fcd4d1a8a1063542840d1",
-      "outputBytes": 23806,
+      "outputSha256": "fdf2b4e99685e40ffd67e1066f6c7b781923028cc0727d2af66e801864c2a29d",
+      "outputBytes": 23594,
       "splitBySection": false,
       "sections": [
         {
@@ -9104,10 +9130,11 @@
         "tables": 1,
         "captions": 0,
         "tablesGfm": 0,
-        "tablesVerbatim": 1
+        "tablesList": 1,
+        "tablesVerbatim": 0
       },
       "tableOutcomes": {
-        "columns-out-of-range": 1
+        "restored-standards-list": 1
       },
       "indexable": false,
       "duplicateOf": null,
@@ -9132,8 +9159,8 @@
         495
       ],
       "sourceSha256": "75306609f7034588684b210e61462151e694daec4cb78dff83d2d885ce1bf864",
-      "outputSha256": "d7d89d8c0aab33fdd7ef516d1275b431897241c488407dccb1412a828b2067ba",
-      "outputBytes": 6637,
+      "outputSha256": "241c98a7090df581098c92dcf8152d768522fe5d208147b7bfedeaf9198d8f28",
+      "outputBytes": 6599,
       "splitBySection": false,
       "sections": [
         {
@@ -9393,11 +9420,12 @@
         "notes": 0,
         "tables": 1,
         "captions": 0,
-        "tablesGfm": 1,
+        "tablesGfm": 0,
+        "tablesList": 1,
         "tablesVerbatim": 0
       },
       "tableOutcomes": {
-        "restored": 1
+        "restored-standards-list": 1
       },
       "indexable": false,
       "duplicateOf": null,
@@ -9428,8 +9456,8 @@
         503
       ],
       "sourceSha256": "8bf2fa75e76e581f40f882e08c94fc31868e4154062cd7b3afa9a649db8634dc",
-      "outputSha256": "247c17bdc3dcde88e57db05c145bab0153546e5f87af6c63bd2f5036ef1aca1a",
-      "outputBytes": 20686,
+      "outputSha256": "c0190a676d6622c1390a2dcbf6b85b580f66e4cd550249cb42f64bddbee2a87c",
+      "outputBytes": 20502,
       "splitBySection": false,
       "sections": [
         {
@@ -9783,10 +9811,11 @@
         "tables": 1,
         "captions": 0,
         "tablesGfm": 0,
-        "tablesVerbatim": 1
+        "tablesList": 1,
+        "tablesVerbatim": 0
       },
       "tableOutcomes": {
-        "columns-out-of-range": 1
+        "restored-standards-list": 1
       },
       "indexable": false,
       "duplicateOf": null,
@@ -10235,6 +10264,7 @@
         "tables": 1,
         "captions": 0,
         "tablesGfm": 1,
+        "tablesList": 0,
         "tablesVerbatim": 0
       },
       "tableOutcomes": {
@@ -10425,6 +10455,7 @@
         "tables": 0,
         "captions": 0,
         "tablesGfm": 0,
+        "tablesList": 0,
         "tablesVerbatim": 0
       },
       "tableOutcomes": {},
@@ -10579,6 +10610,7 @@
         "tables": 0,
         "captions": 0,
         "tablesGfm": 0,
+        "tablesList": 0,
         "tablesVerbatim": 0
       },
       "tableOutcomes": {},
@@ -10613,8 +10645,8 @@
         540
       ],
       "sourceSha256": "2a3edb3295f2bfcf98ff49daa22a323ea4988f8d432ef2802822eff8f90a5780",
-      "outputSha256": "09b722fcada7b754491518313c8bdc6e76184a6299a878c3d96bf184c2371ea6",
-      "outputBytes": 29279,
+      "outputSha256": "f3b1379b83e9b2f9bfa293eb36a54c01b35333003e3e1d5f201c5a0a7d8e2843",
+      "outputBytes": 28669,
       "splitBySection": false,
       "sections": [
         {
@@ -11094,10 +11126,12 @@
         "tables": 2,
         "captions": 0,
         "tablesGfm": 0,
-        "tablesVerbatim": 2
+        "tablesList": 1,
+        "tablesVerbatim": 1
       },
       "tableOutcomes": {
-        "columns-out-of-range": 2
+        "restored-standards-list": 1,
+        "columns-out-of-range": 1
       },
       "indexable": false,
       "duplicateOf": null,
@@ -11135,8 +11169,8 @@
         555
       ],
       "sourceSha256": "cc3cf3653c13fb7be6c92f45b7782ab652442c0acb85551e5486cce47ce753c1",
-      "outputSha256": "4e8814a2e8557807120d4bf58da7d06361456f92333b9795cc348d9319bd7b1a",
-      "outputBytes": 40526,
+      "outputSha256": "d9b9a1d5c6ad35002d7cc4fa5d37f92ccac04f69854ec3ad3bce7fd2210cdf89",
+      "outputBytes": 39941,
       "splitBySection": false,
       "sections": [
         {
@@ -11615,10 +11649,11 @@
         "tables": 2,
         "captions": 0,
         "tablesGfm": 0,
-        "tablesVerbatim": 2
+        "tablesList": 1,
+        "tablesVerbatim": 1
       },
       "tableOutcomes": {
-        "lossy": 1,
+        "restored-standards-list": 1,
         "ragged-rows": 1
       },
       "indexable": false,
@@ -11651,8 +11686,8 @@
         565
       ],
       "sourceSha256": "ee1be680d84dd3f2d0901f7d40db2c7f00e1de2562a927dceef69b6b9410695b",
-      "outputSha256": "8f3d62c809ae7eedc29742031d42ad1699a238dc79ed65adc6b22c5beccdc869",
-      "outputBytes": 25723,
+      "outputSha256": "f1b06a0544abc2c0e434f5517e6656c7c0fc54d1540b78d37dfb6d863967098e",
+      "outputBytes": 25245,
       "splitBySection": false,
       "sections": [
         {
@@ -12168,10 +12203,12 @@
         "tables": 3,
         "captions": 0,
         "tablesGfm": 0,
-        "tablesVerbatim": 3
+        "tablesList": 1,
+        "tablesVerbatim": 2
       },
       "tableOutcomes": {
-        "ragged-rows": 3
+        "restored-standards-list": 1,
+        "ragged-rows": 2
       },
       "indexable": false,
       "duplicateOf": null,
@@ -12200,8 +12237,8 @@
         572
       ],
       "sourceSha256": "ab32cab5ce7727002c8df99d95dc14d542c35258e562b20c698c4e7ea59690f0",
-      "outputSha256": "b532259cf7d10e337b56a14462661cfebf67f905399d540f6ff9c8a327f5ff01",
-      "outputBytes": 17361,
+      "outputSha256": "2489a6fe8fe0f2919eef477b310342c4012eee554020205854f3d1b17cce6e2e",
+      "outputBytes": 17045,
       "splitBySection": false,
       "sections": [
         {
@@ -12609,10 +12646,11 @@
         "tables": 2,
         "captions": 0,
         "tablesGfm": 1,
-        "tablesVerbatim": 1
+        "tablesList": 1,
+        "tablesVerbatim": 0
       },
       "tableOutcomes": {
-        "ragged-rows": 1,
+        "restored-standards-list": 1,
         "restored": 1
       },
       "indexable": false,
@@ -12650,8 +12688,8 @@
         587
       ],
       "sourceSha256": "802980bbd3221207e581813166b06a5f7468a4d17a7a3c2876095060ef14dc84",
-      "outputSha256": "ed836d7d36ad8fdd5f1933e37fb4b5651ba6d1dd3921f80228cdab2e72b9f667",
-      "outputBytes": 40505,
+      "outputSha256": "ab0b72e4dacad14ce2af6af12d15d037e0e6e903e76e050409448d67b536c790",
+      "outputBytes": 40130,
       "splitBySection": false,
       "sections": [
         {
@@ -13173,10 +13211,12 @@
         "tables": 8,
         "captions": 0,
         "tablesGfm": 0,
-        "tablesVerbatim": 8
+        "tablesList": 1,
+        "tablesVerbatim": 7
       },
       "tableOutcomes": {
-        "columns-out-of-range": 8
+        "restored-standards-list": 1,
+        "columns-out-of-range": 7
       },
       "indexable": false,
       "duplicateOf": null,
@@ -13209,8 +13249,8 @@
         598
       ],
       "sourceSha256": "e0ce06c0f75d1e130041d68d7610481feea2cb8ec54e6f418c056e8be2809ceb",
-      "outputSha256": "e2366396e5f5c54d50874d8bfbf250fec0428f93f70cf8edb0a3c9121dfe75d9",
-      "outputBytes": 28705,
+      "outputSha256": "40288de9b82b405fe61e05c7bd0e620376cd8308eeb4d05a4b3126e6c182d1f9",
+      "outputBytes": 28114,
       "splitBySection": false,
       "sections": [
         {
@@ -13501,10 +13541,11 @@
         "tables": 1,
         "captions": 1,
         "tablesGfm": 0,
-        "tablesVerbatim": 1
+        "tablesList": 1,
+        "tablesVerbatim": 0
       },
       "tableOutcomes": {
-        "columns-out-of-range": 1
+        "restored-standards-list": 1
       },
       "indexable": false,
       "duplicateOf": null,
@@ -13532,8 +13573,8 @@
         603
       ],
       "sourceSha256": "273df18e82ede61bda8f098992b1f484b688f1afdeecf09ff71f718018daad86",
-      "outputSha256": "24a715ec7df1125e43e04a1f4752ee5d120ae8bc3122ece07a2aa6f3110ce07f",
-      "outputBytes": 12046,
+      "outputSha256": "288f7f86b9929634d5b560d45963850394b6b92e35b75163cb1fe07664133147",
+      "outputBytes": 11457,
       "splitBySection": false,
       "sections": [
         {
@@ -13755,10 +13796,12 @@
         "tables": 3,
         "captions": 0,
         "tablesGfm": 0,
-        "tablesVerbatim": 3
+        "tablesList": 1,
+        "tablesVerbatim": 2
       },
       "tableOutcomes": {
-        "columns-out-of-range": 2,
+        "restored-standards-list": 1,
+        "columns-out-of-range": 1,
         "ragged-rows": 1
       },
       "indexable": false,
@@ -13786,8 +13829,8 @@
         608
       ],
       "sourceSha256": "942dd28c2bdec7629a3ede355cf33e738193814f175a5d609df337c4f0d263a5",
-      "outputSha256": "ef2df4e249dd6d1d3e358f05307a350c8bcac91e0b418f0a5d41c84a69defe51",
-      "outputBytes": 12096,
+      "outputSha256": "ed2f6361de34e7de3878efa1cf6e68c0c741b3d72d876ed4f3bed3b6f9329f35",
+      "outputBytes": 11648,
       "splitBySection": false,
       "sections": [
         {
@@ -14024,10 +14067,11 @@
         "tables": 2,
         "captions": 0,
         "tablesGfm": 0,
-        "tablesVerbatim": 2
+        "tablesList": 1,
+        "tablesVerbatim": 1
       },
       "tableOutcomes": {
-        "lossy": 1,
+        "restored-standards-list": 1,
         "columns-out-of-range": 1
       },
       "indexable": false,
@@ -14053,8 +14097,8 @@
         611
       ],
       "sourceSha256": "468725b7042e8027ac05f01ecf2075ef59a7877b07efa0db60423af145e195e4",
-      "outputSha256": "6b85b84c6a16637bd8fb1a303d32286a89596c66761d0bcd021681f2c706191d",
-      "outputBytes": 6372,
+      "outputSha256": "259831db3b65bc0b9ea2c46adb82f880221e0b8f949d644422cbaf5494f41d00",
+      "outputBytes": 6192,
       "splitBySection": false,
       "sections": [
         {
@@ -14207,10 +14251,11 @@
         "tables": 1,
         "captions": 0,
         "tablesGfm": 0,
-        "tablesVerbatim": 1
+        "tablesList": 1,
+        "tablesVerbatim": 0
       },
       "tableOutcomes": {
-        "ragged-rows": 1
+        "restored-standards-list": 1
       },
       "indexable": false,
       "duplicateOf": null,
@@ -14235,8 +14280,8 @@
         614
       ],
       "sourceSha256": "c02c588c6ff358d2f0f59d6c7e6c4512bd97de6be0213e3cd6438a7801c59a18",
-      "outputSha256": "fbfe80d8b8346219f6943fa1c8dc3e032f3c4e79dbe2c580a1be6f940f767ca6",
-      "outputBytes": 7317,
+      "outputSha256": "2beeb323d0cf522abfecf382d3a9e558996a3fc03f1190036930b777dbe68b91",
+      "outputBytes": 7172,
       "splitBySection": false,
       "sections": [
         {
@@ -14407,10 +14452,11 @@
         "tables": 1,
         "captions": 0,
         "tablesGfm": 0,
-        "tablesVerbatim": 1
+        "tablesList": 1,
+        "tablesVerbatim": 0
       },
       "tableOutcomes": {
-        "ragged-rows": 1
+        "restored-standards-list": 1
       },
       "indexable": false,
       "duplicateOf": null,
@@ -14436,8 +14482,8 @@
         618
       ],
       "sourceSha256": "cba4610e40f338997fa1a86403dae49a002976c876dedd80544a83ad76ac85c2",
-      "outputSha256": "0ef7e48d4b5f7f7c1e581333a1352c945a4a58f48ca4bd43ce88d10a5e5de1d2",
-      "outputBytes": 8246,
+      "outputSha256": "1601a1be843c64f28f044cc88e4b94dd4bdd6a6550e96ec8780c250221414d2a",
+      "outputBytes": 8069,
       "splitBySection": false,
       "sections": [
         {
@@ -14659,10 +14705,11 @@
         "tables": 1,
         "captions": 0,
         "tablesGfm": 0,
-        "tablesVerbatim": 1
+        "tablesList": 1,
+        "tablesVerbatim": 0
       },
       "tableOutcomes": {
-        "ragged-rows": 1
+        "restored-standards-list": 1
       },
       "indexable": false,
       "duplicateOf": null,
@@ -14687,8 +14734,8 @@
         621
       ],
       "sourceSha256": "cc3b97a40a6266ee792af6bdfcd4c9244471eb1ddc9779641361a462d01bb1bd",
-      "outputSha256": "e12b696900f0ee32560d5f57aa24e92f95c1782a8fdd23a18334c8b06fbaeb09",
-      "outputBytes": 6736,
+      "outputSha256": "8a1a0cf94f5118b248dfd72f7602dbb779864bec37f4758d00b3667468c7aa78",
+      "outputBytes": 6641,
       "splitBySection": false,
       "sections": [
         {
@@ -14832,10 +14879,11 @@
         "tables": 1,
         "captions": 0,
         "tablesGfm": 0,
-        "tablesVerbatim": 1
+        "tablesList": 1,
+        "tablesVerbatim": 0
       },
       "tableOutcomes": {
-        "ragged-rows": 1
+        "restored-standards-list": 1
       },
       "indexable": false,
       "duplicateOf": null,
@@ -14859,8 +14907,8 @@
         623
       ],
       "sourceSha256": "17c187c6c6b7ca325d9d0b73367bae31cafcece50c23b056a8cedc43de5c7b2d",
-      "outputSha256": "0af1fc581e06aca19dce6e63aaef196af8470a12e329a25d9e303eca21278ae6",
-      "outputBytes": 2552,
+      "outputSha256": "de53f112aa0cf2e6da42f40b4f903d01cf4d3c78be78dc4606096edd233cb81f",
+      "outputBytes": 2476,
       "splitBySection": false,
       "sections": [
         {
@@ -14944,10 +14992,11 @@
         "tables": 1,
         "captions": 0,
         "tablesGfm": 0,
-        "tablesVerbatim": 1
+        "tablesList": 1,
+        "tablesVerbatim": 0
       },
       "tableOutcomes": {
-        "ragged-rows": 1
+        "restored-standards-list": 1
       },
       "indexable": false,
       "duplicateOf": null,
@@ -14992,8 +15041,8 @@
         646
       ],
       "sourceSha256": "380a12f1ecebd00bd0182e84f09cfc92dcf489126b68dd1d2381336b94a95982",
-      "outputSha256": "127d2ae46722747932259d76816ca6875df5d55ebfb546bb8871d0225653b2fa",
-      "outputBytes": 58232,
+      "outputSha256": "e89cf6939dcaa76486a429d0053201e7898251be1424ce0faa6bc09baa57969c",
+      "outputBytes": 58207,
       "splitBySection": false,
       "sections": [
         {
@@ -15877,11 +15926,12 @@
         "tables": 5,
         "captions": 0,
         "tablesGfm": 0,
-        "tablesVerbatim": 5
+        "tablesList": 1,
+        "tablesVerbatim": 4
       },
       "tableOutcomes": {
         "lossy": 2,
-        "too-few-rows": 1,
+        "restored-standards-list": 1,
         "columns-out-of-range": 2
       },
       "indexable": false,
@@ -15910,8 +15960,8 @@
         651
       ],
       "sourceSha256": "8b5df9da94b92dfd9e66faf1deebf31c2e823a55a17b3c74df8ea3f0d9c5a759",
-      "outputSha256": "b81888ea8051e06f1ea2cff1a14eabad51c445ef0cd41c20bd539e1c6f7017d4",
-      "outputBytes": 12327,
+      "outputSha256": "68037e5d14272454be78fe65fd51b6e886c2eee2abb1062d90fd97142f84345b",
+      "outputBytes": 12043,
       "splitBySection": false,
       "sections": [
         {
@@ -16016,10 +16066,11 @@
         "tables": 1,
         "captions": 0,
         "tablesGfm": 0,
-        "tablesVerbatim": 1
+        "tablesList": 1,
+        "tablesVerbatim": 0
       },
       "tableOutcomes": {
-        "columns-out-of-range": 1
+        "restored-standards-list": 1
       },
       "indexable": false,
       "duplicateOf": null,
@@ -16059,8 +16110,8 @@
         669
       ],
       "sourceSha256": "079c32299ecd825eedc8d720ac71091c1127803419343a76ee6f6ca9b43bea20",
-      "outputSha256": "64fe98b4a46a9e91164e10c175ac0475ef428a50b8a26b8334e3ced0f5589a34",
-      "outputBytes": 45985,
+      "outputSha256": "83657995e79704b382310b5d2bba4628212f6941193bab007705fba9af9a8374",
+      "outputBytes": 45714,
       "splitBySection": false,
       "sections": [
         {
@@ -17044,11 +17095,13 @@
         "tables": 7,
         "captions": 0,
         "tablesGfm": 0,
-        "tablesVerbatim": 7
+        "tablesList": 1,
+        "tablesVerbatim": 6
       },
       "tableOutcomes": {
-        "ragged-rows": 4,
+        "restored-standards-list": 1,
         "columns-out-of-range": 2,
+        "ragged-rows": 3,
         "too-few-rows": 1
       },
       "indexable": false,

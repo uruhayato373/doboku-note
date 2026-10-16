@@ -592,7 +592,7 @@ function checkRejects(def, { manifest, analysis }) {
  */
 /** GFM の許容理由コード。標準以外の値が manifest に出たら生成器の変更を見落としている。 */
 const TABLE_REASONS = new Set([
-  'restored', 'too-few-rows', 'tab-character', 'empty-layout', 'columns-out-of-range',
+  'restored', 'restored-standards-list', 'too-few-rows', 'tab-character', 'empty-layout', 'columns-out-of-range',
   'lossy', 'ragged-rows', 'empty-cell', 'pipe-in-cell',
 ]);
 
@@ -608,11 +608,14 @@ function checkTables(def, { manifest, agencyId, documentId, document }) {
   const violations = [];
   const notes = [];
   let gfmFound = 0;
+  let listFound = 0;
   let verbatimFound = 0;
   let verified = 0;
 
-  // 原典ページの本文（空白除去）をページ単位で用意し、GFM セルの実在確認に使う
+  // 原典ページの本文（空白除去）をページ単位で用意し、GFM セルの実在確認に使う。
+  // pageBody は最初と最後の非空行（柱・印刷ページ番号）を除いたもので、ページをまたぐ表の照合に使う。
   const pageText = new Map();
+  const pageBody = new Map();
   for (const part of document.parts) {
     const source = toLf(readFileSync(join(LIBRARY_ROOT, part.file), 'utf8')).toString('utf8');
     const heads = [...source.matchAll(/^## PDF page (\d+)\s*$/gm)];
@@ -620,7 +623,10 @@ function checkTables(def, { manifest, agencyId, documentId, document }) {
       const start = (match.index ?? 0) + match[0].length;
       const end = heads[index + 1]?.index ?? source.length;
       const body = source.slice(start, end).match(/`{3,4}text\s*\r?\n([\s\S]*?)\r?\n`{3,4}/);
-      if (body) pageText.set(Number(match[1]), body[1].replace(/[\s　]/g, ''));
+      if (!body) return;
+      pageText.set(Number(match[1]), body[1].replace(/[\s　]/g, ''));
+      const content = body[1].split('\n').filter((line) => line.trim() !== '');
+      pageBody.set(Number(match[1]), content.slice(1, -1).join('').replace(/[\s　]/g, ''));
     });
   }
 
@@ -630,10 +636,10 @@ function checkTables(def, { manifest, agencyId, documentId, document }) {
         violations.push(`${chapter.chapterId}: 未知の表理由コード ${reason}（${count} 件）`);
       }
     }
-    const declared = (chapter.stats.tablesGfm ?? 0) + (chapter.stats.tablesVerbatim ?? 0);
+    const declared = (chapter.stats.tablesGfm ?? 0) + (chapter.stats.tablesList ?? 0) + (chapter.stats.tablesVerbatim ?? 0);
     if (declared !== chapter.stats.tables) {
       violations.push(
-        `${chapter.chapterId}: 表 ${chapter.stats.tables} 件に対し内訳が ${declared} 件（GFM ${chapter.stats.tablesGfm} + 版面 ${chapter.stats.tablesVerbatim}）`,
+        `${chapter.chapterId}: 表 ${chapter.stats.tables} 件に対し内訳が ${declared} 件（GFM ${chapter.stats.tablesGfm} + 一覧 ${chapter.stats.tablesList ?? 0} + 版面 ${chapter.stats.tablesVerbatim}）`,
       );
     }
 
@@ -643,10 +649,28 @@ function checkTables(def, { manifest, agencyId, documentId, document }) {
       continue;
     }
     const lines = text.split('\n');
+    // 復元した文字列が原典のどこかのページに実在するか（章の出所ページ内で探す）。
+    // ページをまたぐ表・一覧は、柱と印刷ページ番号を除いて出所ページをつないだ本文でも探す。
+    const existsInSource = (pieces) => {
+      const joined = pieces.join('').replace(/[\s　]/g, '').replace(/\\([\\`*_[\]<>{}|.#>+-])/g, '$1');
+      return chapter.sourcePages.some((page) => (pageText.get(page) ?? '').includes(joined))
+        || chapter.sourcePages.map((page) => pageBody.get(page) ?? '').join('').includes(joined);
+    };
     let inCode = false;
     for (let i = 0; i < lines.length; i += 1) {
       if (/^```/.test(lines[i])) { if (!inCode) verbatimFound += 1; inCode = !inCode; continue; }
       if (inCode) continue;
+      // 基準類の一覧（`- ` の箇条書き）。章記事で行頭が `- ` になるのは生成器の一覧だけ
+      // （散文の行頭の `-` は escapeBlockStart が `\-` にする）
+      if (/^- /.test(lines[i])) {
+        listFound += 1;
+        let end = i;
+        while (end < lines.length && /^- /.test(lines[end])) end += 1;
+        if (existsInSource(lines.slice(i, end).map((line) => line.slice(2)))) verified += 1;
+        else violations.push(`${chapter.chapterId}: 基準類の一覧の内容が原典 p.${chapter.firstPage}-${chapter.lastPage} に見つからない（組み直しで文字が変わった疑い）`);
+        i = end - 1;
+        continue;
+      }
       if (!/^\|.*\|$/.test(lines[i]) || !/^\|( *-{3,} *\|)+$/.test(lines[i + 1] ?? '')) continue;
       gfmFound += 1;
       let end = i + 2;
@@ -656,10 +680,7 @@ function checkTables(def, { manifest, agencyId, documentId, document }) {
         cells.push(row.replace(/^\||\|$/g, '').split('|').join(''));
       }
       while (end < lines.length && /^\|/.test(lines[end])) end += 1;
-      // 復元セルの連結が原典のどこかのページに実在するか（章の出所ページ内で探す）
-      const joined = cells.join('').replace(/[\s　]/g, '').replace(/\\([\\`*_[\]<>{}|])/g, '$1');
-      const found = chapter.sourcePages.some((page) => (pageText.get(page) ?? '').includes(joined));
-      if (!found) {
+      if (!existsInSource(cells)) {
         violations.push(`${chapter.chapterId}: GFM 表のセル内容が原典 p.${chapter.firstPage}-${chapter.lastPage} に見つからない（GFM 化で文字が変わった疑い）`);
       } else {
         verified += 1;
@@ -669,19 +690,23 @@ function checkTables(def, { manifest, agencyId, documentId, document }) {
   }
 
   const declaredGfm = manifest.audit.tablesGfm ?? 0;
+  const declaredList = manifest.audit.tablesList ?? 0;
   const declaredVerbatim = manifest.audit.tablesVerbatim ?? 0;
   if (gfmFound !== declaredGfm) {
     violations.push(`GFM 表の実数 ${gfmFound} 件 ≠ 台帳 ${declaredGfm} 件`);
   }
+  if (listFound !== declaredList) {
+    violations.push(`基準類の一覧の実数 ${listFound} 件 ≠ 台帳 ${declaredList} 件`);
+  }
   if (verbatimFound !== declaredVerbatim) {
     violations.push(`コードブロックの実数 ${verbatimFound} 件 ≠ 台帳 ${declaredVerbatim} 件`);
   }
-  const total = gfmFound + verbatimFound;
+  const total = gfmFound + listFound + verbatimFound;
   if (total === 0) {
     return result(def, { status: INCONCLUSIVE, checked: 0, unit: '表', violations: ['表が 1 件も無い。検査が成立しない'] });
   }
   notes.push(
-    `GFM ${gfmFound} 件（うち原典との一致確認 ${verified} 件） / 版面保持 ${verbatimFound} 件・理由内訳 ${Object.entries(manifest.tableOutcomes ?? {}).filter(([r]) => r !== 'restored').map(([r, c]) => `${r} ${c}`).join(' / ') || 'なし'}`,
+    `GFM ${gfmFound} 件・基準類の一覧 ${listFound} 件（うち原典との一致確認 ${verified} 件） / 版面保持 ${verbatimFound} 件・理由内訳 ${Object.entries(manifest.tableOutcomes ?? {}).filter(([r]) => !r.startsWith('restored')).map(([r, c]) => `${r} ${c}`).join(' / ') || 'なし'}`,
   );
   return result(def, { status: verdict(violations, []), checked: total, unit: '表', violations, notes });
 }
