@@ -1,0 +1,59 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は、生コンと工場製品で各工程がどちらの持ち場にあるか。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="生コンと工場製品で、打込み・締固め・養生、運搬、据付けと接合部、検査が現場と工場のどちら側の持ち場かを比べた図。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 13px; fill: #222; }
+      .hd { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .rl { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .tg { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .d { font-size: 12px; fill: #555; }
+      .lg { font-size: 11px; fill: #555; }
+      .site { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .fac { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .none { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .head { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <rect class="head" x="96" y="12" width="140" height="38" rx="6"/>
+  <text class="hd" x="166" y="36" text-anchor="middle">生コン</text>
+  <rect class="head" x="246" y="12" width="144" height="38" rx="6"/>
+  <text class="hd" x="318" y="36" text-anchor="middle">プレキャスト製品</text>
+
+  <!-- 行1 -->
+  <text class="rl" x="10" y="95">打込み・</text><text class="rl" x="10" y="113">締固め・養生</text>
+  <rect class="site" x="96" y="60" width="140" height="84" rx="6"/>
+  <text class="tg" x="166" y="92" text-anchor="middle">現場</text><text class="d" x="166" y="114" text-anchor="middle">施工者が握る</text>
+  <rect class="fac" x="246" y="60" width="144" height="84" rx="6"/>
+  <text class="tg" x="318" y="92" text-anchor="middle">工場</text><text class="d" x="318" y="114" text-anchor="middle">多くが工場側へ移る</text>
+
+  <!-- 行2 -->
+  <text class="rl" x="10" y="187">運搬</text>
+  <rect class="site" x="96" y="152" width="140" height="84" rx="6"/>
+  <text class="tg" x="166" y="184" text-anchor="middle">現場</text><text class="d" x="166" y="206" text-anchor="middle">施工者が握る</text>
+  <rect class="site" x="246" y="152" width="144" height="84" rx="6"/>
+  <text class="tg" x="318" y="184" text-anchor="middle">現場</text><text class="d" x="318" y="206" text-anchor="middle">現場に残る仕事</text>
+
+  <!-- 行3 -->
+  <text class="rl" x="10" y="279">据付け・</text><text class="rl" x="10" y="297">接合部の処理</text>
+  <rect class="none" x="96" y="244" width="140" height="84" rx="6"/>
+  <text class="d" x="166" y="291" text-anchor="middle">製品の場合のみ</text>
+  <rect class="site" x="246" y="244" width="144" height="84" rx="6"/>
+  <text class="tg" x="318" y="276" text-anchor="middle">現場</text><text class="d" x="318" y="298" text-anchor="middle">現場に残る仕事</text>
+
+  <!-- 行4 -->
+  <text class="rl" x="10" y="379">確かめる</text><text class="rl" x="10" y="397">もの</text>
+  <rect class="site" x="96" y="336" width="140" height="84" rx="6"/>
+  <text class="tg" x="166" y="368" text-anchor="middle">現場</text><text class="d" x="166" y="390" text-anchor="middle">受入れ検査</text>
+  <rect class="fac" x="246" y="336" width="144" height="40" rx="6"/>
+  <text class="d" x="318" y="361" text-anchor="middle">工場：強度・寸法</text>
+  <rect class="site" x="246" y="380" width="144" height="40" rx="6"/>
+  <text class="d" x="318" y="405" text-anchor="middle">現場：据付け・接合部</text>
+
+  <!-- 凡例 -->
+  <rect class="site" x="96" y="446" width="22" height="16" rx="3"/>
+  <text class="lg" x="124" y="459">現場の持ち場</text>
+  <rect class="fac" x="226" y="446" width="22" height="16" rx="3"/>
+  <text class="lg" x="254" y="459">工場の持ち場</text>
+  <text class="lg" x="96" y="486">製品では、確かめる場所も工場と現場に分かれる</text>
+</svg>
