@@ -1,0 +1,56 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は洪水浸水想定区域の境界線の位置精度（約25m）と、区域に含まれないもの。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="洪水浸水想定区域の読み方の図。区域の境界線の両側に位置精度約25mの帯があり、線の内か外かだけで判断してはいけない。区域には支川の氾濫、想定を超える降雨、高潮、内水が含まれず、ポータルの内水の想定は浸水深0〜0.1mを表示しない。現地の高さと過去の浸水記録と合わせて読む。">
+  <defs>
+  <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #222; }
+      .b { font-weight: bold; fill: #1a3a5c; }
+      .m { fill: #555; }
+      .t12 { font-size: 12px; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .dng { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .sf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .wh { fill: #fff; stroke: #2e6da4; stroke-width: 1.5; }
+      .dash { fill: #fff; stroke: #555; stroke-width: 1.5; stroke-dasharray: 4 3; }
+      .grid { stroke: #d7d7d7; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .ax { stroke: #555; stroke-width: 1.5; fill: none; }
+      .ar { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ark { stroke: #555; stroke-width: 2; fill: none; }
+  </style>
+  <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="ak" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  <marker id="as" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="asg" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+  <rect class="sf" x="12" y="8" width="376" height="200" rx="8"/>
+  <rect x="20" y="30" width="180" height="150" fill="#e8f0fe"/>
+  <text class="t12 b" x="30" y="52">想定区域の内側</text>
+  <rect x="150" y="30" width="100" height="150" fill="#fff3cd" fill-opacity="0.75"/><path d="M200,30V180" stroke="#2e6da4" stroke-width="3"/>
+  <text class="t12 b" x="300" y="52" text-anchor="middle">区域の外</text>
+  <text class="b" x="200" y="24" text-anchor="middle">境界線</text>
+  <path d="M198,196H152" stroke="#555" stroke-width="1.5" fill="none" marker-end="url(#ak)"/><path d="M202,196H248" stroke="#555" stroke-width="1.5" fill="none" marker-end="url(#ak)"/>
+  <text class="m" x="175" y="174" text-anchor="middle">約25m</text>
+  <text class="m" x="225" y="174" text-anchor="middle">約25m</text>
+  <circle cx="222" cy="112" r="7" fill="#d0e8d0" stroke="#3a7d44" stroke-width="2"/>
+  <text class="b" x="262" y="108">現場</text>
+  <text class="m" x="262" y="124">線の近く</text>
+  <rect class="warn" x="12" y="220" width="376" height="44" rx="8"/>
+  <text class="t12 b" x="200.0" y="246.0" text-anchor="middle">帯の中は、線の内か外かで判断しない</text>
+  <text class="t12 b" x="12" y="290">区域に含まれないもの</text>
+  <rect class="dng" x="12" y="300" width="184" height="30" rx="8"/>
+  <text class="t12" x="104.0" y="319.0" text-anchor="middle">支川の氾濫</text>
+  <rect class="dng" x="204" y="300" width="184" height="30" rx="8"/>
+  <text class="t12" x="296.0" y="319.0" text-anchor="middle">想定を超える降雨</text>
+  <rect class="dng" x="12" y="336" width="184" height="30" rx="8"/>
+  <text class="t12" x="104.0" y="355.0" text-anchor="middle">高潮</text>
+  <rect class="dng" x="204" y="336" width="184" height="30" rx="8"/>
+  <text class="t12" x="296.0" y="355.0" text-anchor="middle">内水</text>
+  <rect class="sf" x="12" y="378" width="376" height="46" rx="8"/>
+  <text class="t12" x="200.0" y="397.0" text-anchor="middle">ポータルの内水の想定は</text>
+  <text class="t12" x="200.0" y="413.0" text-anchor="middle">浸水深0〜0.1mの範囲を表示しない</text>
+  <rect class="pos" x="12" y="436" width="376" height="52" rx="8"/>
+  <text class="t12 b" x="200.0" y="457.0" text-anchor="middle">現地の高さと、過去の浸水記録と</text>
+  <text class="t12 b" x="200.0" y="475.0" text-anchor="middle">合わせて読む</text>
+</svg>

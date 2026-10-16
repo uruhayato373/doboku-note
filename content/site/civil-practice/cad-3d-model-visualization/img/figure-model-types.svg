@@ -1,59 +1,69 @@
-<!-- authored 2026-10-16 doboku-note 自作。論点は本文の記述に基づく。特定の書籍図の複製ではない -->
-<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="同じ橋脚を三つの作り方で並べた図。ワイヤーフレームは線だけで体積は出せない。サーフェスは面だけで、面が閉じていなければ体積は定まらない。ソリッドは内部が詰まっていて体積が定まる。">
+<!-- authored 2026-10-16 doboku-note 自作。論点は同じ橋脚をワイヤーフレーム・サーフェス・ソリッドで描き分け、サーフェスは面が閉じていないと体積が定まらないこと。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="同じ橋脚の作り方三つの図。ワイヤーフレームは線だけで体積は出せない。サーフェスは面だけで、面が閉じていれば曲面の形や面積は読めるが、一面が欠けていると体積は定まらない。ソリッドは内部が詰まっていて体積が定まる。">
   <defs>
   <style>
-      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #222; }
+      .b { font-weight: bold; fill: #1a3a5c; }
+      .m { fill: #555; }
+      .t12 { font-size: 12px; }
       .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
-      .t { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
-      .s { font-size: 11px; fill: #555; }
-      .k { font-size: 12px; fill: #222; }
-      .p { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
-      .bb { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
-      .bp { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
-      .bw { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
-      .bd { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
-      .bs { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
-      .ln { stroke: #2e6da4; stroke-width: 1.5; fill: none; stroke-linejoin: round; }
-      .hd { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 4 3; fill: none; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .dng { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .sf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .wh { fill: #fff; stroke: #2e6da4; stroke-width: 1.5; }
+      .dash { fill: #fff; stroke: #555; stroke-width: 1.5; stroke-dasharray: 4 3; }
+      .grid { stroke: #d7d7d7; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .ax { stroke: #555; stroke-width: 1.5; fill: none; }
       .ar { stroke: #2e6da4; stroke-width: 2; fill: none; }
-      .gy { stroke: #555; stroke-width: 1.5; fill: none; }
+      .ark { stroke: #555; stroke-width: 2; fill: none; }
   </style>
   <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
-  <marker id="ag" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
-  <marker id="ags" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  <marker id="ak" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  <marker id="as" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="asg" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
   </defs>
-  <rect class="p" x="10" y="10" width="380" height="152" rx="8"/>
-  <path class="ln" d="M24,44L108,44L108,66L24,66Z M40,32L124,32L124,54L40,54ZM24,44L40,32M108,44L124,32M108,66L124,54M24,66L40,54M46,66L46,136M86,66L86,136M46,136L86,136M62,54L62,124M102,54L102,124M62,124L102,124M86,136L102,124M46,136L62,124"/>
-  <text class="n" x="160" y="38">ワイヤーフレーム</text>
-  <text class="k" x="160" y="58">線（辺）だけを持つ</text>
-  <text class="k" x="160" y="76">面は持たない</text>
-  <rect x="166" y="92" width="34" height="34" fill="none" stroke="#d7d7d7" stroke-dasharray="3 3"/>
-  <circle cx="166" cy="92" r="3" fill="#2e6da4"/><circle cx="200" cy="92" r="3" fill="#2e6da4"/><circle cx="166" cy="126" r="3" fill="#2e6da4"/><circle cx="200" cy="126" r="3" fill="#2e6da4"/>
-  <text class="s" x="212" y="114">切ると、点だけ</text>
-  <rect class="bw" x="160" y="130" width="150" height="24" rx="12"/><text class="t" x="235" y="146" text-anchor="middle">体積は出せない</text>
-  <rect class="p" x="10" y="174" width="380" height="152" rx="8"/>
-  <polygon class="ln" style="fill:#f5f5f5" points="86,230 102,218 102,288 86,300"/>
-  <polygon class="ln" style="fill:#f5f5f5" points="46,230 86,230 86,300 46,300"/>
-  <polygon class="ln" style="fill:#f5f5f5" points="108,208 124,196 124,218 108,230"/>
-  <polygon class="ln" style="fill:#f5f5f5" points="24,208 40,196 124,196 108,208"/>
-  <polygon class="ln" style="fill:#f5f5f5" points="24,208 108,208 108,230 24,230"/>
-  <text class="n" x="160" y="202">サーフェス</text>
-  <text class="k" x="160" y="222">面だけを持つ</text>
-  <text class="k" x="160" y="240">曲面の形や面積は読める</text>
-  <rect x="166" y="256" width="34" height="34" fill="#fff" stroke="#2e6da4" stroke-width="2"/>
-  <text class="s" x="212" y="278">切ると、輪郭だけ</text>
-  <rect class="bw" x="160" y="294" width="226" height="24" rx="12"/><text class="t" x="273" y="310" text-anchor="middle">閉じていなければ、体積は定まらない</text>
-  <rect class="p" x="10" y="338" width="380" height="152" rx="8"/>
-  <polygon class="ln" style="fill:#e8f0fe" points="86,394 102,382 102,452 86,464"/>
-  <polygon class="ln" style="fill:#e8f0fe" points="46,394 86,394 86,464 46,464"/>
-  <polygon class="ln" style="fill:#e8f0fe" points="108,372 124,360 124,382 108,394"/>
-  <polygon class="ln" style="fill:#e8f0fe" points="24,372 40,360 124,360 108,372"/>
-  <polygon class="ln" style="fill:#e8f0fe" points="24,372 108,372 108,394 24,394"/>
-  <text class="n" x="160" y="366">ソリッド</text>
-  <text class="k" x="160" y="386">内部が詰まっている</text>
-  <text class="k" x="160" y="404">体積を求められる</text>
-  <rect x="166" y="420" width="34" height="34" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2"/>
-  <text class="s" x="212" y="442">切ると、中まで詰まる</text>
-  <rect class="bp" x="160" y="458" width="150" height="24" rx="12"/><text class="t" x="235" y="474" text-anchor="middle">体積が定まる</text>
-
+  <rect class="wh" x="10" y="10" width="380" height="152" rx="8"/>
+  <text class="n" x="24" y="38">ワイヤーフレーム</text>
+  <text class="t12" x="24" y="60">線（辺）だけを持つ</text>
+  <text class="t12" x="24" y="78">面は持たない</text>
+  <path d="M230,66L310,66" stroke="#555" stroke-width="1.5" fill="none"/>
+  <path d="M310,66L310,122" stroke="#555" stroke-width="1.5" fill="none"/>
+  <path d="M310,122L230,122" stroke="#555" stroke-width="1.5" fill="none"/>
+  <path d="M230,122L230,66" stroke="#555" stroke-width="1.5" fill="none"/>
+  <path d="M258,46L338,46" stroke="#555" stroke-width="1.5" fill="none"/>
+  <path d="M338,102L310,122" stroke="#555" stroke-width="1.5" fill="none"/>
+  <path d="M338,46L338,102" stroke="#555" stroke-width="1.5" fill="none"/>
+  <path d="M258,46L258,102" stroke="#555" stroke-width="1.5" fill="none"/>
+  <path d="M258,102L338,102" stroke="#555" stroke-width="1.5" fill="none"/>
+  <path d="M230,66L258,46" stroke="#555" stroke-width="1.5" fill="none"/>
+  <path d="M310,66L338,46" stroke="#555" stroke-width="1.5" fill="none"/>
+  <path d="M310,122L310,122" stroke="#555" stroke-width="1.5" fill="none"/>
+  <path d="M230,122L258,102" stroke="#555" stroke-width="1.5" fill="none"/>
+  <rect class="warn" x="24" y="122" width="150" height="28" rx="14"/>
+  <text class="t12 b" x="99.0" y="140.0" text-anchor="middle">体積は出せない</text>
+  <rect class="wh" x="10" y="174" width="380" height="152" rx="8"/>
+  <text class="n" x="24" y="202">サーフェス</text>
+  <text class="t12" x="24" y="224">面だけを持つ</text>
+  <text class="t12" x="24" y="242">曲面の形や面積は読める</text>
+  <polygon points="226,226 270,226 270,266 226,266" fill="#f5f5f5" stroke="#555" stroke-width="1.5"/>
+  <polygon points="226,226 270,226 286,212 242,212" fill="#fff" stroke="#555" stroke-width="1.5"/>
+  <polygon points="270,226 286,212 286,252 270,266" fill="#f5f5f5" stroke="#555" stroke-width="1.5"/>
+  <text class="m" x="248" y="284" text-anchor="middle">閉じている</text>
+  <polygon points="316,226 360,226 360,266 316,266" fill="#f5f5f5" stroke="#555" stroke-width="1.5"/>
+  <polygon points="316,226 360,226 376,212 332,212" fill="#fff" stroke="#555" stroke-width="1.5"/>
+  <polygon points="360,226 376,212 376,252 360,266" fill="none" stroke="#b22234" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text class="m" x="342" y="284" text-anchor="middle">一面が欠ける</text>
+  <rect class="warn" x="24" y="288" width="170" height="28" rx="14"/>
+  <text class="t12 b" x="109.0" y="306.0" text-anchor="middle">欠けると体積は定まらない</text>
+  <rect class="wh" x="10" y="338" width="380" height="152" rx="8"/>
+  <text class="n" x="24" y="366">ソリッド</text>
+  <text class="t12" x="24" y="388">内部が詰まっている</text>
+  <text class="t12" x="24" y="406">体積を求められる</text>
+  <polygon points="230,394 310,394 310,450 230,450" fill="#e8f0fe" stroke="#555" stroke-width="1.5"/>
+  <polygon points="230,394 310,394 338,374 258,374" fill="#fff" stroke="#555" stroke-width="1.5"/>
+  <polygon points="310,394 338,374 338,430 310,450" fill="#f5f5f5" stroke="#555" stroke-width="1.5"/>
+  <rect class="pos" x="24" y="448" width="150" height="28" rx="14"/>
+  <text class="t12 b" x="99.0" y="466.0" text-anchor="middle">体積が定まる</text>
 </svg>

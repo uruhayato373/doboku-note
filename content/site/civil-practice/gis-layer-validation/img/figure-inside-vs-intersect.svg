@@ -1,0 +1,59 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は内包と交差で境界をまたぐ設備の扱いが変わること、確認作業は交差・区域ごとの集計は切り出した後の延長や面積で数えること。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="内包と交差の違いの図。注意区域に対し、完全に内側の設備Aは内包でも交差でも選ばれる。境界にまたがる設備Bは交差だけで選ばれる。外側の設備Cはどちらでも選ばれない。確認作業は交差、区域ごとの数量は切り出した後の延長や面積で数える。">
+  <defs>
+  <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #222; }
+      .b { font-weight: bold; fill: #1a3a5c; }
+      .m { fill: #555; }
+      .t12 { font-size: 12px; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .dng { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .sf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .wh { fill: #fff; stroke: #2e6da4; stroke-width: 1.5; }
+      .dash { fill: #fff; stroke: #555; stroke-width: 1.5; stroke-dasharray: 4 3; }
+      .grid { stroke: #d7d7d7; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .ax { stroke: #555; stroke-width: 1.5; fill: none; }
+      .ar { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ark { stroke: #555; stroke-width: 2; fill: none; }
+  </style>
+  <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="ak" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  <marker id="as" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="asg" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+  <rect class="sf" x="12" y="8" width="376" height="196" rx="8"/>
+  <rect x="70" y="30" width="200" height="150" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2"/>
+  <text class="t12 b" x="80" y="50">注意区域</text>
+  <path d="M100,120H190" stroke="#3a7d44" stroke-width="5" fill="none"/>
+  <text class="b" x="145" y="108" text-anchor="middle">設備A</text>
+  <path d="M230,90H310" stroke="#d4a017" stroke-width="5" fill="none"/>
+  <text class="b" x="290" y="78" text-anchor="middle">設備B</text>
+  <path d="M290,160H370" stroke="#8a8a8a" stroke-width="5" fill="none"/>
+  <text class="b" x="330" y="150" text-anchor="middle">設備C</text>
+  <text class="m" x="24" y="198">Bは境界にまたがる</text>
+  <text class="t12 b" x="12" y="232">選ばれる設備</text>
+  <rect class="wh" x="12" y="244" width="230" height="32" rx="8"/>
+  <text class="t12" x="127.0" y="264.0" text-anchor="middle">完全に内側にある</text>
+  <rect class="pos" x="256" y="244" width="40" height="32" rx="8"/>
+  <text class="t12 b" x="276.0" y="264.0" text-anchor="middle">A</text>
+  <rect class="wh" x="12" y="284" width="230" height="32" rx="8"/>
+  <text class="t12" x="127.0" y="304.0" text-anchor="middle">少しでも共有する（交差）</text>
+  <rect class="pos" x="256" y="284" width="40" height="32" rx="8"/>
+  <text class="t12 b" x="276.0" y="304.0" text-anchor="middle">A</text>
+  <rect class="warn" x="302" y="284" width="40" height="32" rx="8"/>
+  <text class="t12 b" x="322.0" y="304.0" text-anchor="middle">B</text>
+  <path class="grid" d="M8,332H392"/>
+  <rect class="brand" x="12" y="344" width="184" height="88" rx="8"/>
+  <text class="t12" x="104.0" y="374.0" text-anchor="middle">見落としを</text>
+  <text class="t12" x="104.0" y="392.0" text-anchor="middle">避けたい確認作業</text>
+  <text class="t12 b" x="104.0" y="410.0" text-anchor="middle">→ 交差</text>
+  <rect class="brand" x="204" y="344" width="184" height="88" rx="8"/>
+  <text class="t12" x="296.0" y="374.0" text-anchor="middle">区域ごとの数量</text>
+  <text class="t12 b" x="296.0" y="392.0" text-anchor="middle">→ 交差で切り出した後の</text>
+  <text class="t12" x="296.0" y="410.0" text-anchor="middle">延長・面積で数える</text>
+  <rect class="warn" x="12" y="444" width="376" height="44" rx="8"/>
+  <text class="t12 b" x="200.0" y="470.0" text-anchor="middle">境界の設備を二つの区域に重複して数えない</text>
+</svg>

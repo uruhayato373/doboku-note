@@ -1,0 +1,55 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は台帳の更新のきっかけ（工事の完成・点検調査の結果）と、成果品が台帳に流れ込む道、更新日の表示。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="台帳の更新の道筋の図。発注の段で仕様書に成果品の形式、座標の付け方、台帳に反映する担当と期限を書く。工事の完成は竣工図書を台帳に反映できる形式で、点検・調査の結果は定型の様式で一括して台帳に入れる。台帳に更新日を属性として持たせ、公開の地図に表示する。">
+  <defs>
+  <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #222; }
+      .b { font-weight: bold; fill: #1a3a5c; }
+      .m { fill: #555; }
+      .t12 { font-size: 12px; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .dng { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .sf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .wh { fill: #fff; stroke: #2e6da4; stroke-width: 1.5; }
+      .dash { fill: #fff; stroke: #555; stroke-width: 1.5; stroke-dasharray: 4 3; }
+      .grid { stroke: #d7d7d7; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .ax { stroke: #555; stroke-width: 1.5; fill: none; }
+      .ar { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ark { stroke: #555; stroke-width: 2; fill: none; }
+  </style>
+  <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="ak" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  <marker id="as" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="asg" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+  <rect class="brand" x="12" y="8" width="376" height="76" rx="8"/>
+  <text class="t12 b" x="200.0" y="26.0" text-anchor="middle">発注の段で、仕様書に書く</text>
+  <text class="t12" x="200.0" y="42.0" text-anchor="middle">成果品の形式</text>
+  <text class="t12" x="200.0" y="58.0" text-anchor="middle">座標の付け方</text>
+  <text class="t12" x="200.0" y="74.0" text-anchor="middle">台帳に反映する担当と期限</text>
+  <path class="ar" d="M100,86V104" marker-end="url(#ah)"/>
+  <path class="ar" d="M300,86V104" marker-end="url(#ah)"/>
+  <rect class="pos" x="12" y="108" width="184" height="86" rx="8"/>
+  <text class="t12 b" x="104.0" y="138.0" text-anchor="middle">工事の完成</text>
+  <text class="t12" x="104.0" y="155.0" text-anchor="middle">竣工図書を、台帳にそのまま</text>
+  <text class="t12" x="104.0" y="172.0" text-anchor="middle">反映できる形式で受け取る</text>
+  <rect class="pos" x="204" y="108" width="184" height="86" rx="8"/>
+  <text class="t12 b" x="296.0" y="138.0" text-anchor="middle">点検・調査の結果</text>
+  <text class="t12" x="296.0" y="155.0" text-anchor="middle">結果を一括して取り込める</text>
+  <text class="t12" x="296.0" y="172.0" text-anchor="middle">定型の様式を決めておく</text>
+  <path class="ar" d="M100,196V226" marker-end="url(#ah)"/>
+  <path class="ar" d="M300,196V226" marker-end="url(#ah)"/>
+  <rect class="brand" x="12" y="230" width="376" height="60" rx="8"/>
+  <text class="t12 b" x="200.0" y="255.0" text-anchor="middle">台帳</text>
+  <text class="t12" x="200.0" y="273.0" text-anchor="middle">更新日を図面の属性に持つ</text>
+  <path class="ar" d="M200,292V316" marker-end="url(#ah)"/>
+  <rect class="wh" x="12" y="320" width="376" height="56" rx="8"/>
+  <text class="t12 b" x="200.0" y="343.0" text-anchor="middle">公開の地図に更新日を表示</text>
+  <text class="t12" x="200.0" y="361.0" text-anchor="middle">利用者が現況との差を自分で見積もれる</text>
+  <rect class="warn" x="12" y="396" width="376" height="72" rx="8"/>
+  <text class="t12 b" x="200.0" y="418.0" text-anchor="middle">更新が止まりやすいのは</text>
+  <text class="t12" x="200.0" y="436.0" text-anchor="middle">成果品が台帳に流れ込む道が</text>
+  <text class="t12" x="200.0" y="454.0" text-anchor="middle">決まっていないとき</text>
+</svg>

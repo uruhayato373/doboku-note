@@ -1,0 +1,64 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は地震後の成果の扱い（補正か再測量か）を決める三つの問いの順番。本文の判断の順序と、国土地理院の「再測量が最良」の説明に基づく。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="地震後の成果の扱いを決める分岐図。パラメータの提供地域か、局所的な変動が出ていないか、補正後の精度が使い道に足りるかの三つを順に問い、一つでも怪しければ再測量、すべて問題なければPatchJGDで補正してパラメータの名称と適用日を記録する。">
+  <defs>
+  <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #222; }
+      .b { font-weight: bold; fill: #1a3a5c; }
+      .m { fill: #555; }
+      .t12 { font-size: 12px; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .dng { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .sf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .wh { fill: #fff; stroke: #2e6da4; stroke-width: 1.5; }
+      .dash { fill: #fff; stroke: #555; stroke-width: 1.5; stroke-dasharray: 4 3; }
+      .grid { stroke: #d7d7d7; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .ax { stroke: #555; stroke-width: 1.5; fill: none; }
+      .ar { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ark { stroke: #555; stroke-width: 2; fill: none; }
+  </style>
+  <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="ak" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  <marker id="as" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="asg" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+  <rect class="brand" x="12" y="8" width="230" height="52" rx="8"/>
+  <text class="t12" x="127.0" y="30.0" text-anchor="middle">対象の成果は</text>
+  <text class="t12" x="127.0" y="46.0" text-anchor="middle">パラメータの提供地域か</text>
+  <rect class="brand" x="12" y="92" width="230" height="64" rx="8"/>
+  <text class="t12" x="127.0" y="112.0" text-anchor="middle">液状化・地すべりなど</text>
+  <text class="t12" x="127.0" y="128.0" text-anchor="middle">局所的な変動が</text>
+  <text class="t12" x="127.0" y="144.0" text-anchor="middle">現地に出ているか</text>
+  <rect class="brand" x="12" y="188" width="230" height="52" rx="8"/>
+  <text class="t12" x="127.0" y="210.0" text-anchor="middle">補正後の精度は</text>
+  <text class="t12" x="127.0" y="226.0" text-anchor="middle">使い道に足りるか</text>
+  <rect class="dng" x="282" y="8" width="106" height="232" rx="8"/>
+  <text class="t12 b" x="335.0" y="92.0" text-anchor="middle">再測量</text>
+  <text class="t12" x="335.0" y="110.0" text-anchor="middle"></text>
+  <text class="t12" x="335.0" y="128.0" text-anchor="middle">国土地理院は</text>
+  <text class="t12" x="335.0" y="146.0" text-anchor="middle">再測量が最良</text>
+  <text class="t12" x="335.0" y="164.0" text-anchor="middle">とする</text>
+  <path class="ar" d="M242,34H280" marker-end="url(#ah)"/>
+  <text class="m" x="244" y="28">いいえ</text>
+  <path class="ar" d="M242,124H280" marker-end="url(#ah)"/>
+  <text class="m" x="250" y="118">はい</text>
+  <path class="ar" d="M242,214H280" marker-end="url(#ah)"/>
+  <text class="m" x="244" y="208">いいえ</text>
+  <path class="ar" d="M127,60V90" marker-end="url(#ah)"/>
+  <text class="m" x="135" y="80.0">はい</text>
+  <path class="ar" d="M127,156V186" marker-end="url(#ah)"/>
+  <text class="m" x="135" y="176.0">いいえ</text>
+  <path class="ar" d="M127,240V272" marker-end="url(#ah)"/>
+  <text class="m" x="135" y="261.0">はい</text>
+  <rect class="pos" x="12" y="274" width="376" height="64" rx="8"/>
+  <text class="t12 b" x="200.0" y="301.0" text-anchor="middle">補正する</text>
+  <text class="t12" x="200.0" y="319.0" text-anchor="middle">PatchJGDで計算し、パラメータの名称と適用日を記録</text>
+  <rect class="warn" x="12" y="358" width="376" height="128" rx="8"/>
+  <text class="t12 b" x="24" y="380">見分け方</text>
+  <text x="24" y="400">三つのうち一つでも怪しければ再測量</text>
+  <text x="24" y="418">地震が複数回あった地域は、成果を得た時期に応じ</text>
+  <text x="24" y="436">て、パラメータを古い年代順に適用する</text>
+  <text x="24" y="454">成果の取得時期を先に把握しておく</text>
+</svg>

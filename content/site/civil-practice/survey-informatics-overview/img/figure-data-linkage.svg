@@ -1,0 +1,70 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点はデータ連携のオートメーション化の意味。工程ごとに入力し直す流れと、一つの情報を各工程が取り出して更新する流れの比較。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="工程間の情報の受け渡し方の比較図。上は調査・測量、設計、施工、維持管理の間で手入力して受け渡す流れ。下は一つのデータを四つの工程が取り出し、更新する流れで、手入力の印がない。">
+  <defs>
+  <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #222; }
+      .b { font-weight: bold; fill: #1a3a5c; }
+      .m { fill: #555; }
+      .t12 { font-size: 12px; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .dng { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .sf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .wh { fill: #fff; stroke: #2e6da4; stroke-width: 1.5; }
+      .dash { fill: #fff; stroke: #555; stroke-width: 1.5; stroke-dasharray: 4 3; }
+      .grid { stroke: #d7d7d7; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .ax { stroke: #555; stroke-width: 1.5; fill: none; }
+      .ar { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ark { stroke: #555; stroke-width: 2; fill: none; }
+  </style>
+  <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="ak" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  <marker id="as" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="asg" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+  <text class="t12 b" x="200" y="22" text-anchor="middle">工程ごとに入力し直す</text>
+  <rect class="wh" x="8" y="36" width="84" height="40" rx="8"/>
+  <text class="t12 b" x="50.0" y="60.0" text-anchor="middle">調査・測量</text>
+  <path class="ark" d="M93,56H107" marker-end="url(#ak)"/>
+  <rect class="dng" x="61" y="90" width="44" height="22" rx="6"/>
+  <text class="t12" x="83.0" y="105.0" text-anchor="middle">手入力</text>
+  <path class="grid" d="M107,60V90"/>
+  <rect class="wh" x="108" y="36" width="84" height="40" rx="8"/>
+  <text class="t12 b" x="150.0" y="60.0" text-anchor="middle">設計</text>
+  <path class="ark" d="M193,56H207" marker-end="url(#ak)"/>
+  <rect class="dng" x="161" y="90" width="44" height="22" rx="6"/>
+  <text class="t12" x="183.0" y="105.0" text-anchor="middle">手入力</text>
+  <path class="grid" d="M207,60V90"/>
+  <rect class="wh" x="208" y="36" width="84" height="40" rx="8"/>
+  <text class="t12 b" x="250.0" y="60.0" text-anchor="middle">施工</text>
+  <path class="ark" d="M293,56H307" marker-end="url(#ak)"/>
+  <rect class="dng" x="261" y="90" width="44" height="22" rx="6"/>
+  <text class="t12" x="283.0" y="105.0" text-anchor="middle">手入力</text>
+  <path class="grid" d="M307,60V90"/>
+  <rect class="wh" x="308" y="36" width="84" height="40" rx="8"/>
+  <text class="t12 b" x="350.0" y="60.0" text-anchor="middle">維持管理</text>
+  <text class="m" x="200" y="140" text-anchor="middle">手入力の印は三つ（受け渡しのたびに増える）</text>
+  <path class="grid" d="M8,170H392"/>
+  <text class="t12 b" x="200" y="200" text-anchor="middle">一つのデータを各工程が使う</text>
+  <rect class="brand" x="110" y="220" width="180" height="56" rx="8"/>
+  <text class="t12 b" x="200.0" y="243.0" text-anchor="middle">一つのデータ</text>
+  <text class="t12" x="200.0" y="261.0" text-anchor="middle">（必要なときに取り出せる）</text>
+  <rect class="wh" x="8" y="350" width="84" height="40" rx="8"/>
+  <text class="t12 b" x="50.0" y="374.0" text-anchor="middle">調査・測量</text>
+  <path class="ar" d="M148,278L50,346" marker-end="url(#ah)" marker-start="url(#as)"/>
+  <rect class="wh" x="108" y="350" width="84" height="40" rx="8"/>
+  <text class="t12 b" x="150.0" y="374.0" text-anchor="middle">設計</text>
+  <path class="ar" d="M182,278L150,346" marker-end="url(#ah)" marker-start="url(#as)"/>
+  <rect class="wh" x="208" y="350" width="84" height="40" rx="8"/>
+  <text class="t12 b" x="250.0" y="374.0" text-anchor="middle">施工</text>
+  <path class="ar" d="M218,278L250,346" marker-end="url(#ah)" marker-start="url(#as)"/>
+  <rect class="wh" x="308" y="350" width="84" height="40" rx="8"/>
+  <text class="t12 b" x="350.0" y="374.0" text-anchor="middle">維持管理</text>
+  <path class="ar" d="M252,278L350,346" marker-end="url(#ah)" marker-start="url(#as)"/>
+  <text class="m" x="200" y="420" text-anchor="middle">各工程が取り出し、更新する</text>
+  <rect class="pos" x="60" y="436" width="280" height="40" rx="8"/>
+  <text class="t12 b" x="200.0" y="452.0" text-anchor="middle">手入力の印はなし</text>
+  <text class="t12" x="200.0" y="468.0" text-anchor="middle">同じデータを繰り返し入力しない</text>
+</svg>

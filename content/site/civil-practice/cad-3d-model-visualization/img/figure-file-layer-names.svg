@@ -1,0 +1,83 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点はファイル名（図面番号・ライフサイクル・整理番号・図面種類・改訂履歴・ユーザ定義領域）とレイヤ名（責任主体・図面オブジェクト・ユーザ定義領域）の区切りと意味。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="ファイル名とレイヤ名の読み方の図。ファイル名の例001D0PL1-○○区間平面図.P21は、図面番号001、ライフサイクルD（設計）、整理番号0、図面種類PL（平面図）、改訂履歴1、ユーザ定義領域に分かれる。レイヤ名の例D-STR-A1橋台は、責任主体D、図面オブジェクトSTR、ユーザ定義領域A1橋台に分かれる。改訂履歴のZは最終成果、P2Zでは圧縮前のファイル名に規則が適用されない。">
+  <defs>
+  <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #222; }
+      .b { font-weight: bold; fill: #1a3a5c; }
+      .m { fill: #555; }
+      .t12 { font-size: 12px; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .dng { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .sf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .wh { fill: #fff; stroke: #2e6da4; stroke-width: 1.5; }
+      .dash { fill: #fff; stroke: #555; stroke-width: 1.5; stroke-dasharray: 4 3; }
+      .grid { stroke: #d7d7d7; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .ax { stroke: #555; stroke-width: 1.5; fill: none; }
+      .ar { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ark { stroke: #555; stroke-width: 2; fill: none; }
+  </style>
+  <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="ak" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  <marker id="as" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="asg" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+  <text class="t12 b" x="12" y="16">ファイル名の例</text>
+  <rect class="brand" x="12" y="24" width="46" height="34" rx="6"/>
+  <text class="t12 b" x="35.0" y="45.0" text-anchor="middle">001</text>
+  <rect class="pos" x="62" y="24" width="30" height="34" rx="6"/>
+  <text class="t12 b" x="77.0" y="45.0" text-anchor="middle">D</text>
+  <rect class="warn" x="96" y="24" width="30" height="34" rx="6"/>
+  <text class="t12 b" x="111.0" y="45.0" text-anchor="middle">0</text>
+  <rect class="dng" x="130" y="24" width="42" height="34" rx="6"/>
+  <text class="t12 b" x="151.0" y="45.0" text-anchor="middle">PL</text>
+  <rect class="sf" x="176" y="24" width="30" height="34" rx="6"/>
+  <text class="t12 b" x="191.0" y="45.0" text-anchor="middle">1</text>
+  <rect class="wh" x="210" y="24" width="130" height="34" rx="6"/>
+  <text class="t12 b" x="275.0" y="45.0" text-anchor="middle">-○○区間平面図</text>
+  <rect class="sf" x="344" y="24" width="50" height="34" rx="6"/>
+  <text class="t12 b" x="369.0" y="45.0" text-anchor="middle">.P21</text>
+  <rect class="brand" x="12" y="72" width="16" height="16" rx="3"/>
+  <text class="t12 b" x="36" y="85">001</text>
+  <text class="m" x="86" y="85">図面番号（半角数字3文字）</text>
+  <rect class="pos" x="12" y="94" width="16" height="16" rx="3"/>
+  <text class="t12 b" x="36" y="107">D</text>
+  <text class="m" x="86" y="107">ライフサイクル（D＝設計。ほかS・C・M）</text>
+  <rect class="warn" x="12" y="116" width="16" height="16" rx="3"/>
+  <text class="t12 b" x="36" y="129">0</text>
+  <text class="m" x="86" y="129">整理番号（細かく区分したいとき）</text>
+  <rect class="dng" x="12" y="138" width="16" height="16" rx="3"/>
+  <text class="t12 b" x="36" y="151">PL</text>
+  <text class="m" x="86" y="151">図面種類（平面図）</text>
+  <rect class="sf" x="12" y="160" width="16" height="16" rx="3"/>
+  <text class="t12 b" x="36" y="173">1</text>
+  <text class="m" x="86" y="173">改訂履歴（0〜9、A〜Y。最終成果はZ）</text>
+  <rect class="wh" x="12" y="182" width="16" height="16" rx="3"/>
+  <text class="t12 b" x="36" y="195">-○○…</text>
+  <text class="m" x="86" y="195">ユーザ定義領域（図面名などを日本語で）</text>
+  <text class="t12 b" x="12" y="226">レイヤ名の例</text>
+  <rect class="brand" x="12" y="234" width="40" height="34" rx="6"/>
+  <text class="t12 b" x="32.0" y="255.0" text-anchor="middle">D</text>
+  <rect class="pos" x="56" y="234" width="70" height="34" rx="6"/>
+  <text class="t12 b" x="91.0" y="255.0" text-anchor="middle">-STR</text>
+  <rect class="warn" x="130" y="234" width="100" height="34" rx="6"/>
+  <text class="t12 b" x="180.0" y="255.0" text-anchor="middle">-A1橋台</text>
+  <rect class="brand" x="12" y="282" width="16" height="16" rx="3"/>
+  <text class="t12 b" x="36" y="295">D</text>
+  <text class="m" x="96" y="295">責任主体（S・D・C・M）</text>
+  <rect class="pos" x="12" y="304" width="16" height="16" rx="3"/>
+  <text class="t12 b" x="36" y="317">STR</text>
+  <text class="m" x="96" y="317">図面オブジェクト（半角英大文字3文字）</text>
+  <rect class="warn" x="12" y="326" width="16" height="16" rx="3"/>
+  <text class="t12 b" x="36" y="339">A1橋台</text>
+  <text class="m" x="96" y="339">ユーザ定義領域（省略できる）</text>
+  <rect class="warn" x="12" y="358" width="376" height="52" rx="8"/>
+  <text class="t12 b" x="200.0" y="379.0" text-anchor="middle">改訂履歴のZは、最終成果の印</text>
+  <text class="t12" x="200.0" y="397.0" text-anchor="middle">数字のままなら、版の取り違いを疑う</text>
+  <rect class="dng" x="12" y="420" width="376" height="66" rx="8"/>
+  <text class="t12 b" x="200.0" y="439.0" text-anchor="middle">P2Zでは、圧縮前のファイル名に</text>
+  <text class="t12" x="200.0" y="457.0" text-anchor="middle">命名規則が適用されない</text>
+  <text class="t12" x="200.0" y="475.0" text-anchor="middle">納品物の一覧を別に作ってもらう</text>
+</svg>

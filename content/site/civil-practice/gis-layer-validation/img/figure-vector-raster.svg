@@ -1,0 +1,106 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点はベクタとラスタの見え方の違いと、ラスタでセルの大きさ・欠測・境界をまたぐセルの扱いが結果を左右すること。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="ベクタとラスタの比較図。ベクタは工事境界の面、管路の線、マンホールの点が図形と属性の組を持つ。ラスタは格子の各セルが値を持つ。背景地図を拡大しても元の情報の詳しさや位置精度は増えない。ラスタではセルの大きさ、欠測、境界をまたぐセルの扱いが結果を左右する。">
+  <defs>
+  <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #222; }
+      .b { font-weight: bold; fill: #1a3a5c; }
+      .m { fill: #555; }
+      .t12 { font-size: 12px; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .dng { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .sf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .wh { fill: #fff; stroke: #2e6da4; stroke-width: 1.5; }
+      .dash { fill: #fff; stroke: #555; stroke-width: 1.5; stroke-dasharray: 4 3; }
+      .grid { stroke: #d7d7d7; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .ax { stroke: #555; stroke-width: 1.5; fill: none; }
+      .ar { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ark { stroke: #555; stroke-width: 2; fill: none; }
+  </style>
+  <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="ak" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  <marker id="as" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="asg" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+  <rect class="brand" x="12" y="8" width="184" height="32" rx="8"/>
+  <text class="n" x="104.0" y="28.0" text-anchor="middle">ベクタ</text>
+  <rect class="brand" x="204" y="8" width="184" height="32" rx="8"/>
+  <text class="n" x="296.0" y="28.0" text-anchor="middle">ラスタ</text>
+  <text class="m" x="104" y="58" text-anchor="middle">図形と属性の組</text>
+  <text class="m" x="296" y="58" text-anchor="middle">格子のセルごとの値</text>
+  <rect class="sf" x="12" y="66" width="184" height="190" rx="8"/>
+  <rect class="sf" x="204" y="66" width="184" height="190" rx="8"/>
+  <polygon points="30,90 120,84 140,130 60,150 28,122" fill="#d0e8d0" stroke="#3a7d44" stroke-width="2"/>
+  <polyline points="30,200 80,170 140,184 182,150" fill="none" stroke="#2e6da4" stroke-width="3"/><circle cx="150" cy="104" r="6" fill="#fff3cd" stroke="#d4a017" stroke-width="2"/>
+  <text class="m" x="36" y="176">管路</text>
+  <text class="m" x="40" y="112">工事境界</text>
+  <text class="m" x="110" y="226">マンホール</text>
+  <path d="M146,110L132,218" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="3 3" fill="none"/>
+  <text class="m" x="24" y="246">点・線・面に属性が付く</text>
+  <rect class="brand" x="224" y="82" width="30" height="30" rx="0" style="stroke-width:1"/>
+  <text x="239" y="101" text-anchor="middle">0.0</text>
+  <rect class="brand" x="254" y="82" width="30" height="30" rx="0" style="stroke-width:1"/>
+  <text x="269" y="101" text-anchor="middle">0.3</text>
+  <rect class="warn" x="284" y="82" width="30" height="30" rx="0" style="stroke-width:1"/>
+  <text x="299" y="101" text-anchor="middle">0.5</text>
+  <rect class="brand" x="314" y="82" width="30" height="30" rx="0" style="stroke-width:1"/>
+  <text x="329" y="101" text-anchor="middle">0.2</text>
+  <rect class="brand" x="344" y="82" width="30" height="30" rx="0" style="stroke-width:1"/>
+  <text x="359" y="101" text-anchor="middle">0.0</text>
+  <rect class="brand" x="224" y="112" width="30" height="30" rx="0" style="stroke-width:1"/>
+  <text x="239" y="131" text-anchor="middle">0.2</text>
+  <rect class="dng" x="254" y="112" width="30" height="30" rx="0" style="stroke-width:1"/>
+  <text x="269" y="131" text-anchor="middle">0.8</text>
+  <rect class="dng" x="284" y="112" width="30" height="30" rx="0" style="stroke-width:1"/>
+  <text x="299" y="131" text-anchor="middle">1.2</text>
+  <rect class="warn" x="314" y="112" width="30" height="30" rx="0" style="stroke-width:1"/>
+  <text x="329" y="131" text-anchor="middle">0.6</text>
+  <rect class="brand" x="344" y="112" width="30" height="30" rx="0" style="stroke-width:1"/>
+  <text x="359" y="131" text-anchor="middle">0.1</text>
+  <rect class="brand" x="224" y="142" width="30" height="30" rx="0" style="stroke-width:1"/>
+  <text x="239" y="161" text-anchor="middle">0.1</text>
+  <rect class="warn" x="254" y="142" width="30" height="30" rx="0" style="stroke-width:1"/>
+  <text x="269" y="161" text-anchor="middle">0.7</text>
+  <rect class="sf" x="284" y="142" width="30" height="30" rx="0" style="stroke-width:1"/>
+  <text x="299" y="161" text-anchor="middle">欠測</text>
+  <rect class="dng" x="314" y="142" width="30" height="30" rx="0" style="stroke-width:1"/>
+  <text x="329" y="161" text-anchor="middle">0.9</text>
+  <rect class="brand" x="344" y="142" width="30" height="30" rx="0" style="stroke-width:1"/>
+  <text x="359" y="161" text-anchor="middle">0.3</text>
+  <rect class="brand" x="224" y="172" width="30" height="30" rx="0" style="stroke-width:1"/>
+  <text x="239" y="191" text-anchor="middle">0.0</text>
+  <rect class="warn" x="254" y="172" width="30" height="30" rx="0" style="stroke-width:1"/>
+  <text x="269" y="191" text-anchor="middle">0.4</text>
+  <rect class="warn" x="284" y="172" width="30" height="30" rx="0" style="stroke-width:1"/>
+  <text x="299" y="191" text-anchor="middle">0.6</text>
+  <rect class="warn" x="314" y="172" width="30" height="30" rx="0" style="stroke-width:1"/>
+  <text x="329" y="191" text-anchor="middle">0.5</text>
+  <rect class="brand" x="344" y="172" width="30" height="30" rx="0" style="stroke-width:1"/>
+  <text x="359" y="191" text-anchor="middle">0.2</text>
+  <rect class="brand" x="224" y="202" width="30" height="30" rx="0" style="stroke-width:1"/>
+  <text x="239" y="221" text-anchor="middle">0.0</text>
+  <rect class="brand" x="254" y="202" width="30" height="30" rx="0" style="stroke-width:1"/>
+  <text x="269" y="221" text-anchor="middle">0.1</text>
+  <rect class="brand" x="284" y="202" width="30" height="30" rx="0" style="stroke-width:1"/>
+  <text x="299" y="221" text-anchor="middle">0.3</text>
+  <rect class="brand" x="314" y="202" width="30" height="30" rx="0" style="stroke-width:1"/>
+  <text x="329" y="221" text-anchor="middle">0.2</text>
+  <rect class="brand" x="344" y="202" width="30" height="30" rx="0" style="stroke-width:1"/>
+  <text x="359" y="221" text-anchor="middle">0.0</text>
+  <text class="m" x="212" y="246">数値はセルごとに1つ（例）</text>
+  <rect class="wh" x="12" y="268" width="184" height="64" rx="8"/>
+  <text class="t12" x="104.0" y="287.0" text-anchor="middle">工事境界の面</text>
+  <text class="t12" x="104.0" y="304.0" text-anchor="middle">管路の線</text>
+  <text class="t12" x="104.0" y="321.0" text-anchor="middle">マンホールの点</text>
+  <rect class="wh" x="204" y="268" width="184" height="64" rx="8"/>
+  <text class="t12" x="296.0" y="295.5" text-anchor="middle">標高や画像のように</text>
+  <text class="t12" x="296.0" y="312.5" text-anchor="middle">各セルが値を持つ</text>
+  <rect class="warn" x="12" y="346" width="376" height="142" rx="8"/>
+  <text class="t12 b" x="24" y="368">どちらでも確かめること</text>
+  <text x="24" y="390">背景地図を拡大しても、元の情報の</text>
+  <text x="24" y="408">詳しさや位置精度は増えない</text>
+  <text x="24" y="426">ラスタは、セルの大きさ・欠測・境界を</text>
+  <text x="24" y="444">またぐセルの扱いが結果を左右する</text>
+</svg>

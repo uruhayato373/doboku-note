@@ -1,0 +1,96 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は幅0.2mmのひびと1画素1mmの関係（仮の例）と、検出できるかは撮影距離・照明・検出の手法を含む条件つきの性能値で決まること。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="仮の例として、1画素が1mmにあたる格子に、幅0.2mmのひびを重ねた図。ひびは画素の2割しか占めない。検出できるかは画素分解能だけでなく、撮影距離、照明、検出の手法を含めた条件つきの性能値で決まる。">
+  <defs>
+  <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #222; }
+      .b { font-weight: bold; fill: #1a3a5c; }
+      .m { fill: #555; }
+      .t12 { font-size: 12px; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .dng { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .sf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .wh { fill: #fff; stroke: #2e6da4; stroke-width: 1.5; }
+      .dash { fill: #fff; stroke: #555; stroke-width: 1.5; stroke-dasharray: 4 3; }
+      .grid { stroke: #d7d7d7; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .ax { stroke: #555; stroke-width: 1.5; fill: none; }
+      .ar { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ark { stroke: #555; stroke-width: 2; fill: none; }
+  </style>
+  <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="ak" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  <marker id="as" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="asg" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+  <text class="t12 b" x="12" y="20">仮の例: 1画素＝1mm</text>
+  <rect x="50" y="34" width="30" height="30" fill="#fff" stroke="#d7d7d7"/>
+  <rect x="80" y="34" width="30" height="30" fill="#fff" stroke="#d7d7d7"/>
+  <rect x="110" y="34" width="30" height="30" fill="#fff" stroke="#d7d7d7"/>
+  <rect x="140" y="34" width="30" height="30" fill="#fff" stroke="#d7d7d7"/>
+  <rect x="170" y="34" width="30" height="30" fill="#fff" stroke="#d7d7d7"/>
+  <rect x="200" y="34" width="30" height="30" fill="#fff" stroke="#d7d7d7"/>
+  <rect x="230" y="34" width="30" height="30" fill="#fff" stroke="#d7d7d7"/>
+  <rect x="260" y="34" width="30" height="30" fill="#fff" stroke="#d7d7d7"/>
+  <rect x="290" y="34" width="30" height="30" fill="#fff" stroke="#d7d7d7"/>
+  <rect x="320" y="34" width="30" height="30" fill="#fff" stroke="#d7d7d7"/>
+  <rect x="50" y="64" width="30" height="30" fill="#fff" stroke="#d7d7d7"/>
+  <rect x="80" y="64" width="30" height="30" fill="#fff" stroke="#d7d7d7"/>
+  <rect x="110" y="64" width="30" height="30" fill="#fff" stroke="#d7d7d7"/>
+  <rect x="140" y="64" width="30" height="30" fill="#fff" stroke="#d7d7d7"/>
+  <rect x="170" y="64" width="30" height="30" fill="#fff" stroke="#d7d7d7"/>
+  <rect x="200" y="64" width="30" height="30" fill="#fff" stroke="#d7d7d7"/>
+  <rect x="230" y="64" width="30" height="30" fill="#fff" stroke="#d7d7d7"/>
+  <rect x="260" y="64" width="30" height="30" fill="#fff" stroke="#d7d7d7"/>
+  <rect x="290" y="64" width="30" height="30" fill="#fff" stroke="#d7d7d7"/>
+  <rect x="320" y="64" width="30" height="30" fill="#fff" stroke="#d7d7d7"/>
+  <rect x="50" y="94" width="30" height="30" fill="#fff" stroke="#d7d7d7"/>
+  <rect x="80" y="94" width="30" height="30" fill="#fff" stroke="#d7d7d7"/>
+  <rect x="110" y="94" width="30" height="30" fill="#fff" stroke="#d7d7d7"/>
+  <rect x="140" y="94" width="30" height="30" fill="#fff" stroke="#d7d7d7"/>
+  <rect x="170" y="94" width="30" height="30" fill="#fff" stroke="#d7d7d7"/>
+  <rect x="200" y="94" width="30" height="30" fill="#fff" stroke="#d7d7d7"/>
+  <rect x="230" y="94" width="30" height="30" fill="#fff" stroke="#d7d7d7"/>
+  <rect x="260" y="94" width="30" height="30" fill="#fff" stroke="#d7d7d7"/>
+  <rect x="290" y="94" width="30" height="30" fill="#fff" stroke="#d7d7d7"/>
+  <rect x="320" y="94" width="30" height="30" fill="#fff" stroke="#d7d7d7"/>
+  <rect x="50" y="124" width="30" height="30" fill="#fff" stroke="#d7d7d7"/>
+  <rect x="80" y="124" width="30" height="30" fill="#fff" stroke="#d7d7d7"/>
+  <rect x="110" y="124" width="30" height="30" fill="#fff" stroke="#d7d7d7"/>
+  <rect x="140" y="124" width="30" height="30" fill="#fff" stroke="#d7d7d7"/>
+  <rect x="170" y="124" width="30" height="30" fill="#fff" stroke="#d7d7d7"/>
+  <rect x="200" y="124" width="30" height="30" fill="#fff" stroke="#d7d7d7"/>
+  <rect x="230" y="124" width="30" height="30" fill="#fff" stroke="#d7d7d7"/>
+  <rect x="260" y="124" width="30" height="30" fill="#fff" stroke="#d7d7d7"/>
+  <rect x="290" y="124" width="30" height="30" fill="#fff" stroke="#d7d7d7"/>
+  <rect x="320" y="124" width="30" height="30" fill="#fff" stroke="#d7d7d7"/>
+  <rect x="50" y="154" width="30" height="30" fill="#fff" stroke="#d7d7d7"/>
+  <rect x="80" y="154" width="30" height="30" fill="#fff" stroke="#d7d7d7"/>
+  <rect x="110" y="154" width="30" height="30" fill="#fff" stroke="#d7d7d7"/>
+  <rect x="140" y="154" width="30" height="30" fill="#fff" stroke="#d7d7d7"/>
+  <rect x="170" y="154" width="30" height="30" fill="#fff" stroke="#d7d7d7"/>
+  <rect x="200" y="154" width="30" height="30" fill="#fff" stroke="#d7d7d7"/>
+  <rect x="230" y="154" width="30" height="30" fill="#fff" stroke="#d7d7d7"/>
+  <rect x="260" y="154" width="30" height="30" fill="#fff" stroke="#d7d7d7"/>
+  <rect x="290" y="154" width="30" height="30" fill="#fff" stroke="#d7d7d7"/>
+  <rect x="320" y="154" width="30" height="30" fill="#fff" stroke="#d7d7d7"/>
+  <rect x="197" y="34" width="6" height="150" fill="#b22234"/>
+  <text class="t12 b" x="210" y="98">ひびの幅 0.2mm</text>
+  <text class="t12 b" x="210" y="114">＝画素の2割</text>
+  <text class="m" x="12" y="208">画素より細く、1画素の2割しか占めない</text>
+  <path class="ar" d="M200,218V240" marker-end="url(#ah)"/>
+  <text class="t12 b" x="200" y="262" text-anchor="middle">検出できるかは、次の条件つきの性能値で判断する</text>
+  <rect class="brand" x="12" y="274" width="120" height="44" rx="8"/>
+  <text class="t12 b" x="72.0" y="300.0" text-anchor="middle">撮影距離</text>
+  <rect class="brand" x="140" y="274" width="120" height="44" rx="8"/>
+  <text class="t12 b" x="200.0" y="300.0" text-anchor="middle">照明</text>
+  <rect class="brand" x="268" y="274" width="120" height="44" rx="8"/>
+  <text class="t12 b" x="328.0" y="300.0" text-anchor="middle">検出の手法</text>
+  <rect class="wh" x="12" y="334" width="376" height="64" rx="8"/>
+  <text class="t12 b" x="200.0" y="370.0" text-anchor="middle">画素分解能だけでは決まらない</text>
+  <rect class="warn" x="12" y="410" width="376" height="76" rx="8"/>
+  <text class="t12" x="200.0" y="434.0" text-anchor="middle">性能カタログは、技術ごとに</text>
+  <text class="t12" x="200.0" y="452.0" text-anchor="middle">撮影距離と検出できるひびわれ幅の</text>
+  <text class="t12" x="200.0" y="470.0" text-anchor="middle">組を載せている</text>
+</svg>

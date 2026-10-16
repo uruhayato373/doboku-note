@@ -1,35 +1,56 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="地表、ジオイド、準拠楕円体の位置関係。GNSSアンテナの位置で、楕円体高hはジオイド高Nと標高Hの和になる">
-<style>
-text{font-family:Inter,'Noto Sans JP','Hiragino Kaku Gothic ProN','Hiragino Sans',sans-serif;font-size:13px;fill:#1a3a5c}
-.s{font-size:11px;fill:#555}
-.b{font-size:15px;font-weight:bold}
-.d{stroke-width:3;fill:none}
-.t{stroke-width:1.5;fill:none}
-</style>
-<rect width="400" height="500" fill="#fff"/>
-<path d="M20 236C80 226 130 196 190 160C250 126 320 118 380 146L380 262C200 268 120 285 20 290Z" fill="#f5f5f5" stroke="none"/>
-<path d="M20 236C80 226 130 196 190 160C250 126 320 118 380 146" fill="none" stroke="#555" stroke-width="2"/>
-<path d="M20 290C120 285 200 268 380 262" fill="none" stroke="#3a7d44" stroke-width="2"/>
-<path d="M20 392C140 384 260 372 380 356" fill="none" stroke="#2e6da4" stroke-width="2" stroke-dasharray="6 4"/>
-<text x="24" y="224" class="s">地表</text>
-<text x="24" y="278" class="s" style="fill:#3a7d44;font-weight:bold">ジオイド</text>
-<text x="24" y="414" class="s" style="fill:#2e6da4;font-weight:bold">準拠楕円体</text>
-<line x1="250" y1="117.69999999999999" x2="250" y2="135.7" stroke="#222" stroke-width="2"/>
-<circle cx="250" cy="113.69999999999999" r="5" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
-<text x="250" y="99.69999999999999" text-anchor="middle">GNSSアンテナ</text>
-<path d="M250 135.7V371.8" fill="none" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="3 3"/>
-<line x1="250" y1="135.7" x2="250" y2="269.1" class="d" stroke="#3a7d44"/>
-<line x1="250" y1="269.1" x2="250" y2="371.8" class="d" stroke="#d4a017"/>
-<path d="M258 135.7H318M258 371.8H318" class="t" stroke="#8a8a8a" stroke-dasharray="3 3"/>
-<line x1="318" y1="135.7" x2="318" y2="371.8" class="d" stroke="#2e6da4"/>
-<text x="260" y="207.4" class="b">H</text>
-<text x="260" y="325.5" class="b">N</text>
-<text x="330" y="216" class="b">h</text>
-<rect x="20" y="424" width="360" height="68" rx="6" fill="#fff" stroke="#d7d7d7" stroke-width="1"/>
-<rect x="32" y="436" width="12" height="12" fill="#e8f0fe" stroke="#2e6da4"/>
-<text x="52" y="446"><tspan class="b">h</tspan>　楕円体高　受信機が出す高さ</text>
-<rect x="32" y="455" width="12" height="12" fill="#fff3cd" stroke="#d4a017"/>
-<text x="52" y="465"><tspan class="b">N</tspan>　ジオイド高　地理院のモデルで求める</text>
-<rect x="32" y="474" width="12" height="12" fill="#d0e8d0" stroke="#3a7d44"/>
-<text x="52" y="484"><tspan class="b">H</tspan>　標高　図面と同じ基準　H = h − N</text>
+<!-- authored 2026-10-16 doboku-note 自作。論点は楕円体高 h・ジオイド高 N・標高 H の関係（H＝h－N）。数値は本文の例示のための値。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="地表、ジオイド、準拠楕円体の位置関係の断面図。GNSSアンテナの位置で、楕円体高hはジオイド高Nと標高Hの和になる。例として楕円体高58.40m、ジオイド高37.10m、標高21.30m。数値は例示のための値。">
+  <defs>
+  <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #222; }
+      .b { font-weight: bold; fill: #1a3a5c; }
+      .m { fill: #555; }
+      .t12 { font-size: 12px; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .dng { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .sf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .wh { fill: #fff; stroke: #2e6da4; stroke-width: 1.5; }
+      .dash { fill: #fff; stroke: #555; stroke-width: 1.5; stroke-dasharray: 4 3; }
+      .grid { stroke: #d7d7d7; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .ax { stroke: #555; stroke-width: 1.5; fill: none; }
+      .ar { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ark { stroke: #555; stroke-width: 2; fill: none; }
+  </style>
+  <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="ak" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  <marker id="as" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="asg" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+  <text class="t12 b" x="200" y="24" text-anchor="middle">ジオイド＝平均海面を陸地へ仮想的に延ばした面</text>
+  <text class="m" x="200" y="42" text-anchor="middle">図の数値は例示のための値</text>
+  <path d="M20 236C80 226 130 196 190 160C250 126 320 118 380 146L380 262C200 268 120 285 20 290Z" fill="#f5f5f5" stroke="none"/>
+  <path d="M20 236C80 226 130 196 190 160C250 126 320 118 380 146" fill="none" stroke="#555" stroke-width="2"/>
+  <path d="M20 290C120 285 200 268 380 262" fill="none" stroke="#3a7d44" stroke-width="2"/>
+  <path d="M20 392C140 384 260 372 380 356" fill="none" stroke="#2e6da4" stroke-width="2" stroke-dasharray="6 4"/>
+  <text class="t12 m" x="24" y="224">地表</text>
+  <text class="t12" x="24" y="280" style="fill:#3a7d44;font-weight:bold">ジオイド</text>
+  <text class="t12" x="24" y="414" style="fill:#2e6da4;font-weight:bold">準拠楕円体</text>
+  <line x1="250" y1="117.7" x2="250" y2="135.7" stroke="#222" stroke-width="2"/><circle cx="250" cy="113.7" r="5" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="t12 b" x="250" y="99" text-anchor="middle">GNSSアンテナ</text>
+  <path d="M250 135.7V371.8" fill="none" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="3 3"/>
+  <line x1="250" y1="135.7" x2="250" y2="269.1" stroke="#3a7d44" stroke-width="3"/><line x1="250" y1="269.1" x2="250" y2="371.8" stroke="#d4a017" stroke-width="3"/>
+  <path d="M258 135.7H306M258 371.8H306" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="3 3"/><line x1="306" y1="135.7" x2="306" y2="371.8" stroke="#2e6da4" stroke-width="3"/>
+  <text class="n" x="240" y="208" text-anchor="end">H　21.30m</text>
+  <text class="m" x="240" y="224" text-anchor="end">標高・成果表の値</text>
+  <text class="n" x="240" y="322" text-anchor="end">N　37.10m</text>
+  <text class="m" x="240" y="338" text-anchor="end">ジオイド高</text>
+  <text class="n" x="314" y="238">h　58.40m</text>
+  <text class="m" x="314" y="254">楕円体高</text>
+  <text class="m" x="314" y="268">受信機が</text>
+  <text class="m" x="314" y="282">出す値</text>
+  <rect class="sf" x="20" y="424" width="360" height="68" rx="6"/>
+  <rect x="32" y="436" width="12" height="12" fill="#e8f0fe" stroke="#2e6da4"/>
+  <text class="t12" x="52" y="446"><tspan class="b">h</tspan>　楕円体高　受信機が出す高さ</text>
+  <rect x="32" y="455" width="12" height="12" fill="#fff3cd" stroke="#d4a017"/>
+  <text class="t12" x="52" y="465"><tspan class="b">N</tspan>　ジオイド高　地理院のモデルで求める</text>
+  <rect x="32" y="474" width="12" height="12" fill="#d0e8d0" stroke="#3a7d44"/>
+  <text class="t12" x="52" y="484"><tspan class="b">H</tspan>　標高　図面と同じ基準　H ＝ h － N</text>
 </svg>

@@ -1,0 +1,52 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は航空レーザ測深が水質に左右されること（水底の標高の精度は水質の影響で測深できない場合は適用しない）と事前の水質調査。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="航空レーザ測深の断面図。水が澄んでいれば水面と水底の両方が測れる。濁りが強いと水底が測れず、水底の標高には標準偏差0.3m以内の精度を適用しない。準則は事前に水質を調べる工程を置いている。">
+  <defs>
+  <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #222; }
+      .b { font-weight: bold; fill: #1a3a5c; }
+      .m { fill: #555; }
+      .t12 { font-size: 12px; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .dng { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .sf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .wh { fill: #fff; stroke: #2e6da4; stroke-width: 1.5; }
+      .dash { fill: #fff; stroke: #555; stroke-width: 1.5; stroke-dasharray: 4 3; }
+      .grid { stroke: #d7d7d7; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .ax { stroke: #555; stroke-width: 1.5; fill: none; }
+      .ar { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ark { stroke: #555; stroke-width: 2; fill: none; }
+  </style>
+  <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="ak" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  <marker id="as" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="asg" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+  <rect class="wh" x="10" y="8" width="380" height="166" rx="8"/>
+  <text class="t12 b" x="22" y="30">水が澄んでいる</text>
+  <polygon points="192,42 208,42 200,54" fill="#2e6da4"/>
+  <text class="m" x="216" y="52">航空機（レーザ）</text>
+  <rect x="12" y="82" width="376" height="56" fill="#e8f0fe" stroke="none"/><path d="M12,82H388" stroke="#2e6da4" stroke-width="2" fill="none"/>
+  <path d="M12,138C80,130 140,146 200,138S330,128 388,140V172H12Z" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5"/>
+  <path d="M200,56V80" stroke="#2e6da4" stroke-width="2" fill="none" stroke-dasharray="4 3"/><circle cx="200" cy="82" r="4" fill="#2e6da4"/>
+  <text class="b" x="90" y="76">水面</text>
+  <path d="M200,84V136" stroke="#2e6da4" stroke-width="2" fill="none" stroke-dasharray="4 3"/><circle cx="200" cy="138" r="4" fill="#2e6da4"/>
+  <text class="t12 b" x="214" y="128">水底も測れる</text>
+  <rect class="wh" x="10" y="184" width="380" height="166" rx="8"/>
+  <text class="t12 b" x="22" y="206">濁りが強い</text>
+  <polygon points="192,218 208,218 200,230" fill="#2e6da4"/>
+  <text class="m" x="216" y="228">航空機（レーザ）</text>
+  <rect x="12" y="258" width="376" height="56" fill="#fff3cd" stroke="none"/><path d="M12,258H388" stroke="#d4a017" stroke-width="2" fill="none"/>
+  <path d="M12,314C80,306 140,322 200,314S330,304 388,316V348H12Z" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5"/>
+  <path d="M200,232V256" stroke="#2e6da4" stroke-width="2" fill="none" stroke-dasharray="4 3"/><circle cx="200" cy="258" r="4" fill="#2e6da4"/>
+  <text class="b" x="90" y="252">水面</text>
+  <text class="t12 b" x="214" y="292">水底は測れない</text>
+  <rect class="dng" x="10" y="360" width="380" height="44" rx="8"/>
+  <text class="t12" x="200.0" y="378.0" text-anchor="middle">水底の標高には、標準偏差0.3m以内の</text>
+  <text class="t12" x="200.0" y="394.0" text-anchor="middle">精度を適用しない</text>
+  <rect class="brand" x="10" y="414" width="380" height="70" rx="8"/>
+  <text class="t12 b" x="200.0" y="444.0" text-anchor="middle">事前に水質を調べる工程を置く</text>
+  <text class="t12" x="200.0" y="462.0" text-anchor="middle">濁りが強い時期は水底が測れない可能性がある</text>
+</svg>

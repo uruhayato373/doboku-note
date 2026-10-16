@@ -373,7 +373,7 @@
       "image": "pages/p0013.jpg",
       "repoPath": "content/sources/books/civil-industry-trends-3rd__最新土木業界の動向とカラクリ第3版/pages/p0013.jpg",
       "ocrStatus": "complete",
-      "cropStatus": "pending",
+      "cropStatus": "complete",
       "sha256": "430a61e58c6391ae7c23dd9a72bc73853c9f817953ef10a25fbb217279681adb",
       "md5": "5841f91146a8ee6b4317141893998f0a",
       "bytes": 492338,
@@ -798,7 +798,7 @@
       "image": "pages/p0030.jpg",
       "repoPath": "content/sources/books/civil-industry-trends-3rd__最新土木業界の動向とカラクリ第3版/pages/p0030.jpg",
       "ocrStatus": "complete",
-      "cropStatus": "pending",
+      "cropStatus": "not-needed",
       "sha256": "766e60dd0ca5ee1823eae2a16230f29b49b25097926f9473dd51debb50830895",
       "md5": "c82f6be371592ed4091454686cd4e190",
       "bytes": 688090,
@@ -823,7 +823,7 @@
       "image": "pages/p0031.jpg",
       "repoPath": "content/sources/books/civil-industry-trends-3rd__最新土木業界の動向とカラクリ第3版/pages/p0031.jpg",
       "ocrStatus": "complete",
-      "cropStatus": "pending",
+      "cropStatus": "complete",
       "sha256": "dd2a769c278b3a4154b29071003592bc5c38c5afe41fa9b936f69ef3cf4b625f",
       "md5": "4f2f89dea1d141f946c21bedba5acc8a",
       "bytes": 603360,
@@ -1423,7 +1423,7 @@
       "image": "pages/p0055.jpg",
       "repoPath": "content/sources/books/civil-industry-trends-3rd__最新土木業界の動向とカラクリ第3版/pages/p0055.jpg",
       "ocrStatus": "complete",
-      "cropStatus": "pending",
+      "cropStatus": "complete",
       "sha256": "4031aa806b974dc03918bbb5d74c8fdbc49dc8b61fd745cff67a30d5bdbef89a",
       "md5": "9af6b81f931d55686f5ce373f91d2c30",
       "bytes": 613746,
@@ -4148,7 +4148,7 @@
       "image": "pages/p0164.jpg",
       "repoPath": "content/sources/books/civil-industry-trends-3rd__最新土木業界の動向とカラクリ第3版/pages/p0164.jpg",
       "ocrStatus": "complete",
-      "cropStatus": "pending",
+      "cropStatus": "not-needed",
       "sha256": "121c76dacfd4c82d05952b3382f8f83a86f7e61f4daa85d20360e3ae54771271",
       "md5": "a6d039e35c7404895e3ffc50a242cdcd",
       "bytes": 665082,
@@ -6936,8 +6936,125 @@
       "recordedAt": "2026-09-09T14:44:23.569Z"
     }
   ],
-  "crops": [],
-  "updatedAt": "2026-09-09T14:44:23.569Z",
+  "crops": [
+    {
+      "id": "fig-civil-engineering-roles",
+      "pageId": "p0013",
+      "sourceImage": "pages/p0013.jpg",
+      "path": "crops/p0013_fig-civil-engineering-roles.png",
+      "repoPath": "content/sources/books/civil-industry-trends-3rd__最新土木業界の動向とカラクリ第3版/crops/p0013_fig-civil-engineering-roles.png",
+      "caption": "土木の役割",
+      "bbox": {
+        "x": 407,
+        "y": 186,
+        "w": 1473,
+        "h": 2119
+      },
+      "sha256": "10091dd840abbeef67857bb21c23d1cc7c352f81423bb8781903fbf71dbc8d11",
+      "md5": "969d08e95dd0c006fd97b0cc18b65ebe",
+      "bytes": 2014945,
+      "width": 1473,
+      "height": 2119,
+      "audit": {
+        "status": "pass",
+        "scores": {
+          "clipPurity": 3,
+          "completeness": 3,
+          "correctFigure": 3,
+          "altIdentifiability": 3
+        },
+        "reviewedAt": "2026-10-16T06:54:48.833Z"
+      }
+    },
+    {
+      "id": "fig-mlit-organization",
+      "pageId": "p0031",
+      "sourceImage": "pages/p0031.jpg",
+      "path": "crops/p0031_fig-mlit-organization.png",
+      "repoPath": "content/sources/books/civil-industry-trends-3rd__最新土木業界の動向とカラクリ第3版/crops/p0031_fig-mlit-organization.png",
+      "caption": "国土交通省の組織",
+      "bbox": {
+        "x": 407,
+        "y": 945,
+        "w": 1473,
+        "h": 1311
+      },
+      "sha256": "03fd096970f3e094b5b29096cb64de1ff7fe1717cb345a6bfe71a93d8cf0f881",
+      "md5": "07bd983b97848b1ead0a7d3cd53b3133",
+      "bytes": 1412024,
+      "width": 1473,
+      "height": 1311,
+      "audit": {
+        "status": "pass",
+        "scores": {
+          "clipPurity": 3,
+          "completeness": 3,
+          "correctFigure": 3,
+          "altIdentifiability": 3
+        },
+        "reviewedAt": "2026-10-16T06:54:48.833Z"
+      }
+    },
+    {
+      "id": "fig-consultant-roles",
+      "pageId": "p0055",
+      "sourceImage": "pages/p0055.jpg",
+      "path": "crops/p0055_fig-consultant-roles.png",
+      "repoPath": "content/sources/books/civil-industry-trends-3rd__最新土木業界の動向とカラクリ第3版/crops/p0055_fig-consultant-roles.png",
+      "caption": "建設コンサルタントの役割",
+      "bbox": {
+        "x": 400,
+        "y": 186,
+        "w": 1484,
+        "h": 911
+      },
+      "sha256": "f8a5ce0166ea7d250bd503f83370e30b49c1afe73e4f9b80dd1c0939454ffe16",
+      "md5": "80e6381c0f447b3f57f7d97447e70f14",
+      "bytes": 1119757,
+      "width": 1484,
+      "height": 911,
+      "audit": {
+        "status": "pass",
+        "scores": {
+          "clipPurity": 3,
+          "completeness": 3,
+          "correctFigure": 3,
+          "altIdentifiability": 3
+        },
+        "reviewedAt": "2026-10-16T06:54:48.833Z"
+      }
+    },
+    {
+      "id": "tbl-consultant-services",
+      "pageId": "p0055",
+      "sourceImage": "pages/p0055.jpg",
+      "path": "crops/p0055_tbl-consultant-services.png",
+      "repoPath": "content/sources/books/civil-industry-trends-3rd__最新土木業界の動向とカラクリ第3版/crops/p0055_tbl-consultant-services.png",
+      "caption": "多様化する建設コンサルタント業務",
+      "bbox": {
+        "x": 400,
+        "y": 1180,
+        "w": 1484,
+        "h": 1290
+      },
+      "sha256": "24610dd2913649f5a71b95d4f1d7ffdb872cffc2528b86bfea7491d49889e162",
+      "md5": "89cfdb2100ed949b9ebcac8def16bb8e",
+      "bytes": 1815961,
+      "width": 1484,
+      "height": 1290,
+      "audit": {
+        "status": "pass",
+        "scores": {
+          "clipPurity": 3,
+          "completeness": 3,
+          "correctFigure": 3,
+          "altIdentifiability": 3
+        },
+        "reviewedAt": "2026-10-16T06:54:48.833Z"
+      }
+    }
+  ],
+  "updatedAt": "2026-10-16T06:54:48.833Z",
   "migration": {
     "strategy": "copy-verify-switch-then-delete-separately",
     "legacyKept": true,

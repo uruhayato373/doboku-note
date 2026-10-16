@@ -49,6 +49,7 @@
     "build-reference-book-pages": "node scripts/build-reference-book-pages.mjs",
     "build-all-reference-books": "node scripts/build-all-reference-books.mjs",
     "record-reference-book-artifacts": "node scripts/record-reference-book-artifacts.mjs",
+    "record-reference-book-crops": "node scripts/record-reference-book-crops.mjs",
     "build-standards-ogp": "node scripts/build-standards-ogp.mjs",
     "check-standard-articles": "node scripts/check-standard-articles.mjs",
     "check-standards-data": "node scripts/check-standards-data.mjs",
