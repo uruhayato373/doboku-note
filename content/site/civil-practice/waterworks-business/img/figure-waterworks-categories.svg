@@ -1,0 +1,51 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は水道法第3条・同法施行令第1条・第2条の五つの区分の判定と、地方公営企業法の適用。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="水道法の五つの区分の判定の流れ図。水を渡す相手が一般の需要なら給水人口で、5,000人超は水道事業、100人超5,000人以下は簡易水道事業、100人以下は水道事業から除く。水道事業者に渡すなら水道用水供給事業。特定の人に自家用で渡すなら専用水道または簡易専用水道。水道事業と簡易水道事業は経営主体が原則として市町村。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .l { font-size: 12px; fill: #1a3a5c; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .pb { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1; }
+      .pg { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1; }
+      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+
+  <!-- 第一の問い -->
+  <rect class="b" x="14" y="14" width="372" height="40" rx="8"/>
+  <text class="n" x="200" y="39" text-anchor="middle">水を渡す相手は？</text>
+
+  <!-- 分岐 -->
+  <path class="a" d="M14,34H7V128H20" marker-end="url(#ah)"/>
+  <path class="a" d="M7,128V223H20" marker-end="url(#ah)"/>
+  <path class="a" d="M7,223V322H20" marker-end="url(#ah)"/>
+
+  <!-- 一般の需要 -->
+  <rect x="22" y="70" width="364" height="116" rx="8" fill="#fff" stroke="#2e6da4" stroke-width="2.5"/>
+  <rect class="pb" x="30" y="78" width="150" height="22" rx="11"/><text class="t" x="105" y="93" text-anchor="middle">一般の需要に応じて</text>
+  <text class="l" x="34" y="124">給水人口 5,000人超</text><text class="t" x="196" y="124">→ 水道事業</text>
+  <text class="l" x="34" y="146">100人超〜5,000人以下</text><text class="t" x="196" y="146">→ 簡易水道事業</text>
+  <text class="l" x="34" y="168">100人以下</text><text class="t" x="196" y="168">→ 水道事業から除く</text>
+
+  <!-- 水道事業者 -->
+  <rect x="22" y="198" width="364" height="50" rx="8" fill="#fff" stroke="#8a8a8a" stroke-width="1.5"/>
+  <text class="l" x="34" y="228">水道事業者に水道用水を供給</text><text class="t" x="228" y="228">→ 水道用水供給事業</text>
+
+  <!-- 特定の人 -->
+  <rect x="22" y="260" width="364" height="124" rx="8" fill="#fff" stroke="#3a7d44" stroke-width="1.5"/>
+  <rect class="pg" x="30" y="268" width="230" height="22" rx="11"/><text class="t" x="145" y="283" text-anchor="middle">特定の人に（寄宿舎・社宅など自家用）</text>
+  <text class="t" x="34" y="312">専用水道：100人超など</text>
+  <text x="34" y="328">他の水道の水だけでも導管1,500m超・水槽100m³超なら該当</text>
+  <text class="t" x="34" y="350">簡易専用水道：水道事業の水だけが水源</text>
+  <text x="34" y="366">水槽の有効容量の合計が10m³超</text>
+
+  <!-- 自治体のかかわり -->
+  <rect x="10" y="396" width="380" height="96" rx="8" style="fill:#fff3cd;stroke:#d4a017;stroke-width:1.5"/>
+  <text class="t" x="20" y="416">自治体がかかわるところ</text>
+  <text x="20" y="434">水道事業・簡易水道事業：経営主体は原則として市町村</text>
+  <text x="20" y="452">地方公営企業法：水道事業は適用、簡易水道事業は条例で任意</text>
+  <text x="20" y="470">出典：水道法第3条、水道法施行令第1条・第2条</text>
+</svg>
