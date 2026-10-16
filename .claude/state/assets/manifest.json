@@ -58337,6 +58337,27 @@
         "scripts/check-orphan-ogp.mjs"
       ],
       "srcHash": "1edcd5f850a3a7a7"
+    },
+    "content/site/civil-practice/nature-oriented-river-works/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/nature-oriented-river-works/ogp.png",
+      "sha256": "79a1a8442ba0b59ed4ca524dee34c789ffed77e588e8f6df3ddbe6fe27a6361c",
+      "bytes": 69506,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-16T04:24:36.078Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/nature-oriented-river-works/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "3cb0060653046c42"
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",
