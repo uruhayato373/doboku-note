@@ -58421,6 +58421,48 @@
         "scripts/check-orphan-ogp.mjs"
       ],
       "srcHash": "0f392f83a5be0ef4"
+    },
+    "content/site/civil-practice/urban-greening/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/urban-greening/ogp.png",
+      "sha256": "853edfafd7c9b99ea4c521c027a9e0d75b045bef1c3a64091fb115a129a310db",
+      "bytes": 63762,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-16T04:42:14.454Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/urban-greening/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "76b56da1513eef5a"
+    },
+    "content/site/civil-practice/keishin-review-merger/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/keishin-review-merger/ogp.png",
+      "sha256": "ca745a9d54423a28d7a5ac3d09a403878d98d8c658bb33f048401fc8d7e3254e",
+      "bytes": 68968,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-16T04:42:14.513Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/keishin-review-merger/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "32f6978ecb624a16"
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",
