@@ -48,6 +48,7 @@
     "yt-dlp"
   ],
   "ignoreDependencies": [
+    "@fontsource/noto-sans-jp",
     "hast-util-sanitize",
     "class-variance-authority",
     "@radix-ui/react-slot",
