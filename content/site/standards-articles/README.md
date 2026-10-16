@@ -34,7 +34,8 @@ npm run build-standards-comparison  # 近畿版を基準に地域別の実差分
 npm run build-standards-data        # HTMLと同じ章構造から公開用 Markdown / JSON-LD / 索引JSONを生成
 npm run check-standards-data        # 全章の形式・条数・出典/加工主体分離・公開ヘッダーを検査
 npm run build-standards-ogp         # 章ごとの OGP 画像（未生成のみ。--force で再生成）
-npm run check-standard-articles     # 16 検査（本文の取りこぼし・条番号整合・SHA-256 一致・catalog 全 72 文書の被覆・表の可逆性・節ページの切り出し ほか）
+npm run check-standard-articles     # 19 検査（本文の取りこぼし・条番号整合・SHA-256 一致・catalog 全 72 文書の被覆・表の可逆性・節ページの切り出し・読める形 ほか）
+npm run standards-table-gallery     # 表を撮って 1 枚の HTML に並べる（目視用）。描画の検査は e2e/standards-render.spec.ts
 ```
 
 機械可読データは `public/standards-data/` へ生成され、本番ビルドごとに作り直します。このディレクトリは派生物なので Git では追跡しません。地域差分の `comparison.json` は判定結果をレビューできるよう本ディレクトリで追跡します。

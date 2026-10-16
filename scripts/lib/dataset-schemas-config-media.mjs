@@ -299,6 +299,18 @@ export const ConfigStandardsStructure = z
       .strict()
       .optional()
       .describe('大きすぎる章を節ページに分ける基準'),
+    readabilityBaselines: z
+      .object({ _comment: doc().optional() })
+      .catchall(
+        z
+          .object({
+            midSentenceBreaks: z.number().int().nonnegative().describe('文の途中の改行の候補の基準（増やさない）'),
+            strayTableFragments: z.number().int().nonnegative().describe('表の前後の短い段落の基準（増やさない）'),
+          })
+          .strict(),
+      )
+      .optional()
+      .describe('check-standard-articles 17・18 の基準（文書ごと）'),
     comparison: z
       .object({
         _comment: doc().optional(),

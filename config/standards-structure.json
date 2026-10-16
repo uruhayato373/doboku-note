@@ -19,6 +19,18 @@
       "tohoku/common"
     ]
   },
+  "readabilityBaselines": {
+    "_comment": "check-standard-articles 17・18 の基準（増やさない）。2026-10-16 実測。17 の 1 件は各文書の「東北地方──30㎝／その他の地域──40㎝」の一覧（正しく行が分かれている）と北海道版 10-16 の 1 か所。18 は表の上の小見出し・注記（正しい）と、表から外れた行の断片（近畿版で 7〜8 件: 0.15 の行・溶接完了時・M20 167～211 など）を含む。断片を表へ戻したら基準を下げる。",
+      "chubu/common": { "midSentenceBreaks": 1, "strayTableFragments": 41 },
+      "chugoku/common": { "midSentenceBreaks": 1, "strayTableFragments": 41 },
+      "hokkaido/common": { "midSentenceBreaks": 1, "strayTableFragments": 46 },
+      "hokuriku/common": { "midSentenceBreaks": 1, "strayTableFragments": 41 },
+      "kanto/common": { "midSentenceBreaks": 1, "strayTableFragments": 41 },
+      "kinki/common": { "midSentenceBreaks": 1, "strayTableFragments": 41 },
+      "kyushu/common": { "midSentenceBreaks": 1, "strayTableFragments": 41 },
+      "shikoku/common": { "midSentenceBreaks": 1, "strayTableFragments": 41 },
+      "tohoku/common": { "midSentenceBreaks": 1, "strayTableFragments": 41 }
+  },
   "sectionPages": {
     "_comment": "章の Markdown がこのバイト数以上なら、章ページを節の一覧にして本文を節ページ（/chapters/{章}/sections/{節}）で出す。実測（2026-10-16）で 200KB を超えるのは第3編第2章 一般施工（約 488KB・原本 167 ページ）だけで、次に大きい第1編第1章 総則は 110KB。切り出しの規則は src/lib/standards-section-split.mjs。",
     "minOutputBytes": 200000

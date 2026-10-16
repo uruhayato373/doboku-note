@@ -33,7 +33,7 @@ SHA-256 が完全一致する重複なので生成しない（2026-10-16 に北�
 理由コードは台帳に記録する。可逆性検査
 （セル連結が元行と一致）と空セル禁止が無いと、列を静かに取り違える。
 
-コマンド: `build-standard-articles` / `build-standards-ogp` / `check-standard-articles`（16 検査）。
+コマンド: `build-standard-articles` / `build-standards-ogp` / `check-standard-articles`（19 検査。17〜19 は読める形＝文の途中の改行・表のはぐれ断片・壊れた表）。描画は `e2e/standards-render.spec.ts`（中身が異なるページすべて）、目視は `standards-table-gallery`。
 OGP は章ごとに `chapters/{id}/ogp.png` へ生成し asset-storage の `site-ogp-png` グループに
 自動一致させる（R2 供給・URL 導出が記事と同じ仕組みに乗る）。**ogp-supply.yml の paths は
 MDX だけでなく manifest と生成器も見る**——入れ忘れると章を足しても供給が発火せず、

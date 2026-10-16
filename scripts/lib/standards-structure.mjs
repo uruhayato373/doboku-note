@@ -80,6 +80,9 @@ const RE_ITEM = /^[\s　]{0,4}[（(](\d+)[）)][\s　]*(.*?)[\s　]*$/;
 const RE_CIRCLED_ITEM = /^[\s　]{0,6}(?:[①-⑳]|[0-9０-９]{1,2}[）)])/;
 /** 規格番号を 1 行ずつ並べた一覧の項目: `JIS A 5011-1（コンクリート用スラグ骨材…）`（折り返しの続きとしてつながない） */
 const RE_STANDARD_ENTRY = /^[\s　]*(?:JIS|JSCE|JHS|JPI|JASS|ISO|ASTM)[\s　]+[A-Z0-9]/;
+/** 文の終わり（段落をここで閉じてよい字）と、文頭に来ない字（前の段落の続きである印） */
+const RE_SENTENCE_END = /[。）」』：]$/;
+const RE_NOT_SENTENCE_START = /^[ぁ-ゖ、。ー）」』】〕］]/;
 /** 表示幅（全角 2・半角 1）。行が紙面の右端まで詰まっているかを見るのに使う */
 const displayWidth = (text) => [...text].reduce((sum, ch) => sum + (ch.codePointAt(0) > 0xff ? 2 : 1), 0);
 /** 表・図キャプション: `表1-3-4   養生期間` */
@@ -435,7 +438,22 @@ function segmentToBlocks(segment) {
     }
     blocks.push(...proseBlocks(entry.chunk));
   }
-  return blocks;
+  // 空行をはさんで文が続く紙面（ページの変わり目・版面の余白）で、段落が文の途中で切れていた
+  // （近畿版 1-1「…監督職員を通じ」⏎「て発注者に通知しなければならない。」）。前の段落が句点で終わらず、
+  // 次の段落が文頭に来ない字（ひらがな・読点・閉じ括弧）で始まるなら、1 つの段落につなぐ。
+  const joined = [];
+  for (const block of blocks) {
+    const prev = joined[joined.length - 1];
+    const prevText = prev && ['paragraph', 'item', 'note'].includes(prev.type) ? trimBoth(prev.lines[prev.lines.length - 1].text) : '';
+    const firstText = block.type === 'paragraph' ? trimBoth(block.lines[0].text) : '';
+    if (prevText && firstText && !RE_SENTENCE_END.test(prevText) && RE_NOT_SENTENCE_START.test(firstText)) {
+      prev.lines.push(...block.lines);
+      prev.pages = uniquePages(prev.lines);
+      continue;
+    }
+    joined.push(block);
+  }
+  return joined;
 }
 
 /**

@@ -174,7 +174,7 @@ const CHECKS = [
   { id: 'note-cover-tokens', npm: 'check-note-cover-tokens', timeout: 30_000, ci: true, note: 'note カバーの資格トークンが実ディレクトリを網羅しているか。未登録 dir は生成器が無言で総監へ落とし、色だけでなく資格ラベルまで総監のまま出荷される（2026-08-18 に技術士一次で1か月超の誤出荷が判明）' },
   { id: 'table-references', npm: 'check-table-references', timeout: 90_000, ci: true, note: '本文が指す表N.Mのキャプションが実在するか（転記由来の宙に浮いた参照）' },
   { id: 'keiken-answer-split', npm: 'check-keiken-answer-split', timeout: 120_000, ci: true, note: '1級/2級で異なる経験記述の解答欄の割り振りが混ざっていないか（2級式を1級教材に使うと(2)に3要素が乗り約200字に収まらない）' },
-  { id: 'standard-articles', npm: 'check-standard-articles', timeout: 180_000, ci: true, note: '公的基準の構造化章記事を16軸で検査（本文取りこぼし・全ページ割当・SHA-256・表復元と原本照合の組み直し・catalog 72文書の被覆と除外理由・章ごとの OGP 被覆・節ページの切り出し）' },
+  { id: 'standard-articles', npm: 'check-standard-articles', timeout: 180_000, ci: true, note: '公的基準の構造化章記事を19軸で検査（本文取りこぼし・全ページ割当・SHA-256・表復元と原本照合の組み直し・catalog 72文書の被覆と除外理由・章ごとの OGP 被覆・節ページの切り出し・文の途中の改行/表のはぐれ断片/壊れた表）' },
   { id: 'standards-page-images', npm: 'check-standards-page-images', timeout: 120_000, ci: true, note: '公的基準のページ画像の provenance 整合（catalog↔manifest の原本 sha256・ページ被覆・part 範囲）。実体が無い端末では manifest のみ検査し、その旨を明示する' },
   {
     id: 'standards-data', npm: 'check-standards-data', timeout: 120_000, ci: true,

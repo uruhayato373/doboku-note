@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * check-standard-articles.mjs — 構造化章記事（レイヤー2）の生成物を 16 検査で検証する。
+ * check-standard-articles.mjs — 構造化章記事（レイヤー2）の生成物を 19 検査で検証する。
  *
  *   node scripts/check-standard-articles.mjs                # 設定 build.documents を検査
  *   node scripts/check-standard-articles.mjs chubu/common   # 対象を明示
@@ -63,6 +63,9 @@ const CHECK_DEFS = [
   { id: 14, name: '表の復元が台帳と一致し GFM が可逆' },
   { id: 15, name: '章ごとの OGP 画像がそろっている' },
   { id: 16, name: '節ページの切り出しが台帳と一致' },
+  { id: 17, name: '文の途中で段落が切れていない（基準以下）' },
+  { id: 18, name: '表から外れた断片が増えていない（基準以下）' },
+  { id: 19, name: '壊れた表（見出しも中身も空・全行が空の列）が無い' },
 ];
 
 const PASS = 'PASS';
@@ -994,6 +997,87 @@ function checkSectionPages(def, { manifest, agencyId, documentId, overrides }) {
   });
 }
 
+/**
+ * 17〜19. 読める形になっているか（見た目の崩れを生成物の Markdown から数える）。
+ *
+ * 2026-10-16、文の途中で段落が切れる（ぶら下げ字下げ・ページの変わり目）・表の見出しが段落に化ける・
+ * 長い文のセルが押しつぶされる、を利用者が画面で見つけた。文字の取りこぼし・ハッシュ・件数の検査は
+ * すべて合格していた（中身が正しくても読めない形は捕まえていなかった）。ここでは生成器とは別の実装で、
+ *   17: 句点で終わらない段落の次に、文頭に来ない字（ひらがな・読点・閉じ括弧）で始まる段落が続く箇所
+ *   18: 表（とその SourceRef）の前後にある、句点の無い短い段落（見出し・行が表から外れた疑い）
+ *   19: 見出しも中身も空の表・全行が空の列を持つ表
+ * を数える。17・18 は原本の書き方で正しく分かれる箇所（「東北地方──30㎝」の一覧・表の上の小見出し）も
+ * 含むので、設定 readabilityBaselines の件数を超えたら失敗にする（増やさない）。19 は 0 件を要求する。
+ */
+function checkReadability([midDef, strayDef, brokenDef], { manifest, agencyId, documentId, overrides }) {
+  const baseline = overrides.readabilityBaselines?.[`${agencyId}/${documentId}`] ?? {};
+  const kindOf = (block) => {
+    if (block === undefined) return 'none';
+    if (block.startsWith('|')) return 'table';
+    if (block.startsWith('```')) return 'code';
+    if (block.startsWith('#')) return 'heading';
+    if (block.startsWith('<') || block.startsWith('{/*')) return 'meta';
+    if (block.startsWith('- ')) return 'list';
+    if (block.startsWith('**')) return 'caption';
+    return 'para';
+  };
+  const notStart = /^[ぁ-ゖ、。ー）」』】〕］]/;
+  const sentenceEnd = /[。）」』：]$/;
+  const mid = [];
+  const stray = [];
+  const broken = [];
+  let chaptersChecked = 0;
+  for (const chapter of manifest.chapters) {
+    const { text } = readChapterFile(agencyId, documentId, chapter.file);
+    if (text === null) continue;
+    chaptersChecked += 1;
+    const blocks = text.split(/\n\n+/);
+    blocks.forEach((block, i) => {
+      const kind = kindOf(block);
+      const body = block.replace(/^> /, '').trim();
+      if (kind === 'para') {
+        let p = i - 1;
+        while (p >= 0 && kindOf(blocks[p]) === 'meta') p -= 1;
+        const prev = (blocks[p] ?? '').replace(/^> /, '').trim();
+        if (kindOf(blocks[p]) === 'para' && !sentenceEnd.test(prev) && notStart.test(body)) {
+          mid.push(`${chapter.chapterId}: …${prev.slice(-12)} ⏎ ${body.slice(0, 16)}`);
+        }
+        const nearTable = [blocks[i - 2], blocks[i - 1], blocks[i + 1], blocks[i + 2]].some(
+          (x) => x !== undefined && (kindOf(x) === 'table' || /kind="table"/.test(x)),
+        );
+        if (body.length <= 25 && !body.includes('。') && nearTable) stray.push(`${chapter.chapterId}: ${body}`);
+      }
+      if (kind === 'table') {
+        const rows = block
+          .split('\n')
+          .filter((line) => line.startsWith('|') && !/^\|( *-{3,} *\|)+$/.test(line))
+          .map((line) => line.replace(/^\||\|$/g, '').split('|').map((cell) => cell.trim()));
+        const header = rows[0] ?? [];
+        const emptyColumns = header.filter((_, c) => rows.every((row) => !row[c])).length;
+        if (emptyColumns > 0 || (rows.length <= 1 && header.every((cell) => !cell))) {
+          broken.push(`${chapter.chapterId}: 列 ${header.length}・全行が空の列 ${emptyColumns}・本体 ${rows.length - 1} 行`);
+        }
+      }
+    });
+  }
+  if (chaptersChecked === 0) {
+    return [midDef, strayDef, brokenDef].map((def) => result(def, { status: INCONCLUSIVE, checked: 0, unit: '章', violations: ['章ファイルが 0 件'] }));
+  }
+  const ratchet = (def, found, limit, label) => {
+    const violations = [];
+    const notes = [`${label} ${found.length} 件（基準 ${limit ?? '未設定'}）`];
+    if (limit === undefined) violations.push(`設定 readabilityBaselines に ${agencyId}/${documentId} の基準が無い（件数 ${found.length}）`);
+    else if (found.length > limit) violations.push(`${found.length - limit} 件増えた（${found.length} > 基準 ${limit}）`, ...found.slice(0, 12).map((s) => `  ${s}`));
+    else if (found.length < limit) notes.push(`基準を ${found.length} に下げられる（${datasetPath('config.standards-structure')} の readabilityBaselines）`);
+    return result(def, { status: verdict(violations, []), checked: chaptersChecked, unit: '章', violations, notes });
+  };
+  return [
+    ratchet(midDef, mid, baseline.midSentenceBreaks, '文の途中の改行の候補'),
+    ratchet(strayDef, stray, baseline.strayTableFragments, '表の前後の短い段落'),
+    result(brokenDef, { status: verdict(broken, []), checked: chaptersChecked, unit: '章', violations: broken }),
+  ];
+}
+
 // ---- 文書単位の実行 -------------------------------------------------------
 
 function inspectDocument(target, catalog, overrides) {
@@ -1127,6 +1211,7 @@ function main() {
         checkTables(CHECK_DEFS[13], context),
         checkChapterOgp(CHECK_DEFS[14], { ...context, assetManifest }),
         checkSectionPages(CHECK_DEFS[15], { ...context, overrides }),
+        ...checkReadability([CHECK_DEFS[16], CHECK_DEFS[17], CHECK_DEFS[18]], { ...context, overrides }),
       ],
     });
   }
