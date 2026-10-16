@@ -1,0 +1,53 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="統合型GISの導入率と、導入団体で最も使われる業務の棒グラフ。導入済みは都道府県25団体で53.2％、市区町村1,126団体で64.7％。導入団体のうち最多の業務は、市区町村が道路で936団体83.1％、都道府県が消防防災で23団体92.0％。出典は総務省の令和7年12月の調査で、基準日は令和6年4月1日現在。">
+  <defs>
+  <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 11px; fill: #555; }
+      .m { font-size: 11px; fill: #8a8a8a; }
+      .p { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .bb { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .bp { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .bw { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .bd { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .bs { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ln { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+  </style>
+  <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="at" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+<text class="n" x="14" y="24">統合型GISを導入済みの団体の割合</text>
+  <text class="t" x="14" y="66">都道府県</text>
+  <rect class="bb" x="128" y="40" width="134.1" height="60" rx="4"/>
+  <text class="t" x="138" y="75">53.2％（25団体）</text>
+  <text class="t" x="14" y="140">市区町村</text>
+  <text class="s" x="14" y="158">母数1,741団体</text>
+  <rect class="bb" x="128" y="114" width="163.0" height="60" rx="4"/>
+  <text class="t" x="138" y="149">64.7％（1,126団体）</text>
+  <path d="M128,36V174" style="stroke:#d7d7d7;stroke-width:1;stroke-dasharray:3 3" fill="none"/>
+  <text class="m" x="128" y="188" text-anchor="start">0</text>
+  <path d="M254,36V174" style="stroke:#d7d7d7;stroke-width:1;stroke-dasharray:3 3" fill="none"/>
+  <text class="m" x="254" y="188" text-anchor="middle">50</text>
+  <path d="M380,36V174" style="stroke:#d7d7d7;stroke-width:1;stroke-dasharray:3 3" fill="none"/>
+  <text class="m" x="380" y="188" text-anchor="end">100％</text>
+  <text class="n" x="14" y="224">導入団体のうち、最も使われる業務の割合</text>
+  <text class="t" x="14" y="266">市区町村</text>
+  <text class="s" x="14" y="284">道路</text>
+  <rect class="bp" x="128" y="240" width="209.4" height="60" rx="4"/>
+  <text class="t" x="138" y="275">83.1％（936団体）</text>
+  <text class="t" x="14" y="340">都道府県</text>
+  <text class="s" x="14" y="358">消防防災</text>
+  <rect class="bp" x="128" y="314" width="231.8" height="60" rx="4"/>
+  <text class="t" x="138" y="349">92.0％（23団体）</text>
+  <path d="M128,236V374" style="stroke:#d7d7d7;stroke-width:1;stroke-dasharray:3 3" fill="none"/>
+  <text class="m" x="128" y="388" text-anchor="start">0</text>
+  <path d="M254,236V374" style="stroke:#d7d7d7;stroke-width:1;stroke-dasharray:3 3" fill="none"/>
+  <text class="m" x="254" y="388" text-anchor="middle">50</text>
+  <path d="M380,236V374" style="stroke:#d7d7d7;stroke-width:1;stroke-dasharray:3 3" fill="none"/>
+  <text class="m" x="380" y="388" text-anchor="end">100％</text>
+  <rect class="bs" x="10" y="444" width="380" height="46" rx="8"/>
+  <text class="s" x="22" y="463">出典：総務省の調査（令和7年12月とりまとめ）</text>
+  <text class="s" x="22" y="480">基準日：令和6年4月1日現在</text>
+</svg>
