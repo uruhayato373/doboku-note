@@ -4205,6 +4205,23 @@
       "commit": "dc656c41acb1",
       "verification": "node scripts/coconala-pause.mjs の下見で 1級の休止済み出品を全件確認 → npm run check-coconala-live（listed 3＋プロフィール 1 を実検査・一致 4・食い違い 0）",
       "note": "2026-10-16、運営者の決定（10/4 受付停止・カタログは 1級 7 件とも paused）どおり、ライブで公開中のまま残っていた coconala-sakusei-4theme（4350199）と coconala-tensaku-4theme（4418735）を coconala-pause --commit で受付休止にし、stop_fg=1 を実測で確認した。tensaku-set・sakusei・1kyu-premium・1kyu-moshi-pdf・1kyu-full-pdf は既に休止中。1kyu-kakomon-pdf・1kyu-gakka-pdf は 8/5 の統廃合で引退し出品一覧に無い。tensaku-4theme の再開（1級・2級共通の新しい文面）は 10/26 以降に運営者が判断する（カタログの resumeOn）。note 側の導線は 10/15 に外し済み。"
+    },
+    {
+      "id": "DN-0751",
+      "at": "2026-10-16",
+      "task": "測量・情報化シリーズの新規 9 章を骨子の確認後に書いて公開する",
+      "tier": "mid",
+      "kind": "制作",
+      "prevention": {
+        "type": "doc",
+        "ref": ".claude/knowledge/reference/book-coverage-expansion.md"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "51de00e7b1d1",
+      "verification": "check-content-series",
+      "note": "9章を公開（3a05308b0 で本番）。図27・写真8（全数監査ok）。本番で9章 <main>・画像35件 200・/practice に18章。残: PLATEAU 第5.1版とテクスチャ値、附属資料2が案のままか（事実ファイルに記録）"
     }
   ]
 }
