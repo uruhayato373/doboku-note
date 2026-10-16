@@ -22,12 +22,13 @@
 - **文字の過不足ゼロ**: 部品の文字（結合セルの繰り返しと headerFrom の写しを除く）と、版面（取り込んだ版面を含む）の文字が多重集合で一致する。並べ替えは自由、追加・欠落は 1 文字も不可。承認済みで合わなければ生成が止まる
 - 検査 `npm run check-standard-articles` の 14 番が、生成器とは別の実装で、承認・ハッシュ・layout の原典実在・文字の一致・取り込みの対応・件数を照合する
 
-## 作り方（2026-10-16 の手順）
+## 作り方
 
-1. 版面のまま残った表の台帳: `node scripts/build-standard-articles.mjs --check <文書…> --table-inventory=<出力.json>`
-2. 原本 PDF（catalog の SHA-256 と一致するもの）から該当ページを画像にする
-3. Writer が画像で構造を決め、版面の文字だけで組む（status draft）。別の QA が画像と 1 セルずつ照合して approved / rejected を付ける
-4. 版面に無い行・注記（原本では表の中にあるが、テキスト層では別の段落になっているもの）は表に足さず、`review.note` に書く。それらは章の本文側に段落として残っている
-5. 地域版（四国・北陸）だけの表は原本 PDF が手元に無く、近畿版の同じ表の画像と組み直しを参照した（`review.note` に記載）
+流れは `/standards-table-rebuild`（`.claude/skills/conversion/standards-table-rebuild/SKILL.md`）、道具は `npm run standards-tables -- inventory|render|sheets|validate|review`、
+組み直しは `standards-table-writer`、照合・承認は `standards-table-qa`（`.claude/agents/`）。どの PC でも同じ手順で回せる。
+
+- 原本のページ画像は Google Drive vault（`npm run build-standards-page-images` が作る 270dpi の画像・provenance は `content/sources/standards/{機関}/{文書}/manifest.json`）を使う。vault が見えない PC は発行機関の掲載ページから原本 PDF を取り、`render` で必要なページだけ画像にする（catalog の SHA-256 と違えば拒否）
+- 版面に無い行・注記（原本では表の中にあるが、テキスト層では別の段落になっているもの）は表に足さず、`review.note` に書く。それらは章の本文側に段落として残っている
+- 地域版（四国・北陸）だけの表は、その機関の画像が無ければ近畿版の同じ表の画像で構造を見る（`review.note` に記載）
 
 原本が改訂されて版面が変わると key が変わり、古いファイルは使われなくなる（台帳で新しい key を出し、組み直し直す）。

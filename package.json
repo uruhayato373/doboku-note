@@ -463,6 +463,7 @@
     "ogp-backgrounds": "node scripts/generate-ogp-backgrounds.mjs",
     "ogp-gallery": "node scripts/ogp-gallery.mjs",
     "standards-table-gallery": "node scripts/standards-table-gallery.mjs",
+    "standards-tables": "node scripts/standards-tables.mjs",
     "place-civil-keiken-pdfs": "node scripts/place-civil-keiken-pdfs.mjs",
     "pre-commit:install": "node scripts/install-pre-commit.mjs",
     "pre-commit:ci-gates": "node scripts/pre-commit-ci-gates.mjs",
