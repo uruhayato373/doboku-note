@@ -2,20 +2,20 @@
   "description": "サイト図版SVGの派生カタログ（SSOT）。build-svg-catalog.mjs が生成。手動編集しない。",
   "source": "content/site/**/img/*.svg",
   "summary": {
-    "total": 1481,
-    "embedded": 1481,
+    "total": 1518,
+    "embedded": 1518,
     "orphan": 0,
     "missingConcept": 4,
     "withHighAudit": 0,
     "figures": {
-      "total": 1366,
-      "conforming": 1366,
+      "total": 1403,
+      "conforming": 1403,
       "needsRework": 0
     },
     "byCategory": {
       "civil-construction-1": 495,
       "civil-construction-2": 25,
-      "civil-practice": 292,
+      "civil-practice": 329,
       "concrete-chief-engineer": 133,
       "concrete-diagnostician": 138,
       "concrete-engineer": 63,
@@ -9584,6 +9584,60 @@
       }
     },
     {
+      "file": "content/site/civil-practice/barrier-free-roads-stations/img/figure-basic-concept-hierarchy.svg",
+      "category": "civil-practice",
+      "slug": "barrier-free-roads-stations",
+      "name": "figure-basic-concept-hierarchy.svg",
+      "concept": "市町村が面で作るバリアフリーの計画の階層と流れを示した図。移動等円滑化促進方針と基本構想は市町村が作る。基本構想に生活関連経路と特定事業を定め、道路管理者が道路特定事業計画、公安委員会が交通安全特定事業計画を作って事業を実施し、おおむね5年ごとに評価して基本構想を見直す。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/barrier-free-roads-stations/img/figure-sidewalk-dimensions.svg",
+      "category": "civil-practice",
+      "slug": "barrier-free-roads-stations",
+      "name": "figure-sidewalk-dimensions.svg",
+      "concept": "歩道の断面と平面を寸法つきで示した図。断面は、有効幅員が歩行者の交通量が多い道路で3.5m以上、その他は2m以上、縁石の高さ15cm以上、歩道の高さ5cm標準、横断勾配1%以下。平面は、横断歩道に接続する部分の段差2cm標準、縦断勾配5%以下、乗入れ部の平らな部分の有効幅員2m以上。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/barrier-free-roads-stations/img/figure-station-plaza-roles.svg",
+      "category": "civil-practice",
+      "slug": "barrier-free-roads-stations",
+      "name": "figure-station-plaza-roles.svg",
+      "concept": "駅前広場で施設と主体を対応させた図。道路管理者は歩道の段差・勾配と視覚障害者誘導用ブロック、鉄道事業者は駅構内のエレベーター、公安委員会は信号機と横断歩道の標示、バス事業者はバス乗降場を担う。管理区分と施工区分の違いで段差を生じさせない。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-practice/bim-cim-site-practice/img/figure-dem-vs-tin.svg",
       "category": "civil-practice",
       "slug": "bim-cim-site-practice",
@@ -10291,6 +10345,78 @@
       "slug": "construction-automation-control",
       "name": "figure-safety-roles.svg",
       "concept": "自動施工の安全に関わる四つの役割と、情報が渡る向き。製造者等が設計段階のリスクアセスメントを行い、残るリスクを使用上の情報として販売者等を通じて施工者等と使用者へ渡す。施工者等と使用者は、現場のリスクアセスメントを行う。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/construction-business-overview/img/figure-law-chapter-map.svg",
+      "category": "civil-practice",
+      "slug": "construction-business-overview",
+      "name": "figure-law-chapter-map.svg",
+      "concept": "会社の動く順と建設業法の章の地図。許可を取り保つは第2章、経審を受け入札に出るは第4章の2、下請と結び現場に人を置くは第3章と第4章、争いを解き監督に備えるは第3章の2と第5章、これからの仕事を整えるは法の章に収まらない課題。それぞれに対応する記事を並べた図。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/construction-dispute-resolution/img/figure-dispute-fees.svg",
+      "category": "civil-practice",
+      "slug": "construction-dispute-resolution",
+      "name": "figure-dispute-fees.svg",
+      "concept": "請求額ごとの申請手数料の棒グラフ。750万5,000円はあっせん21,765円、調停42,275円、仲裁105,060円。1,000万円はあっせん25,500円、調停48,500円、仲裁120,000円。5,000万円はあっせん73,000円、調停148,500円、仲裁360,000円。仲裁がいちばん高い。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/construction-dispute-resolution/img/figure-dispute-statistics-2025.svg",
+      "category": "civil-practice",
+      "slug": "construction-dispute-resolution",
+      "name": "figure-dispute-statistics-2025.svg",
+      "concept": "令和7年度に全国の審査会へ出された申請116件の内訳を2本の帯で示した図。紛争の類型は工事瑕疵41、工事代金28、契約解除17、下請代金14、工事遅延9、その他7。工事の種類は建築84、土木15、設備11、電気2、その他4で、土木工事は13％。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/construction-dispute-resolution/img/figure-dispute-timeline.svg",
+      "category": "civil-practice",
+      "slug": "construction-dispute-resolution",
+      "name": "figure-dispute-timeline.svg",
+      "concept": "紛争の時間の流れを、あっせん・調停と仲裁の2本の線で示した図。契約書の紛争解決の定めから審査会へ申請し、答弁書の提出まで約1か月。第1回審理まであっせん・調停は約2〜3か月、仲裁は約3〜4か月。あっせん・調停が打切りになると、通知から1か月以内の提訴で時効の完成猶予、2週間以内の仲裁申請で手数料を差し引く。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -11114,6 +11240,60 @@
       }
     },
     {
+      "file": "content/site/civil-practice/generative-ai-adoption/img/figure-ai-notice-flow.svg",
+      "category": "civil-practice",
+      "slug": "generative-ai-adoption",
+      "name": "figure-ai-notice-flow.svg",
+      "concept": "国の生成AI利活用の通知の流れ。対象は建設コンサルタント業務等。特記仕様書で明記し、受発注者の協議で利用範囲を決める。成果のとりまとめに使うなら、業務計画書の提出時に利活用計画書を出し、発注者が確認し、成果物に明示する。調査の補助だけなら計画書は要らず、業務計画書にリスク対策を書く。工事の契約には通知の記載がない。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/generative-ai-adoption/img/figure-ai-roles.svg",
+      "category": "civil-practice",
+      "slug": "generative-ai-adoption",
+      "name": "figure-ai-roles.svg",
+      "concept": "生成AI導入で誰が何を決めるかの図。経営者は使う目的と責任者と予算、推進者は社内ルールと教育と評価、承認者は書類ごとの出力の承認、発注者は利活用計画書と成果物への明示、サービス提供者は利用規約と想定範囲を決める。それぞれ確かめる資料を添えた。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/generative-ai-adoption/img/figure-ai-rollout-stages.svg",
+      "category": "civil-practice",
+      "slug": "generative-ai-adoption",
+      "name": "figure-ai-rollout-stages.svg",
+      "concept": "生成AI導入の広げ方の図。推進者が習熟し、パイロットで試し、全社へ拡大し、自走して見直す四つの段階と、段階で決めるルール・教育・評価。下に、AI事業者ガイドライン第2部Eの環境・リスク分析、ゴール設定、システムデザイン、運用、評価の循環を重ねた。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-practice/gis-layer-validation/img/figure-1.svg",
       "category": "civil-practice",
       "slug": "gis-layer-validation",
@@ -11528,6 +11708,60 @@
       }
     },
     {
+      "file": "content/site/civil-practice/keishin-review-merger/img/figure-merger-review-timeline.svg",
+      "category": "civil-practice",
+      "slug": "keishin-review-merger",
+      "name": "figure-merger-review-timeline.svg",
+      "concept": "合併時の審査基準日の時間軸。合併直前の決算日の経審、吸収合併は合併期日・新設合併は合併登記の日が審査基準日になる合併時経審、合併後最初の決算日を基準日とする経審の順。合併直前の経審があれば合併時経審は義務ではない。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/keishin-review-merger/img/figure-reexam-entries.svg",
+      "category": "civil-practice",
+      "slug": "keishin-review-merger",
+      "name": "figure-reexam-entries.svg",
+      "concept": "経営事項審査の結果通知書を受け取ったあとの受け直しの分かれ道。行政庁側の誤りは通知を受けた日から30日、経審の改正は改正の日から120日、許可業種の追加は新たな許可の日が起点。申請者の記入ミスなどは受け直せない。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/keishin-review-merger/img/figure-result-notice-sections.svg",
+      "category": "civil-practice",
+      "slug": "keishin-review-merger",
+      "name": "figure-result-notice-sections.svg",
+      "concept": "経営事項審査の結果通知書の読み方。X1と、Zの元請完成工事高は工事ごとの完成工事高、X2とYは決算書、Zの技術職員は技術職員名簿、Wは社会性等の申請から決まり、Pはそれらを告示の算式で合わせた総合評定値。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-practice/land-acquisition-compensation/img/figure-land-acquisition-flow.svg",
       "category": "civil-practice",
       "slug": "land-acquisition-compensation",
@@ -11587,6 +11821,60 @@
       "slug": "land-readjustment-project",
       "name": "figure-reduction-before-after.svg",
       "concept": "土地区画整理の前後を並べた模式図。従前の宅地のまま並ぶ区画から、地権者が土地を少しずつ出し合う減歩によって、道路や公園などの公共用地と、売却して事業費に充てる保留地が生まれ、残りが宅地になる。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/landscape-planning-public-works/img/figure-cultural-property-types.svg",
+      "category": "civil-practice",
+      "slug": "landscape-planning-public-works",
+      "name": "figure-cultural-property-types.svg",
+      "concept": "歴史的な橋や堰に関わる4つの種別を、根拠の法律と現状変更の手続で並べた対応図。重要文化財は文化庁長官の許可、登録有形文化財は30日前までの届出、景観重要建造物は景観法の手続、歴史的風致形成建造物は市町村長が指定し、自治体の工事は届出でなく通知と協議になる。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/landscape-planning-public-works/img/figure-landscape-check-flow.svg",
+      "category": "civil-practice",
+      "slug": "landscape-planning-public-works",
+      "name": "figure-landscape-check-flow.svg",
+      "concept": "景観の確認の流れを、計画、設計、発注前、着工前の4つの事業段階に並べた図。計画では景観行政団体と景観計画の区域、文化財の種別、歴史的風致の区域を確かめる。設計で通知と協議、景観重要公共施設の基準を反映する。発注前に色や素材を決め、着工前に文化財の許可や届出をする。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/landscape-planning-public-works/img/figure-notice-vs-notification.svg",
+      "category": "civil-practice",
+      "slug": "landscape-planning-public-works",
+      "name": "figure-notice-vs-notification.svg",
+      "concept": "景観法の手続を、行為者と手続の2軸で比べた図。民間の工事は届出、勧告や変更命令、受理から30日は着手できない。国・自治体の工事は事前の通知と、景観行政団体からの協議になる。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -11785,6 +12073,114 @@
       "slug": "levee-failure-reinforcement",
       "name": "figure-reinforced-section-layout.svg",
       "concept": "補強した堤防の断面と7つの要素の置き場所。川側の表のり遮水シートと川表の止水矢板が水の入口を減らし、天端舗装と裏法面の被覆と法尻のブロック平場が越水に耐え、裏法尻のドレーン工と堤脚水路が水の出口をさばく",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/license-procedures/img/figure-jcip-flow.svg",
+      "category": "civil-practice",
+      "slug": "license-procedures",
+      "name": "figure-jcip-flow.svg",
+      "concept": "電子申請（JCIP）の流れ。gBizID を取得し、書類を作成して申請し、手数料を納付し、行政庁が審査し、通知書を受け取る。手数料の電子納付と通知書の電子交付に未対応の行政庁があるので、申請の前に確かめる。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/license-procedures/img/figure-notification-deadlines.svg",
+      "category": "civil-practice",
+      "slug": "license-procedures",
+      "name": "figure-notification-deadlines.svg",
+      "concept": "届出の期限の早見表。役員の就任・退任は30日以内、ただし常勤役員等の後任は2週間以内。営業所技術者の交代は2週間以内。営業所の新設と廃業は30日以内。決算は事業年度終了後4か月以内。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/license-procedures/img/figure-succession-timeline.svg",
+      "category": "civil-practice",
+      "slug": "license-procedures",
+      "name": "figure-succession-timeline.svg",
+      "concept": "事業を引き継ぐ時間軸の比較。上段は事前に認可を受けた場合で、認可申請のあと承継日から許可が継続し、監督処分と経営事項審査の結果が承継人に付いてくる。下段は認可を受けない場合で、譲渡側が廃業し、譲受側が新規許可を取るまで許可のない期間が生じる。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/license-requirements/img/figure-financial-basis-timing.svg",
+      "category": "civil-practice",
+      "slug": "license-requirements",
+      "name": "figure-financial-basis-timing.svg",
+      "concept": "財産的基礎を見る時点の時間軸。直前の決算期末の財務諸表で判断し、申請日までの増資は資本金の基準にだけ効く。許可の後に基準を下回っても直ちに効力に影響しない。一般建設業は三つの基準のうち一つ、特定建設業はすべてを満たす。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/license-requirements/img/figure-management-experience-years.svg",
+      "category": "civil-practice",
+      "slug": "license-requirements",
+      "name": "figure-management-experience-years.svg",
+      "concept": "経営体制の経験年数の図。イ型は、経営業務の管理責任者として5年以上、準ずる地位で権限の委任を受けた者として5年以上、準ずる地位で補佐した者として6年以上。立場をまたいだ通算も可能。ロ型は、役員等の経験を持つ常勤役員等に、財務管理・労務管理・業務運営の補佐者を付ける。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/license-requirements/img/figure-requirement-checklist.svg",
+      "category": "civil-practice",
+      "slug": "license-requirements",
+      "name": "figure-requirement-checklist.svg",
+      "concept": "建設業許可の要件の点検表。営業所、経営体制、営業所技術者、誠実性と令3条使用人、財産的基礎、社会保険の六つについて、誰を見るか、どの営業所や時点で見るか、確認する資料を並べた図。法令は令和8年10月時点、ガイドラインは令和7年2月1日改正。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -12289,6 +12685,60 @@
       "slug": "nature-conservation-mitigation",
       "name": "figure-wetland-types-functions.svg",
       "concept": "湿原・干潟・藻場の3つの湿地を、場所の見分け方と主な働きで並べて整理した図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/nature-oriented-river-works/img/figure-adaptive-management-cycle.svg",
+      "category": "civil-practice",
+      "slug": "nature-oriented-river-works",
+      "name": "figure-adaptive-management-cycle.svg",
+      "concept": "多自然川づくりの全段階の輪。調査、計画、設計、施工、維持管理・更新、災害復旧が輪になって続き、その外側と中心でモニタリングと取組の見直しがすべての段階にかかる。対象は一級・二級・準用河川。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/nature-oriented-river-works/img/figure-channel-widening-section.svg",
+      "category": "civil-practice",
+      "slug": "nature-oriented-river-works",
+      "name": "figure-channel-widening-section.svg",
+      "concept": "中小河川の横断面を同じ縮尺で重ねた比較図。河床を深く掘る案は河床幅が狭くなる。拡幅を基本にした案は片岸を広げ、のり勾配を五分に立てて河床幅を広く残し、良好な河岸は保全し、護岸は必要と判定した範囲だけに置く。通知の値は、のり勾配五分、平均の掘削深は60cmが上限。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/nature-oriented-river-works/img/figure-kawamachi-roles.svg",
+      "category": "civil-practice",
+      "slug": "nature-oriented-river-works",
+      "name": "figure-kawamachi-roles.svg",
+      "concept": "かわまちづくりの役割分担図。河川管理者はハード施策（親水護岸・河川管理用通路）とソフト施策（調査・検討の連携、区域指定の支援）を担う。推進主体の市町村や民間事業者は、営業・利用と維持管理を担う。両者が共同でかわまちづくり計画を作成し、水管理・国土保全局長に登録を申請し、登録後少なくとも5年以内に共同で検証する。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -14300,6 +14750,60 @@
       }
     },
     {
+      "file": "content/site/civil-practice/supervision-compliance-surveys/img/figure-business-suspension-scope.svg",
+      "category": "civil-practice",
+      "slug": "supervision-compliance-surveys",
+      "name": "figure-business-suspension-scope.svg",
+      "concept": "営業停止の期間中にできない行為とできる行為を2列に分けた図。できないのは新規の請負契約の締結、工事の追加に係る契約変更、関連する入札・見積り・交渉。できるのは許可・経営事項審査・入札参加資格の申請、既契約の施工、瑕疵とアフターサービスの修繕、災害時の緊急工事、代金の請求・受領・支払い、資金の借入れ。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/supervision-compliance-surveys/img/figure-supervision-steps.svg",
+      "category": "civil-practice",
+      "slug": "supervision-compliance-surveys",
+      "name": "figure-supervision-steps.svg",
+      "concept": "監督の段階を軽い順に7段で示した階段図。端緒（実態調査・駆け込みホットライン・建設Gメン）から、報告徴収・立入検査（第31条）、指導票、勧告・文書指導等768業者、指示4業者（第28条第1項）、営業停止14業者（第28条第3項）、許可取消1業者（第29条第1項第8号）へ重くなる。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/supervision-compliance-surveys/img/figure-survey-correct-rates.svg",
+      "category": "civil-practice",
+      "slug": "supervision-compliance-surveys",
+      "name": "figure-survey-correct-rates.svg",
+      "concept": "令和7年度の下請取引等実態調査の適正回答率を示した横棒グラフ。高い3項目は下請代金の支払期間98.7％、決定方法96.0％、支払手段92.9％。低い4項目は契約締結方法62.7％、施工体制台帳の添付書類48.7％、契約条項33.7％、見積提示内容17.9％。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-practice/survey-informatics-overview/img/figure-policy-timeline.svg",
       "category": "civil-practice",
       "slug": "survey-informatics-overview",
@@ -14498,6 +15002,60 @@
       }
     },
     {
+      "file": "content/site/civil-practice/urban-greening/img/figure-green-systems-map.svg",
+      "category": "civil-practice",
+      "slug": "urban-greening",
+      "name": "figure-green-systems-map.svg",
+      "concept": "緑の制度の関係図。緑の基本計画を中心に、守る緑（特別緑地保全地区）、つくる緑（都市公園・公共施設の緑化）、民有地の緑（緑化地域・市民緑地）の三つに分け、それぞれの根拠と手続を添えている。土木担当が直接かかわるのは公共空間の緑と自団体の建物の緑化の条件。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/urban-greening/img/figure-greening-results.svg",
+      "category": "civil-practice",
+      "slug": "urban-greening",
+      "name": "figure-greening-results.svg",
+      "concept": "全国屋上・壁面緑化施工実績調査の数字の読み方。令和6年の新規創出面積は屋上緑化が約14.5ヘクタール、壁面緑化が約4.6ヘクタールで暫定値。平成12年から令和6年の25年間の累計は屋上緑化が約633ヘクタール、壁面緑化が約131ヘクタール。令和4年の屋上緑化は暫定値156,762平方メートルが確定値181,595平方メートルへ約16パーセント増えた。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/urban-greening/img/figure-rooftop-greening-section.svg",
+      "category": "civil-practice",
+      "slug": "urban-greening",
+      "name": "figure-rooftop-greening-section.svg",
+      "concept": "屋上緑化の標準断面。上からマルチング、基盤、透水層、保水層、排水層、防根層、防水層、スラブの順に並ぶ。発注者が確かめる点は、荷重、層の構成、排水口、かん水、防水の五つ。層の順は東京都の手引の例で、全国共通の基準ではない。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-practice/urban-park-management/img/figure-park-permit-comparison.svg",
       "category": "civil-practice",
       "slug": "urban-park-management",
@@ -14557,6 +15115,114 @@
       "slug": "volcanic-hazard-site-planning",
       "name": "figure-volcano-disaster-system.svg",
       "concept": "火山防災の体系。観測と区分、噴火警報とレベル、地域の警戒避難体制、避難施設と降灰対策の四つの層を順に確認する",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/waterworks-business/img/figure-pipe-aging-renewal.svg",
+      "category": "civil-practice",
+      "slug": "waterworks-business",
+      "name": "figure-pipe-aging-renewal.svg",
+      "concept": "水道管路の老朽化の読み方。令和4年度は総延長約74万kmのうち法定耐用年数40年を超えた管路が約17.6万kmで経年化率は23.6パーセント。更新率は実績が0.64パーセント、40年を超えた約17.6万kmを今後20年で更新するなら毎年約8,800kmで1.18パーセントが必要で、倍近い開きがある。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/waterworks-business/img/figure-road-water-main-timeline.svg",
+      "category": "civil-practice",
+      "slug": "waterworks-business",
+      "name": "figure-road-water-main-timeline.svg",
+      "concept": "道路の下の水道管の工事の時間軸。水道事業者は工事を実施する日の1か月前までに計画書を道路管理者へ出し、占用の許可を申請する。道路管理者は政令の基準に適合すれば許可し、他の工事との調整のために条件を付けられる。その後、水道事業者が工事を行い、復旧する。緊急を要する復旧工事と軽易な工事は計画書の対象外。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/waterworks-business/img/figure-waterworks-categories.svg",
+      "category": "civil-practice",
+      "slug": "waterworks-business",
+      "name": "figure-waterworks-categories.svg",
+      "concept": "水道法の五つの区分の判定の流れ図。水を渡す相手が一般の需要なら給水人口で、5,000人超は水道事業、100人超5,000人以下は簡易水道事業、100人以下は水道事業から除く。水道事業者に渡すなら水道用水供給事業。特定の人に自家用で渡すなら専用水道または簡易専用水道。水道事業と簡易水道事業は経営主体が原則として市町村。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/weather-information-reading/img/figure-amedas-vs-radar-grid.svg",
+      "category": "civil-practice",
+      "slug": "weather-information-reading",
+      "name": "figure-amedas-vs-radar-grid.svg",
+      "concept": "アメダスの観測所の間隔と解析雨量の細かさを、同じ縮尺の40km四方で見比べた模式図。降水量の観測所は約17km間隔、風・気温・湿度も観測する四要素の観測所は約21km間隔で、観測所のない市が生じる。解析雨量は1km四方の格子で面を埋める。観測所のない市では、近隣のアメダス、解析雨量の1kmメッシュ、雨量計の実測値の順に読む。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/weather-information-reading/img/figure-new-warning-levels.svg",
+      "category": "civil-practice",
+      "slug": "weather-information-reading",
+      "name": "figure-new-warning-levels.svg",
+      "concept": "令和8年5月29日からの防災気象情報の新体系。縦に河川氾濫、大雨、土砂災害、高潮、横に警戒レベル2の注意報、レベル3の警報、レベル4の危険警報（新設）、レベル5の特別警報を置く。レベル1は早期注意情報。例として、レベル3大雨警報、レベル4土砂災害危険警報、レベル3氾濫警報、レベル5氾濫特別警報がある。暴風、波浪、大雪、暴風雪の特別警報・警報と、強風、雷、濃霧などの注意報は警戒レベルに相当しない別枠。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/weather-information-reading/img/figure-warning-transmission.svg",
+      "category": "civil-practice",
+      "slug": "weather-information-reading",
+      "name": "figure-warning-transmission.svg",
+      "concept": "警報の伝達の流れ。警報を出せるのは気象庁だけで、警察庁、消防庁、国土交通省、都道府県、NTT東日本・西日本、NHKなどへ直ちに通知する。都道府県などは市町村長へ、警報では通知に努め、特別警報では通知する義務がある。市町村長は住民や官公署へ、警報では周知に努め、特別警報では周知の措置が義務。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",

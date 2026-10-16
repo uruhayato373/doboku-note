@@ -434,6 +434,24 @@
       "reason": "縦に半割した円柱コア 2 本が切断面を手前に並び、左は細かい骨材が密に詰まり空隙がほぼ無い密粒度、右は粒径の揃った粗い骨材の間に連続した黒い空隙が多いポーラスで、alt と本文の粒度の違いに一致し、文字や崩れた部位も無い",
       "reviewedAt": "2026-10-07T23:41:24.071Z"
     },
+    "civil-practice/barrier-free-roads-stations/img/photo-crosswalk-curb": {
+      "sha": "b6de86debc74f676",
+      "promptSha": "e6cfe51cb64cd10f",
+      "tool": "Codex",
+      "generatedAt": "2026-10-16T05:10:26.823Z",
+      "verdict": "ok",
+      "reason": "種別・構造・本文: 歩道の縁石が車道側にごく低い段差(約2cm相当)で連続し、横断歩道の縞が縁石に接する。歩道側は広く平らな舗装で車椅子が転回できる広さがあり、手前に黄色の点状ブロックの突起が明瞭に描かれている。文字・顔・生成の破綻なし。",
+      "reviewedAt": "2026-10-16T05:21:51.285Z"
+    },
+    "civil-practice/barrier-free-roads-stations/img/photo-tactile-paving": {
+      "sha": "66b74f6c74881a88",
+      "promptSha": "0b4fbfbc34a9f215",
+      "tool": "Codex",
+      "generatedAt": "2026-10-16T05:11:25.340Z",
+      "verdict": "ok",
+      "reason": "種別・構造: 黄色の線状ブロックが歩道を直線で通り、突条は進行方向に平行、分岐の曲がり角に点状ブロックが敷かれ、分岐先へ線状が続く。植栽帯・電柱を避けて敷設され、本文の色(黄色・輝度比)とも矛盾しない。文字・顔・破綻なし。",
+      "reviewedAt": "2026-10-16T05:21:51.285Z"
+    },
     "civil-practice/bim-cim-site-practice/img/photo-ar-tablet-site-overlay": {
       "sha": "8e888a6000262ccd",
       "promptSha": "d766f293ec87f352",
@@ -632,6 +650,15 @@
       "reason": "種別: 砕石路盤の新設道路、据付中のプレキャストU形側溝、排土板付きの小型バックホウ、カラーコーンと境界杭が写り、alt・prompt どおり。構造: ミニバックホウはブーム・アーム・バケット・シリンダ・キャブ・クローラ・排土板が実機として成り立ち、上部旋回で作業装置が反対向きになっていても不自然でない。U形側溝は連続する区間に継ぎ目があり、溶けや二重化は無い。本文: 空いた造成区画と、道路際に残る従前の木造住宅が見え、仮換地・移転が工事の前提という節と矛盾しない。破綻: 文字・看板・ロゴ・人物は無く、崩れた部品も見当たらない。",
       "reviewedAt": "2026-10-15T07:03:46.565Z"
     },
+    "civil-practice/landscape-planning-public-works/img/photo-historic-bridge-fixtures": {
+      "sha": "cedcd5d090a9d8d6",
+      "promptSha": "31a282d400b3ec91",
+      "tool": "Codex",
+      "generatedAt": "2026-10-16T05:07:00.036Z",
+      "verdict": "ok",
+      "reason": "構造・本文: 石造りの親柱と石高欄の横に、茶色系の照明柱と縦格子の防護柵が並び、色調が揃っている。親柱・高欄の部位が成り立ち、銘板や文字・顔なし、破綻なし。",
+      "reviewedAt": "2026-10-16T05:21:51.285Z"
+    },
     "civil-practice/large-fill-landslide/img/photo-horizontal-drain-outlets": {
       "sha": "8e7110695708d428",
       "promptSha": "56b9d7d0c0e131fc",
@@ -730,6 +757,24 @@
       "verdict": "ok",
       "reason": "種別・構造・本文・破綻の4軸とも問題なし。手前に堤防法面の草地、中景に低水路の緩やかな流れと礫の寄洲、背景に河川敷と山並みがあり、本文・alt の「堤防法面の向こうの河川敷で高木化したハリエンジュ樹林」と一致する。樹林は細かい小葉の羽状複葉らしい軽い樹冠と、暗色で縦に割れた幹を持つ株立ち状の高木群で、ハリエンジュとして不自然な点はない。文字・看板・ロゴ・人物・構造物は無く、幹や枝の溶け・二重化も見当たらない。",
       "reviewedAt": "2026-10-09T09:16:25.721Z"
+    },
+    "civil-practice/nature-oriented-river-works/img/photo-natural-riverbank": {
+      "sha": "98eae4bb29604eb1",
+      "promptSha": "d4fe2abeea7cf040",
+      "tool": "Codex",
+      "generatedAt": "2026-10-16T05:07:56.820Z",
+      "verdict": "ok",
+      "reason": "種別・本文: 水際に草・低木が茂り、護岸は控えめな自然石積み、河床に浅い瀬(白波)と深い淵(穏やかな水面)が見える自然な小河川。コンクリート護岸や文字・顔なし、破綻なし。",
+      "reviewedAt": "2026-10-16T05:21:51.285Z"
+    },
+    "civil-practice/nature-oriented-river-works/img/photo-urban-river-steps": {
+      "sha": "51968f5f85246cf4",
+      "promptSha": "62d7a3dec7f5ca5b",
+      "tool": "Codex",
+      "generatedAt": "2026-10-16T05:09:29.349Z",
+      "verdict": "ok",
+      "reason": "構造・本文: 都市の川で、コンクリートの階段状護岸が水際へ降り、上端に管理用通路と手すり・フェンスが続く。階段の段・袖壁・手すりが成り立ち、文字・顔・破綻なし。",
+      "reviewedAt": "2026-10-16T05:21:51.285Z"
     },
     "civil-practice/polymer-construction-materials/img/photo-cfrp-sheet-roller-impregnation": {
       "sha": "8cc713aec0e737a2",
@@ -893,6 +938,24 @@
       "reason": "黄色の三脚（各脚が二本材）に据えたロボティック型トータルステーション（望遠鏡・ハンドル・整準台あり）、ポール先端の平らな円盤形GNSSアンテナ（ポール下端に手持ち端末と脚）、黒いマット上のクアッドコプター型ドローン（カメラ付きジンバル・4本のアーム）がそろい、指示と本文に一致。ロゴ・文字なし、奥に重機と盛土があり破綻なし。ドローンの右手前アームのプロペラが少し流れて見えるが誤解は生じない",
       "reviewedAt": "2026-10-16T02:22:39.181Z"
     },
+    "civil-practice/urban-greening/img/photo-rooftop-drain-inspection": {
+      "sha": "922e655e4547795b",
+      "promptSha": "9dc182539d251ee1",
+      "tool": "Codex",
+      "generatedAt": "2026-10-16T05:12:25.959Z",
+      "verdict": "ok",
+      "reason": "種別・構造: 防水立ち上がりの上に据えたドーム型ストレーナ付きルーフドレンのまわりに砂利帯があり、植栽(低木・芝)の脇に位置する。手袋の手は指5本で自然。文字・顔なし、破綻なし。",
+      "reviewedAt": "2026-10-16T05:21:51.285Z"
+    },
+    "civil-practice/urban-greening/img/photo-wall-greening-types": {
+      "sha": "2e9f38194f1291ff",
+      "promptSha": "dddd93e048c41710",
+      "tool": "Codex",
+      "generatedAt": "2026-10-16T05:13:24.451Z",
+      "verdict": "ok",
+      "reason": "種別・本文: 左はコンクリート外壁に張ったワイヤーをつる植物が登る登はん型(根元に植栽桝)、右は黒いフレームにパネル状の植栽ユニットを並べたパネル型で、二つの型を見分けられる。文字・顔・破綻なし。",
+      "reviewedAt": "2026-10-16T05:21:51.285Z"
+    },
     "civil-practice/urban-park-management/img/photo-swing-support-base-inspection": {
       "sha": "7ebcc72951f8335c",
       "promptSha": "c4e50f7816689478",
@@ -901,6 +964,33 @@
       "verdict": "ok",
       "reason": "種別・構造: 傾斜した鋼管の支柱が丸い無筋コンクリート基礎に入り、地際に錆の流下と塗装の剥離が出ていて、prompt と本文（埋設基礎・吊り金具の点検）に合う。上部は横梁に吊り金具が二つ付き、各金具から鎖が下がる構造として成り立つ。奥の脚と滑り台も遠近として無理がない。破綻: 文字・ロゴ・人物・溶けた部品・二重の部位は無い。座板が外れて鎖だけ下がる点は不自然だが、教材の誤解にはならない。",
       "reviewedAt": "2026-10-15T07:06:47.288Z"
+    },
+    "civil-practice/waterworks-business/img/photo-water-main-renewal": {
+      "sha": "f799fdd524a9c7cf",
+      "promptSha": "95df25a7be231414",
+      "tool": "Codex",
+      "generatedAt": "2026-10-16T05:16:00.344Z",
+      "verdict": "ok",
+      "reason": "種別・構造: 舗装を切った溝に砂利の基礎の上へ黒いダクタイル鋳鉄管が据えられ、継手の受口が見える。単管足場風の保安柵とコーン、遠景の作業員は後ろ姿で顔・文字なし。管と溝の関係に破綻なし。",
+      "reviewedAt": "2026-10-16T05:21:51.285Z"
+    },
+    "civil-practice/waterworks-business/img/photo-water-pipe-bridge": {
+      "sha": "22f50546bb4e8d12",
+      "promptSha": "5c940ae7b04bc525",
+      "tool": "Codex",
+      "generatedAt": "2026-10-16T05:14:44.293Z",
+      "verdict": "ok",
+      "reason": "種別・構造: 青塗装の鋼管が複数のコンクリート橋脚に支持され、両岸の橋台へつながる管路橋(水管橋)として成り立つ。管は一本で連続し、二重の部位や溶けた部品なし。文字・人物なし。",
+      "reviewedAt": "2026-10-16T05:21:51.285Z"
+    },
+    "civil-practice/weather-information-reading/img/photo-rain-gauge-station": {
+      "sha": "5104131fc9acf1eb",
+      "promptSha": "5c8f65f72245ecf6",
+      "tool": "Codex",
+      "generatedAt": "2026-10-16T05:17:11.104Z",
+      "verdict": "ok",
+      "reason": "種別・構造: 亜鉛めっきの柵に囲まれた芝生上の観測所で、コンクリート台上に円筒形の雨量計(転倒ます型の外形、受水口は目線が低く上面が見えないだけ)と、ポール上に風杯と風向矢羽を備えた風向風速計がある。ポールは制御箱に接続。文字・人物なし、破綻なし。",
+      "reviewedAt": "2026-10-16T05:21:51.285Z"
     },
     "civil-practice/wood-and-stone-materials/img/photo-dismantled-arch-voussoirs": {
       "sha": "daa701fe05c51a19",
