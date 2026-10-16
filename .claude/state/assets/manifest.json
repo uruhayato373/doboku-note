@@ -58295,6 +58295,27 @@
         "scripts/check-orphan-ogp.mjs"
       ],
       "srcHash": "e951c0f051d55c9f"
+    },
+    "content/site/civil-practice/landscape-planning-public-works/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/landscape-planning-public-works/ogp.png",
+      "sha256": "1ca35a03270f607b78c371b1303ec8741375384ba64a7b1181d50b0a73e9b1cd",
+      "bytes": 68842,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-16T04:17:08.650Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/landscape-planning-public-works/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "bd224d473e7f43c7"
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",
