@@ -27,6 +27,7 @@ function main() {
   let checkedDocuments = 0;
   let checkedChapters = 0;
   let checkedArticles = 0;
+  let referenceOnlyArticles = 0;
 
   for (const document of catalog.documents.filter((entry) => entry.dataIndex)) {
     const [agencyId, documentId] = document.id.split('/');
@@ -62,9 +63,17 @@ function main() {
         assert(article?.publisher?.['@id'] === SITE_ORGANIZATION_ID, `${document.id}/${chapter.id}: 加工記事publisherがdoboku-noteでない`);
         assert(article?.encoding?.length === 2, `${document.id}/${chapter.id}: Markdown/JSON-LD encodingが揃っていない`);
         assert(clauses.length === chapter.articles, `${document.id}/${chapter.id}: 条数が索引と不一致`);
-        assert(clauses.every((clause) => typeof clause.text === 'string' && clause.text.length > 0), `${document.id}/${chapter.id}: 本文なしの条がある`);
+        // 北海道版には本文を持たず「開発局独自参照」（別冊の独自規定を見よ）とだけ書かれた条がある。
+        // 原本どおり本文が無いのはその形だけに限り、件数を出す（それ以外の本文なしは従来どおり失敗）。
+        const referenceOnly = clauses.filter((clause) => !clause.text && /独自参照$/.test(String(clause.name)));
+        referenceOnlyArticles += referenceOnly.length;
+        assert(
+          clauses.every((clause) => (typeof clause.text === 'string' && clause.text.length > 0) || referenceOnly.includes(clause)),
+          `${document.id}/${chapter.id}: 本文なしの条がある`,
+        );
         checkedChapters += 1;
-        checkedArticles += clauses.length;
+        // build-standards-data の manifest.articles は本文のある条の数（本文が無い参照だけの条は数えない）
+        checkedArticles += clauses.length - referenceOnly.length;
       }
       checkedDocuments += 1;
     } catch (error) {
@@ -83,7 +92,10 @@ function main() {
   assert(statSync(join(DATA_ROOT, 'catalog.json')).size > 0, 'catalog.jsonが空');
 
   if (failures.length > 0) throw new Error(failures.join('\n'));
-  console.log(`[check-standards-data] PASS ${checkedDocuments}文書 / ${checkedChapters}章 / ${checkedArticles}条`);
+  console.log(
+    `[check-standards-data] PASS ${checkedDocuments}文書 / ${checkedChapters}章 / ${checkedArticles}条` +
+      `（うち本文が「開発局独自参照」だけの条 ${referenceOnlyArticles}）`,
+  );
 }
 
 main();

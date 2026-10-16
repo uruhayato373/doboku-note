@@ -15,6 +15,7 @@ import {
   standardChapterPath,
   type StandardChapter,
 } from '@/lib/standards-articles';
+import { standardSectionPath } from '@/lib/standards-section-split.mjs';
 import { generateHeadingId } from '@/lib/toc';
 
 type StandardsNavigationProps = {
@@ -22,6 +23,8 @@ type StandardsNavigationProps = {
   currentDocument?: StandardDocument | undefined;
   currentPart?: StandardPart | undefined;
   currentChapter?: StandardChapter | undefined;
+  /** 節ページ（splitBySection の章）で表示中の節番号 */
+  currentSection?: number | undefined;
   pageNumbers?: number[] | undefined;
   variant?: 'sidebar' | 'mobile';
 };
@@ -198,26 +201,53 @@ function ChapterNav({
 /**
  * 表示中の章の節目次。アンカーは src/lib/toc.ts の generateHeadingId で導出する
  * （rehypeHeadingIds が本文へ振る ID と同じ関数＝ここに ID を持たせて第 2 の真実源にしない）。
+ * 節ページに分けた章（splitBySection）は、アンカーではなく節ページへ移動する。
  */
-function SectionNav({ chapter }: { chapter: StandardChapter }) {
+function SectionNav({
+  document,
+  chapter,
+  currentSection,
+}: {
+  document: StandardDocument;
+  chapter: StandardChapter;
+  currentSection?: number | undefined;
+}) {
   if (chapter.sections.length === 0) return null;
   return (
     <nav aria-label="この章の節を移動" className="border border-(--rule-soft) bg-(--paper)">
       <NavHeading count={chapter.sections.length}>この章の節</NavHeading>
       <ol className="py-1" data-standards-nav="sections">
-        {chapter.sections.map((section) => (
-          <li key={section.number}>
-            <a
-              href={`#${generateHeadingId(section.headingText)}`}
-              className={navLinkClass(false)}
-            >
+        {chapter.sections.map((section) => {
+          const label = (
+            <>
               <span className="w-8 shrink-0 font-mono text-[11px] tabular-nums text-(--ink-muted)">
                 {section.number}節
               </span>
               <span className="min-w-0 flex-1">{section.title}</span>
-            </a>
-          </li>
-        ))}
+            </>
+          );
+          if (!chapter.splitBySection) {
+            return (
+              <li key={section.number}>
+                <a href={`#${generateHeadingId(section.headingText)}`} className={navLinkClass(false)}>
+                  {label}
+                </a>
+              </li>
+            );
+          }
+          const active = section.number === currentSection;
+          return (
+            <li key={section.number}>
+              <Link
+                href={standardSectionPath(document, chapter, section.number)}
+                className={navLinkClass(active)}
+                aria-current={active ? 'page' : undefined}
+              >
+                {label}
+              </Link>
+            </li>
+          );
+        })}
       </ol>
     </nav>
   );
@@ -276,6 +306,7 @@ function NavigationContents({
   currentDocument,
   currentPart,
   currentChapter,
+  currentSection,
   pageNumbers = [],
 }: Omit<StandardsNavigationProps, 'variant'>) {
   if (!currentDocument) return <AgencyNav currentAgency={agencyId} />;
@@ -288,7 +319,9 @@ function NavigationContents({
   return (
     <>
       {!currentPart && !currentChapter && <DocumentNav currentDocument={currentDocument} />}
-      {currentChapter && <SectionNav chapter={currentChapter} />}
+      {currentChapter && (
+        <SectionNav document={currentDocument} chapter={currentChapter} currentSection={currentSection} />
+      )}
       {hasChapters && !currentPart && (
         <ChapterNav document={currentDocument} currentChapter={currentChapter} />
       )}
@@ -305,31 +338,41 @@ export default function StandardsNavigation({
   currentDocument,
   currentPart,
   currentChapter,
+  currentSection,
   pageNumbers,
   variant = 'sidebar',
 }: StandardsNavigationProps) {
   const agency = getStandardsCatalog().agencies.find((entry) => entry.agencyId === agencyId);
+  const sectionTitle = currentSection !== undefined
+    ? currentChapter?.sections.find((section) => section.number === currentSection)?.headingText
+    : undefined;
   const contextLabel = currentPart
     ? `PDF ${currentPart.firstPage}–${currentPart.lastPage}`
     : currentChapter
-      ? currentChapter.title
+      ? sectionTitle ? `${currentChapter.title} ${sectionTitle}` : currentChapter.title
       : currentDocument?.title ?? agency?.agencyName ?? '基準類';
-  const parentHref = (currentPart || currentChapter) && currentDocument
-    ? standardDocumentPath(currentDocument)
-    : currentDocument
-      ? `/standards/${agencyId}`
-      : '/standards';
-  const parentLabel = currentPart || currentChapter
-    ? '文書目次へ戻る'
-    : currentDocument
-      ? `${agency?.agencyName ?? '発行機関'}の文書一覧`
-      : '全国の基準類一覧';
+  // 節ページの親は章ページ（節の一覧）。章・分冊の親は文書目次。
+  const parentHref = sectionTitle && currentChapter && currentDocument
+    ? standardChapterPath(currentDocument, currentChapter)
+    : (currentPart || currentChapter) && currentDocument
+      ? standardDocumentPath(currentDocument)
+      : currentDocument
+        ? `/standards/${agencyId}`
+        : '/standards';
+  const parentLabel = sectionTitle
+    ? '章の節一覧へ戻る'
+    : currentPart || currentChapter
+      ? '文書目次へ戻る'
+      : currentDocument
+        ? `${agency?.agencyName ?? '発行機関'}の文書一覧`
+        : '全国の基準類一覧';
   const contents = (
     <NavigationContents
       agencyId={agencyId}
       currentDocument={currentDocument}
       currentPart={currentPart}
       currentChapter={currentChapter}
+      currentSection={currentSection}
       pageNumbers={pageNumbers}
     />
   );

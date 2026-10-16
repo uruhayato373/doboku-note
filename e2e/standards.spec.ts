@@ -126,10 +126,12 @@ test('第1編から第2編へ切り替わる箇所が別の章記事に分かれ
 test('複雑な表が横スクロールでき、ページ全体は横に溢れない', async ({ page }) => {
   await page.goto('/standards/chubu/common/chapters/1-3');
 
-  const pre = page.locator('[data-standards-chapter="1-3"] pre').first();
-  await expect(pre).toBeVisible();
-  // 版面を保った表はブロック内でスクロールする（内容を削らずに全列へ到達できる）
-  const scrollable = await pre.evaluate((el) => getComputedStyle(el).overflowX);
+  // 表は原本と照合して組み直した表（content/sources/standards/tables）で出る。版面のコードブロックは残らない
+  await expect(page.locator('[data-standards-chapter="1-3"] pre')).toHaveCount(0);
+  const wrapper = page.locator('[data-standards-chapter="1-3"] .table-scroll').first();
+  await expect(wrapper).toBeVisible();
+  // 表はラッパーの中でスクロールする（内容を削らずに全列へ到達できる）
+  const scrollable = await wrapper.evaluate((el) => getComputedStyle(el).overflowX);
   expect(scrollable).toBe('auto');
 
   const overflow = await page.evaluate(
@@ -172,12 +174,14 @@ test('章記事が light / dark どちらでも本文と罫線を判別できる
     return page.evaluate(() => {
       const paragraph = document.querySelector('[data-standards-chapter] p');
       const heading = document.querySelector('[data-standards-chapter] h2');
-      const block = document.querySelector('[data-standards-chapter] pre');
+      // 表の見出し（背景色は thead が持つ）で、文字と背景が同じ色に潰れていないことを見る
+      const block = document.querySelector('[data-standards-chapter] table th');
+      const blockHead = document.querySelector('[data-standards-chapter] table thead');
       return {
         text: getComputedStyle(paragraph as Element).color,
         rule: getComputedStyle(heading as Element).borderBottomColor,
         blockText: getComputedStyle(block as Element).color,
-        blockBg: getComputedStyle(block as Element).backgroundColor,
+        blockBg: getComputedStyle(blockHead as Element).backgroundColor,
       };
     });
   };
@@ -219,10 +223,11 @@ test('章の途中で終わる part と、章の途中から始まる part の�
   expect(hrefs.some((href) => href.includes('/part-04#'))).toBeTruthy();
 });
 
-test('最大の章（167ページ）でも節目次から目的の節へ飛べる', async ({ page }, testInfo) => {
-  // 3-2 は 18 節 167 ページで、1 ページに収めると縦に非常に長い。節の URL へ
-  // 細分化しない代わりに、PCの右ナビ・モバイルの折りたたみ目次が機能することを固定する。
+test('最大の章（167ページ）は節ページに分かれ、節目次から目的の節へ移れる', async ({ page }, testInfo) => {
+  // 3-2 は 18 節 167 ページ（本文約 488KB）。章ページは節の一覧にし、本文は
+  // /chapters/3-2/sections/{節} の節ページで出す（config/standards-structure.json の sectionPages）。
   await page.goto('/standards/chubu/common/chapters/3-2');
+  await expect(page.locator('[data-standards-section-index="3-2"] > ol > li')).toHaveCount(18);
 
   const nav = page.locator(testInfo.project.name === 'mobile-chromium' ? '[data-standards-mobile-nav]' : '[data-standards-sidebar]');
   if (testInfo.project.name === 'mobile-chromium') await nav.locator(':scope > summary').click();
@@ -231,15 +236,12 @@ test('最大の章（167ページ）でも節目次から目的の節へ飛べ�
   const links = toc.locator('a');
   await expect(links).toHaveCount(18);
 
-  const target = links.nth(9);
-  const href = await target.getAttribute('href');
-  expect(href).toBeTruthy();
-  await target.click();
+  await links.nth(9).click();
 
-  // 飛び先の見出しが実在してビューポート内にあること（アンカー切れなら見えない）
-  const heading = page.locator(`[data-standards-chapter="3-2"] ${href}`);
-  await expect(heading).toBeVisible();
-  await expect(heading).toBeInViewport();
+  // 第10節の節ページへ移り、本文がそこにある（節目次は現在の節を強調する）
+  await expect(page).toHaveURL(/\/standards\/chubu\/common\/chapters\/3-2\/sections\/10$/);
+  await expect(page.locator('main article h1')).toContainText('第10節');
+  await expect(page.locator('[data-standards-chapter="3-2"][data-standards-section="10"] h2').first()).toBeVisible();
 
   const overflow = await page.evaluate(
     () => document.documentElement.scrollWidth - document.documentElement.clientWidth,

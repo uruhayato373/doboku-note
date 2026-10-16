@@ -160,9 +160,12 @@ function main() {
   const rows = [];
   const changes = [];
 
+  // 章立てはあるが別の仕様書なので行差分を取らない文書（設定 comparison.separateDocuments・理由は設定側）
+  const separate = new Set((config.comparison?.separateDocuments ?? []).map((entry) => entry.document));
+
   for (const document of catalog.documents.filter((entry) => entry.role === 'common')) {
     const manifest = readManifest(document.agencyId, document.documentId);
-    if (!manifest) {
+    if (!manifest || separate.has(`${document.agencyId}/${document.documentId}`)) {
       rows.push({
         agencyId: document.agencyId,
         agencyName: document.agencyName,
@@ -170,8 +173,8 @@ function main() {
         title: document.title,
         pages: document.pages,
         sourceSha256: document.sourceSha256,
-        structured: false,
-        indexable: false,
+        structured: Boolean(manifest),
+        indexable: manifest?.indexable ?? false,
         status: document.duplicateOf ? 'source-duplicate' : 'different-document-structure',
         duplicateOf: document.duplicateOf ?? null,
         sameChapters: 0,
