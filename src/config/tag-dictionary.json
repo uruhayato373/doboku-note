@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-16T04:53:26.029Z",
+  "generated_at": "2026-10-16T04:54:15.302Z",
   "summary": {
-    "total_mdx_files": 1467,
+    "total_mdx_files": 1468,
     "total_unique_tags": 133,
     "allowlist_size": 330,
     "known_count": 133,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 289,
+      "count": 290,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1306,6 +1306,7 @@
         "civil-practice-trench-excavation-safety",
         "civil-practice-urban-greening",
         "civil-practice-urban-park-management",
+        "civil-practice-waterworks-business",
         "civil-practice-weather-information-reading",
         "civil-practice-wood-and-stone-materials",
         "concrete-chief-engineer-guide-essay",
@@ -3264,7 +3265,7 @@
     },
     {
       "name": "地方公共団体",
-      "count": 63,
+      "count": 64,
       "inAllowlist": true,
       "usedIn": [
         "civil-practice-barrier-free-roads-stations",
@@ -3315,6 +3316,7 @@
         "civil-practice-social-infrastructure-overview",
         "civil-practice-urban-greening",
         "civil-practice-urban-park-management",
+        "civil-practice-waterworks-business",
         "civil-practice-weather-information-reading",
         "pe-comprehensive-management-essay-pattern-cross-year-application",
         "pe-comprehensive-management-h21-essay-road-municipality",
@@ -3946,7 +3948,7 @@
     },
     {
       "name": "維持管理",
-      "count": 25,
+      "count": 26,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-concrete-maintenance",
@@ -3963,6 +3965,7 @@
         "civil-practice-sewerage-and-stormwater",
         "civil-practice-social-infrastructure-overview",
         "civil-practice-urban-park-management",
+        "civil-practice-waterworks-business",
         "concrete-chief-engineer-textbook-durability",
         "concrete-diagnostician-textbook-assessment",
         "concrete-diagnostician-textbook-maintenance",
@@ -5161,6 +5164,17 @@
       ]
     },
     {
+      "name": "インフラ老朽化",
+      "count": 4,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-social-infrastructure-overview",
+        "civil-practice-waterworks-business",
+        "pe-comprehensive-management-aging-infrastructure",
+        "pe-construction-infra-roukyuuka-iji"
+      ]
+    },
+    {
       "name": "データ利活用",
       "count": 4,
       "inAllowlist": true,
@@ -5292,16 +5306,6 @@
       ]
     },
     {
-      "name": "インフラ老朽化",
-      "count": 3,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-social-infrastructure-overview",
-        "pe-comprehensive-management-aging-infrastructure",
-        "pe-construction-infra-roukyuuka-iji"
-      ]
-    },
-    {
       "name": "キーワード学習",
       "count": 3,
       "inAllowlist": true,
@@ -5329,6 +5333,16 @@
         "pe-construction-chiiki-dukuri-ronbun-keyword",
         "pe-construction-kokudo-keisei-chiiki",
         "pe-construction-urban-planning-ronbun-keyword"
+      ]
+    },
+    {
+      "name": "上下水道",
+      "count": 3,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-textbook-water-sewer",
+        "civil-practice-sewerage-and-stormwater",
+        "civil-practice-waterworks-business"
       ]
     },
     {
@@ -5445,15 +5459,6 @@
       "usedIn": [
         "pe-comprehensive-management-management-tradeoffs",
         "pe-comprehensive-management-multi-objective-optimization"
-      ]
-    },
-    {
-      "name": "上下水道",
-      "count": 2,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-textbook-water-sewer",
-        "civil-practice-sewerage-and-stormwater"
       ]
     },
     {
