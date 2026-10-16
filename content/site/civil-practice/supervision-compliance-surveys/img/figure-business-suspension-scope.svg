@@ -1,9 +1,8 @@
 <!-- authored 2026-10-16 doboku-note 自作。仕分けは国土交通省の監督処分の基準の別表の記載どおり -->
-<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="営業停止の期間中にできない行為とできる行為を2列に分けた図。できないのは新規の請負契約の締結、工事の追加に係る契約変更、関連する入札・見積り・交渉。できるのは許可・経営事項審査・入札参加資格の申請、既契約の施工、瑕疵とアフターサービスの修繕、災害時の緊急工事、代金の請求・受領・支払い、資金の借入れ。">
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="営業停止の期間中にできない行為とできる行為を、対応しない独立した2列に分けた図。できないのは新規の請負契約の締結、工事の追加に係る契約変更、関連する入札・見積り・交渉。できるのは許可・経営事項審査・入札参加資格の申請、既契約の施工、瑕疵とアフターサービスの修繕、災害時の緊急工事、代金の請求・受領・支払い、資金の借入れ。処分に範囲の限定が付くときは、その範囲に同じ制限がかかる。">
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #222; }
-      .tt { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
       .tb { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
       .tx { font-size: 12px; fill: #222; }
       .ts { font-size: 11px; fill: #555; }
@@ -13,52 +12,52 @@
       .b-warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
       .b-dan { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
       .b-sur { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
-      .b-wh { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
       .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
-      .ln { stroke: #8a8a8a; stroke-width: 1; fill: none; }
-      .ld { stroke: #8a8a8a; stroke-width: 1; fill: none; stroke-dasharray: 3 3; }
     </style>
     <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
   </defs>
   <rect class="b-sur" x="10" y="10" width="380" height="44" rx="6"/>
-  <text class="ts" x="200.0" y="28.1" text-anchor="middle">停止の対象は、請負契約の締結と、</text>
-  <text class="ts" x="200.0" y="43.6" text-anchor="middle">それに付随する入札・見積りなど</text>
+  <text class="ts" x="200" y="28.1" text-anchor="middle">停止の対象は、請負契約の締結と、</text>
+  <text class="ts" x="200" y="43.6" text-anchor="middle">それに付随する入札・見積りなど</text>
   <rect class="b-dan" x="10" y="66" width="185" height="30" rx="6"/>
   <text class="tb" x="102.5" y="85.2" text-anchor="middle">期間中にできない行為</text>
   <rect class="b-pos" x="205" y="66" width="185" height="30" rx="6"/>
   <text class="tb" x="297.5" y="85.2" text-anchor="middle">期間中でもできる行為</text>
-  <rect class="b-dan" x="10" y="106" width="185" height="110" rx="6"/>
-  <text class="tx" x="22.0" y="148.4">新たな請負契約の締結</text>
-  <text class="tx" x="22.0" y="165.2">（仮契約に基づく</text>
-  <text class="tx" x="22.0" y="182.0">本契約を含む）</text>
-  <rect class="b-dan" x="10" y="226" width="185" height="110" rx="6"/>
-  <text class="tx" x="22.0" y="253.0">処分の前に結んだ契約の</text>
-  <text class="tx" x="22.0" y="269.8">変更のうち、</text>
-  <text class="tx" x="22.0" y="286.6">工事の追加に係るもの</text>
-  <text class="ts" x="22.0" y="302.4">（施工上特に必要な</text>
-  <text class="ts" x="22.0" y="317.8">ものを除く）</text>
-  <rect class="b-dan" x="10" y="346" width="185" height="110" rx="6"/>
-  <text class="tx" x="22.0" y="380.0">入札・見積り・交渉</text>
-  <text class="tx" x="22.0" y="396.8">停止の期間が終わった後の</text>
-  <text class="tx" x="22.0" y="413.6">新たな契約のための</text>
-  <text class="tx" x="22.0" y="430.4">ものも含む</text>
-  <rect class="b-pos" x="205" y="106" width="185" height="53" rx="6"/>
-  <text class="tx" x="217.0" y="128.3">許可・経営事項審査・</text>
-  <text class="tx" x="217.0" y="145.1">入札参加資格の申請</text>
-  <rect class="b-pos" x="205" y="165" width="185" height="53" rx="6"/>
-  <text class="tx" x="217.0" y="187.3">処分の前に結んだ契約に</text>
-  <text class="tx" x="217.0" y="204.1">基づく工事の施工</text>
-  <rect class="b-pos" x="205" y="224" width="185" height="53" rx="6"/>
-  <text class="tx" x="217.0" y="246.3">施工の瑕疵・アフター</text>
-  <text class="tx" x="217.0" y="263.1">サービス保証の修繕</text>
-  <rect class="b-pos" x="205" y="283" width="185" height="53" rx="6"/>
-  <text class="tx" x="217.0" y="305.3">災害時の緊急を要する</text>
-  <text class="tx" x="217.0" y="322.1">工事の施工</text>
-  <rect class="b-pos" x="205" y="342" width="185" height="53" rx="6"/>
-  <text class="tx" x="217.0" y="364.3">請負代金等の請求・</text>
-  <text class="tx" x="217.0" y="381.1">受領・支払い</text>
-  <rect class="b-pos" x="205" y="401" width="185" height="53" rx="6"/>
-  <text class="tx" x="217.0" y="423.3">運営に必要な</text>
-  <text class="tx" x="217.0" y="440.1">資金の借入れ</text>
-  <text class="ts" x="10" y="485">出典：国土交通省 監督処分の基準の別表</text>
+  <line x1="200" y1="62" x2="200" y2="446" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="3 3"/>
+  <rect class="b-dan" x="10" y="106" width="185" height="106" rx="6"/>
+  <text class="tx" x="22" y="146.2">新たな請負契約の締結</text>
+  <text class="tx" x="22" y="163.0">（仮契約に基づく</text>
+  <text class="tx" x="22" y="179.8">本契約を含む）</text>
+  <rect class="b-dan" x="10" y="223" width="185" height="106" rx="6"/>
+  <text class="tx" x="22" y="246.4">処分の前に結んだ契約の</text>
+  <text class="tx" x="22" y="263.2">変更のうち、</text>
+  <text class="tx" x="22" y="280.0">工事の追加に係るもの</text>
+  <text class="ts" x="22" y="296.8">（施工上特に必要な</text>
+  <text class="ts" x="22" y="313.6">ものを除く）</text>
+  <rect class="b-dan" x="10" y="340" width="185" height="106" rx="6"/>
+  <text class="tx" x="22" y="371.8">入札・見積り・交渉</text>
+  <text class="tx" x="22" y="388.6">停止の期間が終わった後の</text>
+  <text class="tx" x="22" y="405.4">新たな契約のための</text>
+  <text class="tx" x="22" y="422.2">ものも含む</text>
+  <rect class="b-pos" x="205" y="106" width="185" height="50" rx="6"/>
+  <text class="tx" x="217" y="128.0">許可・経営事項審査・</text>
+  <text class="tx" x="217" y="144.8">入札参加資格の申請</text>
+  <rect class="b-pos" x="205" y="164" width="185" height="50" rx="6"/>
+  <text class="tx" x="217" y="186.0">処分の前に結んだ契約に</text>
+  <text class="tx" x="217" y="202.8">基づく工事の施工</text>
+  <rect class="b-pos" x="205" y="222" width="185" height="50" rx="6"/>
+  <text class="tx" x="217" y="244.0">施工の瑕疵・アフター</text>
+  <text class="tx" x="217" y="260.8">サービス保証の修繕</text>
+  <rect class="b-pos" x="205" y="280" width="185" height="50" rx="6"/>
+  <text class="tx" x="217" y="302.0">災害時の緊急を要する</text>
+  <text class="tx" x="217" y="318.8">工事の施工</text>
+  <rect class="b-pos" x="205" y="338" width="185" height="50" rx="6"/>
+  <text class="tx" x="217" y="360.0">請負代金等の請求・</text>
+  <text class="tx" x="217" y="376.8">受領・支払い</text>
+  <rect class="b-pos" x="205" y="396" width="185" height="50" rx="6"/>
+  <text class="tx" x="217" y="418.0">運営に必要な</text>
+  <text class="tx" x="217" y="434.8">資金の借入れ</text>
+  <rect class="b-warn" x="10" y="456" width="380" height="26" rx="6"/>
+  <text class="tb" x="200" y="473" text-anchor="middle">処分に範囲の限定が付くとき、その範囲に同じ制限がかかる</text>
+  <text class="ts" x="10" y="496">出典：国土交通省 監督処分の基準の別表</text>
 </svg>
