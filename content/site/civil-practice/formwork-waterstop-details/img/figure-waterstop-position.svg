@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="止水板の設置位置の比較。打継ぎ目の中心線をまたぎ両側へ均等に埋め込むのが基本で、片側が浅いとその面から水みちができやすい">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 12px; fill: #1a3a5c; }
+      .h { font-size: 13px; font-weight: bold; }
+      .s { font-size: 12px; fill: #222; }
+      .n { font-size: 11px; fill: #555; }
+      .lb { font-size: 11px; font-weight: bold; fill: #2e6da4; }
+      .m { text-anchor: middle; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .danger { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .ar { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+    </style>
+    <!-- brand / positive / warn / danger / surface tokens -->
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+  <rect width="400" height="500" fill="#ffffff" />
+  <rect class="positive" x="10" y="14" width="185" height="200" rx="8"/>
+  <rect class="danger" x="205" y="14" width="185" height="200" rx="8"/>
+  <text class="h m" x="102" y="36">○ 中心線をまたぐ</text>
+  <text class="h m" x="297" y="36">× 片側が浅い</text>
+  <path d="M102,78 V160" stroke="#555" stroke-width="1.5" stroke-dasharray="5 4" fill="none"/>
+  <path d="M42,124 H162" stroke="#2e6da4" stroke-width="6" stroke-linecap="round" fill="none"/>
+  <path d="M297,78 V160" stroke="#555" stroke-width="1.5" stroke-dasharray="5 4" fill="none"/>
+  <path d="M237,124 H317" stroke="#2e6da4" stroke-width="6" stroke-linecap="round" fill="none"/>
+  <text class="n m" x="102" y="70">打継ぎ目の中心線</text>
+  <text class="n m" x="297" y="70">打継ぎ目の中心線</text>
+  <text class="n m" x="72" y="150">埋込み</text>
+  <text class="n m" x="132" y="150">埋込み</text>
+  <text class="n m" x="267" y="150">深い</text>
+  <text class="n m" x="327" y="150">浅い</text>
+  <path d="M297,128 H317" stroke="#b22234" stroke-width="2" fill="none"/>
+  <text class="s" x="215" y="182">浅い面から水みち</text>
+  <text class="s" x="215" y="200">ができやすい</text>
+  <text class="s" x="20" y="182">両側のコンクリートへ</text>
+  <text class="s" x="20" y="200">均等に埋め込む</text>
+  <rect class="brand" x="10" y="228" width="380" height="96" rx="8"/>
+  <text class="h" x="22" y="250">材質は、3条件で選ぶ</text>
+  <text class="s" x="22" y="270">設計水頭（想定する水圧）</text>
+  <text class="s" x="22" y="288">目地の変位量</text>
+  <text class="s" x="22" y="306">必要かぶり厚さ（製品ごとの最小かぶり）</text>
+  <rect class="warn" x="10" y="336" width="380" height="76" rx="8"/>
+  <text class="h" x="22" y="358">打込み前に位置を確かめる</text>
+  <text class="s" x="22" y="378">型枠の締付けや配筋の都合で、</text>
+  <text class="s" x="22" y="396">位置がずれていないか</text>
+  <rect class="positive" x="10" y="424" width="380" height="64" rx="8"/>
+  <text class="h" x="22" y="446">設置後は踏まれ、倒れないよう養生する</text>
+  <text class="s" x="22" y="466">作業員への周知も怠らない</text>
+</svg>

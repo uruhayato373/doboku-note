@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="Pコン跡の処理の手順。穴の清掃、プライマー、無収縮モルタルの充填、かぶりが大きい箇所は複数層に分けて充填する流れ">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 12px; fill: #1a3a5c; }
+      .h { font-size: 13px; font-weight: bold; }
+      .s { font-size: 12px; fill: #222; }
+      .n { font-size: 11px; fill: #555; }
+      .lb { font-size: 11px; font-weight: bold; fill: #2e6da4; }
+      .m { text-anchor: middle; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .danger { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .ar { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+    </style>
+    <!-- brand / positive / warn / danger / surface tokens -->
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+  <rect width="400" height="500" fill="#ffffff" />
+  <rect class="surface" x="10" y="14" width="380" height="70" rx="8"/>
+  <circle cx="34" cy="49" r="12" class="brand"/>
+  <text class="h m" x="34" y="54">1</text>
+  <rect x="58" y="24" width="64" height="50" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1"/>
+  <rect x="58" y="41" width="40" height="16" fill="#ffffff"/>
+  <circle cx="66" cy="53" r="2" fill="#8a8a8a"/>
+  <circle cx="76" cy="45" r="2" fill="#8a8a8a"/>
+  <circle cx="86" cy="49" r="2" fill="#8a8a8a"/>
+  <circle cx="72" cy="53" r="2" fill="#8a8a8a"/>
+  <circle cx="82" cy="45" r="2" fill="#8a8a8a"/>
+  <text class="lb" x="138" y="44">除去</text>
+  <text class="s" x="138" y="62">穴の内部のコンクリートくずや</text>
+  <text class="s" x="138" y="78">ほこりを刷毛などで除去する</text>
+  <rect class="surface" x="10" y="94" width="380" height="70" rx="8"/>
+  <circle cx="34" cy="129" r="12" class="brand"/>
+  <text class="h m" x="34" y="134">2</text>
+  <rect x="58" y="104" width="64" height="50" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1"/>
+  <rect x="58" y="121" width="40" height="16" fill="#ffffff" stroke="#2e6da4" stroke-width="2.5"/>
+  <text class="lb" x="138" y="124">下塗り</text>
+  <text class="s" x="138" y="142">接着性を高めるプライマーを</text>
+  <text class="s" x="138" y="158">塗布する</text>
+  <rect class="surface" x="10" y="174" width="380" height="70" rx="8"/>
+  <circle cx="34" cy="209" r="12" class="brand"/>
+  <text class="h m" x="34" y="214">3</text>
+  <rect x="58" y="184" width="64" height="50" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1"/>
+  <rect x="58" y="201" width="40" height="16" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+  <text class="lb" x="138" y="204">充填</text>
+  <text class="s" x="138" y="222">収縮が少なく止水性に優れた</text>
+  <text class="s" x="138" y="238">モルタルを、隙間なく充填する</text>
+  <rect class="surface" x="10" y="254" width="380" height="70" rx="8"/>
+  <circle cx="34" cy="289" r="12" class="brand"/>
+  <text class="h m" x="34" y="294">4</text>
+  <rect x="58" y="264" width="64" height="50" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1"/>
+  <rect x="58" y="281" width="20" height="16" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+  <rect x="78" y="281" width="20" height="16" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="lb" x="138" y="284">複数層</text>
+  <text class="s" x="138" y="302">かぶりが大きい箇所は複数層</text>
+  <text class="s" x="138" y="318">各層を硬化させてから次層へ</text>
+  <rect class="warn" x="10" y="336" width="380" height="92" rx="8"/>
+  <text class="h" x="22" y="358">充填して終わりではない</text>
+  <text class="s" x="22" y="378">モルタルは硬化で収縮し、隙間から再び漏水する</text>
+  <text class="s" x="22" y="396">水槽や地下構造物は、セパレーターに水膨張ゴム</text>
+  <text class="s" x="22" y="414">製のリングを付けて補強する方法もある</text>
+  <rect class="positive" x="10" y="438" width="380" height="50" rx="8"/>
+  <text class="h" x="22" y="468">色合わせは、乾燥後に周囲と見比べて確認する</text>
+</svg>
