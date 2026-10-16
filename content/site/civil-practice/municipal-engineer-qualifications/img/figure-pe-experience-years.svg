@@ -1,0 +1,57 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は技術士第二次試験実施大綱の参考が定める受験に必要な業務経験の年数（総合技術監理部門を除く技術部門と総合技術監理部門の比較）。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="技術士第二次試験に必要な業務経験の三つの道を、総合技術監理部門を除く技術部門と総合技術監理部門で比べた棒図。補助した期間は4年超と7年超、監督の下で従事した期間は4年超と7年超、業務に従事した期間は7年超と10年超。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .x { font-size: 12px; fill: #222; }
+      .s { font-size: 11px; fill: #555; }
+      .sb { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .g { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .wh { fill: #fff; stroke: #8a8a8a; stroke-width: 1.5; }
+      .dz { fill: #fff; stroke: #2e6da4; stroke-width: 1.5; stroke-dasharray: 4 3; }
+      .l { stroke: #d7d7d7; stroke-width: 1; fill: none; }
+      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ar { stroke: #b22234; stroke-width: 2; fill: none; }
+      .ag { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .ax { stroke: #8a8a8a; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+    <marker id="ahr" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#b22234"/></marker>
+    <marker id="ahg" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#3a7d44"/></marker>
+    <marker id="ahk" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#8a8a8a"/></marker>
+  </defs>
+  <rect class="b" x="14" y="10" width="14" height="12" rx="2"/>
+  <text class="s" x="34" y="20" text-anchor="start">総合技術監理部門を除く技術部門</text>
+  <rect class="w" x="14" y="28" width="14" height="12" rx="2"/>
+  <text class="s" x="34" y="38" text-anchor="start">総合技術監理部門</text>
+  <text class="t" x="14" y="68" text-anchor="start">技術士補として、技術士を補助した期間</text>
+  <rect class="b" x="14" y="76" width="96" height="20"/>
+  <text class="sb" x="116" y="91" text-anchor="start">通算4年超</text>
+  <rect class="w" x="14" y="100" width="168" height="20"/>
+  <text class="sb" x="188" y="115" text-anchor="start">通算7年超</text>
+  <text class="t" x="14" y="150" text-anchor="start">技術士補の資格を得た後、監督の下で従事した期間</text>
+  <rect class="b" x="14" y="158" width="96" height="20"/>
+  <text class="sb" x="116" y="173" text-anchor="start">通算4年超</text>
+  <rect class="w" x="14" y="182" width="168" height="20"/>
+  <text class="sb" x="188" y="197" text-anchor="start">通算7年超</text>
+  <text class="t" x="14" y="232" text-anchor="start">技術士補の資格を得た後、業務に従事した期間</text>
+  <rect class="b" x="14" y="240" width="168" height="20"/>
+  <text class="sb" x="188" y="255" text-anchor="start">通算7年超</text>
+  <rect class="w" x="14" y="264" width="240" height="20"/>
+  <text class="sb" x="260" y="279" text-anchor="start">通算10年超</text>
+  <rect class="g" x="10" y="306" width="380" height="52" rx="6"/>
+  <text class="s" x="20" y="326" text-anchor="start">年数に数えるのは、計画・研究・設計・分析・試験・評価</text>
+  <text class="s" x="20" y="342" text-anchor="start">（補助的業務を除く）またはその指導の業務</text>
+  <rect class="w" x="10" y="366" width="380" height="52" rx="6"/>
+  <text class="s" x="20" y="386" text-anchor="start">総合技術監理部門の10年は、既に他部門の技術士の</text>
+  <text class="s" x="20" y="402" text-anchor="start">資格を有する人なら7年</text>
+  <rect class="g" x="10" y="426" width="380" height="52" rx="6"/>
+  <text class="s" x="20" y="446" text-anchor="start">理科系統の大学院の修士課程などを修了した人は、</text>
+  <text class="s" x="20" y="462" text-anchor="start">2年を限度に年数を減じる扱いがある</text>
+</svg>
