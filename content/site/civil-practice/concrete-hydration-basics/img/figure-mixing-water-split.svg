@@ -1,0 +1,44 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は、練混ぜ水の三分類と余り水の行方（水セメント比55%の例）。数値は記事本文の値のみ。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="水セメント比55%の練混ぜ水を、結合水約23、ゲル空隙の水約21、余り水約11に分けた帯と、余った水が空隙になり強度や水密性を落とす流れを示した図。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 13px; fill: #222; }
+      .nt { font-size: 12px; fill: #555; }
+      .sg { font-size: 12px; font-weight: bold; fill: #1a3a5c; text-anchor: middle; }
+      .bx { font-size: 13px; font-weight: bold; fill: #1a3a5c; text-anchor: middle; }
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .brd { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .wrn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .dng { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .br { stroke: #555; stroke-width: 1.5; fill: none; }
+      .ar { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+
+  <text class="nt" x="30" y="28">水セメント比55%の練混ぜ水（セメント質量の55%分）</text>
+  <rect class="pos" x="30" y="40" width="142" height="62"/>
+  <rect class="brd" x="172" y="40" width="130" height="62"/>
+  <rect class="wrn" x="302" y="40" width="68" height="62"/>
+  <text class="sg" x="101" y="66">結合水</text><text class="sg" x="101" y="86">約23%</text>
+  <text class="sg" x="237" y="66">ゲル空隙の水</text><text class="sg" x="237" y="86">約21%</text>
+  <text class="sg" x="336" y="66">余り水</text><text class="sg" x="336" y="86">約11%</text>
+
+  <path class="br" d="M30,112V120H302V112"/>
+  <text class="nt" x="166" y="140" text-anchor="middle">反応に必要な水：合計で約44%</text>
+  <path class="br" d="M302,112V120H370V112"/>
+  <path class="br" d="M336,120V150"/>
+  <text class="nt" x="370" y="166" text-anchor="end">余る分：練混ぜ水の約2割</text>
+
+  <rect class="wrn" x="30" y="190" width="340" height="52" rx="8"/>
+  <text class="bx" x="200" y="213">余った水は、硬化後に</text><text class="bx" x="200" y="232">蒸発や逸散で抜ける</text>
+  <path class="ar" d="M200,242V268" marker-end="url(#ah)"/>
+  <rect class="wrn" x="30" y="272" width="340" height="52" rx="8"/>
+  <text class="bx" x="200" y="304">抜けた跡が、微細な空隙として残る</text>
+  <path class="ar" d="M200,324V350" marker-end="url(#ah)"/>
+  <rect class="dng" x="30" y="354" width="340" height="52" rx="8"/>
+  <text class="bx" x="200" y="377">強度と水密性が落ち、</text><text class="bx" x="200" y="396">乾燥収縮も大きくなる傾向</text>
+
+  <rect class="brd" x="30" y="428" width="340" height="56" rx="8"/>
+  <text class="bx" x="200" y="452">現場で水を足すと</text><text class="bx" x="200" y="471">水セメント比だけが上がる</text>
+</svg>

@@ -1,0 +1,36 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は、セメントの種類による強度の立ち上がりの違い（定性の概念図。縦軸・横軸に数値の目盛りは付けない）。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="セメントの種類による強度の立ち上がりを比べた概念図。早強ポルトランドセメントは早期に強度が出る。中庸熱・低熱ポルトランドセメントと高炉セメントB種は初期強度は小さく、長期強度が大きい。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 13px; fill: #222; }
+      .ax { font-size: 13px; font-weight: bold; fill: #222; }
+      .bx { font-size: 13px; font-weight: bold; fill: #1a3a5c; text-anchor: middle; }
+      .card { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .brd { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .axis { stroke: #555; stroke-width: 1.5; fill: none; }
+      .c-fast { stroke: #b22234; stroke-width: 3; fill: none; stroke-linecap: round; }
+      .c-slow { stroke: #2e6da4; stroke-width: 3; fill: none; stroke-linecap: round; }
+    </style>
+    <marker id="ak" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+
+  <rect class="card" x="10" y="8" width="380" height="270" rx="8"/>
+  <path class="axis" d="M50,248V30" marker-end="url(#ak)"/>
+  <path class="axis" d="M50,248H372" marker-end="url(#ak)"/>
+  <text class="ax" x="58" y="50">強度</text>
+  <text class="ax" x="372" y="268" text-anchor="end">材齢（時間）</text>
+  <path class="c-fast" d="M54,248C70,190 100,140 160,122C230,106 300,102 366,100"/>
+  <path class="c-slow" d="M54,248C110,244 150,205 200,160C260,108 320,62 366,48"/>
+  <text x="170" y="96" fill="#b22234" style="fill:#b22234;font-size:12px">早強：早期に出る</text>
+  <text x="206" y="196" style="fill:#2e6da4;font-size:12px">初期は小さい</text>
+  <text x="196" y="62" style="fill:#2e6da4;font-size:12px">長期が大きい</text>
+
+  <path class="c-fast" d="M22,300H46"/><text x="56" y="304">早強ポルトランドセメント</text>
+  <path class="c-slow" d="M22,322H46"/><text x="56" y="326">中庸熱・低熱ポルトランド、高炉B種</text>
+
+  <rect class="brd" x="30" y="350" width="340" height="56" rx="8"/>
+  <text class="bx" x="200" y="374">養生日数や脱型の時期が</text><text class="bx" x="200" y="393">種類で変わる理由は、立ち上がりの違い</text>
+  <rect class="pos" x="30" y="424" width="340" height="56" rx="8"/>
+  <text class="bx" x="200" y="448">フライアッシュセメントは、</text><text class="bx" x="200" y="467">ポゾラン反応がゆっくりで初期の発熱が小さい</text>
+</svg>

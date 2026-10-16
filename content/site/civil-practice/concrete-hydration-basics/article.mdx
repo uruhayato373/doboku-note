@@ -15,7 +15,7 @@ published: true
 publishedAt: '2026-10-13'
 seoTitle: "コンクリートが固まる仕組み｜水・温度・時間と養生・脱型の判断【土木施工の実務】"
 created: 2026-10-13
-dateModified: 2026-10-15
+dateModified: 2026-10-16
 sources:
   - "concrete-basics-5th"
   - "construction-materials-basics"
@@ -66,7 +66,7 @@ sources:
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/civil-practice/concrete-hydration-basics/img/figure-hydration-strength-growth.svg"
-  alt="セメント粒子の表面に水和物が育ってつながり固まる三段階と、材齢に対する強度の伸びを温度と水の条件で比べた概念図。温度が高いと初期は速いが伸びが小さく、低い（凍らない）と遅れるが伸び、水が切れると反応が進まず伸びが止まる"
+  alt="水和の三段階と、温度・水分・凍結による強度の伸びの違いを示した概念図。28日の後も強度は伸びる"
   width={400}
   height={500}
 />
@@ -84,6 +84,14 @@ sources:
 ## 水 — 練混ぜ水は「使う分」と「余る分」に分かれる
 
 反応に水が要るのは確かですが、練り混ぜる水がすべて反応に使われるわけではありません。使う分と余る分の構図をつかむと、現場での加水禁止、単位水量の上限、乾燥収縮が一本の話につながります。
+
+{/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
+<ArticleImage
+  src="/posts/civil-practice/concrete-hydration-basics/img/figure-mixing-water-split.svg"
+  alt="水セメント比55%の練混ぜ水を結合水・ゲル空隙の水・余り水に分けた帯と、余った水が空隙になり強度を落とす流れを示した図"
+  width={400}
+  height={500}
+/>
 
 日本コンクリート工学会の論文によると、完全に水和したポルトランドセメントのペーストでは、水和物と化学的に結びついて蒸発しなくなる水がセメント質量の約23%、水和物の微細な空隙（ゲル空隙）に保たれる水が約21%です。合わせて約44%の水が、セメントを完全に水和させるのに必要とされます（[河上ら、コンクリート工学年次論文集 Vol.26](https://data.jci-net.or.jp/data_pdf/26/026-01-1211.pdf)）。
 
@@ -180,6 +188,14 @@ sources:
 ## 時間 — 強度の区切りと、育つ速さは別のもの
 
 設計も検査も、決めた材齢で強度を区切って判断します。その区切りと、コンクリートが実際に育つ速さは、同じではありません。
+
+{/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
+<ArticleImage
+  src="/posts/civil-practice/concrete-hydration-basics/img/figure-cement-type-strength.svg"
+  alt="早強セメントは早期に強度が出て、中庸熱・低熱・高炉B種は初期が小さく長期が大きいことを比べた概念図"
+  width={400}
+  height={500}
+/>
 
 呼び強度を保証する材齢は、指定しなければ28日です（[生コンクリートの注文内容を決める](/practice/ready-mixed-concrete-ordering)）。国土交通省の通達も、重要なコンクリート構造物の施工完了後にテストハンマーで推定する強度を、材齢28日のものとしています（国官技第61号）。28日は検査の区切りであり、完成の日ではありません。
 
