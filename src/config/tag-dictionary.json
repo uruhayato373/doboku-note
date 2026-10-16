@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-16T01:42:50.857Z",
+  "generated_at": "2026-10-16T01:48:28.872Z",
   "summary": {
-    "total_mdx_files": 1452,
+    "total_mdx_files": 1453,
     "total_unique_tags": 133,
     "allowlist_size": 330,
     "known_count": 133,
@@ -4567,6 +4567,25 @@
       ]
     },
     {
+      "name": "測量",
+      "count": 12,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-guide-surveying",
+        "civil-construction-1-textbook-distance-angle",
+        "civil-construction-1-textbook-leveling",
+        "civil-construction-1-textbook-surveying-basics",
+        "civil-practice-3d-measurement-selection",
+        "civil-practice-coordinate-systems-geodetic-datum",
+        "civil-practice-gis-layer-validation",
+        "civil-practice-gnss-positioning-basics",
+        "civil-practice-municipal-gis",
+        "civil-practice-open-geospatial-data",
+        "civil-practice-reading-civil-drawings",
+        "civil-practice-survey-informatics-overview"
+      ]
+    },
+    {
       "name": "コンクリート主任技士",
       "count": 11,
       "inAllowlist": true,
@@ -4600,24 +4619,6 @@
         "concrete-engineer-textbook-mix-design",
         "concrete-engineer-textbook-production-qc",
         "concrete-engineer-textbook-properties-testing"
-      ]
-    },
-    {
-      "name": "測量",
-      "count": 11,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-guide-surveying",
-        "civil-construction-1-textbook-distance-angle",
-        "civil-construction-1-textbook-leveling",
-        "civil-construction-1-textbook-surveying-basics",
-        "civil-practice-coordinate-systems-geodetic-datum",
-        "civil-practice-gis-layer-validation",
-        "civil-practice-gnss-positioning-basics",
-        "civil-practice-municipal-gis",
-        "civil-practice-open-geospatial-data",
-        "civil-practice-reading-civil-drawings",
-        "civil-practice-survey-informatics-overview"
       ]
     },
     {
@@ -4776,6 +4777,22 @@
       ]
     },
     {
+      "name": "i-Construction",
+      "count": 9,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-3d-measurement-selection",
+        "civil-practice-gis-layer-validation",
+        "civil-practice-gnss-positioning-basics",
+        "civil-practice-ict-construction-workflow",
+        "civil-practice-open-geospatial-data",
+        "civil-practice-site-wireless-communication",
+        "civil-practice-survey-informatics-overview",
+        "pe-construction-kensetsu-dx",
+        "pe-construction-ninaite-dx-ronbun-keyword"
+      ]
+    },
+    {
       "name": "建設DX",
       "count": 9,
       "inAllowlist": true,
@@ -4885,21 +4902,6 @@
         "pe-construction-soil-foundation-ronbun-keyword",
         "pe-construction-steel-concrete-ronbun-keyword",
         "pe-construction-tunnel-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "i-Construction",
-      "count": 8,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-gis-layer-validation",
-        "civil-practice-gnss-positioning-basics",
-        "civil-practice-ict-construction-workflow",
-        "civil-practice-open-geospatial-data",
-        "civil-practice-site-wireless-communication",
-        "civil-practice-survey-informatics-overview",
-        "pe-construction-kensetsu-dx",
-        "pe-construction-ninaite-dx-ronbun-keyword"
       ]
     },
     {
