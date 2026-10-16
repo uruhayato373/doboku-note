@@ -314,9 +314,12 @@ function resolveTablePart(part, lookup) {
   const headerRows = part.header?.length ?? 0;
   let header = resolved.slice(0, headerRows);
   if (header.length === 0 && part.headerFrom) {
-    // ページをまたいだ表の続き。見出しは前の表から写す（原典のこの位置の文字ではないので照合の外）
-    const from = lookup(part.headerFrom);
-    const fromTable = from && overrideParts(from).find((p) => p.kind === 'table' && (p.header?.length ?? 0) > 0);
+    // ページをまたいだ表の続き。見出しは前の表から写す（原典のこの位置の文字ではないので照合の外）。
+    // `key#n` は相手の n 番目（0 から）の見出し付きの表（1 つの版面に表が 2 つ以上あるとき）
+    const [fromKey, index] = String(part.headerFrom).split('#');
+    const from = lookup(fromKey);
+    const candidates = from ? overrideParts(from).filter((p) => p.kind === 'table' && (p.header?.length ?? 0) > 0) : [];
+    const fromTable = candidates[Number(index ?? 0)];
     if (!fromTable || fromTable.header[0].length !== width) return { error: 'override-bad-header-from' };
     header = fromTable.header.map((row) => row.map((cell) => (isSameRef(cell) ? '' : String(cell))));
   }

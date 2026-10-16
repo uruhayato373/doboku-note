@@ -377,6 +377,20 @@ function segmentToBlocks(segment) {
     classified.push({ chunk: chunk.slice(Math.max(start, 0)), isTable: true, captionOnly: false });
   }
 
+  // 表と表に挟まれた短い chunk（1 列目のラベルだけの行・縦書きの見出しの断片。近畿版 3-1 p198 の
+  // `重要構造物`・2-2 p177 の `均等であ`）は、広い空白を持たないので段落に化け、表の行が抜け落ちていた。
+  // 前後がともに表で、句点で終わる行を含まない並びは表の一部とみなす（散文の文は句点で終わる）。
+  for (let i = 0; i < classified.length; i += 1) {
+    if (classified[i].isTable || classified[i].captionOnly) continue;
+    let j = i;
+    while (j < classified.length && !classified[j].isTable && !classified[j].captionOnly) j += 1;
+    const sandwiched = classified[i - 1]?.isTable && classified[j]?.isTable;
+    if (sandwiched && classified.slice(i, j).every((e) => e.chunk.every((line) => !trimBoth(line.text).endsWith('。')))) {
+      for (let k = i; k < j; k += 1) classified[k].isTable = true;
+    }
+    i = j - 1;
+  }
+
   // 表領域は空行をまたいで複数 chunk に割れる（キャプション / 見出し行 / データ行）。
   // 連続する「キャプション単独」「表」chunk を 1 つの表領域へ束ねる。
   const merged = [];
