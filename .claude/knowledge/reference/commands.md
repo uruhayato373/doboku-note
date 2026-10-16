@@ -125,7 +125,7 @@ npm run build-standards-comparison # 近畿版を基準に各地方整備局版�
 npm run build-standards-data     # 構造化章記事から公開用 Markdown / JSON-LD / 索引JSONを `public/standards-data/` へ生成（派生物・Git追跡外・本番build同梱）
 npm run check-standards-data     # 公開用データ全章の形式・条数・出典/加工主体分離・noindex/CORSヘッダーを検査（build-standards-dataが自動実行）
 npm run build-standards-ogp     # 章記事ごとの OGP 画像を生成（章は MDX でないため `npm run ogp` の射程外。描画は ogp-create の lib を再利用し見た目をサイトと揃える。R2 供給は ogp-supply.yml が代行） `--write-srchash` は章の srcHash を退避台帳へ書く。CI は実体の有無でなく台帳の srcHash 一致で再生成を飛ばす（2026-10-11・DN-0683）
-npm run check-standard-articles # 上の 15 検査（本文の取りこぼし0・全ページ割当・条番号整合・見出しレベル・SHA-256 一致・重複 indexable・**catalog 72 文書の被覆と除外理由の実データ検証**・表の可逆性・**章ごとの OGP 被覆**。exit 2=検査不成立）
+npm run check-standard-articles # 上の 16 検査（本文の取りこぼし0・全ページ割当・条番号整合・見出しレベル・SHA-256 一致・重複 indexable・**catalog 72 文書の被覆と除外理由の実データ検証**・表の可逆性・**章ごとの OGP 被覆**・節ページの切り出し。exit 2=検査不成立）
 npm run build-standards-page-images # 公的基準の原本PDF→**1ページ1画像+1テキスト**（270dpi/2233px JPEG＋pdftotext のページ分割）。章記事が part-NN.md（50ページ束）までしかページ情報を持たず「原本の何ページか」を機械で言えない問題を埋める。原本の同定はファイル名でなく **sha256**（Drive のファイル名は整理で動くため）。**実体は Google Drive vault の原本 PDF と同名フォルダ（隣）**、Git には manifest.json だけ
 npm run check-standards-page-images # 上の provenance 整合（catalog↔manifest の原本 sha256・ページ 1..N の被覆・part 範囲・画像 sha256 のサンプル照合。実体が無い端末では manifest のみ検査しその旨を明示・quality:audit に同梱）
 ```

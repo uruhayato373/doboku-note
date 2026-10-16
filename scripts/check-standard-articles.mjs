@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * check-standard-articles.mjs — 構造化章記事（レイヤー2）の生成物を 12 検査で検証する。
+ * check-standard-articles.mjs — 構造化章記事（レイヤー2）の生成物を 16 検査で検証する。
  *
  *   node scripts/check-standard-articles.mjs                # 設定 build.documents を検査
  *   node scripts/check-standard-articles.mjs chubu/common   # 対象を明示
@@ -32,6 +32,7 @@ import {
 import { loadManifest as loadAssetManifest } from './lib/asset-storage.mjs';
 import { pathToFileURL } from 'node:url';
 import { datasetPath } from './lib/datasets.mjs';
+import { sectionPageMarkdown, splitChapterBySection } from '../src/lib/standards-section-split.mjs';
 
 const sha256 = (value) => createHash('sha256').update(value).digest('hex');
 
@@ -60,6 +61,7 @@ const CHECK_DEFS = [
   { id: 13, name: 'catalog 全文書の被覆と除外理由の実証（全文書横断）' },
   { id: 14, name: '表の復元が台帳と一致し GFM が可逆' },
   { id: 15, name: '章ごとの OGP 画像がそろっている' },
+  { id: 16, name: '節ページの切り出しが台帳と一致' },
 ];
 
 const PASS = 'PASS';
@@ -854,6 +856,57 @@ function checkCatalogCoverage(def, catalog, overrides) {
   });
 }
 
+/**
+ * 16. 節ページの切り出しが台帳と一致。
+ * 長い章は章ページが節の一覧になり、本文は節ページにしか出ない。切り出しで行が落ちる・
+ * 節の並びが manifest と食い違う・最初の節より前に本文が残る（どのページにも出ない）と、
+ * 章ページの検査が全部緑でも読者には本文が欠ける。切り出しはサイトと同じ関数で行う。
+ * あわせて splitBySection の立ち方が設定の基準（sectionPages.minOutputBytes）と合っているかを見る。
+ */
+function checkSectionPages(def, { manifest, agencyId, documentId, overrides }) {
+  const violations = [];
+  const threshold = overrides.sectionPages?.minOutputBytes ?? Infinity;
+  let checked = 0;
+  let splitChapters = 0;
+  let sectionPages = 0;
+  for (const chapter of manifest.chapters) {
+    checked += 1;
+    const expected = chapter.sections.length >= 2 && chapter.outputBytes >= threshold;
+    if (Boolean(chapter.splitBySection) !== expected) {
+      violations.push(`${chapter.chapterId}: splitBySection=${Boolean(chapter.splitBySection)} だが基準では ${expected}（build-standard-articles.mjs を回し直す）`);
+    }
+    if (!chapter.splitBySection) continue;
+    splitChapters += 1;
+    const { path, text } = readChapterFile(agencyId, documentId, chapter.file);
+    if (text === null) {
+      violations.push(`${chapter.file}: ファイルが無い（${path}）`);
+      continue;
+    }
+    const split = splitChapterBySection(text);
+    const rejoined = [...split.preamble, ...split.sections.flatMap((section) => section.lines)].join('\n');
+    if (rejoined !== text) violations.push(`${chapter.file}: 節への切り出しで行が変わる（復元が元と一致しない）`);
+    const leftover = split.preamble.join('\n').replace(/\{\/\*[\s\S]*?\*\/\}/g, '').trim();
+    if (leftover) violations.push(`${chapter.file}: 最初の節より前に本文がある（節ページに出ない）: ${leftover.slice(0, 60)}`);
+    const found = split.sections.map((section) => section.number).join(',');
+    const recorded = chapter.sections.map((section) => section.number).join(',');
+    if (found !== recorded) violations.push(`${chapter.file}: 節の並びが manifest と違う（本文 ${found} / manifest ${recorded}）`);
+    for (const section of split.sections) {
+      sectionPages += 1;
+      if (!sectionPageMarkdown(section.lines).trim()) violations.push(`${chapter.file}: 第${section.number}節の本文が空`);
+    }
+  }
+  if (checked === 0) {
+    return result(def, { status: INCONCLUSIVE, checked: 0, unit: '章', violations: ['章が 0 件。節ページの照合が成立しない'] });
+  }
+  return result(def, {
+    status: verdict(violations, []),
+    checked,
+    unit: '章',
+    violations,
+    notes: [`節ページに分けた章 ${splitChapters} 件・節ページ ${sectionPages} 件（基準 ${threshold === Infinity ? '未設定' : `${threshold} バイト以上`}）`],
+  });
+}
+
 // ---- 文書単位の実行 -------------------------------------------------------
 
 function inspectDocument(target, catalog, overrides) {
@@ -986,6 +1039,7 @@ function main() {
         coverageCheck,
         checkTables(CHECK_DEFS[13], context),
         checkChapterOgp(CHECK_DEFS[14], { ...context, assetManifest }),
+        checkSectionPages(CHECK_DEFS[15], { ...context, overrides }),
       ],
     });
   }

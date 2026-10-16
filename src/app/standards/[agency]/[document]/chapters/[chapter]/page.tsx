@@ -7,6 +7,7 @@ import TwoColumnShell from '@/components/layout/TwoColumnShell';
 import SafeMdx from '@/components/mdx/SafeMdx';
 import SectionCard from '@/components/ui/SectionCard/SectionCard';
 import StandardsArticleHeader from '@/components/standards/StandardsArticleHeader';
+import StandardSectionIndex from '@/components/standards/StandardSectionIndex';
 import StandardVerbatimTable from '@/components/standards/StandardVerbatimTable';
 import StandardsAttribution from '@/components/standards/StandardsAttribution';
 import StandardDataLinks from '@/components/standards/StandardDataLinks';
@@ -157,13 +158,20 @@ export default async function StandardChapterPage({ params }: { params: Promise<
           </div>
 
           {/* 節移動は PC の右ナビ／モバイルの「資料内を移動」に集約し、
-              同じ一覧が本文前に重複して読書開始を押し下げないようにする。 */}
-          <div
-            className="prose-blog mt-7 [&>h2:first-child]:mt-0"
-            data-standards-chapter={target.chapterId}
-          >
-            <SafeMdx source={markdown} components={components} options={mdxOptions} />
-          </div>
+              同じ一覧が本文前に重複して読書開始を押し下げないようにする。
+              節ページに分けた章（splitBySection）だけは、章ページの本文が節の一覧になる。 */}
+          {target.splitBySection ? (
+            <div className="mt-7">
+              <StandardSectionIndex document={entry} chapter={target} />
+            </div>
+          ) : (
+            <div
+              className="prose-blog mt-7 [&>h2:first-child]:mt-0"
+              data-standards-chapter={target.chapterId}
+            >
+              <SafeMdx source={markdown} components={components} options={mdxOptions} />
+            </div>
+          )}
 
           <section
             aria-labelledby="chapter-source"

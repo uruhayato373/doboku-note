@@ -1,7 +1,8 @@
-import type { StandardChapter } from '@/lib/standards-articles';
+import type { StandardChapter, StandardChapterSection } from '@/lib/standards-articles';
 import type { StandardDocument } from '@/lib/standards';
 import { generateHeadingId } from '@/lib/toc';
 import { SITE_ORIGIN } from '@/config/site-identity.mjs';
+import { standardSectionPath } from '@/lib/standards-section-split.mjs';
 
 const SITE_ORGANIZATION_ID = `${SITE_ORIGIN}/#organization`;
 
@@ -168,7 +169,11 @@ export function buildStandardChapterStructuredData(
   const articleNodes: JsonLdNode[] = [];
 
   chapter.sections.forEach((section, sectionIndex) => {
-    const sectionUrl = `${chapterUrl}#${generateHeadingId(section.headingText)}`;
+    // 節ページに分けた章は、節・条の URL を節ページ側へ向ける（章ページには本文が無い）
+    const sectionPageUrl = chapter.splitBySection
+      ? absoluteUrl(standardSectionPath(document, chapter, section.number))
+      : null;
+    const sectionUrl = sectionPageUrl ?? `${chapterUrl}#${generateHeadingId(section.headingText)}`;
     const sectionId = `${chapterUrl}#section-${chapter.bookNumber}-${chapter.chapterNumber}-${section.number}`;
     const articleRefs = section.articles.map((article) => ({
       '@id': `${chapterUrl}#clause-${article.number}`,
@@ -196,7 +201,7 @@ export function buildStandardChapterStructuredData(
         identifier: article.number,
         position: articleIndex + 1,
         pageStart: article.page,
-        url: `${chapterUrl}#${generateHeadingId(article.headingText)}`,
+        url: `${sectionPageUrl ?? chapterUrl}#${generateHeadingId(article.headingText)}`,
         isPartOf: { '@id': sectionId },
         ...(text ? { text } : {}),
       });
@@ -276,6 +281,77 @@ export function buildStandardChapterStructuredData(
       },
       ...sectionNodes,
       ...articleNodes,
+    ],
+  };
+}
+
+/**
+ * 節ページ（splitBySection の章）の構造化データ。節・条のノードの @id は章ページの
+ * buildStandardChapterStructuredData と同じ値にして、章の TechArticle の一部であることを保つ。
+ */
+export function buildStandardSectionStructuredData(
+  document: StandardDocument,
+  chapter: StandardChapter,
+  section: StandardChapterSection,
+  pages: { first: number; last: number },
+): JsonLdNode {
+  const documentUrl = absoluteUrl(`/standards/${document.agencyId}/${document.documentId}`);
+  const chapterUrl = absoluteUrl(
+    `/standards/${document.agencyId}/${document.documentId}/chapters/${chapter.chapterId}`,
+  );
+  const sectionUrl = absoluteUrl(standardSectionPath(document, chapter, section.number));
+  const sectionId = `${chapterUrl}#section-${chapter.bookNumber}-${chapter.chapterNumber}-${section.number}`;
+  const breadcrumb = [
+    { name: 'ホーム', item: SITE_ORIGIN },
+    { name: '基準類', item: `${SITE_ORIGIN}/standards` },
+    { name: document.agencyName, item: `${SITE_ORIGIN}/standards/${document.agencyId}` },
+    { name: document.title, item: documentUrl },
+    { name: chapter.title, item: chapterUrl },
+    { name: section.headingText, item: sectionUrl },
+  ];
+
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      siteOrganization(),
+      {
+        '@type': 'WebPage',
+        '@id': `${sectionUrl}#webpage`,
+        url: sectionUrl,
+        name: `${section.headingText}｜${chapter.title}`,
+        inLanguage: 'ja-JP',
+        publisher: { '@id': SITE_ORGANIZATION_ID },
+        mainEntity: { '@id': sectionId },
+        breadcrumb: { '@id': `${sectionUrl}#breadcrumb` },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        '@id': `${sectionUrl}#breadcrumb`,
+        itemListElement: breadcrumb.map((item, index) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          name: item.name,
+          item: item.item,
+        })),
+      },
+      {
+        '@type': 'CreativeWork',
+        '@id': sectionId,
+        name: section.headingText,
+        identifier: `${chapter.bookNumber}-${chapter.chapterNumber}-${section.number}`,
+        inLanguage: 'ja-JP',
+        pageStart: pages.first,
+        pageEnd: pages.last,
+        url: sectionUrl,
+        mainEntityOfPage: { '@id': `${sectionUrl}#webpage` },
+        creator: { '@id': SITE_ORGANIZATION_ID },
+        publisher: { '@id': SITE_ORGANIZATION_ID },
+        isPartOf: { '@id': `${chapterUrl}#article` },
+        license: PUBLIC_DATA_LICENSE_URL,
+        ...(section.articles.length > 0
+          ? { hasPart: section.articles.map((article) => ({ '@id': `${chapterUrl}#clause-${article.number}` })) }
+          : {}),
+      },
     ],
   };
 }

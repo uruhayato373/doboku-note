@@ -146,6 +146,10 @@ function getUrlMeta(urlPath, slug) {
   if (/^\/standards\/[^/]+\/[^/]+\/chapters\/[^/]+$/.test(urlPath)) {
     return { priority: '0.7', changefreq: 'yearly' };
   }
+  // 長い章（一般施工など）を分けた節ページ。章ページは節の一覧になり、本文はここにある。
+  if (/^\/standards\/[^/]+\/[^/]+\/chapters\/[^/]+\/sections\/[^/]+$/.test(urlPath)) {
+    return { priority: '0.7', changefreq: 'yearly' };
+  }
   if (urlPath === '/search' || urlPath === '/_not-found') {
     return null;
   }

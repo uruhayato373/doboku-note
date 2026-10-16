@@ -252,12 +252,18 @@ export function buildDocument(document, overrides, { write = true } = {}) {
     mkdirSync(chapterDir, { recursive: true });
   }
 
+  // 大きすぎる章は節ページに分ける（基準は設定・切り出しは src/lib/standards-section-split.mjs）。
+  // 判定はここだけで行い、サイトは manifest の splitBySection を読む。
+  const splitThreshold = overrides.sectionPages?.minOutputBytes ?? Infinity;
+
   const chapters = analysis.chapters.map((chapter) => {
     const tableOutcomes = [];
     const markdown = renderChapter(chapter, tableOutcomes);
     const file = `chapters/${chapter.chapterId}.md`;
     if (write) writeMdxFile(join(outDir, file), markdown);
     const sourceText = chapter.sourcePages.map((page) => pageText.get(page)).join('\n');
+    const outputBytes = Buffer.byteLength(markdown, 'utf8');
+    const sections = summarizeChapter(chapter);
     return {
       chapterId: chapter.chapterId,
       title: `第${chapter.bookNumber}編 ${chapter.bookTitle} 第${chapter.chapterNumber}章 ${chapter.chapterTitle}`,
@@ -272,8 +278,9 @@ export function buildDocument(document, overrides, { write = true } = {}) {
       sourcePages: chapter.sourcePages,
       sourceSha256: sha256(sourceText),
       outputSha256: sha256(markdown),
-      outputBytes: Buffer.byteLength(markdown, 'utf8'),
-      sections: summarizeChapter(chapter),
+      outputBytes,
+      splitBySection: sections.length >= 2 && outputBytes >= splitThreshold,
+      sections,
       stats: { ...countNodes(chapter), ...tallyTables(tableOutcomes) },
       tableOutcomes: tallyReasons(tableOutcomes),
       indexable,

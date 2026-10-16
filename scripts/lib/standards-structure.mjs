@@ -105,7 +105,9 @@ export function getCatalog() {
 export function loadDocumentPages(document) {
   const pages = [];
   for (const part of document.parts) {
-    const source = readFileSync(join(LIBRARY_ROOT, part.file), 'utf8');
+    // Windows の作業ツリーは autocrlf で CRLF になる。行末の \r を残すと章の sourceSha256 が
+    // OS ごとに変わる（Linux の CI と Windows で別の値を書く）ので、読んだ時点で LF にそろえる。
+    const source = readFileSync(join(LIBRARY_ROOT, part.file), 'utf8').replace(/\r\n/g, '\n');
     const heads = [...source.matchAll(/^## PDF page (\d+)\s*$/gm)];
     if (heads.length !== part.pageCount) {
       throw new Error(`${part.file}: PDF page 見出し ${heads.length} 件 ≠ catalog pageCount ${part.pageCount}`);

@@ -294,6 +294,11 @@ export const ConfigStandardsStructure = z
     _comment: doc(),
     canonical: z.object({ _comment: doc().optional(), commonAgencyId: z.string().min(1).describe('共通仕様書のうち検索インデックス対象にする機関の id') }).strict(),
     build: z.object({ _comment: doc().optional(), documents: z.array(agencyDoc).min(1).superRefine(uniqueBy((d) => d, '文書')).describe('構造化して章記事を作る文書') }).strict(),
+    sectionPages: z
+      .object({ _comment: doc().optional(), minOutputBytes: z.number().int().positive().describe('章の Markdown がこのバイト数以上なら節ページに分ける') })
+      .strict()
+      .optional()
+      .describe('大きすぎる章を節ページに分ける基準'),
     skipped: z
       .object({
         _comment: doc().optional(),

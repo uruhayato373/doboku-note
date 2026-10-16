@@ -18,6 +18,10 @@
       "tohoku/common"
     ]
   },
+  "sectionPages": {
+    "_comment": "章の Markdown がこのバイト数以上なら、章ページを節の一覧にして本文を節ページ（/chapters/{章}/sections/{節}）で出す。実測（2026-10-16）で 200KB を超えるのは第3編第2章 一般施工（約 488KB・原本 167 ページ）だけで、次に大きい第1編第1章 総則は 110KB。切り出しの規則は src/lib/standards-section-split.mjs。",
+    "minOutputBytes": 200000
+  },
   "skipped": {
     "_comment": "構造化しない文書と理由。空欄・未記載を許さず、catalog の全 72 文書が build.documents か skipped のどちらかへ必ず入る（check-standard-articles の被覆検査）。",
     "reasons": {
