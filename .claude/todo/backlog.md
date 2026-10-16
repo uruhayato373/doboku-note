@@ -23,16 +23,6 @@
 
 
 
-### [DN-0752] 北海道開発局の章の OGP が章の本体より先に R2 の台帳へ入り、develop の audit が赤い
-タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-16] [進行中]
-
-**起点**: 2026-10-16 01:16 の asset-inbox 取り込み（741914fe2・github-actions）で、standards-articles/hokkaido の章 OGP 86 件が .claude/state/assets/manifest.json に入った。章の本体（de826a0c1 ほか）は feat/standards-common-finish にあり develop に無いため、develop の Pre-merge の audit が orphan-ogp と tests/standards-ogp-guards.test.mjs（台帳の章 OGP 387 件 ≠ 章数 344 件）で赤い（3442618eb・7dba9e728 で確認、ビルドは成功）。
-
-**やること**: feat/standards-common-finish を develop へ合流すれば解消する見込み。合流が先に延びるなら、asset-inbox で取り込む前に章の本体が develop にあることを確かめる手順か検査を足す（本体より先に台帳だけ入る経路を塞ぐ）。
-
-**進み具合（2026-10-16）**: 本体は PR #1092（feat/standards-common-finish・別の作業が進行中）にある。develop との衝突は config/git-binary-policy.json の content/site の上限だけで、develop 側を 150 MiB に一本化し PR #1092 の分も記録した（12f7d5ee4）。PR #1092 は develop を取り込むとき develop 側の値を採れば解ける。合流後に develop の audit が緑になるかを見る。
-
-**完了条件**: develop の Pre-merge check の audit が緑。
 
 
 
@@ -52,20 +42,6 @@
 **完了条件**: 筆記合格発表（2026-11-04 予定・DN-0248）の前日までに、有料 2 本の追記と無料 2 本の原稿が QA を通り、公開は発表日に DN-0248 と一緒に運営者が行える状態になっている。
 
 
-### [DN-0743] 2級土木の重複公開 2 本（nc30a5646f239・ncad207369238）を note で非公開にし、もくじの付け替えを反映する（browser-use）
-タグ: [収益化] [領域:商品] [時期:2026-10] [種類:不具合] [起票:2026-10-15] [期日:2026-10-18]
-
-**起点**: DN-0725 で、2級土木の無料記事が 2 本ずつ公開されていると分かった（note API v3 で 4 本とも published・無料を確認）。運営者の決定（2026-10-15）で、原稿と同期の台帳（.claude/state/note-published.json）が指す 10/12 の版を残す。土木もくじのリンクは残す版へ付け替え済み（PR #1076・cbf5848f2）。
-
-**やること**（Mac のブラウザ操作・browser-use で行う）:
-1. note の編集画面で、10/10 の重複版 2 本を非公開（下書きへ戻す）にする。
-   - https://note.com/dobokunote/n/nc30a5646f239 （2級土木 施工経験記述｜残り2週間で仕上げる手順）
-   - https://note.com/dobokunote/n/ncad207369238 （2級土木 令和8年度 二次検定｜出題予想）
-   残す版は n1edc95f39203（仕上げ手順）と naa0821a3d631（出題予想）。取り違えないよう、URL の noteId で照合してから操作する。
-2. 付け替えた土木もくじ（n4fde0f62dc20）と、ココナラの案内を外した記事（PR #1076）を note へ反映する（Mac の note 同期か note-update-body）。
-3. note API v3（`curl --ssl-no-revoke https://note.com/api/v3/notes/<id>`）で、重複版 2 本が公開でなくなり、残す版 2 本が公開のままであることを確かめる。
-
-**完了条件**: nc30a5646f239・ncad207369238 が公開でなく、n1edc95f39203・naa0821a3d631 が公開のまま、土木もくじのライブのリンクが残す版を指している。
 
 
 
