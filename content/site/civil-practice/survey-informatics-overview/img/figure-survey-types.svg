@@ -1,5 +1,5 @@
-<!-- authored 2026-10-16 doboku-note 自作。論点は測量法の基本測量（第4条）・公共測量（第5条）・それ以外（第6条）と、基準・手続き（第11条・第32条・第33条・第48条）。特定の書籍図の複製ではない -->
-<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="測量法の三つの測量を、誰が・何のために行うかと、基準・手続きの二つの軸で比べた図。基本測量は国土地理院が行い、公共測量は国や公共団体が費用を負担・補助し承認を受けた作業規程で行う。それ以外の測量は基本・公共の成果を使う場合に限られる。">
+<!-- authored 2026-10-16 doboku-note 自作。論点は測量法の基本測量（第4条）・公共測量（第5条）・それ以外（第6条）を分ける問いと、基準・手続き（第32条・第33条・第48条）。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="測量法の測量の種類を分ける問いの図。国土地理院が行えば基本測量。国や公共団体が費用を負担・補助していれば公共測量。基本・公共の成果を使い許可や助成を受ける事業で国土交通大臣が指定したものも公共測量。基本・公共の成果を使うなら第6条の測量。">
   <defs>
   <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #222; }
@@ -10,44 +10,65 @@
       .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
       .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
       .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .dng { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
       .sf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
       .wh { fill: #fff; stroke: #2e6da4; stroke-width: 1.5; }
+      .dash { fill: #fff; stroke: #555; stroke-width: 1.5; stroke-dasharray: 4 3; }
       .grid { stroke: #d7d7d7; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
       .ax { stroke: #555; stroke-width: 1.5; fill: none; }
-      .ar { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+      .ar { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ark { stroke: #555; stroke-width: 2; fill: none; }
   </style>
   <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
   <marker id="ak" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
-  <marker id="as" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  <marker id="as" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="asg" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
   </defs>
-  <rect class="sf" x="98" y="8" width="138" height="28" rx="6"/><text class="b" x="167" y="26" text-anchor="middle">誰が・何のために</text>
-  <rect class="sf" x="240" y="8" width="148" height="28" rx="6"/><text class="b" x="314" y="26" text-anchor="middle">基準・手続き</text>
-  <rect class="brand" x="12" y="44" width="82" height="106" rx="8"/><text class="n" x="53" y="95" text-anchor="middle">基本測量</text><text class="m" x="53" y="113" text-anchor="middle">第4条</text>
-  <rect class="wh" x="98" y="44" width="138" height="106" rx="8" style="stroke:#d7d7d7"/>
-  <text class="t12" x="106" y="70">国土地理院が行う</text>
-  <text class="t12" x="106" y="90">すべての測量の</text>
-  <text class="t12" x="106" y="110">基礎になる</text>
-  <rect class="wh" x="240" y="44" width="148" height="106" rx="8" style="stroke:#d7d7d7"/>
-  <text class="t12" x="248" y="68">第11条の基準に従う</text>
-  <rect class="pos" x="12" y="158" width="82" height="106" rx="8"/><text class="n" x="53" y="209" text-anchor="middle">公共測量</text><text class="m" x="53" y="227" text-anchor="middle">第5条</text>
-  <rect class="wh" x="98" y="158" width="138" height="106" rx="8" style="stroke:#d7d7d7"/>
-  <text class="t12" x="106" y="184">国や公共団体が</text>
-  <text class="t12" x="106" y="204">費用を負担・補助</text>
-  <text class="t12" x="106" y="224">する測量など</text>
-  <rect class="wh" x="240" y="158" width="148" height="106" rx="8" style="stroke:#d7d7d7"/>
-  <text class="t12" x="248" y="182">第11条の基準に従う</text>
-  <text class="t12" x="248" y="200">作業規程の承認</text>
-  <text class="t12 m" x="248" y="218">（第33条）</text>
-  <text class="t12" x="248" y="236">既存の成果に基づく</text>
-  <text class="t12 m" x="248" y="254">（第32条）</text>
-  <rect class="sf" x="12" y="272" width="82" height="106" rx="8"/><text class="n" x="53" y="323" text-anchor="middle">それ以外</text><text class="m" x="53" y="341" text-anchor="middle">第6条</text>
-  <rect class="wh" x="98" y="272" width="138" height="106" rx="8" style="stroke:#d7d7d7"/>
-  <text class="t12" x="106" y="298">基本・公共の</text>
-  <text class="t12" x="106" y="318">どちらでもない</text>
-  <rect class="wh" x="240" y="272" width="148" height="106" rx="8" style="stroke:#d7d7d7"/>
-  <text class="t12" x="248" y="296">基本・公共の成果を</text>
-  <text class="t12" x="248" y="314">使う場合に限る</text>
-  <rect class="warn" x="12" y="394" width="376" height="72" rx="8"/>
-  <text class="b" x="24" y="420">基本測量・公共測量に従事する技術者</text>
-  <text x="24" y="444">登録を受けた測量士・測量士補（第48条）</text>
+  <rect class="brand" x="12" y="8" width="230" height="40" rx="8"/>
+  <text class="t12" x="127.0" y="32.0" text-anchor="middle">国土地理院が行う測量か</text>
+  <rect class="brand" x="12" y="74" width="230" height="52" rx="8"/>
+  <text class="t12" x="127.0" y="96.0" text-anchor="middle">国や公共団体が費用を</text>
+  <text class="t12" x="127.0" y="112.0" text-anchor="middle">負担・補助しているか</text>
+  <rect class="brand" x="12" y="152" width="230" height="66" rx="8"/>
+  <text class="t12" x="127.0" y="173.0" text-anchor="middle">基本・公共の成果を使い、</text>
+  <text class="t12" x="127.0" y="189.0" text-anchor="middle">許可・助成を受ける事業で</text>
+  <text class="t12" x="127.0" y="205.0" text-anchor="middle">国土交通大臣が指定したか</text>
+  <rect class="brand" x="12" y="244" width="230" height="40" rx="8"/>
+  <text class="t12" x="127.0" y="268.0" text-anchor="middle">基本・公共の成果を使うか</text>
+  <rect class="brand" x="262" y="8" width="126" height="40" rx="8"/>
+  <text class="n" x="325.0" y="32.0" text-anchor="middle">基本測量</text>
+  <rect class="pos" x="262" y="80" width="126" height="40" rx="8"/>
+  <text class="n" x="325.0" y="104.0" text-anchor="middle">公共測量</text>
+  <rect class="pos" x="262" y="165" width="126" height="40" rx="8"/>
+  <text class="n" x="325.0" y="189.0" text-anchor="middle">公共測量</text>
+  <rect class="sf" x="262" y="244" width="126" height="40" rx="8"/>
+  <text class="n" x="325.0" y="268.0" text-anchor="middle">第6条の測量</text>
+  <path class="ar" d="M242,28H260" marker-end="url(#ah)"/>
+  <text class="m" x="246" y="23">はい</text>
+  <path class="ar" d="M242,100H260" marker-end="url(#ah)"/>
+  <text class="m" x="246" y="95">はい</text>
+  <path class="ar" d="M242,185H260" marker-end="url(#ah)"/>
+  <text class="m" x="246" y="180">はい</text>
+  <path class="ar" d="M242,264H260" marker-end="url(#ah)"/>
+  <text class="m" x="246" y="259">はい</text>
+  <path class="ar" d="M127,48V72" marker-end="url(#ah)"/>
+  <text class="m" x="135" y="65.0">いいえ</text>
+  <path class="ar" d="M127,126V150" marker-end="url(#ah)"/>
+  <text class="m" x="135" y="143.0">いいえ</text>
+  <path class="ar" d="M127,218V242" marker-end="url(#ah)"/>
+  <text class="m" x="135" y="235.0">いいえ</text>
+  <path class="ar" d="M127,284V308" marker-end="url(#ah)"/>
+  <text class="m" x="135" y="301.0">いいえ</text>
+  <text class="m" x="262" y="60">第4条</text>
+  <text class="m" x="262" y="132">第5条</text>
+  <text class="m" x="262" y="217">第5条</text>
+  <text class="m" x="262" y="296">第6条</text>
+  <rect class="sf" x="12" y="312" width="230" height="38" rx="8"/>
+  <text class="t12" x="127.0" y="335.0" text-anchor="middle">第6条の対象外</text>
+  <rect class="warn" x="12" y="366" width="376" height="126" rx="8"/>
+  <text class="t12 b" x="24" y="388">決まりごと</text>
+  <text x="24" y="408">公共測量: 承認を受けた作業規程で実施（第33条）</text>
+  <text x="24" y="426">公共測量: 既存の測量成果に基づく（第32条）</text>
+  <text x="24" y="444">従事する技術者: 測量士・測量士補（第48条）</text>
+  <text x="24" y="462">局地的な測量・小縮尺図の調製は政令で除外</text>
 </svg>

@@ -1,53 +1,102 @@
-<!-- authored 2026-10-16 doboku-note 自作。論点は測量・情報化シリーズ（台帳 config/content-series.json の survey-informatics）の章と、仕事の流れ（測る・地図や台帳にする・設計と施工に使う・維持管理で記録を積む）の対応。特定の書籍図の複製ではない -->
-<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="測量・情報化シリーズの見取り図。横軸は仕事の流れ（測る、地図や台帳にする、設計・施工に使う、維持管理で記録を積む）、縦軸は位置・地図・3次元・センサ・データの五つの層。G-01からG-17の各章を、その位置に置いている。">
+<!-- authored 2026-10-16 doboku-note 自作。論点は測量・情報化シリーズの章と、仕事の流れ（測る・地図や台帳にする・設計と施工に使う・維持管理で記録を積む）の対応。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="測量・情報化シリーズの見取り図。横軸は仕事の流れ（測る、地図や台帳にする、設計・施工に使う、維持管理で記録を積む）、縦軸は位置・地図・3次元・センサ・データの五つの層。座標と測地系は位置の層で全段階にまたがる土台として置き、各章をその位置に並べている。">
   <defs>
   <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #222; }
-      .h { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
-      .r { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
-      .id { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
-      .band { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1; }
-      .head { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
-      .chip { fill: #fff; stroke: #2e6da4; stroke-width: 1.5; }
-      .sep { stroke: #d7d7d7; stroke-width: 1; stroke-dasharray: 3 3; }
+      .b { font-weight: bold; fill: #1a3a5c; }
+      .m { fill: #555; }
+      .t12 { font-size: 12px; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .dng { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .sf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .wh { fill: #fff; stroke: #2e6da4; stroke-width: 1.5; }
+      .dash { fill: #fff; stroke: #555; stroke-width: 1.5; stroke-dasharray: 4 3; }
+      .grid { stroke: #d7d7d7; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .ax { stroke: #555; stroke-width: 1.5; fill: none; }
+      .ar { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ark { stroke: #555; stroke-width: 2; fill: none; }
   </style>
+  <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="ak" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  <marker id="as" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="asg" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
   </defs>
-  <polygon class="head" points="12,8 94,8 104,25 94,42 12,42"/>
-  <text class="h" x="54" y="29" text-anchor="middle">測る</text>
-  <polygon class="head" points="106,8 188,8 198,25 188,42 106,42"/>
-  <text class="h" x="148" y="22" text-anchor="middle">地図や台帳に</text><text class="h" x="148" y="35" text-anchor="middle">する</text>
-  <polygon class="head" points="200,8 282,8 292,25 282,42 200,42"/>
-  <text class="h" x="242" y="22" text-anchor="middle">設計・施工に</text><text class="h" x="242" y="35" text-anchor="middle">使う</text>
-  <polygon class="head" points="294,8 376,8 386,25 376,42 294,42"/>
-  <text class="h" x="336" y="22" text-anchor="middle">維持管理で</text><text class="h" x="336" y="35" text-anchor="middle">記録を積む</text>
-  <rect class="band" x="6" y="50" width="388" height="84" rx="8"/>
-  <text class="r" x="12" y="64">位置</text>
-  <rect class="band" x="6" y="138" width="388" height="84" rx="8"/>
-  <text class="r" x="12" y="152">地図</text>
-  <rect class="band" x="6" y="226" width="388" height="84" rx="8"/>
-  <text class="r" x="12" y="240">3次元</text>
-  <rect class="band" x="6" y="314" width="388" height="84" rx="8"/>
-  <text class="r" x="12" y="328">センサ</text>
-  <rect class="band" x="6" y="402" width="388" height="84" rx="8"/>
-  <text class="r" x="12" y="416">データ</text>
-  <path class="sep" d="M103,68V132M103,156V220M103,244V308M103,332V396M103,420V484"/>
-  <path class="sep" d="M197,68V132M197,156V220M197,244V308M197,332V396M197,420V484"/>
-  <path class="sep" d="M291,68V132M291,156V220M291,244V308M291,332V396M291,420V484"/>
-  <rect class="chip" x="12" y="70" width="88" height="28" rx="6"/><text class="id" x="18" y="82">G-02</text><text x="18" y="94">GNSS測位</text>
-  <rect class="chip" x="12" y="102" width="88" height="28" rx="6"/><text class="id" x="18" y="114">G-01</text><text x="18" y="126">座標と測地系</text>
-  <rect class="chip" x="12" y="158" width="88" height="28" rx="6"/><text class="id" x="18" y="170">G-04</text><text x="18" y="182">公開データ</text>
-  <rect class="chip" x="106" y="158" width="88" height="28" rx="6"/><text class="id" x="112" y="170">G-03</text><text x="112" y="182">GIS空間解析</text>
-  <rect class="chip" x="106" y="190" width="88" height="28" rx="6"/><text class="id" x="112" y="202">G-05</text><text x="112" y="214">自治体のGIS</text>
-  <rect class="chip" x="12" y="246" width="88" height="28" rx="6"/><text class="id" x="18" y="258">G-06</text><text x="18" y="270">3次元計測</text>
-  <rect class="chip" x="12" y="278" width="88" height="28" rx="6"/><text class="id" x="18" y="290">G-07</text><text x="18" y="302">写真と画像</text>
-  <rect class="chip" x="106" y="246" width="88" height="28" rx="6"/><text class="id" x="112" y="258">G-08</text><text x="112" y="270">CADと3次元</text>
-  <rect class="chip" x="200" y="246" width="88" height="28" rx="6"/><text class="id" x="206" y="258">G-09</text><text x="206" y="270">ICT施工</text>
-  <rect class="chip" x="200" y="278" width="88" height="28" rx="6"/><text class="id" x="206" y="290">G-10</text><text x="206" y="302">BIM/CIM</text>
-  <rect class="chip" x="200" y="334" width="88" height="28" rx="6"/><text class="id" x="206" y="346">G-13</text><text x="206" y="358">制御と自動化</text>
-  <rect class="chip" x="294" y="334" width="88" height="28" rx="6"/><text class="id" x="300" y="346">G-11</text><text x="300" y="358">計測とセンサ</text>
-  <rect class="chip" x="294" y="366" width="88" height="28" rx="6"/><text class="id" x="300" y="378">G-12</text><text x="300" y="390">現場無線通信</text>
-  <rect class="chip" x="200" y="422" width="88" height="28" rx="6"/><text class="id" x="206" y="434">G-16</text><text x="206" y="446">数値解析</text>
-  <rect class="chip" x="200" y="454" width="88" height="28" rx="6"/><text class="id" x="206" y="466">G-17</text><text x="206" y="478">情報システム</text>
-  <rect class="chip" x="294" y="422" width="88" height="28" rx="6"/><text class="id" x="300" y="434">G-14</text><text x="300" y="446">台帳データ</text>
-  <rect class="chip" x="294" y="454" width="88" height="28" rx="6"/><text class="id" x="300" y="466">G-15</text><text x="300" y="478">品質記録BCP</text>
+  <polygon class="brand" points="12,8 94,8 104,25 94,42 12,42"/>
+  <text class="b" x="54" y="29" text-anchor="middle">測る</text>
+  <polygon class="brand" points="106,8 188,8 198,25 188,42 106,42"/>
+  <text class="b" x="148" y="22" text-anchor="middle">地図や台帳に</text>
+  <text class="b" x="148" y="35" text-anchor="middle">する</text>
+  <polygon class="brand" points="200,8 282,8 292,25 282,42 200,42"/>
+  <text class="b" x="242" y="22" text-anchor="middle">設計・施工に</text>
+  <text class="b" x="242" y="35" text-anchor="middle">使う</text>
+  <polygon class="brand" points="294,8 376,8 386,25 376,42 294,42"/>
+  <text class="b" x="336" y="22" text-anchor="middle">維持管理で</text>
+  <text class="b" x="336" y="35" text-anchor="middle">記録を積む</text>
+  <rect class="sf" x="6" y="50" width="388" height="84" rx="8"/>
+  <text class="t12 b" x="12" y="64">位置</text>
+  <text class="m" x="46" y="64">＝点の座標</text>
+  <rect class="sf" x="6" y="138" width="388" height="84" rx="8"/>
+  <text class="t12 b" x="12" y="152">地図</text>
+  <text class="m" x="46" y="152">＝重ねる</text>
+  <rect class="sf" x="6" y="226" width="388" height="84" rx="8"/>
+  <text class="t12 b" x="12" y="240">3次元</text>
+  <text class="m" x="58" y="240">＝測ってつくる</text>
+  <rect class="sf" x="6" y="314" width="388" height="84" rx="8"/>
+  <text class="t12 b" x="12" y="328">センサ</text>
+  <text class="m" x="58" y="328">＝現場の記録</text>
+  <rect class="sf" x="6" y="402" width="388" height="84" rx="8"/>
+  <text class="t12 b" x="12" y="416">データ</text>
+  <text class="m" x="58" y="416">＝台帳と保全</text>
+  <path class="grid" d="M103,68V132"/>
+  <path class="grid" d="M197,68V132"/>
+  <path class="grid" d="M291,68V132"/>
+  <path class="grid" d="M103,156V220"/>
+  <path class="grid" d="M197,156V220"/>
+  <path class="grid" d="M291,156V220"/>
+  <path class="grid" d="M103,244V308"/>
+  <path class="grid" d="M197,244V308"/>
+  <path class="grid" d="M291,244V308"/>
+  <path class="grid" d="M103,332V396"/>
+  <path class="grid" d="M197,332V396"/>
+  <path class="grid" d="M291,332V396"/>
+  <path class="grid" d="M103,420V484"/>
+  <path class="grid" d="M197,420V484"/>
+  <path class="grid" d="M291,420V484"/>
+  <rect class="wh" x="12" y="70" width="370" height="28" rx="6"/>
+  <text class="t12 b" x="197" y="89" text-anchor="middle">座標と測地系（どの段階でも土台になる）</text>
+  <rect class="wh" x="12" y="102" width="88" height="28" rx="6"/>
+  <text class="t12 b" x="56" y="120" text-anchor="middle">GNSS測位</text>
+  <rect class="wh" x="12" y="158" width="88" height="28" rx="6"/>
+  <text class="t12 b" x="56" y="176" text-anchor="middle">公開データ</text>
+  <rect class="wh" x="106" y="158" width="88" height="28" rx="6"/>
+  <text class="t12 b" x="150" y="176" text-anchor="middle">GIS空間解析</text>
+  <rect class="wh" x="106" y="190" width="88" height="28" rx="6"/>
+  <text class="t12 b" x="150" y="208" text-anchor="middle">自治体のGIS</text>
+  <rect class="wh" x="12" y="246" width="88" height="28" rx="6"/>
+  <text class="t12 b" x="56" y="264" text-anchor="middle">3次元計測</text>
+  <rect class="wh" x="12" y="278" width="88" height="28" rx="6"/>
+  <text class="t12 b" x="56" y="296" text-anchor="middle">写真と画像</text>
+  <rect class="wh" x="106" y="246" width="88" height="28" rx="6"/>
+  <text class="t12 b" x="150" y="264" text-anchor="middle">CADと3次元</text>
+  <rect class="wh" x="200" y="246" width="88" height="28" rx="6"/>
+  <text class="t12 b" x="244" y="264" text-anchor="middle">ICT施工</text>
+  <rect class="wh" x="200" y="278" width="88" height="28" rx="6"/>
+  <text class="t12 b" x="244" y="296" text-anchor="middle">BIM/CIM</text>
+  <rect class="wh" x="200" y="334" width="88" height="28" rx="6"/>
+  <text class="t12 b" x="244" y="352" text-anchor="middle">制御と自動化</text>
+  <rect class="wh" x="294" y="334" width="88" height="28" rx="6"/>
+  <text class="t12 b" x="338" y="352" text-anchor="middle">計測とセンサ</text>
+  <rect class="wh" x="294" y="366" width="88" height="28" rx="6"/>
+  <text class="t12 b" x="338" y="384" text-anchor="middle">現場無線通信</text>
+  <rect class="wh" x="200" y="422" width="88" height="28" rx="6"/>
+  <text class="t12 b" x="244" y="440" text-anchor="middle">数値解析</text>
+  <rect class="wh" x="200" y="454" width="88" height="28" rx="6"/>
+  <text class="t12 b" x="244" y="472" text-anchor="middle">情報システム</text>
+  <rect class="wh" x="294" y="422" width="88" height="28" rx="6"/>
+  <text class="t12 b" x="338" y="440" text-anchor="middle">台帳データ</text>
+  <rect class="wh" x="294" y="454" width="88" height="28" rx="6"/>
+  <text class="t12 b" x="338" y="472" text-anchor="middle">品質記録BCP</text>
 </svg>
