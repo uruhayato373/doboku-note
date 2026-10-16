@@ -72,7 +72,8 @@ function main() {
           `${document.id}/${chapter.id}: 本文なしの条がある`,
         );
         checkedChapters += 1;
-        checkedArticles += clauses.length;
+        // build-standards-data の manifest.articles は本文のある条の数（本文が無い参照だけの条は数えない）
+        checkedArticles += clauses.length - referenceOnly.length;
       }
       checkedDocuments += 1;
     } catch (error) {
