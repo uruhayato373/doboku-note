@@ -4239,6 +4239,19 @@
       "commit": "c83c09bff09c",
       "verification": "check-content-series",
       "note": "判定し直す候補431→0（章165・記事16・使わない250）。新規13章を公開（d84dd1e5d で本番）。図37・写真10（全数監査ok）・既存記事から45リンク。本番で13章 <main>・画像47件 200・/practice に並ぶ。content/site の追跡総量上限を140→150に上げた（DN-0111 Phase 4 の .png 退避が本筋）"
+    },
+    {
+      "id": "DN-0754",
+      "at": "2026-10-16",
+      "task": "シリーズの章に使う本の頁1,252頁の図を切り出し、自作の図と見比べて図を直す",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "45e98d00a06d",
+      "verification": "crop-jobs=[]。診断士05の37頁53クロップを登録・監査、対象書籍の364クロップ実体照合PASS。29記事・SVG139点・写真1点を本番反映。main=231edd9aa、deploy=38898576642成功、E2E=38897799624で136成功/22skip、build成功、auditは既存DN-0752のみ。check-production-ssr exit 0（2URL）、本番29記事+140画像の169件照合で不一致0。旧キャッシュ22点は新URLで解消、再発防止はDN-0756。",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }
