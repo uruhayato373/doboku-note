@@ -1,59 +1,38 @@
-<!-- authored 2026-10-16 doboku-note 自作。論点は建設会社が生成AIを導入するときの、経営者・推進者・承認者・発注者・サービス提供者それぞれが決めることと確かめる資料。特定の書籍図の複製ではない -->
-<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="生成AI導入で誰が何を決めるかの図。経営者は使う目的と責任者と予算、推進者は社内ルールと教育と評価、承認者は書類ごとの出力の承認、発注者は利活用計画書と成果物への明示、サービス提供者は利用規約と想定範囲を決める。それぞれ確かめる資料を添えた。">
-  <defs>
-    <style>
-      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #222; }
-      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
-      .s { font-size: 11px; fill: #555; }
-      .l, .l2 { font-size: 11px; font-weight: bold; fill: #2e6da4; }
-      .card { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
-    </style>
-  </defs>
-  <rect class="card" x="10" y="8" width="380" height="84" rx="8"/>
-  <rect x="18" y="16" width="92" height="68" rx="6" style="fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5"/>
-  <text class="n" x="64" y="49" text-anchor="middle">経営者</text>
-  <text class="s" x="64" y="67" text-anchor="middle">社内</text>
-  <text class="l" x="122" y="31">決めること</text>
-  <text x="122" y="47">使う目的・責任者・予算</text>
-  <text class="l2" x="122" y="64">資料</text>
-  <text x="154" y="64">AI事業者ガイドライン</text>
-  <text x="154" y="80">第2部E（第1.2版・令和8年3月31日）</text>
-  <rect class="card" x="10" y="102" width="380" height="84" rx="8"/>
-  <rect x="18" y="110" width="92" height="68" rx="6" style="fill:#d0e8d0;stroke:#3a7d44;stroke-width:1.5"/>
-  <text class="n" x="64" y="143" text-anchor="middle">推進者</text>
-  <text class="s" x="64" y="161" text-anchor="middle">社内</text>
-  <text class="l" x="122" y="125">決めること</text>
-  <text x="122" y="141">社内ルール・教育・評価</text>
-  <text class="l2" x="122" y="158">資料</text>
-  <text x="154" y="158">AI事業者ガイドライン</text>
-  <text x="154" y="174">第5部（利用者の事項）</text>
-  <rect class="card" x="10" y="196" width="380" height="84" rx="8"/>
-  <rect x="18" y="204" width="92" height="68" rx="6" style="fill:#fff3cd;stroke:#d4a017;stroke-width:1.5"/>
-  <text class="n" x="64" y="237" text-anchor="middle">承認者</text>
-  <text class="s" x="64" y="255" text-anchor="middle">社内</text>
-  <text class="l" x="122" y="219">決めること</text>
-  <text x="122" y="235">書類ごとに、出力を承認する</text>
-  <text x="122" y="251">使った本人とは別の人</text>
-  <text class="l2" x="122" y="268">資料</text>
-  <text x="154" y="268">承認者が確かめた事実の記録</text>
-  <rect class="card" x="10" y="290" width="380" height="84" rx="8"/>
-  <rect x="18" y="298" width="92" height="68" rx="6" style="fill:#f5f5f5;stroke:#8a8a8a;stroke-width:1.5"/>
-  <text class="n" x="64" y="331" text-anchor="middle">発注者</text>
-  <text class="s" x="64" y="349" text-anchor="middle">社外</text>
-  <text class="l" x="122" y="305">求めること</text>
-  <text x="122" y="321">利活用計画書と</text>
-  <text x="122" y="337">成果物への明示を求める</text>
-  <text class="l2" x="122" y="354">資料</text>
-  <text x="154" y="354">国土交通省の通知（令和8年7月29日）</text>
-  <text x="154" y="370">対象は建設コンサルタント業務等</text>
-  <rect class="card" x="10" y="384" width="380" height="84" rx="8"/>
-  <rect x="18" y="392" width="92" height="68" rx="6" style="fill:#f5f5f5;stroke:#8a8a8a;stroke-width:1.5"/>
-  <text class="n" x="64" y="424" text-anchor="middle">サービス</text>
-  <text class="n" x="64" y="440" text-anchor="middle">提供者</text>
-  <text class="s" x="64" y="456" text-anchor="middle">社外</text>
-  <text class="l" x="122" y="415">求めること</text>
-  <text x="122" y="431">利用規約と想定範囲を示す</text>
-  <text class="l2" x="122" y="448">資料</text>
-  <text x="154" y="448">利用規約、プライバシーポリシー</text>
-  <text class="s" x="200" y="486" text-anchor="middle">ガイドラインは、法的拘束力のない自主的な取組の指針</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="生成AI導入で誰が何を決めるかの図。社内は経営者、推進者、承認者が順に責任者の指名とルールの確認者でつながり、社外の発注者とサービス提供者には求める資料がある" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+  <defs><marker id="ar" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0,0 8,3 0,6" fill="#2e6da4"/></marker></defs>
+  <text x="116" y="30" font-size="13" font-weight="700" fill="#222" text-anchor="middle">社内</text>
+  <text x="311" y="30" font-size="13" font-weight="700" fill="#222" text-anchor="middle">社外</text>
+  <rect x="10" y="40" width="212" height="100" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/> <!-- brand-fill / brand -->
+  <text x="22" y="64" font-size="14" font-weight="700" fill="#222">経営者</text>
+  <text x="22" y="84" font-size="12" fill="#1a3a5c">使う目的・責任者・予算</text>
+  <text x="22" y="102" font-size="11" fill="#555">資料：ガイドライン第2部E</text>
+  <rect x="10" y="170" width="212" height="100" rx="6" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/> <!-- positive -->
+  <text x="22" y="194" font-size="14" font-weight="700" fill="#222">推進者</text>
+  <text x="22" y="214" font-size="12" fill="#1a3a5c">社内ルール・教育・評価</text>
+  <text x="22" y="232" font-size="11" fill="#555">資料：ガイドライン第5部</text>
+  <rect x="10" y="300" width="212" height="100" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/> <!-- warn -->
+  <text x="22" y="324" font-size="14" font-weight="700" fill="#222">承認者</text>
+  <text x="22" y="344" font-size="12" fill="#1a3a5c">書類ごとに出力を承認する</text>
+  <text x="22" y="362" font-size="12" fill="#1a3a5c">使った本人とは別の人</text>
+  <text x="22" y="380" font-size="11" fill="#555">資料：確かめた事実の記録</text>
+  <path d="M50 142V168" fill="none" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#ar)"/>
+  <text x="60" y="160" font-size="11" fill="#555">責任者を指名</text>
+  <path d="M50 272V298" fill="none" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#ar)"/>
+  <text x="60" y="290" font-size="11" fill="#555">ルールに確認者を書く</text>
+  <rect x="232" y="40" width="158" height="150" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/> <!-- surface -->
+  <text x="244" y="64" font-size="14" font-weight="700" fill="#222">発注者</text>
+  <text x="244" y="84" font-size="12" fill="#1a3a5c">利活用計画書と</text>
+  <text x="244" y="102" font-size="12" fill="#1a3a5c">成果物への明示を求める</text>
+  <text x="244" y="120" font-size="11" fill="#555">資料：国土交通省の通知</text>
+  <text x="244" y="138" font-size="11" fill="#555">対象は建設コンサルタント</text>
+  <text x="244" y="156" font-size="11" fill="#555">業務等</text>
+  <rect x="232" y="204" width="158" height="130" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/> <!-- surface -->
+  <text x="244" y="228" font-size="14" font-weight="700" fill="#222">サービス提供者</text>
+  <text x="244" y="248" font-size="12" fill="#1a3a5c">利用規約と想定範囲</text>
+  <text x="244" y="266" font-size="12" fill="#1a3a5c">を示すよう求める</text>
+  <text x="244" y="284" font-size="11" fill="#555">資料：利用規約、</text>
+  <text x="244" y="302" font-size="11" fill="#555">プライバシーポリシー</text>
+  <rect x="10" y="418" width="380" height="64" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/> <!-- brand-fill / brand -->
+  <text x="24" y="442" font-size="12" fill="#1a3a5c">ガイドラインは、法的拘束力のない</text>
+  <text x="24" y="462" font-size="12" fill="#1a3a5c">自主的な取組の指針</text>
 </svg>

@@ -1,5 +1,5 @@
 <!-- authored 2026-10-16 doboku-note 自作。論点は生成AI導入を広げる四つの段階と、AI事業者ガイドライン第2部Eの環境・リスク分析からの循環。特定の書籍図の複製ではない -->
-<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="生成AI導入の広げ方の図。推進者が習熟し、パイロットで試し、全社へ拡大し、自走して見直す四つの段階と、段階で決めるルール・教育・評価。下に、AI事業者ガイドライン第2部Eの環境・リスク分析、ゴール設定、システムデザイン、運用、評価の循環を重ねた。">
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="生成AI導入の広げ方の図。運用のあとも再び環境・リスク分析へ戻る。推進者が習熟し、パイロットで試し、全社へ拡大し、自走して見直す四つの段階と、段階で決めるルール・教育・評価。下に、AI事業者ガイドライン第2部Eの環境・リスク分析、ゴール設定、システムデザイン、運用、評価の循環を重ねた。">
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #222; }
@@ -53,8 +53,6 @@
   <text class="t" x="258" y="308" text-anchor="middle">ルール</text>
   <text x="22" y="334">各部門の担当者が、利用状況を見る</text>
   <text x="22" y="351">推進者は、ルールを更新し続ける側へ</text>
-  <path class="ret" d="M350,322H372V46H356" marker-end="url(#ahb)"/>
-  <text class="t" x="386" y="184" text-anchor="middle" transform="rotate(90 386 184)">前の段階へ戻れる</text>
   <rect class="bw" x="10" y="380" width="380" height="112" rx="8"/>
   <text class="n" x="22" y="402">ガイドライン第2部Eの循環</text>
   <rect x="22" y="412" width="108" height="26" rx="13" style="fill:#fff;stroke:#d4a017;stroke-width:1.5"/>
@@ -74,4 +72,6 @@
   <text class="n2" x="324" y="477" text-anchor="middle">最初へ戻る</text>
   <path class="arr" d="M133,473H144" marker-end="url(#ah)"/>
   <path class="arr" d="M257,473H268" marker-end="url(#ah)"/>
+  <path class="ret" d="M350,322H372V376H16V425H20" marker-end="url(#ahb)"/>
+  <text class="t" x="194" y="370" text-anchor="middle" style="fill:#2e6da4">再び環境・リスク分析へ戻り、必要ならゴールも見直す</text>
 </svg>

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="会社が生成AIを導入する判断の八つの順。目的と責任者、試す業務、社内ルールの三つを先に決め、残りの五つを小さく試しながら足していく" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+  <text x="20" y="30" font-size="13" font-weight="700" fill="#1a3a5c">先に決める</text>
+  <text x="120" y="30" font-size="11" fill="#555">1〜3</text>
+  <rect x="20" y="40" width="360" height="44" rx="6" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/> <!-- positive -->
+  <circle cx="44" cy="62" r="12" fill="#fff" stroke="#3a7d44" stroke-width="1.5"/>
+  <text x="44" y="67" font-size="13" font-weight="700" fill="#222" text-anchor="middle">1</text>
+  <text x="66" y="67" font-size="12" fill="#1a3a5c">目的と責任者（経営者）</text>
+  <rect x="20" y="90" width="360" height="44" rx="6" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/> <!-- positive -->
+  <circle cx="44" cy="112" r="12" fill="#fff" stroke="#3a7d44" stroke-width="1.5"/>
+  <text x="44" y="117" font-size="13" font-weight="700" fill="#222" text-anchor="middle">2</text>
+  <text x="66" y="117" font-size="12" fill="#1a3a5c">試す業務を、効果とリスクで一つ選ぶ</text>
+  <rect x="20" y="140" width="360" height="44" rx="6" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/> <!-- positive -->
+  <circle cx="44" cy="162" r="12" fill="#fff" stroke="#3a7d44" stroke-width="1.5"/>
+  <text x="44" y="167" font-size="13" font-weight="700" fill="#222" text-anchor="middle">3</text>
+  <text x="66" y="167" font-size="12" fill="#1a3a5c">社内ルール（情報・サービス・確認者）</text>
+  <text x="20" y="206" font-size="13" font-weight="700" fill="#1a3a5c">小さく試しながら、順に足す</text>
+  <text x="230" y="206" font-size="11" fill="#555">4〜8</text>
+  <rect x="20" y="216" width="360" height="44" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/> <!-- warn -->
+  <circle cx="44" cy="238" r="12" fill="#fff" stroke="#d4a017" stroke-width="1.5"/>
+  <text x="44" y="243" font-size="13" font-weight="700" fill="#222" text-anchor="middle">4</text>
+  <text x="66" y="243" font-size="12" fill="#1a3a5c">規約と入力の扱いを、契約前に確かめる</text>
+  <rect x="20" y="266" width="360" height="44" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/> <!-- warn -->
+  <circle cx="44" cy="288" r="12" fill="#fff" stroke="#d4a017" stroke-width="1.5"/>
+  <text x="44" y="293" font-size="13" font-weight="700" fill="#222" text-anchor="middle">5</text>
+  <text x="66" y="293" font-size="12" fill="#1a3a5c">発注者の契約と通知を確かめ、示し方を決める</text>
+  <rect x="20" y="316" width="360" height="44" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/> <!-- warn -->
+  <circle cx="44" cy="338" r="12" fill="#fff" stroke="#d4a017" stroke-width="1.5"/>
+  <text x="44" y="343" font-size="13" font-weight="700" fill="#222" text-anchor="middle">6</text>
+  <text x="66" y="343" font-size="12" fill="#1a3a5c">教育（限界と禁止事項から）</text>
+  <rect x="20" y="366" width="360" height="44" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/> <!-- warn -->
+  <circle cx="44" cy="388" r="12" fill="#fff" stroke="#d4a017" stroke-width="1.5"/>
+  <text x="44" y="393" font-size="13" font-weight="700" fill="#222" text-anchor="middle">7</text>
+  <text x="66" y="393" font-size="12" fill="#1a3a5c">広げる（推進者→パイロット→全社→自走）</text>
+  <rect x="20" y="416" width="360" height="44" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/> <!-- warn -->
+  <circle cx="44" cy="438" r="12" fill="#fff" stroke="#d4a017" stroke-width="1.5"/>
+  <text x="44" y="443" font-size="13" font-weight="700" fill="#222" text-anchor="middle">8</text>
+  <text x="66" y="443" font-size="12" fill="#1a3a5c">評価してルールを直す（定着・手戻り・事故）</text>
+</svg>
