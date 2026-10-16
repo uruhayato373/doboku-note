@@ -58232,6 +58232,27 @@
         "scripts/check-orphan-ogp.mjs"
       ],
       "srcHash": "c2922f41c80f8100"
+    },
+    "content/site/civil-practice/construction-automation-control/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/construction-automation-control/ogp.png",
+      "sha256": "00e6e5c4e404319be6570a31945fccd606a52ab6c8d3b38770f3af09a42b13df",
+      "bytes": 61150,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-16T01:57:15.095Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/construction-automation-control/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "10b6b5c8cc22e431"
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",
