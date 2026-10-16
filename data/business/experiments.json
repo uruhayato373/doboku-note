@@ -2282,7 +2282,31 @@
           "主要3ページの冒頭3選択肢",
           "土木もくじの3ニーズ・重複購入説明",
           "既存X案内3本の公開/予約実体確認"
-        ]
+        ],
+        "xDelivery": {
+          "verifiedAt": "2026-10-17",
+          "practice": {
+            "state": "published",
+            "url": "https://x.com/doboku373/status/2111051024094138461",
+            "publishedAt": "2026-10-16T20:06:00+09:00"
+          },
+          "answer": {
+            "state": "queued",
+            "scheduledAt": "2026-10-20T20:38:00+09:00"
+          },
+          "memory": {
+            "state": "queued",
+            "scheduledAt": "2026-10-22T20:19:00+09:00"
+          },
+          "evidence": "X公開プロフィール12件と実予約一覧35件を照合。既存106-civil2-lastweek-2026-10の3投稿を使用。"
+        },
+        "liveVerification": {
+          "checkedAt": "2026-10-16T23:13:27.340Z",
+          "target": 1,
+          "passed": 1,
+          "failed": 0,
+          "method": "公開APIで公開状態・dobokunote口座・追加リンクを照合。40有料記事は原稿と実価格の一致も確認。更新時に有料境界と既存添付の保持を再読確認。"
+        }
       }
     },
     {
@@ -2511,15 +2535,34 @@
           "site": "新ハブ向け note_article_click（label cce-essay-index）と、8立場別 note_cta_click / impression を分ける。",
           "note": "無料ハブの記事PV、40単品・8立場セット・合格パックの販売件数と金額を別々に集計する。",
           "unavailable": "note内ハブから各商品の外向きクリックは現在の取得データでは計測できない。サイトの立場別CTAは別の指標として扱い、noteハブの出口クリックの代用とは呼ばない。",
-          "interpretation": "CTAはイベント件数、note PVは自己閲覧を含む。購入者との結合なし。少数販売・未取得は需要なし/0件と断定せず、季節性と同時施策を添えて判断。"
+          "interpretation": "CTAはイベント件数、note PVは自己閲覧を含む。購入者との結合なし。少数販売・未取得は需要なし/0件と断定せず、季節性と同時施策を添えて判断。 10/31はハブ導線の初期確認。Xの8立場比較は最終投稿11/7後の11/15以降に確認し、投稿前の立場を需要なしと判定しない。"
         },
         "actions": [
           "無料ハブ https://note.com/dobokunote/n/n3ced0cbfbb42",
-          "43記事のnote導線更新（有料境界・添付保持）",
+          "42記事のnote導線更新（有料境界・添付保持）",
           "サイト小論文ガイドから無料ハブへ",
           "8立場のX原稿・週単位の予約"
         ],
-        "originalPriceReviewDate": "2026-12-01"
+        "originalPriceReviewDate": "2026-12-01",
+        "xDelivery": {
+          "state": "planned",
+          "source": "content/sns/x/draft/110-concrete-chief-persona-needs",
+          "posts": 8,
+          "firstPost": "2026-10-25",
+          "lastPost": "2026-11-07",
+          "queueAutomation": "Codex heartbeat 8-x（10/24と10/31に週単位で実予約・照合）"
+        },
+        "xReviewDate": "2026-11-15",
+        "liveVerification": {
+          "checkedAt": "2026-10-16T23:13:27.340Z",
+          "target": 42,
+          "passed": 42,
+          "failed": 0,
+          "method": "公開APIで公開状態・dobokunote口座・追加リンクを照合。40有料記事は原稿と実価格の一致も確認。更新時に有料境界と既存添付の保持を再読確認。",
+          "hub": "https://note.com/dobokunote/n/n3ced0cbfbb42",
+          "hubFree": true,
+          "hubLinksVerified": 40
+        }
       }
     },
     {
