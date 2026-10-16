@@ -1,0 +1,64 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は都市緑地法第34条第3項・第35条・第37条と施行令第9条の緑化地域の規則と、自団体の建築物の許可の三つの事由。敷地面積の目盛りは正確な縮尺ではない。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="緑化地域の規則を敷地面積の軸で示した図。敷地面積1,000平方メートル以上の新築・増築が対象で、条例で300平方メートル以上に引き下げられる。緑化率の最低限度は25パーセントを超えない。自団体の建築物も対象で、達成が難しいときは三つの事由で市町村長の許可を受ける。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .x { font-size: 12px; fill: #222; }
+      .s { font-size: 11px; fill: #555; }
+      .sb { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .g { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .wh { fill: #fff; stroke: #8a8a8a; stroke-width: 1.5; }
+      .dz { fill: #fff; stroke: #2e6da4; stroke-width: 1.5; stroke-dasharray: 4 3; }
+      .l { stroke: #d7d7d7; stroke-width: 1; fill: none; }
+      .ln { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .ld { stroke: #8a8a8a; stroke-width: 1; fill: none; stroke-dasharray: 3 3; }
+      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ar { stroke: #b22234; stroke-width: 2; fill: none; }
+      .ag { stroke: #3a7d44; stroke-width: 2; fill: none; }
+      .ax { stroke: #8a8a8a; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+    <marker id="ahr" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#b22234"/></marker>
+    <marker id="ahg" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#3a7d44"/></marker>
+    <marker id="ahk" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#8a8a8a"/></marker>
+  </defs>
+  <text class="t" x="14" y="22" text-anchor="start">緑化地域内で新築・増築する建築物の敷地面積</text>
+  <rect class="g" x="14" y="32" width="90" height="60" rx="4"/>
+  <text class="t" x="59.0" y="57.0" text-anchor="middle">300㎡未満</text>
+  <text class="s" x="59.0" y="75.0" text-anchor="middle">対象外</text>
+  <rect class="w" x="104" y="32" width="170" height="60" rx="4"/>
+  <text class="t" x="189.0" y="57.0" text-anchor="middle">300〜1,000㎡未満</text>
+  <text class="s" x="189.0" y="75.0" text-anchor="middle">条例で定めた区域だけ</text>
+  <rect class="p" x="274" y="32" width="112" height="60" rx="4"/>
+  <text class="t" x="330.0" y="57.0" text-anchor="middle">1,000㎡以上</text>
+  <text class="s" x="330.0" y="75.0" text-anchor="middle">対象</text>
+  <path class="ln" d="M104,96V104"/>
+  <path class="ln" d="M274,96V104"/>
+  <text class="s" x="104" y="118" text-anchor="middle">300</text>
+  <text class="s" x="274" y="118" text-anchor="middle">1,000</text>
+  <text class="s" x="386" y="118" text-anchor="end">㎡</text>
+  <text class="s" x="14" y="118" text-anchor="start">0</text>
+  <rect class="b" x="10" y="130" width="380" height="64" rx="8"/>
+  <text class="t" x="20" y="154" text-anchor="start">緑化率の最低限度</text>
+  <text class="s" x="20" y="176" text-anchor="start">都市計画で定め、25パーセントを超えてはならない（第34条第3項）</text>
+  <rect class="g" x="10" y="206" width="380" height="166" rx="8"/>
+  <text class="t" x="20" y="230" text-anchor="start">自団体の建築物も、緑化率の対象</text>
+  <text class="s" x="20" y="250" text-anchor="start">達成が難しいときは、市町村長の許可を受ける（第35条第2項）</text>
+  <rect class="wh" x="20" y="262" width="360" height="28" rx="6"/>
+  <text class="x" x="30" y="281" text-anchor="start">1　周囲に広い緑地があり、都市環境の形成に支障がない</text>
+  <rect class="wh" x="20" y="296" width="360" height="28" rx="6"/>
+  <text class="x" x="30" y="315" text-anchor="start">2　学校など、用途によってやむを得ない</text>
+  <rect class="wh" x="20" y="330" width="360" height="28" rx="6"/>
+  <text class="x" x="30" y="349" text-anchor="start">3　崖地など、敷地の状況によってやむを得ない</text>
+  <rect class="w" x="10" y="384" width="380" height="78" rx="8"/>
+  <text class="t" x="20" y="408" text-anchor="start">違反しても、国・自治体の建築物には命令がかからない</text>
+  <text class="x" x="20" y="430" text-anchor="start">代わりに、管理する機関の長へ通知と要請（第37条）</text>
+  <text class="s" x="20" y="450" text-anchor="start">命令がないことは、守らなくてよいという意味ではない</text>
+  <text class="s" x="14" y="484" text-anchor="start">目盛りは正確な縮尺ではない</text>
+</svg>
