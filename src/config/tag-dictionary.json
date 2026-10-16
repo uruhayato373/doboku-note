@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-16T01:48:28.872Z",
+  "generated_at": "2026-10-16T01:49:22.501Z",
   "summary": {
-    "total_mdx_files": 1453,
+    "total_mdx_files": 1454,
     "total_unique_tags": 133,
     "allowlist_size": 330,
     "known_count": 133,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 275,
+      "count": 276,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1226,6 +1226,7 @@
         "civil-practice-formwork-removal-timing",
         "civil-practice-formwork-waterstop-details",
         "civil-practice-how-to-read-laws-and-notices",
+        "civil-practice-image-photogrammetry-analysis",
         "civil-practice-keishin-bidder-qualification",
         "civil-practice-land-acquisition-compensation",
         "civil-practice-land-readjustment-project",
@@ -4510,6 +4511,26 @@
       ]
     },
     {
+      "name": "測量",
+      "count": 13,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-guide-surveying",
+        "civil-construction-1-textbook-distance-angle",
+        "civil-construction-1-textbook-leveling",
+        "civil-construction-1-textbook-surveying-basics",
+        "civil-practice-3d-measurement-selection",
+        "civil-practice-coordinate-systems-geodetic-datum",
+        "civil-practice-gis-layer-validation",
+        "civil-practice-gnss-positioning-basics",
+        "civil-practice-image-photogrammetry-analysis",
+        "civil-practice-municipal-gis",
+        "civil-practice-open-geospatial-data",
+        "civil-practice-reading-civil-drawings",
+        "civil-practice-survey-informatics-overview"
+      ]
+    },
+    {
       "name": "トンネル",
       "count": 12,
       "inAllowlist": true,
@@ -4564,25 +4585,6 @@
         "surveyor-primary-r06",
         "surveyor-primary-r07",
         "surveyor-primary-r08"
-      ]
-    },
-    {
-      "name": "測量",
-      "count": 12,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-guide-surveying",
-        "civil-construction-1-textbook-distance-angle",
-        "civil-construction-1-textbook-leveling",
-        "civil-construction-1-textbook-surveying-basics",
-        "civil-practice-3d-measurement-selection",
-        "civil-practice-coordinate-systems-geodetic-datum",
-        "civil-practice-gis-layer-validation",
-        "civil-practice-gnss-positioning-basics",
-        "civil-practice-municipal-gis",
-        "civil-practice-open-geospatial-data",
-        "civil-practice-reading-civil-drawings",
-        "civil-practice-survey-informatics-overview"
       ]
     },
     {
@@ -4676,6 +4678,23 @@
       ]
     },
     {
+      "name": "i-Construction",
+      "count": 10,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-3d-measurement-selection",
+        "civil-practice-gis-layer-validation",
+        "civil-practice-gnss-positioning-basics",
+        "civil-practice-ict-construction-workflow",
+        "civil-practice-image-photogrammetry-analysis",
+        "civil-practice-open-geospatial-data",
+        "civil-practice-site-wireless-communication",
+        "civil-practice-survey-informatics-overview",
+        "pe-construction-kensetsu-dx",
+        "pe-construction-ninaite-dx-ronbun-keyword"
+      ]
+    },
+    {
       "name": "土質及び基礎",
       "count": 10,
       "inAllowlist": true,
@@ -4690,6 +4709,23 @@
         "pe-construction-r07-geotechnical",
         "pe-construction-r08-geotechnical",
         "pe-construction-soil-foundation-ronbun-keyword"
+      ]
+    },
+    {
+      "name": "建設DX",
+      "count": 10,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-bim-cim-site-practice",
+        "civil-practice-image-photogrammetry-analysis",
+        "civil-practice-ledger-data-design",
+        "civil-practice-monitoring-sensor-selection",
+        "civil-practice-municipal-gis",
+        "civil-practice-site-wireless-communication",
+        "civil-practice-survey-informatics-overview",
+        "pe-comprehensive-management-r04-essay-road-municipality",
+        "pe-construction-kensetsu-dx",
+        "pe-construction-ninaite-dx-ronbun-keyword"
       ]
     },
     {
@@ -4774,38 +4810,6 @@
         "pe-comprehensive-management-r8-essay-theme-economic-security",
         "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance",
         "pe-comprehensive-management-whitepaper-study-map"
-      ]
-    },
-    {
-      "name": "i-Construction",
-      "count": 9,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-3d-measurement-selection",
-        "civil-practice-gis-layer-validation",
-        "civil-practice-gnss-positioning-basics",
-        "civil-practice-ict-construction-workflow",
-        "civil-practice-open-geospatial-data",
-        "civil-practice-site-wireless-communication",
-        "civil-practice-survey-informatics-overview",
-        "pe-construction-kensetsu-dx",
-        "pe-construction-ninaite-dx-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "建設DX",
-      "count": 9,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-bim-cim-site-practice",
-        "civil-practice-ledger-data-design",
-        "civil-practice-monitoring-sensor-selection",
-        "civil-practice-municipal-gis",
-        "civil-practice-site-wireless-communication",
-        "civil-practice-survey-informatics-overview",
-        "pe-comprehensive-management-r04-essay-road-municipality",
-        "pe-construction-kensetsu-dx",
-        "pe-construction-ninaite-dx-ronbun-keyword"
       ]
     },
     {
