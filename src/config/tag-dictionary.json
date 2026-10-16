@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-16T04:16:34.309Z",
+  "generated_at": "2026-10-16T04:23:40.130Z",
   "summary": {
-    "total_mdx_files": 1459,
+    "total_mdx_files": 1460,
     "total_unique_tags": 133,
     "allowlist_size": 330,
     "known_count": 133,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 281,
+      "count": 282,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1242,6 +1242,7 @@
         "civil-practice-municipal-gis",
         "civil-practice-national-prefecture-municipal-roles",
         "civil-practice-nature-conservation-mitigation",
+        "civil-practice-nature-oriented-river-works",
         "civil-practice-netis-new-technology-use",
         "civil-practice-oshms-pdca-site-operation",
         "civil-practice-owner-safety-responsibility",
@@ -2736,7 +2737,7 @@
     },
     {
       "name": "環境保全",
-      "count": 91,
+      "count": 92,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-environment-management",
@@ -2749,6 +2750,7 @@
         "civil-practice-environment-neighborhood",
         "civil-practice-environmental-impact-assessment-flow",
         "civil-practice-nature-conservation-mitigation",
+        "civil-practice-nature-oriented-river-works",
         "civil-practice-public-works-environmental-care",
         "concrete-engineer-textbook-environment",
         "pe-comprehensive-management-acid-rain",
@@ -3384,7 +3386,7 @@
     },
     {
       "name": "地方公共団体",
-      "count": 59,
+      "count": 60,
       "inAllowlist": true,
       "usedIn": [
         "civil-practice-board-of-audit-inspection",
@@ -3408,6 +3410,7 @@
         "civil-practice-municipal-engineer-qualifications",
         "civil-practice-municipal-gis",
         "civil-practice-national-prefecture-municipal-roles",
+        "civil-practice-nature-oriented-river-works",
         "civil-practice-owner-safety-responsibility",
         "civil-practice-ppp-pfi-selection",
         "civil-practice-project-request-to-budget",
@@ -3784,7 +3787,7 @@
     },
     {
       "name": "河川",
-      "count": 30,
+      "count": 31,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-textbook-river-works",
@@ -3794,6 +3797,7 @@
         "civil-practice-levee-failure-reinforcement",
         "civil-practice-national-prefecture-municipal-roles",
         "civil-practice-nature-conservation-mitigation",
+        "civil-practice-nature-oriented-river-works",
         "civil-practice-project-request-to-budget",
         "civil-practice-reading-civil-drawings",
         "civil-practice-regional-disaster-plan-flood-fighting",
@@ -5076,6 +5080,18 @@
       ]
     },
     {
+      "name": "河川法",
+      "count": 5,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-nature-oriented-river-works",
+        "civil-practice-river-act-framework",
+        "civil-practice-river-area-permits",
+        "civil-practice-river-crossing-structure-review",
+        "civil-practice-river-facility-inspection-operation"
+      ]
+    },
+    {
       "name": "生産性向上",
       "count": 5,
       "inAllowlist": true,
@@ -5230,17 +5246,6 @@
         "pe-first-stage-h30-basic",
         "pe-first-stage-h30-construction",
         "pe-first-stage-h30-water-supply"
-      ]
-    },
-    {
-      "name": "河川法",
-      "count": 4,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-river-act-framework",
-        "civil-practice-river-area-permits",
-        "civil-practice-river-crossing-structure-review",
-        "civil-practice-river-facility-inspection-operation"
       ]
     },
     {
