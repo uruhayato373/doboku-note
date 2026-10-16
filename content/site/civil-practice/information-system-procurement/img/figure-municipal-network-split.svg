@@ -1,0 +1,38 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は総務省ガイドラインの三層の対策（本文の記述）。ガイドラインの図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="自治体のネットワークを用途別に分けた三つの系の図。マイナンバー利用事務系、LGWAN接続系、インターネット接続系を分離し、LGWAN接続系とインターネット接続系の間は必要な通信だけを許可する。調達の前に、置く系、使う端末の系、通信が許すものを決める。">
+  <defs>
+  <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 11px; fill: #555; }
+      .k { font-size: 12px; fill: #222; }
+      .p { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .bb { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .bp { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .bw { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .bd { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .bs { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .ln { stroke: #2e6da4; stroke-width: 1.5; fill: none; stroke-linejoin: round; }
+      .hd { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 4 3; fill: none; }
+      .ar { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .gy { stroke: #555; stroke-width: 1.5; fill: none; }
+  </style>
+  <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="ag" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  <marker id="ags" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+  <rect class="bb" x="30" y="14" width="340" height="70" rx="8"/><text class="n" x="200" y="56" text-anchor="middle" style="font-size:14px">マイナンバー利用事務系</text>
+  <rect class="bb" x="30" y="140" width="340" height="70" rx="8"/><text class="n" x="200" y="182" text-anchor="middle" style="font-size:14px">LGWAN接続系</text>
+  <rect class="bb" x="30" y="266" width="340" height="70" rx="8"/><text class="n" x="200" y="308" text-anchor="middle" style="font-size:14px">インターネット接続系</text>
+  <rect class="bd" x="150" y="100" width="100" height="26" rx="13"/><text class="t" x="200" y="117" text-anchor="middle">分離</text>
+  <path d="M200,84V100M200,126V140" style="stroke:#555;stroke-width:2;fill:none;stroke-dasharray:3 3"/>
+  <path class="ar" d="M184,214V262" marker-end="url(#ah)"/><path class="ar" d="M216,262V214" marker-end="url(#ah)"/>
+  <text class="t" x="232" y="244" style="font-size:12px">必要な通信だけ許可</text>
+  <rect class="p" x="10" y="356" width="380" height="134" rx="8"/>
+  <text class="n" x="24" y="382">調達の前に、情報部門と決める</text>
+  <rect class="bb" x="24" y="400" width="22" height="22" rx="11"/><text class="t" x="35" y="416" text-anchor="middle">1</text><text class="k" x="58" y="416">システムを、どの系に置くか</text>
+  <rect class="bb" x="24" y="428" width="22" height="22" rx="11"/><text class="t" x="35" y="444" text-anchor="middle">2</text><text class="k" x="58" y="444">どの系の端末から、使うか</text>
+  <rect class="bb" x="24" y="456" width="22" height="22" rx="11"/><text class="t" x="35" y="472" text-anchor="middle">3</text><text class="k" x="58" y="472">その通信が、何を許すか</text>
+
+</svg>
