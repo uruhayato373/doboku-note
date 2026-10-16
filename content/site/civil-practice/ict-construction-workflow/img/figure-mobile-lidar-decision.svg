@@ -4,6 +4,7 @@ text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN","Hiragino Sans
 .h{font-size:14px;font-weight:bold;fill:#1a3a5c}
 .k{font-size:13px;font-weight:bold;fill:#222}
 .s{font-size:11px;fill:#555}
+.m{font-size:12px;fill:#1a3a5c}
 .c{text-anchor:middle}
 .r{stroke-width:1.5}
 .n{fill:#e8f0fe;stroke:#2e6da4}
@@ -16,7 +17,7 @@ text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN","Hiragino Sans
 <rect class="r n" x="15" y="14" width="210" height="76" rx="8"/>
 <text class="h" x="27" y="42">工種と規模は要領の対象か</text>
 <text x="27" y="64">土工1,000m³未満・床掘工など</text>
-<text class="s" x="27" y="81">小規模土工編の監督・検査要領</text>
+<text class="m" x="27" y="81">小規模土工編の監督・検査要領</text>
 <path class="a" d="M230 50 v12 l10 -6 z"/>
 <text class="s" x="228" y="44">いいえ</text>
 <rect class="r d" x="270" y="22" width="115" height="60" rx="8"/>
@@ -27,7 +28,7 @@ text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN","Hiragino Sans
 <rect class="r n" x="15" y="124" width="210" height="76" rx="8"/>
 <text class="h" x="27" y="152">精度確認試験で</text>
 <text x="27" y="174">出来形の±50mm以内を示せるか</text>
-<text class="s" x="27" y="191">モバイル端末の精度確認試験</text>
+<text class="m" x="27" y="191">モバイル端末の精度確認試験</text>
 <path class="a" d="M230 160 v12 l10 -6 z"/>
 <text class="s" x="228" y="154">いいえ</text>
 <rect class="r d" x="270" y="132" width="115" height="60" rx="8"/>
@@ -37,8 +38,8 @@ text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN","Hiragino Sans
 <text class="s" x="146" y="217">はい</text>
 <rect class="r n" x="15" y="234" width="210" height="76" rx="8"/>
 <text class="h" x="27" y="262">点の細かさは足りるか</text>
-<text x="27" y="284">要領の密度（0.1m四方に1点以上）</text>
-<text class="s" x="27" y="301">多点管理の値（単点は0.05m四方）</text>
+<text x="27" y="284">多点管理は0.1m四方に1点以上</text>
+<text class="m" x="27" y="301">単点管理は0.05m四方に1点以上</text>
 <path class="a" d="M230 270 v12 l10 -6 z"/>
 <text class="s" x="228" y="264">いいえ</text>
 <rect class="r d" x="270" y="242" width="115" height="60" rx="8"/>

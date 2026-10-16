@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="単独測位とRTK法を、補正情報を誰が渡すかで並べた図。単独測位は誤差が数mから十数m、RTK法は基準局の補正と搬送波の位相差でcm級。精度を左右する要因も示す">
+<defs><style>
+text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN","Hiragino Sans",sans-serif;font-size:13px;fill:#222}
+.h{font-size:14px;font-weight:bold;fill:#1a3a5c}
+.k{font-size:13px;font-weight:bold;fill:#222}
+.s{font-size:12px;fill:#555}
+.c{text-anchor:middle}
+.r{stroke-width:1.5}
+.n{fill:#e8f0fe;stroke:#2e6da4}
+.p{fill:#d0e8d0;stroke:#3a7d44}
+.w{fill:#fff3cd;stroke:#d4a017}
+.d{fill:#f8d7da;stroke:#b22234}
+.b{fill:#fff;stroke:#d7d7d7}
+.a{fill:#2e6da4}
+</style></defs>
+<rect class="r d" x="15" y="14" width="370" height="130" rx="8"/>
+<text class="h" x="27" y="38">単独測位：補正を受けない</text>
+<rect class="r b" x="27" y="52" width="150" height="32" rx="6"/><text class="c" x="102" y="73">衛星のコード情報</text>
+<path class="a" d="M184 61 l14 7 -14 7 z"/>
+<rect class="r b" x="206" y="52" width="100" height="32" rx="6"/><text class="c" x="256" y="73">受信機</text>
+<text class="k" x="27" y="108">誤差は数mから十数m</text>
+<text x="27" y="128">施工管理には使えない</text>
+<rect class="r p" x="15" y="156" width="370" height="192" rx="8"/>
+<text class="h" x="27" y="180">RTK法：基準局が補正を渡す</text>
+<rect class="r b" x="27" y="194" width="100" height="46" rx="6"/><text class="c k" x="77" y="214">基準局</text><text class="c s" x="77" y="231">既知の座標</text>
+<text class="c s" x="190" y="210">補正情報を無線で</text>
+<path class="a" d="M132 224 h102 v-5 l12 8 -12 8 v-5 h-102 z"/>
+<rect class="r b" x="254" y="194" width="121" height="46" rx="6"/><text class="c k" x="314" y="214">受信機</text><text class="c s" x="314" y="231">搬送波の位相差</text>
+<text class="k" x="27" y="272">搬送波の位相差から位置を求める</text>
+<text x="27" y="296">干渉測位によって</text>
+<text class="k" x="27" y="326">cm級の精度を実現</text>
+<rect class="r w" x="15" y="360" width="370" height="130" rx="8"/>
+<text class="h" x="27" y="384">RTK法の精度を左右する要因</text>
+<text x="27" y="408">衛星の配置（DOP）・仰角マスク</text>
+<text x="27" y="428">マルチパス・電離層／対流圏遅延</text>
+<text x="27" y="452">基準局から離れるほど</text>
+<text x="27" y="472">誤差が蓄積しやすい</text>
+</svg>

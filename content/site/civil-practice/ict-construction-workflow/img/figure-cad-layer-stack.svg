@@ -39,4 +39,6 @@ text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN","Hiragino Sans
 <rect class="r w" x="207" y="388" width="178" height="98" rx="8"/>
 <text class="h" x="219" y="412">変換後に確かめる</text>
 <text x="219" y="434">レイヤごとの線種・色</text><text x="219" y="454">極端に短い線</text><text x="219" y="474">OLEで貼った表</text>
+<g fill="none" stroke="#d4a017" stroke-width="1.5" stroke-dasharray="4 3"><path d="M385 430 H390 V251 H366"/><path d="M385 450 H396 V181 H338"/></g>
+<path d="M364 251 l8 -4 v8 z" fill="#d4a017" transform="translate(-0,0)"/><path d="M336 181 l8 -4 v8 z" fill="#d4a017"/>
 </svg>

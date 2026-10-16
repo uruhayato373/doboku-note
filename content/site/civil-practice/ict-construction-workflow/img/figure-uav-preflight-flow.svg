@@ -38,8 +38,8 @@ text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN","Hiragino Sans
 <circle class="r w" cx="40" cy="267" r="14" style="fill:#fff"/>
 <text class="k c" x="40" y="272">4</text>
 <text class="h" x="64" y="256">手続き</text>
-<text x="64" y="273">特定飛行は許可・承認の要否を確認</text>
-<text x="64" y="289">飛行計画の通報（DIPS2.0）と飛行日誌</text>
+<text x="64" y="273">特定飛行は許可・承認、通報（DIPS2.0）、日誌</text>
+<text x="64" y="289">立入管理措置の有無でカテゴリーII/IIIに分かれる</text>
 <path class="a" d="M194 299 h12 l-6 10 z"/>
 <rect class="r n" x="15" y="310" width="370" height="62" rx="8"/>
 <circle class="r n" cx="40" cy="341" r="14" style="fill:#fff"/>
