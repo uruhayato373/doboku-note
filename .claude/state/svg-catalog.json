@@ -2,23 +2,23 @@
   "description": "サイト図版SVGの派生カタログ（SSOT）。build-svg-catalog.mjs が生成。手動編集しない。",
   "source": "content/site/**/img/*.svg",
   "summary": {
-    "total": 1578,
-    "embedded": 1578,
+    "total": 1618,
+    "embedded": 1618,
     "orphan": 0,
     "missingConcept": 4,
     "withHighAudit": 0,
     "figures": {
-      "total": 1463,
-      "conforming": 1463,
+      "total": 1503,
+      "conforming": 1503,
       "needsRework": 0
     },
     "byCategory": {
       "civil-construction-1": 495,
       "civil-construction-2": 25,
-      "civil-practice": 389,
-      "concrete-chief-engineer": 133,
-      "concrete-diagnostician": 138,
-      "concrete-engineer": 63,
+      "civil-practice": 410,
+      "concrete-chief-engineer": 140,
+      "concrete-diagnostician": 142,
+      "concrete-engineer": 71,
       "pe-comprehensive-management": 286,
       "pe-construction": 45,
       "pe-first-stage": 4
@@ -9584,11 +9584,29 @@
       }
     },
     {
+      "file": "content/site/civil-practice/asphalt-materials-types/img/figure-binder-classification.svg",
+      "category": "civil-practice",
+      "slug": "asphalt-materials-types",
+      "name": "figure-binder-classification.svg",
+      "concept": "アスファルトの分類と使い道。石油系のストレートとブローン、改質、天然のTLAを使い道の一言で整理した材料マップ",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-practice/asphalt-materials-types/img/figure-layer-binder-map.svg",
       "category": "civil-practice",
       "slug": "asphalt-materials-types",
       "name": "figure-layer-binder-map.svg",
-      "concept": "舗装断面の各層と、層間に散布する乳剤・使う混合物の対応図",
+      "concept": "舗装断面の各層と、層間に散布する乳剤・使う混合物を、通常と排水性舗装で並べた対応図",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -9607,6 +9625,24 @@
       "slug": "asphalt-materials-types",
       "name": "figure-penetration-test.svg",
       "concept": "針入度試験の模式図。25℃の試料に100gの針を5秒沈め、貫入深さを0.1mm単位で読む。硬い区分は浅く、軟らかい区分は深く沈む",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/asphalt-materials-types/img/figure-three-tests.svg",
+      "category": "civil-practice",
+      "slug": "asphalt-materials-types",
+      "name": "figure-three-tests.svg",
+      "concept": "針入度・軟化点・伸度の三試験を温度の軸に並べた図。軟化点は高温側、針入度は25℃の硬さ、伸度は15℃で低温側の手がかり",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -9724,7 +9760,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 1
       }
     },
     {
@@ -10074,7 +10110,7 @@
       "category": "civil-practice",
       "slug": "checklist-shoring-buoyancy",
       "name": "figure-buoyancy-balance.svg",
-      "concept": "埋設管の浮力（F_b=γw×V）と、これを押さえ込む管の自重・埋戻し土の重さ・摩擦抵抗の釣合いを示す図",
+      "concept": "埋設管に働く浮力3.77 kN/mと管の自重2.45 kN/mを比べ、差し引き約1.3 kN/mが上向きに残ることを示す図。地下水位以下で土被りが薄い状態を断面で描く",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -10236,7 +10272,7 @@
       "category": "civil-practice",
       "slug": "concrete-crack-causes",
       "name": "figure-crack-timeline.svg",
-      "concept": "コンクリートのひび割れを発生時期、主な原因、典型的な位置で切り分け、時間が上から下へ連続して進むことを示す図",
+      "concept": "コンクリートのひび割れを発生時期、主な原因、典型的な位置、処置の窓で切り分けた図。上は数時間で進行が止まり、下は年単位で進行する。時間の目盛りは対数風",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -10255,6 +10291,42 @@
       "slug": "concrete-durability-specification",
       "name": "figure-environment-to-items.svg",
       "concept": "環境条件ごとに主に動かす耐久性の項目を並べた図。一般の環境は、かぶりと水セメント比。塩分の供給がある環境は、かぶり、セメントの種類、追加の対策。凍結融解の繰返しは、水セメント比と空気量。凍結防止剤が重なる環境は、かぶり、空気量、追加の対策。化学的な作用は、セメントの種類と被覆。アルカリシリカ反応の懸念は、骨材の指定と抑制対策の方式。環境が厳しいほど、かぶりは厚く、水セメント比の上限は下がる。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/concrete-finishing-curing/img/figure-curing-days.svg",
+      "category": "civil-practice",
+      "slug": "concrete-finishing-curing",
+      "name": "figure-curing-days.svg",
+      "concept": "湿潤養生期間の標準を棒で比べた図。日平均気温15℃以上・10℃以上・5℃以上で、普通ポルトランド、早強、混合B種の日数が気温が低いほど、セメントが緩やかなほど長くなる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/concrete-finishing-curing/img/figure-finishing-timing-states.svg",
+      "category": "civil-practice",
+      "slug": "concrete-finishing-curing",
+      "name": "figure-finishing-timing-states.svg",
+      "concept": "仕上げと養生の開始を表面の状態で見分ける図。ブリーディング水がなくなれば木ゴテ、指で押してもへこまなくなれば金ゴテと湿潤養生の開始",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -10363,6 +10435,42 @@
       "slug": "concrete-mix-acceptance",
       "name": "figure-strength-judgement.svg",
       "concept": "圧縮強度の合否は二つの条件をどちらも満たす。1回の試験結果が呼び強度の85%以上、3回の試験結果の平均が呼び強度以上。受入れ判定には標準養生の供試体、型枠の取外し判断には現場封かん養生などの供試体を使う。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/concrete-placement-order/img/figure-laitance-removal-stages.svg",
+      "category": "civil-practice",
+      "slug": "concrete-placement-order",
+      "name": "figure-laitance-removal-stages.svg",
+      "concept": "レイタンス処理を時間の流れで示した図。硬化前は高圧の空気や水と遅延剤、硬化後はワイヤブラシやブラスト、機械斫り、除去後は表面乾燥飽水で打つ",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/concrete-placement-order/img/figure-placement-rotation-intervals.svg",
+      "category": "civil-practice",
+      "slug": "concrete-placement-order",
+      "name": "figure-placement-rotation-intervals.svg",
+      "concept": "18区画を3層に分けて20分ごとに1区画ずつ打つ例の比較。層ごとに全区画を回ると打重ね間隔は120分、斜めに階段状に進めると最大100分",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -10507,6 +10615,24 @@
       "slug": "concrete-quality-and-workforce",
       "name": "figure-unit-water-judgement.svg",
       "concept": "単位水量の測定結果を、配合設計の単位水量との差で三段に判定する図。差が15キロ以内ならそのまま施工。15を超え20キロ以内は原因を調べて工場に改善を指示し、その運搬車の分は打設。20キロを超えたら打ち込まずに持ち帰らせる。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/concrete-repair-leakage/img/figure-repair-performance-target.svg",
+      "category": "civil-practice",
+      "slug": "concrete-repair-leakage",
+      "name": "figure-repair-performance-target.svg",
+      "concept": "補修は供用開始時までの力学的性能の回復を含み、補強は供用開始時を超える性能を目指す",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -10983,7 +11109,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 3,
         "low": 0
       }
     },
@@ -11654,11 +11780,83 @@
       }
     },
     {
+      "file": "content/site/civil-practice/formwork-material-inspection/img/figure-lateral-pressure-factors.svg",
+      "category": "civil-practice",
+      "slug": "formwork-material-inspection",
+      "name": "figure-lateral-pressure-factors.svg",
+      "concept": "打込み中の型枠に働く側圧が、打込み速度とスランプで大きくなりコンクリート温度で小さくなることを整理した図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-practice/formwork-removal-timing/img/figure-strength-classes.svg",
       "category": "civil-practice",
       "slug": "formwork-removal-timing",
       "name": "figure-strength-classes.svg",
-      "concept": "型枠取外しに必要な圧縮強度を部材面の性格で3段階に分ける区分（厚い部材の鉛直面3.5N/mm²・薄い部材の鉛直面5.0N/mm²・スラブはりの底面14.0N/mm²）",
+      "concept": "型枠取外しに必要な圧縮強度を部材面で3段階に分けた図。厚い部材の鉛直面3.5、薄い部材の鉛直面5.0、スラブ・はりの底面14.0 N/mm²で、上から順に外す",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/formwork-waterstop-details/img/figure-pcon-repair-steps.svg",
+      "category": "civil-practice",
+      "slug": "formwork-waterstop-details",
+      "name": "figure-pcon-repair-steps.svg",
+      "concept": "Pコン跡の処理の手順。穴の清掃、プライマー、無収縮モルタルの充填、かぶりが大きい箇所は複数層に分けて充填する流れ",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/formwork-waterstop-details/img/figure-waterstop-position.svg",
+      "category": "civil-practice",
+      "slug": "formwork-waterstop-details",
+      "name": "figure-waterstop-position.svg",
+      "concept": "止水板の設置位置の比較。打継ぎ目の中心線をまたぎ両側へ均等に埋め込むのが基本で、片側が浅いとその面から水みちができやすい",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/generative-ai-adoption/img/figure-ai-decision-order.svg",
+      "category": "civil-practice",
+      "slug": "generative-ai-adoption",
+      "name": "figure-ai-decision-order.svg",
+      "concept": "会社が生成AIを導入する判断の八つの順。目的と責任者、試す業務、社内ルールの三つを先に決め、残りの五つを小さく試しながら足していく",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -11694,7 +11892,7 @@
       "category": "civil-practice",
       "slug": "generative-ai-adoption",
       "name": "figure-ai-roles.svg",
-      "concept": "生成AI導入で誰が何を決めるかの図。経営者は使う目的と責任者と予算、推進者は社内ルールと教育と評価、承認者は書類ごとの出力の承認、発注者は利活用計画書と成果物への明示、サービス提供者は利用規約と想定範囲を決める。それぞれ確かめる資料を添えた。",
+      "concept": "生成AI導入で誰が何を決めるかの図。社内は経営者、推進者、承認者が順に責任者の指名とルールの確認者でつながり、社外の発注者とサービス提供者には求める資料がある",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -11712,7 +11910,25 @@
       "category": "civil-practice",
       "slug": "generative-ai-adoption",
       "name": "figure-ai-rollout-stages.svg",
-      "concept": "生成AI導入の広げ方の図。推進者が習熟し、パイロットで試し、全社へ拡大し、自走して見直す四つの段階と、段階で決めるルール・教育・評価。下に、AI事業者ガイドライン第2部Eの環境・リスク分析、ゴール設定、システムデザイン、運用、評価の循環を重ねた。",
+      "concept": "生成AI導入の広げ方の図。運用のあとも再び環境・リスク分析へ戻る。推進者が習熟し、パイロットで試し、全社へ拡大し、自走して見直す四つの段階と、段階で決めるルール・教育・評価。下に、AI事業者ガイドライン第2部Eの環境・リスク分析、ゴール設定、システムデザイン、運用、評価の循環を重ねた。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 1
+      }
+    },
+    {
+      "file": "content/site/civil-practice/generative-ai-adoption/img/figure-ai-task-risk-order.svg",
+      "category": "civil-practice",
+      "slug": "generative-ai-adoption",
+      "name": "figure-ai-task-risk-order.svg",
+      "concept": "試す業務を、間違えたときの影響が小さい順に並べた図。社内の文章整理から始め、検索補助、発注者へ出す書類と進み、個人情報や機密を含む業務は整うまで対象にしない",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -12027,8 +12243,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 2,
-        "low": 0
+        "medium": 1,
+        "low": 11
       }
     },
     {
@@ -12045,7 +12261,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -12856,7 +13072,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 2
       }
     },
     {
@@ -13854,7 +14070,7 @@
       "category": "civil-practice",
       "slug": "polymer-construction-materials",
       "name": "figure-fiber-rupture-modes.svg",
-      "concept": "応力とひずみの関係を、鋼と連続繊維補強材で並べた概念図。鋼は降伏してから大きく伸びて破断する。連続繊維補強材は降伏せず直線のまま破断し、直線の傾き（弾性率）は炭素、アラミド、ガラスの順に小さくなる。炭素は小さいひずみで破断する。",
+      "concept": "鋼と連続繊維補強材（棒）の応力とひずみを一つの軸に重ねた概念図。鋼は降伏して水平に伸びる。繊維は鋼より緩い直線のまま破断し、炭素が最も小さいひずみで折れる。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -13891,6 +14107,24 @@
       "slug": "polymer-construction-materials",
       "name": "figure-polymer-concrete-types.svg",
       "concept": "ポリマーを使うコンクリートの三つの型を、結合材の違いで並べた模式図。ポリマーセメント系は結合材がセメントのままで、ポリマーを混ぜて性質を改善する。レジンコンクリートは結合材が液状のレジンで、セメントは入らない。含浸型は硬化したコンクリートに液状のモノマーをしみ込ませて固める。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 1,
+        "low": 2
+      }
+    },
+    {
+      "file": "content/site/civil-practice/polymer-construction-materials/img/figure-role-to-check.svg",
+      "category": "civil-practice",
+      "slug": "polymer-construction-materials",
+      "name": "figure-role-to-check.svg",
+      "concept": "肩代わりさせる仕事から、先に確かめることを引く対応図。引張、土や水の仕切り、ゴムの変形追従、樹脂の接着充填、セメントの補いの五つ",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -14061,7 +14295,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 2,
         "low": 0
       }
     },
@@ -14408,11 +14642,65 @@
       }
     },
     {
+      "file": "content/site/civil-practice/rebar-corrosion-handling/img/figure-tie-wire-end.svg",
+      "category": "civil-practice",
+      "slug": "rebar-corrosion-handling",
+      "name": "figure-tie-wire-end.svg",
+      "concept": "結束線の端末の向きを断面で比べた図。かぶり側へ残すと型枠に接して露出し錆の入口になり、部材の内側へ折り込むのが正しい",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/rebar-cover-placement/img/figure-cover-judgement-flow.svg",
+      "category": "civil-practice",
+      "slug": "rebar-cover-placement",
+      "name": "figure-cover-judgement-flow.svg",
+      "concept": "かぶり不足の対応の仕分け。許容誤差内かつ最小かぶり以上なら現場で是正し、部材の寸法や鉄筋量が動くなら設計変更協議にする流れ図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-practice/rebar-cover-placement/img/figure-cover-types.svg",
       "category": "civil-practice",
       "slug": "rebar-cover-placement",
       "name": "figure-cover-types.svg",
-      "concept": "純かぶり（鉄筋表面からコンクリート表面まで）と芯かぶり（鉄筋中心からコンクリート表面まで）の測り方の違いを示す断面図",
+      "concept": "純かぶりは鉄筋の最外縁、芯かぶりは鉄筋の中心からコンクリート表面までの距離で、差は径の半分。規格値は設計値との差が許容誤差内かつ最小かぶり以上で、薄い側は原則不可",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/rebar-splice-selection/img/figure-splice-choice.svg",
+      "category": "civil-practice",
+      "slug": "rebar-splice-selection",
+      "name": "figure-splice-choice.svg",
+      "concept": "継手方式の選び方。径が細くコストを抑えるなら重ね継手、太径でラップを減らすならガス圧接、天候や有資格者に不安があるなら機械式を選ぶ対応図",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -14430,7 +14718,7 @@
       "category": "civil-practice",
       "slug": "rebar-splice-selection",
       "name": "figure-stagger-layout.svg",
-      "concept": "鉄筋継手を千鳥配置にするときの隣り合う継手間の必要距離（継手の長さ＋鉄筋直径の25倍）を示す配置図",
+      "concept": "鉄筋継手を千鳥配置にするときの隣り合う継手の間隔（継手の長さL＋鉄筋直径の25倍）を、重ね継手の長さLと合わせて示す配置図",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -15542,11 +15830,65 @@
       }
     },
     {
+      "file": "content/site/civil-practice/special-concrete-selection/img/figure-mass-crack-measures.svg",
+      "category": "civil-practice",
+      "slug": "special-concrete-selection",
+      "name": "figure-mass-crack-measures.svg",
+      "concept": "マスコンクリートの温度ひび割れ対策の四つの手段。温度上昇を抑える、収縮ひずみを減らす、拘束を減らす、ひび割れ幅を制御するを、水和熱から拘束、ひび割れへ至る流れのどこに効くかで整理した図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/special-concrete-selection/img/figure-underwater-limits.svg",
+      "category": "civil-practice",
+      "slug": "special-concrete-selection",
+      "name": "figure-underwater-limits.svg",
+      "concept": "通常の水中コンクリートと水中不分離性コンクリートの打込み条件の比較。水の流れ、落とし方、先端と流動距離、打込み方法で別々の限度がある",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-practice/stacking-heat-machine-safety/img/figure-wbgt-class-alert-scale.svg",
       "category": "civil-practice",
       "slug": "stacking-heat-machine-safety",
       "name": "figure-wbgt-class-alert-scale.svg",
       "concept": "暑さ指数WBGTの目盛り。25未満の注意、25以上の警戒、28以上の厳重警戒、31以上の危険に、規則の対象の目安28、警戒アラート33、特別警戒アラート35を重ねた縦の目盛り図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/steel-material-properties/img/figure-charpy-specimen-setup.svg",
+      "category": "civil-practice",
+      "slug": "steel-material-properties",
+      "name": "figure-charpy-specimen-setup.svg",
+      "concept": "シャルピー試験の配置。両端を支えたV字切欠き付き試験片の切欠きの反対側をハンマーで打ち、破断までの吸収エネルギーを測る図",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -15573,7 +15915,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -15591,7 +15933,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -15619,6 +15961,24 @@
       "slug": "steel-material-properties",
       "name": "figure-fe-c-diagram.svg",
       "concept": "炭素量と温度から組織を読む簡略化したFe-C状態図と、室温で現れる三つの組織",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/steel-material-properties/img/figure-rebar-rolling-mark.svg",
+      "category": "civil-practice",
+      "slug": "steel-material-properties",
+      "name": "figure-rebar-rolling-mark.svg",
+      "concept": "異形棒鋼の圧延マークの突起の数で種類を見分ける図。SD345は1個、SD390は2個、SD490は3個、SD295はマークなし",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -16320,7 +16680,7 @@
       "category": "civil-practice",
       "slug": "wood-and-stone-materials",
       "name": "figure-grain-load-angle.svg",
-      "concept": "木材のボルト接合で、荷重の向きと繊維の向きが合う置き方とずれる置き方を並べ、荷重と繊維のなす角θが大きくなるほど強さが、繊維方向の強さPから直角方向の強さQへ向かって下がることを示した図。",
+      "concept": "木材のボルト接合で、荷重の向きと繊維の向きが合う置き方とずれる置き方を並べ、荷重と繊維のなす角θが大きくなるほど強さが、引張も圧縮も繊維方向の強さPから直角方向の強さQへ向かって下がることを示した図。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -16339,6 +16699,24 @@
       "slug": "wood-and-stone-materials",
       "name": "figure-moisture-content-bands.svg",
       "concept": "木材の含水率を縦に並べた図。上ほど湿っている。生材の辺材は100〜200%。約30%が繊維飽和点で、これより乾くと収縮が始まり強さが増す。30%以上は腐朽菌が活動しやすい。20%以下は腐朽菌の活動が抑えられるが、水が戻れば再開する。12〜15%は空気中に長く置いたときに落ち着く気乾状態。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/wood-and-stone-materials/img/figure-stone-shapes.svg",
+      "category": "civil-practice",
+      "slug": "wood-and-stone-materials",
+      "name": "figure-stone-shapes.svg",
+      "concept": "石の形状四種の寸法の見方。角石は幅が厚さの3倍未満、板石は厚さ15cm未満で幅が厚さの3倍以上、間知石は控えを四方落とし、割石は二方落とし",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -18534,7 +18912,25 @@
       "category": "concrete-chief-engineer",
       "slug": "textbook-production-qc",
       "name": "figure-cumulative-weighing-error.svg",
-      "concept": "累加計量の許容差判定。あらかじめ計量した混和剤Aに水Bを累加すると、A単独の判定に加えA＋B合計の判定が別に必要で、単独が合格でも合計で不合格になり得ることを示す図",
+      "concept": "混和剤Aと水Bを累加計量し、単独と合計を別々に判定する。合計誤差は約−1.32%を整数の−1%に丸めるため許容差1%以内で合格となる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/textbook-production-qc/img/figure-normal-distribution-epsilon.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "textbook-production-qc",
+      "name": "figure-normal-distribution-epsilon.svg",
+      "concept": "正規分布の曲線に平均μ、下限SL（μ−kσ）を示し、下限を下回る下側の面積εを塗った図。平均44.0、標準偏差4.00、下限36.0のときk=2.00でε=0.0228",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -18588,7 +18984,7 @@
       "category": "concrete-chief-engineer",
       "slug": "textbook-products",
       "name": "figure-precast-methods-products.svg",
-      "concept": "4製法（即時脱型・遠心力締固め・ロール転圧締固め・加圧締固め）と代表製品の対応。型枠に投入して締め固める製法（緑）と筒状型枠を回して成形する製法（青）を色で区分する図",
+      "concept": "4製法の原理と代表製品。即時脱型と加圧を上段、筒状型枠を用いる遠心力とロール転圧を下段に示す",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -18606,7 +19002,7 @@
       "category": "concrete-chief-engineer",
       "slug": "textbook-products",
       "name": "figure-steam-curing-profile.svg",
-      "concept": "蒸気養生の温度管理曲線。前養生・昇温・最高温度の保持・降温の4区間と、急昇温によるひび割れ・過高温によるDEFのリスク領域を示す図",
+      "concept": "蒸気養生の温度変化と急昇温、過高温、急冷による品質低下",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -18624,7 +19020,7 @@
       "category": "concrete-chief-engineer",
       "slug": "textbook-properties",
       "name": "figure-bingham-yield-viscosity.svg",
-      "concept": "ビンガム流体モデルの模式図。横軸にせん断ひずみ速度、縦軸にせん断応力をとり、縦軸切片が降伏値、直線の傾きが塑性粘度を表す",
+      "concept": "ビンガム流体モデルの模式図。横軸にせん断ひずみ速度、縦軸にせん断応力をとり、スランプ小は縦軸切片の降伏値が大きく、傾きが塑性粘度を表す",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -18660,7 +19056,7 @@
       "category": "concrete-chief-engineer",
       "slug": "textbook-properties",
       "name": "figure-creep-coefficient.svg",
-      "concept": "一定荷重を載荷し続けたときのひずみの時間変化。載荷の瞬間に載荷時弾性ひずみが生じ、その後クリープひずみが時間とともに増える。クリープ係数はクリープひずみを載荷時弾性ひずみで割った値",
+      "concept": "載荷供試体と無載荷供試体のひずみの時間変化。載荷供試体の全ひずみから、載荷時弾性ひずみと無載荷供試体のひずみ（自己収縮・乾燥収縮）を引いた差がクリープひずみで、クリープ係数はこれを載荷時弾性ひずみで割った値",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -18678,7 +19074,7 @@
       "category": "concrete-chief-engineer",
       "slug": "textbook-properties",
       "name": "figure-creep-failure-stress-levels.svg",
-      "concept": "持続応力レベル別のクリープひずみの時間推移の模式図。圧縮強度の30％と50％では時間とともに増加が頭打ちになり、85％と95％では増加が続いて破壊（×）に至る",
+      "concept": "クリープひずみと持続応力の関係の模式図。強度の40〜50％程度までは載荷応力にほぼ比例し、超えると非線形に増え、75〜85％程度のクリープ限度を超えると破壊に至る",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -18696,7 +19092,7 @@
       "category": "concrete-chief-engineer",
       "slug": "textbook-properties",
       "name": "figure-creep-strain-timeline.svg",
-      "concept": "持続荷重下のひずみの時間推移。載荷時弾性ひずみ→クリープひずみの増加→除荷時の弾性回復→クリープ回復→非回復ひずみの順を折れ線で示す",
+      "concept": "持続荷重下のひずみの時間推移。載荷時弾性ひずみ→クリープひずみの増加→除荷時の弾性回復→回復クリープ（弾性クリープ）→非回復ひずみの順を折れ線で示す",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -18728,6 +19124,42 @@
       }
     },
     {
+      "file": "content/site/concrete-chief-engineer/textbook-properties/img/figure-flexural-fracture-position.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "textbook-properties",
+      "name": "figure-flexural-fracture-position.svg",
+      "concept": "3等分点載荷の供試体を立面で示す。荷重点間の中央3分の1区間で破壊した場合は式が有効、載荷点より支点寄りで破壊した場合は結果が無効",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/textbook-properties/img/figure-high-temperature-residual.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "textbook-properties",
+      "name": "figure-high-temperature-residual.svg",
+      "concept": "300℃と500℃加熱後の残存圧縮強度は常温の80〜90%と50〜60%。弾性係数の残存率は同じ温度でさらに低い",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/concrete-chief-engineer/textbook-properties/img/figure-sn-fatigue-limit.svg",
       "category": "concrete-chief-engineer",
       "slug": "textbook-properties",
@@ -18742,7 +19174,43 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 1
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/textbook-properties/img/figure-static-modulus-trend.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "textbook-properties",
+      "name": "figure-static-modulus-trend.svg",
+      "concept": "静弾性係数と圧縮強度の関係の模式図。圧縮強度が高いほど静弾性係数は大きく、同じ圧縮強度では単位容積質量が大きいほど静弾性係数が大きい",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/textbook-properties/img/figure-strength-ratio.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "textbook-properties",
+      "name": "figure-strength-ratio.svg",
+      "concept": "圧縮強度を1としたときの引張強度は約1/10から1/13、曲げ強度は約1/5から1/8の横棒グラフ。高強度ほど比は小さくなる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -18750,7 +19218,25 @@
       "category": "concrete-chief-engineer",
       "slug": "textbook-structural-design",
       "name": "figure-failure-mode-priority.svg",
-      "concept": "曲げ・せん断・付着割裂の3破壊形態を望ましい順に並べ、延性か脆性か力の伝達が断たれるかという性格と先行させない手段、荷重-変形の概念曲線を対応づける図",
+      "concept": "曲げ・せん断・付着割裂の3破壊形態を先に壊れてよい順に並べ、性格と先行させない手段、設計での耐力の相対的な大小（曲げ耐力が最も小さく、付着耐力が最も大きい）を対応づける図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/textbook-structural-design/img/figure-flexural-assumptions.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "textbook-structural-design",
+      "name": "figure-flexural-assumptions.svg",
+      "concept": "曲げ耐力算定の4つの仮定。上段は断面と直線のひずみ分布、下段は等価応力ブロックと引張を負担する鉄筋",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -18768,7 +19254,25 @@
       "category": "concrete-chief-engineer",
       "slug": "textbook-structural-design",
       "name": "figure-frame-corner-cracks.svg",
-      "concept": "門形ラーメン隅角部の変形とひび割れの向き。水平荷重で開く場合は外側、突き上げ荷重で閉じる場合は内側が引張縁になり、柱脚の支持条件と荷重方向をあわせて示す図",
+      "concept": "柱脚を固定にそろえた門形ラーメン隅角部の変形とひび割れの向き。水平荷重では荷重を受ける側の隅角部が閉じて内側が引張縁、反対側の隅角部が開いて外側が引張縁になる。突き上げ荷重では両側の隅角部が閉じて内側が引張縁になる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/textbook-structural-design/img/figure-rebar-roles-failure-modes.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "textbook-structural-design",
+      "name": "figure-rebar-roles-failure-modes.svg",
+      "concept": "梁の主筋、スターラップ、端部フックと柱断面の帯筋を示し、曲げ、せん断、定着、拘束の役割を対応づける",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -19416,7 +19920,25 @@
       "category": "concrete-diagnostician",
       "slug": "textbook-deterioration",
       "name": "figure-asr-pessimum-curve.svg",
-      "concept": "アルカリシリカ反応のペシマム曲線の概念図。横軸は反応性骨材の混入率、縦軸は膨張量。骨材Aは低い混入率で急峻なピークを持ち、骨材Bはより高い混入率でなだらかなピークを持つ。混入率が低すぎても高すぎても膨張は小さい",
+      "concept": "反応性骨材の混入率と膨張量の概念図。中間の混入率で膨張が最大となるペシマムを示す。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-diagnostician/textbook-deterioration/img/figure-carbonation-chloride-peak.svg",
+      "category": "concrete-diagnostician",
+      "slug": "textbook-deterioration",
+      "name": "figure-carbonation-chloride-peak.svg",
+      "concept": "中性化で遊離した塩化物が中性化前線のすぐ内側へ移動して濃縮する様子を、深さ方向の断面と濃度分布で示す概念図。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -19443,7 +19965,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -19470,7 +19992,7 @@
       "category": "concrete-diagnostician",
       "slug": "textbook-deterioration",
       "name": "figure-concrete-sn-curve.svg",
-      "concept": "コンクリートのS-N曲線の概念図。横軸は破壊までの繰返し回数（対数）、縦軸は応力比で、応力比が高いほど少ない回数で破壊し、グラフは右下がりとなる。一部は破壊せず打切りとなる",
+      "concept": "コンクリートのS-N曲線の概念図。横軸は破壊までの繰返し回数（対数）、縦軸は応力比で、応力比が高いほど少ない回数で破壊し、グラフは右下がりとなる",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -19560,7 +20082,7 @@
       "category": "concrete-diagnostician",
       "slug": "textbook-deterioration",
       "name": "figure-dynamic-modulus-wc.svg",
-      "concept": "凍結融解サイクル数と相対動弾性係数の関係の概念図。水セメント比が小さい配合ほど低下しにくく、大きい配合ほど少ないサイクル数から低下する",
+      "concept": "同程度の気泡組織で比較した凍結融解サイクル数と相対動弾性係数の関係の概念図。水セメント比が小さい配合ほど低下しにくく、大きい配合ほど少ないサイクル数から低下する",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -19596,7 +20118,7 @@
       "category": "concrete-diagnostician",
       "slug": "textbook-deterioration",
       "name": "figure-heated-strength-recovery.svg",
-      "concept": "加熱を受けたコンクリートの残存圧縮強度比が冷却後の材齢とともに変化する傾向の概念図。最高加熱温度が高いほど低下が大きく、いずれも冷却後しばらくは低下したのち、時間とともに自然回復する",
+      "concept": "受熱500℃以下での回復傾向の概念図。強度より弾性係数の回復は小さく遅い。500℃を超える部分は回復を前提にしない。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -19632,7 +20154,7 @@
       "category": "concrete-diagnostician",
       "slug": "textbook-deterioration",
       "name": "figure-macrocell-microcell.svg",
-      "concept": "同一鉄筋上でアノード・カソードが微小に混在するミクロセル腐食と、断面修復の境界で未修復部がアノード・修復部がカソードになるマクロセル腐食に犠牲陽極材を配置する仕組み",
+      "concept": "ミクロセルはアノードとカソードが近接し、マクロセルは離れた位置に分かれる。鉄筋内の電子はアノードからカソードへ移動する。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -19722,7 +20244,7 @@
       "category": "concrete-diagnostician",
       "slug": "textbook-deterioration",
       "name": "figure-wc-chloride-diffusion.svg",
-      "concept": "水セメント比と塩化物イオン拡散係数の関係の概念グラフ。横軸は水セメント比0.3から0.8、縦軸は拡散係数の対数軸。普通ポルトランドセメントと高炉セメントB種のいずれも水セメント比が大きいほど拡散係数が大きくなる",
+      "concept": "水セメント比が大きいほど塩化物イオンの拡散係数が大きくなる傾向を示す概念図。セメント種類などの条件で関係は変わる。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -19830,7 +20352,7 @@
       "category": "concrete-diagnostician",
       "slug": "textbook-investigation",
       "name": "figure-aggregate-harmfulness-chart.svg",
-      "concept": "化学法の判定図。横軸は溶解シリカ量Sc、縦軸はアルカリ濃度減少量Rc。境界線より上側が無害、下側が無害でないと判定する",
+      "concept": "化学法の判定順序。Rcが700以上は判定せず、未満ではScが10未満か、ScがRc未満かで無害と無害でないを分ける",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -19992,7 +20514,7 @@
       "category": "concrete-diagnostician",
       "slug": "textbook-investigation",
       "name": "figure-epma-signals.svg",
-      "concept": "EPMAの信号の模式図。電子線を試料表面に照射すると特性X線、反射電子、二次電子、吸収電子が生じる。特性X線の波長と強度から元素の種類と量を調べる",
+      "concept": "電子線照射で生じる特性X線から元素を分析し、点・線・面の情報で劣化反応の範囲を調べるEPMAの原理",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -20082,7 +20604,25 @@
       "category": "concrete-diagnostician",
       "slug": "textbook-investigation",
       "name": "figure-mercury-intrusion.svg",
-      "concept": "水銀圧入法の原理図。コンクリートの細孔の上に水銀があり、圧入圧力Pで押し込むと水銀の表面張力σと接触角θに応じて細孔直径が決まり、圧力と圧入量の関係から細孔径分布を求める",
+      "concept": "圧力で水銀を細孔へ押し込み、圧力と侵入量の関係から細孔径分布を求める原理",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-diagnostician/textbook-investigation/img/figure-polarization-resistance-components.svg",
+      "category": "concrete-diagnostician",
+      "slug": "textbook-investigation",
+      "name": "figure-polarization-resistance-components.svg",
+      "concept": "直流法にはコンクリート抵抗が重なる。交流法はRsと、Rctおよび電気二重層容量の並列成分を分離して腐食速度を推定する",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -20226,7 +20766,7 @@
       "category": "concrete-diagnostician",
       "slug": "textbook-investigation",
       "name": "figure-reference-electrode-conversion.svg",
-      "concept": "標準電極を0 mVとしてAg/AgCl電極196 mV、CSE電極316 mVを数直線に並べ、差の−120 mVでAg/AgCl電極の−280 mVをCSE基準の−400 mVへ換算し、−350 mVより卑なので腐食の可能性大と判定する例",
+      "concept": "測定に使った照合電極を確認し、電極の仕様に基づいてCSE基準へ換算してから腐食の可能性を評価する流れ",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -20262,7 +20802,7 @@
       "category": "concrete-diagnostician",
       "slug": "textbook-investigation",
       "name": "figure-sem-imaging.svg",
-      "concept": "SEMの結像原理の模式図。電子ビームを走査コイルで試料上に走査し、試料から出る信号を電子検出器で捉え、増幅してCRTの輝度に変換する。走査コイル電源が走査とCRTを同期させる",
+      "concept": "SEMは電子線を走査して反射電子・二次電子から微細な表面形態を観察し、EPMAの組成分析と組み合わせる",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -20280,7 +20820,7 @@
       "category": "concrete-diagnostician",
       "slug": "textbook-investigation",
       "name": "figure-tg-dta-curve.svg",
-      "concept": "熱分析結果の例。温度に対してTGは質量が徐々に減り高温側で急減し、DTAは低温側と高温側に吸熱ピークを示す。ピークは水酸化カルシウムの脱水や炭酸カルシウムの脱炭酸に対応する",
+      "concept": "TGの質量減少とDTAの吸熱ピークを分けて示した模式図。水酸化カルシウムは約400〜600℃、炭酸カルシウムは約600〜800℃の反応域",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -20604,7 +21144,7 @@
       "category": "concrete-diagnostician",
       "slug": "textbook-repair",
       "name": "figure-01.svg",
-      "concept": "ひび割れ注入・充填・表面処理の断面模式図と、ひび割れ幅および活動性による工法の選び分け",
+      "concept": "表面処理・注入・充填の断面と幅の目安。ひび割れの活動性によって材料を選ぶ",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -20622,7 +21162,7 @@
       "category": "concrete-diagnostician",
       "slug": "textbook-repair",
       "name": "figure-02.svg",
-      "concept": "断面修復工法の断面模式図と、はつりから養生までの施工手順および品質の急所",
+      "concept": "劣化部の除去、鉄筋の錆落としと防錆、下地処理後の充填と養生を示す断面図",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -20694,7 +21234,7 @@
       "category": "concrete-diagnostician",
       "slug": "textbook-repair",
       "name": "figure-coating-layers.svg",
-      "concept": "表面被覆の標準的な塗膜構成を断面で示す。コンクリート下地の上に、下地処理・素地調整、プライマー、パテ、中塗り（主材）、上塗りの順に積層する",
+      "concept": "表面被覆は表面に塗膜を形成し、表面含浸は表層内部の細孔を充填・疎水化する",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -20712,7 +21252,7 @@
       "category": "concrete-diagnostician",
       "slug": "textbook-repair",
       "name": "figure-cold-joint-repair.svg",
-      "concept": "コールドジョイントの補修を断面で比較。小さい場合は清掃・水湿しのうえ両側各75mmにポリマーセメントペーストを塗布、大きい場合は幅3〜4mmの継目の上下各10〜20mmにポリマーセメントモルタルを充填しシーリング材とけい砂散布で仕上げる",
+      "concept": "コールドジョイントは軽微で漏水がない場合に表面処理、開きや通水がある場合に充填を選ぶ",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -20766,7 +21306,7 @@
       "category": "concrete-diagnostician",
       "slug": "textbook-repair",
       "name": "figure-electrochemical-current-duration.svg",
-      "concept": "通電期間を横軸、電流密度を縦軸にとり、再アルカリ化・脱塩・電着・電気防食の4つの電気化学的補修工法の位置づけを示す図",
+      "concept": "通電期間を横軸、電流密度を縦軸にとり、再アルカリ化・脱塩・電着・電気防食の3工法の位置づけと、電着の通電期間を示す図",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -20802,7 +21342,7 @@
       "category": "concrete-diagnostician",
       "slug": "textbook-repair",
       "name": "figure-honeycomb-repair.svg",
-      "concept": "豆板の補修の断面模式図。対策前は表面付近に骨材が露出した空隙があり、対策後は不良部分を除去してポリマーセメントモルタルで断面修復する。軽度なら表面被覆、重度なら打ち直しもある",
+      "concept": "豆板は内部の空隙範囲を調べ、表面のみなら脆弱部除去と表面処理、深い場合は除去と再充填を選ぶ",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -20811,7 +21351,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -20856,7 +21396,7 @@
       "category": "concrete-diagnostician",
       "slug": "textbook-repair",
       "name": "figure-repair-method-tree.svg",
-      "concept": "補修工法の分類。ひび割れに対する被覆・注入・充填、断面の欠損に対する断面修復、表面被覆・表面含浸・剥落防止からなる表面保護工法、電気防食・脱塩・再アルカリ化・電着からなる電気化学的補修工法に分かれる",
+      "concept": "ひび割れ、断面欠損、表面保護、鋼材腐食と内部環境の各目的に対応する補修工法",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -20910,7 +21450,7 @@
       "category": "concrete-diagnostician",
       "slug": "textbook-repair",
       "name": "figure-strengthening-effect-matrix.svg",
-      "concept": "RC巻立て・鋼板接着・FRP接着・増厚・外ケーブルの5補強工法が曲げ耐力・せん断耐力・剛性・じん性にどの程度効くかを塗りの濃淡で示すマトリクス",
+      "concept": "補強5工法と主に効く性能の対応。FRP接着と外ケーブルは剛性向上への寄与が小さい",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -20928,7 +21468,7 @@
       "category": "concrete-diagnostician",
       "slug": "textbook-repair",
       "name": "figure-strengthening-method-tree.svg",
-      "concept": "補強工法の区分。断面増強型（増厚・コンクリート巻立て・鋼板接着・FRP接着・鋼板巻立て・FRP巻立て）、部材追加型（縦桁増設）、支持点追加型（支持点増設）、その他（打換え・取替え、外ケーブル）に分かれる",
+      "concept": "断面増強、部材追加、支持点追加、部材の打換えと外ケーブルを、力の伝わり方から分類する",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -20937,7 +21477,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -20946,7 +21486,7 @@
       "category": "concrete-diagnostician",
       "slug": "textbook-variation",
       "name": "figure-01.svg",
-      "concept": "ひび割れの観察4項目から原因群を絞り込む推定フローと、分布パターン別の代表原因",
+      "concept": "ひび割れの観察5項目の使い分け。幅・深さ・活動性は有害かと処置を決め、分布パターンと発生時期は原因群の推定に使う。分布パターン別の代表原因を添える",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -20964,7 +21504,7 @@
       "category": "concrete-diagnostician",
       "slug": "textbook-variation",
       "name": "figure-02.svg",
-      "concept": "拘束された壁に生じる乾燥収縮ひび割れの向きと、温度ひび割れの拘束型による違い",
+      "concept": "収縮系ひび割れの型の見分け。乾燥収縮は壁の上端まで規則的に鉛直、外部拘束型は拘束体から立ち上がって貫通、内部拘束型は表面の浅いひび割れ",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -20982,7 +21522,7 @@
       "category": "concrete-diagnostician",
       "slug": "textbook-variation",
       "name": "figure-03.svg",
-      "concept": "ASR・鋼材腐食・凍害の劣化機構別に現れるひび割れパターンと随伴サインの比較",
+      "concept": "ASR・凍害・鋼材腐食の比較。ASRは内部から外へ亀甲状、凍害は表面から内へスケーリングやポップアウト、鋼材腐食は鉄筋位置から鉄筋軸方向の直線状に割れる",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -21018,7 +21558,7 @@
       "category": "concrete-diagnostician",
       "slug": "textbook-variation",
       "name": "figure-cold-joint-causes.svg",
-      "concept": "コールドジョイントの発生原因を、配合・製造運搬・環境条件・施工の四系統から矢印でまとめ、下層が硬化し始めてから上層を打ち重ねるという共通の結果を示した原因図",
+      "concept": "コールドジョイントの原因と起きやすい場所。配合・製造運搬・環境・施工の条件が重なり、下層が凝結を始めた後に上層を打ち重ねると面が残る。到着間隔が開いた区画の境、配管の切替え、配筋が過密な部位に出やすい",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -21036,7 +21576,7 @@
       "category": "concrete-diagnostician",
       "slug": "textbook-variation",
       "name": "figure-deformation-cause-tree.svg",
-      "concept": "変状を部位・部材の変状と構造系の変状に分け、初期欠陥・劣化・損傷の原因から、ひび割れ・剥落・エフロレッセンスなどの現れる変状へ対応づけた分類ツリー",
+      "concept": "変状の三つの系統（初期欠陥・劣化・構造的変状）ごとに、現れる変状とその主な原因の系統を対応づけた図",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -21054,7 +21594,7 @@
       "category": "concrete-diagnostician",
       "slug": "textbook-variation",
       "name": "figure-efflorescence-formation.svg",
-      "concept": "コンクリート内部の水が一次（内部の水が運ぶCa2+）と二次（表面を移動する水）の並列2系統が、大気中の二酸化炭素と反応して炭酸カルシウムを生成し、エフロレッセンスとなる過程。遊離石灰とは別",
+      "concept": "エフロレッセンスの生成の流れ。内部の水が可溶性成分を溶かし、表面へ滲み出し、二酸化炭素と反応して炭酸カルシウムとして析出する。遊離石灰は原因物質で別のもの",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -21234,7 +21774,7 @@
       "category": "concrete-diagnostician",
       "slug": "textbook-variation",
       "name": "figure-spalling-progress.svg",
-      "concept": "かぶりコンクリートの断面で、水と二酸化炭素の浸透、鋼材腐食、腐食膨張によるひび割れ、浮き・剥離、剥落へ進む四段階を上から下へ示した図",
+      "concept": "かぶりコンクリートの断面で、浸透・腐食、腐食膨張、浮き、剥離、剥落の五段階を上から下へ示した図。剥落より規模が大きい脱落は別の用語",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -21253,6 +21793,42 @@
       "slug": "textbook-variation",
       "name": "figure-structure-type-cracks.svg",
       "concept": "同じASR膨張が作用したときの無筋・RC・PCのひび割れの出方の違い。無筋は等方の亀甲状、RCは鉄筋方向に伸びた形状、PCは表面に出にくく内部に応力が蓄積する",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-diagnostician/textbook-variation/img/figure-surface-bubble-rising.svg",
+      "category": "concrete-diagnostician",
+      "slug": "textbook-variation",
+      "name": "figure-surface-bubble-rising.svg",
+      "concept": "表面気泡が下向きに傾いた型枠面の下に集まる断面図。気泡は浮力で上昇し、径が小さいほど浮上が遅く、凝結前に抜けきれないと型枠面に接したまま残る",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-diagnostician/textbook-variation/img/figure-three-questions.svg",
+      "category": "concrete-diagnostician",
+      "slug": "textbook-variation",
+      "name": "figure-three-questions.svg",
+      "concept": "点検で確かめる三つの問い。竣工時の記録に同じ変状があれば初期欠陥、前回より増えていれば劣化、位置と向きが荷重や支点と合えば構造的変状を疑う",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -21626,11 +22202,29 @@
       }
     },
     {
+      "file": "content/site/concrete-engineer/textbook-materials/img/figure-admixture-reaction-groups.svg",
+      "category": "concrete-engineer",
+      "slug": "textbook-materials",
+      "name": "figure-admixture-reaction-groups.svg",
+      "concept": "混和材と混和剤の区分と、混和材を反応で分ける3群。高炉スラグ微粉末は潜在水硬性、フライアッシュとシリカフュームはポゾラン反応、膨張材は結晶生成による膨張",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/concrete-engineer/textbook-materials/img/figure-aggregate-by-origin.svg",
       "category": "concrete-engineer",
       "slug": "textbook-materials",
       "name": "figure-aggregate-by-origin.svg",
-      "concept": "骨材の産地と種類の対応。山は山砂・山砂利、川の上流は砕石・砕砂、中下流は川砂利・川砂、河口は海砂、火山は軽量骨材、工場は高炉スラグ骨材、都市は解体コンクリート。種類は天然・人工・再生の3区分で、砕石・砕砂と軽量骨材は人工骨材",
+      "concept": "骨材の3区分。天然骨材は川砂利・山砂利・陸砂利・海砂で天然軽量骨材は火山れき。人工骨材は砕石・砕砂・スラグ骨材など。再生骨材は解体コンクリートを処理したもの。密度では軽量・普通・重量に分ける",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -21684,7 +22278,7 @@
       "category": "concrete-engineer",
       "slug": "textbook-materials",
       "name": "figure-cement-manufacturing.svg",
-      "concept": "セメント製造の3工程。原料工程で原料を粉砕・混合し、焼成工程で高温加熱してクリンカーを生成し、仕上工程でせっこうを加え微粉砕する",
+      "concept": "セメント製造の3工程。原料工程で粉砕混合、焼成工程は低い温度から石灰石の分解、C2S、C3AとC4AF、最後に最高温域でC3Sが生じ、仕上工程でせっこうを加え粉砕する",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -21702,7 +22296,25 @@
       "category": "concrete-engineer",
       "slug": "textbook-materials",
       "name": "figure-cement-weathering-reactions.svg",
-      "concept": "セメントの風化を示す2段階の化学反応。酸化カルシウムと水から水酸化カルシウム、続いて水酸化カルシウムと二酸化炭素から炭酸カルシウムと水が生じる",
+      "concept": "セメントの風化を示す2段階の化学反応。セメント中のCaO分と水から水酸化カルシウム、続いて水酸化カルシウムと二酸化炭素から炭酸カルシウムと水が生じる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-engineer/textbook-materials/img/figure-clinker-compounds.svg",
+      "category": "concrete-engineer",
+      "slug": "textbook-materials",
+      "name": "figure-clinker-compounds.svg",
+      "concept": "クリンカーの4化合物の比較。C3Sは比較的速く初期から28日程度の強度、C2Sは遅く長期強度で水和熱が小さい、C3Aは速く発熱が大きくせっこうで調整、C4AFは強度への寄与が小さい。早強はC3S、中庸熱・低熱・耐硫酸塩はC3Aに結びつく",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -21738,7 +22350,7 @@
       "category": "concrete-engineer",
       "slug": "textbook-materials",
       "name": "figure-rebar-role-beam.svg",
-      "concept": "鉄筋なしの梁は荷重で割れて一気に破断し、鉄筋入りの梁は引張側の鉄筋が力を負担してひび割れても直ちには壊れないことを上下2段で対比した図",
+      "concept": "鉄筋なしの梁は引張側が割れて破断し、鉄筋ありの梁は引張側の鉄筋が力を負担してひび割れても直ちには壊れない。両者は熱膨張係数が近く付着で一体になる",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -21774,7 +22386,7 @@
       "category": "concrete-engineer",
       "slug": "textbook-materials",
       "name": "figure-solid-volume-ratio.svg",
-      "concept": "1立方メートルの容器に骨材粒を詰めた断面図。骨材粒の実質部分と粒のすき間の空隙を色分けし、実積率は骨材の実積を容器の容積で割った割合であることを示す",
+      "concept": "同じ容積の容器2つの断面比較。粒形・粒度が悪いと空隙が大きく実積率は小さくモルタルが多く要り、かみ合いが良いと空隙が小さく実積率は大きくモルタルが少なくてすむ",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -21792,7 +22404,7 @@
       "category": "concrete-engineer",
       "slug": "textbook-materials",
       "name": "figure-water-density-temperature.svg",
-      "concept": "水の密度と温度の関係を示す折れ線グラフ。0℃で1.000、20℃で0.998、40℃で0.992、60℃で0.983、80℃で0.972、100℃で0.958g/cm3へ低下する",
+      "concept": "水の密度と温度の関係を示す折れ線グラフ（縦軸は0.96付近から）。20℃から80℃で体積は約2.7％増える。0℃で1.000、20℃で0.998、40℃で0.992、60℃で0.983、80℃で0.972、100℃で0.958g/cm3へ低下する",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -21801,7 +22413,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -21810,7 +22422,7 @@
       "category": "concrete-engineer",
       "slug": "textbook-materials",
       "name": "figure-water-reducer-dispersion.svg",
-      "concept": "セメント粒子が密集した状態から、減水剤が粒子表面に吸着し、粒子同士が電気的に反発して分散する3段階。拘束されていた水が放出され、少ない水で同じ施工性が得られる",
+      "concept": "セメント粒子が密集した状態から、減水剤が粒子表面に吸着し、粒子がばらけて分散する3段階。少ない水でも同じ施工性が得られる",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -21846,7 +22458,7 @@
       "category": "concrete-engineer",
       "slug": "textbook-mix-design",
       "name": "figure-cw-strength-line.svg",
-      "concept": "セメント水比C/W（1.5〜3.0、対応する水セメント比W/Cは70〜30％）と圧縮強度の関係。C/Wが大きいほど、つまり水セメント比が小さいほど、圧縮強度が右上がりに高くなる傾向を示す",
+      "concept": "水セメント比W/Cが小さいほど圧縮強度が高く、大きいほど低い傾向を示す定性のグラフ。水を減らす、セメントを増やす、のどちらでもW/Cは小さくなる",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -21896,11 +22508,29 @@
       }
     },
     {
+      "file": "content/site/concrete-engineer/textbook-mix-design/img/figure-mix-design-flow.svg",
+      "category": "concrete-engineer",
+      "slug": "textbook-mix-design",
+      "name": "figure-mix-design-flow.svg",
+      "concept": "配合設計の手順の流れ図。要求性能の設定から水セメント比、単位水量、単位セメント量、絶対容積での骨材量、試し練りの順に進み、目標とずれたら原因の諸量だけ補正して再度試し練りに戻る",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/concrete-engineer/textbook-mix-design/img/figure-mix-strength-margin.svg",
       "category": "concrete-engineer",
       "slug": "textbook-mix-design",
       "name": "figure-mix-strength-margin.svg",
-      "concept": "呼び強度を中心とした分布（破線）と、割増しだけ右にずらした配合強度の分布（実線）。呼び強度を下回る裾の確率は約0.6％で、配合強度は呼び強度に割増しを加えた値であることを示す",
+      "concept": "呼び強度を中心にした分布（破線）と、割増しの分だけ同じ形で右へずらした配合強度の分布（実線）。右へずらすと呼び強度を下回る範囲が小さくなり、配合強度は呼び強度に割増しを加えた値になる",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -21918,7 +22548,7 @@
       "category": "concrete-engineer",
       "slug": "textbook-mix-design",
       "name": "figure-paste-mortar-concrete.svg",
-      "concept": "セメントペースト、モルタル、コンクリートの材料構成を構成の相対的な目安（定性表示）で3本の積み上げ帯にして比較した図。ペーストはセメントと水、モルタルは細骨材を加え、コンクリートはさらに粗骨材を加える",
+      "concept": "セメントペースト、モルタル、コンクリートの材料構成を容積の目安（定性表示）で3本の積み上げ帯にして比較した図。ペーストはセメントと水、モルタルは細骨材を加え、コンクリートはさらに粗骨材を加える",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -21936,7 +22566,7 @@
       "category": "concrete-engineer",
       "slug": "textbook-mix-design",
       "name": "figure-performance-to-mix.svg",
-      "concept": "要求性能の安全性・使用性・耐久性を配合の目標である強度・耐久性へ結び、施工性と経済性はその実現条件として位置づける対応関係を示す図",
+      "concept": "要求性能の安全性・使用性・耐久性を、配合の目標項目である強度・耐久性・施工性・経済性の4つへ落とし込む対応図。施工性と経済性は強度・耐久性を満たすための条件",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -21972,7 +22602,7 @@
       "category": "concrete-engineer",
       "slug": "textbook-mix-design",
       "name": "figure-sand-ratio-slump-wc.svg",
-      "concept": "砕石コンクリートの細骨材率（34〜58％）とスランプ（6〜22cm）の傾向図。水セメント比40〜65％の6本の折れ線が、スランプが大きいほど、また水セメント比が大きいほど細骨材率が高い側に並ぶ傾向を示す",
+      "concept": "細骨材率とスランプ、水セメント比の傾向図。スランプが大きいほど、また水セメント比が大きいほど細骨材率は高い側に並ぶ。数値なしの定性図",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -21981,7 +22611,25 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 6,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-engineer/textbook-mix-design/img/figure-strength-terms-flow.svg",
+      "category": "concrete-engineer",
+      "slug": "textbook-mix-design",
+      "name": "figure-strength-terms-flow.svg",
+      "concept": "土木の強度の語の流れ。設計者の設計基準強度、購入者の呼び強度、生産者の配合強度、受入れ検査の合否の条件、構造物での設計基準強度に対する確認",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
         "low": 0
       }
     },
@@ -21990,7 +22638,7 @@
       "category": "concrete-engineer",
       "slug": "textbook-mix-design",
       "name": "figure-volume-composition.svg",
-      "concept": "5要素の絶対容積を1m³へ積み上げ、量の増減が性質に跳ね返る配合の基本形を、水・セメント・空気を増やしたときの変化とあわせて示す図",
+      "concept": "絶対容積の計算例。空気45 L、水170 L、セメント約108 L、細骨材317 L、粗骨材360 Lで合計1,000 L。空気・水・セメントを増やしたときの変化を同じ色の枠で示す",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -22009,6 +22657,42 @@
       "slug": "textbook-mix-design",
       "name": "figure-water-reducer-strength-effect.svg",
       "concept": "Aは混和剤なし、BはAE剤、CはAE減水剤。BはW/C低下による強度増加と空気連行による強度減少が相殺してAと同程度、CはW/Cをさらに下げられるため強度が大きくなる（定性）",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-engineer/textbook-production-qc/img/figure-acceptance-judgement-forms.svg",
+      "category": "concrete-engineer",
+      "slug": "textbook-production-qc",
+      "name": "figure-acceptance-judgement-forms.svg",
+      "concept": "受入試験の判定の形。スランプと空気量は範囲判定、塩化物は0.30 kg/m³以下の上限判定、強度は1回が呼び強度の85％以上かつ3回平均が呼び強度以上の二重の条件",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-engineer/textbook-production-qc/img/figure-control-chart-patterns.svg",
+      "category": "concrete-engineer",
+      "slug": "textbook-production-qc",
+      "name": "figure-control-chart-patterns.svg",
+      "concept": "管理図の4つの異常パターン。点が管理限界を超える、中心線の片側に連続する、上昇または下降が続く、周期的に変動する",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -22062,7 +22746,7 @@
       "category": "concrete-engineer",
       "slug": "textbook-production-qc",
       "name": "figure-normal-distribution-variation.svg",
-      "concept": "同じ平均値で標準偏差が小さい場合は山が高く鋭い分布、大きい場合は山が低くなだらかな分布になる。変動係数は標準偏差を平均値で割って百分率にしたもの",
+      "concept": "同じ平均でばらつき小（山が高く鋭い）とばらつき大（低くなだらか）の2つの正規分布。規格の下限より下の裾を塗り分け、ばらつき大のほうが下回る面積が広いことを示す",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -22080,7 +22764,7 @@
       "category": "concrete-engineer",
       "slug": "textbook-production-qc",
       "name": "figure-plant-layout.svg",
-      "concept": "生コン工場の設備配置を骨材ヤード・セメントサイロから計量器・ミキサ・トラックアジテータを経て現場へ至る流れで示す図",
+      "concept": "生コン工場の設備の流れ。貯蔵、搬送、計量、練混ぜ、運搬を経て現場へ。運搬車の洗車で出る排水は処理し、回収骨材と回収水は材料へ戻す",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -22134,7 +22818,7 @@
       "category": "concrete-engineer",
       "slug": "textbook-production-qc",
       "name": "figure-three-inspections.svg",
-      "concept": "生コン工場の3つの検査（原材料受入検査・工程検査・製品検査）を製造フロー上に並べ、誰が何をどの頻度で確認するかを示す図",
+      "concept": "3つの検査を製造の流れに重ねた図。原材料受入検査は貯蔵・受入れで工場、工程検査は計量・練混ぜ・運搬で工場が表面水率・粗粒率・圧縮強度を確認、製品検査は荷卸し地点で購入者が強度は150 m³に1回を標準に判定する",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -22152,7 +22836,7 @@
       "category": "concrete-engineer",
       "slug": "textbook-properties-testing",
       "name": "figure-ae-bubble-freeze-relief.svg",
-      "concept": "気温が10度付近では水ミチの水は液体のままだが、0度付近に下がると骨材側の水ミチは凍結して膨張し組織を壊す。独立気泡は圧力の高まった水の逃げ場になり凍害を緩和する",
+      "concept": "気温が10度付近では組織内の水は液体のままだが、0度付近に下がると凍結して膨張し組織を傷める。微細な独立気泡が耐凍害性を改善する",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -22170,7 +22854,7 @@
       "category": "concrete-engineer",
       "slug": "textbook-properties-testing",
       "name": "figure-air-content-durability-index.svg",
-      "concept": "空気量（1〜8％）と耐久性指数（0〜100）の傾向図。空気量が約2〜3％の推移域を境に、耐久性小（20％以下）の低い水準から耐久性大（80％以上）の高い水準へS字状に急上昇する。下にレディーミクストコンクリートの標準範囲4.5±1.5％を帯で示す",
+      "concept": "空気量の3区間。少なすぎると凍結融解への抵抗性が不足し、標準4.5±1.5％で耐凍害性の目安は相対動弾性係数60％以上、多すぎると空隙が増えて圧縮強度の低下が大きくなる",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -22242,7 +22926,7 @@
       "category": "concrete-engineer",
       "slug": "textbook-properties-testing",
       "name": "figure-creep-load-levels.svg",
-      "concept": "荷重持続時間と変形量の関係を4本の曲線で示した定性図。破壊荷重の95%と85%は変形が増え続けて破壊に至り、50%と30%は頭打ちになり破壊に至らない",
+      "concept": "クリープのひずみの時間変化の定性図。載荷で弾性ひずみが生じ、時間とともにクリープひずみが増える。除荷すると一部は瞬時に、残りはゆっくり回復し、元に戻らない成分が残る",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -22260,7 +22944,25 @@
       "category": "concrete-engineer",
       "slug": "textbook-properties-testing",
       "name": "figure-drying-shrinkage-unit-cement.svg",
-      "concept": "単位セメント量と乾燥収縮の関係。単位水量120から200kg/m³の実線は水量が大きいほど上に位置し、水セメント比40から70%の破線が交差する。数値なし傾向図",
+      "concept": "単位セメント量と乾燥収縮の関係。単位水量が大きい線ほど上に位置し、乾燥収縮が大きい。数値なしの傾向図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-engineer/textbook-properties-testing/img/figure-durability-mechanisms-compare.svg",
+      "category": "concrete-engineer",
+      "slug": "textbook-properties-testing",
+      "name": "figure-durability-mechanisms-compare.svg",
+      "concept": "中性化、塩害、凍害、アルカリシリカ反応の整理。それぞれの作用、確かめる試験、基準値や抑制策を並べて比べる",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -22296,7 +22998,7 @@
       "category": "concrete-engineer",
       "slug": "textbook-properties-testing",
       "name": "figure-ndt-methods-wall-section.svg",
-      "concept": "非破壊試験が壁のどこを見るかの断面図と、反発度の測定位置。反発度法は表層の硬さ、打音法は表層近くの浮き、電磁誘導法とレーダ法は鉄筋位置とかぶり、超音波法は壁を通過する伝播時間から空洞を見る。下段は壁の正面で、縁から50mm以上内側に、25から50mm間隔で9点を測る配置例",
+      "concept": "非破壊試験が壁のどこを見るかの断面図と、反発度の測定位置。反発度法は表層の硬さ、打音法は表層近くの浮き、電磁誘導法は磁性体の鉄筋の位置とかぶり、レーダ法は含水の影響を受けながら鉄筋や空洞の位置、超音波法は壁を通過する伝播時間から空洞を見る。下段は壁の正面で、縁から50mm以上内側に、25から50mm間隔で9点を測る配置例",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -22346,6 +23048,24 @@
       }
     },
     {
+      "file": "content/site/concrete-engineer/textbook-properties-testing/img/figure-slump-variation-factors.svg",
+      "category": "concrete-engineer",
+      "slug": "textbook-properties-testing",
+      "name": "figure-slump-variation-factors.svg",
+      "concept": "スランプを動かす要因。同じ配合でも細骨材の表面水率、骨材の粒度、ミキサ車の洗浄水、ドラム内壁の付着でばらつく。気温が高い、単位水量が少ない、時間が経つと低下する",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/concrete-engineer/textbook-properties-testing/img/figure-steel-corrosion-cell.svg",
       "category": "concrete-engineer",
       "slug": "textbook-properties-testing",
@@ -22368,7 +23088,7 @@
       "category": "concrete-engineer",
       "slug": "textbook-properties-testing",
       "name": "figure-strength-comparison-materials.svg",
-      "concept": "鋼材、花崗岩、大理石、コンクリート、ブナ、スギの引張強度と圧縮強度を横棒グラフで比較した図。コンクリートは引張強度が圧縮強度の約10分の1と小さい",
+      "concept": "コンクリートの強度の大小は圧縮、曲げ、引張の順。圧縮強度÷引張強度の脆性係数はコンクリートで大きく鋼材で小さい。引張側は鉄筋で補う",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -22386,7 +23106,7 @@
       "category": "concrete-engineer",
       "slug": "textbook-properties-testing",
       "name": "figure-wc-carbonation-rate.svg",
-      "concept": "水セメント比が大きいほど中性化速度比が大きくなる右上がりの傾向（定性）。普通・早強ポルトランド、高炉A種・B種、フライアッシュA種のいずれも同様の傾向を示す",
+      "concept": "水セメント比が大きいほど中性化速度比が大きくなる右上がりの傾向（定性）。水セメント比を小さくすると中性化に有利",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -22683,7 +23403,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 2,
         "low": 0
       }
     },

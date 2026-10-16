@@ -1,33 +1,33 @@
 {
   "meta": {
-    "generated_at": "2026-10-09T10:42:14.320Z",
+    "generated_at": "2026-10-16T11:38:27.862Z",
     "path": "content/site/**/img/*.svg",
     "file": null,
     "note": "exam crop dirs (h*-primary, primary-h*) are audited for HIGH only — design/canvas patterns are left to civil-exam-figure-auditor"
   },
   "summary": {
-    "scanned_files": 1313,
-    "matched_files": 1313,
+    "scanned_files": 1618,
+    "matched_files": 1618,
     "parse_errors": 0,
     "exam_crops_high_only": 24,
-    "files_with_issues": 145,
-    "total_findings": 323,
+    "files_with_issues": 143,
+    "total_findings": 333,
     "by_severity": {
       "HIGH": 0,
-      "MEDIUM": 146,
-      "LOW": 177
+      "MEDIUM": 140,
+      "LOW": 193
     },
     "by_pattern": {
-      "P9-text-rect-overflow": 79,
+      "P9-text-rect-overflow": 84,
       "P11-concept-title": 37,
       "P4-tiny-font": 133,
       "P5-wide-viewbox": 44,
-      "P2-text-overlap": 23,
-      "P9-text-shape-overlap": 2,
+      "P3-missing-role": 2,
+      "P3-missing-aria": 2,
+      "P2-text-overlap": 22,
+      "P9-text-shape-overlap": 5,
       "P7-missing-font-family": 1,
-      "P3-missing-role": 1,
-      "P3-missing-aria": 1,
-      "P6-color-drift": 2
+      "P6-color-drift": 3
     }
   },
   "findings": [
@@ -998,6 +998,18 @@
       "detail": "font-size 9px < 11px（モバイル視認性下限）"
     },
     {
+      "file": "content/site/pe-comprehensive-management/bid-rigging/img/figure-bidding-reform-timeline.svg",
+      "pattern": "P3-missing-role",
+      "severity": "MEDIUM",
+      "detail": "role=\"img\" が未設定"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/bid-rigging/img/figure-bidding-reform-timeline.svg",
+      "pattern": "P3-missing-aria",
+      "severity": "MEDIUM",
+      "detail": "aria-label が未設定"
+    },
+    {
       "file": "content/site/pe-comprehensive-management/analytic-hierarchy-process/img/figure-ahp-hierarchy.svg",
       "pattern": "P11-concept-title",
       "severity": "MEDIUM",
@@ -1051,48 +1063,6 @@
       "detail": "「完成へ」が rect(y=56,h=90) 下端 y=146 を超過（text 下端 y=151.5）"
     },
     {
-      "file": "content/site/concrete-engineer/textbook-mix-design/img/figure-sand-ratio-slump-wc.svg",
-      "pattern": "P9-text-rect-overflow",
-      "severity": "MEDIUM",
-      "detail": "「65 %」が rect(x=70,w=270) 右端 x=340 を超過（bbox 右端 x=358）"
-    },
-    {
-      "file": "content/site/concrete-engineer/textbook-mix-design/img/figure-sand-ratio-slump-wc.svg",
-      "pattern": "P9-text-rect-overflow",
-      "severity": "MEDIUM",
-      "detail": "「60 %」が rect(x=70,w=270) 右端 x=340 を超過（bbox 右端 x=358）"
-    },
-    {
-      "file": "content/site/concrete-engineer/textbook-mix-design/img/figure-sand-ratio-slump-wc.svg",
-      "pattern": "P9-text-rect-overflow",
-      "severity": "MEDIUM",
-      "detail": "「55 %」が rect(x=70,w=270) 右端 x=340 を超過（bbox 右端 x=358）"
-    },
-    {
-      "file": "content/site/concrete-engineer/textbook-mix-design/img/figure-sand-ratio-slump-wc.svg",
-      "pattern": "P9-text-rect-overflow",
-      "severity": "MEDIUM",
-      "detail": "「50 %」が rect(x=70,w=270) 右端 x=340 を超過（bbox 右端 x=358）"
-    },
-    {
-      "file": "content/site/concrete-engineer/textbook-mix-design/img/figure-sand-ratio-slump-wc.svg",
-      "pattern": "P9-text-rect-overflow",
-      "severity": "MEDIUM",
-      "detail": "「45 %」が rect(x=70,w=270) 右端 x=340 を超過（bbox 右端 x=358）"
-    },
-    {
-      "file": "content/site/concrete-engineer/textbook-mix-design/img/figure-sand-ratio-slump-wc.svg",
-      "pattern": "P9-text-rect-overflow",
-      "severity": "MEDIUM",
-      "detail": "「40 %」が rect(x=70,w=270) 右端 x=340 を超過（bbox 右端 x=358）"
-    },
-    {
-      "file": "content/site/concrete-engineer/textbook-materials/img/figure-water-density-temperature.svg",
-      "pattern": "P9-text-rect-overflow",
-      "severity": "MEDIUM",
-      "detail": "「練混ぜ水の温度はフレッシュコン」が rect(x=20,w=360) 右端 x=380 を超過（bbox 右端 x=397）"
-    },
-    {
       "file": "content/site/concrete-engineer/primary-properties-testing/img/figure-ex-properties-temperature-slump-loss.svg",
       "pattern": "P11-concept-title",
       "severity": "MEDIUM",
@@ -1135,18 +1105,6 @@
       "detail": "最上部中央の大見出し「打込み方法と材料分離」は概念名タイトルの疑い（figure-canvas-policy §2.4：図内タイトル禁止。SNS ヘッダーと二重化）。除去し凡例・サマリー等の実体で余白を埋めよ"
     },
     {
-      "file": "content/site/concrete-diagnostician/textbook-repair/img/figure-strengthening-method-tree.svg",
-      "pattern": "P9-text-rect-overflow",
-      "severity": "MEDIUM",
-      "detail": "「断面増強型は、断面を増やす工法」が rect(x=20,w=360) 右端 x=380 を超過（bbox 右端 x=397）"
-    },
-    {
-      "file": "content/site/concrete-diagnostician/textbook-repair/img/figure-honeycomb-repair.svg",
-      "pattern": "P9-text-rect-overflow",
-      "severity": "MEDIUM",
-      "detail": "「（空隙が残る）」が rect(x=40,w=140) 右端 x=180 を超過（bbox 右端 x=195）"
-    },
-    {
       "file": "content/site/concrete-diagnostician/textbook-repair/img/figure-deck-overlay-steps.svg",
       "pattern": "P9-text-rect-overflow",
       "severity": "MEDIUM",
@@ -1177,12 +1135,6 @@
       "detail": "「2〜100 nm（第2部）」が rect(x=108.8,w=67.2) 右端 x=176 を超過（bbox 右端 x=192）"
     },
     {
-      "file": "content/site/concrete-diagnostician/textbook-deterioration/img/figure-carbonation-humidity-curve.svg",
-      "pattern": "P9-text-rect-overflow",
-      "severity": "MEDIUM",
-      "detail": "「普通ポルトランドセメント」が rect(x=170,w=80) 右端 x=250 を超過（bbox 右端 x=371）"
-    },
-    {
       "file": "content/site/concrete-diagnostician/primary-exercise-03/img/figure-ex-diag-heating-residual.svg",
       "pattern": "P9-text-rect-overflow",
       "severity": "MEDIUM",
@@ -1199,12 +1151,6 @@
       "pattern": "P9-text-rect-overflow",
       "severity": "MEDIUM",
       "detail": "「シースに沿ったひび割れ」が rect(x=60,w=280) 右端 x=340 を超過（bbox 右端 x=347）"
-    },
-    {
-      "file": "content/site/concrete-chief-engineer/textbook-properties/img/figure-sn-fatigue-limit.svg",
-      "pattern": "P9-text-rect-overflow",
-      "severity": "LOW",
-      "detail": "「200万回」が rect(y=304,h=30) 下端 y=334 を超過（text 下端 y=339.6）"
     },
     {
       "file": "content/site/concrete-chief-engineer/textbook-construction/img/figure-joint-position-frame.svg",
@@ -1723,18 +1669,6 @@
       "detail": "「壁の断面（打込み後、まだ固まる」が rect(x=110,w=130) 右端 x=240 を超過（bbox 右端 x=303）"
     },
     {
-      "file": "content/site/civil-practice/steel-material-properties/img/figure-corrosion-cell.svg",
-      "pattern": "P9-text-rect-overflow",
-      "severity": "MEDIUM",
-      "detail": "「（空気から）」が rect(x=20,w=360) 右端 x=380 を超過（bbox 右端 x=391）"
-    },
-    {
-      "file": "content/site/civil-practice/steel-material-properties/img/figure-charpy-transition.svg",
-      "pattern": "P2-text-overlap",
-      "severity": "MEDIUM",
-      "detail": "「実線：吸収エネルギー（J）」と「破線：脆性破面率（%）」の bbox が重複"
-    },
-    {
       "file": "content/site/civil-practice/seismic-design-levels/img/figure-shaking-input-methods.svg",
       "pattern": "P9-text-rect-overflow",
       "severity": "LOW",
@@ -1753,22 +1687,124 @@
       "detail": "「流路の跡」と「泥の低地」の bbox が重複"
     },
     {
-      "file": "content/site/civil-practice/ict-construction-workflow/img/figure-mobile-lidar-decision.svg",
+      "file": "content/site/civil-practice/public-works-bidding-methods/img/figure-evaluation-value-plane.svg",
+      "pattern": "P2-text-overlap",
+      "severity": "MEDIUM",
+      "detail": "「120」と「技術評価点（標準点＋加算点）」の bbox が重複"
+    },
+    {
+      "file": "content/site/civil-practice/public-works-bidding-methods/img/figure-evaluation-value-plane.svg",
+      "pattern": "P6-color-drift",
+      "severity": "MEDIUM",
+      "detail": "allowlist 外の色: C（svg-tokens.json の colorsAllowList 参照）"
+    },
+    {
+      "file": "content/site/civil-practice/polymer-construction-materials/img/figure-polymer-concrete-types.svg",
       "pattern": "P9-text-rect-overflow",
       "severity": "MEDIUM",
-      "detail": "「要領の密度（0.1m四方に1点」が rect(x=15,w=210) 右端 x=225 を超過（bbox 右端 x=235）"
+      "detail": "「硬化体にしみ込ませる」が rect(x=214,w=56) 右端 x=270 を超過（bbox 右端 x=357）"
+    },
+    {
+      "file": "content/site/civil-practice/polymer-construction-materials/img/figure-polymer-concrete-types.svg",
+      "pattern": "P9-text-rect-overflow",
+      "severity": "LOW",
+      "detail": "「硬化体にしみ込ませる」が rect(y=348,h=20) 下端 y=368 を超過（text 下端 y=375.9）"
+    },
+    {
+      "file": "content/site/civil-practice/polymer-construction-materials/img/figure-polymer-concrete-types.svg",
+      "pattern": "P9-text-rect-overflow",
+      "severity": "LOW",
+      "detail": "「配合表の結合材の欄を見て、三つ」が rect(y=334,h=150) 下端 y=484 を超過（text 下端 y=491.8）"
+    },
+    {
+      "file": "content/site/civil-practice/license-requirements/img/figure-management-experience-years.svg",
+      "pattern": "P9-text-rect-overflow",
+      "severity": "LOW",
+      "detail": "「立場をまたぐ通算」が rect(y=262,h=28) 下端 y=290 を超過（text 下端 y=297.9）"
+    },
+    {
+      "file": "content/site/civil-practice/license-requirements/img/figure-management-experience-years.svg",
+      "pattern": "P9-text-rect-overflow",
+      "severity": "LOW",
+      "detail": "「通算5年以上（2番目の型）」が rect(y=230,h=130) 下端 y=360 を超過（text 下端 y=367.9）"
     },
     {
       "file": "content/site/civil-practice/ict-construction-workflow/img/figure-method-narrowing.svg",
-      "pattern": "P2-text-overlap",
-      "severity": "MEDIUM",
-      "detail": "「問3　要求精度はどの区分か」と「（地上移動体搭載型の例）」の bbox が重複"
+      "pattern": "P9-text-rect-overflow",
+      "severity": "LOW",
+      "detail": "「航空レーザ測量」が rect(y=132,h=22) 下端 y=154 を超過（text 下端 y=156.8）"
+    },
+    {
+      "file": "content/site/civil-practice/ict-construction-workflow/img/figure-method-narrowing.svg",
+      "pattern": "P9-text-rect-overflow",
+      "severity": "LOW",
+      "detail": "「UAV写真測量」が rect(y=158,h=22) 下端 y=180 を超過（text 下端 y=182.8）"
+    },
+    {
+      "file": "content/site/civil-practice/ict-construction-workflow/img/figure-method-narrowing.svg",
+      "pattern": "P9-text-rect-overflow",
+      "severity": "LOW",
+      "detail": "「UAV搭載型レーザ」が rect(y=158,h=22) 下端 y=180 を超過（text 下端 y=182.8）"
+    },
+    {
+      "file": "content/site/civil-practice/ict-construction-workflow/img/figure-method-narrowing.svg",
+      "pattern": "P9-text-rect-overflow",
+      "severity": "LOW",
+      "detail": "「据え置き型・位相差方式」が rect(y=184,h=22) 下端 y=206 を超過（text 下端 y=208.8）"
+    },
+    {
+      "file": "content/site/civil-practice/ict-construction-workflow/img/figure-method-narrowing.svg",
+      "pattern": "P9-text-rect-overflow",
+      "severity": "LOW",
+      "detail": "「据え置き型・TOF方式」が rect(y=210,h=22) 下端 y=232 を超過（text 下端 y=234.8）"
+    },
+    {
+      "file": "content/site/civil-practice/ict-construction-workflow/img/figure-method-narrowing.svg",
+      "pattern": "P9-text-rect-overflow",
+      "severity": "LOW",
+      "detail": "「地上移動体搭載型」が rect(y=236,h=22) 下端 y=258 を超過（text 下端 y=260.8）"
+    },
+    {
+      "file": "content/site/civil-practice/ict-construction-workflow/img/figure-method-narrowing.svg",
+      "pattern": "P9-text-rect-overflow",
+      "severity": "LOW",
+      "detail": "「±100mm以内」が rect(y=302,h=40) 下端 y=342 を超過（text 下端 y=343.9）"
+    },
+    {
+      "file": "content/site/civil-practice/ict-construction-workflow/img/figure-method-narrowing.svg",
+      "pattern": "P9-text-rect-overflow",
+      "severity": "LOW",
+      "detail": "「±200mm以内」が rect(y=302,h=40) 下端 y=342 を超過（text 下端 y=343.9）"
+    },
+    {
+      "file": "content/site/civil-practice/ict-construction-workflow/img/figure-method-narrowing.svg",
+      "pattern": "P9-text-rect-overflow",
+      "severity": "LOW",
+      "detail": "「±50mm以内」が rect(y=302,h=40) 下端 y=342 を超過（text 下端 y=343.9）"
     },
     {
       "file": "content/site/civil-practice/ict-construction-workflow/img/figure-method-narrowing.svg",
       "pattern": "P9-text-rect-overflow",
       "severity": "MEDIUM",
       "detail": "「音響測深（マルチ・シングルビー」が rect(x=150,w=226) 右端 x=376 を超過（bbox 右端 x=382）"
+    },
+    {
+      "file": "content/site/civil-practice/ict-construction-workflow/img/figure-method-narrowing.svg",
+      "pattern": "P9-text-rect-overflow",
+      "severity": "LOW",
+      "detail": "「音響測深（マルチ・シングルビー」が rect(y=386,h=22) 下端 y=408 を超過（text 下端 y=410.8）"
+    },
+    {
+      "file": "content/site/civil-practice/ict-construction-workflow/img/figure-method-narrowing.svg",
+      "pattern": "P9-text-rect-overflow",
+      "severity": "LOW",
+      "detail": "「航空レーザ測深（緑のレーザ）」が rect(y=412,h=22) 下端 y=434 を超過（text 下端 y=436.8）"
+    },
+    {
+      "file": "content/site/civil-practice/generative-ai-adoption/img/figure-ai-rollout-stages.svg",
+      "pattern": "P9-text-rect-overflow",
+      "severity": "LOW",
+      "detail": "「再び環境・リスク分析へ戻り、必」が rect(y=284,h=76) 下端 y=360 を超過（text 下端 y=371.6）"
     },
     {
       "file": "content/site/civil-practice/cost-and-design-change/img/figure-adr-three-procedures.svg",
@@ -1793,6 +1829,30 @@
       "pattern": "P9-text-rect-overflow",
       "severity": "MEDIUM",
       "detail": "「確定判決と同一の効力（執行は裁」が rect(x=20,w=360) 右端 x=380 を超過（bbox 右端 x=389）"
+    },
+    {
+      "file": "content/site/civil-practice/construction-materials-overview/img/figure-materials-by-role.svg",
+      "pattern": "P9-text-shape-overlap",
+      "severity": "MEDIUM",
+      "detail": "「荷重の広がり」が circle(cx=114,cy=188,r=2.2) と重複"
+    },
+    {
+      "file": "content/site/civil-practice/construction-materials-overview/img/figure-materials-by-role.svg",
+      "pattern": "P9-text-shape-overlap",
+      "severity": "MEDIUM",
+      "detail": "「荷重の広がり」が circle(cx=84,cy=190,r=2.2) と重複"
+    },
+    {
+      "file": "content/site/civil-practice/construction-materials-overview/img/figure-materials-by-role.svg",
+      "pattern": "P9-text-shape-overlap",
+      "severity": "MEDIUM",
+      "detail": "「コンクリート」が circle(cx=196,cy=422,r=2.2) と重複"
+    },
+    {
+      "file": "content/site/civil-practice/barrier-free-roads-stations/img/figure-station-plaza-roles.svg",
+      "pattern": "P9-text-rect-overflow",
+      "severity": "LOW",
+      "detail": "「1」が rect(y=10,h=78) 下端 y=88 を超過（text 下端 y=97.8）"
     },
     {
       "file": "content/site/civil-construction-2/guide-quality-management/img/figure-acceptance-criteria.svg",
