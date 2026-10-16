@@ -1098,7 +1098,7 @@
       "image": "pages/p0042.jpg",
       "repoPath": "content/sources/books/weather-disaster-basics__最新気象災害の基本と仕組み/pages/p0042.jpg",
       "ocrStatus": "complete",
-      "cropStatus": "pending",
+      "cropStatus": "complete",
       "sha256": "834a011693e6d019d64db9a7fc4856cc8f77fb00ff7e8312d8abec0297c05d86",
       "md5": "2b8f607330dedd8fd89bc8af23362dfe",
       "bytes": 516972,
@@ -1148,7 +1148,7 @@
       "image": "pages/p0044.jpg",
       "repoPath": "content/sources/books/weather-disaster-basics__最新気象災害の基本と仕組み/pages/p0044.jpg",
       "ocrStatus": "complete",
-      "cropStatus": "pending",
+      "cropStatus": "complete",
       "sha256": "d5be2f50584f562537a30a312b9a0bd5b45e66e9792ca36f10006f59647212d0",
       "md5": "59ce0785b1a7a14b64ddb1d3e7f0841a",
       "bytes": 568574,
@@ -1198,7 +1198,7 @@
       "image": "pages/p0046.jpg",
       "repoPath": "content/sources/books/weather-disaster-basics__最新気象災害の基本と仕組み/pages/p0046.jpg",
       "ocrStatus": "complete",
-      "cropStatus": "pending",
+      "cropStatus": "complete",
       "sha256": "b006f50972b4347f426577b1d0afc97c55c538b8bbd84d366f47f866086abe6c",
       "md5": "4ab17b3aea39d8168b39c84e964c20f9",
       "bytes": 567020,
@@ -1223,7 +1223,7 @@
       "image": "pages/p0047.jpg",
       "repoPath": "content/sources/books/weather-disaster-basics__最新気象災害の基本と仕組み/pages/p0047.jpg",
       "ocrStatus": "complete",
-      "cropStatus": "pending",
+      "cropStatus": "complete",
       "sha256": "869e423a5b5ae1727e7d6551d238a8dc896fb1bd00bc9c6c06445bcfa7a572cd",
       "md5": "37748cad7b02ed6b3bb70fd9bfcb998a",
       "bytes": 457051,
@@ -1273,7 +1273,7 @@
       "image": "pages/p0049.jpg",
       "repoPath": "content/sources/books/weather-disaster-basics__最新気象災害の基本と仕組み/pages/p0049.jpg",
       "ocrStatus": "complete",
-      "cropStatus": "pending",
+      "cropStatus": "not-needed",
       "sha256": "e51b1b4a6f0189e47ba049fb7194624f4b2d960e8f69bec17fe2e5f20f893ed2",
       "md5": "038331c239eb3ec7ae16832da9859163",
       "bytes": 530794,
@@ -1323,7 +1323,7 @@
       "image": "pages/p0051.jpg",
       "repoPath": "content/sources/books/weather-disaster-basics__最新気象災害の基本と仕組み/pages/p0051.jpg",
       "ocrStatus": "complete",
-      "cropStatus": "pending",
+      "cropStatus": "complete",
       "sha256": "da0534bf757c0893b1402417a369142ee579349d27b97322448270b5a780f2d3",
       "md5": "b83fd70a8060fc1e11fdb85efc3f312c",
       "bytes": 476283,
@@ -1348,7 +1348,7 @@
       "image": "pages/p0052.jpg",
       "repoPath": "content/sources/books/weather-disaster-basics__最新気象災害の基本と仕組み/pages/p0052.jpg",
       "ocrStatus": "complete",
-      "cropStatus": "pending",
+      "cropStatus": "complete",
       "sha256": "ed4c15e2b60ea819c1126ecaf5ab966dc455ecb74d951d50d4e6001fd6c7093f",
       "md5": "8b23e11f903fb9b5eba3caf09b2cf2f8",
       "bytes": 502852,
@@ -1423,7 +1423,7 @@
       "image": "pages/p0055.jpg",
       "repoPath": "content/sources/books/weather-disaster-basics__最新気象災害の基本と仕組み/pages/p0055.jpg",
       "ocrStatus": "complete",
-      "cropStatus": "pending",
+      "cropStatus": "complete",
       "sha256": "38bd26d70511a2ef4c8188f4f6f157ba94d8a175e30ae8202450486025288c03",
       "md5": "efba73cc776e9212e3397a9e332d42d5",
       "bytes": 526590,
@@ -1498,7 +1498,7 @@
       "image": "pages/p0058.jpg",
       "repoPath": "content/sources/books/weather-disaster-basics__最新気象災害の基本と仕組み/pages/p0058.jpg",
       "ocrStatus": "complete",
-      "cropStatus": "pending",
+      "cropStatus": "complete",
       "sha256": "5ab24ecb6e7dd0b095308c0347b347bca71ce950bf5fcad27a3d1b4a10d05799",
       "md5": "5724e8034e5e09e04f03150de69ec609",
       "bytes": 363580,
@@ -4448,7 +4448,7 @@
       "image": "pages/p0176.jpg",
       "repoPath": "content/sources/books/weather-disaster-basics__最新気象災害の基本と仕組み/pages/p0176.jpg",
       "ocrStatus": "complete",
-      "cropStatus": "pending",
+      "cropStatus": "complete",
       "sha256": "bc2b6d979ea01ce8311b225095571f3e29ef571f496fa2945dcb299905f6e4a3",
       "md5": "3959c732421ab7c0442050a198091eec",
       "bytes": 506441,
@@ -5209,8 +5209,299 @@
       "recordedAt": "2026-09-08T22:43:49.517Z"
     }
   ],
-  "crops": [],
-  "updatedAt": "2026-09-08T22:43:49.517Z",
+  "crops": [
+    {
+      "id": "fig-2-1-1-satellite-image",
+      "pageId": "p0042",
+      "sourceImage": "pages/p0042.jpg",
+      "path": "crops/p0042_fig-2-1-1-satellite-image.png",
+      "repoPath": "content/sources/books/weather-disaster-basics__最新気象災害の基本と仕組み/crops/p0042_fig-2-1-1-satellite-image.png",
+      "caption": "図2-1-1 気象衛星のイメージ画像",
+      "bbox": {
+        "x": 324,
+        "y": 1442,
+        "w": 1529,
+        "h": 1021
+      },
+      "sha256": "f35f2e162275b0a1ec97f336bda8320d6defec9caa2e33383a245be8af2d2d1d",
+      "md5": "468ae73d51ae86addfecf2bdf61a1e9d",
+      "bytes": 858950,
+      "width": 1529,
+      "height": 1021,
+      "audit": {
+        "status": "pass",
+        "scores": {
+          "clipPurity": 3,
+          "completeness": 3,
+          "correctFigure": 3,
+          "altIdentifiability": 3
+        },
+        "reviewedAt": "2026-10-16T06:54:50.090Z"
+      }
+    },
+    {
+      "id": "fig-2-1-3-himawari9-observation",
+      "pageId": "p0044",
+      "sourceImage": "pages/p0044.jpg",
+      "path": "crops/p0044_fig-2-1-3-himawari9-observation.png",
+      "repoPath": "content/sources/books/weather-disaster-basics__最新気象災害の基本と仕組み/crops/p0044_fig-2-1-3-himawari9-observation.png",
+      "caption": "図2-1-3 ひまわり9号による観測の概要",
+      "bbox": {
+        "x": 324,
+        "y": 138,
+        "w": 1529,
+        "h": 1139
+      },
+      "sha256": "bccd6697f26718970b45815deda8668aa159809b5a00b134d6cb3b29c7855f82",
+      "md5": "835b5be1be00474476a9ebecdcbdbe1e",
+      "bytes": 1057334,
+      "width": 1529,
+      "height": 1139,
+      "audit": {
+        "status": "pass",
+        "scores": {
+          "clipPurity": 3,
+          "completeness": 3,
+          "correctFigure": 3,
+          "altIdentifiability": 3
+        },
+        "reviewedAt": "2026-10-16T06:54:50.090Z"
+      }
+    },
+    {
+      "id": "fig-2-1-6-visible-vs-infrared",
+      "pageId": "p0046",
+      "sourceImage": "pages/p0046.jpg",
+      "path": "crops/p0046_fig-2-1-6-visible-vs-infrared.png",
+      "repoPath": "content/sources/books/weather-disaster-basics__最新気象災害の基本と仕組み/crops/p0046_fig-2-1-6-visible-vs-infrared.png",
+      "caption": "図2-1-6 可視画像と赤外画像のちがい",
+      "bbox": {
+        "x": 324,
+        "y": 469,
+        "w": 1529,
+        "h": 1297
+      },
+      "sha256": "397951ebd8fe1716b2c319f72473b13fb161757b678af1f9f9a5ea427c322e79",
+      "md5": "d4aa0106e9657fc9def97a59bda5eba6",
+      "bytes": 1469032,
+      "width": 1529,
+      "height": 1297,
+      "audit": {
+        "status": "pass",
+        "scores": {
+          "clipPurity": 3,
+          "completeness": 3,
+          "correctFigure": 3,
+          "altIdentifiability": 3
+        },
+        "reviewedAt": "2026-10-16T06:54:50.090Z"
+      }
+    },
+    {
+      "id": "fig-2-1-7-water-vapor-image",
+      "pageId": "p0047",
+      "sourceImage": "pages/p0047.jpg",
+      "path": "crops/p0047_fig-2-1-7-water-vapor-image.png",
+      "repoPath": "content/sources/books/weather-disaster-basics__最新気象災害の基本と仕組み/crops/p0047_fig-2-1-7-water-vapor-image.png",
+      "caption": "図2-1-7 水蒸気画像の例",
+      "bbox": {
+        "x": 352,
+        "y": 138,
+        "w": 1525,
+        "h": 994
+      },
+      "sha256": "4839a9883733cf4297ef79e418cc2538dead709a66fa60acff6d5b51db6dbe1a",
+      "md5": "1306ed1008f44a08b378205e75b88fe0",
+      "bytes": 684227,
+      "width": 1525,
+      "height": 994,
+      "audit": {
+        "status": "pass",
+        "scores": {
+          "clipPurity": 3,
+          "completeness": 3,
+          "correctFigure": 3,
+          "altIdentifiability": 3
+        },
+        "reviewedAt": "2026-10-16T06:54:50.090Z"
+      }
+    },
+    {
+      "id": "fig-2-2-3-sunshine-estimate",
+      "pageId": "p0051",
+      "sourceImage": "pages/p0051.jpg",
+      "path": "crops/p0051_fig-2-2-3-sunshine-estimate.png",
+      "repoPath": "content/sources/books/weather-disaster-basics__最新気象災害の基本と仕組み/crops/p0051_fig-2-2-3-sunshine-estimate.png",
+      "caption": "図2-2-3 推計気象分布（日照時間）の例",
+      "bbox": {
+        "x": 352,
+        "y": 138,
+        "w": 1525,
+        "h": 987
+      },
+      "sha256": "eafd2b5f30fa032e67e998d90eabded9851e3d0a029cb06737b457f887d4603f",
+      "md5": "bf50d9d5e952750157af4ea36ce9734e",
+      "bytes": 779282,
+      "width": 1525,
+      "height": 987,
+      "audit": {
+        "status": "pass",
+        "scores": {
+          "clipPurity": 3,
+          "completeness": 3,
+          "correctFigure": 3,
+          "altIdentifiability": 3
+        },
+        "reviewedAt": "2026-10-16T06:54:50.090Z"
+      }
+    },
+    {
+      "id": "fig-2-2-4-forecast-weather",
+      "pageId": "p0052",
+      "sourceImage": "pages/p0052.jpg",
+      "path": "crops/p0052_fig-2-2-4-forecast-weather.png",
+      "repoPath": "content/sources/books/weather-disaster-basics__最新気象災害の基本と仕組み/crops/p0052_fig-2-2-4-forecast-weather.png",
+      "caption": "図2-2-4 天気分布予報（天気）の例",
+      "bbox": {
+        "x": 324,
+        "y": 845,
+        "w": 1529,
+        "h": 777
+      },
+      "sha256": "b23b9990c9460e3d79780679503f5a97b7b6feb383fee01dd3433a2bc1cb4d2f",
+      "md5": "76af990643931ac1492f6d6865f16803",
+      "bytes": 632003,
+      "width": 1529,
+      "height": 777,
+      "audit": {
+        "status": "pass",
+        "scores": {
+          "clipPurity": 3,
+          "completeness": 3,
+          "correctFigure": 3,
+          "altIdentifiability": 3
+        },
+        "reviewedAt": "2026-10-16T06:54:50.090Z"
+      }
+    },
+    {
+      "id": "fig-2-2-5-forecast-max-temp",
+      "pageId": "p0052",
+      "sourceImage": "pages/p0052.jpg",
+      "path": "crops/p0052_fig-2-2-5-forecast-max-temp.png",
+      "repoPath": "content/sources/books/weather-disaster-basics__最新気象災害の基本と仕組み/crops/p0052_fig-2-2-5-forecast-max-temp.png",
+      "caption": "図2-2-5 天気分布予報（最高気温）の例",
+      "bbox": {
+        "x": 324,
+        "y": 1695,
+        "w": 1529,
+        "h": 830
+      },
+      "sha256": "2f419a801e9f319757d453263194d7ef9ad3bdb8e30e1efdae4d442f860bca7b",
+      "md5": "85298fa30d81d8c5c879229670ff6582",
+      "bytes": 936672,
+      "width": 1529,
+      "height": 830,
+      "audit": {
+        "status": "pass",
+        "scores": {
+          "clipPurity": 3,
+          "completeness": 3,
+          "correctFigure": 3,
+          "altIdentifiability": 3
+        },
+        "reviewedAt": "2026-10-16T06:54:50.090Z"
+      }
+    },
+    {
+      "id": "fig-2-3-1-amedas-data-flow",
+      "pageId": "p0055",
+      "sourceImage": "pages/p0055.jpg",
+      "path": "crops/p0055_fig-2-3-1-amedas-data-flow.png",
+      "repoPath": "content/sources/books/weather-disaster-basics__最新気象災害の基本と仕組み/crops/p0055_fig-2-3-1-amedas-data-flow.png",
+      "caption": "図2-3-1 アメダスのデータ収集の流れ",
+      "bbox": {
+        "x": 352,
+        "y": 1370,
+        "w": 1525,
+        "h": 1066
+      },
+      "sha256": "420789c95b54db2f49e8d7a9e3b7958325253afeb86c4e576c4d3746e1cbf5ac",
+      "md5": "728733d9729b43427fcaab71343064e6",
+      "bytes": 1262749,
+      "width": 1525,
+      "height": 1066,
+      "audit": {
+        "status": "pass",
+        "scores": {
+          "clipPurity": 3,
+          "completeness": 3,
+          "correctFigure": 3,
+          "altIdentifiability": 3
+        },
+        "reviewedAt": "2026-10-16T06:54:50.090Z"
+      }
+    },
+    {
+      "id": "fig-2-3-5-surface-obs-network",
+      "pageId": "p0058",
+      "sourceImage": "pages/p0058.jpg",
+      "path": "crops/p0058_fig-2-3-5-surface-obs-network.png",
+      "repoPath": "content/sources/books/weather-disaster-basics__最新気象災害の基本と仕組み/crops/p0058_fig-2-3-5-surface-obs-network.png",
+      "caption": "図2-3-5 地上気象観測網",
+      "bbox": {
+        "x": 324,
+        "y": 845,
+        "w": 1529,
+        "h": 1135
+      },
+      "sha256": "29bbed89740e068827f654b2fb741095f6162d54b039f7a4ce08f457f57afa01",
+      "md5": "277c826416318f147adb0b6791f25a14",
+      "bytes": 686430,
+      "width": 1529,
+      "height": 1135,
+      "audit": {
+        "status": "pass",
+        "scores": {
+          "clipPurity": 3,
+          "completeness": 3,
+          "correctFigure": 3,
+          "altIdentifiability": 3
+        },
+        "reviewedAt": "2026-10-16T06:54:50.090Z"
+      }
+    },
+    {
+      "id": "tbl-region-division-list",
+      "pageId": "p0176",
+      "sourceImage": "pages/p0176.jpg",
+      "path": "crops/p0176_tbl-region-division-list.png",
+      "repoPath": "content/sources/books/weather-disaster-basics__最新気象災害の基本と仕組み/crops/p0176_tbl-region-division-list.png",
+      "caption": "防災気象情報等で使われる地域区分一覧（2025年1月現在）",
+      "bbox": {
+        "x": 324,
+        "y": 138,
+        "w": 1529,
+        "h": 2374
+      },
+      "sha256": "00665e352462ccedb108fa160095a7a70b1957aa2daa9762ae1168a76d334407",
+      "md5": "4f4ebc7442e692f92ea404c200ea7d01",
+      "bytes": 2109137,
+      "width": 1529,
+      "height": 2374,
+      "audit": {
+        "status": "pass",
+        "scores": {
+          "clipPurity": 3,
+          "completeness": 3,
+          "correctFigure": 3,
+          "altIdentifiability": 3
+        },
+        "reviewedAt": "2026-10-16T06:54:50.090Z"
+      }
+    }
+  ],
+  "updatedAt": "2026-10-16T06:54:50.090Z",
   "migration": {
     "strategy": "copy-verify-switch-then-delete-separately",
     "legacyKept": true,

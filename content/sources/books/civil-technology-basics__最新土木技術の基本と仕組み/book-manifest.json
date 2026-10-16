@@ -6548,7 +6548,7 @@
       "image": "pages/p0260.jpg",
       "repoPath": "content/sources/books/civil-technology-basics__最新土木技術の基本と仕組み/pages/p0260.jpg",
       "ocrStatus": "complete",
-      "cropStatus": "pending",
+      "cropStatus": "complete",
       "sha256": "caca1fffde00c57947b7c065415500af6194760f1e7e50d55e288d2ac92b7e66",
       "md5": "737dc8cf180235ba8b4e5bb8ccb57ef1",
       "bytes": 373148,
@@ -6748,7 +6748,7 @@
       "image": "pages/p0268.jpg",
       "repoPath": "content/sources/books/civil-technology-basics__最新土木技術の基本と仕組み/pages/p0268.jpg",
       "ocrStatus": "complete",
-      "cropStatus": "pending",
+      "cropStatus": "complete",
       "sha256": "20e7f1d878d942e46413aa39579847a575d13120e328b159c36a39f4a495894a",
       "md5": "ac539f9d4c68c6c78c8b58d943cd3ed3",
       "bytes": 625627,
@@ -6923,7 +6923,7 @@
       "image": "pages/p0275.jpg",
       "repoPath": "content/sources/books/civil-technology-basics__最新土木技術の基本と仕組み/pages/p0275.jpg",
       "ocrStatus": "complete",
-      "cropStatus": "pending",
+      "cropStatus": "not-needed",
       "sha256": "9b5fa1a2da3f5f834f427cc023172244dc305bf4b554ef0f7c1cc1bd2a2c5d66",
       "md5": "47f93f0de9d8d5f1fea60941be54b340",
       "bytes": 576681,
@@ -7573,7 +7573,7 @@
       "image": "pages/p0301.jpg",
       "repoPath": "content/sources/books/civil-technology-basics__最新土木技術の基本と仕組み/pages/p0301.jpg",
       "ocrStatus": "complete",
-      "cropStatus": "pending",
+      "cropStatus": "not-needed",
       "sha256": "51a8f10685a0638d751e2520707f86eebe799bb90d583b9d5b136e96c20fd39c",
       "md5": "0ac42d408a201223dff90090d357fec0",
       "bytes": 533815,
@@ -7623,7 +7623,7 @@
       "image": "pages/p0303.jpg",
       "repoPath": "content/sources/books/civil-technology-basics__最新土木技術の基本と仕組み/pages/p0303.jpg",
       "ocrStatus": "complete",
-      "cropStatus": "pending",
+      "cropStatus": "complete",
       "sha256": "8a08704290594f4da29b4c4defc9c69e44c07a22f453a67e328909d2ebb24275",
       "md5": "8c351dee0a2eb9846b9b91b808f3f601",
       "bytes": 532295,
@@ -9285,9 +9285,96 @@
         },
         "reviewedAt": "2026-10-16T06:47:55.949Z"
       }
+    },
+    {
+      "id": "fig-flood-hazard-map-municipalities",
+      "pageId": "p0260",
+      "sourceImage": "pages/p0260.jpg",
+      "path": "crops/p0260_fig-flood-hazard-map-municipalities.png",
+      "repoPath": "content/sources/books/civil-technology-basics__最新土木技術の基本と仕組み/crops/p0260_fig-flood-hazard-map-municipalities.png",
+      "caption": "洪水ハザードマップを作成、公開している全国の市町村の数",
+      "bbox": {
+        "x": 345,
+        "y": 794,
+        "w": 1497,
+        "h": 1159
+      },
+      "sha256": "1da4f5b5fbf5b5f171d9499cfd46f09ab0136780efb98614ccb941c45ec0257a",
+      "md5": "10ed0e38fef27a72275179b32318ebf7",
+      "bytes": 694762,
+      "width": 1497,
+      "height": 1159,
+      "audit": {
+        "status": "pass",
+        "scores": {
+          "clipPurity": 3,
+          "completeness": 3,
+          "correctFigure": 3,
+          "altIdentifiability": 3
+        },
+        "reviewedAt": "2026-10-16T06:54:46.484Z"
+      }
+    },
+    {
+      "id": "photo-bicycle-parking",
+      "pageId": "p0268",
+      "sourceImage": "pages/p0268.jpg",
+      "path": "crops/p0268_photo-bicycle-parking.png",
+      "repoPath": "content/sources/books/civil-technology-basics__最新土木技術の基本と仕組み/crops/p0268_photo-bicycle-parking.png",
+      "caption": "駐輪場（写真）",
+      "bbox": {
+        "x": 936,
+        "y": 1764,
+        "w": 906,
+        "h": 596
+      },
+      "sha256": "fdf4aa21a31cb2450c7e7230c69c983e6eed9f3372846f17070796879699afec",
+      "md5": "3d2367a0ad1e3f37dc448ef19de09403",
+      "bytes": 599115,
+      "width": 906,
+      "height": 596,
+      "audit": {
+        "status": "pass",
+        "scores": {
+          "clipPurity": 3,
+          "completeness": 3,
+          "correctFigure": 3,
+          "altIdentifiability": 3
+        },
+        "reviewedAt": "2026-10-16T06:54:46.484Z"
+      }
+    },
+    {
+      "id": "photo-formwork-work",
+      "pageId": "p0303",
+      "sourceImage": "pages/p0303.jpg",
+      "path": "crops/p0303_photo-formwork-work.png",
+      "repoPath": "content/sources/books/civil-technology-basics__最新土木技術の基本と仕組み/crops/p0303_photo-formwork-work.png",
+      "caption": "建設分野の技術資格（型枠作業の写真）",
+      "bbox": {
+        "x": 718,
+        "y": 1421,
+        "w": 1104,
+        "h": 932
+      },
+      "sha256": "c5ca9772312d0882b8f2462c600b0a85676c6dc5ecb3a6b2475e2c0220e85705",
+      "md5": "472a2c924baee7d02fe01b76767e44c2",
+      "bytes": 1032971,
+      "width": 1104,
+      "height": 932,
+      "audit": {
+        "status": "pass",
+        "scores": {
+          "clipPurity": 3,
+          "completeness": 3,
+          "correctFigure": 3,
+          "altIdentifiability": 3
+        },
+        "reviewedAt": "2026-10-16T06:54:46.484Z"
+      }
     }
   ],
-  "updatedAt": "2026-10-16T06:47:55.949Z",
+  "updatedAt": "2026-10-16T06:54:46.484Z",
   "migration": {
     "strategy": "copy-verify-switch-then-delete-separately",
     "legacyKept": true,
