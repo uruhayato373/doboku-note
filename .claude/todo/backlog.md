@@ -21,14 +21,6 @@
 
 ## 🔴 高 — 重要度が高い
 
-### [DN-0753] 教材の判定し直す候補431項目を確定し、自治体シリーズ6章と新シリーズ「建設業の経営と法務」7章を書いて公開する
-タグ: [領域:サイト] [時期:2026-10] [種類:制作] [起票:2026-10-16] [進行中]
-
-**起点**: 2026-10-16、運営者が「展開するものはすべて展開する」と指示。check-content-series で 12 冊に判定し直す候補（revisit）が 431 項目残っていた。
-
-**やること**: (1) 431 項目を、シリーズの章・既存の記事・使わない（理由を直して revisit を外す）に振り分ける。(2) 自治体の土木担当シリーズに 6 章（景観・バリアフリー・都市の緑化・水道事業・多自然川づくりと水辺・気象情報の読み方）を足す。(3) 新シリーズ「建設業の経営と法務」（construction-business）を作り、既存 7 本を入れ、新規 7 章（全体像・許可の要件・許可の手続き・経審の再審査と合併・紛争審査会・監督処分と実態調査・生成 AI の導入）を足す。(4) 骨子 → series-chapter → 図と写真 → 本番。
-
-**完了条件**: check-content-series で判定し直す候補 0・2 シリーズの新規 13 章が公開・図と写真の未完了 0、本番で該当の区分に並ぶ。
 
 
 ### [DN-0752] 北海道開発局の章の OGP が章の本体より先に R2 の台帳へ入り、develop の audit が赤い
@@ -37,6 +29,8 @@
 **起点**: 2026-10-16 01:16 の asset-inbox 取り込み（741914fe2・github-actions）で、standards-articles/hokkaido の章 OGP 86 件が .claude/state/assets/manifest.json に入った。章の本体（de826a0c1 ほか）は feat/standards-common-finish にあり develop に無いため、develop の Pre-merge の audit が orphan-ogp と tests/standards-ogp-guards.test.mjs（台帳の章 OGP 387 件 ≠ 章数 344 件）で赤い（3442618eb・7dba9e728 で確認、ビルドは成功）。
 
 **やること**: feat/standards-common-finish を develop へ合流すれば解消する見込み。合流が先に延びるなら、asset-inbox で取り込む前に章の本体が develop にあることを確かめる手順か検査を足す（本体より先に台帳だけ入る経路を塞ぐ）。
+
+**進み具合（2026-10-16）**: 本体は PR #1092（feat/standards-common-finish・別の作業が進行中）にある。develop との衝突は config/git-binary-policy.json の content/site の上限だけで、develop 側を 150 MiB に一本化し PR #1092 の分も記録した（12f7d5ee4）。PR #1092 は develop を取り込むとき develop 側の値を採れば解ける。合流後に develop の audit が緑になるかを見る。
 
 **完了条件**: develop の Pre-merge check の audit が緑。
 
