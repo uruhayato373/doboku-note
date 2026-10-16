@@ -13,7 +13,8 @@
   <g>
     <g class="l"><path d="M95 85L45 45M95 85L145 45M95 85L45 125M95 85L145 125"/></g>
     <circle class="p" cx="95" cy="85" r="11"/>
-    <g class="n"><circle cx="45" cy="45" r="9"/><circle cx="145" cy="45" r="9"/><circle cx="45" cy="125" r="9"/><circle cx="145" cy="125" r="9"/></g>
+    <g class="n"><circle cx="45" cy="45" r="9"/><circle cx="145" cy="45" r="9"/><circle cx="145" cy="125" r="9"/></g>
+    <circle cx="45" cy="125" r="9" fill="#fff" stroke="#b22234" stroke-width="1.5" stroke-dasharray="3 2"/><text class="s" x="30" y="150">圏外</text>
     <text class="b" x="195" y="72">スター型</text>
     <text x="195" y="94">親機に直接つなぐ</text>
     <text x="195" y="114">親機の陰は圏外になる</text>
@@ -22,7 +23,9 @@
   <g>
     <g class="l"><path d="M95 192L50 232M95 192L140 232M50 232L30 272M50 232L70 272M140 232L120 272M140 232L160 272"/></g>
     <circle class="p" cx="95" cy="192" r="11"/>
-    <g class="n"><circle cx="50" cy="232" r="9"/><circle cx="140" cy="232" r="9"/><circle cx="30" cy="272" r="8"/><circle cx="70" cy="272" r="8"/><circle cx="120" cy="272" r="8"/><circle cx="160" cy="272" r="8"/></g>
+    <g class="n"><circle cx="50" cy="232" r="9"/><circle cx="140" cy="232" r="9"/><circle cx="30" cy="272" r="8"/><circle cx="70" cy="272" r="8"/></g>
+    <circle cx="120" cy="272" r="8" fill="#fff" stroke="#b22234" stroke-width="1.5" stroke-dasharray="3 2"/><circle cx="160" cy="272" r="8" fill="#fff" stroke="#b22234" stroke-width="1.5" stroke-dasharray="3 2"/>
+    <path d="M133 225L147 239M147 225L133 239" stroke="#b22234" stroke-width="2" fill="none"/>
     <text class="b" x="195" y="226">ツリー型</text>
     <text x="195" y="248">中継機を足して延ばす</text>
     <text x="195" y="268">中継が止まると先が切れる</text>
@@ -37,5 +40,6 @@
     <text x="195" y="394">隣どうしで中継する</text>
     <text x="195" y="414">一箇所切れても迂回できる</text>
   </g>
-  <text class="s" x="15" y="474">赤い点線は切れた経路（メッシュでは別の経路を通る）</text>
+  <text class="s" x="15" y="468">赤い点線の経路は切れた経路（メッシュでは別の経路を通る）</text>
+  <text class="s" x="15" y="488">赤い×と点線の丸は、届かなくなる中継機と端末</text>
 </svg>

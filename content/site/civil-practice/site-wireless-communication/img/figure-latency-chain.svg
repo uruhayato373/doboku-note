@@ -26,8 +26,8 @@
     <rect class="hot" x="15" y="186" width="240" height="52" rx="8"/>
     <text class="b" x="27" y="208">3　無線と中継</text>
     <text class="s" x="27" y="226">回線を通り、中継機器を経由する</text>
-    <text class="s" x="270" y="210">回線の要因</text>
-    <text class="s" x="270" y="226">混雑・中継の数</text>
+    <text class="b" x="270" y="210" style="font-size:12px">回線の要因</text>
+    <text class="b" x="270" y="226" style="font-size:12px">混雑・中継の数</text>
     <line x1="135" y1="238" x2="135" y2="258" stroke="#555" stroke-width="1.5" marker-end="url(#a)"/>
     <rect class="st" x="15" y="260" width="240" height="52" rx="8"/>
     <text class="b" x="27" y="282">4　復号</text>
@@ -41,8 +41,9 @@
     <text class="s" x="270" y="358">受信側の要因</text>
     <text class="s" x="270" y="374">モニタの更新</text>
   </g>
-  <rect x="15" y="404" width="370" height="84" rx="8" style="fill:#f8d7da;stroke:#b22234;stroke-width:1.5"/>
-  <text class="b" x="27" y="428">操作信号も、逆向きに通る間に遅れる</text>
-  <text x="27" y="452">見た映像と、機械の今の動きにずれが出る</text>
-  <text x="27" y="474">通信速度の大きさと、遅れの短さは別</text>
+  <text class="b" x="15" y="403" style="font-size:12px">実測するのは、1〜5を通した合計の遅れ</text>
+  <rect x="15" y="412" width="370" height="76" rx="8" style="fill:#f8d7da;stroke:#b22234;stroke-width:1.5"/>
+  <text class="b" x="27" y="434">操作信号も、逆向きに通る間に遅れる</text>
+  <text x="27" y="456">見た映像と、機械の今の動きにずれが出る</text>
+  <text x="27" y="476">通信速度の大きさと、遅れの短さは別</text>
 </svg>

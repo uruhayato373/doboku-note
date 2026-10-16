@@ -22,9 +22,10 @@
   </g>
   <g>
     <rect class="row" x="15" y="134" width="370" height="86" rx="8"/>
-    <text class="b" x="27" y="158">極超短波（UHF）</text>
-    <text class="s" x="27" y="176">300MHz〜3GHz</text>
-    <text x="27" y="200">920MHz帯・2.4GHz無線LAN</text>
+    <text class="b" x="27" y="154">極超短波（UHF）</text>
+    <text class="s" x="27" y="170">300MHz〜3GHz</text>
+    <text class="s" x="27" y="188">波長 920MHz帯約33cm／2.4GHz帯約12cm</text>
+    <text x="27" y="208">920MHz帯・2.4GHz無線LAN</text>
     <text class="s" x="245" y="171">届く</text>
     <rect class="reach" x="282" y="160" width="63" height="14" rx="3"/>
     <text class="s" x="245" y="201">運ぶ量</text>
@@ -32,9 +33,10 @@
   </g>
   <g>
     <rect class="row" x="15" y="230" width="370" height="86" rx="8"/>
-    <text class="b" x="27" y="254">マイクロ波（SHF）</text>
-    <text class="s" x="27" y="272">3〜30GHz</text>
-    <text x="27" y="296">5・6GHz無線LAN・ローカル5G</text>
+    <text class="b" x="27" y="250">マイクロ波（SHF）</text>
+    <text class="s" x="27" y="266">3〜30GHz</text>
+    <text class="s" x="27" y="284">波長 5GHz帯 約6cm</text>
+    <text x="27" y="304">5・6GHz無線LAN・ローカル5G</text>
     <text class="s" x="245" y="267">届く</text>
     <rect class="reach" x="282" y="256" width="42" height="14" rx="3"/>
     <text class="s" x="245" y="297">運ぶ量</text>
