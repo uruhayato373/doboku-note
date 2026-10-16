@@ -2,18 +2,18 @@
 <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
   style="max-width:400px;width:100%"
   role="img"
-  aria-label="門形ラーメン隅角部の変形とひび割れの向き。水平荷重で開く場合は外側、突き上げ荷重で閉じる場合は内側が引張縁になり、柱脚の支持条件と荷重方向をあわせて示す図">
+  aria-label="柱脚を固定にそろえた門形ラーメン隅角部の変形とひび割れの向き。水平荷重では荷重を受ける側の隅角部が閉じて内側が引張縁、反対側の隅角部が開いて外側が引張縁になる。突き上げ荷重では両側の隅角部が閉じて内側が引張縁になる">
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
-      .t-lead  { font-size: 11px; fill: #555; }
       .t-sec   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
       .t-desc  { font-size: 11px; fill: #555; }
       .t-label { font-size: 11px; fill: #8a8a8a; }
+      .t-corner{ font-size: 11px; fill: #b22234; font-weight: bold; }
       .orig    { stroke: #8a8a8a; stroke-width: 1.5; stroke-dasharray: 4 3; fill: none; }
       .deform  { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
       .tension { stroke: #b22234; stroke-width: 3; fill: none; }
-      .crack   { stroke: #b22234; stroke-width: 1; }
+      .crack   { stroke: #b22234; stroke-width: 1.5; }
       .ground  { stroke: #222; stroke-width: 1.5; }
     </style>
     <marker id="arrowBlue" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
@@ -21,68 +21,68 @@
     </marker>
   </defs>
 
-  <text class="t-lead" x="200" y="16" text-anchor="middle">門形ラーメン隅角部の変形とひび割れの向き</text>
+  <!-- パネル1：水平荷重（柱脚は固定） -->
+  <text class="t-sec" x="200" y="30" text-anchor="middle">水平荷重：反対側が開き、荷重側が閉じる</text>
 
-  <!-- パネル1：開く場合 -->
-  <text class="t-sec" x="200" y="34" text-anchor="middle">水平荷重で外側の隅角部が開く</text>
+  <line x1="90" y1="200" x2="330" y2="200" class="ground"/>
+  <path d="M108 201l-5 6m13-6l-5 6m13-6l-5 6m13-6l-5 6" class="ground"/>
+  <path d="M268 201l-5 6m13-6l-5 6m13-6l-5 6m13-6l-5 6" class="ground"/>
+  <text class="t-label" x="200" y="224" text-anchor="middle">柱脚：固定</text>
 
-  <line x1="90" y1="195" x2="330" y2="195" class="ground"/>
-  <circle cx="120" cy="195" r="4" fill="#fff" stroke="#222" stroke-width="1.5"/>
-  <circle cx="280" cy="195" r="4" fill="#fff" stroke="#222" stroke-width="1.5"/>
-  <text class="t-label" x="120" y="212" text-anchor="middle">支承：ピン</text>
+  <path class="orig" d="M120,200 L120,80 L280,80 L280,200"/>
+  <path class="deform" d="M120,200 C 120,150 180,125 160,80"/>
+  <path class="deform" d="M280,200 C 280,150 340,125 320,80"/>
+  <path class="deform" d="M160,80 L320,80"/>
 
-  <!-- 変形前（破線） -->
-  <path class="orig" d="M120,195 L120,75 L280,75 L280,195"/>
+  <!-- 荷重側（左）：閉じる・内側が引張 -->
+  <path class="tension" d="M167,118 L167,87 L196,87"/>
+  <line x1="167" y1="104" x2="158" y2="100" class="crack"/>
+  <line x1="183" y1="87" x2="179" y2="78" class="crack"/>
+  <text class="t-corner" x="112" y="132" text-anchor="end">閉じる</text>
+  <text class="t-desc" x="112" y="146" text-anchor="end">内側が引張</text>
 
-  <!-- 変形後（実線、上部が右へ移動） -->
-  <path class="deform" d="M120,195 L160,75"/>
-  <path class="deform" d="M280,195 L320,75"/>
-  <path class="deform" d="M185,75 L320,75"/>
+  <!-- 反対側（右）：開く・外側が引張 -->
+  <path class="tension" d="M327,118 L327,73 L298,73"/>
+  <line x1="327" y1="102" x2="319" y2="106" class="crack"/>
+  <line x1="311" y1="73" x2="315" y2="82" class="crack"/>
+  <text class="t-corner" x="336" y="132">開く</text>
+  <text class="t-desc" x="336" y="146">外側が引張</text>
 
-  <!-- 開く隅角部（左上・外側が引張） -->
-  <path class="tension" d="M145,110 L160,75 L185,75"/>
-  <line x1="148" y1="88" x2="156" y2="98" class="crack"/>
-  <line x1="167" y1="70" x2="173" y2="80" class="crack"/>
+  <line x1="80" y1="80" x2="116" y2="80" stroke="#2e6da4" stroke-width="2" marker-end="url(#arrowBlue)"/>
+  <text class="t-label" x="62" y="70">水平荷重</text>
 
-  <!-- 荷重矢印 -->
-  <line x1="95" y1="75" x2="118" y2="75" stroke="#2e6da4" stroke-width="2" marker-end="url(#arrowBlue)"/>
-  <text class="t-label" x="90" y="66" text-anchor="start">水平荷重</text>
+  <!-- パネル2：突き上げ荷重（柱脚は固定） -->
+  <text class="t-sec" x="200" y="262" text-anchor="middle">突き上げ荷重：両側が閉じる</text>
 
-  <text class="t-desc" x="200" y="58" text-anchor="middle">外側に引張→ひび割れ</text>
+  <line x1="90" y1="410" x2="330" y2="410" class="ground"/>
+  <path d="M108 411l-5 6m13-6l-5 6m13-6l-5 6m13-6l-5 6" class="ground"/>
+  <path d="M268 411l-5 6m13-6l-5 6m13-6l-5 6m13-6l-5 6" class="ground"/>
+  <text class="t-label" x="200" y="434" text-anchor="middle">柱脚：固定</text>
 
-  <!-- パネル2：閉じる場合 -->
-  <text class="t-sec" x="200" y="240" text-anchor="middle">突き上げ荷重で内側の隅角部が閉じる</text>
+  <path class="orig" d="M120,410 L120,310 L280,310 L280,410"/>
+  <path class="deform" d="M120,410 C 120,370 132,345 134,312"/>
+  <path class="deform" d="M280,410 C 280,370 268,345 266,312"/>
+  <path class="deform" d="M134,312 Q200,284 266,312"/>
 
-  <line x1="90" y1="420" x2="330" y2="420" class="ground"/>
-  <rect x="108" y="420" width="24" height="7" fill="#222"/>
-  <rect x="268" y="420" width="24" height="7" fill="#222"/>
-  <text class="t-label" x="120" y="440" text-anchor="middle">支承：固定</text>
+  <path class="tension" d="M141,340 L141,314 L168,311"/>
+  <line x1="141" y1="326" x2="133" y2="323" class="crack"/>
+  <line x1="155" y1="312" x2="152" y2="304" class="crack"/>
+  <path class="tension" d="M259,340 L259,314 L232,311"/>
+  <line x1="259" y1="326" x2="267" y2="323" class="crack"/>
+  <line x1="245" y1="312" x2="248" y2="304" class="crack"/>
+  <text class="t-corner" x="112" y="340" text-anchor="end">閉じる</text>
+  <text class="t-desc" x="112" y="354" text-anchor="end">内側が引張</text>
+  <text class="t-corner" x="288" y="340">閉じる</text>
+  <text class="t-desc" x="288" y="354">内側が引張</text>
 
-  <!-- 変形前（破線） -->
-  <path class="orig" d="M120,420 L120,320 L280,320 L280,420"/>
-
-  <!-- 変形後（実線、梁が上に凸に変形） -->
-  <path class="deform" d="M120,420 L132,322"/>
-  <path class="deform" d="M280,420 L268,322"/>
-  <path class="deform" d="M132,322 Q200,296 268,322"/>
-
-  <!-- 閉じる隅角部（左右とも・内側が引張） -->
-  <path class="tension" d="M124,340 L132,322 L160,318"/>
-  <path class="tension" d="M276,340 L268,322 L240,318"/>
-  <line x1="140" y1="316" x2="146" y2="326" class="crack"/>
-  <line x1="252" y1="316" x2="258" y2="326" class="crack"/>
-
-  <!-- 荷重矢印（突き上げ） -->
-  <line x1="200" y1="345" x2="200" y2="305" stroke="#2e6da4" stroke-width="2" marker-end="url(#arrowBlue)"/>
-  <text class="t-label" x="200" y="360" text-anchor="middle">突き上げ荷重</text>
-
-  <text class="t-desc" x="200" y="300" text-anchor="middle">内側に引張→ひび割れ</text>
+  <line x1="200" y1="372" x2="200" y2="318" stroke="#2e6da4" stroke-width="2" marker-end="url(#arrowBlue)"/>
+  <text class="t-label" x="200" y="388" text-anchor="middle">突き上げ荷重</text>
 
   <!-- 凡例 -->
-  <line x1="30" y1="454" x2="55" y2="454" class="orig"/>
-  <text class="t-desc" x="62" y="458">変形前</text>
-  <line x1="150" y1="454" x2="175" y2="454" class="deform"/>
-  <text class="t-desc" x="182" y="458">変形後（誇張）</text>
-  <line x1="30" y1="472" x2="55" y2="472" class="tension"/>
-  <text class="t-desc" x="62" y="476">引張縁（ひび割れ発生側）</text>
+  <line x1="30" y1="458" x2="55" y2="458" class="orig"/>
+  <text class="t-desc" x="62" y="462">変形前</text>
+  <line x1="150" y1="458" x2="175" y2="458" class="deform"/>
+  <text class="t-desc" x="182" y="462">変形後（誇張）</text>
+  <line x1="30" y1="478" x2="55" y2="478" class="tension"/>
+  <text class="t-desc" x="62" y="482">引張縁（ひび割れ発生側）</text>
 </svg>

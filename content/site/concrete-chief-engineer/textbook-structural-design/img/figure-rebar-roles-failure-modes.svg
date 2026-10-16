@@ -1,0 +1,34 @@
+<!-- authored 2026-10-16 doboku-note 自作。本文の論点を再構成。書籍図の複製・トレースではない -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="梁の主筋、スターラップ、端部フックと柱断面の帯筋を示し、曲げ、せん断、定着、拘束の役割を対応づける"><defs><style>
+text{font-family:Inter,"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;fill:#555;font-size:13px} /* ink-body */
+.label{font-size:13px;font-weight:bold;fill:#1a3a5c} /* brand-ink */
+.note{font-size:11px;fill:#555} /* ink-body */
+.b{fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5} /* brand-fill / brand */
+.p{fill:#d0e8d0;stroke:#3a7d44;stroke-width:1.5} /* positive-fill / positive */
+.d{fill:#f8d7da;stroke:#b22234;stroke-width:1.5} /* danger-fill / danger */
+.w{fill:#fff3cd;stroke:#d4a017;stroke-width:1.5} /* warn-fill / warn */
+.axis{stroke:#555;stroke-width:1.5;fill:none} /* ink-body */
+.line{stroke:#2e6da4;stroke-width:2.5;fill:none} /* brand */
+.dash{stroke:#b22234;stroke-width:2;stroke-dasharray:5 4;fill:none} /* danger */
+</style><marker id="arrow" markerWidth="7" markerHeight="6" refX="7" refY="3" orient="auto"><path d="M0 0L7 3L0 6" fill="#555"/></marker></defs>
+
+<text class="label" x="20" y="26">梁の立面</text>
+<rect class="b" x="30" y="48" width="340" height="100"/>
+<path d="M42 100V130H358V100" stroke="#b22234" stroke-width="3" fill="none"/>
+<g stroke="#3a7d44" stroke-width="2"><path d="M80 60V138M120 60V138M160 60V138M200 60V138M240 60V138M280 60V138M320 60V138"/></g>
+<text class="note" x="42" y="173">端部フック</text><path class="axis" d="M62 157L44 114"/>
+<text class="note" x="206" y="173">スターラップの間隔</text>
+<path class="axis" d="M240 151V159H280V151"/>
+<text x="20" y="204">主筋（赤） → 曲げ耐力</text>
+<text x="20" y="230">スターラップ（緑） → せん断耐力</text>
+<text x="20" y="256">定着長さ・フック → 付着割裂を防ぐ</text>
+<text class="label" x="20" y="295">柱の断面：帯筋の拘束</text>
+<rect class="b" x="40" y="315" width="125" height="140"/>
+<rect class="p" x="53" y="328" width="99" height="114" rx="8"/>
+<g fill="#b22234"><circle cx="64" cy="340" r="5"/><circle cx="141" cy="340" r="5"/><circle cx="64" cy="430" r="5"/><circle cx="141" cy="430" r="5"/></g>
+<text class="note" x="103" y="386" text-anchor="middle">コア</text>
+<path class="axis" d="M180 342H154" marker-end="url(#arrow)"/>
+<text x="190" y="347">帯筋が内側を拘束</text>
+<text x="190" y="386">密に配置すると</text><text x="190" y="409">靭性が高まる</text>
+<text class="note" x="200" y="483" text-anchor="middle">曲げ・せん断・付着・拘束を配筋の部位で区別する</text>
+</svg>
