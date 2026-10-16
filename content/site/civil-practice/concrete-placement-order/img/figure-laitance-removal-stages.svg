@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="レイタンス処理を時間の流れで示した図。硬化前は高圧の空気や水と遅延剤、硬化後はワイヤブラシやブラスト、機械斫り、除去後は表面乾燥飽水で打つ">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 12px; fill: #1a3a5c; }
+      .h { font-size: 13px; font-weight: bold; }
+      .s { font-size: 12px; fill: #222; }
+      .n { font-size: 11px; fill: #555; }
+      .lb { font-size: 11px; font-weight: bold; fill: #2e6da4; }
+      .m { text-anchor: middle; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .danger { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .ar { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+    </style>
+    <!-- brand / positive / warn / danger / surface tokens -->
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+  <rect width="400" height="500" fill="#ffffff" />
+  <rect class="brand" x="10" y="14" width="380" height="128" rx="8"/>
+  <text class="lb" x="22" y="36">硬化前</text>
+  <text class="s" x="22" y="56">高圧の空気や水でレイタンスを除去し</text>
+  <text class="s" x="22" y="74">粗骨材を露出させる</text>
+  <text class="s" x="22" y="98">凝結遅延剤を散布しておく方法もある</text>
+  <text class="s" x="22" y="116">ブリーディング水が引き始めたら洗い流す</text>
+  <path class="ar" d="M200,142 L200,164" marker-end="url(#ah)"/>
+  <rect class="warn" x="10" y="166" width="380" height="100" rx="8"/>
+  <text class="lb" x="22" y="188">硬化が進んだ後</text>
+  <text class="s" x="22" y="208">水をかけながらワイヤブラシで粗くする</text>
+  <text class="s" x="22" y="226">ブラスト処理</text>
+  <text class="s" x="22" y="244">機械斫り（手間の大きい方法へ切り替わる）</text>
+  <path class="ar" d="M200,266 L200,288" marker-end="url(#ah)"/>
+  <rect class="positive" x="10" y="290" width="380" height="64" rx="8"/>
+  <text class="lb" x="22" y="312">除去した後</text>
+  <text class="s" x="22" y="334">表面乾燥飽水（SSD）に整えてから打つ</text>
+  <rect class="surface" x="10" y="368" width="380" height="98" rx="8"/>
+  <text class="h" x="22" y="390">適期は、時計でなく表面で判断する</text>
+  <text class="s" x="22" y="410">表面に触れて、指跡が残るか</text>
+  <text class="s" x="22" y="428">洗浄で骨材が動いてしまわないかを</text>
+  <text class="s" x="22" y="446">確かめながら、時期を見極める</text>
+</svg>
