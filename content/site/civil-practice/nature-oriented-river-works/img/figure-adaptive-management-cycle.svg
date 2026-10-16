@@ -1,0 +1,50 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は多自然川づくり基本指針の適用範囲（調査から災害復旧までの全段階）と順応的管理（モニタリングを踏まえた見直し）。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="多自然川づくりの全段階の輪。調査、計画、設計、施工、維持管理・更新、災害復旧が輪になって続き、その外側と中心でモニタリングと取組の見直しがすべての段階にかかる。対象は一級・二級・準用河川。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+
+  <!-- 外側の輪：モニタリングと見直し -->
+  <ellipse cx="200" cy="225" rx="185" ry="185" fill="none" style="stroke:#3a7d44;stroke-width:2;stroke-dasharray:6 4"/>
+  <polygon points="385,236 379,222 391,222" fill="#3a7d44"/>
+  <polygon points="15,214 9,228 21,228" fill="#3a7d44"/>
+  <polygon points="212,40 198,34 198,46" fill="#3a7d44"/>
+
+  <!-- 段階 -->
+  <rect class="b" x="152" y="73" width="96" height="34" rx="8"/><text class="n" x="200" y="95" text-anchor="middle">調査</text>
+  <rect class="b" x="254" y="138" width="104" height="34" rx="8"/><text class="n" x="306" y="160" text-anchor="middle">計画</text>
+  <rect class="b" x="254" y="278" width="104" height="34" rx="8"/><text class="n" x="306" y="300" text-anchor="middle">設計</text>
+  <rect class="b" x="152" y="343" width="96" height="34" rx="8"/><text class="n" x="200" y="365" text-anchor="middle">施工</text>
+  <rect class="b" x="42" y="278" width="104" height="34" rx="8"/><text class="t" x="94" y="300" text-anchor="middle">維持管理・更新</text>
+  <rect class="b" x="42" y="138" width="104" height="34" rx="8"/><text class="n" x="94" y="160" text-anchor="middle">災害復旧</text>
+
+  <!-- 段階をつなぐ矢印 -->
+  <path class="a" d="M248,90Q306,90 306,136" marker-end="url(#ah)"/>
+  <path class="a" d="M306,174V276" marker-end="url(#ah)"/>
+  <path class="a" d="M306,314Q306,360 250,360" marker-end="url(#ah)"/>
+  <path class="a" d="M150,360Q94,360 94,314" marker-end="url(#ah)"/>
+  <path class="a" d="M94,276V174" marker-end="url(#ah)"/>
+  <path class="a" d="M94,136Q94,90 150,90" marker-end="url(#ah)"/>
+
+  <!-- 中心 -->
+  <circle class="pos" cx="200" cy="225" r="50"/>
+  <text class="n" x="200" y="222" text-anchor="middle">モニタリング</text>
+  <text class="n" x="200" y="240" text-anchor="middle">と見直し</text>
+
+  <!-- 外側の輪のラベル -->
+  <rect class="pos" x="70" y="398" width="260" height="24" rx="12"/>
+  <text class="t" x="200" y="414" text-anchor="middle">すべての段階で、観察して直す</text>
+
+  <!-- 要約 -->
+  <rect x="10" y="440" width="380" height="52" rx="8" style="fill:#f5f5f5;stroke:#d7d7d7;stroke-width:1.5"/>
+  <text class="t" x="20" y="460">対象：一級・二級・準用河川の、全段階</text>
+  <text x="20" y="478">整備前の調査、整備中・整備後のモニタリング、取組の見直し</text>
+</svg>
