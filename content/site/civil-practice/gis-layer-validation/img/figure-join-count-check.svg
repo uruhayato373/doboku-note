@@ -1,0 +1,62 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は属性の結合の誤結合（番号の表記違い・履歴の複数行）と、結合後の件数の照合。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="属性の結合の確認図。設備図の設備番号0012と、数値として読み込んだ点検表の12は結び付かない。同じ番号の点検履歴が複数行あると結合後の行が増える。結合後は元の設備件数、結び付かなかった件数、行が増えた件数を照合する。">
+  <defs>
+  <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #222; }
+      .b { font-weight: bold; fill: #1a3a5c; }
+      .m { fill: #555; }
+      .t12 { font-size: 12px; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .dng { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .sf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .wh { fill: #fff; stroke: #2e6da4; stroke-width: 1.5; }
+      .dash { fill: #fff; stroke: #555; stroke-width: 1.5; stroke-dasharray: 4 3; }
+      .grid { stroke: #d7d7d7; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .ax { stroke: #555; stroke-width: 1.5; fill: none; }
+      .ar { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ark { stroke: #555; stroke-width: 2; fill: none; }
+  </style>
+  <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="ak" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  <marker id="as" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="asg" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+  <text class="t12 b" x="12" y="20">番号の表記が違う</text>
+  <rect class="brand" x="12" y="30" width="150" height="50" rx="8"/>
+  <text class="t12" x="87.0" y="51.0" text-anchor="middle">設備図</text>
+  <text class="t12" x="87.0" y="67.0" text-anchor="middle">設備番号 0012</text>
+  <rect class="brand" x="238" y="30" width="150" height="50" rx="8"/>
+  <text class="t12" x="313.0" y="51.0" text-anchor="middle">点検表</text>
+  <text class="t12" x="313.0" y="67.0" text-anchor="middle">番号 12（数値で読込）</text>
+  <text class="n" x="200" y="60" text-anchor="middle" style="font-size:22px">≠</text>
+  <rect class="dng" x="12" y="88" width="376" height="30" rx="8"/>
+  <text class="t12" x="200.0" y="107.0" text-anchor="middle">結び付かない（0012 と 12 は別の値になる）</text>
+  <text class="t12 b" x="12" y="148">同じ番号の履歴が複数行ある</text>
+  <rect class="brand" x="12" y="158" width="150" height="50" rx="8"/>
+  <text class="t12" x="87.0" y="179.0" text-anchor="middle">設備図</text>
+  <text class="t12" x="87.0" y="195.0" text-anchor="middle">0012 は 1 行</text>
+  <rect class="brand" x="238" y="158" width="150" height="22" rx="8"/>
+  <text class="t12" x="313.0" y="173.0" text-anchor="middle">点検表 0012 履歴 1</text>
+  <rect class="brand" x="238" y="186" width="150" height="22" rx="8"/>
+  <text class="t12" x="313.0" y="201.0" text-anchor="middle">点検表 0012 履歴 2</text>
+  <path class="ar" d="M164,183H236" marker-end="url(#ah)"/>
+  <rect class="dng" x="12" y="216" width="376" height="30" rx="8"/>
+  <text class="t12" x="200.0" y="235.0" text-anchor="middle">結合後に行が増える（一件だけ取り込むと取りこぼす）</text>
+  <text class="t12 b" x="12" y="276">結合後に照合する三つの件数</text>
+  <rect class="pos" x="12" y="288" width="120" height="56" rx="8"/>
+  <text class="t12 b" x="72.0" y="312.0" text-anchor="middle">元の</text>
+  <text class="t12 b" x="72.0" y="328.0" text-anchor="middle">設備件数</text>
+  <rect class="pos" x="140" y="288" width="120" height="56" rx="8"/>
+  <text class="t12 b" x="200.0" y="312.0" text-anchor="middle">結び付かなかった</text>
+  <text class="t12 b" x="200.0" y="328.0" text-anchor="middle">件数</text>
+  <rect class="pos" x="268" y="288" width="120" height="56" rx="8"/>
+  <text class="t12 b" x="328.0" y="312.0" text-anchor="middle">行が増えた</text>
+  <text class="t12 b" x="328.0" y="328.0" text-anchor="middle">件数</text>
+  <rect class="warn" x="12" y="360" width="376" height="84" rx="8"/>
+  <text class="t12 b" x="200.0" y="386.0" text-anchor="middle">複数回の点検を一つの設備に付けるとき</text>
+  <text class="t12" x="200.0" y="406.0" text-anchor="middle">最新結果だけを使うのか</text>
+  <text class="t12" x="200.0" y="426.0" text-anchor="middle">履歴を別表で残すのかを先に決める</text>
+</svg>
