@@ -2,20 +2,20 @@
   "description": "サイト図版SVGの派生カタログ（SSOT）。build-svg-catalog.mjs が生成。手動編集しない。",
   "source": "content/site/**/img/*.svg",
   "summary": {
-    "total": 1454,
-    "embedded": 1454,
+    "total": 1481,
+    "embedded": 1481,
     "orphan": 0,
     "missingConcept": 4,
     "withHighAudit": 0,
     "figures": {
-      "total": 1339,
-      "conforming": 1339,
+      "total": 1366,
+      "conforming": 1366,
       "needsRework": 0
     },
     "byCategory": {
       "civil-construction-1": 495,
       "civil-construction-2": 25,
-      "civil-practice": 265,
+      "civil-practice": 292,
       "concrete-chief-engineer": 133,
       "concrete-diagnostician": 138,
       "concrete-engineer": 63,
@@ -9386,6 +9386,60 @@
       }
     },
     {
+      "file": "content/site/civil-practice/3d-measurement-selection/img/figure-control-check-points.svg",
+      "category": "civil-practice",
+      "slug": "3d-measurement-selection",
+      "name": "figure-control-check-points.svg",
+      "concept": "UAV写真点群測量の標定点と検証点の配置の模式図と、位置精度ごとの配置間隔。作業地域の周囲に外側標定点を3点以上、内側に内側標定点を1点以上置き、標定点から離れた場所に検証点を均等に置く。検証点は標定点の総数の半数以上。位置精度0.05mは外側標定点の間隔100m以内・内側までの距離200m以内、0.10mは100m以内・400m以内、0.20mは200m以内・600m以内。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/3d-measurement-selection/img/figure-point-cloud-products.svg",
+      "category": "civil-practice",
+      "slug": "3d-measurement-selection",
+      "name": "figure-point-cloud-products.svg",
+      "concept": "点群から成果品ができるまでの流れを、樹木と建物のある斜面の断面で示した図。オリジナルデータは地表と樹木と建物の点を含む。フィルタリングで建物・橋・車両・樹木を除くと、地表面の点だけのグラウンドデータが残る。グリッドデータ・等高線データ・断面図データはグラウンドデータから、数値地形図データは点群から地物を数値図化して作る。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/3d-measurement-selection/img/figure-six-methods.svg",
+      "category": "civil-practice",
+      "slug": "3d-measurement-selection",
+      "name": "figure-six-methods.svg",
+      "concept": "準則の六つの3次元計測の方式を、計測する場所で並べた図。空からは航空レーザ測量、UAVレーザ測量、UAV写真点群測量。地上からは地上レーザ測量。車両からは車載写真レーザ測量。水域は航空レーザ測深測量。各方式の標準の点密度と精度を添える。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-practice/accident-first-response/img/figure-two-lane-initial-response.svg",
       "category": "civil-practice",
       "slug": "accident-first-response",
@@ -9661,6 +9715,60 @@
       "slug": "buried-cultural-property-survey",
       "name": "figure-notification-vs-report.svg",
       "concept": "周知の埋蔵包蔵地を発掘する工事の手続を、民間と自治体の事業で比べた図。民間は第93条で、着手の60日前までに届出を行い、文化庁長官から調査などの指示がある。自治体の事業は第94条で、事業計画の策定に当たりあらかじめ通知を行い、文化庁長官から協議や勧告がある。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/cad-3d-model-visualization/img/figure-2d-3d-consistency.svg",
+      "category": "civil-practice",
+      "slug": "cad-3d-model-visualization",
+      "name": "figure-2d-3d-consistency.svg",
+      "concept": "2次元図面と3次元モデルを整合させる三つの道。3次元モデルから図面を切り出す場合と、同じ入力から3次元形状と図面を同時に生成する場合は、根拠が確認できれば整合確認が不要。別々に作る場合は、外形線を重ねて一致を見る確認が必要。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/cad-3d-model-visualization/img/figure-model-types.svg",
+      "category": "civil-practice",
+      "slug": "cad-3d-model-visualization",
+      "name": "figure-model-types.svg",
+      "concept": "同じ橋脚を三つの作り方で並べた図。ワイヤーフレームは線だけで体積は出せない。サーフェスは面だけで、面が閉じていなければ体積は定まらない。ソリッドは内部が詰まっていて体積が定まる。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/cad-3d-model-visualization/img/figure-projection-methods.svg",
+      "category": "civil-practice",
+      "slug": "cad-3d-model-visualization",
+      "name": "figure-projection-methods.svg",
+      "concept": "同じ直方体を平行投影と透視投影で見たときの違い。平行投影は平行な辺が平行のままで、投影面に平行な辺は実長で表れるので寸法を読める。透視投影は遠い辺が近い辺より小さく、平行な辺は先へ向けて寄るので、画面上の長さは寸法として読めない。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -10142,6 +10250,60 @@
       }
     },
     {
+      "file": "content/site/civil-practice/construction-automation-control/img/figure-area-zoning.svg",
+      "category": "civil-practice",
+      "slug": "construction-automation-control",
+      "name": "figure-area-zoning.svg",
+      "concept": "自動施工の区域を上から見た平面図。中央の無人エリアを立入制限エリアが囲み、その外側に有人エリアがある。境界には中継区域と、運搬機械の出入口がある。境界では、防護柵などで物理的に防ぎ、区域を監視し、対策を複数重ねる。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/construction-automation-control/img/figure-control-response.svg",
+      "category": "civil-practice",
+      "slug": "construction-automation-control",
+      "name": "figure-control-response.svg",
+      "concept": "目標値へ向かう制御量の応答を、時間の軸に三つ重ねた図。強さが足りないと目標へ着くのが遅く、ほどよければ素早く落ち着き、強すぎると目標を行き過ぎて振れが収まらない。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/construction-automation-control/img/figure-safety-roles.svg",
+      "category": "civil-practice",
+      "slug": "construction-automation-control",
+      "name": "figure-safety-roles.svg",
+      "concept": "自動施工の安全に関わる四つの役割と、情報が渡る向き。製造者等が設計段階のリスクアセスメントを行い、残るリスクを使用上の情報として販売者等を通じて施工者等と使用者へ渡す。施工者等と使用者は、現場のリスクアセスメントを行う。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-practice/construction-industry-structure/img/figure-consultant-roles.svg",
       "category": "civil-practice",
       "slug": "construction-industry-structure",
@@ -10309,6 +10471,60 @@
       "slug": "construction-materials-overview",
       "name": "figure-water-content-denominators.svg",
       "concept": "水の割合を表す言葉で、水の質量を割る相手が違うことを示した図。土の含水比は炉乾燥した土の質量で割る。骨材の吸水率は絶乾質量で割り、含水率は乾燥後の試料の質量で割り、表面水率は表面乾燥飽水状態の質量で割る。木材の含水率は全乾質量で割り、100%を超えることもある。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/coordinate-systems-geodetic-datum/img/figure-datum-timeline.svg",
+      "category": "civil-practice",
+      "slug": "coordinate-systems-geodetic-datum",
+      "name": "figure-datum-timeline.svg",
+      "concept": "日本の測地系の変遷の年表。旧日本測地系（2001年以前・ベッセル楕円体）から日本測地系2000、2011、2024へ。各移行で変わったものと引き継がれたものを並べる。2011から2024では名称と標高が変わり、水平位置の数値と測地系の定義は引き継がれる。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/coordinate-systems-geodetic-datum/img/figure-plane-zones.svg",
+      "category": "civil-practice",
+      "slug": "coordinate-systems-geodetic-datum",
+      "name": "figure-plane-zones.svg",
+      "concept": "平面直角座標系の19系の原点を、経度と緯度の格子に点で示した模式図。北海道のXI系からXIII系、東京都のIX系・XIV系・XVIII系・XIX系、沖縄県のXV系からXVII系を色分けしている。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/coordinate-systems-geodetic-datum/img/figure-scale-factor.svg",
+      "category": "civil-practice",
+      "slug": "coordinate-systems-geodetic-datum",
+      "name": "figure-scale-factor.svg",
+      "concept": "平面直角座標系の一つの系について、原点からの東西距離と縮尺係数の関係を示す概念図。原点を通る子午線で縮尺係数は0.9999で、東西に離れるほど大きくなる。適用範囲は原点から東西約130km以内。座標上の距離sは、縮尺係数kと楕円体面上の距離Sの積。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -11150,6 +11366,114 @@
       }
     },
     {
+      "file": "content/site/civil-practice/image-photogrammetry-analysis/img/figure-pixel-gradation.svg",
+      "category": "civil-practice",
+      "slug": "image-photogrammetry-analysis",
+      "name": "figure-pixel-gradation.svg",
+      "concept": "同じ範囲のひび割れを、1画素20mmと5mm、2段階と濃淡の段階が多い場合で撮り分けた見え方の比較。粗い画素ではひびが消えるか薄くなる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/image-photogrammetry-analysis/img/figure-processing-effects.svg",
+      "category": "civil-practice",
+      "slug": "image-photogrammetry-analysis",
+      "name": "figure-processing-effects.svg",
+      "concept": "濃度変換とフィルタの前後。濃度変換では偏った明るさの分布が広がるが段階の間は空いたまま、フィルタではノイズが減る代わりに明暗の境目がなだらかになる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/image-photogrammetry-analysis/img/figure-sfm-control-points.svg",
+      "category": "civil-practice",
+      "slug": "image-photogrammetry-analysis",
+      "name": "figure-sfm-control-points.svg",
+      "concept": "写真測量の流れ。重なる写真から特徴点を探し、カメラの位置と形を計算し、標定点で座標を与え、検証点で確かめる。区域の周りに外側標定点、内側に内側標定点、別に検証点を置く",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/information-system-procurement/img/figure-cloud-responsibility.svg",
+      "category": "civil-practice",
+      "slug": "information-system-procurement",
+      "name": "figure-cloud-responsibility.svg",
+      "concept": "IaaS、PaaS、SaaSで、利用者が管理する範囲と事業者が管理する範囲を積み上げて比べた図。IaaSは利用者がデータ、アプリ、OSを管理する。PaaSはデータとアプリを管理する。SaaSは利用者がデータを管理し、アプリの設定は一部だけ。借りる範囲が広いほど責任の分かれ目は上へ移る。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/information-system-procurement/img/figure-municipal-network-split.svg",
+      "category": "civil-practice",
+      "slug": "information-system-procurement",
+      "name": "figure-municipal-network-split.svg",
+      "concept": "自治体のネットワークを用途別に分けた三つの系の図。マイナンバー利用事務系、LGWAN接続系、インターネット接続系を分離し、LGWAN接続系とインターネット接続系の間は必要な通信だけを許可する。調達の前に、置く系、使う端末の系、通信が許すものを決める。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/information-system-procurement/img/figure-network-layers.svg",
+      "category": "civil-practice",
+      "slug": "information-system-procurement",
+      "name": "figure-network-layers.svg",
+      "concept": "通信の四つの層と、障害の症状の対応表。画面が開かないときはリンクとインターネット層、つながるが遅いときはリンクとトランスポート層、一部の宛先だけ届かないときはインターネット層とアプリケーション層をまず疑う。下のリンクから順に上の層へ疑う。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-practice/keishin-bidder-qualification/img/figure-keishin-grade-flow.svg",
       "category": "civil-practice",
       "slug": "keishin-bidder-qualification",
@@ -11798,6 +12122,60 @@
       }
     },
     {
+      "file": "content/site/civil-practice/municipal-gis/img/figure-adoption-rate.svg",
+      "category": "civil-practice",
+      "slug": "municipal-gis",
+      "name": "figure-adoption-rate.svg",
+      "concept": "統合型GISの導入率と、導入団体で最も使われる業務の棒グラフ。導入済みは都道府県25団体で53.2％、市区町村1,126団体で64.7％。導入団体のうち最多の業務は、市区町村が道路で936団体83.1％、都道府県が消防防災で23団体92.0％。出典は総務省の令和7年12月の調査で、基準日は令和6年4月1日現在。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/municipal-gis/img/figure-integrated-gis.svg",
+      "category": "civil-practice",
+      "slug": "municipal-gis",
+      "name": "figure-integrated-gis.svg",
+      "concept": "統合型GISの構成図。庁内で共用する層では、行政区域・道路中心線・建物など16項目の共用空間データを背景の地図とし、その上に道路・下水道・都市計画・防災の主題データを重ねる。庁内の層には個人の権利に関わる情報や作業中の図面も入る。住民・事業者に見せる公開の層は、庁内の層から外に出してよいものだけを選び、精度と注意書きを添えて出す。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/municipal-gis/img/figure-map-level-scale.svg",
+      "category": "civil-practice",
+      "slug": "municipal-gis",
+      "name": "figure-map-level-scale.svg",
+      "concept": "法定の縮尺と地図情報レベルの対応図。地図情報レベル250から10000までの水平位置の標準偏差は0.12m・0.25m・0.70m・1.75m・3.50m・7.00m以内。下水道台帳の施設平面図1/500はレベル500、道路台帳の図面1/1,000以上はレベル1000、都市計画の計画図1/2,500以上はレベル2500に当たり、都市計画の総括図1/25,000以上は対応するレベルがない。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-practice/national-prefecture-municipal-roles/img/figure-administrator-by-facility.svg",
       "category": "civil-practice",
       "slug": "national-prefecture-municipal-roles",
@@ -12019,6 +12397,60 @@
       "slug": "numerical-model-review",
       "name": "figure-time-step-behavior.svg",
       "concept": "減衰する解に対し、刻み0.25 sの陽解法は符号を変えながら増大し、台形法は増大せず減衰することを示す折れ線の比較",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/open-geospatial-data/img/figure-plateau-lod.svg",
+      "category": "civil-practice",
+      "slug": "open-geospatial-data",
+      "name": "figure-plateau-lod.svg",
+      "concept": "同じ建物をLOD1とLOD2で表した比較の概念図。LOD1は建物全体を一つの高さ（中央値）の箱で表すため、低層部と高層部がある建物では実際の形と合わない。LOD2は屋根や壁の形状まで表す。LOD1は提供地域の全域で整い、LOD2は特定のエリアに限られる。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/open-geospatial-data/img/figure-question-to-data.svg",
+      "category": "civil-practice",
+      "slug": "open-geospatial-data",
+      "name": "figure-question-to-data.svg",
+      "concept": "知りたいことごとに、どの公開データを見るかを並べた図。道路・建物・境界の位置は基盤地図情報と地理院タイル、地形の高低は数値標高モデル、属性は国土数値情報、危険な場所はハザードマップポータルと国土数値情報、建物の形と高さはPLATEAU、国道の位置は全国道路基盤地図。出す機関と更新・版・条件を添える。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/open-geospatial-data/img/figure-usage-procedure.svg",
+      "category": "civil-practice",
+      "slug": "open-geospatial-data",
+      "name": "figure-usage-procedure.svg",
+      "concept": "国土地理院の地図を使うときの手続の判断の流れ。基本測量成果でなければ一覧の区分の条件に従い出典を書く。基本測量成果なら使い方で分け、Webやアプリでタイルをリアルタイムに読み込む場合と内部利用や書籍の挿入図などは出典の明示のみ、複製は測量法第29条、別種の地図や主題図の作成は第30条で国土地理院長の承認が要る。迷ったら地図の利用手続ナビで確かめる。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -13855,6 +14287,60 @@
       "slug": "subcontract-instruction-boundary",
       "name": "figure-instruction-route.svg",
       "concept": "元請から下請への指示の通り道。要求は下請の事業主へ伝え、作業員への手順や配置の直接指示は偽装請負と判断される。安全衛生法令に基づく指導と緊急時の安全指示は例外",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/survey-informatics-overview/img/figure-policy-timeline.svg",
+      "category": "civil-practice",
+      "slug": "survey-informatics-overview",
+      "name": "figure-policy-timeline.svg",
+      "concept": "国の方針を年表に置いた図。地理空間情報活用推進基本法に基づく基本計画は第4期が令和4年3月18日に閣議決定され、G空間行動プラン2026は令和8年6月5日付。インフラ分野のDXアクションプランは第1版が令和4年3月30日、第2版が令和5年8月8日。i-Construction 2.0 は令和6年4月で、インフラDXのうち建設現場の取組。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/survey-informatics-overview/img/figure-series-map.svg",
+      "category": "civil-practice",
+      "slug": "survey-informatics-overview",
+      "name": "figure-series-map.svg",
+      "concept": "測量・情報化シリーズの見取り図。横軸は仕事の流れ（測る、地図や台帳にする、設計・施工に使う、維持管理で記録を積む）、縦軸は位置・地図・3次元・センサ・データの五つの層。G-01からG-17の各章を、その位置に置いている。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/survey-informatics-overview/img/figure-survey-types.svg",
+      "category": "civil-practice",
+      "slug": "survey-informatics-overview",
+      "name": "figure-survey-types.svg",
+      "concept": "測量法の三つの測量を、誰が・何のために行うかと、基準・手続きの二つの軸で比べた図。基本測量は国土地理院が行い、公共測量は国や公共団体が費用を負担・補助し承認を受けた作業規程で行う。それ以外の測量は基本・公共の成果を使う場合に限られる。",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",

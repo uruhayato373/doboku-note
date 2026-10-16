@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-15T09:39:07.987Z",
+  "generated_at": "2026-10-16T02:00:59.505Z",
   "summary": {
-    "total_mdx_files": 1448,
+    "total_mdx_files": 1457,
     "total_unique_tags": 133,
     "allowlist_size": 330,
     "known_count": 133,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 272,
+      "count": 279,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1187,6 +1187,7 @@
         "civil-practice-board-of-audit-inspection",
         "civil-practice-budget-and-funding-sources",
         "civil-practice-buried-cultural-property-survey",
+        "civil-practice-cad-3d-model-visualization",
         "civil-practice-cast-in-place-pile-methods",
         "civil-practice-checklist-shoring-buoyancy",
         "civil-practice-city-planning-act-framework",
@@ -1208,9 +1209,11 @@
         "civil-practice-concrete-standards-history",
         "civil-practice-concrete-structure-inspection",
         "civil-practice-concrete-work-preparation",
+        "civil-practice-construction-automation-control",
         "civil-practice-construction-inspection-types",
         "civil-practice-construction-materials-overview",
         "civil-practice-construction-plan-document",
+        "civil-practice-coordinate-systems-geodetic-datum",
         "civil-practice-cost-and-design-change",
         "civil-practice-development-permit-public-facilities",
         "civil-practice-disaster-recovery-assessment",
@@ -1225,6 +1228,8 @@
         "civil-practice-formwork-removal-timing",
         "civil-practice-formwork-waterstop-details",
         "civil-practice-how-to-read-laws-and-notices",
+        "civil-practice-image-photogrammetry-analysis",
+        "civil-practice-information-system-procurement",
         "civil-practice-keishin-bidder-qualification",
         "civil-practice-land-acquisition-compensation",
         "civil-practice-land-readjustment-project",
@@ -1232,6 +1237,7 @@
         "civil-practice-lifting-equipment-selection",
         "civil-practice-municipal-civil-engineer-work",
         "civil-practice-municipal-engineer-qualifications",
+        "civil-practice-municipal-gis",
         "civil-practice-national-prefecture-municipal-roles",
         "civil-practice-nature-conservation-mitigation",
         "civil-practice-netis-new-technology-use",
@@ -1288,6 +1294,7 @@
         "civil-practice-special-concrete-selection",
         "civil-practice-stacking-heat-machine-safety",
         "civil-practice-subbase-subgrade-control",
+        "civil-practice-survey-informatics-overview",
         "civil-practice-trench-excavation-safety",
         "civil-practice-urban-park-management",
         "civil-practice-wood-and-stone-materials",
@@ -1565,7 +1572,7 @@
     },
     {
       "name": "安全管理",
-      "count": 156,
+      "count": 157,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-four-management",
@@ -1581,6 +1588,7 @@
         "civil-construction-2-guide-safety-management",
         "civil-practice-accident-first-response",
         "civil-practice-checklist-shoring-buoyancy",
+        "civil-practice-construction-automation-control",
         "civil-practice-earthquake-tsunami-site-response",
         "civil-practice-lifting-equipment-selection",
         "civil-practice-oshms-pdca-site-operation",
@@ -2198,10 +2206,11 @@
     },
     {
       "name": "情報管理",
-      "count": 145,
+      "count": 146,
       "inAllowlist": true,
       "usedIn": [
         "civil-practice-ai-document-verification",
+        "civil-practice-information-system-procurement",
         "civil-practice-ledger-data-design",
         "pe-comprehensive-management-access-control",
         "pe-comprehensive-management-access-log-analysis",
@@ -3371,7 +3380,7 @@
     },
     {
       "name": "地方公共団体",
-      "count": 56,
+      "count": 58,
       "inAllowlist": true,
       "usedIn": [
         "civil-practice-board-of-audit-inspection",
@@ -3387,10 +3396,12 @@
         "civil-practice-explaining-to-residents-and-council",
         "civil-practice-flood-control-facilities",
         "civil-practice-how-to-read-laws-and-notices",
+        "civil-practice-information-system-procurement",
         "civil-practice-land-acquisition-compensation",
         "civil-practice-land-readjustment-project",
         "civil-practice-municipal-civil-engineer-work",
         "civil-practice-municipal-engineer-qualifications",
+        "civil-practice-municipal-gis",
         "civil-practice-national-prefecture-municipal-roles",
         "civil-practice-owner-safety-responsibility",
         "civil-practice-ppp-pfi-selection",
@@ -3688,6 +3699,46 @@
       ]
     },
     {
+      "name": "施工計画",
+      "count": 33,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-guide-construction-plan",
+        "civil-construction-1-secondary-construction-plan-basics",
+        "civil-construction-1-secondary-construction-plan-past-problems",
+        "civil-construction-1-textbook-construction-mgmt-overview",
+        "civil-construction-1-textbook-construction-plan-overview",
+        "civil-construction-1-textbook-management-subplans",
+        "civil-construction-1-textbook-site-investigation",
+        "civil-construction-1-textbook-work-scheduling",
+        "civil-construction-2-guide-construction-plan-key-points",
+        "civil-practice-ai-document-verification",
+        "civil-practice-bim-cim-site-practice",
+        "civil-practice-concrete-work-preparation",
+        "civil-practice-construction-inspection-types",
+        "civil-practice-construction-plan-document",
+        "civil-practice-cost-and-design-change",
+        "civil-practice-earthquake-tsunami-site-response",
+        "civil-practice-gis-layer-validation",
+        "civil-practice-ict-construction-workflow",
+        "civil-practice-material-selection-receiving",
+        "civil-practice-netis-new-technology-use",
+        "civil-practice-numerical-model-review",
+        "civil-practice-open-geospatial-data",
+        "civil-practice-oshms-pdca-site-operation",
+        "civil-practice-pre-construction-process",
+        "civil-practice-quality-record-site-bcp",
+        "civil-practice-risk-assessment-construction-workflow",
+        "civil-practice-site-wireless-communication",
+        "civil-practice-typhoon-forecast-work-planning",
+        "civil-practice-volcanic-hazard-site-planning",
+        "pe-comprehensive-management-construction-plan",
+        "pe-comprehensive-management-method-planning",
+        "pe-comprehensive-management-process-planning-construction",
+        "pe-construction-construction-planning-ronbun-keyword"
+      ]
+    },
+    {
       "name": "DX",
       "count": 32,
       "inAllowlist": true,
@@ -3724,45 +3775,6 @@
         "pe-comprehensive-management-system-integrity",
         "pe-comprehensive-management-system-outage-degradation",
         "pe-comprehensive-management-system-reliability"
-      ]
-    },
-    {
-      "name": "施工計画",
-      "count": 32,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-guide-construction-plan",
-        "civil-construction-1-secondary-construction-plan-basics",
-        "civil-construction-1-secondary-construction-plan-past-problems",
-        "civil-construction-1-textbook-construction-mgmt-overview",
-        "civil-construction-1-textbook-construction-plan-overview",
-        "civil-construction-1-textbook-management-subplans",
-        "civil-construction-1-textbook-site-investigation",
-        "civil-construction-1-textbook-work-scheduling",
-        "civil-construction-2-guide-construction-plan-key-points",
-        "civil-practice-ai-document-verification",
-        "civil-practice-bim-cim-site-practice",
-        "civil-practice-concrete-work-preparation",
-        "civil-practice-construction-inspection-types",
-        "civil-practice-construction-plan-document",
-        "civil-practice-cost-and-design-change",
-        "civil-practice-earthquake-tsunami-site-response",
-        "civil-practice-gis-layer-validation",
-        "civil-practice-ict-construction-workflow",
-        "civil-practice-material-selection-receiving",
-        "civil-practice-netis-new-technology-use",
-        "civil-practice-numerical-model-review",
-        "civil-practice-oshms-pdca-site-operation",
-        "civil-practice-pre-construction-process",
-        "civil-practice-quality-record-site-bcp",
-        "civil-practice-risk-assessment-construction-workflow",
-        "civil-practice-site-wireless-communication",
-        "civil-practice-typhoon-forecast-work-planning",
-        "civil-practice-volcanic-hazard-site-planning",
-        "pe-comprehensive-management-construction-plan",
-        "pe-comprehensive-management-method-planning",
-        "pe-comprehensive-management-process-planning-construction",
-        "pe-construction-construction-planning-ronbun-keyword"
       ]
     },
     {
@@ -4485,6 +4497,26 @@
       ]
     },
     {
+      "name": "建設DX",
+      "count": 13,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-bim-cim-site-practice",
+        "civil-practice-cad-3d-model-visualization",
+        "civil-practice-construction-automation-control",
+        "civil-practice-image-photogrammetry-analysis",
+        "civil-practice-information-system-procurement",
+        "civil-practice-ledger-data-design",
+        "civil-practice-monitoring-sensor-selection",
+        "civil-practice-municipal-gis",
+        "civil-practice-site-wireless-communication",
+        "civil-practice-survey-informatics-overview",
+        "pe-comprehensive-management-r04-essay-road-municipality",
+        "pe-construction-kensetsu-dx",
+        "pe-construction-ninaite-dx-ronbun-keyword"
+      ]
+    },
+    {
       "name": "建設機械",
       "count": 13,
       "inAllowlist": true,
@@ -4502,6 +4534,45 @@
         "civil-practice-lifting-equipment-selection",
         "civil-practice-sling-work-wire-rope",
         "civil-practice-stacking-heat-machine-safety"
+      ]
+    },
+    {
+      "name": "測量",
+      "count": 13,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-guide-surveying",
+        "civil-construction-1-textbook-distance-angle",
+        "civil-construction-1-textbook-leveling",
+        "civil-construction-1-textbook-surveying-basics",
+        "civil-practice-3d-measurement-selection",
+        "civil-practice-coordinate-systems-geodetic-datum",
+        "civil-practice-gis-layer-validation",
+        "civil-practice-gnss-positioning-basics",
+        "civil-practice-image-photogrammetry-analysis",
+        "civil-practice-municipal-gis",
+        "civil-practice-open-geospatial-data",
+        "civil-practice-reading-civil-drawings",
+        "civil-practice-survey-informatics-overview"
+      ]
+    },
+    {
+      "name": "i-Construction",
+      "count": 12,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-3d-measurement-selection",
+        "civil-practice-cad-3d-model-visualization",
+        "civil-practice-construction-automation-control",
+        "civil-practice-gis-layer-validation",
+        "civil-practice-gnss-positioning-basics",
+        "civil-practice-ict-construction-workflow",
+        "civil-practice-image-photogrammetry-analysis",
+        "civil-practice-open-geospatial-data",
+        "civil-practice-site-wireless-communication",
+        "civil-practice-survey-informatics-overview",
+        "pe-construction-kensetsu-dx",
+        "pe-construction-ninaite-dx-ronbun-keyword"
       ]
     },
     {
@@ -4921,20 +4992,6 @@
       ]
     },
     {
-      "name": "建設DX",
-      "count": 7,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-bim-cim-site-practice",
-        "civil-practice-ledger-data-design",
-        "civil-practice-monitoring-sensor-selection",
-        "civil-practice-site-wireless-communication",
-        "pe-comprehensive-management-r04-essay-road-municipality",
-        "pe-construction-kensetsu-dx",
-        "pe-construction-ninaite-dx-ronbun-keyword"
-      ]
-    },
-    {
       "name": "担い手確保",
       "count": 7,
       "inAllowlist": true,
@@ -4949,20 +5006,6 @@
       ]
     },
     {
-      "name": "測量",
-      "count": 7,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-guide-surveying",
-        "civil-construction-1-textbook-distance-angle",
-        "civil-construction-1-textbook-leveling",
-        "civil-construction-1-textbook-surveying-basics",
-        "civil-practice-gis-layer-validation",
-        "civil-practice-gnss-positioning-basics",
-        "civil-practice-reading-civil-drawings"
-      ]
-    },
-    {
       "name": "GX",
       "count": 6,
       "inAllowlist": true,
@@ -4973,19 +5016,6 @@
         "pe-comprehensive-management-green-transformation",
         "pe-comprehensive-management-long-term-strategy-2050",
         "pe-construction-carbon-neutral-kensetsu"
-      ]
-    },
-    {
-      "name": "i-Construction",
-      "count": 6,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-gis-layer-validation",
-        "civil-practice-gnss-positioning-basics",
-        "civil-practice-ict-construction-workflow",
-        "civil-practice-site-wireless-communication",
-        "pe-construction-kensetsu-dx",
-        "pe-construction-ninaite-dx-ronbun-keyword"
       ]
     },
     {

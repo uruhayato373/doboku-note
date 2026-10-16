@@ -1,0 +1,43 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="同じ建物をLOD1とLOD2で表した比較の概念図。LOD1は建物全体を一つの高さ（中央値）の箱で表すため、低層部と高層部がある建物では実際の形と合わない。LOD2は屋根や壁の形状まで表す。LOD1は提供地域の全域で整い、LOD2は特定のエリアに限られる。">
+  <defs>
+  <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 11px; fill: #555; }
+      .m { font-size: 11px; fill: #8a8a8a; }
+      .p { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .bb { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .bp { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .bw { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .bd { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .bs { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ln { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+  </style>
+  <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="at" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+<rect class="p" x="10" y="10" width="380" height="236" rx="8"/>
+  <path d="M30,206H240" style="stroke:#8a8a8a;stroke-width:1.5" fill="none"/>
+  <rect class="bb" x="48" y="126" width="174" height="80"/>
+  <path d="M48,206V156L89,136L130,156V106L222,84V206Z" fill="none" style="stroke:#555;stroke-width:1.2;stroke-dasharray:4 3"/>
+  <path d="M34,132V200" style="stroke:#555;stroke-width:1.2" fill="none"/>
+  <polygon points="34,126 30,134 38,134" fill="#555"/><polygon points="34,205 30,197 38,197" fill="#555"/>
+  <rect x="244" y="24" width="52" height="20" rx="10" class="bb"/><text class="t" x="270" y="38" text-anchor="middle">LOD1</text>
+  <text class="t" x="244" y="66">箱型に高さを付けた形</text>
+  <text class="s" x="244" y="86">高さは中央値</text>
+  <text class="s" x="244" y="106">提供地域の全域で整備</text>
+  <rect class="p" x="10" y="254" width="380" height="236" rx="8"/>
+  <path d="M30,450H240" style="stroke:#8a8a8a;stroke-width:1.5" fill="none"/>
+  <rect class="bb" x="48" y="400" width="82" height="50"/>
+  <rect class="bb" x="130" y="350" width="92" height="100"/>
+  <polygon class="bp" points="48,400 89,380 130,400"/>
+  <polygon class="bp" points="130,350 222,328 222,350"/>
+  <rect x="244" y="268" width="52" height="20" rx="10" class="bb"/><text class="t" x="270" y="282" text-anchor="middle">LOD2</text>
+  <text class="t" x="244" y="310">屋根・壁の形状まで表す</text>
+  <text class="s" x="244" y="330">屋根の面ごとに集計</text>
+  <text class="s" x="244" y="350">特定のエリアに限られる</text>
+  <text class="m" x="244" y="146">破線は実際の建物の形</text>
+  <text class="s" x="244" y="166">低層部は高く、</text><text class="s" x="244" y="182">高層部は低く表される</text>
+</svg>

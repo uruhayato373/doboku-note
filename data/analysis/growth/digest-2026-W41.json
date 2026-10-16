@@ -10,7 +10,7 @@
     "endDate": "2026-10-04",
     "days": 28
   },
-  "generatedAt": "2026-10-15T13:13:59.233Z",
+  "generatedAt": "2026-10-15T23:27:24.322Z",
   "pack": "data/analysis/growth/pack-2026-W41.json",
   "inputs": [
     {
@@ -21,13 +21,13 @@
     },
     {
       "name": "monetization-coverage",
-      "file": "data/analysis/monetization/coverage-2026-10-15T13-13-39.json",
+      "file": "data/analysis/monetization/coverage-2026-10-15T23-27-07.json",
       "coverage": "complete",
       "note": null
     },
     {
       "name": "bing-webmaster",
-      "file": "data/bing/snapshots/2026-10-15.json",
+      "file": "data/bing/snapshots/2026-10-16.json",
       "coverage": "complete",
       "note": null
     }

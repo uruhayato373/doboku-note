@@ -1,0 +1,40 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は本文の記述に基づく。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="自動施工の区域を上から見た平面図。中央の無人エリアを立入制限エリアが囲み、その外側に有人エリアがある。境界には中継区域と、運搬機械の出入口がある。境界では、防護柵などで物理的に防ぎ、区域を監視し、対策を複数重ねる。">
+  <defs>
+  <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 11px; fill: #555; }
+      .k { font-size: 12px; fill: #222; }
+      .p { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .bb { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .bp { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .bw { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .bd { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .bs { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .ln { stroke: #2e6da4; stroke-width: 1.5; fill: none; stroke-linejoin: round; }
+      .hd { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 4 3; fill: none; }
+      .ar { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .gy { stroke: #555; stroke-width: 1.5; fill: none; }
+  </style>
+  <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="ag" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  <marker id="ags" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+  <rect x="14" y="14" width="372" height="300" rx="8" style="fill:#d0e8d0;stroke:#3a7d44;stroke-width:1.5"/>
+  <text class="n" x="26" y="38">有人エリア</text><text class="s" x="106" y="38">有人の機械による施工</text>
+  <rect x="54" y="56" width="292" height="214" style="fill:#fff3cd;stroke:none"/>
+  <text class="n" x="66" y="82">立入制限エリア</text>
+  <rect x="94" y="96" width="212" height="132" rx="4" style="fill:#f8d7da;stroke:#b22234;stroke-width:1.5"/>
+  <text class="n" x="108" y="122">無人エリア</text><text class="s" x="108" y="144">人は立ち入らない</text><text class="s" x="108" y="160">自動建設機械が施工する</text>
+  <path d="M110,270H54V56H346V270H160" style="stroke:#555;stroke-width:3;stroke-dasharray:7 3;fill:none"/>
+  <rect x="326" y="136" width="52" height="64" rx="4" class="bb" style="fill:#fff"/><text class="t" x="352" y="164" text-anchor="middle">中継</text><text class="t" x="352" y="182" text-anchor="middle">区域</text>
+  <path class="ar" d="M135,302V252" marker-end="url(#ah)"/><text class="t" x="146" y="296">出入口</text>
+  <rect class="p" x="10" y="328" width="380" height="162" rx="8"/>
+  <text class="n" x="24" y="354">境界で、逸脱と侵入を防ぐ</text>
+  <rect class="bb" x="24" y="372" width="84" height="26" rx="13"/><text class="t" x="66" y="389" text-anchor="middle">物理的に</text><text class="k" x="120" y="389">防護柵・障害物・地形で防ぐ</text>
+  <rect class="bb" x="24" y="410" width="84" height="26" rx="13"/><text class="t" x="66" y="427" text-anchor="middle">監視</text><text class="k" x="120" y="427">GNSS・監視カメラで区域を見る</text>
+  <rect class="bb" x="24" y="448" width="84" height="26" rx="13"/><text class="t" x="66" y="465" text-anchor="middle">重ねる</text><text class="k" x="120" y="465">逸脱を防ぐ対策は、複数そなえる</text>
+
+</svg>

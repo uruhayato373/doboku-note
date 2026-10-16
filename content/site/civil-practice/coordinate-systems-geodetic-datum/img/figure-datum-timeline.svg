@@ -1,0 +1,51 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は旧日本測地系から JGD2000・JGD2011・JGD2024 への移行で変わったものと引き継がれたもの。出典は国土地理院「日本の測地系」「TKY2JGD」。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="日本の測地系の変遷の年表。旧日本測地系（2001年以前・ベッセル楕円体）から日本測地系2000、2011、2024へ。各移行で変わったものと引き継がれたものを並べる。2011から2024では名称と標高が変わり、水平位置の数値と測地系の定義は引き継がれる。">
+  <defs>
+  <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #222; }
+      .b { font-weight: bold; fill: #1a3a5c; }
+      .m { fill: #555; }
+      .t12 { font-size: 12px; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .sf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .wh { fill: #fff; stroke: #2e6da4; stroke-width: 1.5; }
+      .grid { stroke: #d7d7d7; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+      .ax { stroke: #555; stroke-width: 1.5; fill: none; }
+      .ar { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+  </style>
+  <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  <marker id="ak" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  <marker id="as" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="1" refY="4" orient="auto-start-reverse"><polygon points="0,0 9,4 0,8" fill="#555"/></marker>
+  </defs>
+  <rect class="brand" x="12" y="8" width="376" height="44" rx="8"/><text class="n" x="24" y="27">旧日本測地系</text><text class="m" x="24" y="44">2001年以前・ベッセル楕円体</text>
+  <rect class="brand" x="12" y="144" width="376" height="44" rx="8"/><text class="n" x="24" y="163">日本測地系2000（JGD2000）</text><text class="m" x="24" y="180">2002年の測量法改正で世界測地系へ移行</text>
+  <rect class="brand" x="12" y="280" width="376" height="44" rx="8"/><text class="n" x="24" y="299">日本測地系2011（JGD2011）</text><text class="m" x="24" y="316">平成23年東北地方太平洋沖地震に伴う改定</text>
+  <rect class="brand" x="12" y="416" width="376" height="44" rx="8"/><text class="n" x="24" y="435">日本測地系2024（JGD2024）</text><text class="m" x="24" y="452">令和7年度の標高の改定に合わせて公表</text>
+  <path class="ar" d="M19,58V140" marker-end="url(#ah)"/>
+  <rect class="warn" x="34" y="60" width="170" height="80" rx="8"/><text class="b" x="44" y="77">変わったもの</text>
+  <text x="44" y="95">楕円体の大きさと中心</text>
+  <text x="44" y="110">経緯度の数値</text>
+  <rect class="pos" x="210" y="60" width="178" height="80" rx="8"/><text class="b" x="220" y="77">引き継がれたもの</text>
+  <text x="220" y="95">なし</text>
+  <text x="220" y="110">TKY2JGDで換算</text>
+  <path class="ar" d="M19,194V276" marker-end="url(#ah)"/>
+  <rect class="warn" x="34" y="196" width="170" height="80" rx="8"/><text class="b" x="44" y="213">変わったもの</text>
+  <text x="44" y="231">水平位置の数値</text>
+  <text x="44" y="246">（地域により）</text>
+  <rect class="pos" x="210" y="196" width="178" height="80" rx="8"/><text class="b" x="220" y="213">引き継がれたもの</text>
+  <text x="220" y="231">世界測地系に基づく</text>
+  <text x="220" y="246">成果</text>
+  <path class="ar" d="M19,330V412" marker-end="url(#ah)"/>
+  <rect class="warn" x="34" y="332" width="170" height="80" rx="8"/><text class="b" x="44" y="349">変わったもの</text>
+  <text x="44" y="367">名称（JGD2024）</text>
+  <text x="44" y="382">標高</text>
+  <text x="44" y="397">（令和7年4月1日改定）</text>
+  <rect class="pos" x="210" y="332" width="178" height="80" rx="8"/><text class="b" x="220" y="349">引き継がれたもの</text>
+  <text x="220" y="367">水平位置の数値</text>
+  <text x="220" y="382">測地系の定義</text>
+  <text class="m" x="12" y="476">出典: 国土地理院「日本の測地系」「TKY2JGD」</text>
+  <text class="m" x="12" y="491">確認日: 2026年10月16日</text>
+</svg>

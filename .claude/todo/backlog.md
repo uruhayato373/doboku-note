@@ -104,6 +104,10 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **関門（週次レビュー 2026-10-10）**: 判断待ちではなく人の作業（プロフィールの資格欄の追加）なので 🔴 へ移した（S3）。期日 10/31。
 
+**調査（2026-10-16）**: 資格の欄は https://coconala.com/mypage/user/licenses（今の登録は 技術士 建設 2014・総監 2022・上下水道 2024・測量士 2020 の 4 件）。追加は「資格・検定名（候補から選ぶ・必須）」と「取得年（必須）」。(1) 主任技士は候補「コンクリート技士・主任技士」で登録できるが、取得年が要る（本人の申告が無いので推測で入れない）。(2) コンクリート診断士は候補に無い（「診断士」で中小企業診断士・相続診断士だけ）。画面の「登録したい資格・検定が見つからない場合は こちら」からココナラへ追加の要望を送る必要がある。**残り**: 運営者から主任技士・診断士の取得年を聞く → 主任技士を登録、診断士は要望を送るか自己紹介文の記載（済み）で足りるとするかを決める。
+
+**進捗（2026-10-16）**: 運営者から取得年を聞いた（コンクリート主任技士 2016・コンクリート診断士 2018）。主任技士は候補「コンクリート技士・主任技士」取得年 2016 で登録し、資格欄の一覧と公開プロフィール（users/6197366）で表示を確認。診断士はココナラの候補に無いので、資格欄の「見つからない場合はこちら」のフォーム（資格・検定の追加ご要望）に「コンクリート診断士（公益社団法人日本コンクリート工学会）」を送った（受付表示を確認）。**残り**: ココナラが候補に足したら、診断士を取得年 2018 で登録する（licenses の追加で「コンクリート診断」が候補に出るかを週次で見る）。
+
 
 ### [DN-0642] 重要 workflow 7 本の不健全（note-live-audit 4 連続失敗・ops-audit 18 連続・note-public-view 12 日）を原因ごとに直す
 タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-10] [期日:2026-10-17] [進行中]
@@ -261,6 +265,9 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **進捗（2026-10-12 午後・運営者判断）**: ココナラ添削の受付締切は **10/18（日）** に決定。無料 2 本を公開した（R8 二次の出題予想 naa0821a3d631・経験記述を残り3週間で仕上げる n1edc95f39203。後者は導入に「残りが 2 週間を切ったら削る順番の節から」を 1 文足した）。note API で published・価格 0、check-note-structure は CRITICAL 0。X は承認を得て、10/14 20:51 と 10/17 20:24 の学習点検の予約の本文を締切告知（107-civil2-coconala-2026-10）に差し替え、差し替え元に残っていた画像を外した（予約一覧で日時・本文・画像なしを確認）。検査の整合は PR #1011。**残り**: ココナラの出品ページへの締切の記載・全3テーマ版のライブ反映・2テーマ版と PDF の休止（DN-0643 のログイン後）、10/26 に受注件数と PV の記録、3 本目（添削の実例）は運営者の素材待ち。
 
+**進捗（2026-10-16）**: ココナラの残り 3 点を片付けた。(1) 全3テーマ版 2 件（coconala-2kyu-tensaku-3theme 4418778・coconala-2kyu-sakusei-3theme 4418785）のお願い欄に「10/18（日）までの受付分」を入れて coconala-edit --commit で反映し、公開ページで文言を確認。(2) 全3テーマ版のライブ反映は check-coconala-live（listed 3＋プロフィール 1・一致 4）で確認。(3) 2テーマ版 2 本と PDF は休止済み（kanseitoan・kakomon・gakka の PDF は出品一覧に無い）。**残り**: 10/19 以降の 3theme 2 件の受付（締切後に休止するか）と、10/26 の評価・試験後の価格と受付状態の判断（運営者）。
+
+
 ### [DN-0537] Instagram の予約補充が 9/20 で止まっているので、2級（10/25）直前のテーマから予約を再開する
 タグ: [収益化] [領域:SNS] [時期:2026-10] [種類:不具合] [起票:2026-10-05] [期日:2026-10-24]
 
@@ -305,21 +312,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 **完了条件**: `coconala-1kyu-moshi-pdf` と `coconala-2kyu-moshi-pdf` がココナラの出品一覧から消え（coconala-pause が実測で確認）、`npm run check-coconala-blog` と `npm run check-coconala-live` が通る。
 
 
-### [DN-0310] 1級二次（10/4）の後に、1級の経験記述サービスの受付を止めるか来季向けの文面へ替える
-タグ: [収益化] [領域:商品] [時期:2026-10..2026-12] [種類:改善] [検証:check-coconala-live] [起票:2026-09-25] [期日:2026-10-14]
-
-**起点**: 1級の添削・作成（`tensaku-set`・`tensaku-4theme`・`sakusei`・`sakusei-4theme`）と `1kyu-premium` の「お願い」欄に「二次検定（10/4予定）に確実に間に合わせるため、10/2受付分まで」と書いている。10/3 以降も受付中のままだと、試験後に買った人へ納品しても意味が無い。2級の試験後（10/25 以降）の棚は DN-0264 で決める。
-
-**やること**: 試験後（10/5 以降）に、1級の5件を `coconala-pause` で受付停止にするか、来季（令和9年度）向けの文面へ替えるかを決める。受付停止ならカタログの status と pauseReason を更新し、替えるなら `coconala-listings.json` を直して `coconala-edit --service <id> --commit`（出品中の編集は下書き保存を使わない）。1級の PDF 教材（模試・完成答案・フルパック）の扱いも同時に決める。
-
-**完了条件**: 10/6 までに5件が受付停止か新しい文面になり、`npm run check-coconala-live` が全件一致したら、このカードを削除する。
-
-**進捗（2026-10-04）**: 受付停止に決定（2級を主力へ切り替え）。カタログは 1級 7 件すべて `paused`（`absence`・`resumeOn: 2027-07-01`）へ変更した（PR #858 に同梱）。ライブの休止は Playwright のココナラ保存セッションが切れていて未実行（9/23 保存・ログイン待ちでタイムアウト）。運営者がログインしてから `node scripts/coconala-pause.mjs --service coconala-tensaku-4theme --commit` と `--service coconala-sakusei-4theme --commit` を実行する。経験記述ブログ 12 本（`content/coconala/blog/`）も送客先を 2級の全3テーマ版へ替えた（ソースのみ）。同じログインのあとで `coconala-blog-publish --update --commit` を各記事に実行してライブへ反映する。1級の note 記事 214 本にある 1級サービス（4418735・4350199）へのリンクは、休止ページへ届くだけなので来季の文面と合わせて差し替える。
-
-**期日の変更（週次レビュー 2026-10-10）**: Mac でのログイン作業（DN-0643）と同じ日にまとめるため 2026-10-14 へ。
-**進捗（2026-10-14）**: coconala-pause の試行（変更なし）で状態を確かめた。休止済み: coconala-tensaku-set（4317375）・coconala-sakusei（4317796）。**公開中のまま**: coconala-sakusei-4theme（4350199）＝`node scripts/coconala-pause.mjs --service coconala-sakusei-4theme --commit` で休止できる。未確認: coconala-tensaku-4theme（4418735・1級2級共通に作り替え済み）と coconala-1kyu-premium（4341335）は、Mac の空きメモリ不足（1,088MB < 1,200MB）でブラウザの起動が見送られ確かめられなかった。他のアプリを閉じてから試行し直す。ブログ 12 本のライブ反映（coconala-blog-publish --update）は未着手。
-
-**note 側（2026-10-15 に対応・運営者の決定で外した）**: 1級の L3 194 本と共通の案内 5 本・自己採点・会員限定 12 本・LINE 誘導・RCCM から、受付していないココナラ出品へのリンクを外した（PR fix/civil1-coconala-cta-paused）。再発は check-coconala-wiring の「記事が受付していない出品へ送っていないか」が CI で止める。ライブへの反映は Mac の note 同期。以下は外す前の監査の記録: 1級の L3 約 194 ファイルの `cta:coconala-custom` が 4418735（paused・resumeOn 2026-10-26）と 4350199（下書きに戻され公開ページ 404）を案内している。土木もくじ :45 の「1級の添削は案内を止めている」と矛盾。外すか、10/26 の再開に合わせた文面へ切り替えるかを、受付を止めるか来季向けにするかの決定と一緒に決める。1 本ずつ直さず、管理ブロック（wire-note-funnel-cta 系）で `resumeOn` を見て切り替えるのが望ましい。
 
 
 ### [DN-0262] 1級・2級土木 第2次検定 記述 Kindle（I・J系）26冊を KDP へ3回に分けて提出する
@@ -373,14 +365,16 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
-### [DN-0750] develop-git-write の並び順で、待機中の定期ワークフローが黙って取り消される（gsc-auto-review 10/9）
-タグ: [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-15]
+### [DN-0751] 測量・情報化シリーズの新規 9 章を骨子の確認後に書いて公開する
+タグ: [領域:サイト] [時期:2026-10] [種類:制作] [起票:2026-10-16] [進行中]
 
-**起点**: 2026-10-15、check-workflow-health が gsc-auto-review.yml を「最後の success が 13 日前」で赤にした。10/9 の定期実行（09:49:06Z 作成）は、ジョブが始まる前の 09:49:09Z に cancelled になっていた。develop へ書き込むワークフローは共通の concurrency group `develop-git-write`（cancel-in-progress: false）を使い、コメントは「待たせるだけで落とさない」としている。ところが GitHub は同じ group の待機中（pending）の実行を 1 件しか残さず、新しい実行が並ぶと古い待機分を取り消す。cancel-in-progress: false は実行中のものを守るだけで、待機中のものは守らない。
+**起点**: 2026-10-16、4 本目のシリーズ「測量・情報化」（survey-informatics・方針 docs/strategy/19）を台帳に登録し、既存 9 本を工種別ノートの「測量・情報化」の区分へ移した。新規 9 章（G-00 全体像・G-01 座標系と測地系・G-04 公開データ・G-05 自治体の GIS・G-06 3 次元計測・G-07 写真と画像・G-08 CAD と 3 次元モデル・G-13 制御と自動化施工・G-17 情報システムの調達と運用）は骨子を下書きで置いた（content/sources/series/survey-informatics/、各 15 論点・根拠はすべて参考文献の台帳の id）。
 
-**やること**: develop-git-write を使う定期ワークフロー（fetch-metrics・gsc-auto-review など）を洗い出し、待機中に取り消されても週次の取得・記録が欠けないようにする。案は (1) 共通 group をやめ、push の直前に fetch・rebase・再試行する、(2) 取り消された定期実行を検知して再実行する、のどちらか。workflow-health の検査に「cancelled が続く」も数えるかを決める。
+**やること**: (1) 運営者が骨子を確かめ、approved にする。(2) Workflow series-chapter（brief: "outline"）で 9 章を書く。事実ファイル survey-informatics-sources.md を先に読ませる。(3) 図は自作 SVG（本の頁の切り出しは Codex が check-content-series -- --crop-jobs で作り、構図の参考だけに使う）、写真は AI 生成と監査。(4) 公開した章をカリキュラムの survey-informatics の区分へ並べる。(5) 既存の G-09（ict-construction-workflow）の SXF の節が 2007 年の国総研資料に拠っていて、現行の CAD 製図基準（令和7年12月・P21/P2Z）と食い違う可能性があるので、G-08 を書くときに直す。(6) 骨子で「書く前に確かめる」とした点（PLATEAU の LOD・縮尺係数の式・JIS Z 8116 の用語）を一次資料で確かめる。
 
-**完了条件**: 共通 group による待機中の取り消しで週次の実行が欠けない仕組みが入り、コメントの誤り（落とさない）が直っている。
+**完了条件**: check-content-series で survey-informatics の新規 9 章が公開・図と写真の未完了 0、本番で 18 章が「測量・情報化」の区分に並ぶ。
+
+
 
 
 ### [DN-0749] GA4 週次レポートの EXP-019 案別行を細らせ、上限の例外（data/ga4/reports/）を外す
@@ -1243,18 +1237,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **完了条件**: 管理画面でチャネル別の送客が直近 28 日と前期間の比較で見える。
 
-### [DN-0314] Drive vault にあるココナラ商品画像の旧版5枚を、現行の生成画像で上書きするか決める
-タグ: [収益化] [領域:商品] [時期:2026-09..2026-10] [種類:改善] [起票:2026-09-25] [期日:2026-10-17]
-
-**起点**: vault 台帳（`.claude/state/assets/drive-manifest.json`）の5枚が、今の `scripts/coconala-thumb.mjs` の出力と違う。`thumb-tensaku-4theme` は旧商品「4テーマセット ¥12,000」のままで、公開中の全5テーマ版（¥15,000）と合わない。`thumb-tensaku-set` / `thumb-1kyu-premium` も旧版。`thumb-sakusei` / `thumb-sakusei-4theme` は台帳が「作成」版で、Mac 上の実体は「指導」版（ライブ差し替え済み）。CI（`coconala-wiring`）は台帳にエントリがあれば通るので影響しない。上書きは vault の旧版を消すため、自動モードでは不可逆操作として止まる。
-
-**やること**: 上書きしてよいか決める。する場合は Mac で `node scripts/coconala-thumb.mjs --service coconala-<id> --out .tmp/thumb-verify/thumb-<id>.png` で3枚（`tensaku-set` / `tensaku-4theme` / `1kyu-premium`）を作り直して `content/coconala/assets/` へ置き、`node scripts/drive-vault-sync.mjs --group coconala-asset --commit` で5枚を登録して台帳を commit する。あわせて会社 PC の worktree `coconala-grade` と `tensaku-qa`（PR #638 はマージ済み）を `git worktree remove` する。
-
-**完了条件**: 上書きする場合は `node scripts/drive-vault-sync.mjs --group coconala-asset --verify` が不一致 0。しない場合は理由をこのカードに書いて削除する。
-
-**判断（2026-09-27・運営者）**: 上書きする。
-
-**期日の変更（週次レビュー 2026-10-10）**: Mac でのログイン作業（DN-0643）と同じ日にまとめるため 2026-10-17 へ。
 
 ### [DN-0360] note の記事単位の同期で、未反映（本文・カバー・タグ）と止まっている記事を 0 にする
 タグ: [収益化] [領域:商品] [時期:2026-09..2026-11] [種類:改善] [起票:2026-09-27]
