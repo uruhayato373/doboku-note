@@ -2,20 +2,20 @@
   "description": "サイト図版SVGの派生カタログ（SSOT）。build-svg-catalog.mjs が生成。手動編集しない。",
   "source": "content/site/**/img/*.svg",
   "summary": {
-    "total": 1537,
-    "embedded": 1537,
+    "total": 1544,
+    "embedded": 1544,
     "orphan": 0,
     "missingConcept": 4,
     "withHighAudit": 0,
     "figures": {
-      "total": 1422,
-      "conforming": 1422,
+      "total": 1429,
+      "conforming": 1429,
       "needsRework": 0
     },
     "byCategory": {
       "civil-construction-1": 495,
       "civil-construction-2": 25,
-      "civil-practice": 348,
+      "civil-practice": 355,
       "concrete-chief-engineer": 133,
       "concrete-diagnostician": 138,
       "concrete-engineer": 63,
@@ -10448,6 +10448,24 @@
       }
     },
     {
+      "file": "content/site/civil-practice/construction-automation-control/img/figure-independent-safety-system.svg",
+      "category": "civil-practice",
+      "slug": "construction-automation-control",
+      "name": "figure-independent-safety-system.svg",
+      "concept": "運転の制御と安全関連システムを別の系統に分けた図。安全関連システムは入力部、論理処理部、出力部からなり、運転制御から独立させる。独立していない非常停止ボタンは高頻度の作動要求として扱う。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-practice/construction-automation-control/img/figure-safety-roles.svg",
       "category": "civil-practice",
       "slug": "construction-automation-control",
@@ -11672,6 +11690,24 @@
       }
     },
     {
+      "file": "content/site/civil-practice/ict-construction-workflow/img/figure-gnss-blockage-choice.svg",
+      "category": "civil-practice",
+      "slug": "ict-construction-workflow",
+      "name": "figure-gnss-blockage-choice.svg",
+      "concept": "基準局の電波が届かないときの切り替えの判断。遮蔽が一時的ならTSのノンプリズム方式へ、区間全体なら走行距離計と慣性計測装置で補完する機器を選ぶ",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-practice/ict-construction-workflow/img/figure-ict-guideline-structure.svg",
       "category": "civil-practice",
       "slug": "ict-construction-workflow",
@@ -11722,6 +11758,24 @@
       "audit": {
         "high": 0,
         "medium": 1,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/ict-construction-workflow/img/figure-rtk-correction.svg",
+      "category": "civil-practice",
+      "slug": "ict-construction-workflow",
+      "name": "figure-rtk-correction.svg",
+      "concept": "単独測位とRTK法を、補正情報を誰が渡すかで並べた図。単独測位は誤差が数mから十数m、RTK法は基準局の補正と搬送波の位相差でcm級。精度を左右する要因も示す",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
         "low": 0
       }
     },
@@ -11893,6 +11947,24 @@
       "slug": "information-system-procurement",
       "name": "figure-network-layers.svg",
       "concept": "通信の四つの層と、障害の症状の対応表。画面が開かないときはリンクとインターネット層、つながるが遅いときはリンクとトランスポート層、一部の宛先だけ届かないときはインターネット層とアプリケーション層をまず疑う。下のリンクから順に上の層へ疑う。",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/information-system-procurement/img/figure-standardization-scope.svg",
+      "category": "civil-practice",
+      "slug": "information-system-procurement",
+      "name": "figure-standardization-scope.svg",
+      "concept": "標準化の対象かどうかを事務の名前で分ける図。政令の20事務に載れば標準化基準に適合する義務を負い、道路台帳などは直接は負わないが、庁内の共通基盤の更新時期の影響は受ける",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -12235,6 +12307,24 @@
       "slug": "ledger-data-design",
       "name": "figure-ledger-er-example.svg",
       "concept": "協力会社、搬入、受入検査、材料の4表の関係。協力会社と搬入、搬入と受入検査、材料と受入検査がそれぞれ一対多で、主キーと外部キーでつながる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/ledger-data-design/img/figure-ledger-three-defects.svg",
+      "category": "civil-practice",
+      "slug": "ledger-data-design",
+      "name": "figure-ledger-three-defects.svg",
+      "concept": "一枚の搬入台帳で起きる三つの食い違い。同じ会社の社名と電話が行ごとに違う二重持ち、搬入のない協力会社を書けない同居、材料の列が横に増える項目",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -13081,6 +13171,42 @@
       "slug": "numerical-model-review",
       "name": "figure-agent-feedback.svg",
       "concept": "個々のエージェントの行動ルールが相互作用を通じて全体の動きを作り、その全体の状況が各自の次の判断を変える往復の関係",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/numerical-model-review/img/figure-bar-elongation.svg",
+      "category": "civil-practice",
+      "slug": "numerical-model-review",
+      "name": "figure-bar-elongation.svg",
+      "concept": "独自例題の棒の伸び。左を固定した棒に100,000 Nを軸方向に加えると伸びは1 mm。両端を固定すると伸びは出ず、条件の違いが結果の違いになる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/numerical-model-review/img/figure-inference-methods.svg",
+      "category": "civil-practice",
+      "slug": "numerical-model-review",
+      "name": "figure-inference-methods.svg",
+      "concept": "回帰、最適化、ニューラルネットワーク、ファジィ推論、遺伝的アルゴリズムについて、何を求める方法かと確かめる点を並べた比較",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -14736,7 +14862,7 @@
       "category": "civil-practice",
       "slug": "site-wireless-communication",
       "name": "figure-wireless-selection-map.svg",
-      "concept": "現場の無線を通信距離と消費電力で整理した図。下段は量が小さく電池向きのBluetooth、ZigBee、920MHz帯、上段は量が大きい無線LANと携帯網",
+      "concept": "現場の無線を運べる量で二段に分け、各無線の条件を並べた図。無線LANは見通しが要り、携帯網は圏内が前提。ZigBeeの中継は外部電源、Bluetoothは近くの機器と1対1",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
