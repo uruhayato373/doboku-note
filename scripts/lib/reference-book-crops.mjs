@@ -22,6 +22,8 @@ export function validateCropBatch(batch, manifest, { requireAudit = true } = {})
   const pages = new Map((manifest.pages || []).map((p) => [p.id, p]));
   const seenPage = new Set();
   const seenFile = new Set();
+  // book-manifest の crops の id は本全体で一意（validateBookManifestShape）。同じ頁・同じ名前の撮り直しは上書きなので除く
+  const usedIds = new Map((manifest.crops || []).map((c) => [c.id, c.pageId]));
   for (const entry of batch.pages) {
     const where = entry?.page ?? '(page なし)';
     if (!PAGE_ID.test(entry?.page || '')) { errors.push(`${where}: page は pNNNN`); continue; }
@@ -43,6 +45,7 @@ export function validateCropBatch(batch, manifest, { requireAudit = true } = {})
       else if (b.x + b.w > page.width || b.y + b.h > page.height) errors.push(`${id}: bbox が頁 ${page.width}x${page.height} を越える`);
       const a = c?.audit ?? [];
       if (requireAudit && !(Array.isArray(a) && a.length === 4 && a.every((s) => Number.isInteger(s) && s >= 2 && s <= 3))) errors.push(`${id}: audit は合格した4軸の整数（各2..3）`);
+      if (usedIds.has(c?.figureId) && usedIds.get(c.figureId) !== entry.page) errors.push(`${id}: figureId が同じ本の ${usedIds.get(c.figureId)} の切り出しと重なる（頁番号を足すなど名前を変える）`);
       const file = cropFileName(entry.page, c?.figureId);
       if (seenFile.has(file)) errors.push(`${id}: 同じファイル名の切り出しが2つある`);
       seenFile.add(file);
