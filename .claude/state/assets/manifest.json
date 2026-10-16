@@ -58190,6 +58190,48 @@
         "scripts/check-orphan-ogp.mjs"
       ],
       "srcHash": "6156cc3869abb4c2"
+    },
+    "content/site/civil-practice/image-photogrammetry-analysis/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/image-photogrammetry-analysis/ogp.png",
+      "sha256": "abf23f22cd180dee2e990c2a9671352a5e46cf6dca9c2f365d376f9b300350e6",
+      "bytes": 65627,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-16T01:50:50.900Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/image-photogrammetry-analysis/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "03d07993ee51e3f4"
+    },
+    "content/site/civil-practice/3d-measurement-selection/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/3d-measurement-selection/ogp.png",
+      "sha256": "8d3e01c0566633eb3f4e7333f06beaf73f70b0d79b455b27472b19e6514137c0",
+      "bytes": 64641,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-16T01:50:50.959Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/3d-measurement-selection/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "c2922f41c80f8100"
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",
