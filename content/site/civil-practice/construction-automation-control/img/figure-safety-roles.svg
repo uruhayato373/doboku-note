@@ -33,10 +33,10 @@
   <rect x="162" y="274" width="68" height="20" rx="10" class="bw" style="fill:#fff"/><text class="t" x="196" y="288" text-anchor="middle" style="font-size:11px">計画の中心</text>
   <path class="ar" d="M135,84V134" marker-end="url(#ah)"/><text class="s" x="147" y="115">使用上の情報</text>
   <path class="ar" d="M135,208V258" marker-end="url(#ah)"/><text class="s" x="147" y="239">使用上の情報</text>
-  <path class="ar" d="M30,173H16V393H26" marker-end="url(#ah)"/>
+  <path class="ar" d="M70,208V234H20V393H26" marker-end="url(#ah)"/><text class="s" x="24" y="252">使用上の情報</text>
   <path d="M258,14H264V84H258" class="gy"/><text class="t" x="274" y="44" style="font-size:11px">設計段階の</text><text class="t" x="274" y="59" style="font-size:11px">リスクアセスメント</text>
   <path d="M258,262H264V428H258" class="gy"/><text class="t" x="274" y="337" style="font-size:11px">現場の</text><text class="t" x="274" y="352" style="font-size:11px">リスクアセスメント</text>
   <rect class="p" x="10" y="446" width="380" height="44" rx="8"/>
-  <path class="ar" d="M26,468H66" marker-end="url(#ah)"/><text class="k" x="78" y="472">使用上の情報が渡る向き</text>
+  <path class="ar" d="M26,462H66" marker-end="url(#ah)"/><text class="k" x="78" y="466">使用上の情報が渡る向き</text><text class="s" x="26" y="482">一つの者が複数の役割を兼ねる場合もある</text>
 
 </svg>

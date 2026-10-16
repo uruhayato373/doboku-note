@@ -220,7 +220,15 @@ ISO 12100（JIS B 9700）などを適宜参照すると、ルールに書かれ�
 
 安全ルールの第5章は、機械に求める安全方策を、設計段階のリスクアセスメントと機能安全の考え方で整理した章です。電子制御などを加えてリスクを下げる措置が機能安全で、厚生労働省の「機能安全による機械等に係る安全確保に関する技術上の指針」（平成28年厚生労働省告示第353号）を参照するよう書かれています。
 
-<ArticleImage src="/posts/civil-practice/construction-automation-control/img/photo-machine-indicator-lamp.webp" alt="油圧ショベルの運転席の屋根に付けた赤・黄・緑の三段の表示灯。緑が点灯している" width={960} height={720} />
+<ArticleImage src="/posts/civil-practice/construction-automation-control/img/photo-machine-indicator-lamp.webp" alt="油圧ショベルの運転席の屋根に付けた赤・黄・緑の三段の表示灯" width={960} height={720} />
+
+{/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
+<ArticleImage
+  src="/posts/civil-practice/construction-automation-control/img/figure-independent-safety-system.svg"
+  alt="運転の制御と安全関連システムを別系統に分ける図。安全関連は入力部・論理処理部・出力部からなり、独立していない非常停止ボタンは高頻度の作動要求"
+  width={400}
+  height={500}
+/>
 
 指針の考え方で要になるのは、独立性です。センサなどの入力部、論理処理部、アクチュエータなどの出力部からなる安全関連システムは、機械の運転制御のためのシステムから独立していることが望ましい、とされています。
 
