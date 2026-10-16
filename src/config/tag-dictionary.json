@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-10-16T04:39:36.736Z",
+  "generated_at": "2026-10-16T04:52:47.705Z",
   "summary": {
-    "total_mdx_files": 1465,
+    "total_mdx_files": 1466,
     "total_unique_tags": 133,
     "allowlist_size": 330,
     "known_count": 133,
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "guide",
-      "count": 287,
+      "count": 288,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1305,6 +1305,7 @@
         "civil-practice-trench-excavation-safety",
         "civil-practice-urban-greening",
         "civil-practice-urban-park-management",
+        "civil-practice-weather-information-reading",
         "civil-practice-wood-and-stone-materials",
         "concrete-chief-engineer-guide-essay",
         "concrete-chief-engineer-guide-overview",
@@ -3261,7 +3262,7 @@
     },
     {
       "name": "地方公共団体",
-      "count": 62,
+      "count": 63,
       "inAllowlist": true,
       "usedIn": [
         "civil-practice-barrier-free-roads-stations",
@@ -3312,6 +3313,7 @@
         "civil-practice-social-infrastructure-overview",
         "civil-practice-urban-greening",
         "civil-practice-urban-park-management",
+        "civil-practice-weather-information-reading",
         "pe-comprehensive-management-essay-pattern-cross-year-application",
         "pe-comprehensive-management-h21-essay-road-municipality",
         "pe-comprehensive-management-h22-essay-road-municipality",
@@ -3800,7 +3802,7 @@
     },
     {
       "name": "河川",
-      "count": 31,
+      "count": 32,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-textbook-river-works",
@@ -3820,6 +3822,7 @@
         "civil-practice-river-facility-inspection-operation",
         "civil-practice-river-park-erosion-control",
         "civil-practice-satomichi-suiro-management",
+        "civil-practice-weather-information-reading",
         "pe-comprehensive-management-h21-essay-river-consultant",
         "pe-comprehensive-management-h22-essay-river-consultant",
         "pe-comprehensive-management-h23-essay-river-consultant",
@@ -4523,6 +4526,26 @@
       ]
     },
     {
+      "name": "国土強靱化",
+      "count": 13,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-disaster-recovery-assessment",
+        "civil-practice-regional-disaster-plan-flood-fighting",
+        "civil-practice-sediment-disaster-erosion-control",
+        "civil-practice-seismic-design-levels",
+        "civil-practice-weather-information-reading",
+        "pe-comprehensive-management-h23-essay-general-contractor",
+        "pe-comprehensive-management-h23-essay-river-consultant",
+        "pe-comprehensive-management-h23-essay-road-municipality",
+        "pe-comprehensive-management-r8-essay-theme-disaster-recovery",
+        "pe-construction-bosai-kokudo-kyoujinka",
+        "pe-construction-bousai-genseigai-ronbun-keyword",
+        "pe-construction-seismic-damage-lessons",
+        "pe-construction-seismic-isolation-damping"
+      ]
+    },
+    {
       "name": "建設DX",
       "count": 13,
       "inAllowlist": true,
@@ -4618,25 +4641,6 @@
         "pe-construction-r08-tunnel",
         "pe-construction-tunnel-exam-themes",
         "pe-construction-tunnel-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "国土強靱化",
-      "count": 12,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-disaster-recovery-assessment",
-        "civil-practice-regional-disaster-plan-flood-fighting",
-        "civil-practice-sediment-disaster-erosion-control",
-        "civil-practice-seismic-design-levels",
-        "pe-comprehensive-management-h23-essay-general-contractor",
-        "pe-comprehensive-management-h23-essay-river-consultant",
-        "pe-comprehensive-management-h23-essay-road-municipality",
-        "pe-comprehensive-management-r8-essay-theme-disaster-recovery",
-        "pe-construction-bosai-kokudo-kyoujinka",
-        "pe-construction-bousai-genseigai-ronbun-keyword",
-        "pe-construction-seismic-damage-lessons",
-        "pe-construction-seismic-isolation-damping"
       ]
     },
     {
