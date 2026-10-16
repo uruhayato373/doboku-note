@@ -21,6 +21,7 @@ title: .claude/knowledge/reference/ 索引
 | [.claude/knowledge/reference/concrete-practice-sources.md](./concrete-practice-sources.md) | コンクリートの実務シリーズで原文を確かめた一次資料（JIS A 5308・共通仕様書の条・国交省の通知・論文）の URL と値 | シリーズの章を書く・確かめるとき（ここに無い値だけを検索する） |
 | [.claude/knowledge/reference/construction-materials-sources.md](./construction-materials-sources.md) | 建設材料シリーズで原文を確かめた一次資料（JIS・規格・公的資料）の URL と値 | シリーズの章を書く・確かめるとき（ここに無い値だけを検索する） |
 | [.claude/knowledge/reference/survey-informatics-sources.md](./survey-informatics-sources.md) | 測量・情報化シリーズ（survey-informatics）の章を書くときに執筆担当と QA が先に読む、確かめた一次資料の値（測量法・作業規程の準則・地理院・PLATEAU・自治体 GIS・CAD 製図基準・自動施工の安全ルール・情報システム） |
+| [.claude/knowledge/reference/construction-business-sources.md](./construction-business-sources.md) | 建設業の経営と法務シリーズ（construction-business）の章を書くときに執筆担当と QA が先に読む、確かめた一次資料の値（建設業法・施行令・施行規則・許可と経審の事務の通知・紛争審査会・監督処分・AI 事業者ガイドライン） |
 | [.claude/knowledge/reference/municipal-civil-engineer-sources.md](./municipal-civil-engineer-sources.md) | 自治体の土木担当シリーズで公開ページ・e-Gov の条文で確かめた値（道路・河川・財政・事業評価・用地・環境・災害・都市計画・下水道） | シリーズの骨子を作る・記事を書くとき（ここに無い値だけを検索する） |
 | [.claude/knowledge/reference/book-coverage-judging.md](./book-coverage-judging.md) | 書籍の網羅の意味判定（Evaluator）の手順: 判定資料 packet.md の読み方・covered/partial/gap/out-of-scope の基準（資格・棚ごと）・展開計画の書き方・verdict.json の形と `--check` | 書籍の候補表を意味で判定し、展開の計画を作るとき |
 | [.claude/knowledge/reference/reference-sources-policy.md](./reference-sources-policy.md) | 参考文献6区分の逐語・図・文字起こし公開・出典粒度と、原本→Drive文字起こし→記事 `sources` ID→検査のライフサイクル SSOT | 原本・一次資料から文字起こしや記事を作るとき／参考文献を追加・変更するとき |
