@@ -133,7 +133,7 @@ function report() {
     const books = Object.entries(bv.byBook);
     const units = books.reduce((n, [, t]) => n + t.units, 0);
     console.log(`[${NAME}] 書籍 ${books.length} 冊・${units} 項目の割り当てを実検査（${driveIssues === null ? 'Drive が無いので件数だけで照合' : 'Drive の候補表と id を照合'}）`);
-    for (const [id, t] of books) console.log(`  ${id}: シリーズ ${t.series} / ほかの記事 ${t.article} / 使わない（理由つき） ${t.excluded}`);
+    for (const [id, t] of books) console.log(`  ${id}: シリーズ ${t.series} / ほかの記事 ${t.article} / 使わない（理由つき） ${t.excluded}${t.revisit ? `（うち判定し直す候補 ${t.revisit}）` : ""}`);
     const pages = [...chapterPages(basis, ctx).values()];
     const uniq = new Map();
     for (const info of pages) for (const p of info.pages) uniq.set(`${p.book}/${p.page}`, p);
