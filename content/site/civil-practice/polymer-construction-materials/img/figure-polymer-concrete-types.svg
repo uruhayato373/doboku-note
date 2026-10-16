@@ -20,7 +20,7 @@
   </defs>
 
   <!-- ポリマーセメント系 -->
-  <rect class="p" x="10" y="10" width="380" height="156" rx="8"/>
+  <rect class="p" x="10" y="10" width="380" height="150" rx="8"/>
   <rect class="cem" x="24" y="24" width="12" height="12" rx="2"/><text x="40" y="34">セメント</text>
   <circle class="pd" cx="104" cy="30" r="4"/><text x="112" y="34">ポリマー</text>
   <rect class="cem" x="24" y="44" width="170" height="112" rx="4"/>
@@ -37,7 +37,8 @@
   <text x="214" y="132">JIS A 6203（混和用）</text>
 
   <!-- レジンコンクリート -->
-  <rect class="p" x="10" y="172" width="380" height="156" rx="8"/>
+  <g transform="translate(0,-8)">
+  <rect class="p" x="10" y="172" width="380" height="150" rx="8"/>
   <rect class="res" x="24" y="186" width="12" height="12" rx="2" style="stroke:#2e6da4"/><text x="40" y="196">レジン</text>
   <rect class="ag" x="92" y="186" width="12" height="12" rx="2"/><text x="108" y="196">骨材</text>
   <rect class="res" x="24" y="206" width="170" height="112" rx="4"/>
@@ -48,9 +49,11 @@
   <text class="n" x="214" y="228">結合材は液状のレジン</text>
   <text class="t" x="214" y="248">セメントは入らない</text><text class="t" x="214" y="264">骨材をレジンで結ぶ</text>
   <text x="214" y="294">JIS A 1181</text>
+  </g>
 
   <!-- 含浸型 -->
-  <rect class="p" x="10" y="334" width="380" height="156" rx="8"/>
+  <g transform="translate(0,-16)">
+  <rect class="p" x="10" y="334" width="380" height="150" rx="8"/>
   <rect class="res" x="24" y="348" width="12" height="12" rx="2" style="stroke:#2e6da4"/><text x="40" y="358">モノマー</text>
   <rect class="cem" x="104" y="348" width="12" height="12" rx="2"/><text x="120" y="358">コンクリート</text>
   <rect class="cem" x="24" y="368" width="170" height="112" rx="4"/>
@@ -62,6 +65,8 @@
   <path class="wa" d="M83,370V402" marker-end="url(#ah)"/><path class="wa" d="M137,370V402" marker-end="url(#ah)"/>
   <rect class="pw" x="214" y="348" width="56" height="20" rx="10"/><text class="h" x="242" y="362" text-anchor="middle">含浸型</text>
   <text class="n" x="214" y="390">硬化体にしみ込ませる</text>
-  <text class="t" x="214" y="410">液状のモノマーを</text><text class="t" x="214" y="426">しみ込ませて固める</text>
+  <text class="t" x="214" y="410">既に硬化したコンクリートに</text><text class="t" x="214" y="426">後から液状モノマーを固める</text>
   <text x="214" y="456">表面含浸工法とは別</text>
+  </g>
+  <text x="200" y="490" text-anchor="middle" style="font-size:13px;font-weight:bold;fill:#1a3a5c">配合表の結合材の欄を見て、三つに分ける</text>
 </svg>
