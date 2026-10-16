@@ -4269,6 +4269,23 @@
       "commit": "0c3f9726e9ab",
       "verification": "PR #1092を合流。章本体387章とOGP台帳387件を整合、章OGPテスト9/9・check-standard-articles 171検査成功。doc-sync候補5件/指摘0。develop CI 38904488187でbuild・audit成功（監査143/143）、PR E2E 38903090637で474成功/22skip。main=c58547fd2、deploy38905329014成功。check-production-ssr exit0（2URL）。本番168ページ+OGP43点の211件照合で失敗0。残る表の断片は既存DN-0755。",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0743",
+      "at": "2026-10-17",
+      "task": "2級土木の重複公開 2 本（nc30a5646f239・ncad207369238）を note で非公開にし、もくじの付け替えを反映する（browser-use）",
+      "tier": "high",
+      "kind": "不具合",
+      "prevention": {
+        "type": "doc",
+        "ref": ".claude/knowledge/reference/note-api-verification.md"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "c9c89f5d266b",
+      "verification": "重複2本を下書き化し著者editorで本文保持、残す2本の無料公開と土木もくじのhrefを確認。PR#1076の案内削除214本を反映、PDF189件保持。公開状態5本と関連215記事のAPI照合220件で不一致0。残す仕上げ手順を原稿の2週間版へ同期。CLI修正PR#1095はCI/E2E成功・developへmerge済み。",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }
