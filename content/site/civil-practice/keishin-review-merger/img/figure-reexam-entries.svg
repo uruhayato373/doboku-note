@@ -1,0 +1,55 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は建設業法第27条の28・施行規則第20条の再審査の申立てと、業種追加の申請。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="経営事項審査の結果通知書を受け取ったあとの受け直しの分かれ道。行政庁側の誤りは通知を受けた日から30日、経審の改正は改正の日から120日、許可業種の追加は新たな許可の日が起点。申請者の記入ミスなどは受け直せない。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #222; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .s { font-size: 11px; fill: #555; }
+      .bg { font-size: 18px; font-weight: bold; fill: #1a3a5c; }
+      .bg2 { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .top { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .card { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .bd { fill: #fff; stroke: #b22234; stroke-width: 1.5; }
+      .ch { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .chd { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .trunk { stroke: #8a8a8a; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#8a8a8a"/></marker>
+  </defs>
+  <rect class="top" x="10" y="8" width="380" height="44" rx="8"/>
+  <text class="n" x="200" y="35" text-anchor="middle">結果通知書を受け取った</text>
+  <path class="trunk" d="M20,52V384"/>
+  <path class="trunk" d="M20,108H34" marker-end="url(#ah)"/>
+  <rect class="card" x="36" y="66" width="354" height="84" rx="8"/>
+  <rect class="ch" x="46" y="76" width="112" height="64" rx="6"/>
+  <text class="bg" x="102" y="104" text-anchor="middle">30日</text>
+  <text class="s" x="102" y="124" text-anchor="middle">通知を受けた日から</text>
+  <text class="n" x="170" y="93">行政庁側の誤り</text>
+  <text x="170" y="113">再審査の申立て（様式第25号の14）</text>
+  <text class="s" x="170" y="132">申請者の記入ミスは対象外</text>
+  <path class="trunk" d="M20,200H34" marker-end="url(#ah)"/>
+  <rect class="card" x="36" y="158" width="354" height="84" rx="8"/>
+  <rect class="ch" x="46" y="168" width="112" height="64" rx="6"/>
+  <text class="bg" x="102" y="196" text-anchor="middle">120日</text>
+  <text class="s" x="102" y="216" text-anchor="middle">改正の日から</text>
+  <text class="n" x="170" y="185">経審の評価方法の改正</text>
+  <text x="170" y="205">改正に係る事項だけを再審査</text>
+  <text class="s" x="170" y="224">改正前の評価で通知を受けた者</text>
+  <path class="trunk" d="M20,292H34" marker-end="url(#ah)"/>
+  <rect class="card" x="36" y="250" width="354" height="84" rx="8"/>
+  <rect class="ch" x="46" y="260" width="112" height="64" rx="6"/>
+  <text class="bg2" x="102" y="288" text-anchor="middle">日数の定めなし</text>
+  <text class="s" x="102" y="308" text-anchor="middle">新たな許可の日から</text>
+  <text class="n" x="170" y="277">許可業種の追加</text>
+  <text x="170" y="297">技術職員と完成工事高だけを足す</text>
+  <text class="s" x="170" y="316">通知済みの業種は変えられない</text>
+  <path class="trunk" d="M20,384H34" marker-end="url(#ah)"/>
+  <rect class="bd" x="36" y="342" width="354" height="84" rx="8"/>
+  <rect class="chd" x="46" y="352" width="112" height="64" rx="6"/>
+  <text class="bg" x="102" y="389" text-anchor="middle">入口なし</text>
+  <text class="n" x="170" y="369">受け直せない場合</text>
+  <text x="170" y="389">申請者の数字や資料の間違い</text>
+  <text class="s" x="170" y="408">申請の前に控えと確認書類を見直す</text>
+  <text class="s" x="200" y="450" text-anchor="middle">国土交通大臣許可の運用（近畿地方整備局の手引き）</text>
+  <text class="s" x="200" y="468" text-anchor="middle">知事許可は、許可行政庁の取扱いを確かめる</text>
+</svg>

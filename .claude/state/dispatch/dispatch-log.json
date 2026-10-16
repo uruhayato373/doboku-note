@@ -4222,6 +4222,23 @@
       "commit": "51de00e7b1d1",
       "verification": "check-content-series",
       "note": "9章を公開（3a05308b0 で本番）。図27・写真8（全数監査ok）。本番で9章 <main>・画像35件 200・/practice に18章。残: PLATEAU 第5.1版とテクスチャ値、附属資料2が案のままか（事実ファイルに記録）"
+    },
+    {
+      "id": "DN-0753",
+      "at": "2026-10-16",
+      "task": "教材の判定し直す候補431項目を確定し、自治体シリーズ6章と新シリーズ「建設業の経営と法務」7章を書いて公開する",
+      "tier": "high",
+      "kind": "制作",
+      "prevention": {
+        "type": "doc",
+        "ref": ".claude/knowledge/reference/book-coverage-expansion.md"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "c83c09bff09c",
+      "verification": "check-content-series",
+      "note": "判定し直す候補431→0（章165・記事16・使わない250）。新規13章を公開（d84dd1e5d で本番）。図37・写真10（全数監査ok）・既存記事から45リンク。本番で13章 <main>・画像47件 200・/practice に並ぶ。content/site の追跡総量上限を140→150に上げた（DN-0111 Phase 4 の .png 退避が本筋）"
     }
   ]
 }

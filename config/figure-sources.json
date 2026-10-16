@@ -1761,6 +1761,16 @@
       "tool": "Codex",
       "prompt": "Two cylindrical asphalt pavement core samples (about 100 mm diameter, 50 mm thick each) cut vertically in half and placed side by side on a plain grey laboratory bench, cut faces toward the camera. The left core is dense-graded asphalt concrete: black binder fully filling the space between densely packed small grey stones, almost no voids. The right core is open-graded (porous) asphalt: coarse single-sized grey stones coated with black binder, with many visible interconnected air voids between them. Soft even indoor lighting, no people, no text, no labels, no rulers with numbers."
     },
+    "civil-practice/barrier-free-roads-stations/img/photo-crosswalk-curb": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "歩道と横断歩道の接続部。車道との段差がごく小さく、歩道側に車椅子が向きを変えられる平らな部分がある。手前に黄色の点状の視覚障害者誘導用ブロック。人と文字は写さない。昼の自然光。"
+    },
+    "civil-practice/barrier-free-roads-stations/img/photo-tactile-paving": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "広い歩道に黄色の視覚障害者誘導用ブロックが線状に直線で敷かれ、分岐点に点状のブロックがある様子。電柱や植え込みを避けて通っている。人と文字は写さない。昼の自然光。"
+    },
     "civil-practice/bim-cim-site-practice/img/photo-ar-tablet-site-overlay": {
       "kind": "ai-generated",
       "tool": "Codex",
@@ -1872,6 +1882,11 @@
       "tool": "Codex",
       "prompt": "A new residential road under construction inside a land readjustment district in Japan: graded gravel subbase of a new road with a precast U-shaped concrete drainage channel being set along one side, a small excavator beside it, orange safety cones and plain stakes marking the boundary lines. On the far side of the new road there are rows of vacant graded lots, and at the edge of the site a couple of old low wooden Japanese houses still standing close to the work area, untouched. Overcast daylight, shallow depth of field with the foreground channel sharp and the background softly blurred, no people, no signs, no text."
     },
+    "civil-practice/landscape-planning-public-works/img/photo-historic-bridge-fixtures": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "石造りの歴史的な橋の親柱と高欄の横に、新しく付け替えた照明柱と防護柵が並び、どちらも落ち着いた茶色系で色と形がそろっている様子。橋の銘板や文字は写さない。人の顔なし。昼の自然光。浅い被写界深度。"
+    },
     "civil-practice/large-fill-landslide/img/photo-horizontal-drain-outlets": {
       "kind": "ai-generated",
       "tool": "Codex",
@@ -1926,6 +1941,16 @@
       "kind": "ai-generated",
       "tool": "Codex",
       "prompt": "Wide view of a Japanese river floodplain with a dense stand of tall black locust (Robinia pseudoacacia) trees, multi-stemmed trunks with deeply furrowed dark bark and pinnate compound leaves, forming a thick woodland on the riverbed. In the foreground a grassy levee slope (embankment) and a low-flow channel with calm water and gravel bar; far background shows the broad floodplain and hills under overcast daylight. Shallow depth of field, no people, no text, no signs, no logos, no structures."
+    },
+    "civil-practice/nature-oriented-river-works/img/photo-natural-riverbank": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "郊外の小さな川。水際に草や低木が茂り、護岸は控えめな自然石で、河床には浅い瀬と深い淵が交互に見える。人と文字は写さない。晴れの自然光。背景はぼかす。"
+    },
+    "civil-practice/nature-oriented-river-works/img/photo-urban-river-steps": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "都市の中の川で、コンクリートの階段状の親水護岸から水辺に降りられる様子。川沿いに管理用通路がある。人の顔と文字は写さない。昼の自然光。"
     },
     "civil-practice/polymer-construction-materials/img/photo-cfrp-sheet-roller-impregnation": {
       "kind": "ai-generated",
@@ -2017,10 +2042,35 @@
       "tool": "Codex",
       "prompt": "造成工事の起工測量の現場。手前に三脚に据えたトータルステーション、少し離れて測量用ポールの先に付けたGNSS受信機（ローバー）、地面のマットの上に小型のマルチコプター型ドローンが置かれている。奥に重機と盛土。作業者は遠景で小さく、顔は写さない。機器にロゴ・文字は入れない。曇りの自然光。"
     },
+    "civil-practice/urban-greening/img/photo-rooftop-drain-inspection": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "公共施設の屋上緑化で、芝生と低木の植栽の脇にある排水口（ルーフドレン）のまわりが見える近景。点検用の手袋をした手が排水口のふたに触れている（顔は写さない）。文字なし。曇りの自然光。"
+    },
+    "civil-practice/urban-greening/img/photo-wall-greening-types": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "建物の外壁で、左側はつる植物がワイヤーを登る登はん型の壁面緑化、右側は植物の入ったパネルを並べたパネル型の壁面緑化。人と文字は写さない。昼の自然光。"
+    },
     "civil-practice/urban-park-management/img/photo-swing-support-base-inspection": {
       "kind": "ai-generated",
       "tool": "Codex",
       "prompt": "Realistic documentary photo of a public park swing set, low angle close-up of one steel A-frame leg where the galvanized steel pipe enters the ground at a concrete footing, surface rust and paint flaking visible at the ground line, with the top crossbeam above holding a swing hanger bracket and a chain attached, shallow depth of field, soft overcast daylight, grass and sand ground, no children, no people, no text"
+    },
+    "civil-practice/waterworks-business/img/photo-water-main-renewal": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "道路の水道管の更新工事。舗装を切って掘った溝の中に新しいダクタイル鋳鉄管が据えられ、周りに保安柵とコーンがある。作業員は後ろ姿か遠景で顔は写さない。文字は写さない。昼の自然光。"
+    },
+    "civil-practice/waterworks-business/img/photo-water-pipe-bridge": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "川を渡る水道の水管橋の全景。鋼製の管が橋脚に支えられ、川の両岸を結んでいる。崩れた様子はない。人と文字は写さない。晴れの自然光。"
+    },
+    "civil-practice/weather-information-reading/img/photo-rain-gauge-station": {
+      "kind": "ai-generated",
+      "tool": "Codex",
+      "prompt": "芝生の上の柵で囲まれた小さな気象観測所。円筒形の転倒ます型雨量計と、ポールの上の風向風速計が見える。人と文字は写さない。曇りの自然光。背景はぼかす。"
     },
     "civil-practice/wood-and-stone-materials/img/photo-dismantled-arch-voussoirs": {
       "kind": "ai-generated",

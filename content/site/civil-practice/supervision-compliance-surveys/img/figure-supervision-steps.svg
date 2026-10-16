@@ -1,0 +1,59 @@
+<!-- authored 2026-10-16 doboku-note 自作。件数は国土交通省の令和7年度の活動結果の本文記載どおり -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="監督の段階を軽い順に7段で示した階段図。端緒（実態調査・駆け込みホットライン・建設Gメン）から、報告徴収・立入検査（第31条）、指導票、勧告・文書指導等768業者、指示4業者（第28条第1項）、営業停止14業者（第28条第3項）、許可取消1業者（第29条第1項第8号）へ重くなる。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #222; }
+      .tt { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .tb { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .tx { font-size: 12px; fill: #222; }
+      .ts { font-size: 11px; fill: #555; }
+      .tn { font-size: 13px; font-weight: bold; fill: #222; }
+      .b-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .b-pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .b-warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .b-dan { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .b-sur { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .b-wh { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ln { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .ld { stroke: #8a8a8a; stroke-width: 1; fill: none; stroke-dasharray: 3 3; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+  <rect class="b-brand" x="10" y="10" width="290" height="44" rx="6"/>
+  <text class="tb" x="20" y="29">端緒</text>
+  <text class="ts" x="20" y="45">実態調査・駆け込みホットライン・建設Gメン</text>
+  <line class="a" x1="34" y1="54" x2="34" y2="68" marker-end="url(#ah)"/>
+  <rect class="b-brand" x="22" y="68" width="290" height="44" rx="6"/>
+  <text class="tb" x="32" y="87">報告徴収・立入検査</text>
+  <text class="ts" x="32" y="103">建設業法第31条</text>
+  <line class="a" x1="46" y1="112" x2="46" y2="126" marker-end="url(#ah)"/>
+  <rect class="b-warn" x="34" y="126" width="290" height="44" rx="6"/>
+  <text class="tb" x="44" y="145">指導票</text>
+  <text class="ts" x="44" y="161">行政指導。処分とは別の扱い</text>
+  <line class="a" x1="58" y1="170" x2="58" y2="184" marker-end="url(#ah)"/>
+  <rect class="b-warn" x="46" y="184" width="290" height="44" rx="6"/>
+  <text class="tb" x="56" y="203">勧告・文書指導等</text>
+  <text class="ts" x="56" y="219">見積りと契約書の不備が中心</text>
+  <text class="tn" x="326" y="211" text-anchor="end">768業者</text>
+  <line class="a" x1="70" y1="228" x2="70" y2="242" marker-end="url(#ah)"/>
+  <rect class="b-dan" x="58" y="242" width="290" height="44" rx="6"/>
+  <text class="tb" x="68" y="261">指示</text>
+  <text class="ts" x="68" y="277">第28条第1項</text>
+  <text class="tn" x="338" y="269" text-anchor="end">4業者</text>
+  <line class="a" x1="82" y1="286" x2="82" y2="300" marker-end="url(#ah)"/>
+  <rect class="b-dan" x="70" y="300" width="290" height="44" rx="6"/>
+  <text class="tb" x="80" y="319">営業停止</text>
+  <text class="ts" x="80" y="335">第28条第3項（1年以内）</text>
+  <text class="tn" x="350" y="327" text-anchor="end">14業者</text>
+  <line class="a" x1="94" y1="344" x2="94" y2="358" marker-end="url(#ah)"/>
+  <rect class="b-dan" x="82" y="358" width="290" height="44" rx="6"/>
+  <text class="tb" x="92" y="377">許可取消</text>
+  <text class="ts" x="92" y="393">第29条第1項第8号</text>
+  <text class="tn" x="362" y="385" text-anchor="end">1業者</text>
+  <rect class="b-sur" x="10" y="420" width="380" height="70" rx="6"/>
+  <text class="ts" x="20" y="438">件数は令和7年度（国土交通省の活動結果）。</text>
+  <text class="ts" x="20" y="453">1社が複数の事由に当たることがあり、</text>
+  <text class="ts" x="20" y="468">業者数と件数は一致しない場合がある。</text>
+  <text class="ts" x="20" y="483">指示以降は監督処分の基準で運用される。</text>
+</svg>

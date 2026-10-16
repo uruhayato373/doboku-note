@@ -1,0 +1,64 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点はかわまちづくり支援制度の実施要綱（推進主体と河川管理者の共同作成・登録・区域指定・5年以内の検証）。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="かわまちづくりの役割分担図。河川管理者はハード施策（親水護岸・河川管理用通路）とソフト施策（調査・検討の連携、区域指定の支援）を担う。推進主体の市町村や民間事業者は、営業・利用と維持管理を担う。両者が共同でかわまちづくり計画を作成し、水管理・国土保全局長に登録を申請し、登録後少なくとも5年以内に共同で検証する。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .wn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .wb { fill: #fff; stroke: #2e6da4; stroke-width: 1.5; }
+      .wp { fill: #fff; stroke: #3a7d44; stroke-width: 1.5; }
+      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+
+  <!-- 河川管理者（左） -->
+  <rect class="b" x="14" y="14" width="180" height="44" rx="8"/>
+  <text class="n" x="104" y="34" text-anchor="middle">河川管理者</text>
+  <text x="104" y="50" text-anchor="middle">支援する側</text>
+  <rect class="wb" x="14" y="66" width="180" height="62" rx="8"/>
+  <text class="t" x="24" y="86">ハード施策</text>
+  <text x="24" y="104">親水護岸</text>
+  <text x="24" y="119">河川管理用通路</text>
+  <rect class="wb" x="14" y="136" width="180" height="62" rx="8"/>
+  <text class="t" x="24" y="156">ソフト施策</text>
+  <text x="24" y="174">調査・検討の連携</text>
+  <text x="24" y="189">区域指定の支援</text>
+
+  <!-- 推進主体（右） -->
+  <rect class="pos" x="206" y="14" width="180" height="44" rx="8"/>
+  <text class="n" x="296" y="34" text-anchor="middle">推進主体</text>
+  <text x="296" y="50" text-anchor="middle">市町村・民間事業者など</text>
+  <rect class="wp" x="206" y="66" width="180" height="62" rx="8"/>
+  <text class="t" x="216" y="86">営業・利用</text>
+  <text x="216" y="104">民間のカフェなどは</text>
+  <text x="216" y="119">指定された区域で</text>
+  <rect class="wp" x="206" y="136" width="180" height="62" rx="8"/>
+  <text class="t" x="216" y="156">維持管理</text>
+  <text x="216" y="174">洪水を防ぐ施設以外は</text>
+  <text x="216" y="189">事前に協議して決める</text>
+
+  <!-- 計画から検証まで -->
+  <path class="a" d="M104,200V226" marker-end="url(#ah)"/>
+  <path class="a" d="M296,200V226" marker-end="url(#ah)"/>
+  <rect class="wn" x="40" y="228" width="320" height="44" rx="8"/>
+  <text class="n" x="200" y="247" text-anchor="middle">かわまちづくり計画</text>
+  <text x="200" y="263" text-anchor="middle">河川管理者と推進主体が共同で作成</text>
+  <path class="a" d="M200,274V296" marker-end="url(#ah)"/>
+  <rect class="b" x="40" y="298" width="320" height="44" rx="8"/>
+  <text class="n" x="200" y="317" text-anchor="middle">登録</text>
+  <text x="200" y="333" text-anchor="middle">水管理・国土保全局長へ申請</text>
+  <path class="a" d="M200,344V366" marker-end="url(#ah)"/>
+  <rect class="pos" x="40" y="368" width="320" height="44" rx="8"/>
+  <text class="n" x="200" y="387" text-anchor="middle">共同で検証</text>
+  <text x="200" y="403" text-anchor="middle">登録後、少なくとも5年以内に。必要なら計画を変更</text>
+
+  <!-- 要約 -->
+  <rect x="10" y="428" width="380" height="64" rx="8" style="fill:#f5f5f5;stroke:#d7d7d7;stroke-width:1.5"/>
+  <text class="t" x="20" y="448">対象河川：一級河川、二級河川、準用河川</text>
+  <text x="20" y="466">登録は314箇所（令和8年8月7日に新たに11箇所）</text>
+  <text x="20" y="482">出典：国土交通省 報道発表・実施要綱</text>
+</svg>

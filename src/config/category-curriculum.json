@@ -674,13 +674,20 @@
           "id": "construction-business",
           "label": "建設業の経営と法務（許可・経審・下請・担い手・紛争）",
           "slugs": [
+            "construction-business-overview",
             "construction-industry-structure",
             "license-scope-judgment",
+            "license-requirements",
+            "license-procedures",
             "keishin-bidder-qualification",
+            "keishin-review-merger",
             "subcontract-fair-dealing",
             "subcontract-instruction-boundary",
             "ccus-kentaikyo-site",
-            "foreign-workers-site-check"
+            "foreign-workers-site-check",
+            "construction-dispute-resolution",
+            "supervision-compliance-surveys",
+            "generative-ai-adoption"
           ]
         },
         {
@@ -724,6 +731,7 @@
             "river-crossing-structure-review",
             "river-facility-inspection-operation",
             "flood-control-facilities",
+            "nature-oriented-river-works",
             "coast-port-administrators",
             "satomichi-suiro-management"
           ]
@@ -754,14 +762,19 @@
             "city-planning-act-framework",
             "development-permit-public-facilities",
             "land-readjustment-project",
+            "landscape-planning-public-works",
+            "barrier-free-roads-stations",
             "urban-park-management",
-            "sewerage-and-stormwater"
+            "urban-greening",
+            "sewerage-and-stormwater",
+            "waterworks-business"
           ]
         },
         {
           "id": "municipal-disaster",
           "label": "自治体の土木担当（災害に備える）",
           "slugs": [
+            "weather-information-reading",
             "disaster-recovery-assessment",
             "regional-disaster-plan-flood-fighting",
             "sediment-disaster-erosion-control"

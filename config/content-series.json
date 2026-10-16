@@ -481,6 +481,42 @@
               "note": "2026-10-15 に骨子の論点を書き足して補強した（DN-0742）"
             },
             {
+              "id": "A-46",
+              "title": "多自然川づくりと水辺空間 — 河川環境の目標・生息空間・水辺の整備",
+              "paths": [
+                "content/site/civil-practice/nature-oriented-river-works/article.mdx"
+              ],
+              "plan": "new",
+              "note": "2026-10-16 の運営者指示（展開するものはすべて展開する）で、教材の判定し直す候補から足した（DN-0753）",
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "標準断面と拡幅を基本にした断面を同じ縮尺で重ねた比較図（川幅・河床幅・のり勾配五分・護岸範囲。掘削深の上限60cmと五分勾配は国河環第30号ほかの通知の値として添え、出典を明記）（差し込む見出し: 中小河川の河道計画は、拡幅を先に検討する）",
+                  "figKey": "civil-practice/nature-oriented-river-works/img/figure-channel-widening-section"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "調査、計画、設計、施工、維持管理・更新、災害復旧が輪になり、モニタリングと見直しが全体を回る図（基本指針の全段階・順応的管理）（差し込む見出し: 整備後は観察して直す — 順応的管理）",
+                  "figKey": "civil-practice/nature-oriented-river-works/img/figure-adaptive-management-cycle"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "かわまちづくりの役割分担図。河川管理者（親水護岸・河川管理用通路・区域指定）と市町村・民間事業者（利用施設・運営・維持管理）が計画の登録でつながる（差し込む見出し: 水辺の賑わいは、かわまちづくり計画で河川管理者と進める）",
+                  "figKey": "civil-practice/nature-oriented-river-works/img/figure-kawamachi-roles"
+                },
+                {
+                  "kind": "photo",
+                  "subject": "水際に植生があり護岸が控えめで、河床に瀬と淵がある準用河川クラスの川（人の顔・文字なし）（差し込む見出し: 護岸は、要るかどうかの判定が先）",
+                  "figKey": "civil-practice/nature-oriented-river-works/img/photo-natural-riverbank"
+                },
+                {
+                  "kind": "photo",
+                  "subject": "親水護岸や階段で水辺に降りられる都市の川（人の顔・文字なし）（差し込む見出し: 管理用通路と水辺への降り口は、必要性から決める）",
+                  "figKey": "civil-practice/nature-oriented-river-works/img/photo-urban-river-steps"
+                }
+              ]
+            },
+            {
               "id": "A-18",
               "title": "海岸と港湾 — 海岸法・港湾法と管理者",
               "plan": "new",
@@ -509,15 +545,6 @@
                   "figKey": "civil-practice/coast-port-administrators/img/figure-permit-matrix-by-zone"
                 }
               ]
-            },
-            {
-              "id": "A-46",
-              "title": "多自然川づくりと水辺空間 — 河川環境の目標・生息空間・水辺の整備",
-              "paths": [
-                "content/site/civil-practice/nature-oriented-river-works/article.mdx"
-              ],
-              "plan": "new",
-              "note": "2026-10-16 の運営者指示（展開するものはすべて展開する）で、教材の判定し直す候補から足した（DN-0753）"
             }
           ]
         },
@@ -914,6 +941,73 @@
               ]
             },
             {
+              "id": "A-42",
+              "title": "景観計画と公共事業の景観検討 — 景観法の届出・景観協議・歴史的な構造物",
+              "paths": [
+                "content/site/civil-practice/landscape-planning-public-works/article.mdx"
+              ],
+              "plan": "new",
+              "note": "2026-10-16 の運営者指示（展開するものはすべて展開する）で、教材の判定し直す候補から足した（DN-0753）",
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "民間（届出・勧告・変更命令・受理から30日は着手不可）と国・自治体（通知・協議）の手続を、行為者と手続の2軸で比べた対比図（自作SVG、条は小さく添える）（差し込む見出し: 自治体の工事は、届出でなく事前の通知になる）",
+                  "figKey": "civil-practice/landscape-planning-public-works/img/figure-notice-vs-notification"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "景観計画区域か、通知、協議、景観重要公共施設の整備・占用の基準、文化財・歴史的風致の手続を、計画・設計・発注・着工前の事業段階に並べた確認の流れ図（自作SVG）（差し込む見出し: 担当するときの順番）",
+                  "figKey": "civil-practice/landscape-planning-public-works/img/figure-landscape-check-flow"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "重要文化財・登録有形文化財・景観重要建造物・歴史的風致形成建造物を、決める人と現状変更の手続（許可・届出・通知）で並べた対応図（自作SVG、4列にしない）（差し込む見出し: 歴史的な橋や堰は、文化財の種別で手続が変わる）",
+                  "figKey": "civil-practice/landscape-planning-public-works/img/figure-cultural-property-types"
+                },
+                {
+                  "kind": "photo",
+                  "subject": "歴史的な橋の高欄や親柱と、新しい照明柱・防護柵が並び色と形がそろっている様子（文字・人の顔なし。AI生成は実物どおりかの監査が要る）（差し込む見出し: 色や形は、国のガイドラインで決める）",
+                  "figKey": "civil-practice/landscape-planning-public-works/img/photo-historic-bridge-fixtures"
+                }
+              ]
+            },
+            {
+              "id": "A-43",
+              "title": "道路と駅前のバリアフリー — 基本構想と移動等円滑化の基準",
+              "paths": [
+                "content/site/civil-practice/barrier-free-roads-stations/article.mdx"
+              ],
+              "plan": "new",
+              "note": "2026-10-16 の運営者指示（展開するものはすべて展開する）で、教材の判定し直す候補から足した（DN-0753）",
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "促進方針（促進地区）から基本構想（重点整備地区・生活関連経路・特定事業）、道路特定事業計画、事業の実施、おおむね5年ごとの評価・見直しまでの階層と流れ図（自作SVG。各段に法の条を小さく添える）（差し込む見出し: 促進方針と基本構想は、市町村が面で作る計画である）",
+                  "figKey": "civil-practice/barrier-free-roads-stations/img/figure-basic-concept-hierarchy"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "歩道の標準断面と平面。有効幅員（3.5m・2m）、縦断・横断勾配、車道との段差（5cm・2cm）、縁石15cm、乗入れ部の平らな部分2mを寸法つきで示し、◎基準・○標準・◇望ましいを凡例で区別する（自作SVG）（差し込む見出し: 歩道は、有効幅員と勾配と段差の数値で読む）",
+                  "figKey": "civil-practice/barrier-free-roads-stations/img/figure-sidewalk-dimensions"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "駅前広場で施設（段差・エレベーター・ブロック・信号）と主体（道路管理者・鉄道事業者・公安委員会・バス事業者）を2軸で示す担当の対比図（自作SVG）（差し込む見出し: 駅前広場は、管理の境で段差をつくらない）",
+                  "figKey": "civil-practice/barrier-free-roads-stations/img/figure-station-plaza-roles"
+                },
+                {
+                  "kind": "photo",
+                  "subject": "横断歩道の接続部で、段差が小さく歩道側に車椅子が転回できる平らな部分が確保された様子（文字・人の顔なし。AI生成なら寸法と形の監査が必要）（差し込む見出し: 横断歩道の接続部は、段差2cmと転回できる広さを取る）",
+                  "figKey": "civil-practice/barrier-free-roads-stations/img/photo-crosswalk-curb"
+                },
+                {
+                  "kind": "photo",
+                  "subject": "黄色の視覚障害者誘導用ブロックが歩道に線状と点状で敷設され、電柱を避けて直線的に通っている様子（文字・人の顔なし。AI生成なら形状の監査が必要）（差し込む見出し: 視覚障害者誘導用ブロックは、色と敷設の位置で決める）",
+                  "figKey": "civil-practice/barrier-free-roads-stations/img/photo-tactile-paving"
+                }
+              ]
+            },
+            {
               "id": "A-35",
               "title": "都市公園の管理 — 設置・占用・遊具の安全",
               "plan": "new",
@@ -939,6 +1033,42 @@
                   "kind": "photo",
                   "subject": "点検で見る遊具の部位。支柱の根元（埋設した基礎の腐食）、ぶらんこの吊り金具と鎖の継手の摩耗、複合遊具のデッキ床板の欠落。使う場合は実物どおりかの監査が要る。",
                   "figKey": "civil-practice/urban-park-management/img/photo-swing-support-base-inspection"
+                }
+              ]
+            },
+            {
+              "id": "A-44",
+              "title": "都市の緑化 — 緑の基本計画・緑化地域・屋上と壁面の緑化",
+              "paths": [
+                "content/site/civil-practice/urban-greening/article.mdx"
+              ],
+              "plan": "new",
+              "note": "2026-10-16 の運営者指示（展開するものはすべて展開する）で、教材の判定し直す候補から足した（DN-0753）",
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "緑の基本計画を中心に、守る緑(特別緑地保全地区)・つくる緑(都市公園・公共施設の緑化)・民有地の緑(緑化地域・市民緑地)を並べ、決める人(市町村・都道府県)と手続(都市計画・条例・契約・認定)を添えた関係図。本文に該当位置のコメントあり（差し込む見出し: まず、緑の話を四つの制度に分ける）",
+                  "figKey": "civil-practice/urban-greening/img/figure-green-systems-map"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "屋上緑化の標準断面。上から基盤・透水層・保水層・排水層・防根層・防水層・スラブを並べ、荷重・排水口・かん水の確認点を添える。出典は東京都の手引と明記し層の厚さの数値は入れない（差し込む見出し: 公共施設の屋上緑化は、層・荷重・排水口を確かめる）",
+                  "figKey": "civil-practice/urban-greening/img/figure-rooftop-greening-section"
+                },
+                {
+                  "kind": "photo",
+                  "subject": "公共施設の屋上緑化で、排水口(ルーフドレン)まわりを点検している様子。文字・人の顔は入れない（差し込む見出し: 公共施設の屋上緑化は、層・荷重・排水口を確かめる）",
+                  "figKey": "civil-practice/urban-greening/img/photo-rooftop-drain-inspection"
+                },
+                {
+                  "kind": "photo",
+                  "subject": "壁面緑化の登はん型とパネル型の違いが分かる外壁。文字・人の顔は入れない（差し込む見出し: 壁面緑化は、型によって管理も面積の数え方も変わる）",
+                  "figKey": "civil-practice/urban-greening/img/photo-wall-greening-types"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "全国屋上・壁面緑化施工実績調査の屋上緑化・壁面緑化の年別施工面積の棒グラフ(平成12年〜令和6年)。出典と令和5・6年が暫定値であることを図に明記（差し込む見出し: 施工の実績は、国の全国調査の数字で引く）",
+                  "figKey": "civil-practice/urban-greening/img/figure-greening-results"
                 }
               ]
             },
@@ -975,46 +1105,77 @@
               ]
             },
             {
-              "id": "A-42",
-              "title": "景観計画と公共事業の景観検討 — 景観法の届出・景観協議・歴史的な構造物",
-              "paths": [
-                "content/site/civil-practice/landscape-planning-public-works/article.mdx"
-              ],
-              "plan": "new",
-              "note": "2026-10-16 の運営者指示（展開するものはすべて展開する）で、教材の判定し直す候補から足した（DN-0753）"
-            },
-            {
-              "id": "A-43",
-              "title": "道路と駅前のバリアフリー — 基本構想と移動等円滑化の基準",
-              "paths": [
-                "content/site/civil-practice/barrier-free-roads-stations/article.mdx"
-              ],
-              "plan": "new",
-              "note": "2026-10-16 の運営者指示（展開するものはすべて展開する）で、教材の判定し直す候補から足した（DN-0753）"
-            },
-            {
-              "id": "A-44",
-              "title": "都市の緑化 — 緑の基本計画・緑化地域・屋上と壁面の緑化",
-              "paths": [
-                "content/site/civil-practice/urban-greening/article.mdx"
-              ],
-              "plan": "new",
-              "note": "2026-10-16 の運営者指示（展開するものはすべて展開する）で、教材の判定し直す候補から足した（DN-0753）"
-            },
-            {
               "id": "A-45",
               "title": "水道事業の区分と土木担当 — 水道法の事業・施設・管路の更新",
               "paths": [
                 "content/site/civil-practice/waterworks-business/article.mdx"
               ],
               "plan": "new",
-              "note": "2026-10-16 の運営者指示（展開するものはすべて展開する）で、教材の判定し直す候補から足した（DN-0753）"
+              "note": "2026-10-16 の運営者指示（展開するものはすべて展開する）で、教材の判定し直す候補から足した（DN-0753）",
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "水道を給水人口（100人以下・5,000人以下・超）と供給の相手（一般の需要・水道事業者・特定の人）で振り分ける判定の流れ図。水道事業・簡易水道事業・水道用水供給事業・専用水道・簡易専用水道の五つと、自治体がどこで関わるかを添える（自作SVG）（差し込む見出し: 窓口で言われる区分は、規模と相手で五つに分かれる）",
+                  "figKey": "civil-practice/waterworks-business/img/figure-waterworks-categories"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "管路の更新の見方。法定耐用年数40年を超えた約17.6万kmと、令和4年度の更新延長（約4,800km）、20年で更新する場合に必要な年約8,800km（更新率0.64%と1.18%）を並べた図。出典と年度（令和4年度、令和7年度課長会議資料）を明記し、独自の推計は入れない（自作SVG）（差し込む見出し: 老朽化は、経年化率と更新率の二つで読む）",
+                  "figKey": "civil-practice/waterworks-business/img/figure-pipe-aging-renewal"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "道路の下の水道管の工事で、水道事業者の計画書（工事の1か月前）・占用の許可・他の工事との調整（第34条）・復旧が並ぶ時間軸（自作SVG）（差し込む見出し: 道路の下の水道工事は、計画書を道路管理者へ先に出す）",
+                  "figKey": "civil-practice/waterworks-business/img/figure-road-water-main-timeline"
+                },
+                {
+                  "kind": "photo",
+                  "subject": "川や道路を渡る水管橋の全景（崩落の写真は使わない。AI で作る場合は実物どおりかの監査を通す）（差し込む見出し: 維持と修繕は法律上の義務で、巡視と点検を分ける）",
+                  "figKey": "civil-practice/waterworks-business/img/photo-water-pipe-bridge"
+                },
+                {
+                  "kind": "photo",
+                  "subject": "道路で水道管の更新工事をしている様子（舗装を切り、管を入れ替える場面。人の顔と文字は入れない）（差し込む見出し: 更新は計画的に行い、30年の収支を試算する）",
+                  "figKey": "civil-practice/waterworks-business/img/photo-water-main-renewal"
+                }
+              ]
             }
           ]
         },
         {
           "title": "災害に備える",
           "items": [
+            {
+              "id": "A-47",
+              "title": "気象情報の読み方 — 警報と注意報、解析雨量、気象衛星、アメダス",
+              "paths": [
+                "content/site/civil-practice/weather-information-reading/article.mdx"
+              ],
+              "plan": "new",
+              "note": "2026-10-16 の運営者指示（展開するものはすべて展開する）で、教材の判定し直す候補から足した（DN-0753）",
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "縦に河川氾濫・大雨・土砂災害・高潮、横にレベル2〜5を置いた防災気象情報の新体系の一覧（レベル1は早期注意情報と添える）。暴風・波浪などレベルに相当しない情報は別枠で示す。2軸の比較表として表す自作SVG（差し込む見出し: 令和8年5月29日から、情報の名前にレベルが付いた）",
+                  "figKey": "civil-practice/weather-information-reading/img/figure-new-warning-levels"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "気象庁から警察庁・消防庁・都道府県・NTT・NHKなどを経て市町村長、住民へ警報が届く伝達の流れ。特別警報は都道府県の通知と市町村長の周知措置が義務である点を印で示す自作SVG（差し込む見出し: 警報を出せるのは気象庁だけで、市町村は受け取って広める側）",
+                  "figKey": "civil-practice/weather-information-reading/img/figure-warning-transmission"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "アメダスの降水観測所の間隔（約17km）・四要素の観測所の間隔（約21km）と、解析雨量の1kmメッシュの細かさを同じ縮尺の格子で見比べる図。市内に観測所がない場合の読み方の順を添える自作SVG（差し込む見出し: 雨の実況は、アメダスの点と解析雨量の面で読む）",
+                  "figKey": "civil-practice/weather-information-reading/img/figure-amedas-vs-radar-grid"
+                },
+                {
+                  "kind": "photo",
+                  "subject": "雨量計が設置された観測所の周辺（人の顔と文字は入れない。AI生成なら実物どおりかの監査を通す）（差し込む見出し: 雨の実況は、アメダスの点と解析雨量の面で読む）",
+                  "figKey": "civil-practice/weather-information-reading/img/photo-rain-gauge-station"
+                }
+              ]
+            },
             {
               "id": "A-37",
               "title": "災害復旧事業と災害査定",
@@ -1093,15 +1254,6 @@
                   "figKey": "civil-practice/sediment-disaster-erosion-control/img/figure-warning-zone-flow"
                 }
               ]
-            },
-            {
-              "id": "A-47",
-              "title": "気象情報の読み方 — 警報と注意報、解析雨量、気象衛星、アメダス",
-              "paths": [
-                "content/site/civil-practice/weather-information-reading/article.mdx"
-              ],
-              "plan": "new",
-              "note": "2026-10-16 の運営者指示（展開するものはすべて展開する）で、教材の判定し直す候補から足した（DN-0753）"
             }
           ]
         },
@@ -2183,6 +2335,13 @@
               "plan": "new",
               "paths": [
                 "content/site/civil-practice/construction-business-overview/article.mdx"
+              ],
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "会社の動く順（許可、経審と入札、下請と現場の人、紛争と監督、これから）と建設業法の章、対応する記事 B-02〜B-13 の地図。本文に挿入位置のコメントあり。（差し込む見出し: 法律の章立てを、会社の動く順に読み替える）",
+                  "figKey": "civil-practice/construction-business-overview/img/figure-law-chapter-map"
+                }
               ]
             },
             {
@@ -2212,6 +2371,23 @@
               "plan": "new",
               "paths": [
                 "content/site/civil-practice/license-requirements/article.mdx"
+              ],
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "許可の要件の点検表。要件（営業所・経営体制・営業所技術者・誠実性と令3条使用人・財産的基礎・社会保険）を縦に、誰を見るか・どの営業所か・確認する資料を横に置く。法令は令和8年10月時点、ガイドラインは令和7年2月1日改正と明記する（差し込む見出し: 体制が替わるときの点検の順）",
+                  "figKey": "civil-practice/license-requirements/img/figure-requirement-checklist"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "経営体制の型の比較。現在の立場と過去の経験の立場を、必要な年数（5年・5年・6年、ロ型は補佐者つき）で比べる2軸の図。通算の例も添える（差し込む見出し: 経験年数は、立場ごとに5年か6年）",
+                  "figKey": "civil-practice/license-requirements/img/figure-management-experience-years"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "財産的基礎を見る時点の時間軸。直前の決算期末、増資、申請日、許可後を並べ、一般は3つのうち1つ、特定はすべて満たす、増資が効くのは資本金の基準だけ、許可後に下回っても直ちに効力に影響しないことを示す（差し込む見出し: 見る時点は、直前の決算）",
+                  "figKey": "civil-practice/license-requirements/img/figure-financial-basis-timing"
+                }
               ]
             },
             {
@@ -2220,6 +2396,23 @@
               "plan": "new",
               "paths": [
                 "content/site/civil-practice/license-procedures/article.mdx"
+              ],
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "届出の期限の早見。縦軸に出来事(役員の就任・退任、営業所技術者の交代、営業所の新設、決算、廃業)、横軸に2週間・30日・事業年度終了後4か月。出典は法第11条・第12条、施行規則、四国地方整備局の手引(令和7年12月版)で、時点を明記（差し込む見出し: 期限は、三つの時計で引く）",
+                  "figKey": "civil-practice/license-procedures/img/figure-notification-deadlines"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "事業を引き継ぐ時間軸。上段は事前に認可を受けた場合(認可申請→承継日→許可が継続)、下段は認可を受けない場合(廃業→新規許可→空白)。処分歴と経審の結果が付いてくる点を矢印で示す（差し込む見出し: 事業を引き継ぐときは、認可を先に受ける）",
+                  "figKey": "civil-practice/license-procedures/img/figure-succession-timeline"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "電子申請(JCIP)の流れ。gBizID の取得→書類作成→手数料の納付→審査→通知書の受領。電子納付・電子交付に未対応の行政庁がある点を注記（差し込む見出し: 電子申請は、アカウントと行政庁の対応を先に確かめる）",
+                  "figKey": "civil-practice/license-procedures/img/figure-jcip-flow"
+                }
               ]
             }
           ]
@@ -2241,6 +2434,23 @@
               "plan": "new",
               "paths": [
                 "content/site/civil-practice/keishin-review-merger/article.mdx"
+              ],
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "結果通知書の読み方: 区画（X1・X2・Y・Z・W・P）と、それぞれを決める資料（決算書・技術職員名簿・社会性等の申請など）の対応。様式第25号の15の区分の並びは参考にとどめ、本の図は使わない（差し込む見出し: 通知書は、区画ごとに元の資料へ戻して読む）",
+                  "figKey": "civil-practice/keishin-review-merger/img/figure-result-notice-sections"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "受け直しの分かれ道: 通知書を受け取ってから、行政庁側の誤り（通知から30日）、経審の改正（改正から120日）、業種追加、受け直せない場合へ分かれる流れ。期限は日付でなく起点で示す（差し込む見出し: 受け直せるのは、三つの入口だけ）",
+                  "figKey": "civil-practice/keishin-review-merger/img/figure-reexam-entries"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "合併時の審査基準日の時間軸: 吸収合併は合併期日、新設合併は合併登記の日、合併後最初の決算日の3点と、合併直前経審との関係（差し込む見出し: 合併のあとは、決算日を待たずに経審を受けられる）",
+                  "figKey": "civil-practice/keishin-review-merger/img/figure-merger-review-timeline"
+                }
               ]
             }
           ]
@@ -2291,6 +2501,23 @@
               "plan": "new",
               "paths": [
                 "content/site/civil-practice/construction-dispute-resolution/article.mdx"
+              ],
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "紛争が起きてから終わるまでの時間の流れ。契約書の紛争条項、申請、答弁書（約1か月）、第1回審理（あっせん・調停は約2〜3か月、仲裁は約3〜4か月）、成立・打切り・取下げ、打切りから1か月以内の提訴（時効の完成猶予）と2週間以内の仲裁申請（手数料控除）を、あっせん・調停と仲裁の2本の線で示す。構図は手引Ⅱの流れ図を参考にとどめる（自作 SVG）（差し込む見出し: 審理は非公開で、1〜2か月に1回のペースで進む）",
+                  "figKey": "civil-practice/construction-dispute-resolution/img/figure-dispute-timeline"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "請求額500万円・1,000万円・5,000万円に置いたときの、あっせん・調停・仲裁の申請手数料の棒グラフ。数値は算出表からの計算値（500万円は18,000/36,000/90,000円、1,000万円は25,500/48,500/120,000円、5,000万円は73,000/148,500/360,000円）で、算出式を図に添える（自作 SVG）（差し込む見出し: 手数料は、請求額で決まる）",
+                  "figKey": "civil-practice/construction-dispute-resolution/img/figure-dispute-fees"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "令和7年度の全国の申請116件を、紛争類型（工事瑕疵41・工事代金28・契約解除17・下請代金14・工事遅延9・その他7）と工事種類（建築84・土木15・設備11・電気2・その他4）の2本の帯で示し、土木工事が13％であることを読み取れるようにする（自作 SVG）（差し込む見出し: 令和7年度は、全国で116件の申請があった）",
+                  "figKey": "civil-practice/construction-dispute-resolution/img/figure-dispute-statistics-2025"
+                }
               ]
             },
             {
@@ -2299,6 +2526,23 @@
               "plan": "new",
               "paths": [
                 "content/site/civil-practice/supervision-compliance-surveys/article.mdx"
+              ],
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "端緒（実態調査・駆け込みホットライン・建設Gメン）から、報告徴収・立入検査、指導票、勧告・文書指導、指示、営業停止、許可取消へ進む段階図。各段階に根拠（第31条・第28条第1項・第28条第3項・第29条・処分の基準）と令和7年度の件数（勧告・文書指導等768業者、指示4、営業停止14、許可取消1）を添え、1社が複数の事由に当たる注記を入れる。件数の対象範囲は資料に注記が無いため図にも断定して書かない（差し込む見出し: 軽い指導から重い処分へ、段階で進む）",
+                  "figKey": "civil-practice/supervision-compliance-surveys/img/figure-supervision-steps"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "令和7年度下請取引等実態調査の適正回答率の横棒グラフ。高い3項目（支払期間98.7%・決定方法96.0%・支払手段92.9%）と低い4項目（契約締結方法62.7%・施工体制台帳の添付書類48.7%・契約条項33.7%・見積提示内容17.9%）を並べ、低い項目に「契約書15項目・見積条件14項目のすべて」の注を付ける。出典は国交省の結果概要。なお挿入位置の見出しは、記事内では「適正回答率が低いのは、見積提示と契約条項」（H3）の表の直後（差し込む見出し: 契約書の記載事項は第19条・見積りの前に注文者が示す事項は第20条（見積提示内容と契約条項の適正回答率））",
+                  "figKey": "civil-practice/supervision-compliance-surveys/img/figure-survey-correct-rates"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "営業停止中にできない行為（新規の請負契約、工事の追加に係る変更、関連する入札・見積り・交渉）とできる行為（許可・経審・入札参加資格の申請、既契約の施工、瑕疵・アフターの修繕、災害時の緊急工事、代金の請求・受領、資金借入れ）を2列に分けた表図。出典は処分の基準の別表（差し込む見出し: 営業停止中は、新規契約と入札・見積りができない）",
+                  "figKey": "civil-practice/supervision-compliance-surveys/img/figure-business-suspension-scope"
+                }
               ]
             }
           ]
@@ -2312,6 +2556,23 @@
               "plan": "new",
               "paths": [
                 "content/site/civil-practice/generative-ai-adoption/article.mdx"
+              ],
+              "visuals": [
+                {
+                  "kind": "figure",
+                  "subject": "誰が何を決めるか。経営者（目的・責任者・予算）、推進者（ルール・教育・評価）、現場責任者（出力の承認）、発注者（利活用計画書・明示の求め）、サービス提供者（規約・想定範囲）の5者を、決めることと確かめる資料で結ぶ自作SVG。軸は役割と資料（差し込む見出し: 最初に決めるのは、使う目的と責任者）",
+                  "figKey": "civil-practice/generative-ai-adoption/img/figure-ai-roles"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "国の生成AI利活用の通知の流れ。特記仕様書で明記→受発注者の協議で利用範囲→業務計画書の提出時に利活用計画書→発注者が確認→成果物に明示。調査の補助だけに使う場合は計画書不要の分岐。対象が建設コンサルタント業務等であることを図に書く自作SVG（差し込む見出し: 発注者の計画書の項目を、社内ルールの型にする）",
+                  "figKey": "civil-practice/generative-ai-adoption/img/figure-ai-notice-flow"
+                },
+                {
+                  "kind": "figure",
+                  "subject": "導入の4段階（推進者が習熟→パイロット→全社へ拡大→自走・見直し）と、各段階で決めること（ルール・教育・評価）を表にした自作SVG。ガイドラインEの循環（環境・リスク分析→ゴール設定→システム設計→運用→評価）を重ねる（差し込む見出し: 広げる順は、推進者、パイロット、全社、自走）",
+                  "figKey": "civil-practice/generative-ai-adoption/img/figure-ai-rollout-stages"
+                }
               ]
             }
           ]

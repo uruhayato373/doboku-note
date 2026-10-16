@@ -1,0 +1,51 @@
+<!-- authored 2026-10-16 doboku-note 自作。数値は国土交通省の令和7年度下請取引等実態調査の結果概要の本文記載どおり。棒の長さは回答率に比例 -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="令和7年度の下請取引等実態調査の適正回答率を示した横棒グラフ。高い3項目は下請代金の支払期間98.7％、決定方法96.0％、支払手段92.9％。低い4項目は契約締結方法62.7％、施工体制台帳の添付書類48.7％、契約条項33.7％、見積提示内容17.9％。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #222; }
+      .tt { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .tb { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .tx { font-size: 12px; fill: #222; }
+      .ts { font-size: 11px; fill: #555; }
+      .tn { font-size: 13px; font-weight: bold; fill: #222; }
+      .b-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .b-pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .b-warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .b-dan { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .b-sur { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .b-wh { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ln { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .ld { stroke: #8a8a8a; stroke-width: 1; fill: none; stroke-dasharray: 3 3; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+  <rect class="b-sur" x="10" y="10" width="380" height="22" rx="4"/>
+  <text class="tb" x="18" y="25.5">適正回答率が高い3項目</text>
+  <text class="tx" x="14" y="52">下請代金の支払期間</text>
+  <rect class="b-pos" x="14" y="60" width="325.71" height="18" rx="3"/>
+  <text class="tn" x="345.71" y="74">98.7％</text>
+  <text class="tx" x="14" y="106">下請代金の決定方法</text>
+  <rect class="b-pos" x="14" y="114" width="316.79999999999995" height="18" rx="3"/>
+  <text class="tn" x="336.79999999999995" y="128">96.0％</text>
+  <text class="tx" x="14" y="160">支払手段</text>
+  <rect class="b-pos" x="14" y="168" width="306.57" height="18" rx="3"/>
+  <text class="tn" x="326.57" y="182">92.9％</text>
+  <rect class="b-sur" x="10" y="206" width="380" height="22" rx="4"/>
+  <text class="tb" x="18" y="221.5">適正回答率が低い4項目</text>
+  <text class="tx" x="14" y="248">契約締結方法</text>
+  <rect class="b-warn" x="14" y="256" width="206.91" height="18" rx="3"/>
+  <text class="tn" x="226.91" y="270">62.7％</text>
+  <text class="tx" x="14" y="302">施工体制台帳の添付書類</text>
+  <rect class="b-warn" x="14" y="310" width="160.71" height="18" rx="3"/>
+  <text class="tn" x="180.71" y="324">48.7％</text>
+  <text class="tx" x="14" y="356">契約条項</text>
+  <text class="ts" x="70" y="356">契約書15項目のすべてを定めたか</text>
+  <rect class="b-warn" x="14" y="364" width="111.21000000000001" height="18" rx="3"/>
+  <text class="tn" x="131.21" y="378">33.7％</text>
+  <text class="tx" x="14" y="410">見積提示内容</text>
+  <text class="ts" x="94" y="410">見積条件14項目のすべてを示したか</text>
+  <rect class="b-warn" x="14" y="418" width="59.06999999999999" height="18" rx="3"/>
+  <text class="tn" x="79.07" y="432">17.9％</text>
+  <text class="ts" x="14" y="488">出典：国土交通省 令和7年度下請取引等実態調査 結果概要</text>
+</svg>

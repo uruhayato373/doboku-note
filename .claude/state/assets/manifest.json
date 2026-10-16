@@ -58526,6 +58526,48 @@
         "scripts/check-orphan-ogp.mjs"
       ],
       "srcHash": "7d44fd9323da1c3a"
+    },
+    "content/site/civil-practice/generative-ai-adoption/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/generative-ai-adoption/ogp.png",
+      "sha256": "e078a77bf17c7e61692125416eaabda4eb347f09efeb00ef58036972bd7d78ce",
+      "bytes": 62051,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-16T05:05:16.589Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/generative-ai-adoption/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "b98a68a1f29b122a"
+    },
+    "content/site/civil-practice/construction-business-overview/ogp.png": {
+      "bucket": "public",
+      "r2Key": "posts/civil-practice/construction-business-overview/ogp.png",
+      "sha256": "3ae26e695840fcc28eac69fb9c43550bad4d51f2dd6da1f63ea95d9009b75079",
+      "bytes": 71099,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "site-ogp-png",
+      "verifiedAt": "2026-10-16T05:05:17.549Z",
+      "width": 1200,
+      "height": 630,
+      "logicalPath": "content/site/civil-practice/construction-business-overview/ogp.png",
+      "mime": "image/png",
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "srcHash": "0723a68fce81c203"
     }
   },
   "note": "DN-0111 Phase 3。秘密値・署名 URL・絶対パスを書かないこと。",

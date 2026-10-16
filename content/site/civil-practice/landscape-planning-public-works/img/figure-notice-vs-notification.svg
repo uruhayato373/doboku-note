@@ -1,0 +1,63 @@
+<!-- authored 2026-10-16 doboku-note 自作。景観法第16条から第18条の手続を、民間と国・自治体で対比 -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="景観法の手続を、行為者と手続の2軸で比べた図。民間の工事は届出、勧告や変更命令、受理から30日は着手できない。国・自治体の工事は事前の通知と、景観行政団体からの協議になる。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #222; }
+      .tt { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .tb { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .tx { font-size: 12px; fill: #222; }
+      .ts { font-size: 11px; fill: #555; }
+      .tn { font-size: 13px; font-weight: bold; fill: #222; }
+      .b-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .b-pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .b-warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .b-dan { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .b-sur { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .b-wh { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ln { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .ld { stroke: #8a8a8a; stroke-width: 1; fill: none; stroke-dasharray: 3 3; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+  <rect class="b-warn" x="10" y="10" width="185" height="36" rx="6"/>
+  <text class="tb" x="102.5" y="32.2" text-anchor="middle">民間の工事</text>
+  <rect class="b-brand" x="205" y="10" width="185" height="36" rx="6"/>
+  <text class="tb" x="297.5" y="32.2" text-anchor="middle">国・自治体の工事</text>
+  <text class="ts" x="12" y="68">着手前の手続</text>
+  <rect class="b-wh" x="10" y="74" width="185" height="92" rx="6"/>
+  <text class="tn" x="102.5" y="108.4" text-anchor="middle">届出</text>
+  <text class="tx" x="102.5" y="125.6" text-anchor="middle">景観行政団体の長へ</text>
+  <text class="ts" x="102.5" y="141.3" text-anchor="middle">（第16条第1項）</text>
+  <rect class="b-wh" x="205" y="74" width="185" height="92" rx="6"/>
+  <text class="tn" x="297.5" y="100.0" text-anchor="middle">事前の通知</text>
+  <text class="tx" x="297.5" y="117.2" text-anchor="middle">あらかじめ景観行政団体</text>
+  <text class="tx" x="297.5" y="134.0" text-anchor="middle">の長へ</text>
+  <text class="ts" x="297.5" y="149.7" text-anchor="middle">（第16条第5項）</text>
+  <text class="ts" x="12" y="188">景観行政団体の対応</text>
+  <rect class="b-wh" x="10" y="194" width="185" height="112" rx="6"/>
+  <text class="tn" x="102.5" y="214.7" text-anchor="middle">勧告</text>
+  <text class="tx" x="102.5" y="231.8" text-anchor="middle">制限に適合しなければ</text>
+  <text class="tx" x="102.5" y="248.6" text-anchor="middle">受理から30日以内に勧告</text>
+  <text class="ts" x="102.5" y="264.4" text-anchor="middle">（第16条第3項・第4項）</text>
+  <text class="ts" x="102.5" y="279.8" text-anchor="middle">特定届出対象行為には</text>
+  <text class="ts" x="102.5" y="295.1" text-anchor="middle">変更命令もある（第17条）</text>
+  <rect class="b-wh" x="205" y="194" width="185" height="112" rx="6"/>
+  <text class="tn" x="297.5" y="221.7" text-anchor="middle">協議</text>
+  <text class="tx" x="297.5" y="238.8" text-anchor="middle">必要があると認めるとき</text>
+  <text class="tx" x="297.5" y="255.6" text-anchor="middle">措置について協議を</text>
+  <text class="tx" x="297.5" y="272.4" text-anchor="middle">求められる</text>
+  <text class="ts" x="297.5" y="288.2" text-anchor="middle">（第16条第6項）</text>
+  <text class="ts" x="12" y="328">着手</text>
+  <rect class="b-wh" x="10" y="334" width="185" height="92" rx="6"/>
+  <text class="tn" x="102.5" y="367.8" text-anchor="middle">受理から30日は</text>
+  <text class="tn" x="102.5" y="386.0" text-anchor="middle">着手できない</text>
+  <text class="ts" x="102.5" y="402.1" text-anchor="middle">（第18条第1項）</text>
+  <rect class="b-wh" x="205" y="334" width="185" height="92" rx="6"/>
+  <text class="tx" x="297.5" y="367.4" text-anchor="middle">通知の日数・様式は</text>
+  <text class="tx" x="297.5" y="384.2" text-anchor="middle">景観行政団体の</text>
+  <text class="tx" x="297.5" y="401.0" text-anchor="middle">条例や要綱で決まる</text>
+  <rect class="b-sur" x="10" y="438" width="380" height="52" rx="6"/>
+  <text class="ts" x="200.0" y="460.2" text-anchor="middle">通常の管理行為・軽易な行為、</text>
+  <text class="ts" x="200.0" y="475.6" text-anchor="middle">非常災害の応急措置は通知の対象外（第16条第7項）</text>
+</svg>

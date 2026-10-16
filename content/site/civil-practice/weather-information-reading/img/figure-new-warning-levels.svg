@@ -1,0 +1,61 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は令和8年5月29日からの防災気象情報の新体系（4つの現象×警戒レベル2〜5、レベルに相当しない情報は別枠）。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="令和8年5月29日からの防災気象情報の新体系。縦に河川氾濫、大雨、土砂災害、高潮、横に警戒レベル2の注意報、レベル3の警報、レベル4の危険警報（新設）、レベル5の特別警報を置く。レベル1は早期注意情報。例として、レベル3大雨警報、レベル4土砂災害危険警報、レベル3氾濫警報、レベル5氾濫特別警報がある。暴風、波浪、大雪、暴風雪の特別警報・警報と、強風、雷、濃霧などの注意報は警戒レベルに相当しない別枠。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 11px; fill: #555; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .c { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .l2 { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1; }
+      .l3 { fill: #fff3cd; stroke: #d4a017; stroke-width: 1; }
+      .l4 { fill: #f8d7da; stroke: #b22234; stroke-width: 1; }
+      .l5 { fill: #f8d7da; stroke: #b22234; stroke-width: 3; }
+      .rh { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <!-- レベル1 -->
+  <rect class="rh" x="14" y="12" width="372" height="28" rx="8"/>
+  <text class="t" x="200" y="31" text-anchor="middle">レベル1：早期注意情報</text>
+
+  <!-- 列見出し -->
+  <rect class="l2" x="90" y="48" width="74" height="52"/>
+  <text class="t" x="127" y="66" text-anchor="middle">レベル2</text><text x="127" y="82" text-anchor="middle">注意報</text>
+  <rect class="l3" x="164" y="48" width="74" height="52"/>
+  <text class="t" x="201" y="66" text-anchor="middle">レベル3</text><text x="201" y="82" text-anchor="middle">警報</text>
+  <rect class="l4" x="238" y="48" width="74" height="52"/>
+  <text class="t" x="275" y="66" text-anchor="middle">レベル4</text><text x="275" y="82" text-anchor="middle">危険警報</text><text x="275" y="95" text-anchor="middle">（新設）</text>
+  <rect class="l5" x="312" y="48" width="74" height="52"/>
+  <text class="t" x="349" y="66" text-anchor="middle">レベル5</text><text x="349" y="82" text-anchor="middle">特別警報</text>
+
+  <!-- 行見出し -->
+  <rect class="rh" x="14" y="104" width="76" height="56"/><text class="t" x="52" y="136" text-anchor="middle">河川氾濫</text>
+  <rect class="rh" x="14" y="160" width="76" height="56"/><text class="t" x="52" y="192" text-anchor="middle">大雨</text>
+  <rect class="rh" x="14" y="216" width="76" height="56"/><text class="t" x="52" y="248" text-anchor="middle">土砂災害</text>
+  <rect class="rh" x="14" y="272" width="76" height="56"/><text class="t" x="52" y="304" text-anchor="middle">高潮</text>
+
+  <!-- 枠 -->
+  <rect class="l2" x="90" y="104" width="74" height="56"/><rect class="l3" x="164" y="104" width="74" height="56"/><rect class="l4" x="238" y="104" width="74" height="56"/><rect class="l5" x="312" y="104" width="74" height="56"/>
+  <rect class="l2" x="90" y="160" width="74" height="56"/><rect class="l3" x="164" y="160" width="74" height="56"/><rect class="l4" x="238" y="160" width="74" height="56"/><rect class="l5" x="312" y="160" width="74" height="56"/>
+  <rect class="l2" x="90" y="216" width="74" height="56"/><rect class="l3" x="164" y="216" width="74" height="56"/><rect class="l4" x="238" y="216" width="74" height="56"/><rect class="l5" x="312" y="216" width="74" height="56"/>
+  <rect class="l2" x="90" y="272" width="74" height="56"/><rect class="l3" x="164" y="272" width="74" height="56"/><rect class="l4" x="238" y="272" width="74" height="56"/><rect class="l5" x="312" y="272" width="74" height="56"/>
+
+  <!-- 本文にある名前の例 -->
+  <text class="c" x="201" y="127" text-anchor="middle">レベル3</text><text class="c" x="201" y="141" text-anchor="middle">氾濫警報</text>
+  <text class="c" x="349" y="122" text-anchor="middle">レベル5</text><text class="c" x="349" y="136" text-anchor="middle">氾濫</text><text class="c" x="349" y="150" text-anchor="middle">特別警報</text>
+  <text class="c" x="201" y="183" text-anchor="middle">レベル3</text><text class="c" x="201" y="197" text-anchor="middle">大雨警報</text>
+  <text class="c" x="275" y="234" text-anchor="middle">レベル4</text><text class="c" x="275" y="248" text-anchor="middle">土砂災害</text><text class="c" x="275" y="262" text-anchor="middle">危険警報</text>
+  <text x="14" y="346">文字のある枠は本文の例。ほかの枠も名前にレベルが付く</text>
+
+  <!-- 別枠 -->
+  <rect x="10" y="356" width="380" height="80" rx="8" style="fill:#fff;stroke:#8a8a8a;stroke-width:1.5;stroke-dasharray:5 3"/>
+  <text class="t" x="20" y="378">別枠：警戒レベルに相当しない情報</text>
+  <text x="20" y="396">暴風・波浪・大雪・暴風雪の特別警報と警報</text>
+  <text x="20" y="412">強風・雷・濃霧などの注意報</text>
+  <text x="20" y="426">「暴風警報だからレベル3」とは読めない</text>
+
+  <!-- 河川氾濫の単位 -->
+  <rect x="10" y="442" width="380" height="50" rx="8" style="fill:#fff3cd;stroke:#d4a017;stroke-width:1.5"/>
+  <text class="t" x="20" y="462">河川氾濫は、洪水予報河川（約400河川）だけ</text>
+  <text x="20" y="480">市町村ごとの洪水警報・注意報は発表しない</text>
+</svg>

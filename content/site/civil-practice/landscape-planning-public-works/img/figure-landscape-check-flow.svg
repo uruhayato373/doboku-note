@@ -1,0 +1,65 @@
+<!-- authored 2026-10-16 doboku-note 自作。本文の「担当するときの順番」と各節の条を事業の段階に並べ直した確認の流れ -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="景観の確認の流れを、計画、設計、発注前、着工前の4つの事業段階に並べた図。計画では景観行政団体と景観計画の区域、文化財の種別、歴史的風致の区域を確かめる。設計で通知と協議、景観重要公共施設の基準を反映する。発注前に色や素材を決め、着工前に文化財の許可や届出をする。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #222; }
+      .tt { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .tb { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .tx { font-size: 12px; fill: #222; }
+      .ts { font-size: 11px; fill: #555; }
+      .tn { font-size: 13px; font-weight: bold; fill: #222; }
+      .b-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .b-pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .b-warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .b-dan { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .b-sur { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .b-wh { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ln { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .ld { stroke: #8a8a8a; stroke-width: 1; fill: none; stroke-dasharray: 3 3; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+  <rect class="b-brand" x="10" y="10" width="84" height="93" rx="6"/>
+  <text class="tn" x="52.0" y="45.6" text-anchor="middle">計画</text>
+  <text class="ts" x="52.0" y="61.8" text-anchor="middle">検討を</text>
+  <text class="ts" x="52.0" y="77.1" text-anchor="middle">始めたとき</text>
+  <rect class="b-wh" x="102" y="10" width="288" height="93" rx="6"/>
+  <text class="tx" x="112" y="29.9">・景観行政団体か、県の事務か</text>
+  <text class="tx" x="112" y="46.699999999999996">・景観計画の区域か（告示・区域図）</text>
+  <text class="tx" x="112" y="63.5">・古い橋や堰は文化財の種別を教育委員会へ</text>
+  <text class="tx" x="112" y="80.30000000000001">・歴史的風致維持向上計画の区域か</text>
+  <line class="a" x1="52" y1="103" x2="52" y2="119" marker-end="url(#ah)"/>
+  <rect class="b-brand" x="10" y="119" width="84" height="110" rx="6"/>
+  <text class="tn" x="52.0" y="163.2" text-anchor="middle">設計</text>
+  <text class="ts" x="52.0" y="179.2" text-anchor="middle">基本設計から</text>
+  <text class="ts" x="52.0" y="194.6" text-anchor="middle">実施設計へ</text>
+  <rect class="b-wh" x="102" y="119" width="288" height="110" rx="6"/>
+  <text class="tx" x="112" y="139">・景観行政団体へ通知（第16条第5項）</text>
+  <text class="tx" x="112" y="155.8">・協議で、色彩・高さ・素材などの基準に</text>
+  <text class="tx" x="112" y="172.6">　設計を合わせる（第16条第6項）</text>
+  <text class="tx" x="112" y="189.4">・景観重要公共施設なら、整備の事項と</text>
+  <text class="tx" x="112" y="206.2">　占用の基準を設計と審査に反映</text>
+  <line class="a" x1="52" y1="229" x2="52" y2="245" marker-end="url(#ah)"/>
+  <rect class="b-warn" x="10" y="245" width="84" height="62" rx="6"/>
+  <text class="tn" x="52.0" y="265.2" text-anchor="middle">発注前</text>
+  <text class="ts" x="52.0" y="281.3" text-anchor="middle">積算・発注</text>
+  <text class="ts" x="52.0" y="296.6" text-anchor="middle">の前</text>
+  <rect class="b-wh" x="102" y="245" width="288" height="62" rx="6"/>
+  <text class="tx" x="112" y="266.2">・色や素材の変更は、積算や発注の前</text>
+  <text class="tx" x="112" y="283">　でないと直しにくい</text>
+  <line class="a" x1="52" y1="307" x2="52" y2="323" marker-end="url(#ah)"/>
+  <rect class="b-warn" x="10" y="323" width="84" height="110" rx="6"/>
+  <text class="tn" x="52.0" y="367.2" text-anchor="middle">着工前</text>
+  <text class="ts" x="52.0" y="383.3" text-anchor="middle">着手の</text>
+  <text class="ts" x="52.0" y="398.6" text-anchor="middle">30日前まで</text>
+  <rect class="b-wh" x="102" y="323" width="288" height="110" rx="6"/>
+  <text class="tx" x="112" y="343">・重要文化財の現状変更は許可（第43条）</text>
+  <text class="tx" x="112" y="359.8">・登録有形文化財は着手の30日前までに</text>
+  <text class="tx" x="112" y="376.6">　届出（第64条）</text>
+  <text class="tx" x="112" y="393.4">・歴史的風致形成建造物は市町村長へ</text>
+  <text class="tx" x="112" y="410.2">　通知（第15条）</text>
+  <rect class="b-sur" x="10" y="449" width="380" height="41" rx="6"/>
+  <text class="ts" x="200.0" y="465.7" text-anchor="middle">景観整備方針を一枚にまとめ、</text>
+  <text class="ts" x="200.0" y="481.1" text-anchor="middle">色や素材の選定の理由を各段階へ引き継ぐ</text>
+</svg>

@@ -1,0 +1,64 @@
+<!-- authored 2026-10-16 doboku-note 自作。数値は国土交通省の費用の案内の算出表からの計算値（本文の記載どおり）。棒の長さは円額に比例 -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="請求額ごとの申請手数料の棒グラフ。750万5,000円はあっせん21,765円、調停42,275円、仲裁105,060円。1,000万円はあっせん25,500円、調停48,500円、仲裁120,000円。5,000万円はあっせん73,000円、調停148,500円、仲裁360,000円。仲裁がいちばん高い。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #222; }
+      .tt { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .tb { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .tx { font-size: 12px; fill: #222; }
+      .ts { font-size: 11px; fill: #555; }
+      .tn { font-size: 13px; font-weight: bold; fill: #222; }
+      .b-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .b-pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .b-warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .b-dan { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .b-sur { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .b-wh { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ln { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .ld { stroke: #8a8a8a; stroke-width: 1; fill: none; stroke-dasharray: 3 3; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+  <rect class="b-sur" x="10" y="10" width="380" height="24" rx="4"/>
+  <text class="tb" x="18" y="26.5">請求額 750万5,000円（国土交通省の計算例）</text>
+  <text class="ts" x="18" y="56">あっせん</text>
+  <rect class="b-brand" x="72" y="42" width="15.114583333333334" height="20" rx="3"/>
+  <text class="tx" x="93.11458333333333" y="57">21,765円</text>
+  <text class="ts" x="18" y="86">調停</text>
+  <rect class="b-pos" x="72" y="72" width="29.35763888888889" height="20" rx="3"/>
+  <text class="tx" x="107.35763888888889" y="87">42,275円</text>
+  <text class="ts" x="18" y="116">仲裁</text>
+  <rect class="b-warn" x="72" y="102" width="72.95833333333334" height="20" rx="3"/>
+  <text class="tx" x="150.95833333333334" y="117">105,060円</text>
+  <rect class="b-sur" x="10" y="140" width="380" height="24" rx="4"/>
+  <text class="tb" x="18" y="156.5">請求額 1,000万円</text>
+  <text class="ts" x="18" y="186">あっせん</text>
+  <rect class="b-brand" x="72" y="172" width="17.708333333333336" height="20" rx="3"/>
+  <text class="tx" x="95.70833333333334" y="187">25,500円</text>
+  <text class="ts" x="18" y="216">調停</text>
+  <rect class="b-pos" x="72" y="202" width="33.68055555555556" height="20" rx="3"/>
+  <text class="tx" x="111.68055555555556" y="217">48,500円</text>
+  <text class="ts" x="18" y="246">仲裁</text>
+  <rect class="b-warn" x="72" y="232" width="83.33333333333334" height="20" rx="3"/>
+  <text class="tx" x="161.33333333333334" y="247">120,000円</text>
+  <rect class="b-sur" x="10" y="270" width="380" height="24" rx="4"/>
+  <text class="tb" x="18" y="286.5">請求額 5,000万円</text>
+  <text class="ts" x="18" y="316">あっせん</text>
+  <rect class="b-brand" x="72" y="302" width="50.69444444444444" height="20" rx="3"/>
+  <text class="tx" x="128.69444444444446" y="317">73,000円</text>
+  <text class="ts" x="18" y="346">調停</text>
+  <rect class="b-pos" x="72" y="332" width="103.125" height="20" rx="3"/>
+  <text class="tx" x="181.125" y="347">148,500円</text>
+  <text class="ts" x="18" y="376">仲裁</text>
+  <rect class="b-warn" x="72" y="362" width="250" height="20" rx="3"/>
+  <text class="tx" x="328" y="377">360,000円</text>
+  <rect class="b-wh" x="10" y="400" width="380" height="90" rx="6"/>
+  <text class="tb" x="20" y="420">1,000万円の算出式（価額は万円で計算）</text>
+  <text class="ts" x="20" y="440">あっせん</text>
+  <text class="tx" x="84" y="440">1,000 × 15 ＋ 10,500</text>
+  <text class="ts" x="20" y="460">調停</text>
+  <text class="tx" x="84" y="460">1,000 × 25 ＋ 23,500</text>
+  <text class="ts" x="20" y="480">仲裁</text>
+  <text class="tx" x="84" y="480">1,000 × 60 ＋ 60,000</text>
+</svg>

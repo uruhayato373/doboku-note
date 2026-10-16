@@ -1,0 +1,54 @@
+<!-- authored 2026-10-16 doboku-note 自作。担当の分担は国土交通省の道路バリアフリーのガイドラインの記載に基づく一般的な例 -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="駅前広場で施設と主体を対応させた図。道路管理者は歩道の段差・勾配と視覚障害者誘導用ブロック、鉄道事業者は駅構内のエレベーター、公安委員会は信号機と横断歩道の標示、バス事業者はバス乗降場を担う。管理区分と施工区分の違いで段差を生じさせない。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #222; }
+      .tt { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .tb { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .tx { font-size: 12px; fill: #222; }
+      .ts { font-size: 11px; fill: #555; }
+      .tn { font-size: 13px; font-weight: bold; fill: #222; }
+      .b-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .b-pos { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .b-warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .b-dan { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .b-sur { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .b-wh { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .a { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .ln { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .ld { stroke: #8a8a8a; stroke-width: 1; fill: none; stroke-dasharray: 3 3; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+  <rect class="b-brand" x="10" y="10" width="178" height="124" rx="6"/>
+  <text class="tn" x="99.0" y="51.4" text-anchor="middle">道路管理者</text>
+  <text class="tx" x="99.0" y="68.5" text-anchor="middle">歩道の段差・勾配</text>
+  <text class="tx" x="99.0" y="85.3" text-anchor="middle">視覚障害者誘導用</text>
+  <text class="tx" x="99.0" y="102.1" text-anchor="middle">ブロック</text>
+  <rect class="b-warn" x="212" y="10" width="178" height="124" rx="6"/>
+  <text class="tn" x="301.0" y="59.8" text-anchor="middle">鉄道事業者</text>
+  <text class="tx" x="301.0" y="76.9" text-anchor="middle">駅構内の</text>
+  <text class="tx" x="301.0" y="93.7" text-anchor="middle">エレベーター</text>
+  <rect class="b-pos" x="10" y="296" width="178" height="124" rx="6"/>
+  <text class="tn" x="99.0" y="337.4" text-anchor="middle">公安委員会</text>
+  <text class="tx" x="99.0" y="354.5" text-anchor="middle">信号機・横断歩道の</text>
+  <text class="tx" x="99.0" y="371.3" text-anchor="middle">標示</text>
+  <text class="tx" x="99.0" y="388.1" text-anchor="middle">エスコートゾーン</text>
+  <rect class="b-sur" x="212" y="296" width="178" height="124" rx="6"/>
+  <text class="tn" x="301.0" y="346.5" text-anchor="middle">バス事業者</text>
+  <text class="tx" x="301.0" y="363.6" text-anchor="middle">バス乗降場</text>
+  <text class="ts" x="301.0" y="379.4" text-anchor="middle">（道路管理者と分担）</text>
+  <rect class="b-wh" x="10" y="160" width="380" height="110" rx="6"/>
+  <text class="tt" x="200.0" y="194.3" text-anchor="middle">駅前広場</text>
+  <text class="tx" x="200.0" y="211.5" text-anchor="middle">管理区分と施工区分の違いで</text>
+  <text class="tx" x="200.0" y="228.3" text-anchor="middle">境の段差やブロックの途切れを</text>
+  <text class="tx" x="200.0" y="245.1" text-anchor="middle">生じさせない</text>
+  <line class="a" x1="99" y1="134" x2="99" y2="160"/>
+  <line class="a" x1="301" y1="134" x2="301" y2="160"/>
+  <line class="a" x1="99" y1="270" x2="99" y2="296"/>
+  <line class="a" x1="301" y1="270" x2="301" y2="296"/>
+  <rect class="b-sur" x="10" y="430" width="380" height="60" rx="6"/>
+  <text class="ts" x="200.0" y="448.4" text-anchor="middle">事例：道路管理者のブロックと公安委員会の</text>
+  <text class="ts" x="200.0" y="463.8" text-anchor="middle">エスコートゾーンの中心線を一致させた</text>
+  <text class="ts" x="200.0" y="479.2" text-anchor="middle">分担は一般的な例で、協定や管理区分で変わる</text>
+</svg>

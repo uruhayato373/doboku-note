@@ -1,0 +1,77 @@
+<!-- authored 2026-10-16 doboku-note 自作。論点は生成AI導入を広げる四つの段階と、AI事業者ガイドライン第2部Eの環境・リスク分析からの循環。特定の書籍図の複製ではない -->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="生成AI導入の広げ方の図。推進者が習熟し、パイロットで試し、全社へ拡大し、自走して見直す四つの段階と、段階で決めるルール・教育・評価。下に、AI事業者ガイドライン第2部Eの環境・リスク分析、ゴール設定、システムデザイン、運用、評価の循環を重ねた。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; font-size: 12px; fill: #222; }
+      .n { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .n2 { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .card { fill: #fff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .bw { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .arr { stroke: #8a8a8a; stroke-width: 2; fill: none; }
+      .ret { stroke: #2e6da4; stroke-width: 2; fill: none; stroke-dasharray: 5 3; }
+    </style>
+    <marker id="ah" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#8a8a8a"/></marker>
+    <marker id="ahb" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+  </defs>
+  <rect class="card" x="10" y="8" width="340" height="76" rx="8"/>
+  <circle cx="30" cy="30" r="11" style="fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5"/>
+  <text class="n" x="30" y="35" text-anchor="middle">1</text>
+  <text class="n" x="50" y="35">推進者が習熟する</text>
+  <rect x="288" y="18" width="48" height="20" rx="10" style="fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5"/>
+  <text class="t" x="312" y="32" text-anchor="middle">ルール</text>
+  <text x="22" y="58">先に使ってみる</text>
+  <text x="22" y="75">規約の確認と、ルールの下書き</text>
+  <path class="arr" d="M180,85V97" marker-end="url(#ah)"/>
+  <rect class="card" x="10" y="100" width="340" height="76" rx="8"/>
+  <circle cx="30" cy="122" r="11" style="fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5"/>
+  <text class="n" x="30" y="127" text-anchor="middle">2</text>
+  <text class="n" x="50" y="127">パイロット</text>
+  <rect x="288" y="110" width="48" height="20" rx="10" style="fill:#fff3cd;stroke:#d4a017;stroke-width:1.5"/>
+  <text class="t" x="312" y="124" text-anchor="middle">評価</text>
+  <text x="22" y="150">現場の一人か一部門で、決めた業務だけ</text>
+  <text x="22" y="167">使い続けられるか、ルールの抜けはないか</text>
+  <path class="arr" d="M180,177V189" marker-end="url(#ah)"/>
+  <rect class="card" x="10" y="192" width="340" height="76" rx="8"/>
+  <circle cx="30" cy="214" r="11" style="fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5"/>
+  <text class="n" x="30" y="219" text-anchor="middle">3</text>
+  <text class="n" x="50" y="219">全社へ拡大</text>
+  <rect x="288" y="202" width="48" height="20" rx="10" style="fill:#d0e8d0;stroke:#3a7d44;stroke-width:1.5"/>
+  <text class="t" x="312" y="216" text-anchor="middle">教育</text>
+  <rect x="234" y="202" width="48" height="20" rx="10" style="fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5"/>
+  <text class="t" x="258" y="216" text-anchor="middle">ルール</text>
+  <text x="22" y="242">直したルールと教育の資料を持って広げる</text>
+  <text x="22" y="259">部門の業務に即した例を添える</text>
+  <path class="arr" d="M180,269V281" marker-end="url(#ah)"/>
+  <rect class="card" x="10" y="284" width="340" height="76" rx="8"/>
+  <circle cx="30" cy="306" r="11" style="fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5"/>
+  <text class="n" x="30" y="311" text-anchor="middle">4</text>
+  <text class="n" x="50" y="311">自走・見直し</text>
+  <rect x="288" y="294" width="48" height="20" rx="10" style="fill:#fff3cd;stroke:#d4a017;stroke-width:1.5"/>
+  <text class="t" x="312" y="308" text-anchor="middle">評価</text>
+  <rect x="234" y="294" width="48" height="20" rx="10" style="fill:#e8f0fe;stroke:#2e6da4;stroke-width:1.5"/>
+  <text class="t" x="258" y="308" text-anchor="middle">ルール</text>
+  <text x="22" y="334">各部門の担当者が、利用状況を見る</text>
+  <text x="22" y="351">推進者は、ルールを更新し続ける側へ</text>
+  <path class="ret" d="M350,322H372V46H356" marker-end="url(#ahb)"/>
+  <text class="t" x="386" y="184" text-anchor="middle" transform="rotate(90 386 184)">前の段階へ戻れる</text>
+  <rect class="bw" x="10" y="380" width="380" height="112" rx="8"/>
+  <text class="n" x="22" y="402">ガイドライン第2部Eの循環</text>
+  <rect x="22" y="412" width="108" height="26" rx="13" style="fill:#fff;stroke:#d4a017;stroke-width:1.5"/>
+  <text class="n2" x="76" y="429" text-anchor="middle">環境・リスク分析</text>
+  <rect x="146" y="412" width="108" height="26" rx="13" style="fill:#fff;stroke:#d4a017;stroke-width:1.5"/>
+  <text class="n2" x="200" y="429" text-anchor="middle">ゴール設定</text>
+  <rect x="270" y="412" width="108" height="26" rx="13" style="fill:#fff;stroke:#d4a017;stroke-width:1.5"/>
+  <text class="n2" x="324" y="429" text-anchor="middle">システムデザイン</text>
+  <path class="arr" d="M133,425H144" marker-end="url(#ah)"/>
+  <path class="arr" d="M257,425H268" marker-end="url(#ah)"/>
+  <path class="arr" d="M324,439V452H76V459" marker-end="url(#ah)"/>
+  <rect x="22" y="460" width="108" height="26" rx="13" style="fill:#fff;stroke:#d4a017;stroke-width:1.5"/>
+  <text class="n2" x="76" y="477" text-anchor="middle">運用</text>
+  <rect x="146" y="460" width="108" height="26" rx="13" style="fill:#fff;stroke:#d4a017;stroke-width:1.5"/>
+  <text class="n2" x="200" y="477" text-anchor="middle">評価</text>
+  <rect x="270" y="460" width="108" height="26" rx="13" style="fill:#fff;stroke:#d4a017;stroke-width:1.5;stroke-dasharray:4 3"/>
+  <text class="n2" x="324" y="477" text-anchor="middle">最初へ戻る</text>
+  <path class="arr" d="M133,473H144" marker-end="url(#ah)"/>
+  <path class="arr" d="M257,473H268" marker-end="url(#ah)"/>
+</svg>
