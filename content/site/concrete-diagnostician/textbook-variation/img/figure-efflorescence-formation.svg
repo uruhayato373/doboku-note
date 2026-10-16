@@ -1,55 +1,48 @@
 <!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士教材のエフロレッセンスの生成過程。書籍図の複製・トレースではない -->
-<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
-  style="max-width:400px;width:100%"
-  role="img"
-  aria-label="コンクリート内部の水が一次（内部の水が運ぶCa2+）と二次（表面を移動する水）の並列2系統が、大気中の二酸化炭素と反応して炭酸カルシウムを生成し、エフロレッセンスとなる過程。遊離石灰とは別">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="エフロレッセンスの生成の流れ。内部の水が可溶性成分を溶かし、表面へ滲み出し、二酸化炭素と反応して炭酸カルシウムとして析出する。遊離石灰は原因物質で別のもの">
   <defs>
     <style>
-      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
-      .t-lead  { font-size: 11px; fill: #555; }
-      .t-axis  { font-size: 11px; fill: #8a8a8a; }
-      .t-label { font-size: 11px; fill: #1a3a5c; }
-      .t-b { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
-      .t-desc  { font-size: 11px; fill: #555; }
-      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
-      .line-thin { stroke: #2e6da4; stroke-width: 1.5; fill: none; }
-      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
-      .line-red { stroke: #b22234; stroke-width: 1.5; fill: none; }
-      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
-      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
-      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
-      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
-      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 11px; fill: #555; }
+      .h { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .hs { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .n { font-size: 11px; fill: #555; }
+      .g { font-size: 11px; fill: #8a8a8a; }
+      .m { text-anchor: middle; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .danger { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .row { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1; }
     </style>
-    <marker id="ah" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4" /></marker>
-    <marker id="ahr" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234" /></marker>
+    <marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#555"/></marker>
   </defs>
-  <text class="t-lead" x="200" y="16" text-anchor="middle">一次と二次は水の由来が違う並列の2系統</text>
-  <rect class="box-b" x="20" y="30" width="170" height="84" rx="6" />
-  <text class="t-b" x="105" y="50" text-anchor="middle">一次の系統</text>
-  <text class="t-label" x="105" y="70" text-anchor="middle">コンクリート内部の水が</text>
-  <text class="t-label" x="105" y="86" text-anchor="middle">Ca²⁺を運び表面へ出る</text>
-  <rect class="box-b" x="210" y="30" width="170" height="84" rx="6" />
-  <text class="t-b" x="295" y="50" text-anchor="middle">二次の系統</text>
-  <text class="t-label" x="295" y="70" text-anchor="middle">表面を移動する水が</text>
-  <text class="t-label" x="295" y="86" text-anchor="middle">成分を運び、蒸発する</text>
-  <line class="line-main" x1="105" y1="116" x2="105" y2="146" marker-end="url(#ah)" />
-  <line class="line-main" x1="295" y1="116" x2="295" y2="146" marker-end="url(#ah)" />
-  <rect class="box-w" x="20" y="148" width="360" height="44" rx="6" />
-  <text class="t-label" x="200" y="167" text-anchor="middle">大気中のCO₂などと反応</text>
-  <text class="t-label" x="200" y="183" text-anchor="middle">白色のCaCO₃が生成する</text>
-  <line class="line-main" x1="105" y1="194" x2="105" y2="224" marker-end="url(#ah)" />
-  <line class="line-main" x1="295" y1="194" x2="295" y2="224" marker-end="url(#ah)" />
-  <rect class="box-d" x="20" y="226" width="170" height="60" rx="6" />
-  <text class="t-b" x="105" y="250" text-anchor="middle">一次エフロレッセンス</text>
-  <text class="t-desc" x="105" y="268" text-anchor="middle">内部の水に由来</text>
-  <rect class="box-d" x="210" y="226" width="170" height="60" rx="6" />
-  <text class="t-b" x="295" y="250" text-anchor="middle">二次エフロレッセンス</text>
-  <text class="t-desc" x="295" y="268" text-anchor="middle">表面の水に由来</text>
-  <rect class="box" x="20" y="316" width="360" height="110" rx="6" />
-  <text class="t-label" x="32" y="340">エフロレッセンスと遊離石灰は別のもの</text>
-  <text class="t-label" x="32" y="362">エフロレッセンス＝水が運んだ成分が</text>
-  <text class="t-label" x="32" y="378">炭酸化して表面に析出した現象</text>
-  <text class="t-desc" x="32" y="404">水が供給される部位に出やすい</text>
-
+  <rect width="400" height="500" fill="#ffffff"/>
+  <rect class="brand" x="20" y="14" width="360" height="44" rx="6"/>
+  <text class="h" x="34" y="33">コンクリート内部の水が</text>
+  <text class="n" x="34" y="50">水酸化カルシウム等の可溶性成分を溶かす</text>
+  <line x1="200" y1="59" x2="200" y2="71" stroke="#555" stroke-width="1.5" marker-end="url(#a1)"/>
+  <rect class="brand" x="20" y="72" width="360" height="44" rx="6"/>
+  <text class="h" x="34" y="91">水とともに表面へ滲み出す</text>
+  <text class="n" x="34" y="108">ひび割れ・打継ぎ面・施工目地が水の通り道</text>
+  <line x1="200" y1="117" x2="200" y2="129" stroke="#555" stroke-width="1.5" marker-end="url(#a1)"/>
+  <rect class="warn" x="20" y="130" width="360" height="44" rx="6"/>
+  <text class="h" x="34" y="149">大気中のCO₂と反応する（炭酸化）</text>
+  <text class="n" x="34" y="166">白色の炭酸カルシウムとして析出する</text>
+  <line x1="200" y1="175" x2="200" y2="187" stroke="#555" stroke-width="1.5" marker-end="url(#a1)"/>
+  <rect class="danger" x="20" y="188" width="360" height="44" rx="6"/>
+  <text class="h" x="34" y="207">エフロレッセンス（白華）</text>
+  <text class="n" x="34" y="224">析出した現象そのもの</text>
+  <rect class="surface" x="20" y="250" width="360" height="62" rx="6"/>
+  <text class="hs" x="34" y="270">遊離石灰＝未反応の水酸化カルシウム（原因物質）</text>
+  <text class="n" x="34" y="288">エフロレッセンス＝析出した現象。</text>
+  <text class="n" x="34" y="303">両者は別のもので、混同すると説明が循環する</text>
+  <rect class="positive" x="20" y="324" width="360" height="164" rx="6"/>
+  <text class="h" x="34" y="346">析出物は、水が動いているサイン</text>
+  <text class="n" x="34" y="368">流れ筋は、水の移動経路をほぼたどる</text>
+  <text class="n" x="34" y="388">広範囲・継続的なほど、水の供給が続いている</text>
+  <text class="n" x="34" y="408">ゲル状の析出物を伴うと、ASRの疑いが高まる</text>
+  <text class="n" x="34" y="428">塩分を含む水が入る環境では、塩化物イオンが</text>
+  <text class="n" x="34" y="444">内部に蓄積している可能性がある</text>
+  <text class="g" x="34" y="468">エフロレッセンス自体は直接の構造劣化ではない</text>
 </svg>

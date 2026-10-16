@@ -13,7 +13,7 @@ sources:
 published: true
 publishedAt: '2026-05-30'
 created: 2026-05-30
-dateModified: 2026-10-15
+dateModified: 2026-10-16
 ogp:
   title: "変状の種類と原因"
   subtitle: "初期欠陥・ひび割れ・剥離剥落"
@@ -24,6 +24,14 @@ ogp:
 ## 変状の定義と分類
 
 変状とは、構造物の状態が竣工時の健全な状態から変わり、外観や性能に異常として現れたものの総称である。ひび割れ・剥落・錆汁・たわみなど、目視や打音、計測で捉えられる現象が変状にあたる。これに対し、中性化深さや塩化物イオン量のように、時間とともに進む材料側の変化は「劣化」の進み具合を示す量であり、変状そのものとは区別して扱う。劣化によって性能が下がった結果が表面に現れたとき、それが変状になる。
+
+{/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
+<ArticleImage
+  src="/posts/concrete-diagnostician/textbook-variation/img/figure-three-questions.svg"
+  alt="点検で確かめる三つの問いと、疑う系統（初期欠陥・劣化・構造的変状）の対応。同じひび割れも三つのどれにもなり得る"
+  width={400}
+  height={500}
+/>
 
 点検の現場では、変状を見つけた時点で原因は分からない。そこで最初に、次の三つの問いで「どの系統の変状か」を仕分ける。系統の呼び方は初期欠陥・劣化・構造的変状とするのが一般的だが、ひび割れをどこに含めるかは資料によって異なるので、呼び名より問いの答えで判断する。
 
@@ -75,7 +83,7 @@ ogp:
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/concrete-diagnostician/textbook-variation/img/figure-cold-joint-causes.svg"
-  alt="コールドジョイントの発生原因を、配合・製造運搬・環境条件・施工の四系統から矢印でまとめ、下層が硬化し始めてから上層を打ち重ねると一体化しないことを示した原因図"
+  alt="コールドジョイントの原因（四系統の条件）と、下層が凝結を始めた後に上層を重ねた断面、起きやすい場所"
   width={400}
   height={500}
 />
@@ -140,6 +148,14 @@ ogp:
 
 表面気泡の空気は、練混ぜや打込みの際に巻き込まれたもの（エントラップドエア）である。AE剤で意図的に連行する微細な空気（エントレインドエア）とは別物で、気泡径が大きく、凍結融解への抵抗に有効な微細気泡にはならない。気泡は浮力で上昇するが、径が小さいほど浮上が遅い。凝結が始まる前に抜けきれなかったものが、型枠面に接したまま硬化して残る。
 
+{/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
+<ArticleImage
+  src="/posts/concrete-diagnostician/textbook-variation/img/figure-surface-bubble-rising.svg"
+  alt="下向きに傾いた型枠面の下に表面気泡が集まる断面図。気泡は浮力で上昇し、凝結前に抜けきれないと残る"
+  width={400}
+  height={500}
+/>
+
 <ArticleImage
   src="/posts/concrete-diagnostician/textbook-variation/img/photo-surface-bubbles.webp"
   alt="型枠を外したコンクリート壁の傾斜面に、径数mm程度の表面気泡が多数残った様子"
@@ -185,7 +201,7 @@ ogp:
 {/* source: doboku-note による自作 SVG（ひび割れの観察項目と原因群の対応） */}
 <ArticleImage
   src="/posts/concrete-diagnostician/textbook-variation/img/figure-01.svg"
-  alt="ひび割れの観察 4 項目（幅・深さ・活動性・分布パターン）から施工／荷重／劣化の原因群を絞り込む流れと、分布パターン別の代表原因"
+  alt="ひび割れの観察5項目。幅・深さ・活動性は有害かと処置、分布パターンと発生時期は原因群の推定に使う"
   width={400}
   height={500}
 />
@@ -330,7 +346,7 @@ ASRのように、コンクリート自体の劣化に伴うひび割れを「�
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/concrete-diagnostician/textbook-variation/img/figure-spalling-progress.svg"
-  alt="かぶりコンクリートの断面で、水と二酸化炭素の浸透、鋼材腐食、腐食膨張によるひび割れ、浮き・剥離、剥落へ進む四段階を上から下へ示した図"
+  alt="かぶりコンクリートの断面で、浸透・腐食、腐食膨張、浮き、剥離、剥落へ進む五段階を上から下へ示した図"
   width={400}
   height={500}
 />
@@ -358,7 +374,7 @@ ASRのように、コンクリート自体の劣化に伴うひび割れを「�
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/concrete-diagnostician/textbook-variation/img/figure-efflorescence-formation.svg"
-  alt="コンクリート内部の水が水酸化カルシウム等の可溶性成分を溶かして表面へ移動し、大気中の二酸化炭素と反応して炭酸カルシウムとして析出し、水が蒸発するまでの流れ"
+  alt="内部の水が可溶性成分を溶かして表面へ滲み出し、炭酸化して炭酸カルシウムとして析出するエフロレッセンスの流れ"
   width={400}
   height={500}
 />
@@ -459,10 +475,12 @@ ASRのように、コンクリート自体の劣化に伴うひび割れを「�
 
 鉄筋コンクリート（RC）は、コンクリートと鋼材という異なる材料を一体の構造材料として扱うことを前提に成り立っている。この前提が崩れると、設計で想定した性能が発揮されなくなり、独特の変状として現れる。第一に鉄筋とコンクリートの**付着**が確保されていることであり、付着が失われると鉄筋とコンクリートが個別に挙動し、ひび割れ幅の急拡大や剥離の原因になる。第二に両者の**熱膨張係数がほぼ等しい**ことであり、温度変化に対して同じように伸縮するため温度応力による内部破壊が生じにくい。
 
+鉄筋の効果は、荷重とたわみの関係で見ると分かりやすい。無筋のコンクリートは、弾性状態からひび割れ発生（B）の直後に急に破壊する。有筋のRCは、ひび割れ発生（B）、ひび割れ進展（C）、降伏（D）、最大荷重（E）を経て終局（F）に至り、鉄筋が引張を分担してねばる。途中でせん断破壊または圧壊（G）に至る経路もあり、せん断スパン比が小さい部材ほど先行しやすい。
+
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/concrete-diagnostician/textbook-variation/img/figure-rc-load-deflection.svg"
-  alt="荷重とたわみの関係。無筋はA点の弾性状態から立ち上がって急に耐力を失うのに対し、有筋のRCはひび割れ発生、進展、降伏、最大荷重を経て終局に至り、途中でせん断破壊または圧壊に至る経路もある"
+  alt="荷重とたわみの関係。無筋は弾性状態から急に破壊し、有筋のRCはひび割れ・降伏・最大荷重を経て終局に至る"
   width={400}
   height={500}
 />
@@ -497,7 +515,7 @@ ASRのように、コンクリート自体の劣化に伴うひび割れを「�
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/concrete-diagnostician/textbook-variation/img/figure-rc-pier-failure-process.svg"
-  alt="RC橋脚の破壊過程を二段で比較する模式図。上段の曲げ破壊は基部の曲げひび割れ、主筋降伏と塑性ヒンジ、かぶり剥離、鉄筋破断と座屈へ進み安定的に崩壊する。下段のせん断破壊はせん断ひび割れの局所化を経て、ぜい性的に崩壊する"
+  alt="RC橋脚の破壊過程の比較。曲げ破壊はひび割れから主筋降伏・かぶり剥離・座屈へ進み、せん断破壊はひび割れの局所化を経てぜい性的に崩壊する"
   width={400}
   height={500}
 />
@@ -567,7 +585,7 @@ ASRのように、コンクリート自体の劣化に伴うひび割れを「�
 {/* source: doboku-note による自作 SVG（教材原図の複製ではない。論点を再構成） */}
 <ArticleImage
   src="/posts/concrete-diagnostician/textbook-variation/img/figure-deformation-cause-tree.svg"
-  alt="変状を部位・部材の変状と構造系の変状に分け、初期欠陥・劣化・損傷の原因から、ひび割れ・剥落・エフロレッセンスなどの現れる変状へ対応づけた分類ツリー"
+  alt="変状の三つの系統（初期欠陥・劣化・構造的変状）ごとに、現れる変状と主な原因の系統を対応づけた図"
   width={400}
   height={500}
 />

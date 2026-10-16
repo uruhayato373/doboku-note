@@ -1,71 +1,82 @@
 <!-- authored 2026-09-30 doboku-note 自作。題材はコンクリート診断士教材の変状と原因の関係。書籍図の複製・トレースではない -->
-<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
-  style="max-width:400px;width:100%"
-  role="img"
-  aria-label="変状を部位・部材の変状と構造系の変状に分け、初期欠陥・劣化・損傷の原因から、ひび割れ・剥落・エフロレッセンスなどの現れる変状へ対応づけた分類ツリー">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="変状の三つの系統（初期欠陥・劣化・構造的変状）ごとに、現れる変状とその主な原因の系統を対応づけた図">
   <defs>
     <style>
-      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
-      .t-lead  { font-size: 11px; fill: #555; }
-      .t-axis  { font-size: 11px; fill: #8a8a8a; }
-      .t-label { font-size: 11px; fill: #1a3a5c; }
-      .t-b { font-size: 12px; fill: #1a3a5c; font-weight: 700; }
-      .t-desc  { font-size: 11px; fill: #555; }
-      .line-main { stroke: #2e6da4; stroke-width: 2; fill: none; }
-      .line-thin { stroke: #2e6da4; stroke-width: 1.5; fill: none; }
-      .line-dash { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
-      .line-red { stroke: #b22234; stroke-width: 1.5; fill: none; }
-      .box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
-      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
-      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
-      .box-d { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
-      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 11px; fill: #555; }
+      .h { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .hs { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .n { font-size: 11px; fill: #555; }
+      .g { font-size: 11px; fill: #8a8a8a; }
+      .m { text-anchor: middle; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .danger { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .row { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1; }
     </style>
-    <marker id="ah" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#2e6da4" /></marker>
-    <marker id="ahr" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#b22234" /></marker>
+    <marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#555"/></marker>
   </defs>
-  <text class="t-lead" x="200" y="16" text-anchor="middle">変状を「部位・部材」と「構造系」に分け、原因から変状へたどる</text>
-  <rect class="box-b" x="150" y="24" width="100" height="26" rx="6" />
-  <text class="t-b" x="200" y="41" text-anchor="middle">変状</text>
-  <line class="line-thin" x1="200" y1="50" x2="200" y2="58" />
-  <line class="line-thin" x1="145" y1="58" x2="335" y2="58" />
-  <line class="line-thin" x1="145" y1="58" x2="145" y2="68" />
-  <line class="line-thin" x1="335" y1="58" x2="335" y2="68" />
-  <rect class="box" x="20" y="68" width="250" height="26" rx="6" />
-  <text class="t-label" x="145" y="85" text-anchor="middle">主として部位・部材の変状</text>
-  <rect class="box" x="290" y="68" width="90" height="26" rx="6" />
-  <text class="t-label" x="335" y="85" text-anchor="middle">構造系の変状</text>
-  <rect class="box-b" x="20" y="104" width="250" height="62" rx="6" />
-  <text class="t-b" x="30" y="121">初期欠陥</text>
-  <text class="t-label" x="30" y="139">豆板・内部欠陥・コールドジョイント</text>
-  <text class="t-label" x="30" y="155">砂すじ・表面気泡・沈下ひび割れ</text>
-  <rect class="box-b" x="20" y="174" width="250" height="100" rx="6" />
-  <text class="t-b" x="30" y="191">劣化</text>
-  <text class="t-label" x="30" y="208">化学的：中性化・塩害・化学的腐食</text>
-  <text class="t-label" x="30" y="224">アルカリシリカ反応・成分溶出</text>
-  <text class="t-label" x="30" y="244">物理的：水和熱・収縮・凍害・疲労</text>
-  <text class="t-label" x="30" y="260">すりへり・汚れ・変色</text>
-  <rect class="box-b" x="20" y="282" width="250" height="42" rx="6" />
-  <text class="t-b" x="30" y="299">損傷</text>
-  <text class="t-label" x="30" y="315">火災・衝撃・地震</text>
-  <rect class="box-b" x="290" y="104" width="90" height="26" rx="6" />
-  <text class="t-label" x="335" y="121" text-anchor="middle">変形</text>
-  <rect class="box-b" x="290" y="138" width="90" height="26" rx="6" />
-  <text class="t-label" x="335" y="155" text-anchor="middle">たわみ</text>
-  <rect class="box-b" x="290" y="172" width="90" height="26" rx="6" />
-  <text class="t-label" x="335" y="189" text-anchor="middle">振動</text>
-  <text class="t-lead" x="200" y="345" text-anchor="middle">現れる変状の例</text>
-  <line class="line-main" x1="145" y1="326" x2="145" y2="352" marker-end="url(#ah)" />
-  <rect class="box-w" x="20" y="356" width="170" height="28" rx="6" />
-  <text class="t-label" x="105" y="374" text-anchor="middle">ひび割れ</text>
-  <rect class="box-w" x="210" y="356" width="170" height="28" rx="6" />
-  <text class="t-label" x="295" y="374" text-anchor="middle">エフロレッセンス</text>
-  <rect class="box-w" x="20" y="392" width="170" height="28" rx="6" />
-  <text class="t-label" x="105" y="410" text-anchor="middle">錆汁→剥離→剥落</text>
-  <rect class="box-w" x="210" y="392" width="170" height="28" rx="6" />
-  <text class="t-label" x="295" y="410" text-anchor="middle">スケーリング・ポップアウト</text>
-  <rect class="box" x="20" y="436" width="360" height="50" rx="6" />
-  <text class="t-label" x="32" y="456">同じ変状でも原因は一つとは限らない。</text>
-  <text class="t-label" x="32" y="474">原因の系統から変状を逆にたどり、絞り込む。</text>
-
+  <rect width="400" height="500" fill="#ffffff"/>
+  <rect class="warn" x="10" y="10" width="92" height="102" rx="6"/>
+  <text class="h m" x="56" y="65">初期欠陥</text>
+  <path d="M108,26 V96" stroke="#2e6da4" stroke-width="1.5" fill="none"/>
+  <path d="M102,61 H108 M108,26 H118" stroke="#2e6da4" stroke-width="1.5" fill="none"/>
+  <rect class="row" x="118" y="10" width="272" height="32" rx="4"/>
+  <text class="hs" x="126" y="30">豆板・コールドジョイント</text>
+  <text class="n" x="382" y="30" text-anchor="end">施工（初期欠陥）</text>
+  <path d="M102,61 H108 M108,61 H118" stroke="#2e6da4" stroke-width="1.5" fill="none"/>
+  <rect class="row" x="118" y="45" width="272" height="32" rx="4"/>
+  <text class="hs" x="126" y="65">沈下ひび割れ</text>
+  <text class="n" x="382" y="65" text-anchor="end">施工（初期）</text>
+  <path d="M102,61 H108 M108,96 H118" stroke="#2e6da4" stroke-width="1.5" fill="none"/>
+  <rect class="row" x="118" y="80" width="272" height="32" rx="4"/>
+  <text class="hs" x="126" y="100">砂すじ・表面気泡</text>
+  <text class="n" x="382" y="100" text-anchor="end">施工</text>
+  <rect class="danger" x="10" y="123" width="92" height="277" rx="6"/>
+  <text class="h m" x="56" y="265">劣化</text>
+  <path d="M108,139 V384" stroke="#2e6da4" stroke-width="1.5" fill="none"/>
+  <path d="M102,261 H108 M108,139 H118" stroke="#2e6da4" stroke-width="1.5" fill="none"/>
+  <rect class="row" x="118" y="123" width="272" height="32" rx="4"/>
+  <text class="hs" x="126" y="143">乾燥収縮ひび割れ</text>
+  <text class="n" x="382" y="143" text-anchor="end">材料・養生</text>
+  <path d="M102,261 H108 M108,174 H118" stroke="#2e6da4" stroke-width="1.5" fill="none"/>
+  <rect class="row" x="118" y="158" width="272" height="32" rx="4"/>
+  <text class="hs" x="126" y="178">温度ひび割れ</text>
+  <text class="n" x="382" y="178" text-anchor="end">水和熱・温度環境</text>
+  <path d="M102,261 H108 M108,209 H118" stroke="#2e6da4" stroke-width="1.5" fill="none"/>
+  <rect class="row" x="118" y="193" width="272" height="32" rx="4"/>
+  <text class="hs" x="126" y="213">亀甲状ひび割れ</text>
+  <text class="n" x="382" y="213" text-anchor="end">ASR</text>
+  <path d="M102,261 H108 M108,244 H118" stroke="#2e6da4" stroke-width="1.5" fill="none"/>
+  <rect class="row" x="118" y="228" width="272" height="32" rx="4"/>
+  <text class="hs" x="126" y="248">縦ひび割れ（鉄筋軸）</text>
+  <text class="n" x="382" y="248" text-anchor="end">鋼材腐食</text>
+  <path d="M102,261 H108 M108,279 H118" stroke="#2e6da4" stroke-width="1.5" fill="none"/>
+  <rect class="row" x="118" y="263" width="272" height="32" rx="4"/>
+  <text class="hs" x="126" y="283">剥落・脱落</text>
+  <text class="n" x="382" y="283" text-anchor="end">腐食・凍害・ASR</text>
+  <path d="M102,261 H108 M108,314 H118" stroke="#2e6da4" stroke-width="1.5" fill="none"/>
+  <rect class="row" x="118" y="298" width="272" height="32" rx="4"/>
+  <text class="hs" x="126" y="318">エフロレッセンス</text>
+  <text class="n" x="382" y="318" text-anchor="end">漏水・炭酸化</text>
+  <path d="M102,261 H108 M108,349 H118" stroke="#2e6da4" stroke-width="1.5" fill="none"/>
+  <rect class="row" x="118" y="333" width="272" height="32" rx="4"/>
+  <text class="hs" x="126" y="353">すりへり</text>
+  <text class="n" x="382" y="353" text-anchor="end">摩耗・流水侵食</text>
+  <path d="M102,261 H108 M108,384 H118" stroke="#2e6da4" stroke-width="1.5" fill="none"/>
+  <rect class="row" x="118" y="368" width="272" height="32" rx="4"/>
+  <text class="hs" x="126" y="388">キャビテーション</text>
+  <text class="n" x="382" y="388" text-anchor="end">高流速水理構造物</text>
+  <rect class="brand" x="10" y="411" width="92" height="67" rx="6"/>
+  <text class="h m" x="56" y="448">構造的変状</text>
+  <path d="M108,427 V462" stroke="#2e6da4" stroke-width="1.5" fill="none"/>
+  <path d="M102,444 H108 M108,427 H118" stroke="#2e6da4" stroke-width="1.5" fill="none"/>
+  <rect class="row" x="118" y="411" width="272" height="32" rx="4"/>
+  <text class="hs" x="126" y="431">曲げ・せん断ひび割れ</text>
+  <text class="n" x="382" y="431" text-anchor="end">荷重</text>
+  <path d="M102,444 H108 M108,462 H118" stroke="#2e6da4" stroke-width="1.5" fill="none"/>
+  <rect class="row" x="118" y="446" width="272" height="32" rx="4"/>
+  <text class="hs" x="126" y="466">たわみ・変形・振動</text>
+  <text class="n" x="382" y="466" text-anchor="end">外力・剛性低下</text>
 </svg>

@@ -1,46 +1,67 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="ASR・鋼材腐食・凍害の劣化機構別に現れるひび割れパターンと随伴サインの比較">
-  <text x="200" y="16" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">劣化機構ごとに、ひび割れの向きと随伴サインが異なる</text>
-
-  <rect x="20" y="26" width="112" height="120" rx="6" fill="#ffffff" stroke="#b22234" stroke-width="1.5"/>
-  <path d="M32 50 l24 -12 l22 14 l24 -10 M32 74 l26 -8 l20 12 l26 -8 M32 98 l22 -10 l26 12 l22 -10 M46 40 l6 34 l-4 32 M78 38 l-6 30 l8 34 M104 44 l-4 30 l6 30" fill="none" stroke="#b22234" stroke-width="1.5"/>
-  <text x="76" y="128" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">ASR</text>
-  <text x="76" y="141" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">亀甲状・網状</text>
-
-  <rect x="144" y="26" width="112" height="120" rx="6" fill="#ffffff" stroke="#d4a017" stroke-width="1.5"/>
-  <line x1="156" y1="58" x2="244" y2="58" stroke="#8a8a8a" stroke-width="3" stroke-dasharray="6 4"/>
-  <line x1="156" y1="96" x2="244" y2="96" stroke="#8a8a8a" stroke-width="3" stroke-dasharray="6 4"/>
-  <path d="M156 52 l20 3 l22 -3 l24 4 l22 -3" fill="none" stroke="#d4a017" stroke-width="2"/>
-  <path d="M156 90 l22 4 l20 -4 l24 3 l22 -3" fill="none" stroke="#d4a017" stroke-width="2"/>
-  <text x="200" y="76" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">鉄筋</text>
-  <text x="200" y="128" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">鋼材腐食</text>
-  <text x="200" y="141" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">鉄筋に沿う直線</text>
-
-  <rect x="268" y="26" width="112" height="120" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
-  <path d="M280 44 q10 -8 20 0 q10 8 20 0 q10 -8 20 0 q10 8 18 0" fill="none" stroke="#2e6da4" stroke-width="2"/>
-  <path d="M280 66 q12 -8 22 0 q10 8 22 0 q10 -8 20 0" fill="none" stroke="#2e6da4" stroke-width="2"/>
-  <path d="M280 88 q10 -8 20 0 q12 8 22 0 q10 -8 20 0" fill="none" stroke="#2e6da4" stroke-width="2"/>
-  <path d="M280 110 q12 -8 22 0 q10 8 20 0 q12 -8 20 0" fill="none" stroke="#2e6da4" stroke-width="2"/>
-  <text x="324" y="128" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">凍害</text>
-  <text x="324" y="141" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">層状・鱗状の剥離</text>
-
-  <rect x="20" y="158" width="360" height="324" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
-  <text x="200" y="178" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#222">機構 と 随伴サインの対応</text>
-
-  <rect x="30" y="188" width="340" height="90" rx="3" fill="#ffffff" stroke="#b22234" stroke-width="1"/>
-  <text x="40" y="206" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">アルカリシリカ反応（ASR）</text>
-  <text x="40" y="224" font-family="sans-serif" font-size="11" fill="#555">骨材が膨張し、内部から外へ等方的に広がる。</text>
-  <text x="40" y="242" font-family="sans-serif" font-size="11" fill="#555">拘束の弱い面ほど亀甲状（マップクラック）が明瞭。</text>
-  <text x="40" y="266" font-family="sans-serif" font-size="11" font-weight="bold" fill="#b22234">随伴サイン: ゲル状の析出物・変色</text>
-
-  <rect x="30" y="286" width="340" height="90" rx="3" fill="#ffffff" stroke="#d4a017" stroke-width="1"/>
-  <text x="40" y="304" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">鋼材腐食（塩害・中性化）</text>
-  <text x="40" y="322" font-family="sans-serif" font-size="11" fill="#555">腐食膨張圧がかぶりを内側から押し広げる。</text>
-  <text x="40" y="340" font-family="sans-serif" font-size="11" fill="#555">鉄筋軸方向に沿う直線状ひび割れ。剥落の前兆。</text>
-  <text x="40" y="364" font-family="sans-serif" font-size="11" font-weight="bold" fill="#d4a017">随伴サイン: 錆汁の流出・浮き</text>
-
-  <rect x="30" y="384" width="340" height="88" rx="3" fill="#ffffff" stroke="#2e6da4" stroke-width="1"/>
-  <text x="40" y="402" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">凍害</text>
-  <text x="40" y="420" font-family="sans-serif" font-size="11" fill="#555">凍結融解の繰り返しで表層から層状に破壊。</text>
-  <text x="40" y="438" font-family="sans-serif" font-size="11" fill="#555">ひび割れより「面としての剥がれ」が主体。</text>
-  <text x="40" y="462" font-family="sans-serif" font-size="11" font-weight="bold" fill="#2e6da4">随伴サイン: スケーリング・ポップアウト</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="ASR・凍害・鋼材腐食の比較。ASRは内部から外へ亀甲状、凍害は表面から内へスケーリングやポップアウト、鋼材腐食は鉄筋位置から鉄筋軸方向の直線状に割れる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 11px; fill: #555; }
+      .h { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .hs { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .n { font-size: 11px; fill: #555; }
+      .g { font-size: 11px; fill: #8a8a8a; }
+      .m { text-anchor: middle; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .danger { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .row { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+    <marker id="ar" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#b22234"/></marker>
+    <marker id="ab" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto"><polygon points="0,0 9,4 0,8" fill="#2e6da4"/></marker>
+    <marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#555"/></marker>
+  </defs>
+  <rect width="400" height="500" fill="#ffffff"/>
+  <rect class="danger" x="10" y="20" width="380" height="116" rx="6"/>
+  <rect x="28" y="28" width="160" height="100" fill="#ffffff" stroke="#555" stroke-width="1.5"/>
+  <polygon points="44,50 78,42 98,64 76,84 46,78" fill="none" stroke="#b22234" stroke-width="1.5"/>
+  <polygon points="78,42 130,46 150,74 98,64" fill="none" stroke="#b22234" stroke-width="1.5"/>
+  <polygon points="98,64 150,74 172,104 140,118 76,84" fill="none" stroke="#b22234" stroke-width="1.5"/>
+  <polygon points="130,46 172,50 176,74 150,74" fill="none" stroke="#b22234" stroke-width="1.5"/>
+  <circle cx="108" cy="80" r="3" fill="#b22234"/>
+  <line x1="101" y1="80" x2="80" y2="80" stroke="#b22234" stroke-width="2.5" marker-end="url(#ar)"/>
+  <line x1="115" y1="80" x2="136" y2="80" stroke="#b22234" stroke-width="2.5" marker-end="url(#ar)"/>
+  <line x1="108" y1="74" x2="108" y2="56" stroke="#b22234" stroke-width="2.5" marker-end="url(#ar)"/>
+  <line x1="108" y1="86" x2="108" y2="104" stroke="#b22234" stroke-width="2.5" marker-end="url(#ar)"/>
+  <text class="h" x="204" y="48">ASR：内部から外へ</text>
+  <text class="n" x="204" y="68">亀甲状・網状に広がる</text>
+  <text class="hs" x="204" y="86">ゲル状の析出物を伴う</text>
+  <text class="g" x="204" y="104">骨材の膨張が原因</text>
+  <rect class="brand" x="10" y="144" width="380" height="116" rx="6"/>
+  <rect x="28" y="152" width="160" height="100" fill="#ffffff" stroke="#555" stroke-width="1.5"/>
+  <path d="M32,166 q16,-7 32,0 t32,0 t32,0 t24,0" fill="none" stroke="#2e6da4" stroke-width="2"/>
+  <path d="M32,180 q16,-7 32,0 t32,0 t32,0 t24,0" fill="none" stroke="#2e6da4" stroke-width="2"/>
+  <path d="M32,194 q16,-7 32,0 t32,0 t32,0 t24,0" fill="none" stroke="#2e6da4" stroke-width="2"/>
+  <polygon points="142,152 176,152 159,188" fill="#ffffff" stroke="#555" stroke-width="1.5"/>
+  <line x1="60" y1="208" x2="60" y2="242" stroke="#2e6da4" stroke-width="2.5" marker-end="url(#ab)"/>
+  <text class="h" x="204" y="172">凍害：表面から内へ</text>
+  <text class="hs" x="204" y="192">スケーリング</text>
+  <text class="n" x="204" y="208">（層状・鱗状の剥離）</text>
+  <text class="n" x="204" y="226">ポップアウトは円錐状の欠損</text>
+  <text class="g" x="204" y="244">面として剥がれる</text>
+  <rect class="warn" x="10" y="268" width="380" height="116" rx="6"/>
+  <rect x="28" y="276" width="160" height="100" fill="#ffffff" stroke="#555" stroke-width="1.5"/>
+  <circle cx="108" cy="350" r="12" fill="#ffffff" stroke="#555" stroke-width="2"/>
+  <line x1="98" y1="350" x2="78" y2="350" stroke="#b22234" stroke-width="2.5" marker-end="url(#ar)"/>
+  <line x1="118" y1="350" x2="138" y2="350" stroke="#b22234" stroke-width="2.5" marker-end="url(#ar)"/>
+  <line x1="108" y1="359" x2="108" y2="378" stroke="#b22234" stroke-width="2.5" marker-end="url(#ar)"/>
+  <path d="M108,338 l-3,-18 l4,-14 l-3,-12" fill="none" stroke="#b22234" stroke-width="2"/>
+  <path d="M104,276 l-10,18 l14,0 l-4,10" fill="none" stroke="#d4a017" stroke-width="3"/>
+  <text class="h" x="204" y="296">鋼材腐食：鉄筋位置から外へ</text>
+  <text class="n" x="204" y="316">鉄筋軸に沿う直線状</text>
+  <text class="hs" x="204" y="334">錆汁の流出・浮きを伴う</text>
+  <text class="g" x="204" y="352">腐食膨張圧が、かぶりを</text>
+  <text class="g" x="204" y="366">内側から押し広げる</text>
+  <rect class="surface" x="10" y="396" width="380" height="94" rx="6"/>
+  <text class="h" x="22" y="418">亀甲状でも、随伴サインで分ける</text>
+  <text class="n" x="22" y="438">ゲル状の析出物を伴い、内部から進む → ASR</text>
+  <text class="n" x="22" y="456">スケーリングを伴い、表面から進む → 凍害</text>
+  <text class="n" x="22" y="474">縦ひび割れ＋錆汁 → 鋼材腐食</text>
 </svg>

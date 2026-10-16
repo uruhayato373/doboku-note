@@ -11,21 +11,29 @@
   <rect x="70" y="40" width="280" height="290" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
   <path d="M70,40 L110,40 L110,192 L215,192 L215,208 L110,208 L110,330 L70,330 Z" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5" />
   <line x1="70" y1="200" x2="350" y2="200" stroke="#b22234" stroke-width="1.5" stroke-dasharray="5 3" />
-  <g fill="#fff" stroke="#555" stroke-width="1.5">
+  <g fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5">
     <circle cx="170" cy="110" r="8" />
-    <circle cx="170" cy="200" r="8" />
     <circle cx="170" cy="290" r="8" />
   </g>
+  <circle cx="170" cy="200" r="8" fill="#f8d7da" stroke="#b22234" stroke-width="2" />
   <g stroke="#2e6da4" stroke-width="1.5" fill="none">
     <line x1="20" y1="100" x2="64" y2="100" marker-end="url(#ah)" />
-    <line x1="20" y1="260" x2="64" y2="260" marker-end="url(#ah)" />
+    <line x1="20" y1="200" x2="64" y2="200" marker-end="url(#ah)" />
   </g>
   <text x="14" y="86">CO₂・水</text>
-  <text x="14" y="246">CO₂・水</text>
+  <text x="14" y="186">CO₂・水</text>
   <text class="l" x="184" y="114">鉄筋</text>
   <text class="l" x="184" y="294">鉄筋</text>
-  <text class="l" x="118" y="62">一般部：浅い</text>
+  <text class="l" x="118" y="84">x₁：一般部は浅い</text>
+  <line x1="70" y1="92" x2="110" y2="92" stroke="#555" stroke-width="1.5" />
+  <line x1="70" y1="86" x2="70" y2="98" stroke="#555" stroke-width="1.5" />
+  <line x1="110" y1="86" x2="110" y2="98" stroke="#555" stroke-width="1.5" />
+  <line x1="70" y1="240" x2="215" y2="240" stroke="#b22234" stroke-width="1.5" />
+  <line x1="70" y1="234" x2="70" y2="246" stroke="#b22234" stroke-width="1.5" />
+  <line x1="215" y1="234" x2="215" y2="246" stroke="#b22234" stroke-width="1.5" />
+  <text class="l" x="78" y="260">x₂：継目沿いは深い（x₂ ＞ x₁）</text>
   <text class="l" x="224" y="182">継目沿いに深く進む</text>
+  <text class="l" x="182" y="184">鉄筋</text>
   <text class="l" x="224" y="226">継目（打継ぎ面）</text>
   <text x="76" y="352">外気側の表面</text>
   <rect x="20" y="366" width="360" height="114" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5" />

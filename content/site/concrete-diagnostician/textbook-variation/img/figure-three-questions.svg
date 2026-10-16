@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="点検で確かめる三つの問い。竣工時の記録に同じ変状があれば初期欠陥、前回より増えていれば劣化、位置と向きが荷重や支点と合えば構造的変状を疑う">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 11px; fill: #555; }
+      .h { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .hs { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .n { font-size: 11px; fill: #555; }
+      .g { font-size: 11px; fill: #8a8a8a; }
+      .m { text-anchor: middle; }
+      .brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .danger { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .row { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+    <marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#555"/></marker>
+  </defs>
+  <rect width="400" height="500" fill="#ffffff"/>
+  <rect class="surface" x="10" y="14" width="200" height="64" rx="6"/>
+  <text class="n" x="20" y="40">竣工検査や初回点検の記録に</text>
+  <text class="n" x="20" y="58">すでに同じ変状があるか</text>
+  <text class="hs" x="20" y="28" style="font-size:11px;fill:#2e6da4">問い1</text>
+  <line x1="212" y1="46" x2="232" y2="46" stroke="#555" stroke-width="1.5" marker-end="url(#a1)"/>
+  <rect class="warn" x="234" y="14" width="156" height="64" rx="6"/>
+  <text class="h" x="244" y="34">初期欠陥</text>
+  <text class="n" x="244" y="52">豆板・コールドジョイント</text>
+  <text class="n" x="244" y="68">沈下ひび割れなど</text>
+  <rect class="surface" x="10" y="90" width="200" height="64" rx="6"/>
+  <text class="n" x="20" y="116">前回の点検より範囲・幅・</text>
+  <text class="n" x="20" y="134">本数が増えているか</text>
+  <text class="hs" x="20" y="104" style="font-size:11px;fill:#2e6da4">問い2</text>
+  <line x1="212" y1="122" x2="232" y2="122" stroke="#555" stroke-width="1.5" marker-end="url(#a1)"/>
+  <rect class="danger" x="234" y="90" width="156" height="64" rx="6"/>
+  <text class="h" x="244" y="110">劣化</text>
+  <text class="n" x="244" y="128">中性化・塩害・凍害</text>
+  <text class="n" x="244" y="144">ASR・すりへりなど</text>
+  <rect class="surface" x="10" y="166" width="200" height="64" rx="6"/>
+  <text class="n" x="20" y="192">位置と向きが、荷重・支点・</text>
+  <text class="n" x="20" y="210">地盤の動きの方向と合うか</text>
+  <text class="hs" x="20" y="180" style="font-size:11px;fill:#2e6da4">問い3</text>
+  <line x1="212" y1="198" x2="232" y2="198" stroke="#555" stroke-width="1.5" marker-end="url(#a1)"/>
+  <rect class="brand" x="234" y="166" width="156" height="64" rx="6"/>
+  <text class="h" x="244" y="186">構造的変状</text>
+  <text class="n" x="244" y="204">曲げ・せん断ひび割れ</text>
+  <text class="n" x="244" y="220">たわみ・変形・振動</text>
+  <rect class="warn" x="10" y="246" width="380" height="126" rx="6"/>
+  <text class="h" x="22" y="268">同じ「ひび割れ」でも、三つのどれにもなり得る</text>
+  <text class="n" x="22" y="290">沈下ひび割れ → 初期欠陥</text>
+  <text class="n" x="22" y="308">ASR・鋼材腐食によるひび割れ → 劣化</text>
+  <text class="n" x="22" y="326">曲げ・せん断によるひび割れ → 構造的変状</text>
+  <text class="hs" x="22" y="352">名称で決めず、問いの答えで系統を判断する</text>
+  <rect class="surface" x="10" y="384" width="380" height="104" rx="6"/>
+  <text class="h" x="22" y="406">三つの問いの背後は「いつ生じ、どう動くか」</text>
+  <text class="n" x="22" y="426">初期欠陥：施工時に決まり、原則として進行しない</text>
+  <text class="n" x="22" y="444">劣化：時間とともに進み、点検の間隔をまたいで変わる</text>
+  <text class="n" x="22" y="462">構造的変状：力の流れに従い、位置と向きに現れる</text>
+</svg>

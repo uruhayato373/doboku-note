@@ -25,8 +25,14 @@
   <rect class="box-s" x="20" y="28" width="360" height="145" rx="8"/>
   <text class="t-sec" x="36" y="50">① 無筋コンクリート</text>
   <rect class="box-b" x="50" y="58" width="300" height="55" rx="4"/>
-  <path class="crack" d="M75,70 L110,100 L145,70 L180,105 L215,72 L250,102 L285,70 L320,100"/>
-  <path class="crack" d="M95,63 L130,110 M165,63 L140,110 M205,63 L245,110 M285,63 L255,110"/>
+  <g fill="none">
+    <polygon class="crack" points="60,64 100,60 112,86 84,108 58,92"/>
+    <polygon class="crack" points="100,60 150,66 156,96 128,108 112,86"/>
+    <polygon class="crack" points="150,66 200,62 212,94 184,108 156,96"/>
+    <polygon class="crack" points="200,62 252,66 258,98 232,110 212,94"/>
+    <polygon class="crack" points="252,66 300,60 312,90 286,108 258,98"/>
+    <polygon class="crack" points="300,60 342,66 340,96 312,90"/>
+  </g>
   <text class="t-desc" x="36" y="130">骨材膨張がほぼ等方に働き</text>
   <text class="t-desc" x="36" y="147">亀甲状ひび割れが全面に明瞭に現れる</text>
 
@@ -40,8 +46,11 @@
   <circle cx="210" cy="255" r="4" fill="#8a8a8a"/>
   <circle cx="270" cy="255" r="4" fill="#8a8a8a"/>
   <circle cx="330" cy="255" r="4" fill="#8a8a8a"/>
-  <path class="crack" d="M65,238 L335,238"/>
-  <path class="crack" d="M90,225 L90,238 M150,225 L150,238 M210,225 L210,238 M270,225 L270,238 M330,225 L330,238"/>
+  <g fill="none">
+    <polygon class="crack" points="60,236 110,226 150,232 140,246 96,248"/>
+    <polygon class="crack" points="150,232 200,224 244,230 232,246 190,248 140,246"/>
+    <polygon class="crack" points="244,230 292,226 340,234 330,248 280,248 232,246"/>
+  </g>
   <text class="t-desc" x="36" y="288">鉄筋方向の拘束がはたらき</text>
   <text class="t-desc" x="36" y="305">亀甲状パターンが鉄筋方向に伸びて現れる</text>
 
@@ -51,8 +60,12 @@
   <rect class="box-b" x="50" y="372" width="300" height="55" rx="4"/>
   <line x1="60" y1="399" x2="90" y2="399" stroke="#2e6da4" stroke-width="2" marker-end="url(#arrowIn)"/>
   <line x1="340" y1="399" x2="310" y2="399" stroke="#2e6da4" stroke-width="2" marker-end="url(#arrowIn)"/>
-  <rect x="175" y="384" width="50" height="30" rx="3" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5" stroke-dasharray="3 2"/>
-  <text x="200" y="403" text-anchor="middle" font-size="11" fill="#1a3a5c" font-weight="bold">応力蓄積</text>
-  <text class="t-desc" x="36" y="445">プレストレスの拘束でひび割れが抑制され</text>
-  <text class="t-desc" x="36" y="462">内部に応力が蓄積し、シース損傷等で現れる</text>
+  <circle cx="200" cy="402" r="14" fill="#ffffff" stroke="#555" stroke-width="2"/>
+  <circle cx="200" cy="402" r="5" fill="#8a8a8a"/>
+  <g fill="none" stroke="#b22234" stroke-width="1.5">
+    <path d="M186,396 L174,390 M186,408 L172,414 M214,396 L226,392 M214,408 L228,414 M200,388 L200,380"/>
+  </g>
+  <text x="200" y="440" text-anchor="middle" font-size="11" fill="#1a3a5c">シース周辺の内部の割れ（表面は無傷）</text>
+  <text class="t-desc" x="36" y="457">プレストレスの拘束で表面のひび割れが抑制され、</text>
+  <text class="t-desc" x="36" y="474">内部に応力が蓄積し、シース損傷等で現れる</text>
 </svg>
