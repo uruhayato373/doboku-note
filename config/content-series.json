@@ -481,6 +481,15 @@
               "note": "2026-10-15 に骨子の論点を書き足して補強した（DN-0742）"
             },
             {
+              "id": "A-46",
+              "title": "多自然川づくりと水辺空間 — 河川環境の目標・生息空間・水辺の整備",
+              "paths": [
+                "content/site/civil-practice/nature-oriented-river-works/article.mdx"
+              ],
+              "plan": "new",
+              "note": "2026-10-16 の運営者指示（展開するものはすべて展開する）で、教材の判定し直す候補から足した（DN-0753）"
+            },
+            {
               "id": "A-18",
               "title": "海岸と港湾 — 海岸法・港湾法と管理者",
               "plan": "new",
@@ -509,15 +518,6 @@
                   "figKey": "civil-practice/coast-port-administrators/img/figure-permit-matrix-by-zone"
                 }
               ]
-            },
-            {
-              "id": "A-46",
-              "title": "多自然川づくりと水辺空間 — 河川環境の目標・生息空間・水辺の整備",
-              "paths": [
-                "content/site/civil-practice/nature-oriented-river-works/article.mdx"
-              ],
-              "plan": "new",
-              "note": "2026-10-16 の運営者指示（展開するものはすべて展開する）で、教材の判定し直す候補から足した（DN-0753）"
             }
           ]
         },
@@ -914,6 +914,24 @@
               ]
             },
             {
+              "id": "A-42",
+              "title": "景観計画と公共事業の景観検討 — 景観法の届出・景観協議・歴史的な構造物",
+              "paths": [
+                "content/site/civil-practice/landscape-planning-public-works/article.mdx"
+              ],
+              "plan": "new",
+              "note": "2026-10-16 の運営者指示（展開するものはすべて展開する）で、教材の判定し直す候補から足した（DN-0753）"
+            },
+            {
+              "id": "A-43",
+              "title": "道路と駅前のバリアフリー — 基本構想と移動等円滑化の基準",
+              "paths": [
+                "content/site/civil-practice/barrier-free-roads-stations/article.mdx"
+              ],
+              "plan": "new",
+              "note": "2026-10-16 の運営者指示（展開するものはすべて展開する）で、教材の判定し直す候補から足した（DN-0753）"
+            },
+            {
               "id": "A-35",
               "title": "都市公園の管理 — 設置・占用・遊具の安全",
               "plan": "new",
@@ -941,6 +959,15 @@
                   "figKey": "civil-practice/urban-park-management/img/photo-swing-support-base-inspection"
                 }
               ]
+            },
+            {
+              "id": "A-44",
+              "title": "都市の緑化 — 緑の基本計画・緑化地域・屋上と壁面の緑化",
+              "paths": [
+                "content/site/civil-practice/urban-greening/article.mdx"
+              ],
+              "plan": "new",
+              "note": "2026-10-16 の運営者指示（展開するものはすべて展開する）で、教材の判定し直す候補から足した（DN-0753）"
             },
             {
               "id": "A-36",
@@ -975,33 +1002,6 @@
               ]
             },
             {
-              "id": "A-42",
-              "title": "景観計画と公共事業の景観検討 — 景観法の届出・景観協議・歴史的な構造物",
-              "paths": [
-                "content/site/civil-practice/landscape-planning-public-works/article.mdx"
-              ],
-              "plan": "new",
-              "note": "2026-10-16 の運営者指示（展開するものはすべて展開する）で、教材の判定し直す候補から足した（DN-0753）"
-            },
-            {
-              "id": "A-43",
-              "title": "道路と駅前のバリアフリー — 基本構想と移動等円滑化の基準",
-              "paths": [
-                "content/site/civil-practice/barrier-free-roads-stations/article.mdx"
-              ],
-              "plan": "new",
-              "note": "2026-10-16 の運営者指示（展開するものはすべて展開する）で、教材の判定し直す候補から足した（DN-0753）"
-            },
-            {
-              "id": "A-44",
-              "title": "都市の緑化 — 緑の基本計画・緑化地域・屋上と壁面の緑化",
-              "paths": [
-                "content/site/civil-practice/urban-greening/article.mdx"
-              ],
-              "plan": "new",
-              "note": "2026-10-16 の運営者指示（展開するものはすべて展開する）で、教材の判定し直す候補から足した（DN-0753）"
-            },
-            {
               "id": "A-45",
               "title": "水道事業の区分と土木担当 — 水道法の事業・施設・管路の更新",
               "paths": [
@@ -1015,6 +1015,15 @@
         {
           "title": "災害に備える",
           "items": [
+            {
+              "id": "A-47",
+              "title": "気象情報の読み方 — 警報と注意報、解析雨量、気象衛星、アメダス",
+              "paths": [
+                "content/site/civil-practice/weather-information-reading/article.mdx"
+              ],
+              "plan": "new",
+              "note": "2026-10-16 の運営者指示（展開するものはすべて展開する）で、教材の判定し直す候補から足した（DN-0753）"
+            },
             {
               "id": "A-37",
               "title": "災害復旧事業と災害査定",
@@ -1093,15 +1102,6 @@
                   "figKey": "civil-practice/sediment-disaster-erosion-control/img/figure-warning-zone-flow"
                 }
               ]
-            },
-            {
-              "id": "A-47",
-              "title": "気象情報の読み方 — 警報と注意報、解析雨量、気象衛星、アメダス",
-              "paths": [
-                "content/site/civil-practice/weather-information-reading/article.mdx"
-              ],
-              "plan": "new",
-              "note": "2026-10-16 の運営者指示（展開するものはすべて展開する）で、教材の判定し直す候補から足した（DN-0753）"
             }
           ]
         },
