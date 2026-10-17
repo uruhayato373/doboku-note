@@ -108,3 +108,7 @@ test('ops-audit.yml が workflow-health の監視対象に居る', () => {
 test('internally parallel unit suite runs without competing audit workers', () => {
   assert.equal(CHECKS.find((c) => c.id === 'unit-tests').serial, true);
 });
+
+test('generated-indexes waits for audit writers before comparing worktree changes', () => {
+  assert.equal(CHECKS.find((c) => c.id === 'generated-indexes').serial, true);
+});
