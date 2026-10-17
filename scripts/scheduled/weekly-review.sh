@@ -116,6 +116,7 @@ git -C "$REPO" fetch -q origin develop
     node scripts/asset-hydrate.mjs --group kindle-dist
     QUALITY_AUDIT_CONCURRENCY=2 node scripts/check-backlog-verify.mjs
   fi
+  precheck_changes="$(git -c core.quotepath=false status --short)"
   tasks=""
   [ "$weekly_needed" -eq 0 ] || tasks="/weekly-review ${week} と /plan-weekly を実行する。backlog 検証は直前の実行記録を読み、再実行は失敗・変更がある場合だけ。"
   if [ -n "$month" ]; then
@@ -135,6 +136,8 @@ ${tasks}
 - 外部への公開・投稿・送信・購入・価格変更・note やココナラの編集はしない。ログイン済みプロファイルで読むだけの取得（npm run coconala-orders など）は回してよい。
 - commit は変更したファイルだけを pathspec で指定し、git push origin HEAD:develop で積む（push が競合したら git pull --rebase origin develop してやり直す）。git reset・checkout・stash・force push はしない。
 - quality:audit:ci・check-backlog-verify の再実行は終了を待ってから commit・rebase する。生成物の検査中に HEAD を動かすと検査不成立になる。
+- 起動時の専用worktreeはcleanだった。以下は今回の前処理が生成した変更で、他人の変更ではない。レビューとともに各パスを明示して保存・pushし、git status --porcelainが空になるまで終えない（検査記録の時刻更新も対象）:
+${precheck_changes}
 - 週次が実行対象なら、レビューの保存後に /plan-weekly で来週の計画を書き、同じ形でコミットする。月次だけの回では週間計画を再生成しない。
 - 最後に node scripts/check-weekly-review.mjs --week ${week} が exit 0 になることを確かめる。月次も対象なら node scripts/check-monthly-review-due.mjs --month ${month} が exit 0、同コマンドの --due-key が空になることを確かめる。不成立なら欠けた取得・記録を補う。既存 md だけで完了にしない。
 - 最後に、作ったファイル・起票した DN・諮問待ちの件数・未取得の材料を 10 行以内で書いて終える。
@@ -145,6 +148,10 @@ PROMPT
     --allowedTools "Bash Read Write Edit Glob Grep Agent Skill TodoWrite" \
     --disallowedTools "Bash(git reset:*) Bash(git checkout:*) Bash(git stash:*) Bash(git push --force:*) Bash(git push -f:*) Bash(gh pr merge:*) Bash(rm -rf:*)"
 git -C "$REPO" fetch -q origin develop
+if [ -n "$(git -C "$WT" status --porcelain)" ] || [ -n "$(git -C "$WT" log --oneline origin/develop..HEAD)" ]; then
+  echo '[weekly-review] 今回の未保存変更・未 push commit が残る。次回起動を妨げるため完了としない'
+  exit 1
+fi
 node "$WT/scripts/check-weekly-review.mjs" --week "$week" --ref origin/develop
 
 if [ -n "$month" ]; then
