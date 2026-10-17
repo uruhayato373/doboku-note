@@ -150,14 +150,14 @@ async function readPlanner(page, account) {
   await month.waitFor({ state: "visible", timeout: 30_000 });
   await month.click();
   await page.waitForFunction((minimum) => {
-    const labels = [...document.querySelectorAll('*')].filter((n) => n.children.length === 0 && /^\d{1,2}日$/.test((n.textContent || '').trim()));
+    const labels = [...document.querySelectorAll('*')].filter((n) => n.children.length === 0 && n.getBoundingClientRect().width > 0 && n.getBoundingClientRect().height > 0 && /^\d{1,2}日$/.test((n.textContent || '').trim()));
     return new Set(labels.map((n) => n.textContent.trim())).size >= minimum;
   }, MIN_PLANNER_DAYS, { timeout: 30_000 });
   const days = await page.$$eval("*", (ns) =>
-    ns.filter((n) => /^\d{1,2}日$/.test((n.textContent || "").trim()) && n.children.length === 0)
+    ns.filter((n) => /^\d{1,2}日$/.test((n.textContent || "").trim()) && n.children.length === 0 && n.getBoundingClientRect().width > 0 && n.getBoundingClientRect().height > 0)
       .map((n) => { const r = n.getBoundingClientRect(); return { d: n.textContent.trim(), x: Math.round(r.x), y: Math.round(r.y) }; }));
   const chips = await page.$$eval("*", (ns) =>
-    ns.filter((n) => /^\d{1,2}:\d{2}$/.test((n.textContent || "").trim()) && n.children.length === 0)
+    ns.filter((n) => /^\d{1,2}:\d{2}$/.test((n.textContent || "").trim()) && n.children.length === 0 && n.getBoundingClientRect().width > 0 && n.getBoundingClientRect().height > 0)
       .map((n) => { const r = n.getBoundingClientRect(); return { t: n.textContent.trim(), x: Math.round(r.x), y: Math.round(r.y) }; }));
   return plannerSlots(days, chips);
 }

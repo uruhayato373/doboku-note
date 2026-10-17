@@ -13,6 +13,7 @@ title: 計測・検証事故の記録
 - 現象・検出: W42レビューでGSC全体303クリックに対し明細23件、note週次PV欠測、PDF監査の古い記録、画像6画面の欠けが残った。KDPは確定PMRの2,245.00円を224500ページへ変換していた。土曜launchdはレビュー本文の存在だけで正常終了した。
 - 原因: GSC明細を全体の代用にし、noteの描画途中で全展開を終了、CIの添付監査記録を保存対象から除外。画像の全ページ欠落だけを数え、KDPの列単位を表示形式で分けていなかった。外側180秒の制限と検査の多重並列も未検査を生んだ。
 - 対策: GSCはbyProperty全体と部分明細を別取得。同期間noteを全936記事で取得。添付監査は公開API＋不可視分の著者確認を保存。画像はページ×幅の実ファイル数を検証。KDPは明示された既読KENPだけをページ数とし、同名別書籍を落とさない。runnerは5種証跡と検査成立を見て完了判定し、子検査の時間制限・プロセス終了を統一した。
+- 補足: 長い検証の末尾だけを保存したため、全体テスト失敗7件の名前を復元できなかった。検査ごとの全文ログと失敗名を残すよう修正し、単独再検証で失敗箇所を確定した。
 - 回帰ゲート: `node --test tests/growth-pack.test.mjs tests/note-traffic-normalize.test.mjs tests/public-view-browser.test.mjs tests/kdp-report-parsers.test.mjs tests/weekly-review-completion.test.mjs tests/check-execution.test.mjs` の全件成功。対象/実検査数、期間、単位が一致しない値を0や完了へ変換しない。
 
 ## 2026-10-16 — 大きな同期JSONの順序変更と比較時のバッファ不足

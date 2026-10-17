@@ -39,3 +39,14 @@ export function kdpScope(books, accountBookCount, expectedIds) {
     dobokuRoyalty: books.filter((book) => expected.has(book.bookId)).reduce((sum, book) => sum + book.royalty, 0),
   };
 }
+
+/** KENP専用画面の集計表示と全書籍合計が一致する場合だけ既読数を確定する。 */
+export function parseKdpKenpTotal(text, bookCount) {
+  const lines = text.split('\n').map((s) => s.trim()).filter(Boolean);
+  const countsAfter = (label) => lines.flatMap((line, i) => label.test(line) && /^[\d,]+$/.test(lines[i + 1] || '') ? [Number(lines[i + 1].replaceAll(',', ''))] : []);
+  const summaries = countsAfter(/^既読ページ数$/);
+  const totals = countsAfter(new RegExp(`^${bookCount}\\s*冊の本すべて$`));
+  const values = [...summaries, ...totals];
+  if (!summaries.length || !totals.length || new Set(values).size !== 1) throw new Error('KENP集計と全書籍合計を照合できない');
+  return values[0];
+}

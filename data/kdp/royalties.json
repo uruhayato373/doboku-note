@@ -1,7 +1,7 @@
 {
   "version": 1,
   "currency": "JPY",
-  "source": "KDP レポート（kdpreports.amazon.co.jp /royalties + /pmr）を npm run kdp-report で読み取り",
+  "source": "KDP レポート /royalties（書籍別）・/pmr（月別）・/kenpc（既読ページ）を npm run kdp-report で読み取り",
   "caveat": "金額は Amazon 側の推計ロイヤリティ。当月分は estimated:true。KENP は翌月 15 日頃に確定するため、確定後に同月を再取得して上書きする。",
   "months": {
     "2026-07": {
@@ -955,7 +955,7 @@
         "kenp": 2246,
         "royalty": 9988
       },
-      "kenpPagesRead": null,
+      "kenpPagesRead": 6870,
       "marketplaces": [
         {
           "marketplace": "日本",

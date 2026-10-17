@@ -4,14 +4,14 @@ import { selectBacklogVerification } from '../scripts/lib/backlog-verification.m
 
 const card = (id, props = {}) => ({ id, title: id, verify: 'test', when: null, due: null, ...props });
 
-test('future month and future date-only cards are not-due, not inspected or green', () => {
+test('future start months are not-due; a later deadline alone does not postpone active work', () => {
   const result = selectBacklogVerification([
     card('current', { when: '2026-10' }), card('range', { when: '2026-09..2026-12' }),
     card('windows', { when: '2026-12' }), card('future', { due: '2026-10-18' }),
     card('overdue', { when: '2026-12', due: '2026-10-16' }), card('undated'),
   ], '2026-10-17');
-  assert.deepEqual(result.targets.map((c) => c.id), ['current', 'range', 'overdue', 'undated']);
-  assert.deepEqual(result.notDue.map((c) => c.id), ['windows', 'future']);
+  assert.deepEqual(result.targets.map((c) => c.id), ['current', 'range', 'future', 'overdue', 'undated']);
+  assert.deepEqual(result.notDue.map((c) => c.id), ['windows']);
   assert.ok(result.notDue.every((c) => c.reason));
 });
 

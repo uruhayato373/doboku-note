@@ -1,0 +1,35 @@
+{
+  "kind": "review",
+  "qualification": "all",
+  "cadence": "weekly",
+  "period": {
+    "startDate": "2026-10-05",
+    "endDate": "2026-10-11"
+  },
+  "status": "provisional",
+  "snapshot": "data/business/records/snapshot-2026-10-17T00-53-55-894Z-d410549f-88f6-45c2-84d3-e43d026611c0.json",
+  "qualificationsReviewed": [
+    "civil-construction-1",
+    "pe-comprehensive-management",
+    "pe-construction",
+    "rccm"
+  ],
+  "findings": "W40→W41: 自然検索人数3300→2788、note CTA184→67、販売11件31100円→4件17340円。重点4資格の実測と判断は維持。同期間noteは全記事962/936行を展開しPV3734→5362・表示28869→31872、記事別PV合計と全体一致。2級のタイトル部分集計は103記事PV497→556、主任45記事PV293→69。GSCは同条件でbyProperty303/7338、byPage306/7946、page明細23/1727を再現し、方式差とAPI明細省略を区別。全体303を採用し、明細を下限へ訂正。9月受取額はnote89402＋ココナラ13650＋KDP確定9828＝112880円。費用・時間の履歴欠測と10月売上の確定待ちは維持。",
+  "decision": "重点4資格を維持。1級試験後の反動を季節性仮説として区別し、2級の流入維持/クリック減を直前の答案仕上げ・暗記確認導線で観察する。主任技士は8立場の一覧と既存40答案を案内し、生コン/配合計算へ限定しない。10/17介入の効果を今回の窓では判定しない。ユーザー回答によりオリジナル問題のコンクリートiOS企画と10月の公務員転職需要調査へ進め、1級まだ間に合う案を撤回。共通仕様書は既存導線維持。",
+  "nextAction": "同期間PVとGSC全体/部分明細の定義を既存効果確認へ反映。2級/主任技士は既存の10/26・10/31・11/15で比較し、10/17介入・価格変更・露出時期を区別する。Cloudflareは本人の解析トークン登録後にCI再取得（DN-0485）。note同期の安全な日次再開・添付監査と公開照合を確認（DN-0360/0567/0642）。週次観察10/24、10月note確定後11/2以降に再度supersedes訂正。",
+  "experimentIds": [
+    "EXP-008",
+    "EXP-009",
+    "EXP-012",
+    "EXP-014",
+    "EXP-015",
+    "EXP-016",
+    "EXP-017",
+    "EXP-019"
+  ],
+  "nextReviewDate": "2026-11-02",
+  "supersedes": "data/business/records/review-2026-10-16T23-59-45-209Z-60fbf6fb-b9a7-44d4-b146-e8dee442dae7.json",
+  "schemaVersion": 1,
+  "createdAt": "2026-10-17T01:02:30.580Z",
+  "strategyHash": "7da574eadd3ced97551d710fc7d1611f675e276997f4d2fefe1e18aa9a7d42db"
+}

@@ -1,6 +1,12 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { parseKdpMarketplaces, kdpScope } from '../scripts/lib/kdp-report-parsers.mjs';
+import { parseKdpMarketplaces, parseKdpKenpTotal, kdpScope } from '../scripts/lib/kdp-report-parsers.mjs';
+
+test('確定KENPの専用画面で集計と全80冊の合計を照合する', () => {
+  assert.equal(parseKdpKenpTotal('既読ページ数\n6,870\n80 冊の本すべて\n日付\n80 冊の本すべて\n6,870', 80), 6870);
+  assert.throws(() => parseKdpKenpTotal('既読ページ数\n6870\n80 冊の本すべて\n2,245', 80), /照合できない/);
+  assert.throws(() => parseKdpKenpTotal('既読ページ数\n6870', 80), /照合できない/);
+});
 
 test('確定PMRのKENP金額2245.00円を224500ページに変換しない', () => {
   const result = parseKdpMarketplaces('\t日本\tJPY\t7,742.00\t0.00\t0.00\t2,245.00\t9,987.00\t\n\tアメリカ\tUSD\t0.00\t0.00\t0.00\t0.00\t0.00\t');
