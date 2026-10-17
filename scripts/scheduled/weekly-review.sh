@@ -130,6 +130,7 @@ ${tasks}
 これは Mac の launchd から起動したヘッドレスの実行（scripts/scheduled/weekly-review.sh）で、作業場所は専用の worktree（detached HEAD・origin/develop）です。人は見ていません。次を守ってください。
 - 最初に .claude/state/weekly-review/draft.json の markdown（CI が金曜に作った機械の節）を読み、無いか古ければ node scripts/build-weekly-review-draft.mjs --print で作り直す。数字は写し、転記し直さない。
 - AskUserQuestion は使えない。判断待ち（🟣）の諮問は「## バックログの関門」に「諮問待ち（次の対話セッションで諮る）」として背景・選択肢・おすすめを 1 件ずつ書き、行頭に <!-- weekly-review:pending-questions --> を置く。台帳の 🟣 はそのまま残す。
+- 現在の重点は2級土木とコンクリート主任技士のサイト・note教材。主任技士は8立場を維持する。EXP-014・015・016と docs/reviews/critical/2026-10-17-civil2-cce-content-quality.md の公開済み改善を読み、週次・月次の結果と次の一手へ引き継ぐ。POP画像だけをクリック減少の原因と断定しない。
 - SNS はユーザー指示で保留中。X/Instagram/YouTube の公開・予約・追加投入・認証復旧・ブラウザによる取得は行わない。既存の保存データだけ参考にする。サイトと note 教材の改善を優先する。
 - 外部への公開・投稿・送信・購入・価格変更・note やココナラの編集はしない。ログイン済みプロファイルで読むだけの取得（npm run coconala-orders など）は回してよい。
 - commit は変更したファイルだけを pathspec で指定し、git push origin HEAD:develop で積む（push が競合したら git pull --rebase origin develop してやり直す）。git reset・checkout・stash・force push はしない。
