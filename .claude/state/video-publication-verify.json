@@ -1,11 +1,20 @@
 {
   "schemaVersion": 1,
-  "verifiedAt": "2026-10-17T00:29:14.521Z",
+  "verifiedAt": "2026-10-17T06:02:28.409Z",
   "ok": true,
   "reason": null,
-  "checked": 1,
+  "checked": 2,
   "findings": [],
   "entries": {
+    "anzen-touan-gutaika/longform": {
+      "packId": "anzen-touan-gutaika",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "auR8P0pvmlU",
+      "url": "https://youtu.be/auR8P0pvmlU",
+      "ok": true,
+      "problems": []
+    },
     "gakka-2kyu-doko/longform": {
       "packId": "gakka-2kyu-doko",
       "derivative": "longform",
