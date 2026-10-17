@@ -226,7 +226,8 @@ test('GscIndexingRequests: 実データが通り、語彙・集計の不整合�
   // 対象件数は記録件数より 1 少なくする（固定の 1 だと、対象 1 件の実データでは壊れずに素通りした・2026-10-15）
   assertFails(S, broken(r, (x) => { x.targetCount = x.items.length - 1; }), /対象/);
   assertFails(S, broken(r, (x) => { delete x.items[0].reachedVerdict; }), /reachedVerdict/);
-  assertFails(S, broken(r, (x) => { x.mode = 'dry-run'; }), /dry-run/);
+  // 申請しなかった最新 run を dry-run に変えるだけでは違反にならない。申請ありの固定例を使う。
+  assertFails(S, broken(sample('indexing-requests'), (x) => { x.mode = 'dry-run'; }), /dry-run/);
   // ログインできず中断した run（items も summary も無い）は通る
   assert.deepEqual(issues(S, broken(r, (x) => { x.status = 'not-signed-in'; x.items = []; delete x.summary; })), []);
 });

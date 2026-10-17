@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtempSync, mkdirSync, writeFileSync, rmSync } from 'node:fs';
+import { mkdtempSync, mkdirSync, writeFileSync, rmSync, readFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
@@ -32,4 +32,34 @@ test('persistent bootstrap executes committed runner without reading dirty check
 test('plist points to permanent bootstrap and escapes paths for XML', () => {
   const out = renderWeeklyReviewPlist('<string>__BOOTSTRAP__</string><string>__REPO__</string><string>__HOME__</string>', { bootstrapPath: '/stable/job.sh', repoRoot: '/repo & data', homeDir: '/home/"name"' });
   assert.equal(out, '<string>/stable/job.sh</string><string>/repo &amp; data</string><string>/home/&quot;name&quot;</string>');
+});
+
+test('installed runner starts due monthly work even with a complete week, then is idempotent', () => {
+  const tmp = mkdtempSync(join(tmpdir(), 'review-cycle-'));
+  try {
+    const remote = join(tmp, 'origin.git'), repo = join(tmp, 'repo'), home = join(tmp, 'home');
+    const git = (...args) => execFileSync('git', args, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
+    git('init', '--bare', remote); git('clone', remote, repo); git('-C', repo, 'checkout', '-b', 'develop');
+    git('-C', repo, 'config', 'user.name', 'Test'); git('-C', repo, 'config', 'user.email', 'test@example.invalid'); git('-C', repo, 'config', 'core.hooksPath', '/dev/null');
+    const put = (path, text, mode = 0o644) => { mkdirSync(join(repo, path, '..'), { recursive: true }); writeFileSync(join(repo, path), text, { mode }); };
+    put('.gitignore', '/node_modules\n/.env.local\n');
+    put('scripts/lib/review-week.mjs', "export const reviewWeekOfDay=()=> '2026-W42';\n");
+    put('scripts/lib/jst-date.mjs', "export const todayJst=()=> '2026-10-17';\n");
+    put('scripts/check-weekly-review.mjs', 'process.exitCode=0;\n');
+    put('scripts/check-monthly-review-due.mjs', "import {existsSync} from 'node:fs'; const done=existsSync('monthly-done.txt'); if(process.argv.includes('--due-key')) console.log(done?'':'2026-09'); else process.exitCode=done?0:1;\n");
+    put('scripts/report-automation-failure.mjs', 'process.exitCode=0;\n');
+    put('.claude/scripts/build-doc-meta-index.mjs', 'process.exitCode=0;\n');
+    git('-C', repo, 'add', '.gitignore', 'scripts', '.claude'); git('-C', repo, 'commit', '-m', 'fixture'); git('-C', repo, 'push', 'origin', 'develop');
+    mkdirSync(join(home, '.local/bin'), { recursive: true });
+    writeFileSync(join(home, '.local/bin/caffeinate'), '#!/bin/bash\nexit 0\n', { mode: 0o755 });
+    writeFileSync(join(home, '.local/bin/claude'), '#!/bin/bash\nset -eu\n[[ "$2" == *"/monthly-review 2026-09"* ]]\n[[ "$DOBOKU_SNS_PAUSED" == "1" ]]\necho called >> "$HOME/calls"\necho done > monthly-done.txt\ngit add monthly-done.txt\ngit commit -m monthly\ngit push origin HEAD:develop\n', { mode: 0o755 });
+    const runner = new URL('../scripts/scheduled/weekly-review.sh', import.meta.url);
+    const env = { ...process.env, HOME: home, DOBOKU_WEEKLY_REPO: repo };
+    try { execFileSync('/bin/bash', [runner.pathname], { env, timeout: 15000 }); }
+    catch (e) { assert.fail(`${e.message}\n${readFileSync(join(home, 'Library/Logs/doboku-note/weekly-review.log'), 'utf8')}`); }
+    try { execFileSync('/bin/bash', [runner.pathname], { env, timeout: 15000 }); }
+    catch (e) { assert.fail(`${e.message}\n${readFileSync(join(home, 'Library/Logs/doboku-note/weekly-review.log'), 'utf8')}`); }
+    assert.equal(readFileSync(join(home, 'calls'), 'utf8'), 'called\n');
+    assert.equal(git('-C', repo, 'show', 'origin/develop:monthly-done.txt').trim(), 'done');
+  } finally { rmSync(tmp, { recursive: true, force: true }); }
 });
