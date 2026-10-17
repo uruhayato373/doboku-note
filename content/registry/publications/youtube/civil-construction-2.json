@@ -138,7 +138,7 @@
           "digest": "78b279ae189f9fcc3f8d06c4f580704327b1eea45b931ce79dddbbcd37f0ec6f"
         }
       },
-      "status": "scheduled",
+      "status": "published",
       "publishAt": "2026-10-17T20:00:00+09:00",
       "approval": {
         "by": "user",
@@ -148,11 +148,12 @@
       "platform": {
         "id": "GCyAWGoJthU",
         "url": "https://youtu.be/GCyAWGoJthU",
-        "privacy": "private",
+        "privacy": "public",
         "evidence": {
-          "kind": "youtube-studio",
-          "ref": "https://studio.youtube.com/video/GCyAWGoJthU/edit — 2026-10-15確認:「この動画は 2026年10月17日 20:00 に 公開 に設定されます」(GMT+0900)"
-        }
+          "kind": "youtube-api",
+          "ref": "videos.list@2026-10-17T17:55:50.263Z"
+        },
+        "publishedAt": "2026-10-17T11:00:32.000Z"
       },
       "times": {
         "rendered": "2026-10-15T12:27:34.659Z",

@@ -1,11 +1,20 @@
 {
   "schemaVersion": 1,
-  "verifiedAt": "2026-10-17T06:02:28.409Z",
+  "verifiedAt": "2026-10-17T17:55:51.072Z",
   "ok": true,
   "reason": null,
-  "checked": 2,
+  "checked": 3,
   "findings": [],
   "entries": {
+    "anzen-touan-gutaika-kaitei/longform": {
+      "packId": "anzen-touan-gutaika-kaitei",
+      "derivative": "longform",
+      "status": "published",
+      "videoId": "GCyAWGoJthU",
+      "url": "https://youtu.be/GCyAWGoJthU",
+      "ok": true,
+      "problems": []
+    },
     "anzen-touan-gutaika/longform": {
       "packId": "anzen-touan-gutaika",
       "derivative": "longform",
