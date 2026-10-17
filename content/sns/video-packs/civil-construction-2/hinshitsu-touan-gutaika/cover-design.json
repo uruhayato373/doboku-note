@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-2",
+      "headline": [
+        "品質管理",
+        "試験だけで",
+        "終わらない"
+      ],
+      "accentLine": 1,
+      "subtitle": "現場条件から書く",
+      "character": {
+        "pose": "checklist-pen",
+        "frame": "waist"
+      },
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監・元発注者"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/cover.6d461a7d.png",
+        "sha256": "6d461a7d29270911cbdeb4202056e9196493c0cfbae69dad97c351c3257c8fe5",
+        "specSha256": "1cdeb6c4301345b4662eeb611aae13f16f3ba4828aa6431b500954a906d7fc9b"
+      }
+    }
+  }
+}

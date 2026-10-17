@@ -1,0 +1,209 @@
+{
+  "policy": ".claude/knowledge/reference/pop-image-policy.md",
+  "designVersion": "pop-poster-v3",
+  "images": [
+    {
+      "role": "cover",
+      "mediaId": "civil-construction-2/touan-teishutsu-check/youtube.longform/cover",
+      "copy": [
+        "2級土木",
+        "答案の見直し",
+        "つながりを最後に確認",
+        "条件・処置・結果を照合",
+        "総監・元発注者",
+        "1級・2級土木合格者"
+      ],
+      "references": [
+        {
+          "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/cover.6d461a7d.png",
+          "sha256": "6d461a7d29270911cbdeb4202056e9196493c0cfbae69dad97c351c3257c8fe5"
+        }
+      ],
+      "prompt": "Create ONE landscape16:9 Japanese emerald-green POP YouTube thumbnail intended1920×1080. Supplied image is STYLE and CHARACTER REFERENCE ONLY, not text to copy. Same mature Japanese male teacher: short black hair, black rectangular glasses, light beard, plain white helmet, navy workwear, yellow straps. EXACTLY TWO arms and TWO hands, anatomically natural. Continuous illustrated green construction background to all edges. Huge target label「2級土木」upper left. Smaller yellow author badge「総監・元発注者」「1級・2級土木合格者」in a separate region. Huge outlined dark-green topic text, red secondary headline. Keep ALL text in TOP THREE-QUARTERS of canvas, subtitle at y=70%. Bottom25% is continuous green illustration and teacher torso with NO TEXT, not blank. Face and text never clipped. Bold Japanese lettering readable at width360px. No extra words, URL, logo, price, dates, scores, guarantee. Topic「答案の見直し」. Red two-line headline「つながりを」「最後に確認」. Subtitle「条件・処置・結果を照合」. Pose: one hand holding an unlettered answer sheet, other hand checking with a red pen. Only TWO hands, neither hand touches face.",
+      "generator": {
+        "tool": "image_gen",
+        "model": "not-reported-by-tool"
+      },
+      "format": {
+        "width": 1920,
+        "height": 1080
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/youtube.longform/cover.b7b1ad72.png",
+        "sha256": "b7b1ad72d2d9a8bdd1233bbbacd066e9f02c3f50525d7a69c8018d95727ec77a"
+      },
+      "normalization": "sharpによる1920×1080 RGBへの寸法正規化のみ",
+      "review": {
+        "status": "ok",
+        "by": "ai-image-fidelity-auditor",
+        "at": "2026-10-15T23:07:27.924Z",
+        "scope": "原寸と幅360pxの文言・人体・図形・参照キャラクター整合"
+      },
+      "generatedSource": {
+        "path": ".tmp/video-render/touan-teishutsu-check/source-generated-cover.png",
+        "sha256": "2de7f2d7e0e7f896e793c724325458bdd0e0deda512be0c07bab16dd82c2c40a"
+      }
+    },
+    {
+      "role": "cta",
+      "mediaId": "civil-construction-2/touan-teishutsu-check/youtube.longform/cta",
+      "sourceMediaId": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/cta",
+      "copy": [
+        "2級土木",
+        "施工経験記述",
+        "完成答案集",
+        "安全・品質・工程",
+        "自分の経験に置き換えて練習",
+        "概要欄から確認",
+        "総監・元発注者",
+        "1級・2級土木合格者"
+      ],
+      "references": [
+        {
+          "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/cta.4a212462.png",
+          "sha256": "4a2124622b99d35b3396c9d5764e066d5ac0d06891e368b481ca232189f88e2b"
+        }
+      ],
+      "prompt": "Edit the attached finished 16:9 landscape closing card for a Japanese educational video. Maintain the green pop-poster-v3 design and EXACT identity/anatomy of the teacher: plain white helmet, black rectangular glasses, short beard, navy workwear, one hand naturally pointing toward the CTA and the other holding answer sheets. Preserve these six text strings verbatim, once each: 「2級土木」「施工経験記述」「完成答案集」「安全・品質・工程」「自分の経験に置き換えて練習」「概要欄から確認」. Replace the old single line 「総監が制作」 with a TWO-LINE yellow credentials badge near the top: line 1 「総監・元発注者」, line 2 「1級・2級土木合格者」. This badge gives author credentials, clearly subordinate to the biggest target label 「2級土木」, with bold readable typography rather than tiny text. Reflow top heading and badge to avoid collisions; keep main title and CTA readable. Do not claim direct personal review, guaranteed passing, grading authority or teaching results. Add no other words, URL, logo, price or symbols. All important text and the pointing finger stay inside the canvas, all text and yellow CTA strip fully ABOVE 82% height. Bottom 18% only contains continuous illustrated green background and teacher torso, NOT a blank stripe. Preserve exactly five fingers per hand and the existing correct pointing pose. One polished landscape image intended 1920×1080, not a sheet or comparison.",
+      "generator": {
+        "tool": "image_gen",
+        "reuse": true
+      },
+      "format": {
+        "width": 1920,
+        "height": 1080
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/youtube.longform/cta.4a212462.png",
+        "sha256": "4a2124622b99d35b3396c9d5764e066d5ac0d06891e368b481ca232189f88e2b"
+      },
+      "review": {
+        "status": "ok",
+        "by": "ai-image-fidelity-auditor",
+        "at": "2026-10-15T23:07:27.924Z",
+        "scope": "原寸と幅360pxの文言・人体・図形・参照キャラクター整合"
+      }
+    }
+  ],
+  "authorization": {
+    "request": "5本ほど予約投稿してほしい　品質チェックしながら確実に",
+    "scope": "追加5本の制作・品質確認・YouTube予約投稿・台帳と管理画面への反映"
+  },
+  "contentQa": {
+    "avg": 3,
+    "blocks": 0,
+    "by": "video-content-qa",
+    "at": "2026-10-16",
+    "scope": "台本・storyboard・出典・商品導線"
+  },
+  "completedVideoReview": {
+    "by": "codex",
+    "at": "2026-10-15T23:07:27.924Z",
+    "packId": "touan-teishutsu-check",
+    "duration": 126.9,
+    "video": {
+      "codec": "h264",
+      "width": 1920,
+      "height": 1080
+    },
+    "audio": {
+      "codec": "aac",
+      "sampleRate": "24000"
+    },
+    "scenesChecked": 14,
+    "scenesExpected": 14,
+    "maxFrameMae": 2.691420025664251,
+    "audioInputsVerified": 14,
+    "blackOrLongSilence": 0,
+    "comparisons": [
+      {
+        "sceneId": "cover",
+        "time": 1.1786665,
+        "mae": 2.691420025664251
+      },
+      {
+        "sceneId": "hook",
+        "time": 6.821333000000001,
+        "mae": 0.3590338164251208
+      },
+      {
+        "sceneId": "authority",
+        "time": 15.733333000000002,
+        "mae": 0.3490287213164251
+      },
+      {
+        "sceneId": "premise",
+        "time": 24.933333,
+        "mae": 0.39112639643719804
+      },
+      {
+        "sceneId": "question",
+        "time": 34.4746665,
+        "mae": 0.4088922856280193
+      },
+      {
+        "sceneId": "reason",
+        "time": 43.54666649999999,
+        "mae": 0.4060090202294686
+      },
+      {
+        "sceneId": "connection",
+        "time": 52.485333,
+        "mae": 0.41880698973429953
+      },
+      {
+        "sceneId": "example",
+        "time": 62.229333,
+        "mae": 0.40489338013285026
+      },
+      {
+        "sceneId": "result",
+        "time": 72.13866649999999,
+        "mae": 0.42302838164251205
+      },
+      {
+        "sceneId": "facts",
+        "time": 82.0693335,
+        "mae": 0.4459782608695652
+      },
+      {
+        "sceneId": "role",
+        "time": 91.52533349999999,
+        "mae": 0.3850703879830918
+      },
+      {
+        "sceneId": "reread",
+        "time": 101.01866649999998,
+        "mae": 0.3346329634661836
+      },
+      {
+        "sceneId": "summary",
+        "time": 111.3439995,
+        "mae": 0.27483639039855073
+      },
+      {
+        "sceneId": "cta",
+        "time": 121.70666599999998,
+        "mae": 2.4079085522342996
+      }
+    ],
+    "visualInspection": "全場面の完成動画フレームで文字切れ・字幕との重なりを確認",
+    "pronunciationInspection": "全場面のVOICEVOX読み解析と入力ハッシュを確認（全編の人による試聴ではない）",
+    "subtitleSafeArea": "生成画像は指定20%の無文字域を満たさないため、完成字幕を含むフレームで主要文字との干渉がないことを確認",
+    "videoSha256": "7d40ff2275ab459ffae0f8b11fae25d9f63d44c43585e59a64c178240ab30d48"
+  },
+  "renderRecipe": {
+    "bodyImages": "storyboardのpoints/sheet/compareを描画。全画像を1920×1080 RGBに正規化後、--resumeで合成。",
+    "voice": "VOICEVOX:青山龍星",
+    "command": "PATH=/opt/homebrew/opt/ffmpeg-full/bin:$PATH npm run render-longform -- --pack-dir content/sns/video-packs/civil-construction-2/touan-teishutsu-check --speaker 13 --resume",
+    "normalization": "ffmpeg loudnorm I=-16:TP=-1.5:LRA=11; AAC 24000Hz, 192k; video stream copy",
+    "storage": {
+      "status": "cloud-verified",
+      "contentMedia": 21,
+      "renderArtifacts": 37,
+      "sha256Verified": 58,
+      "cloudMd5Verified": 58,
+      "at": "2026-10-15T23:07:28.140Z"
+    }
+  }
+}

@@ -1,0 +1,332 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 2,
+      "narration": "工程管理を具体化。",
+      "caption": "工程管理を具体化。",
+      "visual": {
+        "kind": "cover",
+        "heading": "増員した、だけで終わらせない",
+        "items": [
+          "2級土木｜工程管理",
+          "遅延原因から処置を考える"
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集/工程管理/article.md"
+    },
+    {
+      "sceneId": "hook",
+      "start": 2,
+      "end": 10,
+      "narration": "「増員した」だけの答案になっていませんか。遅れの原因と影響する工種から、処置の理由を説明します。",
+      "caption": "「増員した」だけの答案になっていませんか。遅れの原因と影響する工種から、処置の理由を説明します。",
+      "visual": {
+        "kind": "points",
+        "heading": "増員の前に、遅れの原因を整理",
+        "items": [
+          "何が遅れの原因か",
+          "どの工種に影響するか",
+          "だから、どの処置を選ぶか"
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集/工程管理/article.md"
+    },
+    {
+      "sceneId": "authority",
+      "start": 10,
+      "end": 21,
+      "narration": "技術士の総合技術監理部門と、1級・2級土木に合格した元発注者が、工程管理の書き方を解説します。",
+      "caption": "技術士の総合技術監理部門と、1級・2級土木に合格した元発注者が、工程管理の書き方を解説します。",
+      "visual": {
+        "kind": "points",
+        "heading": "解説：架（かける）",
+        "items": [
+          "技術士（総合技術監理部門）",
+          "元・地方自治体の土木職（発注者）",
+          "1級・2級土木施工管理技士 合格"
+        ]
+      },
+      "sourceRef": "src/config/author.ts"
+    },
+    {
+      "sceneId": "premise",
+      "start": 21,
+      "end": 31,
+      "narration": "人が足りない遅れと、材料を待つ遅れでは、必要な処置が違います。人数を増やす前に、止まる理由を探します。",
+      "caption": "人が足りない遅れと、材料を待つ遅れでは、必要な処置が違います。人数を増やす前に、止まる理由を探します。",
+      "visual": {
+        "kind": "compare",
+        "heading": "同じ「遅れ」でも、理由は違う",
+        "ngLabel": "処置だけ",
+        "okLabel": "理由まで",
+        "rows": [
+          {
+            "ng": "とりあえず増員",
+            "ok": "人手不足か\n材料待ちかを確かめる"
+          }
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集/工程管理/article.md"
+    },
+    {
+      "sceneId": "delay",
+      "start": 31,
+      "end": 42,
+      "narration": "小規模な道路の排水工事を想定します。一部の側溝製品の納入が遅れ、据付を始められない場面です。",
+      "caption": "小規模な道路の排水工事を想定します。一部の側溝製品の納入が遅れ、据付を始められない場面です。",
+      "visual": {
+        "kind": "sheet",
+        "heading": "仮の例：製品が届かず、据付待ち",
+        "sheetTitle": "道路排水工事の仮の例",
+        "rows": [
+          {
+            "label": "遅延原因",
+            "value": "側溝製品の納入待ち",
+            "state": "focus",
+            "order": 1
+          },
+          {
+            "label": "影響工種",
+            "value": "据付と、その後の埋戻し",
+            "state": "todo",
+            "order": 2
+          },
+          {
+            "label": "検討・処置",
+            "value": "条件がそろう別区間を先行",
+            "state": "todo",
+            "order": 3
+          },
+          {
+            "label": "結果の確認",
+            "value": "工程表で計画と実績を照合",
+            "state": "todo",
+            "order": 4
+          }
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集/工程管理/article.md"
+    },
+    {
+      "sceneId": "affected",
+      "start": 42,
+      "end": 53,
+      "narration": "この例では、側溝を据え付けてから、その周囲を埋め戻す順序です。据付の遅れが、埋戻しにも影響します。",
+      "caption": "この例では、側溝を据え付けてから、その周囲を埋め戻す順序です。据付の遅れが、埋戻しにも影響します。",
+      "visual": {
+        "kind": "points",
+        "heading": "その遅れは、次の作業に影響する",
+        "items": [
+          "側溝製品の納入待ち",
+          "側溝の据付が遅れる",
+          "後続の埋戻しも遅れる"
+        ],
+        "reveal": 3,
+        "focus": 2
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集/工程管理/article.md"
+    },
+    {
+      "sceneId": "bottleneck",
+      "start": 53,
+      "end": 63,
+      "narration": "材料待ちの区間に人を増やしても、据付は始められません。工程表で、待つ作業と、先に進められる作業を分けます。",
+      "caption": "材料待ちの区間に人を増やしても、据付は始められません。工程表で、待つ作業と、先に進められる作業を分けます。",
+      "visual": {
+        "kind": "compare",
+        "heading": "材料待ちなら、増員だけでは進まない",
+        "ngLabel": "処置だけ",
+        "okLabel": "理由まで",
+        "rows": [
+          {
+            "ng": "据付待ちの区間へ増員",
+            "ok": "先に進められる\n作業を探す"
+          }
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集/工程管理/article.md"
+    },
+    {
+      "sceneId": "options",
+      "start": 63,
+      "end": 75,
+      "narration": "納入の見込みを確認し、材料がそろった別区間を先に施工できるか検討します。作業の順序を変えられるかが焦点です。",
+      "caption": "納入の見込みを確認し、材料がそろった別区間を先に施工できるか検討します。作業の順序を変えられるかが焦点です。",
+      "visual": {
+        "kind": "sheet",
+        "heading": "待つ区間と、先に進める区間を分ける",
+        "sheetTitle": "道路排水工事の仮の例",
+        "rows": [
+          {
+            "label": "遅延原因",
+            "value": "側溝製品の納入待ち",
+            "state": "done",
+            "order": 1
+          },
+          {
+            "label": "影響工種",
+            "value": "据付と、その後の埋戻し",
+            "state": "done",
+            "order": 2
+          },
+          {
+            "label": "検討・処置",
+            "value": "条件がそろう別区間を先行",
+            "state": "focus",
+            "order": 3
+          },
+          {
+            "label": "結果の確認",
+            "value": "工程表で計画と実績を照合",
+            "state": "todo",
+            "order": 4
+          }
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集/工程管理/article.md"
+    },
+    {
+      "sceneId": "conditions",
+      "start": 75,
+      "end": 86,
+      "narration": "ただし、別区間なら何でも先行できるわけではありません。安全な作業場所、機械の配置、品質上の手順を確かめます。",
+      "caption": "ただし、別区間なら何でも先行できるわけではありません。安全な作業場所、機械の配置、品質上の手順を確かめます。",
+      "visual": {
+        "kind": "points",
+        "heading": "先行施工には、条件の確認が必要",
+        "items": [
+          "安全に作業できる場所か",
+          "機械の配置が重ならないか",
+          "品質を守る手順を保てるか"
+        ],
+        "reveal": 3
+      },
+      "sourceRef": "content/sns/video-packs/civil-construction-2/kotei-touan-gutaika/script.md"
+    },
+    {
+      "sceneId": "execution",
+      "start": 86,
+      "end": 96,
+      "narration": "条件がそろう区間を先に施工する段取りを組み、関係者と共有します。答案では、変更した順序とその理由を示します。",
+      "caption": "条件がそろう区間を先に施工する段取りを組み、関係者と共有します。答案では、変更した順序とその理由を示します。",
+      "visual": {
+        "kind": "sheet",
+        "heading": "どこを、どの順序に変えるか",
+        "sheetTitle": "仮の例：段取りの整理",
+        "rows": [
+          {
+            "label": "待つ区間",
+            "value": "納入見込みを確認",
+            "state": "done"
+          },
+          {
+            "label": "先行区間",
+            "value": "材料・安全・施工条件を確認",
+            "state": "done"
+          },
+          {
+            "label": "順序変更",
+            "value": "先行区間の作業を関係者と共有",
+            "state": "focus"
+          }
+        ]
+      },
+      "sourceRef": "content/sns/video-packs/civil-construction-2/kotei-touan-gutaika/script.md"
+    },
+    {
+      "sceneId": "followup",
+      "start": 96,
+      "end": 107,
+      "narration": "順序を変えた後も、計画と実績を比べます。どの作業の待ち時間が減り、後続工種にどう影響したかを確認します。",
+      "caption": "順序を変えた後も、計画と実績を比べます。どの作業の待ち時間が減り、後続工種にどう影響したかを確認します。",
+      "visual": {
+        "kind": "sheet",
+        "heading": "処置の後に、工程がどう変わったか",
+        "sheetTitle": "道路排水工事の仮の例",
+        "rows": [
+          {
+            "label": "遅延原因",
+            "value": "側溝製品の納入待ち",
+            "state": "done",
+            "order": 1
+          },
+          {
+            "label": "影響工種",
+            "value": "据付と、その後の埋戻し",
+            "state": "done",
+            "order": 2
+          },
+          {
+            "label": "検討・処置",
+            "value": "条件がそろう別区間を先行",
+            "state": "done",
+            "order": 3
+          },
+          {
+            "label": "結果の確認",
+            "value": "工程表で計画と実績を照合",
+            "state": "focus",
+            "order": 4
+          }
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集/工程管理/article.md"
+    },
+    {
+      "sceneId": "own-work",
+      "start": 107,
+      "end": 117,
+      "narration": "自分の工事では、何が遅れ、どこへ影響しましたか。人数や日数は記録で確かめ、実施した処置と結果を結びましょう。",
+      "caption": "自分の工事では、何が遅れ、どこへ影響しましたか。人数や日数は記録で確かめ、実施した処置と結果を結びましょう。",
+      "visual": {
+        "kind": "points",
+        "heading": "自分の記録から、答案を具体化",
+        "items": [
+          "原因と影響工種をつなぐ",
+          "処置を選んだ理由を示す",
+          "工程表・日報で結果を確かめる"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 117,
+      "end": 127,
+      "narration": "まとめです。原因、影響工種、処置の順に考える。増員した事実だけでなく、なぜその方法を選んだかを伝えましょう。",
+      "caption": "まとめです。原因、影響工種、処置の順に考える。増員した事実だけでなく、なぜその方法を選んだかを伝えましょう。",
+      "visual": {
+        "kind": "points",
+        "heading": "工程管理は、処置の理由まで書く",
+        "items": [
+          "遅延原因：何で止まったか",
+          "影響工種：次に何が遅れるか",
+          "検討・処置：理由と結果を示す"
+        ],
+        "reveal": 3,
+        "focus": 2
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集/工程管理/article.md"
+    },
+    {
+      "sceneId": "cta",
+      "start": 127,
+      "end": 139,
+      "narration": "元発注者・土木合格者がつくる完成答案集です。安全・品質・工程の答案と置換ガイドは、概要欄からご覧ください。",
+      "caption": "元発注者・土木合格者がつくる完成答案集です。安全・品質・工程の答案と置換ガイドは、概要欄からご覧ください。",
+      "visual": {
+        "kind": "points",
+        "heading": "工種とテーマに合わせて練習",
+        "items": [
+          "2級土木 施工経験記述 完成答案集",
+          "安全・品質・工程の答案＋置換ガイド",
+          "概要欄のnoteマガジンへ"
+        ]
+      },
+      "sourceRef": "config/products.json"
+    }
+  ]
+}

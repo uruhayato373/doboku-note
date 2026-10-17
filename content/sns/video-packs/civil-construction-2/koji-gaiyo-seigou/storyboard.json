@@ -1,0 +1,282 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 2,
+      "narration": "工事概要と本文の照合。",
+      "caption": "工事概要と本文の照合。",
+      "visual": {
+        "kind": "cover",
+        "heading": "工事概要｜本文とのズレを防ぐ",
+        "items": [
+          "2級土木｜施工経験記述",
+          "工種・工期と施工量・立場を照合"
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/工事概要の書き方/article.md"
+    },
+    {
+      "sceneId": "hook",
+      "start": 2,
+      "end": 12,
+      "narration": "工事概要と本文が食い違っていませんか。工種、工期・施工量、立場の3つを照合する順序を説明します。",
+      "caption": "工事概要と本文が食い違っていませんか。工種、工期・施工量、立場の3つを照合する順序を説明します。",
+      "visual": {
+        "kind": "points",
+        "heading": "概要と本文を、3組で照合",
+        "items": [
+          "工種と、本文で扱う作業",
+          "工期・施工量と、本文の範囲",
+          "立場と、自分の判断・行動"
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/工事概要の書き方/article.md"
+    },
+    {
+      "sceneId": "authority",
+      "start": 12,
+      "end": 22,
+      "narration": "総合技術監理部門の技術士で、1級・2級土木に合格した元発注者が、書いた内容を見直す視点を解説します。",
+      "caption": "総合技術監理部門の技術士で、1級・2級土木に合格した元発注者が、書いた内容を見直す視点を解説します。",
+      "visual": {
+        "kind": "points",
+        "heading": "解説：架（かける）",
+        "items": [
+          "技術士（総合技術監理部門）",
+          "元・地方自治体の土木職（発注者）",
+          "1級・2級土木施工管理技士 合格"
+        ]
+      },
+      "sourceRef": "src/config/author.ts"
+    },
+    {
+      "sceneId": "premise",
+      "start": 22,
+      "end": 33,
+      "narration": "工事概要は、本文で扱う工事の前提です。欄を埋めたあと、同じ工事の話としてつながるかを確かめましょう。",
+      "caption": "工事概要は、本文で扱う工事の前提です。欄を埋めたあと、同じ工事の話としてつながるかを確かめましょう。",
+      "visual": {
+        "kind": "sheet",
+        "heading": "工事概要は、本文を読む前提",
+        "sheetTitle": "同じ工事として、つながりを確認",
+        "rows": [
+          {
+            "label": "工事概要",
+            "value": "どんな工事で、何を担当したか"
+          },
+          {
+            "label": "本文",
+            "value": "その工事で、何を考え、行ったか"
+          }
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/工事概要の書き方/article.md"
+    },
+    {
+      "sceneId": "work-type",
+      "start": 33,
+      "end": 44,
+      "narration": "1つ目は工種です。本文で取り上げた作業が、概要のどの工種に当たるか。まず、作業名に印を付けて照合します。",
+      "caption": "1つ目は工種です。本文で取り上げた作業が、概要のどの工種に当たるか。まず、作業名に印を付けて照合します。",
+      "visual": {
+        "kind": "points",
+        "heading": "照合1：本文の作業は、どの工種か",
+        "items": [
+          "本文の作業名に印を付ける",
+          "対応する概要の工種を探す",
+          "書き漏れ・別工事の混入を見直す"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "work-example",
+      "start": 44,
+      "end": 55,
+      "narration": "考え方の例です。道路改良工事で排水路の掘削を語るなら、概要にも、その排水構造物工が含まれるか確かめます。",
+      "caption": "考え方の例です。道路改良工事で排水路の掘削を語るなら、概要にも、その排水構造物工が含まれるか確かめます。",
+      "visual": {
+        "kind": "sheet",
+        "heading": "考え方の例：工事名だけで止めない",
+        "sheetTitle": "概要と本文の対応メモ（仮例）",
+        "rows": [
+          {
+            "label": "工事名",
+            "value": "道路改良工事",
+            "state": "done"
+          },
+          {
+            "label": "主な工種",
+            "value": "排水構造物工",
+            "state": "focus"
+          },
+          {
+            "label": "本文の作業",
+            "value": "排水路の掘削",
+            "state": "focus"
+          }
+        ]
+      },
+      "sourceRef": "content/sns/video-packs/civil-construction-2/koji-gaiyo-seigou/script.md"
+    },
+    {
+      "sceneId": "quantity",
+      "start": 55,
+      "end": 66,
+      "narration": "2つ目は工期と施工量です。工事全体の数量と、本文で扱う区間の数量を区別し、数値だけでなく単位も照合します。",
+      "caption": "2つ目は工期と施工量です。工事全体の数量と、本文で扱う区間の数量を区別し、数値だけでなく単位も照合します。",
+      "visual": {
+        "kind": "sheet",
+        "heading": "照合2：数量が示す範囲を区別",
+        "sheetTitle": "範囲・数量・単位を照合",
+        "rows": [
+          {
+            "label": "工事概要",
+            "value": "工事全体の工種別数量・単位"
+          },
+          {
+            "label": "本文",
+            "value": "扱う区間・作業の数量・単位"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "period",
+      "start": 66,
+      "end": 77,
+      "narration": "工期については、本文の作業時期がその期間に入るか確認します。冬の作業を語るなら、実際の施工日も記録で確かめます。",
+      "caption": "工期については、本文の作業時期がその期間に入るか確認します。冬の作業を語るなら、実際の施工日も記録で確かめます。",
+      "visual": {
+        "kind": "sheet",
+        "heading": "作業時期は、工期の中にあるか",
+        "sheetTitle": "記録と照らす項目",
+        "rows": [
+          {
+            "label": "工事概要",
+            "value": "工期の始まりと終わり",
+            "state": "done"
+          },
+          {
+            "label": "本文",
+            "value": "取り上げた作業の時期",
+            "state": "focus"
+          },
+          {
+            "label": "工事記録",
+            "value": "実際の施工日・季節",
+            "state": "focus"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "role",
+      "start": 77,
+      "end": 88,
+      "narration": "3つ目は立場です。概要に書いた担当と、本文の判断や行動を照合します。上司や他の担当者が実施したことと分けます。",
+      "caption": "3つ目は立場です。概要に書いた担当と、本文の判断や行動を照合します。上司や他の担当者が実施したことと分けます。",
+      "visual": {
+        "kind": "sheet",
+        "heading": "照合3：誰の判断・行動か",
+        "sheetTitle": "立場と担当の整理",
+        "rows": [
+          {
+            "label": "概要の立場",
+            "value": "自分の担当範囲",
+            "state": "focus"
+          },
+          {
+            "label": "本文の判断",
+            "value": "誰が決めたか",
+            "state": "todo"
+          },
+          {
+            "label": "本文の行動",
+            "value": "自分が何をしたか",
+            "state": "todo"
+          }
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/工事概要の書き方/article.md"
+    },
+    {
+      "sceneId": "verb",
+      "start": 88,
+      "end": 99,
+      "narration": "自分が測定したのか、測定を指示したのか。どちらも同じ言葉で済ませず、実際の担当に合う動詞で書き分けましょう。",
+      "caption": "自分が測定したのか、測定を指示したのか。どちらも同じ言葉で済ませず、実際の担当に合う動詞で書き分けましょう。",
+      "visual": {
+        "kind": "sheet",
+        "heading": "実際の担当に合う動詞を使う",
+        "sheetTitle": "担当による書き分けの例",
+        "rows": [
+          {
+            "label": "実施した場合",
+            "value": "自分が測定した"
+          },
+          {
+            "label": "指示した場合",
+            "value": "測定を指示した"
+          }
+        ]
+      },
+      "sourceRef": "content/sns/video-packs/civil-construction-2/koji-gaiyo-seigou/script.md"
+    },
+    {
+      "sceneId": "own-work",
+      "start": 99,
+      "end": 110,
+      "narration": "自分の答案で、工種、時期と数量、担当を線で結んでみましょう。迷う箇所は工事記録に戻り、思い込みで補いません。",
+      "caption": "自分の答案で、工種、時期と数量、担当を線で結んでみましょう。迷う箇所は工事記録に戻り、思い込みで補いません。",
+      "visual": {
+        "kind": "points",
+        "heading": "自分の答案で、線を結んでみる",
+        "items": [
+          "工種と作業が対応しているか",
+          "時期・数量の範囲が合っているか",
+          "担当と行動が一致しているか"
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/工事概要の書き方/article.md"
+    },
+    {
+      "sceneId": "summary",
+      "start": 110,
+      "end": 122,
+      "narration": "まとめです。工種と作業、工期・施工量と本文の範囲、立場と行動。この3組を、経験した事実に照らして見直します。",
+      "caption": "まとめです。工種と作業、工期・施工量と本文の範囲、立場と行動。この3組を、経験した事実に照らして見直します。",
+      "visual": {
+        "kind": "points",
+        "heading": "3組を、経験した事実で確かめる",
+        "items": [
+          "工種 ↔ 本文の作業",
+          "工期・施工量 ↔ 本文の範囲",
+          "立場 ↔ 自分の判断・行動"
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/工事概要の書き方/article.md"
+    },
+    {
+      "sceneId": "cta",
+      "start": 122,
+      "end": 134,
+      "narration": "概要から本文へのつなぎ方を、完成答案で学べます。安全・品質・工程の答案と置換ガイドは、概要欄をご覧ください。",
+      "caption": "概要から本文へのつなぎ方を、完成答案で学べます。安全・品質・工程の答案と置換ガイドは、概要欄をご覧ください。",
+      "visual": {
+        "kind": "points",
+        "heading": "概要から本文へのつなぎ方を学ぶ",
+        "items": [
+          "2級土木 施工経験記述 完成答案集",
+          "安全・品質・工程の答案＋置換ガイド",
+          "概要欄のnoteマガジンへ"
+        ]
+      },
+      "sourceRef": "config/products.json"
+    }
+  ]
+}

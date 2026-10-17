@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-2",
+      "headline": [
+        "工事概要",
+        "本文との",
+        "ズレを防ぐ"
+      ],
+      "accentLine": 1,
+      "subtitle": "工種・数量・立場を確認",
+      "character": {
+        "pose": "checklist-pen",
+        "frame": "waist"
+      },
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監・元発注者"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/youtube.longform/cover.0ab5a456.png",
+        "sha256": "0ab5a456662b1bc42a8d3a3420afe64298c91524f6f8e09c0416445866e3595f",
+        "specSha256": "35d7f5128f033eccc397070f2b62b20b5a1ec9042bc8f2a5d7d57b1675de56d0"
+      }
+    }
+  }
+}
