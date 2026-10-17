@@ -1283,6 +1283,30 @@
       "reason": "参照と同じ人物が赤ペンと無地の白紙を自然な指・手首で保持し、紙に文字や線がなく、背景の透過と帽子・顔・手指・小物の切れがないことを確認した。",
       "reviewedAt": "2026-10-10T14:51:49.957Z"
     },
+    "media:civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/cover": {
+      "sha": "ba16defd11a2f673",
+      "verdict": "ok",
+      "reason": "参照キャラクターの顔・短髪・眼鏡・ひげ・白いヘルメット・紺の作業服を保ち、赤ペンと答案を持つ両手および安全管理の指定6文字列に破綻・誤字がない。",
+      "reviewedAt": "2026-10-17T06:04:25.225Z"
+    },
+    "media:civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/cta": {
+      "sha": "4a2124622b99d35b",
+      "verdict": "ok",
+      "reason": "参照キャラクターと整合する顔・服装、CTAを指す手と答案を持つ手が自然で、完成答案集への案内と指定8文字列が各動画の施工経験記述の用途に合う。",
+      "reviewedAt": "2026-10-17T06:04:25.228Z"
+    },
+    "media:civil-construction-2/anzen-touan-gutaika/youtube.longform/cover": {
+      "sha": "dc301708ac15a33e",
+      "verdict": "ok",
+      "reason": "参照キャラクターの顔・眼鏡・ひげ・服装、赤ペンと答案を持つ両手が自然で、安全管理と総監が解説を含む指定5文字列に誤字・重複がない。",
+      "reviewedAt": "2026-10-17T06:04:25.228Z"
+    },
+    "media:civil-construction-2/anzen-touan-gutaika/youtube.longform/cta": {
+      "sha": "e30cc205813f8316",
+      "verdict": "ok",
+      "reason": "参照キャラクターの顔・服装とCTAを指す手・答案を持つ手が自然で、総監が制作を含む指定7文字列が施工経験記述の完成答案集への案内に合う。",
+      "reviewedAt": "2026-10-17T06:04:25.228Z"
+    },
     "media:civil-construction-2/character-10-a/x.post.t07/cover": {
       "sha": "7d9cdf3f06f2681d",
       "verdict": "ok",
@@ -1397,6 +1421,72 @@
       "reason": "今回の全面版を確認し、4テーマとL・Cの表記が指示どおりで、土試料・ダンプ・前鉄輪と後タイヤのローラ・草のある土の斜面、先生の指示棒と手が自然である。",
       "reviewedAt": "2026-10-12T04:15:54.827Z"
     },
+    "media:civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/body-reference": {
+      "sha": "b0295ab0d7e3e357",
+      "verdict": "ok",
+      "reason": "参照キャラクターを保ち、簡略化したミキサー車・太陽・待機の時計・打込み箇所・温度計と左から右への矢印が指示に合い、温度上昇のおそれを示す指定5文字列に誤字がない。",
+      "reviewedAt": "2026-10-17T06:04:25.228Z"
+    },
+    "media:civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/cover": {
+      "sha": "6d461a7d29270911",
+      "verdict": "ok",
+      "reason": "参照キャラクターの顔・眼鏡・ひげ・服装と赤ペン・答案を持つ両手が自然で、品質管理と試験だけで終わらないを含む指定6文字列が品質管理答案の用途に合う。",
+      "reviewedAt": "2026-10-17T06:04:25.228Z"
+    },
+    "media:civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/cta": {
+      "sha": "4a2124622b99d35b",
+      "verdict": "ok",
+      "reason": "参照キャラクターと整合する顔・服装、CTAを指す手と答案を持つ手が自然で、完成答案集への案内と指定8文字列が各動画の施工経験記述の用途に合う。",
+      "reviewedAt": "2026-10-17T06:04:25.228Z"
+    },
+    "media:civil-construction-2/keiken-daizai-erabi/youtube.longform/cover": {
+      "sha": "88c9abd2531fa9bd",
+      "verdict": "ok",
+      "reason": "参照キャラクターの顔・服装を保ち、ノートを支える手と赤ペンを持つ手が自然で、題材選び・規模より自分の経験・担当した管理を探すの指定文字列が用途と一致する。",
+      "reviewedAt": "2026-10-17T06:04:25.228Z"
+    },
+    "media:civil-construction-2/keiken-daizai-erabi/youtube.longform/cta": {
+      "sha": "4a2124622b99d35b",
+      "verdict": "ok",
+      "reason": "参照キャラクターと整合する顔・服装、CTAを指す手と答案を持つ手が自然で、完成答案集への案内と指定8文字列が各動画の施工経験記述の用途に合う。",
+      "reviewedAt": "2026-10-17T06:04:25.228Z"
+    },
+    "media:civil-construction-2/kento-taio-kakiwake/youtube.longform/cover": {
+      "sha": "65a2fc75505a1b0b",
+      "verdict": "ok",
+      "reason": "参照キャラクターの顔・服装を保ち、二列の無記名用紙を持つ手と赤ペンで示す手が自然で、検討と対応を分ける図柄と指定文字列が一致する。",
+      "reviewedAt": "2026-10-17T06:04:25.228Z"
+    },
+    "media:civil-construction-2/kento-taio-kakiwake/youtube.longform/cta": {
+      "sha": "4a2124622b99d35b",
+      "verdict": "ok",
+      "reason": "参照キャラクターと整合する顔・服装、CTAを指す手と答案を持つ手が自然で、完成答案集への案内と指定8文字列が各動画の施工経験記述の用途に合う。",
+      "reviewedAt": "2026-10-17T06:04:25.228Z"
+    },
+    "media:civil-construction-2/koji-gaiyo-seigou/youtube.longform/cover": {
+      "sha": "0ab5a456662b1bc4",
+      "verdict": "ok",
+      "reason": "参照キャラクターの顔・服装を保ち、左右の手で二枚の無記名答案を比較する姿勢が自然で、工事概要と本文の整合確認を伝える指定文字列に誤字がない。",
+      "reviewedAt": "2026-10-17T06:04:25.228Z"
+    },
+    "media:civil-construction-2/koji-gaiyo-seigou/youtube.longform/cta": {
+      "sha": "4a2124622b99d35b",
+      "verdict": "ok",
+      "reason": "参照キャラクターと整合する顔・服装、CTAを指す手と答案を持つ手が自然で、完成答案集への案内と指定8文字列が各動画の施工経験記述の用途に合う。",
+      "reviewedAt": "2026-10-17T06:04:25.228Z"
+    },
+    "media:civil-construction-2/kotei-touan-gutaika/youtube.longform/cover": {
+      "sha": "e5cae60535b2cdf9",
+      "verdict": "ok",
+      "reason": "参照キャラクターの顔・服装を保ち、無記名の工程表を支える手と赤ペンを持つ手が自然で、連続する作業バーと工程管理の指定文字列が用途に合う。",
+      "reviewedAt": "2026-10-17T06:04:25.228Z"
+    },
+    "media:civil-construction-2/kotei-touan-gutaika/youtube.longform/cta": {
+      "sha": "4a2124622b99d35b",
+      "verdict": "ok",
+      "reason": "参照キャラクターと整合する顔・服装、CTAを指す手と答案を持つ手が自然で、完成答案集への案内と指定8文字列が各動画の施工経験記述の用途に合う。",
+      "reviewedAt": "2026-10-17T06:04:25.228Z"
+    },
     "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/cover": {
       "sha": "b24e58035b4ad295",
       "verdict": "ok",
@@ -1492,6 +1582,18 @@
       "verdict": "ok",
       "reason": "穴埋め・複数記述・選択問題の3形式と答え方が本文と一致。各パネルの文字は明瞭で、人物による遮蔽と下端侵入なし。",
       "reviewedAt": "2026-10-11T11:18:14.353Z"
+    },
+    "media:civil-construction-2/touan-teishutsu-check/youtube.longform/cover": {
+      "sha": "b7b1ad72d2d9a8bd",
+      "verdict": "ok",
+      "reason": "参照キャラクターの顔・服装を保ち、答案を支える手と赤ペンを持つ手が自然で、答案の見直し・つながりを最後に確認・条件と処置と結果の照合という指定文字列に誤字がない。",
+      "reviewedAt": "2026-10-17T06:04:25.228Z"
+    },
+    "media:civil-construction-2/touan-teishutsu-check/youtube.longform/cta": {
+      "sha": "4a2124622b99d35b",
+      "verdict": "ok",
+      "reason": "参照キャラクターと整合する顔・服装、CTAを指す手と答案を持つ手が自然で、完成答案集への案内と指定8文字列が各動画の施工経験記述の用途に合う。",
+      "reviewedAt": "2026-10-17T06:04:25.228Z"
     },
     "media:pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/cover": {
       "sha": "51e3f120f8a8d8c5",
