@@ -37,6 +37,8 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
  *   --reattach-pdf            全文置換で消える PDF 添付を、同じセッションで貼り直す（保存前に復元＋実体確認）。
  *                             ローカルに実ファイルが揃わなければ本文を触らず中断する
  *   --max-consecutive-fail N  --list バッチで N 本連続失敗したら残りを実行せず中断（既定 3）
+ *   --attach-daily-limit N    添付アップロードの日次上限（既定 90）。本文変更前に止め、残りを翌日以降へ保留する
+ *   exit: 0 完了 / 1 失敗 / 2 account 不一致 / 3 添付日次上限で保留
  *
  * 本文画像: SoT の `![alt](img/xxx.png)` は除去せず、paste 後に「＋」メニュー→画像アップロードで
  *   live に反映する（lib/note-images.mjs）。トークン残存/挿入失敗時は保存せず中断する。
@@ -548,6 +550,14 @@ async function updateArticle(page, article, probe, parts = ['body'], sync = {}) 
     toReattach = resolved;
     console.log(`[3-pre] --reattach-pdf: 添付 ${resolved.length} 件を置換後に貼り直す（${resolved.map((r) => r.base).join(' / ')}）`);
   }
+  // 日次上限は本文を消す前に判定する。note は未公開でもエディタの変更を保持するため、
+  // 復元時まで待って止めると翌日の再開時に「添付なし」の下書きが残ってしまう。
+  const usedToday = attachedTodayCount();
+  if (toReattach.length && usedToday + toReattach.length > ATTACH_DAILY_LIMIT) {
+    abortReason = 'attachment-daily-limit';
+    console.error(`[3-pre] ABORT: 本日の添付アップロードが上限に達する（済 ${usedToday} + 今回 ${toReattach.length} > ${ATTACH_DAILY_LIMIT}）→ 本文を触らず翌日に再開: ${noteId}`);
+    return false;
+  }
   // 添付を失った/失いかけた事実を負債として残すヘルパー。
   // 「保存していないから無害」は **live に限った話**で、エディタ側は添付削除済みのまま残る。
   // 失敗理由を確かめず再実行すると「添付なし」を正として保存してしまう（2026-07-31 の消失事故）。
@@ -633,13 +643,6 @@ async function updateArticle(page, article, probe, parts = ['body'], sync = {}) 
   //     有料記事では本文末尾＝有料エリア内に入るため、無料プレビューへ漏れない（note-attach-file と同型）。
   //     1 件でも貼り直せなければ保存しない＝「添付が消えたまま更新」を絶対に作らない。
   if (toReattach.length) {
-    const usedToday = attachedTodayCount();
-    if (usedToday + toReattach.length > ATTACH_DAILY_LIMIT) {
-      console.error(`[4.6] ABORT: 本日の添付アップロードが上限に達する（済 ${usedToday} + 今回 ${toReattach.length} > ${ATTACH_DAILY_LIMIT}）→ 更新しない: ${noteId}`);
-      console.error('  note の 1 日 100 件上限を超えるとアップロードが全て失敗し、添付を失ったまま保存する事故になる。翌日に再開すること。');
-      recordAttachmentDebt('復元前に日次上限へ到達（エディタ側は添付削除済み）', toReattach.map((f) => f.base));
-      return false;
-    }
     for (const f of toReattach) {
       const r = await attachFileInEditor(page, f.abs);
       if (!r.ok) {
@@ -839,7 +842,7 @@ const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
   args: ['--disable-blink-features=AutomationControlled'],
 }));
 
-let ok = 0, fail = 0;
+let ok = 0, fail = 0, deferred = 0;
 try {
   const page = ctx.pages()[0] || (await ctx.newPage());
 
@@ -907,7 +910,15 @@ try {
         // 設定画面を通って境界を再設定/保持したので、live 影響メタも in-sync 化する。
         if (COMMIT) recordPublishedMetaHash(parsed.rel);
         consecFail = 0;
-      } else { recordAbort(parsed.noteId, abortReason ?? '更新フローが false を返した（保存せず中断）'); fail++; consecFail++; }
+      } else {
+        recordAbort(parsed.noteId, abortReason ?? '更新フローが false を返した（保存せず中断）');
+        if (abortReason === 'attachment-daily-limit') {
+          deferred = articles.length - ok - fail - skipped;
+          console.log(`[DEFER] ${parsed.noteId} attachment-daily-limit: ${deferred} 本を翌日以降に再試行（本文は未変更）`);
+          break;
+        }
+        fail++; consecFail++;
+      }
     } catch (e) {
       console.error('[ERROR]', artPath, e.message);
       try { const pj = parseArticle(artPath); recordAbort(pj.noteId, e.message); } catch {}
@@ -925,7 +936,7 @@ try {
   await ctx.close();
 }
 
-console.log(`\n[done] ok=${ok} fail=${fail} skip=${skipped} / ${articles.length}`);
+console.log(`\n[done] ok=${ok} fail=${fail} skip=${skipped} deferred=${deferred} / ${articles.length}`);
 if (TITLE_DRIFTS.length) {
   // ok=N fail=0 を「全部正しくなった」と読ませないための注記。本文だけ直ってタイトルが
   // 古いまま残るのは、読者から最も見える形の未完了（2026-08-13 に 5 本で実発生）。
@@ -941,4 +952,4 @@ if (tocProblems.length) {
   console.error(`[done] ⚠ 目次位置NG（導入分断の疑い・再挿入しても直らず）: ${tocProblems.length} 件 → ${tocProblems.join(', ')}`);
   console.error('       各記事の .tmp/nu-toc-<id>.png を目視し、必要なら手動で目次を最初のh2直前へ移動すること。');
 }
-process.exit(fail > 0 || tocProblems.length > 0 ? 1 : 0);
+process.exit(fail > 0 || tocProblems.length > 0 ? 1 : deferred > 0 ? 3 : 0);

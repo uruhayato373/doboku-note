@@ -11,7 +11,8 @@
  *
  * 取得元（2026-07-31 実測。旧 kdp.amazon.co.jp/ja_JP/reports-new は kdpreports へ 302）:
  *   - /royalties … 期間指定・書籍別の推計ロイヤリティ（電子書籍/紙/KENP/合計）
- *   - /pmr       … 月別ロイヤリティ（マーケットプレイス別・KENP 既読ページ数）
+ *   - /pmr       … 月別ロイヤリティ（確定後のKENP欄は金額）
+ *   - /kenpc     … KENP既読ページ数（集計と全書籍合計を照合）
  *
  * ★限界（正直に明記）★
  *   - 当月の数字は Amazon 側の「推計」。KENP は翌月 15 日頃に確定する（翌月 16 日より前に取った値は estimated:true で記録）。
@@ -39,6 +40,9 @@ import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { attachCISession } from './lib/playwright-auth-state.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { isKdpEstimated, kdpMonthsDue } from './lib/net-receipts.mjs';
+import { kdpLiveBookIdsAsOf } from './lib/kindle-catalog.mjs';
+import { parseKdpMarketplaces, parseKdpKenpTotal, kdpScope } from './lib/kdp-report-parsers.mjs';
+import { writeDataset } from './lib/dataset-write.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 const PROFILE = resolveProfileDir('kdp', { cwd: ROOT, repoRoot: ROOT });
@@ -111,7 +115,7 @@ try {
     await sleep(2500);
     let t = ''; try { t = await bodyText(page); } catch {}
     if (/kdpreports\./.test(page.url()) && /(ダッシュボード|ロイヤリティの見積り)/.test(t)) { ok = true; break; }
-    if (i === 0) console.log('[1] 未ログイン → ブラウザで手動ログイン（CAPTCHA/2FA も人が処理）…');
+    if (i === 4) console.log('[1] 読み込み待ち。ログイン画面の場合はブラウザで手動ログイン（CAPTCHA/2FA も人が処理）…');
   }
   if (!ok) await abort(page, 'KDP レポートに到達できず（ログイン未完 or チャレンジ）', '01-login');
   console.log(`[1] login gate OK / 対象月=${MONTH}${IS_CURRENT ? '（当月＝推計）' : ''}`);
@@ -180,15 +184,18 @@ try {
   if (!total) await abort(page, '合計行（N 冊の本すべて）を検出できず。UI 変更の可能性 → --dump で較正', '02-parse');
 
   // ページ送り（1 ページ 20 冊。総冊数に届くまで番号ボタンを押す）
-  const seen = new Set(books.map((b) => b.title));
+  const seenPages = new Set([JSON.stringify(books)]);
   for (let p = 2; books.length < total.bookCount && p <= 20; p++) {
     const btn = page.locator('button').filter({ hasText: new RegExp(`^${p}$`) });
     if (!(await btn.count().catch(() => 0))) break;
     await btn.first().click();
     await sleep(7000);
-    const more = parseBooks(await bodyText(page)).books.filter((b) => !seen.has(b.title));
-    if (!more.length) break;
-    more.forEach((b) => seen.add(b.title));
+    const pageText = await bodyText(page);
+    if (DUMP) writeFileSync(join(TMP, `kdp-royalties-${MONTH}-page-${p}.txt`), pageText);
+    const more = parseBooks(pageText).books;
+    const pageKey = JSON.stringify(more);
+    if (!more.length || seenPages.has(pageKey)) break;
+    seenPages.add(pageKey);
     books.push(...more);
   }
   console.log(`[2] 書籍別 ${books.length}/${total.bookCount} 冊 取得（合計 ¥${total.royalty}）`);
@@ -222,24 +229,30 @@ try {
   if (pmrMonthOk) {
     const ptxt = await bodyText(page);
     if (DUMP) writeFileSync(join(TMP, `kdp-pmr-${MONTH}.txt`), ptxt);
-    // 行: \tマーケットプレイス\t通貨\t電子書籍\tペーパーバック\tハードカバー\tN 既読 KENP\t総収益
-    let scanned = 0; const rows = [];
-    for (const line of ptxt.split('\n')) {
-      const c = line.split('\t').map((s) => s.trim());
-      if (c.length < 7) continue;
-      const [, name, cur, eb, pb, hc, kenp] = c;
-      if (!name || !/^[A-Z]{3}$/.test(cur || '')) continue;
-      scanned++;
-      const rec = {
-        marketplace: name, currency: cur,
-        ebook: num(eb), paperback: num(pb), hardcover: num(hc),
-        kenpPages: Number(String(kenp).replace(/[^\d]/g, '')) || 0,
-      };
-      if (rec.ebook || rec.paperback || rec.hardcover || rec.kenpPages) rows.push(rec);
-    }
+    const { scanned, rows } = parseKdpMarketplaces(ptxt);
     // 「1 行も読めなかった（故障）」と「読めたが実績ゼロ」を区別する
     if (!scanned) { pmrMonthOk = false; console.log('[3] WARN: 通貨行を 1 行も読めず（UI 変更の可能性）→ marketplaces は null 記録'); }
     else { marketplaces = rows; console.log(`[3] マーケットプレイス ${scanned} 行を検査 / 実績あり ${rows.length} 件`); }
+  }
+
+  let kenpPagesRead = marketplaces && marketplaces.every((m) => m.kenpPages != null) ? marketplaces.reduce((a, m) => a + m.kenpPages, 0) : null;
+  if (kenpPagesRead === null) {
+    try {
+      await page.getByRole('link', { name: '既読 KENP', exact: true }).click({ timeout: 10_000 });
+      await sleep(12_000);
+      if (!IS_CURRENT) {
+        await page.locator('input[aria-label="開始日"]').click();
+        await page.getByText('前月', { exact: true }).first().click({ timeout: 10_000 });
+        await sleep(9000);
+      }
+      const start = await page.locator('input[aria-label="開始日"]').inputValue();
+      const end = await page.locator('input[aria-label="終了日"]').inputValue();
+      if (start !== gotStart || end !== gotEnd) throw new Error('既読KENPとロイヤリティの期間が一致しない');
+      const kenpText = await bodyText(page);
+      if (DUMP) writeFileSync(join(TMP, `kdp-kenp-${MONTH}.txt`), kenpText);
+      kenpPagesRead = parseKdpKenpTotal(kenpText, total.bookCount);
+      console.log(`[3] 既読KENP専用画面の集計と全書籍合計を照合: ${kenpPagesRead} ページ`);
+    } catch (e) { console.log(`[3] WARN: 既読ページ数は未確認（${e.message.split('\n')[0]}）`); }
   }
 
   // ── 4. 保存 ────────────────────────────────────────────────────────────
@@ -249,21 +262,11 @@ try {
     // 前月も翌月 16 日より前に取った値は KENP の確定前なので推計（net-receipts.mjs の kdpRoyaltyFinalizeDate）
     estimated: isKdpEstimated(MONTH, todayJst()),
     total: { bookCount: total.bookCount, ebook: total.ebook, print: total.print, kenp: total.kenp, royalty: total.royalty },
-    kenpPagesRead: marketplaces ? marketplaces.reduce((a, m) => a + m.kenpPages, 0) : null,
+    kenpPagesRead,
     marketplaces,
     books: books.sort((a, b) => b.royalty - a.royalty),
   };
-  const expectedDobokuIds = catalogBooks.filter((book) => book.status === 'live').map((book) => book.id);
-  const foundDobokuIds = [...new Set(entry.books.map((book) => book.bookId).filter(Boolean))];
-  entry.scope = {
-    accountBookCount: total.bookCount,
-    accountRows: entry.books.length,
-    externalRows: entry.books.filter((book) => !book.bookId).length,
-    expectedDobokuBooks: expectedDobokuIds.length,
-    matchedDobokuBooks: foundDobokuIds.length,
-    missingDobokuBookIds: expectedDobokuIds.filter((id) => !foundDobokuIds.includes(id)),
-    dobokuRoyalty: entry.books.filter((book) => expectedDobokuIds.includes(book.bookId)).reduce((sum, book) => sum + (Number(book.royalty) || 0), 0),
-  };
+  entry.scope = kdpScope(entry.books, total.bookCount, kdpLiveBookIdsAsOf(catalogBooks, entry.range.end));
   if (entry.scope.missingDobokuBookIds.length) {
     await abort(page, `doboku-note LIVE書籍が ${entry.scope.matchedDobokuBooks}/${entry.scope.expectedDobokuBooks} 冊（不足: ${entry.scope.missingDobokuBookIds.join(', ')}）。保存しない`, '04-scope');
   }
@@ -276,6 +279,7 @@ try {
     months: {},
   };
   state.months[MONTH] = entry;
+  state.source = 'KDP レポート /royalties（書籍別）・/pmr（月別）・/kenpc（既読ページ）を npm run kdp-report で読み取り';
   state.updatedAt = todayJst();
 
   const top = entry.books.slice(0, 5).map((b) => `  ${(b.bookId || '--').padEnd(5)} ¥${String(b.royalty).padStart(5)}  ${b.title.slice(0, 44)}`).join('\n');
@@ -284,7 +288,7 @@ try {
     ` / doboku-note ${entry.scope.matchedDobokuBooks}/${entry.scope.expectedDobokuBooks} 冊（共有口座外部 ${entry.scope.externalRows} 行）\n${top}`);
 
   if (DRY) console.log(`\n[dry-run] 保存せず終了（保存先: ${STATE}）`);
-  else { mkdirSync(dirname(STATE), { recursive: true }); writeFileSync(STATE, JSON.stringify(state, null, 2) + '\n'); console.log(`\n[saved] ${STATE}`); }
+  else { writeDataset(ROOT, 'kdp.royalties', state); console.log(`\n[saved] ${STATE}`); }
 } finally {
   await ctx.close();
 }

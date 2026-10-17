@@ -213,7 +213,7 @@ test('CLI: 台帳から消した family（crosswalk）は何も消さずに受�
 test('寿命のあるデータセットのパスは日付の型を持つ（日付の無いファイルに寿命を書いても効かない）', () => {
   for (const p of POLICIES) {
     const { path } = DATASETS.find((d) => d.id === p.dataset);
-    assert.ok(/\{(ts|date|week|range)\}/.test(path), `${p.dataset}（${path}）に日付の型が無い`);
-    assert.ok(patternOf(path).test(path.replace('{ts}', '2026-01-01T00-00-00').replace('{date}', '2026-01-01').replace('{week}', '2026-W01').replace('{range}', '20260101_20260131').replace('{name}', 'x').replace('{**}', 'x')));
+    assert.ok(/\{(ts|date|week|range|from|to)\}/.test(path), `${p.dataset}（${path}）に日付の型が無い`);
+    assert.ok(patternOf(path).test(path.replace('{ts}', '2026-01-01T00-00-00').replace('{date}', '2026-01-01').replace('{week}', '2026-W01').replace('{range}', '20260101_20260131').replace('{from}', '2026-01-01').replace('{to}', '2026-01-07').replace('{name}', 'x').replace('{**}', 'x')));
   }
 });

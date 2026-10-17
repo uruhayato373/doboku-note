@@ -32,5 +32,5 @@ test('inconclusive は failed に数えず、1 件でもあれば exit 2 にす�
   const src = readFileSync(join(REPO_ROOT, 'scripts/quality-audit.mjs'), 'utf8');
   assert.match(src, /r\.status === 'fail' \|\| r\.status === 'timeout'/, 'failed の定義が fail/timeout のまま（inconclusive を混ぜない）');
   assert.match(src, /status === 'inconclusive'\)[\s\S]{0,400}process\.exitCode = 2/, 'inconclusive があるとき exit 2 にする分岐が無い');
-  assert.match(src, /process\.hrtime\.bigint\(\)/, '単調時計（hrtime）を測っていない');
+  assert.match(src, /await runCheckedCommand\(/, '両時計を記録する共通ランナーを使っていない');
 });

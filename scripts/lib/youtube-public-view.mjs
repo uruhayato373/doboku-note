@@ -10,7 +10,7 @@
 /**
  * 公開中の動画を集める（videoId で重複を除く）。
  * - コンテンツ台帳（youtubePublications の legacyOnly の行）: status=published・privacy=public・videoId ありの旧 Shorts
- * - contentStatus（loadVideoState の動画パックの派生物）: privacyStatus=public のもの（入れ子のどこにあってもよい）
+ * - contentStatus（loadVideoState の動画パックの派生物）: status=published かつ privacyStatus=public のもの
  */
 export function collectPublicVideos(pubs, contentStatus, now = new Date()) {
   const out = new Map();
@@ -21,7 +21,8 @@ export function collectPublicVideos(pubs, contentStatus, now = new Date()) {
   }
   const walk = (o, path) => {
     if (!o || typeof o !== 'object') return;
-    if (o.videoId && o.privacyStatus === 'public' && !out.has(o.videoId)) {
+    if (o.videoId && o.status === 'published' && o.privacyStatus === 'public' &&
+        (!o.publishAt || new Date(o.publishAt) <= now) && !out.has(o.videoId)) {
       out.set(o.videoId, { videoId: o.videoId, title: o.title || o.key || '', kind: /\/shorts(\/|$)/.test(path) ? 'shorts' : 'long', date: String(o.publishedAt || o.uploadedAt || '').slice(0, 10), source: 'video-pack' });
     }
     for (const [k, v] of Object.entries(o)) walk(v, `${path}/${k}`);

@@ -7,7 +7,7 @@
  * インストーラと同じで、plist の絶対パスは端末ごとに違うため template から描画し、リポジトリにはコミットしない。
  *
  * 時刻は毎週土曜 9:30。Mac が寝ていた・閉じていた週は、次に起きたときに launchd が 1 回だけ実行する。
- * 今週のレビューが develop に既にあれば何もしない。電源が切れていた週は、月曜の weekly-review-guard が赤で出す。
+ * 今週のレビュー・翌週計画・事業記録・点検が develop で成立済みなら何もしない。電源が切れていた週は、月曜の weekly-review-guard が赤で出す。
  *
  * 使い方:
  *   npm run weekly-review:install                  # 登録（再登録も同じコマンド）。前提: Claude Code にログイン済み・gh にログイン済み
@@ -22,9 +22,10 @@
 import { spawnSync } from 'node:child_process';
 import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { homedir, userInfo } from 'node:os';
-import { join } from 'node:path';
+import { dirname, join } from 'node:path';
 
 import { REPO_ROOT } from './lib/repository-paths.mjs';
+import { renderWeeklyReviewBootstrap, renderWeeklyReviewPlist } from './lib/weekly-review-launchd.mjs';
 
 const LABEL = 'com.doboku-note.weekly-review';
 const TAG = '[weekly-review:install]';
@@ -32,6 +33,7 @@ const HOME = homedir();
 const PLIST_PATH = join(HOME, 'Library', 'LaunchAgents', `${LABEL}.plist`);
 const TEMPLATE = join(REPO_ROOT, 'scripts', 'scheduled', `${LABEL}.plist.tmpl`);
 const LOG = '~/Library/Logs/doboku-note/weekly-review.log';
+const BOOTSTRAP = join(HOME, 'Library', 'Application Support', 'doboku-note', 'weekly-review.sh');
 const argv = process.argv.slice(2);
 
 if (process.platform !== 'darwin') {
@@ -58,7 +60,7 @@ if (argv.includes('--status')) {
   if (existsSync(PLIST_PATH)) rmSync(PLIST_PATH);
   console.log(`${TAG} 解除した（${PLIST_PATH} を削除）。土曜の自動の週次レビューは止まる（月曜の guard が欠けを赤で出す）。`);
 } else if (argv.includes('--run-now')) {
-  const r = launchctl('kickstart', '-k', `${domain}/${LABEL}`);
+  const r = launchctl('kickstart', `${domain}/${LABEL}`);
   if (r.status !== 0) {
     console.error(`${TAG} ✗ 実行できない（未登録？）: ${(r.stderr || '').trim()}`);
     process.exitCode = 1;
@@ -70,7 +72,12 @@ if (argv.includes('--status')) {
     console.error(`${TAG} ✗ テンプレートが無い: ${TEMPLATE}`);
     process.exit(1);
   }
-  const plist = readFileSync(TEMPLATE, 'utf-8').replaceAll('__REPO__', REPO_ROOT).replaceAll('__HOME__', HOME);
+  const common = spawnSync('git', ['rev-parse', '--path-format=absolute', '--git-common-dir'], { cwd: REPO_ROOT, encoding: 'utf8' });
+  if (common.status !== 0) throw new Error(`Git の共有メタデータを取得できない: ${common.stderr}`);
+  const primaryRoot = dirname(common.stdout.trim());
+  const plist = renderWeeklyReviewPlist(readFileSync(TEMPLATE, 'utf-8'), { repoRoot: primaryRoot, homeDir: HOME, bootstrapPath: BOOTSTRAP });
+  mkdirSync(dirname(BOOTSTRAP), { recursive: true });
+  writeFileSync(BOOTSTRAP, renderWeeklyReviewBootstrap(primaryRoot), { mode: 0o700 });
   mkdirSync(join(HOME, 'Library', 'LaunchAgents'), { recursive: true });
   mkdirSync(join(HOME, 'Library', 'Logs', 'doboku-note'), { recursive: true });
   writeFileSync(PLIST_PATH, plist);
@@ -86,6 +93,6 @@ if (argv.includes('--status')) {
     `${TAG} ✓ 登録した（毎週土曜 9:30・寝ていた週は起床時に 1 回）\n` +
       `  plist: ${PLIST_PATH}\n` +
       `  log:   ${LOG}\n` +
-      '  最初に一度: npm run weekly-review:install -- --run-now でログを確認（今週のレビューが develop にあれば何もしない）',
+      '  最初に一度: npm run weekly-review:install -- --run-now でログを確認（今週の成果物が develop で全て成立済みなら何もしない）',
   );
 }

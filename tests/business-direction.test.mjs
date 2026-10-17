@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { mkdtempSync, mkdirSync, readFileSync, writeFileSync, rmSync } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
-import { lineupQualifier, reviewPeriod, duePeriods, direction, saveRecord, records, buildReport, snapshot, assertLocalWrite, strategyForRecord, noteArticleQualification, validateRecord, latestAll, unionDaily, noteMonthFacts, kdpMonthFacts, coconalaDmDate, coconalaInquiryFacts, coconalaViewFacts } from '../scripts/lib/business-direction.mjs';
+import { lineupQualifier, reviewPeriod, duePeriods, direction, saveRecord, records, buildReport, snapshot, assertLocalWrite, strategyForRecord, noteArticleQualification, validateRecord, latestAll, unionDaily, noteMonthFacts, notePeriodFacts, kdpMonthFacts, coconalaDmDate, coconalaInquiryFacts, coconalaViewFacts } from '../scripts/lib/business-direction.mjs';
 const now = new Date('2026-09-13T01:00:00Z'), period = { startDate: '2026-08-01', endDate: '2026-08-31' };
 function fixture(t) {
  const root=mkdtempSync(join(tmpdir(),'business-'));t.after(()=>rmSync(root,{recursive:true,force:true}));
@@ -322,4 +322,17 @@ test('a metric-subject measurement keeps its own coverage beside a partial aggre
  assert.deepEqual([cell('netReceipts').value,cell('netReceipts').coverage],[74218,'complete']);
  assert.equal(cell('qualityDefects').coverage,'partial');
  assert.throws(()=>saveRecord(root,{...ops('netReceipts',{netReceipts:1,costYen:2},'complete'),period:{startDate:'2026-07-01',endDate:'2026-07-31'}},now),/指標単位の計測/);
+});
+
+test('note custom period fills the same week only, without dividing monthly counts', t => {
+ const root=fixture(t), week={startDate:'2026-10-05',endDate:'2026-10-11'};
+ mkdirSync(join(root,'data/note/traffic-period'),{recursive:true});
+ const traffic={fetchedAt:'2026-10-17T00:00:00Z',period:{from:week.startDate,to:week.endDate},summary:{pageViews:321,impressions:1234},rows:[{title:'1級土木 二次',pageViews:90,impressions:400}]};
+ writeFileSync(join(root,'data/note/traffic-period/2026-10-05_2026-10-11.json'),JSON.stringify(traffic));
+ const r=buildReport(root,week,new Date('2026-10-17T00:00:00Z'));
+ const all=r.cells.find(c=>c.qualification==='all'&&c.metric==='notePv');
+ assert.equal(all.value,321);assert.equal(all.coverage,'complete');
+ assert.equal(r.cells.find(c=>c.qualification==='civil-construction-1'&&c.metric==='notePv').value,90);
+ assert.equal(buildReport(root,{startDate:'2026-10-12',endDate:'2026-10-18'},new Date('2026-10-19T00:00:00Z')).cells.find(c=>c.qualification==='all'&&c.metric==='notePv').value,null);
+ assert.equal(notePeriodFacts({traffic:{...traffic,fetchedAt:'2026-10-11T00:00:00Z'},trafficPath:'t'})[0].coverage,'partial');
 });

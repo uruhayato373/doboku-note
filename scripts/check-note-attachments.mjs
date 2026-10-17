@@ -26,6 +26,7 @@
  * 使い方:
  *   node scripts/check-note-attachments.mjs                 # source 層（CI）
  *   node scripts/check-note-attachments.mjs --live          # live 層（要ログイン・575 本で 20〜35 分）
+ *   node scripts/check-note-attachments.mjs --live --api-first # 公開 API で本数が充足するものを先に確認・限定/不足/読取不能だけ著者画面
  *   node scripts/check-note-attachments.mjs --live --only n155093f42183,na84b001e827e
  *   node scripts/check-note-attachments.mjs --json
  * ---------------------------------------------------------------------------
@@ -33,7 +34,7 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { join, dirname, relative } from 'node:path';
 import { PDF_PROMISE_RE } from './lib/note-frontmatter.mjs';
-import { expectedPdfs, frontmatterValue, needsConfirm, walkArticles } from './lib/note-attachments.mjs';
+import { expectedPdfs, frontmatterValue, needsConfirm, walkArticles, publicAttachmentCount } from './lib/note-attachments.mjs';
 import { NOTE_BASE } from './lib/site-identity.mjs';
 import { fetchFailDominant } from './lib/inconclusive-gate.mjs';
 import { todayJst } from './lib/jst-date.mjs';
@@ -55,6 +56,7 @@ const ALLOW_PATH = join(ROOT, '.claude/config/note-attachments-allow.json');
 
 const argv = __argv.slice(2);
 const LIVE = argv.includes('--live');
+const API_FIRST = argv.includes('--api-first');
 const STAGED = argv.includes('--staged');
 const JSON_OUT = argv.includes('--json');
 const ONLY = (() => { const i = argv.indexOf('--only'); return i >= 0 ? new Set(argv[i + 1].split(',').map((s) => s.trim())) : null; })();
@@ -146,21 +148,39 @@ if (!LIVE) {
 const need = targets.filter((t) => t.expected.length > 0);
 if (need.length === 0) { console.error('✗ 検査対象0件＝走査が壊れている疑い（検査不成立）'); __exit(1); }
 
+// 公開 API で同じ本数を測れる記事を先に確定する。限定・不足・取得不能だけ著者画面へ回す。
+// 全件をブラウザで開いて 75 分の CI 上限を越え、結果自体が残らないことを防ぐ。
+const apiSatisfied = new Map();
+const apiMeasurements = [];
+if (API_FIRST) {
+  const { fetchNoteData } = await import('./lib/note-live-check.mjs');
+  console.log(`[check-note-attachments --api-first] 公開 API ${need.length} 件を先に実測`);
+  for (const [i, t] of need.entries()) {
+    const { data, error } = await fetchNoteData(t.noteId);
+    const live = publicAttachmentCount(data, t.noteId);
+    const want = t.allow?.expected ?? t.expected.length;
+    apiMeasurements.push({ noteId: t.noteId, live, want, ...(error ? { error } : {}) });
+    if (live !== null && live >= want) apiSatisfied.set(t.noteId, live);
+    if ((i + 1) % 100 === 0) console.log(`  API ${i + 1}/${need.length}（充足 ${apiSatisfied.size}）`);
+  }
+}
+const browserTargets = need.length - apiSatisfied.size;
+
 // note-browser.mjs は playwright を静的 import するため、--source（CI）経路を
 // 依存なしに保つ元設計（動的 import）をそのまま踏襲する（playwright は devDependency）。
 const { launchNoteContext, assertAccountGate, sleep } = await import('./lib/note-browser.mjs');
 
-const ctx = await launchNoteContext({ viewport: { width: 1280, height: 900 } });
-const page = ctx.pages()[0] || (await ctx.newPage());
-await page.goto('https://note.com/settings/account', { waitUntil: 'domcontentloaded' });
+const ctx = browserTargets ? await launchNoteContext({ viewport: { width: 1280, height: 900 } }) : null;
+const page = ctx ? ctx.pages()[0] || (await ctx.newPage()) : null;
+if (page) await page.goto('https://note.com/settings/account', { waitUntil: 'domcontentloaded' });
 // 20 分の走査を 1 回 1.5 秒の判定で中断していた（2026-09-07 実測＝実際は authenticated なのに
 // ABORT）。note-browser の既定（10 回 x 2 秒）へ戻す。ここでの待ちは走査全体から見れば無視できる。
-const gate = await assertAccountGate(page, { url: null });
+const gate = page ? await assertAccountGate(page, { url: null }) : { ok: true };
 if (!gate.ok) {
   console.error('✗ ABORT: note にログインしていない（npm run note-edit-session で1回ログインする）');
   await ctx.close(); __exit(2);
 }
-console.log(`[check-note-attachments --live] 対象 ${need.length} 件を実査（著者ログイン＝有料エリアも見える）\n`);
+console.log(`[check-note-attachments --live] 対象 ${need.length} 件（公開 API で充足 ${apiSatisfied.size}・著者画面で確認 ${browserTargets}）\n`);
 
 // 添付カードの描画は記事の重さとプロキシで揺れる。全件走査は短い待ちで流し、**不足と出た記事だけ**を
 // 単独条件で実測し直してから確定させる（2026-09-05 n845a47ddaa83・2026-09-06 nc6c8bb7fb7d3 は
@@ -196,7 +216,7 @@ async function measureLive(noteId, { settleMs, scrollPasses, waitForAttachmentMs
 const short = []; const fetchFail = []; const provisional = []; const recovered = []; let ok = 0;
 for (const [i, t] of need.entries()) {
   const want = t.allow?.expected ?? t.expected.length;
-  const live = await measureLive(t.noteId, { settleMs: SETTLE_MS, scrollPasses: 1, waitForAttachmentMs: 0 });
+  const live = apiSatisfied.get(t.noteId) ?? await measureLive(t.noteId, { settleMs: SETTLE_MS, scrollPasses: 1, waitForAttachmentMs: 0 });
   if (live === null) { fetchFail.push(t); console.log(`  [${i + 1}/${need.length}] FETCH_ERR ${t.noteId}`); continue; }
   if (needsConfirm({ live, want })) {
     provisional.push({ ...t, live, want });
@@ -222,7 +242,7 @@ if (provisional.length) {
     console.log(`  [${i + 1}/${provisional.length}] ✗ 確定不足 live=${live}/期待${t.want}  ${t.noteId}  ${t.title}`);
   }
 }
-await ctx.close();
+if (ctx) await ctx.close();
 
 const inspected = need.length - fetchFail.length;
 const shortPromised = short.filter((s) => s.promises);
@@ -244,6 +264,7 @@ if (!ONLY) {
     ...prev,
     measuredAt: JST_TODAY,
     inspected, target: need.length, fetchFail: fetchFail.length, satisfied: ok,
+    measurement: { method: API_FIRST ? 'public-api-with-author-fallback' : 'author-browser', apiSatisfied: apiSatisfied.size, browserTargets, browserInspected: browserTargets - fetchFail.length, apiMeasurements },
     // 全件走査で不足と出たが単独再実測で充足した記事＝走査側の取りこぼし。偽陰性の履歴を残す。
     recoveredInConfirm: recovered,
     missingPromised: shortPromised.map((s) => ({ noteId: s.noteId, title: s.title, live: s.live, want: s.want, pdfs: s.expected })),

@@ -7,7 +7,19 @@ import { mkdtempSync, writeFileSync, chmodSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { judgeScan } from '../scripts/check-external-write-orphans.mjs';
+import { judgeScan, jobsNeverExecuted } from '../scripts/check-external-write-orphans.mjs';
+
+test('ログ未生成は全試行の全ジョブがステップ未開始と確認できる場合だけ解消する', () => {
+  const job = { id: 10, status: 'completed', conclusion: 'cancelled', steps: [] };
+  assert.equal(jobsNeverExecuted([{ total_count: 1, jobs: [job] }]), true);
+  for (const pages of [
+    [], [{ total_count: 0, jobs: [] }], [{ total_count: 2, jobs: [job] }],
+    [{ total_count: 1, jobs: [{ ...job, steps: undefined }] }],
+    [{ total_count: 1, jobs: [{ ...job, conclusion: 'failure' }] }],
+    [{ total_count: 1, jobs: [{ ...job, steps: [{ name: 'publish', status: 'completed' }] }] }],
+    [{ total_count: 2, jobs: [job, { ...job, id: 11, steps: [{ name: 'publish' }] }] }],
+  ]) assert.equal(jobsNeverExecuted(pages), false);
+});
 
 const SCRIPT = join(dirname(fileURLToPath(import.meta.url)), '..', 'scripts', 'check-external-write-orphans.mjs');
 

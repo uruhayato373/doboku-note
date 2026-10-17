@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { parseReferrerTimeSeries, parseReferrerPie, parsePeriod, parseSummary, parseArticleRows, normalizeMonth } from '../scripts/lib/note-traffic-normalize.mjs';
+import { parseReferrerTimeSeries, parseReferrerPie, parsePeriod, parseSummary, parseArticleRows, normalizeMonth, parseRequestedPeriod, trafficProblems } from '../scripts/lib/note-traffic-normalize.mjs';
 
 const DIR = dirname(fileURLToPath(import.meta.url));
 const ts = readFileSync(join(DIR, 'fixtures/note-dashboard-referrers-365d.txt'), 'utf8');
@@ -61,4 +61,19 @@ test('未検出は null / 空配列（検査ゼロを PASS と呼ばないため
   assert.deepEqual(parseArticleRows(''), []);
   assert.equal(normalizeMonth('2026/09'), '2026-09');
   assert.equal(normalizeMonth('9月'), null);
+});
+
+test('カスタム期間は実日付と両端を要求し月指定と混ぜない', () => {
+  assert.deepEqual(parseRequestedPeriod({ from: '2026-10-05', to: '2026-10-11' }), { from: '2026-10-05', to: '2026-10-11' });
+  assert.equal(parseRequestedPeriod({ month: '2026-09' }), null);
+  for (const args of [{ from: '2026-10-05' }, { from: '2026-02-30', to: '2026-03-01' }, { from: '2026-10-11', to: '2026-10-05' }, { from: '2026-10-05', to: '2026-10-11', month: '2026-10' }]) assert.throws(() => parseRequestedPeriod(args));
+});
+test('集計が取れても期間違い・途中のページネーションは成功にしない', () => {
+  const period = { from: '2026-10-05', to: '2026-10-11' };
+  const good = { period, requestedPeriod: period, summary: { pageViews: 0 }, rows: [{}], hasMore: false };
+  assert.deepEqual(trafficProblems(good), []);
+  assert.match(trafficProblems({ ...good, period: { ...period, from: '2026-10-01' } }).join(), /期間/);
+  assert.match(trafficProblems({ ...good, hasMore: true }).join(), /未読込/);
+  assert.match(trafficProblems({ ...good, summary: { pageViews: 20 }, rows: [{ pageViews: 10 }] }).join(), /合計/);
+  assert.equal(trafficProblems({ ...good, period: null, rows: [], summary: { pageViews: null } }).length, 4);
 });

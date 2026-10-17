@@ -110,7 +110,9 @@ export const KdpRoyalties = z
                     ebook: signedYen('電子書籍'),
                     paperback: signedYen('ペーパーバック'),
                     hardcover: signedYen('ハードカバー'),
-                    kenpPages: count('KENP の既読ページ数'),
+                    kenpPages: orNull(count('KENP の既読ページ数'), '確定 PMR の金額欄からページ数を推測しない'),
+                    kenpRoyalty: z.number().nonnegative().optional().describe('確定 PMR の KENP ロイヤリティ（マーケットプレイス通貨）'),
+                    royalty: z.number().nonnegative().optional().describe('確定 PMR のロイヤリティ合計（マーケットプレイス通貨）'),
                   })
                   .strict(),
               )
@@ -165,7 +167,7 @@ export const KdpRoyalties = z
       if (!sumEquals(e.books.map((b) => b.royalty), e.total.royalty, Math.ceil(e.books.length / 2))) {
         flag(ctx, at('books'), `本ごとの royalty の合計が全体 ${e.total.royalty} と合わない（取りこぼしか誤記）`);
       }
-      if (e.marketplaces && e.kenpPagesRead !== null && e.kenpPagesRead !== e.marketplaces.reduce((a, x) => a + x.kenpPages, 0)) {
+      if (e.marketplaces && e.marketplaces.every(x => x.kenpPages !== null) && e.kenpPagesRead !== null && e.kenpPagesRead !== e.marketplaces.reduce((a, x) => a + x.kenpPages, 0)) {
         flag(ctx, at('kenpPagesRead'), `kenpPagesRead ${e.kenpPagesRead} が marketplaces の kenpPages の合計と合わない`);
       }
       if (e.scope) {
@@ -980,6 +982,23 @@ export const NoteArticlesPv = z
   })
   .meta({ title: 'note の記事別の月間 PV' });
 
+/** note のカスタム期間で直接取得した集計と全記事。流入元が表示されない場合は null（0ではない）。 */
+export const NoteTrafficPeriod = z.object({
+  schemaVersion: z.literal(1),
+  fetchedAt: utcTime('取得時刻'),
+  source: z.string().min(1).describe('画面と取得方法・閲覧元は購入経路を示さない'),
+  period: periodFromTo,
+  summary: NoteReferrers.shape.summary,
+  pie: NoteReferrers.shape.pie.nullable().describe('表示された流入元。画面に表示されない場合は null'),
+  sortedBy: NoteArticlesPv.shape.sortedBy,
+  count: count('実取得した記事数'),
+  rows: NoteArticlesPv.shape.rows,
+}).strict().superRefine((r, ctx) => {
+  if (r.period.from > r.period.to) flag(ctx, ['period'], '開始日は終了日以前');
+  if (r.count !== r.rows.length) flag(ctx, ['count'], 'count が rows の行数と合わない');
+  if (r.rows.every(row => row.pageViews !== null) && r.rows.reduce((sum, row) => sum + row.pageViews, 0) !== r.summary.pageViews) flag(ctx, ['rows'], '記事別 PV の合計が全体の PV と合わない');
+}).meta({ title: 'note の指定期間のアクセス状況' });
+
 /** note のマガジンと収録記事の公開状態（data/note/magazines.json）。週次の note-live-audit が verify-note-magazines --contents --json で取る */
 export const NoteMagazines = z
   .object({
@@ -1463,7 +1482,7 @@ export const NoteSyncLog = z
           startedAt: utcTime('開始'),
           finishedAt: utcTime('終了'),
           plan: z.looseObject({ synced: count('同期済み'), ready: count('同期できる'), blocked: count('止まっている') }),
-          articles: z.object({ attempted: count('試みた記事'), updated: z.array(z.unknown()), failed: z.array(z.unknown()) }).strict(),
+          articles: z.object({ selected: count('今回の候補記事').optional(), attempted: count('試みた記事'), updated: z.array(z.unknown()), failed: z.array(z.unknown()), deferred: z.array(z.unknown()).optional() }).strict(),
           magazines: z.object({ attempted: count('試みたマガジン'), updated: z.array(z.unknown()), failed: z.array(z.unknown()) }).strict(),
           problems: z.array(z.unknown()),
         })

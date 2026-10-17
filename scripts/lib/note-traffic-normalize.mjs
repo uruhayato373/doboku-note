@@ -122,3 +122,24 @@ export function parseArticleRows(text) {
   }
   return rows;
 }
+
+/** カスタム期間の入力を検査する。片端だけ・無効日付・月指定との混在を許さない。 */
+export function parseRequestedPeriod({ from, to, month }) {
+  if (!from && !to) return null;
+  if (month) throw new Error('--month と --from/--to は同時に指定できない');
+  const validDay = value => /^\d{4}-\d{2}-\d{2}$/.test(value ?? '') && !Number.isNaN(Date.parse(value)) && new Date(value).toISOString().slice(0, 10) === value;
+  if (!validDay(from) || !validDay(to) || from > to) throw new Error('--from / --to は有効な YYYY-MM-DD を開始日順で両方指定する');
+  return { from, to };
+}
+
+/** 途中読込・期間の取り違え・空値を取得成功にしない。流入元は独立した任意データ。 */
+export function trafficProblems({ period, summary, rows, hasMore, requestedPeriod }) {
+  const problems = [];
+  if (!period) problems.push('表示期間が読めない');
+  if (requestedPeriod && (period?.from !== requestedPeriod.from || period?.to !== requestedPeriod.to)) problems.push('表示期間と指定期間が一致しない');
+  if (summary.pageViews === null) problems.push('ページビューが読めない');
+  if (rows.length === 0) problems.push('記事一覧が 0 件');
+  if (hasMore) problems.push('記事一覧に未読込の行が残っている');
+  if (rows.length && rows.every(row => Number.isFinite(row.pageViews)) && rows.reduce((sum, row) => sum + row.pageViews, 0) !== summary.pageViews) problems.push('記事別 PV の合計とページビュー集計が一致しない');
+  return problems;
+}

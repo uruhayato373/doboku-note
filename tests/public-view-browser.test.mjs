@@ -4,7 +4,19 @@
  */
 import { strict as assert } from 'node:assert';
 import test from 'node:test';
-import { boundaryOf, significantBreakpoints, breakpointDrift, uncoveredBands, loadBreakpointConfig, contextOptions } from '../scripts/lib/public-view-browser.mjs';
+import { boundaryOf, significantBreakpoints, breakpointDrift, uncoveredBands, loadBreakpointConfig, contextOptions, reviewCoverage } from '../scripts/lib/public-view-browser.mjs';
+
+test('一部の幅が欠けたページや画像ファイル欠落を、撮影済みとは数えない', () => {
+  const index = { viewports: [{ width: 390 }, { width: 768 }], pages: [
+    { noteId: 'n1', shots: [{ width: 390, file: 'a.jpg' }, { width: 390, file: 'b.jpg' }] },
+    { noteId: 'n2', shots: [{ width: 390, file: 'c.jpg' }, { width: 768, file: 'lost.jpg' }] },
+  ] };
+  assert.deepEqual(reviewCoverage(index, (file) => file !== 'lost.jpg'), {
+    expected: 4, captured: 2, missing: [{ page: 'n1', width: 768 }, { page: 'n2', width: 768 }], complete: false,
+  });
+  assert.equal(reviewCoverage({ viewports: [], pages: [] }, () => true).complete, false);
+  assert.equal(reviewCoverage({ viewports: [{ width: 390 }], pages: [{ noteId: 'n1', shots: [{ width: 390, file: 'a.jpg' }] }] }, () => true).complete, true);
+});
 
 test('min/max-width を「下の帯の最大幅」にそろえる（max 480 と min 481 は同じ境目）', () => {
   assert.equal(boundaryOf('max', 480), 480);

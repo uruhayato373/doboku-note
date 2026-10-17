@@ -5,6 +5,18 @@ on:
     - cron: "0 21 * * 4" # JST 06:00 Friday (UTC 21:00 Thursday)
   workflow_dispatch:
     inputs:
+      source_ref:
+        description: "validation_only の検証に使う ref（既定 develop・書き戻す場合は develop 固定）"
+        required: false
+        default: "develop"
+      measurement_week:
+        description: "事業計測と growth pack の再取得週（例 2026-W41・空なら直近完了週）"
+        required: false
+        default: ""
+      validation_only:
+        description: "develop へ書き戻さず、取得結果を検証用 artifact に保存"
+        type: boolean
+        default: false
       affiliate_days:
         description: "アフィリエイトのページ別の窓（日数・既定 28）。成果の出どころをさかのぼるときに延ばす"
         required: false
@@ -37,6 +49,12 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: develop
+
+      - name: Checkout validation source
+        if: ${{ inputs.validation_only && inputs.source_ref && inputs.source_ref != 'develop' }}
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ inputs.source_ref }}
 
       - name: Setup Node.js
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
@@ -71,10 +89,18 @@ jobs:
         env:
           GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
           GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+          MEASUREMENT_WEEK: ${{ inputs.measurement_week }}
         run: |
-          npm run fetch-business-metrics -- --commit
-          npm run business-review -- snapshot --commit
-          npm run business-review -- snapshot --monthly --commit
+          args=()
+          if [ -n "$MEASUREMENT_WEEK" ]; then args+=(--week "$MEASUREMENT_WEEK"); fi
+          npm run fetch-business-metrics -- --commit "${args[@]}"
+          if [ -n "$MEASUREMENT_WEEK" ]; then
+            read -r start end < <(node --input-type=module -e 'import { weekPeriod } from "./scripts/lib/business-direction.mjs"; const p = weekPeriod(process.env.MEASUREMENT_WEEK); console.log(p.startDate, p.endDate)')
+            npm run business-review -- snapshot --start "$start" --end "$end" --commit
+          else
+            npm run business-review -- snapshot --commit
+            npm run business-review -- snapshot --monthly --commit
+          fi
           npm run check-business-direction
 
       - name: Fetch GA4 (channel)
@@ -320,9 +346,12 @@ jobs:
         env:
           GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
           GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+          MEASUREMENT_WEEK: ${{ inputs.measurement_week }}
         run: |
           set +e
-          node scripts/fetch-growth-pack.mjs
+          args=()
+          if [ -n "$MEASUREMENT_WEEK" ]; then args+=(--week "$MEASUREMENT_WEEK"); fi
+          node scripts/fetch-growth-pack.mjs "${args[@]}"
           echo "rc=$?" >> "$GITHUB_OUTPUT"
 
       # Bing Webmaster（GA4 Organic の bing と照合する実クリック・表示）。キー未設定は rc=2 で検査不成立 Issue へ。
@@ -370,8 +399,13 @@ jobs:
       - name: Stage outputs
         run: node scripts/ci-data.mjs save "$RUNNER_TEMP/metrics-out" --paths data
 
+      - name: Validate measurement outputs
+        if: ${{ inputs.validation_only }}
+        run: node scripts/ci-data.mjs validate "$RUNNER_TEMP/metrics-out"
+
       - name: Publish to develop branch (data/)
         id: publish
+        if: ${{ !inputs.validation_only }}
         env:
           GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
           GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
@@ -434,8 +468,24 @@ jobs:
 
       # 計測データは前ステップで commit 済み。異常は automation-failure Issue に記録し、復旧時に自動クローズする。
       # rc=1（計測異常・事業計測の取得失敗）と rc=2（検査不成立＝入力ファイルなし）は channel を分ける。
+      - name: Upload validation measurements
+        if: ${{ always() && inputs.validation_only }}
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: measurement-validation-${{ github.run_id }}
+          path: ${{ runner.temp }}/metrics-out
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Check validation fetch results
+        if: ${{ inputs.validation_only }}
+        env:
+          BUSINESS_OUTCOME: ${{ steps.business.outcome }}
+          GROWTH_RC: ${{ steps.growth.outputs.rc }}
+        run: test "$BUSINESS_OUTCOME" = success && test "$GROWTH_RC" = 0
+
       - name: Report measurement alerts
-        if: always()
+        if: ${{ always() && !inputs.validation_only }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           INTEGRITY_RC: ${{ steps.integrity.outputs.exit_code }}

@@ -44,6 +44,8 @@ export const KINDS = {
 const SLOTS = {
   '{ts}': '\\d{4}-\\d{2}-\\d{2}T\\d{2}-\\d{2}-\\d{2}(?:-\\d{3})?Z?',
   '{date}': '\\d{4}-\\d{2}-\\d{2}',
+  '{from}': '\\d{4}-\\d{2}-\\d{2}',
+  '{to}': '\\d{4}-\\d{2}-\\d{2}',
   '{month}': '\\d{4}-\\d{2}',
   '{week}': '\\d{4}-W\\d{2}',
   '{range}': '\\d{8}_\\d{8}',
@@ -177,6 +179,7 @@ export const DATASETS = [
   d('note.status', 'data/note/status.json', 'state', 'product', 'note 記事の公開状態の要約（週次の取得）', { freshness: { failDays: 9 }, schema: 'NoteStatusSnapshot' }),
   d('note.sync-log', 'data/note/sync-log.json', 'ledger', 'product', '原稿から note への反映の記録', { schema: 'NoteSyncLog', freshness: { failDays: 8 } }),
   d('note.articles-pv', 'data/note/articles-pv/{month}.json', 'series', 'product', 'note の記事別の月間 PV', { schema: 'NoteArticlesPv' }),
+  d('note.traffic-period', 'data/note/traffic-period/{from}_{to}.json', 'series', 'product', 'note の指定期間の PV・記事別計測（週次レビュー）', { schema: 'NoteTrafficPeriod', retain: { family: 'note-traffic-period', keepAll: true } }),
   d('note.referrers', 'data/note/referrers/{month}.json', 'series', 'product', 'note の月間の流入元', { schema: 'NoteReferrers' }),
   d('note.competitors', 'data/note/competitors/{date}.json', 'series', 'strategy', 'note の競合クリエイターの商品と価格（四半期・全社の通常実行だけ）', { retain: { family: 'competitors', keepAll: true }, freshness: { warnDays: 90 }, schema: 'NoteCompetitors' }),
   // KDP

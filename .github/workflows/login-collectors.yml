@@ -301,6 +301,10 @@ jobs:
           fi
           npm run note-traffic-fetch -- --commit
           c=$?; [ "$c" -ne 0 ] && rc=$c
+          # 月次 PV を週次へ按分しない。JST の前の完了週を画面で直接測る。
+          read -r note_from note_to < <(node --input-type=module -e 'import { reviewWindowOfWeek, isoWeekKey } from "./scripts/lib/review-week.mjs"; import { todayJst } from "./scripts/lib/jst-date.mjs"; const p = reviewWindowOfWeek(isoWeekKey(todayJst())); console.log(p.startDate, p.endDate)')
+          npm run note-traffic-fetch -- --from "$note_from" --to "$note_to" --commit
+          c=$?; [ "$c" -ne 0 ] && rc=$c
           day=$(date -u +%d)
           if [ "$((10#$day))" -le 14 ]; then
             npm run note-sales-fetch -- --month "$(date -u -d 'last month' +%Y-%m)" --commit
@@ -323,7 +327,7 @@ jobs:
         run: |
           set +e
           rc=0
-          npm run check-note-attachments:live
+          npm run check-note-attachments:live -- --api-first
           c=$?; [ "$c" -ne 0 ] && rc=$c
           npm run check-note-membership:live
           c=$?; [ "$c" -ne 0 ] && rc=$c
@@ -433,7 +437,7 @@ jobs:
         if: always()
         run: |
           # 書いた記録を一時退避する（追加・変更・削除）。パスは台帳（scripts/lib/datasets.mjs）から引き、YAML に書かない（DN-0498）
-          node scripts/ci-data.mjs save "${RUNNER_TEMP}/out" --paths data,.claude/state/ig-reconcile --name "${{ matrix.service }}"
+          node scripts/ci-data.mjs save "${RUNNER_TEMP}/out" --paths data,.claude/state/ig-reconcile --datasets state.note-attachments-missing --name "${{ matrix.service }}"
           staged=$(find "${RUNNER_TEMP}/out/files" -type f 2>/dev/null | wc -l | tr -d ' ')
           echo "staged files: ${staged}"
           if [ "${{ matrix.mode }}" = "collect" ] && [ "${staged}" = "0" ]; then
@@ -574,7 +578,7 @@ jobs:
 
           node scripts/ci-data.mjs restore "${{ runner.temp }}/out"
 
-          node scripts/ci-data.mjs add --paths data,.claude/state/ig-reconcile
+          node scripts/ci-data.mjs add --paths data,.claude/state/ig-reconcile --datasets state.note-attachments-missing
           if git diff --cached --quiet; then
             echo "No changes to publish"
             exit 0

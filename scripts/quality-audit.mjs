@@ -12,7 +12,7 @@
  *
  * 使い方:
  *   node scripts/quality-audit.mjs         # 全チェック実行 → .claude/state/quality/audit-latest.{json,md}
- *   node scripts/quality-audit.mjs --ci    # ci:true の厳格サブセットのみ・fail/timeout で exit 1・レポート書込なし
+ *   node scripts/quality-audit.mjs --ci    # ci:true の厳格サブセットのみ・fail は exit 1、timeout/検査不成立は exit 2・レポート書込なし
  *   node scripts/quality-audit.mjs --ops   # ops:true（運用アラート）のみ・fail で exit 1・0 件実行で exit 2（ops-audit.yml が日次で回す）
  *   node scripts/quality-audit.mjs --json  # 結果 JSON を stdout に出す（レポートファイルも書く）
  *
@@ -30,8 +30,8 @@
  *   - 外部 API・公開更新（note/R2/deploy/fetch-*）は定義に載せない（副作用ゼロを保証）。
  *   - 存在しない npm script は skip 扱い（新チェックの段階導入に耐える）。
  */
-import { spawn, spawnSync } from 'node:child_process';
-import { availableParallelism, loadavg } from 'node:os';
+import { spawnSync } from 'node:child_process';
+import { availableParallelism } from 'node:os';
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
@@ -39,6 +39,8 @@ import net from 'node:net';
 import { datasetPath } from './lib/datasets.mjs';
 import { resolveVaultRoot } from './lib/drive-vault.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { runCheckedCommand, UNIT_TEST_TIMEOUT_MS } from './lib/check-execution.mjs';
+export { classifyRun } from './lib/check-execution.mjs';
 
 const OUT_DIR = join(ROOT, '.claude', 'state', 'quality');
 const JSON_OUT = join(OUT_DIR, 'audit-latest.json');
@@ -107,7 +109,7 @@ function unzipMissing() {
 
 // ---- チェック定義 ---------------------------------------------------------
 // npm: package.json の script 名 / cmd: 直接コマンド配列。どちらか一方。
-const CHECKS = [
+export const CHECKS = [
   { id: 'content-expansion', npm: 'check-content-expansion', timeout: 30_000, ci: true, note: '全教材の母数・記事/図/SNS対応表の整合。未確認・原典待ち・成果物変更を別表示し、構造PASSで制作完了とはしない' },
   { id: 'domains', npm: 'check-domains', timeout: 30_000, ci: true, note: '領域の正本（domains.json）と、スキル/エージェントの frontmatter domain・文書の割り当ての整合' },
   { id: 'affiliate-placements', npm: 'check-affiliate-placements', timeout: 60_000, ci: true, note: '転職アフィリエイトの配置ルール（台帳 config.affiliate-placements）が案件（catalog の active・Red Line でない）・広告リンクの有無・面の語彙・カテゴリ・実験と整合し、同じ面に 2 ルールが重ならないか。MDX の手書き <CareerAffiliate> のカテゴリがルールに覆われているか（2026-10-07）。広告リンクの期限は壁時計依存なので affiliate-placements-upcoming（ops）が見る（2026-10-11）' },
@@ -125,7 +127,8 @@ const CHECKS = [
   { id: 'type-check-admin', npm: 'type-check:admin', timeout: 240_000, ci: true, note: '管理画面（tools/admin-app）の tsc。ルートの type-check の対象外で、呼び出し元 .mjs の JSDoc 型の崩れを止める（DN-0660）' },
   // GitHub の runner では 3,000 件超のテストが 171〜182 秒掛かる（2026-10-11 の PR 3 本で実測。182 秒で timeout に当たり
   // 0 fail なのに CI が赤になった）。上限は実測の 1.6 倍に置く。手元のスリープ由来の水増しは inconclusive が分ける
-  { id: 'unit-tests', npm: 'test', timeout: 300_000, ci: true },
+  // Node の test runner 自体が並列実行する。lint/MDX 検証との競合で葉の timeout を消費しない。
+  { id: 'unit-tests', npm: 'test', timeout: UNIT_TEST_TIMEOUT_MS, ci: true, serial: true },
   // `npm test` は tests/*.test.mjs しか見ない。.claude/scripts/ads/__tests__/ の 3 本（38 テスト）は
   // 別 script になっていて、2026-08-17 まで**どの CI にも登録されておらず誰も走らせていなかった**。
   { id: 'ads-tests', npm: 'test:ads', timeout: 120_000, ci: true, note: 'A8/もしも/afb のサイト帰属ガードと CSV 正規化の単体テスト' },
@@ -517,43 +520,10 @@ function failureExcerpt(stdout, stderr, maxLines = 40) {
   return out.join('\n').trim();
 }
 
-/**
- * spawnSync と同じ形（status / stdout / stderr / error.code='ETIMEDOUT'）を返す非同期版。
- * 検査を並列に回すために使う（直列だと CI の quality audit が 6 分かかっていた・2026-09-30）。
- */
-function spawnAsync(cmd, args, { timeout, maxBuffer, ...opts }) {
-  return new Promise((resolveP) => {
-    const child = spawn(cmd, args, { ...opts, stdio: ['ignore', 'pipe', 'pipe'] });
-    let stdout = '', stderr = '', timedOut = false;
-    const cap = (acc, d) => (acc.length < maxBuffer ? acc + d : acc);
-    child.stdout.setEncoding('utf8').on('data', (d) => { stdout = cap(stdout, d); });
-    child.stderr.setEncoding('utf8').on('data', (d) => { stderr = cap(stderr, d); });
-    const timer = setTimeout(() => { timedOut = true; child.kill('SIGTERM'); }, timeout);
-    child.on('error', (error) => { clearTimeout(timer); resolveP({ status: null, stdout, stderr, error }); });
-    child.on('close', (status) => {
-      clearTimeout(timer);
-      resolveP({ status, stdout, stderr, error: timedOut ? Object.assign(new Error('timeout'), { code: 'ETIMEDOUT' }) : undefined });
-    });
-  });
-}
-
-/**
- * 壁時計と単調時計の差で「寝ていた時間」を測り、その分だけ超過した timeout / fail を inconclusive にする。
- * pass は寝ていても pass（緑を疑わない）。許容 5 秒は、並列 4 本での timer の遅れとクロック差の見積り。
- */
-export function classifyRun({ timedOut, exitStatus, wallMs, monoMs, sleepToleranceMs = 5_000 }) {
-  const sleptMs = Math.max(0, Math.round(wallMs - monoMs));
-  if (!timedOut && exitStatus === 0) return { status: 'pass', sleptMs };
-  if (sleptMs > sleepToleranceMs) return { status: 'inconclusive', sleptMs };
-  return { status: timedOut ? 'timeout' : 'fail', sleptMs };
-}
-
 // 同時に走らせる検査の数。QUALITY_AUDIT_CONCURRENCY=1 で従来どおり直列（切り分け用）。
 const CONCURRENCY = Math.max(1, Number(process.env.QUALITY_AUDIT_CONCURRENCY) || Math.min(4, availableParallelism()));
 
 async function runCheck(check) {
-  const started = Date.now();
-  const startedMono = process.hrtime.bigint();
   // --ci は ci:true だけ / --ops は ops:true だけ / --report-only は report 区分だけ。
   // digest:false は「常に非ゼロで判定に使えない情報出力」なので週次 Issue の対象からも外す
   // （毎週飛ぶ通知は読まれなくなる）。ops は日次の別チャネル（ops-audit.yml）が読むので
@@ -571,20 +541,16 @@ async function runCheck(check) {
   // これを放置すると node 直起動の検査だけが走り、残り全部が 0.0s FAIL になる＝「偽赤」で
   // 誰も結果を読まなくなる（CLAUDE.md §9）。コマンドは内部固定でユーザー入力を含まないため
   // shell 経由で安全に起動できる。
-  const r = await spawnAsync(command[0], command.slice(1), {
-    cwd: ROOT, timeout: check.timeout, maxBuffer: 16 * 1024 * 1024,
-    shell: process.platform === 'win32',
+  const r = await runCheckedCommand(command[0], command.slice(1), {
+    cwd: ROOT, timeoutMs: check.timeout,
     env: { ...process.env, NO_COLOR: '1', FORCE_COLOR: '0' },
   });
-  const durationMs = Date.now() - started;
-  const monoMs = Number(process.hrtime.bigint() - startedMono) / 1e6;
-  const timedOut = Boolean(r.error && r.error.code === 'ETIMEDOUT');
-  const { status, sleptMs } = classifyRun({ timedOut, exitStatus: r.status, wallMs: durationMs, monoMs });
+  const { status, durationMs, monoMs, sleptMs, loadavg1 } = r;
   return {
-    id: check.id, ci: check.ci, ops: Boolean(check.ops), status, exitCode: r.status ?? null, durationMs,
+    id: check.id, ci: check.ci, ops: Boolean(check.ops), status, exitCode: r.exitCode, durationMs,
     // 診断用: 単調時計の経過・寝ていた時間・開始時の負荷（壁時計の水増しを後から切り分ける）
-    monoMs: Math.round(monoMs), sleptMs, loadavg1: Math.round(loadavg()[0] * 100) / 100,
-    ...(status === 'inconclusive' ? { inconclusiveReason: `${timedOut ? 'timeout' : 'fail'} だが壁時計が単調時計より ${Math.round(sleptMs / 1000)} 秒進んでいる（スリープ・停止の疑い）` } : {}),
+    monoMs, sleptMs, loadavg1,
+    ...(status === 'inconclusive' ? { inconclusiveReason: r.error ?? `exit ${r.exitCode}・停止疑い ${Math.round(sleptMs / 1000)} 秒（内側の検査不成立またはプロセス停止）` } : {}),
     stdoutTail: tail(r.stdout), stderrTail: tail(r.stderr), note: check.note,
     expectedFail: check.expectedFail ?? null,
     // 全文はここでしか手に入らない（tail 済みの文字列からは信号行を拾えない）
@@ -736,11 +702,17 @@ async function main() {
   }
 
   // 検査不成立（inconclusive）は fail/timeout とは別に数え、1 件でもあれば exit 2。緑にも赤にもしない（CLAUDE.md §9）。
+  // A killed leaf check did not finish inspecting its targets; preserve that at aggregate boundaries.
+  const timedOutChecks = results.filter((r) => r.status === 'timeout');
+  if (timedOutChecks.length) {
+    process.stderr.write(`[quality-audit] timeout ${timedOutChecks.length} 件は検査未完了（exit 2）\n`);
+    process.exitCode = 2;
+  }
   const inconclusive = results.filter((r) => r.status === 'inconclusive');
   if (inconclusive.length) {
     for (const r of inconclusive) process.stderr.write(`[INCONCLUSIVE] ${r.id}: ${r.inconclusiveReason}\n`);
-    process.stderr.write(`[quality-audit] 検査不成立 ${inconclusive.length} 件（スリープ・停止で壁時計だけが伸びた。timeout の延長では直らない。起きている状態で再実行する）\n`);
-    if (!process.exitCode) process.exitCode = 2;
+    process.stderr.write(`[quality-audit] 検査不成立 ${inconclusive.length} 件（上記の取得失敗・プロセス停止を解消して再実行する）\n`);
+    process.exitCode = 2;
   }
 }
 

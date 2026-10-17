@@ -4,6 +4,7 @@
  */
 import { strict as assert } from 'node:assert';
 import test from 'node:test';
+import { readFileSync } from 'node:fs';
 import { classifySync, hasBoundaryHeading, orderForRun, SAFE_ABORTS } from '../scripts/lib/note-sync-plan.mjs';
 
 const base = { bodyReason: null, assetDrift: false, tagDrift: false, metaDrift: false, coverReason: null, abort: null, imageMissing: [], pdfPending: false, pdfLocal: false };
@@ -38,6 +39,18 @@ test('保存前に止まった中断は自動で再試行し、それ以外は�
   const r = classifySync({ ...base, bodyReason: 'drift', abort: { reason: '更新フローが false を返した' } });
   assert.equal(r.status, 'blocked');
   assert.equal(r.blocker, 'aborted');
+});
+
+test('添付上限は本文の全文置換より前に止め、翌日の再試行を妨げない', () => {
+  const source = readFileSync(new URL('../scripts/note-update-body.mjs', import.meta.url), 'utf8');
+  const check = source.indexOf('usedToday + toReattach.length > ATTACH_DAILY_LIMIT');
+  const mutation = source.indexOf('await emptyAndPaste(page, body, probe)');
+  assert.ok(check > 0 && check < mutation, '上限到達時に既存の添付をエディタから消してはいけない');
+  const guard = source.slice(check, source.indexOf('\n  }', check));
+  assert.match(guard, /abortReason = 'attachment-daily-limit'/);
+  assert.match(guard, /return false/);
+  assert.ok(!guard.includes('recordAttachmentDebt'), '本文を触っていない上限待ちを添付喪失として記録しない');
+  assert.equal(classifySync({ ...base, bodyReason: 'drift', abort: { reason: 'attachment-daily-limit' } }).status, 'ready');
 });
 
 test('会員特典の公開範囲は memberTrial を書けば解消する', () => {

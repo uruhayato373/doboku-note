@@ -25,6 +25,21 @@ const assertFails = (schema, value, pattern) => {
   assert.ok(found.some((l) => pattern.test(l)), `${pattern} が出ない: ${JSON.stringify(found.slice(0, 5))}`);
 };
 
+test('note 同期は日次上限の未反映を deferred として残し、旧記録も読める', () => {
+  const run = {
+    startedAt: '2026-10-17T01:00:00Z', finishedAt: '2026-10-17T02:00:00Z',
+    plan: { synced: 534, ready: 404, blocked: 0 },
+    articles: { selected: 200, attempted: 91, updated: Array(90).fill({}), failed: [], deferred: Array(110).fill({ reason: 'attachment-daily-limit' }) },
+    magazines: { attempted: 0, updated: [], failed: [] }, problems: [],
+  };
+  assertOk(SCHEMAS.NoteSyncLog, { runs: [run] });
+  const old = structuredClone(run);
+  delete old.articles.selected; delete old.articles.deferred;
+  assertOk(SCHEMAS.NoteSyncLog, { runs: [old] });
+  run.articles.deferred = 'done';
+  assertFails(SCHEMAS.NoteSyncLog, { runs: [run] }, /articles.deferred/);
+});
+
 // ---- 実データ ----------------------------------------------------------------------------
 
 const files = ['config', 'data'].flatMap((area) => listAreaFiles(ROOT, area, { tracked: true }));
@@ -843,4 +858,19 @@ test('config.note-funnel: 導線の印と本文の食い違い・もくじ記事
   assertFails(N, mutateLatest('config.note-funnel', (r) => { first(r).bottomCta.marker = ''; }), /bottomCta\.marker/);
   assertFails(N, mutateLatest('config.note-funnel', (r) => { delete first(r).L2; }), /\.L2/);
   assertFails(N, mutateLatest('config.note-funnel', (r) => { r.L1.noteUrl = 'x'; }), /^L1\.noteUrl/);
+});
+
+test('note custom period preserves missing referrers and rejects incomplete rows', () => {
+ const fixture={schemaVersion:1,fetchedAt:'2026-10-17T00:00:00Z',source:'note dashboard custom',period:{from:'2026-10-05',to:'2026-10-11'},summary:{impressions:100,pageViews:20,likes:1,comments:null,salesYen:null},pie:null,sortedBy:'pageViews',count:1,rows:[{title:'sample',status:'公開中',publishedAt:'2026-10-01',impressions:100,pageViews:20,likes:1,comments:null,salesYen:null}]};
+ assert.equal(SCHEMAS.NoteTrafficPeriod.safeParse(fixture).success,true);
+ assert.equal(SCHEMAS.NoteTrafficPeriod.safeParse({...fixture,count:2}).success,false);
+ assert.equal(SCHEMAS.NoteTrafficPeriod.safeParse({...fixture,period:{from:'2026-10-12',to:'2026-10-11'}}).success,false);
+});
+
+
+test('kdp.royalties: 確定PMRの金額と未知の既読ページ数を分けて保存する', () => {
+  const m = kdpMonth({ kenpPagesRead: null, marketplaces: [{ marketplace: '日本', currency: 'JPY', ebook: 100, paperback: 0, hardcover: 0, kenpPages: null, kenpRoyalty: 50, royalty: 150 }] });
+  assertOk(SCHEMAS.KdpRoyalties, kdpLog(m));
+  assertOk(SCHEMAS.KdpRoyalties, kdpLog({ ...m, kenpPagesRead: 500 }));
+  assertFails(SCHEMAS.KdpRoyalties, kdpLog({ ...m, marketplaces: [{ ...m.marketplaces[0], kenpPages: 1.5 }] }), /kenpPages/);
 });
