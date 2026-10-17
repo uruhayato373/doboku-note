@@ -134,6 +134,7 @@ ${tasks}
 - SNS はユーザー指示で保留中。X/Instagram/YouTube の公開・予約・追加投入・認証復旧・ブラウザによる取得は行わない。既存の保存データだけ参考にする。サイトと note 教材の改善を優先する。
 - 外部への公開・投稿・送信・購入・価格変更・note やココナラの編集はしない。ログイン済みプロファイルで読むだけの取得（npm run coconala-orders など）は回してよい。
 - commit は変更したファイルだけを pathspec で指定し、git push origin HEAD:develop で積む（push が競合したら git pull --rebase origin develop してやり直す）。git reset・checkout・stash・force push はしない。
+- quality:audit:ci・check-backlog-verify の再実行は終了を待ってから commit・rebase する。生成物の検査中に HEAD を動かすと検査不成立になる。
 - 週次が実行対象なら、レビューの保存後に /plan-weekly で来週の計画を書き、同じ形でコミットする。月次だけの回では週間計画を再生成しない。
 - 最後に node scripts/check-weekly-review.mjs --week ${week} が exit 0 になることを確かめる。月次も対象なら node scripts/check-monthly-review-due.mjs --month ${month} が exit 0、同コマンドの --due-key が空になることを確かめる。不成立なら欠けた取得・記録を補う。既存 md だけで完了にしない。
 - 最後に、作ったファイル・起票した DN・諮問待ちの件数・未取得の材料を 10 行以内で書いて終える。

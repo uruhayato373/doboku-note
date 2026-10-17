@@ -17,6 +17,7 @@ const git = (...args) => execFileSync('git', ['-c', 'core.quotepath=false', ...a
 const changed = () => new Set(git('diff', '--name-only', 'HEAD').split('\n').filter(Boolean));
 
 const before = changed();
+const beforeHead = git('rev-parse', 'HEAD').trim();
 const run = spawnSync('npm', ['run', '-s', 'refresh-indexes'], { cwd: ROOT, encoding: 'utf8', shell: process.platform === 'win32' });
 if (run.status !== 0) {
   console.error('[check-generated-indexes] ✗ 検査不成立: refresh-indexes が失敗した');
@@ -24,6 +25,10 @@ if (run.status !== 0) {
   process.exit(2);
 }
 const after = changed();
+if (git('rev-parse', 'HEAD').trim() !== beforeHead) {
+  console.error('[check-generated-indexes] ✗ 検査不成立: 実行中に HEAD が変わった。commit・rebase と並行せず再実行する');
+  process.exit(2);
+}
 const stale = [...after].filter((f) => !before.has(f));
 const undecided = [...before].filter((f) => after.has(f));
 

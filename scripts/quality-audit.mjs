@@ -327,7 +327,7 @@ export const CHECKS = [
   // 共通仕様書のページ画像 3.4GB を private R2 へ上げかけた再発防止。CI は Drive を持たないので
   // マウント無しでは「実体検査 0 件」と明示して設定・台帳・ルーティング衝突・audience だけを判定する。
   { id: 'youtube-cover-handoff', npm: 'check-youtube-cover-handoff', timeout: 120_000, ci: true, note: '採用カバーのDrive台帳登録・読み戻し記録・入力変更を検査。クラウド実体は読まない' },
-  { id: 'drive-vault', npm: 'check-drive-vault', timeout: 120_000, ci: true, note: 'audience ゲート（site⇒public / ci⇒private|byVisibility / human⇒Drive）・R2 と Drive の同一パス衝突・drive-manifest の整合。マウント無しは実体検査 0 件と明示' },
+  { id: 'drive-vault', npm: 'check-drive-vault', args: ['--metadata-only'], timeout: 120_000, ci: true, note: 'audience・ルーティング・drive-manifest の整合を検査。Drive 実体検査は通常の check-drive-vault で行う' },
   // ローカルディスクの肥大は gitignore 済み・ホーム配下・worktree に溜まるので CI にも pre-commit にも
   // 映らない（2026-09-10 に空き 7.5GB まで落ちて初めて気づいた）。ローカル（Mac / Windows）でだけ意味がある検査。
   { id: 'disk-hygiene', npm: 'check-disk-hygiene', timeout: 120_000, ci: false,
