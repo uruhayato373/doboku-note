@@ -18,6 +18,11 @@
 //   それ以外の mat が note に出たら ERROR＝サイト用バナー mat の誤貼り・未申告案件を止める。
 //   それまで content/note は走査対象外で、note の 6 本は registry ゲートの外にあった。
 //
+// 他サイトの提携の素材（2026-10-17 追加）:
+//   A8 口座は stats47（サイト 001）と doboku-note（002）が同居し、同じ案件でも提携はサイトごとに別で、
+//   mat の第2トークンが違う。DX の広告に stats47 側の mat を貼っていて、クリックが stats47 に帰属していた。
+//   mat だけでは帰属が見えないので、A8 の画像 URL（svt/bgt）の wid が 002 以外なら ERROR にする。
+//
 // 使い方:
 //   node scripts/check-affiliate-mats.mjs            # src/ + content/site + content/note 全体
 //   node scripts/check-affiliate-mats.mjs --staged   # git staged の該当ファイルのみ（pre-commit 用）
@@ -29,6 +34,15 @@ import { todayJst } from './lib/jst-date.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { listFiles } from './lib/fs-walk.mjs';
 import { runBody, isCliEntry, runAsCli } from './lib/cli-run.mjs';
+
+/** A8 口座の中での doboku-note のサイト番号（001 は stats47）。 */
+export const DOBOKU_A8_WID = '002';
+const WID_RE = /a8\.net\/svt\/bgt\?[^"'\s]*?wid=(\d+)/g;
+
+/** A8 の画像 URL のうち、doboku-note 以外のサイトの提携のもの（wid）を返す。 */
+export function foreignSiteWids(text) {
+  return [...text.matchAll(WID_RE)].map((m) => m[1]).filter((wid) => wid !== DOBOKU_A8_WID);
+}
 
 // in-process でも呼べるよう run() に包んである（DN-0688・pre-commit-dispatch が import して呼ぶ）。
 // process.argv / process.exit / process.exitCode は runBody が渡す __argv / __exit / __status への読み替え。
@@ -74,6 +88,7 @@ if (STAGED) {
 const unknown = []; // { file, mat }  src/ で許可リスト外
 const mdxRaw = []; // { file, mat }  content/site に生 mat 直書き（禁止）
 const noteDisallowed = []; // { file, mat }  content/note に note-article 以外の mat（禁止）
+const foreignSite = []; // { file, wid }  A8 画像 URL の wid が doboku-note 以外
 const expiredHits = new Set(); // mat
 const seenKnown = new Set();
 
@@ -86,6 +101,7 @@ for (const file of files) {
   }
   const isMdx = file.startsWith('content/site');
   const isNote = file.startsWith('content/note');
+  for (const wid of foreignSiteWids(text)) foreignSite.push({ file, wid });
   for (const m of text.matchAll(MAT_RE)) {
     const mat = m[1];
     // MDX 本文に生 mat 直書きは禁止（preset コンポーネント経由のみ）。既知/未知を問わず ERROR。
@@ -133,6 +149,16 @@ if (noteDisallowed.length > 0) {
   );
 }
 
+if (foreignSite.length > 0) {
+  console.error(
+    `[check-affiliate-mats] ✗ doboku-note（wid=${DOBOKU_A8_WID}）以外のサイトの提携の A8 素材が ${foreignSite.length} 件あります:`,
+  );
+  for (const u of foreignSite) console.error(`  - wid=${u.wid}  (${u.file})`);
+  console.error(
+    '  → クリックが他サイト（001=stats47）に帰属する。A8 の広告リンク作成で doboku-note を選んで取り直した mat と画像 URL に差し替える。',
+  );
+}
+
 if (unknown.length > 0) {
   console.error(
     `[check-affiliate-mats] ✗ 許可リスト(${REGISTRY})に無い mat が ${unknown.length} 件見つかりました:`,
@@ -143,7 +169,7 @@ if (unknown.length > 0) {
   );
 }
 
-if (mdxRaw.length > 0 || unknown.length > 0 || noteDisallowed.length > 0) {
+if (mdxRaw.length > 0 || unknown.length > 0 || noteDisallowed.length > 0 || foreignSite.length > 0) {
   __exit(1);
 }
 

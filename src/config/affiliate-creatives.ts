@@ -63,10 +63,10 @@ const KENSETSU_JOBS_CAREER_AD = {
  * 施工管理系の案件が総監層に合わないため、総監のページはこの案件だけにする（2026-06-16）。
  */
 const PE_CONSULTING_CAREER_AD = {
-  href: "https://px.a8.net/svt/ejp?a8mat=4B5OO5+NTCZ6+4SXU+NUES1",
+  href: "https://px.a8.net/svt/ejp?a8mat=4B5OO5+NTDQY+4SXU+NUES1",
   imageSrc:
-    "https://www23.a8.net/svt/bgt?aid=260605733040&wid=001&eno=01&mid=s00000022413004005000&mc=1",
-  pixelSrc: "https://www18.a8.net/0.gif?a8mat=4B5OO5+NTCZ6+4SXU+NUES1",
+    "https://www23.a8.net/svt/bgt?aid=260605733040&wid=002&eno=01&mid=s00000022413004005000&mc=1",
+  pixelSrc: "https://www18.a8.net/0.gif?a8mat=4B5OO5+NTDQY+4SXU+NUES1",
   alt: "ハイクラス DX・コンサル転職",
   width: 300,
   height: 250,
