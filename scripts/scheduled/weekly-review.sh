@@ -110,6 +110,7 @@ git -C "$REPO" fetch -q origin develop
     echo '[monthly-review] 未実施・再確認日到来なし'
     exit 0
   fi
+  node .claude/scripts/build-doc-meta-index.mjs --ci > /dev/null
   if [ "$weekly_needed" -eq 1 ]; then
     # Same prerequisite as CI; 0 EPUBs must never be reported as a successful inspection.
     node scripts/asset-hydrate.mjs --group kindle-dist
@@ -122,7 +123,6 @@ git -C "$REPO" fetch -q origin develop
     tasks="$tasks
 /monthly-review ${month} を実行する。対象は ${month} の暦月。既存記録を読み、再確認日到来の補完として最新証拠・欠測・判断を追記する。次回日を未来の日に定め、取得できない材料は理由と対応先を明示する。SNS 保留を優先する。"
   fi
-  node .claude/scripts/build-doc-meta-index.mjs --ci > /dev/null
 
   prompt="$(cat <<PROMPT
 ${tasks}
