@@ -23,7 +23,7 @@ export default function NoteImageCta({ href, image, trackLabel, placement, compa
     <a href={href} target="_blank" rel={NOTE_LINK_REL}
     data-cta="note" data-cta-label={trackLabel} data-cta-placement={placement}
     className={`note-image-cta focus-ring not-prose ${compact ? 'flex items-start bg-(--paper)' : 'block'} overflow-hidden rounded-card-content border border-(--rule-soft) dark:border-(--rule) shadow-card-content transition-shadow hover:shadow-card-hover ${className}`}>
-    <Image src={image.src} alt={showDescription ? '' : image.alt} width={image.width} height={image.height}
+    <Image src={image.src} alt={showDescription && image.caption ? '' : image.alt} width={image.width} height={image.height}
       unoptimized className={compact ? 'block h-auto w-28 shrink-0 sm:w-44' : 'block h-auto w-full'} />
     {(compact || showDescription) && image.caption && <span className="block min-w-0 bg-(--paper) px-4 py-3 text-(--ink)">
       <span className="block text-sm font-bold leading-relaxed">{image.caption.title}</span>
