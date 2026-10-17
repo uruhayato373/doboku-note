@@ -4297,7 +4297,7 @@
       "outcome": "blocked",
       "plan": ".claude/plans/DN-0762-ci-repair.md",
       "commit": null,
-      "verification": "対象回帰32/32、Shorts実検査121パック224本・公開枠9、AI画像17/17 ok、公開照合CI39008379248は2/2成功。全体監査の最終結果はW42レビューへ記録。",
+      "verification": "対象回帰32/32、Shorts実検査121パック224本・公開枠9、AI画像17/17 ok、公開照合CI39008379248は2/2成功。全体監査143項目は142成功・1失敗（R07再承認7本）・timeout0・検査不成立0。generated-indexes成功9.8秒、unit-tests成功142.8秒。",
       "note": "説明欄8本の改訂により予約7本のR07再承認が必要。運営者専用の承認を代行せず手順を準備。外部説明欄は未同期、SNS新規展開・追加予約なし。"
     },
     {
@@ -4310,8 +4310,8 @@
       "outcome": "blocked",
       "plan": ".claude/plans/DN-0224-source-recovery.md",
       "commit": null,
-      "verification": "登録3書籍の原本を再確認し7論点は欠落・遮蔽が残存。対象外9論点の誤集計を修正、回帰テスト成功。既存2パックを修正し独立QAは2.50/2.67、BLOCK0。check-video-content 166/166、PNG16/16生成。",
-      "note": "音声エンジン未稼働につき音声付きMP4・完成映像QAは未実施。linked8論点は原典待ち7＋制作待ち1。iPhone写真群は未走査。既存原稿の補修のみ、SNS新規展開・追加予約なし。"
+      "verification": "登録3書籍の原本を再確認し7論点は欠落・遮蔽が残存。対象外9論点の誤集計を修正、回帰テスト成功。既存2パックを修正し独立QAは2.50/2.67、BLOCK0。check-video-content 166/166、PNG16/16生成。 既存VOICEVOXを起動し音声付きMP4を2本再生成、16/16場面の音声入力hash照合・全編decode成功。Drive vaultへ44ファイルを保存し読み戻しSHA一致。",
+      "note": "表紙の制作表記と字幕の重なり、冒頭約12秒・長い静止画各3箇所の調整と全編試聴が残る。linked8論点は原典待ち7＋映像仕上げ1。iPhone写真群は未走査。SNS新規展開・追加予約なし。"
     }
   ]
 }

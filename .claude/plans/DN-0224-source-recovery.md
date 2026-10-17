@@ -7,7 +7,7 @@ deleteOnComplete: true
 
 # DN-0224 原典待ち7論点と既存動画2本の修復
 
-現在の判定は [教材対応表](../state/content-expansion.json)。9月14日の17論点調査は [過去の実査記録](../state/quality/content-source-recovery-20260914.json)。10月10日の運営者判断で対象外となった総監論文対策の9論点は再開しない。残作業は原典待ち7論点と、既存原稿1論点に関連する動画2本の音声付きMP4生成・確認。
+現在の判定は [教材対応表](../state/content-expansion.json)。9月14日の17論点調査は [過去の実査記録](../state/quality/content-source-recovery-20260914.json)。10月10日の運営者判断で対象外となった総監論文対策の9論点は再開しない。残作業は原典待ち7論点と、既存原稿1論点に関連する動画2本の映像仕上げ・全編試聴。
 
 ## 原典の入手後に進める7論点
 
@@ -21,10 +21,12 @@ deleteOnComplete: true
 
 ## 既存原稿1論点の残作業
 
-対象ID `pe-cem-essay-guide:総監論文に求められるもの.md:397`。原本照合は印字35〜38頁の記録を保持する。関連する `monbun-yomikata` と `sanso-kozo` は補修済み台本・storyboard・図を使う。音声エンジンが利用可能になったら既存 `render-longform` で音声付きMP4を再生成し、音声・字幕・図の一致を検証する。PNGの生成成功をMP4の完成と呼ばない。台帳のqa_passed・外部IDなしは記録上の状態であり、実機の未公開確認ではない。
+対象ID `pe-cem-essay-guide:総監論文に求められるもの.md:397`。原本照合は印字35〜38頁の記録を保持する。関連する `monbun-yomikata` と `sanso-kozo` は補修済み台本・storyboard・図を使う。既存VOICEVOXで音声付きMP4を再生成済み（166.300秒・146.464秒）。16場面の音声入力hash一致・全編decode・実尺と音声合計を機械照合し、字幕入りの各場面1枚を目視確認した。表紙の制作表記と字幕の重なり、冒頭約12秒・20秒超の静止画各3箇所を調整し、全編試聴を行う。生成成功を公開品質の承認と呼ばない。台帳のqa_passed・外部IDなしは記録上の状態であり、実機の未公開確認ではない。
 
 SNSの新規展開・追加予約は保留。公開や予約は再開指示を受けてから既存台帳で重複確認し、承認工程を通す。保留を理由に必要な修復を「不要」へ移さない。
 
+生成物はDrive vaultの `制作物/動画レンダー/monbun-yomikata/` と `制作物/動画レンダー/sanso-kozo/` に保存し、計44ファイルの読み戻しSHAが一致した（クラウド同期の実体照合は別）。動画SHAはそれぞれ `a864e1b92c7881c0582ade84ff49c4e39a0dff8457e137b941a5145685a9c213`、`d5d7fb8231535f66768719ed2a29f172149b2d6598c356be0ada5d26310b4cdd`。
+
 ## 完了条件
 
-`npm run todo:claim -- DN-0224 --owner codex` で再開し、7論点の原本と対応先の実査、既存2本のMP4確認が成立してから対応表の判定・hashを更新する。`npm run check-content-expansion:linked` の未完0を確認してカードを閉じ、本計画を削除する。原典や音声が未取得ならカードを保持する。
+`npm run todo:claim -- DN-0224 --owner codex` で再開し、7論点の原本と対応先の実査、既存2本のMP4確認が成立してから対応表の判定・hashを更新する。`npm run check-content-expansion:linked` の未完0を確認してカードを閉じ、本計画を削除する。原典や完成映像の検証が未取得ならカードを保持する。
