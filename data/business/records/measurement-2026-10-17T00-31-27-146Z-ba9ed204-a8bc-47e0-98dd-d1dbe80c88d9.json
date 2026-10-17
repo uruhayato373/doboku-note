@@ -1,0 +1,19 @@
+{
+  "kind": "measurement",
+  "qualification": "pe-comprehensive-management",
+  "period": {
+    "startDate": "2026-10-05",
+    "endDate": "2026-10-11"
+  },
+  "channel": "GSC",
+  "subject": "aggregate",
+  "coverage": "partial",
+  "source": "GSC Search Analytics API sc-domain:doboku-note.com・日本/Web/final・太平洋時間。dimensions=[]・aggregation=byPage・取得1行。正規URLのpageフィルタ。Google側で明細が欠落し得るため下限。",
+  "values": {
+    "gscClicks": 2
+  },
+  "supersedes": "data/business/records/measurement-2026-10-15T13-12-41-351Z-c3167515-f165-43aa-b129-8027da557ebb.json",
+  "schemaVersion": 1,
+  "createdAt": "2026-10-17T00:31:27.146Z",
+  "strategyHash": "7da574eadd3ced97551d710fc7d1611f675e276997f4d2fefe1e18aa9a7d42db"
+}

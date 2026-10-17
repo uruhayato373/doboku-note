@@ -22,7 +22,17 @@ import {
   expectedPdfs,
   expectationsByNoteId,
   recordAttachmentLoss,
+  publicAttachmentCount,
 } from '../scripts/lib/note-attachments.mjs';
+
+test('公開APIの有料域と無料域の添付本数を合算し、限定・誤対象・欠測は著者確認へ回す', () => {
+  const live = { key: 'n123456abcdef', status: 'published', is_limited: false, remained_file_num: 2, body: '<a href="/api/v2/attachments/download/1">PDF</a>' };
+  assert.equal(publicAttachmentCount(live, live.key), 3);
+  assert.equal(publicAttachmentCount({ ...live, remained_file_num: 0, body: '' }, live.key), 0);
+  for (const partial of [{ ...live, is_limited: true }, { ...live, key: 'n999999999999' }, { ...live, remained_file_num: null }, { ...live, status: 'draft' }, {}]) {
+    assert.equal(publicAttachmentCount(partial, live.key), null);
+  }
+});
 
 // ---------------------------------------------------------------------------
 // 保存前ゲート（DN-0177）: 「壊れたエディタ状態を正として保存する」を止めるのが目的。

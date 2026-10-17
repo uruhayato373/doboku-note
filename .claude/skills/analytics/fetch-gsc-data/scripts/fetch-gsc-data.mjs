@@ -130,13 +130,18 @@ export async function fetchSearchAnalytics(auth, opts, searchconsole = google.se
   const filterGroups =
     dimensionFilters.length > 0 ? [{ filters: dimensionFilters }] : undefined;
 
+  const requests = [];
+  const responseAggregationTypes = new Set();
   const paged = await fetchGscPages({
     rowCap,
     pageSize: API_PAGE_SIZE,
     fetchPage: async ({ startRow, rowLimit }) => {
       const requestBody = { startDate, endDate, dimensions, rowLimit, startRow, dataState: "final", type: "web" };
+      requestBody.aggregationType = opts.aggregationType ?? "auto";
       if (filterGroups) requestBody.dimensionFilterGroups = filterGroups;
       const res = await searchconsole.searchanalytics.query({ siteUrl: GSC_PROPERTY, requestBody });
+      requests.push({ ...requestBody, returnedRows: res.data.rows?.length ?? 0 });
+      if (res.data.responseAggregationType) responseAggregationTypes.add(res.data.responseAggregationType);
       return res.data.rows || [];
     },
   });
@@ -147,6 +152,10 @@ export async function fetchSearchAnalytics(auth, opts, searchconsole = google.se
       dataState: "final",
       type: "web",
       timeZone: "America/Los_Angeles",
+      fetchedAt: new Date().toISOString(),
+      aggregationType: opts.aggregationType ?? "auto",
+      responseAggregationTypes: [...responseAggregationTypes],
+      requests,
       filters: dimensionFilters,
       startDate,
       endDate,
@@ -158,7 +167,7 @@ export async function fetchSearchAnalytics(auth, opts, searchconsole = google.se
       row_count: paged.rows.length,
       truncated: paged.truncated,
       api_note:
-        "Search Analytics API は全行の返却を保証しない（sampling / privacy filtering で低ボリューム行が欠落し得る）。" +
+        "Search Analytics API は全行の返却を保証しない。page/query の明細は計算資源上の制約等で一部が欠落し得る。" +
         "row_count は startRow ページングの合算実測値であり、母集合全体とは限らない。",
     },
     rows: paged.rows,

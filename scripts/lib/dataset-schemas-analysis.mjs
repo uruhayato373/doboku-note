@@ -50,6 +50,7 @@ const GSC_ROW = {
 };
 const GscPageRow = z.object(GSC_ROW).strict();
 const GscPageQueryRow = z.object({ ...GSC_ROW, query: z.string().describe('検索クエリ') }).strict();
+const GscTotalRow = z.object({ keys: z.array(z.string()).optional(), clicks: num('クリック'), impressions: num('表示回数'), ctr: num('CTR'), position: num('平均掲載順位') }).strict();
 const failedSection = z.object({ ok: z.literal(false), error: z.string().describe('取得失敗の理由（300 字まで）') }).strict();
 const ga4Section = (rowSchema, what) =>
   z.discriminatedUnion('ok', [
@@ -70,6 +71,7 @@ const gscSection = (rowSchema, what) =>
       endDate: jstDate('終了日（太平洋時間で取得）'),
       rowCount: count('GSC が返した行数'),
       truncated: z.boolean().describe('打ち切られたか'),
+      meta: z.looseObject({ dimensions: z.array(z.string()), row_count: count('実取得行数') }).optional().describe('API の取得条件・ページング要求・応答の集計方式'),
       rows: z.array(rowSchema),
     }).strict(),
     failedSection,
@@ -98,6 +100,10 @@ export const GrowthPack = z
         gscPageBase: gscSection(GscPageRow, 'GSC のページ別（基線）'),
         gscPageQueryWeek: gscSection(GscPageQueryRow, 'GSC のページ × クエリ（週）'),
         gscPageQueryBase: gscSection(GscPageQueryRow, 'GSC のページ × クエリ（基線）'),
+        gscPropertyWeek: gscSection(GscTotalRow, '無次元・byProperty の全体集計（週）').optional(),
+        gscPropertyBase: gscSection(GscTotalRow, '無次元・byProperty の全体集計（基線）').optional(),
+        gscPageTotalWeek: gscSection(GscTotalRow, '無次元・byPage の全体集計（週）').optional(),
+        gscPageTotalBase: gscSection(GscTotalRow, '無次元・byPage の全体集計（基線）').optional(),
       })
       .strict()
       .describe('取得した区画。取れなかった区画は ok:false と error（全滅のときはファイルを書かない）'),
@@ -106,9 +112,9 @@ export const GrowthPack = z
   .superRefine((pack, ctx) => {
     checkGrowthWindow(pack, ctx);
     const { sections: s } = pack;
-    for (const [name, which] of [['gscPageWeek', pack.period], ['gscPageQueryWeek', pack.period], ['gscPageBase', pack.baseline], ['gscPageQueryBase', pack.baseline]]) {
+    for (const [name, which] of [['gscPageWeek', pack.period], ['gscPageQueryWeek', pack.period], ['gscPageBase', pack.baseline], ['gscPageQueryBase', pack.baseline], ['gscPropertyWeek', pack.period], ['gscPropertyBase', pack.baseline], ['gscPageTotalWeek', pack.period], ['gscPageTotalBase', pack.baseline]]) {
       const sec = s[name];
-      if (sec.ok && (sec.startDate !== which.startDate || sec.endDate !== which.endDate)) flag(ctx, ['sections', name, 'startDate'], `${name} の期間 ${sec.startDate}〜${sec.endDate} が ${which === pack.period ? 'period' : 'baseline'} と合わない`);
+      if (sec?.ok && (sec.startDate !== which.startDate || sec.endDate !== which.endDate)) flag(ctx, ['sections', name, 'startDate'], `${name} の期間 ${sec.startDate}〜${sec.endDate} が ${which === pack.period ? 'period' : 'baseline'} と合わない`);
     }
     if (s.ga4Landing.ok) uniqueBy((r) => `${r.page}\u0000${r.group}`, 'ページ×流入元')(s.ga4Landing.rows, { addIssue: (i) => ctx.addIssue({ ...i, path: ['sections', 'ga4Landing', 'rows', ...i.path] }) });
     if (s.ga4Events.ok) uniqueBy((r) => `${r.page}\u0000${r.event}`, 'ページ×イベント')(s.ga4Events.rows, { addIssue: (i) => ctx.addIssue({ ...i, path: ['sections', 'ga4Events', 'rows', ...i.path] }) });
@@ -127,6 +133,8 @@ const KPI_GA4 = z.object({
   baseWeeklyKeyEvents: num('基線の週平均キーイベント'),
 }).strict();
 const KPI_GSC = z.object({
+  basis: z.enum(['property-total', 'page-row-sum']).optional().describe('全体集計か旧パックの取得ページ行合計か'),
+  pageRows: z.object({ count: count('取得ページ行数'), clicks: num('明細クリック'), impressions: num('明細表示'), byPageTotalClicks: num('byPage 全体クリック').nullable(), byPageTotalImpressions: num('byPage 全体表示').nullable() }).strict().optional(),
   clicks: num('今週のクリック'),
   baseWeeklyClicks: num('基線の週平均クリック'),
   deltaPct: DELTA_PCT,

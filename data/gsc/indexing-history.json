@@ -1017,6 +1017,46 @@
         "/exam/pe-first-stage/primary/r05-basic"
       ],
       "acceptedSlugs": []
+    },
+    {
+      "runId": "2026-10-17T01-30-10Z",
+      "collectedAt": "2026-10-17T01:30:10.460Z",
+      "mode": "commit",
+      "status": "ok",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 12,
+      "accepted": 10,
+      "alreadyIndexed": 2,
+      "unreadable": 0,
+      "slugs": [
+        "/standards/hokkaido/local/part-01",
+        "/practice/accident-first-response",
+        "/practice/concrete-standards-history",
+        "/practice/environmental-impact-assessment-flow",
+        "/practice/flood-control-facilities",
+        "/practice/gnss-positioning-basics",
+        "/practice/keishin-bidder-qualification",
+        "/practice/levee-failure-reinforcement",
+        "/practice/license-scope-judgment",
+        "/practice/nature-conservation-mitigation",
+        "/practice/netis-new-technology-use",
+        "/practice/pre-construction-process"
+      ],
+      "acceptedSlugs": [
+        "/practice/concrete-standards-history",
+        "/practice/environmental-impact-assessment-flow",
+        "/practice/flood-control-facilities",
+        "/practice/gnss-positioning-basics",
+        "/practice/keishin-bidder-qualification",
+        "/practice/levee-failure-reinforcement",
+        "/practice/license-scope-judgment",
+        "/practice/nature-conservation-mitigation",
+        "/practice/netis-new-technology-use",
+        "/practice/pre-construction-process"
+      ]
     }
   ]
 }

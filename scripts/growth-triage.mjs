@@ -28,6 +28,8 @@ import { nextId, backlogGitLog } from './backlog-edit.mjs';
 import { parseBacklog } from './lib/backlog-lib.mjs';
 import { loadDomains } from './lib/domains.mjs';
 import { datasetDir, datasetPath } from './lib/datasets.mjs';
+import { readJson, readJsonIf } from './lib/json-io.mjs';
+import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { validateDecisions, renderCard, insertCard, nextExperimentId, newExperiment, closeExperiment, pendingItems } from './lib/growth-triage.mjs';
 
 const TAG = '[growth-triage]';
@@ -40,12 +42,11 @@ const argValue = (name) => {
   const i = args.indexOf(name);
   return i >= 0 ? args[i + 1] : null;
 };
-const readJson = (p, fallback) => (existsSync(p) ? JSON.parse(readFileSync(p, 'utf8')) : fallback);
 
 function loadDigest(week) {
   const files = existsSync(GROWTH) ? readdirSync(GROWTH).filter((f) => /^digest-\d{4}-W\d{2}\.json$/.test(f)).sort() : [];
   const name = week ? `digest-${week}.json` : files.at(-1);
-  return name && files.includes(name) ? { file: `${GROWTH}/${name}`, digest: readJson(`${GROWTH}/${name}`) } : null;
+  return name && files.includes(name) ? { file: `${GROWTH}/${name}`, digest: readJson(REPO_ROOT, `${GROWTH}/${name}`) } : null;
 }
 
 function gitHistory() {
@@ -58,7 +59,7 @@ function gitHistory() {
 }
 
 function list(loaded) {
-  const log = readJson(LOG, { entries: [] });
+  const log = readJsonIf(REPO_ROOT, LOG) ?? { entries: [] };
   const pending = pendingItems(loaded.digest, log);
   if (args.includes('--json')) {
     console.log(JSON.stringify({ digestWeek: loaded.digest.week, digest: loaded.file, pending }, null, 2));
@@ -78,8 +79,8 @@ function apply(loaded) {
   const decisions = input.decisions ?? [];
 
   const backlogText = readFileSync(BACKLOG, 'utf8');
-  const ledger = readJson(LEDGER, { experiments: [] });
-  const log = readJson(LOG, { schemaVersion: 1, entries: [] });
+  const ledger = readJsonIf(REPO_ROOT, LEDGER) ?? { experiments: [] };
+  const log = readJsonIf(REPO_ROOT, LOG) ?? { schemaVersion: 1, entries: [] };
   const errors = validateDecisions(decisions, {
     items: digest.surfaced,
     backlogIds: new Set(parseBacklog(backlogText).map((c) => c.id).filter(Boolean)),
