@@ -393,6 +393,10 @@ jobs:
       - name: Stage outputs
         run: node scripts/ci-data.mjs save "$RUNNER_TEMP/metrics-out" --paths data
 
+      - name: Validate measurement outputs
+        if: ${{ inputs.validation_only }}
+        run: node scripts/ci-data.mjs validate "$RUNNER_TEMP/metrics-out"
+
       - name: Publish to develop branch (data/)
         id: publish
         if: ${{ !inputs.validation_only }}

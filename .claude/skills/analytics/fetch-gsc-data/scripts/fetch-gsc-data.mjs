@@ -167,7 +167,7 @@ export async function fetchSearchAnalytics(auth, opts, searchconsole = google.se
       row_count: paged.rows.length,
       truncated: paged.truncated,
       api_note:
-        "Search Analytics API は全行の返却を保証しない（sampling / privacy filtering で低ボリューム行が欠落し得る）。" +
+        "Search Analytics API は全行の返却を保証しない。page/query の明細は計算資源上の制約等で一部が欠落し得る。" +
         "row_count は startRow ページングの合算実測値であり、母集合全体とは限らない。",
     },
     rows: paged.rows,
