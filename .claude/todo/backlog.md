@@ -485,16 +485,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 
 
-### [DN-0722] 2級模試の原稿（C9 解答解説）の解答欄の字数・行数の案内を Drive の原本と配布 PDF に反映する
-タグ: [領域:商品] [時期:2026-10] [種類:不具合] [起票:2026-10-13]
-
-**起点**: 2026-10-13、civil の MDX の commit で `check-keiken-answer-split` が手元に戻した 2 級模試の原稿（`content/coconala/assets/moshi-src/C9-2級模試/解答解説.md`・git 管理外・Drive vault）の不整合 3 件で止まった。解答欄の案内が「各区画おおむね 200 字前後」「(1) 7 行・250 字程度」「(2) 9 行・300 字程度」で、正本（`config/keiken-answer-sheet-limits.json` の civil-2＝各欄 250 字）と模試自身の記入欄（10 行）に合っていなかった。
-
-**済んだこと**: 手元の写しの 3 か所を「250 字前後」「10 行・250 字程度」に直した（検査は ✓）。Drive の原本と配布 PDF は未反映。
-
-**やること**: 手元の写しを Drive vault の原本へ反映する（再取得で古い版に戻らないように）。2 級模試 PDF（`coconala-2kyu-moshi-pdf`）がまだ販売中なら PDF を作り直して差し替えるか、10/25 の本試験後の出品停止（既存カード）まで据え置くかを決める。
-
-**完了条件**: Drive の原本が直っていて、手元を取り直しても `node scripts/check-keiken-answer-split.mjs` が ✓。PDF の扱い（差し替え／据え置き）が決まっている。
 
 
 
