@@ -105,6 +105,7 @@ Shortsのプラットフォーム上限と、doboku-noteが採用する推奨尺
 
 | フィールド | 中身 | 使い所 |
 |---|---|---|
+| `subtitleMarginV` | 1〜1024の整数（1080px画面の下端からの字幕余白）。省略時は既存の56px | 表紙内の制作表記などと字幕が重なる場面だけ上へ移す。本文場面には引き継がない |
 | `visual.character` | `{pose, frame?, say?}`。`pose` は `config/character-poses.json` の `quality: ready` だけ、`frame` 既定は `waist`、`say` は吹き出し（12字×2行目安・`\n` で改行） | 右列に先生を立たせ、場面の役割を一言で言わせる |
 | `visual.reveal` | 先頭から表示する項目数（points・figure の items）。配置は全項目分で固定 | 1場面を約10秒の段階表示に分ける |
 | `visual.focus` | 強調する項目（compare は行）の添字。他は薄く表示。sheet は行の `state: 'focus'` を使う | いま話している項目を示す |

@@ -4,123 +4,374 @@
     {
       "sceneId": "cover",
       "start": 0,
-      "end": 15,
-      "narration": "総監の論文で、設問ごとに何を書けばいいか分からず手が止まる。今日は、Ⅰ・Ⅱ・Ⅲそれぞれの役割と、層をまたいだ一貫性の作り方を説明します。",
-      "caption": "Ⅰ前提・Ⅱ施策・Ⅲ最大リスクの役割分担",
+      "end": 2,
+      "narration": "総監記述式。",
+      "caption": "三層構造で書く　役割分担と一貫性",
       "visual": {
         "kind": "cover",
         "heading": "三層構造で書く　役割分担と一貫性",
         "items": [
           "技術士 総合技術監理部門・記述式"
         ]
-      }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx",
+      "subtitleMarginV": 180
+    },
+    {
+      "sceneId": "intro",
+      "start": 2,
+      "end": 13,
+      "narration": "設問ごとに何を書くか迷うときは、三層の役割を整理します。今日は各層の中身と、一貫性の作り方を説明します。",
+      "caption": "設問ごとに何を書くか",
+      "visual": {
+        "kind": "points",
+        "heading": "設問ごとに何を書くか",
+        "items": [
+          "Ⅰ・Ⅱ・Ⅲの役割とつながり"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
     },
     {
       "sceneId": "premise",
-      "start": 15,
-      "end": 55,
-      "narration": "ここでは条件・施策・実施後の影響を三層に整理する例を扱います。設問の区分・範囲・項目数は当年度の問題文を優先します。三層構造は単なる見出しの区分、という誤解があります。実際はⅠ・Ⅱ・Ⅲが原因と結果でつながる一本の因果構造で、どこか一層でも役割を外すと、条件と施策のつながりが伝わりにくくなります。",
-      "caption": "三層は一本の因果構造",
+      "start": 13,
+      "end": 24,
+      "narration": "ここでは条件・施策・実施後の影響を三層に整理します。設問の区分・範囲・項目数は、当年度の問題文を優先します。",
+      "caption": "三層は整理するための例",
       "visual": {
-        "heading": "誤解：三層は見出しの区分",
+        "kind": "points",
+        "heading": "三層は整理するための例",
         "items": [
-          "実際は原因→結果でつながる因果構造",
-          "一層でも役割を外すと全体が崩れる"
+          "条件→施策→実施後の影響"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "premise-cause",
+      "start": 24,
+      "end": 35,
+      "narration": "三層は単なる見出しの区分ではありません。原因と結果をつながないと、条件と施策の関係が伝わりにくくなります。",
+      "caption": "見出しの区分で終わらせない",
+      "visual": {
+        "kind": "points",
+        "heading": "見出しの区分で終わらせない",
+        "items": [
+          "原因と結果をつなぐ"
         ]
       },
       "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
     },
     {
       "sceneId": "layer1",
-      "start": 55,
-      "end": 120,
-      "narration": "Ⅰの本質は説明でなく設計図です。管理対象を明確にする、自分の立場を明示する、後段が成立する前提条件を置く。この3つの役割があります。対象を広げすぎると後段で論旨が迷走します。",
-      "caption": "Ⅰの役割は説明でなく設計図",
+      "start": 35,
+      "end": 46,
+      "narration": "第一層の本質は説明ではなく設計図です。第二層と第三層で書く内容が成立するよう、必要な条件を先に置きます。",
+      "caption": "Ⅰ 論文全体の設計図",
       "visual": {
-        "heading": "Ⅰ　管理対象と前提条件",
+        "kind": "points",
+        "heading": "Ⅰ 論文全体の設計図",
         "items": [
-          "管理対象を限定する",
-          "立場・役割を明示する",
-          "後段が成立する前提を置く"
+          "後段が成立する条件を置く"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "layer1-target",
+      "start": 46,
+      "end": 57,
+      "narration": "まず管理対象を明確にします。建設業界全体のように広げすぎず、自社の特定の事業部などに限定して後段を組みます。",
+      "caption": "Ⅰ 管理対象を限定する",
+      "visual": {
+        "kind": "points",
+        "heading": "Ⅰ 管理対象を限定する",
+        "items": [
+          "自社の特定の事業部など"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "layer1-role",
+      "start": 57,
+      "end": 69,
+      "narration": "次に自分の立場・役割を明示します。そして、後段の課題や施策が成立する前提条件を置きます。これが第一層の3つの役割です。",
+      "caption": "Ⅰ 自分の立場と前提",
+      "visual": {
+        "kind": "points",
+        "heading": "Ⅰ 自分の立場と前提",
+        "items": [
+          "立場・役割",
+          "後段を支える前提条件"
         ]
       },
       "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
     },
     {
       "sceneId": "layer2",
-      "start": 120,
-      "end": 195,
-      "narration": "Ⅱは方針でなく施策です。「DXを推進する」は方針で、「特定業務にシステムを導入する」まで具体化して施策になります。施策は、近い将来に実現できる、自分の立場で動かせる、資源制約を意識している、前提条件と直結している、という4点で確認し、書いたら効果と問題点を必ずセットで示します。",
-      "caption": "Ⅱは方針でなく施策＋問題点",
+      "start": 69,
+      "end": 80,
+      "narration": "第二層は方針ではなく施策です。「DXを推進する」から、「特定業務にシステムを導入する」まで具体化します。",
+      "caption": "Ⅱ 方針から施策へ",
       "visual": {
-        "heading": "Ⅱ　施策は4条件＋効果と問題点のセット",
+        "kind": "points",
+        "heading": "Ⅱ 方針から施策へ",
         "items": [
-          "近い将来に実現できる・自分で動かせる",
-          "資源制約を意識・Ⅰの前提と直結",
-          "効果と管理上の問題点を必ず併記"
+          "方針：DXを推進する",
+          "施策：特定業務へシステム導入"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "layer2-feasible",
+      "start": 80,
+      "end": 90,
+      "narration": "施策は4条件で確認します。1つ目は近い将来に実現できること。2つ目は自分の立場で動かせることです。",
+      "caption": "施策の条件①・②",
+      "visual": {
+        "kind": "points",
+        "heading": "施策の条件①・②",
+        "items": [
+          "近い将来に実現できる",
+          "自分の立場で動かせる"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "layer2-resources",
+      "start": 90,
+      "end": 99,
+      "narration": "3つ目は限られた資源を意識していること。4つ目は第一層の前提条件と直結していることです。",
+      "caption": "施策の条件③・④",
+      "visual": {
+        "kind": "points",
+        "heading": "施策の条件③・④",
+        "items": [
+          "資源制約を意識する",
+          "Ⅰの前提条件と直結する"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "layer2-effect",
+      "start": 99,
+      "end": 111,
+      "narration": "施策を書いたら、効果と管理上の問題点をセットで示します。問題点は施策の否定ではなく、管理すべき対象として書きます。",
+      "caption": "効果と問題点をセットで",
+      "visual": {
+        "kind": "points",
+        "heading": "効果と問題点をセットで",
+        "items": [
+          "期待できる効果",
+          "管理すべき問題点"
         ]
       },
       "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
     },
     {
       "sceneId": "layer3",
-      "start": 195,
-      "end": 260,
-      "narration": "Ⅲは夢のある構想でなく、Ⅱを進めた結果の課題を見抜くパートです。無関係な新技術・Ⅰに無い条件・話の急な拡大は禁物。リスクは、トレードオフが大きい点、組織の弱点、規模拡大で顕在化する点から探し、数は設問の指定に従い、克服策は管理行為で示します。",
-      "caption": "Ⅲは重大なリスクを選ぶ",
+      "start": 111,
+      "end": 123,
+      "narration": "第三層は夢のある構想ではなく、施策を進めた結果の課題を見抜くパートです。第二層とのつながりからリスクを探します。",
+      "caption": "Ⅲ 施策を進めた先の課題",
       "visual": {
-        "heading": "Ⅲ　最大リスク＋管理行為での克服",
+        "kind": "points",
+        "heading": "Ⅲ 施策を進めた先の課題",
         "items": [
-          "トレードオフ最大・組織の弱点・規模拡大",
-          "数は設問の指定に従う",
-          "克服策は管理行為まで具体化"
+          "Ⅱの結果からリスクを探す"
         ]
       },
       "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
     },
     {
-      "sceneId": "consistency",
-      "start": 260,
-      "end": 310,
-      "narration": "一貫性は3つの自己診断で確認します。ⅠだけでⅡ・Ⅲが予想できるか、Ⅱの施策はⅠの条件があるから成立しているか、Ⅲの課題はⅡの結果として自然に出るか。1つでも「いいえ」なら骨組みを作り直します。",
-      "caption": "一貫性は自己診断3問で確認",
+      "sceneId": "layer3-scope",
+      "start": 123,
+      "end": 134,
+      "narration": "無関係な新技術や前段に無い条件を持ち出すと、話が飛躍します。対象範囲は、その年度の問題文の指定を優先します。",
+      "caption": "話を飛躍させない",
       "visual": {
-        "heading": "書く前の自己診断3問",
+        "kind": "points",
+        "heading": "話を飛躍させない",
         "items": [
-          "Ⅰ→Ⅱ・Ⅲの方向性が予想できるか",
-          "Ⅱの施策はⅠの条件から成立するか",
-          "Ⅲの課題はⅡの結果として自然か"
+          "無関係な新技術・条件の後付け",
+          "対象範囲は問題文を優先"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "layer3-tradeoff",
+      "start": 134,
+      "end": 145,
+      "narration": "リスクを探す視点は3つです。まず、トレードオフが大きい点。ある管理を改善した結果、別の管理に負担が移る点です。",
+      "caption": "リスクの視点①",
+      "visual": {
+        "kind": "points",
+        "heading": "リスクの視点①",
+        "items": [
+          "トレードオフが大きい点"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "layer3-weakness",
+      "start": 145,
+      "end": 157,
+      "narration": "2つ目は組織の弱点が露呈する点。3つ目は規模拡大で顕在化する点です。この3視点から影響の大きいリスクを選びます。",
+      "caption": "リスクの視点②・③",
+      "visual": {
+        "kind": "points",
+        "heading": "リスクの視点②・③",
+        "items": [
+          "組織の弱点",
+          "規模拡大で顕在化する点"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "layer3-management",
+      "start": 157,
+      "end": 168,
+      "narration": "挙げる数は設問の指定に従います。新技術を用いる場合も、管理方法の見直しや体制再設計など、管理行為まで示します。",
+      "caption": "克服策は管理行為まで",
+      "visual": {
+        "kind": "points",
+        "heading": "克服策は管理行為まで",
+        "items": [
+          "数は設問の指定に従う",
+          "管理方法・体制まで示す"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "consistency-first",
+      "start": 168,
+      "end": 179,
+      "narration": "書く前に、一貫性を3問で確認します。第一層を読んだだけで、第二層と第三層の方向性が予想できるでしょうか。",
+      "caption": "自己診断①",
+      "visual": {
+        "kind": "points",
+        "heading": "自己診断①",
+        "items": [
+          "ⅠからⅡ・Ⅲを予想できるか"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "consistency-second",
+      "start": 179,
+      "end": 189,
+      "narration": "2問目は、第二層の施策が、第一層の条件があるから成立しているか。条件と施策のつながりを確認します。",
+      "caption": "自己診断②",
+      "visual": {
+        "kind": "points",
+        "heading": "自己診断②",
+        "items": [
+          "ⅡはⅠの条件から成立するか"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "consistency-third",
+      "start": 189,
+      "end": 199,
+      "narration": "3問目は、第三層の課題が、第二層を進めた結果として自然に出るか。施策とリスクのつながりを確認します。",
+      "caption": "自己診断③",
+      "visual": {
+        "kind": "points",
+        "heading": "自己診断③",
+        "items": [
+          "ⅢはⅡの結果として自然か"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "consistency-revise",
+      "start": 199,
+      "end": 210,
+      "narration": "1つでも「いいえ」なら、骨組みを作り直してから書き始めます。条件、施策、その結果をもう一度つないでください。",
+      "caption": "「いいえ」なら骨子に戻る",
+      "visual": {
+        "kind": "points",
+        "heading": "「いいえ」なら骨子に戻る",
+        "items": [
+          "執筆前に組み直す"
         ]
       },
       "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
     },
     {
       "sceneId": "summary",
-      "start": 310,
-      "end": 345,
-      "narration": "まとめます。Ⅰは設計図、Ⅱは効果と問題点のセット、Ⅲは最大リスクと管理行為での克服。3つの役割を守り、自己診断3問で一貫性を確認する。これが三層構造の書き方です。",
-      "caption": "設計図→施策→最大リスクの因果",
+      "start": 210,
+      "end": 220,
+      "narration": "まとめます。第一層は設計図、第二層は効果と問題点のセット、第三層は最大リスクと管理行為での克服です。",
+      "caption": "三層の役割を振り返る",
       "visual": {
-        "heading": "まとめ　三層構造の役割分担",
+        "kind": "points",
+        "heading": "三層の役割を振り返る",
         "items": [
-          "Ⅰ設計図・Ⅱ効果と問題点・Ⅲ最大リスク",
-          "自己診断3問で一貫性を確認"
+          "Ⅰ 設計図",
+          "Ⅱ 効果と問題点",
+          "Ⅲ リスクと管理行為"
         ]
-      }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "summary-check",
+      "start": 220,
+      "end": 231,
+      "narration": "それぞれの役割を守り、自己診断3問で一貫性を確認します。前提、施策、その結果をつなぐのが三層構造の書き方です。",
+      "caption": "三層の一貫性を確認",
+      "visual": {
+        "kind": "points",
+        "heading": "三層の一貫性を確認",
+        "items": [
+          "自己診断3問を使う"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "cta-pack",
+      "start": 231,
+      "end": 242,
+      "narration": "三層それぞれの型と、施策の書き方、最大リスクの絞り込み方までまとめた、記述式完全パックを用意しています。",
+      "caption": "総監記述式 完全パック",
+      "visual": {
+        "kind": "points",
+        "heading": "総監記述式 完全パック",
+        "items": [
+          "三層の型・施策の書き方",
+          "最大リスクの絞り込み方"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
     },
     {
       "sceneId": "cta",
-      "start": 345,
-      "end": 375,
-      "narration": "三層それぞれの型と、施策の書き方、最大リスクの絞り込み方までをまとめた記述式完全パックを用意しています。概要欄のリンクからご覧ください。ご視聴ありがとうございました。",
-      "caption": "三層の型は記述式完全パックへ",
+      "start": 242,
+      "end": 251,
+      "narration": "記述式完全パックは、概要欄のリンクからご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄から",
       "visual": {
-        "kind": "cover",
-        "heading": "三層構造の型を最短で",
+        "kind": "points",
+        "heading": "続きは概要欄から",
         "items": [
-          "総監記述式 完全パック（概要欄リンク）"
+          "総監記述式 完全パック"
         ]
-      }
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
     }
   ]
 }

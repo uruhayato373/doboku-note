@@ -24602,7 +24602,7 @@
           "need": "当年度の指定数・範囲に従い、将来のリスクと管理方法を対応づける。",
           "content": "covered",
           "evidenceLevel": "body-reviewed",
-          "reason": "2026-09-30照合完了: 印字35〜38頁（p0012・p0015・p0016・p0017）を原本画像と突合。私有OCR37頁の「⇒ (2) の条件を満たすものである。」は三条件を受ける散文「この条件を満たすものである。」の誤転記だったため訂正し、36頁の「(1)(2) で書いていない条件」も揃えた。三層構造図・記事・sanso-kozo/monbun-yomikata原稿の「リスク1つ」「施策2つ」の一律指定を、当年度の設問の数・範囲に従う表現へ修正。記事に残っていた原本と40文字以上一致する箇条書き3行は言い換えた。動画のmp4再生成と公開・予約状態の照合は未実施。 2026-10-17再確認: 動画2本に残っていた定型文省略・三層の一律適用・新技術禁止・採点の断定を修正し、企画promise・台本・storyboard・参照図を同期。独立台本QAは monbun-yomikata 2.50、sanso-kozo 2.67、BLOCK 0。変更後のPNG16場面を生成。X082の差分は出典データの参照パス移動のみと確認。既存VOICEVOXエンジンを起動し、音声付きMP4を2本再生成（166.300秒・146.464秒）。16/16場面の音声入力hash、映像音声stream、全編decode、実尺と音声合計を照合。各場面1枚の字幕入りフレーム16枚を確認したが、表紙下部の制作表記と字幕に重なりがあり、冒頭約12秒・20秒超の静止画各3箇所も残る。全編試聴は未実施。Drive vaultへ44ファイルを保存し読み戻しSHA一致。SNS新規展開・追加予約は保留。",
+          "reason": "2026-09-30照合完了: 印字35〜38頁（p0012・p0015・p0016・p0017）を原本画像と突合。私有OCR37頁の「⇒ (2) の条件を満たすものである。」は三条件を受ける散文「この条件を満たすものである。」の誤転記だったため訂正し、36頁の「(1)(2) で書いていない条件」も揃えた。三層構造図・記事・sanso-kozo/monbun-yomikata原稿の「リスク1つ」「施策2つ」の一律指定を、当年度の設問の数・範囲に従う表現へ修正。記事に残っていた原本と40文字以上一致する箇条書き3行は言い換えた。動画のmp4再生成と公開・予約状態の照合は未実施。 2026-10-17再確認: 動画2本の定型文省略・三層の一律適用・新技術禁止・採点の断定を修正し、企画・台本・storyboard・参照図を同期。X082の差分は出典データの参照パス移動のみ。表紙字幕の余白を場面別に指定し、長い場面を一論点ずつ分割。字幕回帰を含む34/34テスト成功。字幕指定なし165本は変更前と同一、指定2本のみ変更。独立台本QAは2本とも2.83・BLOCK0、check-video-content 166/166。MP4は23場面/192.033秒・24場面/212.000秒へ再生成。音声入力hash47/47一致・全編decode・音声合計との尺一致。字幕入り全47場面を目視し、表紙の制作表記との重なり・本文の切れなし。冒頭は両方1.323秒、20秒以上の静止画は各3→0、10秒間隔の同一画面は0/19・0/21。Drive vaultへ更新102ファイルを保存し読み戻しSHA一致（変更なし4、クラウド同期完了は未検証）。全編の音声試聴は未実施。原典待ち7論点は維持し、SNSの新規公開・追加予約は保留。",
           "locators": [
             "総監論文に求められるもの.md:397–518",
             "source/001.pdf PDF6・8・9 / 印字35〜38 / p0012,p0015,p0016,p0017（別撮影による補完を含め本文確認）"
@@ -24613,7 +24613,7 @@
           },
           "derivative": {
             "decision": "needed",
-            "reason": "既存2本の台本QA合格・音声付きMP4生成・16場面の機械照合まで完了。表紙の制作表記と字幕の重なり、冒頭約12秒・長い静止画の調整と全編試聴が残るためneededを維持。公開承認とは区別し、SNS新規展開・追加予約は保留。"
+            "reason": "既存2本の字幕重なり・長い静止画を解消し、23/24場面の音声付きMP4を再生成・機械照合・目視確認済み。全編の音声試聴が未実施のためneededを維持。公開承認とは区別し、SNS新規展開・追加予約は保留。"
           },
           "artifacts": [
             {
@@ -24634,11 +24634,11 @@
             },
             {
               "path": "content/sns/video-packs/pe-comprehensive-management/monbun-yomikata/script.md",
-              "sha256": "0fa586a648a333585e890f8fdedee7d45a2da27b615ec4b9691d8ae204e3fa7f"
+              "sha256": "ffd0012c657e4999a57b435152300e25e96f38129c48b56e9ef18f9522bb9f6a"
             },
             {
               "path": "content/sns/video-packs/pe-comprehensive-management/monbun-yomikata/storyboard.json",
-              "sha256": "6b0ea96365a1f4e1226473c8a1f28b19fd67c94228467dd4089336ad1a6c759a"
+              "sha256": "717b10e6b707084812b2928e818003dda6e23f6e418f5100e3b44c3ecd35cd41"
             },
             {
               "path": "content/sns/video-packs/pe-comprehensive-management/monbun-yomikata/video-pack.json",
@@ -24646,11 +24646,11 @@
             },
             {
               "path": "content/sns/video-packs/pe-comprehensive-management/sanso-kozo/script.md",
-              "sha256": "455876f5863bd69ecb0bfed413da979f92c8825a99b9e684e716c19840630660"
+              "sha256": "454b3fc53612c87e3a8bb3fadafe3373778ebd5553bbe7d5df4607c4c367c28e"
             },
             {
               "path": "content/sns/video-packs/pe-comprehensive-management/sanso-kozo/storyboard.json",
-              "sha256": "090b53ad4fd4ca233614271696dcf107c32a4ad23e26ca980b298aa30db4e6f3"
+              "sha256": "eee65343dbc951cbec10bcbb1aeeb7c5d1729d771248b82c7d3eabffcbdd5ec5"
             },
             {
               "path": "content/sns/video-packs/pe-comprehensive-management/sanso-kozo/video-pack.json",
