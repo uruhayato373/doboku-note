@@ -4286,6 +4286,23 @@
       "commit": "c9c89f5d266b",
       "verification": "重複2本を下書き化し著者editorで本文保持、残す2本の無料公開と土木もくじのhrefを確認。PR#1076の案内削除214本を反映、PDF189件保持。公開状態5本と関連215記事のAPI照合220件で不一致0。残す仕上げ手順を原稿の2週間版へ同期。CLI修正PR#1095はCI/E2E成功・developへmerge済み。",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0398",
+      "at": "2026-10-18",
+      "task": "土木note2記事の著者表現の公開反映と、関連動画の扱いを確認する",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "none",
+        "ref": "既存の note-sync-plan が題名・カバーの drift を ready として検出していた（順番待ちだっただけ）"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "46e505edb3e0",
+      "verification": "note 公開 API /api/v3/notes/{id} の name・body・eyecatch を原稿と照合",
+      "note": "note 2記事（nfea4a39cf108・na5e045a1c6f8）の題名・本文・カバーを 2026-10-18 に note-update-body --sync で反映（運営者承認）。公開 API で題名が「元発注者の視点で見た4つの型」、H2 7本一致・本文段落の欠落0・URLカード全件・画像2枚、カバー画像の帯が「元発注者の目で分かる」を目視で確認。関連1級動画 keiken-ochiru-toan-1kyu は台帳 stopped で、YouTube 整理中のため再レンダリング不要（再開時に表現を見直す）"
     }
   ]
 }
