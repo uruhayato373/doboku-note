@@ -31,7 +31,7 @@ title: 推奨ワークフロー
 
 **月次の自動起動（2026-10-17〜）**: 同じ土曜9:30の launchd が毎月3日以降に前月の完成証拠と `nextReviewDate` を読み、未完・再確認日到来なら `/monthly-review YYYY-MM` も実行する。週次が完了済みでも月次を省かない。初回は3日以降最初の土曜、途中の補完は記録の次回日以降の土曜。登録を増やさず、週次と同じロック・専用worktree・失敗通知を使う。SNS保留中は `DOBOKU_SNS_PAUSED=1` でSessionStartのX照合も止め、保存済みデータのみを参照し、認証復旧や新規取得・公開・予約を行わない。完了はdevelop上の月次レポート・事業記録とsnapshot・全点検と行き先・次回日で確認する。
 
-週次のbacklog検証前には `build-doc-meta-index --ci` で記事索引を作り、CIと同じ `asset-hydrate --group kindle-dist` でEPUB実体を用意する。単体テストは並列2・各ファイル120秒・全体300秒。品質監査の参考書検査は `--metadata-only` で台帳の実際の対象数を出し、Driveの実体照合とは分ける（実体は通常の `check-reference-book-pages` で照合）。
+週次のbacklog検証前には `build-doc-meta-index --ci` で記事索引を作り、CIと同じ `asset-hydrate --group kindle-dist` でEPUB実体を用意する。単体テストは並列2・各ファイル120秒・全体300秒。品質監査の参考書・Drive台帳検査は `--metadata-only` で台帳の実際の対象数を出し、Driveの実体照合とは分ける（実体は通常の `check-reference-book-pages` / `check-drive-vault` で照合）。生成物検査を含む再検証は終了まで待ち、その間はcommit・rebaseしない（HEAD変更は検査不成立）。
 
 **以前の実行主体（2026-09-19 にローカルへ切替）**: 手順 2-3 は**ローカルの対話セッションで `/weekly-review` を土曜に実行する**（完了後に `/plan-weekly` で weekly.md を更新する。月次は `/monthly-review` を月初に回し、忘れは `check-monthly-review-due` が SessionStart で知らせる）。クラウドルーティン `doboku-note weekly PDCA`（`trig_01Edgim5qXCiGwKtnL4AVEmM`）は **enabled:false で退役**（本文は保持・再開は `RemoteTrigger update {enabled:true}`）。理由: サンドボックスでは `.claude/` 配下への書き込みが許可プロンプトで止まり数日沈黙する（下の callout）うえ、Playwright/tsx 依存の検査（`check-note-attachments:live`・`report-monetization-coverage`）が cloud では動かず、週次の材料が欠ける。ローカルなら全部揃う。欠落の backstop は月曜の `weekly-review-guard.yml`「Check last week's review exists」（ファイル実在）と SessionStart の `check-weekly-review-due`（土曜 09:00 JST を過ぎて今週分が無ければ 1 行で催促）。旧「ルーティンが PR を出したか」検査（`check-weekly-routine-fired` / channel weekly-pdca）は撤去。
 

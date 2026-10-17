@@ -23,6 +23,7 @@
 //   node scripts/check-drive-vault.mjs --deep         # (e) を全件
 //   node scripts/check-drive-vault.mjs --staged-only  # pre-commit 用。staged パスだけで (a)(c)(d)＋Drive 管轄の再追跡検知
 //   node scripts/check-drive-vault.mjs --json
+//   node scripts/check-drive-vault.mjs --metadata-only # CI: 設定・台帳・ルーティングだけ。Drive 実体は読まない
 //
 // exit 0 = 整合 / exit 1 = 不整合 / exit 2 = 検査不成立（設定が読めない）
 
@@ -46,6 +47,7 @@ const argv = __argv.slice(2);
 const DEEP = argv.includes('--deep');
 const STAGED_ONLY = argv.includes('--staged-only');
 const JSON_OUT = argv.includes('--json');
+const METADATA_ONLY = argv.includes('--metadata-only');
 const SAMPLE = 30;
 const NAME = 'check-drive-vault';
 
@@ -95,7 +97,7 @@ async function main() {
     paths = git(['diff', '--cached', '--name-only', '--diff-filter=ACMR']).split('\n').filter(Boolean).map(toVaultRel);
   } else {
     const tracked = git(['ls-files']).split('\n').filter(Boolean);
-    const others = git(['ls-files', '--others', '--ignored', '--exclude-standard']).split('\n').filter(Boolean);
+    const others = git(['ls-files', '--others', '--ignored', '--exclude-standard', '--', ...SCAN_ROOTS]).split('\n').filter(Boolean);
     paths = [...new Set([...tracked, ...others].map(toVaultRel))].filter((p) => SCAN_ROOTS.some((r) => p.startsWith(r)));
   }
 
@@ -138,7 +140,9 @@ async function main() {
   }
 
   // (e)(f) マウントが要る検査
-  const mount = STAGED_ONLY ? { root: null, reason: '--staged-only はマウントを見ない' } : resolveVaultRoot({ cfg: dcfg });
+  const mount = STAGED_ONLY || METADATA_ONLY
+    ? { root: null, reason: `${STAGED_ONLY ? '--staged-only' : '--metadata-only'} はマウントを見ない` }
+    : resolveVaultRoot({ cfg: dcfg });
   let existence = 0, hashed = 0, unsynced = 0, localNewer = 0, pendingUnsynced = 0, unreadable = 0;
   if (mount.root) {
     const step = DEEP ? 1 : Math.max(1, Math.floor(entries.length / SAMPLE));
@@ -187,7 +191,7 @@ async function main() {
   const fails = problems.filter((p) => p.severity === 'FAIL');
   const warns = problems.filter((p) => p.severity === 'WARN');
   if (JSON_OUT) {
-    console.log(JSON.stringify({ mount: mount.root ? mount.source : null, audienceChecked, paths: paths.length, routed, conflicts, pendingOverlap, manifestEntries: entries.length, existence, hashed, unsynced, localNewer, fails: fails.length, warns: warns.length, problems }, null, 2));
+    console.log(JSON.stringify({ mount: mount.root ? mount.source : null, metadataOnly: METADATA_ONLY, physicalCheckReason: mount.reason ?? null, audienceChecked, paths: paths.length, routed, conflicts, pendingOverlap, manifestEntries: entries.length, existence, hashed, unsynced, localNewer, fails: fails.length, warns: warns.length, problems }, null, 2));
   } else {
     console.log('[' + NAME + '] ' + (STAGED_ONLY ? 'staged ' : '') + 'パス ' + paths.length + ' 件を実検査 / いずれかの group に一致 ' + routed + ' / 衝突 ' + conflicts + ' / 移行中(pending)の重なり ' + pendingOverlap);
     console.log('  audience 検査 ' + audienceChecked + ' group（asset-storage.json）/ Drive group active ' + activeDrive.length + '・pending ' + pendingDrive.length + ' / 台帳 ' + entries.length + ' エントリ');
