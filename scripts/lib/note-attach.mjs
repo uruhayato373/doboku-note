@@ -28,6 +28,19 @@ export async function listAttachedFiles(page) {
   return names.filter((n) => !/https?:\/\//i.test(n));
 }
 
+/** Save an unpublished editor change, then verify the requested attachment survived reload. */
+export async function saveAttachmentDraft(page, { noteId, expectedFile }) {
+  const save = page.getByRole('button', { name: /^(?:下書き保存|一時保存)$/ });
+  if (await save.count() !== 1) return { ok: false, reason: '下書き保存・一時保存ボタンを特定できない', files: [] };
+  await save.click();
+  await page.waitForTimeout(3500);
+  await page.goto(`https://editor.note.com/notes/${noteId}/edit/`, { waitUntil: 'domcontentloaded', timeout: 60000 });
+  await page.waitForSelector('[contenteditable=true]', { timeout: 30000 });
+  await page.waitForTimeout(2500);
+  const files = await listAttachedFiles(page);
+  return { ok: files.includes(expectedFile), reason: files.includes(expectedFile) ? null : '再読込後に対象PDFがない', files };
+}
+
 /** エディタ内の埋め込み（figure / embedded-service / data-name）の数。添付成否の判定に使う。 */
 export async function countEmbeds(page) {
   return await page.evaluate(() =>
