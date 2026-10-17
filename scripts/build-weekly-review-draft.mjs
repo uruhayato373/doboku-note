@@ -21,7 +21,6 @@
  * 書き先: 台帳の state.weekly-review-draft（最新 1 本を上書き。履歴は git）
  * exit: 0 必須の材料がそろった / 1 必須の材料が欠けた（下書きは欠けを明記して書く）/ 2 検査不成立（引数・週の不正）
  */
-import { spawnSync } from 'node:child_process';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 
@@ -36,6 +35,7 @@ import { qualificationShortLabel } from './lib/qualification-names.mjs';
 import { loadRegistry } from './lib/qualification-registry.mjs';
 import { loadMonthReceipts } from './lib/net-receipts-ledger.mjs';
 import { shiftMonth } from './lib/net-receipts.mjs';
+import { runCheckedCommand, commandTimeoutMs } from './lib/check-execution.mjs';
 
 const TAG = '[weekly-review-draft]';
 const args = parseCliArgs({ week: { type: 'string' }, print: { type: 'boolean' }, check: { type: 'boolean' } });
@@ -50,36 +50,38 @@ const windowWeek = isoWeekKey(windowPeriod.startDate);
 const prevWindow = reviewWindowOfWeek(windowWeek);
 
 /** 1 本のコマンドを回す。失敗しても止めず、rc と出力を残す（欠けは下書きに「未取得」と書く） */
-function run(id, cmd, cmdArgs, { json = false, timeoutMs = 180_000 } = {}) {
-  const r = spawnSync(cmd, cmdArgs, { cwd: REPO_ROOT, encoding: 'utf8', timeout: timeoutMs, maxBuffer: 64 * 1024 * 1024 });
-  // 結果を stderr に出すコマンド（review-checks・backlog-gate など）があるので、stdout が空なら stderr を本文にする
-  const out = ((r.stdout ?? '').trim() || (json ? '' : (r.stderr ?? '').trim()));
+async function run(id, cmd, cmdArgs, { json = false, timeoutMs = 180_000 } = {}) {
+  const r = await runCheckedCommand(cmd, cmdArgs, { cwd: REPO_ROOT, timeoutMs });
+  // stderr-only checks still need their verdict in the draft; JSON requires valid stdout.
+  const out = r.stdout.trim() || (json ? '' : r.stderr.trim());
   let data = null;
   if (json) { try { data = JSON.parse(out); } catch { data = null; } }
-  return { id, command: [cmd, ...cmdArgs].join(' '), rc: r.status ?? (r.error ? -1 : null), out, err: (r.stderr ?? '').trim(), data };
+  const status = json && !data ? 'inconclusive' : r.status;
+  return { status, durationMs: r.durationMs, monoMs: r.monoMs, sleptMs: r.sleptMs, id, command: [cmd, ...cmdArgs].join(' '), rc: r.exitCode ?? -1, out, err: r.stderr.trim(), data };
 }
 const node = (id, script, a = [], o) => run(id, 'node', [script, ...a], o);
 
 const R = {
-  digest: node('digest', 'scripts/build-growth-digest.mjs', ['--print']),
-  business: node('business', 'scripts/business-review.mjs', ['report', '--start', windowPeriod.startDate, '--end', windowPeriod.endDate, '--json'], { json: true }),
-  businessPrev: node('businessPrev', 'scripts/business-review.mjs', ['report', '--start', prevWindow.startDate, '--end', prevWindow.endDate, '--json'], { json: true }),
-  triage: node('triage', 'scripts/growth-triage.mjs', ['list', '--json'], { json: true }),
-  experiments: node('experiments', 'scripts/check-experiment-due.mjs', ['--json'], { json: true }),
-  checks: node('checks', 'scripts/review-checks.mjs', ['--cadence', 'weekly', '--run', week]),
-  gate: node('gate', 'scripts/backlog-gate.mjs', ['--weekly']),
-  backlogHealth: node('backlogHealth', 'scripts/check-backlog-health.mjs'),
-  search: node('search', 'scripts/report-search-opportunities.mjs', ['--json'], { json: true }),
-  psi: run('psi', 'npm', ['run', '-s', 'psi-audit:check']),
-  webVitals: run('webVitals', 'npm', ['run', '-s', 'report-web-vitals']),
-  noteSync: run('noteSync', 'npm', ['run', '-s', 'note-sync-plan']),
-  xQueue: run('xQueue', 'npm', ['run', '-s', 'x-queue-surfacer']),
-  coconala: run('coconala', 'npm', ['run', '-s', 'check-coconala-orders', '--', '--json'], { json: true }),
-  sales: run('sales', 'npm', ['run', '-s', 'sales-summary']),
+  digest: await node('digest', 'scripts/build-growth-digest.mjs', ['--print']),
+  business: await node('business', 'scripts/business-review.mjs', ['report', '--start', windowPeriod.startDate, '--end', windowPeriod.endDate, '--json'], { json: true }),
+  businessPrev: await node('businessPrev', 'scripts/business-review.mjs', ['report', '--start', prevWindow.startDate, '--end', prevWindow.endDate, '--json'], { json: true }),
+  triage: await node('triage', 'scripts/growth-triage.mjs', ['list', '--json'], { json: true }),
+  experiments: await node('experiments', 'scripts/check-experiment-due.mjs', ['--json'], { json: true }),
+  checks: await node('checks', 'scripts/review-checks.mjs', ['--cadence', 'weekly', '--run', week], { timeoutMs: commandTimeoutMs('review-checks') }),
+  gate: await node('gate', 'scripts/backlog-gate.mjs', ['--weekly']),
+  backlogHealth: await node('backlogHealth', 'scripts/check-backlog-health.mjs'),
+  search: await node('search', 'scripts/report-search-opportunities.mjs', ['--json'], { json: true }),
+  psi: await run('psi', 'npm', ['run', '-s', 'psi-audit:check']),
+  webVitals: await run('webVitals', 'npm', ['run', '-s', 'report-web-vitals']),
+  noteSync: await run('noteSync', 'npm', ['run', '-s', 'note-sync-plan']),
+  xQueue: await run('xQueue', 'npm', ['run', '-s', 'x-queue-surfacer']),
+  coconala: await run('coconala', 'npm', ['run', '-s', 'check-coconala-orders', '--', '--json'], { json: true }),
+  sales: await run('sales', 'npm', ['run', '-s', 'sales-summary']),
 };
 
 // ---- 必須の材料（欠けたら exit 1。0 と読まない）
 const missing = [];
+for (const r of Object.values(R)) if (['inconclusive', 'timeout'].includes(r.status)) missing.push(`${r.id}: ${r.status}（rc=${r.rc}・壁時計 ${r.durationMs}ms・実動 ${r.monoMs}ms）`);
 const digestMarker = /<!-- growth-digest:(\d{4}-W\d{2}) -->/.exec(R.digest.out)?.[1];
 if (digestMarker !== windowWeek) missing.push(`計測ダイジェスト ${windowWeek}（最新は ${digestMarker ?? 'なし'}。fetch-metrics の publish を確認）`);
 const cells = R.business.data?.cells ?? [];
@@ -187,7 +189,7 @@ else if (!args.check) {
     window: { week: windowWeek, ...windowPeriod },
     generatedAt: new Date().toISOString(),
     missing,
-    inputs: Object.values(R).map((r) => ({ id: r.id, command: r.command, rc: r.rc })),
+    inputs: Object.values(R).map((r) => ({ id: r.id, command: r.command, rc: r.rc, status: r.status, durationMs: r.durationMs, monoMs: r.monoMs, sleptMs: r.sleptMs })),
     markdown,
   };
   writeFileSync(abs, JSON.stringify(doc, null, 2) + '\n');

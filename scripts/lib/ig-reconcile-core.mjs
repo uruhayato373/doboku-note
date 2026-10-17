@@ -22,6 +22,24 @@ import { readPostedRaw, IG_DIR as DEFAULT_IG_DIR, findPackDirs } from "../ig-sta
 import { markAmbiguousClaims, dropResolvedFalseMatches } from "./ig-ambiguity.mjs";
 
 export const IG_DIR = DEFAULT_IG_DIR;
+export const MIN_PLANNER_DAYS = 28;
+
+/** 月カレンダーを読めた場合だけ「予約0件」を確定する。未対応の時刻チップも隠さない。 */
+export function plannerSlots(days, chips) {
+  if (new Set(days.map((d) => d.d)).size < MIN_PLANNER_DAYS) throw new Error('PLANNER_INCOMPLETE: 月の日付を読めない');
+  const byDay = {};
+  for (const c of chips) {
+    let best = null, bestD = Infinity;
+    for (const d of days) {
+      if (c.y < d.y) continue;
+      const distance = Math.abs(c.x - d.x) + (c.y - d.y) * 0.2;
+      if (Math.abs(c.x - d.x) < 80 && c.y - d.y < 260 && distance < bestD) { best = d; bestD = distance; }
+    }
+    if (!best) throw new Error(`PLANNER_INCOMPLETE: 時刻 ${c.t} を日付へ対応できない`);
+    (byDay[best.d] ||= []).push(c.t);
+  }
+  return byDay;
+}
 
 // caption の先頭行を正規化（記号/空白を除き先頭 24 文字）。ローカル caption.txt とライブ og:title の突合キー。
 export function normHead(s) {

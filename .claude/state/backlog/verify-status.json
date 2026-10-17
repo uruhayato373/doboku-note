@@ -1,30 +1,46 @@
 {
   "_doc": "check-backlog-verify が前回の status を覚えておくための状態。red → green の遷移だけが「完了の疑い」で、常時 green は [検証:] の指定が完了判定になっていない疑い（surfacer を指している）。",
-  "updatedAt": "2026-09-28",
+  "updatedAt": "2026-10-17",
   "commands": {
-    "check-coconala-live": {
+    "check-video-content": {
       "status": "green",
-      "at": "2026-09-28"
+      "at": "2026-10-17"
+    },
+    "check-standard-articles": {
+      "status": "green",
+      "at": "2026-10-17"
+    },
+    "test": {
+      "status": "error",
+      "at": "2026-10-17"
+    },
+    "check-competitor-scan-due": {
+      "status": "green",
+      "at": "2026-10-17"
     },
     "quality:audit:ci": {
       "status": "error",
-      "at": "2026-09-28"
+      "at": "2026-10-17"
     },
     "verify-video-publication": {
       "status": "red",
-      "at": "2026-09-28"
+      "at": "2026-10-17"
     },
     "resources:cloud": {
       "status": "red",
-      "at": "2026-09-28"
+      "at": "2026-10-17"
     },
     "check-x-queue-health": {
       "status": "red",
-      "at": "2026-09-28"
+      "at": "2026-10-17"
     },
     "check-content-expansion:linked": {
       "status": "red",
-      "at": "2026-09-28"
+      "at": "2026-10-17"
+    },
+    "check-generated-indexes": {
+      "status": "green",
+      "at": "2026-10-17"
     }
   }
 }

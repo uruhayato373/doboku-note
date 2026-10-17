@@ -24,7 +24,7 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import dotenv from 'dotenv';
 import { addDays, GSC_FINAL_LAG_DAYS, jst } from './lib/business-direction.mjs';
-import { packPeriods, foldLanding, foldEvents, foldGsc } from './lib/growth-pack.mjs';
+import { packPeriods, foldLanding, foldEvents, foldGsc, foldGscTotal } from './lib/growth-pack.mjs';
 import { ga4FromEnv, japanFilter, spamExclusion, andFilter, runReportAll, isLimited } from '../.claude/scripts/lib/ga4-client.mjs';
 import { getAuth, fetchSearchAnalytics } from '../.claude/skills/analytics/fetch-gsc-data/scripts/fetch-gsc-data.mjs';
 import { datasetDir, datasetPath } from './lib/datasets.mjs';
@@ -99,6 +99,14 @@ async function main() {
   await run('gscPageBase', gsc(baseline, ['page']));
   await run('gscPageQueryWeek', gsc(period, ['page', 'query']));
   await run('gscPageQueryBase', gsc(baseline, ['page', 'query']));
+  // 全体の KPI は page/query を含めない集計から取る。明細行は Google 側で一部が落ちるため全体ではない。
+  for (const [which, range] of [['Week', period], ['Base', baseline]]) {
+    for (const [label, aggregationType] of [['Property', 'byProperty'], ['PageTotal', 'byPage']]) {
+      await run(`gsc${label}${which}`, async () => foldGscTotal(await fetchSearchAnalytics(gscAuth, {
+        startDate: range.startDate, endDate: range.endDate, effectiveDimensions: [], all: true, country: cfg.gscCountry, aggregationType,
+      })));
+    }
+  }
 
   const pack = {
     schemaVersion: 1,

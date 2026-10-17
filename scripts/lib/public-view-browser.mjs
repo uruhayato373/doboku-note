@@ -57,6 +57,23 @@ export function breakpointDrift(configured, measured) {
   };
 }
 
+/** 画像枚数ではなく、予定したページ×画面幅の撮影が実在するかを数える。 */
+export function reviewCoverage(index, fileExists) {
+  const widths = [...new Set((index.viewports || []).map((v) => v.width))];
+  const pages = index.pages || [];
+  const missing = [];
+  let captured = 0;
+  for (const page of pages) {
+    for (const width of widths) {
+      const found = (page.shots || []).some((shot) => shot.width === width && shot.file && fileExists(shot.file));
+      if (found) captured++;
+      else missing.push({ page: page.noteId || page.videoId || page.url, width });
+    }
+  }
+  const expected = pages.length * widths.length;
+  return { expected, captured, missing, complete: expected > 0 && captured === expected };
+}
+
 /** ブラウザ内で実行する: 読めるスタイルシートの media query を数える（page.evaluate に渡す）。 */
 export function countMediaQueriesInPage() {
   const counts = {};

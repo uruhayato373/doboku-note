@@ -22,7 +22,7 @@ const DRIVE_MANIFEST = '.claude/state/assets/drive-manifest.json';
 // 保存前に止まる中断（エディタの本文を汚さない）＝自動で再試行してよい。note-update-body もこの集合を使う。
 //   img-settle / img-lost … 画像の CDN 確定待ちで止まった　pdf-missing … 貼り直す PDF が手元に無い（本文を触る前）
 //   cover-failed … カバーの差し替えを確認できない（本文を触る前。次回また差し替える）　tags-unreadable … タグを読めない（保存前）
-export const SAFE_ABORTS = new Set(['img-settle', 'img-lost', 'pdf-missing', 'cover-failed', 'tags-unreadable', 'title-failed', 'title-missing']);
+export const SAFE_ABORTS = new Set(['img-settle', 'img-lost', 'pdf-missing', 'cover-failed', 'tags-unreadable', 'title-failed', 'title-missing', 'attachment-daily-limit']);
 
 /** 止まっている理由の語彙。label＝管理画面の表示、action＝直し方（人が読む 1 行）。 */
 export const BLOCKERS = {

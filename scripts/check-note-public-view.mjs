@@ -29,14 +29,14 @@
  * 例外台帳: .claude/config/note-public-view.json（意図した全文ロック・判断待ち）
  * 終了コード: 0 = 異常なし / 1 = 異常あり、または取得失敗が 20% を超えた（検査不成立）
  */
-import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { walkArticles, expectedPdfs, frontmatterValue } from './lib/note-attachments.mjs';
 import { fetchNoteRaw } from './lib/note-live-check.mjs';
 import { evaluateApi, evaluateRendered, noteGroup, pickRepresentatives, extractImageUrls, classifyImageStatus } from './lib/note-public-view.mjs';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
-import { loadBreakpointConfig, contextOptions, launchPublicBrowser, openAndSettle, shootTopAndEnd, withPageBudget, countMediaQueriesInPage, significantBreakpoints, breakpointDrift, TransientServerError } from './lib/public-view-browser.mjs';
+import { reviewCoverage, loadBreakpointConfig, contextOptions, launchPublicBrowser, openAndSettle, shootTopAndEnd, withPageBudget, countMediaQueriesInPage, significantBreakpoints, breakpointDrift, TransientServerError } from './lib/public-view-browser.mjs';
 import { guardBrowserLaunch } from './lib/playwright-launch.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { NOTE_BASE } from './lib/site-identity.mjs';
@@ -190,6 +190,7 @@ let viewTargets = [];
 let viewFail = 0;
 let reps = [];
 let repFail = 0;
+let reviewCoverageResult = null;
 let bpReport = null;
 if (!API_ONLY && (ALL_PAGES || REVIEW)) {
   if (ALL_PAGES) viewTargets = SAMPLE > 0 ? targets.filter((_, i) => i % Math.max(1, Math.floor(targets.length / SAMPLE)) === 0).slice(0, SAMPLE) : targets;
@@ -268,10 +269,13 @@ if (!API_ONLY && (ALL_PAGES || REVIEW)) {
       // 画面幅ごとの進捗（止まったときにどこまで進んだかをログで追えるように）
       console.log(`  代表ページ ${vp.width}px: ${reps.length} 本（開けない ${repFail - failBefore}・${Math.round((Date.now() - t0) / 1000)} 秒）`);
     }
-    writeFileSync(join(REVIEW_DIR, 'index.json'), JSON.stringify({ service: 'note', viewports: BP.note.viewports, breakpoints: bpReport, pages: index }, null, 2) + '\n');
+    reviewCoverageResult = reviewCoverage({ viewports: BP.note.viewports, pages: index }, (file) => existsSync(join(REVIEW_DIR, file)));
+  writeFileSync(join(REVIEW_DIR, 'index.json'), JSON.stringify({ service: 'note', viewports: BP.note.viewports, breakpoints: bpReport, pages: index, coverage: reviewCoverageResult }, null, 2) + '\n');
     const shots = index.reduce((n, e) => n + e.shots.length, 0);
     console.log(`  代表ページ: ${reps.length} グループ × ${BP.note.viewports.length} 画面幅（${BP.note.viewports.map((v) => v.width).join('/')}px）を検査・撮影 ${shots} 枚（開けない ${repFail}）`);
-    if (bpReport) {
+    if (bpReport?.unreadable) {
+      console.log(`  WARN CSS ${bpReport.unreadable} 枚が読めず、切り替わり幅の差は判定保留`);
+    } else if (bpReport) {
       const { added, removed } = bpReport.drift;
       if (added.length || removed.length) console.log(`  WARN note の CSS の切り替わり幅が設定と違う（増: ${added.join(',') || 'なし'} / 減: ${removed.join(',') || 'なし'}）。${datasetPath('config.public-view-breakpoints')} を見直す`);
       else console.log(`  切り替わり幅: 設定どおり（${bpReport.measured.join('/')}px）`);
@@ -290,7 +294,7 @@ for (const r of bad) console.error(`  BAD  ${r.path}\n       ${r.bad.join(' / ')
 for (const r of warn) console.log(`  WARN ${r.path}: ${r.warn.join(' / ')}`);
 if (OUT) {
   mkdirSync(dirname(OUT), { recursive: true });
-  writeFileSync(OUT, JSON.stringify({ targets: targets.length, apiFail, apiLimited, viewTargets: viewTargets.length, viewFail, representatives: reps.length, repFail, breakpoints: bpReport, bad, warn }, null, 2) + '\n');
+  writeFileSync(OUT, JSON.stringify({ targets: targets.length, apiFail, apiLimited, viewTargets: viewTargets.length, viewFail, representatives: reps.length, repFail, breakpoints: bpReport, reviewCoverage: reviewCoverageResult, bad, warn }, null, 2) + '\n');
 }
 
 const repLoads = reps.length * BP.note.viewports.length;
@@ -302,5 +306,9 @@ if (failRate > MAX_FETCH_FAIL_RATE) {
 if (bad.length) {
   console.error(`[check-note-public-view] ✗ 読者から見て不整合 ${bad.length} 本（WARN ${warn.length}）。スクリーンショット: .tmp/note-public-view/`);
   process.exit(1);
+}
+if (REVIEW && !reviewCoverageResult?.complete) {
+  console.error(`[check-note-public-view] 検査不成立: 代表ページの撮影成立 ${reviewCoverageResult?.captured || 0}/${reviewCoverageResult?.expected || 0}`);
+  process.exit(2);
 }
 console.log(`[check-note-public-view] ✓ ${targets.length} 本で不整合なし（WARN ${warn.length}）`);

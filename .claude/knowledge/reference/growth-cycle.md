@@ -10,7 +10,7 @@ title: 成長サイクル（GA4 起点の計測→記録→改善）
 
 | 段 | 担当 | 入力 → 出力 |
 |---|---|---|
-| 計測 | CI `fetch-metrics.yml`（金 06:00 JST）の `fetch-growth-pack` | GA4 Data API（landingPage×流入元×channel／pagePath×eventName）と GSC（page／page×query）を、**前の完了週（月〜日・JST）＋直前 28 日の基線**で全件取得 → `metrics/growth/pack-YYYY-Www.json` |
+| 計測 | CI `fetch-metrics.yml`（金 06:00 JST）の `fetch-growth-pack` | GA4 Data API（landingPage×流入元×channel／pagePath×eventName）と GSCの無次元byProperty全体値とpage／page×query明細を、**前の完了週（月〜日・JST）＋直前28日の基線**で取得 → `data/analysis/growth/pack-YYYY-Www.json`。GSC明細はAPI省略を含む部分集計 |
 | 計測（外部） | 同 `fetch-bing-webmaster`・`ga4-admin-api check` | Bing の実クリック・表示 → `metrics/bing/`／GA4 管理設定（ディメンション・キーイベント・保持）→ `metrics/ga4-admin/inventory-latest.json` |
 | 分析 | 同 `build-growth-digest`（オフライン・決定的） | パック×収益カバレッジ×Bing×実験台帳×triage-log → `metrics/growth/digest-YYYY-Www.json`（安定 ID `OPP-…` 付きの機会） |
 | 意味の判断 | CI `gsc-auto-review.yml`（金 12:00）の `metrics-analyzer` | ダイジェストの `OPP-…` を引用して「なぜ・何を確かめるか」を足す（再抽出しない） |

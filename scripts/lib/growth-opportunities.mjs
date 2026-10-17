@@ -319,10 +319,13 @@ export function summarizeKpis(pack, rv) {
       keyEvents: v.weekKeyEvents, baseWeeklyKeyEvents: round(v.baseKeyEvents / 4),
     }]));
   }
-  if (s.gscPageWeek?.ok && s.gscPageBase?.ok) {
-    const t = (rows) => rows.reduce((a, r) => ({ clicks: a.clicks + r.clicks, impressions: a.impressions + r.impressions }), { clicks: 0, impressions: 0 });
-    const w = t(s.gscPageWeek.rows), b = t(s.gscPageBase.rows);
-    kpi.gsc = { clicks: w.clicks, baseWeeklyClicks: round(b.clicks / 4), deltaPct: pct(w.clicks, b.clicks / 4), impressions: w.impressions, baseWeeklyImpressions: round(b.impressions / 4), ctrPct: w.impressions ? round((w.clicks / w.impressions) * 100, 2) : null };
+  const hasTotals = Object.hasOwn(s, 'gscPropertyWeek') || Object.hasOwn(s, 'gscPropertyBase');
+  const gw = hasTotals ? s.gscPropertyWeek : s.gscPageWeek, gb = hasTotals ? s.gscPropertyBase : s.gscPageBase;
+  const sum = (rows) => rows.reduce((a, r) => ({ clicks: a.clicks + r.clicks, impressions: a.impressions + r.impressions }), { clicks: 0, impressions: 0 });
+  if (gw?.ok && gb?.ok && gw.rows.length && gb.rows.length) {
+    const w = sum(gw.rows), b = sum(gb.rows);
+    kpi.gsc = { basis: hasTotals ? 'property-total' : 'page-row-sum', clicks: w.clicks, baseWeeklyClicks: round(b.clicks / 4), deltaPct: pct(w.clicks, b.clicks / 4), impressions: w.impressions, baseWeeklyImpressions: round(b.impressions / 4), ctrPct: w.impressions ? round((w.clicks / w.impressions) * 100, 2) : null };
+    if (s.gscPageWeek?.ok) kpi.gsc.pageRows = { count: s.gscPageWeek.rows.length, ...sum(s.gscPageWeek.rows), byPageTotalClicks: s.gscPageTotalWeek?.ok ? s.gscPageTotalWeek.rows[0]?.clicks ?? null : null, byPageTotalImpressions: s.gscPageTotalWeek?.ok ? s.gscPageTotalWeek.rows[0]?.impressions ?? null : null };
   }
   if (s.ga4Events?.ok) {
     const events = [...new Set([...rv.ctaClickEvents, ...rv.ctaImpressionEvents, 'quiz_start', 'quiz_complete', 'standards_data_download'])];

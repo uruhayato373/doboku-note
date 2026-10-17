@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { packPeriods, normPath, sourceGroup, foldLanding, foldEvents, foldGsc } from '../scripts/lib/growth-pack.mjs';
+import { packPeriods, normPath, sourceGroup, foldLanding, foldEvents, foldGsc, foldGscTotal } from '../scripts/lib/growth-pack.mjs';
 import { isoWeekKey, weekPeriod } from '../scripts/lib/business-direction.mjs';
 
 const row = (dims, mets) => ({ dimensionValues: dims.map((value) => ({ value })), metricValues: mets.map((value) => ({ value: String(value) })) });
@@ -64,4 +64,13 @@ test('foldGsc compacts rows and keeps truncation', () => {
   });
   assert.deepEqual(out.rows, [{ page: '/a', query: 'q', clicks: 1, impressions: 20, position: 7.4 }]);
   assert.equal(out.truncated, false);
+  assert.equal(out.meta.row_count, 1);
+});
+
+test('GSC 全体の空応答・指標欠測は 0 集計へ変換しない', () => {
+  const meta = { dimensions: [], startDate: '2026-10-05', endDate: '2026-10-11', row_count: 1, truncated: false };
+  const row = { clicks: 303, impressions: 5000, ctr: 0.0606, position: 10 };
+  assert.deepEqual(foldGscTotal({ meta, rows: [row] }).rows, [row]);
+  assert.throws(() => foldGscTotal({ meta, rows: [] }), /取得 0 行/);
+  assert.throws(() => foldGscTotal({ meta, rows: [{ ...row, clicks: undefined }] }), /数値の欠測/);
 });

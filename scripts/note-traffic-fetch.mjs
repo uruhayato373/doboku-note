@@ -20,25 +20,28 @@ import { attachCISession } from './lib/playwright-auth-state.mjs';
  *   node scripts/note-traffic-fetch.mjs                     # 先月・dry-run（画面から取れた値を表示するだけ）
  *   node scripts/note-traffic-fetch.mjs --month 2026-09     # 指定月（当月＝「今月」/ 先月＝「先月」だけ対応）
  *   node scripts/note-traffic-fetch.mjs --month 2026-09 --commit
+ *   node scripts/note-traffic-fetch.mjs --from 2026-10-05 --to 2026-10-11 --commit  # 指定期間・週次用（data/note/traffic-period/）
  *   node scripts/note-traffic-fetch.mjs --check             # ブラウザを開かず fixture で正規化が完走するか（CI 用・exit 0/1）
  *
  * exit: 0 成功 / 1 取得したが検査不成立（テーブルが読めない・0 件）/ 2 前提エラー（対象月非対応・アカウント不一致）
  * ---------------------------------------------------------------------------
  */
 import { chromium } from 'playwright';
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
-import { join, dirname } from 'node:path';
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
-import { datasetPath } from './lib/datasets.mjs';
-import { parseReferrerTimeSeries, parseReferrerPie, parsePeriod, parseSummary, parseArticleRows } from './lib/note-traffic-normalize.mjs';
+import { writeDataset } from './lib/dataset-write.mjs';
+import { parseCliArgs } from './lib/cli-args.mjs';
+import { parseReferrerTimeSeries, parseReferrerPie, parsePeriod, parseSummary, parseArticleRows, parseRequestedPeriod, trafficProblems } from './lib/note-traffic-normalize.mjs';
 import { jstClock } from './lib/jst-date.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 const NAME = 'note-traffic-fetch';
-const argv = process.argv.slice(2);
-const getArg = (k) => { const i = argv.indexOf(k); return i >= 0 ? argv[i + 1] : null; };
-const COMMIT = argv.includes('--commit');
-const CHECK = argv.includes('--check');
+const args = parseCliArgs({ month: { type: 'string' }, from: { type: 'string' }, to: { type: 'string' }, commit: { type: 'boolean' }, check: { type: 'boolean' } });
+const COMMIT = args.commit;
+const CHECK = args.check;
+let requestedPeriod;
+try { requestedPeriod = parseRequestedPeriod(args); } catch (error) { console.error(`${NAME}: ${error.message}`); process.exit(2); }
 
 if (CHECK) {
   // ブラウザ不要の完走確認（quality-audit ci）。fixture が読めて 4 パーサが非空なら成功。
@@ -54,14 +57,14 @@ const jstNow = jstClock();
 const thisMonth = `${jstNow.getUTCFullYear()}-${String(jstNow.getUTCMonth() + 1).padStart(2, '0')}`;
 const prev = new Date(Date.UTC(jstNow.getUTCFullYear(), jstNow.getUTCMonth() - 1, 1));
 const lastMonth = `${prev.getUTCFullYear()}-${String(prev.getUTCMonth() + 1).padStart(2, '0')}`;
-const MONTH = getArg('--month') || lastMonth;
+const MONTH = args.month || lastMonth;
 if (!/^\d{4}-\d{2}$/.test(MONTH)) { console.error(`${NAME}: --month は YYYY-MM`); process.exit(2); }
-const periodLabel = MONTH === thisMonth ? '今月' : MONTH === lastMonth ? '先月' : null;
+const periodLabel = requestedPeriod ? 'カスタム' : MONTH === thisMonth ? '今月' : MONTH === lastMonth ? '先月' : null;
 if (!periodLabel) { console.error(`${NAME}: ダッシュボードの期間ボタンは「今月」「先月」しか機械で選べない（${MONTH} は対象外。時系列は 365 日で取れる）`); process.exit(2); }
 
 const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-console.log(`=== ${NAME}: ${MONTH}（期間ボタン「${periodLabel}」）/ mode=${COMMIT ? 'COMMIT' : 'DRY-RUN'} ===`);
+console.log(`=== ${NAME}: ${requestedPeriod ? requestedPeriod.from + '〜' + requestedPeriod.to : MONTH}（期間ボタン「${periodLabel}」）/ mode=${COMMIT ? 'COMMIT' : 'DRY-RUN'} ===`);
 
 const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
   headless: false, channel: 'chrome', ignoreHTTPSErrors: true,
@@ -74,12 +77,12 @@ try {
   await page.goto('https://note.com/settings/account', { waitUntil: 'domcontentloaded', timeout: 60000 });
   let acct = false;
   for (let i = 0; i < 10; i++) { await sleep(2000); if (/dobokunote/.test(await page.evaluate(() => document.body.innerText || ''))) { acct = true; break; } }
-  if (!acct) { console.error('ABORT: account != dobokunote'); process.exit(2); }
+  if (!acct) { exitCode = 2; throw new Error('ABORT: account != dobokunote'); }
 
   await page.goto('https://note.com/dashboard', { waitUntil: 'domcontentloaded', timeout: 60000 });
   await sleep(5000);
   const text0 = await page.evaluate(() => document.body.innerText || '');
-  if (!/アクセス状況/.test(text0)) { console.error('ABORT: ダッシュボードが開けない（DOM 変更の疑い）'); process.exit(2); }
+  if (!/アクセス状況/.test(text0)) { exitCode = 2; throw new Error('ABORT: ダッシュボードが開けない（DOM 変更の疑い）'); }
 
   // 期間・並び順はネイティブ <select>（2026-09-16 実測: option value=THIS_MONTH 等）。テキストクリックでは開かない。
   const selectByOption = async (optionText, value) => {
@@ -89,25 +92,59 @@ try {
   };
   const selectPeriod = (label) => selectByOption('過去28日間', label);
 
-  // 1. 時系列（過去365日間・月次）
-  await selectPeriod('過去365日間');
-  const tsBtn = page.getByRole('button', { name: '時系列' }).first();
-  if (await tsBtn.count()) { await tsBtn.click(); await sleep(4000); }
-  const tsText = await page.evaluate(() => document.body.innerText || '');
-  const series = parseReferrerTimeSeries(tsText);
-  const pieBtn = page.getByRole('button', { name: '円グラフ' }).first();
-  if (await pieBtn.count()) { await pieBtn.click(); await sleep(1500); }
+  // 月次の流入元は従来どおり取得。指定期間では全期間への切り替えを挟まない。
+  let series = null;
+  if (!requestedPeriod) {
+    await selectPeriod('過去365日間');
+    const tsBtn = page.getByRole('button', { name: '時系列', exact: true }).first();
+    if (await tsBtn.count()) { await tsBtn.click(); await sleep(4000); }
+    series = parseReferrerTimeSeries(await page.evaluate(() => document.body.innerText || ''));
+    const pieBtn = page.getByRole('button', { name: '円グラフ', exact: true }).first();
+    if (await pieBtn.count()) { await pieBtn.click(); await sleep(1500); }
+  }
 
-  // 2. 対象月の内訳・集計・記事一覧（「今月」/「先月」）
   await selectPeriod(periodLabel);
+  if (requestedPeriod) {
+    await page.getByRole('textbox', { name: '開始日を選択してください', exact: true }).fill(requestedPeriod.from.replaceAll('-', '/'));
+    await page.getByRole('textbox', { name: '終了日を選択してください', exact: true }).fill(requestedPeriod.to.replaceAll('-', '/'));
+    await page.getByRole('button', { name: '適用', exact: true }).click();
+    await sleep(6000);
+  }
+  // ローディング中の「-」を0や取得失敗へ即変換しない。表示期間も一致するまで待つ。
+  const waitForData = async (predicate, label) => {
+    const deadline = Date.now() + 60000;
+    do {
+      const text = await page.evaluate(() => document.body.innerText || '');
+      if (predicate(text)) return text;
+      await sleep(500);
+    } while (Date.now() < deadline);
+    throw new Error(`${label}が60秒以内に読み込まれない`);
+  };
+  await waitForData((text) => {
+    const period = parsePeriod(text);
+    return parseSummary(text).pageViews !== null && parseArticleRows(text).length > 0
+      && (!requestedPeriod || (period?.from === requestedPeriod.from && period?.to === requestedPeriod.to));
+  }, '期間・集計・記事一覧');
   // 記事一覧を PV 順にして全件展開（「もっとみる」を押し切る）
   let sortedBy = 'pageViews';
   try { await selectByOption('公開日順', 'ページビュー順'); } catch (e) { sortedBy = 'publishedAt'; console.log(`[warn] 並び順の <select> が無い（${e.message}）。公開日順のまま取得する`); }
-  for (let i = 0; i < 40; i++) {
-    const more = page.getByRole('button', { name: 'もっとみる' }).first();
-    if (!(await more.count()) || !(await more.isVisible().catch(() => false))) break;
-    await more.click(); await sleep(1500);
+  let hasMore = false;
+  for (let i = 0; i < 200; i++) {
+    const more = page.getByRole('button', { name: 'もっとみる', exact: true }).first();
+    // 行の追加と次のボタンの描画は同時ではない。短い非表示を一覧終端と誤認しない。
+    let visible = await more.isVisible().catch(() => false);
+    for (let settle = 0; !visible && settle < 6; settle++) {
+      await sleep(500);
+      visible = await more.isVisible().catch(() => false);
+    }
+    if (!visible) break;
+    const before = parseArticleRows(await page.evaluate(() => document.body.innerText || '')).length;
+    await more.click();
+    await waitForData((text) => parseArticleRows(text).length > before, '記事の追加読込');
+    if ((i + 1) % 10 === 0) console.log(`[記事] ${before}件から追加読込中`);
   }
+  const more = page.getByRole('button', { name: 'もっとみる', exact: true }).first();
+  hasMore = await more.isVisible().catch(() => false);
   const monthText = await page.evaluate(() => document.body.innerText || '');
   const period = parsePeriod(monthText);
   const summary = parseSummary(monthText);
@@ -115,28 +152,34 @@ try {
   const rows = parseArticleRows(monthText);
 
   const monthRow = series?.months.find((m) => m.month === MONTH) ?? null;
-  console.log(`[時系列] ${series ? series.months.length + ' 月' : '取得不能'} / 対象月 ${MONTH}: ${monthRow ? JSON.stringify(monthRow.sources) : '無し'}`);
+  if (!requestedPeriod) console.log(`[時系列] ${series ? series.months.length + ' 月' : '取得不能'} / 対象月 ${MONTH}: ${monthRow ? JSON.stringify(monthRow.sources) : '無し'}`);
   console.log(`[${periodLabel}] 期間 ${period ? period.from + '〜' + period.to : '?'} / PV ${summary.pageViews} / 売上 ${summary.salesYen} / 流入元 ${pie ? pie.length : 0} 行 / 記事 ${rows.length} 件`);
 
-  const problems = [];
-  if (!series) problems.push('時系列テーブルが読めない');
-  if (!pie) problems.push('円グラフテーブルが読めない');
-  if (rows.length === 0) problems.push('記事一覧が 0 件');
-  if (summary.pageViews === null) problems.push('ページビューが読めない');
+  const problems = trafficProblems({ period, summary, rows, hasMore, requestedPeriod });
+  if (!requestedPeriod && !series) problems.push('時系列テーブルが読めない');
+  if (!requestedPeriod && !pie) problems.push('円グラフテーブルが読めない');
   if (problems.length) { console.error(`${NAME}: 検査不成立: ${problems.join(' / ')}`); exitCode = 1; }
   else if (COMMIT) {
-    const refPath = datasetPath('note.referrers', { month: MONTH });
-    const artPath = datasetPath('note.articles-pv', { month: MONTH });
-    for (const p of [refPath, artPath]) mkdirSync(dirname(join(ROOT, p)), { recursive: true });
     const fetchedAt = new Date().toISOString();
-    const ref = { schemaVersion: 1, month: MONTH, fetchedAt, source: 'note ダッシュボード「アクセス状況」記事の流入元（Playwright read-only・自己閲覧を含む・doboku-note.com は 2026-09 まで rel=noreferrer で no referrer に含まれる）', period, monthly: series.months, targetMonth: monthRow, pie, summary };
-    const art = { schemaVersion: 1, month: MONTH, fetchedAt, period, sortedBy, count: rows.length, rows };
-    writeFileSync(join(ROOT, refPath), JSON.stringify(ref, null, 2) + '\n');
-    writeFileSync(join(ROOT, artPath), JSON.stringify(art, null, 2) + '\n');
-    console.log(`[write] ${refPath} / ${artPath}（記事 ${rows.length} 件）`);
+    const source = 'note ダッシュボード「アクセス状況」（Playwright read-only・自己閲覧を含む）。流入元は閲覧の経路であり購入経路ではない';
+    if (requestedPeriod) {
+      const record = { schemaVersion: 1, fetchedAt, source, period, summary, pie, sortedBy, count: rows.length, rows };
+      const saved = writeDataset(ROOT, 'note.traffic-period', record, { values: period });
+      console.log(`[write] ${saved.file}（記事 ${rows.length} 件・PV ${summary.pageViews}・流入元 ${pie ? pie.length + '行' : '画面に表示なし'}）`);
+    } else {
+      const ref = { schemaVersion: 1, month: MONTH, fetchedAt, source, period, monthly: series.months, targetMonth: monthRow, pie, summary };
+      const art = { schemaVersion: 1, month: MONTH, fetchedAt, period, sortedBy, count: rows.length, rows };
+      const values = { month: MONTH };
+      const refPath = writeDataset(ROOT, 'note.referrers', ref, { values }).file;
+      const artPath = writeDataset(ROOT, 'note.articles-pv', art, { values }).file;
+      console.log(`[write] ${refPath} / ${artPath}（記事 ${rows.length} 件）`);
+    }
   } else {
     console.log('（dry-run・書き込みなし。--commit で保存）');
   }
+} catch (error) {
+  console.error(`${NAME}: ${error.message}`);
+  exitCode ||= 1;
 } finally {
   await ctx.close();
 }

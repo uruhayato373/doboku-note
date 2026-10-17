@@ -20,13 +20,14 @@
  * Usage:
  *   npm run review-checks -- --cadence monthly --run 2026-09 [--write] [--json]
  *   npm run review-checks -- --cadence weekly --run 2026-W40 --write
- * exit: 0 実行できた（失敗した点検があっても 0）/ 2 点検を 1 本も実行できなかった・引数不正
+ * exit: 0 実行できた（失敗した点検があっても 0）/ 2 点検・Issue・依存アラートのいずれかが検査不成立・引数不正
  */
 import { spawnSync } from 'node:child_process';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { CHECKS_DIR, CONFIG, checksFileName } from './lib/review-wiring.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { commandTimeoutMs, runCheckedCommand } from './lib/check-execution.mjs';
 
 const args = process.argv.slice(2);
 const arg = (name) => { const i = args.indexOf(name); return i >= 0 ? args[i + 1] : null; };
@@ -49,17 +50,18 @@ const lastLine = (text) => String(text ?? '').split(/\r?\n/).map((l) => l.trim()
 /** 点検の結論行: 「[コマンド名] …」で始まる最後の行（無ければ最後の行）。 */
 const verdictLine = (text) => String(text ?? '').split(/\r?\n/).map((l) => l.trim()).filter((l) => /^\[[\w:.-]+\]/.test(l)).at(-1)?.slice(0, 200) ?? lastLine(text);
 
-const checks = (c.checks ?? []).map((k) => {
+const checks = [];
+for (const k of c.checks ?? []) {
   const [cmd, cmdArgs] = k.command.startsWith('node:')
     ? ['node', [`scripts/${k.command.slice(5)}.mjs`]]
     : ['npm', ['run', '-s', k.command]];
-  const started = Date.now();
-  const r = spawnSync(cmd, cmdArgs, { cwd: ROOT, encoding: 'utf8', timeout: TIMEOUT_MS, shell: process.platform === 'win32', windowsHide: true });
-  const exitCode = r.status;
+  const timeoutMs = commandTimeoutMs(k.command, TIMEOUT_MS);
+  const r = await runCheckedCommand(cmd, cmdArgs, { cwd: ROOT, timeoutMs });
+  const exitCode = ['timeout', 'inconclusive'].includes(r.status) ? 2 : r.exitCode;
   const state = exitCode === 0 ? 'ok' : exitCode === 1 ? 'fail' : 'broken';
-  const summary = r.error?.code === 'ETIMEDOUT' ? `${TIMEOUT_MS / 1000} 秒で打ち切り` : verdictLine(`${r.stdout}\n${r.stderr}`);
-  return { command: k.command, label: k.label, exitCode, state, summary, seconds: Math.round((Date.now() - started) / 1000) };
-});
+  const summary = ['timeout', 'inconclusive'].includes(r.status) ? `${r.status}（壁時計 ${r.durationMs}ms・実動 ${r.monoMs}ms・停止疑い ${r.sleptMs}ms） ${r.error ?? verdictLine(r.stderr)}` : verdictLine(`${r.stdout}\n${r.stderr}`);
+  checks.push({ command: k.command, label: k.label, exitCode, state, summary, seconds: Math.round(r.durationMs / 1000) });
+}
 
 let issues = [];
 let issuesError = null;
@@ -105,4 +107,4 @@ if (WRITE) {
   if (!JSON_OUT) console.log(`\n[review-checks] 書き込み: ${out}`);
 }
 
-process.exitCode = checks.length && ran === 0 ? 2 : checks.length ? 0 : 2;
+process.exitCode = !checks.length || checks.some((k) => k.state === 'broken') || issuesError || alertsError ? 2 : 0;

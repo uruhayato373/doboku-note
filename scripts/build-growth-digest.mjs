@@ -124,7 +124,11 @@ export function renderMarkdown(d) {
     }
     L.push('');
   } else L.push('GA4 流入: **欠測**', '');
-  if (d.kpis.gsc) L.push(`GSC（日本・web）: クリック ${fmt(d.kpis.gsc.clicks)}（基線週平均 ${fmt(d.kpis.gsc.baseWeeklyClicks)}・${delta(d.kpis.gsc.deltaPct)}）/ 表示 ${fmt(d.kpis.gsc.impressions)} / CTR ${d.kpis.gsc.ctrPct ?? '—'}%`, '');
+  if (d.kpis.gsc) {
+    const g = d.kpis.gsc;
+    L.push(`GSC（日本・web・${g.basis === 'property-total' ? 'プロパティ全体' : '取得ページ行合計・下限'}）: クリック ${fmt(g.clicks)}（基線週平均 ${fmt(g.baseWeeklyClicks)}・${delta(g.deltaPct)}）/ 表示 ${fmt(g.impressions)} / CTR ${g.ctrPct ?? '—'}%`, '');
+    if (g.pageRows) L.push(`ページ明細: ${g.pageRows.count} 行・${g.pageRows.clicks} クリック / ${g.pageRows.impressions} 表示。無次元 byPage 集計: ${fmt(g.pageRows.byPageTotalClicks)} クリック / ${fmt(g.pageRows.byPageTotalImpressions)} 表示。page/query 明細は Google 側で欠落し得るため、全体 KPI と区別する。`, '');
+  }
   else L.push('GSC: **欠測**', '');
   const b = d.bingReconciliation;
   L.push(`Bing 照合: GA4 の bing 自然検索セッション ${fmt(b.ga4Sessions)} / Bing Webmaster クリック ${fmt(b.wmtClicks)}${b.ratio != null ? `（${b.ratio} 倍）` : ''}${b.note ? `・${b.note}` : ''}`, '');

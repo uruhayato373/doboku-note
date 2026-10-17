@@ -10,18 +10,18 @@
 #
 # 人が作業する checkout には触らない。専用の worktree（.claude/worktrees/weekly-review・detached・lock 済み）を
 # 毎回 origin/develop に合わせて、その中で動かす（note-sync.sh と同じ）。
-# 今週のレビューが develop に既にあれば何もしない（人が先に回した週・2 回目の起動）。
-# 終わったら develop に今週のレビューがあるかを確かめ、無ければ automation-failure Issue（channel: weekly-review-local）。
+# レビュー・翌週計画・事業記録・点検・backlog 検証が develop で成立した場合だけ再生成しない。
+# 途中の取得/生成/通知の失敗は非ゼロ終了し、automation-failure（weekly-review-local）へ通知する。
 
 set -euo pipefail
 
-export PATH="/opt/homebrew/opt/node@20/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="$HOME/.local/bin:/opt/homebrew/opt/node@22/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export LANG="ja_JP.UTF-8"
 export LC_ALL="ja_JP.UTF-8"
 export DOBOKU_PW_MIN_FREE_MB="${DOBOKU_PW_MIN_FREE_MB:-1024}"
 export DOBOKU_PW_ALLOW_PARALLEL=1
 
-REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+REPO="${DOBOKU_WEEKLY_REPO:-$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)}"
 WT="$REPO/.claude/worktrees/weekly-review"
 LOG_DIR="$HOME/Library/Logs/doboku-note"
 LOG_FILE="$LOG_DIR/weekly-review.log"
@@ -32,25 +32,74 @@ mkdir -p "$LOG_DIR"
   echo "=== $(date -Iseconds) [weekly-review] start ==="
 } >> "$LOG_FILE"
 
-# 今日を含む回（レビューの週）。換算は scripts/lib/review-week.mjs が唯一の実装
-week="$(node -e "import('$REPO/scripts/lib/review-week.mjs').then(m=>import('$REPO/scripts/lib/jst-date.mjs').then(j=>console.log(m.reviewWeekOfDay(j.todayJst()))))")"
-review="docs/reviews/weekly/${week}-review.md"
+week="未確定"
+review="未確定"
 
-rc=0
-{
-  git -C "$REPO" fetch -q origin develop
-  if git -C "$REPO" cat-file -e "origin/develop:$review" 2>/dev/null; then
-    echo "[weekly-review] $review は develop に既にある。何もしない"
+# A concurrent invocation must not reset the active dedicated worktree.
+LOCK="$LOG_DIR/weekly-review.lock"
+if ! mkdir "$LOCK" 2>/dev/null; then
+  if [ -f "$LOCK/pid" ] && kill -0 "$(cat "$LOCK/pid")" 2>/dev/null; then
+    echo "[weekly-review] already running pid=$(cat "$LOCK/pid")" >> "$LOG_FILE"
     exit 0
   fi
+  rm -f "$LOCK/pid"
+  rmdir "$LOCK"
+  mkdir "$LOCK"
+fi
+echo "$$" > "$LOCK/pid"
+
+finish() {
+  local rc=$?
+  trap - EXIT
+  rm -f "$LOCK/pid"
+  rmdir "$LOCK"
+  if [ "$rc" -eq 0 ]; then
+    echo "=== $(date -Iseconds) [weekly-review] evidence complete ($review) ===" >> "$LOG_FILE"
+    (cd "$REPO" && node scripts/report-automation-failure.mjs --resolve --channel weekly-review-local --body "復旧: $week のレビュー・計画・事業記録・点検・backlog 検証が develop で成立") >> "$LOG_FILE" 2>&1 || rc=1
+  else
+    echo "=== $(date -Iseconds) [weekly-review] FAILED rc=$rc ===" >> "$LOG_FILE"
+    local body
+    body="$(mktemp)"
+    {
+      echo "$week の自動週次レビューが完了しませんでした（rc=$rc）。"
+      echo 'ログ: ~/Library/Logs/doboku-note/weekly-review.log'
+      echo '再実行: npm run weekly-review:install -- --run-now'
+      echo '```'
+      tail -30 "$LOG_FILE" | sed 's/[[:cntrl:]]//g'
+      echo '```'
+    } > "$body"
+    (cd "$REPO" && node scripts/report-automation-failure.mjs --channel weekly-review-local --title "自動の週次レビューが完了しませんでした" --body-file "$body") >> "$LOG_FILE" 2>&1 || echo '[weekly-review] failure notification also failed' >> "$LOG_FILE"
+    rm -f "$body"
+  fi
+  exit "$rc"
+}
+trap finish EXIT
+exec >> "$LOG_FILE" 2>&1
+# The assertion lasts only while this invocation is alive; lid-close still yields measured inconclusive.
+caffeinate -i -w "$$" &
+git -C "$REPO" fetch -q origin develop
   if ! git -C "$REPO" worktree list --porcelain | grep -qx "worktree $WT"; then
     git -C "$REPO" worktree prune
     git -C "$REPO" worktree add -q --detach "$WT" origin/develop
     git -C "$REPO" worktree lock --reason "weekly-review launchd routine" "$WT"
   fi
+  if [ -n "$(git -C "$WT" status --porcelain)" ] || [ -n "$(git -C "$WT" log --oneline origin/develop..HEAD)" ]; then
+    echo '[weekly-review] 前回の未保存変更・未 push commit がある。worktree を保持して停止'
+    exit 1
+  fi
   git -C "$WT" reset -q --hard origin/develop
-  [ -e "$WT/node_modules" ] || ln -s "$REPO/node_modules" "$WT/node_modules"
-  [ -e "$WT/.env.local" ] || ln -s "$REPO/.env.local" "$WT/.env.local"
+  [ -e "$WT/node_modules" ] || [ -L "$WT/node_modules" ] || ln -s "$REPO/node_modules" "$WT/node_modules"
+  [ -e "$WT/.env.local" ] || [ -L "$WT/.env.local" ] || ln -s "$REPO/.env.local" "$WT/.env.local"
+  week="$(node -e "import('$WT/scripts/lib/review-week.mjs').then(m=>import('$WT/scripts/lib/jst-date.mjs').then(j=>console.log(m.reviewWeekOfDay(j.todayJst()))))")"
+  review="docs/reviews/weekly/${week}-review.md"
+  if node "$WT/scripts/check-weekly-review.mjs" --week "$week" --ref origin/develop; then
+    echo "[weekly-review] $week の全成果物を確認。再生成しない"
+    exit 0
+  else
+    check_rc=$?
+    [ "$check_rc" -eq 1 ] || exit "$check_rc"
+  fi
+
   cd "$WT"
   node .claude/scripts/build-doc-meta-index.mjs --ci > /dev/null
 
@@ -63,35 +112,13 @@ rc=0
 - 外部への公開・投稿・送信・購入・価格変更・note やココナラの編集はしない。ログイン済みプロファイルで読むだけの取得（npm run coconala-orders など）は回してよい。
 - commit は変更したファイルだけを pathspec で指定し、git push origin HEAD:develop で積む（push が競合したら git pull --rebase origin develop してやり直す）。git reset・checkout・stash・force push はしない。
 - レビューの保存とコミットが終わったら /plan-weekly で来週の計画を書き、同じ形でコミットする。
+- 最後に node scripts/check-weekly-review.mjs --week ${week} が exit 0 になることを確かめ、不成立なら欠けた取得・記録を補う。既存 md だけで完了にしない。
 - 最後に、作ったファイル・起票した DN・諮問待ちの件数・未取得の材料を 10 行以内で書いて終える。
 PROMPT
 )"
-  npx --yes @anthropic-ai/claude-code -p "$prompt" \
+  claude -p "$prompt" \
     --permission-mode acceptEdits \
     --allowedTools "Bash Read Write Edit Glob Grep Agent Skill TodoWrite" \
     --disallowedTools "Bash(git reset:*) Bash(git checkout:*) Bash(git stash:*) Bash(git push --force:*) Bash(git push -f:*) Bash(gh pr merge:*) Bash(rm -rf:*)"
-} >> "$LOG_FILE" 2>&1 || rc=$?
-
-# 成否は終了コードでなく develop の実体で見る（偽の完了を「完了」と呼ばない）
-git -C "$REPO" fetch -q origin develop || true
-run_url="Mac launchd（ログ: ~/Library/Logs/doboku-note/weekly-review.log）"
-if git -C "$REPO" cat-file -e "origin/develop:$review" 2>/dev/null; then
-  echo "=== $(date -Iseconds) [weekly-review] ok ($review) ===" >> "$LOG_FILE"
-  (cd "$REPO" && node scripts/report-automation-failure.mjs --resolve --channel weekly-review-local --body "復旧: $review が develop にある（$run_url）") >> "$LOG_FILE" 2>&1 || true
-  exit 0
-fi
-echo "=== $(date -Iseconds) [weekly-review] FAILED rc=${rc}（$review が develop に無い）===" >> "$LOG_FILE"
-body="$(mktemp)"
-{
-  echo "土曜の自動の週次レビュー（Mac launchd）で $review が develop に入りませんでした（rc=${rc}）。"
-  echo ""
-  echo "- ログ: ~/Library/Logs/doboku-note/weekly-review.log の末尾"
-  echo "- 手で回す: 対話セッションで /weekly-review、または npm run weekly-review:install -- --run-now"
-  echo ""
-  echo '```'
-  tail -30 "$LOG_FILE" | sed 's/[[:cntrl:]]//g'
-  echo '```'
-} > "$body"
-(cd "$REPO" && node scripts/report-automation-failure.mjs --channel weekly-review-local --title "土曜の自動の週次レビューが完了しませんでした" --body-file "$body") >> "$LOG_FILE" 2>&1 || true
-rm -f "$body"
-exit 1
+git -C "$REPO" fetch -q origin develop
+node "$WT/scripts/check-weekly-review.mjs" --week "$week" --ref origin/develop

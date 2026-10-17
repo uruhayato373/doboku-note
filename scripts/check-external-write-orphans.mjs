@@ -103,6 +103,16 @@ export function judgeScan({ targetRuns, scanned, fetchFailed, findings }) {
   return { exitCode: 0, verdict: 'clean', message: `✓ 外部成功 × 記録失敗 の痕跡なし（${counts}）` };
 }
 
+/** ログが存在しない実行でも、全試行の全ジョブがステップ開始前に終了したことは API で検証できる。 */
+export function jobsNeverExecuted(pages) {
+  if (!Array.isArray(pages) || !pages.length) return false;
+  const jobs = pages.flatMap(p => Array.isArray(p?.jobs) ? p.jobs : []);
+  if (!jobs.length || pages.some(p => !Number.isInteger(p?.total_count) || !Array.isArray(p?.jobs))) return false;
+  if (new Set(jobs.map(j => j.id)).size !== pages[0].total_count) return false;
+  return jobs.every(j => j.status === 'completed' && ['cancelled', 'skipped'].includes(j.conclusion) &&
+    Array.isArray(j.steps) && j.steps.length === 0);
+}
+
 /** gh を呼ぶ。失敗（非 0 終了・起動不能）は ok:false と理由 1 行で返す（stdout の断片を成功扱いしない） */
 const gh = (args) => {
   try {
@@ -129,6 +139,7 @@ function main() {
   const fetchFailures = [];
   let targetRuns = 0;
   let runsScanned = 0;
+  const notExecutedRuns = [];
 
   for (const job of JOBS) {
     // ── A. orphan: 失敗 run のログに外部成功マーカーがあるか ──
@@ -156,6 +167,14 @@ function main() {
       const res = gh(['run', 'view', String(r.databaseId), '--log']);
       // 取得失敗（プロキシ 407 等）や空ログは「痕跡なし」ではなく未検査。数えて判定に渡す
       if (!res.ok || !res.out) {
+        const jobsRaw = gh(['api', '--paginate', '--slurp', `repos/{owner}/{repo}/actions/runs/${r.databaseId}/jobs?filter=all&per_page=100`]);
+        let pages;
+        try { pages = jobsRaw.ok ? JSON.parse(jobsRaw.out) : null; } catch { pages = null; }
+        if (jobsNeverExecuted(pages)) {
+          runsScanned += 1;
+          notExecutedRuns.push({ runId: r.databaseId, jobs: pages[0].total_count, evidence: 'all-attempts-jobs:no-steps' });
+          continue;
+        }
         fetchFailures.push({ job: job.id, runId: r.databaseId, reason: res.ok ? 'ログが空' : res.reason });
         continue;
       }
@@ -216,6 +235,7 @@ function main() {
       jobs: JOBS.length,
       targetRuns,
       runsScanned,
+      notExecutedRuns,
       fetchFailed: fetchFailures.length,
       verdict: verdict.verdict,
       exitCode: verdict.exitCode,
@@ -227,6 +247,7 @@ function main() {
   }
 
   writeSync(1, summary + '\n');
+  for (const r of notExecutedRuns) writeSync(1, `  [not-executed] run ${r.runId}: 全試行 ${r.jobs} ジョブがステップ0件で終了（ログ未生成・外部操作なし）\n`);
   for (const f of fetchFailures) {
     writeSync(2, `  [fetch-failed] ${f.job} run ${f.runId}: ${f.reason}\n`);
   }
