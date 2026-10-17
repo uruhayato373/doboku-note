@@ -21,6 +21,19 @@
 
 ## 🔴 高 — 重要度が高い
 
+### [DN-0762] 2級土木の答案具体化シリーズ投入で赤になった CI（AI画像の判定・Shorts期待値・公開枠重複・メタデータ表記）を直す
+タグ: [領域:SNS] [時期:2026-10] [種類:不具合] [検証:quality:audit:ci] [起票:2026-10-17] [期日:2026-10-19]
+
+週次レビュー（2026-10-12〜2026-10-18）の再実行で確認。develop の ci.yml が 78108595f・7d7793bac で赤（run 2026-10-17T04:58Z）。直前の #1104（733e0b2ec）は緑。
+
+原因は a45e47b3d（2級土木の答案具体化シリーズ 8 本の台帳・動画パック・素材）で入った次の 3 つの ci:true 検査:
+- content-registry R10: 8 パックの youtube.longform の cover・cta（hinshitsu は body-reference も）に AI 画像の判定 ok が無い（ai-image-fidelity-auditor → check-image-origin record-ai）
+- youtube-shorts: 各パックの outputs.shorts=0（期待値 2）と公開枠の重複（10/17 20:00 anzen-touan-gutaika-kaitei と gakka-kijutsu-2kyu、10/19 20:00 hinshitsu-touan-gutaika と keiken-koji-ga-nai）
+- unit-tests: 「全YouTubeメタデータが著者主体・AI制作補助の表記を持つ」が not ok
+
+SNS は保留中だが、予約済み 7 本は予定どおり公開する方針（weekly.md 10/17 追記）。直すのは台帳・メタデータ・判定記録だけで、追加の予約・公開はしない。公開枠の重複は予約の実体（registry の publications）と照合してから台帳側を直す。
+
+
 
 
 
