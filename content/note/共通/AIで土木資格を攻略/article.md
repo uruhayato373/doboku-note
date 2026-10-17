@@ -57,7 +57,7 @@ https://note.com/dobokunote/n/n89da1120ccaa
 
 ### 1級土木施工管理技士
 
-一次（択一）は範囲が広く暗記中心——**「調べる」**でNotebookLMに過去問と参考書を読ませ、間違えた選択肢の理由をその場で潰すのが効きます。二次（経験記述）は性質が違い、**「直す」** が主役。自分の工事経験を品質・工程・安全の管理項目で構造化し、AIに添削させる「書く→直す」が伸びます。詳しくは専用記事で扱います（公開後にURL反映）。
+一次（択一）は範囲が広く暗記中心——**「調べる」**でNotebookLMに過去問と参考書を読ませ、間違えた選択肢の理由をその場で潰すのが効きます。二次（経験記述）は性質が違い、**「直す」** が主役。自分の工事経験を品質・工程・安全の管理項目で構造化し、AIに添削させる「書く→直す」が伸びます。詳しくは[1級土木施工管理技士をAIで勉強する](https://note.com/dobokunote/n/n8b0e42784742)で扱っています。
 
 ### 技術士（建設部門）
 
@@ -81,8 +81,6 @@ https://doboku-note.com
 2. **対話型AI**（Claude・ChatGPT） — 理解の壁打ちと答案の下直しに。最終確認は必ず公式資料で
 3. **Claude Code**（上級・有料） — ファイルで「自分だけの参考書」を作りたくなったら
 
-（AIツールの有料プラン・AI×勉強法の参考書籍リンクは、公開時にこの位置へ文脈内で配置予定）
-
 ## 関連リソース
 
 **doboku-note — 土木・建設資格の過去問解説＋キーワード解説**（無料）
@@ -93,6 +91,8 @@ https://doboku-note.com
 
 https://note.com/dobokunote/n/n89da1120ccaa
 
-- 1級土木施工管理技士をAIで勉強する（一次の暗記・二次の経験記述）— 公開後にURL反映
+**1級土木施工管理技士をAIで勉強する**（一次の暗記・二次の経験記述）
+
+https://note.com/dobokunote/n/n8b0e42784742
 
 1級土木施工管理技士の出題傾向と得点戦略は、[第1次検定 出題傾向と得点戦略](https://doboku-note.com/exam/civil-construction-1/guide/strategy?utm_source=note&utm_medium=referral&utm_campaign=ai-study-civil-hub&utm_content=civil1-strategy)にまとめています。AI を使う前に、どこに時間を割くかを決める材料にしてください。
