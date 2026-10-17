@@ -234,9 +234,22 @@ export function noteMonthFacts({ traffic, articles = null, publishedItems = [], 
   const partialNote = midMonth ? `${fetchedDay} 取得の月途中値（取得日当日は途中まで）。対象月の全期間ではない。`
     : !finalized ? `${fetchedDay ?? '取得日不明'} 取得の確定前の値（note は ${noteSalesFinalizeDate(month7)} に確定）。` : '';
   const coverage = !midMonth && finalized ? 'complete' : 'partial';
+  return noteTrafficFacts({ traffic, articles, publishedItems, qualifications, trafficPath, articlesPath, period, coverage, partialNote, scope: '対象月' });
+}
+
+/** 指定期間を直接測った値だけを同じ期間の週次セルへ入れる。月次値の按分はしない。 */
+export function notePeriodFacts({ traffic, publishedItems = [], qualifications = [], trafficPath }) {
+  const period = { startDate: traffic?.period?.from, endDate: traffic?.period?.to };
+  if (!validDay(period.startDate) || !validDay(period.endDate) || period.startDate > period.endDate) return [];
+  const fetchedDay = traffic.fetchedAt ? jst(traffic.fetchedAt) : null;
+  const complete = fetchedDay !== null && fetchedDay > period.endDate;
+  return noteTrafficFacts({ traffic, articles: traffic, publishedItems, qualifications, trafficPath, articlesPath: trafficPath, period, coverage: complete ? 'complete' : 'partial', partialNote: complete ? '' : '取得当日を含む確定前の値。', scope: '指定期間' });
+}
+
+function noteTrafficFacts({ traffic, articles, publishedItems, qualifications, trafficPath, articlesPath, period, coverage, partialNote, scope }) {
   const facts = [
-    sourceFact('notePv', traffic.summary?.pageViews ?? null, period, trafficPath, 'all', coverage, `noteアクセス状況の対象月全記事。自己閲覧を含む。${partialNote}`),
-    sourceFact('noteImpressions', traffic.summary?.impressions ?? null, period, trafficPath, 'all', coverage, `noteアクセス状況の対象月全記事。PVとは別指標。${partialNote}`),
+    sourceFact('notePv', traffic.summary?.pageViews ?? null, period, trafficPath, 'all', coverage, `noteアクセス状況の${scope}全記事。自己閲覧を含む。${partialNote}`),
+    sourceFact('noteImpressions', traffic.summary?.impressions ?? null, period, trafficPath, 'all', coverage, `noteアクセス状況の${scope}全記事。PVとは別指標。${partialNote}`),
   ];
   if (!articles) return facts;
   const rows = Array.isArray(articles.rows) ? articles.rows : [];
@@ -360,6 +373,10 @@ export function sourceFacts(root, c, period) {
     if (!existsSync(join(root, trafficPath))) continue;
     const articles = existsSync(join(root, articlesPath)) ? readJson(root, articlesPath) : null;
     facts.push(...noteMonthFacts({ traffic: readJson(root, trafficPath), articles, publishedItems, qualifications: qualificationIds, trafficPath, articlesPath }));
+  }
+  const periodTrafficPath = datasetPath('note.traffic-period', { from: period.startDate, to: period.endDate });
+  if (existsSync(join(root, periodTrafficPath))) {
+    facts.push(...notePeriodFacts({ traffic: readJson(root, periodTrafficPath), publishedItems, qualifications: qualificationIds, trafficPath: periodTrafficPath }));
   }
   const salesPath = datasetPath('note.sales');
   if (existsSync(join(root, salesPath))) {

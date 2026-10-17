@@ -844,3 +844,18 @@ test('config.note-funnel: 導線の印と本文の食い違い・もくじ記事
   assertFails(N, mutateLatest('config.note-funnel', (r) => { delete first(r).L2; }), /\.L2/);
   assertFails(N, mutateLatest('config.note-funnel', (r) => { r.L1.noteUrl = 'x'; }), /^L1\.noteUrl/);
 });
+
+test('note custom period preserves missing referrers and rejects incomplete rows', () => {
+ const fixture={schemaVersion:1,fetchedAt:'2026-10-17T00:00:00Z',source:'note dashboard custom',period:{from:'2026-10-05',to:'2026-10-11'},summary:{impressions:100,pageViews:20,likes:1,comments:null,salesYen:null},pie:null,sortedBy:'pageViews',count:1,rows:[{title:'sample',status:'公開中',publishedAt:'2026-10-01',impressions:100,pageViews:20,likes:1,comments:null,salesYen:null}]};
+ assert.equal(SCHEMAS.NoteTrafficPeriod.safeParse(fixture).success,true);
+ assert.equal(SCHEMAS.NoteTrafficPeriod.safeParse({...fixture,count:2}).success,false);
+ assert.equal(SCHEMAS.NoteTrafficPeriod.safeParse({...fixture,period:{from:'2026-10-12',to:'2026-10-11'}}).success,false);
+});
+
+
+test('kdp.royalties: 確定PMRの金額と未知の既読ページ数を分けて保存する', () => {
+  const m = kdpMonth({ kenpPagesRead: null, marketplaces: [{ marketplace: '日本', currency: 'JPY', ebook: 100, paperback: 0, hardcover: 0, kenpPages: null, kenpRoyalty: 50, royalty: 150 }] });
+  assertOk(SCHEMAS.KdpRoyalties, kdpLog(m));
+  assertOk(SCHEMAS.KdpRoyalties, kdpLog({ ...m, kenpPagesRead: 500 }));
+  assertFails(SCHEMAS.KdpRoyalties, kdpLog({ ...m, marketplaces: [{ ...m.marketplaces[0], kenpPages: 1.5 }] }), /kenpPages/);
+});

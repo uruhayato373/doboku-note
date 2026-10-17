@@ -90,6 +90,31 @@ test('save: datasets を指定すると、そのデータセットの変更だ�
   }
 });
 
+test('login collector の PDF 監査結果は退避・復元・stage を通って publish される', () => {
+  const root = repo();
+  const dir = mkdtempSync(join(tmpdir(), 'ci-note-delivery-'));
+  const file = datasetPath('state.note-attachments-missing');
+  const workflow = readFileSync(join(dirname(fileURLToPath(import.meta.url)), '..', '.github/workflows/login-collectors.yml'), 'utf8');
+  const selection = (command) => {
+    const line = workflow.split('\n').find(l => l.includes(`node scripts/ci-data.mjs ${command} `));
+    return { paths: line.match(/--paths ([^\s]+)/)?.[1].split(',') ?? [], datasets: line.match(/--datasets ([^\s]+)/)?.[1].split(',') ?? [] };
+  };
+  try {
+    put(root, file, '{"measuredAt":"2026-10-17","target":615,"inspected":615,"fetchFail":0}\n');
+    save(root, dir, selection('save'));
+    git(root, 'checkout', '-q', '-f', 'HEAD');
+    git(root, 'clean', '-q', '-fd');
+    restore(root, dir);
+    assert.ok(existsSync(join(root, file)), '全件監査の結果を artifact から復元できる');
+    // 他の fixture データは型を省略しているため、監査結果の dataset だけ stage する。
+    add(root, { datasets: selection('add').datasets });
+    assert.ok(git(root, 'diff', '--cached', '--name-only').trim().split('\n').includes(file), '結果を develop へ書き戻す対象に含める');
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
 test('add: 無いパスは飛ばし（失敗しない）、削除も stage する。datasets は当たる変更だけ', () => {
   const root = repo();
   try {

@@ -548,6 +548,14 @@ async function updateArticle(page, article, probe, parts = ['body'], sync = {}) 
     toReattach = resolved;
     console.log(`[3-pre] --reattach-pdf: 添付 ${resolved.length} 件を置換後に貼り直す（${resolved.map((r) => r.base).join(' / ')}）`);
   }
+  // 日次上限は本文を消す前に判定する。note は未公開でもエディタの変更を保持するため、
+  // 復元時まで待って止めると翌日の再開時に「添付なし」の下書きが残ってしまう。
+  const usedToday = attachedTodayCount();
+  if (toReattach.length && usedToday + toReattach.length > ATTACH_DAILY_LIMIT) {
+    abortReason = 'attachment-daily-limit';
+    console.error(`[3-pre] ABORT: 本日の添付アップロードが上限に達する（済 ${usedToday} + 今回 ${toReattach.length} > ${ATTACH_DAILY_LIMIT}）→ 本文を触らず翌日に再開: ${noteId}`);
+    return false;
+  }
   // 添付を失った/失いかけた事実を負債として残すヘルパー。
   // 「保存していないから無害」は **live に限った話**で、エディタ側は添付削除済みのまま残る。
   // 失敗理由を確かめず再実行すると「添付なし」を正として保存してしまう（2026-07-31 の消失事故）。
@@ -633,13 +641,6 @@ async function updateArticle(page, article, probe, parts = ['body'], sync = {}) 
   //     有料記事では本文末尾＝有料エリア内に入るため、無料プレビューへ漏れない（note-attach-file と同型）。
   //     1 件でも貼り直せなければ保存しない＝「添付が消えたまま更新」を絶対に作らない。
   if (toReattach.length) {
-    const usedToday = attachedTodayCount();
-    if (usedToday + toReattach.length > ATTACH_DAILY_LIMIT) {
-      console.error(`[4.6] ABORT: 本日の添付アップロードが上限に達する（済 ${usedToday} + 今回 ${toReattach.length} > ${ATTACH_DAILY_LIMIT}）→ 更新しない: ${noteId}`);
-      console.error('  note の 1 日 100 件上限を超えるとアップロードが全て失敗し、添付を失ったまま保存する事故になる。翌日に再開すること。');
-      recordAttachmentDebt('復元前に日次上限へ到達（エディタ側は添付削除済み）', toReattach.map((f) => f.base));
-      return false;
-    }
     for (const f of toReattach) {
       const r = await attachFileInEditor(page, f.abs);
       if (!r.ok) {
