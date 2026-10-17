@@ -473,6 +473,17 @@
       "reason": "TS 測量の模式図で四辺に 22〜27px の余白があり欠けなし。OCR の兆候は図内ラベルとルビ（既知点・新点・基準面）",
       "reviewedAt": "2026-10-06T11:45:18.498Z"
     },
+    "civil-construction-2/secondary-r06/img/r06-q08-shoring": {
+      "sha": "c9a94b62ed31bc87",
+      "verdict": "ok",
+      "action": "reextract",
+      "reason": "公式問題8の原図。親目視で全6ラベルと引出線を確認。設問・解答の写り込みなし。（問題文・問題9・ページ番号・印刷用トンボを除外）",
+      "px": [
+        1441,
+        1062
+      ],
+      "reviewedAt": "2026-10-17T02:56:31.625Z"
+    },
     "concrete-diagnostician/primary-exercise-01/img/q9a-fig": {
       "sha": "39519c8156080239",
       "verdict": "ok",

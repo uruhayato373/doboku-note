@@ -39,9 +39,14 @@ export default function MagazineTopBanner({
   compact = false,
 }: MagazineTopBannerProps) {
   const image = noteCtaImage(magazineId, 'body');
+  const showDescription = magazineId.startsWith('civil-2-') && [
+    'secondary-r07-top',
+    'secondary-experience-writing-guide-top',
+    'secondary-experience-writing-examples-top',
+  ].includes(trackLabel ?? '');
   if (image) return <NoteImageCta href={url} image={compact ? { ...image, caption: { ...image.caption, title } } : image} scopeNotice={scopeNotice}
-    trackLabel={`${magazineId}:${trackLabel ?? "unknown"}`} placement={"article-top"} compact={compact}
-    actionLabel={compact ? '教材の内容を見る（note） →' : undefined} className="mb-8" />;
+    trackLabel={`${magazineId}:${trackLabel ?? "unknown"}`} placement={"article-top"} compact={compact} showDescription={showDescription}
+    actionLabel={compact || showDescription ? '教材の内容を見る（note） →' : undefined} className="mb-8" />;
   const brand = brandOf(magazineId);
   // コンパクト型なので価格は先頭の金額だけを出す。catalog の price は「¥2,480（模試3回＋暗記ノート＋
   // 出題分析・単品合計¥3,140、約21%OFF）」のように長いことがあり、縮まない価格欄が行幅を占有して
