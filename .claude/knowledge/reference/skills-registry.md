@@ -50,6 +50,8 @@ title: スキル ガバナンス記録
 
 > 2026-10-06 新設: `quality/figure-quality-loop`（記事図クロップを「判定待ち→目視判定・切り直し／元PDFから切り出し直し→判定台帳に記録」で 1 周ずつ回し、`/loop` で判定待ち 0 まで自走する）。背景＝画素検査の EDGE_CUT が 212 枚・337 件「情報のみ」で誰にも読まれず、上位 4 枚中 3 枚は図が縁で切れていたのに provenance は needs:ok。目視の判定も残らず、回しても同じ図が上がり続けていた。判定待ちと台帳は決定的スクリプト `scripts/figure-review-queue.mjs`（画像の sha256 で記録を結び、差し替えると再判定）。**新エージェントは作らず** `figure-crop-worker` に元 PDF からの切り出し直し（stage=reextract）を足した。合計 `108→109`、quality `16→17`。
 
+> 2026-10-17 更新: `management/weekly-review` の完了条件を5種証跡へ統一し、note同期間計測とGSC無次元全体値を案内。明細合計で全体を代用しない。`social/ig-reconcile` のsnapshot取得元を実装どおりPlaywrightと明記。
+
 > 2026-10-16 新設: `conversion/standards-table-rebuild`（共通仕様書の章記事で版面のまま残った表を、原本のページ画像と照合して `content/sources/standards/tables/{key}.json` に組み直す流れ）。背景＝初回の組み直し（217 件）の手順書・照合スクリプト・ページ画像が 1 台の PC の `.tmp/` にしか無く、別の PC で原本の改訂や表の断片（DN-0755）を直せなかった。道具は決定的スクリプト `scripts/standards-tables.mjs`（台帳・ページ画像・作業票・文字の過不足ゼロの照合・承認の記録）、ページ画像は既存の Drive vault（`build-standards-page-images`）、見えない PC は原本から render。**新エージェント 2 体**＝`standards-table-writer`（Generator）と `standards-table-qa`（Evaluator・audit-only）。合計 `110→111`、conversion `8→9`、agents `88→90`。
 
 > このツリーがスキル件数の**唯一の真実源（SSOT）**。CLAUDE.md など他 doc は件数を重複記載せずここを指す。スキルを追加/削除したら同一 commit でここを更新する（`/doc-declutter` → `doc-curator` でドリフトを棚卸し）。

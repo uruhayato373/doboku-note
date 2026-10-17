@@ -20,7 +20,7 @@ domain: strategy
 3 段で回す（2026-W40 が抜けた反省・[workflows.md](../../../knowledge/reference/workflows.md)「実行主体」）:
 
 1. **金曜 13:00 JST・CI** `weekly-review-draft.yml` が機械で決まる節を `.claude/state/weekly-review/draft.json` に書く（`npm run weekly-review:draft`）。前週のダイジェスト・KPI が欠けていれば automation-failure Issue（channel: weekly-review-draft）
-2. **土曜 9:30・Mac の launchd** `scripts/scheduled/weekly-review.sh` がヘッドレスの Claude Code で本スキルと `/plan-weekly` を回して develop へ push する（`npm run weekly-review:install`）。今週分が既にあれば何もしない。入らなければ Issue（channel: weekly-review-local）
+2. **土曜 9:30・Mac の launchd** `scripts/scheduled/weekly-review.sh` がヘッドレスの Claude Code で本スキルと `/plan-weekly` を回して develop へ push する（`npm run weekly-review:install`）。レビュー本文・翌週計画・事業レビューとsnapshot・点検と振り分け・backlog検証の5種証跡が揃う場合だけ省略する。不足時は再実行し、揃わなければ Issue（channel: weekly-review-local）
 3. **対話セッション** はヘッドレスが残した諮問待ち（`<!-- weekly-review:pending-questions -->`）を諮る。SessionStart の `check-weekly-review-due` が印と未作成を 1 行で知らせ、月曜の `weekly-review-guard.yml` が先週分の実在を見る
 
 **最初に下書きを読む**: `.claude/state/weekly-review/draft.json` の `markdown`（`week` が今週・`generatedAt` が今週金曜以降のもの）を読み、機械の節はそこから写す。無い・古いときは `node scripts/build-weekly-review-draft.mjs --print` で作り直す。下の Phase 1 の各コマンドは、下書きに無い節と、下書きで欠け・失敗になった材料だけを回す。
@@ -68,7 +68,7 @@ domain: strategy
 調査項目:
 - docs/ 配下で今週新規作成・更新されたファイル
 - カテゴリ別のページ数変動
-- **note の流入元・記事別 PV（月次）**: `data/note/referrers/YYYY-MM.json`（月次時系列の `targetMonth.sources`＝no referrer / note.com / Google / Bing / Yahoo / X）と `articles-pv/YYYY-MM.json`（PV 順の記事一覧）を読む。無ければ「未取得」と書き、次セッションで `npm run note-traffic-fetch -- --month YYYY-MM --commit`（ローカル・要ログイン）。収益は note 内回遊＋検索直で決まる（2026-09-15 実測）ので、X・サイト経由の PV を売上の理由にしない。business-review が全体を complete、資格別を partial として自動集計する。週次では流入元内訳を findings 用に読む
+- **note の同期間PV・表示・流入元**: `npm run note-traffic-fetch -- --from YYYY-MM-DD --to YYYY-MM-DD --commit` で対象週を直接取得し、`note.traffic-period`（`data/note/traffic-period/`）を読む。business-reviewは全体をcomplete、資格別をpartialとして集計する。月次は従来の `--month YYYY-MM --commit` と `referrers` / `articles-pv` を別期間として読む。月次を週次へ按分しない。記事別販売にはマガジン販売が含まれないため、売上の正本はsales.json。流入元だけで販売理由を断定しない。
 - note 公開状態ドリフト: `npm run verify-note-status` を実行（noteId 保有 article.md の
   frontmatter noteStatus ↔ ライブ公開状態を note 公開 API で突合・creds 不要）。
   ドリフト（ライブ=published / frontmatter=draft）があれば `-- --fix` で是正してコミット。
@@ -112,7 +112,7 @@ domain: strategy
   **出力の「実検査 N本（対象M・取得失敗K）」を必ず読む**。live 系の検査は取得できていなければ「異常なし」ではなく「検査できていない」＝ N が対象数から大きく欠けていたら結果を信用しない（取得失敗率 >20% ならスクリプト側が exit 1 で落とす）。2026-07-28 まで 675/675 が取得失敗でも緑を返していた実績がある。同種の live 検査 `check-note-live-headings` も同じ観点で見る。
 
 - **公開ページの目視確認（note・YouTube／エージェント・2026-09-23〜）**: 週次 CI `note-public-view.yml` は数値で判定し（note 全件＝公開 API で添付 PDF・価格・全文会員限定・本文の画像の欠け、代表ページ＝ブラウザでカード・はみ出し／YouTube 全件＝oEmbed で削除・非公開）、加えて**代表ページ**（note は資格×記事の種類ごと 1 本＝約 30 本、YouTube は Shorts・通常動画ごと 1 本）を**各サービスのブレイクポイントで区切った帯ごとの画面幅**（`config/public-view-breakpoints.json`・note 5 幅／YouTube 11 幅）で撮って成果物に残す。数値で決められない見た目の崩れはここで見る。
-  1. `node scripts/fetch-note-public-view-shots.mjs --json` で最新 run の画像を `.tmp/note-public-view-review/<runId>/` へ取る。exit 2 は「未確認」と書く（画像 0 枚を「異常なし」と呼ばない）。`breakpointDrift` に増減があれば、サービス側が画面幅の切り替えを変えたので設定を見直す（次セッションで）。
+  1. `node scripts/fetch-note-public-view-shots.mjs --json` で最新 run の画像を `.tmp/note-public-view-review/<runId>/` へ取る。exit 2 は「未確認」と書く（画像 0 枚を「異常なし」と呼ばない）。`coverage` の撮影成立数/予定数を確認する。`breakpointDrift` はCSSが全部読めた場合だけ見直しの根拠にし、`unreadable` があれば判定保留とする。
   2. sonnet のサブエージェント（`general-purpose`・1 体。note と YouTube で分けてもよい）に各 `review/index.json` と画像の場所を渡し、ページごとに**画面幅を並べて**見て次を報告させる（判定の根拠は画像に写っているものだけ・推測で埋めない）: 特定の画面幅でだけ崩れる（重なり・はみ出し・切れ・空の枠・カードや図の欠け）／記号がそのまま出ている（`**`・バッククォート・`\*`）／カバー・サムネイルの文字が切れる／本文の図が題材と合わない／画面の価格表示と `index.json` の原稿価格の食い違い／**有料エリアの直前までで何が手に入るか分からない**（購入判断に要る情報が無い）。返り値はページごとに `ID・URL・画面幅・何が・どの画像か・重さ（直す/様子見）` の表。
   3. 「直す」は親が画像を見て確かめてから backlog へ DN を起票する（原因が原稿なら原稿を直して再公開、共通の型なら検査側で機械化できないかも書く）。
 
@@ -192,9 +192,7 @@ B. 実験進捗レポート:
     最新2ファイルをファイル名日付で sort → 各 rows の activeUsers を NSM として前週比を算出。
     **これがクリーンな7日 WoW**。`ga4.channel-organic` が無い場合のみ `ga4.channel`（28日窓）に
     フォールバックし、その場合は「28日ローリング比較」と明記する（クリーンな WoW ではない）。
-  - GSC（推奨）: `gsc.date`（7日窓・日次）の最新2ファイルで
-    日次 clicks/impressions を合計して前週比。無ければ `gsc.query`（28日窓）にフォールバックし
-    「28日ローリング」と明記。GSC は3日遅延があるため直近数日は未確定（両週同条件なので方向は有効）。
+  - GSC: 対象週と比較週の成長パック `gsc.totals` の無次元 `byProperty` 全体値を使う。期間・国・Web・確定データを揃え、取得失敗は欠測とする。page/query明細はAPIで行が省略される部分集計であり、全体値への代用や前週比の基準にしない。
   - PSI: `data/psi/batch/*.json`（Agent C2 と同じ）を使う（ライブ PSI 呼び出し不要）
 - スナップショットが2週分揃わない場合のみ「NSM セクション: スキップ」と記録
 

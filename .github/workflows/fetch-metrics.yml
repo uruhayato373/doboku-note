@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       source_ref:
-        description: "取得コードの ref（既定 develop）"
+        description: "validation_only の検証に使う ref（既定 develop・書き戻す場合は develop 固定）"
         required: false
         default: "develop"
       measurement_week:
@@ -48,7 +48,13 @@ jobs:
         # 最初から develop を checkout し、順序依存そのものを無くす。
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          ref: ${{ inputs.source_ref || 'develop' }}
+          ref: develop
+
+      - name: Checkout validation source
+        if: ${{ inputs.validation_only && inputs.source_ref && inputs.source_ref != 'develop' }}
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ inputs.source_ref }}
 
       - name: Setup Node.js
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0

@@ -8,12 +8,13 @@
  * note と YouTube の review/index.json（代表ページ × ブレイクポイントごとの画面幅）の件数を出す。
  *
  * 使い方: node scripts/fetch-note-public-view-shots.mjs [--json] [--run <runId>]（--run は PR の run を含め任意の run を指定）
- * 終了コード: 0 = 取得できた / 2 = gh が使えない・対象の run や成果物が無い（未確認として扱う）
+ * 終了コード: 0 = 全ページ×画面幅を取得できた / 2 = 取得不可・撮影に欠けがある（未確認として扱う）
  */
 import { execFileSync } from 'node:child_process';
 import { existsSync, mkdirSync, readFileSync, readdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { reviewCoverage } from './lib/public-view-browser.mjs';
 
 const JSON_OUT = process.argv.includes('--json');
 const runArg = (() => { const i = process.argv.indexOf('--run'); return i >= 0 ? Number(process.argv[i + 1]) : null; })();
@@ -60,9 +61,11 @@ const services = indexes.map((p) => {
     viewports: (j.viewports || []).map((v) => v.width),
     shots: pages.reduce((n, pg) => n + (pg.shots?.length || 0), 0),
     missingShots: pages.filter((pg) => !pg.shots?.length).length,
+    coverage: reviewCoverage(j, (file) => existsSync(join(dirname(p), file))),
     breakpointDrift: j.breakpoints?.drift || null,
   };
 });
 const summary = { runId: run.databaseId, createdAt: run.createdAt, conclusion: run.conclusion, services };
 if (JSON_OUT) console.log(JSON.stringify(summary, null, 2));
-else for (const s of services) console.log(`[fetch-note-public-view-shots] run ${summary.runId}（${summary.createdAt}・${summary.conclusion}）${s.service}: ${s.pages} ページ × ${s.viewports.length} 画面幅・${s.shots} 枚 → ${s.reviewDir}${s.missingShots ? `（撮れなかったページ ${s.missingShots}）` : ''}`);
+else for (const s of services) console.log(`[fetch-note-public-view-shots] run ${summary.runId}（${summary.createdAt}・${summary.conclusion}）${s.service}: ${s.pages} ページ × ${s.viewports.length} 画面幅・撮影成立 ${s.coverage.captured}/${s.coverage.expected}・${s.shots} 枚 → ${s.reviewDir}${s.coverage.complete ? '' : '（未確認の画面あり）'}`);
+if (services.some((s) => !s.coverage.complete)) process.exitCode = 2;
