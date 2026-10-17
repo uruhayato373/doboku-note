@@ -1057,6 +1057,42 @@
         "/practice/netis-new-technology-use",
         "/practice/pre-construction-process"
       ]
+    },
+    {
+      "runId": "2026-10-17T03-47-15Z",
+      "collectedAt": "2026-10-17T03:47:15.071Z",
+      "mode": "dry-run",
+      "status": "dry-ok",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 1,
+      "accepted": 0,
+      "alreadyIndexed": 1,
+      "unreadable": 0,
+      "slugs": [
+        "/exam/civil-construction-2/guide/secondary-last-two-weeks-plan"
+      ],
+      "acceptedSlugs": []
+    },
+    {
+      "runId": "2026-10-17T03-47-56Z",
+      "collectedAt": "2026-10-17T03:47:56.853Z",
+      "mode": "dry-run",
+      "status": "dry-ok",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 1,
+      "accepted": 0,
+      "alreadyIndexed": 1,
+      "unreadable": 0,
+      "slugs": [
+        "/exam/civil-construction-2/guide/study-method"
+      ],
+      "acceptedSlugs": []
     }
   ]
 }

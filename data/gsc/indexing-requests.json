@@ -1,20 +1,20 @@
 {
   "schemaVersion": 1,
-  "runId": "2026-10-17T01-30-10Z",
-  "collectedAt": "2026-10-17T01:30:10.460Z",
+  "runId": "2026-10-17T03-47-56Z",
+  "collectedAt": "2026-10-17T03:47:56.853Z",
   "property": "sc-domain:doboku-note.com",
-  "mode": "commit",
-  "scriptVersion": "f14125b67",
+  "mode": "dry-run",
+  "scriptVersion": "7d933866e",
   "filter": {
     "category": null,
     "group": null
   },
-  "limit": 10,
-  "targetCount": 98,
+  "limit": 1,
+  "targetCount": 1,
   "items": [
     {
-      "slug": "/standards/hokkaido/local/part-01",
-      "url": "https://doboku-note.com/standards/hokkaido/local/part-01",
+      "slug": "/exam/civil-construction-2/guide/study-method",
+      "url": "https://doboku-note.com/exam/civil-construction-2/guide/study-method",
       "inspected": {
         "state": "indexed",
         "reason": null,
@@ -23,205 +23,15 @@
         "crawlAllowed": null,
         "indexingAllowed": null
       },
-      "request": {
-        "requested": false,
-        "status": "already-indexed"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/practice/accident-first-response",
-      "url": "https://doboku-note.com/practice/accident-first-response",
-      "inspected": {
-        "state": "indexed",
-        "reason": null,
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": false,
-        "status": "already-indexed"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/practice/concrete-standards-history",
-      "url": "https://doboku-note.com/practice/concrete-standards-history",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/practice/environmental-impact-assessment-flow",
-      "url": "https://doboku-note.com/practice/environmental-impact-assessment-flow",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/practice/flood-control-facilities",
-      "url": "https://doboku-note.com/practice/flood-control-facilities",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/practice/gnss-positioning-basics",
-      "url": "https://doboku-note.com/practice/gnss-positioning-basics",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/practice/keishin-bidder-qualification",
-      "url": "https://doboku-note.com/practice/keishin-bidder-qualification",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/practice/levee-failure-reinforcement",
-      "url": "https://doboku-note.com/practice/levee-failure-reinforcement",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/practice/license-scope-judgment",
-      "url": "https://doboku-note.com/practice/license-scope-judgment",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/practice/nature-conservation-mitigation",
-      "url": "https://doboku-note.com/practice/nature-conservation-mitigation",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/practice/netis-new-technology-use",
-      "url": "https://doboku-note.com/practice/netis-new-technology-use",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/practice/pre-construction-process",
-      "url": "https://doboku-note.com/practice/pre-construction-process",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
+      "request": null,
       "reachedVerdict": true
     }
   ],
-  "status": "ok",
+  "status": "dry-ok",
   "summary": {
-    "inspected": 12,
-    "accepted": 10,
-    "alreadyIndexed": 2,
+    "inspected": 1,
+    "accepted": 0,
+    "alreadyIndexed": 1,
     "unreadable": 0
   }
 }

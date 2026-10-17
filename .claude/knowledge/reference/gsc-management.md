@@ -707,5 +707,6 @@ EXP-006 の本判定は予定どおり next_check 2026-08-27 に、カバレッ�
 - 保存済み10/11のallKnown404全320件は/docs270・/exam18・/standards4・その他28。送信済404の30件がすべて旧/docsという別集計と混ぜない。全320件への現行ソースの完全一致参照は非公開（published:false）の総監原稿3箇所のみで、公開ソースの直参照は0。
 - ライブ404例に主任教材由来の/textbook-mix-designがあったが、配合計算note（n5a55ae6dc16b）の公開APIを再読すると/textbook/mix-designへ修正済み。原稿も同じで、追加修正・一括転送は行わない。
 - 打ち手: 2級の学習法・二次の始め方の旧リンク計21箇所を正規化、R06の採点断定と例文の字数・設問要求を是正。検索タイトルは既存EXP-020と重なるため追加変更せず、CTAはEXP-014、販売導線・教材改訂はEXP-015/016と併せて観察する。
+- 本番改訂後に既存のgsc-indexing:checkで直前2週間計画・学習法の2URLを個別再検査し、実検査2・登録済み2・読取不能0を確認。10/14の未登録一覧とは更新時点が異なるため、49/56の保存集計をそのまま最新値へ書き換えない。不要な登録再要求は送らず、履歴2件を既存台帳へ追記した。
 - 需要の根拠は同曜日の完了週W40→W41のGA4入口セッション（日本）で2級1,158→1,170、主任64→79。検索・販売を個別に帰属できず購入CVRとは呼ばない。読者の答案作成・知識確認（A）を助ける教材の正確性と選びやすさを優先し、8立場を維持する。
 - 出典: data/gsc/index-coverage.json、data/gsc/url-inspection/2026-10-14T06-52-54.json、data/gsc/ui-urls.json、修復PR #1099のdata/analysis/growth/pack-2026-W40.json／pack-2026-W41.json、[GSC登録画面](https://search.google.com/search-console/index?resource_id=sc-domain%3Adoboku-note.com)、[配合計算教材](https://note.com/dobokunote/n/n5a55ae6dc16b)。Googleは意図した転送・重複・削除をすべて登録対象にするよう求めていない（[登録レポートの説明](https://support.google.com/webmasters/answer/7440203)）。

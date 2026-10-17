@@ -1555,7 +1555,7 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 |---|---|---|---|
 | 3 | Kindle `e-02` の差し替え | catalog は LIVE 反映済み（2026-08-28・ASIN B0H3GX3HNW）。残＝ローカルの修復済みEPUB（2026-08-12修復・章名article.mdx漏れ解消・epubcheck 0件・check-kindle-epub-leak PASS）をKDPへ差し替える経路が無い。`kdp-publish.mjs` に「LIVE本のマニュスクリプト更新」モードが未実装で、`--dump --page content` の `title-setup/kindle/<asin>/content` は既刊では404（下書き専用パス） | 正しいKDP編集導線（本棚→編集→コンテンツ更新）の特定から必要。KDP 実機。顧客影響がある可能性が高いため優先度を上げて確認すべき |
 | 8 | civil-1 一次過去問 公式キー 24 件 | 残＝`h28-a`(19)・`h29-a`(1=No.38)・`h29-b`(4=No.3/12/17/21)。h28-a は 19 件と突出＝official 配列自体の OCR 誤りを疑い、mass-fix 前に第2ソースで再検証 | pre-H30 原典 PDF の入手（touhokugiken.com / dobokujira.com に h29 学科A/B は無し）。**LLM 推測厳禁**・キー番号だけの書き換え禁止 |
-| 9 | 過去問 解説・図の要照合クラスタ | 解説＝civil-1 `secondary-construction-plan-past-problems` No.9(1) 記述省略／civil-2 `secondary-r06` 問8 画像未挿入／総監 h21・h22・h28・h30 の 7 問／pe-first-stage 3 問。図は `figure-provenance.md` の `rescan-need-source` 7 図（`r07-a-fig-02` を含む） | 原典照合・外部原典の入手。進捗ビューは admin 記事図版タブ |
+| 9 | 過去問 解説・図の要照合クラスタ | 解説＝civil-1 `secondary-construction-plan-past-problems` No.9(1) 記述省略／総監 h21・h22・h28・h30 の 7 問／pe-first-stage 3 問。図は `figure-provenance.md` の `rescan-need-source` 7 図（`r07-a-fig-02` を含む） | 原典照合・外部原典の入手。進捗ビューは admin 記事図版タブ |
 | 10 | ココナラ C12 プレミアム週枠の再判断（旧DN-0007） | C12（教材18冊＋添削2テーマ・¥17,000＝2026-09-23 改定）は`weeklyCapacity: 1`で開始。添削は本番顧客への納品実績が無く（S2レビュー0）、初回工数が読めないための暫定値 | 初受注時に`orders.json`の`tensakuMinutes`を実測記録。2〜3件出たら週枠を再判断（判断基準→[ココナラ展開キット.md §5](../../content/note/1級・2級土木/ココナラ展開キット.md)）。実受注が無いと1手も進まない |
 | 11 | Gmail転送＋フィルタ設定（旧DN-0017・別PC作業） | ココナラの運営通知は`dobokunotecom@gmail.com`にしか届かずMCPから見えない。ラベル`dobokunotecom`は作成済み、`create_filter`はセッションに未公開のためフィルタ作成は人の作業 | 手順1: `uruhayato373`側でフィルタ作成（To=dobokunotecom・受信トレイスキップ＋ラベル付与）→手順2: `dobokunotecom`側で転送先追加・確認コード承認・転送有効化。完了条件は`label:dobokunotecom`で1件以上ヒット |
 | 12 | KDP Select 自動更新オフ A-00〜A-06（旧DN-0089） | note 択一PDF（`n155093f42183`・¥1,980・公開済み）との抵触リスクを安全側に倒すと判断（2026-08-27）。e-02 は Select 非加入方針・A 系列は収録範囲違い（422問論点別 vs 1162問全年度）だが部分集合の可能性が否定できない | KDP 管理画面で A-00〜A-06 の「KDPセレクトへの自動登録」をオフ。**期限=独占明け 2026-10-06 より前（10月上旬）**。10/6 を過ぎて自動更新されなければ制約自体が消滅 |
@@ -1579,14 +1579,16 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 
 **完了条件**: 冒頭 CTA を差し替える部分更新を 1 本で実行し、ライブ API で CTA が引用ブロック、直後の見出しが `h2` のまま、60 字超の見出しが 0 であることを確認できる。
 
-### [DN-0257] X Article パイロット: 今夜の Article 4 を出し、逸失した Article 1・3 を 10/26・10/28 に手動で公開する
-タグ: [SNS・マーケ] [領域:SNS] [時期:2026-09..2026-10] [種類:不具合] [検証:check-x-queue-health] [起票:2026-09-19] [期日:2026-10-29]
+### [DN-0257] SNS再開後にX Article 1・3・4の公開計画を見直す
+タグ: [SNS・マーケ] [領域:SNS] [時期:2026-09..2026-10] [種類:不具合] [起票:2026-09-19]
 
 **起点**: Codex の 1 回限りローカル自動化は Mac スリープ中に発火せず、起床時に遅延実行されて公開窓（15 分前〜120 分後）を外す（Article 1・3 はこれで逸失）。アプリは `automation.toml` の直接編集を読まない。2026-09-27 に運営者が「今夜は Mac を起こす＋1・3 は手動」と決定。9・10 月は 10/8 と 10/23 以降しか 1 日 3 本の空きが無いため、1・3 を 10/26・10/28 の夕方へ引き直し（告知は翌朝）、Article 2 の告知 Tweet 4 は見送り（`cancelled`）にした。
 
-**やること**: (1) 2026-09-27 20:00〜22:15 は Mac を起こしておき、自動化 `x-article-4` の公開と告知 Tweet 8（9/28 07:50）の予約を翌朝 `~/.codex/automations/x-article-4/memory.md` と `article_url` で確認する。逸失したら手動復旧 `DOBOKU_PW_MIN_FREE_MB=1024 npm run x-article:publish -- --article 4 --publish --force`（Claude Code の auto mode は拒否するので運営者が起動）。(2) 10/26 19:20 に `npm run x-article:publish -- --article 1 --publish`、10/28 19:35 に `--article 3` を運営者が実行し、告知（Tweet 2・6）を publish-x で予約する（手順は `.claude/skills/social/publish-x/SKILL.md`）。
+**保留条件**: 2026-10-17のユーザー指示でSNS展開を保留。再開指示までは公開・予約・追加投入・認証復旧とブラウザによるキュー検査を行わない。旧日時は有効な実行指示として扱わない。
 
-**完了条件**: `npm run check-x-queue-health` の issues が空で、Article 1・3・4 の `article_url` が埋まっている。
+**やること**: 再開指示後に既存の公開記録を照合し、未公開分だけを新しい日時で計画する。
+
+**完了条件**: 再開承認後の対象記事について、二重公開なく実URLと公開記録が一致する。
 
 ### [DN-0366] 資格ハブから技術士・総監・1級土木へのクリックを計測する
 タグ: [インフラ・計測] [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-09-27]
