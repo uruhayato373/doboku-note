@@ -7,7 +7,7 @@
  * インストーラと同じで、plist の絶対パスは端末ごとに違うため template から描画し、リポジトリにはコミットしない。
  *
  * 時刻は毎週土曜 9:30。Mac が寝ていた・閉じていた週は、次に起きたときに launchd が 1 回だけ実行する。
- * 今週のレビュー・翌週計画・事業記録・点検が develop で成立済みなら何もしない。電源が切れていた週は、月曜の weekly-review-guard が赤で出す。
+ * 今週のレビュー・翌週計画・事業記録・点検が develop で成立済みなら週次を省く。月次は未完・再確認日到来を別途判定する。電源が切れていた週は、月曜の weekly-review-guard が赤で出す。
  *
  * 使い方:
  *   npm run weekly-review:install                  # 登録（再登録も同じコマンド）。前提: Claude Code にログイン済み・gh にログイン済み
@@ -93,6 +93,6 @@ if (argv.includes('--status')) {
     `${TAG} ✓ 登録した（毎週土曜 9:30・寝ていた週は起床時に 1 回）\n` +
       `  plist: ${PLIST_PATH}\n` +
       `  log:   ${LOG}\n` +
-      '  最初に一度: npm run weekly-review:install -- --run-now でログを確認（今週の成果物が develop で全て成立済みなら何もしない）',
+      '  最初に一度: npm run weekly-review:install -- --run-now でログを確認（週次が成立済みでも月次が未完・再確認日到来なら月次を実行）',
   );
 }
