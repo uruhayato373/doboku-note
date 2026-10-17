@@ -95,6 +95,7 @@ export function foldGsc(result) {
     endDate: result.meta.endDate,
     rowCount: result.meta.row_count,
     truncated: result.meta.truncated === true,
+    meta: result.meta,
     rows: result.rows.map((r) => ({
       page: normPath(r.keys[iPage]),
       ...(iQuery >= 0 ? { query: r.keys[iQuery] } : {}),
@@ -103,4 +104,12 @@ export function foldGsc(result) {
       position: Math.round(r.position * 10) / 10,
     })),
   };
+}
+
+/** page/query を含めない全体集計。API の空応答は 0 に置換しない。 */
+export function foldGscTotal(result) {
+  if (result.meta.dimensions.length || result.rows.length !== 1) throw new Error(`GSC 全体集計は無次元の 1 行が必要（取得 ${result.rows.length} 行）`);
+  const row = result.rows[0];
+  if (![row.clicks, row.impressions, row.ctr, row.position].every(Number.isFinite)) throw new Error('GSC 全体集計に数値の欠測があります');
+  return { startDate: result.meta.startDate, endDate: result.meta.endDate, rowCount: 1, truncated: result.meta.truncated === true, meta: result.meta, rows: [row] };
 }

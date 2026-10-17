@@ -5,7 +5,7 @@ import { google } from 'googleapis';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import dotenv from 'dotenv';
-import { direction, duePeriods, records, currentRecords, samePeriod, saveRecord } from './lib/business-direction.mjs';
+import { direction, duePeriods, weekPeriod, addDays, GSC_FINAL_LAG_DAYS, jst, records, currentRecords, samePeriod, saveRecord } from './lib/business-direction.mjs';
 import { GSC_PROPERTY, SITE_ORIGIN } from './lib/site-identity.mjs';
 import { REPO_ROOT as root } from './lib/repository-paths.mjs';
 import { escapeRegExp } from './lib/regexp-escape.mjs';
@@ -22,8 +22,11 @@ async function run() {
   const auth = new google.auth.GoogleAuth({ credentials, scopes: ['https://www.googleapis.com/auth/webmasters.readonly'] });
   const gsc = google.searchconsole({ version: 'v1', auth });
   const monthlyOnly = args.includes('--monthly');
+  const weekIndex = args.indexOf('--week');
+  const explicitPeriod = weekIndex >= 0 ? weekPeriod(args[weekIndex + 1]) : null;
+  if (explicitPeriod && explicitPeriod.endDate > addDays(jst(), -GSC_FINAL_LAG_DAYS)) throw new Error('gsc-final-data-not-yet-due');
   // GSC final data can lag. Skip only the unfinished period; the finished one is still fetched.
-  const { due, skipped } = duePeriods(monthlyOnly ? ['monthly'] : ['weekly', 'monthly']);
+  const { due, skipped } = explicitPeriod ? { due: [{ period: explicitPeriod }], skipped: [] } : duePeriods(monthlyOnly ? ['monthly'] : ['weekly', 'monthly']);
   for (const s of skipped) console.log(`[business-metrics] ${s.cadence} ${s.period.startDate}〜${s.period.endDate} はGSC確定前（終了日から4日未満）のため取得しない`);
   if (!due.length) {
     if (monthlyOnly) throw new Error('gsc-final-data-not-yet-due');
@@ -51,15 +54,17 @@ async function run() {
       pending.push({ kind: 'measurement', qualification, period, channel: 'GA4', subject: 'aggregate', coverage: limited ? 'partial' : 'complete', source: 'GA4 Data API properties/419382901・日本。自然検索人数は期間全体。資格別は正規URL配下、演習は1級土木ツールを含む。', values });
       const filters = [{ dimension: 'country', operator: 'equals', expression: 'jpn' }];
       if (qualification !== 'all') filters.push({ dimension: 'page', operator: 'includingRegex', expression: `^${escapeRegExp(SITE_ORIGIN)}/exam/${qualification}/` });
-      const { data } = await gsc.searchanalytics.query({ siteUrl: GSC_PROPERTY, requestBody: { ...period, type: 'web', dataState: 'final', dimensionFilterGroups: [{ filters }] } });
-      pending.push({ kind: 'measurement', qualification, period, channel: 'GSC', subject: 'aggregate', coverage: 'complete', source: `GSC Search Analytics API ${GSC_PROPERTY}・日本/Web/final・日付は太平洋時間。資格別は正規URL配下。`, values: { gscClicks: Number(data.rows?.[0]?.clicks ?? 0) } });
+      const aggregationType = qualification === 'all' ? 'byProperty' : 'auto';
+      const { data } = await gsc.searchanalytics.query({ siteUrl: GSC_PROPERTY, requestBody: { ...period, dimensions: [], aggregationType, type: 'web', dataState: 'final', dimensionFilterGroups: [{ filters }] } });
+      const clicks = data.rows?.[0]?.clicks;
+      pending.push({ kind: 'measurement', qualification, period, channel: 'GSC', subject: 'aggregate', coverage: qualification === 'all' && Number.isFinite(clicks) ? 'complete' : 'partial', source: `GSC Search Analytics API ${GSC_PROPERTY}・日本/Web/final・太平洋時間。dimensions=[]・aggregation=${data.responseAggregationType ?? aggregationType}・取得${data.rows?.length ?? 0}行。${qualification === 'all' ? '全プロパティ集計。' : '正規URLのpageフィルタ。Google側で明細が欠落し得るため下限。'}`, values: { gscClicks: Number.isFinite(clicks) ? clicks : null } });
     }
   }
   if (!args.includes('--commit')) { console.log(`[business-metrics] dry-run: ${pending.length}集計取得。--commitで追記`); return; }
   let count = 0;
   for (const r of pending) {
     const old = currentRecords(records(root), 'measurement').find(x => x.qualification === r.qualification && x.channel === r.channel && x.subject === r.subject && samePeriod(x.period, r.period));
-    if (old && JSON.stringify(old.values) === JSON.stringify(r.values) && old.coverage === r.coverage) continue;
+    if (old && JSON.stringify(old.values) === JSON.stringify(r.values) && old.coverage === r.coverage && old.source === r.source) continue;
     saveRecord(root, { ...r, ...(old ? { supersedes: old.file } : {}) }); count++;
   }
   console.log(`[business-metrics] ${pending.length}集計検査、${count}記録追記。個人情報なし`);

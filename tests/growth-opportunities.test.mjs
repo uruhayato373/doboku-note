@@ -144,6 +144,25 @@ test('KPIs and bing reconciliation treat missing data as missing, not zero', () 
   assert.deepEqual([reconcileBing(pack, bing).wmtClicks, reconcileBing(pack, bing).ratio], [50, 6]);
 });
 
+test('全体 KPI はページ明細23と区別して303を使い、全体取得失敗時は明細へすり替えない', () => {
+  const sections = {
+    gscPropertyWeek: gsc([{ clicks: 303, impressions: 10000 }]),
+    gscPropertyBase: gsc([{ clicks: 800, impressions: 32000 }]),
+    gscPageWeek: gsc([pg('/a', 23, 1727)]), gscPageBase: gsc([pg('/a', 77)]),
+    gscPageTotalWeek: gsc([{ clicks: 305, impressions: 11000 }]),
+  };
+  const k = summarizeKpis(basePack(sections), cfg.revenue).gsc;
+  assert.equal(k.clicks, 303);
+  assert.equal(k.basis, 'property-total');
+  assert.equal(k.pageRows.clicks, 23);
+  assert.equal(k.pageRows.byPageTotalClicks, 305);
+  assert.equal(k.baseWeeklyClicks, 200);
+  assert.equal(summarizeKpis(basePack({ ...sections, gscPropertyWeek: { ok: false, error: 'failed' } }), cfg.revenue).gsc, null);
+  const old = summarizeKpis(basePack({ gscPageWeek: sections.gscPageWeek, gscPageBase: sections.gscPageBase }), cfg.revenue).gsc;
+  assert.equal(old.basis, 'page-row-sum');
+  assert.equal(old.clicks, 23);
+});
+
 test('buildDigest runs end-to-end on a fixture repository and renders the review marker', (t) => {
   const root = mkdtempSync(join(tmpdir(), 'growth-'));
   t.after(() => rmSync(root, { recursive: true, force: true }));
