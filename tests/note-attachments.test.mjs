@@ -3,7 +3,42 @@ import assert from 'node:assert/strict';
 import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { listAttachedFiles } from '../scripts/lib/note-attach.mjs';
+import { listAttachedFiles, saveAttachmentDraft } from '../scripts/lib/note-attach.mjs';
+
+function draftPage(buttonNames, persistedFiles) {
+  const clicks = [], navigations = [];
+  return {
+    clicks, navigations,
+    getByRole: (role, { name }) => {
+      const matches = buttonNames.filter((text) => name.test(text));
+      return { count: async () => matches.length, click: async () => clicks.push(matches[0]) };
+    },
+    waitForTimeout: async () => {}, waitForSelector: async () => {},
+    goto: async (url) => navigations.push(url), evaluate: async () => persistedFiles,
+  };
+}
+
+for (const button of ['下書き保存', '一時保存']) {
+  test(`添付の下書き復旧: ${button}で保存して対象PDFを再読込し、公開しない`, async () => {
+    const page = draftPage([button, '公開に進む'], ['既存.pdf', '対象.pdf']);
+    const result = await saveAttachmentDraft(page, { noteId: 'n123456abcdef', expectedFile: '対象.pdf' });
+    assert.equal(result.ok, true);
+    assert.deepEqual(page.clicks, [button]);
+    assert.deepEqual(page.navigations, ['https://editor.note.com/notes/n123456abcdef/edit/']);
+  });
+}
+
+test('添付の下書き復旧: 別のPDFだけ残っていても保存成功としない', async () => {
+  const page = draftPage(['一時保存', '公開に進む'], ['既存.pdf']);
+  assert.equal((await saveAttachmentDraft(page, { noteId: 'n123456abcdef', expectedFile: '対象.pdf' })).ok, false);
+});
+
+test('添付の下書き復旧: 保存ボタンがなければ公開ボタンで代用しない', async () => {
+  const page = draftPage(['公開に進む'], ['対象.pdf']);
+  assert.equal((await saveAttachmentDraft(page, { noteId: 'n123456abcdef', expectedFile: '対象.pdf' })).ok, false);
+  assert.deepEqual(page.clicks, []);
+  assert.deepEqual(page.navigations, []);
+});
 
 test('添付検出: 公式資料の PDF URL だけなら添付済みにしない', async () => {
   const page = { evaluate: async () => ['https://example.jp/official.pdf'] };
