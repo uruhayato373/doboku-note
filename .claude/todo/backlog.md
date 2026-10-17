@@ -361,6 +361,16 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0763] 週次 note-sync のマガジンカバー Drive 保存（drive-vault-sync）の失敗を直す
+タグ: [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-18] [期日:2026-10-25]
+
+**起点**: 週次 note-sync（2026-10-18 03:00・Mac launchd）で、マガジン 9 誌の更新後に `drive-vault-sync --group note-magazine-cover-png --commit` が非 0 で終わり、run 全体が `FAILED rc=1` になった（data/note/sync-log.json の problems「マガジンカバーを Drive へ保存できなかった（drive-vault-sync）」）。記事 95 本・マガジン 9 誌の反映は成功している。
+
+**やること**: 同じコマンドを Drive をマウントした Mac で `--commit` 付きで流し、失敗する対象と理由を確かめる。dry-run（10/18）は 111 件を保存待ちとして完走したので、失敗は書き込みの段階。10/11 の PDF 取り寄せの `Unknown system error -11` と同じ Drive I/O か、台帳の lock・ETIMEDOUT かを切り分ける。あわせて note-sync-routine が drive-vault-sync の stderr をログへ残すようにして、次に理由が分かるようにする。
+
+**完了条件**: `node scripts/drive-vault-sync.mjs --group note-magazine-cover-png --commit` が exit 0 で、次の週次 note-sync の problems にこの行が無い。
+
+
 ### [DN-0757] DX 広告が stats47 の A8 mat を使う疑いを確かめて直し、crossCheck の超過が消えるか確かめる
 タグ: [領域:アフィリエイト] [時期:2026-10] [種類:不具合] [起票:2026-10-17]
 
