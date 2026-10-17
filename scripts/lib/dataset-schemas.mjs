@@ -1482,7 +1482,7 @@ export const NoteSyncLog = z
           startedAt: utcTime('開始'),
           finishedAt: utcTime('終了'),
           plan: z.looseObject({ synced: count('同期済み'), ready: count('同期できる'), blocked: count('止まっている') }),
-          articles: z.object({ attempted: count('試みた記事'), updated: z.array(z.unknown()), failed: z.array(z.unknown()) }).strict(),
+          articles: z.object({ selected: count('今回の候補記事').optional(), attempted: count('試みた記事'), updated: z.array(z.unknown()), failed: z.array(z.unknown()), deferred: z.array(z.unknown()).optional() }).strict(),
           magazines: z.object({ attempted: count('試みたマガジン'), updated: z.array(z.unknown()), failed: z.array(z.unknown()) }).strict(),
           problems: z.array(z.unknown()),
         })

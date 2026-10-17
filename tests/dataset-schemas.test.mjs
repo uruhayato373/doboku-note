@@ -25,6 +25,21 @@ const assertFails = (schema, value, pattern) => {
   assert.ok(found.some((l) => pattern.test(l)), `${pattern} が出ない: ${JSON.stringify(found.slice(0, 5))}`);
 };
 
+test('note 同期は日次上限の未反映を deferred として残し、旧記録も読める', () => {
+  const run = {
+    startedAt: '2026-10-17T01:00:00Z', finishedAt: '2026-10-17T02:00:00Z',
+    plan: { synced: 534, ready: 404, blocked: 0 },
+    articles: { selected: 200, attempted: 91, updated: Array(90).fill({}), failed: [], deferred: Array(110).fill({ reason: 'attachment-daily-limit' }) },
+    magazines: { attempted: 0, updated: [], failed: [] }, problems: [],
+  };
+  assertOk(SCHEMAS.NoteSyncLog, { runs: [run] });
+  const old = structuredClone(run);
+  delete old.articles.selected; delete old.articles.deferred;
+  assertOk(SCHEMAS.NoteSyncLog, { runs: [old] });
+  run.articles.deferred = 'done';
+  assertFails(SCHEMAS.NoteSyncLog, { runs: [run] }, /articles.deferred/);
+});
+
 // ---- 実データ ----------------------------------------------------------------------------
 
 const files = ['config', 'data'].flatMap((area) => listAreaFiles(ROOT, area, { tracked: true }));

@@ -37,6 +37,8 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
  *   --reattach-pdf            全文置換で消える PDF 添付を、同じセッションで貼り直す（保存前に復元＋実体確認）。
  *                             ローカルに実ファイルが揃わなければ本文を触らず中断する
  *   --max-consecutive-fail N  --list バッチで N 本連続失敗したら残りを実行せず中断（既定 3）
+ *   --attach-daily-limit N    添付アップロードの日次上限（既定 90）。本文変更前に止め、残りを翌日以降へ保留する
+ *   exit: 0 完了 / 1 失敗 / 2 account 不一致 / 3 添付日次上限で保留
  *
  * 本文画像: SoT の `![alt](img/xxx.png)` は除去せず、paste 後に「＋」メニュー→画像アップロードで
  *   live に反映する（lib/note-images.mjs）。トークン残存/挿入失敗時は保存せず中断する。
@@ -840,7 +842,7 @@ const ctx = await chromium.launchPersistentContext(PROFILE, leanContextOptions({
   args: ['--disable-blink-features=AutomationControlled'],
 }));
 
-let ok = 0, fail = 0;
+let ok = 0, fail = 0, deferred = 0;
 try {
   const page = ctx.pages()[0] || (await ctx.newPage());
 
@@ -908,7 +910,15 @@ try {
         // 設定画面を通って境界を再設定/保持したので、live 影響メタも in-sync 化する。
         if (COMMIT) recordPublishedMetaHash(parsed.rel);
         consecFail = 0;
-      } else { recordAbort(parsed.noteId, abortReason ?? '更新フローが false を返した（保存せず中断）'); fail++; consecFail++; }
+      } else {
+        recordAbort(parsed.noteId, abortReason ?? '更新フローが false を返した（保存せず中断）');
+        if (abortReason === 'attachment-daily-limit') {
+          deferred = articles.length - ok - fail - skipped;
+          console.log(`[DEFER] ${parsed.noteId} attachment-daily-limit: ${deferred} 本を翌日以降に再試行（本文は未変更）`);
+          break;
+        }
+        fail++; consecFail++;
+      }
     } catch (e) {
       console.error('[ERROR]', artPath, e.message);
       try { const pj = parseArticle(artPath); recordAbort(pj.noteId, e.message); } catch {}
@@ -926,7 +936,7 @@ try {
   await ctx.close();
 }
 
-console.log(`\n[done] ok=${ok} fail=${fail} skip=${skipped} / ${articles.length}`);
+console.log(`\n[done] ok=${ok} fail=${fail} skip=${skipped} deferred=${deferred} / ${articles.length}`);
 if (TITLE_DRIFTS.length) {
   // ok=N fail=0 を「全部正しくなった」と読ませないための注記。本文だけ直ってタイトルが
   // 古いまま残るのは、読者から最も見える形の未完了（2026-08-13 に 5 本で実発生）。
@@ -942,4 +952,4 @@ if (tocProblems.length) {
   console.error(`[done] ⚠ 目次位置NG（導入分断の疑い・再挿入しても直らず）: ${tocProblems.length} 件 → ${tocProblems.join(', ')}`);
   console.error('       各記事の .tmp/nu-toc-<id>.png を目視し、必要なら手動で目次を最初のh2直前へ移動すること。');
 }
-process.exit(fail > 0 || tocProblems.length > 0 ? 1 : 0);
+process.exit(fail > 0 || tocProblems.length > 0 ? 1 : deferred > 0 ? 3 : 0);

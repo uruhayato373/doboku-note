@@ -24,7 +24,7 @@
  *       # 記事をパスの先頭で絞る（試験直前にその資格だけ先に流す）。マガジンのカバーは触らない。note から読むのも対象の記事だけ
  *   node scripts/note-sync-routine.mjs --magazines-only
  *       # マガジンのカバーだけ登録する（記事は読まない・触らない）
- * exit: 0 = 全部できた（更新するものが無かったも含む）/ 1 = どこかで失敗・要ログイン
+ * exit: 0 = 正常終了（対象なし・日次上限待ちは件数を別記）/ 1 = どこかで失敗・要ログイン
  * ---------------------------------------------------------------------------
  */
 import { spawnSync } from 'node:child_process';
@@ -38,6 +38,7 @@ import {
   designVersions, fetchLiveArticles, fetchLiveMagazines, planCoverWork, readLedger, recordCover, sameImage, writeLedger,
 } from './lib/note-cover-live.mjs';
 import { buildSyncPlan, countPlan, orderForRun, withLiveCovers } from './lib/note-sync-plan.mjs';
+import { classifyNoteSyncRun } from './lib/note-sync-results.mjs';
 import { datasetPath } from './lib/datasets.mjs';
 import { NOTE_CREATOR } from './lib/site-identity.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
@@ -79,20 +80,6 @@ if (!DRY && git(['symbolic-ref', '-q', 'HEAD']).status === 0) {
   process.exit(1);
 }
 
-/** note-update-body の出力から記事ごとの結果を読む。[article] nKEY … の後の [OK] / [FAIL] / [skip] / ABORT。 */
-function parseRun(text) {
-  const result = {};
-  let cur = null;
-  for (const line of text.split('\n')) {
-    const m = line.match(/^\[(article|skip)\] (n[0-9a-f]+)/);
-    if (m) { cur = m[2]; result[cur] = m[1] === 'skip' ? `skip: ${line.slice(0, 160)}` : null; continue; }
-    if (!cur || result[cur]?.startsWith?.('skip')) continue;
-    if (/^\[OK\]/.test(line)) result[cur] = 'ok';
-    else if (/^\[(FAIL|ABORT|ERROR)\]|ABORT:/.test(line) && result[cur] !== 'ok') result[cur] ||= line.slice(0, 160);
-  }
-  return result;
-}
-
 // Drive 本体が止まっていると、マウントの読み出しが全部 ETIMEDOUT になる（2026-10-04 の週次・DN-0567）。
 // 最初の取り寄せの前に 1 回だけ確かめ、止まっていれば起動して待つ。
 let driveChecked = false;
@@ -106,7 +93,7 @@ function ensureDriveRunning() {
 }
 
 async function syncArticles(items) {
-  const updated = []; const failed = [];
+  const updated = []; const failed = []; const deferred = []; let attempted = 0;
   for (let i = 0; i < items.length; i += CHUNK) {
     // 本文を上げ直す記事の配布 PDF を Drive から取り寄せる。取り寄せられなかった記事は note へ送らない
     // （送ると note-update-body が「添付がローカルに無い」で 1 本ずつ失敗し、5 本続くと残り全部が止まる。
@@ -134,18 +121,20 @@ async function syncArticles(items) {
     if (run.status === 2) { // account gate（dobokunote 未ログイン）
       problems.push('note にログインできていない（account gate で停止）');
       notify('note のログインが切れています。同期を止めました');
-      return { updated, failed, stopped: true, loggedOut: true };
+      return { updated, failed, deferred, attempted, stopped: true, loggedOut: true };
     }
-    const results = parseRun(run.out);
-    for (const item of chunk) {
-      const r = results[item.noteId];
-      if (r === 'ok') updated.push({ path: item.path, parts: item.parts });
-      else failed.push({ path: item.path, parts: item.parts, reason: r || '結果なし（連続失敗で中断された可能性）' });
+    const results = classifyNoteSyncRun(chunk, run.out);
+    updated.push(...results.updated); failed.push(...results.failed); deferred.push(...results.deferred);
+    attempted += results.attempted;
+    if (results.dailyLimit) {
+      deferred.push(...items.slice(i + CHUNK).map((item) => ({ path: item.path, parts: item.parts, reason: 'attachment-daily-limit' })));
+      console.log(`${TAG} 添付の日次上限で停止（更新 ${updated.length}・失敗 ${failed.length}・翌日以降 ${deferred.length}）。残りは次回の反映計画に残す`);
+      return { updated, failed, deferred, attempted, stopped: true };
     }
     console.log(`${TAG} 記事 ${Math.min(i + CHUNK, items.length)}/${items.length}（更新 ${updated.length}・失敗 ${failed.length}）`);
-    if (/\[ABORT\] \d+ 本連続で失敗/.test(run.out)) { problems.push('記事の更新が連続で失敗したので残りを止めた（note 側の変更・レート制限を疑う）'); return { updated, failed, stopped: true }; }
+    if (/\[ABORT\] \d+ 本連続で失敗/.test(run.out)) { problems.push('記事の更新が連続で失敗したので残りを止めた（note 側の変更・レート制限を疑う）'); return { updated, failed, deferred, attempted, stopped: true }; }
   }
-  return { updated, failed, stopped: false };
+  return { updated, failed, deferred, attempted, stopped: false };
 }
 
 async function liveMagazine(noteKey) {
@@ -238,7 +227,7 @@ if (DRY) {
 }
 
 // ---- 2〜4. 更新
-const art = articles.length ? await syncArticles(articles) : { updated: [], failed: [], stopped: false };
+const art = articles.length ? await syncArticles(articles) : { updated: [], failed: [], deferred: [], attempted: 0, stopped: false };
 // マガジンは記事と別の設定画面なので、記事の連続失敗（PDF 欠落など）では止めない。止めるのはログイン切れだけ。
 // 以前は art.stopped で飛ばしており、BK-01 道路の PDF 欠落が毎週マガジン 38 誌の登録を止めていた（2026-10-07）。
 const mag = art.loggedOut || !magPlan.pending.length ? { updated: [], failed: [] } : await syncMagazines(magPlan.pending, byKey, design);
@@ -255,13 +244,14 @@ if (mag.updated.length) {
 appendSyncLog({
   startedAt, finishedAt: new Date().toISOString(),
   plan: { synced: counts.synced, ready: counts.ready, blocked: counts.blocked, blockers: counts.blockers, ...(ONLY ? { only: ONLY } : {}), ...(MAGAZINES_ONLY ? { magazinesOnly: true } : {}) },
-  articles: { attempted: articles.length, updated: art.updated, failed: art.failed },
+  articles: { selected: articles.length, attempted: art.attempted, updated: art.updated, failed: art.failed, deferred: art.deferred },
   magazines: { attempted: magPlan.pending.length, updated: mag.updated, failed: mag.failed },
   problems,
 });
 commitAndPush();
 
 console.log(`${TAG} 更新 記事 ${art.updated.length}/${articles.length}・マガジン ${mag.updated.length}/${magPlan.pending.length}`);
+if (art.deferred.length) console.log(`${TAG} 未反映 ${art.deferred.length} 記事は日次上限待ち。次回実行で継続する`);
 if (art.failed.length || mag.failed.length || problems.length) {
   for (const f of [...art.failed, ...mag.failed].slice(0, 20)) console.error(`${TAG} ✗ ${f.path || f.key}: ${f.reason}`);
   for (const p of problems) console.error(`${TAG} ✗ ${p}`);
