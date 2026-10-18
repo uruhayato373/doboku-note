@@ -4402,6 +4402,23 @@
       "commit": null,
       "verification": "旧表紙を残した不備を同日修正。表紙2枚もCodexで全面POPへ再制作し、本文45枚と合わせて全47場面を同じ意匠へ統一。新表紙2/2と字幕入り冒頭2/2を原寸・360pxで独立監査。MP42本を再生成し、新表紙SHA2/2・本文SHA45/45・実映像47/47・音声入力hash47/47、全編decodeと映像開始0秒を確認。表紙改訂と採用path/SHAをB20で結び、旧design・別画像・改訂指定の片側削除を拒否する回帰を追加。今回の対象テスト27件成功。素材台帳に完成動画・全場面画像を既存media CLIで登録し、AI画像49素材行（同じ表紙の2役割参照を含む）に監査okを記録。原本・採用素材57件のvault SHA・cloud MD5一致。SNS新規公開・追加予約は保留。全編音声試聴は未実施。",
       "note": "DN全体は原典待ち7論点＋全編音声試聴を維持。SNS新規公開・追加予約なし。"
+    },
+    {
+      "id": "DN-0764",
+      "at": "2026-10-18",
+      "task": "2級土木の安全管理動画で旧版・改訂版が並行公開されている状態を整理する",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-content-registry"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "f475fa411213",
+      "verification": "Studioで旧版auR8P0pvmlUの削除完了と公開URLの削除済みを確認。改訂版GCyAWGoJthUは公開・HD処理完了・再生確認、既存6予約を保持。字幕退避1877B、旧版を指す関連動画0、再生リストなし。check-content-registry: 715作品2209公開911素材・28組比較、FAIL/WARN0。対象node tests36/36、datasets/doc-refs/doc-coupling成功。再発防止はPR1110でCI確認中。",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }
