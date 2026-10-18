@@ -180,3 +180,37 @@ test('全て照合済み・新鮮・ドリフト無し → PASS', () => {
   assert.deepEqual(result.issues, []);
   assert.equal(result.recorded, 2);
 });
+
+
+test('同じ外部IDで明示停止した旧版の過去記録は孤児にせず、現役の照合数から分ける', () => {
+  const state = structuredClone(publishedState);
+  state.packs.old = { derivatives: { longform: { status: 'stopped', videoId: 'OLD' } } };
+  const record = { verifiedAt: new Date().toISOString(), checked: 3, entries: {
+    'demo-pack/longform': { videoId: 'VID1', ok: true },
+    'demo-pack/shorts[0]': { videoId: 'VID2', ok: true },
+    'old/longform': { videoId: 'OLD', ok: false },
+  }, findings: [{ id: 'old/longform', code: 'gone', message: '削除済み' }] };
+  const { status, result } = runCheck({ state, record });
+  assert.equal(status, 0);
+  assert.equal(result.targets, 2);
+  assert.equal(result.recorded, 2);
+  assert.equal(result.retiredRecorded, 1);
+  record.findings.push({ id: 'demo-pack/longform', code: 'gone', message: '現役が消失' });
+  assert.ok(runCheck({ state, record }).result.issues.some((i) => i.code === 'V05'));
+});
+
+test('停止済みでも外部ID不一致・ID欠落・停止以外への後退は孤児を隠さない', () => {
+  for (const derivative of [{ status: 'stopped', videoId: 'OTHER' }, { status: 'stopped' }, { status: 'draft', videoId: 'OLD' }]) {
+    const state = structuredClone(publishedState);
+    state.packs.old = { derivatives: { longform: derivative } };
+    const record = { verifiedAt: new Date().toISOString(), checked: 3, findings: [], entries: {
+      'demo-pack/longform': { videoId: 'VID1', ok: true },
+      'demo-pack/shorts[0]': { videoId: 'VID2', ok: true },
+      'old/longform': { videoId: 'OLD', ok: true },
+    } };
+    const { status, result } = runCheck({ state, record });
+    assert.equal(status, 1);
+    assert.equal(result.retiredRecorded, 0);
+    assert.ok(result.issues.some((i) => i.code === 'V04'));
+  }
+});

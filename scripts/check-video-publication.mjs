@@ -14,7 +14,7 @@
  *   V01 published 相当の派生物があるのに記録が無い（＝一度も照合していない）
  *   V02 記録はあるが対象を網羅していない（新しく公開したのに未照合）
  *   V03 記録が古い（既定 14 日）。--freshness のときだけ＝壁時計で結果が変わるので ci でなく ops（日次）が見る
- *   V04 記録に孤児（state から消えた派生物が記録に残る）
+ *   V04 記録に孤児（台帳の現役・同じvideoIdの停止済みのどちらにも属さない）
  *   V05 実査がドリフトを報告している（gone / not_public / cta_utm_missing / related_missing 等）
  *
  * Usage:
@@ -46,6 +46,7 @@ const issues = [];
 const add = (code, message) => issues.push({ code, message });
 
 /** 台帳の published 相当派生物（照合されるべき対象）を列挙 */
+const stoppedTargets = new Map();
 function liveTargets() {
   let state;
   try {
@@ -59,8 +60,10 @@ function liveTargets() {
     for (const [key, raw] of Object.entries(entry.derivatives ?? {})) {
       const list = Array.isArray(raw) ? raw : [raw];
       list.forEach((d, i) => {
+        const id = `${packId}/${Array.isArray(raw) ? `${key}[${i}]` : key}`;
+        if (d.status === 'stopped' && d.videoId) stoppedTargets.set(id, d.videoId);
         if (!LIVE_STATUSES.includes(d.status)) return;
-        out.push(`${packId}/${Array.isArray(raw) ? `${key}[${i}]` : key}`);
+        out.push(id);
       });
     }
   }
@@ -82,6 +85,10 @@ if (record?.verifiedAt) {
   ageDays = Math.floor((Date.now() - new Date(record.verifiedAt).getTime()) / 86_400_000);
 }
 
+// 過去の実査記録は書き換えない。同じ外部IDで明示停止されたものだけを現役の検査から外す。
+const retiredRecords = new Set(Object.entries(record?.entries ?? {})
+  .filter(([id, entry]) => entry.videoId && stoppedTargets.get(id) === entry.videoId).map(([id]) => id));
+
 if (targets.length === 0) {
   // 公開前は正常。ただし「対象0件」であることを必ず言う（緑と混同させない）。
   if (!JSON_OUT) {
@@ -97,12 +104,13 @@ if (targets.length === 0) {
       if (!covered.has(t)) add('V02', `${t}: 公開済みだが照合記録に無い（照合後に公開した／実査が失敗している）`);
     }
     for (const id of covered) {
-      if (!targets.includes(id)) add('V04', `${id}: 照合記録の孤児（state から消えたのに記録に残る）`);
+      if (!targets.includes(id) && !retiredRecords.has(id)) add('V04', `${id}: 照合記録の孤児（state から消えたのに記録に残る）`);
     }
     if (FRESHNESS && ageDays !== null && ageDays > MAX_AGE_DAYS) {
       add('V03', `照合が ${ageDays} 日前（上限 ${MAX_AGE_DAYS} 日）。実査が止まっている可能性`);
     }
     for (const f of record.findings ?? []) {
+      if (retiredRecords.has(f.id)) continue;
       add('V05', `${f.id}: [${f.code}] ${f.message}`);
     }
   }
@@ -110,7 +118,8 @@ if (targets.length === 0) {
 
 const result = {
   targets: targets.length,
-  recorded: record ? Object.keys(record.entries ?? {}).length : 0,
+  recorded: record ? Object.keys(record.entries ?? {}).filter((id) => targets.includes(id)).length : 0,
+  retiredRecorded: retiredRecords.size,
   verifiedAt: record?.verifiedAt ?? null,
   ageDays,
   issues,
@@ -120,7 +129,7 @@ if (JSON_OUT) {
   console.log(JSON.stringify(result, null, 2));
 } else if (targets.length > 0) {
   console.log(
-    `check-video-publication: 公開済み ${targets.length} 件 / 照合済み ${result.recorded} 件` +
+    `check-video-publication: 公開済み ${targets.length} 件 / 照合済み ${result.recorded} 件 / 停止済みの過去記録 ${result.retiredRecorded} 件` +
       (ageDays === null ? '（未照合）' : `（${ageDays} 日前）`),
   );
   for (const i of issues) console.log(`  [FAIL] ${i.code} ${i.message}`);
