@@ -23,8 +23,19 @@ export interface ItemRow {
   coverSrc: string | null;
   channels: string[];
   byChannel: Record<string, Record<string, number>>;
+  publications: { channel: string; format: string; status: string; stopReason: string | null; month: string | null; publishAtJst: string | null }[];
   flags: string[];
   statusOrder: number;
+}
+
+export interface ItemPublicationGroup {
+  key: string;
+  channel: string;
+  format: string;
+  label: string;
+  tone: 'good' | 'info' | 'warn' | 'bad' | 'neutral';
+  count: number;
+  dateLabel: string;
 }
 
 export interface ItemMedia {
@@ -82,6 +93,7 @@ export interface MediaDetail {
 
 export const FLAG_ORDER = ['要確認', '要復元', '要同期', '承認待ち'] as const;
 export { examLabel };
+export { itemPublicationGroups, matchingItemPublications } from '../../../../scripts/lib/media-review.mjs';
 
 const driveManifest = () => {
   try {
