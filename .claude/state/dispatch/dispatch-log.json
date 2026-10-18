@@ -4436,6 +4436,23 @@
       "commit": "9d5f604f9122",
       "verification": "DN-0764対応と同一。Studio削除完了・旧URLでユーザーにより削除済みを確認。元の初版auR8P0pvmlUはregistry stopでstopped/superseded、改訂版GCyAWGoJthUを公開維持。新しく取り込んだCIの改訂版・既存6予約のメタデータ同期記録を保持。check-content-registryは715作品2209公開911素材28組比較でFAIL/WARN0。",
       "note": "別セッションのCIが台帳反映前に削除済み初版を検出して起票した重複カード。DN-0764の修復を統合し照合した。"
+    },
+    {
+      "id": "DN-0766",
+      "at": "2026-10-18",
+      "task": "全体監査とE2Eのスキップを整理しモバイルa11yの未実行を解消する",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-e2e-execution"
+      },
+      "executor": "codex",
+      "outcome": "done",
+      "plan": null,
+      "commit": "f228d578eb4f",
+      "verification": "PR #1116 head 73ec87b26: 全体監査143成功・skip0 (run39088145796)、E2E490成功・実行490/skip0/未実行0/失敗0 (run39088145396)。モバイルa11y16件を追加実行、PC専用割当外6件はモバイルで実行。Lighthouse/CodeQL/Socket成功。",
+      "note": "standards-dataをaudit前に生成しCIでは欠落時に失敗。E2EはJSON結果の対象/実行/skip/未実行/失敗を必須検査。回帰テストとdoc-sync実施。SNS新規公開・追加予約は未実施。"
     }
   ]
 }
