@@ -1093,6 +1093,46 @@
         "/exam/civil-construction-2/guide/study-method"
       ],
       "acceptedSlugs": []
+    },
+    {
+      "runId": "2026-10-18T01-30-06Z",
+      "collectedAt": "2026-10-18T01:30:06.580Z",
+      "mode": "commit",
+      "status": "ok",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 12,
+      "accepted": 10,
+      "alreadyIndexed": 2,
+      "unreadable": 0,
+      "slugs": [
+        "/standards/hokkaido/local/part-01",
+        "/practice/accident-first-response",
+        "/practice/public-works-bidding-methods",
+        "/practice/public-works-delivery-methods",
+        "/practice/reading-civil-drawings",
+        "/practice/ready-mixed-concrete-ordering",
+        "/practice/site-wireless-communication",
+        "/practice/special-concrete-selection",
+        "/practice/subcontract-instruction-boundary",
+        "/exam/surveyor/primary/r04",
+        "/exam/surveyor/primary/r06",
+        "/exam/pe-construction/guide/infra-system-overseas"
+      ],
+      "acceptedSlugs": [
+        "/practice/public-works-bidding-methods",
+        "/practice/public-works-delivery-methods",
+        "/practice/reading-civil-drawings",
+        "/practice/ready-mixed-concrete-ordering",
+        "/practice/site-wireless-communication",
+        "/practice/special-concrete-selection",
+        "/practice/subcontract-instruction-boundary",
+        "/exam/surveyor/primary/r04",
+        "/exam/surveyor/primary/r06",
+        "/exam/pe-construction/guide/infra-system-overseas"
+      ]
     }
   ]
 }
