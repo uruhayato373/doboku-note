@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-18T08:52:33.370Z",
+  "agencyId": "kyushu",
+  "agencyName": "九州地方整備局",
+  "documentId": "hikkei-common-05",
+  "role": "companion",
+  "title": "土木請負工事必携 共通編／「工事現場における説明性の向上について」",
+  "edition": null,
+  "sourceFile": "九州地方整備局/hikkei-common-05__土木請負工事必携_共通編_「工事現場における説明性の向上について」.pdf",
+  "pagesLocation": {
+    "tier": "drive-vault",
+    "vaultDir": "原資料PDF/共通仕様書/九州地方整備局/hikkei-common-05__土木請負工事必携_共通編_「工事現場における説明性の向上について」",
+    "note": "実体は Drive vault の原本 PDF と同名フォルダ。repo には無い。取り戻しは npm run drive-vault-sync -- --pull --path content/sources/standards/kyushu/ --commit"
+  },
+  "sourceSha256": "9681279bfa4a9a0b8ef609753976d4f05decbb52d8d58eacb20c785e64fd4ffd",
+  "pages": 3,
+  "render": {
+    "tool": "pdftoppm",
+    "dpi": 270,
+    "format": "jpeg",
+    "quality": 85
+  },
+  "text": {
+    "tool": "pdftotext",
+    "layout": true,
+    "splitBy": "formfeed"
+  },
+  "parts": [
+    {
+      "slug": "part-01",
+      "firstPage": 1,
+      "lastPage": 3
+    }
+  ],
+  "totalImageBytes": 1219710,
+  "printedPage": {
+    "note": "版面に刷られたページ番号。目次(front)と本文(body)で同じラベルが再使用されるため、出典は section と組で指す。",
+    "bodyStartsAtPdfPage": null,
+    "labelled": 0,
+    "ambiguous": 0
+  },
+  "pageEntries": [
+    {
+      "page": 1,
+      "image": "pages/p0001.jpg",
+      "text": "text/p0001.txt",
+      "imageBytes": 151603,
+      "imageSha256": "3a36f3aed763e2c85228b03c4f09d6002b86cb7c311fe3c77338a9af829bdc6e",
+      "textChars": 139,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 2,
+      "image": "pages/p0002.jpg",
+      "text": "text/p0002.txt",
+      "imageBytes": 709999,
+      "imageSha256": "ae3ad70ac67d323acb2d5e98efab3cb421f2408c16f754c940d93fb4aeadf2d9",
+      "textChars": 1194,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 3,
+      "image": "pages/p0003.jpg",
+      "text": "text/p0003.txt",
+      "imageBytes": 358108,
+      "imageSha256": "30265dbb18aed7325b75867a130bd7ff5b5a9966463046cdfc6eacef74dcdd8c",
+      "textChars": 610,
+      "printedPage": null,
+      "section": "body"
+    }
+  ]
+}

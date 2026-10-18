@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-18T08:55:14.266Z",
+  "agencyId": "okinawa",
+  "agencyName": "沖縄総合事務局",
+  "documentId": "hikkei-16",
+  "role": "companion",
+  "title": "土木請負工事必携／建設材料の品質記録保存業務実施要領（案）［平成30年4月］",
+  "edition": null,
+  "sourceFile": "沖縄総合事務局/hikkei-16__土木請負工事必携_建設材料の品質記録保存業務実施要領(案)[平成30年4月].pdf",
+  "pagesLocation": {
+    "tier": "drive-vault",
+    "vaultDir": "原資料PDF/共通仕様書/沖縄総合事務局/hikkei-16__土木請負工事必携_建設材料の品質記録保存業務実施要領(案)[平成30年4月]",
+    "note": "実体は Drive vault の原本 PDF と同名フォルダ。repo には無い。取り戻しは npm run drive-vault-sync -- --pull --path content/sources/standards/okinawa/ --commit"
+  },
+  "sourceSha256": "6468ecc364a33c99ddca267d7fa1e70db11d2ccde2b6485b3b7b59ffd7f86699",
+  "pages": 4,
+  "render": {
+    "tool": "pdftoppm",
+    "dpi": 270,
+    "format": "jpeg",
+    "quality": 85
+  },
+  "text": {
+    "tool": "pdftotext",
+    "layout": true,
+    "splitBy": "formfeed"
+  },
+  "parts": [
+    {
+      "slug": "part-01",
+      "firstPage": 1,
+      "lastPage": 4
+    }
+  ],
+  "totalImageBytes": 1611718,
+  "printedPage": {
+    "note": "版面に刷られたページ番号。目次(front)と本文(body)で同じラベルが再使用されるため、出典は section と組で指す。",
+    "bodyStartsAtPdfPage": null,
+    "labelled": 0,
+    "ambiguous": 0
+  },
+  "pageEntries": [
+    {
+      "page": 1,
+      "image": "pages/p0001.jpg",
+      "text": "text/p0001.txt",
+      "imageBytes": 344138,
+      "imageSha256": "bae05f764fcbb51a896fc3d3b056eccbc3dd87625002444e3c34a73e5af175ef",
+      "textChars": 552,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 2,
+      "image": "pages/p0002.jpg",
+      "text": "text/p0002.txt",
+      "imageBytes": 405637,
+      "imageSha256": "186cab90cf41ca010294e2ba34a7ecb50550ef9a70b5eeda3f7dcd7efaec8af3",
+      "textChars": 665,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 3,
+      "image": "pages/p0003.jpg",
+      "text": "text/p0003.txt",
+      "imageBytes": 421807,
+      "imageSha256": "eb67afaf2b6652acf8484e632a1be7ed795d0f47e4869c2ee88e13cd2ee01a66",
+      "textChars": 1217,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 4,
+      "image": "pages/p0004.jpg",
+      "text": "text/p0004.txt",
+      "imageBytes": 440136,
+      "imageSha256": "de853e558a0dfce9956fa3ce1874f178c158617f1e46ffcdb690046a48ddb82f",
+      "textChars": 993,
+      "printedPage": null,
+      "section": "body"
+    }
+  ]
+}

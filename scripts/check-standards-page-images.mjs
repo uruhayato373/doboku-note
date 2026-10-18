@@ -45,6 +45,7 @@ const SAMPLE = Number(flag('sample', 8))
 const sha256 = (b) => createHash('sha256').update(b).digest('hex')
 const fails = []
 const warns = []
+const companionLabelled = []
 let checkedManifests = 0
 let checkedPages = 0
 let docsWithLocalBytes = 0
@@ -102,7 +103,11 @@ for (const doc of targets) {
     if (m.printedPage.ambiguous > 0) {
       fails.push(`${label}: section+版面ページ が重複 ${m.printedPage.ambiguous} 件 — 出典を一意に指せない`)
     }
-    if (m.printedPage.labelled === 0) {
+    // 「編-ページ」の刷り番号は共通仕様書の版面の決まり。companion（必携・通知・マニュアル）は
+    // 番号の形が文書ごとに違い、無いのが普通なので 0 件を失敗にしない（拾えた数は下で表示する）
+    if (doc.role !== 'common') {
+      companionLabelled.push(`${label} ${m.printedPage.labelled}/${m.pages}`)
+    } else if (m.printedPage.labelled === 0) {
       fails.push(`${label}: 版面ページ番号を 1 件も拾えていない（printedPageOf の正規表現が合っていない可能性）`)
     }
     const seen = new Set()
@@ -160,6 +165,7 @@ for (const doc of targets) {
 
 console.log(`[check-standards-page-images] 対象 ${targets.length} 文書 / manifest 実検査 ${checkedManifests} 件`)
 console.log(`[check-standards-page-images] 実体がある文書 ${docsWithLocalBytes} 件（repo ${docsInRepo} / vault ${docsInVault}）/ 画像 sha256 実照合 ${checkedPages} 枚${DEEP ? '（--deep 全件）' : `（各文書 約${SAMPLE} 枚のサンプル。全件は --deep）`}`)
+if (companionLabelled.length) console.log(`[check-standards-page-images] companion の版面ページ番号（編-ページ形）を拾えた数: ${companionLabelled.filter((s) => !s.includes(' 0/')).length}/${companionLabelled.length} 文書（0 件は失敗にしない）`)
 for (const w of warns) console.warn(`  ! ${w}`)
 if (checkedManifests === 0) {
   console.error('[check-standards-page-images] ✗ manifest を 1 件も検査していない。検査不成立')

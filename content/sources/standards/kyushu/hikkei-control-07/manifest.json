@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-18T08:53:35.362Z",
+  "agencyId": "kyushu",
+  "agencyName": "九州地方整備局",
+  "documentId": "hikkei-control-07",
+  "role": "companion",
+  "title": "土木請負工事必携 施工管理編／「コンクリート構造物に使用する普通ポルトランドセメントについて」",
+  "edition": null,
+  "sourceFile": "九州地方整備局/hikkei-control-07__土木請負工事必携_施工管理編_「コンクリート構造物に使用する普通ポルトランドセメントについて」.pdf",
+  "pagesLocation": {
+    "tier": "drive-vault",
+    "vaultDir": "原資料PDF/共通仕様書/九州地方整備局/hikkei-control-07__土木請負工事必携_施工管理編_「コンクリート構造物に使用する普通ポルトランドセメントについて」",
+    "note": "実体は Drive vault の原本 PDF と同名フォルダ。repo には無い。取り戻しは npm run drive-vault-sync -- --pull --path content/sources/standards/kyushu/ --commit"
+  },
+  "sourceSha256": "4d005153abeb0c6793271e086e19c4025833e6565056cb6acd4eab9c14bc8d21",
+  "pages": 2,
+  "render": {
+    "tool": "pdftoppm",
+    "dpi": 270,
+    "format": "jpeg",
+    "quality": 85
+  },
+  "text": {
+    "tool": "pdftotext",
+    "layout": true,
+    "splitBy": "formfeed"
+  },
+  "parts": [
+    {
+      "slug": "part-01",
+      "firstPage": 1,
+      "lastPage": 2
+    }
+  ],
+  "totalImageBytes": 424728,
+  "printedPage": {
+    "note": "版面に刷られたページ番号。目次(front)と本文(body)で同じラベルが再使用されるため、出典は section と組で指す。",
+    "bodyStartsAtPdfPage": null,
+    "labelled": 0,
+    "ambiguous": 0
+  },
+  "pageEntries": [
+    {
+      "page": 1,
+      "image": "pages/p0001.jpg",
+      "text": "text/p0001.txt",
+      "imageBytes": 157495,
+      "imageSha256": "ab7fe7bd449aef6d08dbe00f852db7d89a572016b381afaca8a74b83496cb62f",
+      "textChars": 114,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 2,
+      "image": "pages/p0002.jpg",
+      "text": "text/p0002.txt",
+      "imageBytes": 267233,
+      "imageSha256": "eaea2ce84d29d0fe7bc92b9ed6a5e5850f85a6c75ff8dbe3d9dbcd85efe5d9aa",
+      "textChars": 370,
+      "printedPage": null,
+      "section": "body"
+    }
+  ]
+}

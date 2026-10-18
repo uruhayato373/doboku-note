@@ -275,6 +275,7 @@ for (const doc of targets.sort((a, b) => a.agencyId.localeCompare(b.agencyId))) 
   if (extraDrops.length) console.error(`  ! ${label}: 版面ページ番号の巻き戻しが 2 回以上ある（PDF p${extraDrops.join(', p')}）`)
   if (ambiguous.length) console.error(`  ! ${label}: section+版面ページ が重複 ${ambiguous.length} 件（出典を一意に指せない）`)
 
+  fs.mkdirSync(outDir, { recursive: true })
   fs.writeFileSync(
     manifestPath,
     JSON.stringify(
@@ -308,7 +309,6 @@ for (const doc of targets.sort((a, b) => a.agencyId.localeCompare(b.agencyId))) 
     ) + '\n',
   )
   // Drive 台帳へ登録する（ビルドそのものが同期）。台帳には vault 相対パスだけを書く。
-  fs.mkdirSync(outDir, { recursive: true })
   const dm = loadDriveManifest()
   let registered = 0
   for (const e of pageEntries) {

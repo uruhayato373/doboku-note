@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-18T08:53:24.987Z",
+  "agencyId": "kyushu",
+  "agencyName": "九州地方整備局",
+  "documentId": "hikkei-control-01",
+  "role": "companion",
+  "title": "土木請負工事必携 施工管理編／「鋼橋製作における仮組立検査の省略について」",
+  "edition": null,
+  "sourceFile": "九州地方整備局/hikkei-control-01__土木請負工事必携_施工管理編_「鋼橋製作における仮組立検査の省略について」.pdf",
+  "pagesLocation": {
+    "tier": "drive-vault",
+    "vaultDir": "原資料PDF/共通仕様書/九州地方整備局/hikkei-control-01__土木請負工事必携_施工管理編_「鋼橋製作における仮組立検査の省略について」",
+    "note": "実体は Drive vault の原本 PDF と同名フォルダ。repo には無い。取り戻しは npm run drive-vault-sync -- --pull --path content/sources/standards/kyushu/ --commit"
+  },
+  "sourceSha256": "e2597c0517f06124809705f74e44ee1e0d0f78149cf764cb0b5e5bc6a4bd3812",
+  "pages": 3,
+  "render": {
+    "tool": "pdftoppm",
+    "dpi": 270,
+    "format": "jpeg",
+    "quality": 85
+  },
+  "text": {
+    "tool": "pdftotext",
+    "layout": true,
+    "splitBy": "formfeed"
+  },
+  "parts": [
+    {
+      "slug": "part-01",
+      "firstPage": 1,
+      "lastPage": 3
+    }
+  ],
+  "totalImageBytes": 783060,
+  "printedPage": {
+    "note": "版面に刷られたページ番号。目次(front)と本文(body)で同じラベルが再使用されるため、出典は section と組で指す。",
+    "bodyStartsAtPdfPage": null,
+    "labelled": 0,
+    "ambiguous": 0
+  },
+  "pageEntries": [
+    {
+      "page": 1,
+      "image": "pages/p0001.jpg",
+      "text": "text/p0001.txt",
+      "imageBytes": 157263,
+      "imageSha256": "3a2a7c35e4e26e4f2fc8efae66e5456d971143420b108e61598873ed925ddfd5",
+      "textChars": 130,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 2,
+      "image": "pages/p0002.jpg",
+      "text": "text/p0002.txt",
+      "imageBytes": 233590,
+      "imageSha256": "b92f2c40cdbb6e670becda88c0a44b96f6ce7f22b26b70a09b9a25af05d03f0d",
+      "textChars": 240,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 3,
+      "image": "pages/p0003.jpg",
+      "text": "text/p0003.txt",
+      "imageBytes": 392207,
+      "imageSha256": "975d7983625444592e3eb23153b2bd9124cf48731fdb6b0535351cff31ad9cc7",
+      "textChars": 3101,
+      "printedPage": null,
+      "section": "body"
+    }
+  ]
+}
