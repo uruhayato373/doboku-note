@@ -4419,6 +4419,23 @@
       "commit": "f475fa411213",
       "verification": "Studioで旧版auR8P0pvmlUの削除完了と公開URLの削除済みを確認。改訂版GCyAWGoJthUは公開・HD処理完了・再生確認、既存6予約を保持。字幕退避1877B、旧版を指す関連動画0、再生リストなし。check-content-registry: 715作品2209公開911素材・28組比較、FAIL/WARN0。対象node tests36/36、datasets/doc-refs/doc-coupling成功。再発防止はPR1110でCI確認中。",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0765",
+      "at": "2026-10-18",
+      "task": "2級 安全管理の初版動画（auR8P0pvmlU）が YouTube で取得できず、台帳が published のまま",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-content-registry"
+      },
+      "executor": "codex",
+      "outcome": "done",
+      "plan": null,
+      "commit": "9d5f604f9122",
+      "verification": "DN-0764対応と同一。Studio削除完了・旧URLでユーザーにより削除済みを確認。元の初版auR8P0pvmlUはregistry stopでstopped/superseded、改訂版GCyAWGoJthUを公開維持。新しく取り込んだCIの改訂版・既存6予約のメタデータ同期記録を保持。check-content-registryは715作品2209公開911素材28組比較でFAIL/WARN0。",
+      "note": "別セッションのCIが台帳反映前に削除済み初版を検出して起票した重複カード。DN-0764の修復を統合し照合した。"
     }
   ]
 }
