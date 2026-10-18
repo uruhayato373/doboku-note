@@ -21,6 +21,7 @@
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { datasetPath } from './datasets.mjs';
+import { escapeRegExp } from './regexp-escape.mjs';
 import { CONTENT_SOURCES_ROOT, REPO_ROOT, SITE_CONTENT_ROOT } from './repository-paths.mjs';
 
 // リポジトリのルートは module の場所から決める（import 時の process.cwd() で固定しない。どの cwd から呼んでも同じ実体を指す）
@@ -62,7 +63,6 @@ const RE_PRINT_PAGE_PLAIN = /^[\s　]*[0-9０-９]{1,4}[\s　]*$/;
 const RE_PRINT_PAGE_DASHED = /^[\s　]*[-－][\s　]*[0-9０-９]{1,4}[\s　]*[-－][\s　]*$/;
 /** 条番号が 章-節-条 の 3 段の文書（東北の共通特記仕様書 `１－１－16 設計図書の照査`）。編は番号に入らない */
 const RE_ARTICLE_3 = /^[\s　]{0,9}([0-9０-９]+)[-－]([0-9０-９]+)[-－]([0-9０-９]+)[\s　]+(\S.*?)[\s　]*$/;
-const escapeRegExp = (text) => text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 /**
  * 文書ごとの版面の方言（設定 documents.* から作る）。共通仕様書は全て既定のまま。
  *   runningHeaderPrefix  柱の前の語（中部の特記仕様書 `特仕 第1編 …`）
