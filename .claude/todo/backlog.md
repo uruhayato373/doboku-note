@@ -567,6 +567,8 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **起点**: 競合の土木の動画321本では30〜60分の再生中央値が21,000回、題名に「聞き流し」を含む19本は30,000回（[07c](../../docs/marketing/07c_YouTube競合動画の画面分析_2026-10.md) §1）。2026-10-08 にユーザーが試作に採用した（`config/youtube-formats.json` の `compilation` は trial）。
 **済み（2026-10-08）**: 組み立ての仕組み（`compilation.json` → `npm run build-video-compilation` → `render-longform`・`check-video-content` の K01/K02）。1本目のパック `content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen/`（2級の承認済み15パック・15章・設計尺26分）。画面と字幕の無音プレビューを10秒ごとに目視した。
+**修復待ち（2026-10-18実査）**: 現行台帳MP4（sha256 `df2d8b7bafc2af8e01cbd995865fb1965e448f2804f68eca871cde2e2a11537c`）から6フレームを抽出。97秒は画面「品質と施工性は、指標を分ける」に対し字幕「品質と施工性はトレードオフです」、130秒も旧「施工性は下がります」が残る。現行storyboardのc02-premise・c02-block2・c02-block4は修正済み。音声は未試聴のため要照合。総ざらい章も含め現行台本から音声・字幕・MP4を同期し、現行入力hashと完成版の一致を既存検査で止める回帰テストが必要。図解10場面と完成MP4の同一hashを確認。比較した2級8本では予約6本の本文は文字・表中心、安全改訂版は同一POPの反復・部分強調が中心であり、全動画の同等品質を保証しない。SNS新規公開・追加予約は引き続き保留。
+
 **やること**:
 1. VOICEVOX のある環境で `npm run render-longform -- --pack-dir content/sns/video-packs/civil-construction-2/matome-2kyu-chokuzen --speaker 13` を回す（この Mac には VOICEVOX が無い。字幕の焼き込みは libass 入りの ffmpeg が要る＝Mac は ffmpeg-full）。元パックの wav は使わない（Drive の wav は 2026-09-05 版で読みの辞書が古く、予約済み動画は 2026-09-09 版）
 2. 表紙と締めの採用画像（`cover-design.json`・`cta-design.json`）を作り、`youtube.json`（題名に「聞き流し」「総まとめ」、概要欄のチャプターは render-manifest の実尺から、UTM `utm_campaign=matome-2kyu-chokuzen`）を用意する
