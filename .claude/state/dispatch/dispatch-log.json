@@ -4320,6 +4320,23 @@
       "commit": "6bad953902e2",
       "verification": "data/note/sync-log.json の最新 run の articles と problems、~/Library/Logs/doboku-note/note-sync.log の 10/18 区間",
       "note": "2026-10-18 03:00 の週次 note-sync（data/note/sync-log.json の最新 run）で、PDF 取り寄せ失敗 0。10/11 に error -11 で止まった BK-02 河川砂防 R07 II2・R08-yosou II1/II2 は今回 updated。記事は selected 200・attempted 96・updated 95・failed 0・deferred 105（添付の日次上限）。新しく出たマガジンカバーの Drive 保存失敗は別カードへ起票"
+    },
+    {
+      "id": "DN-0722",
+      "at": "2026-10-18",
+      "task": "2級模試の原稿（C9 解答解説）の解答欄の字数・行数の案内を Drive の原本と配布 PDF に反映する",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "none",
+        "ref": "不整合は手元の写しだけで、原本と PDF は既に正しかった（check-keiken-answer-split が既に止めている）"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "495fc9d200d9",
+      "verification": "node scripts/check-keiken-answer-split.mjs・Drive 原本の sha256 照合・PDF の pdftotext 照合",
+      "note": "2026-10-18 照合: Drive vault の原本 制作物/ココナラ/moshi-src/C9-2級模試/解答解説.md は手元と同じ sha256（edcfa045…）で、直した文言「各区画10行・250字程度」「(1)(2) 10行・250字程度」が入っている。手元で check-keiken-answer-split ✓。配布 PDF coconala-C9-2級二次予想模試-解答解説.pdf（Drive）も pdftotext で同じ文言・旧表現（200字前後／7行／9行）0 件のため差し替え不要。出品 coconala-2kyu-moshi-pdf は products.json で paused"
     }
   ]
 }

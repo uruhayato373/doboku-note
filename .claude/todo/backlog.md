@@ -339,6 +339,8 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **関連（2026-10-15）**: 自治体職員（発注者）版の口頭試験の節と無料入口 2 本（建設部門・上下水道部門）は DN-0744 で作り、発表日に一緒に公開する。
 
+**進捗（2026-10-18）**: 発表日 D は日本技術士会の令和8年度実施案内（engineer.or.jp/c_topics/011/011631.html）で「令和8年11月上旬」のままで、11/4 の日付はまだ公式に出ていない。products.json に無料記事（price 0）の登録例は無い。**運営者の判断待ち**: (1) X の 11 月告知（27 本）は W43 の SNS 保留方針と食い違うため、出すか止めるか (2) 無料 2 本を note カタログへ載せるか、check-x-campaign-plan に無料記事の例外を足すか。
+
 ### [DN-0544] 2級二次（10/25）の後に、note の冒頭 CTA を見直し、試験後の無料フォロー記事を公開する
 タグ: [収益化] [領域:商品] [時期:2026-10..2026-11] [種類:改善] [起票:2026-10-06] [期日:2026-10-26]
 
@@ -360,6 +362,26 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 **完了条件**: 次の CI 照合 snapshot で published_UNrecorded と anomaly が 0、または残りの各件に理由（削除済み・対象外など）が台帳に記録されている。
 
 ## 🟡 中 — 重要度が中くらい
+
+### [DN-0765] 2級 安全管理の初版動画（auR8P0pvmlU）が YouTube で取得できず、台帳が published のまま
+タグ: [領域:SNS] [時期:2026-10] [種類:不具合] [起票:2026-10-18] [期日:2026-10-25]
+
+**起点**: 2026-10-18、2級 答案具体化シリーズの概要欄を CI（sync-yt-descriptions の pack-metadata）で同期したとき、初版 `civil-construction-2/anzen-touan-gutaika/youtube.longform`（auR8P0pvmlU）が `videos.list` で取得できず止まった。公開ページの oEmbed も 403。台帳は `published`・privacy public のまま（証拠は 10/15 の Studio 確認）。改訂版 anzen-touan-gutaika-kaitei（GCyAWGoJthU）は 10/17 に公開済みで、概要欄の同期と照合も済んだ。
+
+**やること**: YouTube Studio で auR8P0pvmlU が削除済みか非公開かを確かめる。改訂版への差し替えで消したなら、運営者が `npm run registry -- stop --pub civil-construction-2/anzen-touan-gutaika/youtube.longform --reason <語彙>` で台帳を止める（stop は運営者だけ）。残っているなら、同じ workflow の pack-metadata で概要欄を同期する。
+
+**完了条件**: 台帳の状態が YouTube の実体と一致し、`npm run check-content-registry` が PASS。
+
+
+### [DN-0764] 2級土木の安全管理動画で旧版・改訂版が並行公開されている状態を整理する
+タグ: [領域:SNS] [時期:2026-10] [種類:不具合] [起票:2026-10-18]
+
+**起点**: 2026-10-18に運営者から `.tmp/approve-2kyu-series.sh` の対象が重複公開ではないか指摘。スクリプトは8件の `registry approve --stage final` のみで、再アップロード・公開API・workflow起動は含まない。台帳と2026-10-18の認証済み公開照合では、安全管理の旧版 auR8P0pvmlU（10/15公開）と改訂版 GCyAWGoJthU（10/17公開）が両方published。storyboardの語りは旧10場面中9場面が完全一致し、改訂版の追加は著者紹介と締めの改訂。別の学習目的の動画とは言いにくい。残る6本は既存予約であり、この承認スクリプトで新規公開されたものではない。
+
+**やること**: 2本の実際の再生内容・再生数・参照リンクを確認し、運営者と残す版および旧版の非公開/限定公開を決める。外部変更の指示を受けてから既存YouTube運用手順で反映し、台帳と導線を同期する。同内容の改訂版を追加する際、旧版の扱いまで制作計画へ含める。SNS新規公開・追加予約は保留を維持し、調査中に動画を削除・非公開化しない。
+
+**完了条件**: 残す版と旧版の扱いの根拠が残り、両動画IDの実機/APIで公開範囲を照合し、意図しない二重公開と旧版への導線が解消している。
+
 
 ### [DN-0763] 週次 note-sync のマガジンカバー Drive 保存（drive-vault-sync）の失敗を直す
 タグ: [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-18] [期日:2026-10-25]
@@ -485,16 +507,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 
 
-### [DN-0722] 2級模試の原稿（C9 解答解説）の解答欄の字数・行数の案内を Drive の原本と配布 PDF に反映する
-タグ: [領域:商品] [時期:2026-10] [種類:不具合] [起票:2026-10-13]
-
-**起点**: 2026-10-13、civil の MDX の commit で `check-keiken-answer-split` が手元に戻した 2 級模試の原稿（`content/coconala/assets/moshi-src/C9-2級模試/解答解説.md`・git 管理外・Drive vault）の不整合 3 件で止まった。解答欄の案内が「各区画おおむね 200 字前後」「(1) 7 行・250 字程度」「(2) 9 行・300 字程度」で、正本（`config/keiken-answer-sheet-limits.json` の civil-2＝各欄 250 字）と模試自身の記入欄（10 行）に合っていなかった。
-
-**済んだこと**: 手元の写しの 3 か所を「250 字前後」「10 行・250 字程度」に直した（検査は ✓）。Drive の原本と配布 PDF は未反映。
-
-**やること**: 手元の写しを Drive vault の原本へ反映する（再取得で古い版に戻らないように）。2 級模試 PDF（`coconala-2kyu-moshi-pdf`）がまだ販売中なら PDF を作り直して差し替えるか、10/25 の本試験後の出品停止（既存カード）まで据え置くかを決める。
-
-**完了条件**: Drive の原本が直っていて、手元を取り直しても `node scripts/check-keiken-answer-split.mjs` が ✓。PDF の扱い（差し替え／据え置き）が決まっている。
 
 
 
@@ -1826,7 +1838,7 @@ deploy から 28 日後に、`npm run report-career-funnel` を **wave-2 基線*
 
 **完了条件**: 3記事の原稿検査が通り、公開題名/本文を再取得し表記と編集メモの解消を記録。360pxと広幅の画面で再確認する。公開未反映を完了にしない。
 
-
+**進捗（2026-10-18）**: 3 記事の原稿を直した（495fc9d20）。RCCM n6a82c25cc9de（題名・本文・カバー）と AI n06ff627e32d4（本文）は note-update-body --sync で反映し、公開 API で題名「一問一答159問」・編集メモ 0・1級 AI 記事へのリンク・価格 980 円の維持を確かめ、360px と広幅で目視した。口頭対策 n5bc0bcde96ac は PDF の貼り直しが要り、当日の添付上限（90）で本文を触らずに保留。**残り**: 10/19 以降に `note-update-body --sync --list` で口頭対策を反映し、公開面でチェック記号 0 を確かめる。
 
 ### [DN-0761] Dependabotのsprintf-js medium警告を依存経路と修正版に照合して解消する
 タグ: [インフラ・計測] [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-17]
