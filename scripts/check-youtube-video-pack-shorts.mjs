@@ -53,9 +53,10 @@ for (const exam of EXAMS) {
     const storyboardPath = join(dir, 'storyboard.json');
     const youtubePath = join(dir, 'youtube.json');
     if (![manifestPath, storyboardPath, youtubePath].every(existsSync)) continue;
-    // 総まとめ（compilation.json）は Shorts を持たない別の型。パック数・Shorts 数には入れず、
+    // 総まとめ（compilation.json）と、通常動画だけを宣言したパック（video-pack.json の outputs.shorts が 0・
+    // 2026-10 の 2級 答案具体化シリーズ）は Shorts を持たない別の型。パック数・Shorts 数には入れず、
     // ユーザー承認後（approved 以降）の予約枠だけを公開枠の重複と1日の上限に数える。承認前の枠は下書きなので警告に留める
-    if (existsSync(join(dir, 'compilation.json'))) {
+    if (existsSync(join(dir, 'compilation.json')) || readJsonLenient(manifestPath).outputs?.shorts === 0) {
       const publishAt = readJsonLenient(youtubePath).longform?.publishAt;
       if (APPROVED.has(STATE.packs?.[packId]?.derivatives?.longform?.status)) addSlot(publishAt, `${packId}:longform`);
       else if (publishAt) pendingSlots.push([publishAt, `${packId}:longform`]);
@@ -70,7 +71,9 @@ for (const exam of EXAMS) {
     const expected = manifest.outputs?.shorts;
     if (expected !== 2) errors.push(`${packId}: outputs.shorts=${expected} (期待値2)`);
     if (shorts.length !== expected) errors.push(`${packId}: shorts=${shorts.length} (期待値${expected})`);
-    addSlot(youtube.longform?.publishAt, `${packId}:longform`);
+    // 停止した動画（台帳の stopped）は公開されないので、youtube.json に残った旧い予定を公開枠に数えない
+    const longformState = STATE.packs?.[packId]?.derivatives?.longform?.status;
+    if (longformState !== 'stopped') addSlot(youtube.longform?.publishAt, `${packId}:longform`);
 
     for (const item of shorts) {
       shortsCount += 1;
@@ -104,7 +107,8 @@ for (const exam of EXAMS) {
       if (item.publishAt && youtube.longform?.publishAt && item.publishAt <= youtube.longform.publishAt) {
         errors.push(`${label}: 通常動画より前または同時に公開 (${item.publishAt})`);
       }
-      addSlot(item.publishAt, label);
+      const shortState = STATE.packs?.[packId]?.derivatives?.shorts?.find((entry) => entry.key === item.key)?.status;
+      if (shortState !== 'stopped') addSlot(item.publishAt, label);
     }
   }
 }
