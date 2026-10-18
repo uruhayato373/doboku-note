@@ -1,7 +1,5 @@
 import { expect, test } from '@playwright/test';
 
-test.skip(({ isMobile }) => !isMobile, 'mobile projectのみで実行');
-
 // 旧 /category/ /docs/ は _redirects の 301 でしか存在せず dev では 404 になる（fixtures.ts 参照）
 for (const path of [
   '/',

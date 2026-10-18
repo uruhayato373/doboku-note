@@ -36,11 +36,15 @@
 - `e2e/navigation.spec.ts`
 - `e2e/cta.spec.ts`
 - `e2e/mobile.spec.ts`
-- `e2e/a11y.spec.ts`（axe・WCAG 2.1 A/AA。代表 8 ページ×light/dark。critical 0＋serious は `e2e/a11y-baseline.json` のラチェット。`test:e2e:a11y` / 基準更新 `test:e2e:a11y:baseline`）
+- `e2e/a11y.spec.ts`（axe・WCAG 2.1 A/AA。代表 8 ページ×light/dark×desktop/mobile。critical 0＋serious は `e2e/a11y-baseline.json` のラチェット。`test:e2e:a11y` / 基準更新 `test:e2e:a11y:baseline`）
 - `e2e/fixtures.ts`（ブラウザエラー監視）
 - `test:e2e`／`test:e2e:ui`／`test:e2e:headed`／`test:e2e:report`／`test:e2e:a11y`
 - `.github/workflows/e2e.yml`
 - 失敗時のtrace／screenshot／HTML report保存
+
+モバイル専用の `mobile.spec.ts` は `playwright.config.ts` のdesktop側 `testIgnore` で対象外とし、モバイル側で全件実行する。a11yは両projectで実行し、専用メニュー等で変わるDOMも検査する。基準は両方ともcritical 0・serious 0を維持する。
+
+CIはJSONレポートを出力し、`npm run check-e2e-execution -- --report .tmp/e2e-report.json` で対象数・実行数・スキップ・未実行・失敗を検査する。対象0、結果なし、適用対象のスキップ、失敗、集計との件数不一致はexit 1。テスト収集だけで成功とはしない。両projectのa11y範囲とモバイル専用検査の配分は `tests/e2e-execution.test.mjs` が実際のPlaywright収集で確認する。
 
 E2Eは既存検査を置き換えず、ブラウザ操作が必要な部分だけを補完する。
 
