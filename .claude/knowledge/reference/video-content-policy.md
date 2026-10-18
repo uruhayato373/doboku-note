@@ -172,6 +172,10 @@ YouTube の stage スクリプトはローカル実体が無くても、`video-r
 
 採用した締め画像はパックの `cta-design.json`（schemaVersion 1）で指定する。`longform` / `shorts` はそれぞれ `{path, sha256}` を持ち、1920×1080 / 1080×1920 のPNGを全画面で使う。画像の復元・hash・寸法の検査は表紙と共通で、不一致時は停止する。通常動画ではsceneId `cta` を置換し、`--resume` でも反映、`--skip-png` は拒否する。Shorts側には画像に対応する `narration` も必須で、通常動画の `render-manifest.json` に記録した `speaker` と同じ話者で合成し、字幕もこの文面に揃える。音声キャッシュは入力・話者・WAV hashで照合する。`--preview-only` はCTA画像までを検査し、音声は生成しない。設定のない形式は従来のCTAを使う。
 
+### 完成MP4の入力照合
+
+`render-longform`は現行の台本・画像採用指定、場面ごとの音声入力とWAV/PNG、字幕、MP4のhashをrender-manifestへ保存する。生成中に入力が変われば停止する。`media promote`は完成動画を取り込む前に現行入力と全場面を検査し、旧字幕を保持した画像だけの更新を音声付き完成品として扱わない。`media verify-render --work <資格>/<作品>`は同じ検査を単独実行する。検査はTTS入力と出力の対応を示し、音声認識や人の試聴を代替しない。素材の`provenance.specSha256`へ制作時のstoryboard hashを保存し、後日の変更を台帳検査R12で検出する。
+
 ## 5. 状態モデル
 
 共通statusは次の順序を基本とする。

@@ -298,6 +298,18 @@ export default async function ItemDetailPage({ params }: { params: Promise<{ exa
         </TableFrame>
       </PanelCard>
 
+      {w.candidateMedia.length ? (
+        <PanelCard title="改訂版（YouTube未反映）" description="修正・再生成した制作物です。現在の公開・予約動画は下に表示します。" className="mb-4">
+          <div className="flex flex-col gap-4">
+            {w.candidateMedia.filter(m => m.role === 'cover').map(m => <MediaBlock key={m.id} m={m} detail={details.candidate ?? {}} examId={exam} workId={w.work.id} />)}
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+              {w.candidateMedia.filter(m => /^scene-\d+$/.test(m.role)).map(m => <MediaBlock key={m.id} m={m} detail={details.candidate ?? {}} examId={exam} workId={w.work.id} />)}
+            </div>
+            {w.candidateMedia.filter(m => m.role !== 'cover' && !/^scene-\d+$/.test(m.role)).map(m => <MediaBlock key={m.id} m={m} detail={details.candidate ?? {}} examId={exam} workId={w.work.id} />)}
+          </div>
+        </PanelCard>
+      ) : null}
+
       <div className="flex flex-col gap-4">
         {w.channels.map((ch) => (
           <PanelCard key={ch.channel} title={ch.channel} description={`公開 ${ch.publications.length} 件`}>

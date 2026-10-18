@@ -205,5 +205,726 @@
       "cloudMd5Verified": 58,
       "at": "2026-10-15T23:07:28.140Z"
     }
-  }
+  },
+  "activeCoverRevision": "cover-safe-20261018",
+  "revisions": {
+    "cover-safe-20261018": {
+      "version": "pop-poster-v3",
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "Create ONE landscape16:9 Japanese emerald-green POP YouTube thumbnail intended1920×1080. Supplied image is STYLE and CHARACTER REFERENCE ONLY, not text to copy. Same mature Japanese male teacher: short black hair, black rectangular glasses, light beard, plain white helmet, navy workwear, yellow straps. EXACTLY TWO arms and TWO hands, anatomically natural. Continuous illustrated green construction background to all edges. Huge target label「2級土木」upper left. Smaller yellow author badge「総監・元発注者」「1級・2級土木合格者」in a separate region. Huge outlined dark-green topic text, red secondary headline. Keep ALL text in TOP THREE-QUARTERS of canvas, subtitle at y=70%. Bottom25% is continuous green illustration and teacher torso with NO TEXT, not blank. Face and text never clipped. Bold Japanese lettering readable at width360px. No extra words, URL, logo, price, dates, scores, guarantee. Topic「答案の見直し」. Red two-line headline「つながりを」「最後に確認」. Subtitle「条件・処置・結果を照合」. Pose: one hand holding an unlettered answer sheet, other hand checking with a red pen. Only TWO hands, neither hand touches face.",
+        "references": [
+          {
+            "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/cover.6d461a7d.png",
+            "sha256": "6d461a7d29270911cbdeb4202056e9196493c0cfbae69dad97c351c3257c8fe5"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/youtube.longform/cover.b7b1ad72.png",
+          "sha256": "b7b1ad72d2d9a8bdd1233bbbacd066e9f02c3f50525d7a69c8018d95727ec77a"
+        }
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/cover-caption-safe.8e9a65a9.png",
+        "sha256": "8e9a65a98280dfd3aecebaabb6a5c1df30747fcb270d85d4c1b42e051f00f2d3",
+        "width": 1920,
+        "height": 1080
+      },
+      "layout": {
+        "subtitleSafeTop": 864
+      }
+    },
+    "body-scenes-20261018": {
+      "version": "codex-pop-body-v1",
+      "date": "2026-10-18",
+      "purpose": "ユーザー依頼による場面別POP図解と字幕安全域の修正。YouTube未反映。",
+      "images": [
+        {
+          "sceneId": "hook",
+          "inputSha256": "80a1029c56c347c74ddaec695bd42ca10279f3bb90c0f6e0299dd7fb5bc088ae",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "書き終えたら、3つの観点で確認",
+            "items": [
+              "設問に答えているか",
+              "条件と処置がつながるか",
+              "事実が記録と一致するか"
+            ]
+          },
+          "narration": "書き終えた答案、どこを直せばよいか迷いませんか。設問、内容のつながり、記録との一致を順に確認しましょう。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Asset: 2級土木施工管理技士の16:9通常動画、本文の1場面。1920×1080の一枚の完成POP図解を新規生成。参照画像は先生の同一性と承認済みPOP意匠の参照で、参照画像の添削広告文を複製しない。\n正確な日本語コピー：資格名「2級土木」、大見出し「書き終えたら、3つの観点で確認」、図解に必要な短い語「設問に答えているか」「条件と処置がつながるか」「事実が記録と一致するか」。コピーはこれらだけから選び、長い文は短い重要語に絞る。問題番号・架空の基準値・合格保証・商品価格・URL・ブランドは追加しない。\nこの場面の説明（理解の根拠。全文を画面に書かない）：書き終えた答案、どこを直せばよいか迷いませんか。設問、内容のつながり、記録との一致を順に確認しましょう。\n図解設計：文字カードや表の羅列ではなく、説明に出てくる具体的な現場、道具、記録、人物の行動を大きなイラストで示し、関係を矢印・囲み・対比で分かるようにする。実際の担当経験の説明であり仮例は仮例として扱う。場面の見出しが示す判断や関係を主役に、前後の場面とは異なる構図・行動を描く。\n意匠：緑・エメラルド・白・黄色、少量の赤。太い日本語文字に適度な縁取り、くっきりした輪郭、明るい教育用POP、斜めの色面と控えめな動線、白い情報パネル。図解は画面左〜中央の65%以上を大きく使う。先生は参照と同じ40代男性、黒髪・黒縁メガネ・薄いひげ・紺作業服・白シャツ・紺ネクタイ・黄色反射ベスト、無地白ヘルメット。右側で今回の図に合う自然な説明動作。手と機械の形は実物どおり。\n安全域：重要な文字と顔は上下左右5%以内に切れない。字幕は後から最下部に重ねるため、下端20%には文字・顔・重要な図を置かず背景だけを四辺まで連続させる（白い余白帯にはしない）。内容を上端80%に大きく配置し、小さな表や長文を詰め込まない。16:9全体を維持し、スマホ幅360pxでも見出しと矢印の意味が読める。",
+            "references": [
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--hook-raw.02798e71.png",
+              "sha256": "02798e71b1d546974ab2e782dbb362fe9c4befd9ed061a43f3294c399c3275cd",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T06:13:50.398Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--hook.8876d8c1.png",
+            "sha256": "8876d8c185a9489c79a3618dcb7044ebb7a559c3f9a23eec1644ef352a82fbd4",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "authority",
+          "inputSha256": "151cf1fccc270def893584a5673117890826e7a2f6b92943aea0f3d6c3d49fb2",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "解説：架（かける）",
+            "items": [
+              "技術士（総合技術監理部門）",
+              "元・地方自治体の土木職（発注者）",
+              "1級・2級土木施工管理技士 合格"
+            ]
+          },
+          "narration": "総合技術監理部門の技術士で、1級・2級土木に合格した元発注者が、答案を見直す順序をお伝えします。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Asset: 2級土木施工管理技士の16:9通常動画、本文の1場面。1920×1080の一枚の完成POP図解を新規生成。参照画像は先生の同一性と承認済みPOP意匠の参照で、参照画像の添削広告文を複製しない。\n正確な日本語コピー：資格名「2級土木」、大見出し「総監・元発注者が解説」、図解に必要な短い語「技術士（総合技術監理部門）」「元・地方自治体の土木職」「1級・2級土木施工管理技士 合格」。コピーはこれらだけから選び、長い文は短い重要語に絞る。問題番号・架空の基準値・合格保証・商品価格・URL・ブランドは追加しない。\nこの場面の説明（理解の根拠。全文を画面に書かない）：総合技術監理部門の技術士で、1級・2級土木に合格した元発注者が、書く順序を解説します。\n図解設計：文字カードや表の羅列ではなく、説明に出てくる具体的な現場、道具、記録、人物の行動を大きなイラストで示し、関係を矢印・囲み・対比で分かるようにする。実際の担当経験の説明であり仮例は仮例として扱う。先生が現場経験と資格の3つのカードを紹介。架空の資格証書や印影は描かない。\n意匠：緑・エメラルド・白・黄色、少量の赤。太い日本語文字に適度な縁取り、くっきりした輪郭、明るい教育用POP、斜めの色面と控えめな動線、白い情報パネル。図解は画面左〜中央の65%以上を大きく使う。先生は参照と同じ40代男性、黒髪・黒縁メガネ・薄いひげ・紺作業服・白シャツ・紺ネクタイ・黄色反射ベスト、無地白ヘルメット。右側で今回の図に合う自然な説明動作。手と機械の形は実物どおり。\n安全域：重要な文字と顔は上下左右5%以内に切れない。字幕は後から最下部に重ねるため、下端20%には文字・顔・重要な図を置かず背景だけを四辺まで連続させる（白い余白帯にはしない）。内容を上端80%に大きく配置し、小さな表や長文を詰め込まない。16:9全体を維持し、スマホ幅360pxでも見出しと矢印の意味が読める。",
+            "references": [
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/common-authority-raw.9dcdedbb.png",
+              "sha256": "9dcdedbbb9b61c692d1b310a0ef006dcb0c73a2daaddd6eb91b4f52a6a5d71b4",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T05:59:34.264Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/common-authority.81ffac47.png",
+            "sha256": "81ffac4725349b9306ac1fde7ff8edabbfb479b5a56a7477a0acc18e5f883965",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "premise",
+          "inputSha256": "a3bda5fefa2f4c0b03544072c0d9d762c8860fec34fca8b8fd56668d1e984842",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "練習した答案を、自分で点検する",
+            "items": [
+              "3つの観点で見直す",
+              "公式の採点基準・減点点数は示さない",
+              "事実の確認は準備段階で進める"
+            ]
+          },
+          "narration": "ここで示すのは、練習で書いた答案の見直し方です。公式の採点基準や減点点数ではなく、自分で確かめる観点です。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付1の場面画像を修正。添付2が同一先生と緑白黄のPOP意匠の参照。横16:9。主見出しと本人の外観を保つ。修正必須: 原寸・360pxを実検査。左の添削対象答案に読めない手書きの擬似文字があるため、答案を無文字の直線へ変更する必要がある；公式採点基準ではなく自己点検とする指定文言、先生、字幕帯は確認できた。\n正確に描いてよい文字は「2級土木」「練習した答案を、自分で点検する」と[\"3つの観点で見直す\",\"公式の採点基準・減点点数は示さない\",\"事実の確認は準備段階で進める\"]だけ。書類内の小さな文字や数字、カレンダー見出し、目盛数字は一切描かない。無文字の直線罫線・色バー・チェックに置き換える。指定にない値や日付の捏造は不可。工程比較が必要な場合は大きく正確な「計画」「実績」ラベルだけ追加してよい。排水は掘削溝内から吸い上げて施工範囲外の排水先へ流す管を連続して明示し、掘削溝へ吐き出さない。ポンプの吸込/吐出の図は必要な場面だけ。先生は黒髪眼鏡薄いひげ白ヘルメット紺作業服黄ベスト、手指自然。下端20%は背景のみ。",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--premise-raw.f11fd4c8.png",
+                "sha256": "f11fd4c887101d7c1ebc56e342b89bf919e6c5688a6a74067adc7ded3e551524"
+              },
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--premise-raw.fe0569f8.png",
+              "sha256": "fe0569f8a63b8d6a39c8baf3b5ecb1670a7c032fb6d6cdad695c0b5b45d52c45",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T06:39:17.126Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--premise.f5d3fbd0.png",
+            "sha256": "f5d3fbd08ab6efe48b7440dfd789647f5f02a6589bd926e66e4f07e38a387058",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "question",
+          "inputSha256": "2244b9631605d9a3da0ee69e0a984d8c430735ff11aae65e07a082eb2136e99d",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "求められた内容と、答えの文を結ぶ",
+            "sheetTitle": "練習答案の点検メモ",
+            "rows": [
+              {
+                "label": "設問",
+                "value": "何を求められているか",
+                "state": "focus"
+              },
+              {
+                "label": "答案",
+                "value": "どの文が答えているか",
+                "state": "todo"
+              },
+              {
+                "label": "不足",
+                "value": "答えが見つからない箇所はどこか",
+                "state": "todo"
+              }
+            ]
+          },
+          "narration": "まず、設問が求める内容に印を付け、答案のどの文が答えているか探します。書いた量だけで判断しないことが大切です。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Asset: 2級土木施工管理技士の16:9通常動画、本文の1場面。1920×1080の一枚の完成POP図解を新規生成。参照画像は先生の同一性と承認済みPOP意匠の参照で、参照画像の添削広告文を複製しない。\n正確な日本語コピー：資格名「2級土木」、大見出し「求められた内容と、答えの文を結ぶ」、図解に必要な短い語「設問」「何を求められているか」「答案」「どの文が答えているか」。コピーはこれらだけから選び、長い文は短い重要語に絞る。問題番号・架空の基準値・合格保証・商品価格・URL・ブランドは追加しない。\nこの場面の説明（理解の根拠。全文を画面に書かない）：まず、設問が求める内容に印を付け、答案のどの文が答えているか探します。書いた量だけで判断しないことが大切です。\n図解設計：文字カードや表の羅列ではなく、説明に出てくる具体的な現場、道具、記録、人物の行動を大きなイラストで示し、関係を矢印・囲み・対比で分かるようにする。実際の担当経験の説明であり仮例は仮例として扱う。場面の見出しが示す判断や関係を主役に、前後の場面とは異なる構図・行動を描く。\n意匠：緑・エメラルド・白・黄色、少量の赤。太い日本語文字に適度な縁取り、くっきりした輪郭、明るい教育用POP、斜めの色面と控えめな動線、白い情報パネル。図解は画面左〜中央の65%以上を大きく使う。先生は参照と同じ40代男性、黒髪・黒縁メガネ・薄いひげ・紺作業服・白シャツ・紺ネクタイ・黄色反射ベスト、無地白ヘルメット。右側で今回の図に合う自然な説明動作。手と機械の形は実物どおり。\n安全域：重要な文字と顔は上下左右5%以内に切れない。字幕は後から最下部に重ねるため、下端20%には文字・顔・重要な図を置かず背景だけを四辺まで連続させる（白い余白帯にはしない）。内容を上端80%に大きく配置し、小さな表や長文を詰め込まない。16:9全体を維持し、スマホ幅360pxでも見出しと矢印の意味が読める。",
+            "references": [
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--question-raw.104dc289.png",
+              "sha256": "104dc28938c5811b5fa3097f3d2801fc2964bc82cb0428b302d41235bc69a978",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T06:14:23.143Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--question.1f0519b7.png",
+            "sha256": "1f0519b7fdb548a17701df47a5f75d0263e6f4419f50b2b3c9ae113b34209732",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "reason",
+          "inputSha256": "96fffd1420a80c118673b54f49c69ec39632718bcd73805ea217cd26cb87ba60",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "「理由」が求められた場合の確認",
+            "sheetTitle": "設問に合わせて点検する",
+            "rows": [
+              {
+                "label": "実施内容",
+                "value": "何を実施したか",
+                "state": "done"
+              },
+              {
+                "label": "理由",
+                "value": "なぜその対応を選んだか",
+                "state": "focus"
+              },
+              {
+                "label": "確認",
+                "value": "設問が求めた内容に答えているか",
+                "state": "todo"
+              }
+            ]
+          },
+          "narration": "たとえば、理由を求められた欄に、実施した内容だけを書いていませんか。設問の言葉と照らして、不足を確かめます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Asset: 2級土木施工管理技士の16:9通常動画、本文の1場面。1920×1080の一枚の完成POP図解を新規生成。参照画像は先生の同一性と承認済みPOP意匠の参照で、参照画像の添削広告文を複製しない。\n正確な日本語コピー：資格名「2級土木」、大見出し「「理由」が求められた場合の確認」、図解に必要な短い語「実施内容」「何を実施したか」「理由」「なぜその対応を選んだか」。コピーはこれらだけから選び、長い文は短い重要語に絞る。問題番号・架空の基準値・合格保証・商品価格・URL・ブランドは追加しない。\nこの場面の説明（理解の根拠。全文を画面に書かない）：たとえば、理由を求められた欄に、実施した内容だけを書いていませんか。設問の言葉と照らして、不足を確かめます。\n図解設計：文字カードや表の羅列ではなく、説明に出てくる具体的な現場、道具、記録、人物の行動を大きなイラストで示し、関係を矢印・囲み・対比で分かるようにする。実際の担当経験の説明であり仮例は仮例として扱う。場面の見出しが示す判断や関係を主役に、前後の場面とは異なる構図・行動を描く。\n意匠：緑・エメラルド・白・黄色、少量の赤。太い日本語文字に適度な縁取り、くっきりした輪郭、明るい教育用POP、斜めの色面と控えめな動線、白い情報パネル。図解は画面左〜中央の65%以上を大きく使う。先生は参照と同じ40代男性、黒髪・黒縁メガネ・薄いひげ・紺作業服・白シャツ・紺ネクタイ・黄色反射ベスト、無地白ヘルメット。右側で今回の図に合う自然な説明動作。手と機械の形は実物どおり。\n安全域：重要な文字と顔は上下左右5%以内に切れない。字幕は後から最下部に重ねるため、下端20%には文字・顔・重要な図を置かず背景だけを四辺まで連続させる（白い余白帯にはしない）。内容を上端80%に大きく配置し、小さな表や長文を詰め込まない。16:9全体を維持し、スマホ幅360pxでも見出しと矢印の意味が読める。",
+            "references": [
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--reason-raw.99a6eb9a.png",
+              "sha256": "99a6eb9a3eb9c6d16406c3164e0f8f51020b41d39510e2794fa862fa2d8af89a",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T06:18:06.721Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--reason.414c7e79.png",
+            "sha256": "414c7e7941aecec859f1720977415d6331e1ae19c5bccc07e4e0ed82243658c5",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "connection",
+          "inputSha256": "510f6b959f6e0e2f64bd9583672a9d0e2fe7f47315751b349767756259bffd94",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "その条件だから、その処置が必要か",
+            "sheetTitle": "条件から処置へのつながり",
+            "rows": [
+              {
+                "label": "現場条件",
+                "value": "何が制約や課題になったか",
+                "state": "focus"
+              },
+              {
+                "label": "処置",
+                "value": "その条件にどう対応したか",
+                "state": "todo"
+              },
+              {
+                "label": "理由",
+                "value": "条件と処置を説明できるか",
+                "state": "todo"
+              }
+            ]
+          },
+          "narration": "次に、現場条件と処置を線でつなぎます。その条件だから、その対応が必要だったと読めるか、理由の抜けを確認します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付1の場面画像を修正。添付2が同一先生と緑白黄のPOP意匠の参照。横16:9。主見出しと本人の外観を保つ。修正必須: 原寸・360pxを実検査。湛水した掘削溝への処置として描く右のポンプが、施工中の掘削溝へ水を勢いよく放出しているように見え、排水の説明として誤解を招く；溝内から吸い上げ、施工範囲外の別の排水先へ導く吸込管・吐出管と水の向きを明示する必要がある。\n正確に描いてよい文字は「2級土木」「その条件だから、その処置が必要か」と[\"現場条件\",\"何が制約や課題になったか\",\"処置\",\"その条件にどう対応したか\"]だけ。書類内の小さな文字や数字、カレンダー見出し、目盛数字は一切描かない。無文字の直線罫線・色バー・チェックに置き換える。指定にない値や日付の捏造は不可。工程比較が必要な場合は大きく正確な「計画」「実績」ラベルだけ追加してよい。排水は掘削溝内から吸い上げて施工範囲外の排水先へ流す管を連続して明示し、掘削溝へ吐き出さない。ポンプの吸込/吐出の図は必要な場面だけ。先生は黒髪眼鏡薄いひげ白ヘルメット紺作業服黄ベスト、手指自然。下端20%は背景のみ。",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--connection-raw.027a33e6.png",
+                "sha256": "027a33e61f56c2cfb98c048d7db92e493a4c6952ca85f038a2816080a73eb252"
+              },
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--connection-raw.8620aa38.png",
+              "sha256": "8620aa380393fdc6751cccb5e1d701797b74e506d848769416bea61e0fb68cd0",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T06:39:17.335Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--connection.a3f16c84.png",
+            "sha256": "a3f16c84459e7e2c4858f1cbd1a3665d311943fe34ef37c74af2a5d7b052271a",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "example",
+          "inputSha256": "25e4f6d0baaa5e3fd8212189c5b4004408a3d2f6d286a4e1b8650b2a2a58bbda",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "仮の下書きで、関係を見る",
+            "sheetTitle": "例示：搬入時刻の調整",
+            "rows": [
+              {
+                "label": "条件",
+                "value": "通学時間と搬入が重なる",
+                "state": "done"
+              },
+              {
+                "label": "処置",
+                "value": "搬入時刻を調整した",
+                "state": "focus"
+              },
+              {
+                "label": "点検",
+                "value": "その条件への対応になっているか",
+                "state": "todo"
+              }
+            ]
+          },
+          "narration": "仮の例です。通学時間と重なるため、搬入時刻を調整した。この短い下書きなら、時間の条件と処置の関係を確認できます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Asset: 2級土木施工管理技士の16:9通常動画、本文の1場面。1920×1080の一枚の完成POP図解を新規生成。参照画像は先生の同一性と承認済みPOP意匠の参照で、参照画像の添削広告文を複製しない。\n正確な日本語コピー：資格名「2級土木」、大見出し「仮の下書きで、関係を見る」、図解に必要な短い語「条件」「通学時間と搬入が重なる」「処置」「搬入時刻を調整した」。コピーはこれらだけから選び、長い文は短い重要語に絞る。問題番号・架空の基準値・合格保証・商品価格・URL・ブランドは追加しない。\nこの場面の説明（理解の根拠。全文を画面に書かない）：仮の例です。通学時間と重なるため、搬入時刻を調整した。この短い下書きなら、時間の条件と処置の関係を確認できます。\n図解設計：文字カードや表の羅列ではなく、説明に出てくる具体的な現場、道具、記録、人物の行動を大きなイラストで示し、関係を矢印・囲み・対比で分かるようにする。実際の担当経験の説明であり仮例は仮例として扱う。場面の見出しが示す判断や関係を主役に、前後の場面とは異なる構図・行動を描く。\n意匠：緑・エメラルド・白・黄色、少量の赤。太い日本語文字に適度な縁取り、くっきりした輪郭、明るい教育用POP、斜めの色面と控えめな動線、白い情報パネル。図解は画面左〜中央の65%以上を大きく使う。先生は参照と同じ40代男性、黒髪・黒縁メガネ・薄いひげ・紺作業服・白シャツ・紺ネクタイ・黄色反射ベスト、無地白ヘルメット。右側で今回の図に合う自然な説明動作。手と機械の形は実物どおり。\n安全域：重要な文字と顔は上下左右5%以内に切れない。字幕は後から最下部に重ねるため、下端20%には文字・顔・重要な図を置かず背景だけを四辺まで連続させる（白い余白帯にはしない）。内容を上端80%に大きく配置し、小さな表や長文を詰め込まない。16:9全体を維持し、スマホ幅360pxでも見出しと矢印の意味が読める。",
+            "references": [
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--example-raw.3411da0f.png",
+              "sha256": "3411da0fb388826a2553abf6950fdbd8d6938539b7f33385e9edacd3387aad77",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T06:17:28.952Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--example.25bdb207.png",
+            "sha256": "25bdb207fb4f0f6cb77f58c0860a76b37bc3def4fc8283b647083d79188dcf56",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "result",
+          "inputSha256": "e0d07be75247e4e59b278f9538c6b5e4bf4ec3f81f6b92babaa99b65472f3eb2",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "結果は、何を確認して言えるか",
+            "sheetTitle": "結果を書いた箇所の見直し",
+            "rows": [
+              {
+                "label": "下書き",
+                "value": "「問題なく完了した」",
+                "state": "done"
+              },
+              {
+                "label": "確認",
+                "value": "何を見て、そう判断したか",
+                "state": "focus"
+              },
+              {
+                "label": "記録",
+                "value": "日報・点検記録などで確かめる",
+                "state": "todo"
+              }
+            ]
+          },
+          "narration": "結果の「問題なく完了した」は、何を確認して言えるのか。日報や点検記録に戻り、説明できる事実か確かめましょう。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Minimal precise edit of this single finished educational POP image. Preserve its large Japanese text exactly, the teacher identity and pose, all unaffected diagram relations, colors, layout and landscape aspect ratio. Change ONLY the defect described here: 現行5eea6189を原寸・360pxで再検査。中央の日報と点検記録は無文字化されたが、左の作業員が持つ下書き用紙の左上に小さな文字状記号が残る；元画像の概ねx389〜432・y509〜541の用紙内だけを無文字の罫線へ変更する必要がある。\nOnly erase the tiny unwanted writing on paper/calendar/diagram headers. Replace those tiny header fields with SMOOTH BLANK SOLID COLOR, and the body with clearly straight parallel ruled lines. No letters, no numbers, no day/date marks, no handwriting in these small paper areas. Keep ALL LARGE EXISTING Japanese headings and labels unchanged. Do NOT add or rewrite any text, do not recreate the poster.",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--result-raw.a786e8fd.png",
+                "sha256": "a786e8fde3944361c7e27e9922ab3f0cf34d66b283d5dd4f434e39411a371b99"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--result-raw.38948ab2.png",
+              "sha256": "38948ab2f08ebdc8473a52492a8224bb3aaf48985a2da61cd5209831206e3839",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T06:53:53.453Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--result.cd6afa9f.png",
+            "sha256": "cd6afa9f69315af7dd79b4ca0d150c57388d30632e6c1782c0ac9548cf86ce19",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "facts",
+          "inputSha256": "03323e5ddbfaa4d7e258db026fe7d4a3363f81ef182f2e50e1f90f95e87a1ce7",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "数量・日付を、記録に戻して確かめる",
+            "sheetTitle": "事実の照合メモ",
+            "rows": [
+              {
+                "label": "数字",
+                "value": "数量や日付は記録と一致するか",
+                "state": "focus"
+              },
+              {
+                "label": "未確認",
+                "value": "数字を推測で補わない",
+                "state": "todo"
+              },
+              {
+                "label": "次の作業",
+                "value": "練習用メモに確認事項を残す",
+                "state": "todo"
+              }
+            ]
+          },
+          "narration": "最後に、数量や日付に印を付け、記録と照合します。記憶が曖昧な数字を補わず、練習用メモに確認事項を残しましょう。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Minimal precise edit of this single finished educational POP image. Preserve its large Japanese text exactly, the teacher identity and pose, all unaffected diagram relations, colors, layout and landscape aspect ratio. Change ONLY the defect described here: 現行8f2c922eを原寸・360pxで再検査。23m・5/10は除去されたが、左の図面右上に3字程度の擬似文字が残る；元画像の概ねx746〜819・y462〜506の図面内右上だけを無地にする必要がある。\nOnly erase the tiny unwanted writing on paper/calendar/diagram headers. Replace those tiny header fields with SMOOTH BLANK SOLID COLOR, and the body with clearly straight parallel ruled lines. No letters, no numbers, no day/date marks, no handwriting in these small paper areas. Keep ALL LARGE EXISTING Japanese headings and labels unchanged. Do NOT add or rewrite any text, do not recreate the poster.",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--facts-raw.988f0fd3.png",
+                "sha256": "988f0fd36991dfa074b072551ab5dc42375da626580bf66bb35c6d1f89850580"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--facts-raw.67f7a434.png",
+              "sha256": "67f7a4346a7a0cad74339c3c50ea4815025c78a9181d22c68b4975c1785ba28b",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T06:53:53.732Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--facts.50fc46bb.png",
+            "sha256": "50fc46bb1ba8fdb22f335f78ab992c836452c026b16f05f91eb29f584049759d",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "role",
+          "inputSha256": "79b7249e364ba55aacecc94e440117cbb51d320d8a191a002f3d7386d3941367",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "誰が判断し、誰が実施したか",
+            "items": [
+              "自分の担当範囲を確認する",
+              "上司の判断と自分の行動を区別する",
+              "実際の経験を誇張しない"
+            ]
+          },
+          "narration": "自分の立場と行動も確認します。上司が決めたことを、自分が決めたと書いていないか。担当した範囲を正確に戻します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Asset: 2級土木施工管理技士の16:9通常動画、本文の1場面。1920×1080の一枚の完成POP図解を新規生成。参照画像は先生の同一性と承認済みPOP意匠の参照で、参照画像の添削広告文を複製しない。\n正確な日本語コピー：資格名「2級土木」、大見出し「誰が判断し、誰が実施したか」、図解に必要な短い語「自分の担当範囲を確認する」「上司の判断と自分の行動を区別する」「実際の経験を誇張しない」。コピーはこれらだけから選び、長い文は短い重要語に絞る。問題番号・架空の基準値・合格保証・商品価格・URL・ブランドは追加しない。\nこの場面の説明（理解の根拠。全文を画面に書かない）：自分の立場と行動も確認します。上司が決めたことを、自分が決めたと書いていないか。担当した範囲を正確に戻します。\n図解設計：文字カードや表の羅列ではなく、説明に出てくる具体的な現場、道具、記録、人物の行動を大きなイラストで示し、関係を矢印・囲み・対比で分かるようにする。実際の担当経験の説明であり仮例は仮例として扱う。場面の見出しが示す判断や関係を主役に、前後の場面とは異なる構図・行動を描く。\n意匠：緑・エメラルド・白・黄色、少量の赤。太い日本語文字に適度な縁取り、くっきりした輪郭、明るい教育用POP、斜めの色面と控えめな動線、白い情報パネル。図解は画面左〜中央の65%以上を大きく使う。先生は参照と同じ40代男性、黒髪・黒縁メガネ・薄いひげ・紺作業服・白シャツ・紺ネクタイ・黄色反射ベスト、無地白ヘルメット。右側で今回の図に合う自然な説明動作。手と機械の形は実物どおり。\n安全域：重要な文字と顔は上下左右5%以内に切れない。字幕は後から最下部に重ねるため、下端20%には文字・顔・重要な図を置かず背景だけを四辺まで連続させる（白い余白帯にはしない）。内容を上端80%に大きく配置し、小さな表や長文を詰め込まない。16:9全体を維持し、スマホ幅360pxでも見出しと矢印の意味が読める。",
+            "references": [
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--role-raw.0fd88d87.png",
+              "sha256": "0fd88d873238a3d1f8f777571da5129539ebefeca263d37851131d4322e06a59",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T06:19:58.634Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--role.a0f1b052.png",
+            "sha256": "a0f1b052ab389724c62e542d9fb25a9199a3522e0494ea143b840eee500bcd15",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "reread",
+          "inputSha256": "8c31d6834e2ff77ae1dd72b860a92a4408fd31fb76c0bb7f89f34153ca06bd49",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "一文を直したら、全体をもう一度読む",
+            "items": [
+              "設問と答えが対応しているか",
+              "条件・処置・結果のつながりは自然か",
+              "他の箇所との食い違いはないか"
+            ]
+          },
+          "narration": "直した後は、答案を最初から通して読みます。一文だけ直して、別の箇所の工種や時期、担当内容と食い違っていないか確認します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Minimal precise edit of this single finished educational POP image. Preserve its large Japanese text exactly, the teacher identity and pose, all unaffected diagram relations, colors, layout and landscape aspect ratio. Change ONLY the defect described here: 現行f0b01644を原寸・360pxで再検査。計画・実績ラベルは追加されたが、工程表の横軸に10・00・101のような指示外の数字状見出しが残る；右下工程表の横軸見出し行だけを無地にし、大きな計画・実績ラベルと色バーは保持する必要がある。\nOnly erase the tiny unwanted writing on paper/calendar/diagram headers. Replace those tiny header fields with SMOOTH BLANK SOLID COLOR, and the body with clearly straight parallel ruled lines. No letters, no numbers, no day/date marks, no handwriting in these small paper areas. Keep ALL LARGE EXISTING Japanese headings and labels unchanged. Do NOT add or rewrite any text, do not recreate the poster.",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--reread-raw.91706c4e.png",
+                "sha256": "91706c4e773be7fdb63f0aae9e905598232aaa3bd65b40d03745e6aedf8831f5"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--reread-raw.928d87c7.png",
+              "sha256": "928d87c7226591db0cf40295cac83270434ca1cd39f9ab559bf74a9644bcf8b2",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T06:53:54.053Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--reread.caa5dd8f.png",
+            "sha256": "caa5dd8f7637bb0a483de90d5d53057c83fb701ec7101b3608c4a61b0835f7c0",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "df9ba4f94e76351735243c6b046edb80ec7ff327dec6807c98275606ba507066",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "見直しの順序",
+            "items": [
+              "1 設問が求めた内容に答える",
+              "2 条件・処置・結果をつなぐ",
+              "3 数字・立場・行動を記録と照合"
+            ]
+          },
+          "narration": "見直しは、設問への答え、条件と処置のつながり、記録との一致の順です。表現を整える前に、内容と事実を確かめましょう。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Asset: 2級土木施工管理技士の16:9通常動画、本文の1場面。1920×1080の一枚の完成POP図解を新規生成。参照画像は先生の同一性と承認済みPOP意匠の参照で、参照画像の添削広告文を複製しない。\n正確な日本語コピー：資格名「2級土木」、大見出し「見直しの順序」、図解に必要な短い語「1 設問が求めた内容に答える」「2 条件・処置・結果をつなぐ」「3 数字・立場・行動を記録と照合」。コピーはこれらだけから選び、長い文は短い重要語に絞る。問題番号・架空の基準値・合格保証・商品価格・URL・ブランドは追加しない。\nこの場面の説明（理解の根拠。全文を画面に書かない）：見直しは、設問への答え、条件と処置のつながり、記録との一致の順です。表現を整える前に、内容と事実を確かめましょう。\n図解設計：文字カードや表の羅列ではなく、説明に出てくる具体的な現場、道具、記録、人物の行動を大きなイラストで示し、関係を矢印・囲み・対比で分かるようにする。実際の担当経験の説明であり仮例は仮例として扱う。場面の見出しが示す判断や関係を主役に、前後の場面とは異なる構図・行動を描く。\n意匠：緑・エメラルド・白・黄色、少量の赤。太い日本語文字に適度な縁取り、くっきりした輪郭、明るい教育用POP、斜めの色面と控えめな動線、白い情報パネル。図解は画面左〜中央の65%以上を大きく使う。先生は参照と同じ40代男性、黒髪・黒縁メガネ・薄いひげ・紺作業服・白シャツ・紺ネクタイ・黄色反射ベスト、無地白ヘルメット。右側で今回の図に合う自然な説明動作。手と機械の形は実物どおり。\n安全域：重要な文字と顔は上下左右5%以内に切れない。字幕は後から最下部に重ねるため、下端20%には文字・顔・重要な図を置かず背景だけを四辺まで連続させる（白い余白帯にはしない）。内容を上端80%に大きく配置し、小さな表や長文を詰め込まない。16:9全体を維持し、スマホ幅360pxでも見出しと矢印の意味が読める。",
+            "references": [
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--summary-raw.d2fa1579.png",
+              "sha256": "d2fa1579cf73b812c5ce0fe55db0381e5364cd63c16cd994e725a7fd85a40e33",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T06:20:33.498Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--summary.6d64e220.png",
+            "sha256": "6d64e2204b5e2569352f91caf750d42c509174e8e13e037c8e145a0103deae63",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "f40991153cacc6898aac08ffe0040335ac404e74d3b535b2d19db32a6e845999",
+          "sourceCopy": {
+            "kind": "cta",
+            "heading": "置き換えて書き、見直す",
+            "items": [
+              "安全・品質・工程の完成答案",
+              "自分の工事への置換ガイド",
+              "概要欄の完成答案集へ"
+            ]
+          },
+          "narration": "完成答案を自分の工事に置き換え、今日の観点で見直してみましょう。安全・品質・工程の答案と置換ガイドは、概要欄へ。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Asset: 2級土木施工管理技士の16:9通常動画、本文の1場面。1920×1080の一枚の完成POP図解を新規生成。参照画像は先生の同一性と承認済みPOP意匠の参照で、参照画像の添削広告文を複製しない。\n正確な日本語コピー：資格名「2級土木」、大見出し「自分の工事で答案づくり」、図解に必要な短い語「施工経験記述 完成答案集」「安全・品質・工程」「自分の経験に置き換えて練習」「概要欄から確認」。コピーはこれらだけから選び、長い文は短い重要語に絞る。問題番号・架空の基準値・合格保証・商品価格・URL・ブランドは追加しない。\nこの場面の説明（理解の根拠。全文を画面に書かない）：元発注者・土木の合格者の視点を学習に活かす完成答案集です。安全・品質・工程の答案と置換ガイドで練習する際は、概要欄をご覧ください。\n図解設計：文字カードや表の羅列ではなく、説明に出てくる具体的な現場、道具、記録、人物の行動を大きなイラストで示し、関係を矢印・囲み・対比で分かるようにする。実際の担当経験の説明であり仮例は仮例として扱う。先生が練習用の答案ノートと3テーマの冊子を紹介。答案の長文や架空の表紙文言は描かない。\n意匠：緑・エメラルド・白・黄色、少量の赤。太い日本語文字に適度な縁取り、くっきりした輪郭、明るい教育用POP、斜めの色面と控えめな動線、白い情報パネル。図解は画面左〜中央の65%以上を大きく使う。先生は参照と同じ40代男性、黒髪・黒縁メガネ・薄いひげ・紺作業服・白シャツ・紺ネクタイ・黄色反射ベスト、無地白ヘルメット。右側で今回の図に合う自然な説明動作。手と機械の形は実物どおり。\n安全域：重要な文字と顔は上下左右5%以内に切れない。字幕は後から最下部に重ねるため、下端20%には文字・顔・重要な図を置かず背景だけを四辺まで連続させる（白い余白帯にはしない）。内容を上端80%に大きく配置し、小さな表や長文を詰め込まない。16:9全体を維持し、スマホ幅360pxでも見出しと矢印の意味が読める。",
+            "references": [
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/common-cta-raw.dcf54f04.png",
+              "sha256": "dcf54f045c7c5aa4eaa10ade7b144b160dcb4728ae328c3ffe3e0a043fc78179",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T05:59:34.437Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/common-cta.4d5bba5e.png",
+            "sha256": "4d5bba5eeecb0c43f2ef98c12019ff609dfbf60b6b99f16a3415c2621e7724b8",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        }
+      ]
+    }
+  },
+  "activeBodyRevision": "body-scenes-20261018"
 }

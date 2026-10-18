@@ -1,7 +1,7 @@
 const units = value => [...value].reduce((n, ch) => n + (/^[\x20-\x7e]$/.test(ch) ? 0.62 : 1), 0);
 const segmenter = new Intl.Segmenter('ja', { granularity: 'word' });
 
-/** Keep numbers, decimals and Latin terms together in a one-line subtitle. */
+/** Keep numbers, decimals, Latin terms and Katakana compounds together in a one-line subtitle. */
 export function subtitleChunks(value, maxUnits = 15) {
   const text = String(value ?? '');
   if (!text) return [];
@@ -12,8 +12,9 @@ export function subtitleChunks(value, maxUnits = 15) {
   for (const token of raw) {
     const prev = tokens.at(-1);
     // ひらがなだけの語（助詞・送り仮名・活用）は前の語につなぎ、「深|さ」「書|いても」「施工性|は」で切らない（2026-10-08）
+    const katakana = /^[ァ-ヺー]+$/u.test(token) && /[ァ-ヺー]$/u.test(prev ?? '') && units((prev ?? '') + token) <= maxUnits;
     const suffix = /^[ぁ-ゖー]+$/u.test(token) && !/[、。，．！？：；]$/u.test(prev ?? '') && units((prev ?? '') + token) <= maxUnits * 0.6;
-    if (tokens.length && (/^[、。，．！？：；）］」』]/u.test(token) || /[（［「『]$/u.test(prev) || suffix)) tokens[tokens.length - 1] += token;
+    if (tokens.length && (/^[、。，．！？：；）］」』]/u.test(token) || /[（［「『]$/u.test(prev) || suffix || katakana)) tokens[tokens.length - 1] += token;
     else tokens.push(token);
   }
   if (tokens.some(token => units(token) > maxUnits)) throw new Error('字幕の数値・用語が1行を超えています。表記を短くしてください。');

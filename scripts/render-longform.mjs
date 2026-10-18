@@ -29,6 +29,7 @@ import {
 } from './lib/longform-render.mjs';
 import { narrationInput, reusableNarration, sha256 } from './lib/video-narration-cache.mjs';
 import { readLongformPopImages } from './lib/longform-pop-images.mjs';
+import { longformInputHash, verifyLongformRender } from './lib/longform-render-integrity.mjs';
 import { renderYoutubeCover, validateCoverDesign } from './lib/youtube-cover.mjs';
 import { readVideoCta } from './lib/video-cta.mjs';
 import { renderCharacterFrame } from './lib/character-framing.mjs';
@@ -55,6 +56,7 @@ if (!args['pack-dir']) {
 const packDir = resolve(ROOT, args['pack-dir']);
 const manifest = JSON.parse(readFileSync(join(packDir, 'video-pack.json'), 'utf8'));
 const storyboard = JSON.parse(readFileSync(join(packDir, 'storyboard.json'), 'utf8'));
+const inputSha256 = longformInputHash(packDir);
 const popImages = readLongformPopImages(ROOT, packDir, storyboard, { local: true });
 if (popImages.size && args['skip-png']) throw new Error('本文POP画像があるパックは --skip-png 不可');
 const coverDesignPath = join(packDir, 'cover-design.json');
@@ -238,13 +240,24 @@ async function main() {
       pngSha256: sha256(readFileSync(pngPaths[i])),
       ...(popImages.has(s.sceneId) ? { generatedImage: popImages.get(s.sceneId) } : {}),
       wav: args['skip-tts'] ? null : basename(wavPaths[i]),
+      ...(!args['skip-tts'] ? {
+        narrationInputSha256: narrationInput(s.narration, Number(args.speaker)).inputSha256,
+        wavSha256: sha256(readFileSync(wavPaths[i])),
+      } : {}),
       designSec: s.end - s.start,
       actualSec: durations?.[i] ?? null,
     })),
     mp4: mp4Path ? basename(mp4Path) : null,
     totalSec,
+    ...(mp4Path ? { integrity: {
+      schemaVersion: 1, inputSha256,
+      subtitlesSha256: sha256(readFileSync(assPath)),
+      mp4Sha256: sha256(readFileSync(mp4Path)),
+    } } : {}),
   };
+  if (longformInputHash(packDir) !== inputSha256) throw new Error('生成中に台本・画像指定が変わりました。採用せず再生成してください');
   writeFileSync(join(outDir, 'render-manifest.json'), JSON.stringify(renderManifest, null, 2) + '\n', 'utf8');
+  if (mp4Path) console.log(`  入力・画像・音声・字幕・MP4一致: ${verifyLongformRender(packDir, outDir).scenesChecked}場面`);
 
   console.log(`\n✓ 出力: ${outDir}`);
   if (args['skip-tts']) {

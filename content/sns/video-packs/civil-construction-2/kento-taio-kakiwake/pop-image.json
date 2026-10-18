@@ -205,5 +205,722 @@
       "cloudMd5Verified": 58,
       "at": "2026-10-15T23:07:28.124Z"
     }
-  }
+  },
+  "activeCoverRevision": "cover-safe-20261018",
+  "revisions": {
+    "cover-safe-20261018": {
+      "version": "pop-poster-v3",
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "Create ONE landscape16:9 Japanese emerald-green POP YouTube thumbnail intended1920×1080. Supplied image is STYLE and CHARACTER REFERENCE ONLY, not text to copy. Same mature Japanese male teacher: short black hair, black rectangular glasses, light beard, plain white helmet, navy workwear, yellow straps. EXACTLY TWO arms and TWO hands, anatomically natural. Continuous illustrated green construction background to all edges. Huge target label「2級土木」upper left. Smaller yellow author badge「総監・元発注者」「1級・2級土木合格者」in a separate region. Huge outlined dark-green topic text, red secondary headline. Keep ALL text in TOP THREE-QUARTERS of canvas, subtitle at y=70%. Bottom25% is continuous green illustration and teacher torso with NO TEXT, not blank. Face and text never clipped. Bold Japanese lettering readable at width360px. No extra words, URL, logo, price, dates, scores, guarantee. Topic「検討と対応」. Red two-line headline「考えたこと」「実施したこと」. Subtitle「理由と処置を書き分ける」. Pose: one hand holding a blank document with two large unlettered columns, other hand pointing a red pen at its columns. Only TWO hands, neither hand touches face. Do not add plus, cross, circle or correctness marks.",
+        "references": [
+          {
+            "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/cover.6d461a7d.png",
+            "sha256": "6d461a7d29270911cbdeb4202056e9196493c0cfbae69dad97c351c3257c8fe5"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/youtube.longform/cover.65a2fc75.png",
+          "sha256": "65a2fc75505a1b0b759d36316c99afc36459c652e236e2cc0cf0a3276ae2547f"
+        }
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/cover-caption-safe.0aa68672.png",
+        "sha256": "0aa686727a2fc0e97bbf0fd8e62df449505c8ee2b4854f811f6e87ceef731b97",
+        "width": 1920,
+        "height": 1080
+      },
+      "layout": {
+        "subtitleSafeTop": 864
+      }
+    },
+    "body-scenes-20261018": {
+      "version": "codex-pop-body-v1",
+      "date": "2026-10-18",
+      "purpose": "ユーザー依頼による場面別POP図解と字幕安全域の修正。YouTube未反映。",
+      "images": [
+        {
+          "sceneId": "hook",
+          "inputSha256": "5e24da10663b4894a92fce7bec8c50b7eb0ef5f0ed25de460f255d0991279db3",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "検討も対応も、同じ文になるとき",
+            "items": [
+              "条件：どんな制約があったか",
+              "検討：何を考えて選んだか",
+              "対応：何を実施したか"
+            ]
+          },
+          "narration": "検討も対応も、同じ文章になっていませんか。考えた理由と実施した内容を、工事の条件から分けて整理します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Asset: 2級土木施工管理技士の16:9通常動画、本文の1場面。1920×1080の一枚の完成POP図解を新規生成。参照画像は先生の同一性と承認済みPOP意匠の参照で、参照画像の添削広告文を複製しない。\n正確な日本語コピー：資格名「2級土木」、大見出し「検討も対応も、同じ文になるとき」、図解に必要な短い語「条件：どんな制約があったか」「検討：何を考えて選んだか」「対応：何を実施したか」。コピーはこれらだけから選び、長い文は短い重要語に絞る。問題番号・架空の基準値・合格保証・商品価格・URL・ブランドは追加しない。\nこの場面の説明（理解の根拠。全文を画面に書かない）：検討も対応も、同じ文章になっていませんか。考えた理由と実施した内容を、工事の条件から分けて整理します。\n図解設計：文字カードや表の羅列ではなく、説明に出てくる具体的な現場、道具、記録、人物の行動を大きなイラストで示し、関係を矢印・囲み・対比で分かるようにする。実際の担当経験の説明であり仮例は仮例として扱う。場面の見出しが示す判断や関係を主役に、前後の場面とは異なる構図・行動を描く。\n意匠：緑・エメラルド・白・黄色、少量の赤。太い日本語文字に適度な縁取り、くっきりした輪郭、明るい教育用POP、斜めの色面と控えめな動線、白い情報パネル。図解は画面左〜中央の65%以上を大きく使う。先生は参照と同じ40代男性、黒髪・黒縁メガネ・薄いひげ・紺作業服・白シャツ・紺ネクタイ・黄色反射ベスト、無地白ヘルメット。右側で今回の図に合う自然な説明動作。手と機械の形は実物どおり。\n安全域：重要な文字と顔は上下左右5%以内に切れない。字幕は後から最下部に重ねるため、下端20%には文字・顔・重要な図を置かず背景だけを四辺まで連続させる（白い余白帯にはしない）。内容を上端80%に大きく配置し、小さな表や長文を詰め込まない。16:9全体を維持し、スマホ幅360pxでも見出しと矢印の意味が読める。",
+            "references": [
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--hook-raw.2c7f443f.png",
+              "sha256": "2c7f443f8dca0499ec50016a0f7c9e891a9347466aa7c2b8313adf6378f8705e",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T06:00:55.386Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--hook.924175fa.png",
+            "sha256": "924175fa64688d07f038392867483e33de2f9b0b9b9343b104e9a514ecf1353c",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "authority",
+          "inputSha256": "760dd97bb29e293d6f37d748aa8617dc7b68acdebb3c1248c729cbefb3424d3f",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "解説：架（かける）",
+            "items": [
+              "技術士（総合技術監理部門）",
+              "元・地方自治体の土木職（発注者）",
+              "1級・2級土木施工管理技士 合格"
+            ]
+          },
+          "narration": "総合技術監理部門の技術士で、1級・2級土木に合格した元発注者が、経験を文章にする視点を解説します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Asset: 2級土木施工管理技士の16:9通常動画、本文の1場面。1920×1080の一枚の完成POP図解を新規生成。参照画像は先生の同一性と承認済みPOP意匠の参照で、参照画像の添削広告文を複製しない。\n正確な日本語コピー：資格名「2級土木」、大見出し「総監・元発注者が解説」、図解に必要な短い語「技術士（総合技術監理部門）」「元・地方自治体の土木職」「1級・2級土木施工管理技士 合格」。コピーはこれらだけから選び、長い文は短い重要語に絞る。問題番号・架空の基準値・合格保証・商品価格・URL・ブランドは追加しない。\nこの場面の説明（理解の根拠。全文を画面に書かない）：総合技術監理部門の技術士で、1級・2級土木に合格した元発注者が、書く順序を解説します。\n図解設計：文字カードや表の羅列ではなく、説明に出てくる具体的な現場、道具、記録、人物の行動を大きなイラストで示し、関係を矢印・囲み・対比で分かるようにする。実際の担当経験の説明であり仮例は仮例として扱う。先生が現場経験と資格の3つのカードを紹介。架空の資格証書や印影は描かない。\n意匠：緑・エメラルド・白・黄色、少量の赤。太い日本語文字に適度な縁取り、くっきりした輪郭、明るい教育用POP、斜めの色面と控えめな動線、白い情報パネル。図解は画面左〜中央の65%以上を大きく使う。先生は参照と同じ40代男性、黒髪・黒縁メガネ・薄いひげ・紺作業服・白シャツ・紺ネクタイ・黄色反射ベスト、無地白ヘルメット。右側で今回の図に合う自然な説明動作。手と機械の形は実物どおり。\n安全域：重要な文字と顔は上下左右5%以内に切れない。字幕は後から最下部に重ねるため、下端20%には文字・顔・重要な図を置かず背景だけを四辺まで連続させる（白い余白帯にはしない）。内容を上端80%に大きく配置し、小さな表や長文を詰め込まない。16:9全体を維持し、スマホ幅360pxでも見出しと矢印の意味が読める。",
+            "references": [
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/common-authority-raw.9dcdedbb.png",
+              "sha256": "9dcdedbbb9b61c692d1b310a0ef006dcb0c73a2daaddd6eb91b4f52a6a5d71b4",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T05:59:34.264Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/common-authority.81ffac47.png",
+            "sha256": "81ffac4725349b9306ac1fde7ff8edabbfb479b5a56a7477a0acc18e5f883965",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "premise",
+          "inputSha256": "36bd6f43c5afdbd59e9c0cb7ccbeba12a48e7f67d18940a62a01844e30316099",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "準備用メモで、役割を分ける",
+            "sheetTitle": "考えた内容と実施した内容",
+            "rows": [
+              {
+                "label": "検討のメモ",
+                "value": "何を考えて選んだか"
+              },
+              {
+                "label": "対応のメモ",
+                "value": "現場で何を実施したか"
+              }
+            ]
+          },
+          "narration": "ここで分けるのは、準備用メモの役割です。検討は何を考えて選んだか、対応は現場で何を実施したかを整理します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Asset: 2級土木施工管理技士の16:9通常動画、本文の1場面。1920×1080の一枚の完成POP図解を新規生成。参照画像は先生の同一性と承認済みPOP意匠の参照で、参照画像の添削広告文を複製しない。\n正確な日本語コピー：資格名「2級土木」、大見出し「準備用メモで、役割を分ける」、図解に必要な短い語「検討のメモ」「何を考えて選んだか」「対応のメモ」「現場で何を実施したか」。コピーはこれらだけから選び、長い文は短い重要語に絞る。問題番号・架空の基準値・合格保証・商品価格・URL・ブランドは追加しない。\nこの場面の説明（理解の根拠。全文を画面に書かない）：ここで分けるのは、準備用メモの役割です。検討は何を考えて選んだか、対応は現場で何を実施したかを整理します。\n図解設計：文字カードや表の羅列ではなく、説明に出てくる具体的な現場、道具、記録、人物の行動を大きなイラストで示し、関係を矢印・囲み・対比で分かるようにする。実際の担当経験の説明であり仮例は仮例として扱う。場面の見出しが示す判断や関係を主役に、前後の場面とは異なる構図・行動を描く。\n意匠：緑・エメラルド・白・黄色、少量の赤。太い日本語文字に適度な縁取り、くっきりした輪郭、明るい教育用POP、斜めの色面と控えめな動線、白い情報パネル。図解は画面左〜中央の65%以上を大きく使う。先生は参照と同じ40代男性、黒髪・黒縁メガネ・薄いひげ・紺作業服・白シャツ・紺ネクタイ・黄色反射ベスト、無地白ヘルメット。右側で今回の図に合う自然な説明動作。手と機械の形は実物どおり。\n安全域：重要な文字と顔は上下左右5%以内に切れない。字幕は後から最下部に重ねるため、下端20%には文字・顔・重要な図を置かず背景だけを四辺まで連続させる（白い余白帯にはしない）。内容を上端80%に大きく配置し、小さな表や長文を詰め込まない。16:9全体を維持し、スマホ幅360pxでも見出しと矢印の意味が読める。",
+            "references": [
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--premise-raw.1fc5ccc6.png",
+              "sha256": "1fc5ccc6690bbbca49b818d89313e98c728fe06bfa0eb6f0e92877c0c2c93412",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T06:01:28.479Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--premise.54265a98.png",
+            "sha256": "54265a988438ec13241b030aeb187503ffd8ed6660dcdecb2d0c8eb901d4bc15",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "condition",
+          "inputSha256": "80775e147fbc45f0c53a02a4317b48f40d428a22c0baea4c9ad4f5824ae43395",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "仮例：道路工事の資材置場",
+            "sheetTitle": "考え方の整理メモ",
+            "rows": [
+              {
+                "label": "現場条件",
+                "value": "資材置場が狭い",
+                "state": "focus"
+              },
+              {
+                "label": "制約",
+                "value": "一度に保管できる量が限られる"
+              }
+            ]
+          },
+          "narration": "道路工事の資材置場が狭い、という仮の例です。まず、一度に保管できる量が限られることを、現場条件に置きます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Asset: 2級土木施工管理技士の16:9通常動画、本文の1場面。1920×1080の一枚の完成POP図解を新規生成。参照画像は先生の同一性と承認済みPOP意匠の参照で、参照画像の添削広告文を複製しない。\n正確な日本語コピー：資格名「2級土木」、大見出し「仮例：道路工事の資材置場」、図解に必要な短い語「現場条件」「資材置場が狭い」「制約」「一度に保管できる量が限られる」。コピーはこれらだけから選び、長い文は短い重要語に絞る。問題番号・架空の基準値・合格保証・商品価格・URL・ブランドは追加しない。\nこの場面の説明（理解の根拠。全文を画面に書かない）：道路工事の資材置場が狭い、という仮の例です。まず、一度に保管できる量が限られることを、現場条件に置きます。\n図解設計：文字カードや表の羅列ではなく、説明に出てくる具体的な現場、道具、記録、人物の行動を大きなイラストで示し、関係を矢印・囲み・対比で分かるようにする。実際の担当経験の説明であり仮例は仮例として扱う。場面の見出しが示す判断や関係を主役に、前後の場面とは異なる構図・行動を描く。\n意匠：緑・エメラルド・白・黄色、少量の赤。太い日本語文字に適度な縁取り、くっきりした輪郭、明るい教育用POP、斜めの色面と控えめな動線、白い情報パネル。図解は画面左〜中央の65%以上を大きく使う。先生は参照と同じ40代男性、黒髪・黒縁メガネ・薄いひげ・紺作業服・白シャツ・紺ネクタイ・黄色反射ベスト、無地白ヘルメット。右側で今回の図に合う自然な説明動作。手と機械の形は実物どおり。\n安全域：重要な文字と顔は上下左右5%以内に切れない。字幕は後から最下部に重ねるため、下端20%には文字・顔・重要な図を置かず背景だけを四辺まで連続させる（白い余白帯にはしない）。内容を上端80%に大きく配置し、小さな表や長文を詰め込まない。16:9全体を維持し、スマホ幅360pxでも見出しと矢印の意味が読める。",
+            "references": [
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--condition-raw.59eda400.png",
+              "sha256": "59eda40073255ab4cbdff4871505757e806415b7ecda91a6f861410de2736908",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T06:01:27.112Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--condition.2c2ece67.png",
+            "sha256": "2c2ece67a7645ad6c94b4a49265e547a118291bdcb491a720b77e7658efc9621",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "options",
+          "inputSha256": "aa16195b9dfeec9485865e6976a7153d107dd518f2c00b731483a9fbf6fcb737",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "何を比べて、搬入方法を選ぶか",
+            "sheetTitle": "仮例：検討のメモ",
+            "rows": [
+              {
+                "label": "候補",
+                "value": "一括搬入／分割搬入"
+              },
+              {
+                "label": "判断の材料",
+                "value": "保管できる量／日々の使用予定",
+                "state": "focus"
+              }
+            ]
+          },
+          "narration": "検討では、一括で搬入する案と、分けて搬入する案を比べます。保管できる量と、日々の使用予定を照合します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Edit this single educational POP image. Preserve every existing large Japanese text string, teacher identity/pose, all trucks, top comparison panels, lower-left storage panel, colors and landscape layout exactly. Change ONLY the illustration UNDER the blue label 「日々の使用予定」 in the bottom-right small panel. REMOVE THE ENTIRE RING-BOUND CALENDAR / TABLE / SCHEDULE SHEET completely. Replace it with a simple wordless pictogram: three large separate stacks of concrete products, each on a different plain colored square, connected by two rightward arrows to express successive planned use. Beside the three squares, one simple sun icon and one blank clockface with two hands, no numerals. Absolutely NO paper, calendar, table, grid, column headers, letters, numbers, digits, markings or tiny writing anywhere inside that small lower-right panel. Keep its existing large blue Japanese label unchanged. Do not add a new text label, do not redesign other panels, do not modify the man. One finished image.",
+            "output": {
+              "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--options-raw.ffb3d782.png",
+              "sha256": "ffb3d78209334a15a1f2c4a4ce5acac39e2bf053c39f82ab563279c7262c792c",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T07:05:53.357Z",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/options-edit-reference.5b7a59c6.png",
+                "sha256": "5b7a59c6ca64842b0c35b6245f576d7562216da059f9619197db73c0600b370c"
+              }
+            ]
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--options.ac8032a2.png",
+            "sha256": "ac8032a224ae8cfd04631e22a4940de1787d4e95683d587bf58f417557559d2b",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "reason",
+          "inputSha256": "f15237212695257f2ad19c66c29772534e4c20b031f55b85e520a7493b0a09bc",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "置場に入ることと、供給の両立",
+            "items": [
+              "分割搬入：一度に置く量を抑える",
+              "確認点：使用日に必要量が届くか",
+              "両方を満たせるか検討する"
+            ]
+          },
+          "narration": "分けて搬入する案なら、置場にためる量を抑えられます。ただし、使用日に必要な材料が届くかも確かめます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Asset: 2級土木施工管理技士の16:9通常動画、本文の1場面。1920×1080の一枚の完成POP図解を新規生成。参照画像は先生の同一性と承認済みPOP意匠の参照で、参照画像の添削広告文を複製しない。\n正確な日本語コピー：資格名「2級土木」、大見出し「置場に入ることと、供給の両立」、図解に必要な短い語「分割搬入：一度に置く量を抑える」「確認点：使用日に必要量が届くか」「両方を満たせるか検討する」。コピーはこれらだけから選び、長い文は短い重要語に絞る。問題番号・架空の基準値・合格保証・商品価格・URL・ブランドは追加しない。\nこの場面の説明（理解の根拠。全文を画面に書かない）：分けて搬入する案なら、置場にためる量を抑えられます。ただし、使用日に必要な材料が届くかも確かめます。\n図解設計：文字カードや表の羅列ではなく、説明に出てくる具体的な現場、道具、記録、人物の行動を大きなイラストで示し、関係を矢印・囲み・対比で分かるようにする。実際の担当経験の説明であり仮例は仮例として扱う。場面の見出しが示す判断や関係を主役に、前後の場面とは異なる構図・行動を描く。\n意匠：緑・エメラルド・白・黄色、少量の赤。太い日本語文字に適度な縁取り、くっきりした輪郭、明るい教育用POP、斜めの色面と控えめな動線、白い情報パネル。図解は画面左〜中央の65%以上を大きく使う。先生は参照と同じ40代男性、黒髪・黒縁メガネ・薄いひげ・紺作業服・白シャツ・紺ネクタイ・黄色反射ベスト、無地白ヘルメット。右側で今回の図に合う自然な説明動作。手と機械の形は実物どおり。\n安全域：重要な文字と顔は上下左右5%以内に切れない。字幕は後から最下部に重ねるため、下端20%には文字・顔・重要な図を置かず背景だけを四辺まで連続させる（白い余白帯にはしない）。内容を上端80%に大きく配置し、小さな表や長文を詰め込まない。16:9全体を維持し、スマホ幅360pxでも見出しと矢印の意味が読める。",
+            "references": [
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--reason-raw.a37f425f.png",
+              "sha256": "a37f425fbe22baf433e00cad1186c94a8ccd9d9edfa5300aa2f0774eb2827180",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T06:02:01.838Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--reason.6507f05f.png",
+            "sha256": "6507f05fcd3efb3f757ee45be18c0358a7591b452aae0de2fd6fa9cd150b09d2",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "feasibility",
+          "inputSha256": "a507043c9936621c65c7d96063442ccb676f40bf547fac0867367f491716dd0d",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "選ぶ前に、納入条件を確かめる",
+            "sheetTitle": "仮例：検討のために集める情報",
+            "rows": [
+              {
+                "label": "業者に確認",
+                "value": "納入できる日・数量"
+              },
+              {
+                "label": "作業予定",
+                "value": "必要な日・必要量"
+              },
+              {
+                "label": "判断",
+                "value": "置場と供給の両方に合うか",
+                "state": "focus"
+              }
+            ]
+          },
+          "narration": "そこで、納入できる日と数量を業者に確認し、作業予定と合わせます。置場と供給の両方から選ぶ理由を整理します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付1は修正対象、添付2は先生キャラクターと緑白黄のPOP意匠の正本。1920×1080、横16:9。先生の人物同一性と大きな主見出し、場面に合う図解を保つ。修正必須: 文字: 右下の必要日・必要量の工程表の表題が、原寸でも存在する語として判読できない擬似文字になっている。業者と確認する左側の書類にも読めない文字列があり、実在の確認資料のように見せている。\n図の場面・対象・関係は現状を保つ。小さな書類やカレンダーの擬似文字は全て消し、無文字の直線の罫線・四角・丸・チェックのみへ変える。計器・メジャー・時計の数字も不要。指定以外の文字を一切描かない。\n正確に描いてよい文字は「2級土木」「選ぶ前に、納入条件を確かめる」と次のラベルだけ: [\"業者に確認\",\"納入できる日・数量\",\"作業予定\",\"必要な日・必要量\"]。書類の本文・カレンダーの日付/曜日・目盛・車体・背景の細字は描かない。これらは平行な無地の直線または無地の面に置き換える。\n太い読みやすい日本語、黒髪眼鏡短いひげ紺作業服白シャツ紺タイ黄反射ベスト白無地ヘルメットの同一先生。図は実際の対象物・空間・行動の対応がわかるように。下端20%は無地背景。人物と図を切らない。",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--feasibility-raw.b8d40bba.png",
+                "sha256": "b8d40bba1a0cb7f183bfdde319a94b5424a0bc836997af71f2d3dfca59547fbe"
+              },
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--feasibility-raw.a0ed6e32.png",
+              "sha256": "a0ed6e32debc3e581b8c20fbfaaa6108eb1bb2b277815e685f43d0f38bad7e62",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T06:27:14.110Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--feasibility.d03e863c.png",
+            "sha256": "d03e863c07a8f774b848776026c6d51c18a57987a12ed17c40fca1374d93b32d",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "action",
+          "inputSha256": "1ffe09698ab1f682452d80a4f0dd15f455d615dfcadc14c79d02ea21959a1e7f",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "対応は、実際に動いた内容",
+            "sheetTitle": "仮例：対応のメモ",
+            "rows": [
+              {
+                "label": "決めたこと",
+                "value": "搬入日と、その日の数量"
+              },
+              {
+                "label": "手配",
+                "value": "分割搬入を手配"
+              },
+              {
+                "label": "共有",
+                "value": "搬入予定を現場に共有",
+                "state": "focus"
+              }
+            ]
+          },
+          "narration": "この例で実施した対応は、搬入日と数量を決めて分割搬入を手配したことです。現場に共有した内容も具体化します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付1は修正対象、添付2は先生キャラクターと緑白黄のPOP意匠の正本。1920×1080、横16:9。先生の人物同一性と大きな主見出し、場面に合う図解を保つ。修正必須: 文字: 左の搬入日を決めるカレンダーの青い列見出しが、曜日や日付として読めない白い擬似文字になっている。手配と分割搬入の関係、チェックリストの単純な線や主要ラベルには問題がない。\n図の場面・対象・関係は現状を保つ。小さな書類やカレンダーの擬似文字は全て消し、無文字の直線の罫線・四角・丸・チェックのみへ変える。計器・メジャー・時計の数字も不要。指定以外の文字を一切描かない。\n正確に描いてよい文字は「2級土木」「対応は、実際に動いた内容」と次のラベルだけ: [\"決めたこと\",\"搬入日と、その日の数量\",\"手配\",\"分割搬入を手配\"]。書類の本文・カレンダーの日付/曜日・目盛・車体・背景の細字は描かない。これらは平行な無地の直線または無地の面に置き換える。\n太い読みやすい日本語、黒髪眼鏡短いひげ紺作業服白シャツ紺タイ黄反射ベスト白無地ヘルメットの同一先生。図は実際の対象物・空間・行動の対応がわかるように。下端20%は無地背景。人物と図を切らない。",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--action-raw.9421d077.png",
+                "sha256": "9421d0779210de192a3f0594eedd494ccdb9ee77485cbc35fa5e95d9f0f3b751"
+              },
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--action-raw.a36d7397.png",
+              "sha256": "a36d73973d887ed733d6df5bf3d645051719591370a54d37c75d232eae1fc7b1",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T06:27:48.167Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--action.385e479e.png",
+            "sha256": "385e479e289dd43ef45119ec7f6c0ffe30c06ad7495a02a00ddbc187aa0f80fa",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "wording",
+          "inputSha256": "c6928e70d1617afe8bb9951957a7c25b1b398ff0ac7c0022e1ab8b127c1a8b4f",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "語尾の違いから、内容の違いへ",
+            "sheetTitle": "それぞれのメモに足す内容",
+            "rows": [
+              {
+                "label": "検討した",
+                "value": "比較した条件と選択理由"
+              },
+              {
+                "label": "実施した",
+                "value": "決めた日・数量と実際の手配"
+              }
+            ]
+          },
+          "narration": "「分割搬入を検討した」と「分割搬入を実施した」だけでは、語尾の違いです。比較した条件と、実際の手配を足します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付1は修正対象、添付2は先生キャラクターと緑白黄のPOP意匠の正本。1920×1080、横16:9。先生の人物同一性と大きな主見出し、場面に合う図解を保つ。修正必須: 文字: 左下で本人が確認しているクリップボードの表題・行項目に、原寸でも語として判読できない文字状記号が並ぶ。条件比較と実際の手配の対比は伝わるが、書類の擬似文字を修正する必要がある。\n図の場面・対象・関係は現状を保つ。小さな書類やカレンダーの擬似文字は全て消し、無文字の直線の罫線・四角・丸・チェックのみへ変える。計器・メジャー・時計の数字も不要。指定以外の文字を一切描かない。\n正確に描いてよい文字は「2級土木」「語尾の違いから、内容の違いへ」と次のラベルだけ: [\"検討した\",\"比較した条件と選択理由\",\"実施した\",\"決めた日・数量と実際の手配\"]。書類の本文・カレンダーの日付/曜日・目盛・車体・背景の細字は描かない。これらは平行な無地の直線または無地の面に置き換える。\n太い読みやすい日本語、黒髪眼鏡短いひげ紺作業服白シャツ紺タイ黄反射ベスト白無地ヘルメットの同一先生。図は実際の対象物・空間・行動の対応がわかるように。下端20%は無地背景。人物と図を切らない。",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--wording-raw.efc22e18.png",
+                "sha256": "efc22e18432cb33946918d37112a4fa79edea88aac7a06f13b4fce6a5c164c86"
+              },
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--wording-raw.0ec05361.png",
+              "sha256": "0ec05361d7219dfcddfa2fe2cc9187e98a1a689833f69c042966cb94ff63aa93",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T06:28:24.701Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--wording.825dbd84.png",
+            "sha256": "825dbd841ec2031d406105232146662a1c0cb07e2580162bc8664d8be4664338",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "records",
+          "inputSha256": "eb48eb42ab5d91f0acc118b139d758d008a0b96cd39110f44cba1aee1003b39b",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "案と実施を、記録で区別する",
+            "items": [
+              "検討記録：候補と選んだ理由",
+              "納入記録：実際の日・数量",
+              "自分が担当した行動を確認"
+            ]
+          },
+          "narration": "選ばなかった案を、実施したように書かないこと。検討の記録と納入の記録を見直し、自分が担当した行動に戻します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付1は修正対象、添付2は先生キャラクターと緑白黄のPOP意匠の正本。1920×1080、横16:9。先生の人物同一性と大きな主見出し、場面に合う図解を保つ。修正必須: 本文: 道路工事の狭い置場に対する一括搬入・分割搬入の比較が、左の検討記録では擁壁形式の比較へ変わり、右の実施記録と同じ判断の履歴をたどれない。文字: 下中央の開いたノートに原寸でも読めない擬似文字列が残る。\n同じ道路工事の狭い資材置場の仮例。左は一括搬入と分割搬入の比較・選択理由、右は実際の分割搬入と記録。擁壁形式・河川・構造形式の比較を描かない。\n正確に描いてよい文字は「2級土木」「案と実施を、記録で区別する」と次のラベルだけ: [\"検討記録：候補と選んだ理由\",\"納入記録：実際の日・数量\",\"自分が担当した行動を確認\"]。書類の本文・カレンダーの日付/曜日・目盛・車体・背景の細字は描かない。これらは平行な無地の直線または無地の面に置き換える。\n太い読みやすい日本語、黒髪眼鏡短いひげ紺作業服白シャツ紺タイ黄反射ベスト白無地ヘルメットの同一先生。図は実際の対象物・空間・行動の対応がわかるように。下端20%は無地背景。人物と図を切らない。",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--records-raw.cbf5c99a.png",
+                "sha256": "cbf5c99a62ab1f7d84ad387759e45c53e78ceb0d4fc2c9f56e5938c540bbebbc"
+              },
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--records-raw.5ef87deb.png",
+              "sha256": "5ef87debb2ff0a7ebef497e301103246d327917a9a1aac622f8e5d74480e1377",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T06:28:25.316Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--records.776e0489.png",
+            "sha256": "776e04899cf3eef7fd851418dbe7f5c528b11b5ca3820ac3512adea0773019ef",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "question",
+          "inputSha256": "8a734e1f3036498bdb9eafa2b42b58b2a9a92f175956202e12132bc47c0d777f",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "メモを、その設問の答えに組み直す",
+            "items": [
+              "問われた管理項目を確認",
+              "必要な検討・対応を選ぶ",
+              "メモの区分を解答欄と決めつけない"
+            ]
+          },
+          "narration": "当日の答案は、その設問で求められた内容に合わせます。整理したメモを、決まった欄や順番に無理に当てはめません。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付1は修正対象、添付2は先生キャラクターと緑白黄のPOP意匠の正本。1920×1080、横16:9。先生の人物同一性と大きな主見出し、場面に合う図解を保つ。修正必須: 文字: 中央の準備ノートと付箋に、原寸でも日本語や記号として意味を読めない擬似文字が並び、左の設問確認書類にも不明な見出しがある。単純な横線で表した文章ではなく、読めない字形を描いている。\n図の場面・対象・関係は現状を保つ。小さな書類やカレンダーの擬似文字は全て消し、無文字の直線の罫線・四角・丸・チェックのみへ変える。計器・メジャー・時計の数字も不要。指定以外の文字を一切描かない。\n正確に描いてよい文字は「2級土木」「メモを、その設問の答えに組み直す」と次のラベルだけ: [\"問われた管理項目を確認\",\"必要な検討・対応を選ぶ\",\"メモの区分を解答欄と決めつけない\"]。書類の本文・カレンダーの日付/曜日・目盛・車体・背景の細字は描かない。これらは平行な無地の直線または無地の面に置き換える。\n太い読みやすい日本語、黒髪眼鏡短いひげ紺作業服白シャツ紺タイ黄反射ベスト白無地ヘルメットの同一先生。図は実際の対象物・空間・行動の対応がわかるように。下端20%は無地背景。人物と図を切らない。",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--question-raw.084d4107.png",
+                "sha256": "084d410736dc998a8ec17fd327f0f08727b622e21256902f9bda8eaa2a22c4dc"
+              },
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--question-raw.7f22e878.png",
+              "sha256": "7f22e8783bfe5fa66818d37aa2c64f6d11fa24aae8bb71b5d7b7a14cf256e1cb",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T06:29:45.427Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--question.de64bd58.png",
+            "sha256": "de64bd582db90e9d1f7a070b4e2af3a6788e2cc1caa53ca4678045dff46d8a55",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "23e7fab5347cc5493d2856052c55103fe2bfc1fb65bf535de899f2833a47ef29",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "同じ工事で、3つをつなぐ",
+            "sheetTitle": "重複した文を見直す順序",
+            "rows": [
+              {
+                "label": "現場条件",
+                "value": "何が制約になったか"
+              },
+              {
+                "label": "検討",
+                "value": "何を考えて選んだか"
+              },
+              {
+                "label": "対応",
+                "value": "何を実施したか"
+              }
+            ]
+          },
+          "narration": "まとめです。現場条件、何を考えて選んだか、何を実施したか。同じ工事の流れで分けると、重複した文を見直せます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付1は修正対象、添付2は先生キャラクターと緑白黄のPOP意匠の正本。1920×1080、横16:9。先生の人物同一性と大きな主見出し、場面に合う図解を保つ。修正必須: 本文: 「現場条件」「何が制約になったか」「検討」の3面になり、要約すべき「対応＝何を実施したか」が欠けている。狭い資材置場と搬入方法の仮例も、河川・降雨・構造形式の選択へ変わる。生成指示の短い語にも対応の項目がなく、指示から修正が必要である。\n同じ道路工事の狭い資材置場の仮例。正確に3コマ、現場条件=狭い置場、検討=一括搬入と分割搬入を比較、対応=分割搬入を手配。3コマを順に矢印で結ぶ。雨・河川・構造形式を描かない。\n正確に描いてよい文字は「2級土木」「同じ工事で、3つをつなぐ」と次のラベルだけ: [\"現場条件\",\"狭い置場\",\"検討\",\"一括搬入／分割搬入を比較\",\"対応\",\"分割搬入を手配\"]。書類の本文・カレンダーの日付/曜日・目盛・車体・背景の細字は描かない。これらは平行な無地の直線または無地の面に置き換える。\n太い読みやすい日本語、黒髪眼鏡短いひげ紺作業服白シャツ紺タイ黄反射ベスト白無地ヘルメットの同一先生。図は実際の対象物・空間・行動の対応がわかるように。下端20%は無地背景。人物と図を切らない。",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--summary-raw.ddd7f619.png",
+                "sha256": "ddd7f619fd6a79e584aa726b3751b5e40df5cf7bae3471a5395b0474acb35e4e"
+              },
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--summary-raw.255712b4.png",
+              "sha256": "255712b4b264de9271e4061031c055dfd566f0ac99c843f1ad99fbe449d37619",
+              "width": 1672,
+              "height": 940
+            },
+            "generatedAt": "2026-10-18T06:30:13.048Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--summary.29ebd917.png",
+            "sha256": "29ebd91755ee60a208f018b2d0186679372e95ff76c2bab6bc6a0c45de51eb7c",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "04b47a733436cd00a33fd10d79872e9da8f11df38c508f20cf3e670ec23c38c3",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "検討と対応のつなぎ方を学ぶ",
+            "items": [
+              "2級土木 施工経験記述 完成答案集",
+              "安全・品質・工程の答案＋置換ガイド",
+              "概要欄のnoteマガジンへ"
+            ]
+          },
+          "narration": "検討と対応のつなぎ方を、完成答案で学べます。安全・品質・工程の答案と、自分の現場への置換ガイドは概要欄へ。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Asset: 2級土木施工管理技士の16:9通常動画、本文の1場面。1920×1080の一枚の完成POP図解を新規生成。参照画像は先生の同一性と承認済みPOP意匠の参照で、参照画像の添削広告文を複製しない。\n正確な日本語コピー：資格名「2級土木」、大見出し「自分の工事で答案づくり」、図解に必要な短い語「施工経験記述 完成答案集」「安全・品質・工程」「自分の経験に置き換えて練習」「概要欄から確認」。コピーはこれらだけから選び、長い文は短い重要語に絞る。問題番号・架空の基準値・合格保証・商品価格・URL・ブランドは追加しない。\nこの場面の説明（理解の根拠。全文を画面に書かない）：元発注者・土木の合格者の視点を学習に活かす完成答案集です。安全・品質・工程の答案と置換ガイドで練習する際は、概要欄をご覧ください。\n図解設計：文字カードや表の羅列ではなく、説明に出てくる具体的な現場、道具、記録、人物の行動を大きなイラストで示し、関係を矢印・囲み・対比で分かるようにする。実際の担当経験の説明であり仮例は仮例として扱う。先生が練習用の答案ノートと3テーマの冊子を紹介。答案の長文や架空の表紙文言は描かない。\n意匠：緑・エメラルド・白・黄色、少量の赤。太い日本語文字に適度な縁取り、くっきりした輪郭、明るい教育用POP、斜めの色面と控えめな動線、白い情報パネル。図解は画面左〜中央の65%以上を大きく使う。先生は参照と同じ40代男性、黒髪・黒縁メガネ・薄いひげ・紺作業服・白シャツ・紺ネクタイ・黄色反射ベスト、無地白ヘルメット。右側で今回の図に合う自然な説明動作。手と機械の形は実物どおり。\n安全域：重要な文字と顔は上下左右5%以内に切れない。字幕は後から最下部に重ねるため、下端20%には文字・顔・重要な図を置かず背景だけを四辺まで連続させる（白い余白帯にはしない）。内容を上端80%に大きく配置し、小さな表や長文を詰め込まない。16:9全体を維持し、スマホ幅360pxでも見出しと矢印の意味が読める。",
+            "references": [
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/common-cta-raw.dcf54f04.png",
+              "sha256": "dcf54f045c7c5aa4eaa10ade7b144b160dcb4728ae328c3ffe3e0a043fc78179",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T05:59:34.437Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/common-cta.4d5bba5e.png",
+            "sha256": "4d5bba5eeecb0c43f2ef98c12019ff609dfbf60b6b99f16a3415c2621e7724b8",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        }
+      ]
+    }
+  },
+  "activeBodyRevision": "body-scenes-20261018"
 }

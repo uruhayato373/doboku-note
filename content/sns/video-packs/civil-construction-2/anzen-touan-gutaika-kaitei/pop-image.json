@@ -229,5 +229,520 @@
     "date": "2026-10-15",
     "source": "このチャットの運営者指示「やって　予約投稿まで」",
     "scope": "改訂版の制作・画面確認・YouTube予約投稿と台帳更新を委任。旧版は維持。"
-  }
+  },
+  "activeCoverRevision": "cover-safe-20261018",
+  "revisions": {
+    "cover-safe-20261018": {
+      "version": "pop-poster-v3",
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "Edit the attached 16:9 landscape YouTube cover. Keep the same teacher identity, natural hands holding red pen and answer sheet, plain white helmet, black glasses, beard, navy workwear and green pop-poster-v3 visual style. Preserve these four Japanese text strings exactly: 「2級土木」「安全管理」「答案を具体化」「現場条件から書く」. Replace 「総監が解説」 with a clearly separated TWO-LINE yellow author-credentials badge: first line 「総監・元発注者」, second line 「1級・2級土木合格者」. These are the author's real credentials, not the target qualification: the largest target label must remain 「2級土木」. Recompose the top-left and top-center areas enough that both credential lines are legible; do not squeeze the new text into a one-line tiny band. The main topic remains the visual priority and the teacher stays on the right. All six specified text strings occur exactly once with correct Japanese glyphs; remove the old 「総監が解説」. No added words, logo, URL, numbers, price, guarantee or certification seals. Use generous bold glyphs without colliding strokes. Important letters and face entirely inside margins, all text above 82% image height; bottom 18% contains only continuous illustrated green background/teacher torso, not a blank stripe. Deliver one polished landscape image, intended 1920×1080, same visual density and character as reference.",
+        "references": [
+          {
+            "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/cover.906b74b3.png",
+            "sha256": "906b74b3197b4f8d4a13f3e280934c3d8208f7f0c7e5f580c27a0373cad0946e"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/cover.ba16defd.png",
+          "sha256": "ba16defd11a2f6732515f7540d635169e8ad52ae62366aa6be5268a8056e7032"
+        }
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/cover-caption-safe.cd7eabfc.png",
+        "sha256": "cd7eabfced9b923f4b0d4ce359b63e79a8b8d579c141ebad2f6d4b16f735e3af",
+        "width": 1920,
+        "height": 1080
+      },
+      "layout": {
+        "subtitleSafeTop": 864
+      }
+    },
+    "body-scenes-20261018": {
+      "version": "codex-pop-body-v1",
+      "date": "2026-10-18",
+      "purpose": "ユーザー依頼による場面別POP図解と字幕安全域の修正。YouTube未反映。",
+      "images": [
+        {
+          "sceneId": "hook",
+          "inputSha256": "eee0ff9751c7f8a27bc149088581ca6413649b03d239e2318229e34fcc879fcf",
+          "sourceCopy": {
+            "kind": "figure",
+            "heading": "対策を並べる前に、条件から",
+            "items": [
+              "どんな現場だったか",
+              "どんな危険があったか",
+              "何を考え、何をしたか"
+            ],
+            "src": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-001.d6f17a6d.png"
+          },
+          "narration": "安全対策を並べても、自分の現場が伝わらない。そんなときは、現場条件、課題、対策の順につなげましょう。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Asset: 2級土木施工管理技士の16:9通常動画、本文の1場面。1920×1080の一枚の完成POP図解を新規生成。参照画像は先生の同一性と承認済みPOP意匠の参照で、参照画像の添削広告文を複製しない。\n正確な日本語コピー：資格名「2級土木」、大見出し「対策を並べる前に、条件から」、図解に必要な短い語「どんな現場だったか」「どんな危険があったか」「何を考え、何をしたか」。コピーはこれらだけから選び、長い文は短い重要語に絞る。問題番号・架空の基準値・合格保証・商品価格・URL・ブランドは追加しない。\nこの場面の説明（理解の根拠。全文を画面に書かない）：安全対策を並べても、自分の現場が伝わらない。そんなときは、現場条件、課題、対策の順につなげましょう。\n図解設計：文字カードや表の羅列ではなく、説明に出てくる具体的な現場、道具、記録、人物の行動を大きなイラストで示し、関係を矢印・囲み・対比で分かるようにする。実際の担当経験の説明であり仮例は仮例として扱う。場面の見出しが示す判断や関係を主役に、前後の場面とは異なる構図・行動を描く。\n意匠：緑・エメラルド・白・黄色、少量の赤。太い日本語文字に適度な縁取り、くっきりした輪郭、明るい教育用POP、斜めの色面と控えめな動線、白い情報パネル。図解は画面左〜中央の65%以上を大きく使う。先生は参照と同じ40代男性、黒髪・黒縁メガネ・薄いひげ・紺作業服・白シャツ・紺ネクタイ・黄色反射ベスト、無地白ヘルメット。右側で今回の図に合う自然な説明動作。手と機械の形は実物どおり。\n安全域：重要な文字と顔は上下左右5%以内に切れない。字幕は後から最下部に重ねるため、下端20%には文字・顔・重要な図を置かず背景だけを四辺まで連続させる（白い余白帯にはしない）。内容を上端80%に大きく配置し、小さな表や長文を詰め込まない。16:9全体を維持し、スマホ幅360pxでも見出しと矢印の意味が読める。",
+            "references": [
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/anzen-touan-gutaika-kaitei--hook-raw.18808f99.png",
+              "sha256": "18808f9948e78eef15999970ec71fc8d2db733cbd5d88659657634d3c040c35e",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T05:59:33.243Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/anzen-touan-gutaika-kaitei--hook.7754f24a.png",
+            "sha256": "7754f24a8d78afcca1f1c3c7a7bd4a2525d62cedef6cc38598eb7138955ddedf",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "authority",
+          "inputSha256": "ee43f107489e41f71f533c5f906f3f78c6e449da34ba5427b71682c88a84a001",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "解説：架（かける）",
+            "items": [
+              "技術士（総合技術監理部門）",
+              "元・地方自治体の土木職（発注者）",
+              "1級・2級土木施工管理技士 合格"
+            ]
+          },
+          "narration": "総合技術監理部門の技術士で、1級・2級土木に合格した元発注者が、書く順序を解説します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Asset: 2級土木施工管理技士の16:9通常動画、本文の1場面。1920×1080の一枚の完成POP図解を新規生成。参照画像は先生の同一性と承認済みPOP意匠の参照で、参照画像の添削広告文を複製しない。\n正確な日本語コピー：資格名「2級土木」、大見出し「総監・元発注者が解説」、図解に必要な短い語「技術士（総合技術監理部門）」「元・地方自治体の土木職」「1級・2級土木施工管理技士 合格」。コピーはこれらだけから選び、長い文は短い重要語に絞る。問題番号・架空の基準値・合格保証・商品価格・URL・ブランドは追加しない。\nこの場面の説明（理解の根拠。全文を画面に書かない）：総合技術監理部門の技術士で、1級・2級土木に合格した元発注者が、書く順序を解説します。\n図解設計：文字カードや表の羅列ではなく、説明に出てくる具体的な現場、道具、記録、人物の行動を大きなイラストで示し、関係を矢印・囲み・対比で分かるようにする。実際の担当経験の説明であり仮例は仮例として扱う。先生が現場経験と資格の3つのカードを紹介。架空の資格証書や印影は描かない。\n意匠：緑・エメラルド・白・黄色、少量の赤。太い日本語文字に適度な縁取り、くっきりした輪郭、明るい教育用POP、斜めの色面と控えめな動線、白い情報パネル。図解は画面左〜中央の65%以上を大きく使う。先生は参照と同じ40代男性、黒髪・黒縁メガネ・薄いひげ・紺作業服・白シャツ・紺ネクタイ・黄色反射ベスト、無地白ヘルメット。右側で今回の図に合う自然な説明動作。手と機械の形は実物どおり。\n安全域：重要な文字と顔は上下左右5%以内に切れない。字幕は後から最下部に重ねるため、下端20%には文字・顔・重要な図を置かず背景だけを四辺まで連続させる（白い余白帯にはしない）。内容を上端80%に大きく配置し、小さな表や長文を詰め込まない。16:9全体を維持し、スマホ幅360pxでも見出しと矢印の意味が読める。",
+            "references": [
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/common-authority-raw.9dcdedbb.png",
+              "sha256": "9dcdedbbb9b61c692d1b310a0ef006dcb0c73a2daaddd6eb91b4f52a6a5d71b4",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T05:59:34.264Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/common-authority.81ffac47.png",
+            "sha256": "81ffac4725349b9306ac1fde7ff8edabbfb479b5a56a7477a0acc18e5f883965",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "premise",
+          "inputSha256": "11742106796bb4b2189c290c74cb95c100ea9f8bac0847ffca6d894a34a0709d",
+          "sourceCopy": {
+            "kind": "figure",
+            "heading": "考え方の例で、つながりを見る",
+            "items": [
+              "条件を整理する",
+              "危険を具体的にする",
+              "対策の理由を示す"
+            ],
+            "src": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-001.d6f17a6d.png"
+          },
+          "narration": "対策の名前を増やすより、その現場で必要だった理由を示します。ここからは、狭いヤードを使った考え方の例です。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Asset: 2級土木施工管理技士の16:9通常動画、本文の1場面。1920×1080の一枚の完成POP図解を新規生成。参照画像は先生の同一性と承認済みPOP意匠の参照で、参照画像の添削広告文を複製しない。\n正確な日本語コピー：資格名「2級土木」、大見出し「考え方の例で、つながりを見る」、図解に必要な短い語「条件を整理する」「危険を具体的にする」「対策の理由を示す」。コピーはこれらだけから選び、長い文は短い重要語に絞る。問題番号・架空の基準値・合格保証・商品価格・URL・ブランドは追加しない。\nこの場面の説明（理解の根拠。全文を画面に書かない）：対策の名前を増やすより、その現場で必要だった理由を示します。ここからは、狭いヤードを使った考え方の例です。\n図解設計：文字カードや表の羅列ではなく、説明に出てくる具体的な現場、道具、記録、人物の行動を大きなイラストで示し、関係を矢印・囲み・対比で分かるようにする。実際の担当経験の説明であり仮例は仮例として扱う。場面の見出しが示す判断や関係を主役に、前後の場面とは異なる構図・行動を描く。\n意匠：緑・エメラルド・白・黄色、少量の赤。太い日本語文字に適度な縁取り、くっきりした輪郭、明るい教育用POP、斜めの色面と控えめな動線、白い情報パネル。図解は画面左〜中央の65%以上を大きく使う。先生は参照と同じ40代男性、黒髪・黒縁メガネ・薄いひげ・紺作業服・白シャツ・紺ネクタイ・黄色反射ベスト、無地白ヘルメット。右側で今回の図に合う自然な説明動作。手と機械の形は実物どおり。\n安全域：重要な文字と顔は上下左右5%以内に切れない。字幕は後から最下部に重ねるため、下端20%には文字・顔・重要な図を置かず背景だけを四辺まで連続させる（白い余白帯にはしない）。内容を上端80%に大きく配置し、小さな表や長文を詰め込まない。16:9全体を維持し、スマホ幅360pxでも見出しと矢印の意味が読める。",
+            "references": [
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/anzen-touan-gutaika-kaitei--premise-raw.b8188d8a.png",
+              "sha256": "b8188d8aba0af3fe0a53f0ce95191cb6eb77d8ce630c7e43fb774ff66722d338",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T05:59:33.568Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/anzen-touan-gutaika-kaitei--premise.cecc529f.png",
+            "sha256": "cecc529f5d8e0af7d13a701a9bb4ff1435fa3312cf7a19458fc953219caed01e",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "condition",
+          "inputSha256": "fc4efb15e0084619886ec30f257d4542dcc4fc3749c592983bf04de8897c5998",
+          "sourceCopy": {
+            "kind": "figure",
+            "heading": "現場条件：どこで作業するか",
+            "items": [
+              "通路と重機の位置関係",
+              "近づく場面を探す",
+              "対策はその後で考える"
+            ],
+            "src": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-001.d6f17a6d.png",
+            "focus": 0
+          },
+          "narration": "まず現場条件です。ヤードが狭いだけで終わらず、人が通る場所と、重機が動く場所の位置関係まで整理します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Asset: 2級土木施工管理技士の16:9通常動画、本文の1場面。1920×1080の一枚の完成POP図解を新規生成。参照画像は先生の同一性と承認済みPOP意匠の参照で、参照画像の添削広告文を複製しない。\n正確な日本語コピー：資格名「2級土木」、大見出し「現場条件：どこで作業するか」、図解に必要な短い語「通路と重機の位置関係」「近づく場面を探す」「対策はその後で考える」。コピーはこれらだけから選び、長い文は短い重要語に絞る。問題番号・架空の基準値・合格保証・商品価格・URL・ブランドは追加しない。\nこの場面の説明（理解の根拠。全文を画面に書かない）：まず現場条件です。ヤードが狭いだけで終わらず、人が通る場所と、重機が動く場所の位置関係まで整理します。\n図解設計：文字カードや表の羅列ではなく、説明に出てくる具体的な現場、道具、記録、人物の行動を大きなイラストで示し、関係を矢印・囲み・対比で分かるようにする。実際の担当経験の説明であり仮例は仮例として扱う。場面の見出しが示す判断や関係を主役に、前後の場面とは異なる構図・行動を描く。\n意匠：緑・エメラルド・白・黄色、少量の赤。太い日本語文字に適度な縁取り、くっきりした輪郭、明るい教育用POP、斜めの色面と控えめな動線、白い情報パネル。図解は画面左〜中央の65%以上を大きく使う。先生は参照と同じ40代男性、黒髪・黒縁メガネ・薄いひげ・紺作業服・白シャツ・紺ネクタイ・黄色反射ベスト、無地白ヘルメット。右側で今回の図に合う自然な説明動作。手と機械の形は実物どおり。\n安全域：重要な文字と顔は上下左右5%以内に切れない。字幕は後から最下部に重ねるため、下端20%には文字・顔・重要な図を置かず背景だけを四辺まで連続させる（白い余白帯にはしない）。内容を上端80%に大きく配置し、小さな表や長文を詰め込まない。16:9全体を維持し、スマホ幅360pxでも見出しと矢印の意味が読める。",
+            "references": [
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/anzen-touan-gutaika-kaitei--condition-raw.db37434d.png",
+              "sha256": "db37434d485038af5a1ff80d87f83ef101499e9a450ff846e4c8add8786fa115",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T05:59:33.080Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/anzen-touan-gutaika-kaitei--condition.711fc986.png",
+            "sha256": "711fc986e00d2fbbd2158e225b5ec01d84153c0ca6ed7e7453424dedb11fc486",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "risk",
+          "inputSha256": "be9ab4be8bb0741321392e35a02ae296800b85ef7fce38731dfcc49cee22dc28",
+          "sourceCopy": {
+            "kind": "figure",
+            "heading": "課題：何を防ぐ必要があるか",
+            "items": [
+              "狭いヤードでの作業",
+              "人と重機の接触を防ぐ",
+              "危険に合う対策へ"
+            ],
+            "src": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-001.d6f17a6d.png",
+            "focus": 1
+          },
+          "narration": "次に課題です。その位置関係では、人と重機が近づく場面はどこか。近づいたときの接触を防ぐ、という課題につなげます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Asset: 2級土木施工管理技士の16:9通常動画、本文の1場面。1920×1080の一枚の完成POP図解を新規生成。参照画像は先生の同一性と承認済みPOP意匠の参照で、参照画像の添削広告文を複製しない。\n正確な日本語コピー：資格名「2級土木」、大見出し「課題：何を防ぐ必要があるか」、図解に必要な短い語「狭いヤードでの作業」「人と重機の接触を防ぐ」「危険に合う対策へ」。コピーはこれらだけから選び、長い文は短い重要語に絞る。問題番号・架空の基準値・合格保証・商品価格・URL・ブランドは追加しない。\nこの場面の説明（理解の根拠。全文を画面に書かない）：次に課題です。その位置関係では、人と重機が近づく場面はどこか。近づいたときの接触を防ぐ、という課題につなげます。\n図解設計：文字カードや表の羅列ではなく、説明に出てくる具体的な現場、道具、記録、人物の行動を大きなイラストで示し、関係を矢印・囲み・対比で分かるようにする。実際の担当経験の説明であり仮例は仮例として扱う。場面の見出しが示す判断や関係を主役に、前後の場面とは異なる構図・行動を描く。\n意匠：緑・エメラルド・白・黄色、少量の赤。太い日本語文字に適度な縁取り、くっきりした輪郭、明るい教育用POP、斜めの色面と控えめな動線、白い情報パネル。図解は画面左〜中央の65%以上を大きく使う。先生は参照と同じ40代男性、黒髪・黒縁メガネ・薄いひげ・紺作業服・白シャツ・紺ネクタイ・黄色反射ベスト、無地白ヘルメット。右側で今回の図に合う自然な説明動作。手と機械の形は実物どおり。\n安全域：重要な文字と顔は上下左右5%以内に切れない。字幕は後から最下部に重ねるため、下端20%には文字・顔・重要な図を置かず背景だけを四辺まで連続させる（白い余白帯にはしない）。内容を上端80%に大きく配置し、小さな表や長文を詰め込まない。16:9全体を維持し、スマホ幅360pxでも見出しと矢印の意味が読める。",
+            "references": [
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/anzen-touan-gutaika-kaitei--risk-raw.c8fa799c.png",
+              "sha256": "c8fa799c4d839160ebe5d5ac95bd3e248a91e239a3d8635b21da43ca095bbd33",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T05:59:33.928Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/anzen-touan-gutaika-kaitei--risk.66d9d41f.png",
+            "sha256": "66d9d41fe300915bb43dda5309b6a3cc01b43353a58e0f6cc89456553487f05c",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "measure",
+          "inputSha256": "7be3e0adbdf763c58d30981a8c1aae1dbfbc921fa9ce53f8a92bd2a73272281e",
+          "sourceCopy": {
+            "kind": "figure",
+            "heading": "対策：課題に合う方法を考える",
+            "items": [
+              "通路と作業範囲の位置",
+              "人と重機の接触を防ぐ",
+              "動線を分ける方法を検討"
+            ],
+            "src": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-001.d6f17a6d.png",
+            "focus": 2
+          },
+          "narration": "そして対策です。接触を防ぐために、人の通路と重機の動く範囲を分ける。このように、危険とのつながりを確かめて対策を考えます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Asset: 2級土木施工管理技士の16:9通常動画、本文の1場面。1920×1080の一枚の完成POP図解を新規生成。参照画像は先生の同一性と承認済みPOP意匠の参照で、参照画像の添削広告文を複製しない。\n正確な日本語コピー：資格名「2級土木」、大見出し「対策：課題に合う方法を考える」、図解に必要な短い語「通路と作業範囲の位置」「人と重機の接触を防ぐ」「動線を分ける方法を検討」。コピーはこれらだけから選び、長い文は短い重要語に絞る。問題番号・架空の基準値・合格保証・商品価格・URL・ブランドは追加しない。\nこの場面の説明（理解の根拠。全文を画面に書かない）：そして対策です。接触を防ぐために、人の通路と重機の動く範囲を分ける。このように、危険とのつながりを確かめて対策を考えます。\n図解設計：文字カードや表の羅列ではなく、説明に出てくる具体的な現場、道具、記録、人物の行動を大きなイラストで示し、関係を矢印・囲み・対比で分かるようにする。実際の担当経験の説明であり仮例は仮例として扱う。場面の見出しが示す判断や関係を主役に、前後の場面とは異なる構図・行動を描く。\n意匠：緑・エメラルド・白・黄色、少量の赤。太い日本語文字に適度な縁取り、くっきりした輪郭、明るい教育用POP、斜めの色面と控えめな動線、白い情報パネル。図解は画面左〜中央の65%以上を大きく使う。先生は参照と同じ40代男性、黒髪・黒縁メガネ・薄いひげ・紺作業服・白シャツ・紺ネクタイ・黄色反射ベスト、無地白ヘルメット。右側で今回の図に合う自然な説明動作。手と機械の形は実物どおり。\n安全域：重要な文字と顔は上下左右5%以内に切れない。字幕は後から最下部に重ねるため、下端20%には文字・顔・重要な図を置かず背景だけを四辺まで連続させる（白い余白帯にはしない）。内容を上端80%に大きく配置し、小さな表や長文を詰め込まない。16:9全体を維持し、スマホ幅360pxでも見出しと矢印の意味が読める。",
+            "references": [
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/anzen-touan-gutaika-kaitei--measure-raw.40fd6806.png",
+              "sha256": "40fd6806ffae4cb75010028dd571e0ff88e6f61c96625d2def87f693df81dfcf",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T05:59:33.405Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/anzen-touan-gutaika-kaitei--measure.aca834b8.png",
+            "sha256": "aca834b8967604bf97feccf4aeca6b63ed2c4a3c5bb60536e8f866ca721fa672",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "concrete",
+          "inputSha256": "10966892b6393dfdea34417bece8c7ec061c12c9aeb285af1a0844b9ff9fe8ba",
+          "sourceCopy": {
+            "kind": "figure",
+            "heading": "対策を、現場での行動まで具体化",
+            "items": [
+              "区切る場所を確かめる",
+              "接触を防ぐ理由を添える",
+              "検討と実施を結び付ける"
+            ],
+            "src": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-001.d6f17a6d.png",
+            "focus": 2
+          },
+          "narration": "動線を分ける場合も、どの場所を、何で区切るのかまで考えます。答案には、実際に検討したことと、行った処置を結び付けて書きます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Asset: 2級土木施工管理技士の16:9通常動画、本文の1場面。1920×1080の一枚の完成POP図解を新規生成。参照画像は先生の同一性と承認済みPOP意匠の参照で、参照画像の添削広告文を複製しない。\n正確な日本語コピー：資格名「2級土木」、大見出し「対策を、現場での行動まで具体化」、図解に必要な短い語「区切る場所を確かめる」「接触を防ぐ理由を添える」「検討と実施を結び付ける」。コピーはこれらだけから選び、長い文は短い重要語に絞る。問題番号・架空の基準値・合格保証・商品価格・URL・ブランドは追加しない。\nこの場面の説明（理解の根拠。全文を画面に書かない）：動線を分ける場合も、どの場所を、何で区切るのかまで考えます。答案には、実際に検討したことと、行った処置を結び付けて書きます。\n図解設計：文字カードや表の羅列ではなく、説明に出てくる具体的な現場、道具、記録、人物の行動を大きなイラストで示し、関係を矢印・囲み・対比で分かるようにする。実際の担当経験の説明であり仮例は仮例として扱う。場面の見出しが示す判断や関係を主役に、前後の場面とは異なる構図・行動を描く。\n意匠：緑・エメラルド・白・黄色、少量の赤。太い日本語文字に適度な縁取り、くっきりした輪郭、明るい教育用POP、斜めの色面と控えめな動線、白い情報パネル。図解は画面左〜中央の65%以上を大きく使う。先生は参照と同じ40代男性、黒髪・黒縁メガネ・薄いひげ・紺作業服・白シャツ・紺ネクタイ・黄色反射ベスト、無地白ヘルメット。右側で今回の図に合う自然な説明動作。手と機械の形は実物どおり。\n安全域：重要な文字と顔は上下左右5%以内に切れない。字幕は後から最下部に重ねるため、下端20%には文字・顔・重要な図を置かず背景だけを四辺まで連続させる（白い余白帯にはしない）。内容を上端80%に大きく配置し、小さな表や長文を詰め込まない。16:9全体を維持し、スマホ幅360pxでも見出しと矢印の意味が読める。",
+            "references": [
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/anzen-touan-gutaika-kaitei--concrete-raw.fbc92be4.png",
+              "sha256": "fbc92be48bc480680de0446dbc0c0744c9077cf8e1a85f54b4b0518683170daa",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T05:59:32.917Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/anzen-touan-gutaika-kaitei--concrete.f63b8e14.png",
+            "sha256": "f63b8e142398a91034a6a00c328df6619a864bc95f20a93b751329f053312aa4",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "question",
+          "inputSha256": "ef5371acbe09b9884197742c8da71a07288c2b8b0434c15a9854259b16838f00",
+          "sourceCopy": {
+            "kind": "figure",
+            "heading": "自分の現場の事実で答える",
+            "items": [
+              "どんな現場条件だったか",
+              "どんな危険があったか",
+              "何を検討して、何をしたか"
+            ],
+            "src": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-001.d6f17a6d.png"
+          },
+          "narration": "自分の工事では、どんな条件で、どんな危険があり、何を検討して、何をしましたか。図の例をそのまま使わず、自分が経験した事実に戻しましょう。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Asset: 2級土木施工管理技士の16:9通常動画、本文の1場面。1920×1080の一枚の完成POP図解を新規生成。参照画像は先生の同一性と承認済みPOP意匠の参照で、参照画像の添削広告文を複製しない。\n正確な日本語コピー：資格名「2級土木」、大見出し「自分の現場の事実で答える」、図解に必要な短い語「どんな現場条件だったか」「どんな危険があったか」「何を検討して、何をしたか」。コピーはこれらだけから選び、長い文は短い重要語に絞る。問題番号・架空の基準値・合格保証・商品価格・URL・ブランドは追加しない。\nこの場面の説明（理解の根拠。全文を画面に書かない）：自分の工事では、どんな条件で、どんな危険があり、何を検討して、何をしましたか。図の例をそのまま使わず、自分が経験した事実に戻しましょう。\n図解設計：文字カードや表の羅列ではなく、説明に出てくる具体的な現場、道具、記録、人物の行動を大きなイラストで示し、関係を矢印・囲み・対比で分かるようにする。実際の担当経験の説明であり仮例は仮例として扱う。場面の見出しが示す判断や関係を主役に、前後の場面とは異なる構図・行動を描く。\n意匠：緑・エメラルド・白・黄色、少量の赤。太い日本語文字に適度な縁取り、くっきりした輪郭、明るい教育用POP、斜めの色面と控えめな動線、白い情報パネル。図解は画面左〜中央の65%以上を大きく使う。先生は参照と同じ40代男性、黒髪・黒縁メガネ・薄いひげ・紺作業服・白シャツ・紺ネクタイ・黄色反射ベスト、無地白ヘルメット。右側で今回の図に合う自然な説明動作。手と機械の形は実物どおり。\n安全域：重要な文字と顔は上下左右5%以内に切れない。字幕は後から最下部に重ねるため、下端20%には文字・顔・重要な図を置かず背景だけを四辺まで連続させる（白い余白帯にはしない）。内容を上端80%に大きく配置し、小さな表や長文を詰め込まない。16:9全体を維持し、スマホ幅360pxでも見出しと矢印の意味が読める。",
+            "references": [
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/anzen-touan-gutaika-kaitei--question-raw.8aa0a05a.png",
+              "sha256": "8aa0a05a12183a9f01fe3f59aee21bbde2aee74dac62e28146dd09d915bdbd21",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T05:59:33.732Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/anzen-touan-gutaika-kaitei--question.30039f51.png",
+            "sha256": "30039f514fbeee44cad57514256960885b2e6c1b139365d0e0ddd750dfb6de9a",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "7ebcd2f9bc280e4a987e13372ce0f3edcca66e9f86ce90639ee8d6ce2d1b555c",
+          "sourceCopy": {
+            "kind": "figure",
+            "heading": "現場条件 → 課題 → 対策",
+            "items": [
+              "現場の条件を示す",
+              "防ぐべき危険を示す",
+              "その対策が必要な理由を示す"
+            ],
+            "src": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-001.d6f17a6d.png"
+          },
+          "narration": "まとめです。現場条件から課題を定め、対策へつなげる。対策の名前だけでなく、その現場で必要だった理由が伝わるかを確かめましょう。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 2級土木・安全管理のまとめ場面のPOP図解を修正する。画像1は修正対象、画像2は人物と意匠の参照。緑・黄・白、極太文字と同じ先生は維持。16:9 1920×1080。斜面崩壊・土砂崩れ・ブルーシート・排水ポンプの例はすべて削除し、説明中の同じ『狭いヤードで人と重機が接近する現場』で3段階を描く。左『現場条件』: 狭いヤードの場内図、バックホウの作業範囲の近くに人の通路がある。中央『課題』: 作業範囲と通路が近づき人と重機が接触する危険、赤い注意印。右『対策』: 柵や区画を設けて人の通路と重機作業範囲の動線を分ける。3枚は同じ地形・配置を引き継ぎ、右向きの太い矢印でつなぐ。通路へ機械の旋回範囲がはみ出す完成図にはしない。作業員を事故で転倒・負傷させず、危険の位置関係で説明。人物は右端で図を示す。正確な文字は『2級土木』『現場条件』『課題』『対策』『狭いヤード』『人と重機の接触』『動線を分ける』のみ。長文・商品広告・法定基準値・URLは追加しない。図と文字と人物の顔を上部80%へ収め、下20%は字幕のため緑系背景のみ続ける。字幕は画像に描かない。\n",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/anzen-touan-gutaika-kaitei--summary-raw.3581caaf.png",
+                "sha256": "3581caaf070ff56c1910e0d5ca47f7f04728f3bf527cfaea6144f3130ef4abed"
+              },
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/anzen-touan-gutaika-kaitei--summary-raw.0ee8b716.png",
+              "sha256": "0ee8b7168d8e203346e2052f84659311505be5921384e190a970cdbe843380ed",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T06:07:54.294Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/anzen-touan-gutaika-kaitei--summary.fa40969e.png",
+            "sha256": "fa40969e56b647e34f668de916a9d48fc61ad60d0f6e805ee52edc5b473b3e74",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "66316e291825b98b77724a8e14005a61069039944ec7a4eb4e76d56fa9fb8dec",
+          "sourceCopy": {
+            "kind": "cover",
+            "heading": "自分の経験に置き換えて練習",
+            "items": [
+              "施工経験記述 完成答案集",
+              "総監・元発注者・1級／2級土木合格者の視点",
+              "安全・品質・工程／置換ガイド",
+              "概要欄から確認"
+            ],
+            "src": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/cta.4a212462.png"
+          },
+          "narration": "元発注者・土木の合格者の視点を学習に活かす完成答案集です。安全・品質・工程の答案と置換ガイドで練習する際は、概要欄をご覧ください。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Asset: 2級土木施工管理技士の16:9通常動画、本文の1場面。1920×1080の一枚の完成POP図解を新規生成。参照画像は先生の同一性と承認済みPOP意匠の参照で、参照画像の添削広告文を複製しない。\n正確な日本語コピー：資格名「2級土木」、大見出し「自分の工事で答案づくり」、図解に必要な短い語「施工経験記述 完成答案集」「安全・品質・工程」「自分の経験に置き換えて練習」「概要欄から確認」。コピーはこれらだけから選び、長い文は短い重要語に絞る。問題番号・架空の基準値・合格保証・商品価格・URL・ブランドは追加しない。\nこの場面の説明（理解の根拠。全文を画面に書かない）：元発注者・土木の合格者の視点を学習に活かす完成答案集です。安全・品質・工程の答案と置換ガイドで練習する際は、概要欄をご覧ください。\n図解設計：文字カードや表の羅列ではなく、説明に出てくる具体的な現場、道具、記録、人物の行動を大きなイラストで示し、関係を矢印・囲み・対比で分かるようにする。実際の担当経験の説明であり仮例は仮例として扱う。先生が練習用の答案ノートと3テーマの冊子を紹介。答案の長文や架空の表紙文言は描かない。\n意匠：緑・エメラルド・白・黄色、少量の赤。太い日本語文字に適度な縁取り、くっきりした輪郭、明るい教育用POP、斜めの色面と控えめな動線、白い情報パネル。図解は画面左〜中央の65%以上を大きく使う。先生は参照と同じ40代男性、黒髪・黒縁メガネ・薄いひげ・紺作業服・白シャツ・紺ネクタイ・黄色反射ベスト、無地白ヘルメット。右側で今回の図に合う自然な説明動作。手と機械の形は実物どおり。\n安全域：重要な文字と顔は上下左右5%以内に切れない。字幕は後から最下部に重ねるため、下端20%には文字・顔・重要な図を置かず背景だけを四辺まで連続させる（白い余白帯にはしない）。内容を上端80%に大きく配置し、小さな表や長文を詰め込まない。16:9全体を維持し、スマホ幅360pxでも見出しと矢印の意味が読める。",
+            "references": [
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/common-cta-raw.dcf54f04.png",
+              "sha256": "dcf54f045c7c5aa4eaa10ade7b144b160dcb4728ae328c3ffe3e0a043fc78179",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T05:59:34.437Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/common-cta.4d5bba5e.png",
+            "sha256": "4d5bba5eeecb0c43f2ef98c12019ff609dfbf60b6b99f16a3415c2621e7724b8",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        }
+      ]
+    }
+  },
+  "activeBodyRevision": "body-scenes-20261018"
 }

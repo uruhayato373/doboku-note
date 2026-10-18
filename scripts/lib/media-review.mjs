@@ -118,10 +118,8 @@ export function nextCommands(pub, state) {
   return out;
 }
 
-/** 公開 1 件の画面の形 */
-function publicationView(root, pub, mediaById, driveManifest) {
-  const copy = resolveCopy(root, pub.copy);
-  const media = Object.entries(pub.media ?? {})
+function mediaViews(root, roles, mediaById, driveManifest) {
+  return Object.entries(roles)
     .map(([role, id]) => {
       const m = mediaById.get(id);
       if (!m) return { role, id, missingRow: true, availability: 'missing', src: null };
@@ -131,6 +129,12 @@ function publicationView(root, pub, mediaById, driveManifest) {
       };
     })
     .sort((a, b) => roleRank(a.role) - roleRank(b.role) || a.role.localeCompare(b.role));
+}
+
+/** 公開 1 件の画面の形 */
+function publicationView(root, pub, mediaById, driveManifest) {
+  const copy = resolveCopy(root, pub.copy);
+  const media = mediaViews(root, pub.media ?? {}, mediaById, driveManifest);
   const state = approvalState(root, pub, mediaById);
   const when = pub.publishAt ? jstDayTime(pub.publishAt) : null;
   return {
@@ -179,6 +183,7 @@ export function workView(root, exam, workId, opts = {}) {
     work: { id: work.id, exam, kind: work.kind, format: work.format ?? null, definition: work.definition, qa: work.qa ?? null, idException: work.idException ?? null },
     title: (main && resolveCopy(root, main.copy)?.title) ?? work.id,
     channels,
+    candidateMedia: mediaViews(root, Object.fromEntries(reg.media.filter(m => m.id.startsWith(`${exam}/${workId}/work/candidate-`)).map(m => [m.role.replace(/^candidate-/, ''), m.id])), mediaById, opts.driveManifest ?? null),
   };
 }
 

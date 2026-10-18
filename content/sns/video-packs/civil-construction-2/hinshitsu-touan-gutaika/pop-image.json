@@ -243,5 +243,687 @@
     "date": "2026-10-16",
     "source": "このチャットの運営者指示「次の2級土木『品質管理』を最新ルールで制作して、予約投稿まで進めてください。台帳と管理画面にも反映してください。」",
     "scope": "品質管理の制作・YouTube予約投稿・台帳・管理画面反映"
-  }
+  },
+  "activeCoverRevision": "cover-safe-20261018",
+  "revisions": {
+    "cover-safe-20261018": {
+      "version": "pop-poster-v3",
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "Edit the supplied finished Japanese YouTube cover into the next episode, keeping the EXACT SAME adult teacher identity, green pop-poster-v3 typography and illustrated background. One 16:9 landscape image intended 1920×1080. Change the topic text 安全管理 to 品質管理. Change main red text 答案を具体化 to 試験だけで終わらない. Keep subtitle 現場条件から書く. Keep top target label 2級土木, and separate yellow two-line credentials badge 総監・元発注者 / 1級・2級土木合格者. These six strings must appear exactly once, correct Japanese, no other text. Main headline 品質管理 in giant bold dark green with white/yellow outline; red second headline 試験だけで終わらない on TWO readable lines if needed. Keep author smaller than topic, same mature male, black short hair, black rectangular glasses, light beard, plain white helmet, navy workwear, natural five-finger hands holding red pen and answer sheet. No guarantees, URL, logo, prices, invented numbers or seals. Bold lettering fully legible at width360px. Recompose rather than cram text. Face and important letters inside6% edge margins. Every text string must be FULLY above y=80% of height; bottom20% only continuous illustrated green background and teacher torso, not a blank stripe. Keep reference's energetic but readable polished composition. This is quality management answer-writing guidance, not a construction test demonstration.",
+        "references": [
+          {
+            "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/cover.ba16defd.png",
+            "sha256": "ba16defd11a2f6732515f7540d635169e8ad52ae62366aa6be5268a8056e7032"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/cover.6d461a7d.png",
+          "sha256": "6d461a7d29270911cbdeb4202056e9196493c0cfbae69dad97c351c3257c8fe5"
+        }
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/cover-caption-safe.6c68d8d1.png",
+        "sha256": "6c68d8d193f4159551e8f057a799f009cce9ee556a2ceb0e8de4e3c1ee9add80",
+        "width": 1920,
+        "height": 1080
+      },
+      "layout": {
+        "subtitleSafeTop": 864
+      }
+    },
+    "body-scenes-20261018": {
+      "version": "codex-pop-body-v1",
+      "date": "2026-10-18",
+      "purpose": "ユーザー依頼による場面別POP図解と字幕安全域の修正。YouTube未反映。",
+      "images": [
+        {
+          "sceneId": "hook",
+          "inputSha256": "d2c1181c85ce6a262fee571bf6f4c22e3a9cc26bd5cd2a0fadcb8cd02f852e6a",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "品質管理は、3つをつなげる",
+            "items": [
+              "管理項目：何を管理したか",
+              "現場条件：なぜ必要だったか",
+              "確認方法：どう確かめたか"
+            ]
+          },
+          "narration": "「試験をした」だけで終わっていませんか。管理項目、現場条件、確認方法をつなげます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Asset: 2級土木施工管理技士の16:9通常動画、本文の1場面。1920×1080の一枚の完成POP図解を新規生成。参照画像は先生の同一性と承認済みPOP意匠の参照で、参照画像の添削広告文を複製しない。\n正確な日本語コピー：資格名「2級土木」、大見出し「品質管理は、3つをつなげる」、図解に必要な短い語「管理項目：何を管理したか」「現場条件：なぜ必要だったか」「確認方法：どう確かめたか」。コピーはこれらだけから選び、長い文は短い重要語に絞る。問題番号・架空の基準値・合格保証・商品価格・URL・ブランドは追加しない。\nこの場面の説明（理解の根拠。全文を画面に書かない）：「試験をした」だけで終わっていませんか。管理項目、現場条件、確認方法をつなげます。\n図解設計：文字カードや表の羅列ではなく、説明に出てくる具体的な現場、道具、記録、人物の行動を大きなイラストで示し、関係を矢印・囲み・対比で分かるようにする。実際の担当経験の説明であり仮例は仮例として扱う。場面の見出しが示す判断や関係を主役に、前後の場面とは異なる構図・行動を描く。\n意匠：緑・エメラルド・白・黄色、少量の赤。太い日本語文字に適度な縁取り、くっきりした輪郭、明るい教育用POP、斜めの色面と控えめな動線、白い情報パネル。図解は画面左〜中央の65%以上を大きく使う。先生は参照と同じ40代男性、黒髪・黒縁メガネ・薄いひげ・紺作業服・白シャツ・紺ネクタイ・黄色反射ベスト、無地白ヘルメット。右側で今回の図に合う自然な説明動作。手と機械の形は実物どおり。\n安全域：重要な文字と顔は上下左右5%以内に切れない。字幕は後から最下部に重ねるため、下端20%には文字・顔・重要な図を置かず背景だけを四辺まで連続させる（白い余白帯にはしない）。内容を上端80%に大きく配置し、小さな表や長文を詰め込まない。16:9全体を維持し、スマホ幅360pxでも見出しと矢印の意味が読める。",
+            "references": [
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--hook-raw.ed1f2244.png",
+              "sha256": "ed1f2244998e0eba9ac6c428e966e1bc4a667749b1207ec7023565cebd1aaa51",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T05:59:34.932Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--hook.7a70de33.png",
+            "sha256": "7a70de330036e717e13ecd98c24e0af66035d15a8d49efcca575ba7f0f65da33",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "authority",
+          "inputSha256": "edd2b22df7f1c1a63e4e67df1541cd013a3b60ee8dcc99a79265b70f9863db45",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "解説：架（かける）",
+            "items": [
+              "技術士（総合技術監理部門）",
+              "元・地方自治体の土木職（発注者）",
+              "1級・2級土木施工管理技士 合格"
+            ]
+          },
+          "narration": "総合技術監理部門の技術士で、1級・2級土木に合格した元発注者が、書く視点を解説します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Asset: 2級土木施工管理技士の16:9通常動画、本文の1場面。1920×1080の一枚の完成POP図解を新規生成。参照画像は先生の同一性と承認済みPOP意匠の参照で、参照画像の添削広告文を複製しない。\n正確な日本語コピー：資格名「2級土木」、大見出し「総監・元発注者が解説」、図解に必要な短い語「技術士（総合技術監理部門）」「元・地方自治体の土木職」「1級・2級土木施工管理技士 合格」。コピーはこれらだけから選び、長い文は短い重要語に絞る。問題番号・架空の基準値・合格保証・商品価格・URL・ブランドは追加しない。\nこの場面の説明（理解の根拠。全文を画面に書かない）：総合技術監理部門の技術士で、1級・2級土木に合格した元発注者が、書く順序を解説します。\n図解設計：文字カードや表の羅列ではなく、説明に出てくる具体的な現場、道具、記録、人物の行動を大きなイラストで示し、関係を矢印・囲み・対比で分かるようにする。実際の担当経験の説明であり仮例は仮例として扱う。先生が現場経験と資格の3つのカードを紹介。架空の資格証書や印影は描かない。\n意匠：緑・エメラルド・白・黄色、少量の赤。太い日本語文字に適度な縁取り、くっきりした輪郭、明るい教育用POP、斜めの色面と控えめな動線、白い情報パネル。図解は画面左〜中央の65%以上を大きく使う。先生は参照と同じ40代男性、黒髪・黒縁メガネ・薄いひげ・紺作業服・白シャツ・紺ネクタイ・黄色反射ベスト、無地白ヘルメット。右側で今回の図に合う自然な説明動作。手と機械の形は実物どおり。\n安全域：重要な文字と顔は上下左右5%以内に切れない。字幕は後から最下部に重ねるため、下端20%には文字・顔・重要な図を置かず背景だけを四辺まで連続させる（白い余白帯にはしない）。内容を上端80%に大きく配置し、小さな表や長文を詰め込まない。16:9全体を維持し、スマホ幅360pxでも見出しと矢印の意味が読める。",
+            "references": [
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/common-authority-raw.9dcdedbb.png",
+              "sha256": "9dcdedbbb9b61c692d1b310a0ef006dcb0c73a2daaddd6eb91b4f52a6a5d71b4",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T05:59:34.264Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/common-authority.81ffac47.png",
+            "sha256": "81ffac4725349b9306ac1fde7ff8edabbfb479b5a56a7477a0acc18e5f883965",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "premise",
+          "inputSha256": "f1b6b6dea01fdc868edf1333ff1a6637af907fe600cf21650fe705869996aa56",
+          "sourceCopy": {
+            "kind": "compare",
+            "heading": "試験名の前に、目的を整理",
+            "ngLabel": "名前だけ",
+            "okLabel": "目的まで",
+            "rows": [
+              {
+                "ng": "試験を実施した",
+                "ok": "何を、なぜ確かめたか"
+              }
+            ]
+          },
+          "narration": "試験の名前だけでは、何の品質を、なぜ確かめたのかが伝わりません。ここからは、考え方の例です。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Asset: 2級土木施工管理技士の16:9通常動画、本文の1場面。1920×1080の一枚の完成POP図解を新規生成。参照画像は先生の同一性と承認済みPOP意匠の参照で、参照画像の添削広告文を複製しない。\n正確な日本語コピー：資格名「2級土木」、大見出し「試験名の前に、目的を整理」、図解に必要な短い語「試験を実施した」「何を、なぜ確かめたか」。コピーはこれらだけから選び、長い文は短い重要語に絞る。問題番号・架空の基準値・合格保証・商品価格・URL・ブランドは追加しない。\nこの場面の説明（理解の根拠。全文を画面に書かない）：試験の名前だけでは、何の品質を、なぜ確かめたのかが伝わりません。ここからは、考え方の例です。\n図解設計：文字カードや表の羅列ではなく、説明に出てくる具体的な現場、道具、記録、人物の行動を大きなイラストで示し、関係を矢印・囲み・対比で分かるようにする。実際の担当経験の説明であり仮例は仮例として扱う。場面の見出しが示す判断や関係を主役に、前後の場面とは異なる構図・行動を描く。\n意匠：緑・エメラルド・白・黄色、少量の赤。太い日本語文字に適度な縁取り、くっきりした輪郭、明るい教育用POP、斜めの色面と控えめな動線、白い情報パネル。図解は画面左〜中央の65%以上を大きく使う。先生は参照と同じ40代男性、黒髪・黒縁メガネ・薄いひげ・紺作業服・白シャツ・紺ネクタイ・黄色反射ベスト、無地白ヘルメット。右側で今回の図に合う自然な説明動作。手と機械の形は実物どおり。\n安全域：重要な文字と顔は上下左右5%以内に切れない。字幕は後から最下部に重ねるため、下端20%には文字・顔・重要な図を置かず背景だけを四辺まで連続させる（白い余白帯にはしない）。内容を上端80%に大きく配置し、小さな表や長文を詰め込まない。16:9全体を維持し、スマホ幅360pxでも見出しと矢印の意味が読める。",
+            "references": [
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--premise-raw.959e5f1d.png",
+              "sha256": "959e5f1dfd6bb3b238b740cfb699b7ea02ccf642bf000408288997d8ab4c9261",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T05:59:35.418Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--premise.7b6ae0f0.png",
+            "sha256": "7b6ae0f081f051a6b4fd3dc3556fe1437de225c91aad72c1f7469a3c0df2df08",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "quality-item",
+          "inputSha256": "a8f50b0e8a7f15790cc8212b5c72c34ff0580b43362420432e49a504ea6026d9",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "何を管理するか：打込み時の温度",
+            "sheetTitle": "考え方の整理例",
+            "rows": [
+              {
+                "label": "管理項目",
+                "value": "打込み時の温度",
+                "state": "focus",
+                "order": 1
+              },
+              {
+                "label": "現場条件",
+                "value": "夏季の運搬・待機",
+                "state": "todo",
+                "order": 2
+              },
+              {
+                "label": "検討と処置",
+                "value": "搬入間隔と待機時間",
+                "state": "todo",
+                "order": 3
+              },
+              {
+                "label": "確認方法",
+                "value": "温度測定と管理値の照合",
+                "state": "todo",
+                "order": 4
+              }
+            ]
+          },
+          "narration": "まず、管理する項目を決めます。夏のコンクリート施工を例に、打ち込むときのコンクリート温度に注目します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Asset: 2級土木施工管理技士の16:9通常動画、本文の1場面。1920×1080の一枚の完成POP図解を新規生成。参照画像は先生の同一性と承認済みPOP意匠の参照で、参照画像の添削広告文を複製しない。\n正確な日本語コピー：資格名「2級土木」、大見出し「何を管理するか：打込み時の温度」、図解に必要な短い語「管理項目」「打込み時の温度」「現場条件」「夏季の運搬・待機」。コピーはこれらだけから選び、長い文は短い重要語に絞る。問題番号・架空の基準値・合格保証・商品価格・URL・ブランドは追加しない。\nこの場面の説明（理解の根拠。全文を画面に書かない）：まず、管理する項目を決めます。夏のコンクリート施工を例に、打ち込むときのコンクリート温度に注目します。\n図解設計：文字カードや表の羅列ではなく、説明に出てくる具体的な現場、道具、記録、人物の行動を大きなイラストで示し、関係を矢印・囲み・対比で分かるようにする。実際の担当経験の説明であり仮例は仮例として扱う。場面の見出しが示す判断や関係を主役に、前後の場面とは異なる構図・行動を描く。\n意匠：緑・エメラルド・白・黄色、少量の赤。太い日本語文字に適度な縁取り、くっきりした輪郭、明るい教育用POP、斜めの色面と控えめな動線、白い情報パネル。図解は画面左〜中央の65%以上を大きく使う。先生は参照と同じ40代男性、黒髪・黒縁メガネ・薄いひげ・紺作業服・白シャツ・紺ネクタイ・黄色反射ベスト、無地白ヘルメット。右側で今回の図に合う自然な説明動作。手と機械の形は実物どおり。\n安全域：重要な文字と顔は上下左右5%以内に切れない。字幕は後から最下部に重ねるため、下端20%には文字・顔・重要な図を置かず背景だけを四辺まで連続させる（白い余白帯にはしない）。内容を上端80%に大きく配置し、小さな表や長文を詰め込まない。16:9全体を維持し、スマホ幅360pxでも見出しと矢印の意味が読める。",
+            "references": [
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--quality-item-raw.4f1de5b5.png",
+              "sha256": "4f1de5b56b8a43537d29bbfe5fb718e469ddb2d22941ffdc88e342f358aaf8ab",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T05:59:35.582Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--quality-item.15558783.png",
+            "sha256": "1555878330501721e328e0fef49fa6a923a4f02c8d7d75c8c2f7579e518da3fa",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "condition",
+          "inputSha256": "1312a626deb8472e6c01fc54e67daed9e20f3bdb7dc59262efa3dbff57ab3aa8",
+          "sourceCopy": {
+            "kind": "figure",
+            "heading": "考え方の例：夏季のコンクリート",
+            "src": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/body-reference.b0295ab0.png"
+          },
+          "narration": "次に、現場条件です。夏の暑さに加え、運搬や待機で温度が上がるおそれを、管理が必要な理由につなげます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Asset: 2級土木施工管理技士の16:9通常動画、本文の1場面。1920×1080の一枚の完成POP図解を新規生成。参照画像は先生の同一性と承認済みPOP意匠の参照で、参照画像の添削広告文を複製しない。\n正確な日本語コピー：資格名「2級土木」、大見出し「考え方の例：夏季のコンクリート」、図解に必要な短い語「」。コピーはこれらだけから選び、長い文は短い重要語に絞る。問題番号・架空の基準値・合格保証・商品価格・URL・ブランドは追加しない。\nこの場面の説明（理解の根拠。全文を画面に書かない）：次に、現場条件です。夏の暑さに加え、運搬や待機で温度が上がるおそれを、管理が必要な理由につなげます。\n図解設計：文字カードや表の羅列ではなく、説明に出てくる具体的な現場、道具、記録、人物の行動を大きなイラストで示し、関係を矢印・囲み・対比で分かるようにする。実際の担当経験の説明であり仮例は仮例として扱う。場面の見出しが示す判断や関係を主役に、前後の場面とは異なる構図・行動を描く。\n意匠：緑・エメラルド・白・黄色、少量の赤。太い日本語文字に適度な縁取り、くっきりした輪郭、明るい教育用POP、斜めの色面と控えめな動線、白い情報パネル。図解は画面左〜中央の65%以上を大きく使う。先生は参照と同じ40代男性、黒髪・黒縁メガネ・薄いひげ・紺作業服・白シャツ・紺ネクタイ・黄色反射ベスト、無地白ヘルメット。右側で今回の図に合う自然な説明動作。手と機械の形は実物どおり。\n安全域：重要な文字と顔は上下左右5%以内に切れない。字幕は後から最下部に重ねるため、下端20%には文字・顔・重要な図を置かず背景だけを四辺まで連続させる（白い余白帯にはしない）。内容を上端80%に大きく配置し、小さな表や長文を詰め込まない。16:9全体を維持し、スマホ幅360pxでも見出しと矢印の意味が読める。",
+            "references": [
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--condition-raw.98924019.png",
+              "sha256": "989240195b9e6c3663ae871ebf0d70d2d4efd0b8a9b4f337d5fd1aea39a8d44d",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T05:59:34.769Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--condition.0864f83f.png",
+            "sha256": "0864f83f379ab04bcf657a13ea1af0c1188e680cfe78d4804ed9ccab30755b20",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "measure",
+          "inputSha256": "2e9cb41caf242ff4b18759133918231c97debb4489525fb7542d635bc65880d2",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "なぜ、その段取りにしたか",
+            "sheetTitle": "考え方の整理例",
+            "rows": [
+              {
+                "label": "管理項目",
+                "value": "打込み時の温度",
+                "state": "done",
+                "order": 1
+              },
+              {
+                "label": "現場条件",
+                "value": "夏季の運搬・待機",
+                "state": "done",
+                "order": 2
+              },
+              {
+                "label": "検討と処置",
+                "value": "搬入間隔と待機時間",
+                "state": "focus",
+                "order": 3
+              },
+              {
+                "label": "確認方法",
+                "value": "温度測定と管理値の照合",
+                "state": "todo",
+                "order": 4
+              }
+            ]
+          },
+          "narration": "そこで、打込みの進み具合に合う搬入間隔を検討します。待機を減らす段取りと、実際に実施した処置を整理します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付1は修正対象、添付2は同一人物とPOP意匠の参照。16:9、1920×1080。緑・白・黄色、少量赤、太い縁取りの大きな日本語、2級土木の教育用POP図解を制作。先生は参照と同じ黒髪・黒縁眼鏡・薄いひげ・紺作業服・白シャツ・紺ネクタイ・黄色反射ベスト・無地白ヘルメット。\n修正後の図: 夏季の生コンクリートの搬入計画。左はミキサ車が連続到着して長く待機する列、中央は到着予定を相談して搬入間隔を調整する担当者、右は順番に搬入し待機を減らす図。時計は文字盤と針のみで数字を描かない。温度計はこの場面では一切描かない。人を増やしたら温度が下がるという図にはしない。\nこの場面のナレーション（全文を画像に書かない）: そこで、打込みの進み具合に合う搬入間隔を検討します。待機を減らす段取りと、実際に実施した処置を整理します。\n正確に描いてよい文字は「2級土木」「なぜ、その段取りにしたか」「搬入間隔」「待機時間」「打込み時の温度」のみ。紙・ノート・計器・車両の小さな擬似文字は描かず、無文字の罫線・丸・チェックだけにする。架空の管理基準値・数字は一切追加しない。人物・図・主要文字を上部80%へ大きく配置し、下端20%は背景のみ。長文や表の羅列でなく、場面の行動と対象が理解できる具体的な図。文字・顔・手指を切らない。",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--measure-raw.fa93b8de.png",
+                "sha256": "fa93b8defcc289aea5146f23451672d1a73e0c1df9799564225a0ba514a7ae64"
+              },
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--measure-raw.0f74171b.png",
+              "sha256": "0f74171bd65d946692cae1ae72d04dc49c676660c24c75950176d0fc6e27f931",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T06:23:29.282Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--measure.ddef908c.png",
+            "sha256": "ddef908c2a091a688e2f8b7f8b42cfad25abd1fc9c43d3c4f1e08ac5f5f65b38",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "verify-method",
+          "inputSha256": "c688cb884b17cd274ee38408bb5def51d7b228567954a82e848ad46ee67d0bbd",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "何を測り、何と比べるか",
+            "sheetTitle": "考え方の整理例",
+            "rows": [
+              {
+                "label": "管理項目",
+                "value": "打込み時の温度",
+                "state": "done",
+                "order": 1
+              },
+              {
+                "label": "現場条件",
+                "value": "夏季の運搬・待機",
+                "state": "done",
+                "order": 2
+              },
+              {
+                "label": "検討と処置",
+                "value": "搬入間隔と待機時間",
+                "state": "done",
+                "order": 3
+              },
+              {
+                "label": "確認方法",
+                "value": "温度測定と管理値の照合",
+                "state": "focus",
+                "order": 4
+              }
+            ]
+          },
+          "narration": "そして、確認方法です。この例なら、打ち込むときのコンクリート温度を測り、管理値と照合するところまでつなげます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付1は修正対象、添付2は同一人物とPOP意匠の参照。16:9、1920×1080。緑・白・黄色、少量赤、太い縁取りの大きな日本語、2級土木の教育用POP図解を制作。先生は参照と同じ黒髪・黒縁眼鏡・薄いひげ・紺作業服・白シャツ・紺ネクタイ・黄色反射ベスト・無地白ヘルメット。\n修正後の図: 同じコンクリートの温度を接触式の挿入プローブで測る。プローブ先端はコンクリート試料へ入る。赤外線ガンは使わない。機器の表示は数字を描かず無地。測定結果を記録する紙と、管理値を記す仕様書を並べ、両方を比較する両向き矢印。\nこの場面のナレーション（全文を画像に書かない）: そして、確認方法です。この例なら、打ち込むときのコンクリート温度を測り、管理値と照合するところまでつなげます。\n正確に描いてよい文字は「2級土木」「何を測り、何と比べるか」「測定結果」「管理値」「照合」のみ。紙・ノート・計器・車両の小さな擬似文字は描かず、無文字の罫線・丸・チェックだけにする。架空の管理基準値・数字は一切追加しない。人物・図・主要文字を上部80%へ大きく配置し、下端20%は背景のみ。長文や表の羅列でなく、場面の行動と対象が理解できる具体的な図。文字・顔・手指を切らない。",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--verify-method-raw.c97267a5.png",
+                "sha256": "c97267a506527b609466dd1826f573f9ef9ae54a428b07e9c3108bfbb994aae0"
+              },
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--verify-method-raw.51e76f32.png",
+              "sha256": "51e76f32b8c2053183675d938628a970d25b3e212c5fa1979c69fc4af420161c",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T06:23:29.445Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--verify-method.b0041445.png",
+            "sha256": "b00414453d1bae60298de77c4802a1945d898dfbd124831a096010b88c1ca062",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "verify-record",
+          "inputSha256": "f7780b9dd84acef86754b6593eb2a4f3f109993141c0faba1f5e2ecbfbb694c9",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "数字は、自分の工事の記録から",
+            "items": [
+              "仕様書・施工計画：管理値と確認方法",
+              "試験・測定記録：実際の結果",
+              "経験した事実に合わせて書く"
+            ],
+            "reveal": 2
+          },
+          "narration": "管理値や測定の時期・頻度は、自分の工事の仕様書と施工計画を確認します。実際の測定結果も、記録から確かめます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Make a minimal local cleanup of the attached finished image. Preserve every large Japanese heading, diagram, layout, teacher face, hands, clothing, colors and meaning EXACTLY. Only remove the following unwanted tiny glyphs: 現行output 60eff01cを原寸・360pxで実検査。夏季コンクリートの温度測定と仕様書・記録の対応は修正されたが、左の仕様書表の列見出しと右の測定記録の青いヘッダーに読めない擬似文字が残る；見出し帯の指定文字は残し、表内ヘッダーの擬似文字だけを無地にする必要がある。. All small document table headers/body and vehicle license plates/bumpers must have NO WRITING, NO LETTERS, NO DIGITS. Replace those specific tiny writing areas with smooth blank paper, straight horizontal ruled lines or plain truck metal. Keep the large existing labels unchanged and sharp. Do not invent new text, do not recreate or redesign the image. This is exact image editing, not a new illustration. Return a single full landscape image with all current elements intact except those tiny glyphs removed.",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--verify-record-raw.74bd1059.png",
+                "sha256": "74bd10592784db33ccaf1bef0cdbc2718e9fae4a719dc96b230054553b19d1fc"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--verify-record-raw.b64263e1.png",
+              "sha256": "b64263e1be15c07305f369f62626b9d3db2ea7e5a52970053024456d4222ac73",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T06:39:18.138Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--verify-record.b26a83f5.png",
+            "sha256": "b26a83f5514a41e112bd63321fb4a2a5197d58748f61ec4004ce56d8ffc4ec18",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "compare",
+          "inputSha256": "b5bfa0c61ea50ee3200eb5ce60c4e3112efbde89b0821f8c48845f6e8572dca2",
+          "sourceCopy": {
+            "kind": "compare",
+            "heading": "測定の報告から、管理の説明へ",
+            "ngLabel": "行動だけ",
+            "okLabel": "つながりを示す",
+            "rows": [
+              {
+                "label": "例",
+                "ng": "温度を測った",
+                "ok": "打込み時の温度\n夏季の運搬・待機\n測定して管理値と照合"
+              }
+            ]
+          },
+          "narration": "「温度を測った」から一歩進めて、何を管理し、なぜ必要で、どう確かめたか。3つがつながるかを見直しましょう。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Make a minimal local cleanup of the attached finished image. Preserve every large Japanese heading, diagram, layout, teacher face, hands, clothing, colors and meaning EXACTLY. Only remove the following unwanted tiny glyphs: 現行output 15cf6673を原寸・360pxで実検査。接触式プローブと管理値との照合は修正されたが、右下の記録用紙の列見出しに擬似文字が残る；列見出しを無文字の罫線へ変更する必要がある。. All small document table headers/body and vehicle license plates/bumpers must have NO WRITING, NO LETTERS, NO DIGITS. Replace those specific tiny writing areas with smooth blank paper, straight horizontal ruled lines or plain truck metal. Keep the large existing labels unchanged and sharp. Do not invent new text, do not recreate or redesign the image. This is exact image editing, not a new illustration. Return a single full landscape image with all current elements intact except those tiny glyphs removed.",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--compare-raw.2119b235.png",
+                "sha256": "2119b2356abe9cd4465929d2b3f6d6465824d184a25ebf0907382b06748c4592"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--compare-raw.c36fd514.png",
+              "sha256": "c36fd514bf44365c3e04d73169a8d3c09ae9b99b323e12758672f9c830ef8d61",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T06:39:18.321Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--compare.dcc1f01a.png",
+            "sha256": "dcc1f01ac0ad946378c586b0195e3085b6b4287bff606bbe9e8e410cc9b92b59",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "own-work",
+          "inputSha256": "92ddac92d8bb5a05f9a5529becf9a7345bede246b79961f72705c27a6db4aa5d",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "自分の工事で、3つを埋める",
+            "sheetTitle": "経験した事実の整理欄",
+            "rows": [
+              {
+                "label": "管理項目",
+                "value": "何を管理したか",
+                "state": "focus"
+              },
+              {
+                "label": "現場条件",
+                "value": "なぜ必要だったか",
+                "state": "todo"
+              },
+              {
+                "label": "確認方法",
+                "value": "何を測り、何と比べたか",
+                "state": "todo"
+              }
+            ]
+          },
+          "narration": "自分の工事では、品質を左右する条件は何でしたか。例を写さず、検討したこと、実施した処置、確認結果を結びます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Make a minimal local cleanup of the attached finished image. Preserve every large Japanese heading, diagram, layout, teacher face, hands, clothing, colors and meaning EXACTLY. Only remove the following unwanted tiny glyphs: 現行output 35c34544を原寸・360pxで実検査。管理項目・現場条件・確認方法の3パネルと接触式プローブへの修正は確認したが、中央ミキサ車の後部上側の横桁に指示にない数字状の擬似文字が残る；当該小銘板を無地にする必要がある。. All small document table headers/body and vehicle license plates/bumpers must have NO WRITING, NO LETTERS, NO DIGITS. Replace those specific tiny writing areas with smooth blank paper, straight horizontal ruled lines or plain truck metal. Keep the large existing labels unchanged and sharp. Do not invent new text, do not recreate or redesign the image. This is exact image editing, not a new illustration. Return a single full landscape image with all current elements intact except those tiny glyphs removed.",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--own-work-raw.7c200468.png",
+                "sha256": "7c2004682d06052102a5a82db971e7f0da58f5e7efae013ea821c6d9df3a46a7"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--own-work-raw.a32a9a6c.png",
+              "sha256": "a32a9a6cf58f1915b6e096739c6fa37d1108b0e2a8caafb437b51ee70803ffb5",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T06:39:18.524Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--own-work.c564bbac.png",
+            "sha256": "c564bbaccceb56b7d5890903581f781161358faf956d09995daef83452d4dc4e",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "593edbfe5f6deae892b3adbb675d4c5499388d7b0c7a20f914b7cd85b43b1362",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "品質管理の具体化：3つのつながり",
+            "items": [
+              "何を管理したか",
+              "なぜ必要だったか",
+              "どう確かめ、何が分かったか"
+            ],
+            "reveal": 3,
+            "focus": 2
+          },
+          "narration": "まとめです。管理項目、現場条件、確認方法をつなげる。「試験をした」で終わらず、必要な理由と確認結果を示します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Asset: 2級土木施工管理技士の16:9通常動画、本文の1場面。1920×1080の一枚の完成POP図解を新規生成。参照画像は先生の同一性と承認済みPOP意匠の参照で、参照画像の添削広告文を複製しない。\n正確な日本語コピー：資格名「2級土木」、大見出し「品質管理の具体化：3つのつながり」、図解に必要な短い語「何を管理したか」「なぜ必要だったか」「どう確かめ、何が分かったか」。コピーはこれらだけから選び、長い文は短い重要語に絞る。問題番号・架空の基準値・合格保証・商品価格・URL・ブランドは追加しない。\nこの場面の説明（理解の根拠。全文を画面に書かない）：まとめです。管理項目、現場条件、確認方法をつなげる。「試験をした」で終わらず、必要な理由と確認結果を示します。\n図解設計：文字カードや表の羅列ではなく、説明に出てくる具体的な現場、道具、記録、人物の行動を大きなイラストで示し、関係を矢印・囲み・対比で分かるようにする。実際の担当経験の説明であり仮例は仮例として扱う。場面の見出しが示す判断や関係を主役に、前後の場面とは異なる構図・行動を描く。\n意匠：緑・エメラルド・白・黄色、少量の赤。太い日本語文字に適度な縁取り、くっきりした輪郭、明るい教育用POP、斜めの色面と控えめな動線、白い情報パネル。図解は画面左〜中央の65%以上を大きく使う。先生は参照と同じ40代男性、黒髪・黒縁メガネ・薄いひげ・紺作業服・白シャツ・紺ネクタイ・黄色反射ベスト、無地白ヘルメット。右側で今回の図に合う自然な説明動作。手と機械の形は実物どおり。\n安全域：重要な文字と顔は上下左右5%以内に切れない。字幕は後から最下部に重ねるため、下端20%には文字・顔・重要な図を置かず背景だけを四辺まで連続させる（白い余白帯にはしない）。内容を上端80%に大きく配置し、小さな表や長文を詰め込まない。16:9全体を維持し、スマホ幅360pxでも見出しと矢印の意味が読める。",
+            "references": [
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--summary-raw.786a29bb.png",
+              "sha256": "786a29bb95d88fdf21757b707469ed2d320519b72af69b74a00e7f54539fa7fd",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T05:59:35.751Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--summary.2f48f3c2.png",
+            "sha256": "2f48f3c2acd8c0604dc08ddf2b384990230925ec6dcef3b8701d1fd9ac4abb07",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "2362a1c6b4609bccf686758b3f46917f531c60e78c61e9a67d154cd5df0011ea",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "自分の工事に置き換えて練習",
+            "items": [
+              "2級土木 施工経験記述 完成答案集",
+              "品質・安全・工程の完成答案＋置換ガイド",
+              "概要欄のnoteマガジンへ"
+            ]
+          },
+          "narration": "元発注者・土木の合格者の視点で学ぶ完成答案集です。品質・安全・工程の答案と置換ガイドは、概要欄をご覧ください。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Asset: 2級土木施工管理技士の16:9通常動画、本文の1場面。1920×1080の一枚の完成POP図解を新規生成。参照画像は先生の同一性と承認済みPOP意匠の参照で、参照画像の添削広告文を複製しない。\n正確な日本語コピー：資格名「2級土木」、大見出し「自分の工事で答案づくり」、図解に必要な短い語「施工経験記述 完成答案集」「安全・品質・工程」「自分の経験に置き換えて練習」「概要欄から確認」。コピーはこれらだけから選び、長い文は短い重要語に絞る。問題番号・架空の基準値・合格保証・商品価格・URL・ブランドは追加しない。\nこの場面の説明（理解の根拠。全文を画面に書かない）：元発注者・土木の合格者の視点を学習に活かす完成答案集です。安全・品質・工程の答案と置換ガイドで練習する際は、概要欄をご覧ください。\n図解設計：文字カードや表の羅列ではなく、説明に出てくる具体的な現場、道具、記録、人物の行動を大きなイラストで示し、関係を矢印・囲み・対比で分かるようにする。実際の担当経験の説明であり仮例は仮例として扱う。先生が練習用の答案ノートと3テーマの冊子を紹介。答案の長文や架空の表紙文言は描かない。\n意匠：緑・エメラルド・白・黄色、少量の赤。太い日本語文字に適度な縁取り、くっきりした輪郭、明るい教育用POP、斜めの色面と控えめな動線、白い情報パネル。図解は画面左〜中央の65%以上を大きく使う。先生は参照と同じ40代男性、黒髪・黒縁メガネ・薄いひげ・紺作業服・白シャツ・紺ネクタイ・黄色反射ベスト、無地白ヘルメット。右側で今回の図に合う自然な説明動作。手と機械の形は実物どおり。\n安全域：重要な文字と顔は上下左右5%以内に切れない。字幕は後から最下部に重ねるため、下端20%には文字・顔・重要な図を置かず背景だけを四辺まで連続させる（白い余白帯にはしない）。内容を上端80%に大きく配置し、小さな表や長文を詰め込まない。16:9全体を維持し、スマホ幅360pxでも見出しと矢印の意味が読める。",
+            "references": [
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/common-cta-raw.dcf54f04.png",
+              "sha256": "dcf54f045c7c5aa4eaa10ade7b144b160dcb4728ae328c3ffe3e0a043fc78179",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T05:59:34.437Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/common-cta.4d5bba5e.png",
+            "sha256": "4d5bba5eeecb0c43f2ef98c12019ff609dfbf60b6b99f16a3415c2621e7724b8",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        }
+      ]
+    }
+  },
+  "activeBodyRevision": "body-scenes-20261018"
 }

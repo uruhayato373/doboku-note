@@ -2906,6 +2906,370 @@
         "receiptScope": "pop-soil-shorts-fullbleed-20261012-930320f6-final",
         "cleanupTaskId": "DN-0698"
       }
+    },
+    "body-scenes-20261018": {
+      "version": "codex-pop-body-v1",
+      "date": "2026-10-18",
+      "purpose": "ユーザー依頼による場面別POP図解と字幕安全域の修正。YouTube未反映。",
+      "images": [
+        {
+          "sceneId": "premise",
+          "inputSha256": "10e39c9bc819850558178435e743c0ba51432af420823306f3881b8042eb9c73",
+          "sourceCopy": {
+            "heading": "誤解：範囲が広いから満遍なく覚える",
+            "items": [
+              "出題は用語と概念の対応が中心",
+              "計算は土量変化率のLとCに集中"
+            ]
+          },
+          "narration": "満遍なく覚えようとすると遠回りです。実際は用語の対応関係と、土量変化率の計算パターンに出題が集中しています。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "2級土木学習動画のpremise画像。参照先生と同一人物、白緑黄、大きな正確な日本語、横16:9、外周8%下端16%安全域。タイトル『土工は「優先順位」で学ぶ』、文言『① 用語と概念を対応づける／② L・Cの計算を練習』。先生は地図を持って学習ルートを案内。大きな2段階の道筋図。細かい新事実不要。指定外コピーを増やさない。顔は黒髪眼鏡短いひげ青作業服、文字と顔が重ならない。360pxで主題と内容を読める。",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.longform/cover.659cd571.png",
+                "sha256": "659cd5716340bd9914ea2eadf2fde97ff3b049ac8d5b989bb2f5e6e641320fc7"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/work/generation-premise-20261012-v1.6cab600c.png",
+              "sha256": "6cab600cda238054b4709c1044b6cc85de6c89c8fd4e82e50b9f366e0f8fdf69"
+            },
+            "generatedAt": "2026-10-11T15:36:44.810Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/work/body-premise.ba7a025f.png",
+            "sha256": "ba7a025f4377683a855639c783893abe2edd5e3921ec6a2b2daf4df9aac14ced",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "overview",
+          "inputSha256": "418e63b29fc58b30aef641bd7f4331d2f7348d8cd758313a4f38406a7a65792b",
+          "sourceCopy": {
+            "heading": "土工の4テーマ",
+            "items": [
+              "① 土質試験",
+              "② 土量変化率 L・C",
+              "③ 盛土と締固め",
+              "④ のり面・軟弱地盤"
+            ]
+          },
+          "narration": "扱うのは4テーマ。土質試験、土量変化率、盛土と締固め、のり面と軟弱地盤です。この順に押さえます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付の2級土木・土工の4テーマ紹介画像を修正。四つのカードと文言、先生、構図、緑黄のPOP意匠は維持。右下『④ のり面・軟弱地盤』の排水図で、青い矢印が下向きになっているので必ず上向きに直す。地盤から上の砂層へ排水する方向。図の余分な上下線やあいまいな矢印を足さない。外周8%下端16%安全域。文字は正確に同じ。",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.longform/cover.659cd571.png",
+                "sha256": "659cd5716340bd9914ea2eadf2fde97ff3b049ac8d5b989bb2f5e6e641320fc7"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/work/generation-overview-20261012-v2.2a5cb40e.png",
+              "sha256": "2a5cb40e3ce89ab01799aba120bf2b5dfd8f34a23eb7c2069a4dd5ec0b992648"
+            },
+            "generatedAt": "2026-10-11T15:39:27.843Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/work/body-overview.269ab74c.png",
+            "sha256": "269ab74c34a8bece1cbfca3c4ad27393df250d9807ee01437bd8c11e34dc94c9",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "block1",
+          "inputSha256": "c6d425461b9efa7882b208008b9cc2a9a406f2213a9f795fbba0d9dd73a55ef6",
+          "sourceCopy": {
+            "heading": "STEP1 土質試験は目的で覚える",
+            "items": [
+              "標準貫入試験→N値（地盤の硬さ）",
+              "平板載荷試験→支持力",
+              "現場CBR試験→路床・路盤の支持力"
+            ]
+          },
+          "narration": "まず土質試験です。原位置試験と室内試験に分け、試験名と分かることを対で覚えます。標準貫入試験はエヌ値、つまり地盤の硬さの指標を求めます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付の学習画像を修正。横16:9、2級土木、同一人物・白緑黄の意匠を保持。文字と図を別領域、外周8%下端16%安全域。技術的に不正確で小さい試験機器の詳細図を全て除去。3対応だけを大きく明快に表示。標準貫入試験→N値、平板載荷試験→支持力、現場CBR試験→支持力。補助図はそれぞれ独立した大きなアイコン（地盤の硬さ、地盤へ荷重、道路の路床）だけとし、架空の配管や計器や測定原理を描かない。指定外の63.5kg76cm30cm2.5mm5mmなど細字は全て削除。同一先生の指示棒ポーズ維持。",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.longform/cover.659cd571.png",
+                "sha256": "659cd5716340bd9914ea2eadf2fde97ff3b049ac8d5b989bb2f5e6e641320fc7"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/work/generation-block1-20261012-v2.4c13ee08.png",
+              "sha256": "4c13ee08d701b30525a5b0d6e6b523d74c86ee34506ff48bab2fb9c139e90219"
+            },
+            "generatedAt": "2026-10-11T15:35:44.789Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/work/body-block1.3c5151af.png",
+            "sha256": "3c5151aff89065fb0c82fdaea9d3d346282541f05f57370ca60f1ff47023a17b",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "block2",
+          "inputSha256": "cc1833e318f21e2888a324d12e45f9f21465889c97f140476e8edc073d654c3f",
+          "sourceCopy": {
+            "heading": "STEP2 土量変化率 L・Cの使い分け",
+            "items": [
+              "L（ほぐし率）→運搬土量の計算",
+              "C（締固め率）→盛土の出来上がり計算",
+              "地山100→ほぐし120→締固め90の関係"
+            ]
+          },
+          "narration": "次は計算問題の定番、土量変化率です。エル、ほぐし率は運搬土量の計算に、シー、締固め率は盛土の出来上がり計算に使います。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付の学習画像を修正。横16:9、2級土木、同一人物・白緑黄の意匠を保持。文字と図を別領域、外周8%下端16%安全域。数値100→120→90が例であることを明確に『例：L＝1.2、C＝0.9』と目立つ帯で追加。地山100の図は未掘削の水平な地表と連続した土層の断面に変更し、地中に破線で対象体積を示す。ほぐした土120は土山、締固めた土90は密な盛土断面。数値は体積の相対例。先生は比較する両手維持。他のコピー大きく維持。",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.longform/cover.659cd571.png",
+                "sha256": "659cd5716340bd9914ea2eadf2fde97ff3b049ac8d5b989bb2f5e6e641320fc7"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/work/generation-block2-20261012-v2.e8bbcb75.png",
+              "sha256": "e8bbcb75d25f071c5f55dd846ae1c5d909afdbcd371b7018fd31b3a2773fe9bb"
+            },
+            "generatedAt": "2026-10-11T15:35:45.076Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/work/body-block2.b1385fc3.png",
+            "sha256": "b1385fc32bbcb614827822069eb6dbd1059003ad039c1deb260751a1edf8f316",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "block3",
+          "inputSha256": "7a71a5f4f53fe224a3565a8623d2de47574f0bde529d305f678212e274906ace",
+          "sourceCopy": {
+            "heading": "頂点から、2つの値を読む",
+            "items": [
+              "最適含水比付近で施工",
+              "締固め度で品質を確認",
+              "薄い層ごとに締め固める"
+            ]
+          },
+          "narration": "盛土は、最適含水比の付近で締め固め、締固め度で品質を確認します。まき出し厚さは、土質や使用する機械に応じて定め、薄い層ごとに施工します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付の2級土木締固めスライドで、先生が持つチェック表の見出しに文字の崩れがある。手持ちチェック表内のすべての文字と細かい数値・単位を除去して、緑のチェックマーク3つと空欄だけの書類にする。表の見出し文字も完全に削除。それ以外の大きな重要コピー・式・水分を確認・密度を確認・ローラと上下層はそのまま維持。人物顔・手・赤ペンの形は維持。横16:9、白緑黄、外周8%下端16%安全域。指定外文字を追加しない。",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.longform/cover.659cd571.png",
+                "sha256": "659cd5716340bd9914ea2eadf2fde97ff3b049ac8d5b989bb2f5e6e641320fc7"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/work/generation-block3-20261012-v3.f2a8db6a.png",
+              "sha256": "f2a8db6a6c093f5c0342528f26d49a772abe702b7a335b09a258b4b3c61c8a78"
+            },
+            "generatedAt": "2026-10-11T15:39:28.159Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/work/body-block3.e5997080.png",
+            "sha256": "e599708011246cb9471fa368ffad7203847002abed540d9878ca6d8143d85dee",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          },
+          "reuseReview": {
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T07:09:25.969Z",
+            "previousInputSha256": "8c4f2aab28f5ecd529a3ae812abcbc76cdf4efa59a4721f520193e5a4ac75d32",
+            "reason": "現行PNG body-block3.e5997080.pngを原寸・360pxで再評価。最適含水比付近での締固め、締固め度の式、ローラで今回のまき出し層を締め固める図は、現行語り「まき出し厚さは土質や使用する機械に応じて定め、薄い層ごとに施工」と矛盾しない。画像に「薄いほどよい」とする文字や固定厚さの断定はなく、既存PNGを画像修正せず再利用可能。主要文字・人物・字幕帯への非干渉も確認した。"
+          }
+        },
+        {
+          "sceneId": "block4",
+          "inputSha256": "25eae83fef3d420792c0c2386398d41d4b2795a603d2b445cdc703315e61b89c",
+          "sourceCopy": {
+            "heading": "目的から、工法を選ぶ",
+            "items": [
+              "沈下を促進する→圧密排水工法",
+              "緩い砂を密にする→締固め工法",
+              "軟弱層を取り除く→置換工法"
+            ]
+          },
+          "narration": "のり面や軟弱地盤の対策は、目的に合う工法を選びます。この動画では、代表例として、圧密排水、締固め、置換の3つを確かめましょう。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付の2級土木・軟弱地盤対策の学習図を技術的に修正。3工法と文言・同一先生・白緑黄・横16:9の構成を維持。左の圧密排水では鉛直排水材を上の砂層に接続し、青の横向き矢印は必ず周囲の粘土から鉛直排水材へ向ける。現画像は外向きで逆なので反転。排水材内部と上の砂層では上向き排水を示す。中の『締固め→支持力を高める』は軟弱粘土地盤を表面ローラで改良できると誤認させないよう、砂質地盤の深部へ振動棒を挿入して周囲を締め固める概念断面図に変更。下の地盤ラベルは『砂質地盤』とする。右の置換図は掘削した軟弱層を良質材料に置換、保持。指定外の細かな説明は追加しない。文字・顔は外周8%と下端16%安全域。人物で図を隠さない。",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.longform/cover.659cd571.png",
+                "sha256": "659cd5716340bd9914ea2eadf2fde97ff3b049ac8d5b989bb2f5e6e641320fc7"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/work/generation-block4-20261012-v2.4694fa69.png",
+              "sha256": "4694fa69b781b77f07755e4550f344f06aabce101f23321cd5c3c7ade61d676c"
+            },
+            "generatedAt": "2026-10-11T15:35:45.315Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/work/body-block4.bc8bfd85.png",
+            "sha256": "bc8bfd85a4f7f318e0fa0afa4a6b1483920c10c5c8b47aa6fb9ca44fd2b753f2",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          },
+          "reuseReview": {
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T07:09:25.990Z",
+            "previousInputSha256": "a1d00a357e0d6304be4faebaae5076f729a189de7839ef25096aec70cbaea3ff",
+            "reason": "現行PNG body-block4.bc8bfd85.pngを原寸・360pxで再評価。圧密排水・締固め・置換の3図と目的別の見出しは、現行語り「代表例として3つを確かめる」に対応し、画像には全対策工法が3分類だけであるとの断定がない。砂層へつながる鉛直排水材、砂質地盤の深部締固め、軟弱層の良質材料への置換を示しており、既存PNGを画像修正せず再利用可能。主要文字・人物・字幕帯への非干渉も確認した。"
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "cde8d14717f79916d284165dc11352a805429dc376de77a62ad131b2aa96b892",
+          "sourceCopy": {
+            "heading": "まとめ",
+            "items": [
+              "① 試験は目的で対応づける",
+              "② LとCの使い分けを外さない",
+              "③ 締固めは指標で管理",
+              "④ 対策工法は目的から逆引き"
+            ]
+          },
+          "narration": "まとめます。土質試験は目的で、土量変化率はLとCの使い分けで、締固めは指標で、軟弱地盤対策は目的で覚える。すべて対応関係の暗記です。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "参照の同一人物（黒髪・眼鏡・ひげ・青い作業服）で、2級土木の土工学習動画の結論画像を新規制作。横長16:9。表紙ではなく分かりやすいまとめ図。白背景、緑見出し、黄色少量、大きな日本語、読みやすい四つの独立カード2×2を左75%に、右25%には指を四本示して説明する先生、人物で文字を隠さない。外周8%安全域。タイトル『土工は「対応関係」で覚える』、資格ラベル『2級土木』。四カードの正確な文言は『① 土質試験』『試験名 ↔ 分かること』、『② 土量変化率』『運搬はL ／ 盛土はC』、『③ 締固め』『含水比・密度で管理』、『④ 軟弱地盤』『工法 ↔ 改善する目的』。各カードに小さな分かりやすい概念イラスト（試験ハンマー、運搬トラック、ローラ、排水する地盤）。文字が主役で図は補助。文字と図を別領域に。下端帯『試験・計算・管理・工法をセットで整理』。指定外の文言、ブランド、URL、肩書きなし。地盤排水図は垂直排水材が上の水平砂層につながり水が上方向へ排水。参照から構図を変え、4項目を3項目にまとめない。",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.longform/cover.659cd571.png",
+                "sha256": "659cd5716340bd9914ea2eadf2fde97ff3b049ac8d5b989bb2f5e6e641320fc7"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/work/generation-summary-20261012-v1.41141fb2.png",
+              "sha256": "41141fb2e4f4d97206b58cd912ca370e4fe1a2d2cdc6396149b028483bff40ba"
+            },
+            "generatedAt": "2026-10-11T15:26:35.759Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/work/body-summary.ed47db4e.png",
+            "sha256": "ed47db4ea94516b13f08aef71b3b9e8ab0170c716ff5ebb3ff9c9c8f4ba210ed",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "314dcf899a128e251b93202490a031792cafd6186c3d5016a6d2ea9217bfb090",
+          "sourceCopy": {
+            "kind": "cover",
+            "heading": "頻出論点をまとめて確認する",
+            "items": [
+              "一次 過去問PDF（概要欄リンク）"
+            ]
+          },
+          "narration": "頻出論点をまとめて確認したい方は、概要欄のリンクから一次の過去問PDFをご覧ください。ご視聴ありがとうございました。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "2級土木学習動画のcta画像。参照先生と同一人物、白緑黄、大きな正確な日本語、横16:9、外周8%下端16%安全域。タイトル『頻出論点をまとめて確認』、文言『一次 過去問PDF／概要欄のリンクへ』。先生はPDFを渡すポーズ。紙の束に一次過去問PDFという太字だけ。右に大きな下向き矢印、青文字無し緑黄。価格や問題数合格保証は追加しない。指定外コピーを増やさない。顔は黒髪眼鏡短いひげ青作業服、文字と顔が重ならない。360pxで主題と内容を読める。",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/youtube.longform/cover.659cd571.png",
+                "sha256": "659cd5716340bd9914ea2eadf2fde97ff3b049ac8d5b989bb2f5e6e641320fc7"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/work/generation-cta-20261012-v1.83a2d780.png",
+              "sha256": "83a2d780dcdc959b65753bdf614da3cdf477f52a5e916e38d6accd7031e5fcc4"
+            },
+            "generatedAt": "2026-10-11T15:36:45.087Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/gakka-2kyu-doko/work/body-cta.e39993b0.png",
+            "sha256": "e39993b06f035b06bd436e95d49039b5c8ced6a01dd639bb63dc38fb1f3bcd28",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        }
+      ]
     }
-  }
+  },
+  "activeBodyRevision": "body-scenes-20261018"
 }
