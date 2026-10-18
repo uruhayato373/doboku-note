@@ -386,6 +386,8 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 - doboku-note の DX 広告（src/config/affiliate-creatives.ts:66-69）は、画像が wid=001 になっている。stats47 のサイトの mat `4B5OO5+NTCZ6+4SXU+NUES1` を使っている疑いがある。A8 で doboku-note（002）として DX と提携しているかを読むだけで確かめ、提携していれば差し替える。していなければ、外すか申請するかを運営者が判断する。
 - 10月の crossCheck の超過（取り出した側 29件、サイト別 26件）が、次の a8-ui:fetch → a8-ui:normalize で解消するかを確かめる。
 
+進み具合（2026-10-17）: A8 の広告リンク作成で doboku-note（002）の DX の提携があることを読んで確かめ、同じ素材 005 の mat `4B5OO5+NTDQY+4SXU+NUES1` に差し替えた（PR #1098・check-affiliate-mats に wid≠002 の ERROR を追加）。残りは PR の反映後の SSR の確認と、次の A8 取り込みでの crossCheck の確認。
+
 完了条件: DX の mat がサイト 002 のものか、DX が配置されていない。次の取り込みで crossCheck.exceeded=false になる（なお超過が残る場合は、stats47 側の自分の提携のビルドジョブのテキスト広告・ココナラのクリックとして説明できる）。
 
 

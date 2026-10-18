@@ -128,7 +128,7 @@
           "rewardYen": 18000,
           "epcYen": 139,
           "confirmRatePct": 21.73,
-          "note": "programId ↔ 自社 mat の照合は a8mat の第2トークンで行える（この案件は 4B5OO5+NTCZ6+…）。第4トークンは素材種別で複数プログラムに共通するため識別に使えない。"
+          "note": "a8mat の第2トークンはサイト×プログラムの提携ごとに違う。doboku-note の提携は 4B5OO5+NTDQY+…（stats47 は 4B5OO5+NTCZ6+…）。2026-10-17 まで stats47 側の mat を貼っていたのを差し替えた。"
         },
         "moshimo": {
           "status": "unknown"

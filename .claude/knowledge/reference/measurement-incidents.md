@@ -23,6 +23,14 @@ title: 計測・検証事故の記録
 - 対策: `storyboard.imageDesign` と `pop-image.activeBodyRevision` で本文全場面を固定。`check-video-content` B20は生成指示・参照・原稿hashを検査し、`render-longform` は実画像のSHA・1920×1080を検査。欠落・不一致・skip-pngでは停止し、旧テンプレートへ戻さない。回帰は `tests/longform-pop-images.test.mjs`。
 - 教訓: 画像生成、動画合成、字幕入り目視、音声試聴を別の完了条件で報告する。意匠の合否は実画像で判断し、生成記録の存在だけで保証しない。
 
+## 2026-10-17 — A8 の同じ案件を他サイトの提携の mat で貼り、クリックの帰属が入れ替わっていた
+
+- 現象・検出: 2026-10 の A8 で、programIdMap の案件から取り出したクリック（29）がサイト別の doboku-note（26）を上回った（`crossCheck.exceeded`）。原因を追って検出した。
+- 原因: A8 口座は stats47（サイト 001）と doboku-note（002）が同居し、提携はサイトごとに別で、mat の第2トークンが違う。doboku-note の DX 広告は stats47 の提携の mat（`NTCZ6`・画像 wid=001）を貼っていた。逆に stats47 はビルドジョブ・建設JOBs・GKS で doboku-note の mat（wid=002）を貼っていた。超過の残りは、stats47 が自分の提携で出すビルドジョブ・ココナラのクリックとみられる（プログラム別は口座全体の合計）。
+- 遅延理由: 「第2トークンでプログラムを照合できる」という注記を正としていた。mat はサイトを表に出さず、案件 ID・素材番号・第3/第4トークンはサイトをまたいで同じ値になる。
+- 対策: DX を doboku-note の提携の同じ素材（005）の mat `NTDQY` に差し替えた。stats47 の3本は stats47 側で停止した（stats47 010edf8de）。`check-affiliate-mats` が A8 画像 URL の wid≠002 を ERROR にする（`tests/check-affiliate-mats-wid.test.mjs`）。
+- 教訓: A8 の素材は必ず広告リンク作成でサイトを選んで取る。帰属は mat ではなく画像 URL の wid で確かめる。サイト別とプログラム別の突き合わせで超過が出たら、他サイトの mat の混入を先に疑う。
+
 ## 2026-10-17 — 音声エンジンの停止と未導入を混同しかけた
 
 - 現象・検出: localhostの応答なしとApplicationsの不在から動画生成を残件にしたが、追加探索で `.local/share/doboku-note/voicevox-engine/` に既存エンジンが見つかった。

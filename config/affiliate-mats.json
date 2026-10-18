@@ -62,10 +62,10 @@
       ],
       "definedIn": "未配線（別サイズが要るとき用の予備。suffix NUES1 は DX コンサル mat と同名だが full mat は別）",
       "expiresAt": "2026-08-31",
-      "note": "A8 発行の 100×60 小バナー。現状はコード未使用（120×60=NU729 を hub に配線）。将来別面で使う場合に creative 化。DX コンサルの 4B5OO5+NTCZ6+4SXU+NUES1 とは先頭 program 部が異なる別 mat。"
+      "note": "A8 発行の 100×60 小バナー。現状はコード未使用（120×60=NU729 を hub に配線）。将来別面で使う場合に creative 化。DX コンサルの 4B5OO5+NTDQY+4SXU+NUES1 とは先頭 program 部が異なる別 mat。"
     },
     {
-      "mat": "4B5OO5+NTCZ6+4SXU+NUES1",
+      "mat": "4B5OO5+NTDQY+4SXU+NUES1",
       "program": "dx-consulting",
       "label": "ハイクラス DX・コンサル転職（技術士/総監 シニア層向け）",
       "surfaces": [
@@ -74,7 +74,7 @@
       ],
       "definedIn": "src/config/affiliate-creatives.ts (PE_CONSULTING_CAREER_AD・PROGRAM_ASSETS.dx-consulting)",
       "expiresAt": null,
-      "note": "pe-comprehensive-management カテゴリ hub 専用。GKS（20代未経験/施工管理）が総監（シニア技術者）にミスマッチなため差替（今は配置ルール PL-0008・PL-0009）。"
+      "note": "pe-comprehensive-management カテゴリ hub 専用。GKS（20代未経験/施工管理）が総監（シニア技術者）にミスマッチなため差替（今は配置ルール PL-0008・PL-0009）。2026-10-17: それまでの 4B5OO5+NTCZ6+… は stats47 のサイト（画像 wid=001）の提携の mat で、クリックが stats47 に帰属していた。doboku-note（wid=002）の広告リンク作成で同じ素材 005 のコードを読み、第2トークンを NTDQY に差し替えた。"
     },
     {
       "mat": "4B41ZD+GGZS2I+4XWQ+BXB8X",
