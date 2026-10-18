@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
-  "runId": "2026-10-17T01-30-10Z",
-  "collectedAt": "2026-10-17T01:30:10.460Z",
+  "runId": "2026-10-18T01-30-06Z",
+  "collectedAt": "2026-10-18T01:30:06.580Z",
   "property": "sc-domain:doboku-note.com",
   "mode": "commit",
-  "scriptVersion": "f14125b67",
+  "scriptVersion": "8f3dab54f",
   "filter": {
     "category": null,
     "group": null
   },
   "limit": 10,
-  "targetCount": 98,
+  "targetCount": 88,
   "items": [
     {
       "slug": "/standards/hokkaido/local/part-01",
@@ -47,8 +47,8 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/practice/concrete-standards-history",
-      "url": "https://doboku-note.com/practice/concrete-standards-history",
+      "slug": "/practice/public-works-bidding-methods",
+      "url": "https://doboku-note.com/practice/public-works-bidding-methods",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
@@ -64,8 +64,8 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/practice/environmental-impact-assessment-flow",
-      "url": "https://doboku-note.com/practice/environmental-impact-assessment-flow",
+      "slug": "/practice/public-works-delivery-methods",
+      "url": "https://doboku-note.com/practice/public-works-delivery-methods",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
@@ -81,8 +81,25 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/practice/flood-control-facilities",
-      "url": "https://doboku-note.com/practice/flood-control-facilities",
+      "slug": "/practice/reading-civil-drawings",
+      "url": "https://doboku-note.com/practice/reading-civil-drawings",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "URL が Google に認識されていません",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/ready-mixed-concrete-ordering",
+      "url": "https://doboku-note.com/practice/ready-mixed-concrete-ordering",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
@@ -98,8 +115,8 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/practice/gnss-positioning-basics",
-      "url": "https://doboku-note.com/practice/gnss-positioning-basics",
+      "slug": "/practice/site-wireless-communication",
+      "url": "https://doboku-note.com/practice/site-wireless-communication",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
@@ -115,8 +132,25 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/practice/keishin-bidder-qualification",
-      "url": "https://doboku-note.com/practice/keishin-bidder-qualification",
+      "slug": "/practice/special-concrete-selection",
+      "url": "https://doboku-note.com/practice/special-concrete-selection",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "URL が Google に認識されていません",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/subcontract-instruction-boundary",
+      "url": "https://doboku-note.com/practice/subcontract-instruction-boundary",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
@@ -132,8 +166,25 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/practice/levee-failure-reinforcement",
-      "url": "https://doboku-note.com/practice/levee-failure-reinforcement",
+      "slug": "/exam/surveyor/primary/r04",
+      "url": "https://doboku-note.com/exam/surveyor/primary/r04",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "URL が Google に認識されていません",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/surveyor/primary/r06",
+      "url": "https://doboku-note.com/exam/surveyor/primary/r06",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
@@ -149,59 +200,8 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/practice/license-scope-judgment",
-      "url": "https://doboku-note.com/practice/license-scope-judgment",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/practice/nature-conservation-mitigation",
-      "url": "https://doboku-note.com/practice/nature-conservation-mitigation",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/practice/netis-new-technology-use",
-      "url": "https://doboku-note.com/practice/netis-new-technology-use",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/practice/pre-construction-process",
-      "url": "https://doboku-note.com/practice/pre-construction-process",
+      "slug": "/exam/pe-construction/guide/infra-system-overseas",
+      "url": "https://doboku-note.com/exam/pe-construction/guide/infra-system-overseas",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",

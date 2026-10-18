@@ -1,0 +1,320 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 2,
+      "narration": "答案は、つながりを確認。",
+      "caption": "答案は、つながりを確認。",
+      "visual": {
+        "kind": "cover",
+        "heading": "条件・処置・結果を見直す",
+        "items": [
+          "2級土木｜答案の見直し",
+          "設問・つながり・記録"
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/施工経験記述で落ちる答案/article.md"
+    },
+    {
+      "sceneId": "hook",
+      "start": 2,
+      "end": 10,
+      "narration": "書き終えた答案、どこを直せばよいか迷いませんか。設問、内容のつながり、記録との一致を順に確認しましょう。",
+      "caption": "書き終えた答案、どこを直せばよいか迷いませんか。設問、内容のつながり、記録との一致を順に確認しましょう。",
+      "visual": {
+        "kind": "points",
+        "heading": "書き終えたら、3つの観点で確認",
+        "items": [
+          "設問に答えているか",
+          "条件と処置がつながるか",
+          "事実が記録と一致するか"
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/施工経験記述で落ちる答案/article.md"
+    },
+    {
+      "sceneId": "authority",
+      "start": 10,
+      "end": 20,
+      "narration": "総合技術監理部門の技術士で、1級・2級土木に合格した元発注者が、答案を見直す順序をお伝えします。",
+      "caption": "総合技術監理部門の技術士で、1級・2級土木に合格した元発注者が、答案を見直す順序をお伝えします。",
+      "visual": {
+        "kind": "points",
+        "heading": "解説：架（かける）",
+        "items": [
+          "技術士（総合技術監理部門）",
+          "元・地方自治体の土木職（発注者）",
+          "1級・2級土木施工管理技士 合格"
+        ]
+      },
+      "sourceRef": "src/config/author.ts"
+    },
+    {
+      "sceneId": "premise",
+      "start": 20,
+      "end": 31,
+      "narration": "ここで示すのは、練習で書いた答案の見直し方です。公式の採点基準や減点点数ではなく、自分で確かめる観点です。",
+      "caption": "ここで示すのは、練習で書いた答案の見直し方です。公式の採点基準や減点点数ではなく、自分で確かめる観点です。",
+      "visual": {
+        "kind": "points",
+        "heading": "練習した答案を、自分で点検する",
+        "items": [
+          "3つの観点で見直す",
+          "公式の採点基準・減点点数は示さない",
+          "事実の確認は準備段階で進める"
+        ]
+      },
+      "sourceRef": "content/sns/video-packs/civil-construction-2/touan-teishutsu-check/script.md"
+    },
+    {
+      "sceneId": "question",
+      "start": 31,
+      "end": 42,
+      "narration": "まず、設問が求める内容に印を付け、答案のどの文が答えているか探します。書いた量だけで判断しないことが大切です。",
+      "caption": "まず、設問が求める内容に印を付け、答案のどの文が答えているか探します。書いた量だけで判断しないことが大切です。",
+      "visual": {
+        "kind": "sheet",
+        "heading": "求められた内容と、答えの文を結ぶ",
+        "sheetTitle": "練習答案の点検メモ",
+        "rows": [
+          {
+            "label": "設問",
+            "value": "何を求められているか",
+            "state": "focus"
+          },
+          {
+            "label": "答案",
+            "value": "どの文が答えているか",
+            "state": "todo"
+          },
+          {
+            "label": "不足",
+            "value": "答えが見つからない箇所はどこか",
+            "state": "todo"
+          }
+        ]
+      },
+      "sourceRef": "content/sns/video-packs/civil-construction-2/touan-teishutsu-check/script.md"
+    },
+    {
+      "sceneId": "reason",
+      "start": 42,
+      "end": 53,
+      "narration": "たとえば、理由を求められた欄に、実施した内容だけを書いていませんか。設問の言葉と照らして、不足を確かめます。",
+      "caption": "たとえば、理由を求められた欄に、実施した内容だけを書いていませんか。設問の言葉と照らして、不足を確かめます。",
+      "visual": {
+        "kind": "sheet",
+        "heading": "「理由」が求められた場合の確認",
+        "sheetTitle": "設問に合わせて点検する",
+        "rows": [
+          {
+            "label": "実施内容",
+            "value": "何を実施したか",
+            "state": "done"
+          },
+          {
+            "label": "理由",
+            "value": "なぜその対応を選んだか",
+            "state": "focus"
+          },
+          {
+            "label": "確認",
+            "value": "設問が求めた内容に答えているか",
+            "state": "todo"
+          }
+        ]
+      },
+      "sourceRef": "content/sns/video-packs/civil-construction-2/touan-teishutsu-check/script.md"
+    },
+    {
+      "sceneId": "connection",
+      "start": 53,
+      "end": 64,
+      "narration": "次に、現場条件と処置を線でつなぎます。その条件だから、その対応が必要だったと読めるか、理由の抜けを確認します。",
+      "caption": "次に、現場条件と処置を線でつなぎます。その条件だから、その対応が必要だったと読めるか、理由の抜けを確認します。",
+      "visual": {
+        "kind": "sheet",
+        "heading": "その条件だから、その処置が必要か",
+        "sheetTitle": "条件から処置へのつながり",
+        "rows": [
+          {
+            "label": "現場条件",
+            "value": "何が制約や課題になったか",
+            "state": "focus"
+          },
+          {
+            "label": "処置",
+            "value": "その条件にどう対応したか",
+            "state": "todo"
+          },
+          {
+            "label": "理由",
+            "value": "条件と処置を説明できるか",
+            "state": "todo"
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "example",
+      "start": 64,
+      "end": 75,
+      "narration": "仮の例です。通学時間と重なるため、搬入時刻を調整した。この短い下書きなら、時間の条件と処置の関係を確認できます。",
+      "caption": "仮の例です。通学時間と重なるため、搬入時刻を調整した。この短い下書きなら、時間の条件と処置の関係を確認できます。",
+      "visual": {
+        "kind": "sheet",
+        "heading": "仮の下書きで、関係を見る",
+        "sheetTitle": "例示：搬入時刻の調整",
+        "rows": [
+          {
+            "label": "条件",
+            "value": "通学時間と搬入が重なる",
+            "state": "done"
+          },
+          {
+            "label": "処置",
+            "value": "搬入時刻を調整した",
+            "state": "focus"
+          },
+          {
+            "label": "点検",
+            "value": "その条件への対応になっているか",
+            "state": "todo"
+          }
+        ]
+      },
+      "sourceRef": "content/sns/video-packs/civil-construction-2/touan-teishutsu-check/script.md"
+    },
+    {
+      "sceneId": "result",
+      "start": 75,
+      "end": 86,
+      "narration": "結果の「問題なく完了した」は、何を確認して言えるのか。日報や点検記録に戻り、説明できる事実か確かめましょう。",
+      "caption": "結果の「問題なく完了した」は、何を確認して言えるのか。日報や点検記録に戻り、説明できる事実か確かめましょう。",
+      "visual": {
+        "kind": "sheet",
+        "heading": "結果は、何を確認して言えるか",
+        "sheetTitle": "結果を書いた箇所の見直し",
+        "rows": [
+          {
+            "label": "下書き",
+            "value": "「問題なく完了した」",
+            "state": "done"
+          },
+          {
+            "label": "確認",
+            "value": "何を見て、そう判断したか",
+            "state": "focus"
+          },
+          {
+            "label": "記録",
+            "value": "日報・点検記録などで確かめる",
+            "state": "todo"
+          }
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/施工経験記述で落ちる答案/article.md"
+    },
+    {
+      "sceneId": "facts",
+      "start": 86,
+      "end": 97,
+      "narration": "最後に、数量や日付に印を付け、記録と照合します。記憶が曖昧な数字を補わず、練習用メモに確認事項を残しましょう。",
+      "caption": "最後に、数量や日付に印を付け、記録と照合します。記憶が曖昧な数字を補わず、練習用メモに確認事項を残しましょう。",
+      "visual": {
+        "kind": "sheet",
+        "heading": "数量・日付を、記録に戻して確かめる",
+        "sheetTitle": "事実の照合メモ",
+        "rows": [
+          {
+            "label": "数字",
+            "value": "数量や日付は記録と一致するか",
+            "state": "focus"
+          },
+          {
+            "label": "未確認",
+            "value": "数字を推測で補わない",
+            "state": "todo"
+          },
+          {
+            "label": "次の作業",
+            "value": "練習用メモに確認事項を残す",
+            "state": "todo"
+          }
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/施工経験記述で落ちる答案/article.md"
+    },
+    {
+      "sceneId": "role",
+      "start": 97,
+      "end": 108,
+      "narration": "自分の立場と行動も確認します。上司が決めたことを、自分が決めたと書いていないか。担当した範囲を正確に戻します。",
+      "caption": "自分の立場と行動も確認します。上司が決めたことを、自分が決めたと書いていないか。担当した範囲を正確に戻します。",
+      "visual": {
+        "kind": "points",
+        "heading": "誰が判断し、誰が実施したか",
+        "items": [
+          "自分の担当範囲を確認する",
+          "上司の判断と自分の行動を区別する",
+          "実際の経験を誇張しない"
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/施工経験記述で落ちる答案/article.md"
+    },
+    {
+      "sceneId": "reread",
+      "start": 108,
+      "end": 119,
+      "narration": "直した後は、答案を最初から通して読みます。一文だけ直して、別の箇所の工種や時期、担当内容と食い違っていないか確認します。",
+      "caption": "直した後は、答案を最初から通して読みます。一文だけ直して、別の箇所の工種や時期、担当内容と食い違っていないか確認します。",
+      "visual": {
+        "kind": "points",
+        "heading": "一文を直したら、全体をもう一度読む",
+        "items": [
+          "設問と答えが対応しているか",
+          "条件・処置・結果のつながりは自然か",
+          "他の箇所との食い違いはないか"
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/施工経験記述で落ちる答案/article.md"
+    },
+    {
+      "sceneId": "summary",
+      "start": 119,
+      "end": 130,
+      "narration": "見直しは、設問への答え、条件と処置のつながり、記録との一致の順です。表現を整える前に、内容と事実を確かめましょう。",
+      "caption": "見直しは、設問への答え、条件と処置のつながり、記録との一致の順です。表現を整える前に、内容と事実を確かめましょう。",
+      "visual": {
+        "kind": "points",
+        "heading": "見直しの順序",
+        "items": [
+          "1 設問が求めた内容に答える",
+          "2 条件・処置・結果をつなぐ",
+          "3 数字・立場・行動を記録と照合"
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/施工経験記述で落ちる答案/article.md"
+    },
+    {
+      "sceneId": "cta",
+      "start": 130,
+      "end": 142,
+      "narration": "完成答案を自分の工事に置き換え、今日の観点で見直してみましょう。安全・品質・工程の答案と置換ガイドは、概要欄へ。",
+      "caption": "完成答案を自分の工事に置き換え、今日の観点で見直してみましょう。安全・品質・工程の答案と置換ガイドは、概要欄へ。",
+      "visual": {
+        "kind": "cta",
+        "heading": "置き換えて書き、見直す",
+        "items": [
+          "安全・品質・工程の完成答案",
+          "自分の工事への置換ガイド",
+          "概要欄の完成答案集へ"
+        ]
+      },
+      "sourceRef": "config/products.json"
+    }
+  ]
+}

@@ -48,6 +48,26 @@ test('原典不足を内容対応ありに書き換えても完了にはなら�
   const r=expansionReport(f.root,f.data,f.registry);
   assert.equal(r.productionComplete,false);assert.ok(r.issues.some(x=>x.includes('原典不足')));
 });
+test('明示的に対象外の論点は原典不足の履歴を保持しても残作業へ戻さない', t => {
+  const f = fixture(t);
+  const excluded = structuredClone(f.unit);
+  Object.assign(excluded, { id: 'excluded', content: 'excluded', evidenceLevel: 'source-unavailable' });
+  excluded.artifacts[0].sha256 = '0'.repeat(64);
+  excluded.visual.decision = 'unreviewed';
+  f.data.sources[0].units.push(excluded);
+  const r = expansionReport(f.root, f.data, f.registry);
+  assert.equal(r.summary.excluded, 1);
+  assert.equal(r.summary.blocked, 0);
+  assert.equal(r.summary.pending, 0);
+  assert.equal(r.summary.stale, 0);
+  assert.deepEqual(r.stale, []);
+  assert.equal(excluded.evidenceLevel, 'source-unavailable');
+  assert.equal(r.productionComplete, true);
+  excluded.content = 'partial';
+  assert.equal(expansionReport(f.root, f.data, f.registry).summary.blocked, 1);
+  f.data.sources[0].units = [{ ...excluded, content: 'excluded' }];
+  assert.equal(expansionReport(f.root, f.data, f.registry).productionComplete, false, '対象外しかない場合は検査完了としない');
+});
 test('成果物参照の相対逸脱と外部symlinkを拒否する', t => {
   const f=fixture(t);assert.throws(()=>artifactPath(f.root,'content/../../outside'));assert.throws(()=>artifactPath(f.root,'/etc/passwd'));
   symlinkSync(tmpdir(),join(f.root,'content/outside'));assert.throws(()=>artifactPath(f.root,'content/outside'));

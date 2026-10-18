@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-2",
+      "headline": [
+        "安全管理",
+        "答案を具体化"
+      ],
+      "accentLine": 1,
+      "subtitle": "現場条件から書く",
+      "character": {
+        "pose": "checklist-pen",
+        "frame": "waist"
+      },
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監が解説"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/cover.dc301708.png",
+        "sha256": "dc301708ac15a33e589fda31c7bec66c8fd00f22df0ea55973cbb2cf595035ad",
+        "specSha256": "b815c0459ebbece0d05744dfa7b63716297e30e92cc76e56aa3a408374222bf3"
+      }
+    }
+  }
+}

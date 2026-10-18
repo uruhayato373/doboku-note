@@ -22,6 +22,7 @@ npm run content-ledger    # 管理画面「コンテンツ台帳」（/content/l
 npm run admin             # 運営管理画面 Next.js 版（ローカル専用・http://127.0.0.1:3021・計測/エージェント/スキル/ギャラリー/SNS状態/記事/売上/品質/ジョブ/TODO/**プロジェクト**/**ライフサイクル横断 `/content/lifecycle`**/**動画パック `/content/video`**・tools/admin-app）
 npm run test:e2e:admin    # 管理画面の E2E（Project↔TODO の相互リンク・日本語パス・トラバーサル404・レスポンシブ。admin は dev 専用なので CI の e2e には載せない）
 npm run check-career-separation:built  # 学習系ナビ（data-nav-list="exam-guide"）に career 記事が混ざっていないかを out/ の HTML で見る。**要 `npm run build`** で ci.yml の build 後に置く。走査先は out/{exam,practice,standards,topics}（2026-09 の URL 分割前は out/docs だった）。ナビ一覧 0 箇所は検査不成立＝exit 1
+npm run check-e2e-execution -- --report .tmp/e2e-report.json # E2E CIのJSON結果から対象/実行/未実行/skipを確認。対象0・未実行・skip・失敗・集計不一致でexit 1（E2E後にalwaysで実行）
 npm run check-e2e-targets      # E2E が叩くサイト内 URL が out/ に実在するか（`_redirects` の転送元を叩くと dev で必ず 404 になり、検査が成立しないまま赤が放置される）。**要 `npm run build`** なので quality:audit ではなく ci.yml / e2e.yml の build 後に置く。exit 2=検査不成立
 npm run check-client-chunk-size # build 済み out/_next/static/chunks の JS 1 本が 600KB を超えていないか（client component が doc-meta-index 等の大きい JSON を import すると /search のように 1.66MB になる・DN-0684）。out/ が無ければ exit 2。読み手＝ci.yml の build ジョブ
 npm run check-production-ssr # deploy 後の本番 SSR 検証（exit 0=正常 / 1=壊れている / **2=検査不成立＝接続できていない**。会社PCの HTTP 000／プロキシのブロック HTML をサイト障害と誤読しない・手打ち curl で代用しない）。/deploy と cloudflare-deploy.yml の公開後に実行。社内回線から接続できない場合は同workflowの verify_only=true で再デプロイせず外部検査。
@@ -78,7 +79,7 @@ npm run asset-offload         # 追跡アセットを R2 へ退避（既定 dry-
 npm run asset-hydrate         # 退避したアセットを取り戻す（ローカル→cache→R2→generator の順・--offline で cache のみ・--path で部分取得）
 npm run check-asset-storage   # 退避台帳の整合（公開バケット誤配置・r2Key 衝突・復元不能・秘密混入）。R2 非アクセスでオフライン完結・quality:audit に同梱
 npm run drive-vault-sync      # **人か手元のスクリプトだけが使う**アセット（原本PDF・ページ画像・配布PDF・未投稿レンダー等）を Google Drive vault へ置く／取り戻す（既定 dry-run・--commit・--from-r2・--dedupe-by-sha・--from-vault＝vault にだけある原本をその場で読んで台帳へ登録（--from-vault --cloud はマウントを読まず Drive API のハッシュで登録。クラウドにしか無いファイルの取り寄せがタイムアウトするとき・rclone が要る。読みの失敗は全体を止めず失敗として数える）・--verify [--deep --cloud]（--deep --cloud --commit で 3 者が一致した行に Drive のファイル ID を書く）・--pull）。置き場は誰が使うかで決める＝サイト配信→public R2／CI→private R2／人→Drive（asset-storage-policy.md §1・/asset-route）
-npm run check-drive-vault     # 置き場ルールのゲート（asset-storage.json の全 group に audience・site⇒public・ci⇒private|byVisibility・human は理由無しに R2 へ置けない）＋R2 と Drive の同一パス衝突＋drive-manifest の整合。**マウント無しは「実体検査 0 件」と明示**して設定・台帳だけで判定・pre-commit --staged-only（Drive 管轄ファイルの再追跡を検知。`coexistWithGit: true` の group＝kindle-dist は Git が正本なので対象外・2026-09-17）＋ quality:audit
+npm run check-drive-vault     # 置き場ルールのゲート（asset-storage.json の全 group に audience・site⇒public・ci⇒private|byVisibility・human は理由無しに R2 へ置けない）＋R2 と Drive の同一パス衝突＋drive-manifest の整合。**マウント無しは「実体検査 0 件」と明示**して設定・台帳だけで判定・pre-commit --staged-only（Drive 管轄ファイルの再追跡を検知。`coexistWithGit: true` の group＝kindle-dist は Git が正本なので対象外・2026-09-17）＋ quality:audit は `--metadata-only`（マウントせず設定・台帳・ルーティングのみ、実体検査0件を明記）
 npm run check-figure-references # 書籍由来の記事（civil-construction-1/2・sources に市販書籍）の図番号の重複・図名の分割の印（上部/下部/詳細）・alt と caption の番号の食い違い・本文の「図X.Y」が同じ節の図を指すかを記事だけで検査（CI・DN-0557）
 npm run check-figure-references:ocr # 上に加えて caption の「図X.Y 図名」を書籍 OCR（repo の ocr/ か Drive vault 原資料PDF/書籍/<dir>/ocr）と突合。OCR が読めなければ exit 2（Mac・Drive マウント要）
 npm run check-reference-sources # 参考文献台帳・記事 sources ID・出典粒度・非公開文字起こし名の漏洩・未付与 baseline ラチェット・図の原典（vaultCopies が Drive 台帳にあるか・図の出典の書籍が記事の sources にあるか・流用不可の書籍の図 figureReuseDebt）を検査（--staged は pre-commit）
@@ -114,7 +115,7 @@ npm run check-domains          # 領域の正本（config/domains.json）とス�
 npm run ci-data -- <save|restore|add|latest|path|put> # ワークフローが記録を develop へ書き戻すときの共通処理。変わったファイルを git status から拾って退避・復元し（save/restore）、実在するパスだけを add する。latest/path は台帳の id からパスを出す。YAML にデータのパスを書かないための道具（main の YAML が develop の置き場の変更に追従できるように）。罠: 依存（zod）を読むので npm ci の後で使う。node_modules の無い別 worktree では checkout 側から --root で対象を指す
 npm run check-datasets         # 設定（config/）・記録（data/）・作業状態（.claude/state/）の git 管理下の全ファイルが台帳 scripts/lib/datasets.mjs のちょうど 1 つのデータセットに当たるか、宣言だけのデータセットが無いか、置き場が id の取得元と合うか、型（scripts/lib/dataset-schemas.mjs の zod）のあるものは型に合うか、config/・data/ の JSON に型が無いデータセットが無いか（.claude/state/ は型が任意）、JSON に同じオブジェクト内の重複キーが無いか、コード（scripts/・tools/・src/・.claude/）が config/・data/ のパスを直書きしていないか（ファイル名だけ・join の分割形を含む）、.claude/state/ の直書きがファイルごとの基準線（.claude/config/state-path-literal-baseline.json）より増えていないか（減ったら基準線を下げさせるラチェット）、drive の宣言が config/drive-vault.json の active な group を指し pathRegex に当たるか、local に作り直し方（regen）があるか、コードと YAML が引く id（datasetPath 系・readDataset・writeDataset・freshnessDays など）が台帳にあるか、ワークフロー・package.json のパスが台帳に当たるか、台帳の宣言に知らないキーが無いか、鮮度（freshness: { warnDays, failDays }）の宣言が正しい形か。CI ゲート＋pre-commit。管理画面 管理＞設定／データ／作業状態 がこの台帳を並べる。罠: 新しい設定・記録・作業状態を足すときは先に台帳へ 1 行足す（まだ 1 件も無い置き場は planned: true）。git に置けないものは drive: <group>（id は vault.*）で Drive vault に置く。local: true は作り直せる一時出力だけで regen 必須、git 管理に入ると違反
 npm run check-agent-config     # .claude/config/ の JSON（認証の許可リスト・CI の書き込み許可・品質ゲートの基準と許可リスト）がすべて型（scripts/lib/dataset-schemas-agent-config.mjs の AGENT_CONFIG_SCHEMAS）に合うか、型の無い JSON が無いか。CI ゲート。罠: .claude/config/ に JSON を足したら同じ commit で型を足す（台帳 datasets.mjs には載せない＝DN-0524 の案B）
-npm run check-generated-indexes # refresh-indexes を実際に回し、生成物がコミットと一致するか（一致しなければ書き換わったファイルをコミットする。生成時刻だけの差分は出ない）
+npm run check-generated-indexes # refresh-indexes を実際に回し、生成物がコミットと一致するか（一致しなければ書き換わったファイルをコミットする。生成時刻だけの差分は出ない）。実行中にcommit/rebaseでHEADが変わったらexit 2で再実行
 ```
 
 ## 公的基準（共通仕様書の章記事・ページ画像）
@@ -125,7 +126,7 @@ npm run add-standards-document -- --pdf <原本.pdf> --agency <id> --agency-name
 npm run build-takuitsu-pdf      # 択一MDXをnote配布用A4 PDFへ変換（`-- --spec <json> [--out <pdf>]`）。spec必須=`bookId/title/subtitle/sources`、自作問題は任意`creditText`で出典説明を上書き。MDXコメント除去・Callout箱化・system Chrome描画。`--split` で `<out>-問題冊子.pdf`（解答・要点を除く）と `<out>-解答解説.pdf` を出す（両者の問題数不一致は停止）
 npm run build-standards-comparison # 近畿版を基準に各地方整備局版の本文差分を章・行単位で生成（`content/site/standards-articles/comparison.json`）
 npm run build-standards-data     # 構造化章記事から公開用 Markdown / JSON-LD / 索引JSONを `public/standards-data/` へ生成（派生物・Git追跡外・本番build同梱）
-npm run check-standards-data     # 公開用データ全章の形式・条数・出典/加工主体分離・noindex/CORSヘッダーを検査（build-standards-dataが自動実行）
+npm run check-standards-data     # 公開用データ全章の形式・条数・出典/加工主体分離・noindex/CORSヘッダーを検査（build-standards-dataが自動実行。CI auditでも事前生成して必須検査、生成漏れはskipせず失敗）
 npm run build-standards-ogp     # 章記事ごとの OGP 画像を生成（章は MDX でないため `npm run ogp` の射程外。描画は ogp-create の lib を再利用し見た目をサイトと揃える。R2 供給は ogp-supply.yml が代行） `--write-srchash` は章の srcHash を退避台帳へ書く。CI は実体の有無でなく台帳の srcHash 一致で再生成を飛ばす（2026-10-11・DN-0683）
 npm run check-standard-articles # 上の 19 検査（本文の取りこぼし0・全ページ割当・条番号整合・見出しレベル・SHA-256 一致・重複 indexable・**catalog 72 文書の被覆と除外理由の実データ検証**・表の可逆性・**章ごとの OGP 被覆**・節ページの切り出し・**読める形（文の途中の改行・表から外れた断片は基準以下／壊れた表 0）**。exit 2=検査不成立）
 npm run standards-table-gallery  # 公的基準の章・節ページの表を撮って 1 枚の HTML に並べる（目視用・ゲートではない。対象は「中身が異なるページすべて」。要 serve/dev。Playwright のブラウザが無い PC は --channel msedge。Git Bash では MSYS_NO_PATHCONV=1 を付けないと --only の /standards/… が化ける）
@@ -160,7 +161,7 @@ npm run check-standards-page-images # 上の provenance 整合（catalog↔manif
 
 `npm run check-backlog-verify` — 時期到来・期日超過・時期未設定のカードの検証を実走する。将来開始のカードはIDと理由付きnot-dueとして対象外に記録し、対象／実走／対象外の数を照合する。timeout・認証不足は未検査として残し、全文ログと失敗テスト名を保存する。
 
-`npm run weekly-review:install` — Mac の launchd に土曜 9:30 の自動の週次レビューを入れる（`scripts/scheduled/weekly-review.sh`）。専用 worktree（`.claude/worktrees/weekly-review`・lock 済み）でヘッドレスの Claude Code が `/weekly-review` と `/plan-weekly` を回して develop へ push する。永続bootstrapからorigin/developのrunnerを起動する。本文・翌週計画・事業レビューとsnapshot・点検と振り分け・backlog実走の5種証跡が揃う場合だけ省略し、不足時は再実行。内側のtimeout/検査不成立も未完として Issue（channel: weekly-review-local）。`-- --status` / `-- --run-now` / `-- --uninstall`。前提は Claude Code と gh にログイン済み。判断待ちは聞けないのでレビューに `<!-- weekly-review:pending-questions -->` を残し、SessionStart が知らせる。
+`npm run weekly-review:install` — Mac の launchd に土曜 9:30 の自動の週次レビューを入れる（`scripts/scheduled/weekly-review.sh`）。専用 worktree（`.claude/worktrees/weekly-review`・lock 済み）でヘッドレスの Claude Code が `/weekly-review` と `/plan-weekly` を回して develop へ push する。期日到来の `/monthly-review` も同じジョブから起動する。永続bootstrapからorigin/developのrunnerを起動する。本文・翌週計画・事業レビューとsnapshot・点検と振り分け・backlog実走の5種証跡が揃う場合だけ省略し、不足時は再実行。内側のtimeout/検査不成立も未完として Issue（channel: weekly-review-local）。`-- --status` / `-- --run-now` / `-- --uninstall`。前提は Claude Code と gh にログイン済み。判断待ちは聞けないのでレビューに `<!-- weekly-review:pending-questions -->` を残し、SessionStart が知らせる。
 
 `npm run record-seo-build-summary -- <run.json>` — `check-seo-build --summary-out <run.json>` の 1 回分の結果を `data/analysis/seo-build-summary.json`（台帳 `analysis.seo-build-summary`）の日ごとの履歴へ足す。CI の `Publish SEO build summary`（ci.yml・develop の push のみ）が呼び、週次レビューの下書きが件数と前週比を出す。入力が壊れている・検査 0 件は exit 2（履歴に積まない）。罠: ローカルで回すと自分の out/ の結果が履歴に入るので、コミットしない。
 
@@ -225,7 +226,7 @@ npm run coconala-pause    # ココナラ出品の受付休止/再開/アーカ�
 
 ```bash
 npm run check-video-content    # 動画パック（DN-0110）の整合ゲート（manifest/sourceRef 漏洩/CTA・UTM/storyboard/逐語転用/status。契約 SSOT は config/video-content.json と video-content-policy.md。exit 2=検査不成立・quality:audit に同梱）
-npm run render-longform        # 動画パックの 16:9 通常動画レンダラー（storyboard→1920×1080 PNG＋ASS 字幕＋VOICEVOX/ffmpeg mp4。出力は .tmp/video-render/・音声環境無しは --skip-tts で PNG/ASS まで。VOICEVOXとffmpegがあればWindows/Macでmp4生成可・生成用Actionsは未設置）
+npm run render-longform        # 本文POP指定(imageDesign)は全場面の生成記録・採用PNGのSHA/実寸を検査し欠落時停止。動画パックの 16:9 通常動画レンダラー（storyboard→1920×1080 PNG＋ASS 字幕＋VOICEVOX/ffmpeg mp4。出力は .tmp/video-render/・音声環境無しは --skip-tts で PNG/ASS まで。VOICEVOXとffmpegがあればWindows/Macでmp4生成可・生成用Actionsは未設置）
 npm run youtube-shorts:restore -- --pack-dir <動画パック> # 全場面差し替え版の現在の動画SHAに対応するレシピ・全PNG・元動画・ASS・完成MP4を照合（--key で限定）。欠落素材は --restore でDriveから復元。既存SHA不一致・対象0件は停止。制作担当が再利用前に読むローカル検査、Drive依存のためquality-auditには登録しない。旧テンプレート再生成は差し替え版を停止する
 npm run video-preview-sheet  # 公開前の画面確認（DN-0603）。--pack-dir か --pack-id（先に render-longform --skip-tts）で、冒頭の表紙の秒数・直前と同じ画面（場面と10秒ごとのコマ）・20秒以上同じ画面が続く箇所を .tmp/video-render/{packId}/preview/ に出す。無音プレビューとコンタクトシートは ffmpeg があるときだけ（無ければ数値だけ出して exit 2＝検査不成立・--metrics-only は ffmpeg 不要で 0）。注意が出ても 0（承認は止めない）。閾値は config/video-content.json の visualCheck。台帳版は npm run media -- preview --pub
 npm run build-video-compilation # 総まとめ（聞き流し）パックの storyboard.json を compilation.json と承認済みパックから生成（--pack-dir 必須・--check は一致確認だけで不一致は exit 1）。描画は render-longform
@@ -235,7 +236,7 @@ npm run registry               # コンテンツ台帳（content/registry・cont
 npm run registry-reconcile     # 台帳の YouTube の外部 ID を videos.list で観測し、予約→公開だけを証拠つきで進める（後戻りは所見・.claude/state/registry-reconcile/）。認証は CI 供給で、手元は exit 2（検査不成立・何も書かない）。--dry は書かない。毎日の registry-reconcile.yml が動かす
 npm run media                  # 素材の CLI: promote --pub <公開ID>（作業場の成果物を .tmp/media/{exam}/{work}/… へ sha 入りの名前で取り込み台帳へ）/ preview --pub <id>（音声の前の画面確認: 無音プレビュー・10 秒ごとのコンタクトシート・数値。描画物と ffmpeg-full が要る）/ sync・verify・pull --work <exam>/<work>（Drive の group content-media・書き換えない）/ adopt-video-brand（日付フォルダの採用表紙・締め画像を ID の置き場へ・DN-0607）。promote・sync・pull・adopt-video-brand は既定 dry-run
 npm run media -- plate --pub <公開ID> --role <役割> --prompt-file <生成指示> --input <生成済み画像> --commit # 選択画像を再生成せず採用、AI来歴と未判定の監査行を登録。欠けた入力は停止。判定記録は content-registry.md 参照
-npm run check-content-registry # コンテンツ台帳の検査 R01〜R10（0 件・ID・予約以上の削除〔--base <ref>〕・参照・件数・Drive の sha・状態と承認ハッシュ・外部 ID・今の台帳（写し）との全欄の一致・AI 素材の判定）。FAIL で exit 1
+npm run check-content-registry # コンテンツ台帳の検査 R01〜R11（0 件・ID・予約以上の削除〔--base <ref>〕・参照・件数・Drive の sha・状態と承認ハッシュ・外部 ID・AI 素材の判定・別作品IDの通常動画の台本重複）。FAIL で exit 1
 npm run youtube-unschedule        # 台帳で scheduled の YouTube の公開予約を外す（private のまま・動画は消さない。既定は試運転・--apply で実行・認証は CI だけなので .github/workflows/youtube-unschedule.yml から）。台帳は registry -- unschedule で uploaded_private に戻す（2026-10-13・YouTube を一旦止めた）
 npm run check-registry-due     # 予約のまま公開の予定を猶予（config の reconcileGraceDays）より過ぎた公開を出す（ops・壁時計依存なので CI ゲートにしない）
 npm run check-video-publication # 公開済み派生物の実体照合が回っているか（未照合・記録の孤児・実査ドリフト。記録の古さは `--freshness`＝quality-audit の ops が日次で見る・2026-10-11）。実査本体は verify-video-publication＝CI 週次(verify-yt-status.yml の verify-video-publication)で creds 必須・**対象0件は明示してPASS**・quality:audit に同梱
@@ -335,7 +336,7 @@ npm run report-web-vitals     # 実ユーザー計測の最新記録を読み、
 npm run x-profile-sync    # X の自己紹介を正本 config/x-account.json の profile.bio に合わせる。既定 dry-run（差分表示）、`-- --commit` で書き換えて表示の一致を確認。ログイン中が handle 以外なら ABORT（exit 2・別アカウントは書き換えない）。上限は limits.bio
 npm run check-review-wiring # 週次・月次レビューのスキルが実行するコマンドと配線の正本（.claude/config/review-wiring.json・stage と role）の一致。CI ゲート。スキルにコマンドを足したら正本にも stage・role 付きで足す。管理画面 戦略 ＞ レビュー の配線図の元
 npm run review-checks -- --cadence monthly --run YYYY-MM --write # レビューの回ごとに点検（review-wiring.json の checks）を実行し、開いている Issue・Dependabot の脆弱性と一緒に data/business/records/checks-<回>-<時刻>.json へ追記。レポートの「点検と Issue」で全件に行き先が無いと管理画面の手順が「一部」。置き場は追記だけ（上書き・削除は check-business-direction が止める）
-npm run check-monthly-review-due # 月次レビューの催促（SessionStart）。毎月 3 日（JST）以降に前月を対象にした月次レビューの記録（business/review-*.json の cadence:monthly）が無ければ exit 1 で 1 行出す。`-- --json`
+npm run check-monthly-review-due # 月次レビューの催促（SessionStart）。毎月3日(JST)以降に前月の完成証拠不足・再確認日到来ならexit 1。週次launchdも同じ判定で月次を起動。`-- --due-key` は対象月だけ、`-- --month YYYY-MM` は完了検査、`-- --ref origin/develop` はリモート証拠、`-- --json` は内訳
 npm run backlog-gate      # 週次・月次レビューのバックログの関門（読み取り専用）。`-- --weekly`＝判断待ち🟣の全件・期日切れ・直近7日の起票、`-- --monthly`＝時期の無い🟢の全件・起票から90日超・今月の🔴🟡件数。`--json` あり。運営者に諮った結果で台帳を直すのはレビュー側（判定は scripts/lib/backlog-gate.mjs）
 npm run roll-backlog-when # 終わらなかったカードを翌月へ回す（`[時期:]` の終わりが今月より前のカードの終わりを今月へ延ばす・開始は残す）。既定は表示だけ、`-- --write` で backlog.md を書き換え、`-- --month YYYY-MM` で基準月。月初の月次レビューが回す。終わったカードは回さずに削除する
 npm run scan-qualification-market # 資格キーワードで YouTube（yt-dlp 検索）・note（公開検索 API）を取り data/analysis/qualification-market/YYYY-MM-DD.json へ（同日の再実行は取得済みの語を飛ばす・`--force` で取り直し）。`--coconala` でココナラも（coconala-research.mjs・Playwright・四半期 1 回）。`--qualification <id>`／`--channel youtube|note|coconala`／`--dry-run`。罠: note は JSON 以外（403）が返った時点で打ち切る＝連打しない。ココナラは空きメモリが足りないと Playwright ガードで起動しない

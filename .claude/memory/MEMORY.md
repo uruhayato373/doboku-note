@@ -30,6 +30,7 @@
 - [並行セッションgit](feedback_multi_session_concurrent_git.md) — pathspec commit・復元禁止
 - [worktreeの管理外データ](feedback_worktree_ignored_data.md) — 中身をコピー・tracked未コミットは脇へ
 - [成否は実体で確認](feedback_commit_result_check.md) — commit後HEAD・grepで隠さない・args実物
+- [他人の未コミット作業](feedback_commit_others_wip_run_ci_gate.md) — 拾う前にaudit:ci・state取りこぼし
 - [新ツール配線](feedback_new_tool_doc_wiring.md) — doc-sync・handoff抽出
 - [確認省略と例外](feedback_no_confirmation.md) — 課金・公開取消不可は確認
 - [総監スコープ規律](feedback_no_pe_construction_application.md) — 教材外H2禁止・新規作らない
@@ -55,6 +56,7 @@
 - [Workflow運用の罠](feedback_workflow_orchestration_gotchas.md) — 並行2本・git禁止明記・一時パス共有
 - [Xタグ個数](feedback_x_hashtag_count.md) — #技術士 #総監+種別
 - [X凍結ガードレール](feedback_x_suspension_guardrail.md) — 重複・連投・同時刻回避
+- [knip裏取りとworktree npm](feedback_knip_grep_scope_and_worktree_npm.md) — repo全体grep・symlink実体化
 
 ## Project
 - [3層・合格者戦略](project_v3_strategy.md) — 運営者は総監合格済・言及ルール

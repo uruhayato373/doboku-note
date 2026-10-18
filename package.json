@@ -59,6 +59,7 @@
     "egov-laws": "node scripts/egov-laws.mjs",
     "check-reference-book-pages": "node scripts/check-reference-book-pages.mjs",
     "reference-book-status": "node scripts/reference-book-status.mjs",
+    "check-e2e-execution": "node scripts/check-e2e-execution.mjs",
     "check-e2e-targets": "node scripts/check-e2e-targets.mjs",
     "build-public-redirects": "tsx scripts/build-public-route-redirects.ts",
     "build-backlinks": "node .claude/skills/quality/exam-backlinks/scripts/build-exam-backlinks.mjs",
@@ -503,7 +504,7 @@
     "start": "next start -p 3020",
     "svg-gallery": "node scripts/svg-gallery.mjs",
     "sync-kindle-dist": "node scripts/sync-kindle-dist.mjs",
-    "test": "node --test tests/*.test.mjs",
+    "test": "node --test --test-concurrency=2 --test-timeout=120000 tests/*.test.mjs",
     "test:ads": "node --test .claude/scripts/ads/__tests__/*.test.mjs",
     "test:e2e": "playwright test",
     "test:e2e:admin": "playwright test -c playwright.admin.config.ts",
@@ -662,7 +663,8 @@
     },
     "@tailwindcss/typography": {
       "postcss-selector-parser": "^7.1.6"
-    }
+    },
+    "argparse": "^2.0.1"
   },
   "engines": {
     "node": ">=20.9"

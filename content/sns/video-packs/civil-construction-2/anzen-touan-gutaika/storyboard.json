@@ -1,0 +1,188 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 3,
+      "narration": "安全管理は、現場条件から。",
+      "caption": "安全管理は、現場条件から。",
+      "visual": {
+        "kind": "cover",
+        "heading": "安全管理の答案を具体化",
+        "items": [
+          "2級土木",
+          "現場条件から書く"
+        ],
+        "src": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/cover.906b74b3.png"
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集/安全管理/article.md"
+    },
+    {
+      "sceneId": "hook",
+      "start": 3,
+      "end": 13,
+      "narration": "安全対策を並べても、自分の現場が伝わらない。そんなときは、現場条件、課題、対策の順につなげましょう。",
+      "caption": "現場条件、課題、対策の順につなげましょう。",
+      "visual": {
+        "kind": "figure",
+        "heading": "対策を並べる前に、条件から",
+        "items": [
+          "どんな現場だったか",
+          "どんな危険があったか",
+          "何を考え、何をしたか"
+        ],
+        "src": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-001.d6f17a6d.png"
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集/安全管理/article.md"
+    },
+    {
+      "sceneId": "premise",
+      "start": 13,
+      "end": 23,
+      "narration": "対策の名前を増やすより、その現場で必要だった理由を示します。ここからは、狭いヤードを使った考え方の例です。",
+      "caption": "その現場で必要だった理由を示します。",
+      "visual": {
+        "kind": "figure",
+        "heading": "考え方の例で、つながりを見る",
+        "items": [
+          "条件を整理する",
+          "危険を具体的にする",
+          "対策の理由を示す"
+        ],
+        "src": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-001.d6f17a6d.png"
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集/安全管理/article.md"
+    },
+    {
+      "sceneId": "condition",
+      "start": 23,
+      "end": 35,
+      "narration": "まず現場条件です。ヤードが狭いだけで終わらず、人が通る場所と、重機が動く場所の位置関係まで整理します。",
+      "caption": "人が通る場所と、重機が動く場所の位置関係まで整理します。",
+      "visual": {
+        "kind": "figure",
+        "heading": "現場条件：どこで作業するか",
+        "items": [
+          "通路と重機の位置関係",
+          "近づく場面を探す",
+          "対策はその後で考える"
+        ],
+        "src": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-001.d6f17a6d.png",
+        "focus": 0
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集/安全管理/article.md"
+    },
+    {
+      "sceneId": "risk",
+      "start": 35,
+      "end": 47,
+      "narration": "次に課題です。その位置関係では、人と重機が近づく場面はどこか。近づいたときの接触を防ぐ、という課題につなげます。",
+      "caption": "近づいたときの接触を防ぐ、という課題につなげます。",
+      "visual": {
+        "kind": "figure",
+        "heading": "課題：何を防ぐ必要があるか",
+        "items": [
+          "狭いヤードでの作業",
+          "人と重機の接触を防ぐ",
+          "危険に合う対策へ"
+        ],
+        "src": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-001.d6f17a6d.png",
+        "focus": 1
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集/安全管理/article.md"
+    },
+    {
+      "sceneId": "measure",
+      "start": 47,
+      "end": 61,
+      "narration": "そして対策です。接触を防ぐために、人の通路と重機の動く範囲を分ける。このように、危険とのつながりを確かめて対策を考えます。",
+      "caption": "人の通路と重機の動く範囲を分ける。",
+      "visual": {
+        "kind": "figure",
+        "heading": "対策：課題に合う方法を考える",
+        "items": [
+          "通路と作業範囲の位置",
+          "人と重機の接触を防ぐ",
+          "動線を分ける方法を検討"
+        ],
+        "src": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-001.d6f17a6d.png",
+        "focus": 2
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集/安全管理/article.md"
+    },
+    {
+      "sceneId": "concrete",
+      "start": 61,
+      "end": 74,
+      "narration": "動線を分ける場合も、どの場所を、何で区切るのかまで考えます。答案には、実際に検討したことと、行った処置を結び付けて書きます。",
+      "caption": "実際に検討したことと、行った処置を結び付けて書きます。",
+      "visual": {
+        "kind": "figure",
+        "heading": "対策を、現場での行動まで具体化",
+        "items": [
+          "区切る場所を確かめる",
+          "接触を防ぐ理由を添える",
+          "検討と実施を結び付ける"
+        ],
+        "src": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-001.d6f17a6d.png",
+        "focus": 2
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集/安全管理/article.md"
+    },
+    {
+      "sceneId": "question",
+      "start": 74,
+      "end": 87,
+      "narration": "自分の工事では、どんな条件で、どんな危険があり、何を検討して、何をしましたか。図の例をそのまま使わず、自分が経験した事実に戻しましょう。",
+      "caption": "自分が経験した事実に戻しましょう。",
+      "visual": {
+        "kind": "figure",
+        "heading": "自分の現場の事実で答える",
+        "items": [
+          "どんな現場条件だったか",
+          "どんな危険があったか",
+          "何を検討して、何をしたか"
+        ],
+        "src": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-001.d6f17a6d.png"
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集/安全管理/article.md"
+    },
+    {
+      "sceneId": "summary",
+      "start": 87,
+      "end": 98,
+      "narration": "まとめです。現場条件から課題を定め、対策へつなげる。対策の名前だけでなく、その現場で必要だった理由が伝わるかを確かめましょう。",
+      "caption": "現場条件から課題を定め、対策へつなげる。",
+      "visual": {
+        "kind": "figure",
+        "heading": "現場条件 → 課題 → 対策",
+        "items": [
+          "現場の条件を示す",
+          "防ぐべき危険を示す",
+          "その対策が必要な理由を示す"
+        ],
+        "src": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-001.d6f17a6d.png"
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集/安全管理/article.md"
+    },
+    {
+      "sceneId": "cta",
+      "start": 98,
+      "end": 111,
+      "narration": "安全・品質・工程の完成答案と、自分の工事への置換ガイドで練習したい方へ。概要欄に、2級土木の施工経験記述、完成答案集を案内しています。",
+      "caption": "概要欄に、2級土木の施工経験記述、完成答案集を案内しています。",
+      "visual": {
+        "kind": "cover",
+        "heading": "自分の経験に置き換えて練習",
+        "items": [
+          "施工経験記述 完成答案集",
+          "安全・品質・工程",
+          "概要欄から確認"
+        ],
+        "src": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/cta.4baa72a7.png"
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集/安全管理/article.md"
+    }
+  ]
+}

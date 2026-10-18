@@ -2,7 +2,7 @@
 /**
  * 参考文献の「1 ID = 1 書籍ディレクトリ」とページ画像 provenance を検査する。
  *
- * CI（Drive mount なし）では参考文献台帳 ↔ book-manifest ↔ drive-manifest を検査する。
+ * CI（--metadata-only）では参考文献台帳 ↔ book-manifest ↔ drive-manifest を検査する。
  * Drive mount がある端末では、全原本とページ画像サンプル（--deep は全件）の bytes/sha256 も照合する。
  * あわせて原本 PDF の実ページ数（pdfinfo）が台帳の expectedPdfPages と同じかを見る（2026-10-13。違うと増えたページが
  * 黙って画像にならず、除外の範囲もずれる）。pdfinfo が無い端末では照合しないと出す。
@@ -41,6 +41,7 @@ const value = (name, fallback = null) => {
   return i >= 0 && args[i + 1] ? args[i + 1] : fallback;
 };
 const DEEP = args.includes('--deep');
+const METADATA_ONLY = args.includes('--metadata-only');
 const SOURCE_ID = value('source-id');
 const SAMPLE = Math.max(1, Number(value('sample', '12')) || 12);
 const failures = [];
@@ -73,7 +74,7 @@ for (const source of targets) {
   directories.set(source.bookBundle.directory, source.id);
 }
 
-const mount = resolveVaultRoot({ cfg: driveConfig });
+const mount = METADATA_ONLY ? { root: null, reason: '--metadata-only: 台帳・manifest のみ検査' } : resolveVaultRoot({ cfg: driveConfig });
 if (!mount.root) warnings.push(`Drive mount 無し（${mount.reason}）。実体検査は 0 件`);
 
 let checkedManifests = 0;

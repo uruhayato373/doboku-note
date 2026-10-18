@@ -1,0 +1,209 @@
+{
+  "policy": ".claude/knowledge/reference/pop-image-policy.md",
+  "designVersion": "pop-poster-v3",
+  "images": [
+    {
+      "role": "cover",
+      "mediaId": "civil-construction-2/kento-taio-kakiwake/youtube.longform/cover",
+      "copy": [
+        "2級土木",
+        "検討と対応",
+        "考えたこと実施したこと",
+        "理由と処置を書き分ける",
+        "総監・元発注者",
+        "1級・2級土木合格者"
+      ],
+      "references": [
+        {
+          "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/cover.6d461a7d.png",
+          "sha256": "6d461a7d29270911cbdeb4202056e9196493c0cfbae69dad97c351c3257c8fe5"
+        }
+      ],
+      "prompt": "Create ONE landscape16:9 Japanese emerald-green POP YouTube thumbnail intended1920×1080. Supplied image is STYLE and CHARACTER REFERENCE ONLY, not text to copy. Same mature Japanese male teacher: short black hair, black rectangular glasses, light beard, plain white helmet, navy workwear, yellow straps. EXACTLY TWO arms and TWO hands, anatomically natural. Continuous illustrated green construction background to all edges. Huge target label「2級土木」upper left. Smaller yellow author badge「総監・元発注者」「1級・2級土木合格者」in a separate region. Huge outlined dark-green topic text, red secondary headline. Keep ALL text in TOP THREE-QUARTERS of canvas, subtitle at y=70%. Bottom25% is continuous green illustration and teacher torso with NO TEXT, not blank. Face and text never clipped. Bold Japanese lettering readable at width360px. No extra words, URL, logo, price, dates, scores, guarantee. Topic「検討と対応」. Red two-line headline「考えたこと」「実施したこと」. Subtitle「理由と処置を書き分ける」. Pose: one hand holding a blank document with two large unlettered columns, other hand pointing a red pen at its columns. Only TWO hands, neither hand touches face. Do not add plus, cross, circle or correctness marks.",
+      "generator": {
+        "tool": "image_gen",
+        "model": "not-reported-by-tool"
+      },
+      "format": {
+        "width": 1920,
+        "height": 1080
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/youtube.longform/cover.65a2fc75.png",
+        "sha256": "65a2fc75505a1b0b759d36316c99afc36459c652e236e2cc0cf0a3276ae2547f"
+      },
+      "normalization": "sharpによる1920×1080 RGBへの寸法正規化のみ",
+      "review": {
+        "status": "ok",
+        "by": "ai-image-fidelity-auditor",
+        "at": "2026-10-15T23:03:06.711Z",
+        "scope": "原寸と幅360pxの文言・人体・図形・参照キャラクター整合"
+      },
+      "generatedSource": {
+        "path": ".tmp/video-render/kento-taio-kakiwake/source-generated-cover.png",
+        "sha256": "d661fa591c36b0d8dcbf2c304bae8e3ee4e061b7fc540bd1e77c216215c34592"
+      }
+    },
+    {
+      "role": "cta",
+      "mediaId": "civil-construction-2/kento-taio-kakiwake/youtube.longform/cta",
+      "sourceMediaId": "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/cta",
+      "copy": [
+        "2級土木",
+        "施工経験記述",
+        "完成答案集",
+        "安全・品質・工程",
+        "自分の経験に置き換えて練習",
+        "概要欄から確認",
+        "総監・元発注者",
+        "1級・2級土木合格者"
+      ],
+      "references": [
+        {
+          "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/cta.4a212462.png",
+          "sha256": "4a2124622b99d35b3396c9d5764e066d5ac0d06891e368b481ca232189f88e2b"
+        }
+      ],
+      "prompt": "Edit the attached finished 16:9 landscape closing card for a Japanese educational video. Maintain the green pop-poster-v3 design and EXACT identity/anatomy of the teacher: plain white helmet, black rectangular glasses, short beard, navy workwear, one hand naturally pointing toward the CTA and the other holding answer sheets. Preserve these six text strings verbatim, once each: 「2級土木」「施工経験記述」「完成答案集」「安全・品質・工程」「自分の経験に置き換えて練習」「概要欄から確認」. Replace the old single line 「総監が制作」 with a TWO-LINE yellow credentials badge near the top: line 1 「総監・元発注者」, line 2 「1級・2級土木合格者」. This badge gives author credentials, clearly subordinate to the biggest target label 「2級土木」, with bold readable typography rather than tiny text. Reflow top heading and badge to avoid collisions; keep main title and CTA readable. Do not claim direct personal review, guaranteed passing, grading authority or teaching results. Add no other words, URL, logo, price or symbols. All important text and the pointing finger stay inside the canvas, all text and yellow CTA strip fully ABOVE 82% height. Bottom 18% only contains continuous illustrated green background and teacher torso, NOT a blank stripe. Preserve exactly five fingers per hand and the existing correct pointing pose. One polished landscape image intended 1920×1080, not a sheet or comparison.",
+      "generator": {
+        "tool": "image_gen",
+        "reuse": true
+      },
+      "format": {
+        "width": 1920,
+        "height": 1080
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/youtube.longform/cta.4a212462.png",
+        "sha256": "4a2124622b99d35b3396c9d5764e066d5ac0d06891e368b481ca232189f88e2b"
+      },
+      "review": {
+        "status": "ok",
+        "by": "ai-image-fidelity-auditor",
+        "at": "2026-10-15T23:03:06.711Z",
+        "scope": "原寸と幅360pxの文言・人体・図形・参照キャラクター整合"
+      }
+    }
+  ],
+  "authorization": {
+    "request": "5本ほど予約投稿してほしい　品質チェックしながら確実に",
+    "scope": "追加5本の制作・品質確認・YouTube予約投稿・台帳と管理画面への反映"
+  },
+  "contentQa": {
+    "avg": 3,
+    "blocks": 0,
+    "by": "video-content-qa",
+    "at": "2026-10-16",
+    "scope": "台本・storyboard・出典・商品導線"
+  },
+  "completedVideoReview": {
+    "by": "codex",
+    "at": "2026-10-15T23:03:06.711Z",
+    "packId": "kento-taio-kakiwake",
+    "duration": 121.7,
+    "video": {
+      "codec": "h264",
+      "width": 1920,
+      "height": 1080
+    },
+    "audio": {
+      "codec": "aac",
+      "sampleRate": "24000"
+    },
+    "scenesChecked": 14,
+    "scenesExpected": 14,
+    "maxFrameMae": 2.6560971467391306,
+    "audioInputsVerified": 14,
+    "blackOrLongSilence": 0,
+    "comparisons": [
+      {
+        "sceneId": "cover",
+        "time": 0.9226665,
+        "mae": 2.6560971467391306
+      },
+      {
+        "sceneId": "hook",
+        "time": 6.1119995000000005,
+        "mae": 0.37338503925120775
+      },
+      {
+        "sceneId": "authority",
+        "time": 14.9973325,
+        "mae": 0.3521437198067633
+      },
+      {
+        "sceneId": "premise",
+        "time": 24.127999000000003,
+        "mae": 0.2614296497584541
+      },
+      {
+        "sceneId": "condition",
+        "time": 33.3013325,
+        "mae": 0.453488639794686
+      },
+      {
+        "sceneId": "options",
+        "time": 42.5653325,
+        "mae": 0.44748301630434784
+      },
+      {
+        "sceneId": "reason",
+        "time": 51.285332499999996,
+        "mae": 0.3183369187801932
+      },
+      {
+        "sceneId": "feasibility",
+        "time": 60.0959995,
+        "mae": 0.4310884661835749
+      },
+      {
+        "sceneId": "action",
+        "time": 69.1946665,
+        "mae": 0.4062162213164251
+      },
+      {
+        "sceneId": "wording",
+        "time": 78.84266649999999,
+        "mae": 0.22424724486714975
+      },
+      {
+        "sceneId": "records",
+        "time": 88.4266665,
+        "mae": 0.36934537288647346
+      },
+      {
+        "sceneId": "question",
+        "time": 97.0986665,
+        "mae": 0.3737656627415459
+      },
+      {
+        "sceneId": "summary",
+        "time": 106.35733299999998,
+        "mae": 0.2614351222826087
+      },
+      {
+        "sceneId": "cta",
+        "time": 116.47466649999998,
+        "mae": 2.514612205615942
+      }
+    ],
+    "visualInspection": "全場面の完成動画フレームで文字切れ・字幕との重なりを確認",
+    "pronunciationInspection": "全場面のVOICEVOX読み解析と入力ハッシュを確認（全編の人による試聴ではない）",
+    "subtitleSafeArea": "生成画像は指定20%の無文字域を満たさないため、完成字幕を含むフレームで主要文字との干渉がないことを確認",
+    "videoSha256": "ec2c6765190e8fbf4f04130527d8e63f2e50239c081b047e3fc7deb7ae7df925"
+  },
+  "renderRecipe": {
+    "bodyImages": "storyboardのpoints/sheet/compareを描画。全画像を1920×1080 RGBに正規化後、--resumeで合成。",
+    "voice": "VOICEVOX:青山龍星",
+    "command": "PATH=/opt/homebrew/opt/ffmpeg-full/bin:$PATH npm run render-longform -- --pack-dir content/sns/video-packs/civil-construction-2/kento-taio-kakiwake --speaker 13 --resume",
+    "normalization": "ffmpeg loudnorm I=-16:TP=-1.5:LRA=11; AAC 24000Hz, 192k; video stream copy",
+    "storage": {
+      "status": "cloud-verified",
+      "contentMedia": 21,
+      "renderArtifacts": 37,
+      "sha256Verified": 58,
+      "cloudMd5Verified": 58,
+      "at": "2026-10-15T23:07:28.124Z"
+    }
+  }
+}

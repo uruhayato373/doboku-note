@@ -5,6 +5,7 @@ import { PageHead } from '@/components/ui';
 import { snsBoard, figureBoard } from '@/lib/sns-board';
 import { videoSnsJoin } from '@/lib/video-sns-join';
 import { derivativeLabel } from '@/lib/video-outcomes';
+import { longformPlanHref, roadmapHref } from '@/lib/content-plan-links';
 
 export const dynamic = 'force-dynamic';
 
@@ -22,6 +23,9 @@ export default async function SnsBoardPage() {
   return (
     <>
       <PageHead title="投稿状況" />
+      <nav className="project-crumbs" aria-label="関連する計画と台帳">
+        <Link href={roadmapHref()}>年間ロードマップ</Link> · <Link href={longformPlanHref()}>通常動画の制作・公開管理</Link> · <Link href="/schedule?dom=sns">SNS全体の予定</Link>
+      </nav>
       {/* SNS はサイドバーの枝にせずこのページの節にする（domains.json navRules）。素材の作業場はここから開く */}
       <nav className="filterbar mb-3!">
         <a className="chip" href="#figures">図解素材</a>

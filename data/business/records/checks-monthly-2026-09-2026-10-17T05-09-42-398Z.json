@@ -1,0 +1,138 @@
+{
+  "cadence": "monthly",
+  "runKey": "2026-09",
+  "ranAt": "2026-10-17T05:09:42.398Z",
+  "checks": [
+    {
+      "command": "check-workflow-health",
+      "label": "重要 workflow の健全性",
+      "exitCode": 1,
+      "state": "fail",
+      "summary": "[check-workflow-health] ✗ 2 本が不健全",
+      "seconds": 22
+    },
+    {
+      "command": "check-business-direction",
+      "label": "事業方針の設定と履歴",
+      "exitCode": 0,
+      "state": "ok",
+      "summary": "[business-direction] PASS: 4資格 / 24指標 / 144履歴。計測 46/82（対象外 38）",
+      "seconds": 1
+    },
+    {
+      "command": "check-backlog-health",
+      "label": "バックログの健全性",
+      "exitCode": 0,
+      "state": "ok",
+      "summary": "[check-backlog-health] カード 217 件を実検査（判定はしない・候補の列挙のみ）",
+      "seconds": 2
+    },
+    {
+      "command": "check-exam-calendar",
+      "label": "試験日程の整合",
+      "exitCode": 0,
+      "state": "ok",
+      "summary": "[check-exam-calendar] OK: 2026-09-26確認済み — 資格 14 件 / 日付 70 件を実照合・未発表の期間 16 件を検査、1000 ファイルを走査（禁止パターン 8 種）",
+      "seconds": 1
+    },
+    {
+      "command": "check-past-exam-inventory",
+      "label": "過去問の年度在庫",
+      "exitCode": 0,
+      "state": "ok",
+      "summary": "[check-past-exam-inventory] OK（WARN 0 件）",
+      "seconds": 0
+    }
+  ],
+  "issues": [
+    {
+      "number": 478,
+      "title": "[auto] workflow-health: 重要 workflow が赤いまま/動いていません",
+      "createdAt": "2026-08-31T08:38:00Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 571,
+      "title": "[auto] ops: 投稿・配信・販売計測に遅れがあります",
+      "createdAt": "2026-09-22T01:08:28Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 636,
+      "title": "[auto] cloudflare-metrics: Cloudflare zone analytics 取得失敗（rc=1）",
+      "createdAt": "2026-09-24T23:16:16Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 709,
+      "title": "[auto] cloudflare-config: Cloudflare zone config 取得失敗",
+      "createdAt": "2026-09-29T01:16:37Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 864,
+      "title": "[auto] note-sync: note の反映残り（rc=1）",
+      "createdAt": "2026-10-05T03:10:38Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 867,
+      "title": "[auto] report-checks: quality-audit の report 区分に FAIL があります",
+      "createdAt": "2026-10-05T09:04:31Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 1006,
+      "title": "[auto] note-live-audit: note のライブ監査で異常があります",
+      "createdAt": "2026-10-12T02:32:25Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 1087,
+      "title": "[auto] auth-state-kdp: login collector kdp: expired / rc=0 / type=0",
+      "createdAt": "2026-10-16T00:07:21Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 1100,
+      "title": "[auto] note-public-view: 公開ページの見え方に不整合",
+      "createdAt": "2026-10-17T01:13:09Z",
+      "labels": [
+        "automation-failure"
+      ]
+    },
+    {
+      "number": 1106,
+      "title": "[auto] pre-merge: Pre-merge check が赤（develop）",
+      "createdAt": "2026-10-17T05:04:32Z",
+      "labels": [
+        "automation-failure"
+      ]
+    }
+  ],
+  "alerts": [
+    {
+      "number": 96,
+      "severity": "medium",
+      "package": "sprintf-js",
+      "summary": "sprintf-js vulnerable to denial of service through unbounded precision specifiers",
+      "createdAt": "2026-10-06T04:24:08Z"
+    }
+  ]
+}

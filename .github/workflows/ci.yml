@@ -59,6 +59,10 @@ jobs:
       - name: Build doc meta index
         run: node .claude/scripts/build-doc-meta-index.mjs --ci
 
+      # auditジョブも生成物を自分で検査する。別のbuildジョブの存在に依存してskipしない。
+      - name: Build standards data for audit
+        run: npm run build-standards-data
+
       # 機械品質チェックを横断実行（type-check / test / validate-mdx / eslint /
       # ラチェット / frontmatter / svg / image / links / 台帳整合 等を1ステップに集約）。
       # 個別ステップの真実源は scripts/quality-audit.mjs の CHECKS(ci:true)。

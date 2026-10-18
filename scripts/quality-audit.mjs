@@ -118,7 +118,7 @@ export const CHECKS = [
   { id: 'agent-config', npm: 'check-agent-config', timeout: 30_000, ci: true, note: '.claude/config/ の JSON（認証の許可リスト・CI の書き込み許可・品質ゲートの基準と許可リスト）がすべて型（scripts/lib/dataset-schemas-agent-config.mjs）に合い、型の無い JSON が無いか（DN-0524・案B。壊れるとログインや書き戻しが黙って止まる）' },
   { id: 'admin-ui-debt', npm: 'check-admin-ui-debt', timeout: 30_000, ci: true, note: '管理画面のページごとの生 card クラスとインライン style をラチェット（増えたら落ちる・新規ページは 0）。shadcn 部品へ移したら --update で下げる（DN-0432）' },
   { id: 'shadcn-parity', npm: 'check-shadcn-parity', timeout: 30_000, ci: true, note: '管理画面の UI 部品（components/ui）が shadcn/ui 公式（.claude/config/shadcn-reference・コミット済みの保存物）と同じクラスか。差は shadcn-parity-allow.json に理由付きで登録したものだけ。ページでの Badge/Button/TabsTrigger の大きさの上書きも止める（DN-0432）' },
-  { id: 'generated-indexes', npm: 'check-generated-indexes', timeout: 180_000, ci: true, note: 'refresh-indexes の生成物（src/config の索引・人気記事・frequent-topics・演習データ public/quiz）がコミットと一致。MDX 追加時の回し忘れを止める（2026-10-02: 演習データだけ refresh-indexes に無く、解説 2 問が古いまま配信されていた）' },
+  { id: 'generated-indexes', npm: 'check-generated-indexes', timeout: 180_000, ci: true, serial: true, note: 'refresh-indexes の生成物（src/config の索引・人気記事・frequent-topics・演習データ public/quiz）がコミットと一致。MDX 追加時の回し忘れを止める（2026-10-02: 演習データだけ refresh-indexes に無く、解説 2 問が古いまま配信されていた）' },
   { id: 'memory', npm: 'check-memory', timeout: 30_000, ci: true, note: 'エージェントの記憶（.claude/memory）の frontmatter・名前重複・索引の網羅と読み込み上限（200 行 / 25KB）' },
   { id: 'business-direction', npm: 'check-business-direction', timeout: 30_000, ci: true, note: '資格別事業方針・計測とレビュー履歴の整合' },
   // ── ci:true 厳格ゲート ──
@@ -152,7 +152,7 @@ export const CHECKS = [
   // 動画パック（DN-0110 Phase 0・2026-08-28 追加）。Phase 1 未着手（packs root 不在）は明示して exit 0、
   // root があるのに 0 件は exit 2（検査不成立）。チェッカー自体の健全性は unit-tests の fixture が担保。
   { id: 'video-content', npm: 'check-video-content', timeout: 60_000, ci: true, note: `動画パックの manifest/sourceRef 漏洩/CTA・UTM/storyboard/逐語転用/バイナリ混入/status 整合（真実源 video-content-policy.md §8 ＋ ${datasetPath('config.video-content')}）` },
-  { id: 'content-registry', npm: 'check-content-registry', timeout: 60_000, ci: true, note: 'コンテンツ台帳（content/registry）の検査 R01〜R10（content-registry.md）。0 件・ID・参照・件数・Drive の sha・状態と承認ハッシュ・外部 ID・切り替え前のチャネルが今の台帳と一致するか。結果は PR の差分だけで決まる' },
+  { id: 'content-registry', npm: 'check-content-registry', timeout: 60_000, ci: true, note: 'コンテンツ台帳（content/registry）の検査 R01〜R11（content-registry.md）。0 件・ID・参照・件数・Drive の sha・状態と承認ハッシュ・外部 ID・通常動画の台本重複・切り替え前のチャネルが今の台帳と一致するか。結果は PR の差分だけで決まる' },
   { id: 'registry-due', npm: 'check-registry-due', timeout: 30_000, ci: false, ops: true, note: '予約のまま公開の予定を猶予より過ぎた公開（壁時計依存なので ops）。読み手＝日次 ops-audit の automation-failure Issue と /weekly-review。照合（registry-reconcile・P2）が公開へ進めるまでの遅れを見張る' },
   { id: 'instagram-reels', npm: 'check-instagram-reels', timeout: 60_000, ci: true, note: '動画パックから派生する Instagram Reels の対象数・資格別被覆・媒体設定を固定' },
   { id: 'youtube-shorts', npm: 'check-youtube-shorts', timeout: 60_000, ci: true, note: '112動画パック×2本のShortsメタデータ、タイトル/UTM/著者表記/scene/通常動画後の公開枠と1日3本上限を固定' },
@@ -181,13 +181,13 @@ export const CHECKS = [
   { id: 'standards-page-images', npm: 'check-standards-page-images', timeout: 120_000, ci: true, note: '公的基準のページ画像の provenance 整合（catalog↔manifest の原本 sha256・ページ被覆・part 範囲）。実体が無い端末では manifest のみ検査し、その旨を明示する' },
   {
     id: 'standards-data', npm: 'check-standards-data', timeout: 120_000, ci: true,
-    skip: () => existsSync(join(ROOT, 'public', 'standards-data', 'catalog.json')) ? null : '生成物 public/standards-data が無い（npm run build-standards-data 後に実行）',
-    note: '公開用 standards-data（Markdown / JSON-LD / 索引）の形式・条数・出典分離・noindex/CORS ヘッダー。build-standards-data の末尾でも走るが、生成物がある環境では横断監査でも再掲する（gate-parity のオーファン解消・DN-0205）',
+    skip: () => process.env.CI || existsSync(join(ROOT, 'public', 'standards-data', 'catalog.json')) ? null : '生成物 public/standards-data が無い（npm run build-standards-data 後に実行）',
+    note: '公開用 standards-data（Markdown / JSON-LD / 索引）の形式・条数・出典分離・noindex/CORS ヘッダー。CIのaudit前に生成し必ず検査する。ローカルは生成物がある環境で横断監査に再掲する（gate-parity のオーファン解消・DN-0205）',
   },
   { id: 'content-series', npm: 'check-content-series', timeout: 30_000, ci: true, note: 'サイト記事のシリーズ企画の台帳（content-series.json）を検査（根拠の参考文献 id・既存と補強の記事の実在・関連記事・対象外の理由・入口）。状態は記事の実体から出し、件数だけ表示する' },
   { id: 'egov-links', npm: 'egov-laws', timeout: 60_000, ci: true, note: '記事の e-Gov 法令検索へのリンク（法令 ID・条）と参考文献の台帳の法令の e-Gov の法令 ID を、e-Gov の写し（台帳 config.egov-laws）と照合（通信しない）。e-Gov の画面は無い ID でも 200 を返すのでリンク切れの検査では見つからない（2026-10-13 に 13 法令 26 か所）' },
   { id: 'egov-drift', cmd: ['node', 'scripts/egov-laws.mjs', '--drift'], timeout: 900_000, ci: false, ops: true, note: '写しより後に改正が施行された法令と、それにリンクする記事（e-Gov 法令 API と通信する・壁時計依存なので ops）。読み手＝日次 ops-audit の automation-failure Issue。記事を改正に合わせて確かめたら npm run egov-laws -- --sync で写しを進める' },
-  { id: 'reference-book-pages', npm: 'check-reference-book-pages', timeout: 120_000, ci: true, note: '参考文献 ID 単位の書籍 bundle を検査（1冊1ディレクトリ・原本 sha256・分冊順・通しページ被覆・Drive 台帳結線）。実体が無い端末では manifest のみ検査する' },
+  { id: 'reference-book-pages', npm: 'check-reference-book-pages', args: ['--metadata-only'], timeout: 120_000, ci: true, note: '参考文献 ID 単位の書籍 bundle を検査（1冊1ディレクトリ・原本 sha256・分冊順・通しページ被覆・Drive 台帳結線）。CI は manifest のみ検査する。Drive の bytes/sha256 は通常の check-reference-book-pages で別途照合する' },
   { id: 'figure-embed-dims', npm: 'check-figure-embed-dims', timeout: 90_000, ci: true, note: 'ArticleImage の width/height と SVG の実 viewBox の突合。従来は r2-audit（週次 cron）と pre-commit(staged) だけで、push 経路に backstop が無かった' },
   { id: 'bold-rendering', npm: 'check-bold-rendering', timeout: 120_000, ci: true, note: '閉じ/開き ** が flanking を満たさず太字にならずアスタリスクが本文に出る事故。remark で実パースして text ノードに ** が残るかで判定する（規則の再実装ではない）。2026-09-23 から note 記事（content/note の article*.md）も対象' },
   { id: 'note-duplicate-images', npm: 'check-note-duplicate-images', timeout: 60_000, ci: true, note: 'note 記事の本文で同じ画像を 2 回使うと 2 枚目が CDN 確定に至らず全文更新が中断し、その記事を再公開できなくなる（2026-09-23 実測・著者バナー重複 29 本）。pre-commit の note-lint 規則 10 と同じ判定を全件に当てる' },
@@ -327,7 +327,7 @@ export const CHECKS = [
   // 共通仕様書のページ画像 3.4GB を private R2 へ上げかけた再発防止。CI は Drive を持たないので
   // マウント無しでは「実体検査 0 件」と明示して設定・台帳・ルーティング衝突・audience だけを判定する。
   { id: 'youtube-cover-handoff', npm: 'check-youtube-cover-handoff', timeout: 120_000, ci: true, note: '採用カバーのDrive台帳登録・読み戻し記録・入力変更を検査。クラウド実体は読まない' },
-  { id: 'drive-vault', npm: 'check-drive-vault', timeout: 120_000, ci: true, note: 'audience ゲート（site⇒public / ci⇒private|byVisibility / human⇒Drive）・R2 と Drive の同一パス衝突・drive-manifest の整合。マウント無しは実体検査 0 件と明示' },
+  { id: 'drive-vault', npm: 'check-drive-vault', args: ['--metadata-only'], timeout: 120_000, ci: true, note: 'audience・ルーティング・drive-manifest の整合を検査。Drive 実体検査は通常の check-drive-vault で行う' },
   // ローカルディスクの肥大は gitignore 済み・ホーム配下・worktree に溜まるので CI にも pre-commit にも
   // 映らない（2026-09-10 に空き 7.5GB まで落ちて初めて気づいた）。ローカル（Mac / Windows）でだけ意味がある検査。
   { id: 'disk-hygiene', npm: 'check-disk-hygiene', timeout: 120_000, ci: false,
@@ -480,7 +480,7 @@ function resolveCommand(check) {
   if (check.cmd) return check.cmd;
   if (check.npm) {
     if (!PKG.scripts || !PKG.scripts[check.npm]) return null; // 未定義 script
-    return ['npm', 'run', '--silent', check.npm];
+    return ['npm', 'run', '--silent', check.npm, ...(check.args?.length ? ['--', ...check.args] : [])];
   }
   return null;
 }

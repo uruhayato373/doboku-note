@@ -82,6 +82,7 @@ export function expansionReport(root, data = loadExpansion(root), registry = nul
       if (!VISUAL_DECISIONS.includes(unit.visual?.decision) || !unit.visual?.reason?.trim()) issues.push(`${unit.id}: 図解の要否と理由が不明です`);
       if (!DERIVATIVE_DECISIONS.includes(unit.derivative?.decision) || !unit.derivative?.reason?.trim()) issues.push(`${unit.id}: SNS展開の要否と理由が不明です`);
       if (!Array.isArray(unit.locators) || !unit.locators.length) issues.push(`${unit.id}: 原本・教材の箇所指定がありません`);
+      const excluded = unit.content === 'excluded';
       const artifacts = (unit.artifacts ?? []).map(artifact => {
         let state = 'current';
         try {
@@ -93,17 +94,17 @@ export function expansionReport(root, data = loadExpansion(root), registry = nul
             if (hashes.get(full) !== artifact.sha256) state = 'changed';
           }
         } catch { issues.push(`${unit.id}: 不正な成果物パス`); state = 'invalid'; }
-        if (state !== 'current') stale.push({ unitId: unit.id, path: artifact.path, state });
+        if (!excluded && state !== 'current') stale.push({ unitId: unit.id, path: artifact.path, state });
         return { ...artifact, state };
       });
       if (unit.content === 'covered' && !artifacts.some(a => /\.mdx?$/.test(a.path))) issues.push(`${unit.id}: 内容対応の根拠記事がありません`);
       if (['existing','created','reused'].includes(unit.visual?.decision) && !artifacts.some(a => /\.(svg|webp|png|jpg)$/.test(a.path))) issues.push(`${unit.id}: 図解の実体がありません`);
       if (['prepared','existing'].includes(unit.derivative?.decision) && !artifacts.some(a => a.path.startsWith('content/sns/'))) issues.push(`${unit.id}: SNS原稿の実体がありません`);
-      const sourceWaiting = unit.content === 'blocked' || unit.evidenceLevel === 'source-unavailable';
-      const pending = !sourceWaiting && (['partial','unreviewed'].includes(unit.content) || unit.evidenceLevel === 'topic-map' || [unit.visual?.decision, unit.derivative?.decision].some(x => ['needed','unreviewed'].includes(x)));
+      const sourceWaiting = !excluded && (unit.content === 'blocked' || unit.evidenceLevel === 'source-unavailable');
+      const pending = !excluded && !sourceWaiting && (['partial','unreviewed'].includes(unit.content) || unit.evidenceLevel === 'topic-map' || [unit.visual?.decision, unit.derivative?.decision].some(x => ['needed','unreviewed'].includes(x)));
       // 商品への展開は、成果物に note / Kindle / ココナラの原稿が記録されているかで数える（台帳の形は変えない）
       const productArtifacts = artifacts.filter(a => PRODUCT_ARTIFACT_RE.test(a.path));
-      return { ...unit, artifacts, productArtifacts, stale: artifacts.some(a => a.state !== 'current'), sourceWaiting, pending };
+      return { ...unit, artifacts, productArtifacts, stale: !excluded && artifacts.some(a => a.state !== 'current'), sourceWaiting, pending };
     });
     if (registered && (!registered.shortTitle?.trim() || !registered.shelf?.trim())) issues.push(`${source.sourceId}: reference-sources.json に shortTitle / shelf がありません`);
     return { ...source, title: registered?.title ?? source.sourceId, shortTitle: registered?.shortTitle ?? source.sourceId, shelf: registered?.shelf ?? 'その他', units };
@@ -117,7 +118,7 @@ export function expansionReport(root, data = loadExpansion(root), registry = nul
     topicMapped: units.filter(u => u.evidenceLevel === 'topic-map').length,
   };
   return { reviewedAt: data.reviewedAt, scopeNote: data.scopeNote, sources, units, missingSources, issues, stale, summary,
-    productionComplete: issues.length === 0 && summary.pending === 0 && summary.blocked === 0 && summary.stale === 0 && units.length > 0 };
+    productionComplete: issues.length === 0 && summary.pending === 0 && summary.blocked === 0 && summary.stale === 0 && units.some(u => u.content !== 'excluded') };
 }
 
 /**

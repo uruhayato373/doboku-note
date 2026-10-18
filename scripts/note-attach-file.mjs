@@ -31,7 +31,7 @@ import { join, dirname } from 'node:path';
 import { leanContextOptions } from './lib/playwright-launch.mjs';
 import { NOTE_BASE } from './lib/site-identity.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
-import { listAttachedFiles, countEmbeds } from './lib/note-attach.mjs';
+import { listAttachedFiles, countEmbeds, saveAttachmentDraft } from './lib/note-attach.mjs';
 
 const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
@@ -159,15 +159,9 @@ try {
   }
 
   if (DRAFT_ONLY) {
-    const draft = page.getByRole('button', { name: '下書き保存', exact: true });
-    if (!(await draft.count())) { console.error('ABORT: 下書き保存 未検出'); await ctx.close(); process.exit(6); }
-    await draft.first().click(); await sleep(3500);
-    console.log('[5d] PDF 添付済み下書きを保存');
-    await page.goto(`https://editor.note.com/notes/${NOTE}/edit/`, { waitUntil: 'domcontentloaded', timeout: 60000 });
-    await page.waitForSelector('[contenteditable=true]', { timeout: 30000 }); await sleep(2500);
-    const persisted = (await listAttachedFiles(page)).length > 0;
-    console.log('[5d] 再読込後PDFカード=' + persisted);
-    if (!persisted) { console.error('[5d] ★偽成功: 下書き再読込後にPDFカードが無い★'); exitCode = 9; }
+    const saved = await saveAttachmentDraft(page, { noteId: NOTE, expectedFile: fileAbs.split(/[\\/]/).pop() });
+    console.log(`[5d] 下書き再読込: 対象PDF=${saved.ok} / 添付${saved.files.length}件`);
+    if (!saved.ok) { console.error(`[5d] ABORT: ${saved.reason}`); exitCode = 9; }
     await page.screenshot({ path: join(ROOT, '.tmp/attach-draft-done.png'), fullPage: false }).catch(() => {});
   } else {
 

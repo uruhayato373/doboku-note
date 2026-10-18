@@ -1283,6 +1283,48 @@
       "reason": "参照と同じ人物が赤ペンと無地の白紙を自然な指・手首で保持し、紙に文字や線がなく、背景の透過と帽子・顔・手指・小物の切れがないことを確認した。",
       "reviewedAt": "2026-10-10T14:51:49.957Z"
     },
+    "media:civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/cover": {
+      "sha": "ba16defd11a2f673",
+      "verdict": "ok",
+      "reason": "参照キャラクターの顔・短髪・眼鏡・ひげ・白いヘルメット・紺の作業服を保ち、赤ペンと答案を持つ両手および安全管理の指定6文字列に破綻・誤字がない。",
+      "reviewedAt": "2026-10-17T06:04:25.225Z"
+    },
+    "media:civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/cta": {
+      "sha": "4a2124622b99d35b",
+      "verdict": "ok",
+      "reason": "参照キャラクターと整合する顔・服装、CTAを指す手と答案を持つ手が自然で、完成答案集への案内と指定8文字列が各動画の施工経験記述の用途に合う。",
+      "reviewedAt": "2026-10-17T06:04:25.228Z"
+    },
+    "media:civil-construction-2/anzen-touan-gutaika/youtube.longform/cover": {
+      "sha": "dc301708ac15a33e",
+      "verdict": "ok",
+      "reason": "参照キャラクターの顔・眼鏡・ひげ・服装、赤ペンと答案を持つ両手が自然で、安全管理と総監が解説を含む指定5文字列に誤字・重複がない。",
+      "reviewedAt": "2026-10-17T06:04:25.228Z"
+    },
+    "media:civil-construction-2/anzen-touan-gutaika/youtube.longform/cta": {
+      "sha": "e30cc205813f8316",
+      "verdict": "ok",
+      "reason": "参照キャラクターの顔・服装とCTAを指す手・答案を持つ手が自然で、総監が制作を含む指定7文字列が施工経験記述の完成答案集への案内に合う。",
+      "reviewedAt": "2026-10-17T06:04:25.228Z"
+    },
+    "media:civil-construction-2/anzen-touan-gutaika/youtube.longform/revision-cover": {
+      "sha": "054dd9e005160388",
+      "verdict": "ok",
+      "reason": "原寸・幅360pxで指定6文言、人物同一性、自然な手指、対象資格と著者肩書きの区別、author.tsとの整合を確認。文字下端約80.6%・赤い下線約84.1%で、必須の下端10%安全域を満たす。",
+      "reviewedAt": "2026-10-15T11:05:12.289Z"
+    },
+    "media:civil-construction-2/anzen-touan-gutaika/youtube.longform/revision-cta": {
+      "sha": "89748909f7120f87",
+      "verdict": "ok",
+      "reason": "原寸・幅360pxで指定8文言、人物同一性、自然な指差しと用紙保持、対象資格と著者肩書きの区別、author.tsとの整合を確認。文字下端約82.3%・黄色帯下端約83.5%で、必須の下端10%安全域を満たす。",
+      "reviewedAt": "2026-10-15T11:05:12.289Z"
+    },
+    "media:civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-001": {
+      "sha": "d6f17a6dc6ffe483",
+      "verdict": "ok",
+      "reason": "人物と手指に破綻がなく、「狭いヤード→人と重機が接近→動線を分ける」の図・矢印・例示表記が整合し、指定文言を幅360pxで判読でき、重要文字が下端10%より上に収まることを確認した。",
+      "reviewedAt": "2026-10-14T22:11:44.817Z"
+    },
     "media:civil-construction-2/character-10-a/x.post.t07/cover": {
       "sha": "7d9cdf3f06f2681d",
       "verdict": "ok",
@@ -1397,6 +1439,72 @@
       "reason": "今回の全面版を確認し、4テーマとL・Cの表記が指示どおりで、土試料・ダンプ・前鉄輪と後タイヤのローラ・草のある土の斜面、先生の指示棒と手が自然である。",
       "reviewedAt": "2026-10-12T04:15:54.827Z"
     },
+    "media:civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/body-reference": {
+      "sha": "b0295ab0d7e3e357",
+      "verdict": "ok",
+      "reason": "参照キャラクターを保ち、簡略化したミキサー車・太陽・待機の時計・打込み箇所・温度計と左から右への矢印が指示に合い、温度上昇のおそれを示す指定5文字列に誤字がない。",
+      "reviewedAt": "2026-10-17T06:04:25.228Z"
+    },
+    "media:civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/cover": {
+      "sha": "6d461a7d29270911",
+      "verdict": "ok",
+      "reason": "参照キャラクターの顔・眼鏡・ひげ・服装と赤ペン・答案を持つ両手が自然で、品質管理と試験だけで終わらないを含む指定6文字列が品質管理答案の用途に合う。",
+      "reviewedAt": "2026-10-17T06:04:25.228Z"
+    },
+    "media:civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/cta": {
+      "sha": "4a2124622b99d35b",
+      "verdict": "ok",
+      "reason": "参照キャラクターと整合する顔・服装、CTAを指す手と答案を持つ手が自然で、完成答案集への案内と指定8文字列が各動画の施工経験記述の用途に合う。",
+      "reviewedAt": "2026-10-17T06:04:25.228Z"
+    },
+    "media:civil-construction-2/keiken-daizai-erabi/youtube.longform/cover": {
+      "sha": "88c9abd2531fa9bd",
+      "verdict": "ok",
+      "reason": "参照キャラクターの顔・服装を保ち、ノートを支える手と赤ペンを持つ手が自然で、題材選び・規模より自分の経験・担当した管理を探すの指定文字列が用途と一致する。",
+      "reviewedAt": "2026-10-17T06:04:25.228Z"
+    },
+    "media:civil-construction-2/keiken-daizai-erabi/youtube.longform/cta": {
+      "sha": "4a2124622b99d35b",
+      "verdict": "ok",
+      "reason": "参照キャラクターと整合する顔・服装、CTAを指す手と答案を持つ手が自然で、完成答案集への案内と指定8文字列が各動画の施工経験記述の用途に合う。",
+      "reviewedAt": "2026-10-17T06:04:25.228Z"
+    },
+    "media:civil-construction-2/kento-taio-kakiwake/youtube.longform/cover": {
+      "sha": "65a2fc75505a1b0b",
+      "verdict": "ok",
+      "reason": "参照キャラクターの顔・服装を保ち、二列の無記名用紙を持つ手と赤ペンで示す手が自然で、検討と対応を分ける図柄と指定文字列が一致する。",
+      "reviewedAt": "2026-10-17T06:04:25.228Z"
+    },
+    "media:civil-construction-2/kento-taio-kakiwake/youtube.longform/cta": {
+      "sha": "4a2124622b99d35b",
+      "verdict": "ok",
+      "reason": "参照キャラクターと整合する顔・服装、CTAを指す手と答案を持つ手が自然で、完成答案集への案内と指定8文字列が各動画の施工経験記述の用途に合う。",
+      "reviewedAt": "2026-10-17T06:04:25.228Z"
+    },
+    "media:civil-construction-2/koji-gaiyo-seigou/youtube.longform/cover": {
+      "sha": "0ab5a456662b1bc4",
+      "verdict": "ok",
+      "reason": "参照キャラクターの顔・服装を保ち、左右の手で二枚の無記名答案を比較する姿勢が自然で、工事概要と本文の整合確認を伝える指定文字列に誤字がない。",
+      "reviewedAt": "2026-10-17T06:04:25.228Z"
+    },
+    "media:civil-construction-2/koji-gaiyo-seigou/youtube.longform/cta": {
+      "sha": "4a2124622b99d35b",
+      "verdict": "ok",
+      "reason": "参照キャラクターと整合する顔・服装、CTAを指す手と答案を持つ手が自然で、完成答案集への案内と指定8文字列が各動画の施工経験記述の用途に合う。",
+      "reviewedAt": "2026-10-17T06:04:25.228Z"
+    },
+    "media:civil-construction-2/kotei-touan-gutaika/youtube.longform/cover": {
+      "sha": "e5cae60535b2cdf9",
+      "verdict": "ok",
+      "reason": "参照キャラクターの顔・服装を保ち、無記名の工程表を支える手と赤ペンを持つ手が自然で、連続する作業バーと工程管理の指定文字列が用途に合う。",
+      "reviewedAt": "2026-10-17T06:04:25.228Z"
+    },
+    "media:civil-construction-2/kotei-touan-gutaika/youtube.longform/cta": {
+      "sha": "4a2124622b99d35b",
+      "verdict": "ok",
+      "reason": "参照キャラクターと整合する顔・服装、CTAを指す手と答案を持つ手が自然で、完成答案集への案内と指定8文字列が各動画の施工経験記述の用途に合う。",
+      "reviewedAt": "2026-10-17T06:04:25.228Z"
+    },
     "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/cover": {
       "sha": "b24e58035b4ad295",
       "verdict": "ok",
@@ -1492,6 +1600,312 @@
       "verdict": "ok",
       "reason": "穴埋め・複数記述・選択問題の3形式と答え方が本文と一致。各パネルの文字は明瞭で、人物による遮蔽と下端侵入なし。",
       "reviewedAt": "2026-10-11T11:18:14.353Z"
+    },
+    "media:civil-construction-2/touan-teishutsu-check/youtube.longform/cover": {
+      "sha": "b7b1ad72d2d9a8bd",
+      "verdict": "ok",
+      "reason": "参照キャラクターの顔・服装を保ち、答案を支える手と赤ペンを持つ手が自然で、答案の見直し・つながりを最後に確認・条件と処置と結果の照合という指定文字列に誤字がない。",
+      "reviewedAt": "2026-10-17T06:04:25.228Z"
+    },
+    "media:civil-construction-2/touan-teishutsu-check/youtube.longform/cta": {
+      "sha": "4a2124622b99d35b",
+      "verdict": "ok",
+      "reason": "参照キャラクターと整合する顔・服装、CTAを指す手と答案を持つ手が自然で、完成答案集への案内と指定8文字列が各動画の施工経験記述の用途に合う。",
+      "reviewedAt": "2026-10-17T06:04:25.228Z"
+    },
+    "media:pe-comprehensive-management/monbun-yomikata/youtube.longform/cover": {
+      "sha": "1f63225c7b91cb99",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
+      "reviewedAt": "2026-10-18T00:24:11.421Z"
+    },
+    "media:pe-comprehensive-management/monbun-yomikata/youtube.longform/scene-001": {
+      "sha": "1f63225c7b91cb99",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
+      "reviewedAt": "2026-10-18T00:24:11.421Z"
+    },
+    "media:pe-comprehensive-management/monbun-yomikata/youtube.longform/scene-002": {
+      "sha": "0a5bfc9fd62a5a44",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
+      "reviewedAt": "2026-10-18T00:24:11.421Z"
+    },
+    "media:pe-comprehensive-management/monbun-yomikata/youtube.longform/scene-003": {
+      "sha": "25301973da6a1d0a",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
+      "reviewedAt": "2026-10-18T00:24:11.421Z"
+    },
+    "media:pe-comprehensive-management/monbun-yomikata/youtube.longform/scene-004": {
+      "sha": "21b64f7fffd05840",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
+      "reviewedAt": "2026-10-18T00:24:11.421Z"
+    },
+    "media:pe-comprehensive-management/monbun-yomikata/youtube.longform/scene-005": {
+      "sha": "a144f7c3f16b23ea",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
+      "reviewedAt": "2026-10-18T00:24:11.421Z"
+    },
+    "media:pe-comprehensive-management/monbun-yomikata/youtube.longform/scene-006": {
+      "sha": "73960b019c60dd06",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
+      "reviewedAt": "2026-10-18T00:24:11.421Z"
+    },
+    "media:pe-comprehensive-management/monbun-yomikata/youtube.longform/scene-007": {
+      "sha": "557d7ca2b16f72be",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
+      "reviewedAt": "2026-10-18T00:24:11.421Z"
+    },
+    "media:pe-comprehensive-management/monbun-yomikata/youtube.longform/scene-008": {
+      "sha": "2141d0a43f2337e6",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
+      "reviewedAt": "2026-10-18T00:24:11.421Z"
+    },
+    "media:pe-comprehensive-management/monbun-yomikata/youtube.longform/scene-009": {
+      "sha": "6d30b5d0d8d88928",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
+      "reviewedAt": "2026-10-18T00:24:11.421Z"
+    },
+    "media:pe-comprehensive-management/monbun-yomikata/youtube.longform/scene-010": {
+      "sha": "592fdb8abc79f9cc",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
+      "reviewedAt": "2026-10-18T00:24:11.421Z"
+    },
+    "media:pe-comprehensive-management/monbun-yomikata/youtube.longform/scene-011": {
+      "sha": "9ff02cef7b81c839",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
+      "reviewedAt": "2026-10-18T00:24:11.421Z"
+    },
+    "media:pe-comprehensive-management/monbun-yomikata/youtube.longform/scene-012": {
+      "sha": "78a8fd7ef97ae089",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
+      "reviewedAt": "2026-10-18T00:24:11.421Z"
+    },
+    "media:pe-comprehensive-management/monbun-yomikata/youtube.longform/scene-013": {
+      "sha": "a758693e8451c9bd",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
+      "reviewedAt": "2026-10-18T00:24:11.421Z"
+    },
+    "media:pe-comprehensive-management/monbun-yomikata/youtube.longform/scene-014": {
+      "sha": "72de4e7d9b6579b7",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
+      "reviewedAt": "2026-10-18T00:24:11.421Z"
+    },
+    "media:pe-comprehensive-management/monbun-yomikata/youtube.longform/scene-015": {
+      "sha": "48bfd477cb141a33",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
+      "reviewedAt": "2026-10-18T00:24:11.422Z"
+    },
+    "media:pe-comprehensive-management/monbun-yomikata/youtube.longform/scene-016": {
+      "sha": "e263f36fa648ada9",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
+      "reviewedAt": "2026-10-18T00:24:11.422Z"
+    },
+    "media:pe-comprehensive-management/monbun-yomikata/youtube.longform/scene-017": {
+      "sha": "7d1058a164c26b48",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
+      "reviewedAt": "2026-10-18T00:24:11.422Z"
+    },
+    "media:pe-comprehensive-management/monbun-yomikata/youtube.longform/scene-018": {
+      "sha": "dd3f6c4549fceb9a",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
+      "reviewedAt": "2026-10-18T00:24:11.422Z"
+    },
+    "media:pe-comprehensive-management/monbun-yomikata/youtube.longform/scene-019": {
+      "sha": "45526a23d0c49a64",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
+      "reviewedAt": "2026-10-18T00:24:11.422Z"
+    },
+    "media:pe-comprehensive-management/monbun-yomikata/youtube.longform/scene-020": {
+      "sha": "49ba401cbf24a8a5",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
+      "reviewedAt": "2026-10-18T00:24:11.422Z"
+    },
+    "media:pe-comprehensive-management/monbun-yomikata/youtube.longform/scene-021": {
+      "sha": "7597fe0285add30d",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
+      "reviewedAt": "2026-10-18T00:24:11.422Z"
+    },
+    "media:pe-comprehensive-management/monbun-yomikata/youtube.longform/scene-022": {
+      "sha": "06437a6f183d8226",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
+      "reviewedAt": "2026-10-18T00:24:11.422Z"
+    },
+    "media:pe-comprehensive-management/monbun-yomikata/youtube.longform/scene-023": {
+      "sha": "1eaebd5828da1c32",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
+      "reviewedAt": "2026-10-18T00:24:11.422Z"
+    },
+    "media:pe-comprehensive-management/sanso-kozo/youtube.longform/cover": {
+      "sha": "b87e20c19fda2123",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
+      "reviewedAt": "2026-10-18T00:24:11.422Z"
+    },
+    "media:pe-comprehensive-management/sanso-kozo/youtube.longform/scene-001": {
+      "sha": "b87e20c19fda2123",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
+      "reviewedAt": "2026-10-18T00:24:11.422Z"
+    },
+    "media:pe-comprehensive-management/sanso-kozo/youtube.longform/scene-002": {
+      "sha": "2214ba86b232f21d",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
+      "reviewedAt": "2026-10-18T00:24:11.422Z"
+    },
+    "media:pe-comprehensive-management/sanso-kozo/youtube.longform/scene-003": {
+      "sha": "95c73d7a40fa24ed",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
+      "reviewedAt": "2026-10-18T00:24:11.422Z"
+    },
+    "media:pe-comprehensive-management/sanso-kozo/youtube.longform/scene-004": {
+      "sha": "549b3cf73a536e00",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
+      "reviewedAt": "2026-10-18T00:24:11.422Z"
+    },
+    "media:pe-comprehensive-management/sanso-kozo/youtube.longform/scene-005": {
+      "sha": "ee85edeab1b62fa2",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
+      "reviewedAt": "2026-10-18T00:24:11.422Z"
+    },
+    "media:pe-comprehensive-management/sanso-kozo/youtube.longform/scene-006": {
+      "sha": "0815f580c2739478",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
+      "reviewedAt": "2026-10-18T00:24:11.422Z"
+    },
+    "media:pe-comprehensive-management/sanso-kozo/youtube.longform/scene-007": {
+      "sha": "d2e2c1b9a0abb420",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
+      "reviewedAt": "2026-10-18T00:24:11.422Z"
+    },
+    "media:pe-comprehensive-management/sanso-kozo/youtube.longform/scene-008": {
+      "sha": "82d8b46768fd7908",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
+      "reviewedAt": "2026-10-18T00:24:11.422Z"
+    },
+    "media:pe-comprehensive-management/sanso-kozo/youtube.longform/scene-009": {
+      "sha": "628e2f026824762d",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
+      "reviewedAt": "2026-10-18T00:24:11.422Z"
+    },
+    "media:pe-comprehensive-management/sanso-kozo/youtube.longform/scene-010": {
+      "sha": "82142c95b9fedfc3",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
+      "reviewedAt": "2026-10-18T00:24:11.422Z"
+    },
+    "media:pe-comprehensive-management/sanso-kozo/youtube.longform/scene-011": {
+      "sha": "c90b217aeb6afe92",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
+      "reviewedAt": "2026-10-18T00:24:11.422Z"
+    },
+    "media:pe-comprehensive-management/sanso-kozo/youtube.longform/scene-012": {
+      "sha": "b99d8d68c0a39c0c",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
+      "reviewedAt": "2026-10-18T00:24:11.422Z"
+    },
+    "media:pe-comprehensive-management/sanso-kozo/youtube.longform/scene-013": {
+      "sha": "c58fec45a3f60be1",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
+      "reviewedAt": "2026-10-18T00:24:11.422Z"
+    },
+    "media:pe-comprehensive-management/sanso-kozo/youtube.longform/scene-014": {
+      "sha": "c489bff0d7518a5e",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
+      "reviewedAt": "2026-10-18T00:24:11.422Z"
+    },
+    "media:pe-comprehensive-management/sanso-kozo/youtube.longform/scene-015": {
+      "sha": "c4df0fd99f842b64",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
+      "reviewedAt": "2026-10-18T00:24:11.422Z"
+    },
+    "media:pe-comprehensive-management/sanso-kozo/youtube.longform/scene-016": {
+      "sha": "e7b0b055617ae945",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
+      "reviewedAt": "2026-10-18T00:24:11.422Z"
+    },
+    "media:pe-comprehensive-management/sanso-kozo/youtube.longform/scene-017": {
+      "sha": "11771c3b17d81153",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
+      "reviewedAt": "2026-10-18T00:24:11.422Z"
+    },
+    "media:pe-comprehensive-management/sanso-kozo/youtube.longform/scene-018": {
+      "sha": "e937ffe3ae34605f",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
+      "reviewedAt": "2026-10-18T00:24:11.422Z"
+    },
+    "media:pe-comprehensive-management/sanso-kozo/youtube.longform/scene-019": {
+      "sha": "c77709721f19b6fb",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
+      "reviewedAt": "2026-10-18T00:24:11.422Z"
+    },
+    "media:pe-comprehensive-management/sanso-kozo/youtube.longform/scene-020": {
+      "sha": "dd3c581299ef9fb0",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
+      "reviewedAt": "2026-10-18T00:24:11.422Z"
+    },
+    "media:pe-comprehensive-management/sanso-kozo/youtube.longform/scene-021": {
+      "sha": "3f1cf68b9c7a913d",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
+      "reviewedAt": "2026-10-18T00:24:11.422Z"
+    },
+    "media:pe-comprehensive-management/sanso-kozo/youtube.longform/scene-022": {
+      "sha": "fef05dc7e1559de2",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
+      "reviewedAt": "2026-10-18T00:24:11.422Z"
+    },
+    "media:pe-comprehensive-management/sanso-kozo/youtube.longform/scene-023": {
+      "sha": "973950d9bb6f47d7",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
+      "reviewedAt": "2026-10-18T00:24:11.422Z"
+    },
+    "media:pe-comprehensive-management/sanso-kozo/youtube.longform/scene-024": {
+      "sha": "c8d5aa79d1088453",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditorが原寸1920x1080と幅360pxで指定文字・本文との意味・人物・図を確認済み。採用SHAに対応する監査結果をpop-image.jsonに保持。",
+      "reviewedAt": "2026-10-18T00:24:11.422Z"
     },
     "media:pe-comprehensive-management/sokan-kojutsu-kangaekata/youtube.longform/cover": {
       "sha": "51e3f120f8a8d8c5",
