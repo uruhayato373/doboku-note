@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { join } from 'node:path';
 import { PanelCard, StatusBadge, type Tone, TableBody, TableCell, TableFrame, TableHead, TableHeader, TableRow } from '@/components/admin';
 import { PageHead } from '@/components/ui';
+import { roadmapHref, longformPlanHref } from '@/lib/content-plan-links';
 import { findRepoRoot } from '@/lib/repo-root';
 import {
   scheduleBoard,
@@ -336,6 +337,9 @@ export default async function SchedulePage({ searchParams }: { searchParams: Pro
   return (
     <>
       <PageHead title="スケジュール" />
+      <nav className="project-crumbs" aria-label="関連する計画と台帳">
+        <Link href={roadmapHref(month)}>年間ロードマップ</Link> · <Link href="/sns">SNS投稿状況</Link> · <Link href={longformPlanHref({ m: month })}>通常動画の制作・公開管理</Link>
+      </nav>
       <div className="filterbar">
         <Link href={href(query, { dom: undefined, ch: undefined })} className={'chip' + (!domain ? ' active' : '')}>すべて</Link>
         {DOMAINS.map((d) => (

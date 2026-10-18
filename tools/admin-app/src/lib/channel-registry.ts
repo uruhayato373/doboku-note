@@ -9,6 +9,8 @@
  * prefix + realpath 検査を経由する）。
  */
 
+import { LONGFORM_PLAN_PATH } from './content-plan-links';
+
 export type AdminChannelId =
   | 'site'
   | 'note'
@@ -97,6 +99,7 @@ export const ADMIN_CHANNELS: readonly AdminChannel[] = [
     sourcePath: 'content/sns/youtube',
     enabled: true,
     tabs: [
+      { href: LONGFORM_PLAN_PATH, label: '通常動画の管理', match: LONGFORM_PLAN_PATH },
       // 企画（通常動画の video-pack）は content/sns/video-packs が SSOT。youtube/ は
       // Shorts 派生物の置き場で実体は R2 のため、企画一覧はボードで見る（DN-0110）。
       { href: '/content/video', label: '動画パック', match: '/content/video' },

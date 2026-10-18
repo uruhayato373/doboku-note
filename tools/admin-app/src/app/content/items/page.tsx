@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { DataTable, Facet, FacetHead, FacetShell, StatusBadge, type DataTableRow, type FacetItem } from '@/components/admin';
 import { PageHead } from '@/components/ui';
+import { longformPlanHref } from '@/lib/content-plan-links';
 import { examLabel, FLAG_ORDER, loadItemList, type ItemRow } from '@/lib/content-items';
 
 export const dynamic = 'force-dynamic';
@@ -112,7 +113,7 @@ export default async function ItemsPage({ searchParams }: { searchParams: Promis
   return (
     <>
       <PageHead title="作品と公開" sub={`作品 ${counts.works} 件 · 公開 ${counts.publications} 件（表示中の作品 ${rows.length}）`} />
-      <nav className="project-crumbs"><Link href="/plan/roadmap?view=video">年間の通常動画計画</Link></nav>
+      <nav className="project-crumbs"><Link href={longformPlanHref({ e: e ?? undefined })}>通常動画の制作・公開管理</Link></nav>
       <FacetShell main={main} rail={rail} />
     </>
   );
