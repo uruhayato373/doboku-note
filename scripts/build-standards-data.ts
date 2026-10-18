@@ -95,16 +95,23 @@ function extractArticleText(markdown: string): ReadonlyMap<string, string> {
   let currentNumber: string | null = null;
   let currentLines: string[] = [];
 
+  // 原本に同じ条番号が 2 度出る章がある（北海道開発局独自 10-6-11-1 A 計測・B 計測）。2 度目以降は
+  // `番号#2` の鍵にする（src/lib/standards-structured-data.ts の articleTextKey と同じ規則）
+  const seen = new Map<string, number>();
   const finish = () => {
     if (!currentNumber) return;
+    const occurrence = (seen.get(currentNumber) ?? 0) + 1;
+    seen.set(currentNumber, occurrence);
     const text = markdownToPlainText(currentLines);
-    if (text) articleText.set(currentNumber, text);
+    if (text) articleText.set(occurrence === 1 ? currentNumber : `${currentNumber}#${occurrence}`, text);
     currentNumber = null;
     currentLines = [];
   };
 
   for (const line of stripGeneratedComment(markdown).split(/\r?\n/u)) {
-    const article = line.match(/^###\s+(\d+-\d+-\d+-\d+)\s+/u);
+    // 条番号は manifest の article.number と同じ表記（共通仕様書 `1-1-1-1`・中部の特記仕様書 `特仕1-1-1-1`・
+    // 東北の共通特記仕様書の 3 段 `1-1-1`）。表記を変えると structured data 側で本文を引けない
+    const article = line.match(/^###\s+((?:[^\s\d]+)?\d+-\d+-\d+(?:-\d+)?)\s+/u);
     if (article) {
       finish();
       currentNumber = article[1] ?? null;
@@ -187,6 +194,7 @@ function documentIndex(
       outputSha256: chapter.outputSha256,
       sections: chapter.sections.length,
       articles: chapter.stats.articles ?? 0,
+      ...(chapter.bodyless ? { bodyless: true } : {}),
     })),
   };
 }

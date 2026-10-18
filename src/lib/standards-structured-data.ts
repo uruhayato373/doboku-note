@@ -167,6 +167,20 @@ export function buildStandardChapterStructuredData(
   const sourceId = `${document.sourceUrl ?? document.landing}#document`;
   const sectionNodes: JsonLdNode[] = [];
   const articleNodes: JsonLdNode[] = [];
+  // 同じ章に同じ条番号が 2 度出るとき（北海道開発局独自 10-6-11-1 A 計測・B 計測）は、2 度目以降の
+  // 本文を `番号#n` で引き（scripts/build-standards-data.ts の extractArticleText と同じ規則）、@id も分ける
+  const articleKeys = new Map<object, { textKey: string; idSuffix: string }>();
+  const seenNumbers = new Map<string, number>();
+  for (const section of chapter.sections) {
+    for (const article of section.articles) {
+      const occurrence = (seenNumbers.get(article.number) ?? 0) + 1;
+      seenNumbers.set(article.number, occurrence);
+      articleKeys.set(article, occurrence === 1
+        ? { textKey: article.number, idSuffix: article.number }
+        : { textKey: `${article.number}#${occurrence}`, idSuffix: `${article.number}-${occurrence}` });
+    }
+  }
+  const articleKey = (article: object) => articleKeys.get(article) ?? { textKey: '', idSuffix: '' };
 
   chapter.sections.forEach((section, sectionIndex) => {
     // 節ページに分けた章は、節・条の URL を節ページ側へ向ける（章ページには本文が無い）
@@ -176,7 +190,7 @@ export function buildStandardChapterStructuredData(
     const sectionUrl = sectionPageUrl ?? `${chapterUrl}#${generateHeadingId(section.headingText)}`;
     const sectionId = `${chapterUrl}#section-${chapter.bookNumber}-${chapter.chapterNumber}-${section.number}`;
     const articleRefs = section.articles.map((article) => ({
-      '@id': `${chapterUrl}#clause-${article.number}`,
+      '@id': `${chapterUrl}#clause-${articleKey(article).idSuffix}`,
     }));
 
     sectionNodes.push({
@@ -193,10 +207,11 @@ export function buildStandardChapterStructuredData(
     });
 
     section.articles.forEach((article, articleIndex) => {
-      const text = articleText?.get(article.number);
+      const { textKey, idSuffix } = articleKey(article);
+      const text = articleText?.get(textKey);
       articleNodes.push({
         '@type': 'CreativeWork',
-        '@id': `${chapterUrl}#clause-${article.number}`,
+        '@id': `${chapterUrl}#clause-${idSuffix}`,
         name: article.headingText,
         identifier: article.number,
         position: articleIndex + 1,

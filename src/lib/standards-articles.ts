@@ -55,6 +55,10 @@ export type StandardChapter = {
   sections: StandardChapterSection[];
   stats: Record<string, number>;
   indexable: boolean;
+  /** 原本が章名だけで本文の無い章（中部の特記仕様書 10-9 など）。検索に載せない */
+  bodyless?: boolean;
+  /** 地方の訂正・追加（中国地方整備局版）が載っている原本ページ（判定は build-standard-articles.mjs） */
+  amendments?: { document: string; pages: number[] };
   duplicateOf: string | null;
   reviewStatus: 'clean' | 'needs-review';
 };
