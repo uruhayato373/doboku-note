@@ -95,7 +95,7 @@ export function VideoAnnualPlan({ board, months, exams, periods, month, exam, li
     } };
   });
   return <>
-    <p className="mb-4 text-sm text-muted-foreground">予約済み {reserved} 本 · 公開済み {published} 本</p>
+    <p className="mb-4 text-sm text-muted-foreground">予約済み {reserved} 本 · 公開済み {published} 本（全期間）</p>
     <form method="get" action="/sns/youtube/longform" className="mb-4 flex flex-wrap items-end gap-3">
       <label className="grid gap-1 text-sm">資格<select name="e" defaultValue={exam ?? ''} className="h-9 rounded-md border border-input bg-background px-3"><option value="">全資格</option>{[...new Set(board.rows.map((r) => r.exam))].map((e) => <option key={e} value={e}>{examLabel(e)}</option>)}</select></label>
       <label className="grid gap-1 text-sm">月<select name="m" defaultValue={month ?? ''} className="h-9 rounded-md border border-input bg-background px-3"><option value="">全期間</option>{months.map((m) => <option key={m} value={m}>{m}</option>)}</select></label>
