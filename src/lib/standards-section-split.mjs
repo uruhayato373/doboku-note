@@ -41,6 +41,17 @@ export function splitChapterBySection(markdown) {
 }
 
 /**
+ * 最初の節より前の本文（生成器が先頭に書く MDX コメントの注記を除く）。無ければ空文字。
+ * 節ページに分けた章では、章ページが節の一覧の上にこれを出す（地方の訂正・追加の案内など）。
+ *
+ * @param {string} markdown
+ * @returns {string}
+ */
+export function chapterPreambleText(markdown) {
+  return splitChapterBySection(markdown).preamble.join('\n').replace(/\{\/\*[\s\S]*?\*\/\}/g, '').trim();
+}
+
+/**
  * 節ページの本文を作る。先頭の `## 第N節` はページの H1 が担うので落とし、
  * 残りの見出しを 1 段ずつ上げる（### 条 → ##、#### 項 → ###）。上げないと H1 の次が H3 になり段が飛ぶ。
  * アンカー ID は見出しの文字列から作られる（src/lib/toc.ts）ので、段を上げても変わらない。

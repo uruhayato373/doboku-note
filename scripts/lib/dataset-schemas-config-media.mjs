@@ -375,6 +375,14 @@ export const ConfigStandardsStructure = z
             clauseSequence: z.literal('sparse').optional().describe('項番号の連番を検査しない'),
             sectionIndentMax: z.number().int().nonnegative().optional().describe('節の見出しとして認める字下げの上限'),
             ogpLabel: z.string().min(1).optional().describe('章 OGP の右上の札（既定は共通仕様書）'),
+            amendments: z
+              .object({
+                document: agencyDoc.describe('訂正・追加を定める文書（各ページ先頭に【第N編 … 第M章 関係】を刷る）'),
+                label: z.string().min(1).describe('案内文の発行者名'),
+              })
+              .strict()
+              .optional()
+              .describe('章の冒頭に地方の訂正・追加のページへの案内を出す'),
           })
           .strict(),
       )

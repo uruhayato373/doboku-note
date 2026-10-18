@@ -28,6 +28,7 @@ import {
   getStandardChapters,
   readStandardChapterMarkdown,
   standardChapterOgpUrl,
+  standardChapterPreamble,
   standardChapterPath,
 } from '@/lib/standards-articles';
 import { getTopicsForStandardText } from '@/lib/topics';
@@ -86,6 +87,7 @@ export default async function StandardChapterPage({ params }: { params: Promise<
   if (!resolved) notFound();
   const { document: entry, chapter: target } = resolved;
   const markdown = readStandardChapterMarkdown(agency, document, target);
+  const preamble = target.splitBySection ? standardChapterPreamble(markdown) : null;
   const relatedTopics = getTopicsForStandardText(entry, markdown);
   const referencedDocuments = getReferencedStandardDocuments(entry, markdown);
 
@@ -160,6 +162,11 @@ export default async function StandardChapterPage({ params }: { params: Promise<
               節ページに分けた章（splitBySection）だけは、章ページの本文が節の一覧になる。 */}
           {target.splitBySection ? (
             <div className="mt-7">
+              {preamble && (
+                <div className="prose-blog mb-6">
+                  <SafeMdx source={preamble} components={components} options={mdxOptions} />
+                </div>
+              )}
               <StandardSectionIndex document={entry} chapter={target} />
             </div>
           ) : (

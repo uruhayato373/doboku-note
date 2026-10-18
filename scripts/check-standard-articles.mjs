@@ -33,7 +33,7 @@ import {
 import { loadManifest as loadAssetManifest } from './lib/asset-storage.mjs';
 import { pathToFileURL } from 'node:url';
 import { datasetPath } from './lib/datasets.mjs';
-import { sectionPageMarkdown, splitChapterBySection } from '../src/lib/standards-section-split.mjs';
+import { chapterPreambleText, sectionPageMarkdown, splitChapterBySection } from '../src/lib/standards-section-split.mjs';
 
 const sha256 = (value) => createHash('sha256').update(value).digest('hex');
 
@@ -1006,8 +1006,10 @@ function checkSectionPages(def, { manifest, agencyId, documentId, overrides }) {
     const split = splitChapterBySection(text);
     const rejoined = [...split.preamble, ...split.sections.flatMap((section) => section.lines)].join('\n');
     if (rejoined !== text) violations.push(`${chapter.file}: 節への切り出しで行が変わる（復元が元と一致しない）`);
-    const leftover = split.preamble.join('\n').replace(/\{\/\*[\s\S]*?\*\/\}/g, '').trim();
-    if (leftover) violations.push(`${chapter.file}: 最初の節より前に本文がある（節ページに出ない）: ${leftover.slice(0, 60)}`);
+    // 最初の節より前は章ページが節の一覧の上に出す。そこに置いてよいのは生成器が入れる地方の訂正・
+    // 追加の案内（manifest の amendments）だけで、原本の本文が残っていたら節の切り出しの誤り
+    const leftover = chapterPreambleText(text);
+    if (leftover && !chapter.amendments) violations.push(`${chapter.file}: 最初の節より前に本文がある（節ページに出ない）: ${leftover.slice(0, 60)}`);
     const found = split.sections.map((section) => section.number).join(',');
     const recorded = chapter.sections.map((section) => section.number).join(',');
     if (found !== recorded) violations.push(`${chapter.file}: 節の並びが manifest と違う（本文 ${found} / manifest ${recorded}）`);
