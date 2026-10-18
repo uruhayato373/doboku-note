@@ -13,11 +13,11 @@
  * 終了コード: 0 = 異常なし / 1 = 異常あり、または oEmbed で判定できないものが 20% を超えた（検査不成立）
  * 撮影: CI では YouTube が bot 確認でプレーヤー部分を隠すことがある。タイトル・説明・周辺のレイアウトを見る。
  */
-import { mkdirSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { collectPublicVideos, watchUrl, classifyOembed, pickYoutubeRepresentatives } from './lib/youtube-public-view.mjs';
-import { loadBreakpointConfig, contextOptions, launchPublicBrowser, openAndSettle, shootTopAndEnd, withPageBudget, countMediaQueriesInPage, significantBreakpoints, breakpointDrift } from './lib/public-view-browser.mjs';
+import { reviewCoverage, loadBreakpointConfig, contextOptions, launchPublicBrowser, openAndSettle, shootTopAndEnd, withPageBudget, countMediaQueriesInPage, significantBreakpoints, breakpointDrift } from './lib/public-view-browser.mjs';
 import { guardBrowserLaunch } from './lib/playwright-launch.mjs';
 import { youtubePublications } from './lib/registry-youtube-view.mjs';
 import { loadVideoState } from './lib/registry-video-state.mjs';
@@ -52,6 +52,7 @@ for (const v of videos) {
 console.log(`  oEmbed: ${videos.length - unknown} 本を判定（判定できない ${unknown}）`);
 
 // ---- 代表動画 × 画面幅
+let reviewCoverageResult = null;
 let bpReport = null;
 let reps = [];
 if (REVIEW) {
@@ -87,9 +88,12 @@ if (REVIEW) {
     }
     await c.close();
   }
-  writeFileSync(join(REVIEW_DIR, 'index.json'), JSON.stringify({ service: 'youtube', viewports: BP.youtube.viewports, breakpoints: bpReport, pages: index }, null, 2) + '\n');
+  reviewCoverageResult = reviewCoverage({ viewports: BP.youtube.viewports, pages: index }, (file) => existsSync(join(REVIEW_DIR, file)));
+  writeFileSync(join(REVIEW_DIR, 'index.json'), JSON.stringify({ service: 'youtube', viewports: BP.youtube.viewports, breakpoints: bpReport, pages: index, coverage: reviewCoverageResult }, null, 2) + '\n');
   console.log(`  代表動画: ${reps.length} 本 × ${BP.youtube.viewports.length} 画面幅を撮影 ${index.reduce((n, e) => n + e.shots.length, 0)} 枚`);
-  if (bpReport) {
+  if (bpReport?.unreadable) {
+      console.log(`  WARN CSS ${bpReport.unreadable} 枚が読めず、切り替わり幅の差は判定保留`);
+    } else if (bpReport) {
     const { added, removed } = bpReport.drift;
     if (added.length || removed.length) console.log(`  WARN YouTube の CSS の切り替わり幅が設定と違う（増: ${added.join(',') || 'なし'} / 減: ${removed.join(',') || 'なし'}）。${datasetPath('config.public-view-breakpoints')} を見直す`);
     else console.log(`  切り替わり幅: 設定どおり（${bpReport.measured.join('/')}px）`);
@@ -106,7 +110,7 @@ for (const r of bad) console.error(`  BAD  ${r.videoId} ${r.title.slice(0, 40)}\
 for (const r of warn) console.log(`  WARN ${r.videoId}: ${r.warn.join(' / ')}`);
 if (OUT) {
   mkdirSync(dirname(OUT), { recursive: true });
-  writeFileSync(OUT, JSON.stringify({ targets: videos.length, unknown, representatives: reps.length, breakpoints: bpReport, bad, warn }, null, 2) + '\n');
+  writeFileSync(OUT, JSON.stringify({ targets: videos.length, unknown, representatives: reps.length, breakpoints: bpReport, reviewCoverage: reviewCoverageResult, bad, warn }, null, 2) + '\n');
 }
 if (fetchFailDominant(unknown, videos.length)) {
   console.error(`[check-youtube-public-view] ✗ 検査不成立: oEmbed で判定できない ${unknown}/${videos.length} 本`);
@@ -115,5 +119,9 @@ if (fetchFailDominant(unknown, videos.length)) {
 if (bad.length) {
   console.error(`[check-youtube-public-view] ✗ 視聴者から見て不整合 ${bad.length} 本（WARN ${warn.length}）`);
   process.exit(1);
+}
+if (REVIEW && !reviewCoverageResult?.complete) {
+  console.error(`[check-youtube-public-view] 検査不成立: 代表ページの撮影成立 ${reviewCoverageResult?.captured || 0}/${reviewCoverageResult?.expected || 0}`);
+  process.exit(2);
 }
 console.log(`[check-youtube-public-view] ✓ ${videos.length} 本で不整合なし（WARN ${warn.length}）`);

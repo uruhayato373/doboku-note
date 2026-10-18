@@ -18,6 +18,7 @@ import { videoStatusToStage } from './content-lifecycle.mjs';
 import { channelFamily } from './utm-channels.mjs';
 import { assembleCompilation } from './video-compilation.mjs';
 import { loadVideoState } from './registry-video-state.mjs';
+import { readLongformPopImages } from './longform-pop-images.mjs';
 
 const CONFIG_PATH = 'config/video-content.json'; // path-literal-ok: tests/video-publication-check.test.mjs が lib を単体で tmp にコピーして走らせる（datasets.mjs・zod が解決できない）
 const UTM_TEMPLATES_PATH = 'config/utm-templates.json'; // path-literal-ok: 同上（台帳 id: config.utm-templates）
@@ -331,6 +332,11 @@ function checkStoryboard(pack, id, root, config, required, issues, compilation =
   }
   if (!config.storyboard.formatEnum.includes(sb.format)) {
     issues.push(issue('FAIL', 'B09', id, `storyboard.format が enum 外: ${sb.format}`));
+  }
+  try {
+    readLongformPopImages(root, pack.dir, sb);
+  } catch (error) {
+    issues.push(issue('FAIL', 'B20', id, error.message));
   }
   if (!Array.isArray(sb.scenes) || sb.scenes.length === 0) {
     issues.push(issue('FAIL', 'B02', id, 'storyboard.scenes が空'));

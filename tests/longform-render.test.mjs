@@ -122,3 +122,21 @@ test('EXAM_TO_PALETTE: config の examEnum を全てカバーする', () => {
     assert.ok(resolveExam(EXAM_TO_PALETTE[exam]).base, `palette 解決不能: ${exam}`);
   }
 });
+
+test('表紙の字幕だけを上へ移し、後続場面の既定位置・音声時刻は保持する', () => {
+  const scenes = [
+    { sceneId: 'cover', start: 0, end: 3, narration: '総監記述式。', subtitleMarginV: 180 },
+    { sceneId: 'body', start: 3, end: 15, narration: '当年度の条件を確認します。' },
+  ];
+  const lines = buildLongformAss(scenes, [1.5, 8]).split('\n').filter(l => l.startsWith('Dialogue:'));
+  assert.deepEqual(lines, [
+    'Dialogue: 0,0:00:00.00,0:00:01.50,Default,,0,0,180,,総監記述式。',
+    'Dialogue: 0,0:00:01.50,0:00:09.50,Default,,0,0,0,,当年度の条件を確認します。',
+  ]);
+});
+
+test('字幕を画面外へ出す余白・ASSへ混入する非数値を拒否する', () => {
+  for (const margin of [-1, 0, 1080, 1.5, '180,,不正']) {
+    assert.throws(() => buildLongformAss([{ ...SCENES[0], subtitleMarginV: margin }]), /subtitleMarginV/);
+  }
+});

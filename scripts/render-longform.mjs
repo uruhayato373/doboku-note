@@ -28,6 +28,7 @@ import {
   LONGFORM_W, LONGFORM_H, buildLongformAss, buildSceneNode, planLongformRender, EXAM_TO_PALETTE,
 } from './lib/longform-render.mjs';
 import { narrationInput, reusableNarration, sha256 } from './lib/video-narration-cache.mjs';
+import { readLongformPopImages } from './lib/longform-pop-images.mjs';
 import { renderYoutubeCover, validateCoverDesign } from './lib/youtube-cover.mjs';
 import { readVideoCta } from './lib/video-cta.mjs';
 import { renderCharacterFrame } from './lib/character-framing.mjs';
@@ -54,6 +55,8 @@ if (!args['pack-dir']) {
 const packDir = resolve(ROOT, args['pack-dir']);
 const manifest = JSON.parse(readFileSync(join(packDir, 'video-pack.json'), 'utf8'));
 const storyboard = JSON.parse(readFileSync(join(packDir, 'storyboard.json'), 'utf8'));
+const popImages = readLongformPopImages(ROOT, packDir, storyboard, { local: true });
+if (popImages.size && args['skip-png']) throw new Error('本文POP画像があるパックは --skip-png 不可');
 const coverDesignPath = join(packDir, 'cover-design.json');
 const coverSpec = existsSync(coverDesignPath)
   ? validateCoverDesign(JSON.parse(readFileSync(coverDesignPath, 'utf8')), { exam: EXAM_TO_PALETTE[manifest.exam] }).covers.longform : null;
@@ -150,6 +153,9 @@ async function main() {
       const cover = await renderYoutubeCover(ROOT, coverSpec);
       writeFileSync(pngPath, cover.buffer);
       writeFileSync(join(outDir, 'cover-provenance.json'), JSON.stringify(cover.provenance, null, 2) + '\n');
+    } else if (popImages.has(scene.sceneId)) {
+      // resume / refresh の指定にかかわらず、検査済み生成画像をそのまま採用する。
+      writeFileSync(pngPath, readFileSync(resolve(ROOT, popImages.get(scene.sceneId).path)));
     } else if (scene.visual?.art) {
       const source = scene.visual.art.source;
       if (source) {
@@ -229,6 +235,8 @@ async function main() {
     scenes: scenes.map((s, i) => ({
       sceneId: s.sceneId,
       png: basename(pngPaths[i]),
+      pngSha256: sha256(readFileSync(pngPaths[i])),
+      ...(popImages.has(s.sceneId) ? { generatedImage: popImages.get(s.sceneId) } : {}),
       wav: args['skip-tts'] ? null : basename(wavPaths[i]),
       designSec: s.end - s.start,
       actualSec: durations?.[i] ?? null,

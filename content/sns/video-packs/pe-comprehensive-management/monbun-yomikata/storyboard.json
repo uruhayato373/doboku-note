@@ -4,97 +4,371 @@
     {
       "sceneId": "cover",
       "start": 0,
-      "end": 15,
-      "narration": "総監の記述式は問題文が長く、読むだけで時間が溶けます。今日は、捨ててよい定型文と、拾うべきヒント、設問ごとの役割を説明します。",
-      "caption": "設問の役割を取り違えない読み方",
+      "end": 2,
+      "narration": "総監記述式。",
+      "caption": "総監記述式　設問の役割を取り違えない読み方",
       "visual": {
         "kind": "cover",
         "heading": "総監記述式　設問の役割を取り違えない読み方",
-        "items": ["技術士 総合技術監理部門・記述式"]
-      }
+        "items": [
+          "技術士 総合技術監理部門・記述式"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx",
+      "subtitleMarginV": 180
     },
     {
-      "sceneId": "premise",
-      "start": 15,
-      "end": 60,
-      "narration": "問題文は全部ていねいに読むべき、と思われがちです。実際には、毎年固定で繰り返される定型文と、その年度固有のヒントが混在しています。5管理の視点で書くことの宣言と、評価基準の宣言。この2つは毎年同じなので、要点だけ頭に入れて読み飛ばして構いません。",
-      "caption": "定型文2種は読み飛ばしてよい",
+      "sceneId": "intro",
+      "start": 2,
+      "end": 12,
+      "narration": "長い問題文で読むだけに時間を使わないために、条件の確認、拾うヒント、設問の役割を整理します。",
+      "caption": "長い問題文をどう読むか",
       "visual": {
-        "heading": "誤解：問題文は全文精読",
-        "items": ["毎年同じ定型文＝5管理視点の宣言・評価基準の宣言", "読むべきは年度固有のヒントだけ"]
+        "kind": "points",
+        "heading": "長い問題文をどう読むか",
+        "items": [
+          "条件・ヒント・設問の役割"
+        ]
       },
       "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
     },
     {
-      "sceneId": "hints",
-      "start": 60,
-      "end": 125,
-      "narration": "拾うのはヒント3種です。1つ、出題者が解答してほしい観点を明文化した要求事項。2つ、全部門の受験者向けに並べられる事業場の例。3つ、解答対象を具体化するための事業やプロジェクトのイメージ記述。これらを自分の業務に近い例へ置き換えながら拾います。置き換えられない年は、その題材との相性が悪いシグナルです。",
-      "caption": "ヒント3種を自分の業務に置き換える",
+      "sceneId": "premise",
+      "start": 12,
+      "end": 21,
+      "narration": "見慣れた定型文も、当年度の条件と照合します。5管理の視点と評価の観点を確認してください。",
+      "caption": "定型文も当年度と照合",
       "visual": {
-        "heading": "拾うのはヒント3種",
-        "items": ["要求事項＝解答してほしい観点の明文化", "事業場例＝「等」を自分の業務で解釈", "イメージ記述＝解答対象の具体化材料"]
+        "kind": "points",
+        "heading": "定型文も当年度と照合",
+        "items": [
+          "5管理の視点",
+          "評価の観点"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "premise-scope",
+      "start": 21,
+      "end": 32,
+      "narration": "設問の区分、答える範囲、項目数、答案枚数の指定を拾います。毎年同じだと決めつけて省略しないでください。",
+      "caption": "指定を拾う",
+      "visual": {
+        "kind": "points",
+        "heading": "指定を拾う",
+        "items": [
+          "設問の区分・答える範囲",
+          "項目数・答案枚数"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "hints-request",
+      "start": 32,
+      "end": 41,
+      "narration": "拾うヒントは3種類です。まず、出題者が解答してほしい観点を明文化した、要求事項を拾います。",
+      "caption": "ヒント① 要求事項",
+      "visual": {
+        "kind": "points",
+        "heading": "ヒント① 要求事項",
+        "items": [
+          "解答してほしい観点"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "hints-workplace",
+      "start": 41,
+      "end": 51,
+      "narration": "2つ目は、全部門の受験者向けに並べられる事業場の例です。自分の業務に近い例へ置き換えて読みます。",
+      "caption": "ヒント② 事業場の例",
+      "visual": {
+        "kind": "points",
+        "heading": "ヒント② 事業場の例",
+        "items": [
+          "自分の業務に近い例へ"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "hints-image",
+      "start": 51,
+      "end": 62,
+      "narration": "3つ目は、解答対象を具体化する事業やプロジェクトのイメージ記述です。これも自分の業務に置き換えて拾います。",
+      "caption": "ヒント③ イメージ記述",
+      "visual": {
+        "kind": "points",
+        "heading": "ヒント③ イメージ記述",
+        "items": [
+          "事業・プロジェクトの具体像"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "hints-fit",
+      "start": 62,
+      "end": 72,
+      "narration": "置き換えられない年は、その題材との相性が悪いシグナルです。自分の業務に引き寄せられるかを確かめます。",
+      "caption": "題材との相性を確かめる",
+      "visual": {
+        "kind": "points",
+        "heading": "題材との相性を確かめる",
+        "items": [
+          "置き換えられる業務か"
+        ]
       },
       "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
     },
     {
       "sceneId": "layers",
-      "start": 125,
-      "end": 195,
-      "narration": "答案は三層で役割が分かれます。第一層は、管理対象と前提条件の設定。ここで置いた条件が以降の土台です。第二層は、現実的な施策の提示。方針ではなく具体の施策にして、期待できる効果と、その裏で生じる管理上の問題点をセットで書きます。第三層は、将来展望と最大のリスク。最も重大なリスクを選び（数は設問の指定に従い）、克服策は管理行為で示します。",
-      "caption": "三層構造：前提→施策→最大リスク",
+      "start": 72,
+      "end": 83,
+      "narration": "ここでは、条件・施策・実施後の影響を三層に整理します。実際の区分・範囲・項目数は当年度の問題文を優先します。",
+      "caption": "三層で整理する例",
       "visual": {
         "kind": "figure",
+        "heading": "三層で整理する例",
+        "items": [
+          "Ⅰ 前提条件",
+          "Ⅱ 施策",
+          "Ⅲ 実施後の影響"
+        ],
         "src": "content/site/pe-comprehensive-management/essay-exam-strategy/img/figure-4-15-three-layer-structure.svg",
-        "heading": "設問の役割＝三層構造",
-        "items": ["Ⅰ　対象と前提条件", "Ⅱ　施策＋効果と問題点", "Ⅲ　最大リスクと克服策"]
-      }
-    },
-    {
-      "sceneId": "mistakes",
-      "start": 195,
-      "end": 255,
-      "narration": "取り違えの典型は3つ。第二層で効果だけを書いて問題点を書かない。第三層で夢のある構想を書いてリスクを外す。第一層に無い条件を後から追加する。どれも、層をまたいだ一貫性が評価の中心にあることを外しています。",
-      "caption": "典型的な取り違え3パターン",
-      "visual": {
-        "heading": "役割の取り違え・典型3つ",
-        "items": ["Ⅱで効果だけ書き問題点を書かない", "Ⅲで構想を語りリスクを外す", "Ⅰに無い条件を後から追加する"]
-      }
-    },
-    {
-      "sceneId": "time",
-      "start": 255,
-      "end": 315,
-      "narration": "時間配分です。210分のうち、通読と定型文の読み飛ばしに10分、前文分析に25分、三層の骨子設計に20分、セルフチェックに5分。ここまでで60分。残り150分で、600字の答案用紙5枚を1枚30分で、骨子を書き写す感覚で埋めます。見直し時間がほしければ、事前検討を削らずに執筆を速める方が安全です。",
-      "caption": "前文分析と骨子に60分を投資する",
-      "visual": {
-        "heading": "210分の配分",
-        "items": ["通読10分→前文分析25分→骨子20分→確認5分", "執筆は600字×5枚を各30分", "見直しは事前検討を削らず執筆を速めて捻出"]
+        "flow": [
+          "Ⅰ 前提条件",
+          "Ⅱ 施策",
+          "Ⅲ 実施後の影響"
+        ]
       },
       "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
     },
     {
-      "sceneId": "summary",
-      "start": 315,
-      "end": 360,
-      "narration": "まとめます。定型文は捨てる。ヒント3種を自分の業務に置き換えて拾う。三層の役割を守って骨子を作る。書く時間より、読む60分が合否を分けます。",
-      "caption": "捨てる・拾う・三層で組む",
+      "sceneId": "layers-first",
+      "start": 83,
+      "end": 94,
+      "narration": "第一層は、管理対象と前提条件の設定です。ここで置いた条件が、以降の施策やリスクを考える土台になります。",
+      "caption": "Ⅰ 管理対象と前提条件",
       "visual": {
-        "heading": "まとめ",
-        "items": ["① 定型文は読み飛ばす", "② ヒント3種を業務に置き換えて拾う", "③ 三層の役割どおりに骨子を作る"]
-      }
+        "kind": "points",
+        "heading": "Ⅰ 管理対象と前提条件",
+        "items": [
+          "以降の説明の土台"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "layers-second",
+      "start": 94,
+      "end": 105,
+      "narration": "第二層は、現実的な施策の提示です。方針を具体の施策にし、期待できる効果と管理上の問題点をセットで書きます。",
+      "caption": "Ⅱ 現実的な施策",
+      "visual": {
+        "kind": "points",
+        "heading": "Ⅱ 現実的な施策",
+        "items": [
+          "効果＋管理上の問題点"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "layers-third",
+      "start": 105,
+      "end": 116,
+      "narration": "第三層は、将来展望と最大のリスクです。重大なリスクを選び、数は設問の指定に従い、克服策は管理行為で示します。",
+      "caption": "Ⅲ 将来展望とリスク",
+      "visual": {
+        "kind": "points",
+        "heading": "Ⅲ 将来展望とリスク",
+        "items": [
+          "重大なリスクを選ぶ",
+          "克服策は管理行為で"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "mistakes-effect",
+      "start": 116,
+      "end": 127,
+      "narration": "取り違えの典型を3つ確認します。1つ目は、第二層で効果だけを書いて、管理上の問題点を書かないことです。",
+      "caption": "取り違え① 効果だけ",
+      "visual": {
+        "kind": "points",
+        "heading": "取り違え① 効果だけ",
+        "items": [
+          "Ⅱでは問題点も書く"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "mistakes-risk",
+      "start": 127,
+      "end": 138,
+      "narration": "2つ目は、第三層で夢のある構想を語り、リスクを外すことです。施策を進めた先の課題を見失わないようにします。",
+      "caption": "取り違え② 構想だけ",
+      "visual": {
+        "kind": "points",
+        "heading": "取り違え② 構想だけ",
+        "items": [
+          "Ⅲではリスクを捉える"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "mistakes-condition",
+      "start": 138,
+      "end": 148,
+      "narration": "3つ目は、第一層に無い条件を後から追加することです。どれも、層をまたいだ一貫性を外す書き方です。",
+      "caption": "取り違え③ 条件を後付け",
+      "visual": {
+        "kind": "points",
+        "heading": "取り違え③ 条件を後付け",
+        "items": [
+          "Ⅰからの一貫性を保つ"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "time-read",
+      "start": 148,
+      "end": 158,
+      "narration": "210分で5枚を書く場合の時間配分例です。まず通読と条件確認に10分、前文分析に25分を配分します。",
+      "caption": "210分・5枚の配分例",
+      "visual": {
+        "kind": "points",
+        "heading": "210分・5枚の配分例",
+        "items": [
+          "通読・条件確認 10分",
+          "前文分析 25分"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "time-plan",
+      "start": 158,
+      "end": 168,
+      "narration": "次に三層の骨子設計に20分、セルフチェックに5分を配分します。ここまでの事前検討で60分です。",
+      "caption": "書く前に骨子を確認",
+      "visual": {
+        "kind": "points",
+        "heading": "書く前に骨子を確認",
+        "items": [
+          "骨子設計 20分",
+          "セルフチェック 5分"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "time-write",
+      "start": 168,
+      "end": 178,
+      "narration": "残り150分で、600字の答案用紙5枚を1枚30分で埋めます。骨子を書き写す感覚で進める配分例です。",
+      "caption": "残り150分で執筆",
+      "visual": {
+        "kind": "points",
+        "heading": "残り150分で執筆",
+        "items": [
+          "600字の答案用紙×5枚",
+          "1枚30分の配分例"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "time-review",
+      "start": 178,
+      "end": 189,
+      "narration": "見直し時間がほしければ、事前検討を削らず執筆を速める方が安全です。配分は練習時の筆記速度に合わせて調整します。",
+      "caption": "見直し時間を確保する",
+      "visual": {
+        "kind": "points",
+        "heading": "見直し時間を確保する",
+        "items": [
+          "練習時の筆記速度で調整"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "summary-reading",
+      "start": 189,
+      "end": 200,
+      "narration": "まとめます。定型文も当年度の条件と照合し、要求事項、事業場例、イメージ記述のヒント3種を業務に置き換えます。",
+      "caption": "読み方の要約",
+      "visual": {
+        "kind": "points",
+        "heading": "読み方の要約",
+        "items": [
+          "当年度の条件を確認",
+          "ヒント3種を業務へ置換"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "summary-outline",
+      "start": 200,
+      "end": 211,
+      "narration": "そのうえで、三層の役割を守って骨子を作ります。時間配分は固定せず、練習時の筆記速度に合わせて調整してください。",
+      "caption": "条件から骨子へ",
+      "visual": {
+        "kind": "points",
+        "heading": "条件から骨子へ",
+        "items": [
+          "三層の役割を守る",
+          "時間配分は練習で調整"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "cta-pack",
+      "start": 211,
+      "end": 220,
+      "narration": "5管理対立の型と設問3の国家施策、R8予想問題をまとめた記述式コアパックを用意しています。",
+      "caption": "総監記述式 コアパック",
+      "visual": {
+        "kind": "points",
+        "heading": "総監記述式 コアパック",
+        "items": [
+          "5管理対立の型・国家施策",
+          "R8予想問題"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
     },
     {
       "sceneId": "cta",
-      "start": 360,
-      "end": 390,
-      "narration": "5管理対立の型と設問3の国家施策、R8予想問題をまとめた記述式コアパックを用意しています。概要欄のリンクからご覧ください。ご視聴ありがとうございました。",
-      "caption": "記述式コアパックは概要欄から",
+      "start": 220,
+      "end": 229,
+      "narration": "記述式コアパックは、概要欄のリンクからご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄から",
       "visual": {
-        "kind": "cover",
-        "heading": "記述式のエンジンを最短で",
-        "items": ["総監記述式 コアパック（概要欄リンク）"]
-      }
+        "kind": "points",
+        "heading": "続きは概要欄から",
+        "items": [
+          "総監記述式 コアパック"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
     }
-  ]
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-pop-20261018",
+    "coverRevision": "cover-pop-20261018"
+  }
 }

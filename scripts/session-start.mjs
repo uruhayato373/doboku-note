@@ -39,7 +39,8 @@ export const CHECKS = [
 const TIMEOUT = Symbol('timeout');
 
 /** 1 検査を in-process で実行する。戻り値の形は旧 spawn 版と同じ { name, status, ms, out } */
-export async function runCheck(check) {
+export async function runCheck(check, { env = process.env } = {}) {
+  if (check.name === 'x-sync' && env.DOBOKU_SNS_PAUSED === '1') return { name: check.name, status: 'skipped', ms: 0, out: 'SNS 保留方針によりブラウザ照合は対象外' };
   const t0 = Date.now();
   let timer;
   try {

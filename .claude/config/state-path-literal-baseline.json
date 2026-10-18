@@ -29,7 +29,6 @@
     "scripts/build-content-ledger.mjs": 1,
     "scripts/build-figure-provenance.mjs": 2,
     "scripts/check-backlog-health.mjs": 1,
-    "scripts/check-backlog-verify.mjs": 1,
     "scripts/check-cloudflare-metrics-freshness.mjs": 1,
     "scripts/check-datasets.mjs": 3,
     "scripts/check-drive-vault.mjs": 1,

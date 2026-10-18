@@ -6,6 +6,10 @@ title: スキル ガバナンス記録
 
 # スキル ガバナンス記録
 
+- 2026-10-18: `yt-shorts-create` 配下の共有合成器でRGB/RGBA混在による冒頭欠落を修正。作業用PNGの色形式を統一し、40場面の実ffmpeg回帰で先頭時刻・冒頭2場面の画素と総尺を確認する。件数は不変。
+
+- 2026-10-17: `note-attach-pdf` の下書き復旧を「下書き保存／一時保存」と要求したPDFファイル名の再読込検証へ修正。公開版の反映とは区別する。件数は不変。
+
 - 2026-10-16: `publish-note` の既存記事更新手順を有料カードの二段階削除と `memberTrial: bottom` のプレビュー保持に合わせた。新スキル・エージェントの追加なし。
 
 - 2026-10-12: `create-pop-image` の生成指示へ全面背景とUI安全域の区別を追加。`yt-shorts-publisher-qa` は全場面の字幕入り画像・原寸／360px・SHA別の確認数を返す。全場面差し替え版は `youtube-shorts:restore` で復元し、旧テンプレートへの逆戻りを停止する。新スキル・エージェントは追加しない。
@@ -49,6 +53,8 @@ title: スキル ガバナンス記録
 > 2026-09-30 新設: `authoring/cce-essay-cycle`（コンクリート主任技士 小論文の出題履歴 SSOT `config/cce-essay-history.json` を起点に、サイト/note の出題履歴ブロック再生成・`cce-essay-writer`/`cce-essay-qa` によるテーマ別模範答案・PDF/ココナラ展開へルーティング）。背景＝旧4テーマ×8立場の序論本論結論型が令和2年度以降の1題約1,000字形式と合っておらず、年度別テーマを各記事へ手で写していたため。合計 `107→108`、authoring `11→12`。
 
 > 2026-10-06 新設: `quality/figure-quality-loop`（記事図クロップを「判定待ち→目視判定・切り直し／元PDFから切り出し直し→判定台帳に記録」で 1 周ずつ回し、`/loop` で判定待ち 0 まで自走する）。背景＝画素検査の EDGE_CUT が 212 枚・337 件「情報のみ」で誰にも読まれず、上位 4 枚中 3 枚は図が縁で切れていたのに provenance は needs:ok。目視の判定も残らず、回しても同じ図が上がり続けていた。判定待ちと台帳は決定的スクリプト `scripts/figure-review-queue.mjs`（画像の sha256 で記録を結び、差し替えると再判定）。**新エージェントは作らず** `figure-crop-worker` に元 PDF からの切り出し直し（stage=reextract）を足した。合計 `108→109`、quality `16→17`。
+
+> 2026-10-17 更新: `management/weekly-review` の完了条件を5種証跡へ統一し、note同期間計測とGSC無次元全体値を案内。明細合計で全体を代用しない。`social/ig-reconcile` のsnapshot取得元を実装どおりPlaywrightと明記。
 
 > 2026-10-16 新設: `conversion/standards-table-rebuild`（共通仕様書の章記事で版面のまま残った表を、原本のページ画像と照合して `content/sources/standards/tables/{key}.json` に組み直す流れ）。背景＝初回の組み直し（217 件）の手順書・照合スクリプト・ページ画像が 1 台の PC の `.tmp/` にしか無く、別の PC で原本の改訂や表の断片（DN-0755）を直せなかった。道具は決定的スクリプト `scripts/standards-tables.mjs`（台帳・ページ画像・作業票・文字の過不足ゼロの照合・承認の記録）、ページ画像は既存の Drive vault（`build-standards-page-images`）、見えない PC は原本から render。**新エージェント 2 体**＝`standards-table-writer`（Generator）と `standards-table-qa`（Evaluator・audit-only）。合計 `110→111`、conversion `8→9`、agents `88→90`。
 

@@ -17,6 +17,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import test from 'node:test';
 import { REPO_ROOT as ROOT } from '../scripts/lib/repository-paths.mjs';
+import { CHECKS } from '../scripts/quality-audit.mjs';
 
 const SRC = readFileSync(join(ROOT, 'scripts/quality-audit.mjs'), 'utf8');
 
@@ -45,9 +46,8 @@ function parseChecks(source) {
 
 test('全検査に timeout がある（無いと setTimeout(undefined) で即 TIMEOUT になり、CI が赤になる）', () => {
   // 2026-10-13: content-series を timeout なしで登録し、フル実行で 0.0 秒の TIMEOUT になった
-  const checks = parseChecks(SRC);
-  assert.ok(checks.length >= 100, `検査が ${checks.length} 件しか読めない（定義の形が変わった＝検査不成立）`);
-  assert.deepEqual(checks.filter((c) => !c.timeout).map((c) => c.id), []);
+  assert.ok(CHECKS.length >= 100, `検査が ${CHECKS.length} 件しか読めない（検査不成立）`);
+  assert.deepEqual(CHECKS.filter((c) => !Number.isFinite(c.timeout) || c.timeout <= 0).map((c) => c.id), []);
 });
 
 test('ops:true の検査は ci:false（マージゲートに混ざらない）', () => {
@@ -103,4 +103,12 @@ test('ops 区分を日次で読む配線が実在する（ops-audit.yml）', () 
 test('ops-audit.yml が workflow-health の監視対象に居る', () => {
   const cfg = JSON.parse(readFileSync(join(ROOT, 'config/workflow-health.json'), 'utf8'));
   assert.ok(cfg.workflows.some((w) => w.workflow === 'ops-audit.yml'), 'ops-audit.yml が workflow-health.json に無い（沈黙を拾えない）');
+});
+
+test('internally parallel unit suite runs without competing audit workers', () => {
+  assert.equal(CHECKS.find((c) => c.id === 'unit-tests').serial, true);
+});
+
+test('generated-indexes waits for audit writers before comparing worktree changes', () => {
+  assert.equal(CHECKS.find((c) => c.id === 'generated-indexes').serial, true);
 });

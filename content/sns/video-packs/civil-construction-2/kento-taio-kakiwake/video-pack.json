@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "packId": "kento-taio-kakiwake",
+  "exam": "civil-construction-2",
+  "title": "検討と対応｜考えたことと実施したことを分ける",
+  "audience": "2級土木の施工経験記述で、検討した内容と実施した処置を書き分けたい受検者",
+  "pain": "検討した内容と実施した処置が同じ文章になり、考えた理由と実際の行動を分けられない",
+  "promise": "現場条件、選んだ理由、実施内容を準備用メモで分け、同じ工事の流れとして書き分けられる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "note",
+      "path": "content/note/1級・2級土木/2級土木/経験記述を自分の現場に置換/article.md",
+      "access": "free"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "external",
+      "url": "https://www.mlit.go.jp/tec/r08dobokukoujikyoutsuusiyousyo/honbun01_syo01_setsu01.html",
+      "title": "国土交通省 土木工事共通仕様書（案）令和8年3月 第1編第1章第1節・1-1-1-6 施工計画書"
+    },
+    {
+      "type": "external",
+      "url": "https://www.jctc.jp/wjctcp/wp-content/uploads/2025/10/20251027d_mondaib1.pdf",
+      "title": "全国建設研修センター 令和7年度 2級土木施工管理技術検定 第二次検定（土木）問題1"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-2-experience-essay",
+    "campaign": "kento-taio-kakiwake"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}

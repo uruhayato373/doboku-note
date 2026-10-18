@@ -697,3 +697,16 @@ EXP-006 の本判定は予定どおり next_check 2026-08-27 に、カバレッ�
   3. /standards/hokkaido の検査エラー 3 件（common・local/part-01・part-02）は次回 batch で再現したときだけ技術調査に起票
 - 異常フラグ: なし（ratio 90.5%≥60% / 前回比 +8.9pt / discovered 5.6%<20% / hygiene 0 / inspected=sitemap / results 1,689 件・前回比 +4.2%）
 - 注記: 自動生成・最終決定は人間。batch 実体は `data/gsc/url-inspection/2026-10-14T06-52-54.json`。新規 68 件中 37 件が未登録/未認識のため、今後も分母増が ratio を押し下げる局面はあり得る
+
+### 2026-10-17（メッセージ・現行URL・重点2資格の実査）
+
+- GSCのdoboku-note.comで通知一覧63件を確認し、10/7の新要因通知（リダイレクト・404）と9/17の修正未完了通知（Googleによる別正規URL選択）の本文を読んだ。通知の新着と障害の発生日を同一視しない。
+- ページ登録画面は最終更新10/12、既知URL全体は登録1,804・未登録2,703。理由はリダイレクト1,392、404が320、noindex209、適切なcanonical174、403が5、クロール済未登録431、別正規選択15、検出未登録157。旧URL・意図した除外を含み、現在のsitemapの登録率とは別の母集団。
+- 10/14のURL Inspectionは1,689/1,689件（partial:false、うちAPI内部エラー3）。登録1,528＝90.5%（前回81.6%）。2級49/56＝87.5%、主任18/19＝94.7%。販売入口の2級R07・経験記述の書き方／例文・主任小論文は登録済み・canonical一致。現sitemapの404・リダイレクトは0。
+- 403の5例はすべて前回クロール6/4の旧URL。10/17のHTTP再確認では4件が最終404、1件がトップへ転送し200。現行記事の403とは判定しない。主任productsは旧URLから新URLへ転送し、新URLも200。Googleの旧URL正規選択は次回Inspectionで再確認する（10/8登録要求済み、重複送信しない）。
+- 保存済み10/11のallKnown404全320件は/docs270・/exam18・/standards4・その他28。送信済404の30件がすべて旧/docsという別集計と混ぜない。全320件への現行ソースの完全一致参照は非公開（published:false）の総監原稿3箇所のみで、公開ソースの直参照は0。
+- ライブ404例に主任教材由来の/textbook-mix-designがあったが、配合計算note（n5a55ae6dc16b）の公開APIを再読すると/textbook/mix-designへ修正済み。原稿も同じで、追加修正・一括転送は行わない。
+- 打ち手: 2級の学習法・二次の始め方の旧リンク計21箇所を正規化、R06の採点断定と例文の字数・設問要求を是正。検索タイトルは既存EXP-020と重なるため追加変更せず、CTAはEXP-014、販売導線・教材改訂はEXP-015/016と併せて観察する。
+- 本番改訂後に既存のgsc-indexing:checkで直前2週間計画・学習法の2URLを個別再検査し、実検査2・登録済み2・読取不能0を確認。10/14の未登録一覧とは更新時点が異なるため、49/56の保存集計をそのまま最新値へ書き換えない。不要な登録再要求は送らず、履歴2件を既存台帳へ追記した。
+- 需要の根拠は同曜日の完了週W40→W41のGA4入口セッション（日本）で2級1,158→1,170、主任64→79。検索・販売を個別に帰属できず購入CVRとは呼ばない。読者の答案作成・知識確認（A）を助ける教材の正確性と選びやすさを優先し、8立場を維持する。
+- 出典: data/gsc/index-coverage.json、data/gsc/url-inspection/2026-10-14T06-52-54.json、data/gsc/ui-urls.json、修復PR #1099のdata/analysis/growth/pack-2026-W40.json／pack-2026-W41.json、[GSC登録画面](https://search.google.com/search-console/index?resource_id=sc-domain%3Adoboku-note.com)、[配合計算教材](https://note.com/dobokunote/n/n5a55ae6dc16b)。Googleは意図した転送・重複・削除をすべて登録対象にするよう求めていない（[登録レポートの説明](https://support.google.com/webmasters/answer/7440203)）。

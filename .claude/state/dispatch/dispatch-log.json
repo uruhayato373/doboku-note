@@ -4286,6 +4286,156 @@
       "commit": "c9c89f5d266b",
       "verification": "重複2本を下書き化し著者editorで本文保持、残す2本の無料公開と土木もくじのhrefを確認。PR#1076の案内削除214本を反映、PDF189件保持。公開状態5本と関連215記事のAPI照合220件で不一致0。残す仕上げ手順を原稿の2週間版へ同期。CLI修正PR#1095はCI/E2E成功・developへmerge済み。",
       "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0762",
+      "at": "2026-10-17",
+      "task": "動画CIの実数・公開枠・AI素材判定・制作表記を修復",
+      "tier": "high",
+      "kind": "不具合",
+      "executor": "codex",
+      "outcome": "blocked",
+      "plan": ".claude/plans/DN-0762-ci-repair.md",
+      "commit": null,
+      "verification": "対象回帰32/32、Shorts実検査121パック224本・公開枠9、AI画像17/17 ok、公開照合CI39008379248は2/2成功。全体監査143項目は142成功・1失敗（R07再承認7本）・timeout0・検査不成立0。generated-indexes成功9.8秒、unit-tests成功142.8秒。",
+      "note": "説明欄8本の改訂により予約7本のR07再承認が必要。運営者専用の承認を代行せず手順を準備。外部説明欄は未同期、SNS新規展開・追加予約なし。"
+    },
+    {
+      "id": "DN-0224",
+      "at": "2026-10-17",
+      "task": "原典待ちの再実査と既存動画原稿の修正",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "codex",
+      "outcome": "blocked",
+      "plan": ".claude/plans/DN-0224-source-recovery.md",
+      "commit": null,
+      "verification": "登録3書籍の原本を再確認し7論点は欠落・遮蔽が残存。対象外9論点の誤集計を修正、回帰テスト成功。既存2パックを修正し独立QAは2.50/2.67、BLOCK0。check-video-content 166/166、PNG16/16生成。 既存VOICEVOXを起動し音声付きMP4を2本再生成、16/16場面の音声入力hash照合・全編decode成功。Drive vaultへ44ファイルを保存し読み戻しSHA一致。",
+      "note": "表紙の制作表記と字幕の重なり、冒頭約12秒・長い静止画各3箇所の調整と全編試聴が残る。linked8論点は原典待ち7＋映像仕上げ1。iPhone写真群は未走査。SNS新規展開・追加予約なし。"
+    },
+    {
+      "id": "DN-0224",
+      "at": "2026-10-17",
+      "task": "既存動画2本の字幕重なり・長い静止画の修復と再生成",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "codex",
+      "outcome": "blocked",
+      "plan": ".claude/plans/DN-0224-source-recovery.md",
+      "commit": null,
+      "verification": "字幕回帰を含む34/34テスト成功。字幕指定なし165本は変更前と同一、指定2本のみ変更。独立台本QAは2本とも2.83・BLOCK0、check-video-content 166/166。MP4は23場面/192.033秒・24場面/212.000秒へ再生成。音声入力hash47/47一致・全編decode・音声合計との尺一致。字幕入り全47場面を目視し、表紙の制作表記との重なり・本文の切れなし。冒頭は両方1.323秒、20秒以上の静止画は各3→0、10秒間隔の同一画面は0/19・0/21。Drive vaultへ更新102ファイルを保存し読み戻しSHA一致（変更なし4、クラウド同期完了は未検証）。",
+      "note": "依頼された映像修復は完了。DN-0224全体は原典待ち7＋全編試聴待ち1を維持。全編の音声試聴は未実施。原典待ち7論点は維持し、SNSの新規公開・追加予約は保留。"
+    },
+    {
+      "id": "DN-0224",
+      "at": "2026-10-18",
+      "task": "既存動画2本の本文POP画像45場面の再制作・合成検証と再発防止",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "codex",
+      "outcome": "blocked",
+      "plan": ".claude/plans/DN-0224-source-recovery.md",
+      "commit": null,
+      "verification": "本文・締め45場面をCodex image_genで生成し、独立画像監査45/45 ok（6場面を修正後に再監査）。生成指示・参照・原本・採用SHAを既存pop-image.jsonへ保存。MP4は23場面/192.033秒・24場面/212.000秒。採用画像SHA45/45、実動画フレーム47/47、音声入力hash47/47一致、全編decode成功。字幕入り47場面の原寸・360px監査で主要情報との重なりなし。両動画の映像開始0秒、冒頭表紙1.323秒、20秒以上の静止画0、10秒間隔の同一画面0/19・0/21。本文POPの全場面記録・原稿hash・実PNGのSHA/寸法を検査し、不足や旧画像では制作を停止するB20を既存CIへ結線。RGB/RGBA混在による先頭表紙の欠落も修正。対象テスト55件成功・条件付き1件skip、40場面の実ffmpeg回帰1件成功、動画構造166/166成功。生成原本・修正履歴・採用画像99ファイルをDriveへ保存。現行レンダー106ファイルは51更新・55変更なし。本文素材99件とレンダー143件（過去版37件を含む）をvaultのSHA・クラウドのMD5で全件照合し、不一致0。",
+      "note": "全編音声試聴は未実施。原典待ち7論点は別途維持。SNS新規公開・追加予約・認証復旧は保留。"
+    },
+    {
+      "id": "DN-0398",
+      "at": "2026-10-18",
+      "task": "土木note2記事の著者表現の公開反映と、関連動画の扱いを確認する",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "none",
+        "ref": "既存の note-sync-plan が題名・カバーの drift を ready として検出していた（順番待ちだっただけ）"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "46e505edb3e0",
+      "verification": "note 公開 API /api/v3/notes/{id} の name・body・eyecatch を原稿と照合",
+      "note": "note 2記事（nfea4a39cf108・na5e045a1c6f8）の題名・本文・カバーを 2026-10-18 に note-update-body --sync で反映（運営者承認）。公開 API で題名が「元発注者の視点で見た4つの型」、H2 7本一致・本文段落の欠落0・URLカード全件・画像2枚、カバー画像の帯が「元発注者の目で分かる」を目視で確認。関連1級動画 keiken-ochiru-toan-1kyu は台帳 stopped で、YouTube 整理中のため再レンダリング不要（再開時に表現を見直す）"
+    },
+    {
+      "id": "DN-0567",
+      "at": "2026-10-18",
+      "task": "10/18のnote週次同期で、Drive配布PDFの取り寄せ修正後の結果を確認する",
+      "tier": "high",
+      "kind": "不具合",
+      "prevention": {
+        "type": "none",
+        "ref": "修正済みの取り寄せが週次で実際に通ったことの確認で、新しい不具合ではない"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "6bad953902e2",
+      "verification": "data/note/sync-log.json の最新 run の articles と problems、~/Library/Logs/doboku-note/note-sync.log の 10/18 区間",
+      "note": "2026-10-18 03:00 の週次 note-sync（data/note/sync-log.json の最新 run）で、PDF 取り寄せ失敗 0。10/11 に error -11 で止まった BK-02 河川砂防 R07 II2・R08-yosou II1/II2 は今回 updated。記事は selected 200・attempted 96・updated 95・failed 0・deferred 105（添付の日次上限）。新しく出たマガジンカバーの Drive 保存失敗は別カードへ起票"
+    },
+    {
+      "id": "DN-0722",
+      "at": "2026-10-18",
+      "task": "2級模試の原稿（C9 解答解説）の解答欄の字数・行数の案内を Drive の原本と配布 PDF に反映する",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "none",
+        "ref": "不整合は手元の写しだけで、原本と PDF は既に正しかった（check-keiken-answer-split が既に止めている）"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "495fc9d200d9",
+      "verification": "node scripts/check-keiken-answer-split.mjs・Drive 原本の sha256 照合・PDF の pdftotext 照合",
+      "note": "2026-10-18 照合: Drive vault の原本 制作物/ココナラ/moshi-src/C9-2級模試/解答解説.md は手元と同じ sha256（edcfa045…）で、直した文言「各区画10行・250字程度」「(1)(2) 10行・250字程度」が入っている。手元で check-keiken-answer-split ✓。配布 PDF coconala-C9-2級二次予想模試-解答解説.pdf（Drive）も pdftotext で同じ文言・旧表現（200字前後／7行／9行）0 件のため差し替え不要。出品 coconala-2kyu-moshi-pdf は products.json で paused"
+    },
+    {
+      "id": "DN-0224",
+      "at": "2026-10-18",
+      "task": "旧表紙の残存を修正し2本を全面POPへ統一",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "codex",
+      "outcome": "blocked",
+      "plan": ".claude/plans/DN-0224-source-recovery.md",
+      "commit": null,
+      "verification": "旧表紙を残した不備を同日修正。表紙2枚もCodexで全面POPへ再制作し、本文45枚と合わせて全47場面を同じ意匠へ統一。新表紙2/2と字幕入り冒頭2/2を原寸・360pxで独立監査。MP42本を再生成し、新表紙SHA2/2・本文SHA45/45・実映像47/47・音声入力hash47/47、全編decodeと映像開始0秒を確認。表紙改訂と採用path/SHAをB20で結び、旧design・別画像・改訂指定の片側削除を拒否する回帰を追加。今回の対象テスト27件成功。素材台帳に完成動画・全場面画像を既存media CLIで登録し、AI画像49素材行（同じ表紙の2役割参照を含む）に監査okを記録。原本・採用素材57件のvault SHA・cloud MD5一致。SNS新規公開・追加予約は保留。全編音声試聴は未実施。",
+      "note": "DN全体は原典待ち7論点＋全編音声試聴を維持。SNS新規公開・追加予約なし。"
+    },
+    {
+      "id": "DN-0764",
+      "at": "2026-10-18",
+      "task": "2級土木の安全管理動画で旧版・改訂版が並行公開されている状態を整理する",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-content-registry"
+      },
+      "executor": "codex",
+      "outcome": "done",
+      "plan": null,
+      "commit": "f475fa411213",
+      "verification": "Studioで旧版auR8P0pvmlUの削除完了と公開URLの削除済みを確認。改訂版GCyAWGoJthUは公開・HD処理完了・再生確認、既存6予約を保持。字幕退避1877B、旧版を指す関連動画0、再生リストなし。check-content-registry: 715作品2209公開911素材・28組比較、FAIL/WARN0。対象node tests36/36、datasets/doc-refs/doc-coupling成功。再発防止はPR1110でCI確認中。 追加検証: 停止済み旧版のAPI照合履歴を現役から分離し、check-video-publicationは現役2/2・停止済み過去1件でPASS。対象テスト45/45。",
+      "note": "todo-complete.mjs 経由で完了処理"
+    },
+    {
+      "id": "DN-0765",
+      "at": "2026-10-18",
+      "task": "2級 安全管理の初版動画（auR8P0pvmlU）が YouTube で取得できず、台帳が published のまま",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-content-registry"
+      },
+      "executor": "codex",
+      "outcome": "done",
+      "plan": null,
+      "commit": "9d5f604f9122",
+      "verification": "DN-0764対応と同一。Studio削除完了・旧URLでユーザーにより削除済みを確認。元の初版auR8P0pvmlUはregistry stopでstopped/superseded、改訂版GCyAWGoJthUを公開維持。新しく取り込んだCIの改訂版・既存6予約のメタデータ同期記録を保持。check-content-registryは715作品2209公開911素材28組比較でFAIL/WARN0。",
+      "note": "別セッションのCIが台帳反映前に削除済み初版を検出して起票した重複カード。DN-0764の修復を統合し照合した。"
     }
   ]
 }

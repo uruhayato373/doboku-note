@@ -63,5 +63,1462 @@
       },
       "publication": "ローカル差し替え・外部未反映"
     }
-  }
+  },
+  "activeBodyRevision": "body-pop-20261018",
+  "revisions": {
+    "body-pop-20261018": {
+      "version": "pop-poster-v3",
+      "images": [
+        {
+          "sceneId": "intro",
+          "inputSha256": "44de8263d8e28d3453147657314c2406eb66b11f9750ce2e79a9a46def5440c8",
+          "copy": {
+            "heading": "長い問題文をどう読むか",
+            "items": [
+              "条件・ヒント・設問の役割"
+            ]
+          },
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付画像は承認済み意匠の参照であり、編集対象ではありません。これと同じ40代男性の先生（黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺の作業服とネクタイ、黄白の反射帯）、鮮やかな青・シアン・ネイビー、白と黄色の極太文字、太い輪郭、少量の赤、斜めの面と動きのある背景を持つ、16:9横長の日本語学習動画の本文画像を新しく1枚生成。1920×1080向け。縦の参照を引き伸ばさず横長に再構成。白い箱の箇条書きスライドは禁止。主題と視覚的な説明を主役に、先生は右側で問題用紙を赤ペンで確認する。左側は大きな問題用紙と虫眼鏡のイラスト。画面全体を使うが、下端15%は後から動画字幕を重ねるため重要な文字・顔・意味のある図を置かず、青の背景が連続する。全文字は左右5%・上5%・下18%の内側。描く文字は正確に「長い問題文をどう読むか」「条件・ヒント・設問の役割」「技術士 総監」の3つだけ。主題は非常に大きく、幅360pxでも読める。小さな文字・偽の問題文・ブランド・URL・価格・別の文言は足さない。論文の読み方を明快に伝える教育POP。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png",
+                "sha256": "226ec38a86790720f220ec2ca340d5f984d9297d6275ede0872c9ee42f64b092"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-intro.beea11be.png",
+              "sha256": "beea11be19492e90568833eb2cc1342fe25c0af27dcf0919617b2644fa3b4003",
+              "width": 1672,
+              "height": 941
+            }
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/intro.0a5bfc9f.png",
+            "sha256": "0a5bfc9fd62a5a444d8af9dca367dda26f613eb2a93408a916f07730e53db126",
+            "width": 1920,
+            "height": 1080
+          },
+          "edits": [],
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/intro.0a5bfc9f.png"
+          },
+          "review": {
+            "status": "ok",
+            "reviewer": "ai-image-fidelity-auditor",
+            "date": "2026-10-18",
+            "checkedSha256": "0a5bfc9fd62a5a444d8af9dca367dda26f613eb2a93408a916f07730e53db126",
+            "viewports": [
+              "1920x1080",
+              "360px"
+            ],
+            "checks": [
+              "lettering",
+              "narration-alignment",
+              "diagram",
+              "character",
+              "subtitle-safe-area"
+            ]
+          }
+        },
+        {
+          "sceneId": "premise",
+          "inputSha256": "42f08ec218888a249378a67a5915db8d3f0fa0c5202854f833484e362b1637a5",
+          "copy": {
+            "heading": "定型文も当年度と照合",
+            "items": [
+              "5管理の視点",
+              "評価の観点"
+            ]
+          },
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付は承認済み意匠の参照。16:9横長1920×1080向けの日本語学習動画の本文POP画像を1枚生成。参照と同じ先生（40代男性・黒髪・黒縁眼鏡・軽いひげ・無地の白ヘルメット・紺の作業服とネクタイ・黄白反射帯）。鮮やかな青・シアン・ネイビー、白と黄色の極太文字・太い輪郭・少量の赤、斜め面、背景の描き込み。白い箱を並べた箇条書きスライドにしない。重要文字は上5〜下78%内、下端18%は後から動画字幕が載るため青い背景の延長だけにする。背景は四辺まで続く。横長構図に再設計し人物の顔と主題を大きく、本文に対応する視覚的な説明を添える。先生は条件・施策・結果のつながりを指し示す。画面に正確に表示する文字は「技術士 総監」、大見出し「定型文も当年度と照合」、補足「5管理の視点」・「評価の観点」だけ。全て幅360pxでも読める大きな文字。文字列を勝手に略さない。番号を増やさない。ブランド・価格・URL・合格保証・細かな偽文字は追加しない。説明の意味（この全文を画像に書くのではない）: 見慣れた定型文も、当年度の条件と照合します。5管理の視点と評価の観点を確認してください。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png",
+                "sha256": "226ec38a86790720f220ec2ca340d5f984d9297d6275ede0872c9ee42f64b092"
+              },
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-intro.beea11be.png",
+                "sha256": "beea11be19492e90568833eb2cc1342fe25c0af27dcf0919617b2644fa3b4003"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-premise.f1ceb014.png",
+              "sha256": "f1ceb014256e35ea2de14082ef34852ce74b96140065b424c0329178f76e1527",
+              "width": 1672,
+              "height": 941
+            }
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/premise.25301973.png",
+            "sha256": "25301973da6a1d0aa74af824a38be0f77e53c0426884854413042fd5d47419e1",
+            "width": 1920,
+            "height": 1080
+          },
+          "edits": [],
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/premise.25301973.png"
+          },
+          "review": {
+            "status": "ok",
+            "reviewer": "ai-image-fidelity-auditor",
+            "date": "2026-10-18",
+            "checkedSha256": "25301973da6a1d0aa74af824a38be0f77e53c0426884854413042fd5d47419e1",
+            "viewports": [
+              "1920x1080",
+              "360px"
+            ],
+            "checks": [
+              "lettering",
+              "narration-alignment",
+              "diagram",
+              "character",
+              "subtitle-safe-area"
+            ]
+          }
+        },
+        {
+          "sceneId": "premise-scope",
+          "inputSha256": "27c3289468504f01de012135c99f6ad130133dedd579a57a459bacd319a91f70",
+          "copy": {
+            "heading": "指定を拾う",
+            "items": [
+              "設問の区分・答える範囲",
+              "項目数・答案枚数"
+            ]
+          },
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付は承認済み意匠の参照。16:9横長1920×1080向けの日本語学習動画の本文POP画像を1枚生成。参照と同じ先生（40代男性・黒髪・黒縁眼鏡・軽いひげ・無地の白ヘルメット・紺の作業服とネクタイ・黄白反射帯）。鮮やかな青・シアン・ネイビー、白と黄色の極太文字・太い輪郭・少量の赤、斜め面、背景の描き込み。白い箱を並べた箇条書きスライドにしない。重要文字は上5〜下78%内、下端18%は後から動画字幕が載るため青い背景の延長だけにする。背景は四辺まで続く。横長構図に再設計し人物の顔と主題を大きく、本文に対応する視覚的な説明を添える。先生は注意点を赤ペンで示す。画面に正確に表示する文字は「技術士 総監」、大見出し「指定を拾う」、補足「設問の区分・答える範囲」・「項目数・答案枚数」だけ。全て幅360pxでも読める大きな文字。文字列を勝手に略さない。番号を増やさない。ブランド・価格・URL・合格保証・細かな偽文字は追加しない。説明の意味（この全文を画像に書くのではない）: 設問の区分、答える範囲、項目数、答案枚数の指定を拾います。毎年同じだと決めつけて省略しないでください。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png",
+                "sha256": "226ec38a86790720f220ec2ca340d5f984d9297d6275ede0872c9ee42f64b092"
+              },
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-intro.beea11be.png",
+                "sha256": "beea11be19492e90568833eb2cc1342fe25c0af27dcf0919617b2644fa3b4003"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-premise-scope.b23060ad.png",
+              "sha256": "b23060ad7a51d140ac677445e8295cfe9f10e003907f01953e10549a1057f15b",
+              "width": 1672,
+              "height": 941
+            }
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/premise-scope.21b64f7f.png",
+            "sha256": "21b64f7fffd058409038d169345e2350d3dd76517d73f3346283e84798bb6d45",
+            "width": 1920,
+            "height": 1080
+          },
+          "edits": [],
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/premise-scope.21b64f7f.png"
+          },
+          "review": {
+            "status": "ok",
+            "reviewer": "ai-image-fidelity-auditor",
+            "date": "2026-10-18",
+            "checkedSha256": "21b64f7fffd058409038d169345e2350d3dd76517d73f3346283e84798bb6d45",
+            "viewports": [
+              "1920x1080",
+              "360px"
+            ],
+            "checks": [
+              "lettering",
+              "narration-alignment",
+              "diagram",
+              "character",
+              "subtitle-safe-area"
+            ]
+          }
+        },
+        {
+          "sceneId": "hints-request",
+          "inputSha256": "243c184274c84a6177e01842d9ec562c34ae1e6aaeea8217e9f490ee910fe47e",
+          "copy": {
+            "heading": "ヒント① 要求事項",
+            "items": [
+              "解答してほしい観点"
+            ]
+          },
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付は承認済み意匠の参照。16:9横長1920×1080向けの日本語学習動画の本文POP画像を1枚生成。参照と同じ先生（40代男性・黒髪・黒縁眼鏡・軽いひげ・無地の白ヘルメット・紺の作業服とネクタイ・黄白反射帯）。鮮やかな青・シアン・ネイビー、白と黄色の極太文字・太い輪郭・少量の赤、斜め面、背景の描き込み。白い箱を並べた箇条書きスライドにしない。重要文字は上5〜下78%内、下端18%は後から動画字幕が載るため青い背景の延長だけにする。背景は四辺まで続く。横長構図に再設計し人物の顔と主題を大きく、本文に対応する視覚的な説明を添える。先生は該当するヒントを問題用紙で見つける。画面に正確に表示する文字は「技術士 総監」、大見出し「ヒント① 要求事項」、補足「解答してほしい観点」だけ。全て幅360pxでも読める大きな文字。文字列を勝手に略さない。番号を増やさない。ブランド・価格・URL・合格保証・細かな偽文字は追加しない。説明の意味（この全文を画像に書くのではない）: 拾うヒントは3種類です。まず、出題者が解答してほしい観点を明文化した、要求事項を拾います。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png",
+                "sha256": "226ec38a86790720f220ec2ca340d5f984d9297d6275ede0872c9ee42f64b092"
+              },
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-intro.beea11be.png",
+                "sha256": "beea11be19492e90568833eb2cc1342fe25c0af27dcf0919617b2644fa3b4003"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-hints-request.26e0f8f4.png",
+              "sha256": "26e0f8f4b6d79c88a0a01a4117c49c71cb6adf02a6651ba459eb02889066167d",
+              "width": 1672,
+              "height": 941
+            }
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/hints-request.a144f7c3.png",
+            "sha256": "a144f7c3f16b23ea51ceccf867643d515ed6f9f5cbcc10154c192fd4c563253d",
+            "width": 1920,
+            "height": 1080
+          },
+          "edits": [],
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/hints-request.a144f7c3.png"
+          },
+          "review": {
+            "status": "ok",
+            "reviewer": "ai-image-fidelity-auditor",
+            "date": "2026-10-18",
+            "checkedSha256": "a144f7c3f16b23ea51ceccf867643d515ed6f9f5cbcc10154c192fd4c563253d",
+            "viewports": [
+              "1920x1080",
+              "360px"
+            ],
+            "checks": [
+              "lettering",
+              "narration-alignment",
+              "diagram",
+              "character",
+              "subtitle-safe-area"
+            ]
+          }
+        },
+        {
+          "sceneId": "hints-workplace",
+          "inputSha256": "07c46eeb8b35479d84177f72214a9414a46cee8bfa89561552211fb876c6bff6",
+          "copy": {
+            "heading": "ヒント② 事業場の例",
+            "items": [
+              "自分の業務に近い例へ"
+            ]
+          },
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付は承認済み意匠の参照。16:9横長1920×1080向けの日本語学習動画の本文POP画像を1枚生成。参照と同じ先生（40代男性・黒髪・黒縁眼鏡・軽いひげ・無地の白ヘルメット・紺の作業服とネクタイ・黄白反射帯）。鮮やかな青・シアン・ネイビー、白と黄色の極太文字・太い輪郭・少量の赤、斜め面、背景の描き込み。白い箱を並べた箇条書きスライドにしない。重要文字は上5〜下78%内、下端18%は後から動画字幕が載るため青い背景の延長だけにする。背景は四辺まで続く。横長構図に再設計し人物の顔と主題を大きく、本文に対応する視覚的な説明を添える。先生は該当するヒントを問題用紙で見つける。画面に正確に表示する文字は「技術士 総監」、大見出し「ヒント② 事業場の例」、補足「自分の業務に近い例へ」だけ。全て幅360pxでも読める大きな文字。文字列を勝手に略さない。番号を増やさない。ブランド・価格・URL・合格保証・細かな偽文字は追加しない。説明の意味（この全文を画像に書くのではない）: 2つ目は、全部門の受験者向けに並べられる事業場の例です。自分の業務に近い例へ置き換えて読みます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png",
+                "sha256": "226ec38a86790720f220ec2ca340d5f984d9297d6275ede0872c9ee42f64b092"
+              },
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-intro.beea11be.png",
+                "sha256": "beea11be19492e90568833eb2cc1342fe25c0af27dcf0919617b2644fa3b4003"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-hints-workplace.31001c6a.png",
+              "sha256": "31001c6ae7dda3dfc56e8c72b58aff73b83ec6f96c3097e24eacea733dfa4208",
+              "width": 1672,
+              "height": 941
+            }
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/hints-workplace.73960b01.png",
+            "sha256": "73960b019c60dd06e99747041f38afcfe2bb55005d6a3e2b226ddd17e9df37c2",
+            "width": 1920,
+            "height": 1080
+          },
+          "edits": [],
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/hints-workplace.73960b01.png"
+          },
+          "review": {
+            "status": "ok",
+            "reviewer": "ai-image-fidelity-auditor",
+            "date": "2026-10-18",
+            "checkedSha256": "73960b019c60dd06e99747041f38afcfe2bb55005d6a3e2b226ddd17e9df37c2",
+            "viewports": [
+              "1920x1080",
+              "360px"
+            ],
+            "checks": [
+              "lettering",
+              "narration-alignment",
+              "diagram",
+              "character",
+              "subtitle-safe-area"
+            ]
+          }
+        },
+        {
+          "sceneId": "hints-image",
+          "inputSha256": "eabede0feabf956860b730362a34b404871e304b635baf1bede9b48652d18786",
+          "copy": {
+            "heading": "ヒント③ イメージ記述",
+            "items": [
+              "事業・プロジェクトの具体像"
+            ]
+          },
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付は承認済み意匠の参照。16:9横長1920×1080向けの日本語学習動画の本文POP画像を1枚生成。参照と同じ先生（40代男性・黒髪・黒縁眼鏡・軽いひげ・無地の白ヘルメット・紺の作業服とネクタイ・黄白反射帯）。鮮やかな青・シアン・ネイビー、白と黄色の極太文字・太い輪郭・少量の赤、斜め面、背景の描き込み。白い箱を並べた箇条書きスライドにしない。重要文字は上5〜下78%内、下端18%は後から動画字幕が載るため青い背景の延長だけにする。背景は四辺まで続く。横長構図に再設計し人物の顔と主題を大きく、本文に対応する視覚的な説明を添える。先生は該当するヒントを問題用紙で見つける。画面に正確に表示する文字は「技術士 総監」、大見出し「ヒント③ イメージ記述」、補足「事業・プロジェクトの具体像」だけ。全て幅360pxでも読める大きな文字。文字列を勝手に略さない。番号を増やさない。ブランド・価格・URL・合格保証・細かな偽文字は追加しない。説明の意味（この全文を画像に書くのではない）: 3つ目は、解答対象を具体化する事業やプロジェクトのイメージ記述です。これも自分の業務に置き換えて拾います。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png",
+                "sha256": "226ec38a86790720f220ec2ca340d5f984d9297d6275ede0872c9ee42f64b092"
+              },
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-intro.beea11be.png",
+                "sha256": "beea11be19492e90568833eb2cc1342fe25c0af27dcf0919617b2644fa3b4003"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-hints-image.08f7373f.png",
+              "sha256": "08f7373fc2594f584d0c81a1e8c64cb29df96893f39f1a75d9fce872c8a2cd45",
+              "width": 1672,
+              "height": 941
+            }
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/hints-image.557d7ca2.png",
+            "sha256": "557d7ca2b16f72beb2aba0a072b6b7eac6dd8e598f021580769e298e3af1230e",
+            "width": 1920,
+            "height": 1080
+          },
+          "edits": [],
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/hints-image.557d7ca2.png"
+          },
+          "review": {
+            "status": "ok",
+            "reviewer": "ai-image-fidelity-auditor",
+            "date": "2026-10-18",
+            "checkedSha256": "557d7ca2b16f72beb2aba0a072b6b7eac6dd8e598f021580769e298e3af1230e",
+            "viewports": [
+              "1920x1080",
+              "360px"
+            ],
+            "checks": [
+              "lettering",
+              "narration-alignment",
+              "diagram",
+              "character",
+              "subtitle-safe-area"
+            ]
+          }
+        },
+        {
+          "sceneId": "hints-fit",
+          "inputSha256": "851b9a42b5e15ab6f8833e2617279473a095f27a5795eb48744121a0642fbf9b",
+          "copy": {
+            "heading": "題材との相性を確かめる",
+            "items": [
+              "置き換えられる業務か"
+            ]
+          },
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付は承認済み意匠の参照。16:9横長1920×1080向けの日本語学習動画の本文POP画像を1枚生成。参照と同じ先生（40代男性・黒髪・黒縁眼鏡・軽いひげ・無地の白ヘルメット・紺の作業服とネクタイ・黄白反射帯）。鮮やかな青・シアン・ネイビー、白と黄色の極太文字・太い輪郭・少量の赤、斜め面、背景の描き込み。白い箱を並べた箇条書きスライドにしない。重要文字は上5〜下78%内、下端18%は後から動画字幕が載るため青い背景の延長だけにする。背景は四辺まで続く。横長構図に再設計し人物の顔と主題を大きく、本文に対応する視覚的な説明を添える。先生は該当するヒントを問題用紙で見つける。画面に正確に表示する文字は「技術士 総監」、大見出し「題材との相性を確かめる」、補足「置き換えられる業務か」だけ。全て幅360pxでも読める大きな文字。文字列を勝手に略さない。番号を増やさない。ブランド・価格・URL・合格保証・細かな偽文字は追加しない。説明の意味（この全文を画像に書くのではない）: 置き換えられない年は、その題材との相性が悪いシグナルです。自分の業務に引き寄せられるかを確かめます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png",
+                "sha256": "226ec38a86790720f220ec2ca340d5f984d9297d6275ede0872c9ee42f64b092"
+              },
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-intro.beea11be.png",
+                "sha256": "beea11be19492e90568833eb2cc1342fe25c0af27dcf0919617b2644fa3b4003"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-hints-fit.13a88fa6.png",
+              "sha256": "13a88fa6b86e8e700c8b79e85e5524c1056341d7d4382e53854887547b52b5fb",
+              "width": 1672,
+              "height": 941
+            }
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/hints-fit.2141d0a4.png",
+            "sha256": "2141d0a43f2337e683294e59e6ad13451c97b498d62c6b6d6bc4785bfaee9b4a",
+            "width": 1920,
+            "height": 1080
+          },
+          "edits": [],
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/hints-fit.2141d0a4.png"
+          },
+          "review": {
+            "status": "ok",
+            "reviewer": "ai-image-fidelity-auditor",
+            "date": "2026-10-18",
+            "checkedSha256": "2141d0a43f2337e683294e59e6ad13451c97b498d62c6b6d6bc4785bfaee9b4a",
+            "viewports": [
+              "1920x1080",
+              "360px"
+            ],
+            "checks": [
+              "lettering",
+              "narration-alignment",
+              "diagram",
+              "character",
+              "subtitle-safe-area"
+            ]
+          }
+        },
+        {
+          "sceneId": "layers",
+          "inputSha256": "c0f75ba7f9ef837861c7ded4e54b44348ce591171722c30189af8c77c06b4370",
+          "copy": {
+            "heading": "三層で整理する例",
+            "items": [
+              "Ⅰ 前提条件",
+              "Ⅱ 施策",
+              "Ⅲ 実施後の影響"
+            ]
+          },
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付は承認済み意匠の参照。16:9横長1920×1080向けの日本語学習動画の本文POP画像を1枚生成。参照と同じ先生（40代男性・黒髪・黒縁眼鏡・軽いひげ・無地の白ヘルメット・紺の作業服とネクタイ・黄白反射帯）。鮮やかな青・シアン・ネイビー、白と黄色の極太文字・太い輪郭・少量の赤、斜め面、背景の描き込み。白い箱を並べた箇条書きスライドにしない。重要文字は上5〜下78%内、下端18%は後から動画字幕が載るため青い背景の延長だけにする。背景は四辺まで続く。横長構図に再設計し人物の顔と主題を大きく、本文に対応する視覚的な説明を添える。先生は条件・施策・結果のつながりを図で示す。画面に正確に表示する文字は「技術士 総監」、大見出し「三層で整理する例」、補足「Ⅰ 前提条件」・「Ⅱ 施策」・「Ⅲ 実施後の影響」だけ。全て幅360pxでも読める大きな文字。文字列を勝手に略さない。番号を増やさない。ブランド・価格・URL・合格保証・細かな偽文字は追加しない。三層は順番を守りⅠ→Ⅱ→Ⅲの矢印で結び、各ラベルを一致させる。説明の意味（この全文を画像に書くのではない）: ここでは、条件・施策・実施後の影響を三層に整理します。実際の区分・範囲・項目数は当年度の問題文を優先します。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png",
+                "sha256": "226ec38a86790720f220ec2ca340d5f984d9297d6275ede0872c9ee42f64b092"
+              },
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-intro.beea11be.png",
+                "sha256": "beea11be19492e90568833eb2cc1342fe25c0af27dcf0919617b2644fa3b4003"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-layers.c3622f9f.png",
+              "sha256": "c3622f9fef0ccde08d6dbb5b856aa40c73e93e42da900687e6ae07b269e88c6d",
+              "width": 1672,
+              "height": 941
+            }
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/layers.6d30b5d0.png",
+            "sha256": "6d30b5d0d8d88928dadf9f66571f04bab000be522554cf486c27864f5baa7593",
+            "width": 1920,
+            "height": 1080
+          },
+          "edits": [],
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/layers.6d30b5d0.png"
+          },
+          "review": {
+            "status": "ok",
+            "reviewer": "ai-image-fidelity-auditor",
+            "date": "2026-10-18",
+            "checkedSha256": "6d30b5d0d8d88928dadf9f66571f04bab000be522554cf486c27864f5baa7593",
+            "viewports": [
+              "1920x1080",
+              "360px"
+            ],
+            "checks": [
+              "lettering",
+              "narration-alignment",
+              "diagram",
+              "character",
+              "subtitle-safe-area"
+            ]
+          }
+        },
+        {
+          "sceneId": "layers-first",
+          "inputSha256": "a0cbd089a510d8d7f5f19df535053057abc7f94097a38a758ef7650daf5d3792",
+          "copy": {
+            "heading": "Ⅰ 管理対象と前提条件",
+            "items": [
+              "以降の説明の土台"
+            ]
+          },
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付は承認済み意匠の参照。16:9横長1920×1080向けの日本語学習動画の本文POP画像を1枚生成。参照と同じ先生（40代男性・黒髪・黒縁眼鏡・軽いひげ・無地の白ヘルメット・紺の作業服とネクタイ・黄白反射帯）。鮮やかな青・シアン・ネイビー、白と黄色の極太文字・太い輪郭・少量の赤、斜め面、背景の描き込み。白い箱を並べた箇条書きスライドにしない。重要文字は上5〜下78%内、下端18%は後から動画字幕が載るため青い背景の延長だけにする。背景は四辺まで続く。横長構図に再設計し人物の顔と主題を大きく、本文に対応する視覚的な説明を添える。先生は条件・施策・結果のつながりを図で示す。画面に正確に表示する文字は「技術士 総監」、大見出し「Ⅰ 管理対象と前提条件」、補足「以降の説明の土台」だけ。全て幅360pxでも読める大きな文字。文字列を勝手に略さない。番号を増やさない。ブランド・価格・URL・合格保証・細かな偽文字は追加しない。説明の意味（この全文を画像に書くのではない）: 第一層は、管理対象と前提条件の設定です。ここで置いた条件が、以降の施策やリスクを考える土台になります。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png",
+                "sha256": "226ec38a86790720f220ec2ca340d5f984d9297d6275ede0872c9ee42f64b092"
+              },
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-intro.beea11be.png",
+                "sha256": "beea11be19492e90568833eb2cc1342fe25c0af27dcf0919617b2644fa3b4003"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-layers-first.e7d807c4.png",
+              "sha256": "e7d807c46e4aa0b16c8aece2179ce4ef7cff756b2057cefca0cacee3ad0e2ad3",
+              "width": 1672,
+              "height": 941
+            }
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/layers-first.592fdb8a.png",
+            "sha256": "592fdb8abc79f9cc4a0a64880531ed5632bf44dc7e4275274ca4d0cd22499a47",
+            "width": 1920,
+            "height": 1080
+          },
+          "edits": [
+            {
+              "tool": "image_gen",
+              "prompt": "添付の横長POP本文画像を修正。文字全文・文字の位置・先生の顔/服/ポーズ・色・16:9構図は保持。下段の橋/チェックリスト/棒グラフの3つの丸い説明アイコンとその間の矢印だけを少し縮小して上へ移し、全ての図を画像高の82%より上に収める。下端18%には連続する青い背景だけを残し、後から入る字幕に意味のある図が重ならないようにする。小さい文字や追加文言は描かない。主題は「Ⅰ 管理対象と前提条件」、補足は「以降の説明の土台」のまま。文字欠け・画像クロップは禁止。",
+              "references": [
+                {
+                  "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-layers-first.e7d807c4.png",
+                  "sha256": "e7d807c46e4aa0b16c8aece2179ce4ef7cff756b2057cefca0cacee3ad0e2ad3"
+                }
+              ],
+              "output": {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/edit-layers-first.8648007f.png",
+                "sha256": "8648007f6c97fc69d3f684eebb51b99f50937b67c66ec3ef524e9eb0da3f80e1"
+              }
+            }
+          ],
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/layers-first.592fdb8a.png"
+          },
+          "review": {
+            "status": "ok",
+            "reviewer": "ai-image-fidelity-auditor",
+            "date": "2026-10-18",
+            "checkedSha256": "592fdb8abc79f9cc4a0a64880531ed5632bf44dc7e4275274ca4d0cd22499a47",
+            "viewports": [
+              "1920x1080",
+              "360px"
+            ],
+            "checks": [
+              "lettering",
+              "narration-alignment",
+              "diagram",
+              "character",
+              "subtitle-safe-area"
+            ],
+            "repairReviewed": true
+          }
+        },
+        {
+          "sceneId": "layers-second",
+          "inputSha256": "bba3af5103d8871a99e66ff0c1d8ad98f566b31190b3400e8b2cf3d4fd229d69",
+          "copy": {
+            "heading": "Ⅱ 現実的な施策",
+            "items": [
+              "効果＋管理上の問題点"
+            ]
+          },
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付は承認済み意匠の参照。16:9横長1920×1080向けの日本語学習動画の本文POP画像を1枚生成。参照と同じ先生（40代男性・黒髪・黒縁眼鏡・軽いひげ・無地の白ヘルメット・紺の作業服とネクタイ・黄白反射帯）。鮮やかな青・シアン・ネイビー、白と黄色の極太文字・太い輪郭・少量の赤、斜め面、背景の描き込み。白い箱を並べた箇条書きスライドにしない。重要文字は上5〜下78%内、下端18%は後から動画字幕が載るため青い背景の延長だけにする。背景は四辺まで続く。横長構図に再設計し人物の顔と主題を大きく、本文に対応する視覚的な説明を添える。先生は条件・施策・結果のつながりを図で示す。画面に正確に表示する文字は「技術士 総監」、大見出し「Ⅱ 現実的な施策」、補足「効果＋管理上の問題点」だけ。全て幅360pxでも読める大きな文字。文字列を勝手に略さない。番号を増やさない。ブランド・価格・URL・合格保証・細かな偽文字は追加しない。説明の意味（この全文を画像に書くのではない）: 第二層は、現実的な施策の提示です。方針を具体の施策にし、期待できる効果と管理上の問題点をセットで書きます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png",
+                "sha256": "226ec38a86790720f220ec2ca340d5f984d9297d6275ede0872c9ee42f64b092"
+              },
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-intro.beea11be.png",
+                "sha256": "beea11be19492e90568833eb2cc1342fe25c0af27dcf0919617b2644fa3b4003"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-layers-second.086b7ce4.png",
+              "sha256": "086b7ce4ab83a3e3d74cf0f33d645d1570d968ad91cb8f793e246a37d98d0573",
+              "width": 1672,
+              "height": 941
+            }
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/layers-second.9ff02cef.png",
+            "sha256": "9ff02cef7b81c8399bce87caf9734a5d83e43022d70dfd36cdf54127b49872ac",
+            "width": 1920,
+            "height": 1080
+          },
+          "edits": [],
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/layers-second.9ff02cef.png"
+          },
+          "review": {
+            "status": "ok",
+            "reviewer": "ai-image-fidelity-auditor",
+            "date": "2026-10-18",
+            "checkedSha256": "9ff02cef7b81c8399bce87caf9734a5d83e43022d70dfd36cdf54127b49872ac",
+            "viewports": [
+              "1920x1080",
+              "360px"
+            ],
+            "checks": [
+              "lettering",
+              "narration-alignment",
+              "diagram",
+              "character",
+              "subtitle-safe-area"
+            ]
+          }
+        },
+        {
+          "sceneId": "layers-third",
+          "inputSha256": "03e4aa1ec2e2b3cd4c442d0ef22945bf07ebea32a1eea4779d20a2ae97417123",
+          "copy": {
+            "heading": "Ⅲ 将来展望とリスク",
+            "items": [
+              "重大なリスクを選ぶ",
+              "克服策は管理行為で"
+            ]
+          },
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付は承認済み意匠の参照。16:9横長1920×1080向けの日本語学習動画の本文POP画像を1枚生成。参照と同じ先生（40代男性・黒髪・黒縁眼鏡・軽いひげ・無地の白ヘルメット・紺の作業服とネクタイ・黄白反射帯）。鮮やかな青・シアン・ネイビー、白と黄色の極太文字・太い輪郭・少量の赤、斜め面、背景の描き込み。白い箱を並べた箇条書きスライドにしない。重要文字は上5〜下78%内、下端18%は後から動画字幕が載るため青い背景の延長だけにする。背景は四辺まで続く。横長構図に再設計し人物の顔と主題を大きく、本文に対応する視覚的な説明を添える。先生は条件・施策・結果のつながりを図で示す。画面に正確に表示する文字は「技術士 総監」、大見出し「Ⅲ 将来展望とリスク」、補足「重大なリスクを選ぶ」・「克服策は管理行為で」だけ。全て幅360pxでも読める大きな文字。文字列を勝手に略さない。番号を増やさない。ブランド・価格・URL・合格保証・細かな偽文字は追加しない。説明の意味（この全文を画像に書くのではない）: 第三層は、将来展望と最大のリスクです。重大なリスクを選び、数は設問の指定に従い、克服策は管理行為で示します。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png",
+                "sha256": "226ec38a86790720f220ec2ca340d5f984d9297d6275ede0872c9ee42f64b092"
+              },
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-intro.beea11be.png",
+                "sha256": "beea11be19492e90568833eb2cc1342fe25c0af27dcf0919617b2644fa3b4003"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-layers-third.d89548cd.png",
+              "sha256": "d89548cd6d3a061c856254329523be401e5852a8438d3dad3bc20ae2dcd95c7b",
+              "width": 1672,
+              "height": 941
+            }
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/layers-third.78a8fd7e.png",
+            "sha256": "78a8fd7ef97ae08909c304f3ca4b42686004e198ec8da0e9f2d9c4e9a5705374",
+            "width": 1920,
+            "height": 1080
+          },
+          "edits": [],
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/layers-third.78a8fd7e.png"
+          },
+          "review": {
+            "status": "ok",
+            "reviewer": "ai-image-fidelity-auditor",
+            "date": "2026-10-18",
+            "checkedSha256": "78a8fd7ef97ae08909c304f3ca4b42686004e198ec8da0e9f2d9c4e9a5705374",
+            "viewports": [
+              "1920x1080",
+              "360px"
+            ],
+            "checks": [
+              "lettering",
+              "narration-alignment",
+              "diagram",
+              "character",
+              "subtitle-safe-area"
+            ]
+          }
+        },
+        {
+          "sceneId": "mistakes-effect",
+          "inputSha256": "6336c9d257a1b87b192d7cf9319d968aba86125312c274f9d47313209efea59b",
+          "copy": {
+            "heading": "取り違え① 効果だけ",
+            "items": [
+              "Ⅱでは問題点も書く"
+            ]
+          },
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付は承認済み意匠の参照。16:9横長1920×1080向けの日本語学習動画の本文POP画像を1枚生成。参照と同じ先生（40代男性・黒髪・黒縁眼鏡・軽いひげ・無地の白ヘルメット・紺の作業服とネクタイ・黄白反射帯）。鮮やかな青・シアン・ネイビー、白と黄色の極太文字・太い輪郭・少量の赤、斜め面、背景の描き込み。白い箱を並べた箇条書きスライドにしない。重要文字は上5〜下78%内、下端18%は後から動画字幕が載るため青い背景の延長だけにする。背景は四辺まで続く。横長構図に再設計し人物の顔と主題を大きく、本文に対応する視覚的な説明を添える。先生は注意点を赤ペンで示す。画面に正確に表示する文字は「技術士 総監」、大見出し「取り違え① 効果だけ」、補足「Ⅱでは問題点も書く」だけ。全て幅360pxでも読める大きな文字。文字列を勝手に略さない。番号を増やさない。ブランド・価格・URL・合格保証・細かな偽文字は追加しない。説明の意味（この全文を画像に書くのではない）: 取り違えの典型を3つ確認します。1つ目は、第二層で効果だけを書いて、管理上の問題点を書かないことです。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png",
+                "sha256": "226ec38a86790720f220ec2ca340d5f984d9297d6275ede0872c9ee42f64b092"
+              },
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-intro.beea11be.png",
+                "sha256": "beea11be19492e90568833eb2cc1342fe25c0af27dcf0919617b2644fa3b4003"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-mistakes-effect.72b69e4d.png",
+              "sha256": "72b69e4daca480f6b9ee6cd4f14c270c2b215843ac034c4f2e92f2e6e61999a1",
+              "width": 1672,
+              "height": 941
+            }
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/mistakes-effect.a758693e.png",
+            "sha256": "a758693e8451c9bd653dea35c43ce1ccdfb62397801343ec5a5d7b781a4e2dcd",
+            "width": 1920,
+            "height": 1080
+          },
+          "edits": [],
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/mistakes-effect.a758693e.png"
+          },
+          "review": {
+            "status": "ok",
+            "reviewer": "ai-image-fidelity-auditor",
+            "date": "2026-10-18",
+            "checkedSha256": "a758693e8451c9bd653dea35c43ce1ccdfb62397801343ec5a5d7b781a4e2dcd",
+            "viewports": [
+              "1920x1080",
+              "360px"
+            ],
+            "checks": [
+              "lettering",
+              "narration-alignment",
+              "diagram",
+              "character",
+              "subtitle-safe-area"
+            ]
+          }
+        },
+        {
+          "sceneId": "mistakes-risk",
+          "inputSha256": "ca636a85828c9041c2c9fcdc8176f900422296e36c43f8e4ef4883480f8429c0",
+          "copy": {
+            "heading": "取り違え② 構想だけ",
+            "items": [
+              "Ⅲではリスクを捉える"
+            ]
+          },
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付は承認済み意匠の参照。16:9横長1920×1080向けの日本語学習動画の本文POP画像を1枚生成。参照と同じ先生（40代男性・黒髪・黒縁眼鏡・軽いひげ・無地の白ヘルメット・紺の作業服とネクタイ・黄白反射帯）。鮮やかな青・シアン・ネイビー、白と黄色の極太文字・太い輪郭・少量の赤、斜め面、背景の描き込み。白い箱を並べた箇条書きスライドにしない。重要文字は上5〜下78%内、下端18%は後から動画字幕が載るため青い背景の延長だけにする。背景は四辺まで続く。横長構図に再設計し人物の顔と主題を大きく、本文に対応する視覚的な説明を添える。先生は注意点を赤ペンで示す。画面に正確に表示する文字は「技術士 総監」、大見出し「取り違え② 構想だけ」、補足「Ⅲではリスクを捉える」だけ。全て幅360pxでも読める大きな文字。文字列を勝手に略さない。番号を増やさない。ブランド・価格・URL・合格保証・細かな偽文字は追加しない。説明の意味（この全文を画像に書くのではない）: 2つ目は、第三層で夢のある構想を語り、リスクを外すことです。施策を進めた先の課題を見失わないようにします。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png",
+                "sha256": "226ec38a86790720f220ec2ca340d5f984d9297d6275ede0872c9ee42f64b092"
+              },
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-intro.beea11be.png",
+                "sha256": "beea11be19492e90568833eb2cc1342fe25c0af27dcf0919617b2644fa3b4003"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-mistakes-risk.2f9b499e.png",
+              "sha256": "2f9b499ed09f6eb3390fa8ef1cd3c1d9e886cc043299fce5999088d37898f11b",
+              "width": 1672,
+              "height": 940
+            }
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/mistakes-risk.72de4e7d.png",
+            "sha256": "72de4e7d9b6579b7b6f987acf2ec4a48426e15c82f720ca9a09ab58909207366",
+            "width": 1920,
+            "height": 1080
+          },
+          "edits": [],
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/mistakes-risk.72de4e7d.png"
+          },
+          "review": {
+            "status": "ok",
+            "reviewer": "ai-image-fidelity-auditor",
+            "date": "2026-10-18",
+            "checkedSha256": "72de4e7d9b6579b7b6f987acf2ec4a48426e15c82f720ca9a09ab58909207366",
+            "viewports": [
+              "1920x1080",
+              "360px"
+            ],
+            "checks": [
+              "lettering",
+              "narration-alignment",
+              "diagram",
+              "character",
+              "subtitle-safe-area"
+            ]
+          }
+        },
+        {
+          "sceneId": "mistakes-condition",
+          "inputSha256": "8ef27d521924e0d29dfc50a89067e8601125c92dce75592756b7e27f49f19e38",
+          "copy": {
+            "heading": "取り違え③ 条件を後付け",
+            "items": [
+              "Ⅰからの一貫性を保つ"
+            ]
+          },
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付は承認済み意匠の参照。16:9横長1920×1080向けの日本語学習動画の本文POP画像を1枚生成。参照と同じ先生（40代男性・黒髪・黒縁眼鏡・軽いひげ・無地の白ヘルメット・紺の作業服とネクタイ・黄白反射帯）。鮮やかな青・シアン・ネイビー、白と黄色の極太文字・太い輪郭・少量の赤、斜め面、背景の描き込み。白い箱を並べた箇条書きスライドにしない。重要文字は上5〜下78%内、下端18%は後から動画字幕が載るため青い背景の延長だけにする。背景は四辺まで続く。横長構図に再設計し人物の顔と主題を大きく、本文に対応する視覚的な説明を添える。先生は注意点を赤ペンで示す。画面に正確に表示する文字は「技術士 総監」、大見出し「取り違え③ 条件を後付け」、補足「Ⅰからの一貫性を保つ」だけ。全て幅360pxでも読める大きな文字。文字列を勝手に略さない。番号を増やさない。ブランド・価格・URL・合格保証・細かな偽文字は追加しない。説明の意味（この全文を画像に書くのではない）: 3つ目は、第一層に無い条件を後から追加することです。どれも、層をまたいだ一貫性を外す書き方です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png",
+                "sha256": "226ec38a86790720f220ec2ca340d5f984d9297d6275ede0872c9ee42f64b092"
+              },
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-intro.beea11be.png",
+                "sha256": "beea11be19492e90568833eb2cc1342fe25c0af27dcf0919617b2644fa3b4003"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-mistakes-condition.75fa5c2a.png",
+              "sha256": "75fa5c2a73a348f5b4ab8060edc4c796d6edeb441efa16084897bfba06a8f2fc",
+              "width": 1672,
+              "height": 941
+            }
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/mistakes-condition.48bfd477.png",
+            "sha256": "48bfd477cb141a3340051747779db7e5ec7e2bed3996d491aea544f6108831e7",
+            "width": 1920,
+            "height": 1080
+          },
+          "edits": [],
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/mistakes-condition.48bfd477.png"
+          },
+          "review": {
+            "status": "ok",
+            "reviewer": "ai-image-fidelity-auditor",
+            "date": "2026-10-18",
+            "checkedSha256": "48bfd477cb141a3340051747779db7e5ec7e2bed3996d491aea544f6108831e7",
+            "viewports": [
+              "1920x1080",
+              "360px"
+            ],
+            "checks": [
+              "lettering",
+              "narration-alignment",
+              "diagram",
+              "character",
+              "subtitle-safe-area"
+            ]
+          }
+        },
+        {
+          "sceneId": "time-read",
+          "inputSha256": "5cec084e5e929d345a26a20f0245b2de4827306b1fcc74bfa036a60fad7b2b3e",
+          "copy": {
+            "heading": "210分・5枚の配分例",
+            "items": [
+              "通読・条件確認 10分",
+              "前文分析 25分"
+            ]
+          },
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付は承認済み意匠の参照。16:9横長1920×1080向けの日本語学習動画の本文POP画像を1枚生成。参照と同じ先生（40代男性・黒髪・黒縁眼鏡・軽いひげ・無地の白ヘルメット・紺の作業服とネクタイ・黄白反射帯）。鮮やかな青・シアン・ネイビー、白と黄色の極太文字・太い輪郭・少量の赤、斜め面、背景の描き込み。白い箱を並べた箇条書きスライドにしない。重要文字は上5〜下78%内、下端18%は後から動画字幕が載るため青い背景の延長だけにする。背景は四辺まで続く。横長構図に再設計し人物の顔と主題を大きく、本文に対応する視覚的な説明を添える。先生は時計と答案を見て時間を配分する。画面に正確に表示する文字は「技術士 総監」、大見出し「210分・5枚の配分例」、補足「通読・条件確認 10分」・「前文分析 25分」だけ。全て幅360pxでも読める大きな文字。文字列を勝手に略さない。番号を増やさない。ブランド・価格・URL・合格保証・細かな偽文字は追加しない。説明の意味（この全文を画像に書くのではない）: 210分で5枚を書く場合の時間配分例です。まず通読と条件確認に10分、前文分析に25分を配分します。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png",
+                "sha256": "226ec38a86790720f220ec2ca340d5f984d9297d6275ede0872c9ee42f64b092"
+              },
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-intro.beea11be.png",
+                "sha256": "beea11be19492e90568833eb2cc1342fe25c0af27dcf0919617b2644fa3b4003"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-time-read.19b0b6c8.png",
+              "sha256": "19b0b6c86c43e5fd6bb417ded167f400d75366e23072bc1947aeab9fb0958c22",
+              "width": 1672,
+              "height": 941
+            }
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/time-read.e263f36f.png",
+            "sha256": "e263f36fa648ada9dfeb904e4e3bdfb0a1db1eaa9190d7ad604582b7cb54d687",
+            "width": 1920,
+            "height": 1080
+          },
+          "edits": [],
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/time-read.e263f36f.png"
+          },
+          "review": {
+            "status": "ok",
+            "reviewer": "ai-image-fidelity-auditor",
+            "date": "2026-10-18",
+            "checkedSha256": "e263f36fa648ada9dfeb904e4e3bdfb0a1db1eaa9190d7ad604582b7cb54d687",
+            "viewports": [
+              "1920x1080",
+              "360px"
+            ],
+            "checks": [
+              "lettering",
+              "narration-alignment",
+              "diagram",
+              "character",
+              "subtitle-safe-area"
+            ]
+          }
+        },
+        {
+          "sceneId": "time-plan",
+          "inputSha256": "5d151ad7fc35cdc7fbe8a2dec1131bfe021ab6093fa1586129a6344f666c556f",
+          "copy": {
+            "heading": "書く前に骨子を確認",
+            "items": [
+              "骨子設計 20分",
+              "セルフチェック 5分"
+            ]
+          },
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付は承認済み意匠の参照。16:9横長1920×1080向けの日本語学習動画の本文POP画像を1枚生成。参照と同じ先生（40代男性・黒髪・黒縁眼鏡・軽いひげ・無地の白ヘルメット・紺の作業服とネクタイ・黄白反射帯）。鮮やかな青・シアン・ネイビー、白と黄色の極太文字・太い輪郭・少量の赤、斜め面、背景の描き込み。白い箱を並べた箇条書きスライドにしない。重要文字は上5〜下78%内、下端18%は後から動画字幕が載るため青い背景の延長だけにする。背景は四辺まで続く。横長構図に再設計し人物の顔と主題を大きく、本文に対応する視覚的な説明を添える。先生は時計と答案を見て時間を配分する。画面に正確に表示する文字は「技術士 総監」、大見出し「書く前に骨子を確認」、補足「骨子設計 20分」・「セルフチェック 5分」だけ。全て幅360pxでも読める大きな文字。文字列を勝手に略さない。番号を増やさない。ブランド・価格・URL・合格保証・細かな偽文字は追加しない。説明の意味（この全文を画像に書くのではない）: 次に三層の骨子設計に20分、セルフチェックに5分を配分します。ここまでの事前検討で60分です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png",
+                "sha256": "226ec38a86790720f220ec2ca340d5f984d9297d6275ede0872c9ee42f64b092"
+              },
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-intro.beea11be.png",
+                "sha256": "beea11be19492e90568833eb2cc1342fe25c0af27dcf0919617b2644fa3b4003"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-time-plan.402e39d8.png",
+              "sha256": "402e39d846eaeb03a71d334b79cefc22ec86cbfa86a3cc7aa5f601bb7b38bc32",
+              "width": 1672,
+              "height": 941
+            }
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/time-plan.7d1058a1.png",
+            "sha256": "7d1058a164c26b485ec63eb9c2b9885b9d29f23d14ac77f1fbc1d11a0f4fa138",
+            "width": 1920,
+            "height": 1080
+          },
+          "edits": [
+            {
+              "tool": "image_gen",
+              "prompt": "添付の横長POP本文画像を修正。文字全文・配置・先生の顔/服/ポーズ・配色・16:9は全て保持。2つのストップウォッチの文字盤だけを変更し、赤い扇形・目盛り・針を取り除き、各文字盤の中心に赤い小さな時計のシンプルな記号だけを描く。時間の量は外側の大きい「20分」「5分」で正確に伝えるため、文字盤で別の量を示さない。大見出し「書く前に骨子を確認」、左「骨子設計」「20分」、右「セルフチェック」「5分」を正確に保持。重要な文字と図は下端18%より上へ収め、下端は青い背景の延長だけ。指定外の文字を足さない。",
+              "references": [
+                {
+                  "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-time-plan.402e39d8.png",
+                  "sha256": "402e39d846eaeb03a71d334b79cefc22ec86cbfa86a3cc7aa5f601bb7b38bc32"
+                }
+              ],
+              "output": {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/edit-time-plan.0b0139b0.png",
+                "sha256": "0b0139b08bdc9ab036d706284ce3476e675192bb7729a76223b5d0b616a01bc4"
+              }
+            }
+          ],
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/time-plan.7d1058a1.png"
+          },
+          "review": {
+            "status": "ok",
+            "reviewer": "ai-image-fidelity-auditor",
+            "date": "2026-10-18",
+            "checkedSha256": "7d1058a164c26b485ec63eb9c2b9885b9d29f23d14ac77f1fbc1d11a0f4fa138",
+            "viewports": [
+              "1920x1080",
+              "360px"
+            ],
+            "checks": [
+              "lettering",
+              "narration-alignment",
+              "diagram",
+              "character",
+              "subtitle-safe-area"
+            ],
+            "repairReviewed": true
+          }
+        },
+        {
+          "sceneId": "time-write",
+          "inputSha256": "c30180134c038a31f51f4e8dcafc8c83b796983c3ee218d5b5926cd370ed8fdd",
+          "copy": {
+            "heading": "残り150分で執筆",
+            "items": [
+              "600字の答案用紙×5枚",
+              "1枚30分の配分例"
+            ]
+          },
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付は承認済み意匠の参照。16:9横長1920×1080向けの日本語学習動画の本文POP画像を1枚生成。参照と同じ先生（40代男性・黒髪・黒縁眼鏡・軽いひげ・無地の白ヘルメット・紺の作業服とネクタイ・黄白反射帯）。鮮やかな青・シアン・ネイビー、白と黄色の極太文字・太い輪郭・少量の赤、斜め面、背景の描き込み。白い箱を並べた箇条書きスライドにしない。重要文字は上5〜下78%内、下端18%は後から動画字幕が載るため青い背景の延長だけにする。背景は四辺まで続く。横長構図に再設計し人物の顔と主題を大きく、本文に対応する視覚的な説明を添える。先生は時計と答案を見て時間を配分する。画面に正確に表示する文字は「技術士 総監」、大見出し「残り150分で執筆」、補足「600字の答案用紙×5枚」・「1枚30分の配分例」だけ。全て幅360pxでも読める大きな文字。文字列を勝手に略さない。番号を増やさない。ブランド・価格・URL・合格保証・細かな偽文字は追加しない。説明の意味（この全文を画像に書くのではない）: 残り150分で、600字の答案用紙5枚を1枚30分で埋めます。骨子を書き写す感覚で進める配分例です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png",
+                "sha256": "226ec38a86790720f220ec2ca340d5f984d9297d6275ede0872c9ee42f64b092"
+              },
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-intro.beea11be.png",
+                "sha256": "beea11be19492e90568833eb2cc1342fe25c0af27dcf0919617b2644fa3b4003"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-time-write.524a39a9.png",
+              "sha256": "524a39a9246f0c8de0b6773e8c5281e9adc1c446a779ec68937275274f86258a",
+              "width": 1672,
+              "height": 941
+            }
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/time-write.dd3f6c45.png",
+            "sha256": "dd3f6c4549fceb9a7b620d07efe58dc0cadade0730912ea2a59c2d1dccb65900",
+            "width": 1920,
+            "height": 1080
+          },
+          "edits": [
+            {
+              "tool": "image_gen",
+              "prompt": "添付の横長POP画像の微修正。全体の構図・日本語大見出し・先生・30分タイマー・紙の罫線は完全に保持する。左下に並ぶ5枚の答案用紙と先生が手に持つ答案用紙のヘッダーにある細かな読めない擬似文字だけを消して空欄にする。用紙にはグリッド罫線と単純な横線以外の小文字を一切描かない。「技術士 総監」「残り150分で執筆」「600字の答案用紙×5枚」「1枚30分の配分例」「30分」は正確に保持。その他は変更しない。",
+              "references": [
+                {
+                  "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-time-write.524a39a9.png",
+                  "sha256": "524a39a9246f0c8de0b6773e8c5281e9adc1c446a779ec68937275274f86258a"
+                }
+              ],
+              "output": {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/edit-time-write.9ff19567.png",
+                "sha256": "9ff195672aee759ceb8d4eaccae2e9bedfabd221f2ee93aad4dc780984d55ee1"
+              }
+            }
+          ],
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/time-write.dd3f6c45.png"
+          },
+          "review": {
+            "status": "ok",
+            "reviewer": "ai-image-fidelity-auditor",
+            "date": "2026-10-18",
+            "checkedSha256": "dd3f6c4549fceb9a7b620d07efe58dc0cadade0730912ea2a59c2d1dccb65900",
+            "viewports": [
+              "1920x1080",
+              "360px"
+            ],
+            "checks": [
+              "lettering",
+              "narration-alignment",
+              "diagram",
+              "character",
+              "subtitle-safe-area"
+            ],
+            "repairReviewed": true
+          }
+        },
+        {
+          "sceneId": "time-review",
+          "inputSha256": "4c11083651e2b86db0ad818680ca611617b1408b23dd4839fb4927fe9f63dcf7",
+          "copy": {
+            "heading": "見直し時間を確保する",
+            "items": [
+              "練習時の筆記速度で調整"
+            ]
+          },
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付は承認済み意匠の参照。16:9横長1920×1080向けの日本語学習動画の本文POP画像を1枚生成。参照と同じ先生（40代男性・黒髪・黒縁眼鏡・軽いひげ・無地の白ヘルメット・紺の作業服とネクタイ・黄白反射帯）。鮮やかな青・シアン・ネイビー、白と黄色の極太文字・太い輪郭・少量の赤、斜め面、背景の描き込み。白い箱を並べた箇条書きスライドにしない。重要文字は上5〜下78%内、下端18%は後から動画字幕が載るため青い背景の延長だけにする。背景は四辺まで続く。横長構図に再設計し人物の顔と主題を大きく、本文に対応する視覚的な説明を添える。先生は時計と答案を見て時間を配分する。画面に正確に表示する文字は「技術士 総監」、大見出し「見直し時間を確保する」、補足「練習時の筆記速度で調整」だけ。全て幅360pxでも読める大きな文字。文字列を勝手に略さない。番号を増やさない。ブランド・価格・URL・合格保証・細かな偽文字は追加しない。説明の意味（この全文を画像に書くのではない）: 見直し時間がほしければ、事前検討を削らず執筆を速める方が安全です。配分は練習時の筆記速度に合わせて調整します。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png",
+                "sha256": "226ec38a86790720f220ec2ca340d5f984d9297d6275ede0872c9ee42f64b092"
+              },
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-intro.beea11be.png",
+                "sha256": "beea11be19492e90568833eb2cc1342fe25c0af27dcf0919617b2644fa3b4003"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-time-review.3a03c4bf.png",
+              "sha256": "3a03c4bf618485172deb899b782b9242e3f6e7eff7e29a2f0c49b785a0aba424",
+              "width": 1672,
+              "height": 941
+            }
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/time-review.45526a23.png",
+            "sha256": "45526a23d0c49a64492f28961789647c9e735b05fc2cfed206f977d5d7f83497",
+            "width": 1920,
+            "height": 1080
+          },
+          "edits": [],
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/time-review.45526a23.png"
+          },
+          "review": {
+            "status": "ok",
+            "reviewer": "ai-image-fidelity-auditor",
+            "date": "2026-10-18",
+            "checkedSha256": "45526a23d0c49a64492f28961789647c9e735b05fc2cfed206f977d5d7f83497",
+            "viewports": [
+              "1920x1080",
+              "360px"
+            ],
+            "checks": [
+              "lettering",
+              "narration-alignment",
+              "diagram",
+              "character",
+              "subtitle-safe-area"
+            ]
+          }
+        },
+        {
+          "sceneId": "summary-reading",
+          "inputSha256": "92e4b86438a8e4f6607582d59d4058c3052e2d4ce35c042e1a2c9aa12bd9ce84",
+          "copy": {
+            "heading": "読み方の要約",
+            "items": [
+              "当年度の条件を確認",
+              "ヒント3種を業務へ置換"
+            ]
+          },
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付は承認済み意匠の参照。16:9横長1920×1080向けの日本語学習動画の本文POP画像を1枚生成。参照と同じ先生（40代男性・黒髪・黒縁眼鏡・軽いひげ・無地の白ヘルメット・紺の作業服とネクタイ・黄白反射帯）。鮮やかな青・シアン・ネイビー、白と黄色の極太文字・太い輪郭・少量の赤、斜め面、背景の描き込み。白い箱を並べた箇条書きスライドにしない。重要文字は上5〜下78%内、下端18%は後から動画字幕が載るため青い背景の延長だけにする。背景は四辺まで続く。横長構図に再設計し人物の顔と主題を大きく、本文に対応する視覚的な説明を添える。先生は内容をわかりやすく説明する。画面に正確に表示する文字は「技術士 総監」、大見出し「読み方の要約」、補足「当年度の条件を確認」・「ヒント3種を業務へ置換」だけ。全て幅360pxでも読める大きな文字。文字列を勝手に略さない。番号を増やさない。ブランド・価格・URL・合格保証・細かな偽文字は追加しない。説明の意味（この全文を画像に書くのではない）: まとめます。定型文も当年度の条件と照合し、要求事項、事業場例、イメージ記述のヒント3種を業務に置き換えます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png",
+                "sha256": "226ec38a86790720f220ec2ca340d5f984d9297d6275ede0872c9ee42f64b092"
+              },
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-intro.beea11be.png",
+                "sha256": "beea11be19492e90568833eb2cc1342fe25c0af27dcf0919617b2644fa3b4003"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-summary-reading.5848ea2e.png",
+              "sha256": "5848ea2ee1f09796c41b8506c4bc1a32b5500239998f8b61598e01a12763d49c",
+              "width": 1672,
+              "height": 941
+            }
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/summary-reading.49ba401c.png",
+            "sha256": "49ba401cbf24a8a50aa4a239520ccb71286238b2ff3bda236ecf0bc25945c4d2",
+            "width": 1920,
+            "height": 1080
+          },
+          "edits": [],
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/summary-reading.49ba401c.png"
+          },
+          "review": {
+            "status": "ok",
+            "reviewer": "ai-image-fidelity-auditor",
+            "date": "2026-10-18",
+            "checkedSha256": "49ba401cbf24a8a50aa4a239520ccb71286238b2ff3bda236ecf0bc25945c4d2",
+            "viewports": [
+              "1920x1080",
+              "360px"
+            ],
+            "checks": [
+              "lettering",
+              "narration-alignment",
+              "diagram",
+              "character",
+              "subtitle-safe-area"
+            ]
+          }
+        },
+        {
+          "sceneId": "summary-outline",
+          "inputSha256": "c62b6774de3f315c186b8028ba6e13c320339ab494f26b335bee7498a48eef1d",
+          "copy": {
+            "heading": "条件から骨子へ",
+            "items": [
+              "三層の役割を守る",
+              "時間配分は練習で調整"
+            ]
+          },
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付は承認済み意匠の参照。16:9横長1920×1080向けの日本語学習動画の本文POP画像を1枚生成。参照と同じ先生（40代男性・黒髪・黒縁眼鏡・軽いひげ・無地の白ヘルメット・紺の作業服とネクタイ・黄白反射帯）。鮮やかな青・シアン・ネイビー、白と黄色の極太文字・太い輪郭・少量の赤、斜め面、背景の描き込み。白い箱を並べた箇条書きスライドにしない。重要文字は上5〜下78%内、下端18%は後から動画字幕が載るため青い背景の延長だけにする。背景は四辺まで続く。横長構図に再設計し人物の顔と主題を大きく、本文に対応する視覚的な説明を添える。先生は内容をわかりやすく説明する。画面に正確に表示する文字は「技術士 総監」、大見出し「条件から骨子へ」、補足「三層の役割を守る」・「時間配分は練習で調整」だけ。全て幅360pxでも読める大きな文字。文字列を勝手に略さない。番号を増やさない。ブランド・価格・URL・合格保証・細かな偽文字は追加しない。説明の意味（この全文を画像に書くのではない）: そのうえで、三層の役割を守って骨子を作ります。時間配分は固定せず、練習時の筆記速度に合わせて調整してください。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png",
+                "sha256": "226ec38a86790720f220ec2ca340d5f984d9297d6275ede0872c9ee42f64b092"
+              },
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-intro.beea11be.png",
+                "sha256": "beea11be19492e90568833eb2cc1342fe25c0af27dcf0919617b2644fa3b4003"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-summary-outline.51b166b3.png",
+              "sha256": "51b166b3771677a85df7f6500ea41bf7d4e19e74f87ca8be48c0e70d3dafb957",
+              "width": 1672,
+              "height": 941
+            }
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/summary-outline.7597fe02.png",
+            "sha256": "7597fe0285add30d13fb9d4274882210450410f8e08b276fb1d8a2df635c59ce",
+            "width": 1920,
+            "height": 1080
+          },
+          "edits": [],
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/summary-outline.7597fe02.png"
+          },
+          "review": {
+            "status": "ok",
+            "reviewer": "ai-image-fidelity-auditor",
+            "date": "2026-10-18",
+            "checkedSha256": "7597fe0285add30d13fb9d4274882210450410f8e08b276fb1d8a2df635c59ce",
+            "viewports": [
+              "1920x1080",
+              "360px"
+            ],
+            "checks": [
+              "lettering",
+              "narration-alignment",
+              "diagram",
+              "character",
+              "subtitle-safe-area"
+            ]
+          }
+        },
+        {
+          "sceneId": "cta-pack",
+          "inputSha256": "e609e9d05ca04ace7f620bab9ffe45c878d63e2bc2eab512598a223aea1953e0",
+          "copy": {
+            "heading": "総監記述式 コアパック",
+            "items": [
+              "5管理対立の型・国家施策",
+              "R8予想問題"
+            ]
+          },
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付は承認済み意匠の参照。16:9横長1920×1080向けの日本語学習動画の本文POP画像を1枚生成。参照と同じ先生（40代男性・黒髪・黒縁眼鏡・軽いひげ・無地の白ヘルメット・紺の作業服とネクタイ・黄白反射帯）。鮮やかな青・シアン・ネイビー、白と黄色の極太文字・太い輪郭・少量の赤、斜め面、背景の描き込み。白い箱を並べた箇条書きスライドにしない。重要文字は上5〜下78%内、下端18%は後から動画字幕が載るため青い背景の延長だけにする。背景は四辺まで続く。横長構図に再設計し人物の顔と主題を大きく、本文に対応する視覚的な説明を添える。先生は教材を持ち、概要欄への案内を示す。画面に正確に表示する文字は「技術士 総監」、大見出し「総監記述式 コアパック」、補足「5管理対立の型・国家施策」・「R8予想問題」だけ。全て幅360pxでも読める大きな文字。文字列を勝手に略さない。番号を増やさない。ブランド・価格・URL・合格保証・細かな偽文字は追加しない。説明の意味（この全文を画像に書くのではない）: 5管理対立の型と設問3の国家施策、R8予想問題をまとめた記述式コアパックを用意しています。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png",
+                "sha256": "226ec38a86790720f220ec2ca340d5f984d9297d6275ede0872c9ee42f64b092"
+              },
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-intro.beea11be.png",
+                "sha256": "beea11be19492e90568833eb2cc1342fe25c0af27dcf0919617b2644fa3b4003"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-cta-pack.74ae5570.png",
+              "sha256": "74ae55701b91d9f5ab7b3947641cc5716eee20195f8335d02ef0130a9e24a352",
+              "width": 1672,
+              "height": 941
+            }
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cta-pack.06437a6f.png",
+            "sha256": "06437a6f183d82266484b65f3e8b47029197ce35e963d7c93390eb2b8bc6711e",
+            "width": 1920,
+            "height": 1080
+          },
+          "edits": [],
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cta-pack.06437a6f.png"
+          },
+          "review": {
+            "status": "ok",
+            "reviewer": "ai-image-fidelity-auditor",
+            "date": "2026-10-18",
+            "checkedSha256": "06437a6f183d82266484b65f3e8b47029197ce35e963d7c93390eb2b8bc6711e",
+            "viewports": [
+              "1920x1080",
+              "360px"
+            ],
+            "checks": [
+              "lettering",
+              "narration-alignment",
+              "diagram",
+              "character",
+              "subtitle-safe-area"
+            ]
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "9e986a9ef1360c7178dba82b8d497aee43583e4446fbac8b9bc19ff8a09f3336",
+          "copy": {
+            "heading": "続きは概要欄から",
+            "items": [
+              "総監記述式 コアパック"
+            ]
+          },
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付は承認済み意匠の参照。16:9横長1920×1080向けの日本語学習動画の本文POP画像を1枚生成。参照と同じ先生（40代男性・黒髪・黒縁眼鏡・軽いひげ・無地の白ヘルメット・紺の作業服とネクタイ・黄白反射帯）。鮮やかな青・シアン・ネイビー、白と黄色の極太文字・太い輪郭・少量の赤、斜め面、背景の描き込み。白い箱を並べた箇条書きスライドにしない。重要文字は上5〜下78%内、下端18%は後から動画字幕が載るため青い背景の延長だけにする。背景は四辺まで続く。横長構図に再設計し人物の顔と主題を大きく、本文に対応する視覚的な説明を添える。先生は教材を持ち、概要欄への案内を示す。画面に正確に表示する文字は「技術士 総監」、大見出し「続きは概要欄から」、補足「総監記述式 コアパック」だけ。全て幅360pxでも読める大きな文字。文字列を勝手に略さない。番号を増やさない。ブランド・価格・URL・合格保証・細かな偽文字は追加しない。説明の意味（この全文を画像に書くのではない）: 記述式コアパックは、概要欄のリンクからご覧ください。ご視聴ありがとうございました。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png",
+                "sha256": "226ec38a86790720f220ec2ca340d5f984d9297d6275ede0872c9ee42f64b092"
+              },
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-intro.beea11be.png",
+                "sha256": "beea11be19492e90568833eb2cc1342fe25c0af27dcf0919617b2644fa3b4003"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-cta.231b043f.png",
+              "sha256": "231b043f0b9de8f85bc076b0c186cd7beb58a59d41770cf67ac54bf183016516",
+              "width": 1672,
+              "height": 941
+            }
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cta.1eaebd58.png",
+            "sha256": "1eaebd5828da1c321e33db6af6f79a4dfb158e1a6a5c6d709ce6cf3e71c1a506",
+            "width": 1920,
+            "height": 1080
+          },
+          "edits": [],
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/cta.1eaebd58.png"
+          },
+          "review": {
+            "status": "ok",
+            "reviewer": "ai-image-fidelity-auditor",
+            "date": "2026-10-18",
+            "checkedSha256": "1eaebd5828da1c321e33db6af6f79a4dfb158e1a6a5c6d709ce6cf3e71c1a506",
+            "viewports": [
+              "1920x1080",
+              "360px"
+            ],
+            "checks": [
+              "lettering",
+              "narration-alignment",
+              "diagram",
+              "character",
+              "subtitle-safe-area"
+            ]
+          }
+        }
+      ],
+      "review": {
+        "status": "verified",
+        "target": 22,
+        "inspected": 22,
+        "ok": 22,
+        "failed": 0,
+        "reviewer": "ai-image-fidelity-auditor",
+        "date": "2026-10-18"
+      },
+      "publication": "SNS新規公開・追加予約は保留。ローカル制作のみ。",
+      "videoVerification": {
+        "id": "monbun-yomikata",
+        "scenes": 23,
+        "popImagesMatched": 22,
+        "actualFramesMatched": 23,
+        "maxFrameMae": 0.7771701388888889,
+        "videoStartSec": 0,
+        "narrationHashesMatched": 23,
+        "video": [
+          1920,
+          1080,
+          "h264"
+        ],
+        "audio": "aac",
+        "speaker": 13,
+        "durationSec": 192.033333,
+        "decoded": true,
+        "sha256": "123001f9c40f314dd331f03cf2dae10234cb0e1375e1f28bc1af0895b95634ff",
+        "audioListening": "not performed",
+        "checkedAt": "2026-10-18",
+        "subtitleFramesInspected": 23,
+        "subtitleViewports": [
+          "1920x1080",
+          "360px"
+        ],
+        "criticalSubtitleOverlap": 0,
+        "source": ".tmp/media/pe-comprehensive-management/monbun-yomikata/youtube.longform/video.123001f9.mp4",
+        "manifest": ".tmp/video-render/monbun-yomikata/render-manifest.json",
+        "published": false,
+        "coverMatched": true,
+        "coverSha256": "1f63225c7b91cb9920ee212afa4d158415a4a3709532de9a20fe07a67557bb66",
+        "publicationAction": "none"
+      },
+      "storageVerification": "生成原本・修正履歴・採用画像99ファイルをDriveへ保存。現行レンダー106ファイルは51更新・55変更なし。本文素材99件とレンダー143件（過去版37件を含む）をvaultのSHA・クラウドのMD5で全件照合し、不一致0。"
+    },
+    "cover-pop-20261018": {
+      "version": "pop-poster-v3",
+      "copy": {
+        "exam": "技術士 総監",
+        "headline": [
+          "その設問",
+          "役割を読める？"
+        ],
+        "authority": "総監が制作"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の承認済み本文POP画像と同じ意匠で、日本語学習動画の新しい表紙を1枚制作。16:9横長1920×1080向け。鮮やかな青とシアンの全面背景、斜めの面と動き、白と黄色の極太文字・強い黒縁・赤い強調。旧来の紺色背景に白い長方形の文字箱を置く表紙にはしない。先生は添付と同一の40代男性、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺色作業服とネクタイ、黄色と白の反射帯。先生は赤ペンと問題用紙を持ち、設問の役割に気づいた表情で問いかける。表紙の最上部に「技術士 総監」、主題は「その設問」「役割を読める？」を最も大きく表示。上部の別の小さな黄色帯に「総監が制作」。文字はこの4つの文字列だけ。句読点と疑問符も正確に。ブランド・URL・価格・追加の実績・小さな擬似文字は入れない。人物と主題を大きく、背景は四辺まで連続。重要な文字・顔・図は上から72%までに収める。下端28%は後から動画の字幕が入るので青い背景の連続だけを残し、文字帯や説明図を置かない。既存画像をクロップせず横長の表紙として新たに構成する。",
+        "references": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/intro.0a5bfc9f.png",
+            "sha256": "0a5bfc9fd62a5a444d8af9dca367dda26f613eb2a93408a916f07730e53db126"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/youtube.longform/cover-raw.2fd9419e.png",
+          "sha256": "2fd9419eba34fbff67c1a9f415d4c02a48915030e6b10b340cc44017257d01a0",
+          "width": 1672,
+          "height": 941
+        }
+      },
+      "output": {
+        "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/youtube.longform/cover.1f63225c.png",
+        "sha256": "1f63225c7b91cb9920ee212afa4d158415a4a3709532de9a20fe07a67557bb66",
+        "width": 1920,
+        "height": 1080,
+        "bytes": 673456
+      },
+      "review": {
+        "status": "ok",
+        "date": "2026-10-18",
+        "reviewer": "ai-image-fidelity-auditor",
+        "checkedSha256": "1f63225c7b91cb9920ee212afa4d158415a4a3709532de9a20fe07a67557bb66",
+        "viewports": [
+          "1920x1080",
+          "360px"
+        ],
+        "subtitleFrameChecked": true,
+        "criticalSubtitleOverlap": 0
+      },
+      "publication": "SNSの新規公開・追加予約は保留。ローカル採用のみ。",
+      "videoVerification": {
+        "id": "monbun-yomikata",
+        "scenes": 23,
+        "popImagesMatched": 22,
+        "actualFramesMatched": 23,
+        "maxFrameMae": 0.7771701388888889,
+        "videoStartSec": 0,
+        "narrationHashesMatched": 23,
+        "video": [
+          1920,
+          1080,
+          "h264"
+        ],
+        "audio": "aac",
+        "speaker": 13,
+        "durationSec": 192.033333,
+        "decoded": true,
+        "sha256": "123001f9c40f314dd331f03cf2dae10234cb0e1375e1f28bc1af0895b95634ff",
+        "audioListening": "not performed",
+        "checkedAt": "2026-10-18",
+        "coverMatched": true,
+        "coverSha256": "1f63225c7b91cb9920ee212afa4d158415a4a3709532de9a20fe07a67557bb66",
+        "source": ".tmp/media/pe-comprehensive-management/monbun-yomikata/youtube.longform/video.123001f9.mp4",
+        "manifest": ".tmp/video-render/monbun-yomikata/render-manifest.json",
+        "publicationAction": "none"
+      }
+    }
+  },
+  "activeCoverRevision": "cover-pop-20261018"
 }

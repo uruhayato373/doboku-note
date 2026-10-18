@@ -140,6 +140,13 @@ export function needsConfirm({ live, want }) {
   return Number.isFinite(live) && Number.isFinite(want) && live < want;
 }
 
+/** 公開 API で読める添付本数。限定記事・不完全な応答は null として著者確認へ回す。 */
+export function publicAttachmentCount(data, noteId) {
+  if (!data || data.key !== noteId || data.status !== 'published' || data.is_limited !== false) return null;
+  if (!Number.isInteger(data.remained_file_num) || data.remained_file_num < 0 || typeof data.body !== 'string') return null;
+  return data.remained_file_num + (data.body.match(/api\/v2\/attachments\/download/g) || []).length;
+}
+
 /**
  * 添付を失った/失いかけた事実を負債として残す。
  * 「保存していないから無害」は live に限った話で、放置すると次の実行が「添付なし」を正として

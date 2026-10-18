@@ -57,3 +57,10 @@ test('runCheck は script の読込失敗を error として返し、throw し�
   assert.equal(r.status, 'error');
   assert.ok(r.out.length > 0);
 });
+
+
+test('SNS hold skips X before importing a browser-capable checker', async () => {
+  const r = await runCheck({ name: 'x-sync', script: 'scripts/__must_not_load__.mjs' }, { env: { DOBOKU_SNS_PAUSED: '1' } });
+  assert.equal(r.status, 'skipped');
+  assert.match(r.out, /保留/);
+});

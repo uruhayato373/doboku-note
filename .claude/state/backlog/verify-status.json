@@ -1,30 +1,243 @@
 {
   "_doc": "check-backlog-verify が前回の status を覚えておくための状態。red → green の遷移だけが「完了の疑い」で、常時 green は [検証:] の指定が完了判定になっていない疑い（surfacer を指している）。",
-  "updatedAt": "2026-09-28",
+  "updatedAt": "2026-10-17",
+  "coverage": {
+    "candidateCards": 12,
+    "targetedCards": 7,
+    "notDueCards": 5,
+    "targeted": 6,
+    "executed": 6,
+    "pass": 2,
+    "fail": 4,
+    "timeout": 0,
+    "inconclusive": 0,
+    "skipped": 0
+  },
+  "notDue": [
+    {
+      "id": "DN-0596",
+      "title": "YouTube の数値（自社は月次・競合は四半期）を GitHub Actions で定期取得し、取り忘れで前回比が切れないようにする",
+      "command": "check-competitor-scan-due",
+      "when": "2026-11",
+      "due": null,
+      "reason": "開始予定 2026-11（検証日 2026-10-17）"
+    },
+    {
+      "id": "DN-0582",
+      "title": "Windowsで全体テスト11件が失敗するパス・改行・既存前提を直す",
+      "command": "test",
+      "when": "2026-12",
+      "due": null,
+      "reason": "開始予定 2026-12（検証日 2026-10-17）"
+    },
+    {
+      "id": "DN-0186",
+      "title": "Windows端末のR2・Google Drive接続を整え、クラウド実体監査を成立させる",
+      "command": "resources:cloud",
+      "when": "2026-12",
+      "due": null,
+      "reason": "開始予定 2026-12（検証日 2026-10-17）"
+    },
+    {
+      "id": "DN-0691",
+      "title": "civil-exam-textbook-index（2026-05-16 で停止・refresh-indexes 未配線）を再生成して配線する",
+      "command": "check-generated-indexes",
+      "when": "2026-11",
+      "due": null,
+      "reason": "開始予定 2026-11（検証日 2026-10-17）"
+    },
+    {
+      "id": "DN-0601",
+      "title": "図解版の試作 koji-gaiyo-sheet-zukai を音声付きで公開し、旧版と28日の再生・視聴維持を比べる",
+      "command": "check-video-content",
+      "when": "2026-11",
+      "due": null,
+      "reason": "開始予定 2026-11（検証日 2026-10-17）"
+    }
+  ],
   "commands": {
-    "check-coconala-live": {
-      "status": "green",
-      "at": "2026-09-28"
-    },
     "quality:audit:ci": {
-      "status": "error",
-      "at": "2026-09-28"
-    },
-    "verify-video-publication": {
+      "cmd": "quality:audit:ci",
       "status": "red",
-      "at": "2026-09-28"
+      "before": "error",
+      "turnedGreen": false,
+      "alwaysGreen": false,
+      "outcome": "fail",
+      "exitCode": 1,
+      "startedAt": "2026-10-17T05:28:17.361Z",
+      "durationMs": 258204,
+      "monoMs": 258203,
+      "sleptMs": 1,
+      "loadavg1": 3.79,
+      "timeoutMs": 0,
+      "outputLog": ".tmp/backlog-verify/2026-10-17T05-28-17.360Z/quality_audit_ci.log",
+      "failedTests": [],
+      "stdoutTail": "",
+      "stderrTail": "FAIL: 公開枠重複: 2026-10-29T20:00:00+09:00 (touan-teishutsu-check:longform, gishi-properties-testing-ronten:longform)\nFAIL: 公開枠重複: 2026-10-23T20:00:00+09:00 (koji-gaiyo-seigou:longform, gishi-shiken-zentaizou:longform)\nFAIL: 動画パック=120 (期待値112)\nFAIL: 2026-10-15: 公開4本 (1日上限3本)\nFAIL: 2026-10-17: 公開4本 (1日上限3本)\nFAIL: 2026-10-19: 公開4本 (1日上限3本)\nFAIL: 2026-10-21: 公開4本 (1日上限3本)\nFAIL: 2026-10-23: 公開4本 (1日上限3本)\nFAIL: 2026-10-27: 公開4本 (1日上限3本)\nFAIL: 2026-10-29: 公開4本 (1日上限3本)\n\n--- video-publication — fail (exit 1) ---\n[FAIL] V02 anzen-touan-gutaika/longform: 公開済みだが照合記録に無い（照合後に公開した／実査が失敗している）\n[quality-audit] CI 失敗: unit-tests, content-registry, youtube-shorts, video-publication\n",
+      "reason": null,
+      "cards": [
+        {
+          "line": 24,
+          "tier": "high",
+          "kind": "不具合",
+          "title": "2級土木の答案具体化シリーズ投入で赤になった CI（AI画像の判定・Shorts期待値・公開枠重複・メタデータ表記）を直す"
+        },
+        {
+          "line": 1425,
+          "tier": "mid",
+          "kind": "改善",
+          "title": "承認済み動画パック112本＋Shorts224本の公開・6週間判定"
+        }
+      ],
+      "at": "2026-10-17"
     },
-    "resources:cloud": {
-      "status": "red",
-      "at": "2026-09-28"
+    "check-video-content": {
+      "cmd": "check-video-content",
+      "status": "green",
+      "before": "green",
+      "turnedGreen": false,
+      "alwaysGreen": true,
+      "outcome": "pass",
+      "exitCode": 0,
+      "startedAt": "2026-10-17T05:32:35.568Z",
+      "durationMs": 1725,
+      "monoMs": 1725,
+      "sleptMs": 0,
+      "loadavg1": 15.53,
+      "timeoutMs": 180000,
+      "outputLog": ".tmp/backlog-verify/2026-10-17T05-28-17.360Z/check-video-content.log",
+      "failedTests": [],
+      "stdoutTail": "check-video-content: パック 166 件中 166 件を検査（state: あり）\n結果: PASS（FAIL 0 / WARN 0 / INFO 0・INFO の内訳は --verbose）\n",
+      "stderrTail": "",
+      "reason": null,
+      "cards": [
+        {
+          "line": 88,
+          "tier": "high",
+          "kind": "不具合",
+          "title": "2級土木の既存動画4本に技術表現の訂正を反映する"
+        }
+      ],
+      "at": "2026-10-17"
     },
-    "check-x-queue-health": {
+    "check-standard-articles": {
+      "cmd": "check-standard-articles",
+      "status": "green",
+      "before": "green",
+      "turnedGreen": false,
+      "alwaysGreen": true,
+      "outcome": "pass",
+      "exitCode": 0,
+      "startedAt": "2026-10-17T05:32:37.294Z",
+      "durationMs": 5969,
+      "monoMs": 5969,
+      "sleptMs": 0,
+      "loadavg1": 15.53,
+      "timeoutMs": 180000,
+      "outputLog": ".tmp/backlog-verify/2026-10-17T05-28-17.360Z/check-standard-articles.log",
+      "failedTests": [],
+      "stdoutTail": "=== tohoku/common（土木工事共通仕様書 令和8年度版） ===\n[1/19] 本文の取りこぼしゼロ ... PASS (検査 22442 行)\n[2/19] 全ページ割当 ... PASS (検査 660 ページ)\n[3/19] 除去の監査記録 ... PASS (検査 1164 除去記録（柱 582 + 印刷ページ番号 582・本文 582p）)\n[4/19] 章・節番号の重複と逆行 ... PASS (検査 447 番号（章 43 + 節 404）)\n[5/19] 見出しレベルの飛び越しなし ... PASS (検査 5542 見出し)\n[6/19] U+FFFD ゼロ ... PASS (検査 44 ファイル)\n[7/19] 原典ページリンクが有効 ... PASS (検査 152 SourceRef)\n[8/19] sourcePages が実在 ... PASS (検査 636 ページ参照（sourcePages 582 + sourceParts 54）)\n[9/19] source SHA-256 が catalog と一致 ... PASS (検査 15 ハッシュ（文書 1 + part 14）)\n[10/19] outputSha256 が記録され一致 ... PASS (検査 43 章)\n[11/19] 未処理行・低確信行なし ... PASS (検査 2 台帳（rejects 0 件 / reviewQueue 0 件）)\n[12/19] 同一章の重複 indexable なし（全文書横断） ... PASS (検査 387 章（うち indexable 43 件）)\n[13/19] catalog 全文書の被覆と除外理由の実証（全文書横断） ... PASS (検査 73 文書（catalog 全件）)\n    (注) 内訳: 生成 9 / no-book-chapter-structure 63 / duplicate-source 1（うち除外理由の実データ検証 64 件）\n[14/19] 表の復元が台帳と一致し GFM が可逆 ... PASS (検査 137 表)\n    (注) GFM 5 件・基準類の一覧 33 件・原本照合の組み直し 95 件（うち原典との一致確認 137 件） / 版面保持 4 件・理由内訳 override-verbatim 4\n[15/19] 章ごとの OGP 画像がそろっている ... PASS (検査 43 章)\n    (注) ローカル実体 0 件 / 退避台帳のみ 43 件 / 台帳に載っている 43 件（生成: npm run build-standards-ogp）\n[16/19] 節ページの切り出しが台帳と一致 ... PASS (検査 43 章)\n    (注) 節ページに分けた章 1 件・節ページ 18 件（基準 200000 バイト以上）\n[17/19] 文の途中で段落が切れていない（基準以下） ... PASS (検査 43 章)\n    (注) 文の途中の改行の候補 1 件（基準 1）\n[18/19] 表から外れた断片が増えていない（基準以下） ... PASS (検査 43 章)\n    (注) 表の前後の短い段落 41 件（基準 41）\n[19/19] 壊れた表（見出しも中身も空・全行が空の列）が無い ... PASS (検査 43 章)\n\n合計: 対象文書 9 件 / PASS 171 ・ WARN 0 ・ FAIL 0 ・ 検査不成立 0\n判定: 全検査 PASS\n",
+      "stderrTail": "",
+      "reason": null,
+      "cards": [
+        {
+          "line": 394,
+          "tier": "mid",
+          "kind": "不具合",
+          "title": "公的基準の章記事で表から外れた行・見出しの断片（近畿版 7〜8 件）を表へ戻す"
+        }
+      ],
+      "at": "2026-10-17"
+    },
+    "test": {
+      "cmd": "test",
       "status": "red",
-      "at": "2026-09-28"
+      "before": "red",
+      "turnedGreen": false,
+      "alwaysGreen": false,
+      "outcome": "fail",
+      "exitCode": 1,
+      "startedAt": "2026-10-17T05:32:43.264Z",
+      "durationMs": 171029,
+      "monoMs": 171028,
+      "sleptMs": 1,
+      "loadavg1": 15.48,
+      "timeoutMs": 300000,
+      "outputLog": ".tmp/backlog-verify/2026-10-17T05-28-17.360Z/test.log",
+      "failedTests": [
+        "not ok 3201 - 全YouTubeメタデータが著者主体・AI制作補助の表記を持つ",
+        "  location: '/Users/minamidaisuke/doboku-note/.claude/worktrees/weekly-review/tests/youtube-authority-metadata.test.mjs:11:1'"
+      ],
+      "stdoutTail": "  type: 'test'\n  ...\n# Subtest: formatTime: 秒 → h:mm:ss.cs\nok 3346 - formatTime: 秒 → h:mm:ss.cs\n  ---\n  duration_ms: 0.073542\n  type: 'test'\n  ...\n# Subtest: formatTime: 負数は 0 にクランプ\nok 3347 - formatTime: 負数は 0 にクランプ\n  ---\n  duration_ms: 0.32775\n  type: 'test'\n  ...\n# Subtest: buildSubtitle: 5 スライド分の duration が累積される\nok 3348 - buildSubtitle: 5 スライド分の duration が累積される\n  ---\n  duration_ms: 0.489584\n  type: 'test'\n  ...\n1..3348\n# tests 3348\n# suites 0\n# pass 3341\n# fail 1\n# cancelled 0\n# skipped 6\n# todo 0\n# duration_ms 170478.008916\n",
+      "stderrTail": "",
+      "reason": null,
+      "cards": [
+        {
+          "line": 510,
+          "tier": "mid",
+          "kind": "不具合",
+          "title": "YouTube移行の読み戻し不整合と旧プレビューの残存を解消"
+        }
+      ],
+      "at": "2026-10-17"
+    },
+    "check-video-publication": {
+      "cmd": "check-video-publication",
+      "status": "red",
+      "before": "red",
+      "turnedGreen": false,
+      "alwaysGreen": false,
+      "outcome": "fail",
+      "exitCode": 1,
+      "startedAt": "2026-10-17T05:35:34.301Z",
+      "durationMs": 327,
+      "monoMs": 327,
+      "sleptMs": 0,
+      "loadavg1": 5.28,
+      "timeoutMs": 180000,
+      "outputLog": ".tmp/backlog-verify/2026-10-17T05-28-17.360Z/check-video-publication.log",
+      "failedTests": [],
+      "stdoutTail": "check-video-publication: 公開済み 2 件 / 照合済み 1 件（0 日前）\n  [FAIL] V02 anzen-touan-gutaika/longform: 公開済みだが照合記録に無い（照合後に公開した／実査が失敗している）\n結果: FAIL（違反 1 件）\n",
+      "stderrTail": "",
+      "reason": null,
+      "cards": [
+        {
+          "line": 1494,
+          "tier": "mid",
+          "kind": "改善",
+          "title": "YouTube 概要欄の冒頭に季節の主商品リンクと保有資格を置き、予約済み・公開済みへ同期する"
+        }
+      ],
+      "at": "2026-10-17"
     },
     "check-content-expansion:linked": {
+      "cmd": "check-content-expansion:linked",
       "status": "red",
-      "at": "2026-09-28"
+      "before": "red",
+      "turnedGreen": false,
+      "alwaysGreen": false,
+      "outcome": "fail",
+      "exitCode": 1,
+      "startedAt": "2026-10-17T05:35:34.628Z",
+      "durationMs": 720,
+      "monoMs": 720,
+      "sleptMs": 0,
+      "loadavg1": 5.28,
+      "timeoutMs": 180000,
+      "outputLog": ".tmp/backlog-verify/2026-10-17T05-28-17.360Z/check-content-expansion_linked.log",
+      "failedTests": [],
+      "stdoutTail": "  コンクリート主任技士 試験対策 2022年版: 10 論点\n  コンクリート主任技士 試験対策 2024年版: 10 論点\n  コンクリート診断士 受験対策テキスト: 7 論点\n  土木施工管理技術テキスト（土木一般編）: 54 論点\n  土木施工管理技術テキスト（施工管理・法規編）: 70 論点\n  2021年版 1級土木施工管理 第一次検定問題解説集: 8 論点\n  2021年版 1級土木施工管理 第二次検定問題解説集: 32 論点\n  技術士（総合技術監理部門）標準テキスト: 398 論点\n  技術士（総合技術監理部門）受験万全対策: 15 論点\n  技術士（総合技術監理部門）論文対策: 10 論点\n  技術士論文の書き方: 35 論点\n  土木施工実務ノート（市販実務書の再構成ノート）: 15 論点\n  新しい時代の安全管理のすべて 第7版: 6 論点\n  よくわかる最新防災土木の基礎知識: 7 論点\n  土木技術者のための土木施工管理の基礎: 10 論点\n  土木技術者のための建設材料の基本と仕組み: 6 論点\n  最新建設業界の動向とカラクリがよ〜くわかる本 第5版: 6 論点\n  最新土木業界の動向とカラクリがよ〜くわかる本 第3版: 6 論点\n  土木情報学: 9 論点\n  よくわかる最新コンクリートの基本と仕組み 第5版: 5 論点\n  建設業AI経営: 5 論点\n  建設業法のツボとコツがゼッタイにわかる本 第3版: 8 論点\n  マンガでわかる2級土木施工管理技士 第一次検定 2026年版: 26 論点\n  よくわかる最新土木技術の基本と仕組み: 12 論点\n  図解入門 よくわかる最新 気象災害の基本と仕組み: 5 論点\n  建設業向けClaude Code実践活用ガイド: 5 論点\n  技術士 建設部門『論文対策キーワード』（運営者が著作権を保有）: 150 論点\n未完了があります。教材の対応づけ・制作・公開・効果を区別してください。\n[content-expansion] backlog 担当の論点 8 件 / 未完了 8 件（DN-0224）\n",
+      "stderrTail": "",
+      "reason": null,
+      "cards": [
+        {
+          "line": 2257,
+          "tier": "low",
+          "kind": "改善",
+          "title": "教材の原典待ち17論点を復旧し記事・図解・SNSとの対応を再照合する"
+        }
+      ],
+      "at": "2026-10-17"
     }
   }
 }

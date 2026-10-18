@@ -38,7 +38,7 @@
 import { readFileSync, existsSync, mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { chromium } from "playwright";
-import { IG_DIR, normHead, localPacks as localPacksCore, reconcile as reconcileCore, driftCount as driftCountCore, buildSnapshot, planRegistryPublished } from "./lib/ig-reconcile-core.mjs";
+import { IG_DIR, MIN_PLANNER_DAYS, plannerSlots, normHead, localPacks as localPacksCore, reconcile as reconcileCore, driftCount as driftCountCore, buildSnapshot, planRegistryPublished } from "./lib/ig-reconcile-core.mjs";
 import { resolveProfileDir, resolveStatePath } from "./lib/playwright-auth-profile.mjs";
 import { attachCISession } from "./lib/playwright-auth-state.mjs";
 import { leanContextOptions } from "./lib/playwright-launch.mjs";
@@ -129,7 +129,13 @@ async function readLive(account, recordedShortcodes) {
     for (const sc of recordedShortcodes) { if (!(sc in recordedInfo)) recordedInfo[sc] = await postInfo(page, sc); }
     // 4) プランナーの予約スロット（月ビューの時刻チップを日別抽出）
     let scheduled = null;
-    if (!NO_PLANNER) { try { scheduled = await readPlanner(page, account); } catch (e) { scheduled = { error: String(e).slice(0, 80) }; } }
+    if (!NO_PLANNER) {
+      // Instagram の遅延遷移が Business Suite への goto を中断しないよう専用タブを使う。
+      const planner = await ctx.newPage();
+      try { scheduled = await readPlanner(planner, account); }
+      catch (e) { scheduled = { error: String(e).slice(0, 300) }; }
+      finally { await planner.close().catch(() => {}); }
+    }
     return { shortcodes, live, recordedInfo, scheduled };
   } finally {
     await ctx.close();
@@ -139,28 +145,21 @@ async function readLive(account, recordedShortcodes) {
 // プランナー予約確認: 週送りボタンは自動クリック不可・日セルのクリックは投稿作成画面を開く（禁止）。
 // 月ビューに切替え→日番号の座標で列を作り→時刻チップ(HH:MM)を日別に割り当てる、が唯一動く方法。
 async function readPlanner(page, account) {
-  await page.goto(account.plannerUrl, { waitUntil: "domcontentloaded" });
-  await page.waitForTimeout(7000);
-  await page.locator('[role="button"], button').filter({ hasText: /^月$/ }).first().click({ force: true }).catch(() => {});
-  await page.waitForTimeout(4000);
+  await page.goto(account.plannerUrl, { waitUntil: "domcontentloaded", timeout: 60_000 });
+  const month = page.locator('[role="button"], button').filter({ hasText: /^月$/ }).first();
+  await month.waitFor({ state: "visible", timeout: 30_000 });
+  await month.click();
+  await page.waitForFunction((minimum) => {
+    const labels = [...document.querySelectorAll('*')].filter((n) => n.children.length === 0 && n.getBoundingClientRect().width > 0 && n.getBoundingClientRect().height > 0 && /^\d{1,2}日$/.test((n.textContent || '').trim()));
+    return new Set(labels.map((n) => n.textContent.trim())).size >= minimum;
+  }, MIN_PLANNER_DAYS, { timeout: 30_000 });
   const days = await page.$$eval("*", (ns) =>
-    ns.filter((n) => /^\d{1,2}日$/.test((n.textContent || "").trim()) && n.children.length === 0)
+    ns.filter((n) => /^\d{1,2}日$/.test((n.textContent || "").trim()) && n.children.length === 0 && n.getBoundingClientRect().width > 0 && n.getBoundingClientRect().height > 0)
       .map((n) => { const r = n.getBoundingClientRect(); return { d: n.textContent.trim(), x: Math.round(r.x), y: Math.round(r.y) }; }));
   const chips = await page.$$eval("*", (ns) =>
-    ns.filter((n) => /^\d{1,2}:\d{2}$/.test((n.textContent || "").trim()) && n.children.length === 0)
+    ns.filter((n) => /^\d{1,2}:\d{2}$/.test((n.textContent || "").trim()) && n.children.length === 0 && n.getBoundingClientRect().width > 0 && n.getBoundingClientRect().height > 0)
       .map((n) => { const r = n.getBoundingClientRect(); return { t: n.textContent.trim(), x: Math.round(r.x), y: Math.round(r.y) }; }));
-  // チップを最も近い（同じ行・同じ列）日セルに割り当て
-  const byDay = {};
-  for (const c of chips) {
-    let best = null, bestD = 1e9;
-    for (const d of days) {
-      if (c.y < d.y) continue;               // チップは日番号の下にある
-      const dist = Math.abs(c.x - d.x) + (c.y - d.y) * 0.2;
-      if (Math.abs(c.x - d.x) < 80 && c.y - d.y < 260 && dist < bestD) { best = d; bestD = dist; }
-    }
-    if (best) { (byDay[best.d] ||= []).push(c.t); }
-  }
-  return byDay;
+  return plannerSlots(days, chips);
 }
 
 // ─── main ─────────────────────────────────────────────────────
@@ -258,4 +257,7 @@ else {
   else console.log("✓ SoT ドリフトなし");
   if (cats.reel_gap.length) console.log("→ リールギャップは figure-reel-create.mjs でナレーション付きリール生成 → publish-ig-bs --reel で予約");
 }
-process.exit(driftCount ? 2 : 0);
+if (!NO_PLANNER && liveData.scheduled?.error) {
+  console.error(`[verify-ig-status] プランナーは未確認: ${liveData.scheduled.error}`);
+  process.exitCode = 1;
+} else process.exitCode = driftCount ? 2 : 0;

@@ -75,6 +75,11 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text`
   const lines = [header];
   scenes.forEach((scene, i) => {
     const dur = durations?.[i] ?? (scene.end - scene.start);
+    // ASS の場面ごとの余白。省略時は Style の既定値を継承する。
+    const marginV = scene.subtitleMarginV ?? 0;
+    if (scene.subtitleMarginV != null && (!Number.isInteger(marginV) || marginV < 1 || marginV > LONGFORM_H - 56)) {
+      throw new Error(`${scene.sceneId}: subtitleMarginV は 1〜${LONGFORM_H - 56} の整数で指定してください`);
+    }
     // 語の途中・句読点の前で切らない（DN-0592）。Shorts・Reels と同じ区切り
     const chunks = subtitleChunks(scene.narration ?? '', 28);
     let chunkStart = t;
@@ -82,7 +87,7 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text`
       const chunkEnd = chunkIndex === chunks.length - 1
         ? t + dur
         : chunkStart + dur * ([...text].length / Math.max(1, [...(scene.narration ?? '')].length));
-      lines.push(`Dialogue: 0,${assTime(chunkStart)},${assTime(chunkEnd)},Default,,0,0,0,,${text}`);
+      lines.push(`Dialogue: 0,${assTime(chunkStart)},${assTime(chunkEnd)},Default,,0,0,${marginV},,${text}`);
       chunkStart = chunkEnd;
     });
     t += dur;

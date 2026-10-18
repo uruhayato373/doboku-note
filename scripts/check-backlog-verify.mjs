@@ -39,20 +39,24 @@
  * ---------------------------------------------------------------------------
  */
 import { readFileSync, writeFileSync, existsSync, mkdirSync, writeSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { spawnSync } from 'node:child_process';
+import { join, dirname, relative } from 'node:path';
+import { commandTimeoutMs, runCheckedCommand } from './lib/check-execution.mjs';
+import { datasetPath } from './lib/datasets.mjs';
+import { parseCliArgs } from './lib/cli-args.mjs';
 import { parseBacklog, TODO_DIR } from './lib/backlog-lib.mjs';
+import { selectBacklogVerification } from './lib/backlog-verification.mjs';
 import { todayJst } from './lib/jst-date.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 const BACKLOG = join(ROOT, TODO_DIR, 'backlog.md');
-const STATE = join(ROOT, '.claude/state/backlog/verify-status.json');
-const JSON_OUT = process.argv.includes('--json');
-const NO_RECORD = process.argv.includes('--no-record');
-const tIdx = process.argv.indexOf('--timeout');
-const TIMEOUT_MS = (tIdx >= 0 ? Number(process.argv[tIdx + 1]) : 180) * 1000;
+const STATE = join(ROOT, datasetPath('state.backlog-verify-status'));
+const args = parseCliArgs({ json: { type: 'boolean' }, 'no-record': { type: 'boolean' }, timeout: { type: 'number' } });
+const JSON_OUT = args.json;
+const NO_RECORD = args.noRecord;
+const TIMEOUT_MS = args.timeout == null ? null : args.timeout * 1000;
+if (TIMEOUT_MS != null && (!Number.isFinite(TIMEOUT_MS) || TIMEOUT_MS <= 0)) throw new Error('--timeout は正の秒数');
 
-function main() {
+async function main() {
   if (!existsSync(BACKLOG)) {
     console.error(`✗ 検査不成立: ${TODO_DIR}/backlog.md が無い`);
     process.exit(2);
@@ -62,8 +66,8 @@ function main() {
     console.error('✗ 検査不成立: カードを 1 件も抽出できなかった（パース契約の破損を疑う）');
     process.exit(2);
   }
-  const targets = cards.filter((c) => c.verify);
-  if (!targets.length) {
+  const { candidates, targets, notDue } = selectBacklogVerification(cards, todayJst());
+  if (!candidates.length) {
     console.error('✗ 検査不成立: `[検証:cmd]` を持つカードが 1 枚も無い');
     process.exit(2);
   }
@@ -79,6 +83,8 @@ function main() {
   const firstRun = !existsSync(STATE);
 
   const results = [];
+  const logDir = join(ROOT, '.tmp', 'backlog-verify', new Date().toISOString().replaceAll(':', '-'));
+  if (!NO_RECORD) mkdirSync(logDir, { recursive: true });
   // 自分自身を [検証:] に指したカードがあると無限再帰でタイムアウトする（2026-08-20 に実発生）。
   // 「検査不成立」として一度だけ報告し、実走はしない。
   const SELF = 'check-backlog-verify';
@@ -86,15 +92,12 @@ function main() {
   if (selfOwners) byCmd.delete(SELF);
 
   for (const [cmd, owners] of byCmd) {
-    const r = spawnSync('npm', ['run', cmd, '--silent'], {
-      cwd: ROOT,
-      encoding: 'utf8',
-      timeout: TIMEOUT_MS,
-      shell: true, // npm は Windows で shell 経由でないと起動しない
-      maxBuffer: 32 * 1024 * 1024,
-    });
-    const timedOut = r.error?.code === 'ETIMEDOUT' || r.signal === 'SIGTERM';
-    const status = timedOut || r.error ? 'error' : r.status === 0 ? 'green' : 'red';
+    const timeoutMs = TIMEOUT_MS ?? commandTimeoutMs(cmd);
+    if (!JSON_OUT) console.log(`[check-backlog-verify] start ${cmd}（${timeoutMs ? `${timeoutMs / 1000}s` : '子検査の制限を使用'}）`);
+    const r = await runCheckedCommand('npm', ['run', cmd, '--silent'], { cwd: ROOT, timeoutMs });
+    const logFile = join(logDir, `${cmd.replace(/[^a-zA-Z0-9_.-]/g, '_')}.log`);
+    if (!NO_RECORD) writeFileSync(logFile, `${cmd} — ${r.startedAt}\n${r.stdout}\n--- stderr ---\n${r.stderr}`);
+    const status = r.status === 'pass' ? 'green' : r.status === 'fail' ? 'red' : 'error';
     const before = prev.commands?.[cmd]?.status ?? null;
     results.push({
       cmd,
@@ -102,11 +105,16 @@ function main() {
       before,
       turnedGreen: status === 'green' && before === 'red',
       alwaysGreen: status === 'green' && before === 'green',
-      reason: timedOut
-        ? `タイムアウト（${TIMEOUT_MS / 1000}s）`
-        : r.error
-          ? String(r.error.message).slice(0, 60)
-          : null,
+      outcome: r.status,
+      exitCode: r.exitCode,
+      startedAt: r.startedAt,
+      durationMs: r.durationMs, monoMs: r.monoMs, sleptMs: r.sleptMs, loadavg1: r.loadavg1, timeoutMs,
+      outputLog: NO_RECORD ? null : relative(ROOT, logFile).replaceAll('\\', '/'),
+      failedTests: r.stdout.split('\n').filter((line) => /^not ok \d+ -|^\s+location:/.test(line)),
+      stdoutTail: r.stdout.split('\n').slice(-30).join('\n'),
+      stderrTail: r.stderr.split('\n').slice(-15).join('\n'),
+      reason: r.status === 'timeout' ? `タイムアウト（${timeoutMs / 1000}s・実動 ${r.monoMs}ms）`
+        : r.status === 'inconclusive' ? (r.error ?? `検査不成立（exit ${r.exitCode}・停止疑い ${r.sleptMs}ms）`) : null,
       cards: owners.map((c) => ({ line: c.line, tier: c.tier, kind: c.kind, title: c.title })),
     });
   }
@@ -115,6 +123,7 @@ function main() {
     results.push({
       cmd: SELF,
       status: 'error',
+      outcome: 'skipped',
       before: null,
       turnedGreen: false,
       alwaysGreen: false,
@@ -128,10 +137,16 @@ function main() {
   const alive = results.filter((x) => x.status === 'red');
   const errs = results.filter((x) => x.status === 'error');
 
+  const coverage = {
+    candidateCards: candidates.length, targetedCards: targets.length, notDueCards: notDue.length,
+    targeted: results.length, executed: results.filter((r) => r.outcome !== 'skipped').length,
+    ...Object.fromEntries(['pass', 'fail', 'timeout', 'inconclusive', 'skipped'].map((k) => [k, results.filter((r) => r.outcome === k).length])),
+  };
+  const exitCode = errs.length ? 2 : 0;
   if (!NO_RECORD) {
     mkdirSync(dirname(STATE), { recursive: true });
     const commands = {};
-    for (const x of results) commands[x.cmd] = { status: x.status, at: todayJst() };
+    for (const x of results) commands[x.cmd] = { ...x, at: todayJst() };
     writeFileSync(
       STATE,
       JSON.stringify(
@@ -141,6 +156,8 @@ function main() {
             'red → green の遷移だけが「完了の疑い」で、常時 green は [検証:] の指定が' +
             '完了判定になっていない疑い（surfacer を指している）。',
           updatedAt: todayJst(),
+          coverage,
+          notDue,
           commands,
         },
         null,
@@ -151,18 +168,20 @@ function main() {
 
   if (JSON_OUT) {
     writeSync(1, JSON.stringify({
-      cards: cards.length, withVerify: targets.length, commands: byCmd.size, firstRun,
+      cards: cards.length, withVerify: candidates.length, eligibleCards: targets.length, notDue, commands: byCmd.size, firstRun, coverage,
       suspect, surfacers: surfacers.map((x) => x.cmd), alive: alive.map((x) => x.cmd),
       errors: errs.map((x) => ({ cmd: x.cmd, reason: x.reason })), results,
     }, null, 2) + '\n');
-    process.exit(0);
+    process.exitCode = exitCode;
+    return;
   }
 
   // 検査ゼロを PASS と呼ばない: 対象数と実走数を必ず出す
   console.log(
-    `[check-backlog-verify] カード ${cards.length} 枚 / うち [検証:] 付き ${targets.length} 枚 ` +
-      `→ ユニークコマンド ${byCmd.size} 本を実走`,
+    `[check-backlog-verify] カード ${cards.length} 枚 / うち [検証:] 付き ${candidates.length} 枚（今週 ${targets.length}・時期未到来 ${notDue.length}） ` +
+      `→ 対象 ${coverage.targeted} 本・実走 ${coverage.executed} 本・skip ${coverage.skipped} 本`,
   );
+  for (const card of notDue) console.log(`  [not-due] ${card.id}: ${card.reason}`);
   console.log(
     `  赤→緑 ${results.filter((x) => x.turnedGreen).length} / 常時緑 ${surfacers.length} ` +
       `/ 赤 ${alive.length} / 実行不能 ${errs.length}`,
@@ -198,7 +217,7 @@ function main() {
     console.log(`\n■ 実行不能 ${errs.length} 本（「完了」ではなく検査不成立）`);
     for (const e of errs) console.log(`  ${e.cmd}: ${e.reason ?? '非ゼロ終了'}`);
   }
-  process.exit(0);
+  process.exitCode = exitCode;
 }
 
-main();
+await main();

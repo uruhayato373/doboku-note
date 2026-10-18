@@ -12,7 +12,7 @@
  *
  * 使い方:
  *   node scripts/quality-audit.mjs         # 全チェック実行 → .claude/state/quality/audit-latest.{json,md}
- *   node scripts/quality-audit.mjs --ci    # ci:true の厳格サブセットのみ・fail/timeout で exit 1・レポート書込なし
+ *   node scripts/quality-audit.mjs --ci    # ci:true の厳格サブセットのみ・fail は exit 1、timeout/検査不成立は exit 2・レポート書込なし
  *   node scripts/quality-audit.mjs --ops   # ops:true（運用アラート）のみ・fail で exit 1・0 件実行で exit 2（ops-audit.yml が日次で回す）
  *   node scripts/quality-audit.mjs --json  # 結果 JSON を stdout に出す（レポートファイルも書く）
  *
@@ -30,8 +30,8 @@
  *   - 外部 API・公開更新（note/R2/deploy/fetch-*）は定義に載せない（副作用ゼロを保証）。
  *   - 存在しない npm script は skip 扱い（新チェックの段階導入に耐える）。
  */
-import { spawn, spawnSync } from 'node:child_process';
-import { availableParallelism, loadavg } from 'node:os';
+import { spawnSync } from 'node:child_process';
+import { availableParallelism } from 'node:os';
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
@@ -39,6 +39,8 @@ import net from 'node:net';
 import { datasetPath } from './lib/datasets.mjs';
 import { resolveVaultRoot } from './lib/drive-vault.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
+import { runCheckedCommand, UNIT_TEST_TIMEOUT_MS } from './lib/check-execution.mjs';
+export { classifyRun } from './lib/check-execution.mjs';
 
 const OUT_DIR = join(ROOT, '.claude', 'state', 'quality');
 const JSON_OUT = join(OUT_DIR, 'audit-latest.json');
@@ -107,7 +109,7 @@ function unzipMissing() {
 
 // ---- チェック定義 ---------------------------------------------------------
 // npm: package.json の script 名 / cmd: 直接コマンド配列。どちらか一方。
-const CHECKS = [
+export const CHECKS = [
   { id: 'content-expansion', npm: 'check-content-expansion', timeout: 30_000, ci: true, note: '全教材の母数・記事/図/SNS対応表の整合。未確認・原典待ち・成果物変更を別表示し、構造PASSで制作完了とはしない' },
   { id: 'domains', npm: 'check-domains', timeout: 30_000, ci: true, note: '領域の正本（domains.json）と、スキル/エージェントの frontmatter domain・文書の割り当ての整合' },
   { id: 'affiliate-placements', npm: 'check-affiliate-placements', timeout: 60_000, ci: true, note: '転職アフィリエイトの配置ルール（台帳 config.affiliate-placements）が案件（catalog の active・Red Line でない）・広告リンクの有無・面の語彙・カテゴリ・実験と整合し、同じ面に 2 ルールが重ならないか。MDX の手書き <CareerAffiliate> のカテゴリがルールに覆われているか（2026-10-07）。広告リンクの期限は壁時計依存なので affiliate-placements-upcoming（ops）が見る（2026-10-11）' },
@@ -116,7 +118,7 @@ const CHECKS = [
   { id: 'agent-config', npm: 'check-agent-config', timeout: 30_000, ci: true, note: '.claude/config/ の JSON（認証の許可リスト・CI の書き込み許可・品質ゲートの基準と許可リスト）がすべて型（scripts/lib/dataset-schemas-agent-config.mjs）に合い、型の無い JSON が無いか（DN-0524・案B。壊れるとログインや書き戻しが黙って止まる）' },
   { id: 'admin-ui-debt', npm: 'check-admin-ui-debt', timeout: 30_000, ci: true, note: '管理画面のページごとの生 card クラスとインライン style をラチェット（増えたら落ちる・新規ページは 0）。shadcn 部品へ移したら --update で下げる（DN-0432）' },
   { id: 'shadcn-parity', npm: 'check-shadcn-parity', timeout: 30_000, ci: true, note: '管理画面の UI 部品（components/ui）が shadcn/ui 公式（.claude/config/shadcn-reference・コミット済みの保存物）と同じクラスか。差は shadcn-parity-allow.json に理由付きで登録したものだけ。ページでの Badge/Button/TabsTrigger の大きさの上書きも止める（DN-0432）' },
-  { id: 'generated-indexes', npm: 'check-generated-indexes', timeout: 180_000, ci: true, note: 'refresh-indexes の生成物（src/config の索引・人気記事・frequent-topics・演習データ public/quiz）がコミットと一致。MDX 追加時の回し忘れを止める（2026-10-02: 演習データだけ refresh-indexes に無く、解説 2 問が古いまま配信されていた）' },
+  { id: 'generated-indexes', npm: 'check-generated-indexes', timeout: 180_000, ci: true, serial: true, note: 'refresh-indexes の生成物（src/config の索引・人気記事・frequent-topics・演習データ public/quiz）がコミットと一致。MDX 追加時の回し忘れを止める（2026-10-02: 演習データだけ refresh-indexes に無く、解説 2 問が古いまま配信されていた）' },
   { id: 'memory', npm: 'check-memory', timeout: 30_000, ci: true, note: 'エージェントの記憶（.claude/memory）の frontmatter・名前重複・索引の網羅と読み込み上限（200 行 / 25KB）' },
   { id: 'business-direction', npm: 'check-business-direction', timeout: 30_000, ci: true, note: '資格別事業方針・計測とレビュー履歴の整合' },
   // ── ci:true 厳格ゲート ──
@@ -125,7 +127,8 @@ const CHECKS = [
   { id: 'type-check-admin', npm: 'type-check:admin', timeout: 240_000, ci: true, note: '管理画面（tools/admin-app）の tsc。ルートの type-check の対象外で、呼び出し元 .mjs の JSDoc 型の崩れを止める（DN-0660）' },
   // GitHub の runner では 3,000 件超のテストが 171〜182 秒掛かる（2026-10-11 の PR 3 本で実測。182 秒で timeout に当たり
   // 0 fail なのに CI が赤になった）。上限は実測の 1.6 倍に置く。手元のスリープ由来の水増しは inconclusive が分ける
-  { id: 'unit-tests', npm: 'test', timeout: 300_000, ci: true },
+  // Node の test runner 自体が並列実行する。lint/MDX 検証との競合で葉の timeout を消費しない。
+  { id: 'unit-tests', npm: 'test', timeout: UNIT_TEST_TIMEOUT_MS, ci: true, serial: true },
   // `npm test` は tests/*.test.mjs しか見ない。.claude/scripts/ads/__tests__/ の 3 本（38 テスト）は
   // 別 script になっていて、2026-08-17 まで**どの CI にも登録されておらず誰も走らせていなかった**。
   { id: 'ads-tests', npm: 'test:ads', timeout: 120_000, ci: true, note: 'A8/もしも/afb のサイト帰属ガードと CSV 正規化の単体テスト' },
@@ -149,7 +152,7 @@ const CHECKS = [
   // 動画パック（DN-0110 Phase 0・2026-08-28 追加）。Phase 1 未着手（packs root 不在）は明示して exit 0、
   // root があるのに 0 件は exit 2（検査不成立）。チェッカー自体の健全性は unit-tests の fixture が担保。
   { id: 'video-content', npm: 'check-video-content', timeout: 60_000, ci: true, note: `動画パックの manifest/sourceRef 漏洩/CTA・UTM/storyboard/逐語転用/バイナリ混入/status 整合（真実源 video-content-policy.md §8 ＋ ${datasetPath('config.video-content')}）` },
-  { id: 'content-registry', npm: 'check-content-registry', timeout: 60_000, ci: true, note: 'コンテンツ台帳（content/registry）の検査 R01〜R10（content-registry.md）。0 件・ID・参照・件数・Drive の sha・状態と承認ハッシュ・外部 ID・切り替え前のチャネルが今の台帳と一致するか。結果は PR の差分だけで決まる' },
+  { id: 'content-registry', npm: 'check-content-registry', timeout: 60_000, ci: true, note: 'コンテンツ台帳（content/registry）の検査 R01〜R11（content-registry.md）。0 件・ID・参照・件数・Drive の sha・状態と承認ハッシュ・外部 ID・通常動画の台本重複・切り替え前のチャネルが今の台帳と一致するか。結果は PR の差分だけで決まる' },
   { id: 'registry-due', npm: 'check-registry-due', timeout: 30_000, ci: false, ops: true, note: '予約のまま公開の予定を猶予より過ぎた公開（壁時計依存なので ops）。読み手＝日次 ops-audit の automation-failure Issue と /weekly-review。照合（registry-reconcile・P2）が公開へ進めるまでの遅れを見張る' },
   { id: 'instagram-reels', npm: 'check-instagram-reels', timeout: 60_000, ci: true, note: '動画パックから派生する Instagram Reels の対象数・資格別被覆・媒体設定を固定' },
   { id: 'youtube-shorts', npm: 'check-youtube-shorts', timeout: 60_000, ci: true, note: '112動画パック×2本のShortsメタデータ、タイトル/UTM/著者表記/scene/通常動画後の公開枠と1日3本上限を固定' },
@@ -184,7 +187,7 @@ const CHECKS = [
   { id: 'content-series', npm: 'check-content-series', timeout: 30_000, ci: true, note: 'サイト記事のシリーズ企画の台帳（content-series.json）を検査（根拠の参考文献 id・既存と補強の記事の実在・関連記事・対象外の理由・入口）。状態は記事の実体から出し、件数だけ表示する' },
   { id: 'egov-links', npm: 'egov-laws', timeout: 60_000, ci: true, note: '記事の e-Gov 法令検索へのリンク（法令 ID・条）と参考文献の台帳の法令の e-Gov の法令 ID を、e-Gov の写し（台帳 config.egov-laws）と照合（通信しない）。e-Gov の画面は無い ID でも 200 を返すのでリンク切れの検査では見つからない（2026-10-13 に 13 法令 26 か所）' },
   { id: 'egov-drift', cmd: ['node', 'scripts/egov-laws.mjs', '--drift'], timeout: 900_000, ci: false, ops: true, note: '写しより後に改正が施行された法令と、それにリンクする記事（e-Gov 法令 API と通信する・壁時計依存なので ops）。読み手＝日次 ops-audit の automation-failure Issue。記事を改正に合わせて確かめたら npm run egov-laws -- --sync で写しを進める' },
-  { id: 'reference-book-pages', npm: 'check-reference-book-pages', timeout: 120_000, ci: true, note: '参考文献 ID 単位の書籍 bundle を検査（1冊1ディレクトリ・原本 sha256・分冊順・通しページ被覆・Drive 台帳結線）。実体が無い端末では manifest のみ検査する' },
+  { id: 'reference-book-pages', npm: 'check-reference-book-pages', args: ['--metadata-only'], timeout: 120_000, ci: true, note: '参考文献 ID 単位の書籍 bundle を検査（1冊1ディレクトリ・原本 sha256・分冊順・通しページ被覆・Drive 台帳結線）。CI は manifest のみ検査する。Drive の bytes/sha256 は通常の check-reference-book-pages で別途照合する' },
   { id: 'figure-embed-dims', npm: 'check-figure-embed-dims', timeout: 90_000, ci: true, note: 'ArticleImage の width/height と SVG の実 viewBox の突合。従来は r2-audit（週次 cron）と pre-commit(staged) だけで、push 経路に backstop が無かった' },
   { id: 'bold-rendering', npm: 'check-bold-rendering', timeout: 120_000, ci: true, note: '閉じ/開き ** が flanking を満たさず太字にならずアスタリスクが本文に出る事故。remark で実パースして text ノードに ** が残るかで判定する（規則の再実装ではない）。2026-09-23 から note 記事（content/note の article*.md）も対象' },
   { id: 'note-duplicate-images', npm: 'check-note-duplicate-images', timeout: 60_000, ci: true, note: 'note 記事の本文で同じ画像を 2 回使うと 2 枚目が CDN 確定に至らず全文更新が中断し、その記事を再公開できなくなる（2026-09-23 実測・著者バナー重複 29 本）。pre-commit の note-lint 規則 10 と同じ判定を全件に当てる' },
@@ -324,7 +327,7 @@ const CHECKS = [
   // 共通仕様書のページ画像 3.4GB を private R2 へ上げかけた再発防止。CI は Drive を持たないので
   // マウント無しでは「実体検査 0 件」と明示して設定・台帳・ルーティング衝突・audience だけを判定する。
   { id: 'youtube-cover-handoff', npm: 'check-youtube-cover-handoff', timeout: 120_000, ci: true, note: '採用カバーのDrive台帳登録・読み戻し記録・入力変更を検査。クラウド実体は読まない' },
-  { id: 'drive-vault', npm: 'check-drive-vault', timeout: 120_000, ci: true, note: 'audience ゲート（site⇒public / ci⇒private|byVisibility / human⇒Drive）・R2 と Drive の同一パス衝突・drive-manifest の整合。マウント無しは実体検査 0 件と明示' },
+  { id: 'drive-vault', npm: 'check-drive-vault', args: ['--metadata-only'], timeout: 120_000, ci: true, note: 'audience・ルーティング・drive-manifest の整合を検査。Drive 実体検査は通常の check-drive-vault で行う' },
   // ローカルディスクの肥大は gitignore 済み・ホーム配下・worktree に溜まるので CI にも pre-commit にも
   // 映らない（2026-09-10 に空き 7.5GB まで落ちて初めて気づいた）。ローカル（Mac / Windows）でだけ意味がある検査。
   { id: 'disk-hygiene', npm: 'check-disk-hygiene', timeout: 120_000, ci: false,
@@ -477,7 +480,7 @@ function resolveCommand(check) {
   if (check.cmd) return check.cmd;
   if (check.npm) {
     if (!PKG.scripts || !PKG.scripts[check.npm]) return null; // 未定義 script
-    return ['npm', 'run', '--silent', check.npm];
+    return ['npm', 'run', '--silent', check.npm, ...(check.args?.length ? ['--', ...check.args] : [])];
   }
   return null;
 }
@@ -517,43 +520,10 @@ function failureExcerpt(stdout, stderr, maxLines = 40) {
   return out.join('\n').trim();
 }
 
-/**
- * spawnSync と同じ形（status / stdout / stderr / error.code='ETIMEDOUT'）を返す非同期版。
- * 検査を並列に回すために使う（直列だと CI の quality audit が 6 分かかっていた・2026-09-30）。
- */
-function spawnAsync(cmd, args, { timeout, maxBuffer, ...opts }) {
-  return new Promise((resolveP) => {
-    const child = spawn(cmd, args, { ...opts, stdio: ['ignore', 'pipe', 'pipe'] });
-    let stdout = '', stderr = '', timedOut = false;
-    const cap = (acc, d) => (acc.length < maxBuffer ? acc + d : acc);
-    child.stdout.setEncoding('utf8').on('data', (d) => { stdout = cap(stdout, d); });
-    child.stderr.setEncoding('utf8').on('data', (d) => { stderr = cap(stderr, d); });
-    const timer = setTimeout(() => { timedOut = true; child.kill('SIGTERM'); }, timeout);
-    child.on('error', (error) => { clearTimeout(timer); resolveP({ status: null, stdout, stderr, error }); });
-    child.on('close', (status) => {
-      clearTimeout(timer);
-      resolveP({ status, stdout, stderr, error: timedOut ? Object.assign(new Error('timeout'), { code: 'ETIMEDOUT' }) : undefined });
-    });
-  });
-}
-
-/**
- * 壁時計と単調時計の差で「寝ていた時間」を測り、その分だけ超過した timeout / fail を inconclusive にする。
- * pass は寝ていても pass（緑を疑わない）。許容 5 秒は、並列 4 本での timer の遅れとクロック差の見積り。
- */
-export function classifyRun({ timedOut, exitStatus, wallMs, monoMs, sleepToleranceMs = 5_000 }) {
-  const sleptMs = Math.max(0, Math.round(wallMs - monoMs));
-  if (!timedOut && exitStatus === 0) return { status: 'pass', sleptMs };
-  if (sleptMs > sleepToleranceMs) return { status: 'inconclusive', sleptMs };
-  return { status: timedOut ? 'timeout' : 'fail', sleptMs };
-}
-
 // 同時に走らせる検査の数。QUALITY_AUDIT_CONCURRENCY=1 で従来どおり直列（切り分け用）。
 const CONCURRENCY = Math.max(1, Number(process.env.QUALITY_AUDIT_CONCURRENCY) || Math.min(4, availableParallelism()));
 
 async function runCheck(check) {
-  const started = Date.now();
-  const startedMono = process.hrtime.bigint();
   // --ci は ci:true だけ / --ops は ops:true だけ / --report-only は report 区分だけ。
   // digest:false は「常に非ゼロで判定に使えない情報出力」なので週次 Issue の対象からも外す
   // （毎週飛ぶ通知は読まれなくなる）。ops は日次の別チャネル（ops-audit.yml）が読むので
@@ -571,20 +541,16 @@ async function runCheck(check) {
   // これを放置すると node 直起動の検査だけが走り、残り全部が 0.0s FAIL になる＝「偽赤」で
   // 誰も結果を読まなくなる（CLAUDE.md §9）。コマンドは内部固定でユーザー入力を含まないため
   // shell 経由で安全に起動できる。
-  const r = await spawnAsync(command[0], command.slice(1), {
-    cwd: ROOT, timeout: check.timeout, maxBuffer: 16 * 1024 * 1024,
-    shell: process.platform === 'win32',
+  const r = await runCheckedCommand(command[0], command.slice(1), {
+    cwd: ROOT, timeoutMs: check.timeout,
     env: { ...process.env, NO_COLOR: '1', FORCE_COLOR: '0' },
   });
-  const durationMs = Date.now() - started;
-  const monoMs = Number(process.hrtime.bigint() - startedMono) / 1e6;
-  const timedOut = Boolean(r.error && r.error.code === 'ETIMEDOUT');
-  const { status, sleptMs } = classifyRun({ timedOut, exitStatus: r.status, wallMs: durationMs, monoMs });
+  const { status, durationMs, monoMs, sleptMs, loadavg1 } = r;
   return {
-    id: check.id, ci: check.ci, ops: Boolean(check.ops), status, exitCode: r.status ?? null, durationMs,
+    id: check.id, ci: check.ci, ops: Boolean(check.ops), status, exitCode: r.exitCode, durationMs,
     // 診断用: 単調時計の経過・寝ていた時間・開始時の負荷（壁時計の水増しを後から切り分ける）
-    monoMs: Math.round(monoMs), sleptMs, loadavg1: Math.round(loadavg()[0] * 100) / 100,
-    ...(status === 'inconclusive' ? { inconclusiveReason: `${timedOut ? 'timeout' : 'fail'} だが壁時計が単調時計より ${Math.round(sleptMs / 1000)} 秒進んでいる（スリープ・停止の疑い）` } : {}),
+    monoMs, sleptMs, loadavg1,
+    ...(status === 'inconclusive' ? { inconclusiveReason: r.error ?? `exit ${r.exitCode}・停止疑い ${Math.round(sleptMs / 1000)} 秒（内側の検査不成立またはプロセス停止）` } : {}),
     stdoutTail: tail(r.stdout), stderrTail: tail(r.stderr), note: check.note,
     expectedFail: check.expectedFail ?? null,
     // 全文はここでしか手に入らない（tail 済みの文字列からは信号行を拾えない）
@@ -736,11 +702,17 @@ async function main() {
   }
 
   // 検査不成立（inconclusive）は fail/timeout とは別に数え、1 件でもあれば exit 2。緑にも赤にもしない（CLAUDE.md §9）。
+  // A killed leaf check did not finish inspecting its targets; preserve that at aggregate boundaries.
+  const timedOutChecks = results.filter((r) => r.status === 'timeout');
+  if (timedOutChecks.length) {
+    process.stderr.write(`[quality-audit] timeout ${timedOutChecks.length} 件は検査未完了（exit 2）\n`);
+    process.exitCode = 2;
+  }
   const inconclusive = results.filter((r) => r.status === 'inconclusive');
   if (inconclusive.length) {
     for (const r of inconclusive) process.stderr.write(`[INCONCLUSIVE] ${r.id}: ${r.inconclusiveReason}\n`);
-    process.stderr.write(`[quality-audit] 検査不成立 ${inconclusive.length} 件（スリープ・停止で壁時計だけが伸びた。timeout の延長では直らない。起きている状態で再実行する）\n`);
-    if (!process.exitCode) process.exitCode = 2;
+    process.stderr.write(`[quality-audit] 検査不成立 ${inconclusive.length} 件（上記の取得失敗・プロセス停止を解消して再実行する）\n`);
+    process.exitCode = 2;
   }
 }
 

@@ -1,15 +1,46 @@
 {
-  "generated_at": "2026-10-09T10:43:29.767Z",
-  "scanned": 564,
-  "skipped_photo": 85,
+  "generated_at": "2026-10-17T06:17:52.368Z",
+  "scanned": 697,
+  "skipped_photo": 167,
   "framed": 0,
   "errors": 0,
   "counts": {
-    "HIGH": 94,
+    "HIGH": 135,
     "MEDIUM": 0,
-    "LOW": 144
+    "LOW": 158
   },
   "violations": [
+    {
+      "path": "content/site/civil-construction-1/guide-concrete-key-points/img/photo-precast-culvert-joint.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "edgeFrac": 0.411,
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 96%≥50%・縁幅 41%）"
+    },
+    {
+      "path": "content/site/civil-construction-1/guide-concrete-key-points/img/photo-precast-culvert-joint.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "bottom",
+      "edgeFrac": 0.476,
+      "detail": "bottom縁でストローク中割りの疑い（縁2行/内側4行の密度比 106%≥50%・縁幅 48%）"
+    },
+    {
+      "path": "content/site/civil-construction-1/guide-concrete-key-points/img/photo-precast-culvert-joint.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "left",
+      "detail": "left縁の直線が内容スパンの64%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/civil-construction-1/guide-concrete-key-points/img/photo-precast-culvert-joint.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "right",
+      "edgeFrac": 0.2,
+      "detail": "right縁でストローク中割りの疑い（縁2行/内側4行の密度比 92%≥50%・縁幅 20%）"
+    },
     {
       "path": "content/site/civil-construction-1/primary-h26-a/img/h26-a-fig-08.png",
       "rule": "EDGE_TIGHT",
@@ -60,22 +91,6 @@
       "severity": "LOW",
       "side": "left",
       "detail": "left縁で先細り接触＝端点タイトトリム（密度比 35%<50%）"
-    },
-    {
-      "path": "content/site/civil-construction-1/primary-h29-a/img/h29-a-fig-02.png",
-      "rule": "EDGE_CUT",
-      "severity": "HIGH",
-      "side": "top",
-      "edgeFrac": 0.007,
-      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 108%≥50%・縁幅 1%）"
-    },
-    {
-      "path": "content/site/civil-construction-1/primary-h29-a/img/h29-a-fig-03.png",
-      "rule": "EDGE_CUT",
-      "severity": "HIGH",
-      "side": "top",
-      "edgeFrac": 0.015,
-      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 133%≥50%・縁幅 1%）"
     },
     {
       "path": "content/site/civil-construction-1/primary-h30-a/img/h30-a-fig-06.png",
@@ -337,18 +352,72 @@
       "detail": "白マージン 3px < 4px"
     },
     {
-      "path": "content/site/civil-construction-1/secondary-quality-management-past-problems/img/fig-dry-density-method.png",
-      "rule": "THIN_MARGIN",
-      "severity": "LOW",
-      "side": "bottom",
-      "detail": "白マージン 1px < 4px"
-    },
-    {
       "path": "content/site/civil-construction-1/secondary-r03/img/i-10-crane-scene.png",
       "rule": "EDGE_TIGHT",
       "severity": "LOW",
       "side": "top",
       "detail": "top縁で先細り接触＝端点タイトトリム（密度比 22%<50%）"
+    },
+    {
+      "path": "content/site/civil-construction-1/secondary-r08/img/i-10-crane-pile-unloading.png",
+      "rule": "STRAY_LABEL",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "bottom縁の分離島（高さ34px・全インクの0.4%・白ギャップ41px）＝小見出し/軸/写り込みのいずれか（要目視）"
+    },
+    {
+      "path": "content/site/civil-construction-1/textbook-coast-port/img/photo-grab-dredger.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "bottom縁の直線が内容スパンの87%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/civil-construction-1/textbook-coast-port/img/photo-grab-dredger.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "left",
+      "edgeFrac": 0.318,
+      "detail": "left縁でストローク中割りの疑い（縁2行/内側4行の密度比 104%≥50%・縁幅 32%）"
+    },
+    {
+      "path": "content/site/civil-construction-1/textbook-coast-port/img/photo-grab-dredger.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "right",
+      "edgeFrac": 0.248,
+      "detail": "right縁でストローク中割りの疑い（縁2行/内側4行の密度比 127%≥50%・縁幅 25%）"
+    },
+    {
+      "path": "content/site/civil-construction-1/textbook-coast-port/img/photo-scp-vessel.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "edgeFrac": 0.063,
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 100%≥50%・縁幅 6%）"
+    },
+    {
+      "path": "content/site/civil-construction-1/textbook-coast-port/img/photo-scp-vessel.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "bottom縁の直線が内容スパンの99%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/civil-construction-1/textbook-coast-port/img/photo-scp-vessel.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "left",
+      "edgeFrac": 0.34,
+      "detail": "left縁でストローク中割りの疑い（縁2行/内側4行の密度比 100%≥50%・縁幅 34%）"
+    },
+    {
+      "path": "content/site/civil-construction-1/textbook-coast-port/img/photo-scp-vessel.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "right",
+      "edgeFrac": 0.172,
+      "detail": "right縁でストローク中割りの疑い（縁2行/内側4行の密度比 106%≥50%・縁幅 17%）"
     },
     {
       "path": "content/site/civil-construction-1/textbook-crane/img/all-terrain-crane.webp",
@@ -500,6 +569,30 @@
       "detail": "right縁でストローク中割りの疑い（縁2行/内側4行の密度比 96%≥50%・縁幅 48%）"
     },
     {
+      "path": "content/site/civil-construction-1/textbook-distance-angle/img/photo-theodolite-sun-umbrella.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "bottom",
+      "edgeFrac": 0.166,
+      "detail": "bottom縁でストローク中割りの疑い（縁2行/内側4行の密度比 94%≥50%・縁幅 17%）"
+    },
+    {
+      "path": "content/site/civil-construction-1/textbook-distance-angle/img/photo-theodolite-sun-umbrella.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "left",
+      "edgeFrac": 0.303,
+      "detail": "left縁でストローク中割りの疑い（縁2行/内側4行の密度比 100%≥50%・縁幅 30%）"
+    },
+    {
+      "path": "content/site/civil-construction-1/textbook-distance-angle/img/photo-theodolite-sun-umbrella.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "right",
+      "edgeFrac": 0.455,
+      "detail": "right縁でストローク中割りの疑い（縁2行/内側4行の密度比 97%≥50%・縁幅 46%）"
+    },
+    {
       "path": "content/site/civil-construction-1/textbook-distance-angle/img/theodolite.webp",
       "rule": "EDGE_CUT",
       "severity": "HIGH",
@@ -546,6 +639,84 @@
       "side": "right",
       "edgeFrac": 0.347,
       "detail": "right縁でストローク中割りの疑い（縁2行/内側4行の密度比 99%≥50%・縁幅 35%）"
+    },
+    {
+      "path": "content/site/civil-construction-1/textbook-safety-excavation-shoring/img/photo-pipe-support-formwork.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "bottom",
+      "edgeFrac": 0.26,
+      "detail": "bottom縁でストローク中割りの疑い（縁2行/内側4行の密度比 120%≥50%・縁幅 26%）"
+    },
+    {
+      "path": "content/site/civil-construction-1/textbook-safety-excavation-shoring/img/photo-pipe-support-formwork.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "left",
+      "edgeFrac": 0.188,
+      "detail": "left縁でストローク中割りの疑い（縁2行/内側4行の密度比 103%≥50%・縁幅 19%）"
+    },
+    {
+      "path": "content/site/civil-construction-1/textbook-safety-excavation-shoring/img/photo-pipe-support-formwork.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "right",
+      "edgeFrac": 0.184,
+      "detail": "right縁でストローク中割りの疑い（縁2行/内側4行の密度比 100%≥50%・縁幅 18%）"
+    },
+    {
+      "path": "content/site/civil-construction-1/textbook-safety-foundation-bridge/img/photo-crawler-pile-driver-steel-plates.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "bottom縁の直線が内容スパンの91%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/civil-construction-1/textbook-safety-foundation-bridge/img/photo-crawler-pile-driver-steel-plates.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "left",
+      "edgeFrac": 0.242,
+      "detail": "left縁でストローク中割りの疑い（縁2行/内側4行の密度比 101%≥50%・縁幅 24%）"
+    },
+    {
+      "path": "content/site/civil-construction-1/textbook-safety-foundation-bridge/img/photo-crawler-pile-driver-steel-plates.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "right",
+      "edgeFrac": 0.236,
+      "detail": "right縁でストローク中割りの疑い（縁2行/内側4行の密度比 100%≥50%・縁幅 24%）"
+    },
+    {
+      "path": "content/site/civil-construction-1/textbook-safety-scaffolding/img/photo-frame-scaffold-cross-brace.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "bottom",
+      "edgeFrac": 0.556,
+      "detail": "bottom縁でストローク中割りの疑い（縁2行/内側4行の密度比 99%≥50%・縁幅 56%）"
+    },
+    {
+      "path": "content/site/civil-construction-1/textbook-safety-scaffolding/img/photo-frame-scaffold-cross-brace.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "left",
+      "edgeFrac": 0.297,
+      "detail": "left縁でストローク中割りの疑い（縁2行/内側4行の密度比 100%≥50%・縁幅 30%）"
+    },
+    {
+      "path": "content/site/civil-construction-1/textbook-safety-scaffolding/img/photo-frame-scaffold-cross-brace.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "right",
+      "edgeFrac": 0.416,
+      "detail": "right縁でストローク中割りの疑い（縁2行/内側4行の密度比 101%≥50%・縁幅 42%）"
+    },
+    {
+      "path": "content/site/civil-construction-2/primary-h20/img/q52-fig.png",
+      "rule": "STRAY_LABEL",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "bottom縁の分離島（高さ31px・全インクの2.6%・白ギャップ40px）＝小見出し/軸/写り込みのいずれか（要目視）"
     },
     {
       "path": "content/site/civil-construction-2/primary-r03-kouki/img/q57-fig.png",
@@ -721,12 +892,214 @@
       "detail": "right縁でストローク中割りの疑い（縁2行/内側4行の密度比 200%≥50%・縁幅 2%）"
     },
     {
+      "path": "content/site/civil-practice/accident-first-response/img/photo-site-office-aed-first-aid.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "edgeFrac": 0.178,
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 100%≥50%・縁幅 18%）"
+    },
+    {
+      "path": "content/site/civil-practice/accident-first-response/img/photo-site-office-aed-first-aid.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "bottom",
+      "edgeFrac": 0.095,
+      "detail": "bottom縁でストローク中割りの疑い（縁2行/内側4行の密度比 113%≥50%・縁幅 9%）"
+    },
+    {
+      "path": "content/site/civil-practice/accident-first-response/img/photo-site-office-aed-first-aid.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "left",
+      "edgeFrac": 0.435,
+      "detail": "left縁でストローク中割りの疑い（縁2行/内側4行の密度比 107%≥50%・縁幅 43%）"
+    },
+    {
       "path": "content/site/civil-practice/asphalt-materials-types/img/photo-asphalt-core-sections.webp",
       "rule": "EDGE_CUT",
       "severity": "HIGH",
       "side": "right",
       "edgeFrac": 0.231,
       "detail": "right縁でストローク中割りの疑い（縁2行/内側4行の密度比 99%≥50%・縁幅 23%）"
+    },
+    {
+      "path": "content/site/civil-practice/barrier-free-roads-stations/img/photo-crosswalk-curb.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "top縁の直線が内容スパンの99%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/civil-practice/barrier-free-roads-stations/img/photo-crosswalk-curb.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "bottom",
+      "edgeFrac": 0.124,
+      "detail": "bottom縁でストローク中割りの疑い（縁2行/内側4行の密度比 94%≥50%・縁幅 12%）"
+    },
+    {
+      "path": "content/site/civil-practice/barrier-free-roads-stations/img/photo-crosswalk-curb.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "left",
+      "edgeFrac": 0.508,
+      "detail": "left縁でストローク中割りの疑い（縁2行/内側4行の密度比 100%≥50%・縁幅 51%）"
+    },
+    {
+      "path": "content/site/civil-practice/barrier-free-roads-stations/img/photo-crosswalk-curb.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "right",
+      "detail": "right縁の直線が内容スパンの68%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/civil-practice/construction-automation-control/img/photo-machine-indicator-lamp.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "edgeFrac": 0.475,
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 101%≥50%・縁幅 48%）"
+    },
+    {
+      "path": "content/site/civil-practice/construction-automation-control/img/photo-machine-indicator-lamp.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "bottom縁の直線が内容スパンの100%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/civil-practice/construction-automation-control/img/photo-machine-indicator-lamp.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "left",
+      "edgeFrac": 0.572,
+      "detail": "left縁でストローク中割りの疑い（縁2行/内側4行の密度比 100%≥50%・縁幅 57%）"
+    },
+    {
+      "path": "content/site/civil-practice/construction-automation-control/img/photo-machine-indicator-lamp.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "right",
+      "edgeFrac": 0.482,
+      "detail": "right縁でストローク中割りの疑い（縁2行/内側4行の密度比 101%≥50%・縁幅 48%）"
+    },
+    {
+      "path": "content/site/civil-practice/image-photogrammetry-analysis/img/photo-crack-closeup.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "edgeFrac": 0.257,
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 97%≥50%・縁幅 26%）"
+    },
+    {
+      "path": "content/site/civil-practice/image-photogrammetry-analysis/img/photo-crack-closeup.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "bottom縁の直線が内容スパンの71%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/civil-practice/image-photogrammetry-analysis/img/photo-crack-closeup.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "left",
+      "edgeFrac": 0.178,
+      "detail": "left縁でストローク中割りの疑い（縁2行/内側4行の密度比 109%≥50%・縁幅 18%）"
+    },
+    {
+      "path": "content/site/civil-practice/image-photogrammetry-analysis/img/photo-crack-closeup.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "right",
+      "detail": "right縁の直線が内容スパンの90%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/civil-practice/license-scope-judgment/img/photo-crane-machine-setting.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "edgeFrac": 0.103,
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 98%≥50%・縁幅 10%）"
+    },
+    {
+      "path": "content/site/civil-practice/license-scope-judgment/img/photo-crane-machine-setting.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "bottom縁の直線が内容スパンの74%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/civil-practice/license-scope-judgment/img/photo-crane-machine-setting.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "left",
+      "edgeFrac": 0.533,
+      "detail": "left縁でストローク中割りの疑い（縁2行/内側4行の密度比 102%≥50%・縁幅 53%）"
+    },
+    {
+      "path": "content/site/civil-practice/license-scope-judgment/img/photo-crane-machine-setting.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "right",
+      "edgeFrac": 0.467,
+      "detail": "right縁でストローク中割りの疑い（縁2行/内側4行の密度比 102%≥50%・縁幅 47%）"
+    },
+    {
+      "path": "content/site/civil-practice/public-works-environmental-care/img/photo-low-noise-backhoe.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "bottom",
+      "edgeFrac": 0.207,
+      "detail": "bottom縁でストローク中割りの疑い（縁2行/内側4行の密度比 96%≥50%・縁幅 21%）"
+    },
+    {
+      "path": "content/site/civil-practice/public-works-environmental-care/img/photo-low-noise-backhoe.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "left",
+      "edgeFrac": 0.43,
+      "detail": "left縁でストローク中割りの疑い（縁2行/内側4行の密度比 100%≥50%・縁幅 43%）"
+    },
+    {
+      "path": "content/site/civil-practice/public-works-environmental-care/img/photo-low-noise-backhoe.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "right",
+      "edgeFrac": 0.501,
+      "detail": "right縁でストローク中割りの疑い（縁2行/内側4行の密度比 89%≥50%・縁幅 50%）"
+    },
+    {
+      "path": "content/site/civil-practice/seismic-design-levels/img/photo-bridge-seismic-damper.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "edgeFrac": 0.283,
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 100%≥50%・縁幅 28%）"
+    },
+    {
+      "path": "content/site/civil-practice/seismic-design-levels/img/photo-bridge-seismic-damper.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "bottom",
+      "edgeFrac": 0.302,
+      "detail": "bottom縁でストローク中割りの疑い（縁2行/内側4行の密度比 102%≥50%・縁幅 30%）"
+    },
+    {
+      "path": "content/site/civil-practice/seismic-design-levels/img/photo-bridge-seismic-damper.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "left",
+      "edgeFrac": 0.235,
+      "detail": "left縁でストローク中割りの疑い（縁2行/内側4行の密度比 94%≥50%・縁幅 23%）"
+    },
+    {
+      "path": "content/site/civil-practice/seismic-design-levels/img/photo-bridge-seismic-damper.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "right",
+      "edgeFrac": 0.49,
+      "detail": "right縁でストローク中割りの疑い（縁2行/内側4行の密度比 104%≥50%・縁幅 49%）"
     },
     {
       "path": "content/site/civil-practice/steel-material-properties/img/photo-charpy-tester.webp",
@@ -822,6 +1195,36 @@
       "side": "right",
       "edgeFrac": 0.354,
       "detail": "right縁でストローク中割りの疑い（縁2行/内側4行の密度比 96%≥50%・縁幅 35%）"
+    },
+    {
+      "path": "content/site/concrete-diagnostician/textbook-variation/img/photo-sand-streak.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "edgeFrac": 0.02,
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 71%≥50%・縁幅 2%）"
+    },
+    {
+      "path": "content/site/concrete-diagnostician/textbook-variation/img/photo-sand-streak.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "bottom縁の直線が内容スパンの66%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/concrete-diagnostician/textbook-variation/img/photo-sand-streak.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "left",
+      "edgeFrac": 0.567,
+      "detail": "left縁でストローク中割りの疑い（縁2行/内側4行の密度比 98%≥50%・縁幅 57%）"
+    },
+    {
+      "path": "content/site/concrete-diagnostician/textbook-variation/img/photo-sand-streak.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "right",
+      "detail": "right縁の直線が内容スパンの89%＝罫線/軸/枠の bbox 一致（内容は完全）"
     },
     {
       "path": "content/site/note/_magazines/img/tankan-magazine-cover.png",
@@ -1076,6 +1479,29 @@
       "side": "right",
       "edgeFrac": 0.049,
       "detail": "right縁でストローク中割りの疑い（縁2行/内側4行の密度比 62%≥50%・縁幅 5%）"
+    },
+    {
+      "path": "content/site/pe-construction/power-civil-ronbun-keyword/img/photo-sep-vessel-jacked-up.webp",
+      "rule": "EDGE_LINE",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "bottom縁の直線が内容スパンの99%＝罫線/軸/枠の bbox 一致（内容は完全）"
+    },
+    {
+      "path": "content/site/pe-construction/power-civil-ronbun-keyword/img/photo-sep-vessel-jacked-up.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "left",
+      "edgeFrac": 0.135,
+      "detail": "left縁でストローク中割りの疑い（縁2行/内側4行の密度比 98%≥50%・縁幅 14%）"
+    },
+    {
+      "path": "content/site/pe-construction/power-civil-ronbun-keyword/img/photo-sep-vessel-jacked-up.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "right",
+      "edgeFrac": 0.232,
+      "detail": "right縁でストローク中割りの疑い（縁2行/内側4行の密度比 100%≥50%・縁幅 23%）"
     },
     {
       "path": "content/site/pe-construction/r08-construction-planning/img/question-ii-2-2.webp",

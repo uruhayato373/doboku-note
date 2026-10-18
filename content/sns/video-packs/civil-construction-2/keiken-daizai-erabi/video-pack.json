@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "packId": "keiken-daizai-erabi",
+  "exam": "civil-construction-2",
+  "title": "題材選び｜規模より自分の経験",
+  "audience": "小規模な工事しか経験がなく、2級土木の施工経験記述で何を題材にするか迷う受検者",
+  "pain": "小規模な工事しか経験がなく、施工経験記述に書ける題材がないと思っている",
+  "promise": "現場条件・自分の判断や行動・確認記録を整理し、実際の担当工事から説明しやすい題材を選べる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "note",
+      "path": "content/note/1級・2級土木/2級土木/経験記述を自分の現場に置換/article.md",
+      "access": "free"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "external",
+      "url": "https://www.jctc.jp/exam/guide/dbk-2/",
+      "title": "全国建設研修センター 2級土木施工管理技術検定のご案内・受検の手引"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-2-experience-essay",
+    "campaign": "keiken-daizai-erabi"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}

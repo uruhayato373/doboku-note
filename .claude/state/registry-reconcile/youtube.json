@@ -1,10 +1,12 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-10-16T19:00:01.238Z",
+  "checkedAt": "2026-10-17T17:55:50.263Z",
   "channel": "youtube",
-  "targets": 352,
-  "checked": 3,
-  "observed": 3,
-  "advanced": [],
+  "targets": 360,
+  "checked": 11,
+  "observed": 11,
+  "advanced": [
+    "civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform"
+  ],
   "findings": []
 }

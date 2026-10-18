@@ -1741,6 +1741,20 @@
       "page": 21,
       "dpi": 300
     },
+    "civil-construction-2/secondary-r06/img/r06-q08-shoring": {
+      "pdf": "vault:原資料PDF/過去問/２級土木施工管理技士/R06/R06_第二次検定.pdf",
+      "page": 9,
+      "dpi": 300,
+      "cropBox": [
+        884,
+        1488,
+        2325,
+        2550
+      ],
+      "post": {
+        "colors": 16
+      }
+    },
     "civil-practice/3d-measurement-selection/img/photo-terrestrial-laser-scanner": {
       "kind": "ai-generated",
       "tool": "Codex",

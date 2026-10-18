@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-2",
+      "headline": [
+        "題材選び",
+        "規模より",
+        "自分の経験"
+      ],
+      "accentLine": 1,
+      "subtitle": "担当した管理を探す",
+      "character": {
+        "pose": "checklist-pen",
+        "frame": "waist"
+      },
+      "design": "pop-poster-v3",
+      "pop": {
+        "variant": "explain",
+        "authority": "総監・元発注者"
+      },
+      "approvedImage": {
+        "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/youtube.longform/cover.88c9abd2.png",
+        "sha256": "88c9abd2531fa9bd1014e8062c6945491141d5c0151a4de1e17bd565b5223981",
+        "specSha256": "4a6de06578663043ee307b785612f11185ee7ab130963a0976bae084139c1c15"
+      }
+    }
+  }
+}

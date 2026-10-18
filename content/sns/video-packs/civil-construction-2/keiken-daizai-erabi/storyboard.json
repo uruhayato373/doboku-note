@@ -1,0 +1,320 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 2,
+      "narration": "題材は、自分の経験から。",
+      "caption": "題材は、自分の経験から。",
+      "visual": {
+        "kind": "cover",
+        "heading": "規模より自分の経験",
+        "items": [
+          "2級土木｜題材選び",
+          "現場条件・自分の対応・記録"
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/経験記述を自分の現場に置換/article.md"
+    },
+    {
+      "sceneId": "hook",
+      "start": 2,
+      "end": 10,
+      "narration": "小さな工事しかなく、書けないと思っていませんか。現場条件、自分の対応、記録から、題材を探しましょう。",
+      "caption": "小さな工事しかなく、書けないと思っていませんか。現場条件、自分の対応、記録から、題材を探しましょう。",
+      "visual": {
+        "kind": "points",
+        "heading": "工事の大きさだけで、候補を捨てない",
+        "items": [
+          "現場条件を思い出す",
+          "自分の対応を整理する",
+          "記録で事実を確かめる"
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/経験記述を自分の現場に置換/article.md"
+    },
+    {
+      "sceneId": "authority",
+      "start": 10,
+      "end": 20,
+      "narration": "総合技術監理部門の技術士で、1級・2級土木に合格した元発注者が、経験を整理する視点をお伝えします。",
+      "caption": "総合技術監理部門の技術士で、1級・2級土木に合格した元発注者が、経験を整理する視点をお伝えします。",
+      "visual": {
+        "kind": "points",
+        "heading": "解説：架（かける）",
+        "items": [
+          "技術士（総合技術監理部門）",
+          "元・地方自治体の土木職（発注者）",
+          "1級・2級土木施工管理技士 合格"
+        ]
+      },
+      "sourceRef": "src/config/author.ts"
+    },
+    {
+      "sceneId": "premise",
+      "start": 20,
+      "end": 30,
+      "narration": "ここでは、実経験の整理に絞ります。工事の対象範囲や受検資格に迷う場合は、当該年度の公式の手引を確認します。",
+      "caption": "ここでは、実経験の整理に絞ります。工事の対象範囲や受検資格に迷う場合は、当該年度の公式の手引を確認します。",
+      "visual": {
+        "kind": "points",
+        "heading": "実経験の整理と、対象範囲の確認",
+        "items": [
+          "この動画：経験を思い出して選ぶ",
+          "対象範囲・受検資格：公式の手引で確認",
+          "受検する年度の案内を使う"
+        ]
+      },
+      "sourceRef": "content/sns/video-packs/civil-construction-2/keiken-daizai-erabi/script.md"
+    },
+    {
+      "sceneId": "candidates",
+      "start": 30,
+      "end": 41,
+      "narration": "最初に、自分が担当した工事をいくつか挙げます。工事名の横に、担当した作業と、そのときの立場をメモしましょう。",
+      "caption": "最初に、自分が担当した工事をいくつか挙げます。工事名の横に、担当した作業と、そのときの立場をメモしましょう。",
+      "visual": {
+        "kind": "sheet",
+        "heading": "工事名だけでなく、担当範囲も書く",
+        "sheetTitle": "候補工事のメモ",
+        "rows": [
+          {
+            "label": "工事名",
+            "value": "実際に担当した工事",
+            "state": "focus"
+          },
+          {
+            "label": "担当作業",
+            "value": "どの作業に関わったか",
+            "state": "todo"
+          },
+          {
+            "label": "立場",
+            "value": "どんな役割を担ったか",
+            "state": "todo"
+          }
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/経験記述を自分の現場に置換/article.md"
+    },
+    {
+      "sceneId": "condition",
+      "start": 41,
+      "end": 52,
+      "narration": "次に、作業で気を付けた条件を思い出します。狭い場所、近隣の出入り、天候など、具体的な場面が浮かぶでしょうか。",
+      "caption": "次に、作業で気を付けた条件を思い出します。狭い場所、近隣の出入り、天候など、具体的な場面が浮かぶでしょうか。",
+      "visual": {
+        "kind": "sheet",
+        "heading": "どんな場面で、気を付けたか",
+        "sheetTitle": "候補工事を思い出す3つの欄",
+        "rows": [
+          {
+            "label": "現場条件",
+            "value": "どんな制約があったか",
+            "state": "focus",
+            "order": 1
+          },
+          {
+            "label": "自分の対応",
+            "value": "何を考え、何を実施したか",
+            "state": "todo",
+            "order": 2
+          },
+          {
+            "label": "確認記録",
+            "value": "何で事実を確かめられるか",
+            "state": "todo",
+            "order": 3
+          }
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "own-action",
+      "start": 52,
+      "end": 64,
+      "narration": "その条件に対して、自分は何を考え、誰と相談し、何を実施しましたか。工事全体の話から、自分の対応を取り出します。",
+      "caption": "その条件に対して、自分は何を考え、誰と相談し、何を実施しましたか。工事全体の話から、自分の対応を取り出します。",
+      "visual": {
+        "kind": "sheet",
+        "heading": "自分は、どう考えて動いたか",
+        "sheetTitle": "候補工事を思い出す3つの欄",
+        "rows": [
+          {
+            "label": "現場条件",
+            "value": "どんな制約があったか",
+            "state": "done",
+            "order": 1
+          },
+          {
+            "label": "自分の対応",
+            "value": "何を考え、何を実施したか",
+            "state": "focus",
+            "order": 2
+          },
+          {
+            "label": "確認記録",
+            "value": "何で事実を確かめられるか",
+            "state": "todo",
+            "order": 3
+          }
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/経験記述を自分の現場に置換/article.md"
+    },
+    {
+      "sceneId": "records",
+      "start": 64,
+      "end": 75,
+      "narration": "さらに、施工計画、日報、写真などを思い出します。確認できる資料を手掛かりに、条件や対応、結果を確かめましょう。",
+      "caption": "さらに、施工計画、日報、写真などを思い出します。確認できる資料を手掛かりに、条件や対応、結果を確かめましょう。",
+      "visual": {
+        "kind": "sheet",
+        "heading": "記録は、事実を確かめる手掛かり",
+        "sheetTitle": "候補工事を思い出す3つの欄",
+        "rows": [
+          {
+            "label": "現場条件",
+            "value": "どんな制約があったか",
+            "state": "done",
+            "order": 1
+          },
+          {
+            "label": "自分の対応",
+            "value": "何を考え、何を実施したか",
+            "state": "done",
+            "order": 2
+          },
+          {
+            "label": "確認記録",
+            "value": "何で事実を確かめられるか",
+            "state": "focus",
+            "order": 3
+          }
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/経験記述を自分の現場に置換/article.md"
+    },
+    {
+      "sceneId": "example",
+      "start": 75,
+      "end": 86,
+      "narration": "たとえば、短い区間の舗装修繕を仮の例にします。住宅の出入口が近く、施工する順序に配慮する場面を考えましょう。",
+      "caption": "たとえば、短い区間の舗装修繕を仮の例にします。住宅の出入口が近く、施工する順序に配慮する場面を考えましょう。",
+      "visual": {
+        "kind": "sheet",
+        "heading": "仮の例：短い区間の舗装修繕",
+        "sheetTitle": "工事の大きさから、場面の具体性へ",
+        "rows": [
+          {
+            "label": "現場条件",
+            "value": "住宅の出入口が近い",
+            "state": "focus"
+          },
+          {
+            "label": "考える場面",
+            "value": "施工する順序を調整",
+            "state": "todo"
+          },
+          {
+            "label": "確認の手掛かり",
+            "value": "施工計画・日報・写真",
+            "state": "todo"
+          }
+        ]
+      },
+      "sourceRef": "content/sns/video-packs/civil-construction-2/keiken-daizai-erabi/script.md"
+    },
+    {
+      "sceneId": "example-questions",
+      "start": 86,
+      "end": 98,
+      "narration": "そのとき、出入りする時間を誰と確認し、施工順をどう調整したか。自分の経験に戻して、判断と行動を思い出します。",
+      "caption": "そのとき、出入りする時間を誰と確認し、施工順をどう調整したか。自分の経験に戻して、判断と行動を思い出します。",
+      "visual": {
+        "kind": "points",
+        "heading": "経験を思い出す問い",
+        "items": [
+          "誰と、何を確認したか",
+          "どの順序を、なぜ変えたか",
+          "実施後に何を確かめたか"
+        ],
+        "reveal": 3
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/経験記述を自分の現場に置換/article.md"
+    },
+    {
+      "sceneId": "role-boundary",
+      "start": 98,
+      "end": 109,
+      "narration": "上司が決めたことと、自分が確認・実施したことを分けましょう。思い出せない数字は埋めず、確認する項目として残します。",
+      "caption": "上司が決めたことと、自分が確認・実施したことを分けましょう。思い出せない数字は埋めず、確認する項目として残します。",
+      "visual": {
+        "kind": "points",
+        "heading": "自分の担当を、大きく見せない",
+        "items": [
+          "上司の判断と自分の対応を分ける",
+          "相談・確認した行動も整理する",
+          "不明な数字は確認事項にする"
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/経験記述を自分の現場に置換/article.md"
+    },
+    {
+      "sceneId": "choose",
+      "start": 109,
+      "end": 120,
+      "narration": "候補を見比べ、現場条件、自分の対応、確認できる記録がつながる工事を選びます。整理した内容は、設問に合わせて使います。",
+      "caption": "候補を見比べ、現場条件、自分の対応、確認できる記録がつながる工事を選びます。整理した内容は、設問に合わせて使います。",
+      "visual": {
+        "kind": "points",
+        "heading": "3つがつながる候補を選ぶ",
+        "items": [
+          "現場条件を具体的に話せる",
+          "自分の判断・行動を説明できる",
+          "記録で条件・対応・結果を確かめられる"
+        ],
+        "reveal": 3
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/経験記述を自分の現場に置換/article.md"
+    },
+    {
+      "sceneId": "summary",
+      "start": 120,
+      "end": 130,
+      "narration": "まとめです。規模だけで選ばず、どんな条件で、自分がどう対応したかを整理する。事実を確かめられる題材から準備しましょう。",
+      "caption": "まとめです。規模だけで選ばず、どんな条件で、自分がどう対応したかを整理する。事実を確かめられる題材から準備しましょう。",
+      "visual": {
+        "kind": "points",
+        "heading": "題材選びは、自分の経験の整理から",
+        "items": [
+          "現場条件",
+          "自分の判断・行動",
+          "事実を確認する記録"
+        ],
+        "reveal": 3,
+        "focus": 1
+      },
+      "sourceRef": "content/note/1級・2級土木/2級土木/経験記述を自分の現場に置換/article.md"
+    },
+    {
+      "sceneId": "cta",
+      "start": 130,
+      "end": 142,
+      "narration": "題材を選んだら、完成答案を自分の工事に置き換えて練習しましょう。安全・品質・工程の答案と置換ガイドは、概要欄へ。",
+      "caption": "題材を選んだら、完成答案を自分の工事に置き換えて練習しましょう。安全・品質・工程の答案と置換ガイドは、概要欄へ。",
+      "visual": {
+        "kind": "points",
+        "heading": "選んだ工事で、答案づくりを練習",
+        "items": [
+          "2級土木 施工経験記述 完成答案集",
+          "安全・品質・工程の答案＋置換ガイド",
+          "概要欄のnoteマガジンへ"
+        ]
+      },
+      "sourceRef": "config/products.json"
+    }
+  ]
+}

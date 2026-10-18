@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "packId": "koji-gaiyo-seigou",
+  "exam": "civil-construction-2",
+  "title": "工事概要｜本文とのズレを防ぐ",
+  "audience": "2級土木の施工経験記述を準備し、工事概要と本文のつながりを見直したい受検者",
+  "pain": "工事概要は埋めたが、本文の工種・時期・数量・担当と食い違っていないか確かめられない",
+  "promise": "工種、工期・施工量、立場の3組を照合し、概要と本文のズレを自分の工事記録で見直せる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "note",
+      "path": "content/note/1級・2級土木/2級土木/工事概要の書き方/article.md",
+      "access": "free"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-2-experience-essay",
+    "campaign": "koji-gaiyo-seigou"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 0,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": false,
+    "threadsBrief": false
+  }
+}
+

@@ -9,6 +9,7 @@ import { createHash } from 'node:crypto';
 import { copyFileSync, existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { loadRegistry, mediaIdOf, parsePubId } from './content-registry.mjs';
+import { findDuplicateLongforms } from './video-duplicate-check.mjs';
 import { readDataset } from './dataset-io.mjs';
 import { mediaPath, mimeOf } from './media-paths.mjs';
 
@@ -313,8 +314,8 @@ export function runPackPreview(root, { packId, metricsOnly = false, ffmpeg }) {
 }
 
 /**
- * 最終承認の関門（YouTube へ上げる前・R2 へ stage する前）。台帳の通常動画の公開の行に approval.contentSha256 があるとき、
- * 今の中身（文面・素材・予定）が承認したときと同じでなければ止める。contentSha256 が無い（grandfathered・台帳に無い）なら今の挙動のまま通す。
+ * 最終承認の関門（YouTube へ上げる前・R2 へ stage する前）。停止済み・別作品との台本重複を先に止め、approval.contentSha256 があるとき、
+ * 今の中身（文面・素材・予定）が承認したときと同じでなければ止める。contentSha256 が無い（grandfathered・台帳に無い）ならハッシュの照合だけを省く。
  * @param {string} root
  * @param {string} exam 資格（別資格の同じ作品 ID と混ざらないよう台帳の exam でも絞る）
  * @param {string} packId 動画パックの ID（台帳の作品 ID と同じ）
@@ -325,6 +326,14 @@ export async function finalApprovalGate(root, exam, packId, opts = {}) {
   const { approvalState } = await import('./media-review.mjs');
   const reg = opts.reg ?? loadRegistry(root);
   const pubs = reg.publications.filter((p) => p.exam === exam && p.work === packId && p.channel === 'youtube' && p.format === 'longform' && !p.variant);
+  if (pubs.some((p) => p.status === 'stopped')) return { ok: false, gated: true, reason: '停止済みの動画は再投入できません' };
+  for (const candidate of pubs) {
+    const duplicates = findDuplicateLongforms(root, reg, { candidateId: candidate.id });
+    if (duplicates.pairs.length) {
+      const pair = duplicates.pairs[0];
+      return { ok: false, gated: true, reason: `${pair.a} と ${pair.b} は台本 ${pair.matched}/${pair.total} 場面が一致。通常投入を停止し、旧版の扱いを確定して移行する` };
+    }
+  }
   const pub = pubs.find((p) => p.approval?.contentSha256);
   if (!pub) return { ok: true, gated: false, reason: null };
   const state = approvalState(root, pub, new Map(reg.media.map((m) => [m.id, m])));

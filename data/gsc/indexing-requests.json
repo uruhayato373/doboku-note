@@ -1,20 +1,20 @@
 {
   "schemaVersion": 1,
-  "runId": "2026-10-15T13-04-45Z",
-  "collectedAt": "2026-10-15T13:04:45.665Z",
+  "runId": "2026-10-18T01-30-06Z",
+  "collectedAt": "2026-10-18T01:30:06.580Z",
   "property": "sc-domain:doboku-note.com",
   "mode": "commit",
-  "scriptVersion": "5e66c9722",
+  "scriptVersion": "8f3dab54f",
   "filter": {
     "category": null,
     "group": null
   },
   "limit": 10,
-  "targetCount": 1,
+  "targetCount": 88,
   "items": [
     {
-      "slug": "/exam/pe-first-stage/primary/r05-basic",
-      "url": "https://doboku-note.com/exam/pe-first-stage/primary/r05-basic",
+      "slug": "/standards/hokkaido/local/part-01",
+      "url": "https://doboku-note.com/standards/hokkaido/local/part-01",
       "inspected": {
         "state": "indexed",
         "reason": null,
@@ -28,13 +28,200 @@
         "status": "already-indexed"
       },
       "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/accident-first-response",
+      "url": "https://doboku-note.com/practice/accident-first-response",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/public-works-bidding-methods",
+      "url": "https://doboku-note.com/practice/public-works-bidding-methods",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/public-works-delivery-methods",
+      "url": "https://doboku-note.com/practice/public-works-delivery-methods",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/reading-civil-drawings",
+      "url": "https://doboku-note.com/practice/reading-civil-drawings",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "URL が Google に認識されていません",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/ready-mixed-concrete-ordering",
+      "url": "https://doboku-note.com/practice/ready-mixed-concrete-ordering",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/site-wireless-communication",
+      "url": "https://doboku-note.com/practice/site-wireless-communication",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/special-concrete-selection",
+      "url": "https://doboku-note.com/practice/special-concrete-selection",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "URL が Google に認識されていません",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/practice/subcontract-instruction-boundary",
+      "url": "https://doboku-note.com/practice/subcontract-instruction-boundary",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/surveyor/primary/r04",
+      "url": "https://doboku-note.com/exam/surveyor/primary/r04",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "URL が Google に認識されていません",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/surveyor/primary/r06",
+      "url": "https://doboku-note.com/exam/surveyor/primary/r06",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/pe-construction/guide/infra-system-overseas",
+      "url": "https://doboku-note.com/exam/pe-construction/guide/infra-system-overseas",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
     }
   ],
-  "status": "no-requests",
+  "status": "ok",
   "summary": {
-    "inspected": 1,
-    "accepted": 0,
-    "alreadyIndexed": 1,
+    "inspected": 12,
+    "accepted": 10,
+    "alreadyIndexed": 2,
     "unreadable": 0
   }
 }

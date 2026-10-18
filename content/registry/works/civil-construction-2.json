@@ -14,6 +14,28 @@
       }
     },
     {
+      "id": "anzen-touan-gutaika",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-2/anzen-touan-gutaika",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-10-15",
+        "by": "video-content-qa"
+      }
+    },
+    {
+      "id": "anzen-touan-gutaika-kaitei",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-2/anzen-touan-gutaika-kaitei",
+      "qa": {
+        "avg": 2.67,
+        "blocks": 0,
+        "at": "2026-10-15",
+        "by": "video-content-qa"
+      }
+    },
+    {
       "id": "c2-anzen-excavation-p01",
       "kind": "ig-pack",
       "definition": "content/sns/instagram/civil-2/theme-packs/anzen-excavation/pack-01"
@@ -319,6 +341,17 @@
       }
     },
     {
+      "id": "hinshitsu-touan-gutaika",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-2/hinshitsu-touan-gutaika",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "by": "video-content-qa",
+        "at": "2026-10-16"
+      }
+    },
+    {
       "id": "keiken-2kyu-level",
       "kind": "video-pack",
       "definition": "content/sns/video-packs/civil-construction-2/keiken-2kyu-level",
@@ -338,6 +371,17 @@
         "blocks": 0,
         "at": "2026-09-01",
         "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "keiken-daizai-erabi",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-2/keiken-daizai-erabi",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "by": "video-content-qa",
+        "at": "2026-10-16"
       }
     },
     {
@@ -407,6 +451,17 @@
       }
     },
     {
+      "id": "kento-taio-kakiwake",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-2/kento-taio-kakiwake",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "by": "video-content-qa",
+        "at": "2026-10-16"
+      }
+    },
+    {
       "id": "kikinagashi-2kyu-matome",
       "kind": "video-pack",
       "definition": "content/sns/video-packs/civil-construction-2/kikinagashi-2kyu-matome",
@@ -415,6 +470,28 @@
         "blocks": 0,
         "at": "2026-09-01",
         "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "koji-gaiyo-seigou",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-2/koji-gaiyo-seigou",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "by": "video-content-qa",
+        "at": "2026-10-16"
+      }
+    },
+    {
+      "id": "kotei-touan-gutaika",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-2/kotei-touan-gutaika",
+      "qa": {
+        "avg": 2.83,
+        "blocks": 0,
+        "by": "video-content-qa",
+        "at": "2026-10-16"
       }
     },
     {
@@ -449,6 +526,17 @@
         "blocks": 0,
         "at": "2026-09-01",
         "by": "general-purpose (video-content-qa 代行・6軸)"
+      }
+    },
+    {
+      "id": "touan-teishutsu-check",
+      "kind": "video-pack",
+      "definition": "content/sns/video-packs/civil-construction-2/touan-teishutsu-check",
+      "qa": {
+        "avg": 3,
+        "blocks": 0,
+        "by": "video-content-qa",
+        "at": "2026-10-16"
       }
     },
     {
