@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { DataTable, Facet, FacetHead, FacetShell, StatusBadge, type DataTableRow, type FacetItem } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import { longformPlanHref } from '@/lib/content-plan-links';
-import { examLabel, FLAG_ORDER, loadItemList, matchingItemPublications, type ItemRow } from '@/lib/content-items';
+import { examLabel, FLAG_ORDER, itemPublicationGroups, loadItemList, matchingItemPublications, type ItemRow } from '@/lib/content-items';
 
 export const dynamic = 'force-dynamic';
 
@@ -63,29 +63,46 @@ export default async function ItemsPage({ searchParams }: { searchParams: Promis
       .sort((a, b) => (order ? order.indexOf(a[0]) - order.indexOf(b[0]) : a[0].localeCompare(b[0])))
       .map(([key, count]) => ({ key, label: label(key), count }));
 
-  const dataRows: DataTableRow[] = rows.map((r) => ({
-    id: `${r.exam}/${r.id}`,
-    values: {
-      cover: r.coverSrc ? 1 : 0,
-      title: r.title,
-      exam: examLabel(r.exam),
-      kind: r.format ? `${r.kind}・${r.format}` : r.kind,
-      flags: r.flags.length,
-    },
-    cells: {
-      cover: r.coverSrc ? (
-        <img src={r.coverSrc} alt="" width={96} loading="lazy" className="w-24 border" />
-      ) : (
-        <span className="text-xs text-muted-foreground">表紙なし</span>
-      ),
-      title: <Link href={r.href}>{r.title}</Link>,
-      flags: r.flags.length ? (
-        <span className="flex flex-wrap gap-1">
-          {r.flags.map((x) => <StatusBadge key={x} tone={flagTone(x)}>{x}</StatusBadge>)}
-        </span>
-      ) : '—',
-    },
-  }));
+  const dataRows: DataTableRow[] = rows.map((r) => {
+    const groups = itemPublicationGroups(publications(r));
+    return {
+      id: `${r.exam}/${r.id}`,
+      values: {
+        cover: r.coverSrc ? 1 : 0,
+        title: r.title,
+        exam: examLabel(r.exam),
+        kind: r.format ? `${r.kind}・${r.format}` : r.kind,
+        booking: groups.map((g) => `${g.channel} ${g.format} ${g.label} ${g.count}件 ${g.dateLabel}`).join(' '),
+        flags: r.flags.length,
+      },
+      cells: {
+        cover: r.coverSrc ? (
+          <img src={r.coverSrc} alt="" width={96} loading="lazy" className="w-24 border" />
+        ) : (
+          <span className="text-xs text-muted-foreground">表紙なし</span>
+        ),
+        title: <Link href={r.href}>{r.title}</Link>,
+        booking: groups.length ? (
+          <div className="space-y-2">
+            {groups.map((g) => (
+              <div key={g.key}>
+                <div className="flex flex-wrap items-center gap-1">
+                  <span className="text-xs text-muted-foreground">{g.channel} / {g.format}</span>
+                  <StatusBadge tone={g.tone}>{g.label}{g.count > 1 ? ` ${g.count}件` : ''}</StatusBadge>
+                </div>
+                <div className="text-xs text-muted-foreground">{g.dateLabel}</div>
+              </div>
+            ))}
+          </div>
+        ) : '公開予定なし',
+        flags: r.flags.length ? (
+          <span className="flex flex-wrap gap-1">
+            {r.flags.map((x) => <StatusBadge key={x} tone={flagTone(x)}>{x}</StatusBadge>)}
+          </span>
+        ) : '—',
+      },
+    };
+  });
 
   const publicationKeys = (r: ItemRow, param: 'c' | 's' | 'm') => new Set(publications(r, param)
     .map((p) => param === 'c' ? p.channel : param === 's' ? p.status : p.month ?? 'undated'));
@@ -109,12 +126,13 @@ export default async function ItemsPage({ searchParams }: { searchParams: Promis
       columns={[
         { key: 'cover', label: '表紙', sortable: false },
         { key: 'title', label: '題名', wrap: true },
+        { key: 'booking', label: '予約・公開（JST）', wrap: true },
         { key: 'exam', label: '資格' },
         { key: 'kind', label: '種類' },
         { key: 'flags', label: '印' },
       ]}
       rows={dataRows}
-      filter="題名・資格で絞り込み"
+      filter="題名・資格・予約状態で絞り込み"
       emptyText="この条件に該当する作品はありません。"
     />
   );
@@ -123,6 +141,7 @@ export default async function ItemsPage({ searchParams }: { searchParams: Promis
     <>
       <PageHead title="作品と公開" sub={`作品 ${counts.works} 件 · 公開 ${counts.publications} 件（表示中の作品 ${rows.length}）`} />
       <nav className="project-crumbs"><Link href={longformPlanHref({ e: e ?? undefined, m: m && m !== 'undated' ? m : undefined })}>通常動画の制作・公開管理</Link></nav>
+      <p className="text-xs text-muted-foreground">台帳の予約・公開状態と公開予定日時（JST）です。未予約は希望日時で、予約完了ではありません。絞り込みに一致する公開行だけを表示します。</p>
       <FacetShell main={main} rail={rail} />
     </>
   );
