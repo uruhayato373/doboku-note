@@ -1283,6 +1283,48 @@
       "reason": "参照と同じ人物が赤ペンと無地の白紙を自然な指・手首で保持し、紙に文字や線がなく、背景の透過と帽子・顔・手指・小物の切れがないことを確認した。",
       "reviewedAt": "2026-10-10T14:51:49.957Z"
     },
+    "media:civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/cover": {
+      "sha": "ba16defd11a2f673",
+      "verdict": "ok",
+      "reason": "1920×1080原寸と幅360pxで指定6文言の正確さ・判読性、人物と手指、対象資格と著者資格の区別、author.tsとの整合を確認し、下端10%（y972以降）に重要文字はない。",
+      "reviewedAt": "2026-10-15T12:28:58.880Z"
+    },
+    "media:civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/cta": {
+      "sha": "4a2124622b99d35b",
+      "verdict": "ok",
+      "reason": "1920×1080原寸と幅360pxで指定8文言の正確さ・判読性、自然な指差しと用紙保持、著者資格と完成答案集の商品内容の整合を確認し、下端10%（y972以降）に重要文字はない。",
+      "reviewedAt": "2026-10-15T12:28:58.881Z"
+    },
+    "media:civil-construction-2/anzen-touan-gutaika/youtube.longform/cover": {
+      "sha": "dc301708ac15a33e",
+      "verdict": "ok",
+      "reason": "1920×1080原寸と幅360pxで人物同一性、自然な手指と赤ペン・答案用紙の保持、指定5文言の正確さと判読性を確認し、下端10%（y=972以降）に重要文字はない。",
+      "reviewedAt": "2026-10-14T22:33:06.363Z"
+    },
+    "media:civil-construction-2/anzen-touan-gutaika/youtube.longform/cta": {
+      "sha": "e30cc205813f8316",
+      "verdict": "ok",
+      "reason": "1920×1080原寸と幅360pxで人物同一性、自然な指差しと答案用紙を持つ手、商品内容に一致する指定7文言の正確さと判読性を確認し、下端10%（y=972以降）に重要文字はない。",
+      "reviewedAt": "2026-10-14T22:33:06.363Z"
+    },
+    "media:civil-construction-2/anzen-touan-gutaika/youtube.longform/revision-cover": {
+      "sha": "054dd9e005160388",
+      "verdict": "ok",
+      "reason": "原寸・幅360pxで指定6文言、人物同一性、自然な手指、対象資格と著者肩書きの区別、author.tsとの整合を確認。文字下端約80.6%・赤い下線約84.1%で、必須の下端10%安全域を満たす。",
+      "reviewedAt": "2026-10-15T11:05:12.289Z"
+    },
+    "media:civil-construction-2/anzen-touan-gutaika/youtube.longform/revision-cta": {
+      "sha": "89748909f7120f87",
+      "verdict": "ok",
+      "reason": "原寸・幅360pxで指定8文言、人物同一性、自然な指差しと用紙保持、対象資格と著者肩書きの区別、author.tsとの整合を確認。文字下端約82.3%・黄色帯下端約83.5%で、必須の下端10%安全域を満たす。",
+      "reviewedAt": "2026-10-15T11:05:12.289Z"
+    },
+    "media:civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-001": {
+      "sha": "d6f17a6dc6ffe483",
+      "verdict": "ok",
+      "reason": "人物と手指に破綻がなく、「狭いヤード→人と重機が接近→動線を分ける」の図・矢印・例示表記が整合し、指定文言を幅360pxで判読でき、重要文字が下端10%より上に収まることを確認した。",
+      "reviewedAt": "2026-10-14T22:11:44.817Z"
+    },
     "media:civil-construction-2/character-10-a/x.post.t07/cover": {
       "sha": "7d9cdf3f06f2681d",
       "verdict": "ok",
@@ -1540,6 +1582,84 @@
       "verdict": "ok",
       "reason": "種別・構造: 橋脚基部を灰色の鋼板が全周で囲み、縦の溶接継目が見える。鋼板の上端に細い充填帯の線があり、下端はベースプレートとボルト・ナットでフーチングに固定されている。鋼板の上は元のコンクリート橋脚が続き、張出し梁の上に支承と橋桁が載る。本文の「周囲を鋼板で囲み、隙間にモルタルを充填し、基礎へ定着する」と矛盾しない。破綻: 文字・ロゴ・人物・溶けた部品・二重の部位は無い。灰色の充填帯がやや目立たない点は、教材として誤解を招くほどではない。",
       "reviewedAt": "2026-10-09T10:54:21.093Z"
+    },
+    "media:civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/body-reference": {
+      "sha": "b0295ab0d7e3e357",
+      "verdict": "ok",
+      "reason": "原寸・幅360pxで指定5文言、参照キャラとの同一性と自然な手指、ミキサ車の車輪・ドラム・車体の接続、運搬・待機から打込み時温度管理へ進む図意を確認し、実績や数値の創作と下端10%の重要文字はないが、下端22%確保の生成目標は未達。",
+      "reviewedAt": "2026-10-15T22:07:39.266Z"
+    },
+    "media:civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/cover": {
+      "sha": "6d461a7d29270911",
+      "verdict": "ok",
+      "reason": "原寸・幅360pxで指定6文言の正確さと判読性、参照キャラの顔・髪・眼鏡・ひげ・服装、赤ペンと用紙を持つ自然な手指を確認し、下端10%に重要文字はないが、下端20%確保の生成目標は未達。",
+      "reviewedAt": "2026-10-15T22:07:39.266Z"
+    },
+    "media:civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/cta": {
+      "sha": "4a2124622b99d35b",
+      "verdict": "ok",
+      "reason": "原寸・幅360pxで指定8文言の正確さと判読性、参照キャラとの同一性、自然な指差しと用紙保持、完成答案集への誘導内容を確認し、下端10%に重要文字はない。",
+      "reviewedAt": "2026-10-15T22:07:39.266Z"
+    },
+    "media:civil-construction-2/keiken-daizai-erabi/youtube.longform/cover": {
+      "sha": "88c9abd2531fa9bd",
+      "verdict": "ok",
+      "reason": "原寸・幅360pxで実行済みプロンプトの指定文言の正確さと判読性、資格表示の別配置、参照キャラとの同一性、用紙と赤ペンを持つ自然な両手を確認。文字切れや人体・背景機械の重大な破綻なし。下端20%（実行指示25%）無文字域は未達で、完成字幕との干渉は親工程で別検査。",
+      "reviewedAt": "2026-10-15T22:50:56.067Z"
+    },
+    "media:civil-construction-2/keiken-daizai-erabi/youtube.longform/cta": {
+      "sha": "4a2124622b99d35b",
+      "verdict": "ok",
+      "reason": "原寸・幅360pxで指定8文言の正確さと判読性、資格表示の別配置、参照キャラとの同一性、自然な指差しと用紙保持を確認し、文字切れや重大な背景破綻はなく下端10%にも重要文字はないが、CTA文字が高さ約82%まで達するため下20%の無文字域は未達。字幕干渉は完成映像で別確認。 同SHA256 4a2124622b99d35b3396c9d5764e066d5ac0d06891e368b481ca232189f88e2bの共通素材を再利用。",
+      "reviewedAt": "2026-10-15T22:49:45.231Z"
+    },
+    "media:civil-construction-2/kento-taio-kakiwake/youtube.longform/cover": {
+      "sha": "65a2fc75505a1b0b",
+      "verdict": "ok",
+      "reason": "原寸・幅360pxで実行済みプロンプトの指定文言の正確さと判読性、資格表示の別配置、参照キャラとの同一性、用紙と赤ペンを持つ自然な両手を確認。文字切れや人体・背景機械の重大な破綻なし。下端20%（実行指示25%）無文字域は未達で、完成字幕との干渉は親工程で別検査。",
+      "reviewedAt": "2026-10-15T22:50:56.068Z"
+    },
+    "media:civil-construction-2/kento-taio-kakiwake/youtube.longform/cta": {
+      "sha": "4a2124622b99d35b",
+      "verdict": "ok",
+      "reason": "原寸・幅360pxで指定8文言の正確さと判読性、資格表示の別配置、参照キャラとの同一性、自然な指差しと用紙保持を確認し、文字切れや重大な背景破綻はなく下端10%にも重要文字はないが、CTA文字が高さ約82%まで達するため下20%の無文字域は未達。字幕干渉は完成映像で別確認。 同SHA256 4a2124622b99d35b3396c9d5764e066d5ac0d06891e368b481ca232189f88e2bの共通素材を再利用。",
+      "reviewedAt": "2026-10-15T22:49:45.231Z"
+    },
+    "media:civil-construction-2/koji-gaiyo-seigou/youtube.longform/cover": {
+      "sha": "0ab5a456662b1bc4",
+      "verdict": "ok",
+      "reason": "原寸・幅360pxで指定6文言の正確さと判読性、資格表示の別配置、参照キャラとの同一性を確認。手は用紙を持つ左右2つだけで余分な手や腕・文字切れ・背景機械の重大な破綻はない。下20%の無文字域は未達。字幕干渉は完成映像で別確認。",
+      "reviewedAt": "2026-10-15T22:49:45.231Z"
+    },
+    "media:civil-construction-2/koji-gaiyo-seigou/youtube.longform/cta": {
+      "sha": "4a2124622b99d35b",
+      "verdict": "ok",
+      "reason": "原寸・幅360pxで指定8文言の正確さと判読性、資格表示の別配置、参照キャラとの同一性、自然な指差しと用紙保持を確認し、文字切れや重大な背景破綻はなく下端10%にも重要文字はないが、CTA文字が高さ約82%まで達するため下20%の無文字域は未達。字幕干渉は完成映像で別確認。 同SHA256 4a2124622b99d35b3396c9d5764e066d5ac0d06891e368b481ca232189f88e2bの共通素材を再利用。",
+      "reviewedAt": "2026-10-15T22:49:45.231Z"
+    },
+    "media:civil-construction-2/kotei-touan-gutaika/youtube.longform/cover": {
+      "sha": "e5cae60535b2cdf9",
+      "verdict": "ok",
+      "reason": "原寸・幅360pxで指定6文言の正確さと判読性、対象資格と著者資格の別配置、参照キャラとの同一性、工程表・赤ペンを持つ自然な両手を確認。文字切れや背景機械の重大な破綻なし。下20%の無文字域は未達。完成映像では親が字幕と主要文字の干渉なしを確認。",
+      "reviewedAt": "2026-10-15T22:49:45.230Z"
+    },
+    "media:civil-construction-2/kotei-touan-gutaika/youtube.longform/cta": {
+      "sha": "4a2124622b99d35b",
+      "verdict": "ok",
+      "reason": "原寸・幅360pxで指定8文言の正確さと判読性、資格表示の別配置、参照キャラとの同一性、自然な指差しと用紙保持を確認し、文字切れや重大な背景破綻はなく下端10%にも重要文字はないが、CTA文字が高さ約82%まで達するため下20%の無文字域は未達。字幕干渉は完成映像で別確認。 同SHA256 4a2124622b99d35b3396c9d5764e066d5ac0d06891e368b481ca232189f88e2bの共通素材を再利用。",
+      "reviewedAt": "2026-10-15T22:49:45.231Z"
+    },
+    "media:civil-construction-2/touan-teishutsu-check/youtube.longform/cover": {
+      "sha": "b7b1ad72d2d9a8bd",
+      "verdict": "ok",
+      "reason": "原寸・幅360pxで実行済みプロンプトの指定文言の正確さと判読性、資格表示の別配置、参照キャラとの同一性、用紙と赤ペンを持つ自然な両手を確認。文字切れや人体・背景機械の重大な破綻なし。下端20%（実行指示25%）無文字域は未達で、完成字幕との干渉は親工程で別検査。",
+      "reviewedAt": "2026-10-15T22:50:56.068Z"
+    },
+    "media:civil-construction-2/touan-teishutsu-check/youtube.longform/cta": {
+      "sha": "4a2124622b99d35b",
+      "verdict": "ok",
+      "reason": "原寸・幅360pxで指定8文言の正確さと判読性、資格表示の別配置、参照キャラとの同一性、自然な指差しと用紙保持を確認し、文字切れや重大な背景破綻はなく下端10%にも重要文字はないが、CTA文字が高さ約82%まで達するため下20%の無文字域は未達。字幕干渉は完成映像で別確認。 同SHA256 4a2124622b99d35b3396c9d5764e066d5ac0d06891e368b481ca232189f88e2bの共通素材を再利用。",
+      "reviewedAt": "2026-10-15T22:49:45.231Z"
     }
   }
 }
