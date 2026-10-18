@@ -15,6 +15,7 @@ import { spawn, spawnSync } from 'node:child_process';
 import { writeFileSync, mkdirSync, existsSync, renameSync, mkdtempSync, rmSync } from 'node:fs';
 import { dirname, join, resolve, isAbsolute } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import sharp from 'sharp';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 // .claude/skills/social/yt-shorts-create/scripts/lib/ → .claude/skills/conversion/ogp-create/assets/fonts/
@@ -198,11 +199,24 @@ export async function composeStaticSlidesVideo({ pngPaths, wavPaths, assPath, ou
   // 各場面を個別に30fpsへ丸めると端数が累積する。画像は絶対時刻を持つ1入力、
   // 音声は別のconcatにし、字幕と同じWAV実尺の時計に合わせる。
   const scratch = mkdtempSync(join(dirname(outPath), '.slides-'));
+  // RGB/RGBA混在でconcat入力のフィルタが再初期化されると、fpsが保持中の
+  // 冒頭フレームを失う。画素は維持し、作業用PNGの色形式だけ統一する。
+  const normalizedPaths = [];
+  try {
+    for (const [i, path] of pngPaths.entries()) {
+      const normalized = join(scratch, `${i}.png`);
+      await sharp(path).toColourspace('srgb').ensureAlpha().png().toFile(normalized);
+      normalizedPaths.push(normalized);
+    }
+  } catch (error) {
+    rmSync(scratch, { recursive: true, force: true });
+    throw error;
+  }
   const imageList = join(scratch, 'images.ffconcat');
   const quote = path => resolve(path).replace(/'/g, "'\\''");
-  writeFileSync(imageList, 'ffconcat version 1.0\n' + pngPaths.map((path, i) =>
+  writeFileSync(imageList, 'ffconcat version 1.0\n' + normalizedPaths.map((path, i) =>
     `file '${quote(path)}'\noption framerate 30\nduration ${durations[i]}\n`).join('')
-    + `file '${quote(pngPaths.at(-1))}'\noption framerate 30\n`);
+    + `file '${quote(normalizedPaths.at(-1))}'\noption framerate 30\n`);
   const args = ['-y', '-threads', '1', '-f', 'concat', '-safe', '0', '-i', imageList];
   for (const wav of wavPaths) args.push('-i', wav);
   const filters = wavPaths.map((_, i) => `[${i + 1}:a]aresample=async=1:first_pts=0[a${i}]`);

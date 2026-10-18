@@ -118,7 +118,7 @@ export const CHECKS = [
   { id: 'agent-config', npm: 'check-agent-config', timeout: 30_000, ci: true, note: '.claude/config/ の JSON（認証の許可リスト・CI の書き込み許可・品質ゲートの基準と許可リスト）がすべて型（scripts/lib/dataset-schemas-agent-config.mjs）に合い、型の無い JSON が無いか（DN-0524・案B。壊れるとログインや書き戻しが黙って止まる）' },
   { id: 'admin-ui-debt', npm: 'check-admin-ui-debt', timeout: 30_000, ci: true, note: '管理画面のページごとの生 card クラスとインライン style をラチェット（増えたら落ちる・新規ページは 0）。shadcn 部品へ移したら --update で下げる（DN-0432）' },
   { id: 'shadcn-parity', npm: 'check-shadcn-parity', timeout: 30_000, ci: true, note: '管理画面の UI 部品（components/ui）が shadcn/ui 公式（.claude/config/shadcn-reference・コミット済みの保存物）と同じクラスか。差は shadcn-parity-allow.json に理由付きで登録したものだけ。ページでの Badge/Button/TabsTrigger の大きさの上書きも止める（DN-0432）' },
-  { id: 'generated-indexes', npm: 'check-generated-indexes', timeout: 180_000, ci: true, note: 'refresh-indexes の生成物（src/config の索引・人気記事・frequent-topics・演習データ public/quiz）がコミットと一致。MDX 追加時の回し忘れを止める（2026-10-02: 演習データだけ refresh-indexes に無く、解説 2 問が古いまま配信されていた）' },
+  { id: 'generated-indexes', npm: 'check-generated-indexes', timeout: 180_000, ci: true, serial: true, note: 'refresh-indexes の生成物（src/config の索引・人気記事・frequent-topics・演習データ public/quiz）がコミットと一致。MDX 追加時の回し忘れを止める（2026-10-02: 演習データだけ refresh-indexes に無く、解説 2 問が古いまま配信されていた）' },
   { id: 'memory', npm: 'check-memory', timeout: 30_000, ci: true, note: 'エージェントの記憶（.claude/memory）の frontmatter・名前重複・索引の網羅と読み込み上限（200 行 / 25KB）' },
   { id: 'business-direction', npm: 'check-business-direction', timeout: 30_000, ci: true, note: '資格別事業方針・計測とレビュー履歴の整合' },
   // ── ci:true 厳格ゲート ──
@@ -152,7 +152,7 @@ export const CHECKS = [
   // 動画パック（DN-0110 Phase 0・2026-08-28 追加）。Phase 1 未着手（packs root 不在）は明示して exit 0、
   // root があるのに 0 件は exit 2（検査不成立）。チェッカー自体の健全性は unit-tests の fixture が担保。
   { id: 'video-content', npm: 'check-video-content', timeout: 60_000, ci: true, note: `動画パックの manifest/sourceRef 漏洩/CTA・UTM/storyboard/逐語転用/バイナリ混入/status 整合（真実源 video-content-policy.md §8 ＋ ${datasetPath('config.video-content')}）` },
-  { id: 'content-registry', npm: 'check-content-registry', timeout: 60_000, ci: true, note: 'コンテンツ台帳（content/registry）の検査 R01〜R10（content-registry.md）。0 件・ID・参照・件数・Drive の sha・状態と承認ハッシュ・外部 ID・切り替え前のチャネルが今の台帳と一致するか。結果は PR の差分だけで決まる' },
+  { id: 'content-registry', npm: 'check-content-registry', timeout: 60_000, ci: true, note: 'コンテンツ台帳（content/registry）の検査 R01〜R11（content-registry.md）。0 件・ID・参照・件数・Drive の sha・状態と承認ハッシュ・外部 ID・通常動画の台本重複・切り替え前のチャネルが今の台帳と一致するか。結果は PR の差分だけで決まる' },
   { id: 'registry-due', npm: 'check-registry-due', timeout: 30_000, ci: false, ops: true, note: '予約のまま公開の予定を猶予より過ぎた公開（壁時計依存なので ops）。読み手＝日次 ops-audit の automation-failure Issue と /weekly-review。照合（registry-reconcile・P2）が公開へ進めるまでの遅れを見張る' },
   { id: 'instagram-reels', npm: 'check-instagram-reels', timeout: 60_000, ci: true, note: '動画パックから派生する Instagram Reels の対象数・資格別被覆・媒体設定を固定' },
   { id: 'youtube-shorts', npm: 'check-youtube-shorts', timeout: 60_000, ci: true, note: '112動画パック×2本のShortsメタデータ、タイトル/UTM/著者表記/scene/通常動画後の公開枠と1日3本上限を固定' },

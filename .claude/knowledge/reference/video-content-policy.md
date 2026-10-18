@@ -99,12 +99,20 @@ Shortsのプラットフォーム上限と、doboku-noteが採用する推奨尺
 
 16:9通常動画のレンダラーは `npm run render-longform`（`scripts/render-longform.mjs`・純粋ロジックは `scripts/lib/longform-render.mjs`）。scene の視覚要素は additive フィールド `visual: { kind: 'cover'|'points'|'figure'|'compare'|'sheet', heading, items[], src?, flow? }` で持ち（compare・sheet と任意フィールドは下の表）、試験色は exam-palette（note-cover-tokens.json）を解決する。`figure` はリポジトリ内の既存SVG/PNG/WebP/JPEGだけを`src`で参照し、本文の図解を1920×1080へ再利用する。出力は `.tmp/video-render/{packId}/`（PNG・WAV・ASS・render-manifest.json・mp4）で、パックディレクトリと Git にはバイナリを書かない。VOICEVOX/ffmpeg の無い環境は `--skip-tts` で PNG/ASS まで生成し、mp4 は VOICEVOX と ffmpeg/ffprobe を用意した Windows / Mac 等で同コマンドを完走させる。現在、動画生成用の GitHub Actions ワークフローは無い。
 
+本文までCodexのPOP画像で制作するパックは、storyboardの `imageDesign: {mode: "codex-pop", scope: "all-body", revision: "<改訂キー>"}` と、`pop-image.json.activeBodyRevision` を同じキーにする。`revisions[改訂キー].images` に表紙を除く全場面（締めも含む）の `sceneId`・`inputSha256`（`popSceneHash`で語り/コピー/出典を結合）・`generation`（tool=`image_gen`、全文prompt、references、原本output）・採用 `output`（path/sha256/width/height）を残す。原本と採用PNGはDriveのcontent-mediaへ保存し、参照パスはリポジトリ相対とする。
+
+表紙も全面POPへ更新したパックは `imageDesign.coverRevision` と `pop-image.json.activeCoverRevision` を同じ改訂キーにする。表紙改訂の `version`=`pop-poster-v3`・Codex生成記録・採用 `output` を保存し、`cover-design.json` のdesign・採用path/SHAとの一致をB20で検査する。旧表紙へ戻した場合や改訂指定の片側削除は停止する。
+
+`check-video-content` のB20が全場面・生成記録・原稿hash・宣言寸法1920×1080を検査する。CIでは画像実体の検査とは呼ばない。`render-longform` は採用PNGの実体SHA・寸法を検査し、resumeでも指定画像をそのまま使う。欠落時は停止し、従来の文字カードや `visual.art`・CTAへ戻さない。`--skip-png` は不可。render-manifestの各場面には `pngSha256` と本文の `generatedImage` を保存する。機械検査は意匠・生成文字の正しさ・字幕重なりの目視確認を代替しない。
+
+
 通常動画・パック派生Shortsの標準説明画面は `scripts/lib/video-explanation.mjs` を共用する。通常動画の `visual.art` 指定場面は `scripts/lib/video-editorial-art.mjs` で1920×1080のSVGからPNGへ描画する。構図は `art.type` で指定し、承認済み表紙があれば表紙を優先する。口頭対策の図は `five-management`・`decision`・`learning-loop`・`influence` を使え、後3種は `items` が4件必須。技術士（`pe-*`）は資格テーマの配色・資格名を使う。`art.source` は実在するサイト図解を動画向けに再構成する根拠であり、元SVGの直接埋め込みではない。`--resume` でも `visual.art` のPNGは再生成する。白背景に試験色の見出し・STEPラベル・淡い要点カードを配置し、文字量に応じて文字サイズと行高を配分する。4項目以上の横長画面は複数列にし、字幕領域を空ける。`figure` は元図に基づく短い `flow[]` を指定すると編集可能な縦フローで表示できる。
 
 16:9 の scene は次の任意フィールドを持てる（2026-10-08 追加。指定しない既存パックの画面は、下の改行規則を除いて変わらない）。
 
 | フィールド | 中身 | 使い所 |
 |---|---|---|
+| `subtitleMarginV` | 1〜1024の整数（1080px画面の下端からの字幕余白）。省略時は既存の56px | 表紙内の制作表記などと字幕が重なる場面だけ上へ移す。本文場面には引き継がない |
 | `visual.character` | `{pose, frame?, say?}`。`pose` は `config/character-poses.json` の `quality: ready` だけ、`frame` 既定は `waist`、`say` は吹き出し（12字×2行目安・`\n` で改行） | 右列に先生を立たせ、場面の役割を一言で言わせる |
 | `visual.reveal` | 先頭から表示する項目数（points・figure の items）。配置は全項目分で固定 | 1場面を約10秒の段階表示に分ける |
 | `visual.focus` | 強調する項目（compare は行）の添字。他は薄く表示。sheet は行の `state: 'focus'` を使う | いま話している項目を示す |
@@ -279,6 +287,8 @@ APIへ非公開アップロード済みで関連動画設定待ちのShortsは `
 
 ### 既存動画の新版への移行
 
+改訂版を別作品IDで作っても、新規動画として旧版と並行投入しない。`check-content-registry` の R11 と、R2 stage/API投入前の `finalApprovalGate` が同資格・同アカウントの通常動画の台本を比較する。両台本の80%以上・5場面以上・200字以上が一致すれば停止する。作品名・タイトル・外部IDが違っても検出し、共通の短い挨拶や大半が別内容の総集編は対象にしない。旧版を残すか削除するかは制作計画で決め、移行の実体確認後に旧公開行を `npm run registry -- stop --pub <旧公開ID> --reason superseded` で停止する。履歴行と共用素材は消さない。停止済みの旧版は通常投入の関門も通らない。
+
 動画ファイルは同じYouTube URLのまま差し替えられない。再アップロードと旧版削除をユーザーが承認した場合も、新版の処理完了・再生・サムネ・公開範囲/予約日時・Shortsの関連動画を確認してから旧版を削除する。旧URLの視聴数やコメントは新版に移らない。
 
 `scripts/prepare-youtube-migration.mjs` は完全なチャンネル一覧と検証済みレンダーから移行計画を作る。`--inventory` / `--progress` / `--verification` にローカルJSONを渡し、既定は計画生成のみ、`--commit` はSHA-256付きの動画・サムネ・計画をprivate R2へ一時転送する。公開リポジトリへ非公開動画IDや旧新対応表を追加しない。恒久的な生成物保管先は引き続きDrive。
@@ -311,7 +321,7 @@ APIへ非公開アップロード済みで関連動画設定待ちのShortsは `
 
 撤去完了の検査は `node scripts/check-youtube-delivery.mjs --require-deleted`。private R2の固定planと最新delivery-stateを照合し、全対象の削除済み記録がそろえばexit 0、残件はexit 1、ゼロ件・plan不一致・dry-run・削除数欠測・36時間超の古い記録・認証不可はexit 2とする。オフラインでは `--state <private-state.json> --plan <private-plan.json>` を渡せる。Gitの集計スナップショットだけから全件撤去とは判定しない。
 
-**公開実体の照合**は 2 本立てで、台帳の予約→公開は別の照合 `registry-reconcile`（毎日・証拠つきで published へ進める・[content-registry.md](content-registry.md)「照合」）が書く。実査 `verify-video-publication`（CI 週次＝`verify-yt-status.yml` に同居・creds 必須）が videos.list で削除/非公開・概要欄の `utm_campaign={packId}`/`utm_source=youtube` 欠落・公開済み Short の `relatedVideoId` 未設定を検出し `.claude/state/video-publication-verify.json` へ記録する。**creds 不足・API 失敗は 記録を書かずに exit 2（検査不成立）**——「creds が無い」を「異常なし」と記録すると以後ずっと緑が出て事故が埋もれるため。ゲート `check-video-publication`（オフライン・quality:audit ci:true）はその記録の有無・網羅・孤児・報告済みドリフトを見る。記録の古さ（台帳の failDays・既定 14 日）は壁時計依存なので `--freshness` に分け、quality-audit の ops（日次）が見る（2026-10-11）。**published なのに一度も照合していない**状態が最も危険なので V01 で赤にする。対象 0 件（公開前）は件数を明示して PASS（異常 0 件と混同しない）。是正は人が判断し、`verify-video-publication` は台帳を書き戻さない。
+**公開実体の照合**は 2 本立てで、台帳の予約→公開は別の照合 `registry-reconcile`（毎日・証拠つきで published へ進める・[content-registry.md](content-registry.md)「照合」）が書く。実査 `verify-video-publication`（CI 週次＝`verify-yt-status.yml` に同居・creds 必須）が videos.list で削除/非公開・概要欄の `utm_campaign={packId}`/`utm_source=youtube` 欠落・公開済み Short の `relatedVideoId` 未設定を検出し `.claude/state/video-publication-verify.json` へ記録する。**creds 不足・API 失敗は 記録を書かずに exit 2（検査不成立）**——「creds が無い」を「異常なし」と記録すると以後ずっと緑が出て事故が埋もれるため。ゲート `check-video-publication`（オフライン・quality:audit ci:true）はその記録の有無・網羅・孤児・報告済みドリフトを見る。記録の古さ（台帳の failDays・既定 14 日）は壁時計依存なので `--freshness` に分け、quality-audit の ops（日次）が見る（2026-10-11）。**published なのに一度も照合していない**状態が最も危険なので V01 で赤にする。対象 0 件（公開前）は件数を明示して PASS（異常 0 件と混同しない）。同じ `videoId` で台帳を明示停止した旧版の過去記録は孤児にせず、現役の照合数と分けて表示する。外部ID不一致・台帳からの削除・停止以外への後退は引き続きV04で止め、現役動画のドリフトも除外しない。是正は人が判断し、`verify-video-publication` は台帳を書き戻さない。
 
 - ソース未取得と0件を区別
 - 企画・派生・公開・計測を同じ行で追える

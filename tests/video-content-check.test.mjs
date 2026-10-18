@@ -46,6 +46,19 @@ test('valid fixture: FAIL 0 件・検査対象数が実検査数と一致', () =
   assert.deepEqual(fails, [], JSON.stringify(fails, null, 2));
 });
 
+test('本文POP指定なのに生成記録が無いパックを既存CIゲートB20で止める', t => {
+  const root = mkdtempSync(join(tmpdir(), 'video-pop-check-'));
+  t.after(() => rmSync(root, { recursive: true, force: true }));
+  cpSync(join(FIXTURES, 'valid'), root, { recursive: true });
+  const file = join(root, config.paths.packsRoot, 'civil-construction-1', 'demo-keiken-overview', 'storyboard.json');
+  const board = JSON.parse(readFileSync(file, 'utf8'));
+  board.imageDesign = { mode: 'codex-pop', scope: 'all-body', revision: 'missing' };
+  writeFileSync(file, JSON.stringify(board));
+  const result = checkAll(root, { config, state: stateOf(root) });
+  assert.equal(result.checkedCount, 1);
+  assert.ok(codesOf(result).has('B20'));
+});
+
 test('invalid fixture: 各違反コードが検出される', () => {
   const r = checkAll(join(FIXTURES, 'invalid'), { config, state: stateOf(join(FIXTURES, 'invalid')) });
   assert.equal(r.packCount, 4);

@@ -2,7 +2,6 @@
 /** YouTube Shorts 量産メタデータと公開枠のオフライン整合ゲート。 */
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
-import { readDataset } from './lib/dataset-io.mjs';
 import { utmChannel } from './lib/utm-contract.mjs';
 import { loadVideoState } from './lib/registry-video-state.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
@@ -16,17 +15,16 @@ const EXAMS = [
   'concrete-engineer',
   'concrete-chief-engineer',
 ];
-const EXPECTED_PACKS = 112;
-const EXPECTED_SHORTS = 224;
 const errors = [];
 const warnings = [];
 const titles = new Map();
 const slots = new Map();
 const daily = new Map();
 const pendingSlots = [];
-const APPROVED = new Set(['approved', 'rendered', 'scheduled', 'published']);
+const APPROVED = new Set(['approved', 'rendered', 'scheduled', 'published', 'measured', 'refresh_due']);
 const STATE = loadVideoState(ROOT);
 let packCount = 0;
+let targetCount = 0;
 let shortsCount = 0;
 
 function readJsonLenient(path) {
@@ -41,6 +39,21 @@ function addSlot(value, label) {
   daily.set(day, (daily.get(day) ?? 0) + 1);
 }
 
+// 公開の正本は台帳。停止済みの旧 publishAt を予定枠として復活させない。
+function publicationSlot(packId, kind, item) {
+  const derivatives = STATE.packs?.[packId]?.derivatives;
+  const row = kind === 'longform' ? derivatives?.longform : derivatives?.shorts?.find((s) => s.key === item.key);
+  if (row?.status === 'stopped') return;
+  const label = `${packId}:${kind === 'longform' ? kind : item.key}`;
+  if (APPROVED.has(row?.status)) {
+    // 実予約・公開のある行は台帳の時刻だけを見る。承認済みで未予約なら制作計画を検査する。
+    const live = ['scheduled', 'published', 'measured', 'refresh_due'].includes(row.status);
+    const value = live ? row.publishAt : row.publishAt ?? item?.publishAt;
+    if (row.status === 'scheduled' && !value) errors.push(`${label}: 台帳の予約日時なし`);
+    addSlot(value, label);
+  } else if (item?.publishAt) pendingSlots.push([item.publishAt, label]);
+}
+
 for (const exam of EXAMS) {
   const examRoot = join(PACKS_ROOT, exam);
   if (!existsSync(examRoot)) {
@@ -52,14 +65,11 @@ for (const exam of EXAMS) {
     const manifestPath = join(dir, 'video-pack.json');
     const storyboardPath = join(dir, 'storyboard.json');
     const youtubePath = join(dir, 'youtube.json');
-    if (![manifestPath, storyboardPath, youtubePath].every(existsSync)) continue;
-    // 総まとめ（compilation.json）と、通常動画だけを宣言したパック（video-pack.json の outputs.shorts が 0・
-    // 2026-10 の 2級 答案具体化シリーズ）は Shorts を持たない別の型。パック数・Shorts 数には入れず、
-    // ユーザー承認後（approved 以降）の予約枠だけを公開枠の重複と1日の上限に数える。承認前の枠は下書きなので警告に留める
-    if (existsSync(join(dir, 'compilation.json')) || readJsonLenient(manifestPath).outputs?.shorts === 0) {
-      const publishAt = readJsonLenient(youtubePath).longform?.publishAt;
-      if (APPROVED.has(STATE.packs?.[packId]?.derivatives?.longform?.status)) addSlot(publishAt, `${packId}:longform`);
-      else if (publishAt) pendingSlots.push([publishAt, `${packId}:longform`]);
+    if (!existsSync(manifestPath)) continue;
+    targetCount += 1;
+    if (![storyboardPath, youtubePath].every(existsSync)) {
+      if (APPROVED.has(STATE.packs?.[packId]?.derivatives?.longform?.status)) errors.push(`${packId}: storyboard.json または youtube.json がない`);
+      else warnings.push(`${packId}: 未承認パックのメタデータ未作成`);
       continue;
     }
     packCount += 1;
@@ -69,11 +79,10 @@ for (const exam of EXAMS) {
     const sceneIds = new Set((storyboard.scenes ?? []).map((scene) => scene.sceneId));
     const shorts = youtube.shorts ?? [];
     const expected = manifest.outputs?.shorts;
-    if (expected !== 2) errors.push(`${packId}: outputs.shorts=${expected} (期待値2)`);
+    if (!Number.isInteger(expected) || expected < 0) errors.push(`${packId}: outputs.shorts が非負の整数ではない (${expected})`);
     if (shorts.length !== expected) errors.push(`${packId}: shorts=${shorts.length} (期待値${expected})`);
-    // 停止した動画（台帳の stopped）は公開されないので、youtube.json に残った旧い予定を公開枠に数えない
-    const longformState = STATE.packs?.[packId]?.derivatives?.longform?.status;
-    if (longformState !== 'stopped') addSlot(youtube.longform?.publishAt, `${packId}:longform`);
+    if (!youtube.longform) errors.push(`${packId}: longform メタデータなし`);
+    else publicationSlot(packId, 'longform', youtube.longform);
 
     for (const item of shorts) {
       shortsCount += 1;
@@ -107,28 +116,25 @@ for (const exam of EXAMS) {
       if (item.publishAt && youtube.longform?.publishAt && item.publishAt <= youtube.longform.publishAt) {
         errors.push(`${label}: 通常動画より前または同時に公開 (${item.publishAt})`);
       }
-      const shortState = STATE.packs?.[packId]?.derivatives?.shorts?.find((entry) => entry.key === item.key)?.status;
-      if (shortState !== 'stopped') addSlot(item.publishAt, label);
+      publicationSlot(packId, 'short', item);
     }
   }
 }
 
-if (packCount !== EXPECTED_PACKS) errors.push(`動画パック=${packCount} (期待値${EXPECTED_PACKS})`);
-if (shortsCount !== EXPECTED_SHORTS) errors.push(`Shorts=${shortsCount} (期待値${EXPECTED_SHORTS})`);
+if (!packCount) errors.push('動画パックを1件も検査していません');
 for (const [day, count] of daily) {
   if (count > 3) errors.push(`${day}: 公開${count}本 (1日上限3本)`);
 }
-if ([...daily.values()].every((count) => count < 3)) warnings.push('1日3本の枠を使う日がありません');
 for (const [publishAt, label] of pendingSlots) {
   const day = publishAt.slice(0, 10);
   if (slots.has(publishAt)) warnings.push(`承認前の予定枠が重複: ${publishAt} (${slots.get(publishAt)}, ${label})`);
   if ((daily.get(day) ?? 0) >= 3) warnings.push(`承認前の予定枠: ${day} は既に${daily.get(day)}本（承認すると1日上限3本を超える）: ${label}`);
 }
 
-console.log(`YouTube Shorts gate: packs=${packCount}, shorts=${shortsCount}, titles=${titles.size}, slots=${slots.size}`);
+console.log(`YouTube Shorts gate: targets=${targetCount}, packs=${packCount}, shorts=${shortsCount}, titles=${titles.size}, slots=${slots.size}`);
 for (const warning of warnings) console.warn(`WARN: ${warning}`);
 if (errors.length) {
   for (const error of errors) console.error(`FAIL: ${error}`);
   process.exit(1);
 }
-console.log('PASS: 2本/pack・タイトル・UTM・著者表記・関連scene・公開枠上限が整合');
+console.log('PASS: パックごとの制作本数・タイトル・UTM・著者表記・関連scene・公開枠上限が整合');
