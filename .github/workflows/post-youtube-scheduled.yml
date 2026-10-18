@@ -10,7 +10,7 @@ on:
         type: boolean
         default: false
       pack_publish:
-        description: "新規の承認済み動画パック1本だけを予約する: <packId>:<longform|thumbnail>[:PUBLISH]（PUBLISH なしは試運転・空なら日次キュー）"
+        description: "新規の承認済み動画パック1本だけを予約する: <packId>:<longform|thumbnail|metadata>[:PUBLISH]（metadata は公開済み・予約済みの題名・概要欄・開示の同期。PUBLISH なしは試運転・空なら日次キュー）"
         type: string
         default: ""
 
@@ -86,8 +86,8 @@ jobs:
         run: |
           set -euo pipefail
           IFS=':' read -r pack_id phase confirm <<< "$PACK_PUBLISH"
-          if ! [[ "$pack_id" =~ ^[a-z0-9][a-z0-9-]{2,80}$ ]] || { [ "$phase" != "longform" ] && [ "$phase" != "thumbnail" ]; }; then
-            echo "::error::pack_publish=<packId>:<longform|thumbnail>[:PUBLISH] が必要です"
+          if ! [[ "$pack_id" =~ ^[a-z0-9][a-z0-9-]{2,80}$ ]] || { [ "$phase" != "longform" ] && [ "$phase" != "thumbnail" ] && [ "$phase" != "metadata" ]; }; then
+            echo "::error::pack_publish=<packId>:<longform|thumbnail|metadata>[:PUBLISH] が必要です"
             exit 1
           fi
           args=(--pack-id "$pack_id" --phase "$phase")
