@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { DataTable, Facet, FacetHead, FacetShell, StatusBadge, type DataTableRow, type FacetItem } from '@/components/admin';
 import { PageHead } from '@/components/ui';
 import { longformPlanHref } from '@/lib/content-plan-links';
-import { examLabel, FLAG_ORDER, loadItemList, type ItemRow } from '@/lib/content-items';
+import { examLabel, FLAG_ORDER, loadItemList, matchingItemPublications, type ItemRow } from '@/lib/content-items';
 
 export const dynamic = 'force-dynamic';
 
@@ -11,7 +11,7 @@ export const dynamic = 'force-dynamic';
  * 絞り込みは searchParams だけ（リンクで動く）。行の組み立ては scripts/lib/media-review.mjs の listView。
  */
 
-type Query = { e?: string; c?: string; s?: string; f?: string };
+type Query = { e?: string; c?: string; s?: string; f?: string; m?: string };
 
 const flagTone = (f: string) => (f === '要復元' ? 'bad' : f === '承認待ち' ? 'info' : 'warn');
 
@@ -22,8 +22,6 @@ function href(now: Query, patch: Query): string {
   const s = params.toString();
   return s ? `/content/items?${s}` : '/content/items';
 }
-
-const statusesOf = (r: ItemRow) => new Set(Object.values(r.byChannel).flatMap((m) => Object.keys(m)));
 
 function facetItems(now: Query, param: keyof Query, active: string | null, total: number, items: { key: string; label: string; count: number }[]): FacetItem[] {
   return [
@@ -39,13 +37,18 @@ export default async function ItemsPage({ searchParams }: { searchParams: Promis
   const c = one(sp.c);
   const s = one(sp.s);
   const f = one(sp.f);
-  const now: Query = { e: e ?? undefined, c: c ?? undefined, s: s ?? undefined, f: f ?? undefined };
+  const m = one(sp.m);
+  const now: Query = { e: e ?? undefined, c: c ?? undefined, s: s ?? undefined, f: f ?? undefined, m: m ?? undefined };
 
   const { rows: all, counts } = loadItemList();
+  const publications = (r: ItemRow, skip?: keyof Query): ItemRow['publications'] => matchingItemPublications(r, {
+    channel: skip === 'c' ? undefined : c,
+    status: skip === 's' ? undefined : s,
+    month: skip === 'm' ? undefined : m,
+  });
   const match = (r: ItemRow, skip?: keyof Query) =>
     (skip === 'e' || !e || r.exam === e) &&
-    (skip === 'c' || !c || r.channels.includes(c)) &&
-    (skip === 's' || !s || statusesOf(r).has(s)) &&
+    (((skip === 'c' || !c) && (skip === 's' || !s) && (skip === 'm' || !m)) || publications(r, skip).length > 0) &&
     (skip === 'f' || !f || r.flags.includes(f));
   const rows = all.filter((r) => match(r));
 
@@ -84,13 +87,19 @@ export default async function ItemsPage({ searchParams }: { searchParams: Promis
     },
   }));
 
-  const filtered = Boolean(e || c || s || f);
+  const publicationKeys = (r: ItemRow, param: 'c' | 's' | 'm') => new Set(publications(r, param)
+    .map((p) => param === 'c' ? p.channel : param === 's' ? p.status : p.month ?? 'undated'));
+  const months = items(tally('m', (r) => publicationKeys(r, 'm')), (k) =>
+    k === 'undated' ? '予定日未設定' : `${k.slice(0, 4)}年${Number(k.slice(5))}月`)
+    .sort((a, b) => a.key === 'undated' ? 1 : b.key === 'undated' ? -1 : b.key.localeCompare(a.key));
+  const filtered = Boolean(e || c || s || f || m);
   const rail = (
     <>
       <FacetHead clearHref={filtered ? '/content/items' : null} />
+      <Facet title="公開予定月（JST）" items={facetItems(now, 'm', m, scope('m'), months)} />
       <Facet title="資格" items={facetItems(now, 'e', e, scope('e'), items(tally('e', (r) => [r.exam]), examLabel))} />
-      <Facet title="チャネル" items={facetItems(now, 'c', c, scope('c'), items(tally('c', (r) => r.channels), (k) => k))} />
-      <Facet title="状態" items={facetItems(now, 's', s, scope('s'), items(tally('s', statusesOf), (k) => k))} />
+      <Facet title="チャネル" items={facetItems(now, 'c', c, scope('c'), items(tally('c', (r) => publicationKeys(r, 'c')), (k) => k))} />
+      <Facet title="状態" items={facetItems(now, 's', s, scope('s'), items(tally('s', (r) => publicationKeys(r, 's')), (k) => k))} />
       <Facet title="印" items={facetItems(now, 'f', f, scope('f'), items(tally('f', (r) => r.flags), (k) => k, FLAG_ORDER))} />
     </>
   );
@@ -113,7 +122,7 @@ export default async function ItemsPage({ searchParams }: { searchParams: Promis
   return (
     <>
       <PageHead title="作品と公開" sub={`作品 ${counts.works} 件 · 公開 ${counts.publications} 件（表示中の作品 ${rows.length}）`} />
-      <nav className="project-crumbs"><Link href={longformPlanHref({ e: e ?? undefined })}>通常動画の制作・公開管理</Link></nav>
+      <nav className="project-crumbs"><Link href={longformPlanHref({ e: e ?? undefined, m: m && m !== 'undated' ? m : undefined })}>通常動画の制作・公開管理</Link></nav>
       <FacetShell main={main} rail={rail} />
     </>
   );

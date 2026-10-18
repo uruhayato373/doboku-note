@@ -23,6 +23,7 @@ export interface ItemRow {
   coverSrc: string | null;
   channels: string[];
   byChannel: Record<string, Record<string, number>>;
+  publications: { channel: string; status: string; month: string | null }[];
   flags: string[];
   statusOrder: number;
 }
@@ -82,6 +83,7 @@ export interface MediaDetail {
 
 export const FLAG_ORDER = ['要確認', '要復元', '要同期', '承認待ち'] as const;
 export { examLabel };
+export { matchingItemPublications } from '../../../../scripts/lib/media-review.mjs';
 
 const driveManifest = () => {
   try {

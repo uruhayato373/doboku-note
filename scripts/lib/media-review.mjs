@@ -10,7 +10,7 @@
 import { existsSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { approvalHash, approvalParts, loadRegistry, loadRegistryConfig, publicationStage, resolveCopy, visualDigest } from './content-registry.mjs';
-import { jstDayTime } from './jst-date.mjs';
+import { jstDayTime, jstMonth } from './jst-date.mjs';
 import { MEDIA_ROOT } from './media-paths.mjs';
 
 /** 画面確認（音声なし）で見る素材の役割。visualDigest はこの役割の sha を並べる（長尺のコンタクトシートは contact-sheet-2 以降に続く） */
@@ -187,6 +187,14 @@ export function workView(root, exam, workId, opts = {}) {
   };
 }
 
+/** チャネル・状態・月は同じ公開行に対して照合する。 */
+export function matchingItemPublications(row, { channel, status, month } = {}) {
+  return row.publications.filter((p) =>
+    (!channel || p.channel === channel) &&
+    (!status || p.status === status) &&
+    (!month || (month === 'undated' ? p.month === null : p.month === month)));
+}
+
 /**
  * 一覧（/content/items）の行。1 作品 1 行。
  * @returns {{ rows: import('../../tools/admin-app/src/lib/content-items').ItemRow[], counts: { works: number, publications: number } }}
@@ -216,6 +224,7 @@ export function listView(root, opts = {}) {
       href: `/content/items/${encodeURIComponent(w.exam)}/${encodeURIComponent(w.id)}`,
       coverSrc: cover ? mediaSource(root, cover, opts.driveManifest ?? null).src : null,
       channels: Object.keys(byChannel).sort(), byChannel, flags: [...flags].sort(),
+      publications: pubs.map((p) => ({ channel: p.channel, status: p.status, month: p.publishAt ? jstMonth(p.publishAt) : null })),
       statusOrder: Math.min(...pubs.map((p) => cfg.status.values.indexOf(p.status)).filter((n) => n >= 0), 99),
     };
   });

@@ -1,6 +1,6 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {approvalState,isVisualRole,workView} from '../scripts/lib/media-review.mjs';
+import {approvalState,isVisualRole,listView,matchingItemPublications,workView} from '../scripts/lib/media-review.mjs';
 
 test('replacing a scene image invalidates visual approval even when the cover stays unchanged',()=>{
  const media=new Map([['cover',{sha256:'a'.repeat(64)}],['scene',{sha256:'b'.repeat(64)}]]);
@@ -12,6 +12,30 @@ test('replacing a scene image invalidates visual approval even when the cover st
  assert.equal(approvalState('',pub,media).visual.valid,false);
  assert.equal(isVisualRole('scene-131'),true);
  assert.equal(isVisualRole('video'),false);
+});
+
+test('公開予定月はJSTで月跨ぎを扱い、未設定を日付のある公開と区別する', () => {
+ const base={exam:'civil-construction-2',work:'example',format:'longform',account:'youtube:main',status:'scheduled',channel:'youtube'};
+ const reg={works:[{id:'example',exam:base.exam,kind:'video-pack'}],media:[],publications:[
+  {...base,id:'before',publishAt:'2026-10-31T14:59:59Z'},
+  {...base,id:'after',publishAt:'2026-10-31T15:00:00Z'},
+  {...base,id:'undated',publishAt:null},
+ ]};
+ const row=listView('',{reg,cfg:{status:{values:['scheduled']}}}).rows[0];
+ assert.deepEqual(row.publications.map(p=>p.month),['2026-10','2026-11',null]);
+ assert.equal(matchingItemPublications(row,{month:'undated'}).length,1);
+ assert.equal(matchingItemPublications(row,{month:'2026-12'}).length,0);
+});
+
+test('別チャネル・別状態の予定月で作品を誤って絞り込まない', () => {
+ const row={publications:[
+  {channel:'youtube',status:'published',month:'2026-10'},
+  {channel:'youtube',status:'scheduled',month:'2026-11'},
+  {channel:'instagram',status:'scheduled',month:'2026-10'},
+ ]};
+ assert.equal(matchingItemPublications(row,{channel:'youtube',status:'scheduled',month:'2026-10'}).length,0);
+ assert.equal(matchingItemPublications(row,{channel:'youtube',status:'scheduled',month:'2026-11'}).length,1);
+ assert.equal(matchingItemPublications(row,{month:'2026-10'}).length,2);
 });
 
 test('unpublished candidate media is separate from the scheduled publication and its approval', () => {
