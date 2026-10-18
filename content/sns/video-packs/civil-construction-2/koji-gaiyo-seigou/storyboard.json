@@ -278,5 +278,11 @@
       },
       "sourceRef": "config/products.json"
     }
-  ]
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "body-scenes-20261018",
+    "coverRevision": "cover-safe-20261018"
+  }
 }

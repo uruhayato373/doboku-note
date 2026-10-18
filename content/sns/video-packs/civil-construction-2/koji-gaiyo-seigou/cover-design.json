@@ -21,9 +21,11 @@
         "authority": "総監・元発注者"
       },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/youtube.longform/cover.0ab5a456.png",
-        "sha256": "0ab5a456662b1bc42a8d3a3420afe64298c91524f6f8e09c0416445866e3595f",
-        "specSha256": "35d7f5128f033eccc397070f2b62b20b5a1ec9042bc8f2a5d7d57b1675de56d0"
+        "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/cover-caption-safe.d7c901e5.png",
+        "sha256": "d7c901e5de9d16b47d8919c049b0e4d44aa25d9044a14c2ccdd1ba8a73f82ead",
+        "specSha256": "35d7f5128f033eccc397070f2b62b20b5a1ec9042bc8f2a5d7d57b1675de56d0",
+        "width": 1920,
+        "height": 1080
       }
     }
   }

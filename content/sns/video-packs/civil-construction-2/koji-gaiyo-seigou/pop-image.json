@@ -202,5 +202,671 @@
       "cloudMd5Verified": 55,
       "at": "2026-10-15T23:07:28.091Z"
     }
-  }
+  },
+  "activeCoverRevision": "cover-safe-20261018",
+  "revisions": {
+    "cover-safe-20261018": {
+      "version": "pop-poster-v3",
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "Create one 16:9 landscape Japanese YouTube POP thumbnail intended 1920×1080 using supplied cover as teacher identity and emerald-green pop-poster-v3 style reference. Same mature male, short black hair, rectangular black glasses, light beard, plain white helmet, navy workwear, yellow safety straps. Large teacher on right, comparing two simple unlettered answer sheets held side by side with a thoughtful reassuring expression. Exact upper-left target label「2級土木」. Separate smaller yellow two-line credentials badge「総監・元発注者」「1級・2級土木合格者」. Giant dark-green main topic「工事概要」with white/yellow outline. Giant red headline in TWO lines「本文との」「ズレを防ぐ」. Smaller readable subtitle「工種・数量・立場を確認」. Full-bleed energetic green construction illustration. Important text and face inside5% margins; all text FULLY ABOVE y=80%. Bottom20% continuous background/torso, NO text, no blank strip. Do not put subtitle near bottom edge. Legible360px. Natural five-finger hands and anatomy. No other text, logos, URLs, prices, dates, guarantees, numerical examples, seals. Do not recreate the reference wording; use only the exact six specified text strings.",
+        "references": [
+          {
+            "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/cover.6d461a7d.png",
+            "sha256": "6d461a7d29270911cbdeb4202056e9196493c0cfbae69dad97c351c3257c8fe5"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/youtube.longform/cover.0ab5a456.png",
+          "sha256": "0ab5a456662b1bc42a8d3a3420afe64298c91524f6f8e09c0416445866e3595f"
+        }
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/cover-caption-safe.d7c901e5.png",
+        "sha256": "d7c901e5de9d16b47d8919c049b0e4d44aa25d9044a14c2ccdd1ba8a73f82ead",
+        "width": 1920,
+        "height": 1080
+      },
+      "layout": {
+        "subtitleSafeTop": 864
+      }
+    },
+    "body-scenes-20261018": {
+      "version": "codex-pop-body-v1",
+      "date": "2026-10-18",
+      "purpose": "ユーザー依頼による場面別POP図解と字幕安全域の修正。YouTube未反映。",
+      "images": [
+        {
+          "sceneId": "hook",
+          "inputSha256": "7d8383ed61e93f2402bfafb5f930de1aed52ed931774aab3610b2ccc2bf98c13",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "概要と本文を、3組で照合",
+            "items": [
+              "工種と、本文で扱う作業",
+              "工期・施工量と、本文の範囲",
+              "立場と、自分の判断・行動"
+            ]
+          },
+          "narration": "工事概要と本文が食い違っていませんか。工種、工期・施工量、立場の3つを照合する順序を説明します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付1は修正対象、添付2は先生キャラクターと緑白黄のPOP意匠の正本。1920×1080、横16:9。先生の人物同一性と大きな主見出し、場面に合う図解を保つ。修正必須: 文字: 中央の工期を示す工程表の左上の表題と列見出しが、原寸でも判読できない擬似文字になっている。3組の照合という主要ラベルと双方向矢印は合っているが、工程表の字形を修正する必要がある。\n図の場面・対象・関係は現状を保つ。小さな書類やカレンダーの擬似文字は全て消し、無文字の直線の罫線・四角・丸・チェックのみへ変える。計器・メジャー・時計の数字も不要。指定以外の文字を一切描かない。\n正確に描いてよい文字は「2級土木」「概要と本文を、3組で照合」と次のラベルだけ: [\"工種と、本文で扱う作業\",\"工期・施工量と、本文の範囲\",\"立場と、自分の判断・行動\"]。書類の本文・カレンダーの日付/曜日・目盛・車体・背景の細字は描かない。これらは平行な無地の直線または無地の面に置き換える。\n太い読みやすい日本語、黒髪眼鏡短いひげ紺作業服白シャツ紺タイ黄反射ベスト白無地ヘルメットの同一先生。図は実際の対象物・空間・行動の対応がわかるように。下端20%は無地背景。人物と図を切らない。",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--hook-raw.47abdd16.png",
+                "sha256": "47abdd16119e4923e0c1d74a563b528b9a50268d5031fc4811bb6b0251888576"
+              },
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--hook-raw.4717e5e2.png",
+              "sha256": "4717e5e2f1b2a5bdc3e7e54d27a473e6066b152b9b6143410f45fa868d4e57e7",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T06:30:50.297Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--hook.fb4a0d54.png",
+            "sha256": "fb4a0d54a0edf454a1523b7d17e4ea3e8296e5cca46451a39d6ad2590d6da8be",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "authority",
+          "inputSha256": "830b7da10987f8baf23bd7390db224252ffdb68f794f3a89f9b370e984a2df21",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "解説：架（かける）",
+            "items": [
+              "技術士（総合技術監理部門）",
+              "元・地方自治体の土木職（発注者）",
+              "1級・2級土木施工管理技士 合格"
+            ]
+          },
+          "narration": "総合技術監理部門の技術士で、1級・2級土木に合格した元発注者が、書いた内容を見直す視点を解説します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Asset: 2級土木施工管理技士の16:9通常動画、本文の1場面。1920×1080の一枚の完成POP図解を新規生成。参照画像は先生の同一性と承認済みPOP意匠の参照で、参照画像の添削広告文を複製しない。\n正確な日本語コピー：資格名「2級土木」、大見出し「総監・元発注者が解説」、図解に必要な短い語「技術士（総合技術監理部門）」「元・地方自治体の土木職」「1級・2級土木施工管理技士 合格」。コピーはこれらだけから選び、長い文は短い重要語に絞る。問題番号・架空の基準値・合格保証・商品価格・URL・ブランドは追加しない。\nこの場面の説明（理解の根拠。全文を画面に書かない）：総合技術監理部門の技術士で、1級・2級土木に合格した元発注者が、書く順序を解説します。\n図解設計：文字カードや表の羅列ではなく、説明に出てくる具体的な現場、道具、記録、人物の行動を大きなイラストで示し、関係を矢印・囲み・対比で分かるようにする。実際の担当経験の説明であり仮例は仮例として扱う。先生が現場経験と資格の3つのカードを紹介。架空の資格証書や印影は描かない。\n意匠：緑・エメラルド・白・黄色、少量の赤。太い日本語文字に適度な縁取り、くっきりした輪郭、明るい教育用POP、斜めの色面と控えめな動線、白い情報パネル。図解は画面左〜中央の65%以上を大きく使う。先生は参照と同じ40代男性、黒髪・黒縁メガネ・薄いひげ・紺作業服・白シャツ・紺ネクタイ・黄色反射ベスト、無地白ヘルメット。右側で今回の図に合う自然な説明動作。手と機械の形は実物どおり。\n安全域：重要な文字と顔は上下左右5%以内に切れない。字幕は後から最下部に重ねるため、下端20%には文字・顔・重要な図を置かず背景だけを四辺まで連続させる（白い余白帯にはしない）。内容を上端80%に大きく配置し、小さな表や長文を詰め込まない。16:9全体を維持し、スマホ幅360pxでも見出しと矢印の意味が読める。",
+            "references": [
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/common-authority-raw.9dcdedbb.png",
+              "sha256": "9dcdedbbb9b61c692d1b310a0ef006dcb0c73a2daaddd6eb91b4f52a6a5d71b4",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T05:59:34.264Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/common-authority.81ffac47.png",
+            "sha256": "81ffac4725349b9306ac1fde7ff8edabbfb479b5a56a7477a0acc18e5f883965",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "premise",
+          "inputSha256": "7b7c6e1728f26f237435bf639f4d73d08383e39a755e1a86b7e46ea6ad86bcdf",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "工事概要は、本文を読む前提",
+            "sheetTitle": "同じ工事として、つながりを確認",
+            "rows": [
+              {
+                "label": "工事概要",
+                "value": "どんな工事で、何を担当したか"
+              },
+              {
+                "label": "本文",
+                "value": "その工事で、何を考え、行ったか"
+              }
+            ]
+          },
+          "narration": "工事概要は、本文で扱う工事の前提です。欄を埋めたあと、同じ工事の話としてつながるかを確かめましょう。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付1は修正対象、添付2は先生キャラクターと緑白黄のPOP意匠の正本。1920×1080、横16:9。先生の人物同一性と大きな主見出し、場面に合う図解を保つ。修正必須: 文字: 左の工事概要パネルで作業員が持つ書類の表に、原寸でも項目名として読めない細かな文字状記号がある。概要と本文の関係、主要ラベル・人物・字幕安全域は確認できるが、書類の擬似文字を修正する必要がある。\n図の場面・対象・関係は現状を保つ。小さな書類やカレンダーの擬似文字は全て消し、無文字の直線の罫線・四角・丸・チェックのみへ変える。計器・メジャー・時計の数字も不要。指定以外の文字を一切描かない。\n正確に描いてよい文字は「2級土木」「工事概要は、本文を読む前提」と次のラベルだけ: [\"工事概要\",\"どんな工事で、何を担当したか\",\"本文\",\"その工事で、何を考え、行ったか\"]。書類の本文・カレンダーの日付/曜日・目盛・車体・背景の細字は描かない。これらは平行な無地の直線または無地の面に置き換える。\n太い読みやすい日本語、黒髪眼鏡短いひげ紺作業服白シャツ紺タイ黄反射ベスト白無地ヘルメットの同一先生。図は実際の対象物・空間・行動の対応がわかるように。下端20%は無地背景。人物と図を切らない。",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--premise-raw.3b676264.png",
+                "sha256": "3b676264f5632c66b1ed299462d0ba37328af27721ca3cf23474b8c8ca76495b"
+              },
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--premise-raw.b3c44eec.png",
+              "sha256": "b3c44eec041626103aa2ba03af4201e55d936241587a5a302c3a5c9f4faad5fb",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T06:32:33.567Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--premise.cb37b17b.png",
+            "sha256": "cb37b17b0dd84dbcc0b8e8b02ddd28a082d6905d31cafc2bb9364feb97f108b7",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "work-type",
+          "inputSha256": "88234dc139b30fcc3faae74898d9d8942d4f1727660e7ac92b4cc6b4ddfa1e15",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "照合1：本文の作業は、どの工種か",
+            "items": [
+              "本文の作業名に印を付ける",
+              "対応する概要の工種を探す",
+              "書き漏れ・別工事の混入を見直す"
+            ]
+          },
+          "narration": "1つ目は工種です。本文で取り上げた作業が、概要のどの工種に当たるか。まず、作業名に印を付けて照合します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Asset: 2級土木施工管理技士の16:9通常動画、本文の1場面。1920×1080の一枚の完成POP図解を新規生成。参照画像は先生の同一性と承認済みPOP意匠の参照で、参照画像の添削広告文を複製しない。\n正確な日本語コピー：資格名「2級土木」、大見出し「照合1：本文の作業は、どの工種か」、図解に必要な短い語「本文の作業名に印を付ける」「対応する概要の工種を探す」「書き漏れ・別工事の混入を見直す」。コピーはこれらだけから選び、長い文は短い重要語に絞る。問題番号・架空の基準値・合格保証・商品価格・URL・ブランドは追加しない。\nこの場面の説明（理解の根拠。全文を画面に書かない）：1つ目は工種です。本文で取り上げた作業が、概要のどの工種に当たるか。まず、作業名に印を付けて照合します。\n図解設計：文字カードや表の羅列ではなく、説明に出てくる具体的な現場、道具、記録、人物の行動を大きなイラストで示し、関係を矢印・囲み・対比で分かるようにする。実際の担当経験の説明であり仮例は仮例として扱う。場面の見出しが示す判断や関係を主役に、前後の場面とは異なる構図・行動を描く。\n意匠：緑・エメラルド・白・黄色、少量の赤。太い日本語文字に適度な縁取り、くっきりした輪郭、明るい教育用POP、斜めの色面と控えめな動線、白い情報パネル。図解は画面左〜中央の65%以上を大きく使う。先生は参照と同じ40代男性、黒髪・黒縁メガネ・薄いひげ・紺作業服・白シャツ・紺ネクタイ・黄色反射ベスト、無地白ヘルメット。右側で今回の図に合う自然な説明動作。手と機械の形は実物どおり。\n安全域：重要な文字と顔は上下左右5%以内に切れない。字幕は後から最下部に重ねるため、下端20%には文字・顔・重要な図を置かず背景だけを四辺まで連続させる（白い余白帯にはしない）。内容を上端80%に大きく配置し、小さな表や長文を詰め込まない。16:9全体を維持し、スマホ幅360pxでも見出しと矢印の意味が読める。",
+            "references": [
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--work-type-raw.98d76238.png",
+              "sha256": "98d762383a14e2a45624712251a7d587dd16e76921cb67922ed3495abbf67959",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T06:07:47.190Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--work-type.f5c0c577.png",
+            "sha256": "f5c0c5777daae97ccbac00e0514312b1af64240e819366c1f694b5bd26878ed0",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "work-example",
+          "inputSha256": "2788e81a6c7a1963e1b32100e89702250783766fc2ee4356f68b828efe0dc738",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "考え方の例：工事名だけで止めない",
+            "sheetTitle": "概要と本文の対応メモ（仮例）",
+            "rows": [
+              {
+                "label": "工事名",
+                "value": "道路改良工事",
+                "state": "done"
+              },
+              {
+                "label": "主な工種",
+                "value": "排水構造物工",
+                "state": "focus"
+              },
+              {
+                "label": "本文の作業",
+                "value": "排水路の掘削",
+                "state": "focus"
+              }
+            ]
+          },
+          "narration": "考え方の例です。道路改良工事で排水路の掘削を語るなら、概要にも、その排水構造物工が含まれるか確かめます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Asset: 2級土木施工管理技士の16:9通常動画、本文の1場面。1920×1080の一枚の完成POP図解を新規生成。参照画像は先生の同一性と承認済みPOP意匠の参照で、参照画像の添削広告文を複製しない。\n正確な日本語コピー：資格名「2級土木」、大見出し「考え方の例：工事名だけで止めない」、図解に必要な短い語「工事名」「道路改良工事」「主な工種」「排水構造物工」。コピーはこれらだけから選び、長い文は短い重要語に絞る。問題番号・架空の基準値・合格保証・商品価格・URL・ブランドは追加しない。\nこの場面の説明（理解の根拠。全文を画面に書かない）：考え方の例です。道路改良工事で排水路の掘削を語るなら、概要にも、その排水構造物工が含まれるか確かめます。\n図解設計：文字カードや表の羅列ではなく、説明に出てくる具体的な現場、道具、記録、人物の行動を大きなイラストで示し、関係を矢印・囲み・対比で分かるようにする。実際の担当経験の説明であり仮例は仮例として扱う。場面の見出しが示す判断や関係を主役に、前後の場面とは異なる構図・行動を描く。\n意匠：緑・エメラルド・白・黄色、少量の赤。太い日本語文字に適度な縁取り、くっきりした輪郭、明るい教育用POP、斜めの色面と控えめな動線、白い情報パネル。図解は画面左〜中央の65%以上を大きく使う。先生は参照と同じ40代男性、黒髪・黒縁メガネ・薄いひげ・紺作業服・白シャツ・紺ネクタイ・黄色反射ベスト、無地白ヘルメット。右側で今回の図に合う自然な説明動作。手と機械の形は実物どおり。\n安全域：重要な文字と顔は上下左右5%以内に切れない。字幕は後から最下部に重ねるため、下端20%には文字・顔・重要な図を置かず背景だけを四辺まで連続させる（白い余白帯にはしない）。内容を上端80%に大きく配置し、小さな表や長文を詰め込まない。16:9全体を維持し、スマホ幅360pxでも見出しと矢印の意味が読める。",
+            "references": [
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--work-example-raw.8fd1ed32.png",
+              "sha256": "8fd1ed3229ea7a90f943396896920b80e6ecb8e8490adeb4a9f1b90ae4fcffde",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T06:07:14.781Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--work-example.ab4a57ae.png",
+            "sha256": "ab4a57ae60dd0ce29b19a7955e9403892250320bf1f8c66855db345ce3e95d61",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "quantity",
+          "inputSha256": "f2bf6947bc2b5a862f9c88711fafeab53498ad47ace94c0cea92eb2083856cc9",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "照合2：数量が示す範囲を区別",
+            "sheetTitle": "範囲・数量・単位を照合",
+            "rows": [
+              {
+                "label": "工事概要",
+                "value": "工事全体の工種別数量・単位"
+              },
+              {
+                "label": "本文",
+                "value": "扱う区間・作業の数量・単位"
+              }
+            ]
+          },
+          "narration": "2つ目は工期と施工量です。工事全体の数量と、本文で扱う区間の数量を区別し、数値だけでなく単位も照合します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Asset: 2級土木施工管理技士の16:9通常動画、本文の1場面。1920×1080の一枚の完成POP図解を新規生成。参照画像は先生の同一性と承認済みPOP意匠の参照で、参照画像の添削広告文を複製しない。\n正確な日本語コピー：資格名「2級土木」、大見出し「照合2：数量が示す範囲を区別」、図解に必要な短い語「工事概要」「工事全体の工種別数量・単位」「本文」「扱う区間・作業の数量・単位」。コピーはこれらだけから選び、長い文は短い重要語に絞る。問題番号・架空の基準値・合格保証・商品価格・URL・ブランドは追加しない。\nこの場面の説明（理解の根拠。全文を画面に書かない）：2つ目は工期と施工量です。工事全体の数量と、本文で扱う区間の数量を区別し、数値だけでなく単位も照合します。\n図解設計：文字カードや表の羅列ではなく、説明に出てくる具体的な現場、道具、記録、人物の行動を大きなイラストで示し、関係を矢印・囲み・対比で分かるようにする。実際の担当経験の説明であり仮例は仮例として扱う。場面の見出しが示す判断や関係を主役に、前後の場面とは異なる構図・行動を描く。\n意匠：緑・エメラルド・白・黄色、少量の赤。太い日本語文字に適度な縁取り、くっきりした輪郭、明るい教育用POP、斜めの色面と控えめな動線、白い情報パネル。図解は画面左〜中央の65%以上を大きく使う。先生は参照と同じ40代男性、黒髪・黒縁メガネ・薄いひげ・紺作業服・白シャツ・紺ネクタイ・黄色反射ベスト、無地白ヘルメット。右側で今回の図に合う自然な説明動作。手と機械の形は実物どおり。\n安全域：重要な文字と顔は上下左右5%以内に切れない。字幕は後から最下部に重ねるため、下端20%には文字・顔・重要な図を置かず背景だけを四辺まで連続させる（白い余白帯にはしない）。内容を上端80%に大きく配置し、小さな表や長文を詰め込まない。16:9全体を維持し、スマホ幅360pxでも見出しと矢印の意味が読める。",
+            "references": [
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--quantity-raw.0261ac9d.png",
+              "sha256": "0261ac9da460d8fd649c1fa05eefa652bd727449e76f62d3cf0606d04de8fbdc",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T06:07:54.162Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--quantity.5fa8b58b.png",
+            "sha256": "5fa8b58b060fc5689f7d646b45aa35f8ca20823ea61b17dcda8e6d897cfd45aa",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "period",
+          "inputSha256": "5af28bcfcc8132d1678666781494bb0c8f2af9b5b9e75ba569f3da231e51520c",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "作業時期は、工期の中にあるか",
+            "sheetTitle": "記録と照らす項目",
+            "rows": [
+              {
+                "label": "工事概要",
+                "value": "工期の始まりと終わり",
+                "state": "done"
+              },
+              {
+                "label": "本文",
+                "value": "取り上げた作業の時期",
+                "state": "focus"
+              },
+              {
+                "label": "工事記録",
+                "value": "実際の施工日・季節",
+                "state": "focus"
+              }
+            ]
+          },
+          "narration": "工期については、本文の作業時期がその期間に入るか確認します。冬の作業を語るなら、実際の施工日も記録で確かめます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付1は修正対象、添付2は先生キャラクターと緑白黄のPOP意匠の正本。1920×1080、横16:9。先生の人物同一性と大きな主見出し、場面に合う図解を保つ。修正必須: 本文：カレンダーに工期の始まりと終わりを示す一本の矢印だけがあり、取り上げた作業時期は冬の写真に分離され、工期に含まれる関係を照合できない；同じ時間軸に工期全体とその内側の作業期間を別の帯で示し、作業記録から照合する構図へ修正する必要がある。\n同じ横の時間軸に上段の工期全体の帯、下段にその内側に完全に含まれる短い作業期間の帯。下段両端が上段の始まりと終わりを越えない。数字なし、無地の罫線と色の帯。別季節の写真を時間軸の外へ置く構図は禁止。\n正確に描いてよい文字は「2級土木」「作業時期は、工期の中にあるか」と次のラベルだけ: [\"工事概要\",\"工期の始まりと終わり\",\"本文\",\"取り上げた作業の時期\"]。書類の本文・カレンダーの日付/曜日・目盛・車体・背景の細字は描かない。これらは平行な無地の直線または無地の面に置き換える。\n太い読みやすい日本語、黒髪眼鏡短いひげ紺作業服白シャツ紺タイ黄反射ベスト白無地ヘルメットの同一先生。図は実際の対象物・空間・行動の対応がわかるように。下端20%は無地背景。人物と図を切らない。",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--period-raw.81acc8ef.png",
+                "sha256": "81acc8ef10538d8703f2565d824ec3ca6c7e9121edd7a8c4a4a32c4eec50bbf5"
+              },
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--period-raw.d2340b42.png",
+              "sha256": "d2340b42caff3ddc1daf0d0bb93f9143aebbaf2bd99ff7a40cfae8c30678f1ae",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T06:31:25.631Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--period.c82b14d2.png",
+            "sha256": "c82b14d231f153c31262cc69db83d5d0e96c08f9f04c7e2f5d117c1a5ba0801c",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "role",
+          "inputSha256": "b1968171c60983cc503162f702f4f2e7d6b62912069952aa9257936200170762",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "照合3：誰の判断・行動か",
+            "sheetTitle": "立場と担当の整理",
+            "rows": [
+              {
+                "label": "概要の立場",
+                "value": "自分の担当範囲",
+                "state": "focus"
+              },
+              {
+                "label": "本文の判断",
+                "value": "誰が決めたか",
+                "state": "todo"
+              },
+              {
+                "label": "本文の行動",
+                "value": "自分が何をしたか",
+                "state": "todo"
+              }
+            ]
+          },
+          "narration": "3つ目は立場です。概要に書いた担当と、本文の判断や行動を照合します。上司や他の担当者が実施したことと分けます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Asset: 2級土木施工管理技士の16:9通常動画、本文の1場面。1920×1080の一枚の完成POP図解を新規生成。参照画像は先生の同一性と承認済みPOP意匠の参照で、参照画像の添削広告文を複製しない。\n正確な日本語コピー：資格名「2級土木」、大見出し「照合3：誰の判断・行動か」、図解に必要な短い語「概要の立場」「自分の担当範囲」「本文の判断」「誰が決めたか」。コピーはこれらだけから選び、長い文は短い重要語に絞る。問題番号・架空の基準値・合格保証・商品価格・URL・ブランドは追加しない。\nこの場面の説明（理解の根拠。全文を画面に書かない）：3つ目は立場です。概要に書いた担当と、本文の判断や行動を照合します。上司や他の担当者が実施したことと分けます。\n図解設計：文字カードや表の羅列ではなく、説明に出てくる具体的な現場、道具、記録、人物の行動を大きなイラストで示し、関係を矢印・囲み・対比で分かるようにする。実際の担当経験の説明であり仮例は仮例として扱う。場面の見出しが示す判断や関係を主役に、前後の場面とは異なる構図・行動を描く。\n意匠：緑・エメラルド・白・黄色、少量の赤。太い日本語文字に適度な縁取り、くっきりした輪郭、明るい教育用POP、斜めの色面と控えめな動線、白い情報パネル。図解は画面左〜中央の65%以上を大きく使う。先生は参照と同じ40代男性、黒髪・黒縁メガネ・薄いひげ・紺作業服・白シャツ・紺ネクタイ・黄色反射ベスト、無地白ヘルメット。右側で今回の図に合う自然な説明動作。手と機械の形は実物どおり。\n安全域：重要な文字と顔は上下左右5%以内に切れない。字幕は後から最下部に重ねるため、下端20%には文字・顔・重要な図を置かず背景だけを四辺まで連続させる（白い余白帯にはしない）。内容を上端80%に大きく配置し、小さな表や長文を詰め込まない。16:9全体を維持し、スマホ幅360pxでも見出しと矢印の意味が読める。",
+            "references": [
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--role-raw.30c825c0.png",
+              "sha256": "30c825c0eeaf42c10611359e7581ef8ac91bd975530e5cd287ee7d98527378a8",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T06:07:52.799Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--role.bd41ab9e.png",
+            "sha256": "bd41ab9eea8013c020347ca0afde5c6570933e6a357d4efb0dea06c309c70b95",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "verb",
+          "inputSha256": "5abab6a0ba45544033bf79dcab025d917b2434a13125ccbbf3618367df73e7f0",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "実際の担当に合う動詞を使う",
+            "sheetTitle": "担当による書き分けの例",
+            "rows": [
+              {
+                "label": "実施した場合",
+                "value": "自分が測定した"
+              },
+              {
+                "label": "指示した場合",
+                "value": "測定を指示した"
+              }
+            ]
+          },
+          "narration": "自分が測定したのか、測定を指示したのか。どちらも同じ言葉で済ませず、実際の担当に合う動詞で書き分けましょう。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付1は修正対象、添付2は先生キャラクターと緑白黄のPOP意匠の正本。1920×1080、横16:9。先生の人物同一性と大きな主見出し、場面に合う図解を保つ。修正必須: 文字：左下の測定記録に原寸でも読めない擬似文字があるため、記録表を無文字の罫線へ変更する必要がある；実施者と指示者の対比、主要な指定文字、測量器と人物、字幕帯への非干渉は確認できた。\n図の場面・対象・関係は現状を保つ。小さな書類やカレンダーの擬似文字は全て消し、無文字の直線の罫線・四角・丸・チェックのみへ変える。計器・メジャー・時計の数字も不要。指定以外の文字を一切描かない。\n正確に描いてよい文字は「2級土木」「実際の担当に合う動詞を使う」と次のラベルだけ: [\"実施した場合\",\"自分が測定した\",\"指示した場合\",\"測定を指示した\"]。書類の本文・カレンダーの日付/曜日・目盛・車体・背景の細字は描かない。これらは平行な無地の直線または無地の面に置き換える。\n太い読みやすい日本語、黒髪眼鏡短いひげ紺作業服白シャツ紺タイ黄反射ベスト白無地ヘルメットの同一先生。図は実際の対象物・空間・行動の対応がわかるように。下端20%は無地背景。人物と図を切らない。",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--verb-raw.55ace212.png",
+                "sha256": "55ace212a2d70c27429e09de816084b0eb8706481d006ca558db7b2ff596e630"
+              },
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--verb-raw.5c95feaa.png",
+              "sha256": "5c95feaaf9c4be32a5fbbf357792a8794257db8a895fcced57170eccd2b9a3ac",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T06:33:08.496Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--verb.a9de9a4e.png",
+            "sha256": "a9de9a4ed79579bfdac067036fcc69e28277c7a2c2914cfa643dfe8757fac0dc",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "own-work",
+          "inputSha256": "8a5343a09f8d4e3812c27d6c220e9bdc7d4cc042c990d9bbe27d8108c4704a5d",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "自分の答案で、線を結んでみる",
+            "items": [
+              "工種と作業が対応しているか",
+              "時期・数量の範囲が合っているか",
+              "担当と行動が一致しているか"
+            ]
+          },
+          "narration": "自分の答案で、工種、時期と数量、担当を線で結んでみましょう。迷う箇所は工事記録に戻り、思い込みで補いません。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Asset: 2級土木施工管理技士の16:9通常動画、本文の1場面。1920×1080の一枚の完成POP図解を新規生成。参照画像は先生の同一性と承認済みPOP意匠の参照で、参照画像の添削広告文を複製しない。\n正確な日本語コピー：資格名「2級土木」、大見出し「自分の答案で、線を結んでみる」、図解に必要な短い語「工種と作業が対応しているか」「時期・数量の範囲が合っているか」「担当と行動が一致しているか」。コピーはこれらだけから選び、長い文は短い重要語に絞る。問題番号・架空の基準値・合格保証・商品価格・URL・ブランドは追加しない。\nこの場面の説明（理解の根拠。全文を画面に書かない）：自分の答案で、工種、時期と数量、担当を線で結んでみましょう。迷う箇所は工事記録に戻り、思い込みで補いません。\n図解設計：文字カードや表の羅列ではなく、説明に出てくる具体的な現場、道具、記録、人物の行動を大きなイラストで示し、関係を矢印・囲み・対比で分かるようにする。実際の担当経験の説明であり仮例は仮例として扱う。場面の見出しが示す判断や関係を主役に、前後の場面とは異なる構図・行動を描く。\n意匠：緑・エメラルド・白・黄色、少量の赤。太い日本語文字に適度な縁取り、くっきりした輪郭、明るい教育用POP、斜めの色面と控えめな動線、白い情報パネル。図解は画面左〜中央の65%以上を大きく使う。先生は参照と同じ40代男性、黒髪・黒縁メガネ・薄いひげ・紺作業服・白シャツ・紺ネクタイ・黄色反射ベスト、無地白ヘルメット。右側で今回の図に合う自然な説明動作。手と機械の形は実物どおり。\n安全域：重要な文字と顔は上下左右5%以内に切れない。字幕は後から最下部に重ねるため、下端20%には文字・顔・重要な図を置かず背景だけを四辺まで連続させる（白い余白帯にはしない）。内容を上端80%に大きく配置し、小さな表や長文を詰め込まない。16:9全体を維持し、スマホ幅360pxでも見出しと矢印の意味が読める。",
+            "references": [
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--own-work-raw.a1ce0659.png",
+              "sha256": "a1ce06599610babfaa1fc52af372c39cc3da5d91e711d427db28206678c6d03e",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T06:09:01.093Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--own-work.d2039192.png",
+            "sha256": "d20391927e1fa054cffec802bb0ff76c5ece192e967d52e0acab0ad6d699af87",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "730571f21018be8b56322ff19ec795d7b9a24606f388e09252e66dbc60640af9",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "3組を、経験した事実で確かめる",
+            "items": [
+              "工種 ↔ 本文の作業",
+              "工期・施工量 ↔ 本文の範囲",
+              "立場 ↔ 自分の判断・行動"
+            ]
+          },
+          "narration": "まとめです。工種と作業、工期・施工量と本文の範囲、立場と行動。この3組を、経験した事実に照らして見直します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付1は修正対象、添付2は先生キャラクターと緑白黄のPOP意匠の正本。1920×1080、横16:9。先生の人物同一性と大きな主見出し、場面に合う図解を保つ。修正必須: 本文：赤い両矢印が工種と工期・施工量、工期・施工量と立場を横につないでおり、原稿の3組の対応を示さないため、各領域の上段と下段を縦の両矢印で結ぶ必要がある；文字：中央の記録表内の見出しが擬似文字なので無文字の罫線に変更する必要がある。\n3つの独立した縦パネル。各パネルの上下を双方向矢印で照合。左は工種と本文の作業、中央は工期・施工量と本文の範囲、右は立場と自分の判断・行動。隣のパネルへ向かう横矢印は絶対に描かない。\n正確に描いてよい文字は「2級土木」「3組を、経験した事実で確かめる」と次のラベルだけ: [\"工種 ↔ 本文の作業\",\"工期・施工量 ↔ 本文の範囲\",\"立場 ↔ 自分の判断・行動\"]。書類の本文・カレンダーの日付/曜日・目盛・車体・背景の細字は描かない。これらは平行な無地の直線または無地の面に置き換える。\n太い読みやすい日本語、黒髪眼鏡短いひげ紺作業服白シャツ紺タイ黄反射ベスト白無地ヘルメットの同一先生。図は実際の対象物・空間・行動の対応がわかるように。下端20%は無地背景。人物と図を切らない。",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--summary-raw.df924787.png",
+                "sha256": "df9247872f4e09a2ec6a8bd026fadf0a3d09ee412a1aff8f10343c26c1598e36"
+              },
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--summary-raw.08bc6908.png",
+              "sha256": "08bc69086fbb811b0ccf2f69ee7a4361a0a43a83e0c8b01d61e47d71e2dba12b",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T06:36:25.519Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--summary.b20ee712.png",
+            "sha256": "b20ee712dd2e6a75e20edc07e55037587de582ec683b3b2aace4ad2cc411f667",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "87edcab438fce0e237d311048cdb10b0d16bb7a1738aa9f7411e248d898424f7",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "概要から本文へのつなぎ方を学ぶ",
+            "items": [
+              "2級土木 施工経験記述 完成答案集",
+              "安全・品質・工程の答案＋置換ガイド",
+              "概要欄のnoteマガジンへ"
+            ]
+          },
+          "narration": "概要から本文へのつなぎ方を、完成答案で学べます。安全・品質・工程の答案と置換ガイドは、概要欄をご覧ください。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Asset: 2級土木施工管理技士の16:9通常動画、本文の1場面。1920×1080の一枚の完成POP図解を新規生成。参照画像は先生の同一性と承認済みPOP意匠の参照で、参照画像の添削広告文を複製しない。\n正確な日本語コピー：資格名「2級土木」、大見出し「自分の工事で答案づくり」、図解に必要な短い語「施工経験記述 完成答案集」「安全・品質・工程」「自分の経験に置き換えて練習」「概要欄から確認」。コピーはこれらだけから選び、長い文は短い重要語に絞る。問題番号・架空の基準値・合格保証・商品価格・URL・ブランドは追加しない。\nこの場面の説明（理解の根拠。全文を画面に書かない）：元発注者・土木の合格者の視点を学習に活かす完成答案集です。安全・品質・工程の答案と置換ガイドで練習する際は、概要欄をご覧ください。\n図解設計：文字カードや表の羅列ではなく、説明に出てくる具体的な現場、道具、記録、人物の行動を大きなイラストで示し、関係を矢印・囲み・対比で分かるようにする。実際の担当経験の説明であり仮例は仮例として扱う。先生が練習用の答案ノートと3テーマの冊子を紹介。答案の長文や架空の表紙文言は描かない。\n意匠：緑・エメラルド・白・黄色、少量の赤。太い日本語文字に適度な縁取り、くっきりした輪郭、明るい教育用POP、斜めの色面と控えめな動線、白い情報パネル。図解は画面左〜中央の65%以上を大きく使う。先生は参照と同じ40代男性、黒髪・黒縁メガネ・薄いひげ・紺作業服・白シャツ・紺ネクタイ・黄色反射ベスト、無地白ヘルメット。右側で今回の図に合う自然な説明動作。手と機械の形は実物どおり。\n安全域：重要な文字と顔は上下左右5%以内に切れない。字幕は後から最下部に重ねるため、下端20%には文字・顔・重要な図を置かず背景だけを四辺まで連続させる（白い余白帯にはしない）。内容を上端80%に大きく配置し、小さな表や長文を詰め込まない。16:9全体を維持し、スマホ幅360pxでも見出しと矢印の意味が読める。",
+            "references": [
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/common-cta-raw.dcf54f04.png",
+              "sha256": "dcf54f045c7c5aa4eaa10ade7b144b160dcb4728ae328c3ffe3e0a043fc78179",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T05:59:34.437Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/common-cta.4d5bba5e.png",
+            "sha256": "4d5bba5eeecb0c43f2ef98c12019ff609dfbf60b6b99f16a3415c2621e7724b8",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        }
+      ]
+    }
+  },
+  "activeBodyRevision": "body-scenes-20261018"
 }
