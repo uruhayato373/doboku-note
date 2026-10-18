@@ -210,12 +210,31 @@ function checkPageCoverage(def, { manifest, analysis }) {
   for (const chapter of manifest.chapters) {
     for (const page of chapter.sourcePages) bump(page, chapter.chapterId);
   }
+  // 本文中の見出しで章を切った文書は、章がページの途中で替わる。共有を認めるのは、そのページを
+  // 持つ章が manifest の並びで連続し、前の章はそのページで終わり、後の章はそのページで始まり、
+  // 間の章はそのページだけに収まる場合だけ（それ以外の重複は割り当ての誤り）
+  const order = new Map(manifest.chapters.map((chapter, i) => [chapter.chapterId, i]));
+  const byId = new Map(manifest.chapters.map((chapter) => [chapter.chapterId, chapter]));
+  const isBoundary = (p) => {
+    if (manifest.chapterSource !== 'headings') return false;
+    const list = (owners.get(p) ?? []).filter((id) => byId.has(id));
+    if (list.length !== (owners.get(p) ?? []).length) return false;
+    return list.every((id, i) => {
+      const chapter = byId.get(id);
+      if (i > 0 && order.get(id) !== order.get(list[i - 1]) + 1) return false;
+      if (i < list.length - 1 && chapter.lastPage !== p) return false;
+      if (i > 0 && chapter.firstPage !== p) return false;
+      return true;
+    });
+  };
 
   const missing = [];
   const duplicated = [];
+  let shared = 0;
   for (let p = 1; p <= total; p += 1) {
     const count = counts.get(p) ?? 0;
     if (count === 0) missing.push(p);
+    else if (count > 1 && isBoundary(p)) shared += 1;
     else if (count > 1) duplicated.push(`p${p} は ${count} 箇所（${owners.get(p).join(', ')}）`);
   }
   const outOfRange = [...counts.keys()].filter((p) => p < 1 || p > total);
@@ -224,7 +243,8 @@ function checkPageCoverage(def, { manifest, analysis }) {
   if (duplicated.length > 20) violations.push(`… 重複割当 ほか ${duplicated.length - 20} 件`);
   if (outOfRange.length > 0) violations.push(`範囲外ページ ${outOfRange.length} 件: ${outOfRange.slice(0, 10).join(', ')}`);
 
-  return result(def, { status: verdict(violations, []), checked: total, unit: 'ページ', violations });
+  const notes = shared ? [`章の境目で前後の章が共有するページ ${shared} 件（本文中の見出しで章を切った文書）`] : [];
+  return result(def, { status: verdict(violations, []), checked: total, unit: 'ページ', violations, notes });
 }
 
 /**
@@ -240,9 +260,12 @@ function checkRemovalAudit(def, { manifest, analysis }) {
   if (!bodyPages) {
     return result(def, { status: INCONCLUSIVE, checked: 0, unit: '除去記録', violations: ['本文ページが 0。除去の検査が成立しない'] });
   }
-  if (headers === 0) violations.push('柱の除去記録が 0 件（除去した実体が記録されていない）');
+  // 本文中の見出しで章を切った文書は柱を持たない（定型の行を持つ文書でも全ページには無い）。
+  // 柱の件数は本文ページ数以下であることと、再解析との一致だけを見る
+  const headingsDocument = manifest.chapterSource === 'headings';
+  if (headers === 0 && !headingsDocument) violations.push('柱の除去記録が 0 件（除去した実体が記録されていない）');
   if (prints === 0) violations.push('印刷ページ番号の除去記録が 0 件（除去した実体が記録されていない）');
-  if (headers !== bodyPages) violations.push(`柱の除去記録 ${headers} 件 ≠ 本文 ${bodyPages} ページ`);
+  if (headingsDocument ? headers > bodyPages : headers !== bodyPages) violations.push(`柱の除去記録 ${headers} 件 ≠ 本文 ${bodyPages} ページ`);
   if (prints !== bodyPages) violations.push(`印刷ページ番号の除去記録 ${prints} 件 ≠ 本文 ${bodyPages} ページ`);
   if (analysis.removed.runningHeaders.length !== headers) {
     violations.push(`柱の除去記録が再解析と不一致: manifest ${headers} / 再解析 ${analysis.removed.runningHeaders.length}`);
@@ -330,7 +353,7 @@ function checkHeadingLevels(def, { manifest, agencyId, documentId }) {
       continue;
     }
     const headings = parseHeadings(text);
-    if (headings.length === 0) violations.push(`${chapter.file}: 見出しが 1 件も無い`);
+    if (headings.length === 0 && !chapter.bodyless) violations.push(`${chapter.file}: 見出しが 1 件も無い`);
     checked += headings.length;
     // ページ側の H1 を親とみなすので直前レベルの初期値は 1。
     let previous = 1;
@@ -834,12 +857,16 @@ function checkDuplicateIndexable(def, documents) {
       chapters += 1;
       if (!chapter.indexable) continue;
       indexable += 1;
-      const key = `${chapter.bookNumber}-${chapter.chapterNumber}`;
+      // 同じ原本を複数機関が出しているのは共通仕様書（role=common）だけ。特記仕様書・地方独自の章は
+      // 章番号が共通仕様書と同じでも別の文書なので、文書の中でだけ重複を見る
+      const family = doc.manifest.documentRole === 'common' ? 'common' : doc.target;
+      const key = `${family}:${chapter.bookNumber}-${chapter.chapterNumber}`;
       keys.set(key, [...(keys.get(key) ?? []), `${doc.target}:${chapter.chapterId}`]);
     }
   }
   for (const [key, owners] of keys) {
-    if (owners.length > 1) violations.push(`第${key.split('-')[0]}編第${key.split('-')[1]}章 が ${owners.length} 箇所で indexable: ${owners.join(', ')}`);
+    const [book, chapterNo] = key.split(':')[1].split('-');
+    if (owners.length > 1) violations.push(`第${book}編第${chapterNo}章 が ${owners.length} 箇所で indexable: ${owners.join(', ')}`);
   }
   if (chapters === 0) {
     return result(def, { status: INCONCLUSIVE, checked: 0, unit: '章', violations: ['章が 0 件。重複検査が成立しない'] });

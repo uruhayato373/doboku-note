@@ -364,6 +364,17 @@ export const ConfigStandardsStructure = z
               )
               .optional()
               .describe('原本どおりと確かめて受け入れる review（当たらなくなったら reject される）'),
+            // 版面の方言（共通仕様書以外の文書）。意味は scripts/lib/standards-structure.mjs の dialectOf
+            runningHeaderPrefix: z.string().min(1).optional().describe('柱の前の語（特仕 第1編 …）'),
+            articleNumberPrefix: z.string().min(1).optional().describe('条番号の前の語（特仕1-1-1-1）'),
+            articleNumberParts: z.literal(3).optional().describe('条番号を 章-節-条 の 3 段で読む'),
+            printPageNumber: z.enum(['plain', 'dashed']).optional().describe('印刷ページ番号の形（7 / - 3 -）'),
+            chapterSource: z.literal('headings').optional().describe('章を柱でなく本文中の編・章の見出しで切る'),
+            runningHeaderText: z.string().min(1).optional().describe('各ページの先頭の定型の行（chapterSource=headings）'),
+            clauseTitleMaxLength: z.number().int().positive().optional().describe('これを超えるか読点を含む項は段落にする'),
+            clauseSequence: z.literal('sparse').optional().describe('項番号の連番を検査しない'),
+            sectionIndentMax: z.number().int().nonnegative().optional().describe('節の見出しとして認める字下げの上限'),
+            ogpLabel: z.string().min(1).optional().describe('章 OGP の右上の札（既定は共通仕様書）'),
           })
           .strict(),
       )

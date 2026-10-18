@@ -113,6 +113,10 @@ function renderChapter(chapter, tableOutcomes = [], tableOverrides = new Map(), 
     '',
   ];
   const push = (block) => { lines.push(block, ''); };
+  if (chapter.nodes.length === 0) {
+    // 原本が章名だけで本文を持たない章（中部の特記仕様書 10-9 地下横断歩道など＝特記事項が無い章）
+    push('原本ではこの章は章名だけで、本文はありません。');
+  }
   // 原典には条を持たない節がある（第1編第3章第1節 適用は項が節へ直付け）。そのまま H2→H4 に
   // すると見出しレベルが飛ぶので、条が無い節の項は H3 へ繰り上げる。入れ子の深さは変わらない。
   let sectionHasArticle = false;
@@ -351,6 +355,7 @@ export function buildDocument(document, overrides, { write = true, verbatimTable
     const sourceText = chapter.sourcePages.map((page) => pageText.get(page)).join('\n');
     const outputBytes = Buffer.byteLength(markdown, 'utf8');
     const sections = summarizeChapter(chapter);
+    const bodyless = chapter.nodes.length === 0;
     return {
       chapterId: chapter.chapterId,
       title: `第${chapter.bookNumber}編 ${chapter.bookTitle} 第${chapter.chapterNumber}章 ${chapter.chapterTitle}`,
@@ -370,7 +375,9 @@ export function buildDocument(document, overrides, { write = true, verbatimTable
       sections,
       stats: { ...countNodes(chapter), ...tallyTables(tableOutcomes) },
       tableOutcomes: tallyReasons(tableOutcomes),
-      indexable,
+      // 本文の無い章は中身が章名だけなので検索に載せない（読める状態は保つ）
+      indexable: indexable && !bodyless,
+      ...(bodyless ? { bodyless: true } : {}),
       duplicateOf: document.duplicateOf ?? null,
       reviewStatus:
         analysis.reviewQueue.some((q) => q.page >= chapter.firstPage && q.page <= chapter.lastPage) ||
@@ -400,6 +407,10 @@ export function buildDocument(document, overrides, { write = true, verbatimTable
     indexable,
     indexableReason,
     duplicateOf: document.duplicateOf ?? null,
+    // 柱でなく本文中の見出しで章を切った文書（設定 chapterSource）。章の境目のページは前後の章が共有する
+    ...(overrides.documents?.[`${document.agencyId}/${document.documentId}`]?.chapterSource === 'headings'
+      ? { chapterSource: 'headings' }
+      : {}),
     audit: {
       ...analysis.audit,
       chapters: chapters.length,
