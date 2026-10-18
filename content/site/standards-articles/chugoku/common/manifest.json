@@ -162,8 +162,8 @@
         115
       ],
       "sourceSha256": "009809d21aebcb735692fe9155959249f493dfa0fe5158f134a8515479414879",
-      "outputSha256": "00269766a86dcc606c5aff5023b5159a23da0b3ca2a1b9516dd5ff8fd8978035",
-      "outputBytes": 106329,
+      "outputSha256": "8c66d6b1560abcc316f1506a8db83987fd3d37c871c4b1fe78014df7e0b8f0d0",
+      "outputBytes": 199704,
       "splitBySection": false,
       "sections": [
         {
@@ -504,7 +504,8 @@
           24,
           25,
           26
-        ]
+        ],
+        "rows": 80
       },
       "duplicateOf": null,
       "reviewStatus": "clean"
@@ -542,8 +543,8 @@
         132
       ],
       "sourceSha256": "7a868d887c1668acd731fd1b10b9a64dc15de51212d76af4ee8fb4a88ea4da17",
-      "outputSha256": "d360b1a46a926fff30a139d8318d3157dd120098ca2bd9aa553dfd661bf23e07",
-      "outputBytes": 44359,
+      "outputSha256": "1ae3fe3ddbea9a5f3861f4e4a63ca99e145372bd2eb56b4927438ee5ff9a39bb",
+      "outputBytes": 46804,
       "splitBySection": false,
       "sections": [
         {
@@ -683,7 +684,8 @@
         "document": "chugoku/local",
         "pages": [
           27
-        ]
+        ],
+        "rows": 6
       },
       "duplicateOf": null,
       "reviewStatus": "clean"
@@ -734,8 +736,8 @@
         161
       ],
       "sourceSha256": "e1343c751a043047eb408b2bfe5dbabf9202cf9506a524a1059a9c237cf855c4",
-      "outputSha256": "0862c40949bdcc2ce5dbd23108c496a47e64e855905381bd49b2bfd415b876aa",
-      "outputBytes": 82392,
+      "outputSha256": "565c93837a41ab40c44742b4f770bd90d1c81c8185512501971676bef4d4982e",
+      "outputBytes": 90341,
       "splitBySection": false,
       "sections": [
         {
@@ -1185,7 +1187,8 @@
           28,
           29,
           30
-        ]
+        ],
+        "rows": 11
       },
       "duplicateOf": null,
       "reviewStatus": "clean"
@@ -1297,8 +1300,8 @@
         194
       ],
       "sourceSha256": "d8a8c00b3e19e0a5a51365e922519da3b8667d22094d8495b5a7a20087195243",
-      "outputSha256": "a3d24ff541b2e0057bf09daad785d067d7916658b856e9d54368c0292cb82d03",
-      "outputBytes": 66914,
+      "outputSha256": "6ab63e658719d79728e3a24634342b9ed6479a334a8508a29362001060c1325d",
+      "outputBytes": 69203,
       "splitBySection": false,
       "sections": [
         {
@@ -1754,7 +1757,8 @@
         "document": "chugoku/local",
         "pages": [
           31
-        ]
+        ],
+        "rows": 6
       },
       "duplicateOf": null,
       "reviewStatus": "clean"
@@ -1785,8 +1789,8 @@
         203
       ],
       "sourceSha256": "af739b47b38a3e5765f0ee0a2c578bfe5476096b7d671d136eb3f20dfc7df426",
-      "outputSha256": "257c5cffb9a13a981219f2dc479939dc7ebea0ebac6d4bd783db7f5cb927b5cc",
-      "outputBytes": 21709,
+      "outputSha256": "7b7dfe88228b0ef98a8c99d9530de06fe8cef8daa6b59e7cd9cf531b03d6c25a",
+      "outputBytes": 56411,
       "splitBySection": false,
       "sections": [
         {
@@ -1890,7 +1894,8 @@
           39,
           40,
           41
-        ]
+        ],
+        "rows": 36
       },
       "duplicateOf": null,
       "reviewStatus": "clean"
@@ -2081,8 +2086,8 @@
         370
       ],
       "sourceSha256": "a1b0f1259bf436b242273ca33f7a1f3453118f9359e25fc0c2ff8bb5c8de315c",
-      "outputSha256": "dc81c47127736c190ff9da9ee932b7072ae63c500205d25fd1a1b6cad90ffe9a",
-      "outputBytes": 460105,
+      "outputSha256": "67bf07ce293ab575cc2c4766b54fe5b49bc9b1f09066eefa535b6385be9821bf",
+      "outputBytes": 482676,
       "splitBySection": true,
       "sections": [
         {
@@ -3206,7 +3211,8 @@
           45,
           46,
           47
-        ]
+        ],
+        "rows": 36
       },
       "duplicateOf": null,
       "reviewStatus": "clean"
@@ -3238,8 +3244,8 @@
         381
       ],
       "sourceSha256": "29b045dfcf5c005f3b62d9301b1d5c04c808d94b47ebbc078d4bccdb421e96c9",
-      "outputSha256": "1d07e04d8794acbfe65f277a623828c397575b0704c2f64a0e228cb2676fc5b3",
-      "outputBytes": 24369,
+      "outputSha256": "49f6e007691928c2997893d19632a01c99dbf180b107d954ad62854ae35f5959",
+      "outputBytes": 26458,
       "splitBySection": false,
       "sections": [
         {
@@ -3798,7 +3804,8 @@
           49,
           50,
           51
-        ]
+        ],
+        "rows": 3
       },
       "duplicateOf": null,
       "reviewStatus": "clean"
@@ -4007,8 +4014,8 @@
         393
       ],
       "sourceSha256": "cb574c0f55c5e6c1b21d8b9a278b4fa02bdb3b4617adae55053d0241eec278fb",
-      "outputSha256": "19875603701eb4390efa6b7abeb34286c88b8ff622b1f743dd819c93a9e3fbeb",
-      "outputBytes": 21214,
+      "outputSha256": "7cf106332061c9279dac5b09021c7203a7298518d11cb821c525797fd00bee56",
+      "outputBytes": 21831,
       "splitBySection": false,
       "sections": [
         {
@@ -4311,7 +4318,8 @@
           49,
           50,
           51
-        ]
+        ],
+        "rows": 2
       },
       "duplicateOf": null,
       "reviewStatus": "clean"
@@ -6626,8 +6634,8 @@
         438
       ],
       "sourceSha256": "4ffb21f4c81e95a43408937befd014829ff906ad07f3b8b56716e03a0e5cc337",
-      "outputSha256": "dce2d945660ea348807c67e6c73d47888753fd4d8b4db5f0be8892f3fd370b9a",
-      "outputBytes": 16950,
+      "outputSha256": "d986bfc812e737fa381d8f484daf5f1479889208e66e29ca93175152325ab42b",
+      "outputBytes": 25371,
       "splitBySection": false,
       "sections": [
         {
@@ -7007,6 +7015,11 @@
         "restored-standards-list": 1
       },
       "indexable": false,
+      "amendments": {
+        "document": "chugoku/local",
+        "pages": [],
+        "rows": 1
+      },
       "duplicateOf": null,
       "reviewStatus": "clean"
     },
@@ -7302,8 +7315,8 @@
         456
       ],
       "sourceSha256": "bc4e669f2b7a8bdc92bc2a27772515912361f46cbf0bcb1b87dc98ae26cec037",
-      "outputSha256": "98a8225d397e1337996489c109f503bdac68e9d8932d5388eed48b8c7bd4e83b",
-      "outputBytes": 33859,
+      "outputSha256": "1f28797624861a98c8ab0b1c797933d70b8972e21b70166f8715d3b8869a5dac",
+      "outputBytes": 34629,
       "splitBySection": false,
       "sections": [
         {
@@ -7852,7 +7865,8 @@
         "document": "chugoku/local",
         "pages": [
           52
-        ]
+        ],
+        "rows": 2
       },
       "duplicateOf": null,
       "reviewStatus": "clean"
@@ -8529,8 +8543,8 @@
         482
       ],
       "sourceSha256": "651ff2f24b7abad7a71d4285c0cc409dc0b85b4d0e1008bd2bb48a57f5812112",
-      "outputSha256": "35c13e6b2e4ec747c98ddc7dc6baf3083a2135526445b44a9239fb579cf3bd76",
-      "outputBytes": 23769,
+      "outputSha256": "efb721601060f08e8aa2909c85e4432a0da2e63fc0aa61ae7cc0bf2440e7abfe",
+      "outputBytes": 27032,
       "splitBySection": false,
       "sections": [
         {
@@ -9067,7 +9081,8 @@
         "document": "chugoku/local",
         "pages": [
           53
-        ]
+        ],
+        "rows": 2
       },
       "duplicateOf": null,
       "reviewStatus": "clean"
@@ -11078,8 +11093,8 @@
         546
       ],
       "sourceSha256": "5f5b4d1a9761f972f53c1364477dfd273f347a13b1146150ed308af075473b9e",
-      "outputSha256": "4a30f516d3f8865f7e4babfd7b74b177e00ace9b8d5a079c82c969a9513e2c2b",
-      "outputBytes": 38892,
+      "outputSha256": "282f76680ef5a7d76fce2f6ad4555f5eb38e7517877da4d9340db35d58e20e44",
+      "outputBytes": 41840,
       "splitBySection": false,
       "sections": [
         {
@@ -11551,7 +11566,8 @@
         "document": "chugoku/local",
         "pages": [
           54
-        ]
+        ],
+        "rows": 3
       },
       "duplicateOf": null,
       "reviewStatus": "clean"
@@ -11583,8 +11599,8 @@
         556
       ],
       "sourceSha256": "072050d81c94879d7b3bfda31b827597e5b91d3f812f50cff7328ae45b32c95c",
-      "outputSha256": "798d17422606cc7f6bfd36a18f9ec0621ccd4cedf1c2ff36b98ec0a4b430ad6a",
-      "outputBytes": 25313,
+      "outputSha256": "fca6fc1fddc34e022564629fbd9a4504c4bead80e7df9ce65fcc8843e403265c",
+      "outputBytes": 25645,
       "splitBySection": false,
       "sections": [
         {
@@ -12112,7 +12128,8 @@
         "document": "chugoku/local",
         "pages": [
           55
-        ]
+        ],
+        "rows": 1
       },
       "duplicateOf": null,
       "reviewStatus": "clean"
@@ -12140,8 +12157,8 @@
         563
       ],
       "sourceSha256": "31b54a4e1a62200d359155e1808a48bc885156fc3a7ca51bfa0a4eb780175a79",
-      "outputSha256": "66f704be0367ada66121db2c0b70a303b2ac5831f367f9498789962b5f1444c2",
-      "outputBytes": 17058,
+      "outputSha256": "b2e2c1107b923da6ad8e7d4d8155203cd3e818188b5d9e9171221cca28f3f974",
+      "outputBytes": 22451,
       "splitBySection": false,
       "sections": [
         {
@@ -12562,7 +12579,8 @@
         "pages": [
           56,
           57
-        ]
+        ],
+        "rows": 4
       },
       "duplicateOf": null,
       "reviewStatus": "clean"
@@ -13161,8 +13179,8 @@
         590
       ],
       "sourceSha256": "b54bd2a0096c8635f74da1d14a783020d074300d09d7d78b4296c9c501585645",
-      "outputSha256": "1d2828807c32274377ce99dbf996d04e8099dd46d651d8173c8af4d90251cf1e",
-      "outputBytes": 28678,
+      "outputSha256": "a57facd8834f8f07d770c92e93e07fd057e91ecf3b190aaff886309873ae3648",
+      "outputBytes": 29289,
       "splitBySection": false,
       "sections": [
         {
@@ -13465,7 +13483,8 @@
         "document": "chugoku/local",
         "pages": [
           58
-        ]
+        ],
+        "rows": 1
       },
       "duplicateOf": null,
       "reviewStatus": "clean"
@@ -14962,8 +14981,8 @@
         637
       ],
       "sourceSha256": "e6515af8678816711218655741e2f6a618ebc2f48e8ea8dfdd5f4d5c2b8ec171",
-      "outputSha256": "95fb9eedf86ee7b37199ff6b487e4d7f41b385216f91a8acb4dd8263b52bcd86",
-      "outputBytes": 57103,
+      "outputSha256": "06441e982ef4fb47c8546fae5855f63d4812117ba590f8218bcf5b4a0588daf4",
+      "outputBytes": 58942,
       "splitBySection": false,
       "sections": [
         {
@@ -15852,7 +15871,8 @@
         "document": "chugoku/local",
         "pages": [
           59
-        ]
+        ],
+        "rows": 3
       },
       "duplicateOf": null,
       "reviewStatus": "clean"
@@ -15878,8 +15898,8 @@
         642
       ],
       "sourceSha256": "209fcce774421be7692bbd2738b6affbdc810ac9bb3df0c149991cf65b4c1b85",
-      "outputSha256": "80320f7ada0bd076d79292f4ea09a6c9a8c5a83ef19eb9d18bddeec77be9426e",
-      "outputBytes": 12218,
+      "outputSha256": "a9f21f59fa9ade5c090b8a9648fece6483739050918dbb296fbcc77d1608750b",
+      "outputBytes": 12634,
       "splitBySection": false,
       "sections": [
         {
@@ -15996,7 +16016,8 @@
         "document": "chugoku/local",
         "pages": [
           60
-        ]
+        ],
+        "rows": 1
       },
       "duplicateOf": null,
       "reviewStatus": "clean"
@@ -16036,8 +16057,8 @@
         660
       ],
       "sourceSha256": "9a7c24af102bab48342ca5b444110f1d91b0374ae1ce8c6c3ff2873a11cd6a3f",
-      "outputSha256": "fafadd3cbb12b724e098987bfd6ef28ce613f498521e9805b00a09c6d9a028f7",
-      "outputBytes": 45274,
+      "outputSha256": "da7cebc4353af09a176090a9f5f3772ed4ba4bdd859146a52e9d5dc0bccd1174",
+      "outputBytes": 50065,
       "splitBySection": false,
       "sections": [
         {
@@ -17035,7 +17056,8 @@
         "pages": [
           61,
           62
-        ]
+        ],
+        "rows": 6
       },
       "duplicateOf": null,
       "reviewStatus": "clean"

@@ -132,6 +132,8 @@ npm run check-standard-articles # 上の 19 検査（本文の取りこぼし0�
 npm run standards-table-gallery  # 公的基準の章・節ページの表を撮って 1 枚の HTML に並べる（目視用・ゲートではない。対象は「中身が異なるページすべて」。要 serve/dev。Playwright のブラウザが無い PC は --channel msedge。Git Bash では MSYS_NO_PATHCONV=1 を付けないと --only の /standards/… が化ける）
 npm run standards-tables -- inventory|render|sheets|validate|review  # 公的基準の版面のまま残った表を原本画像と照合して組み直す作業の道具（台帳→ページ画像→作業票→文字の過不足ゼロの照合→承認の記録）。作業物は .tmp/standards-tables/。画像は Drive vault を優先し、見えない PC は render --agency <機関> --pdf <原本>（catalog の SHA-256 と違えば拒否・pdftoppm か PyMuPDF）。流れは /standards-table-rebuild
 npm run build-standards-page-images # 公的基準の原本PDF→**1ページ1画像+1テキスト**（270dpi/2233px JPEG＋pdftotext のページ分割）。章記事が part-NN.md（50ページ束）までしかページ情報を持たず「原本の何ページか」を機械で言えない問題を埋める。原本の同定はファイル名でなく **sha256**（Drive のファイル名は整理で動くため）。**実体は Google Drive vault の原本 PDF と同名フォルダ（隣）**、Git には manifest.json だけ
+npm run standards-amendments -- sheets|validate|review  # 地方の訂正・追加表（中国地方整備局版の 5 列の表）をページ画像から 1 ページ 1 JSON に組み直す道具（content/sources/standards/amendments/・形は scripts/lib/standards-amendments.mjs）。版面と JSON の文字は多重集合で一致させる（順序は照合しないので QA が画像で見る）。全ページ承認済みになると build-standard-articles が中国版の章記事の条ごとに差し込む
+npm run check-standards-amendments  # 上の照合（全ページ承認済み・文字一致・章記事への差し込み漏れなし。quality:audit に同梱）
 npm run check-standards-page-images # 上の provenance 整合（catalog↔manifest の原本 sha256・ページ 1..N の被覆・part 範囲・画像 sha256 のサンプル照合。実体が無い端末では manifest のみ検査しその旨を明示・quality:audit に同梱）
 ```
 

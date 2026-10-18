@@ -34,6 +34,7 @@ import { loadManifest as loadAssetManifest } from './lib/asset-storage.mjs';
 import { pathToFileURL } from 'node:url';
 import { datasetPath } from './lib/datasets.mjs';
 import { chapterPreambleText, sectionPageMarkdown, splitChapterBySection } from '../src/lib/standards-section-split.mjs';
+import { stripAmendmentBlocks } from './lib/standards-amendments.mjs';
 
 const sha256 = (value) => createHash('sha256').update(value).digest('hex');
 
@@ -716,11 +717,13 @@ function checkTables(def, { manifest, agencyId, documentId, document }) {
       );
     }
 
-    const { text } = readChapterFile(agencyId, documentId, chapter.file);
-    if (text === null) {
+    const { text: raw } = readChapterFile(agencyId, documentId, chapter.file);
+    if (raw === null) {
       violations.push(`${chapter.chapterId}: 章ファイルが無く表を検査できない`);
       continue;
     }
+    // 差し込んだ地方の訂正・追加（目印で囲んだ範囲）は原典の表ではないので数えない（照合は check-standards-amendments）
+    const text = stripAmendmentBlocks(raw);
     const lines = text.split('\n');
     // 復元した文字列が原典のどこかのページに実在するか（章の出所ページ内で探す）。
     // ページをまたぐ表・一覧は、柱と印刷ページ番号を除いて出所ページをつないだ本文でも探す。
@@ -1061,8 +1064,9 @@ function checkReadability([midDef, strayDef, brokenDef], { manifest, agencyId, d
   const broken = [];
   let chaptersChecked = 0;
   for (const chapter of manifest.chapters) {
-    const { text } = readChapterFile(agencyId, documentId, chapter.file);
-    if (text === null) continue;
+    const { text: raw } = readChapterFile(agencyId, documentId, chapter.file);
+    if (raw === null) continue;
+    const text = stripAmendmentBlocks(raw);
     chaptersChecked += 1;
     const blocks = text.split(/\n\n+/);
     blocks.forEach((block, i) => {

@@ -1,0 +1,150 @@
+{
+  "page": 44,
+  "group": "【第３編 土木工事共通編 第２章 一般施工 関係】",
+  "chapters": [
+    "3-2"
+  ],
+  "columns": "編章節条 項以下 見出し 訂正・追加 訂正又は追加仕様事項",
+  "extras": [],
+  "entries": [
+    {
+      "article": "3-2-6-7",
+      "articleTitle": "ｱｽﾌｧﾙﾄ舗装工",
+      "clause": null,
+      "heading": null,
+      "kind": "追加",
+      "body": [
+        "路盤工の締固めは密度で管理するものとする。"
+      ]
+    },
+    {
+      "article": "3-2-6-12",
+      "articleTitle": "ｺﾝｸﾘｰﾄ舗装",
+      "clause": null,
+      "heading": null,
+      "kind": "追-1",
+      "body": [
+        "コンクリート舗装版の縦、横目地及びクラックが発生している箇所には、目地カバーシート材を設置しなければならない。ただし、クラック箇所については、監督職員の指示を受けるものとする。"
+      ]
+    },
+    {
+      "article": null,
+      "articleTitle": null,
+      "clause": null,
+      "heading": null,
+      "kind": "追-2",
+      "body": [
+        "目地カバーシート材は、巾４５㎝以上とし、使用材料は監督職員の指示を受けるものとする。"
+      ]
+    },
+    {
+      "article": "3-2-6-17",
+      "articleTitle": "オーバーレイ工",
+      "clause": null,
+      "heading": "アスファルト注入",
+      "kind": "追-1",
+      "body": [
+        "コンクリート舗装版の上にオーバーレイを施工する場合には、破砕工法以外はすべてアスファルト注入を行うものとする。タワミ量の測定は、アスファルト注入後に測定するものとし、ベンゲルマンビームにより輪荷重 5.0t、空気量 6.5 ㎏／㎡を標準として行う。",
+        "ただし、タワミ量が少ない（0.4 ㎜以下）と予想される場合は、事前に測定して注入範囲を設計図書に関して監督職員と協議して決定する。"
+      ]
+    },
+    {
+      "article": null,
+      "articleTitle": null,
+      "clause": null,
+      "heading": null,
+      "kind": "追-2",
+      "body": [
+        "注入孔は、４㎡に１箇所とし（クラックの状態によっては、３～４㎡に１箇所）孔径は５㎝程度とする。"
+      ]
+    },
+    {
+      "article": null,
+      "articleTitle": null,
+      "clause": null,
+      "heading": null,
+      "kind": "追-3",
+      "body": [
+        "注入する材料は、ＪＩＳ Ｋ 2207 に適合するブロンアスファルトで、針入度 10～30 を使用するものとし、注入時の温度は 200℃以上とする。"
+      ]
+    },
+    {
+      "article": null,
+      "articleTitle": null,
+      "clause": null,
+      "heading": null,
+      "kind": "追-4",
+      "body": [
+        "注入圧力は、２～５㎏／cm2 を標準とするが、注入状、舗装版の動き等を勘案し、調整するものとする。"
+      ]
+    },
+    {
+      "article": null,
+      "articleTitle": null,
+      "clause": null,
+      "heading": null,
+      "kind": "追-5",
+      "body": [
+        "注入後の孔の填充は、モルタルをもって行い、配合は砂１（0.75ｍ3）セメント１（1,100 ㎏）とする。"
+      ]
+    },
+    {
+      "article": null,
+      "articleTitle": null,
+      "clause": null,
+      "heading": null,
+      "kind": "追-6",
+      "body": [
+        "タワミ量測定の結果、測定値が 0.4 ㎜以上の場合は再注入を行うこと。ただし、タワミ量の再測定はしない。"
+      ]
+    },
+    {
+      "article": null,
+      "articleTitle": null,
+      "clause": null,
+      "heading": null,
+      "kind": "追-7",
+      "body": [
+        "削孔、注入アスファルト量、タワミ量測定の数量の増減については、設計変更の対象とする。"
+      ]
+    },
+    {
+      "article": null,
+      "articleTitle": null,
+      "clause": null,
+      "heading": "レベリング層",
+      "kind": "追-1",
+      "body": [
+        "レベリング層厚は、平均１㎝を原則とする。なお、わだち掘れ（流動）の著しい箇所は、監督職員の指示により実測し、それぞれ切削またはパッチングを行った後にオーバーレイを行うものとする。"
+      ]
+    },
+    {
+      "article": null,
+      "articleTitle": null,
+      "clause": null,
+      "heading": null,
+      "kind": "追-2",
+      "body": [
+        "施工方法は、レベリング層と基層（基層を施工しない箇所は表層）を同一の合材で同時に施工する。"
+      ]
+    },
+    {
+      "article": null,
+      "articleTitle": null,
+      "clause": null,
+      "heading": null,
+      "kind": "追-3",
+      "body": [
+        "品質管理－土木工事施工管理基準による。（品質管理基準１，オーバーレイまたは薄層舗装）",
+        "出来形管理－レベリング層と同時施工する基層または表層に相当する部分は、土木工事施工管理基準による。",
+        "(1)二層施工の場合"
+      ]
+    }
+  ],
+  "review": {
+    "status": "approved",
+    "by": "qa",
+    "at": "2026-10-18T22:33:05.585Z",
+    "note": "画像と照合（図は版面に文字なしで未収録）"
+  }
+}

@@ -74,3 +74,20 @@ domain: site
 
 - 構造の判定（表の領域・段落の区切り）を `scripts/lib/standards-structure.mjs` で直すと版面が変わり、該当の表の key が変わる。直したら 1 から回し直す（古い組み直しは使われないだけで消えない。`inventory` で版面が残った表を確かめる）。
 - 地域版だけの表は、その機関の画像が vault に無ければ近畿版の同じ表の画像で構造を見る（作業票に書かれる）。文字はその機関の版面が正。
+
+## 訂正・追加表（中国地方整備局版）
+
+中国地方整備局版（chugoku/local）は文書全体が 5 列の訂正・追加表で、章記事の中の表ではないので上の台帳には出ない。
+1 ページ 1 JSON（`content/sources/standards/amendments/chugoku-local/pNNNN.json`・形は `scripts/lib/standards-amendments.mjs`）に組み直す。
+
+```bash
+npm run standards-amendments -- sheets --document chugoku/local --pages 2-62 --size 7   # 作業票（画像は Drive vault）
+npm run standards-amendments -- validate --pages 2-8                                    # 形と、版面と JSON の文字の多重集合の一致
+npm run standards-amendments -- review --pages 2-8 --status approved --by qa --note "…"  # 照合の記録（文字が合わないと承認できない）
+npm run check-standards-amendments                                                       # 全ページ承認済み・差し込み漏れなし
+```
+
+Writer・QA は汎用エージェントに作業票と手順（版面の文字だけを使う・順序と欄の振り分けは画像で決める）を渡して回した（2026-10-19）。
+照合は文字の多重集合しか見ないので、**段落の順・欄の振り分け・行の切れ目は QA が画像で 1 ページずつ確かめる**。
+【…関係】の全ページが承認済みになると `build-standard-articles` が中国版の章記事の条の後に差し込む（目印 `amendments:start/end` で囲み、
+表と読みやすさの検査からは除く）。1 ページでも承認されていなければ章の冒頭の案内だけになる。

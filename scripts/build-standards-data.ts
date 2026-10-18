@@ -18,6 +18,7 @@ import {
   standardsDataPath,
 } from '../src/lib/standards-structured-data';
 import { inferStandardEdition } from '../src/lib/standards-comparison';
+import { stripAmendmentBlocks } from './lib/standards-amendments.mjs';
 import type { StandardChapter, StandardArticlesManifest } from '../src/lib/standards-articles';
 import type { StandardDocument, StandardsCatalog } from '../src/lib/standards';
 import { SITE_ORIGIN } from '../src/config/site-identity.mjs';
@@ -108,7 +109,8 @@ function extractArticleText(markdown: string): ReadonlyMap<string, string> {
     currentLines = [];
   };
 
-  for (const line of stripGeneratedComment(markdown).split(/\r?\n/u)) {
+  // 中国版に差し込んだ地方の訂正・追加は共通仕様書の条の本文ではないので、条の本文から除く（md には残す）
+  for (const line of stripGeneratedComment(stripAmendmentBlocks(markdown)).split(/\r?\n/u)) {
     // 条番号は manifest の article.number と同じ表記（共通仕様書 `1-1-1-1`・中部の特記仕様書 `特仕1-1-1-1`・
     // 東北の共通特記仕様書の 3 段 `1-1-1`）。表記を変えると structured data 側で本文を引けない
     const article = line.match(/^###\s+((?:[^\s\d]+)?\d+-\d+-\d+(?:-\d+)?)\s+/u);
