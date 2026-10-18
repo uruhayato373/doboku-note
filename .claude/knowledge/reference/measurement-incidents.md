@@ -8,6 +8,13 @@ title: 計測・検証事故の記録
 
 個別事例は時系列の逆順（新しい順）で追記する。各事例は「現象 / 根本原因 / 気づきの遅延理由（or 検出経緯）/ 適用した対策 / 教訓」を明記する。
 
+## 2026-10-18: POP本文画像の依頼を文字カードの再レンダーで完了扱い
+
+- 現象・検出: DN-0224の字幕・静止時間は修復したが、ユーザーのPOP意匠の指示を本文へ適用せず、指摘で判明した。
+- 原因: 本文を旧プレゼン形式へ統一する手順が残り、レンダラーに全場面の生成画像を必須とする契約が無かった。「MP4再生成」を「画像生成済み」と混同した。
+- 対策: `storyboard.imageDesign` と `pop-image.activeBodyRevision` で本文全場面を固定。`check-video-content` B20は生成指示・参照・原稿hashを検査し、`render-longform` は実画像のSHA・1920×1080を検査。欠落・不一致・skip-pngでは停止し、旧テンプレートへ戻さない。回帰は `tests/longform-pop-images.test.mjs`。
+- 教訓: 画像生成、動画合成、字幕入り目視、音声試聴を別の完了条件で報告する。意匠の合否は実画像で判断し、生成記録の存在だけで保証しない。
+
 ## 2026-10-17 — 音声エンジンの停止と未導入を混同しかけた
 
 - 現象・検出: localhostの応答なしとApplicationsの不在から動画生成を残件にしたが、追加探索で `.local/share/doboku-note/voicevox-engine/` に既存エンジンが見つかった。
@@ -1203,3 +1210,7 @@ PR を 3 本マージした後、`GET /repos/uruhayato373/doboku-note/actions/wo
   `created_at` を必ず一緒に出し、確かめたい push より古い行が混ざっていないかを見る。
 - 「その後のコミット」を語る前に `git log <確かめた SHA>..origin/develop` で実在を確かめる（今回は 1 件で `[skip ci]` だった）。
 - 誤報に気づいたら同じターンで訂正し、どの数字が誤りだったかを書く（§12）。
+
+### 2026-10-18: RGB/RGBA混在で冒頭映像が欠落
+
+POP本文のRGB PNGと表紙のRGBA PNGをconcatすると、ffmpegのフィルタ再初期化で先頭場面が失われ、映像streamが1.333秒から始まった。音声付きMP4全体の尺とPNGのSHAだけでは捕捉できなかった。共有合成器で作業用PNGをsRGB/RGBAへ揃える。`RUN_FFMPEG_INTEGRATION=1 node --test tests/longform-timing.integration.test.mjs` は40場面を実合成し、映像開始0秒・冒頭2場面の色・累積尺差0.15秒未満を確認する。完成動画でもstream開始と全場面の実フレームを確認し、PNG一覧を動画の目視確認に代用しない。

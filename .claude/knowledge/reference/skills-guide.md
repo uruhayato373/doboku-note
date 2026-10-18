@@ -9,7 +9,7 @@ title: スキル ナビゲーションガイド
 
 参考書籍の原本・画像・OCRを扱うときは `/asset-route` と [保存方針](./asset-storage-policy.md) §1-1を参照する。正本PDFは1箇所、文字起こしは各原資料内 `ocr/`。`/pdf-to-mdx --scanned` は既存book bundleの `pages/` を再利用し、新規OCR/cropは `record-reference-book-artifacts` で来歴を登録する。
 
-SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§0.1](./sns-image-policy.md) を起点に、ig-post-create／ig-carousel-restyle／ig-reel-create／yt-shorts-create／create-x-card で制作する。既存予約・公開状態は publish-ig-bs／publish-x／ig-reconcile で実体と照合する。 Xの継続監視は publish-x の `check-x-queue-health` 手順を使う。通常動画の共有合成器は画像と字幕をWAV実尺へ同期し、全場面画像は `media promote` で登録する。ポーズ選びは管理画面 `/gallery/characters` と [キャラクター素材ポリシー](./character-asset-policy.md) を参照する。
+SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§0.1](./sns-image-policy.md) を起点に、ig-post-create／ig-carousel-restyle／ig-reel-create／yt-shorts-create／create-x-card で制作する。既存予約・公開状態は publish-ig-bs／publish-x／ig-reconcile で実体と照合する。 Xの継続監視は publish-x の `check-x-queue-health` 手順を使う。通常動画の共有合成器はPNGの色形式を揃えて冒頭欠落を防ぎ、画像と字幕をWAV実尺へ同期し、全場面画像は `media promote` で登録する。ポーズ選びは管理画面 `/gallery/characters` と [キャラクター素材ポリシー](./character-asset-policy.md) を参照する。
 
 ---
 

@@ -29,7 +29,7 @@ node scripts/render-longform.mjs --pack-dir content/sns/video-packs/civil-constr
 node scripts/render-video-pack-shorts.mjs --pack-dir content/sns/video-packs/civil-construction-1/koji-gaiyo-7items
 ```
 
-出力先は `.tmp/video-render/{packId}/`。最初の1パックで表紙・読み上げ・字幕・切り替わりを確認してから一括生成する。採用画像は表紙・冒頭に使い、説明画面は白と資格別のブランド色を軸にしたプレゼン形式へ統一する。大きな結論見出し、STEPラベル、淡い要点カードを使い、文字数・項目数に応じて文字サイズと配置を調整する。legacy総監カバーは動画パックの一括生成には混ぜない。
+出力先は `.tmp/video-render/{packId}/`。最初の1パックで表紙・読み上げ・字幕・切り替わりを確認してから一括生成する。採用画像は表紙・冒頭に使う。本文までPOP制作する指定がある場合は、[本文POPの制作契約](../../../.claude/knowledge/reference/video-content-policy.md) の `imageDesign` で全場面の生成画像を接続する。指定がない既存パックの説明画面は白と資格別のブランド色を軸にしたプレゼン形式を使う。大きな結論見出し、STEPラベル、淡い要点カードを使い、文字数・項目数に応じて文字サイズと配置を調整する。legacy総監カバーは動画パックの一括生成には混ぜない。
 
 ## 図解を使った場面画像の確認
 
@@ -76,7 +76,9 @@ node scripts/drive-vault-sync.mjs --path PATH --pull --commit
 
 完全再現は復元PNGと `output.sha256` の一致で判断する。フォントや画像生成モデルの再実行には依存しない。内容変更は別の派生版として記録する。生成時の実寸が媒体寸法と異なる場合は、採用前に最終サイズと安全域を整え、最終PNGのSHAを記録する。
 
-`revisions` への保存や意匠承認だけでは採用されない。媒体確認後の最終PNGを `cover-design.json` の採用入力へ接続（pop-poster-v3 は採用PNG必須。欠落時は停止し、テンプレートへ戻さない）し、素材・公開台帳は既存 `media` / `registry` 経由で更新してから `check-youtube-cover-handoff --local` を実行する。private R2の `stage-youtube-covers` が転送するのも、この採用入力に接続済みの画像だけ。制作途中の比較画像を転送・公開済みとは扱わない。
+`revisions` への保存や意匠承認だけでは採用されない。表紙の最終PNGを媒体確認後に `cover-design.json` の採用入力へ接続（pop-poster-v3 は採用PNG必須。欠落時は停止し、テンプレートへ戻さない）し、素材・公開台帳は既存 `media` / `registry` 経由で更新してから `check-youtube-cover-handoff --local` を実行する。private R2の `stage-youtube-covers` が転送するのも、この採用入力に接続済みの画像だけ。制作途中の比較画像を転送・公開済みとは扱わない。これらの採用検査・転送は表紙用。通常動画の本文・締めは `storyboard.imageDesign` と `pop-image.json.activeBodyRevision` で採用版を指定する（[本文POPの制作契約](../../../.claude/knowledge/reference/video-content-policy.md)）。
+
+本文POPの原本・修正版・採用PNGは `.tmp/media/{exam}/{pack}/work/{role}.{sha8}.png` に揃え、`content-media` として保存する。別端末では `node scripts/drive-vault-sync.mjs --pull --path .tmp/media/{exam}/{pack}/work/ --commit` で復元してから通常動画を再生成する。本文画像の自動pullは行わず、不足時は停止する。画像の再生成は同じ画素を保証しないため、再現には保存済みPNGを使う。
 
 ## 全場面差し替え版の完全復元
 

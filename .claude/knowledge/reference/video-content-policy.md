@@ -99,6 +99,11 @@ Shortsのプラットフォーム上限と、doboku-noteが採用する推奨尺
 
 16:9通常動画のレンダラーは `npm run render-longform`（`scripts/render-longform.mjs`・純粋ロジックは `scripts/lib/longform-render.mjs`）。scene の視覚要素は additive フィールド `visual: { kind: 'cover'|'points'|'figure'|'compare'|'sheet', heading, items[], src?, flow? }` で持ち（compare・sheet と任意フィールドは下の表）、試験色は exam-palette（note-cover-tokens.json）を解決する。`figure` はリポジトリ内の既存SVG/PNG/WebP/JPEGだけを`src`で参照し、本文の図解を1920×1080へ再利用する。出力は `.tmp/video-render/{packId}/`（PNG・WAV・ASS・render-manifest.json・mp4）で、パックディレクトリと Git にはバイナリを書かない。VOICEVOX/ffmpeg の無い環境は `--skip-tts` で PNG/ASS まで生成し、mp4 は VOICEVOX と ffmpeg/ffprobe を用意した Windows / Mac 等で同コマンドを完走させる。現在、動画生成用の GitHub Actions ワークフローは無い。
 
+本文までCodexのPOP画像で制作するパックは、storyboardの `imageDesign: {mode: "codex-pop", scope: "all-body", revision: "<改訂キー>"}` と、`pop-image.json.activeBodyRevision` を同じキーにする。`revisions[改訂キー].images` に表紙を除く全場面（締めも含む）の `sceneId`・`inputSha256`（`popSceneHash`で語り/コピー/出典を結合）・`generation`（tool=`image_gen`、全文prompt、references、原本output）・採用 `output`（path/sha256/width/height）を残す。原本と採用PNGはDriveのcontent-mediaへ保存し、参照パスはリポジトリ相対とする。
+
+`check-video-content` のB20が全場面・生成記録・原稿hash・宣言寸法1920×1080を検査する。CIでは画像実体の検査とは呼ばない。`render-longform` は採用PNGの実体SHA・寸法を検査し、resumeでも指定画像をそのまま使う。欠落時は停止し、従来の文字カードや `visual.art`・CTAへ戻さない。`--skip-png` は不可。render-manifestの各場面には `pngSha256` と本文の `generatedImage` を保存する。機械検査は意匠・生成文字の正しさ・字幕重なりの目視確認を代替しない。
+
+
 通常動画・パック派生Shortsの標準説明画面は `scripts/lib/video-explanation.mjs` を共用する。通常動画の `visual.art` 指定場面は `scripts/lib/video-editorial-art.mjs` で1920×1080のSVGからPNGへ描画する。構図は `art.type` で指定し、承認済み表紙があれば表紙を優先する。口頭対策の図は `five-management`・`decision`・`learning-loop`・`influence` を使え、後3種は `items` が4件必須。技術士（`pe-*`）は資格テーマの配色・資格名を使う。`art.source` は実在するサイト図解を動画向けに再構成する根拠であり、元SVGの直接埋め込みではない。`--resume` でも `visual.art` のPNGは再生成する。白背景に試験色の見出し・STEPラベル・淡い要点カードを配置し、文字量に応じて文字サイズと行高を配分する。4項目以上の横長画面は複数列にし、字幕領域を空ける。`figure` は元図に基づく短い `flow[]` を指定すると編集可能な縦フローで表示できる。
 
 16:9 の scene は次の任意フィールドを持てる（2026-10-08 追加。指定しない既存パックの画面は、下の改行規則を除いて変わらない）。

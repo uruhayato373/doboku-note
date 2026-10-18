@@ -63,5 +63,1447 @@
       },
       "publication": "ローカル差し替え・外部未反映"
     }
+  },
+  "activeBodyRevision": "body-pop-20261018",
+  "revisions": {
+    "body-pop-20261018": {
+      "version": "pop-poster-v3",
+      "images": [
+        {
+          "sceneId": "intro",
+          "inputSha256": "f6087e0b7686c0cc2c09e38e549658934d67c277da6fee15168f1746bda7e673",
+          "copy": {
+            "heading": "設問ごとに何を書くか",
+            "items": [
+              "Ⅰ・Ⅱ・Ⅲの役割とつながり"
+            ]
+          },
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付は承認済み意匠の参照。16:9横長1920×1080向けの日本語学習動画の本文POP画像を1枚生成。参照と同じ先生（40代男性・黒髪・黒縁眼鏡・軽いひげ・無地の白ヘルメット・紺の作業服とネクタイ・黄白反射帯）。鮮やかな青・シアン・ネイビー、白と黄色の極太文字・太い輪郭・少量の赤、斜め面、背景の描き込み。白い箱を並べた箇条書きスライドにしない。重要文字は上5〜下78%内、下端18%は後から動画字幕が載るため青い背景の延長だけにする。背景は四辺まで続く。横長構図に再設計し人物の顔と主題を大きく、本文に対応する視覚的な説明を添える。先生は内容をわかりやすく説明する。画面に正確に表示する文字は「技術士 総監」、大見出し「設問ごとに何を書くか」、補足「Ⅰ・Ⅱ・Ⅲの役割とつながり」だけ。全て幅360pxでも読める大きな文字。文字列を勝手に略さない。番号を増やさない。ブランド・価格・URL・合格保証・細かな偽文字は追加しない。説明の意味（この全文を画像に書くのではない）: 設問ごとに何を書くか迷うときは、三層の役割を整理します。今日は各層の中身と、一貫性の作り方を説明します。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png",
+                "sha256": "226ec38a86790720f220ec2ca340d5f984d9297d6275ede0872c9ee42f64b092"
+              },
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-intro.beea11be.png",
+                "sha256": "beea11be19492e90568833eb2cc1342fe25c0af27dcf0919617b2644fa3b4003"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/raw-intro.7e909ad8.png",
+              "sha256": "7e909ad889891a3903ae1552a04698fcbceb78830250328a666334ce3eb48a63",
+              "width": 1672,
+              "height": 941
+            }
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/intro.2214ba86.png",
+            "sha256": "2214ba86b232f21d99b41777abc9ec1433d7eff2f7831e7e2c9e641db6e7c0ca",
+            "width": 1920,
+            "height": 1080
+          },
+          "edits": [],
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/intro.2214ba86.png"
+          },
+          "review": {
+            "status": "ok",
+            "reviewer": "ai-image-fidelity-auditor",
+            "date": "2026-10-18",
+            "checkedSha256": "2214ba86b232f21d99b41777abc9ec1433d7eff2f7831e7e2c9e641db6e7c0ca",
+            "viewports": [
+              "1920x1080",
+              "360px"
+            ],
+            "checks": [
+              "lettering",
+              "narration-alignment",
+              "diagram",
+              "character",
+              "subtitle-safe-area"
+            ]
+          }
+        },
+        {
+          "sceneId": "premise",
+          "inputSha256": "760e27545b89099dae43997fa62d6b7411a2a04d4e00912d41448b04f7d36a62",
+          "copy": {
+            "heading": "三層は整理するための例",
+            "items": [
+              "条件→施策→実施後の影響"
+            ]
+          },
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付は承認済み意匠の参照。16:9横長1920×1080向けの日本語学習動画の本文POP画像を1枚生成。参照と同じ先生（40代男性・黒髪・黒縁眼鏡・軽いひげ・無地の白ヘルメット・紺の作業服とネクタイ・黄白反射帯）。鮮やかな青・シアン・ネイビー、白と黄色の極太文字・太い輪郭・少量の赤、斜め面、背景の描き込み。白い箱を並べた箇条書きスライドにしない。重要文字は上5〜下78%内、下端18%は後から動画字幕が載るため青い背景の延長だけにする。背景は四辺まで続く。横長構図に再設計し人物の顔と主題を大きく、本文に対応する視覚的な説明を添える。先生は条件・施策・結果のつながりを図で示す。画面に正確に表示する文字は「技術士 総監」、大見出し「三層は整理するための例」、補足「条件→施策→実施後の影響」だけ。全て幅360pxでも読める大きな文字。文字列を勝手に略さない。番号を増やさない。ブランド・価格・URL・合格保証・細かな偽文字は追加しない。説明の意味（この全文を画像に書くのではない）: ここでは条件・施策・実施後の影響を三層に整理します。設問の区分・範囲・項目数は、当年度の問題文を優先します。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png",
+                "sha256": "226ec38a86790720f220ec2ca340d5f984d9297d6275ede0872c9ee42f64b092"
+              },
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-intro.beea11be.png",
+                "sha256": "beea11be19492e90568833eb2cc1342fe25c0af27dcf0919617b2644fa3b4003"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/raw-premise.c64c733b.png",
+              "sha256": "c64c733b51bfe62607bf808db53e530007be589d2bc89caefc446ff31cb23d70",
+              "width": 1672,
+              "height": 941
+            }
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/premise.95c73d7a.png",
+            "sha256": "95c73d7a40fa24ededf497635c39fb2cb261a1d2b4b4a6e55c670990f93d00d1",
+            "width": 1920,
+            "height": 1080
+          },
+          "edits": [],
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/premise.95c73d7a.png"
+          },
+          "review": {
+            "status": "ok",
+            "reviewer": "ai-image-fidelity-auditor",
+            "date": "2026-10-18",
+            "checkedSha256": "95c73d7a40fa24ededf497635c39fb2cb261a1d2b4b4a6e55c670990f93d00d1",
+            "viewports": [
+              "1920x1080",
+              "360px"
+            ],
+            "checks": [
+              "lettering",
+              "narration-alignment",
+              "diagram",
+              "character",
+              "subtitle-safe-area"
+            ]
+          }
+        },
+        {
+          "sceneId": "premise-cause",
+          "inputSha256": "5f07aaca47ed3f583c1d448a07a9a8eacff352f58f26cb76a6ec2db31232cab4",
+          "copy": {
+            "heading": "見出しの区分で終わらせない",
+            "items": [
+              "原因と結果をつなぐ"
+            ]
+          },
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付は承認済み意匠の参照。16:9横長1920×1080向けの日本語学習動画の本文POP画像を1枚生成。参照と同じ先生（40代男性・黒髪・黒縁眼鏡・軽いひげ・無地の白ヘルメット・紺の作業服とネクタイ・黄白反射帯）。鮮やかな青・シアン・ネイビー、白と黄色の極太文字・太い輪郭・少量の赤、斜め面、背景の描き込み。白い箱を並べた箇条書きスライドにしない。重要文字は上5〜下78%内、下端18%は後から動画字幕が載るため青い背景の延長だけにする。背景は四辺まで続く。横長構図に再設計し人物の顔と主題を大きく、本文に対応する視覚的な説明を添える。先生は条件・施策・結果のつながりを図で示す。画面に正確に表示する文字は「技術士 総監」、大見出し「見出しの区分で終わらせない」、補足「原因と結果をつなぐ」だけ。全て幅360pxでも読める大きな文字。文字列を勝手に略さない。番号を増やさない。ブランド・価格・URL・合格保証・細かな偽文字は追加しない。説明の意味（この全文を画像に書くのではない）: 三層は単なる見出しの区分ではありません。原因と結果をつながないと、条件と施策の関係が伝わりにくくなります。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png",
+                "sha256": "226ec38a86790720f220ec2ca340d5f984d9297d6275ede0872c9ee42f64b092"
+              },
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-intro.beea11be.png",
+                "sha256": "beea11be19492e90568833eb2cc1342fe25c0af27dcf0919617b2644fa3b4003"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/raw-premise-cause.fc82455a.png",
+              "sha256": "fc82455a0315642faba0d21608dd762af5717af735f89e30a6c55481c9751001",
+              "width": 1672,
+              "height": 941
+            }
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/premise-cause.549b3cf7.png",
+            "sha256": "549b3cf73a536e00dcf44921f96b9d8cc8ffe106ec070d85fe9cdbfd3db86af9",
+            "width": 1920,
+            "height": 1080
+          },
+          "edits": [],
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/premise-cause.549b3cf7.png"
+          },
+          "review": {
+            "status": "ok",
+            "reviewer": "ai-image-fidelity-auditor",
+            "date": "2026-10-18",
+            "checkedSha256": "549b3cf73a536e00dcf44921f96b9d8cc8ffe106ec070d85fe9cdbfd3db86af9",
+            "viewports": [
+              "1920x1080",
+              "360px"
+            ],
+            "checks": [
+              "lettering",
+              "narration-alignment",
+              "diagram",
+              "character",
+              "subtitle-safe-area"
+            ]
+          }
+        },
+        {
+          "sceneId": "layer1",
+          "inputSha256": "c44301c4eb72d3950a74e7992716789b1e13ddad6141e823996e27d771b15f7c",
+          "copy": {
+            "heading": "Ⅰ 論文全体の設計図",
+            "items": [
+              "後段が成立する条件を置く"
+            ]
+          },
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付は承認済み意匠の参照。16:9横長1920×1080向けの日本語学習動画の本文POP画像を1枚生成。参照と同じ先生（40代男性・黒髪・黒縁眼鏡・軽いひげ・無地の白ヘルメット・紺の作業服とネクタイ・黄白反射帯）。鮮やかな青・シアン・ネイビー、白と黄色の極太文字・太い輪郭・少量の赤、斜め面、背景の描き込み。白い箱を並べた箇条書きスライドにしない。重要文字は上5〜下78%内、下端18%は後から動画字幕が載るため青い背景の延長だけにする。背景は四辺まで続く。横長構図に再設計し人物の顔と主題を大きく、本文に対応する視覚的な説明を添える。先生は条件・施策・結果のつながりを図で示す。画面に正確に表示する文字は「技術士 総監」、大見出し「Ⅰ 論文全体の設計図」、補足「後段が成立する条件を置く」だけ。全て幅360pxでも読める大きな文字。文字列を勝手に略さない。番号を増やさない。ブランド・価格・URL・合格保証・細かな偽文字は追加しない。説明の意味（この全文を画像に書くのではない）: 第一層の本質は説明ではなく設計図です。第二層と第三層で書く内容が成立するよう、必要な条件を先に置きます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png",
+                "sha256": "226ec38a86790720f220ec2ca340d5f984d9297d6275ede0872c9ee42f64b092"
+              },
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-intro.beea11be.png",
+                "sha256": "beea11be19492e90568833eb2cc1342fe25c0af27dcf0919617b2644fa3b4003"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/raw-layer1.691171fb.png",
+              "sha256": "691171fb89761a8eeeed19f649174f08fe3dd6b2cc8a0e608138f4867c1cad30",
+              "width": 1672,
+              "height": 941
+            }
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/layer1.ee85edea.png",
+            "sha256": "ee85edeab1b62fa2b3fffb28745a04370239a01f3b449c7e9b9422393c79aab0",
+            "width": 1920,
+            "height": 1080
+          },
+          "edits": [],
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/layer1.ee85edea.png"
+          },
+          "review": {
+            "status": "ok",
+            "reviewer": "ai-image-fidelity-auditor",
+            "date": "2026-10-18",
+            "checkedSha256": "ee85edeab1b62fa2b3fffb28745a04370239a01f3b449c7e9b9422393c79aab0",
+            "viewports": [
+              "1920x1080",
+              "360px"
+            ],
+            "checks": [
+              "lettering",
+              "narration-alignment",
+              "diagram",
+              "character",
+              "subtitle-safe-area"
+            ]
+          }
+        },
+        {
+          "sceneId": "layer1-target",
+          "inputSha256": "4bfcb1f2c17196b3aee0d32fe36cc96f31e734f86e58bcf10683af0217def3d3",
+          "copy": {
+            "heading": "Ⅰ 管理対象を限定する",
+            "items": [
+              "自社の特定の事業部など"
+            ]
+          },
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付は承認済み意匠の参照。16:9横長1920×1080向けの日本語学習動画の本文POP画像を1枚生成。参照と同じ先生（40代男性・黒髪・黒縁眼鏡・軽いひげ・無地の白ヘルメット・紺の作業服とネクタイ・黄白反射帯）。鮮やかな青・シアン・ネイビー、白と黄色の極太文字・太い輪郭・少量の赤、斜め面、背景の描き込み。白い箱を並べた箇条書きスライドにしない。重要文字は上5〜下78%内、下端18%は後から動画字幕が載るため青い背景の延長だけにする。背景は四辺まで続く。横長構図に再設計し人物の顔と主題を大きく、本文に対応する視覚的な説明を添える。先生は条件・施策・結果のつながりを図で示す。画面に正確に表示する文字は「技術士 総監」、大見出し「Ⅰ 管理対象を限定する」、補足「自社の特定の事業部など」だけ。全て幅360pxでも読める大きな文字。文字列を勝手に略さない。番号を増やさない。ブランド・価格・URL・合格保証・細かな偽文字は追加しない。説明の意味（この全文を画像に書くのではない）: まず管理対象を明確にします。建設業界全体のように広げすぎず、自社の特定の事業部などに限定して後段を組みます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png",
+                "sha256": "226ec38a86790720f220ec2ca340d5f984d9297d6275ede0872c9ee42f64b092"
+              },
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-intro.beea11be.png",
+                "sha256": "beea11be19492e90568833eb2cc1342fe25c0af27dcf0919617b2644fa3b4003"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/raw-layer1-target.27fa89b9.png",
+              "sha256": "27fa89b932b3dbc688acc99936675c0dc789de544dd109b2b051bfdbf0f1c9d8",
+              "width": 1672,
+              "height": 941
+            }
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/layer1-target.0815f580.png",
+            "sha256": "0815f580c2739478d0e7d44203e4236395dfe7058ea078a4a61bc3c17dc88363",
+            "width": 1920,
+            "height": 1080
+          },
+          "edits": [],
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/layer1-target.0815f580.png"
+          },
+          "review": {
+            "status": "ok",
+            "reviewer": "ai-image-fidelity-auditor",
+            "date": "2026-10-18",
+            "checkedSha256": "0815f580c2739478d0e7d44203e4236395dfe7058ea078a4a61bc3c17dc88363",
+            "viewports": [
+              "1920x1080",
+              "360px"
+            ],
+            "checks": [
+              "lettering",
+              "narration-alignment",
+              "diagram",
+              "character",
+              "subtitle-safe-area"
+            ]
+          }
+        },
+        {
+          "sceneId": "layer1-role",
+          "inputSha256": "378eb5929bccfb3c9e948d49ee192312b08ce13e939c184ca5ec148238c1315b",
+          "copy": {
+            "heading": "Ⅰ 自分の立場と前提",
+            "items": [
+              "立場・役割",
+              "後段を支える前提条件"
+            ]
+          },
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付は承認済み意匠の参照。16:9横長1920×1080向けの日本語学習動画の本文POP画像を1枚生成。参照と同じ先生（40代男性・黒髪・黒縁眼鏡・軽いひげ・無地の白ヘルメット・紺の作業服とネクタイ・黄白反射帯）。鮮やかな青・シアン・ネイビー、白と黄色の極太文字・太い輪郭・少量の赤、斜め面、背景の描き込み。白い箱を並べた箇条書きスライドにしない。重要文字は上5〜下78%内、下端18%は後から動画字幕が載るため青い背景の延長だけにする。背景は四辺まで続く。横長構図に再設計し人物の顔と主題を大きく、本文に対応する視覚的な説明を添える。先生は条件・施策・結果のつながりを図で示す。画面に正確に表示する文字は「技術士 総監」、大見出し「Ⅰ 自分の立場と前提」、補足「立場・役割」・「後段を支える前提条件」だけ。全て幅360pxでも読める大きな文字。文字列を勝手に略さない。番号を増やさない。ブランド・価格・URL・合格保証・細かな偽文字は追加しない。説明の意味（この全文を画像に書くのではない）: 次に自分の立場・役割を明示します。そして、後段の課題や施策が成立する前提条件を置きます。これが第一層の3つの役割です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png",
+                "sha256": "226ec38a86790720f220ec2ca340d5f984d9297d6275ede0872c9ee42f64b092"
+              },
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-intro.beea11be.png",
+                "sha256": "beea11be19492e90568833eb2cc1342fe25c0af27dcf0919617b2644fa3b4003"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/raw-layer1-role.38c61b58.png",
+              "sha256": "38c61b58b62695701b48bd000d8ee0149e0f36d236dc982c379c25bfd2ca29e1",
+              "width": 1672,
+              "height": 941
+            }
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/layer1-role.d2e2c1b9.png",
+            "sha256": "d2e2c1b9a0abb4209de8a203f8cec5bdf95f609cfb6d0d423074edf59ba62f73",
+            "width": 1920,
+            "height": 1080
+          },
+          "edits": [],
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/layer1-role.d2e2c1b9.png"
+          },
+          "review": {
+            "status": "ok",
+            "reviewer": "ai-image-fidelity-auditor",
+            "date": "2026-10-18",
+            "checkedSha256": "d2e2c1b9a0abb4209de8a203f8cec5bdf95f609cfb6d0d423074edf59ba62f73",
+            "viewports": [
+              "1920x1080",
+              "360px"
+            ],
+            "checks": [
+              "lettering",
+              "narration-alignment",
+              "diagram",
+              "character",
+              "subtitle-safe-area"
+            ]
+          }
+        },
+        {
+          "sceneId": "layer2",
+          "inputSha256": "bb9106dd5b2033f365b08ad7ba1375230a47980ab33ce8c25e48f44756ce119a",
+          "copy": {
+            "heading": "Ⅱ 方針から施策へ",
+            "items": [
+              "方針：DXを推進する",
+              "施策：特定業務へシステム導入"
+            ]
+          },
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付は承認済み意匠の参照。16:9横長1920×1080向けの日本語学習動画の本文POP画像を1枚生成。参照と同じ先生（40代男性・黒髪・黒縁眼鏡・軽いひげ・無地の白ヘルメット・紺の作業服とネクタイ・黄白反射帯）。鮮やかな青・シアン・ネイビー、白と黄色の極太文字・太い輪郭・少量の赤、斜め面、背景の描き込み。白い箱を並べた箇条書きスライドにしない。重要文字は上5〜下78%内、下端18%は後から動画字幕が載るため青い背景の延長だけにする。背景は四辺まで続く。横長構図に再設計し人物の顔と主題を大きく、本文に対応する視覚的な説明を添える。先生は条件・施策・結果のつながりを図で示す。画面に正確に表示する文字は「技術士 総監」、大見出し「Ⅱ 方針から施策へ」、補足「方針：DXを推進する」・「施策：特定業務へシステム導入」だけ。全て幅360pxでも読める大きな文字。文字列を勝手に略さない。番号を増やさない。ブランド・価格・URL・合格保証・細かな偽文字は追加しない。説明の意味（この全文を画像に書くのではない）: 第二層は方針ではなく施策です。「DXを推進する」から、「特定業務にシステムを導入する」まで具体化します。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png",
+                "sha256": "226ec38a86790720f220ec2ca340d5f984d9297d6275ede0872c9ee42f64b092"
+              },
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-intro.beea11be.png",
+                "sha256": "beea11be19492e90568833eb2cc1342fe25c0af27dcf0919617b2644fa3b4003"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/raw-layer2.fb3b0125.png",
+              "sha256": "fb3b01258dc8f4eeddb4b93a77fd1e2d476f0bb457f9842728a15579ff390fe2",
+              "width": 1672,
+              "height": 941
+            }
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/layer2.82d8b467.png",
+            "sha256": "82d8b46768fd7908646743c9ded7c8a5074a707dc41e1ceb191751685b4ac470",
+            "width": 1920,
+            "height": 1080
+          },
+          "edits": [],
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/layer2.82d8b467.png"
+          },
+          "review": {
+            "status": "ok",
+            "reviewer": "ai-image-fidelity-auditor",
+            "date": "2026-10-18",
+            "checkedSha256": "82d8b46768fd7908646743c9ded7c8a5074a707dc41e1ceb191751685b4ac470",
+            "viewports": [
+              "1920x1080",
+              "360px"
+            ],
+            "checks": [
+              "lettering",
+              "narration-alignment",
+              "diagram",
+              "character",
+              "subtitle-safe-area"
+            ]
+          }
+        },
+        {
+          "sceneId": "layer2-feasible",
+          "inputSha256": "b92602ad0ae577f82dbcce5af89c48a1d27c2077b4380c9e9f7ea66cc76f3dac",
+          "copy": {
+            "heading": "施策の条件①・②",
+            "items": [
+              "近い将来に実現できる",
+              "自分の立場で動かせる"
+            ]
+          },
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付は承認済み意匠の参照。16:9横長1920×1080向けの日本語学習動画の本文POP画像を1枚生成。参照と同じ先生（40代男性・黒髪・黒縁眼鏡・軽いひげ・無地の白ヘルメット・紺の作業服とネクタイ・黄白反射帯）。鮮やかな青・シアン・ネイビー、白と黄色の極太文字・太い輪郭・少量の赤、斜め面、背景の描き込み。白い箱を並べた箇条書きスライドにしない。重要文字は上5〜下78%内、下端18%は後から動画字幕が載るため青い背景の延長だけにする。背景は四辺まで続く。横長構図に再設計し人物の顔と主題を大きく、本文に対応する視覚的な説明を添える。先生は条件・施策・結果のつながりを図で示す。画面に正確に表示する文字は「技術士 総監」、大見出し「施策の条件①・②」、補足「近い将来に実現できる」・「自分の立場で動かせる」だけ。全て幅360pxでも読める大きな文字。文字列を勝手に略さない。番号を増やさない。ブランド・価格・URL・合格保証・細かな偽文字は追加しない。説明の意味（この全文を画像に書くのではない）: 施策は4条件で確認します。1つ目は近い将来に実現できること。2つ目は自分の立場で動かせることです。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png",
+                "sha256": "226ec38a86790720f220ec2ca340d5f984d9297d6275ede0872c9ee42f64b092"
+              },
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-intro.beea11be.png",
+                "sha256": "beea11be19492e90568833eb2cc1342fe25c0af27dcf0919617b2644fa3b4003"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/raw-layer2-feasible.53e3f5d5.png",
+              "sha256": "53e3f5d5014508f9bc82bc317972451999d4f1cc3cd1d5935e638d8c9ad61a79",
+              "width": 1672,
+              "height": 941
+            }
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/layer2-feasible.628e2f02.png",
+            "sha256": "628e2f026824762d6442e76022cf87e06bb3c7677d25a17f42bad93074033782",
+            "width": 1920,
+            "height": 1080
+          },
+          "edits": [],
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/layer2-feasible.628e2f02.png"
+          },
+          "review": {
+            "status": "ok",
+            "reviewer": "ai-image-fidelity-auditor",
+            "date": "2026-10-18",
+            "checkedSha256": "628e2f026824762d6442e76022cf87e06bb3c7677d25a17f42bad93074033782",
+            "viewports": [
+              "1920x1080",
+              "360px"
+            ],
+            "checks": [
+              "lettering",
+              "narration-alignment",
+              "diagram",
+              "character",
+              "subtitle-safe-area"
+            ]
+          }
+        },
+        {
+          "sceneId": "layer2-resources",
+          "inputSha256": "a486549d8eddc0f7782e79e1d4db5ec3e978155f35e9a0a919ebde9d646272c8",
+          "copy": {
+            "heading": "施策の条件③・④",
+            "items": [
+              "資源制約を意識する",
+              "Ⅰの前提条件と直結する"
+            ]
+          },
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付は承認済み意匠の参照。16:9横長1920×1080向けの日本語学習動画の本文POP画像を1枚生成。参照と同じ先生（40代男性・黒髪・黒縁眼鏡・軽いひげ・無地の白ヘルメット・紺の作業服とネクタイ・黄白反射帯）。鮮やかな青・シアン・ネイビー、白と黄色の極太文字・太い輪郭・少量の赤、斜め面、背景の描き込み。白い箱を並べた箇条書きスライドにしない。重要文字は上5〜下78%内、下端18%は後から動画字幕が載るため青い背景の延長だけにする。背景は四辺まで続く。横長構図に再設計し人物の顔と主題を大きく、本文に対応する視覚的な説明を添える。先生は条件・施策・結果のつながりを図で示す。画面に正確に表示する文字は「技術士 総監」、大見出し「施策の条件③・④」、補足「資源制約を意識する」・「Ⅰの前提条件と直結する」だけ。全て幅360pxでも読める大きな文字。文字列を勝手に略さない。番号を増やさない。ブランド・価格・URL・合格保証・細かな偽文字は追加しない。説明の意味（この全文を画像に書くのではない）: 3つ目は限られた資源を意識していること。4つ目は第一層の前提条件と直結していることです。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png",
+                "sha256": "226ec38a86790720f220ec2ca340d5f984d9297d6275ede0872c9ee42f64b092"
+              },
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-intro.beea11be.png",
+                "sha256": "beea11be19492e90568833eb2cc1342fe25c0af27dcf0919617b2644fa3b4003"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/raw-layer2-resources.96cd22ea.png",
+              "sha256": "96cd22eaccf8c1fa0f78d6ea4ba839bca6ac00ba84947579612b2c2d8daec814",
+              "width": 1672,
+              "height": 941
+            }
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/layer2-resources.82142c95.png",
+            "sha256": "82142c95b9fedfc3cab5d8ece480e273ebb95e52d0880cba80ed9fe928556e67",
+            "width": 1920,
+            "height": 1080
+          },
+          "edits": [
+            {
+              "tool": "image_gen",
+              "prompt": "添付の横長POP学習画像を修正。全ての文字・先生の顔/衣装・青黄赤の意匠を保持。下段の資源（人員・材料・予算）を示す丸図、赤い両矢印、Ⅰの紙/組織図の丸図のセットだけを少し縮小して上へ移動する。説明図の全てが画像高の85%より上に収まり、下端15%は背景の青い斜め面だけとなるようにする。人員アイコンの全身も必ず上に収める。文字は変更せず欠けさせない。字幕は描かない。16:9横長。",
+              "references": [
+                {
+                  "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/edit-input-layer2-resources.d2869733.png",
+                  "sha256": "d2869733752feaca4b1e4e632c15469a0458a8698f9c9e5f197f7fc7e807a6a6"
+                }
+              ],
+              "output": {
+                "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/edit-layer2-resources.a1535602.png",
+                "sha256": "a153560202636b34fa7d76b7be3585479a5c1b1a3f09262779feae45fd252535"
+              }
+            }
+          ],
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/layer2-resources.82142c95.png"
+          },
+          "review": {
+            "status": "ok",
+            "reviewer": "ai-image-fidelity-auditor",
+            "date": "2026-10-18",
+            "checkedSha256": "82142c95b9fedfc3cab5d8ece480e273ebb95e52d0880cba80ed9fe928556e67",
+            "viewports": [
+              "1920x1080",
+              "360px"
+            ],
+            "checks": [
+              "lettering",
+              "narration-alignment",
+              "diagram",
+              "character",
+              "subtitle-safe-area"
+            ],
+            "repairReviewed": true
+          }
+        },
+        {
+          "sceneId": "layer2-effect",
+          "inputSha256": "d094ad803473ee852d99691835f737b3fc342bd43f50aeccf1b76fdef66e5155",
+          "copy": {
+            "heading": "効果と問題点をセットで",
+            "items": [
+              "期待できる効果",
+              "管理すべき問題点"
+            ]
+          },
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付は承認済み意匠の参照。16:9横長1920×1080向けの日本語学習動画の本文POP画像を1枚生成。参照と同じ先生（40代男性・黒髪・黒縁眼鏡・軽いひげ・無地の白ヘルメット・紺の作業服とネクタイ・黄白反射帯）。鮮やかな青・シアン・ネイビー、白と黄色の極太文字・太い輪郭・少量の赤、斜め面、背景の描き込み。白い箱を並べた箇条書きスライドにしない。重要文字は上5〜下78%内、下端18%は後から動画字幕が載るため青い背景の延長だけにする。背景は四辺まで続く。横長構図に再設計し人物の顔と主題を大きく、本文に対応する視覚的な説明を添える。先生は条件・施策・結果のつながりを図で示す。画面に正確に表示する文字は「技術士 総監」、大見出し「効果と問題点をセットで」、補足「期待できる効果」・「管理すべき問題点」だけ。全て幅360pxでも読める大きな文字。文字列を勝手に略さない。番号を増やさない。ブランド・価格・URL・合格保証・細かな偽文字は追加しない。説明の意味（この全文を画像に書くのではない）: 施策を書いたら、効果と管理上の問題点をセットで示します。問題点は施策の否定ではなく、管理すべき対象として書きます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png",
+                "sha256": "226ec38a86790720f220ec2ca340d5f984d9297d6275ede0872c9ee42f64b092"
+              },
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-intro.beea11be.png",
+                "sha256": "beea11be19492e90568833eb2cc1342fe25c0af27dcf0919617b2644fa3b4003"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/raw-layer2-effect.44f524c1.png",
+              "sha256": "44f524c1b1c86ee824d52d96631688692d7dfba180318d67f4f098165bea0231",
+              "width": 1672,
+              "height": 941
+            }
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/layer2-effect.c90b217a.png",
+            "sha256": "c90b217aeb6afe92649b70475b50758fea307d5bea9b294c26cf17f19929688d",
+            "width": 1920,
+            "height": 1080
+          },
+          "edits": [],
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/layer2-effect.c90b217a.png"
+          },
+          "review": {
+            "status": "ok",
+            "reviewer": "ai-image-fidelity-auditor",
+            "date": "2026-10-18",
+            "checkedSha256": "c90b217aeb6afe92649b70475b50758fea307d5bea9b294c26cf17f19929688d",
+            "viewports": [
+              "1920x1080",
+              "360px"
+            ],
+            "checks": [
+              "lettering",
+              "narration-alignment",
+              "diagram",
+              "character",
+              "subtitle-safe-area"
+            ]
+          }
+        },
+        {
+          "sceneId": "layer3",
+          "inputSha256": "76a3c78bc92094844d7ecdae633bc4a13b8514f1e347ef0eae66dcee1e1bef1f",
+          "copy": {
+            "heading": "Ⅲ 施策を進めた先の課題",
+            "items": [
+              "Ⅱの結果からリスクを探す"
+            ]
+          },
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付は承認済み意匠の参照。16:9横長1920×1080向けの日本語学習動画の本文POP画像を1枚生成。参照と同じ先生（40代男性・黒髪・黒縁眼鏡・軽いひげ・無地の白ヘルメット・紺の作業服とネクタイ・黄白反射帯）。鮮やかな青・シアン・ネイビー、白と黄色の極太文字・太い輪郭・少量の赤、斜め面、背景の描き込み。白い箱を並べた箇条書きスライドにしない。重要文字は上5〜下78%内、下端18%は後から動画字幕が載るため青い背景の延長だけにする。背景は四辺まで続く。横長構図に再設計し人物の顔と主題を大きく、本文に対応する視覚的な説明を添える。先生は条件・施策・結果のつながりを図で示す。画面に正確に表示する文字は「技術士 総監」、大見出し「Ⅲ 施策を進めた先の課題」、補足「Ⅱの結果からリスクを探す」だけ。全て幅360pxでも読める大きな文字。文字列を勝手に略さない。番号を増やさない。ブランド・価格・URL・合格保証・細かな偽文字は追加しない。説明の意味（この全文を画像に書くのではない）: 第三層は夢のある構想ではなく、施策を進めた結果の課題を見抜くパートです。第二層とのつながりからリスクを探します。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png",
+                "sha256": "226ec38a86790720f220ec2ca340d5f984d9297d6275ede0872c9ee42f64b092"
+              },
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-intro.beea11be.png",
+                "sha256": "beea11be19492e90568833eb2cc1342fe25c0af27dcf0919617b2644fa3b4003"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/raw-layer3.3528f434.png",
+              "sha256": "3528f434956470edb1e6e621236be6703f3a1fd22704eee662611f4040ca0853",
+              "width": 1672,
+              "height": 941
+            }
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/layer3.b99d8d68.png",
+            "sha256": "b99d8d68c0a39c0c4f3ddad081a3cff00d9d496f6b76c13603b1dc3732a29388",
+            "width": 1920,
+            "height": 1080
+          },
+          "edits": [],
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/layer3.b99d8d68.png"
+          },
+          "review": {
+            "status": "ok",
+            "reviewer": "ai-image-fidelity-auditor",
+            "date": "2026-10-18",
+            "checkedSha256": "b99d8d68c0a39c0c4f3ddad081a3cff00d9d496f6b76c13603b1dc3732a29388",
+            "viewports": [
+              "1920x1080",
+              "360px"
+            ],
+            "checks": [
+              "lettering",
+              "narration-alignment",
+              "diagram",
+              "character",
+              "subtitle-safe-area"
+            ]
+          }
+        },
+        {
+          "sceneId": "layer3-scope",
+          "inputSha256": "af59d4007ca604213c067b839ad27b9f235ac3ba2328d4c93a204633a623b42e",
+          "copy": {
+            "heading": "話を飛躍させない",
+            "items": [
+              "無関係な新技術・条件の後付け",
+              "対象範囲は問題文を優先"
+            ]
+          },
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付は承認済み意匠の参照。16:9横長1920×1080向けの日本語学習動画の本文POP画像を1枚生成。参照と同じ先生（40代男性・黒髪・黒縁眼鏡・軽いひげ・無地の白ヘルメット・紺の作業服とネクタイ・黄白反射帯）。鮮やかな青・シアン・ネイビー、白と黄色の極太文字・太い輪郭・少量の赤、斜め面、背景の描き込み。白い箱を並べた箇条書きスライドにしない。重要文字は上5〜下78%内、下端18%は後から動画字幕が載るため青い背景の延長だけにする。背景は四辺まで続く。横長構図に再設計し人物の顔と主題を大きく、本文に対応する視覚的な説明を添える。先生は注意点を赤ペンで示す。画面に正確に表示する文字は「技術士 総監」、大見出し「話を飛躍させない」、補足「無関係な新技術・条件の後付け」・「対象範囲は問題文を優先」だけ。全て幅360pxでも読める大きな文字。文字列を勝手に略さない。番号を増やさない。ブランド・価格・URL・合格保証・細かな偽文字は追加しない。説明の意味（この全文を画像に書くのではない）: 無関係な新技術や前段に無い条件を持ち出すと、話が飛躍します。対象範囲は、その年度の問題文の指定を優先します。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png",
+                "sha256": "226ec38a86790720f220ec2ca340d5f984d9297d6275ede0872c9ee42f64b092"
+              },
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-intro.beea11be.png",
+                "sha256": "beea11be19492e90568833eb2cc1342fe25c0af27dcf0919617b2644fa3b4003"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/raw-layer3-scope.1eb9f77c.png",
+              "sha256": "1eb9f77cf09f2c36accba7867e80ade1afb397b0ea71a470544716c767fcc8a6",
+              "width": 1672,
+              "height": 941
+            }
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/layer3-scope.c58fec45.png",
+            "sha256": "c58fec45a3f60be1b08a058ce8a81b14596613693cf7d6e2886c63eef08665be",
+            "width": 1920,
+            "height": 1080
+          },
+          "edits": [],
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/layer3-scope.c58fec45.png"
+          },
+          "review": {
+            "status": "ok",
+            "reviewer": "ai-image-fidelity-auditor",
+            "date": "2026-10-18",
+            "checkedSha256": "c58fec45a3f60be1b08a058ce8a81b14596613693cf7d6e2886c63eef08665be",
+            "viewports": [
+              "1920x1080",
+              "360px"
+            ],
+            "checks": [
+              "lettering",
+              "narration-alignment",
+              "diagram",
+              "character",
+              "subtitle-safe-area"
+            ]
+          }
+        },
+        {
+          "sceneId": "layer3-tradeoff",
+          "inputSha256": "e42fd09df3aa40b4de4044f80507c3db93048c1938d60642ede284b83c758bfb",
+          "copy": {
+            "heading": "リスクの視点①",
+            "items": [
+              "トレードオフが大きい点"
+            ]
+          },
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付は承認済み意匠の参照。16:9横長1920×1080向けの日本語学習動画の本文POP画像を1枚生成。参照と同じ先生（40代男性・黒髪・黒縁眼鏡・軽いひげ・無地の白ヘルメット・紺の作業服とネクタイ・黄白反射帯）。鮮やかな青・シアン・ネイビー、白と黄色の極太文字・太い輪郭・少量の赤、斜め面、背景の描き込み。白い箱を並べた箇条書きスライドにしない。重要文字は上5〜下78%内、下端18%は後から動画字幕が載るため青い背景の延長だけにする。背景は四辺まで続く。横長構図に再設計し人物の顔と主題を大きく、本文に対応する視覚的な説明を添える。先生は条件・施策・結果のつながりを図で示す。画面に正確に表示する文字は「技術士 総監」、大見出し「リスクの視点①」、補足「トレードオフが大きい点」だけ。全て幅360pxでも読める大きな文字。文字列を勝手に略さない。番号を増やさない。ブランド・価格・URL・合格保証・細かな偽文字は追加しない。説明の意味（この全文を画像に書くのではない）: リスクを探す視点は3つです。まず、トレードオフが大きい点。ある管理を改善した結果、別の管理に負担が移る点です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png",
+                "sha256": "226ec38a86790720f220ec2ca340d5f984d9297d6275ede0872c9ee42f64b092"
+              },
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-intro.beea11be.png",
+                "sha256": "beea11be19492e90568833eb2cc1342fe25c0af27dcf0919617b2644fa3b4003"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/raw-layer3-tradeoff.cfca4532.png",
+              "sha256": "cfca453271a0b8d5846fd042b4cddab1ec6689e261372c4b9f39d63274ca61b5",
+              "width": 1672,
+              "height": 941
+            }
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/layer3-tradeoff.c489bff0.png",
+            "sha256": "c489bff0d7518a5eb0a4f4eb32cc41842aae96b69bc04d63236c7003d547e13e",
+            "width": 1920,
+            "height": 1080
+          },
+          "edits": [],
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/layer3-tradeoff.c489bff0.png"
+          },
+          "review": {
+            "status": "ok",
+            "reviewer": "ai-image-fidelity-auditor",
+            "date": "2026-10-18",
+            "checkedSha256": "c489bff0d7518a5eb0a4f4eb32cc41842aae96b69bc04d63236c7003d547e13e",
+            "viewports": [
+              "1920x1080",
+              "360px"
+            ],
+            "checks": [
+              "lettering",
+              "narration-alignment",
+              "diagram",
+              "character",
+              "subtitle-safe-area"
+            ]
+          }
+        },
+        {
+          "sceneId": "layer3-weakness",
+          "inputSha256": "fd311cf45fa5147949c4bc5c72bb2dc56d9d4d34ebc7da140ec316c2e7a21df8",
+          "copy": {
+            "heading": "リスクの視点②・③",
+            "items": [
+              "組織の弱点",
+              "規模拡大で顕在化する点"
+            ]
+          },
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付は承認済み意匠の参照。16:9横長1920×1080向けの日本語学習動画の本文POP画像を1枚生成。参照と同じ先生（40代男性・黒髪・黒縁眼鏡・軽いひげ・無地の白ヘルメット・紺の作業服とネクタイ・黄白反射帯）。鮮やかな青・シアン・ネイビー、白と黄色の極太文字・太い輪郭・少量の赤、斜め面、背景の描き込み。白い箱を並べた箇条書きスライドにしない。重要文字は上5〜下78%内、下端18%は後から動画字幕が載るため青い背景の延長だけにする。背景は四辺まで続く。横長構図に再設計し人物の顔と主題を大きく、本文に対応する視覚的な説明を添える。先生は条件・施策・結果のつながりを図で示す。画面に正確に表示する文字は「技術士 総監」、大見出し「リスクの視点②・③」、補足「組織の弱点」・「規模拡大で顕在化する点」だけ。全て幅360pxでも読める大きな文字。文字列を勝手に略さない。番号を増やさない。ブランド・価格・URL・合格保証・細かな偽文字は追加しない。説明の意味（この全文を画像に書くのではない）: 2つ目は組織の弱点が露呈する点。3つ目は規模拡大で顕在化する点です。この3視点から影響の大きいリスクを選びます。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png",
+                "sha256": "226ec38a86790720f220ec2ca340d5f984d9297d6275ede0872c9ee42f64b092"
+              },
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-intro.beea11be.png",
+                "sha256": "beea11be19492e90568833eb2cc1342fe25c0af27dcf0919617b2644fa3b4003"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/raw-layer3-weakness.8a94af4b.png",
+              "sha256": "8a94af4b5a10f39aafd9c23abfd6841b43ea0923e39259124d53ed79a9578d16",
+              "width": 1672,
+              "height": 941
+            }
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/layer3-weakness.c4df0fd9.png",
+            "sha256": "c4df0fd99f842b64d62c3ebc097fe2ade4b9f33f4716eb81efd2d3eb9f7ef35c",
+            "width": 1920,
+            "height": 1080
+          },
+          "edits": [],
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/layer3-weakness.c4df0fd9.png"
+          },
+          "review": {
+            "status": "ok",
+            "reviewer": "ai-image-fidelity-auditor",
+            "date": "2026-10-18",
+            "checkedSha256": "c4df0fd99f842b64d62c3ebc097fe2ade4b9f33f4716eb81efd2d3eb9f7ef35c",
+            "viewports": [
+              "1920x1080",
+              "360px"
+            ],
+            "checks": [
+              "lettering",
+              "narration-alignment",
+              "diagram",
+              "character",
+              "subtitle-safe-area"
+            ]
+          }
+        },
+        {
+          "sceneId": "layer3-management",
+          "inputSha256": "54a7ac090dc416318eb616c7c1a18e038866f8470ca7e85834aaa7221b9b53dd",
+          "copy": {
+            "heading": "克服策は管理行為まで",
+            "items": [
+              "数は設問の指定に従う",
+              "管理方法・体制まで示す"
+            ]
+          },
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付は承認済み意匠の参照。16:9横長1920×1080向けの日本語学習動画の本文POP画像を1枚生成。参照と同じ先生（40代男性・黒髪・黒縁眼鏡・軽いひげ・無地の白ヘルメット・紺の作業服とネクタイ・黄白反射帯）。鮮やかな青・シアン・ネイビー、白と黄色の極太文字・太い輪郭・少量の赤、斜め面、背景の描き込み。白い箱を並べた箇条書きスライドにしない。重要文字は上5〜下78%内、下端18%は後から動画字幕が載るため青い背景の延長だけにする。背景は四辺まで続く。横長構図に再設計し人物の顔と主題を大きく、本文に対応する視覚的な説明を添える。先生は条件・施策・結果のつながりを図で示す。画面に正確に表示する文字は「技術士 総監」、大見出し「克服策は管理行為まで」、補足「数は設問の指定に従う」・「管理方法・体制まで示す」だけ。全て幅360pxでも読める大きな文字。文字列を勝手に略さない。番号を増やさない。ブランド・価格・URL・合格保証・細かな偽文字は追加しない。説明の意味（この全文を画像に書くのではない）: 挙げる数は設問の指定に従います。新技術を用いる場合も、管理方法の見直しや体制再設計など、管理行為まで示します。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png",
+                "sha256": "226ec38a86790720f220ec2ca340d5f984d9297d6275ede0872c9ee42f64b092"
+              },
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-intro.beea11be.png",
+                "sha256": "beea11be19492e90568833eb2cc1342fe25c0af27dcf0919617b2644fa3b4003"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/raw-layer3-management.d62dc292.png",
+              "sha256": "d62dc2921c3aa287c581a7b4f6038f5f24562aea4e11210cb607b7453a8febdb",
+              "width": 1672,
+              "height": 941
+            }
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/layer3-management.e7b0b055.png",
+            "sha256": "e7b0b055617ae945c9d4385534e034731eb3a009ac21edd2966b5b3b04d34a8b",
+            "width": 1920,
+            "height": 1080
+          },
+          "edits": [
+            {
+              "tool": "image_gen",
+              "prompt": "添付の横長POP学習動画画像の下段だけ修正。全ての文字、先生、配色、16:9構図は保持。最下段にある疑問用紙→電球→チェックリスト→体制図の説明アイコンと矢印の一列を一まとまりとして縮小して上へ移す。チェックリストの最下行、人員アイコンの胴体、用紙、電球も含む全説明図を画像高85%より上に収める。下端15%は青い斜め面背景のみの字幕安全域を確保する。元の文字全文を保持し、文字や図の端を切らない。先生の顔・手指を変えない。字幕を描かない。",
+              "references": [
+                {
+                  "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/edit-input-layer3-management.7e61f646.png",
+                  "sha256": "7e61f646d519530756666095609bded8a7b180f2f7f1a9f75ab2a0588fef3f11"
+                }
+              ],
+              "output": {
+                "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/edit-layer3-management.e2833396.png",
+                "sha256": "e2833396059d510840625d5ae2ff3a0ce79e5ab4b7f5326123c889c64481e427"
+              }
+            }
+          ],
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/layer3-management.e7b0b055.png"
+          },
+          "review": {
+            "status": "ok",
+            "reviewer": "ai-image-fidelity-auditor",
+            "date": "2026-10-18",
+            "checkedSha256": "e7b0b055617ae945c9d4385534e034731eb3a009ac21edd2966b5b3b04d34a8b",
+            "viewports": [
+              "1920x1080",
+              "360px"
+            ],
+            "checks": [
+              "lettering",
+              "narration-alignment",
+              "diagram",
+              "character",
+              "subtitle-safe-area"
+            ],
+            "repairReviewed": true
+          }
+        },
+        {
+          "sceneId": "consistency-first",
+          "inputSha256": "e2f9640ed85b49beba77f6a17dc6e2cc70db814244f63d9a17b0f3d65de194b3",
+          "copy": {
+            "heading": "自己診断①",
+            "items": [
+              "ⅠからⅡ・Ⅲを予想できるか"
+            ]
+          },
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付は承認済み意匠の参照。16:9横長1920×1080向けの日本語学習動画の本文POP画像を1枚生成。参照と同じ先生（40代男性・黒髪・黒縁眼鏡・軽いひげ・無地の白ヘルメット・紺の作業服とネクタイ・黄白反射帯）。鮮やかな青・シアン・ネイビー、白と黄色の極太文字・太い輪郭・少量の赤、斜め面、背景の描き込み。白い箱を並べた箇条書きスライドにしない。重要文字は上5〜下78%内、下端18%は後から動画字幕が載るため青い背景の延長だけにする。背景は四辺まで続く。横長構図に再設計し人物の顔と主題を大きく、本文に対応する視覚的な説明を添える。先生は条件・施策・結果のつながりを図で示す。画面に正確に表示する文字は「技術士 総監」、大見出し「自己診断①」、補足「ⅠからⅡ・Ⅲを予想できるか」だけ。全て幅360pxでも読める大きな文字。文字列を勝手に略さない。番号を増やさない。ブランド・価格・URL・合格保証・細かな偽文字は追加しない。説明の意味（この全文を画像に書くのではない）: 書く前に、一貫性を3問で確認します。第一層を読んだだけで、第二層と第三層の方向性が予想できるでしょうか。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png",
+                "sha256": "226ec38a86790720f220ec2ca340d5f984d9297d6275ede0872c9ee42f64b092"
+              },
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-intro.beea11be.png",
+                "sha256": "beea11be19492e90568833eb2cc1342fe25c0af27dcf0919617b2644fa3b4003"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/raw-consistency-first.b5e8d7ec.png",
+              "sha256": "b5e8d7ec3249e386e233b5b6b82546de113e88197d7c771b28e1594db1102cad",
+              "width": 1672,
+              "height": 941
+            }
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/consistency-first.11771c3b.png",
+            "sha256": "11771c3b17d81153c9793b65264b444fa5c59d5e50a70a49f8935e7d9a3f675a",
+            "width": 1920,
+            "height": 1080
+          },
+          "edits": [],
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/consistency-first.11771c3b.png"
+          },
+          "review": {
+            "status": "ok",
+            "reviewer": "ai-image-fidelity-auditor",
+            "date": "2026-10-18",
+            "checkedSha256": "11771c3b17d81153c9793b65264b444fa5c59d5e50a70a49f8935e7d9a3f675a",
+            "viewports": [
+              "1920x1080",
+              "360px"
+            ],
+            "checks": [
+              "lettering",
+              "narration-alignment",
+              "diagram",
+              "character",
+              "subtitle-safe-area"
+            ]
+          }
+        },
+        {
+          "sceneId": "consistency-second",
+          "inputSha256": "f6f7c7a7b5e3528fbefc3892726911ae940e7e93b98e79c61f48b7508c1967c4",
+          "copy": {
+            "heading": "自己診断②",
+            "items": [
+              "ⅡはⅠの条件から成立するか"
+            ]
+          },
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付は承認済み意匠の参照。16:9横長1920×1080向けの日本語学習動画の本文POP画像を1枚生成。参照と同じ先生（40代男性・黒髪・黒縁眼鏡・軽いひげ・無地の白ヘルメット・紺の作業服とネクタイ・黄白反射帯）。鮮やかな青・シアン・ネイビー、白と黄色の極太文字・太い輪郭・少量の赤、斜め面、背景の描き込み。白い箱を並べた箇条書きスライドにしない。重要文字は上5〜下78%内、下端18%は後から動画字幕が載るため青い背景の延長だけにする。背景は四辺まで続く。横長構図に再設計し人物の顔と主題を大きく、本文に対応する視覚的な説明を添える。先生は条件・施策・結果のつながりを図で示す。画面に正確に表示する文字は「技術士 総監」、大見出し「自己診断②」、補足「ⅡはⅠの条件から成立するか」だけ。全て幅360pxでも読める大きな文字。文字列を勝手に略さない。番号を増やさない。ブランド・価格・URL・合格保証・細かな偽文字は追加しない。説明の意味（この全文を画像に書くのではない）: 2問目は、第二層の施策が、第一層の条件があるから成立しているか。条件と施策のつながりを確認します。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png",
+                "sha256": "226ec38a86790720f220ec2ca340d5f984d9297d6275ede0872c9ee42f64b092"
+              },
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-intro.beea11be.png",
+                "sha256": "beea11be19492e90568833eb2cc1342fe25c0af27dcf0919617b2644fa3b4003"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/raw-consistency-second.1828040b.png",
+              "sha256": "1828040b0199c41ddb449c23de37c568d822e08995411bc56609a8cf8b477c2e",
+              "width": 1672,
+              "height": 941
+            }
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/consistency-second.e937ffe3.png",
+            "sha256": "e937ffe3ae34605f8c8f88310e1ac8f848dab3d86cdf8c3db925ee63e0c70662",
+            "width": 1920,
+            "height": 1080
+          },
+          "edits": [],
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/consistency-second.e937ffe3.png"
+          },
+          "review": {
+            "status": "ok",
+            "reviewer": "ai-image-fidelity-auditor",
+            "date": "2026-10-18",
+            "checkedSha256": "e937ffe3ae34605f8c8f88310e1ac8f848dab3d86cdf8c3db925ee63e0c70662",
+            "viewports": [
+              "1920x1080",
+              "360px"
+            ],
+            "checks": [
+              "lettering",
+              "narration-alignment",
+              "diagram",
+              "character",
+              "subtitle-safe-area"
+            ]
+          }
+        },
+        {
+          "sceneId": "consistency-third",
+          "inputSha256": "66983446a608686c1c40b3ac3f3da3bc890a8505d1be31c967cca6a9b105294f",
+          "copy": {
+            "heading": "自己診断③",
+            "items": [
+              "ⅢはⅡの結果として自然か"
+            ]
+          },
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付は承認済み意匠の参照。16:9横長1920×1080向けの日本語学習動画の本文POP画像を1枚生成。参照と同じ先生（40代男性・黒髪・黒縁眼鏡・軽いひげ・無地の白ヘルメット・紺の作業服とネクタイ・黄白反射帯）。鮮やかな青・シアン・ネイビー、白と黄色の極太文字・太い輪郭・少量の赤、斜め面、背景の描き込み。白い箱を並べた箇条書きスライドにしない。重要文字は上5〜下78%内、下端18%は後から動画字幕が載るため青い背景の延長だけにする。背景は四辺まで続く。横長構図に再設計し人物の顔と主題を大きく、本文に対応する視覚的な説明を添える。先生は条件・施策・結果のつながりを図で示す。画面に正確に表示する文字は「技術士 総監」、大見出し「自己診断③」、補足「ⅢはⅡの結果として自然か」だけ。全て幅360pxでも読める大きな文字。文字列を勝手に略さない。番号を増やさない。ブランド・価格・URL・合格保証・細かな偽文字は追加しない。説明の意味（この全文を画像に書くのではない）: 3問目は、第三層の課題が、第二層を進めた結果として自然に出るか。施策とリスクのつながりを確認します。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png",
+                "sha256": "226ec38a86790720f220ec2ca340d5f984d9297d6275ede0872c9ee42f64b092"
+              },
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-intro.beea11be.png",
+                "sha256": "beea11be19492e90568833eb2cc1342fe25c0af27dcf0919617b2644fa3b4003"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/raw-consistency-third.1aec25cc.png",
+              "sha256": "1aec25cc69b57aa331d59e2693a3f13edcb983061308aa9269964f7a072beb85",
+              "width": 1672,
+              "height": 941
+            }
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/consistency-third.c7770972.png",
+            "sha256": "c77709721f19b6fbefae43f8627a291158a4fefd929c2a6957019a49e3980784",
+            "width": 1920,
+            "height": 1080
+          },
+          "edits": [],
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/consistency-third.c7770972.png"
+          },
+          "review": {
+            "status": "ok",
+            "reviewer": "ai-image-fidelity-auditor",
+            "date": "2026-10-18",
+            "checkedSha256": "c77709721f19b6fbefae43f8627a291158a4fefd929c2a6957019a49e3980784",
+            "viewports": [
+              "1920x1080",
+              "360px"
+            ],
+            "checks": [
+              "lettering",
+              "narration-alignment",
+              "diagram",
+              "character",
+              "subtitle-safe-area"
+            ]
+          }
+        },
+        {
+          "sceneId": "consistency-revise",
+          "inputSha256": "df0f571cdeac56313b7fb2b8f2c2d0d34d0f5da867bfcb5be8547e8120554462",
+          "copy": {
+            "heading": "「いいえ」なら骨子に戻る",
+            "items": [
+              "執筆前に組み直す"
+            ]
+          },
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付は承認済み意匠の参照。16:9横長1920×1080向けの日本語学習動画の本文POP画像を1枚生成。参照と同じ先生（40代男性・黒髪・黒縁眼鏡・軽いひげ・無地の白ヘルメット・紺の作業服とネクタイ・黄白反射帯）。鮮やかな青・シアン・ネイビー、白と黄色の極太文字・太い輪郭・少量の赤、斜め面、背景の描き込み。白い箱を並べた箇条書きスライドにしない。重要文字は上5〜下78%内、下端18%は後から動画字幕が載るため青い背景の延長だけにする。背景は四辺まで続く。横長構図に再設計し人物の顔と主題を大きく、本文に対応する視覚的な説明を添える。先生は条件・施策・結果のつながりを図で示す。画面に正確に表示する文字は「技術士 総監」、大見出し「「いいえ」なら骨子に戻る」、補足「執筆前に組み直す」だけ。全て幅360pxでも読める大きな文字。文字列を勝手に略さない。番号を増やさない。ブランド・価格・URL・合格保証・細かな偽文字は追加しない。説明の意味（この全文を画像に書くのではない）: 1つでも「いいえ」なら、骨組みを作り直してから書き始めます。条件、施策、その結果をもう一度つないでください。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png",
+                "sha256": "226ec38a86790720f220ec2ca340d5f984d9297d6275ede0872c9ee42f64b092"
+              },
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-intro.beea11be.png",
+                "sha256": "beea11be19492e90568833eb2cc1342fe25c0af27dcf0919617b2644fa3b4003"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/raw-consistency-revise.8ae739ee.png",
+              "sha256": "8ae739ee745c202601a31e33cf101bab688d52653bb3ebabf8ed5030aca695f1",
+              "width": 1672,
+              "height": 940
+            }
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/consistency-revise.dd3c5812.png",
+            "sha256": "dd3c581299ef9fb0665c8d48896d79a4271f961ea784efa8dd2593144b4d44d3",
+            "width": 1920,
+            "height": 1080
+          },
+          "edits": [
+            {
+              "tool": "image_gen",
+              "prompt": "添付の横長POP学習画像を修正。文字全文、先生の顔と服装とポーズ、色を保持。下部の3つの円形アイコン（チェックリスト→歯車→グラフ）、黄色の進行矢印、グラフからチェックリストへ戻る赤い矢印を一つのグループとして、現在の70%の大きさへ縮小し、上へ移動する。赤い戻り矢印の矢尻を含むグループ全体が画像の上から80%以内に必ず収まるようにする。字幕のため下端20%は背景の青い斜め面だけを広く確保する。図の矢印方向を保持。文字は変えず、端を欠けさせず、人物の人体は正常に保つ。16:9横長。",
+              "references": [
+                {
+                  "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/edit-input-consistency-revise.f9873349.png",
+                  "sha256": "f9873349c836535767701348e3e421f2fb0740356a8771308109768c6bc5d5e3"
+                }
+              ],
+              "output": {
+                "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/edit-consistency-revise.ef3dec0f.png",
+                "sha256": "ef3dec0f628927cf69e29a185e2943002edda6c27bbe99feedb4972714b35084"
+              }
+            }
+          ],
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/consistency-revise.dd3c5812.png"
+          },
+          "review": {
+            "status": "ok",
+            "reviewer": "ai-image-fidelity-auditor",
+            "date": "2026-10-18",
+            "checkedSha256": "dd3c581299ef9fb0665c8d48896d79a4271f961ea784efa8dd2593144b4d44d3",
+            "viewports": [
+              "1920x1080",
+              "360px"
+            ],
+            "checks": [
+              "lettering",
+              "narration-alignment",
+              "diagram",
+              "character",
+              "subtitle-safe-area"
+            ],
+            "repairReviewed": true
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "971e8ecb2b57f92f40097a022d0c7b74d2aecf2aab71fc12bb024577772e0f8e",
+          "copy": {
+            "heading": "三層の役割を振り返る",
+            "items": [
+              "Ⅰ 設計図",
+              "Ⅱ 効果と問題点",
+              "Ⅲ リスクと管理行為"
+            ]
+          },
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付は承認済み意匠の参照。16:9横長1920×1080向けの日本語学習動画の本文POP画像を1枚生成。参照と同じ先生（40代男性・黒髪・黒縁眼鏡・軽いひげ・無地の白ヘルメット・紺の作業服とネクタイ・黄白反射帯）。鮮やかな青・シアン・ネイビー、白と黄色の極太文字・太い輪郭・少量の赤、斜め面、背景の描き込み。白い箱を並べた箇条書きスライドにしない。重要文字は上5〜下78%内、下端18%は後から動画字幕が載るため青い背景の延長だけにする。背景は四辺まで続く。横長構図に再設計し人物の顔と主題を大きく、本文に対応する視覚的な説明を添える。先生は内容をわかりやすく説明する。画面に正確に表示する文字は「技術士 総監」、大見出し「三層の役割を振り返る」、補足「Ⅰ 設計図」・「Ⅱ 効果と問題点」・「Ⅲ リスクと管理行為」だけ。全て幅360pxでも読める大きな文字。文字列を勝手に略さない。番号を増やさない。ブランド・価格・URL・合格保証・細かな偽文字は追加しない。説明の意味（この全文を画像に書くのではない）: まとめます。第一層は設計図、第二層は効果と問題点のセット、第三層は最大リスクと管理行為での克服です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png",
+                "sha256": "226ec38a86790720f220ec2ca340d5f984d9297d6275ede0872c9ee42f64b092"
+              },
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-intro.beea11be.png",
+                "sha256": "beea11be19492e90568833eb2cc1342fe25c0af27dcf0919617b2644fa3b4003"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/raw-summary.6d141602.png",
+              "sha256": "6d141602513fac60a7dfb7285d279659bc5f5ce78cf72286758bb617e9fd8181",
+              "width": 1672,
+              "height": 941
+            }
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/summary.3f1cf68b.png",
+            "sha256": "3f1cf68b9c7a913d3226717d22c5406f78b8c9995b9d9aa57b30b88cc437c1f9",
+            "width": 1920,
+            "height": 1080
+          },
+          "edits": [],
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/summary.3f1cf68b.png"
+          },
+          "review": {
+            "status": "ok",
+            "reviewer": "ai-image-fidelity-auditor",
+            "date": "2026-10-18",
+            "checkedSha256": "3f1cf68b9c7a913d3226717d22c5406f78b8c9995b9d9aa57b30b88cc437c1f9",
+            "viewports": [
+              "1920x1080",
+              "360px"
+            ],
+            "checks": [
+              "lettering",
+              "narration-alignment",
+              "diagram",
+              "character",
+              "subtitle-safe-area"
+            ]
+          }
+        },
+        {
+          "sceneId": "summary-check",
+          "inputSha256": "aed9411a8f9f078320770e05bc0234d0f36057858718b7fa45c7439e53f01fd9",
+          "copy": {
+            "heading": "三層の一貫性を確認",
+            "items": [
+              "自己診断3問を使う"
+            ]
+          },
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付は承認済み意匠の参照。16:9横長1920×1080向けの日本語学習動画の本文POP画像を1枚生成。参照と同じ先生（40代男性・黒髪・黒縁眼鏡・軽いひげ・無地の白ヘルメット・紺の作業服とネクタイ・黄白反射帯）。鮮やかな青・シアン・ネイビー、白と黄色の極太文字・太い輪郭・少量の赤、斜め面、背景の描き込み。白い箱を並べた箇条書きスライドにしない。重要文字は上5〜下78%内、下端18%は後から動画字幕が載るため青い背景の延長だけにする。背景は四辺まで続く。横長構図に再設計し人物の顔と主題を大きく、本文に対応する視覚的な説明を添える。先生は内容をわかりやすく説明する。画面に正確に表示する文字は「技術士 総監」、大見出し「三層の一貫性を確認」、補足「自己診断3問を使う」だけ。全て幅360pxでも読める大きな文字。文字列を勝手に略さない。番号を増やさない。ブランド・価格・URL・合格保証・細かな偽文字は追加しない。説明の意味（この全文を画像に書くのではない）: それぞれの役割を守り、自己診断3問で一貫性を確認します。前提、施策、その結果をつなぐのが三層構造の書き方です。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png",
+                "sha256": "226ec38a86790720f220ec2ca340d5f984d9297d6275ede0872c9ee42f64b092"
+              },
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-intro.beea11be.png",
+                "sha256": "beea11be19492e90568833eb2cc1342fe25c0af27dcf0919617b2644fa3b4003"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/raw-summary-check.eff1ccb0.png",
+              "sha256": "eff1ccb00c8ffb505f8a7cf7d9aa45770076c55e34869af6a2a929c74a4f4b7d",
+              "width": 1672,
+              "height": 941
+            }
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/summary-check.fef05dc7.png",
+            "sha256": "fef05dc7e1559de20a47fc3aaeebac7e54ca03e506fba7fdaf2545ce73cd04a0",
+            "width": 1920,
+            "height": 1080
+          },
+          "edits": [],
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/summary-check.fef05dc7.png"
+          },
+          "review": {
+            "status": "ok",
+            "reviewer": "ai-image-fidelity-auditor",
+            "date": "2026-10-18",
+            "checkedSha256": "fef05dc7e1559de20a47fc3aaeebac7e54ca03e506fba7fdaf2545ce73cd04a0",
+            "viewports": [
+              "1920x1080",
+              "360px"
+            ],
+            "checks": [
+              "lettering",
+              "narration-alignment",
+              "diagram",
+              "character",
+              "subtitle-safe-area"
+            ]
+          }
+        },
+        {
+          "sceneId": "cta-pack",
+          "inputSha256": "9d0512b73bd8341f5a15e2d2e1da73e7df3cb337de3ac85cdd61c35b03aa5c1e",
+          "copy": {
+            "heading": "総監記述式 完全パック",
+            "items": [
+              "三層の型・施策の書き方",
+              "最大リスクの絞り込み方"
+            ]
+          },
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付は承認済み意匠の参照。16:9横長1920×1080向けの日本語学習動画の本文POP画像を1枚生成。参照と同じ先生（40代男性・黒髪・黒縁眼鏡・軽いひげ・無地の白ヘルメット・紺の作業服とネクタイ・黄白反射帯）。鮮やかな青・シアン・ネイビー、白と黄色の極太文字・太い輪郭・少量の赤、斜め面、背景の描き込み。白い箱を並べた箇条書きスライドにしない。重要文字は上5〜下78%内、下端18%は後から動画字幕が載るため青い背景の延長だけにする。背景は四辺まで続く。横長構図に再設計し人物の顔と主題を大きく、本文に対応する視覚的な説明を添える。先生は教材を持ち、概要欄への案内を示す。画面に正確に表示する文字は「技術士 総監」、大見出し「総監記述式 完全パック」、補足「三層の型・施策の書き方」・「最大リスクの絞り込み方」だけ。全て幅360pxでも読める大きな文字。文字列を勝手に略さない。番号を増やさない。ブランド・価格・URL・合格保証・細かな偽文字は追加しない。説明の意味（この全文を画像に書くのではない）: 三層それぞれの型と、施策の書き方、最大リスクの絞り込み方までまとめた、記述式完全パックを用意しています。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png",
+                "sha256": "226ec38a86790720f220ec2ca340d5f984d9297d6275ede0872c9ee42f64b092"
+              },
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-intro.beea11be.png",
+                "sha256": "beea11be19492e90568833eb2cc1342fe25c0af27dcf0919617b2644fa3b4003"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/raw-cta-pack.4a95c90b.png",
+              "sha256": "4a95c90b5c9c9b81eedbb1ee6a97b3d6e4b9c241786e7703685465a39b3a1444",
+              "width": 1672,
+              "height": 941
+            }
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/cta-pack.973950d9.png",
+            "sha256": "973950d9bb6f47d7f635e9f5b86dd0e6a6a37edec73148d800af2052d4c32c3a",
+            "width": 1920,
+            "height": 1080
+          },
+          "edits": [],
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/cta-pack.973950d9.png"
+          },
+          "review": {
+            "status": "ok",
+            "reviewer": "ai-image-fidelity-auditor",
+            "date": "2026-10-18",
+            "checkedSha256": "973950d9bb6f47d7f635e9f5b86dd0e6a6a37edec73148d800af2052d4c32c3a",
+            "viewports": [
+              "1920x1080",
+              "360px"
+            ],
+            "checks": [
+              "lettering",
+              "narration-alignment",
+              "diagram",
+              "character",
+              "subtitle-safe-area"
+            ]
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "4569cfb8314ee9c577aeda34c5d42f48de3f48a350b52a0f789dc68d595b5543",
+          "copy": {
+            "heading": "続きは概要欄から",
+            "items": [
+              "総監記述式 完全パック"
+            ]
+          },
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付は承認済み意匠の参照。16:9横長1920×1080向けの日本語学習動画の本文POP画像を1枚生成。参照と同じ先生（40代男性・黒髪・黒縁眼鏡・軽いひげ・無地の白ヘルメット・紺の作業服とネクタイ・黄白反射帯）。鮮やかな青・シアン・ネイビー、白と黄色の極太文字・太い輪郭・少量の赤、斜め面、背景の描き込み。白い箱を並べた箇条書きスライドにしない。重要文字は上5〜下78%内、下端18%は後から動画字幕が載るため青い背景の延長だけにする。背景は四辺まで続く。横長構図に再設計し人物の顔と主題を大きく、本文に対応する視覚的な説明を添える。先生は教材を持ち、概要欄への案内を示す。画面に正確に表示する文字は「技術士 総監」、大見出し「続きは概要欄から」、補足「総監記述式 完全パック」だけ。全て幅360pxでも読める大きな文字。文字列を勝手に略さない。番号を増やさない。ブランド・価格・URL・合格保証・細かな偽文字は追加しない。説明の意味（この全文を画像に書くのではない）: 記述式完全パックは、概要欄のリンクからご覧ください。ご視聴ありがとうございました。",
+            "references": [
+              {
+                "path": ".tmp/media/pe-comprehensive-management/cem-kw-access-control/youtube.short/cover.226ec38a.png",
+                "sha256": "226ec38a86790720f220ec2ca340d5f984d9297d6275ede0872c9ee42f64b092"
+              },
+              {
+                "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/raw-intro.beea11be.png",
+                "sha256": "beea11be19492e90568833eb2cc1342fe25c0af27dcf0919617b2644fa3b4003"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/raw-cta.876b2725.png",
+              "sha256": "876b2725d6e8345e80d7f9c47189b6647f948c6d63ac2caa5be296c8d037fc56",
+              "width": 1672,
+              "height": 941
+            }
+          },
+          "output": {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/cta.c8d5aa79.png",
+            "sha256": "c8d5aa79d1088453c938f3de5316d03cd3bfaf7498d80bf887cf9b273a20eabb",
+            "width": 1920,
+            "height": 1080
+          },
+          "edits": [],
+          "storage": {
+            "group": "content-media",
+            "key": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/cta.c8d5aa79.png"
+          },
+          "review": {
+            "status": "ok",
+            "reviewer": "ai-image-fidelity-auditor",
+            "date": "2026-10-18",
+            "checkedSha256": "c8d5aa79d1088453c938f3de5316d03cd3bfaf7498d80bf887cf9b273a20eabb",
+            "viewports": [
+              "1920x1080",
+              "360px"
+            ],
+            "checks": [
+              "lettering",
+              "narration-alignment",
+              "diagram",
+              "character",
+              "subtitle-safe-area"
+            ]
+          }
+        }
+      ],
+      "review": {
+        "status": "verified",
+        "target": 23,
+        "inspected": 23,
+        "ok": 23,
+        "failed": 0,
+        "reviewer": "ai-image-fidelity-auditor",
+        "date": "2026-10-18"
+      },
+      "publication": "SNS新規公開・追加予約は保留。ローカル制作のみ。",
+      "videoVerification": {
+        "id": "sanso-kozo",
+        "scenes": 24,
+        "popImagesMatched": 23,
+        "actualFramesMatched": 24,
+        "maxFrameMae": 0.773828125,
+        "videoStartSec": 0,
+        "narrationHashesMatched": 24,
+        "video": [
+          1920,
+          1080,
+          "h264"
+        ],
+        "audio": "aac",
+        "speaker": 13,
+        "durationSec": 212,
+        "decoded": true,
+        "sha256": "57aa7d850ac0902379143997ad7ba5f39fb774eb9efd9fd02791ade22e938b0a",
+        "audioListening": "not performed",
+        "checkedAt": "2026-10-18",
+        "subtitleFramesInspected": 24,
+        "subtitleViewports": [
+          "1920x1080",
+          "360px"
+        ],
+        "criticalSubtitleOverlap": 0,
+        "source": ".tmp/video-render/sanso-kozo/video.mp4",
+        "manifest": ".tmp/video-render/sanso-kozo/render-manifest.json",
+        "published": false
+      },
+      "storageVerification": "生成原本・修正履歴・採用画像99ファイルをDriveへ保存。現行レンダー106ファイルは51更新・55変更なし。本文素材99件とレンダー143件（過去版37件を含む）をvaultのSHA・クラウドのMD5で全件照合し、不一致0。"
+    }
   }
 }

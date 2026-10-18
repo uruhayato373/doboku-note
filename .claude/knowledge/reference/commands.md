@@ -225,7 +225,7 @@ npm run coconala-pause    # ココナラ出品の受付休止/再開/アーカ�
 
 ```bash
 npm run check-video-content    # 動画パック（DN-0110）の整合ゲート（manifest/sourceRef 漏洩/CTA・UTM/storyboard/逐語転用/status。契約 SSOT は config/video-content.json と video-content-policy.md。exit 2=検査不成立・quality:audit に同梱）
-npm run render-longform        # 動画パックの 16:9 通常動画レンダラー（storyboard→1920×1080 PNG＋ASS 字幕＋VOICEVOX/ffmpeg mp4。出力は .tmp/video-render/・音声環境無しは --skip-tts で PNG/ASS まで。VOICEVOXとffmpegがあればWindows/Macでmp4生成可・生成用Actionsは未設置）
+npm run render-longform        # 本文POP指定(imageDesign)は全場面の生成記録・採用PNGのSHA/実寸を検査し欠落時停止。動画パックの 16:9 通常動画レンダラー（storyboard→1920×1080 PNG＋ASS 字幕＋VOICEVOX/ffmpeg mp4。出力は .tmp/video-render/・音声環境無しは --skip-tts で PNG/ASS まで。VOICEVOXとffmpegがあればWindows/Macでmp4生成可・生成用Actionsは未設置）
 npm run youtube-shorts:restore -- --pack-dir <動画パック> # 全場面差し替え版の現在の動画SHAに対応するレシピ・全PNG・元動画・ASS・完成MP4を照合（--key で限定）。欠落素材は --restore でDriveから復元。既存SHA不一致・対象0件は停止。制作担当が再利用前に読むローカル検査、Drive依存のためquality-auditには登録しない。旧テンプレート再生成は差し替え版を停止する
 npm run video-preview-sheet  # 公開前の画面確認（DN-0603）。--pack-dir か --pack-id（先に render-longform --skip-tts）で、冒頭の表紙の秒数・直前と同じ画面（場面と10秒ごとのコマ）・20秒以上同じ画面が続く箇所を .tmp/video-render/{packId}/preview/ に出す。無音プレビューとコンタクトシートは ffmpeg があるときだけ（無ければ数値だけ出して exit 2＝検査不成立・--metrics-only は ffmpeg 不要で 0）。注意が出ても 0（承認は止めない）。閾値は config/video-content.json の visualCheck。台帳版は npm run media -- preview --pub
 npm run build-video-compilation # 総まとめ（聞き流し）パックの storyboard.json を compilation.json と承認済みパックから生成（--pack-dir 必須・--check は一致確認だけで不一致は exit 1）。描画は render-longform
