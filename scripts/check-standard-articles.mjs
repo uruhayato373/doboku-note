@@ -311,20 +311,24 @@ function checkNumbering(def, { manifest }) {
     lastByBook.set(chapter.bookNumber, chapter.chapterNumber);
   }
 
+  // 特記仕様書・地方独自（role=companion）は共通仕様書との差分の節だけを載せるので、節の欠番・
+  // 第1節から始まらない・節の無い章は原本どおり。注記に残し WARN にしない（逆行・重複は違反のまま）
+  const gaps = manifest.documentRole === 'common' ? warnings : [];
+  const gapNotes = gaps === warnings ? null : gaps;
   let sectionCount = 0;
   for (const chapter of chapters) {
     const numbers = chapter.sections.map((s) => s.number);
     sectionCount += numbers.length;
     if (numbers.length === 0) {
-      warnings.push(`${chapter.chapterId}: 節が 0 件`);
+      gaps.push(`${chapter.chapterId}: 節が 0 件`);
       continue;
     }
-    if (numbers[0] !== 1) warnings.push(`${chapter.chapterId}: 節が第${numbers[0]}節から始まる（第1節が欠番）`);
+    if (numbers[0] !== 1) gaps.push(`${chapter.chapterId}: 節が第${numbers[0]}節から始まる（第1節が欠番）`);
     for (let i = 1; i < numbers.length; i += 1) {
       if (numbers[i] <= numbers[i - 1]) {
         violations.push(`${chapter.chapterId}: 節番号が逆行・重複 ${numbers[i - 1]} → ${numbers[i]}`);
       } else if (numbers[i] !== numbers[i - 1] + 1) {
-        warnings.push(`${chapter.chapterId}: 節番号に欠番 ${numbers[i - 1]} → ${numbers[i]}`);
+        gaps.push(`${chapter.chapterId}: 節番号に欠番 ${numbers[i - 1]} → ${numbers[i]}`);
       }
     }
   }
@@ -334,7 +338,7 @@ function checkNumbering(def, { manifest }) {
     checked: chapters.length + sectionCount,
     unit: `番号（章 ${chapters.length} + 節 ${sectionCount}）`,
     violations,
-    notes: warnings,
+    notes: gapNotes ? [...warnings, ...gapNotes.map((note) => `差分だけを載せる文書: ${note}`)] : warnings,
   });
 }
 
