@@ -159,7 +159,7 @@
         "rendered": "2026-10-15T12:27:34.659Z",
         "uploaded": "2026-10-15T12:34:25.680Z",
         "scheduled": "2026-10-15T12:34:25.680Z",
-        "metadataSynced": "2026-10-18T01:02:30.909Z"
+        "metadataSynced": "2026-10-18T21:55:14.074Z"
       },
       "disclosure": {
         "production": "author-led-ai-assisted",
@@ -340,14 +340,6 @@
       "account": "youtube:main",
       "format": "longform",
       "copy": "content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/youtube.json#longform",
-      "status": "published",
-      "publishAt": "2026-10-12T02:31:00Z",
-      "approval": {
-        "by": "user",
-        "at": "2026-09-05T01:43:32.352Z",
-        "contentSha256": null,
-        "grandfathered": true
-      },
       "platform": {
         "id": "lNI2f_SjCTk",
         "url": "https://www.youtube.com/watch?v=lNI2f_SjCTk",
@@ -357,15 +349,6 @@
           "kind": "youtube-api",
           "ref": "https://github.com/uruhayato373/doboku-note/actions/runs/38196499989"
         }
-      },
-      "times": {
-        "rendered": "2026-09-05T05:01:43.773Z",
-        "scheduled": "2026-09-05T05:04:29.138Z",
-        "metadataSynced": "2026-09-05T13:00:37.296Z"
-      },
-      "disclosure": {
-        "production": "author-led-ai-assisted",
-        "syntheticMedia": false
       },
       "media": {
         "cover": "civil-construction-2/gakka-2kyu-doko/youtube.longform/cover",
@@ -380,6 +363,23 @@
         "scene-006": "civil-construction-2/gakka-2kyu-doko/youtube.longform/scene-006",
         "video": "civil-construction-2/gakka-2kyu-doko/youtube.longform/video",
         "subtitles": "civil-construction-2/gakka-2kyu-doko/youtube.longform/subtitles"
+      },
+      "status": "published",
+      "publishAt": "2026-10-12T02:31:00Z",
+      "approval": {
+        "by": "user",
+        "at": "2026-09-05T01:43:32.352Z",
+        "contentSha256": null,
+        "grandfathered": true
+      },
+      "times": {
+        "rendered": "2026-09-05T05:01:43.773Z",
+        "scheduled": "2026-09-05T05:04:29.138Z",
+        "metadataSynced": "2026-10-18T21:55:17.415Z"
+      },
+      "disclosure": {
+        "production": "author-led-ai-assisted",
+        "syntheticMedia": false
       }
     },
     {
@@ -902,7 +902,7 @@
         "rendered": "2026-10-15T22:08:32.023Z",
         "uploaded": "2026-10-15T22:13:45.193Z",
         "scheduled": "2026-10-15T22:13:45.193Z",
-        "metadataSynced": "2026-10-18T01:02:34.368Z"
+        "metadataSynced": "2026-10-18T21:55:19.922Z"
       },
       "disclosure": {
         "production": "author-led-ai-assisted",
@@ -1167,7 +1167,7 @@
         "rendered": "2026-10-15T22:53:18.035Z",
         "uploaded": "2026-10-15T22:59:23.712Z",
         "scheduled": "2026-10-15T22:59:23.712Z",
-        "metadataSynced": "2026-10-18T01:02:44.609Z"
+        "metadataSynced": "2026-10-18T21:55:22.927Z"
       },
       "disclosure": {
         "production": "author-led-ai-assisted",
@@ -1806,7 +1806,7 @@
         "rendered": "2026-10-15T22:54:01.816Z",
         "uploaded": "2026-10-15T23:03:06.711Z",
         "scheduled": "2026-10-15T23:03:06.711Z",
-        "metadataSynced": "2026-10-18T01:02:48.516Z"
+        "metadataSynced": "2026-10-18T21:55:26.329Z"
       },
       "disclosure": {
         "production": "author-led-ai-assisted",
@@ -1964,7 +1964,7 @@
         "rendered": "2026-10-15T22:52:14.661Z",
         "uploaded": "2026-10-15T22:55:44.502Z",
         "scheduled": "2026-10-15T22:55:44.502Z",
-        "metadataSynced": "2026-10-18T01:02:41.270Z"
+        "metadataSynced": "2026-10-18T21:55:29.778Z"
       },
       "disclosure": {
         "production": "author-led-ai-assisted",
@@ -2032,7 +2032,7 @@
         "rendered": "2026-10-15T22:49:18.003Z",
         "uploaded": "2026-10-15T22:52:49.858Z",
         "scheduled": "2026-10-15T22:52:49.858Z",
-        "metadataSynced": "2026-10-18T01:02:37.543Z"
+        "metadataSynced": "2026-10-18T21:55:33.059Z"
       },
       "disclosure": {
         "production": "author-led-ai-assisted",
@@ -2447,7 +2447,7 @@
         "rendered": "2026-10-15T22:54:09.909Z",
         "uploaded": "2026-10-15T23:07:27.924Z",
         "scheduled": "2026-10-15T23:07:27.924Z",
-        "metadataSynced": "2026-10-18T01:02:52.187Z"
+        "metadataSynced": "2026-10-18T21:55:36.624Z"
       },
       "disclosure": {
         "production": "author-led-ai-assisted",
