@@ -72,6 +72,6 @@ navigation は長期間ずっと赤だった。CI も同じ dev で走ってい�
 ## 地方版の章記事化（2026-10-19）
 - 共通仕様書の章立てを持つ地方版 3 文書を章記事にした: 中部 特記仕様書 43 章・東北 共通特記仕様書 13 章・北海道開発局独自 19 章。版面の違いは `config/standards-structure.json` の documents.* の**方言**で吸収（`dialectOf`: 柱/条番号の接頭辞「特仕」、印刷ページ番号 plain/dashed、条番号 3 段=章-節-条、節の字下げ、文で始まる項は段落、差分文書は項の連番を見ない）。既存 9 文書の出力は 1 バイトも変わらない。
 - **柱を持たない文書は `chapterSource: headings`**＝本文中の編・章の見出しで切る。見出しは中央寄せ（字下げ 20〜28 桁）なので字下げで判定しない。章はページ途中で替わり、境目のページは前後の章が共有する（検査 2 は連続する章の境目だけ許す）。前文は最初の章の冒頭へ。
-- 中国地整版（chugoku/local）は 5 列の訂正・追加表で、列がずれて行を組み直せない。本文は写さず、中国版の章記事の冒頭に該当ページへの案内（amendments・17 章）。組み直すならページ画像からの表の再構成（standards-table-writer/qa と同じ方式）が要る。
+- 中国地整版（chugoku/local）は 5 列の訂正・追加表で、版面は列がずれて行を組み直せない。**ページ画像から 1 ページ 1 JSON に組み直し**（content/sources/standards/amendments/chugoku-local・61p・204 行・版面と文字の多重集合一致・Writer 3 体→別の QA 3 体で全承認）、中国版の章記事の条の後に差し込む（3 段の番号は節の冒頭・条に当たらない追加の行は章末。目印 amendments:start/end で囲み、表と読みやすさの検査・地域差分・公開データの条の本文から除く）。検査 `check-standards-amendments`。多重集合の照合は順序を見ないので**順序・欄の振り分けは QA が画像で見るのが要**（QA が欄の取り違え 4 件を直した）。原本の「訂正・追加」欄の空欄・`1-追加`・3 段の番号・範囲は形で持てるようにした（Writer が回避策で別の欄に逃がしていた）。
 - 章を足したときの OGP: 生成 → `asset-inbox-push --path content/site/standards-articles/ --commit` → CI 取り込み後に develop を取り込み `build-standards-ogp --write-srchash`。**build-standard-articles は chapters/ を作り直すので手元の ogp.png も消える**。札は documents.*.ogpLabel（既定以外のときだけ srcHash に入れ、既存章を作り直さない）。
 - 地方版 61 文書のページ画像（4,480p）も Drive に生成済み（mlit/sekou-kanri-kijun は原本 PDF 未配置）。全文ライブラリの文字化け 6 文書 51p は DN-0767。
