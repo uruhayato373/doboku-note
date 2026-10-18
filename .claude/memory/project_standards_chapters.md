@@ -1,6 +1,6 @@
 ---
 name: project_standards_chapters
-description: "公的基準(共通仕様書)を章記事化(9文書387章・canonical=近畿のみ索引・表は原本照合で組み直し)＋1ページ1画像+1テキストへ展開(5,949p・section+版面ページで一意)。E2Eはビルド成果物で回す"
+description: "公的基準(共通仕様書)を章記事化(共通9文書387章＋地方版3文書75章・canonical=近畿のみ索引・表は原本照合で組み直し)＋1ページ1画像+1テキストへ展開(5,949p・section+版面ページで一意)。E2Eはビルド成果物で回す"
 metadata:
   type: project
 ---
@@ -68,3 +68,10 @@ navigation は長期間ずっと赤だった。CI も同じ dev で走ってい�
 - 公的基準（国交省 土木工事共通仕様書）10文書＝9ユニーク・5,949ページを原本 PDF から1ページ=1画像+1テキストへ展開（章記事が `part-NN.md`（50ページ束）までしかページ情報を持たず「原本の何ページか」を機械で言えなかったため）。置き場 `content/sources/standards/{agencyId}/{documentId}/`（ID は standards-library の catalog.json と同体系）。`pages/p0001.jpg`（pdftoppm 270dpi・JPEG q85）と `text/p0001.txt`（pdftotext -layout を \f で分割）。**実体 3.4GB は Drive vault の原本 PDF と同名フォルダ（隣）**、Git には `manifest.json`（per-page sha256）と README のみ（[[project_asset_audience_routing]]）。`npm run build-standards-page-images`（`--manifest-only`）／`check-standards-page-images`（quality:audit 同梱）。
 - 罠: ①**原本の同定はファイル名でなく sha256** ②PDF の通しページと版面ページは一致せず、目次が 1-1..1-77 のあと本文が再び 1-1 から始まる→各ページに `section`（front=目次/body=本文）を持たせ**section+版面ページで一意**（北海道版は目次が無番号で全ページ body）③対象 PDF は全て born-digital（text/ は OCR でなく PDF 自身のテキスト層）。OCR が要るのはスキャン教材（`content/sources/textbook/`）側の別パイプライン。
 - 沖縄版は中国地方整備局版と原本 sha256 一致のため `sameAs: "chugoku/common"` の alias（画像重複生成なし）。companion 62文書（4,500p）は未着手（`--role all` で同じ仕組みが回る）。
+
+## 地方版の章記事化（2026-10-19）
+- 共通仕様書の章立てを持つ地方版 3 文書を章記事にした: 中部 特記仕様書 43 章・東北 共通特記仕様書 13 章・北海道開発局独自 19 章。版面の違いは `config/standards-structure.json` の documents.* の**方言**で吸収（`dialectOf`: 柱/条番号の接頭辞「特仕」、印刷ページ番号 plain/dashed、条番号 3 段=章-節-条、節の字下げ、文で始まる項は段落、差分文書は項の連番を見ない）。既存 9 文書の出力は 1 バイトも変わらない。
+- **柱を持たない文書は `chapterSource: headings`**＝本文中の編・章の見出しで切る。見出しは中央寄せ（字下げ 20〜28 桁）なので字下げで判定しない。章はページ途中で替わり、境目のページは前後の章が共有する（検査 2 は連続する章の境目だけ許す）。前文は最初の章の冒頭へ。
+- 中国地整版（chugoku/local）は 5 列の訂正・追加表で、列がずれて行を組み直せない。本文は写さず、中国版の章記事の冒頭に該当ページへの案内（amendments・17 章）。組み直すならページ画像からの表の再構成（standards-table-writer/qa と同じ方式）が要る。
+- 章を足したときの OGP: 生成 → `asset-inbox-push --path content/site/standards-articles/ --commit` → CI 取り込み後に develop を取り込み `build-standards-ogp --write-srchash`。**build-standard-articles は chapters/ を作り直すので手元の ogp.png も消える**。札は documents.*.ogpLabel（既定以外のときだけ srcHash に入れ、既存章を作り直さない）。
+- 地方版 61 文書のページ画像（4,480p）も Drive に生成済み（mlit/sekou-kanri-kijun は原本 PDF 未配置）。全文ライブラリの文字化け 6 文書 51p は DN-0767。
