@@ -49,6 +49,10 @@ export function readLongformPopImages(root, packDir, storyboard, { local = false
     inside(root, cover.output.path);
   }
   const revision = pop.revisions?.[contract.revision];
+  const diagramLed = contract.layout === 'diagram-led' || revision?.layout?.mode === 'diagram-led';
+  if (diagramLed && (contract.layout !== 'diagram-led' || revision?.layout?.mode !== 'diagram-led')) {
+    throw new Error('図解主体のレイアウト指定が一致しません');
+  }
   const scenes = storyboard.scenes?.slice(1) ?? [];
   if (!scenes.length || !Array.isArray(revision?.images) || revision.images.length !== scenes.length) {
     throw new Error(`POP画像は表紙を除く全${scenes.length}場面分が必要です`);
@@ -58,6 +62,9 @@ export function readLongformPopImages(root, packDir, storyboard, { local = false
     const matches = revision.images.filter(x => x.sceneId === scene.sceneId);
     if (matches.length !== 1) throw new Error(`${scene.sceneId}: POP画像の欠落・重複`);
     const image = matches[0];
+    if (diagramLed && (image.normalization?.mode !== 'full-frame-v1' || image.normalization.sourceSha256 !== image.generation?.output?.sha256)) {
+      throw new Error(`${scene.sceneId}: 図解の全面採用記録が必要です（追加余白は禁止）`);
+    }
     if (image.inputSha256 !== popSceneHash(scene)) throw new Error(`${scene.sceneId}: POP画像の原稿が古い`);
     if (image.generation?.tool !== 'image_gen' || !image.generation.prompt?.trim() || !image.generation.references?.length) {
       throw new Error(`${scene.sceneId}: Codex画像生成の指示・参照記録が必要です`);
@@ -78,7 +85,7 @@ export function readLongformPopImages(root, packDir, storyboard, { local = false
         throw new Error(`${scene.sceneId}: 採用PNGの実寸・形式が不正`);
       }
     }
-    images.set(scene.sceneId, image.output);
+    images.set(scene.sceneId, { ...image.output, ...(image.normalization ? { normalization: image.normalization, source: image.generation.output } : {}) });
   }
   return images;
 }
