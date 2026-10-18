@@ -76,3 +76,16 @@ test('リポジトリ外の参照とsymlinkを拒否', async t => {
   f.image.output.path='body.png';f.save();rmSync(join(f.root,'body.png'));symlinkSync('/etc/hosts',join(f.root,'body.png'));
   assert.throws(() => readLongformPopImages(f.root,f.dir,f.board,{local:true}), /リポジトリ外/);
 });
+
+test('表紙もPOP指定したパックは旧表紙・別画像・改訂指定の片側削除を拒否', async t => {
+  const f=await fixture(t);
+  f.board.imageDesign.coverRevision='cover-r1';f.pop.activeCoverRevision='cover-r1';
+  f.pop.revisions['cover-r1']={version:'pop-poster-v3',generation:{tool:'image_gen',prompt:'本文と同じ全面POP表紙'},output:f.image.output};f.save();
+  const spec={design:'pop-poster-v3',approvedImage:{...f.image.output}};
+  const saveCover=()=>writeFileSync(join(f.dir,'cover-design.json'),JSON.stringify({covers:{longform:spec}}));saveCover();
+  assert.equal(readLongformPopImages(f.root,f.dir,f.board).size,1);
+  spec.design='pop-v2';saveCover();assert.throws(()=>readLongformPopImages(f.root,f.dir,f.board),/旧表紙/);
+  spec.design='pop-poster-v3';spec.approvedImage.sha256='a'.repeat(64);saveCover();assert.throws(()=>readLongformPopImages(f.root,f.dir,f.board),/旧表紙/);
+  spec.approvedImage={...f.image.output,path:'old-cover.png'};saveCover();assert.throws(()=>readLongformPopImages(f.root,f.dir,f.board),/旧表紙/);
+  delete f.board.imageDesign.coverRevision;assert.throws(()=>readLongformPopImages(f.root,f.dir,f.board),/改訂指定/);
+});

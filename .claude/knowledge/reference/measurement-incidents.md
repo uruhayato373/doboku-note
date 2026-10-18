@@ -1214,3 +1214,7 @@ PR を 3 本マージした後、`GET /repos/uruhayato373/doboku-note/actions/wo
 ### 2026-10-18: RGB/RGBA混在で冒頭映像が欠落
 
 POP本文のRGB PNGと表紙のRGBA PNGをconcatすると、ffmpegのフィルタ再初期化で先頭場面が失われ、映像streamが1.333秒から始まった。音声付きMP4全体の尺とPNGのSHAだけでは捕捉できなかった。共有合成器で作業用PNGをsRGB/RGBAへ揃える。`RUN_FFMPEG_INTEGRATION=1 node --test tests/longform-timing.integration.test.mjs` は40場面を実合成し、映像開始0秒・冒頭2場面の色・累積尺差0.15秒未満を確認する。完成動画でもstream開始と全場面の実フレームを確認し、PNG一覧を動画の目視確認に代用しない。
+
+### 2026-10-18: 本文POP化後に旧表紙を残した
+
+本文45場面の生成・合成確認だけで完了とし、動画先頭と再生前プレビューの表紙が旧意匠のまま残った。本文のscope指定を表紙を残す理由に使わず、表紙・本文・締めの一貫性を実動画の先頭まで確認する。表紙改訂を採用path/SHAへ結び、`node --test tests/longform-pop-images.test.mjs` で旧design・別SHA/パス・改訂指定の片側削除を拒否する。

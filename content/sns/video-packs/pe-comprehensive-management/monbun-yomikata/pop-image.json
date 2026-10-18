@@ -1428,7 +1428,7 @@
         "speaker": 13,
         "durationSec": 192.033333,
         "decoded": true,
-        "sha256": "4cb8cca31c81911c290dd42fa49afb0a91ab1a28850324d0f927d42cd0766f94",
+        "sha256": "123001f9c40f314dd331f03cf2dae10234cb0e1375e1f28bc1af0895b95634ff",
         "audioListening": "not performed",
         "checkedAt": "2026-10-18",
         "subtitleFramesInspected": 23,
@@ -1437,11 +1437,88 @@
           "360px"
         ],
         "criticalSubtitleOverlap": 0,
-        "source": ".tmp/video-render/monbun-yomikata/video.mp4",
+        "source": ".tmp/media/pe-comprehensive-management/monbun-yomikata/youtube.longform/video.123001f9.mp4",
         "manifest": ".tmp/video-render/monbun-yomikata/render-manifest.json",
-        "published": false
+        "published": false,
+        "coverMatched": true,
+        "coverSha256": "1f63225c7b91cb9920ee212afa4d158415a4a3709532de9a20fe07a67557bb66",
+        "publicationAction": "none"
       },
       "storageVerification": "生成原本・修正履歴・採用画像99ファイルをDriveへ保存。現行レンダー106ファイルは51更新・55変更なし。本文素材99件とレンダー143件（過去版37件を含む）をvaultのSHA・クラウドのMD5で全件照合し、不一致0。"
+    },
+    "cover-pop-20261018": {
+      "version": "pop-poster-v3",
+      "copy": {
+        "exam": "技術士 総監",
+        "headline": [
+          "その設問",
+          "役割を読める？"
+        ],
+        "authority": "総監が制作"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の承認済み本文POP画像と同じ意匠で、日本語学習動画の新しい表紙を1枚制作。16:9横長1920×1080向け。鮮やかな青とシアンの全面背景、斜めの面と動き、白と黄色の極太文字・強い黒縁・赤い強調。旧来の紺色背景に白い長方形の文字箱を置く表紙にはしない。先生は添付と同一の40代男性、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺色作業服とネクタイ、黄色と白の反射帯。先生は赤ペンと問題用紙を持ち、設問の役割に気づいた表情で問いかける。表紙の最上部に「技術士 総監」、主題は「その設問」「役割を読める？」を最も大きく表示。上部の別の小さな黄色帯に「総監が制作」。文字はこの4つの文字列だけ。句読点と疑問符も正確に。ブランド・URL・価格・追加の実績・小さな擬似文字は入れない。人物と主題を大きく、背景は四辺まで連続。重要な文字・顔・図は上から72%までに収める。下端28%は後から動画の字幕が入るので青い背景の連続だけを残し、文字帯や説明図を置かない。既存画像をクロップせず横長の表紙として新たに構成する。",
+        "references": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/work/intro.0a5bfc9f.png",
+            "sha256": "0a5bfc9fd62a5a444d8af9dca367dda26f613eb2a93408a916f07730e53db126"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/youtube.longform/cover-raw.2fd9419e.png",
+          "sha256": "2fd9419eba34fbff67c1a9f415d4c02a48915030e6b10b340cc44017257d01a0",
+          "width": 1672,
+          "height": 941
+        }
+      },
+      "output": {
+        "path": ".tmp/media/pe-comprehensive-management/monbun-yomikata/youtube.longform/cover.1f63225c.png",
+        "sha256": "1f63225c7b91cb9920ee212afa4d158415a4a3709532de9a20fe07a67557bb66",
+        "width": 1920,
+        "height": 1080,
+        "bytes": 673456
+      },
+      "review": {
+        "status": "ok",
+        "date": "2026-10-18",
+        "reviewer": "ai-image-fidelity-auditor",
+        "checkedSha256": "1f63225c7b91cb9920ee212afa4d158415a4a3709532de9a20fe07a67557bb66",
+        "viewports": [
+          "1920x1080",
+          "360px"
+        ],
+        "subtitleFrameChecked": true,
+        "criticalSubtitleOverlap": 0
+      },
+      "publication": "SNSの新規公開・追加予約は保留。ローカル採用のみ。",
+      "videoVerification": {
+        "id": "monbun-yomikata",
+        "scenes": 23,
+        "popImagesMatched": 22,
+        "actualFramesMatched": 23,
+        "maxFrameMae": 0.7771701388888889,
+        "videoStartSec": 0,
+        "narrationHashesMatched": 23,
+        "video": [
+          1920,
+          1080,
+          "h264"
+        ],
+        "audio": "aac",
+        "speaker": 13,
+        "durationSec": 192.033333,
+        "decoded": true,
+        "sha256": "123001f9c40f314dd331f03cf2dae10234cb0e1375e1f28bc1af0895b95634ff",
+        "audioListening": "not performed",
+        "checkedAt": "2026-10-18",
+        "coverMatched": true,
+        "coverSha256": "1f63225c7b91cb9920ee212afa4d158415a4a3709532de9a20fe07a67557bb66",
+        "source": ".tmp/media/pe-comprehensive-management/monbun-yomikata/youtube.longform/video.123001f9.mp4",
+        "manifest": ".tmp/video-render/monbun-yomikata/render-manifest.json",
+        "publicationAction": "none"
+      }
     }
-  }
+  },
+  "activeCoverRevision": "cover-pop-20261018"
 }

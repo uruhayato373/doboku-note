@@ -33,6 +33,21 @@ export function readLongformPopImages(root, packDir, storyboard, { local = false
     throw new Error('storyboard.imageDesign と pop-image.activeBodyRevision が一致しません');
   }
   if (storyboard.format !== 'longform-16x9') throw new Error('本文POP画像は longform-16x9 用です');
+  if (contract.coverRevision || pop.activeCoverRevision) {
+    if (!contract.coverRevision || contract.coverRevision !== pop.activeCoverRevision) {
+      throw new Error('POP表紙の改訂指定が一致しません');
+    }
+    const cover = pop.revisions?.[contract.coverRevision];
+    const spec = JSON.parse(readFileSync(join(packDir, 'cover-design.json'), 'utf8')).covers?.longform;
+    if (cover?.version !== 'pop-poster-v3' || cover.generation?.tool !== 'image_gen' || !cover.generation.prompt?.trim()) {
+      throw new Error('POP表紙のCodex生成記録が必要です');
+    }
+    if (spec?.design !== 'pop-poster-v3' || !digest.test(cover.output?.sha256 ?? '') ||
+        spec.approvedImage?.sha256 !== cover.output.sha256 || spec.approvedImage?.path !== cover.output.path) {
+      throw new Error('POP表紙の採用画像が改訂記録と一致しません（旧表紙への逆戻り）');
+    }
+    inside(root, cover.output.path);
+  }
   const revision = pop.revisions?.[contract.revision];
   const scenes = storyboard.scenes?.slice(1) ?? [];
   if (!scenes.length || !Array.isArray(revision?.images) || revision.images.length !== scenes.length) {

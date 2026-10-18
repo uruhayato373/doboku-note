@@ -101,6 +101,8 @@ Shortsのプラットフォーム上限と、doboku-noteが採用する推奨尺
 
 本文までCodexのPOP画像で制作するパックは、storyboardの `imageDesign: {mode: "codex-pop", scope: "all-body", revision: "<改訂キー>"}` と、`pop-image.json.activeBodyRevision` を同じキーにする。`revisions[改訂キー].images` に表紙を除く全場面（締めも含む）の `sceneId`・`inputSha256`（`popSceneHash`で語り/コピー/出典を結合）・`generation`（tool=`image_gen`、全文prompt、references、原本output）・採用 `output`（path/sha256/width/height）を残す。原本と採用PNGはDriveのcontent-mediaへ保存し、参照パスはリポジトリ相対とする。
 
+表紙も全面POPへ更新したパックは `imageDesign.coverRevision` と `pop-image.json.activeCoverRevision` を同じ改訂キーにする。表紙改訂の `version`=`pop-poster-v3`・Codex生成記録・採用 `output` を保存し、`cover-design.json` のdesign・採用path/SHAとの一致をB20で検査する。旧表紙へ戻した場合や改訂指定の片側削除は停止する。
+
 `check-video-content` のB20が全場面・生成記録・原稿hash・宣言寸法1920×1080を検査する。CIでは画像実体の検査とは呼ばない。`render-longform` は採用PNGの実体SHA・寸法を検査し、resumeでも指定画像をそのまま使う。欠落時は停止し、従来の文字カードや `visual.art`・CTAへ戻さない。`--skip-png` は不可。render-manifestの各場面には `pngSha256` と本文の `generatedImage` を保存する。機械検査は意匠・生成文字の正しさ・字幕重なりの目視確認を代替しない。
 
 

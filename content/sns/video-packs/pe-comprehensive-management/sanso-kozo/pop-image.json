@@ -1478,7 +1478,7 @@
         "scenes": 24,
         "popImagesMatched": 23,
         "actualFramesMatched": 24,
-        "maxFrameMae": 0.773828125,
+        "maxFrameMae": 0.7778428819444444,
         "videoStartSec": 0,
         "narrationHashesMatched": 24,
         "video": [
@@ -1490,7 +1490,7 @@
         "speaker": 13,
         "durationSec": 212,
         "decoded": true,
-        "sha256": "57aa7d850ac0902379143997ad7ba5f39fb774eb9efd9fd02791ade22e938b0a",
+        "sha256": "2cede6802e472423c391cc26097066788f99a5fdb59cd2ba299938a82bd13246",
         "audioListening": "not performed",
         "checkedAt": "2026-10-18",
         "subtitleFramesInspected": 24,
@@ -1499,11 +1499,88 @@
           "360px"
         ],
         "criticalSubtitleOverlap": 0,
-        "source": ".tmp/video-render/sanso-kozo/video.mp4",
+        "source": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/video.2cede680.mp4",
         "manifest": ".tmp/video-render/sanso-kozo/render-manifest.json",
-        "published": false
+        "published": false,
+        "coverMatched": true,
+        "coverSha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad",
+        "publicationAction": "none"
       },
       "storageVerification": "生成原本・修正履歴・採用画像99ファイルをDriveへ保存。現行レンダー106ファイルは51更新・55変更なし。本文素材99件とレンダー143件（過去版37件を含む）をvaultのSHA・クラウドのMD5で全件照合し、不一致0。"
+    },
+    "cover-pop-20261018": {
+      "version": "pop-poster-v3",
+      "copy": {
+        "exam": "技術士 総監",
+        "headline": [
+          "論文の3層構造",
+          "施策だけでOK？"
+        ],
+        "authority": "総監が制作"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の承認済み本文POP画像と同じ意匠で、日本語学習動画の新しい表紙を1枚制作。16:9横長1920×1080向け。鮮やかな青とシアンの全面背景、斜めの面と動き、白と黄色の極太文字・強い黒縁・赤い強調。旧来の紺色背景に白い長方形の文字箱を置く表紙にはしない。先生は添付と同一の40代男性、黒髪、黒縁眼鏡、軽いひげ、無地の白ヘルメット、紺色作業服とネクタイ、黄色と白の反射帯。先生は赤ペンを持ち、Ⅰ→Ⅱ→Ⅲとつながる3枚の答案用紙を指して問いかける。表紙の最上部に「技術士 総監」、主題は「論文の3層構造」「施策だけでOK？」を最も大きく表示。上部の別の小さな黄色帯に「総監が制作」。文字はこの4つの文字列だけ。句読点と疑問符も正確に。ブランド・URL・価格・追加の実績・小さな擬似文字は入れない。人物と主題を大きく、背景は四辺まで連続。重要な文字・顔・図は上から72%までに収める。下端28%は後から動画の字幕が入るので青い背景の連続だけを残し、文字帯や説明図を置かない。既存画像をクロップせず横長の表紙として新たに構成する。",
+        "references": [
+          {
+            "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/work/intro.2214ba86.png",
+            "sha256": "2214ba86b232f21d99b41777abc9ec1433d7eff2f7831e7e2c9e641db6e7c0ca"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover-raw.de5be7bb.png",
+          "sha256": "de5be7bbaeb7b809437b4a38eec1cd9c0222772c234c1fcb38653f5917172f34",
+          "width": 1672,
+          "height": 941
+        }
+      },
+      "output": {
+        "path": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/cover.b87e20c1.png",
+        "sha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad",
+        "width": 1920,
+        "height": 1080,
+        "bytes": 689494
+      },
+      "review": {
+        "status": "ok",
+        "date": "2026-10-18",
+        "reviewer": "ai-image-fidelity-auditor",
+        "checkedSha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad",
+        "viewports": [
+          "1920x1080",
+          "360px"
+        ],
+        "subtitleFrameChecked": true,
+        "criticalSubtitleOverlap": 0
+      },
+      "publication": "SNSの新規公開・追加予約は保留。ローカル採用のみ。",
+      "videoVerification": {
+        "id": "sanso-kozo",
+        "scenes": 24,
+        "popImagesMatched": 23,
+        "actualFramesMatched": 24,
+        "maxFrameMae": 0.7778428819444444,
+        "videoStartSec": 0,
+        "narrationHashesMatched": 24,
+        "video": [
+          1920,
+          1080,
+          "h264"
+        ],
+        "audio": "aac",
+        "speaker": 13,
+        "durationSec": 212,
+        "decoded": true,
+        "sha256": "2cede6802e472423c391cc26097066788f99a5fdb59cd2ba299938a82bd13246",
+        "audioListening": "not performed",
+        "checkedAt": "2026-10-18",
+        "coverMatched": true,
+        "coverSha256": "b87e20c19fda2123d3bac22950472ee7a7427dd2ab11a7cbf63807a6e83c33ad",
+        "source": ".tmp/media/pe-comprehensive-management/sanso-kozo/youtube.longform/video.2cede680.mp4",
+        "manifest": ".tmp/video-render/sanso-kozo/render-manifest.json",
+        "publicationAction": "none"
+      }
     }
-  }
+  },
+  "activeCoverRevision": "cover-pop-20261018"
 }
