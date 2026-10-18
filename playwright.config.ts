@@ -39,6 +39,8 @@ export default defineConfig({
   projects: [
     {
       name: 'desktop-chromium',
+      // 専用メニューなどの検査はモバイルだけで収集する。a11yは両projectで実行する。
+      testIgnore: ['**/mobile.spec.ts'],
       use: { ...devices['Desktop Chrome'] },
     },
     {

@@ -22,6 +22,7 @@ npm run content-ledger    # 管理画面「コンテンツ台帳」（/content/l
 npm run admin             # 運営管理画面 Next.js 版（ローカル専用・http://127.0.0.1:3021・計測/エージェント/スキル/ギャラリー/SNS状態/記事/売上/品質/ジョブ/TODO/**プロジェクト**/**ライフサイクル横断 `/content/lifecycle`**/**動画パック `/content/video`**・tools/admin-app）
 npm run test:e2e:admin    # 管理画面の E2E（Project↔TODO の相互リンク・日本語パス・トラバーサル404・レスポンシブ。admin は dev 専用なので CI の e2e には載せない）
 npm run check-career-separation:built  # 学習系ナビ（data-nav-list="exam-guide"）に career 記事が混ざっていないかを out/ の HTML で見る。**要 `npm run build`** で ci.yml の build 後に置く。走査先は out/{exam,practice,standards,topics}（2026-09 の URL 分割前は out/docs だった）。ナビ一覧 0 箇所は検査不成立＝exit 1
+npm run check-e2e-execution -- --report .tmp/e2e-report.json # E2E CIのJSON結果から対象/実行/未実行/skipを確認。対象0・未実行・skip・失敗・集計不一致でexit 1（E2E後にalwaysで実行）
 npm run check-e2e-targets      # E2E が叩くサイト内 URL が out/ に実在するか（`_redirects` の転送元を叩くと dev で必ず 404 になり、検査が成立しないまま赤が放置される）。**要 `npm run build`** なので quality:audit ではなく ci.yml / e2e.yml の build 後に置く。exit 2=検査不成立
 npm run check-client-chunk-size # build 済み out/_next/static/chunks の JS 1 本が 600KB を超えていないか（client component が doc-meta-index 等の大きい JSON を import すると /search のように 1.66MB になる・DN-0684）。out/ が無ければ exit 2。読み手＝ci.yml の build ジョブ
 npm run check-production-ssr # deploy 後の本番 SSR 検証（exit 0=正常 / 1=壊れている / **2=検査不成立＝接続できていない**。会社PCの HTTP 000／プロキシのブロック HTML をサイト障害と誤読しない・手打ち curl で代用しない）。/deploy と cloudflare-deploy.yml の公開後に実行。社内回線から接続できない場合は同workflowの verify_only=true で再デプロイせず外部検査。
@@ -125,7 +126,7 @@ npm run add-standards-document -- --pdf <原本.pdf> --agency <id> --agency-name
 npm run build-takuitsu-pdf      # 択一MDXをnote配布用A4 PDFへ変換（`-- --spec <json> [--out <pdf>]`）。spec必須=`bookId/title/subtitle/sources`、自作問題は任意`creditText`で出典説明を上書き。MDXコメント除去・Callout箱化・system Chrome描画。`--split` で `<out>-問題冊子.pdf`（解答・要点を除く）と `<out>-解答解説.pdf` を出す（両者の問題数不一致は停止）
 npm run build-standards-comparison # 近畿版を基準に各地方整備局版の本文差分を章・行単位で生成（`content/site/standards-articles/comparison.json`）
 npm run build-standards-data     # 構造化章記事から公開用 Markdown / JSON-LD / 索引JSONを `public/standards-data/` へ生成（派生物・Git追跡外・本番build同梱）
-npm run check-standards-data     # 公開用データ全章の形式・条数・出典/加工主体分離・noindex/CORSヘッダーを検査（build-standards-dataが自動実行）
+npm run check-standards-data     # 公開用データ全章の形式・条数・出典/加工主体分離・noindex/CORSヘッダーを検査（build-standards-dataが自動実行。CI auditでも事前生成して必須検査、生成漏れはskipせず失敗）
 npm run build-standards-ogp     # 章記事ごとの OGP 画像を生成（章は MDX でないため `npm run ogp` の射程外。描画は ogp-create の lib を再利用し見た目をサイトと揃える。R2 供給は ogp-supply.yml が代行） `--write-srchash` は章の srcHash を退避台帳へ書く。CI は実体の有無でなく台帳の srcHash 一致で再生成を飛ばす（2026-10-11・DN-0683）
 npm run check-standard-articles # 上の 19 検査（本文の取りこぼし0・全ページ割当・条番号整合・見出しレベル・SHA-256 一致・重複 indexable・**catalog 72 文書の被覆と除外理由の実データ検証**・表の可逆性・**章ごとの OGP 被覆**・節ページの切り出し・**読める形（文の途中の改行・表から外れた断片は基準以下／壊れた表 0）**。exit 2=検査不成立）
 npm run standards-table-gallery  # 公的基準の章・節ページの表を撮って 1 枚の HTML に並べる（目視用・ゲートではない。対象は「中身が異なるページすべて」。要 serve/dev。Playwright のブラウザが無い PC は --channel msedge。Git Bash では MSYS_NO_PATHCONV=1 を付けないと --only の /standards/… が化ける）

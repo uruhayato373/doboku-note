@@ -13,7 +13,7 @@ import { representativeRoutes as a11yRoutes } from './routes';
  *   を **修正を確認してから** 実行し、減った件数を commit する（増やす方向の更新はしない）。
  * - moderate / minor は annotations に出すだけ。
  *
- * 対象は代表テンプレート 8 種 × light/dark。desktop project だけで回す（配色・DOM は共通）。
+ * 対象は代表テンプレート 8 種 × light/dark × desktop/mobile。モバイル専用UIも検査する。
  */
 const BASELINE_PATH = 'e2e/a11y-baseline.json';
 const UPDATE = process.env.A11Y_UPDATE_BASELINE === '1';
@@ -30,8 +30,6 @@ function loadBaseline(): Baseline {
 
 const baseline = loadBaseline();
 const observed: Baseline = {};
-
-test.skip(({ isMobile }) => isMobile, 'desktop project のみで実行');
 
 for (const colorScheme of ['light', 'dark'] as const) {
   test.describe(`a11y (${colorScheme})`, () => {

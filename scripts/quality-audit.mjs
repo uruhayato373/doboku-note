@@ -181,8 +181,8 @@ export const CHECKS = [
   { id: 'standards-page-images', npm: 'check-standards-page-images', timeout: 120_000, ci: true, note: '公的基準のページ画像の provenance 整合（catalog↔manifest の原本 sha256・ページ被覆・part 範囲）。実体が無い端末では manifest のみ検査し、その旨を明示する' },
   {
     id: 'standards-data', npm: 'check-standards-data', timeout: 120_000, ci: true,
-    skip: () => existsSync(join(ROOT, 'public', 'standards-data', 'catalog.json')) ? null : '生成物 public/standards-data が無い（npm run build-standards-data 後に実行）',
-    note: '公開用 standards-data（Markdown / JSON-LD / 索引）の形式・条数・出典分離・noindex/CORS ヘッダー。build-standards-data の末尾でも走るが、生成物がある環境では横断監査でも再掲する（gate-parity のオーファン解消・DN-0205）',
+    skip: () => process.env.CI || existsSync(join(ROOT, 'public', 'standards-data', 'catalog.json')) ? null : '生成物 public/standards-data が無い（npm run build-standards-data 後に実行）',
+    note: '公開用 standards-data（Markdown / JSON-LD / 索引）の形式・条数・出典分離・noindex/CORS ヘッダー。CIのaudit前に生成し必ず検査する。ローカルは生成物がある環境で横断監査に再掲する（gate-parity のオーファン解消・DN-0205）',
   },
   { id: 'content-series', npm: 'check-content-series', timeout: 30_000, ci: true, note: 'サイト記事のシリーズ企画の台帳（content-series.json）を検査（根拠の参考文献 id・既存と補強の記事の実在・関連記事・対象外の理由・入口）。状態は記事の実体から出し、件数だけ表示する' },
   { id: 'egov-links', npm: 'egov-laws', timeout: 60_000, ci: true, note: '記事の e-Gov 法令検索へのリンク（法令 ID・条）と参考文献の台帳の法令の e-Gov の法令 ID を、e-Gov の写し（台帳 config.egov-laws）と照合（通信しない）。e-Gov の画面は無い ID でも 200 を返すのでリンク切れの検査では見つからない（2026-10-13 に 13 法令 26 か所）' },
