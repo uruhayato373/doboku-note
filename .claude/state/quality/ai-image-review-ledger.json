@@ -1307,6 +1307,24 @@
       "reason": "参照キャラクターの顔・服装とCTAを指す手・答案を持つ手が自然で、総監が制作を含む指定7文字列が施工経験記述の完成答案集への案内に合う。",
       "reviewedAt": "2026-10-17T06:04:25.228Z"
     },
+    "media:civil-construction-2/anzen-touan-gutaika/youtube.longform/revision-cover": {
+      "sha": "054dd9e005160388",
+      "verdict": "ok",
+      "reason": "原寸・幅360pxで指定6文言、人物同一性、自然な手指、対象資格と著者肩書きの区別、author.tsとの整合を確認。文字下端約80.6%・赤い下線約84.1%で、必須の下端10%安全域を満たす。",
+      "reviewedAt": "2026-10-15T11:05:12.289Z"
+    },
+    "media:civil-construction-2/anzen-touan-gutaika/youtube.longform/revision-cta": {
+      "sha": "89748909f7120f87",
+      "verdict": "ok",
+      "reason": "原寸・幅360pxで指定8文言、人物同一性、自然な指差しと用紙保持、対象資格と著者肩書きの区別、author.tsとの整合を確認。文字下端約82.3%・黄色帯下端約83.5%で、必須の下端10%安全域を満たす。",
+      "reviewedAt": "2026-10-15T11:05:12.289Z"
+    },
+    "media:civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-001": {
+      "sha": "d6f17a6dc6ffe483",
+      "verdict": "ok",
+      "reason": "人物と手指に破綻がなく、「狭いヤード→人と重機が接近→動線を分ける」の図・矢印・例示表記が整合し、指定文言を幅360pxで判読でき、重要文字が下端10%より上に収まることを確認した。",
+      "reviewedAt": "2026-10-14T22:11:44.817Z"
+    },
     "media:civil-construction-2/character-10-a/x.post.t07/cover": {
       "sha": "7d9cdf3f06f2681d",
       "verdict": "ok",
