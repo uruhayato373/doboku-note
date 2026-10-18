@@ -2,6 +2,8 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import {
   approvalHash, idShapeIssues, loadRegistryConfig, parsePubId, pubIdOf, requiresApproval, visualDigest,
 } from '../scripts/lib/content-registry.mjs';
@@ -99,6 +101,17 @@ test('R10: 判定 ok の無い AI 素材を、承認以降の公開が使って�
   assert.ok(!codes(run({ publications: [approved], mediaRows: [ai], drive, ai: okLedger })).includes('R10'));
 });
 
+test('R12: 現行台本と完成動画の制作時hashが違えば止め、旧成果物を照合数へ数えない', () => {
+  const p = pub({ media: { video: `${PUB}/video` } });
+  const make = hash => media({ id: `${PUB}/video`, role: 'video', type: 'video/mp4', provenance: { kind: 'render', by: 'render-longform', ...(hash ? { specSha256: hash } : {}) } });
+  const hash = createHash('sha256').update(readFileSync(join(ROOT, DEF, 'storyboard.json'))).digest('hex');
+  const current = run({ publications: [p], mediaRows: [make(hash)] });
+  assert.equal(current.counts.checkedRenderInputs, 1);
+  assert.ok(!codes(current).includes('R12'));
+  assert.ok(codes(run({ publications: [p], mediaRows: [make(SHA)] })).includes('R12'));
+  assert.equal(run({ publications: [p], mediaRows: [make()] }).counts.checkedRenderInputs, 0);
+});
+
 test('書き換えない group は、名前の sha8 と台帳の中身が違えば置かない', () => {
   const g = { immutable: true };
   assert.equal(immutableConflict(g, `.tmp/media/${PUB}/cover.aaaaaaaa.png`, SHA, null), null);
@@ -115,7 +128,7 @@ test('areaOf は 2 階層の置き場（content/registry）も引ける', async 
 });
 
 test('場面画像と複数シートだけは役割の通し番号を使える', () => {
-  for (const role of ['scene-001', 'scene-131', 'contact-sheet-2', 'contact-sheet-10']) assert.deepEqual(idShapeIssues('role', role, cfg.idRules), []);
-  for (const role of ['cover-2', 'scene-000', 'scene-20261011', 'contact-sheet-1']) assert.ok(idShapeIssues('role', role, cfg.idRules).length);
+  for (const role of ['scene-001', 'scene-131', 'candidate-scene-001', 'candidate-scene-131', 'contact-sheet-2', 'contact-sheet-10']) assert.deepEqual(idShapeIssues('role', role, cfg.idRules), []);
+  for (const role of ['cover-2', 'scene-000', 'candidate-scene-000', 'candidate-scene-20261011', 'scene-20261011', 'contact-sheet-1']) assert.ok(idShapeIssues('role', role, cfg.idRules).length);
   assert.ok(idShapeIssues('work', 'scene-001', cfg.idRules).length);
 });

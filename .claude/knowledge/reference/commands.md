@@ -236,6 +236,7 @@ npm run registry               # コンテンツ台帳（content/registry・cont
 npm run registry-reconcile     # 台帳の YouTube の外部 ID を videos.list で観測し、予約→公開だけを証拠つきで進める（後戻りは所見・.claude/state/registry-reconcile/）。認証は CI 供給で、手元は exit 2（検査不成立・何も書かない）。--dry は書かない。毎日の registry-reconcile.yml が動かす
 npm run media                  # 素材の CLI: promote --pub <公開ID>（作業場の成果物を .tmp/media/{exam}/{work}/… へ sha 入りの名前で取り込み台帳へ）/ preview --pub <id>（音声の前の画面確認: 無音プレビュー・10 秒ごとのコンタクトシート・数値。描画物と ffmpeg-full が要る）/ sync・verify・pull --work <exam>/<work>（Drive の group content-media・書き換えない）/ adopt-video-brand（日付フォルダの採用表紙・締め画像を ID の置き場へ・DN-0607）。promote・sync・pull・adopt-video-brand は既定 dry-run
 npm run media -- plate --pub <公開ID> --role <役割> --prompt-file <生成指示> --input <生成済み画像> --commit # 選択画像を再生成せず採用、AI来歴と未判定の監査行を登録。欠けた入力は停止。判定記録は content-registry.md 参照
+npm run media -- verify-render --work <資格>/<作品> # 現行台本・採用指定・全場面PNG/音声入力/WAV・字幕・MP4を照合。旧レンダーは音声付き再生成が必要。promoteも同じ検査を実行する
 npm run check-content-registry # コンテンツ台帳の検査 R01〜R11（0 件・ID・予約以上の削除〔--base <ref>〕・参照・件数・Drive の sha・状態と承認ハッシュ・外部 ID・AI 素材の判定・別作品IDの通常動画の台本重複）。FAIL で exit 1
 npm run youtube-unschedule        # 台帳で scheduled の YouTube の公開予約を外す（private のまま・動画は消さない。既定は試運転・--apply で実行・認証は CI だけなので .github/workflows/youtube-unschedule.yml から）。台帳は registry -- unschedule で uploaded_private に戻す（2026-10-13・YouTube を一旦止めた）
 npm run check-registry-due     # 予約のまま公開の予定を猶予（config の reconcileGraceDays）より過ぎた公開を出す（ops・壁時計依存なので CI ゲートにしない）
@@ -341,3 +342,5 @@ npm run backlog-gate      # 週次・月次レビューのバックログの関�
 npm run roll-backlog-when # 終わらなかったカードを翌月へ回す（`[時期:]` の終わりが今月より前のカードの終わりを今月へ延ばす・開始は残す）。既定は表示だけ、`-- --write` で backlog.md を書き換え、`-- --month YYYY-MM` で基準月。月初の月次レビューが回す。終わったカードは回さずに削除する
 npm run scan-qualification-market # 資格キーワードで YouTube（yt-dlp 検索）・note（公開検索 API）を取り data/analysis/qualification-market/YYYY-MM-DD.json へ（同日の再実行は取得済みの語を飛ばす・`--force` で取り直し）。`--coconala` でココナラも（coconala-research.mjs・Playwright・四半期 1 回）。`--qualification <id>`／`--channel youtube|note|coconala`／`--dry-run`。罠: note は JSON 以外（403）が返った時点で打ち切る＝連打しない。ココナラは空きメモリが足りないと Playwright ガードで起動しない
 ```
+
+- 公開・予約済み動画の修正版を保存: `npm run media -- promote --pub <公開ID> --candidate --commit`（YouTubeと既存承認を変更せず、作品詳細に未反映の改訂版を表示）

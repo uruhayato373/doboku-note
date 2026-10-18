@@ -1,5 +1,5 @@
 /**
- * content-registry-check.mjs — コンテンツ台帳の検査 R01〜R11（R09 は欠番・content-registry.md「検査」）の唯一の実装。
+ * content-registry-check.mjs — コンテンツ台帳の検査 R01〜R12（R09 は欠番・content-registry.md「検査」）の唯一の実装。
  * 型（zod）は check-datasets が見るので、ここはファイルをまたぐ整合だけを見る。
  * 切り替え前のチャネル（config の cutover に無いもの）は、孤児と件数の一致を WARN に留める。
  * （R09 は動画の台帳の写し .claude/state/video-content-status.json の照合だった。写しは 2026-10-09 に消えたので欠番）
@@ -7,6 +7,8 @@
 import { execFileSync } from 'node:child_process';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { createHash } from 'node:crypto';
+import { longformInputHash } from './longform-render-integrity.mjs';
 import {
   CHANNEL_DATASET, approvalHash, approvalParts, canTransition, idShapeIssues, loadRegistry, loadRegistryConfig, parsePubId, pubIdOf, requiresApproval,
 } from './content-registry.mjs';
@@ -223,6 +225,25 @@ export function checkRegistry(root, opts = {}) {
   counts.checkedLongformPairs = duplicates.checkedPairs;
   for (const pair of duplicates.pairs) issues.push(issue('FAIL', 'R11', pair.b,
     `${pair.a} と台本 ${pair.matched}/${pair.total} 場面が一致。旧版の扱いを確定し、移行・停止してから投入する`));
+
+  // R12: 新経路の完成動画・未公開改訂版が現行の制作入力と一致するか。
+  counts.checkedRenderInputs = 0;
+  const currentVideos = reg.publications.filter(p => p.channel === 'youtube' && p.format === 'longform' && p.status !== 'stopped')
+    .map(p => ({ id: p.id, exam: p.exam, work: p.work, video: reg.media.find(m => m.id === p.media?.video) }));
+  for (const m of reg.media.filter(m => m.role === 'candidate-video')) {
+    const [exam, work] = m.id.split('/');
+    currentVideos.push({ id: m.id, exam, work, video: m });
+  }
+  for (const { id, exam, work: workId, video } of currentVideos) {
+    if (!video?.provenance.specSha256) continue; // 旧成果物は入力照合済みとは数えない。
+    counts.checkedRenderInputs++;
+    const work = reg.works.find(w => w.exam === exam && w.id === workId);
+    const dir = work && join(root, work.definition);
+    const spec = dir && join(dir, 'storyboard.json');
+    let matches = spec && existsSync(spec) && createHash('sha256').update(readFileSync(spec)).digest('hex') === video.provenance.specSha256;
+    if (matches && video.provenance.renderInputSha256) matches = longformInputHash(dir) === video.provenance.renderInputSha256;
+    if (!matches) issues.push(issue('FAIL', 'R12', id, '完成動画が現行の制作入力より古い。音声・字幕・MP4を再生成し、media verify-render後に取り込む'));
+  }
 
   return { issues, counts };
 }

@@ -68,6 +68,7 @@ export interface ItemPublication {
 export interface ItemWork {
   work: { id: string; exam: string; kind: string; format: string | null; definition: string; qa: { avg?: number; blocks?: number; at?: string; by?: string } | null };
   title: string;
+  candidateMedia: ItemMedia[];
   channels: { channel: string; publications: ItemPublication[] }[];
 }
 
@@ -153,7 +154,7 @@ export async function loadMediaDetails(w: ItemWork): Promise<Record<string, Medi
   const root = findRepoRoot();
   const byId = new Map((loadRegistry(root).media as { id: string }[]).map((m) => [m.id, m]));
   const out: Record<string, MediaDetail> = {};
-  for (const c of w.channels) {
+  for (const c of [...w.channels, { publications: [{ id: 'candidate', media: w.candidateMedia }] }]) {
     for (const p of c.publications) {
       const d: MediaDetail = {};
       for (const m of p.media) {
