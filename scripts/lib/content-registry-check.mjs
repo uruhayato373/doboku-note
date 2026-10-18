@@ -1,5 +1,5 @@
 /**
- * content-registry-check.mjs — コンテンツ台帳の検査 R01〜R10（R09 は欠番・content-registry.md「検査」）の唯一の実装。
+ * content-registry-check.mjs — コンテンツ台帳の検査 R01〜R11（R09 は欠番・content-registry.md「検査」）の唯一の実装。
  * 型（zod）は check-datasets が見るので、ここはファイルをまたぐ整合だけを見る。
  * 切り替え前のチャネル（config の cutover に無いもの）は、孤児と件数の一致を WARN に留める。
  * （R09 は動画の台帳の写し .claude/state/video-content-status.json の照合だった。写しは 2026-10-09 に消えたので欠番）
@@ -13,6 +13,8 @@ import {
 import { datasetDir } from './datasets.mjs';
 import { parseMediaPath, sha8Matches } from './media-paths.mjs';
 import { readJsonIf } from './json-io.mjs';
+
+import { findDuplicateLongforms } from './video-duplicate-check.mjs';
 
 const issue = (severity, code, id, message) => ({ severity, code, id, message });
 
@@ -215,6 +217,12 @@ export function checkRegistry(root, opts = {}) {
     const gated = (referencedBy.get(m.id) ?? []).some((p) => requiresApproval(cfg, p.status));
     issues.push(issue(gated ? 'FAIL' : 'WARN', 'R10', m.id, 'AI 生成の素材に今の画像の判定 ok が無い（ai-image-fidelity-auditor → check-image-origin record-ai）'));
   }
+
+  // R11: 別IDでも台本の大半が同じ通常動画は、並行して承認・投入しない。
+  const duplicates = findDuplicateLongforms(root, reg);
+  counts.checkedLongformPairs = duplicates.checkedPairs;
+  for (const pair of duplicates.pairs) issues.push(issue('FAIL', 'R11', pair.b,
+    `${pair.a} と台本 ${pair.matched}/${pair.total} 場面が一致。旧版の扱いを確定し、移行・停止してから投入する`));
 
   return { issues, counts };
 }

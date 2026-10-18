@@ -211,7 +211,7 @@
           "ref": "https://studio.youtube.com/channel/UCHRnXPqoc0Hls8nXiK_ZYqA/videos/upload — 2026-10-15確認: auR8P0pvmlU は「公開」、公開日2026/10/15。動画への変更なし。"
         }
       },
-      "status": "published",
+      "status": "stopped",
       "publishAt": "2026-10-15T20:00:00+09:00",
       "approval": {
         "by": "user",
@@ -229,7 +229,8 @@
       "thumbnail": {
         "status": "set",
         "setAt": "2026-10-14T22:29:18.425Z"
-      }
+      },
+      "stopReason": "superseded"
     },
     {
       "id": "civil-construction-2/gakka-2kyu-concrete/youtube.longform",

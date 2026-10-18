@@ -235,7 +235,7 @@ npm run registry               # コンテンツ台帳（content/registry・cont
 npm run registry-reconcile     # 台帳の YouTube の外部 ID を videos.list で観測し、予約→公開だけを証拠つきで進める（後戻りは所見・.claude/state/registry-reconcile/）。認証は CI 供給で、手元は exit 2（検査不成立・何も書かない）。--dry は書かない。毎日の registry-reconcile.yml が動かす
 npm run media                  # 素材の CLI: promote --pub <公開ID>（作業場の成果物を .tmp/media/{exam}/{work}/… へ sha 入りの名前で取り込み台帳へ）/ preview --pub <id>（音声の前の画面確認: 無音プレビュー・10 秒ごとのコンタクトシート・数値。描画物と ffmpeg-full が要る）/ sync・verify・pull --work <exam>/<work>（Drive の group content-media・書き換えない）/ adopt-video-brand（日付フォルダの採用表紙・締め画像を ID の置き場へ・DN-0607）。promote・sync・pull・adopt-video-brand は既定 dry-run
 npm run media -- plate --pub <公開ID> --role <役割> --prompt-file <生成指示> --input <生成済み画像> --commit # 選択画像を再生成せず採用、AI来歴と未判定の監査行を登録。欠けた入力は停止。判定記録は content-registry.md 参照
-npm run check-content-registry # コンテンツ台帳の検査 R01〜R10（0 件・ID・予約以上の削除〔--base <ref>〕・参照・件数・Drive の sha・状態と承認ハッシュ・外部 ID・今の台帳（写し）との全欄の一致・AI 素材の判定）。FAIL で exit 1
+npm run check-content-registry # コンテンツ台帳の検査 R01〜R11（0 件・ID・予約以上の削除〔--base <ref>〕・参照・件数・Drive の sha・状態と承認ハッシュ・外部 ID・AI 素材の判定・別作品IDの通常動画の台本重複）。FAIL で exit 1
 npm run youtube-unschedule        # 台帳で scheduled の YouTube の公開予約を外す（private のまま・動画は消さない。既定は試運転・--apply で実行・認証は CI だけなので .github/workflows/youtube-unschedule.yml から）。台帳は registry -- unschedule で uploaded_private に戻す（2026-10-13・YouTube を一旦止めた）
 npm run check-registry-due     # 予約のまま公開の予定を猶予（config の reconcileGraceDays）より過ぎた公開を出す（ops・壁時計依存なので CI ゲートにしない）
 npm run check-video-publication # 公開済み派生物の実体照合が回っているか（未照合・記録の孤児・実査ドリフト。記録の古さは `--freshness`＝quality-audit の ops が日次で見る・2026-10-11）。実査本体は verify-video-publication＝CI 週次(verify-yt-status.yml の verify-video-publication)で creds 必須・**対象0件は明示してPASS**・quality:audit に同梱
