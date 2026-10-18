@@ -11,9 +11,9 @@ on:
   workflow_dispatch:
     inputs:
       operation:
-        description: "thumbnail-inventory=一覧のみ / thumbnail-refresh=確認済みサムネ / migration-*=動画の移行"
+        description: "thumbnail-inventory=一覧のみ / thumbnail-refresh=確認済みサムネ / migration-*=動画の移行 / pack-metadata=動画パックの公開済み・予約済みの題名・概要欄・開示を youtube.json に合わせる"
         type: choice
-        options: [thumbnail-inventory, thumbnail-refresh, migration-upload, migration-audit, migration-thumbnail, migration-activate, migration-delete]
+        options: [thumbnail-inventory, thumbnail-refresh, migration-upload, migration-audit, migration-thumbnail, migration-activate, migration-delete, pack-metadata]
         default: thumbnail-inventory
       report_public_key:
         description: "サムネ棚卸し用の一時公開鍵（秘密鍵を入力しない）"
@@ -37,6 +37,10 @@ on:
         default: "1"
       only_video_id:
         description: "試行用の単一videoId（空なら開始位置・本数を使用）"
+        type: string
+        default: ""
+      pack_ids:
+        description: "pack-metadata の対象 packId（カンマ区切り・最大 10）"
         type: string
         default: ""
       public_only:
@@ -168,3 +172,61 @@ jobs:
           include-hidden-files: true
           retention-days: 3
           if-no-files-found: warn
+
+  # 動画パック（content/sns/video-packs）の公開済み・予約済みの通常動画・Shorts の題名・概要欄・開示を、
+  # youtube.json に合わせて videos.update し、読み直して照合する（publish-video-pack.cjs --phase metadata）。
+  # 予約の publishAt と privacy は今の値を保つ。commit=false は対象の確認だけ（YouTube へ書かない）。
+  # 日次の配信（post-youtube-scheduled.yml）は 2026-10-12 から無効なので、こちらの手動専用の workflow に置く。
+  pack-metadata:
+    if: inputs.operation == 'pack-metadata'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    concurrency:
+      group: youtube-video-migration
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: develop
+          fetch-depth: 1
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "22"
+          cache: npm
+      - run: npm ci --legacy-peer-deps --ignore-scripts
+      - name: Sync pack metadata
+        env:
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+          PACK_IDS: ${{ inputs.pack_ids }}
+          APPLY: ${{ inputs.commit }}
+        run: |
+          set -euo pipefail
+          IFS=',' read -r -a packs <<< "$PACK_IDS"
+          if [ "${#packs[@]}" -eq 0 ] || [ "${#packs[@]}" -gt 10 ]; then
+            echo "::error::pack_ids に 1〜10 件の packId（カンマ区切り）が必要です"
+            exit 1
+          fi
+          for pack_id in "${packs[@]}"; do
+            pack_id="$(echo "$pack_id" | tr -d '[:space:]')"
+            if ! [[ "$pack_id" =~ ^[a-z0-9][a-z0-9-]{2,80}$ ]]; then
+              echo "::error::packId の形式が不正です: $pack_id"
+              exit 1
+            fi
+            args=(--pack-id "$pack_id" --phase metadata)
+            if [ "$APPLY" != "true" ]; then args+=(--dry-run); fi
+            node .claude/scripts/youtube/publish-video-pack.cjs "${args[@]}"
+          done
+      - name: Commit metadata sync state
+        if: inputs.commit
+        run: |
+          git config user.email "actions@github.com"
+          git config user.name "GitHub Actions"
+          node scripts/ci-data.mjs add --paths content/registry
+          git diff --cached --quiet && exit 0
+          git commit -m "chore(youtube): record pack metadata sync [skip ci]"
+          git pull --rebase origin develop
+          git push origin HEAD:develop

@@ -352,6 +352,17 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0765] 2級 安全管理の初版動画（auR8P0pvmlU）が YouTube で取得できず、台帳が published のまま
+タグ: [領域:SNS] [時期:2026-10] [種類:不具合] [起票:2026-10-18] [期日:2026-10-25]
+
+**起点**: 2026-10-18、2級 答案具体化シリーズの概要欄を CI（sync-yt-descriptions の pack-metadata）で同期したとき、初版 `civil-construction-2/anzen-touan-gutaika/youtube.longform`（auR8P0pvmlU）が `videos.list` で取得できず止まった。公開ページの oEmbed も 403。台帳は `published`・privacy public のまま（証拠は 10/15 の Studio 確認）。改訂版 anzen-touan-gutaika-kaitei（GCyAWGoJthU）は 10/17 に公開済みで、概要欄の同期と照合も済んだ。
+
+**やること**: YouTube Studio で auR8P0pvmlU が削除済みか非公開かを確かめる。改訂版への差し替えで消したなら、運営者が `npm run registry -- stop --pub civil-construction-2/anzen-touan-gutaika/youtube.longform --reason <語彙>` で台帳を止める（stop は運営者だけ）。残っているなら、同じ workflow の pack-metadata で概要欄を同期する。
+
+**完了条件**: 台帳の状態が YouTube の実体と一致し、`npm run check-content-registry` が PASS。
+
+
+
 
 
 ### [DN-0763] 週次 note-sync のマガジンカバー Drive 保存（drive-vault-sync）の失敗を直す
