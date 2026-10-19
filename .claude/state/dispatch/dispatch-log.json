@@ -4564,6 +4564,23 @@
       "commit": "74457c058049",
       "verification": "npm run note-lint 4 本 OK / check-note-structure CRITICAL 0・対象 4 本に HIGH なし",
       "note": "口頭試験の有料 2 本の追記と無料 2 本の原稿が完成（note-lint 4 本 OK・check-note-structure の指摘 0）。発表日の公開・note 同期の確認・URL の配線は DN-0248 へ移し、引き継ぎ文書も付け替えた"
+    },
+    {
+      "id": "DN-0755",
+      "at": "2026-10-20",
+      "task": "公的基準の章記事で表から外れた行・見出しの断片（近畿版 7〜8 件）を表へ戻す",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-standard-articles"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "465adaae09b8",
+      "verification": "check-standard-articles 24 文書 PASS 456 / tests/standards*.test.mjs 56 pass",
+      "note": "組み直しの JSON に absorbsParagraphs を足し、共通仕様書 8 機関の本物の断片 8 件を表へ戻した（writer→QA で原本画像と照合・承認、PR #1135）。8 機関の strayTableFragments を 40→32 に下げた。北海道版（版面が違う）・表3-2-39 の機関差・崩れた表3-2-32 は DN-0776 へ"
     }
   ]
 }
