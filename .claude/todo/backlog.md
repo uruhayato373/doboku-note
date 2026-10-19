@@ -392,6 +392,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 完了条件: DX の mat がサイト 002 のものか、DX が配置されていない。次の取り込みで crossCheck.exceeded=false になる（なお超過が残る場合は、stats47 側の自分の提携のビルドジョブのテキスト広告・ココナラのクリックとして説明できる）。
 
+**進捗（2026-10-20）**: (1) 本番の SSR を確認: 総監のページ（/exam/pe-comprehensive-management）で DX の mat は `NTDQY`（サイト 002）が 10 か所・旧 `NTCZ6` が 0、画像も wid=002。(2) crossCheck は未確認: 10/19 の A8 の定期収集が動いていなかったので手動で起動したが（run 39343232534）、A8 の保存ログインが期限切れで collector が rc=2 になった（自動 Issue #1138）。**運営者の作業**: Mac で `npm run auth:login -- --service a8` → `npm run auth:export -- --service a8` でログインを直す。その後の収集（毎週火 06:20 JST）で crossCheck.exceeded を確かめて閉じる。
 
 ### [DN-0756] R2画像の更新後も同じURLのCDNキャッシュが旧版を返す
 タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [起票:2026-10-16]
@@ -623,7 +624,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 **やること**: 開いている CodeQL の警告（`gh api repos/uruhayato373/doboku-note/code-scanning/alerts?state=open`）を 1 件ずつ、実害（管理画面は手元専用・引数は運営者が渡すなど）と直し方で振り分け、直すものは直し、誤検知・受容するものは理由をつけて dismiss する。
 **完了条件**: 開いている CodeQL の警告が 0 件（直したか、理由つきで dismiss した）。
 
-
+**進捗（2026-10-20）**: 開いていた 69 件を振り分けた。直したもの 8 件（PR #1139: 引数から作る正規表現のエスケープ 3 件＝note-price-sweep・record-reference-book-artifacts・note-attach-file、何も変えない置換 5 件）。理由を付けて閉じたもの 61 件（won't fix 54＝運営者の手元実行の CLI・リポジトリ内の自前の原稿・127.0.0.1 専用の管理画面・仕様として正規表現を受ける paidBoundary／--pattern、false positive 2＝src/lib/docs.ts の MDX 前処理・文字数カウント、used in tests 5）。残り 8 件は PR #1139 が main に入って CodeQL が回ると閉じる。
 
 ### [DN-0632] サイトにメールの登録ページを作り、配信サービスを選ぶ（iOS アプリと記事から案内して note・ココナラへつなぐ）
 タグ: [収益化] [領域:サイト] [時期:2026-10..2026-11] [種類:制作] [起票:2026-10-10]
