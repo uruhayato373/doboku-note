@@ -10,9 +10,9 @@
     "pages": 11378,
     "parts": 280,
     "sourceBytes": 204338303,
-    "markdownBytes": 32755284,
+    "markdownBytes": 32858007,
     "replacementCharacters": 0,
-    "visualReviewedPages": 785,
+    "visualReviewedPages": 939,
     "pendingVisualPages": 0,
     "unreadableRanges": 7
   },
@@ -1158,9 +1158,9 @@
       "sourceBytes": 20410208,
       "pages": 243,
       "partCount": 5,
-      "markdownBytes": 471864,
+      "markdownBytes": 581668,
       "replacementCharacters": 0,
-      "visualReviewedPages": 134,
+      "visualReviewedPages": 243,
       "pendingVisualPages": 0,
       "edition": null,
       "sourceFile": "manual__土木工事電子書類作成マニュアル_R8.3.pdf",
@@ -1171,8 +1171,8 @@
           "firstPage": 1,
           "lastPage": 50,
           "pageCount": 50,
-          "sha256": "e6b1d1ae6770c3517a4052618eae8330cef6c1e4f4c05aac98911e8377f22ad1",
-          "bytes": 75909
+          "sha256": "ac4cfe5aaad7341f1d698ee11a256b2bdb2a40a6f982207e845ce5f90b0c41f3",
+          "bytes": 106991
         },
         {
           "slug": "part-02",
@@ -1180,8 +1180,8 @@
           "firstPage": 51,
           "lastPage": 100,
           "pageCount": 50,
-          "sha256": "28ec4bd0671c3cf1c216aad60e3e40c30b72c6c6ae0fde2020f4c847b83ae099",
-          "bytes": 94688
+          "sha256": "ae645fd5f95e3f143fde96796259ba560c0775f2029aafacedd07c0b11cb340f",
+          "bytes": 117892
         },
         {
           "slug": "part-03",
@@ -1189,8 +1189,8 @@
           "firstPage": 101,
           "lastPage": 150,
           "pageCount": 50,
-          "sha256": "796ddec803b8e67188d3d077f551ecc73b6280840e2c8aa874d9a77bb3c4fffb",
-          "bytes": 58583
+          "sha256": "32d65787a8af5f0e4b20a9cae1ef73676aa75c95d2be570b0116f5d56b5820a9",
+          "bytes": 75667
         },
         {
           "slug": "part-04",
@@ -1198,8 +1198,8 @@
           "firstPage": 151,
           "lastPage": 200,
           "pageCount": 50,
-          "sha256": "be9d108ffd0a1649d19c7084595734a9dc8d369ddd2ea06d826699c4c0799165",
-          "bytes": 105819
+          "sha256": "61176d67d8eea30be990f6f6e870346f8fe809f6e03cfffe9a4048fa3e685044",
+          "bytes": 123716
         },
         {
           "slug": "part-05",
@@ -1207,8 +1207,8 @@
           "firstPage": 201,
           "lastPage": 243,
           "pageCount": 43,
-          "sha256": "bb447c38f0a07844e1be6040898ab4b89bf560de44a1590a32b185f9ffbc38bc",
-          "bytes": 136865
+          "sha256": "e9acc62bcf711aa6006ea5558c5180b830db1a9358ee8f5a66221686e934b195",
+          "bytes": 157402
         }
       ],
       "unreadableRanges": [
@@ -3370,9 +3370,9 @@
       "sourceBytes": 259513,
       "pages": 11,
       "partCount": 1,
-      "markdownBytes": 20077,
+      "markdownBytes": 14722,
       "replacementCharacters": 0,
-      "visualReviewedPages": 1,
+      "visualReviewedPages": 11,
       "pendingVisualPages": 0,
       "edition": null,
       "sourceFile": "hikkei-10__土木請負工事必携_道路工事現場における標示施設等の設置基準.pdf",
@@ -3383,8 +3383,8 @@
           "firstPage": 1,
           "lastPage": 11,
           "pageCount": 11,
-          "sha256": "790b62885558691fd0cd467daa15f47c9b249d3ff5d49f5cf19ee356b4014fdb",
-          "bytes": 20077
+          "sha256": "b36ba696c7c1313e73db8176e4664bd20d5ec0677c9a6d54a7ec129304c4007a",
+          "bytes": 14722
         }
       ],
       "unreadableRanges": []
@@ -3775,9 +3775,9 @@
       "sourceBytes": 9468008,
       "pages": 250,
       "partCount": 5,
-      "markdownBytes": 735605,
+      "markdownBytes": 735128,
       "replacementCharacters": 0,
-      "visualReviewedPages": 44,
+      "visualReviewedPages": 45,
       "pendingVisualPages": 0,
       "edition": null,
       "sourceFile": "manual__土木工事書類作成マニュアル.pdf",
@@ -3806,8 +3806,8 @@
           "firstPage": 101,
           "lastPage": 150,
           "pageCount": 50,
-          "sha256": "98ed024c263c0f36b6c232add4f733bd1a0fd732aba3f27cdb67622248e35936",
-          "bytes": 98571
+          "sha256": "68f484361d4d9bb57bc054a11dd1234cc920b68bfaa678378a09419b073c0805",
+          "bytes": 98094
         },
         {
           "slug": "part-04",
@@ -3998,9 +3998,9 @@
       "sourceBytes": 43884966,
       "pages": 874,
       "partCount": 18,
-      "markdownBytes": 1786472,
+      "markdownBytes": 1806959,
       "replacementCharacters": 0,
-      "visualReviewedPages": 127,
+      "visualReviewedPages": 161,
       "pendingVisualPages": 0,
       "edition": null,
       "sourceFile": "reference__土木工事共通仕様書_参考資料_令和8年度版.pdf",
@@ -4074,8 +4074,8 @@
           "firstPage": 351,
           "lastPage": 400,
           "pageCount": 50,
-          "sha256": "fb9dbf38b691d9e12612a37c1626fcd2ec9a700b7553c0d3780296f0dcd76796",
-          "bytes": 56188
+          "sha256": "b72f70e86754b031a7f2108657e3786d53bfec256940286886fb844be9ab3a68",
+          "bytes": 60786
         },
         {
           "slug": "part-09",
@@ -4092,8 +4092,8 @@
           "firstPage": 451,
           "lastPage": 500,
           "pageCount": 50,
-          "sha256": "43357e0a4c111c325b3ba0936418ac3d21a1927d371c5da7104ffaf66126e8a4",
-          "bytes": 105625
+          "sha256": "09de3b98d55370deec424b48e1f11492d0c0c60d5c542b213849ec6155be1cf4",
+          "bytes": 109042
         },
         {
           "slug": "part-11",
@@ -4119,8 +4119,8 @@
           "firstPage": 601,
           "lastPage": 650,
           "pageCount": 50,
-          "sha256": "b278d33cb62dc6ab9a4e389eaa15d20f20adff666faa1fd27a091c9db7a0b621",
-          "bytes": 83256
+          "sha256": "d14e9acc5ab86d1dbf5d3d3e86ffc507540008d55dbdc8655bd80d42e1d32744",
+          "bytes": 83142
         },
         {
           "slug": "part-14",
@@ -4146,8 +4146,8 @@
           "firstPage": 751,
           "lastPage": 800,
           "pageCount": 50,
-          "sha256": "c930fa4c772b2d8be10692cd68869e2b2fe7ea0d6a40902011252de54a25bbce",
-          "bytes": 70356
+          "sha256": "92e5d306e69b972bfb79bee3230058bbcafb3b7a88112647d3d6c09c76e8b26d",
+          "bytes": 82942
         },
         {
           "slug": "part-17",
@@ -4213,7 +4213,7 @@
       "sourceBytes": 2309599,
       "pages": 269,
       "partCount": 6,
-      "markdownBytes": 1548870,
+      "markdownBytes": 1527134,
       "replacementCharacters": 0,
       "visualReviewedPages": 10,
       "pendingVisualPages": 0,
@@ -4226,8 +4226,8 @@
           "firstPage": 1,
           "lastPage": 50,
           "pageCount": 50,
-          "sha256": "7f419586a1ba8bc1faae1ac25870e3e23a213c4e213aa6066f82166f92c321e3",
-          "bytes": 271582
+          "sha256": "158e5d0046d6b4fdb2ee4e9b717ee87360513f173d6ff18625cde9f0d6bb7274",
+          "bytes": 267866
         },
         {
           "slug": "part-02",
@@ -4235,8 +4235,8 @@
           "firstPage": 51,
           "lastPage": 100,
           "pageCount": 50,
-          "sha256": "b11d9eec4196eec32df56b598308e5c7c721ba0ce73515c646a2d0d835767bdd",
-          "bytes": 176842
+          "sha256": "d5b2f697bf23d9a179a6d7e0a88b206049a92e1f2947c9d74d61c28ee97564d8",
+          "bytes": 174150
         },
         {
           "slug": "part-03",
@@ -4244,8 +4244,8 @@
           "firstPage": 101,
           "lastPage": 150,
           "pageCount": 50,
-          "sha256": "c23e57bf69e2c939533e1827e2d7c7f2cf11232bac9dde7cd4eb203a0c8c8a41",
-          "bytes": 163187
+          "sha256": "856fa05d1bc470535f1727cfd6cc7653636ad718253694082764c55d3ca96369",
+          "bytes": 160537
         },
         {
           "slug": "part-04",
@@ -4253,8 +4253,8 @@
           "firstPage": 151,
           "lastPage": 200,
           "pageCount": 50,
-          "sha256": "dab389304885ad26bdde0ff3866e35ff0d627840909892225d79cf51a13baeae",
-          "bytes": 144322
+          "sha256": "b0aec825209fe23175461e2827e670b99c7f92cb113f1d7d58ea6bcb582547ee",
+          "bytes": 142173
         },
         {
           "slug": "part-05",
@@ -4262,8 +4262,8 @@
           "firstPage": 201,
           "lastPage": 250,
           "pageCount": 50,
-          "sha256": "8612e4f45ab0aa8dd448e0cd77743d0c7a6c34f29b65e71a160cc954b317f8a7",
-          "bytes": 551260
+          "sha256": "b0fcbe4bc70e84cd8f36f4d4ec6cc64647db3b1b9c06a76152793c2f21d21d1a",
+          "bytes": 543817
         },
         {
           "slug": "part-06",
@@ -4271,8 +4271,8 @@
           "firstPage": 251,
           "lastPage": 269,
           "pageCount": 19,
-          "sha256": "35140118f7825a4d52960c2369e2e655cc90e48c8273b6e08109730ec574ddd1",
-          "bytes": 241677
+          "sha256": "7d24b51e7dc15a01a4bc0087f07667efd024ff2cca82e7bb992b9ff6d4ade1f4",
+          "bytes": 238591
         }
       ],
       "unreadableRanges": []

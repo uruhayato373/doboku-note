@@ -10,20 +10,25 @@
       ],
       "accentLine": 1,
       "subtitle": "現場条件から書く",
-      "character": {
-        "pose": "checklist-pen",
-        "frame": "waist"
-      },
       "design": "pop-poster-v3",
-      "pop": {
-        "variant": "explain",
-        "authority": "総監・元発注者"
-      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/cover.ba16defd.png",
-        "sha256": "ba16defd11a2f6732515f7540d635169e8ad52ae62366aa6be5268a8056e7032",
-        "specSha256": "0ec909dbe03c6f9a6f7427521efa067ee4218205088a322a3eac5f971d4ae582"
-      }
+        "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/anzen-touan-gutaika-kaitei--cover.2c9b791b.png",
+        "sha256": "2c9b791bfc6c59fb3c3b321b036e739ecbc4e3ca321d20779df634acb6baaee4",
+        "width": 1920,
+        "height": 1080,
+        "normalization": {
+          "mode": "full-frame-v1",
+          "sourceSha256": "dc57b106a10374e3598bfd3dcc8173251e09e234ecb7c3cfa8de839438bc7f19"
+        },
+        "source": {
+          "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/anzen-touan-gutaika-kaitei--cover-raw.dc57b106.png",
+          "sha256": "dc57b106a10374e3598bfd3dcc8173251e09e234ecb7c3cfa8de839438bc7f19",
+          "width": 1672,
+          "height": 941
+        },
+        "specSha256": "cd58787494dd32854f24ae39a85712efad4b086fbaba783309c98e9c3bfc508e"
+      },
+      "layout": "diagram-led"
     }
   }
 }

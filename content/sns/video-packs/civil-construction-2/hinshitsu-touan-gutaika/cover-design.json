@@ -11,20 +11,25 @@
       ],
       "accentLine": 1,
       "subtitle": "現場条件から書く",
-      "character": {
-        "pose": "checklist-pen",
-        "frame": "waist"
-      },
       "design": "pop-poster-v3",
-      "pop": {
-        "variant": "explain",
-        "authority": "総監・元発注者"
-      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/cover.6d461a7d.png",
-        "sha256": "6d461a7d29270911cbdeb4202056e9196493c0cfbae69dad97c351c3257c8fe5",
-        "specSha256": "1cdeb6c4301345b4662eeb611aae13f16f3ba4828aa6431b500954a906d7fc9b"
-      }
+        "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--cover.cc475878.png",
+        "sha256": "cc4758781dea3ac964d4e441c83fd74f87d8e72e327ad293c1bcd56cec599aae",
+        "width": 1920,
+        "height": 1080,
+        "normalization": {
+          "mode": "full-frame-v1",
+          "sourceSha256": "7d06eac92f56dbac23b32c04e36a607c10b8b7dc9ce2318142e11e39c35a87ef"
+        },
+        "source": {
+          "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--cover-raw.7d06eac9.png",
+          "sha256": "7d06eac92f56dbac23b32c04e36a607c10b8b7dc9ce2318142e11e39c35a87ef",
+          "width": 1672,
+          "height": 941
+        },
+        "specSha256": "3ece1d3e50400425fcd6237518668cd334d1c8205b957acb750cc0b371e83645"
+      },
+      "layout": "diagram-led"
     }
   }
 }

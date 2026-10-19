@@ -28,6 +28,14 @@ import { applyTableOverride, tableKey, tryGfmTable, tryStandardsList } from './l
 import { pathToFileURL } from 'node:url';
 import { datasetPath } from './lib/datasets.mjs';
 import {
+  AMENDMENT_BLOCK_END,
+  AMENDMENT_BLOCK_START,
+  amendmentChapterOf,
+  amendmentScopeByChapter,
+  loadAmendmentPages,
+  resolveAmendmentEntries,
+} from './lib/standards-amendments.mjs';
+import {
   ARTICLES_ROOT,
   analyzeDocument,
   getCatalog,
@@ -42,6 +50,118 @@ const { RE_TABLE_CAPTION, RE_FIGURE_CAPTION } = patterns;
 const STANDARDS_LIST_SCOPE = /適用すべき諸基準/;
 
 const sha256 = (value) => createHash('sha256').update(value, 'utf8').digest('hex');
+
+/**
+ * 共通仕様書の章に対する地方の訂正・追加（設定 documents.*.amendments）を章ごとのページへ束ねる。
+ *
+ * 中国地方整備局版（chugoku/local）は共通仕様書の条ごとの訂正・追加を 5 列の表で並べた文書で、
+ * 各ページの先頭に `【第１編 共通編 第１章 総則 関係】` を刷る（1 ページに 2 章を書くこともある:
+ * `第１章 築堤・護岸，第３章 樋門・樋管 関係`）。表は版面の列がずれていてテキストから行を組み直せないので、
+ * ページ画像から組み直した行（content/sources/standards/amendments/・scripts/standards-amendments.mjs）が
+ * 全ページ承認済みなら条ごとに差し込み、そうでなければ章の冒頭にページへの案内だけを出す。
+ */
+function amendmentPagesOf(catalog, amendments, target) {
+  if (!amendments) return null;
+  const [agencyId, documentId] = amendments.document.split('/');
+  const source = catalog.documents.find((d) => d.agencyId === agencyId && d.documentId === documentId);
+  if (!source) throw new Error(`amendments の文書 ${amendments.document} が catalog に無い`);
+  const byChapter = amendmentScopeByChapter(loadDocumentPages(source));
+  if (byChapter.size === 0) throw new Error(`amendments の文書 ${amendments.document} から【…関係】のページを 1 つも拾えない`);
+
+  // 原本と照合して組み直した行（content/sources/standards/amendments/）。【…関係】のページが全部承認済みのときだけ
+  // 章記事へ差し込む（一部だけだとページをまたぐ行が途中で切れる）。そうでなければ案内だけを出す
+  const scopePages = [...new Set([...byChapter.values()].flat())].sort((a, b) => a - b);
+  const pageFiles = loadAmendmentPages(amendments.document);
+  const approved = new Set(pageFiles.filter(({ data }) => data.review?.status === 'approved').map(({ data }) => data.page));
+  const complete = scopePages.every((page) => approved.has(page));
+  const rowsByChapter = new Map();
+  if (complete) {
+    const { entries } = resolveAmendmentEntries(pageFiles.filter(({ data }) => scopePages.includes(data.page)));
+    for (const entry of entries) {
+      const chapterId = amendmentChapterOf(entry);
+      rowsByChapter.set(chapterId, [...(rowsByChapter.get(chapterId) ?? []), entry]);
+    }
+  }
+  return { source, target, label: amendments.label, byChapter, rowsByChapter, complete, scopePages: scopePages.length, approvedPages: approved.size };
+}
+
+/** ページ番号の並びを連続区間に畳む（[3,4,5,9] → [[3,5],[9,9]]）。 */
+function pageRanges(pages) {
+  const ranges = [];
+  for (const page of [...new Set(pages)].sort((a, b) => a - b)) {
+    const last = ranges[ranges.length - 1];
+    if (last && page === last[1] + 1) last[1] = page;
+    else ranges.push([page, page]);
+  }
+  return ranges;
+}
+
+/** 逐語分冊の該当ページへのリンク（src/lib/standards-articles.ts の resolveSourcePageHref と同じ形）。 */
+function libraryPageHref(document, page) {
+  const part = document.parts.find((p) => page >= p.firstPage && page <= p.lastPage);
+  return part ? `/standards/${document.agencyId}/${document.documentId}/${part.slug}#pdf-page-${page}` : null;
+}
+
+function renderAmendmentNote(amendment, pages, inserted) {
+  const links = pageRanges(pages).map(([first, last]) => {
+    const label = first === last ? `原本 p.${first}` : `原本 p.${first}–${last}`;
+    return `[${label}](${libraryPageHref(amendment.source, first)})`;
+  });
+  // 案内も差し込みと同じ目印で囲む（地域差分・読みやすさの検査が本文から除けるように）
+  const note = inserted
+    ? `> この章の条ごとに、${amendment.label}が定める訂正・追加を差し込んでいます（${amendment.source.title}・${links.join('、')}）。`
+    : `> この章には、${amendment.label}が定める訂正・追加があります（${amendment.source.title}・${links.join('、')}）。`;
+  return [AMENDMENT_BLOCK_START, '', note, '', AMENDMENT_BLOCK_END].join('\n');
+}
+
+/** 訂正・追加の 1 行を引用ブロックにする（欄の文字は原本どおり。枠の文言だけが生成器のもの）。 */
+function renderAmendmentRow(row, amendment, { withArticle }) {
+  const label = [
+    withArticle && row.article ? `${row.article}${row.articleTitle ? ` ${row.articleTitle}` : ''}` : null,
+    row.clause ? `項 ${row.clause}` : null,
+    row.heading,
+  ].filter(Boolean).map((text) => escapeInline(text)).join('｜');
+  const pageLinks = pageRanges(row.pages)
+    .map(([first, last]) => `[原本 p.${first === last ? first : `${first}–${last}`}](${libraryPageHref(amendment.source, first)})`)
+    .join('、');
+  // 訂正・追加の欄が原本で空欄の行は印を出さない
+  const mark = row.kind.trim() ? `〔${escapeInline(row.kind)}〕` : '';
+  const blocks = [`**${[mark, label].filter(Boolean).join(' ') || '（欄なし）'}**（${pageLinks}）`];
+  const line = (cells) => `| ${cells.map((cell) => escapeInline(cell)).join(' | ')} |`;
+  const gfm = ([head, ...rest]) => [line(head), `| ${head.map(() => '---').join(' | ')} |`, ...rest.map(line)].join('\n');
+  for (const paragraph of row.body) {
+    if (typeof paragraph === 'string') {
+      blocks.push(escapeBlockStart(escapeInline(paragraph)));
+      continue;
+    }
+    if (paragraph.figure) {
+      // 原本の図（画像）。章記事の img/ に置いた webp を R2 から出す（ArticleImage・/posts/ は R2 のキーと同じ）
+      const { file, alt, width, height } = paragraph.figure;
+      const src = `/posts/standards-articles/${amendment.target}/img/${file}`;
+      blocks.push(`<ArticleImage src="${src}" alt="${alt.replace(/"/g, '&quot;')}" width="${width}" height="${height}" size="medium" />`);
+      continue;
+    }
+    if (paragraph.table) blocks.push(gfm(paragraph.table));
+    else if (paragraph.list) blocks.push(paragraph.list.map((item) => `- ${escapeBlockStart(escapeInline(item))}`).join('\n'));
+    else if (paragraph.text) blocks.push(escapeBlockStart(escapeInline(paragraph.text)));
+    // 原本では画像で、テキスト層に文字が無いものを画像から起こした（照合は文字ではなく画像で行った）
+    if (paragraph.source === 'image') blocks.push('（原本では画像。画像から文字を起こしたもの）');
+  }
+  return blocks.map((block) => block.split('\n').map((line) => `> ${line}`).join('\n')).join('\n>\n');
+}
+
+/** 条の直後に置く訂正・追加のまとまり。検査が本文と区別できるよう目印のコメントで囲む。 */
+function renderAmendmentBlock(rows, amendment, { heading, withArticle = false }) {
+  return [
+    AMENDMENT_BLOCK_START,
+    '',
+    heading,
+    '',
+    rows.map((row) => renderAmendmentRow(row, amendment, { withArticle })).join('\n\n'),
+    '',
+    AMENDMENT_BLOCK_END,
+  ].join('\n');
+}
 
 // ---- Markdown 生成 -------------------------------------------------------
 
@@ -104,7 +224,7 @@ function renderOverridePart(part) {
 const formatPages = (pages) =>
   pages.length === 0 ? '' : pages.length === 1 ? `${pages[0]}` : `${pages[0]}-${pages[pages.length - 1]}`;
 
-function renderChapter(chapter, tableOutcomes = [], tableOverrides = new Map(), verbatimTables = []) {
+function renderChapter(chapter, tableOutcomes = [], tableOverrides = new Map(), verbatimTables = [], amendmentNote = null, amendmentRows = null) {
   // 章記事は next-mdx-remote で MDX としてコンパイルする（<SourceRef> を解決するため）。
   // MDX は HTML コメントを受け付けないので、注記は MDX コメント {/* */} で書く。
   const lines = [
@@ -113,6 +233,26 @@ function renderChapter(chapter, tableOutcomes = [], tableOverrides = new Map(), 
     '',
   ];
   const push = (block) => { lines.push(block, ''); };
+  if (amendmentNote) push(amendmentNote);
+  // 訂正・追加の行は、その条の本文の後（次の節・条の見出しの前）に差し込む。章に当たる条が無い行は章末へ
+  // 3 段の番号（編-章-節）の行は、その節の冒頭（最初の条の前）に置く
+  const rowsByArticle = new Map();
+  const keyOf = (row) => (row.articleNumber ? `article:${row.articleNumber}` : row.sectionNumber ? `section:${row.sectionNumber}` : '');
+  for (const row of amendmentRows?.rows ?? []) rowsByArticle.set(keyOf(row), [...(rowsByArticle.get(keyOf(row)) ?? []), row]);
+  let openArticle = null;
+  const flushAmendments = () => {
+    const rows = openArticle && rowsByArticle.get(openArticle);
+    if (rows) {
+      const level = openArticle.startsWith('section:') ? '###' : '####';
+      push(renderAmendmentBlock(rows, amendmentRows.amendment, { heading: `${level} ${amendmentRows.amendment.label}の訂正・追加` }));
+      rowsByArticle.delete(openArticle);
+    }
+    openArticle = null;
+  };
+  if (chapter.nodes.length === 0) {
+    // 原本が章名だけで本文を持たない章（中部の特記仕様書 10-9 地下横断歩道など＝特記事項が無い章）
+    push('原本ではこの章は章名だけで、本文はありません。');
+  }
   // 原典には条を持たない節がある（第1編第3章第1節 適用は項が節へ直付け）。そのまま H2→H4 に
   // すると見出しレベルが飛ぶので、条が無い節の項は H3 へ繰り上げる。入れ子の深さは変わらない。
   let sectionHasArticle = false;
@@ -126,6 +266,9 @@ function renderChapter(chapter, tableOutcomes = [], tableOverrides = new Map(), 
 
   for (const node of chapter.nodes) {
     if (node.role === 'heading') {
+      if (node.kind === 'section' || node.kind === 'article') flushAmendments();
+      if (node.kind === 'article') openArticle = `article:${node.number}`;
+      if (node.kind === 'section') openArticle = `section:${chapter.bookNumber}-${chapter.chapterNumber}-${node.number}`;
       lastHeading = node.raw;
       if (node.kind === 'section') {
         sectionHasArticle = false;
@@ -224,6 +367,14 @@ function renderChapter(chapter, tableOutcomes = [], tableOverrides = new Map(), 
       continue;
     }
     push(escapeBlockStart(escapeInline(joinWrapped(node.lines))));
+  }
+  flushAmendments();
+  const unplaced = [...rowsByArticle.values()].flat();
+  if (unplaced.length) {
+    push(renderAmendmentBlock(unplaced, amendmentRows.amendment, {
+      heading: `## ${amendmentRows.amendment.label}の訂正・追加（この章の条に当たらないもの）`,
+      withArticle: true,
+    }));
   }
   const [leftover] = pendingAbsorbed;
   if (leftover) {
@@ -340,17 +491,29 @@ export function buildDocument(document, overrides, { write = true, verbatimTable
   // 判定はここだけで行い、サイトは manifest の splitBySection を読む。
   const splitThreshold = overrides.sectionPages?.minOutputBytes ?? Infinity;
   const tableOverrides = loadTableOverrides();
+  const amendment = amendmentPagesOf(
+    getCatalog(),
+    overrides.documents?.[`${document.agencyId}/${document.documentId}`]?.amendments,
+    `${document.agencyId}/${document.documentId}`,
+  );
 
   const chapters = analysis.chapters.map((chapter) => {
     const tableOutcomes = [];
     const chapterTables = [];
-    const markdown = renderChapter(chapter, tableOutcomes, tableOverrides, chapterTables);
+    const amendmentPages = amendment?.byChapter.get(chapter.chapterId) ?? null;
+    const rows = amendment?.rowsByChapter.get(chapter.chapterId) ?? [];
+    const markdown = renderChapter(
+      chapter, tableOutcomes, tableOverrides, chapterTables,
+      amendmentPages ? renderAmendmentNote(amendment, amendmentPages, rows.length > 0) : null,
+      rows.length ? { amendment, rows } : null,
+    );
     verbatimTables.push(...chapterTables.map((table) => ({ ...table, document: `${document.agencyId}/${document.documentId}` })));
     const file = `chapters/${chapter.chapterId}.md`;
     if (write) writeMdxFile(join(outDir, file), markdown);
     const sourceText = chapter.sourcePages.map((page) => pageText.get(page)).join('\n');
     const outputBytes = Buffer.byteLength(markdown, 'utf8');
     const sections = summarizeChapter(chapter);
+    const bodyless = chapter.nodes.length === 0;
     return {
       chapterId: chapter.chapterId,
       title: `第${chapter.bookNumber}編 ${chapter.bookTitle} 第${chapter.chapterNumber}章 ${chapter.chapterTitle}`,
@@ -370,7 +533,18 @@ export function buildDocument(document, overrides, { write = true, verbatimTable
       sections,
       stats: { ...countNodes(chapter), ...tallyTables(tableOutcomes) },
       tableOutcomes: tallyReasons(tableOutcomes),
-      indexable,
+      // 本文の無い章は中身が章名だけなので検索に載せない（読める状態は保つ）
+      indexable: indexable && !bodyless,
+      ...(bodyless ? { bodyless: true } : {}),
+      ...(amendmentPages || rows.length
+        ? {
+            amendments: {
+              document: `${amendment.source.agencyId}/${amendment.source.documentId}`,
+              pages: amendmentPages ?? [],
+              ...(rows.length ? { rows: rows.length } : {}),
+            },
+          }
+        : {}),
       duplicateOf: document.duplicateOf ?? null,
       reviewStatus:
         analysis.reviewQueue.some((q) => q.page >= chapter.firstPage && q.page <= chapter.lastPage) ||
@@ -400,6 +574,10 @@ export function buildDocument(document, overrides, { write = true, verbatimTable
     indexable,
     indexableReason,
     duplicateOf: document.duplicateOf ?? null,
+    // 柱でなく本文中の見出しで章を切った文書（設定 chapterSource）。章の境目のページは前後の章が共有する
+    ...(overrides.documents?.[`${document.agencyId}/${document.documentId}`]?.chapterSource === 'headings'
+      ? { chapterSource: 'headings' }
+      : {}),
     audit: {
       ...analysis.audit,
       chapters: chapters.length,

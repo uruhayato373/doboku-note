@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-18T08:53:26.674Z",
+  "agencyId": "kyushu",
+  "agencyName": "九州地方整備局",
+  "documentId": "hikkei-control-02",
+  "role": "companion",
+  "title": "土木請負工事必携 施工管理編／「鋼橋用鋼材（厚鋼板）の立会の簡素化について」",
+  "edition": null,
+  "sourceFile": "九州地方整備局/hikkei-control-02__土木請負工事必携_施工管理編_「鋼橋用鋼材(厚鋼板)の立会の簡素化について」.pdf",
+  "pagesLocation": {
+    "tier": "drive-vault",
+    "vaultDir": "原資料PDF/共通仕様書/九州地方整備局/hikkei-control-02__土木請負工事必携_施工管理編_「鋼橋用鋼材(厚鋼板)の立会の簡素化について」",
+    "note": "実体は Drive vault の原本 PDF と同名フォルダ。repo には無い。取り戻しは npm run drive-vault-sync -- --pull --path content/sources/standards/kyushu/ --commit"
+  },
+  "sourceSha256": "a3878c1f8e249e38d694e01cd24e0abf51eeadafab22cdb3aea8eafc7ba423c1",
+  "pages": 2,
+  "render": {
+    "tool": "pdftoppm",
+    "dpi": 270,
+    "format": "jpeg",
+    "quality": 85
+  },
+  "text": {
+    "tool": "pdftotext",
+    "layout": true,
+    "splitBy": "formfeed"
+  },
+  "parts": [
+    {
+      "slug": "part-01",
+      "firstPage": 1,
+      "lastPage": 2
+    }
+  ],
+  "totalImageBytes": 564166,
+  "printedPage": {
+    "note": "版面に刷られたページ番号。目次(front)と本文(body)で同じラベルが再使用されるため、出典は section と組で指す。",
+    "bodyStartsAtPdfPage": null,
+    "labelled": 0,
+    "ambiguous": 0
+  },
+  "pageEntries": [
+    {
+      "page": 1,
+      "image": "pages/p0001.jpg",
+      "text": "text/p0001.txt",
+      "imageBytes": 155127,
+      "imageSha256": "94caeb3f56b0f196d49644a62ec5378de3ccbf398de8480c356d711dbfe52651",
+      "textChars": 105,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 2,
+      "image": "pages/p0002.jpg",
+      "text": "text/p0002.txt",
+      "imageBytes": 409039,
+      "imageSha256": "7364feda534f49e03e4b2663874d4e005d4f8a188af05697a19c42bc580d8a88",
+      "textChars": 1151,
+      "printedPage": null,
+      "section": "body"
+    }
+  ]
+}

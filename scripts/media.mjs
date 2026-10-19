@@ -5,7 +5,7 @@
  * （.tmp/media/{exam}/{work}/{channel}.{format}[.{variant}]/{role}.{sha8}.{ext}）へ sha 入りの名前で取り込み、
  * 素材の行を台帳（content/registry/media/{exam}.json）に書き、Drive（group content-media）と同期する。
  *
- *   npm run media -- promote --pub <公開 ID> [--commit]   # 今は YouTube の通常動画（cover・cta・場面画像・video・subtitles）
+ *   npm run media -- promote --pub <公開 ID> [--candidate] [--commit]   # YouTube通常動画・再現記録付きShorts候補
  *   npm run media -- sync    --work <exam>/<work> [--commit]
  *   npm run media -- verify  --work <exam>/<work>          # 台帳・vault・クラウドの 3 者を照合（rclone）
  *   npm run media -- pull    --work <exam>/<work> [--commit]
@@ -26,35 +26,45 @@ import { upsertMedia, upsertPublications } from './lib/content-registry-write.mj
 import { MEDIA_ROOT, mediaPath, mimeOf } from './lib/media-paths.mjs';
 import { readJson, readJsonIf } from './lib/json-io.mjs';
 import { voicevoxCredit } from './lib/voicevox-credit.mjs';
+import { verifyLongformRender } from './lib/longform-render-integrity.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
 const { values: args, positionals } = parseArgs({
   allowPositionals: true,
-  options: { pub: { type: 'string' }, work: { type: 'string' }, commit: { type: 'boolean' }, role: { type: 'string' }, 'prompt-file': { type: 'string' }, model: { type: 'string' }, input: { type: 'string' } },
+  options: { pub: { type: 'string' }, work: { type: 'string' }, commit: { type: 'boolean' }, candidate: { type: 'boolean' }, role: { type: 'string' }, 'prompt-file': { type: 'string' }, model: { type: 'string' }, input: { type: 'string' } },
 });
 const sha256Of = (abs) => createHash('sha256').update(readFileSync(abs)).digest('hex');
 
 /** YouTube の通常動画の素材の出どころ（作業場のパス・来歴） */
-function longformSources(work) {
+function longformSources(work, reg) {
   const packDir = work.definition;
   const render = `.tmp/video-render/${work.id}`;
   const cover = readJson(ROOT, `${packDir}/cover-design.json`).covers?.longform?.approvedImage;
   const cta = readJsonIf(ROOT, `${packDir}/cta-design.json`)?.longform;
   const manifest = readJsonIf(ROOT, `${render}/render-manifest.json`);
+  const integrity = manifest?.mp4 ? verifyLongformRender(join(ROOT, packDir), join(ROOT, render)) : null;
+  const pop = readJsonIf(ROOT, `${packDir}/pop-image.json`);
+  const generated = new Map((pop?.revisions?.[pop.activeBodyRevision]?.images ?? []).map(image => [image.sceneId, image]));
+  const aiProvenance = image => ({ kind: 'ai-generated', tool: 'codex', prompt: image.generation.prompt, promptSha256: createHash('sha256').update(image.generation.prompt).digest('hex'), generatedAt: image.generation.generatedAt ?? manifest.renderedAt });
+  const generatedCover = pop?.revisions?.[pop.activeCoverRevision];
+  const originalCover = reg.media.find(m => m.id === `${work.exam}/${work.id}/youtube.longform/cover`)?.provenance;
+  const coverProvenance = generatedCover?.generation?.tool === 'image_gen' ? aiProvenance(generatedCover)
+    : originalCover?.kind === 'ai-generated' ? originalCover : { kind: 'template', by: 'brand-video-pack', spec: `${packDir}/cover-design.json#longform`, specSha256: cover?.specSha256 };
   const sources = [];
   if (cover) sources.push({ role: 'cover', from: cover.path, expectSha: cover.sha256, legacy: true,
-    provenance: { kind: 'template', by: 'brand-video-pack', spec: `${packDir}/cover-design.json#longform`, specSha256: cover.specSha256 } });
+    provenance: coverProvenance });
   if (cta) sources.push({ role: 'cta', from: cta.path, expectSha: cta.sha256, legacy: true,
-    provenance: { kind: 'template', by: 'brand-video-pack', spec: `${packDir}/storyboard.json#cta` } });
+    provenance: generated.has('cta') ? aiProvenance(generated.get('cta')) : { kind: 'template', by: 'brand-video-pack', spec: `${packDir}/storyboard.json#cta` } });
   for (const [i, scene] of (manifest?.scenes ?? []).entries()) {
     if (!scene.png || !/^[a-zA-Z0-9_-]+\.png$/.test(scene.png)) throw new Error(`場面画像のファイル名が不正: ${scene.png}`);
-    sources.push({ role: `scene-${String(i + 1).padStart(3, '0')}`, from: `${render}/img/${scene.png}`,
-      provenance: { kind: 'render', by: manifest.sceneImagesFromVideo ? 'video-frame-extraction' : 'render-longform',
-        spec: `${packDir}/storyboard.json#${scene.sceneId}` } });
+    const image = generated.get(scene.sceneId);
+    const provenance = i === 0 ? coverProvenance : image ? aiProvenance(image) : { kind: 'render', by: manifest.sceneImagesFromVideo ? 'video-frame-extraction' : 'render-longform', spec: `${packDir}/storyboard.json#${scene.sceneId}` };
+    sources.push({ role: `scene-${String(i + 1).padStart(3, '0')}`, from: `${render}/img/${scene.png}`, provenance });
   }
   if (manifest?.mp4) {
     sources.push({ role: 'video', from: `${render}/${manifest.mp4}`, durationSec: manifest.totalSec,
       provenance: { kind: 'render', by: 'render-longform', spec: `${packDir}/storyboard.json`,
+        specSha256: integrity.storyboardSha256, renderInputSha256: integrity.inputSha256,
         ...(manifest.tts ? { tts: { engine: 'VOICEVOX', speaker: manifest.speaker, credit: voicevoxCredit(manifest.speaker) } } : {}) } });
     sources.push({ role: 'subtitles', from: `${render}/subtitles.ass`, provenance: { kind: 'render', by: 'render-longform', spec: `${packDir}/storyboard.json` } });
   }
@@ -69,18 +79,23 @@ async function promote() {
   const pub = reg.publications.find((p) => p.id === args.pub);
   const work = reg.works.find((w) => w.id === parsed.work && w.exam === parsed.exam);
   if (!pub || !work) throw new Error(`台帳に無い: ${args.pub}（先に npm run registry -- import-video-pack）`);
-  if (!(parsed.channel === 'youtube' && parsed.format === 'longform' && work.kind === 'video-pack')) throw new Error('今の promote は動画パックの YouTube 通常動画だけ');
+  if (parsed.channel !== 'youtube' || work.kind !== 'video-pack') throw new Error('promote は YouTube動画パック用です');
+  if (parsed.format !== 'longform' && !(parsed.format === 'short' && args.candidate)) throw new Error('Shortsの取り込みは --candidate のみ。公開素材を置き換えません');
+  const sources = parsed.format === 'longform' ? longformSources(work, reg)
+    : await (await import('./lib/shorts-candidate-sources.mjs')).shortsCandidateSources(ROOT, work, pub);
 
   const rows = [];
   const missing = [];
-  for (const s of longformSources(work)) {
+  for (const s of sources) {
     const abs = join(ROOT, s.from);
     if (!existsSync(abs)) { missing.push(s.from); continue; }
     const sha256 = sha256Of(abs);
     if (s.expectSha && s.expectSha !== sha256) throw new Error(`${s.role}: 採用時の sha256 と違う（${s.from}）`);
     const ext = extname(s.from).slice(1).toLowerCase();
-    const path = mediaPath({ pubId: pub.id, role: s.role, sha256, ext });
-    const row = { id: mediaIdOf(pub.id, s.role), role: s.role, type: mimeOf(ext), sha256, bytes: readFileSync(abs).length, store: { tier: 'drive', path }, provenance: reg.media.find(m => m.id === mediaIdOf(pub.id, s.role) && m.sha256 === sha256)?.provenance ?? s.provenance };
+    const role = args.candidate ? `candidate-${s.role}` : s.role;
+    const owner = args.candidate ? `${pub.exam}/${pub.work}/work` : pub.id;
+    const path = mediaPath(args.candidate ? { exam: pub.exam, work: pub.work, role, sha256, ext } : { pubId: pub.id, role, sha256, ext });
+    const row = { id: mediaIdOf(owner, role), role, type: mimeOf(ext), sha256, bytes: readFileSync(abs).length, store: { tier: 'drive', path }, provenance: s.provenance.kind === 'ai-generated' ? s.provenance : reg.media.find(m => m.id === mediaIdOf(owner, role) && m.sha256 === sha256)?.provenance ?? s.provenance };
     if (ext === 'png') { const meta = await sharp(abs).metadata(); row.width = meta.width; row.height = meta.height; }
     if (s.durationSec) row.durationSec = Math.round(s.durationSec * 1000) / 1000;
     if (s.legacy && s.from !== path) row.legacyPaths = [s.from];
@@ -96,7 +111,7 @@ async function promote() {
     else if (sha256Of(dest) !== row.sha256) throw new Error(`置き場に別の中身がある（書き換えない）: ${row.store.path}`);
   }
   upsertMedia(ROOT, pub.exam, rows.map((r) => r.row));
-  upsertPublications(ROOT, pub.channel, pub.exam, [{ ...pub, media: { ...(pub.media ?? {}), ...Object.fromEntries(rows.map(({ row }) => [row.role, row.id])) } }]);
+  if (!args.candidate) upsertPublications(ROOT, pub.channel, pub.exam, [{ ...pub, media: { ...(pub.media ?? {}), ...Object.fromEntries(rows.map(({ row }) => [row.role, row.id])) } }]);
   console.log(`取り込んだ: 素材 ${rows.length} 件（${pub.id}）。次は npm run media -- sync --work ${pub.exam}/${pub.work} --commit`);
 }
 
@@ -136,6 +151,15 @@ async function plate() {
 }
 
 const commands = {
+  'verify-render': () => {
+    if (!/^[a-z0-9-]+\/[a-z0-9-]+$/.test(args.work ?? '')) throw new Error('--work <exam>/<work> が要る');
+    const reg = loadRegistry(ROOT);
+    const [exam, id] = args.work.split('/');
+    const work = reg.works.find(w => w.exam === exam && w.id === id);
+    if (!work) throw new Error('台帳に無い作品です');
+    const checked = verifyLongformRender(join(ROOT, work.definition), join(ROOT, '.tmp/video-render', id));
+    console.log(`完成動画を実検査: ${checked.scenesChecked}場面 / 台本・画像・音声・字幕・MP4一致`);
+  },
   promote,
   plate,
   preview,
@@ -146,7 +170,7 @@ const commands = {
 };
 const [command] = positionals;
 if (!commands[command]) {
-  console.error('Usage: npm run media -- promote|plate|preview|sync|verify|pull|adopt-video-brand …');
+  console.error('Usage: npm run media -- promote|verify-render|plate|preview|sync|verify|pull|adopt-video-brand …');
   process.exit(2);
 }
 await commands[command]();

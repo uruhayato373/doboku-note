@@ -4453,6 +4453,40 @@
       "commit": "f228d578eb4f",
       "verification": "PR #1116 head 73ec87b26: 全体監査143成功・skip0 (run39088145796)、E2E490成功・実行490/skip0/未実行0/失敗0 (run39088145396)。モバイルa11y16件を追加実行、PC専用割当外6件はモバイルで実行。Lighthouse/CodeQL/Socket成功。",
       "note": "standards-dataをaudit前に生成しCIでは欠落時に失敗。E2EはJSON結果の対象/実行/skip/未実行/失敗を必須検査。回帰テストとdoc-sync実施。SNS新規公開・追加予約は未実施。"
+    },
+    {
+      "id": "DN-0768",
+      "at": "2026-10-19",
+      "task": "2級動画の本文ポスター化と追加余白を直し、場面別の図解を16:9全面に再構成する",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-video-content"
+      },
+      "executor": "codex-civil2-scene-layout",
+      "outcome": "done",
+      "plan": ".claude/plans/DN-0768-civil2-scene-layout.md",
+      "commit": "85503b5cf9ac",
+      "verification": "check-video-content",
+      "note": "現役9通常233場面と2Shortsを図解主体へ修復し独立QA BLOCK0。停止52本156代表フレームを確認し停止維持。原本全面採用の実画素照合/回帰21件、実ffmpeg・VOICEVOX8件、全test失敗0。保存2424件をlocal/Drive APIで照合、不一致0。新規公開・追加予約なし。"
+    },
+    {
+      "id": "DN-0767",
+      "at": "2026-10-19",
+      "task": "全文ライブラリの文字化けページ（地方版6文書51ページ）をページ画像から直し、検査で止める",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-standards-library"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "962f1e443666",
+      "verification": "npm run check-standards-library（10,617 ページ・文字化け 0・分冊ハッシュ不一致 0）",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }

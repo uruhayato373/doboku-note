@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-18T08:53:32.589Z",
+  "agencyId": "kyushu",
+  "agencyName": "九州地方整備局",
+  "documentId": "hikkei-control-05",
+  "role": "companion",
+  "title": "土木請負工事必携 施工管理編／「コンクリート中の塩化物総量規制（土木構造物）実施要領」",
+  "edition": null,
+  "sourceFile": "九州地方整備局/hikkei-control-05__土木請負工事必携_施工管理編_「コンクリート中の塩化物総量規制(土木構造物)実施要領」.pdf",
+  "pagesLocation": {
+    "tier": "drive-vault",
+    "vaultDir": "原資料PDF/共通仕様書/九州地方整備局/hikkei-control-05__土木請負工事必携_施工管理編_「コンクリート中の塩化物総量規制(土木構造物)実施要領」",
+    "note": "実体は Drive vault の原本 PDF と同名フォルダ。repo には無い。取り戻しは npm run drive-vault-sync -- --pull --path content/sources/standards/kyushu/ --commit"
+  },
+  "sourceSha256": "f5223ba55278be03b185cc26790a81ff46b766d0e7a7616fd5da4e60ed014659",
+  "pages": 3,
+  "render": {
+    "tool": "pdftoppm",
+    "dpi": 270,
+    "format": "jpeg",
+    "quality": 85
+  },
+  "text": {
+    "tool": "pdftotext",
+    "layout": true,
+    "splitBy": "formfeed"
+  },
+  "parts": [
+    {
+      "slug": "part-01",
+      "firstPage": 1,
+      "lastPage": 3
+    }
+  ],
+  "totalImageBytes": 1369280,
+  "printedPage": {
+    "note": "版面に刷られたページ番号。目次(front)と本文(body)で同じラベルが再使用されるため、出典は section と組で指す。",
+    "bodyStartsAtPdfPage": null,
+    "labelled": 0,
+    "ambiguous": 0
+  },
+  "pageEntries": [
+    {
+      "page": 1,
+      "image": "pages/p0001.jpg",
+      "text": "text/p0001.txt",
+      "imageBytes": 164098,
+      "imageSha256": "5f6f4df5369b352789f188104b4afaff0e355d954d9fabe23c8bcb82c7a3d033",
+      "textChars": 127,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 2,
+      "image": "pages/p0002.jpg",
+      "text": "text/p0002.txt",
+      "imageBytes": 641277,
+      "imageSha256": "20e5161442e753162d5f070953beb303c0be81b26230f6378c0992a06d015e08",
+      "textChars": 1306,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 3,
+      "image": "pages/p0003.jpg",
+      "text": "text/p0003.txt",
+      "imageBytes": 563905,
+      "imageSha256": "a8dcef5abac0051095b9f7e79dbf190b085f7b7048625d5dd5341b8a99379e58",
+      "textChars": 1311,
+      "printedPage": null,
+      "section": "body"
+    }
+  ]
+}

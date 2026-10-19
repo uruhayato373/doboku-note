@@ -1,6 +1,6 @@
 ---
 name: project_standards_chapters
-description: "公的基準(共通仕様書)を章記事化(9文書387章・canonical=近畿のみ索引・表は原本照合で組み直し)＋1ページ1画像+1テキストへ展開(5,949p・section+版面ページで一意)。E2Eはビルド成果物で回す"
+description: "公的基準(共通仕様書)を章記事化(共通9文書387章＋地方版3文書75章・canonical=近畿のみ索引・表は原本照合で組み直し)＋1ページ1画像+1テキストへ展開(5,949p・section+版面ページで一意)。E2Eはビルド成果物で回す"
 metadata:
   type: project
 ---
@@ -68,3 +68,16 @@ navigation は長期間ずっと赤だった。CI も同じ dev で走ってい�
 - 公的基準（国交省 土木工事共通仕様書）10文書＝9ユニーク・5,949ページを原本 PDF から1ページ=1画像+1テキストへ展開（章記事が `part-NN.md`（50ページ束）までしかページ情報を持たず「原本の何ページか」を機械で言えなかったため）。置き場 `content/sources/standards/{agencyId}/{documentId}/`（ID は standards-library の catalog.json と同体系）。`pages/p0001.jpg`（pdftoppm 270dpi・JPEG q85）と `text/p0001.txt`（pdftotext -layout を \f で分割）。**実体 3.4GB は Drive vault の原本 PDF と同名フォルダ（隣）**、Git には `manifest.json`（per-page sha256）と README のみ（[[project_asset_audience_routing]]）。`npm run build-standards-page-images`（`--manifest-only`）／`check-standards-page-images`（quality:audit 同梱）。
 - 罠: ①**原本の同定はファイル名でなく sha256** ②PDF の通しページと版面ページは一致せず、目次が 1-1..1-77 のあと本文が再び 1-1 から始まる→各ページに `section`（front=目次/body=本文）を持たせ**section+版面ページで一意**（北海道版は目次が無番号で全ページ body）③対象 PDF は全て born-digital（text/ は OCR でなく PDF 自身のテキスト層）。OCR が要るのはスキャン教材（`content/sources/textbook/`）側の別パイプライン。
 - 沖縄版は中国地方整備局版と原本 sha256 一致のため `sameAs: "chugoku/common"` の alias（画像重複生成なし）。companion 62文書（4,500p）は未着手（`--role all` で同じ仕組みが回る）。
+
+## 地方版の章記事化（2026-10-19）
+- 共通仕様書の章立てを持つ地方版 3 文書を章記事にした: 中部 特記仕様書 43 章・東北 共通特記仕様書 13 章・北海道開発局独自 19 章。版面の違いは `config/standards-structure.json` の documents.* の**方言**で吸収（`dialectOf`: 柱/条番号の接頭辞「特仕」、印刷ページ番号 plain/dashed、条番号 3 段=章-節-条、節の字下げ、文で始まる項は段落、差分文書は項の連番を見ない）。既存 9 文書の出力は 1 バイトも変わらない。
+- **柱を持たない文書は `chapterSource: headings`**＝本文中の編・章の見出しで切る。見出しは中央寄せ（字下げ 20〜28 桁）なので字下げで判定しない。章はページ途中で替わり、境目のページは前後の章が共有する（検査 2 は連続する章の境目だけ許す）。前文は最初の章の冒頭へ。
+- 中国地整版（chugoku/local）は 5 列の訂正・追加表で、版面は列がずれて行を組み直せない。**ページ画像から 1 ページ 1 JSON に組み直し**（content/sources/standards/amendments/chugoku-local・61p・204 行・版面と文字の多重集合一致・Writer 3 体→別の QA 3 体で全承認）、中国版の章記事の条の後に差し込む（3 段の番号は節の冒頭・条に当たらない追加の行は章末。目印 amendments:start/end で囲み、表と読みやすさの検査・地域差分・公開データの条の本文から除く）。検査 `check-standards-amendments`。多重集合の照合は順序を見ないので**順序・欄の振り分けは QA が画像で見るのが要**（QA が欄の取り違え 4 件を直した）。原本の「訂正・追加」欄の空欄・`1-追加`・3 段の番号・範囲は形で持てるようにした（Writer が回避策で別の欄に逃がしていた）。
+- 章を足したときの OGP: 生成 → `asset-inbox-push --path content/site/standards-articles/ --commit` → CI 取り込み後に develop を取り込み `build-standards-ogp --write-srchash`。**build-standard-articles は chapters/ を作り直すので手元の ogp.png も消える**。札は documents.*.ogpLabel（既定以外のときだけ srcHash に入れ、既存章を作り直さない）。
+- 地方版 61 文書のページ画像（4,480p）も Drive に生成済み（mlit/sekou-kanri-kijun は原本 PDF 未配置）。全文ライブラリの文字化けは 2026-10-19 に 4 文書 154p を直した（下）。
+
+## 全文ライブラリの文字化け（DN-0767・2026-10-19 完了）
+- PDF のフォントの文字対応（ToUnicode）が壊れたページは、どの抽出器でも制御文字（U+0000〜001F）や無関係な文字の範囲（ู ᵝ Ũ 㻝）になる。U+FFFD は出ないので replacementCharacters 0 をすり抜けていた。**判定は「紙面に出る文字の範囲」の外の割合**（scripts/lib/standards-mojibake.mjs）。Latin-1 の割合で数えると目次の点線 U+00B7 と数式の上線・添字を誤判定する（初回の 51p 見積もりは誤り。実数は関東マニュアル 109・東北参考資料 34・沖縄必携10 10・四国 1）
+- 起こし直しは **macOS Vision の OCR（scripts/lib/vision-ocr.swift）を下書きに Writer が画像で 1 行ずつ直し、別の QA が照合**。OCR との 2-gram 一致の低いページは理由を注記。QA が直したのは全角/半角（様式の「年月日:」の半角コロン・半角読点「､」）、旧字形（攪）、図の中の繰り返しラベルの数、看板の小さな URL。正本は content/sources/standards/{機関}/{文書}/visual-review.json、`npm run standards-library-mojibake -- apply` が分冊と catalog のハッシュを書く。検査 `check-standards-library`（ci）
+- 国交省の施工管理基準の 6 分冊は catalog のハッシュが実体と違っていた（作成時の値のまま）。apply で実体に合わせた
+

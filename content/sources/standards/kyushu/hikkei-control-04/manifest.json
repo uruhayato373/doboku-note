@@ -1,0 +1,145 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-18T08:53:31.225Z",
+  "agencyId": "kyushu",
+  "agencyName": "九州地方整備局",
+  "documentId": "hikkei-control-04",
+  "role": "companion",
+  "title": "土木請負工事必携 施工管理編／「コンクリート耐久性向上対策実施要領」",
+  "edition": null,
+  "sourceFile": "九州地方整備局/hikkei-control-04__土木請負工事必携_施工管理編_「コンクリート耐久性向上対策実施要領」.pdf",
+  "pagesLocation": {
+    "tier": "drive-vault",
+    "vaultDir": "原資料PDF/共通仕様書/九州地方整備局/hikkei-control-04__土木請負工事必携_施工管理編_「コンクリート耐久性向上対策実施要領」",
+    "note": "実体は Drive vault の原本 PDF と同名フォルダ。repo には無い。取り戻しは npm run drive-vault-sync -- --pull --path content/sources/standards/kyushu/ --commit"
+  },
+  "sourceSha256": "19a3c630750acc88988159bee7db4776ae120e89861ce000a987714a27eabc9b",
+  "pages": 10,
+  "render": {
+    "tool": "pdftoppm",
+    "dpi": 270,
+    "format": "jpeg",
+    "quality": 85
+  },
+  "text": {
+    "tool": "pdftotext",
+    "layout": true,
+    "splitBy": "formfeed"
+  },
+  "parts": [
+    {
+      "slug": "part-01",
+      "firstPage": 1,
+      "lastPage": 10
+    }
+  ],
+  "totalImageBytes": 3944428,
+  "printedPage": {
+    "note": "版面に刷られたページ番号。目次(front)と本文(body)で同じラベルが再使用されるため、出典は section と組で指す。",
+    "bodyStartsAtPdfPage": null,
+    "labelled": 0,
+    "ambiguous": 0
+  },
+  "pageEntries": [
+    {
+      "page": 1,
+      "image": "pages/p0001.jpg",
+      "text": "text/p0001.txt",
+      "imageBytes": 176317,
+      "imageSha256": "f6d0e0763494b86e47ed5399f34fbafc9945bd083188a8a2bc73b09f1396d93b",
+      "textChars": 251,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 2,
+      "image": "pages/p0002.jpg",
+      "text": "text/p0002.txt",
+      "imageBytes": 557025,
+      "imageSha256": "0e14249f403748485a7ed49d4ecb87b18e13fbc0fe3abfe0a215cc862d96e3ae",
+      "textChars": 1276,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 3,
+      "image": "pages/p0003.jpg",
+      "text": "text/p0003.txt",
+      "imageBytes": 180417,
+      "imageSha256": "430dae6cb0b9834ff87487e780c990973065323050a82602729af4e3842b8e02",
+      "textChars": 135,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 4,
+      "image": "pages/p0004.jpg",
+      "text": "text/p0004.txt",
+      "imageBytes": 553179,
+      "imageSha256": "b6a8a0a52f79301aa90af04b835cd1e84004a2413adb8afa6df4eb66b3fde161",
+      "textChars": 1198,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 5,
+      "image": "pages/p0005.jpg",
+      "text": "text/p0005.txt",
+      "imageBytes": 687112,
+      "imageSha256": "12a6b172df11c8009bcc5c795ea4b4df9ca6b32f9d9df3716a7e0d875dfa658f",
+      "textChars": 1651,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 6,
+      "image": "pages/p0006.jpg",
+      "text": "text/p0006.txt",
+      "imageBytes": 161702,
+      "imageSha256": "5287dc530a3bf131fbb7324f81c74eecded791ca960c3c71c19b34815bfc7683",
+      "textChars": 36,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 7,
+      "image": "pages/p0007.jpg",
+      "text": "text/p0007.txt",
+      "imageBytes": 197273,
+      "imageSha256": "c553e2ce23495e9ca4306bcaca8a30e25f2437816550619b802c93f5c97c3551",
+      "textChars": 336,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 8,
+      "image": "pages/p0008.jpg",
+      "text": "text/p0008.txt",
+      "imageBytes": 597778,
+      "imageSha256": "66ef5133f0663cd749d0160c621bc55efdce88200c105bcf68e75201ce83ec4d",
+      "textChars": 1138,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 9,
+      "image": "pages/p0009.jpg",
+      "text": "text/p0009.txt",
+      "imageBytes": 479592,
+      "imageSha256": "0c5b3ac7421355eb6bfa2d49d349df03c57da235ba44aba0d8fcedcc30bb80cc",
+      "textChars": 1073,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 10,
+      "image": "pages/p0010.jpg",
+      "text": "text/p0010.txt",
+      "imageBytes": 354033,
+      "imageSha256": "f75cce6e98f0e4364e80904fc7fd86482cdc28c713b7c210acbbb3111fdb27ec",
+      "textChars": 978,
+      "printedPage": null,
+      "section": "body"
+    }
+  ]
+}

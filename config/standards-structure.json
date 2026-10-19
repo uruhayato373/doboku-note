@@ -6,7 +6,7 @@
     "commonAgencyId": "kinki"
   },
   "build": {
-    "_comment": "生成対象。catalog の 72 文書のうち、編・章の柱（running header）を持つ共通仕様書 8 文書と北海道開発局の道路・河川工事仕様書（共通仕様書に当たる 1 工事仕様書）の 9 文書が構造化できる。okinawa/common は chugoku/common と原本 SHA-256 が完全一致する重複なので生成しない（文書ページが chugoku へ誘導する）。除外理由は skipped に機械可読で持ち、check-standard-articles が「未対象を黙って緑にしていないか」を検査する。",
+    "_comment": "生成対象。catalog の文書のうち、編・章の構造を持つものを構造化する。共通仕様書 8 文書と北海道開発局の道路・河川工事仕様書（共通仕様書に当たる 1 工事仕様書）の 9 文書は柱（running header）で章を切る。2026-10-19 に共通仕様書の章立てを持つ地方版 3 文書（中部の特記仕様書・東北の共通特記仕様書・北海道開発局独自）を加えた。柱の形・条番号・印刷ページ番号の違いは documents.* の方言の設定で吸収する（scripts/lib/standards-structure.mjs の dialectOf）。okinawa/common は chugoku/common と原本 SHA-256 が完全一致する重複なので生成しない（文書ページが chugoku へ誘導する）。除外理由は skipped に機械可読で持ち、check-standard-articles が「未対象を黙って緑にしていないか」を検査する。",
     "documents": [
       "chubu/common",
       "chugoku/common",
@@ -16,20 +16,62 @@
       "kinki/common",
       "kyushu/common",
       "shikoku/common",
-      "tohoku/common"
+      "tohoku/common",
+      "chubu/special",
+      "tohoku/special",
+      "hokkaido/local"
     ]
   },
   "readabilityBaselines": {
-    "_comment": "check-standard-articles 17・18 の基準（増やさない）。2026-10-16 実測。17 の 1 件は各文書の「東北地方──30㎝／その他の地域──40㎝」の一覧（正しく行が分かれている）と北海道版 10-16 の 1 か所。18 は表の上の小見出し・注記（正しい）と、表から外れた行の断片（近畿版で 7〜8 件: 0.15 の行・溶接完了時・M20 167～211 など）を含む。断片を表へ戻したら基準を下げる。",
-      "chubu/common": { "midSentenceBreaks": 1, "strayTableFragments": 41 },
-      "chugoku/common": { "midSentenceBreaks": 1, "strayTableFragments": 41 },
-      "hokkaido/common": { "midSentenceBreaks": 1, "strayTableFragments": 46 },
-      "hokuriku/common": { "midSentenceBreaks": 1, "strayTableFragments": 41 },
-      "kanto/common": { "midSentenceBreaks": 1, "strayTableFragments": 41 },
-      "kinki/common": { "midSentenceBreaks": 1, "strayTableFragments": 41 },
-      "kyushu/common": { "midSentenceBreaks": 1, "strayTableFragments": 41 },
-      "shikoku/common": { "midSentenceBreaks": 1, "strayTableFragments": 41 },
-      "tohoku/common": { "midSentenceBreaks": 1, "strayTableFragments": 41 }
+    "_comment": "check-standard-articles 17・18 の基準（増やさない）。2026-10-16 実測。17 の 1 件は各文書の「東北地方──30㎝／その他の地域──40㎝」の一覧（正しく行が分かれている）と北海道版 10-16 の 1 か所。18 は表の上の小見出し・注記（正しい）と、表から外れた行の断片（近畿版で 7〜8 件: 0.15 の行・溶接完了時・M20 167～211 など）を含む。断片を表へ戻したら基準を下げる。 2026-10-19 に地方版 3 文書を加えた（初回の実測値。表はまだ組み直していないので 18 は表の上の小見出しと断片を含む）。",
+    "chubu/common": {
+      "midSentenceBreaks": 1,
+      "strayTableFragments": 41
+    },
+    "chugoku/common": {
+      "midSentenceBreaks": 1,
+      "strayTableFragments": 41
+    },
+    "hokkaido/common": {
+      "midSentenceBreaks": 1,
+      "strayTableFragments": 46
+    },
+    "hokuriku/common": {
+      "midSentenceBreaks": 1,
+      "strayTableFragments": 41
+    },
+    "kanto/common": {
+      "midSentenceBreaks": 1,
+      "strayTableFragments": 41
+    },
+    "kinki/common": {
+      "midSentenceBreaks": 1,
+      "strayTableFragments": 41
+    },
+    "kyushu/common": {
+      "midSentenceBreaks": 1,
+      "strayTableFragments": 41
+    },
+    "shikoku/common": {
+      "midSentenceBreaks": 1,
+      "strayTableFragments": 41
+    },
+    "tohoku/common": {
+      "midSentenceBreaks": 1,
+      "strayTableFragments": 41
+    },
+    "chubu/special": {
+      "midSentenceBreaks": 3,
+      "strayTableFragments": 34
+    },
+    "tohoku/special": {
+      "midSentenceBreaks": 1,
+      "strayTableFragments": 25
+    },
+    "hokkaido/local": {
+      "midSentenceBreaks": 0,
+      "strayTableFragments": 31
+    }
   },
   "sectionPages": {
     "_comment": "章の Markdown がこのバイト数以上なら、章ページを節の一覧にして本文を節ページ（/chapters/{章}/sections/{節}）で出す。実測（2026-10-16）で 200KB を超えるのは第3編第2章 一般施工（約 488KB・原本 167 ページ）だけで、次に大きい第1編第1章 総則は 110KB。切り出しの規則は src/lib/standards-section-split.mjs。",
@@ -49,10 +91,12 @@
     "reasons": {
       "duplicate-source": {
         "label": "原本 SHA-256 が他機関と完全一致（重複ページを作らない）",
-        "documents": ["okinawa/common"]
+        "documents": [
+          "okinawa/common"
+        ]
       },
       "no-book-chapter-structure": {
-        "label": "編・章の柱を持たず、共通仕様書と構造が異なる（工事必携・地方版・マニュアルなど）。逐語分冊での提供を継続する。",
+        "label": "共通仕様書の編・章で章を切れない（工事必携・書類作成マニュアル・参考資料、条ごとの訂正・追加を表で並べた中国地方整備局版など）。逐語分冊での提供を継続する。",
         "documents": "*"
       }
     }
@@ -60,6 +104,13 @@
   "documents": {
     "chubu/common": {
       "_comment": "bodyStartPage は印刷ページ番号の巻き戻り＋目次ドットリーダーの消失で自動検出できている（p79）。override は不要。"
+    },
+    "chugoku/common": {
+      "_comment": "中国地方整備局版（chugoku/local・92 ページ）は共通仕様書の条ごとの訂正・追加を 5 列の表で並べた文書。表は列がずれて行を組み直せない（2026-10-19 確認）ので、章記事には本文を写さず、各章の冒頭にその章の訂正・追加のページへの案内を出す。ページの帰属は各ページ先頭の【第N編 … 第M章 関係】で決める（p2-62 の 17 章分。p63-80 の別紙・別添と p81-92 の施工管理編・現場説明補足は章に結び付けない）。",
+      "amendments": {
+        "document": "chugoku/local",
+        "label": "中国地方整備局"
+      }
     },
     "hokkaido/common": {
       "_comment": "目次（p2-84）に印刷ページ番号が無いので巻き戻りで判定できない。p85 は白紙、p86 は第1編の扉（柱なし）、p87 から全ページが柱 `第１編 共通編 第１章 総則` を持つ（2026-10-16 実測・p87-669 の 583 ページ全て）。",
@@ -91,6 +142,35 @@
           "reason": "10-8-6-6 屋根コンクリート工の 2 項目は原本の文字起こしで「.適用規定」と項番号の数字が無い（2 抽出器一致）。番号は 1.→3. と続くので 2. の数字だけがテキスト層に無いと判断。"
         }
       ]
+    },
+    "chubu/special": {
+      "_comment": "中部地方整備局 土木工事特記仕様書。共通仕様書と同じ編・章の柱を持ち、頭に「特仕」が付く（`特仕 第1編 共通編 第1章 総則`）。条番号も `特仕1-1-1-1`。目次が無く p1 から本文、印刷ページ番号は通し番号だけ（2026-10-19 実測・43 章・行の割り当て漏れ 0）。項の多くは「7.受注者は、…」と文で始まるので見出しにしない。",
+      "bodyStartPage": 1,
+      "runningHeaderPrefix": "特仕",
+      "articleNumberPrefix": "特仕",
+      "printPageNumber": "plain",
+      "clauseTitleMaxLength": 24,
+      "ogpLabel": "特記仕様書"
+    },
+    "tohoku/special": {
+      "_comment": "東北地方整備局 土木工事共通特記仕様書。柱が無く、編・章は本文中の見出し（p7 の途中で第1編が始まる）。p2-5 は目次、p6 から本文で、第1編より前の前文（仕様書の優先・VE 提案）は第1編第1章 総則の冒頭に入る。条番号は 章-節-条 の 3 段（第2編第1章第1節が `１－１－１`）。印刷ページ番号は `- 3 -`。節の見出しに字下げがある（第2編第1章 第５節は 1 字、第10編第1章 第１節は 6 字）。章番号は共通仕様書と揃っていない（舗装が 10-1）。2026-10-19 実測・13 章。",
+      "bodyStartPage": 6,
+      "chapterSource": "headings",
+      "articleNumberParts": 3,
+      "printPageNumber": "dashed",
+      "sectionIndentMax": 6,
+      "clauseTitleMaxLength": 24,
+      "ogpLabel": "共通特記仕様書"
+    },
+    "hokkaido/local": {
+      "_comment": "北海道開発局 道路・河川工事仕様書 5 北海道開発局独自。柱は `北海道開発局独自` の定型の行だけで、編・章は本文中の中央寄せの見出し（字下げ 20〜28 桁）。p2-9 は目次、p10 から本文。条番号は 1 工事仕様書と同じ 4 段で、項は 1 工事仕様書の項番号のまま差分だけを載せる（`11．受注者は、…`）ので連番を検査しない。印刷ページ番号は通し番号。2026-10-19 実測・19 章。",
+      "bodyStartPage": 10,
+      "chapterSource": "headings",
+      "runningHeaderText": "北海道開発局独自",
+      "printPageNumber": "plain",
+      "clauseTitleMaxLength": 24,
+      "clauseSequence": "sparse",
+      "ogpLabel": "開発局独自"
     }
   }
 }

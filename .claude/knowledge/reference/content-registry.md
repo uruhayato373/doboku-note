@@ -35,7 +35,7 @@ config/content-registry.json          チャネル×形式・アカウント・I
 |---|---|---|---|
 | Work | 1 つの主題の制作単位（動画パック・IG テーマパック・X の下書きの束・旧 Shorts の 1 問） | `id`・`kind`・`definition`（作品フォルダ）・`qa`・`theme` | 台本・文面 |
 | Publication | 1 チャネル・1 アカウントへの 1 投稿 | `id`・`work`・`account`・`format`・`copy`（`file#key`）・`status`・`publishAt`・`approval`・`review.visual`・`platform`（外部 ID・公開範囲・証拠・関連動画）・`media`（役割→素材 ID）・`sync`・`times`（描画・アップロード・予約・同期の時刻）・`disclosure`・`thumbnail`・`campaigns` | 文面そのもの・再生数 |
-| Media | 採用した、または公開に使うバイナリ 1 つ | `id`・`role`・`type`・`sha256`・寸法・`store`（tier と path）・`provenance`（render・codex・photo）・`review` | 途中の生成物（場面ごとの wav・`slide-NN.mp4`・`work/`） |
+| Media | 採用した、または公開に使うバイナリ 1 つ | `id`・`role`・`type`・`sha256`・寸法・`store`（tier と path）・`provenance`（render・codex・photo）・`review` | 使い捨ての中間生成物（場面ごとの wav・`slide-NN.mp4`）。作品用の採用候補 `work/candidate-*` は素材に含む |
 
 作品の状態は持たない（その作品の公開から導く）。
 
@@ -134,6 +134,7 @@ config/content-registry.json          チャネル×形式・アカウント・I
 | R09 | 欠番（写しの video-content-status.json との一致を見ていた検査。写しを 2026-10-09 に消したので廃止） |
 | R10 | AI 生成の素材は AI 台帳（鍵 `media:<id>`）の判定 ok がある |
 | R11 | 同資格・同アカウントの別作品IDの通常動画で、両台本の80%以上・5場面以上・200字以上が一致する並行投入を止める（承認以降・停止済みを除外）。実比較組数も出す |
+| R12 | 完成動画の制作時台本hashがある素材と現行台本を比較し、古ければFAIL。hashのない旧成果物は実照合数へ数えない |
 
 ## コマンド
 
@@ -152,3 +153,7 @@ npm run media -- pull --work civil-construction-2/matome-2kyu-chokuzen
 ```
 
 `import-video-pack`・`import-video-packs`・`promote` は既定で dry-run（`--commit` で書く）。
+
+### 公開済み素材と未反映の改訂版
+
+`media promote --candidate --pub <公開ID> --commit` は `{exam}/{work}/work/candidate-{role}` の作品用素材だけを upsert する。Shorts候補は `pop-image.json.candidateShortsRevision` の再現記録を検査し、`candidate-point-…-video` 等のvariant別の役割で保存する。公開行の素材参照、予定、外部ID、承認は保持する。作品詳細の「改訂版（YouTube未反映）」から確認できる。入力照合済みの通常動画の候補もR12の対象で、台本・採用画像・表紙等の変更後は再生成が必要。公開・再予約は別の実操作として扱う。

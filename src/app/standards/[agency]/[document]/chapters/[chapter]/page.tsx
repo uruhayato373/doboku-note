@@ -9,6 +9,7 @@ import SectionCard from '@/components/ui/SectionCard/SectionCard';
 import StandardsArticleHeader from '@/components/standards/StandardsArticleHeader';
 import StandardSectionIndex from '@/components/standards/StandardSectionIndex';
 import StandardVerbatimTable from '@/components/standards/StandardVerbatimTable';
+import ArticleImage from '@/components/ui/ArticleImage/ArticleImage';
 import StandardScrollTable from '@/components/standards/StandardScrollTable';
 import StandardsAttribution from '@/components/standards/StandardsAttribution';
 import StandardDataLinks from '@/components/standards/StandardDataLinks';
@@ -28,6 +29,7 @@ import {
   getStandardChapters,
   readStandardChapterMarkdown,
   standardChapterOgpUrl,
+  standardChapterPreamble,
   standardChapterPath,
 } from '@/lib/standards-articles';
 import { getTopicsForStandardText } from '@/lib/topics';
@@ -86,6 +88,7 @@ export default async function StandardChapterPage({ params }: { params: Promise<
   if (!resolved) notFound();
   const { document: entry, chapter: target } = resolved;
   const markdown = readStandardChapterMarkdown(agency, document, target);
+  const preamble = target.splitBySection ? standardChapterPreamble(markdown) : null;
   const relatedTopics = getTopicsForStandardText(entry, markdown);
   const referencedDocuments = getReferencedStandardDocuments(entry, markdown);
 
@@ -107,6 +110,8 @@ export default async function StandardChapterPage({ params }: { params: Promise<
   };
   const components = {
     pre: StandardVerbatimTable,
+    // 中国版に差し込んだ地方の訂正・追加のうち、原本の図（画像）を出す
+    ArticleImage,
     // 生成器が埋めた <SourceRef pages="151-153" /> に、原典へ戻すための文書コンテキストを束ねる
     SourceRef: (props: { pages: string; kind?: 'section' | 'table' | 'figure' }) => (
       <SourceRef {...props} document={entry} />
@@ -160,6 +165,11 @@ export default async function StandardChapterPage({ params }: { params: Promise<
               節ページに分けた章（splitBySection）だけは、章ページの本文が節の一覧になる。 */}
           {target.splitBySection ? (
             <div className="mt-7">
+              {preamble && (
+                <div className="prose-blog mb-6">
+                  <SafeMdx source={preamble} components={components} options={mdxOptions} />
+                </div>
+              )}
               <StandardSectionIndex document={entry} chapter={target} />
             </div>
           ) : (

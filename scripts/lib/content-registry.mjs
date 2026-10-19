@@ -87,7 +87,7 @@ export function mediaIdOf(pubId, role) {
  */
 export function idShapeIssues(kind, value, rules) {
   // 場面・シートの番号は作品の識別子ではなく、作品内の表示順。
-  if (kind === 'role' && /^(?:scene-(?!000)\d{3}|contact-sheet-(?:[2-9]|[1-9]\d+))$/.test(value ?? '')) return [];
+  if (kind === 'role' && /^(?:(?:candidate-)?scene-(?!000)\d{3}|contact-sheet-(?:[2-9]|[1-9]\d+))$/.test(value ?? '')) return [];
   const out = [];
   if (!new RegExp(rules[kind]).test(value ?? '')) out.push(`${kind} の形（${rules[kind]}）に合わない: ${value}`);
   for (const f of rules.forbidden) if (new RegExp(f).test(value ?? '')) out.push(`${kind} に使わない形（${f}）を含む: ${value}`);

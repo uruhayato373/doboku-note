@@ -1133,6 +1133,57 @@
         "/exam/surveyor/primary/r06",
         "/exam/pe-construction/guide/infra-system-overseas"
       ]
+    },
+    {
+      "runId": "2026-10-19T01-30-06Z",
+      "collectedAt": "2026-10-19T01:30:06.732Z",
+      "mode": "commit",
+      "status": "ok",
+      "filter": {
+        "category": null,
+        "group": null
+      },
+      "inspected": 23,
+      "accepted": 10,
+      "alreadyIndexed": 12,
+      "unreadable": 0,
+      "slugs": [
+        "/standards/hokkaido/local/part-01",
+        "/practice/accident-first-response",
+        "/exam/pe-first-stage/guide/water-supply-subject",
+        "/exam/civil-construction-1/guide/public-engineer-salary-table",
+        "/exam/civil-construction-1/guide/quit-or-stay",
+        "/exam/civil-construction-1/guide/quit-public-engineer",
+        "/exam/pe-first-stage/primary/h23-aptitude",
+        "/exam/pe-first-stage/primary/h24-aptitude",
+        "/exam/pe-first-stage/primary/h24-basic",
+        "/exam/pe-first-stage/primary/h25-water-supply",
+        "/exam/pe-first-stage/primary/h26-aptitude",
+        "/exam/pe-first-stage/primary/h27-water-supply",
+        "/exam/pe-first-stage/primary/h28-aptitude",
+        "/exam/pe-first-stage/primary/h29-water-supply",
+        "/exam/pe-first-stage/primary/h30-water-supply",
+        "/exam/pe-first-stage/primary/r02-basic",
+        "/exam/pe-first-stage/primary/r03-basic",
+        "/exam/pe-first-stage/primary/r04-water-supply",
+        "/exam/pe-first-stage/primary/r05-aptitude",
+        "/exam/pe-first-stage/primary/r05-water-supply",
+        "/exam/pe-first-stage/primary/r06-water-supply",
+        "/exam/pe-first-stage/primary/r07-water-supply",
+        "/standards/mlit"
+      ],
+      "acceptedSlugs": [
+        "/exam/pe-first-stage/guide/water-supply-subject",
+        "/exam/civil-construction-1/guide/public-engineer-salary-table",
+        "/exam/pe-first-stage/primary/h23-aptitude",
+        "/exam/pe-first-stage/primary/h24-aptitude",
+        "/exam/pe-first-stage/primary/h24-basic",
+        "/exam/pe-first-stage/primary/h25-water-supply",
+        "/exam/pe-first-stage/primary/r04-water-supply",
+        "/exam/pe-first-stage/primary/r06-water-supply",
+        "/exam/pe-first-stage/primary/r07-water-supply",
+        "/standards/mlit"
+      ]
     }
   ]
 }

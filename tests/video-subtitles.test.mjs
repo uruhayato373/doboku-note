@@ -19,3 +19,11 @@ test('Japanese punctuation does not start a new subtitle and a short tail is bal
   assert.deepEqual(subtitleChunks(''), []);
   assert.throws(() => subtitleChunks('verylongunbreakabletechnicalterm', 5), /1行/);
 });
+
+test('専門語の連続カタカナを字幕の切り替わりで分断しない', () => {
+ const text='打込み・締固め・養生は手順が命です。打重ね時間の限度を守らないとコールドジョイントが生じます。バイブレータは横移動に使ってはいけません。';
+ const chunks=subtitleChunks(text,28);
+ assert.equal(chunks.join(''),text);
+ assert.ok(chunks.some(s=>s.includes('コールドジョイント')));
+ assert.ok(chunks.every(s=>[...s].reduce((n,c)=>n+(/^[\x20-\x7e]$/.test(c)?0.62:1),0)<=28));
+});

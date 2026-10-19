@@ -11,20 +11,25 @@
       ],
       "accentLine": 1,
       "subtitle": "遅れの原因から書く",
-      "character": {
-        "pose": "checklist-pen",
-        "frame": "waist"
-      },
       "design": "pop-poster-v3",
-      "pop": {
-        "variant": "explain",
-        "authority": "総監・元発注者"
-      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/youtube.longform/cover.e5cae605.png",
-        "sha256": "e5cae60535b2cdf97136c3c81b7ee559fd2dd4421dd027e2b1d59577d850a3de",
-        "specSha256": "a178dfc0df60fc6c15e764a65893f5890a2a1d412eba0c03b84bac8e3a33e955"
-      }
+        "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/kotei-touan-gutaika--cover.fb5677cd.png",
+        "sha256": "fb5677cd6bb901b35e1022666d90de3a85a3face59501f84a477a6931104ff12",
+        "width": 1920,
+        "height": 1080,
+        "normalization": {
+          "mode": "full-frame-v1",
+          "sourceSha256": "890a41d19a725e30e4c39330459294545f60d18ec96a1a88a1a2fcb17aab572b"
+        },
+        "source": {
+          "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/kotei-touan-gutaika--cover-raw.890a41d1.png",
+          "sha256": "890a41d19a725e30e4c39330459294545f60d18ec96a1a88a1a2fcb17aab572b",
+          "width": 1672,
+          "height": 941
+        },
+        "specSha256": "ee21e6113088b8e72e123568d5196886d0177ed562cdc3a06e576023c2029132"
+      },
+      "layout": "diagram-led"
     }
   }
 }

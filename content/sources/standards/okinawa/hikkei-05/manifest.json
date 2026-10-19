@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-18T08:54:36.649Z",
+  "agencyId": "okinawa",
+  "agencyName": "沖縄総合事務局",
+  "documentId": "hikkei-05",
+  "role": "companion",
+  "title": "土木請負工事必携／土木工事品質の規格値(参考)",
+  "edition": null,
+  "sourceFile": "沖縄総合事務局/hikkei-05__土木請負工事必携_土木工事品質の規格値(参考).pdf",
+  "pagesLocation": {
+    "tier": "drive-vault",
+    "vaultDir": "原資料PDF/共通仕様書/沖縄総合事務局/hikkei-05__土木請負工事必携_土木工事品質の規格値(参考)",
+    "note": "実体は Drive vault の原本 PDF と同名フォルダ。repo には無い。取り戻しは npm run drive-vault-sync -- --pull --path content/sources/standards/okinawa/ --commit"
+  },
+  "sourceSha256": "13b0c7eff60a2359ad077d60728ab1ab8ecc20c5ffc200ed33a024c51dc2893a",
+  "pages": 3,
+  "render": {
+    "tool": "pdftoppm",
+    "dpi": 270,
+    "format": "jpeg",
+    "quality": 85
+  },
+  "text": {
+    "tool": "pdftotext",
+    "layout": true,
+    "splitBy": "formfeed"
+  },
+  "parts": [
+    {
+      "slug": "part-01",
+      "firstPage": 1,
+      "lastPage": 3
+    }
+  ],
+  "totalImageBytes": 1063278,
+  "printedPage": {
+    "note": "版面に刷られたページ番号。目次(front)と本文(body)で同じラベルが再使用されるため、出典は section と組で指す。",
+    "bodyStartsAtPdfPage": null,
+    "labelled": 0,
+    "ambiguous": 0
+  },
+  "pageEntries": [
+    {
+      "page": 1,
+      "image": "pages/p0001.jpg",
+      "text": "text/p0001.txt",
+      "imageBytes": 137355,
+      "imageSha256": "8dcd05a451231a11d5e5c358bbd181ee7c35e3fa4b9effabbb8c1d46017e3826",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 2,
+      "image": "pages/p0002.jpg",
+      "text": "text/p0002.txt",
+      "imageBytes": 620658,
+      "imageSha256": "50991262e5d9ca2419ceff0ee30a2da12a6ff7467ca6af13fa34754c08150505",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 3,
+      "image": "pages/p0003.jpg",
+      "text": "text/p0003.txt",
+      "imageBytes": 305265,
+      "imageSha256": "66e11c77a62b2b3d521370b094f9271d729f12031d1ffc6da1131d50584bfb7b",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    }
+  ]
+}

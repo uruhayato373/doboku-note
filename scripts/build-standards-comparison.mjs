@@ -5,6 +5,7 @@ import { join } from 'node:path';
 import { datasetPath } from './lib/datasets.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 import { parseJson, readJsonIf } from './lib/json-io.mjs';
+import { stripAmendmentBlocks } from './lib/standards-amendments.mjs';
 
 const ARTICLES_ROOT = join(ROOT, 'content', 'site', 'standards-articles');
 const CATALOG_PATH = join(ROOT, 'content', 'site', 'standards-library', 'catalog.json');
@@ -137,7 +138,8 @@ function toHunks(operations) {
 
 function compareChapter(baselinePath, targetPath) {
   const before = normalizeMarkdownLines(readFileSync(baselinePath, 'utf8'));
-  const after = normalizeMarkdownLines(readFileSync(targetPath, 'utf8'));
+  // 中国版に差し込んだ中国地方整備局の訂正・追加（と章冒頭の案内）は共通仕様書の本文ではないので比べない
+  const after = normalizeMarkdownLines(stripAmendmentBlocks(readFileSync(targetPath, 'utf8')));
   const hunks = toHunks(diffLines(before, after));
   return {
     removedLines: hunks.reduce((sum, hunk) => sum + hunk.removedCount, 0),

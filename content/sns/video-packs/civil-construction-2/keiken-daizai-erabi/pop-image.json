@@ -205,5 +205,1502 @@
       "cloudMd5Verified": 58,
       "at": "2026-10-15T23:07:28.108Z"
     }
-  }
+  },
+  "activeCoverRevision": "diagram-led-20261019-cover",
+  "revisions": {
+    "cover-safe-20261018": {
+      "version": "pop-poster-v3",
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "Create ONE landscape16:9 Japanese emerald-green POP YouTube thumbnail intended1920×1080. Supplied image is STYLE and CHARACTER REFERENCE ONLY, not text to copy. Same mature Japanese male teacher: short black hair, black rectangular glasses, light beard, plain white helmet, navy workwear, yellow straps. EXACTLY TWO arms and TWO hands, anatomically natural. Continuous illustrated green construction background to all edges. Huge target label「2級土木」upper left. Smaller yellow author badge「総監・元発注者」「1級・2級土木合格者」in a separate region. Huge outlined dark-green topic text, red secondary headline. Keep ALL text in TOP THREE-QUARTERS of canvas, subtitle at y=70%. Bottom25% is continuous green illustration and teacher torso with NO TEXT, not blank. Face and text never clipped. Bold Japanese lettering readable at width360px. No extra words, URL, logo, price, dates, scores, guarantee. Topic「題材選び」. Red two-line headline「規模より」「自分の経験」. Subtitle「担当した管理を探す」. Pose: one hand holding an unlettered notebook, other hand holding a red pen at the notebook. Only TWO hands, neither hand touches face.",
+        "references": [
+          {
+            "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/cover.6d461a7d.png",
+            "sha256": "6d461a7d29270911cbdeb4202056e9196493c0cfbae69dad97c351c3257c8fe5"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/youtube.longform/cover.88c9abd2.png",
+          "sha256": "88c9abd2531fa9bd1014e8062c6945491141d5c0151a4de1e17bd565b5223981"
+        }
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/cover-caption-safe.6e38d6d7.png",
+        "sha256": "6e38d6d7d89fb366e930f95192ab43991a1c5ab016d78bc4732c6275ed3401e7",
+        "width": 1920,
+        "height": 1080
+      },
+      "layout": {
+        "subtitleSafeTop": 864
+      }
+    },
+    "body-scenes-20261018": {
+      "version": "codex-pop-body-v1",
+      "date": "2026-10-18",
+      "purpose": "ユーザー依頼による場面別POP図解と字幕安全域の修正。YouTube未反映。",
+      "images": [
+        {
+          "sceneId": "hook",
+          "inputSha256": "8da3fa94c46e8a0db6a612b26e88a4c5cb7a068ffe491cea3f0cf55129c4b589",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "工事の大きさだけで、候補を捨てない",
+            "items": [
+              "現場条件を思い出す",
+              "自分の対応を整理する",
+              "記録で事実を確かめる"
+            ]
+          },
+          "narration": "小さな工事しかなく、書けないと思っていませんか。現場条件、自分の対応、記録から、題材を探しましょう。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Asset: 2級土木施工管理技士の16:9通常動画、本文の1場面。1920×1080の一枚の完成POP図解を新規生成。参照画像は先生の同一性と承認済みPOP意匠の参照で、参照画像の添削広告文を複製しない。\n正確な日本語コピー：資格名「2級土木」、大見出し「工事の大きさだけで、候補を捨てない」、図解に必要な短い語「現場条件を思い出す」「自分の対応を整理する」「記録で事実を確かめる」。コピーはこれらだけから選び、長い文は短い重要語に絞る。問題番号・架空の基準値・合格保証・商品価格・URL・ブランドは追加しない。\nこの場面の説明（理解の根拠。全文を画面に書かない）：小さな工事しかなく、書けないと思っていませんか。現場条件、自分の対応、記録から、題材を探しましょう。\n図解設計：文字カードや表の羅列ではなく、説明に出てくる具体的な現場、道具、記録、人物の行動を大きなイラストで示し、関係を矢印・囲み・対比で分かるようにする。実際の担当経験の説明であり仮例は仮例として扱う。場面の見出しが示す判断や関係を主役に、前後の場面とは異なる構図・行動を描く。\n意匠：緑・エメラルド・白・黄色、少量の赤。太い日本語文字に適度な縁取り、くっきりした輪郭、明るい教育用POP、斜めの色面と控えめな動線、白い情報パネル。図解は画面左〜中央の65%以上を大きく使う。先生は参照と同じ40代男性、黒髪・黒縁メガネ・薄いひげ・紺作業服・白シャツ・紺ネクタイ・黄色反射ベスト、無地白ヘルメット。右側で今回の図に合う自然な説明動作。手と機械の形は実物どおり。\n安全域：重要な文字と顔は上下左右5%以内に切れない。字幕は後から最下部に重ねるため、下端20%には文字・顔・重要な図を置かず背景だけを四辺まで連続させる（白い余白帯にはしない）。内容を上端80%に大きく配置し、小さな表や長文を詰め込まない。16:9全体を維持し、スマホ幅360pxでも見出しと矢印の意味が読める。",
+            "references": [
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--hook-raw.8d57cb97.png",
+              "sha256": "8d57cb97041dd581d468a2e45fdbc0d1d4de8bb705c64b97d2085e31bbabe0c0",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T05:59:37.042Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--hook.0c9adbac.png",
+            "sha256": "0c9adbac2a32d280cbdaf58392db918d924fbdd0b0a07da47d52982ed9f5584f",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "authority",
+          "inputSha256": "6b7956e3c48f590e61199beb9f9d507b5eed45edf43d912775577c777e277db6",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "解説：架（かける）",
+            "items": [
+              "技術士（総合技術監理部門）",
+              "元・地方自治体の土木職（発注者）",
+              "1級・2級土木施工管理技士 合格"
+            ]
+          },
+          "narration": "総合技術監理部門の技術士で、1級・2級土木に合格した元発注者が、経験を整理する視点をお伝えします。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Asset: 2級土木施工管理技士の16:9通常動画、本文の1場面。1920×1080の一枚の完成POP図解を新規生成。参照画像は先生の同一性と承認済みPOP意匠の参照で、参照画像の添削広告文を複製しない。\n正確な日本語コピー：資格名「2級土木」、大見出し「総監・元発注者が解説」、図解に必要な短い語「技術士（総合技術監理部門）」「元・地方自治体の土木職」「1級・2級土木施工管理技士 合格」。コピーはこれらだけから選び、長い文は短い重要語に絞る。問題番号・架空の基準値・合格保証・商品価格・URL・ブランドは追加しない。\nこの場面の説明（理解の根拠。全文を画面に書かない）：総合技術監理部門の技術士で、1級・2級土木に合格した元発注者が、書く順序を解説します。\n図解設計：文字カードや表の羅列ではなく、説明に出てくる具体的な現場、道具、記録、人物の行動を大きなイラストで示し、関係を矢印・囲み・対比で分かるようにする。実際の担当経験の説明であり仮例は仮例として扱う。先生が現場経験と資格の3つのカードを紹介。架空の資格証書や印影は描かない。\n意匠：緑・エメラルド・白・黄色、少量の赤。太い日本語文字に適度な縁取り、くっきりした輪郭、明るい教育用POP、斜めの色面と控えめな動線、白い情報パネル。図解は画面左〜中央の65%以上を大きく使う。先生は参照と同じ40代男性、黒髪・黒縁メガネ・薄いひげ・紺作業服・白シャツ・紺ネクタイ・黄色反射ベスト、無地白ヘルメット。右側で今回の図に合う自然な説明動作。手と機械の形は実物どおり。\n安全域：重要な文字と顔は上下左右5%以内に切れない。字幕は後から最下部に重ねるため、下端20%には文字・顔・重要な図を置かず背景だけを四辺まで連続させる（白い余白帯にはしない）。内容を上端80%に大きく配置し、小さな表や長文を詰め込まない。16:9全体を維持し、スマホ幅360pxでも見出しと矢印の意味が読める。",
+            "references": [
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/common-authority-raw.9dcdedbb.png",
+              "sha256": "9dcdedbbb9b61c692d1b310a0ef006dcb0c73a2daaddd6eb91b4f52a6a5d71b4",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T05:59:34.264Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/common-authority.81ffac47.png",
+            "sha256": "81ffac4725349b9306ac1fde7ff8edabbfb479b5a56a7477a0acc18e5f883965",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "premise",
+          "inputSha256": "f6e52b5f13b5ed5639f76952397a12f7619ca7e7b2e474da171dcefe8743ec66",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "実経験の整理と、対象範囲の確認",
+            "items": [
+              "この動画：経験を思い出して選ぶ",
+              "対象範囲・受検資格：公式の手引で確認",
+              "受検する年度の案内を使う"
+            ]
+          },
+          "narration": "ここでは、実経験の整理に絞ります。工事の対象範囲や受検資格に迷う場合は、当該年度の公式の手引を確認します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Asset: 2級土木施工管理技士の16:9通常動画、本文の1場面。1920×1080の一枚の完成POP図解を新規生成。参照画像は先生の同一性と承認済みPOP意匠の参照で、参照画像の添削広告文を複製しない。\n正確な日本語コピー：資格名「2級土木」、大見出し「実経験の整理と、対象範囲の確認」、図解に必要な短い語「この動画：経験を思い出して選ぶ」「対象範囲・受検資格：公式の手引で確認」「受検する年度の案内を使う」。コピーはこれらだけから選び、長い文は短い重要語に絞る。問題番号・架空の基準値・合格保証・商品価格・URL・ブランドは追加しない。\nこの場面の説明（理解の根拠。全文を画面に書かない）：ここでは、実経験の整理に絞ります。工事の対象範囲や受検資格に迷う場合は、当該年度の公式の手引を確認します。\n図解設計：文字カードや表の羅列ではなく、説明に出てくる具体的な現場、道具、記録、人物の行動を大きなイラストで示し、関係を矢印・囲み・対比で分かるようにする。実際の担当経験の説明であり仮例は仮例として扱う。場面の見出しが示す判断や関係を主役に、前後の場面とは異なる構図・行動を描く。\n意匠：緑・エメラルド・白・黄色、少量の赤。太い日本語文字に適度な縁取り、くっきりした輪郭、明るい教育用POP、斜めの色面と控えめな動線、白い情報パネル。図解は画面左〜中央の65%以上を大きく使う。先生は参照と同じ40代男性、黒髪・黒縁メガネ・薄いひげ・紺作業服・白シャツ・紺ネクタイ・黄色反射ベスト、無地白ヘルメット。右側で今回の図に合う自然な説明動作。手と機械の形は実物どおり。\n安全域：重要な文字と顔は上下左右5%以内に切れない。字幕は後から最下部に重ねるため、下端20%には文字・顔・重要な図を置かず背景だけを四辺まで連続させる（白い余白帯にはしない）。内容を上端80%に大きく配置し、小さな表や長文を詰め込まない。16:9全体を維持し、スマホ幅360pxでも見出しと矢印の意味が読める。",
+            "references": [
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--premise-raw.27aff46e.png",
+              "sha256": "27aff46ec334ce05a3ab898c69c15ddf40531da21f56f285603e64b08c162d91",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T05:59:37.358Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--premise.c5d31cd0.png",
+            "sha256": "c5d31cd0d5a9dcad4a542be4bfcfd74f0b2cde9e44dc6d4ecebc6d65826041d2",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "candidates",
+          "inputSha256": "52a3d7474fbf95a263f2705f2f72c91d577ccdfe32f017f412389044135cbf6a",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "工事名だけでなく、担当範囲も書く",
+            "sheetTitle": "候補工事のメモ",
+            "rows": [
+              {
+                "label": "工事名",
+                "value": "実際に担当した工事",
+                "state": "focus"
+              },
+              {
+                "label": "担当作業",
+                "value": "どの作業に関わったか",
+                "state": "todo"
+              },
+              {
+                "label": "立場",
+                "value": "どんな役割を担ったか",
+                "state": "todo"
+              }
+            ]
+          },
+          "narration": "最初に、自分が担当した工事をいくつか挙げます。工事名の横に、担当した作業と、そのときの立場をメモしましょう。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Asset: 2級土木施工管理技士の16:9通常動画、本文の1場面。1920×1080の一枚の完成POP図解を新規生成。参照画像は先生の同一性と承認済みPOP意匠の参照で、参照画像の添削広告文を複製しない。\n正確な日本語コピー：資格名「2級土木」、大見出し「工事名だけでなく、担当範囲も書く」、図解に必要な短い語「工事名」「実際に担当した工事」「担当作業」「どの作業に関わったか」。コピーはこれらだけから選び、長い文は短い重要語に絞る。問題番号・架空の基準値・合格保証・商品価格・URL・ブランドは追加しない。\nこの場面の説明（理解の根拠。全文を画面に書かない）：最初に、自分が担当した工事をいくつか挙げます。工事名の横に、担当した作業と、そのときの立場をメモしましょう。\n図解設計：文字カードや表の羅列ではなく、説明に出てくる具体的な現場、道具、記録、人物の行動を大きなイラストで示し、関係を矢印・囲み・対比で分かるようにする。実際の担当経験の説明であり仮例は仮例として扱う。場面の見出しが示す判断や関係を主役に、前後の場面とは異なる構図・行動を描く。\n意匠：緑・エメラルド・白・黄色、少量の赤。太い日本語文字に適度な縁取り、くっきりした輪郭、明るい教育用POP、斜めの色面と控えめな動線、白い情報パネル。図解は画面左〜中央の65%以上を大きく使う。先生は参照と同じ40代男性、黒髪・黒縁メガネ・薄いひげ・紺作業服・白シャツ・紺ネクタイ・黄色反射ベスト、無地白ヘルメット。右側で今回の図に合う自然な説明動作。手と機械の形は実物どおり。\n安全域：重要な文字と顔は上下左右5%以内に切れない。字幕は後から最下部に重ねるため、下端20%には文字・顔・重要な図を置かず背景だけを四辺まで連続させる（白い余白帯にはしない）。内容を上端80%に大きく配置し、小さな表や長文を詰め込まない。16:9全体を維持し、スマホ幅360pxでも見出しと矢印の意味が読める。",
+            "references": [
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--candidates-raw.af331a76.png",
+              "sha256": "af331a765956d59dafb2a2982c9861ffd1c87f731d08958b558cc75ccf525f90",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T05:59:36.236Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--candidates.a0d29d62.png",
+            "sha256": "a0d29d628f7461d1c148b8177582ee3892e00896b5f6f5c016d0b51438df4e46",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "condition",
+          "inputSha256": "22e2601851716136f9ddbe7c90d65eac60d0292b97b5a01be19ba97c11ba2c8a",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "どんな場面で、気を付けたか",
+            "sheetTitle": "候補工事を思い出す3つの欄",
+            "rows": [
+              {
+                "label": "現場条件",
+                "value": "どんな制約があったか",
+                "state": "focus",
+                "order": 1
+              },
+              {
+                "label": "自分の対応",
+                "value": "何を考え、何を実施したか",
+                "state": "todo",
+                "order": 2
+              },
+              {
+                "label": "確認記録",
+                "value": "何で事実を確かめられるか",
+                "state": "todo",
+                "order": 3
+              }
+            ]
+          },
+          "narration": "次に、作業で気を付けた条件を思い出します。狭い場所、近隣の出入り、天候など、具体的な場面が浮かぶでしょうか。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Asset: 2級土木施工管理技士の16:9通常動画、本文の1場面。1920×1080の一枚の完成POP図解を新規生成。参照画像は先生の同一性と承認済みPOP意匠の参照で、参照画像の添削広告文を複製しない。\n正確な日本語コピー：資格名「2級土木」、大見出し「どんな場面で、気を付けたか」、図解に必要な短い語「現場条件」「どんな制約があったか」「自分の対応」「何を考え、何を実施したか」。コピーはこれらだけから選び、長い文は短い重要語に絞る。問題番号・架空の基準値・合格保証・商品価格・URL・ブランドは追加しない。\nこの場面の説明（理解の根拠。全文を画面に書かない）：次に、作業で気を付けた条件を思い出します。狭い場所、近隣の出入り、天候など、具体的な場面が浮かぶでしょうか。\n図解設計：文字カードや表の羅列ではなく、説明に出てくる具体的な現場、道具、記録、人物の行動を大きなイラストで示し、関係を矢印・囲み・対比で分かるようにする。実際の担当経験の説明であり仮例は仮例として扱う。場面の見出しが示す判断や関係を主役に、前後の場面とは異なる構図・行動を描く。\n意匠：緑・エメラルド・白・黄色、少量の赤。太い日本語文字に適度な縁取り、くっきりした輪郭、明るい教育用POP、斜めの色面と控えめな動線、白い情報パネル。図解は画面左〜中央の65%以上を大きく使う。先生は参照と同じ40代男性、黒髪・黒縁メガネ・薄いひげ・紺作業服・白シャツ・紺ネクタイ・黄色反射ベスト、無地白ヘルメット。右側で今回の図に合う自然な説明動作。手と機械の形は実物どおり。\n安全域：重要な文字と顔は上下左右5%以内に切れない。字幕は後から最下部に重ねるため、下端20%には文字・顔・重要な図を置かず背景だけを四辺まで連続させる（白い余白帯にはしない）。内容を上端80%に大きく配置し、小さな表や長文を詰め込まない。16:9全体を維持し、スマホ幅360pxでも見出しと矢印の意味が読める。",
+            "references": [
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--condition-raw.d84be42c.png",
+              "sha256": "d84be42c6f66f954d6fe30d03021d4c086d0ad4f0e55d17e3811e4b09348acfe",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T05:59:36.565Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--condition.7533ae41.png",
+            "sha256": "7533ae418a0ff7d8e93cc82c84411c1c5b387b188d8afeb747bdde3852b6b867",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "own-action",
+          "inputSha256": "60a41a91497b8fe9d1025809d85a5a175604d61283acb81631a11b6f617d707f",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "自分は、どう考えて動いたか",
+            "sheetTitle": "候補工事を思い出す3つの欄",
+            "rows": [
+              {
+                "label": "現場条件",
+                "value": "どんな制約があったか",
+                "state": "done",
+                "order": 1
+              },
+              {
+                "label": "自分の対応",
+                "value": "何を考え、何を実施したか",
+                "state": "focus",
+                "order": 2
+              },
+              {
+                "label": "確認記録",
+                "value": "何で事実を確かめられるか",
+                "state": "todo",
+                "order": 3
+              }
+            ]
+          },
+          "narration": "その条件に対して、自分は何を考え、誰と相談し、何を実施しましたか。工事全体の話から、自分の対応を取り出します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Asset: 2級土木施工管理技士の16:9通常動画、本文の1場面。1920×1080の一枚の完成POP図解を新規生成。参照画像は先生の同一性と承認済みPOP意匠の参照で、参照画像の添削広告文を複製しない。\n正確な日本語コピー：資格名「2級土木」、大見出し「自分は、どう考えて動いたか」、図解に必要な短い語「現場条件」「どんな制約があったか」「自分の対応」「何を考え、何を実施したか」。コピーはこれらだけから選び、長い文は短い重要語に絞る。問題番号・架空の基準値・合格保証・商品価格・URL・ブランドは追加しない。\nこの場面の説明（理解の根拠。全文を画面に書かない）：その条件に対して、自分は何を考え、誰と相談し、何を実施しましたか。工事全体の話から、自分の対応を取り出します。\n図解設計：文字カードや表の羅列ではなく、説明に出てくる具体的な現場、道具、記録、人物の行動を大きなイラストで示し、関係を矢印・囲み・対比で分かるようにする。実際の担当経験の説明であり仮例は仮例として扱う。場面の見出しが示す判断や関係を主役に、前後の場面とは異なる構図・行動を描く。\n意匠：緑・エメラルド・白・黄色、少量の赤。太い日本語文字に適度な縁取り、くっきりした輪郭、明るい教育用POP、斜めの色面と控えめな動線、白い情報パネル。図解は画面左〜中央の65%以上を大きく使う。先生は参照と同じ40代男性、黒髪・黒縁メガネ・薄いひげ・紺作業服・白シャツ・紺ネクタイ・黄色反射ベスト、無地白ヘルメット。右側で今回の図に合う自然な説明動作。手と機械の形は実物どおり。\n安全域：重要な文字と顔は上下左右5%以内に切れない。字幕は後から最下部に重ねるため、下端20%には文字・顔・重要な図を置かず背景だけを四辺まで連続させる（白い余白帯にはしない）。内容を上端80%に大きく配置し、小さな表や長文を詰め込まない。16:9全体を維持し、スマホ幅360pxでも見出しと矢印の意味が読める。",
+            "references": [
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--own-action-raw.0e6bd0bc.png",
+              "sha256": "0e6bd0bcaae34431ba5f863477485948610db0a9fa595d4e801753b1a5d33440",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T05:59:37.200Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--own-action.dda10f05.png",
+            "sha256": "dda10f05cd3e9e76eb9ebe7486b5e74b12282747e2fda8fdae7da4359a463963",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "records",
+          "inputSha256": "9a4f7ce8334821bd668f16fed1e7d09b045ef15f227a43e42472d1eb55c3083b",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "記録は、事実を確かめる手掛かり",
+            "sheetTitle": "候補工事を思い出す3つの欄",
+            "rows": [
+              {
+                "label": "現場条件",
+                "value": "どんな制約があったか",
+                "state": "done",
+                "order": 1
+              },
+              {
+                "label": "自分の対応",
+                "value": "何を考え、何を実施したか",
+                "state": "done",
+                "order": 2
+              },
+              {
+                "label": "確認記録",
+                "value": "何で事実を確かめられるか",
+                "state": "focus",
+                "order": 3
+              }
+            ]
+          },
+          "narration": "さらに、施工計画、日報、写真などを思い出します。確認できる資料を手掛かりに、条件や対応、結果を確かめましょう。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付1は修正対象、添付2は先生キャラクターと緑白黄のPOP意匠の正本。1920×1080、横16:9。先生の人物同一性と大きな主見出し、場面に合う図解を保つ。修正必須: 文字: 左の「日報」の日付・行見出しが、原寸でも日付や項目名として判読できない文字状記号になっている。施工計画の表の細字にも判読不能な字形があり、記録を読む場面に擬似文字を残している。\n図の場面・対象・関係は現状を保つ。小さな書類やカレンダーの擬似文字は全て消し、無文字の直線の罫線・四角・丸・チェックのみへ変える。計器・メジャー・時計の数字も不要。指定以外の文字を一切描かない。\n正確に描いてよい文字は「2級土木」「記録は、事実を確かめる手掛かり」と次のラベルだけ: [\"現場条件\",\"どんな制約があったか\",\"自分の対応\",\"何を考え、何を実施したか\"]。書類の本文・カレンダーの日付/曜日・目盛・車体・背景の細字は描かない。これらは平行な無地の直線または無地の面に置き換える。\n太い読みやすい日本語、黒髪眼鏡短いひげ紺作業服白シャツ紺タイ黄反射ベスト白無地ヘルメットの同一先生。図は実際の対象物・空間・行動の対応がわかるように。下端20%は無地背景。人物と図を切らない。",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--records-raw.c5eabe33.png",
+                "sha256": "c5eabe3389e2476971b75d03a218b59bd988979efb39e1f8250d4fd29e84707b"
+              },
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--records-raw.903882cb.png",
+              "sha256": "903882cb01ed0db80264d836605064d3918eb7b7435d6e6c97aff7d9e5e1c7cb",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T06:26:05.284Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--records.2e506823.png",
+            "sha256": "2e5068233774518471cbf59665797b0be4b44635f2e5b57ef59e4ccae516bf93",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "example",
+          "inputSha256": "dc483f792b750b6f0a055361c1436b68f3cdde1e78ae99d631b24fb0e904ea1e",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "仮の例：短い区間の舗装修繕",
+            "sheetTitle": "工事の大きさから、場面の具体性へ",
+            "rows": [
+              {
+                "label": "現場条件",
+                "value": "住宅の出入口が近い",
+                "state": "focus"
+              },
+              {
+                "label": "考える場面",
+                "value": "施工する順序を調整",
+                "state": "todo"
+              },
+              {
+                "label": "確認の手掛かり",
+                "value": "施工計画・日報・写真",
+                "state": "todo"
+              }
+            ]
+          },
+          "narration": "たとえば、短い区間の舗装修繕を仮の例にします。住宅の出入口が近く、施工する順序に配慮する場面を考えましょう。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Asset: 2級土木施工管理技士の16:9通常動画、本文の1場面。1920×1080の一枚の完成POP図解を新規生成。参照画像は先生の同一性と承認済みPOP意匠の参照で、参照画像の添削広告文を複製しない。\n正確な日本語コピー：資格名「2級土木」、大見出し「仮の例：短い区間の舗装修繕」、図解に必要な短い語「現場条件」「住宅の出入口が近い」「考える場面」「施工する順序を調整」。コピーはこれらだけから選び、長い文は短い重要語に絞る。問題番号・架空の基準値・合格保証・商品価格・URL・ブランドは追加しない。\nこの場面の説明（理解の根拠。全文を画面に書かない）：たとえば、短い区間の舗装修繕を仮の例にします。住宅の出入口が近く、施工する順序に配慮する場面を考えましょう。\n図解設計：文字カードや表の羅列ではなく、説明に出てくる具体的な現場、道具、記録、人物の行動を大きなイラストで示し、関係を矢印・囲み・対比で分かるようにする。実際の担当経験の説明であり仮例は仮例として扱う。場面の見出しが示す判断や関係を主役に、前後の場面とは異なる構図・行動を描く。\n意匠：緑・エメラルド・白・黄色、少量の赤。太い日本語文字に適度な縁取り、くっきりした輪郭、明るい教育用POP、斜めの色面と控えめな動線、白い情報パネル。図解は画面左〜中央の65%以上を大きく使う。先生は参照と同じ40代男性、黒髪・黒縁メガネ・薄いひげ・紺作業服・白シャツ・紺ネクタイ・黄色反射ベスト、無地白ヘルメット。右側で今回の図に合う自然な説明動作。手と機械の形は実物どおり。\n安全域：重要な文字と顔は上下左右5%以内に切れない。字幕は後から最下部に重ねるため、下端20%には文字・顔・重要な図を置かず背景だけを四辺まで連続させる（白い余白帯にはしない）。内容を上端80%に大きく配置し、小さな表や長文を詰め込まない。16:9全体を維持し、スマホ幅360pxでも見出しと矢印の意味が読める。",
+            "references": [
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--example-raw.4030eeab.png",
+              "sha256": "4030eeab9209c6d73c06aedf212fbd8bc093444dd96df525574a8c3a2862b19a",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T05:59:36.885Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--example.f95a38cc.png",
+            "sha256": "f95a38cc0804cf031a4a0eba40114bbeba88d078a4dd60c161eabd90edfa53b4",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "example-questions",
+          "inputSha256": "17b091c5e21ca3843246f48b25853097a4e9c08f0edaacd3b16a3582520a4f46",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "経験を思い出す問い",
+            "items": [
+              "誰と、何を確認したか",
+              "どの順序を、なぜ変えたか",
+              "実施後に何を確かめたか"
+            ],
+            "reveal": 3
+          },
+          "narration": "そのとき、出入りする時間を誰と確認し、施工順をどう調整したか。自分の経験に戻して、判断と行動を思い出します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付1は修正対象、添付2は先生キャラクターと緑白黄のPOP意匠の正本。1920×1080、横16:9。先生の人物同一性と大きな主見出し、場面に合う図解を保つ。修正必須: 本文: 直前の仮例は住宅の出入口が近い短区間の舗装修繕だが、確認・順序調整・実施後の確認の図が河川沿いの掘削とコンクリート構造物工事へ変わっている。住宅の出入りの確認や舗装の施工順序を振り返る問いと図が対応しない。\n前後と同じ住宅の出入口が近い短区間の舗装修繕。住宅出入口を確認、舗装を行う区間の順序を調整、実施後の通行を確認、の3コマ。河川・擁壁・橋・構造物工事は描かない。\n正確に描いてよい文字は「2級土木」「経験を思い出す問い」と次のラベルだけ: [\"誰と、何を確認したか\",\"どの順序を、なぜ変えたか\",\"実施後に何を確かめたか\"]。書類の本文・カレンダーの日付/曜日・目盛・車体・背景の細字は描かない。これらは平行な無地の直線または無地の面に置き換える。\n太い読みやすい日本語、黒髪眼鏡短いひげ紺作業服白シャツ紺タイ黄反射ベスト白無地ヘルメットの同一先生。図は実際の対象物・空間・行動の対応がわかるように。下端20%は無地背景。人物と図を切らない。",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--example-questions-raw.0f260e11.png",
+                "sha256": "0f260e1142a9b14e6d3189bb106972d9db16d2a88634c9e79ba74080665b37dd"
+              },
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--example-questions-raw.d949413b.png",
+              "sha256": "d949413b878f1c7d2f39a44147d9487ca383e6921c608006d7af9af7eb43d1b1",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T06:26:05.291Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--example-questions.21df17e0.png",
+            "sha256": "21df17e07a9331080f11652eab39ec554a5a70b8dd5298ee7c25bdb876765c78",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "role-boundary",
+          "inputSha256": "20b2d29cf6e89abad54430d8f3296eb35f41cbc97a5f3259a78ed4a338977efa",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "自分の担当を、大きく見せない",
+            "items": [
+              "上司の判断と自分の対応を分ける",
+              "相談・確認した行動も整理する",
+              "不明な数字は確認事項にする"
+            ]
+          },
+          "narration": "上司が決めたことと、自分が確認・実施したことを分けましょう。思い出せない数字は埋めず、確認する項目として残します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Asset: 2級土木施工管理技士の16:9通常動画、本文の1場面。1920×1080の一枚の完成POP図解を新規生成。参照画像は先生の同一性と承認済みPOP意匠の参照で、参照画像の添削広告文を複製しない。\n正確な日本語コピー：資格名「2級土木」、大見出し「自分の担当を、大きく見せない」、図解に必要な短い語「上司の判断と自分の対応を分ける」「相談・確認した行動も整理する」「不明な数字は確認事項にする」。コピーはこれらだけから選び、長い文は短い重要語に絞る。問題番号・架空の基準値・合格保証・商品価格・URL・ブランドは追加しない。\nこの場面の説明（理解の根拠。全文を画面に書かない）：上司が決めたことと、自分が確認・実施したことを分けましょう。思い出せない数字は埋めず、確認する項目として残します。\n図解設計：文字カードや表の羅列ではなく、説明に出てくる具体的な現場、道具、記録、人物の行動を大きなイラストで示し、関係を矢印・囲み・対比で分かるようにする。実際の担当経験の説明であり仮例は仮例として扱う。場面の見出しが示す判断や関係を主役に、前後の場面とは異なる構図・行動を描く。\n意匠：緑・エメラルド・白・黄色、少量の赤。太い日本語文字に適度な縁取り、くっきりした輪郭、明るい教育用POP、斜めの色面と控えめな動線、白い情報パネル。図解は画面左〜中央の65%以上を大きく使う。先生は参照と同じ40代男性、黒髪・黒縁メガネ・薄いひげ・紺作業服・白シャツ・紺ネクタイ・黄色反射ベスト、無地白ヘルメット。右側で今回の図に合う自然な説明動作。手と機械の形は実物どおり。\n安全域：重要な文字と顔は上下左右5%以内に切れない。字幕は後から最下部に重ねるため、下端20%には文字・顔・重要な図を置かず背景だけを四辺まで連続させる（白い余白帯にはしない）。内容を上端80%に大きく配置し、小さな表や長文を詰め込まない。16:9全体を維持し、スマホ幅360pxでも見出しと矢印の意味が読める。",
+            "references": [
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--role-boundary-raw.e48ccb36.png",
+              "sha256": "e48ccb3696448fb35b79a85e81244be8188dee071c88af96f010a85873d0471b",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T05:59:37.678Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--role-boundary.4f928c96.png",
+            "sha256": "4f928c96f63a5ecffb221510dd7cf94492a673ea3eb2469b4a692b36bec0509d",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "choose",
+          "inputSha256": "282c201f5b4f4594d26ae4684d256f0e2e270167ee84bc7737c4d1466fcbce6f",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "3つがつながる候補を選ぶ",
+            "items": [
+              "現場条件を具体的に話せる",
+              "自分の判断・行動を説明できる",
+              "記録で条件・対応・結果を確かめられる"
+            ],
+            "reveal": 3
+          },
+          "narration": "候補を見比べ、現場条件、自分の対応、確認できる記録がつながる工事を選びます。整理した内容は、設問に合わせて使います。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付1は修正対象、添付2は先生キャラクターと緑白黄のPOP意匠の正本。1920×1080、横16:9。先生の人物同一性と大きな主見出し、場面に合う図解を保つ。修正必須: 文字: 右の記録パネルに大きく描かれた写真付き台帳の表題・本文・表の項目が、原寸でも語や文章として判読できない擬似文字になっている。事実を記録で確かめる説明の主役となる書類に判読不能な文字を使っている。\n図の場面・対象・関係は現状を保つ。小さな書類やカレンダーの擬似文字は全て消し、無文字の直線の罫線・四角・丸・チェックのみへ変える。計器・メジャー・時計の数字も不要。指定以外の文字を一切描かない。\n正確に描いてよい文字は「2級土木」「3つがつながる候補を選ぶ」と次のラベルだけ: [\"現場条件を具体的に話せる\",\"自分の判断・行動を説明できる\",\"記録で条件・対応・結果を確かめられる\"]。書類の本文・カレンダーの日付/曜日・目盛・車体・背景の細字は描かない。これらは平行な無地の直線または無地の面に置き換える。\n太い読みやすい日本語、黒髪眼鏡短いひげ紺作業服白シャツ紺タイ黄反射ベスト白無地ヘルメットの同一先生。図は実際の対象物・空間・行動の対応がわかるように。下端20%は無地背景。人物と図を切らない。",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--choose-raw.141689eb.png",
+                "sha256": "141689eb65cdbe344dc84b3213e69e6c9819b61a620d5cf5eba3d9606566712a"
+              },
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--choose-raw.88df5749.png",
+              "sha256": "88df57494c96e5a57ff2f093351f0097abf1e3cb4854605baf8fc5762bd61ebc",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T06:26:05.282Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--choose.04245b46.png",
+            "sha256": "04245b46d6eadacf7a02ef88d95d179cd7da843aaa1a9c18da8c6d6c80c4dba4",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "ad826117f3a057be23f6f25b7f2f49369e3ebfd53eb91b4997c8e76e5cfa2529",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "題材選びは、自分の経験の整理から",
+            "items": [
+              "現場条件",
+              "自分の判断・行動",
+              "事実を確認する記録"
+            ],
+            "reveal": 3,
+            "focus": 1
+          },
+          "narration": "まとめです。規模だけで選ばず、どんな条件で、自分がどう対応したかを整理する。事実を確かめられる題材から準備しましょう。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. 添付1は修正対象、添付2は先生キャラクターと緑白黄のPOP意匠の正本。1920×1080、横16:9。先生の人物同一性と大きな主見出し、場面に合う図解を保つ。修正必須: 文字・破綻: 右下の記録用紙の項目が原寸でも判読できない細字になり、手前のメジャーにも同じような数字が反復する不自然な目盛表記がある。記録・測定による事実確認の図として誤解を招く。\n図の場面・対象・関係は現状を保つ。小さな書類やカレンダーの擬似文字は全て消し、無文字の直線の罫線・四角・丸・チェックのみへ変える。計器・メジャー・時計の数字も不要。指定以外の文字を一切描かない。\n正確に描いてよい文字は「2級土木」「題材選びは、自分の経験の整理から」と次のラベルだけ: [\"現場条件\",\"自分の判断・行動\",\"事実を確認する記録\"]。書類の本文・カレンダーの日付/曜日・目盛・車体・背景の細字は描かない。これらは平行な無地の直線または無地の面に置き換える。\n太い読みやすい日本語、黒髪眼鏡短いひげ紺作業服白シャツ紺タイ黄反射ベスト白無地ヘルメットの同一先生。図は実際の対象物・空間・行動の対応がわかるように。下端20%は無地背景。人物と図を切らない。",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--summary-raw.422c8e4b.png",
+                "sha256": "422c8e4b664a8ea86bb2a9890682405f16ecd5d43f3681fa178314f89508284a"
+              },
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--summary-raw.395bc6ec.png",
+              "sha256": "395bc6ecaefa85c6f486d9ba8187f701f49c0c37dd4c664f590a930173b0bed2",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T06:26:05.331Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--summary.857f724b.png",
+            "sha256": "857f724bba29ea282166f7d9fc08605d75c88a2fc6b6e4da9b16774c2eb5380a",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "44dc4cf06dad5809f5dd9c670e5991aaaa5d1e98aa9cdc5d42305f81bb57c35a",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "選んだ工事で、答案づくりを練習",
+            "items": [
+              "2級土木 施工経験記述 完成答案集",
+              "安全・品質・工程の答案＋置換ガイド",
+              "概要欄のnoteマガジンへ"
+            ]
+          },
+          "narration": "題材を選んだら、完成答案を自分の工事に置き換えて練習しましょう。安全・品質・工程の答案と置換ガイドは、概要欄へ。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Asset: 2級土木施工管理技士の16:9通常動画、本文の1場面。1920×1080の一枚の完成POP図解を新規生成。参照画像は先生の同一性と承認済みPOP意匠の参照で、参照画像の添削広告文を複製しない。\n正確な日本語コピー：資格名「2級土木」、大見出し「自分の工事で答案づくり」、図解に必要な短い語「施工経験記述 完成答案集」「安全・品質・工程」「自分の経験に置き換えて練習」「概要欄から確認」。コピーはこれらだけから選び、長い文は短い重要語に絞る。問題番号・架空の基準値・合格保証・商品価格・URL・ブランドは追加しない。\nこの場面の説明（理解の根拠。全文を画面に書かない）：元発注者・土木の合格者の視点を学習に活かす完成答案集です。安全・品質・工程の答案と置換ガイドで練習する際は、概要欄をご覧ください。\n図解設計：文字カードや表の羅列ではなく、説明に出てくる具体的な現場、道具、記録、人物の行動を大きなイラストで示し、関係を矢印・囲み・対比で分かるようにする。実際の担当経験の説明であり仮例は仮例として扱う。先生が練習用の答案ノートと3テーマの冊子を紹介。答案の長文や架空の表紙文言は描かない。\n意匠：緑・エメラルド・白・黄色、少量の赤。太い日本語文字に適度な縁取り、くっきりした輪郭、明るい教育用POP、斜めの色面と控えめな動線、白い情報パネル。図解は画面左〜中央の65%以上を大きく使う。先生は参照と同じ40代男性、黒髪・黒縁メガネ・薄いひげ・紺作業服・白シャツ・紺ネクタイ・黄色反射ベスト、無地白ヘルメット。右側で今回の図に合う自然な説明動作。手と機械の形は実物どおり。\n安全域：重要な文字と顔は上下左右5%以内に切れない。字幕は後から最下部に重ねるため、下端20%には文字・顔・重要な図を置かず背景だけを四辺まで連続させる（白い余白帯にはしない）。内容を上端80%に大きく配置し、小さな表や長文を詰め込まない。16:9全体を維持し、スマホ幅360pxでも見出しと矢印の意味が読める。",
+            "references": [
+              {
+                "path": "content/coconala/assets/pop-20260927/thumb-2kyu-tensaku-3theme.png",
+                "sha256": "8c3d7ad4edcd83a56420144ac8ec3d15d4cd03b811ffb4ea5245b7df141fe7a6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/common-cta-raw.dcf54f04.png",
+              "sha256": "dcf54f045c7c5aa4eaa10ade7b144b160dcb4728ae328c3ffe3e0a043fc78179",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T05:59:34.437Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/common-cta.4d5bba5e.png",
+            "sha256": "4d5bba5eeecb0c43f2ef98c12019ff609dfbf60b6b99f16a3415c2621e7724b8",
+            "width": 1920,
+            "height": 1080
+          },
+          "layout": {
+            "contentRect": {
+              "x": 192,
+              "y": 0,
+              "width": 1536,
+              "height": 864
+            },
+            "subtitleSafeTop": 864
+          }
+        }
+      ]
+    },
+    "diagram-led-20261019": {
+      "version": "codex-pop-body-v1",
+      "date": "2026-10-19",
+      "purpose": "図解主体・控えめな配色。装飾キャラクターと著者名を除去。外部未反映。",
+      "layout": {
+        "mode": "diagram-led",
+        "canvas": {
+          "width": 1920,
+          "height": 1080
+        },
+        "subtitleSafeTop": 820
+      },
+      "images": [
+        {
+          "sceneId": "hook",
+          "inputSha256": "8da3fa94c46e8a0db6a612b26e88a4c5cb7a068ffe491cea3f0cf55129c4b589",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "工事の大きさだけで、候補を捨てない",
+            "items": [
+              "現場条件を思い出す",
+              "自分の対応を整理する",
+              "記録で事実を確かめる"
+            ]
+          },
+          "narration": "小さな工事しかなく、書けないと思っていませんか。現場条件、自分の対応、記録から、題材を探しましょう。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. Reference only for calm wide layout, dark green text, muted pale panels; create the actual diagram below, not merely a text card.\nScene keiken-daizai-erabi/hook. Narration to illustrate faithfully, not all to print: 小さな工事しかなく、書けないと思っていませんか。現場条件、自分の対応、記録から、題材を探しましょう。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"工事の大きさだけで、候補を捨てない\",\"items\":[\"現場条件を思い出す\",\"自分の対応を整理する\",\"記録で事実を確かめる\"]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--hook-raw.4d8e27ec.png",
+              "sha256": "4d8e27ecee28fb49bc97b3f79edfa2f7020ac503d888c22b4f65c50727cec5b1",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:18:02.727Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--hook.c83b483b.png",
+            "sha256": "c83b483bc6adb67d4b78fc82b1e1cbe87c09e02270bbfeae9e1d04c41be1cb4b",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "4d8e27ecee28fb49bc97b3f79edfa2f7020ac503d888c22b4f65c50727cec5b1"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:14:51.360Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "現場条件→自分の対応→記録で事実確認の関係を、側溝の現場・記録する作業員・日報写真で示し、指定文字と字幕用下端を確認。"
+          }
+        },
+        {
+          "sceneId": "authority",
+          "inputSha256": "c535311977befe1177abdb99b91fd5df4c3213cf47ac5537853a048c96c7de4e",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "経験を整理する視点",
+            "items": [
+              "現場条件",
+              "自分の対応",
+              "確認記録"
+            ]
+          },
+          "narration": "総合技術監理部門の技術士で、1級・2級土木に合格した元発注者が、経験を整理する視点をお伝えします。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Create ONE 16:9 wide quiet illustration with no text at all. On a white canvas, two ordinary civil-construction workers wearing white helmets and muted green safety clothing consult a construction plan and a work notebook at a simple desk. The plan and their pointing/checking action are the focus. Small natural human figures, NOT a mascot, no large portrait, no speech bubble, no name, no qualification, no credentials, no alphabet, no numbers, NO Japanese or other text anywhere. Fine green/gray outlines and very restrained pale accents, matching only the palette of the attached no-text style reference. No landscape or decoration. Use the central upper 70% of the full-width 16:9 frame, leaving lower 240px as continuous clean white for subtitles. Do not add an enclosing border or colored padding. This scene accompanies a narration about explaining from practical experience, but must contain ONLY the human checking action and useful plan/notebook props, no biography diagram or qualifications.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--authority-raw.63fef5f2.png",
+              "sha256": "63fef5f2ac437399fe83496afe910cb22c2cadc2f1807fbdf348bff977abd759",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:20:50.791Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--authority.61ac6ea0.png",
+            "sha256": "61ac6ea09f703b834319ae98faf8560d9cfd4c19b844fc472c244acc862a1cf5",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "63fef5f2ac437399fe83496afe910cb22c2cadc2f1807fbdf348bff977abd759"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:14:51.442Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "図面を指す人とノートへ記録する人の2人について腕・手の接続と作業動作を確認。装飾の先生・解説名・肩書き・指定外文字なし。"
+          }
+        },
+        {
+          "sceneId": "premise",
+          "inputSha256": "f6e52b5f13b5ed5639f76952397a12f7619ca7e7b2e474da171dcefe8743ec66",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "実経験の整理と、対象範囲の確認",
+            "items": [
+              "この動画：経験を思い出して選ぶ",
+              "対象範囲・受検資格：公式の手引で確認",
+              "受検する年度の案内を使う"
+            ]
+          },
+          "narration": "ここでは、実経験の整理に絞ります。工事の対象範囲や受検資格に迷う場合は、当該年度の公式の手引を確認します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. Reference only for calm wide layout, dark green text, muted pale panels; create the actual diagram below, not merely a text card.\nScene keiken-daizai-erabi/premise. Narration to illustrate faithfully, not all to print: ここでは、実経験の整理に絞ります。工事の対象範囲や受検資格に迷う場合は、当該年度の公式の手引を確認します。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"実経験の整理と、対象範囲の確認\",\"items\":[\"この動画：経験を思い出して選ぶ\",\"対象範囲・受検資格：公式の手引で確認\",\"受検する年度の案内を使う\"]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--premise-raw.ede5fdb1.png",
+              "sha256": "ede5fdb11e8a401665a3aef492ef637dfb00064c22d211b83bc0aacfef6e7cdd",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:18:45.630Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--premise.9fdc422d.png",
+            "sha256": "9fdc422d9201e1963d0cfba10cc42e4344c4199fe1ba098a3ca5538230d496a5",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "ede5fdb11e8a401665a3aef492ef637dfb00064c22d211b83bc0aacfef6e7cdd"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:14:51.530Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "実経験の整理、対象範囲・受検資格の公式手引確認、受検年度の案内という3区分と文言を確認。架空の受検資格や年次条件を追加していない。"
+          }
+        },
+        {
+          "sceneId": "candidates",
+          "inputSha256": "52a3d7474fbf95a263f2705f2f72c91d577ccdfe32f017f412389044135cbf6a",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "工事名だけでなく、担当範囲も書く",
+            "sheetTitle": "候補工事のメモ",
+            "rows": [
+              {
+                "label": "工事名",
+                "value": "実際に担当した工事",
+                "state": "focus"
+              },
+              {
+                "label": "担当作業",
+                "value": "どの作業に関わったか",
+                "state": "todo"
+              },
+              {
+                "label": "立場",
+                "value": "どんな役割を担ったか",
+                "state": "todo"
+              }
+            ]
+          },
+          "narration": "最初に、自分が担当した工事をいくつか挙げます。工事名の横に、担当した作業と、そのときの立場をメモしましょう。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene keiken-daizai-erabi/candidates. Narration to illustrate faithfully, not all to print: 最初に、自分が担当した工事をいくつか挙げます。工事名の横に、担当した作業と、そのときの立場をメモしましょう。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"工事名だけでなく、担当範囲も書く\",\"rows\":[{\"label\":\"工事名\",\"value\":\"実際に担当した工事\",\"state\":\"focus\"},{\"label\":\"担当作業\",\"value\":\"どの作業に関わったか\",\"state\":\"todo\"},{\"label\":\"立場\",\"value\":\"どんな役割を担ったか\",\"state\":\"todo\"}]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--candidates-raw.46d052ac.png",
+              "sha256": "46d052ac591a66c14420b178ab61c531072567ca25c4ae060991348a2f1bb1a6",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:20:50.811Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--candidates.58a5ec52.png",
+            "sha256": "58a5ec526cdab5fd700d70f7158e345a9f71bd05a66115cba3d1d7b27a6908a3",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "46d052ac591a66c14420b178ab61c531072567ca25c4ae060991348a2f1bb1a6"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:14:51.624Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "工事名・担当作業・立場の3つのメモ欄と指定文字が原稿に一致し、関連作業員・バックホウ・橋梁の簡略図に明確な破綻なし。"
+          }
+        },
+        {
+          "sceneId": "condition",
+          "inputSha256": "22e2601851716136f9ddbe7c90d65eac60d0292b97b5a01be19ba97c11ba2c8a",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "どんな場面で、気を付けたか",
+            "sheetTitle": "候補工事を思い出す3つの欄",
+            "rows": [
+              {
+                "label": "現場条件",
+                "value": "どんな制約があったか",
+                "state": "focus",
+                "order": 1
+              },
+              {
+                "label": "自分の対応",
+                "value": "何を考え、何を実施したか",
+                "state": "todo",
+                "order": 2
+              },
+              {
+                "label": "確認記録",
+                "value": "何で事実を確かめられるか",
+                "state": "todo",
+                "order": 3
+              }
+            ]
+          },
+          "narration": "次に、作業で気を付けた条件を思い出します。狭い場所、近隣の出入り、天候など、具体的な場面が浮かぶでしょうか。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene keiken-daizai-erabi/condition. Narration to illustrate faithfully, not all to print: 次に、作業で気を付けた条件を思い出します。狭い場所、近隣の出入り、天候など、具体的な場面が浮かぶでしょうか。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"どんな場面で、気を付けたか\",\"rows\":[{\"label\":\"現場条件\",\"value\":\"どんな制約があったか\",\"state\":\"focus\",\"order\":1},{\"label\":\"自分の対応\",\"value\":\"何を考え、何を実施したか\",\"state\":\"todo\",\"order\":2},{\"label\":\"確認記録\",\"value\":\"何で事実を確かめられるか\",\"state\":\"todo\",\"order\":3}]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--condition-raw.771cbc23.png",
+              "sha256": "771cbc234a8150f10caf282f9cfd01691ca3ffbb350473c1d68c754873c6da23",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:20:50.816Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--condition.e0775f9c.png",
+            "sha256": "e0775f9c3675bdc0741a0a8b7a48e3954c4ade30073c49e3937222187939b073",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "771cbc234a8150f10caf282f9cfd01691ca3ffbb350473c1d68c754873c6da23"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:14:51.711Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "狭い場所・近隣の出入り・天候という制約と対応・確認記録の欄が原稿に対応し、関連作業員のコーン設置動作と文字を確認。"
+          }
+        },
+        {
+          "sceneId": "own-action",
+          "inputSha256": "60a41a91497b8fe9d1025809d85a5a175604d61283acb81631a11b6f617d707f",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "自分は、どう考えて動いたか",
+            "sheetTitle": "候補工事を思い出す3つの欄",
+            "rows": [
+              {
+                "label": "現場条件",
+                "value": "どんな制約があったか",
+                "state": "done",
+                "order": 1
+              },
+              {
+                "label": "自分の対応",
+                "value": "何を考え、何を実施したか",
+                "state": "focus",
+                "order": 2
+              },
+              {
+                "label": "確認記録",
+                "value": "何で事実を確かめられるか",
+                "state": "todo",
+                "order": 3
+              }
+            ]
+          },
+          "narration": "その条件に対して、自分は何を考え、誰と相談し、何を実施しましたか。工事全体の話から、自分の対応を取り出します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene keiken-daizai-erabi/own-action. Narration to illustrate faithfully, not all to print: その条件に対して、自分は何を考え、誰と相談し、何を実施しましたか。工事全体の話から、自分の対応を取り出します。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"自分は、どう考えて動いたか\",\"rows\":[{\"label\":\"現場条件\",\"value\":\"どんな制約があったか\",\"state\":\"done\",\"order\":1},{\"label\":\"自分の対応\",\"value\":\"何を考え、何を実施したか\",\"state\":\"focus\",\"order\":2},{\"label\":\"確認記録\",\"value\":\"何で事実を確かめられるか\",\"state\":\"todo\",\"order\":3}]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.\nMANDATORY CORRECTION: ONLY use notebook, plan and consultation/document icons for condition -> decision -> action. No excavator, no pipe placement, no equipment, no construction scene. Two ordinary workers discussing a plan may be drawn tiny if necessary, no mascot.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--own-action-raw.1ba251cc.png",
+              "sha256": "1ba251cc5bc554eb517fb31a32bb75796627e9143861c83c7ba41ae6569b55c7",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:38:31.333Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--own-action.aea53684.png",
+            "sha256": "aea536847dcbfff032d70f956f54f63ac393f3e652a8ce491b2985853a97807e",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "1ba251cc5bc554eb517fb31a32bb75796627e9143861c83c7ba41ae6569b55c7"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:14:51.804Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "旧版のバケットと管の接触を除去し、現場条件の図面→自分の対応→確認記録の関係に修正済み。"
+          }
+        },
+        {
+          "sceneId": "records",
+          "inputSha256": "9a4f7ce8334821bd668f16fed1e7d09b045ef15f227a43e42472d1eb55c3083b",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "記録は、事実を確かめる手掛かり",
+            "sheetTitle": "候補工事を思い出す3つの欄",
+            "rows": [
+              {
+                "label": "現場条件",
+                "value": "どんな制約があったか",
+                "state": "done",
+                "order": 1
+              },
+              {
+                "label": "自分の対応",
+                "value": "何を考え、何を実施したか",
+                "state": "done",
+                "order": 2
+              },
+              {
+                "label": "確認記録",
+                "value": "何で事実を確かめられるか",
+                "state": "focus",
+                "order": 3
+              }
+            ]
+          },
+          "narration": "さらに、施工計画、日報、写真などを思い出します。確認できる資料を手掛かりに、条件や対応、結果を確かめましょう。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene keiken-daizai-erabi/records. Narration to illustrate faithfully, not all to print: さらに、施工計画、日報、写真などを思い出します。確認できる資料を手掛かりに、条件や対応、結果を確かめましょう。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"記録は、事実を確かめる手掛かり\",\"rows\":[{\"label\":\"現場条件\",\"value\":\"どんな制約があったか\",\"state\":\"done\",\"order\":1},{\"label\":\"自分の対応\",\"value\":\"何を考え、何を実施したか\",\"state\":\"done\",\"order\":2},{\"label\":\"確認記録\",\"value\":\"何で事実を確かめられるか\",\"state\":\"focus\",\"order\":3}]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--records-raw.ccf46004.png",
+              "sha256": "ccf46004d98b9a47005b5689caf3b208337845020395889232c7dba2c4bfaa68",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:22:53.969Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--records.eb0ab88c.png",
+            "sha256": "eb0ab88c30f73b806cb8cd92d493c9e44ef188ebe5d1fb4d17a06fea150927f4",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "ccf46004d98b9a47005b5689caf3b208337845020395889232c7dba2c4bfaa68"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:14:51.895Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "施工計画・日報・写真と現場条件・自分の対応・確認記録の3欄が原稿に一致。土留と記録行動の簡略図に明確な破綻なし。"
+          }
+        },
+        {
+          "sceneId": "example",
+          "inputSha256": "dc483f792b750b6f0a055361c1436b68f3cdde1e78ae99d631b24fb0e904ea1e",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "仮の例：短い区間の舗装修繕",
+            "sheetTitle": "工事の大きさから、場面の具体性へ",
+            "rows": [
+              {
+                "label": "現場条件",
+                "value": "住宅の出入口が近い",
+                "state": "focus"
+              },
+              {
+                "label": "考える場面",
+                "value": "施工する順序を調整",
+                "state": "todo"
+              },
+              {
+                "label": "確認の手掛かり",
+                "value": "施工計画・日報・写真",
+                "state": "todo"
+              }
+            ]
+          },
+          "narration": "たとえば、短い区間の舗装修繕を仮の例にします。住宅の出入口が近く、施工する順序に配慮する場面を考えましょう。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene keiken-daizai-erabi/example. Narration to illustrate faithfully, not all to print: たとえば、短い区間の舗装修繕を仮の例にします。住宅の出入口が近く、施工する順序に配慮する場面を考えましょう。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"仮の例：短い区間の舗装修繕\",\"rows\":[{\"label\":\"現場条件\",\"value\":\"住宅の出入口が近い\",\"state\":\"focus\"},{\"label\":\"考える場面\",\"value\":\"施工する順序を調整\",\"state\":\"todo\"},{\"label\":\"確認の手掛かり\",\"value\":\"施工計画・日報・写真\",\"state\":\"todo\"}]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--example-raw.2d146cad.png",
+              "sha256": "2d146cad03c1e8580d354898f3d2702c51a6370f14f66cdccbeb4df168e3578d",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:22:53.982Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--example.98b73f9b.png",
+            "sha256": "98b73f9b5e232032abea0fefb895c43cedd44ecc76cdc0d866d9af179eaa8798",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "2d146cad03c1e8580d354898f3d2702c51a6370f14f66cdccbeb4df168e3578d"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:14:51.986Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "仮の例と明記し、住宅出入口が近い短い舗装修繕、施工順の調整、施工計画・日報・写真の3図が原稿に一致する。ローラと舗装作業員の形・動作に明確な破綻なし。"
+          }
+        },
+        {
+          "sceneId": "example-questions",
+          "inputSha256": "17b091c5e21ca3843246f48b25853097a4e9c08f0edaacd3b16a3582520a4f46",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "経験を思い出す問い",
+            "items": [
+              "誰と、何を確認したか",
+              "どの順序を、なぜ変えたか",
+              "実施後に何を確かめたか"
+            ],
+            "reveal": 3
+          },
+          "narration": "そのとき、出入りする時間を誰と確認し、施工順をどう調整したか。自分の経験に戻して、判断と行動を思い出します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene keiken-daizai-erabi/example-questions. Narration to illustrate faithfully, not all to print: そのとき、出入りする時間を誰と確認し、施工順をどう調整したか。自分の経験に戻して、判断と行動を思い出します。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"経験を思い出す問い\",\"items\":[\"誰と、何を確認したか\",\"どの順序を、なぜ変えたか\",\"実施後に何を確かめたか\"]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.\nMANDATORY CORRECTION: This is the SAME pavement repair example with residential driveways as the previous scene. Three views: note resident access hours -> plan alternate pavement repair sections -> verify vehicle access. NO trench, NO pipes or drainage elements, NO suspended objects. Small simple overhead road/driveway diagrams. Use exactly the original question labels.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--example-questions-raw.f0d48907.png",
+              "sha256": "f0d4890703cab062a6e0cf794599d1b4994f6d5fd1839bb77cc006463702d929",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:38:31.342Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--example-questions.d35718d9.png",
+            "sha256": "d35718d9840bcca41fd4139c5a47fe90a776460462c7d9bab56142b37c21502a",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "f0d4890703cab062a6e0cf794599d1b4994f6d5fd1839bb77cc006463702d929"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:14:52.080Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "住宅の出入り確認→舗装区間の順序調整→通行確認へ修正され、直前の舗装修繕の仮例と一致する。"
+          }
+        },
+        {
+          "sceneId": "role-boundary",
+          "inputSha256": "20b2d29cf6e89abad54430d8f3296eb35f41cbc97a5f3259a78ed4a338977efa",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "自分の担当を、大きく見せない",
+            "items": [
+              "上司の判断と自分の対応を分ける",
+              "相談・確認した行動も整理する",
+              "不明な数字は確認事項にする"
+            ]
+          },
+          "narration": "上司が決めたことと、自分が確認・実施したことを分けましょう。思い出せない数字は埋めず、確認する項目として残します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene keiken-daizai-erabi/role-boundary. Narration to illustrate faithfully, not all to print: 上司が決めたことと、自分が確認・実施したことを分けましょう。思い出せない数字は埋めず、確認する項目として残します。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"自分の担当を、大きく見せない\",\"items\":[\"上司の判断と自分の対応を分ける\",\"相談・確認した行動も整理する\",\"不明な数字は確認事項にする\"]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--role-boundary-raw.e04368cd.png",
+              "sha256": "e04368cda1d94f4c8c9acf2442b8e80e5d8fe2aa7ee7ebc3966f8e8eeabe490b",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:22:53.994Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--role-boundary.4bc2e851.png",
+            "sha256": "4bc2e8517148536a966552e90817282499483255c24b8077f299955e3a14e9e5",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "e04368cda1d94f4c8c9acf2442b8e80e5d8fe2aa7ee7ebc3966f8e8eeabe490b"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:14:52.188Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "上司の判断と自分の対応の区別、相談・確認した行動、不明数字の確認項目化という指定文言と図の対応を確認。人物の手と記録動作に明確な破綻なし。"
+          }
+        },
+        {
+          "sceneId": "choose",
+          "inputSha256": "282c201f5b4f4594d26ae4684d256f0e2e270167ee84bc7737c4d1466fcbce6f",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "3つがつながる候補を選ぶ",
+            "items": [
+              "現場条件を具体的に話せる",
+              "自分の判断・行動を説明できる",
+              "記録で条件・対応・結果を確かめられる"
+            ],
+            "reveal": 3
+          },
+          "narration": "候補を見比べ、現場条件、自分の対応、確認できる記録がつながる工事を選びます。整理した内容は、設問に合わせて使います。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene keiken-daizai-erabi/choose. Narration to illustrate faithfully, not all to print: 候補を見比べ、現場条件、自分の対応、確認できる記録がつながる工事を選びます。整理した内容は、設問に合わせて使います。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"3つがつながる候補を選ぶ\",\"items\":[\"現場条件を具体的に話せる\",\"自分の判断・行動を説明できる\",\"記録で条件・対応・結果を確かめられる\"]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.\nMANDATORY CORRECTION: Draw ONLY three large nodes horizontally using the three original source labels. No right sidebar, no duplicate miniature diagram, NO extra note beneath nodes. Every label and arrow finishes above y=760. No construction imagery, no people.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--choose-raw.25f7b932.png",
+              "sha256": "25f7b93267f80598045a08639cd5be429ef4dd0784c9311ccc5e514dfecfc786",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:38:31.402Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--choose.c4a8fef9.png",
+            "sha256": "c4a8fef9e24f6344ade9ee169d808fb9eb9e9a6f3cce77e5eed39802dc86e268",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "25f7b93267f80598045a08639cd5be429ef4dd0784c9311ccc5e514dfecfc786"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:14:52.300Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "旧版の字幕領域内カードと重複再掲を除去。3条件の大きなノードだけとなり、重要文字が下端240pxから離れている。"
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "ad826117f3a057be23f6f25b7f2f49369e3ebfd53eb91b4997c8e76e5cfa2529",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "題材選びは、自分の経験の整理から",
+            "items": [
+              "現場条件",
+              "自分の判断・行動",
+              "事実を確認する記録"
+            ],
+            "reveal": 3,
+            "focus": 1
+          },
+          "narration": "まとめです。規模だけで選ばず、どんな条件で、自分がどう対応したかを整理する。事実を確かめられる題材から準備しましょう。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene keiken-daizai-erabi/summary. Narration to illustrate faithfully, not all to print: まとめです。規模だけで選ばず、どんな条件で、自分がどう対応したかを整理する。事実を確かめられる題材から準備しましょう。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"題材選びは、自分の経験の整理から\",\"items\":[\"現場条件\",\"自分の判断・行動\",\"事実を確認する記録\"]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--summary-raw.3112faba.png",
+              "sha256": "3112fabadace960328da35912d5a8f51ffc4446542dcc56bde967aee265bf3c6",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:25:55.160Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--summary.6d6b8658.png",
+            "sha256": "6d6b8658d313ad8dedd01ceda35c7d2dd9d8a6238837066e00c0599f68e6183c",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "3112fabadace960328da35912d5a8f51ffc4446542dcc56bde967aee265bf3c6"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:14:52.400Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "現場条件→自分の判断・行動→事実を確認する記録の3関係と、作業員・土留・写真記録の簡略図と指定文言を原寸・360pxで確認。"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "44dc4cf06dad5809f5dd9c670e5991aaaa5d1e98aa9cdc5d42305f81bb57c35a",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "選んだ工事で、答案づくりを練習",
+            "items": [
+              "2級土木 施工経験記述 完成答案集",
+              "安全・品質・工程の答案＋置換ガイド",
+              "概要欄のnoteマガジンへ"
+            ]
+          },
+          "narration": "題材を選んだら、完成答案を自分の工事に置き換えて練習しましょう。安全・品質・工程の答案と置換ガイドは、概要欄へ。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene keiken-daizai-erabi/cta. Narration to illustrate faithfully, not all to print: 題材を選んだら、完成答案を自分の工事に置き換えて練習しましょう。安全・品質・工程の答案と置換ガイドは、概要欄へ。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"選んだ工事で、答案づくりを練習\",\"items\":[\"2級土木 施工経験記述 完成答案集\",\"安全・品質・工程の答案＋置換ガイド\",\"概要欄のnoteマガジンへ\"]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--cta-raw.6f5abb70.png",
+              "sha256": "6f5abb7092660b36287c0192c5a3e4d609cf02f1d27443aa426e9492eba7808d",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:25:55.167Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--cta.6aaeea47.png",
+            "sha256": "6aaeea472a37c95f15dfe5657a29c7326d318230fcb42f752b54009e056da217",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "6f5abb7092660b36287c0192c5a3e4d609cf02f1d27443aa426e9492eba7808d"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:14:52.500Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "完成答案集から自分の工事へ置換して練習する関係、概要欄のnoteマガジンと指定文字を確認。仮例表示があり、価格・保証・架空のURL・人物を追加していない。"
+          }
+        }
+      ],
+      "review": {
+        "status": "ok",
+        "by": "video-content-qa",
+        "at": "2026-10-18T23:55:44.236Z",
+        "mp4Sha256": "fb387ad6088e2e0c7161937c00257188a60890bdcc345a0f2c56371c72d4baab",
+        "scope": "全14場面の完成動画中点を原寸・360px実見。音声・画像・字幕・MP4の機械照合。",
+        "evidence": {
+          "path": ".tmp/media/_brand/diagram-led/qa-report.1cd922fe.json",
+          "sha256": "1cd922fec2a44ce403978bfa74b1746934c01ba135b8b5c07e15cd6dc67dba69"
+        }
+      }
+    },
+    "diagram-led-20261019-cover": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "Use case: scientific-educational. One calm 16:9 full-width educational video title image, intended 1920x1080. Exact small qualification label 「2級土木」 and main title 「経験記述の題材選び｜工事規模より自分の担当内容」. Illustrate the central learning idea: 現場条件・自分の判断や行動・確認記録を整理し、実際の担当工事から説明しやすい題材を選べる. WHITE background, muted green thin-line construction diagram, a few purposeful arrows or 2-3 clean illustrated nodes. Restrained dark-green typography, pale gray/green panels, tiny yellow accent only. No big character, no decorative teacher, no author name, no credential, no promotional badge, no speedlines or heavy outlined text, no border, no colored padding. A modest construction worker may appear only if their action explains the topic. All important content above y=800 on 1080 high frame; bottom is continuous white for subtitles, not an added band. Direct full-width 16:9 composition, legible at 360px, no invented statistics or words.",
+        "references": [
+          {
+            "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+            "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--cover-raw.b2e060d2.png",
+          "sha256": "b2e060d2aaa7f88c539aefacc247eafd9e9bdd467e5ed3f6f746a89d3eb32df5",
+          "width": 1672,
+          "height": 941
+        },
+        "generatedAt": "2026-10-18T22:25:55.179Z"
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--cover.96bffe0d.png",
+        "sha256": "96bffe0d60f0deed4d6c425e9cffdc0c7ea4bc86cd22c0fd731cce7386d3feef",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "b2e060d2aaa7f88c539aefacc247eafd9e9bdd467e5ed3f6f746a89d3eb32df5"
+      },
+      "review": {
+        "status": "ok",
+        "by": "ai-image-fidelity-auditor",
+        "at": "2026-10-18T23:14:52.594Z",
+        "scope": "原寸・360px・本文/前後関係・字幕安全域",
+        "reason": "資格ラベル・題材選びの主題・工事規模より自分の担当内容の指定文言、条件→判断行動→記録の3図を原寸・360pxで確認。著者名・肩書き・装飾人物なし。"
+      }
+    }
+  },
+  "activeBodyRevision": "diagram-led-20261019"
 }

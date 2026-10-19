@@ -1283,6 +1283,84 @@
       "reason": "参照と同じ人物が赤ペンと無地の白紙を自然な指・手首で保持し、紙に文字や線がなく、背景の透過と帽子・顔・手指・小物の切れがないことを確認した。",
       "reviewedAt": "2026-10-10T14:51:49.957Z"
     },
+    "media:civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-cover": {
+      "sha": "2c9b791bfc6c59fb",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。資格・主題・学べる関係が原稿に一致し、指定文字・人物/機械の簡略図・原寸と360pxの主題判読を確認。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-cta": {
+      "sha": "6aa939f0af51447c",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。完成答案集・安全品質工程の置換ガイド・概要欄の案内が台本と対応し、装飾人物や著者名はなく、重要な図と文字が字幕域より上に収まる。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-scene-001": {
+      "sha": "2c9b791bfc6c59fb",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。資格・主題・学べる関係が原稿に一致し、指定文字・人物/機械の簡略図・原寸と360pxの主題判読を確認。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-scene-002": {
+      "sha": "e0bb1ee38cfd1194",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。狭いヤードの現場条件→人と重機の接近という課題→通路と作業範囲の分離という対策が、同一の平面配置で一貫している。落石や溝の別工種を混在させず、重機は簡略平面記号として破綻なく、人も接触位置にいない。原寸・幅360pxで読め、図と文字は1080換算y750未満に収まり字幕余白を確保。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-scene-003": {
+      "sha": "61ac6ea09f703b83",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。図面を指す人とノートへ記録する人の2人について腕・手の接続と作業動作を確認。装飾の先生・解説名・肩書き・指定外文字なし。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-scene-004": {
+      "sha": "30a8658940b67acf",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。狭いヤードの歩行者エリアと重機エリアを分けた簡略平面図が条件→危険→理由の説明に合い、下端の重複図もなく字幕域は空いている。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-scene-005": {
+      "sha": "8d3c656c9aa743e2",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。狭いヤードの人の通路と重機作業範囲の位置関係、近接場面の探索を確認。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-scene-006": {
+      "sha": "9782e3b720567fb0",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。接触の危険と通路分離の前後対比、重機と人物の構造と指定文を確認。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-scene-007": {
+      "sha": "722d9debc9614025",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。人の通路と重機の旋回・作業範囲を分ける平面図と障壁の位置関係を確認。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-scene-008": {
+      "sha": "96b9a8a836fa31e9",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。区切る位置・接触を防ぐ理由・検討と実施の関係を、同じ現場の図で確認。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-scene-009": {
+      "sha": "9d996763164310d3",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。現場条件（危険）→検討（対策を選んだ理由）→対応（自分の行動）の3カードが、経験した事実へ戻す台本と対応。具体的な支保工や別工種を追加していない。原寸・幅360pxで文字と順序を確認し、重要情報は1080換算y670未満で字幕域に侵入しない。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-scene-010": {
+      "sha": "257be41d707ea15a",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。指定の要点を文書・メモの対応図で示し、内容と文字が原稿に一致することを確認。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/anzen-touan-gutaika-kaitei/work/candidate-scene-011": {
+      "sha": "6aa939f0af51447c",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。完成答案集・安全品質工程の置換ガイド・概要欄の案内が台本と対応し、装飾人物や著者名はなく、重要な図と文字が字幕域より上に収まる。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
     "media:civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/cover": {
       "sha": "ba16defd11a2f673",
       "verdict": "ok",
@@ -1342,6 +1420,108 @@
       "verdict": "ok",
       "reason": "原寸・360pxで資格と4項目を確認。右約12％と下約18％に操作UI用余白、ドレーン図は技術的に整合。",
       "reviewedAt": "2026-10-11T12:56:10.957Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/work/candidate-cover": {
+      "sha": "3f03299c8e86a0db",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。資格・主題・学べる関係が原稿に一致し、指定文字・人物/機械の簡略図・原寸と360pxの主題判読を確認。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/work/candidate-cta": {
+      "sha": "3afc10570214bb4a",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。教材・練習・関連資料への案内が原稿に一致し、文書図と指定文を確認。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/work/candidate-point-block1-2-body": {
+      "sha": "557798b9ca475d02",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。標準貫入試験→N値、平板載荷試験→支持力、現場CBR試験→路床路盤の支持力という3対応と指定文字を確認。原寸と360pxで判読でき、重要要素は概ねx840以内・y1060以内に収まり指定安全域を満たす。器械の創作・人物なし。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/work/candidate-point-block1-2-cover": {
+      "sha": "6e5925a6f093cab8",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。2級土木、土質試験は目的で覚える、試験名⇄分かることの指定文字と小さな土試料を原寸と360pxで確認。重要要素は概ねx820以内・y810以内に収まり指定安全域を満たす。装飾人物・肩書きなし。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/work/candidate-point-block1-2-cta": {
+      "sha": "b270eb8626a05163",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。詳しい解説は関連動画へ、土工の4テーマを確認という文字とノート→再生ボタンの関係を原寸と360pxで確認。重要要素は概ねx780以内・y960以内に収まり指定安全域を満たす。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/work/candidate-point-overview-1-body": {
+      "sha": "27d3595882a0b114",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。土質試験、土量変化率L・C、盛土と締固め、のり面軟弱地盤の4テーマと小さな概念アイコンを確認。文字は原寸と360pxで判読でき、重要要素は概ねx805以内・y1075以内で指定安全域を満たす。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/work/candidate-point-overview-1-cover": {
+      "sha": "a393b8ddd8630b9f",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。2級土木、土工の頻出点、4テーマで整理の文字と、土試料・土量変化・締固め層・のり面の4小図を原寸と360pxで確認。重要要素は概ねx885以内・y1060以内に収まり指定安全域を満たす。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/work/candidate-point-overview-1-cta": {
+      "sha": "b270eb8626a05163",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。詳しい解説は関連動画へ、土工の4テーマを確認という文字とノート→再生ボタンの関係を原寸と360pxで確認。重要要素は概ねx780以内・y960以内に収まり指定安全域を満たす。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/work/candidate-scene-001": {
+      "sha": "3f03299c8e86a0db",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。資格・主題・学べる関係が原稿に一致し、指定文字・人物/機械の簡略図・原寸と360pxの主題判読を確認。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/work/candidate-scene-002": {
+      "sha": "8591042ce120e991",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。範囲の広さという悩みから、用語対応とL/C計算の学習へ絞る指定文と概念図を確認。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/work/candidate-scene-003": {
+      "sha": "0b6a30df7ed5c9a5",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。土質試験・土量変化率・盛土締固め・のり面軟弱地盤の4テーマと簡略イラストを確認。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/work/candidate-scene-004": {
+      "sha": "a64db15bbfb043fc",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。三つの試験が独立したカードになり、カード内の下向き矢印だけで試験名と目的を正しく対応させている。原寸・幅360pxで文字と図を確認し、重要情報は1080換算y820より上。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/work/candidate-scene-005": {
+      "sha": "994d3d6562ed2127",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。地山100・ほぐし120・締固め90に「仮の例」を明記し、Lは運搬土量、Cは盛土の出来上がり計算と正しく対応。機械の追加や字幕域への重要情報の侵入がない。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/work/candidate-scene-006": {
+      "sha": "1e0fb35bd2e2cb93",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。縦軸は乾燥密度、横軸は含水比で、頂点から最大乾燥密度・最適含水比へ引いた点線が正しい。横軸名も右側へ移り、重要情報は1080換算y820より上。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/work/candidate-scene-007": {
+      "sha": "a58339ae086e58f6",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。沈下促進→圧密排水、緩い砂の密実化→締固め、軟弱層の除去→置換の3対応が台本と一致し、独立カード内だけの矢印で示されている。誤読を招く水流方向や具体機械の図はなく、小さい地層・置換断面も意味を妨げない。原寸・幅360pxで文字と対応を実見し、重要情報は1080換算y750未満で字幕余白を確保。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/work/candidate-scene-008": {
+      "sha": "7ac0ed1d45c59184",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。指定の要点を文書・メモの対応図で示し、内容と文字が原稿に一致することを確認。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/gakka-2kyu-doko/work/candidate-scene-009": {
+      "sha": "3afc10570214bb4a",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。教材・練習・関連資料への案内が原稿に一致し、文書図と指定文を確認。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
     },
     "media:civil-construction-2/gakka-2kyu-doko/youtube.longform/cover": {
       "sha": "659cd5716340bd99",
@@ -1439,6 +1619,96 @@
       "reason": "今回の全面版を確認し、4テーマとL・Cの表記が指示どおりで、土試料・ダンプ・前鉄輪と後タイヤのローラ・草のある土の斜面、先生の指示棒と手が自然である。",
       "reviewedAt": "2026-10-12T04:15:54.827Z"
     },
+    "media:civil-construction-2/hinshitsu-touan-gutaika/work/candidate-cover": {
+      "sha": "cc4758781dea3ac9",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。資格名・品質管理経験記述・試験したから先の書き方の指定文字、管理項目・現場条件・確認方法の3図を原寸と360pxで確認。主要文字と矢印は字幕領域から離れ、装飾の先生・著者名・肩書きなし。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/hinshitsu-touan-gutaika/work/candidate-cta": {
+      "sha": "63f04ad82a2454fe",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。下段の独立ラベルをカード内へ移し、施工経験記述・完成答案集→品質安全工程と置換ガイド→概要欄のnoteマガジンの3関係へ修正。指定文字に誤字なし。原寸と360pxで判読し、全重要文字と図が正規化y約750以内に収まりy<820を満たす。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/hinshitsu-touan-gutaika/work/candidate-scene-001": {
+      "sha": "cc4758781dea3ac9",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。資格名・品質管理経験記述・試験したから先の書き方の指定文字、管理項目・現場条件・確認方法の3図を原寸と360pxで確認。主要文字と矢印は字幕領域から離れ、装飾の先生・著者名・肩書きなし。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/hinshitsu-touan-gutaika/work/candidate-scene-002": {
+      "sha": "dbd523a0c634145b",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。管理項目・現場条件・確認方法の3関係、コンクリート供試体・圧縮機の簡略図、指定文字を確認。装飾キャラクター・著者名なし。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/hinshitsu-touan-gutaika/work/candidate-scene-003": {
+      "sha": "61ac6ea09f703b83",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。図面を指す人とノートへ記録する人の2人について腕・手の接続と作業動作を確認。装飾の先生・解説名・肩書き・指定外文字なし。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/hinshitsu-touan-gutaika/work/candidate-scene-004": {
+      "sha": "ce83489598884d3b",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。試験名だけと目的までの違いを、記録・供試体の荷重確認・構造物の関係で示し、文字と供試体図の破綻なし。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/hinshitsu-touan-gutaika/work/candidate-scene-005": {
+      "sha": "b362ecef8dc6394d",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。打込み時の温度、夏季の運搬・待機、搬入間隔と待機時間を結ぶ図と文字が原稿に一致。車両のドラム・車体の連結と字幕安全域を確認。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/hinshitsu-touan-gutaika/work/candidate-scene-006": {
+      "sha": "664c09306be302fa",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。夏の暑さ、アジテータトラックの運搬・待機、温度上昇のおそれの因果と文字が説明に一致し、下端に字幕用背景が残る。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/hinshitsu-touan-gutaika/work/candidate-scene-007": {
+      "sha": "6fdc06b53f2458ff",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。温度、夏季の運搬・待機、搬入間隔と待機時間の3図がナレーションの段取り検討と対応し、字幕領域から重要文字が離れている。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/hinshitsu-touan-gutaika/work/candidate-scene-008": {
+      "sha": "684255fdc18b22db",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。温度計の測定プローブ、管理値の表、照合矢印が原稿の測定と比較に一致し、根拠のない数値・著者名・装飾人物なし。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/hinshitsu-touan-gutaika/work/candidate-scene-009": {
+      "sha": "61bf2485ab4c5a6c",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。旧版の不明な試験器具を除去し、仕様書・施工計画→試験測定記録→経験した事実という3書類の関係に修正済み。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/hinshitsu-touan-gutaika/work/candidate-scene-010": {
+      "sha": "8633b5ebf1c7f8ed",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。温度計のプローブによる測定、夏季の運搬・待機、管理値との照合の関係と指定文字を原寸・360pxで確認。人物は作業員のみで字幕領域に重要文字なし。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/hinshitsu-touan-gutaika/work/candidate-scene-011": {
+      "sha": "4af744757f5d419b",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。管理項目・現場条件・確認方法の3欄と、施工条件・寸法確認の簡略図が自分の工事を整理する説明に対応。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/hinshitsu-touan-gutaika/work/candidate-scene-012": {
+      "sha": "aaeeb1c249ffe9a4",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。管理項目・必要な理由・確認と結果の3文書へ修正され、別試験の不正確な測定図を除去。指定文字と前後の原稿に一致し、重要文字と図が通常動画の上部に収まる。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/hinshitsu-touan-gutaika/work/candidate-scene-013": {
+      "sha": "63f04ad82a2454fe",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。下段の独立ラベルをカード内へ移し、施工経験記述・完成答案集→品質安全工程と置換ガイド→概要欄のnoteマガジンの3関係へ修正。指定文字に誤字なし。原寸と360pxで判読し、全重要文字と図が正規化y約750以内に収まりy<820を満たす。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
     "media:civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/body-reference": {
       "sha": "b0295ab0d7e3e357",
       "verdict": "ok",
@@ -1457,6 +1727,102 @@
       "reason": "参照キャラクターと整合する顔・服装、CTAを指す手と答案を持つ手が自然で、完成答案集への案内と指定8文字列が各動画の施工経験記述の用途に合う。",
       "reviewedAt": "2026-10-17T06:04:25.228Z"
     },
+    "media:civil-construction-2/keiken-daizai-erabi/work/candidate-cover": {
+      "sha": "96bffe0d60f0deed",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。資格ラベル・題材選びの主題・工事規模より自分の担当内容の指定文言、条件→判断行動→記録の3図を原寸・360pxで確認。著者名・肩書き・装飾人物なし。",
+      "reviewedAt": "2026-10-18T23:44:06.171Z"
+    },
+    "media:civil-construction-2/keiken-daizai-erabi/work/candidate-cta": {
+      "sha": "6aaeea472a37c95f",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。完成答案集から自分の工事へ置換して練習する関係、概要欄のnoteマガジンと指定文字を確認。仮例表示があり、価格・保証・架空のURL・人物を追加していない。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/keiken-daizai-erabi/work/candidate-scene-001": {
+      "sha": "96bffe0d60f0deed",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。資格ラベル・題材選びの主題・工事規模より自分の担当内容の指定文言、条件→判断行動→記録の3図を原寸・360pxで確認。著者名・肩書き・装飾人物なし。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/keiken-daizai-erabi/work/candidate-scene-002": {
+      "sha": "c83b483bc6adb67d",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。現場条件→自分の対応→記録で事実確認の関係を、側溝の現場・記録する作業員・日報写真で示し、指定文字と字幕用下端を確認。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/keiken-daizai-erabi/work/candidate-scene-003": {
+      "sha": "61ac6ea09f703b83",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。図面を指す人とノートへ記録する人の2人について腕・手の接続と作業動作を確認。装飾の先生・解説名・肩書き・指定外文字なし。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/keiken-daizai-erabi/work/candidate-scene-004": {
+      "sha": "9fdc422d9201e196",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。実経験の整理、対象範囲・受検資格の公式手引確認、受検年度の案内という3区分と文言を確認。架空の受検資格や年次条件を追加していない。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/keiken-daizai-erabi/work/candidate-scene-005": {
+      "sha": "58a5ec526cdab5fd",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。工事名・担当作業・立場の3つのメモ欄と指定文字が原稿に一致し、関連作業員・バックホウ・橋梁の簡略図に明確な破綻なし。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/keiken-daizai-erabi/work/candidate-scene-006": {
+      "sha": "e0775f9c3675bdc0",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。狭い場所・近隣の出入り・天候という制約と対応・確認記録の欄が原稿に対応し、関連作業員のコーン設置動作と文字を確認。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/keiken-daizai-erabi/work/candidate-scene-007": {
+      "sha": "aea536847dcbfff0",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。旧版のバケットと管の接触を除去し、現場条件の図面→自分の対応→確認記録の関係に修正済み。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/keiken-daizai-erabi/work/candidate-scene-008": {
+      "sha": "eb0ab88c30f73b80",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。施工計画・日報・写真と現場条件・自分の対応・確認記録の3欄が原稿に一致。土留と記録行動の簡略図に明確な破綻なし。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/keiken-daizai-erabi/work/candidate-scene-009": {
+      "sha": "98b73f9b5e232032",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。仮の例と明記し、住宅出入口が近い短い舗装修繕、施工順の調整、施工計画・日報・写真の3図が原稿に一致する。ローラと舗装作業員の形・動作に明確な破綻なし。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/keiken-daizai-erabi/work/candidate-scene-010": {
+      "sha": "d35718d9840bcca4",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。住宅の出入り確認→舗装区間の順序調整→通行確認へ修正され、直前の舗装修繕の仮例と一致する。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/keiken-daizai-erabi/work/candidate-scene-011": {
+      "sha": "4bc2e8517148536a",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。上司の判断と自分の対応の区別、相談・確認した行動、不明数字の確認項目化という指定文言と図の対応を確認。人物の手と記録動作に明確な破綻なし。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/keiken-daizai-erabi/work/candidate-scene-012": {
+      "sha": "c4a8fef9e24f6344",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。旧版の字幕領域内カードと重複再掲を除去。3条件の大きなノードだけとなり、重要文字が下端240pxから離れている。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/keiken-daizai-erabi/work/candidate-scene-013": {
+      "sha": "6d6b8658d313ad8d",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。現場条件→自分の判断・行動→事実を確認する記録の3関係と、作業員・土留・写真記録の簡略図と指定文言を原寸・360pxで確認。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/keiken-daizai-erabi/work/candidate-scene-014": {
+      "sha": "6aaeea472a37c95f",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。完成答案集から自分の工事へ置換して練習する関係、概要欄のnoteマガジンと指定文字を確認。仮例表示があり、価格・保証・架空のURL・人物を追加していない。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
     "media:civil-construction-2/keiken-daizai-erabi/youtube.longform/cover": {
       "sha": "88c9abd2531fa9bd",
       "verdict": "ok",
@@ -1468,6 +1834,102 @@
       "verdict": "ok",
       "reason": "参照キャラクターと整合する顔・服装、CTAを指す手と答案を持つ手が自然で、完成答案集への案内と指定8文字列が各動画の施工経験記述の用途に合う。",
       "reviewedAt": "2026-10-17T06:04:25.228Z"
+    },
+    "media:civil-construction-2/kento-taio-kakiwake/work/candidate-cover": {
+      "sha": "a8f08a570df01dab",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。資格名・経験記述の書き分け・検討したことと実施した処置を分けるという指定文言と、現場条件・選んだ理由・実施内容の3区分を原寸と360pxで判読確認。著者名・肩書き・装飾の先生なし。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/kento-taio-kakiwake/work/candidate-cta": {
+      "sha": "58b58776628dd53b",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。完成答案集・安全品質工程の答案・置換ガイドと概要欄のnote案内を文書図だけで示し、指定文字に誤字・著者名・肩書きの追加なし。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/kento-taio-kakiwake/work/candidate-scene-001": {
+      "sha": "a8f08a570df01dab",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。資格名・経験記述の書き分け・検討したことと実施した処置を分けるという指定文言と、現場条件・選んだ理由・実施内容の3区分を原寸と360pxで判読確認。著者名・肩書き・装飾の先生なし。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/kento-taio-kakiwake/work/candidate-scene-002": {
+      "sha": "970b6baccd64e5e7",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。条件→検討→対応の3区分と考える作業員・施工前後の土留の図が役割の区別に対応。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/kento-taio-kakiwake/work/candidate-scene-003": {
+      "sha": "61ac6ea09f703b83",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。図面を指す人とノートへ記録する人の2人について腕・手の接続と作業動作を確認。装飾の先生・解説名・肩書き・指定外文字なし。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/kento-taio-kakiwake/work/candidate-scene-004": {
+      "sha": "2ee9145d1f539fa2",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。検討メモと対応メモの2つを中央の準備用メモに分け、考えた内容と現場で行った内容を区別できる。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/kento-taio-kakiwake/work/candidate-scene-005": {
+      "sha": "8e352978df99095d",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。狭い資材置場と一度に保管できる量の制約を同じ資材の図で示し、指定文言に一致。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/kento-taio-kakiwake/work/candidate-scene-006": {
+      "sha": "a07737700c0140bb",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。一括搬入と分割搬入、保管量と日々の使用予定の対比が原稿に一致し、車体・荷台・積載材の図に明確な破綻なし。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/kento-taio-kakiwake/work/candidate-scene-007": {
+      "sha": "025f106a6252cf97",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。少量ずつの搬入と使用日の必要量確保という2条件を資材置場・トラック・予定表で示し、原稿に一致。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/kento-taio-kakiwake/work/candidate-scene-008": {
+      "sha": "0ca0289ed3d68997",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。納入可能日と数量、必要日と必要量、置場と供給の両立を資材・搬入車・作業予定の図で示し、直前の分割搬入の仮例に対応する。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/kento-taio-kakiwake/work/candidate-scene-009": {
+      "sha": "8985f0d873650bf2",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。搬入日と数量の決定→分割搬入の手配→現場への共有が予定表・トラック・共有ボードの図で原稿に一致し、人物の手と車体の連結に明確な破綻なし。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/kento-taio-kakiwake/work/candidate-scene-010": {
+      "sha": "7246737a8ff30a3d",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。検討した内容と実施した内容の区別、比較条件と選択理由、決めた日数量と実際の手配の文字が原稿に一致し、人物・車両・吊具に明確な破綻なし。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/kento-taio-kakiwake/work/candidate-scene-011": {
+      "sha": "64679a112790a618",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。擁壁形式の比較を除去し、一括搬入と分割搬入の検討記録→納入日数量の実績記録→自分の担当行動の確認に修正。同じ仮例とのつながりと文字を確認。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/kento-taio-kakiwake/work/candidate-scene-012": {
+      "sha": "66cd1be150c79093",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。設問の要求を確認してメモから必要部分を選び、単一の文章領域へ組み直す図となった。旧版の同じ3区分の解答欄への1対1転記を除去し、原稿の注意に一致。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/kento-taio-kakiwake/work/candidate-scene-013": {
+      "sha": "ff2daf8ad7577968",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。下の循環線と文書を除去し、現場条件→検討→対応の3ノードと短い説明だけに修正。指定文字と原稿が一致し、重要要素が上部へ収まる。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/kento-taio-kakiwake/work/candidate-scene-014": {
+      "sha": "58b58776628dd53b",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。完成答案集・安全品質工程の答案・置換ガイドと概要欄のnote案内を文書図だけで示し、指定文字に誤字・著者名・肩書きの追加なし。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
     },
     "media:civil-construction-2/kento-taio-kakiwake/youtube.longform/cover": {
       "sha": "65a2fc75505a1b0b",
@@ -1481,6 +1943,96 @@
       "reason": "参照キャラクターと整合する顔・服装、CTAを指す手と答案を持つ手が自然で、完成答案集への案内と指定8文字列が各動画の施工経験記述の用途に合う。",
       "reviewedAt": "2026-10-17T06:04:25.228Z"
     },
+    "media:civil-construction-2/koji-gaiyo-seigou/work/candidate-cover": {
+      "sha": "e7240e71848f4b09",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。下側の大きな工事概要と本文の比較図を除去し、3組の比較を各パネル内へ収めた。資格・主題と照合対の文字を360pxで判読でき、字幕領域に重要図なし。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/koji-gaiyo-seigou/work/candidate-cta": {
+      "sha": "09d6837864caca87",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。完成答案集→安全品質工程と置換ガイド→noteマガジン案内を文書とブラウザの図で示し、指定文字に誤字・著者名・肩書きの追加なし。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/koji-gaiyo-seigou/work/candidate-scene-001": {
+      "sha": "e7240e71848f4b09",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。下側の大きな工事概要と本文の比較図を除去し、3組の比較を各パネル内へ収めた。資格・主題と照合対の文字を360pxで判読でき、字幕領域に重要図なし。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/koji-gaiyo-seigou/work/candidate-scene-002": {
+      "sha": "b0a33082a258b149",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。工種と作業、工期施工量と本文範囲、立場と判断行動の3組を工事概要と本文の対として示し原稿に一致。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/koji-gaiyo-seigou/work/candidate-scene-003": {
+      "sha": "61ac6ea09f703b83",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。図面を指す人とノートへ記録する人の2人について腕・手の接続と作業動作を確認。装飾の先生・解説名・肩書き・指定外文字なし。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/koji-gaiyo-seigou/work/candidate-scene-004": {
+      "sha": "57812532ab931d62",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。概要・本文・両者のつながりを同じ橋梁工事の図と書類で示し、同じ工事として照合する説明に一致。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/koji-gaiyo-seigou/work/candidate-scene-005": {
+      "sha": "41f191bc8afa2347",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。本文の作業名を印付け、概要の工種を探し、別工事の混入を見直す順序が書類と拡大鏡の図で原稿に一致。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/koji-gaiyo-seigou/work/candidate-scene-006": {
+      "sha": "ad346b1dfd66046a",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。道路改良工事→排水構造物工→排水路の掘削の関係が原稿の仮例と一致。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/koji-gaiyo-seigou/work/candidate-scene-007": {
+      "sha": "f07f9cfbe1238479",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。工事全体と本文で扱う区間の範囲を大小の区間表示と数量単位欄で区別し、原稿に一致。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/koji-gaiyo-seigou/work/candidate-scene-008": {
+      "sha": "c545e57b644b318f",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。工期の始終、取り上げた作業の時期、実施工日と季節の照合を記録の図で示し指定文字に一致。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/koji-gaiyo-seigou/work/candidate-scene-009": {
+      "sha": "060a859c820412e8",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。担当範囲・誰が決めたか・自分が何をしたかの3区分と相談・水平確認の行動が原稿に対応。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/koji-gaiyo-seigou/work/candidate-scene-010": {
+      "sha": "fc1334cde89f5e06",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。自分が測定した場合と測定を指示した場合を別の作業員動作で示し、指定文言と人体の接続を確認。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/koji-gaiyo-seigou/work/candidate-scene-011": {
+      "sha": "be288d1ab94fd2a6",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。工種と作業、時期数量と範囲、担当と行動を3組の文書と横向き双方向矢印に修正。交差線による誤対応を除去し、指定文字と原稿が一致。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/koji-gaiyo-seigou/work/candidate-scene-012": {
+      "sha": "b0eaa9ae06179c3b",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。工種と本文作業、工期施工量と本文範囲、立場と自分の判断行動の3組が1対1の対照図となっており、原稿と指定文字に一致する。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/koji-gaiyo-seigou/work/candidate-scene-013": {
+      "sha": "09d6837864caca87",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。完成答案集→安全品質工程と置換ガイド→noteマガジン案内を文書とブラウザの図で示し、指定文字に誤字・著者名・肩書きの追加なし。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
     "media:civil-construction-2/koji-gaiyo-seigou/youtube.longform/cover": {
       "sha": "0ab5a456662b1bc4",
       "verdict": "ok",
@@ -1492,6 +2044,102 @@
       "verdict": "ok",
       "reason": "参照キャラクターと整合する顔・服装、CTAを指す手と答案を持つ手が自然で、完成答案集への案内と指定8文字列が各動画の施工経験記述の用途に合う。",
       "reviewedAt": "2026-10-17T06:04:25.228Z"
+    },
+    "media:civil-construction-2/kotei-touan-gutaika/work/candidate-cover": {
+      "sha": "fb5677cd6bb901b3",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。資格名・工程管理の経験記述・増員した理由と結果まで整理するの指定文字、遅延原因と影響・理由ある処置・結果の3図を原寸と360pxで確認。主要文字と矢印は字幕領域から離れ、肩書きや解説名なし。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/kotei-touan-gutaika/work/candidate-cta": {
+      "sha": "17ce75cd5ddb0ea2",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。完成答案集・安全品質工程の答案と置換ガイド・概要欄のnoteという文書図だけの流れで、指定文言に一致。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/kotei-touan-gutaika/work/candidate-scene-001": {
+      "sha": "fb5677cd6bb901b3",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。資格名・工程管理の経験記述・増員した理由と結果まで整理するの指定文字、遅延原因と影響・理由ある処置・結果の3図を原寸と360pxで確認。主要文字と矢印は字幕領域から離れ、肩書きや解説名なし。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/kotei-touan-gutaika/work/candidate-scene-002": {
+      "sha": "968920568f02ad8e",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。原因→影響工種→処置の選択を雨天の土工・基礎躯体への影響・排水の一般図で示し、導入の一般的な説明に対応。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/kotei-touan-gutaika/work/candidate-scene-003": {
+      "sha": "61ac6ea09f703b83",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。図面を指す人とノートへ記録する人の2人について腕・手の接続と作業動作を確認。装飾の先生・解説名・肩書き・指定外文字なし。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/kotei-touan-gutaika/work/candidate-scene-004": {
+      "sha": "2b04deb136156bf0",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。人手不足か材料待ちかを確認する分岐と、とりあえずの増員との差を示し、処置の前に理由を探す原稿に対応。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/kotei-touan-gutaika/work/candidate-scene-005": {
+      "sha": "122890c910e1bdba",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。一部の側溝製品の不足、据付待ち、条件がそろう別区間の先行が原稿の仮例に対応。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/kotei-touan-gutaika/work/candidate-scene-006": {
+      "sha": "aab7e70d2deb75fb",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。側溝製品の納入待ち→据付の遅れ→後続埋戻しの遅れの関係と指定文字を確認。誘導員は吊荷の側方に描かれる。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/kotei-touan-gutaika/work/candidate-scene-007": {
+      "sha": "484c198ab157ca81",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。側溝製品が無い待つ区間と、製品がそろう先行可能区間を工程表で照合する図に修正され、別工事のPC壁・鉄筋と吊荷を除去。原稿と指定文字の対応を確認。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/kotei-touan-gutaika/work/candidate-scene-008": {
+      "sha": "b4106ece163695f0",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。下段再掲を除去し、納入見込み確認→条件がそろう別区間先行→計画実績照合の3カードへ修正。側溝製品の納入待ちという同じ例に一致。原寸と360pxで判読し、全重要文字と図が正規化y約735以内に収まりy<820を満たす。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/kotei-touan-gutaika/work/candidate-scene-009": {
+      "sha": "95c22a2ce7279fde",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。安全な場所・機械配置の競合・品質上の手順という3確認を区画・重機配置・仕上げ作業の図で示し原稿に一致。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/kotei-touan-gutaika/work/candidate-scene-010": {
+      "sha": "d6f5cbb1179b5727",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。管渠と土留を除去し、側溝の納入見込み確認→材料安全施工条件→関係者への共有という同じ道路排水工事に修正。本文、文字、主な関係矢印が一致し、重要文字が字幕域から離れる。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/kotei-touan-gutaika/work/candidate-scene-011": {
+      "sha": "cde68a69c37690bf",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。側溝工事の据付と埋戻し、計画と実績の照合を図示し、原稿の結果確認に対応。具体的な短縮日数を創作していない。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/kotei-touan-gutaika/work/candidate-scene-012": {
+      "sha": "44173f92100d0ae1",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。原因・影響、選択理由、工程表と日報の3項目を雨天土工・排水・記録で示し、自分の別工事を問い直す原稿に対応。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/kotei-touan-gutaika/work/candidate-scene-013": {
+      "sha": "4a00b7956fc44abe",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。遅延原因→影響工種→検討処置の3つを文書・分岐・理由説明の図で示し、指定文言と字幕安全域を確認。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/kotei-touan-gutaika/work/candidate-scene-014": {
+      "sha": "17ce75cd5ddb0ea2",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。完成答案集・安全品質工程の答案と置換ガイド・概要欄のnoteという文書図だけの流れで、指定文言に一致。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
     },
     "media:civil-construction-2/kotei-touan-gutaika/youtube.longform/cover": {
       "sha": "e5cae60535b2cdf9",
@@ -1505,11 +2153,29 @@
       "reason": "参照キャラクターと整合する顔・服装、CTAを指す手と答案を持つ手が自然で、完成答案集への案内と指定8文字列が各動画の施工経験記述の用途に合う。",
       "reviewedAt": "2026-10-17T06:04:25.228Z"
     },
-    "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/cover": {
-      "sha": "b24e58035b4ad295",
+    "media:civil-construction-2/matome-2kyu-chokuzen/work/candidate-cover": {
+      "sha": "0d2376ec64e5aeaa",
       "verdict": "ok",
-      "reason": "独立AI画像監査：最終採用PNGを原寸と360pxで実見。指定4文言・ポーズ・顔と手指・安全域に問題なし。ユーザー承認は含まない。",
-      "reviewedAt": "2026-10-11T03:36:30.152Z"
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。第一次の土工・コンクリート・基礎工・法規・施工計画と第二次の施工経験記述が実際の構成と一致。上下の文字・図が上へ収まり、暗色の重要要素の最下端は1080換算y778未満で、指定y820と下端240px字幕域をクリアする。原寸・幅360pxで文字と図を確認。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/matome-2kyu-chokuzen/work/candidate-scene-001": {
+      "sha": "0d2376ec64e5aeaa",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。第一次の土工・コンクリート・基礎工・法規・施工計画と第二次の施工経験記述が実際の構成と一致。上下の文字・図が上へ収まり、暗色の重要要素の最下端は1080換算y778未満で、指定y820と下端240px字幕域をクリアする。原寸・幅360pxで文字と図を確認。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/cover": {
+      "sha": "0d2376ec64e5aeaa",
+      "verdict": "ok",
+      "reason": "第一次の土工・コンクリート・基礎工・法規・施工計画と第二次の施工経験記述が実際の構成と一致。上下の文字・図が上へ収まり、暗色の重要要素の最下端は1080換算y778未満で、指定y820と下端240px字幕域をクリアする。原寸・幅360pxで文字と図を確認。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-001": {
+      "sha": "0d2376ec64e5aeaa",
+      "verdict": "ok",
+      "reason": "第一次の土工・コンクリート・基礎工・法規・施工計画と第二次の施工経験記述が実際の構成と一致。上下の文字・図が上へ収まり、暗色の重要要素の最下端は1080換算y778未満で、指定y820と下端240px字幕域をクリアする。原寸・幅360pxで文字と図を確認。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
     },
     "media:civil-construction-2/matome-2kyu-chokuzen/youtube.longform/scene-009": {
       "sha": "aab35acafff98d1a",
@@ -1600,6 +2266,102 @@
       "verdict": "ok",
       "reason": "穴埋め・複数記述・選択問題の3形式と答え方が本文と一致。各パネルの文字は明瞭で、人物による遮蔽と下端侵入なし。",
       "reviewedAt": "2026-10-11T11:18:14.353Z"
+    },
+    "media:civil-construction-2/touan-teishutsu-check/work/candidate-cover": {
+      "sha": "c952103a7c497818",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。資格・主題・学べる関係が原稿に一致し、指定文字・人物/機械の簡略図・原寸と360pxの主題判読を確認。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/touan-teishutsu-check/work/candidate-cta": {
+      "sha": "7588d1abd3ba5acb",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。教材・練習・関連資料への案内が原稿に一致し、文書図と指定文を確認。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/touan-teishutsu-check/work/candidate-scene-001": {
+      "sha": "c952103a7c497818",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。資格・主題・学べる関係が原稿に一致し、指定文字・人物/機械の簡略図・原寸と360pxの主題判読を確認。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/touan-teishutsu-check/work/candidate-scene-002": {
+      "sha": "cbdfe21253731c0d",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。指定の3観点・条件から判断と対応までの関係を原稿と照合し、文字と簡略図を確認。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/touan-teishutsu-check/work/candidate-scene-003": {
+      "sha": "61ac6ea09f703b83",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。図面を指す人とノートへ記録する人の2人について腕・手の接続と作業動作を確認。装飾の先生・解説名・肩書き・指定外文字なし。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/touan-teishutsu-check/work/candidate-scene-004": {
+      "sha": "ae4f90b70cea530b",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。公式の採点基準ではないことと準備段階の事実確認を上部で示し、答案点検の書類図に限定。原寸・幅360pxで文字と字幕域の空きを確認。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/touan-teishutsu-check/work/candidate-scene-005": {
+      "sha": "09987ec71f3ba814",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。設問と答え、または自分の現場条件・危険・行動を問い直す短い文と図を原稿に照合。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/touan-teishutsu-check/work/candidate-scene-006": {
+      "sha": "59659e222a150cd7",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。実施内容・理由・設問との照合の区別と、人物の自然な動作を確認。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/touan-teishutsu-check/work/candidate-scene-007": {
+      "sha": "afa17c4c48a90a9b",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。現場条件→処置→理由を文書アイコンと対応文で示し、仮例の具体的な工種や架空の排水機械を追加していない。字幕域は空いている。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/touan-teishutsu-check/work/candidate-scene-008": {
+      "sha": "68b1d1a5f3c9cfb9",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。通学時間と搬入時刻の調整という仮の例を、同じ学校・トラック・通行の関係で確認。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/touan-teishutsu-check/work/candidate-scene-009": {
+      "sha": "622a98911d97c1cd",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。下書きの結論、判断根拠、日報・点検記録の照合関係と指定文字を確認。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/touan-teishutsu-check/work/candidate-scene-010": {
+      "sha": "da116fb083748be0",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。数量・日付の記録照合、未確認数字の推測禁止、確認メモの3関係を確認。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/touan-teishutsu-check/work/candidate-scene-011": {
+      "sha": "26b933e0ac104256",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。担当範囲、上司の判断、自分の行動を区別し、経験を誇張しない指定文と人物動作を確認。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/touan-teishutsu-check/work/candidate-scene-012": {
+      "sha": "00305d66e9e1fa13",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。設問と答案、条件・処置・結果、工種・時期・担当内容の整合をたどる図を確認。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/touan-teishutsu-check/work/candidate-scene-013": {
+      "sha": "00f8ffa97d5ced1a",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。指定の要点を文書・メモの対応図で示し、内容と文字が原稿に一致することを確認。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
+    },
+    "media:civil-construction-2/touan-teishutsu-check/work/candidate-scene-014": {
+      "sha": "7588d1abd3ba5acb",
+      "verdict": "ok",
+      "reason": "ai-image-fidelity-auditor: 原寸・幅360pxで本文/図の対応と字幕余白を実見。教材・練習・関連資料への案内が原稿に一致し、文書図と指定文を確認。",
+      "reviewedAt": "2026-10-18T23:44:06.172Z"
     },
     "media:civil-construction-2/touan-teishutsu-check/youtube.longform/cover": {
       "sha": "b7b1ad72d2d9a8bd",

@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-18T08:52:36.387Z",
+  "agencyId": "kyushu",
+  "agencyName": "九州地方整備局",
+  "documentId": "hikkei-common-06",
+  "role": "companion",
+  "title": "土木請負工事必携 共通編／「建設現場へのモニターカメラ設置に関する運用要領（案）について」",
+  "edition": null,
+  "sourceFile": "九州地方整備局/hikkei-common-06__土木請負工事必携_共通編_「建設現場へのモニターカメラ設置に関する運用要領(案)について」.pdf",
+  "pagesLocation": {
+    "tier": "drive-vault",
+    "vaultDir": "原資料PDF/共通仕様書/九州地方整備局/hikkei-common-06__土木請負工事必携_共通編_「建設現場へのモニターカメラ設置に関する運用要領(案)について」",
+    "note": "実体は Drive vault の原本 PDF と同名フォルダ。repo には無い。取り戻しは npm run drive-vault-sync -- --pull --path content/sources/standards/kyushu/ --commit"
+  },
+  "sourceSha256": "fbddffd44a257f36f625662d2b747b20a2398209e6da80b177a8fc81948a972a",
+  "pages": 5,
+  "render": {
+    "tool": "pdftoppm",
+    "dpi": 270,
+    "format": "jpeg",
+    "quality": 85
+  },
+  "text": {
+    "tool": "pdftotext",
+    "layout": true,
+    "splitBy": "formfeed"
+  },
+  "parts": [
+    {
+      "slug": "part-01",
+      "firstPage": 1,
+      "lastPage": 5
+    }
+  ],
+  "totalImageBytes": 1836120,
+  "printedPage": {
+    "note": "版面に刷られたページ番号。目次(front)と本文(body)で同じラベルが再使用されるため、出典は section と組で指す。",
+    "bodyStartsAtPdfPage": null,
+    "labelled": 0,
+    "ambiguous": 0
+  },
+  "pageEntries": [
+    {
+      "page": 1,
+      "image": "pages/p0001.jpg",
+      "text": "text/p0001.txt",
+      "imageBytes": 169392,
+      "imageSha256": "290ca3a05282466be994f75dbc7e9bbf2b4bbd2c9688edfa41c24b801ca434db",
+      "textChars": 159,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 2,
+      "image": "pages/p0002.jpg",
+      "text": "text/p0002.txt",
+      "imageBytes": 695507,
+      "imageSha256": "6a053c3f2ac24eb186e7578f626adbc971f5d900b2d4577eb2436ebef9090b16",
+      "textChars": 1067,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 3,
+      "image": "pages/p0003.jpg",
+      "text": "text/p0003.txt",
+      "imageBytes": 370265,
+      "imageSha256": "81a27c98c00ac6d63eb3c359813ad6eadda23349daaacaad2f1918c3b5d34fda",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 4,
+      "image": "pages/p0004.jpg",
+      "text": "text/p0004.txt",
+      "imageBytes": 170694,
+      "imageSha256": "beb6b8583b24d39a5549036d4b22c77354db4fafba7bcefd09863d7569b89465",
+      "textChars": 124,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 5,
+      "image": "pages/p0005.jpg",
+      "text": "text/p0005.txt",
+      "imageBytes": 430262,
+      "imageSha256": "002b6583ff0bdd35ed0f1518fb485ce4a46bbd2adf4a976c17c0b6989786c4ad",
+      "textChars": 614,
+      "printedPage": null,
+      "section": "body"
+    }
+  ]
+}

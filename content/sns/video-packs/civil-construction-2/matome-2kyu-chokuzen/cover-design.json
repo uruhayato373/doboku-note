@@ -11,20 +11,25 @@
       ],
       "accentLine": 1,
       "subtitle": "",
-      "character": {
-        "pose": "pop-explaining",
-        "frame": "waist"
-      },
       "design": "pop-poster-v3",
-      "pop": {
-        "variant": "listen",
-        "authority": "総監が解説"
-      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/youtube.longform/cover.b24e5803.png",
-        "sha256": "b24e58035b4ad2955f2b9309e181d714558d49da1609503c2cd59eab1b621055",
-        "specSha256": "c18bb1dac56ed971d44a192941798c4ef4942b619f4fa9241d6c4d9302bd298d"
-      }
+        "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/matome-2kyu-chokuzen--cover.0d2376ec.png",
+        "sha256": "0d2376ec64e5aeaa26cc89b07656040339b7e5caf2b8f0b54b8ac34a5f7f3567",
+        "width": 1920,
+        "height": 1080,
+        "normalization": {
+          "mode": "full-frame-v1",
+          "sourceSha256": "460f021dd3de3ae64bd129ed16546f248fe05c676e5d7215c6f133b562c0933c"
+        },
+        "source": {
+          "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/matome-2kyu-chokuzen--cover-raw.460f021d.png",
+          "sha256": "460f021dd3de3ae64bd129ed16546f248fe05c676e5d7215c6f133b562c0933c",
+          "width": 1672,
+          "height": 941
+        },
+        "specSha256": "c7ea9256288fb8937a20f4f6bef165d5da7b7521f117a0ad5e4716f2203e782f"
+      },
+      "layout": "diagram-led"
     }
   }
 }

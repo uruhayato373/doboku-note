@@ -42,11 +42,11 @@
       "caption": "総合技術監理部門の技術士で、1級・2級土木に合格した元発注者が、書いた内容を見直す視点を解説します。",
       "visual": {
         "kind": "points",
-        "heading": "解説：架（かける）",
+        "heading": "経験を整理する視点",
         "items": [
-          "技術士（総合技術監理部門）",
-          "元・地方自治体の土木職（発注者）",
-          "1級・2級土木施工管理技士 合格"
+          "現場条件",
+          "自分の対応",
+          "確認記録"
         ]
       },
       "sourceRef": "src/config/author.ts"
@@ -278,5 +278,12 @@
       },
       "sourceRef": "config/products.json"
     }
-  ]
+  ],
+  "imageDesign": {
+    "mode": "codex-pop",
+    "scope": "all-body",
+    "revision": "diagram-led-20261019",
+    "coverRevision": "diagram-led-20261019-cover",
+    "layout": "diagram-led"
+  }
 }

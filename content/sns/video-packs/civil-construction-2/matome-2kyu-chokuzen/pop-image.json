@@ -5082,6 +5082,72 @@
         "cloudMd5Matches": 465,
         "mismatches": 0
       }
+    },
+    "diagram-led-20261019": {
+      "version": "codex-pop-body-v1",
+      "date": "2026-10-19",
+      "purpose": "図解主体・控えめな配色。装飾キャラクターと著者名を除去。外部未反映。",
+      "layout": {
+        "mode": "diagram-led",
+        "canvas": {
+          "width": 1920,
+          "height": 1080
+        },
+        "subtitleSafeTop": 820
+      },
+      "images": []
+    },
+    "diagram-led-20261019-cover": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "添付の横16:9表紙を編集。文字の内容・意匠・色はそのまま。第一次と第二次の2パネル全体を上へ150px移し、高さも15%小さくする。見出し3行は少し詰める。全ての図・文字を上側70%以内に収め、下側30%は完全な白地。特に『法規・施工計画』『施工経験記述』を上げる。新しい説明・下部の文字・人物を足さない。控えめなPOP、図解メイン。1920×1080。",
+        "references": [
+          {
+            "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/matome-2kyu-chokuzen--cover-reference.fe00edff.png",
+            "sha256": "fe00edffd1f77cc25021f28cb79414f895789f4334a9fc61c3d090e45da5d4e6"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/matome-2kyu-chokuzen--cover-raw.460f021d.png",
+          "sha256": "460f021dd3de3ae64bd129ed16546f248fe05c676e5d7215c6f133b562c0933c",
+          "width": 1672,
+          "height": 941
+        },
+        "generatedAt": "2026-10-18T23:27:47.645Z"
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-2/matome-2kyu-chokuzen/work/matome-2kyu-chokuzen--cover.0d2376ec.png",
+        "sha256": "0d2376ec64e5aeaa26cc89b07656040339b7e5caf2b8f0b54b8ac34a5f7f3567",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "460f021dd3de3ae64bd129ed16546f248fe05c676e5d7215c6f133b562c0933c"
+      },
+      "review": {
+        "status": "ok",
+        "by": "ai-image-fidelity-auditor",
+        "at": "2026-10-18T23:29:24.815Z",
+        "scope": "原寸・360px・本文/前後関係・字幕安全域",
+        "reason": "第一次の土工・コンクリート・基礎工・法規・施工計画と第二次の施工経験記述が実際の構成と一致。上下の文字・図が上へ収まり、暗色の重要要素の最下端は1080換算y778未満で、指定y820と下端240px字幕域をクリアする。原寸・幅360pxで文字と図を確認。"
+      },
+      "videoReview": {
+        "status": "ok",
+        "by": "video-content-qa",
+        "at": "2026-10-18T23:55:44.246Z",
+        "mp4Sha256": "1d67b5adf8f83d292b752e58c8c0c2c577d4bf1e8f3b2f6a8871c803a499bfa1",
+        "scope": "初期131場面中点の実見＋変更5場面の最終実見・不変126採用PNGのSHA照合。全131場面の最終encoded照合。",
+        "evidence": {
+          "path": ".tmp/media/_brand/diagram-led/qa-report.1cd922fe.json",
+          "sha256": "1cd922fec2a44ce403978bfa74b1746934c01ba135b8b5c07e15cd6dc67dba69"
+        }
+      }
     }
-  }
+  },
+  "activeCoverRevision": "diagram-led-20261019-cover"
 }

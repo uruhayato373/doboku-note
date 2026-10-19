@@ -58,7 +58,8 @@ function main() {
 
         assert(markdown.startsWith('---\n'), `${document.id}/${chapter.id}: frontmatterがない`);
         assert(markdown.includes(`sourceSha256: "${document.sourceSha256}"`), `${document.id}/${chapter.id}: 原本SHAがない`);
-        assert(markdown.includes('\n\n## '), `${document.id}/${chapter.id}: 本文見出し前の空行がない`);
+        // 原本が章名だけの章（bodyless）は見出しを持たない
+        assert(chapter.bodyless || markdown.includes('\n\n## '), `${document.id}/${chapter.id}: 本文見出し前の空行がない`);
         assert(source?.publisher?.['@id'] !== SITE_ORGANIZATION_ID, `${document.id}/${chapter.id}: 原資料publisherが加工主体と同一`);
         assert(article?.publisher?.['@id'] === SITE_ORGANIZATION_ID, `${document.id}/${chapter.id}: 加工記事publisherがdoboku-noteでない`);
         assert(article?.encoding?.length === 2, `${document.id}/${chapter.id}: Markdown/JSON-LD encodingが揃っていない`);

@@ -11,20 +11,25 @@
       ],
       "accentLine": 1,
       "subtitle": "担当した管理を探す",
-      "character": {
-        "pose": "checklist-pen",
-        "frame": "waist"
-      },
       "design": "pop-poster-v3",
-      "pop": {
-        "variant": "explain",
-        "authority": "総監・元発注者"
-      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/youtube.longform/cover.88c9abd2.png",
-        "sha256": "88c9abd2531fa9bd1014e8062c6945491141d5c0151a4de1e17bd565b5223981",
-        "specSha256": "4a6de06578663043ee307b785612f11185ee7ab130963a0976bae084139c1c15"
-      }
+        "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--cover.96bffe0d.png",
+        "sha256": "96bffe0d60f0deed4d6c425e9cffdc0c7ea4bc86cd22c0fd731cce7386d3feef",
+        "width": 1920,
+        "height": 1080,
+        "normalization": {
+          "mode": "full-frame-v1",
+          "sourceSha256": "b2e060d2aaa7f88c539aefacc247eafd9e9bdd467e5ed3f6f746a89d3eb32df5"
+        },
+        "source": {
+          "path": ".tmp/media/civil-construction-2/keiken-daizai-erabi/work/keiken-daizai-erabi--cover-raw.b2e060d2.png",
+          "sha256": "b2e060d2aaa7f88c539aefacc247eafd9e9bdd467e5ed3f6f746a89d3eb32df5",
+          "width": 1672,
+          "height": 941
+        },
+        "specSha256": "fbe5bc2e6ba0e573c039dff4abde8ad24e306ff9e2ca7602aa86d839440ecc57"
+      },
+      "layout": "diagram-led"
     }
   }
 }

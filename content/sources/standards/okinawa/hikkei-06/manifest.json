@@ -1,0 +1,145 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-18T08:54:40.455Z",
+  "agencyId": "okinawa",
+  "agencyName": "沖縄総合事務局",
+  "documentId": "hikkei-06",
+  "role": "companion",
+  "title": "土木請負工事必携／建設工事に伴う騒音振動対策技術指針",
+  "edition": null,
+  "sourceFile": "沖縄総合事務局/hikkei-06__土木請負工事必携_建設工事に伴う騒音振動対策技術指針.pdf",
+  "pagesLocation": {
+    "tier": "drive-vault",
+    "vaultDir": "原資料PDF/共通仕様書/沖縄総合事務局/hikkei-06__土木請負工事必携_建設工事に伴う騒音振動対策技術指針",
+    "note": "実体は Drive vault の原本 PDF と同名フォルダ。repo には無い。取り戻しは npm run drive-vault-sync -- --pull --path content/sources/standards/okinawa/ --commit"
+  },
+  "sourceSha256": "4cae4d457840e72db24d3d5728625b530d33c11366cb05b532d0333ab2aea142",
+  "pages": 10,
+  "render": {
+    "tool": "pdftoppm",
+    "dpi": 270,
+    "format": "jpeg",
+    "quality": 85
+  },
+  "text": {
+    "tool": "pdftotext",
+    "layout": true,
+    "splitBy": "formfeed"
+  },
+  "parts": [
+    {
+      "slug": "part-01",
+      "firstPage": 1,
+      "lastPage": 10
+    }
+  ],
+  "totalImageBytes": 5026582,
+  "printedPage": {
+    "note": "版面に刷られたページ番号。目次(front)と本文(body)で同じラベルが再使用されるため、出典は section と組で指す。",
+    "bodyStartsAtPdfPage": null,
+    "labelled": 0,
+    "ambiguous": 0
+  },
+  "pageEntries": [
+    {
+      "page": 1,
+      "image": "pages/p0001.jpg",
+      "text": "text/p0001.txt",
+      "imageBytes": 193414,
+      "imageSha256": "fb41443f2e5385fd6203315e8fb7e30cb60994a59bea9de4d173dbbb1fc70b19",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 2,
+      "image": "pages/p0002.jpg",
+      "text": "text/p0002.txt",
+      "imageBytes": 346651,
+      "imageSha256": "23e42dcb8d64e3dfd284000b111c3f0616a5232f54ef44d068221876fdc61731",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 3,
+      "image": "pages/p0003.jpg",
+      "text": "text/p0003.txt",
+      "imageBytes": 638149,
+      "imageSha256": "807c8efd8950f48ca8bdbdaefebeb949c8d7c3ead7245f88d7cd3922d6675483",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 4,
+      "image": "pages/p0004.jpg",
+      "text": "text/p0004.txt",
+      "imageBytes": 669742,
+      "imageSha256": "237a64793bcb39ad9457eb02eeb300e988730667a6c032e3746f24aa80596812",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 5,
+      "image": "pages/p0005.jpg",
+      "text": "text/p0005.txt",
+      "imageBytes": 551579,
+      "imageSha256": "cf50be2e49b00e2b9a76ee4840eebde5ca0098c344c99404aee88cc8c7ca8fd6",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 6,
+      "image": "pages/p0006.jpg",
+      "text": "text/p0006.txt",
+      "imageBytes": 574276,
+      "imageSha256": "592f47b8125eb656f73a33a3b60877ae1dbda6a332aea12d5b3954d9fb200135",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 7,
+      "image": "pages/p0007.jpg",
+      "text": "text/p0007.txt",
+      "imageBytes": 586678,
+      "imageSha256": "5359f1e1da1788e19c01c410be361f9ef72be381380a152ccdedf269c6097ac7",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 8,
+      "image": "pages/p0008.jpg",
+      "text": "text/p0008.txt",
+      "imageBytes": 559299,
+      "imageSha256": "ff36ce36a73a3176a131274df5c90c122344e4153a7fd31eb90a55abca5b64fb",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 9,
+      "image": "pages/p0009.jpg",
+      "text": "text/p0009.txt",
+      "imageBytes": 577855,
+      "imageSha256": "75acbb16c6c53392d7bc76e01ad00e10f70852a263710da176013246f215ca38",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 10,
+      "image": "pages/p0010.jpg",
+      "text": "text/p0010.txt",
+      "imageBytes": 328939,
+      "imageSha256": "e8714b7120980bebf6e7f0d9f1d985e5fadedc30132a1695e59e7dcc2e5cdd58",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    }
+  ]
+}

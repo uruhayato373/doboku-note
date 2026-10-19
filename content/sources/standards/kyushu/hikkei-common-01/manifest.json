@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-18T08:52:23.673Z",
+  "agencyId": "kyushu",
+  "agencyName": "九州地方整備局",
+  "documentId": "hikkei-common-01",
+  "role": "companion",
+  "title": "土木請負工事必携 共通編／「施工体制台帳」",
+  "edition": null,
+  "sourceFile": "九州地方整備局/hikkei-common-01__土木請負工事必携_共通編_「施工体制台帳」.pdf",
+  "pagesLocation": {
+    "tier": "drive-vault",
+    "vaultDir": "原資料PDF/共通仕様書/九州地方整備局/hikkei-common-01__土木請負工事必携_共通編_「施工体制台帳」",
+    "note": "実体は Drive vault の原本 PDF と同名フォルダ。repo には無い。取り戻しは npm run drive-vault-sync -- --pull --path content/sources/standards/kyushu/ --commit"
+  },
+  "sourceSha256": "71b21fce0e8bf5308c7def77c99101af073cc859503d0b8dc4155a9875f3f9ba",
+  "pages": 8,
+  "render": {
+    "tool": "pdftoppm",
+    "dpi": 270,
+    "format": "jpeg",
+    "quality": 85
+  },
+  "text": {
+    "tool": "pdftotext",
+    "layout": true,
+    "splitBy": "formfeed"
+  },
+  "parts": [
+    {
+      "slug": "part-01",
+      "firstPage": 1,
+      "lastPage": 8
+    }
+  ],
+  "totalImageBytes": 4018340,
+  "printedPage": {
+    "note": "版面に刷られたページ番号。目次(front)と本文(body)で同じラベルが再使用されるため、出典は section と組で指す。",
+    "bodyStartsAtPdfPage": null,
+    "labelled": 0,
+    "ambiguous": 0
+  },
+  "pageEntries": [
+    {
+      "page": 1,
+      "image": "pages/p0001.jpg",
+      "text": "text/p0001.txt",
+      "imageBytes": 212149,
+      "imageSha256": "0b48f650b7b40e165ba1859d36a13b3de1b78a6059623127bb69da5e064686ac",
+      "textChars": 451,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 2,
+      "image": "pages/p0002.jpg",
+      "text": "text/p0002.txt",
+      "imageBytes": 555749,
+      "imageSha256": "b7c273db564ee70cce555a140637bdfa7fff5e7f997ea9540ed271e2745c49ac",
+      "textChars": 1173,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 3,
+      "image": "pages/p0003.jpg",
+      "text": "text/p0003.txt",
+      "imageBytes": 380785,
+      "imageSha256": "eecfc72d06649ee31d0ad6dc44c9fd5b4153d1f2c1ad79be5995034e00af657f",
+      "textChars": 889,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 4,
+      "image": "pages/p0004.jpg",
+      "text": "text/p0004.txt",
+      "imageBytes": 394517,
+      "imageSha256": "d9b4f905cf37509bf8a3c3cb854978e7e7ad0644155d94d8acf1a8175053c19c",
+      "textChars": 527,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 5,
+      "image": "pages/p0005.jpg",
+      "text": "text/p0005.txt",
+      "imageBytes": 520414,
+      "imageSha256": "df68b2e3219284de8a45a7254fa64d5b3240cf4aba90e6f2f463a938ee0656ce",
+      "textChars": 1693,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 6,
+      "image": "pages/p0006.jpg",
+      "text": "text/p0006.txt",
+      "imageBytes": 540385,
+      "imageSha256": "519c62ea4f5dfd529747114a99bf75a071f9f2da18e760f93faa2b687b89aa9a",
+      "textChars": 1752,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 7,
+      "image": "pages/p0007.jpg",
+      "text": "text/p0007.txt",
+      "imageBytes": 873192,
+      "imageSha256": "0c5dfdaa6536b00bfdca40281e3389ed57de8cbfa757b6167f386e7450c5d7c9",
+      "textChars": 3903,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 8,
+      "image": "pages/p0008.jpg",
+      "text": "text/p0008.txt",
+      "imageBytes": 541149,
+      "imageSha256": "af3a55041d9f97a2944994bcdad8fdd335a76da323b0e65a0ac52ad08eb8fe24",
+      "textChars": 1780,
+      "printedPage": null,
+      "section": "body"
+    }
+  ]
+}

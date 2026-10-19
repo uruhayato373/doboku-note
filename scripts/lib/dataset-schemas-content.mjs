@@ -225,7 +225,7 @@ export const RegistryPublications = z
 // ---- 素材（content/registry/media/{exam}.json・brand.json） ---------------------------------------------
 
 const Provenance = z.discriminatedUnion('kind', [
-  z.object({ kind: z.literal('render'), by: z.string().describe('描いたスクリプト'), spec: z.string().optional(), specSha256: sha256.optional(), tts: z.object({ engine: z.string(), speaker: z.number().int(), credit: z.string() }).strict().optional() }).strict(),
+  z.object({ kind: z.literal('render'), by: z.string().describe('描いたスクリプト'), spec: z.string().optional(), specSha256: sha256.optional(), renderInputSha256: sha256.optional(), tts: z.object({ engine: z.string(), speaker: z.number().int(), credit: z.string() }).strict().optional() }).strict(),
   z.object({ kind: z.literal('template'), by: z.string(), spec: z.string().optional(), specSha256: sha256.optional() }).strict(),
   z.object({ kind: z.literal('ai-generated'), tool: z.string(), model: z.string().optional(), prompt: z.string().min(1), promptSha256: sha256, generatedAt: utcTime('生成した時刻') }).strict(),
   z.object({ kind: z.literal('photo'), source: z.string() }).strict(),
