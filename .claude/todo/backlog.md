@@ -1897,6 +1897,16 @@ Windows（autocrlf で MDX が CRLF）で npm run refresh-indexes を回すと�
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-0770] 手元の PDF を Google ドライブに移し、ローカルに原本を残さない
+タグ: [インフラ・計測] [領域:サイト] [種類:改善] [起票:2026-10-19]
+
+**起点**: obsidian の TODO マスタ（^t-0003「PDF を Google ドライブに移す」・2026-09 以前のメモ）から移管（2026-10-19）。対象の PDF の範囲はメモに無いので、着手時にまず洗い出す。置き場の決め方は .claude/shared-policy/LOCAL-DATA.md（人か手元のスクリプトだけが使う → Google Drive vault）と asset-storage-policy.md §1。
+
+**やること**: 手元にだけある PDF（content/ 配下の原本・配布 PDF など）を洗い出し、drive-vault の経路で Drive へ移して台帳に載せる。
+
+**完了条件**: npm run check-local-data と npm run check-drive-vault が通り、手元にしか無い PDF が 0 件。
+
+
 ### [DN-0769] 地方版の要綱 5 組（薬液注入 2・アンカーボルト・六価クロム・NATM）の版を原本の画像で確かめて重複整理に入れる
 タグ: [領域:サイト] [時期:2026-11] [種類:改善] [起票:2026-10-19]
 
