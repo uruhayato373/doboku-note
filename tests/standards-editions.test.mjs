@@ -60,3 +60,13 @@ test('目次（outline）の項目が本文に無ければ解析を止める（�
   assert.equal(analysis.reviewQueue.length, 0);
   assert.equal(analysis.chapters.length, 19);
 });
+
+test('冊子の項目単位の重複は、その項目の章だけを索引から外す（近畿の必携）', () => {
+  const manifest = JSON.parse(readFileSync(join(REPO_ROOT, 'content', 'site', 'standards-articles', 'kinki', 'hikkei', 'manifest.json'), 'utf8')); // path-literal-ok: 生成物の manifest を読む
+  const chaptersOf = (item) => manifest.chapters.filter((chapter) => chapter.item === item);
+  // 14 項（公衆災害防止対策要綱）は九州版を載せるので外す。12 項（安全施工技術指針・令和6年3月）は近畿が新しい版なので載せる
+  assert.ok(chaptersOf(14).length > 0 && chaptersOf(14).every((chapter) => !chapter.indexable && chapter.editionCanonical?.document === 'kyushu/hikkei-common-10'));
+  assert.ok(chaptersOf(12).length > 0 && chaptersOf(12).every((chapter) => chapter.indexable));
+  // 項目番号は総目次の 1〜38 を外れない
+  assert.ok(manifest.chapters.every((chapter) => chapter.item >= 1 && chapter.item <= 38), '項目番号の無い章・範囲外の章がある');
+});

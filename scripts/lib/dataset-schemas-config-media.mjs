@@ -376,7 +376,7 @@ export const ConfigStandardsStructure = z
             printPageRequired: z.literal(false).optional().describe('印刷ページ番号の無いページを review に出さない'),
             chapterSource: z.enum(['headings', 'outline']).optional().describe('章を柱でなく本文中の見出し（headings）か設定の目次（outline）で切る'),
             runningHeaderPattern: z.string().min(1).optional().describe('各ページ先頭の柱の形（正規表現の文字列・outline の文書）'),
-            articleStyle: z.literal('dai').optional().describe('要綱の「第１ 目的」を条の見出しにする'),
+            articleStyle: z.enum(['dai', 'none']).optional().describe('dai＝要綱の「第１ 目的」を条の見出しにする・none＝条を読まない'),
             fullWidthClauses: z.literal(true).optional().describe('全角数字の項番号も項として読む'),
             outlineBook: z.string().min(1).optional().describe('編を持たない文書の編の名前（既定は文書の題名）'),
             outline: z
@@ -388,6 +388,7 @@ export const ConfigStandardsStructure = z
                     occurrence: z.number().int().positive().optional().describe('同じ行が複数あるときの何番目か'),
                     book: z.literal(true).optional().describe('編の見出し'),
                     chapter: z.literal(true).optional().describe('編と同時にその題名の章も始める'),
+                    item: z.number().int().positive().optional().describe('冊子の項目番号（編の項目に付ける・editionCanonical の item と結ぶ）'),
                     plainArticles: z.literal(true).optional().describe('その章では要綱の第N を条の見出しにしない'),
                     front: z.literal(true).optional().describe('次の項目までを中扉・目次として章に入れない'),
                     title: z.string().min(1).optional().describe('表示する題名（原本の誤読・折り返しを正す）'),

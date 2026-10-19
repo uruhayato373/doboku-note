@@ -22,6 +22,9 @@ export function editionGroups(config) {
 /**
  * 文書（または冊子の項目）が群の canonical でない側なら、その群と自分の項目を返す。canonical か群に無ければ null。
  * item を渡さないときは文書まるごとの項目だけを見る（冊子の項目は文書全体の索引を変えない）。
+ * @param {object} config
+ * @param {string} document
+ * @param {number | null} [item]
  */
 export function editionDuplicateOf(config, document, item = null) {
   const key = keyOf({ document, item });

@@ -49,8 +49,9 @@ function listArticles() {
   return readdirSync(POSTS, { recursive: true, withFileTypes: false })
     .map((p) => String(p).replace(/\\/g, "/"))
     // standards-library は原本の逐語文字起こし。別分冊の「表N.M」参照も原文どおり保持するため、
-    // 編集記事向けの「同一記事内にキャプション必須」規則を適用しない。
-    .filter((p) => /\/[^/]+\.(mdx|md)$/.test(p) && !p.includes("/img/") && !p.startsWith("standards-library/"))
+    // 編集記事向けの「同一記事内にキャプション必須」規則を適用しない。そこから生成した章記事（standards-articles）も
+    // 本文は原文のままで、「舗装施工便覧 表3.3.17」のような他の図書の表への参照を含むので同じく対象外。
+    .filter((p) => /\/[^/]+\.(mdx|md)$/.test(p) && !p.includes("/img/") && !p.startsWith("standards-library/") && !p.startsWith("standards-articles/"))
     .map((rel) => join(POSTS, rel));
 }
 
@@ -66,7 +67,7 @@ function stagedArticles() {
   return out
     .split("\n")
     .map((l) => l.trim().replace(/\\/g, "/"))
-    .filter((l) => /^\content\/site\/.+\.(mdx|md)$/.test(l) && !l.includes("/img/") && !l.includes("/standards-library/"))
+    .filter((l) => /^\content\/site\/.+\.(mdx|md)$/.test(l) && !l.includes("/img/") && !l.includes("/standards-library/") && !l.includes("/standards-articles/"))
     .map((l) => join(ROOT, l));
 }
 

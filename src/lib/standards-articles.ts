@@ -61,6 +61,8 @@ export type StandardChapter = {
   sections: StandardChapterSection[];
   /** 節を持たない章の条（要綱の `第1 目的`）。節の中の条は sections 側 */
   articles?: StandardChapterArticle[];
+  /** 冊子の項目番号（近畿の必携の総目次の番号）。設定 editionCanonical の item と結ぶ */
+  item?: number;
   /** 設定で条の見出しを止めた章（見出しを持たない説明資料） */
   plainArticles?: boolean;
   stats: Record<string, number>;

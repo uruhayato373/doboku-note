@@ -1,13 +1,19 @@
 import Link from 'next/link';
 import SectionCard from '@/components/ui/SectionCard/SectionCard';
 import { getStandardDocument, getStandardEditionDuplicate, standardDocumentPath } from '@/lib/standards';
+import { getStandardChapters, standardChapterPath } from '@/lib/standards-articles';
 import type { StandardDocument, StandardPart } from '@/lib/standards';
 
-export default function StandardsAttribution({ document, part }: { document?: StandardDocument; part?: StandardPart }) {
-  // 同じ要綱を他の機関・版でも収録していて、この文書は索引に載せない側なら、載せている 1 本へ案内する
-  const edition = document ? getStandardEditionDuplicate(document) : null;
+export default function StandardsAttribution({ document, part, item }: { document?: StandardDocument; part?: StandardPart; item?: number | undefined }) {
+  // 同じ要綱を他の機関・版でも収録していて、この文書（冊子の項目）は索引に載せない側なら、載せている 1 本へ案内する
+  const edition = document ? getStandardEditionDuplicate(document, item ?? null) : null;
   const [canonicalAgency = '', canonicalId = ''] = edition ? edition.canonical.document.split('/') : [];
   const canonical = edition ? getStandardDocument(canonicalAgency, canonicalId) : null;
+  // 載せている側が冊子の項目なら、その項目の最初の章へ（章記事が無ければ文書ページ）
+  const canonicalChapter = edition?.canonical.item && canonical
+    ? getStandardChapters(canonicalAgency, canonicalId).find((chapter) => chapter.item === edition.canonical.item)
+    : undefined;
+  const canonicalHref = canonical ? (canonicalChapter ? standardChapterPath(canonical, canonicalChapter) : standardDocumentPath(canonical)) : '';
   return (
     <SectionCard as="aside" title="出典・利用上の注意" padding="compact" className="mt-8">
       <div className="space-y-2 text-[13px] leading-[1.8] text-(--ink-body)">
@@ -41,7 +47,7 @@ export default function StandardsAttribution({ document, part }: { document?: St
         {edition && canonical && (
           <p>
             同じ「{edition.title}」を
-            <Link href={standardDocumentPath(canonical)} className="text-(--accent) underline underline-offset-4">
+            <Link href={canonicalHref} className="text-(--accent) underline underline-offset-4">
               {canonical.agencyName}「{canonical.title}」{edition.canonical.item ? `の ${edition.canonical.item} 項` : ''}
             </Link>
             （{edition.canonical.edition}）でも掲載しています。検索にはそちらを載せ、この収録（{edition.edition}）は原本どおり読める状態で残しています。

@@ -218,7 +218,7 @@ export default async function StandardSectionPage({ params }: { params: Promise<
             <QualificationBridge placement="standards-chapter-footer" />
           </div>
           <AffiliateSlot page={{ pageKind: 'standards' }} slot="standards-end" className="mt-6" />
-          <StandardsAttribution document={entry} />
+          <StandardsAttribution document={entry} item={chapter.item} />
         </SectionCard>
       </TwoColumnShell>
     </PageShell>
