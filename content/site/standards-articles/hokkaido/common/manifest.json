@@ -38,14 +38,15 @@
     "tables": 163,
     "tablesGfm": 6,
     "tablesList": 33,
-    "tablesOverride": 120,
-    "tablesVerbatim": 4
+    "tablesOverride": 119,
+    "tablesVerbatim": 5
   },
   "tableOutcomes": {
     "override-verbatim": 4,
-    "restored-override": 120,
+    "restored-override": 119,
     "restored-standards-list": 33,
-    "restored": 6
+    "restored": 6,
+    "too-few-rows": 1
   },
   "removedSamples": {
     "runningHeaders": [
@@ -2147,8 +2148,8 @@
         376
       ],
       "sourceSha256": "097eecc7dc7a6bd3827f2d9b9ffc6903b98dac9fcec6d8ef2148aa4b3497e4db",
-      "outputSha256": "42ff8d6458b0e5dfaa758de9dd2d38428a2f62aba8eade427dfb1b94e4b8f6d7",
-      "outputBytes": 466265,
+      "outputSha256": "f7d17f5b961bf1ff66cbe0ec751ff9655d112e7125d61dfc6a4e6b65c8e4d21e",
+      "outputBytes": 466277,
       "splitBySection": true,
       "sections": [
         {
@@ -3253,14 +3254,15 @@
         "captions": 13,
         "tablesGfm": 3,
         "tablesList": 1,
-        "tablesOverride": 54,
-        "tablesVerbatim": 1
+        "tablesOverride": 53,
+        "tablesVerbatim": 2
       },
       "tableOutcomes": {
         "restored-standards-list": 1,
-        "restored-override": 54,
+        "restored-override": 53,
         "restored": 3,
-        "override-verbatim": 1
+        "override-verbatim": 1,
+        "too-few-rows": 1
       },
       "indexable": false,
       "duplicateOf": null,
