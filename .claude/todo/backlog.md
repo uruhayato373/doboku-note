@@ -405,6 +405,7 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **完了条件**: 既存画像を変更したケースで、記事が参照する通常URLの実体が変更後SHA-256と一致することを機械検査する。対象数・実検査数・不一致数を出し、0件や取得失敗はPASSにしない。既存の配信テスト・本番SSR検査も通る。
 
+**進捗（2026-10-20）**: PR #1134 を develop へマージ。r2-sync が送った画像を `upload-images-r2 --changed-out` で書き出し、`scripts/purge-r2-changed.mjs` が上書き分を URL で purge してから全件の通常 URL を SHA-256 で照合する（対象・実検査・一致・旧版・取得失敗を出し、旧版は exit 1・取れない URL は exit 2）。手元で一致・不一致・0 件の 3 通りを確認。**残り**: (1) 今のトークンにはキャッシュ パージ権限が無い（ダッシュボードで確認）ので、運営者が doboku-note.com の「キャッシュ パージ」＋「ゾーン 読み取り」のトークンを作り `CLOUDFLARE_CACHE_PURGE_TOKEN` に登録する (2) main への反映後、既存画像を上書きした r2-sync の run で照合が一致 N/N になることを確かめてこのカードを閉じる。
 
 ### [DN-0755] 公的基準の章記事で表から外れた行・見出しの断片（近畿版 7〜8 件）を表へ戻す
 タグ: [領域:サイト] [時期:2026-10] [種類:不具合] [検証:check-standard-articles] [起票:2026-10-16]
