@@ -4624,6 +4624,23 @@
       "commit": "e6268362daf3",
       "verification": "check-claude-md-size ✓ / check-codex-compat PASS / quality-audit --report-only の失敗を全件振り分け",
       "note": "CLAUDE.md §9 に「落ちた検査を『以前から』『無関係』で素通りさせない（直すか起票）」を追記し AGENTS.md を再生成（PR #1137）。いま落ちている検査: CI と重要 workflow は緑、ops 区分 5 件は自動 Issue #571（月次 8b で振り分け）、knip は週次棚卸し＋check-knip-ratchet、disk-hygiene と手元での EPUB 未取り戻しは DN-0777、kindle-epub-leak の 0 冊時の誤った案内は直した"
+    },
+    {
+      "id": "DN-0735",
+      "at": "2026-10-20",
+      "task": "Lighthouse CI の performance warn が 1級 secondary/r06（0.66〜0.69）で PR の 6 割に出続けるのを直す",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "doc",
+        "ref": ".github/workflows/lighthouse.yml"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "40746d022111",
+      "verification": "lighthouse.yml の直近 23 回（Checking assertions against 4 URL(s)）で performance warn 0",
+      "note": "原因は lhci が測る npm run serve が無圧縮だったこと（本番の r06 は 0.89）。serve を br/gzip にした PR #1063 の後、lighthouse.yml の直近 24 回のうち判定まで進んだ 23 回（10/17〜10/19）で categories.performance の warn は 0 回。再発は lighthouse.yml（PR ごとの lhci）が warn で示す"
     }
   ]
 }
