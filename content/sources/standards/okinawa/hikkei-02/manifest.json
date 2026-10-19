@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-18T08:54:22.935Z",
+  "agencyId": "okinawa",
+  "agencyName": "沖縄総合事務局",
+  "documentId": "hikkei-02",
+  "role": "companion",
+  "title": "土木請負工事必携／鋼橋付属品用鋼材(厚鋼板)の規格及び板厚の限定(案)について",
+  "edition": null,
+  "sourceFile": "沖縄総合事務局/hikkei-02__土木請負工事必携_鋼橋付属品用鋼材(厚鋼板)の規格及び板厚の限定(案)について.pdf",
+  "pagesLocation": {
+    "tier": "drive-vault",
+    "vaultDir": "原資料PDF/共通仕様書/沖縄総合事務局/hikkei-02__土木請負工事必携_鋼橋付属品用鋼材(厚鋼板)の規格及び板厚の限定(案)について",
+    "note": "実体は Drive vault の原本 PDF と同名フォルダ。repo には無い。取り戻しは npm run drive-vault-sync -- --pull --path content/sources/standards/okinawa/ --commit"
+  },
+  "sourceSha256": "81c2191b211f7ba40d6209dc585f30592e64c4e13ed457435db5be78e0ecd959",
+  "pages": 3,
+  "render": {
+    "tool": "pdftoppm",
+    "dpi": 270,
+    "format": "jpeg",
+    "quality": 85
+  },
+  "text": {
+    "tool": "pdftotext",
+    "layout": true,
+    "splitBy": "formfeed"
+  },
+  "parts": [
+    {
+      "slug": "part-01",
+      "firstPage": 1,
+      "lastPage": 3
+    }
+  ],
+  "totalImageBytes": 908237,
+  "printedPage": {
+    "note": "版面に刷られたページ番号。目次(front)と本文(body)で同じラベルが再使用されるため、出典は section と組で指す。",
+    "bodyStartsAtPdfPage": null,
+    "labelled": 0,
+    "ambiguous": 0
+  },
+  "pageEntries": [
+    {
+      "page": 1,
+      "image": "pages/p0001.jpg",
+      "text": "text/p0001.txt",
+      "imageBytes": 159164,
+      "imageSha256": "420bf4cbffab3f60621e1fcf1db097e7147dccae6a83fc4a6b8716c87d0086f9",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 2,
+      "image": "pages/p0002.jpg",
+      "text": "text/p0002.txt",
+      "imageBytes": 580391,
+      "imageSha256": "d21324931669cfb11753dad83ce503583715bc75e1ff532839d93be1b09241fd",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 3,
+      "image": "pages/p0003.jpg",
+      "text": "text/p0003.txt",
+      "imageBytes": 168682,
+      "imageSha256": "d6cd9ef6932547dd4685882058cfcfc132810c26d5d0be341df4f9b57cf0619a",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    }
+  ]
+}

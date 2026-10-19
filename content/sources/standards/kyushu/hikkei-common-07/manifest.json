@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-18T08:52:39.801Z",
+  "agencyId": "kyushu",
+  "agencyName": "九州地方整備局",
+  "documentId": "hikkei-common-07",
+  "role": "companion",
+  "title": "土木請負工事必携 共通編／「工事監督におけるワンデーレスポンス実施運用（案）」",
+  "edition": null,
+  "sourceFile": "九州地方整備局/hikkei-common-07__土木請負工事必携_共通編_「工事監督におけるワンデーレスポンス実施運用(案)」.pdf",
+  "pagesLocation": {
+    "tier": "drive-vault",
+    "vaultDir": "原資料PDF/共通仕様書/九州地方整備局/hikkei-common-07__土木請負工事必携_共通編_「工事監督におけるワンデーレスポンス実施運用(案)」",
+    "note": "実体は Drive vault の原本 PDF と同名フォルダ。repo には無い。取り戻しは npm run drive-vault-sync -- --pull --path content/sources/standards/kyushu/ --commit"
+  },
+  "sourceSha256": "36409316c58a9d10e7b3543eec74c44837a418b46f37b2d400d8d863eec2f1a1",
+  "pages": 7,
+  "render": {
+    "tool": "pdftoppm",
+    "dpi": 270,
+    "format": "jpeg",
+    "quality": 85
+  },
+  "text": {
+    "tool": "pdftotext",
+    "layout": true,
+    "splitBy": "formfeed"
+  },
+  "parts": [
+    {
+      "slug": "part-01",
+      "firstPage": 1,
+      "lastPage": 7
+    }
+  ],
+  "totalImageBytes": 4349143,
+  "printedPage": {
+    "note": "版面に刷られたページ番号。目次(front)と本文(body)で同じラベルが再使用されるため、出典は section と組で指す。",
+    "bodyStartsAtPdfPage": null,
+    "labelled": 0,
+    "ambiguous": 0
+  },
+  "pageEntries": [
+    {
+      "page": 1,
+      "image": "pages/p0001.jpg",
+      "text": "text/p0001.txt",
+      "imageBytes": 154894,
+      "imageSha256": "bf267a50b3522067a990cb59feac1eccbbd1c8ab2753a3dd2583dea7a4c3f60a",
+      "textChars": 125,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 2,
+      "image": "pages/p0002.jpg",
+      "text": "text/p0002.txt",
+      "imageBytes": 861081,
+      "imageSha256": "bf47b7cdc6318650ddf68499a460185db657ec9e153663b9b5e054e9064c7977",
+      "textChars": 1464,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 3,
+      "image": "pages/p0003.jpg",
+      "text": "text/p0003.txt",
+      "imageBytes": 622025,
+      "imageSha256": "8283b012207abff49c7010b1b5c7de9f749066b4bbc3fe639fddb764a72c5692",
+      "textChars": 445,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 4,
+      "image": "pages/p0004.jpg",
+      "text": "text/p0004.txt",
+      "imageBytes": 353799,
+      "imageSha256": "f2c125c9b5ba28c597e866ff945b01cdcf315d11c9df9db37a6570991e75ca2d",
+      "textChars": 486,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 5,
+      "image": "pages/p0005.jpg",
+      "text": "text/p0005.txt",
+      "imageBytes": 384300,
+      "imageSha256": "aabb0c0554aac6f6b51917ddfaac251e02eb7679bc69202735c0016f1c2c58f8",
+      "textChars": 1098,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 6,
+      "image": "pages/p0006.jpg",
+      "text": "text/p0006.txt",
+      "imageBytes": 1115077,
+      "imageSha256": "3eed065e439effca5d041b9bd0687b4291368572bfe3da12f947c0105a23b736",
+      "textChars": 1901,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 7,
+      "image": "pages/p0007.jpg",
+      "text": "text/p0007.txt",
+      "imageBytes": 857967,
+      "imageSha256": "1f3031c9afe6c9ae5233cfd585287af0d512fa77910159acefb1ed3341fafae5",
+      "textChars": 2677,
+      "printedPage": null,
+      "section": "body"
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-18T08:52:26.032Z",
+  "agencyId": "kyushu",
+  "agencyName": "九州地方整備局",
+  "documentId": "hikkei-common-02",
+  "role": "companion",
+  "title": "土木請負工事必携 共通編／「腕章について」",
+  "edition": null,
+  "sourceFile": "九州地方整備局/hikkei-common-02__土木請負工事必携_共通編_「腕章について」.pdf",
+  "pagesLocation": {
+    "tier": "drive-vault",
+    "vaultDir": "原資料PDF/共通仕様書/九州地方整備局/hikkei-common-02__土木請負工事必携_共通編_「腕章について」",
+    "note": "実体は Drive vault の原本 PDF と同名フォルダ。repo には無い。取り戻しは npm run drive-vault-sync -- --pull --path content/sources/standards/kyushu/ --commit"
+  },
+  "sourceSha256": "300b688941776ef6438b698188754ecc099f411805040754602225f44a72fa47",
+  "pages": 3,
+  "render": {
+    "tool": "pdftoppm",
+    "dpi": 270,
+    "format": "jpeg",
+    "quality": 85
+  },
+  "text": {
+    "tool": "pdftotext",
+    "layout": true,
+    "splitBy": "formfeed"
+  },
+  "parts": [
+    {
+      "slug": "part-01",
+      "firstPage": 1,
+      "lastPage": 3
+    }
+  ],
+  "totalImageBytes": 838532,
+  "printedPage": {
+    "note": "版面に刷られたページ番号。目次(front)と本文(body)で同じラベルが再使用されるため、出典は section と組で指す。",
+    "bodyStartsAtPdfPage": null,
+    "labelled": 0,
+    "ambiguous": 0
+  },
+  "pageEntries": [
+    {
+      "page": 1,
+      "image": "pages/p0001.jpg",
+      "text": "text/p0001.txt",
+      "imageBytes": 118137,
+      "imageSha256": "3606b7ad4c816e09eb13960a82dfd235d809fbe34a605244c579560bdbd032db",
+      "textChars": 12,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 2,
+      "image": "pages/p0002.jpg",
+      "text": "text/p0002.txt",
+      "imageBytes": 326159,
+      "imageSha256": "e59599ee981cab744231b184669677924ad8277aa9a92a219e5cd341bf770deb",
+      "textChars": 476,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 3,
+      "image": "pages/p0003.jpg",
+      "text": "text/p0003.txt",
+      "imageBytes": 394236,
+      "imageSha256": "735741de38360c2fc3a810f3e6d7a22abcbe9ceb4cb7a075db1a1f9c968f5b36",
+      "textChars": 438,
+      "printedPage": null,
+      "section": "body"
+    }
+  ]
+}

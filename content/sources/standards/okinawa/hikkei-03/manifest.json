@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-18T08:54:25.112Z",
+  "agencyId": "okinawa",
+  "agencyName": "沖縄総合事務局",
+  "documentId": "hikkei-03",
+  "role": "companion",
+  "title": "土木請負工事必携／鋼橋用鋼材(厚鋼板)の立会の簡素化について",
+  "edition": null,
+  "sourceFile": "沖縄総合事務局/hikkei-03__土木請負工事必携_鋼橋用鋼材(厚鋼板)の立会の簡素化について.pdf",
+  "pagesLocation": {
+    "tier": "drive-vault",
+    "vaultDir": "原資料PDF/共通仕様書/沖縄総合事務局/hikkei-03__土木請負工事必携_鋼橋用鋼材(厚鋼板)の立会の簡素化について",
+    "note": "実体は Drive vault の原本 PDF と同名フォルダ。repo には無い。取り戻しは npm run drive-vault-sync -- --pull --path content/sources/standards/okinawa/ --commit"
+  },
+  "sourceSha256": "fb3a2796ccb33936455971224f4ac9770a3f9b43a9296d63e1b59339a2e7d5aa",
+  "pages": 3,
+  "render": {
+    "tool": "pdftoppm",
+    "dpi": 270,
+    "format": "jpeg",
+    "quality": 85
+  },
+  "text": {
+    "tool": "pdftotext",
+    "layout": true,
+    "splitBy": "formfeed"
+  },
+  "parts": [
+    {
+      "slug": "part-01",
+      "firstPage": 1,
+      "lastPage": 3
+    }
+  ],
+  "totalImageBytes": 1027560,
+  "printedPage": {
+    "note": "版面に刷られたページ番号。目次(front)と本文(body)で同じラベルが再使用されるため、出典は section と組で指す。",
+    "bodyStartsAtPdfPage": null,
+    "labelled": 0,
+    "ambiguous": 0
+  },
+  "pageEntries": [
+    {
+      "page": 1,
+      "image": "pages/p0001.jpg",
+      "text": "text/p0001.txt",
+      "imageBytes": 143153,
+      "imageSha256": "227d3e98936cf4e095823b774479aa663a5dc56b522d1765d9550ecb52a9a27e",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 2,
+      "image": "pages/p0002.jpg",
+      "text": "text/p0002.txt",
+      "imageBytes": 474856,
+      "imageSha256": "0e18d9e056c749bbf42a7824d75343fb6261502a1ae7b6091c3d504fca6f4b45",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 3,
+      "image": "pages/p0003.jpg",
+      "text": "text/p0003.txt",
+      "imageBytes": 409551,
+      "imageSha256": "df41ec7044cb62a9a927f1a643aaaae0b3435649ec371880ec852a914d8c5eea",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    }
+  ]
+}

@@ -1,0 +1,185 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-18T08:55:17.109Z",
+  "agencyId": "okinawa",
+  "agencyName": "沖縄総合事務局",
+  "documentId": "hikkei-17",
+  "role": "companion",
+  "title": "土木請負工事必携／建設材料の品質記録保存業務実施要領(案)",
+  "edition": null,
+  "sourceFile": "沖縄総合事務局/hikkei-17__土木請負工事必携_建設材料の品質記録保存業務実施要領(案).pdf",
+  "pagesLocation": {
+    "tier": "drive-vault",
+    "vaultDir": "原資料PDF/共通仕様書/沖縄総合事務局/hikkei-17__土木請負工事必携_建設材料の品質記録保存業務実施要領(案)",
+    "note": "実体は Drive vault の原本 PDF と同名フォルダ。repo には無い。取り戻しは npm run drive-vault-sync -- --pull --path content/sources/standards/okinawa/ --commit"
+  },
+  "sourceSha256": "d1f1b03faa573192a7766d915609d4ee33111b84b5d0f5812bea637a41383193",
+  "pages": 14,
+  "render": {
+    "tool": "pdftoppm",
+    "dpi": 270,
+    "format": "jpeg",
+    "quality": 85
+  },
+  "text": {
+    "tool": "pdftotext",
+    "layout": true,
+    "splitBy": "formfeed"
+  },
+  "parts": [
+    {
+      "slug": "part-01",
+      "firstPage": 1,
+      "lastPage": 14
+    }
+  ],
+  "totalImageBytes": 6005345,
+  "printedPage": {
+    "note": "版面に刷られたページ番号。目次(front)と本文(body)で同じラベルが再使用されるため、出典は section と組で指す。",
+    "bodyStartsAtPdfPage": null,
+    "labelled": 0,
+    "ambiguous": 0
+  },
+  "pageEntries": [
+    {
+      "page": 1,
+      "image": "pages/p0001.jpg",
+      "text": "text/p0001.txt",
+      "imageBytes": 167453,
+      "imageSha256": "2717643b9d86c141925d4d65a8d33dc62e0958f63ca701e7b21dfb2d9ff6537c",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 2,
+      "image": "pages/p0002.jpg",
+      "text": "text/p0002.txt",
+      "imageBytes": 188940,
+      "imageSha256": "564f1ee3b4c5088adde7aab28fe1998f793d3bf9fed15b7c56b6aaba1179c117",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 3,
+      "image": "pages/p0003.jpg",
+      "text": "text/p0003.txt",
+      "imageBytes": 376592,
+      "imageSha256": "32e72dd9cce403e443be254898937718456f8d34a69b4f62bfddd98de6cc1f2f",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 4,
+      "image": "pages/p0004.jpg",
+      "text": "text/p0004.txt",
+      "imageBytes": 302228,
+      "imageSha256": "7903ffd3f66858b754a82754c87333724a4ecf6be8cdd56d3ca7b2a36f533257",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 5,
+      "image": "pages/p0005.jpg",
+      "text": "text/p0005.txt",
+      "imageBytes": 394270,
+      "imageSha256": "d65760ccf932ff16075d68fac4adb221a881db54847c26d63ef8afe7b7b77e9e",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 6,
+      "image": "pages/p0006.jpg",
+      "text": "text/p0006.txt",
+      "imageBytes": 390054,
+      "imageSha256": "9e13cdf7df03ed691c489d02b9d7e3af78d2341917da6be410ff5a22b544d1d9",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 7,
+      "image": "pages/p0007.jpg",
+      "text": "text/p0007.txt",
+      "imageBytes": 590943,
+      "imageSha256": "2faa79b0378115b45e434f180fa1f34f8f588d2fc882a7a458fa122ddc491f83",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 8,
+      "image": "pages/p0008.jpg",
+      "text": "text/p0008.txt",
+      "imageBytes": 582712,
+      "imageSha256": "9ff5f30a597e4317b4004373379334a6abeddddaf1fd45a4ea019a38e6c41c53",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 9,
+      "image": "pages/p0009.jpg",
+      "text": "text/p0009.txt",
+      "imageBytes": 534529,
+      "imageSha256": "e918feaf1742205d913e8ca4c249136fff36df67640ce762d8e78809b82818d6",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 10,
+      "image": "pages/p0010.jpg",
+      "text": "text/p0010.txt",
+      "imageBytes": 450831,
+      "imageSha256": "ba0f0091f00622987f142b376bfcfe1fa678d93a17de473d2ee4c9f550c37203",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 11,
+      "image": "pages/p0011.jpg",
+      "text": "text/p0011.txt",
+      "imageBytes": 550531,
+      "imageSha256": "93a14cdeebfb8eb6085eaa23becdeeb2d2d3c2dc2e6f751a56be5888f3b71b72",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 12,
+      "image": "pages/p0012.jpg",
+      "text": "text/p0012.txt",
+      "imageBytes": 483723,
+      "imageSha256": "5ad547a14f32c2ae9783c83b934403b196a1c736371b9db6b412dc203f77932b",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 13,
+      "image": "pages/p0013.jpg",
+      "text": "text/p0013.txt",
+      "imageBytes": 506060,
+      "imageSha256": "62d47b3ebb018e1bf7e79ba5ec54063550ef1469a07f1eb5038fe08e239b754c",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 14,
+      "image": "pages/p0014.jpg",
+      "text": "text/p0014.txt",
+      "imageBytes": 486479,
+      "imageSha256": "b61d0f5e6b59c8b74a15b85df9e7488dcffd1a9be08663f5ac81084d710fae21",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    }
+  ]
+}

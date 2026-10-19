@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-18T08:53:19.888Z",
+  "agencyId": "kyushu",
+  "agencyName": "九州地方整備局",
+  "documentId": "hikkei-common-15",
+  "role": "companion",
+  "title": "土木請負工事必携 共通編／「建設工事に係る資材の再生資源化等に関する法律第11条に基づく国の機関からの都道府県知事への対象建設工事の計画の通知に関する取扱要領」",
+  "edition": null,
+  "sourceFile": "九州地方整備局/hikkei-common-15__土木請負工事必携_共通編_「建設工事に係る資材の再生資源化等に関する法律第11条に基づく国の機関からの都道府県知事への対象建設工事の計画の通知に関する取扱要領」.pdf",
+  "pagesLocation": {
+    "tier": "drive-vault",
+    "vaultDir": "原資料PDF/共通仕様書/九州地方整備局/hikkei-common-15__土木請負工事必携_共通編_「建設工事に係る資材の再生資源化等に関する法律第11条に基づく国の機関からの都道府県知事への対象建設工事の計画の通知に関する取扱要領」",
+    "note": "実体は Drive vault の原本 PDF と同名フォルダ。repo には無い。取り戻しは npm run drive-vault-sync -- --pull --path content/sources/standards/kyushu/ --commit"
+  },
+  "sourceSha256": "bc362bbb87b67d5d2f66e8f39c68823ebb383548f695d3bdae8f8228fffb3fab",
+  "pages": 8,
+  "render": {
+    "tool": "pdftoppm",
+    "dpi": 270,
+    "format": "jpeg",
+    "quality": 85
+  },
+  "text": {
+    "tool": "pdftotext",
+    "layout": true,
+    "splitBy": "formfeed"
+  },
+  "parts": [
+    {
+      "slug": "part-01",
+      "firstPage": 1,
+      "lastPage": 8
+    }
+  ],
+  "totalImageBytes": 4400453,
+  "printedPage": {
+    "note": "版面に刷られたページ番号。目次(front)と本文(body)で同じラベルが再使用されるため、出典は section と組で指す。",
+    "bodyStartsAtPdfPage": null,
+    "labelled": 0,
+    "ambiguous": 0
+  },
+  "pageEntries": [
+    {
+      "page": 1,
+      "image": "pages/p0001.jpg",
+      "text": "text/p0001.txt",
+      "imageBytes": 261435,
+      "imageSha256": "4860a5ef37ee1831eb28744d272d0fe0ee9daa02e073d82746856bc305fee2e3",
+      "textChars": 323,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 2,
+      "image": "pages/p0002.jpg",
+      "text": "text/p0002.txt",
+      "imageBytes": 665254,
+      "imageSha256": "579f9fdaac261336cdd1a3e293b67000ae4d71bd565a314f38547ba700e4c2a8",
+      "textChars": 1215,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 3,
+      "image": "pages/p0003.jpg",
+      "text": "text/p0003.txt",
+      "imageBytes": 650012,
+      "imageSha256": "71b5597a17882fe8ba5c5432b1efa063d323207cfb6c48d9cdf0951f0354f3ed",
+      "textChars": 1235,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 4,
+      "image": "pages/p0004.jpg",
+      "text": "text/p0004.txt",
+      "imageBytes": 728802,
+      "imageSha256": "3d21d15da03fe8385254b3d49c8bdd1c1e8f8fd2803438aaa92781617d422bad",
+      "textChars": 1271,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 5,
+      "image": "pages/p0005.jpg",
+      "text": "text/p0005.txt",
+      "imageBytes": 565938,
+      "imageSha256": "63277d760ec9ebfd8f17e3870865e1945914bd404c3c0fa00cb09679e60b4067",
+      "textChars": 1052,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 6,
+      "image": "pages/p0006.jpg",
+      "text": "text/p0006.txt",
+      "imageBytes": 504984,
+      "imageSha256": "a23ea3a9177e6a240dc5a3446dab09754b18c88ea33b302a574cc7daeee0c3f6",
+      "textChars": 957,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 7,
+      "image": "pages/p0007.jpg",
+      "text": "text/p0007.txt",
+      "imageBytes": 501627,
+      "imageSha256": "4c95e0f42ca6457eb9a8e7fa2a021307929b6dce1d828182c3cd30388882abae",
+      "textChars": 906,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 8,
+      "image": "pages/p0008.jpg",
+      "text": "text/p0008.txt",
+      "imageBytes": 522401,
+      "imageSha256": "7fbfdb756975bbc2ca30d44200e1ff2a43fbfe9dda03a3ac5708d56f224c5e4f",
+      "textChars": 926,
+      "printedPage": null,
+      "section": "body"
+    }
+  ]
+}

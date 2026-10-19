@@ -1,0 +1,215 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-18T08:54:55.465Z",
+  "agencyId": "okinawa",
+  "agencyName": "沖縄総合事務局",
+  "documentId": "hikkei-09",
+  "role": "companion",
+  "title": "土木請負工事必携／建設副産物適正化処理推進要項",
+  "edition": null,
+  "sourceFile": "沖縄総合事務局/hikkei-09__土木請負工事必携_建設副産物適正化処理推進要項.pdf",
+  "pagesLocation": {
+    "tier": "drive-vault",
+    "vaultDir": "原資料PDF/共通仕様書/沖縄総合事務局/hikkei-09__土木請負工事必携_建設副産物適正化処理推進要項",
+    "note": "実体は Drive vault の原本 PDF と同名フォルダ。repo には無い。取り戻しは npm run drive-vault-sync -- --pull --path content/sources/standards/okinawa/ --commit"
+  },
+  "sourceSha256": "be6c7537cbdf6a6dd9fcb8ca1e77ad7da5918aacb8b9e048829c9cdd11ff9bc2",
+  "pages": 17,
+  "render": {
+    "tool": "pdftoppm",
+    "dpi": 270,
+    "format": "jpeg",
+    "quality": 85
+  },
+  "text": {
+    "tool": "pdftotext",
+    "layout": true,
+    "splitBy": "formfeed"
+  },
+  "parts": [
+    {
+      "slug": "part-01",
+      "firstPage": 1,
+      "lastPage": 17
+    }
+  ],
+  "totalImageBytes": 13395192,
+  "printedPage": {
+    "note": "版面に刷られたページ番号。目次(front)と本文(body)で同じラベルが再使用されるため、出典は section と組で指す。",
+    "bodyStartsAtPdfPage": null,
+    "labelled": 0,
+    "ambiguous": 0
+  },
+  "pageEntries": [
+    {
+      "page": 1,
+      "image": "pages/p0001.jpg",
+      "text": "text/p0001.txt",
+      "imageBytes": 201485,
+      "imageSha256": "a81cea0570601b92d39c14a7293b9e6565492e8c7da780e555cda673643b45f6",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 2,
+      "image": "pages/p0002.jpg",
+      "text": "text/p0002.txt",
+      "imageBytes": 740668,
+      "imageSha256": "2d8f7d5da62e9e5157f6439ebd3665abaa3b393f3b88bc18e38d2034d7e2194e",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 3,
+      "image": "pages/p0003.jpg",
+      "text": "text/p0003.txt",
+      "imageBytes": 954551,
+      "imageSha256": "815239344524c85d82f0be7bf1bf9146808c55e05cd688fc62e9255f233c8288",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 4,
+      "image": "pages/p0004.jpg",
+      "text": "text/p0004.txt",
+      "imageBytes": 866190,
+      "imageSha256": "73bf19f1669b7cdbae504c391b737ac13b0a4faeb87cd51f6d996db76dd67aaa",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 5,
+      "image": "pages/p0005.jpg",
+      "text": "text/p0005.txt",
+      "imageBytes": 1023239,
+      "imageSha256": "a706345f2e96ffdae0eaed9080444c94f4d72935492849fd09337d5cfa7cb160",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 6,
+      "image": "pages/p0006.jpg",
+      "text": "text/p0006.txt",
+      "imageBytes": 826392,
+      "imageSha256": "a25d5b0bcbbb03c7ddaae10ee2fe6ed955dfe9c32ad4d865f244f49896c920b9",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 7,
+      "image": "pages/p0007.jpg",
+      "text": "text/p0007.txt",
+      "imageBytes": 783225,
+      "imageSha256": "0d9d7b26684851b87a8f3562d06c926b4d65394a5740dfdcc0339f627d139706",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 8,
+      "image": "pages/p0008.jpg",
+      "text": "text/p0008.txt",
+      "imageBytes": 889023,
+      "imageSha256": "9e90da3f1cefe37667c2a5ee91b41301dd2c68d99706ed4c609b677b1623e649",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 9,
+      "image": "pages/p0009.jpg",
+      "text": "text/p0009.txt",
+      "imageBytes": 719501,
+      "imageSha256": "8040fe3c4c4a7fef7f4be253e7bb90635c4b39534ad3abb48fedfee685f6293f",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 10,
+      "image": "pages/p0010.jpg",
+      "text": "text/p0010.txt",
+      "imageBytes": 842147,
+      "imageSha256": "c1c9092f3dcdebd4fc3fe39d959847fe81cd6b00a874d1d28199583906da1468",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 11,
+      "image": "pages/p0011.jpg",
+      "text": "text/p0011.txt",
+      "imageBytes": 761010,
+      "imageSha256": "f47e41e312dcd5ec1b34a139c7a2b382c83fa885c4586bb8600fa89ba318bdea",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 12,
+      "image": "pages/p0012.jpg",
+      "text": "text/p0012.txt",
+      "imageBytes": 819791,
+      "imageSha256": "332d5c1fcdeb9dcae9b96d62ecdfd227424b74708a9b2ea14aa5d6344748ec03",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 13,
+      "image": "pages/p0013.jpg",
+      "text": "text/p0013.txt",
+      "imageBytes": 791612,
+      "imageSha256": "184c845438dd4e7a2a903c8459d556e1898b8a8570eccf135a53033b32e5eb77",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 14,
+      "image": "pages/p0014.jpg",
+      "text": "text/p0014.txt",
+      "imageBytes": 772021,
+      "imageSha256": "76b552d029022fc8c70b3ee8e3e70e0b6d1890a9a2bd9c431df090c256ebec17",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 15,
+      "image": "pages/p0015.jpg",
+      "text": "text/p0015.txt",
+      "imageBytes": 748462,
+      "imageSha256": "dc686f650057224c3975114d68fa46a6bb3cc033d3686e619303ba98968137c0",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 16,
+      "image": "pages/p0016.jpg",
+      "text": "text/p0016.txt",
+      "imageBytes": 812205,
+      "imageSha256": "5b49b9a01204c07502c213d577f8d77bcf4ae0291aad3e44c7f106daad65f0ab",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 17,
+      "image": "pages/p0017.jpg",
+      "text": "text/p0017.txt",
+      "imageBytes": 843670,
+      "imageSha256": "41becb4ab4993d9dfff87315263efcd5620c42746b0e8aa836b7f570e0782066",
+      "textChars": 0,
+      "printedPage": null,
+      "section": "body"
+    }
+  ]
+}

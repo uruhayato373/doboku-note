@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-18T08:53:59.059Z",
+  "agencyId": "kyushu",
+  "agencyName": "九州地方整備局",
+  "documentId": "hikkei-control-16",
+  "role": "companion",
+  "title": "土木請負工事必携 施工管理編／「薬液注入工事に係る管理について」",
+  "edition": null,
+  "sourceFile": "九州地方整備局/hikkei-control-16__土木請負工事必携_施工管理編_「薬液注入工事に係る管理について」.pdf",
+  "pagesLocation": {
+    "tier": "drive-vault",
+    "vaultDir": "原資料PDF/共通仕様書/九州地方整備局/hikkei-control-16__土木請負工事必携_施工管理編_「薬液注入工事に係る管理について」",
+    "note": "実体は Drive vault の原本 PDF と同名フォルダ。repo には無い。取り戻しは npm run drive-vault-sync -- --pull --path content/sources/standards/kyushu/ --commit"
+  },
+  "sourceSha256": "59cbc97276d83a2136e6d79a4ca430bd6a8875762b65c73590c526b7837c19e8",
+  "pages": 6,
+  "render": {
+    "tool": "pdftoppm",
+    "dpi": 270,
+    "format": "jpeg",
+    "quality": 85
+  },
+  "text": {
+    "tool": "pdftotext",
+    "layout": true,
+    "splitBy": "formfeed"
+  },
+  "parts": [
+    {
+      "slug": "part-01",
+      "firstPage": 1,
+      "lastPage": 6
+    }
+  ],
+  "totalImageBytes": 2046621,
+  "printedPage": {
+    "note": "版面に刷られたページ番号。目次(front)と本文(body)で同じラベルが再使用されるため、出典は section と組で指す。",
+    "bodyStartsAtPdfPage": null,
+    "labelled": 3,
+    "ambiguous": 0
+  },
+  "pageEntries": [
+    {
+      "page": 1,
+      "image": "pages/p0001.jpg",
+      "text": "text/p0001.txt",
+      "imageBytes": 193352,
+      "imageSha256": "b80d9b261901f1cdb6ac77da3ecbfd54a19854930cb2960d4213a28df2b2c00e",
+      "textChars": 242,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 2,
+      "image": "pages/p0002.jpg",
+      "text": "text/p0002.txt",
+      "imageBytes": 211788,
+      "imageSha256": "b78eab0ef0180b53b2a03478df61bd53b16a9b32d6da1034bc953898ea859385",
+      "textChars": 179,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 3,
+      "image": "pages/p0003.jpg",
+      "text": "text/p0003.txt",
+      "imageBytes": 130869,
+      "imageSha256": "b54a747abdef7bf9a2653697111e3c558b479b8bcdb647ed4a42e4d080318c3b",
+      "textChars": 37,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 4,
+      "image": "pages/p0004.jpg",
+      "text": "text/p0004.txt",
+      "imageBytes": 775663,
+      "imageSha256": "d48b30053364c81a63442fea1f805edd433e3723bd932672b50fb6728789b219",
+      "textChars": 1291,
+      "printedPage": "17-4",
+      "section": "body"
+    },
+    {
+      "page": 5,
+      "image": "pages/p0005.jpg",
+      "text": "text/p0005.txt",
+      "imageBytes": 270637,
+      "imageSha256": "0b41c190fbe7bfac58ea17fc7e64656477dddcef51aa76727d3d2714ee9fe980",
+      "textChars": 293,
+      "printedPage": "17-5",
+      "section": "body"
+    },
+    {
+      "page": 6,
+      "image": "pages/p0006.jpg",
+      "text": "text/p0006.txt",
+      "imageBytes": 464312,
+      "imageSha256": "81d19b4d9c15c0bf03bd158d348ac1bd58940572ed0fb05e039ffdc2b3f285f0",
+      "textChars": 812,
+      "printedPage": "17-6",
+      "section": "body"
+    }
+  ]
+}

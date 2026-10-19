@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-18T08:52:29.120Z",
+  "agencyId": "kyushu",
+  "agencyName": "九州地方整備局",
+  "documentId": "hikkei-common-03",
+  "role": "companion",
+  "title": "土木請負工事必携 共通編／「工事現場に掲げる標識について」（平成２４年２月２３日修正）",
+  "edition": null,
+  "sourceFile": "九州地方整備局/hikkei-common-03__土木請負工事必携_共通編_「工事現場に掲げる標識について」(平成24年2月23日修正).pdf",
+  "pagesLocation": {
+    "tier": "drive-vault",
+    "vaultDir": "原資料PDF/共通仕様書/九州地方整備局/hikkei-common-03__土木請負工事必携_共通編_「工事現場に掲げる標識について」(平成24年2月23日修正)",
+    "note": "実体は Drive vault の原本 PDF と同名フォルダ。repo には無い。取り戻しは npm run drive-vault-sync -- --pull --path content/sources/standards/kyushu/ --commit"
+  },
+  "sourceSha256": "e0507738394d66d917879d3cb129ca08e10ef307dde445742ef62e7eef0d7e0c",
+  "pages": 3,
+  "render": {
+    "tool": "pdftoppm",
+    "dpi": 270,
+    "format": "jpeg",
+    "quality": 85
+  },
+  "text": {
+    "tool": "pdftotext",
+    "layout": true,
+    "splitBy": "formfeed"
+  },
+  "parts": [
+    {
+      "slug": "part-01",
+      "firstPage": 1,
+      "lastPage": 3
+    }
+  ],
+  "totalImageBytes": 1345159,
+  "printedPage": {
+    "note": "版面に刷られたページ番号。目次(front)と本文(body)で同じラベルが再使用されるため、出典は section と組で指す。",
+    "bodyStartsAtPdfPage": null,
+    "labelled": 0,
+    "ambiguous": 0
+  },
+  "pageEntries": [
+    {
+      "page": 1,
+      "image": "pages/p0001.jpg",
+      "text": "text/p0001.txt",
+      "imageBytes": 129773,
+      "imageSha256": "a74045a07be1895aab6260629ea5a67a19f6540bb3fce9f0923306f36049f4af",
+      "textChars": 15,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 2,
+      "image": "pages/p0002.jpg",
+      "text": "text/p0002.txt",
+      "imageBytes": 700759,
+      "imageSha256": "a1ac5c95f1dd81ecd4d09bf38e6565da3968c06d388a811e20960a7cea797519",
+      "textChars": 1380,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 3,
+      "image": "pages/p0003.jpg",
+      "text": "text/p0003.txt",
+      "imageBytes": 514627,
+      "imageSha256": "33606ccdaca4f3055aa2a8cdabaa4181bbe7284a5a1201970bb29766e0a27e29",
+      "textChars": 303,
+      "printedPage": null,
+      "section": "body"
+    }
+  ]
+}

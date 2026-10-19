@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-18T08:53:23.523Z",
+  "agencyId": "kyushu",
+  "agencyName": "九州地方整備局",
+  "documentId": "hikkei-common-17",
+  "role": "companion",
+  "title": "土木請負工事必携 共通編／「リサイクル原則化ルール」",
+  "edition": null,
+  "sourceFile": "九州地方整備局/hikkei-common-17__土木請負工事必携_共通編_「リサイクル原則化ルール」.pdf",
+  "pagesLocation": {
+    "tier": "drive-vault",
+    "vaultDir": "原資料PDF/共通仕様書/九州地方整備局/hikkei-common-17__土木請負工事必携_共通編_「リサイクル原則化ルール」",
+    "note": "実体は Drive vault の原本 PDF と同名フォルダ。repo には無い。取り戻しは npm run drive-vault-sync -- --pull --path content/sources/standards/kyushu/ --commit"
+  },
+  "sourceSha256": "d14b32287fbfbdd9415671ab62d175de6c88d644ddc404b9e0029cd2e939ef1f",
+  "pages": 3,
+  "render": {
+    "tool": "pdftoppm",
+    "dpi": 270,
+    "format": "jpeg",
+    "quality": 85
+  },
+  "text": {
+    "tool": "pdftotext",
+    "layout": true,
+    "splitBy": "formfeed"
+  },
+  "parts": [
+    {
+      "slug": "part-01",
+      "firstPage": 1,
+      "lastPage": 3
+    }
+  ],
+  "totalImageBytes": 1822676,
+  "printedPage": {
+    "note": "版面に刷られたページ番号。目次(front)と本文(body)で同じラベルが再使用されるため、出典は section と組で指す。",
+    "bodyStartsAtPdfPage": null,
+    "labelled": 0,
+    "ambiguous": 0
+  },
+  "pageEntries": [
+    {
+      "page": 1,
+      "image": "pages/p0001.jpg",
+      "text": "text/p0001.txt",
+      "imageBytes": 126503,
+      "imageSha256": "cfc64cb2d4e0711be33a77144d3b31572f1bd5526c8a89afaf2d2f1d835e04df",
+      "textChars": 45,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 2,
+      "image": "pages/p0002.jpg",
+      "text": "text/p0002.txt",
+      "imageBytes": 824994,
+      "imageSha256": "d0ee1d008ca3b2441970b0e41b08cc1b5729f93991d0ff8491ff5ae991795d73",
+      "textChars": 936,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 3,
+      "image": "pages/p0003.jpg",
+      "text": "text/p0003.txt",
+      "imageBytes": 871179,
+      "imageSha256": "e9bb9be2bfd9ed29bf2ab4a95ba6fdcdf06fd4e80bb4c307a6672e7a7c249d85",
+      "textChars": 968,
+      "printedPage": null,
+      "section": "body"
+    }
+  ]
+}

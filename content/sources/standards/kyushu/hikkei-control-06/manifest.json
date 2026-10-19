@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-18T08:53:34.028Z",
+  "agencyId": "kyushu",
+  "agencyName": "九州地方整備局",
+  "documentId": "hikkei-control-06",
+  "role": "companion",
+  "title": "土木請負工事必携 施工管理編／「アルカリ骨材反応抑制対策実施要領」",
+  "edition": null,
+  "sourceFile": "九州地方整備局/hikkei-control-06__土木請負工事必携_施工管理編_「アルカリ骨材反応抑制対策実施要領」.pdf",
+  "pagesLocation": {
+    "tier": "drive-vault",
+    "vaultDir": "原資料PDF/共通仕様書/九州地方整備局/hikkei-control-06__土木請負工事必携_施工管理編_「アルカリ骨材反応抑制対策実施要領」",
+    "note": "実体は Drive vault の原本 PDF と同名フォルダ。repo には無い。取り戻しは npm run drive-vault-sync -- --pull --path content/sources/standards/kyushu/ --commit"
+  },
+  "sourceSha256": "fe966d781ad4360d371b29ee1ecdce36824a920abd587289e35883a91c71f1e5",
+  "pages": 5,
+  "render": {
+    "tool": "pdftoppm",
+    "dpi": 270,
+    "format": "jpeg",
+    "quality": 85
+  },
+  "text": {
+    "tool": "pdftotext",
+    "layout": true,
+    "splitBy": "formfeed"
+  },
+  "parts": [
+    {
+      "slug": "part-01",
+      "firstPage": 1,
+      "lastPage": 5
+    }
+  ],
+  "totalImageBytes": 2066445,
+  "printedPage": {
+    "note": "版面に刷られたページ番号。目次(front)と本文(body)で同じラベルが再使用されるため、出典は section と組で指す。",
+    "bodyStartsAtPdfPage": null,
+    "labelled": 0,
+    "ambiguous": 0
+  },
+  "pageEntries": [
+    {
+      "page": 1,
+      "image": "pages/p0001.jpg",
+      "text": "text/p0001.txt",
+      "imageBytes": 177409,
+      "imageSha256": "519d416abc15a4a6969c16b33e98b2a67670563d67d6e90c520d6f3387e7d102",
+      "textChars": 203,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 2,
+      "image": "pages/p0002.jpg",
+      "text": "text/p0002.txt",
+      "imageBytes": 703598,
+      "imageSha256": "ee7c4854bdb2822ecbcb7ecfa6c26dea34e240b2f4de861ca5c25c4a1e9ed5d4",
+      "textChars": 1461,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 3,
+      "image": "pages/p0003.jpg",
+      "text": "text/p0003.txt",
+      "imageBytes": 480447,
+      "imageSha256": "abc0eedc6bb48dfcc329f0690633ce6b80383423177663c942c9fd1e0dd4e9d4",
+      "textChars": 756,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 4,
+      "image": "pages/p0004.jpg",
+      "text": "text/p0004.txt",
+      "imageBytes": 154265,
+      "imageSha256": "9935835ac2439a457e4909c7a74e531f0aadb14958aa567ac4b48685ab1304a2",
+      "textChars": 112,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 5,
+      "image": "pages/p0005.jpg",
+      "text": "text/p0005.txt",
+      "imageBytes": 550726,
+      "imageSha256": "a10371fe3931f2782e2815b337779751e2077b40c45dbb19b51a864fc4292e1d",
+      "textChars": 925,
+      "printedPage": null,
+      "section": "body"
+    }
+  ]
+}

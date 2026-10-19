@@ -173,7 +173,7 @@ Drive のパスは参照しない＝この移動でビルドは壊れない。
 章記事（`content/site/standards-articles/`）の本文は `part-NN.md`（50 ページ束）までしかページ情報を
 持たず、「この記述は原本の何ページか」を機械で言えなかった。2026-09-05 に共通仕様書 10 文書
 （9 ユニーク・5,949 ページ）をページ単位へ割り、`content/sources/standards/{agencyId}/{documentId}/`
-へ置いた。ID 体系は `standards-library/catalog.json` と同じで、章記事・カタログ・ページ画像が同じキーで引ける。
+へ置いた。2026-10-18 に companion（工事必携・特記仕様書・マニュアル等）61 文書・4,480 ページを同じ形で追加した。ID 体系は `standards-library/catalog.json` と同じで、章記事・カタログ・ページ画像が同じキーで引ける。
 
 ```
 repo:  content/sources/standards/{agencyId}/{documentId}/manifest.json   # git 追跡。原本 sha256・描画条件・parts のページ範囲・各ページの sha256

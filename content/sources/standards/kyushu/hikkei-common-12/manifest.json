@@ -1,0 +1,345 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-18T08:53:13.372Z",
+  "agencyId": "kyushu",
+  "agencyName": "九州地方整備局",
+  "documentId": "hikkei-common-12",
+  "role": "companion",
+  "title": "土木請負工事必携 共通編／「手すり先行工法に関するガイドライン」",
+  "edition": null,
+  "sourceFile": "九州地方整備局/hikkei-common-12__土木請負工事必携_共通編_「手すり先行工法に関するガイドライン」.pdf",
+  "pagesLocation": {
+    "tier": "drive-vault",
+    "vaultDir": "原資料PDF/共通仕様書/九州地方整備局/hikkei-common-12__土木請負工事必携_共通編_「手すり先行工法に関するガイドライン」",
+    "note": "実体は Drive vault の原本 PDF と同名フォルダ。repo には無い。取り戻しは npm run drive-vault-sync -- --pull --path content/sources/standards/kyushu/ --commit"
+  },
+  "sourceSha256": "98c11a7662189d3e778331f9759eacefbb807e7a6c3d2e4365ccfd55caf60080",
+  "pages": 30,
+  "render": {
+    "tool": "pdftoppm",
+    "dpi": 270,
+    "format": "jpeg",
+    "quality": 85
+  },
+  "text": {
+    "tool": "pdftotext",
+    "layout": true,
+    "splitBy": "formfeed"
+  },
+  "parts": [
+    {
+      "slug": "part-01",
+      "firstPage": 1,
+      "lastPage": 30
+    }
+  ],
+  "totalImageBytes": 15885028,
+  "printedPage": {
+    "note": "版面に刷られたページ番号。目次(front)と本文(body)で同じラベルが再使用されるため、出典は section と組で指す。",
+    "bodyStartsAtPdfPage": null,
+    "labelled": 0,
+    "ambiguous": 0
+  },
+  "pageEntries": [
+    {
+      "page": 1,
+      "image": "pages/p0001.jpg",
+      "text": "text/p0001.txt",
+      "imageBytes": 136683,
+      "imageSha256": "56266df3319f659586aa8495fd6903d574f5e61a9bfcf831a06d23e7b999d97a",
+      "textChars": 72,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 2,
+      "image": "pages/p0002.jpg",
+      "text": "text/p0002.txt",
+      "imageBytes": 752702,
+      "imageSha256": "c15ca9052b06061a38c637205e767d291020aafadfab8d183f6ef149fbfe9420",
+      "textChars": 1137,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 3,
+      "image": "pages/p0003.jpg",
+      "text": "text/p0003.txt",
+      "imageBytes": 629667,
+      "imageSha256": "79197fb4e9eac56baa238de31cb36336d1a6b476a3d0e49b0bd317a17811adce",
+      "textChars": 949,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 4,
+      "image": "pages/p0004.jpg",
+      "text": "text/p0004.txt",
+      "imageBytes": 714240,
+      "imageSha256": "223cdbd2ae60fde7495b1b2a1aeb0867d4bc77d5ea6b78c645f16fba2b121b35",
+      "textChars": 1048,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 5,
+      "image": "pages/p0005.jpg",
+      "text": "text/p0005.txt",
+      "imageBytes": 633892,
+      "imageSha256": "ea22c226aa6bc14d76ed185121e8a4362985581d7ccefce86601d63c18f89cb9",
+      "textChars": 1003,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 6,
+      "image": "pages/p0006.jpg",
+      "text": "text/p0006.txt",
+      "imageBytes": 705319,
+      "imageSha256": "d259a5096d154f544d07c84b702ab9dcf704bd9c6042b0e9d074e2cff31bebda",
+      "textChars": 1331,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 7,
+      "image": "pages/p0007.jpg",
+      "text": "text/p0007.txt",
+      "imageBytes": 743848,
+      "imageSha256": "36e7306fdfd0b1f0043d892a5eff70ee1fbb021aac879d5cc9eeea4f26dc963d",
+      "textChars": 1080,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 8,
+      "image": "pages/p0008.jpg",
+      "text": "text/p0008.txt",
+      "imageBytes": 171321,
+      "imageSha256": "af45afc01ac8285016cdda6b7f881017c03fc8bb54cc2a219456832e00c5c2b8",
+      "textChars": 122,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 9,
+      "image": "pages/p0009.jpg",
+      "text": "text/p0009.txt",
+      "imageBytes": 827210,
+      "imageSha256": "b2e132a4d62e88077dd4f8f7b7fa261cb0102aaa9c7bb2f28df8c982f7fcc216",
+      "textChars": 1399,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 10,
+      "image": "pages/p0010.jpg",
+      "text": "text/p0010.txt",
+      "imageBytes": 669827,
+      "imageSha256": "555afe6926ab6ec3c08ca6f616f33517107bd4c7646fc78f367bdd9cc2e0b133",
+      "textChars": 1190,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 11,
+      "image": "pages/p0011.jpg",
+      "text": "text/p0011.txt",
+      "imageBytes": 712654,
+      "imageSha256": "fdf994c9cf958971bb171d5b0cec1166540cabd8a1e8ed60e38c0b6e3be1ba2d",
+      "textChars": 1144,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 12,
+      "image": "pages/p0012.jpg",
+      "text": "text/p0012.txt",
+      "imageBytes": 512445,
+      "imageSha256": "25939ea9bdf3166f48bd960562a4b5f938db613a64b689bbd8c05a144b599cd8",
+      "textChars": 777,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 13,
+      "image": "pages/p0013.jpg",
+      "text": "text/p0013.txt",
+      "imageBytes": 561171,
+      "imageSha256": "00a510858044be4a6c4492c2879aa52ad2388c71cead9bafec15cba43b4f2827",
+      "textChars": 793,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 14,
+      "image": "pages/p0014.jpg",
+      "text": "text/p0014.txt",
+      "imageBytes": 304889,
+      "imageSha256": "d535e6e58570fa6215c91285e900aeac9966a06b1ddc3016f6e736577457032c",
+      "textChars": 291,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 15,
+      "image": "pages/p0015.jpg",
+      "text": "text/p0015.txt",
+      "imageBytes": 599427,
+      "imageSha256": "1892c976f5116c88843ed6824638ef5032a65b7610f31b20034a99e173601f8d",
+      "textChars": 1507,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 16,
+      "image": "pages/p0016.jpg",
+      "text": "text/p0016.txt",
+      "imageBytes": 509531,
+      "imageSha256": "abf867f00189e321216b6a922eb00bad523b298bde7956beba7c569ec4db677f",
+      "textChars": 1228,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 17,
+      "image": "pages/p0017.jpg",
+      "text": "text/p0017.txt",
+      "imageBytes": 346389,
+      "imageSha256": "5e6d8f2277353d739ee5a0b28b2eefe961694f1905abf99461331f15f3a634a4",
+      "textChars": 724,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 18,
+      "image": "pages/p0018.jpg",
+      "text": "text/p0018.txt",
+      "imageBytes": 524178,
+      "imageSha256": "555980a78797a6502db499db6ea7ad1dc4add52c037c5d960395c807ed09d03b",
+      "textChars": 743,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 19,
+      "image": "pages/p0019.jpg",
+      "text": "text/p0019.txt",
+      "imageBytes": 458807,
+      "imageSha256": "6e9fa52953f87b267a2222934286daea6dce932d46f30b3fdacf9ee0860e486c",
+      "textChars": 645,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 20,
+      "image": "pages/p0020.jpg",
+      "text": "text/p0020.txt",
+      "imageBytes": 472442,
+      "imageSha256": "7f9b64883f137b33c1a05b751260756c3ca492405ecf3e8eaf2d6d198072266b",
+      "textChars": 526,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 21,
+      "image": "pages/p0021.jpg",
+      "text": "text/p0021.txt",
+      "imageBytes": 647064,
+      "imageSha256": "034a07fe7a3783174d9d8a34c0a3cfc0a9959208b33f7ac7a9c68227aef2c2c4",
+      "textChars": 780,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 22,
+      "image": "pages/p0022.jpg",
+      "text": "text/p0022.txt",
+      "imageBytes": 539511,
+      "imageSha256": "bfa8d36ac61ba0764e5891461cffbe0c4828f3bac0bcfd4186c4d9e90767bc98",
+      "textChars": 953,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 23,
+      "image": "pages/p0023.jpg",
+      "text": "text/p0023.txt",
+      "imageBytes": 414388,
+      "imageSha256": "2e264ac8f2075c1ff59cb89fd26c75116bf5727d9e781e1db6eebc270ef2b81d",
+      "textChars": 448,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 24,
+      "image": "pages/p0024.jpg",
+      "text": "text/p0024.txt",
+      "imageBytes": 335093,
+      "imageSha256": "1275cf1a1a0cb962ebb07f7635f13978ef2b30bad5cb5f4f95ed7bad017cc026",
+      "textChars": 336,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 25,
+      "image": "pages/p0025.jpg",
+      "text": "text/p0025.txt",
+      "imageBytes": 611391,
+      "imageSha256": "c68fe49ed9f3dca13a02ce35641591d4a5e23dc7c84e3faf6352b642998b0f78",
+      "textChars": 902,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 26,
+      "image": "pages/p0026.jpg",
+      "text": "text/p0026.txt",
+      "imageBytes": 396106,
+      "imageSha256": "001959897dd1f5ba8bcee24857b94f948a8aa9c86b54df286bf25341e291beac",
+      "textChars": 600,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 27,
+      "image": "pages/p0027.jpg",
+      "text": "text/p0027.txt",
+      "imageBytes": 511067,
+      "imageSha256": "8166cef1bc3ba20429f8b181e26ddef29ed87921a335bb6d7b1ad7cc4e4902fc",
+      "textChars": 715,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 28,
+      "image": "pages/p0028.jpg",
+      "text": "text/p0028.txt",
+      "imageBytes": 658597,
+      "imageSha256": "cbb048670f0a6a9d4d0917a7e4c550dce81c3c212dd3f5b15430d1ebbbf6f03d",
+      "textChars": 1412,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 29,
+      "image": "pages/p0029.jpg",
+      "text": "text/p0029.txt",
+      "imageBytes": 465988,
+      "imageSha256": "caa0377bdf6bc04f5b83233aac17dda52d86d15deab52107460861088f5e59dd",
+      "textChars": 1785,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 30,
+      "image": "pages/p0030.jpg",
+      "text": "text/p0030.txt",
+      "imageBytes": 319181,
+      "imageSha256": "a04d2022dfa99bcad948016e9722e634cd716e94cda7f2a08af67cabbf887aee",
+      "textChars": 16,
+      "printedPage": null,
+      "section": "body"
+    }
+  ]
+}

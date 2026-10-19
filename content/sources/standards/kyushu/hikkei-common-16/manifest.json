@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-18T08:53:21.855Z",
+  "agencyId": "kyushu",
+  "agencyName": "九州地方整備局",
+  "documentId": "hikkei-common-16",
+  "role": "companion",
+  "title": "土木請負工事必携 共通編／「再生資源の利用促進について」",
+  "edition": null,
+  "sourceFile": "九州地方整備局/hikkei-common-16__土木請負工事必携_共通編_「再生資源の利用促進について」.pdf",
+  "pagesLocation": {
+    "tier": "drive-vault",
+    "vaultDir": "原資料PDF/共通仕様書/九州地方整備局/hikkei-common-16__土木請負工事必携_共通編_「再生資源の利用促進について」",
+    "note": "実体は Drive vault の原本 PDF と同名フォルダ。repo には無い。取り戻しは npm run drive-vault-sync -- --pull --path content/sources/standards/kyushu/ --commit"
+  },
+  "sourceSha256": "ff9c5867d3d06f06a86d9f22ce59bcb9561b66b750b99303df237db1fc4bfaf6",
+  "pages": 4,
+  "render": {
+    "tool": "pdftoppm",
+    "dpi": 270,
+    "format": "jpeg",
+    "quality": 85
+  },
+  "text": {
+    "tool": "pdftotext",
+    "layout": true,
+    "splitBy": "formfeed"
+  },
+  "parts": [
+    {
+      "slug": "part-01",
+      "firstPage": 1,
+      "lastPage": 4
+    }
+  ],
+  "totalImageBytes": 1618509,
+  "printedPage": {
+    "note": "版面に刷られたページ番号。目次(front)と本文(body)で同じラベルが再使用されるため、出典は section と組で指す。",
+    "bodyStartsAtPdfPage": null,
+    "labelled": 0,
+    "ambiguous": 0
+  },
+  "pageEntries": [
+    {
+      "page": 1,
+      "image": "pages/p0001.jpg",
+      "text": "text/p0001.txt",
+      "imageBytes": 150740,
+      "imageSha256": "f87e2b55e47606a0de21aa631858ab0085da701bf209e0df18fc641cff6e81ed",
+      "textChars": 96,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 2,
+      "image": "pages/p0002.jpg",
+      "text": "text/p0002.txt",
+      "imageBytes": 673218,
+      "imageSha256": "533acb6f5880320342d979c403507f63e95a71e48abf258b37ec1b37ce4f2e3b",
+      "textChars": 1162,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 3,
+      "image": "pages/p0003.jpg",
+      "text": "text/p0003.txt",
+      "imageBytes": 162557,
+      "imageSha256": "73dd409738be5aec839e5f04f3671e6457c67165853a4544448b3666702184fb",
+      "textChars": 123,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 4,
+      "image": "pages/p0004.jpg",
+      "text": "text/p0004.txt",
+      "imageBytes": 631994,
+      "imageSha256": "28abcc36329c97e1894562508ed6ab0932356578adb8ba41fdf177d9d8ebe42f",
+      "textChars": 956,
+      "printedPage": null,
+      "section": "body"
+    }
+  ]
+}

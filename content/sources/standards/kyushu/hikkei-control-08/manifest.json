@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-18T08:53:36.754Z",
+  "agencyId": "kyushu",
+  "agencyName": "九州地方整備局",
+  "documentId": "hikkei-control-08",
+  "role": "companion",
+  "title": "土木請負工事必携 施工管理編／「レディーミクストコンクリートの品質確保について（単位水量）」",
+  "edition": null,
+  "sourceFile": "九州地方整備局/hikkei-control-08__土木請負工事必携_施工管理編_「レディーミクストコンクリートの品質確保について(単位水量)」.pdf",
+  "pagesLocation": {
+    "tier": "drive-vault",
+    "vaultDir": "原資料PDF/共通仕様書/九州地方整備局/hikkei-control-08__土木請負工事必携_施工管理編_「レディーミクストコンクリートの品質確保について(単位水量)」",
+    "note": "実体は Drive vault の原本 PDF と同名フォルダ。repo には無い。取り戻しは npm run drive-vault-sync -- --pull --path content/sources/standards/kyushu/ --commit"
+  },
+  "sourceSha256": "0df37239309f4cca049e01979643b4b808d0f2650df3beebd1369327970076a1",
+  "pages": 5,
+  "render": {
+    "tool": "pdftoppm",
+    "dpi": 270,
+    "format": "jpeg",
+    "quality": 85
+  },
+  "text": {
+    "tool": "pdftotext",
+    "layout": true,
+    "splitBy": "formfeed"
+  },
+  "parts": [
+    {
+      "slug": "part-01",
+      "firstPage": 1,
+      "lastPage": 5
+    }
+  ],
+  "totalImageBytes": 1525990,
+  "printedPage": {
+    "note": "版面に刷られたページ番号。目次(front)と本文(body)で同じラベルが再使用されるため、出典は section と組で指す。",
+    "bodyStartsAtPdfPage": null,
+    "labelled": 0,
+    "ambiguous": 0
+  },
+  "pageEntries": [
+    {
+      "page": 1,
+      "image": "pages/p0001.jpg",
+      "text": "text/p0001.txt",
+      "imageBytes": 149918,
+      "imageSha256": "d13e273f32f2cad28fa171ff2665cf0bf6fd87b20576e18a52b9c8e812be0179",
+      "textChars": 114,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 2,
+      "image": "pages/p0002.jpg",
+      "text": "text/p0002.txt",
+      "imageBytes": 328561,
+      "imageSha256": "277056581ac8089ad5b7231304252a583f2f3dfaad3c35c51073fd18b01b609d",
+      "textChars": 514,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 3,
+      "image": "pages/p0003.jpg",
+      "text": "text/p0003.txt",
+      "imageBytes": 162314,
+      "imageSha256": "d660aca62003068afb6dbd996497b10cdb737a833af760d84c9c8fef3192eb69",
+      "textChars": 165,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 4,
+      "image": "pages/p0004.jpg",
+      "text": "text/p0004.txt",
+      "imageBytes": 686831,
+      "imageSha256": "83ffd86f27c88a44066249104009867c1cf76d5b194ff231e181a91c666ed0bc",
+      "textChars": 1616,
+      "printedPage": null,
+      "section": "body"
+    },
+    {
+      "page": 5,
+      "image": "pages/p0005.jpg",
+      "text": "text/p0005.txt",
+      "imageBytes": 198366,
+      "imageSha256": "ab01abbb729e8606f999e5c733e4f08fdc8bf1c54e11a7dceb6d6134fe3019b2",
+      "textChars": 189,
+      "printedPage": null,
+      "section": "body"
+    }
+  ]
+}

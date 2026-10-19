@@ -57,13 +57,13 @@ PDF p0120 = body  版面 1-42
 
 境界は「同じ編の中で番号が減った最初の地点」で機械判定する。北海道開発局版のように目次が無番号で巻き戻りが起きない文書は、全ページを `body` として扱う。
 
-`check-standards-page-images` は section と版面番号の組の重複を FAIL にする。一意に指せない状態を緑にしないため。
+`check-standards-page-images` は section と版面番号の組の重複を FAIL にする。一意に指せない状態を緑にしないため。版面番号を 1 件も拾えないことを FAIL にするのは共通仕様書（role=common）だけ。companion は番号の形が文書ごとに違うので、拾えた文書の数を表示するにとどめる。
 
 ## 生成と取り戻し
 
 ```bash
 npm run build-standards-page-images              # role=common を全整備局（既定）。vault へ直接書き、台帳へ登録する
-npm run build-standards-page-images -- --role all # companion 62 文書も含む
+npm run build-standards-page-images -- --role all # companion も含む（2026-10-18 に 61 文書を生成・okinawa/hikkei-11 は kyushu/road-safety の alias・mlit/sekou-kanri-kijun は 2026-10-19 に原本 PDF を掲載ページから取得し catalog の SHA-256 と照合して Drive の 国土交通省/ に置き生成）
 npm run check-standards-page-images              # provenance 整合。quality:audit にも同梱
 npm run check-drive-vault                        # Drive 台帳と実体の整合
 npm run drive-vault-sync -- --pull --path content/sources/standards/tohoku/ --commit   # 手元に作業コピーが要るとき
@@ -77,4 +77,4 @@ npm run drive-vault-sync -- --pull --path content/sources/standards/tohoku/ --co
 
 ## テキスト層について
 
-対象の PDF はすべて born-digital（スキャンではない）で、PDF 自身がテキスト層を持つ。`text/pNNNN.txt` はそれを `pdftotext -layout` でページ境界ごとに割ったもので、OCR ではない。したがって文字の取り違えは原理的に起きない。OCR が要るのはスキャン教材（`content/sources/textbook/`）の側で、そちらは別のパイプライン（`/pdf-to-mdx --scanned`）が扱う。
+対象の PDF はすべて born-digital（スキャンではない）で、PDF 自身がテキスト層を持つ。`text/pNNNN.txt` はそれを `pdftotext -layout` でページ境界ごとに割ったもので、OCR ではない。OCR 由来の読み違いは起きない。ただし PDF 側のフォント対応表が壊れているとテキスト層そのものが化ける。companion では関東の `kanto/manual`（243 ページ中 31 ページ）などに文字化けがあり（2026-10-18 時点の機械判定で 6 文書 51 ページ）、そのページはテキストでなく `pages/` の画像が正になる。OCR が要るのはスキャン教材（`content/sources/textbook/`）の側で、そちらは別のパイプライン（`/pdf-to-mdx --scanned`）が扱う。
