@@ -371,6 +371,8 @@ function resolveTablePart(part, lookup) {
  * 次の表が入ることがあり（近畿版 2-2 の表2-2-1/2-2-2）、逆に 1 つの表の見出しと中身が別の版面に
  * 分かれることもある。そのため 1 つの版面から複数の部品（parts）を出せ、直前の版面を取り込める
  * （absorbs。取り込まれた版面は kind: absorbed で何も出さない）。照合は取り込んだ版面すべての文字で行う。
+ * 表の領域の外で段落に化けた行（版面の後ろのページに続く行・表の上の見出しの断片）は absorbsParagraphs
+ * （{ before: [...], after: [...] }・原本の並び順）で取り込む。版面の key は変わらないので承認済みの組み直しは外れない。
  *
  * @param {string[]} lines 表領域の生の行（キャプション除く）
  * @param {object|undefined} override content/sources/standards/tables/{key}.json の中身
@@ -394,6 +396,8 @@ export function applyTableOverride(lines, override, { lookup = () => undefined, 
   }
 
   const expected = [...lines];
+  // 表の領域の外で段落に化けた表の行・見出し（absorbsParagraphs）。生成器が前後の段落と一致を確かめて渡す（DN-0755）
+  expected.push(...(override.absorbsParagraphs?.before ?? []), ...(override.absorbsParagraphs?.after ?? []));
   for (const key of override.absorbs ?? []) {
     const body = absorbedBodies.get(key);
     if (!body) return { ok: false, reason: 'override-absorb-missing', detail: `${key} が同じ章のこの表より前に無い` };
