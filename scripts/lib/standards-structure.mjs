@@ -30,14 +30,28 @@ export const ARTICLES_ROOT = join(SITE_CONTENT_ROOT, 'standards-articles');
 /** 原本と照合して組み直した表（人とエージェントが書く入力。生成器が読み、検査が照合する） */
 export const TABLE_OVERRIDES_ROOT = join(CONTENT_SOURCES_ROOT, 'standards', 'tables');
 
-/** 組み直した表を key → 中身の Map で読む（無ければ空）。 */
-export function loadTableOverrides() {
+/** 文書ごとの差し替え（documentVariants）で置き換える中身の欄。key・layout・review は元のまま */
+const VARIANT_FIELDS = ['kind', 'header', 'rows', 'notes', 'items', 'parts', 'headerFrom', 'headerFill', 'headerless', 'absorbs', 'into', 'absorbsParagraphs'];
+
+/**
+ * 組み直した表を key → 中身の Map で読む（無ければ空）。
+ * document（`hokkaido/common` など）を渡すと、その文書の差し替え `documentVariants[document]` で中身の欄を
+ * 丸ごと置き換える（元の欄は残さない＝文字を二重に数えない）。版面（key）が同じでも機関によって表の外に化けた
+ * 段落の文字が違う（北海道版は ㎝ が cm）ことがあるため。承認（review）はファイル 1 つに 1 つ（DN-0776）。
+ * 生成器と検査の両方がここで読む（照合そのものは別々に実装する）。
+ */
+export function loadTableOverrides(document = null) {
   const map = new Map();
   if (!existsSync(TABLE_OVERRIDES_ROOT)) return map;
   for (const name of readdirSync(TABLE_OVERRIDES_ROOT).filter((file) => file.endsWith('.json'))) {
     const entry = JSON.parse(readFileSync(join(TABLE_OVERRIDES_ROOT, name), 'utf8'));
     if (`${entry.key}.json` !== name) throw new Error(`${name}: ファイル名と key（${entry.key}）が違う`);
-    map.set(entry.key, entry);
+    const variant = document ? entry.documentVariants?.[document] : undefined;
+    if (!variant) { map.set(entry.key, entry); continue; }
+    const base = { ...entry };
+    delete base.documentVariants;
+    for (const field of VARIANT_FIELDS) delete base[field];
+    map.set(entry.key, { ...base, ...variant, key: entry.key, layout: entry.layout, review: entry.review });
   }
   return map;
 }

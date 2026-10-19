@@ -674,7 +674,7 @@ function checkTables(def, { manifest, agencyId, documentId, document, overrides,
   let overrideFound = 0;
   let verbatimFound = 0;
   let verified = 0;
-  const tableOverrides = loadTableOverrides();
+  const tableOverrides = loadTableOverrides(`${agencyId}/${documentId}`);
 
   /**
    * 組み直した表 1 件の照合。生成器の applyTableOverride とは別に書く（同じ関数で照合すると、その関数の

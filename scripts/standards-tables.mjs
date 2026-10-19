@@ -260,6 +260,25 @@ function validate() {
     lines.push('', '版面:', '```text', ...(source?.body ?? entry.layout), '```', '');
     writeFileSync(join(PREVIEW, `${key}.md`), lines.join('\n'));
     console.log(`✓ ${key}: ${applied.kind === 'parts' ? applied.parts.map((p) => (p.kind === 'table' ? `table ${p.header[0].length}列×${p.rows.length}行` : p.kind)).join(' + ') : applied.kind} → ${join(PREVIEW, `${key}.md`)}`);
+    // 文書ごとの差し替え（documentVariants）も、その文書で使う形にして同じく照合し、確認用の表を別に書く
+    let variantNg = false;
+    for (const doc of Object.keys(entry.documentVariants ?? {})) {
+      const variant = loadTableOverrides(doc).get(key);
+      const v = applyTableOverride(source?.body ?? entry.layout, asApproved(variant), { lookup: (ref) => asApproved(overrides.get(ref)), absorbedBodies: earlier(source) });
+      if (!v.ok) { console.log(`✗ ${key} [${doc}]: ${v.reason} ${v.detail ?? ''}`); variantNg = true; continue; }
+      const out = [`# ${key} の差し替え（${doc}）`, '', `前の段落: ${(variant.absorbsParagraphs?.before ?? []).join(' ／ ') || 'なし'}`, `後ろの段落: ${(variant.absorbsParagraphs?.after ?? []).join(' ／ ') || 'なし'}`, ''];
+      for (const part of v.parts ?? []) {
+        if (part.kind === 'table') out.push(...[...part.header, ...part.rows].map((cells) => `| ${cells.join(' | ')} |`));
+        else if (part.kind === 'list') out.push(...part.items.map((item) => `- ${item}`));
+        else if (part.kind === 'verbatim') out.push('```text', ...part.lines, '```');
+        else out.push(part.text);
+        out.push('');
+      }
+      const file = `${key}--${doc.replace('/', '-')}.md`;
+      writeFileSync(join(PREVIEW, file), out.join('\n'));
+      console.log(`✓ ${key} [${doc}] 差し替え → ${join(PREVIEW, file)}`);
+    }
+    if (variantNg) { ng += 1; continue; }
     ok += 1;
   }
   console.log(`[standards-tables] 合格 ${ok} / 不合格 ${ng} / 対象 ${keys.length}`);
