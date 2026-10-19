@@ -1,10 +1,12 @@
 {
   "schemaVersion": 1,
-  "checkedAt": "2026-10-18T18:16:40.133Z",
+  "checkedAt": "2026-10-19T11:22:13.038Z",
   "channel": "youtube",
   "targets": 360,
   "checked": 10,
   "observed": 10,
-  "advanced": [],
+  "advanced": [
+    "civil-construction-2/hinshitsu-touan-gutaika/youtube.longform"
+  ],
   "findings": []
 }
