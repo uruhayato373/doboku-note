@@ -29,6 +29,7 @@ import {
 } from './lib/longform-render.mjs';
 import { narrationInput, reusableNarration, sha256 } from './lib/video-narration-cache.mjs';
 import { readLongformPopImages } from './lib/longform-pop-images.mjs';
+import { verifyLearningFrame } from './lib/learning-frame.mjs';
 import { longformInputHash, verifyLongformRender } from './lib/longform-render-integrity.mjs';
 import { renderYoutubeCover, validateCoverDesign } from './lib/youtube-cover.mjs';
 import { readVideoCta } from './lib/video-cta.mjs';
@@ -152,10 +153,12 @@ async function main() {
     const wavPath = join(wavDir, `${pad}-${scene.sceneId}.wav`);
 
     if (i === 0 && coverSpec) {
+      if (coverSpec.approvedImage?.normalization) await verifyLearningFrame(ROOT, coverSpec.approvedImage);
       const cover = await renderYoutubeCover(ROOT, coverSpec);
       writeFileSync(pngPath, cover.buffer);
       writeFileSync(join(outDir, 'cover-provenance.json'), JSON.stringify(cover.provenance, null, 2) + '\n');
     } else if (popImages.has(scene.sceneId)) {
+      await verifyLearningFrame(ROOT, popImages.get(scene.sceneId));
       // resume / refresh の指定にかかわらず、検査済み生成画像をそのまま採用する。
       writeFileSync(pngPath, readFileSync(resolve(ROOT, popImages.get(scene.sceneId).path)));
     } else if (scene.visual?.art) {

@@ -109,6 +109,8 @@ npm run youtube-shorts:restore -- --pack-dir content/sns/video-packs/civil-const
 
 公開状態と、制作中の修正版を分ける。音声付き再生成と `npm run media -- verify-render --work <exam>/<work>` の成功後、`npm run media -- promote --pub <公開ID> --candidate --commit` で作品用素材 `work/candidate-*` として保存する。既存の公開行・予約日時・外部ID・承認・公開素材の参照は更新しない。管理画面の作品詳細では「改訂版（YouTube未反映）」に表示する。通常の promote は公開行の素材を置き換えるので、予約・公開済み修正には使わない。
 
-図解の指示には場面全体と前後で共通の事例を渡す。表の先頭行だけを抜き出して、要約に必要な「対応」「結果」等を落とさない。紙・車体・計器の不要な細字や数字は無地にする。生成後は全体を比率維持で字幕の上へ配置し、切り抜き・文字の消去で修正しない。図の対応、原寸と360px、字幕入り動画をそれぞれ確認する。
+上記の `verify-render` は通常動画用。Shorts候補は `pop-image.json.candidateShortsRevision` の改訂から、対象 `publicationId` に一致する記録1件を `promote --candidate` が選ぶ。`verifyImageReproduction` で全画像・完成MP4・再現レシピ・字幕のSHA、寸法、場面の連続性と尺を照合してから、`candidate-point-…-video` 等のvariant別素材として保存する。公開行は更新しない。改行を直した新ASSは任意の `recipe.subtitles` に保存し、`originalSubtitles` も保持する。完成動画の図解・字幕・音声の確認は別に記録する。
+
+図解の指示には場面全体と前後で共通の事例を渡す。表の先頭行だけを抜き出して、要約に必要な「対応」「結果」等を落とさない。紙・車体・計器の不要な細字や数字は無地にする。字幕安全域は生成時の構図で確保し、原本全体を動画寸法へ正規化する。図解主体は `full-frame-v1` の原本SHA・実画素照合を通し、後付け縮小・余白を加えない。切り抜き・文字の消去で修正せず、図の対応、原寸と360px、字幕入り動画をそれぞれ確認する。
 
 入力照合の原本は `.tmp/video-render/<work>/` のmanifest・WAV・PNG・ASSである。完成後は既存保管先へ `node scripts/drive-vault-sync.mjs --group video-render-artifact --path .tmp/video-render/<work>/ --commit` で保存し、同じ指定に `--verify --cloud` を付けて確認する。再検証で原本が無い場合は同じgroup/pathの `--pull --commit` で復元する。`media pull` は採用素材だけの復元なので区別する。

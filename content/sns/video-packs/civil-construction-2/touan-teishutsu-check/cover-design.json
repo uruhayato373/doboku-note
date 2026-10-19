@@ -11,22 +11,25 @@
       ],
       "accentLine": 1,
       "subtitle": "条件・処置・結果を照合",
-      "character": {
-        "pose": "checklist-pen",
-        "frame": "waist"
-      },
       "design": "pop-poster-v3",
-      "pop": {
-        "variant": "explain",
-        "authority": "総監・元発注者"
-      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/cover-caption-safe.8e9a65a9.png",
-        "sha256": "8e9a65a98280dfd3aecebaabb6a5c1df30747fcb270d85d4c1b42e051f00f2d3",
-        "specSha256": "e69da7a463025af92f517cb9efbf37c239e84f500e7c11496c52a694c79af087",
+        "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--cover.c952103a.png",
+        "sha256": "c952103a7c497818086760968dde5877970a5942d13deae4ef91c205ddf4f35b",
         "width": 1920,
-        "height": 1080
-      }
+        "height": 1080,
+        "normalization": {
+          "mode": "full-frame-v1",
+          "sourceSha256": "4642df57566b50fe485924bd1b75c496447430c4b8c19c8f0352cebc7df234df"
+        },
+        "source": {
+          "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--cover-raw.4642df57.png",
+          "sha256": "4642df57566b50fe485924bd1b75c496447430c4b8c19c8f0352cebc7df234df",
+          "width": 1672,
+          "height": 941
+        },
+        "specSha256": "957181e07dcf0654e661eab930b23b20657e51181248a8d31ce130500bfe0578"
+      },
+      "layout": "diagram-led"
     }
   }
 }

@@ -244,7 +244,7 @@
     "source": "このチャットの運営者指示「次の2級土木『品質管理』を最新ルールで制作して、予約投稿まで進めてください。台帳と管理画面にも反映してください。」",
     "scope": "品質管理の制作・YouTube予約投稿・台帳・管理画面反映"
   },
-  "activeCoverRevision": "cover-safe-20261018",
+  "activeCoverRevision": "diagram-led-20261019-cover",
   "revisions": {
     "cover-safe-20261018": {
       "version": "pop-poster-v3",
@@ -923,7 +923,734 @@
           }
         }
       ]
+    },
+    "diagram-led-20261019": {
+      "version": "codex-pop-body-v1",
+      "date": "2026-10-19",
+      "purpose": "図解主体・控えめな配色。装飾キャラクターと著者名を除去。外部未反映。",
+      "layout": {
+        "mode": "diagram-led",
+        "canvas": {
+          "width": 1920,
+          "height": 1080
+        },
+        "subtitleSafeTop": 820
+      },
+      "images": [
+        {
+          "sceneId": "hook",
+          "inputSha256": "d2c1181c85ce6a262fee571bf6f4c22e3a9cc26bd5cd2a0fadcb8cd02f852e6a",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "品質管理は、3つをつなげる",
+            "items": [
+              "管理項目：何を管理したか",
+              "現場条件：なぜ必要だったか",
+              "確認方法：どう確かめたか"
+            ]
+          },
+          "narration": "「試験をした」だけで終わっていませんか。管理項目、現場条件、確認方法をつなげます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene hinshitsu-touan-gutaika/hook. Narration to illustrate faithfully, not all to print: 「試験をした」だけで終わっていませんか。管理項目、現場条件、確認方法をつなげます。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"品質管理は、3つをつなげる\",\"items\":[\"管理項目：何を管理したか\",\"現場条件：なぜ必要だったか\",\"確認方法：どう確かめたか\"]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--hook-reference.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--hook-raw.9b5075b5.png",
+              "sha256": "9b5075b5e37ea122fa5e10a4c7540d570300e97483ac4a10f123938b073a5510",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:30:20.971Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--hook.dbd523a0.png",
+            "sha256": "dbd523a0c634145bb60ece0c18c8913882410bb3419da38096d49052cf4fe5db",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "9b5075b5e37ea122fa5e10a4c7540d570300e97483ac4a10f123938b073a5510"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:27:17.782Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "管理項目・現場条件・確認方法の3関係、コンクリート供試体・圧縮機の簡略図、指定文字を確認。装飾キャラクター・著者名なし。"
+          }
+        },
+        {
+          "sceneId": "authority",
+          "inputSha256": "35db043d0fd1416d28703752bb269c6eee34de612c88ce3956cee3df8fc63d94",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "経験を整理する視点",
+            "items": [
+              "現場条件",
+              "自分の対応",
+              "確認記録"
+            ]
+          },
+          "narration": "総合技術監理部門の技術士で、1級・2級土木に合格した元発注者が、書く視点を解説します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Create ONE 16:9 wide quiet illustration with no text at all. On a white canvas, two ordinary civil-construction workers wearing white helmets and muted green safety clothing consult a construction plan and a work notebook at a simple desk. The plan and their pointing/checking action are the focus. Small natural human figures, NOT a mascot, no large portrait, no speech bubble, no name, no qualification, no credentials, no alphabet, no numbers, NO Japanese or other text anywhere. Fine green/gray outlines and very restrained pale accents, matching only the palette of the attached no-text style reference. No landscape or decoration. Use the central upper 70% of the full-width 16:9 frame, leaving lower 240px as continuous clean white for subtitles. Do not add an enclosing border or colored padding. This scene accompanies a narration about explaining from practical experience, but must contain ONLY the human checking action and useful plan/notebook props, no biography diagram or qualifications.",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/keiken-daizai-erabi--authority-reference.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/keiken-daizai-erabi--authority-raw.63fef5f2.png",
+              "sha256": "63fef5f2ac437399fe83496afe910cb22c2cadc2f1807fbdf348bff977abd759",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:20:50.791Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/keiken-daizai-erabi--authority.61ac6ea0.png",
+            "sha256": "61ac6ea09f703b834319ae98faf8560d9cfd4c19b844fc472c244acc862a1cf5",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "63fef5f2ac437399fe83496afe910cb22c2cadc2f1807fbdf348bff977abd759"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:27:17.863Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "図面を指す人とノートへ記録する人の2人について腕・手の接続と作業動作を確認。装飾の先生・解説名・肩書き・指定外文字なし。"
+          }
+        },
+        {
+          "sceneId": "premise",
+          "inputSha256": "f1b6b6dea01fdc868edf1333ff1a6637af907fe600cf21650fe705869996aa56",
+          "sourceCopy": {
+            "kind": "compare",
+            "heading": "試験名の前に、目的を整理",
+            "ngLabel": "名前だけ",
+            "okLabel": "目的まで",
+            "rows": [
+              {
+                "ng": "試験を実施した",
+                "ok": "何を、なぜ確かめたか"
+              }
+            ]
+          },
+          "narration": "試験の名前だけでは、何の品質を、なぜ確かめたのかが伝わりません。ここからは、考え方の例です。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene hinshitsu-touan-gutaika/premise. Narration to illustrate faithfully, not all to print: 試験の名前だけでは、何の品質を、なぜ確かめたのかが伝わりません。ここからは、考え方の例です。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"試験名の前に、目的を整理\",\"rows\":[{\"ng\":\"試験を実施した\",\"ok\":\"何を、なぜ確かめたか\"}],\"ngLabel\":\"名前だけ\",\"okLabel\":\"目的まで\"}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--premise-reference.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--premise-raw.09e73a49.png",
+              "sha256": "09e73a49690d5ed961411dd3103fbf3b06fa1f810f9f667ce36120c95477daf5",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:30:20.950Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--premise.ce834895.png",
+            "sha256": "ce83489598884d3b6c1318867c7e76f96dcd89f8427b3347745d28d88fed843a",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "09e73a49690d5ed961411dd3103fbf3b06fa1f810f9f667ce36120c95477daf5"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:27:17.947Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "試験名だけと目的までの違いを、記録・供試体の荷重確認・構造物の関係で示し、文字と供試体図の破綻なし。"
+          }
+        },
+        {
+          "sceneId": "quality-item",
+          "inputSha256": "a8f50b0e8a7f15790cc8212b5c72c34ff0580b43362420432e49a504ea6026d9",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "何を管理するか：打込み時の温度",
+            "sheetTitle": "考え方の整理例",
+            "rows": [
+              {
+                "label": "管理項目",
+                "value": "打込み時の温度",
+                "state": "focus",
+                "order": 1
+              },
+              {
+                "label": "現場条件",
+                "value": "夏季の運搬・待機",
+                "state": "todo",
+                "order": 2
+              },
+              {
+                "label": "検討と処置",
+                "value": "搬入間隔と待機時間",
+                "state": "todo",
+                "order": 3
+              },
+              {
+                "label": "確認方法",
+                "value": "温度測定と管理値の照合",
+                "state": "todo",
+                "order": 4
+              }
+            ]
+          },
+          "narration": "まず、管理する項目を決めます。夏のコンクリート施工を例に、打ち込むときのコンクリート温度に注目します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene hinshitsu-touan-gutaika/quality-item. Narration to illustrate faithfully, not all to print: まず、管理する項目を決めます。夏のコンクリート施工を例に、打ち込むときのコンクリート温度に注目します。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"何を管理するか：打込み時の温度\",\"rows\":[{\"label\":\"管理項目\",\"value\":\"打込み時の温度\",\"state\":\"focus\",\"order\":1},{\"label\":\"現場条件\",\"value\":\"夏季の運搬・待機\",\"state\":\"todo\",\"order\":2},{\"label\":\"検討と処置\",\"value\":\"搬入間隔と待機時間\",\"state\":\"todo\",\"order\":3},{\"label\":\"確認方法\",\"value\":\"温度測定と管理値の照合\",\"state\":\"todo\",\"order\":4}]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--quality-item-reference.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--quality-item-raw.a0f04805.png",
+              "sha256": "a0f04805c61fcdee7d9e937c3cf81bdad16e12d0127f9c03ff206156a5dce772",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:30:20.974Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--quality-item.b362ecef.png",
+            "sha256": "b362ecef8dc6394d76015778f1bde77152caad3d0e80e76ceae636b69e1e2d75",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "a0f04805c61fcdee7d9e937c3cf81bdad16e12d0127f9c03ff206156a5dce772"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:27:18.034Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "打込み時の温度、夏季の運搬・待機、搬入間隔と待機時間を結ぶ図と文字が原稿に一致。車両のドラム・車体の連結と字幕安全域を確認。"
+          }
+        },
+        {
+          "sceneId": "condition",
+          "inputSha256": "1312a626deb8472e6c01fc54e67daed9e20f3bdb7dc59262efa3dbff57ab3aa8",
+          "sourceCopy": {
+            "kind": "figure",
+            "heading": "考え方の例：夏季のコンクリート",
+            "src": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/youtube.longform/body-reference.b0295ab0.png"
+          },
+          "narration": "次に、現場条件です。夏の暑さに加え、運搬や待機で温度が上がるおそれを、管理が必要な理由につなげます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene hinshitsu-touan-gutaika/condition. Narration to illustrate faithfully, not all to print: 次に、現場条件です。夏の暑さに加え、運搬や待機で温度が上がるおそれを、管理が必要な理由につなげます。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"考え方の例：夏季のコンクリート\"}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--condition-reference.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--condition-raw.6b6b67ec.png",
+              "sha256": "6b6b67ec2fd2cf831f06d193a04441d98c210faa1f4702e999910467e3a8f015",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:30:20.977Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--condition.664c0930.png",
+            "sha256": "664c09306be302faf3cb9a42f9901c3775b28a100ed3aa608a46d652069f7633",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "6b6b67ec2fd2cf831f06d193a04441d98c210faa1f4702e999910467e3a8f015"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:27:18.120Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "夏の暑さ、アジテータトラックの運搬・待機、温度上昇のおそれの因果と文字が説明に一致し、下端に字幕用背景が残る。"
+          }
+        },
+        {
+          "sceneId": "measure",
+          "inputSha256": "2e9cb41caf242ff4b18759133918231c97debb4489525fb7542d635bc65880d2",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "なぜ、その段取りにしたか",
+            "sheetTitle": "考え方の整理例",
+            "rows": [
+              {
+                "label": "管理項目",
+                "value": "打込み時の温度",
+                "state": "done",
+                "order": 1
+              },
+              {
+                "label": "現場条件",
+                "value": "夏季の運搬・待機",
+                "state": "done",
+                "order": 2
+              },
+              {
+                "label": "検討と処置",
+                "value": "搬入間隔と待機時間",
+                "state": "focus",
+                "order": 3
+              },
+              {
+                "label": "確認方法",
+                "value": "温度測定と管理値の照合",
+                "state": "todo",
+                "order": 4
+              }
+            ]
+          },
+          "narration": "そこで、打込みの進み具合に合う搬入間隔を検討します。待機を減らす段取りと、実際に実施した処置を整理します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene hinshitsu-touan-gutaika/measure. Narration to illustrate faithfully, not all to print: そこで、打込みの進み具合に合う搬入間隔を検討します。待機を減らす段取りと、実際に実施した処置を整理します。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"なぜ、その段取りにしたか\",\"rows\":[{\"label\":\"管理項目\",\"value\":\"打込み時の温度\",\"state\":\"done\",\"order\":1},{\"label\":\"現場条件\",\"value\":\"夏季の運搬・待機\",\"state\":\"done\",\"order\":2},{\"label\":\"検討と処置\",\"value\":\"搬入間隔と待機時間\",\"state\":\"focus\",\"order\":3},{\"label\":\"確認方法\",\"value\":\"温度測定と管理値の照合\",\"state\":\"todo\",\"order\":4}]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--measure-reference.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--measure-raw.f8831de7.png",
+              "sha256": "f8831de758db8b0f9db9fdc04b7df8d78b310b4a58bc8b674f0dca34562c1a6b",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:30:20.980Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--measure.6fdc06b5.png",
+            "sha256": "6fdc06b53f2458ff118a9f2b9f4ccce1d504625618e06c5e819fdefcf5c86ca4",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "f8831de758db8b0f9db9fdc04b7df8d78b310b4a58bc8b674f0dca34562c1a6b"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:27:18.208Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "温度、夏季の運搬・待機、搬入間隔と待機時間の3図がナレーションの段取り検討と対応し、字幕領域から重要文字が離れている。"
+          }
+        },
+        {
+          "sceneId": "verify-method",
+          "inputSha256": "c688cb884b17cd274ee38408bb5def51d7b228567954a82e848ad46ee67d0bbd",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "何を測り、何と比べるか",
+            "sheetTitle": "考え方の整理例",
+            "rows": [
+              {
+                "label": "管理項目",
+                "value": "打込み時の温度",
+                "state": "done",
+                "order": 1
+              },
+              {
+                "label": "現場条件",
+                "value": "夏季の運搬・待機",
+                "state": "done",
+                "order": 2
+              },
+              {
+                "label": "検討と処置",
+                "value": "搬入間隔と待機時間",
+                "state": "done",
+                "order": 3
+              },
+              {
+                "label": "確認方法",
+                "value": "温度測定と管理値の照合",
+                "state": "focus",
+                "order": 4
+              }
+            ]
+          },
+          "narration": "そして、確認方法です。この例なら、打ち込むときのコンクリート温度を測り、管理値と照合するところまでつなげます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene hinshitsu-touan-gutaika/verify-method. Narration to illustrate faithfully, not all to print: そして、確認方法です。この例なら、打ち込むときのコンクリート温度を測り、管理値と照合するところまでつなげます。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"何を測り、何と比べるか\",\"rows\":[{\"label\":\"管理項目\",\"value\":\"打込み時の温度\",\"state\":\"done\",\"order\":1},{\"label\":\"現場条件\",\"value\":\"夏季の運搬・待機\",\"state\":\"done\",\"order\":2},{\"label\":\"検討と処置\",\"value\":\"搬入間隔と待機時間\",\"state\":\"done\",\"order\":3},{\"label\":\"確認方法\",\"value\":\"温度測定と管理値の照合\",\"state\":\"focus\",\"order\":4}]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--verify-method-reference.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--verify-method-raw.353fa60c.png",
+              "sha256": "353fa60cade0d437ad825f44471426d5d4fe10ea29b0caf6dea31a09906e7c57",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:30:20.984Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--verify-method.684255fd.png",
+            "sha256": "684255fdc18b22db3c055e57cbfcb28a685122e2b665aa58ca2f2d2b2696bbf8",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "353fa60cade0d437ad825f44471426d5d4fe10ea29b0caf6dea31a09906e7c57"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:27:18.291Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "温度計の測定プローブ、管理値の表、照合矢印が原稿の測定と比較に一致し、根拠のない数値・著者名・装飾人物なし。"
+          }
+        },
+        {
+          "sceneId": "verify-record",
+          "inputSha256": "f7780b9dd84acef86754b6593eb2a4f3f109993141c0faba1f5e2ecbfbb694c9",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "数字は、自分の工事の記録から",
+            "items": [
+              "仕様書・施工計画：管理値と確認方法",
+              "試験・測定記録：実際の結果",
+              "経験した事実に合わせて書く"
+            ],
+            "reveal": 2
+          },
+          "narration": "管理値や測定の時期・頻度は、自分の工事の仕様書と施工計画を確認します。実際の測定結果も、記録から確かめます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene hinshitsu-touan-gutaika/verify-record. Narration to illustrate faithfully, not all to print: 管理値や測定の時期・頻度は、自分の工事の仕様書と施工計画を確認します。実際の測定結果も、記録から確かめます。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"数字は、自分の工事の記録から\",\"items\":[\"仕様書・施工計画：管理値と確認方法\",\"試験・測定記録：実際の結果\",\"経験した事実に合わせて書く\"]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.\nMANDATORY CORRECTION: ONLY THREE LARGE DOCUMENT ICONS: 仕様書・施工計画 / 試験・測定記録 / 経験した事実に合わせて書く. Concise short label 実際の結果 permitted from source. No laboratory equipment, no cylindrical specimens, no dial gauges, no people. Show document crosschecking with arrows. No physical machinery.",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--verify-record-reference.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--verify-record-raw.a3a3fe96.png",
+              "sha256": "a3a3fe96a84fa3ecbfdd4ef8a0aefa18357df57377ff7f90af738f59e91c9295",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:38:31.437Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--verify-record.61bf2485.png",
+            "sha256": "61bf2485ab4c5a6c00b51575d82d3f713375755bda0ee90625381a154609792a",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "a3a3fe96a84fa3ecbfdd4ef8a0aefa18357df57377ff7f90af738f59e91c9295"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:27:18.383Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "旧版の不明な試験器具を除去し、仕様書・施工計画→試験測定記録→経験した事実という3書類の関係に修正済み。"
+          }
+        },
+        {
+          "sceneId": "compare",
+          "inputSha256": "b5bfa0c61ea50ee3200eb5ce60c4e3112efbde89b0821f8c48845f6e8572dca2",
+          "sourceCopy": {
+            "kind": "compare",
+            "heading": "測定の報告から、管理の説明へ",
+            "ngLabel": "行動だけ",
+            "okLabel": "つながりを示す",
+            "rows": [
+              {
+                "label": "例",
+                "ng": "温度を測った",
+                "ok": "打込み時の温度\n夏季の運搬・待機\n測定して管理値と照合"
+              }
+            ]
+          },
+          "narration": "「温度を測った」から一歩進めて、何を管理し、なぜ必要で、どう確かめたか。3つがつながるかを見直しましょう。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene hinshitsu-touan-gutaika/compare. Narration to illustrate faithfully, not all to print: 「温度を測った」から一歩進めて、何を管理し、なぜ必要で、どう確かめたか。3つがつながるかを見直しましょう。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"測定の報告から、管理の説明へ\",\"rows\":[{\"label\":\"例\",\"ng\":\"温度を測った\",\"ok\":\"打込み時の温度\\n夏季の運搬・待機\\n測定して管理値と照合\"}],\"ngLabel\":\"行動だけ\",\"okLabel\":\"つながりを示す\"}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--compare-reference.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--compare-raw.82a2c1da.png",
+              "sha256": "82a2c1da87a2cc18300ce5b328a4c87738304d50e4c51d08a93f2b9bb86ce321",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:30:20.966Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--compare.8633b5eb.png",
+            "sha256": "8633b5ebf1c7f8ed4f741678b46aed06a59af1ca9151ef65901b52ccca76b37a",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "82a2c1da87a2cc18300ce5b328a4c87738304d50e4c51d08a93f2b9bb86ce321"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:27:18.471Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "温度計のプローブによる測定、夏季の運搬・待機、管理値との照合の関係と指定文字を原寸・360pxで確認。人物は作業員のみで字幕領域に重要文字なし。"
+          }
+        },
+        {
+          "sceneId": "own-work",
+          "inputSha256": "92ddac92d8bb5a05f9a5529becf9a7345bede246b79961f72705c27a6db4aa5d",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "自分の工事で、3つを埋める",
+            "sheetTitle": "経験した事実の整理欄",
+            "rows": [
+              {
+                "label": "管理項目",
+                "value": "何を管理したか",
+                "state": "focus"
+              },
+              {
+                "label": "現場条件",
+                "value": "なぜ必要だったか",
+                "state": "todo"
+              },
+              {
+                "label": "確認方法",
+                "value": "何を測り、何と比べたか",
+                "state": "todo"
+              }
+            ]
+          },
+          "narration": "自分の工事では、品質を左右する条件は何でしたか。例を写さず、検討したこと、実施した処置、確認結果を結びます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene hinshitsu-touan-gutaika/own-work. Narration to illustrate faithfully, not all to print: 自分の工事では、品質を左右する条件は何でしたか。例を写さず、検討したこと、実施した処置、確認結果を結びます。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"自分の工事で、3つを埋める\",\"rows\":[{\"label\":\"管理項目\",\"value\":\"何を管理したか\",\"state\":\"focus\"},{\"label\":\"現場条件\",\"value\":\"なぜ必要だったか\",\"state\":\"todo\"},{\"label\":\"確認方法\",\"value\":\"何を測り、何と比べたか\",\"state\":\"todo\"}]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--own-work-reference.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--own-work-raw.51f5ad2e.png",
+              "sha256": "51f5ad2ea7e199e7b1fafb5b20992461eb8f82c97dcec53f98958d01e639a343",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:33:51.565Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--own-work.4af74475.png",
+            "sha256": "4af744757f5d419b37e97a46579d3435071b1d07c8506cf31dd606f27deb01c7",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "51f5ad2ea7e199e7b1fafb5b20992461eb8f82c97dcec53f98958d01e639a343"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:27:18.557Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "管理項目・現場条件・確認方法の3欄と、施工条件・寸法確認の簡略図が自分の工事を整理する説明に対応。"
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "593edbfe5f6deae892b3adbb675d4c5499388d7b0c7a20f914b7cd85b43b1362",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "品質管理の具体化：3つのつながり",
+            "items": [
+              "何を管理したか",
+              "なぜ必要だったか",
+              "どう確かめ、何が分かったか"
+            ],
+            "reveal": 3,
+            "focus": 2
+          },
+          "narration": "まとめです。管理項目、現場条件、確認方法をつなげる。「試験をした」で終わらず、必要な理由と確認結果を示します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene hinshitsu-touan-gutaika/summary. Narration to illustrate faithfully, not all to print: まとめです。管理項目、現場条件、確認方法をつなげる。「試験をした」で終わらず、必要な理由と確認結果を示します。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"品質管理の具体化：3つのつながり\",\"items\":[\"何を管理したか\",\"なぜ必要だったか\",\"どう確かめ、何が分かったか\"]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.\nFor this scene use ONLY document/book/notebook icons and arrows. NO machinery, NO suspended loads, NO physical construction operation. No extra example beyond source. Minimal clear diagram, no redundant sidebars.\nPREVIOUS SCENE CONTEXT (not to print): {\"sceneId\":\"own-work\",\"start\":95,\"end\":105,\"narration\":\"自分の工事では、品質を左右する条件は何でしたか。例を写さず、検討したこと、実施した処置、確認結果を結びます。\",\"caption\":\"自分の工事では、品質を左右する条件は何でしたか。例を写さず、検討したこと、実施した処置、確認結果を結びます。\",\"visual\":{\"kind\":\"sheet\",\"heading\":\"自分の工事で、3つを埋める\",\"sheetTitle\":\"経験した事実の整理欄\",\"rows\":[{\"label\":\"管理項目\",\"value\":\"何を管理したか\",\"state\":\"focus\"},{\"label\":\"現場条件\",\"value\":\"なぜ必要だったか\",\"state\":\"todo\"},{\"label\":\"確認方法\",\"value\":\"何を測り、何と比べたか\",\"state\":\"todo\"}]},\"sourceRef\":\"content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx\"}\nNEXT SCENE CONTEXT (not to print): {\"sceneId\":\"cta\",\"start\":115,\"end\":127,\"narration\":\"元発注者・土木の合格者の視点で学ぶ完成答案集です。品質・安全・工程の答案と置換ガイドは、概要欄をご覧ください。\",\"caption\":\"元発注者・土木の合格者の視点で学ぶ完成答案集です。品質・安全・工程の答案と置換ガイドは、概要欄をご覧ください。\",\"visual\":{\"kind\":\"points\",\"heading\":\"自分の工事に置き換えて練習\",\"items\":[\"2級土木 施工経験記述 完成答案集\",\"品質・安全・工程の完成答案＋置換ガイド\",\"概要欄のnoteマガジンへ\"]},\"sourceRef\":\"config/products.json\"}\nMANDATORY CORRECTION: Keep the SAME temperature-control example. ONLY three large document icons with labels: 何を管理したか / なぜ必要だったか / どう確かめ、何が分かったか. NO slump, specimen, concrete placement, equipment, numbers or people. Three relationships, no extra examples.",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--summary-reference.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--summary-raw.d77a9447.png",
+              "sha256": "d77a9447643777823ba3150f252f2e404ccd869f71b24a700bf5396562fb9af5",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T23:09:41.817Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--summary.aaeeb1c2.png",
+            "sha256": "aaeeb1c249ffe9a454e86dbb250851e03319806bfac9844ff89314ac78fbb869",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "d77a9447643777823ba3150f252f2e404ccd869f71b24a700bf5396562fb9af5"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:27:18.645Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "管理項目・必要な理由・確認と結果の3文書へ修正され、別試験の不正確な測定図を除去。指定文字と前後の原稿に一致し、重要文字と図が通常動画の上部に収まる。"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "2362a1c6b4609bccf686758b3f46917f531c60e78c61e9a67d154cd5df0011ea",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "自分の工事に置き換えて練習",
+            "items": [
+              "2級土木 施工経験記述 完成答案集",
+              "品質・安全・工程の完成答案＋置換ガイド",
+              "概要欄のnoteマガジンへ"
+            ]
+          },
+          "narration": "元発注者・土木の合格者の視点で学ぶ完成答案集です。品質・安全・工程の答案と置換ガイドは、概要欄をご覧ください。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付の学習画像を構成し直す。横16:9、1920×1080。図解メイン、POPは控えめ。白地、くすんだ緑とグレー、小さな黄色。太すぎる見出し、飾り人物、著者名、先生、肩書きなし。字幕が重なったため、全ての文字と重要図を上側y80〜700に収める。下380pxは白地だけ。完成画像の縮小貼付や帯で埋めず、直接この構成で描く。\n上部見出し「自分の工事に置き換えて練習」。y250〜650に横3枚の文書カードだけ。左カード内の上に「施工経験記述」、下に「完成答案集」。中央カード内「品質・安全・工程」「置換ガイド」。右カード内「概要欄の」「noteマガジンへ」。文書アイコンは小さく。独立した下段ラベルは全て削除。カード外に文字を置かない。\n指定外の内容は足さない。大きな図を優先して文字を下げない。",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--cta-reference.c32a3440.png",
+                "sha256": "c32a3440a843a78bf1130f9ff5f2403ef9c3cb1bdb5fb97d78dd16dd5b3b39ed"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--cta-raw.80df0927.png",
+              "sha256": "80df092798ab7f48e99149be5c3294b12b27e568dd4070e44e58646ae41d4960",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T23:22:22.850Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--cta.63f04ad8.png",
+            "sha256": "63f04ad82a2454feffe97957f2e905824c08e5e87626b1843bcccafc9b376745",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "80df092798ab7f48e99149be5c3294b12b27e568dd4070e44e58646ae41d4960"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:27:18.738Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "下段の独立ラベルをカード内へ移し、施工経験記述・完成答案集→品質安全工程と置換ガイド→概要欄のnoteマガジンの3関係へ修正。指定文字に誤字なし。原寸と360pxで判読し、全重要文字と図が正規化y約750以内に収まりy<820を満たす。"
+          }
+        }
+      ],
+      "review": {
+        "status": "ok",
+        "by": "video-content-qa",
+        "at": "2026-10-18T23:55:44.238Z",
+        "mp4Sha256": "be9ae15bbfff0a26f6aae55aa433da1d41998c895204d191c5ce1efbceb7cc7c",
+        "scope": "全13場面の完成動画中点を原寸・360px実見。音声・画像・字幕・MP4の機械照合。",
+        "evidence": {
+          "path": ".tmp/media/_brand/diagram-led/qa-report.1cd922fe.json",
+          "sha256": "1cd922fec2a44ce403978bfa74b1746934c01ba135b8b5c07e15cd6dc67dba69"
+        }
+      }
+    },
+    "diagram-led-20261019-cover": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "Use case: scientific-educational. One calm 16:9 full-width educational video title image, intended 1920x1080. Exact small qualification label 「2級土木」 and main title 「品質管理の経験記述｜「試験した」から先の書き方」. Illustrate the central learning idea: 管理項目・現場条件・確認方法をつなぎ、自分が行った品質管理を具体的に整理できる. WHITE background, muted green thin-line construction diagram, a few purposeful arrows or 2-3 clean illustrated nodes. Restrained dark-green typography, pale gray/green panels, tiny yellow accent only. No big character, no decorative teacher, no author name, no credential, no promotional badge, no speedlines or heavy outlined text, no border, no colored padding. A modest construction worker may appear only if their action explains the topic. All important content above y=800 on 1080 high frame; bottom is continuous white for subtitles, not an added band. Direct full-width 16:9 composition, legible at 360px, no invented statistics or words.",
+        "references": [
+          {
+            "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--cover-reference.f6f6543d.png",
+            "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--cover-raw.7d06eac9.png",
+          "sha256": "7d06eac92f56dbac23b32c04e36a607c10b8b7dc9ce2318142e11e39c35a87ef",
+          "width": 1672,
+          "height": 941
+        },
+        "generatedAt": "2026-10-18T22:54:35.715Z"
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-2/hinshitsu-touan-gutaika/work/hinshitsu-touan-gutaika--cover.cc475878.png",
+        "sha256": "cc4758781dea3ac964d4e441c83fd74f87d8e72e327ad293c1bcd56cec599aae",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "7d06eac92f56dbac23b32c04e36a607c10b8b7dc9ce2318142e11e39c35a87ef"
+      },
+      "review": {
+        "status": "ok",
+        "by": "ai-image-fidelity-auditor",
+        "at": "2026-10-18T23:27:18.829Z",
+        "scope": "原寸・360px・本文/前後関係・字幕安全域",
+        "reason": "資格名・品質管理経験記述・試験したから先の書き方の指定文字、管理項目・現場条件・確認方法の3図を原寸と360pxで確認。主要文字と矢印は字幕領域から離れ、装飾の先生・著者名・肩書きなし。"
+      }
     }
   },
-  "activeBodyRevision": "body-scenes-20261018"
+  "activeBodyRevision": "diagram-led-20261019"
 }

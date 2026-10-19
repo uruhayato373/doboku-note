@@ -11,22 +11,25 @@
       ],
       "accentLine": 1,
       "subtitle": "理由と処置を書き分ける",
-      "character": {
-        "pose": "checklist-pen",
-        "frame": "waist"
-      },
       "design": "pop-poster-v3",
-      "pop": {
-        "variant": "explain",
-        "authority": "総監・元発注者"
-      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/cover-caption-safe.0aa68672.png",
-        "sha256": "0aa686727a2fc0e97bbf0fd8e62df449505c8ee2b4854f811f6e87ceef731b97",
-        "specSha256": "d721a3ac243d8572b416644c58b9c05ad5f7987b117e30946a229db1925a48b8",
+        "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--cover.a8f08a57.png",
+        "sha256": "a8f08a570df01dab13dcbd7f76656e22343cc97942656e97b00c62c3c4f3667c",
         "width": 1920,
-        "height": 1080
-      }
+        "height": 1080,
+        "normalization": {
+          "mode": "full-frame-v1",
+          "sourceSha256": "c801de41935ccc4e31a5db6b51b8423cfcb2e4a08b220c2aa4aab6c7036655d8"
+        },
+        "source": {
+          "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--cover-raw.c801de41.png",
+          "sha256": "c801de41935ccc4e31a5db6b51b8423cfcb2e4a08b220c2aa4aab6c7036655d8",
+          "width": 1672,
+          "height": 941
+        },
+        "specSha256": "15c2f56c7bb83cff78b8d7d3d8a6f87205946f094e1ee3a5f6a9d09e36341177"
+      },
+      "layout": "diagram-led"
     }
   }
 }

@@ -9,6 +9,8 @@ import sharp from 'sharp';
 import { mediaPath } from '../scripts/lib/media-paths.mjs';
 import { assertTemplateShortsAllowed, currentImageReplacement, verifyImageReproduction } from '../scripts/lib/video-image-reproduction.mjs';
 import { REPO_ROOT } from '../scripts/lib/repository-paths.mjs';
+import { RegistryMedia } from '../scripts/lib/dataset-schemas-content.mjs';
+import { shortsCandidateSources } from '../scripts/lib/shorts-candidate-sources.mjs';
 
 async function fixture(t) {
   const root = mkdtempSync(join(tmpdir(), 'video-reproduction-'));
@@ -102,4 +104,29 @@ test('actual template CLI stops before rendering even with force or preview-only
     assert.match(result.stderr, /旧テンプレートで再生成できません/);
     assert.equal(existsSync(join(root, 'render')), false);
   }
+});
+
+test('Shorts候補は全素材と新字幕を照合し、公開版の選択を維持する', async t => {
+  const f=await fixture(t);
+  f.recipe.scenes.forEach((s,i)=>{s.role=i?'scene-002':'cover';});
+  f.recipe.subtitles=f.asset('revised-subtitles','ass','same speech, revised line breaks');f.saveRecipe();
+  f.record.images=f.recipe.scenes.map(s=>({role:s.role,output:{sha256:s.sha256},generation:{tool:'image_gen',prompt:'図解',generatedAt:'2026-10-19T00:00:00Z'}}));
+  const pop={candidateShortsRevision:'next',revisions:{next:{publications:[f.record]}}};
+  const pack=join(f.root,'pack');mkdirSync(pack);
+  writeFileSync(join(pack,'pop-image.json'),JSON.stringify(pop));
+  const pub={id:f.record.publicationId,status:'uploaded_private',media:{video:'existing-video'}};
+  const original=structuredClone(pub);
+  const sources=await shortsCandidateSources(f.root,{definition:'pack'},pub);
+  assert.deepEqual(pub,original);
+  assert.equal(sources.length,5);
+  assert.ok(sources.some(s => s.role === 'point-1-body'));
+  assert.ok(sources.every(s => !/-scene-\d+$/.test(s.role)));
+  RegistryMedia.parse({schemaVersion:1,scope:'civil-construction-2',media:sources.map(source=>({id:pub.id+'/'+source.role,role:source.role,type:source.from.endsWith('.png')?'image/png':source.from.endsWith('.mp4')?'video/mp4':'application/octet-stream',sha256:source.expectSha,store:{tier:'drive',path:source.from},provenance:source.provenance}))});
+  for (const source of sources.filter(s => s.provenance.kind === 'ai-generated')) {
+    assert.equal(source.provenance.promptSha256, createHash('sha256').update(source.provenance.prompt).digest('hex'));
+  }
+  assert.equal(sources.find(s=>s.role==='point-1-subtitles').from,f.recipe.subtitles.path);
+  assert.equal((await verifyImageReproduction(f.root,f.record)).checkedFiles,7);
+  writeFileSync(join(f.root,f.recipe.subtitles.path),'stale');
+  await assert.rejects(shortsCandidateSources(f.root,{definition:'pack'},pub),/SHA不一致/);
 });

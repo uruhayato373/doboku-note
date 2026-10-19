@@ -89,3 +89,16 @@ test('表紙もPOP指定したパックは旧表紙・別画像・改訂指定�
   spec.approvedImage={...f.image.output,path:'old-cover.png'};saveCover();assert.throws(()=>readLongformPopImages(f.root,f.dir,f.board),/旧表紙/);
   delete f.board.imageDesign.coverRevision;assert.throws(()=>readLongformPopImages(f.root,f.dir,f.board),/改訂指定/);
 });
+
+test('図解主体は両側の指定と全面採用記録が必要', async t => {
+  const f=await fixture(t);
+  f.board.imageDesign.layout='diagram-led';
+  assert.throws(()=>readLongformPopImages(f.root,f.dir,f.board),/レイアウト指定/);
+  f.pop.revisions.r1.layout={mode:'diagram-led'};f.save();
+  assert.throws(()=>readLongformPopImages(f.root,f.dir,f.board),/全面採用/);
+  f.image.normalization={mode:'full-frame-v1',sourceSha256:f.image.generation.output.sha256};f.save();
+  const img=readLongformPopImages(f.root,f.dir,f.board).get('body');
+  assert.equal(img.source.sha256,f.image.generation.output.sha256);
+  f.image.normalization.sourceSha256='a'.repeat(64);f.save();
+  assert.throws(()=>readLongformPopImages(f.root,f.dir,f.board),/全面採用/);
+});
