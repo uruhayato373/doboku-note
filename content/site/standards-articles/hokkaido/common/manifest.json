@@ -36,17 +36,16 @@
     "removedChapterFront": 49,
     "dedentedPages": 145,
     "tables": 163,
-    "tablesGfm": 6,
+    "tablesGfm": 5,
     "tablesList": 33,
-    "tablesOverride": 119,
-    "tablesVerbatim": 5
+    "tablesOverride": 121,
+    "tablesVerbatim": 4
   },
   "tableOutcomes": {
     "override-verbatim": 4,
-    "restored-override": 119,
+    "restored-override": 121,
     "restored-standards-list": 33,
-    "restored": 6,
-    "too-few-rows": 1
+    "restored": 5
   },
   "removedSamples": {
     "runningHeaders": [
@@ -1308,8 +1307,8 @@
         200
       ],
       "sourceSha256": "23d1b9acb0fb9c16ce967333a40900612ad9ea93460a4ce568c28770b6692a92",
-      "outputSha256": "0307a9867a80038199b0a12d21b1bc26c3ab515a32576bce280f6095588dcbb0",
-      "outputBytes": 68149,
+      "outputSha256": "913d5849d8a406243666ecf96767f3bdf6190ef67043bb94bd0852bde31fc7af",
+      "outputBytes": 68167,
       "splitBySection": false,
       "sections": [
         {
@@ -2148,8 +2147,8 @@
         376
       ],
       "sourceSha256": "097eecc7dc7a6bd3827f2d9b9ffc6903b98dac9fcec6d8ef2148aa4b3497e4db",
-      "outputSha256": "f7d17f5b961bf1ff66cbe0ec751ff9655d112e7125d61dfc6a4e6b65c8e4d21e",
-      "outputBytes": 466277,
+      "outputSha256": "7224dc59ae4ea0c6d84fce466767e2adaed37528a441a5e9822c857d7c2681cf",
+      "outputBytes": 466239,
       "splitBySection": true,
       "sections": [
         {
@@ -3252,17 +3251,16 @@
         "notes": 16,
         "tables": 59,
         "captions": 13,
-        "tablesGfm": 3,
+        "tablesGfm": 2,
         "tablesList": 1,
-        "tablesOverride": 53,
-        "tablesVerbatim": 2
+        "tablesOverride": 55,
+        "tablesVerbatim": 1
       },
       "tableOutcomes": {
         "restored-standards-list": 1,
-        "restored-override": 53,
-        "restored": 3,
-        "override-verbatim": 1,
-        "too-few-rows": 1
+        "restored-override": 55,
+        "restored": 2,
+        "override-verbatim": 1
       },
       "indexable": false,
       "duplicateOf": null,
