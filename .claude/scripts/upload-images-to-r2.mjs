@@ -12,6 +12,8 @@
  *   node .claude/scripts/upload-images-to-r2.mjs --dry-run             # 送る対象を数えて表示するだけ（一覧は取る）
  *   node .claude/scripts/upload-images-to-r2.mjs --force               # 全件を送り直す
  *   node .claude/scripts/upload-images-to-r2.mjs --prefix exam/civil   # 特定ディレクトリのみ
+ *   node .claude/scripts/upload-images-to-r2.mjs --changed-out <path>  # 送った画像（キー・SHA-256・上書きか）を JSON で書く
+ *                                                                      #（r2-sync が scripts/purge-r2-changed.mjs で CDN を更新して照合する）
  *   （--images-only は旧呼び出しとの互換のため受け付けるだけ。--mdx-only は廃止）
  */
 import { S3Client, PutObjectCommand, ListObjectsV2Command } from '@aws-sdk/client-s3';
@@ -57,6 +59,8 @@ const s3 = new S3Client({
 const args = process.argv.slice(2);
 const dryRun = args.includes('--dry-run');
 const force = args.includes('--force');
+const changedOutIdx = args.indexOf('--changed-out');
+const changedOut = changedOutIdx !== -1 ? args[changedOutIdx + 1] : null;
 const CACHE_CONTROL = 'public, max-age=86400';
 if (args.includes('--mdx-only')) {
   console.error('Error: MDX は R2 へ置かない（--mdx-only は廃止。2026-10-20）');
@@ -121,7 +125,7 @@ for (const item of items) {
   const key = `posts/${toPosix(item.rel)}`;
   const body = fs.readFileSync(item.full);
   if (!force && remote.get(key) === md5(body)) { unchanged++; continue; }
-  pending.push({ ...item, key, body });
+  pending.push({ ...item, key, body, overwritten: remote.has(key) });
 }
 console.log(`  送る: ${pending.length} 件 / 変わっていない: ${unchanged} 件${force ? '（--force で全件）' : ''}`);
 
@@ -133,6 +137,7 @@ if (dryRun) {
 
 let uploaded = 0;
 let failed = 0;
+const sent = [];
 const startTime = Date.now();
 
 async function uploadOne(item) {
@@ -147,6 +152,7 @@ async function uploadOne(item) {
       })
     );
     uploaded++;
+    sent.push({ key: item.key, sha256: createHash('sha256').update(item.body).digest('hex'), overwritten: item.overwritten });
     if (uploaded % 100 === 0) {
       const elapsed = ((Date.now() - startTime) / 1000).toFixed(0);
       console.log(`  Progress: ${uploaded}/${pending.length} (${elapsed}s)`);
@@ -165,6 +171,10 @@ for (let i = 0; i < pending.length; i += CONCURRENCY) {
 
 const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
 console.log(`\nDone in ${elapsed}s! Uploaded: ${uploaded}, Unchanged: ${unchanged}, Failed: ${failed}`);
+if (changedOut) {
+  fs.writeFileSync(changedOut, JSON.stringify({ uploaded: sent }, null, 2) + '\n');
+  console.log(`  送った ${sent.length} 件（上書き ${sent.filter((x) => x.overwritten).length} 件）を ${changedOut} へ書いた`);
+}
 
 // 1 件でも失敗したら非ゼロ終了で CI を赤くする。
 // （旧実装は個別失敗を握りつぶし exit 0 を返すため、R2 トークン失効が約2週間

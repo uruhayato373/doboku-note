@@ -68,8 +68,19 @@ jobs:
           if [ "${{ github.event.inputs.force }}" = "true" ]; then
             ARGS="$ARGS --force"
           fi
+          ARGS="$ARGS --changed-out $RUNNER_TEMP/r2-changed.json"
           echo "Running: npm run upload-images-r2 -- $ARGS"
           npm run upload-images-r2 -- $ARGS
+
+      # 上書きした画像の CDN キャッシュを URL で消し、通常 URL の実体を SHA-256 で照合する（DN-0756）。
+      # 同じ URL への上書きだけでは CDN が max-age（1 日）のあいだ旧版を返す
+      - name: Purge CDN cache for changed images and verify
+        if: github.event.inputs.dry_run != 'true'
+        env:
+          CLOUDFLARE_CACHE_PURGE_TOKEN: ${{ secrets.CLOUDFLARE_CACHE_PURGE_TOKEN }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ANALYTICS_API_TOKEN: ${{ secrets.CLOUDFLARE_ANALYTICS_API_TOKEN }}
+        run: node scripts/purge-r2-changed.mjs --list "$RUNNER_TEMP/r2-changed.json"
 
       - name: Summary
         if: always()
