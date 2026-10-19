@@ -134,3 +134,33 @@ test('assessCloudflareMetrics: 4 日超で FAIL、daysReturned 0 で FAIL、正�
 
   assert.equal(assessCloudflareMetrics(null, now).status, 'FAIL');
 });
+
+test('アカウント使用量: R2 の操作を課金区分に分け、無料枠・含まれる量を差し引いて見込み額を出す', async () => {
+  const { summarizeAccountUsage, r2OperationClass } = await import('../scripts/lib/cloudflare-analytics.mjs');
+  assert.equal(r2OperationClass('PutObject'), 'classA');
+  assert.equal(r2OperationClass('HeadObject'), 'classB');
+  assert.equal(r2OperationClass('DeleteObject'), 'free');
+  assert.equal(r2OperationClass('SomethingNew'), 'unknown');
+  const account = {
+    storage: [
+      { max: { objectCount: 10, payloadSize: 5e9, metadataSize: 0 }, dimensions: { bucketName: 'a', date: '2026-10-01' } },
+      { max: { objectCount: 12, payloadSize: 12e9, metadataSize: 0 }, dimensions: { bucketName: 'a', date: '2026-10-19' } },
+    ],
+    operations: [
+      { sum: { requests: 2_000_000 }, dimensions: { bucketName: 'a', actionType: 'PutObject' } },
+      { sum: { requests: 12_000_000 }, dimensions: { bucketName: 'a', actionType: 'GetObject' } },
+      { sum: { requests: 5 }, dimensions: { bucketName: 'a', actionType: 'DeleteObject' } },
+    ],
+    workers: [{ sum: { requests: 1_000, cpuTimeUs: 40_000_000_000 }, dimensions: { scriptName: 'w' } }],
+  };
+  const pricing = { r2: { freeGb: 10, storagePerGbMonth: 0.015, freeClassA: 1e6, classAPerMillion: 4.5, freeClassB: 1e7, classBPerMillion: 0.36 }, workers: { paidBasePerMonth: 5, includedRequests: 1e7, requestsPerMillion: 0.3, includedCpuMs: 3e7, cpuPerMillionMs: 0.02 } };
+  const s = summarizeAccountUsage(account, pricing);
+  // 保管量は最終日の値（12GB）
+  assert.equal(s.buckets.a.gb, 12);
+  assert.equal(s.buckets.a.classA, 2_000_000);
+  assert.equal(s.buckets.a.free, 5);
+  assert.equal(s.workers.w.cpuMs, 40_000_000);
+  assert.deepEqual(s.estimateUsd, { r2Storage: 0.03, r2ClassA: 4.5, r2ClassB: 0.72, workersBase: 5, workersRequests: 0, workersCpu: 0.2, total: 10.45 });
+  // 料金表が無ければ見込みは出さない
+  assert.equal(summarizeAccountUsage(account, null).estimateUsd, null);
+});

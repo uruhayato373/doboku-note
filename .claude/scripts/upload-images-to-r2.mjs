@@ -1,14 +1,21 @@
 /**
- * Upload MDX files and images to R2 (S3 API)
+ * Upload images to R2 (S3 API) — 記事画像を公開バケット doboku-note の posts/ へ同期する（r2-sync.yml）。
+ *
+ * **変わった画像だけ送る**（2026-10-20）: 先にバケットを 1 回だけ一覧し（ListObjectsV2・1,000 件ごとに 1 リクエスト）、
+ * 同じキーの ETag（1 回の PutObject で上げた物は中身の MD5）がローカルの MD5 と同じ画像は送らない。旧実装は main への
+ * デプロイのたびに全画像を PutObject（Class A）し直していた。--force で全件を送り直す（Cache-Control を付け直すときなど）。
+ * 公開画像には Cache-Control（1 日）を付ける。無いと Cloudflare の既定 4 時間で CDN のキャッシュが切れ、R2 から読み直す。
+ * **MDX は R2 へ置かない**: サイトはリポジトリから組み立てるので使い道が無く、公開 URL で下書きの本文まで読めてしまう。
  *
  * Usage:
- *   node .claude/scripts/upload-images-to-r2.mjs                      # MDX + 画像をアップロード
- *   node .claude/scripts/upload-images-to-r2.mjs --images-only         # 画像のみ
- *   node .claude/scripts/upload-images-to-r2.mjs --mdx-only            # MDXのみ
- *   node .claude/scripts/upload-images-to-r2.mjs --dry-run             # プレビューのみ
+ *   node .claude/scripts/upload-images-to-r2.mjs                      # 変わった画像だけ送る
+ *   node .claude/scripts/upload-images-to-r2.mjs --dry-run             # 送る対象を数えて表示するだけ（一覧は取る）
+ *   node .claude/scripts/upload-images-to-r2.mjs --force               # 全件を送り直す
  *   node .claude/scripts/upload-images-to-r2.mjs --prefix exam/civil   # 特定ディレクトリのみ
+ *   （--images-only は旧呼び出しとの互換のため受け付けるだけ。--mdx-only は廃止）
  */
-import { S3Client, PutObjectCommand, HeadObjectCommand } from '@aws-sdk/client-s3';
+import { S3Client, PutObjectCommand, ListObjectsV2Command } from '@aws-sdk/client-s3';
+import { createHash } from 'crypto';
 import fs from 'fs';
 import path from 'path';
 import { REPO_ROOT as root, SITE_CONTENT_ROOT } from '../../scripts/lib/repository-paths.mjs';
@@ -49,13 +56,14 @@ const s3 = new S3Client({
 
 const args = process.argv.slice(2);
 const dryRun = args.includes('--dry-run');
-const skipExisting = args.includes('--skip-existing');
+const force = args.includes('--force');
+const CACHE_CONTROL = 'public, max-age=86400';
+if (args.includes('--mdx-only')) {
+  console.error('Error: MDX は R2 へ置かない（--mdx-only は廃止。2026-10-20）');
+  process.exit(1);
+}
 const prefixIdx = args.indexOf('--prefix');
 const filterPrefix = prefixIdx !== -1 ? args[prefixIdx + 1] : null;
-const imagesOnly = args.includes('--images-only');
-const mdxOnly = args.includes('--mdx-only');
-const uploadBoth = !imagesOnly && !mdxOnly;
-
 const MIME_TYPES = {
   '.png': 'image/png',
   '.jpg': 'image/jpeg',
@@ -76,116 +84,87 @@ function findImages(dir, base = '') {
     } else {
       const ext = path.extname(entry.name).toLowerCase();
       if (MIME_TYPES[ext]) {
-        results.push({ full, rel, ext, type: 'image' });
+        results.push({ full, rel, ext });
       }
     }
   }
   return results;
 }
 
-function findMdxFiles(dir, base = '') {
-  const results = [];
-  if (!fs.existsSync(dir)) return results;
-  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-    const rel = path.join(base, entry.name);
-    const full = path.join(dir, entry.name);
-    if (entry.isDirectory()) {
-      results.push(...findMdxFiles(full, rel));
-    } else if (entry.name.endsWith('.mdx')) {
-      results.push({ full, rel, ext: '.mdx', type: 'mdx' });
-    }
-  }
-  return results;
-}
-
-let items = [];
-
 const normPrefix = filterPrefix ? toPosix(filterPrefix) : null;
+const items = findImages(contentDir).filter((img) => !normPrefix || toPosix(img.rel).startsWith(normPrefix));
 
-if (uploadBoth || !mdxOnly) {
-  const images = findImages(contentDir);
-  if (normPrefix) {
-    items.push(...images.filter((img) => toPosix(img.rel).startsWith(normPrefix)));
-  } else {
-    items.push(...images);
-  }
-}
-
-if (uploadBoth || mdxOnly) {
-  const mdxFiles = findMdxFiles(contentDir);
-  if (normPrefix) {
-    items.push(...mdxFiles.filter((mdx) => toPosix(mdx.rel).startsWith(normPrefix)));
-  } else {
-    items.push(...mdxFiles);
-  }
-}
-
-console.log(`Found ${items.length} items${dryRun ? ' (dry-run)' : ''}`);
+console.log(`Target: ${items.length} images`);
 if (filterPrefix) console.log(`  Prefix: ${filterPrefix}`);
 
+// バケットの今の中身（キー → ETag）。1,000 件ごとに 1 リクエストで、画像ごとの HeadObject より桁違いに少ない
+async function listRemote(prefix) {
+  const remote = new Map();
+  let token;
+  do {
+    const res = await s3.send(new ListObjectsV2Command({ Bucket: BUCKET, Prefix: prefix, ContinuationToken: token }));
+    for (const o of res.Contents ?? []) remote.set(o.Key, String(o.ETag ?? '').replace(/"/g, ''));
+    token = res.IsTruncated ? res.NextContinuationToken : undefined;
+  } while (token);
+  return remote;
+}
+
+const md5 = (buf) => createHash('md5').update(buf).digest('hex');
+let remote = new Map();
+if (!force) {
+  remote = await listRemote(`posts/${normPrefix ?? ''}`);
+  console.log(`  R2 の既存: ${remote.size} 件（変わっていない画像は送らない）`);
+}
+const pending = [];
+let unchanged = 0;
+for (const item of items) {
+  const key = `posts/${toPosix(item.rel)}`;
+  const body = fs.readFileSync(item.full);
+  if (!force && remote.get(key) === md5(body)) { unchanged++; continue; }
+  pending.push({ ...item, key, body });
+}
+console.log(`  送る: ${pending.length} 件 / 変わっていない: ${unchanged} 件${force ? '（--force で全件）' : ''}`);
+
 if (dryRun) {
-  for (const item of items.slice(0, 20)) console.log(`  posts/${toPosix(item.rel)}`);
-  if (items.length > 20) console.log(`  ... and ${items.length - 20} more`);
+  for (const item of pending.slice(0, 20)) console.log(`  ${item.key}`);
+  if (pending.length > 20) console.log(`  ... and ${pending.length - 20} more`);
   process.exit(0);
 }
 
 let uploaded = 0;
-let skipped = 0;
 let failed = 0;
 const startTime = Date.now();
 
 async function uploadOne(item) {
-  const key = `posts/${toPosix(item.rel)}`;
-  let contentType;
-
-  if (item.type === 'mdx') {
-    contentType = 'text/plain; charset=utf-8';
-  } else {
-    contentType = MIME_TYPES[item.ext] || 'application/octet-stream';
-  }
-
-  const body = fs.readFileSync(item.full);
-
-  if (skipExisting) {
-    try {
-      const head = await s3.send(new HeadObjectCommand({ Bucket: BUCKET, Key: key }));
-      if (head.ContentLength === body.length) {
-        skipped++;
-        return;
-      }
-    } catch {
-      // Object doesn't exist, upload it
-    }
-  }
-
   try {
     await s3.send(
       new PutObjectCommand({
         Bucket: BUCKET,
-        Key: key,
-        Body: body,
-        ContentType: contentType,
+        Key: item.key,
+        Body: item.body,
+        ContentType: MIME_TYPES[item.ext] || 'application/octet-stream',
+        CacheControl: CACHE_CONTROL,
       })
     );
     uploaded++;
-    if ((uploaded + skipped) % 100 === 0) {
+    if (uploaded % 100 === 0) {
       const elapsed = ((Date.now() - startTime) / 1000).toFixed(0);
-      console.log(`  Progress: ${uploaded + skipped}/${items.length} (${elapsed}s)`);
+      console.log(`  Progress: ${uploaded}/${pending.length} (${elapsed}s)`);
     }
   } catch (e) {
-    console.error(`  FAILED: ${key} - ${e.message?.slice(0, 80)}`);
+    console.error(`  FAILED: ${item.key} - ${e.message?.slice(0, 80)}`);
     failed++;
   }
 }
 
 // Process in concurrent batches
-for (let i = 0; i < items.length; i += CONCURRENCY) {
-  const batch = items.slice(i, i + CONCURRENCY);
+for (let i = 0; i < pending.length; i += CONCURRENCY) {
+  const batch = pending.slice(i, i + CONCURRENCY);
   await Promise.all(batch.map(uploadOne));
 }
 
 const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
-console.log(`\nDone in ${elapsed}s! Uploaded: ${uploaded}, Skipped: ${skipped}, Failed: ${failed}`);
+console.log(`\nDone in ${elapsed}s! Uploaded: ${uploaded}, Unchanged: ${unchanged}, Failed: ${failed}`);
 
 // 1 件でも失敗したら非ゼロ終了で CI を赤くする。
 // （旧実装は個別失敗を握りつぶし exit 0 を返すため、R2 トークン失効が約2週間

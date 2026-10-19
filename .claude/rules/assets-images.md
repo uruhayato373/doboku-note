@@ -27,7 +27,7 @@ paths:
 
 ## 画像削除
 
-- `r2-sync.yml` は**アップロードのみで削除しない**。リポジトリから消しても R2 には残り、URL 直叩きで取得できる状態が続く（2026-07-31 に診断士の書籍スキャン 79 件で発覚）。確実に撤去するには `data/r2/delete-list.txt` にキーを明示し、`R2 Delete Objects`（`r2-delete.yml`・workflow_dispatch・既定 dry-run）を `commit=true` で実行する。**自動 prune はしない**（R2 にしかない成果物を巻き込むため）。ローカルからは `npm run delete-r2-objects`
+- `r2-sync.yml` は**アップロードのみで削除しない**。リポジトリから消しても R2 には残り、URL 直叩きで取得できる状態が続く（2026-07-31 に診断士の書籍スキャン 79 件で発覚）。確実に撤去するには `data/r2/delete-list.txt` にキーを明示し、`R2 Delete Objects`（`r2-delete.yml`・workflow_dispatch・既定 dry-run）を `commit=true` で実行する。**自動 prune はしない**（R2 にしかない成果物を巻き込むため）。ローカルからは `npm run delete-r2-objects`。台帳の保全の条件（台帳・private の `archive/legacy-r2/`・リポジトリの実体）に当たらないキーを消すときは、リストの見出しに保全の根拠を書いたうえで `allow_unpreserved=true`。図を描き直して拡張子が変わった（スキャンの webp → 自作 SVG）ときも旧ファイルは R2 に残る（2026-10-20 の棚卸しで 3,111 件・ogp.webp・旧 MDX を含む）。参照の照合は拡張子まで一致で行う（拡張子を外すと描き直し後の SVG を旧 webp の参照と取り違える）
 
 ## OGP 画像
 
