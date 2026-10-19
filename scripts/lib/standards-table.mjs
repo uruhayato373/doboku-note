@@ -281,6 +281,7 @@ export function overrideParts(override) {
         header: override.header ?? [],
         rows: override.rows ?? [],
         headerFrom: override.headerFrom ?? null,
+        headerFill: override.headerFill ?? null,
         headerless: override.headerless === true,
       },
       ...notes,
@@ -333,6 +334,19 @@ function resolveTablePart(part, lookup) {
     const fromTable = candidates[Number(index ?? 0)];
     if (!fromTable || fromTable.header[0].length !== width) return { error: 'override-bad-header-from' };
     header = fromTable.header.map((row) => row.map((cell) => (isSameRef(cell) ? '' : String(cell))));
+  }
+  // 見出しの語がテキスト層に無く空欄になった列（国交省の品質管理基準 p218 は 9 列のうち 7 列）は、headerFill に
+  // 同じ列構成の表を指すと空欄だけをその表の見出しで補う（headerFrom と同じく照合の外。文字のある欄は変えない）
+  if (header.length > 0 && part.headerFill) {
+    const [fromKey, index] = String(part.headerFill).split('#');
+    const from = lookup(fromKey);
+    const candidates = from ? overrideParts(from).filter((p) => p.kind === 'table' && (p.header?.length ?? 0) > 0) : [];
+    const fromTable = candidates[Number(index ?? 0)];
+    if (!fromTable || fromTable.header[0].length !== width) return { error: 'override-bad-header-fill' };
+    header = header.map((row, r) => row.map((cell, c) => {
+      const fill = fromTable.header[r]?.[c];
+      return String(cell).trim() === '' && typeof fill === 'string' ? fill : cell;
+    }));
   }
   // 原本の表にもともと見出し行が無いもの（近畿版 表3-2-13(2) の飼育試験の表など）は、
   // headerless: true と明示したときだけ空の見出しで出す（GFM は見出し行を省けない）

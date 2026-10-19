@@ -48,6 +48,8 @@ domain: site
    npm run standards-tables -- sheets --name r1
    ```
 
+   大きな文書は `--document <機関/文書>` と `--chapter <章 ID の接頭辞>`（`9-` で第9編の全章）で絞って工種ごとに回す（例: 国交省の施工管理基準 378 表は品質管理基準 9- の 211 表・27 束から）。
+
 4. **組み直し**: 束ごとに `standards-table-writer` を起動する（同時 3 体まで・束が重ならないように）。Writer は
    `npm run standards-tables -- validate --batch <束>` を全件 ✓ にして返す。
 5. **照合・承認**: 照合用の作業票を作り、束ごとに `standards-table-qa` を起動する。

@@ -1118,14 +1118,15 @@ function checkReadability([midDef, strayDef, brokenDef], { manifest, agencyId, d
     const text = stripAmendmentBlocks(raw);
     chaptersChecked += 1;
     const blocks = text.split(/\n\n+/);
-    // 版面保持のコードブロックは中に空行を持つ。その中の `|` 行（原文が表の形で持つ様式）は 19 で表と数えない
+    // 版面保持のコードブロックは中に空行を持つ。その中の塊は 17・18 の段落とも 19 の表とも数えない
     let fenceOpen = false;
     blocks.forEach((block, i) => {
       const insideCode = fenceOpen;
       if (((block.match(/^```/gm) ?? []).length) % 2 === 1) fenceOpen = !fenceOpen;
       const kind = kindOf(block);
       const body = block.replace(/^> /, '').trim();
-      if (kind === 'para') {
+      // コードブロック（版面保持）の中の塊は段落ではない（17・18 も数えない）
+      if (kind === 'para' && !insideCode) {
         let p = i - 1;
         while (p >= 0 && kindOf(blocks[p]) === 'meta') p -= 1;
         const prev = (blocks[p] ?? '').replace(/^> /, '').trim();
