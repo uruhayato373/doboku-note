@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
-  "runId": "2026-10-18T01-30-06Z",
-  "collectedAt": "2026-10-18T01:30:06.580Z",
+  "runId": "2026-10-19T01-30-06Z",
+  "collectedAt": "2026-10-19T01:30:06.732Z",
   "property": "sc-domain:doboku-note.com",
   "mode": "commit",
-  "scriptVersion": "8f3dab54f",
+  "scriptVersion": "576a49ede",
   "filter": {
     "category": null,
     "group": null
   },
   "limit": 10,
-  "targetCount": 88,
+  "targetCount": 78,
   "items": [
     {
       "slug": "/standards/hokkaido/local/part-01",
@@ -47,8 +47,8 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/practice/public-works-bidding-methods",
-      "url": "https://doboku-note.com/practice/public-works-bidding-methods",
+      "slug": "/exam/pe-first-stage/guide/water-supply-subject",
+      "url": "https://doboku-note.com/exam/pe-first-stage/guide/water-supply-subject",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
@@ -64,8 +64,8 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/practice/public-works-delivery-methods",
-      "url": "https://doboku-note.com/practice/public-works-delivery-methods",
+      "slug": "/exam/civil-construction-1/guide/public-engineer-salary-table",
+      "url": "https://doboku-note.com/exam/civil-construction-1/guide/public-engineer-salary-table",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
@@ -81,76 +81,42 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/practice/reading-civil-drawings",
-      "url": "https://doboku-note.com/practice/reading-civil-drawings",
+      "slug": "/exam/civil-construction-1/guide/quit-or-stay",
+      "url": "https://doboku-note.com/exam/civil-construction-1/guide/quit-or-stay",
       "inspected": {
-        "state": "not-indexed",
-        "reason": "URL が Google に認識されていません",
+        "state": "indexed",
+        "reason": null,
         "lastCrawl": null,
         "discoveredVia": "sitemap",
         "crawlAllowed": null,
         "indexingAllowed": null
       },
       "request": {
-        "requested": true,
-        "status": "accepted"
+        "requested": false,
+        "status": "already-indexed"
       },
       "reachedVerdict": true
     },
     {
-      "slug": "/practice/ready-mixed-concrete-ordering",
-      "url": "https://doboku-note.com/practice/ready-mixed-concrete-ordering",
+      "slug": "/exam/civil-construction-1/guide/quit-public-engineer",
+      "url": "https://doboku-note.com/exam/civil-construction-1/guide/quit-public-engineer",
       "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
+        "state": "indexed",
+        "reason": null,
         "lastCrawl": null,
         "discoveredVia": "sitemap",
         "crawlAllowed": null,
         "indexingAllowed": null
       },
       "request": {
-        "requested": true,
-        "status": "accepted"
+        "requested": false,
+        "status": "already-indexed"
       },
       "reachedVerdict": true
     },
     {
-      "slug": "/practice/site-wireless-communication",
-      "url": "https://doboku-note.com/practice/site-wireless-communication",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "検出 - インデックス未登録",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/practice/special-concrete-selection",
-      "url": "https://doboku-note.com/practice/special-concrete-selection",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "URL が Google に認識されていません",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/practice/subcontract-instruction-boundary",
-      "url": "https://doboku-note.com/practice/subcontract-instruction-boundary",
+      "slug": "/exam/pe-first-stage/primary/h23-aptitude",
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/h23-aptitude",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
@@ -166,25 +132,8 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/exam/surveyor/primary/r04",
-      "url": "https://doboku-note.com/exam/surveyor/primary/r04",
-      "inspected": {
-        "state": "not-indexed",
-        "reason": "URL が Google に認識されていません",
-        "lastCrawl": null,
-        "discoveredVia": "sitemap",
-        "crawlAllowed": null,
-        "indexingAllowed": null
-      },
-      "request": {
-        "requested": true,
-        "status": "accepted"
-      },
-      "reachedVerdict": true
-    },
-    {
-      "slug": "/exam/surveyor/primary/r06",
-      "url": "https://doboku-note.com/exam/surveyor/primary/r06",
+      "slug": "/exam/pe-first-stage/primary/h24-aptitude",
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/h24-aptitude",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
@@ -200,8 +149,247 @@
       "reachedVerdict": true
     },
     {
-      "slug": "/exam/pe-construction/guide/infra-system-overseas",
-      "url": "https://doboku-note.com/exam/pe-construction/guide/infra-system-overseas",
+      "slug": "/exam/pe-first-stage/primary/h24-basic",
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/h24-basic",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/pe-first-stage/primary/h25-water-supply",
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/h25-water-supply",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/pe-first-stage/primary/h26-aptitude",
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/h26-aptitude",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/pe-first-stage/primary/h27-water-supply",
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/h27-water-supply",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/pe-first-stage/primary/h28-aptitude",
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/h28-aptitude",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/pe-first-stage/primary/h29-water-supply",
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/h29-water-supply",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/pe-first-stage/primary/h30-water-supply",
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/h30-water-supply",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/pe-first-stage/primary/r02-basic",
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/r02-basic",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/pe-first-stage/primary/r03-basic",
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/r03-basic",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/pe-first-stage/primary/r04-water-supply",
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/r04-water-supply",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/pe-first-stage/primary/r05-aptitude",
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/r05-aptitude",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/pe-first-stage/primary/r05-water-supply",
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/r05-water-supply",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "button-not-found",
+        "detail": "role=button 候補 0"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/pe-first-stage/primary/r06-water-supply",
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/r06-water-supply",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/exam/pe-first-stage/primary/r07-water-supply",
+      "url": "https://doboku-note.com/exam/pe-first-stage/primary/r07-water-supply",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "検出 - インデックス未登録",
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "/standards/mlit",
+      "url": "https://doboku-note.com/standards/mlit",
       "inspected": {
         "state": "not-indexed",
         "reason": "検出 - インデックス未登録",
@@ -219,9 +407,9 @@
   ],
   "status": "ok",
   "summary": {
-    "inspected": 12,
+    "inspected": 23,
     "accepted": 10,
-    "alreadyIndexed": 2,
+    "alreadyIndexed": 12,
     "unreadable": 0
   }
 }
