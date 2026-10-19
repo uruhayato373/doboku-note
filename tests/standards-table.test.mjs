@@ -315,3 +315,13 @@ test('組み直し: headerFill は見出しの空欄だけを指した表の見�
   assert.equal(bad.ok, false);
   assert.equal(bad.reason, 'override-bad-header-fill');
 });
+
+test('組み直し: 縦に結合したセルの長い文（30 字超）は 2 行目以降を（同上）と表示し、短い値はそのまま写す', () => {
+  const long = 'あ'.repeat(31);
+  const layout = [`${long} 1`, ' 2', ' 3'];
+  const override = { key: tableKey(layout), layout, review: { status: 'approved' }, kind: 'table', header: [['', '']], rows: [[long, '1'], [{ same: 'above' }, '2'], [{ same: 'above' }, '3']] };
+  const result = applyTableOverride(layout, override);
+  assert.equal(result.ok, true, result.reason);
+  const table = result.parts.find((part) => part.kind === 'table');
+  assert.deepEqual(table.rows.map((row) => row[0]), [long, '（同上）', '（同上）']);
+});

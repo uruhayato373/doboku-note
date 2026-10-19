@@ -307,19 +307,26 @@ export function overrideTexts(parts) {
   return texts;
 }
 
+/** 縦に結合したセルの繰り返しを、この字数を超える文なら「（同上）」と表示する（全行に長文が並ぶと表が読めない）。 */
+const SAME_ABOVE_TEXT_MAX = 30;
+
 /** 表の部品の結合セルを解決し、見出しの無い続きの表には headerFrom の見出しを写す。 */
 function resolveTablePart(part, lookup) {
   const own = [...(part.header ?? []), ...(part.rows ?? [])];
   const width = own[0]?.length ?? 0;
   if (width < 2 || own.some((row) => row.length !== width)) return { error: 'override-ragged' };
   const resolved = own.map((row) => [...row]);
+  // 縦に結合したセルの元の文字（表示用の「（同上）」に置き換える前の値）。長い文（出来形管理基準の測定基準など）を
+  // 全行に繰り返すと表が読めないので、SAME_ABOVE_TEXT_MAX 字を超えるものは 2 行目以降を「（同上）」と表示する
+  const original = own.map((row) => [...row]);
   for (let r = 0; r < resolved.length; r += 1) {
     for (let c = 0; c < width; c += 1) {
       const cell = resolved[r][c];
       if (!isSameRef(cell)) continue;
-      const source = cell.same === 'above' ? resolved[r - 1]?.[c] : resolved[r][c - 1];
+      const source = cell.same === 'above' ? original[r - 1]?.[c] : original[r][c - 1];
       if (typeof source !== 'string') return { error: 'override-bad-same' };
-      resolved[r][c] = source;
+      original[r][c] = source;
+      resolved[r][c] = cell.same === 'above' && [...source].length > SAME_ABOVE_TEXT_MAX ? '（同上）' : source;
     }
   }
   if (resolved.flat().some((cell) => String(cell).includes('|'))) return { error: 'pipe-in-cell' };

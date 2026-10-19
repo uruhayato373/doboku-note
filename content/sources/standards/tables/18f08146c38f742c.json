@@ -1,0 +1,204 @@
+{
+  "key": "18f08146c38f742c",
+  "kind": "table",
+  "layout": [
+    "                          位置間隔        ―   施工延長40ｍ毎に断面全本数検測。                      摘　要",
+    "10 ６ ４ ４     ロックボルト工                                                         10-6-4-4",
+    "道ト支",
+    "路ン保",
+    "編ネ工",
+    "",
+    "         ル（",
+    "",
+    "                      角度        ―",
+    "",
+    "Ｎ                     削孔深さ      ―",
+    "Ａ",
+    "Ｔ",
+    "Ｍ）",
+    "",
+    "                       孔径              ―",
+    "                      突出量",
+    "                                プレート下面",
+    "                                から10㎝以内"
+  ],
+  "header": [
+    [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "摘要"
+    ]
+  ],
+  "rows": [
+    [
+      "10道路編",
+      "６トンネル（ＮＡＴＭ）",
+      "４支保工",
+      "４",
+      "",
+      "ロックボルト工",
+      "位置間隔",
+      {
+        "same": "left"
+      },
+      "―",
+      "施工延長40ｍ毎に断面全本数検測。",
+      "",
+      "10-6-4-4"
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "角度",
+      {
+        "same": "left"
+      },
+      "―",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "削孔深さ",
+      {
+        "same": "left"
+      },
+      "―",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "孔径",
+      {
+        "same": "left"
+      },
+      "―",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "突出量",
+      {
+        "same": "left"
+      },
+      "プレート下面から10㎝以内",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ]
+  ],
+  "notes": [],
+  "headerFrom": null,
+  "headerFill": "c105c68ebd7cf058",
+  "review": {
+    "status": "approved",
+    "by": "qa",
+    "at": "2026-10-19T10:54:21.123Z",
+    "note": "見出しの語は版面に「摘要」しか無いため、ほかの列は headerFill で c105c68ebd7cf058 の見出しから補う。単位：mm は版面に無い。 ／ QA: 画像と全セル照合。行列・規格値・結合・図中文字の位置とも一致。測定項目2列は版面の2段/細分を写したもの"
+  }
+}

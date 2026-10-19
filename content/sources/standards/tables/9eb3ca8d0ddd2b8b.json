@@ -1,0 +1,388 @@
+{
+  "key": "9eb3ca8d0ddd2b8b",
+  "kind": "table",
+  "layout": [
+    "編 章 節 条 枝番 工　　　　　種  測　定　項　目     規　格　値               測　　定　　基　　準       測　　定　　箇　　所                              単位：mm",
+    "                                    ±20                                                                    摘　要",
+    "６５９２  管理橋橋台工            基準高▽        －20  橋軸方向の断面寸法は中央及び両端                                              6-5-9-2",
+    "                                    －10  部、その他は図面の寸法表示箇所で測",
+    "河堰管                       厚さｔ       －10  定。",
+    "                       天端幅ｗ1        －50",
+    "川  理                 （橋軸方向）         －50",
+    "                       天端幅ｗ2        －30",
+    "編  橋                 （橋軸方向）         －50",
+    "                                    －50",
+    "   下                     敷幅ｗ3",
+    "                     （橋軸方向）",
+    "   部                                                                 ｗ2 ｗ1            ｗ2 ｗ1",
+    "                         高さｈ1",
+    "   工",
+    "                     胸壁の高さｈ2",
+    "                                                                 ｈ2                  ｈ2        ｔ",
+    "                        天端長ℓ1                                   ｔ               ｈ1              ｔ",
+    "",
+    "                          敷長ℓ2                                          ｗ3                 ｗ3",
+    "                                                                     ｗ2 ｗ1            ｗ2 ｗ1",
+    "                      胸壁間距離ℓ",
+    "                       支点長及び                                                ｈ2                 ｈ2",
+    "                     中心線の変化                                                                         ｔ",
+    "                                                                ｈ1              ｈ1",
+    "                                                                                         ｗ3",
+    "                                                                                   ｔ",
+    "                                                                     ｗ3",
+    "",
+    "                                ±30",
+    "",
+    "                                ±50"
+  ],
+  "header": [
+    [
+      "編",
+      "章",
+      "節",
+      "条",
+      "枝番",
+      "工種",
+      "測定項目",
+      "規格値",
+      "測定基準",
+      "測定箇所",
+      "摘要"
+    ]
+  ],
+  "rows": [
+    [
+      "６河川編",
+      "５堰",
+      "９管理橋下部工",
+      "２",
+      "",
+      "管理橋橋台工",
+      "基準高▽",
+      "±20",
+      "橋軸方向の断面寸法は中央及び両端部、その他は図面の寸法表示箇所で測定。",
+      "ｗ2 ｗ1 ｗ2 ｗ1 ｈ2 ｈ2 ｔ ｔ ｈ1 ｔ ｗ3 ｗ3 ｗ2 ｗ1 ｗ2 ｗ1 ｈ2 ｈ2 ｔ ｈ1 ｈ1 ｗ3 ｔ ｗ3",
+      "6-5-9-2"
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "厚さｔ",
+      "－20",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "天端幅ｗ1（橋軸方向）",
+      "－10",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "天端幅ｗ2（橋軸方向）",
+      "－10",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "敷幅ｗ3（橋軸方向）",
+      "－50",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "高さｈ1",
+      "－50",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "胸壁の高さｈ2",
+      "－30",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "天端長ℓ1",
+      "－50",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "敷長ℓ2",
+      "－50",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "胸壁間距離ℓ",
+      "±30",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "支点長及び中心線の変化",
+      "±50",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ]
+  ],
+  "notes": [
+    "単位：mm"
+  ],
+  "headerFrom": null,
+  "review": {
+    "status": "approved",
+    "by": "qa",
+    "at": "2026-10-19T10:50:40.127Z",
+    "note": "測定箇所は図中の寸法記号を版面の順に並べた。結合した測定基準・測定箇所・摘要は同上。 ／ QA: 画像と全セル照合。行列・規格値・結合セル・見出し一致。測定箇所は図中の寸法記号を版面どおり保持"
+  }
+}
