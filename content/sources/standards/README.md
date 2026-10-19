@@ -63,7 +63,7 @@ PDF p0120 = body  版面 1-42
 
 ```bash
 npm run build-standards-page-images              # role=common を全整備局（既定）。vault へ直接書き、台帳へ登録する
-npm run build-standards-page-images -- --role all # companion も含む（2026-10-18 に 61 文書を生成・okinawa/hikkei-11 は kyushu/road-safety の alias・mlit/sekou-kanri-kijun は原本 PDF が Drive に未配置）
+npm run build-standards-page-images -- --role all # companion も含む（2026-10-18 に 61 文書を生成・okinawa/hikkei-11 は kyushu/road-safety の alias・mlit/sekou-kanri-kijun は 2026-10-19 に原本 PDF を掲載ページから取得し catalog の SHA-256 と照合して Drive の 国土交通省/ に置き生成）
 npm run check-standards-page-images              # provenance 整合。quality:audit にも同梱
 npm run check-drive-vault                        # Drive 台帳と実体の整合
 npm run drive-vault-sync -- --pull --path content/sources/standards/tohoku/ --commit   # 手元に作業コピーが要るとき
