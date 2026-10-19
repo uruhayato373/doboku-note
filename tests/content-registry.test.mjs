@@ -92,6 +92,20 @@ test('R08: 外部 ID の重複を止める', () => {
   assert.ok(codes(run({ publications: [a, b] })).includes('R08'));
 });
 
+test('予約なしの非公開は旧承認を INFO で残し、再予約時は不一致を FAIL に戻す', () => {
+  const original = pub({ status: 'scheduled', publishAt: '2026-10-23T20:00:00+09:00',
+    platform: { id: 'v1', privacy: 'private' }, approval: { by: 'user', contentSha256: SHA },
+    review: { visual: { status: 'approved', digest: SHA } } });
+  const privatePub = { ...original, status: 'uploaded_private', publishAt: undefined };
+  const result = run({ publications: [privatePub] });
+  assert.ok(!codes(result).includes('R07'));
+  assert.ok(codes(result, 'INFO').includes('R07'));
+  for (const unsafe of [original, { ...privatePub, publishAt: original.publishAt },
+    { ...privatePub, channel: 'instagram' }, { ...privatePub, approval: undefined }]) {
+    assert.ok(codes(run({ publications: [unsafe] })).includes('R07'));
+  }
+});
+
 test('R10: 判定 ok の無い AI 素材を、承認以降の公開が使っていれば止める', () => {
   const ai = media({ provenance: { kind: 'ai-generated', tool: 'Codex', prompt: 'p', promptSha256: SHA, generatedAt: '2026-10-09T00:00:00Z' } });
   const drive = { entries: { [ai.store.path]: { sha256: SHA } } };

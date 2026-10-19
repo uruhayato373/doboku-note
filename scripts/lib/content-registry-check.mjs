@@ -187,7 +187,10 @@ export function checkRegistry(root, opts = {}) {
       const now = approvalHash(approvalParts(root, p, mediaById));
       if (now !== p.approval.contentSha256) {
         const published = p.status === 'published';
-        issues.push(issue(published ? 'WARN' : 'FAIL', 'R07', p.id, published ? '承認した中身から変わった（要同期）' : '承認した後に中身（文面・素材・予定）が変わった。承認し直す'));
+        const privateWithoutSchedule = p.channel === 'youtube' && p.status === 'uploaded_private' && !p.publishAt;
+        issues.push(issue(privateWithoutSchedule ? 'INFO' : published ? 'WARN' : 'FAIL', 'R07', p.id,
+          privateWithoutSchedule ? '予約なしの非公開。旧承認は現在の中身に一致しないため、再予約前に承認し直す' :
+            published ? '承認した中身から変わった（要同期）' : '承認した後に中身（文面・素材・予定）が変わった。承認し直す'));
       }
     }
   }
