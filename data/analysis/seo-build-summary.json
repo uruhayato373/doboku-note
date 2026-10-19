@@ -87,14 +87,14 @@
     },
     {
       "date": "2026-10-19",
-      "generatedAt": "2026-10-19T03:23:25.389Z",
-      "sitemapUrls": 1834,
-      "checked": 1834,
+      "generatedAt": "2026-10-19T03:46:01.305Z",
+      "sitemapUrls": 2019,
+      "checked": 2019,
       "errors": 0,
-      "warnings": 159,
+      "warnings": 408,
       "errorsByCode": {},
       "warningsByCode": {
-        "jsonld_recommended_missing": 159
+        "jsonld_recommended_missing": 408
       }
     }
   ]
