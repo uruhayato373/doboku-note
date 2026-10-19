@@ -4611,6 +4611,19 @@
       "commit": "8179180ca3f4",
       "verification": "npm run check-codex-compat PASS（AGENTS.md は CLAUDE.md＋.claude/rules と同期）",
       "note": "既に実装済み: CLAUDE.md が正本、scripts/sync-codex-compat.mjs が CLAUDE.md＋.claude/rules から AGENTS.md を生成（バナー AUTO-GENERATED）し、check-codex-compat（quality-audit の ci:true・pre-commit）が食い違いを止める。2026-10-20 に CLAUDE.md を直したとき check-codex-compat が AGENTS.md の作り直しを要求して PASS したことを確認"
+    },
+    {
+      "id": "DN-0772",
+      "at": "2026-10-20",
+      "task": "「以前から失敗している」を理由にテストを通さない規約を入れる",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "e6268362daf3",
+      "verification": "check-claude-md-size ✓ / check-codex-compat PASS / quality-audit --report-only の失敗を全件振り分け",
+      "note": "CLAUDE.md §9 に「落ちた検査を『以前から』『無関係』で素通りさせない（直すか起票）」を追記し AGENTS.md を再生成（PR #1137）。いま落ちている検査: CI と重要 workflow は緑、ops 区分 5 件は自動 Issue #571（月次 8b で振り分け）、knip は週次棚卸し＋check-knip-ratchet、disk-hygiene と手元での EPUB 未取り戻しは DN-0777、kindle-epub-leak の 0 冊時の誤った案内は直した"
     }
   ]
 }
