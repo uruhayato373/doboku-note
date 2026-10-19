@@ -113,7 +113,7 @@ upload-images-to-r2.mjs の出力から進捗と失敗を通知。
 
 ```
 Monitor:
-  command: cd "$CLAUDE_PROJECT_DIR" && node .claude/scripts/upload-images-to-r2.mjs 2>&1 | grep --line-buffered -iE "(Found|Progress|FAILED|Done|Error|Uploading|Skipped)"
+  command: cd "$CLAUDE_PROJECT_DIR" && node .claude/scripts/upload-images-to-r2.mjs 2>&1 | grep --line-buffered -iE "(Target|送る|Progress|FAILED|Done|Error)"
   description: "R2 image upload progress"
   persistent: false
   timeout_ms: 600000
