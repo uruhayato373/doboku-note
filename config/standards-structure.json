@@ -38,11 +38,11 @@
     "_comment": "check-standard-articles 17・18 の基準（増やさない）。2026-10-16 実測。17 の 1 件は各文書の「東北地方──30㎝／その他の地域──40㎝」の一覧（正しく行が分かれている）と北海道版 10-16 の 1 か所。18 は表の上の小見出し・注記（正しい）と、表から外れた行の断片（近畿版で 7〜8 件: 0.15 の行・溶接完了時・M20 167～211 など）を含む。断片を表へ戻したら基準を下げる。 2026-10-19 に地方版 3 文書を加えた（初回の実測値。表はまだ組み直していないので 18 は表の上の小見出しと断片を含む）。 2026-10-19 に工事必携の要綱・要領 4 文書を加えた（初回の実測値。完成図等作成要領は図の中の文字と表が多く、18 の大半は図の注記）。 同日に地方版の大冊子 8 文書を加えた（様式集・記入例が多く、18 の大半は様式の欄の文字）。 国交省の施工管理基準は 2026-10-20 に出来形管理基準の表 191 ページを原本照合の表にした。18 の 177 件のうち 171 件は各表の前の「単位：mm」の注記（原本どおりで断片ではない）。",
     "chubu/common": {
       "midSentenceBreaks": 1,
-      "strayTableFragments": 40
+      "strayTableFragments": 32
     },
     "chugoku/common": {
       "midSentenceBreaks": 1,
-      "strayTableFragments": 40
+      "strayTableFragments": 32
     },
     "hokkaido/common": {
       "midSentenceBreaks": 1,
@@ -50,27 +50,27 @@
     },
     "hokuriku/common": {
       "midSentenceBreaks": 1,
-      "strayTableFragments": 40
+      "strayTableFragments": 32
     },
     "kanto/common": {
       "midSentenceBreaks": 1,
-      "strayTableFragments": 40
+      "strayTableFragments": 32
     },
     "kinki/common": {
       "midSentenceBreaks": 1,
-      "strayTableFragments": 40
+      "strayTableFragments": 32
     },
     "kyushu/common": {
       "midSentenceBreaks": 1,
-      "strayTableFragments": 40
+      "strayTableFragments": 32
     },
     "shikoku/common": {
       "midSentenceBreaks": 1,
-      "strayTableFragments": 40
+      "strayTableFragments": 32
     },
     "tohoku/common": {
       "midSentenceBreaks": 1,
-      "strayTableFragments": 40
+      "strayTableFragments": 32
     },
     "chubu/special": {
       "midSentenceBreaks": 1,
