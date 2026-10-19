@@ -320,6 +320,7 @@ export const DATASETS = [
   d('state.figure-provenance', '.claude/state/figure-provenance.json', 'state', 'site', '図の出所の索引（audit-figures）'),
   d('state.figure-text-audit', '.claude/state/figure-text-audit.json', 'evidence', 'site', '図の文字の監査結果'),
   d('state.svg-audit', '.claude/state/svg-audit.json', 'state', 'site', 'SVG の機械監査（refresh-indexes）'),
+  d('state.cloudflare-zone-config', '.claude/state/cloudflare/zone-config-{name}.json', 'state', 'ops', 'Cloudflare のゾーン設定の基準線・最新・ドリフト（cloudflare-config-audit.yml が develop へ書く）', { planned: true }),
   d('state.svg-catalog', '.claude/state/svg-catalog.json', 'state', 'site', 'SVG の一覧（生成索引）'),
   // 品質ゲートの基準と採点（quality/）
   d('state.quality-baselines', '.claude/state/quality/{name}-baseline.json', 'config', 'ops', '品質ゲートの基準線（lint・knip・画像・git バイナリ・図のクロップ・エージェントの説明）'),

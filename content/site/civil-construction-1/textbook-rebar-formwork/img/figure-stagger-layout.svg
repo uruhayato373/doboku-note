@@ -1,0 +1,47 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="鉄筋継手を千鳥配置にするときの隣り合う継手の間隔（継手の長さL＋鉄筋直径の25倍）を、重ね継手の長さLと合わせて示す配置図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 14px; font-weight: bold; fill: #222; }
+      .t-label { font-size: 12px; fill: #555; }
+      .t-num   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .box-brand   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <text class="t-label" x="20" y="28">同一断面に継手を集中させた場合</text>
+  <text class="t-label" x="150" y="52" text-anchor="middle">L</text>
+  <path d="M120,58 V64 H180 V58" fill="none" stroke="#555" stroke-width="1"/>
+  <rect fill="#f8d7da" stroke="#b22234" stroke-width="1.5" x="30" y="84" width="150" height="6" rx="2"/>
+  <rect fill="#f8d7da" stroke="#b22234" stroke-width="1.5" x="120" y="90" width="250" height="6" rx="2"/>
+  <rect fill="#f8d7da" stroke="#b22234" stroke-width="1.5" x="30" y="106" width="150" height="6" rx="2"/>
+  <rect fill="#f8d7da" stroke="#b22234" stroke-width="1.5" x="120" y="112" width="250" height="6" rx="2"/>
+  <rect fill="#f8d7da" stroke="#b22234" stroke-width="1.5" x="30" y="128" width="150" height="6" rx="2"/>
+  <rect fill="#f8d7da" stroke="#b22234" stroke-width="1.5" x="120" y="134" width="250" height="6" rx="2"/>
+  <rect fill="none" stroke="#b22234" stroke-width="2" stroke-dasharray="4,3" x="116" y="76" width="68" height="76"/>
+  <text class="t-label" x="200" y="172" text-anchor="middle" fill="#b22234">この断面が構造上の弱点になる</text>
+  <line x1="15" y1="190" x2="385" y2="190" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="t-label" x="20" y="214">千鳥配置（軸方向にずらす）</text>
+  <rect fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" x="30" y="230" width="60" height="6" rx="2"/>
+  <rect fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" x="40" y="236" width="340" height="6" rx="2"/>
+  <rect fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" x="30" y="252" width="200" height="6" rx="2"/>
+  <rect fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" x="180" y="258" width="200" height="6" rx="2"/>
+  <rect fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" x="30" y="274" width="340" height="6" rx="2"/>
+  <rect fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" x="320" y="280" width="60" height="6" rx="2"/>
+  <path d="M40,226 V318 M90,226 V318 M180,226 V318" fill="none" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="2,2"/>
+  <path d="M40,308 H90" stroke="#2e6da4" stroke-width="2.5"/>
+  <path d="M90,308 H180" stroke="#555" stroke-width="2.5"/>
+  <text class="t-num" x="65" y="300" text-anchor="middle">L</text>
+  <text class="t-num" x="135" y="300" text-anchor="middle">25d</text>
+  <text class="t-num" x="200" y="334" text-anchor="middle">隣り合う継手の間隔 ＝ L + 25d 以上</text>
+  <text class="t-label" x="200" y="352" text-anchor="middle">（L＝継手の長さ、d＝鉄筋直径）</text>
+  <line x1="15" y1="370" x2="385" y2="370" stroke="#d7d7d7" stroke-width="1"/>
+
+  <rect class="box-brand" x="20" y="384" width="360" height="100" rx="8"/>
+  <text class="t-title" x="40" y="409">継手位置で確保すること</text>
+  <text class="t-label" x="40" y="432">・隣り合う継手間は継手長さ＋25d以上</text>
+  <text class="t-label" x="40" y="450">・引張応力の大きい断面は避ける</text>
+  <text class="t-label" x="40" y="468">・継手部と隣接鉄筋のあきは粗骨材最大寸法以上</text>
+</svg>
