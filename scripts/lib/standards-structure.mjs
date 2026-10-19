@@ -85,6 +85,8 @@ const RE_ARTICLE_3 = /^[\s　]{0,9}([0-9０-９]+)[-－]([0-9０-９]+)[-－]([0
  *   printPagePattern     印刷ページ番号の形を正規表現の文字列で与える（九州の必携は `通 4−1 1` のように編の略称が付く）
  *   printPageRequired    false なら印刷ページ番号の無いページを review に出さない（原本が一部のページにしか刷っていない文書）
  *   fullWidthClauses     true なら全角数字の項番号（`３．材料`）も項として読む
+ *   tablePages           [[開始, 終了], …] の PDF ページは 1 ページ全体を 1 つの表の版面にする（見出しも段落も判定しない）。
+ *                        摘要欄の長い文が段落に化けて表が 1〜2 行ずつに切れる、全ページが 1 つの大きな表の文書（国交省の品質管理基準）に使う
  *   articleStyle         "none" なら条を読まない（本文が共通仕様書の条番号を引く手引き）。"dai" なら `第１ 目的` の形（要綱の第N）を条の見出しにする（番号の整合は見ない）
  */
 function dialectOf(override) {
@@ -922,12 +924,33 @@ export function analyzeDocument(document, overrides = {}) {
     };
     const nodes = [];
     let segment = [];
+    const tablePageRanges = override.tablePages ?? [];
+    const isTablePage = (page) => tablePageRanges.some(([from, to]) => page >= from && page <= to);
     const flush = () => {
       if (!segment.length) return;
       nodes.push(...segmentToBlocks(segment).map((b) => ({ ...b, role: 'body' })));
       segment = [];
     };
+    // 設定 tablePages のページは 1 ページ全体を 1 つの表の版面にする（行を落とさず、見出し・段落の判定をしない）
+    let tableBlock = null;
+    const flushTable = () => {
+      if (!tableBlock) return;
+      while (tableBlock.lines.length && !tableBlock.lines.at(-1).text.trim()) tableBlock.lines.pop();
+      if (tableBlock.lines.some((entry) => entry.text.trim())) nodes.push({ type: 'table', role: 'body', lines: tableBlock.lines, pages: [tableBlock.page] });
+      tableBlock = null;
+    };
     for (const entry of lines) {
+      if (isTablePage(entry.page)) {
+        flush();
+        if (tableBlock && tableBlock.page !== entry.page) flushTable();
+        if (!tableBlock) {
+          if (!entry.text.trim()) continue;
+          tableBlock = { page: entry.page, lines: [] };
+        }
+        tableBlock.lines.push(entry);
+        continue;
+      }
+      flushTable();
       const heading = classifyHeading(entry.text, context);
       if (heading?.kind === 'article' && !heading.consistent) {
         // 条番号が柱・節と整合しない＝解析前提が崩れている。見出しにせず reject して本文として残す。
@@ -976,6 +999,7 @@ export function analyzeDocument(document, overrides = {}) {
       segment.push(entry);
     }
     flush();
+    flushTable();
     chapter.nodes = nodes;
   }
 

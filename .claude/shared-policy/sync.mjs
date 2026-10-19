@@ -4,14 +4,17 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync, renameSync } from '
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-export const consumers = { stats47: 'stats47-monorepo', 'doboku-note': 'doboku-note' };
+export const consumers = { stats47: 'stats47-monorepo', 'doboku-note': 'doboku-note', 'kazu-note': 'kazu-note' };
 const folder = '.claude/shared-policy';
 /** 配布する文書。キー = 消費側の `.claude/shared-policy/` 内のファイル名、値 = obsidian の正本。先頭が主文書（manifest のトップレベル version/updated/sourcePath に載る）。 */
 const docs = {
   'POLICY.md': 'memos/共通事業方針SSOT.md',
   'REPURPOSE.md': 'memos/リパーパス戦略SSOT.md',
   'STRUCTURE.md': 'memos/note記事構成SSOT.md',
+  'LOCAL-DATA.md': 'memos/ローカルデータ方針SSOT.md',
 };
+/** 文書と一緒に配る検査スクリプト（正本は obsidian の同じ場所。消費側は自分の local-data.json を読ませて使う） */
+const scripts = ['check-local-data.mjs'];
 const primaryDoc = Object.keys(docs)[0];
 const hash = (text) => createHash('sha256').update(text.replace(/\r\n/g, '\n')).digest('hex');
 const read = (file) => readFileSync(file, 'utf8').replace(/\r\n/g, '\n');
@@ -67,6 +70,7 @@ export function outputs(source) {
     meta[name] = { sourcePath: sourceDoc, version, updated, title, summary };
   }
   files[`${folder}/sync.mjs`] = read(join(source, folder, 'sync.mjs'));
+  for (const name of scripts) files[`${folder}/${name}`] = read(join(source, folder, name));
   const manifest = {
     schemaVersion: 2,
     source: 'obsidian',
@@ -140,7 +144,7 @@ function main() {
     if (!central) throw new Error('--staged is only available at the source');
     const staged = execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--cached', '--name-only', '--diff-filter=ACMR'], { cwd: root, encoding: 'utf8' })
       .split('\n').map((line) => line.trim().replace(/\\/g, '/')).filter(Boolean);
-    const watched = [...Object.values(docs), `${folder}/sync.mjs`];
+    const watched = [...Object.values(docs), `${folder}/sync.mjs`, ...scripts.map((name) => `${folder}/${name}`)];
     const hit = staged.filter((path) => watched.includes(path));
     if (!hit.length) return;
     console.log(`shared-policy: 配布対象が staged（${hit.join(', ')}）→ 配布状態を検査`);

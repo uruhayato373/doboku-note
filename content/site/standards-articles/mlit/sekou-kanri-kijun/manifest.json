@@ -58,17 +58,18 @@
     "removedPrintPageNumbers": 248,
     "removedChapterFront": 30,
     "dedentedPages": 0,
-    "tables": 385,
+    "tables": 226,
     "tablesGfm": 0,
     "tablesList": 0,
-    "tablesOverride": 0,
-    "tablesVerbatim": 385
+    "tablesOverride": 54,
+    "tablesVerbatim": 172
   },
   "tableOutcomes": {
-    "ragged-rows": 131,
-    "lossy": 142,
-    "columns-out-of-range": 70,
-    "too-few-rows": 42
+    "ragged-rows": 25,
+    "lossy": 95,
+    "columns-out-of-range": 39,
+    "too-few-rows": 13,
+    "restored-override": 54
   },
   "removedSamples": {
     "runningHeaders": [
@@ -1250,28 +1251,26 @@
         218
       ],
       "sourceSha256": "4feb3901397cab63f9d73c768c35bda719fa799009a44b3f9c1494a846c4d203",
-      "outputSha256": "91e83e596bbe2ee2ec93fc9396bba2112e6dbfd79402b204fb11564a039b0bd9",
-      "outputBytes": 53712,
+      "outputSha256": "8f769fa25a5bcc6408654b56e76652cdc349987e500e150e8a28746f7d5306b0",
+      "outputBytes": 38742,
       "splitBySection": false,
       "sections": [],
       "stats": {
         "sections": 0,
         "articles": 0,
         "clauses": 0,
-        "paragraphs": 78,
+        "paragraphs": 14,
         "items": 0,
         "notes": 0,
-        "tables": 9,
+        "tables": 4,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
-        "tablesOverride": 0,
-        "tablesVerbatim": 9
+        "tablesOverride": 4,
+        "tablesVerbatim": 0
       },
       "tableOutcomes": {
-        "lossy": 5,
-        "columns-out-of-range": 3,
-        "too-few-rows": 1
+        "restored-override": 4
       },
       "indexable": true,
       "duplicateOf": null,
@@ -1299,29 +1298,26 @@
         221
       ],
       "sourceSha256": "716e85d32a709dee06afb5841ba8449a3d07a998630243f0245d6e4179558adc",
-      "outputSha256": "a245938aa102ec797683d30855779d555cbfd27ab8d0afc5ec14e6605128667e",
-      "outputBytes": 30817,
+      "outputSha256": "0f71c1ff22e3c112d399a73a4a0fb1aefde15d672f3b9c06d8bfa18a396c840f",
+      "outputBytes": 20114,
       "splitBySection": false,
       "sections": [],
       "stats": {
         "sections": 0,
         "articles": 0,
         "clauses": 0,
-        "paragraphs": 52,
+        "paragraphs": 0,
         "items": 0,
         "notes": 0,
-        "tables": 12,
+        "tables": 3,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
-        "tablesOverride": 0,
-        "tablesVerbatim": 12
+        "tablesOverride": 3,
+        "tablesVerbatim": 0
       },
       "tableOutcomes": {
-        "lossy": 2,
-        "ragged-rows": 2,
-        "columns-out-of-range": 2,
-        "too-few-rows": 6
+        "restored-override": 3
       },
       "indexable": true,
       "duplicateOf": null,
@@ -1353,29 +1349,26 @@
         228
       ],
       "sourceSha256": "ffaaa9cbb2ef0f33755ea3660bafe3f9a83bc65ef3413bd719f9fe39a5389ea1",
-      "outputSha256": "0d794e1a4f5324c8801179b7dd36fc6a8f663338afd64469869177bf8da983f6",
-      "outputBytes": 56225,
+      "outputSha256": "b3e109fbbc8aca731e1bc6e630a4e360d641485ba55ebd1e3aae07dfdf80525a",
+      "outputBytes": 38947,
       "splitBySection": false,
       "sections": [],
       "stats": {
         "sections": 0,
         "articles": 0,
         "clauses": 0,
-        "paragraphs": 291,
+        "paragraphs": 0,
         "items": 0,
         "notes": 0,
-        "tables": 33,
+        "tables": 7,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
-        "tablesOverride": 0,
-        "tablesVerbatim": 33
+        "tablesOverride": 7,
+        "tablesVerbatim": 0
       },
       "tableOutcomes": {
-        "columns-out-of-range": 3,
-        "lossy": 6,
-        "ragged-rows": 19,
-        "too-few-rows": 5
+        "restored-override": 7
       },
       "indexable": true,
       "duplicateOf": null,
@@ -1412,28 +1405,26 @@
         240
       ],
       "sourceSha256": "f78209b1d67825298de16d7269d5b44dbfb480c392d8407824766cff88165cd6",
-      "outputSha256": "62f4b420ebe455f6e42d1e4733cf15cbdd066d6b686afb193b559253e52a51e1",
-      "outputBytes": 97858,
+      "outputSha256": "9dacec0baf3fae1cb485e4fa671d7bfc3f57fe99b39e98e55927cfaf5ce44ea7",
+      "outputBytes": 71514,
       "splitBySection": false,
       "sections": [],
       "stats": {
         "sections": 0,
         "articles": 0,
         "clauses": 0,
-        "paragraphs": 578,
+        "paragraphs": 0,
         "items": 0,
         "notes": 0,
-        "tables": 47,
+        "tables": 12,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
-        "tablesOverride": 0,
-        "tablesVerbatim": 47
+        "tablesOverride": 12,
+        "tablesVerbatim": 0
       },
       "tableOutcomes": {
-        "ragged-rows": 34,
-        "columns-out-of-range": 5,
-        "lossy": 8
+        "restored-override": 12
       },
       "indexable": true,
       "duplicateOf": null,
@@ -1465,29 +1456,26 @@
         247
       ],
       "sourceSha256": "0d15f7457b10dee43436b00635bf88e3ef094a9e08684d5d8b9367a90ecdae6b",
-      "outputSha256": "1290f7356edf73e32e7e22856fffdfcb0d6b487b51ef980f6c0703a2ea6e5063",
-      "outputBytes": 79271,
+      "outputSha256": "c01263f23fbe0efc2837f66b5ffa79b22bf1bc63180eb3684af17355562c0bfd",
+      "outputBytes": 51567,
       "splitBySection": false,
       "sections": [],
       "stats": {
         "sections": 0,
         "articles": 0,
         "clauses": 0,
-        "paragraphs": 157,
+        "paragraphs": 0,
         "items": 0,
         "notes": 0,
-        "tables": 25,
+        "tables": 7,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
-        "tablesOverride": 0,
-        "tablesVerbatim": 25
+        "tablesOverride": 7,
+        "tablesVerbatim": 0
       },
       "tableOutcomes": {
-        "columns-out-of-range": 5,
-        "ragged-rows": 10,
-        "lossy": 7,
-        "too-few-rows": 3
+        "restored-override": 7
       },
       "indexable": true,
       "duplicateOf": null,
@@ -1515,29 +1503,26 @@
         250
       ],
       "sourceSha256": "64f40cef6c561039f2b9543e5d1c56b70af039a3e2c9edbf0b6eee846fa5906a",
-      "outputSha256": "d8b36f87b3f8dc228eda4560fa6ee0783d503997e79f22b24f89399a9dad4076",
-      "outputBytes": 30649,
+      "outputSha256": "9c94289ecf01f0c4d940926272631b82ea5bc1df76ccd102af5c8e27072418a1",
+      "outputBytes": 23749,
       "splitBySection": false,
       "sections": [],
       "stats": {
         "sections": 0,
         "articles": 0,
         "clauses": 0,
-        "paragraphs": 87,
+        "paragraphs": 0,
         "items": 0,
         "notes": 0,
-        "tables": 18,
+        "tables": 3,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
-        "tablesOverride": 0,
-        "tablesVerbatim": 18
+        "tablesOverride": 3,
+        "tablesVerbatim": 0
       },
       "tableOutcomes": {
-        "ragged-rows": 7,
-        "columns-out-of-range": 2,
-        "lossy": 3,
-        "too-few-rows": 6
+        "restored-override": 3
       },
       "indexable": true,
       "duplicateOf": null,
@@ -1570,29 +1555,26 @@
         257
       ],
       "sourceSha256": "4036fce73994dff42043406f4ead105f2c87c4618c4034360b68daab995d052c",
-      "outputSha256": "1f63b6ab62b9196f12a35a5f22cbaf84b377ee3cfe91b136d6aa00980ed5fd1c",
-      "outputBytes": 85508,
+      "outputSha256": "3b48a04501b2ed6c8ce125628856fa76a4cf24f270bf41a008f15cb092332714",
+      "outputBytes": 54131,
       "splitBySection": false,
       "sections": [],
       "stats": {
         "sections": 0,
         "articles": 0,
         "clauses": 0,
-        "paragraphs": 128,
+        "paragraphs": 0,
         "items": 0,
         "notes": 0,
-        "tables": 19,
+        "tables": 7,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
-        "tablesOverride": 0,
-        "tablesVerbatim": 19
+        "tablesOverride": 7,
+        "tablesVerbatim": 0
       },
       "tableOutcomes": {
-        "ragged-rows": 8,
-        "too-few-rows": 3,
-        "columns-out-of-range": 3,
-        "lossy": 5
+        "restored-override": 7
       },
       "indexable": true,
       "duplicateOf": null,
@@ -1624,29 +1606,26 @@
         264
       ],
       "sourceSha256": "6b8d85c0dd937a8ea7815aad0728597dad0b0c6552734a100666aff4dcc39a74",
-      "outputSha256": "b87e1733f2493999b0b02d9e982d62bc40048c59cc2e3fcca7d93874393d9632",
-      "outputBytes": 61762,
+      "outputSha256": "5ee707164eed88819741b6610b8d83ad94cade9db9c361a7ad2856a9c21f25af",
+      "outputBytes": 43257,
       "splitBySection": false,
       "sections": [],
       "stats": {
         "sections": 0,
         "articles": 0,
         "clauses": 0,
-        "paragraphs": 315,
+        "paragraphs": 0,
         "items": 0,
         "notes": 0,
-        "tables": 31,
+        "tables": 7,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
-        "tablesOverride": 0,
-        "tablesVerbatim": 31
+        "tablesOverride": 7,
+        "tablesVerbatim": 0
       },
       "tableOutcomes": {
-        "columns-out-of-range": 3,
-        "lossy": 4,
-        "too-few-rows": 3,
-        "ragged-rows": 21
+        "restored-override": 7
       },
       "indexable": true,
       "duplicateOf": null,
@@ -1674,29 +1653,26 @@
         267
       ],
       "sourceSha256": "bf1deff218ca2634f5cec6ea551d4dbbdb5da3b20269e2aa48b96116d04895b8",
-      "outputSha256": "7da827a5768de6bf84b40c93da9159f5204e4030a9b204b45e81eab497aa82a6",
-      "outputBytes": 38679,
+      "outputSha256": "f709ae52df1358e3002da3e682a86675d9c75485f34319bd88625a3aedc0a5d6",
+      "outputBytes": 25510,
       "splitBySection": false,
       "sections": [],
       "stats": {
         "sections": 0,
         "articles": 0,
         "clauses": 0,
-        "paragraphs": 81,
+        "paragraphs": 0,
         "items": 0,
         "notes": 0,
-        "tables": 19,
+        "tables": 4,
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
-        "tablesOverride": 0,
-        "tablesVerbatim": 19
+        "tablesOverride": 4,
+        "tablesVerbatim": 0
       },
       "tableOutcomes": {
-        "lossy": 7,
-        "columns-out-of-range": 5,
-        "ragged-rows": 5,
-        "too-few-rows": 2
+        "restored-override": 4
       },
       "indexable": true,
       "duplicateOf": null,

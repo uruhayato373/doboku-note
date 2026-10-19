@@ -65,7 +65,9 @@ export function findDefinitions(text) {
 function scan() {
   const files = execFileSync('git', ['ls-files', '-z', '--', 'scripts', '.claude', 'tools', 'lib', 'tests'], { cwd: ROOT, encoding: 'utf8', maxBuffer: 1 << 28 })
     .split('\0')
-    .filter((f) => /\.(mjs|cjs|js|mts|ts|tsx)$/.test(f) && !f.includes('node_modules') && !OWN.has(f));
+    // .claude/shared-policy/ は obsidian の正本から複数のリポへ配る写し（手編集しない・policy:sync で上書き）。
+    // このリポの共通部品を import できない自己完結のコードなので数えない
+    .filter((f) => /\.(mjs|cjs|js|mts|ts|tsx)$/.test(f) && !f.includes('node_modules') && !OWN.has(f) && !f.startsWith('.claude/shared-policy/'));
   assert.ok(files.length > 500, `走査したコード ${files.length} ファイル（検査不成立）`);
   const found = { root: [], walk: [], parseArgs: [], curlJson: [], mdxWalk: [], escapeRegExp: [] };
   for (const f of files) {

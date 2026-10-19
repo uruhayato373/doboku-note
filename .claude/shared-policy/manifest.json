@@ -25,12 +25,21 @@
       "updated": "2026-09-26",
       "title": "note 記事の構成（売れる 9 型）",
       "summary": "5 ステップ骨格・売れる 9 型・タイトル 5 型・短い段落・リンクの使い分け・強化 6 部品・制約。"
+    },
+    "LOCAL-DATA.md": {
+      "sourcePath": "memos/ローカルデータ方針SSOT.md",
+      "version": "1.0.0",
+      "updated": "2026-10-19",
+      "title": "ローカルデータの方針（手元にしか無い正本をなくす）",
+      "summary": "git の外に置いてよいのは再生成・退避済み・端末固有・資格情報・作業中の5区分だけ。各リポが local-data.json で申告し、check-local-data が申告外を止める。"
     }
   },
   "files": {
     ".claude/shared-policy/POLICY.md": "b1a94053ac28f339fb4a5601298286b348018129e7f29f080a46221cf34a1da5",
     ".claude/shared-policy/REPURPOSE.md": "f09b8b7b28f17fdd85ae1c0ea1c38cdb2b3e01f6c2e139087e5e69cee123107e",
-    ".claude/shared-policy/STRUCTURE.md": "7ebf46a107d0e8cc2c3ad6029a2e636932ddbb9547613af88c435a64a31dc246",
-    ".claude/shared-policy/sync.mjs": "6dc6b0de42d667f6afe3789bb852ca8c7e63f694866ea7edc6e0d621b9a709d0"
+    ".claude/shared-policy/STRUCTURE.md": "02956eabcffc2ff8b295d4101b0421b8b741a0f923718b905cef4c26aa0a12f8",
+    ".claude/shared-policy/LOCAL-DATA.md": "dfa3046676eb425ea9975a3e06f940c74c4cad1ae293b40b0ec15d692512355d",
+    ".claude/shared-policy/sync.mjs": "8cd70619b9e15cc89ec361ec0c63b2acf2ecbaa69d949c91f9a78ed3ae61201c",
+    ".claude/shared-policy/check-local-data.mjs": "3b9d22ff7119b333e3eed1885db933c54e71bf344eb390d18b6ad3b2521b46ed"
   }
 }

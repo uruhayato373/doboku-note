@@ -293,3 +293,25 @@ test('組み直し: 前の版面を取り込む表は、取り込んだ版面の
   // 取り込む版面が前に無ければ止める（本文が消えるため）
   assert.equal(applyTableOverride(body, absorbing, { lookup }).reason, 'override-absorb-missing');
 });
+
+test('組み直し: headerFill は見出しの空欄だけを指した表の見出しで補い、文字のある欄と照合は変えない', () => {
+  const source = { key: 'f'.repeat(16), kind: 'table', header: [['気温', '早強セメント', '普通セメント']], rows: [['a', 'b', 'c']], review: { status: 'approved' } };
+  const lookup = (key) => (key === source.key ? source : undefined);
+  const result = applyTableOverride(LAYOUT, approved({
+    kind: 'table',
+    header: [['', '早強', '普通']],
+    rows: [['15℃以上', '3日', '5日'], ['10℃以上', '4日', '7日']],
+    headerFill: source.key,
+  }), { lookup });
+  assert.equal(result.ok, true, result.reason);
+  const table = result.parts.find((part) => part.kind === 'table');
+  // 空欄だけ補う（「早強」「普通」は版面の字のまま）。補った「気温」は版面に無いが照合の外
+  assert.deepEqual(table.header[0], ['気温', '早強', '普通']);
+
+  const wrongWidth = { ...source, header: [['気温', '早強']], rows: [['a', 'b']] };
+  const bad = applyTableOverride(LAYOUT, approved({
+    kind: 'table', header: [['', '早強', '普通']], rows: [['15℃以上', '3日', '5日'], ['10℃以上', '4日', '7日']], headerFill: source.key,
+  }), { lookup: () => wrongWidth });
+  assert.equal(bad.ok, false);
+  assert.equal(bad.reason, 'override-bad-header-fill');
+});

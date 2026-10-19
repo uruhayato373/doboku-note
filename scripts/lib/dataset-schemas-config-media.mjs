@@ -378,6 +378,7 @@ export const ConfigStandardsStructure = z
             runningHeaderPattern: z.string().min(1).optional().describe('各ページ先頭の柱の形（正規表現の文字列・outline の文書）'),
             articleStyle: z.enum(['dai', 'none']).optional().describe('dai＝要綱の「第１ 目的」を条の見出しにする・none＝条を読まない'),
             fullWidthClauses: z.literal(true).optional().describe('全角数字の項番号も項として読む'),
+            tablePages: z.array(z.tuple([z.number().int().positive(), z.number().int().positive()])).optional().describe('1 ページ全体を 1 つの表の版面にする PDF ページの範囲'),
             outlineBook: z.string().min(1).optional().describe('編を持たない文書の編の名前（既定は文書の題名）'),
             outline: z
               .array(
