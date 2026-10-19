@@ -27,7 +27,11 @@
  *     heading     見出し
  *     kind        訂正・追加の欄（`追-1`・`追加`・`訂正`）。原本で空欄なら 
  *     body        仕様事項の段落の配列（折り返しはつなぐ。箇条・URL は 1 要素ずつ）。欄の中の小さな表は
- *                 { table: [[セル, …], …] }（1 行目が見出し）
+ *                 { table: [[セル, …], …] }（1 行目が見出し）。
+ *                 原本に画像として貼り込まれ、テキスト層に文字が無いもの（p8・p31・p36・p49 の表、p11・p44・p45 の図）は
+ *                 source: "image" を付けて画像から起こす: { table, source }・{ list: [...], source }・{ text, source }・
+ *                 { figure: { file, alt, width, height }, source }（file は章記事の img/ に置いた webp）。
+ *                 source: "image" の要素は版面に無い文字なので照合の対象から外し、画像と照合する（QA）
  *     joinFirst   continued の行で、body[0] が前のページの最後の段落の続き（文の途中で改ページ）
  *   review    { status: draft|approved|rejected, by, at, note }
  */
@@ -59,6 +63,7 @@ export function pageStrings(data) {
     for (const field of ENTRY_TEXT_FIELDS) if (typeof entry[field] === 'string') out.push(entry[field]);
     for (const paragraph of entry.body ?? []) {
       if (typeof paragraph === 'string') out.push(paragraph);
+      else if (paragraph?.source === 'image') continue; // 画像から起こした文字は版面に無い
       else for (const row of paragraph?.table ?? []) out.push(...row);
     }
   }
@@ -114,6 +119,32 @@ export function normalizeArticle(article) {
   return match ? match[1] : null;
 }
 
+const isStrings = (value) => Array.isArray(value) && value.length > 0 && value.every((item) => typeof item === 'string' && item.trim());
+/** body の 1 要素が決まった形か。 */
+function bodyItemOk(item) {
+  if (typeof item === 'string') return Boolean(item.trim());
+  if (!item || typeof item !== 'object') return false;
+  if (item.source !== undefined && item.source !== 'image') return false;
+  if (Array.isArray(item.table)) {
+    return item.table.length > 0 && item.table.every((row) => Array.isArray(row) && row.every((cell) => typeof cell === 'string'));
+  }
+  if (item.source !== 'image') return false;
+  if (item.list) return isStrings(item.list);
+  if (item.text !== undefined) return typeof item.text === 'string' && Boolean(item.text.trim());
+  if (item.figure) {
+    const { file, alt, width, height } = item.figure;
+    return /^[a-z0-9-]+\.webp$/.test(file ?? '') && typeof alt === 'string' && alt.trim() && Number.isInteger(width) && Number.isInteger(height);
+  }
+  return false;
+}
+
+/** 画像から起こした要素（source: "image"）と図のファイル名を数える。 */
+export function imageItemsOf(data) {
+  const items = [];
+  for (const entry of data.entries ?? []) for (const item of entry.body ?? []) if (item?.source === 'image') items.push(item);
+  return items;
+}
+
 /**
  * 1 ページの形を検査する（文字の照合は別）。違反の文の配列を返す。
  * @param {object} data
@@ -132,9 +163,7 @@ export function validatePageShape(data, { page }) {
     if (entry.joinFirst && !entry.continued) errors.push(`${where}: joinFirst は continued の行だけ`);
     if (!Array.isArray(entry.body)) errors.push(`${where}: body が配列でない`);
     for (const p of entry.body ?? []) {
-      const isTable = p && typeof p === 'object' && Array.isArray(p.table)
-        && p.table.length > 0 && p.table.every((row) => Array.isArray(row) && row.every((cell) => typeof cell === 'string'));
-      if (!(typeof p === 'string' && p.trim()) && !isTable) errors.push(`${where}: body に空の段落か、文字列でも { table } でもない要素`);
+      if (!bodyItemOk(p)) errors.push(`${where}: body に空の段落か、決まった形（文字列・table・image の list/text/figure）でない要素`);
     }
     if (entry.article === '') errors.push(`${where}: article の空欄は null（空文字にしない）`);
     for (const field of ENTRY_TEXT_FIELDS) {
@@ -179,10 +208,20 @@ export function resolveAmendmentEntries(pages) {
         if (entry.joinFirst && typeof body[0] === 'string' && typeof previous.body.at(-1) === 'string') {
           previous.body[previous.body.length - 1] += body.shift();
         }
-        // ページをまたぐ表（p13→p14 の主任技術者の資格表）は、続きの表の全行を前の表の行として足す
+        // ページをまたぐ表（p13→p14 の主任技術者の資格表）は、続きの表の行を前の表の行として足す。
+        // joinFirst なら続きの表の 1 行目は前の表の最後の行の続き（改ページで 1 行が割れた）なので、セルごとにつなぐ
         const last = previous.body.at(-1);
-        if (body[0] && typeof body[0] === 'object' && last && typeof last === 'object') {
-          previous.body[previous.body.length - 1] = { table: [...last.table, ...body.shift().table] };
+        if (Array.isArray(body[0]?.table) && Array.isArray(last?.table) && !body[0].source && !last.source) {
+          const rows = [...body.shift().table];
+          const table = [...last.table];
+          if (entry.joinFirst && rows.length) {
+            const tail = table.pop();
+            const head = rows.shift();
+            // 和文どうしは空白なしでつなぐ（`…のうち検` + `定種目…`）。境目が英数字なら 1 空白（`4500 万円以上` + `1 億…`）
+            const glue = (a, b) => (a && b && (/[0-9A-Za-z]$/.test(a) || /^[0-9A-Za-z]/.test(b)) ? `${a} ${b}` : `${a}${b}`);
+            table.push(tail.map((cell, i) => glue(cell, head[i] ?? '')));
+          }
+          previous.body[previous.body.length - 1] = { table: [...table, ...rows] };
         }
         previous.body.push(...body);
         if (!previous.pages.includes(data.page)) previous.pages.push(data.page);

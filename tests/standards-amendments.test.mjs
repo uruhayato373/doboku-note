@@ -80,3 +80,29 @@ test('差し込んだ訂正・追加は目印ごと取り除ける（地域差�
   const markdown = ['## 第1節 総則', '', AMENDMENT_BLOCK_START, '', '> 追加の行', '', AMENDMENT_BLOCK_END, '', '### 1-1-1-2 用語の定義', ''].join('\n');
   assert.equal(stripAmendmentBlocks(markdown), ['## 第1節 総則', '', '### 1-1-1-2 用語の定義', ''].join('\n'));
 });
+
+test('改ページで割れた表の 1 行は joinFirst でセルごとにつなぐ（数字の境目は 1 空白）', () => {
+  const { entries } = resolveAmendmentEntries([
+    page(13, [{ article: '1-1-1-9', kind: '追加', body: [{ table: [['金額', '資格'], ['4500 万円以上', 'イ 建設業法による技術検定のうち検']] }] }]),
+    page(14, [{ continued: true, joinFirst: true, body: [{ table: [['1 億 6000 万円未満', '定種目を…']] }] }]),
+  ]);
+  assert.deepEqual(entries[0].body[0].table.at(-1), ['4500 万円以上 1 億 6000 万円未満', 'イ 建設業法による技術検定のうち検定種目を…']);
+});
+
+test('画像から起こした要素（source: image）は文字の照合から外し、形は検査する', async () => {
+  const { pageStrings } = await import('../scripts/lib/standards-amendments.mjs');
+  const data = {
+    page: 8, chapters: ['1-1'], review: { status: 'draft' }, group: '【関係】', columns: null, extras: [],
+    entries: [{ article: '1-1-1-1', kind: '追加', body: [
+      '版面の文',
+      { source: 'image', table: [['資料名', '内訳']] },
+      { source: 'image', list: ['①施工計画書'] },
+      { source: 'image', text: '1m3当り' },
+      { source: 'image', figure: { file: 'amendments-p0011-signboard.webp', alt: '標示板の例', width: 10, height: 10 } },
+    ] }],
+  };
+  assert.deepEqual(validatePageShape(data, { page: 8 }), []);
+  assert.equal(pageStrings(data).join(''), '【関係】1-1-1-1追加版面の文');
+  const bad = { ...data, entries: [{ article: null, kind: '', body: [{ list: ['source の無い箇条'] }, { source: 'image', figure: { file: '../x.png', alt: 'a', width: 1, height: 1 } }] }] };
+  assert.equal(validatePageShape(bad, { page: 8 }).length, 2);
+});

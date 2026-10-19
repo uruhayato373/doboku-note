@@ -9,6 +9,7 @@ import SectionCard from '@/components/ui/SectionCard/SectionCard';
 import StandardsArticleHeader from '@/components/standards/StandardsArticleHeader';
 import StandardSectionIndex from '@/components/standards/StandardSectionIndex';
 import StandardVerbatimTable from '@/components/standards/StandardVerbatimTable';
+import ArticleImage from '@/components/ui/ArticleImage/ArticleImage';
 import StandardScrollTable from '@/components/standards/StandardScrollTable';
 import StandardsAttribution from '@/components/standards/StandardsAttribution';
 import StandardDataLinks from '@/components/standards/StandardDataLinks';
@@ -109,6 +110,8 @@ export default async function StandardChapterPage({ params }: { params: Promise<
   };
   const components = {
     pre: StandardVerbatimTable,
+    // 中国版に差し込んだ地方の訂正・追加のうち、原本の図（画像）を出す
+    ArticleImage,
     // 生成器が埋めた <SourceRef pages="151-153" /> に、原典へ戻すための文書コンテキストを束ねる
     SourceRef: (props: { pages: string; kind?: 'section' | 'table' | 'figure' }) => (
       <SourceRef {...props} document={entry} />

@@ -60,7 +60,7 @@ const sha256 = (value) => createHash('sha256').update(value, 'utf8').digest('hex
  * ページ画像から組み直した行（content/sources/standards/amendments/・scripts/standards-amendments.mjs）が
  * 全ページ承認済みなら条ごとに差し込み、そうでなければ章の冒頭にページへの案内だけを出す。
  */
-function amendmentPagesOf(catalog, amendments) {
+function amendmentPagesOf(catalog, amendments, target) {
   if (!amendments) return null;
   const [agencyId, documentId] = amendments.document.split('/');
   const source = catalog.documents.find((d) => d.agencyId === agencyId && d.documentId === documentId);
@@ -82,7 +82,7 @@ function amendmentPagesOf(catalog, amendments) {
       rowsByChapter.set(chapterId, [...(rowsByChapter.get(chapterId) ?? []), entry]);
     }
   }
-  return { source, label: amendments.label, byChapter, rowsByChapter, complete, scopePages: scopePages.length, approvedPages: approved.size };
+  return { source, target, label: amendments.label, byChapter, rowsByChapter, complete, scopePages: scopePages.length, approvedPages: approved.size };
 }
 
 /** ページ番号の並びを連続区間に畳む（[3,4,5,9] → [[3,5],[9,9]]）。 */
@@ -127,14 +127,25 @@ function renderAmendmentRow(row, amendment, { withArticle }) {
   // 訂正・追加の欄が原本で空欄の行は印を出さない
   const mark = row.kind.trim() ? `〔${escapeInline(row.kind)}〕` : '';
   const blocks = [`**${[mark, label].filter(Boolean).join(' ') || '（欄なし）'}**（${pageLinks}）`];
+  const line = (cells) => `| ${cells.map((cell) => escapeInline(cell)).join(' | ')} |`;
+  const gfm = ([head, ...rest]) => [line(head), `| ${head.map(() => '---').join(' | ')} |`, ...rest.map(line)].join('\n');
   for (const paragraph of row.body) {
     if (typeof paragraph === 'string') {
       blocks.push(escapeBlockStart(escapeInline(paragraph)));
       continue;
     }
-    const [head, ...rest] = paragraph.table;
-    const line = (cells) => `| ${cells.map((cell) => escapeInline(cell)).join(' | ')} |`;
-    blocks.push([line(head), `| ${head.map(() => '---').join(' | ')} |`, ...rest.map(line)].join('\n'));
+    if (paragraph.figure) {
+      // 原本の図（画像）。章記事の img/ に置いた webp を R2 から出す（ArticleImage・/posts/ は R2 のキーと同じ）
+      const { file, alt, width, height } = paragraph.figure;
+      const src = `/posts/standards-articles/${amendment.target}/img/${file}`;
+      blocks.push(`<ArticleImage src="${src}" alt="${alt.replace(/"/g, '&quot;')}" width="${width}" height="${height}" size="medium" />`);
+      continue;
+    }
+    if (paragraph.table) blocks.push(gfm(paragraph.table));
+    else if (paragraph.list) blocks.push(paragraph.list.map((item) => `- ${escapeBlockStart(escapeInline(item))}`).join('\n'));
+    else if (paragraph.text) blocks.push(escapeBlockStart(escapeInline(paragraph.text)));
+    // 原本では画像で、テキスト層に文字が無いものを画像から起こした（照合は文字ではなく画像で行った）
+    if (paragraph.source === 'image') blocks.push('（原本では画像。画像から文字を起こしたもの）');
   }
   return blocks.map((block) => block.split('\n').map((line) => `> ${line}`).join('\n')).join('\n>\n');
 }
@@ -480,7 +491,11 @@ export function buildDocument(document, overrides, { write = true, verbatimTable
   // 判定はここだけで行い、サイトは manifest の splitBySection を読む。
   const splitThreshold = overrides.sectionPages?.minOutputBytes ?? Infinity;
   const tableOverrides = loadTableOverrides();
-  const amendment = amendmentPagesOf(getCatalog(), overrides.documents?.[`${document.agencyId}/${document.documentId}`]?.amendments);
+  const amendment = amendmentPagesOf(
+    getCatalog(),
+    overrides.documents?.[`${document.agencyId}/${document.documentId}`]?.amendments,
+    `${document.agencyId}/${document.documentId}`,
+  );
 
   const chapters = analysis.chapters.map((chapter) => {
     const tableOutcomes = [];

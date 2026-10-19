@@ -22,7 +22,7 @@ import { ARTICLES_ROOT, getCatalog, loadDocumentPages, loadOverrides } from './l
 import { resolveVaultRoot } from './lib/drive-vault.mjs';
 import {
   amendmentChapterOf, amendmentDir, amendmentScopeByChapter, compareChars, loadAmendmentPages, pageFileName, pageStrings,
-  resolveAmendmentEntries, validatePageShape,
+  imageItemsOf, resolveAmendmentEntries, validatePageShape,
 } from './lib/standards-amendments.mjs';
 
 const WORK_ROOT = join(REPO_ROOT, '.tmp', 'standards-amendments');
@@ -169,6 +169,17 @@ if (command === 'sheets') {
       if (!chars.ok) violations.push(`${amendments.document} p${page}: 版面と文字が合わない（不足 ${chars.missing || 'なし'} / 余分 ${chars.extra || 'なし'}）`);
     }
     for (const page of byPage.keys()) if (!scope.includes(page)) violations.push(`${amendments.document} p${page}: 【…関係】の無いページの JSON がある`);
+    // 画像から起こした要素のうち、図は章記事の img/ に webp の実体がある（R2 へは main の r2-sync が送る）
+    let imageItems = 0;
+    for (const data of byPage.values()) {
+      for (const item of imageItemsOf(data)) {
+        imageItems += 1;
+        if (item.figure && !existsSync(join(ARTICLES_ROOT, ...target.split('/'), 'img', item.figure.file))) {
+          violations.push(`${amendments.document} p${data.page}: 図 ${item.figure.file} が content/site/standards-articles/${target}/img/ に無い`);
+        }
+      }
+    }
+    console.log(`[check-standards-amendments] ${amendments.document}: 画像から起こした要素 ${imageItems}（文字の照合の対象外・QA が画像で照合）`);
     // 差し込み: 章ごとの行数が manifest と章記事の実体の両方で一致する
     const { entries } = resolveAmendmentEntries(files.filter(({ data }) => scope.includes(data.page)));
     const expected = new Map();
