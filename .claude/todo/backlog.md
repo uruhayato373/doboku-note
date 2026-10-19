@@ -199,14 +199,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **進捗（2026-10-02）**: 手順1を完了。解答速報ページの枠 `/exam/pe-first-stage/guide/r08-answers`（公式の問題・正答の確認先、正答訂正の注意、科目ごとの自己採点、合格発表、直前対策の導線、FAQ）を本番へ反映（PR #844）。正答の公開日は実施案内に書かれていないため断定していない。残りは試験後: 公式正答の公開を確認したらページに掲載日を追記し、令和8年度の4ページ（基礎・適性・建設・上下水道）を起稿して演習へ追加する。
 
-### [DN-0485] Cloudflare の解析用 API トークンを発行して Secret に登録し、cloudflare-metrics と cloudflare-config を復旧する
-タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-01]
-
-**起点**: 月次レビュー（2026-08-01〜2026-08-31）の点検と Issue で見つけた。`cloudflare-metrics.yml` が 9/24 から 7 連続で失敗（`check-workflow-health` 赤・Issue #636）、`cloudflare-config-audit.yml` も取得失敗（Issue #709）。run 36793694023 のログでは `CLOUDFLARE_ANALYTICS_API_TOKEN` が空で、代わりに使われた配信用トークンでは `zone-not-found: zone doboku-note.com が見つからない`。
-
-**やること**: (1) 運営者が Cloudflare ダッシュボードで zone doboku-note.com の Analytics:Read・Zone:Read を持つトークンを発行し、`gh secret set CLOUDFLARE_ANALYTICS_API_TOKEN --repo uruhayato373/doboku-note` で登録する（エージェントはトークンを扱わない）。(2) `gh workflow run cloudflare-metrics.yml` と `cloudflare-config-audit.yml` を手動実行して緑を確かめる。(3) 復旧で #636・#709 が自動クローズされたかを見る。
-
-**完了条件**: 両 workflow が成功し、`npm run check-workflow-health` で cloudflare-metrics が ✓。
 
 ### [DN-0535] 主任技士 小論文の新マガジン17誌に POP カバーを付ける（Codex で画像生成）
 タグ: [収益化] [領域:商品] [時期:2026-11] [種類:制作] [起票:2026-10-05] [期日:2026-11-15]
