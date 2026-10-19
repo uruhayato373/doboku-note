@@ -4521,6 +4521,19 @@
       "commit": "989e74a415ed",
       "verification": "npm run check-r2-orphans exit 0 / 本番 2 記事で新パスのみ",
       "note": "R2 だけにあった図 2 枚を各記事の img/ へ戻して参照を差し替え（PR #1132）。本番デプロイ後に新パスの配信と旧パス参照 0 件を確認し、旧キー 2 件を削除（削除リストに記録）。check-r2-orphans は孤児 0・参照あり 0 で exit 0"
+    },
+    {
+      "id": "DN-0769",
+      "at": "2026-10-20",
+      "task": "地方版の要綱 5 組（薬液注入 2・アンカーボルト・六価クロム・NATM）の版を原本の画像で確かめて重複整理に入れる",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "dfdb2c0ad2bb",
+      "verification": "tests/standards-editions.test.mjs 5 pass / check-standard-articles 456 PASS",
+      "note": "5 組の版を原本のページ画像で確認。近畿の必携 5 項は日付・通知番号の記載がなく、東北の参考資料と収録範囲が違うため 5 組とも群にせず、理由を editionCanonical._comment に記録"
     }
   ]
 }
