@@ -4598,6 +4598,19 @@
       "commit": "633473303aa3",
       "verification": "check-standard-articles 24 文書 PASS 456 / tests/standards*.test.mjs 57 pass",
       "note": "組み直しに documentVariants（文書ごとの差し替え）を足し、北海道版の断片・表3-2-39 の機関差・崩れた表3-2-32 を表へ戻した（writer→QA で原本画像と照合・承認、PR #1136）。strayTableFragments は 8 機関 32→31・北海道 45→34。北海道版の残り 34 件は節の小見出し・注記・式で表の行ではない"
+    },
+    {
+      "id": "DN-0773",
+      "at": "2026-10-20",
+      "task": "CLAUDE.md と AGENTS.md の同期を自動化する",
+      "tier": "mid",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "8179180ca3f4",
+      "verification": "npm run check-codex-compat PASS（AGENTS.md は CLAUDE.md＋.claude/rules と同期）",
+      "note": "既に実装済み: CLAUDE.md が正本、scripts/sync-codex-compat.mjs が CLAUDE.md＋.claude/rules から AGENTS.md を生成（バナー AUTO-GENERATED）し、check-codex-compat（quality-audit の ci:true・pre-commit）が食い違いを止める。2026-10-20 に CLAUDE.md を直したとき check-codex-compat が AGENTS.md の作り直しを要求して PASS したことを確認"
     }
   ]
 }

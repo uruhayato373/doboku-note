@@ -342,15 +342,8 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 **完了条件**: 点検結果と直した .gitignore がコミットされ、`npm run check-local-data` が通っている。
 
+**点検（2026-10-20）**: (1) 無視パターンに当たるのに追跡されているもの 64 件（`git ls-files -ci --exclude-standard`）＝ `.claude/settings.local.json`（.gitignore は「マシン固有・dotfiles の setup-memory-link --settings で置く」とするが、追跡されたまま許可設定の変更が何度もコミットされている）と SNS の下書き画像 63 件（`content/sns/x/draft/{073,074,075,076,077,079,093,095}-*/img/`・`content/sns/instagram/pe-construction/2026-06-10-hissu-kata/reels/img/`。無視の行より前から追跡されていた）。(2) 秘密らしい名前の追跡は誤検出だけ（デザインの tokens・ig-graph-token.mjs のスクリプト本体など）。(3) 1 MB 超の追跡は public/quiz・GA4 日次レポート（DN-0749）・.obsidian の plugin/icons（6.5 MB×2）など。**運営者の判断待ち**: 64 件を `git rm --cached` で追跡から外すと、ほかの checkout（Windows PC を含む）は次の pull で作業ツリーからも消える。settings.local.json は各 PC の dotfiles から置き直す前提か、SNS 画像は Drive vault に控えがあるか（SNS は保留中）を確かめてから外す。外したら `git ls-files -ci --exclude-standard` が 0 件になることを完了の確認にする。
 
-### [DN-0773] CLAUDE.md と AGENTS.md の同期を自動化する
-タグ: [エージェント・SSOT] [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-10-19]
-
-**起点**: obsidian の TODO マスタ ^t-0023（3リポ共通・2026-09-28 のメモ）を各リポへ展開（2026-10-19）。Claude Code は CLAUDE.md、Codex は AGENTS.md を読むので、片方だけ直すと規約が食い違う。
-
-**やること**: 両者のどちらを正本にし、どう同期・検査するかを決めて実装する（例: 共通部分を1か所に置いて生成、または差分を検査で止める）。obsidian の `sync-codex.mjs` の作り方が参考になる。
-
-**完了条件**: CLAUDE.md と AGENTS.md の食い違いを機械が検出でき、検査が通っている。
 
 
 ### [DN-0772] 「以前から失敗している」を理由にテストを通さない規約を入れる
