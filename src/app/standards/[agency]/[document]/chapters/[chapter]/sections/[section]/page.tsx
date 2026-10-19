@@ -25,6 +25,8 @@ import { getReferencedStandardDocuments, getStandardDocuments, standardDocumentP
 import {
   getStandardChapterSection,
   getStandardChapters,
+  standardBookLabel,
+  standardChapterHeading,
   standardChapterOgpUrl,
   standardChapterPath,
   standardSectionPageRange,
@@ -149,9 +151,9 @@ export default async function StandardSectionPage({ params }: { params: Promise<
                 label: entry.role === 'common' ? '土木工事共通仕様書' : entry.title,
                 href: standardDocumentPath(entry),
               },
-              { label: `第${chapter.chapterNumber}章 ${chapter.chapterTitle}`, href: standardChapterPath(entry, chapter) },
+              { label: standardChapterHeading(chapter), href: standardChapterPath(entry, chapter) },
             ]}
-            label={`第${chapter.bookNumber}編 ${chapter.bookTitle} 第${chapter.chapterNumber}章 ${chapter.chapterTitle}`}
+            label={`${standardBookLabel(chapter)} ${standardChapterHeading(chapter)}`}
             title={section.headingText}
             meta={[entry.agencyName, entry.edition, `原本PDF ${pages.first}–${pages.last}ページ`].filter((item): item is string => Boolean(item))}
           />
@@ -216,7 +218,7 @@ export default async function StandardSectionPage({ params }: { params: Promise<
             <QualificationBridge placement="standards-chapter-footer" />
           </div>
           <AffiliateSlot page={{ pageKind: 'standards' }} slot="standards-end" className="mt-6" />
-          <StandardsAttribution document={entry} />
+          <StandardsAttribution document={entry} item={chapter.item} />
         </SectionCard>
       </TwoColumnShell>
     </PageShell>

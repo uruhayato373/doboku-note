@@ -27,6 +27,7 @@ import { writeMdxFile } from '../.claude/scripts/lib/mdx-io.mjs';
 import { applyTableOverride, tableKey, tryGfmTable, tryStandardsList } from './lib/standards-table.mjs';
 import { pathToFileURL } from 'node:url';
 import { datasetPath } from './lib/datasets.mjs';
+import { editionDuplicateOf } from '../src/lib/standards-editions.mjs';
 import {
   AMENDMENT_BLOCK_END,
   AMENDMENT_BLOCK_START,
@@ -256,6 +257,11 @@ function renderChapter(chapter, tableOutcomes = [], tableOverrides = new Map(), 
   // 原典には条を持たない節がある（第1編第3章第1節 適用は項が節へ直付け）。そのまま H2→H4 に
   // すると見出しレベルが飛ぶので、条が無い節の項は H3 へ繰り上げる。入れ子の深さは変わらない。
   let sectionHasArticle = false;
+  // 節を持たない章（工事必携の要綱は `第１章 総則` の下に `第１ 目的` が直に並ぶ）は条を H2 に上げる
+  const hasSection = chapter.nodes.some((node) => node.role === 'heading' && node.kind === 'section');
+  // 最初の節より前の条・項（手引きの冒頭の `1. 施工体制台帳`）は H2 から始める（H1→H3 の飛び越しを作らない）
+  let sectionOpen = false;
+  const levelBase = () => (hasSection && sectionOpen ? 2 : 1);
   // 「適用すべき諸基準」の節・条の中の表領域は基準類の一覧なので、専用の組み直しを先に試す
   let inStandardsList = false;
   // 版面のまま残った表の台帳（--table-inventory）に、どの見出しの下の表かを残す
@@ -272,14 +278,15 @@ function renderChapter(chapter, tableOutcomes = [], tableOverrides = new Map(), 
       lastHeading = node.raw;
       if (node.kind === 'section') {
         sectionHasArticle = false;
+        sectionOpen = true;
         inStandardsList = STANDARDS_LIST_SCOPE.test(node.title);
         push(`## 第${node.number}節 ${escapeInline(node.title)}`);
       } else if (node.kind === 'article') {
         sectionHasArticle = true;
         inStandardsList = STANDARDS_LIST_SCOPE.test(node.title);
-        push(`### ${node.number} ${escapeInline(node.title)}`);
+        push(`${'#'.repeat(levelBase() + 1)} ${node.number} ${escapeInline(node.title)}`);
       } else {
-        push(`${sectionHasArticle ? '####' : '###'} ${node.number}. ${escapeInline(node.title)}`);
+        push(`${'#'.repeat(sectionHasArticle ? levelBase() + 2 : levelBase() + 1)} ${node.number}. ${escapeInline(node.title)}`);
       }
       continue;
     }
@@ -395,6 +402,8 @@ function renderChapter(chapter, tableOutcomes = [], tableOverrides = new Map(), 
  */
 function summarizeChapter(chapter) {
   const sections = [];
+  // 節を持たない章（要綱の `第１章 総則` の下に `第１ 目的` が直に並ぶ）の条は章の直下に置く
+  const articles = [];
   let section = null;
   for (const node of chapter.nodes) {
     if (node.role !== 'heading') continue;
@@ -410,7 +419,10 @@ function summarizeChapter(chapter) {
       sections.push(section);
       continue;
     }
-    if (!section) continue;
+    if (!section) {
+      if (node.kind === 'article') articles.push({ number: node.number, title: node.title, headingText: `${node.number} ${node.title}`, page: node.page });
+      continue;
+    }
     section.lastPage = Math.max(section.lastPage, node.page);
     if (node.kind === 'article') {
       section.articles.push({
@@ -421,7 +433,7 @@ function summarizeChapter(chapter) {
       });
     }
   }
-  return sections;
+  return { sections, articles };
 }
 
 /** 表の復元結果を集計する。gfm と verbatim の合計が表ブロック数と一致することを検査側が見る。 */
@@ -470,11 +482,15 @@ export function buildDocument(document, overrides, { write = true, verbatimTable
   const canonicalCommon = overrides.canonical?.commonAgencyId ?? 'kinki';
   // 章の索引可否は文書の索引可否を継承する。同一原本を 10 機関が公開しているので、
   // role=common は canonical 機関だけを索引対象にする（src/lib/standards.ts と同じ方針）。
-  const indexable = document.duplicateOf
+  // 同じ要綱を他の機関・版でも収録している文書は、設定 editionCanonical の 1 本だけを索引に載せる
+  const edition = editionDuplicateOf(overrides, `${document.agencyId}/${document.documentId}`);
+  const indexable = document.duplicateOf || edition
     ? false
     : document.role !== 'common' || document.agencyId === canonicalCommon;
   const indexableReason = document.duplicateOf
     ? `duplicateOf=${document.duplicateOf}`
+    : edition
+    ? `editionCanonical=${edition.canonical.document}${edition.canonical.item ? `#${edition.canonical.item}` : ''}`
     : indexable
       ? 'canonical'
       : `canonical-common=${canonicalCommon}`;
@@ -498,6 +514,8 @@ export function buildDocument(document, overrides, { write = true, verbatimTable
   );
 
   const chapters = analysis.chapters.map((chapter) => {
+    // 冊子の項目（近畿の必携の 14 項 公衆災害防止対策要綱など）が他の収録の方を索引に載せる側なら、その章は載せない
+    const itemEdition = chapter.item ? editionDuplicateOf(overrides, `${document.agencyId}/${document.documentId}`, chapter.item) : null;
     const tableOutcomes = [];
     const chapterTables = [];
     const amendmentPages = amendment?.byChapter.get(chapter.chapterId) ?? null;
@@ -512,15 +530,19 @@ export function buildDocument(document, overrides, { write = true, verbatimTable
     if (write) writeMdxFile(join(outDir, file), markdown);
     const sourceText = chapter.sourcePages.map((page) => pageText.get(page)).join('\n');
     const outputBytes = Buffer.byteLength(markdown, 'utf8');
-    const sections = summarizeChapter(chapter);
+    const { sections, articles: chapterArticles } = summarizeChapter(chapter);
     const bodyless = chapter.nodes.length === 0;
     return {
       chapterId: chapter.chapterId,
-      title: `第${chapter.bookNumber}編 ${chapter.bookTitle} 第${chapter.chapterNumber}章 ${chapter.chapterTitle}`,
+      title: chapter.chapterLabel !== undefined
+        ? [chapter.bookLabel, chapter.chapterLabel, chapter.chapterTitle].filter(Boolean).join(' ')
+        : `第${chapter.bookNumber}編 ${chapter.bookTitle} 第${chapter.chapterNumber}章 ${chapter.chapterTitle}`,
       bookNumber: chapter.bookNumber,
       bookTitle: chapter.bookTitle,
       chapterNumber: chapter.chapterNumber,
       chapterTitle: chapter.chapterTitle,
+      // 目次（outline）で切った文書は「第N編」「第N章」と書けないので、表示の語を持たせる（サイトはこれを優先する）
+      ...(chapter.chapterLabel !== undefined ? { bookLabel: chapter.bookLabel, chapterLabel: chapter.chapterLabel } : {}),
       file,
       firstPage: chapter.firstPage,
       lastPage: chapter.lastPage,
@@ -531,10 +553,14 @@ export function buildDocument(document, overrides, { write = true, verbatimTable
       outputBytes,
       splitBySection: sections.length >= 2 && outputBytes >= splitThreshold,
       sections,
+      ...(chapterArticles.length ? { articles: chapterArticles } : {}),
+      ...(chapter.plainArticles ? { plainArticles: true } : {}),
+      ...(chapter.item ? { item: chapter.item } : {}),
+      ...(itemEdition ? { editionCanonical: itemEdition.canonical } : {}),
       stats: { ...countNodes(chapter), ...tallyTables(tableOutcomes) },
       tableOutcomes: tallyReasons(tableOutcomes),
       // 本文の無い章は中身が章名だけなので検索に載せない（読める状態は保つ）
-      indexable: indexable && !bodyless,
+      indexable: indexable && !bodyless && !itemEdition,
       ...(bodyless ? { bodyless: true } : {}),
       ...(amendmentPages || rows.length
         ? {
@@ -570,14 +596,16 @@ export function buildDocument(document, overrides, { write = true, verbatimTable
       lastPage: analysis.frontMatter.lastPage,
       pageCount: analysis.frontMatter.pages.length,
       note: '表紙・目次。構造化の対象外（原典の逐語ページで参照する）。',
+      ...(analysis.frontMatter.outlinePages.length ? { outlinePages: analysis.frontMatter.outlinePages } : {}),
     },
     indexable,
     indexableReason,
     duplicateOf: document.duplicateOf ?? null,
     // 柱でなく本文中の見出しで章を切った文書（設定 chapterSource）。章の境目のページは前後の章が共有する
-    ...(overrides.documents?.[`${document.agencyId}/${document.documentId}`]?.chapterSource === 'headings'
-      ? { chapterSource: 'headings' }
+    ...(['headings', 'outline'].includes(overrides.documents?.[`${document.agencyId}/${document.documentId}`]?.chapterSource)
+      ? { chapterSource: overrides.documents[`${document.agencyId}/${document.documentId}`].chapterSource }
       : {}),
+    ...(overrides.documents?.[`${document.agencyId}/${document.documentId}`]?.printPageRequired === false ? { printPageRequired: false } : {}),
     audit: {
       ...analysis.audit,
       chapters: chapters.length,

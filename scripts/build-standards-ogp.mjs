@@ -115,8 +115,9 @@ function composeText(entry) {
   const { chapter, agencyName } = entry;
   return {
     kicker: agencyName,
-    main: `第${chapter.chapterNumber}章 ${chapter.chapterTitle}`,
-    sub: `第${chapter.bookNumber}編 ${chapter.bookTitle}`,
+    // 目次（outline）で切った文書は manifest の表示の語（章の番号が `Ⅰ．`・編が `土木工事編`）を使う
+    main: [chapter.chapterLabel ?? `第${chapter.chapterNumber}章`, chapter.chapterTitle].filter(Boolean).join(' '),
+    sub: chapter.bookLabel ?? `第${chapter.bookNumber}編 ${chapter.bookTitle}`,
   };
 }
 

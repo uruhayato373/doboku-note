@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "_comment": "土木工事共通仕様書の構造化（レイヤー2）の設定。パーサーの例外補正はコードに条件を足さずここへ集約する。真実源の説明は scripts/lib/standards-structure.mjs 冒頭。",
   "canonical": {
-    "_comment": "同一内容を 9 機関が公開しているため、role=common は 1 機関だけを検索インデックス対象にする。既定は src/lib/standards.ts の isStandardPartIndexable と同じ kinki。ここを変えると章記事の indexable が切り替わる。",
+    "_comment": "同一内容を 9 機関が公開しているため、role=common は 1 機関だけを検索インデックス対象にする。既定は src/lib/standards.ts の isStandardPartIndexable と同じ kinki。ここを変えると章記事の indexable が切り替わる。 工事必携に綴じられた要綱・要領の重複収録は機関でなく版で決める（editionCanonical）。",
     "commonAgencyId": "kinki"
   },
   "build": {
-    "_comment": "生成対象。catalog の文書のうち、編・章の構造を持つものを構造化する。共通仕様書 8 文書と北海道開発局の道路・河川工事仕様書（共通仕様書に当たる 1 工事仕様書）の 9 文書は柱（running header）で章を切る。2026-10-19 に共通仕様書の章立てを持つ地方版 3 文書（中部の特記仕様書・東北の共通特記仕様書・北海道開発局独自）を加えた。柱の形・条番号・印刷ページ番号の違いは documents.* の方言の設定で吸収する（scripts/lib/standards-structure.mjs の dialectOf）。okinawa/common は chugoku/common と原本 SHA-256 が完全一致する重複なので生成しない（文書ページが chugoku へ誘導する）。除外理由は skipped に機械可読で持ち、check-standard-articles が「未対象を黙って緑にしていないか」を検査する。",
+    "_comment": "生成対象。catalog の文書のうち、編・章の構造を持つものを構造化する。共通仕様書 8 文書と北海道開発局の道路・河川工事仕様書（共通仕様書に当たる 1 工事仕様書）の 9 文書は柱（running header）で章を切る。2026-10-19 に共通仕様書の章立てを持つ地方版 3 文書（中部の特記仕様書・東北の共通特記仕様書・北海道開発局独自）を加えた。柱の形・条番号・印刷ページ番号の違いは documents.* の方言の設定で吸収する（scripts/lib/standards-structure.mjs の dialectOf）。okinawa/common は chugoku/common と原本 SHA-256 が完全一致する重複なので生成しない（文書ページが chugoku へ誘導する）。除外理由は skipped に機械可読で持ち、check-standard-articles が「未対象を黙って緑にしていないか」を検査する。 2026-10-19 に工事必携の要綱・要領 4 文書（九州 hikkei-common-08・09・10、沖縄 hikkei-08）を加えた。見出しの形が文書ごとに違うので章の始まりを設定の目次で持つ（chapterSource: outline）。計 16 文書。 同日に地方版の大冊子 8 文書（東北 参考資料・近畿 必携・九州 施工管理の手引き・北陸 必携・四国 マニュアル・北海道 付録・関東 マニュアル・国交省 施工管理基準）を加えた。計 24 文書。",
     "documents": [
       "chubu/common",
       "chugoku/common",
@@ -19,11 +19,23 @@
       "tohoku/common",
       "chubu/special",
       "tohoku/special",
-      "hokkaido/local"
+      "hokkaido/local",
+      "kyushu/hikkei-common-09",
+      "kyushu/hikkei-common-10",
+      "kyushu/hikkei-common-08",
+      "okinawa/hikkei-08",
+      "kyushu/management-manual",
+      "hokuriku/hikkei",
+      "shikoku/manual",
+      "tohoku/reference",
+      "kinki/hikkei",
+      "hokkaido/appendix",
+      "kanto/manual",
+      "mlit/sekou-kanri-kijun"
     ]
   },
   "readabilityBaselines": {
-    "_comment": "check-standard-articles 17・18 の基準（増やさない）。2026-10-16 実測。17 の 1 件は各文書の「東北地方──30㎝／その他の地域──40㎝」の一覧（正しく行が分かれている）と北海道版 10-16 の 1 か所。18 は表の上の小見出し・注記（正しい）と、表から外れた行の断片（近畿版で 7〜8 件: 0.15 の行・溶接完了時・M20 167～211 など）を含む。断片を表へ戻したら基準を下げる。 2026-10-19 に地方版 3 文書を加えた（初回の実測値。表はまだ組み直していないので 18 は表の上の小見出しと断片を含む）。",
+    "_comment": "check-standard-articles 17・18 の基準（増やさない）。2026-10-16 実測。17 の 1 件は各文書の「東北地方──30㎝／その他の地域──40㎝」の一覧（正しく行が分かれている）と北海道版 10-16 の 1 か所。18 は表の上の小見出し・注記（正しい）と、表から外れた行の断片（近畿版で 7〜8 件: 0.15 の行・溶接完了時・M20 167～211 など）を含む。断片を表へ戻したら基準を下げる。 2026-10-19 に地方版 3 文書を加えた（初回の実測値。表はまだ組み直していないので 18 は表の上の小見出しと断片を含む）。 2026-10-19 に工事必携の要綱・要領 4 文書を加えた（初回の実測値。完成図等作成要領は図の中の文字と表が多く、18 の大半は図の注記）。 同日に地方版の大冊子 8 文書を加えた（様式集・記入例が多く、18 の大半は様式の欄の文字）。",
     "chubu/common": {
       "midSentenceBreaks": 1,
       "strayTableFragments": 41
@@ -71,6 +83,54 @@
     "hokkaido/local": {
       "midSentenceBreaks": 0,
       "strayTableFragments": 31
+    },
+    "kyushu/hikkei-common-08": {
+      "midSentenceBreaks": 6,
+      "strayTableFragments": 109
+    },
+    "kyushu/hikkei-common-09": {
+      "midSentenceBreaks": 0,
+      "strayTableFragments": 0
+    },
+    "kyushu/hikkei-common-10": {
+      "midSentenceBreaks": 0,
+      "strayTableFragments": 1
+    },
+    "okinawa/hikkei-08": {
+      "midSentenceBreaks": 0,
+      "strayTableFragments": 0
+    },
+    "tohoku/reference": {
+      "midSentenceBreaks": 40,
+      "strayTableFragments": 517
+    },
+    "kinki/hikkei": {
+      "midSentenceBreaks": 30,
+      "strayTableFragments": 305
+    },
+    "kyushu/management-manual": {
+      "midSentenceBreaks": 1,
+      "strayTableFragments": 92
+    },
+    "hokuriku/hikkei": {
+      "midSentenceBreaks": 1,
+      "strayTableFragments": 187
+    },
+    "shikoku/manual": {
+      "midSentenceBreaks": 6,
+      "strayTableFragments": 139
+    },
+    "hokkaido/appendix": {
+      "midSentenceBreaks": 5,
+      "strayTableFragments": 51
+    },
+    "kanto/manual": {
+      "midSentenceBreaks": 0,
+      "strayTableFragments": 1
+    },
+    "mlit/sekou-kanri-kijun": {
+      "midSentenceBreaks": 125,
+      "strayTableFragments": 263
     }
   },
   "sectionPages": {
@@ -96,7 +156,7 @@
         ]
       },
       "no-book-chapter-structure": {
-        "label": "共通仕様書の編・章で章を切れない（工事必携・書類作成マニュアル・参考資料、条ごとの訂正・追加を表で並べた中国地方整備局版など）。逐語分冊での提供を継続する。",
+        "label": "編・章で章を切れない、または章記事にしていない（工事必携の 100 ページ以下の要綱・通知、書類作成マニュアル・参考資料、条ごとの訂正・追加を表で並べた中国地方整備局版など）。逐語分冊での提供を継続する。",
         "documents": "*"
       }
     }
@@ -171,6 +231,2864 @@
       "clauseTitleMaxLength": 24,
       "clauseSequence": "sparse",
       "ogpLabel": "開発局独自"
+    },
+    "kyushu/hikkei-common-09": {
+      "_comment": "九州地方整備局 土木請負工事必携 共通編の「土木工事安全施工技術指針」（平成13年3月改正までの版）。柱は無く、章は本文中の `第１章 総 則` 〜 `第19章`（編を持たない）。p1 は改正の履歴、p2-5 は目次、p6 から本文。印刷ページ番号は `通 4−1 1`（共通編 4 章の通し番号）。本文中に `第１章３節に準ずること。` の参照があるので見出しは目次（outline）で決める。章題の誤読（`山岳トンネルエ事`・`ダムエ事`・折り返しで切れた第12章）は title で正す（本文は原本のまま）。2026-10-19 実測。",
+      "bodyStartPage": 6,
+      "chapterSource": "outline",
+      "outlineBook": "土木工事安全施工技術指針",
+      "printPagePattern": "^[\\s　]*通[\\s　]*[0-9０-９]+[\\s　]*[-－−‐][\\s　]*[0-9０-９]+[\\s　]+[0-9０-９]+[\\s　]*$",
+      "clauseTitleMaxLength": 24,
+      "ogpLabel": "安全施工技術指針",
+      "outline": [
+        {
+          "page": 6,
+          "match": "第１章 総 則"
+        },
+        {
+          "page": 8,
+          "match": "第２章 安全措置一般"
+        },
+        {
+          "page": 18,
+          "match": "第３章 地下埋設物一般"
+        },
+        {
+          "page": 20,
+          "match": "第４章 機械・装置・設備一般"
+        },
+        {
+          "page": 28,
+          "match": "第５章 仮設工事"
+        },
+        {
+          "page": 37,
+          "match": "第６章 運搬工"
+        },
+        {
+          "page": 44,
+          "match": "第７章 土工工事"
+        },
+        {
+          "page": 50,
+          "match": "第８章 基礎工事"
+        },
+        {
+          "page": 54,
+          "match": "第９章 コンクリート工事"
+        },
+        {
+          "page": 58,
+          "match": "第10章 圧気工事"
+        },
+        {
+          "page": 63,
+          "match": "第11章 鉄道付近の工事"
+        },
+        {
+          "page": 67,
+          "match": "第12章 土石流の到達するおそれの",
+          "title": "土石流の到達するおそれのある現場での工事"
+        },
+        {
+          "page": 69,
+          "match": "第13章 道路工事"
+        },
+        {
+          "page": 73,
+          "match": "第14章 橋梁工事(架設工事)"
+        },
+        {
+          "page": 79,
+          "match": "第15章 山岳トンネルエ事",
+          "title": "山岳トンネル工事"
+        },
+        {
+          "page": 90,
+          "match": "第16章 シールド・推進工事"
+        },
+        {
+          "page": 94,
+          "match": "第17章 河川及び海岸工事"
+        },
+        {
+          "page": 101,
+          "match": "第18章 ダムエ事",
+          "title": "ダム工事"
+        },
+        {
+          "page": 106,
+          "match": "第19章 構築物の取りこわし工事"
+        }
+      ],
+      "fullWidthClauses": true,
+      "sectionIndentMax": 4
+    },
+    "kyushu/hikkei-common-10": {
+      "_comment": "九州地方整備局 土木請負工事必携 共通編の「建設工事公衆災害防止対策要綱」（令和元年9月 国土交通省告示第496号）。告示（p1）・土木工事編（p2-38・12 章）・建築工事等編（p39-65・6 章）・要綱の主な見直し内容（p66-80）・要綱の解説（p81 中扉・p82-84 目次・土木工事編 p85-150・建築工事等編 p151-199）を 1 冊にまとめた版。沖縄総合事務局の必携の要綱（okinawa/hikkei-07）と解説（okinawa/hikkei-08）を合わせた内容に当たる。柱は無く、章は `第１章 総則` が編ごとに繰り返すので目次（outline）で決める。条は要綱の `第１ 目的`（articleStyle: dai）。印刷ページ番号は `- 1 -` と `1` が一部のページにだけある。見直し内容の各ページ先頭の題名は柱として除く。2026-10-19 実測。 見直し内容は改正点の説明資料で、要綱の条（第７ 適正な工期の確保 など）を抜き書きで引くので、その章では条の見出しにしない（plainArticles）。",
+      "bodyStartPage": 1,
+      "chapterSource": "outline",
+      "articleStyle": "dai",
+      "printPageNumber": [
+        "dashed",
+        "plain"
+      ],
+      "printPageRequired": false,
+      "runningHeaderPattern": "^[\\s　]*要綱の主な見直し内容について[\\s　]*$",
+      "clauseTitleMaxLength": 24,
+      "clauseSequence": "sparse",
+      "ogpLabel": "公衆災害防止対策要綱",
+      "outline": [
+        {
+          "page": 2,
+          "match": "土木工事編",
+          "book": true
+        },
+        {
+          "page": 2,
+          "match": "第１章 総則"
+        },
+        {
+          "page": 6,
+          "match": "第２章 一般事項"
+        },
+        {
+          "page": 10,
+          "match": "第３章 交通対策"
+        },
+        {
+          "page": 16,
+          "match": "第４章 高所作業"
+        },
+        {
+          "page": 20,
+          "match": "第５章 使用する建設機械に関する措置"
+        },
+        {
+          "page": 24,
+          "match": "第６章 軌道等の保全"
+        },
+        {
+          "page": 25,
+          "match": "第７章 埋設物"
+        },
+        {
+          "page": 28,
+          "match": "第８章 土工事"
+        },
+        {
+          "page": 32,
+          "match": "第９章 覆工"
+        },
+        {
+          "page": 34,
+          "match": "第１０章 埋戻し"
+        },
+        {
+          "page": 36,
+          "match": "第１１章 地下掘進工事"
+        },
+        {
+          "page": 38,
+          "match": "第１２章 火災及び酸素欠乏症の防止"
+        },
+        {
+          "page": 39,
+          "match": "建築工事等編",
+          "book": true
+        },
+        {
+          "page": 39,
+          "match": "第１章 総則"
+        },
+        {
+          "page": 44,
+          "match": "第２章 一般事項"
+        },
+        {
+          "page": 54,
+          "match": "第３章 交通対策"
+        },
+        {
+          "page": 57,
+          "match": "第４章 使用する建設機械に関する措置"
+        },
+        {
+          "page": 60,
+          "match": "第５章 解体工事"
+        },
+        {
+          "page": 62,
+          "match": "第６章 土工事"
+        },
+        {
+          "page": 66,
+          "match": "要綱の主な見直し内容について",
+          "book": true,
+          "chapter": true,
+          "bookTitle": "要綱の主な見直し内容",
+          "plainArticles": true
+        },
+        {
+          "page": 81,
+          "match": "建設工事公衆災害防止対策要綱の解説",
+          "front": true
+        },
+        {
+          "page": 85,
+          "match": "（土木工事編）",
+          "book": true,
+          "title": "解説（土木工事編）"
+        },
+        {
+          "page": 85,
+          "match": "第１章 総 則"
+        },
+        {
+          "page": 96,
+          "match": "第２章 一般事項"
+        },
+        {
+          "page": 103,
+          "match": "第３章 交通対策"
+        },
+        {
+          "page": 112,
+          "match": "第４章 高所作業"
+        },
+        {
+          "page": 116,
+          "match": "第５章 使用する建設機械に関する措置"
+        },
+        {
+          "page": 124,
+          "match": "第６章 軌道等の保全"
+        },
+        {
+          "page": 125,
+          "match": "第７章 埋設物"
+        },
+        {
+          "page": 132,
+          "match": "第８章 土 工 事"
+        },
+        {
+          "page": 140,
+          "match": "第９章 覆 工"
+        },
+        {
+          "page": 142,
+          "match": "第 10 章 埋 戻 し"
+        },
+        {
+          "page": 146,
+          "match": "第 11 章 地下掘進工事"
+        },
+        {
+          "page": 148,
+          "match": "第 12 章 火災及び酸素欠乏症の防止"
+        },
+        {
+          "page": 151,
+          "match": "（建築工事等編）",
+          "book": true,
+          "title": "解説（建築工事等編）"
+        },
+        {
+          "page": 151,
+          "match": "第１章 総 則"
+        },
+        {
+          "page": 162,
+          "match": "第２章 一般事項"
+        },
+        {
+          "page": 178,
+          "match": "第３章 交通対策"
+        },
+        {
+          "page": 182,
+          "match": "第４章 使用する建設機械に関する措置"
+        },
+        {
+          "page": 190,
+          "match": "第５章 解体工事"
+        },
+        {
+          "page": 193,
+          "match": "第６章 土工事"
+        }
+      ]
+    },
+    "kyushu/hikkei-common-08": {
+      "_comment": "九州地方整備局 土木請負工事必携 共通編の「道路工事完成図等作成要領」（国総研資料第331号・平成18年8月／平成20年3月改定版）。p1-13 は表紙・執筆者・はじめに・改訂履歴・目次、p14 から本文。本文は Ⅰ．共通編（p14）・Ⅱ．作成編（p26）・Ⅲ．電子納品編（p33）と巻末資料（p89 中扉・資料 1〜3）。編の中の `1．目的` は項として読む（全角の番号もある）。巻末資料の各ページ先頭の `道路工事完成図等作成要領（改定版） 巻末資料 N` は柱として除く。印刷ページ番号は `- 12 -` `- 巻末 1-3 -` などで、刷られていないページがある。2026-10-19 実測。",
+      "bodyStartPage": 14,
+      "chapterSource": "outline",
+      "outlineBook": "道路工事完成図等作成要領",
+      "runningHeaderPattern": "^[\\s　]*道路工事完成図等作成要領（改定版）[\\s　]+巻末資料[\\s　]*[0-9０-９]+[\\s　]*$",
+      "printPagePattern": "^[\\s　]*-[\\s　]*(?:巻末[\\s　]*)?[0-9０-９]+(?:[\\s　]*[-–‑－][\\s　]*[0-9０-９]+)?[\\s　]*-[\\s　]*$",
+      "printPageRequired": false,
+      "fullWidthClauses": true,
+      "clauseTitleMaxLength": 24,
+      "clauseSequence": "sparse",
+      "ogpLabel": "完成図等作成要領",
+      "outline": [
+        {
+          "page": 14,
+          "match": "Ⅰ．共通編"
+        },
+        {
+          "page": 26,
+          "match": "Ⅱ．作成編"
+        },
+        {
+          "page": 33,
+          "match": "Ⅲ．電子納品編"
+        },
+        {
+          "page": 89,
+          "match": "巻末資料",
+          "book": true
+        },
+        {
+          "page": 90,
+          "match": "1. 完成平面図における地物作成仕様"
+        },
+        {
+          "page": 122,
+          "match": "2．SXF Ver.2.0 による完成平面図の作成方法"
+        },
+        {
+          "page": 130,
+          "match": "3．道路施設基本データ詳細情報・管理ファイル作成方法"
+        }
+      ]
+    },
+    "okinawa/hikkei-08": {
+      "_comment": "沖縄総合事務局 土木請負工事必携の「建設工事公衆災害防止対策要綱の解説」（令和元年9月 国土交通省）。p1 は表紙、p2-4 は目次、p5 から本文で、（土木工事編）12 章と（建築工事等編）6 章。柱・印刷ページ番号は無い。九州の必携の公衆災害防止対策要綱（kyushu/hikkei-common-10）の解説の部分と同じ版・同じ内容（設定 editionCanonical）。2026-10-19 実測。",
+      "bodyStartPage": 5,
+      "chapterSource": "outline",
+      "articleStyle": "dai",
+      "printPageNumber": "none",
+      "printPageRequired": false,
+      "clauseTitleMaxLength": 24,
+      "clauseSequence": "sparse",
+      "ogpLabel": "公衆災害防止対策要綱の解説",
+      "outline": [
+        {
+          "page": 5,
+          "match": "（土木工事編）",
+          "book": true,
+          "title": "土木工事編"
+        },
+        {
+          "page": 5,
+          "match": "第１章 総 則"
+        },
+        {
+          "page": 16,
+          "match": "第２章 一般事項"
+        },
+        {
+          "page": 23,
+          "match": "第３章 交通対策"
+        },
+        {
+          "page": 32,
+          "match": "第４章 高所作業"
+        },
+        {
+          "page": 36,
+          "match": "第５章 使用する建設機械に関する措置"
+        },
+        {
+          "page": 44,
+          "match": "第６章 軌道等の保全"
+        },
+        {
+          "page": 45,
+          "match": "第７章 埋設物"
+        },
+        {
+          "page": 52,
+          "match": "第８章 土 工 事"
+        },
+        {
+          "page": 60,
+          "match": "第９章 覆 工"
+        },
+        {
+          "page": 62,
+          "match": "第 10 章 埋 戻 し"
+        },
+        {
+          "page": 66,
+          "match": "第 11 章 地下掘進工事"
+        },
+        {
+          "page": 68,
+          "match": "第 12 章 火災及び酸素欠乏症の防止"
+        },
+        {
+          "page": 71,
+          "match": "（建築工事等編）",
+          "book": true,
+          "title": "建築工事等編"
+        },
+        {
+          "page": 71,
+          "match": "第１章 総 則"
+        },
+        {
+          "page": 82,
+          "match": "第２章 一般事項"
+        },
+        {
+          "page": 98,
+          "match": "第３章 交通対策"
+        },
+        {
+          "page": 102,
+          "match": "第４章 使用する建設機械に関する措置"
+        },
+        {
+          "page": 110,
+          "match": "第５章 解体工事"
+        },
+        {
+          "page": 113,
+          "match": "第６章 土工事"
+        }
+      ],
+      "noTables": "要綱の解説は散文だけで表を持たない（2026-10-19 に生成物で表 0 件を確認）"
+    },
+    "kyushu/management-manual": {
+      "_comment": "九州地方整備局 土木工事施工管理の手引き（209p）。本文が共通仕様書の条番号（1-1-1-3）を引くので条を読まない（articleStyle: none）。 章の始まりは設定の目次（outline）。2026-10-19 に Workflow（Writer→QA）が版面を実測し、親が解析で rejects・review・行の割り当て漏れ 0 を確かめた。項番号は様式・一覧の連番と混ざるので連番を見ない（clauseSequence: sparse）。",
+      "bodyStartPage": 6,
+      "chapterSource": "outline",
+      "printPageRequired": false,
+      "clauseTitleMaxLength": 24,
+      "outline": [
+        {
+          "page": 6,
+          "match": "【工事請負契約から工事完成までの流れ】",
+          "book": true,
+          "chapter": true,
+          "title": "工事請負契約から工事完成までの流れ・参照先一覧表"
+        },
+        {
+          "page": 9,
+          "match": "第1編 着手前",
+          "book": true
+        },
+        {
+          "page": 10,
+          "match": "1．監理技術者制度"
+        },
+        {
+          "page": 37,
+          "match": "2．建設業退職金共済制度"
+        },
+        {
+          "page": 40,
+          "match": "3 CORINSへの登録",
+          "title": "３．ＣＯＲＩＮＳへの登録"
+        },
+        {
+          "page": 42,
+          "match": "4．品質証明"
+        },
+        {
+          "page": 46,
+          "match": "5．再生資源"
+        },
+        {
+          "page": 54,
+          "match": "6．施工計画書"
+        },
+        {
+          "page": 78,
+          "match": "７．設計図書の照査・",
+          "title": "７．設計図書の照査・工事測量の成果（着工前測量）"
+        },
+        {
+          "page": 83,
+          "match": "8．施工体制"
+        },
+        {
+          "page": 85,
+          "match": "第2編 施工中",
+          "book": true
+        },
+        {
+          "page": 86,
+          "match": "1．協議資料"
+        },
+        {
+          "page": 88,
+          "match": "2．工事履行報告"
+        },
+        {
+          "page": 93,
+          "match": "3．工程管理"
+        },
+        {
+          "page": 96,
+          "match": "4．安全管理"
+        },
+        {
+          "page": 100,
+          "match": "5．品質・出来形・写真管理"
+        },
+        {
+          "page": 118,
+          "match": "6．段階確認等"
+        },
+        {
+          "page": 132,
+          "match": "7．NETIS登録技術の活用"
+        },
+        {
+          "page": 135,
+          "match": "8．i-Construction の推進"
+        },
+        {
+          "page": 137,
+          "match": "9．その他"
+        },
+        {
+          "page": 140,
+          "match": "10．排出ガス対策型建設機械"
+        },
+        {
+          "page": 142,
+          "match": "11．特殊車両通行許可"
+        },
+        {
+          "page": 144,
+          "match": "第3編 検査時・完成時",
+          "book": true
+        },
+        {
+          "page": 145,
+          "match": "1．工事検査"
+        },
+        {
+          "page": 159,
+          "match": "2．出来形数量計算書"
+        },
+        {
+          "page": 162,
+          "match": "3．電子納品"
+        },
+        {
+          "page": 164,
+          "match": "第4編 その他",
+          "book": true
+        },
+        {
+          "page": 165,
+          "match": "1．工事打合簿"
+        },
+        {
+          "page": 171,
+          "match": "2．施工管理関係図書"
+        },
+        {
+          "page": 173,
+          "match": "3．指針・通達等"
+        },
+        {
+          "page": 176,
+          "match": "4．働き方改革に関する資料"
+        },
+        {
+          "page": 178,
+          "match": "５．「土木工事共通仕様書」（抜粋）",
+          "title": "５．「土木工事共通仕様書」（抜粋）提出項目一覧"
+        },
+        {
+          "page": 195,
+          "match": "６．「土木工事共通仕様書」（抜粋）",
+          "title": "６．「土木工事共通仕様書」（抜粋）確認事項一覧"
+        },
+        {
+          "page": 208,
+          "match": "７．「土木工事共通仕様書」（抜粋）",
+          "title": "７．「土木工事共通仕様書」（抜粋）立会事項一覧"
+        }
+      ],
+      "clauseSequence": "sparse",
+      "articleStyle": "none",
+      "ogpLabel": "施工管理の手引き"
+    },
+    "hokuriku/hikkei": {
+      "_comment": "北陸地方整備局 工事必携（169p）。 章の始まりは設定の目次（outline）。2026-10-19 に Workflow（Writer→QA）が版面を実測し、親が解析で rejects・review・行の割り当て漏れ 0 を確かめた。項番号は様式・一覧の連番と混ざるので連番を見ない（clauseSequence: sparse）。",
+      "bodyStartPage": 6,
+      "chapterSource": "outline",
+      "printPagePattern": "^-\\s*\\d+\\s*-$",
+      "printPageRequired": false,
+      "clauseTitleMaxLength": 24,
+      "outline": [
+        {
+          "page": 6,
+          "match": "第１章 工事の履行、工事書類作成にあたっての基本事項",
+          "book": true,
+          "chapter": true
+        },
+        {
+          "page": 14,
+          "match": "第２章 工事着手前の作成書類･手続き",
+          "book": true
+        },
+        {
+          "page": 14,
+          "match": "１ 契約関係書類",
+          "title": "契約関係書類"
+        },
+        {
+          "page": 35,
+          "match": "２ 工事書類",
+          "title": "工事書類"
+        },
+        {
+          "page": 65,
+          "match": "第３章 工事着手後の作成書類・手続き",
+          "book": true
+        },
+        {
+          "page": 65,
+          "match": "１ 工事書類",
+          "title": "工事書類"
+        },
+        {
+          "page": 109,
+          "match": "２ 契約関係書類",
+          "title": "契約関係書類"
+        },
+        {
+          "page": 130,
+          "match": "第４章 工事完成時の作成書類・手続き",
+          "book": true,
+          "chapter": true
+        },
+        {
+          "page": 140,
+          "match": "参考資料集",
+          "book": true
+        },
+        {
+          "page": 141,
+          "match": "参考資料集",
+          "front": true
+        },
+        {
+          "page": 142,
+          "match": "建北技第 159 号",
+          "title": "品質管理関係の通知・事務連絡"
+        },
+        {
+          "page": 148,
+          "match": "みなしの活用について"
+        }
+      ],
+      "clauseSequence": "sparse",
+      "articleStyle": "none",
+      "ogpLabel": "工事必携"
+    },
+    "shikoku/manual": {
+      "_comment": "四国地方整備局 マニュアル（250p）。 章の始まりは設定の目次（outline）。2026-10-19 に Workflow（Writer→QA）が版面を実測し、親が解析で rejects・review・行の割り当て漏れ 0 を確かめた。項番号は様式・一覧の連番と混ざるので連番を見ない（clauseSequence: sparse）。",
+      "bodyStartPage": 10,
+      "chapterSource": "outline",
+      "printPagePattern": "^[\\s　]*(?:[－\\-][0-9０-９]+[－\\-]|添[\\s　]?[-－][\\s　]?[0-9０-９]+)[\\s　]*$",
+      "printPageRequired": false,
+      "clauseTitleMaxLength": 24,
+      "outline": [
+        {
+          "page": 10,
+          "match": "１．施工計画"
+        },
+        {
+          "page": 45,
+          "match": "２．施工管理"
+        },
+        {
+          "page": 83,
+          "match": "３．安全管理"
+        },
+        {
+          "page": 87,
+          "match": "４．工程管理"
+        },
+        {
+          "page": 93,
+          "match": "５．品質・出来形管理"
+        },
+        {
+          "page": 124,
+          "match": "６．支給品・発生品"
+        },
+        {
+          "page": 130,
+          "match": "７．工事検査・完成検査"
+        },
+        {
+          "page": 169,
+          "match": "８．中間前払金"
+        },
+        {
+          "page": 171,
+          "match": "９－１総合評価技術提案",
+          "title": "９．その他"
+        },
+        {
+          "page": 195,
+          "match": "添付資料",
+          "front": true
+        },
+        {
+          "page": 196,
+          "match": "土木工事書類の作成主体について",
+          "title": "添付資料 土木工事書類の作成主体について"
+        },
+        {
+          "page": 199,
+          "match": "工事検査時の確認資料について",
+          "title": "添付資料 工事検査時の確認資料について"
+        },
+        {
+          "page": 203,
+          "match": "施工体制台帳の作成について",
+          "title": "添付資料 施工体制台帳の作成について"
+        },
+        {
+          "page": 235,
+          "match": "工事打合せ簿の電子メール実施要領",
+          "title": "添付資料 工事打合せ簿の電子メール実施要領"
+        },
+        {
+          "page": 246,
+          "match": "総括打合せ記録（様式）",
+          "title": "添付資料 総括打合せ記録（様式）"
+        }
+      ],
+      "clauseSequence": "sparse",
+      "articleStyle": "none",
+      "ogpLabel": "マニュアル"
+    },
+    "tohoku/reference": {
+      "_comment": "東北地方整備局 参考資料（874p）。土木工事書類作成マニュアル（案）（第1〜12編・資料編）・様式集と、要綱・要領 3〜34 項を綴じる。編の中扉・白紙・目次は中扉（front）。要綱の項目は総目次の番号を item に持つ（editionCanonical）。 章の始まりは設定の目次（outline）。2026-10-19 に Workflow（Writer→QA）が版面を実測し、親が解析で rejects・review・行の割り当て漏れ 0 を確かめた。項番号は様式・一覧の連番と混ざるので連番を見ない（clauseSequence: sparse）。 要綱の第N も条にしない（検査要領の一覧の図の中の `第１ （目的）` を条と取り違えるため。articleStyle: none）。",
+      "bodyStartPage": 5,
+      "chapterSource": "outline",
+      "printPageNumber": [
+        "dashed",
+        "plain"
+      ],
+      "printPageRequired": false,
+      "articleStyle": "none",
+      "clauseSequence": "sparse",
+      "clauseTitleMaxLength": 24,
+      "outline": [
+        {
+          "page": 5,
+          "match": "１．土木工事書類作成マニュアル（案）",
+          "book": true,
+          "chapter": true,
+          "title": "まえがき・運用上の注意事項",
+          "bookTitle": "土木工事書類作成マニュアル（案） まえがき・運用上の注意"
+        },
+        {
+          "page": 11,
+          "match": "土木工事書類作成マニュアル（案）",
+          "front": true
+        },
+        {
+          "page": 15,
+          "match": "第1編",
+          "occurrence": 1,
+          "front": true
+        },
+        {
+          "page": 17,
+          "match": "１－１章．提出書類一覧表",
+          "book": true,
+          "chapter": true,
+          "title": "提出書類・帳票様式の一覧表（１－１〜１－４章）",
+          "bookTitle": "土木工事書類作成マニュアル（案） 第1編 提出書類の概要"
+        },
+        {
+          "page": 23,
+          "match": "１－５章．工事書類の簡素化について",
+          "title": "工事書類の簡素化について"
+        },
+        {
+          "page": 41,
+          "match": "第2編",
+          "occurrence": 1,
+          "front": true
+        },
+        {
+          "page": 43,
+          "match": "２－１章．工事監督について",
+          "book": true,
+          "chapter": true,
+          "title": "工事監督について",
+          "bookTitle": "土木工事書類作成マニュアル（案） 第2編 工事監督"
+        },
+        {
+          "page": 47,
+          "match": "第３編",
+          "occurrence": 1,
+          "front": true
+        },
+        {
+          "page": 49,
+          "match": "３－１章．現場代理人等通知書",
+          "book": true,
+          "chapter": true,
+          "title": "現場代理人等通知書",
+          "bookTitle": "土木工事書類作成マニュアル（案） 第3編 工事着手前の提出書類"
+        },
+        {
+          "page": 55,
+          "match": "３－２章．品質証明員通知書",
+          "title": "品質証明員通知書〜工事測量成果表（３－２〜３－９章）"
+        },
+        {
+          "page": 67,
+          "match": "３－１０章．施工計画書",
+          "title": "施工計画書"
+        },
+        {
+          "page": 82,
+          "match": "３－１１章．施工体制台帳・施工体系図",
+          "title": "施工体制台帳・関係機関への届出・事前協議（３－１１〜３－１４章）"
+        },
+        {
+          "page": 93,
+          "match": "第4編",
+          "occurrence": 1,
+          "front": true
+        },
+        {
+          "page": 95,
+          "match": "４－１章．安全教育及び安全訓練等の実施",
+          "book": true,
+          "chapter": true,
+          "title": "安全教育・事故通報・天災の損害（４－１〜４－４章）",
+          "bookTitle": "土木工事書類作成マニュアル（案） 第4編 安全管理"
+        },
+        {
+          "page": 103,
+          "match": "第5編",
+          "occurrence": 1,
+          "front": true
+        },
+        {
+          "page": 105,
+          "match": "５－１章．工事打合せ簿",
+          "book": true,
+          "chapter": true,
+          "title": "工事打合せ簿",
+          "bookTitle": "土木工事書類作成マニュアル（案） 第5編 施工管理"
+        },
+        {
+          "page": 111,
+          "match": "５－２章．材料確認願",
+          "title": "材料確認願・段階確認書（５－２・５－３章）"
+        },
+        {
+          "page": 121,
+          "match": "５－４章．確認・立会依頼書",
+          "title": "確認・立会依頼書"
+        },
+        {
+          "page": 133,
+          "match": "５－５章．休日・夜間作業届",
+          "title": "休日・夜間作業届、リサイクル・廃棄物関係（５－５・５－６章）"
+        },
+        {
+          "page": 141,
+          "match": "第6編",
+          "occurrence": 1,
+          "front": true
+        },
+        {
+          "page": 143,
+          "match": "６－１章．工事履行報告書",
+          "book": true,
+          "chapter": true,
+          "title": "工事履行報告書・計画実施工程表（６－１・６－２章）",
+          "bookTitle": "土木工事書類作成マニュアル（案） 第6編 工程管理"
+        },
+        {
+          "page": 149,
+          "match": "第７編",
+          "occurrence": 1,
+          "front": true
+        },
+        {
+          "page": 151,
+          "match": "７－１章．品質管理",
+          "book": true,
+          "chapter": true,
+          "title": "品質管理",
+          "bookTitle": "土木工事書類作成マニュアル（案） 第7編 品質管理"
+        },
+        {
+          "page": 154,
+          "match": "７－２章．品質管理様式の記入例",
+          "title": "品質管理様式の記入例"
+        },
+        {
+          "page": 160,
+          "match": "７－３章．建設材料の品質記録保存",
+          "title": "建設材料の品質記録保存・耐久性向上仕様書（７－３・７－４章）"
+        },
+        {
+          "page": 167,
+          "match": "第８編",
+          "occurrence": 1,
+          "front": true
+        },
+        {
+          "page": 169,
+          "match": "８－１章．出来形管理",
+          "book": true,
+          "chapter": true,
+          "title": "出来形管理と様式の記入例（８－１・８－２章）",
+          "bookTitle": "土木工事書類作成マニュアル（案） 第8編 出来形管理"
+        },
+        {
+          "page": 175,
+          "match": "第９編",
+          "occurrence": 1,
+          "front": true
+        },
+        {
+          "page": 177,
+          "match": "９－１章．写真管理",
+          "book": true,
+          "chapter": true,
+          "title": "写真管理",
+          "bookTitle": "土木工事書類作成マニュアル（案） 第9編 写真管理"
+        },
+        {
+          "page": 179,
+          "match": "第１０編",
+          "occurrence": 1,
+          "front": true
+        },
+        {
+          "page": 181,
+          "match": "１０－１章．支給材料及び貸与品",
+          "book": true,
+          "chapter": true,
+          "title": "支給材料・貸与品・工事現場発生品（１０－１〜１０－３章）",
+          "bookTitle": "土木工事書類作成マニュアル（案） 第10編 支給材料・貸与品及び工事現場発生品"
+        },
+        {
+          "page": 187,
+          "match": "第１１編",
+          "occurrence": 1,
+          "front": true
+        },
+        {
+          "page": 189,
+          "match": "１１－１章．検査について",
+          "book": true,
+          "chapter": true,
+          "title": "工事検査の概要・種類・確認資料（１１－１〜１１－３章）",
+          "bookTitle": "土木工事書類作成マニュアル（案） 第11編 工事検査"
+        },
+        {
+          "page": 198,
+          "match": "１１－４章．工事検査時に必要な書類一覧表",
+          "title": "検査時の必要書類一覧・品質証明員の業務（１１－４・１１－５章）"
+        },
+        {
+          "page": 204,
+          "match": "１１－６章．完成検査",
+          "title": "完成検査・既済部分検査・中間技術検査・修補（１１－６〜１１－１０章）"
+        },
+        {
+          "page": 213,
+          "match": "第１２編",
+          "occurrence": 1,
+          "front": true
+        },
+        {
+          "page": 215,
+          "match": "１２－１章．請求書関係",
+          "book": true,
+          "chapter": true,
+          "title": "請求書関係",
+          "bookTitle": "土木工事書類作成マニュアル（案） 第12編 給付関係"
+        },
+        {
+          "page": 221,
+          "match": "資料編",
+          "occurrence": 1,
+          "front": true
+        },
+        {
+          "page": 223,
+          "match": "施工効率向上プロジェクト",
+          "occurrence": 1,
+          "book": true,
+          "chapter": true,
+          "title": "施工効率向上プロジェクト・参考資料",
+          "bookTitle": "土木工事書類作成マニュアル（案） 資料編"
+        },
+        {
+          "page": 230,
+          "match": "２．様式集",
+          "book": true,
+          "chapter": true,
+          "title": "様式集の注意事項と目次",
+          "bookTitle": "様式集",
+          "item": 2
+        },
+        {
+          "page": 235,
+          "match": "様式－１",
+          "occurrence": 1,
+          "title": "様式集 1（様式－１〜東（２）－３）"
+        },
+        {
+          "page": 265,
+          "match": "様式－１９",
+          "title": "様式集 2（様式－１９〜３４）"
+        },
+        {
+          "page": 283,
+          "match": "様式-7 再生資源利用計画書（実施書） －建設資材搬入工事用－",
+          "title": "様式集 3（様式-7〜79）"
+        },
+        {
+          "page": 305,
+          "match": "様式－東（３）出来形寸法管理図表（表紙）",
+          "title": "様式集 4（出来形・品質管理・品質記録の様式）"
+        },
+        {
+          "page": 332,
+          "match": "様式-110",
+          "title": "様式集 5（様式-110〜東（18）・参考様式）"
+        },
+        {
+          "page": 355,
+          "match": "３．保安施設設置基準",
+          "book": true,
+          "chapter": true,
+          "title": "保安施設設置基準（道路）",
+          "bookTitle": "保安施設設置基準（道路）",
+          "item": 3
+        },
+        {
+          "page": 395,
+          "match": "４．工事標示板及び迂回路の施設",
+          "book": true,
+          "chapter": true,
+          "title": "工事標示板及び迂回路の施設",
+          "bookTitle": "工事標示板及び迂回路の施設",
+          "item": 4
+        },
+        {
+          "page": 407,
+          "match": "５．土木工事安全施工技術指針",
+          "book": true,
+          "chapter": true,
+          "title": "土木工事安全施工技術指針",
+          "bookTitle": "土木工事安全施工技術指針",
+          "item": 5
+        },
+        {
+          "page": 410,
+          "match": "６．建設工事公衆災害防止対策要綱",
+          "book": true,
+          "chapter": true,
+          "title": "建設工事公衆災害防止対策要綱",
+          "bookTitle": "建設工事公衆災害防止対策要綱",
+          "item": 6
+        },
+        {
+          "page": 444,
+          "match": "７．建設副産物適正処理推進要綱",
+          "book": true,
+          "chapter": true,
+          "title": "建設副産物適正処理推進要綱",
+          "bookTitle": "建設副産物適正処理推進要綱",
+          "item": 7
+        },
+        {
+          "page": 477,
+          "match": "８．薬液注入工法による建設工事の",
+          "book": true,
+          "chapter": true,
+          "title": "薬液注入工法による建設工事の施工に関する暫定指針",
+          "bookTitle": "薬液注入工法による建設工事の施工に関する暫定指針",
+          "item": 8
+        },
+        {
+          "page": 485,
+          "match": "９．薬液注入工事に係る施工管理等について",
+          "book": true,
+          "chapter": true,
+          "title": "薬液注入工事に係る施工管理等について",
+          "bookTitle": "薬液注入工事に係る施工管理等について",
+          "item": 9
+        },
+        {
+          "page": 491,
+          "match": "10．東北地方整備局",
+          "book": true,
+          "chapter": true,
+          "title": "東北地方整備局草刈機運転作業安全基準",
+          "bookTitle": "東北地方整備局草刈機運転作業安全基準",
+          "item": 10
+        },
+        {
+          "page": 497,
+          "match": "11．国土交通省東北地方整備局",
+          "book": true,
+          "chapter": true,
+          "title": "国土交通省東北地方整備局自家用電気工作物保安規程",
+          "bookTitle": "国土交通省東北地方整備局自家用電気工作物保安規程",
+          "item": 11
+        },
+        {
+          "page": 507,
+          "match": "12．東北地方整備局",
+          "book": true,
+          "chapter": true,
+          "title": "東北地方整備局自家用電気工作物保安細則",
+          "bookTitle": "東北地方整備局自家用電気工作物保安細則",
+          "item": 12
+        },
+        {
+          "page": 519,
+          "match": "13．運転操作要領",
+          "book": true,
+          "chapter": true,
+          "title": "運転操作要領",
+          "bookTitle": "運転操作要領",
+          "item": 13
+        },
+        {
+          "page": 527,
+          "match": "14．建設工事に伴う騒音振動対策",
+          "book": true,
+          "chapter": true,
+          "title": "建設工事に伴う騒音振動対策技術指針",
+          "bookTitle": "建設工事に伴う騒音振動対策技術指針",
+          "item": 14
+        },
+        {
+          "page": 539,
+          "match": "15．請負工事用建設機械貸付仕様書",
+          "book": true,
+          "chapter": true,
+          "title": "請負工事用建設機械貸付仕様書",
+          "bookTitle": "請負工事用建設機械貸付仕様書",
+          "item": 15
+        },
+        {
+          "page": 559,
+          "match": "16．歩道除雪機安全対策指針（案）",
+          "book": true,
+          "chapter": true,
+          "title": "歩道除雪機安全対策指針（案）",
+          "bookTitle": "歩道除雪機安全対策指針（案）",
+          "item": 16
+        },
+        {
+          "page": 567,
+          "match": "17．除雪機械運転員資格基準",
+          "book": true,
+          "chapter": true,
+          "title": "除雪機械運転員資格基準",
+          "bookTitle": "除雪機械運転員資格基準",
+          "item": 17
+        },
+        {
+          "page": 571,
+          "match": "18．工程計画管理基準（案）",
+          "book": true,
+          "chapter": true,
+          "title": "工程計画管理基準（案）",
+          "bookTitle": "工程計画管理基準（案）",
+          "item": 18
+        },
+        {
+          "page": 579,
+          "match": "19．ＲＩ計器を用いた盛土の",
+          "book": true,
+          "chapter": true,
+          "title": "ＲＩ計器を用いた盛土の締固め管理要領（案）",
+          "bookTitle": "ＲＩ計器を用いた盛土の締固め管理要領（案）",
+          "item": 19
+        },
+        {
+          "page": 613,
+          "match": "20．超音波パルス反射法による",
+          "book": true,
+          "chapter": true,
+          "title": "超音波パルス反射法によるアンカーボルト長さ測定要領（案）",
+          "bookTitle": "超音波パルス反射法によるアンカーボルト長さ測定要領（案）",
+          "item": 20
+        },
+        {
+          "page": 619,
+          "match": "21．レディーミクストコンクリート",
+          "book": true,
+          "chapter": true,
+          "title": "レディーミクストコンクリート標準仕様基準",
+          "bookTitle": "レディーミクストコンクリート標準仕様基準",
+          "item": 21
+        },
+        {
+          "page": 623,
+          "match": "22．コンクリートの耐久性向上仕様書",
+          "book": true,
+          "chapter": true,
+          "title": "コンクリートの耐久性向上仕様書（土木構造物）",
+          "bookTitle": "コンクリートの耐久性向上仕様書（土木構造物）",
+          "item": 22
+        },
+        {
+          "page": 635,
+          "match": "23．レディーミクストコンクリート",
+          "book": true,
+          "chapter": true,
+          "title": "レディーミクストコンクリート単位水量測定要領（案）",
+          "bookTitle": "レディーミクストコンクリート単位水量測定要領（案）",
+          "item": 23
+        },
+        {
+          "page": 647,
+          "match": "24．土木コンクリート構造物の品質確保",
+          "book": true,
+          "chapter": true,
+          "title": "品質確保の通達とテストハンマーによる強度推定調査要領",
+          "bookTitle": "土木コンクリート構造物の品質確保",
+          "item": 24
+        },
+        {
+          "page": 657,
+          "match": "ひび割れ発生状況調査要領",
+          "title": "ひび割れ発生状況調査要領"
+        },
+        {
+          "page": 663,
+          "match": "非破壊試験によるコンクリート構造物中の",
+          "title": "非破壊試験によるコンクリート構造物中の配筋状態及びかぶり測定要領"
+        },
+        {
+          "page": 697,
+          "match": "微破壊・非破壊試験による",
+          "title": "微破壊・非破壊試験によるコンクリート構造物の強度測定要領"
+        },
+        {
+          "page": 741,
+          "match": "25．建設材料の品質記録",
+          "book": true,
+          "chapter": true,
+          "title": "建設材料の品質記録保存業務実施要領（案）",
+          "bookTitle": "建設材料の品質記録保存業務実施要領（案）",
+          "item": 25
+        },
+        {
+          "page": 747,
+          "match": "26．セメント及びセメント系固化材",
+          "book": true,
+          "chapter": true,
+          "title": "セメント及びセメント系固化材を使用した改良土の六価クロム溶出試験実施要領（案）",
+          "bookTitle": "セメント及びセメント系固化材を使用した改良土の六価クロム溶出試験実施要領（案）",
+          "item": 26
+        },
+        {
+          "page": 765,
+          "match": "27．トンネル（ＮＡＴＭ）計測要領（案）",
+          "book": true,
+          "chapter": true,
+          "title": "トンネル（ＮＡＴＭ）計測要領（案）",
+          "bookTitle": "トンネル（ＮＡＴＭ）計測要領（案）",
+          "item": 27
+        },
+        {
+          "page": 795,
+          "match": "28．建設機械に関する技術指針",
+          "book": true,
+          "chapter": true,
+          "title": "建設機械に関する技術指針",
+          "bookTitle": "建設機械に関する技術指針",
+          "item": 28
+        },
+        {
+          "page": 805,
+          "match": "29．建設機械施工安全技術指針",
+          "book": true,
+          "chapter": true,
+          "title": "建設機械施工安全技術指針",
+          "bookTitle": "建設機械施工安全技術指針",
+          "item": 29
+        },
+        {
+          "page": 828,
+          "match": "30．排出ガス対策型建設機械",
+          "book": true,
+          "chapter": true,
+          "title": "排出ガス対策型建設機械",
+          "bookTitle": "排出ガス対策型建設機械",
+          "item": 30
+        },
+        {
+          "page": 832,
+          "match": "31．建設業に係る特定特殊自動車排出ガスの",
+          "book": true,
+          "chapter": true,
+          "title": "建設業に係る特定特殊自動車排出ガスの排出の抑制を図るための指針",
+          "bookTitle": "建設業に係る特定特殊自動車排出ガスの排出の抑制を図るための指針",
+          "item": 31
+        },
+        {
+          "page": 840,
+          "match": "32．非破壊試験による鋼製防護",
+          "book": true,
+          "chapter": true,
+          "title": "非破壊試験による鋼製防護柵根入長測定要領（案）",
+          "bookTitle": "非破壊試験による鋼製防護柵根入長測定要領（案）",
+          "item": 32
+        },
+        {
+          "page": 860,
+          "match": "33．諸官庁への届出",
+          "book": true,
+          "chapter": true,
+          "title": "諸官庁への届出",
+          "bookTitle": "諸官庁への届出",
+          "item": 33
+        },
+        {
+          "page": 868,
+          "match": "34．電子納品に関する要領・基準",
+          "book": true,
+          "chapter": true,
+          "title": "電子納品に関する要領・基準",
+          "bookTitle": "電子納品に関する要領・基準",
+          "item": 34
+        },
+        {
+          "page": 873,
+          "match": "＜メモ用紙＞",
+          "front": true
+        }
+      ],
+      "ogpLabel": "参考資料"
+    },
+    "kinki/hikkei": {
+      "_comment": "近畿地方整備局 土木請負工事必携（令和6年8月・761p）。総目次の 38 項目を編（item＝総目次の番号）にし、小さな項目は編兼章、大きな項目（提出書類の様式・副産物要綱・安全施工技術指針・公衆災害防止対策要綱など）は中の章で分ける。印刷管理の行（25802(CS)NN.indd）だけのページ・目次は中扉（front）。 章の始まりは設定の目次（outline）。2026-10-19 に Workflow（Writer→QA）が版面を実測し、親が解析で rejects・review・行の割り当て漏れ 0 を確かめた。項番号は様式・一覧の連番と混ざるので連番を見ない（clauseSequence: sparse）。",
+      "bodyStartPage": 4,
+      "chapterSource": "outline",
+      "runningHeaderPattern": "^[\\s　]*工[\\s　]*事[\\s　]*請[\\s　]*負[\\s　]*契[\\s　]*約[\\s　]*(?:以外)?[\\s　]*（[^）)]*[）)][\\s　]*$|^[\\s　]{5,}第[\\s　]*[０-９]+[\\s　]*章[\\s　]+(?:安全措置一般|地下埋設物・架空線等上空施設一般|機械・装置・設備一般|仮設工事|運搬工|土工工事|基礎工事|コンクリート工事|圧気工事|鉄道付近の工事|土石流の到達するおそれのある現場での工事|道路工事|橋梁工事（架設工事）|山岳トンネル工事|シールドトンネル・推進工事|河川及び海岸工事|ダム工事|構造物の取りこわし工事)[\\s　]*$|^[\\s　]{15,}第[\\s　]*１[\\s　]*章[\\s　]+総則[\\s　]*$",
+      "printPagePattern": "^[\\s　]*(?:[0-9０-９]{1,3}[\\s　]*[-－−ー‐–—―][\\s　]*[0-9０-９]{1,3}|[-－−][\\s　]*[0-9０-９]{1,3}[\\s　]*[-－−]|(?:印刷管理情報：)?25802[(（]CS[)）].*|ページ表示：.*|20[0-9]{2}/[0-9]{2}/[0-9]{2}[\\s　]+[0-9]{2}:[0-9]{2}:[0-9]{2})[\\s　]*$",
+      "printPageRequired": false,
+      "articleStyle": "dai",
+      "clauseSequence": "sparse",
+      "clauseTitleMaxLength": 24,
+      "outline": [
+        {
+          "page": 4,
+          "match": "工事請負契約書",
+          "book": true,
+          "chapter": true,
+          "title": "請負契約書",
+          "bookTitle": "請負契約書",
+          "item": 1
+        },
+        {
+          "page": 26,
+          "match": "工 事 請 負 契約 （ WTO)",
+          "book": true,
+          "chapter": true,
+          "title": "工事請負契約（WTO対象）",
+          "bookTitle": "現場説明書",
+          "item": 2
+        },
+        {
+          "page": 41,
+          "match": "工事 請負 契約 （非WTO）",
+          "title": "工事請負契約（非WTO）"
+        },
+        {
+          "page": 57,
+          "match": "工事請負契約以外（建築工事監理）",
+          "title": "工事請負契約以外（建築工事監理）"
+        },
+        {
+          "page": 59,
+          "match": "近畿地方整備局随意契約見積心得",
+          "book": true,
+          "chapter": true,
+          "title": "随意契約見積心得",
+          "bookTitle": "競争契約入札心得・随意契約見積心得",
+          "item": 3
+        },
+        {
+          "page": 67,
+          "match": "近畿地方整備局競争契約入札心得",
+          "title": "競争契約入札心得"
+        },
+        {
+          "page": 79,
+          "match": "4-1",
+          "front": true
+        },
+        {
+          "page": 80,
+          "match": "工事関係提出書類一覧",
+          "book": true,
+          "chapter": true,
+          "title": "工事関係提出書類一覧",
+          "bookTitle": "提出書類の様式",
+          "item": 4
+        },
+        {
+          "page": 82,
+          "match": "様式－１",
+          "title": "様式－１〜５（現場代理人等通知書・経歴書・工程表・退職金共済掛金収納書・請求書ほか）"
+        },
+        {
+          "page": 93,
+          "match": "様式－６(1)",
+          "title": "様式－６〜７（VE提案書・品質証明員通知書）"
+        },
+        {
+          "page": 98,
+          "match": "《参 考》 年月日：",
+          "title": "施工体制台帳（参考様式例１〜６）"
+        },
+        {
+          "page": 108,
+          "match": "様式－９",
+          "title": "様式－９〜１８"
+        },
+        {
+          "page": 118,
+          "match": "様式－１９",
+          "title": "様式－１９〜２８（既済部分検査請求書・修補完了報告書・工期延期届・支給品受領書ほか）"
+        },
+        {
+          "page": 127,
+          "match": "様式－２９",
+          "title": "様式－２９〜３３（出来形管理図表・品質管理図表・品質証明書ほか）"
+        },
+        {
+          "page": 133,
+          "match": "様式－３４(1)",
+          "title": "様式－３４〜３７（創意工夫・社会性等に関する実施状況、貸付物品借用書ほか）"
+        },
+        {
+          "page": 138,
+          "match": "５． 地方建設局請負工事監督検査事務処理要領",
+          "book": true,
+          "bookTitle": "地方建設局請負工事監督検査事務処理要領",
+          "item": 5
+        },
+        {
+          "page": 138,
+          "match": "昭和４２年３月３１日",
+          "front": true
+        },
+        {
+          "page": 142,
+          "match": "第１章 総 則",
+          "title": "総則・監督"
+        },
+        {
+          "page": 145,
+          "match": "第３章 検 査",
+          "title": "検査・附則・別記様式"
+        },
+        {
+          "page": 148,
+          "match": "# 6．地方整備局工事技術検査要領",
+          "book": true,
+          "chapter": true,
+          "title": "地方整備局工事技術検査要領",
+          "bookTitle": "地方整備局工事技術検査要領",
+          "item": 6
+        },
+        {
+          "page": 151,
+          "match": "# 7．請負工事用無償貸付建設機械の取扱",
+          "book": true,
+          "chapter": true,
+          "title": "請負工事用無償貸付建設機械の取扱",
+          "bookTitle": "請負工事用無償貸付建設機械の取扱",
+          "item": 7
+        },
+        {
+          "page": 156,
+          "match": "別添 1",
+          "book": true,
+          "chapter": true,
+          "title": "強度測定要領",
+          "bookTitle": "微破壊・非破壊試験によるコンクリート構造物の強度測定要領",
+          "item": 8
+        },
+        {
+          "page": 169,
+          "match": "微破壊・非破壊試験によるコンクリート構造物",
+          "title": "強度測定要領（解説）"
+        },
+        {
+          "page": 177,
+          "match": "コンクリート構造物の強度測定のデータ記入様式",
+          "title": "データ記入様式"
+        },
+        {
+          "page": 182,
+          "match": "９．建設副産物適正処理推進要綱",
+          "book": true,
+          "bookTitle": "建設副産物適正処理推進要綱",
+          "item": 9
+        },
+        {
+          "page": 182,
+          "match": "平 成 ５ 年 １ 月 12 日",
+          "front": true
+        },
+        {
+          "page": 186,
+          "match": "第１章 総則"
+        },
+        {
+          "page": 189,
+          "match": "第２章 関係者の責務と役割"
+        },
+        {
+          "page": 191,
+          "match": "第３章 計画の作成等"
+        },
+        {
+          "page": 198,
+          "match": "第４章 建設発生土"
+        },
+        {
+          "page": 199,
+          "match": "第５章 建設廃棄物"
+        },
+        {
+          "page": 202,
+          "match": "第６章 建設廃棄物ごとの留意事項"
+        },
+        {
+          "page": 207,
+          "match": "別表１ （A4）",
+          "title": "別表"
+        },
+        {
+          "page": 210,
+          "match": "10．再生資源の利用の促進について",
+          "book": true,
+          "chapter": true,
+          "title": "再生資源の利用の促進について",
+          "bookTitle": "再生資源の利用の促進について",
+          "item": 10
+        },
+        {
+          "page": 214,
+          "match": "（別 冊）",
+          "book": true,
+          "chapter": true,
+          "title": "建設材料の品質記録保存業務実施要領（案）",
+          "bookTitle": "建設材料の品質記録保存業務実施要領（案）",
+          "item": 11
+        },
+        {
+          "page": 224,
+          "match": "土木工事安全施工技術指針",
+          "book": true,
+          "bookTitle": "土木工事安全施工技術指針",
+          "item": 12
+        },
+        {
+          "page": 224,
+          "match": "令和６年３月",
+          "front": true
+        },
+        {
+          "page": 231,
+          "match": "第１章 総則",
+          "occurrence": 1
+        },
+        {
+          "page": 234,
+          "match": "第２章 安全措置一般",
+          "occurrence": 1
+        },
+        {
+          "page": 247,
+          "match": "第３章 地下埋設物・架空線等上空施設一般",
+          "occurrence": 1
+        },
+        {
+          "page": 250,
+          "match": "第４章 機械・装置・設備一般",
+          "occurrence": 1
+        },
+        {
+          "page": 259,
+          "match": "第５章 仮設工事",
+          "occurrence": 1
+        },
+        {
+          "page": 270,
+          "match": "第６章 運搬工",
+          "occurrence": 1
+        },
+        {
+          "page": 278,
+          "match": "第７章 土工工事",
+          "occurrence": 1
+        },
+        {
+          "page": 286,
+          "match": "第８章 基礎工事",
+          "occurrence": 1
+        },
+        {
+          "page": 291,
+          "match": "第９章 コンクリート工事",
+          "occurrence": 1
+        },
+        {
+          "page": 296,
+          "match": "第１０章 圧気工事",
+          "occurrence": 1
+        },
+        {
+          "page": 303,
+          "match": "第１１章 鉄道付近の工事",
+          "occurrence": 1
+        },
+        {
+          "page": 308,
+          "match": "第１２章 土石流の到達するおそれのある現場での工事",
+          "occurrence": 1
+        },
+        {
+          "page": 310,
+          "match": "第１３章 道路工事",
+          "occurrence": 1
+        },
+        {
+          "page": 316,
+          "match": "第１４章 橋梁工事（架設工事）",
+          "occurrence": 1
+        },
+        {
+          "page": 325,
+          "match": "第１５章 山岳トンネル工事",
+          "occurrence": 1
+        },
+        {
+          "page": 345,
+          "match": "第１６章 シールドトンネル・推進工事",
+          "occurrence": 1
+        },
+        {
+          "page": 354,
+          "match": "第１７章 河川及び海岸工事",
+          "occurrence": 1
+        },
+        {
+          "page": 362,
+          "match": "第１８章 ダム工事",
+          "occurrence": 1
+        },
+        {
+          "page": 369,
+          "match": "第１９章 構造物の取りこわし工事",
+          "occurrence": 1
+        },
+        {
+          "page": 372,
+          "match": "13． 建設機械施工安全技術指針",
+          "book": true,
+          "chapter": true,
+          "title": "第Ⅰ編 総論",
+          "bookTitle": "建設機械施工安全技術指針",
+          "item": 13
+        },
+        {
+          "page": 375,
+          "match": "### 第Ⅱ編　共通事項",
+          "title": "第Ⅱ編 共通事項"
+        },
+        {
+          "page": 379,
+          "match": "第Ⅲ編　各種作業",
+          "title": "第Ⅲ編 各種作業"
+        },
+        {
+          "page": 396,
+          "match": "○国土交通省告示第四百九十六号",
+          "book": true,
+          "chapter": true,
+          "title": "告示",
+          "bookTitle": "建設工事公衆災害防止対策要綱",
+          "item": 14
+        },
+        {
+          "page": 397,
+          "match": "建設工事公衆災害防止対策要綱",
+          "title": "総則（土木工事編）"
+        },
+        {
+          "page": 401,
+          "match": "第２章 一般事項",
+          "title": "一般事項（土木工事編）"
+        },
+        {
+          "page": 405,
+          "match": "第３章 交通対策",
+          "title": "交通対策（土木工事編）"
+        },
+        {
+          "page": 411,
+          "match": "第４章 高所作業",
+          "title": "高所作業（土木工事編）"
+        },
+        {
+          "page": 415,
+          "match": "第５章 使用する建設機械に関する措置",
+          "title": "使用する建設機械に関する措置（土木工事編）"
+        },
+        {
+          "page": 419,
+          "match": "第６章 軌道等の保全",
+          "title": "軌道等の保全（土木工事編）"
+        },
+        {
+          "page": 420,
+          "match": "第７章 埋設物",
+          "title": "埋設物（土木工事編）"
+        },
+        {
+          "page": 423,
+          "match": "第８章 土工事",
+          "title": "土工事（土木工事編）"
+        },
+        {
+          "page": 427,
+          "match": "第９章 覆工",
+          "title": "覆工（土木工事編）"
+        },
+        {
+          "page": 429,
+          "match": "第１０章 埋戻し",
+          "title": "埋戻し（土木工事編）"
+        },
+        {
+          "page": 431,
+          "match": "第１１章 地下掘進工事",
+          "title": "地下掘進工事（土木工事編）"
+        },
+        {
+          "page": 433,
+          "match": "第１２章 火災及び酸素欠乏症の防止",
+          "title": "火災及び酸素欠乏症の防止（土木工事編）"
+        },
+        {
+          "page": 434,
+          "match": "建築工事等編",
+          "title": "第１章 総則（建築工事等編）"
+        },
+        {
+          "page": 439,
+          "match": "第２章 一般事項",
+          "title": "一般事項（建築工事等編）"
+        },
+        {
+          "page": 449,
+          "match": "第３章 交通対策",
+          "title": "交通対策（建築工事等編）"
+        },
+        {
+          "page": 452,
+          "match": "第４章 使用する建設機械に関する措置",
+          "title": "使用する建設機械に関する措置（建築工事等編）"
+        },
+        {
+          "page": 455,
+          "match": "第５章 解体工事",
+          "title": "解体工事（建築工事等編）"
+        },
+        {
+          "page": 457,
+          "match": "第６章 土工事",
+          "title": "土工事（建築工事等編）"
+        },
+        {
+          "page": 461,
+          "match": "15．土木請負工事における安全・訓練等の",
+          "book": true,
+          "chapter": true,
+          "title": "土木請負工事における安全・訓練等の実施について",
+          "bookTitle": "土木請負工事における安全・訓練等の実施について",
+          "item": 15
+        },
+        {
+          "page": 465,
+          "match": "16. 建設工事の安全対策に関する措置について",
+          "book": true,
+          "chapter": true,
+          "title": "建設工事の安全対策に関する措置について",
+          "bookTitle": "建設工事の安全対策に関する措置について",
+          "item": 16
+        },
+        {
+          "page": 471,
+          "match": "17．建設工事に伴う騒音振動対策技術指針",
+          "book": true,
+          "bookTitle": "建設工事に伴う騒音振動対策技術指針",
+          "item": 17
+        },
+        {
+          "page": 471,
+          "match": "昭 和 51 年 ３ 月 ２ 日",
+          "front": true
+        },
+        {
+          "page": 475,
+          "match": "Ⅰ 総 論",
+          "title": "総論"
+        },
+        {
+          "page": 478,
+          "match": "Ⅱ 各 論",
+          "title": "各論"
+        },
+        {
+          "page": 485,
+          "match": "18. 道路工事現場における標示施設等の設置基準",
+          "book": true,
+          "chapter": true,
+          "title": "道路工事現場における標示施設等の設置基準",
+          "bookTitle": "道路工事現場における標示施設等の設置基準",
+          "item": 18
+        },
+        {
+          "page": 497,
+          "match": "道路工事保安施設設置基準（案）",
+          "book": true,
+          "chapter": true,
+          "title": "設置目的・標準図一覧",
+          "bookTitle": "道路工事保安施設設置基準（案）",
+          "item": 19
+        },
+        {
+          "page": 501,
+          "match": "Ａ―１型 標準図 ４車線 片側全車線閉塞 夜間作業",
+          "title": "保安施設設置標準図"
+        },
+        {
+          "page": 510,
+          "match": "保安施設標準様式図",
+          "title": "保安施設標準様式図"
+        },
+        {
+          "page": 517,
+          "match": "20．コンクリート中の塩化物総量規制及び",
+          "book": true,
+          "bookTitle": "コンクリート中の塩化物総量規制及びアルカリ骨材反応抑制対策実施要領",
+          "item": 20
+        },
+        {
+          "page": 517,
+          "match": "アルカリ骨材反応抑制対策実施要領",
+          "front": true
+        },
+        {
+          "page": 521,
+          "match": "1 コンクリート中の塩化物総量規制及びアルカリ骨材反応抑制対策実施要領",
+          "title": "実施要領（塩化物総量規制・アルカリ骨材反応抑制対策）"
+        },
+        {
+          "page": 527,
+          "match": "２ 骨材のアルカリシリカ反応性試験（モルタルバー",
+          "title": "骨材のアルカリシリカ反応性試験（モルタルバー法）国土交通省法"
+        },
+        {
+          "page": 533,
+          "match": "３ 骨材のアルカリシリカ反応性試験（化学法）国土",
+          "title": "骨材のアルカリシリカ反応性試験（化学法）国土交通省法"
+        },
+        {
+          "page": 543,
+          "match": "21. 薬液注入工法による建設工事の",
+          "book": true,
+          "chapter": true,
+          "title": "通達・別表",
+          "bookTitle": "薬液注入工法による建設工事の施工に関する暫定指針",
+          "item": 21
+        },
+        {
+          "page": 548,
+          "match": "別 添",
+          "title": "別添 暫定指針"
+        },
+        {
+          "page": 555,
+          "match": "22.薬液注入工事に係る施工管理等について",
+          "book": true,
+          "chapter": true,
+          "title": "薬液注入工事に係る施工管理等について",
+          "bookTitle": "薬液注入工事に係る施工管理等について",
+          "item": 22
+        },
+        {
+          "page": 561,
+          "match": "23. 仮締切堤設置基準(案)",
+          "book": true,
+          "chapter": true,
+          "title": "仮締切堤設置基準（案）",
+          "bookTitle": "仮締切堤設置基準（案）",
+          "item": 23
+        },
+        {
+          "page": 568,
+          "match": "24. 水質汚濁に係る環境基準について",
+          "book": true,
+          "chapter": true,
+          "title": "水質汚濁に係る環境基準について",
+          "bookTitle": "水質汚濁に係る環境基準について",
+          "item": 24
+        },
+        {
+          "page": 573,
+          "match": "25．防災業務および業務委託等による",
+          "book": true,
+          "chapter": true,
+          "title": "防災業務および業務委託等による国土交通省所属無線設備の取扱要領",
+          "bookTitle": "防災業務および業務委託等による国土交通省所属無線設備の取扱要領",
+          "item": 25
+        },
+        {
+          "page": 577,
+          "match": "26．セメント及びセメント系固化材を使用した",
+          "book": true,
+          "chapter": true,
+          "title": "実施要領",
+          "bookTitle": "セメント及びセメント系固化材を使用した改良土の六価クロム溶出試験実施要領（案）",
+          "item": 26
+        },
+        {
+          "page": 585,
+          "match": "（添付資料１）",
+          "title": "添付資料１ 土壌の汚染に係る環境基準について（抜粋）"
+        },
+        {
+          "page": 591,
+          "match": "（添付資料２）",
+          "title": "添付資料２ タンクリーチング試験について"
+        },
+        {
+          "page": 593,
+          "match": "27. コンクリート副産物の再利用に関する",
+          "book": true,
+          "bookTitle": "コンクリート副産物の再利用に関する用途別暫定品質基準（案）",
+          "item": 27
+        },
+        {
+          "page": 593,
+          "match": "用途別暫定品質基準（案）",
+          "front": true
+        },
+        {
+          "page": 595,
+          "match": "コンクリート副産物の再利用に関する用途別暫定品質基準（案）",
+          "title": "前文・Ⅰ コンクリート用骨材"
+        },
+        {
+          "page": 601,
+          "match": "Ⅱ．路 盤 材",
+          "title": "路盤材"
+        },
+        {
+          "page": 604,
+          "match": "Ⅲ．埋め戻し材・裏込め材",
+          "title": "埋め戻し材・裏込め材"
+        },
+        {
+          "page": 607,
+          "match": "28. 超音波パルス反射法によるアンカーボルト長さ",
+          "book": true,
+          "chapter": true,
+          "title": "超音波パルス反射法によるアンカーボルト長さ測定要領（案）",
+          "bookTitle": "超音波パルス反射法によるアンカーボルト長さ測定要領（案）",
+          "item": 28
+        },
+        {
+          "page": 615,
+          "match": "29．RI計器を用いた盛土の",
+          "book": true,
+          "bookTitle": "RI計器を用いた盛土の締固め管理要領（案）",
+          "item": 29
+        },
+        {
+          "page": 615,
+          "match": "締固め管理要領（案）",
+          "front": true
+        },
+        {
+          "page": 619,
+          "match": "１章 総 則",
+          "title": "総則・RI計器による測定方法"
+        },
+        {
+          "page": 627,
+          "match": "３章 RI計器による締固め管理",
+          "title": "RI計器による締固め管理"
+        },
+        {
+          "page": 637,
+          "match": "様式−１",
+          "title": "様式－１〜３"
+        },
+        {
+          "page": 640,
+          "match": "参 考 資 料",
+          "title": "参考資料"
+        },
+        {
+          "page": 649,
+          "match": "30．トンネル（NATM）計測要領（案）",
+          "book": true,
+          "bookTitle": "トンネル（NATM）計測要領（案）",
+          "item": 30
+        },
+        {
+          "page": 649,
+          "match": "平 成 元 年 ３ 月 22 日",
+          "front": true
+        },
+        {
+          "page": 655,
+          "match": "１．計測の目的",
+          "title": "計測の目的・種類・分類・計画"
+        },
+        {
+          "page": 657,
+          "match": "５．計測A",
+          "title": "計測A"
+        },
+        {
+          "page": 661,
+          "match": "６．計測B",
+          "title": "計測B"
+        },
+        {
+          "page": 675,
+          "match": "### 31. 発生土利用基準について",
+          "book": true,
+          "chapter": true,
+          "title": "発生土利用基準について",
+          "bookTitle": "発生土利用基準について",
+          "item": 31
+        },
+        {
+          "page": 683,
+          "match": "### 32. レディーミクストコンクリート",
+          "book": true,
+          "chapter": true,
+          "title": "レディーミクストコンクリート単位水量測定要領（案）",
+          "bookTitle": "レディーミクストコンクリート単位水量測定要領（案）",
+          "item": 32
+        },
+        {
+          "page": 689,
+          "match": "33．請負者が国の施設及び物品を使用し、除",
+          "book": true,
+          "chapter": true,
+          "title": "請負者が国の施設及び物品を使用し、除雪作業を請負として行わせる場合の事務取扱いについて（案）",
+          "bookTitle": "請負者が国の施設及び物品を使用し、除雪作業を請負として行わせる場合の事務取扱いについて（案）",
+          "item": 33
+        },
+        {
+          "page": 695,
+          "match": "### 34. 「土木コンクリート構造物の品質確保について」に係る",
+          "book": true,
+          "chapter": true,
+          "title": "運用（強度推定調査・ひび割れ調査）",
+          "bookTitle": "「土木コンクリート構造物の品質確保について」に係るテストハンマーによる強度推定調査及びひび割れ調査について",
+          "item": 34
+        },
+        {
+          "page": 702,
+          "match": "別添様式－1",
+          "title": "別添様式－１ テストハンマーによる強度推定調査票"
+        },
+        {
+          "page": 708,
+          "match": "別添様式－２",
+          "title": "別添様式－２ ひび割れ調査票"
+        },
+        {
+          "page": 713,
+          "match": "（別添）",
+          "title": "別添 ひび割れ調査結果の評価に関する留意事項"
+        },
+        {
+          "page": 716,
+          "match": "35．土木工事施工管理基準運用方針（案）",
+          "book": true,
+          "chapter": true,
+          "title": "土木工事施工管理基準運用方針（案）",
+          "bookTitle": "土木工事施工管理基準運用方針（案）",
+          "item": 35
+        },
+        {
+          "page": 721,
+          "match": "36 アスファルト混合物の試験依頼要領",
+          "book": true,
+          "chapter": true,
+          "title": "アスファルト混合物の試験依頼要領",
+          "bookTitle": "アスファルト混合物の試験依頼要領",
+          "item": 36
+        },
+        {
+          "page": 726,
+          "match": "令和４年度における特定調達品目調達実績",
+          "book": true,
+          "chapter": true,
+          "title": "特定調達品目調達実績調査実施要領（請負者用）",
+          "bookTitle": "特定調達品目調達実績調査実施要領（請負者用）",
+          "item": 37
+        },
+        {
+          "page": 736,
+          "match": "別添 2",
+          "book": true,
+          "chapter": true,
+          "title": "配筋状態及びかぶり測定要領",
+          "bookTitle": "非破壊試験によるコンクリート構造物中の配筋状態及びかぶり測定要領",
+          "item": 38
+        },
+        {
+          "page": 752,
+          "match": "非破壊試験によるコンクリート構造物中の",
+          "title": "配筋状態及びかぶり測定要領（解説）"
+        },
+        {
+          "page": 758,
+          "match": "コンクリート構造物の配筋状態及びかぶり測定データ記入様式",
+          "title": "データ記入様式"
+        }
+      ],
+      "ogpLabel": "工事必携"
+    },
+    "hokkaido/appendix": {
+      "_comment": "北海道開発局 道路・河川工事仕様書 付録（238p）。 章の始まりは設定の目次（outline）。2026-10-19 に Workflow（Writer→QA）が版面を実測し、親が解析で rejects・review・行の割り当て漏れ 0 を確かめた。項番号は様式・一覧の連番と混ざるので連番を見ない（clauseSequence: sparse）。",
+      "bodyStartPage": 9,
+      "chapterSource": "outline",
+      "runningHeaderPattern": "^付\\s*表$",
+      "printPagePattern": "^4\\s*[－\\-]\\s*\\d+$",
+      "printPageRequired": false,
+      "articleStyle": "dai",
+      "clauseTitleMaxLength": 24,
+      "outline": [
+        {
+          "page": 9,
+          "match": "1．道路工事現場における一般交通の安全管理基準",
+          "book": true,
+          "chapter": true
+        },
+        {
+          "page": 29,
+          "match": "2．河川工事に伴う工事標識等の設置基準",
+          "book": true,
+          "chapter": true
+        },
+        {
+          "page": 31,
+          "match": "3．区画線試験施工要領",
+          "book": true,
+          "chapter": true
+        },
+        {
+          "page": 33,
+          "match": "4．試験方法",
+          "book": true,
+          "chapter": true
+        },
+        {
+          "page": 49,
+          "match": "5．コンクリ-トの耐久性向上対策",
+          "book": true,
+          "chapter": true
+        },
+        {
+          "page": 55,
+          "match": "6．施工管理基準のとりまとめ様式",
+          "book": true,
+          "chapter": true
+        },
+        {
+          "page": 107,
+          "match": "7．建設工事に伴う騒音振動対策技術指針",
+          "book": true,
+          "chapter": true,
+          "plainArticles": true
+        },
+        {
+          "page": 116,
+          "match": "8．建設材料の品質記録の保存要領",
+          "book": true,
+          "chapter": true
+        },
+        {
+          "page": 127,
+          "match": "9．薬液注入工法",
+          "book": true,
+          "chapter": true,
+          "plainArticles": true
+        },
+        {
+          "page": 135,
+          "match": "10．平成 15 年度一部改訂版北海道公共用緑化樹木等規格基準（案）",
+          "book": true,
+          "chapter": true,
+          "title": "10．平成15年度一部改訂版北海道公共用緑化樹木等規格基準（案）"
+        },
+        {
+          "page": 141,
+          "match": "11．建設副産物適正処理推進要綱",
+          "book": true,
+          "chapter": true
+        },
+        {
+          "page": 161,
+          "match": "12．土木コンクリ-ト構造物の品質確保について",
+          "book": true,
+          "chapter": true
+        },
+        {
+          "page": 177,
+          "match": "13．レディ-ミクストコンクリ-トの品質確保について",
+          "book": true,
+          "chapter": true
+        },
+        {
+          "page": 183,
+          "match": "14．盛土締固め管理要領",
+          "book": true
+        },
+        {
+          "page": 183,
+          "match": "14-1 ＲＩ計器を用いた盛土の締固め管理要領（案）",
+          "plainArticles": true
+        },
+        {
+          "page": 202,
+          "match": "14-2 TS・GPS を用いた盛土の締固め情報化施工管理要領（案）",
+          "plainArticles": true
+        },
+        {
+          "page": 222,
+          "match": "15．柔構造樋門動態観測要領（案）",
+          "book": true,
+          "chapter": true
+        }
+      ],
+      "clauseSequence": "sparse",
+      "ogpLabel": "付録"
+    },
+    "kanto/manual": {
+      "_comment": "関東地方整備局 マニュアル（243p）。 章の始まりは設定の目次（outline）。2026-10-19 に Workflow（Writer→QA）が版面を実測し、親が解析で rejects・review・行の割り当て漏れ 0 を確かめた。項番号は様式・一覧の連番と混ざるので連番を見ない（clauseSequence: sparse）。",
+      "bodyStartPage": 13,
+      "chapterSource": "outline",
+      "outlineBook": "本文",
+      "printPagePattern": "^[\\s　]*(?:[0-9０-９]{1,4}|添[－一ー\\-][\\s　]*[0-9０-９]{1,3})[\\s　]*$",
+      "printPageRequired": false,
+      "fullWidthClauses": true,
+      "clauseSequence": "sparse",
+      "clauseTitleMaxLength": 24,
+      "outline": [
+        {
+          "page": 13,
+          "match": "１．土木工事電子書類作成の基本事項"
+        },
+        {
+          "page": 16,
+          "match": "２．施工計画"
+        },
+        {
+          "page": 43,
+          "match": "３．施工管理"
+        },
+        {
+          "page": 83,
+          "match": "４．安全管理"
+        },
+        {
+          "page": 94,
+          "match": "５．工程管理"
+        },
+        {
+          "page": 99,
+          "match": "６．品質・出来形管理"
+        },
+        {
+          "page": 115,
+          "match": "７．支給品・貸与物件・発生品"
+        },
+        {
+          "page": 120,
+          "match": "８．工事検査・完成検査"
+        },
+        {
+          "page": 158,
+          "match": "9．中間前払金"
+        },
+        {
+          "page": 161,
+          "match": "１０．その他"
+        },
+        {
+          "page": 181,
+          "match": "土木工事電子書類作成マニュアル",
+          "front": true
+        },
+        {
+          "page": 181,
+          "match": "添付資料",
+          "book": true
+        },
+        {
+          "page": 182,
+          "match": "施工体制台帳の作成について"
+        },
+        {
+          "page": 202,
+          "match": "【1．建設業の許可の概要について】",
+          "title": "建設業の許可の概要と現場の技術者・管理者"
+        },
+        {
+          "page": 217,
+          "match": "施工体制台帳、 施工体系図に関するQ&A",
+          "title": "施工体制台帳、施工体系図に関するQ&A"
+        },
+        {
+          "page": 223,
+          "match": "建設工事の例示及び建設業の許可並びに監理技術者の資格一覧表"
+        },
+        {
+          "page": 225,
+          "match": "社会保険の加入に関する下請指導ガイドライン"
+        },
+        {
+          "page": 242,
+          "match": "「社会保険の加入に関する下請指導ガイドライン」における「適切な保険」の確認シート"
+        }
+      ],
+      "articleStyle": "none",
+      "ogpLabel": "マニュアル"
+    },
+    "mlit/sekou-kanri-kijun": {
+      "_comment": "国土交通省 土木工事施工管理基準及び規格値（案）令和8年3月（269p）。総則・出来形管理基準（編・工種のまとまりごと）・品質管理基準（工種ごと）・参考資料で章に分ける。出来形管理基準の目次（p5-20）は中扉（front）。 章の始まりは設定の目次（outline）。2026-10-19 に Workflow（Writer→QA）が版面を実測し、親が解析で rejects・review・行の割り当て漏れ 0 を確かめた。項番号は様式・一覧の連番と混ざるので連番を見ない（clauseSequence: sparse）。",
+      "bodyStartPage": 2,
+      "chapterSource": "outline",
+      "runningHeaderPattern": "^[\\s　]*(?:出来形|品質)管理基準及び規格値（案）[\\s　]*$",
+      "printPagePattern": "^[\\s　]*(?:[0-9０-９]{1,4}|[ⅠⅡⅰⅱ][\\s　]*[－-][\\s　]*[0-9０-９]{1,4})[\\s　]*$",
+      "printPageRequired": false,
+      "fullWidthClauses": true,
+      "clauseTitleMaxLength": 24,
+      "outline": [
+        {
+          "page": 2,
+          "match": "土木工事施工管理基準",
+          "book": true,
+          "chapter": true,
+          "title": "目的・適用・管理の実施・管理項目・その他",
+          "bookTitle": "総則（土木工事施工管理基準）"
+        },
+        {
+          "page": 4,
+          "match": "出来形管理基準及び規格値（案）",
+          "front": true
+        },
+        {
+          "page": 21,
+          "match": "編 章 節 条 枝番 工 種 測 定 項 目 規 格 値 測 定 基 準 測 定 箇 所 単位：mm",
+          "book": true,
+          "chapter": true,
+          "title": "土工・鉄筋工（1-2・1-3）",
+          "bookTitle": "出来形管理基準 第1編 共通編"
+        },
+        {
+          "page": 31,
+          "match": "編 章 節 条 枝番 工 種 測 定 項 目 規 格 値 測 定 基 準 測 定 箇 所 単位：mm",
+          "book": true,
+          "chapter": true,
+          "title": "共通的工種（3-2-3）",
+          "bookTitle": "出来形管理基準 第3編 土木工事共通編"
+        },
+        {
+          "page": 46,
+          "match": "編 章 節 条 枝番 工 種 測 定 項 目 規 格 値 測 定 基 準 測 定 箇 所 単位：mm",
+          "title": "基礎工・石ブロック積（張）工（3-2-4・3-2-5）"
+        },
+        {
+          "page": 51,
+          "match": "編 章 節 条 枝番 工 種 測 定 項 目 規 格 値 測 定 基 準 測 定 箇 所 単位：mm",
+          "title": "一般舗装工（1）橋面防水・アスファルト舗装・半たわみ性舗装（3-2-6）"
+        },
+        {
+          "page": 73,
+          "match": "単位：mm",
+          "title": "一般舗装工（2）排水性・透水性・グースアスファルト舗装（3-2-6）"
+        },
+        {
+          "page": 94,
+          "match": "単位：mm",
+          "title": "一般舗装工（3）コンクリート舗装・薄層カラー・ブロック舗装・切削・オーバーレイ（3-2-6）"
+        },
+        {
+          "page": 123,
+          "match": "編 章 節 条 枝番 工 種 測 定 項 目 規 格 値 測 定 基 準 測 定 箇 所 単位：mm",
+          "title": "地盤改良工・仮設工・軽量盛土工（3-2-7〜3-2-10）"
+        },
+        {
+          "page": 131,
+          "match": "編 章 節 条 枝番 工 種 測 定 項 目 規 格 値 測 定 基 準 測 定 箇 所 単位：mm",
+          "title": "工場製作工・橋梁架設工（3-2-12・3-2-13）"
+        },
+        {
+          "page": 145,
+          "match": "編 章 節 条 枝番 工 種 測 定 項 目 規 格 値 測 定 基 準 測 定 箇 所 単位：mm",
+          "title": "法面工・擁壁工・浚渫工・床版工（3-2-14〜3-2-18）"
+        },
+        {
+          "page": 154,
+          "match": "編 章 節 条 枝番 工 種 測 定 項 目 規 格 値 測 定 基 準 測 定 箇 所 単位：mm",
+          "book": true,
+          "chapter": true,
+          "title": "築堤・護岸・樋門・水門・堰・排水機場・河川維持・河川修繕（6-1〜6-9）",
+          "bookTitle": "出来形管理基準 第6編 河川編"
+        },
+        {
+          "page": 162,
+          "match": "編 章 節 条 枝番 工 種 測 定 項 目 規 格 値 測 定 基 準 測 定 箇 所 単位：mm",
+          "book": true,
+          "chapter": true,
+          "title": "堤防・護岸・突堤・人工岬・海域堤防・浚渫・養浜（7-1〜7-5）",
+          "bookTitle": "出来形管理基準 第7編 河川海岸編"
+        },
+        {
+          "page": 171,
+          "match": "編 章 節 条 枝番 工 種 測 定 項 目 規 格 値 測 定 基 準 測 定 箇 所 単位：mm",
+          "book": true,
+          "chapter": true,
+          "title": "砂防堰堤・流路工・斜面対策（8-1〜8-3）",
+          "bookTitle": "出来形管理基準 第8編 砂防編"
+        },
+        {
+          "page": 177,
+          "match": "編 章 節 条 枝番 工 種 測 定 項 目 規 格 値 測 定 基 準 測 定 箇 所 単位：mm",
+          "book": true,
+          "chapter": true,
+          "title": "コンクリートダム・フィルダム・基礎グラウチング（9-1〜9-3）",
+          "bookTitle": "出来形管理基準 第9編 ダム編"
+        },
+        {
+          "page": 183,
+          "match": "編 章 節 条 枝番 工 種 測 定 項 目 規 格 値 測 定 基 準 測 定 箇 所 単位：mm",
+          "book": true,
+          "chapter": true,
+          "title": "道路改良・舗装（10-1・10-2）",
+          "bookTitle": "出来形管理基準 第10編 道路編"
+        },
+        {
+          "page": 190,
+          "match": "編 章 節 条 枝番 工 種 測 定 項 目 規 格 値 測 定 基 準 測 定 箇 所 単位：mm",
+          "title": "橋梁下部（10-3）"
+        },
+        {
+          "page": 199,
+          "match": "編 章 節 条 枝番 工 種 測 定 項 目 規 格 値 測 定 基 準 測 定 箇 所 単位：mm",
+          "title": "橋梁上部（鋼橋・コンクリート橋）（10-4・10-5）"
+        },
+        {
+          "page": 202,
+          "match": "編 章 節 条 枝番 工 種 測 定 項 目 規 格 値 測 定 基 準 測 定 箇 所 単位：mm",
+          "title": "トンネル（NATM）（10-6）"
+        },
+        {
+          "page": 206,
+          "match": "編 章 節 条 枝番 工 種 測 定 項 目 規 格 値 測 定 基 準 測 定 箇 所 単位：mm",
+          "title": "共同溝・電線共同溝・情報ボックス（10-11〜10-13）"
+        },
+        {
+          "page": 209,
+          "match": "単位：mm",
+          "title": "道路維持・道路修繕（10-14・10-16）"
+        },
+        {
+          "page": 212,
+          "match": "品質管理基準及び規格値（案）",
+          "front": true
+        },
+        {
+          "page": 213,
+          "match": "品 質 管 理",
+          "book": true,
+          "chapter": true,
+          "title": "セメント・コンクリート（品質管理の目的・目次を含む）",
+          "bookTitle": "品質管理基準及び規格値（案）"
+        },
+        {
+          "page": 218,
+          "match": "工 種 種別 試験 試験項目 試験方法 規格値 試験時期・頻度 摘 要 試験成績",
+          "title": "プレキャストコンクリート製品・ガス圧接・既製杭工"
+        },
+        {
+          "page": 221,
+          "match": "試験 試験成績",
+          "title": "基礎工・場所打杭工・路盤工（下層・上層・安定処理）"
+        },
+        {
+          "page": 228,
+          "match": "試験 試験成績",
+          "title": "アスファルト舗装・転圧コンクリート・グースアスファルト舗装"
+        },
+        {
+          "page": 240,
+          "match": "試験 試験成績",
+          "title": "路床安定処理・表層安定処理・固結工・アンカー工・補強土壁工・吹付工・現場吹付法枠工"
+        },
+        {
+          "page": 247,
+          "match": "試験 試験成績",
+          "title": "土工（河川・海岸・砂防・道路）"
+        },
+        {
+          "page": 250,
+          "match": "試験 試験成績",
+          "title": "捨石工・コンクリートダム・NATM（覆工・吹付け・ロックボルト）"
+        },
+        {
+          "page": 257,
+          "match": "試験 試験成績",
+          "title": "路上再生・排水性舗装・透水性舗装・プラント再生舗装"
+        },
+        {
+          "page": 264,
+          "match": "工 種 種別 試験 試験項目 試験方法 規格値 試験時期・頻度 摘 要 試験成績",
+          "title": "工場製作工（鋼橋用鋼材）・ガス切断工・溶接工・中層混合処理・鉄筋挿入工"
+        },
+        {
+          "page": 268,
+          "match": "〔参考資料〕",
+          "book": true,
+          "chapter": true,
+          "title": "ロックボルトの引抜試験",
+          "bookTitle": "参考資料"
+        }
+      ],
+      "clauseSequence": "sparse",
+      "articleStyle": "none",
+      "ogpLabel": "施工管理基準"
     }
+  },
+  "editionCanonical": {
+    "_comment": "同じ要綱・要領を複数の機関・版で収録しているとき、検索に載せる 1 本（canonical）と noindex, follow にする他の収録。原本 PDF が別物なので SHA-256 の一致（duplicateOf）では拾えない。版（年月）は各原本の表紙・告示・通知の日付で確かめた（2026-10-19）。決め方: (1) 版の新しいものを載せる、(2) 同じ版なら、その要綱だけの文書（工事必携の冊子の 1 項目より探しやすい）を載せ、内容の多いもの（要綱と解説をまとめた版など）を優先する。item は近畿の必携（kinki/hikkei）の総目次の番号で、冊子を項目ごとの記事にしたときに使う。判定の実装は src/lib/standards-editions.mjs。",
+    "groups": [
+      {
+        "title": "建設工事公衆災害防止対策要綱",
+        "canonical": {
+          "document": "kyushu/hikkei-common-10",
+          "edition": "令和元年9月（国土交通省告示第496号）"
+        },
+        "others": [
+          {
+            "document": "okinawa/hikkei-07",
+            "edition": "令和元年9月",
+            "reason": "同じ版の要綱の本文だけ（九州版は要綱・見直し内容・解説を 1 冊に収める）"
+          },
+          {
+            "document": "okinawa/hikkei-08",
+            "edition": "令和元年9月",
+            "reason": "同じ版の要綱の解説（九州版の p81-199 と同じ内容）"
+          },
+          {
+            "document": "kinki/hikkei",
+            "item": 14,
+            "edition": "令和元年9月",
+            "reason": "同じ版の要綱の本文だけ（近畿の必携 14 項）"
+          },
+          {
+            "document": "tohoku/reference",
+            "item": 6,
+            "edition": "平成5年1月",
+            "reason": "改正前の旧版（東北の参考資料 6 項）"
+          }
+        ]
+      },
+      {
+        "title": "建設副産物適正処理推進要綱",
+        "canonical": {
+          "document": "kyushu/hikkei-common-13",
+          "edition": "平成14年5月30日改正"
+        },
+        "others": [
+          {
+            "document": "okinawa/hikkei-09",
+            "edition": "平成14年5月30日改正",
+            "reason": "同じ版"
+          },
+          {
+            "document": "kinki/hikkei",
+            "item": 9,
+            "edition": "平成14年5月30日改正",
+            "reason": "同じ版（近畿の必携 9 項）"
+          },
+          {
+            "document": "tohoku/reference",
+            "item": 7,
+            "edition": "平成14年5月30日改正",
+            "reason": "同じ版（東北の参考資料 7 項）"
+          }
+        ]
+      },
+      {
+        "title": "道路工事現場における標示施設等の設置基準",
+        "canonical": {
+          "document": "kyushu/hikkei-common-11",
+          "edition": "平成18年3月31日改正"
+        },
+        "others": [
+          {
+            "document": "okinawa/hikkei-10",
+            "edition": "平成18年3月31日改正",
+            "reason": "同じ版"
+          },
+          {
+            "document": "kinki/hikkei",
+            "item": 18,
+            "edition": "平成18年3月31日改正",
+            "reason": "同じ版（近畿の必携 18 項）"
+          }
+        ]
+      },
+      {
+        "title": "道路工事保安施設設置基準（案）",
+        "canonical": {
+          "document": "kyushu/road-safety",
+          "edition": "令和6年2月"
+        },
+        "others": [
+          {
+            "document": "okinawa/hikkei-11",
+            "edition": "令和6年2月",
+            "reason": "同じ版"
+          },
+          {
+            "document": "kinki/hikkei",
+            "item": 19,
+            "edition": "令和6年2月",
+            "reason": "同じ版（近畿の必携 19 項）"
+          }
+        ]
+      },
+      {
+        "title": "コンクリート中の塩化物総量規制及びアルカリ骨材反応抑制対策実施要領",
+        "canonical": {
+          "document": "okinawa/hikkei-12",
+          "edition": "平成14年7月"
+        },
+        "others": [
+          {
+            "document": "kyushu/hikkei-control-05",
+            "edition": "昭和61年6月",
+            "reason": "塩化物総量規制だけの旧版（平成14年7月の要領が塩化物とアルカリ骨材反応をまとめて定める）"
+          },
+          {
+            "document": "kyushu/hikkei-control-06",
+            "edition": "平成14年7月",
+            "reason": "アルカリ骨材反応抑制対策だけ（同じ版の要領が塩化物総量規制とまとめて定める）"
+          },
+          {
+            "document": "kinki/hikkei",
+            "item": 20,
+            "edition": "平成14年7月",
+            "reason": "同じ版（近畿の必携 20 項）"
+          }
+        ]
+      },
+      {
+        "title": "RI計器を用いた盛土の締固め管理要領（案）",
+        "canonical": {
+          "document": "kyushu/hikkei-control-12",
+          "edition": "平成8年8月"
+        },
+        "others": [
+          {
+            "document": "okinawa/hikkei-04",
+            "edition": "平成8年8月",
+            "reason": "同じ版（九州版は通知の日付を刷る）"
+          },
+          {
+            "document": "tohoku/reference",
+            "item": 19,
+            "edition": "平成8年8月",
+            "reason": "同じ版（東北の参考資料 19 項）"
+          },
+          {
+            "document": "kinki/hikkei",
+            "item": 29,
+            "edition": "平成8年8月",
+            "reason": "同じ版（近畿の必携 29 項。近畿地方整備局の通知は平成8年8月28日）"
+          }
+        ]
+      },
+      {
+        "title": "土木工事安全施工技術指針",
+        "canonical": {
+          "document": "kinki/hikkei",
+          "item": 12,
+          "edition": "令和6年3月"
+        },
+        "others": [
+          {
+            "document": "kyushu/hikkei-common-09",
+            "edition": "平成13年3月改正",
+            "reason": "旧版（近畿の必携 12 項が令和6年3月版）"
+          }
+        ]
+      },
+      {
+        "title": "微破壊・非破壊試験によるコンクリート構造物の強度測定要領",
+        "canonical": {
+          "document": "kinki/hikkei",
+          "item": 8,
+          "edition": "平成30年10月"
+        },
+        "others": [
+          {
+            "document": "kyushu/hikkei-control-10",
+            "edition": "平成19年10月一部改訂",
+            "reason": "旧版の試行要領（案）（近畿の必携 8 項が平成30年10月の要領）"
+          }
+        ]
+      },
+      {
+        "title": "非破壊試験によるコンクリート構造物中の配筋状態及びかぶり測定要領",
+        "canonical": {
+          "document": "kinki/hikkei",
+          "item": 38,
+          "edition": "平成30年10月"
+        },
+        "others": [
+          {
+            "document": "kyushu/hikkei-control-11",
+            "edition": "平成18年3月一部改訂",
+            "reason": "旧版（近畿の必携 38 項が平成30年10月版）"
+          }
+        ]
+      },
+      {
+        "title": "鋼橋製作における仮組立検査の省略について",
+        "canonical": {
+          "document": "kyushu/hikkei-control-01",
+          "edition": "平成7年9月28日"
+        },
+        "others": [
+          {
+            "document": "okinawa/hikkei-01",
+            "edition": "平成7年9月28日",
+            "reason": "同じ事務連絡"
+          }
+        ]
+      },
+      {
+        "title": "鋼橋用鋼材（厚鋼板）の立会の簡素化について",
+        "canonical": {
+          "document": "kyushu/hikkei-control-02",
+          "edition": "平成8年9月1日"
+        },
+        "others": [
+          {
+            "document": "okinawa/hikkei-03",
+            "edition": "平成8年9月1日",
+            "reason": "同じ事務連絡"
+          }
+        ]
+      },
+      {
+        "title": "建設材料の品質記録保存業務実施要領（案）",
+        "canonical": {
+          "document": "okinawa/hikkei-16",
+          "edition": "平成30年4月改定"
+        },
+        "others": [
+          {
+            "document": "okinawa/hikkei-17",
+            "edition": "昭和62年9月",
+            "reason": "改定前の旧版"
+          },
+          {
+            "document": "kinki/hikkei",
+            "item": 11,
+            "edition": "平成30年4月改定",
+            "reason": "同じ版（近畿の必携 11 項。本文が沖縄版と同じ改定後の要領）"
+          },
+          {
+            "document": "tohoku/reference",
+            "item": 25,
+            "edition": "昭和60年9月",
+            "reason": "改定前の旧版（東北の参考資料 25 項）"
+          }
+        ]
+      },
+      {
+        "title": "建設工事に伴う騒音振動対策技術指針",
+        "canonical": {
+          "document": "okinawa/hikkei-06",
+          "edition": "昭和62年3月30日改正"
+        },
+        "others": [
+          {
+            "document": "tohoku/reference",
+            "item": 14,
+            "edition": "昭和62年3月30日改正",
+            "reason": "同じ版（東北の参考資料 14 項）"
+          },
+          {
+            "document": "kinki/hikkei",
+            "item": 17,
+            "edition": "昭和62年3月30日改正",
+            "reason": "同じ版（近畿の必携 17 項）"
+          }
+        ]
+      },
+      {
+        "title": "レディーミクストコンクリート単位水量測定要領（案）",
+        "canonical": {
+          "document": "kyushu/hikkei-control-09",
+          "edition": "平成16年3月"
+        },
+        "others": [
+          {
+            "document": "tohoku/reference",
+            "item": 23,
+            "edition": "平成16年3月",
+            "reason": "同じ版（東北の参考資料 23 項）"
+          }
+        ]
+      }
+    ]
   }
 }

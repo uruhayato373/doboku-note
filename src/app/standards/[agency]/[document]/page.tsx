@@ -13,6 +13,7 @@ import { buildPageMetadata } from '@/lib/metadata';
 import {
   getStandardDocument,
   getStandardDocuments,
+  getStandardEditionDuplicate,
   standardDocumentPath,
   standardPartLabel,
   standardPartPath,
@@ -20,6 +21,7 @@ import {
 import {
   getStandardChapters,
   groupChaptersByBook,
+  standardChapterHeading,
   standardChapterPath,
 } from '@/lib/standards-articles';
 import { getTopicsForStandardDocument } from '@/lib/topics';
@@ -42,7 +44,9 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const entry = getStandardDocument(agency, document);
   if (!entry) return { title: '文書が見つかりません', robots: { index: false, follow: false } };
   const chapterCount = getStandardChapters(agency, document).length;
-  return buildPageMetadata({
+  // 同じ要綱を他の機関・版でも収録している文書は 1 本だけ索引に載せる（設定 editionCanonical）
+  const editionDuplicate = getStandardEditionDuplicate(entry);
+  const metadata = buildPageMetadata({
     title: chapterCount > 0 ? `${entry.title} 章別全文` : `${entry.title} 全文文字起こし`,
     description:
       chapterCount > 0
@@ -50,6 +54,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
         : `${entry.agencyName}「${entry.title}」全${entry.pages.toLocaleString('ja-JP')}ページの文字起こし。PDFページ番号、原典URL、SHA-256、目視確認・判読注記を明示しています。`,
     path: standardDocumentPath(entry),
   });
+  return editionDuplicate ? { ...metadata, robots: { index: false, follow: true } } : metadata;
 }
 
 export default async function StandardDocumentPage({ params }: { params: Promise<Params> }) {
@@ -113,7 +118,7 @@ export default async function StandardDocumentPage({ params }: { params: Promise
             {books.map((book) => (
               <div key={book.bookNumber} className="mt-5">
                 <h3 className="text-lg font-bold text-(--ink)">
-                  第{book.bookNumber}編 {book.bookTitle}
+                  {book.bookLabel}
                 </h3>
                 <ol className="mt-3 divide-y divide-(--rule-soft) border-y border-(--rule-soft) bg-(--paper)">
                   {book.chapters.map((chapter) => (
@@ -124,7 +129,7 @@ export default async function StandardDocumentPage({ params }: { params: Promise
                       >
                         <span className="min-w-0 flex-1">
                           <span className="block font-medium text-(--ink)">
-                            第{chapter.chapterNumber}章 {chapter.chapterTitle}
+                            {standardChapterHeading(chapter)}
                           </span>
                           <span className="mt-1 block font-mono text-[11px] text-(--ink-muted)">
                             {chapter.sections.length}節 · 原本 p.{chapter.firstPage}–{chapter.lastPage}

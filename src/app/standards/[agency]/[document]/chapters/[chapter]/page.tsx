@@ -28,6 +28,8 @@ import {
   getStandardChapter,
   getStandardChapters,
   readStandardChapterMarkdown,
+  standardBookLabel,
+  standardChapterHeading,
   standardChapterOgpUrl,
   standardChapterPreamble,
   standardChapterPath,
@@ -146,8 +148,8 @@ export default async function StandardChapterPage({ params }: { params: Promise<
                 href: standardDocumentPath(entry),
               },
             ]}
-            label={`第${target.bookNumber}編 ${target.bookTitle}`}
-            title={`第${target.chapterNumber}章 ${target.chapterTitle}`}
+            label={standardBookLabel(target)}
+            title={standardChapterHeading(target)}
             meta={[entry.agencyName, entry.edition, `原本PDF ${target.firstPage}–${target.lastPage}ページ`].filter((item): item is string => Boolean(item))}
           />
 
@@ -208,7 +210,7 @@ export default async function StandardChapterPage({ params }: { params: Promise<
           </div>
           {/* 転職の案内は本文の外の末尾に 1 枠（右のナビ欄には置かない＝StandardsNavigation は閲覧ナビ専用）。案件は配置ルール */}
           <AffiliateSlot page={{ pageKind: 'standards' }} slot="standards-end" className="mt-6" />
-          <StandardsAttribution document={entry} />
+          <StandardsAttribution document={entry} item={target.item} />
         </SectionCard>
       </TwoColumnShell>
     </PageShell>
