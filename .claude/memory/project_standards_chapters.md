@@ -74,4 +74,10 @@ navigation は長期間ずっと赤だった。CI も同じ dev で走ってい�
 - **柱を持たない文書は `chapterSource: headings`**＝本文中の編・章の見出しで切る。見出しは中央寄せ（字下げ 20〜28 桁）なので字下げで判定しない。章はページ途中で替わり、境目のページは前後の章が共有する（検査 2 は連続する章の境目だけ許す）。前文は最初の章の冒頭へ。
 - 中国地整版（chugoku/local）は 5 列の訂正・追加表で、版面は列がずれて行を組み直せない。**ページ画像から 1 ページ 1 JSON に組み直し**（content/sources/standards/amendments/chugoku-local・61p・204 行・版面と文字の多重集合一致・Writer 3 体→別の QA 3 体で全承認）、中国版の章記事の条の後に差し込む（3 段の番号は節の冒頭・条に当たらない追加の行は章末。目印 amendments:start/end で囲み、表と読みやすさの検査・地域差分・公開データの条の本文から除く）。検査 `check-standards-amendments`。多重集合の照合は順序を見ないので**順序・欄の振り分けは QA が画像で見るのが要**（QA が欄の取り違え 4 件を直した）。原本の「訂正・追加」欄の空欄・`1-追加`・3 段の番号・範囲は形で持てるようにした（Writer が回避策で別の欄に逃がしていた）。
 - 章を足したときの OGP: 生成 → `asset-inbox-push --path content/site/standards-articles/ --commit` → CI 取り込み後に develop を取り込み `build-standards-ogp --write-srchash`。**build-standard-articles は chapters/ を作り直すので手元の ogp.png も消える**。札は documents.*.ogpLabel（既定以外のときだけ srcHash に入れ、既存章を作り直さない）。
-- 地方版 61 文書のページ画像（4,480p）も Drive に生成済み（mlit/sekou-kanri-kijun は原本 PDF 未配置）。全文ライブラリの文字化け 6 文書 51p は DN-0767。
+- 地方版 61 文書のページ画像（4,480p）も Drive に生成済み（mlit/sekou-kanri-kijun は原本 PDF 未配置）。全文ライブラリの文字化けは 2026-10-19 に 4 文書 154p を直した（下）。
+
+## 全文ライブラリの文字化け（DN-0767・2026-10-19 完了）
+- PDF のフォントの文字対応（ToUnicode）が壊れたページは、どの抽出器でも制御文字（U+0000〜001F）や無関係な文字の範囲（ู ᵝ Ũ 㻝）になる。U+FFFD は出ないので replacementCharacters 0 をすり抜けていた。**判定は「紙面に出る文字の範囲」の外の割合**（scripts/lib/standards-mojibake.mjs）。Latin-1 の割合で数えると目次の点線 U+00B7 と数式の上線・添字を誤判定する（初回の 51p 見積もりは誤り。実数は関東マニュアル 109・東北参考資料 34・沖縄必携10 10・四国 1）
+- 起こし直しは **macOS Vision の OCR（scripts/lib/vision-ocr.swift）を下書きに Writer が画像で 1 行ずつ直し、別の QA が照合**。OCR との 2-gram 一致の低いページは理由を注記。QA が直したのは全角/半角（様式の「年月日:」の半角コロン・半角読点「､」）、旧字形（攪）、図の中の繰り返しラベルの数、看板の小さな URL。正本は content/sources/standards/{機関}/{文書}/visual-review.json、`npm run standards-library-mojibake -- apply` が分冊と catalog のハッシュを書く。検査 `check-standards-library`（ci）
+- 国交省の施工管理基準の 6 分冊は catalog のハッシュが実体と違っていた（作成時の値のまま）。apply で実体に合わせた
+

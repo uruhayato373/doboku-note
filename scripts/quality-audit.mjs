@@ -179,6 +179,7 @@ export const CHECKS = [
   { id: 'keiken-answer-split', npm: 'check-keiken-answer-split', timeout: 120_000, ci: true, note: '1級/2級で異なる経験記述の解答欄の割り振りが混ざっていないか（2級式を1級教材に使うと(2)に3要素が乗り約200字に収まらない）' },
   { id: 'standard-articles', npm: 'check-standard-articles', timeout: 180_000, ci: true, note: '公的基準の構造化章記事を19軸で検査（本文取りこぼし・全ページ割当・SHA-256・表復元と原本照合の組み直し・catalog 72文書の被覆と除外理由・章ごとの OGP 被覆・節ページの切り出し・文の途中の改行/表のはぐれ断片/壊れた表）' },
   { id: 'standards-page-images', npm: 'check-standards-page-images', timeout: 120_000, ci: true, note: '公的基準のページ画像の provenance 整合（catalog↔manifest の原本 sha256・ページ被覆・part 範囲）。実体が無い端末では manifest のみ検査し、その旨を明示する' },
+  { id: 'standards-library', npm: 'check-standards-library', timeout: 120_000, ci: true, note: '全文ライブラリの全ページの文字化け 0（フォントの文字対応が壊れたページは制御文字や無関係な記号になり、U+FFFD の検査をすり抜ける・DN-0767）と、catalog の分冊の sha256・bytes が実体と一致' },
   { id: 'standards-amendments', npm: 'check-standards-amendments', timeout: 120_000, ci: true, note: '地方の訂正・追加表（中国地方整備局版）の組み直し: 【…関係】の全ページが承認済み・版面と文字が多重集合で一致・組み直した行が漏れなく中国版の章記事に差し込まれている' },
   {
     id: 'standards-data', npm: 'check-standards-data', timeout: 120_000, ci: true,

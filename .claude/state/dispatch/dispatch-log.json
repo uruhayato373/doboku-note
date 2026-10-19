@@ -4470,6 +4470,23 @@
       "commit": "85503b5cf9ac",
       "verification": "check-video-content",
       "note": "現役9通常233場面と2Shortsを図解主体へ修復し独立QA BLOCK0。停止52本156代表フレームを確認し停止維持。原本全面採用の実画素照合/回帰21件、実ffmpeg・VOICEVOX8件、全test失敗0。保存2424件をlocal/Drive APIで照合、不一致0。新規公開・追加予約なし。"
+    },
+    {
+      "id": "DN-0767",
+      "at": "2026-10-19",
+      "task": "全文ライブラリの文字化けページ（地方版6文書51ページ）をページ画像から直し、検査で止める",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-standards-library"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "962f1e443666",
+      "verification": "npm run check-standards-library（10,617 ページ・文字化け 0・分冊ハッシュ不一致 0）",
+      "note": "todo-complete.mjs 経由で完了処理"
     }
   ]
 }
