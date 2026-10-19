@@ -5,7 +5,7 @@
  * （.tmp/media/{exam}/{work}/{channel}.{format}[.{variant}]/{role}.{sha8}.{ext}）へ sha 入りの名前で取り込み、
  * 素材の行を台帳（content/registry/media/{exam}.json）に書き、Drive（group content-media）と同期する。
  *
- *   npm run media -- promote --pub <公開 ID> [--candidate] [--commit]   # 今は YouTube の通常動画（cover・cta・場面画像・video・subtitles）
+ *   npm run media -- promote --pub <公開 ID> [--candidate] [--commit]   # YouTube通常動画・再現記録付きShorts候補
  *   npm run media -- sync    --work <exam>/<work> [--commit]
  *   npm run media -- verify  --work <exam>/<work>          # 台帳・vault・クラウドの 3 者を照合（rclone）
  *   npm run media -- pull    --work <exam>/<work> [--commit]
@@ -45,9 +45,11 @@ function longformSources(work, reg) {
   const integrity = manifest?.mp4 ? verifyLongformRender(join(ROOT, packDir), join(ROOT, render)) : null;
   const pop = readJsonIf(ROOT, `${packDir}/pop-image.json`);
   const generated = new Map((pop?.revisions?.[pop.activeBodyRevision]?.images ?? []).map(image => [image.sceneId, image]));
-  const originalCover = reg.media.find(m => m.id === `${work.exam}/${work.id}/youtube.longform/cover`)?.provenance;
-  const coverProvenance = originalCover?.kind === 'ai-generated' ? originalCover : { kind: 'template', by: 'brand-video-pack', spec: `${packDir}/cover-design.json#longform`, specSha256: cover?.specSha256 };
   const aiProvenance = image => ({ kind: 'ai-generated', tool: 'codex', prompt: image.generation.prompt, promptSha256: createHash('sha256').update(image.generation.prompt).digest('hex'), generatedAt: image.generation.generatedAt ?? manifest.renderedAt });
+  const generatedCover = pop?.revisions?.[pop.activeCoverRevision];
+  const originalCover = reg.media.find(m => m.id === `${work.exam}/${work.id}/youtube.longform/cover`)?.provenance;
+  const coverProvenance = generatedCover?.generation?.tool === 'image_gen' ? aiProvenance(generatedCover)
+    : originalCover?.kind === 'ai-generated' ? originalCover : { kind: 'template', by: 'brand-video-pack', spec: `${packDir}/cover-design.json#longform`, specSha256: cover?.specSha256 };
   const sources = [];
   if (cover) sources.push({ role: 'cover', from: cover.path, expectSha: cover.sha256, legacy: true,
     provenance: coverProvenance });
@@ -77,11 +79,14 @@ async function promote() {
   const pub = reg.publications.find((p) => p.id === args.pub);
   const work = reg.works.find((w) => w.id === parsed.work && w.exam === parsed.exam);
   if (!pub || !work) throw new Error(`台帳に無い: ${args.pub}（先に npm run registry -- import-video-pack）`);
-  if (!(parsed.channel === 'youtube' && parsed.format === 'longform' && work.kind === 'video-pack')) throw new Error('今の promote は動画パックの YouTube 通常動画だけ');
+  if (parsed.channel !== 'youtube' || work.kind !== 'video-pack') throw new Error('promote は YouTube動画パック用です');
+  if (parsed.format !== 'longform' && !(parsed.format === 'short' && args.candidate)) throw new Error('Shortsの取り込みは --candidate のみ。公開素材を置き換えません');
+  const sources = parsed.format === 'longform' ? longformSources(work, reg)
+    : await (await import('./lib/shorts-candidate-sources.mjs')).shortsCandidateSources(ROOT, work, pub);
 
   const rows = [];
   const missing = [];
-  for (const s of longformSources(work, reg)) {
+  for (const s of sources) {
     const abs = join(ROOT, s.from);
     if (!existsSync(abs)) { missing.push(s.from); continue; }
     const sha256 = sha256Of(abs);
@@ -90,7 +95,7 @@ async function promote() {
     const role = args.candidate ? `candidate-${s.role}` : s.role;
     const owner = args.candidate ? `${pub.exam}/${pub.work}/work` : pub.id;
     const path = mediaPath(args.candidate ? { exam: pub.exam, work: pub.work, role, sha256, ext } : { pubId: pub.id, role, sha256, ext });
-    const row = { id: mediaIdOf(owner, role), role, type: mimeOf(ext), sha256, bytes: readFileSync(abs).length, store: { tier: 'drive', path }, provenance: reg.media.find(m => m.id === mediaIdOf(owner, role) && m.sha256 === sha256)?.provenance ?? s.provenance };
+    const row = { id: mediaIdOf(owner, role), role, type: mimeOf(ext), sha256, bytes: readFileSync(abs).length, store: { tier: 'drive', path }, provenance: s.provenance.kind === 'ai-generated' ? s.provenance : reg.media.find(m => m.id === mediaIdOf(owner, role) && m.sha256 === sha256)?.provenance ?? s.provenance };
     if (ext === 'png') { const meta = await sharp(abs).metadata(); row.width = meta.width; row.height = meta.height; }
     if (s.durationSec) row.durationSec = Math.round(s.durationSec * 1000) / 1000;
     if (s.legacy && s.from !== path) row.legacyPaths = [s.from];

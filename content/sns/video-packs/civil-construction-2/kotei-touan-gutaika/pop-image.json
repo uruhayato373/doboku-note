@@ -206,7 +206,7 @@
       "at": "2026-10-15T23:07:28.073Z"
     }
   },
-  "activeCoverRevision": "cover-safe-20261018",
+  "activeCoverRevision": "diagram-led-20261019-cover",
   "revisions": {
     "cover-safe-20261018": {
       "version": "pop-poster-v3",
@@ -944,7 +944,787 @@
           }
         }
       ]
+    },
+    "diagram-led-20261019": {
+      "version": "codex-pop-body-v1",
+      "date": "2026-10-19",
+      "purpose": "図解主体・控えめな配色。装飾キャラクターと著者名を除去。外部未反映。",
+      "layout": {
+        "mode": "diagram-led",
+        "canvas": {
+          "width": 1920,
+          "height": 1080
+        },
+        "subtitleSafeTop": 820
+      },
+      "images": [
+        {
+          "sceneId": "hook",
+          "inputSha256": "a8cb1c66547b491a52b531b93bb542facceed6f7eaa9ab3ee1fa1d11d83a221c",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "増員の前に、遅れの原因を整理",
+            "items": [
+              "何が遅れの原因か",
+              "どの工種に影響するか",
+              "だから、どの処置を選ぶか"
+            ]
+          },
+          "narration": "「増員した」だけの答案になっていませんか。遅れの原因と影響する工種から、処置の理由を説明します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene kotei-touan-gutaika/hook. Narration to illustrate faithfully, not all to print: 「増員した」だけの答案になっていませんか。遅れの原因と影響する工種から、処置の理由を説明します。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"増員の前に、遅れの原因を整理\",\"items\":[\"何が遅れの原因か\",\"どの工種に影響するか\",\"だから、どの処置を選ぶか\"]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/kotei-touan-gutaika--hook-reference.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/kotei-touan-gutaika--hook-raw.fb7c6b1c.png",
+              "sha256": "fb7c6b1cc6554f6a62b752ce0ed66568a39f942b65f1e144a3557b61d6afd770",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:33:51.603Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/kotei-touan-gutaika--hook.96892056.png",
+            "sha256": "968920568f02ad8e8898e2163ca7b43f1f6898ce73e47c09881755a044265f0d",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "fb7c6b1cc6554f6a62b752ce0ed66568a39f942b65f1e144a3557b61d6afd770"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:27:18.928Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "原因→影響工種→処置の選択を雨天の土工・基礎躯体への影響・排水の一般図で示し、導入の一般的な説明に対応。"
+          }
+        },
+        {
+          "sceneId": "authority",
+          "inputSha256": "7ab8b53b290bc3f4c214fd84ef829fd9450d4c8782f4ef39ec42add40bc7fafc",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "経験を整理する視点",
+            "items": [
+              "現場条件",
+              "自分の対応",
+              "確認記録"
+            ]
+          },
+          "narration": "技術士の総合技術監理部門と、1級・2級土木に合格した元発注者が、工程管理の書き方を解説します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Create ONE 16:9 wide quiet illustration with no text at all. On a white canvas, two ordinary civil-construction workers wearing white helmets and muted green safety clothing consult a construction plan and a work notebook at a simple desk. The plan and their pointing/checking action are the focus. Small natural human figures, NOT a mascot, no large portrait, no speech bubble, no name, no qualification, no credentials, no alphabet, no numbers, NO Japanese or other text anywhere. Fine green/gray outlines and very restrained pale accents, matching only the palette of the attached no-text style reference. No landscape or decoration. Use the central upper 70% of the full-width 16:9 frame, leaving lower 240px as continuous clean white for subtitles. Do not add an enclosing border or colored padding. This scene accompanies a narration about explaining from practical experience, but must contain ONLY the human checking action and useful plan/notebook props, no biography diagram or qualifications.",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/keiken-daizai-erabi--authority-reference.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/keiken-daizai-erabi--authority-raw.63fef5f2.png",
+              "sha256": "63fef5f2ac437399fe83496afe910cb22c2cadc2f1807fbdf348bff977abd759",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:20:50.791Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/keiken-daizai-erabi--authority.61ac6ea0.png",
+            "sha256": "61ac6ea09f703b834319ae98faf8560d9cfd4c19b844fc472c244acc862a1cf5",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "63fef5f2ac437399fe83496afe910cb22c2cadc2f1807fbdf348bff977abd759"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:27:19.013Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "図面を指す人とノートへ記録する人の2人について腕・手の接続と作業動作を確認。装飾の先生・解説名・肩書き・指定外文字なし。"
+          }
+        },
+        {
+          "sceneId": "premise",
+          "inputSha256": "bf828fe3c960f84928dbb93d01be24c5ed8730742d191f1e4c5c42896a2c938b",
+          "sourceCopy": {
+            "kind": "compare",
+            "heading": "同じ「遅れ」でも、理由は違う",
+            "ngLabel": "処置だけ",
+            "okLabel": "理由まで",
+            "rows": [
+              {
+                "ng": "とりあえず増員",
+                "ok": "人手不足か\n材料待ちかを確かめる"
+              }
+            ]
+          },
+          "narration": "人が足りない遅れと、材料を待つ遅れでは、必要な処置が違います。人数を増やす前に、止まる理由を探します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene kotei-touan-gutaika/premise. Narration to illustrate faithfully, not all to print: 人が足りない遅れと、材料を待つ遅れでは、必要な処置が違います。人数を増やす前に、止まる理由を探します。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"同じ「遅れ」でも、理由は違う\",\"rows\":[{\"ng\":\"とりあえず増員\",\"ok\":\"人手不足か\\n材料待ちかを確かめる\"}],\"ngLabel\":\"処置だけ\",\"okLabel\":\"理由まで\"}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/kotei-touan-gutaika--premise-reference.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/kotei-touan-gutaika--premise-raw.254dc285.png",
+              "sha256": "254dc2857419677f2a51126ce909e6308c31f918391c9dea2c14d8c848579e3a",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:33:51.639Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/kotei-touan-gutaika--premise.2b04deb1.png",
+            "sha256": "2b04deb136156bf0da3b4a99806b17b2733e6ddcda316797ddfe2ae95a7d084d",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "254dc2857419677f2a51126ce909e6308c31f918391c9dea2c14d8c848579e3a"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:27:19.102Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "人手不足か材料待ちかを確認する分岐と、とりあえずの増員との差を示し、処置の前に理由を探す原稿に対応。"
+          }
+        },
+        {
+          "sceneId": "delay",
+          "inputSha256": "c4f047f4d5e839f14242f5e75b8acf2319ed269e0cb9d08ce812da61a0959a47",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "仮の例：製品が届かず、据付待ち",
+            "sheetTitle": "道路排水工事の仮の例",
+            "rows": [
+              {
+                "label": "遅延原因",
+                "value": "側溝製品の納入待ち",
+                "state": "focus",
+                "order": 1
+              },
+              {
+                "label": "影響工種",
+                "value": "据付と、その後の埋戻し",
+                "state": "todo",
+                "order": 2
+              },
+              {
+                "label": "検討・処置",
+                "value": "条件がそろう別区間を先行",
+                "state": "todo",
+                "order": 3
+              },
+              {
+                "label": "結果の確認",
+                "value": "工程表で計画と実績を照合",
+                "state": "todo",
+                "order": 4
+              }
+            ]
+          },
+          "narration": "小規模な道路の排水工事を想定します。一部の側溝製品の納入が遅れ、据付を始められない場面です。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene kotei-touan-gutaika/delay. Narration to illustrate faithfully, not all to print: 小規模な道路の排水工事を想定します。一部の側溝製品の納入が遅れ、据付を始められない場面です。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"仮の例：製品が届かず、据付待ち\",\"rows\":[{\"label\":\"遅延原因\",\"value\":\"側溝製品の納入待ち\",\"state\":\"focus\",\"order\":1},{\"label\":\"影響工種\",\"value\":\"据付と、その後の埋戻し\",\"state\":\"todo\",\"order\":2},{\"label\":\"検討・処置\",\"value\":\"条件がそろう別区間を先行\",\"state\":\"todo\",\"order\":3},{\"label\":\"結果の確認\",\"value\":\"工程表で計画と実績を照合\",\"state\":\"todo\",\"order\":4}]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/kotei-touan-gutaika--delay-reference.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/kotei-touan-gutaika--delay-raw.cd0202f8.png",
+              "sha256": "cd0202f8084ce5b7496220495f6746fe9fb1a9e5095c90d431db61105373dea9",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:33:28.828Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/kotei-touan-gutaika--delay.122890c9.png",
+            "sha256": "122890c910e1bdba78083cc569771f1acce1761e7131bf89af158ee1bb52ec92",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "cd0202f8084ce5b7496220495f6746fe9fb1a9e5095c90d431db61105373dea9"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:27:19.188Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "一部の側溝製品の不足、据付待ち、条件がそろう別区間の先行が原稿の仮例に対応。"
+          }
+        },
+        {
+          "sceneId": "affected",
+          "inputSha256": "ffcfff54406517e6b674e59b7a861b8301a7464f86a72868e04f22168145515c",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "その遅れは、次の作業に影響する",
+            "items": [
+              "側溝製品の納入待ち",
+              "側溝の据付が遅れる",
+              "後続の埋戻しも遅れる"
+            ],
+            "reveal": 3,
+            "focus": 2
+          },
+          "narration": "この例では、側溝を据え付けてから、その周囲を埋め戻す順序です。据付の遅れが、埋戻しにも影響します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene kotei-touan-gutaika/affected. Narration to illustrate faithfully, not all to print: この例では、側溝を据え付けてから、その周囲を埋め戻す順序です。据付の遅れが、埋戻しにも影響します。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"その遅れは、次の作業に影響する\",\"items\":[\"側溝製品の納入待ち\",\"側溝の据付が遅れる\",\"後続の埋戻しも遅れる\"]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/kotei-touan-gutaika--affected-reference.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/kotei-touan-gutaika--affected-raw.6b285724.png",
+              "sha256": "6b2857241ed08cf5090d3758d561f002b71be08462c92dc90b715b88644b24e2",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:33:51.633Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/kotei-touan-gutaika--affected.aab7e70d.png",
+            "sha256": "aab7e70d2deb75fbe84e6e70d505f6a9a9f0686be9e835e5e7f8de606a159ce3",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "6b2857241ed08cf5090d3758d561f002b71be08462c92dc90b715b88644b24e2"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:27:19.279Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "側溝製品の納入待ち→据付の遅れ→後続埋戻しの遅れの関係と指定文字を確認。誘導員は吊荷の側方に描かれる。"
+          }
+        },
+        {
+          "sceneId": "bottleneck",
+          "inputSha256": "318f13fc19402daa996ccb5ea16db3ab0b21c534ac830ac9043ee9570dc68170",
+          "sourceCopy": {
+            "kind": "compare",
+            "heading": "材料待ちなら、増員だけでは進まない",
+            "ngLabel": "処置だけ",
+            "okLabel": "理由まで",
+            "rows": [
+              {
+                "ng": "据付待ちの区間へ増員",
+                "ok": "先に進められる\n作業を探す"
+              }
+            ]
+          },
+          "narration": "材料待ちの区間に人を増やしても、据付は始められません。工程表で、待つ作業と、先に進められる作業を分けます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene kotei-touan-gutaika/bottleneck. Narration to illustrate faithfully, not all to print: 材料待ちの区間に人を増やしても、据付は始められません。工程表で、待つ作業と、先に進められる作業を分けます。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"材料待ちなら、増員だけでは進まない\",\"rows\":[{\"ng\":\"据付待ちの区間へ増員\",\"ok\":\"先に進められる\\n作業を探す\"}],\"ngLabel\":\"処置だけ\",\"okLabel\":\"理由まで\"}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.\nPREVIOUS SCENE CONTEXT (not to print): {\"sceneId\":\"affected\",\"start\":42,\"end\":53,\"narration\":\"この例では、側溝を据え付けてから、その周囲を埋め戻す順序です。据付の遅れが、埋戻しにも影響します。\",\"caption\":\"この例では、側溝を据え付けてから、その周囲を埋め戻す順序です。据付の遅れが、埋戻しにも影響します。\",\"visual\":{\"kind\":\"points\",\"heading\":\"その遅れは、次の作業に影響する\",\"items\":[\"側溝製品の納入待ち\",\"側溝の据付が遅れる\",\"後続の埋戻しも遅れる\"],\"reveal\":3,\"focus\":2},\"sourceRef\":\"content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集/工程管理/article.md\"}\nNEXT SCENE CONTEXT (not to print): {\"sceneId\":\"options\",\"start\":63,\"end\":75,\"narration\":\"納入の見込みを確認し、材料がそろった別区間を先に施工できるか検討します。作業の順序を変えられるかが焦点です。\",\"caption\":\"納入の見込みを確認し、材料がそろった別区間を先に施工できるか検討します。作業の順序を変えられるかが焦点です。\",\"visual\":{\"kind\":\"sheet\",\"heading\":\"待つ区間と、先に進める区間を分ける\",\"sheetTitle\":\"道路排水工事の仮の例\",\"rows\":[{\"label\":\"遅延原因\",\"value\":\"側溝製品の納入待ち\",\"state\":\"done\",\"order\":1},{\"label\":\"影響工種\",\"value\":\"据付と、その後の埋戻し\",\"state\":\"done\",\"order\":2},{\"label\":\"検討・処置\",\"value\":\"条件がそろう別区間を先行\",\"state\":\"focus\",\"order\":3},{\"label\":\"結果の確認\",\"value\":\"工程表で計画と実績を照合\",\"state\":\"todo\",\"order\":4}]},\"sourceRef\":\"content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集/工程管理/article.md\"}\nMANDATORY CORRECTION: Same ROAD DRAINAGE example: delayed precast roadside U-channel delivery. Draw ONLY two boxes of an overhead work-zone plan: 待つ区間 (dashed outline of missing U-channels) and 先行できる区間 (tiny simple U-channel line with checkmark). Link to notebook comparing availability. NO PC wall panels, buildings, rebar, pipes, workers, cranes or suspended loads.",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/kotei-touan-gutaika--bottleneck-reference.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/kotei-touan-gutaika--bottleneck-raw.dc7df968.png",
+              "sha256": "dc7df968ec6f44fc21bb23c25667e1fc720b4876d9f77ca13cb81bc50efa8a13",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T23:09:41.840Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/kotei-touan-gutaika--bottleneck.484c198a.png",
+            "sha256": "484c198ab157ca81ba4bde1fd65daf404a5feb07c054b31fa724280b9758aa8b",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "dc7df968ec6f44fc21bb23c25667e1fc720b4876d9f77ca13cb81bc50efa8a13"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:27:19.364Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "側溝製品が無い待つ区間と、製品がそろう先行可能区間を工程表で照合する図に修正され、別工事のPC壁・鉄筋と吊荷を除去。原稿と指定文字の対応を確認。"
+          }
+        },
+        {
+          "sceneId": "options",
+          "inputSha256": "c7b90e82550b7d4e909548e00782f8b165f1538ee01e61993c1e4bea55b8b56d",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "待つ区間と、先に進める区間を分ける",
+            "sheetTitle": "道路排水工事の仮の例",
+            "rows": [
+              {
+                "label": "遅延原因",
+                "value": "側溝製品の納入待ち",
+                "state": "done",
+                "order": 1
+              },
+              {
+                "label": "影響工種",
+                "value": "据付と、その後の埋戻し",
+                "state": "done",
+                "order": 2
+              },
+              {
+                "label": "検討・処置",
+                "value": "条件がそろう別区間を先行",
+                "state": "focus",
+                "order": 3
+              },
+              {
+                "label": "結果の確認",
+                "value": "工程表で計画と実績を照合",
+                "state": "todo",
+                "order": 4
+              }
+            ]
+          },
+          "narration": "納入の見込みを確認し、材料がそろった別区間を先に施工できるか検討します。作業の順序を変えられるかが焦点です。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付の学習画像を構成し直す。横16:9、1920×1080。図解メイン、POPは控えめ。白地、くすんだ緑とグレー、小さな黄色。太すぎる見出し、飾り人物、著者名、先生、肩書きなし。字幕が重なったため、全ての文字と重要図を上側y80〜700に収める。下380pxは白地だけ。完成画像の縮小貼付や帯で埋めず、直接この構成で描く。\n見出し「待つ区間と先に進める区間を分ける」。小さく「側溝製品の納入待ちの例」。y250〜650の横3カードだけ。左「納入見込みを確認」、中央「条件がそろう別区間を先行」、右「工程表で計画と実績を照合」。中央カードにだけ、ごく小さい道路平面図で「待つ区間」と「先行区間」を色分け。3カードは横矢印で接続。U字溝の立体図や下段の再説明は不要。\n指定外の内容は足さない。大きな図を優先して文字を下げない。",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/kotei-touan-gutaika--options-reference.922cfb51.png",
+                "sha256": "922cfb5120f7b1ffd7c2a94e59fdc5782a1fed5b09a5c25d8c2b39e8a4d2d05e"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/kotei-touan-gutaika--options-raw.72e636ca.png",
+              "sha256": "72e636ca0ee9565d48edd58753f30c3e72fd44418d5652b5569bdbbec9824242",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T23:22:51.775Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/kotei-touan-gutaika--options.b4106ece.png",
+            "sha256": "b4106ece163695f064db1b8513ff73e9153bd31fc6ed4f0cfcd43ad69ccfec67",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "72e636ca0ee9565d48edd58753f30c3e72fd44418d5652b5569bdbbec9824242"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:27:19.450Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "下段再掲を除去し、納入見込み確認→条件がそろう別区間先行→計画実績照合の3カードへ修正。側溝製品の納入待ちという同じ例に一致。原寸と360pxで判読し、全重要文字と図が正規化y約735以内に収まりy<820を満たす。"
+          }
+        },
+        {
+          "sceneId": "conditions",
+          "inputSha256": "584da2ac8ad79f989b312692a21ff8d823ac398c9cb137b1893945291a96afbc",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "先行施工には、条件の確認が必要",
+            "items": [
+              "安全に作業できる場所か",
+              "機械の配置が重ならないか",
+              "品質を守る手順を保てるか"
+            ],
+            "reveal": 3
+          },
+          "narration": "ただし、別区間なら何でも先行できるわけではありません。安全な作業場所、機械の配置、品質上の手順を確かめます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene kotei-touan-gutaika/conditions. Narration to illustrate faithfully, not all to print: ただし、別区間なら何でも先行できるわけではありません。安全な作業場所、機械の配置、品質上の手順を確かめます。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"先行施工には、条件の確認が必要\",\"items\":[\"安全に作業できる場所か\",\"機械の配置が重ならないか\",\"品質を守る手順を保てるか\"]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/kotei-touan-gutaika--conditions-reference.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/kotei-touan-gutaika--conditions-raw.8cfc5f7d.png",
+              "sha256": "8cfc5f7de3ed976918da2ccaf604a5a964c18d3dd805b476a5b8d388c22c7225",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:38:31.445Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/kotei-touan-gutaika--conditions.95c22a2c.png",
+            "sha256": "95c22a2ce7279fdee08d63f74abe84aa46d9e5126202ff6937048e91960ede24",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "8cfc5f7de3ed976918da2ccaf604a5a964c18d3dd805b476a5b8d388c22c7225"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:27:19.541Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "安全な場所・機械配置の競合・品質上の手順という3確認を区画・重機配置・仕上げ作業の図で示し原稿に一致。"
+          }
+        },
+        {
+          "sceneId": "execution",
+          "inputSha256": "2f1309923ae8c295b0e65c944bc9ccde510f75df7a3e2fd790802bf3f8f33427",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "どこを、どの順序に変えるか",
+            "sheetTitle": "仮の例：段取りの整理",
+            "rows": [
+              {
+                "label": "待つ区間",
+                "value": "納入見込みを確認",
+                "state": "done"
+              },
+              {
+                "label": "先行区間",
+                "value": "材料・安全・施工条件を確認",
+                "state": "done"
+              },
+              {
+                "label": "順序変更",
+                "value": "先行区間の作業を関係者と共有",
+                "state": "focus"
+              }
+            ]
+          },
+          "narration": "条件がそろう区間を先に施工する段取りを組み、関係者と共有します。答案では、変更した順序とその理由を示します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene kotei-touan-gutaika/execution. Narration to illustrate faithfully, not all to print: 条件がそろう区間を先に施工する段取りを組み、関係者と共有します。答案では、変更した順序とその理由を示します。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"どこを、どの順序に変えるか\",\"rows\":[{\"label\":\"待つ区間\",\"value\":\"納入見込みを確認\",\"state\":\"done\"},{\"label\":\"先行区間\",\"value\":\"材料・安全・施工条件を確認\",\"state\":\"done\"},{\"label\":\"順序変更\",\"value\":\"先行区間の作業を関係者と共有\",\"state\":\"focus\"}]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.\nPREVIOUS SCENE CONTEXT (not to print): {\"sceneId\":\"conditions\",\"start\":75,\"end\":86,\"narration\":\"ただし、別区間なら何でも先行できるわけではありません。安全な作業場所、機械の配置、品質上の手順を確かめます。\",\"caption\":\"ただし、別区間なら何でも先行できるわけではありません。安全な作業場所、機械の配置、品質上の手順を確かめます。\",\"visual\":{\"kind\":\"points\",\"heading\":\"先行施工には、条件の確認が必要\",\"items\":[\"安全に作業できる場所か\",\"機械の配置が重ならないか\",\"品質を守る手順を保てるか\"],\"reveal\":3},\"sourceRef\":\"content/sns/video-packs/civil-construction-2/kotei-touan-gutaika/script.md\"}\nNEXT SCENE CONTEXT (not to print): {\"sceneId\":\"followup\",\"start\":96,\"end\":107,\"narration\":\"順序を変えた後も、計画と実績を比べます。どの作業の待ち時間が減り、後続工種にどう影響したかを確認します。\",\"caption\":\"順序を変えた後も、計画と実績を比べます。どの作業の待ち時間が減り、後続工種にどう影響したかを確認します。\",\"visual\":{\"kind\":\"sheet\",\"heading\":\"処置の後に、工程がどう変わったか\",\"sheetTitle\":\"道路排水工事の仮の例\",\"rows\":[{\"label\":\"遅延原因\",\"value\":\"側溝製品の納入待ち\",\"state\":\"done\",\"order\":1},{\"label\":\"影響工種\",\"value\":\"据付と、その後の埋戻し\",\"state\":\"done\",\"order\":2},{\"label\":\"検討・処置\",\"value\":\"条件がそろう別区間を先行\",\"state\":\"done\",\"order\":3},{\"label\":\"結果の確認\",\"value\":\"工程表で計画と実績を照合\",\"state\":\"focus\",\"order\":4}]},\"sourceRef\":\"content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集/工程管理/article.md\"}\nMANDATORY CORRECTION: Same delayed roadside U-channel example. ONLY three document/overhead-zone nodes using original labels: 納入見込みを確認 / 材料・安全・施工条件を確認 / 先行区間の作業を関係者と共有. Use a simple road line and two separate work-zone rectangles, not a physical trench. NO pipes, shoring, wall panels, lifting or machinery.",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/kotei-touan-gutaika--execution-reference.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/kotei-touan-gutaika--execution-raw.31778c57.png",
+              "sha256": "31778c57b648869b2fb8ef4114522ccfb3d714940015004cb50d92287945be46",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T23:09:41.849Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/kotei-touan-gutaika--execution.d6f5cbb1.png",
+            "sha256": "d6f5cbb1179b5727b9b0104dad375091d541a4560e96f7a45ccc4e4b493a8c36",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "31778c57b648869b2fb8ef4114522ccfb3d714940015004cb50d92287945be46"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:27:19.630Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "管渠と土留を除去し、側溝の納入見込み確認→材料安全施工条件→関係者への共有という同じ道路排水工事に修正。本文、文字、主な関係矢印が一致し、重要文字が字幕域から離れる。"
+          }
+        },
+        {
+          "sceneId": "followup",
+          "inputSha256": "c70b76f8a435cbd97e4f5c42c5c994e3f7347cb7987d9847322577210802161f",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "処置の後に、工程がどう変わったか",
+            "sheetTitle": "道路排水工事の仮の例",
+            "rows": [
+              {
+                "label": "遅延原因",
+                "value": "側溝製品の納入待ち",
+                "state": "done",
+                "order": 1
+              },
+              {
+                "label": "影響工種",
+                "value": "据付と、その後の埋戻し",
+                "state": "done",
+                "order": 2
+              },
+              {
+                "label": "検討・処置",
+                "value": "条件がそろう別区間を先行",
+                "state": "done",
+                "order": 3
+              },
+              {
+                "label": "結果の確認",
+                "value": "工程表で計画と実績を照合",
+                "state": "focus",
+                "order": 4
+              }
+            ]
+          },
+          "narration": "順序を変えた後も、計画と実績を比べます。どの作業の待ち時間が減り、後続工種にどう影響したかを確認します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene kotei-touan-gutaika/followup. Narration to illustrate faithfully, not all to print: 順序を変えた後も、計画と実績を比べます。どの作業の待ち時間が減り、後続工種にどう影響したかを確認します。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"処置の後に、工程がどう変わったか\",\"rows\":[{\"label\":\"遅延原因\",\"value\":\"側溝製品の納入待ち\",\"state\":\"done\",\"order\":1},{\"label\":\"影響工種\",\"value\":\"据付と、その後の埋戻し\",\"state\":\"done\",\"order\":2},{\"label\":\"検討・処置\",\"value\":\"条件がそろう別区間を先行\",\"state\":\"done\",\"order\":3},{\"label\":\"結果の確認\",\"value\":\"工程表で計画と実績を照合\",\"state\":\"focus\",\"order\":4}]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/kotei-touan-gutaika--followup-reference.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/kotei-touan-gutaika--followup-raw.ee3fdb60.png",
+              "sha256": "ee3fdb604b0921c903819718e66d0420da94e24cee7f4eda5e0ed1c4595931e3",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:37:22.996Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/kotei-touan-gutaika--followup.cde68a69.png",
+            "sha256": "cde68a69c37690bfcb31a5ccdc9092ff663d35a07e7e2e30d9a6b60c60636898",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "ee3fdb604b0921c903819718e66d0420da94e24cee7f4eda5e0ed1c4595931e3"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:27:19.717Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "側溝工事の据付と埋戻し、計画と実績の照合を図示し、原稿の結果確認に対応。具体的な短縮日数を創作していない。"
+          }
+        },
+        {
+          "sceneId": "own-work",
+          "inputSha256": "cc2d9b2ba49dd3630d095fd115486dd18aab0b4487cd8434add2ca64a97e0950",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "自分の記録から、答案を具体化",
+            "items": [
+              "原因と影響工種をつなぐ",
+              "処置を選んだ理由を示す",
+              "工程表・日報で結果を確かめる"
+            ]
+          },
+          "narration": "自分の工事では、何が遅れ、どこへ影響しましたか。人数や日数は記録で確かめ、実施した処置と結果を結びましょう。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene kotei-touan-gutaika/own-work. Narration to illustrate faithfully, not all to print: 自分の工事では、何が遅れ、どこへ影響しましたか。人数や日数は記録で確かめ、実施した処置と結果を結びましょう。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"自分の記録から、答案を具体化\",\"items\":[\"原因と影響工種をつなぐ\",\"処置を選んだ理由を示す\",\"工程表・日報で結果を確かめる\"]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/kotei-touan-gutaika--own-work-reference.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/kotei-touan-gutaika--own-work-raw.2a37bbfc.png",
+              "sha256": "2a37bbfc2f243d4627ddaddb3565c39f679b84d967e6a167c07ded04e78549d2",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:37:42.922Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/kotei-touan-gutaika--own-work.44173f92.png",
+            "sha256": "44173f92100d0ae1bae1620ee5c074a3a799ff424e416fe6d5c3834c65d72e58",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "2a37bbfc2f243d4627ddaddb3565c39f679b84d967e6a167c07ded04e78549d2"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:27:19.808Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "原因・影響、選択理由、工程表と日報の3項目を雨天土工・排水・記録で示し、自分の別工事を問い直す原稿に対応。"
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "1f333b074fb84a1bafbf6abbd9a4d809d9513618d405138cba40fe80dd2d934d",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "工程管理は、処置の理由まで書く",
+            "items": [
+              "遅延原因：何で止まったか",
+              "影響工種：次に何が遅れるか",
+              "検討・処置：理由と結果を示す"
+            ],
+            "reveal": 3,
+            "focus": 2
+          },
+          "narration": "まとめです。原因、影響工種、処置の順に考える。増員した事実だけでなく、なぜその方法を選んだかを伝えましょう。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene kotei-touan-gutaika/summary. Narration to illustrate faithfully, not all to print: まとめです。原因、影響工種、処置の順に考える。増員した事実だけでなく、なぜその方法を選んだかを伝えましょう。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"工程管理は、処置の理由まで書く\",\"items\":[\"遅延原因：何で止まったか\",\"影響工種：次に何が遅れるか\",\"検討・処置：理由と結果を示す\"]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.\nFor this scene use ONLY document/book/notebook icons and arrows. NO machinery, NO suspended loads, NO physical construction operation. No extra example beyond source. Minimal clear diagram, no redundant sidebars.",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/kotei-touan-gutaika--summary-reference.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/kotei-touan-gutaika--summary-raw.ba2cd100.png",
+              "sha256": "ba2cd100f2722c47fe9a0b4a9bc1866b2fbca38ebf92db40028a5974842c1874",
+              "width": 1672,
+              "height": 940
+            },
+            "generatedAt": "2026-10-18T22:37:56.448Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/kotei-touan-gutaika--summary.4a00b795.png",
+            "sha256": "4a00b7956fc44abed5a82ac9df59fa99b50f495e35bc6bf8679f23d0c4c3d3f5",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "ba2cd100f2722c47fe9a0b4a9bc1866b2fbca38ebf92db40028a5974842c1874"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:27:19.906Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "遅延原因→影響工種→検討処置の3つを文書・分岐・理由説明の図で示し、指定文言と字幕安全域を確認。"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "d990d41f92ac5e4d140e7166e28100130d90a86f0da28751efcbf81b04ab072f",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "工種とテーマに合わせて練習",
+            "items": [
+              "2級土木 施工経験記述 完成答案集",
+              "安全・品質・工程の答案＋置換ガイド",
+              "概要欄のnoteマガジンへ"
+            ]
+          },
+          "narration": "元発注者・土木合格者がつくる完成答案集です。安全・品質・工程の答案と置換ガイドは、概要欄からご覧ください。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene kotei-touan-gutaika/cta. Narration to illustrate faithfully, not all to print: 元発注者・土木合格者がつくる完成答案集です。安全・品質・工程の答案と置換ガイドは、概要欄からご覧ください。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"工種とテーマに合わせて練習\",\"items\":[\"2級土木 施工経験記述 完成答案集\",\"安全・品質・工程の答案＋置換ガイド\",\"概要欄のnoteマガジンへ\"]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.\nFor this scene use ONLY document/book/notebook icons and arrows. NO machinery, NO suspended loads, NO physical construction operation. No extra example beyond source. Minimal clear diagram, no redundant sidebars.",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/kotei-touan-gutaika--cta-reference.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/kotei-touan-gutaika--cta-raw.901bb3ba.png",
+              "sha256": "901bb3ba4674729578bbb377314e353354fcf26f708a03e258be80e42a3635c8",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:38:11.959Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/kotei-touan-gutaika--cta.17ce75cd.png",
+            "sha256": "17ce75cd5ddb0ea21f2a35d1c4c1c5e689bef6ef1d7a256af27d5a286fa8ef9a",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "901bb3ba4674729578bbb377314e353354fcf26f708a03e258be80e42a3635c8"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:27:19.997Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "完成答案集・安全品質工程の答案と置換ガイド・概要欄のnoteという文書図だけの流れで、指定文言に一致。"
+          }
+        }
+      ],
+      "review": {
+        "status": "ok",
+        "by": "video-content-qa",
+        "at": "2026-10-18T23:55:44.239Z",
+        "mp4Sha256": "d3f4b335ff2a869f0dc6740758c79fa4cdf20922d0a6660649fb8b04e98f2b7b",
+        "scope": "全14場面の完成動画中点を原寸・360px実見。音声・画像・字幕・MP4の機械照合。",
+        "evidence": {
+          "path": ".tmp/media/_brand/diagram-led/qa-report.1cd922fe.json",
+          "sha256": "1cd922fec2a44ce403978bfa74b1746934c01ba135b8b5c07e15cd6dc67dba69"
+        }
+      }
+    },
+    "diagram-led-20261019-cover": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "Use case: scientific-educational. One calm 16:9 full-width educational video title image, intended 1920x1080. Exact small qualification label 「2級土木」 and main title 「工程管理の経験記述｜増員した理由と結果まで整理する」. Illustrate the central learning idea: 遅延原因と影響工種を整理し、理由のある処置と結果を自分の工事の記録から説明できる. WHITE background, muted green thin-line construction diagram, a few purposeful arrows or 2-3 clean illustrated nodes. Restrained dark-green typography, pale gray/green panels, tiny yellow accent only. No big character, no decorative teacher, no author name, no credential, no promotional badge, no speedlines or heavy outlined text, no border, no colored padding. A modest construction worker may appear only if their action explains the topic. All important content above y=800 on 1080 high frame; bottom is continuous white for subtitles, not an added band. Direct full-width 16:9 composition, legible at 360px, no invented statistics or words.",
+        "references": [
+          {
+            "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/kotei-touan-gutaika--cover-reference.f6f6543d.png",
+            "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/kotei-touan-gutaika--cover-raw.890a41d1.png",
+          "sha256": "890a41d19a725e30e4c39330459294545f60d18ec96a1a88a1a2fcb17aab572b",
+          "width": 1672,
+          "height": 941
+        },
+        "generatedAt": "2026-10-18T22:54:53.603Z"
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-2/kotei-touan-gutaika/work/kotei-touan-gutaika--cover.fb5677cd.png",
+        "sha256": "fb5677cd6bb901b35e1022666d90de3a85a3face59501f84a477a6931104ff12",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "890a41d19a725e30e4c39330459294545f60d18ec96a1a88a1a2fcb17aab572b"
+      },
+      "review": {
+        "status": "ok",
+        "by": "ai-image-fidelity-auditor",
+        "at": "2026-10-18T23:27:20.089Z",
+        "scope": "原寸・360px・本文/前後関係・字幕安全域",
+        "reason": "資格名・工程管理の経験記述・増員した理由と結果まで整理するの指定文字、遅延原因と影響・理由ある処置・結果の3図を原寸と360pxで確認。主要文字と矢印は字幕領域から離れ、肩書きや解説名なし。"
+      }
     }
   },
-  "activeBodyRevision": "body-scenes-20261018"
+  "activeBodyRevision": "diagram-led-20261019"
 }

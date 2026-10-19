@@ -61,7 +61,8 @@ export async function verifyImageReproduction(root, record, { restoreMissing } =
   if (Math.abs(end - recipe.totalFrames / recipe.fps) > 1e-6) throw new Error('全場面の尺が動画フレーム数と不一致です');
   await readAsset(recipe.sourceVideo);
   await readAsset(recipe.originalSubtitles);
+  if (recipe.subtitles) await readAsset(recipe.subtitles);
   await readAsset(recipe.verifiedOutput);
-  return { publicationId: record.publicationId, checkedFiles, expectedFiles: scenes.length + 4,
+  return { publicationId: record.publicationId, checkedFiles, expectedFiles: scenes.length + 4 + (recipe.subtitles ? 1 : 0),
     checkedScenes: scenes.length, output: recipe.verifiedOutput, mode: 'exact-file-restoration' };
 }

@@ -206,7 +206,7 @@
       "at": "2026-10-15T23:07:28.124Z"
     }
   },
-  "activeCoverRevision": "cover-safe-20261018",
+  "activeCoverRevision": "diagram-led-20261019-cover",
   "revisions": {
     "cover-safe-20261018": {
       "version": "pop-poster-v3",
@@ -920,7 +920,755 @@
           }
         }
       ]
+    },
+    "diagram-led-20261019": {
+      "version": "codex-pop-body-v1",
+      "date": "2026-10-19",
+      "purpose": "図解主体・控えめな配色。装飾キャラクターと著者名を除去。外部未反映。",
+      "layout": {
+        "mode": "diagram-led",
+        "canvas": {
+          "width": 1920,
+          "height": 1080
+        },
+        "subtitleSafeTop": 820
+      },
+      "images": [
+        {
+          "sceneId": "hook",
+          "inputSha256": "5e24da10663b4894a92fce7bec8c50b7eb0ef5f0ed25de460f255d0991279db3",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "検討も対応も、同じ文になるとき",
+            "items": [
+              "条件：どんな制約があったか",
+              "検討：何を考えて選んだか",
+              "対応：何を実施したか"
+            ]
+          },
+          "narration": "検討も対応も、同じ文章になっていませんか。考えた理由と実施した内容を、工事の条件から分けて整理します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene kento-taio-kakiwake/hook. Narration to illustrate faithfully, not all to print: 検討も対応も、同じ文章になっていませんか。考えた理由と実施した内容を、工事の条件から分けて整理します。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"検討も対応も、同じ文になるとき\",\"items\":[\"条件：どんな制約があったか\",\"検討：何を考えて選んだか\",\"対応：何を実施したか\"]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--hook-raw.3f6b5cc9.png",
+              "sha256": "3f6b5cc90477e2199a73187eecaa78d315f3781d59b2240784e786b0fff7752b",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:42:28.932Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--hook.970b6bac.png",
+            "sha256": "970b6baccd64e5e77650efee9db2a52323ef4424ac723aad1799070346846489",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "3f6b5cc90477e2199a73187eecaa78d315f3781d59b2240784e786b0fff7752b"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:24:25.917Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "条件→検討→対応の3区分と考える作業員・施工前後の土留の図が役割の区別に対応。"
+          }
+        },
+        {
+          "sceneId": "authority",
+          "inputSha256": "904abcf3b782cd37329307d1c95ff98ec3ab57d3afd76f737929d91a8c462a7d",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "経験を整理する視点",
+            "items": [
+              "現場条件",
+              "自分の対応",
+              "確認記録"
+            ]
+          },
+          "narration": "総合技術監理部門の技術士で、1級・2級土木に合格した元発注者が、経験を文章にする視点を解説します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Create ONE 16:9 wide quiet illustration with no text at all. On a white canvas, two ordinary civil-construction workers wearing white helmets and muted green safety clothing consult a construction plan and a work notebook at a simple desk. The plan and their pointing/checking action are the focus. Small natural human figures, NOT a mascot, no large portrait, no speech bubble, no name, no qualification, no credentials, no alphabet, no numbers, NO Japanese or other text anywhere. Fine green/gray outlines and very restrained pale accents, matching only the palette of the attached no-text style reference. No landscape or decoration. Use the central upper 70% of the full-width 16:9 frame, leaving lower 240px as continuous clean white for subtitles. Do not add an enclosing border or colored padding. This scene accompanies a narration about explaining from practical experience, but must contain ONLY the human checking action and useful plan/notebook props, no biography diagram or qualifications.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/keiken-daizai-erabi--authority-raw.63fef5f2.png",
+              "sha256": "63fef5f2ac437399fe83496afe910cb22c2cadc2f1807fbdf348bff977abd759",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:20:50.791Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/keiken-daizai-erabi--authority.61ac6ea0.png",
+            "sha256": "61ac6ea09f703b834319ae98faf8560d9cfd4c19b844fc472c244acc862a1cf5",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "63fef5f2ac437399fe83496afe910cb22c2cadc2f1807fbdf348bff977abd759"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:24:25.999Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "図面を指す人とノートへ記録する人の2人について腕・手の接続と作業動作を確認。装飾の先生・解説名・肩書き・指定外文字なし。"
+          }
+        },
+        {
+          "sceneId": "premise",
+          "inputSha256": "36bd6f43c5afdbd59e9c0cb7ccbeba12a48e7f67d18940a62a01844e30316099",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "準備用メモで、役割を分ける",
+            "sheetTitle": "考えた内容と実施した内容",
+            "rows": [
+              {
+                "label": "検討のメモ",
+                "value": "何を考えて選んだか"
+              },
+              {
+                "label": "対応のメモ",
+                "value": "現場で何を実施したか"
+              }
+            ]
+          },
+          "narration": "ここで分けるのは、準備用メモの役割です。検討は何を考えて選んだか、対応は現場で何を実施したかを整理します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene kento-taio-kakiwake/premise. Narration to illustrate faithfully, not all to print: ここで分けるのは、準備用メモの役割です。検討は何を考えて選んだか、対応は現場で何を実施したかを整理します。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"準備用メモで、役割を分ける\",\"rows\":[{\"label\":\"検討のメモ\",\"value\":\"何を考えて選んだか\"},{\"label\":\"対応のメモ\",\"value\":\"現場で何を実施したか\"}]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--premise-raw.a06fe369.png",
+              "sha256": "a06fe3695811a6bfc61545da3c9df9df8b5ec34026da69993e1e58b2ab820e14",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:42:46.536Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--premise.2ee9145d.png",
+            "sha256": "2ee9145d1f539fa28761180fe37585c5f38036786b6431ddbe34ec375e0bb688",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "a06fe3695811a6bfc61545da3c9df9df8b5ec34026da69993e1e58b2ab820e14"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:24:26.087Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "検討メモと対応メモの2つを中央の準備用メモに分け、考えた内容と現場で行った内容を区別できる。"
+          }
+        },
+        {
+          "sceneId": "condition",
+          "inputSha256": "80775e147fbc45f0c53a02a4317b48f40d428a22c0baea4c9ad4f5824ae43395",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "仮例：道路工事の資材置場",
+            "sheetTitle": "考え方の整理メモ",
+            "rows": [
+              {
+                "label": "現場条件",
+                "value": "資材置場が狭い",
+                "state": "focus"
+              },
+              {
+                "label": "制約",
+                "value": "一度に保管できる量が限られる"
+              }
+            ]
+          },
+          "narration": "道路工事の資材置場が狭い、という仮の例です。まず、一度に保管できる量が限られることを、現場条件に置きます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene kento-taio-kakiwake/condition. Narration to illustrate faithfully, not all to print: 道路工事の資材置場が狭い、という仮の例です。まず、一度に保管できる量が限られることを、現場条件に置きます。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"仮例：道路工事の資材置場\",\"rows\":[{\"label\":\"現場条件\",\"value\":\"資材置場が狭い\",\"state\":\"focus\"},{\"label\":\"制約\",\"value\":\"一度に保管できる量が限られる\"}]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--condition-raw.d9255ee1.png",
+              "sha256": "d9255ee1452fbfe729cbce8c4ad3a300b4328d9153b6f125826334a33faa1914",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:43:05.329Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--condition.8e352978.png",
+            "sha256": "8e352978df99095debfa82bdd0a7523736d0b9db9d2823ecf7e3b36d2cc36ff5",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "d9255ee1452fbfe729cbce8c4ad3a300b4328d9153b6f125826334a33faa1914"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:24:26.174Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "狭い資材置場と一度に保管できる量の制約を同じ資材の図で示し、指定文言に一致。"
+          }
+        },
+        {
+          "sceneId": "options",
+          "inputSha256": "aa16195b9dfeec9485865e6976a7153d107dd518f2c00b731483a9fbf6fcb737",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "何を比べて、搬入方法を選ぶか",
+            "sheetTitle": "仮例：検討のメモ",
+            "rows": [
+              {
+                "label": "候補",
+                "value": "一括搬入／分割搬入"
+              },
+              {
+                "label": "判断の材料",
+                "value": "保管できる量／日々の使用予定",
+                "state": "focus"
+              }
+            ]
+          },
+          "narration": "検討では、一括で搬入する案と、分けて搬入する案を比べます。保管できる量と、日々の使用予定を照合します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene kento-taio-kakiwake/options. Narration to illustrate faithfully, not all to print: 検討では、一括で搬入する案と、分けて搬入する案を比べます。保管できる量と、日々の使用予定を照合します。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"何を比べて、搬入方法を選ぶか\",\"rows\":[{\"label\":\"候補\",\"value\":\"一括搬入／分割搬入\"},{\"label\":\"判断の材料\",\"value\":\"保管できる量／日々の使用予定\",\"state\":\"focus\"}]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--options-raw.b5366f3b.png",
+              "sha256": "b5366f3b9b593739f7fb3f446eeefe4a79f44ab762a54f4ad1ba3827c3865e0e",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:43:22.145Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--options.a0773770.png",
+            "sha256": "a07737700c0140bb28a8753cd9b37514a8d0fabb1f7d65b0a487913ab917da58",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "b5366f3b9b593739f7fb3f446eeefe4a79f44ab762a54f4ad1ba3827c3865e0e"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:24:26.262Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "一括搬入と分割搬入、保管量と日々の使用予定の対比が原稿に一致し、車体・荷台・積載材の図に明確な破綻なし。"
+          }
+        },
+        {
+          "sceneId": "reason",
+          "inputSha256": "f15237212695257f2ad19c66c29772534e4c20b031f55b85e520a7493b0a09bc",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "置場に入ることと、供給の両立",
+            "items": [
+              "分割搬入：一度に置く量を抑える",
+              "確認点：使用日に必要量が届くか",
+              "両方を満たせるか検討する"
+            ]
+          },
+          "narration": "分けて搬入する案なら、置場にためる量を抑えられます。ただし、使用日に必要な材料が届くかも確かめます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene kento-taio-kakiwake/reason. Narration to illustrate faithfully, not all to print: 分けて搬入する案なら、置場にためる量を抑えられます。ただし、使用日に必要な材料が届くかも確かめます。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"置場に入ることと、供給の両立\",\"items\":[\"分割搬入：一度に置く量を抑える\",\"確認点：使用日に必要量が届くか\",\"両方を満たせるか検討する\"]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--reason-raw.4d7651e1.png",
+              "sha256": "4d7651e182ae89a41d5b4dd8829076c13518ab6a5c5afb2aef912aa866e8808e",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:43:41.280Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--reason.025f106a.png",
+            "sha256": "025f106a6252cf97a941a188e248377b57a120a25af6e1f61167670b23df0a10",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "4d7651e182ae89a41d5b4dd8829076c13518ab6a5c5afb2aef912aa866e8808e"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:24:26.351Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "少量ずつの搬入と使用日の必要量確保という2条件を資材置場・トラック・予定表で示し、原稿に一致。"
+          }
+        },
+        {
+          "sceneId": "feasibility",
+          "inputSha256": "a507043c9936621c65c7d96063442ccb676f40bf547fac0867367f491716dd0d",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "選ぶ前に、納入条件を確かめる",
+            "sheetTitle": "仮例：検討のために集める情報",
+            "rows": [
+              {
+                "label": "業者に確認",
+                "value": "納入できる日・数量"
+              },
+              {
+                "label": "作業予定",
+                "value": "必要な日・必要量"
+              },
+              {
+                "label": "判断",
+                "value": "置場と供給の両方に合うか",
+                "state": "focus"
+              }
+            ]
+          },
+          "narration": "そこで、納入できる日と数量を業者に確認し、作業予定と合わせます。置場と供給の両方から選ぶ理由を整理します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene kento-taio-kakiwake/feasibility. Narration to illustrate faithfully, not all to print: そこで、納入できる日と数量を業者に確認し、作業予定と合わせます。置場と供給の両方から選ぶ理由を整理します。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"選ぶ前に、納入条件を確かめる\",\"rows\":[{\"label\":\"業者に確認\",\"value\":\"納入できる日・数量\"},{\"label\":\"作業予定\",\"value\":\"必要な日・必要量\"},{\"label\":\"判断\",\"value\":\"置場と供給の両方に合うか\",\"state\":\"focus\"}]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--feasibility-raw.c0092041.png",
+              "sha256": "c0092041084b6320620ac04bf9acf9655fb182051dbc79de65192cedc2e31967",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:43:58.132Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--feasibility.0ca0289e.png",
+            "sha256": "0ca0289ed3d68997e5acc6eee18af3d690b919163295d5ade549bbad48973f72",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "c0092041084b6320620ac04bf9acf9655fb182051dbc79de65192cedc2e31967"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:24:26.451Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "納入可能日と数量、必要日と必要量、置場と供給の両立を資材・搬入車・作業予定の図で示し、直前の分割搬入の仮例に対応する。"
+          }
+        },
+        {
+          "sceneId": "action",
+          "inputSha256": "1ffe09698ab1f682452d80a4f0dd15f455d615dfcadc14c79d02ea21959a1e7f",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "対応は、実際に動いた内容",
+            "sheetTitle": "仮例：対応のメモ",
+            "rows": [
+              {
+                "label": "決めたこと",
+                "value": "搬入日と、その日の数量"
+              },
+              {
+                "label": "手配",
+                "value": "分割搬入を手配"
+              },
+              {
+                "label": "共有",
+                "value": "搬入予定を現場に共有",
+                "state": "focus"
+              }
+            ]
+          },
+          "narration": "この例で実施した対応は、搬入日と数量を決めて分割搬入を手配したことです。現場に共有した内容も具体化します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene kento-taio-kakiwake/action. Narration to illustrate faithfully, not all to print: この例で実施した対応は、搬入日と数量を決めて分割搬入を手配したことです。現場に共有した内容も具体化します。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"対応は、実際に動いた内容\",\"rows\":[{\"label\":\"決めたこと\",\"value\":\"搬入日と、その日の数量\"},{\"label\":\"手配\",\"value\":\"分割搬入を手配\"},{\"label\":\"共有\",\"value\":\"搬入予定を現場に共有\",\"state\":\"focus\"}]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--action-raw.d4cec410.png",
+              "sha256": "d4cec4104aef12323a53bdfef22b2622833ed9f35184857fb763f5d2cd003015",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:44:15.423Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--action.8985f0d8.png",
+            "sha256": "8985f0d873650bf296fc1f29ccf3c00e5f2c2054553fce503d4584155dd4100a",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "d4cec4104aef12323a53bdfef22b2622833ed9f35184857fb763f5d2cd003015"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:24:26.548Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "搬入日と数量の決定→分割搬入の手配→現場への共有が予定表・トラック・共有ボードの図で原稿に一致し、人物の手と車体の連結に明確な破綻なし。"
+          }
+        },
+        {
+          "sceneId": "wording",
+          "inputSha256": "c6928e70d1617afe8bb9951957a7c25b1b398ff0ac7c0022e1ab8b127c1a8b4f",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "語尾の違いから、内容の違いへ",
+            "sheetTitle": "それぞれのメモに足す内容",
+            "rows": [
+              {
+                "label": "検討した",
+                "value": "比較した条件と選択理由"
+              },
+              {
+                "label": "実施した",
+                "value": "決めた日・数量と実際の手配"
+              }
+            ]
+          },
+          "narration": "「分割搬入を検討した」と「分割搬入を実施した」だけでは、語尾の違いです。比較した条件と、実際の手配を足します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene kento-taio-kakiwake/wording. Narration to illustrate faithfully, not all to print: 「分割搬入を検討した」と「分割搬入を実施した」だけでは、語尾の違いです。比較した条件と、実際の手配を足します。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"語尾の違いから、内容の違いへ\",\"rows\":[{\"label\":\"検討した\",\"value\":\"比較した条件と選択理由\"},{\"label\":\"実施した\",\"value\":\"決めた日・数量と実際の手配\"}]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--wording-raw.cfa039a2.png",
+              "sha256": "cfa039a26bb9a1b08b549a9f7386a1923d8a57f2289cfa22d5f7334a23044e7f",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:44:33.543Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--wording.7246737a.png",
+            "sha256": "7246737a8ff30a3d0684fd9cd06efe1cdc0e565811c21ea6dc750a923f02cbda",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "cfa039a26bb9a1b08b549a9f7386a1923d8a57f2289cfa22d5f7334a23044e7f"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:24:26.637Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "検討した内容と実施した内容の区別、比較条件と選択理由、決めた日数量と実際の手配の文字が原稿に一致し、人物・車両・吊具に明確な破綻なし。"
+          }
+        },
+        {
+          "sceneId": "records",
+          "inputSha256": "eb48eb42ab5d91f0acc118b139d758d008a0b96cd39110f44cba1aee1003b39b",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "案と実施を、記録で区別する",
+            "items": [
+              "検討記録：候補と選んだ理由",
+              "納入記録：実際の日・数量",
+              "自分が担当した行動を確認"
+            ]
+          },
+          "narration": "選ばなかった案を、実施したように書かないこと。検討の記録と納入の記録を見直し、自分が担当した行動に戻します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene kento-taio-kakiwake/records. Narration to illustrate faithfully, not all to print: 選ばなかった案を、実施したように書かないこと。検討の記録と納入の記録を見直し、自分が担当した行動に戻します。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"案と実施を、記録で区別する\",\"items\":[\"検討記録：候補と選んだ理由\",\"納入記録：実際の日・数量\",\"自分が担当した行動を確認\"]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.\nPREVIOUS SCENE CONTEXT (not to print): {\"sceneId\":\"wording\",\"start\":88,\"end\":99,\"visual\":{\"kind\":\"sheet\",\"heading\":\"語尾の違いから、内容の違いへ\",\"sheetTitle\":\"それぞれのメモに足す内容\",\"rows\":[{\"label\":\"検討した\",\"value\":\"比較した条件と選択理由\"},{\"label\":\"実施した\",\"value\":\"決めた日・数量と実際の手配\"}]},\"sourceRef\":\"content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx\",\"narration\":\"「分割搬入を検討した」と「分割搬入を実施した」だけでは、語尾の違いです。比較した条件と、実際の手配を足します。\",\"caption\":\"「分割搬入を検討した」と「分割搬入を実施した」だけでは、語尾の違いです。比較した条件と、実際の手配を足します。\"}\nNEXT SCENE CONTEXT (not to print): {\"sceneId\":\"question\",\"start\":110,\"end\":121,\"visual\":{\"kind\":\"points\",\"heading\":\"メモを、その設問の答えに組み直す\",\"items\":[\"問われた管理項目を確認\",\"必要な検討・対応を選ぶ\",\"メモの区分を解答欄と決めつけない\"]},\"sourceRef\":\"content/sns/video-packs/civil-construction-2/kento-taio-kakiwake/script.md\",\"narration\":\"当日の答案は、その設問で求められた内容に合わせます。整理したメモを、決まった欄や順番に無理に当てはめません。\",\"caption\":\"当日の答案は、その設問で求められた内容に合わせます。整理したメモを、決まった欄や順番に無理に当てはめません。\"}\nMANDATORY CORRECTION: Same narrow material-yard example comparing bulk delivery and split delivery. ONLY three large document icons: 検討記録：候補と選んだ理由 (two short labels 一括搬入 / 分割搬入), 納入記録：実際の日・数量, 自分が担当した行動を確認. NO retaining walls, construction sites, equipment, people or new material types.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--records-raw.8c17c2ed.png",
+              "sha256": "8c17c2ed30c92370d6b2fdff5a7da99ecf24ed6627186a62684aff72585b4042",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T23:09:41.857Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--records.64679a11.png",
+            "sha256": "64679a112790a61829489d9b38b7b2ccc1059087db7e2e4794b8b3fd41c6314c",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "8c17c2ed30c92370d6b2fdff5a7da99ecf24ed6627186a62684aff72585b4042"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:24:26.725Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "擁壁形式の比較を除去し、一括搬入と分割搬入の検討記録→納入日数量の実績記録→自分の担当行動の確認に修正。同じ仮例とのつながりと文字を確認。"
+          }
+        },
+        {
+          "sceneId": "question",
+          "inputSha256": "8a734e1f3036498bdb9eafa2b42b58b2a9a92f175956202e12132bc47c0d777f",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "メモを、その設問の答えに組み直す",
+            "items": [
+              "問われた管理項目を確認",
+              "必要な検討・対応を選ぶ",
+              "メモの区分を解答欄と決めつけない"
+            ]
+          },
+          "narration": "当日の答案は、その設問で求められた内容に合わせます。整理したメモを、決まった欄や順番に無理に当てはめません。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene kento-taio-kakiwake/question. Narration to illustrate faithfully, not all to print: 当日の答案は、その設問で求められた内容に合わせます。整理したメモを、決まった欄や順番に無理に当てはめません。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"メモを、その設問の答えに組み直す\",\"items\":[\"問われた管理項目を確認\",\"必要な検討・対応を選ぶ\",\"メモの区分を解答欄と決めつけない\"]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.\nPREVIOUS SCENE CONTEXT (not to print): {\"sceneId\":\"records\",\"start\":99,\"end\":110,\"visual\":{\"kind\":\"points\",\"heading\":\"案と実施を、記録で区別する\",\"items\":[\"検討記録：候補と選んだ理由\",\"納入記録：実際の日・数量\",\"自分が担当した行動を確認\"]},\"sourceRef\":\"content/note/1級・2級土木/2級土木/経験記述を自分の現場に置換/article.md\",\"narration\":\"選ばなかった案を、実施したように書かないこと。検討の記録と納入の記録を見直し、自分が担当した行動に戻します。\",\"caption\":\"選ばなかった案を、実施したように書かないこと。検討の記録と納入の記録を見直し、自分が担当した行動に戻します。\"}\nNEXT SCENE CONTEXT (not to print): {\"sceneId\":\"summary\",\"start\":121,\"end\":132,\"visual\":{\"kind\":\"sheet\",\"heading\":\"同じ工事で、3つをつなぐ\",\"sheetTitle\":\"重複した文を見直す順序\",\"rows\":[{\"label\":\"現場条件\",\"value\":\"何が制約になったか\"},{\"label\":\"検討\",\"value\":\"何を考えて選んだか\"},{\"label\":\"対応\",\"value\":\"何を実施したか\"}]},\"sourceRef\":\"content/note/1級・2級土木/2級土木/経験記述を自分の現場に置換/article.md\",\"narration\":\"まとめです。現場条件、何を考えて選んだか、何を実施したか。同じ工事の流れで分けると、重複した文を見直せます。\",\"caption\":\"まとめです。現場条件、何を考えて選んだか、何を実施したか。同じ工事の流れで分けると、重複した文を見直せます。\"}\nMANDATORY CORRECTION: Explain SELECTING and REARRANGING relevant information according to the question. At left ONE memo with many neutral gray lines; center a small question document selecting only two marked fragments; right ONE integrated answer sheet with two fragments REORDERED in a single writing area. NO identical colored 3-part rows or columns, NO 1:1 mapping of memo categories to answer boxes. Only original three source labels. NO construction scenery, people, equipment, extra words.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--question-raw.841950ed.png",
+              "sha256": "841950ed62a76f6b052dc609330503c059e73cd62f3f993fc168ac6967de1bc4",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T23:09:41.838Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--question.66cd1be1.png",
+            "sha256": "66cd1be150c79093ad32e650af9c0323e0d732b4d7c3b66faf60a48da1fa48de",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "841950ed62a76f6b052dc609330503c059e73cd62f3f993fc168ac6967de1bc4"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:24:26.820Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "設問の要求を確認してメモから必要部分を選び、単一の文章領域へ組み直す図となった。旧版の同じ3区分の解答欄への1対1転記を除去し、原稿の注意に一致。"
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "23e7fab5347cc5493d2856052c55103fe2bfc1fb65bf535de899f2833a47ef29",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "同じ工事で、3つをつなぐ",
+            "sheetTitle": "重複した文を見直す順序",
+            "rows": [
+              {
+                "label": "現場条件",
+                "value": "何が制約になったか"
+              },
+              {
+                "label": "検討",
+                "value": "何を考えて選んだか"
+              },
+              {
+                "label": "対応",
+                "value": "何を実施したか"
+              }
+            ]
+          },
+          "narration": "まとめです。現場条件、何を考えて選んだか、何を実施したか。同じ工事の流れで分けると、重複した文を見直せます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene kento-taio-kakiwake/summary. Narration to illustrate faithfully, not all to print: まとめです。現場条件、何を考えて選んだか、何を実施したか。同じ工事の流れで分けると、重複した文を見直せます。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"同じ工事で、3つをつなぐ\",\"rows\":[{\"label\":\"現場条件\",\"value\":\"何が制約になったか\"},{\"label\":\"検討\",\"value\":\"何を考えて選んだか\"},{\"label\":\"対応\",\"value\":\"何を実施したか\"}]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.\nFor this scene use ONLY document/book/notebook icons and arrows. NO machinery, NO suspended loads, NO physical construction operation. No extra example beyond source. Minimal clear diagram, no redundant sidebars.\nPREVIOUS SCENE CONTEXT (not to print): {\"sceneId\":\"question\",\"start\":110,\"end\":121,\"visual\":{\"kind\":\"points\",\"heading\":\"メモを、その設問の答えに組み直す\",\"items\":[\"問われた管理項目を確認\",\"必要な検討・対応を選ぶ\",\"メモの区分を解答欄と決めつけない\"]},\"sourceRef\":\"content/sns/video-packs/civil-construction-2/kento-taio-kakiwake/script.md\",\"narration\":\"当日の答案は、その設問で求められた内容に合わせます。整理したメモを、決まった欄や順番に無理に当てはめません。\",\"caption\":\"当日の答案は、その設問で求められた内容に合わせます。整理したメモを、決まった欄や順番に無理に当てはめません。\"}\nNEXT SCENE CONTEXT (not to print): {\"sceneId\":\"cta\",\"start\":132,\"end\":144,\"visual\":{\"kind\":\"points\",\"heading\":\"検討と対応のつなぎ方を学ぶ\",\"items\":[\"2級土木 施工経験記述 完成答案集\",\"安全・品質・工程の答案＋置換ガイド\",\"概要欄のnoteマガジンへ\"]},\"sourceRef\":\"config/products.json\",\"narration\":\"検討と対応のつなぎ方を、完成答案で学べます。安全・品質・工程の答案と、自分の現場への置換ガイドは概要欄へ。\",\"caption\":\"検討と対応のつなぎ方を、完成答案で学べます。安全・品質・工程の答案と、自分の現場への置換ガイドは概要欄へ。\"}\nMANDATORY CORRECTION: ONLY three big horizontal nodes: 現場条件 / 検討 / 対応 with the three original concise explanations and document icons. Simple straight arrows between them. NO lower return loop, extra document, footnote or sidebar. Every important mark above y=760. No machinery or people.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--summary-raw.dad82f54.png",
+              "sha256": "dad82f54541b4bdc1d680a1122b0987b931ba7b85617cc9954ee1aee46c0bb0c",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T23:11:49.660Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--summary.ff2daf8a.png",
+            "sha256": "ff2daf8ad757796851b6c288c8436a512622f7ae904907c4b5d0bb3ae2178647",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "dad82f54541b4bdc1d680a1122b0987b931ba7b85617cc9954ee1aee46c0bb0c"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:24:26.920Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "下の循環線と文書を除去し、現場条件→検討→対応の3ノードと短い説明だけに修正。指定文字と原稿が一致し、重要要素が上部へ収まる。"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "04b47a733436cd00a33fd10d79872e9da8f11df38c508f20cf3e670ec23c38c3",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "検討と対応のつなぎ方を学ぶ",
+            "items": [
+              "2級土木 施工経験記述 完成答案集",
+              "安全・品質・工程の答案＋置換ガイド",
+              "概要欄のnoteマガジンへ"
+            ]
+          },
+          "narration": "検討と対応のつなぎ方を、完成答案で学べます。安全・品質・工程の答案と、自分の現場への置換ガイドは概要欄へ。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene kento-taio-kakiwake/cta. Narration to illustrate faithfully, not all to print: 検討と対応のつなぎ方を、完成答案で学べます。安全・品質・工程の答案と、自分の現場への置換ガイドは概要欄へ。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"検討と対応のつなぎ方を学ぶ\",\"items\":[\"2級土木 施工経験記述 完成答案集\",\"安全・品質・工程の答案＋置換ガイド\",\"概要欄のnoteマガジンへ\"]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.\nFor this scene use ONLY document/book/notebook icons and arrows. NO machinery, NO suspended loads, NO physical construction operation. No extra example beyond source. Minimal clear diagram, no redundant sidebars.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--cta-raw.13473ba9.png",
+              "sha256": "13473ba95c1c3c4830391569a8acedf0e55046bca27883a95645f80b62f473bc",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:45:45.337Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--cta.58b58776.png",
+            "sha256": "58b58776628dd53b7b3eff849770150008ccfeb9b0e2fb0969cd92e259e6f53e",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "13473ba95c1c3c4830391569a8acedf0e55046bca27883a95645f80b62f473bc"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:24:27.017Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "完成答案集・安全品質工程の答案・置換ガイドと概要欄のnote案内を文書図だけで示し、指定文字に誤字・著者名・肩書きの追加なし。"
+          }
+        }
+      ],
+      "review": {
+        "status": "ok",
+        "by": "video-content-qa",
+        "at": "2026-10-18T23:55:44.241Z",
+        "mp4Sha256": "543d3c4ffe0932b0dca569cdebcb7286c5b09ca2d5ae64c1858116c4df08f7ed",
+        "scope": "全14場面の完成動画中点を原寸・360px実見。音声・画像・字幕・MP4の機械照合。",
+        "evidence": {
+          "path": ".tmp/media/_brand/diagram-led/qa-report.1cd922fe.json",
+          "sha256": "1cd922fec2a44ce403978bfa74b1746934c01ba135b8b5c07e15cd6dc67dba69"
+        }
+      }
+    },
+    "diagram-led-20261019-cover": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "Use case: scientific-educational. One calm 16:9 full-width educational video title image, intended 1920x1080. Exact small qualification label 「2級土木」 and main title 「経験記述の書き分け｜検討したことと実施した処置を分ける」. Illustrate the central learning idea: 現場条件、選んだ理由、実施内容を準備用メモで分け、同じ工事の流れとして書き分けられる. WHITE background, muted green thin-line construction diagram, a few purposeful arrows or 2-3 clean illustrated nodes. Restrained dark-green typography, pale gray/green panels, tiny yellow accent only. No big character, no decorative teacher, no author name, no credential, no promotional badge, no speedlines or heavy outlined text, no border, no colored padding. A modest construction worker may appear only if their action explains the topic. All important content above y=800 on 1080 high frame; bottom is continuous white for subtitles, not an added band. Direct full-width 16:9 composition, legible at 360px, no invented statistics or words.",
+        "references": [
+          {
+            "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+            "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--cover-raw.c801de41.png",
+          "sha256": "c801de41935ccc4e31a5db6b51b8423cfcb2e4a08b220c2aa4aab6c7036655d8",
+          "width": 1672,
+          "height": 941
+        },
+        "generatedAt": "2026-10-18T22:55:40.532Z"
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-2/kento-taio-kakiwake/work/kento-taio-kakiwake--cover.a8f08a57.png",
+        "sha256": "a8f08a570df01dab13dcbd7f76656e22343cc97942656e97b00c62c3c4f3667c",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "c801de41935ccc4e31a5db6b51b8423cfcb2e4a08b220c2aa4aab6c7036655d8"
+      },
+      "review": {
+        "status": "ok",
+        "by": "ai-image-fidelity-auditor",
+        "at": "2026-10-18T23:24:27.118Z",
+        "scope": "原寸・360px・本文/前後関係・字幕安全域",
+        "reason": "資格名・経験記述の書き分け・検討したことと実施した処置を分けるという指定文言と、現場条件・選んだ理由・実施内容の3区分を原寸と360pxで判読確認。著者名・肩書き・装飾の先生なし。"
+      }
     }
   },
-  "activeBodyRevision": "body-scenes-20261018"
+  "activeBodyRevision": "diagram-led-20261019"
 }
