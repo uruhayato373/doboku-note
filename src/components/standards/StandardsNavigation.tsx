@@ -164,7 +164,7 @@ function ChapterNav({
             >
               <summary className="focus-ring flex min-h-11 cursor-pointer list-none items-center gap-2 px-4 py-2 marker:hidden">
                 <span className="min-w-0 flex-1 text-[13px] font-bold leading-normal text-(--ink-body)">
-                  第{book.bookNumber}編 {book.bookTitle}
+                  {book.bookLabel}
                 </span>
                 <span className="font-mono text-[11px] tabular-nums text-(--ink-muted)">
                   {book.chapters.length}
@@ -182,7 +182,7 @@ function ChapterNav({
                         aria-current={active ? 'page' : undefined}
                       >
                         <span className="w-8 shrink-0 font-mono text-[11px] tabular-nums text-(--ink-muted)">
-                          {chapter.chapterNumber}章
+                          {chapter.chapterLabel !== undefined ? chapter.chapterLabel.replace(/^第/, '') : `${chapter.chapterNumber}章`}
                         </span>
                         <span className="min-w-0 flex-1">{chapter.chapterTitle}</span>
                       </Link>

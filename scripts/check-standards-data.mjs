@@ -59,7 +59,7 @@ function main() {
         assert(markdown.startsWith('---\n'), `${document.id}/${chapter.id}: frontmatterがない`);
         assert(markdown.includes(`sourceSha256: "${document.sourceSha256}"`), `${document.id}/${chapter.id}: 原本SHAがない`);
         // 原本が章名だけの章（bodyless）は見出しを持たない
-        assert(chapter.bodyless || markdown.includes('\n\n## '), `${document.id}/${chapter.id}: 本文見出し前の空行がない`);
+        assert(chapter.bodyless || chapter.plainArticles || markdown.includes('\n\n## '), `${document.id}/${chapter.id}: 本文見出し前の空行がない`);
         assert(source?.publisher?.['@id'] !== SITE_ORGANIZATION_ID, `${document.id}/${chapter.id}: 原資料publisherが加工主体と同一`);
         assert(article?.publisher?.['@id'] === SITE_ORGANIZATION_ID, `${document.id}/${chapter.id}: 加工記事publisherがdoboku-noteでない`);
         assert(article?.encoding?.length === 2, `${document.id}/${chapter.id}: Markdown/JSON-LD encodingが揃っていない`);
@@ -87,12 +87,13 @@ function main() {
   assert(headers.includes('Access-Control-Allow-Origin: *'), 'standards-dataのCORSヘッダーがない');
   assert(comparison.summary.changedChapters === comparison.changes.length, '地域差分の章数が不一致');
   assert(comparison.rows.some((row) => row.status === 'baseline'), '地域差分に比較基準がない');
+  // 文書ごとの失敗を先に出す（件数の不一致だけでは、どの文書のどの章で落ちたかが分からない）
+  if (failures.length > 0) throw new Error(failures.join('\n'));
   assert(checkedDocuments === manifest.documents, `文書数が不一致: ${checkedDocuments}/${manifest.documents}`);
   assert(checkedChapters === manifest.chapters, `章数が不一致: ${checkedChapters}/${manifest.chapters}`);
   assert(checkedArticles === manifest.articles, `条数が不一致: ${checkedArticles}/${manifest.articles}`);
   assert(statSync(join(DATA_ROOT, 'catalog.json')).size > 0, 'catalog.jsonが空');
 
-  if (failures.length > 0) throw new Error(failures.join('\n'));
   console.log(
     `[check-standards-data] PASS ${checkedDocuments}文書 / ${checkedChapters}章 / ${checkedArticles}条` +
       `（うち本文が「開発局独自参照」だけの条 ${referenceOnlyArticles}）`,

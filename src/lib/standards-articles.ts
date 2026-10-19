@@ -5,6 +5,9 @@ import { join } from 'node:path';
 import { getStandardDocument, type StandardDocument, type StandardPart } from '@/lib/standards';
 import { getSiteAssetR2Url } from '@/lib/r2-image-loader';
 import { chapterPreambleText, sectionPageMarkdown, splitChapterBySection } from '@/lib/standards-section-split.mjs';
+import { standardBookLabel } from '@/lib/standards-chapter-labels';
+
+export { standardBookLabel, standardChapterHeading } from '@/lib/standards-chapter-labels';
 
 /**
  * 構造化章記事（レイヤー2）の読み出し。
@@ -42,6 +45,9 @@ export type StandardChapter = {
   bookTitle: string;
   chapterNumber: number;
   chapterTitle: string;
+  /** 目次（outline）で切った文書の編・章の表示の語（`土木工事編`・`第1章`・`Ⅰ．`）。無ければ「第N編」「第N章」 */
+  bookLabel?: string;
+  chapterLabel?: string;
   file: string;
   firstPage: number;
   lastPage: number;
@@ -53,6 +59,10 @@ export type StandardChapter = {
   /** 章ページを節の一覧にして本文を節ページで出す章（判定は build-standard-articles.mjs） */
   splitBySection?: boolean;
   sections: StandardChapterSection[];
+  /** 節を持たない章の条（要綱の `第1 目的`）。節の中の条は sections 側 */
+  articles?: StandardChapterArticle[];
+  /** 設定で条の見出しを止めた章（見出しを持たない説明資料） */
+  plainArticles?: boolean;
   stats: Record<string, number>;
   indexable: boolean;
   /** 原本が章名だけで本文の無い章（中部の特記仕様書 10-9 など）。検索に載せない */
@@ -85,6 +95,8 @@ export type StandardArticlesManifest = {
 export type StandardChapterBook = {
   bookNumber: number;
   bookTitle: string;
+  /** 表示する編の名前（`第1編 共通編` または目次で切った文書の `土木工事編`） */
+  bookLabel: string;
   chapters: StandardChapter[];
 };
 
@@ -144,7 +156,7 @@ export function groupChaptersByBook(chapters: StandardChapter[]): StandardChapte
       last.chapters.push(chapter);
       continue;
     }
-    books.push({ bookNumber: chapter.bookNumber, bookTitle: chapter.bookTitle, chapters: [chapter] });
+    books.push({ bookNumber: chapter.bookNumber, bookTitle: chapter.bookTitle, bookLabel: standardBookLabel(chapter), chapters: [chapter] });
   }
   return books;
 }

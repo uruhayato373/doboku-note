@@ -202,6 +202,11 @@ function checkPageCoverage(def, { manifest, analysis }) {
       for (let p = front.firstPage; p <= front.lastPage; p += 1) bump(p, '前付け');
     }
   }
+  // 目次（outline）で中扉・目次として章に入れなかった本文途中のページ（再解析と一致すること）
+  for (const p of front.outlinePages ?? []) bump(p, '中扉・目次');
+  if ((front.outlinePages ?? []).join(',') !== (analysis.frontMatter.outlinePages ?? []).join(',')) {
+    violations.push(`中扉・目次のページが再解析と不一致: manifest ${(front.outlinePages ?? []).join(',')} / 再解析 ${(analysis.frontMatter.outlinePages ?? []).join(',')}`);
+  }
   // 再解析の前付けページ集合と一致するか（manifest の範囲表記だけを信じない）
   const analysisFront = new Set(analysis.frontMatter.pages);
   if (analysisFront.size !== front.pageCount) {
@@ -217,7 +222,7 @@ function checkPageCoverage(def, { manifest, analysis }) {
   const order = new Map(manifest.chapters.map((chapter, i) => [chapter.chapterId, i]));
   const byId = new Map(manifest.chapters.map((chapter) => [chapter.chapterId, chapter]));
   const isBoundary = (p) => {
-    if (manifest.chapterSource !== 'headings') return false;
+    if (!['headings', 'outline'].includes(manifest.chapterSource)) return false;
     const list = (owners.get(p) ?? []).filter((id) => byId.has(id));
     if (list.length !== (owners.get(p) ?? []).length) return false;
     return list.every((id, i) => {
@@ -263,11 +268,14 @@ function checkRemovalAudit(def, { manifest, analysis }) {
   }
   // 本文中の見出しで章を切った文書は柱を持たない（定型の行を持つ文書でも全ページには無い）。
   // 柱の件数は本文ページ数以下であることと、再解析との一致だけを見る
-  const headingsDocument = manifest.chapterSource === 'headings';
+  // 目次（outline）で切った文書も同じ。印刷ページ番号を一部のページにしか刷っていない文書（設定
+  // printPageRequired: false）は、件数が本文ページ数以下であることと再解析との一致だけを見る
+  const headingsDocument = ['headings', 'outline'].includes(manifest.chapterSource);
+  const printOptional = manifest.printPageRequired === false;
   if (headers === 0 && !headingsDocument) violations.push('柱の除去記録が 0 件（除去した実体が記録されていない）');
-  if (prints === 0) violations.push('印刷ページ番号の除去記録が 0 件（除去した実体が記録されていない）');
+  if (prints === 0 && !printOptional) violations.push('印刷ページ番号の除去記録が 0 件（除去した実体が記録されていない）');
   if (headingsDocument ? headers > bodyPages : headers !== bodyPages) violations.push(`柱の除去記録 ${headers} 件 ≠ 本文 ${bodyPages} ページ`);
-  if (prints !== bodyPages) violations.push(`印刷ページ番号の除去記録 ${prints} 件 ≠ 本文 ${bodyPages} ページ`);
+  if (printOptional ? prints > bodyPages : prints !== bodyPages) violations.push(`印刷ページ番号の除去記録 ${prints} 件 ≠ 本文 ${bodyPages} ページ`);
   if (analysis.removed.runningHeaders.length !== headers) {
     violations.push(`柱の除去記録が再解析と不一致: manifest ${headers} / 再解析 ${analysis.removed.runningHeaders.length}`);
   }
@@ -310,6 +318,18 @@ function checkNumbering(def, { manifest }) {
       violations.push(`第${chapter.bookNumber}編の章番号が単調増加でない: ${prev} → ${chapter.chapterNumber}`);
     }
     lastByBook.set(chapter.bookNumber, chapter.chapterNumber);
+  }
+
+  // 節を持たない章の要綱の条（`第1 目的`）は編の中で 1 から連番になる。飛び・戻りは、本文中の
+  // `第N` で始まる行（折り返しの続き・抜き書き）を条に取り違えた証拠なので止める
+  const lastArticleByBook = new Map();
+  for (const chapter of chapters) {
+    for (const article of chapter.articles ?? []) {
+      const number = Number(String(article.number).replace(/^第/, ''));
+      const prev = lastArticleByBook.get(chapter.bookNumber) ?? 0;
+      if (number !== prev + 1) violations.push(`${chapter.chapterId}: 条「${article.number} ${article.title}」が連番でない（直前 第${prev}）`);
+      lastArticleByBook.set(chapter.bookNumber, number);
+    }
   }
 
   // 特記仕様書・地方独自（role=companion）は共通仕様書との差分の節だけを載せるので、節の欠番・
@@ -358,7 +378,8 @@ function checkHeadingLevels(def, { manifest, agencyId, documentId }) {
       continue;
     }
     const headings = parseHeadings(text);
-    if (headings.length === 0 && !chapter.bodyless) violations.push(`${chapter.file}: 見出しが 1 件も無い`);
+    // 設定で条の見出しを止めた章（plainArticles・要綱の見直し内容の説明資料）は見出しを持たないのが正しい
+    if (headings.length === 0 && !chapter.bodyless && !chapter.plainArticles) violations.push(`${chapter.file}: 見出しが 1 件も無い`);
     checked += headings.length;
     // ページ側の H1 を親とみなすので直前レベルの初期値は 1。
     let previous = 1;
@@ -409,7 +430,7 @@ function checkReplacementChars(def, { manifest, manifestRaw, manifestPath, agenc
  * <SourceRef> は「表を GFM へ復元しない」判断の代償として置いた原本への逃げ道なので、
  * 指すページが章の担当範囲内かつ catalog の part に実在しなければ意味を成さない。
  */
-function checkSourceRefs(def, { manifest, document, agencyId, documentId }) {
+function checkSourceRefs(def, { manifest, document, agencyId, documentId, overrides }) {
   const violations = [];
   const partOf = (page) => document.parts.find((p) => page >= p.firstPage && page <= p.lastPage);
   let refs = 0;
@@ -448,6 +469,11 @@ function checkSourceRefs(def, { manifest, document, agencyId, documentId }) {
     }
   }
 
+  // SourceRef は表・図に付く。表を持たないと宣言した文書（設定 noTables）は 0 件が正しい（宣言の検査は 14）
+  const noTables = overrides?.documents?.[`${agencyId}/${documentId}`]?.noTables;
+  if (refs === 0 && noTables) {
+    return result(def, { status: PASS, checked: manifest.chapters.length, unit: `章（SourceRef 0 件・表を持たない文書と設定 noTables で宣言）`, violations });
+  }
   if (refs === 0) {
     // 1 件も SourceRef が無い＝原典への逃げ道を検査できていない。緑にしない。
     return result(def, {
@@ -636,7 +662,7 @@ const TABLE_REASONS = new Set([
  * 出力された GFM のセルを連結したものが原典ページの本文に実在することを独立に確認する
  * （生成器と検査で同じ関数を使うと、その関数のバグは永久に見つからない）。
  */
-function checkTables(def, { manifest, agencyId, documentId, document }) {
+function checkTables(def, { manifest, agencyId, documentId, document, overrides }) {
   const violations = [];
   const notes = [];
   let gfmFound = 0;
@@ -797,6 +823,13 @@ function checkTables(def, { manifest, agencyId, documentId, document }) {
     violations.push(`コードブロックの実数 ${verbatimFound} 件 ≠ 台帳 ${declaredVerbatim} 件`);
   }
   const total = gfmFound + listFound + overrideFound + verbatimFound;
+  // 表を持たない文書（要綱の解説など）は設定 noTables に理由つきで宣言する。宣言と実数 0 の一致を検査とし、
+  // 宣言があるのに表が出たら古い宣言として止める（宣言の無い 0 件は従来どおり検査不成立）
+  const noTables = overrides?.documents?.[`${agencyId}/${documentId}`]?.noTables;
+  if (noTables && total > 0) violations.push(`設定 noTables（表を持たない）と宣言しているのに表が ${total} 件ある`);
+  if (noTables && total === 0) {
+    return result(def, { status: verdict(violations, []), checked: manifest.chapters.length, unit: `章（表 0 件・設定 noTables: ${noTables}）`, violations });
+  }
   if (total === 0) {
     return result(def, { status: INCONCLUSIVE, checked: 0, unit: '表', violations: ['表が 1 件も無い。検査が成立しない'] });
   }
@@ -1123,7 +1156,7 @@ function inspectDocument(target, catalog, overrides) {
   if (!document) throw new Error(`catalog.json に ${target} が無い`);
   const { path: manifestPath, raw: manifestRaw, manifest } = readManifest(agencyId, documentId);
   const analysis = analyzeDocument(document, overrides);
-  return { target, agencyId, documentId, document, manifest, manifestRaw, manifestPath, analysis };
+  return { target, agencyId, documentId, document, manifest, manifestRaw, manifestPath, analysis, overrides };
 }
 
 function runDocumentChecks(context) {

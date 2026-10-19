@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "_comment": "土木工事共通仕様書の構造化（レイヤー2）の設定。パーサーの例外補正はコードに条件を足さずここへ集約する。真実源の説明は scripts/lib/standards-structure.mjs 冒頭。",
   "canonical": {
-    "_comment": "同一内容を 9 機関が公開しているため、role=common は 1 機関だけを検索インデックス対象にする。既定は src/lib/standards.ts の isStandardPartIndexable と同じ kinki。ここを変えると章記事の indexable が切り替わる。",
+    "_comment": "同一内容を 9 機関が公開しているため、role=common は 1 機関だけを検索インデックス対象にする。既定は src/lib/standards.ts の isStandardPartIndexable と同じ kinki。ここを変えると章記事の indexable が切り替わる。 工事必携に綴じられた要綱・要領の重複収録は機関でなく版で決める（editionCanonical）。",
     "commonAgencyId": "kinki"
   },
   "build": {
-    "_comment": "生成対象。catalog の文書のうち、編・章の構造を持つものを構造化する。共通仕様書 8 文書と北海道開発局の道路・河川工事仕様書（共通仕様書に当たる 1 工事仕様書）の 9 文書は柱（running header）で章を切る。2026-10-19 に共通仕様書の章立てを持つ地方版 3 文書（中部の特記仕様書・東北の共通特記仕様書・北海道開発局独自）を加えた。柱の形・条番号・印刷ページ番号の違いは documents.* の方言の設定で吸収する（scripts/lib/standards-structure.mjs の dialectOf）。okinawa/common は chugoku/common と原本 SHA-256 が完全一致する重複なので生成しない（文書ページが chugoku へ誘導する）。除外理由は skipped に機械可読で持ち、check-standard-articles が「未対象を黙って緑にしていないか」を検査する。",
+    "_comment": "生成対象。catalog の文書のうち、編・章の構造を持つものを構造化する。共通仕様書 8 文書と北海道開発局の道路・河川工事仕様書（共通仕様書に当たる 1 工事仕様書）の 9 文書は柱（running header）で章を切る。2026-10-19 に共通仕様書の章立てを持つ地方版 3 文書（中部の特記仕様書・東北の共通特記仕様書・北海道開発局独自）を加えた。柱の形・条番号・印刷ページ番号の違いは documents.* の方言の設定で吸収する（scripts/lib/standards-structure.mjs の dialectOf）。okinawa/common は chugoku/common と原本 SHA-256 が完全一致する重複なので生成しない（文書ページが chugoku へ誘導する）。除外理由は skipped に機械可読で持ち、check-standard-articles が「未対象を黙って緑にしていないか」を検査する。 2026-10-19 に工事必携の要綱・要領 4 文書（九州 hikkei-common-08・09・10、沖縄 hikkei-08）を加えた。見出しの形が文書ごとに違うので章の始まりを設定の目次で持つ（chapterSource: outline）。計 16 文書。",
     "documents": [
       "chubu/common",
       "chugoku/common",
@@ -19,11 +19,15 @@
       "tohoku/common",
       "chubu/special",
       "tohoku/special",
-      "hokkaido/local"
+      "hokkaido/local",
+      "kyushu/hikkei-common-09",
+      "kyushu/hikkei-common-10",
+      "kyushu/hikkei-common-08",
+      "okinawa/hikkei-08"
     ]
   },
   "readabilityBaselines": {
-    "_comment": "check-standard-articles 17・18 の基準（増やさない）。2026-10-16 実測。17 の 1 件は各文書の「東北地方──30㎝／その他の地域──40㎝」の一覧（正しく行が分かれている）と北海道版 10-16 の 1 か所。18 は表の上の小見出し・注記（正しい）と、表から外れた行の断片（近畿版で 7〜8 件: 0.15 の行・溶接完了時・M20 167～211 など）を含む。断片を表へ戻したら基準を下げる。 2026-10-19 に地方版 3 文書を加えた（初回の実測値。表はまだ組み直していないので 18 は表の上の小見出しと断片を含む）。",
+    "_comment": "check-standard-articles 17・18 の基準（増やさない）。2026-10-16 実測。17 の 1 件は各文書の「東北地方──30㎝／その他の地域──40㎝」の一覧（正しく行が分かれている）と北海道版 10-16 の 1 か所。18 は表の上の小見出し・注記（正しい）と、表から外れた行の断片（近畿版で 7〜8 件: 0.15 の行・溶接完了時・M20 167～211 など）を含む。断片を表へ戻したら基準を下げる。 2026-10-19 に地方版 3 文書を加えた（初回の実測値。表はまだ組み直していないので 18 は表の上の小見出しと断片を含む）。 2026-10-19 に工事必携の要綱・要領 4 文書を加えた（初回の実測値。完成図等作成要領は図の中の文字と表が多く、18 の大半は図の注記）。",
     "chubu/common": {
       "midSentenceBreaks": 1,
       "strayTableFragments": 41
@@ -71,6 +75,22 @@
     "hokkaido/local": {
       "midSentenceBreaks": 0,
       "strayTableFragments": 31
+    },
+    "kyushu/hikkei-common-08": {
+      "midSentenceBreaks": 6,
+      "strayTableFragments": 109
+    },
+    "kyushu/hikkei-common-09": {
+      "midSentenceBreaks": 0,
+      "strayTableFragments": 0
+    },
+    "kyushu/hikkei-common-10": {
+      "midSentenceBreaks": 0,
+      "strayTableFragments": 1
+    },
+    "okinawa/hikkei-08": {
+      "midSentenceBreaks": 0,
+      "strayTableFragments": 0
     }
   },
   "sectionPages": {
@@ -96,7 +116,7 @@
         ]
       },
       "no-book-chapter-structure": {
-        "label": "共通仕様書の編・章で章を切れない（工事必携・書類作成マニュアル・参考資料、条ごとの訂正・追加を表で並べた中国地方整備局版など）。逐語分冊での提供を継続する。",
+        "label": "編・章で章を切れない、または章記事にしていない（工事必携の 100 ページ以下の要綱・通知、書類作成マニュアル・参考資料、条ごとの訂正・追加を表で並べた中国地方整備局版など）。逐語分冊での提供を継続する。",
         "documents": "*"
       }
     }
@@ -171,6 +191,658 @@
       "clauseTitleMaxLength": 24,
       "clauseSequence": "sparse",
       "ogpLabel": "開発局独自"
+    },
+    "kyushu/hikkei-common-09": {
+      "_comment": "九州地方整備局 土木請負工事必携 共通編の「土木工事安全施工技術指針」（平成13年3月改正までの版）。柱は無く、章は本文中の `第１章 総 則` 〜 `第19章`（編を持たない）。p1 は改正の履歴、p2-5 は目次、p6 から本文。印刷ページ番号は `通 4−1 1`（共通編 4 章の通し番号）。本文中に `第１章３節に準ずること。` の参照があるので見出しは目次（outline）で決める。章題の誤読（`山岳トンネルエ事`・`ダムエ事`・折り返しで切れた第12章）は title で正す（本文は原本のまま）。2026-10-19 実測。",
+      "bodyStartPage": 6,
+      "chapterSource": "outline",
+      "outlineBook": "土木工事安全施工技術指針",
+      "printPagePattern": "^[\\s　]*通[\\s　]*[0-9０-９]+[\\s　]*[-－−‐][\\s　]*[0-9０-９]+[\\s　]+[0-9０-９]+[\\s　]*$",
+      "clauseTitleMaxLength": 24,
+      "ogpLabel": "安全施工技術指針",
+      "outline": [
+        {
+          "page": 6,
+          "match": "第１章 総 則"
+        },
+        {
+          "page": 8,
+          "match": "第２章 安全措置一般"
+        },
+        {
+          "page": 18,
+          "match": "第３章 地下埋設物一般"
+        },
+        {
+          "page": 20,
+          "match": "第４章 機械・装置・設備一般"
+        },
+        {
+          "page": 28,
+          "match": "第５章 仮設工事"
+        },
+        {
+          "page": 37,
+          "match": "第６章 運搬工"
+        },
+        {
+          "page": 44,
+          "match": "第７章 土工工事"
+        },
+        {
+          "page": 50,
+          "match": "第８章 基礎工事"
+        },
+        {
+          "page": 54,
+          "match": "第９章 コンクリート工事"
+        },
+        {
+          "page": 58,
+          "match": "第10章 圧気工事"
+        },
+        {
+          "page": 63,
+          "match": "第11章 鉄道付近の工事"
+        },
+        {
+          "page": 67,
+          "match": "第12章 土石流の到達するおそれの",
+          "title": "土石流の到達するおそれのある現場での工事"
+        },
+        {
+          "page": 69,
+          "match": "第13章 道路工事"
+        },
+        {
+          "page": 73,
+          "match": "第14章 橋梁工事(架設工事)"
+        },
+        {
+          "page": 79,
+          "match": "第15章 山岳トンネルエ事",
+          "title": "山岳トンネル工事"
+        },
+        {
+          "page": 90,
+          "match": "第16章 シールド・推進工事"
+        },
+        {
+          "page": 94,
+          "match": "第17章 河川及び海岸工事"
+        },
+        {
+          "page": 101,
+          "match": "第18章 ダムエ事",
+          "title": "ダム工事"
+        },
+        {
+          "page": 106,
+          "match": "第19章 構築物の取りこわし工事"
+        }
+      ],
+      "fullWidthClauses": true,
+      "sectionIndentMax": 4
+    },
+    "kyushu/hikkei-common-10": {
+      "_comment": "九州地方整備局 土木請負工事必携 共通編の「建設工事公衆災害防止対策要綱」（令和元年9月 国土交通省告示第496号）。告示（p1）・土木工事編（p2-38・12 章）・建築工事等編（p39-65・6 章）・要綱の主な見直し内容（p66-80）・要綱の解説（p81 中扉・p82-84 目次・土木工事編 p85-150・建築工事等編 p151-199）を 1 冊にまとめた版。沖縄総合事務局の必携の要綱（okinawa/hikkei-07）と解説（okinawa/hikkei-08）を合わせた内容に当たる。柱は無く、章は `第１章 総則` が編ごとに繰り返すので目次（outline）で決める。条は要綱の `第１ 目的`（articleStyle: dai）。印刷ページ番号は `- 1 -` と `1` が一部のページにだけある。見直し内容の各ページ先頭の題名は柱として除く。2026-10-19 実測。 見直し内容は改正点の説明資料で、要綱の条（第７ 適正な工期の確保 など）を抜き書きで引くので、その章では条の見出しにしない（plainArticles）。",
+      "bodyStartPage": 1,
+      "chapterSource": "outline",
+      "articleStyle": "dai",
+      "printPageNumber": [
+        "dashed",
+        "plain"
+      ],
+      "printPageRequired": false,
+      "runningHeaderPattern": "^[\\s　]*要綱の主な見直し内容について[\\s　]*$",
+      "clauseTitleMaxLength": 24,
+      "clauseSequence": "sparse",
+      "ogpLabel": "公衆災害防止対策要綱",
+      "outline": [
+        {
+          "page": 2,
+          "match": "土木工事編",
+          "book": true
+        },
+        {
+          "page": 2,
+          "match": "第１章 総則"
+        },
+        {
+          "page": 6,
+          "match": "第２章 一般事項"
+        },
+        {
+          "page": 10,
+          "match": "第３章 交通対策"
+        },
+        {
+          "page": 16,
+          "match": "第４章 高所作業"
+        },
+        {
+          "page": 20,
+          "match": "第５章 使用する建設機械に関する措置"
+        },
+        {
+          "page": 24,
+          "match": "第６章 軌道等の保全"
+        },
+        {
+          "page": 25,
+          "match": "第７章 埋設物"
+        },
+        {
+          "page": 28,
+          "match": "第８章 土工事"
+        },
+        {
+          "page": 32,
+          "match": "第９章 覆工"
+        },
+        {
+          "page": 34,
+          "match": "第１０章 埋戻し"
+        },
+        {
+          "page": 36,
+          "match": "第１１章 地下掘進工事"
+        },
+        {
+          "page": 38,
+          "match": "第１２章 火災及び酸素欠乏症の防止"
+        },
+        {
+          "page": 39,
+          "match": "建築工事等編",
+          "book": true
+        },
+        {
+          "page": 39,
+          "match": "第１章 総則"
+        },
+        {
+          "page": 44,
+          "match": "第２章 一般事項"
+        },
+        {
+          "page": 54,
+          "match": "第３章 交通対策"
+        },
+        {
+          "page": 57,
+          "match": "第４章 使用する建設機械に関する措置"
+        },
+        {
+          "page": 60,
+          "match": "第５章 解体工事"
+        },
+        {
+          "page": 62,
+          "match": "第６章 土工事"
+        },
+        {
+          "page": 66,
+          "match": "要綱の主な見直し内容について",
+          "book": true,
+          "chapter": true,
+          "bookTitle": "要綱の主な見直し内容",
+          "plainArticles": true
+        },
+        {
+          "page": 81,
+          "match": "建設工事公衆災害防止対策要綱の解説",
+          "front": true
+        },
+        {
+          "page": 85,
+          "match": "（土木工事編）",
+          "book": true,
+          "title": "解説（土木工事編）"
+        },
+        {
+          "page": 85,
+          "match": "第１章 総 則"
+        },
+        {
+          "page": 96,
+          "match": "第２章 一般事項"
+        },
+        {
+          "page": 103,
+          "match": "第３章 交通対策"
+        },
+        {
+          "page": 112,
+          "match": "第４章 高所作業"
+        },
+        {
+          "page": 116,
+          "match": "第５章 使用する建設機械に関する措置"
+        },
+        {
+          "page": 124,
+          "match": "第６章 軌道等の保全"
+        },
+        {
+          "page": 125,
+          "match": "第７章 埋設物"
+        },
+        {
+          "page": 132,
+          "match": "第８章 土 工 事"
+        },
+        {
+          "page": 140,
+          "match": "第９章 覆 工"
+        },
+        {
+          "page": 142,
+          "match": "第 10 章 埋 戻 し"
+        },
+        {
+          "page": 146,
+          "match": "第 11 章 地下掘進工事"
+        },
+        {
+          "page": 148,
+          "match": "第 12 章 火災及び酸素欠乏症の防止"
+        },
+        {
+          "page": 151,
+          "match": "（建築工事等編）",
+          "book": true,
+          "title": "解説（建築工事等編）"
+        },
+        {
+          "page": 151,
+          "match": "第１章 総 則"
+        },
+        {
+          "page": 162,
+          "match": "第２章 一般事項"
+        },
+        {
+          "page": 178,
+          "match": "第３章 交通対策"
+        },
+        {
+          "page": 182,
+          "match": "第４章 使用する建設機械に関する措置"
+        },
+        {
+          "page": 190,
+          "match": "第５章 解体工事"
+        },
+        {
+          "page": 193,
+          "match": "第６章 土工事"
+        }
+      ]
+    },
+    "kyushu/hikkei-common-08": {
+      "_comment": "九州地方整備局 土木請負工事必携 共通編の「道路工事完成図等作成要領」（国総研資料第331号・平成18年8月／平成20年3月改定版）。p1-13 は表紙・執筆者・はじめに・改訂履歴・目次、p14 から本文。本文は Ⅰ．共通編（p14）・Ⅱ．作成編（p26）・Ⅲ．電子納品編（p33）と巻末資料（p89 中扉・資料 1〜3）。編の中の `1．目的` は項として読む（全角の番号もある）。巻末資料の各ページ先頭の `道路工事完成図等作成要領（改定版） 巻末資料 N` は柱として除く。印刷ページ番号は `- 12 -` `- 巻末 1-3 -` などで、刷られていないページがある。2026-10-19 実測。",
+      "bodyStartPage": 14,
+      "chapterSource": "outline",
+      "outlineBook": "道路工事完成図等作成要領",
+      "runningHeaderPattern": "^[\\s　]*道路工事完成図等作成要領（改定版）[\\s　]+巻末資料[\\s　]*[0-9０-９]+[\\s　]*$",
+      "printPagePattern": "^[\\s　]*-[\\s　]*(?:巻末[\\s　]*)?[0-9０-９]+(?:[\\s　]*[-–‑－][\\s　]*[0-9０-９]+)?[\\s　]*-[\\s　]*$",
+      "printPageRequired": false,
+      "fullWidthClauses": true,
+      "clauseTitleMaxLength": 24,
+      "clauseSequence": "sparse",
+      "ogpLabel": "完成図等作成要領",
+      "outline": [
+        {
+          "page": 14,
+          "match": "Ⅰ．共通編"
+        },
+        {
+          "page": 26,
+          "match": "Ⅱ．作成編"
+        },
+        {
+          "page": 33,
+          "match": "Ⅲ．電子納品編"
+        },
+        {
+          "page": 89,
+          "match": "巻末資料",
+          "book": true
+        },
+        {
+          "page": 90,
+          "match": "1. 完成平面図における地物作成仕様"
+        },
+        {
+          "page": 122,
+          "match": "2．SXF Ver.2.0 による完成平面図の作成方法"
+        },
+        {
+          "page": 130,
+          "match": "3．道路施設基本データ詳細情報・管理ファイル作成方法"
+        }
+      ]
+    },
+    "okinawa/hikkei-08": {
+      "_comment": "沖縄総合事務局 土木請負工事必携の「建設工事公衆災害防止対策要綱の解説」（令和元年9月 国土交通省）。p1 は表紙、p2-4 は目次、p5 から本文で、（土木工事編）12 章と（建築工事等編）6 章。柱・印刷ページ番号は無い。九州の必携の公衆災害防止対策要綱（kyushu/hikkei-common-10）の解説の部分と同じ版・同じ内容（設定 editionCanonical）。2026-10-19 実測。",
+      "bodyStartPage": 5,
+      "chapterSource": "outline",
+      "articleStyle": "dai",
+      "printPageNumber": "none",
+      "printPageRequired": false,
+      "clauseTitleMaxLength": 24,
+      "clauseSequence": "sparse",
+      "ogpLabel": "公衆災害防止対策要綱の解説",
+      "outline": [
+        {
+          "page": 5,
+          "match": "（土木工事編）",
+          "book": true,
+          "title": "土木工事編"
+        },
+        {
+          "page": 5,
+          "match": "第１章 総 則"
+        },
+        {
+          "page": 16,
+          "match": "第２章 一般事項"
+        },
+        {
+          "page": 23,
+          "match": "第３章 交通対策"
+        },
+        {
+          "page": 32,
+          "match": "第４章 高所作業"
+        },
+        {
+          "page": 36,
+          "match": "第５章 使用する建設機械に関する措置"
+        },
+        {
+          "page": 44,
+          "match": "第６章 軌道等の保全"
+        },
+        {
+          "page": 45,
+          "match": "第７章 埋設物"
+        },
+        {
+          "page": 52,
+          "match": "第８章 土 工 事"
+        },
+        {
+          "page": 60,
+          "match": "第９章 覆 工"
+        },
+        {
+          "page": 62,
+          "match": "第 10 章 埋 戻 し"
+        },
+        {
+          "page": 66,
+          "match": "第 11 章 地下掘進工事"
+        },
+        {
+          "page": 68,
+          "match": "第 12 章 火災及び酸素欠乏症の防止"
+        },
+        {
+          "page": 71,
+          "match": "（建築工事等編）",
+          "book": true,
+          "title": "建築工事等編"
+        },
+        {
+          "page": 71,
+          "match": "第１章 総 則"
+        },
+        {
+          "page": 82,
+          "match": "第２章 一般事項"
+        },
+        {
+          "page": 98,
+          "match": "第３章 交通対策"
+        },
+        {
+          "page": 102,
+          "match": "第４章 使用する建設機械に関する措置"
+        },
+        {
+          "page": 110,
+          "match": "第５章 解体工事"
+        },
+        {
+          "page": 113,
+          "match": "第６章 土工事"
+        }
+      ],
+      "noTables": "要綱の解説は散文だけで表を持たない（2026-10-19 に生成物で表 0 件を確認）"
     }
+  },
+  "editionCanonical": {
+    "_comment": "同じ要綱・要領を複数の機関・版で収録しているとき、検索に載せる 1 本（canonical）と noindex, follow にする他の収録。原本 PDF が別物なので SHA-256 の一致（duplicateOf）では拾えない。版（年月）は各原本の表紙・告示・通知の日付で確かめた（2026-10-19）。決め方: (1) 版の新しいものを載せる、(2) 同じ版なら、その要綱だけの文書（工事必携の冊子の 1 項目より探しやすい）を載せ、内容の多いもの（要綱と解説をまとめた版など）を優先する。item は近畿の必携（kinki/hikkei）の総目次の番号で、冊子を項目ごとの記事にしたときに使う。判定の実装は src/lib/standards-editions.mjs。",
+    "groups": [
+      {
+        "title": "建設工事公衆災害防止対策要綱",
+        "canonical": {
+          "document": "kyushu/hikkei-common-10",
+          "edition": "令和元年9月（国土交通省告示第496号）"
+        },
+        "others": [
+          {
+            "document": "okinawa/hikkei-07",
+            "edition": "令和元年9月",
+            "reason": "同じ版の要綱の本文だけ（九州版は要綱・見直し内容・解説を 1 冊に収める）"
+          },
+          {
+            "document": "okinawa/hikkei-08",
+            "edition": "令和元年9月",
+            "reason": "同じ版の要綱の解説（九州版の p81-199 と同じ内容）"
+          },
+          {
+            "document": "kinki/hikkei",
+            "item": 14,
+            "edition": "令和元年9月",
+            "reason": "同じ版の要綱の本文だけ（近畿の必携 14 項）"
+          }
+        ]
+      },
+      {
+        "title": "建設副産物適正処理推進要綱",
+        "canonical": {
+          "document": "kyushu/hikkei-common-13",
+          "edition": "平成14年5月30日改正"
+        },
+        "others": [
+          {
+            "document": "okinawa/hikkei-09",
+            "edition": "平成14年5月30日改正",
+            "reason": "同じ版"
+          },
+          {
+            "document": "kinki/hikkei",
+            "item": 9,
+            "edition": "平成14年5月30日改正",
+            "reason": "同じ版（近畿の必携 9 項）"
+          }
+        ]
+      },
+      {
+        "title": "道路工事現場における標示施設等の設置基準",
+        "canonical": {
+          "document": "kyushu/hikkei-common-11",
+          "edition": "平成18年3月31日改正"
+        },
+        "others": [
+          {
+            "document": "okinawa/hikkei-10",
+            "edition": "平成18年3月31日改正",
+            "reason": "同じ版"
+          },
+          {
+            "document": "kinki/hikkei",
+            "item": 18,
+            "edition": "平成18年3月31日改正",
+            "reason": "同じ版（近畿の必携 18 項）"
+          }
+        ]
+      },
+      {
+        "title": "道路工事保安施設設置基準（案）",
+        "canonical": {
+          "document": "kyushu/road-safety",
+          "edition": "令和6年2月"
+        },
+        "others": [
+          {
+            "document": "okinawa/hikkei-11",
+            "edition": "令和6年2月",
+            "reason": "同じ版"
+          },
+          {
+            "document": "kinki/hikkei",
+            "item": 19,
+            "edition": "令和6年2月",
+            "reason": "同じ版（近畿の必携 19 項）"
+          }
+        ]
+      },
+      {
+        "title": "コンクリート中の塩化物総量規制及びアルカリ骨材反応抑制対策実施要領",
+        "canonical": {
+          "document": "okinawa/hikkei-12",
+          "edition": "平成14年7月"
+        },
+        "others": [
+          {
+            "document": "kyushu/hikkei-control-05",
+            "edition": "昭和61年6月",
+            "reason": "塩化物総量規制だけの旧版（平成14年7月の要領が塩化物とアルカリ骨材反応をまとめて定める）"
+          },
+          {
+            "document": "kyushu/hikkei-control-06",
+            "edition": "平成14年7月",
+            "reason": "アルカリ骨材反応抑制対策だけ（同じ版の要領が塩化物総量規制とまとめて定める）"
+          },
+          {
+            "document": "kinki/hikkei",
+            "item": 20,
+            "edition": "平成14年7月",
+            "reason": "同じ版（近畿の必携 20 項）"
+          }
+        ]
+      },
+      {
+        "title": "RI計器を用いた盛土の締固め管理要領（案）",
+        "canonical": {
+          "document": "kyushu/hikkei-control-12",
+          "edition": "平成8年8月"
+        },
+        "others": [
+          {
+            "document": "okinawa/hikkei-04",
+            "edition": "平成8年8月",
+            "reason": "同じ版（九州版は通知の日付を刷る）"
+          }
+        ]
+      },
+      {
+        "title": "土木工事安全施工技術指針",
+        "canonical": {
+          "document": "kinki/hikkei",
+          "item": 12,
+          "edition": "令和6年3月"
+        },
+        "others": [
+          {
+            "document": "kyushu/hikkei-common-09",
+            "edition": "平成13年3月改正",
+            "reason": "旧版（近畿の必携 12 項が令和6年3月版）"
+          }
+        ]
+      },
+      {
+        "title": "微破壊・非破壊試験によるコンクリート構造物の強度測定要領",
+        "canonical": {
+          "document": "kinki/hikkei",
+          "item": 8,
+          "edition": "平成30年10月"
+        },
+        "others": [
+          {
+            "document": "kyushu/hikkei-control-10",
+            "edition": "平成19年10月一部改訂",
+            "reason": "旧版の試行要領（案）（近畿の必携 8 項が平成30年10月の要領）"
+          }
+        ]
+      },
+      {
+        "title": "非破壊試験によるコンクリート構造物中の配筋状態及びかぶり測定要領",
+        "canonical": {
+          "document": "kinki/hikkei",
+          "item": 38,
+          "edition": "平成30年10月"
+        },
+        "others": [
+          {
+            "document": "kyushu/hikkei-control-11",
+            "edition": "平成18年3月一部改訂",
+            "reason": "旧版（近畿の必携 38 項が平成30年10月版）"
+          }
+        ]
+      },
+      {
+        "title": "鋼橋製作における仮組立検査の省略について",
+        "canonical": {
+          "document": "kyushu/hikkei-control-01",
+          "edition": "平成7年9月28日"
+        },
+        "others": [
+          {
+            "document": "okinawa/hikkei-01",
+            "edition": "平成7年9月28日",
+            "reason": "同じ事務連絡"
+          }
+        ]
+      },
+      {
+        "title": "鋼橋用鋼材（厚鋼板）の立会の簡素化について",
+        "canonical": {
+          "document": "kyushu/hikkei-control-02",
+          "edition": "平成8年9月1日"
+        },
+        "others": [
+          {
+            "document": "okinawa/hikkei-03",
+            "edition": "平成8年9月1日",
+            "reason": "同じ事務連絡"
+          }
+        ]
+      },
+      {
+        "title": "建設材料の品質記録保存業務実施要領（案）",
+        "canonical": {
+          "document": "okinawa/hikkei-16",
+          "edition": "平成30年4月改定"
+        },
+        "others": [
+          {
+            "document": "okinawa/hikkei-17",
+            "edition": "昭和62年9月",
+            "reason": "改定前の旧版"
+          },
+          {
+            "document": "kinki/hikkei",
+            "item": 11,
+            "edition": "平成30年4月改定",
+            "reason": "同じ版（近畿の必携 11 項。本文が沖縄版と同じ改定後の要領）"
+          }
+        ]
+      }
+    ]
   }
 }
