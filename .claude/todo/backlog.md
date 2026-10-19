@@ -352,6 +352,16 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0771] 手元データの期限切れ（.tmp・.claude/state）を片付ける
+タグ: [インフラ・計測] [領域:サイト] [時期:2026-10] [種類:改善] [起票:2026-10-19]
+
+**起点**: obsidian の TODO マスタ ^t-0016（3リポ共通）を各リポへ展開（2026-10-19）。方針は .claude/shared-policy/LOCAL-DATA.md。2026-10-19 の `npm run check-local-data` で staging の上限超えが 1,985 件（主に `.tmp/` 1.2GB と `.claude/state/` の下書き。`.tmp/kindle-pop` 430MB など採用済みかもしれない成果物も混ざる）。
+
+**やること**: 上限超えを1件ずつ「採用済み→置き場（R2・Drive・原稿）へ移す」「使い捨て→消す」に分ける。今後の使い捨ては `.tmp/scratch/` に出す。
+
+**完了条件**: `npm run check-local-data` の staging 上限超えが 0 件。
+
+
 
 
 
