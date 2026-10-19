@@ -282,6 +282,7 @@ async function main() {
   }
   const s3 = await makeS3();
   const { PutObjectCommand, HeadObjectCommand, GetObjectCommand } = await import('@aws-sdk/client-s3');
+  const PUBLIC_CACHE_CONTROL = 'public, max-age=86400';
   const { createHash } = await import('node:crypto');
 
   const manifest = loadManifest();
@@ -314,6 +315,9 @@ async function main() {
       const { readFileSync } = await import('node:fs');
       await s3.send(new PutObjectCommand({
         Bucket: r.bucketName, Key: r.key, Body: readFileSync(r.abs), ContentType: mimeFor(r.path),
+        // 公開バケット（CDN 配信）は 1 日キャッシュさせる。Cache-Control が無いと Cloudflare の既定（4 時間）で切れ、
+        // そのたびに R2 から読み直す（Class B）。URL に版が付かないので、差し替えは最大 1 日遅れて届く
+        ...(r.bucket === 'public' ? { CacheControl: PUBLIC_CACHE_CONTROL } : {}),
       }));
       uploaded++;
     } catch (e) {

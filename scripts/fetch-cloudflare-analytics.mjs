@@ -22,7 +22,7 @@ import { join, dirname } from 'node:path';
 import { todayJst } from './lib/jst-date.mjs';
 import { addDays } from './lib/business-direction.mjs';
 import { datasetPath } from './lib/datasets.mjs';
-import { buildZoneQuery, pruneQueryFields, summarizeDays, spikeFlag, DEFAULT_SUM_FIELDS } from './lib/cloudflare-analytics.mjs';
+import { buildZoneQuery, pruneQueryFields, summarizeDays, spikeFlag, DEFAULT_SUM_FIELDS, buildAccountUsageQuery, summarizeAccountUsage } from './lib/cloudflare-analytics.mjs';
 import { readDataset } from './lib/dataset-io.mjs';
 import { REPO_ROOT as ROOT } from './lib/repository-paths.mjs';
 
@@ -172,6 +172,23 @@ export async function run({ fetchImpl = globalThis.fetch, root = ROOT, now = () 
     firewallEvents = { unavailable: truncateMessage(e.message).slice(0, 120) };
   }
 
+  // アカウント全体の R2・Workers の使用量（probe 層。取れなくても本体は成功のまま）。トークンに
+  // Account Analytics の読み取り権限が要る。請求は doboku-note と stats47 の合算なので両方を記録する
+  let accountUsage;
+  const accountTag = process.env.CLOUDFLARE_ACCOUNT_ID;
+  if (!config.usage) accountUsage = { unavailable: 'config.usage が無い' };
+  else if (!accountTag) accountUsage = { unavailable: 'CLOUDFLARE_ACCOUNT_ID が無い' };
+  else {
+    try {
+      const usageSince = addDays(today, -config.usage.windowDays);
+      const usageJson = await postGraphQL(fetchImpl, config.graphql, token, buildAccountUsageQuery({ accountTag, since: usageSince, until }));
+      if (usageJson.errors?.length) throw new Error(truncateMessage(usageJson.errors.map((e) => e.message).join('; ')));
+      accountUsage = { window: { since: usageSince, until }, pricingAsOf: config.usage.pricing.asOf, ...summarizeAccountUsage(usageJson.data?.viewer?.accounts?.[0], config.usage.pricing) };
+    } catch (e) {
+      accountUsage = { unavailable: truncateMessage(e.message).slice(0, 120) };
+    }
+  }
+
   const anomaly = spikeFlag(daily);
   const snapshot = {
     schemaVersion: 1,
@@ -181,6 +198,7 @@ export async function run({ fetchImpl = globalThis.fetch, root = ROOT, now = () 
     daily,
     topPaths,
     botSignals: { firewallEvents, botScoreBuckets: { unavailable: 'plan' } },
+    accountUsage,
     fieldsUnavailable,
     counts: { daysReturned, countriesSeen },
     anomaly,
@@ -210,6 +228,10 @@ if (isMain) {
     if (snapshot.anomaly.flagged) {
       console.log(`::warning::${TAG} anomaly detected: ${snapshot.anomaly.reason}（yesterdayJp=${snapshot.anomaly.yesterdayJp} median6Jp=${snapshot.anomaly.median6Jp}）`);
     }
+    const usage = snapshot.accountUsage;
+    console.log(usage?.unavailable
+      ? `${TAG} アカウント使用量: 無（${usage.unavailable}）`
+      : `${TAG} アカウント使用量 ${usage.window.since}〜${usage.window.until}: R2 ${usage.totals.r2Gb}GB・Class A ${usage.totals.r2ClassA}・Class B ${usage.totals.r2ClassB} / Workers ${usage.totals.workersRequests} 回・CPU ${usage.totals.workersCpuMs}ms / 見込み ${usage.estimateUsd?.total}`);
     console.log(`${TAG} 日次 ${snapshot.counts.daysReturned}/7 日 / 国 ${snapshot.counts.countriesSeen} / topPaths ${snapshot.topPaths?.unavailable ? '無' : '有'} / firewall ${snapshot.botSignals.firewallEvents?.unavailable ? '無' : '有'} / 欠落フィールド ${snapshot.fieldsUnavailable.length}`);
     process.exit(0);
   }).catch((e) => {

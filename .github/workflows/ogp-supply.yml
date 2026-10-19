@@ -271,7 +271,13 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_R2_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
           CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
-        run: node scripts/build-ogp-thumbnails.mjs --supply
+        # push は今回作った OGP（台帳の sha256 が HEAD から変わったもの）だけを確かめる。週次と手動は全件で自己修復する
+        run: |
+          if [ "${{ github.event_name }}" = "push" ]; then
+            node scripts/build-ogp-thumbnails.mjs --supply --changed-since HEAD
+          else
+            node scripts/build-ogp-thumbnails.mjs --supply
+          fi
 
       - name: Publish manifest to develop
         if: steps.detect.outputs.count != '0' || steps.chapters.outputs.chapters_generated != '0'

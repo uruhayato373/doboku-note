@@ -14,6 +14,10 @@ on:
         required: false
         default: false
         type: boolean
+      allow_unpreserved:
+        description: '台帳の保全の条件に当たらないキーも消す（リストの見出しに保全の根拠を書いたときだけ。既定は止める）'
+        default: false
+        type: boolean
       list:
         description: '削除リストのパス'
         required: false
@@ -51,5 +55,8 @@ jobs:
           ARGS="--list ${{ github.event.inputs.list }}"
           if [ "${{ github.event.inputs.commit }}" = "true" ]; then
             ARGS="$ARGS --commit"
+          fi
+          if [ "${{ github.event.inputs.allow_unpreserved }}" = "true" ]; then
+            ARGS="$ARGS --allow-unpreserved"
           fi
           node scripts/delete-r2-objects.mjs $ARGS
