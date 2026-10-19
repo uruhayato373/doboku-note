@@ -1,0 +1,659 @@
+{
+  "key": "5096bea7fe153984",
+  "kind": "table",
+  "layout": [
+    "編 章 節 条 枝番 工　　　　　種              測　定　項　目   規　格　値               測　　定　　基　　準                測　　定　　箇　　所                              単位：mm",
+    "                                              ±50                                                                             摘　要",
+    "８１９６                 鋼製側壁工      堤高▽          ±100  1．図面に表示してある箇所で測定。                                                      8-1-9-6",
+    "砂砂鋼                                                2．ダブルウォール構造の場合は、堤",
+    "防防製                             長さＬ                高、幅、袖高は＋の規格値は適用しな                    Ｌ                     ｗ1",
+    "編堰堰                                                い。",
+    "",
+    "         堤堤                       幅ｗ1，ｗ2  ±50",
+    "                  工             下流側倒れ△",
+    "",
+    "                                          ±0.02Ｈ                                                                       Ｈ",
+    "                                                                                                              ｗ2 Δ",
+    "                             高  ｈ＜3m      －50",
+    "",
+    "                             さ",
+    "",
+    "                             ｈ  ｈ≧3m      －100",
+    "",
+    "８２５８                 魚道工          基準高▽    ±30      施 工 延 長 40m （ 測 点 間 隔25m の場 合は                                         8-2-5-8",
+    "                                     幅ｗ   －30      50m ） に つ き 1 ヶ 所 、 延 長 40m （ ま た は",
+    "砂流床                                       －30      50m）以下のも のは 1施 工箇 所に つき",
+    "                                高さｈ1，ｈ2   －20      2ヶ所。",
+    "防路固                             厚さｔ1，ｔ2   －200                                                  ｔ1 ｗ ｔ2",
+    "",
+    "編  め                                延長Ｌ                                                                  ｈ2",
+    "                                                                                        ｈ1",
+    "   工                              基準高▽",
+    "                                厚さｔ1，ｔ2",
+    "８３６４                 山腹明暗渠工               ±30      施 工 延 長 40m （ 測 点 間 隔25m の場 合は                                         8-3-6-4",
+    "砂斜山                                  幅ｗ   －20      50m ） に つ き 1 ヶ 所 、 延 長 40m （ ま た は",
+    "防面腹                              幅ｗ1，ｗ2   －30      50m）以下のも のは 1施 工箇 所に つき                      ｔ1 ｗ ｔ2",
+    "編対水                             高さｈ1，ｈ2   －50      2ヶ所。",
+    "                                          －30                                                             ｈ2",
+    "         策路                        深さｈ3   －30                                           ｈ1",
+    "                  工                 延長Ｌ   －200",
+    "",
+    "                                                                                                                 ｈ3",
+    "",
+    "                                                                                           ｗ2",
+    "                                                                                           ｗ1"
+  ],
+  "header": [
+    [
+      "編",
+      "章",
+      "節",
+      "条",
+      "枝番",
+      "工種",
+      "測定項目",
+      {
+        "same": "left"
+      },
+      {
+        "same": "left"
+      },
+      "規格値",
+      "測定基準",
+      "測定箇所",
+      "摘要"
+    ]
+  ],
+  "rows": [
+    [
+      "８ 砂防編",
+      "１ 砂防堰堤",
+      "９ 鋼製堰堤工",
+      "６",
+      "",
+      "鋼製側壁工",
+      "堤高▽",
+      {
+        "same": "left"
+      },
+      {
+        "same": "left"
+      },
+      "±50",
+      "1．図面に表示してある箇所で測定。 2．ダブルウォール構造の場合は、堤高、幅、袖高は＋の規格値は適用しない。",
+      "Ｌ ｗ1 Ｈ ｗ2 Δ",
+      "8-1-9-6"
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "",
+      {
+        "same": "above"
+      },
+      "長さＬ",
+      {
+        "same": "left"
+      },
+      {
+        "same": "left"
+      },
+      "±100",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "",
+      {
+        "same": "above"
+      },
+      "幅ｗ1，ｗ2",
+      {
+        "same": "left"
+      },
+      {
+        "same": "left"
+      },
+      "±50",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "",
+      {
+        "same": "above"
+      },
+      "下流側倒れ△",
+      {
+        "same": "left"
+      },
+      {
+        "same": "left"
+      },
+      "±0.02Ｈ",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "",
+      {
+        "same": "above"
+      },
+      "高さｈ",
+      "ｈ＜3m",
+      {
+        "same": "left"
+      },
+      "－50",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "ｈ≧3m",
+      {
+        "same": "left"
+      },
+      "－100",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      "８ 砂防編",
+      "２ 流路",
+      "５ 床固め工",
+      "８",
+      "",
+      "魚道工",
+      "基準高▽",
+      {
+        "same": "left"
+      },
+      {
+        "same": "left"
+      },
+      "±30",
+      "施工延長40m（測点間隔25mの場合は50m）につき1ヶ所、延長40m（または50m）以下のものは1施工箇所につき2ヶ所。",
+      "ｔ1 ｗ ｔ2 ｈ2 ｈ1",
+      "8-2-5-8"
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "",
+      {
+        "same": "above"
+      },
+      "幅ｗ",
+      {
+        "same": "left"
+      },
+      {
+        "same": "left"
+      },
+      "－30",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "",
+      {
+        "same": "above"
+      },
+      "高さｈ1，ｈ2",
+      {
+        "same": "left"
+      },
+      {
+        "same": "left"
+      },
+      "－30",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "",
+      {
+        "same": "above"
+      },
+      "厚さｔ1，ｔ2",
+      {
+        "same": "left"
+      },
+      {
+        "same": "left"
+      },
+      "－20",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "",
+      {
+        "same": "above"
+      },
+      "延長Ｌ",
+      {
+        "same": "left"
+      },
+      {
+        "same": "left"
+      },
+      "－200",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      "８ 砂防編",
+      "３ 斜面対策",
+      "６ 山腹水路工",
+      "４",
+      "",
+      "山腹明暗渠工",
+      "基準高▽",
+      {
+        "same": "left"
+      },
+      {
+        "same": "left"
+      },
+      "±30",
+      "施工延長40m（測点間隔25mの場合は50m）につき1ヶ所、延長40m（または50m）以下のものは1施工箇所につき2ヶ所。",
+      "ｔ1 ｗ ｔ2 ｈ2 ｈ1 ｈ3 ｗ2 ｗ1",
+      "8-3-6-4"
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "",
+      {
+        "same": "above"
+      },
+      "厚さｔ1，ｔ2",
+      {
+        "same": "left"
+      },
+      {
+        "same": "left"
+      },
+      "－20",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "",
+      {
+        "same": "above"
+      },
+      "幅ｗ",
+      {
+        "same": "left"
+      },
+      {
+        "same": "left"
+      },
+      "－30",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "",
+      {
+        "same": "above"
+      },
+      "幅ｗ1，ｗ2",
+      {
+        "same": "left"
+      },
+      {
+        "same": "left"
+      },
+      "－50",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "",
+      {
+        "same": "above"
+      },
+      "高さｈ1，ｈ2",
+      {
+        "same": "left"
+      },
+      {
+        "same": "left"
+      },
+      "－30",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "",
+      {
+        "same": "above"
+      },
+      "深さｈ3",
+      {
+        "same": "left"
+      },
+      {
+        "same": "left"
+      },
+      "－30",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "",
+      {
+        "same": "above"
+      },
+      "延長Ｌ",
+      {
+        "same": "left"
+      },
+      {
+        "same": "left"
+      },
+      "－200",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ]
+  ],
+  "notes": [
+    "単位：mm"
+  ],
+  "headerFrom": null,
+  "review": {
+    "status": "approved",
+    "by": "qa",
+    "at": "2026-10-19T10:51:42.704Z",
+    "note": "測定箇所は図の文字を入れた。画像の各工種の最下行の空欄は省略。 ／ QA: 鋼製側壁工・魚道工・山腹明暗渠工の全行の値を画像p175と照合。ずれ・欠けなし"
+  }
+}

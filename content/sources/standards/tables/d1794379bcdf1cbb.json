@@ -1,0 +1,557 @@
+{
+  "key": "d1794379bcdf1cbb",
+  "kind": "table",
+  "layout": [
+    "                                                                                          摘　要",
+    "３ ２ 12 １ １ 鋳造費      上                 ＋2               製品全数を測定。                       3-2-12-1",
+    "                                      －0               ※1）ガス切断寸法を準用する",
+    "土一工   （金属支承工）       下      孔の直径差",
+    "                                                       ※2）片面のみの削り加工の場合も含",
+    "木般場                 部                                  む。",
+    "",
+    "工施製                 鋼                                  ※3）ソールプレートの接触面の橋軸",
+    "                                                       及び橋軸直角方向の長さ寸法に対して",
+    "事工作                 構         ボスの突起を基準                 はCT13を適用するものとする。",
+    "",
+    "共  工                造      とした孔の位置ずれ                   ※4）全移動量分の遊間が確保されて",
+    "                                                       いるのかをする。",
+    "通                   物",
+    "                                                       ※5）組立て後に測定",
+    "編  共                と                 1以下",
+    "                    の 中 ≦1,000mm                       詳細は道路橋支承便覧参照",
+    "   通                接心",
+    "",
+    "                    合距      ボスの突起を基準",
+    "                    用離     とした孔の位置ずれ",
+    "",
+    "                    ボ",
+    "",
+    "                    ル",
+    "",
+    "                    ト      ＞1,000mm   1.5以下",
+    "",
+    "                    孔",
+    "",
+    "                       ア(   ド                  ＋3",
+    "                       ン    リ ≦100mm           －1",
+    "                       カー   ル                  ＋4",
+    "                    ア       加                  －2",
+    "                    ン バー    工 ＞100mm",
+    "                    カー      孔         JIS B 0403-1995",
+    "                       用                      CT13",
+    "                    ボ孔     孔の中心距離※1",
+    "                    ル",
+    "                    ト鋳",
+    "                       放",
+    "                       し",
+    "",
+    "                        )",
+    "",
+    "                    セ                 ＋0",
+    "                                      －1",
+    "                    ン      ボスの直径",
+    "",
+    "                    ター",
+    "",
+    "                    ボ      ボスの高さ      ＋1",
+    "                                      －0",
+    "                    ス",
+    "",
+    "                    ボ      ボスの直径      ＋0",
+    "                                      －1",
+    "                    ス",
+    "",
+    "                    ※                 ＋1",
+    "                                      －1",
+    "                    5      ボスの高さ",
+    "",
+    "                    上沓の橋軸及び橋軸直 JIS B 0403-1995",
+    "",
+    "      （次頁に続く）       角方向の長さ寸法          CT13"
+  ],
+  "header": [
+    [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "摘要"
+    ]
+  ],
+  "rows": [
+    [
+      "３土木工事共通編",
+      "２一般施工",
+      "12工場製作工共通",
+      "１",
+      "１",
+      "鋳造費（金属支承工）",
+      "上下部鋼構造物との接合用ボルト孔",
+      "孔の直径差",
+      {
+        "same": "left"
+      },
+      "＋2 －0",
+      "製品全数を測定。※1）ガス切断寸法を準用する ※2）片面のみの削り加工の場合も含む。 ※3）ソールプレートの接触面の橋軸及び橋軸直角方向の長さ寸法に対してはCT13を適用するものとする。 ※4）全移動量分の遊間が確保されているのかをする。 ※5）組立て後に測定 詳細は道路橋支承便覧参照",
+      "",
+      "3-2-12-1"
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "中心距離",
+      "ボスの突起を基準とした孔の位置ずれ",
+      {
+        "same": "left"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "≦1,000mm",
+      "1以下",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "ボスの突起を基準とした孔の位置ずれ",
+      {
+        "same": "left"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "＞1,000mm",
+      "1.5以下",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "アンカーバー アンカーボルト用孔(鋳放し)",
+      "ドリル加工孔",
+      "≦100mm",
+      "＋3 －1",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "＞100mm",
+      "＋4 －2",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "孔の中心距離※1",
+      {
+        "same": "left"
+      },
+      "JIS B 0403-1995 CT13",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "センターボス",
+      "ボスの直径",
+      {
+        "same": "left"
+      },
+      "＋0 －1",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "ボスの高さ",
+      {
+        "same": "left"
+      },
+      "＋1 －0",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "ボス※5",
+      "ボスの直径",
+      {
+        "same": "left"
+      },
+      "＋0 －1",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "ボスの高さ",
+      {
+        "same": "left"
+      },
+      "＋1 －1",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ],
+    [
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      "上沓の橋軸及び橋軸直角方向の長さ寸法",
+      {
+        "same": "left"
+      },
+      {
+        "same": "left"
+      },
+      "JIS B 0403-1995 CT13",
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      },
+      {
+        "same": "above"
+      }
+    ]
+  ],
+  "notes": [
+    "（次頁に続く）"
+  ],
+  "headerFrom": null,
+  "headerFill": "aef40b330a3fd93c",
+  "review": {
+    "status": "approved",
+    "by": "qa",
+    "at": "2026-10-19T10:49:23.731Z",
+    "note": "見出しは摘要のみ版面にある。残りは同じ章の次ページ表の見出しで補った。縦書きのアンカーバー／アンカーボルト用孔(鋳放し)は1つの項目名につないだ。 ／ QA: p0130-0133の画像と全セル照合。行列対応・結合・見出し一致。空欄セルは原本も空"
+  }
+}
