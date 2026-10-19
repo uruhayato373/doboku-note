@@ -55,10 +55,13 @@ for (const f of bom) errors.push(`BOM 付き MDX（frontmatter が壊れる）: 
 console.log(`[check-kindle-epub-leak] MDX ${mdx.length} 件を実検査 / BOM ${bom.length} 件`);
 
 // --- 2. 配布 EPUB の漏れ ---
+let notHydrated = false;
 if (!BOM_ONLY) {
   const dist = 'scripts/kindle-dist';
   const epubs = existsSync(dist) ? readdirSync(dist).filter((f) => f.endsWith('.epub')) : [];
-  if (epubs.length === 0) errors.push('EPUB 走査が 0 件（検査不成立）');
+  // 配布 EPUB は private R2 に退避してあり git に無い（DN-0562）。0 冊は「手元へ取り戻していない」で、壊れではないが合格でもない
+  notHydrated = epubs.length === 0;
+  if (notHydrated) errors.push('EPUB 走査が 0 件（検査不成立）');
   let scanned = 0;
   for (const name of epubs) {
     const tmp = mkdtempSync(join(tmpdir(), 'epubleak-'));
@@ -86,7 +89,13 @@ if (errors.length) {
   console.error('[check-kindle-epub-leak] NG');
   for (const e of errors.slice(0, 40)) console.error(`- ${e}`);
   if (errors.length > 40) console.error(`- ほか ${errors.length - 40} 件`);
-  console.error('  修正: BOM を除去 → 該当 spec を再ビルド → node scripts/sync-kindle-dist.mjs <id>');
+  if (notHydrated && errors.length === 1) {
+    // 「worktree だから」「以前から」で素通りさせない: 取り戻して検査を成立させる（CI は ci.yml が取り戻す）
+    console.error('  手元に配布 EPUB が無い: npm run asset-hydrate -- --group kindle-dist で private R2 から取り戻してから再実行する');
+    console.error('  （asset-hydrate が空き容量不足で止まるときは npm run check-disk-hygiene で空きを作る）');
+  } else {
+    console.error('  修正: BOM を除去 → 該当 spec を再ビルド → node scripts/sync-kindle-dist.mjs <id>');
+  }
   __exit(1);
 }
 console.log('[check-kindle-epub-leak] ✓ 原稿の素の漏れ・BOM ともに無し');
