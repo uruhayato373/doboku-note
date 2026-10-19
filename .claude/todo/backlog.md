@@ -321,6 +321,16 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 
 ## 🟡 中 — 重要度が中くらい
 
+### [DN-0777] Mac の worktree 5 本が許可外の置き場にあり、空き容量不足で EPUB の取り戻しが止まる（check-disk-hygiene の FAIL）
+タグ: [領域:管理] [時期:2026-10..2026-11] [種類:不具合] [検証:check-disk-hygiene] [起票:2026-10-20]
+
+**起点**: 2026-10-20 の DN-0772（落ちた検査を素通りさせない）で report 区分を回したところ、`check-disk-hygiene` が FAIL のまま読み流されていた（読み手は SessionStart/Stop フックと日次掃除ログ）。(1) worktree-placement: 許可された置き場（`.claude/worktrees` / `~/.codex/worktrees`）の外に 5 本ある＝`../auth-session-refresh`・`../coconala-local`・`../gsc-local`・`../note-sync`・`../weekly-review`。名前から Mac の定期処理（週次 note 同期・週次レビュー・ログイン収集など）が使っている可能性が高い。(2) 空き容量 18.5 GB（warn < 30 GB）で、`npm run asset-hydrate -- --group kindle-dist` が「Insufficient free disk for restore」で止まり、手元で `check-kindle-epub-leak`・`check-kindle-format` を成立させられない。
+
+**やること**: 5 本それぞれ、どの launchd・スクリプトが使っているか（`launchctl list`・`~/Library/LaunchAgents`・各スクリプトの cwd）を確かめ、使っていれば置き場を `~/.codex/worktrees/` へ移して参照を直す（`git worktree move`）、使っていなければ `git worktree remove`。空き容量は `npm run check-disk-hygiene` の推奨と `npm run disk-hygiene:fix` で 30 GB 以上へ戻す。定期処理を止めるおそれがあるので、移す前に運営者へ確認する。
+
+**完了条件**: `npm run check-disk-hygiene` の worktree-placement が ✓、空き 30 GB 以上、手元で `npm run asset-hydrate -- --group kindle-dist` が通って `npm run check-kindle-epub-leak` が成立する。
+
+
 
 
 ### [DN-0774] .gitignore の追跡対象を点検する
