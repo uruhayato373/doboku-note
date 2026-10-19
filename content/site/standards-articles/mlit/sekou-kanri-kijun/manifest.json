@@ -61,13 +61,13 @@
     "tables": 245,
     "tablesGfm": 0,
     "tablesList": 0,
-    "tablesOverride": 54,
-    "tablesVerbatim": 191
+    "tablesOverride": 62,
+    "tablesVerbatim": 183
   },
   "tableOutcomes": {
-    "lossy": 173,
-    "columns-out-of-range": 18,
-    "restored-override": 54
+    "restored-override": 62,
+    "lossy": 165,
+    "columns-out-of-range": 18
   },
   "removedSamples": {
     "runningHeaders": [
@@ -202,8 +202,8 @@
         31
       ],
       "sourceSha256": "fa18009c3c99ddda9da346264e403b86a1916f9b34e609abf81a6013b6f764f3",
-      "outputSha256": "7d796e0673d51e8967ba9188a0e2dcae33be0a1fb8ecf25809bc14498b58c8ba",
-      "outputBytes": 28248,
+      "outputSha256": "47d6d45049c867e33aeb799ecb8a6499ec4499f5f06062dab7c6a9f3a18f190f",
+      "outputBytes": 24072,
       "splitBySection": false,
       "sections": [],
       "stats": {
@@ -217,11 +217,12 @@
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
-        "tablesOverride": 0,
-        "tablesVerbatim": 10
+        "tablesOverride": 5,
+        "tablesVerbatim": 5
       },
       "tableOutcomes": {
-        "lossy": 10
+        "restored-override": 5,
+        "lossy": 5
       },
       "indexable": true,
       "duplicateOf": null,
@@ -261,8 +262,8 @@
         46
       ],
       "sourceSha256": "0459005dbd2243b5b7cf786af6c8625cbc3073f735840a63bb30bcc210417000",
-      "outputSha256": "8563fcc5f0a85c1e76f311f0263b9e6d8eaeff2fc53959e552e5baa0b25c48d4",
-      "outputBytes": 52015,
+      "outputSha256": "65b5c23f0d9ca983652cf51ca28de232d0127e053894afa13e8e271cc11f6fb5",
+      "outputBytes": 51457,
       "splitBySection": false,
       "sections": [],
       "stats": {
@@ -276,11 +277,12 @@
         "captions": 0,
         "tablesGfm": 0,
         "tablesList": 0,
-        "tablesOverride": 0,
-        "tablesVerbatim": 15
+        "tablesOverride": 3,
+        "tablesVerbatim": 12
       },
       "tableOutcomes": {
-        "lossy": 14,
+        "restored-override": 3,
+        "lossy": 11,
         "columns-out-of-range": 1
       },
       "indexable": true,
@@ -1337,8 +1339,8 @@
         228
       ],
       "sourceSha256": "ffaaa9cbb2ef0f33755ea3660bafe3f9a83bc65ef3413bd719f9fe39a5389ea1",
-      "outputSha256": "b3e109fbbc8aca731e1bc6e630a4e360d641485ba55ebd1e3aae07dfdf80525a",
-      "outputBytes": 38947,
+      "outputSha256": "b27613c5e292283582f17305085315f4a20437faddb18f0e101bcf15d5f76690",
+      "outputBytes": 38869,
       "splitBySection": false,
       "sections": [],
       "stats": {
@@ -1393,8 +1395,8 @@
         240
       ],
       "sourceSha256": "f78209b1d67825298de16d7269d5b44dbfb480c392d8407824766cff88165cd6",
-      "outputSha256": "9dacec0baf3fae1cb485e4fa671d7bfc3f57fe99b39e98e55927cfaf5ce44ea7",
-      "outputBytes": 71514,
+      "outputSha256": "a609ee8d20c101b520631f1b8ab7efa5f82e88ab2df557afecac5182cb70ce57",
+      "outputBytes": 71437,
       "splitBySection": false,
       "sections": [],
       "stats": {
@@ -1444,8 +1446,8 @@
         247
       ],
       "sourceSha256": "0d15f7457b10dee43436b00635bf88e3ef094a9e08684d5d8b9367a90ecdae6b",
-      "outputSha256": "c01263f23fbe0efc2837f66b5ffa79b22bf1bc63180eb3684af17355562c0bfd",
-      "outputBytes": 51567,
+      "outputSha256": "95fd49f56d4e3d6a14c60758a6d5c21bd5f5b0bfa1b648a685d7e92d256a1497",
+      "outputBytes": 51411,
       "splitBySection": false,
       "sections": [],
       "stats": {
@@ -1491,8 +1493,8 @@
         250
       ],
       "sourceSha256": "64f40cef6c561039f2b9543e5d1c56b70af039a3e2c9edbf0b6eee846fa5906a",
-      "outputSha256": "9c94289ecf01f0c4d940926272631b82ea5bc1df76ccd102af5c8e27072418a1",
-      "outputBytes": 23749,
+      "outputSha256": "af265c8299adb15231b7d91a5417bdbd3330500acbf2848ea92b4698871dba3a",
+      "outputBytes": 23671,
       "splitBySection": false,
       "sections": [],
       "stats": {
@@ -1543,8 +1545,8 @@
         257
       ],
       "sourceSha256": "4036fce73994dff42043406f4ead105f2c87c4618c4034360b68daab995d052c",
-      "outputSha256": "3b48a04501b2ed6c8ce125628856fa76a4cf24f270bf41a008f15cb092332714",
-      "outputBytes": 54131,
+      "outputSha256": "f5f12b5aae53938baf1fd564bb959aaedb17ae6371744c44d32081aa4c81e379",
+      "outputBytes": 53792,
       "splitBySection": false,
       "sections": [],
       "stats": {
