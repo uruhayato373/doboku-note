@@ -1937,6 +1937,19 @@ Windows（autocrlf で MDX が CRLF）で npm run refresh-indexes を回すと�
 
 ## 🟢 低 — 重要度が低い（時期未定を含む）
 
+### [DN-0775] 1級テキスト 2 本が R2 にしか無い civil-practice の図を公開 URL で参照している（リポジトリへ戻す）
+タグ: [領域:サイト] [種類:不具合] [起票:2026-10-19]
+
+**起点**: 2026-10-20 の R2 公開バケットの棚卸しで、今の記事が公開 URL で参照しているのにリポジトリに実体が無い画像が 2 件見つかった（R2 だけが実体・退避台帳にも無い＝監視外）。
+- content/site/civil-construction-1/textbook-concrete-properties/article.mdx:147 → /posts/civil-practice/concrete-crack-causes/img/figure-crack-timeline.svg
+- content/site/civil-construction-1/textbook-rebar-formwork/article.mdx:170 → /posts/civil-practice/rebar-splice-selection/img/figure-stagger-layout.svg
+どちらも civil-practice の記事ディレクトリから消えた図で、棚卸しでは削除対象から外して残した。
+
+**やること**: 2 枚を R2 から取り戻してリポジトリへ戻す（1 級テキスト側の img/ へ置き、参照を相対に直す）か、図を描き直して参照を差し替える。直したら R2 の旧キーを data/r2/delete-list.txt に足す。
+
+**完了条件**: 2 本の記事が参照する図がリポジトリに実体を持ち、npm run build で画像の参照切れが出ない。
+
+
 ### [DN-0770] 手元の PDF を Google ドライブに移し、ローカルに原本を残さない
 タグ: [インフラ・計測] [領域:サイト] [種類:改善] [起票:2026-10-19]
 
