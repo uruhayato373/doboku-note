@@ -7013,3 +7013,7 @@ posts/pe-comprehensive-management/value-engineering/img/ve-function-tree.svg
 posts/pe-comprehensive-management/work-planning/img/standard-time-tree.svg
 # -- test.png（1 件）
 test.png
+
+# 2026-10-20: DN-0775。1級テキスト 2 本が参照していた civil-practice の旧パス。図はリポジトリの各記事の img/ へ戻し、本番で新パスの配信と旧パスへの参照 0 件を確認してから削除
+posts/civil-practice/concrete-crack-causes/img/figure-crack-timeline.svg
+posts/civil-practice/rebar-splice-selection/img/figure-stagger-layout.svg

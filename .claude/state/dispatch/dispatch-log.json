@@ -4504,6 +4504,23 @@
       "commit": "9de12a2885ac",
       "verification": "cloudflare-metrics run 39254923407 success / cloudflare-config-audit run 39299774881 success",
       "note": "解析用トークン doboku-note-analytics-read を発行（アカウント分析＋doboku-note.com のゾーン読み取り 8 種）し Secret を登録。config-audit の publish 落ちは datasets 台帳に state.cloudflare-zone-config を登録して解消（PR #1132）。Issue #636・#709 は自動クローズ"
+    },
+    {
+      "id": "DN-0775",
+      "at": "2026-10-20",
+      "task": "1級テキスト 2 本が R2 にしか無い civil-practice の図を公開 URL で参照している（リポジトリへ戻す）",
+      "tier": "low",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-r2-orphans"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "989e74a415ed",
+      "verification": "npm run check-r2-orphans exit 0 / 本番 2 記事で新パスのみ",
+      "note": "R2 だけにあった図 2 枚を各記事の img/ へ戻して参照を差し替え（PR #1132）。本番デプロイ後に新パスの配信と旧パス参照 0 件を確認し、旧キー 2 件を削除（削除リストに記録）。check-r2-orphans は孤児 0・参照あり 0 で exit 0"
     }
   ]
 }
