@@ -54,6 +54,7 @@
 - [動画は音声前に画面確認](feedback_video_visual_check_before_audio.md) — 無音プレビュー・10秒シート
 - [報告前の実体確認](feedback_verify_your_excuses.md) — 理由検証・生成元・副産物
 - [Workflow運用の罠](feedback_workflow_orchestration_gotchas.md) — 並行2本・git禁止明記・一時パス共有
+- [SNS保留の確認](feedback_sns_hold_check_before_proposing.md) — SNSカード提案前に保留指示を確認
 - [Xタグ個数](feedback_x_hashtag_count.md) — #技術士 #総監+種別
 - [X凍結ガードレール](feedback_x_suspension_guardrail.md) — 重複・連投・同時刻回避
 - [knip裏取りとworktree npm](feedback_knip_grep_scope_and_worktree_npm.md) — repo全体grep・symlink実体化
