@@ -4,7 +4,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync, renameSync } from '
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-export const consumers = { stats47: 'stats47-monorepo', 'doboku-note': 'doboku-note' };
+export const consumers = { stats47: 'stats47-monorepo', 'doboku-note': 'doboku-note', 'kazu-note': 'kazu-note' };
 const folder = '.claude/shared-policy';
 /** 配布する文書。キー = 消費側の `.claude/shared-policy/` 内のファイル名、値 = obsidian の正本。先頭が主文書（manifest のトップレベル version/updated/sourcePath に載る）。 */
 const docs = {
