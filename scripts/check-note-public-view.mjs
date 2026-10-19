@@ -233,9 +233,10 @@ if (!API_ONLY && (ALL_PAGES || REVIEW)) {
     reps = pickRepresentatives(targets);
     mkdirSync(REVIEW_DIR, { recursive: true });
     const index = [];
-    for (const vp of BP.note.viewports) {
-      const ctx = await browser.newContext(contextOptions(vp, BP));
-      const shootOne = async (t) => {
+    // アクセス制限（403・429）や 5xx で開けなかった撮影は、最後に休んでから 1 件ずつ撮り直す。
+    // なぜ: 2026-10-17・10-19 の CI で毎回違う 4〜6 件が 403 になり（2 並列の組ごと）、撮影 100% の条件を満たせず検査不成立になった
+    const retryLater = [];
+    const makeShoot = (vp, ctx, { retry = false } = {}) => async (t) => {
         await politeWait();
         const page = await ctx.newPage();
         const r = results.get(t.noteId);
@@ -257,17 +258,36 @@ if (!API_ONLY && (ALL_PAGES || REVIEW)) {
             }
           });
         } catch (e) {
+          const reason = noteOpenFailure(e);
+          if (!retry && e instanceof TransientServerError) { retryLater.push({ t, vp }); return; }
           repFail++;
-          r.warn.push(`[${vp.width}px] ブラウザで開けない: ${noteOpenFailure(e).slice(0, 60)}`);
+          r.warn.push(`[${vp.width}px] ブラウザで開けない: ${reason.slice(0, 60)}`);
         } finally {
           await page.close().catch(() => {});
         }
       };
-      const t0 = Date.now(), failBefore = repFail;
+    for (const vp of BP.note.viewports) {
+      const ctx = await browser.newContext(contextOptions(vp, BP));
+      const shootOne = makeShoot(vp, ctx);
+      const t0 = Date.now(), failBefore = repFail, deferBefore = retryLater.length;
       for (let i = 0; i < reps.length; i += CONCURRENCY) await Promise.all(reps.slice(i, i + CONCURRENCY).map(shootOne));
       await ctx.close();
       // 画面幅ごとの進捗（止まったときにどこまで進んだかをログで追えるように）
-      console.log(`  代表ページ ${vp.width}px: ${reps.length} 本（開けない ${repFail - failBefore}・${Math.round((Date.now() - t0) / 1000)} 秒）`);
+      console.log(`  代表ページ ${vp.width}px: ${reps.length} 本（開けない ${repFail - failBefore}・あとで撮り直す ${retryLater.length - deferBefore}・${Math.round((Date.now() - t0) / 1000)} 秒）`);
+    }
+    if (retryLater.length) {
+      console.log(`  撮り直し: ${retryLater.length} 件を ${COOLDOWN_MS / 1000} 秒休んでから 1 件ずつ開く`);
+      await sleep(COOLDOWN_MS);
+      const failBefore = repFail;
+      for (const vp of BP.note.viewports) {
+        const items = retryLater.filter((x) => x.vp === vp);
+        if (!items.length) continue;
+        const ctx = await browser.newContext(contextOptions(vp, BP));
+        const shoot = makeShoot(vp, ctx, { retry: true });
+        for (const { t } of items) await shoot(t);
+        await ctx.close();
+      }
+      console.log(`  撮り直し: ${retryLater.length} 件のうち撮れた ${retryLater.length - (repFail - failBefore)}・開けない ${repFail - failBefore}`);
     }
     reviewCoverageResult = reviewCoverage({ viewports: BP.note.viewports, pages: index }, (file) => existsSync(join(REVIEW_DIR, file)));
   writeFileSync(join(REVIEW_DIR, 'index.json'), JSON.stringify({ service: 'note', viewports: BP.note.viewports, breakpoints: bpReport, pages: index, coverage: reviewCoverageResult }, null, 2) + '\n');
