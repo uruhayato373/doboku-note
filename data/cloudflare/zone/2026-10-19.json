@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "fetchedAt": "2026-10-19T12:33:41.859Z",
+  "fetchedAt": "2026-10-19T12:49:05.600Z",
   "zone": {
     "name": "doboku-note.com",
     "plan": "Free Website"
@@ -335,6 +335,121 @@
     },
     "botScoreBuckets": {
       "unavailable": "plan"
+    }
+  },
+  "accountUsage": {
+    "window": {
+      "since": "2026-09-19",
+      "until": "2026-10-18"
+    },
+    "pricingAsOf": "2026-10",
+    "buckets": {
+      "stats47-private": {
+        "objects": 5647,
+        "gb": 1.03,
+        "classA": 7677,
+        "classB": 30963,
+        "free": 12,
+        "unknown": 0,
+        "topOperations": {
+          "GetObject": 30962,
+          "PutObject": 7033,
+          "ListObjects": 644,
+          "DeleteObject": 12,
+          "HeadObject": 1
+        }
+      },
+      "doboku-note-archive": {
+        "objects": 3241,
+        "gb": 6.98,
+        "classA": 2472,
+        "classB": 77795,
+        "free": 0,
+        "unknown": 0,
+        "topOperations": {
+          "GetObject": 75635,
+          "HeadObject": 2160,
+          "PutObject": 1915,
+          "ListObjects": 278,
+          "PutBucket": 161
+        }
+      },
+      "stats47-cache": {
+        "objects": 0,
+        "gb": 0,
+        "classA": 0,
+        "classB": 0,
+        "free": 0,
+        "unknown": 0,
+        "topOperations": {}
+      },
+      "stats47": {
+        "objects": 102684,
+        "gb": 25.97,
+        "classA": 501291,
+        "classB": 14746924,
+        "free": 25651,
+        "unknown": 105,
+        "topOperations": {
+          "GetObject": 14314776,
+          "PutObject": 497462,
+          "HeadObject": 431690,
+          "DeleteObject": 25651,
+          "ListObjects": 3823
+        }
+      },
+      "doboku-note": {
+        "objects": 13375,
+        "gb": 0.97,
+        "classA": 190219,
+        "classB": 2631939,
+        "free": 71,
+        "unknown": 0,
+        "topOperations": {
+          "HeadObject": 2211787,
+          "GetObject": 420152,
+          "PutObject": 190155,
+          "DeleteObject": 71,
+          "ListObjects": 64
+        }
+      },
+      "(none)": {
+        "objects": 0,
+        "gb": 0,
+        "classA": 1,
+        "classB": 0,
+        "free": 0,
+        "unknown": 0,
+        "topOperations": {
+          "ListBuckets": 1
+        }
+      }
+    },
+    "workers": {
+      "stats47": {
+        "requests": 2935780,
+        "cpuMs": 1151809778
+      },
+      "__unknown__": {
+        "requests": 27210,
+        "cpuMs": 19921
+      }
+    },
+    "totals": {
+      "r2Gb": 34.95,
+      "r2ClassA": 701660,
+      "r2ClassB": 17487621,
+      "workersRequests": 2962990,
+      "workersCpuMs": 1151829699
+    },
+    "estimateUsd": {
+      "r2Storage": 0.37,
+      "r2ClassA": 0,
+      "r2ClassB": 2.7,
+      "workersBase": 5,
+      "workersRequests": 0,
+      "workersCpu": 22.44,
+      "total": 30.51
     }
   },
   "fieldsUnavailable": [],
