@@ -1,0 +1,37 @@
+{
+  "$comment": "doboku-note の手元データの申告（正本の方針: obsidian memos/ローカルデータ方針SSOT.md §3。配布物 LOCAL-DATA.md）。このリポが所有し手で直す（配布対象外）。検査は npm run check-local-data。置き場の詳細は .claude/knowledge/reference/asset-storage-policy.md・local-resource-policy.md",
+  "regenerable": [
+    "**/node_modules/",
+    "**/.next/",
+    "out/",
+    "**/next-env.d.ts",
+    "**/*.tsbuildinfo",
+    "playwright-report/",
+    "test-results/",
+    "public/pagefind/",
+    "public/standards-data/",
+    "src/config/doc-meta-index.json",
+    ".local/resource-audit/"
+  ],
+  "offloaded": [
+    { "path": "content/**", "ledger": "npm run check-asset-storage（R2）・npm run check-drive-vault（Google Drive）" }
+  ],
+  "device": [
+    ".local/playwright-*/",
+    ".obsidian/",
+    "docs/.obsidian/",
+    ".claude/worktrees/"
+  ],
+  "secret": [
+    "credentials/",
+    ".env.local"
+  ],
+  "staging": [
+    { "path": ".tmp/", "maxAgeDays": 14, "note": "使い捨ては .tmp/scratch/ だけ。採用した成果物は置き場へ移す（asset-storage-policy §1）" },
+    { "path": ".aidesigner/", "maxAgeDays": 30 },
+    { "path": ".claude/state/", "maxAgeDays": 30, "note": "git の外の state。下書き（umbrella-drafts など）は採用したら原稿へ移す" },
+    { "path": "data/ga4/", "maxAgeDays": 90, "note": "外部の取得結果。取得元の保存期限がある" },
+    { "path": "data/gsc/", "maxAgeDays": 90 },
+    { "path": "data/a8/", "maxAgeDays": 90 }
+  ]
+}
