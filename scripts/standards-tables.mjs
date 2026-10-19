@@ -11,7 +11,8 @@
  * vault が見えない PC では render で原本 PDF（catalog の sourceSha256 と一致するもの）から必要なページだけ作る。
  *
  *   npm run standards-tables -- inventory                     版面のまま残った表の台帳（中身の同じ表は key で 1 つ）
- *   npm run standards-tables -- sheets [--qa] [--name <接頭辞>] 作業票（--qa: 未承認の組み直しを照合用に）
+ *   npm run standards-tables -- sheets [--qa] [--name <接頭辞>] [--document <機関/文書>] [--chapter <章ID の接頭辞>]
+ *                                                             作業票（--qa: 未承認の組み直しを照合用に。--document・--chapter で対象を絞る）
  *   npm run standards-tables -- validate --batch <束> | <key…>  文字の過不足の照合と確認用の表（下書きも approved とみなす）
  *   npm run standards-tables -- review <key> --status approved|rejected --note "…"   照合役の判定を書く（review 欄だけ）
  *   npm run standards-tables -- render --agency <機関> --pdf <原本PDF>                vault が無い PC で画像を作る
@@ -49,6 +50,8 @@ const args = parseCliArgs({
   agency: { type: 'string' },
   pdf: { type: 'string' },
   dpi: { type: 'integer', default: 170 },
+  document: { type: 'string' },
+  chapter: { type: 'string' },
 });
 const [command, ...rest] = args._;
 
@@ -141,7 +144,10 @@ function sheets() {
   const overrides = loadTableOverrides();
   const file = (key) => overrides.get(key);
   // 既定: 組み直しがまだ無い表。--qa: 組み直しがあって未承認の表（照合役に渡す）
-  const entries = all.filter((entry) => (args.qa ? file(entry.key) && file(entry.key).review?.status !== 'approved' : !file(entry.key)));
+  // --document・--chapter（章 ID の接頭辞。`9-` なら第9編の全章）で対象を絞る（大きな文書を工種ごとに回すため）
+  const inScope = (entry) => (!args.document || entry.document === args.document)
+    && (!args.chapter || entry.chapterId === args.chapter || entry.chapterId.startsWith(String(args.chapter)));
+  const entries = all.filter((entry) => inScope(entry) && (args.qa ? file(entry.key) && file(entry.key).review?.status !== 'approved' : !file(entry.key)));
   if (entries.length === 0) {
     console.log(`[standards-tables] 作業票の対象 0 件（${args.qa ? '未承認の組み直しが無い' : 'すべて組み直し済み'}）`);
     return;

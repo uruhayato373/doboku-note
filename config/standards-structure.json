@@ -3088,6 +3088,22 @@
             "reason": "同じ版（東北の参考資料 23 項）"
           }
         ]
+      },
+      {
+        "title": "建設機械施工安全技術指針",
+        "canonical": {
+          "document": "kinki/hikkei",
+          "item": 13,
+          "edition": "近畿の必携 令和6年8月収録"
+        },
+        "others": [
+          {
+            "document": "tohoku/reference",
+            "item": 29,
+            "edition": "近畿と同じ本文",
+            "reason": "同じ版（東北の参考資料 29 項。本文の 3 文字の並びの一致度 0.99。2026-10-19 に比べた）"
+          }
+        ]
       }
     ]
   }
