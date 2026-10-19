@@ -4504,6 +4504,83 @@
       "commit": "9de12a2885ac",
       "verification": "cloudflare-metrics run 39254923407 success / cloudflare-config-audit run 39299774881 success",
       "note": "解析用トークン doboku-note-analytics-read を発行（アカウント分析＋doboku-note.com のゾーン読み取り 8 種）し Secret を登録。config-audit の publish 落ちは datasets 台帳に state.cloudflare-zone-config を登録して解消（PR #1132）。Issue #636・#709 は自動クローズ"
+    },
+    {
+      "id": "DN-0775",
+      "at": "2026-10-20",
+      "task": "1級テキスト 2 本が R2 にしか無い civil-practice の図を公開 URL で参照している（リポジトリへ戻す）",
+      "tier": "low",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-r2-orphans"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "989e74a415ed",
+      "verification": "npm run check-r2-orphans exit 0 / 本番 2 記事で新パスのみ",
+      "note": "R2 だけにあった図 2 枚を各記事の img/ へ戻して参照を差し替え（PR #1132）。本番デプロイ後に新パスの配信と旧パス参照 0 件を確認し、旧キー 2 件を削除（削除リストに記録）。check-r2-orphans は孤児 0・参照あり 0 で exit 0"
+    },
+    {
+      "id": "DN-0769",
+      "at": "2026-10-20",
+      "task": "地方版の要綱 5 組（薬液注入 2・アンカーボルト・六価クロム・NATM）の版を原本の画像で確かめて重複整理に入れる",
+      "tier": "low",
+      "kind": "改善",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "dfdb2c0ad2bb",
+      "verification": "tests/standards-editions.test.mjs 5 pass / check-standard-articles 456 PASS",
+      "note": "5 組の版を原本のページ画像で確認。近畿の必携 5 項は日付・通知番号の記載がなく、東北の参考資料と収録範囲が違うため 5 組とも群にせず、理由を editionCanonical._comment に記録"
+    },
+    {
+      "id": "DN-0642",
+      "at": "2026-10-20",
+      "task": "重要 workflow 7 本の不健全（note-live-audit 4 連続失敗・ops-audit 18 連続・note-public-view 12 日）を原因ごとに直す",
+      "tier": "high",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-workflow-health"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "57efd8126ef4",
+      "verification": "note-public-view run 39307952220 success（撮り直し 4/4）/ weekly-review-guard run 39311058458 で workflow health 全て健全・#478 復旧クローズ",
+      "note": "note-public-view の検査不成立は note.com が CI からのアクセスに毎回違う 4〜6 ページだけ 403 を返していたため。開けなかった撮影を最後に 60 秒休んで 1 件ずつ撮り直すように変更（PR #1133）。Cloudflare 2 本は DN-0485 で復旧。check-workflow-health は全て健全、#478・#940・#1100 は自動クローズ"
+    },
+    {
+      "id": "DN-0744",
+      "at": "2026-10-20",
+      "task": "技術士 口頭試験対策に自治体職員（発注者）版の節を足し、建設部門・上下水道部門の無料入口 2 本を作る",
+      "tier": "high",
+      "kind": "制作",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "74457c058049",
+      "verification": "npm run note-lint 4 本 OK / check-note-structure CRITICAL 0・対象 4 本に HIGH なし",
+      "note": "口頭試験の有料 2 本の追記と無料 2 本の原稿が完成（note-lint 4 本 OK・check-note-structure の指摘 0）。発表日の公開・note 同期の確認・URL の配線は DN-0248 へ移し、引き継ぎ文書も付け替えた"
+    },
+    {
+      "id": "DN-0755",
+      "at": "2026-10-20",
+      "task": "公的基準の章記事で表から外れた行・見出しの断片（近畿版 7〜8 件）を表へ戻す",
+      "tier": "mid",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-standard-articles"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "465adaae09b8",
+      "verification": "check-standard-articles 24 文書 PASS 456 / tests/standards*.test.mjs 56 pass",
+      "note": "組み直しの JSON に absorbsParagraphs を足し、共通仕様書 8 機関の本物の断片 8 件を表へ戻した（writer→QA で原本画像と照合・承認、PR #1135）。8 機関の strayTableFragments を 40→32 に下げた。北海道版（版面が違う）・表3-2-39 の機関差・崩れた表3-2-32 は DN-0776 へ"
     }
   ]
 }

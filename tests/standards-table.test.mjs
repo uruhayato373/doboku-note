@@ -294,6 +294,23 @@ test('組み直し: 前の版面を取り込む表は、取り込んだ版面の
   assert.equal(applyTableOverride(body, absorbing, { lookup }).reason, 'override-absorb-missing');
 });
 
+test('組み直し: 表の外で段落に化けた行（absorbsParagraphs）も照合に含め、表の key は変えない（DN-0755）', () => {
+  const body = ['    10       100', '     5     90～100'];
+  const entry = {
+    key: tableKey(body), layout: body, review: { status: 'approved' }, kind: 'parts',
+    absorbsParagraphs: { after: ['0.15 2～10 ［注1］'] },
+    parts: [{ kind: 'table', header: [['ふるい', '百分率']], rows: [['10', '100'], ['5', '90～100'], ['0.15', '2～10 ［注1］']] }],
+  };
+  // 見出し（ふるい・百分率）は版面に無い文字なので、版面にも見出しを足して照合する
+  const layout = ['  ふるい   百分率', ...body];
+  const withHeader = { ...entry, key: tableKey(layout), layout };
+  assert.equal(applyTableOverride(layout, withHeader).ok, true);
+  // 取り込む段落を宣言しないと、足した行の文字が余分になって採用しない
+  const missing = applyTableOverride(layout, { ...withHeader, absorbsParagraphs: undefined });
+  assert.equal(missing.reason, 'override-lossy');
+  assert.match(missing.detail, /余分 .*注×1/);
+});
+
 test('組み直し: headerFill は見出しの空欄だけを指した表の見出しで補い、文字のある欄と照合は変えない', () => {
   const source = { key: 'f'.repeat(16), kind: 'table', header: [['気温', '早強セメント', '普通セメント']], rows: [['a', 'b', 'c']], review: { status: 'approved' } };
   const lookup = (key) => (key === source.key ? source : undefined);

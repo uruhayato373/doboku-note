@@ -707,7 +707,12 @@ function checkTables(def, { manifest, agencyId, documentId, document, overrides,
       }
     };
     collect({ header: entry.header, rows: entry.rows, items: entry.items, notes: entry.notes, parts: entry.parts });
-    const expected = [...entry.layout];
+    const { before = [], after = [] } = entry.absorbsParagraphs ?? {};
+    const paragraphs = [...before, ...after];
+    for (const [side, group] of [['before', before], ['after', after]]) {
+      if (group.length && !existsInSource(group)) return `absorbsParagraphs.${side} の段落が原典の出所ページに見つからない`;
+    }
+    const expected = [...entry.layout, ...paragraphs];
     for (const absorbed of entry.absorbs ?? []) expected.push(...(tableOverrides.get(absorbed)?.layout ?? []));
     const want = bag(expected);
     const got = bag(strings);

@@ -170,6 +170,23 @@ function renderAmendmentBlock(rows, amendment, { heading, withArticle = false })
  * 散文の折返しを 1 段落へ戻す。日本語は語間に空白を持たないので原則は無連結だが、
  * 半角英数どうしが行またぎで隣接する場合（`JIS K` / `2208`）だけ空白を補う。
  */
+/** 表の node から、版面の行（前後の空行を除く）とキャプション行を切り出す（キャプションは表の 1 行目ではない） */
+function tableLayoutOf(node) {
+  const body = node.lines.map((entry) => entry.text.replace(/[\s　]+$/, ''));
+  while (body.length && !body[0].trim()) body.shift();
+  while (body.length && !body[body.length - 1].trim()) body.pop();
+  // キャプション行は表の 1 行目ではないので先に切り離す。渡したままだとヘッダ行として
+  // 吸われ、`表2-2-14 | 石粉…の粒度範囲` という誤った見出し行になる。
+  const caption = [];
+  while (body.length && (RE_TABLE_CAPTION.test(body[0]) || RE_FIGURE_CAPTION.test(body[0]))) {
+    caption.push(body.shift());
+  }
+  while (body.length && !body[0].trim()) body.shift();
+  return { body, caption };
+}
+
+const stripSpacesForMatch = (text) => text.replace(/[\s　]/g, '');
+
 function joinWrapped(lines) {
   let out = '';
   for (const line of lines) {
@@ -268,9 +285,40 @@ function renderChapter(chapter, tableOutcomes = [], tableOverrides = new Map(), 
   let lastHeading = '';
   // 組み直しの absorbs（直前の版面の取り込み）のために、この章で出た版面を key で覚える
   const seenBodies = new Map();
+  // 組み直しの absorbsParagraphs: 表の領域の外で段落に化けた表の行・見出し（DN-0755）。宣言した文字が
+  // 表のすぐ前・後の段落と一致するときだけ段落を出さずに表へ渡す。同じ版面（key）でも機関によって後ろの段落が
+  // 違う（北海道版は ㎝ が cm）ことがあるので、一致しない箇所ではその組み直しを使わずに版面から出す
+  // （段落の文字を表へ持ち込まない。生成のログに出す）
+  const absorbedNodes = new Set();
+  const absorbedParagraphs = new Map();
+  const paragraphMismatch = new Set();
+  chapter.nodes.forEach((node, index) => {
+    if (node.type !== 'table') return;
+    const { body } = tableLayoutOf(node);
+    const override = body.length ? tableOverrides.get(tableKey(body)) : undefined;
+    const declared = override?.absorbsParagraphs;
+    if (!declared || override.review?.status !== 'approved') return;
+    // before・after とも原本の並び順。before は表の直前の段落で終わり、after は表の直後の段落から始まる
+    const neighbors = (texts, start) => texts.map((text, k) => {
+      const neighbor = chapter.nodes[start + k];
+      const found = neighbor && neighbor.role !== 'heading' && neighbor.type === 'paragraph' ? joinWrapped(neighbor.lines) : null;
+      return found !== null && stripSpacesForMatch(found) === stripSpacesForMatch(text) ? neighbor : null;
+    });
+    const matched = [
+      ...neighbors(declared.before ?? [], index - (declared.before ?? []).length),
+      ...neighbors(declared.after ?? [], index + 1),
+    ];
+    if (matched.some((n) => n === null)) {
+      paragraphMismatch.add(node);
+      return;
+    }
+    for (const n of matched) absorbedNodes.add(n);
+    absorbedParagraphs.set(node, declared);
+  });
   const pendingAbsorbed = new Map();
 
   for (const node of chapter.nodes) {
+    if (absorbedNodes.has(node)) continue;
     if (node.role === 'heading') {
       if (node.kind === 'section' || node.kind === 'article') flushAmendments();
       if (node.kind === 'article') openArticle = `article:${node.number}`;
@@ -292,16 +340,7 @@ function renderChapter(chapter, tableOutcomes = [], tableOverrides = new Map(), 
     }
     const pages = formatPages(node.pages);
     if (node.type === 'table') {
-      const body = node.lines.map((entry) => entry.text.replace(/[\s　]+$/, ''));
-      while (body.length && !body[0].trim()) body.shift();
-      while (body.length && !body[body.length - 1].trim()) body.pop();
-      // キャプション行は表の 1 行目ではないので先に切り離す。渡したままだとヘッダ行として
-      // 吸われ、`表2-2-14 | 石粉…の粒度範囲` という誤った見出し行になる。
-      const caption = [];
-      while (body.length && (RE_TABLE_CAPTION.test(body[0]) || RE_FIGURE_CAPTION.test(body[0]))) {
-        caption.push(body.shift());
-      }
-      while (body.length && !body[0].trim()) body.shift();
+      const { body, caption } = tableLayoutOf(node);
 
       const listed = inStandardsList && caption.length === 0 && body.length ? tryStandardsList(body) : null;
       if (listed?.ok) {
@@ -316,7 +355,8 @@ function renderChapter(chapter, tableOutcomes = [], tableOverrides = new Map(), 
       // 原本と照合して組み直した表（content/sources/standards/tables）。検証済みで文字の過不足が
       // ゼロのものだけ使う。検証済みなのに文字が合わないのは組み直しの誤りなので生成を止める。
       const key = body.length ? tableKey(body) : null;
-      const override = key ? tableOverrides.get(key) : undefined;
+      if (paragraphMismatch.has(node)) console.log(`  [absorbsParagraphs] ${chapter.chapterId}: 組み直した表 ${key} の前後の段落がこの文書では違うので、組み直しを使わず版面から出す`);
+      const override = key && !paragraphMismatch.has(node) ? tableOverrides.get(key) : undefined;
       const applied = override
         ? applyTableOverride(body, override, { lookup: (ref) => tableOverrides.get(ref), absorbedBodies: seenBodies })
         : null;
@@ -335,7 +375,8 @@ function renderChapter(chapter, tableOutcomes = [], tableOverrides = new Map(), 
         push(`{/* table-override: ${key} */}`);
         for (const absorbed of override.absorbs ?? []) pendingAbsorbed.delete(absorbed);
         if (applied.kind === 'verbatim') {
-          push(['```text', ...body, '```'].join('\n'));
+          const extra = absorbedParagraphs.get(node) ?? {};
+          push(['```text', ...(extra.before ?? []), ...body, ...(extra.after ?? []), '```'].join('\n'));
         } else {
           for (const part of applied.parts) push(renderOverridePart(part));
         }
