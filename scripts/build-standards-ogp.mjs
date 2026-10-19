@@ -37,6 +37,7 @@ import { pathToFileURL } from 'node:url';
 import { createHash } from 'node:crypto';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 import { MANIFEST_PATH, loadManifest, writeManifestAtomic, toPosix } from './lib/asset-storage.mjs';
+import { loadOverrides } from './lib/standards-structure.mjs';
 
 const require = createRequire(import.meta.url);
 const coverTokens = require(path.join(REPO_ROOT, '.claude/knowledge/design-system/note-cover-tokens.json'));
@@ -51,6 +52,12 @@ const FONTS_DIR = path.join(
 // （資格別テーマ色と取り違えないため、資格の色は借りない）。
 const ACCENT = coverTokens.exams?.common?.base ?? '#9A6B1E';
 const CONTENT_TYPE = { label: '共通仕様書', icon: 'layers' };
+// 共通仕様書以外の文書（特記仕様書・地方独自）は右上の札を設定 documents.*.ogpLabel に替える
+const STRUCTURE = loadOverrides();
+const contentTypeOf = (target) => {
+  const label = STRUCTURE.documents?.[target]?.ogpLabel;
+  return label ? { ...CONTENT_TYPE, label } : CONTENT_TYPE;
+};
 const TEMPLATE_ID = 'mono-tag';
 
 // 主題のフォント段階は ogp-create と揃える（サイト全体で字面の大きさを揃えるため）
@@ -119,7 +126,12 @@ function composeText(entry) {
  */
 export function chapterSrcHash(entry) {
   const { kicker, main, sub } = composeText(entry);
-  const input = JSON.stringify({ v: 1, template: TEMPLATE_ID, accent: ACCENT, kicker, main, sub });
+  // 札が既定（共通仕様書）の章はハッシュの入力を変えない（既存 344 章を作り直さないため）
+  const { label } = contentTypeOf(entry.target);
+  const input = JSON.stringify({
+    v: 1, template: TEMPLATE_ID, accent: ACCENT, kicker, main, sub,
+    ...(label !== CONTENT_TYPE.label ? { label } : {}),
+  });
   return createHash('sha256').update(input).digest('hex').slice(0, 16);
 }
 
@@ -153,7 +165,7 @@ async function renderChapter(entry, fonts) {
     fontSize: mainFont,
     backgroundImage: null, // 共通領域は専用背景を持たない。テンプレ既定のオフホワイトに落ちる
     accentColor: ACCENT,
-    contentType: CONTENT_TYPE,
+    contentType: contentTypeOf(entry.target),
     dark: true,
     mainLines,
     subLines,

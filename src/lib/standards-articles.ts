@@ -4,7 +4,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { getStandardDocument, type StandardDocument, type StandardPart } from '@/lib/standards';
 import { getSiteAssetR2Url } from '@/lib/r2-image-loader';
-import { sectionPageMarkdown, splitChapterBySection } from '@/lib/standards-section-split.mjs';
+import { chapterPreambleText, sectionPageMarkdown, splitChapterBySection } from '@/lib/standards-section-split.mjs';
 
 /**
  * 構造化章記事（レイヤー2）の読み出し。
@@ -55,6 +55,10 @@ export type StandardChapter = {
   sections: StandardChapterSection[];
   stats: Record<string, number>;
   indexable: boolean;
+  /** 原本が章名だけで本文の無い章（中部の特記仕様書 10-9 など）。検索に載せない */
+  bodyless?: boolean;
+  /** 地方の訂正・追加（中国地方整備局版）が載っている原本ページ（判定は build-standard-articles.mjs） */
+  amendments?: { document: string; pages: number[] };
   duplicateOf: string | null;
   reviewStatus: 'clean' | 'needs-review';
 };
@@ -151,6 +155,14 @@ export function readStandardChapterMarkdown(
   chapter: Pick<StandardChapter, 'file'>,
 ): string {
   return readFileSync(join(ARTICLES_ROOT, agencyId, documentId, chapter.file), 'utf8');
+}
+
+/**
+ * 節ページに分けた章の、最初の節より前の本文（生成器の注記コメントを除く）。無ければ null。
+ * 章ページは節の一覧になるので、ここに置いた案内（地方の訂正・追加など）は一覧の上に出す。
+ */
+export function standardChapterPreamble(markdown: string): string | null {
+  return chapterPreambleText(markdown) || null;
 }
 
 /**

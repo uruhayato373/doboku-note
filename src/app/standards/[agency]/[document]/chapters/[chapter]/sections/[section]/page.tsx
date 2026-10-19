@@ -8,6 +8,7 @@ import SafeMdx from '@/components/mdx/SafeMdx';
 import SectionCard from '@/components/ui/SectionCard/SectionCard';
 import StandardsArticleHeader from '@/components/standards/StandardsArticleHeader';
 import StandardVerbatimTable from '@/components/standards/StandardVerbatimTable';
+import ArticleImage from '@/components/ui/ArticleImage/ArticleImage';
 import StandardScrollTable from '@/components/standards/StandardScrollTable';
 import StandardsAttribution from '@/components/standards/StandardsAttribution';
 import StandardsNavigation from '@/components/standards/StandardsNavigation';
@@ -107,6 +108,8 @@ export default async function StandardSectionPage({ params }: { params: Promise<
   };
   const components = {
     pre: StandardVerbatimTable,
+    // 中国版に差し込んだ地方の訂正・追加のうち、原本の図（画像）を出す
+    ArticleImage,
     SourceRef: (props: { pages: string; kind?: 'section' | 'table' | 'figure' }) => (
       <SourceRef {...props} document={entry} />
     ),

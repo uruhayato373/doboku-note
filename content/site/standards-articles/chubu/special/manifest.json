@@ -1,0 +1,7251 @@
+{
+  "version": 1,
+  "generator": "scripts/build-standard-articles.mjs",
+  "agencyId": "chubu",
+  "agencyName": "中部地方整備局",
+  "documentId": "special",
+  "documentTitle": "中部地方整備局 土木工事特記仕様書 令和8年6月改訂版",
+  "documentRole": "companion",
+  "catalogSourceSha256": "13f9ba5977a612705bac60034c28d2b35744551c381fe0bf85e81060db25d588",
+  "pages": 205,
+  "bodyStart": {
+    "page": 1,
+    "reason": "override"
+  },
+  "frontMatter": {
+    "firstPage": null,
+    "lastPage": null,
+    "pageCount": 0,
+    "note": "表紙・目次。構造化の対象外（原典の逐語ページで参照する）。"
+  },
+  "indexable": true,
+  "indexableReason": "canonical",
+  "duplicateOf": null,
+  "audit": {
+    "totalPages": 205,
+    "frontMatterPages": 0,
+    "bodyPages": 205,
+    "bodyLineTotal": 6431,
+    "assignedLines": 5970,
+    "removedLines": 461,
+    "unassignedLines": 0,
+    "chapters": 43,
+    "assignedPages": 205,
+    "removedRunningHeaders": 205,
+    "removedPrintPageNumbers": 205,
+    "removedChapterFront": 51,
+    "dedentedPages": 3,
+    "tables": 85,
+    "tablesGfm": 0,
+    "tablesList": 1,
+    "tablesOverride": 0,
+    "tablesVerbatim": 84
+  },
+  "tableOutcomes": {
+    "ragged-rows": 34,
+    "lossy": 16,
+    "columns-out-of-range": 20,
+    "too-few-rows": 13,
+    "restored-standards-list": 1,
+    "empty-cell": 1
+  },
+  "removedSamples": {
+    "runningHeaders": [
+      {
+        "page": 1,
+        "text": "特仕   第1編   共通編      第1章   総則"
+      },
+      {
+        "page": 2,
+        "text": "特仕   第1編   共通編   第1章   総則"
+      },
+      {
+        "page": 3,
+        "text": "特仕   第1編   共通編   第1章   総則"
+      }
+    ],
+    "printPageNumbers": [
+      {
+        "page": 1,
+        "text": "1"
+      },
+      {
+        "page": 2,
+        "text": "2"
+      },
+      {
+        "page": 3,
+        "text": "3"
+      }
+    ],
+    "chapterFront": [
+      {
+        "page": 1,
+        "text": "第1編           共     通        編"
+      },
+      {
+        "page": 1,
+        "text": "第1章        総    則"
+      },
+      {
+        "page": 37,
+        "text": "第2章    土      工"
+      },
+      {
+        "page": 43,
+        "text": "第3章       無筋・鉄筋コンクリート"
+      },
+      {
+        "page": 57,
+        "text": "第2編        材     料     編"
+      },
+      {
+        "page": 57,
+        "text": "第1章     一般事項"
+      }
+    ]
+  },
+  "rejects": [],
+  "reviewQueue": [],
+  "acceptedReview": [],
+  "headerCorrections": [],
+  "chapters": [
+    {
+      "chapterId": "1-1",
+      "title": "第1編 共通編 第1章 総則",
+      "bookNumber": 1,
+      "bookTitle": "共通編",
+      "chapterNumber": 1,
+      "chapterTitle": "総則",
+      "file": "chapters/1-1.md",
+      "firstPage": 1,
+      "lastPage": 36,
+      "sourceParts": [
+        "part-01"
+      ],
+      "sourcePages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36
+      ],
+      "sourceSha256": "ca9154978d9d679bed9e337dc437c8dc82decb80ad7fb8968fd878bc5f316e4d",
+      "outputSha256": "a1722742691b1ed49409277f381e873597fab01d9f350ac6e5c35becf7565eab",
+      "outputBytes": 98007,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "総則",
+          "headingText": "第1節 総則",
+          "firstPage": 1,
+          "lastPage": 35,
+          "articles": [
+            {
+              "number": "特仕1-1-1-1",
+              "title": "適用",
+              "headingText": "特仕1-1-1-1 適用",
+              "page": 1
+            },
+            {
+              "number": "特仕1-1-1-2",
+              "title": "用語の定義",
+              "headingText": "特仕1-1-1-2 用語の定義",
+              "page": 1
+            },
+            {
+              "number": "特仕1-1-1-3",
+              "title": "設計図書の照査等",
+              "headingText": "特仕1-1-1-3 設計図書の照査等",
+              "page": 2
+            },
+            {
+              "number": "特仕1-1-1-4",
+              "title": "中部地整版ワンデーレスポンス",
+              "headingText": "特仕1-1-1-4 中部地整版ワンデーレスポンス",
+              "page": 2
+            },
+            {
+              "number": "特仕1-1-1-5",
+              "title": "ウィークリースタンスの取組",
+              "headingText": "特仕1-1-1-5 ウィークリースタンスの取組",
+              "page": 3
+            },
+            {
+              "number": "特仕1-1-1-6",
+              "title": "施工計画書",
+              "headingText": "特仕1-1-1-6 施工計画書",
+              "page": 3
+            },
+            {
+              "number": "特仕1-1-1-8",
+              "title": "監督職員等（監督職員が不適切な指示をした場合の対応体制）",
+              "headingText": "特仕1-1-1-8 監督職員等（監督職員が不適切な指示をした場合の対応体制）",
+              "page": 3
+            },
+            {
+              "number": "特仕1-1-1-9",
+              "title": "主任技術者又は監理技術者",
+              "headingText": "特仕1-1-1-9 主任技術者又は監理技術者",
+              "page": 4
+            },
+            {
+              "number": "特仕1-1-1-13",
+              "title": "施工体制台帳",
+              "headingText": "特仕1-1-1-13 施工体制台帳",
+              "page": 8
+            },
+            {
+              "number": "特仕1-1-1-16",
+              "title": "調査・試験に対する協力",
+              "headingText": "特仕1-1-1-16 調査・試験に対する協力",
+              "page": 8
+            },
+            {
+              "number": "特仕1-1-1-22",
+              "title": "建設副産物",
+              "headingText": "特仕1-1-1-22 建設副産物",
+              "page": 12
+            },
+            {
+              "number": "特仕1-1-1-27",
+              "title": "施工管理",
+              "headingText": "特仕1-1-1-27 施工管理",
+              "page": 13
+            },
+            {
+              "number": "特仕1-1-1-31",
+              "title": "工事中の安全確保",
+              "headingText": "特仕1-1-1-31 工事中の安全確保",
+              "page": 15
+            },
+            {
+              "number": "特仕1-1-1-33",
+              "title": "後片付け",
+              "headingText": "特仕1-1-1-33 後片付け",
+              "page": 26
+            },
+            {
+              "number": "特仕1-1-1-34",
+              "title": "事故報告書",
+              "headingText": "特仕1-1-1-34 事故報告書",
+              "page": 26
+            },
+            {
+              "number": "特仕1-1-1-35",
+              "title": "環境対策",
+              "headingText": "特仕1-1-1-35 環境対策",
+              "page": 26
+            },
+            {
+              "number": "特仕1-1-1-37",
+              "title": "交通安全管理",
+              "headingText": "特仕1-1-1-37 交通安全管理",
+              "page": 28
+            },
+            {
+              "number": "特仕1-1-1-40",
+              "title": "官公庁等への手続等",
+              "headingText": "特仕1-1-1-40 官公庁等への手続等",
+              "page": 30
+            },
+            {
+              "number": "特仕1-1-1-41",
+              "title": "施工時期及び施工時間の変更",
+              "headingText": "特仕1-1-1-41 施工時期及び施工時間の変更",
+              "page": 31
+            },
+            {
+              "number": "特仕1-1-1-45",
+              "title": "保険の付保及び事故の補償",
+              "headingText": "特仕1-1-1-45 保険の付保及び事故の補償",
+              "page": 31
+            },
+            {
+              "number": "特仕1-1-1-46",
+              "title": "臨機の措置",
+              "headingText": "特仕1-1-1-46 臨機の措置",
+              "page": 31
+            },
+            {
+              "number": "特仕1-1-1-47",
+              "title": "石綿使用の有無",
+              "headingText": "特仕1-1-1-47 石綿使用の有無",
+              "page": 31
+            },
+            {
+              "number": "特仕1-1-1-48",
+              "title": "河川管理施設及び道路付属物並びに占用物件",
+              "headingText": "特仕1-1-1-48 河川管理施設及び道路付属物並びに占用物件",
+              "page": 31
+            },
+            {
+              "number": "特仕1-1-1-49",
+              "title": "踏荒し",
+              "headingText": "特仕1-1-1-49 踏荒し",
+              "page": 32
+            },
+            {
+              "number": "特仕1-1-1-50",
+              "title": "契約不適合責任",
+              "headingText": "特仕1-1-1-50 契約不適合責任",
+              "page": 32
+            },
+            {
+              "number": "特仕1-1-1-51",
+              "title": "電子納品",
+              "headingText": "特仕1-1-1-51 電子納品",
+              "page": 32
+            },
+            {
+              "number": "特仕1-1-1-52",
+              "title": "VE",
+              "headingText": "特仕1-1-1-52 VE",
+              "page": 33
+            },
+            {
+              "number": "特仕1-1-1-53",
+              "title": "設計変更等",
+              "headingText": "特仕1-1-1-53 設計変更等",
+              "page": 34
+            },
+            {
+              "number": "特仕1-1-1-54",
+              "title": "情報セキュリティ対策",
+              "headingText": "特仕1-1-1-54 情報セキュリティ対策",
+              "page": 35
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "sections": 1,
+        "articles": 29,
+        "clauses": 94,
+        "paragraphs": 386,
+        "items": 60,
+        "notes": 0,
+        "tables": 11,
+        "captions": 3,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 11
+      },
+      "tableOutcomes": {
+        "ragged-rows": 5,
+        "lossy": 1,
+        "columns-out-of-range": 4,
+        "too-few-rows": 1
+      },
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "1-2",
+      "title": "第1編 共通編 第2章 土工",
+      "bookNumber": 1,
+      "bookTitle": "共通編",
+      "chapterNumber": 2,
+      "chapterTitle": "土工",
+      "file": "chapters/1-2.md",
+      "firstPage": 37,
+      "lastPage": 42,
+      "sourceParts": [
+        "part-01"
+      ],
+      "sourcePages": [
+        37,
+        38,
+        39,
+        40,
+        41,
+        42
+      ],
+      "sourceSha256": "e67c026c0fd2d076c69534c9b2c60ea2fff10717d40f6eb24c62676a1247d4b8",
+      "outputSha256": "0e6964328f72d6565fcdff18417e839a701a09dfed01f55359df2baa528eb4af",
+      "outputBytes": 13619,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 3,
+          "title": "河川土工・海岸土工・砂防土工",
+          "headingText": "第3節 河川土工・海岸土工・砂防土工",
+          "firstPage": 37,
+          "lastPage": 39,
+          "articles": [
+            {
+              "number": "特仕1-2-3-1",
+              "title": "一般事項",
+              "headingText": "特仕1-2-3-1 一般事項",
+              "page": 37
+            },
+            {
+              "number": "特仕1-2-3-2",
+              "title": "掘削工",
+              "headingText": "特仕1-2-3-2 掘削工",
+              "page": 37
+            },
+            {
+              "number": "特仕1-2-3-3",
+              "title": "盛土工",
+              "headingText": "特仕1-2-3-3 盛土工",
+              "page": 37
+            },
+            {
+              "number": "特仕1-2-3-7",
+              "title": "残土処理工",
+              "headingText": "特仕1-2-3-7 残土処理工",
+              "page": 39
+            },
+            {
+              "number": "特仕1-2-3-8",
+              "title": "建設発生土受入地",
+              "headingText": "特仕1-2-3-8 建設発生土受入地",
+              "page": 39
+            },
+            {
+              "number": "特仕1-2-3-9",
+              "title": "盛土の品質管理",
+              "headingText": "特仕1-2-3-9 盛土の品質管理",
+              "page": 39
+            },
+            {
+              "number": "特仕1-2-3-10",
+              "title": "河川土工の出来形管理",
+              "headingText": "特仕1-2-3-10 河川土工の出来形管理",
+              "page": 39
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "title": "道路土工",
+          "headingText": "第4節 道路土工",
+          "firstPage": 39,
+          "lastPage": 42,
+          "articles": [
+            {
+              "number": "特仕1-2-4-1",
+              "title": "一般事項",
+              "headingText": "特仕1-2-4-1 一般事項",
+              "page": 39
+            },
+            {
+              "number": "特仕1-2-4-2",
+              "title": "掘削工",
+              "headingText": "特仕1-2-4-2 掘削工",
+              "page": 40
+            },
+            {
+              "number": "特仕1-2-4-3",
+              "title": "路体盛土工",
+              "headingText": "特仕1-2-4-3 路体盛土工",
+              "page": 41
+            },
+            {
+              "number": "特仕1-2-4-4",
+              "title": "路床盛土工",
+              "headingText": "特仕1-2-4-4 路床盛土工",
+              "page": 41
+            },
+            {
+              "number": "特仕1-2-4-6",
+              "title": "残土処理工",
+              "headingText": "特仕1-2-4-6 残土処理工",
+              "page": 41
+            },
+            {
+              "number": "特仕1-2-4-7",
+              "title": "建設発生土受入地",
+              "headingText": "特仕1-2-4-7 建設発生土受入地",
+              "page": 41
+            },
+            {
+              "number": "特仕1-2-4-8",
+              "title": "盛土の品質管理",
+              "headingText": "特仕1-2-4-8 盛土の品質管理",
+              "page": 42
+            },
+            {
+              "number": "特仕1-2-4-9",
+              "title": "道路土工の出来形管理",
+              "headingText": "特仕1-2-4-9 道路土工の出来形管理",
+              "page": 42
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "sections": 2,
+        "articles": 15,
+        "clauses": 21,
+        "paragraphs": 50,
+        "items": 24,
+        "notes": 0,
+        "tables": 1,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 1
+      },
+      "tableOutcomes": {
+        "ragged-rows": 1
+      },
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "1-3",
+      "title": "第1編 共通編 第3章 無筋・鉄筋コンクリート",
+      "bookNumber": 1,
+      "bookTitle": "共通編",
+      "chapterNumber": 3,
+      "chapterTitle": "無筋・鉄筋コンクリート",
+      "file": "chapters/1-3.md",
+      "firstPage": 43,
+      "lastPage": 56,
+      "sourceParts": [
+        "part-01",
+        "part-02"
+      ],
+      "sourcePages": [
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56
+      ],
+      "sourceSha256": "76907cf6fec57eeeea055b0bfb17f2322809edeb4e53b4c06553ed051705557f",
+      "outputSha256": "745a6d8fb731f81af817591dbcb4bb05db6b0a27777841ced0c79d00e43791bb",
+      "outputBytes": 36540,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 3,
+          "title": "レディーミクストコンクリート",
+          "headingText": "第3節 レディーミクストコンクリート",
+          "firstPage": 43,
+          "lastPage": 52,
+          "articles": [
+            {
+              "number": "特仕1-3-3-1",
+              "title": "一般事項",
+              "headingText": "特仕1-3-3-1 一般事項",
+              "page": 43
+            },
+            {
+              "number": "特仕1-3-3-2",
+              "title": "工場の選定",
+              "headingText": "特仕1-3-3-2 工場の選定",
+              "page": 48
+            }
+          ]
+        },
+        {
+          "number": 6,
+          "title": "運搬・打設",
+          "headingText": "第6節 運搬・打設",
+          "firstPage": 52,
+          "lastPage": 55,
+          "articles": [
+            {
+              "number": "特仕1-3-6-4",
+              "title": "打設",
+              "headingText": "特仕1-3-6-4 打設",
+              "page": 52
+            },
+            {
+              "number": "特仕1-3-6-7",
+              "title": "打継目",
+              "headingText": "特仕1-3-6-7 打継目",
+              "page": 52
+            },
+            {
+              "number": "特仕1-3-6-9",
+              "title": "養生",
+              "headingText": "特仕1-3-6-9 養生",
+              "page": 55
+            }
+          ]
+        },
+        {
+          "number": 7,
+          "title": "鉄筋工",
+          "headingText": "第7節 鉄筋工",
+          "firstPage": 55,
+          "lastPage": 55,
+          "articles": [
+            {
+              "number": "特仕1-3-7-1",
+              "title": "一般事項",
+              "headingText": "特仕1-3-7-1 一般事項",
+              "page": 55
+            },
+            {
+              "number": "特仕1-3-7-4",
+              "title": "組立て",
+              "headingText": "特仕1-3-7-4 組立て",
+              "page": 55
+            },
+            {
+              "number": "特仕1-3-7-5",
+              "title": "継手",
+              "headingText": "特仕1-3-7-5 継手",
+              "page": 55
+            }
+          ]
+        },
+        {
+          "number": 8,
+          "title": "型枠・支保",
+          "headingText": "第8節 型枠・支保",
+          "firstPage": 56,
+          "lastPage": 56,
+          "articles": [
+            {
+              "number": "特仕1-3-8-4",
+              "title": "取外し",
+              "headingText": "特仕1-3-8-4 取外し",
+              "page": 56
+            }
+          ]
+        },
+        {
+          "number": 16,
+          "title": "超速硬コンクリート",
+          "headingText": "第16節 超速硬コンクリート",
+          "firstPage": 56,
+          "lastPage": 56,
+          "articles": [
+            {
+              "number": "特仕1-3-16-1",
+              "title": "一般事項",
+              "headingText": "特仕1-3-16-1 一般事項",
+              "page": 56
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "sections": 5,
+        "articles": 10,
+        "clauses": 23,
+        "paragraphs": 94,
+        "items": 41,
+        "notes": 0,
+        "tables": 5,
+        "captions": 1,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 5
+      },
+      "tableOutcomes": {
+        "columns-out-of-range": 2,
+        "too-few-rows": 2,
+        "ragged-rows": 1
+      },
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "2-1",
+      "title": "第2編 材料編 第1章 一般事項",
+      "bookNumber": 2,
+      "bookTitle": "材料編",
+      "chapterNumber": 1,
+      "chapterTitle": "一般事項",
+      "file": "chapters/2-1.md",
+      "firstPage": 57,
+      "lastPage": 57,
+      "sourceParts": [
+        "part-02"
+      ],
+      "sourcePages": [
+        57
+      ],
+      "sourceSha256": "0243b42b33970d463b0e06a4e22f5dd3a6b50840e8504061bfcdefbd5891d275",
+      "outputSha256": "ded0d84ba781289242d062b0ff119550c4ac4494b858000182ec346cf7ad749f",
+      "outputBytes": 1372,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 2,
+          "title": "工事材料の品質",
+          "headingText": "第2節 工事材料の品質",
+          "firstPage": 57,
+          "lastPage": 57,
+          "articles": []
+        }
+      ],
+      "stats": {
+        "sections": 1,
+        "articles": 0,
+        "clauses": 3,
+        "paragraphs": 4,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "2-2",
+      "title": "第2編 材料編 第2章 土木工事材料",
+      "bookNumber": 2,
+      "bookTitle": "材料編",
+      "chapterNumber": 2,
+      "chapterTitle": "土木工事材料",
+      "file": "chapters/2-2.md",
+      "firstPage": 58,
+      "lastPage": 69,
+      "sourceParts": [
+        "part-02"
+      ],
+      "sourcePages": [
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69
+      ],
+      "sourceSha256": "91315a3cebaa5d3e657e62473db110b48ace8bdc39e2c8429db7c866ca6322b2",
+      "outputSha256": "f50a01b8a14cc12fbbcdb63ac2a38d518bfeacf6ee94342625cd555eea2a477e",
+      "outputBytes": 28644,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 2,
+          "title": "石",
+          "headingText": "第2節 石",
+          "firstPage": 58,
+          "lastPage": 58,
+          "articles": [
+            {
+              "number": "特仕2-2-2-3",
+              "title": "雑割石",
+              "headingText": "特仕2-2-2-3 雑割石",
+              "page": 58
+            },
+            {
+              "number": "特仕2-2-2-7",
+              "title": "その他の砂利、砕石、砂",
+              "headingText": "特仕2-2-2-7 その他の砂利、砕石、砂",
+              "page": 58
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "title": "骨材",
+          "headingText": "第3節 骨材",
+          "firstPage": 58,
+          "lastPage": 58,
+          "articles": [
+            {
+              "number": "特仕2-2-3-2",
+              "title": "セメントコンクリート用骨材",
+              "headingText": "特仕2-2-3-2 セメントコンクリート用骨材",
+              "page": 58
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "title": "鋼材",
+          "headingText": "第5節 鋼材",
+          "firstPage": 58,
+          "lastPage": 59,
+          "articles": [
+            {
+              "number": "特仕2-2-5-2",
+              "title": "構造用圧延鋼材",
+              "headingText": "特仕2-2-5-2 構造用圧延鋼材",
+              "page": 58
+            },
+            {
+              "number": "特仕2-2-5-11",
+              "title": "鉄網",
+              "headingText": "特仕2-2-5-11 鉄網",
+              "page": 58
+            },
+            {
+              "number": "特仕2-2-5-20",
+              "title": "鋼材規格",
+              "headingText": "特仕2-2-5-20 鋼材規格",
+              "page": 59
+            }
+          ]
+        },
+        {
+          "number": 7,
+          "title": "セメントコンクリート製品",
+          "headingText": "第7節 セメントコンクリート製品",
+          "firstPage": 59,
+          "lastPage": 60,
+          "articles": [
+            {
+              "number": "特仕2-2-7-1",
+              "title": "一般事項",
+              "headingText": "特仕2-2-7-1 一般事項",
+              "page": 59
+            },
+            {
+              "number": "特仕2-2-7-2",
+              "title": "セメントコンクリート製品",
+              "headingText": "特仕2-2-7-2 セメントコンクリート製品",
+              "page": 60
+            }
+          ]
+        },
+        {
+          "number": 9,
+          "title": "芝及びそだ",
+          "headingText": "第9節 芝及びそだ",
+          "firstPage": 60,
+          "lastPage": 60,
+          "articles": [
+            {
+              "number": "特仕2-2-9-1",
+              "title": "芝（姫高麗芝、高麗芝、野芝、人工植生芝）",
+              "headingText": "特仕2-2-9-1 芝（姫高麗芝、高麗芝、野芝、人工植生芝）",
+              "page": 60
+            },
+            {
+              "number": "特仕2-2-9-3",
+              "title": "種子",
+              "headingText": "特仕2-2-9-3 種子",
+              "page": 60
+            }
+          ]
+        },
+        {
+          "number": 10,
+          "title": "目地材料",
+          "headingText": "第10節 目地材料",
+          "firstPage": 61,
+          "lastPage": 62,
+          "articles": [
+            {
+              "number": "特仕2-2-10-1",
+              "title": "注入目地材",
+              "headingText": "特仕2-2-10-1 注入目地材",
+              "page": 61
+            },
+            {
+              "number": "特仕2-2-10-2",
+              "title": "目地板",
+              "headingText": "特仕2-2-10-2 目地板",
+              "page": 61
+            }
+          ]
+        },
+        {
+          "number": 11,
+          "title": "塗料",
+          "headingText": "第11節 塗料",
+          "firstPage": 62,
+          "lastPage": 62,
+          "articles": [
+            {
+              "number": "特仕2-2-11-1",
+              "title": "一般事項",
+              "headingText": "特仕2-2-11-1 一般事項",
+              "page": 62
+            }
+          ]
+        },
+        {
+          "number": 12,
+          "title": "道路標識及び区画線",
+          "headingText": "第12節 道路標識及び区画線",
+          "firstPage": 63,
+          "lastPage": 63,
+          "articles": [
+            {
+              "number": "特仕2-2-12-2",
+              "title": "区画線",
+              "headingText": "特仕2-2-12-2 区画線",
+              "page": 63
+            }
+          ]
+        },
+        {
+          "number": 13,
+          "title": "その他",
+          "headingText": "第13節 その他",
+          "firstPage": 64,
+          "lastPage": 69,
+          "articles": [
+            {
+              "number": "特仕2-2-13-1",
+              "title": "エポキシ系樹脂接着剤",
+              "headingText": "特仕2-2-13-1 エポキシ系樹脂接着剤",
+              "page": 64
+            },
+            {
+              "number": "特仕2-2-13-2",
+              "title": "合成樹脂製品",
+              "headingText": "特仕2-2-13-2 合成樹脂製品",
+              "page": 68
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "sections": 9,
+        "articles": 16,
+        "clauses": 25,
+        "paragraphs": 57,
+        "items": 6,
+        "notes": 0,
+        "tables": 20,
+        "captions": 2,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 20
+      },
+      "tableOutcomes": {
+        "columns-out-of-range": 5,
+        "lossy": 3,
+        "ragged-rows": 8,
+        "too-few-rows": 4
+      },
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "3-1",
+      "title": "第3編 土木工事共通編 第1章 総則",
+      "bookNumber": 3,
+      "bookTitle": "土木工事共通編",
+      "chapterNumber": 1,
+      "chapterTitle": "総則",
+      "file": "chapters/3-1.md",
+      "firstPage": 70,
+      "lastPage": 77,
+      "sourceParts": [
+        "part-02"
+      ],
+      "sourcePages": [
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77
+      ],
+      "sourceSha256": "63343909e1fc79f47432a315ad77e43123daacdab59a270c84f5074c052a9cd8",
+      "outputSha256": "8f4e9d50838eb512e9d585209d2bac42c507aa980188ded3a2c01ffa2d752273",
+      "outputBytes": 23960,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "総則",
+          "headingText": "第1節 総則",
+          "firstPage": 70,
+          "lastPage": 77,
+          "articles": [
+            {
+              "number": "特仕3-1-1-3",
+              "title": "監督職員補助",
+              "headingText": "特仕3-1-1-3 監督職員補助",
+              "page": 70
+            },
+            {
+              "number": "特仕3-1-1-4",
+              "title": "監督職員による確認及び立会等",
+              "headingText": "特仕3-1-1-4 監督職員による確認及び立会等",
+              "page": 70
+            },
+            {
+              "number": "特仕3-1-1-6",
+              "title": "品質証明",
+              "headingText": "特仕3-1-1-6 品質証明",
+              "page": 74
+            },
+            {
+              "number": "特仕3-1-1-10",
+              "title": "創意工夫",
+              "headingText": "特仕3-1-1-10 創意工夫",
+              "page": 75
+            },
+            {
+              "number": "特仕3-1-1-11",
+              "title": "ISO9001認証取得を活用した監督業務の取り扱いを適用する工事",
+              "headingText": "特仕3-1-1-11 ISO9001認証取得を活用した監督業務の取り扱いを適用する工事",
+              "page": 77
+            },
+            {
+              "number": "特仕3-1-1-12",
+              "title": "建設現場のオープン化",
+              "headingText": "特仕3-1-1-12 建設現場のオープン化",
+              "page": 77
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "sections": 1,
+        "articles": 6,
+        "clauses": 10,
+        "paragraphs": 34,
+        "items": 14,
+        "notes": 0,
+        "tables": 1,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 1
+      },
+      "tableOutcomes": {
+        "columns-out-of-range": 1
+      },
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "3-2",
+      "title": "第3編 土木工事共通編 第2章 一般施工",
+      "bookNumber": 3,
+      "bookTitle": "土木工事共通編",
+      "chapterNumber": 2,
+      "chapterTitle": "一般施工",
+      "file": "chapters/3-2.md",
+      "firstPage": 78,
+      "lastPage": 102,
+      "sourceParts": [
+        "part-02",
+        "part-03"
+      ],
+      "sourcePages": [
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102
+      ],
+      "sourceSha256": "5faed790adba6b43c34635b4fca035ee651ee44e56c7d1f55c56dd70ecdae261",
+      "outputSha256": "d7db7b0087051d4072b938da24fb751ba81ffe2da7afb5c44497c8ae943bd8da",
+      "outputBytes": 59904,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "適用",
+          "headingText": "第1節 適用",
+          "firstPage": 78,
+          "lastPage": 78,
+          "articles": []
+        },
+        {
+          "number": 2,
+          "title": "適用すべき諸基準",
+          "headingText": "第2節 適用すべき諸基準",
+          "firstPage": 78,
+          "lastPage": 78,
+          "articles": []
+        },
+        {
+          "number": 3,
+          "title": "共通的工種",
+          "headingText": "第3節 共通的工種",
+          "firstPage": 78,
+          "lastPage": 82,
+          "articles": [
+            {
+              "number": "特仕3-2-3-3",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕3-2-3-3 作業土工（床掘り・埋戻し）",
+              "page": 78
+            },
+            {
+              "number": "特仕3-2-3-5",
+              "title": "縁石工",
+              "headingText": "特仕3-2-3-5 縁石工",
+              "page": 78
+            },
+            {
+              "number": "特仕3-2-3-7",
+              "title": "防止柵工",
+              "headingText": "特仕3-2-3-7 防止柵工",
+              "page": 79
+            },
+            {
+              "number": "特仕3-2-3-8",
+              "title": "路側防護柵工",
+              "headingText": "特仕3-2-3-8 路側防護柵工",
+              "page": 79
+            },
+            {
+              "number": "特仕3-2-3-9",
+              "title": "区画線工",
+              "headingText": "特仕3-2-3-9 区画線工",
+              "page": 79
+            },
+            {
+              "number": "特仕3-2-3-13",
+              "title": "ポストテンション桁製作工",
+              "headingText": "特仕3-2-3-13 ポストテンション桁製作工",
+              "page": 80
+            },
+            {
+              "number": "特仕3-2-3-17",
+              "title": "根固めブロック工",
+              "headingText": "特仕3-2-3-17 根固めブロック工",
+              "page": 80
+            },
+            {
+              "number": "特仕3-2-3-23",
+              "title": "現場継手工",
+              "headingText": "特仕3-2-3-23 現場継手工",
+              "page": 80
+            },
+            {
+              "number": "特仕3-2-3-24",
+              "title": "伸縮装置工",
+              "headingText": "特仕3-2-3-24 伸縮装置工",
+              "page": 81
+            },
+            {
+              "number": "特仕3-2-3-25",
+              "title": "銘板工",
+              "headingText": "特仕3-2-3-25 銘板工",
+              "page": 81
+            },
+            {
+              "number": "特仕3-2-3-31",
+              "title": "現場塗装工",
+              "headingText": "特仕3-2-3-31 現場塗装工",
+              "page": 81
+            },
+            {
+              "number": "特仕3-2-3-32",
+              "title": "かごマット工",
+              "headingText": "特仕3-2-3-32 かごマット工",
+              "page": 81
+            },
+            {
+              "number": "特仕3-2-3-34",
+              "title": "簡易鋼製品の塗装",
+              "headingText": "特仕3-2-3-34 簡易鋼製品の塗装",
+              "page": 82
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "title": "基礎工",
+          "headingText": "第4節 基礎工",
+          "firstPage": 82,
+          "lastPage": 85,
+          "articles": [
+            {
+              "number": "特仕3-2-4-1",
+              "title": "基礎工の材料",
+              "headingText": "特仕3-2-4-1 基礎工の材料",
+              "page": 82
+            },
+            {
+              "number": "特仕3-2-4-2",
+              "title": "土台基礎工",
+              "headingText": "特仕3-2-4-2 土台基礎工",
+              "page": 82
+            },
+            {
+              "number": "特仕3-2-4-3",
+              "title": "基礎工（護岸）",
+              "headingText": "特仕3-2-4-3 基礎工（護岸）",
+              "page": 82
+            },
+            {
+              "number": "特仕3-2-4-4",
+              "title": "既製杭工",
+              "headingText": "特仕3-2-4-4 既製杭工",
+              "page": 82
+            },
+            {
+              "number": "特仕3-2-4-5",
+              "title": "場所打杭工",
+              "headingText": "特仕3-2-4-5 場所打杭工",
+              "page": 84
+            },
+            {
+              "number": "特仕3-2-4-6",
+              "title": "深礎工",
+              "headingText": "特仕3-2-4-6 深礎工",
+              "page": 84
+            },
+            {
+              "number": "特仕3-2-4-9",
+              "title": "鋼管矢板基礎工",
+              "headingText": "特仕3-2-4-9 鋼管矢板基礎工",
+              "page": 85
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "title": "石・ブロック積（張）工",
+          "headingText": "第5節 石・ブロック積（張）工",
+          "firstPage": 85,
+          "lastPage": 85,
+          "articles": [
+            {
+              "number": "特仕3-2-5-1",
+              "title": "一般事項",
+              "headingText": "特仕3-2-5-1 一般事項",
+              "page": 85
+            },
+            {
+              "number": "特仕3-2-5-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕3-2-5-2 作業土工（床掘り・埋戻し）",
+              "page": 85
+            },
+            {
+              "number": "特仕3-2-5-3",
+              "title": "コンクリートブロック工",
+              "headingText": "特仕3-2-5-3 コンクリートブロック工",
+              "page": 85
+            }
+          ]
+        },
+        {
+          "number": 6,
+          "title": "一般舗装工",
+          "headingText": "第6節 一般舗装工",
+          "firstPage": 86,
+          "lastPage": 92,
+          "articles": [
+            {
+              "number": "特仕3-2-6-1",
+              "title": "一般事項",
+              "headingText": "特仕3-2-6-1 一般事項",
+              "page": 86
+            },
+            {
+              "number": "特仕3-2-6-3",
+              "title": "アスファルト舗装の材料",
+              "headingText": "特仕3-2-6-3 アスファルト舗装の材料",
+              "page": 86
+            },
+            {
+              "number": "特仕3-2-6-4",
+              "title": "コンクリート舗装の材料",
+              "headingText": "特仕3-2-6-4 コンクリート舗装の材料",
+              "page": 89
+            },
+            {
+              "number": "特仕3-2-6-7",
+              "title": "アスファルト舗装工",
+              "headingText": "特仕3-2-6-7 アスファルト舗装工",
+              "page": 89
+            },
+            {
+              "number": "特仕3-2-6-12",
+              "title": "コンクリート舗装工",
+              "headingText": "特仕3-2-6-12 コンクリート舗装工",
+              "page": 89
+            },
+            {
+              "number": "特仕3-2-6-13",
+              "title": "薄層カラー舗装工",
+              "headingText": "特仕3-2-6-13 薄層カラー舗装工",
+              "page": 90
+            },
+            {
+              "number": "特仕3-2-6-14",
+              "title": "ブロック舗装工",
+              "headingText": "特仕3-2-6-14 ブロック舗装工",
+              "page": 90
+            },
+            {
+              "number": "特仕3-2-6-15",
+              "title": "路面切削工",
+              "headingText": "特仕3-2-6-15 路面切削工",
+              "page": 91
+            },
+            {
+              "number": "特仕3-2-6-16",
+              "title": "舗装打換え工",
+              "headingText": "特仕3-2-6-16 舗装打換え工",
+              "page": 91
+            },
+            {
+              "number": "特仕3-2-6-18",
+              "title": "アスファルト舗装補修工",
+              "headingText": "特仕3-2-6-18 アスファルト舗装補修工",
+              "page": 91
+            },
+            {
+              "number": "特仕3-2-6-19",
+              "title": "コンクリート舗装補修工",
+              "headingText": "特仕3-2-6-19 コンクリート舗装補修工",
+              "page": 92
+            }
+          ]
+        },
+        {
+          "number": 7,
+          "title": "地盤改良工",
+          "headingText": "第7節 地盤改良工",
+          "firstPage": 92,
+          "lastPage": 93,
+          "articles": [
+            {
+              "number": "特仕3-2-7-3",
+              "title": "置換工",
+              "headingText": "特仕3-2-7-3 置換工",
+              "page": 92
+            },
+            {
+              "number": "特仕3-2-7-9",
+              "title": "固結工",
+              "headingText": "特仕3-2-7-9 固結工",
+              "page": 92
+            }
+          ]
+        },
+        {
+          "number": 8,
+          "title": "工場製品輸送工",
+          "headingText": "第8節 工場製品輸送工",
+          "firstPage": 93,
+          "lastPage": 93,
+          "articles": [
+            {
+              "number": "特仕3-2-8-1",
+              "title": "一般事項",
+              "headingText": "特仕3-2-8-1 一般事項",
+              "page": 93
+            }
+          ]
+        },
+        {
+          "number": 10,
+          "title": "仮設工",
+          "headingText": "第10節 仮設工",
+          "firstPage": 93,
+          "lastPage": 93,
+          "articles": [
+            {
+              "number": "特仕3-2-10-5",
+              "title": "土留・仮締切工",
+              "headingText": "特仕3-2-10-5 土留・仮締切工",
+              "page": 93
+            },
+            {
+              "number": "特仕3-2-10-16",
+              "title": "トンネル仮設備工",
+              "headingText": "特仕3-2-10-16 トンネル仮設備工",
+              "page": 93
+            }
+          ]
+        },
+        {
+          "number": 12,
+          "title": "工場製作工（共通）",
+          "headingText": "第12節 工場製作工（共通）",
+          "firstPage": 94,
+          "lastPage": 95,
+          "articles": [
+            {
+              "number": "特仕3-2-12-2",
+              "title": "材料",
+              "headingText": "特仕3-2-12-2 材料",
+              "page": 94
+            },
+            {
+              "number": "特仕3-2-12-3",
+              "title": "桁製作工",
+              "headingText": "特仕3-2-12-3 桁製作工",
+              "page": 94
+            },
+            {
+              "number": "特仕3-2-12-11",
+              "title": "工場塗装工",
+              "headingText": "特仕3-2-12-11 工場塗装工",
+              "page": 95
+            }
+          ]
+        },
+        {
+          "number": 13,
+          "title": "橋梁架設工",
+          "headingText": "第13節 橋梁架設工",
+          "firstPage": 95,
+          "lastPage": 96,
+          "articles": [
+            {
+              "number": "特仕3-2-13-2",
+              "title": "地組工",
+              "headingText": "特仕3-2-13-2 地組工",
+              "page": 95
+            },
+            {
+              "number": "特仕3-2-13-3",
+              "title": "架設工（クレーン架設）",
+              "headingText": "特仕3-2-13-3 架設工（クレーン架設）",
+              "page": 95
+            },
+            {
+              "number": "特仕3-2-13-4",
+              "title": "架設工（ケーブルクレーン架設）",
+              "headingText": "特仕3-2-13-4 架設工（ケーブルクレーン架設）",
+              "page": 95
+            },
+            {
+              "number": "特仕3-2-13-5",
+              "title": "架設工（ケーブルエレクション架設）",
+              "headingText": "特仕3-2-13-5 架設工（ケーブルエレクション架設）",
+              "page": 95
+            },
+            {
+              "number": "特仕3-2-13-6",
+              "title": "架設工（架設桁架設）",
+              "headingText": "特仕3-2-13-6 架設工（架設桁架設）",
+              "page": 95
+            },
+            {
+              "number": "特仕3-2-13-7",
+              "title": "架設工（送出し架設）",
+              "headingText": "特仕3-2-13-7 架設工（送出し架設）",
+              "page": 96
+            },
+            {
+              "number": "特仕3-2-13-8",
+              "title": "架設工（トラベラークレーン架設）",
+              "headingText": "特仕3-2-13-8 架設工（トラベラークレーン架設）",
+              "page": 96
+            }
+          ]
+        },
+        {
+          "number": 14,
+          "title": "法面工（共通）",
+          "headingText": "第14節 法面工（共通）",
+          "firstPage": 96,
+          "lastPage": 98,
+          "articles": [
+            {
+              "number": "特仕3-2-14-2",
+              "title": "植生工",
+              "headingText": "特仕3-2-14-2 植生工",
+              "page": 96
+            },
+            {
+              "number": "特仕3-2-14-3",
+              "title": "吹付工",
+              "headingText": "特仕3-2-14-3 吹付工",
+              "page": 96
+            },
+            {
+              "number": "特仕3-2-14-4",
+              "title": "法枠工",
+              "headingText": "特仕3-2-14-4 法枠工",
+              "page": 97
+            }
+          ]
+        },
+        {
+          "number": 16,
+          "title": "浚渫工（共通）",
+          "headingText": "第16節 浚渫工（共通）",
+          "firstPage": 99,
+          "lastPage": 99,
+          "articles": [
+            {
+              "number": "特仕3-2-16-3",
+              "title": "浚渫船運転工",
+              "headingText": "特仕3-2-16-3 浚渫船運転工",
+              "page": 99
+            }
+          ]
+        },
+        {
+          "number": 17,
+          "title": "植栽維持工",
+          "headingText": "第17節 植栽維持工",
+          "firstPage": 99,
+          "lastPage": 101,
+          "articles": [
+            {
+              "number": "特仕3-2-17-3",
+              "title": "樹木・芝生管理工",
+              "headingText": "特仕3-2-17-3 樹木・芝生管理工",
+              "page": 99
+            }
+          ]
+        },
+        {
+          "number": 18,
+          "title": "床版工",
+          "headingText": "第18節 床版工",
+          "firstPage": 101,
+          "lastPage": 102,
+          "articles": [
+            {
+              "number": "特仕3-2-18-2",
+              "title": "床版工",
+              "headingText": "特仕3-2-18-2 床版工",
+              "page": 101
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "sections": 15,
+        "articles": 55,
+        "clauses": 143,
+        "paragraphs": 205,
+        "items": 19,
+        "notes": 0,
+        "tables": 14,
+        "captions": 2,
+        "tablesGfm": 0,
+        "tablesList": 1,
+        "tablesOverride": 0,
+        "tablesVerbatim": 13
+      },
+      "tableOutcomes": {
+        "restored-standards-list": 1,
+        "columns-out-of-range": 3,
+        "too-few-rows": 1,
+        "lossy": 4,
+        "ragged-rows": 5
+      },
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "6-1",
+      "title": "第6編 河川編 第1章 築堤・護岸",
+      "bookNumber": 6,
+      "bookTitle": "河川編",
+      "chapterNumber": 1,
+      "chapterTitle": "築堤・護岸",
+      "file": "chapters/6-1.md",
+      "firstPage": 103,
+      "lastPage": 107,
+      "sourceParts": [
+        "part-03"
+      ],
+      "sourcePages": [
+        103,
+        104,
+        105,
+        106,
+        107
+      ],
+      "sourceSha256": "65b7b042060e2857a42c85f764fa281bf31514344c8247be73a4af4e526422eb",
+      "outputSha256": "6f86733cd020717d95851572b08c8486d27ebcfbfdd9ee852f2e22132d1c9870",
+      "outputBytes": 9338,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "適用",
+          "headingText": "第1節 適用",
+          "firstPage": 103,
+          "lastPage": 103,
+          "articles": []
+        },
+        {
+          "number": 5,
+          "title": "護岸基礎工",
+          "headingText": "第5節 護岸基礎工",
+          "firstPage": 103,
+          "lastPage": 103,
+          "articles": [
+            {
+              "number": "特仕6-1-5-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕6-1-5-2 作業土工（床掘り・埋戻し）",
+              "page": 103
+            },
+            {
+              "number": "特仕6-1-5-3",
+              "title": "基礎工",
+              "headingText": "特仕6-1-5-3 基礎工",
+              "page": 103
+            }
+          ]
+        },
+        {
+          "number": 6,
+          "title": "矢板護岸工",
+          "headingText": "第6節 矢板護岸工",
+          "firstPage": 103,
+          "lastPage": 103,
+          "articles": [
+            {
+              "number": "特仕6-1-6-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕6-1-6-2 作業土工（床掘り・埋戻し）",
+              "page": 103
+            }
+          ]
+        },
+        {
+          "number": 7,
+          "title": "法覆護岸工",
+          "headingText": "第7節 法覆護岸工",
+          "firstPage": 103,
+          "lastPage": 105,
+          "articles": [
+            {
+              "number": "特仕6-1-7-1",
+              "title": "一般事項",
+              "headingText": "特仕6-1-7-1 一般事項",
+              "page": 103
+            },
+            {
+              "number": "特仕6-1-7-2",
+              "title": "材料",
+              "headingText": "特仕6-1-7-2 材料",
+              "page": 104
+            },
+            {
+              "number": "特仕6-1-7-3",
+              "title": "コンクリートブロック工",
+              "headingText": "特仕6-1-7-3 コンクリートブロック工",
+              "page": 105
+            },
+            {
+              "number": "特仕6-1-7-7",
+              "title": "石積（張）工",
+              "headingText": "特仕6-1-7-7 石積（張）工",
+              "page": 105
+            },
+            {
+              "number": "特仕6-1-7-8",
+              "title": "法枠工",
+              "headingText": "特仕6-1-7-8 法枠工",
+              "page": 105
+            },
+            {
+              "number": "特仕6-1-7-10",
+              "title": "吹付工",
+              "headingText": "特仕6-1-7-10 吹付工",
+              "page": 105
+            },
+            {
+              "number": "特仕6-1-7-11",
+              "title": "植生工",
+              "headingText": "特仕6-1-7-11 植生工",
+              "page": 105
+            },
+            {
+              "number": "特仕6-1-7-12",
+              "title": "覆土工",
+              "headingText": "特仕6-1-7-12 覆土工",
+              "page": 105
+            }
+          ]
+        },
+        {
+          "number": 8,
+          "title": "擁壁護岸工",
+          "headingText": "第8節 擁壁護岸工",
+          "firstPage": 106,
+          "lastPage": 106,
+          "articles": [
+            {
+              "number": "特仕6-1-8-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕6-1-8-2 作業土工（床掘り・埋戻し）",
+              "page": 106
+            }
+          ]
+        },
+        {
+          "number": 9,
+          "title": "根固め工",
+          "headingText": "第9節 根固め工",
+          "firstPage": 106,
+          "lastPage": 106,
+          "articles": [
+            {
+              "number": "特仕6-1-9-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕6-1-9-2 作業土工（床掘り・埋戻し）",
+              "page": 106
+            },
+            {
+              "number": "特仕6-1-9-3",
+              "title": "根固めブロック工",
+              "headingText": "特仕6-1-9-3 根固めブロック工",
+              "page": 106
+            },
+            {
+              "number": "特仕6-1-9-4",
+              "title": "間詰工",
+              "headingText": "特仕6-1-9-4 間詰工",
+              "page": 106
+            }
+          ]
+        },
+        {
+          "number": 10,
+          "title": "水制工",
+          "headingText": "第10節 水制工",
+          "firstPage": 106,
+          "lastPage": 106,
+          "articles": [
+            {
+              "number": "特仕6-1-10-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕6-1-10-2 作業土工（床掘り・埋戻し）",
+              "page": 106
+            },
+            {
+              "number": "特仕6-1-10-6",
+              "title": "元付工",
+              "headingText": "特仕6-1-10-6 元付工",
+              "page": 106
+            }
+          ]
+        },
+        {
+          "number": 11,
+          "title": "付帯道路工",
+          "headingText": "第11節 付帯道路工",
+          "firstPage": 106,
+          "lastPage": 107,
+          "articles": [
+            {
+              "number": "特仕6-1-11-5",
+              "title": "アスファルト舗装工",
+              "headingText": "特仕6-1-11-5 アスファルト舗装工",
+              "page": 106
+            },
+            {
+              "number": "特仕6-1-11-6",
+              "title": "コンクリート舗装工",
+              "headingText": "特仕6-1-11-6 コンクリート舗装工",
+              "page": 106
+            },
+            {
+              "number": "特仕6-1-11-7",
+              "title": "薄層カラー舗装工",
+              "headingText": "特仕6-1-11-7 薄層カラー舗装工",
+              "page": 106
+            },
+            {
+              "number": "特仕6-1-11-11",
+              "title": "縁石工",
+              "headingText": "特仕6-1-11-11 縁石工",
+              "page": 107
+            },
+            {
+              "number": "特仕6-1-11-12",
+              "title": "区画線工",
+              "headingText": "特仕6-1-11-12 区画線工",
+              "page": 107
+            }
+          ]
+        },
+        {
+          "number": 12,
+          "title": "付帯道路施設工",
+          "headingText": "第12節 付帯道路施設工",
+          "firstPage": 107,
+          "lastPage": 107,
+          "articles": [
+            {
+              "number": "特仕6-1-12-2",
+              "title": "境界工",
+              "headingText": "特仕6-1-12-2 境界工",
+              "page": 107
+            }
+          ]
+        },
+        {
+          "number": 13,
+          "title": "光ケーブル配管工",
+          "headingText": "第13節 光ケーブル配管工",
+          "firstPage": 107,
+          "lastPage": 107,
+          "articles": [
+            {
+              "number": "特仕6-1-13-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕6-1-13-2 作業土工（床掘り・埋戻し）",
+              "page": 107
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "sections": 10,
+        "articles": 24,
+        "clauses": 12,
+        "paragraphs": 37,
+        "items": 0,
+        "notes": 0,
+        "tables": 3,
+        "captions": 1,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 3
+      },
+      "tableOutcomes": {
+        "ragged-rows": 2,
+        "empty-cell": 1
+      },
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "6-2",
+      "title": "第6編 河川編 第2章 浚渫（河川）",
+      "bookNumber": 6,
+      "bookTitle": "河川編",
+      "chapterNumber": 2,
+      "chapterTitle": "浚渫（河川）",
+      "file": "chapters/6-2.md",
+      "firstPage": 108,
+      "lastPage": 108,
+      "sourceParts": [
+        "part-03"
+      ],
+      "sourcePages": [
+        108
+      ],
+      "sourceSha256": "7a74a927f5b8b00979f722d99219a1b05c24b0f0079b2556a8f16b7e245ecbee",
+      "outputSha256": "fc3749eec22d299a44338f85bcc5f215ac5804ae2886b004faaddb8f13c52a3a",
+      "outputBytes": 277,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "適用",
+          "headingText": "第1節 適用",
+          "firstPage": 108,
+          "lastPage": 108,
+          "articles": []
+        }
+      ],
+      "stats": {
+        "sections": 1,
+        "articles": 0,
+        "clauses": 0,
+        "paragraphs": 1,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "6-3",
+      "title": "第6編 河川編 第3章 樋門・樋管",
+      "bookNumber": 6,
+      "bookTitle": "河川編",
+      "chapterNumber": 3,
+      "chapterTitle": "樋門・樋管",
+      "file": "chapters/6-3.md",
+      "firstPage": 109,
+      "lastPage": 111,
+      "sourceParts": [
+        "part-03"
+      ],
+      "sourcePages": [
+        109,
+        110,
+        111
+      ],
+      "sourceSha256": "73a35a580728e94f11d48bd91b0969ef6f6a33c47c7e4eb43395831deb0a2fa3",
+      "outputSha256": "7c1a2ca5d7803e4a2cdb413d79fd68d4312073af92a593a2e28a81d82751725f",
+      "outputBytes": 3323,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "適用",
+          "headingText": "第1節 適用",
+          "firstPage": 109,
+          "lastPage": 109,
+          "articles": []
+        },
+        {
+          "number": 5,
+          "title": "樋門・樋管本体工",
+          "headingText": "第5節 樋門・樋管本体工",
+          "firstPage": 109,
+          "lastPage": 109,
+          "articles": [
+            {
+              "number": "特仕6-3-5-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕6-3-5-2 作業土工（床掘り・埋戻し）",
+              "page": 109
+            },
+            {
+              "number": "特仕6-3-5-3",
+              "title": "既製杭工",
+              "headingText": "特仕6-3-5-3 既製杭工",
+              "page": 109
+            },
+            {
+              "number": "特仕6-3-5-4",
+              "title": "場所打杭工",
+              "headingText": "特仕6-3-5-4 場所打杭工",
+              "page": 109
+            }
+          ]
+        },
+        {
+          "number": 6,
+          "title": "護床工",
+          "headingText": "第6節 護床工",
+          "firstPage": 109,
+          "lastPage": 109,
+          "articles": [
+            {
+              "number": "特仕6-3-6-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕6-3-6-2 作業土工（床掘り・埋戻し）",
+              "page": 109
+            },
+            {
+              "number": "特仕6-3-6-3",
+              "title": "根固めブロック工",
+              "headingText": "特仕6-3-6-3 根固めブロック工",
+              "page": 109
+            },
+            {
+              "number": "特仕6-3-6-4",
+              "title": "間詰工",
+              "headingText": "特仕6-3-6-4 間詰工",
+              "page": 109
+            }
+          ]
+        },
+        {
+          "number": 7,
+          "title": "水路工",
+          "headingText": "第7節 水路工",
+          "firstPage": 109,
+          "lastPage": 109,
+          "articles": [
+            {
+              "number": "特仕6-3-7-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕6-3-7-2 作業土工（床掘り・埋戻し）",
+              "page": 109
+            }
+          ]
+        },
+        {
+          "number": 8,
+          "title": "付属物設置工",
+          "headingText": "第8節 付属物設置工",
+          "firstPage": 110,
+          "lastPage": 111,
+          "articles": [
+            {
+              "number": "特仕6-3-8-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕6-3-8-2 作業土工（床掘り・埋戻し）",
+              "page": 110
+            },
+            {
+              "number": "特仕6-3-8-4",
+              "title": "境界工",
+              "headingText": "特仕6-3-8-4 境界工",
+              "page": 110
+            },
+            {
+              "number": "特仕6-3-8-5",
+              "title": "銘板工",
+              "headingText": "特仕6-3-8-5 銘板工",
+              "page": 110
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "sections": 5,
+        "articles": 10,
+        "clauses": 7,
+        "paragraphs": 18,
+        "items": 2,
+        "notes": 0,
+        "tables": 1,
+        "captions": 3,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 1
+      },
+      "tableOutcomes": {
+        "too-few-rows": 1
+      },
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "6-4",
+      "title": "第6編 河川編 第4章 水門",
+      "bookNumber": 6,
+      "bookTitle": "河川編",
+      "chapterNumber": 4,
+      "chapterTitle": "水門",
+      "file": "chapters/6-4.md",
+      "firstPage": 112,
+      "lastPage": 112,
+      "sourceParts": [
+        "part-03"
+      ],
+      "sourcePages": [
+        112
+      ],
+      "sourceSha256": "097728ca464ae586158dada868ff6e76d47d7df2d91023d09050aa0477bcf09c",
+      "outputSha256": "49747eea49e8a8575628f716ccb72a0b12da4f03e6f357ec784baa08ef0b0777",
+      "outputBytes": 1445,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "適用",
+          "headingText": "第1節 適用",
+          "firstPage": 112,
+          "lastPage": 112,
+          "articles": []
+        },
+        {
+          "number": 6,
+          "title": "水門本体工",
+          "headingText": "第6節 水門本体工",
+          "firstPage": 112,
+          "lastPage": 112,
+          "articles": [
+            {
+              "number": "特仕6-4-6-3",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕6-4-6-3 作業土工（床掘り・埋戻し）",
+              "page": 112
+            },
+            {
+              "number": "特仕6-4-6-4",
+              "title": "既製杭工",
+              "headingText": "特仕6-4-6-4 既製杭工",
+              "page": 112
+            },
+            {
+              "number": "特仕6-4-6-5",
+              "title": "場所打杭工",
+              "headingText": "特仕6-4-6-5 場所打杭工",
+              "page": 112
+            }
+          ]
+        },
+        {
+          "number": 7,
+          "title": "護床工",
+          "headingText": "第7節 護床工",
+          "firstPage": 112,
+          "lastPage": 112,
+          "articles": [
+            {
+              "number": "特仕6-4-7-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕6-4-7-2 作業土工（床掘り・埋戻し）",
+              "page": 112
+            }
+          ]
+        },
+        {
+          "number": 8,
+          "title": "付属物設置工",
+          "headingText": "第8節 付属物設置工",
+          "firstPage": 112,
+          "lastPage": 112,
+          "articles": [
+            {
+              "number": "特仕6-4-8-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕6-4-8-2 作業土工（床掘り・埋戻し）",
+              "page": 112
+            },
+            {
+              "number": "特仕6-4-8-4",
+              "title": "境界工",
+              "headingText": "特仕6-4-8-4 境界工",
+              "page": 112
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "sections": 4,
+        "articles": 6,
+        "clauses": 0,
+        "paragraphs": 7,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "6-5",
+      "title": "第6編 河川編 第5章 堰",
+      "bookNumber": 6,
+      "bookTitle": "河川編",
+      "chapterNumber": 5,
+      "chapterTitle": "堰",
+      "file": "chapters/6-5.md",
+      "firstPage": 113,
+      "lastPage": 114,
+      "sourceParts": [
+        "part-03"
+      ],
+      "sourcePages": [
+        113,
+        114
+      ],
+      "sourceSha256": "80cc90da9f0d8b7a6caed641318eb3477d17aa0e8e1f1916dccc942210d04ac3",
+      "outputSha256": "50a313e47cbeaa4298e6413058ed6199ede1562336808be6be34702d76240c4a",
+      "outputBytes": 2287,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "適用",
+          "headingText": "第1節 適用",
+          "firstPage": 113,
+          "lastPage": 113,
+          "articles": []
+        },
+        {
+          "number": 6,
+          "title": "可動堰本体工",
+          "headingText": "第6節 可動堰本体工",
+          "firstPage": 113,
+          "lastPage": 113,
+          "articles": [
+            {
+              "number": "特仕6-5-6-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕6-5-6-2 作業土工（床掘り・埋戻し）",
+              "page": 113
+            },
+            {
+              "number": "特仕6-5-6-3",
+              "title": "既製杭工",
+              "headingText": "特仕6-5-6-3 既製杭工",
+              "page": 113
+            },
+            {
+              "number": "特仕6-5-6-4",
+              "title": "場所打杭工",
+              "headingText": "特仕6-5-6-4 場所打杭工",
+              "page": 113
+            }
+          ]
+        },
+        {
+          "number": 7,
+          "title": "固定堰本体工",
+          "headingText": "第7節 固定堰本体工",
+          "firstPage": 113,
+          "lastPage": 113,
+          "articles": [
+            {
+              "number": "特仕6-5-7-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕6-5-7-2 作業土工（床掘り・埋戻し）",
+              "page": 113
+            },
+            {
+              "number": "特仕6-5-7-3",
+              "title": "既製杭工",
+              "headingText": "特仕6-5-7-3 既製杭工",
+              "page": 113
+            },
+            {
+              "number": "特仕6-5-7-4",
+              "title": "場所打杭工",
+              "headingText": "特仕6-5-7-4 場所打杭工",
+              "page": 113
+            }
+          ]
+        },
+        {
+          "number": 8,
+          "title": "魚道工",
+          "headingText": "第8節 魚道工",
+          "firstPage": 113,
+          "lastPage": 113,
+          "articles": [
+            {
+              "number": "特仕6-5-8-2",
+              "title": "作業土工（床掘り、埋戻し）",
+              "headingText": "特仕6-5-8-2 作業土工（床掘り、埋戻し）",
+              "page": 113
+            }
+          ]
+        },
+        {
+          "number": 20,
+          "title": "付属物設置工",
+          "headingText": "第20節 付属物設置工",
+          "firstPage": 114,
+          "lastPage": 114,
+          "articles": [
+            {
+              "number": "特仕6-5-20-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕6-5-20-2 作業土工（床掘り・埋戻し）",
+              "page": 114
+            },
+            {
+              "number": "特仕6-5-20-4",
+              "title": "境界工",
+              "headingText": "特仕6-5-20-4 境界工",
+              "page": 114
+            },
+            {
+              "number": "特仕6-5-20-5",
+              "title": "銘板工",
+              "headingText": "特仕6-5-20-5 銘板工",
+              "page": 114
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "sections": 5,
+        "articles": 10,
+        "clauses": 2,
+        "paragraphs": 12,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "6-6",
+      "title": "第6編 河川編 第6章 排水機場",
+      "bookNumber": 6,
+      "bookTitle": "河川編",
+      "chapterNumber": 6,
+      "chapterTitle": "排水機場",
+      "file": "chapters/6-6.md",
+      "firstPage": 115,
+      "lastPage": 116,
+      "sourceParts": [
+        "part-03"
+      ],
+      "sourcePages": [
+        115,
+        116
+      ],
+      "sourceSha256": "f644d0ac69a20e2b20d949b238b171c71a2968b106979ae0176caf18967e0352",
+      "outputSha256": "1320df955718dffd334329c2a1ddf4b82a726aaa9e7ed8422371b0d51f0af884",
+      "outputBytes": 2176,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "適用",
+          "headingText": "第1節 適用",
+          "firstPage": 115,
+          "lastPage": 115,
+          "articles": []
+        },
+        {
+          "number": 4,
+          "title": "機場本体工",
+          "headingText": "第4節 機場本体工",
+          "firstPage": 115,
+          "lastPage": 115,
+          "articles": [
+            {
+              "number": "特仕6-6-4-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕6-6-4-2 作業土工（床掘り・埋戻し）",
+              "page": 115
+            },
+            {
+              "number": "特仕6-6-4-3",
+              "title": "既製杭工",
+              "headingText": "特仕6-6-4-3 既製杭工",
+              "page": 115
+            },
+            {
+              "number": "特仕6-6-4-4",
+              "title": "場所打杭工",
+              "headingText": "特仕6-6-4-4 場所打杭工",
+              "page": 115
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "title": "沈砂池工",
+          "headingText": "第5節 沈砂池工",
+          "firstPage": 115,
+          "lastPage": 115,
+          "articles": [
+            {
+              "number": "特仕6-6-5-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕6-6-5-2 作業土工（床掘り・埋戻し）",
+              "page": 115
+            },
+            {
+              "number": "特仕6-6-5-3",
+              "title": "既製杭工",
+              "headingText": "特仕6-6-5-3 既製杭工",
+              "page": 115
+            },
+            {
+              "number": "特仕6-6-5-4",
+              "title": "場所打杭工",
+              "headingText": "特仕6-6-5-4 場所打杭工",
+              "page": 115
+            }
+          ]
+        },
+        {
+          "number": 6,
+          "title": "吐出水槽工",
+          "headingText": "第6節 吐出水槽工",
+          "firstPage": 115,
+          "lastPage": 116,
+          "articles": [
+            {
+              "number": "特仕6-6-6-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕6-6-6-2 作業土工（床掘り・埋戻し）",
+              "page": 115
+            },
+            {
+              "number": "特仕6-6-6-3",
+              "title": "既製杭工",
+              "headingText": "特仕6-6-6-3 既製杭工",
+              "page": 115
+            },
+            {
+              "number": "特仕6-6-6-4",
+              "title": "場所打杭工",
+              "headingText": "特仕6-6-6-4 場所打杭工",
+              "page": 116
+            }
+          ]
+        },
+        {
+          "number": 7,
+          "title": "付属物設置工",
+          "headingText": "第7節 付属物設置工",
+          "firstPage": 116,
+          "lastPage": 116,
+          "articles": [
+            {
+              "number": "特仕6-6-7-1",
+              "title": "銘板工",
+              "headingText": "特仕6-6-7-1 銘板工",
+              "page": 116
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "sections": 5,
+        "articles": 10,
+        "clauses": 2,
+        "paragraphs": 12,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "6-7",
+      "title": "第6編 河川編 第7章 床止め・床固め",
+      "bookNumber": 6,
+      "bookTitle": "河川編",
+      "chapterNumber": 7,
+      "chapterTitle": "床止め・床固め",
+      "file": "chapters/6-7.md",
+      "firstPage": 117,
+      "lastPage": 118,
+      "sourceParts": [
+        "part-03"
+      ],
+      "sourcePages": [
+        117,
+        118
+      ],
+      "sourceSha256": "6bde6a6ba40c4ebc816fabcc08b38c95c3d41d582c8c5e5816dac4109dc3d880",
+      "outputSha256": "1c4ed9e5d60f4b14b360e01403e55ca98a7b306be198f7190127e0b9fe419afe",
+      "outputBytes": 2546,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "適用",
+          "headingText": "第1節 適用",
+          "firstPage": 117,
+          "lastPage": 117,
+          "articles": []
+        },
+        {
+          "number": 4,
+          "title": "床止め工",
+          "headingText": "第4節 床止め工",
+          "firstPage": 117,
+          "lastPage": 117,
+          "articles": [
+            {
+              "number": "特仕6-7-4-2",
+              "title": "材料",
+              "headingText": "特仕6-7-4-2 材料",
+              "page": 117
+            },
+            {
+              "number": "特仕6-7-4-3",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕6-7-4-3 作業土工（床掘り・埋戻し）",
+              "page": 117
+            },
+            {
+              "number": "特仕6-7-4-4",
+              "title": "既製杭工",
+              "headingText": "特仕6-7-4-4 既製杭工",
+              "page": 117
+            },
+            {
+              "number": "特仕6-7-4-6",
+              "title": "本体工",
+              "headingText": "特仕6-7-4-6 本体工",
+              "page": 117
+            },
+            {
+              "number": "特仕6-7-4-8",
+              "title": "水叩工",
+              "headingText": "特仕6-7-4-8 水叩工",
+              "page": 117
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "title": "床固め工",
+          "headingText": "第5節 床固め工",
+          "firstPage": 117,
+          "lastPage": 118,
+          "articles": [
+            {
+              "number": "特仕6-7-5-2",
+              "title": "材料",
+              "headingText": "特仕6-7-5-2 材料",
+              "page": 117
+            },
+            {
+              "number": "特仕6-7-5-3",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕6-7-5-3 作業土工（床掘り・埋戻し）",
+              "page": 117
+            },
+            {
+              "number": "特仕6-7-5-4",
+              "title": "本堤工",
+              "headingText": "特仕6-7-5-4 本堤工",
+              "page": 117
+            },
+            {
+              "number": "特仕6-7-5-5",
+              "title": "垂直壁工",
+              "headingText": "特仕6-7-5-5 垂直壁工",
+              "page": 118
+            },
+            {
+              "number": "特仕6-7-5-6",
+              "title": "側壁工",
+              "headingText": "特仕6-7-5-6 側壁工",
+              "page": 118
+            }
+          ]
+        },
+        {
+          "number": 6,
+          "title": "山留擁壁工",
+          "headingText": "第6節 山留擁壁工",
+          "firstPage": 118,
+          "lastPage": 118,
+          "articles": [
+            {
+              "number": "特仕6-7-6-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕6-7-6-2 作業土工（床掘り・埋戻し）",
+              "page": 118
+            },
+            {
+              "number": "特仕6-7-6-3",
+              "title": "コンクリート擁壁工",
+              "headingText": "特仕6-7-6-3 コンクリート擁壁工",
+              "page": 118
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "sections": 4,
+        "articles": 12,
+        "clauses": 2,
+        "paragraphs": 15,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "6-8",
+      "title": "第6編 河川編 第8章 河川維持",
+      "bookNumber": 6,
+      "bookTitle": "河川編",
+      "chapterNumber": 8,
+      "chapterTitle": "河川維持",
+      "file": "chapters/6-8.md",
+      "firstPage": 119,
+      "lastPage": 120,
+      "sourceParts": [
+        "part-03"
+      ],
+      "sourcePages": [
+        119,
+        120
+      ],
+      "sourceSha256": "b8495af8570546b795f929e2411b19c71c64e6e8d7eb488350346d7b5ba9c568",
+      "outputSha256": "07d6a3c8a5dd1f46971c96cc53d60c60bff878b75aae0967aeb0a6bd48af66b7",
+      "outputBytes": 2005,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "適用",
+          "headingText": "第1節 適用",
+          "firstPage": 119,
+          "lastPage": 119,
+          "articles": []
+        },
+        {
+          "number": 3,
+          "title": "巡視・巡回工",
+          "headingText": "第3節 巡視・巡回工",
+          "firstPage": 119,
+          "lastPage": 119,
+          "articles": [
+            {
+              "number": "特仕6-8-3-2",
+              "title": "河川巡視工",
+              "headingText": "特仕6-8-3-2 河川巡視工",
+              "page": 119
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "title": "除草工",
+          "headingText": "第4節 除草工",
+          "firstPage": 119,
+          "lastPage": 119,
+          "articles": [
+            {
+              "number": "特仕6-8-4-2",
+              "title": "堤防除草工",
+              "headingText": "特仕6-8-4-2 堤防除草工",
+              "page": 119
+            }
+          ]
+        },
+        {
+          "number": 7,
+          "title": "路面補修工",
+          "headingText": "第7節 路面補修工",
+          "firstPage": 119,
+          "lastPage": 119,
+          "articles": [
+            {
+              "number": "特仕6-8-7-2",
+              "title": "材料",
+              "headingText": "特仕6-8-7-2 材料",
+              "page": 119
+            }
+          ]
+        },
+        {
+          "number": 9,
+          "title": "付属物設置工",
+          "headingText": "第9節 付属物設置工",
+          "firstPage": 119,
+          "lastPage": 119,
+          "articles": [
+            {
+              "number": "特仕6-8-9-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕6-8-9-2 作業土工（床掘り・埋戻し）",
+              "page": 119
+            },
+            {
+              "number": "特仕6-8-9-4",
+              "title": "境界工",
+              "headingText": "特仕6-8-9-4 境界工",
+              "page": 119
+            }
+          ]
+        },
+        {
+          "number": 10,
+          "title": "光ケーブル配管工",
+          "headingText": "第10節 光ケーブル配管工",
+          "firstPage": 120,
+          "lastPage": 120,
+          "articles": [
+            {
+              "number": "特仕6-8-10-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕6-8-10-2 作業土工（床掘り・埋戻し）",
+              "page": 120
+            }
+          ]
+        },
+        {
+          "number": 12,
+          "title": "植栽維持工",
+          "headingText": "第12節 植栽維持工",
+          "firstPage": 120,
+          "lastPage": 120,
+          "articles": [
+            {
+              "number": "特仕6-8-12-3",
+              "title": "樹木・芝生管理工",
+              "headingText": "特仕6-8-12-3 樹木・芝生管理工",
+              "page": 120
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "sections": 7,
+        "articles": 7,
+        "clauses": 2,
+        "paragraphs": 9,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "6-9",
+      "title": "第6編 河川編 第9章 河川修繕",
+      "bookNumber": 6,
+      "bookTitle": "河川編",
+      "chapterNumber": 9,
+      "chapterTitle": "河川修繕",
+      "file": "chapters/6-9.md",
+      "firstPage": 121,
+      "lastPage": 121,
+      "sourceParts": [
+        "part-03"
+      ],
+      "sourcePages": [
+        121
+      ],
+      "sourceSha256": "1e723e1286e35bf5edfe0a448fa8bab6f0f48eadb503f86a062cbe769276774a",
+      "outputSha256": "a110004bc0e5799892bb62346b10830e8062c5ffa69ca1f84474e85fd447c49d",
+      "outputBytes": 1642,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "適用",
+          "headingText": "第1節 適用",
+          "firstPage": 121,
+          "lastPage": 121,
+          "articles": []
+        },
+        {
+          "number": 4,
+          "title": "腹付工",
+          "headingText": "第4節 腹付工",
+          "firstPage": 121,
+          "lastPage": 121,
+          "articles": [
+            {
+              "number": "特仕6-9-4-2",
+              "title": "覆土工",
+              "headingText": "特仕6-9-4-2 覆土工",
+              "page": 121
+            },
+            {
+              "number": "特仕6-9-4-3",
+              "title": "植生工",
+              "headingText": "特仕6-9-4-3 植生工",
+              "page": 121
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "title": "側帯工",
+          "headingText": "第5節 側帯工",
+          "firstPage": 121,
+          "lastPage": 121,
+          "articles": [
+            {
+              "number": "特仕6-9-5-3",
+              "title": "植生工",
+              "headingText": "特仕6-9-5-3 植生工",
+              "page": 121
+            }
+          ]
+        },
+        {
+          "number": 6,
+          "title": "堤脚保護工",
+          "headingText": "第6節 堤脚保護工",
+          "firstPage": 121,
+          "lastPage": 121,
+          "articles": [
+            {
+              "number": "特仕6-9-6-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕6-9-6-2 作業土工（床掘り・埋戻し）",
+              "page": 121
+            }
+          ]
+        },
+        {
+          "number": 7,
+          "title": "管理用通路工",
+          "headingText": "第7節 管理用通路工",
+          "firstPage": 121,
+          "lastPage": 121,
+          "articles": [
+            {
+              "number": "特仕6-9-7-3",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕6-9-7-3 作業土工（床掘り・埋戻し）",
+              "page": 121
+            },
+            {
+              "number": "特仕6-9-7-6",
+              "title": "オーバーレイ工",
+              "headingText": "特仕6-9-7-6 オーバーレイ工",
+              "page": 121
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "sections": 5,
+        "articles": 6,
+        "clauses": 2,
+        "paragraphs": 8,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "7-1",
+      "title": "第7編 河川海岸編 第1章 堤防・護岸",
+      "bookNumber": 7,
+      "bookTitle": "河川海岸編",
+      "chapterNumber": 1,
+      "chapterTitle": "堤防・護岸",
+      "file": "chapters/7-1.md",
+      "firstPage": 122,
+      "lastPage": 123,
+      "sourceParts": [
+        "part-03"
+      ],
+      "sourcePages": [
+        122,
+        123
+      ],
+      "sourceSha256": "28a5ffd0bd734643a62a42e3c5c9d70443a72445c361886fce72e55bce8d65c5",
+      "outputSha256": "9b76178f3da5bcef756cbdf8600a5c26c8a7dd6f24c77f00deb18756c03bfb51",
+      "outputBytes": 3050,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "適用",
+          "headingText": "第1節 適用",
+          "firstPage": 122,
+          "lastPage": 122,
+          "articles": []
+        },
+        {
+          "number": 5,
+          "title": "護岸基礎工",
+          "headingText": "第5節 護岸基礎工",
+          "firstPage": 122,
+          "lastPage": 122,
+          "articles": [
+            {
+              "number": "特仕7-1-5-3",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕7-1-5-3 作業土工（床掘り・埋戻し）",
+              "page": 122
+            },
+            {
+              "number": "特仕7-1-5-7",
+              "title": "笠コンクリート工",
+              "headingText": "特仕7-1-5-7 笠コンクリート工",
+              "page": 122
+            }
+          ]
+        },
+        {
+          "number": 7,
+          "title": "擁壁工",
+          "headingText": "第7節 擁壁工",
+          "firstPage": 122,
+          "lastPage": 122,
+          "articles": [
+            {
+              "number": "特仕7-1-7-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕7-1-7-2 作業土工（床掘り・埋戻し）",
+              "page": 122
+            }
+          ]
+        },
+        {
+          "number": 8,
+          "title": "天端被覆工",
+          "headingText": "第8節 天端被覆工",
+          "firstPage": 122,
+          "lastPage": 122,
+          "articles": [
+            {
+              "number": "特仕7-1-8-2",
+              "title": "コンクリート被覆工",
+              "headingText": "特仕7-1-8-2 コンクリート被覆工",
+              "page": 122
+            }
+          ]
+        },
+        {
+          "number": 9,
+          "title": "波返工",
+          "headingText": "第9節 波返工",
+          "firstPage": 122,
+          "lastPage": 122,
+          "articles": [
+            {
+              "number": "特仕7-1-9-2",
+              "title": "材料",
+              "headingText": "特仕7-1-9-2 材料",
+              "page": 122
+            }
+          ]
+        },
+        {
+          "number": 10,
+          "title": "裏法被覆工",
+          "headingText": "第10節 裏法被覆工",
+          "firstPage": 122,
+          "lastPage": 122,
+          "articles": [
+            {
+              "number": "特仕7-1-10-5",
+              "title": "法枠工",
+              "headingText": "特仕7-1-10-5 法枠工",
+              "page": 122
+            }
+          ]
+        },
+        {
+          "number": 12,
+          "title": "排水構造物工",
+          "headingText": "第12節 排水構造物工",
+          "firstPage": 123,
+          "lastPage": 123,
+          "articles": [
+            {
+              "number": "特仕7-1-12-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕7-1-12-2 作業土工（床掘り・埋戻し）",
+              "page": 123
+            }
+          ]
+        },
+        {
+          "number": 13,
+          "title": "付属物設置工",
+          "headingText": "第13節 付属物設置工",
+          "firstPage": 123,
+          "lastPage": 123,
+          "articles": [
+            {
+              "number": "特仕7-1-13-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕7-1-13-2 作業土工（床掘り・埋戻し）",
+              "page": 123
+            },
+            {
+              "number": "特仕7-1-13-4",
+              "title": "境界工",
+              "headingText": "特仕7-1-13-4 境界工",
+              "page": 123
+            }
+          ]
+        },
+        {
+          "number": 14,
+          "title": "付帯道路工",
+          "headingText": "第14節 付帯道路工",
+          "firstPage": 123,
+          "lastPage": 123,
+          "articles": [
+            {
+              "number": "特仕7-1-14-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕7-1-14-2 作業土工（床掘り・埋戻し）",
+              "page": 123
+            },
+            {
+              "number": "特仕7-1-14-5",
+              "title": "アスファルト舗装工",
+              "headingText": "特仕7-1-14-5 アスファルト舗装工",
+              "page": 123
+            },
+            {
+              "number": "特仕7-1-14-6",
+              "title": "コンクリート舗装工",
+              "headingText": "特仕7-1-14-6 コンクリート舗装工",
+              "page": 123
+            },
+            {
+              "number": "特仕7-1-14-11",
+              "title": "区画線工",
+              "headingText": "特仕7-1-14-11 区画線工",
+              "page": 123
+            }
+          ]
+        },
+        {
+          "number": 15,
+          "title": "付帯道路施設工",
+          "headingText": "第15節 付帯道路施設工",
+          "firstPage": 123,
+          "lastPage": 123,
+          "articles": [
+            {
+              "number": "特仕7-1-15-2",
+              "title": "境界工",
+              "headingText": "特仕7-1-15-2 境界工",
+              "page": 123
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "sections": 10,
+        "articles": 14,
+        "clauses": 0,
+        "paragraphs": 15,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "7-2",
+      "title": "第7編 河川海岸編 第2章 突堤・人工岬",
+      "bookNumber": 7,
+      "bookTitle": "河川海岸編",
+      "chapterNumber": 2,
+      "chapterTitle": "突堤・人工岬",
+      "file": "chapters/7-2.md",
+      "firstPage": 124,
+      "lastPage": 124,
+      "sourceParts": [
+        "part-03"
+      ],
+      "sourcePages": [
+        124
+      ],
+      "sourceSha256": "ae8708444b3b4e52cc1fa842f39d2bc451483ec0d4d90ee294b14818f714e555",
+      "outputSha256": "469c5786e254425d8303ac68fc38d10c087f3b2cd6ad802d29b31ede66e1403c",
+      "outputBytes": 1007,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "適用",
+          "headingText": "第1節 適用",
+          "firstPage": 124,
+          "lastPage": 124,
+          "articles": []
+        },
+        {
+          "number": 4,
+          "title": "突堤基礎工",
+          "headingText": "第4節 突堤基礎工",
+          "firstPage": 124,
+          "lastPage": 124,
+          "articles": [
+            {
+              "number": "特仕7-2-4-3",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕7-2-4-3 作業土工（床掘り・埋戻し）",
+              "page": 124
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "title": "突堤本体工",
+          "headingText": "第5節 突堤本体工",
+          "firstPage": 124,
+          "lastPage": 124,
+          "articles": [
+            {
+              "number": "特仕7-2-5-6",
+              "title": "既製杭工",
+              "headingText": "特仕7-2-5-6 既製杭工",
+              "page": 124
+            },
+            {
+              "number": "特仕7-2-5-7",
+              "title": "詰杭工",
+              "headingText": "特仕7-2-5-7 詰杭工",
+              "page": 124
+            },
+            {
+              "number": "特仕7-2-5-11",
+              "title": "ケーソン工",
+              "headingText": "特仕7-2-5-11 ケーソン工",
+              "page": 124
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "sections": 3,
+        "articles": 4,
+        "clauses": 0,
+        "paragraphs": 5,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "7-3",
+      "title": "第7編 河川海岸編 第3章 海域堤防（人工リーフ、離岸堤、潜堤）",
+      "bookNumber": 7,
+      "bookTitle": "河川海岸編",
+      "chapterNumber": 3,
+      "chapterTitle": "海域堤防（人工リーフ、離岸堤、潜堤）",
+      "file": "chapters/7-3.md",
+      "firstPage": 125,
+      "lastPage": 125,
+      "sourceParts": [
+        "part-03"
+      ],
+      "sourcePages": [
+        125
+      ],
+      "sourceSha256": "546a148d5c6d3f99a67af59b134953e3d7e28e8a98870676e9346de09e6c942b",
+      "outputSha256": "4b53ed02593cdd68acd5cdb96b3155e5371dc9e38e5f5931a83a29a66a2716e5",
+      "outputBytes": 292,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "適用",
+          "headingText": "第1節 適用",
+          "firstPage": 125,
+          "lastPage": 125,
+          "articles": []
+        }
+      ],
+      "stats": {
+        "sections": 1,
+        "articles": 0,
+        "clauses": 0,
+        "paragraphs": 1,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "7-4",
+      "title": "第7編 河川海岸編 第4章 浚渫（海岸）",
+      "bookNumber": 7,
+      "bookTitle": "河川海岸編",
+      "chapterNumber": 4,
+      "chapterTitle": "浚渫（海岸）",
+      "file": "chapters/7-4.md",
+      "firstPage": 126,
+      "lastPage": 126,
+      "sourceParts": [
+        "part-03"
+      ],
+      "sourcePages": [
+        126
+      ],
+      "sourceSha256": "a4b8eaa124ac1379e8effd7c2e486ea06cf06971b144763f892f0dbad039a79c",
+      "outputSha256": "e5bddc2a72e7572394018d5266340af2833cc1af034284f9bad8e157e596bebe",
+      "outputBytes": 878,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "適用",
+          "headingText": "第1節 適用",
+          "firstPage": 126,
+          "lastPage": 126,
+          "articles": []
+        },
+        {
+          "number": 3,
+          "title": "浚渫工（ポンプ浚渫船）",
+          "headingText": "第3節 浚渫工（ポンプ浚渫船）",
+          "firstPage": 126,
+          "lastPage": 126,
+          "articles": [
+            {
+              "number": "特仕7-4-3-1",
+              "title": "一般事項",
+              "headingText": "特仕7-4-3-1 一般事項",
+              "page": 126
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "title": "浚渫工（グラブ船）",
+          "headingText": "第4節 浚渫工（グラブ船）",
+          "firstPage": 126,
+          "lastPage": 126,
+          "articles": [
+            {
+              "number": "特仕7-4-4-1",
+              "title": "一般事項",
+              "headingText": "特仕7-4-4-1 一般事項",
+              "page": 126
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "sections": 3,
+        "articles": 2,
+        "clauses": 0,
+        "paragraphs": 3,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "7-5",
+      "title": "第7編 河川海岸編 第5章 養浜",
+      "bookNumber": 7,
+      "bookTitle": "河川海岸編",
+      "chapterNumber": 5,
+      "chapterTitle": "養浜",
+      "file": "chapters/7-5.md",
+      "firstPage": 127,
+      "lastPage": 127,
+      "sourceParts": [
+        "part-03"
+      ],
+      "sourcePages": [
+        127
+      ],
+      "sourceSha256": "49da01e5a3a9e4445e8f7a5857921800d494bbb654045c15f9d71c6435ba4cfe",
+      "outputSha256": "531a3d831bfb2727a0ef48346e488a66e51b6bf0ed2b47b5bed7be474da3f365",
+      "outputBytes": 373,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "適用",
+          "headingText": "第1節 適用",
+          "firstPage": 127,
+          "lastPage": 127,
+          "articles": []
+        }
+      ],
+      "stats": {
+        "sections": 1,
+        "articles": 0,
+        "clauses": 0,
+        "paragraphs": 1,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "8-1",
+      "title": "第8編 砂防編 第1章 砂防堰堤",
+      "bookNumber": 8,
+      "bookTitle": "砂防編",
+      "chapterNumber": 1,
+      "chapterTitle": "砂防堰堤",
+      "file": "chapters/8-1.md",
+      "firstPage": 128,
+      "lastPage": 132,
+      "sourceParts": [
+        "part-03"
+      ],
+      "sourcePages": [
+        128,
+        129,
+        130,
+        131,
+        132
+      ],
+      "sourceSha256": "81ace44665358d2afecbef14427094a0e9575a525a056b0531797f4adc149e43",
+      "outputSha256": "14d7e15c10939b934e9a785b7455a95186f417936ca4d3fb39154d26c1c771b3",
+      "outputBytes": 10390,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "適用",
+          "headingText": "第1節 適用",
+          "firstPage": 128,
+          "lastPage": 128,
+          "articles": []
+        },
+        {
+          "number": 6,
+          "title": "法面工",
+          "headingText": "第6節 法面工",
+          "firstPage": 128,
+          "lastPage": 128,
+          "articles": [
+            {
+              "number": "特仕8-1-6-2",
+              "title": "植生工",
+              "headingText": "特仕8-1-6-2 植生工",
+              "page": 128
+            },
+            {
+              "number": "特仕8-1-6-3",
+              "title": "法面吹付工",
+              "headingText": "特仕8-1-6-3 法面吹付工",
+              "page": 128
+            },
+            {
+              "number": "特仕8-1-6-4",
+              "title": "法枠工",
+              "headingText": "特仕8-1-6-4 法枠工",
+              "page": 128
+            }
+          ]
+        },
+        {
+          "number": 8,
+          "title": "コンクリート堰堤工",
+          "headingText": "第8節 コンクリート堰堤工",
+          "firstPage": 128,
+          "lastPage": 130,
+          "articles": [
+            {
+              "number": "特仕8-1-8-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕8-1-8-2 作業土工（床掘り・埋戻し）",
+              "page": 128
+            },
+            {
+              "number": "特仕8-1-8-3",
+              "title": "埋戻し工",
+              "headingText": "特仕8-1-8-3 埋戻し工",
+              "page": 129
+            },
+            {
+              "number": "特仕8-1-8-4",
+              "title": "コンクリート堰堤本体工",
+              "headingText": "特仕8-1-8-4 コンクリート堰堤本体工",
+              "page": 129
+            },
+            {
+              "number": "特仕8-1-8-5",
+              "title": "コンクリート副堰堤工",
+              "headingText": "特仕8-1-8-5 コンクリート副堰堤工",
+              "page": 129
+            },
+            {
+              "number": "特仕8-1-8-6",
+              "title": "コンクリート側壁工",
+              "headingText": "特仕8-1-8-6 コンクリート側壁工",
+              "page": 129
+            },
+            {
+              "number": "特仕8-1-8-7",
+              "title": "間詰工",
+              "headingText": "特仕8-1-8-7 間詰工",
+              "page": 129
+            },
+            {
+              "number": "特仕8-1-8-9",
+              "title": "残存型枠（砂防工）",
+              "headingText": "特仕8-1-8-9 残存型枠（砂防工）",
+              "page": 129
+            }
+          ]
+        },
+        {
+          "number": 9,
+          "title": "鋼製堰堤工",
+          "headingText": "第9節 鋼製堰堤工",
+          "firstPage": 131,
+          "lastPage": 131,
+          "articles": [
+            {
+              "number": "特仕8-1-9-3",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕8-1-9-3 作業土工（床掘り・埋戻し）",
+              "page": 131
+            },
+            {
+              "number": "特仕8-1-9-4",
+              "title": "埋戻し工",
+              "headingText": "特仕8-1-9-4 埋戻し工",
+              "page": 131
+            },
+            {
+              "number": "特仕8-1-9-7",
+              "title": "コンクリート側壁工",
+              "headingText": "特仕8-1-9-7 コンクリート側壁工",
+              "page": 131
+            },
+            {
+              "number": "特仕8-1-9-8",
+              "title": "間詰工",
+              "headingText": "特仕8-1-9-8 間詰工",
+              "page": 131
+            }
+          ]
+        },
+        {
+          "number": 10,
+          "title": "護床工・根固め工",
+          "headingText": "第10節 護床工・根固め工",
+          "firstPage": 131,
+          "lastPage": 131,
+          "articles": [
+            {
+              "number": "特仕8-1-10-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕8-1-10-2 作業土工（床掘り・埋戻し）",
+              "page": 131
+            },
+            {
+              "number": "特仕8-1-10-3",
+              "title": "埋戻し工",
+              "headingText": "特仕8-1-10-3 埋戻し工",
+              "page": 131
+            },
+            {
+              "number": "特仕8-1-10-4",
+              "title": "根固めブロック工",
+              "headingText": "特仕8-1-10-4 根固めブロック工",
+              "page": 131
+            },
+            {
+              "number": "特仕8-1-10-8",
+              "title": "元付工",
+              "headingText": "特仕8-1-10-8 元付工",
+              "page": 131
+            }
+          ]
+        },
+        {
+          "number": 11,
+          "title": "砂防堰堤付属物設置工",
+          "headingText": "第11節 砂防堰堤付属物設置工",
+          "firstPage": 131,
+          "lastPage": 131,
+          "articles": [
+            {
+              "number": "特仕8-1-11-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕8-1-11-2 作業土工（床掘り・埋戻し）",
+              "page": 131
+            },
+            {
+              "number": "特仕8-1-11-4",
+              "title": "境界工",
+              "headingText": "特仕8-1-11-4 境界工",
+              "page": 131
+            },
+            {
+              "number": "特仕8-1-11-5",
+              "title": "銘板工",
+              "headingText": "特仕8-1-11-5 銘板工",
+              "page": 131
+            }
+          ]
+        },
+        {
+          "number": 12,
+          "title": "付帯道路工",
+          "headingText": "第12節 付帯道路工",
+          "firstPage": 132,
+          "lastPage": 132,
+          "articles": [
+            {
+              "number": "特仕8-1-12-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕8-1-12-2 作業土工（床掘り・埋戻し）",
+              "page": 132
+            },
+            {
+              "number": "特仕8-1-12-5",
+              "title": "アスファルト舗装工",
+              "headingText": "特仕8-1-12-5 アスファルト舗装工",
+              "page": 132
+            },
+            {
+              "number": "特仕8-1-12-6",
+              "title": "コンクリート舗装工",
+              "headingText": "特仕8-1-12-6 コンクリート舗装工",
+              "page": 132
+            },
+            {
+              "number": "特仕8-1-12-10",
+              "title": "縁石工",
+              "headingText": "特仕8-1-12-10 縁石工",
+              "page": 132
+            },
+            {
+              "number": "特仕8-1-12-11",
+              "title": "区画線工",
+              "headingText": "特仕8-1-12-11 区画線工",
+              "page": 132
+            }
+          ]
+        },
+        {
+          "number": 13,
+          "title": "付帯道路施設工",
+          "headingText": "第13節 付帯道路施設工",
+          "firstPage": 132,
+          "lastPage": 132,
+          "articles": [
+            {
+              "number": "特仕8-1-13-2",
+              "title": "境界工",
+              "headingText": "特仕8-1-13-2 境界工",
+              "page": 132
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "sections": 8,
+        "articles": 27,
+        "clauses": 12,
+        "paragraphs": 49,
+        "items": 5,
+        "notes": 0,
+        "tables": 1,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 1
+      },
+      "tableOutcomes": {
+        "columns-out-of-range": 1
+      },
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "8-2",
+      "title": "第8編 砂防編 第2章 流路",
+      "bookNumber": 8,
+      "bookTitle": "砂防編",
+      "chapterNumber": 2,
+      "chapterTitle": "流路",
+      "file": "chapters/8-2.md",
+      "firstPage": 133,
+      "lastPage": 134,
+      "sourceParts": [
+        "part-03"
+      ],
+      "sourcePages": [
+        133,
+        134
+      ],
+      "sourceSha256": "2d12ee25e50ca5884f4f6002c181a4efc991310a72404a48be450e5b7fb96e6f",
+      "outputSha256": "c057d125c2fffb3040e23491272460a2513e5a594f9f7f3831df77d3a8dd2385",
+      "outputBytes": 2581,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "適用",
+          "headingText": "第1節 適用",
+          "firstPage": 133,
+          "lastPage": 133,
+          "articles": []
+        },
+        {
+          "number": 4,
+          "title": "流路護岸工",
+          "headingText": "第4節 流路護岸工",
+          "firstPage": 133,
+          "lastPage": 133,
+          "articles": [
+            {
+              "number": "特仕8-2-4-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕8-2-4-2 作業土工（床掘り・埋戻し）",
+              "page": 133
+            },
+            {
+              "number": "特仕8-2-4-3",
+              "title": "埋戻し工",
+              "headingText": "特仕8-2-4-3 埋戻し工",
+              "page": 133
+            },
+            {
+              "number": "特仕8-2-4-5",
+              "title": "コンクリート擁壁工",
+              "headingText": "特仕8-2-4-5 コンクリート擁壁工",
+              "page": 133
+            },
+            {
+              "number": "特仕8-2-4-9",
+              "title": "植生工",
+              "headingText": "特仕8-2-4-9 植生工",
+              "page": 133
+            },
+            {
+              "number": "特仕8-2-4-10",
+              "title": "目地工",
+              "headingText": "特仕8-2-4-10 目地工",
+              "page": 133
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "title": "床固め工",
+          "headingText": "第5節 床固め工",
+          "firstPage": 133,
+          "lastPage": 134,
+          "articles": [
+            {
+              "number": "特仕8-2-5-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕8-2-5-2 作業土工（床掘り・埋戻し）",
+              "page": 133
+            },
+            {
+              "number": "特仕8-2-5-3",
+              "title": "埋戻し工",
+              "headingText": "特仕8-2-5-3 埋戻し工",
+              "page": 133
+            },
+            {
+              "number": "特仕8-2-5-4",
+              "title": "床固め本体工",
+              "headingText": "特仕8-2-5-4 床固め本体工",
+              "page": 133
+            },
+            {
+              "number": "特仕8-2-5-5",
+              "title": "垂直壁工",
+              "headingText": "特仕8-2-5-5 垂直壁工",
+              "page": 133
+            },
+            {
+              "number": "特仕8-2-5-6",
+              "title": "側壁工",
+              "headingText": "特仕8-2-5-6 側壁工",
+              "page": 134
+            }
+          ]
+        },
+        {
+          "number": 6,
+          "title": "根固め・水制工",
+          "headingText": "第6節 根固め・水制工",
+          "firstPage": 134,
+          "lastPage": 134,
+          "articles": [
+            {
+              "number": "特仕8-2-6-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕8-2-6-2 作業土工（床掘り・埋戻し）",
+              "page": 134
+            }
+          ]
+        },
+        {
+          "number": 7,
+          "title": "流路付属物設置工",
+          "headingText": "第7節 流路付属物設置工",
+          "firstPage": 134,
+          "lastPage": 134,
+          "articles": [
+            {
+              "number": "特仕8-2-7-4",
+              "title": "境界工",
+              "headingText": "特仕8-2-7-4 境界工",
+              "page": 134
+            },
+            {
+              "number": "特仕8-2-7-5",
+              "title": "銘板工",
+              "headingText": "特仕8-2-7-5 銘板工",
+              "page": 134
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "sections": 5,
+        "articles": 13,
+        "clauses": 0,
+        "paragraphs": 14,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "8-3",
+      "title": "第8編 砂防編 第3章 斜面対策",
+      "bookNumber": 8,
+      "bookTitle": "砂防編",
+      "chapterNumber": 3,
+      "chapterTitle": "斜面対策",
+      "file": "chapters/8-3.md",
+      "firstPage": 135,
+      "lastPage": 136,
+      "sourceParts": [
+        "part-03"
+      ],
+      "sourcePages": [
+        135,
+        136
+      ],
+      "sourceSha256": "1fba5dffb8bc9d21568519d32acf068413815d16aa350a9558038f65d9ba3263",
+      "outputSha256": "f3c43521105312e570bbf850a544439c98ef82083131c1102d1f4d54e9ddf0b0",
+      "outputBytes": 3206,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "適用",
+          "headingText": "第1節 適用",
+          "firstPage": 135,
+          "lastPage": 135,
+          "articles": []
+        },
+        {
+          "number": 4,
+          "title": "法面工",
+          "headingText": "第4節 法面工",
+          "firstPage": 135,
+          "lastPage": 135,
+          "articles": [
+            {
+              "number": "特仕8-3-4-2",
+              "title": "植生工",
+              "headingText": "特仕8-3-4-2 植生工",
+              "page": 135
+            },
+            {
+              "number": "特仕8-3-4-3",
+              "title": "吹付工",
+              "headingText": "特仕8-3-4-3 吹付工",
+              "page": 135
+            },
+            {
+              "number": "特仕8-3-4-4",
+              "title": "法枠工",
+              "headingText": "特仕8-3-4-4 法枠工",
+              "page": 135
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "title": "擁壁工",
+          "headingText": "第5節 擁壁工",
+          "firstPage": 135,
+          "lastPage": 135,
+          "articles": [
+            {
+              "number": "特仕8-3-5-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕8-3-5-2 作業土工（床掘り・埋戻し）",
+              "page": 135
+            },
+            {
+              "number": "特仕8-3-5-3",
+              "title": "既製杭工",
+              "headingText": "特仕8-3-5-3 既製杭工",
+              "page": 135
+            },
+            {
+              "number": "特仕8-3-5-4",
+              "title": "場所打擁壁工",
+              "headingText": "特仕8-3-5-4 場所打擁壁工",
+              "page": 135
+            }
+          ]
+        },
+        {
+          "number": 6,
+          "title": "山腹水路工",
+          "headingText": "第6節 山腹水路工",
+          "firstPage": 135,
+          "lastPage": 136,
+          "articles": [
+            {
+              "number": "特仕8-3-6-1",
+              "title": "一般事項",
+              "headingText": "特仕8-3-6-1 一般事項",
+              "page": 135
+            },
+            {
+              "number": "特仕8-3-6-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕8-3-6-2 作業土工（床掘り・埋戻し）",
+              "page": 136
+            }
+          ]
+        },
+        {
+          "number": 7,
+          "title": "地下水排除工",
+          "headingText": "第7節 地下水排除工",
+          "firstPage": 136,
+          "lastPage": 136,
+          "articles": [
+            {
+              "number": "特仕8-3-7-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕8-3-7-2 作業土工（床掘り・埋戻し）",
+              "page": 136
+            }
+          ]
+        },
+        {
+          "number": 8,
+          "title": "地下水遮断工",
+          "headingText": "第8節 地下水遮断工",
+          "firstPage": 136,
+          "lastPage": 136,
+          "articles": [
+            {
+              "number": "特仕8-3-8-3",
+              "title": "場所打擁壁工",
+              "headingText": "特仕8-3-8-3 場所打擁壁工",
+              "page": 136
+            }
+          ]
+        },
+        {
+          "number": 9,
+          "title": "抑止杭工",
+          "headingText": "第9節 抑止杭工",
+          "firstPage": 136,
+          "lastPage": 136,
+          "articles": [
+            {
+              "number": "特仕8-3-9-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕8-3-9-2 作業土工（床掘り・埋戻し）",
+              "page": 136
+            },
+            {
+              "number": "特仕8-3-9-3",
+              "title": "既製杭工",
+              "headingText": "特仕8-3-9-3 既製杭工",
+              "page": 136
+            },
+            {
+              "number": "特仕8-3-9-4",
+              "title": "場所打杭工",
+              "headingText": "特仕8-3-9-4 場所打杭工",
+              "page": 136
+            },
+            {
+              "number": "特仕8-3-9-5",
+              "title": "シャフト工（深礎工）",
+              "headingText": "特仕8-3-9-5 シャフト工（深礎工）",
+              "page": 136
+            },
+            {
+              "number": "特仕8-3-9-6",
+              "title": "合成杭工",
+              "headingText": "特仕8-3-9-6 合成杭工",
+              "page": 136
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "sections": 7,
+        "articles": 15,
+        "clauses": 0,
+        "paragraphs": 19,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "9-1",
+      "title": "第9編 ダム編 第1章 コンクリートダム",
+      "bookNumber": 9,
+      "bookTitle": "ダム編",
+      "chapterNumber": 1,
+      "chapterTitle": "コンクリートダム",
+      "file": "chapters/9-1.md",
+      "firstPage": 137,
+      "lastPage": 138,
+      "sourceParts": [
+        "part-03"
+      ],
+      "sourcePages": [
+        137,
+        138
+      ],
+      "sourceSha256": "a35ee84bb497f7de3ac9a33de277532ddde2eda9273a15750409a35805bdad0c",
+      "outputSha256": "b12a4c7b90159834fe6e561b217d02ddc6118a441a50ca1fd2cfaaafd8ea33dc",
+      "outputBytes": 2472,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 13,
+          "title": "試掘横坑",
+          "headingText": "第13節 試掘横坑",
+          "firstPage": 137,
+          "lastPage": 138,
+          "articles": [
+            {
+              "number": "特仕9-1-13-1",
+              "title": "一般事項",
+              "headingText": "特仕9-1-13-1 一般事項",
+              "page": 137
+            },
+            {
+              "number": "特仕9-1-13-2",
+              "title": "掘削",
+              "headingText": "特仕9-1-13-2 掘削",
+              "page": 137
+            },
+            {
+              "number": "特仕9-1-13-3",
+              "title": "木製支保工",
+              "headingText": "特仕9-1-13-3 木製支保工",
+              "page": 137
+            },
+            {
+              "number": "特仕9-1-13-4",
+              "title": "その他",
+              "headingText": "特仕9-1-13-4 その他",
+              "page": 138
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "sections": 1,
+        "articles": 4,
+        "clauses": 11,
+        "paragraphs": 13,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "9-2",
+      "title": "第9編 ダム編 第2章 フィルダム",
+      "bookNumber": 9,
+      "bookTitle": "ダム編",
+      "chapterNumber": 2,
+      "chapterTitle": "フィルダム",
+      "file": "chapters/9-2.md",
+      "firstPage": 139,
+      "lastPage": 139,
+      "sourceParts": [
+        "part-03"
+      ],
+      "sourcePages": [
+        139
+      ],
+      "sourceSha256": "7fa3d5e3c62090b008d620292c1e1f33cbbaa1d473198024009c70f6d3f6acc9",
+      "outputSha256": "cdaa7a579e92ffe0629024cb75141fadff2e032e7cb51c76d69cdd523ee0a2b9",
+      "outputBytes": 743,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 5,
+          "title": "試掘横坑",
+          "headingText": "第5節 試掘横坑",
+          "firstPage": 139,
+          "lastPage": 139,
+          "articles": [
+            {
+              "number": "特仕9-2-5-1",
+              "title": "一般事項",
+              "headingText": "特仕9-2-5-1 一般事項",
+              "page": 139
+            },
+            {
+              "number": "特仕9-2-5-2",
+              "title": "掘削",
+              "headingText": "特仕9-2-5-2 掘削",
+              "page": 139
+            },
+            {
+              "number": "特仕9-2-5-3",
+              "title": "木製支保工",
+              "headingText": "特仕9-2-5-3 木製支保工",
+              "page": 139
+            },
+            {
+              "number": "特仕9-2-5-4",
+              "title": "その他",
+              "headingText": "特仕9-2-5-4 その他",
+              "page": 139
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "sections": 1,
+        "articles": 4,
+        "clauses": 0,
+        "paragraphs": 4,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "9-3",
+      "title": "第9編 ダム編 第3章 基礎グラウチング",
+      "bookNumber": 9,
+      "bookTitle": "ダム編",
+      "chapterNumber": 3,
+      "chapterTitle": "基礎グラウチング",
+      "file": "chapters/9-3.md",
+      "firstPage": 140,
+      "lastPage": 140,
+      "sourceParts": [
+        "part-03"
+      ],
+      "sourcePages": [
+        140
+      ],
+      "sourceSha256": "75127aa6690d6f9593d4eb09b2283dad4b25220f37a0b4994c783eadba9b28f5",
+      "outputSha256": "a319a177b15395293fbee84576892f865daf68f8e7a85264535488ac62f6cfc6",
+      "outputBytes": 503,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 4,
+          "title": "グラウチング工",
+          "headingText": "第4節 グラウチング工",
+          "firstPage": 140,
+          "lastPage": 140,
+          "articles": [
+            {
+              "number": "特仕9-3-4-4",
+              "title": "セメントミルクの製造及び輸送",
+              "headingText": "特仕9-3-4-4 セメントミルクの製造及び輸送",
+              "page": 140
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "sections": 1,
+        "articles": 1,
+        "clauses": 0,
+        "paragraphs": 1,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "10-1",
+      "title": "第10編 道路編 第1章 道路改良",
+      "bookNumber": 10,
+      "bookTitle": "道路編",
+      "chapterNumber": 1,
+      "chapterTitle": "道路改良",
+      "file": "chapters/10-1.md",
+      "firstPage": 141,
+      "lastPage": 149,
+      "sourceParts": [
+        "part-03"
+      ],
+      "sourcePages": [
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149
+      ],
+      "sourceSha256": "aa72d97164ffde7402dd70be0178515f9973dae41d4ab767383259e3ee7ac080",
+      "outputSha256": "808bba5588cef86a8bb175b1c197b69d6e6acd50d8bcc3e869305569669801bb",
+      "outputBytes": 17759,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "適用",
+          "headingText": "第1節 適用",
+          "firstPage": 141,
+          "lastPage": 141,
+          "articles": []
+        },
+        {
+          "number": 3,
+          "title": "工場製作工",
+          "headingText": "第3節 工場製作工",
+          "firstPage": 141,
+          "lastPage": 141,
+          "articles": [
+            {
+              "number": "特仕10-1-3-2",
+              "title": "遮音壁支柱製作工",
+              "headingText": "特仕10-1-3-2 遮音壁支柱製作工",
+              "page": 141
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "title": "法面工",
+          "headingText": "第5節 法面工",
+          "firstPage": 141,
+          "lastPage": 141,
+          "articles": [
+            {
+              "number": "特仕10-1-5-2",
+              "title": "植生工",
+              "headingText": "特仕10-1-5-2 植生工",
+              "page": 141
+            },
+            {
+              "number": "特仕10-1-5-3",
+              "title": "法面吹付工",
+              "headingText": "特仕10-1-5-3 法面吹付工",
+              "page": 141
+            },
+            {
+              "number": "特仕10-1-5-4",
+              "title": "法枠工",
+              "headingText": "特仕10-1-5-4 法枠工",
+              "page": 141
+            }
+          ]
+        },
+        {
+          "number": 7,
+          "title": "擁壁工",
+          "headingText": "第7節 擁壁工",
+          "firstPage": 142,
+          "lastPage": 142,
+          "articles": [
+            {
+              "number": "特仕10-1-7-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕10-1-7-2 作業土工（床掘り・埋戻し）",
+              "page": 142
+            },
+            {
+              "number": "特仕10-1-7-3",
+              "title": "既製杭工",
+              "headingText": "特仕10-1-7-3 既製杭工",
+              "page": 142
+            },
+            {
+              "number": "特仕10-1-7-4",
+              "title": "場所打杭工",
+              "headingText": "特仕10-1-7-4 場所打杭工",
+              "page": 142
+            },
+            {
+              "number": "特仕10-1-7-5",
+              "title": "場所打擁壁工",
+              "headingText": "特仕10-1-7-5 場所打擁壁工",
+              "page": 142
+            }
+          ]
+        },
+        {
+          "number": 8,
+          "title": "石・ブロック積（張）工",
+          "headingText": "第8節 石・ブロック積（張）工",
+          "firstPage": 142,
+          "lastPage": 142,
+          "articles": [
+            {
+              "number": "特仕10-1-8-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕10-1-8-2 作業土工（床掘り・埋戻し）",
+              "page": 142
+            },
+            {
+              "number": "特仕10-1-8-3",
+              "title": "コンクリートブロック工",
+              "headingText": "特仕10-1-8-3 コンクリートブロック工",
+              "page": 142
+            }
+          ]
+        },
+        {
+          "number": 9,
+          "title": "カルバート工",
+          "headingText": "第9節 カルバート工",
+          "firstPage": 142,
+          "lastPage": 142,
+          "articles": [
+            {
+              "number": "特仕10-1-9-3",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕10-1-9-3 作業土工（床掘り・埋戻し）",
+              "page": 142
+            },
+            {
+              "number": "特仕10-1-9-4",
+              "title": "既製杭工",
+              "headingText": "特仕10-1-9-4 既製杭工",
+              "page": 142
+            },
+            {
+              "number": "特仕10-1-9-5",
+              "title": "場所打杭工",
+              "headingText": "特仕10-1-9-5 場所打杭工",
+              "page": 142
+            }
+          ]
+        },
+        {
+          "number": 10,
+          "title": "排水構造物工（小型水路工）",
+          "headingText": "第10節 排水構造物工（小型水路工）",
+          "firstPage": 142,
+          "lastPage": 143,
+          "articles": [
+            {
+              "number": "特仕10-1-10-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕10-1-10-2 作業土工（床掘り・埋戻し）",
+              "page": 142
+            },
+            {
+              "number": "特仕10-1-10-3",
+              "title": "側溝工",
+              "headingText": "特仕10-1-10-3 側溝工",
+              "page": 143
+            }
+          ]
+        },
+        {
+          "number": 11,
+          "title": "落石雪害防止工",
+          "headingText": "第11節 落石雪害防止工",
+          "firstPage": 143,
+          "lastPage": 147,
+          "articles": [
+            {
+              "number": "特仕10-1-11-1",
+              "title": "一般事項",
+              "headingText": "特仕10-1-11-1 一般事項",
+              "page": 143
+            },
+            {
+              "number": "特仕10-1-11-2",
+              "title": "材料",
+              "headingText": "特仕10-1-11-2 材料",
+              "page": 143
+            },
+            {
+              "number": "特仕10-1-11-3",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕10-1-11-3 作業土工（床掘り・埋戻し）",
+              "page": 146
+            },
+            {
+              "number": "特仕10-1-11-4",
+              "title": "落石防止網工",
+              "headingText": "特仕10-1-11-4 落石防止網工",
+              "page": 146
+            },
+            {
+              "number": "特仕10-1-11-5",
+              "title": "落石防護柵工",
+              "headingText": "特仕10-1-11-5 落石防護柵工",
+              "page": 147
+            },
+            {
+              "number": "特仕10-1-11-8",
+              "title": "谷止工",
+              "headingText": "特仕10-1-11-8 谷止工",
+              "page": 147
+            }
+          ]
+        },
+        {
+          "number": 12,
+          "title": "遮音壁工",
+          "headingText": "第12節 遮音壁工",
+          "firstPage": 148,
+          "lastPage": 149,
+          "articles": [
+            {
+              "number": "特仕10-1-12-2",
+              "title": "材料",
+              "headingText": "特仕10-1-12-2 材料",
+              "page": 148
+            },
+            {
+              "number": "特仕10-1-12-3",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕10-1-12-3 作業土工（床掘り・埋戻し）",
+              "page": 149
+            },
+            {
+              "number": "特仕10-1-12-5",
+              "title": "遮音壁本体工",
+              "headingText": "特仕10-1-12-5 遮音壁本体工",
+              "page": 149
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "sections": 9,
+        "articles": 24,
+        "clauses": 31,
+        "paragraphs": 60,
+        "items": 6,
+        "notes": 0,
+        "tables": 4,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 4
+      },
+      "tableOutcomes": {
+        "lossy": 2,
+        "columns-out-of-range": 1,
+        "too-few-rows": 1
+      },
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "10-2",
+      "title": "第10編 道路編 第2章 舗装",
+      "bookNumber": 10,
+      "bookTitle": "道路編",
+      "chapterNumber": 2,
+      "chapterTitle": "舗装",
+      "file": "chapters/10-2.md",
+      "firstPage": 150,
+      "lastPage": 159,
+      "sourceParts": [
+        "part-03",
+        "part-04"
+      ],
+      "sourcePages": [
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        159
+      ],
+      "sourceSha256": "973ff98b512014532c5b2657c21445c75839835c74ed17e5bc5cdc0cf8ea1ca9",
+      "outputSha256": "df0b4a9002170d3bbd6694480201abbda27fbb555f4651332b87c4c455882da0",
+      "outputBytes": 17217,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "適用",
+          "headingText": "第1節 適用",
+          "firstPage": 150,
+          "lastPage": 150,
+          "articles": []
+        },
+        {
+          "number": 4,
+          "title": "舗装工",
+          "headingText": "第4節 舗装工",
+          "firstPage": 150,
+          "lastPage": 151,
+          "articles": [
+            {
+              "number": "特仕10-2-4-2",
+              "title": "材料",
+              "headingText": "特仕10-2-4-2 材料",
+              "page": 150
+            },
+            {
+              "number": "特仕10-2-4-4",
+              "title": "橋面防水工",
+              "headingText": "特仕10-2-4-4 橋面防水工",
+              "page": 150
+            },
+            {
+              "number": "特仕10-2-4-5",
+              "title": "アスファルト舗装工",
+              "headingText": "特仕10-2-4-5 アスファルト舗装工",
+              "page": 151
+            },
+            {
+              "number": "特仕10-2-4-6",
+              "title": "半たわみ性舗装工",
+              "headingText": "特仕10-2-4-6 半たわみ性舗装工",
+              "page": 151
+            },
+            {
+              "number": "特仕10-2-4-7",
+              "title": "排水性舗装工",
+              "headingText": "特仕10-2-4-7 排水性舗装工",
+              "page": 151
+            },
+            {
+              "number": "特仕10-2-4-9",
+              "title": "グースアスファルト舗装工",
+              "headingText": "特仕10-2-4-9 グースアスファルト舗装工",
+              "page": 151
+            },
+            {
+              "number": "特仕10-2-4-10",
+              "title": "コンクリート舗装工",
+              "headingText": "特仕10-2-4-10 コンクリート舗装工",
+              "page": 151
+            },
+            {
+              "number": "特仕10-2-4-11",
+              "title": "薄層カラー舗装工",
+              "headingText": "特仕10-2-4-11 薄層カラー舗装工",
+              "page": 151
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "title": "排水構造物工（路面排水工）",
+          "headingText": "第5節 排水構造物工（路面排水工）",
+          "firstPage": 151,
+          "lastPage": 152,
+          "articles": [
+            {
+              "number": "特仕10-2-5-1",
+              "title": "一般事項",
+              "headingText": "特仕10-2-5-1 一般事項",
+              "page": 151
+            },
+            {
+              "number": "特仕10-2-5-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕10-2-5-2 作業土工（床掘り・埋戻し）",
+              "page": 151
+            },
+            {
+              "number": "特仕10-2-5-3",
+              "title": "側溝工",
+              "headingText": "特仕10-2-5-3 側溝工",
+              "page": 152
+            },
+            {
+              "number": "特仕10-2-5-5",
+              "title": "集水桝（街渠桝）・マンホール工",
+              "headingText": "特仕10-2-5-5 集水桝（街渠桝）・マンホール工",
+              "page": 152
+            }
+          ]
+        },
+        {
+          "number": 6,
+          "title": "縁石工",
+          "headingText": "第6節 縁石工",
+          "firstPage": 152,
+          "lastPage": 152,
+          "articles": [
+            {
+              "number": "特仕10-2-6-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕10-2-6-2 作業土工（床掘り・埋戻し）",
+              "page": 152
+            },
+            {
+              "number": "特仕10-2-6-3",
+              "title": "縁石工",
+              "headingText": "特仕10-2-6-3 縁石工",
+              "page": 152
+            }
+          ]
+        },
+        {
+          "number": 7,
+          "title": "踏掛版工",
+          "headingText": "第7節 踏掛版工",
+          "firstPage": 152,
+          "lastPage": 152,
+          "articles": [
+            {
+              "number": "特仕10-2-7-3",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕10-2-7-3 作業土工（床掘り・埋戻し）",
+              "page": 152
+            },
+            {
+              "number": "特仕10-2-7-4",
+              "title": "踏掛版工",
+              "headingText": "特仕10-2-7-4 踏掛版工",
+              "page": 152
+            }
+          ]
+        },
+        {
+          "number": 8,
+          "title": "防護柵工",
+          "headingText": "第8節 防護柵工",
+          "firstPage": 152,
+          "lastPage": 152,
+          "articles": [
+            {
+              "number": "特仕10-2-8-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕10-2-8-2 作業土工（床掘り・埋戻し）",
+              "page": 152
+            }
+          ]
+        },
+        {
+          "number": 9,
+          "title": "標識工",
+          "headingText": "第9節 標識工",
+          "firstPage": 152,
+          "lastPage": 156,
+          "articles": [
+            {
+              "number": "特仕10-2-9-1",
+              "title": "一般事項",
+              "headingText": "特仕10-2-9-1 一般事項",
+              "page": 152
+            },
+            {
+              "number": "特仕10-2-9-5",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕10-2-9-5 作業土工（床掘り・埋戻し）",
+              "page": 156
+            },
+            {
+              "number": "特仕10-2-9-6",
+              "title": "標識基礎工",
+              "headingText": "特仕10-2-9-6 標識基礎工",
+              "page": 156
+            }
+          ]
+        },
+        {
+          "number": 10,
+          "title": "区画線工",
+          "headingText": "第10節 区画線工",
+          "firstPage": 156,
+          "lastPage": 156,
+          "articles": [
+            {
+              "number": "特仕10-2-10-2",
+              "title": "区画線工",
+              "headingText": "特仕10-2-10-2 区画線工",
+              "page": 156
+            }
+          ]
+        },
+        {
+          "number": 11,
+          "title": "道路植栽工",
+          "headingText": "第11節 道路植栽工",
+          "firstPage": 156,
+          "lastPage": 159,
+          "articles": [
+            {
+              "number": "特仕10-2-11-2",
+              "title": "材料",
+              "headingText": "特仕10-2-11-2 材料",
+              "page": 156
+            },
+            {
+              "number": "特仕10-2-11-3",
+              "title": "道路植栽工",
+              "headingText": "特仕10-2-11-3 道路植栽工",
+              "page": 158
+            }
+          ]
+        },
+        {
+          "number": 12,
+          "title": "道路付属施設工",
+          "headingText": "第12節 道路付属施設工",
+          "firstPage": 159,
+          "lastPage": 159,
+          "articles": [
+            {
+              "number": "特仕10-2-12-1",
+              "title": "一般事項",
+              "headingText": "特仕10-2-12-1 一般事項",
+              "page": 159
+            },
+            {
+              "number": "特仕10-2-12-3",
+              "title": "境界工",
+              "headingText": "特仕10-2-12-3 境界工",
+              "page": 159
+            },
+            {
+              "number": "特仕10-2-12-5",
+              "title": "ケーブル配管工",
+              "headingText": "特仕10-2-12-5 ケーブル配管工",
+              "page": 159
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "sections": 10,
+        "articles": 26,
+        "clauses": 19,
+        "paragraphs": 62,
+        "items": 16,
+        "notes": 1,
+        "tables": 6,
+        "captions": 3,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 6
+      },
+      "tableOutcomes": {
+        "ragged-rows": 3,
+        "columns-out-of-range": 1,
+        "too-few-rows": 1,
+        "lossy": 1
+      },
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "10-3",
+      "title": "第10編 道路編 第3章 橋梁下部",
+      "bookNumber": 10,
+      "bookTitle": "道路編",
+      "chapterNumber": 3,
+      "chapterTitle": "橋梁下部",
+      "file": "chapters/10-3.md",
+      "firstPage": 160,
+      "lastPage": 163,
+      "sourceParts": [
+        "part-04"
+      ],
+      "sourcePages": [
+        160,
+        161,
+        162,
+        163
+      ],
+      "sourceSha256": "aa464ed3392bc8b74ccf6e0bea21fb34644610316ebf27778d701a0706b353fd",
+      "outputSha256": "d71d2664303792df3cd4ef9b0d42a3ce2e156ba8054c999645129de39ada8537",
+      "outputBytes": 8248,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "適用",
+          "headingText": "第1節 適用",
+          "firstPage": 160,
+          "lastPage": 160,
+          "articles": []
+        },
+        {
+          "number": 3,
+          "title": "工場製作工",
+          "headingText": "第3節 工場製作工",
+          "firstPage": 160,
+          "lastPage": 160,
+          "articles": [
+            {
+              "number": "特仕10-3-3-3",
+              "title": "鋼製橋脚製作工",
+              "headingText": "特仕10-3-3-3 鋼製橋脚製作工",
+              "page": 160
+            }
+          ]
+        },
+        {
+          "number": 6,
+          "title": "橋台工",
+          "headingText": "第6節 橋台工",
+          "firstPage": 161,
+          "lastPage": 161,
+          "articles": [
+            {
+              "number": "特仕10-3-6-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕10-3-6-2 作業土工（床掘り・埋戻し）",
+              "page": 161
+            },
+            {
+              "number": "特仕10-3-6-3",
+              "title": "既製杭工",
+              "headingText": "特仕10-3-6-3 既製杭工",
+              "page": 161
+            },
+            {
+              "number": "特仕10-3-6-4",
+              "title": "場所打杭工",
+              "headingText": "特仕10-3-6-4 場所打杭工",
+              "page": 161
+            },
+            {
+              "number": "特仕10-3-6-5",
+              "title": "深礎工",
+              "headingText": "特仕10-3-6-5 深礎工",
+              "page": 161
+            }
+          ]
+        },
+        {
+          "number": 7,
+          "title": "RC橋脚工",
+          "headingText": "第7節 RC橋脚工",
+          "firstPage": 161,
+          "lastPage": 161,
+          "articles": [
+            {
+              "number": "特仕10-3-7-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕10-3-7-2 作業土工（床掘り・埋戻し）",
+              "page": 161
+            },
+            {
+              "number": "特仕10-3-7-3",
+              "title": "既製杭工",
+              "headingText": "特仕10-3-7-3 既製杭工",
+              "page": 161
+            },
+            {
+              "number": "特仕10-3-7-4",
+              "title": "場所打杭工",
+              "headingText": "特仕10-3-7-4 場所打杭工",
+              "page": 161
+            },
+            {
+              "number": "特仕10-3-7-5",
+              "title": "深礎工",
+              "headingText": "特仕10-3-7-5 深礎工",
+              "page": 161
+            }
+          ]
+        },
+        {
+          "number": 8,
+          "title": "鋼製橋脚工",
+          "headingText": "第8節 鋼製橋脚工",
+          "firstPage": 161,
+          "lastPage": 162,
+          "articles": [
+            {
+              "number": "特仕10-3-8-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕10-3-8-2 作業土工（床掘り・埋戻し）",
+              "page": 161
+            },
+            {
+              "number": "特仕10-3-8-3",
+              "title": "既製杭工",
+              "headingText": "特仕10-3-8-3 既製杭工",
+              "page": 161
+            },
+            {
+              "number": "特仕10-3-8-4",
+              "title": "場所打杭工",
+              "headingText": "特仕10-3-8-4 場所打杭工",
+              "page": 161
+            },
+            {
+              "number": "特仕10-3-8-5",
+              "title": "深礎工",
+              "headingText": "特仕10-3-8-5 深礎工",
+              "page": 161
+            },
+            {
+              "number": "特仕10-3-8-10",
+              "title": "橋脚架設工",
+              "headingText": "特仕10-3-8-10 橋脚架設工",
+              "page": 162
+            },
+            {
+              "number": "特仕10-3-8-11",
+              "title": "現場継手工",
+              "headingText": "特仕10-3-8-11 現場継手工",
+              "page": 162
+            },
+            {
+              "number": "特仕10-3-8-12",
+              "title": "現場塗装工",
+              "headingText": "特仕10-3-8-12 現場塗装工",
+              "page": 162
+            }
+          ]
+        },
+        {
+          "number": 9,
+          "title": "護岸基礎工",
+          "headingText": "第9節 護岸基礎工",
+          "firstPage": 162,
+          "lastPage": 162,
+          "articles": [
+            {
+              "number": "特仕10-3-9-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕10-3-9-2 作業土工（床掘り・埋戻し）",
+              "page": 162
+            }
+          ]
+        },
+        {
+          "number": 10,
+          "title": "矢板護岸工",
+          "headingText": "第10節 矢板護岸工",
+          "firstPage": 162,
+          "lastPage": 162,
+          "articles": [
+            {
+              "number": "特仕10-3-10-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕10-3-10-2 作業土工（床掘り・埋戻し）",
+              "page": 162
+            },
+            {
+              "number": "特仕10-3-10-3",
+              "title": "笠コンクリート工",
+              "headingText": "特仕10-3-10-3 笠コンクリート工",
+              "page": 162
+            }
+          ]
+        },
+        {
+          "number": 11,
+          "title": "法覆護岸工",
+          "headingText": "第11節 法覆護岸工",
+          "firstPage": 162,
+          "lastPage": 163,
+          "articles": [
+            {
+              "number": "特仕10-3-11-1",
+              "title": "一般事項",
+              "headingText": "特仕10-3-11-1 一般事項",
+              "page": 162
+            },
+            {
+              "number": "特仕10-3-11-7",
+              "title": "法枠工",
+              "headingText": "特仕10-3-11-7 法枠工",
+              "page": 163
+            },
+            {
+              "number": "特仕10-3-11-9",
+              "title": "吹付工",
+              "headingText": "特仕10-3-11-9 吹付工",
+              "page": 163
+            },
+            {
+              "number": "特仕10-3-11-10",
+              "title": "植生工",
+              "headingText": "特仕10-3-11-10 植生工",
+              "page": 163
+            }
+          ]
+        },
+        {
+          "number": 12,
+          "title": "擁壁護岸工",
+          "headingText": "第12節 擁壁護岸工",
+          "firstPage": 163,
+          "lastPage": 163,
+          "articles": [
+            {
+              "number": "特仕10-3-12-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕10-3-12-2 作業土工（床掘り・埋戻し）",
+              "page": 163
+            },
+            {
+              "number": "特仕10-3-12-3",
+              "title": "場所打擁壁工",
+              "headingText": "特仕10-3-12-3 場所打擁壁工",
+              "page": 163
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "sections": 9,
+        "articles": 25,
+        "clauses": 15,
+        "paragraphs": 35,
+        "items": 10,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "10-4",
+      "title": "第10編 道路編 第4章 鋼橋上部",
+      "bookNumber": 10,
+      "bookTitle": "道路編",
+      "chapterNumber": 4,
+      "chapterTitle": "鋼橋上部",
+      "file": "chapters/10-4.md",
+      "firstPage": 164,
+      "lastPage": 167,
+      "sourceParts": [
+        "part-04"
+      ],
+      "sourcePages": [
+        164,
+        165,
+        166,
+        167
+      ],
+      "sourceSha256": "de149b9e611ecb8a55dd213385d4c53dcde37506369eca3a03a3d22a92588736",
+      "outputSha256": "87f452376500d441559f69bda105f96f10cf99c2e472be6cabed1b4b14b23942",
+      "outputBytes": 7476,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "適用",
+          "headingText": "第1節 適用",
+          "firstPage": 164,
+          "lastPage": 164,
+          "articles": []
+        },
+        {
+          "number": 3,
+          "title": "工場製作工",
+          "headingText": "第3節 工場製作工",
+          "firstPage": 164,
+          "lastPage": 164,
+          "articles": [
+            {
+              "number": "特仕10-4-3-1",
+              "title": "一般事項",
+              "headingText": "特仕10-4-3-1 一般事項",
+              "page": 164
+            },
+            {
+              "number": "特仕10-4-3-2",
+              "title": "材料",
+              "headingText": "特仕10-4-3-2 材料",
+              "page": 164
+            },
+            {
+              "number": "特仕10-4-3-3",
+              "title": "桁製作工",
+              "headingText": "特仕10-4-3-3 桁製作工",
+              "page": 164
+            },
+            {
+              "number": "特仕10-4-3-11",
+              "title": "銘板工",
+              "headingText": "特仕10-4-3-11 銘板工",
+              "page": 164
+            },
+            {
+              "number": "特仕10-4-3-13",
+              "title": "工場塗装工",
+              "headingText": "特仕10-4-3-13 工場塗装工",
+              "page": 164
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "title": "鋼橋架設工",
+          "headingText": "第5節 鋼橋架設工",
+          "firstPage": 164,
+          "lastPage": 166,
+          "articles": [
+            {
+              "number": "特仕10-4-5-4",
+              "title": "架設工（クレーン架設）",
+              "headingText": "特仕10-4-5-4 架設工（クレーン架設）",
+              "page": 164
+            },
+            {
+              "number": "特仕10-4-5-5",
+              "title": "架設工（ケーブルクレーン架設）",
+              "headingText": "特仕10-4-5-5 架設工（ケーブルクレーン架設）",
+              "page": 164
+            },
+            {
+              "number": "特仕10-4-5-6",
+              "title": "架設工（ケーブルエレクション架設）",
+              "headingText": "特仕10-4-5-6 架設工（ケーブルエレクション架設）",
+              "page": 165
+            },
+            {
+              "number": "特仕10-4-5-7",
+              "title": "架設工（架設桁架設）",
+              "headingText": "特仕10-4-5-7 架設工（架設桁架設）",
+              "page": 165
+            },
+            {
+              "number": "特仕10-4-5-8",
+              "title": "架設工（送出し架設）",
+              "headingText": "特仕10-4-5-8 架設工（送出し架設）",
+              "page": 165
+            },
+            {
+              "number": "特仕10-4-5-9",
+              "title": "架設工（トラベラークレーン架設）",
+              "headingText": "特仕10-4-5-9 架設工（トラベラークレーン架設）",
+              "page": 165
+            },
+            {
+              "number": "特仕10-4-5-10",
+              "title": "支承工",
+              "headingText": "特仕10-4-5-10 支承工",
+              "page": 165
+            },
+            {
+              "number": "特仕10-4-5-11",
+              "title": "現場継手工",
+              "headingText": "特仕10-4-5-11 現場継手工",
+              "page": 166
+            }
+          ]
+        },
+        {
+          "number": 6,
+          "title": "橋梁現場塗装工",
+          "headingText": "第6節 橋梁現場塗装工",
+          "firstPage": 166,
+          "lastPage": 166,
+          "articles": [
+            {
+              "number": "特仕10-4-6-2",
+              "title": "材料",
+              "headingText": "特仕10-4-6-2 材料",
+              "page": 166
+            },
+            {
+              "number": "特仕10-4-6-3",
+              "title": "現場塗装工",
+              "headingText": "特仕10-4-6-3 現場塗装工",
+              "page": 166
+            }
+          ]
+        },
+        {
+          "number": 7,
+          "title": "床版工",
+          "headingText": "第7節 床版工",
+          "firstPage": 166,
+          "lastPage": 166,
+          "articles": [
+            {
+              "number": "特仕10-4-7-2",
+              "title": "床版工",
+              "headingText": "特仕10-4-7-2 床版工",
+              "page": 166
+            }
+          ]
+        },
+        {
+          "number": 8,
+          "title": "橋梁付属物工",
+          "headingText": "第8節 橋梁付属物工",
+          "firstPage": 167,
+          "lastPage": 167,
+          "articles": [
+            {
+              "number": "特仕10-4-8-2",
+              "title": "伸縮装置工",
+              "headingText": "特仕10-4-8-2 伸縮装置工",
+              "page": 167
+            },
+            {
+              "number": "特仕10-4-8-9",
+              "title": "銘板工",
+              "headingText": "特仕10-4-8-9 銘板工",
+              "page": 167
+            }
+          ]
+        },
+        {
+          "number": 9,
+          "title": "歩道橋本体工",
+          "headingText": "第9節 歩道橋本体工",
+          "firstPage": 167,
+          "lastPage": 167,
+          "articles": [
+            {
+              "number": "特仕10-4-9-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕10-4-9-2 作業土工（床掘り・埋戻し）",
+              "page": 167
+            },
+            {
+              "number": "特仕10-4-9-3",
+              "title": "既製杭工",
+              "headingText": "特仕10-4-9-3 既製杭工",
+              "page": 167
+            },
+            {
+              "number": "特仕10-4-9-4",
+              "title": "場所打杭工",
+              "headingText": "特仕10-4-9-4 場所打杭工",
+              "page": 167
+            },
+            {
+              "number": "特仕10-4-9-6",
+              "title": "歩道橋（側道橋）架設工",
+              "headingText": "特仕10-4-9-6 歩道橋（側道橋）架設工",
+              "page": 167
+            },
+            {
+              "number": "特仕10-4-9-8",
+              "title": "工場塗装工（歩道橋）",
+              "headingText": "特仕10-4-9-8 工場塗装工（歩道橋）",
+              "page": 167
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "sections": 7,
+        "articles": 23,
+        "clauses": 12,
+        "paragraphs": 33,
+        "items": 0,
+        "notes": 0,
+        "tables": 2,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 2
+      },
+      "tableOutcomes": {
+        "ragged-rows": 1,
+        "lossy": 1
+      },
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "10-5",
+      "title": "第10編 道路編 第5章 コンクリート橋上部",
+      "bookNumber": 10,
+      "bookTitle": "道路編",
+      "chapterNumber": 5,
+      "chapterTitle": "コンクリート橋上部",
+      "file": "chapters/10-5.md",
+      "firstPage": 168,
+      "lastPage": 171,
+      "sourceParts": [
+        "part-04"
+      ],
+      "sourcePages": [
+        168,
+        169,
+        170,
+        171
+      ],
+      "sourceSha256": "902159ac1387307b5fbd2b66b625036709a6bf39c415055bee2536acc6b4bba4",
+      "outputSha256": "d6da884acfd3a467564b5a2cb4d1f59ca6feff17eae12535538a47d8b4612c64",
+      "outputBytes": 6915,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "適用",
+          "headingText": "第1節 適用",
+          "firstPage": 168,
+          "lastPage": 168,
+          "articles": []
+        },
+        {
+          "number": 3,
+          "title": "工場製作工",
+          "headingText": "第3節 工場製作工",
+          "firstPage": 168,
+          "lastPage": 168,
+          "articles": [
+            {
+              "number": "特仕10-5-3-1",
+              "title": "一般事項",
+              "headingText": "特仕10-5-3-1 一般事項",
+              "page": 168
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "title": "PC橋工",
+          "headingText": "第5節 PC橋工",
+          "firstPage": 168,
+          "lastPage": 168,
+          "articles": [
+            {
+              "number": "特仕10-5-5-1",
+              "title": "一般事項",
+              "headingText": "特仕10-5-5-1 一般事項",
+              "page": 168
+            },
+            {
+              "number": "特仕10-5-5-3",
+              "title": "ポストテンション桁製作工",
+              "headingText": "特仕10-5-5-3 ポストテンション桁製作工",
+              "page": 168
+            },
+            {
+              "number": "特仕10-5-5-6",
+              "title": "支承工",
+              "headingText": "特仕10-5-5-6 支承工",
+              "page": 168
+            }
+          ]
+        },
+        {
+          "number": 6,
+          "title": "プレビーム桁橋工",
+          "headingText": "第6節 プレビーム桁橋工",
+          "firstPage": 168,
+          "lastPage": 169,
+          "articles": [
+            {
+              "number": "特仕10-5-6-1",
+              "title": "一般事項",
+              "headingText": "特仕10-5-6-1 一般事項",
+              "page": 168
+            },
+            {
+              "number": "特仕10-5-6-2",
+              "title": "プレビーム桁製作工（現場）",
+              "headingText": "特仕10-5-6-2 プレビーム桁製作工（現場）",
+              "page": 169
+            },
+            {
+              "number": "特仕10-5-6-3",
+              "title": "支承工",
+              "headingText": "特仕10-5-6-3 支承工",
+              "page": 169
+            }
+          ]
+        },
+        {
+          "number": 7,
+          "title": "PCホロースラブ橋工",
+          "headingText": "第7節 PCホロースラブ橋工",
+          "firstPage": 169,
+          "lastPage": 169,
+          "articles": [
+            {
+              "number": "特仕10-5-7-1",
+              "title": "一般事項",
+              "headingText": "特仕10-5-7-1 一般事項",
+              "page": 169
+            },
+            {
+              "number": "特仕10-5-7-3",
+              "title": "支承工",
+              "headingText": "特仕10-5-7-3 支承工",
+              "page": 169
+            },
+            {
+              "number": "特仕10-5-7-4",
+              "title": "PCホロースラブ製作工",
+              "headingText": "特仕10-5-7-4 PCホロースラブ製作工",
+              "page": 169
+            }
+          ]
+        },
+        {
+          "number": 8,
+          "title": "RCホロースラブ橋工",
+          "headingText": "第8節 RCホロースラブ橋工",
+          "firstPage": 169,
+          "lastPage": 170,
+          "articles": [
+            {
+              "number": "特仕10-5-8-1",
+              "title": "一般事項",
+              "headingText": "特仕10-5-8-1 一般事項",
+              "page": 169
+            },
+            {
+              "number": "特仕10-5-8-3",
+              "title": "支承工",
+              "headingText": "特仕10-5-8-3 支承工",
+              "page": 170
+            }
+          ]
+        },
+        {
+          "number": 9,
+          "title": "PC版桁橋工",
+          "headingText": "第9節 PC版桁橋工",
+          "firstPage": 170,
+          "lastPage": 170,
+          "articles": [
+            {
+              "number": "特仕10-5-9-1",
+              "title": "一般事項",
+              "headingText": "特仕10-5-9-1 一般事項",
+              "page": 170
+            },
+            {
+              "number": "特仕10-5-9-2",
+              "title": "PC版桁製作工",
+              "headingText": "特仕10-5-9-2 PC版桁製作工",
+              "page": 170
+            }
+          ]
+        },
+        {
+          "number": 10,
+          "title": "PC箱桁橋工",
+          "headingText": "第10節 PC箱桁橋工",
+          "firstPage": 170,
+          "lastPage": 170,
+          "articles": [
+            {
+              "number": "特仕10-5-10-1",
+              "title": "一般事項",
+              "headingText": "特仕10-5-10-1 一般事項",
+              "page": 170
+            },
+            {
+              "number": "特仕10-5-10-3",
+              "title": "支承工",
+              "headingText": "特仕10-5-10-3 支承工",
+              "page": 170
+            },
+            {
+              "number": "特仕10-5-10-4",
+              "title": "PC箱桁製作工",
+              "headingText": "特仕10-5-10-4 PC箱桁製作工",
+              "page": 170
+            }
+          ]
+        },
+        {
+          "number": 11,
+          "title": "PC片持箱桁橋工",
+          "headingText": "第11節 PC片持箱桁橋工",
+          "firstPage": 171,
+          "lastPage": 171,
+          "articles": [
+            {
+              "number": "特仕10-5-11-1",
+              "title": "一般事項",
+              "headingText": "特仕10-5-11-1 一般事項",
+              "page": 171
+            },
+            {
+              "number": "特仕10-5-11-2",
+              "title": "PC片持箱桁製作工",
+              "headingText": "特仕10-5-11-2 PC片持箱桁製作工",
+              "page": 171
+            },
+            {
+              "number": "特仕10-5-11-3",
+              "title": "支承工",
+              "headingText": "特仕10-5-11-3 支承工",
+              "page": 171
+            }
+          ]
+        },
+        {
+          "number": 12,
+          "title": "PC押出し箱桁橋工",
+          "headingText": "第12節 PC押出し箱桁橋工",
+          "firstPage": 171,
+          "lastPage": 171,
+          "articles": [
+            {
+              "number": "特仕10-5-12-1",
+              "title": "一般事項",
+              "headingText": "特仕10-5-12-1 一般事項",
+              "page": 171
+            },
+            {
+              "number": "特仕10-5-12-2",
+              "title": "PC押出し箱桁製作工",
+              "headingText": "特仕10-5-12-2 PC押出し箱桁製作工",
+              "page": 171
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "sections": 10,
+        "articles": 22,
+        "clauses": 32,
+        "paragraphs": 37,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "10-6",
+      "title": "第10編 道路編 第6章 トンネル（NATM）",
+      "bookNumber": 10,
+      "bookTitle": "道路編",
+      "chapterNumber": 6,
+      "chapterTitle": "トンネル（NATM）",
+      "file": "chapters/10-6.md",
+      "firstPage": 172,
+      "lastPage": 176,
+      "sourceParts": [
+        "part-04"
+      ],
+      "sourcePages": [
+        172,
+        173,
+        174,
+        175,
+        176
+      ],
+      "sourceSha256": "48eee0cd9115033ffac2413e002f11822701f34ba33e79e553bbd73f282e178f",
+      "outputSha256": "c2b6de94be22ea8589becf1e21444d2237ab4badb6660ad13b9b01a9697b5cd6",
+      "outputBytes": 11719,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "適用",
+          "headingText": "第1節 適用",
+          "firstPage": 172,
+          "lastPage": 172,
+          "articles": []
+        },
+        {
+          "number": 3,
+          "title": "トンネル掘削工",
+          "headingText": "第3節 トンネル掘削工",
+          "firstPage": 172,
+          "lastPage": 172,
+          "articles": [
+            {
+              "number": "特仕10-6-3-2",
+              "title": "掘削工",
+              "headingText": "特仕10-6-3-2 掘削工",
+              "page": 172
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "title": "支保工",
+          "headingText": "第4節 支保工",
+          "firstPage": 173,
+          "lastPage": 175,
+          "articles": [
+            {
+              "number": "特仕10-6-4-2",
+              "title": "材料",
+              "headingText": "特仕10-6-4-2 材料",
+              "page": 173
+            },
+            {
+              "number": "特仕10-6-4-4",
+              "title": "ロックボルト工",
+              "headingText": "特仕10-6-4-4 ロックボルト工",
+              "page": 174
+            },
+            {
+              "number": "特仕10-6-4-5",
+              "title": "鋼製支保工",
+              "headingText": "特仕10-6-4-5 鋼製支保工",
+              "page": 175
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "title": "覆工",
+          "headingText": "第5節 覆工",
+          "firstPage": 175,
+          "lastPage": 175,
+          "articles": [
+            {
+              "number": "特仕10-6-5-2",
+              "title": "材料",
+              "headingText": "特仕10-6-5-2 材料",
+              "page": 175
+            },
+            {
+              "number": "特仕10-6-5-3",
+              "title": "覆工コンクリート工",
+              "headingText": "特仕10-6-5-3 覆工コンクリート工",
+              "page": 175
+            },
+            {
+              "number": "特仕10-6-5-6",
+              "title": "トンネル防水工",
+              "headingText": "特仕10-6-5-6 トンネル防水工",
+              "page": 175
+            }
+          ]
+        },
+        {
+          "number": 6,
+          "title": "インバート工",
+          "headingText": "第6節 インバート工",
+          "firstPage": 176,
+          "lastPage": 176,
+          "articles": [
+            {
+              "number": "特仕10-6-6-4",
+              "title": "インバート本体工",
+              "headingText": "特仕10-6-6-4 インバート本体工",
+              "page": 176
+            }
+          ]
+        },
+        {
+          "number": 8,
+          "title": "坑門工",
+          "headingText": "第8節 坑門工",
+          "firstPage": 176,
+          "lastPage": 176,
+          "articles": [
+            {
+              "number": "特仕10-6-8-3",
+              "title": "作業土工（床掘り、埋戻し）",
+              "headingText": "特仕10-6-8-3 作業土工（床掘り、埋戻し）",
+              "page": 176
+            },
+            {
+              "number": "特仕10-6-8-6",
+              "title": "銘板工",
+              "headingText": "特仕10-6-8-6 銘板工",
+              "page": 176
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "sections": 6,
+        "articles": 10,
+        "clauses": 28,
+        "paragraphs": 35,
+        "items": 11,
+        "notes": 0,
+        "tables": 4,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 4
+      },
+      "tableOutcomes": {
+        "lossy": 2,
+        "ragged-rows": 1,
+        "columns-out-of-range": 1
+      },
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "10-7",
+      "title": "第10編 道路編 第7章 コンクリートシェッド",
+      "bookNumber": 10,
+      "bookTitle": "道路編",
+      "chapterNumber": 7,
+      "chapterTitle": "コンクリートシェッド",
+      "file": "chapters/10-7.md",
+      "firstPage": 177,
+      "lastPage": 178,
+      "sourceParts": [
+        "part-04"
+      ],
+      "sourcePages": [
+        177,
+        178
+      ],
+      "sourceSha256": "82a14adc6b4fc8a9961efc49c3711dca027766131c933562ac4e0113564bd67e",
+      "outputSha256": "fd71eff90bf68df7600b85ccb56be01e68ed5a8566ee3a338ef7ad8a6e056ee1",
+      "outputBytes": 2432,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 3,
+          "title": "プレキャストシェッド下部工",
+          "headingText": "第3節 プレキャストシェッド下部工",
+          "firstPage": 177,
+          "lastPage": 177,
+          "articles": [
+            {
+              "number": "特仕10-7-3-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕10-7-3-2 作業土工（床掘り・埋戻し）",
+              "page": 177
+            },
+            {
+              "number": "特仕10-7-3-3",
+              "title": "既製杭工",
+              "headingText": "特仕10-7-3-3 既製杭工",
+              "page": 177
+            },
+            {
+              "number": "特仕10-7-3-4",
+              "title": "場所打杭工",
+              "headingText": "特仕10-7-3-4 場所打杭工",
+              "page": 177
+            },
+            {
+              "number": "特仕10-7-3-5",
+              "title": "深礎工",
+              "headingText": "特仕10-7-3-5 深礎工",
+              "page": 177
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "title": "プレキャストシェッド上部工",
+          "headingText": "第4節 プレキャストシェッド上部工",
+          "firstPage": 177,
+          "lastPage": 177,
+          "articles": [
+            {
+              "number": "特仕10-7-4-3",
+              "title": "架設工",
+              "headingText": "特仕10-7-4-3 架設工",
+              "page": 177
+            },
+            {
+              "number": "特仕10-7-4-6",
+              "title": "横締め工",
+              "headingText": "特仕10-7-4-6 横締め工",
+              "page": 177
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "title": "RCシェッド工",
+          "headingText": "第5節 RCシェッド工",
+          "firstPage": 177,
+          "lastPage": 178,
+          "articles": [
+            {
+              "number": "特仕10-7-5-3",
+              "title": "既製杭工",
+              "headingText": "特仕10-7-5-3 既製杭工",
+              "page": 177
+            },
+            {
+              "number": "特仕10-7-5-4",
+              "title": "場所打杭工",
+              "headingText": "特仕10-7-5-4 場所打杭工",
+              "page": 178
+            },
+            {
+              "number": "特仕10-7-5-5",
+              "title": "深礎工",
+              "headingText": "特仕10-7-5-5 深礎工",
+              "page": 178
+            }
+          ]
+        },
+        {
+          "number": 6,
+          "title": "シェッド付属物工",
+          "headingText": "第6節 シェッド付属物工",
+          "firstPage": 178,
+          "lastPage": 178,
+          "articles": [
+            {
+              "number": "特仕10-7-6-5",
+              "title": "銘板工",
+              "headingText": "特仕10-7-6-5 銘板工",
+              "page": 178
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "sections": 4,
+        "articles": 10,
+        "clauses": 3,
+        "paragraphs": 12,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "10-8",
+      "title": "第10編 道路編 第8章 鋼製シェッド",
+      "bookNumber": 10,
+      "bookTitle": "道路編",
+      "chapterNumber": 8,
+      "chapterTitle": "鋼製シェッド",
+      "file": "chapters/10-8.md",
+      "firstPage": 179,
+      "lastPage": 179,
+      "sourceParts": [
+        "part-04"
+      ],
+      "sourcePages": [
+        179
+      ],
+      "sourceSha256": "73c736367dc1528dce5f9f5ea94ff6e7289c96f57aa55b033d165f403612131e",
+      "outputSha256": "d95ad6ff41eb41e0c0232a4062de9cdd0275f9fd97617e4de6a1569f0fc186f2",
+      "outputBytes": 1496,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 3,
+          "title": "工場製作工",
+          "headingText": "第3節 工場製作工",
+          "firstPage": 179,
+          "lastPage": 179,
+          "articles": [
+            {
+              "number": "特仕10-8-3-1",
+              "title": "一般事項",
+              "headingText": "特仕10-8-3-1 一般事項",
+              "page": 179
+            },
+            {
+              "number": "特仕10-8-3-6",
+              "title": "鋳造費",
+              "headingText": "特仕10-8-3-6 鋳造費",
+              "page": 179
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "title": "鋼製シェッド下部工",
+          "headingText": "第5節 鋼製シェッド下部工",
+          "firstPage": 179,
+          "lastPage": 179,
+          "articles": [
+            {
+              "number": "特仕10-8-5-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕10-8-5-2 作業土工（床掘り・埋戻し）",
+              "page": 179
+            },
+            {
+              "number": "特仕10-8-5-3",
+              "title": "既製杭工",
+              "headingText": "特仕10-8-5-3 既製杭工",
+              "page": 179
+            },
+            {
+              "number": "特仕10-8-5-4",
+              "title": "場所打杭工",
+              "headingText": "特仕10-8-5-4 場所打杭工",
+              "page": 179
+            },
+            {
+              "number": "特仕10-8-5-5",
+              "title": "深礎工",
+              "headingText": "特仕10-8-5-5 深礎工",
+              "page": 179
+            }
+          ]
+        },
+        {
+          "number": 7,
+          "title": "シェッド付属物工",
+          "headingText": "第7節 シェッド付属物工",
+          "firstPage": 179,
+          "lastPage": 179,
+          "articles": [
+            {
+              "number": "特仕10-8-7-5",
+              "title": "銘板工",
+              "headingText": "特仕10-8-7-5 銘板工",
+              "page": 179
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "sections": 3,
+        "articles": 7,
+        "clauses": 0,
+        "paragraphs": 7,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "10-9",
+      "title": "第10編 道路編 第9章 地下横断歩道",
+      "bookNumber": 10,
+      "bookTitle": "道路編",
+      "chapterNumber": 9,
+      "chapterTitle": "地下横断歩道",
+      "file": "chapters/10-9.md",
+      "firstPage": 180,
+      "lastPage": 180,
+      "sourceParts": [
+        "part-04"
+      ],
+      "sourcePages": [
+        180
+      ],
+      "sourceSha256": "a69d20c4c910128a7251c6fb04c05d545aa0aea96337829988400632fed69634",
+      "outputSha256": "301a6194399bf27ec7ddc6296f40989a9e707a7fd948ca616b464759b0ac25f1",
+      "outputBytes": 248,
+      "splitBySection": false,
+      "sections": [],
+      "stats": {
+        "sections": 0,
+        "articles": 0,
+        "clauses": 0,
+        "paragraphs": 0,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": false,
+      "bodyless": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "10-10",
+      "title": "第10編 道路編 第10章 地下駐車場",
+      "bookNumber": 10,
+      "bookTitle": "道路編",
+      "chapterNumber": 10,
+      "chapterTitle": "地下駐車場",
+      "file": "chapters/10-10.md",
+      "firstPage": 181,
+      "lastPage": 181,
+      "sourceParts": [
+        "part-04"
+      ],
+      "sourcePages": [
+        181
+      ],
+      "sourceSha256": "57f60601460c1df6868b4500329f27697209bb9abbd926dccc7c388eb069c437",
+      "outputSha256": "301a6194399bf27ec7ddc6296f40989a9e707a7fd948ca616b464759b0ac25f1",
+      "outputBytes": 248,
+      "splitBySection": false,
+      "sections": [],
+      "stats": {
+        "sections": 0,
+        "articles": 0,
+        "clauses": 0,
+        "paragraphs": 0,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": false,
+      "bodyless": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "10-11",
+      "title": "第10編 道路編 第11章 共同溝",
+      "bookNumber": 10,
+      "bookTitle": "道路編",
+      "chapterNumber": 11,
+      "chapterTitle": "共同溝",
+      "file": "chapters/10-11.md",
+      "firstPage": 182,
+      "lastPage": 183,
+      "sourceParts": [
+        "part-04"
+      ],
+      "sourcePages": [
+        182,
+        183
+      ],
+      "sourceSha256": "9ab1a85271580fe9a01ce565ce2ef62010e241feb879634d7d48fc16a6a676f5",
+      "outputSha256": "54fc1ad11061091a23321471696e6273ec6a55a4dd701c558086c4696e2af880",
+      "outputBytes": 3798,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "適用",
+          "headingText": "第1節 適用",
+          "firstPage": 182,
+          "lastPage": 182,
+          "articles": []
+        },
+        {
+          "number": 3,
+          "title": "工場製作工",
+          "headingText": "第3節 工場製作工",
+          "firstPage": 182,
+          "lastPage": 182,
+          "articles": [
+            {
+              "number": "特仕10-11-3-2",
+              "title": "設備・金物製作工",
+              "headingText": "特仕10-11-3-2 設備・金物製作工",
+              "page": 182
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "title": "開削土工",
+          "headingText": "第5節 開削土工",
+          "firstPage": 182,
+          "lastPage": 182,
+          "articles": [
+            {
+              "number": "特仕10-11-5-2",
+              "title": "掘削工",
+              "headingText": "特仕10-11-5-2 掘削工",
+              "page": 182
+            },
+            {
+              "number": "特仕10-11-5-3",
+              "title": "埋戻し工",
+              "headingText": "特仕10-11-5-3 埋戻し工",
+              "page": 182
+            },
+            {
+              "number": "特仕10-11-5-4",
+              "title": "残土処理工",
+              "headingText": "特仕10-11-5-4 残土処理工",
+              "page": 182
+            }
+          ]
+        },
+        {
+          "number": 6,
+          "title": "現場打構築工",
+          "headingText": "第6節 現場打構築工",
+          "firstPage": 182,
+          "lastPage": 182,
+          "articles": [
+            {
+              "number": "特仕10-11-6-5",
+              "title": "防水工",
+              "headingText": "特仕10-11-6-5 防水工",
+              "page": 182
+            }
+          ]
+        },
+        {
+          "number": 7,
+          "title": "プレキャスト構築工",
+          "headingText": "第7節 プレキャスト構築工",
+          "firstPage": 182,
+          "lastPage": 183,
+          "articles": [
+            {
+              "number": "特仕10-11-7-3",
+              "title": "縦締工",
+              "headingText": "特仕10-11-7-3 縦締工",
+              "page": 182
+            },
+            {
+              "number": "特仕10-11-7-4",
+              "title": "横締工",
+              "headingText": "特仕10-11-7-4 横締工",
+              "page": 183
+            },
+            {
+              "number": "特仕10-11-7-5",
+              "title": "可とう継手工",
+              "headingText": "特仕10-11-7-5 可とう継手工",
+              "page": 183
+            }
+          ]
+        },
+        {
+          "number": 8,
+          "title": "付属設備工",
+          "headingText": "第8節 付属設備工",
+          "firstPage": 183,
+          "lastPage": 183,
+          "articles": [
+            {
+              "number": "特仕10-11-8-4",
+              "title": "換気口上屋・仮設照明・仮設階段等",
+              "headingText": "特仕10-11-8-4 換気口上屋・仮設照明・仮設階段等",
+              "page": 183
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "sections": 6,
+        "articles": 9,
+        "clauses": 10,
+        "paragraphs": 19,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "10-12",
+      "title": "第10編 道路編 第12章 電線共同溝",
+      "bookNumber": 10,
+      "bookTitle": "道路編",
+      "chapterNumber": 12,
+      "chapterTitle": "電線共同溝",
+      "file": "chapters/10-12.md",
+      "firstPage": 184,
+      "lastPage": 184,
+      "sourceParts": [
+        "part-04"
+      ],
+      "sourcePages": [
+        184
+      ],
+      "sourceSha256": "916caa9f7cd5685abe3206c61f9e8f32e2cf150ec84a4c69934dc2a1536750c4",
+      "outputSha256": "f4fe3b7178f646f848a031f84a338095cdcd8d6367245011e620fa3767ff6d87",
+      "outputBytes": 887,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "適用",
+          "headingText": "第1節 適用",
+          "firstPage": 184,
+          "lastPage": 184,
+          "articles": []
+        },
+        {
+          "number": 5,
+          "title": "電線共同溝工",
+          "headingText": "第5節 電線共同溝工",
+          "firstPage": 184,
+          "lastPage": 184,
+          "articles": [
+            {
+              "number": "特仕10-12-5-2",
+              "title": "管路工（管路部）",
+              "headingText": "特仕10-12-5-2 管路工（管路部）",
+              "page": 184
+            },
+            {
+              "number": "特仕10-12-5-5",
+              "title": "仮設土留工",
+              "headingText": "特仕10-12-5-5 仮設土留工",
+              "page": 184
+            }
+          ]
+        },
+        {
+          "number": 6,
+          "title": "付帯設備工",
+          "headingText": "第6節 付帯設備工",
+          "firstPage": 184,
+          "lastPage": 184,
+          "articles": [
+            {
+              "number": "特仕10-12-6-4",
+              "title": "占用企業者との調整等",
+              "headingText": "特仕10-12-6-4 占用企業者との調整等",
+              "page": 184
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "sections": 3,
+        "articles": 3,
+        "clauses": 2,
+        "paragraphs": 5,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "10-13",
+      "title": "第10編 道路編 第13章 情報ボックス工",
+      "bookNumber": 10,
+      "bookTitle": "道路編",
+      "chapterNumber": 13,
+      "chapterTitle": "情報ボックス工",
+      "file": "chapters/10-13.md",
+      "firstPage": 185,
+      "lastPage": 185,
+      "sourceParts": [
+        "part-04"
+      ],
+      "sourcePages": [
+        185
+      ],
+      "sourceSha256": "124d1f88265b1b871fd444a4072428d7fe22c4b5cfe18754399f330636967260",
+      "outputSha256": "7fbaf274b13c715c2c0db1af9e0da080965ac7192ed18ff711f119592dd9a9c7",
+      "outputBytes": 378,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 3,
+          "title": "情報ボックス工",
+          "headingText": "第3節 情報ボックス工",
+          "firstPage": 185,
+          "lastPage": 185,
+          "articles": [
+            {
+              "number": "特仕10-13-3-3",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕10-13-3-3 作業土工（床掘り・埋戻し）",
+              "page": 185
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "sections": 1,
+        "articles": 1,
+        "clauses": 0,
+        "paragraphs": 1,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "10-14",
+      "title": "第10編 道路編 第14章 道路維持",
+      "bookNumber": 10,
+      "bookTitle": "道路編",
+      "chapterNumber": 14,
+      "chapterTitle": "道路維持",
+      "file": "chapters/10-14.md",
+      "firstPage": 186,
+      "lastPage": 198,
+      "sourceParts": [
+        "part-04"
+      ],
+      "sourcePages": [
+        186,
+        187,
+        188,
+        189,
+        190,
+        191,
+        192,
+        193,
+        194,
+        195,
+        196,
+        197,
+        198
+      ],
+      "sourceSha256": "2cfd346b0fa8b396a687300dd4831fc0af22e6d57125b7f9cde5f8eebeef45f0",
+      "outputSha256": "0ddadb2d2ad0dd0be57f9826d0f25eadc3b338ee5c35b7568f5d455183c7dd20",
+      "outputBytes": 29407,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "適用",
+          "headingText": "第1節 適用",
+          "firstPage": 186,
+          "lastPage": 186,
+          "articles": []
+        },
+        {
+          "number": 4,
+          "title": "舗装工",
+          "headingText": "第4節 舗装工",
+          "firstPage": 186,
+          "lastPage": 187,
+          "articles": [
+            {
+              "number": "特仕10-14-4-2",
+              "title": "材料",
+              "headingText": "特仕10-14-4-2 材料",
+              "page": 186
+            },
+            {
+              "number": "特仕10-14-4-3",
+              "title": "路面切削工",
+              "headingText": "特仕10-14-4-3 路面切削工",
+              "page": 186
+            },
+            {
+              "number": "特仕10-14-4-4",
+              "title": "舗装打換え工",
+              "headingText": "特仕10-14-4-4 舗装打換え工",
+              "page": 186
+            },
+            {
+              "number": "特仕10-14-4-5",
+              "title": "切削オーバーレイ工",
+              "headingText": "特仕10-14-4-5 切削オーバーレイ工",
+              "page": 187
+            },
+            {
+              "number": "特仕10-14-4-7",
+              "title": "路上再生工",
+              "headingText": "特仕10-14-4-7 路上再生工",
+              "page": 187
+            },
+            {
+              "number": "特仕10-14-4-9",
+              "title": "コンクリート舗装補修工",
+              "headingText": "特仕10-14-4-9 コンクリート舗装補修工",
+              "page": 187
+            },
+            {
+              "number": "特仕10-14-4-10",
+              "title": "アスファルト舗装補修工",
+              "headingText": "特仕10-14-4-10 アスファルト舗装補修工",
+              "page": 187
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "title": "排水構造物工",
+          "headingText": "第5節 排水構造物工",
+          "firstPage": 187,
+          "lastPage": 187,
+          "articles": [
+            {
+              "number": "特仕10-14-5-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕10-14-5-2 作業土工（床掘り・埋戻し）",
+              "page": 187
+            },
+            {
+              "number": "特仕10-14-5-3",
+              "title": "側溝工",
+              "headingText": "特仕10-14-5-3 側溝工",
+              "page": 187
+            }
+          ]
+        },
+        {
+          "number": 6,
+          "title": "防護柵工",
+          "headingText": "第6節 防護柵工",
+          "firstPage": 188,
+          "lastPage": 188,
+          "articles": [
+            {
+              "number": "特仕10-14-6-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕10-14-6-2 作業土工（床掘り・埋戻し）",
+              "page": 188
+            }
+          ]
+        },
+        {
+          "number": 7,
+          "title": "標識工",
+          "headingText": "第7節 標識工",
+          "firstPage": 188,
+          "lastPage": 188,
+          "articles": [
+            {
+              "number": "特仕10-14-7-1",
+              "title": "一般事項",
+              "headingText": "特仕10-14-7-1 一般事項",
+              "page": 188
+            }
+          ]
+        },
+        {
+          "number": 8,
+          "title": "道路付属施設工",
+          "headingText": "第8節 道路付属施設工",
+          "firstPage": 188,
+          "lastPage": 188,
+          "articles": [
+            {
+              "number": "特仕10-14-8-3",
+              "title": "境界工",
+              "headingText": "特仕10-14-8-3 境界工",
+              "page": 188
+            }
+          ]
+        },
+        {
+          "number": 10,
+          "title": "擁壁工",
+          "headingText": "第10節 擁壁工",
+          "firstPage": 188,
+          "lastPage": 188,
+          "articles": [
+            {
+              "number": "特仕10-14-10-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕10-14-10-2 作業土工（床掘り・埋戻し）",
+              "page": 188
+            }
+          ]
+        },
+        {
+          "number": 11,
+          "title": "石・ブロック積（張）工",
+          "headingText": "第11節 石・ブロック積（張）工",
+          "firstPage": 188,
+          "lastPage": 188,
+          "articles": [
+            {
+              "number": "特仕10-14-11-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕10-14-11-2 作業土工（床掘り・埋戻し）",
+              "page": 188
+            }
+          ]
+        },
+        {
+          "number": 12,
+          "title": "カルバート工",
+          "headingText": "第12節 カルバート工",
+          "firstPage": 188,
+          "lastPage": 188,
+          "articles": [
+            {
+              "number": "特仕10-14-12-3",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕10-14-12-3 作業土工（床掘り・埋戻し）",
+              "page": 188
+            }
+          ]
+        },
+        {
+          "number": 13,
+          "title": "法面工",
+          "headingText": "第13節 法面工",
+          "firstPage": 188,
+          "lastPage": 189,
+          "articles": [
+            {
+              "number": "特仕10-14-13-2",
+              "title": "植生工",
+              "headingText": "特仕10-14-13-2 植生工",
+              "page": 188
+            },
+            {
+              "number": "特仕10-14-13-3",
+              "title": "法面吹付工",
+              "headingText": "特仕10-14-13-3 法面吹付工",
+              "page": 188
+            },
+            {
+              "number": "特仕10-14-13-4",
+              "title": "法枠工",
+              "headingText": "特仕10-14-13-4 法枠工",
+              "page": 189
+            }
+          ]
+        },
+        {
+          "number": 14,
+          "title": "橋梁床版工",
+          "headingText": "第14節 橋梁床版工",
+          "firstPage": 189,
+          "lastPage": 190,
+          "articles": [
+            {
+              "number": "特仕10-14-14-3",
+              "title": "床版補強工（鋼板接着工法）",
+              "headingText": "特仕10-14-14-3 床版補強工（鋼板接着工法）",
+              "page": 189
+            },
+            {
+              "number": "特仕10-14-14-4",
+              "title": "床版補強工（増桁架設工法）",
+              "headingText": "特仕10-14-14-4 床版補強工（増桁架設工法）",
+              "page": 190
+            },
+            {
+              "number": "特仕10-14-14-5",
+              "title": "床版増厚補強工",
+              "headingText": "特仕10-14-14-5 床版増厚補強工",
+              "page": 190
+            },
+            {
+              "number": "特仕10-14-14-6",
+              "title": "床版取替工",
+              "headingText": "特仕10-14-14-6 床版取替工",
+              "page": 190
+            }
+          ]
+        },
+        {
+          "number": 15,
+          "title": "橋梁付属物工",
+          "headingText": "第15節 橋梁付属物工",
+          "firstPage": 191,
+          "lastPage": 191,
+          "articles": [
+            {
+              "number": "特仕10-14-15-2",
+              "title": "伸縮継手工",
+              "headingText": "特仕10-14-15-2 伸縮継手工",
+              "page": 191
+            }
+          ]
+        },
+        {
+          "number": 17,
+          "title": "現場塗装工",
+          "headingText": "第17節 現場塗装工",
+          "firstPage": 191,
+          "lastPage": 191,
+          "articles": [
+            {
+              "number": "特仕10-14-17-2",
+              "title": "材料",
+              "headingText": "特仕10-14-17-2 材料",
+              "page": 191
+            }
+          ]
+        },
+        {
+          "number": 18,
+          "title": "トンネル工",
+          "headingText": "第18節 トンネル工",
+          "firstPage": 191,
+          "lastPage": 191,
+          "articles": [
+            {
+              "number": "特仕10-14-18-2",
+              "title": "内装板工",
+              "headingText": "特仕10-14-18-2 内装板工",
+              "page": 191
+            }
+          ]
+        },
+        {
+          "number": 19,
+          "title": "道路付属物復旧工",
+          "headingText": "第19節 道路付属物復旧工",
+          "firstPage": 191,
+          "lastPage": 191,
+          "articles": [
+            {
+              "number": "特仕10-14-19-4",
+              "title": "区画線復旧工",
+              "headingText": "特仕10-14-19-4 区画線復旧工",
+              "page": 191
+            },
+            {
+              "number": "特仕10-14-19-5",
+              "title": "側溝蓋補修工",
+              "headingText": "特仕10-14-19-5 側溝蓋補修工",
+              "page": 191
+            }
+          ]
+        },
+        {
+          "number": 20,
+          "title": "道路清掃工",
+          "headingText": "第20節 道路清掃工",
+          "firstPage": 192,
+          "lastPage": 196,
+          "articles": [
+            {
+              "number": "特仕10-14-20-1",
+              "title": "道路清掃工",
+              "headingText": "特仕10-14-20-1 道路清掃工",
+              "page": 192
+            },
+            {
+              "number": "特仕10-14-20-3",
+              "title": "路面清掃工",
+              "headingText": "特仕10-14-20-3 路面清掃工",
+              "page": 192
+            },
+            {
+              "number": "特仕10-14-20-4",
+              "title": "路肩整正工",
+              "headingText": "特仕10-14-20-4 路肩整正工",
+              "page": 193
+            },
+            {
+              "number": "特仕10-14-20-5",
+              "title": "排水施設清掃工",
+              "headingText": "特仕10-14-20-5 排水施設清掃工",
+              "page": 194
+            },
+            {
+              "number": "特仕10-14-20-7",
+              "title": "道路付属物清掃工",
+              "headingText": "特仕10-14-20-7 道路付属物清掃工",
+              "page": 195
+            },
+            {
+              "number": "特仕10-14-20-8",
+              "title": "構造物清掃工",
+              "headingText": "特仕10-14-20-8 構造物清掃工",
+              "page": 196
+            }
+          ]
+        },
+        {
+          "number": 21,
+          "title": "植栽維持工",
+          "headingText": "第21節 植栽維持工",
+          "firstPage": 196,
+          "lastPage": 196,
+          "articles": [
+            {
+              "number": "特仕10-14-21-3",
+              "title": "樹木・芝生管理工",
+              "headingText": "特仕10-14-21-3 樹木・芝生管理工",
+              "page": 196
+            }
+          ]
+        },
+        {
+          "number": 22,
+          "title": "除草工",
+          "headingText": "第22節 除草工",
+          "firstPage": 197,
+          "lastPage": 197,
+          "articles": [
+            {
+              "number": "特仕10-14-22-1",
+              "title": "一般事項",
+              "headingText": "特仕10-14-22-1 一般事項",
+              "page": 197
+            },
+            {
+              "number": "特仕10-14-22-2",
+              "title": "道路除草工",
+              "headingText": "特仕10-14-22-2 道路除草工",
+              "page": 197
+            }
+          ]
+        },
+        {
+          "number": 24,
+          "title": "応急処理工",
+          "headingText": "第24節 応急処理工",
+          "firstPage": 197,
+          "lastPage": 198,
+          "articles": [
+            {
+              "number": "特仕10-14-24-2",
+              "title": "応急処理作業工",
+              "headingText": "特仕10-14-24-2 応急処理作業工",
+              "page": 197
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "sections": 19,
+        "articles": 37,
+        "clauses": 45,
+        "paragraphs": 84,
+        "items": 47,
+        "notes": 0,
+        "tables": 7,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 7
+      },
+      "tableOutcomes": {
+        "ragged-rows": 6,
+        "columns-out-of-range": 1
+      },
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "10-15",
+      "title": "第10編 道路編 第15章 雪寒",
+      "bookNumber": 10,
+      "bookTitle": "道路編",
+      "chapterNumber": 15,
+      "chapterTitle": "雪寒",
+      "file": "chapters/10-15.md",
+      "firstPage": 199,
+      "lastPage": 199,
+      "sourceParts": [
+        "part-04"
+      ],
+      "sourcePages": [
+        199
+      ],
+      "sourceSha256": "69872ced682c09ed7d7cca7dc4c0f1a5fe8d3d17dd00741bad873d63d4ae341b",
+      "outputSha256": "b617b3bc9207d0e6fd6224480a70896ce7f0f9290e5f490ff6b1d5e1058052e9",
+      "outputBytes": 2797,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 3,
+          "title": "除雪工",
+          "headingText": "第3節 除雪工",
+          "firstPage": 199,
+          "lastPage": 199,
+          "articles": [
+            {
+              "number": "特仕10-15-3-1",
+              "title": "一般事項",
+              "headingText": "特仕10-15-3-1 一般事項",
+              "page": 199
+            },
+            {
+              "number": "特仕10-15-3-8",
+              "title": "雪道巡回工",
+              "headingText": "特仕10-15-3-8 雪道巡回工",
+              "page": 199
+            },
+            {
+              "number": "特仕10-15-3-11",
+              "title": "除雪機械修理工",
+              "headingText": "特仕10-15-3-11 除雪機械修理工",
+              "page": 199
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "sections": 1,
+        "articles": 3,
+        "clauses": 5,
+        "paragraphs": 12,
+        "items": 2,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "10-16",
+      "title": "第10編 道路編 第16章 道路修繕",
+      "bookNumber": 10,
+      "bookTitle": "道路編",
+      "chapterNumber": 16,
+      "chapterTitle": "道路修繕",
+      "file": "chapters/10-16.md",
+      "firstPage": 200,
+      "lastPage": 205,
+      "sourceParts": [
+        "part-04",
+        "part-05"
+      ],
+      "sourcePages": [
+        200,
+        201,
+        202,
+        203,
+        204,
+        205
+      ],
+      "sourceSha256": "dbd96712dc5028f39a7abc64e4cea197d6199dcf6a29d5fabef85b5c922ef186",
+      "outputSha256": "23fe237c388f084339bce6ccc6f12eb530b010b79022440b2f1dfb9decd601e8",
+      "outputBytes": 12839,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "適用",
+          "headingText": "第1節 適用",
+          "firstPage": 200,
+          "lastPage": 200,
+          "articles": []
+        },
+        {
+          "number": 3,
+          "title": "工場製作工",
+          "headingText": "第3節 工場製作工",
+          "firstPage": 200,
+          "lastPage": 200,
+          "articles": [
+            {
+              "number": "特仕10-16-3-1",
+              "title": "一般事項",
+              "headingText": "特仕10-16-3-1 一般事項",
+              "page": 200
+            },
+            {
+              "number": "特仕10-16-3-2",
+              "title": "材料",
+              "headingText": "特仕10-16-3-2 材料",
+              "page": 200
+            },
+            {
+              "number": "特仕10-16-3-3",
+              "title": "床版補強材製作工",
+              "headingText": "特仕10-16-3-3 床版補強材製作工",
+              "page": 200
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "title": "舗装工",
+          "headingText": "第5節 舗装工",
+          "firstPage": 200,
+          "lastPage": 201,
+          "articles": [
+            {
+              "number": "特仕10-16-5-1",
+              "title": "端部処理",
+              "headingText": "特仕10-16-5-1 端部処理",
+              "page": 200
+            }
+          ]
+        },
+        {
+          "number": 6,
+          "title": "排水構造物工",
+          "headingText": "第6節 排水構造物工",
+          "firstPage": 201,
+          "lastPage": 201,
+          "articles": [
+            {
+              "number": "特仕10-16-6-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕10-16-6-2 作業土工（床掘り・埋戻し）",
+              "page": 201
+            }
+          ]
+        },
+        {
+          "number": 7,
+          "title": "縁石工",
+          "headingText": "第7節 縁石工",
+          "firstPage": 201,
+          "lastPage": 201,
+          "articles": [
+            {
+              "number": "特仕10-16-7-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕10-16-7-2 作業土工（床掘り・埋戻し）",
+              "page": 201
+            }
+          ]
+        },
+        {
+          "number": 8,
+          "title": "防護柵工",
+          "headingText": "第8節 防護柵工",
+          "firstPage": 201,
+          "lastPage": 201,
+          "articles": [
+            {
+              "number": "特仕10-16-8-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕10-16-8-2 作業土工（床掘り・埋戻し）",
+              "page": 201
+            }
+          ]
+        },
+        {
+          "number": 9,
+          "title": "標識工",
+          "headingText": "第9節 標識工",
+          "firstPage": 201,
+          "lastPage": 201,
+          "articles": [
+            {
+              "number": "特仕10-16-9-1",
+              "title": "標識工",
+              "headingText": "特仕10-16-9-1 標識工",
+              "page": 201
+            }
+          ]
+        },
+        {
+          "number": 12,
+          "title": "道路付属施設工",
+          "headingText": "第12節 道路付属施設工",
+          "firstPage": 201,
+          "lastPage": 201,
+          "articles": [
+            {
+              "number": "特仕10-16-12-3",
+              "title": "境界工",
+              "headingText": "特仕10-16-12-3 境界工",
+              "page": 201
+            }
+          ]
+        },
+        {
+          "number": 14,
+          "title": "擁壁工",
+          "headingText": "第14節 擁壁工",
+          "firstPage": 201,
+          "lastPage": 201,
+          "articles": [
+            {
+              "number": "特仕10-16-14-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕10-16-14-2 作業土工（床掘り・埋戻し）",
+              "page": 201
+            }
+          ]
+        },
+        {
+          "number": 15,
+          "title": "石・ブロック積（張）工",
+          "headingText": "第15節 石・ブロック積（張）工",
+          "firstPage": 201,
+          "lastPage": 201,
+          "articles": [
+            {
+              "number": "特仕10-16-15-2",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕10-16-15-2 作業土工（床掘り・埋戻し）",
+              "page": 201
+            }
+          ]
+        },
+        {
+          "number": 16,
+          "title": "カルバート工",
+          "headingText": "第16節 カルバート工",
+          "firstPage": 202,
+          "lastPage": 202,
+          "articles": [
+            {
+              "number": "特仕10-16-16-3",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕10-16-16-3 作業土工（床掘り・埋戻し）",
+              "page": 202
+            }
+          ]
+        },
+        {
+          "number": 17,
+          "title": "法面工",
+          "headingText": "第17節 法面工",
+          "firstPage": 202,
+          "lastPage": 202,
+          "articles": [
+            {
+              "number": "特仕10-16-17-2",
+              "title": "植生工",
+              "headingText": "特仕10-16-17-2 植生工",
+              "page": 202
+            },
+            {
+              "number": "特仕10-16-17-3",
+              "title": "法面吹付工",
+              "headingText": "特仕10-16-17-3 法面吹付工",
+              "page": 202
+            },
+            {
+              "number": "特仕10-16-17-4",
+              "title": "法枠工",
+              "headingText": "特仕10-16-17-4 法枠工",
+              "page": 202
+            }
+          ]
+        },
+        {
+          "number": 18,
+          "title": "落石雪害防止工",
+          "headingText": "第18節 落石雪害防止工",
+          "firstPage": 202,
+          "lastPage": 202,
+          "articles": [
+            {
+              "number": "特仕10-16-18-2",
+              "title": "材料",
+              "headingText": "特仕10-16-18-2 材料",
+              "page": 202
+            },
+            {
+              "number": "特仕10-16-18-3",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕10-16-18-3 作業土工（床掘り・埋戻し）",
+              "page": 202
+            }
+          ]
+        },
+        {
+          "number": 19,
+          "title": "橋梁床版工",
+          "headingText": "第19節 橋梁床版工",
+          "firstPage": 202,
+          "lastPage": 203,
+          "articles": [
+            {
+              "number": "特仕10-16-19-3",
+              "title": "床版補強工（鋼板接着工法）",
+              "headingText": "特仕10-16-19-3 床版補強工（鋼板接着工法）",
+              "page": 202
+            },
+            {
+              "number": "特仕10-16-19-4",
+              "title": "床版補強工（増桁架設工法）",
+              "headingText": "特仕10-16-19-4 床版補強工（増桁架設工法）",
+              "page": 202
+            },
+            {
+              "number": "特仕10-16-19-5",
+              "title": "床版増厚補強工",
+              "headingText": "特仕10-16-19-5 床版増厚補強工",
+              "page": 202
+            },
+            {
+              "number": "特仕10-16-19-6",
+              "title": "床版取替工",
+              "headingText": "特仕10-16-19-6 床版取替工",
+              "page": 203
+            }
+          ]
+        },
+        {
+          "number": 24,
+          "title": "橋脚巻立て工",
+          "headingText": "第24節 橋脚巻立て工",
+          "firstPage": 203,
+          "lastPage": 205,
+          "articles": [
+            {
+              "number": "特仕10-16-24-3",
+              "title": "作業土工（床掘り・埋戻し）",
+              "headingText": "特仕10-16-24-3 作業土工（床掘り・埋戻し）",
+              "page": 203
+            },
+            {
+              "number": "特仕10-16-24-4",
+              "title": "ＲＣ橋脚鋼板巻立て工",
+              "headingText": "特仕10-16-24-4 ＲＣ橋脚鋼板巻立て工",
+              "page": 203
+            }
+          ]
+        },
+        {
+          "number": 25,
+          "title": "現場塗装工",
+          "headingText": "第25節 現場塗装工",
+          "firstPage": 205,
+          "lastPage": 205,
+          "articles": [
+            {
+              "number": "特仕10-16-25-2",
+              "title": "材料",
+              "headingText": "特仕10-16-25-2 材料",
+              "page": 205
+            }
+          ]
+        },
+        {
+          "number": 26,
+          "title": "トンネル工",
+          "headingText": "第26節 トンネル工",
+          "firstPage": 205,
+          "lastPage": 205,
+          "articles": [
+            {
+              "number": "特仕10-16-26-2",
+              "title": "材料",
+              "headingText": "特仕10-16-26-2 材料",
+              "page": 205
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "sections": 17,
+        "articles": 25,
+        "clauses": 7,
+        "paragraphs": 48,
+        "items": 5,
+        "notes": 0,
+        "tables": 5,
+        "captions": 1,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 5
+      },
+      "tableOutcomes": {
+        "too-few-rows": 2,
+        "ragged-rows": 1,
+        "lossy": 2
+      },
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    }
+  ]
+}

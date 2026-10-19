@@ -1,0 +1,1536 @@
+{
+  "version": 1,
+  "generator": "scripts/build-standard-articles.mjs",
+  "agencyId": "tohoku",
+  "agencyName": "東北地方整備局",
+  "documentId": "special",
+  "documentTitle": "土木工事共通特記仕様書 令和8年4月",
+  "documentRole": "companion",
+  "catalogSourceSha256": "e2b9a3b045b05846729f3186d1eb62a214c88c82909d57bb6e97c607aee2857c",
+  "pages": 34,
+  "bodyStart": {
+    "page": 6,
+    "reason": "override"
+  },
+  "frontMatter": {
+    "firstPage": 1,
+    "lastPage": 5,
+    "pageCount": 5,
+    "note": "表紙・目次。構造化の対象外（原典の逐語ページで参照する）。"
+  },
+  "indexable": true,
+  "indexableReason": "canonical",
+  "duplicateOf": null,
+  "chapterSource": "headings",
+  "audit": {
+    "totalPages": 34,
+    "frontMatterPages": 5,
+    "bodyPages": 29,
+    "bodyLineTotal": 1385,
+    "assignedLines": 1336,
+    "removedLines": 49,
+    "unassignedLines": 0,
+    "chapters": 13,
+    "assignedPages": 39,
+    "removedRunningHeaders": 0,
+    "removedPrintPageNumbers": 29,
+    "removedChapterFront": 20,
+    "dedentedPages": 1,
+    "tables": 26,
+    "tablesGfm": 0,
+    "tablesList": 0,
+    "tablesOverride": 0,
+    "tablesVerbatim": 26
+  },
+  "tableOutcomes": {
+    "columns-out-of-range": 8,
+    "lossy": 8,
+    "too-few-rows": 3,
+    "ragged-rows": 7
+  },
+  "removedSamples": {
+    "runningHeaders": [],
+    "printPageNumbers": [
+      {
+        "page": 6,
+        "text": "- 1 -"
+      },
+      {
+        "page": 7,
+        "text": "- 2 -"
+      },
+      {
+        "page": 8,
+        "text": "- 3 -"
+      }
+    ],
+    "chapterFront": [
+      {
+        "page": 7,
+        "text": "第１編          共通編"
+      },
+      {
+        "page": 7,
+        "text": "第１章    総則"
+      },
+      {
+        "page": 14,
+        "text": "第２章   土   工"
+      },
+      {
+        "page": 14,
+        "text": "第２編     材       料     編"
+      },
+      {
+        "page": 14,
+        "text": "第１章   土木工事材料"
+      },
+      {
+        "page": 19,
+        "text": "第３編             土木工事共通編"
+      }
+    ]
+  },
+  "rejects": [],
+  "reviewQueue": [],
+  "acceptedReview": [],
+  "headerCorrections": [],
+  "chapters": [
+    {
+      "chapterId": "1-1",
+      "title": "第1編 共通編 第1章 総則",
+      "bookNumber": 1,
+      "bookTitle": "共通編",
+      "chapterNumber": 1,
+      "chapterTitle": "総則",
+      "file": "chapters/1-1.md",
+      "firstPage": 6,
+      "lastPage": 13,
+      "sourceParts": [
+        "part-01"
+      ],
+      "sourcePages": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "sourceSha256": "c35068f7e070d2f37e4cd04b788629736a75750cc4ae2b1522efd3956ef13ddb",
+      "outputSha256": "fe163b066583d150106c0a09e8dbc2a7844d12b6aa7f53cc9d9e8addbd602220",
+      "outputBytes": 35632,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "総則",
+          "headingText": "第1節 総則",
+          "firstPage": 7,
+          "lastPage": 13,
+          "articles": [
+            {
+              "number": "1-1-1",
+              "title": "主任技術者",
+              "headingText": "1-1-1 主任技術者",
+              "page": 7
+            },
+            {
+              "number": "1-1-2",
+              "title": "監理技術者",
+              "headingText": "1-1-2 監理技術者",
+              "page": 8
+            },
+            {
+              "number": "1-1-3",
+              "title": "専任補助者",
+              "headingText": "1-1-3 専任補助者",
+              "page": 8
+            },
+            {
+              "number": "1-1-4",
+              "title": "舗装施工管理技術者",
+              "headingText": "1-1-4 舗装施工管理技術者",
+              "page": 8
+            },
+            {
+              "number": "1-1-5",
+              "title": "建設副産物",
+              "headingText": "1-1-5 建設副産物",
+              "page": 8
+            },
+            {
+              "number": "1-1-6",
+              "title": "特定建設資材の分別解体等・再資源化等の適正な措置",
+              "headingText": "1-1-6 特定建設資材の分別解体等・再資源化等の適正な措置",
+              "page": 8
+            },
+            {
+              "number": "1-1-7",
+              "title": "土木工事標準設計図集",
+              "headingText": "1-1-7 土木工事標準設計図集",
+              "page": 9
+            },
+            {
+              "number": "1-1-8",
+              "title": "ワンデーレスポンス",
+              "headingText": "1-1-8 ワンデーレスポンス",
+              "page": 9
+            },
+            {
+              "number": "1-1-9",
+              "title": "工事書類の作成",
+              "headingText": "1-1-9 工事書類の作成",
+              "page": 9
+            },
+            {
+              "number": "1-1-10",
+              "title": "情報共有システム",
+              "headingText": "1-1-10 情報共有システム",
+              "page": 9
+            },
+            {
+              "number": "1-1-11",
+              "title": "工事の一時中止",
+              "headingText": "1-1-11 工事の一時中止",
+              "page": 10
+            },
+            {
+              "number": "1-1-12",
+              "title": "工事書類簡素化の試行",
+              "headingText": "1-1-12 工事書類簡素化の試行",
+              "page": 10
+            },
+            {
+              "number": "1-1-13",
+              "title": "デジタル工事写真の小黒板情報電子化",
+              "headingText": "1-1-13 デジタル工事写真の小黒板情報電子化",
+              "page": 10
+            },
+            {
+              "number": "1-1-14",
+              "title": "書類限定検査",
+              "headingText": "1-1-14 書類限定検査",
+              "page": 11
+            },
+            {
+              "number": "1-1-15",
+              "title": "ウィークリースタンス等の推進",
+              "headingText": "1-1-15 ウィークリースタンス等の推進",
+              "page": 11
+            },
+            {
+              "number": "1-1-16",
+              "title": "設計図書の照査",
+              "headingText": "1-1-16 設計図書の照査",
+              "page": 12
+            },
+            {
+              "number": "1-1-17",
+              "title": "施工計画書",
+              "headingText": "1-1-17 施工計画書",
+              "page": 12
+            },
+            {
+              "number": "1-1-18",
+              "title": "コリンズへの登録",
+              "headingText": "1-1-18 コリンズへの登録",
+              "page": 12
+            },
+            {
+              "number": "1-1-19",
+              "title": "工事工程の共有",
+              "headingText": "1-1-19 工事工程の共有",
+              "page": 12
+            },
+            {
+              "number": "1-1-20",
+              "title": "ＵＡＶを使用する際の安全面への配所について",
+              "headingText": "1-1-20 ＵＡＶを使用する際の安全面への配所について",
+              "page": 12
+            },
+            {
+              "number": "1-1-21",
+              "title": "建設リサイクル法第１１条通知完了連絡書の送付",
+              "headingText": "1-1-21 建設リサイクル法第１１条通知完了連絡書の送付",
+              "page": 12
+            },
+            {
+              "number": "1-1-22",
+              "title": "設計変更の手続き",
+              "headingText": "1-1-22 設計変更の手続き",
+              "page": 12
+            },
+            {
+              "number": "1-1-23",
+              "title": "設計変更審査会の開催",
+              "headingText": "1-1-23 設計変更審査会の開催",
+              "page": 12
+            },
+            {
+              "number": "1-1-24",
+              "title": "無人航空機を使用する際の情報流出防止策",
+              "headingText": "1-1-24 無人航空機を使用する際の情報流出防止策",
+              "page": 13
+            },
+            {
+              "number": "1-1-25",
+              "title": "資料の貸与",
+              "headingText": "1-1-25 資料の貸与",
+              "page": 13
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "sections": 1,
+        "articles": 25,
+        "clauses": 0,
+        "paragraphs": 141,
+        "items": 0,
+        "notes": 0,
+        "tables": 2,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 2
+      },
+      "tableOutcomes": {
+        "columns-out-of-range": 1,
+        "lossy": 1
+      },
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "1-2",
+      "title": "第1編 共通編 第2章 土工",
+      "bookNumber": 1,
+      "bookTitle": "共通編",
+      "chapterNumber": 2,
+      "chapterTitle": "土工",
+      "file": "chapters/1-2.md",
+      "firstPage": 14,
+      "lastPage": 14,
+      "sourceParts": [
+        "part-01"
+      ],
+      "sourcePages": [
+        14
+      ],
+      "sourceSha256": "4b06799d99a0a719f99e7093118503f740427327e6b45299d21ba075758cfa55",
+      "outputSha256": "fdb32186c811746fcf7d0045b136901905bf85c7f3e48fe72b653496abea1a1d",
+      "outputBytes": 767,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "土工一般",
+          "headingText": "第1節 土工一般",
+          "firstPage": 14,
+          "lastPage": 14,
+          "articles": []
+        }
+      ],
+      "stats": {
+        "sections": 1,
+        "articles": 0,
+        "clauses": 0,
+        "paragraphs": 10,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "2-1",
+      "title": "第2編 材料編 第1章 土木工事材料",
+      "bookNumber": 2,
+      "bookTitle": "材料編",
+      "chapterNumber": 1,
+      "chapterTitle": "土木工事材料",
+      "file": "chapters/2-1.md",
+      "firstPage": 14,
+      "lastPage": 19,
+      "sourceParts": [
+        "part-01"
+      ],
+      "sourcePages": [
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "sourceSha256": "b2bafcab8f91cec9238b7b027ef776e4ca8d6f3ffeea1d71f556fe03c7444a04",
+      "outputSha256": "9e923daf048200b67c44826b0a16499e49ea8a717041f798f5645cfb813dd189",
+      "outputBytes": 16035,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "鋼材",
+          "headingText": "第1節 鋼材",
+          "firstPage": 14,
+          "lastPage": 14,
+          "articles": [
+            {
+              "number": "1-1-1",
+              "title": "落石防止柵の亜鉛めっき",
+              "headingText": "1-1-1 落石防止柵の亜鉛めっき",
+              "page": 14
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "title": "セメントコンクリート製品",
+          "headingText": "第2節 セメントコンクリート製品",
+          "firstPage": 15,
+          "lastPage": 15,
+          "articles": [
+            {
+              "number": "1-2-1",
+              "title": "インターロッキングブロック",
+              "headingText": "1-2-1 インターロッキングブロック",
+              "page": 15
+            },
+            {
+              "number": "1-2-2",
+              "title": "コンクリート法留（プレキャスト製品）",
+              "headingText": "1-2-2 コンクリート法留（プレキャスト製品）",
+              "page": 15
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "title": "瀝青材料",
+          "headingText": "第3節 瀝青材料",
+          "firstPage": 17,
+          "lastPage": 17,
+          "articles": [
+            {
+              "number": "1-3-1",
+              "title": "アスファルト注入材料",
+              "headingText": "1-3-1 アスファルト注入材料",
+              "page": 17
+            },
+            {
+              "number": "1-3-2",
+              "title": "アスファルト混合物",
+              "headingText": "1-3-2 アスファルト混合物",
+              "page": 17
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "title": "塗料",
+          "headingText": "第4節 塗料",
+          "firstPage": 17,
+          "lastPage": 17,
+          "articles": [
+            {
+              "number": "1-4-1",
+              "title": "区画線",
+              "headingText": "1-4-1 区画線",
+              "page": 17
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "title": "その他",
+          "headingText": "第5節 その他",
+          "firstPage": 18,
+          "lastPage": 19,
+          "articles": [
+            {
+              "number": "1-5-1",
+              "title": "河川護岸用吸い出し防止シート",
+              "headingText": "1-5-1 河川護岸用吸い出し防止シート",
+              "page": 18
+            },
+            {
+              "number": "1-5-2",
+              "title": "無収縮モルタル",
+              "headingText": "1-5-2 無収縮モルタル",
+              "page": 18
+            },
+            {
+              "number": "1-5-3",
+              "title": "トンネル防水工",
+              "headingText": "1-5-3 トンネル防水工",
+              "page": 19
+            },
+            {
+              "number": "1-5-4",
+              "title": "雑石（沈石用）の確認",
+              "headingText": "1-5-4 雑石（沈石用）の確認",
+              "page": 19
+            },
+            {
+              "number": "1-5-5",
+              "title": "敷モルタル・目地モルタル",
+              "headingText": "1-5-5 敷モルタル・目地モルタル",
+              "page": 19
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "sections": 5,
+        "articles": 11,
+        "clauses": 0,
+        "paragraphs": 68,
+        "items": 0,
+        "notes": 0,
+        "tables": 10,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 10
+      },
+      "tableOutcomes": {
+        "lossy": 5,
+        "too-few-rows": 1,
+        "ragged-rows": 2,
+        "columns-out-of-range": 2
+      },
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "3-1",
+      "title": "第3編 土木工事共通編 第1章 総則",
+      "bookNumber": 3,
+      "bookTitle": "土木工事共通編",
+      "chapterNumber": 1,
+      "chapterTitle": "総則",
+      "file": "chapters/3-1.md",
+      "firstPage": 19,
+      "lastPage": 25,
+      "sourceParts": [
+        "part-01"
+      ],
+      "sourcePages": [
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "sourceSha256": "fdb285afa77d3cc6cae4d11e139e09a05bf63351a8cd65afaa5d7cb6ced3df76",
+      "outputSha256": "9a258be7af25fbf5a27480c322f8cb9672eaf107d26d9982cb54cab3f943b7c7",
+      "outputBytes": 23437,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "総則",
+          "headingText": "第1節 総則",
+          "firstPage": 19,
+          "lastPage": 25,
+          "articles": [
+            {
+              "number": "1-1-1",
+              "title": "出来形図及び出来形部分の数量",
+              "headingText": "1-1-1 出来形図及び出来形部分の数量",
+              "page": 19
+            },
+            {
+              "number": "1-1-2",
+              "title": "土木工事施工管理基準",
+              "headingText": "1-1-2 土木工事施工管理基準",
+              "page": 20
+            },
+            {
+              "number": "1-1-3",
+              "title": "施工管理",
+              "headingText": "1-1-3 施工管理",
+              "page": 20
+            },
+            {
+              "number": "1-1-4",
+              "title": "提出書類の様式",
+              "headingText": "1-1-4 提出書類の様式",
+              "page": 21
+            },
+            {
+              "number": "1-1-5",
+              "title": "交通安全管理",
+              "headingText": "1-1-5 交通安全管理",
+              "page": 21
+            },
+            {
+              "number": "1-1-6",
+              "title": "交通誘導警備員",
+              "headingText": "1-1-6 交通誘導警備員",
+              "page": 22
+            },
+            {
+              "number": "1-1-8",
+              "title": "品質管理の頻度",
+              "headingText": "1-1-8 品質管理の頻度",
+              "page": 23
+            },
+            {
+              "number": "1-1-9",
+              "title": "品質証明（社内検査）制度",
+              "headingText": "1-1-9 品質証明（社内検査）制度",
+              "page": 23
+            },
+            {
+              "number": "1-1-10",
+              "title": "中間技術検査",
+              "headingText": "1-1-10 中間技術検査",
+              "page": 23
+            },
+            {
+              "number": "1-1-11",
+              "title": "特定調達品目",
+              "headingText": "1-1-11 特定調達品目",
+              "page": 23
+            },
+            {
+              "number": "1-1-12",
+              "title": "工事現場における説明性の向上",
+              "headingText": "1-1-12 工事現場における説明性の向上",
+              "page": 23
+            },
+            {
+              "number": "1-1-13",
+              "title": "不可視部分の出来形管理",
+              "headingText": "1-1-13 不可視部分の出来形管理",
+              "page": 23
+            },
+            {
+              "number": "1-1-14",
+              "title": "遠隔臨場による立会等の簡素化",
+              "headingText": "1-1-14 遠隔臨場による立会等の簡素化",
+              "page": 23
+            },
+            {
+              "number": "1-1-15",
+              "title": "遠隔臨場による工事検査",
+              "headingText": "1-1-15 遠隔臨場による工事検査",
+              "page": 24
+            },
+            {
+              "number": "1-1-16",
+              "title": "総価契約単価合意方式について",
+              "headingText": "1-1-16 総価契約単価合意方式について",
+              "page": 25
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "sections": 1,
+        "articles": 15,
+        "clauses": 0,
+        "paragraphs": 77,
+        "items": 0,
+        "notes": 0,
+        "tables": 4,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 4
+      },
+      "tableOutcomes": {
+        "columns-out-of-range": 2,
+        "too-few-rows": 1,
+        "ragged-rows": 1
+      },
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "3-2",
+      "title": "第3編 土木工事共通編 第2章 一般施工",
+      "bookNumber": 3,
+      "bookTitle": "土木工事共通編",
+      "chapterNumber": 2,
+      "chapterTitle": "一般施工",
+      "file": "chapters/3-2.md",
+      "firstPage": 25,
+      "lastPage": 26,
+      "sourceParts": [
+        "part-01"
+      ],
+      "sourcePages": [
+        25,
+        26
+      ],
+      "sourceSha256": "6669b99eb801e07f2c244d0675e95b85c95f6ccc48b913f000915687abbf95db",
+      "outputSha256": "d5c85b6ffe56a12bbd74564d6ad1f0a8b1a296db2d5b28833399526eff9e4f1c",
+      "outputBytes": 1096,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "共通的工種",
+          "headingText": "第1節 共通的工種",
+          "firstPage": 25,
+          "lastPage": 25,
+          "articles": [
+            {
+              "number": "2-1-1",
+              "title": "ハット型鋼矢板",
+              "headingText": "2-1-1 ハット型鋼矢板",
+              "page": 25
+            },
+            {
+              "number": "2-1-2",
+              "title": "グラウトの施工",
+              "headingText": "2-1-2 グラウトの施工",
+              "page": 25
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "title": "一般舗装工",
+          "headingText": "第2節 一般舗装工",
+          "firstPage": 26,
+          "lastPage": 26,
+          "articles": [
+            {
+              "number": "2-2-1",
+              "title": "コンクリート舗装養生剤",
+              "headingText": "2-2-1 コンクリート舗装養生剤",
+              "page": 26
+            },
+            {
+              "number": "2-2-2",
+              "title": "石粉",
+              "headingText": "2-2-2 石粉",
+              "page": 26
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "sections": 2,
+        "articles": 4,
+        "clauses": 0,
+        "paragraphs": 4,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "6-1",
+      "title": "第6編 河川編 第1章 総則",
+      "bookNumber": 6,
+      "bookTitle": "河川編",
+      "chapterNumber": 1,
+      "chapterTitle": "総則",
+      "file": "chapters/6-1.md",
+      "firstPage": 26,
+      "lastPage": 27,
+      "sourceParts": [
+        "part-01"
+      ],
+      "sourcePages": [
+        26,
+        27
+      ],
+      "sourceSha256": "b4c48f0954e8728a1e0db0c804c5e527fc4243c4393ee2dbea20120af2872dd9",
+      "outputSha256": "a754c36fd22a0e2fbe4bcbd4a830f4f373dec265b82673d579081c23031aae2c",
+      "outputBytes": 3524,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "仮量水標",
+          "headingText": "第1節 仮量水標",
+          "firstPage": 26,
+          "lastPage": 26,
+          "articles": [
+            {
+              "number": "1-1-1",
+              "title": "水位の観測",
+              "headingText": "1-1-1 水位の観測",
+              "page": 26
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "title": "護岸法覆工",
+          "headingText": "第2節 護岸法覆工",
+          "firstPage": 26,
+          "lastPage": 26,
+          "articles": [
+            {
+              "number": "1-2-1",
+              "title": "法覆工及び法留工",
+              "headingText": "1-2-1 法覆工及び法留工",
+              "page": 26
+            },
+            {
+              "number": "1-2-2",
+              "title": "連節ブロック張工",
+              "headingText": "1-2-2 連節ブロック張工",
+              "page": 26
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "title": "標示板",
+          "headingText": "第3節 標示板",
+          "firstPage": 26,
+          "lastPage": 27,
+          "articles": [
+            {
+              "number": "1-3-1",
+              "title": "護岸",
+              "headingText": "1-3-1 護岸",
+              "page": 26
+            },
+            {
+              "number": "1-3-2",
+              "title": "水門、樋門、樋管",
+              "headingText": "1-3-2 水門、樋門、樋管",
+              "page": 27
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "sections": 3,
+        "articles": 5,
+        "clauses": 0,
+        "paragraphs": 22,
+        "items": 0,
+        "notes": 0,
+        "tables": 2,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 2
+      },
+      "tableOutcomes": {
+        "ragged-rows": 2
+      },
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "7-1",
+      "title": "第7編 河川海岸編 第1章 総則",
+      "bookNumber": 7,
+      "bookTitle": "河川海岸編",
+      "chapterNumber": 1,
+      "chapterTitle": "総則",
+      "file": "chapters/7-1.md",
+      "firstPage": 27,
+      "lastPage": 27,
+      "sourceParts": [
+        "part-01"
+      ],
+      "sourcePages": [
+        27
+      ],
+      "sourceSha256": "8b2270e7dd1cdd09e977a92a94e7cc0db16efb7bc371b562f7b8b4557b6aed52",
+      "outputSha256": "48348e1c67b9497f983b3f75535d0b3160c213a4a48c78361d93f467d1e68f9b",
+      "outputBytes": 1082,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "標示板",
+          "headingText": "第1節 標示板",
+          "firstPage": 27,
+          "lastPage": 27,
+          "articles": [
+            {
+              "number": "1-1-1",
+              "title": "標示板",
+              "headingText": "1-1-1 標示板",
+              "page": 27
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "sections": 1,
+        "articles": 1,
+        "clauses": 0,
+        "paragraphs": 10,
+        "items": 0,
+        "notes": 0,
+        "tables": 1,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 1
+      },
+      "tableOutcomes": {
+        "ragged-rows": 1
+      },
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "8-1",
+      "title": "第8編 砂防編 第1章 総則",
+      "bookNumber": 8,
+      "bookTitle": "砂防編",
+      "chapterNumber": 1,
+      "chapterTitle": "総則",
+      "file": "chapters/8-1.md",
+      "firstPage": 28,
+      "lastPage": 29,
+      "sourceParts": [
+        "part-01"
+      ],
+      "sourcePages": [
+        28,
+        29
+      ],
+      "sourceSha256": "b97354434a530322803dc893b03e139f6da1a5fd7c3c06592e0ed5fdc5d66490",
+      "outputSha256": "cd048296fbbcba03c9ce703feedb038113a7d61c71b887e23092390116b623c9",
+      "outputBytes": 3960,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "仮量水標",
+          "headingText": "第1節 仮量水標",
+          "firstPage": 28,
+          "lastPage": 28,
+          "articles": [
+            {
+              "number": "1-1-1",
+              "title": "水位の観測",
+              "headingText": "1-1-1 水位の観測",
+              "page": 28
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "title": "コンクリート堰堤",
+          "headingText": "第2節 コンクリート堰堤",
+          "firstPage": 28,
+          "lastPage": 28,
+          "articles": [
+            {
+              "number": "1-2-1",
+              "title": "モルタル",
+              "headingText": "1-2-1 モルタル",
+              "page": 28
+            },
+            {
+              "number": "1-2-2",
+              "title": "間詰工",
+              "headingText": "1-2-2 間詰工",
+              "page": 28
+            },
+            {
+              "number": "1-2-3",
+              "title": "水抜暗渠工",
+              "headingText": "1-2-3 水抜暗渠工",
+              "page": 28
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "title": "残存型枠",
+          "headingText": "第3節 残存型枠",
+          "firstPage": 28,
+          "lastPage": 28,
+          "articles": [
+            {
+              "number": "1-3-1",
+              "title": "残存型枠(外壁兼用型)",
+              "headingText": "1-3-1 残存型枠(外壁兼用型)",
+              "page": 28
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "sections": 3,
+        "articles": 5,
+        "clauses": 0,
+        "paragraphs": 10,
+        "items": 2,
+        "notes": 0,
+        "tables": 1,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 1
+      },
+      "tableOutcomes": {
+        "lossy": 1
+      },
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "10-1",
+      "title": "第10編 道路編 第1章 舗装",
+      "bookNumber": 10,
+      "bookTitle": "道路編",
+      "chapterNumber": 1,
+      "chapterTitle": "舗装",
+      "file": "chapters/10-1.md",
+      "firstPage": 29,
+      "lastPage": 31,
+      "sourceParts": [
+        "part-01"
+      ],
+      "sourcePages": [
+        29,
+        30,
+        31
+      ],
+      "sourceSha256": "cd2ce5f36bfc97bebb733d5f4564d5ec0698cad44b309304bd44be7a70db8592",
+      "outputSha256": "5e81f2476dcbdaf4dfda91bb112f20f47bc6c307b4a8794ce14848eb7c93ac5b",
+      "outputBytes": 14855,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "アスファルト舗装工",
+          "headingText": "第1節 アスファルト舗装工",
+          "firstPage": 29,
+          "lastPage": 30,
+          "articles": [
+            {
+              "number": "1-1-1",
+              "title": "骨材",
+              "headingText": "1-1-1 骨材",
+              "page": 29
+            },
+            {
+              "number": "1-1-2",
+              "title": "マーシャル安定度基準値",
+              "headingText": "1-1-2 マーシャル安定度基準値",
+              "page": 29
+            },
+            {
+              "number": "1-1-3",
+              "title": "動的安定度",
+              "headingText": "1-1-3 動的安定度",
+              "page": 30
+            },
+            {
+              "number": "1-1-4",
+              "title": "配合設計",
+              "headingText": "1-1-4 配合設計",
+              "page": 30
+            },
+            {
+              "number": "1-1-5",
+              "title": "締固め度",
+              "headingText": "1-1-5 締固め度",
+              "page": 30
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "title": "ブロック舗装工",
+          "headingText": "第2節 ブロック舗装工",
+          "firstPage": 30,
+          "lastPage": 30,
+          "articles": [
+            {
+              "number": "1-2-1",
+              "title": "インターロッキングブロック舗装",
+              "headingText": "1-2-1 インターロッキングブロック舗装",
+              "page": 30
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "title": "踏掛版工",
+          "headingText": "第3節 踏掛版工",
+          "firstPage": 30,
+          "lastPage": 30,
+          "articles": [
+            {
+              "number": "1-3-1",
+              "title": "施工",
+              "headingText": "1-3-1 施工",
+              "page": 30
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "title": "排水性舗装工",
+          "headingText": "第4節 排水性舗装工",
+          "firstPage": 30,
+          "lastPage": 31,
+          "articles": [
+            {
+              "number": "1-4-1",
+              "title": "材料",
+              "headingText": "1-4-1 材料",
+              "page": 30
+            },
+            {
+              "number": "1-4-2",
+              "title": "排水性混合物の目標値",
+              "headingText": "1-4-2 排水性混合物の目標値",
+              "page": 31
+            },
+            {
+              "number": "1-4-3",
+              "title": "排水性混合物の管理項目",
+              "headingText": "1-4-3 排水性混合物の管理項目",
+              "page": 31
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "sections": 4,
+        "articles": 10,
+        "clauses": 0,
+        "paragraphs": 18,
+        "items": 2,
+        "notes": 0,
+        "tables": 6,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 6
+      },
+      "tableOutcomes": {
+        "columns-out-of-range": 3,
+        "ragged-rows": 1,
+        "lossy": 1,
+        "too-few-rows": 1
+      },
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "10-2",
+      "title": "第10編 道路編 第2章 鋼橋上部",
+      "bookNumber": 10,
+      "bookTitle": "道路編",
+      "chapterNumber": 2,
+      "chapterTitle": "鋼橋上部",
+      "file": "chapters/10-2.md",
+      "firstPage": 31,
+      "lastPage": 32,
+      "sourceParts": [
+        "part-01"
+      ],
+      "sourcePages": [
+        31,
+        32
+      ],
+      "sourceSha256": "b10b6b4acd130c0a2e6b27d75a6319b5a28ec69726e4d0f46c7d57cc37a10978",
+      "outputSha256": "3cd88ec5825cc90ed4bdaea5e9a3093b6b73f318a9dfd1433c1e14e88584e593",
+      "outputBytes": 2720,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "橋梁現場塗装工",
+          "headingText": "第1節 橋梁現場塗装工",
+          "firstPage": 31,
+          "lastPage": 31,
+          "articles": [
+            {
+              "number": "2-1-1",
+              "title": "材料",
+              "headingText": "2-1-1 材料",
+              "page": 31
+            },
+            {
+              "number": "2-1-2",
+              "title": "橋梁塗装塗替",
+              "headingText": "2-1-2 橋梁塗装塗替",
+              "page": 31
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "title": "床版工",
+          "headingText": "第2節 床版工",
+          "firstPage": 32,
+          "lastPage": 32,
+          "articles": [
+            {
+              "number": "2-2-1",
+              "title": "床版工",
+              "headingText": "2-2-1 床版工",
+              "page": 32
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "title": "橋梁付属物工",
+          "headingText": "第3節 橋梁付属物工",
+          "firstPage": 32,
+          "lastPage": 32,
+          "articles": [
+            {
+              "number": "2-3-1",
+              "title": "伸縮装置工",
+              "headingText": "2-3-1 伸縮装置工",
+              "page": 32
+            },
+            {
+              "number": "2-3-2",
+              "title": "架設用付属物",
+              "headingText": "2-3-2 架設用付属物",
+              "page": 32
+            },
+            {
+              "number": "2-3-3",
+              "title": "落橋防止装置工",
+              "headingText": "2-3-3 落橋防止装置工",
+              "page": 32
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "sections": 3,
+        "articles": 6,
+        "clauses": 0,
+        "paragraphs": 9,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "10-3",
+      "title": "第10編 道路編 第3章 コンクリート橋上部",
+      "bookNumber": 10,
+      "bookTitle": "道路編",
+      "chapterNumber": 3,
+      "chapterTitle": "コンクリート橋上部",
+      "file": "chapters/10-3.md",
+      "firstPage": 32,
+      "lastPage": 32,
+      "sourceParts": [
+        "part-01"
+      ],
+      "sourcePages": [
+        32
+      ],
+      "sourceSha256": "2258c9d16a350ef60563c2e9871439bbb9ae68b4ca42e2fec001987bdff9d041",
+      "outputSha256": "9d9ebb60091de6118e520218009f92df71998e95f653fa8136c474454a78c983",
+      "outputBytes": 673,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "橋梁付属物工",
+          "headingText": "第1節 橋梁付属物工",
+          "firstPage": 32,
+          "lastPage": 32,
+          "articles": [
+            {
+              "number": "3-1-1",
+              "title": "伸縮装置工",
+              "headingText": "3-1-1 伸縮装置工",
+              "page": 32
+            },
+            {
+              "number": "3-1-2",
+              "title": "ＰＣ定着工法",
+              "headingText": "3-1-2 ＰＣ定着工法",
+              "page": 32
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "sections": 1,
+        "articles": 2,
+        "clauses": 0,
+        "paragraphs": 3,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "10-4",
+      "title": "第10編 道路編 第4章 トンネル",
+      "bookNumber": 10,
+      "bookTitle": "道路編",
+      "chapterNumber": 4,
+      "chapterTitle": "トンネル",
+      "file": "chapters/10-4.md",
+      "firstPage": 32,
+      "lastPage": 33,
+      "sourceParts": [
+        "part-01"
+      ],
+      "sourcePages": [
+        32,
+        33
+      ],
+      "sourceSha256": "b39558425efd24940e86963a247a59c57e31decc9a776932e4156a4e1efbdc76",
+      "outputSha256": "dd9a01f87408c5425888dbedc71b027cb365fbd6f1f3d326b7a53a0857cdc2fc",
+      "outputBytes": 1933,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "支保工",
+          "headingText": "第1節 支保工",
+          "firstPage": 32,
+          "lastPage": 32,
+          "articles": [
+            {
+              "number": "4-1-1",
+              "title": "支保工間隔",
+              "headingText": "4-1-1 支保工間隔",
+              "page": 32
+            },
+            {
+              "number": "4-1-2",
+              "title": "ロックボルト",
+              "headingText": "4-1-2 ロックボルト",
+              "page": 32
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "title": "覆工",
+          "headingText": "第2節 覆工",
+          "firstPage": 32,
+          "lastPage": 32,
+          "articles": [
+            {
+              "number": "4-2-1",
+              "title": "覆工コンクリートの打設量",
+              "headingText": "4-2-1 覆工コンクリートの打設量",
+              "page": 32
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "title": "銘板工",
+          "headingText": "第3節 銘板工",
+          "firstPage": 33,
+          "lastPage": 33,
+          "articles": [
+            {
+              "number": "4-3-1",
+              "title": "銘板工の仕様等",
+              "headingText": "4-3-1 銘板工の仕様等",
+              "page": 33
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "sections": 3,
+        "articles": 4,
+        "clauses": 0,
+        "paragraphs": 9,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    },
+    {
+      "chapterId": "10-5",
+      "title": "第10編 道路編 第5章 道路維持",
+      "bookNumber": 10,
+      "bookTitle": "道路編",
+      "chapterNumber": 5,
+      "chapterTitle": "道路維持",
+      "file": "chapters/10-5.md",
+      "firstPage": 33,
+      "lastPage": 34,
+      "sourceParts": [
+        "part-01"
+      ],
+      "sourcePages": [
+        33,
+        34
+      ],
+      "sourceSha256": "d0161a12f360144f5c2d1222530d3248de94bc291c11562f940ea8b04828b9fb",
+      "outputSha256": "26d682622fb8881a4de982d62ae0ad889b4ba35d38566b69a40d0246cefea121",
+      "outputBytes": 2721,
+      "splitBySection": false,
+      "sections": [
+        {
+          "number": 1,
+          "title": "コンクリート舗装補修工",
+          "headingText": "第1節 コンクリート舗装補修工",
+          "firstPage": 33,
+          "lastPage": 33,
+          "articles": [
+            {
+              "number": "5-1-1",
+              "title": "再注入",
+              "headingText": "5-1-1 再注入",
+              "page": 33
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "title": "舗装工",
+          "headingText": "第2節 舗装工",
+          "firstPage": 33,
+          "lastPage": 33,
+          "articles": [
+            {
+              "number": "5-2-1",
+              "title": "舗装打換え工",
+              "headingText": "5-2-1 舗装打換え工",
+              "page": 33
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "title": "路肩及び法面",
+          "headingText": "第3節 路肩及び法面",
+          "firstPage": 33,
+          "lastPage": 33,
+          "articles": [
+            {
+              "number": "5-3-1",
+              "title": "除草一般",
+              "headingText": "5-3-1 除草一般",
+              "page": 33
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "title": "清掃作業",
+          "headingText": "第4節 清掃作業",
+          "firstPage": 33,
+          "lastPage": 33,
+          "articles": [
+            {
+              "number": "5-4-1",
+              "title": "清掃作業",
+              "headingText": "5-4-1 清掃作業",
+              "page": 33
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "title": "災害応急処置",
+          "headingText": "第5節 災害応急処置",
+          "firstPage": 34,
+          "lastPage": 34,
+          "articles": [
+            {
+              "number": "5-5-1",
+              "title": "災害応急処置",
+              "headingText": "5-5-1 災害応急処置",
+              "page": 34
+            }
+          ]
+        }
+      ],
+      "stats": {
+        "sections": 5,
+        "articles": 5,
+        "clauses": 0,
+        "paragraphs": 7,
+        "items": 0,
+        "notes": 0,
+        "tables": 0,
+        "captions": 0,
+        "tablesGfm": 0,
+        "tablesList": 0,
+        "tablesOverride": 0,
+        "tablesVerbatim": 0
+      },
+      "tableOutcomes": {},
+      "indexable": true,
+      "duplicateOf": null,
+      "reviewStatus": "clean"
+    }
+  ]
+}
