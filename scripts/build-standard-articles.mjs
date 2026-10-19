@@ -258,7 +258,10 @@ function renderChapter(chapter, tableOutcomes = [], tableOverrides = new Map(), 
   // すると見出しレベルが飛ぶので、条が無い節の項は H3 へ繰り上げる。入れ子の深さは変わらない。
   let sectionHasArticle = false;
   // 節を持たない章（工事必携の要綱は `第１章 総則` の下に `第１ 目的` が直に並ぶ）は条を H2 に上げる
-  const base = chapter.nodes.some((node) => node.role === 'heading' && node.kind === 'section') ? 2 : 1;
+  const hasSection = chapter.nodes.some((node) => node.role === 'heading' && node.kind === 'section');
+  // 最初の節より前の条・項（手引きの冒頭の `1. 施工体制台帳`）は H2 から始める（H1→H3 の飛び越しを作らない）
+  let sectionOpen = false;
+  const levelBase = () => (hasSection && sectionOpen ? 2 : 1);
   // 「適用すべき諸基準」の節・条の中の表領域は基準類の一覧なので、専用の組み直しを先に試す
   let inStandardsList = false;
   // 版面のまま残った表の台帳（--table-inventory）に、どの見出しの下の表かを残す
@@ -275,14 +278,15 @@ function renderChapter(chapter, tableOutcomes = [], tableOverrides = new Map(), 
       lastHeading = node.raw;
       if (node.kind === 'section') {
         sectionHasArticle = false;
+        sectionOpen = true;
         inStandardsList = STANDARDS_LIST_SCOPE.test(node.title);
         push(`## 第${node.number}節 ${escapeInline(node.title)}`);
       } else if (node.kind === 'article') {
         sectionHasArticle = true;
         inStandardsList = STANDARDS_LIST_SCOPE.test(node.title);
-        push(`${'#'.repeat(base + 1)} ${node.number} ${escapeInline(node.title)}`);
+        push(`${'#'.repeat(levelBase() + 1)} ${node.number} ${escapeInline(node.title)}`);
       } else {
-        push(`${'#'.repeat(sectionHasArticle ? base + 2 : base + 1)} ${node.number}. ${escapeInline(node.title)}`);
+        push(`${'#'.repeat(sectionHasArticle ? levelBase() + 2 : levelBase() + 1)} ${node.number}. ${escapeInline(node.title)}`);
       }
       continue;
     }
@@ -510,6 +514,8 @@ export function buildDocument(document, overrides, { write = true, verbatimTable
   );
 
   const chapters = analysis.chapters.map((chapter) => {
+    // 冊子の項目（近畿の必携の 14 項 公衆災害防止対策要綱など）が他の収録の方を索引に載せる側なら、その章は載せない
+    const itemEdition = chapter.item ? editionDuplicateOf(overrides, `${document.agencyId}/${document.documentId}`, chapter.item) : null;
     const tableOutcomes = [];
     const chapterTables = [];
     const amendmentPages = amendment?.byChapter.get(chapter.chapterId) ?? null;
@@ -549,10 +555,12 @@ export function buildDocument(document, overrides, { write = true, verbatimTable
       sections,
       ...(chapterArticles.length ? { articles: chapterArticles } : {}),
       ...(chapter.plainArticles ? { plainArticles: true } : {}),
+      ...(chapter.item ? { item: chapter.item } : {}),
+      ...(itemEdition ? { editionCanonical: itemEdition.canonical } : {}),
       stats: { ...countNodes(chapter), ...tallyTables(tableOutcomes) },
       tableOutcomes: tallyReasons(tableOutcomes),
       // 本文の無い章は中身が章名だけなので検索に載せない（読める状態は保つ）
-      indexable: indexable && !bodyless,
+      indexable: indexable && !bodyless && !itemEdition,
       ...(bodyless ? { bodyless: true } : {}),
       ...(amendmentPages || rows.length
         ? {

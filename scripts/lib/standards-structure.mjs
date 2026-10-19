@@ -85,7 +85,7 @@ const RE_ARTICLE_3 = /^[\s　]{0,9}([0-9０-９]+)[-－]([0-9０-９]+)[-－]([0
  *   printPagePattern     印刷ページ番号の形を正規表現の文字列で与える（九州の必携は `通 4−1 1` のように編の略称が付く）
  *   printPageRequired    false なら印刷ページ番号の無いページを review に出さない（原本が一部のページにしか刷っていない文書）
  *   fullWidthClauses     true なら全角数字の項番号（`３．材料`）も項として読む
- *   articleStyle         "dai" なら `第１ 目的` の形（要綱の第N）を条の見出しにする（番号の整合は見ない）
+ *   articleStyle         "none" なら条を読まない（本文が共通仕様書の条番号を引く手引き）。"dai" なら `第１ 目的` の形（要綱の第N）を条の見出しにする（番号の整合は見ない）
  */
 function dialectOf(override) {
   const header = override.runningHeaderPrefix;
@@ -375,7 +375,9 @@ function classifyHeading(line, context) {
   if (section) {
     return { kind: 'section', number: toInt(section[1]), title: normalizeTitle(section[2]) };
   }
-  const article = line.match(context.articlePattern ?? RE_ARTICLE);
+  // 条を持たない文書（書類作成マニュアル・手引き）は本文中の共通仕様書の条番号 `1-1-1-3` を見出しにしない
+  // 要綱（dai）も条は `第N` だけで、本文中の `1-1-1-2` は共通仕様書への参照
+  const article = context.articleStyle === 'none' || context.articleStyle === 'dai' ? null : line.match(context.articlePattern ?? RE_ARTICLE);
   if (article && context.articleParts === 3) {
     // 3 段の条番号は 章-節-条（編を持たない）なので、章・節で整合を見る
     const [c, sec, a] = article.slice(1, 4).map(toInt);
@@ -695,6 +697,7 @@ const toHalfWidth = (text) => text.replace(/[０-９]/g, (c) => String.fromCharC
  *   { "page": 2, "match": "第１章 総則" }               … 章の見出し。行を除き、新しい章を始める
  *   { "page": 66, "match": "…について", "book": true, "chapter": true } … 編と、その題名の章を同時に始める
  *   { …, "plainArticles": true }                       … その章では要綱の `第N` を条の見出しにしない（見直し内容の抜き書きなど）
+ *   { …, "book": true, "item": 14 }                      … 冊子の項目番号（近畿の必携の総目次の番号）。章に item を持たせ、設定 editionCanonical の項目と結ぶ
  *   { "page": 81, "match": "…の解説", "front": true }    … ここから次の項目までを中扉・目次として章に入れない
  *                                                          （removed.outlineFront に積み、ページは前付けと同じく章の外に数える）
  * match は空白を無視してそのページのちょうど 1 行に一致しなければならない（0 行・2 行以上は例外）。
@@ -722,9 +725,9 @@ function chaptersFromOutline(bodyPages, override, removed, document) {
   let book = null;
   let bookCount = 0;
   const chapterCountByBook = new Map();
-  const openBook = (title, label) => {
+  const openBook = (title, label, item = null) => {
     bookCount += 1;
-    book = { number: bookCount, title, label };
+    book = { number: bookCount, title, label, item };
   };
   for (const page of bodyPages) {
     const firstContent = page.lines.findIndex((line) => line.trim());
@@ -773,7 +776,7 @@ function chaptersFromOutline(bodyPages, override, removed, document) {
       }
       removed.chapterFront.push({ page: page.page, text: trimBoth(line) });
       if (anchor.book) {
-        openBook(anchor.bookTitle ?? (anchor.chapter ? null : anchor.title) ?? normalizeTitle(trimBoth(line)), anchor.label && !anchor.chapter ? anchor.label : null);
+        openBook(anchor.bookTitle ?? (anchor.chapter ? null : anchor.title) ?? normalizeTitle(trimBoth(line)), anchor.label && !anchor.chapter ? anchor.label : null, anchor.item ?? null);
         if (!anchor.chapter) return;
       }
       if (!book) openBook(override.outlineBook ?? document.title, null);
@@ -791,6 +794,7 @@ function chaptersFromOutline(bodyPages, override, removed, document) {
         chapterTitle: anchor.title ?? normalizeTitle(parsed ? parsed[2] : trimBoth(line)),
         chapterLabel: anchor.label ?? (parsed ? compact(toHalfWidth(parsed[1])) : ''),
         ...(anchor.plainArticles ? { plainArticles: true } : {}),
+        ...(book.item ? { item: book.item } : {}),
         pages: [],
       };
       chapters.push(current);

@@ -168,12 +168,13 @@ export type StandardEditionDuplicate = {
 
 /**
  * 同じ要綱を他の機関・版でも収録していて、この文書は索引に載せない側か（設定 editionCanonical）。
- * 載せない側なら群の情報を返す。判定は src/lib/standards-editions.mjs（生成器と同じ関数）。
+ * item を渡すと冊子の項目（近畿の必携の 14 項など）で見る。載せない側なら群の情報を返す。判定は src/lib/standards-editions.mjs（生成器と同じ関数）。
  */
 export function getStandardEditionDuplicate(
   document: Pick<StandardDocument, 'agencyId' | 'documentId'>,
+  item: number | null = null,
 ): StandardEditionDuplicate | null {
-  const found = editionDuplicateOf(structureConfig, `${document.agencyId}/${document.documentId}`);
+  const found = editionDuplicateOf(structureConfig, `${document.agencyId}/${document.documentId}`, item);
   if (!found) return null;
   return { title: found.group.title, edition: found.entry.edition, canonical: found.canonical, reason: found.entry.reason };
 }

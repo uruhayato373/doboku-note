@@ -241,6 +241,8 @@ function checkPageCoverage(def, { manifest, analysis }) {
     const count = counts.get(p) ?? 0;
     if (count === 0) missing.push(p);
     else if (count > 1 && isBoundary(p)) shared += 1;
+    // 中扉・目次（outline の front）が章の途中のページで始まる・終わるときは、そのページを中扉と章が分け合う
+    else if (count === 2 && owners.get(p).includes('中扉・目次') && owners.get(p).some((id) => byId.get(id)?.firstPage === p || byId.get(id)?.lastPage === p)) shared += 1;
     else if (count > 1) duplicated.push(`p${p} は ${count} 箇所（${owners.get(p).join(', ')}）`);
   }
   const outOfRange = [...counts.keys()].filter((p) => p < 1 || p > total);
@@ -327,7 +329,8 @@ function checkNumbering(def, { manifest }) {
     for (const article of chapter.articles ?? []) {
       const number = Number(String(article.number).replace(/^第/, ''));
       const prev = lastArticleByBook.get(chapter.bookNumber) ?? 0;
-      if (number !== prev + 1) violations.push(`${chapter.chapterId}: 条「${article.number} ${article.title}」が連番でない（直前 第${prev}）`);
+      // 第1 からのやり直しは同じ編の中の別の要綱・別の編（公衆災害防止対策要綱の建築工事等編）
+      if (number !== prev + 1 && number !== 1) violations.push(`${chapter.chapterId}: 条「${article.number} ${article.title}」が連番でない（直前 第${prev}）`);
       lastArticleByBook.set(chapter.bookNumber, number);
     }
   }
@@ -379,7 +382,8 @@ function checkHeadingLevels(def, { manifest, agencyId, documentId }) {
     }
     const headings = parseHeadings(text);
     // 設定で条の見出しを止めた章（plainArticles・要綱の見直し内容の説明資料）は見出しを持たないのが正しい
-    if (headings.length === 0 && !chapter.bodyless && !chapter.plainArticles) violations.push(`${chapter.file}: 見出しが 1 件も無い`);
+    // 目次（outline）で切った手引き・様式集の章は節・条・項を持たないのが原本どおり（章の始まりは outline が検査済み）
+    if (headings.length === 0 && !chapter.bodyless && !chapter.plainArticles && manifest.chapterSource !== 'outline') violations.push(`${chapter.file}: 見出しが 1 件も無い`);
     checked += headings.length;
     // ページ側の H1 を親とみなすので直前レベルの初期値は 1。
     let previous = 1;
@@ -662,7 +666,7 @@ const TABLE_REASONS = new Set([
  * 出力された GFM のセルを連結したものが原典ページの本文に実在することを独立に確認する
  * （生成器と検査で同じ関数を使うと、その関数のバグは永久に見つからない）。
  */
-function checkTables(def, { manifest, agencyId, documentId, document, overrides }) {
+function checkTables(def, { manifest, agencyId, documentId, document, overrides, analysis }) {
   const violations = [];
   const notes = [];
   let gfmFound = 0;
@@ -713,7 +717,12 @@ function checkTables(def, { manifest, agencyId, documentId, document, overrides 
   };
 
   // 原典ページの本文（空白除去）をページ単位で用意し、GFM セルの実在確認に使う。
-  // pageBody は最初と最後の非空行（柱・印刷ページ番号）を除いたもので、ページをまたぐ表の照合に使う。
+  // pageBody は解析が柱・印刷ページ番号として除いた行を除いたもので、ページをまたぐ表の照合に使う
+  // （柱の無い文書もあるので「最初と最後の行」と決め打ちしない）。
+  const furniture = new Map();
+  for (const entry of [...(analysis?.removed.runningHeaders ?? []), ...(analysis?.removed.printPageNumbers ?? [])]) {
+    furniture.set(entry.page, [...(furniture.get(entry.page) ?? []), entry.text]);
+  }
   const pageText = new Map();
   const pageBody = new Map();
   for (const part of document.parts) {
@@ -726,7 +735,14 @@ function checkTables(def, { manifest, agencyId, documentId, document, overrides 
       if (!body) return;
       pageText.set(Number(match[1]), body[1].replace(/[\s　]/g, ''));
       const content = body[1].split('\n').filter((line) => line.trim() !== '');
-      pageBody.set(Number(match[1]), content.slice(1, -1).join('').replace(/[\s　]/g, ''));
+      const removedLines = [...(furniture.get(Number(match[1])) ?? [])];
+      const kept = content.filter((line) => {
+        const at = removedLines.indexOf(line.replace(/^[\s　]+|[\s　]+$/g, ''));
+        if (at < 0) return true;
+        removedLines.splice(at, 1);
+        return false;
+      });
+      pageBody.set(Number(match[1]), kept.join('').replace(/[\s　]/g, ''));
     });
   }
 
@@ -1102,7 +1118,11 @@ function checkReadability([midDef, strayDef, brokenDef], { manifest, agencyId, d
     const text = stripAmendmentBlocks(raw);
     chaptersChecked += 1;
     const blocks = text.split(/\n\n+/);
+    // 版面保持のコードブロックは中に空行を持つ。その中の `|` 行（原文が表の形で持つ様式）は 19 で表と数えない
+    let fenceOpen = false;
     blocks.forEach((block, i) => {
+      const insideCode = fenceOpen;
+      if (((block.match(/^```/gm) ?? []).length) % 2 === 1) fenceOpen = !fenceOpen;
       const kind = kindOf(block);
       const body = block.replace(/^> /, '').trim();
       if (kind === 'para') {
@@ -1117,7 +1137,7 @@ function checkReadability([midDef, strayDef, brokenDef], { manifest, agencyId, d
         );
         if (body.length <= 25 && !body.includes('。') && nearTable) stray.push(`${chapter.chapterId}: ${body}`);
       }
-      if (kind === 'table') {
+      if (kind === 'table' && !insideCode) {
         const rows = block
           .split('\n')
           .filter((line) => line.startsWith('|') && !/^\|( *-{3,} *\|)+$/.test(line))

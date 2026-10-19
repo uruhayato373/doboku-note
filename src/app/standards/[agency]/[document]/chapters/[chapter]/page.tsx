@@ -210,7 +210,7 @@ export default async function StandardChapterPage({ params }: { params: Promise<
           </div>
           {/* 転職の案内は本文の外の末尾に 1 枠（右のナビ欄には置かない＝StandardsNavigation は閲覧ナビ専用）。案件は配置ルール */}
           <AffiliateSlot page={{ pageKind: 'standards' }} slot="standards-end" className="mt-6" />
-          <StandardsAttribution document={entry} />
+          <StandardsAttribution document={entry} item={target.item} />
         </SectionCard>
       </TwoColumnShell>
     </PageShell>
