@@ -301,7 +301,8 @@ function renderChapter(chapter, tableOutcomes = [], tableOverrides = new Map(), 
     // before・after とも原本の並び順。before は表の直前の段落で終わり、after は表の直後の段落から始まる
     const neighbors = (texts, start) => texts.map((text, k) => {
       const neighbor = chapter.nodes[start + k];
-      const found = neighbor && neighbor.role !== 'heading' && neighbor.type === 'paragraph' ? joinWrapped(neighbor.lines) : null;
+      // 段落（番号付きの項 `（2）…` を含む）だけを取り込む。注記・キャプション・見出しは取り込まない
+      const found = neighbor && neighbor.role !== 'heading' && ['paragraph', 'item'].includes(neighbor.type) ? joinWrapped(neighbor.lines) : null;
       return found !== null && stripSpacesForMatch(found) === stripSpacesForMatch(text) ? neighbor : null;
     });
     const matched = [
@@ -547,7 +548,8 @@ export function buildDocument(document, overrides, { write = true, verbatimTable
   // 大きすぎる章は節ページに分ける（基準は設定・切り出しは src/lib/standards-section-split.mjs）。
   // 判定はここだけで行い、サイトは manifest の splitBySection を読む。
   const splitThreshold = overrides.sectionPages?.minOutputBytes ?? Infinity;
-  const tableOverrides = loadTableOverrides();
+  // 版面が同じでも文書ごとに中身が違う組み直し（documentVariants）は、この文書のもので置き換えて使う
+  const tableOverrides = loadTableOverrides(`${document.agencyId}/${document.documentId}`);
   const amendment = amendmentPagesOf(
     getCatalog(),
     overrides.documents?.[`${document.agencyId}/${document.documentId}`]?.amendments,

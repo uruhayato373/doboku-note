@@ -1,6 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { applyTableOverride, tableKey, tryGfmTable, tryStandardsList, thresholds } from '../scripts/lib/standards-table.mjs';
+import { loadTableOverrides } from '../scripts/lib/standards-structure.mjs';
 
 // 固定レイアウト（pdftotext -layout）の表を GFM へ戻す関数の契約を固定する。
 // 誤った GFM 化＝データ破壊なので、テストの主眼は「通ること」より「通さないこと」にある。
@@ -341,4 +342,21 @@ test('組み直し: 縦に結合したセルの長い文（30 字超）は 2 行
   assert.equal(result.ok, true, result.reason);
   const table = result.parts.find((part) => part.kind === 'table');
   assert.deepEqual(table.rows.map((row) => row[0]), [long, '（同上）', '（同上）']);
+});
+
+test('組み直し: documentVariants はその文書のときだけ中身の欄を丸ごと置き換える（北海道版の表3-2-39・DN-0776）', () => {
+  const key = '5df83efc8e05798a';
+  const base = loadTableOverrides().get(key);
+  const hokkaido = loadTableOverrides('hokkaido/common').get(key);
+  const kinki = loadTableOverrides('kinki/common').get(key);
+  assert.ok(base.documentVariants?.['hokkaido/common'], '北海道版の差し替えがある');
+  // 近畿など差し替えの無い文書は元のまま
+  assert.deepEqual(kinki, base);
+  // 北海道版は差し替えの中身で、元の欄（㎝ の段落）を残さない。key・layout・承認は元のまま
+  assert.equal(hokkaido.documentVariants, undefined);
+  assert.ok(JSON.stringify(hokkaido.absorbsParagraphs).includes('c m'));
+  assert.ok(!JSON.stringify(hokkaido.absorbsParagraphs).includes('㎝'));
+  assert.equal(hokkaido.key, base.key);
+  assert.deepEqual(hokkaido.layout, base.layout);
+  assert.deepEqual(hokkaido.review, base.review);
 });
