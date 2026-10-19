@@ -4534,6 +4534,23 @@
       "commit": "dfdb2c0ad2bb",
       "verification": "tests/standards-editions.test.mjs 5 pass / check-standard-articles 456 PASS",
       "note": "5 組の版を原本のページ画像で確認。近畿の必携 5 項は日付・通知番号の記載がなく、東北の参考資料と収録範囲が違うため 5 組とも群にせず、理由を editionCanonical._comment に記録"
+    },
+    {
+      "id": "DN-0642",
+      "at": "2026-10-20",
+      "task": "重要 workflow 7 本の不健全（note-live-audit 4 連続失敗・ops-audit 18 連続・note-public-view 12 日）を原因ごとに直す",
+      "tier": "high",
+      "kind": "不具合",
+      "prevention": {
+        "type": "gate",
+        "ref": "check-workflow-health"
+      },
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "57efd8126ef4",
+      "verification": "note-public-view run 39307952220 success（撮り直し 4/4）/ weekly-review-guard run 39311058458 で workflow health 全て健全・#478 復旧クローズ",
+      "note": "note-public-view の検査不成立は note.com が CI からのアクセスに毎回違う 4〜6 ページだけ 403 を返していたため。開けなかった撮影を最後に 60 秒休んで 1 件ずつ撮り直すように変更（PR #1133）。Cloudflare 2 本は DN-0485 で復旧。check-workflow-health は全て健全、#478・#940・#1100 は自動クローズ"
     }
   ]
 }

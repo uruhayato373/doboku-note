@@ -101,20 +101,6 @@ gakka-2kyu-doko・gakka-2kyu-concrete・kikinagashi-2kyu-matome・keiken-gaiyo-2
 **進捗（2026-10-16）**: 運営者から取得年を聞いた（コンクリート主任技士 2016・コンクリート診断士 2018）。主任技士は候補「コンクリート技士・主任技士」取得年 2016 で登録し、資格欄の一覧と公開プロフィール（users/6197366）で表示を確認。診断士はココナラの候補に無いので、資格欄の「見つからない場合はこちら」のフォーム（資格・検定の追加ご要望）に「コンクリート診断士（公益社団法人日本コンクリート工学会）」を送った（受付表示を確認）。**残り**: ココナラが候補に足したら、診断士を取得年 2018 で登録する（licenses の追加で「コンクリート診断」が候補に出るかを週次で見る）。
 
 
-### [DN-0642] 重要 workflow 7 本の不健全（note-live-audit 4 連続失敗・ops-audit 18 連続・note-public-view 12 日）を原因ごとに直す
-タグ: [インフラ・計測] [領域:管理] [時期:2026-10] [種類:不具合] [起票:2026-10-10] [期日:2026-10-17] [進行中]
-
-**起点**: 週次レビュー（2026-09-28〜2026-10-04）の点検。npm run check-workflow-health が 7 本を不健全と判定（2026-10-10）: fetch-metrics（2 連続失敗・#958 で原因修正）、note-live-audit（最終 success 21 日前・4 連続失敗）、ops-audit（18 連続失敗＝#571 の ops 区分 FAIL）、cloudflare-metrics・cloudflare-config-audit（DN-0485）、weekly-review-guard（W40 レビュー未作成で赤・本レビューで解消見込み）、note-public-view（最終 success 12 日前）。Issue #478（2026-08-31〜）・#940 が開いたまま。
-
-**やること**: note-live-audit と note-public-view の最新 run ログで失敗箇所を特定して直す。ops-audit は #571 の各 FAIL（ログイン系の取得待ち）を別カードで解消したあと緑になるかを見る。fetch-metrics は #958 マージ後の再実行で緑を確認する。
-
-**完了条件**: npm run check-workflow-health が exit 0（または残りが DN-0485 の Cloudflare 2 本だけ）で、#478・#940 が自動クローズしている。
-
-**進捗（2026-10-12）**: check-workflow-health で note-live-audit・ops-audit・note-public-view・fetch-metrics は緑に戻っていた。weekly-review-guard は 10/5 の赤（週次レビュー前の未処分 OPP＝正しい赤）の後、main で手動実行して緑（run 38214647988）。weekly-review-draft は 10/10 に main へ入ったばかりで最初の cron が 10/16 のため「run 0 件」で赤だった＝検査の穴。初回の cron 枠の前は健全とみなす修正を PR #1008 に出した。残りは DN-0485 の Cloudflare 2 本だけ。#478・#940 は日次の ops-audit で自動クローズするかを見る。
-
-**進捗（2026-10-15）**: check-workflow-health の赤は 3 本。Cloudflare の 2 本（DN-0485）に加え、gsc-auto-review が「最後の success が 13 日前」。10/9 の定期実行が、共通の concurrency group develop-git-write で待機中に取り消されていた（作成 3 秒後に cancelled）。仕組みの直しは DN-0750 に分けた。10/16 12:00 の定期実行が通れば残りは DN-0485 の 2 本だけになる。fetch-metrics は 10/15 の手動実行で保存と事業スナップショットの 2 か所が落ちていたのを PR #1081 で直した。Issue #478 はまだ open。
-
-**週次追記（2026-10-17）**: 最新17本中の不健全はCloudflare2本だけ。#867の古いoutbound-linksはDN-0644で修正済みだが、外部書込みログ1/2取得失敗の再確認が残る。公開画像run38195611950はnote278枚を供給したが6ページ幅が未供給、YouTube2本26枚は認証要求等で動画本体未確認。breakpointDriftの設定差と収集成立を確認し、画像0/未表示を正常扱いしない。
 
 
 
