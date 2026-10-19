@@ -230,7 +230,7 @@
     "source": "このチャットの運営者指示「やって　予約投稿まで」",
     "scope": "改訂版の制作・画面確認・YouTube予約投稿と台帳更新を委任。旧版は維持。"
   },
-  "activeCoverRevision": "cover-safe-20261018",
+  "activeCoverRevision": "diagram-led-20261019-cover",
   "revisions": {
     "cover-safe-20261018": {
       "version": "pop-poster-v3",
@@ -742,7 +742,567 @@
           }
         }
       ]
+    },
+    "diagram-led-20261019": {
+      "version": "codex-pop-body-v1",
+      "date": "2026-10-19",
+      "purpose": "図解主体・控えめな配色。装飾キャラクターと著者名を除去。外部未反映。",
+      "layout": {
+        "mode": "diagram-led",
+        "canvas": {
+          "width": 1920,
+          "height": 1080
+        },
+        "subtitleSafeTop": 820
+      },
+      "images": [
+        {
+          "sceneId": "hook",
+          "inputSha256": "eee0ff9751c7f8a27bc149088581ca6413649b03d239e2318229e34fcc879fcf",
+          "sourceCopy": {
+            "kind": "figure",
+            "heading": "対策を並べる前に、条件から",
+            "items": [
+              "どんな現場だったか",
+              "どんな危険があったか",
+              "何を考え、何をしたか"
+            ],
+            "src": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-001.d6f17a6d.png"
+          },
+          "narration": "安全対策を並べても、自分の現場が伝わらない。そんなときは、現場条件、課題、対策の順につなげましょう。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付の横16:9学習図を修正。落石・掘削溝・手すりの絵は完全に除き、この動画の主例『狭いヤードで人と重機の接触を防ぐ』に揃える。白地、落ち着いた緑とグレー、小さい黄色。POP控えめ、図解メイン。見出し『対策を並べる前に、条件から』。上部70%以内に横3カード：左『現場条件』に狭いヤードの簡略平面図、中央『課題』に人の通路と重機の範囲が接近する平面図、右『対策』に人の通路と重機の範囲を明確に分けた平面図。3カード間に順番の矢印。丸い人アイコンは普通の歩行者の記号だけ、装飾キャラクター・作者名・先生不要。人を重機の下や接触位置に描かない。小さなラベルは『人』『重機』のみ。通路と範囲の区別は明確に。下30%は完全な白、字幕のため全ての図・文字はy750より上。新しい工種や別の危険は足さない。",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/anzen-touan-gutaika-kaitei--hook-reference.ec59d2e4.png",
+                "sha256": "ec59d2e4cefccab82d194951b157df0a2923939ad0cd428058951f6278905c2a"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/anzen-touan-gutaika-kaitei--hook-raw.cc6a13b9.png",
+              "sha256": "cc6a13b96d8d2599830709e50c1638b8fc57c1df8923208408eeba650d609a1f",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T23:34:57.251Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/anzen-touan-gutaika-kaitei--hook.e0bb1ee3.png",
+            "sha256": "e0bb1ee38cfd1194fc6da0dd82ec5c99a315133e9f998f02000852dde7d4e955",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "cc6a13b96d8d2599830709e50c1638b8fc57c1df8923208408eeba650d609a1f"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:37:35.989Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "狭いヤードの現場条件→人と重機の接近という課題→通路と作業範囲の分離という対策が、同一の平面配置で一貫している。落石や溝の別工種を混在させず、重機は簡略平面記号として破綻なく、人も接触位置にいない。原寸・幅360pxで読め、図と文字は1080換算y750未満に収まり字幕余白を確保。"
+          }
+        },
+        {
+          "sceneId": "authority",
+          "inputSha256": "e4b017d0e3d4c57f20b3313199f5a26f97e080bc769f0984df5dfb49154df059",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "経験を整理する視点",
+            "items": [
+              "現場条件",
+              "自分の対応",
+              "確認記録"
+            ]
+          },
+          "narration": "総合技術監理部門の技術士で、1級・2級土木に合格した元発注者が、書く順序を解説します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Create ONE 16:9 wide quiet illustration with no text at all. On a white canvas, two ordinary civil-construction workers wearing white helmets and muted green safety clothing consult a construction plan and a work notebook at a simple desk. The plan and their pointing/checking action are the focus. Small natural human figures, NOT a mascot, no large portrait, no speech bubble, no name, no qualification, no credentials, no alphabet, no numbers, NO Japanese or other text anywhere. Fine green/gray outlines and very restrained pale accents, matching only the palette of the attached no-text style reference. No landscape or decoration. Use the central upper 70% of the full-width 16:9 frame, leaving lower 240px as continuous clean white for subtitles. Do not add an enclosing border or colored padding. This scene accompanies a narration about explaining from practical experience, but must contain ONLY the human checking action and useful plan/notebook props, no biography diagram or qualifications.",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/keiken-daizai-erabi--authority-reference.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/keiken-daizai-erabi--authority-raw.63fef5f2.png",
+              "sha256": "63fef5f2ac437399fe83496afe910cb22c2cadc2f1807fbdf348bff977abd759",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:20:50.791Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/keiken-daizai-erabi--authority.61ac6ea0.png",
+            "sha256": "61ac6ea09f703b834319ae98faf8560d9cfd4c19b844fc472c244acc862a1cf5",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "63fef5f2ac437399fe83496afe910cb22c2cadc2f1807fbdf348bff977abd759"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:37:36.072Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "図面を指す人とノートへ記録する人の2人について腕・手の接続と作業動作を確認。装飾の先生・解説名・肩書き・指定外文字なし。"
+          }
+        },
+        {
+          "sceneId": "premise",
+          "inputSha256": "11742106796bb4b2189c290c74cb95c100ea9f8bac0847ffca6d894a34a0709d",
+          "sourceCopy": {
+            "kind": "figure",
+            "heading": "考え方の例で、つながりを見る",
+            "items": [
+              "条件を整理する",
+              "危険を具体的にする",
+              "対策の理由を示す"
+            ],
+            "src": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-001.d6f17a6d.png"
+          },
+          "narration": "対策の名前を増やすより、その現場で必要だった理由を示します。ここからは、狭いヤードを使った考え方の例です。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "ONE 16:9 learning diagram, intended1920x1080. White continuous canvas, muted green thin arrows and flat calm line icons, tiny yellow accent. Attached palette only for colours. Diagram primary, restrained POP. No teacher, author, credentials, advertising, heavy lettering or decorative person. ALL important content within x100..1820, y80..760. Bottom300px continuous white, NO notes, logos or objects. No duplicate panels. Readable360px.\nEXACT composition and copy: 見出し「考え方の例で、つながりを見る」。ONLY three large nodes horizontally:「条件を整理する」「危険を具体的にする」「対策の理由を示す」. One small simple TOP-DOWN yard schematic INSIDE the middle node, with two separate rectangles for pedestrian area and equipment area. No lower diagram. No people or physical machinery, no additional notes.\nNARRATION CONTEXT, NOT to print: {\"previous\":\"総合技術監理部門の技術士で、1級・2級土木に合格した元発注者が、書く順序を解説します。\",\"current\":\"対策の名前を増やすより、その現場で必要だった理由を示します。ここからは、狭いヤードを使った考え方の例です。\",\"next\":\"まず現場条件です。ヤードが狭いだけで終わらず、人が通る場所と、重機が動く場所の位置関係まで整理します。\"}.\nOnly specified diagram. No other content.",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/anzen-touan-gutaika-kaitei--premise-reference.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/anzen-touan-gutaika-kaitei--premise-raw.d5b849b8.png",
+              "sha256": "d5b849b8e7bfaa2707987d168da00e4a7a26693bd8da4b9eabf2e2a7beb33526",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T23:10:48.011Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/anzen-touan-gutaika-kaitei--premise.30a86589.png",
+            "sha256": "30a8658940b67acf3d6a6687d2b8045aa3163fb206b807c13497246f69f47be4",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "d5b849b8e7bfaa2707987d168da00e4a7a26693bd8da4b9eabf2e2a7beb33526"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:37:36.164Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "狭いヤードの歩行者エリアと重機エリアを分けた簡略平面図が条件→危険→理由の説明に合い、下端の重複図もなく字幕域は空いている。"
+          }
+        },
+        {
+          "sceneId": "condition",
+          "inputSha256": "fc4efb15e0084619886ec30f257d4542dcc4fc3749c592983bf04de8897c5998",
+          "sourceCopy": {
+            "kind": "figure",
+            "heading": "現場条件：どこで作業するか",
+            "items": [
+              "通路と重機の位置関係",
+              "近づく場面を探す",
+              "対策はその後で考える"
+            ],
+            "src": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-001.d6f17a6d.png",
+            "focus": 0
+          },
+          "narration": "まず現場条件です。ヤードが狭いだけで終わらず、人が通る場所と、重機が動く場所の位置関係まで整理します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene anzen-touan-gutaika-kaitei/condition. Narration to illustrate faithfully, not all to print: まず現場条件です。ヤードが狭いだけで終わらず、人が通る場所と、重機が動く場所の位置関係まで整理します。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"現場条件：どこで作業するか\",\"items\":[\"通路と重機の位置関係\",\"近づく場面を探す\",\"対策はその後で考える\"]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/anzen-touan-gutaika-kaitei--condition-reference.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/anzen-touan-gutaika-kaitei--condition-raw.69c77108.png",
+              "sha256": "69c77108fc5f8549069bf4cde286eaeb44f00a6b329fafe81d6c9b6a77d8ec6c",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:50:20.609Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/anzen-touan-gutaika-kaitei--condition.8d3c656c.png",
+            "sha256": "8d3c656c9aa743e23e290328dc30d52f611eec0028f569d275e8996ba53e5960",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "69c77108fc5f8549069bf4cde286eaeb44f00a6b329fafe81d6c9b6a77d8ec6c"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:37:36.252Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "狭いヤードの人の通路と重機作業範囲の位置関係、近接場面の探索を確認。"
+          }
+        },
+        {
+          "sceneId": "risk",
+          "inputSha256": "be9ab4be8bb0741321392e35a02ae296800b85ef7fce38731dfcc49cee22dc28",
+          "sourceCopy": {
+            "kind": "figure",
+            "heading": "課題：何を防ぐ必要があるか",
+            "items": [
+              "狭いヤードでの作業",
+              "人と重機の接触を防ぐ",
+              "危険に合う対策へ"
+            ],
+            "src": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-001.d6f17a6d.png",
+            "focus": 1
+          },
+          "narration": "次に課題です。その位置関係では、人と重機が近づく場面はどこか。近づいたときの接触を防ぐ、という課題につなげます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene anzen-touan-gutaika-kaitei/risk. Narration to illustrate faithfully, not all to print: 次に課題です。その位置関係では、人と重機が近づく場面はどこか。近づいたときの接触を防ぐ、という課題につなげます。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"課題：何を防ぐ必要があるか\",\"items\":[\"狭いヤードでの作業\",\"人と重機の接触を防ぐ\",\"危険に合う対策へ\"]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/anzen-touan-gutaika-kaitei--risk-reference.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/anzen-touan-gutaika-kaitei--risk-raw.0b571727.png",
+              "sha256": "0b571727326720187776e38abeaa6058c40be266f99022aea42ce37ce4296176",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:50:41.117Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/anzen-touan-gutaika-kaitei--risk.9782e3b7.png",
+            "sha256": "9782e3b720567fb05ecb616c842bc7d7da51e2377fadd281f66f429ffd2910b2",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "0b571727326720187776e38abeaa6058c40be266f99022aea42ce37ce4296176"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:37:36.342Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "接触の危険と通路分離の前後対比、重機と人物の構造と指定文を確認。"
+          }
+        },
+        {
+          "sceneId": "measure",
+          "inputSha256": "7be3e0adbdf763c58d30981a8c1aae1dbfbc921fa9ce53f8a92bd2a73272281e",
+          "sourceCopy": {
+            "kind": "figure",
+            "heading": "対策：課題に合う方法を考える",
+            "items": [
+              "通路と作業範囲の位置",
+              "人と重機の接触を防ぐ",
+              "動線を分ける方法を検討"
+            ],
+            "src": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-001.d6f17a6d.png",
+            "focus": 2
+          },
+          "narration": "そして対策です。接触を防ぐために、人の通路と重機の動く範囲を分ける。このように、危険とのつながりを確かめて対策を考えます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene anzen-touan-gutaika-kaitei/measure. Narration to illustrate faithfully, not all to print: そして対策です。接触を防ぐために、人の通路と重機の動く範囲を分ける。このように、危険とのつながりを確かめて対策を考えます。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"対策：課題に合う方法を考える\",\"items\":[\"通路と作業範囲の位置\",\"人と重機の接触を防ぐ\",\"動線を分ける方法を検討\"]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/anzen-touan-gutaika-kaitei--measure-reference.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/anzen-touan-gutaika-kaitei--measure-raw.4c0e6be5.png",
+              "sha256": "4c0e6be5acc913c80409b4cc258f858ed290cbd19e67d3830e9800f78e8add6d",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:50:59.121Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/anzen-touan-gutaika-kaitei--measure.722d9deb.png",
+            "sha256": "722d9debc96140250c0b1b43b6f72b02b65434d23d40b658871f1a222a910b4e",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "4c0e6be5acc913c80409b4cc258f858ed290cbd19e67d3830e9800f78e8add6d"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:37:36.429Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "人の通路と重機の旋回・作業範囲を分ける平面図と障壁の位置関係を確認。"
+          }
+        },
+        {
+          "sceneId": "concrete",
+          "inputSha256": "10966892b6393dfdea34417bece8c7ec061c12c9aeb285af1a0844b9ff9fe8ba",
+          "sourceCopy": {
+            "kind": "figure",
+            "heading": "対策を、現場での行動まで具体化",
+            "items": [
+              "区切る場所を確かめる",
+              "接触を防ぐ理由を添える",
+              "検討と実施を結び付ける"
+            ],
+            "src": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-001.d6f17a6d.png",
+            "focus": 2
+          },
+          "narration": "動線を分ける場合も、どの場所を、何で区切るのかまで考えます。答案には、実際に検討したことと、行った処置を結び付けて書きます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene anzen-touan-gutaika-kaitei/concrete. Narration to illustrate faithfully, not all to print: 動線を分ける場合も、どの場所を、何で区切るのかまで考えます。答案には、実際に検討したことと、行った処置を結び付けて書きます。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"対策を、現場での行動まで具体化\",\"items\":[\"区切る場所を確かめる\",\"接触を防ぐ理由を添える\",\"検討と実施を結び付ける\"]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/anzen-touan-gutaika-kaitei--concrete-reference.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/anzen-touan-gutaika-kaitei--concrete-raw.3c6ca597.png",
+              "sha256": "3c6ca59770dffe770f8c35fedb2c9c3f56f1e399b850e6e57055a96b14e1fcd1",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:51:16.622Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/anzen-touan-gutaika-kaitei--concrete.96b9a8a8.png",
+            "sha256": "96b9a8a836fa31e9f344563033e9fd0283e4d213301a8b1342a3a43e1782a415",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "3c6ca59770dffe770f8c35fedb2c9c3f56f1e399b850e6e57055a96b14e1fcd1"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:37:36.515Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "区切る位置・接触を防ぐ理由・検討と実施の関係を、同じ現場の図で確認。"
+          }
+        },
+        {
+          "sceneId": "question",
+          "inputSha256": "ef5371acbe09b9884197742c8da71a07288c2b8b0434c15a9854259b16838f00",
+          "sourceCopy": {
+            "kind": "figure",
+            "heading": "自分の現場の事実で答える",
+            "items": [
+              "どんな現場条件だったか",
+              "どんな危険があったか",
+              "何を検討して、何をしたか"
+            ],
+            "src": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-001.d6f17a6d.png"
+          },
+          "narration": "自分の工事では、どんな条件で、どんな危険があり、何を検討して、何をしましたか。図の例をそのまま使わず、自分が経験した事実に戻しましょう。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "添付を全面的に描き直す。横16:9の答案の整理用図解。重機・掘削溝・落石・矢板・支保工など技術工法の絵は一切不要。見出し『自分の現場に戻して考える』。横3つの大きな文書カードだけ：左『現場条件』その下『どんな危険があったか』、中央『検討』その下『なぜその対策を選んだか』、右『対応』その下『自分が何をしたか』。各カードは細い矢印でつなぐ。図や全ラベルは上部70%内。下30%は白地で字幕用。白背景、落ち着いた緑と灰色、小さな黄色のみ。控えめPOP、図解メイン。先生・著者名・人物・飾り不要。実際の工法を追加しない。",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/anzen-touan-gutaika-kaitei--question-reference.f104f4eb.png",
+                "sha256": "f104f4ebaa5a634e5c64183e7fa4b730382123bc4a0f4fdad8a2539ac504e162"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/anzen-touan-gutaika-kaitei--question-raw.8b5e59a7.png",
+              "sha256": "8b5e59a772895c16227347056424600c5d2e399d9b0946d4d3b7ac106a1a67ec",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T23:36:22.275Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/anzen-touan-gutaika-kaitei--question.9d996763.png",
+            "sha256": "9d996763164310d305aa603182529b0e9d071facfd354a1fb35bdfd7b4e98ea7",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "8b5e59a772895c16227347056424600c5d2e399d9b0946d4d3b7ac106a1a67ec"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:37:36.605Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "現場条件（危険）→検討（対策を選んだ理由）→対応（自分の行動）の3カードが、経験した事実へ戻す台本と対応。具体的な支保工や別工種を追加していない。原寸・幅360pxで文字と順序を確認し、重要情報は1080換算y670未満で字幕域に侵入しない。"
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "7ebcd2f9bc280e4a987e13372ce0f3edcca66e9f86ce90639ee8d6ce2d1b555c",
+          "sourceCopy": {
+            "kind": "figure",
+            "heading": "現場条件 → 課題 → 対策",
+            "items": [
+              "現場の条件を示す",
+              "防ぐべき危険を示す",
+              "その対策が必要な理由を示す"
+            ],
+            "src": ".tmp/media/civil-construction-2/anzen-touan-gutaika/youtube.longform/scene-001.d6f17a6d.png"
+          },
+          "narration": "まとめです。現場条件から課題を定め、対策へつなげる。対策の名前だけでなく、その現場で必要だった理由が伝わるかを確かめましょう。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene anzen-touan-gutaika-kaitei/summary. Narration to illustrate faithfully, not all to print: まとめです。現場条件から課題を定め、対策へつなげる。対策の名前だけでなく、その現場で必要だった理由が伝わるかを確かめましょう。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"現場条件 → 課題 → 対策\",\"items\":[\"現場の条件を示す\",\"防ぐべき危険を示す\",\"その対策が必要な理由を示す\"]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.\nFor this scene use ONLY document/book/notebook icons and arrows. NO machinery, NO suspended loads, NO physical construction operation. No extra example beyond source. Minimal clear diagram, no redundant sidebars.",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/anzen-touan-gutaika-kaitei--summary-reference.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/anzen-touan-gutaika-kaitei--summary-raw.cd6d9abc.png",
+              "sha256": "cd6d9abcf0d6b167c5006a55eb18cf137a86dbd0175551cced5121be8c62e16b",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:51:48.364Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/anzen-touan-gutaika-kaitei--summary.257be41d.png",
+            "sha256": "257be41d707ea15ab2c42fcf452b7ce68d7d75d55d827e156ea3f4a10aae4e15",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "cd6d9abcf0d6b167c5006a55eb18cf137a86dbd0175551cced5121be8c62e16b"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:37:36.696Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "指定の要点を文書・メモの対応図で示し、内容と文字が原稿に一致することを確認。"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "66316e291825b98b77724a8e14005a61069039944ec7a4eb4e76d56fa9fb8dec",
+          "sourceCopy": {
+            "kind": "cover",
+            "heading": "自分の経験に置き換えて練習",
+            "items": [
+              "施工経験記述 完成答案集",
+              "総監・元発注者・1級／2級土木合格者の視点",
+              "安全・品質・工程／置換ガイド",
+              "概要欄から確認"
+            ],
+            "src": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/youtube.longform/cta.4a212462.png"
+          },
+          "narration": "元発注者・土木の合格者の視点を学習に活かす完成答案集です。安全・品質・工程の答案と置換ガイドで練習する際は、概要欄をご覧ください。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "ONE 16:9 learning diagram, intended1920x1080. White continuous canvas, muted green thin arrows and flat calm line icons, tiny yellow accent. Attached palette only for colours. Diagram primary, restrained POP. No teacher, author, credentials, advertising, heavy lettering or decorative person. ALL important content within x100..1820, y80..760. Bottom300px continuous white, NO notes, logos or objects. No duplicate panels. Readable360px.\nEXACT composition and copy: 見出し「自分の経験に置き換えて練習」。ONLY three large book/document nodes joined by arrows:「施工経験記述 完成答案集」「安全・品質・工程 置換ガイド」「概要欄から確認」. No credentials, author, person, lower arrow, lower note or duplicate labels.\nNARRATION CONTEXT, NOT to print: {\"previous\":\"まとめです。現場条件から課題を定め、対策へつなげる。対策の名前だけでなく、その現場で必要だった理由が伝わるかを確かめましょう。\",\"current\":\"元発注者・土木の合格者の視点を学習に活かす完成答案集です。安全・品質・工程の答案と置換ガイドで練習する際は、概要欄をご覧ください。\"}.\nOnly specified diagram. No other content.",
+            "references": [
+              {
+                "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/anzen-touan-gutaika-kaitei--cta-reference.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/anzen-touan-gutaika-kaitei--cta-raw.80591ff9.png",
+              "sha256": "80591ff9b5f40b6ff70d3f2639240d8f2d885b3508a8defebc4c1504199c17f1",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T23:11:03.315Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/anzen-touan-gutaika-kaitei--cta.6aa939f0.png",
+            "sha256": "6aa939f0af51447cc8d06d490504f00f434a136836afc60d689644ce9061244d",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "80591ff9b5f40b6ff70d3f2639240d8f2d885b3508a8defebc4c1504199c17f1"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:37:36.784Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "完成答案集・安全品質工程の置換ガイド・概要欄の案内が台本と対応し、装飾人物や著者名はなく、重要な図と文字が字幕域より上に収まる。"
+          }
+        }
+      ],
+      "review": {
+        "status": "ok",
+        "by": "video-content-qa",
+        "at": "2026-10-18T23:55:44.243Z",
+        "mp4Sha256": "b004ef77b1f84e05818d60d829e65646d3a926304bbdccc7e0534e8067753230",
+        "scope": "全11場面の完成動画中点を原寸・360px実見。音声・画像・字幕・MP4の機械照合。",
+        "evidence": {
+          "path": ".tmp/media/_brand/diagram-led/qa-report.1cd922fe.json",
+          "sha256": "1cd922fec2a44ce403978bfa74b1746934c01ba135b8b5c07e15cd6dc67dba69"
+        }
+      }
+    },
+    "diagram-led-20261019-cover": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "Use case: scientific-educational. One calm 16:9 full-width educational video title image, intended 1920x1080. Exact small qualification label 「2級土木」 and main title 「安全管理の経験記述｜現場条件から答案を具体化する」. Illustrate the central learning idea: 現場条件・課題・対策をつなげ、自分の実際の工事経験を文章にする考え方が分かる. WHITE background, muted green thin-line construction diagram, a few purposeful arrows or 2-3 clean illustrated nodes. Restrained dark-green typography, pale gray/green panels, tiny yellow accent only. No big character, no decorative teacher, no author name, no credential, no promotional badge, no speedlines or heavy outlined text, no border, no colored padding. A modest construction worker may appear only if their action explains the topic. All important content above y=800 on 1080 high frame; bottom is continuous white for subtitles, not an added band. Direct full-width 16:9 composition, legible at 360px, no invented statistics or words.",
+        "references": [
+          {
+            "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/anzen-touan-gutaika-kaitei--cover-reference.f6f6543d.png",
+            "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/anzen-touan-gutaika-kaitei--cover-raw.dc57b106.png",
+          "sha256": "dc57b106a10374e3598bfd3dcc8173251e09e234ecb7c3cfa8de839438bc7f19",
+          "width": 1672,
+          "height": 941
+        },
+        "generatedAt": "2026-10-18T22:56:53.967Z"
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-2/anzen-touan-gutaika-kaitei/work/anzen-touan-gutaika-kaitei--cover.2c9b791b.png",
+        "sha256": "2c9b791bfc6c59fb3c3b321b036e739ecbc4e3ca321d20779df634acb6baaee4",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "dc57b106a10374e3598bfd3dcc8173251e09e234ecb7c3cfa8de839438bc7f19"
+      },
+      "review": {
+        "status": "ok",
+        "by": "ai-image-fidelity-auditor",
+        "at": "2026-10-18T23:37:36.876Z",
+        "scope": "原寸・360px・本文/前後関係・字幕安全域",
+        "reason": "資格・主題・学べる関係が原稿に一致し、指定文字・人物/機械の簡略図・原寸と360pxの主題判読を確認。"
+      }
     }
   },
-  "activeBodyRevision": "body-scenes-20261018"
+  "activeBodyRevision": "diagram-led-20261019"
 }

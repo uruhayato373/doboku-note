@@ -11,22 +11,25 @@
       ],
       "accentLine": 1,
       "subtitle": "工種・数量・立場を確認",
-      "character": {
-        "pose": "checklist-pen",
-        "frame": "waist"
-      },
       "design": "pop-poster-v3",
-      "pop": {
-        "variant": "explain",
-        "authority": "総監・元発注者"
-      },
       "approvedImage": {
-        "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/cover-caption-safe.d7c901e5.png",
-        "sha256": "d7c901e5de9d16b47d8919c049b0e4d44aa25d9044a14c2ccdd1ba8a73f82ead",
-        "specSha256": "35d7f5128f033eccc397070f2b62b20b5a1ec9042bc8f2a5d7d57b1675de56d0",
+        "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--cover.e7240e71.png",
+        "sha256": "e7240e71848f4b09b55c5624336fc8ea6e5f26c870ac2fa61500dcd31e4adb4d",
         "width": 1920,
-        "height": 1080
-      }
+        "height": 1080,
+        "normalization": {
+          "mode": "full-frame-v1",
+          "sourceSha256": "4e7aeb14053f6cae354dfaccd77e921228f6dad154dc43e6bdc6cc2afe40f35a"
+        },
+        "source": {
+          "path": ".tmp/media/civil-construction-2/koji-gaiyo-seigou/work/koji-gaiyo-seigou--cover-raw.4e7aeb14.png",
+          "sha256": "4e7aeb14053f6cae354dfaccd77e921228f6dad154dc43e6bdc6cc2afe40f35a",
+          "width": 1672,
+          "height": 941
+        },
+        "specSha256": "c80e6dfff8ae7c1f460a48e6871fa5053a0b90526fe2b23a9494c83e1253475d"
+      },
+      "layout": "diagram-led"
     }
   }
 }

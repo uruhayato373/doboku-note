@@ -206,7 +206,7 @@
       "at": "2026-10-15T23:07:28.140Z"
     }
   },
-  "activeCoverRevision": "cover-safe-20261018",
+  "activeCoverRevision": "diagram-led-20261019-cover",
   "revisions": {
     "cover-safe-20261018": {
       "version": "pop-poster-v3",
@@ -924,7 +924,775 @@
           }
         }
       ]
+    },
+    "diagram-led-20261019": {
+      "version": "codex-pop-body-v1",
+      "date": "2026-10-19",
+      "purpose": "図解主体・控えめな配色。装飾キャラクターと著者名を除去。外部未反映。",
+      "layout": {
+        "mode": "diagram-led",
+        "canvas": {
+          "width": 1920,
+          "height": 1080
+        },
+        "subtitleSafeTop": 820
+      },
+      "images": [
+        {
+          "sceneId": "hook",
+          "inputSha256": "80a1029c56c347c74ddaec695bd42ca10279f3bb90c0f6e0299dd7fb5bc088ae",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "書き終えたら、3つの観点で確認",
+            "items": [
+              "設問に答えているか",
+              "条件と処置がつながるか",
+              "事実が記録と一致するか"
+            ]
+          },
+          "narration": "書き終えた答案、どこを直せばよいか迷いませんか。設問、内容のつながり、記録との一致を順に確認しましょう。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene touan-teishutsu-check/hook. Narration to illustrate faithfully, not all to print: 書き終えた答案、どこを直せばよいか迷いませんか。設問、内容のつながり、記録との一致を順に確認しましょう。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"書き終えたら、3つの観点で確認\",\"items\":[\"設問に答えているか\",\"条件と処置がつながるか\",\"事実が記録と一致するか\"]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--hook-raw.d079f3cf.png",
+              "sha256": "d079f3cf1cebba74930a364430f7e5ff4178b87dcb2c71aa0338e223d36e6532",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:46:03.236Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--hook.cbdfe212.png",
+            "sha256": "cbdfe21253731c0dabe3eecab9698bfc2ca7c23586cc28f57f0bc16cd8f73971",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "d079f3cf1cebba74930a364430f7e5ff4178b87dcb2c71aa0338e223d36e6532"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:24:27.217Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "指定の3観点・条件から判断と対応までの関係を原稿と照合し、文字と簡略図を確認。"
+          }
+        },
+        {
+          "sceneId": "authority",
+          "inputSha256": "b4fa59915fd5d8d4bc5eba97b981628d3937f5aa0d601fd2562900744dc99c64",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "経験を整理する視点",
+            "items": [
+              "現場条件",
+              "自分の対応",
+              "確認記録"
+            ]
+          },
+          "narration": "総合技術監理部門の技術士で、1級・2級土木に合格した元発注者が、答案を見直す順序をお伝えします。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. Create ONE 16:9 wide quiet illustration with no text at all. On a white canvas, two ordinary civil-construction workers wearing white helmets and muted green safety clothing consult a construction plan and a work notebook at a simple desk. The plan and their pointing/checking action are the focus. Small natural human figures, NOT a mascot, no large portrait, no speech bubble, no name, no qualification, no credentials, no alphabet, no numbers, NO Japanese or other text anywhere. Fine green/gray outlines and very restrained pale accents, matching only the palette of the attached no-text style reference. No landscape or decoration. Use the central upper 70% of the full-width 16:9 frame, leaving lower 240px as continuous clean white for subtitles. Do not add an enclosing border or colored padding. This scene accompanies a narration about explaining from practical experience, but must contain ONLY the human checking action and useful plan/notebook props, no biography diagram or qualifications.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/keiken-daizai-erabi--authority-raw.63fef5f2.png",
+              "sha256": "63fef5f2ac437399fe83496afe910cb22c2cadc2f1807fbdf348bff977abd759",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:20:50.791Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/keiken-daizai-erabi--authority.61ac6ea0.png",
+            "sha256": "61ac6ea09f703b834319ae98faf8560d9cfd4c19b844fc472c244acc862a1cf5",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "63fef5f2ac437399fe83496afe910cb22c2cadc2f1807fbdf348bff977abd759"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:24:27.302Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "図面を指す人とノートへ記録する人の2人について腕・手の接続と作業動作を確認。装飾の先生・解説名・肩書き・指定外文字なし。"
+          }
+        },
+        {
+          "sceneId": "premise",
+          "inputSha256": "a3bda5fefa2f4c0b03544072c0d9d762c8860fec34fca8b8fd56668d1e984842",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "練習した答案を、自分で点検する",
+            "items": [
+              "3つの観点で見直す",
+              "公式の採点基準・減点点数は示さない",
+              "事実の確認は準備段階で進める"
+            ]
+          },
+          "narration": "ここで示すのは、練習で書いた答案の見直し方です。公式の採点基準や減点点数ではなく、自分で確かめる観点です。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "ONE 16:9 learning diagram, intended1920x1080. White continuous canvas, muted green thin arrows and flat calm line icons, tiny yellow accent. Attached palette only for colours. Diagram primary, restrained POP. No teacher, author, credentials, advertising, heavy lettering or decorative person. ALL important content within x100..1820, y80..760. Bottom300px continuous white, NO notes, logos or objects. No duplicate panels. Readable360px.\nEXACT composition and copy: 見出し「練習した答案を、自分で点検する」。ONE horizontal sequence of three large document icons under「3つの観点で見直す」. Two small notes placed ABOVE diagram not below:「公式の採点基準・減点点数は示さない」「事実の確認は準備段階で進める」. No people, equipment, sidebar or extra diagram.\nNARRATION CONTEXT, NOT to print: {\"previous\":\"総合技術監理部門の技術士で、1級・2級土木に合格した元発注者が、答案を見直す順序をお伝えします。\",\"current\":\"ここで示すのは、練習で書いた答案の見直し方です。公式の採点基準や減点点数ではなく、自分で確かめる観点です。\",\"next\":\"まず、設問が求める内容に印を付け、答案のどの文が答えているか探します。書いた量だけで判断しないことが大切です。\"}.\nOnly specified diagram. No other content.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--premise-raw.25cf67cb.png",
+              "sha256": "25cf67cbf548bcd34fa9910dd1b608b889c986861487a43656502d67b2ca2877",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T23:11:49.664Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--premise.ae4f90b7.png",
+            "sha256": "ae4f90b70cea530bd28458c0a86e7f3b27387cb73649e39f82ea0eac3f1c9c71",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "25cf67cbf548bcd34fa9910dd1b608b889c986861487a43656502d67b2ca2877"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:24:27.391Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "公式の採点基準ではないことと準備段階の事実確認を上部で示し、答案点検の書類図に限定。原寸・幅360pxで文字と字幕域の空きを確認。"
+          }
+        },
+        {
+          "sceneId": "question",
+          "inputSha256": "2244b9631605d9a3da0ee69e0a984d8c430735ff11aae65e07a082eb2136e99d",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "求められた内容と、答えの文を結ぶ",
+            "sheetTitle": "練習答案の点検メモ",
+            "rows": [
+              {
+                "label": "設問",
+                "value": "何を求められているか",
+                "state": "focus"
+              },
+              {
+                "label": "答案",
+                "value": "どの文が答えているか",
+                "state": "todo"
+              },
+              {
+                "label": "不足",
+                "value": "答えが見つからない箇所はどこか",
+                "state": "todo"
+              }
+            ]
+          },
+          "narration": "まず、設問が求める内容に印を付け、答案のどの文が答えているか探します。書いた量だけで判断しないことが大切です。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene touan-teishutsu-check/question. Narration to illustrate faithfully, not all to print: まず、設問が求める内容に印を付け、答案のどの文が答えているか探します。書いた量だけで判断しないことが大切です。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"求められた内容と、答えの文を結ぶ\",\"rows\":[{\"label\":\"設問\",\"value\":\"何を求められているか\",\"state\":\"focus\"},{\"label\":\"答案\",\"value\":\"どの文が答えているか\",\"state\":\"todo\"},{\"label\":\"不足\",\"value\":\"答えが見つからない箇所はどこか\",\"state\":\"todo\"}]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--question-raw.cd1cc972.png",
+              "sha256": "cd1cc97289bd5320283e71a6ff04c1f1c0ccc8b2f9f2a6d9dc89631e307c896f",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:48:51.046Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--question.09987ec7.png",
+            "sha256": "09987ec71f3ba81473290e64a34a5518079dd4f4331bdb6b81967cdbdeb95150",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "cd1cc97289bd5320283e71a6ff04c1f1c0ccc8b2f9f2a6d9dc89631e307c896f"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:24:27.480Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "設問と答え、または自分の現場条件・危険・行動を問い直す短い文と図を原稿に照合。"
+          }
+        },
+        {
+          "sceneId": "reason",
+          "inputSha256": "96fffd1420a80c118673b54f49c69ec39632718bcd73805ea217cd26cb87ba60",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "「理由」が求められた場合の確認",
+            "sheetTitle": "設問に合わせて点検する",
+            "rows": [
+              {
+                "label": "実施内容",
+                "value": "何を実施したか",
+                "state": "done"
+              },
+              {
+                "label": "理由",
+                "value": "なぜその対応を選んだか",
+                "state": "focus"
+              },
+              {
+                "label": "確認",
+                "value": "設問が求めた内容に答えているか",
+                "state": "todo"
+              }
+            ]
+          },
+          "narration": "たとえば、理由を求められた欄に、実施した内容だけを書いていませんか。設問の言葉と照らして、不足を確かめます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene touan-teishutsu-check/reason. Narration to illustrate faithfully, not all to print: たとえば、理由を求められた欄に、実施した内容だけを書いていませんか。設問の言葉と照らして、不足を確かめます。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"「理由」が求められた場合の確認\",\"rows\":[{\"label\":\"実施内容\",\"value\":\"何を実施したか\",\"state\":\"done\"},{\"label\":\"理由\",\"value\":\"なぜその対応を選んだか\",\"state\":\"focus\"},{\"label\":\"確認\",\"value\":\"設問が求めた内容に答えているか\",\"state\":\"todo\"}]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--reason-raw.57a0c526.png",
+              "sha256": "57a0c52699d9939b912bb7569c6c39e49870238d63696904e12d3ff28bb317cb",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:46:37.709Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--reason.59659e22.png",
+            "sha256": "59659e222a150cd7a515138dbd104c00ef6ed13d6af0ce799466b94fba64a13e",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "57a0c52699d9939b912bb7569c6c39e49870238d63696904e12d3ff28bb317cb"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:24:27.569Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "実施内容・理由・設問との照合の区別と、人物の自然な動作を確認。"
+          }
+        },
+        {
+          "sceneId": "connection",
+          "inputSha256": "510f6b959f6e0e2f64bd9583672a9d0e2fe7f47315751b349767756259bffd94",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "その条件だから、その処置が必要か",
+            "sheetTitle": "条件から処置へのつながり",
+            "rows": [
+              {
+                "label": "現場条件",
+                "value": "何が制約や課題になったか",
+                "state": "focus"
+              },
+              {
+                "label": "処置",
+                "value": "その条件にどう対応したか",
+                "state": "todo"
+              },
+              {
+                "label": "理由",
+                "value": "条件と処置を説明できるか",
+                "state": "todo"
+              }
+            ]
+          },
+          "narration": "次に、現場条件と処置を線でつなぎます。その条件だから、その対応が必要だったと読めるか、理由の抜けを確認します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "ONE 16:9 learning diagram, intended1920x1080. White continuous canvas, muted green thin arrows and flat calm line icons, tiny yellow accent. Attached palette only for colours. Diagram primary, restrained POP. No teacher, author, credentials, advertising, heavy lettering or decorative person. ALL important content within x100..1820, y80..760. Bottom300px continuous white, NO notes, logos or objects. No duplicate panels. Readable360px.\nEXACT composition and copy: ONLY three large document icons joined with arrows:「現場条件」「処置」「理由」, each with the original short explanation. Do not draw any pumping, machines, drainage or construction method. This is a general answer-writing relationship, not a pump engineering diagram.\nNARRATION CONTEXT, NOT to print: {\"previous\":\"たとえば、理由を求められた欄に、実施した内容だけを書いていませんか。設問の言葉と照らして、不足を確かめます。\",\"current\":\"次に、現場条件と処置を線でつなぎます。その条件だから、その対応が必要だったと読めるか、理由の抜けを確認します。\",\"next\":\"仮の例です。通学時間と重なるため、搬入時刻を調整した。この短い下書きなら、時間の条件と処置の関係を確認できます。\"}.\nOnly specified diagram. No other content.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--connection-raw.4b68aef8.png",
+              "sha256": "4b68aef80622fe66465e429945187df2d2ad59e4b5b86b34b4411c112353fced",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T23:11:18.935Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--connection.afa17c4c.png",
+            "sha256": "afa17c4c48a90a9b51b3386974bc4fb81fd1c0c57faa5ed35f935a480dde0601",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "4b68aef80622fe66465e429945187df2d2ad59e4b5b86b34b4411c112353fced"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:24:27.660Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "現場条件→処置→理由を文書アイコンと対応文で示し、仮例の具体的な工種や架空の排水機械を追加していない。字幕域は空いている。"
+          }
+        },
+        {
+          "sceneId": "example",
+          "inputSha256": "25e4f6d0baaa5e3fd8212189c5b4004408a3d2f6d286a4e1b8650b2a2a58bbda",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "仮の下書きで、関係を見る",
+            "sheetTitle": "例示：搬入時刻の調整",
+            "rows": [
+              {
+                "label": "条件",
+                "value": "通学時間と搬入が重なる",
+                "state": "done"
+              },
+              {
+                "label": "処置",
+                "value": "搬入時刻を調整した",
+                "state": "focus"
+              },
+              {
+                "label": "点検",
+                "value": "その条件への対応になっているか",
+                "state": "todo"
+              }
+            ]
+          },
+          "narration": "仮の例です。通学時間と重なるため、搬入時刻を調整した。この短い下書きなら、時間の条件と処置の関係を確認できます。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene touan-teishutsu-check/example. Narration to illustrate faithfully, not all to print: 仮の例です。通学時間と重なるため、搬入時刻を調整した。この短い下書きなら、時間の条件と処置の関係を確認できます。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"仮の下書きで、関係を見る\",\"rows\":[{\"label\":\"条件\",\"value\":\"通学時間と搬入が重なる\",\"state\":\"done\"},{\"label\":\"処置\",\"value\":\"搬入時刻を調整した\",\"state\":\"focus\"},{\"label\":\"点検\",\"value\":\"その条件への対応になっているか\",\"state\":\"todo\"}]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--example-raw.d624991c.png",
+              "sha256": "d624991c9df2e77460ebe5b845288a60edd32bebe1f8eec73c7536235398d5e3",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:48:14.361Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--example.68b1d1a5.png",
+            "sha256": "68b1d1a5f3c9cfb98f2eb70d9fe9ca2726d1eb1e7a45193d4dd085d30cd98e62",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "d624991c9df2e77460ebe5b845288a60edd32bebe1f8eec73c7536235398d5e3"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:24:27.748Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "通学時間と搬入時刻の調整という仮の例を、同じ学校・トラック・通行の関係で確認。"
+          }
+        },
+        {
+          "sceneId": "result",
+          "inputSha256": "e0d07be75247e4e59b278f9538c6b5e4bf4ec3f81f6b92babaa99b65472f3eb2",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "結果は、何を確認して言えるか",
+            "sheetTitle": "結果を書いた箇所の見直し",
+            "rows": [
+              {
+                "label": "下書き",
+                "value": "「問題なく完了した」",
+                "state": "done"
+              },
+              {
+                "label": "確認",
+                "value": "何を見て、そう判断したか",
+                "state": "focus"
+              },
+              {
+                "label": "記録",
+                "value": "日報・点検記録などで確かめる",
+                "state": "todo"
+              }
+            ]
+          },
+          "narration": "結果の「問題なく完了した」は、何を確認して言えるのか。日報や点検記録に戻り、説明できる事実か確かめましょう。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene touan-teishutsu-check/result. Narration to illustrate faithfully, not all to print: 結果の「問題なく完了した」は、何を確認して言えるのか。日報や点検記録に戻り、説明できる事実か確かめましょう。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"結果は、何を確認して言えるか\",\"rows\":[{\"label\":\"下書き\",\"value\":\"「問題なく完了した」\",\"state\":\"done\"},{\"label\":\"確認\",\"value\":\"何を見て、そう判断したか\",\"state\":\"focus\"},{\"label\":\"記録\",\"value\":\"日報・点検記録などで確かめる\",\"state\":\"todo\"}]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--result-raw.e88d2bdb.png",
+              "sha256": "e88d2bdbe7d34c4ec2598cfb9209b22d1aadd25ece67bc84ffd36a97fa70aa4b",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:46:54.777Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--result.622a9891.png",
+            "sha256": "622a98911d97c1cdebd06f03d0c597120fde86da9019d3b17a0495aa9eddb876",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "e88d2bdbe7d34c4ec2598cfb9209b22d1aadd25ece67bc84ffd36a97fa70aa4b"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:24:27.849Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "下書きの結論、判断根拠、日報・点検記録の照合関係と指定文字を確認。"
+          }
+        },
+        {
+          "sceneId": "facts",
+          "inputSha256": "03323e5ddbfaa4d7e258db026fe7d4a3363f81ef182f2e50e1f90f95e87a1ce7",
+          "sourceCopy": {
+            "kind": "sheet",
+            "heading": "数量・日付を、記録に戻して確かめる",
+            "sheetTitle": "事実の照合メモ",
+            "rows": [
+              {
+                "label": "数字",
+                "value": "数量や日付は記録と一致するか",
+                "state": "focus"
+              },
+              {
+                "label": "未確認",
+                "value": "数字を推測で補わない",
+                "state": "todo"
+              },
+              {
+                "label": "次の作業",
+                "value": "練習用メモに確認事項を残す",
+                "state": "todo"
+              }
+            ]
+          },
+          "narration": "最後に、数量や日付に印を付け、記録と照合します。記憶が曖昧な数字を補わず、練習用メモに確認事項を残しましょう。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene touan-teishutsu-check/facts. Narration to illustrate faithfully, not all to print: 最後に、数量や日付に印を付け、記録と照合します。記憶が曖昧な数字を補わず、練習用メモに確認事項を残しましょう。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"数量・日付を、記録に戻して確かめる\",\"rows\":[{\"label\":\"数字\",\"value\":\"数量や日付は記録と一致するか\",\"state\":\"focus\"},{\"label\":\"未確認\",\"value\":\"数字を推測で補わない\",\"state\":\"todo\"},{\"label\":\"次の作業\",\"value\":\"練習用メモに確認事項を残す\",\"state\":\"todo\"}]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--facts-raw.ad7a7b16.png",
+              "sha256": "ad7a7b165428884a5fbd7d172cb8a8bed0a7d63aa0dccb78fbc011fa401b811f",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:48:33.818Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--facts.da116fb0.png",
+            "sha256": "da116fb083748be0d814b19e83ea242632d7e20e6114495033110f3b3d216fcf",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "ad7a7b165428884a5fbd7d172cb8a8bed0a7d63aa0dccb78fbc011fa401b811f"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:24:27.942Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "数量・日付の記録照合、未確認数字の推測禁止、確認メモの3関係を確認。"
+          }
+        },
+        {
+          "sceneId": "role",
+          "inputSha256": "79b7249e364ba55aacecc94e440117cbb51d320d8a191a002f3d7386d3941367",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "誰が判断し、誰が実施したか",
+            "items": [
+              "自分の担当範囲を確認する",
+              "上司の判断と自分の行動を区別する",
+              "実際の経験を誇張しない"
+            ]
+          },
+          "narration": "自分の立場と行動も確認します。上司が決めたことを、自分が決めたと書いていないか。担当した範囲を正確に戻します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene touan-teishutsu-check/role. Narration to illustrate faithfully, not all to print: 自分の立場と行動も確認します。上司が決めたことを、自分が決めたと書いていないか。担当した範囲を正確に戻します。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"誰が判断し、誰が実施したか\",\"items\":[\"自分の担当範囲を確認する\",\"上司の判断と自分の行動を区別する\",\"実際の経験を誇張しない\"]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--role-raw.267ee2be.png",
+              "sha256": "267ee2be873e451dad07de9608c96fb4e2bd98157117c10d8a7ead06ab8c4825",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:47:15.228Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--role.26b933e0.png",
+            "sha256": "26b933e0ac104256a5c40fbd129bd85a6b60981b5498d62d9d74dc02cf80b84b",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "267ee2be873e451dad07de9608c96fb4e2bd98157117c10d8a7ead06ab8c4825"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:24:28.030Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "担当範囲、上司の判断、自分の行動を区別し、経験を誇張しない指定文と人物動作を確認。"
+          }
+        },
+        {
+          "sceneId": "reread",
+          "inputSha256": "8c31d6834e2ff77ae1dd72b860a92a4408fd31fb76c0bb7f89f34153ca06bd49",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "一文を直したら、全体をもう一度読む",
+            "items": [
+              "設問と答えが対応しているか",
+              "条件・処置・結果のつながりは自然か",
+              "他の箇所との食い違いはないか"
+            ]
+          },
+          "narration": "直した後は、答案を最初から通して読みます。一文だけ直して、別の箇所の工種や時期、担当内容と食い違っていないか確認します。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene touan-teishutsu-check/reread. Narration to illustrate faithfully, not all to print: 直した後は、答案を最初から通して読みます。一文だけ直して、別の箇所の工種や時期、担当内容と食い違っていないか確認します。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"一文を直したら、全体をもう一度読む\",\"items\":[\"設問と答えが対応しているか\",\"条件・処置・結果のつながりは自然か\",\"他の箇所との食い違いはないか\"]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--reread-raw.dc0c8d55.png",
+              "sha256": "dc0c8d558973ca40c3d38e50f59911c644964939424a950b2f90634d0ab2ce01",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:47:34.240Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--reread.00305d66.png",
+            "sha256": "00305d66e9e1fa13c8b4c5d0c644aab05dbf4b184f445f259cea56b84fe572c5",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "dc0c8d558973ca40c3d38e50f59911c644964939424a950b2f90634d0ab2ce01"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:24:28.119Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "設問と答案、条件・処置・結果、工種・時期・担当内容の整合をたどる図を確認。"
+          }
+        },
+        {
+          "sceneId": "summary",
+          "inputSha256": "df9ba4f94e76351735243c6b046edb80ec7ff327dec6807c98275606ba507066",
+          "sourceCopy": {
+            "kind": "points",
+            "heading": "見直しの順序",
+            "items": [
+              "1 設問が求めた内容に答える",
+              "2 条件・処置・結果をつなぐ",
+              "3 数字・立場・行動を記録と照合"
+            ]
+          },
+          "narration": "見直しは、設問への答え、条件と処置のつながり、記録との一致の順です。表現を整える前に、内容と事実を確かめましょう。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene touan-teishutsu-check/summary. Narration to illustrate faithfully, not all to print: 見直しは、設問への答え、条件と処置のつながり、記録との一致の順です。表現を整える前に、内容と事実を確かめましょう。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"見直しの順序\",\"items\":[\"1 設問が求めた内容に答える\",\"2 条件・処置・結果をつなぐ\",\"3 数字・立場・行動を記録と照合\"]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.\nFor this scene use ONLY document/book/notebook icons and arrows. NO machinery, NO suspended loads, NO physical construction operation. No extra example beyond source. Minimal clear diagram, no redundant sidebars.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--summary-raw.d38c939a.png",
+              "sha256": "d38c939ac3f5f35e4790fe98396d0a627d4fa4b15c5cc267d647f5782230e09d",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:49:43.323Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--summary.00f8ffa9.png",
+            "sha256": "00f8ffa97d5ced1ae1bcaf085fb3e48d0e15765ae96e4a0ba9ce5fdcb187fca0",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "d38c939ac3f5f35e4790fe98396d0a627d4fa4b15c5cc267d647f5782230e09d"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:24:28.208Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "指定の要点を文書・メモの対応図で示し、内容と文字が原稿に一致することを確認。"
+          }
+        },
+        {
+          "sceneId": "cta",
+          "inputSha256": "f40991153cacc6898aac08ffe0040335ac404e74d3b535b2d19db32a6e845999",
+          "sourceCopy": {
+            "kind": "cta",
+            "heading": "置き換えて書き、見直す",
+            "items": [
+              "安全・品質・工程の完成答案",
+              "自分の工事への置換ガイド",
+              "概要欄の完成答案集へ"
+            ]
+          },
+          "narration": "完成答案を自分の工事に置き換え、今日の観点で見直してみましょう。安全・品質・工程の答案と置換ガイドは、概要欄へ。",
+          "generation": {
+            "tool": "image_gen",
+            "prompt": "Use case: scientific-educational. ONE finished 16:9 educational diagram, intended 1920x1080. User direction: restrained POP accents, diagram is primary. The attached palette sheet has NO lesson content. Use only its white canvas, muted green/gray accents and calm linework. Do not copy its empty panels; draw the source relationship.\nScene touan-teishutsu-check/cta. Narration to illustrate faithfully, not all to print: 完成答案を自分の工事に置き換え、今日の観点で見直してみましょう。安全・品質・工程の答案と置換ガイドは、概要欄へ。\nSource wording (verbatim Japanese; select concise heading and up to 3 short labels only): {\"heading\":\"置き換えて書き、見直す\",\"items\":[\"安全・品質・工程の完成答案\",\"自分の工事への置換ガイド\",\"概要欄の完成答案集へ\"]}\nDesign a meaningful diagram: paired source rows become an illustrated side-by-side comparison; process becomes 3 large nodes linked by arrows; memo becomes 2 or 3 simple labeled fields with a concrete construction inset. Draw correct miniature civil-work situations ONLY if needed to explain the relationship. Use simple flat ink illustrations, not realistic scenery. Do not invent numbers, certification, official scoring criteria or conclusions. For fictional case label exactly 仮の例. Use ONLY the specified source wording, no extraneous terms.\nWHITE or near-white light-gray background across the whole canvas. Dark green restrained type and thin outlines. Main relationship occupies at least 70% of visual attention. Small pale green panels and emerald arrows. Yellow ONLY as a tiny selected-point highlight. No large landscapes, sky, trees, large character, face-only mascot, fictional name, qualification header, academic title, shouting text, heavy outlined text, slanted banners, speed lines, promotional poster, product advertisement or enclosing border. Figures must be natural working people only when needed; most scenes have no person. Heading modest, maximum 1-2 lines.\nCompose directly full-width 16:9. All diagram/text/important objects in x=100..1820 and y=80..800 of 1920x1080. The lower 240px remains the same continuous white/light-gray background for subtitles, no decorative strip and no added colored padding. Keep diagrams clear at 360px wide. No tiny paragraphs or full source sentences. Diagrams with arrows, comparisons and concrete relationships are primary. Do not shrink a finished poster into a bigger canvas.\nFor this scene use ONLY document/book/notebook icons and arrows. NO machinery, NO suspended loads, NO physical construction operation. No extra example beyond source. Minimal clear diagram, no redundant sidebars.",
+            "references": [
+              {
+                "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+                "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+              }
+            ],
+            "output": {
+              "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--cta-raw.68eb8d7b.png",
+              "sha256": "68eb8d7b604cffa9cc00170ebefc97ce6dc3d1579ffc2dd0f6892233ed9d0163",
+              "width": 1672,
+              "height": 941
+            },
+            "generatedAt": "2026-10-18T22:51:16.725Z"
+          },
+          "output": {
+            "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--cta.7588d1ab.png",
+            "sha256": "7588d1abd3ba5acbc822e1875dcb6b392c5c4886dcd1c22c5a5cb7c42dd36d8d",
+            "width": 1920,
+            "height": 1080
+          },
+          "normalization": {
+            "mode": "full-frame-v1",
+            "sourceSha256": "68eb8d7b604cffa9cc00170ebefc97ce6dc3d1579ffc2dd0f6892233ed9d0163"
+          },
+          "review": {
+            "status": "ok",
+            "by": "ai-image-fidelity-auditor",
+            "at": "2026-10-18T23:24:28.293Z",
+            "scope": "原寸・360px・本文/前後関係・字幕安全域",
+            "reason": "教材・練習・関連資料への案内が原稿に一致し、文書図と指定文を確認。"
+          }
+        }
+      ],
+      "review": {
+        "status": "ok",
+        "by": "video-content-qa",
+        "at": "2026-10-18T23:55:44.242Z",
+        "mp4Sha256": "345c0d7ea2714d75fd19341650215eb2ede11da158e6e145972aa5d4ae10af10",
+        "scope": "全14場面の完成動画中点を原寸・360px実見。音声・画像・字幕・MP4の機械照合。",
+        "evidence": {
+          "path": ".tmp/media/_brand/diagram-led/qa-report.1cd922fe.json",
+          "sha256": "1cd922fec2a44ce403978bfa74b1746934c01ba135b8b5c07e15cd6dc67dba69"
+        }
+      }
+    },
+    "diagram-led-20261019-cover": {
+      "version": "pop-poster-v3",
+      "layout": {
+        "mode": "diagram-led"
+      },
+      "generation": {
+        "tool": "image_gen",
+        "prompt": "Use case: scientific-educational. One calm 16:9 full-width educational video title image, intended 1920x1080. Exact small qualification label 「2級土木」 and main title 「経験記述の見直し｜条件・処置・結果のつながりを確認する」. Illustrate the central learning idea: 設問への回答、現場条件と処置のつながり、事実・数値・立場と記録の一致を順に点検できる. WHITE background, muted green thin-line construction diagram, a few purposeful arrows or 2-3 clean illustrated nodes. Restrained dark-green typography, pale gray/green panels, tiny yellow accent only. No big character, no decorative teacher, no author name, no credential, no promotional badge, no speedlines or heavy outlined text, no border, no colored padding. A modest construction worker may appear only if their action explains the topic. All important content above y=800 on 1080 high frame; bottom is continuous white for subtitles, not an added band. Direct full-width 16:9 composition, legible at 360px, no invented statistics or words.",
+        "references": [
+          {
+            "path": ".tmp/media/_brand/diagram-led/palette.f6f6543d.png",
+            "sha256": "f6f6543db0b0e2cfff0a49d0888b304ee4f67e5846ca1abd09462c4de063e5c6"
+          }
+        ],
+        "output": {
+          "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--cover-raw.4642df57.png",
+          "sha256": "4642df57566b50fe485924bd1b75c496447430c4b8c19c8f0352cebc7df234df",
+          "width": 1672,
+          "height": 941
+        },
+        "generatedAt": "2026-10-18T22:55:58.576Z"
+      },
+      "output": {
+        "path": ".tmp/media/civil-construction-2/touan-teishutsu-check/work/touan-teishutsu-check--cover.c952103a.png",
+        "sha256": "c952103a7c497818086760968dde5877970a5942d13deae4ef91c205ddf4f35b",
+        "width": 1920,
+        "height": 1080
+      },
+      "normalization": {
+        "mode": "full-frame-v1",
+        "sourceSha256": "4642df57566b50fe485924bd1b75c496447430c4b8c19c8f0352cebc7df234df"
+      },
+      "review": {
+        "status": "ok",
+        "by": "ai-image-fidelity-auditor",
+        "at": "2026-10-18T23:24:28.378Z",
+        "scope": "原寸・360px・本文/前後関係・字幕安全域",
+        "reason": "資格・主題・学べる関係が原稿に一致し、指定文字・人物/機械の簡略図・原寸と360pxの主題判読を確認。"
+      }
     }
   },
-  "activeBodyRevision": "body-scenes-20261018"
+  "activeBodyRevision": "diagram-led-20261019"
 }
